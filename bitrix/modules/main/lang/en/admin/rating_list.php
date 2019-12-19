@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RATING_NAME"] = "Name";
 $MESS["RATING_CREATED"] = "Created";
 $MESS["RATING_LAST_MODIFIED"] = "Modified";

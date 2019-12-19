@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_MODULE_NOT_FOUND'] = "Модуль обучения не установлен.";
 $MESS ['LEARNING_BAD_TEST_LIST'] = 'В данном курсе сертификация не предусмотрена.';
 $MESS ['LEARNING_TESTS_LIST'] = "Список тестов";

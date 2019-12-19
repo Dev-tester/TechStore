@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FID_TIP"] = "Forum ID";
 $MESS["TID_TIP"] = "The topic ID";
 $MESS["MID_TIP"] = "Post ID";

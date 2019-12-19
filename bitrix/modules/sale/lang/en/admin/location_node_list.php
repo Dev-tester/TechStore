@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_L_ADD_ITEM"] = "Add location";
 $MESS["SALE_LOCATION_L_ANY"] = "any";
 $MESS["SALE_LOCATION_L_CONFIRM_DELETE_ITEM"] = "Are you sure you want to delete the location? All the child locations will be deleted as well.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_MENU_ITYPE"] = "Information block types";
 $MESS["IBLOCK_MENU_EXPORT"] = "Export";
 $MESS["IBLOCK_MENU_EXPORT_ALT"] = "Export data to CSV";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPCDA_PD_ADD'] = "Добавить";
 $MESS ['BPCDA_PD_CALENDAR'] = "Календарь";
 $MESS ['BPCDA_PD_NO'] = "Нет";

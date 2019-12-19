@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_VAT_FIELD_ID"] = "ID";
 $MESS["CRM_VAT_FIELD_ACTIVE"] = "Active";
 $MESS["CRM_VAT_FIELD_C_SORT"] = "Sort";

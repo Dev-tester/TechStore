@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_LIST_BUTTON_RECIPIENT"] = "Recipients";
 $MESS["SENDER_LETTER_LIST_ROW_RECIPIENT"] = "recipients";
 $MESS["SENDER_LETTER_LIST_BTN_ADD"] = "Create Ad";

@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 				</div><!--end .bx-content -->
 
 				<!-- region Sidebar -->
-				<?if (!$needSidebar):?>
+				<?php if (!$needSidebar):?>
 					<div class="sidebar col-md-3 col-sm-4">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:main.include",
 							"",
 							Array(
@@ -17,11 +17,11 @@
 							Array('HIDE_ICONS' => 'Y')
 						);?>
 					</div>
-				<?endif?>
+				<?php endif?>
 				<!--endregion -->
 
 			</div><!--end row-->
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:main.include",
 				"",
 				Array(
@@ -39,7 +39,7 @@
 	<footer class="bx-footer">
 		<div class="bx-footer-section bx-footer-bg">
 			<div class="container">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					"bitrix:main.include",
 					"",
 					Array(
@@ -58,7 +58,7 @@
 				<div class="row">
 					<div class="col-sm-6 col-lg-3 order-lg-2 order-1 mb-4 mb-lg-0">
 						<h4 class="bx-block-title text-light">
-							<? $APPLICATION->IncludeComponent(
+							<?php  $APPLICATION->IncludeComponent(
 								"bitrix:main.include",
 								"",
 								array(
@@ -68,7 +68,7 @@
 								false
 							);?>
 						</h4>
-						<? $APPLICATION->IncludeComponent(
+						<?php  $APPLICATION->IncludeComponent(
 							"bitrix:menu",
 							"bottom_menu",
 							array(
@@ -85,7 +85,7 @@
 					</div>
 					<div class="col-sm-6 col-lg-3 order-lg-3 order-2 mb-4 mb-lg-0">
 						<h4 class="bx-block-title text-light">
-							<? $APPLICATION->IncludeComponent(
+							<?php  $APPLICATION->IncludeComponent(
 								"bitrix:main.include",
 								"",
 								array(
@@ -95,7 +95,7 @@
 								false
 							);?>
 						</h4>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:menu",
 							"bottom_menu",
 							array(
@@ -115,7 +115,7 @@
 					</div>
 					<div class="col-sm-6 col-lg-3 order-lg-4 order-3">
 						<div style="padding: 20px;background:#eaeaeb">
-							<? $APPLICATION->IncludeComponent(
+							<?php  $APPLICATION->IncludeComponent(
 								"bitrix:main.include",
 								"",
 								array(
@@ -133,7 +133,7 @@
 					<div class="col-sm-6 col-lg-3 order-lg-1 order-4">
 						<div class="mb-3">
 							<a class="bx-footer-logo" href="<?=SITE_DIR?>">
-								<? $APPLICATION->IncludeComponent(
+								<?php  $APPLICATION->IncludeComponent(
 									"bitrix:main.include",
 									"",
 									array(
@@ -147,7 +147,7 @@
 						<div class="mb-3 d-flex align-items-center">
 							<i class="fa fa-phone pr-3 text-white" style="font-size: 25px;"></i>
 							<span class="text-white">
-								<? $APPLICATION->IncludeComponent(
+								<?php  $APPLICATION->IncludeComponent(
 									"bitrix:main.include",
 									"", array(
 										"AREA_FILE_SHOW" => "file",
@@ -158,7 +158,7 @@
 							</span>
 						</div>
 						<div class="mb-3 text-white">
-							<? $APPLICATION->IncludeComponent(
+							<?php  $APPLICATION->IncludeComponent(
 								"bitrix:main.include",
 								"",
 								array(
@@ -169,7 +169,7 @@
 							);?>
 						</div>
 						<div class="mb-3 text-white">
-							<? $APPLICATION->IncludeComponent(
+							<?php  $APPLICATION->IncludeComponent(
 								"bitrix:main.include",
 								"",
 								array(
@@ -190,7 +190,7 @@
 							<a href="javascript:void(0)" data-role="eshopUpButton" class="text-white"><i class="fa fa-caret-up"></i> <?=GetMessage("FOOTER_UP_BUTTON")?></a>
 						</div>
 						<div class="col-sm-6 text-white text-right">
-							<? $APPLICATION->IncludeComponent("bitrix:main.include", "", array(
+							<?php  $APPLICATION->IncludeComponent("bitrix:main.include", "", array(
 								"AREA_FILE_SHOW" => "file",
 								"PATH" => SITE_DIR."include/copyright.php"
 							), false);?>
@@ -200,7 +200,7 @@
 			</div>
 	</footer>
 	<div class="col d-sm-none">
-		<?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "bootstrap_v4", array(
+		<?php $APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "bootstrap_v4", array(
 				"PATH_TO_BASKET" => SITE_DIR."personal/cart/",
 				"PATH_TO_PERSONAL" => SITE_DIR."personal/",
 				"SHOW_PERSONAL_LINK" => "N",

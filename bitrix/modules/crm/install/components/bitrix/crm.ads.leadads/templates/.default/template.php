@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
@@ -37,7 +37,7 @@ else
 	$containerNodeId = 'crm-lead-ads-container';
 	?>
 	<div id="<?=$containerNodeId?>"></div>
-	<?
+	<?php 
 }
 ?>
 <script id="template-crm-ads-dlg-settings" type="text/html">
@@ -182,7 +182,7 @@ else
 				</table>
 			</div>
 
-			<?if ($type == 'facebook'):?>
+			<?php if ($type == 'facebook'):?>
 			<div class="crm-ads-forms-block">
 				<div class="crm-ads-forms-title-full"><?=Loc::getMessage('CRM_ADS_LEADADS_LOCALE')?>:</div>
 
@@ -240,7 +240,7 @@ else
 					</tr>
 				</table>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 
 			<div data-bx-ads-account-not-found="" class="crm-ads-forms-block" style="display: none;">
 				<div class="crm-ads-forms-alert">
@@ -284,9 +284,9 @@ else
 						<td></td>
 						<td>
 							<span data-bx-ads-form-id="" class="crm-ads-hint-small">
-								<?if ($hasLinks):?>
+								<?php if ($hasLinks):?>
 									<?=Loc::getMessage('CRM_ADS_LEADADS_FORM_ID')?>: <?=htmlspecialcharsbx($links[0]['ADS_FORM_ID'])?>
-								<?endif;?>
+								<?php endif;?>
 							</span>
 						</td>
 					</tr>
@@ -325,6 +325,6 @@ else
 	});
 </script>
 
-<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 	'BUTTONS' => ['close' => $arParams['PATH_TO_WEB_FORM_LIST']]
 ]);?>

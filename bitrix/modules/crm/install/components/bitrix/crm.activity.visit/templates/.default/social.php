@@ -6,7 +6,7 @@
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 ?>
 <div class="crm-activity-visit-facesearch-profile-search-main">
-	<? if ($arResult['SUCCESS']): ?>
+	<?php  if ($arResult['SUCCESS']): ?>
 		<div class="crm-activity-visit-facesearch-main-user-item crm-activity-visit-facesearch-profile-search-found crm-activity-visit-facesearch-photo crm-activity-visit-facesearch-found-user">
 			<div class="crm-activity-visit-facesearch-main-user-photo">
 				<div class="crm-activity-visit-facesearch-main-user-photo-platform">
@@ -45,7 +45,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 				<div class="crm-activity-visit-facesearch-profile-search-found-more-count"><?=GetMessage('CRM_ACTIVITY_VISIT_SOCIAL_FOUND_TOTAL', array('#COUNT#' => count($arResult["VK_PROFILES"]) - 1))?></div>
 			</div>
 			<div class="crm-activity-visit-facesearch-profile-search-found-container">
-				<? for($i = 1; $i < count($arResult["VK_PROFILES"]); $i++): ?>
+				<?php  for($i = 1; $i < count($arResult["VK_PROFILES"]); $i++): ?>
 					<div class="crm-activity-visit-facesearch-main-user-item crm-activity-visit-facesearch-profile-search-found crm-activity-visit-facesearch-photo">
 						<div class="crm-activity-visit-facesearch-main-user-photo">
 							<div class="crm-activity-visit-facesearch-main-user-photo-item" style="background-image: url('<?= htmlspecialcharsbx($arResult["VK_PROFILES"][$i]['photo'])?>')"></div>
@@ -75,11 +75,11 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 							</div>
 						</div>
 					</div>
-				<? endfor ?>
+				<?php  endfor ?>
 			</div>
 		</div>
 
-	<? else: ?>
-		<? ShowError($arResult['ERROR']) ?>
-	<? endif ?>
+	<?php  else: ?>
+		<?php  ShowError($arResult['ERROR']) ?>
+	<?php  endif ?>
 </div>

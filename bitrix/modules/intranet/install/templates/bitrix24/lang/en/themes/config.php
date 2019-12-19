@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BITRIX24_THEME_AIR'] = "Air";
 $MESS['BITRIX24_THEME_ARCHITECTURE'] = "Architecture";
 $MESS['BITRIX24_THEME_ATMOSPHERE'] = "Atmosphere";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RSRV_INCORRECT_ID"] = "Invalid product ID.";
 $MESS["RSRV_ID_NOT_FOUND"] = "The product ##PRODUCT_ID# was not found.";
 $MESS["RSRV_UNKNOWN_ERROR"] = "Unknown error when reserving product #PRODUCT_NAME# (##PRODUCT_ID#).";

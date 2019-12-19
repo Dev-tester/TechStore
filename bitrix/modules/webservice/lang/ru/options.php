@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WS_GADGET'] = "Мини-приложения";
 $MESS ['WS_GADGET_ALT'] = "Мини-приложения";
 $MESS ['WS_GADGET_LINK'] = "Скачать мини-приложение";

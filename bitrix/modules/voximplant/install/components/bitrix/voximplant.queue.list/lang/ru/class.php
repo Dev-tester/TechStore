@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_QUEUE_LIST_ID"] = "ID";
 $MESS["VOX_QUEUE_LIST_NAME"] = "Название";
 $MESS["VOX_QUEUE_LIST_TYPE"] = "Тип";

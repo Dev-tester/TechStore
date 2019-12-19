@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SPPD_RECORDS_LIST'] = "В список профилей";
 $MESS ['SALE_SAVE'] = "Сохранить";
 $MESS ['SALE_APPLY'] = "Применить";

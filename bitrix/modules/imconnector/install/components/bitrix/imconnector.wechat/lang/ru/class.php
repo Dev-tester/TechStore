@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_WECHAT_MODULE_NOT_INSTALLED"] = "Модуль коннекторов мессенджеров не установлен";
 $MESS["IMCONNECTOR_COMPONENT_WECHAT_NO_ACTIVE_CONNECTOR"] = "Данный коннектор не активен";
 $MESS["IMCONNECTOR_COMPONENT_WECHAT_SESSION_HAS_EXPIRED"] = "Ваша сессия истекла. Отправьте форму еще раз";

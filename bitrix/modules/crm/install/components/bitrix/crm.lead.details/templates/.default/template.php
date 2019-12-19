@@ -72,7 +72,7 @@ $APPLICATION->IncludeComponent(
 		BX.message({
 			"CRM_TIMELINE_HISTORY_STUB": "<?=GetMessageJS('CRM_LEAD_DETAIL_HISTORY_STUB')?>",
 		});
-		<? if($arResult['ENTITY_ID'] > 0): ?>
+		<?php  if($arResult['ENTITY_ID'] > 0): ?>
 			new BX.CrmScoringButton({
 				mlInstalled: <?= (\Bitrix\Crm\Ml\Scoring::isMlAvailable() ? 'true' : 'false')?>,
 				scoringEnabled: <?= (\Bitrix\Crm\Ml\Scoring::isEnabled() ? 'true' : 'false')?>,
@@ -81,8 +81,8 @@ $APPLICATION->IncludeComponent(
 				entityId: <?= (int)$arResult['ENTITY_ID']?>,
 				isFinal: <?= $arResult['IS_STAGE_FINAL'] ? 'true' : 'false' ?>,
 			});
-		<? endif; ?>
-</script><?
+		<?php  endif; ?>
+</script><?php 
 
 //$arResult['READ_ONLY'] = true;
 $editorContext = array('PARAMS' => $arResult['CONTEXT_PARAMS']);
@@ -154,9 +154,9 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 			function()
 			{
 				BX.CrmLeadConversionType.configs = <?=CUtil::PhpToJSObject($arResult['CONVERSION_CONFIGS'])?>;
-				<?if(isset($arResult['CONVERSION_SCRIPT_DESCRIPTIONS'])):?>
+				<?php if(isset($arResult['CONVERSION_SCRIPT_DESCRIPTIONS'])):?>
 					BX.CrmLeadConversionScheme.messages = <?=CUtil::PhpToJSObject($arResult['CONVERSION_SCRIPT_DESCRIPTIONS'])?>;
-				<?endif;?>
+				<?php endif;?>
 
 				BX.CrmLeadConverter.messages =
 				{
@@ -202,5 +202,5 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 				BX.onCustomEvent(window, "BX.CrmEntityConverter:applyPermissions", [BX.CrmEntityType.names.lead]);
 			}
 		);
-	</script><?
+	</script><?php 
 endif;

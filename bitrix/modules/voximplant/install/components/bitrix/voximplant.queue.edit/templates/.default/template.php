@@ -42,18 +42,18 @@ if ($arResult['ERROR'])
 				<div class="voximplant-control-subtitle"><?= GetMessage("VI_CONFIG_EDIT_QUEUE_TYPE_2") ?></div>
 				<div class="voximplant-control-select-flexible">
 					<select class="voximplant-control-select" name="TYPE" id="QUEUE_TYPE">
-						<? foreach (array(CVoxImplantConfig::QUEUE_TYPE_EVENLY, CVoxImplantConfig::QUEUE_TYPE_STRICTLY, CVoxImplantConfig::QUEUE_TYPE_ALL) as $k): ?>
+						<?php  foreach (array(CVoxImplantConfig::QUEUE_TYPE_EVENLY, CVoxImplantConfig::QUEUE_TYPE_STRICTLY, CVoxImplantConfig::QUEUE_TYPE_ALL) as $k): ?>
 							<option value="<?= $k ?>"<?= ($k == $arResult["ITEM"]["TYPE"] ? " selected" : "") ?>><?= GetMessage("VI_CONFIG_EDIT_QUEUE_TYPE_".strtoupper($k)) ?></option>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</select>
 					<span data-hint="<?=htmlspecialcharsbx(GetMessage("VI_CONFIG_EDIT_QUEUE_TYPE_TIP"))?><br><br><?=htmlspecialcharsbx(GetMessage("VI_CONFIG_EDIT_QUEUE_TYPE_TIP_2"))?><br><i><?=htmlspecialcharsbx(GetMessage("VI_CONFIG_EDIT_QUEUE_TYPE_TIP_ASTERISK_3"))?></i>"></span>
-					<? if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
+					<?php  if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
 						<div class="tel-lock-holder-select" title="<?= GetMessage("VI_CONFIG_LOCK_ALT") ?>">
 							<div onclick="BX.Voximplant.showLicensePopup('main')"
 								 class="tel-lock tel-lock-half <?= (CVoxImplantAccount::IsDemo() ? 'tel-lock-demo' : '') ?>">
 							</div>
 						</div>
-					<? endif; ?>
+					<?php  endif; ?>
 				</div>
 			</div>
 			<div class="voximplant-control-row">
@@ -61,9 +61,9 @@ if ($arResult['ERROR'])
 					<?= $arResult["ITEM"]["TYPE"] == CVoxImplantConfig::QUEUE_TYPE_ALL ? GetMessage("VI_CONFIG_EDIT_QUEUE_TIME_QUEUE_ALL_2") : GetMessage("VI_CONFIG_EDIT_QUEUE_TIME_2") ?>
 				</div>
 				<select class="voximplant-control-select" name="WAIT_TIME">
-					<? foreach (array("2", "3", "4", "5", "6", "7") as $k): ?>
+					<?php  foreach (array("2", "3", "4", "5", "6", "7") as $k): ?>
 						<option value="<?= $k ?>"<?= ($k == $arResult["ITEM"]["WAIT_TIME"] ? " selected" : "") ?>><?= GetMessage("VI_CONFIG_EDIT_QUEUE_AMOUNT_OF_BEEPS_BEFORE_REDIRECT_".$k) ?></option>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 				</select>
 			</div>
 		</div>
@@ -90,12 +90,12 @@ if ($arResult['ERROR'])
 						</option>
 						<option value="<?= CVoxImplantIncoming::RULE_HUNGUP ?>"<?= (CVoxImplantIncoming::RULE_HUNGUP == $arResult["ITEM"]["NO_ANSWER_RULE"] ? " selected" : "") ?>><?= GetMessage("VI_CONFIG_EDIT_NO_ANSWER_ACTION_4") ?></option>
 					</select>
-					<? if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
+					<?php  if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
 						<div class="tel-lock-holder-select" title="<?= GetMessage("VI_CONFIG_LOCK_ALT") ?>">
 							<div onclick="BX.Voximplant.showLicensePopup('main')"
 								 class="tel-lock tel-lock-half <?= (CVoxImplantAccount::IsDemo() ? 'tel-lock-demo' : '') ?>"></div>
 						</div>
-					<? endif; ?>
+					<?php  endif; ?>
 				</div>
 			</div>
 			<div id="vi_forward_number"
@@ -113,9 +113,9 @@ if ($arResult['ERROR'])
 					<?= GetMessage("VI_CONFIG_EDIT_NEXT_QUEUE_2") ?>
 				</div>
 				<select class="voximplant-control-select" name="NEXT_QUEUE_ID">
-					<? foreach ($arResult['QUEUE_LIST'] as $queue): ?>
+					<?php  foreach ($arResult['QUEUE_LIST'] as $queue): ?>
 						<option value="<?= (int)$queue['ID'] ?>" <?= ($queue['ID'] == $arResult['ITEM']['NEXT_QUEUE_ID'] ? 'selected' : '') ?>><?= htmlspecialcharsbx($queue['NAME']) ?></option>
-					<? endforeach ?>
+					<?php  endforeach ?>
 				</select>
 			</div>
 			<div class="voximplant-number-settings-choice">
@@ -123,16 +123,16 @@ if ($arResult['ERROR'])
 					   class="voximplant-number-settings-label" value="Y"
 					   type="checkbox"
 					   name="ALLOW_INTERCEPT"
-					   <? if ($arResult["ITEM"]["ALLOW_INTERCEPT"] === "Y"): ?>checked="checked"<? endif ?>
+					   <?php  if ($arResult["ITEM"]["ALLOW_INTERCEPT"] === "Y"): ?>checked="checked"<?php  endif ?>
 					   data-locked="<?= (\Bitrix\Voximplant\Limits::canInterceptCall() ? "0" : "1") ?>"
 				/>
 				<label for="vi_allow_intercept"><?= GetMessage("VI_CONFIG_EDIT_ALLOW_INTERCEPT") ?></label>
-				<? if (!\Bitrix\Voximplant\Limits::canInterceptCall() || CVoxImplantAccount::IsDemo()): ?>
+				<?php  if (!\Bitrix\Voximplant\Limits::canInterceptCall() || CVoxImplantAccount::IsDemo()): ?>
 					<div class="tel-lock-holder-select" title="<?= GetMessage("VI_CONFIG_LOCK_ALT") ?>">
 						<div onclick="BX.Voximplant.showLicensePopup('main')"
 							 class="tel-lock tel-lock-half <?= (CVoxImplantAccount::IsDemo() ? 'tel-lock-demo' : '') ?>"></div>
 					</div>
-				<? endif; ?>
+				<?php  endif; ?>
 			</div>
 		</div>
 	</div>
@@ -140,14 +140,14 @@ if ($arResult['ERROR'])
 		<span class="ui-btn ui-btn-success" data-role="vi-group-edit-submit">
 			<?= GetMessage("VI_CONFIG_EDIT_SAVE") ?>
 		</span>
-		<? if ($arResult['INLINE_MODE']): ?>
+		<?php  if ($arResult['INLINE_MODE']): ?>
 			<span class="ui-btn ui-btn-link" data-role="vi-group-edit-cancel">
 				<?= GetMessage("VI_CONFIG_EDIT_CANCEL") ?>
 			</span>
-		<? else: ?>
+		<?php  else: ?>
 			<a href="<?= CVoxImplantMain::GetPublicFolder().'groups.php' ?>"
 			   class="ui-btn ui-btn-link"><?= GetMessage("VI_CONFIG_EDIT_BACK") ?></a>
-		<? endif ?>
+		<?php  endif ?>
 	</div>
 </div>
 
@@ -173,7 +173,7 @@ if ($arResult['ERROR'])
 </script>
 
 <script type="text/javascript">
-	<?if (!CVoxImplantAccount::IsPro()):?>
+	<?php if (!CVoxImplantAccount::IsPro()):?>
 	var queueType = BX('QUEUE_TYPE');
 	for (var i = 0; i < queueType.options.length; i++)
 	{
@@ -182,17 +182,17 @@ if ($arResult['ERROR'])
 			queueType.options[i].style = "color: #636363;";
 		}
 	}
-	<?endif;?>
+	<?php endif;?>
 	BX.bind(BX('QUEUE_TYPE'), 'change', function (e)
 	{
-		<?if (!CVoxImplantAccount::IsPro()):?>
+		<?php if (!CVoxImplantAccount::IsPro()):?>
 		if (this.options[this.selectedIndex].value == '<?=CVoxImplantConfig::QUEUE_TYPE_ALL?>')
 		{
 			BX.Voximplant.showLicensePopup('main');
 			this.selectedIndex = 0;
 			return false;
 		}
-		<?endif;?>
+		<?php endif;?>
 
 		if (this.options[this.selectedIndex].value == '<?=CVoxImplantConfig::QUEUE_TYPE_ALL?>')
 		{
@@ -205,7 +205,7 @@ if ($arResult['ERROR'])
 	});
 </script>
 
-<? if (!CVoxImplantAccount::IsPro()): ?>
+<?php  if (!CVoxImplantAccount::IsPro()): ?>
 	<script>
 		BX.bind(BX('vi_no_answer_rule'), 'bxchange', function (e)
 		{
@@ -218,5 +218,5 @@ if ($arResult['ERROR'])
 			}
 		})
 	</script>
-<? endif; ?>
+<?php  endif; ?>
 

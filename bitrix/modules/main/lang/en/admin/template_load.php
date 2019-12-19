@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_T_EDIT_TEMPL_LIST'] = "List of Templates";
 $MESS ['MAIN_T_EDIT_IMP_ERR'] = "Error importing the template";
 $MESS ['MAIN_TEMPLATE_LOAD_ERR_LOAD'] = "Please select file to upload";

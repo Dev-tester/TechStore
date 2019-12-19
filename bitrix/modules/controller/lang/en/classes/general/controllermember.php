@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_MEM_ERR1"] = "The server specified cannot be found:";
 $MESS["CTRLR_MEM_LOG_DESC_COMMAND"] = "Redirected command execution";
 $MESS["CTRLR_MEM_ERR2"] = "Command execution error: unrecognized response or access denied.";

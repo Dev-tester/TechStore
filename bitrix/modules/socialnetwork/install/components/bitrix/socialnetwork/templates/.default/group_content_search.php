@@ -1,18 +1,18 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "group_content_search";
 include("util_group_menu.php");
 include("util_group_profile.php");
 $arGroupFields = $arGroup;
 ?>
-<?
+<?php 
 if (!CSocNetFeaturesPerms::CanPerformOperation($GLOBALS["USER"]->GetID(), SONET_ENTITY_GROUP, $arResult["VARIABLES"]["group_id"], "search", "view", CSocNetUser::IsCurrentUserModuleAdmin()))
 {
 	ShowError(GetMessage("GROUP_CONTENT_SEARCH_DISABLED"));
 	return false;
 }
 ?>
-<?
+<?php 
 if(
 	isset($arGroupFields["NAME"])
 	&& strlen(trim($arGroupFields["NAME"])) > 0
@@ -25,7 +25,7 @@ if(
 	$GLOBALS["APPLICATION"]->SetTitle($arGroupFields["NAME"].": ".$strFeatureTitle);
 }
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:search.page", "tags_icons", array(
+<?php $APPLICATION->IncludeComponent("bitrix:search.page", "tags_icons", array(
 	"RESTART" => $arParams["SEARCH_RESTART"],
 	"USE_LANGUAGE_GUESS" => $arParams["SEARCH_USE_LANGUAGE_GUESS"],
 	"CHECK_DATES" => "N",

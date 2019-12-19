@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_COMPANY_TYPE"] = "Тип компании";
 $MESS["CRM_COLUMN_EMPLOYEES"] = "Кол-во сотрудников";
 $MESS["CRM_COLUMN_PHONE"] = "Телефон";

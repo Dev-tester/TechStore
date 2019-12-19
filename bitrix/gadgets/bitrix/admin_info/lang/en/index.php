@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_INFO_LASTUPDATE"] = "Last updated: #VALUE#";
 $MESS["GD_INFO_PERFMON"] = "Current performance score: #VALUE#";
 $MESS["GD_INFO_PERFMON_NO_RESULT"] = "not tested";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Imopenlines\Update\Update1870;
 
 use \Bitrix\Main\Loader,

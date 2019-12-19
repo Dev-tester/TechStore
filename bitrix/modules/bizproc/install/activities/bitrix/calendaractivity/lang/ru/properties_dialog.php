@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPSNMA_PD_CUSER'] = "Пользователь";
 $MESS ['BPSNMA_PD_CNAME'] = "Название события";
 $MESS ['BPSNMA_PD_CDESCR'] = "Описание события";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arParams["GALLERY_AVATAR_SIZE"] = intVal(intVal($arParams["GALLERY_AVATAR_SIZE"]) > 0 ? $arParams["GALLERY_AVATAR_SIZE"] : 50);
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
@@ -8,30 +8,30 @@ endif;
 	<?=GetMessage("P_GALLEY_BY_USER")?> <span class="photo-author"><?=$arResult["USER"]["SHOW_NAME"]?></span>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 if ($arResult["I"]["ACTIONS"]["CREATE_GALLERY"] =="Y" && $arParams["USER_ID"] == $GLOBALS["USER"]->GetId()):
 
 ?>
 <div class="photo-controls photo-action">
-	<noindex><a rel="nofollow" href="<?=$arResult["LINK"]["NEW"]?>" title="<?=GetMessage("P_GALLERY_CREATE_TITLE")?>" <?
+	<noindex><a rel="nofollow" href="<?=$arResult["LINK"]["NEW"]?>" title="<?=GetMessage("P_GALLERY_CREATE_TITLE")?>" <?php 
 		?> class="photo-action gallery-new"><?=GetMessage("P_GALLERY_CREATE")?></a></noindex>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 endif;
 
 if (!empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation photo-navigation-top"><?=$arResult["NAV_STRING"]?></div>
-<?
+<?php 
 endif;
 ?>
 <div class="photo-items-list photo-galleries">
-<?
+<?php 
 foreach($arResult["GALLERIES"] as $res):
 ?>
-	<table width="100%" cellpadding="0" cellspacing="0" border="0" <?
-		?>class="photo-gallery <?=($res["UF_DEFAULT"] == "Y" ? " gallery-active" : "")?><?=(empty($res["CODE"]) ? " gallery-error-code" : "")?>" <?
+	<table width="100%" cellpadding="0" cellspacing="0" border="0" <?php 
+		?>class="photo-gallery <?=($res["UF_DEFAULT"] == "Y" ? " gallery-active" : "")?><?=(empty($res["CODE"]) ? " gallery-error-code" : "")?>" <?php 
 		?>title="<?=($res["UF_DEFAULT"] == "Y" ? GetMessage("P_GALLERY_ACTIVE") : "").(empty($res["CODE"]) ? ($res["UF_DEFAULT"] == "Y" ? ".\n" : "").
 			GetMessage("P_ERROR_CODE") : "")?>">
 		<tr><td width="1%">
@@ -42,16 +42,16 @@ foreach($arResult["GALLERIES"] as $res):
 							<div class="tool" style="height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;"></div>
 							<div class="inner">
 								<a href="<?=$res["LINK"]["VIEW"]?>" title="<?=str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>">
-									<div class="photo-gallery-avatar" style="width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px; height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;<?
+									<div class="photo-gallery-avatar" style="width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px; height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;<?php 
 										if (!empty($res["PICTURE"]["SRC"])):
-												?>background-image:url('<?=$res["PICTURE"]["SRC"]?>');<?
+												?>background-image:url('<?=$res["PICTURE"]["SRC"]?>');<?php 
 										endif;
 										if ($res["UF_DEFAULT"] == "Y"):
-												?>position:relative;<?
+												?>position:relative;<?php 
 										endif;
-									?>"><?
+									?>"><?php 
 									if ($res["UF_DEFAULT"] == "Y"):
-										?><div class="gallery-active" title="<?=GetMessage("P_GALLERY_ACTIVE")?>"></div><?
+										?><div class="gallery-active" title="<?=GetMessage("P_GALLERY_ACTIVE")?>"></div><?php 
 									endif;
 								?></div>					
 								</a>
@@ -71,35 +71,35 @@ foreach($arResult["GALLERIES"] as $res):
 			<div class="gallery-info">
 				<div class="photo-gallery-name">
 					<a href="<?=$res["LINK"]["VIEW"]?>" title="<?=str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>">
-						<?=$res["NAME"]?></a><?
+						<?=$res["NAME"]?></a><?php 
 					if (empty($res["CODE"])):
-						?><div class="gallery-error-code" title="<?=GetMessage("P_ERROR_CODE")?>"></div><?
+						?><div class="gallery-error-code" title="<?=GetMessage("P_ERROR_CODE")?>"></div><?php 
 					endif;
 				?></div>
 				<div class="photo-gallery-description"><?=$res["DESCRIPTION"]?></div>
 				<div class="photo-controls gallery-controls">
-				<?
+				<?php 
 				if ($arResult["I"]["PERMISSION"] >= "W"):
 					?><a href="<?=$res["LINK"]["UPLOAD"]?>" class="photo-action photo-upload" title="<?=GetMessage("P_UPLOAD_TITLE")?>"><?=GetMessage("P_UPLOAD")?></a>
 					<a href="<?=$res["LINK"]["EDIT"]?>" class="photo-action gallery-edit" title="<?=GetMessage("P_GALLERY_EDIT_TITLE")?>">
 						<?=GetMessage("P_GALLERY_EDIT")?></a>
-					<a href="<?=$res["LINK"]["DROP"]?>" class="photo-action gallery-drop" <?
-						?>onclick="return confirm('<?=GetMessage('P_GALLERY_DELETE_ASK')?>');" ><?
-						?><?=GetMessage("P_GALLERY_DELETE")?></a><?
+					<a href="<?=$res["LINK"]["DROP"]?>" class="photo-action gallery-drop" <?php 
+						?>onclick="return confirm('<?=GetMessage('P_GALLERY_DELETE_ASK')?>');" ><?php 
+						?><?=GetMessage("P_GALLERY_DELETE")?></a><?php 
 				endif;
 				?>
 				</div>
 			</div>
 		</td></tr>
-	</table><?
+	</table><?php 
 endforeach;
 ?>
 <div class="empty-clear"></div>
 </div>
-<?
+<?php 
 if (!empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation photo-navigation-bottom"><?=$arResult["NAV_STRING"]?></div>
-<?
+<?php 
 endif;
 ?>

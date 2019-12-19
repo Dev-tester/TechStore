@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RB_RESOURCE_DURATION"] = "Duration";
 $MESS["CRM_RB_ERROR_DURATION_EMPTY"] = "Duration is not specified";
 $MESS["CRM_RB_RESOURCE_FIELD"] = "Field";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CRLC_RESPONSIBLE"] = "Ответственный";
 $MESS["CRM_CRLC_CONTACT_NAME_DEFAULT"] = "Без имени";
 $MESS["CRM_CRLC_LEAD_NOT_EXISTS"] = "Не удалось получить данные Лида";

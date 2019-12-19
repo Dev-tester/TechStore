@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"]) || !is_array($arResult["ELEMENTS_LIST"])):
 	return true;
 endif;
@@ -17,7 +17,7 @@ div.photo-gallery-avatar a {
 	width:100%; 
 	height: 100%;}
 </style>
-<?
+<?php 
 endif;
 /********************************************************************
 				Input params
@@ -45,7 +45,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="photo-info-box photo-error">
 	<?=ShowError($arResult["ERROR_MESSAGE"])?>
 </div>
-<?
+<?php 
 endif;
 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
@@ -53,12 +53,12 @@ if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATI
 <div class="photo-navigation photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 
 ?>
 <div class="photo-items-list photo-photo-list photo-simple-photo-list">
-<?
+<?php 
 foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 	if (!is_array($arItem))
 		continue;
@@ -77,53 +77,53 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 		<table cellpadding="0" border="0" class="photo-table photo-photo-item-simple">
 			<tr>
 				<td>
-<?
+<?php 
 	if ($arParams["FIXED_PARAMS"] == "Y")
 	{
 ?>
-					<div class="photo-simple-photo"><?
-						?><a href="<?=$arItem["URL"]?>" style="display:block;width:<?=$arItem["PICTURE"]["WIDTH"]?>px;height:<?=$arItem["PICTURE"]["HEIGHT"]?>px;"><?
-							?><img src="<?=$arItem["PICTURE"]["SRC"]?>" width="<?=$arItem["PICTURE"]["WIDTH"]?>" height="<?=$arItem["PICTURE"]["HEIGHT"]?>" <?
-								?>alt="<?=$sTitle?>" title="<?=$sTitle?>" border="0" /><?
-						?></a><?
+					<div class="photo-simple-photo"><?php 
+						?><a href="<?=$arItem["URL"]?>" style="display:block;width:<?=$arItem["PICTURE"]["WIDTH"]?>px;height:<?=$arItem["PICTURE"]["HEIGHT"]?>px;"><?php 
+							?><img src="<?=$arItem["PICTURE"]["SRC"]?>" width="<?=$arItem["PICTURE"]["WIDTH"]?>" height="<?=$arItem["PICTURE"]["HEIGHT"]?>" <?php 
+								?>alt="<?=$sTitle?>" title="<?=$sTitle?>" border="0" /><?php 
+						?></a><?php 
 					?></div>
-<?
+<?php 
 	}
 	else
 	{
 ?>
 					<div class="photo-simple-photo">
-						<div class="photo-simple-photo" style="max-width:<?=$arItem["PICTURE"]["WIDTH"]?>px; <?
+						<div class="photo-simple-photo" style="max-width:<?=$arItem["PICTURE"]["WIDTH"]?>px; <?php 
 							?>width:expression(this.nextSibling.offsetWidth><?=$arItem["PICTURE"]["WIDTH"]?>?'<?=$arItem["PICTURE"]["WIDTH"]?>px':'auto');">
-							<a href="<?=$arItem["URL"]?>" class="photo-simple-href" style="display:block;position:relative;overflow:hidden; <?
+							<a href="<?=$arItem["URL"]?>" class="photo-simple-href" style="display:block;position:relative;overflow:hidden; <?php 
 									?>height:<?=$arItem["PICTURE"]["HEIGHT"]?>px;">
-								<img src="<?=$arItem["PICTURE"]["SRC"]?>" width="<?=$arItem["PICTURE"]["WIDTH"]?>" height="<?=$arItem["PICTURE"]["HEIGHT"]?>" <?
-									?>alt="<?=$sTitle?>" title="<?=$sTitle?>" border="0" <?
+								<img src="<?=$arItem["PICTURE"]["SRC"]?>" width="<?=$arItem["PICTURE"]["WIDTH"]?>" height="<?=$arItem["PICTURE"]["HEIGHT"]?>" <?php 
+									?>alt="<?=$sTitle?>" title="<?=$sTitle?>" border="0" <?php 
 									?>style="position:absolute;margin-left:-<?=intVal($arItem["PICTURE"]["WIDTH"]/2)?>px;left:50%;" />
 							</a>
 						</div>
 						<div></div>
 					</div>
-<?
+<?php 
 	}
 ?>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<div class="photo-simple-info"<?
+					<div class="photo-simple-info"<?php 
 						if ($arParams["FIXED_PARAMS"] == "Y")
 						{
-							?> style="width:<?=$arItem["PICTURE"]["WIDTH"]?>px; overflow:hidden;"<?
+							?> style="width:<?=$arItem["PICTURE"]["WIDTH"]?>px; overflow:hidden;"<?php 
 						}
-					?>><?
-						?><div class="photo-photo-name"><a href="<?=$arItem["URL"]?>"><?=$arItem["NAME"]?></a></div><?
+					?>><?php 
+						?><div class="photo-photo-name"><a href="<?=$arItem["URL"]?>"><?=$arItem["NAME"]?></a></div><?php 
 				if ($arParams["BEHAVIOUR"] == "USER")
 				{
 						?><div class="photo-gallery-info">
-							<div class="photo-gallery-avatar" <?
+							<div class="photo-gallery-avatar" <?php 
 						if (!empty($arItem["GALLERY"]["PICTURE"]["SRC"])):
-								?>style="background-image:url('<?=$arItem["GALLERY"]["PICTURE"]["SRC"]?>');"<?
+								?>style="background-image:url('<?=$arItem["GALLERY"]["PICTURE"]["SRC"]?>');"<?php 
 						endif;
 							?> title="<?=GetMessage("P_VIEW_PHOTO")?>">
 								<a href="<?=$arItem["GALLERY"]["URL"]?>" class="photo-gallery-avatar"><span></span></a>
@@ -132,13 +132,13 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 								<label><?=GetMessage("P_BY_AUTHOR")?></label>
 								<span class="photo-gallery-name"><a href="<?=$arItem["GALLERY"]["URL"]?>"><?=$arItem["GALLERY"]["NAME"]?></a></span>
 							</div>
-						</div><?
+						</div><?php 
 				}
 				
 				if ($arParams["SHOW_SHOWS"] == "Y"):
 ?>
 						<div class="photo-photo-shows"><?=GetMessage("P_SHOWS")?>: <?=intVal($arItem["SHOW_COUNTER"])?></div>
-<?
+<?php 
 				endif;
 				if ($arParams["SHOW_COMMENTS"] == "Y"):
 					$comments = intVal($arParams["COMMENTS_TYPE"] == "FORUM" ? $arItem["PROPERTIES"]["FORUM_MESSAGE_CNT"]["VALUE"] : 
@@ -146,13 +146,13 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 					if ($comments > 0 ):
 ?>
 						<div class="photo-photo-comments"><?=GetMessage("P_COMMENTS")?>: <?=$comments?></div>
-<?
+<?php 
 					endif;
 				endif;
 				if ($arParams["SHOW_RATING"] == "Y"):
 ?>
 						<div class="photo-rating">
-							<?$APPLICATION->IncludeComponent(
+							<?php $APPLICATION->IncludeComponent(
 								"bitrix:iblock.vote",
 								"ajax",
 								Array(
@@ -169,7 +169,7 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 								array("HIDE_ICONS" => "Y")
 							);?>
 						</div>
-<?
+<?php 
 				endif;
 ?>
 					</div>
@@ -177,17 +177,17 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 			</tr>
 		</table>
 	</div>
-<?
+<?php 
 endforeach;
 ?>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation photo-navigation-bottom">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>

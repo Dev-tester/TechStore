@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 //Module
@@ -355,7 +355,7 @@ if(strlen($_REQUEST['domain_name'])>0)
 	{
 		// adding dbconn.php
 		$filename = str_replace("//", "/", $path_to."bitrix_personal/php_interface/dbconn.php");
-		$str = '<?
+		$str = '<?php 
 define("DBPersistent", false);
 $DBType = "mysql";
 $DBHost = "'.EscapePHPString($DB->DBHost).'";

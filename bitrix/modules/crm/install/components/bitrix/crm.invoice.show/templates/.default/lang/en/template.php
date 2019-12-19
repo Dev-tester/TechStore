@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EDIT_BTN_TTL"] = "Click to edit";
 $MESS["CRM_LOCK_BTN_TTL"] = "Cannot edit this item";
 $MESS["CRM_INVOICE_SHOW_TITLE"] = "Invoice ##ACCOUNT_NUMBER# &mdash; #ORDER_TOPIC#";

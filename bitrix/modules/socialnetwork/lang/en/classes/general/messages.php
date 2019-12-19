@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_M_EMPTY_FROM_USER_ID'] = "The sender is not specified.";
 $MESS ['SONET_M_ERROR_NO_FROM_USER_ID'] = "The sender specified is incorrect.";
 $MESS ['SONET_M_EMPTY_TO_USER_ID'] = "The recipient is not specified.";

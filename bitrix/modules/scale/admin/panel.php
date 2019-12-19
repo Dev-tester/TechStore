@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * Bitrix vars
@@ -120,34 +120,34 @@ if(\Bitrix\Scale\Helper::checkBxEnvVersion())
 	?>
 	<div class="adm-scale-page-wrap" id="adm-scale-page-wrap">
 	<div class="adm-scale-blocks-wrapper" id="adm-scale-blocks-wrapper"<?=empty($serversList) ? ' style="width:100%;"' : ''?>>
-		<?if(Bitrix\Main\ModuleManager::isModuleInstalled("cluster") || empty($serversList)):?>
-			<?if(!empty($serversList)):?>
+		<?php if(Bitrix\Main\ModuleManager::isModuleInstalled("cluster") || empty($serversList)):?>
+			<?php if(!empty($serversList)):?>
 				<div class="adm-scale-block adm-scale-block-empty" onclick="BX.Scale.Provider.getList();">
-			<?else:?>
+			<?php else:?>
 				<p class="adm-scale-page-notify"><?=Loc::getMessage("SCALE_PANEL_NOTIFY_CREATE_SRV")?></p>
 				<div class="adm-scale-block adm-scale-block-empty" onclick="BX.Scale.actionsCollection.getObject('<?=$pullCreateAction?>').start();">
-					<?endif;?>
+					<?php endif;?>
 					<div class="adm-scale-block-header">
 						<span class="adm-scale-title"><?=Loc::getMessage("SCALE_PANEL_NEW_SERVER")?></span>
 						<span class="adm-scale-img"></span>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 	</div>
 
-	<?if(!Bitrix\Main\ModuleManager::isModuleInstalled("cluster") && !empty($serversList)):?>
+	<?php if(!Bitrix\Main\ModuleManager::isModuleInstalled("cluster") && !empty($serversList)):?>
 		<div class="adm-scale-page-wrap" id="adm-scale-page-wrap">
 			<div class="adm-scale-blocks-wrapper" id="adm-scale-blocks-wrapper">
 				<?=Loc::getMessage("SCALE_PANEL_MODULE_CLUSTER_NOT_INSTALLED")?>
 			</div>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<script type="text/javascript">
 		BX.ready(function(){
 
-			<?foreach($jsLangMesIds as $langMesId):?>BX.message["<?=$langMesId?>"] ="<?=\CUtil::JSEscape(Loc::getMessage($langMesId))?>"; <?endforeach;?>
+			<?php foreach($jsLangMesIds as $langMesId):?>BX.message["<?=$langMesId?>"] ="<?=\CUtil::JSEscape(Loc::getMessage($langMesId))?>"; <?php endforeach;?>
 
 			BX.Scale.actionsCollection = new BX.Scale.Collection(BX.Scale.Action, <?=CUtil::PhpToJSObject( Bitrix\Scale\ActionsData::getList(true))?>);
 			BX.Scale.rolesList = <?=CUtil::PhpToJSObject( \Bitrix\Scale\RolesData::getList())?>;
@@ -157,10 +157,10 @@ if(\Bitrix\Scale\Helper::checkBxEnvVersion())
 			BX.Scale.monitoringCategories = {};
 			BX.Scale.isMonitoringDbCreated = {};
 
-			<?foreach($serversList as $hostname => $server):?>
+			<?php foreach($serversList as $hostname => $server):?>
 				BX.Scale.monitoringCategories["<?=$hostname?>"] = <?=CUtil::PhpToJSObject(\Bitrix\Scale\Monitoring::getInfoTableCategoriesList($hostname))?>;
 				BX.Scale.isMonitoringDbCreated["<?=$hostname?>"] = <?=Bitrix\Scale\Monitoring::isDatabaseCreated($hostname) ? "true" : "false"?>;
-			<?endforeach;?>
+			<?php endforeach;?>
 
 			BX.Scale.serversCollection = new BX.Scale.Collection(BX.Scale.Server, <?=CUtil::PhpToJSObject($serversList)?>);
 
@@ -172,17 +172,17 @@ if(\Bitrix\Scale\Helper::checkBxEnvVersion())
 			});
 			BX.Scale.AdminFrame.build();
 
-			<?if(Bitrix\Scale\Monitoring::isEnabled()):?>
+			<?php if(Bitrix\Scale\Monitoring::isEnabled()):?>
 				BX.Scale.AdminFrame.refreshServersRolesLoadbars();
 				BX.Scale.AdminFrame.refreshingDataStart(<?=$dataRefreshTimeInterval?>);
-			<?endif;?>
+			<?php endif;?>
 
-			<?if(!empty($runningAction)):?>
+			<?php if(!empty($runningAction)):?>
 				BX.Scale.AdminFrame.waitForAction("<?=key($runningAction)?>");
-			<?endif;?>
+			<?php endif;?>
 		});
 	</script>
-<?
+<?php 
 }
 else
 {
@@ -192,6 +192,6 @@ else
 			<?=Loc::getMessage("SCALE_PANEL_BVM_TOO_OLD").". ".Loc::getMessage("SCALE_PANEL_BVM_TOO_OLD_DOC")?>
 		</div>
 	</div>
-<?
+<?php 
 }
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

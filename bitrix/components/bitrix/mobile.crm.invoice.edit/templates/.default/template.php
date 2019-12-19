@@ -87,10 +87,10 @@ if ($arParams["RESTRICTED_MODE"])
 
 	window.CrmProductRowSetLocation = function(){ BX.onCustomEvent('CrmProductRowSetLocation', ['LOC_CITY']); };
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	var menu = new BXMobileApp.UI.Menu({
 		items: [
-			<?if ($arResult["IS_EDIT_PERMITTED"]):?>
+			<?php if ($arResult["IS_EDIT_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_INVOICE_MENU_EDIT")?>',
 				image: "/bitrix/js/mobile/images/edit.png",
@@ -101,9 +101,9 @@ if ($arParams["RESTRICTED_MODE"])
 					});
 				}, this)
 			},
-			<?endif?>
+			<?php endif?>
 
-			<?if ($arResult["IS_DELETE_PERMITTED"]):?>
+			<?php if ($arResult["IS_DELETE_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_INVOICE_MENU_DELETE")?>',
 				image: "/bitrix/js/mobile/images/del.png",
@@ -112,7 +112,7 @@ if ($arParams["RESTRICTED_MODE"])
 					BX.Mobile.Crm.deleteItem('<?=$arResult["ELEMENT_ID"]?>', '<?=$ajaxPath?>', 'detail', 'onCrmInvoiceListUpdate');
 				}, this)
 			},
-			<?endif?>
+			<?php endif?>
 
 			{
 				name: '<?=GetMessageJS("M_CRM_INVOICE_MENU_SEND_EMAIL")?>',
@@ -132,18 +132,18 @@ if ($arParams["RESTRICTED_MODE"])
 			}
 		]
 	}, "crmMobileMenu");
-	<?endif?>
+	<?php endif?>
 
 	BXMobileApp.UI.Page.TopBar.title.setText('<?=$formTitle?>');
 	BXMobileApp.UI.Page.TopBar.title.show();
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	BXMobileApp.UI.Page.TopBar.title.setCallback(function (){
 		menu.show();
 	});
-	<?endif?>
+	<?php endif?>
 
-	<?if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE" || $arResult['MODE'] == "CONVERT"):?>
+	<?php if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE" || $arResult['MODE'] == "CONVERT"):?>
 	window.BXMobileApp.UI.Page.TopBar.updateButtons({
 		ok: {
 			type: "back_text",
@@ -155,12 +155,12 @@ if ($arParams["RESTRICTED_MODE"])
 			position: "right"
 		}
 	});
-	<?endif?>
+	<?php endif?>
 
 	//for convertaion
-	<?if (isset($arResult['CONVERSION_LEGEND']) && !empty($arResult['CONVERSION_LEGEND'])):?>
+	<?php if (isset($arResult['CONVERSION_LEGEND']) && !empty($arResult['CONVERSION_LEGEND'])):?>
 	app.alert({title: "<?=GetMessageJS("M_CRM_INVOICE_CONVERSION_NOTIFY")?>", text: "<?=CUtil::JSEscape($arResult['CONVERSION_LEGEND'])?>"});
-	<?endif?>
+	<?php endif?>
 
 	BX.addCustomEvent("onCrmInvoiceDetailUpdate", function(){
 		BXMobileApp.UI.Page.reload();

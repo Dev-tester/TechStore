@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_CACHE_FILTER'] = "Cache if the filter is active";
 $MESS ['T_IBLOCK_DESC_ASC'] = "Ascending";
 $MESS ['T_IBLOCK_DESC_DESC'] = "Descending";

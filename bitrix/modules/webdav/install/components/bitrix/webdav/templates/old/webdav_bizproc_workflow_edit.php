@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($arResult["VARIABLES"]["PERMISSION"] < "W"):
 	return false;
 endif;
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 		"bitrix:bizproc.workflow.edit",
 		"",

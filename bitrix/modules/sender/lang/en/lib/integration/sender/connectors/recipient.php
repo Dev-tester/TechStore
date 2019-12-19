@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_recipient_name1"] = "Newsletter recipients";
 $MESS["sender_connector_recipient_all"] = "Any";
 $MESS["sender_connector_recipient_y"] = "Yes";

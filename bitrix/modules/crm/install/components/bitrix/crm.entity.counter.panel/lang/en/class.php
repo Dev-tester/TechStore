@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COUNTER_ORDER_CAPTION"] = "Orders";
 $MESS["CRM_COUNTER_ORDER_STUB"] = "There are no urgent orders.";
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";

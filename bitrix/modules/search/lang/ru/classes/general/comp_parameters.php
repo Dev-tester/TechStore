@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_CP_FORUM"] = "Форумы для поиска";
 $MESS["SEARCH_CP_ALL"] = "(все)";
 $MESS["SEARCH_CP_NO_LIMIT"] = "Не ограничивать";

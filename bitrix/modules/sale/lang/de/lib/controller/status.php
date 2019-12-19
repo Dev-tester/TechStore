@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTROLLER_ERROR_DELETE_STATUS"] = "Fehler beim Löschen des Status. [#ID#]";
 $MESS["CONTROLLER_ERROR_DELETE_STATUS_TYPE_LOCKED"] = "Status kann nicht gelöscht werden. [#ID#]";
 $MESS["CONTROLLER_ERROR_STATUS_GROUPS_TASK_ID_EMPTY"] = "Der Bereich mit Beschreibungen der Zugriffsrechte ist leer";

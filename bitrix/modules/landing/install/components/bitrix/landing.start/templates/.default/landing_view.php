@@ -31,7 +31,7 @@ foreach ($arParams['SEF_URL_TEMPLATES'] as $code => $url)
 	$params['sef_url'][$code] = $arParams['SEF_FOLDER'] . $url;
 }
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:landing.landing_view',
 	'.default',
 	array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 $MOD_RIGHT = $APPLICATION->GetGroupRight("ldap");
 if($MOD_RIGHT!="D")

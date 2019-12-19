@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENTS_COMP_TITLE"] = "Согласия пользователей";
 $MESS["MAIN_USER_CONSENTS_COMP_UI_COLUMN_DATE_INSERT"] = "Дата";
 $MESS["MAIN_USER_CONSENTS_COMP_UI_COLUMN_USER"] = "Пользователь";

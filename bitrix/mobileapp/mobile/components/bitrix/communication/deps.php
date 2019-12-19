@@ -1,4 +1,4 @@
-<?
+<?php 
 return [
 	"db",
 	"pull/client",

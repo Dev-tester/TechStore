@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDUV_PD_SOURCE_FILE'] = "Файл для загрузки";
 $MESS ['BPDUV_PD_SOURCE_ID'] = "Файл Диска";
 $MESS ['BPDUV_PD_LABEL_DISK_CHOOSE_FILE'] = "Выбрать файл";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 switch($_REQUEST['bxsender']):
@@ -11,7 +11,7 @@ switch($_REQUEST['bxsender']):
 	case 'core_window_cadmindialog':
 ?>
 <script type="text/javascript" bxrunfirst="true">top.BX.WindowManager.Get().Authorize(<?=CUtil::PhpToJsObject($arAuthResult)?>)</script>
-<?
+<?php 
 	break;
 
 /**********************************************************/
@@ -37,7 +37,7 @@ switch($_REQUEST['bxsender']):
 	<input type="submit" name="reload_submit" value="Y" style="display: none;">
 	<?=CAdminUtil::dumpVars($_POST, array("USER_LOGIN", "USER_PASSWORD", "sessid"));?>
 </form>
-<?
+<?php 
 	break;
 
 /**********************************************************/
@@ -49,7 +49,7 @@ switch($_REQUEST['bxsender']):
 <script type="text/javascript" bxrunfirst="true">
 	top.BX.onCustomEvent(top, 'OnHtmlEditorRequestAuthFailure', ['<?= CUtil::JSEscape($_REQUEST['bxeditor'])?>', <?=CUtil::PhpToJsObject($arAuthResult)?>]);
 </script>
-<?
+<?php 
 	break;
 
 /***************************************************************************************************/
@@ -69,21 +69,21 @@ switch($_REQUEST['bxsender']):
 
 	<div class="bx-core-popup-auth-field">
 		<div class="bx-core-popup-auth-field-caption"><?=GetMessage("AUTH_LOGIN")?></div>
-		<div class="bx-core-popup-auth-field"><input type="text" name="USER_LOGIN" value="<?echo htmlspecialcharsbx($last_login)?>"></div>
+		<div class="bx-core-popup-auth-field"><input type="text" name="USER_LOGIN" value="<?php echo htmlspecialcharsbx($last_login)?>"></div>
 	</div>
 	<div class="bx-core-popup-auth-field">
 		<div class="bx-core-popup-auth-field-caption"><?=GetMessage("AUTH_PASSWORD")?></div>
 		<div class="bx-core-popup-auth-field"><input type="password" name="USER_PASSWORD"></div>
 	</div>
 
-<?
+<?php 
 		if($store_password=="Y"):
 ?>
 	<div class="bx-core-popup-auth-field">
 		<input type="checkbox" class="adm-designed-checkbox" id="USER_REMEMBER" name="USER_REMEMBER" value="Y">
 		<label for="USER_REMEMBER" class="adm-designed-checkbox-label"></label><label for="USER_REMEMBER">&nbsp;<?=GetMessage("AUTH_REMEMBER_ME")?></label>
 	</div>
-<?
+<?php 
 		endif;
 
 		$CAPTCHA_CODE = '';
@@ -98,11 +98,11 @@ switch($_REQUEST['bxsender']):
 		</div>
 		<div class="bx-core-popup-auth-field"><input type="text" name="captcha_word"></div>
 	</div>
-<?
+<?php 
 		endif; // $bNeedCaptcha
 ?>
 </form>
-<?
+<?php 
 		$form = ob_get_contents();
 		ob_end_clean();
 ?>
@@ -113,7 +113,7 @@ authWnd.SetContent('<?=CUtil::JSEscape($form)?>');
 authWnd.SetError(<?=CUtil::PhpToJsObject($arAuthResult)?>);
 authWnd.adjustSizeEx();
 </script>
-<?
+<?php 
 		if(!CMain::IsHTTPS() && COption::GetOptionString('main', 'use_encrypted_auth', 'N') == 'Y')
 		{
 			$sec = new CRsaSecurity();

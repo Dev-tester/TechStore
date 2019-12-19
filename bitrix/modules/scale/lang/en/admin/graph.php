@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCALE_GRAPH_TITLE"] = "Load chart";
 $MESS["SCALE_GRAPH_ACCESS_DENIED"] = "Access denied";
 $MESS["SCALE_GRAPH_MODULE_NOT_INSTALLED"] = "Error including the \"Scalability\" module.";

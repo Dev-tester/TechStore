@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIZ_TEMPLATE_ADAPT_VERTICAL"] = "Адаптивный шаблон с вертикальным меню";
 $MESS["WIZ_TEMPLATE_ADAPT_HORIZONTAL"] = "Адаптивный шаблон интернет-магазина Bootstrap 4";
 $MESS["WIZ_TEMPLATE_VERTICAL"] = "Шаблон с вертикальным меню";

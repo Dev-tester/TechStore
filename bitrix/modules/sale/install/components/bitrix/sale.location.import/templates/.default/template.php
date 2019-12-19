@@ -1,39 +1,39 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 global $APPLICATION;
 ?>
 
-<?if($arResult['DISPLAY_FILE_UPLOAD_RESPONCE']):?>
-	<?
+<?php if($arResult['DISPLAY_FILE_UPLOAD_RESPONCE']):?>
+	<?php 
 	$APPLICATION->RestartBuffer();
 	while (@ob_end_clean());
 	?>
 	<script>(window.BX||top.BX)['file-async-loader']['<?=$arResult['FILE_UPLOAD_ID']?>'].<?=(empty($arResult['ERRORS']['FATAL']) ? 'uploadSuccess' : 'uploadFail')?>();</script>
-	<?die();?>
-<?endif?>
+	<?php die();?>
+<?php endif?>
 
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
 
 ?>
 
-<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+<?php if(!empty($arResult['ERRORS']['FATAL'])):?>
 
-	<?foreach($arResult['ERRORS']['FATAL'] as $error):?>
+	<?php foreach($arResult['ERRORS']['FATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
+	<?php endforeach?>
 
-<?else:?>
+<?php else:?>
 
-	<?if(!empty($arResult['ERRORS']['NONFATAL'])):?>
-		<?foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
+	<?php if(!empty($arResult['ERRORS']['NONFATAL'])):?>
+		<?php foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
 			<?=ShowError($error)?>
-		<?endforeach?>
-	<?endif?>
+		<?php endforeach?>
+	<?php endif?>
 
-	<?
+	<?php 
 	CJSCore::Init();
 	$APPLICATION->AddHeadScript('/bitrix/js/sale/core_ui_widget.js');
 	$APPLICATION->AddHeadScript('/bitrix/js/sale/core_iterator.js');
@@ -48,11 +48,11 @@ Loc::loadMessages(__FILE__);
 
 			<?=Loc::getMessage('SALE_SLI_STAT_TITLE')?>:
 			<ul class="bx-ui-loc-i-stat-list">
-				<?foreach($arResult['STATISTICS'] as $code => $stat):?>
-					<?if(strlen($stat['NAME'])):?>
+				<?php foreach($arResult['STATISTICS'] as $code => $stat):?>
+					<?php if(strlen($stat['NAME'])):?>
 						<li><?=htmlspecialcharsbx($stat['NAME'])?>: <?=intval($stat['CNT'])?></li>
-					<?endif?>
-				<?endforeach?>
+					<?php endif?>
+				<?php endforeach?>
 				<script type="text/html" data-template-id="bx-ui-loc-i-stat-item">
 					<li>{{type}}: {{count}}</li>
 				</script>
@@ -83,7 +83,7 @@ Loc::loadMessages(__FILE__);
 
 		</div>
 
-		<?
+		<?php 
 		$arTabs = array(
 			'tab_params' => array(
 				'id' => 'tab_import',
@@ -116,7 +116,7 @@ Loc::loadMessages(__FILE__);
 		?>
 			<label><input type="radio" name="SOURCE" value="remote" checked class="bx-ui-loc-i-option" /><?=Loc::getMessage('SALE_SLI_SOURCE_REMOTE')?></label><br />
 			<label><input type="radio" name="SOURCE" value="file" class="bx-ui-loc-i-option" /><?=Loc::getMessage('SALE_SLI_SOURCE_FILE')?></label></label>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -155,7 +155,7 @@ Loc::loadMessages(__FILE__);
 					'#ANCHOR_END#' => '</a>'
 				))?>
 			</div>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -175,7 +175,7 @@ Loc::loadMessages(__FILE__);
 
 			<div class="adm-loc-i-selector bx-ui-loc-i-location-set">
 
-				<?ob_start();?>
+				<?php ob_start();?>
 
 				<div class="adm-loc-i-tree-node bx-ui-item-tree-node">
 					<a href="javascript:void(0)" class="adm-loc-i-selector-arrow {{EXPANDER_CLASS}}"></a>
@@ -188,8 +188,8 @@ Loc::loadMessages(__FILE__);
 					</div>
 				</div>
 
-				<?$template = ob_get_contents();?>
-				<?ob_end_clean();?>
+				<?php $template = ob_get_contents();?>
+				<?php ob_end_clean();?>
 
 				<?=$component->renderLayOut(array(
 					'LAYOUT' => $arResult['LAYOUT'],
@@ -200,7 +200,7 @@ Loc::loadMessages(__FILE__);
 
 			</div>
 
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -231,7 +231,7 @@ Loc::loadMessages(__FILE__);
 				<input type="checkbox" value="ZIP" name="ZIP" id="loc-i-additional-zip" class="bx-ui-loc-i-additional" checked />
 				<?=Loc::getMessage('SALE_SLI_EXTRA_EXTERNAL_ZIP')?>
 			</label>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -253,7 +253,7 @@ Loc::loadMessages(__FILE__);
 					<input type="checkbox" value="YAMARKET" name="YAMARKET" id="loc-i-additional-yamarket" class="bx-ui-loc-i-additional" checked />
 					<?=Loc::getMessage('SALE_SLI_EXTRA_EXTERNAL_YAMARKET')?>
 				</label>
-			<?
+			<?php 
 			$customHtml = ob_get_contents();
 			ob_end_clean();
 
@@ -275,7 +275,7 @@ Loc::loadMessages(__FILE__);
 				<input type="checkbox" value="GEODATA" name="GEODATA" id="loc-i-additional-geocoords" class="bx-ui-loc-i-additional" checked />
 				<?=Loc::getMessage('SALE_SLI_EXTRA_GEOCOORDS')?>
 			</label>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -303,11 +303,11 @@ Loc::loadMessages(__FILE__);
 		?>
 			<select name="DEPTH_LIMIT" class="bx-ui-loc-i-option">
 				<option value="">-- <?=Loc::getMessage('SALE_SLI_DONT_LIMIT_LOCATION_DEPTH')?></option>
-				<?foreach($arResult['TYPE_LEVELS'] as $id => $level):?>
+				<?php foreach($arResult['TYPE_LEVELS'] as $id => $level):?>
 					<option value="<?=$id?>"<?=($level['DEFAULT']? ' selected': '')?>><?=htmlspecialcharsbx($level['NAMES'])?></option>
-				<?endforeach?>
+				<?php endforeach?>
 			</select>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -333,7 +333,7 @@ Loc::loadMessages(__FILE__);
 				<input type="radio" name="PACK" value="extended" class="bx-ui-loc-i-option" />
 				<?=Loc::getMessage('SALE_SLI_LOCATION_PACK_EXTENDED')?>
 			</label>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -356,7 +356,7 @@ Loc::loadMessages(__FILE__);
 					<input type="checkbox" value="1" name="EXCLUDE_COUNTRY_DISTRICT" class="bx-ui-loc-i-option" />
 					<?=Loc::getMessage('SALE_SLI_EXCLUDE_AREAS')?>
 				</label>
-			<?
+			<?php 
 			$customHtml = ob_get_contents();
 			ob_end_clean();
 
@@ -377,7 +377,7 @@ Loc::loadMessages(__FILE__);
 				<input type="checkbox" value="1" name="DROP_ALL" class="bx-ui-loc-i-option" id="loc-i-option-drop-all" />
 				<?=Loc::getMessage('SALE_SLI_AP_DROP_STRUCTURE')?>
 			</label>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -394,7 +394,7 @@ Loc::loadMessages(__FILE__);
 		ob_start();
 		?>
 			<input type="text" name="TIME_LIMIT" value="20" class="bx-ui-loc-i-option" />
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -414,7 +414,7 @@ Loc::loadMessages(__FILE__);
 				<input type="checkbox" value="1" name="INTEGRITY_PRESERVE" class="bx-ui-loc-i-option" id="loc-i-option-integrity-preserve" checked />
 				<?=Loc::getMessage('SALE_SLI_AP_PRESERVE_INTEGRITY')?>
 			</label>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -436,7 +436,7 @@ Loc::loadMessages(__FILE__);
 					<div class="adm-btn-load-img-green"></div>
 				</div>
 			</form>
-		<?
+		<?php 
 		$customHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -454,7 +454,7 @@ Loc::loadMessages(__FILE__);
 
 		<input type="submit" class="adm-btn-save bx-ui-loc-i-button-start" value="<?=Loc::getMessage('SALE_SLI_START')?>">
 
-		<?
+		<?php 
 		$formCustomHtml = ob_get_contents();
 		ob_end_clean();
 
@@ -525,4 +525,4 @@ Loc::loadMessages(__FILE__);
 		<?=Loc::getMessage('SALE_SLI_HEAVY_DUTY_NOTICE')?>
 	</div>
 
-<?endif?>
+<?php endif?>

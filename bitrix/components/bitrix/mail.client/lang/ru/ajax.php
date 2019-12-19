@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MESSAGE_EMPTY_RCPT"] = "Укажите получателей";
 $MESS["MAIL_MESSAGE_SEND_ERROR"] = "Не удалось отправить письмо";
 $MESS["MAIL_MESSAGE_EMPTY_SENDER"] = "Укажите отправителя";

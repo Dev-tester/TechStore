@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MENU_STATUS"] = "Справочники";
 $MESS["CRM_MENU_CURRENCY"] = "Валюты";
 $MESS["CRM_MENU_TAX"] = "Налоги";

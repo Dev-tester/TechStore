@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BLOG_MODULE_NOT_INSTALL'] = "Blog module is not installed.";
 $MESS ['B_B_FR_TITLE'] = "Friends Page";
 $MESS ['B_B_FR_TITLES'] = "My Friends Page";

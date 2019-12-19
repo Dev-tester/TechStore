@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,10 +16,10 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
-	<?if ($arResult["Events"]):?>
+	<?php if ($arResult["Events"]):?>
 		<div class="sonet-cntnr-messages-requests">
 		<table width="100%" class="sonet-user-profile-friends data-table">
 			<tr>
@@ -27,12 +27,12 @@ else
 				<th width="90%"><?= GetMessage("SONET_C29_T_MESSAGE") ?></th>
 				<th width="0%"><?= GetMessage("SONET_C29_T_ACTIONS") ?></th>
 			</tr>
-			<?foreach ($arResult["Events"] as $event):?>
+			<?php foreach ($arResult["Events"] as $event):?>
 				<tr>
 					<td valign="top" width="10%" nowrap>
-						<?if ($event["EventType"] == "FriendRequest"):?>
+						<?php if ($event["EventType"] == "FriendRequest"):?>
 							<?= $event["Event"]["USER_PERSONAL_PHOTO_IMG"]; ?><br>
-							<?
+							<?php 
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -62,25 +62,25 @@ else
 							);
 							
 							?>
-						<?else:?>
+						<?php else:?>
 							<?= $event["Event"]["GROUP_IMAGE_ID_IMG"]; ?><br>
-							<?
+							<?php 
 							if ($event["Event"]["SHOW_GROUP_LINK"])
 								echo "<a href=\"".$event["Event"]["GROUP_PROFILE_URL"]."\">";
 							echo $event["Event"]["GROUP_NAME"];
 							if ($event["Event"]["SHOW_GROUP_LINK"])
 								echo "</a>";
 							?>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 					<td valign="top" width="90%">
-						<?if ($event["EventType"] == "FriendRequest"):?>
+						<?php if ($event["EventType"] == "FriendRequest"):?>
 							<?= GetMessage("SONET_C29_T_FRIEND_REQUEST") ?>:<br /><br />
 							<?= $event["Event"]["MESSAGE"]; ?><br /><br />
 							<i><?= $event["Event"]["DATE_UPDATE"]; ?></i>
-						<?else:?>
+						<?php else:?>
 							<?= GetMessage("SONET_C29_T_USER") ?>
-							<?
+							<?php 
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -112,23 +112,23 @@ else
 							<?= GetMessage("SONET_C29_T_INVITE") ?>:<br /><br />
 							<?= $event["Event"]["MESSAGE"]; ?><br /><br />
 							<i><?= $event["Event"]["DATE_CREATE"]; ?></i>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 					<td valign="top" width="0%" nowrap>
-						<?if ($event["EventType"] == "FriendRequest"):?>
+						<?php if ($event["EventType"] == "FriendRequest"):?>
 							<a href="<?= $event["Urls"]["FriendAdd"] ?>"><?= GetMessage("SONET_C29_T_DO_FRIEND") ?></a><br><br>
 							<a href="<?= $event["Urls"]["FriendReject"] ?>"><?= GetMessage("SONET_C29_T_DO_DENY") ?></a>
-						<?else:?>
+						<?php else:?>
 							<a href="<?= $event["Urls"]["FriendAdd"] ?>"><?= GetMessage("SONET_C29_T_DO_AGREE") ?></a><br><br>
 							<a href="<?= $event["Urls"]["FriendReject"] ?>"><?= GetMessage("SONET_C29_T_DO_DENY") ?></a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</table>
 		</div>
 		<br /><br />
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 }
 ?>

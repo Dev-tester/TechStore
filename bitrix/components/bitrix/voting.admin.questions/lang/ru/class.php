@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SAVE_ERROR'] = "Ошибка сохранения";
 $MESS ['DELETE_ERROR'] = "Ошибка удаления";
 $MESS ['VOTE_ACTIVE'] = "Акт.";

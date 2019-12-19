@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/search/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -80,9 +80,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Reindex"]=="Y")
 	?>
 		<script>
 			CloseWaitWindow();
-			DoNext(<?echo $jsNS?>);
+			DoNext(<?php echo $jsNS?>);
 		</script>
-	<?else:
+	<?php else:
 		CAdminMessage::ShowMessage(array(
 			"MESSAGE"=>GetMessage("SEARCH_REINDEX_COMPLETE"),
 			"DETAILS"=>GetMessage("SEARCH_REINDEX_TOTAL")." <b>".$res."</b>",
@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Reindex"]=="Y")
 			if (search_message)
 				search_message.style.display = 'none';
 		</script>
-	<?endif;
+	<?php endif;
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
 }
 else
@@ -140,12 +140,12 @@ function StartReindex()
 function DoNext(NS)
 {
 	var queryString = 'Reindex=Y'
-		+ '&lang=<?echo htmlspecialcharsbx(LANG)?>';
+		+ '&lang=<?php echo htmlspecialcharsbx(LANG)?>';
 
 	if(!NS)
 	{
 		interval = document.getElementById('max_execution_time').value;
-		queryString += '&<?echo bitrix_sessid_get()?>'
+		queryString += '&<?php echo bitrix_sessid_get()?>'
 		queryString += '&max_execution_time='+interval;
 	}
 
@@ -230,27 +230,27 @@ function Full_OnClick(full_checked)
 }
 
 </script>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo htmlspecialcharsbx(LANG)?>" name="fs1">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo htmlspecialcharsbx(LANG)?>" name="fs1">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td width="40%"><?echo GetMessage("SEARCH_REINDEX_REINDEX_CHANGED")?></td>
+		<td width="40%"><?php echo GetMessage("SEARCH_REINDEX_REINDEX_CHANGED")?></td>
 		<td width="60%"><input type="checkbox" name="Full" id="Full" value="N" checked OnClick="Full_OnClick(this.checked)"></td>
 	</tr>
-<?
+<?php 
 $max_execution_time = intval(COption::GetOptionString("search", "max_execution_time"));
 if($max_execution_time <= 0)
 	$max_execution_time = '';
 ?>
 	<tr>
-		<td><?echo GetMessage("SEARCH_REINDEX_STEP")?></td>
-		<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $max_execution_time;?>"> <?echo GetMessage("SEARCH_REINDEX_STEP_sec")?></td>
+		<td><?php echo GetMessage("SEARCH_REINDEX_STEP")?></td>
+		<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $max_execution_time;?>"> <?php echo GetMessage("SEARCH_REINDEX_STEP_sec")?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("SEARCH_REINDEX_SITE")?></td>
-		<td><?echo CLang::SelectBox("LID", $str_LID, GetMessage("SEARCH_REINDEX_ALL"), "", "id=\"LID\"");?></td>
+		<td><?php echo CLang::SelectBox("LID", $str_LID, GetMessage("SEARCH_REINDEX_ALL"), "", "id=\"LID\"");?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("SEARCH_REINDEX_MODULE")?></td>
@@ -258,39 +258,39 @@ if($max_execution_time <= 0)
 		<select name="MODULE_ID" id="MODULE_ID">
 		<option value="NOT_REF"><?=GetMessage("SEARCH_REINDEX_ALL")?></option>
 		<option value="main"><?=GetMessage("SEARCH_REINDEX_MAIN")?></option>
-		<?foreach(CSearchParameters::GetModulesList() as $module_id => $module_name):?>
-			<option value="<?echo $module_id?>"><?echo htmlspecialcharsbx($module_name)?></option>
-		<?endforeach;?>
+		<?php foreach(CSearchParameters::GetModulesList() as $module_id => $module_name):?>
+			<option value="<?php echo $module_id?>"><?php echo htmlspecialcharsbx($module_name)?></option>
+		<?php endforeach;?>
 		</select>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("SEARCH_REINDEX_CLEAR_SUGGEST")?></td>
+		<td width="40%"><?php echo GetMessage("SEARCH_REINDEX_CLEAR_SUGGEST")?></td>
 		<td width="60%"><input type="checkbox" name="clear_suggest" id="clear_suggest" value="Y"></td>
 	</tr>
 
-<?
+<?php 
 $tabControl->Buttons();
 ?>
-	<input type="button" id="start_button" value="<?echo GetMessage("SEARCH_REINDEX_REINDEX_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
+	<input type="button" id="start_button" value="<?php echo GetMessage("SEARCH_REINDEX_REINDEX_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
 	<input type="button" id="stop_button" value="<?=GetMessage("SEARCH_REINDEX_STOP")?>" OnClick="StopReindex();" disabled>
 	<input type="button" id="continue_button" value="<?=GetMessage("SEARCH_REINDEX_CONTINUE")?>" OnClick="ContinueReindex();" disabled>
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?if($Continue=="Y"):?>
+<?php if($Continue=="Y"):?>
 <script language="JavaScript">
-	savedNS = <?echo CUtil::PhpToJSObject(array("NS"=>$_GET["NS"]));?>;
-	<?if($_GET["Full"]=="Y"):?>
+	savedNS = <?php echo CUtil::PhpToJSObject(array("NS"=>$_GET["NS"]));?>;
+	<?php if($_GET["Full"]=="Y"):?>
 		document.getElementById('Full').checked = false;
 		Full_OnClick(false);
-	<?endif;?>
+	<?php endif;?>
 	ContinueReindex();
 </script>
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 	if(IsModuleInstalled("socialnetwork"))
 		echo BeginNote(),GetMessage("SEARCH_REINDEX_SOCNET_MESSAGE"),EndNote();
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_PAGE_TITLE"] = "Support levels (SLA)";
 $MESS["SUP_FORGOT_NAME"] = "Please enter the correct \"Name\" for record # #ID#";
 $MESS["SUP_NAME"] = "Name";

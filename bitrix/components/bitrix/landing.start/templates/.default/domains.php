@@ -5,7 +5,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)
 }
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:landing.domains',
 	'.default',
 	array(

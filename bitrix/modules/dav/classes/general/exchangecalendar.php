@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 $e = new CDavExchangeCalendar("http", "test-exch2007", 80, 'alex', 'P@$$w0rd');
 //$e->Debug();

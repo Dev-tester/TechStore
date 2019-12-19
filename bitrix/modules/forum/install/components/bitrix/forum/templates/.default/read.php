@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arInfo = $APPLICATION->IncludeComponent(
 	"bitrix:forum.topic.read",
 	"",
@@ -61,9 +61,9 @@ $arInfo = $APPLICATION->IncludeComponent(
 	),
 	$component
 );
-?><?
+?><?php 
 if (in_array("USERS_ONLINE", $arParams["SHOW_STATISTIC_BLOCK"])):
-?><?$APPLICATION->IncludeComponent("bitrix:forum.statistic", "", 
+?><?php $APPLICATION->IncludeComponent("bitrix:forum.statistic", "", 
 	Array(
 		"FID"	=>	($arInfo ? $arInfo["FID"] : $arResult["FID"]),
 		"TID"	=>	($arInfo ? $arInfo["TID"] : $arResult["TID"]),
@@ -81,10 +81,10 @@ if (in_array("USERS_ONLINE", $arParams["SHOW_STATISTIC_BLOCK"])):
 		"WORD_WRAP_CUT" => $arParams["WORD_WRAP_CUT"], 
 		"SEO_USER" => $arParams["SEO_USER"]
 	), $component
-);?><?
+);?><?php 
 endif;
 if ($arInfo != false):
-?><div class='forum_post_form'><?$APPLICATION->IncludeComponent("bitrix:forum.post_form", "", 
+?><div class='forum_post_form'><?php $APPLICATION->IncludeComponent("bitrix:forum.post_form", "", 
 	Array(
 		"FID"	=>	$arInfo["FID"],
 		"TID"	=>	$arInfo["TID"],
@@ -115,7 +115,7 @@ if ($arInfo != false):
 		"SHOW_TAGS" => $arParams["SHOW_TAGS"]
 	),
 	$component
-);?></div><?
+);?></div><?php 
 endif;
 
 @include_once(str_replace(array("\\", "//"), "/", dirname(__FILE__)."/footer.php"));

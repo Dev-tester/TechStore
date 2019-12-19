@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_STRUCTURE_IBLOCK_MODULE"] = "Модуль информационных блоков не установлен.";
 $MESS["INTR_EDIT_TITLE"] = "Редактировать подразделение";
 $MESS["INTR_ADD_TITLE"] = "Добавить подразделение";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SEMA_ATTACHMENT"] = "Attachments";
 $MESS["CRM_SEMA_ATTACHMENT_DISK"] = "Drive";
 $MESS["CRM_SEMA_ATTACHMENT_FILE"] = "Document files";

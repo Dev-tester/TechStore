@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1)
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/interface/epilog_auth_admin.php");
 else

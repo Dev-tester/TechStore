@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_SEL_USERS_TAB_GROUPS"] = "– Группы";
 $MESS["BIZPROC_SEL_USERS_TAB_USERS"] = "– Пользователи";
 $MESS["BIZPROC_SEL_TITLEBAR"] = "Вставка полей";

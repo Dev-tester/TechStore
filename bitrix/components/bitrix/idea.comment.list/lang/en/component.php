@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "The Blogs module is not installed.";
 $MESS["IDEA_MODULE_NOT_INSTALL"] = "The Ideas module is not installed.";
 $MESS["B_B_PC_CAPTCHA_ERROR"] = "The CAPTCHA code you have typed is incorrect.";

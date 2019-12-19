@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_ENTITY_ID_FIELD"] = "ID der Warenkorbregel";
 $MESS["DISCOUNT_ENTITY_XML_ID_FIELD"] = "Externe ID der Warenkorbregel";
 $MESS["DISCOUNT_ENTITY_LID_FIELD"] = "Website-ID";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_MAIL_PARAMS_DESC_NEW"] = "#EMAIL_TO# - Recipient's email
 #TITLE# - Message subject
 #TEMPLATE_SESSION_ID# - session ID

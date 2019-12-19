@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -287,14 +287,14 @@ $oFilter = new CAdminFilter(
 );
 ?>
 
-<form name="find_form" method="get" action="<? echo $APPLICATION->GetCurPage(); ?>">
-	<? $oFilter->Begin(); ?>
+<form name="find_form" method="get" action="<?php  echo $APPLICATION->GetCurPage(); ?>">
+	<?php  $oFilter->Begin(); ?>
 	<tr>
 		<td><b><?=GetMessage("PERFMON_COMP_FIND")?>:</b></td>
 		<td>
-			<input type="text" size="25" name="find" value="<? echo htmlspecialcharsbx($find) ?>"
+			<input type="text" size="25" name="find" value="<?php  echo htmlspecialcharsbx($find) ?>"
 				title="<?=GetMessage("PERFMON_COMP_FIND")?>">
-			<?
+			<?php 
 			$arr = array(
 				"reference" => array(
 					GetMessage("PERFMON_COMP_COMPONENT_NAME"),
@@ -307,27 +307,27 @@ $oFilter = new CAdminFilter(
 			);
 			echo SelectBoxFromArray("find_type", $arr, $find_type, "", "");
 			?>
-			<input type="hidden" id="list_group_mode" name="group" value="<? echo htmlspecialcharsbx($group) ?>">
+			<input type="hidden" id="list_group_mode" name="group" value="<?php  echo htmlspecialcharsbx($group) ?>">
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_COMP_COMPONENT_NAME")?></td>
 		<td><input type="text" name="find_component_name" size="47"
-			value="<? echo htmlspecialcharsbx($find_component_name) ?>"></td>
+			value="<?php  echo htmlspecialcharsbx($find_component_name) ?>"></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_COMP_HIT_ID")?></td>
-		<td><input type="text" name="find_hit_id" size="47" value="<? echo htmlspecialcharsbx($find_hit_id) ?>">
+		<td><input type="text" name="find_hit_id" size="47" value="<?php  echo htmlspecialcharsbx($find_hit_id) ?>">
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_COMP_HIT_SCRIPT_NAME")?></td>
 		<td><input type="text" name="find_hit_script_name" size="47"
-			value="<? echo htmlspecialcharsbx($find_hit_script_name) ?>"></td>
+			value="<?php  echo htmlspecialcharsbx($find_hit_script_name) ?>"></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("PERFMON_COMP_CACHE_TYPE") ?>:</td>
-		<td><?
+		<td><?php  echo GetMessage("PERFMON_COMP_CACHE_TYPE") ?>:</td>
+		<td><?php 
 			$arr = array(
 				"reference" => array(
 					GetMessage("PERFMON_COMP_CACHE_TYPE_YES"),
@@ -343,7 +343,7 @@ $oFilter = new CAdminFilter(
 			echo SelectBoxFromArray("find_cache_type", $arr, htmlspecialcharsbx($find_cache_type), GetMessage("MAIN_ALL"));
 			?></td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(array(
 		"table_id" => $sTableID,
 		"url" => $APPLICATION->GetCurPage(),
@@ -353,7 +353,7 @@ $oFilter = new CAdminFilter(
 	?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

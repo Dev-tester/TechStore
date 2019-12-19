@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_BINDING_LESSON"] = "Lesson";
 $MESS["TASK_NAME_LEARNING_LESSON_ACCESS_DENIED"] = "Access denied";
 $MESS["TASK_DESC_LEARNING_LESSON_ACCESS_DENIED"] = "Access denied";

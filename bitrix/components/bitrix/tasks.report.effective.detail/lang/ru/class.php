@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_COLUMN_TASK'] = "Задача";
 $MESS['TASKS_COLUMN_ORIGINATOR'] = "Постановщик";
 $MESS['TASKS_COLUMN_DEADLINE'] = "Крайний срок";

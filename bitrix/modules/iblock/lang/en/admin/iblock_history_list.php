@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADM_HISTORY_TITLE"] = "Modification history for record# #ID#";
 $MESS["IBLOCK_ADM_HISTORY_BAD_IBLOCK"] = "Section not found or access denied.";
 $MESS["IBLOCK_ADM_HISTORY_BAD_ELEMENT"] = "Element not found or access denied.";

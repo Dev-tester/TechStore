@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_UT_SKU_SETTING_TITLE"] = "Настройки SKU";
 $MESS["BT_UT_SKU_SETTING_IBLOCK_MESS"] = "Брать название кнопки добавления из настроек инфоблока";
 $MESS["BT_UT_SKU_SETTING_MAX_WIDTH"] = "Максимальная ширина поля ввода в пикселах (0 - не ограничивать)";

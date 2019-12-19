@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_NOTE_QUESTION"] = "Відповідь";
 $MESS["ADM_TROUBLESHOOTING_MENU_NAME"] = "Заявка у відділ АГВ";
 $MESS["COMMENT_QUESTION"] = "Коментар";

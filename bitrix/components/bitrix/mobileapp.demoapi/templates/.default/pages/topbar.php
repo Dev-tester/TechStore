@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
 <button class="styled-button" onclick="BXMobileDemoApi.topBar.showTitle()"><i
 		class="fa fa-pencil"></i><?= GetMessage("MB_DEMO_TITLE_SHOW_TEXT"); ?>
 </button>

@@ -714,13 +714,13 @@ if($STAT_RIGHT>"M")
 
 $oFilter = new CAdminFilter($sTableID."_filter",$arFilterDropDown);
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("STAT_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_FIND_TITLE")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_FIND_TITLE")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				"referer1",
@@ -738,63 +738,63 @@ $oFilter = new CAdminFilter($sTableID."_filter",$arFilterDropDown);
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ID")?>:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ID")?>:</td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_REFERER_1_2")?>:</td>
-	<td><input type="text" name="find_referer1" size="9" value="<?echo htmlspecialcharsbx($find_referer1)?>">&nbsp;&nbsp;/&nbsp;&nbsp;<input class="typeinput" type="text" name="find_referer2" size="9" value="<?echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer12")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_REFERER_1_2")?>:</td>
+	<td><input type="text" name="find_referer1" size="9" value="<?php echo htmlspecialcharsbx($find_referer1)?>">&nbsp;&nbsp;/&nbsp;&nbsp;<input class="typeinput" type="text" name="find_referer2" size="9" value="<?php echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer12")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_DURATION")?>:</td>
-	<td><input type="text" maxlength="10" name="find_duration1" value="<?echo htmlspecialcharsbx($find_duration1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_duration2" value="<?echo htmlspecialcharsbx($find_duration2)?>" size="9"></td>
+	<td><?php echo GetMessage("STAT_F_DURATION")?>:</td>
+	<td><input type="text" maxlength="10" name="find_duration1" value="<?php echo htmlspecialcharsbx($find_duration1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_duration2" value="<?php echo htmlspecialcharsbx($find_duration2)?>" size="9"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_SESSIONS")?>:</td>
-	<td><input type="text" maxlength="10" name="find_sessions1" value="<?echo htmlspecialcharsbx($find_sessions1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_sessions2" value="<?echo htmlspecialcharsbx($find_sessions2)?>" size="9">&nbsp;<?=GetMessage("STAT_F_BACK")?>&nbsp;<?echo InputType("checkbox","find_sessions_back","Y",$find_sessions_back,false)?></td>
+	<td><?php echo GetMessage("STAT_F_SESSIONS")?>:</td>
+	<td><input type="text" maxlength="10" name="find_sessions1" value="<?php echo htmlspecialcharsbx($find_sessions1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_sessions2" value="<?php echo htmlspecialcharsbx($find_sessions2)?>" size="9">&nbsp;<?=GetMessage("STAT_F_BACK")?>&nbsp;<?php echo InputType("checkbox","find_sessions_back","Y",$find_sessions_back,false)?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_GUESTS")?>:</td>
-	<td><input type="text" maxlength="10" name="find_guests1" value="<?echo htmlspecialcharsbx($find_guests1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_guests2" value="<?echo htmlspecialcharsbx($find_guests2)?>" size="9">&nbsp;<?=GetMessage("STAT_F_BACK")?>&nbsp;<?echo InputType("checkbox","find_guests_back","Y",$find_guests_back,false) ?></td>
+	<td><?php echo GetMessage("STAT_F_GUESTS")?>:</td>
+	<td><input type="text" maxlength="10" name="find_guests1" value="<?php echo htmlspecialcharsbx($find_guests1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_guests2" value="<?php echo htmlspecialcharsbx($find_guests2)?>" size="9">&nbsp;<?=GetMessage("STAT_F_BACK")?>&nbsp;<?php echo InputType("checkbox","find_guests_back","Y",$find_guests_back,false) ?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date1_period", $find_date1_period, "find_date2_period", $find_date2_period, "find_form","Y")?></td>
+	<td><?php echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date1_period", $find_date1_period, "find_date2_period", $find_date2_period, "find_form","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ATTENTIVENESS")?>:</td>
-	<td><input type="text" maxlength="10" name="find_attent1" value="<?echo htmlspecialcharsbx($find_attent1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_attent2" value="<?echo htmlspecialcharsbx($find_attent2)?>" size="9">&nbsp;<?=GetMessage("STAT_F_BACK")?>&nbsp;<?echo InputType("checkbox","find_attent_back","Y",$find_attent_back,false) ?></td>
+	<td><?php echo GetMessage("STAT_F_ATTENTIVENESS")?>:</td>
+	<td><input type="text" maxlength="10" name="find_attent1" value="<?php echo htmlspecialcharsbx($find_attent1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_attent2" value="<?php echo htmlspecialcharsbx($find_attent2)?>" size="9">&nbsp;<?=GetMessage("STAT_F_BACK")?>&nbsp;<?php echo InputType("checkbox","find_attent_back","Y",$find_attent_back,false) ?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_VISITORS_PER_DAY")?>:</td>
-	<td><input type="text" maxlength="10" name="find_visitors_per_day1" value="<?echo htmlspecialcharsbx($find_visitors_per_day1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_visitors_per_day2" value="<?echo htmlspecialcharsbx($find_visitors_per_day2)?>" size="9"></td>
+	<td><?php echo GetMessage("STAT_F_VISITORS_PER_DAY")?>:</td>
+	<td><input type="text" maxlength="10" name="find_visitors_per_day1" value="<?php echo htmlspecialcharsbx($find_visitors_per_day1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_visitors_per_day2" value="<?php echo htmlspecialcharsbx($find_visitors_per_day2)?>" size="9"></td>
 </tr>
-<?if ($STAT_RIGHT>"M"):?>
+<?php if ($STAT_RIGHT>"M"):?>
 <tr>
-	<td><?echo GetMessage("STAT_F_COST")?>:</td>
-	<td><input type="text" maxlength="10" name="find_cost1" value="<?echo htmlspecialcharsbx($find_cost1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_cost2" value="<?echo htmlspecialcharsbx($find_cost2)?>" size="9"></td>
-</tr>
-<tr>
-	<td><?echo GetMessage("STAT_F_REVENUE")?>:</td>
-	<td><input type="text" maxlength="10" name="find_revenue1" value="<?echo htmlspecialcharsbx($find_revenue1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_revenue2" value="<?echo htmlspecialcharsbx($find_revenue2)?>" size="9"></td>
+	<td><?php echo GetMessage("STAT_F_COST")?>:</td>
+	<td><input type="text" maxlength="10" name="find_cost1" value="<?php echo htmlspecialcharsbx($find_cost1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_cost2" value="<?php echo htmlspecialcharsbx($find_cost2)?>" size="9"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_BENEFIT")?>:</td>
-	<td><input type="text" maxlength="10" name="find_benefit1" value="<?echo htmlspecialcharsbx($find_benefit1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?><input type="text" maxlength="10" name="find_benefit2" value="<?echo htmlspecialcharsbx($find_benefit2)?>" size="9"></td>
+	<td><?php echo GetMessage("STAT_F_REVENUE")?>:</td>
+	<td><input type="text" maxlength="10" name="find_revenue1" value="<?php echo htmlspecialcharsbx($find_revenue1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?>&nbsp;<input type="text" maxlength="10" name="find_revenue2" value="<?php echo htmlspecialcharsbx($find_revenue2)?>" size="9"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ROI")?>:</td>
-	<td><input type="text" maxlength="10" name="find_roi1" value="<?echo htmlspecialcharsbx($find_roi1)?>" size="9">&nbsp;<?echo GetMessage("STAT_TILL")?><input type="text" maxlength="10" name="find_roi2" value="<?echo htmlspecialcharsbx($find_roi2)?>" size="9"></td>
+	<td><?php echo GetMessage("STAT_F_BENEFIT")?>:</td>
+	<td><input type="text" maxlength="10" name="find_benefit1" value="<?php echo htmlspecialcharsbx($find_benefit1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?><input type="text" maxlength="10" name="find_benefit2" value="<?php echo htmlspecialcharsbx($find_benefit2)?>" size="9"></td>
 </tr>
-<?if ($currency_module=="Y") : ?>
 <tr>
-	<td><?echo GetMessage("STAT_F_CURRENCY")?>:</td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_ROI")?>:</td>
+	<td><input type="text" maxlength="10" name="find_roi1" value="<?php echo htmlspecialcharsbx($find_roi1)?>" size="9">&nbsp;<?php echo GetMessage("STAT_TILL")?><input type="text" maxlength="10" name="find_roi2" value="<?php echo htmlspecialcharsbx($find_roi2)?>" size="9"></td>
+</tr>
+<?php if ($currency_module=="Y") : ?>
+<tr>
+	<td><?php echo GetMessage("STAT_F_CURRENCY")?>:</td>
+	<td><?php 
 	echo SelectBoxFromArray("find_currency", $arrCurrency, htmlspecialcharsbx($find_currency), GetMessage("STAT_F_BASE_CURRENCY"));?></td>
 </tr>
-<?endif;?>
-<?endif;?>
-<?
+<?php endif;?>
+<?php endif;?>
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
@@ -823,11 +823,11 @@ function compareAdv()
 //-->
 </script>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

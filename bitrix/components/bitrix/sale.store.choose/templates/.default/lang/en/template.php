@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SSC_PHONE"] = "Phone";
 $MESS["SALE_SSC_ADRES"] = "Address";
 $MESS["SALE_SSC_WORK"] = "Business hours";

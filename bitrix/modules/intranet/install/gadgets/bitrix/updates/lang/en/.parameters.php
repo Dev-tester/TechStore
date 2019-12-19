@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_LOG_P_URL"] = "Communication Updates Page URL";
 $MESS["GD_LOG_P_ENTITY_TYPE"] = "Subscription Type";
 $MESS["GD_LOG_P_ENTITY_TYPE_VALUE_USER"] = "users";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $arParams["WATERMARK_MIN_PICTURE_SIZE"] = intVal($arParams["WATERMARK_MIN_PICTURE_SIZE"]);
 
 $test_str = '/bitrix/urlrewrite.php?SEF_APPLICATION_CUR_PAGE_URL=';
@@ -59,13 +59,13 @@ if ($arParams["USE_WATERMARK"] == "Y")
 		$APPLICATION->RestartBuffer();
 		?>
 			<script>
-			<?if ($UploadError === false && $pathto != ''):?>
+			<?php if ($UploadError === false && $pathto != ''):?>
 				top.bxiu_wm_img_res = {path: '<?= CUtil::JSEscape($pathtoRel)?>', width: '<?= $width?>', height: '<?= $height?>'};
-			<?elseif($UploadError !== false):?>
+			<?php elseif($UploadError !== false):?>
 				top.bxiu_wm_img_res = {error: '<?= $UploadError?>'};
-			<?endif;?>
+			<?php endif;?>
 			</script>
-		<?
+		<?php 
 		die();
 	}
 }

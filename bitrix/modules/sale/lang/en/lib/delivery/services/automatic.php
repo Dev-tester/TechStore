@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_HANDL_AUT_NAME"] = "Automated delivery service";
 $MESS["SALE_DLVR_HANDL_AUT_DESCRIPTION"] = "This delivery service is for compatibility with legacy delivery services.";
 $MESS["SALE_DLVR_HANDL_AUT_HANDLER_SETTINGS"] = "Handler settings";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 use Bitrix\Main\UI\Extension;
@@ -18,7 +18,7 @@ Loc::loadMessages(__FILE__);
 \CJSCore::Init('loader');
 ?>
 
-<?
+<?php 
 if (!empty($arResult))
 {
 	?>
@@ -31,12 +31,12 @@ if (!empty($arResult))
 	<div class="imconnector-contact-block" id="bx-imconnector-status-wrap">
 		<div class="imconnector-contact-wrap" id="imconnector-contact-wrap">
 			<div class="imconnector-contact-list" id="imconnector-contact-list">
-				<?
+				<?php 
 				foreach ($arResult as $connector)
 				{
 					?>
 					<div class="imconnector-contact-item<?=($connector["STATUS"] ? " imconnector-contact-item-selected "  . $connector["COLOR_CLASS"] : "")?>"
-						 <? if($arParams['LINK_ON']) { ?>
+						 <?php  if($arParams['LINK_ON']) { ?>
 							 onclick="BX.SidePanel.Instance.open('<?=$connector['LINK']?>', {
 							 		width: 700,
 								 	events: {
@@ -45,7 +45,7 @@ if (!empty($arResult))
 										 }
 							 	}
 							 })"
-						 <? } ?>>
+						 <?php  } ?>>
 						<div class="imconnector-contact-logo-container">
 							<span class="imconnector-contact-logo <?=$connector["LOGO_CLASS"]?>"><i></i></span>
 						</div>
@@ -55,12 +55,12 @@ if (!empty($arResult))
 							</span>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

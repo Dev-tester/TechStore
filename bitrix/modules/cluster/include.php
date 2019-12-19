@@ -1,4 +1,4 @@
-<?
+<?php 
 
 IncludeModuleLangFile(__FILE__);
 //Never increase caching time here. There were cache clenup problems noticed.

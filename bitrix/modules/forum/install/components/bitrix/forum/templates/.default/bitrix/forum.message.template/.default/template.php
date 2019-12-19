@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arParams["~MESSAGE"]))
 	return false;
 /************************ Default Params ***************************/
@@ -15,82 +15,82 @@ $arRes = (is_array($arRes) ? $arRes : array($arRes)); // info about topic, forum
 include_once(__DIR__."/script.php");
 ?>
 <!--MSG_<?=$res["ID"]?>-->
-<table cellspacing="0" border="0" class="forum-post-table <?=($iNumber == 1 ? "forum-post-first " : "")?><?
-	?><?=($iNumber == $iCount || $iCount == 0 ? "forum-post-last " : "")?><?
-	?><?=($iNumber%2 == 1 ? "forum-post-odd " : "forum-post-even ")?><?
-	?><?=($res["APPROVED"] == "Y" ? "" : " forum-post-hidden ")?><?
-	?><?=($res["CHECKED"] == "Y" ? " forum-post-selected " : "")?>" <?
+<table cellspacing="0" border="0" class="forum-post-table <?=($iNumber == 1 ? "forum-post-first " : "")?><?php 
+	?><?=($iNumber == $iCount || $iCount == 0 ? "forum-post-last " : "")?><?php 
+	?><?=($iNumber%2 == 1 ? "forum-post-odd " : "forum-post-even ")?><?php 
+	?><?=($res["APPROVED"] == "Y" ? "" : " forum-post-hidden ")?><?php 
+	?><?=($res["CHECKED"] == "Y" ? " forum-post-selected " : "")?>" <?php 
 	?>id="message_block_<?=$res["ID"]?>" bx-author-name="<?=htmlspecialcharsbx($res["~AUTHOR_NAME"])?>" bx-author-id="<?=$res["AUTHOR_ID"]?>">
 	<tbody>
 		<tr>
 			<td class="forum-cell-user">
-				<span style='position:absolute;'><a <?/*?>style="display:none;"<?*/?> id="message<?=$res["ID"]?>">&nbsp;</a></span><? /* IE9 */ ?>
+				<span style='position:absolute;'><a <?php /*?>style="display:none;"<?php */?> id="message<?=$res["ID"]?>">&nbsp;</a></span><?php  /* IE9 */ ?>
 				<div class="forum-user-info">
-<?
+<?php 
 		if ($res["AUTHOR_ID"] > 0):
 ?>
-					<div class="forum-user-name"><?
+					<div class="forum-user-name"><?php 
 						?><?=str_replace(array("#URL#", "#NAME#"), array($res["URL"]["AUTHOR"], $res["AUTHOR_NAME"]), $arParams["USER_TMPL"])
 					?></div>
-<?
+<?php 
 			if (is_array($res["AVATAR"]) && !empty($res["AVATAR"]["HTML"])):
 ?>
-					<div class="forum-user-avatar"><?
+					<div class="forum-user-avatar"><?php 
 						?><?=str_replace(array("#URL#", "#NAME#"), array($res["URL"]["AUTHOR"], $res["AVATAR"]["HTML"]), $arParams["USER_TMPL"])
 					?></div>
-<?
+<?php 
 			else:
 ?>
-					<div class="forum-user-register-avatar"><?
+					<div class="forum-user-register-avatar"><?php 
 						?><?=str_replace(array("#URL#", "#NAME#"), array($res["URL"]["AUTHOR"], '<span><!-- ie --></span>'), $arParams["USER_TMPL"])
 					?></div>
-<?
+<?php 
 			endif;
 		else:
 ?>
 					<div class="forum-user-name"><span><?=$res["AUTHOR_NAME"]?></span></div>
 					<div class="forum-user-guest-avatar"><!-- ie --></div>
-<?
+<?php 
 		endif;
 
 		if (strLen(trim($res["AUTHOR_STATUS"]))):
 ?>
-					<div class="forum-user-status <?=(!empty($res["AUTHOR_STATUS_CODE"]) ? "forum-user-".$res["AUTHOR_STATUS_CODE"]."-status" : "")?>"><?
+					<div class="forum-user-status <?=(!empty($res["AUTHOR_STATUS_CODE"]) ? "forum-user-".$res["AUTHOR_STATUS_CODE"]."-status" : "")?>"><?php 
 						?><span><?=htmlspecialcharsbx($res["AUTHOR_STATUS"])?></span></div>
-<?
+<?php 
 		endif;
 
 ?>
 					<div class="forum-user-additional">
-<?
+<?php 
 		if (intVal($res["NUM_POSTS"]) > 0):
 ?>
-						<span><?=GetMessage("F_NUM_MESS")?> <span><noindex><a rel="nofollow" href="<?=$res["URL"]["AUTHOR_POSTS"]?>"><?
+						<span><?=GetMessage("F_NUM_MESS")?> <span><noindex><a rel="nofollow" href="<?=$res["URL"]["AUTHOR_POSTS"]?>"><?php 
 							?><?=$res["NUM_POSTS"]?></a></noindex></span></span>
-<?
+<?php 
 		endif;
 
 		if (COption::GetOptionString("forum", "SHOW_VOTES", "Y")=="Y" && $res["AUTHOR_ID"] > 0 &&
 			($res["NUM_POINTS"] > 0 || $res["VOTES"]["ACTION"] == "VOTE" || $res["VOTES"]["ACTION"] == "UNVOTE")):
 ?>
-						<span><?=GetMessage("F_POINTS")?> <span><?=$res["NUM_POINTS"]?></span><?
+						<span><?=GetMessage("F_POINTS")?> <span><?=$res["NUM_POINTS"]?></span><?php 
 			if ($res["VOTES"]["ACTION"] == "VOTE" || $res["VOTES"]["ACTION"] == "UNVOTE"):
 				$res["URL"]["AUTHOR_VOTE"] = (!!$res["URL"]["~AUTHOR_VOTE"] ? $res["URL"]["~AUTHOR_VOTE"] : $res["URL"]["AUTHOR_VOTE"]);
-						?>&nbsp;(<span class="forum-vote-user"><?
-							?><noindex><a rel="nofollow" <?
-								if (strpos($res["URL"]["AUTHOR_VOTE"], "sessid=") === false):?>onclick="this.href+='<?=(strpos($res["URL"]["AUTHOR_VOTE"], "?")===false?"?":"&").bitrix_sessid_get()?>';return true;" <?endif;
-								?>href="<?=$res["URL"]["AUTHOR_VOTE"]?>" title="<?
-								?><?=($res["VOTES"]["ACTION"] == "VOTE" ? GetMessage("F_NO_VOTE_DO") : GetMessage("F_NO_VOTE_UNDO"));?>"><?
-								?><?=($res["VOTES"]["ACTION"] == "VOTE" ? "+" : "-");?></a></noindex></span>)<?
+						?>&nbsp;(<span class="forum-vote-user"><?php 
+							?><noindex><a rel="nofollow" <?php 
+								if (strpos($res["URL"]["AUTHOR_VOTE"], "sessid=") === false):?>onclick="this.href+='<?=(strpos($res["URL"]["AUTHOR_VOTE"], "?")===false?"?":"&").bitrix_sessid_get()?>';return true;" <?php endif;
+								?>href="<?=$res["URL"]["AUTHOR_VOTE"]?>" title="<?php 
+								?><?=($res["VOTES"]["ACTION"] == "VOTE" ? GetMessage("F_NO_VOTE_DO") : GetMessage("F_NO_VOTE_UNDO"));?>"><?php 
+								?><?=($res["VOTES"]["ACTION"] == "VOTE" ? "+" : "-");?></a></noindex></span>)<?php 
 			endif;
 						?></span>
-<?
+<?php 
 		endif;
 	if ($arParams["SHOW_RATING"] == 'Y' && $res["AUTHOR_ID"] > 0)
 	{
 		foreach($arParams["RATING_ID"] as $ratingId)
 		{
-			?><span><?$GLOBALS["APPLICATION"]->IncludeComponent(
+			?><span><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 				"bitrix:rating.result", "",
 				Array(
 					"RATING_ID" => $ratingId,
@@ -102,21 +102,21 @@ include_once(__DIR__."/script.php");
 				null,
 				array("HIDE_ICONS" => "Y")
 			);
-			?></span><?
+			?></span><?php 
 		}
 	}
 		if (strlen($res["~DATE_REG"]) > 0):
 ?>
 						<span><?=GetMessage("F_DATE_REGISTER")?> <span><?=$res["DATE_REG"]?></span></span>
-<?
+<?php 
 		endif;
 ?>
 					</div>
-<?
+<?php 
 		if (strlen($res["DESCRIPTION"]) > 0):
 ?>
 					<div class="forum-user-description"><span><?=$res["DESCRIPTION"]?></span></div>
-<?
+<?php 
 		endif;
 
 ?>
@@ -124,19 +124,19 @@ include_once(__DIR__."/script.php");
 			</td>
 			<td class="forum-cell-post">
 				<div class="forum-post-date">
-					<div class="forum-post-number"><noindex><a rel="nofollow" href="<?=$res["URL"]["MESSAGE"]?>#message<?=$res["ID"]?>" <?
-						?>onclick="prompt(this.title + ' [' + this.innerHTML + ']', (location.protocol + '//' + location.host + this.getAttribute('href'))); return false;" title="<?=GetMessage("F_ANCHOR")?>">#<?=$res["NUMBER"]?></a></noindex><?
+					<div class="forum-post-number"><noindex><a rel="nofollow" href="<?=$res["URL"]["MESSAGE"]?>#message<?=$res["ID"]?>" <?php 
+						?>onclick="prompt(this.title + ' [' + this.innerHTML + ']', (location.protocol + '//' + location.host + this.getAttribute('href'))); return false;" title="<?=GetMessage("F_ANCHOR")?>">#<?=$res["NUMBER"]?></a></noindex><?php 
 				if ($arRes["USER"]["PERMISSION"] >= "Q" && $res["SHOW_CONTROL"] != "N"):
-					?>&nbsp;<input type="checkbox" name="message_id[]" value="<?=$res["ID"]?>" id="message_id_<?=$res["ID"]?>_" <?
+					?>&nbsp;<input type="checkbox" name="message_id[]" value="<?=$res["ID"]?>" id="message_id_<?=$res["ID"]?>_" <?php 
 					if ($res["CHECKED"] == "Y"):
-					?> checked="checked" <?
+					?> checked="checked" <?php 
 					endif;
-						?> onclick="SelectPost(this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode)" /><?
+						?> onclick="SelectPost(this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode)" /><?php 
 				endif;
 					?></div>
-					<?if ($arParams["SHOW_RATING"] == 'Y'):?>
+					<?php if ($arParams["SHOW_RATING"] == 'Y'):?>
 					<div class="forum-post-rating">
-					<?
+					<?php 
 					$voteEntityType = $res['NEW_TOPIC'] == "Y" ? "FORUM_TOPIC" : "FORUM_POST";
 					$voteEntityId = $res['NEW_TOPIC'] == "Y" ? $res['TOPIC_ID'] : $res['ID'];
 					$GLOBALS["APPLICATION"]->IncludeComponent(
@@ -157,12 +157,12 @@ include_once(__DIR__."/script.php");
 						array("HIDE_ICONS" => "Y")
 					);?>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 					<span><?=$res["POST_DATE"]?></span>
 				</div>
 				<div class="forum-post-entry">
 					<div class="forum-post-text" id="message_text_<?=$res["ID"]?>"><?=$res["POST_MESSAGE_TEXT"]?></div>
-<?
+<?php 
 if (!empty($res["FILES"]))
 {
 	$arFilesHTML = array("thumb" => array(), "files" => array());
@@ -198,18 +198,18 @@ if (!empty($res["FILES"]))
 ?>
 					<div class="forum-post-attachments">
 						<label><?=GetMessage("F_ATTACH_FILES")?></label>
-<?
+<?php 
 		if (!empty($arFilesHTML["thumb"]))
 		{
-			?><div class="forum-post-attachment forum-post-attachment-thumb"><fieldset><?=implode("", $arFilesHTML["thumb"])?></fieldset></div><?;
+			?><div class="forum-post-attachment forum-post-attachment-thumb"><fieldset><?=implode("", $arFilesHTML["thumb"])?></fieldset></div><?php ;
 		}
 		if (!empty($arFilesHTML["files"]))
 		{
-			?><div class="forum-post-attachment forum-post-attachment-files"><ul><li><?=implode("</li><li>", $arFilesHTML["files"])?></li></ul></div><?;
+			?><div class="forum-post-attachment forum-post-attachment-files"><ul><li><?=implode("</li><li>", $arFilesHTML["files"])?></li></ul></div><?php ;
 		}
 ?>
 					</div>
-<?
+<?php 
 	}
 }
 				if (is_array($res["PROPS"]))
@@ -224,8 +224,8 @@ if (!empty($res["FILES"]))
 							}
 
 							?><div class="forum-post-userfield"><?=$arPostField["EDIT_FORM_LABEL"]
-								?><?$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:system.field.view", $arPostField["USER_TYPE"]["USER_TYPE_ID"],
-								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?></div><?
+								?><?php $GLOBALS["APPLICATION"]->IncludeComponent("bitrix:system.field.view", $arPostField["USER_TYPE"]["USER_TYPE_ID"],
+								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?></div><?php 
 						}
 					}
 				}
@@ -233,21 +233,21 @@ if (!empty($res["FILES"]))
 				if (!empty($res["EDITOR_NAME"])):
 				?><div class="forum-post-lastedit">
 					<span class="forum-post-lastedit"><?=GetMessage("F_EDIT_HEAD")?>
-						<span class="forum-post-lastedit-user"><?
+						<span class="forum-post-lastedit-user"><?php 
 					if (!empty($res["URL"]["EDITOR"])):
 						?><?=str_replace(array("#URL#", "#NAME#"), array($res["URL"]["EDITOR"], $res["EDITOR_NAME"]), $arParams["USER_TMPL"]);
 					else:
-						?><?=$res["EDITOR_NAME"]?><?
+						?><?=$res["EDITOR_NAME"]?><?php 
 					endif;
 						?></span> - <span class="forum-post-lastedit-date"><?=$res["EDIT_DATE"]?></span>
-<?
+<?php 
 					if (!empty($res["EDIT_REASON"])):
 ?>
 					<span class="forum-post-lastedit-reason">(<span><?=$res["EDIT_REASON"]?></span>)</span>
-<?
+<?php 
 					endif;
 ?>
-				</span></div><?
+				</span></div><?php 
 				endif;
 
 				if (strLen($res["SIGNATURE"]) > 0):
@@ -256,40 +256,40 @@ if (!empty($res["FILES"]))
 						<div class="forum-signature-line"></div>
 						<span><?=$res["SIGNATURE"]?></span>
 					</div>
-<?
+<?php 
 				endif;
 ?>
 				</div>
-<?
+<?php 
 		if ($arRes["USER"]["PERMISSION"] >= "Q"):
 ?>
 				<div class="forum-post-entry forum-user-additional forum-user-moderate-info">
-<?
+<?php 
 			if ($res["IP_IS_DIFFER"] == "Y"):
 ?>
 					<span>IP<?=GetMessage("F_REAL_IP")?>: <span><?=$res["AUTHOR_IP"];?> / <?=$res["AUTHOR_REAL_IP"];?></span></span>
-<?
+<?php 
 			else:
 ?>
 					<span>IP: <span><?=$res["AUTHOR_IP"];?></span></span>
-<?
+<?php 
 			endif;
 			if ($res["PANELS"]["STATISTIC"] == "Y"):
 ?>
-					<span><?=GetMessage("F_USER_ID")?>: <span><a href="/bitrix/admin/guest_list.php?lang=<?=LANG_ADMIN_LID?><?
+					<span><?=GetMessage("F_USER_ID")?>: <span><a href="/bitrix/admin/guest_list.php?lang=<?=LANG_ADMIN_LID?><?php 
 						?>&amp;find_id=<?=$res["GUEST_ID"]?>&amp;set_filter=Y"><?=$res["GUEST_ID"];?></a></span></span>
-<?
+<?php 
 			endif;
 
 			if ($res["PANELS"]["MAIN"] == "Y"):
 ?>
-					<span><?=GetMessage("F_USER_ID_USER")?>: <span><?
+					<span><?=GetMessage("F_USER_ID_USER")?>: <span><?php 
 						?><a href="/bitrix/admin/user_edit.php?lang=<?=LANG_ADMIN_LID?>&amp;ID=<?=$res["AUTHOR_ID"]?>"><?=$res["AUTHOR_ID"];?></a></span></span>
-<?
+<?php 
 			endif;
 ?>
 				</div>
-<?
+<?php 
 		endif;
 ?>
 			</td>
@@ -297,36 +297,36 @@ if (!empty($res["FILES"]))
 		<tr>
 			<td class="forum-cell-contact">
 				<div class="forum-contact-links">
-<?
+<?php 
 		if ($arParams["SHOW_PM"] == "Y" && $res["AUTHOR_ID"] > 0):
 ?>
-			<span class="forum-contact-message"><noindex><a rel="nofollow" href="<?=$res["URL"]["AUTHOR_PM"]?>" title="<?=GetMessage("F_PRIVATE_MESSAGE_TITLE")?>"><?
+			<span class="forum-contact-message"><noindex><a rel="nofollow" href="<?=$res["URL"]["AUTHOR_PM"]?>" title="<?=GetMessage("F_PRIVATE_MESSAGE_TITLE")?>"><?php 
 				?><?=GetMessage("F_PRIVATE_MESSAGE")?></a></noindex></span>&nbsp;&nbsp;
-<?
+<?php 
 		endif;
 		if ($arParams["SHOW_MAIL"] == "Y" && !empty($res["EMAIL"])):
 ?>
-				<span class="forum-contact-email"><noindex><a rel="nofollow" href="<?=$res["URL"]["AUTHOR_EMAIL"]?>" <?
+				<span class="forum-contact-email"><noindex><a rel="nofollow" href="<?=$res["URL"]["AUTHOR_EMAIL"]?>" <?php 
 					?>title="<?=GetMessage("F_EMAIL_TITLE")?>">E-mail</a></noindex></span>&nbsp;&nbsp;
-<?
+<?php 
 		endif;
 		if ($arParams["SHOW_ICQ"] == "Y" && !empty($res["PERSONAL_ICQ"])):
 			$bEmptyCell = false;
 ?>
 			<span class="forum-contact-icq">
 				<noindex><a rel="nofollow" href="javascript:void(0);" onclick="prompt('ICQ', '<?=CUtil::JSEscape($res["PERSONAL_ICQ"])?>')">ICQ</a></noindex></span>
-<?
+<?php 
 		elseif (!($res["AUTHOR_ID"] > 0 && $GLOBALS["USER"]->IsAuthorized())):
 ?>
 				&nbsp;
-<?
+<?php 
 		endif;
 ?>
 				</div>
 			</td>
 			<td class="forum-cell-actions">
 				<div class="forum-action-links">
-<?
+<?php 
 foreach(array("MODERATE", "EDIT", "DELETE") as $k)
 {
 	if (array_key_exists($k, $res["URL"]))
@@ -338,109 +338,109 @@ foreach(array("MODERATE", "EDIT", "DELETE") as $k)
 	if ($res["NEW_TOPIC"] == "Y"):
 		if ($res["PANELS"]["MODERATE"] == "Y" && $arRes["TOPIC"]["APPROVED"] != "Y"):
 ?>
-					<span class="forum-action-show"><noindex><a rel="nofollow" <?
-						?>onclick="return fAddSId(this);" <?
-						?>href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("ACTION=SHOW_TOPIC", array("ACTION", "sessid"))?>"><?
+					<span class="forum-action-show"><noindex><a rel="nofollow" <?php 
+						?>onclick="return fAddSId(this);" <?php 
+						?>href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("ACTION=SHOW_TOPIC", array("ACTION", "sessid"))?>"><?php 
 						?><?=GetMessage("F_SHOW_TOPIC")?></a></noindex></span>
-<?
+<?php 
 		endif;
 		if ($res["PANELS"]["DELETE"] == "Y"):
 ?>
-					&nbsp;&nbsp;<span class="forum-action-delete"><noindex><a rel="nofollow" <?
-						?>onclick="if(confirm(BX.message('cdt'))) return fAddSId(this); else return false;" <?
-						?>href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("ACTION=DEL_TOPIC", array("ACTION", "sessid"))?>" <?
+					&nbsp;&nbsp;<span class="forum-action-delete"><noindex><a rel="nofollow" <?php 
+						?>onclick="if(confirm(BX.message('cdt'))) return fAddSId(this); else return false;" <?php 
+						?>href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("ACTION=DEL_TOPIC", array("ACTION", "sessid"))?>" <?php 
 						?>><?=GetMessage("F_DELETE_TOPIC")?></a></noindex></span>
-<?
+<?php 
 		endif;
 		if ($res["PANELS"]["EDIT"] == "Y" && $arRes["USER"]["PERMISSION"] >= "U"):
 ?>
-					&nbsp;&nbsp;<span class="forum-action-edit"><?
+					&nbsp;&nbsp;<span class="forum-action-edit"><?php 
 						?><noindex><a rel="nofollow" href="<?=$res["URL"]["EDIT"]?>"><?=GetMessage("F_EDIT_TOPIC")?></a></noindex></span>
-<?
+<?php 
 		elseif ($res["PANELS"]["EDIT"] == "Y"):
 ?>
-					&nbsp;&nbsp;<span class="forum-action-edit"><?
+					&nbsp;&nbsp;<span class="forum-action-edit"><?php 
 						?><noindex><a rel="nofollow" href="<?=$res["URL"]["EDIT"]?>"><?=GetMessage("F_EDIT")?></a></noindex></span>
-<?
+<?php 
 		endif;
 	else:
 		if ($res["PANELS"]["MODERATE"] == "Y"):
 			if ($res["APPROVED"] == "Y"):
 ?>
-					<span class="forum-action-hide"><?
-						?><noindex><a rel="nofollow" <?
-							if ($arParams['AJAX_POST'] == 'Y'): ?>onclick="return forumActionComment(this, 'MODERATE');"<?
-							else: ?>onclick="return fAddSId(this);"<? endif;
+					<span class="forum-action-hide"><?php 
+						?><noindex><a rel="nofollow" <?php 
+							if ($arParams['AJAX_POST'] == 'Y'): ?>onclick="return forumActionComment(this, 'MODERATE');"<?php 
+							else: ?>onclick="return fAddSId(this);"<?php  endif;
 							?> href="<?=$res["URL"]["MODERATE"]?>"><?=GetMessage("F_HIDE")?></a></noindex></span>&nbsp;&nbsp;
-<?
+<?php 
 			else:
 ?>
-					<span class="forum-action-show"><?
-						?><noindex><a rel="nofollow" <?
-							if ($arParams['AJAX_POST'] == 'Y'): ?>onclick="return forumActionComment(this, 'MODERATE');"<?
-							else: ?>onclick="return fAddSId(this);"<? endif;
+					<span class="forum-action-show"><?php 
+						?><noindex><a rel="nofollow" <?php 
+							if ($arParams['AJAX_POST'] == 'Y'): ?>onclick="return forumActionComment(this, 'MODERATE');"<?php 
+							else: ?>onclick="return fAddSId(this);"<?php  endif;
 							?> href="<?=$res["URL"]["MODERATE"]?>"><?=GetMessage("F_SHOW")?></a></noindex></span>&nbsp;&nbsp;
-<?
+<?php 
 			endif;
 		endif;
 		if ($res["PANELS"]["DELETE"] == "Y"):
 ?>
-					<span class="forum-action-delete"><?
-						?><noindex><a rel="nofollow" <?
-							if ($arParams['AJAX_POST'] == 'Y'): ?>onclick="return forumActionComment(this, 'DEL');" <?
-							else: ?>onclick="if(confirm(BX.message('cdm'))) return fAddSId(this); else return false;" <? endif;
+					<span class="forum-action-delete"><?php 
+						?><noindex><a rel="nofollow" <?php 
+							if ($arParams['AJAX_POST'] == 'Y'): ?>onclick="return forumActionComment(this, 'DEL');" <?php 
+							else: ?>onclick="if(confirm(BX.message('cdm'))) return fAddSId(this); else return false;" <?php  endif;
 							?> href="<?=$res["URL"]["DELETE"]?>"><?=GetMessage("F_DELETE")?></a></noindex></span>&nbsp;&nbsp;
-<?
+<?php 
 		endif;
 		if ($res["PANELS"]["EDIT"] == "Y"):
 ?>
 					<span class="forum-action-edit"><noindex><a rel="nofollow" href="<?=$res["URL"]["EDIT"]?>"><?=GetMessage("F_EDIT")?></a></noindex></span>&nbsp;&nbsp;
-<?
+<?php 
 		endif;
 		if ($res["PANELS"]["GOTO"] == "Y"):
 	?>
 					<span class="forum-action-edit"><noindex><a rel="nofollow" href="<?=$res["URL"]["MESSAGE"]?>#message<?=$res["ID"]?>"><?=GetMessage("F_GOTO")?></a></noindex></span>&nbsp;&nbsp;
-<?
+<?php 
 		endif;
 endif;
 
 if ($arRes["USER"]["RIGHTS"]["ADD_MESSAGE"] == "Y"):
 	if ($res["NUMBER"] == 1):
-		?>&nbsp;&nbsp;<?
+		?>&nbsp;&nbsp;<?php 
 	endif;
 
 	if ($arRes["FORUM"]["ALLOW_QUOTE"] == "Y"): ?>
-					<span class="forum-action-quote"><a title="<?=GetMessage("F_QUOTE_HINT")?>" href="#postform" <?
-						?> onmousedown="if (window['quoteMessageEx']){quoteMessageEx(<?=$res["ID"]?>)}; return false;"><?
-						?><?=GetMessage("F_QUOTE")?></a></span><?
+					<span class="forum-action-quote"><a title="<?=GetMessage("F_QUOTE_HINT")?>" href="#postform" <?php 
+						?> onmousedown="if (window['quoteMessageEx']){quoteMessageEx(<?=$res["ID"]?>)}; return false;"><?php 
+						?><?=GetMessage("F_QUOTE")?></a></span><?php 
 	endif;
 
 	if ($arRes["FORUM"]["ALLOW_QUOTE"] == "Y" && $arParams["SHOW_NAME_LINK"] == "Y"):
-		?>&nbsp;&nbsp;<?
+		?>&nbsp;&nbsp;<?php 
 	endif;
 
 	if ($arParams["SHOW_NAME_LINK"] == "Y"):?>
-					<span class="forum-action-reply"><a href="#postform" title="<?=GetMessage("F_INSERT_NAME")?>" <?
-						?> onmousedown="if(window['reply2author']){reply2author(<?=$res["ID"]?>);} return false;"><?
-						?><?=GetMessage("F_NAME")?></a></span><?
+					<span class="forum-action-reply"><a href="#postform" title="<?=GetMessage("F_INSERT_NAME")?>" <?php 
+						?> onmousedown="if(window['reply2author']){reply2author(<?=$res["ID"]?>);} return false;"><?php 
+						?><?=GetMessage("F_NAME")?></a></span><?php 
 	endif;
 else:
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 endif;
 ?>
 				</div>
 			</td>
 		</tr>
 	</tbody>
-<?
+<?php 
 if ($iNumber < $iCount || ($iCount == 0)):
 ?>
 </table><!--MSG_END_<?=$res["ID"]?>-->
-<?
+<?php 
 endif;
 
 ?><script type="text/javascript">
-<?
+<?php 
 if ($arRes["USER"]["PERMISSION"] >= "Q" && ForumGetEntity($templateFolder) === false)
 {
 ?>
@@ -455,7 +455,7 @@ window.SelectPost = function(table)
 }
 
 })(window);
-<?
+<?php 
 }
 ?>
 BX.viewElementBind(

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Localization\Loc;
 
@@ -13,7 +13,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 $this->IncludeLangFile();
 ?>
 	<div class="crm-sms-send" id="<?=\CUtil::JSEscape($arResult['containerId']);?>">
-		<?if(!$arResult['canSendMessage'])
+		<?php if(!$arResult['canSendMessage'])
 		{?>
 			<div class="sms-conditions-container">
 				<div class="sms-conditions">
@@ -25,7 +25,7 @@ $this->IncludeLangFile();
 			<div class="new-sms-btn-container">
 				<a href="<?=htmlspecialcharsbx($arResult['SMS_MANAGE_URL'])?>" target="_top" class="new-sms-connect-link"><?=Loc::getMessage("CRM_SMS_MANAGE_URL")?></a>
 			</div>
-		<?}
+		<?php }
 		else
 		{?>
 		<form>
@@ -64,7 +64,7 @@ $this->IncludeLangFile();
 				</div>
 			</div>
 		</form>
-		<?}?>
+		<?php }?>
 	</div>
 	<script>
 		BX.ready(function()

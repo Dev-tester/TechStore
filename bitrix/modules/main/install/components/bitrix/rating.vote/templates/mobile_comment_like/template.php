@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -13,20 +13,20 @@ BX.message({
 	RVCListBack: '<?=GetMessageJS("RATING_COMMENT_LIST_BACK")?>'
 });
 </script>
-<span><div class="post-comment-likes<?=($arResult['USER_HAS_VOTED'] == "N" ? "": "-liked")?><?
+<span><div class="post-comment-likes<?=($arResult['USER_HAS_VOTED'] == "N" ? "": "-liked")?><?php 
 ?><?=(intval($arResult["TOTAL_VOTES"]) > 1
 		|| (
 			intval($arResult["TOTAL_VOTES"]) == 1
 			&& $arResult['USER_HAS_VOTED'] == "N"
-		) ? " post-comment-liked" : "")?>" id="bx-ilike-button-<?=CUtil::JSEscape(htmlspecialcharsbx($arResult['VOTE_ID']))?>"><?
+		) ? " post-comment-liked" : "")?>" id="bx-ilike-button-<?=CUtil::JSEscape(htmlspecialcharsbx($arResult['VOTE_ID']))?>"><?php 
 
 	$like = COption::GetOptionString("main", "rating_text_like_y", GetMessage("RATING_COMMENT_LIKE"));
 
-	?><div class="post-comment-likes-text"><?=htmlspecialcharsEx($like)?></div><?
-	?><div class="post-comment-likes-counter" id="bx-ilike-count-<?=CUtil::JSEscape(htmlspecialcharsbx($arResult['VOTE_ID']))?>"><?
-		?><?=htmlspecialcharsEx($arResult['TOTAL_VOTES'])?><?
-	?></div><?
-?></div></span><?
+	?><div class="post-comment-likes-text"><?=htmlspecialcharsEx($like)?></div><?php 
+	?><div class="post-comment-likes-counter" id="bx-ilike-count-<?=CUtil::JSEscape(htmlspecialcharsbx($arResult['VOTE_ID']))?>"><?php 
+		?><?=htmlspecialcharsEx($arResult['TOTAL_VOTES'])?><?php 
+	?></div><?php 
+?></div></span><?php 
 ?><script type="text/javascript">
 BX.ready(function() {
 	var f = function() {

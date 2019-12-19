@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STORE_BARCODE_ENTITY_ID_FIELD"] = "Идентификатор штрихкода";
 $MESS["STORE_BARCODE_ENTITY_PRODUCT_ID_FIELD"] = "Идентификатор товара";
 $MESS["STORE_BARCODE_ENTITY_BARCODE_FIELD"] = "Штрихкод";

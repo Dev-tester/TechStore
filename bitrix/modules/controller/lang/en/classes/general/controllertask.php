@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_TASK_TYPE_SET_SETTINGS"] = "Propagate group settings";
 $MESS["CTRLR_TASK_TYPE_UPDATE"] = "Update site";
 $MESS["CTRLR_TASK_TYPE_COUNTERS_UPDATE"] = "Update counters";

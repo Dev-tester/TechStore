@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_CONFIG"] = "Send&Save Integration";
 $MESS["CRM_TAB_CONFIG_TITLE"] = "Send&Save integration parameters";
 $MESS["CRM_TAB_CONFIG_TITLE_EDIT"] = "Send&Save E-mail Integration Parameters";

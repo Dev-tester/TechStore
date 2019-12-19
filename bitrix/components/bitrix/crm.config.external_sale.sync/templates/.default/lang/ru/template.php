@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WNCT_2LIST'] = "Список интернет-магазинов";
 $MESS ['BPWC_WNCT_2EDIT'] = "Редактировать";
 $MESS ['BPWC_WNCTS_TAB1'] = "Импорт";

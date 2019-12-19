@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 /** @var CBitrixComponentTemplate $this */
@@ -71,7 +71,7 @@ unset($row);
 if (!$isStExport || $isStExportFirstPage)
 {
 ?>
-<meta http-equiv="Content-type" content="text/html;charset=<? echo LANG_CHARSET ?>"/>
+<meta http-equiv="Content-type" content="text/html;charset=<?php  echo LANG_CHARSET ?>"/>
 <style type="text/css">
 	.report-red-neg-val {
 		color: red;
@@ -80,20 +80,20 @@ if (!$isStExport || $isStExportFirstPage)
 <table border="1">
 <thead>
 <tr>
-	<? foreach ($arResult['viewColumns'] as $colId => $col): ?>
+	<?php  foreach ($arResult['viewColumns'] as $colId => $col): ?>
 		<th><?= htmlspecialcharsbx($col['humanTitle']) ?></th>
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 </tr>
 </thead>
-<tbody><?
+<tbody><?php 
 } // (!$isStExport || $isStExportFirstPage)
 $rowNum = 0;
 foreach ($arResult['data'] as $row)
 {
 	?>
 	<tr>
-		<? $colNum = 0; ?>
-		<? foreach ($arResult['viewColumns'] as $col): ?>
+		<?php  $colNum = 0; ?>
+		<?php  foreach ($arResult['viewColumns'] as $col): ?>
 			<?php
 			$td_class = '';
 			if($arResult['settings']['red_neg_vals'] === true)
@@ -106,16 +106,16 @@ foreach ($arResult['data'] as $row)
 			}
 			?>
 			<td<?= $td_class ?>><?= $row[$col['resultName']] ?></td>
-			<? $colNum++; ?>
-		<? endforeach; ?>
+			<?php  $colNum++; ?>
+		<?php  endforeach; ?>
 	</tr>
-	<?
+	<?php 
 	$rowNum++;
 }
 if (!$isStExport || $isStExportLastPage)
 {
 ?>
 </tbody>
-</table><?
+</table><?php 
 } // !$isStExport || $isStExportLastPage
 unset($redSignMap);

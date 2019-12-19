@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/admin/cat_contractor_list.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/admin/cat_contractor_list.php");?>

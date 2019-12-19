@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global CUser $USER
  * @global CMain $APPLICATION
@@ -254,7 +254,7 @@ $oFilter = new CAdminFilter(
 ?>
 <form name="form1" method="POST" action="<?=$APPLICATION->GetCurPage()?>">
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?$oFilter->Begin();?>
+<?php $oFilter->Begin();?>
 	<tr>
 		<td><?=Loc::getMessage('SALE_DELIVERY_REQ_LIST_F_ID')?>:</td>
 		<td><input type="text" name="find_id" size="40" value="<?= htmlspecialcharsbx($find_name)?>"><?=ShowFilterLogicHelp()?></td>
@@ -263,9 +263,9 @@ $oFilter = new CAdminFilter(
 		<td><?=Loc::getMessage('SALE_DELIVERY_REQ_LIST_F_DELIVERY_ID')?>:</td>
 		<td>
 			<select name="find_delivery_id[]" multiple size="3" class="adm-select-multiple">
-				<?foreach($deliveryList as $deliveryId => $deliveryName):?>
+				<?php foreach($deliveryList as $deliveryId => $deliveryName):?>
 					<option value="<?=$deliveryId?>"<?=(is_array($find_delivery_id) && in_array($deliveryId, $find_delivery_id) ? ' selected' : '')?>><?=htmlspecialcharsbx($deliveryName)?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -292,12 +292,12 @@ $oFilter = new CAdminFilter(
 			?>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"form1"));
 $oFilter->End();
 ?>
 	</form>
-<?
+<?php 
 
 $lAdmin->DisplayList();
 

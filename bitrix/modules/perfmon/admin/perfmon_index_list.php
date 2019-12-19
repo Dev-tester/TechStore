@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -156,9 +156,9 @@ if ($lAdmin->GroupAction())
 		echo $message->Show();
 		?>
 		<script>
-			<?echo $lAdmin->ActionDoGroup(0, "analyze_cont", "last_id=".$last_id);?>
+			<?php echo $lAdmin->ActionDoGroup(0, "analyze_cont", "last_id=".$last_id);?>
 		</script>
-		<?
+		<?php 
 		$lAdmin->EndPrologContent();
 	}
 	else
@@ -404,7 +404,7 @@ CJSCore::Init(array("ajax", "popup"));
 
 		function Analyze()
 		{
-			var url = 'perfmon_index_list.php?lang=<?echo LANGUAGE_ID?>&<?echo bitrix_sessid_get()?>&action=analyze';
+			var url = 'perfmon_index_list.php?lang=<?php echo LANGUAGE_ID?>&<?php echo bitrix_sessid_get()?>&action=analyze';
 			ShowWaitWindow();
 			BX.ajax.post(
 				url,
@@ -418,7 +418,7 @@ CJSCore::Init(array("ajax", "popup"));
 			);
 		}
 	</script>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

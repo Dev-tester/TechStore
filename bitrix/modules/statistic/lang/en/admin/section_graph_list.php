@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_TITLE_PAGE'] = "Page traffic";
 $MESS ['STAT_TITLE_SECTION'] = "Section traffic";
 $MESS ['STAT_HITS'] = "hits";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAT2_AFF_IN"] = "Payment";
 $MESS["SAT2_AFF_ACCT"] = "Payment to internal account";
 $MESS["SAT2_TRANSACT_DATE"] = "Transaction date";

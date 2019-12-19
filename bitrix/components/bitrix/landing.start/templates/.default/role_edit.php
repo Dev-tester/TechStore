@@ -8,7 +8,7 @@ use \Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:landing.role_edit',
 	'.default',
 	array(
@@ -18,7 +18,7 @@ Loc::loadMessages(__FILE__);
 	$component
 );?>
 
-<?if (!$arResult['CHECK_FEATURE_PERM']):?>
+<?php if (!$arResult['CHECK_FEATURE_PERM']):?>
 	<script type="text/javascript">
 		BX.ready(function()
 		{
@@ -53,4 +53,4 @@ Loc::loadMessages(__FILE__);
 			disableFunc();
 		});
 	</script>
-<?endif;?>
+<?php endif;?>

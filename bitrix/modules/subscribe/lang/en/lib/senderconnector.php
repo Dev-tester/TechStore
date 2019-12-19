@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_subscriber_name"] = "Subscription module - Subscribers";
 $MESS["sender_connector_subscriber_all"] = "Any";
 $MESS["sender_connector_subscriber_y"] = "Yes";

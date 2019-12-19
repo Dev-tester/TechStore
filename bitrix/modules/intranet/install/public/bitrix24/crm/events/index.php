@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/crm/events/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:crm.event.view",
 	"",
 	Array(
@@ -16,4 +16,4 @@ $APPLICATION->SetTitle(GetMessage("TITLE"));
 		"PATH_TO_LEAD_SHOW" => "/crm/lead/show/#lead_id#/",
 		"PATH_TO_USER_PROFILE" => "/company/personal/user/#user_id#/"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LOC_IMP_TITLE"] = "Import Locations";
 $MESS["CRM_IMPORT_BUTTON"] = "Import";
 $MESS["CRM_LOC_IMP_CHOOSE_FILE"] = "Select location definition file";

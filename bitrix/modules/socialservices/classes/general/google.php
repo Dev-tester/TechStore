@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Web\HttpClient;
 
 IncludeModuleLangFile(__FILE__);

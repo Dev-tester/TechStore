@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["C_CRM_LFA_TASKS_TITLE_CREATE_M"] = "#USER_NAME# created a task #TITLE#";
 $MESS["C_CRM_LFA_TASKS_TITLE_CREATE_F"] = "#USER_NAME# created a task #TITLE#";
 $MESS["C_CRM_LFA_TASKS_TITLE_CREATE"] = "#USER_NAME# created a task #TITLE#";

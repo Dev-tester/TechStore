@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $frame = $this->createFrame()->begin(false);
 ?>
 <!-- Bitrix24.LiveChat external config -->
@@ -16,7 +16,7 @@ $frame = $this->createFrame()->begin(false);
 			config.firstMessage.replace('#VAR_HOST#', location.hostname).replace('#VAR_PAGE#', '[url='+location.href+']'+(document.title || location.href)+'[/url]')
 		);
 
-	<?if ($arResult['GA_MARK']):?>
+	<?php if ($arResult['GA_MARK']):?>
 		widget.subscribe({
 			type: BX.LiveChatWidget.SubscriptionType.userMessage,
 			callback: function(data)
@@ -28,11 +28,11 @@ $frame = $this->createFrame()->begin(false);
 				dataLayer.push({'event': '<?=$arResult['GA_MARK']?>'});
 			}
 		});
-	<?endif;?>
+	<?php endif;?>
 
 	});
 </script>
 <!-- /Bitrix24.LiveChat external config -->
-<?
+<?php 
 $frame->end();
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_WS_SALE_LF_TITLE"] = "Order Statistics";
 $MESS["BX_WS_SALE_STATUS_1_CREATED"] = "Created";
 $MESS["BX_WS_SALE_STATUS_1_PAID"] = "Paid";

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CLightHTMLEditor // LHE
 {
@@ -199,15 +199,15 @@ class CLightHTMLEditor // LHE
 
 		$editorCellHeight = ($heightUnit == "px" && $height > 50 ? "height:".($height - 27 - ($this->bResizable ? 3 : 0))."px" : "");
 		?>
-		<?/* <img src="/bitrix/images/1.gif" width="300" height="1" id="bxlhe_ww_<?=$this->Id?>" />*/?>
+		<?php /* <img src="/bitrix/images/1.gif" width="300" height="1" id="bxlhe_ww_<?=$this->Id?>" />*/?>
 <div class="bxlhe-frame" id="bxlhe_frame_<?=$this->Id?>" style="width:<?=$width.$widthUnit?>; height:<?=$height.$heightUnit?>;"><table class="bxlhe-frame-table" cellspacing="0" style="height:<?=$height.$heightUnit?>; width: 100%;">
 		<tr class="bxlhe-editor-toolbar-row"><td class="bxlhe-editor-buttons" style="height:27px;"><div class="lhe-stat-toolbar-cont lhe-stat-toolbar-cont-preload"></div></td></tr>
 		<tr><td class="bxlhe-editor-cell" style="<?=$editorCellHeight?>"></td></tr>
-		<?if ($this->bResizable):?>
+		<?php if ($this->bResizable):?>
 		<tr><td class="lhe-resize-row" style="height: 3px;"><img id="bxlhe_resize_<?=$this->Id?>" src="/bitrix/images/1.gif"/></td></tr>
-		<?endif;?>
+		<?php endif;?>
 </table></div>
-		<?
+		<?php 
 	}
 
 	function InitScripts()
@@ -239,11 +239,11 @@ class CLightHTMLEditor // LHE
 				if (!window.JCLightHTMLEditor)
 					return setTimeout(_lheScriptloaded, 10);
 
-				<?if (!empty($scripts)):?>
+				<?php if (!empty($scripts)):?>
 				// User's customization scripts here
 				try{<?= $scripts?>}
 				catch(e){alert('Errors in customization scripts! ' + e);}
-				<?endif;?>
+				<?php endif;?>
 
 				if (
 					<?= ($this->bRecreate ? 'true' : 'false')?> ||
@@ -259,9 +259,9 @@ class CLightHTMLEditor // LHE
 			if (!window.JCLightHTMLEditor)
 			{
 				BX.loadCSS("<?=$this->GetActualPath($this->cssPath)?>");
-				<?if (!empty($this->mess)):?>
+				<?php if (!empty($this->mess)):?>
 				LHE_MESS = window.LHE_MESS = "<?=CUtil::PhpToJSObject($this->messOld)?>"; (window.BX||top.BX).message(<?=CUtil::PhpToJSObject($this->mess, false)?>);
-				<?endif?>
+				<?php endif?>
 				BX.loadScript([<?=$loadScript?>], _lheScriptloaded);
 			}
 			else
@@ -270,11 +270,11 @@ class CLightHTMLEditor // LHE
 			}
 		}
 
-		<?if(!$this->bInitByJS):?>
+		<?php if(!$this->bInitByJS):?>
 			BX.ready(function(){LoadLHE_<?=$this->Id?>();});
-		<?endif;?>
+		<?php endif;?>
 
-		</script><?
+		</script><?php 
 	}
 
 	function InitFileDialogs()

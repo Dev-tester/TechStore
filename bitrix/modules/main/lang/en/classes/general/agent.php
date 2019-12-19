@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AGENT_ERROR_NAME"] = "Incorrect agent function is specified!";
 $MESS["MAIN_AGENT_ERROR_NEXT_EXEC"] = "Incorrect date of the next agent run is specified!";
 $MESS["MAIN_AGENT_ERROR_LAST_EXEC"] = "Incorrect date of the last agent run is specified!";

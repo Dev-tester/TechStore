@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Iblock\Helpers\Filter;
 
 use Bitrix\Main\Loader,

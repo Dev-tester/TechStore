@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_admin_before.php");
 
 /**
@@ -514,7 +514,7 @@ function updateCampaign(btn, campaignId)
 	});
 }
 </script>
-<?
+<?php 
 require_once("tab/seo_search_yandex_direct_auth.php");
 
 if(isset($seoproxyAuthError))

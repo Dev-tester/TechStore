@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Tasks\Util;
 use Bitrix\Tasks\Util\Type\ArrayOption;
 use Bitrix\Tasks\Util\Type\StructureChecker;

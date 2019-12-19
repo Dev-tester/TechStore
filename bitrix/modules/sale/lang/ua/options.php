@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ARCHIVE_BLOCKED_ORDER_ACCEPT"] = "Дозволити архівування заблокованих замовлень";
 $MESS["BX_SALE_SETTINGS_OPTION_DISCOUNT_APPLY_MODE"] = "Взаємодія правил кошика зі знижками інших модулів";
 $MESS["BX_SALE_SETTINGS_OPTION_PERCENT_FROM_BASE_PRICE"] = "Відсоткова знижка/націнка розраховується для повної ціни товару";

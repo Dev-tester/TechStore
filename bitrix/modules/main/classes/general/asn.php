@@ -1,4 +1,4 @@
-<?
+<?php 
 class CASNReader
 {
 	protected $value;

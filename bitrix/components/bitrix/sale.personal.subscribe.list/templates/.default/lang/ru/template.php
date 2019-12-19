@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STPSL_PRODUCT"]="Товар";
 $MESS["STPSL_PERIOD_TYPE"]="Тип <br />периода <br />оплаты";
 $MESS["STPSL_PERIOD_BETW"]="Периодов <br />между <br />оплатами";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $link = str_replace(
 	array("#list_id#"),
@@ -18,7 +18,7 @@ if($isBitrix24Template)
 		<?=GetMessage("CT_BL_LIST_PROCESSES")?>
 	</a>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();
@@ -26,7 +26,7 @@ if($isBitrix24Template)
 
 ?>
 	<div style="background: #eef2f4; width: 600px; padding: 5px 20px;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent('bitrix:bizproc.workflow.setconstants', '',
 			array('ID' => $arResult['VARIABLES']['ID'], 'POPUP' => 'N'),
 			$component,

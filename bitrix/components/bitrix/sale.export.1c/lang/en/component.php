@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BSC1_ERROR_AUTHORIZE"] = "Authorization error. Wrong login or password.";
 $MESS["CC_BSC1_PERMISSION_DENIED"] = "You haven't rights for exchange. Check settings of component.";
 $MESS["CC_BSC1_ERROR_MODULE"] = "E-Store module is not installed.";

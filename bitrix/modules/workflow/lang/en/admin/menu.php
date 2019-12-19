@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLOW_MENU_MAIN'] = "Workflow";
 $MESS ['FLOW_MENU_DOCUMENTS'] = "Documents";
 $MESS ['FLOW_MENU_DOCUMENTS_ALT'] = "Documents in workflow processing";

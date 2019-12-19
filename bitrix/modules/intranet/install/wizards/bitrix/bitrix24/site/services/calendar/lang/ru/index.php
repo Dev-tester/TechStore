@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAL_TYPE_USER_NAME"] = "Календари пользователей";
 $MESS["CAL_TYPE_GROUP_NAME"] = "Календари групп";
 $MESS["W_IB_CALENDAR_EMP_ABS"] = "Встреча с заказчиком у него в офисе";

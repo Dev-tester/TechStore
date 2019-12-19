@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 
@@ -115,9 +115,9 @@ $lAdmin->CheckListMode();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_admin.php");
 
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<input type="hidden" name="ID" value="<?echo $ID?>">
-<?
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<input type="hidden" name="ID" value="<?php echo $ID?>">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array()
@@ -128,7 +128,7 @@ $oFilter->Begin();
 <tr>
 	<td><?=GetMessage("POST_STATUS_ID")?>:</td>
 	<td>
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("POST_STATUS_ID_ERROR"),
@@ -143,12 +143,12 @@ $oFilter->Begin();
 		?>
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLOW_DOCUMENT_LIST'] = "Список документов";
 $MESS ['FLOW_RECORD_NOT_FOUND'] = "Неверный ID записи, либо запись не найдена";
 $MESS ['FLOW_PAGE_TITLE'] = "Запись # #ID#";

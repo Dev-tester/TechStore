@@ -5,7 +5,7 @@ var CODE_open = 0;
 var B_open = 0;
 var I_open = 0;
 var U_open = 0;
-<? $hkInst=CHotKeys::getInstance(); ?>
+<?php  $hkInst=CHotKeys::getInstance(); ?>
 var QUOTE_title = "<?=GetMessage("SUP_QUOTE").$hkInst->GetTitle("TICKET_EDIT_QUOTE_T")?>";
 var CODE_title = "<?=GetMessage("SUP_CODE").$hkInst->GetTitle("TICKET_EDIT_CODE_T")?>";
 var B_title = "<?=GetMessage("SUP_B")?>";

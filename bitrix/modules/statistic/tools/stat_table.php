@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CCityLookup_stat_table extends CCityLookup

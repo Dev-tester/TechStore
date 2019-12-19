@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_FIELD_ACTIVE"] = "Active";
 $MESS["LANDING_TABLE_FIELD_DOMAIN"] = "Domain";
 $MESS["LANDING_TABLE_FIELD_XML_ID"] = "External ID";

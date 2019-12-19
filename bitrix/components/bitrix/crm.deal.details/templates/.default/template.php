@@ -20,7 +20,7 @@ if(isset($arResult['LEGEND']))
 	$this->SetViewTarget('crm_details_legend');
 	?><a href="#" onclick="BX.Crm.DealCategoryChanger.processEntity(<?=$arResult['ENTITY_ID']?>,{ usePopupMenu: true, anchor: this }); return false;">
 		<?=htmlspecialcharsbx($arResult['LEGEND'])?>
-	</a><?
+	</a><?php 
 	$this->EndViewTarget();
 }
 //endregion
@@ -74,7 +74,7 @@ $APPLICATION->IncludeComponent(
 		"CRM_TIMELINE_HISTORY_STUB": "<?=GetMessageJS('CRM_DEAL_DETAIL_HISTORY_STUB')?>",
 	});
 
-	<? if($arResult['ENTITY_ID'] > 0): ?>
+	<?php  if($arResult['ENTITY_ID'] > 0): ?>
 			new BX.CrmScoringButton({
 				mlInstalled: <?= (\Bitrix\Crm\Ml\Scoring::isMlAvailable() ? 'true' : 'false')?>,
 				scoringEnabled: <?= (\Bitrix\Crm\Ml\Scoring::isEnabled() ? 'true' : 'false')?>,
@@ -83,8 +83,8 @@ $APPLICATION->IncludeComponent(
 				entityId: <?= (int)$arResult['ENTITY_ID']?>,
 				isFinal: <?= $arResult['IS_STAGE_FINAL'] ? 'true' : 'false' ?>,
 			});
-	<? endif; ?>
-</script><?
+	<?php  endif; ?>
+</script><?php 
 
 $editorContext = array('PARAMS' => $arResult['CONTEXT_PARAMS']);
 if(isset($arResult['ORIGIN_ID']) && $arResult['ORIGIN_ID'] !== '')
@@ -182,5 +182,5 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 				BX.onCustomEvent(window, "BX.CrmEntityConverter:applyPermissions", [BX.CrmEntityType.names.deal]);
 			}
 		);
-	</script><?
+	</script><?php 
 endif;

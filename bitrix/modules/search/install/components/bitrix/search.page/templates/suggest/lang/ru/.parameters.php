@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BSP_SHOW_RATING"] = "Включить рейтинг";
 $MESS["TP_BSP_SHOW_RATING_CONFIG"] = "по умолчанию";
 $MESS["TP_BSP_RATING_TYPE"] = "Вид кнопок рейтинга";

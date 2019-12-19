@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 \Bitrix\Main\Loader::includeModule('sale');
@@ -277,8 +277,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("SAP1_RATE_PLANS"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -289,20 +289,20 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SAP1_SITE1")?></td>
-		<td><?echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAP1_ALL")) ?></td>
+		<td><?php echo GetMessage("SAP1_SITE1")?></td>
+		<td><?php echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAP1_ALL")) ?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAP1_ACTIVE1")?></td>
+		<td><?php echo GetMessage("SAP1_ACTIVE1")?></td>
 		<td>
 			<select name="filter_active">
 				<option value=""><?= htmlspecialcharsex(GetMessage("SAP1_ALL")); ?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAP1_YES")) ?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAP1_NO")) ?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAP1_YES")) ?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAP1_NO")) ?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -314,13 +314,13 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 echo BeginNote();
 ?>
-<?echo GetMessage("SAP1_NOTE1")?>
-<?
+<?php echo GetMessage("SAP1_NOTE1")?>
+<?php 
 echo EndNote();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

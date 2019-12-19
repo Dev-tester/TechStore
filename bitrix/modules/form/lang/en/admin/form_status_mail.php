@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_CHANGE_STATUS_S'] = "#SERVER_NAME#: Status of request ?#RS_RESULT_ID# has been changed to [#RS_STATUS_NAME#] (#RS_FORM_NAME#)";
 $MESS ['FORM_CHANGE_STATUS_B'] = "Hello #RS_USER_NAME#! 
 Status of request ?#RS_RESULT_ID# has been changed to [#RS_STATUS_NAME#] (#RS_FORM_NAME#) #SERVER_NAME#

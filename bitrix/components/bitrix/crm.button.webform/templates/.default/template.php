@@ -37,18 +37,18 @@ use Bitrix\Main\Localization\Loc;
 
 			<div class="bx-crm-widget-form-config-sidebar-chat-container">
 				<div class="bx-crm-widget-form-config-sidebar-chat-border"></div>
-				<?if ($arResult['REMOVE_COPYRIGHT'] != 'Y'):?>
+				<?php if ($arResult['REMOVE_COPYRIGHT'] != 'Y'):?>
 				<div class="bx-crm-widget-form-config-sidebar-logo">
 					<a target="_blank" href="<?=htmlspecialcharsbx($arResult['REF_LINK'])?>">
 						<span class="bx-crm-widget-form-config-sidebar-logo-text"><?=Loc::getMessage('CRM_BUTTON_WEBFORM_WIDGET_LOGO_TEXT')?></span>
 						<span class="bx-crm-widget-form-config-sidebar-logo-bx"><?=Loc::getMessage('CRM_BUTTON_WEBFORM_WIDGET_LOGO_BITRIX')?></span>
 						<span class="bx-crm-widget-form-config-sidebar-logo-24">24</span>
-						<?if(!in_array(LANGUAGE_ID, array('ru', 'ua', 'kz', 'by'))):?>
+						<?php if(!in_array(LANGUAGE_ID, array('ru', 'ua', 'kz', 'by'))):?>
 							<span class="bx-crm-widget-form-config-sidebar-logo-text">, #1 Free CRM</span>
-						<?endif;?>
+						<?php endif;?>
 					</a>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>

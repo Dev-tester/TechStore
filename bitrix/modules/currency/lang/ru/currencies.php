@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["currency_err1"] = "Ошибка удаления валюты.";
 $MESS["currency_err2"] = "Все поля должны быть заполнены!";
 $MESS["currency_err3_1"] = "Валюта";

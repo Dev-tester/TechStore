@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADV_JSSOR_PARAMETER_NO'] = "(не установлено)";
 $MESS ['ADV_JSSOR_PARAMETER_IMG'] = "Изображение слайда";
 $MESS ['ADV_JSSOR_PARAMETER_LINK_URL'] = "Ссылка слайда";

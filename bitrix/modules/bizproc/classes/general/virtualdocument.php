@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Bizproc\FieldType;
 use Bitrix\Iblock\BizprocType;
@@ -195,7 +195,7 @@ class CBPVirtualDocument
 			$fieldValueTmp = $fieldValue;
 			?>
 			<select id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>" name="<?= htmlspecialcharsbx($arFieldName["Field"]).($arFieldType["Multiple"] ? "[]" : "") ?>"<?= ($arFieldType["Multiple"] ? ' size="5" multiple' : '') ?>>
-				<?
+				<?php 
 				if (!$arFieldType["Required"])
 					echo '<option value="">['.GetMessage("BPVDX_NOT_SET").']</option>';
 				foreach ($arFieldType["Options"] as $k => $v)
@@ -214,17 +214,17 @@ class CBPVirtualDocument
 				}
 				?>
 			</select>
-			<?
+			<?php 
 			if ($bAllowSelection)
 			{
 				?>
-				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?
+				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?php 
 				if (count($fieldValueTmp) > 0)
 				{
 					$a = array_values($fieldValueTmp);
 					echo htmlspecialcharsbx($a[0]);
 				}
-				?>"><?
+				?>"><?php 
 				echo CBPHelper::renderControlSelectorButton('id_'.$arFieldName["Field"].'_text', 'select');
 			}
 		}
@@ -232,7 +232,7 @@ class CBPVirtualDocument
 		{
 			$fieldValue = CBPHelper::UsersArrayToString($fieldValue, null, array("bizproc", "CBPVirtualDocument", $documentType));
 			?><input type="text" size="40" style="max-width: 85%" id="id_<?= $arFieldName["Field"] ?>" name="<?= $arFieldName["Field"] ?>" value="<?= htmlspecialcharsbx($fieldValue) ?>">
-			<? echo CBPHelper::renderControlSelectorButton('id_'.$arFieldName["Field"], 'user');
+			<?php  echo CBPHelper::renderControlSelectorButton('id_'.$arFieldName["Field"], 'user');
 		}
 		elseif ((strpos($arFieldType["Type"], ":") !== false)
 			&& $arFieldType["Multiple"]
@@ -305,13 +305,13 @@ class CBPVirtualDocument
 			if ($bAllowSelection)
 			{
 				?>
-				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?
+				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?php 
 				if (count($fieldValueTmp1) > 0)
 				{
 					$a = array_values($fieldValueTmp1);
 					echo htmlspecialcharsbx($a[0]);
 				}
-				?>"><?
+				?>"><?php 
 				echo CBPHelper::renderControlSelectorButton(
 					'id_'.$arFieldName["Field"].'_text',
 					$arFieldType["BaseType"],
@@ -377,7 +377,7 @@ class CBPVirtualDocument
 				}
 				//-->
 				</script>
-				<?
+				<?php 
 			}
 
 			if ($arFieldType["Multiple"])
@@ -428,13 +428,13 @@ class CBPVirtualDocument
 					{
 						case "N":
 							unset($fieldValueTmp[$key]);
-							?><input type="text" size="10" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?
+							?><input type="text" size="10" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 							break;
 						case "F":
 							if ($publicMode)
 							{
 								//unset($fieldValueTmp[$key]);
-								?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?
+								?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?php 
 							}
 							break;
 						case "B":
@@ -442,22 +442,22 @@ class CBPVirtualDocument
 								unset($fieldValueTmp[$key]);
 							?>
 							<select id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>">
-								<?
+								<?php 
 								if (!$arFieldType["Required"])
 									echo '<option value="">['.GetMessage("BPVDX_NOT_SET").']</option>';
 								?>
 								<option value="Y"<?= (in_array("Y", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPVDX_YES") ?></option>
 								<option value="N"<?= (in_array("N", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPVDX_NO") ?></option>
 							</select>
-							<?
+							<?php 
 							break;
 						case "T":
 							unset($fieldValueTmp[$key]);
-							?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?
+							?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?php 
 							break;
 						default:
 							unset($fieldValueTmp[$key]);
-							?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?
+							?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 					}
 				}
 
@@ -484,13 +484,13 @@ class CBPVirtualDocument
 				if (in_array($arFieldType["Type"], array("F", "B")) || (is_array($customMethodName) && count($customMethodName) > 0 || !is_array($customMethodName) && strlen($customMethodName) > 0))
 				{
 					?>
-					<input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?
+					<input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?php 
 					if (count($fieldValueTmp) > 0)
 					{
 						$a = array_values($fieldValueTmp);
 						echo htmlspecialcharsbx($a[0]);
 					}
-					?>"><?
+					?>"><?php 
 					echo CBPHelper::renderControlSelectorButton(
 						'id_'.$arFieldName["Field"].'_text',
 						$arFieldType["BaseType"],
@@ -2241,7 +2241,7 @@ class CBPVirtualDocument
 			return s;
 		}
 		</script>
-		<?
+		<?php 
 
 		$str = ob_get_contents();
 		ob_end_clean();

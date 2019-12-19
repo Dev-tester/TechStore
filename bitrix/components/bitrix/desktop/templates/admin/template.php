@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (
@@ -22,7 +22,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 	var langGDError2 = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_ERR2"))?>';
 	var langGDConfirm1 = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CONF"))?>';
 	var langGDClearConfirm = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CLEAR_CONF"))?>';
-	var langGDCancel = "<?echo CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CANCEL"))?>";
+	var langGDCancel = "<?php echo CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CANCEL"))?>";
 	
 	BX.message({
 			langGDSettingsDialogTitle: '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_SETTINGS_DIALOG_TITLE"))?>',
@@ -31,7 +31,7 @@ if(!defined("BX_GADGET_DEFAULT"))
 			langGDGadgetSettingsDialogTitle: '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_GADGET_SETTINGS_DIALOG_TITLE"))?>'
 	});
 	</script>
-	<?
+	<?php 
 
 	if ($arParams["MULTIPLE"] == "Y")
 	{
@@ -40,14 +40,14 @@ if(!defined("BX_GADGET_DEFAULT"))
 		var desktopPage = '<?=CUtil::JSEscape(htmlspecialcharsback($arParams["DESKTOP_PAGE"]))?>';
 		var desktopBackurl = '<?=CUtil::JSEscape(htmlspecialcharsback($GLOBALS["APPLICATION"]->GetCurPageParam("", array("dt_page"))))?>';
 		</script>
-		<?
+		<?php 
 	}
 
 	if($arResult["PERMISSION"] > "R"):?>
 		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script>
 		<script type="text/javascript" src="/bitrix/components/bitrix/desktop/templates/admin/script_admin.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/templates/admin/script_admin.js');?>"></script>	
-	<?endif?>
-	<?
+	<?php endif?>
+	<?php 
 }
 
 if($arResult["PERMISSION"] > "R"):
@@ -146,20 +146,20 @@ if($arResult["PERMISSION"] > "R"):
 		var arGDGroups = <?=CUtil::PhpToJSObject($arResult["GROUPS"])?>;
 		new BX.AdminGadget('<?=$arResult["ID"]?>', <?=CUtil::PhpToJSObject($allGD)?>);
 	</script>
-	<div class="bx-gadgets-header"><?
+	<div class="bx-gadgets-header"><?php 
 		if (array_key_exists($arParams["DESKTOP_PAGE"], $arResult["DESKTOPS"]))
 		{
 			$title = (strlen($arResult["DESKTOPS"][$arParams["DESKTOP_PAGE"]]["NAME"]) > 0 ? $arResult["DESKTOPS"][$arParams["DESKTOP_PAGE"]]["NAME"] : str_replace("#NUM#", intval($arParams["DESKTOP_PAGE"] + 1), GetMessage("CMDESKTOP_TDEF_ADMIN_TITLE_DEFAULT")));
 			$title = str_replace("#TITLE#", $title, GetMessage("CMDESKTOP_TDEF_ADMIN_TITLE"));
-			?><h1 id="adm-title" class="adm-title" id=""><?=htmlspecialcharsbx($title)?></h1><?
+			?><h1 id="adm-title" class="adm-title" id=""><?=htmlspecialcharsbx($title)?></h1><?php 
 		}
 
-		?><div class="bx-gadgets-buttons"><?
+		?><div class="bx-gadgets-buttons"><?php 
 			$mContext->Button($arGadgetsButton, CHotKeys::getInstance());
 			$mContext->Button($arSettingsButton, CHotKeys::getInstance());
 		?></div>
 	</div>
-	<?
+	<?php 
 endif;
 ?>
 <form action="<?=POST_FORM_ACTION_URI?>" method="POST" id="GDHolderForm_<?=$arResult["ID"]?>">
@@ -173,23 +173,23 @@ endif;
 <table class="gadgetholder" cellspacing="0" cellpadding="0" width="100%" id="GDHolder_<?=$arResult["ID"]?>">
 	<tbody>
 	<tr>
-	<?for($i=0; $i<$arResult["COLS"]; $i++):?>
-		<?if($i==0):?>
+	<?php for($i=0; $i<$arResult["COLS"]; $i++):?>
+		<?php if($i==0):?>
 			<td class="gd-page-column<?=$i?>" valign="top" width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s0">
-		<?elseif($i==$arResult["COLS"]-1):?>
+		<?php elseif($i==$arResult["COLS"]-1):?>
 			<td width="20">
 				<div style="WIDTH: 20px"></div>
 				<br />
 			</td>
 			<td class="gd-page-column<?=$i?>" valign="top" width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s2">
-		<?else:?>
+		<?php else:?>
 			<td width="20">
 				<div style="WIDTH: 20px"></div>
 				<br />
 			</td>
 			<td class="gd-page-column<?=$i?>" valign="top"  width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s1">
-		<?endif?>
-		<?foreach($arResult["GADGETS"][$i] as $arGadget):
+		<?php endif?>
+		<?php foreach($arResult["GADGETS"][$i] as $arGadget):
 			$bChangable = true;
 			if (
 				(
@@ -210,14 +210,14 @@ endif;
 			{
 				?><div class="bx-gadgets-colourful bx-gadgets<?=(strlen($arGadget["TITLE_ICON_CLASS"]) > 0 ? " ".$arGadget["TITLE_ICON_CLASS"] : "")?>" id="t<?=$arGadget["ID"]?>">
 					<div class="bx-gadgets-content">
-						<?=$arGadget["CONTENT"]?><?
+						<?=$arGadget["CONTENT"]?><?php 
 						if ($bChangable)
 						{
-							?><a href="javascript:void(0)" class="bx-gadgets-color-config-close" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_DELETE")?>"></a><?
+							?><a href="javascript:void(0)" class="bx-gadgets-color-config-close" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_DELETE")?>"></a><?php 
 						}
-						?><div class="bx-gadgets-side" style="cursor:move;" onmousedown="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arGadget["ID"]?>', event)"></div><?
+						?><div class="bx-gadgets-side" style="cursor:move;" onmousedown="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arGadget["ID"]?>', event)"></div><?php 
 					?></div>
-				</div><?
+				</div><?php 
 			}
 			else
 			{
@@ -225,22 +225,22 @@ endif;
 					<div class="bx-gadgets-top-wrap" onmousedown="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arGadget["ID"]?>', event)">
 						<div class="bx-gadgets-top-center">
 							<div class="bx-gadgets-top-title"><?=$arGadget["TITLE"]?></div>
-							<div class="bx-gadgets-top-button"><?
+							<div class="bx-gadgets-top-button"><?php 
 								if ($bChangable):
 									?><a class="bx-gadgets-config<?=($arGadget["NOPARAMS"]?' bx-gadgets-noparams':'')?>" href="javascript:void(0)" onclick="return getAdminGadgetHolder('<?=AddSlashes($arResult["ID"])?>').ShowSettings('<?=$arGadget["ID"]?>', '<?=CUtil::JSEscape($arGadget["TITLE"])?>');" title="<?=GetMessage("CMDESKTOP_TDEF_SETTINGS")?>"></a>
-									<a class="bx-gadgets-config-close" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_DELETE")?>"></a><?
+									<a class="bx-gadgets-config-close" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_DELETE")?>"></a><?php 
 								endif;
 							?></div>
 						</div>
 					</div>
 					<div class="bx-gadgets-content"><?=$arGadget["CONTENT"]?></div>
-				</div><?
+				</div><?php 
 			}
 			
 			?><div style="display:none; border:1px #404040 dashed; margin-bottom:8px;" id="d<?=$arGadget["ID"]?>"></div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</td>
-	<?endfor;?>
+	<?php endfor;?>
 	</tr>
 	</tbody>
 </table>

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Copy;
 
 use Bitrix\Main\Copy\Copyable;

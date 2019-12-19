@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GENERAL_GROUP_NAME"] = "Allgemeine Foren";
 $MESS["COMMENTS_GROUP_NAME"] = "Foren fьr Kommentare";
 $MESS["HIDDEN_GROUP_NAME"] = "Versteckte Foren";

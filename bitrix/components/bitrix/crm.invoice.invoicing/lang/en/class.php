@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_ACCOUNT_NUMBER"] = "Invoice #";
 $MESS["CRM_COLUMN_DATE_CHARGE"] = "Submitted on";
 $MESS["CRM_COLUMN_PRICE"] = "Amount";

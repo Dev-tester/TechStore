@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use \Bitrix\Main\Localization\Loc;
 
 $APPLICATION->SetPageProperty('BodyClass', $APPLICATION->GetPageProperty('BodyClass').' pagetitle-toolbar-field-view calendar-pagetitle-view');
@@ -17,9 +17,9 @@ if (!isset($arParams['ID']))
 $arParams['ID'] = preg_replace("/[^a-zA-Z0-9_-]/i", "", $arParams['ID']);
 ?>
 
-<? if ($arParams["SHOW_FILTER"]):?>
+<?php  if ($arParams["SHOW_FILTER"]):?>
 	<div id="<?= $arParams['ID']?>-search-container" class="pagetitle-container pagetitle-flexible-space<?= $isBitrix24Template ? '' : ' calendar-default-search-wrap' ?>">
-	<?
+	<?php 
 	// Reset filter to default state
 	$filterOption = new \Bitrix\Main\UI\Filter\Options($arParams["FILTER_ID"]);
 	$filterOption->reset();
@@ -41,9 +41,9 @@ $arParams['ID'] = preg_replace("/[^a-zA-Z0-9_-]/i", "", $arParams['ID']);
 	);
 	?>
 </div>
-<? endif;?>
+<?php  endif;?>
 <div id="<?= $arParams['ID']?>-buttons-container" class="pagetitle-container pagetitle-align-right-container<?= $isBitrix24Template ? '' : ' calendar-default-buttons-container' ?>"></div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();
@@ -51,21 +51,21 @@ if($isBitrix24Template)
 }
 ?>
 
-<? if ($arParams["SHOW_FILTER"]):?>
+<?php  if ($arParams["SHOW_FILTER"]):?>
 	<div id="<?= $arParams['ID']?>-counter-container" class="pagetitle-container" style="overflow: hidden;"></div>
-<? endif;?>
+<?php  endif;?>
 
-<? if ($arParams["SHOW_TOP_VIEW_SWITCHER"]):?>
+<?php  if ($arParams["SHOW_TOP_VIEW_SWITCHER"]):?>
 <div id="<?= $arParams['ID']?>-view-switcher-container" class="calendar-view-switcher pagetitle-align-right-container"></div>
-<? endif;?>
-<?
+<?php  endif;?>
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();
 }
 ?>
 
-<?
+<?php 
 $stepperHtml = \Bitrix\Main\Update\Stepper::getHtml(["calendar" => ['Bitrix\Calendar\Update\IndexCalendar']],
 \Bitrix\Main\Localization\Loc::getMessage("EC_CALENDAR_INDEX"));
 if ($stepperHtml)
@@ -80,7 +80,7 @@ if ($stepperHtml = \Bitrix\Main\Update\Stepper::getHtml(["calendar" => ['Bitrix\
 }
 ?>
 
-<?
+<?php 
 $currentUserId = CCalendar::GetCurUserId();
 $config = array(
 	'id' => $arParams['ID'],
@@ -207,8 +207,8 @@ if ($arParams["SET_TITLE"] == "Y" || ($bOwner && $arParams["SET_NAV_CHAIN"] == "
 }
 ?>
 
-<?$spotlight = new \Bitrix\Main\UI\Spotlight("CALENDAR_NEW_SYNC");?>
-<?if(!$spotlight->isViewed(CCalendar::GetCurUserId()))
+<?php $spotlight = new \Bitrix\Main\UI\Spotlight("CALENDAR_NEW_SYNC");?>
+<?php if(!$spotlight->isViewed(CCalendar::GetCurUserId()))
 {
 	CJSCore::init("spotlight");
 	?>
@@ -235,7 +235,7 @@ if ($arParams["SET_TITLE"] == "Y" || ($bOwner && $arParams["SET_NAV_CHAIN"] == "
 			}
 		});
 	</script>
-	<?
+	<?php 
 }
 else
 {
@@ -270,7 +270,7 @@ else
 				}
 			});
 		</script>
-		<?
+		<?php 
 	}
 }
 ?>

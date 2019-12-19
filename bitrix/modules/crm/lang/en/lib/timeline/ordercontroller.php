@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_MODIFICATION_CANCELED"] = "Order canceled";
 $MESS["CRM_ORDER_MODIFICATION_REASON_CANCELED"] = "Reason for cancellation";
 $MESS["CRM_ORDER_MODIFICATION_RESTORED"] = "Order restored";

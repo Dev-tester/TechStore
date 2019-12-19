@@ -1,4 +1,4 @@
-<?
+<?php 
 define('BX_MOBILE', true);
 define("BX_SKIP_SESSION_EXPAND", true);
 define("PUBLIC_AJAX_MODE", true);

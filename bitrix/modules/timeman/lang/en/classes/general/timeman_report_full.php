@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMENT_AUTHOR"] = "Author:";
 $MESS["COMMENT_TEXT"] = "Comment:";
 $MESS["REPORT_ADD"] = "has submitted";

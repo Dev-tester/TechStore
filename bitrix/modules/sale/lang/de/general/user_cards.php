@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGUC_NO_ID"] = "Die Eintrags-ID wurde nicht angegeben ";
 $MESS["SKGUC_NO_CURRENCY"] = "Die Währung für die Zahlungsgrenzen wurde nicht definiert";
 $MESS["SKGUC_NO_USER"] = "Der Nutzer mit der ID #ID# wurde nicht gefunden";

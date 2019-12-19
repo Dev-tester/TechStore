@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_VIBER_API_KEY"] = "Enter your public account key:";
 $MESS["IMCONNECTOR_COMPONENT_VIBER_CHANGE_ANY_TIME"] = "Can be edited or turned off any time";
 $MESS["IMCONNECTOR_COMPONENT_VIBER_CONNECTED"] = "Viber connected";

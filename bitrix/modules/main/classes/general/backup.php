@@ -1,4 +1,4 @@
-<?
+<?php 
 class CBackup
 {
 	static $DOCUMENT_ROOT_SITE;

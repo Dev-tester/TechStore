@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,7 +16,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 
 	if ($arResult["ShowForm"] == "Input")
@@ -30,7 +30,7 @@ else
 				<tr>
 					<td valign="top" width="10%" nowrap><?= GetMessage("SONET_C11_USER") ?>:</td>
 					<td valign="top">
-						<b><?
+						<b><?php 
 						if ($arResult["CurrentUserPerms"]["ViewProfile"])
 							echo "<a href=\"".$arResult["Urls"]["User"]."\">";
 						echo $arResult["User"]["NAME_FORMATTED"];
@@ -42,7 +42,7 @@ else
 				<tr>
 					<td valign="top" width="10%" nowrap><?= GetMessage("SONET_C11_GROUP") ?>:</td>
 					<td valign="top">
-						<b><?
+						<b><?php 
 						echo "<a href=\"".$arResult["Urls"]["Group"]."\">";
 						echo $arResult["Group"]["NAME"];
 						echo "</a>";
@@ -60,16 +60,16 @@ else
 			<br />
 			<input type="submit" name="save" value="<?= GetMessage("SONET_C11_DO_ACT") ?>">
 		</form>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
 		<?= GetMessage("SONET_C11_SUCCESS") ?><br><br>
-		<?if ($arResult["CurrentUserPerms"]["ViewProfile"]):?>
+		<?php if ($arResult["CurrentUserPerms"]["ViewProfile"]):?>
 			<a href="<?= $arResult["Urls"]["User"] ?>"><?= $arResult["User"]["NAME_FORMATTED"]; ?></a>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 	}
 }
 ?>

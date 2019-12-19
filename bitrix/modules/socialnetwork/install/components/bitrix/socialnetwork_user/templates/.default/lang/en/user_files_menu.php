@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_TASK'] = "Tasks";
 $MESS ['WD_BP'] = "Business Processes";
 $MESS ['SOCNET_SETTINGS'] = "Settings";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_TITLE"] = "Add application";
 $MESS["MARKETPLACE_BUTTON"] = "Continue";
 $MESS["MARKETPLACE_PAGE_TITLE"] = "How do you add your application to Bitrix24?";

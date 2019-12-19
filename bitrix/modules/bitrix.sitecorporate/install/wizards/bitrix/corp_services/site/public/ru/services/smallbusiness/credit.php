@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Кредитование");
 $APPLICATION->SetTitle("Кредитование");
@@ -107,4 +107,4 @@ $APPLICATION->SetTitle("Кредитование");
 												до 72 месяцев
 											</td>
 										</tr>
-									</table><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+									</table><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

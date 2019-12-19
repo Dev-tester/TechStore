@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDUA_PD_ENTITY"] = "Destination location";
 $MESS["BPDUA_PD_ENTITY_TYPE_USER"] = "User Drive";
 $MESS["BPDUA_PD_ENTITY_TYPE_SG"] = "Social network group Drive";

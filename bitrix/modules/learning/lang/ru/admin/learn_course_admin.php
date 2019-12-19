@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TITLE'] = "Список обучающих курсов";
 $MESS ['LEARNING_ERROR'] = "Ошибка при сохранении курса";
 $MESS ['LEARNING_ADD'] = "Добавить курс";

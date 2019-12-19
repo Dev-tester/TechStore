@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?>
+<?php 
 if (isset($_REQUEST['AJAX']))
 {
     $APPLICATION->RestartBuffer();
@@ -13,13 +13,13 @@ if (isset($_REQUEST['AJAX']))
 ?>
 <table style="width:100%" cellpadding="0" cellspacing="0">
 <tr><td style="vertical-align:top;">
-<?
+<?php 
         CUtil::InitJSCore(array('ajax'));
         echo "<div id='wd_aggregator_tree'>\n";
     }
 }
 ?>
-<?
+<?php 
 $curdepth = -1;
 foreach ($arResult['STRUCTURE'] as $node)
 {
@@ -40,14 +40,14 @@ foreach ($arResult['STRUCTURE'] as $node)
 while (0 <= $curdepth--) echo "</ul>\n";
 ?>
 
-<?
+<?php 
 if (!isset($_REQUEST['AJAX']))
 {
 ?>
 </div>
 </td>
 <td width="50%" style="vertical-align:top;">
-<?  $url = ($GLOBALS["APPLICATION"]->IsHTTPS() ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$arParams['SEF_FOLDER']; ?>
+<?php   $url = ($GLOBALS["APPLICATION"]->IsHTTPS() ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$arParams['SEF_FOLDER']; ?>
 
 <div id="wd_ag_bnr_user_search_outlook" class="wd-ag-bnr">
     <div class="wd-ag-bnr-head"><span style='margin:8px 0 0 8px; font-weight:bold; line-height:20px;'><?=GetMessage("WD_AG_MSGTITLE");?></span></div>
@@ -161,7 +161,7 @@ BX.ready(function() {
     wd_dl_initTreeEvents(ul);
 });
 </script>
-<?
+<?php 
 } else {
     die();
 }

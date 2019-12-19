@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SET_TITLE_TIP'] = "Checking this option will set the page title to <b>User Profile</b>.";
 $MESS ['USER_PROPERTY_TIP'] = "Select additional properties to be shown in user profile";
 $MESS ['USER_PROPERTY_NAME_TIP'] = "Name of tab on which user properties will be shown";

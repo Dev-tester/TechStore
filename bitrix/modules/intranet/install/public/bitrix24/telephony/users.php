@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/telephony/users.php");
@@ -7,7 +7,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_afte
 $APPLICATION->SetTitle(GetMessage("VI_PAGE_USERS_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrapper",
+<?php $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrapper",
 	"",
 	array(
 		"POPUP_COMPONENT_NAME" => "bitrix:voximplant.numbers",
@@ -16,4 +16,4 @@ $APPLICATION->SetTitle(GetMessage("VI_PAGE_USERS_TITLE"));
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

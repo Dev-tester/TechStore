@@ -1,4 +1,4 @@
-<?
+<?php 
 function stemming_init($sLang="ru")
 {
 	static $arStemFunc = false;

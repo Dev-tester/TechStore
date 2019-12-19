@@ -72,5 +72,5 @@ if (\Bitrix\Main\Loader::includeModule('socialnetwork'))
 			}
 		);
 	</script>
-	<?
+	<?php 
 }

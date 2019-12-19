@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!CModule::IncludeModule("iblock")):
 	return 0;
 elseif (empty($arResult["GALLERY"])):
@@ -90,7 +90,7 @@ $arFilter = array(
 			$arFields = array(
 				"STATUS" => "DONE",
 				"PERCENT" => intVal(doubleVal($arInfoRecalc["FILE_SIZE"])/$arParams["GALLERY_SIZE"]*100));
-			?><?=CUtil::PhpToJSObject($arFields);?><?
+			?><?=CUtil::PhpToJSObject($arFields);?><?php 
 			die();
 		}
 	}
@@ -118,7 +118,7 @@ $arFilter = array(
 			$arFields = array(
 				"STATUS" => "CONTINUE",
 				"PERCENT" => intVal(intVal($arInfoRecalc["FILE_COUNT"])/$arResult["GALLERY"]["ELEMENTS_CNT"]*100));
-			?><?=CUtil::PhpToJSObject($arFields);?><?
+			?><?=CUtil::PhpToJSObject($arFields);?><?php 
 			die();
 		}
 	}

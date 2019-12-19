@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -546,7 +546,7 @@ if(!empty($_SESSION["MP_MOD_DELETED"]) && in_array(LANGUAGE_ID, array("ru", "ua"
 	<p><?=GetMessage("MOD_SMP_DELETE_OPINION_THANKS")?></p>
 	<input type="submit" value="<?=GetMessage("MOD_SMP_OPONION_ADD")?>">
 	</form>
-	<?
+	<?php 
 	echo EndNote();
 	unset($_SESSION["MP_MOD_DELETED"]);
 }

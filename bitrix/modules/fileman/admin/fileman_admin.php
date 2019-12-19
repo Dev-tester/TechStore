@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2006 Bitrix             #
@@ -1164,7 +1164,7 @@ ob_start();
 </tr>
 </table>
 <script>top.BX.ready(function(){setTimeout(top.InitQuickPath, 100)});</script>
-<?
+<?php 
 $s = ob_get_contents();
 ob_end_clean();
 $aContext[] = array("HTML"=>$s);
@@ -1253,7 +1253,7 @@ CAdminFileDialog::ShowScript
 );
 ?>
 
-<?
+<?php 
 include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/classes/general/fileman_utils.php");
 CFilemanUtils::InitScript(array(
 	'initSearch' => true,
@@ -1327,13 +1327,13 @@ function setAccess(site, path, bServerPermission)
 	else
 	{
 
-	<?if ($bSearch) // only for action_target and search results mode
+	<?php if ($bSearch) // only for action_target and search results mode
 	{
 		$par = "";
 		for($i = 0, $l = count($searchRes); $i < $l; $i++)
 			$par .= '&files[]='.urlencode($searchRes[$i]['path']);
 		$par = trim($par, '&');
-		?>par += "<?= $par?>";<?
+		?>par += "<?= $par?>";<?php 
 	}?>
 	}
 
@@ -1361,21 +1361,21 @@ function setCopyMove(site, path, bCopy, isDir)
 				&& oForm.elements[i].checked == true
 				&& oForm.elements[i].value !== '.')
 			{
-				<?if ($bSearch):?>
+				<?php if ($bSearch):?>
 					arFiles.push({'path' : oForm.elements[i].value, 'isDir' : isDir[oForm.elements[i].value]});
-				<?else:?>
+				<?php else:?>
 					var pathF = (path == '/' ? '' : path) + '/' + oForm.elements[i].value;
 					arFiles.push({'path' : pathF, 'isDir' : isDir[pathF]});
-				<?endif;?>
+				<?php endif;?>
 			}
 		}
 	}
 	else
 	{
-		<?if ($bSearch): // only for action_target and search results mode
+		<?php if ($bSearch): // only for action_target and search results mode
 			for($i = 0, $l = count($searchRes); $i < $l; $i++):?>
 				arFiles.push({'path' : '<?= CUtil::JSEscape($searchRes[$i]['path'])?>', 'isDir' : '<?= CUtil::JSEscape($searchRes[$i]['b_dir'])?>'});
-			<?endfor;
+			<?php endfor;
 		endif;?>
 	}
 
@@ -1401,24 +1401,24 @@ function setPackUnpack(site, path, bPack, isDir)
 				&& oForm.elements[i].checked == true
 				&& oForm.elements[i].value !== '.')
 			{
-				<?if ($bSearch):?>
+				<?php if ($bSearch):?>
 					arFiles.push({'path' : oForm.elements[i].value, 'isDir' : isDir[oForm.elements[i].value]});
-				<?else:?>
+				<?php else:?>
 					var pathF = (path == '/' ? '' : path) + '/' + oForm.elements[i].value;
 					arFiles.push({'path' : pathF, 'isDir' : isDir[pathF]});
-				<?endif;?>
+				<?php endif;?>
 			}
 		}
 	}
 	else
 	{
-		<?if ($bSearch): // only for action_target and search results mode
+		<?php if ($bSearch): // only for action_target and search results mode
 			for($i = 0, $l = count($searchRes); $i < $l; $i++):?>
 				arFiles.push({'path' : '<?= CUtil::JSEscape($searchRes[$i]['path'])?>', 'isDir' : '<?= CUtil::JSEscape($searchRes[$i]['b_dir'])?>'});
-			<?endfor;
+			<?php endfor;
 		else:?>
 				arFiles.push('action_target');
-		<?endif;?>
+		<?php endif;?>
 	}
 
 	window.PackUnpackRun(arFiles, bPack);
@@ -1472,9 +1472,9 @@ function GALCallBack(url)
 }
 </script>
 
-<? if (!$bSearch):?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<?php  if (!$bSearch):?>
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -1497,25 +1497,25 @@ $oFilter->Begin();
 </tr>
 <tr>
 	<td nowrap><?= GetMessage("MAIN_F_TYPE")?>:</td>
-	<td nowrap><?
+	<td nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("FILEMAN_FILE"), GetMessage("FILEMAN_FOLDER")), "reference_id"=>array("F","D"));
 		echo SelectBoxFromArray("find_type", $arr, htmlspecialcharsbx($find_type), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage().'?'.$addUrl_s."&site=".urlencode($site)."&path=".urlencode($path."/".$Elem["NAME"]), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<? endif;?>
+<?php  endif;?>
 
-<?
+<?php 
 if(empty($arGrActionAr))
 	$lAdmin->bCanBeEdited = false;
 
 $lAdmin->DisplayList();
 ?>
 
-<? CFilemanUtils::BuildDialogContent($site);?>
+<?php  CFilemanUtils::BuildDialogContent($site);?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

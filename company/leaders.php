@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/company/leaders.php");
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:intranet.structure.honour", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:intranet.structure.honour", ".default", Array(
 	"STRUCTURE_PAGE"	=>	"/company/structure.php",
 	"PM_URL"	=>	"/company/personal/messages/chat/#USER_ID#/",
 	"PATH_TO_VIDEO_CALL" => "/company/personal/video/#USER_ID#/",
@@ -21,4 +21,4 @@ $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

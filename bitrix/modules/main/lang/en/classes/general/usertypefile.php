@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USER_TYPE_FILE_DESCRIPTION'] = "File";
 $MESS ['USER_TYPE_FILE_SIZE'] = "Input field size";
 $MESS ['USER_TYPE_FILE_EXTENSIONS'] = "Extensions";

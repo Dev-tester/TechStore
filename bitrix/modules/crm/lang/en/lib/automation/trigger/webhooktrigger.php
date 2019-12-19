@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_AUTOMATION_TRIGGER_WEBHOOK_NAME"] = "Webhook";
 $MESS["CRM_AUTOMATION_TRIGGER_PASSWORD_TITLE"] = "External access for CRM automation";
 $MESS["CRM_AUTOMATION_TRIGGER_PASSWORD_COMMENT"] = "Created by trigger";

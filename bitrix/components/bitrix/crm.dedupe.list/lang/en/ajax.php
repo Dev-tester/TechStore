@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEDUPE_LIST_REBUILD_INDEX_COMPLETED_SUMMARY"] = "List of duplicates has been built. Matches found: #PROCESSED_ITEMS#.";
 $MESS["CRM_DEDUPE_LIST_REBUILD_INDEX_PROGRESS_SUMMARY"] = "Matches found: #PROCESSED_ITEMS#";
 $MESS["CRM_DEDUPE_LIST_MERGE_ERROR_READ_DENIED"] = "No read access to \"#TITLE#\" [#ID#]";

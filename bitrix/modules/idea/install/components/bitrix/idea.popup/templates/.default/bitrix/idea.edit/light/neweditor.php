@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
@@ -34,7 +34,7 @@ $bConvertContentFromBBCodes = (
 	&& !isset($_REQUEST['apply'])
 	&& !isset($_REQUEST['draft'])
 );
-?><div id="edit-post-text"><?
+?><div id="edit-post-text"><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.post.form",
 	"",

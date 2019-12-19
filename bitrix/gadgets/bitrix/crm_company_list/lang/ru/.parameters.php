@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_CRM_COMPANY_LIST_COMPANY_COUNT"] = "Количество компаний на странице";
 $MESS["GD_CRM_ONLY_MY"] = "Только мои";
 $MESS["GD_CRM_SORT"] = "Сортировка";

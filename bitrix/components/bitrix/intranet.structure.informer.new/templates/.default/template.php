@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 // $arMonths_r = array();
@@ -7,21 +7,21 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
 <div class="bx-new-layout-include">
 	<div class="bx-user-officelink">
-<?
+<?php 
 if ($arParams['bShowFilter'] && $arResult['CURRENT_USER']['DEPARTMENT_TOP']):
 	if ($arResult['ONLY_MINE'] == 'Y'):
 ?>
-		<a href="<?echo $APPLICATION->GetCurPageParam('', array('only_mine'))?>"><?echo GetMessage('INTR_ISIN_TPL_ALL')?></a><br />
-<?
+		<a href="<?php echo $APPLICATION->GetCurPageParam('', array('only_mine'))?>"><?php echo GetMessage('INTR_ISIN_TPL_ALL')?></a><br />
+<?php 
 	else:
 ?>
-		<a href="<?echo $APPLICATION->GetCurPageParam('only_mine=Y', array('only_mine'))?>"><?echo GetMessage('INTR_ISIN_TPL_MINE')?></a><br />
-<?
+		<a href="<?php echo $APPLICATION->GetCurPageParam('only_mine=Y', array('only_mine'))?>"><?php echo GetMessage('INTR_ISIN_TPL_MINE')?></a><br />
+<?php 
 	endif;
 endif;
 ?>
 	</div>
-<?
+<?php 
 foreach ($arResult['ENTRIES'] as $arEntry)
 {
 	$arUser = $arResult['USERS'][$arEntry['PROPERTY_USER_VALUE']];
@@ -29,9 +29,9 @@ foreach ($arResult['ENTRIES'] as $arEntry)
 	<div class="bx-user-info">
 		<div class="bx-user-info-inner">
 			<div class="bx-user-image<?=$arUser['PERSONAL_PHOTO'] ? '' : ' bx-user-image-default'?>"><a href="<?=$arUser['DETAIL_URL']?>"><?=$arUser['PERSONAL_PHOTO'] ? $arUser['PERSONAL_PHOTO'] : '' ?></a></div>
-			<div class="bx-user-date intranet-date"><?echo FormatDateEx($arEntry['DATE_ACTIVE_FROM'], false, $arParams['DATE_FORMAT']);?></div>
+			<div class="bx-user-date intranet-date"><?php echo FormatDateEx($arEntry['DATE_ACTIVE_FROM'], false, $arParams['DATE_FORMAT']);?></div>
 			<div class="bx-user-name">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent("bitrix:main.user.link",
 				'',
 				array(
@@ -59,11 +59,11 @@ foreach ($arResult['ENTRIES'] as $arEntry)
 			);
 			?>
 			</div>
-			<div class="bx-user-post"><?echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
+			<div class="bx-user-post"><?php echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
 			<div class="bx-users-delimiter"></div>
 		</div>
 	</div>
-<?
+<?php 
 }
 ?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_FORGOT_NAME"] = "Please fill in the \"Name\" field";
 $MESS["SUP_EDIT_RECORD"] = "Edit record # #ID#";
 $MESS["SUP_NEW_RECORD"] = "New dictionary record";

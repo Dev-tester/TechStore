@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FM_ST_SETTINGS"] = "Settings";
 $MESS["FM_ST_SETTINGS_TITLE"] = "Web-It Notes Parameters";
 $MESS["FM_ST_ACCESS"] = "Access";

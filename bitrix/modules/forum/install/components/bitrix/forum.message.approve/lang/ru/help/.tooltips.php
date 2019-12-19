@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FID_TIP"] = "ID форума";
 $MESS["TID_TIP"] = "ID темы";
 $MESS["URL_TEMPLATES_INDEX_TIP"] = "Страница списка форумов";

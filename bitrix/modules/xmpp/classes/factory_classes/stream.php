@@ -1,4 +1,4 @@
-<?
+<?php 
 $className = "CXMPPStream";
 $classVersion = 2;
 
@@ -67,7 +67,7 @@ if (!class_exists("CXMPPStream"))
 						if ($bAllowSasl)
 						{
 							$message = sprintf(
-								'<?xml version="1.0"?><stream:stream xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" id="%s" from="%s" version="1.0"><stream:features><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>PLAIN</mechanism></mechanisms><auth xmlns="http://jabber.org/features/iq-auth"/></stream:features>',
+								'<?php xml version="1.0"?><stream:stream xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" id="%s" from="%s" version="1.0"><stream:features><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>PLAIN</mechanism></mechanisms><auth xmlns="http://jabber.org/features/iq-auth"/></stream:features>',
 								rand(1000, 9999),
 								htmlspecialcharsbx($senderClient->GetClientDomain())
 							);
@@ -75,7 +75,7 @@ if (!class_exists("CXMPPStream"))
 						else
 						{
 							$message = sprintf(
-								'<?xml version="1.0"?><stream:stream xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" id="%s" from="%s">',
+								'<?php xml version="1.0"?><stream:stream xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" id="%s" from="%s">',
 								rand(1000, 9999),
 								htmlspecialcharsbx($senderClient->GetClientDomain())
 							);

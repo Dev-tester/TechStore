@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_TOOLS_ACCESS_DENIED"] = "Access denied";
 $MESS["ADMIN_TOOLS_TITLE_EXPORT"] = "Export Highload Block";
 $MESS["ADMIN_TOOLS_TAB_EXPORT"] = "Export Highload Block";

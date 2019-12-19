@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CALL_CHAT_UNIFY"] = "Telephone calls";
 $MESS["VI_ERROR_EMAIL_NOT_CONFIRMED"] = "You have to confirm your e-mail address to make calls.";
 $MESS["VI_ERROR_NEW_CHAT"] = "Error creating chat.";

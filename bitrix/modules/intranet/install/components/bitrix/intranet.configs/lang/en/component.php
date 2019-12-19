@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_GDRP_EMPTY_ERROR"] = "Please complete all the required fields.";
 $MESS["CONFIG_GDRP_EMAIL_ERROR"] = "Incorrect e-mail address specified.";
 $MESS["CONFIG_ACCESS_DENIED"] = "Access denied";

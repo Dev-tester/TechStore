@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 $fname1 = __FILE__;
 $fname2 = $_SERVER["DOCUMENT_ROOT"];

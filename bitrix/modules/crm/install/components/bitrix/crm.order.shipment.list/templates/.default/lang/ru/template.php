@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SHIPMENT_SHOW_TITLE"] = "Просмотреть отгрузку";
 $MESS["CRM_ORDER_SHIPMENT_SHOW"] = "Просмотреть";
 $MESS["CRM_ORDER_SHIPMENT_EDIT_TITLE"] = "Редактировать отгрузку";

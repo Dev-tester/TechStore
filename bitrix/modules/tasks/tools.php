@@ -371,8 +371,8 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 			text : "<?=GetMessage("TASKS_VIEW_TASK")?>",
 			title : "<?=GetMessage("TASKS_VIEW_TASK_EX")?>",
 			className : "menu-popup-item-view",
-			href : "<? echo CUtil::JSEscape($viewUrl)?>"
-			<?
+			href : "<?php  echo CUtil::JSEscape($viewUrl)?>"
+			<?php 
 			if ($bGantt && !$params['DISABLE_IFRAME_POPUP'])
 			{
 				?>,
@@ -382,7 +382,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>, event);
 					this.popupWindow.close();}
 				)
-				<?
+				<?php 
 			}
 			else
 			{
@@ -390,17 +390,17 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 				onclick : function(window, top, event) {
 					this.popupWindow.close();
 				}
-				<?
+				<?php 
 			}?>
 		},
 
-		<? if ($arAllowedTaskActions['ACTION_EDIT']):?>
+		<?php  if ($arAllowedTaskActions['ACTION_EDIT']):?>
 		{
 			text : "<?=GetMessage("TASKS_EDIT_TASK")?>",
 			title : "<?=GetMessage("TASKS_EDIT_TASK_EX")?>",
 			className : "menu-popup-item-edit",
-			href : "<? echo CUtil::JSEscape($editUrl)?>"
-			<?
+			href : "<?php  echo CUtil::JSEscape($editUrl)?>"
+			<?php 
 			if ($bGantt && !$params['DISABLE_IFRAME_POPUP'])
 			{
 				?>,
@@ -409,7 +409,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>, event);
 					this.popupWindow.close();}
 				)
-				<?
+				<?php 
 			}
 			else
 			{
@@ -417,17 +417,17 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 				onclick : function(window, top, event) {
 					this.popupWindow.close();
 				}
-				<?
+				<?php 
 			}?>
 		},
-		<? endif?>
+		<?php  endif?>
 
 		{
 			text : "<?=GetMessage("TASKS_ADD_SUBTASK"); ?>",
 			title : "<?=GetMessage("TASKS_ADD_SUBTASK"); ?>",
 			className : "menu-popup-item-create",
-			href : "<? echo CUtil::JSEscape($createUrl)?>"
-			<?
+			href : "<?php  echo CUtil::JSEscape($createUrl)?>"
+			<?php 
 			if ($bGantt && !$params['DISABLE_IFRAME_POPUP'])
 			{
 				?>,
@@ -436,7 +436,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>, event);
 					this.popupWindow.close();}
 				)
-				<?
+				<?php 
 			}
 			else
 			{
@@ -444,19 +444,19 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 				onclick : function(window, top, event) {
 					this.popupWindow.close();
 				}
-				<?
+				<?php 
 			}?>
 		},
 
-		<?
+		<?php 
 
 		if ($bGantt && ($arAllowedTaskActions['ACTION_EDIT'] || $arAllowedTaskActions['ACTION_CHANGE_DEADLINE']))
 		{
 			?>
 			{
-				text : "<? if(!$task["DEADLINE"]):?><?=GetMessage("TASKS_ADD_DEADLINE")?><? else:?><?=GetMessage("TASKS_REMOVE_DEADLINE")?><? endif?>",
-				title : "<? if(!$task["DEADLINE"]):?><?=GetMessage("TASKS_ADD_DEADLINE")?><? else:?><?=GetMessage("TASKS_REMOVE_DEADLINE")?><? endif?>",
-				className : "<? if(!$task["DEADLINE"]):?>task-menu-popup-item-add-deadline<? else:?>task-menu-popup-item-remove-deadline<? endif?>",
+				text : "<?php  if(!$task["DEADLINE"]):?><?=GetMessage("TASKS_ADD_DEADLINE")?><?php  else:?><?=GetMessage("TASKS_REMOVE_DEADLINE")?><?php  endif?>",
+				title : "<?php  if(!$task["DEADLINE"]):?><?=GetMessage("TASKS_ADD_DEADLINE")?><?php  else:?><?=GetMessage("TASKS_REMOVE_DEADLINE")?><?php  endif?>",
+				className : "<?php  if(!$task["DEADLINE"]):?>task-menu-popup-item-add-deadline<?php  else:?>task-menu-popup-item-remove-deadline<?php  endif?>",
 				onclick : BX.CJSTask.fixWindow(function(window, top, event, item)
 				{
 					var BX = top.BX;
@@ -505,7 +505,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					}
 				})
 			},
-			<?
+			<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_ADD_FAVORITE'])
@@ -520,7 +520,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					this.popupWindow.close();
 				})
 			},
-			<?
+			<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_DELETE_FAVORITE'])
@@ -535,7 +535,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					this.popupWindow.close();
 				})
 			},
-			<?
+			<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_COMPLETE'])
@@ -549,7 +549,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_START'])
@@ -563,7 +563,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_PAUSE'])
@@ -577,7 +577,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_RENEW'])
@@ -591,7 +591,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_DEFER'])
@@ -605,7 +605,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_APPROVE'])
@@ -619,7 +619,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn.approveTask(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 
 		if ($arAllowedTaskActions['ACTION_DISAPPROVE'])
@@ -633,7 +633,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn.disapproveTask(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 
 		?>
@@ -642,8 +642,8 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 			text : "<?=GetMessage("TASKS_COPY_TASK")?>",
 			title : "<?=GetMessage("TASKS_COPY_TASK_EX")?>",
 			className : "menu-popup-item-copy",
-			href : "<? echo $copyUrl.(strpos($copyUrl, "?") === false ? "?" : "&")."COPY=".$task["ID"]?>"
-			<?
+			href : "<?php  echo $copyUrl.(strpos($copyUrl, "?") === false ? "?" : "&")."COPY=".$task["ID"]?>"
+			<?php 
 			if ($bGantt)
 			{
 				?>,
@@ -652,12 +652,12 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>, event);
 					this.popupWindow.close();
 				})
-				<?
+				<?php 
 			}
 			?>
 		},
 
-		<?
+		<?php 
 
 		// Only responsible person and accomplices can add task to day plan
 		// And we must be not at extranet site
@@ -686,7 +686,7 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 						var fn = (window && window.Add2Timeman) || (top && top.Add2Timeman) || BX.DoNothing;
 						fn(this, <?=intval($task["ID"])?>);
 					})
-				},<?
+				},<?php 
 			}
 		}
 
@@ -705,11 +705,11 @@ function tasksGetItemMenu($task, $arPaths, $site_id = SITE_ID, $bGantt = false, 
 					fn(<?=intval($task["ID"])?>);
 					this.popupWindow.close();
 				})
-			},<?
+			},<?php 
 		}
 		?>
 		{}
-	<?
+	<?php 
 }
 
 
@@ -754,24 +754,24 @@ function templatesGetListItemActions($template, $arPaths)
 
 	{ text : "<?php echo GetMessage("TASKS_VIEW_TASK")?>", title : "<?php echo GetMessage("TASKS_VIEW_TASK")?>", className : "menu-popup-item-view", href : "<?php echo CUtil::JSEscape($viewUrl)?>" },
 
-	<?if(!intval($template['BASE_TEMPLATE_ID']) && $template['TPARAM_TYPE'] != CTaskTemplates::TYPE_FOR_NEW_USER):?>
+	<?php if(!intval($template['BASE_TEMPLATE_ID']) && $template['TPARAM_TYPE'] != CTaskTemplates::TYPE_FOR_NEW_USER):?>
 		{ text : "<?php echo GetMessage("TASKS_ADD_TEMPLATE_TASK")?>", title : "<?php echo GetMessage("TASKS_ADD_TEMPLATE_TASK")?>", className : "menu-popup-item-create", href : "<?php echo CUtil::JSEscape($addTaskUrl)?>" },
-	<?endif?>
+	<?php endif?>
 
-	<?if($template['TPARAM_TYPE'] != CTaskTemplates::TYPE_FOR_NEW_USER):?>
+	<?php if($template['TPARAM_TYPE'] != CTaskTemplates::TYPE_FOR_NEW_USER):?>
 		{ text : "<?=GetMessage("TASKS_ADD_SUB_TEMPLATE")?>", title : "<?php echo GetMessage("TASKS_ADD_SUB_TEMPLATE")?>", className : "menu-popup-item-create", href : "<?=CUtil::JSEscape($addSubTmplUrl)?>" },
-	<?endif?>
+	<?php endif?>
 
 	{ text : "<?=GetMessage("TASKS_TEMPLATE_COPY")?>", title : "<?php echo GetMessage("TASKS_TEMPLATE_COPY")?>", className : "menu-popup-item-copy", href : "<?=CUtil::JSEscape($copyUrl)?>" },
 
-	<?if($template['ALLOWED_ACTIONS']['UPDATE']):?>
+	<?php if($template['ALLOWED_ACTIONS']['UPDATE']):?>
 		{ text : "<?php echo GetMessage("TASKS_EDIT_TASK")?>", title : "<?php echo GetMessage("TASKS_EDIT_TASK")?>", className : "menu-popup-item-edit", href : "<?php echo CUtil::JSEscape($editUrl)?>" },
-	<?endif?>
-	<?if($template['ALLOWED_ACTIONS']['DELETE']):?>
+	<?php endif?>
+	<?php if($template['ALLOWED_ACTIONS']['DELETE']):?>
 		{ text : "<?php echo GetMessage("TASKS_DELETE_TASK")?>", title : "<?php echo GetMessage("TASKS_DELETE_TASK")?>", className : "menu-popup-item-delete", onclick : function() { if(confirm("<?php echo GetMessage("TASKS_DELETE_TASKS_CONFIRM")?>")){this.menuItems = []; DeleteTemplate(<?php echo $template["ID"]?>);} this.popupWindow.close(); } },
-	<?endif?>
+	<?php endif?>
 
-	<?
+	<?php 
 }
 
 function templatesRenderListItem($template, $arPaths, $depth = 0, $plain = false, $defer = false, $nameTemplate = "")
@@ -784,7 +784,7 @@ function templatesRenderListItem($template, $arPaths, $depth = 0, $plain = false
 	?>
 	<script type="text/javascript"<?php echo $defer ? "  defer=\"defer\"" : ""?>>
 		tasksMenuPopup[<?php echo $template["ID"]?>] = [
-			<?templatesGetListItemActions($template, $arPaths)?>
+			<?php templatesGetListItemActions($template, $arPaths)?>
 		];
 	</script>
 	<tr class="task-list-item task-depth-<?php echo $depth?>" id="template-<?php echo $template["ID"]?>" ondblclick="jsUtils.Redirect([], '<?php echo CUtil::JSEscape(CComponentEngine::MakePathFromTemplate($arPaths["PATH_TO_TEMPLATES_TEMPLATE"], array("template_id" => $template["ID"], "action" => "edit")))?>');" title="<?php echo GetMessage("TASKS_DOUBLE_CLICK")?>">
@@ -869,14 +869,14 @@ function tasksRenderJSON(
 	{
 		id : <?=intval($arTask["ID"])?>,
 		name : "<?=CUtil::JSEscape($arTask["TITLE"])?>",
-		<?if ($arTask["GROUP_ID"]):?>
+		<?php if ($arTask["GROUP_ID"]):?>
 			projectId : <?=intval($arTask["GROUP_ID"])?>,
 			projectName : '<?=CUtil::JSEscape($arTask['GROUP_NAME'])?>',
 			projectCanCreateTasks: <?=CUtil::PhpToJSObject($canCreateTasks)?>,
 			projectCanEditTasks: <?=CUtil::PhpToJSObject($canEditTasks)?>,
-		<?else:?>
+		<?php else:?>
 			projectId : 0,
-		<?endif?>
+		<?php endif?>
 		status : "<?=tasksStatus2String($arTask["STATUS"])?>",
 		realStatus : "<?=intval($arTask["REAL_STATUS"])?>",
 		url: '<?=CUtil::JSEscape(CComponentEngine::MakePathFromTemplate(
@@ -902,7 +902,7 @@ function tasksRenderJSON(
 		director_second_name: '<?=CUtil::JSEscape($arTask["CREATED_BY_SECOND_NAME"]); ?>',
 		director_last_name: '<?=CUtil::JSEscape($arTask["CREATED_BY_LAST_NAME"]); ?>',
 		director_login: '<?=CUtil::JSEscape($arTask["CREATED_BY_LOGIN"]); ?>',
-		dateCreated : <?tasksJSDateObject($arTask["CREATED_DATE"], $top)?>,
+		dateCreated : <?php tasksJSDateObject($arTask["CREATED_DATE"], $top)?>,
 
 		links: <?=CUtil::PhpToJSObject($arTask['LINKS'], false, false, true)?>,
 
@@ -920,11 +920,11 @@ function tasksRenderJSON(
 
 		canEdit: <?=(isset($arTask["META:ALLOWED_ACTIONS"]) && $arTask["META:ALLOWED_ACTIONS"]["ACTION_EDIT"] ? "true" : "false")?>,
 
-		<?if ($arTask["PARENT_ID"] && $bParent):?>
+		<?php if ($arTask["PARENT_ID"] && $bParent):?>
 			parentTaskId : <?=intval($arTask["PARENT_ID"])?>,
-		<?else:?>
+		<?php else:?>
 			parentTaskId : 0,
-		<?endif?>
+		<?php endif?>
 
 		<?php
 			if ($arTask["FILES"] && sizeof($arTask["FILES"])):
@@ -1001,11 +1001,11 @@ function tasksRenderJSON(
 		IS_TASK_TRACKING_NOW : <?php if ($runningTaskId == $arTask['ID']) echo 'true'; else echo 'false'; ?>,
 		menuItems: [<?php tasksGetItemMenu($arTask, $arPaths, SITE_ID, $bGant, $top, $bSkipJsMenu, $params)?>],
 
-		<?$arTask['SE_PARAMETER'] = is_array($arTask['SE_PARAMETER']) ? $arTask['SE_PARAMETER'] : array();?>
-		<?$seParameters = array();?>
-		<?foreach($arTask['SE_PARAMETER'] as $k => $v):?>
-			<?if($v['VALUE'] == 'Y' || $v['VALUE'] == 'N'):?>
-				<?
+		<?php $arTask['SE_PARAMETER'] = is_array($arTask['SE_PARAMETER']) ? $arTask['SE_PARAMETER'] : array();?>
+		<?php $seParameters = array();?>
+		<?php foreach($arTask['SE_PARAMETER'] as $k => $v):?>
+			<?php if($v['VALUE'] == 'Y' || $v['VALUE'] == 'N'):?>
+				<?php 
 				$code = $v['CODE'];
 				if($code == \CTasks::PARAMETER_COMPLETE_TASK_FROM_SUBTASKS)
 				{
@@ -1016,9 +1016,9 @@ function tasksRenderJSON(
 					$code = 'projectPlanFromSubTasks';
 				}
 				?>
-				<?$seParameters[$code] = $v['VALUE'] == 'Y';?>
-			<?endif?>
-		<?endforeach?>
+				<?php $seParameters[$code] = $v['VALUE'] == 'Y';?>
+			<?php endif?>
+		<?php endforeach?>
 		parameters: <?=json_encode($seParameters)?>
 
 		<?php
@@ -1295,7 +1295,7 @@ function ShowInFrame(&$component, $bShowError = false, $errText = '')
 				</style>
 			', false, true);
 		?></head>
-		<body class="<?$APPLICATION->ShowProperty("BodyClass");?>" onload="if (window.top.BX.TasksIFrameInst) window.top.BX.TasksIFrameInst.onTaskLoaded();">
+		<body class="<?php $APPLICATION->ShowProperty("BodyClass");?>" onload="if (window.top.BX.TasksIFrameInst) window.top.BX.TasksIFrameInst.onTaskLoaded();">
 			<div id="tasks-content-outer">
 				<table cellpadding="0" cellspading="0" width="100%">
 					<tr>
@@ -1317,7 +1317,7 @@ function ShowInFrame(&$component, $bShowError = false, $errText = '')
 				</table>
 			</div>
 		</body>
-	</html><?
+	</html><?php 
 	require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');
 	die();
 }

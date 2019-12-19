@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["post_title_edit"] = "Modify issue #";
 $MESS["post_title_add"] = "Add issue";
 $MESS["post_list_title"] = "Show the list of selected addresses";

@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	ShowError($arResult["FatalErrorMessage"]);
@@ -36,7 +36,7 @@ else
 	);
 	?>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.interface.grid",
 		"",
@@ -63,6 +63,6 @@ if ($_REQUEST["do_show_wizard"] == "Y")
 	<script type="text/javascript">
 		BX.ready(function(){bxExtSaleWizard.Start('<?= SITE_ID ?>', 2, <?= intval($_REQUEST["do_show_wizard_id"]) ?>);});
 	</script>
-	<?
+	<?php 
 }
 ?>

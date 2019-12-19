@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main,
 	Bitrix\Main\Localization,
 	Bitrix\Main\Loader,
@@ -308,18 +308,18 @@ if (!empty($strError))
 	CAdminMessage::ShowMessage($strError);
 
 ?>
-<?
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="catalog_edit">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("CGEN_TAB_GROUP"), "ICON" => "catalog", "TITLE" => GetMessage("CGEN_TAB_GROUP_DESCR"))
 );
@@ -331,28 +331,28 @@ $tabControl->BeginNextTab();
 	if ($ID>0):?>
 		<tr>
 			<td width="40%">ID:</td>
-			<td width="60%"><?echo $ID ?></td>
+			<td width="60%"><?php echo $ID ?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
-		<td width="40%"><?echo GetMessage("BASE") ?></td>
-		<td width="60%"><?
+		<td width="40%"><?php echo GetMessage("BASE") ?></td>
+		<td width="60%"><?php 
 		if (!$boolRealBase)
 		{
 			?>
 			<input type="hidden" name="BASE" value="N" />
-			<input type="checkbox" id="ch_BASE" name="BASE" value="Y" <? echo ('Y' == $arCatalogGroup['BASE'] ? 'checked' : ''); ?>/>
-			<?
+			<input type="checkbox" id="ch_BASE" name="BASE" value="Y" <?php  echo ('Y' == $arCatalogGroup['BASE'] ? 'checked' : ''); ?>/>
+			<?php 
 		}
 		else
 		{
-			?><input type="hidden" name="BASE" value="Y" /><? echo GetMessage('BASE_YES'); ?><?
+			?><input type="hidden" name="BASE" value="Y" /><?php  echo GetMessage('BASE_YES'); ?><?php 
 		}
 		?></td>
 	</tr>
 	<tr>
 		<td width="40%">&nbsp;</td>
-		<td width="60%"><?
+		<td width="60%"><?php 
 		if (!$boolRealBase)
 		{
 			echo GetMessage("BASE_COMMENT");
@@ -364,38 +364,38 @@ $tabControl->BeginNextTab();
 		?></td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("BT_CAT_GROUP_EDIT_FIELDS_XML_ID"); ?></td>
-		<td width="60%"><input type="text" name="XML_ID" value="<? echo htmlspecialcharsbx($arCatalogGroup['XML_ID']); ?>"></td>
+		<td width="40%"><?php echo GetMessage("BT_CAT_GROUP_EDIT_FIELDS_XML_ID"); ?></td>
+		<td width="60%"><input type="text" name="XML_ID" value="<?php  echo htmlspecialcharsbx($arCatalogGroup['XML_ID']); ?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("CODE") ?></td>
-		<td width="60%"><input type="text" name="NAME" value="<? echo htmlspecialcharsbx($arCatalogGroup['NAME']); ?>"></td>
+		<td width="40%"><?php echo GetMessage("CODE") ?></td>
+		<td width="60%"><input type="text" name="NAME" value="<?php  echo htmlspecialcharsbx($arCatalogGroup['NAME']); ?>"></td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("SORT2") ?></td>
-		<td width="60%"><input type="text" name="SORT" value="<? echo intval($arCatalogGroup['SORT']); ?>"></td>
+		<td width="40%"><?php echo GetMessage("SORT2") ?></td>
+		<td width="60%"><input type="text" name="SORT" value="<?php  echo intval($arCatalogGroup['SORT']); ?>"></td>
 	</tr>
-	<?
+	<?php 
 	foreach ($arLangList as &$arOneLang)
 	{
 		?><tr>
-			<td width="40%"><?echo GetMessage("NAME") ?> (<?=htmlspecialcharsbx($arOneLang['NAME']); ?>):</td>
+			<td width="40%"><?php echo GetMessage("NAME") ?> (<?=htmlspecialcharsbx($arOneLang['NAME']); ?>):</td>
 			<td width="60%"><input type="text" name="NAME_LANG[<?=htmlspecialcharsbx($arOneLang['LID']); ?>]" value="<?=htmlspecialcharsbx(isset($arGroupLangList[$arOneLang['LID']]) ? $arGroupLangList[$arOneLang['LID']] : ''); ?>"></td>
-		</tr><?
+		</tr><?php 
 	}
 	if (isset($arOneLang))
 		unset($arOneLang);
 	?>
 	<tr class="adm-detail-required-field">
 		<td valign="top" width="40%">
-			<?echo GetMessage('CAT_GROUPS');?>
+			<?php echo GetMessage('CAT_GROUPS');?>
 		</td>
 		<td width="60%">
 			<select name="USER_GROUP[]" multiple size="8">
-			<?
+			<?php 
 			foreach ($arUserGroupList as &$arOneGroup)
 			{
-				?><option value="<? echo $arOneGroup["ID"]; ?>"<?if (in_array($arOneGroup["ID"], $arGroupUserList)) echo " selected"?>><? echo "[".$arOneGroup["ID"]."] ".htmlspecialcharsbx($arOneGroup["NAME"]); ?></option><?
+				?><option value="<?php  echo $arOneGroup["ID"]; ?>"<?php if (in_array($arOneGroup["ID"], $arGroupUserList)) echo " selected"?>><?php  echo "[".$arOneGroup["ID"]."] ".htmlspecialcharsbx($arOneGroup["NAME"]); ?></option><?php 
 			}
 			if (isset($arOneGroup))
 				unset($arOneGroup);
@@ -405,14 +405,14 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td valign="top" width="40%">
-			<?echo GetMessage('CAT_GROUPS_BUY');?>
+			<?php echo GetMessage('CAT_GROUPS_BUY');?>
 		</td>
 		<td width="60%">
 			<select name="USER_GROUP_BUY[]" multiple size="8">
-			<?
+			<?php 
 			foreach ($arUserGroupList as &$arOneGroup)
 			{
-				?><option value="<? echo $arOneGroup["ID"]; ?>"<?if (in_array($arOneGroup["ID"], $arGroupUserBuyList)) echo " selected"?>><? echo "[".$arOneGroup["ID"]."] ".htmlspecialcharsbx($arOneGroup["NAME"]); ?></option><?
+				?><option value="<?php  echo $arOneGroup["ID"]; ?>"<?php if (in_array($arOneGroup["ID"], $arGroupUserBuyList)) echo " selected"?>><?php  echo "[".$arOneGroup["ID"]."] ".htmlspecialcharsbx($arOneGroup["NAME"]); ?></option><?php 
 			}
 			if (isset($arOneGroup))
 				unset($arOneGroup);
@@ -420,10 +420,10 @@ $tabControl->BeginNextTab();
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled" => $bReadOnly, "back_url" => $listUrl));
 $tabControl->End();
 ?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

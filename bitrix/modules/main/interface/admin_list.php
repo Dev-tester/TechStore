@@ -584,7 +584,7 @@ class CAdminList
 		{
 ?>
 <div class="adm-list-table-wrap<?=$this->context ? '' : ' adm-list-table-without-header'?><?=count($this->arActions)<=0 && !$this->bCanBeEdited ? ' adm-list-table-without-footer' : ''?>">
-<?
+<?php 
 		}
 
 		if($this->context)
@@ -628,18 +628,18 @@ class CAdminList
 <table class="adm-list-table" id="<?=$this->table_id;?>">
 	<thead>
 		<tr class="adm-list-table-header">
-<?
+<?php 
 		if($bShowSelectAll):
 ?>
 			<td class="adm-list-table-cell adm-list-table-checkbox" onclick="this.firstChild.firstChild.click(); return BX.PreventDefault(event);"><div class="adm-list-table-cell-inner"><input class="adm-checkbox adm-designed-checkbox" type="checkbox" id="<?=$this->table_id?>_check_all" onclick="<?=$this->table_id?>.SelectAllRows(this); return BX.eventCancelBubble(event);" title="<?=GetMessage("admin_lib_list_check_all")?>" /><label for="<?=$this->table_id?>_check_all" class="adm-designed-checkbox-label"></label></div></td>
-<?
+<?php 
 			$colSpan++;
 		endif;
 
 		if($this->bShowActions):
 ?>
 			<td class="adm-list-table-cell adm-list-table-popup-block" title="<?=GetMessage("admin_lib_list_act")?>"><div class="adm-list-table-cell-inner"></div></td>
-<?
+<?php 
 			$colSpan++;
 		endif;
 
@@ -655,14 +655,14 @@ class CAdminList
 			<td <?=$attrs?>>
 				<div class="adm-list-table-cell-inner"><?=$header["content"]?></div>
 			</td>
-<?
+<?php 
 			$colSpan++;
 		endforeach;
 ?>
 		</tr>
 	</thead>
 	<tbody>
-<?
+<?php 
 		if(!empty($this->aRows)):
 			foreach($this->aRows as $row)
 			{
@@ -671,12 +671,12 @@ class CAdminList
 		elseif(!empty($this->aHeaders)):
 ?>
 		<tr><td colspan="<?=$colSpan?>" class="adm-list-table-cell adm-list-table-empty"><?=GetMessage("admin_lib_no_data")?></td></tr>
-<?
+<?php 
 		endif;
 ?>
 	</tbody>
 </table>
-<?
+<?php 
 		$this->ShowActionTable();
 
 // close form and div.adm-list-table-wrap
@@ -791,19 +791,19 @@ class CAdminList
 ?>
 <div class="adm-list-table-footer" id="<?=$this->table_id?>_footer<?=$this->bEditMode || count($this->arUpdateErrorIDs)>0 ? '_edit' : ''?>">
 	<input type="hidden" name="action_button" value="" />
-<?
+<?php 
 		if($this->bEditMode || count($this->arUpdateErrorIDs)>0):
 ?>
 		<input type="hidden" name="save" id="<?=$this->table_id?>_hidden_save" value="Y">
 		<input type="submit" class="adm-btn-save" name="save" value="<?=GetMessage("admin_lib_list_edit_save")?>" title="<?=GetMessage("admin_lib_list_edit_save_title")?>" />
 		<input type="button" onclick="BX('<?=$this->table_id?>_hidden_save').name='cancel'; <?=htmlspecialcharsbx($this->ActionPost(false, 'action_button', ''))?> " name="cancel" value="<?=GetMessage("admin_lib_list_edit_cancel")?>" title="<?=GetMessage("admin_lib_list_edit_cancel_title")?>" />
 
-<?
+<?php 
 		else: //($this->bEditMode || count($this->arUpdateErrorIDs)>0)
 			if($this->arActionsParams["disable_action_target"] <> true):
 ?>
 	<span class="adm-selectall-wrap"><input type="checkbox" class="adm-checkbox adm-designed-checkbox" name="action_target" value="selected" id="action_target" onclick="if(this.checked && !confirm('<?=CUtil::JSEscape(GetMessage("admin_lib_list_edit_for_all_warn"))?>')) {this.checked=false;} <?=$this->table_id?>.EnableActions();" title="<?=GetMessage("admin_lib_list_edit_for_all")?>" /><label for="action_target" class="adm-checkbox adm-designed-checkbox-label"></label><label title="<?=GetMessage("admin_lib_list_edit_for_all")?>" for="action_target" class="adm-checkbox-label"><?=GetMessage("admin_lib_list_for_all");?></label></span>
-<?
+<?php 
 			endif;
 
 			$this->bCanBeDeleted = array_key_exists("delete", $this->arActions);
@@ -872,20 +872,20 @@ class CAdminList
 <?=$list?>
 		</select>
 	</span>
-<?
+<?php 
 				if (strlen($html) > 0)
 					echo $html;
 ?>
 	<input type="submit" name="apply" value="<?=GetMessage("admin_lib_list_apply")?>" onclick="if(this.form.action[this.form.action.selectedIndex].getAttribute('custom_action')){eval(this.form.action[this.form.action.selectedIndex].getAttribute('custom_action'));return false;}" disabled="disabled" class="adm-table-action-button" />
-<?
+<?php 
 			endif; //(strlen($list) > 0)
 ?>
 	<span class="adm-table-counter" id="<?=$this->table_id?>_selected_count"><?=GetMessage('admin_lib_checked')?>: <span>0</span></span>
-<?
+<?php 
 		endif; // ($this->bEditMode || count($this->arUpdateErrorIDs)>0):
 ?>
 </div>
-<?
+<?php 
 	}
 
 	public function DisplayList($arParams = array())
@@ -930,7 +930,7 @@ class CAdminList
 window['<?=$tbl?>'] = new BX.adminList('<?=$tbl?>', <?=CUtil::PhpToJsObject($arParams)?>);
 BX.adminChain.addItems("<?=$tbl?>_navchain_div");
 </script>
-<?
+<?php 
 
 		echo '<div id="'.$this->table_id.'_result_div" class="adm-list-table-layout">';
 		$this->Display();
@@ -1030,24 +1030,24 @@ top.bxcompajaxframeonload = function() {
 	top.BX.adminPanel.closeWait();
 	top.<?=$this->table_id?>.Destroy(false);
 	top.<?=$this->table_id?>.Init();
-<?
+<?php 
 				if(isset($this->onLoadScript)):
 ?>
 	top.BX.evalGlobal('<?=CUtil::JSEscape($this->onLoadScript)?>');
-<?
+<?php 
 				endif;
 ?>
 };
 top.BX.ajax.UpdatePageData({});
 </script></body></html>
-<?
+<?php 
 			}
 			else
 			{
 				if(isset($this->onLoadScript)):
 ?>
 <script type="text/javascript"><?=$this->onLoadScript?></script>
-<?
+<?php 
 				endif;
 
 				echo $string;
@@ -1297,24 +1297,24 @@ class CAdminListRow
 			$sMenuItems = htmlspecialcharsbx(CAdminPopup::PhpToJavaScript($this->aActions));
 ?>
 <tr class="adm-list-table-row<?=(isset($this->aFeatures["footer"]) && $this->aFeatures["footer"] == true? ' footer':'')?><?=$this->bEditMode?' adm-table-row-active' : ''?>"<?=($sMenuItems <> ""? ' oncontextmenu="return '.$sMenuItems.';"':'');?><?=($sDefAction <> ""? ' ondblclick="'.$sDefAction.'"'.(!empty($sDefTitle)? ' title="'.GetMessage("admin_lib_list_double_click").' '.$sDefTitle.'"':''):'')?>>
-<?
+<?php 
 
 		if(count($this->pList->arActions)>0 || $this->pList->bCanBeEdited):
 			$check_id = RandString(5);
 ?>
 	<td class="adm-list-table-cell adm-list-table-checkbox adm-list-table-checkbox-hover<?=$this->bReadOnly? ' adm-list-table-checkbox-disabled':''?>"><input type="checkbox" class="adm-checkbox adm-designed-checkbox" name="ID[]" id="<?=$this->table_id."_".$this->id."_".$check_id;?>" value="<?=$this->id?>" autocomplete="off" title="<?=GetMessage("admin_lib_list_check")?>"<?=$this->bReadOnly? ' disabled="disabled"':''?><?=$this->bEditMode ? ' checked="checked" disabled="disabled"' : ''?> /><label class="adm-designed-checkbox-label adm-checkbox" for="<?=$this->table_id."_".$this->id."_".$check_id;?>"></label></td>
-<?
+<?php 
 		endif;
 
 		if($this->pList->bShowActions):
 			if(!empty($this->aActions)):
 ?>
 	<td class="adm-list-table-cell adm-list-table-popup-block" onclick="BX.adminList.ShowMenu(this.firstChild, this.parentNode.oncontextmenu(), this.parentNode);"><div class="adm-list-table-popup" title="<?=GetMessage("admin_lib_list_actions_title")?>"></div></td>
-<?
+<?php 
 			else:
 ?>
 	<td class="adm-list-table-cell"></td>
-<?
+<?php 
 			endif;
 		endif;
 
@@ -1451,7 +1451,7 @@ class CAdminListRow
 		}
 ?>
 </tr>
-<?
+<?php 
 	}
 
 	/**

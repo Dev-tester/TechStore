@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Socialservices;
 
 use Bitrix\Main\Web\Json;

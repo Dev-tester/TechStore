@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLF_TOOLBAR_LIST_EDIT"] = "Grid Settings";
 $MESS["CT_BLF_TOOLBAR_LIST_TITLE"] = "Back to list settings";
 $MESS["CT_BLF_TOOLBAR_ADD"] = "Add Field";

@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DB;
 $db_type = strtolower($DB->type);
 

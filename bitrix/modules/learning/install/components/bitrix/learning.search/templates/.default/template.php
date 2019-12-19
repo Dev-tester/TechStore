@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="search-page">
 <form method="get" action="<?=$arParams["SEARCH_PAGE"]?>">
 <?php if ($arParams["COURSE_ID"] && $arParams["SEF_MODE"] != "Y"):?>
@@ -20,15 +20,15 @@
 	<td><input type="submit" value="<?=GetMessage("SEARCH_GO")?>"></td>
 	</tr>
 </table>
-<?if($arResult["how"]=="d"):?>
+<?php if($arResult["how"]=="d"):?>
 	<input type="hidden" name="how" value="d">
-<?endif;?>
+<?php endif;?>
 </form><br />
 
-<?if($arResult["REQUEST"]["QUERY"] === false && $arResult["REQUEST"]["TAGS"] === false):?>
-<?elseif($arResult["ERROR_CODE"]!=0):?>
+<?php if($arResult["REQUEST"]["QUERY"] === false && $arResult["REQUEST"]["TAGS"] === false):?>
+<?php elseif($arResult["ERROR_CODE"]!=0):?>
 	<p><?=GetMessage("SEARCH_ERROR")?></p>
-	<?ShowError($arResult["ERROR_TEXT"]);?>
+	<?php ShowError($arResult["ERROR_TEXT"]);?>
 	<p><?=GetMessage("SEARCH_CORRECT_AND_CONTINUE")?></p>
 	<br /><br />
 	<p><?=GetMessage("SEARCH_SINTAX")?><br /><b><?=GetMessage("SEARCH_LOGIC")?></b></p>
@@ -55,25 +55,25 @@
 			<td><?=GetMessage("SEARCH_BRACKETS_ALT")?></td>
 		</tr>
 	</table>
-<?elseif(count($arResult["SEARCH_RESULT"])>0):?>
-	<?if($arParams["DISPLAY_TOP_PAGER"] != "N") echo $arResult["NAV_STRING"]?>
+<?php elseif(count($arResult["SEARCH_RESULT"])>0):?>
+	<?php if($arParams["DISPLAY_TOP_PAGER"] != "N") echo $arResult["NAV_STRING"]?>
 	<br /><hr />
 	<?php foreach($arResult["SEARCH_RESULT"] as $arItem):?>
-		<a href="<?echo $arItem["URL"]?>"><?echo $arItem["TITLE_FORMATED"]; ?></a>
-		<p><?echo $arItem["BODY_FORMATED"]?></p>
-		<small><?echo GetMessage("SEARCH_MODIFIED")?> <?echo $arItem["DATE_CHANGE"]?></small>
+		<a href="<?php echo $arItem["URL"]?>"><?php echo $arItem["TITLE_FORMATED"]; ?></a>
+		<p><?php echo $arItem["BODY_FORMATED"]?></p>
+		<small><?php echo GetMessage("SEARCH_MODIFIED")?> <?php echo $arItem["DATE_CHANGE"]?></small>
 		<hr />
 	<?php endforeach?>
 	<?=$arResult["NAV_STRING"]?>
 	<br />
 	<p>
-	<?if($arResult["how"]=="d"):?>
+	<?php if($arResult["how"]=="d"):?>
 		<a href="<?=$arResult["ORDER_LINK"]?>"><?=GetMessage("SEARCH_SORT_BY_RANK")?></a>&nbsp;|&nbsp;<b><?=GetMessage("SEARCH_SORTED_BY_DATE")?></b>
-	<?else:?>
+	<?php else:?>
 		<b><?=GetMessage("SEARCH_SORTED_BY_RANK")?></b>&nbsp;|&nbsp;<a href="<?=$arResult["ORDER_LINK"]?>"><?=GetMessage("SEARCH_SORT_BY_DATE")?></a>
-	<?endif;?>
+	<?php endif;?>
 	</p>
-<?else:?>
-	<?ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND"));?>
-<?endif;?>
+<?php else:?>
+	<?php ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND"));?>
+<?php endif;?>
 </div>

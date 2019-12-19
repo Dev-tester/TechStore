@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_APP_INSTALL_BITRIX24_MODULE"] = "Модуль bitrix24 не установлен.";
 $MESS["BX24_APP_INSTALL_RIGHTS"] = "Приложение запрашивает разрешение на следующие действия:";
 $MESS["BX24_APP_INSTALL_SUCCESS"] = "Приложение было успешно установлено. <a href='#LINK#'>Перейти</a>";

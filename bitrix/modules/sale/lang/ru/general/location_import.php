@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SL_IMPORT_ERROR_FILES'] = 'Ошибка! Неверные имена файлов.';
 $MESS['SL_IMPORT_ERROR_NO_LOC_FILE'] = "Нет загруженного файла местоположений";
 $MESS['SL_IMPORT_ERROR_WRONG_LOC_FILE'] = "Неверный формат файла местоположений";

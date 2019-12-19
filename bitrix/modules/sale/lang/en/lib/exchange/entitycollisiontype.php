@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COLLISION_TYPE_ORDER_IS_PAYED"] = "Cannot edit order because it has been paid.";
 $MESS["SALE_COLLISION_TYPE_ORDER_IS_SHIPPED"] = "Cannot edit order because it has been shipped.";
 $MESS["SALE_COLLISION_TYPE_ORDER_FINAL_STATUS"] = "Cannot edit order because it is in final status.";

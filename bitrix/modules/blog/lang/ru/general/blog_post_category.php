@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GCT_EMPTY_POST_ID"] = "Не указано сообщение тега";
 $MESS["BLG_GCT_EMPTY_BLOG_ID"] = "Не указан блог тега";
 $MESS["BLG_GCT_EMPTY_CATEGORY_ID"] = "Не указан ИД тега";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Bizproc\FieldType;
 use Bitrix\Main;
 

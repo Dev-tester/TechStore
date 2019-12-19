@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,7 +13,7 @@
 ?>
 <html>
 	<head>
-	<title><? $APPLICATION->GetTitle() ?></title>
+	<title><?php  $APPLICATION->GetTitle() ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset='<?= LANG_CHARSET ?>">
 	<style>
 		td {mso-number-format:\@;}
@@ -24,28 +24,28 @@
 <body>
 	<table border="1">
 	<tr>
-		<? foreach ($arResult["EXCEL_COLUMN_NAME"] as $value)
+		<?php  foreach ($arResult["EXCEL_COLUMN_NAME"] as $value)
 		{
 		?>
 		<td><?= $value; ?></td>
-		<?
+		<?php 
 		}
 		?>
 	</tr>
 
-	<? foreach ($arResult["EXCEL_CELL_VALUE"] as $array)
+	<?php  foreach ($arResult["EXCEL_CELL_VALUE"] as $array)
 	{
 	?>
 	<tr>
-		<? foreach ($array as $value)
+		<?php  foreach ($array as $value)
 		{
 		?>
 			<td><?= $value; ?></td>
-		<?
+		<?php 
 		}
 		?>
 	</tr>
-	<?
+	<?php 
 	}
 	?>
 

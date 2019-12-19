@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Calendar\Controller;
 
 use Bitrix\Main\Text\Encoding;

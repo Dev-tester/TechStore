@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["QUEUE_OPERATOR_DEFAULT_NAME"] = "Оператор";
 $MESS["IMOL_QUEUE_OPERATOR_VACATION"] = "Диалог снят с оператора, так как оператор находится в отпуске";
 $MESS["IMOL_QUEUE_OPERATOR_NONWORKING"] = "Диалог снят с оператора, так как оператор не начал или завершил рабочий день";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -33,41 +33,41 @@ elseif ($arParams["SEO_USER"] == "TEXT") $arParams["USER_TMPL"] = '#NAME#';
 <a name="postform"></a>
 <div class="forum-header-box">
 	<div class="forum-header-options">
-<?
+<?php 
 if ($arResult["mode"] != "new"):
 ?>
 	<span class="forum-option-folder"><a href="<?=$arResult["URL"]["HELP"]?>"><?=$arResult["FolderName"]?></a></span>
-<?
+<?php 
 endif;
 ?>
 	</div>
-	<div class="forum-header-title"><span><?
+	<div class="forum-header-title"><span><?php 
 if ($arResult["mode"] != "new"):
 ?>
 	<?=$arResult["FolderName"]?>
-<?
+<?php 
 else:
 ?>
 	<?=GetMessage("F_NEW_PM")?>
-<?
+<?php 
 endif;
 	?></span></div>
 </div>
 
 
 <div class="forum-reply-form">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 $arParams["FORM_ID"] = "REPLIER";
 ?>
 <IFRAME style="width:0px; height:0px; border: 0px" src="javascript:void(0)" name="frame_USER_ID" id="frame_USER_ID"></IFRAME>
-<form name="REPLIER" id="REPLIER" action="<?=POST_FORM_ACTION_URI?>" method="POST" onsubmit="return ValidateForm(this);"<?
+<form name="REPLIER" id="REPLIER" action="<?=POST_FORM_ACTION_URI?>" method="POST" onsubmit="return ValidateForm(this);"<?php 
 	?> class="forum-form">
 	<input type="hidden" name="PAGE_NAME" value="pm_edit" />
 	<input type="hidden" name="action" id="action" value="<?=$arResult["action"]?>" />
@@ -76,7 +76,7 @@ $arParams["FORM_ID"] = "REPLIER";
 	<input type="hidden" name="mode" value="<?=$arResult["mode"]?>" />
 	<input type="hidden" name="USER_ID" id="USER_ID" value="<?=$arResult["POST_VALUES"]["USER_ID"]?>" readonly="readonly" />
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 	if ($arParams['AUTOSAVE'])
 		$arParams['AUTOSAVE']->Init();
 ?>
@@ -89,35 +89,35 @@ $arParams["FORM_ID"] = "REPLIER";
 		<div class="forum-reply-field-user">
 			<div class="forum-reply-field forum-reply-field-author"><label for="input_USER_ID"><?=GetMessage("F_HEAD_TO")
 				?><span class="forum-required-field">*</span></label>
-				<span><input type="text" name="input_USER_ID" id="input_USER_ID" tabindex="<?=$tabIndex++;?>" <?
-					?>value="<?
+				<span><input type="text" name="input_USER_ID" id="input_USER_ID" tabindex="<?=$tabIndex++;?>" <?php 
+					?>value="<?php 
 					if (!empty($arResult["POST_VALUES"]["SHOW_NAME"]["text"])):
-						?><?=$arResult["POST_VALUES"]["SHOW_NAME"]["text"]?><?
+						?><?=$arResult["POST_VALUES"]["SHOW_NAME"]["text"]?><?php 
 					elseif (!empty($arResult["POST_VALUES"]["USER_ID"])):
-						?><?=$arResult["POST_VALUES"]["USER_ID"]?><?
+						?><?=$arResult["POST_VALUES"]["USER_ID"]?><?php 
 					endif;
 					?>" onfocus="fSearchUser()" /></span>
 			</div>
 			<div class="forum-reply-field-user-sep">&nbsp;</div>
 			<div class="forum-reply-field forum-reply-field-email"><br />
 				<span class="forum-pmessage-recipient">
-<?
+<?php 
 	if ($arResult["mode"] != "edit"):
 ?>
-				<a href="javascript:void(0);" onclick="window.open('<?=$arResult["pm_search"]?>', '', 'scrollbars=yes,resizable=yes,width=760,height=500,<?
+				<a href="javascript:void(0);" onclick="window.open('<?=$arResult["pm_search"]?>', '', 'scrollbars=yes,resizable=yes,width=760,height=500,<?php 
 					?>top='+Math.floor((screen.height - 500)/2-14)+',left='+Math.floor((screen.width - 760)/2-5));" title="<?=GetMessage("F_SEARCH_USER")?>">
 					<?=GetMessage("F_FIND_USER")?></a>
-<?
+<?php 
 	endif;
 ?>
-				<span id="div_USER_ID" name="div_USER_ID"><?
+				<span id="div_USER_ID" name="div_USER_ID"><?php 
 				if (!empty($arResult["POST_VALUES"]["SHOW_NAME"])):
 					?>[<?=str_replace(
 						array("#URL#", "#NAME#"),
 						array($arResult["POST_VALUES"]["SHOW_NAME"]["link"], $arResult["POST_VALUES"]["SHOW_NAME"]["text"]),
-						$arParams["USER_TMPL"])?>]<?
+						$arParams["USER_TMPL"])?>]<?php 
 				elseif (!empty($arResult["POST_VALUES"]["USER_ID"])):
-					?><i><?=GetMessage("PM_NOT_FINED");?></i><?
+					?><i><?=GetMessage("PM_NOT_FINED");?></i><?php 
 				endif;
 				?></span></span>
 				</div>
@@ -130,7 +130,7 @@ $arParams["FORM_ID"] = "REPLIER";
 
 	<div class="forum-reply-fields">
 		<div class="forum-reply-field forum-reply-field-text">
-			<?
+			<?php 
 				$arSmiles = array();
 				foreach($arResult["SMILES"] as $arSmile)
 				{
@@ -202,26 +202,26 @@ $arParams["FORM_ID"] = "REPLIER";
 
 		<div class="forum-reply-field forum-reply-field-settings">
 			<div class="forum-reply-field-setting">
-				<input type="checkbox" name="USE_SMILES" id="USE_SMILES" <?
-				?>value="Y" <?=($arResult["POST_VALUES"]["USE_SMILES"]!="N") ? "checked=\"checked\"" : "";?> <?
+				<input type="checkbox" name="USE_SMILES" id="USE_SMILES" <?php 
+				?>value="Y" <?=($arResult["POST_VALUES"]["USE_SMILES"]!="N") ? "checked=\"checked\"" : "";?> <?php 
 				?>tabindex="<?=$tabIndex++;?>" />&nbsp;<label for="USE_SMILES"><?=GetMessage("F_WANT_ALLOW_SMILES")?></label></div>
 
-<?
+<?php 
 	if ($arParams["version"] == 2 && $arResult["action"] == "send"):
 ?>
 			<div class="forum-reply-field-setting">
-				<input type="checkbox" name="COPY_TO_OUTBOX" id="COPY_TO_OUTBOX" value="Y" tabindex="<?=$tabIndex++;?>" <?
-				?><?=(($arResult["POST_VALUES"]["COPY_TO_OUTBOX"] != "N") ? "checked" : "")?> />&nbsp;<?
+				<input type="checkbox" name="COPY_TO_OUTBOX" id="COPY_TO_OUTBOX" value="Y" tabindex="<?=$tabIndex++;?>" <?php 
+				?><?=(($arResult["POST_VALUES"]["COPY_TO_OUTBOX"] != "N") ? "checked" : "")?> />&nbsp;<?php 
 				?><label for="COPY_TO_OUTBOX"><?=GetMessage("F_COPY_TO_OUTBOX")?></label></div>
 			<div class="forum-reply-field-setting">
-				<input type="checkbox" name="REQUEST_IS_READ" id="REQUEST_IS_READ" value="Y" tabindex="<?=$tabIndex++;?>" <?
-					?><?=(($arResult["POST_VALUES"]["REQUEST_IS_READ"] == "Y") ? "checked" : "")?> />&nbsp;<?
-				?><label for="REQUEST_IS_READ"><?=GetMessage("F_REQUEST_IS_READ")?></label></div><?
+				<input type="checkbox" name="REQUEST_IS_READ" id="REQUEST_IS_READ" value="Y" tabindex="<?=$tabIndex++;?>" <?php 
+					?><?=(($arResult["POST_VALUES"]["REQUEST_IS_READ"] == "Y") ? "checked" : "")?> />&nbsp;<?php 
+				?><label for="REQUEST_IS_READ"><?=GetMessage("F_REQUEST_IS_READ")?></label></div><?php 
 	endif;
 ?>
 		</div>
 		<div class="forum-reply-buttons">
-			<input type="submit" name="SAVE_BUTTON" id="SAVE_BUTTON" tabindex="<?=$tabIndex++;?>" <?
+			<input type="submit" name="SAVE_BUTTON" id="SAVE_BUTTON" tabindex="<?=$tabIndex++;?>" <?php 
 				?> value="<?=($arResult["action"] == "save" ? GetMessage("F_ACT_SAVE") : GetMessage("F_ACT_SEND"))?>" tabindex="<?=$tabIndex++;?>" />
 		</div>
 	</div>
@@ -265,7 +265,7 @@ oErrors['no_topic_name'] = "<?=GetMessageJS("JERROR_NO_TOPIC_NAME")?>";
 oErrors['no_message'] = "<?=GetMessageJS("JERROR_NO_MESSAGE")?>";
 oErrors['max_len'] = "<?=GetMessageJS("JERROR_MAX_LEN")?>";
 </script>
-<?
+<?php 
 if ($arParams['AUTOSAVE'])
 	$arParams['AUTOSAVE']->LoadScript("REPLIER".CUtil::JSEscape($arParams["form_index"]));
 ?>

@@ -56,7 +56,7 @@ $customButtons .= '<input type="button" name="cancel" value="'.htmlspecialcharsb
 ?>
 
 <div class="crm-config-exch1c">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.interface.form',
 	'',

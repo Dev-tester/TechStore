@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Услуги на межбанковском рынке");
 $APPLICATION->SetTitle("Услуги на межбанковском рынке");
@@ -80,4 +80,4 @@ $APPLICATION->SetTitle("Услуги на межбанковском рынке"
 									<li>кредитование под залог векселей;</li> 
 									<li>выдача кредитов на приобретение векселей;</li> 
 									<li>новация и размен векселей;</li> 
-									<li>проверка подлинности векселей.</li></ul> <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+									<li>проверка подлинности векселей.</li></ul> <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

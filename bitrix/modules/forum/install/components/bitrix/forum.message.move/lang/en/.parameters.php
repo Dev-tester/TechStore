@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_DEFAULT_TID'] = "Topic ID";
 $MESS ['F_DEFAULT_FID'] = "Forum ID";
 $MESS ['F_DEFAULT_MID'] = "Message ID";

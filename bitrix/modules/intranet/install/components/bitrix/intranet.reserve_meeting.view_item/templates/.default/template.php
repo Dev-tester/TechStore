@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
@@ -20,24 +20,24 @@ else
 	<tr>
 		<td colspan="2"><?=$arResult["MEETING"]["DESCRIPTION"] ?></td>
 	</tr>
-	<?if (StrLen($arResult["MEETING"]["UF_FLOOR"]) > 0):?>
+	<?php if (StrLen($arResult["MEETING"]["UF_FLOOR"]) > 0):?>
 	<tr>
 		<td width="10%"><?= GetMessage("INTASK_C29T_FLOOR") ?>:</td>
 		<td width="90%"><?= $arResult["MEETING"]["UF_FLOOR"]; ?></td>
 	</tr>
-	<?endif;?>
-	<?if (StrLen($arResult["MEETING"]["UF_PLACE"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["MEETING"]["UF_PLACE"]) > 0):?>
 	<tr>
 		<td><?= GetMessage("INTASK_C29T_PLACE") ?>:</td>
 		<td><?= $arResult["MEETING"]["UF_PLACE"]; ?></td>
 	</tr>
-	<?endif;?>
-	<?if (StrLen($arResult["MEETING"]["UF_PHONE"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["MEETING"]["UF_PHONE"]) > 0):?>
 	<tr>
 		<td><?= GetMessage("INTASK_C29T_PHONE") ?>:</td>
 		<td><?= $arResult["MEETING"]["UF_PHONE"]; ?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	</table>
 	<br />
 
@@ -54,7 +54,7 @@ else
 			<tr>
 				<td align="right"><?= GetMessage("INTASK_C29T_AUTHOR") ?>:</td>
 				<td>
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent("bitrix:main.user.link",
 					'',
 					array(
@@ -103,7 +103,7 @@ else
 			</tr>
 			<tr>
 				<td align="right" valign="top"><?= GetMessage("INTASK_C29T_REGULAR") ?>:</td>
-				<td valign="top"><?
+				<td valign="top"><?php 
 					if ($arResult["ITEM"]["PROPERTY_PERIOD_TYPE_VALUE"] != "NONE")
 					{
 						echo Str_Replace("#VAL#", $arResult["ITEM"]["PROPERTY_PERIOD_COUNT_VALUE"], GetMessage("INTASK_C29T_TRANSS_".$arResult["ITEM"]["PROPERTY_PERIOD_TYPE_VALUE"]));
@@ -131,6 +131,6 @@ else
 		</tbody>
 	</table>
 	<br />
-	<?
+	<?php 
 }
 ?>

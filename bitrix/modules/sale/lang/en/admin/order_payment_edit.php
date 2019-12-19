@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOP_TAB_ANALYSIS"] = "Order documents";
 $MESS["SOP_TAB_HISTORY"] = "Revision history";
 $MESS["SOP_TAB_PAYMENT"] = "Payment";

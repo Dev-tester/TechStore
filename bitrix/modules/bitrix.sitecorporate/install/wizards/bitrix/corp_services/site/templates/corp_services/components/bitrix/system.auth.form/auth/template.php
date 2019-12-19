@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($arResult["FORM_TYPE"] != "login") 
 {
@@ -7,27 +7,27 @@ if ($arResult["FORM_TYPE"] != "login")
 	<div id="user-name"><?=GetMessage("AUTH_HELLO")?> <a href="<?=$arResult["urlToOwnProfile"]?>"><?=$arResult["USER_NAME"]?></a>!</div>
 	<ul class="mdash-list">
 		<li><a href="<?=$arResult["urlToOwnProfile"]?>"><?=GetMessage("AUTH_PROFILE")?></a></li>
-	<? 
+	<?php  
 	if (!empty($arResult["urlToOwnBlog"])) 
 	{
 	?>
 		<li><a href="<?=$arResult["urlToOwnBlog"]?>"><?=GetMessage("AUTH_BLOG")?></a></li>
 		<li><a href="<?=$arResult["urlToCreateMessageInBlog"]?>"><?=GetMessage("AUTH_BLOG_NEW_POST")?></a></li>
-	<? 
+	<?php  
 	} 
 	elseif (!empty($arResult["urlToCreateInBlog"])) 
 	{
 	?>
 		<li><a href="<?=$arResult["urlToCreateInBlog"]?>"><?=GetMessage("AUTH_BLOG_CREATE")?></a></li>
-	<? 
+	<?php  
 	}
 	?>
-	<?
+	<?php 
 	if (!empty($arParams["PATH_TO_SONET_MESSAGES"])) 
 	{
 	?>
 		<li>
-		<?$APPLICATION->IncludeComponent("bitrix:socialnetwork.events_dyn", "popup", Array(
+		<?php $APPLICATION->IncludeComponent("bitrix:socialnetwork.events_dyn", "popup", Array(
 				"PATH_TO_USER"	=>	SITE_DIR."people/user/#user_id#/",
 				"PATH_TO_GROUP"	=>	SITE_DIR."groups/group/#group_id#/",
 				"PATH_TO_MESSAGES"	=>	$arParams["PATH_TO_SONET_MESSAGES"],
@@ -43,13 +43,13 @@ if ($arResult["FORM_TYPE"] != "login")
 			);
 		?>
 		</li>	
-	<? 
+	<?php  
 	}
 	?>
 	</ul>
 	<a href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("logout=yes", array("logout"))?>" id="logout" title="<?=GetMessage("AUTH_LOGOUT")?>"><?=GetMessage("AUTH_LOGOUT")?></a>
 </div>
-<? 
+<?php  
 } 
 else 
 {
@@ -60,19 +60,19 @@ else
 	
 	<table id="auth-form" cellspacing="0">
 		<tr>
-			<td colspan="2" align="right"><?
+			<td colspan="2" align="right"><?php 
 	 if($arResult["NEW_USER_REGISTRATION"] == "Y") 
 	 {
 ?>
-		<a href="<?=$arResult["AUTH_REGISTER_URL"]?>" title="<?=GetMessage("AUTH_REGISTER_DESC")?>"><?=GetMessage("AUTH_REGISTER")?></a><?
+		<a href="<?=$arResult["AUTH_REGISTER_URL"]?>" title="<?=GetMessage("AUTH_REGISTER_DESC")?>"><?=GetMessage("AUTH_REGISTER")?></a><?php 
 		?>&nbsp;&nbsp;&nbsp;<a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>" title="<?=GetMessage("AUTH_FORGOT_PASSWORD")?>">?</a>
-<? 
+<?php  
 	 } 
 	 else
 	 {
 ?>
 		<a href="<?=$arResult["AUTH_FORGOT_PASSWORD_URL"]?>"><?=GetMessage("AUTH_FORGOT_PASSWORD")?></a>
-<? 
+<?php  
 	 }
 ?>
 			</td>
@@ -85,16 +85,16 @@ else
 			<td class="field-name"><label for="password-textbox"><?=GetMessage("AUTH_PASSWORD")?>:</label></td>
 			<td><input type="password" name="USER_PASSWORD" maxlength="50" class="textbox" id="password-textbox" /></td>
 		</tr>
-<?
+<?php 
 	if ($arResult["STORE_PASSWORD"] == "Y")
 	{
 ?>
 		<tr>
 			<td>&nbsp;</td>
-			<td><input type="checkbox" id="remember-checkbox" class="checkbox" name="USER_REMEMBER" value="Y" /><?
+			<td><input type="checkbox" id="remember-checkbox" class="checkbox" name="USER_REMEMBER" value="Y" /><?php 
 				?><label for="remember-checkbox" class="remember"><?=GetMessage("AUTH_REMEMBER_ME")?></label></td>
 		</tr>
-<?
+<?php 
 	}
 ?>
 		<tr>
@@ -103,6 +103,6 @@ else
 		</tr>							
 	</table>
 </form>
-<?
+<?php 
 }
 ?>

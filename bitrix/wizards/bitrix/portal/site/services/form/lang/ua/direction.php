@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DIRECTION_FORM_NAME"] = "Заявки для керівників";
 $MESS["DIRECTION_ORDER_FORM_BUTTON"] = "Надіслати заявку";
 $MESS["REQUEST_DESCRIPTION_QUESTION"] = "Текст заявки";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_ABSENCE_STATUS_VACATION"] = "В отпуске";
 
 $MESS['INTR_USER_ABSENCE_TYPE_VACATION'] = 'отпуск ежегодный';

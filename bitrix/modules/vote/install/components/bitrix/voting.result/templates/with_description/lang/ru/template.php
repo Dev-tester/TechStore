@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_IS_ACTIVE_SMALL'] = "активен";
 $MESS ['VOTE_IS_NOT_ACTIVE_SMALL'] = "неактивен";
 $MESS ['VOTE_IS_ACTIVE'] = "Опрос активен.";

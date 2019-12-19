@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["VARIABLES"]["post_id"]) > 0)
 {
 	CModule::IncludeModule("blog");

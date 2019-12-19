@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_CALENDAR_HELP_TITLE"] = "Объедините ваши календари!";
 $MESS["MB_CALENDAR_HELP_PHRASE_2"] = "Сделайте свой календарь еще удобнее!";
 $MESS["MB_CALENDAR_HELP_HELP_NAME"] = "Помощь";

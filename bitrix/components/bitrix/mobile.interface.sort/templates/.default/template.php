@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
 if (is_array($arResult['SORT_FIELDS']) && !empty($arResult['SORT_FIELDS']))
@@ -8,23 +8,23 @@ if (is_array($arResult['SORT_FIELDS']) && !empty($arResult['SORT_FIELDS']))
 		<span class="mobile-grid-field-title"><?=GetMessage("M_SORT_TITLE")?></span>
 		<div class="mobile-grid-field">
 			<div class="mobile-grid-button-panel mobile-grid-button-sort">
-				<a data-role="asc" href="javascript:void(0)" ontouchstart="BX.Mobile.Grid.Sort.selectOrder('asc')" <?if ($arResult["CURRENT_SORT_ORDER"] == "asc") echo 'class="mobile-grid-button-sort-selected"'?>><span class="mobile-grid-button-sort-icon"></span><span><?=GetMessage("M_SORT_ASC")?></span></a>
+				<a data-role="asc" href="javascript:void(0)" ontouchstart="BX.Mobile.Grid.Sort.selectOrder('asc')" <?php if ($arResult["CURRENT_SORT_ORDER"] == "asc") echo 'class="mobile-grid-button-sort-selected"'?>><span class="mobile-grid-button-sort-icon"></span><span><?=GetMessage("M_SORT_ASC")?></span></a>
 				<span class="mobile-grid-button-panel-divider"></span>
-				<a data-role="desc" href="javascript:void(0)" ontouchstart="BX.Mobile.Grid.Sort.selectOrder('desc')" <?if ($arResult["CURRENT_SORT_ORDER"] == "desc") echo 'class="mobile-grid-button-sort-selected"'?>><span class="mobile-grid-button-sort-icon"></span><span><?=GetMessage("M_SORT_DESC")?></span></a>
+				<a data-role="desc" href="javascript:void(0)" ontouchstart="BX.Mobile.Grid.Sort.selectOrder('desc')" <?php if ($arResult["CURRENT_SORT_ORDER"] == "desc") echo 'class="mobile-grid-button-sort-selected"'?>><span class="mobile-grid-button-sort-icon"></span><span><?=GetMessage("M_SORT_DESC")?></span></a>
 			</div>
 		</div>
 		<span class="mobile-grid-field-title"><?=GetMessage("M_SORT_FIELDS")?></span>
 
-		<?foreach($arResult['SORT_FIELDS'] as $row):
+		<?php foreach($arResult['SORT_FIELDS'] as $row):
 			if (!$row["sort"])
 				continue;
 			?>
-			<div data-role="mobile-sort-item" class="mobile-grid-field <?if ($arResult["CURRENT_SORT_BY"] == $row["id"]) echo 'mobile-grid-field-selected'?>" data-sort-id="<?=$row["id"]?>">
+			<div data-role="mobile-sort-item" class="mobile-grid-field <?php if ($arResult["CURRENT_SORT_BY"] == $row["id"]) echo 'mobile-grid-field-selected'?>" data-sort-id="<?=$row["id"]?>">
 				<div class="mobile-grid-field-textarea"><span class="mobile-grid-field-textarea-select"></span><?=$row["name"]?></div>
 			</div>
-		<?endforeach?>
+		<?php endforeach?>
 	</div>
-<?
+<?php 
 }
 else
 {

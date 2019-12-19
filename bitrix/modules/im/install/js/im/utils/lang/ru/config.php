@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_UTILS_FORMAT_DATE_RECENT"] = "D, j F";
 $MESS["IM_UTILS_FORMAT_DATE"] = "l, j F Y";
 $MESS["IM_UTILS_FORMAT_DATE_SHORT"] = "d.m.Y";

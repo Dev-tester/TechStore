@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_FRAME_TITLE"] = "Защита от фреймов";
 $MESS["SEC_FRAME_MAIN_TAB"] = "Защита от фреймов";
 $MESS["SEC_FRAME_MAIN_TAB_TITLE"] = "Защита от фреймов";

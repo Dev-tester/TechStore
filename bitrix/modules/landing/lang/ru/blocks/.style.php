@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_STYLE_TEXT_ALIGN"] = "Выравнивание текста";
 $MESS["LANDING_BLOCK_STYLE_ROW_ALIGN"] = "Выравнивание элементов";
 $MESS["LANDING_BLOCK_STYLE_TEXT_COLOR"] = "Цвет текста";

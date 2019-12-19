@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONTROLLER_SEARCH_ACTION_COMPANY_LIMIT_EXCEEDED"] = "To search all companies, choose a plan that fits the amount of accumulated data and the scale of your business. <a onclick=\"top.BX.Helper.show('redirect=detail&code=9745327')\" style=\"cursor: pointer\">Details</a>";
 $MESS["CRM_CONTROLLER_SEARCH_ACTION_CONTACT_LIMIT_EXCEEDED"] = "To search all contacts, choose a plan that fits the amount of accumulated data and the scale of your business. <a onclick=\"top.BX.Helper.show('redirect=detail&code=9745327')\" style=\"cursor: pointer\">Details</a>";
 $MESS["CRM_CONTROLLER_SEARCH_ACTION_DEAL_LIMIT_EXCEEDED"] = "To search all deals, choose a plan that fits the amount of accumulated data and the scale of your business. <a onclick=\"top.BX.Helper.show('redirect=detail&code=9745327')\" style=\"cursor: pointer\">Details</a>";

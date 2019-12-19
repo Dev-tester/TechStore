@@ -117,7 +117,7 @@ $settingsMenu = [
 $this->setViewTarget('mail-msg-counter');
 
 ?>
-<? $isVisibleCounters = ($arResult['UNSEEN'] > 0); ?>
+<?php  $isVisibleCounters = ($arResult['UNSEEN'] > 0); ?>
 
 <div class="mail-msg-counter-title">
 	<span class="mail-msg-counter-name"><?=Loc::getMessage('MAIL_MESSAGE_LIST_COUNTERS_TITLE') ?>:</span>
@@ -136,7 +136,7 @@ $this->setViewTarget('mail-msg-counter');
 	</span>
 </div>
 
-<?
+<?php 
 
 $this->endViewTarget();
 
@@ -145,7 +145,7 @@ if (SITE_TEMPLATE_ID == 'bitrix24')
 	$this->setViewTarget('inside_pagetitle'); ?>
 
 	<div class="pagetitle-container mail-pagetitle-flexible-space">
-		<? $APPLICATION->includeComponent(
+		<?php  $APPLICATION->includeComponent(
 			'bitrix:main.ui.filter', '',
 			$filterOptions
 		); ?>
@@ -161,11 +161,11 @@ if (SITE_TEMPLATE_ID == 'bitrix24')
 	</div>
 
 	<button class="ui-btn" type="button" style="display: none; "></button>
-	<? if (\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
+	<?php  if (\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
 	<button class="ui-btn ui-btn-themes ui-btn-light-border ui-btn-icon-business" type="button" id="mail-msg-sync-button"
 		style="min-width: 39px; min-width: var(--ui-btn-height); " title="<?=Loc::getMessage('MAIL_MESSAGE_SYNC_BTN_HINT') ?>"
 		onclick="BXMailMailbox.sync(this, BX('mail-msg-sync-stepper'), '<?= CUtil::jsEscape($arResult['GRID_ID']) ?>'); "></button>
-	<? endif ?>
+	<?php  endif ?>
 	<div class="ui-btn ui-btn-themes ui-btn-light-border ui-btn-icon-setting"
 		style="min-width: 39px; min-width: var(--ui-btn-height); "
 		data-role="mail-list-settings-menu-popup-toggle"></div>
@@ -174,7 +174,7 @@ if (SITE_TEMPLATE_ID == 'bitrix24')
 		<?=Loc::getMessage('MAIL_MESSAGE_NEW_BTN') ?>
 	</a>
 
-	<? $this->endViewTarget();
+	<?php  $this->endViewTarget();
 
 	$this->setViewTarget('below_pagetitle'); ?>
 
@@ -182,21 +182,21 @@ if (SITE_TEMPLATE_ID == 'bitrix24')
 		<?=$APPLICATION->getViewContent('mail-msg-counter') ?>
 	</div>
 
-	<? if (!empty($arResult['MAILBOX']['LINK'])): ?>
+	<?php  if (!empty($arResult['MAILBOX']['LINK'])): ?>
 		<div style="float: right; margin-right: 20px; ">
 			<a class="ui-btn ui-btn-themes ui-btn-xs ui-btn-light-border ui-btn-round ui-btn-no-caps"
 				href="<?=htmlspecialcharsbx($arResult['MAILBOX']['LINK']) ?>" target="_blank"><?=Loc::getMessage('MAIL_MESSAGE_LIST_LINK') ?></a>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 
-	<? $this->endViewTarget();
+	<?php  $this->endViewTarget();
 }
 else
 {
 	?>
 
 	<div style="display: flex; margin: 0 20px; ">
-		<? $APPLICATION->includeComponent(
+		<?php  $APPLICATION->includeComponent(
 			'bitrix:main.ui.filter', '',
 			$filterOptions
 		); ?>
@@ -212,11 +212,11 @@ else
 			</span>
 		</a>
 		<button class="ui-btn" type="button" style="display: none; "></button>
-		<? if (\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
+		<?php  if (\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
 		<button class="ui-btn ui-btn-themes ui-btn-light-border ui-btn-icon-business" type="button" id="mail-msg-sync-button"
 			style="min-width: 39px; min-width: var(--ui-btn-height); " title="<?=Loc::getMessage('MAIL_MESSAGE_SYNC_BTN_HINT') ?>"
 			onclick="BXMailMailbox.sync(this, BX('mail-msg-sync-stepper'), '<?= CUtil::jsEscape($arResult['GRID_ID']) ?>'); "></button>
-		<? endif ?>
+		<?php  endif ?>
 		<div class="ui-btn ui-btn-themes ui-btn-light-border ui-btn-icon-setting"
 			style="min-width: 39px; min-width: var(--ui-btn-height); "
 			data-role="mail-list-settings-menu-popup-toggle"></div>
@@ -226,7 +226,7 @@ else
 		</a>
 	</div>
 
-	<?
+	<?php 
 }
 
 $this->setViewTarget('mail-msg-counter-script');
@@ -239,7 +239,7 @@ BX('mail-msg-counter-title').innerHTML = '<?=\CUtil::jsEscape($APPLICATION->getV
 
 </script>
 
-<?
+<?php 
 
 $this->endViewTarget();
 
@@ -266,18 +266,18 @@ if ($arResult['MAILBOX']['SYNC_LOCK'] > 0)
 
 ?>
 
-<? if (!\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
+<?php  if (!\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
 	<div style="background: #eef2f4; padding-bottom: 1px; margin-bottom: -1px; ">
 		<div class="ui-alert ui-alert-warning ui-alert-icon-warning">
 			<span class="ui-alert-message"><?=Loc::getMessage('MAIL_CLIENT_CANCELATION_WARNING_2') ?></span>
 		</div>
 	</div>
-<? endif ?>
+<?php  endif ?>
 
 <div class="mail-msg-list-stepper-wrapper">
 
 	<div id="mail-msg-sync-stepper" class="main-stepper main-stepper-show"
-		<? if (!$showStepper): ?> style=" display: none; "<? endif ?>>
+		<?php  if (!$showStepper): ?> style=" display: none; "<?php  endif ?>>
 		<div class="main-stepper-info"><?=Loc::getMessage('MAIL_CLIENT_MAILBOX_SYNC_BAR') ?></div>
 		<div class="main-stepper-inner">
 			<div class="main-stepper-bar">
@@ -300,7 +300,7 @@ if ($arResult['MAILBOX']['SYNC_LOCK'] > 0)
 
 </div>
 
-<?
+<?php 
 
 $snippet = new Main\Grid\Panel\Snippet();
 
@@ -510,7 +510,7 @@ $actionPanelActionButtons = array_merge($actionPanelActionButtons, [
 
 <div class="mail-msg-list-grid">
 
-<?
+<?php 
 
 $APPLICATION->includeComponent(
 	'bitrix:main.ui.grid', '',
@@ -629,9 +629,9 @@ $APPLICATION->includeComponent(
 
 		BXMailMailbox.init(mailboxData);
 
-		<? if (\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
+		<?php  if (\Bitrix\Mail\Helper\LicenseManager::isSyncAvailable()): ?>
 		BXMailMailbox.sync(BX('mail-msg-sync-button'), BX('mail-msg-sync-stepper'), '<?=\CUtil::jsEscape($arResult['GRID_ID']) ?>');
-		<? endif ?>
+		<?php  endif ?>
 
 		BX.PULL.extendWatch('mail_mailbox_<?=intval($arResult['MAILBOX']['ID']) ?>');
 		BX.addCustomEvent(

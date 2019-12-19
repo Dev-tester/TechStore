@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOPENLINES_ACCOUNT_DEBUG"] = "Debug mode";
 $MESS["IMOPENLINES_ACCOUNT_ERROR_PUBLIC"] = "No correct public address specified.";
 $MESS["IMOPENLINES_ACCOUNT_EXEC_DESCRIPTION"] = "Activities can be set up to run on agents or on cron.<br>

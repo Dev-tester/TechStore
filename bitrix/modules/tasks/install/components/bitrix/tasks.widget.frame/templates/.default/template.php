@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -14,11 +14,11 @@ $state = $arResult['JS_DATA']['state'];
 $inputPrefix = $arParams['INPUT_PREFIX'];
 ?>
 
-<?$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php $helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
-		<?$helper->displayWarnings();?>
+		<?php $helper->displayWarnings();?>
 
 		<div class="task-info">
 			<div class="task-info-panel">
@@ -30,11 +30,11 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 			</div>
 		</div>
 
-		<?$blockClasses = array(); // tmp?>
+		<?php $blockClasses = array(); // tmp?>
 
-		<?foreach($blocks['HEAD_BOTTOM'] as $block):?>
+		<?php foreach($blocks['HEAD_BOTTOM'] as $block):?>
 
-			<?
+			<?php 
 			$blockName = $block['CODE'];
 			$blockNameJs = ToLower($block['CODE']);
 
@@ -51,17 +51,17 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 				<span data-target="<?=$blockNameJs?>" class="js-id-wfr-edit-form-pinner task-option-fixedbtn" title="<?=Loc::getMessage('TASKS_TWF_T_PINNER_HINT')?>"></span>
 			</div>
 
-		<?endforeach?>
+		<?php endforeach?>
 
 		<div class="task-options task-options-main">
 
-			<?if(count($blocks['STATIC'])):?>
+			<?php if(count($blocks['STATIC'])):?>
 
 				<div class="task-options-item-destination-wrap">
 
-					<?foreach($blocks['STATIC'] as $block):?>
+					<?php foreach($blocks['STATIC'] as $block):?>
 
-						<?
+						<?php 
 						$blockName = $block['CODE'];
 						$blockNameJs = ToLower($block['CODE']);
 
@@ -79,30 +79,30 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 
 							<div class="task-options-item task-options-item-destination">
 
-								<?if($block['IS_PINABLE']):?>
+								<?php if($block['IS_PINABLE']):?>
 									<span data-target="<?=htmlspecialcharsbx($blockNameJs)?>" class="js-id-wfr-edit-form-pinner task-option-fixedbtn" title="<?=Loc::getMessage('TASKS_TWF_T_PINNER_HINT')?>"></span>
-								<?endif?>
+								<?php endif?>
 
 								<span class="task-options-item-param"><?=htmlspecialcharsbx($block['TITLE'])?></span>
 								<div class="task-options-item-open-inner">
 
 									<?=$block['HTML']?>
 
-									<?if($block['TOGGLE'] && count($block['TOGGLE'])):?>
+									<?php if($block['TOGGLE'] && count($block['TOGGLE'])):?>
 										<span class="task-dashed-link task-dashed-link-add tasks-additional-block-link">
-											<?foreach($block['TOGGLE'] as $link):?>
+											<?php foreach($block['TOGGLE'] as $link):?>
 			                                    <span class="js-id-wfr-edit-form-toggler task-dashed-link-inner" data-target="<?=htmlspecialcharsbx(ToLower($link['TARGET']))?>"><?=htmlspecialcharsbx($link['TITLE'])?></span>
-			                                <?endforeach?>
+			                                <?php endforeach?>
 										</span>
-									<?endif?>
+									<?php endif?>
 
 								</div>
 
-								<?if($block['SUB'] && count($block['SUB'])):?>
+								<?php if($block['SUB'] && count($block['SUB'])):?>
 									<div class="task-options-item-open-inner task-options-item-open-inner-sh task-options-item-open-inner-sett">
-										<?foreach($block['SUB'] as $sub):?>
+										<?php foreach($block['SUB'] as $sub):?>
 
-											<?
+											<?php 
 											$subBlockName = $sub['CODE'];
 											$subBlockNameJs = ToLower($sub['CODE']);
 
@@ -122,25 +122,25 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 													<span data-target="<?=htmlspecialcharsbx($subBlockNameJs)?>" class="js-id-wfr-edit-form-pinner task-option-fixedbtn" title="<?=Loc::getMessage('TASKS_TWF_T_PINNER_HINT')?>"></span>
 												</div>
 											</div>
-										<?endforeach?>
+										<?php endforeach?>
 									</div>
-								<?endif?>
+								<?php endif?>
 
 							</div>
 						</div>
-					<?endforeach?>
+					<?php endforeach?>
 				</div>
 
-			<?endif?>
+			<?php endif?>
 
-			<?// PINNED DYNAMIC?>
-			<?if(count($blocks['DYNAMIC'])):?>
+			<?php // PINNED DYNAMIC?>
+			<?php if(count($blocks['DYNAMIC'])):?>
 
 				<div class="js-id-wfr-edit-form-chosen-blocks">
 
-					<?foreach($blocks['DYNAMIC'] as $block):?>
+					<?php foreach($blocks['DYNAMIC'] as $block):?>
 
-						<?
+						<?php 
 						$blockName = $block['CODE'];
 						$blockNameJs = ToLower($block['CODE']);
 
@@ -149,7 +149,7 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 						?>
 
 						<div class="js-id-wfr-edit-form-<?=$blockNameJs?>-block-place wfr-edit-form-block-place">
-							<?if($state['BLOCKS'][$blockName]['PINNED']):?>
+							<?php if($state['BLOCKS'][$blockName]['PINNED']):?>
 								<div data-block-name="<?=$blockName?>" class="js-id-wfr-edit-form-<?=$blockNameJs?>-block pinable-block task-openable-block task-options-item-<?=$blockNameJs?> <?=$pinableClass?> <?=$invisibleClass?> <?=$pinnedClass?>">
 									<div class="task-options-item">
 										<span data-target="<?=$blockNameJs?>-block" class="js-id-wfr-edit-form-pinner task-option-fixedbtn" title="<?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_PINNER_HINT')?>"></span>
@@ -159,41 +159,41 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 										</div>
 									</div>
 								</div>
-							<?endif?>
+							<?php endif?>
 						</div>
 
-					<?endforeach?>
+					<?php endforeach?>
 
 				</div>
 
-			<?endif?>
+			<?php endif?>
 		</div>
 
-		<?// UN-PINNED DYNAMIC?>
-		<?if(count($blocks['DYNAMIC'])):?>
+		<?php // UN-PINNED DYNAMIC?>
+		<?php if(count($blocks['DYNAMIC'])):?>
 
 			<div class="js-id-wfr-edit-form-additional task-additional-block <?=($arResult['TEMPLATE_DATA']['ADDITIONAL_DYNAMIC_DISPLAYED'] ? '' : 'hidden')?>">
 
-				<?// generate block link with block names ?>
+				<?php // generate block link with block names ?>
 				<div class="js-id-wfr-edit-form-additional-header task-additional-alt opened">
 					<div class="task-additional-alt-more">
 						<?=Loc::getMessage('TASKS_TWF_T_ADDITIONAL_OPEN')?>
 					</div>
 					<div class="task-additional-alt-promo">
-						<?foreach($blocks['DYNAMIC'] as $block):?>
-							<?if((string) $block['TITLE_SHORT'] != ''):?>
+						<?php foreach($blocks['DYNAMIC'] as $block):?>
+							<?php if((string) $block['TITLE_SHORT'] != ''):?>
 								<span class="task-additional-alt-promo-text"><?=htmlspecialcharsbx($block['TITLE_SHORT']);?></span>
-							<?endif?>
-						<?endforeach?>
+							<?php endif?>
+						<?php endforeach?>
 					</div>
 				</div>
 
 				<div class="js-id-wfr-edit-form-unchosen-blocks task-options task-options-more">
 
-					<?// put un-chosen?>
-					<?foreach($blocks['DYNAMIC'] as $block):?>
+					<?php // put un-chosen?>
+					<?php foreach($blocks['DYNAMIC'] as $block):?>
 
-						<?
+						<?php 
 						$blockName = $block['CODE'];
 						$blockNameJs = ToLower($block['CODE']);
 
@@ -202,7 +202,7 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 						?>
 
 						<div class="js-id-wfr-edit-form-<?=$blockNameJs?>-block-place wfr-edit-form-block-place">
-							<?if(!$state['BLOCKS'][$blockName]['PINNED']):?>
+							<?php if(!$state['BLOCKS'][$blockName]['PINNED']):?>
 								<div data-block-name="<?=$blockName?>" class="js-id-wfr-edit-form-<?=$blockNameJs?>-block pinable-block task-openable-block task-options-item-<?=$blockNameJs?> <?=$pinableClass?> <?=$invisibleClass?> <?=$pinnedClass?>">
 									<div class="task-options-item">
 										<span data-target="<?=$blockNameJs?>-block" class="js-id-wfr-edit-form-pinner task-option-fixedbtn" title="<?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_PINNER_HINT')?>"></span>
@@ -212,51 +212,51 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 										</div>
 									</div>
 								</div>
-							<?endif?>
+							<?php endif?>
 						</div>
 
-					<?endforeach?>
+					<?php endforeach?>
 
 				</div>
 			</div>
 
-		<?endif?>
+		<?php endif?>
 
-		<?if($arParams['FOOTER']['IS_ENABLED']):?>
+		<?php if($arParams['FOOTER']['IS_ENABLED']):?>
 
         <?php /*
 			<div class="js-id-wfr-edit-form-footer webform-buttons pinable-block <?=($state['FLAGS']['FORM_FOOTER_PIN'] ? 'pinned' : '')?>">
 
 				<div class="tasks-form-footer-container">
 
-					<?if($arParams['FOOTER']['IS_PINABLE']):?>
+					<?php if($arParams['FOOTER']['IS_PINABLE']):?>
 						<span class="js-id-wfr-edit-form-pin-footer task-option-fixedbtn" title="<?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_PINNER_HINT')?>"></span>
-					<?endif?>
+					<?php endif?>
 
-					<?foreach($arParams['FOOTER']['BUTTONS'] as $button):?>
+					<?php foreach($arParams['FOOTER']['BUTTONS'] as $button):?>
 
-						<?if($button['TYPE'] == 'LINK'):?>
+						<?php if($button['TYPE'] == 'LINK'):?>
 							<a href="<?=htmlspecialcharsbx($button['URL'])?>" class="js-id-wfr-edit-form-cancel-button webform-button-link"><?=htmlspecialcharsbx($button['TEXT'])?></a>
-						<?else:?>
+						<?php else:?>
 							<button class="js-id-wfr-edit-form-submit webform-small-button webform-small-button-accept">
 		                        <span class="webform-small-button-text">
 			                        <?=htmlspecialcharsbx($button['TEXT'])?>
 		                        </span>
 							</button>
-						<?endif?>
+						<?php endif?>
 
-					<?endforeach?>
+					<?php endforeach?>
 
 				</div>
 			</div>
         */?>
 
-            <?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+            <?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
                 'BUTTONS' => $arParams['FOOTER']['BUTTONS']
             ]);?>
-		<?endif?>
+		<?php endif?>
 
-		<?/*
+		<?php /*
 		<div class="js-id-wfr-edit-form-state">
 			<input class="js-id-id-wfr-edit-form-operation" type="hidden" name="<?=htmlspecialcharsbx($inputPrefix)?>[OPERATION]" value="runtime:templateActionSetState" disabled="disabled" />
 			<div class="js-id-id-wfr-edit-form-inputs">
@@ -271,6 +271,6 @@ $inputPrefix = $arParams['INPUT_PREFIX'];
 		*/?>
 
 	</div>
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

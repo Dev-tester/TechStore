@@ -1,6 +1,6 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:rest.apconnect", 
 	".default", 
 	array(
@@ -8,4 +8,4 @@ $APPLICATION->SetTitle("");
 		'CLIENT_STATE' => $_REQUEST["state"],
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

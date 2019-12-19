@@ -28,14 +28,14 @@ foreach($collapsedItems as $crumb)
 unset($item);
 ?>
 <div class="disk-breadcrumbs js-disk-breadcrumbs <?= $arParams['CLASS_NAME'] ?>" id="<?= $arResult['BREADCRUMBS_ID'] ?>">
-	<? foreach($showedItems as $i => $crumb)
+	<?php  foreach($showedItems as $i => $crumb)
 	{
 	?>
 		<div class="disk-breadcrumbs-item js-disk-breadcrumbs-folder" data-object-id="<?= $crumb['ID'] ?>" data-object-name="<?= $crumb['NAME'] ?>" data-is-root="<?= $crumb['ID'] == $arResult['BREADCRUMBS_ROOT']['ID']? 1 : '' ?>" data-object-parent-path="<?= $component->encodeUrn($crumb['LINK']) ?>">
 			<a class="disk-breadcrumbs-item-title js-disk-breadcrumbs-folder-link" href="<?= $crumb['ENCODED_LINK'] ?>" data-object-id="<?= $crumb['ID'] ?>"><?= $crumb['NAME'] ?></a>
 			<span class="disk-breadcrumbs-item-arrow js-disk-breadcrumbs-arrow"></span>
 		</div>
-	<?
+	<?php 
 	}
 	?>
 </div>

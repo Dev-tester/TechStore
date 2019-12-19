@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_CSC_ELEMENT_NOT_FOUND"] = "Element was not found.";
 $MESS["IBLOCK_CSC_MODULE_NOT_INSTALLED"] = "The \"Information Blocks\" module is not installed.";
 $MESS["IBLOCK_CSC_MODULE_BLOG_NOT_INSTALLED"] = "The Blogs module is not installed.";

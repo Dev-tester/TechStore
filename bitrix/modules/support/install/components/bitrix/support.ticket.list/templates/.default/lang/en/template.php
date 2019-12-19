@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ID"] = "ID";
 $MESS["SUP_F_FILTER"] = "Filter";
 $MESS["SUP_ASK"] = "Create new ticket";

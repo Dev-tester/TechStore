@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_8_6_AUTHOR"] = "Автор";
 $MESS["LANDING_BLOCK_8_6_BLOCK_BOTTOM"] = "Нижня частина блока";
 $MESS["LANDING_BLOCK_8_6_BORDER"] = "Рамка";

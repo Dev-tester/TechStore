@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_TEMPLATES_DEFAULT_ENTITIES"] = "Bind to section";
 $MESS["DOCGEN_TEMPLATES_DEFAULT_ERROR_MODULE"] = "The \"Document Generator\" module is not installed.";
 $MESS["DOCGEN_TEMPLATES_DEFAULT_INSTALL"] = "Install";

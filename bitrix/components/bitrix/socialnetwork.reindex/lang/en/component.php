@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BSR_WARN_PHOTO_FORUM"] = "The comments-on-photos forum is not crawled by the Search module. You have to enable indexing at the <a href=\"#href#\">forum settings page</a>.";
 $MESS["CC_BSR_WARN_TASK_FORUM"] = "The comments-on-task forum is not crawled by the Search module. You have to enable indexing at the <a href=\"#href#\">forum settings page</a>.";
 $MESS["CC_BSR_WARN_FILES_FORUM"] = "The comments-on-files forum is not crawled by the Search module. You have to enable indexing at the <a href=\"#href#\">forum settings page</a>.";

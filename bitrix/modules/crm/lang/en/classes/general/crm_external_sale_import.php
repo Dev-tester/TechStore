@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EXT_SALE_IMPORT_EMPTY_ANSW"] = "The server returned an empty response.";
 $MESS["CRM_EXT_SALE_IMPORT_UNKNOWN_ANSW"] = "Unidentified server response. First 100 characters: ";
 $MESS["CRM_EXT_SALE_IMPORT_ERROR_XML"] = "Error parsing the server response.";

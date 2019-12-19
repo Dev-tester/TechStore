@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_BLOG_TIP'] = "The path to the main blog page. Example: blog_blog.php?page=blog&blog=#blog#.";
 $MESS ['PATH_TO_BLOG_CATEGORY_TIP'] = "The path to a blog page with a tag filter. Example: <nobr>blog_filter.php?page=blog&blog=#blog#<b>&category=#category#</b>.</nobr>";
 $MESS ['PATH_TO_USER_TIP'] = "The path to a user profile page. Example: <nobr>blog_user.php?page=user&user_id=#user_id#.</nobr>";

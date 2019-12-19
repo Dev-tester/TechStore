@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_20_4_AUTHOR"] = "Erstellt von";
 $MESS["LANDING_BLOCK_20_4_AUTHORIMG"] = "Autorfoto";
 $MESS["LANDING_BLOCK_20_4_BLOCK"] = "Block";

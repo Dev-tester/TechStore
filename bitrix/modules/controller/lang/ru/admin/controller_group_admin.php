@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_GR_AD_FLT_MODIF"] = "Период изменения";
 $MESS["CTRLR_GR_AD_FLT_CREAT"] = "Период создания";
 $MESS["CTRLR_GR_AD_ERR1"] = "Ошибка сохранения параметров группы ";

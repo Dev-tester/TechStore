@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $selfFolderUrl = $adminPage->getSelfFolderUrl();
@@ -157,7 +157,7 @@ else
 
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("SPTEN_2FLIST"),
@@ -198,78 +198,78 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?if(strlen($errorMessage)>0)
+<?php if(strlen($errorMessage)>0)
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>$errorMessage, "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SPTEN_ERROR"), "HTML"=>true));?>
-<?
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(array("DIV" => "edit1", "TAB" => GetMessage("SPTEN_TAB_PERSON_TYPE"), "ICON" => "sale", "TITLE" => GetMessage("SPTEN_TAB_PERSON_TYPE_DESCR")));
 
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_ACTIVE");?>:</td>
+		<td width="40%"><?php echo GetMessage("F_ACTIVE");?>:</td>
 		<td width="60%">
-			<input type="checkbox" name="ACTIVE" value="Y" <?if ($personType['ACTIVE']=="Y") echo "checked"?>>
+			<input type="checkbox" name="ACTIVE" value="Y" <?php if ($personType['ACTIVE']=="Y") echo "checked"?>>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%" valign="top"><?echo GetMessage("SPTEN_SITE")?>:</td>
+		<td width="40%" valign="top"><?php echo GetMessage("SPTEN_SITE")?>:</td>
 		<td width="60%">
-			<?echo CSite::SelectBoxMulti("LID", $personType['LIDS']);?>
+			<?php echo CSite::SelectBoxMulti("LID", $personType['LIDS']);?>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SPTEN_NAME")?>:</td>
+		<td width="40%"><?php echo GetMessage("SPTEN_NAME")?>:</td>
 		<td width="60%">
 			<input type="text" name="NAME" size="30" maxlength="100" value="<?= htmlspecialcharsbx($personType['NAME']);?>">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("SPTEN_CODE")?>:</td>
+		<td width="40%"><?php echo GetMessage("SPTEN_CODE")?>:</td>
 		<td width="60%">
-			<?if ($personType['CODE'] === 'CRM_COMPANY' || $personType['CODE'] === 'CRM_CONTACT'):?>
+			<?php if ($personType['CODE'] === 'CRM_COMPANY' || $personType['CODE'] === 'CRM_CONTACT'):?>
 				<?=$personType['CODE'];?>
 				<input type="hidden" name="CODE" size="30" maxlength="100" value="<?= htmlspecialcharsbx($personType['CODE']);?>">
-			<?else:?>
+			<?php else:?>
 				<input type="text" name="CODE" size="30" maxlength="100" value="<?= htmlspecialcharsbx($personType['CODE']) ?>">
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SPTEN_SORT")?>:</td>
+		<td><?php echo GetMessage("SPTEN_SORT")?>:</td>
 		<td>
 			<input type="text" name="SORT" value="<?= IntVal($personType['SORT']) ?>">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("SPTEN_XML_ID")?>:</td>
+		<td width="40%"><?php echo GetMessage("SPTEN_XML_ID")?>:</td>
 		<td width="60%">
 			<input type="text" name="XML_ID" size="30" value="<?= $personType['XML_ID'] ? htmlspecialcharsbx($personType['XML_ID']): \Bitrix\Sale\PersonType::generateXmlId() ?>">
 		</td>
 	</tr>
-	<?
+	<?php 
 		$dbRes = \Bitrix\Sale\Internals\BusinessValuePersonDomainTable::getList([
 			'filter' => ['=PERSON_TYPE_ID' => $ID]
 		]);
@@ -282,21 +282,21 @@ $tabControl->BeginNextTab();
 		}
 	?>
 	<tr>
-		<td><?echo GetMessage("SPTEN_DOMAIN_P_TYPE")?>:</td>
+		<td><?php echo GetMessage("SPTEN_DOMAIN_P_TYPE")?>:</td>
 		<td>
 			<select name="BUSVAL_DOMAIN">
-				<option value=""><?echo GetMessage("SPTEN_DOMAIN_P_TYPE_NONE")?></option>
-				<option value="I" <?=($domain === 'I' ? 'selected' : '');?>><?echo GetMessage("SPTEN_DOMAIN_P_TYPE_I")?></option>
-				<option value="E" <?=($domain === 'E' ? 'selected' : '');?>><?echo GetMessage("SPTEN_DOMAIN_P_TYPE_E")?></option>
+				<option value=""><?php echo GetMessage("SPTEN_DOMAIN_P_TYPE_NONE")?></option>
+				<option value="I" <?=($domain === 'I' ? 'selected' : '');?>><?php echo GetMessage("SPTEN_DOMAIN_P_TYPE_I")?></option>
+				<option value="E" <?=($domain === 'E' ? 'selected' : '');?>><?php echo GetMessage("SPTEN_DOMAIN_P_TYPE_E")?></option>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "W"), "back_url" => $listUrl));
 $tabControl->End();
 ?>
 
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

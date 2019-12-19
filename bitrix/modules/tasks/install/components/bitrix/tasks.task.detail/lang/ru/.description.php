@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASKS_TASK_DETAIL_NAME'] = "Просмотр задачи";
 $MESS ['TASKS_TASK_DETAIL_DESCRIPTION'] = "Компонент для отображения задачи";
 $MESS ['TASKS_NAME'] = "Задачи";

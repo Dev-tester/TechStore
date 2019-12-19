@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C39_T_GROUP"] = "Group";
 $MESS["SONET_C39_T_MESSAGE"] = "Message";
 $MESS["SONET_C39_T_SEND"] = "Send Message";

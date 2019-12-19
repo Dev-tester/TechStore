@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_PICTURES'] = "Custom Thumbnail Sizes";
 $MESS ['P_PICTURES_HELP'] = "Use these fields to define your own thumbnails. If the Photo gallery component is set to create custom thumbnails, they will be created according to the specified parameters whenever a new image is uploaded.";
 $MESS ['P_CODE'] = "Code";

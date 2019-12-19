@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_31_7_CARD"] = "Blockelement";
 $MESS["LANDING_BLOCK_31_7_IMG"] = "Bild";
 $MESS["LANDING_BLOCK_31_7_NAME"] = "Liste der Seiten mit einem Bild zwischen Überschrift und Text";

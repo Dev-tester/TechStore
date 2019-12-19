@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_STATUS_CREATED"] = "Erstellt am";
 $MESS["SALE_ORDER_STATUS_LAST_MODIF"] = "Zuletzt geändert am";
 $MESS["SALE_ORDER_STATUS"] = "Bestellstatus";

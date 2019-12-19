@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/socialnetwork/tools/sonet_set_content_view.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/socialnetwork/tools/sonet_set_content_view.php");?>

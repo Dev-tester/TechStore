@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Web\Json;
 use Bitrix\Transformer\Command;
 use Bitrix\Transformer\FileUploader;

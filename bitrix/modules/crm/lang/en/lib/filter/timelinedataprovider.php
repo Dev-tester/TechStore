@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TIMELINE_FILTER_AUTHOR"] = "Created by";
 $MESS["CRM_TIMELINE_FILTER_CLIENT"] = "Client";
 $MESS["CRM_TIMELINE_FILTER_CREATED"] = "Created on";

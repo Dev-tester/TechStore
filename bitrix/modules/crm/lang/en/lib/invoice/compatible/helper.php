@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_COMPAT_HELPER_CANCEL_ERROR"] = "Error canceling invoice. #MESSAGE#";
 $MESS["CRM_INVOICE_COMPAT_HELPER_DELETE_ERROR"] = "Error deleting invoice. #MESSAGE#";
 $MESS["CRM_INVOICE_COMPAT_HELPER_DUB_CANCEL"] = "Invoice ID ##ID# has already been canceled";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 global $APPLICATION;
 use Bitrix\Main\Localization\Loc;
@@ -27,7 +27,7 @@ if(!empty($arResult["ADDITIONAL_STYLES"]))
 <div class="intranet-contact-block">
 	<div class="intranet-contact-wrap" id="intranet-contact-wrap">
 		<div class="intranet-contact-list" id="intranet-contact-list">
-			<?
+			<?php 
 			foreach ($arResult["ITEMS"] as $moduleId => $module)
 			{
 				foreach($module as $code => $item)
@@ -38,8 +38,8 @@ if(!empty($arResult["ADDITIONAL_STYLES"]))
 							title="<?=$item["NAME"]?>"
 							data-module="<?=$moduleId?>"
 							data-item="<?=$code?>"
-							<? if (!empty($item["LIST"])): ?> id="feed-add-post-form-link-text-<?=$code?>" <? endif ?>
-							<? if (!empty($item["ONCLICK"])): ?>onclick="<?=$item["ONCLICK"]?>" <? endif ?>
+							<?php  if (!empty($item["LIST"])): ?> id="feed-add-post-form-link-text-<?=$code?>" <?php  endif ?>
+							<?php  if (!empty($item["ONCLICK"])): ?>onclick="<?=$item["ONCLICK"]?>" <?php  endif ?>
 						>
 							<div class="intranet-contact-logo-container">
 								<span class="intranet-contact-logo <?=$item["LOGO_CLASS"]?>"><i></i></span>
@@ -49,7 +49,7 @@ if(!empty($arResult["ADDITIONAL_STYLES"]))
 							</div>
 						</div>
 					</div>
-				<?
+				<?php 
 				}
 			}
 			?>

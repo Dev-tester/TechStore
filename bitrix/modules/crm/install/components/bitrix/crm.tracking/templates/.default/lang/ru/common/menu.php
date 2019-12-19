@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_COMMON_MENU_MAIN"] = "Источники и каналы";
 $MESS["CRM_TRACKING_COMMON_MENU_ARCHIVE"] = "Архив источников";
 $MESS["CRM_TRACKING_COMMON_MENU_SETTINGS"] = "Настройки";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTDT_GRAPH'] = "График";
 $MESS ['INTDT_NO_TASKS'] = "Переговорных нет";
 $MESS ['INTST_CLOSE'] = "Закрыть";

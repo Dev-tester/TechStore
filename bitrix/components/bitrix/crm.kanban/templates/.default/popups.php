@@ -10,8 +10,8 @@ use \Bitrix\Crm\Conversion\LeadConversionScheme;
 
 ?>
 
-<div id="crm_kanban_delete_confirm" class="crm-kanban-column-popup" <?
-	?>data-title="<?= \htmlspecialcharsbx(Loc::getMessage('CRM_KANBAN_POPUP_CONFIRM'))?>" <?
+<div id="crm_kanban_delete_confirm" class="crm-kanban-column-popup" <?php 
+	?>data-title="<?= \htmlspecialcharsbx(Loc::getMessage('CRM_KANBAN_POPUP_CONFIRM'))?>" <?php 
 	?>data-deletetitle="<?= \htmlspecialcharsbx(Loc::getMessage('CRM_KANBAN_POPUP_PARAMS_DELETE'))?>">
 	<div class="crm-kanban-popup-wrapper">
 		<?= Loc::getMessage('CRM_KANBAN_POPUP_CONFIRM_DELETE');?>
@@ -19,7 +19,7 @@ use \Bitrix\Crm\Conversion\LeadConversionScheme;
 </div>
 
 
-<?if ($arParams['ENTITY_TYPE_CHR'] == 'INVOICE'):?>
+<?php if ($arParams['ENTITY_TYPE_CHR'] == 'INVOICE'):?>
 
 <div id="crm_kanban_invoice_win" class="crm-kanban-column-popup" data-title="<?= htmlspecialcharsbx(Loc::getMessage('CRM_KANBAN_POPUP_INVOICE'))?>">
 	<div class="crm-kanban-popup-wrapper">
@@ -74,17 +74,17 @@ use \Bitrix\Crm\Conversion\LeadConversionScheme;
 	</div>
 </div>
 
-<?elseif ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):?>
+<?php elseif ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):?>
 
 <div id="crm_kanban_lead_win" class="crm-kanban-column-popup" data-title="<?= htmlspecialcharsbx(Loc::getMessage('CRM_KANBAN_POPUP_LEAD'));?>">
 	<div class="crm-kanban-popup-wrapper">
 		<div class="crm-kanban-popup-convert-list">
-			<?foreach (LeadConversionScheme::getJavaScriptDescriptions(true) as $code => $value):?>
+			<?php foreach (LeadConversionScheme::getJavaScriptDescriptions(true) as $code => $value):?>
 			<div class="kanban-converttype" data-type="<?= strtolower($code);?>" onclick="BX.Crm.KanbanComponent.leadConvert('<?= \CUtil::JSEscape($code);?>');"><?= htmlspecialcharsbx($value);?></div>
-			<?endforeach;?>
+			<?php endforeach;?>
 			<div class="kanban-converttype" data-type="select" onclick="BX.Crm.KanbanComponent.leadConvert('SELECT');"><?= Loc::getMessage('CRM_KANBAN_POPUP_LEAD_SELECT');?></div>
 		</div>
 	</div>
 </div>
 
-<?endif;?>
+<?php endif;?>

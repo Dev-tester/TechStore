@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GUE_T_OWNER_SUBTITLE"] = "Владелец";
 $MESS["SONET_GUE_T_OWNER_SUBTITLE_PROJECT"] = "Руководитель";
 $MESS["SONET_GUE_T_MODS_SUBTITLE"] = "Модераторы";

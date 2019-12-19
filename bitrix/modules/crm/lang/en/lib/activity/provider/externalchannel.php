@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REST_EXTERNAL_CHANNEL_ACTIVITY"] = "External channel. Documents";
 $MESS["CRM_REST_EXTERNAL_CHANNEL_ACTIVITY_IN"] = "External channel. Documents (inbound)";
 $MESS["CRM_REST_EXTERNAL_CHANNEL_IMPORT_AGENT"] = "External channel. Import companies or contacts";

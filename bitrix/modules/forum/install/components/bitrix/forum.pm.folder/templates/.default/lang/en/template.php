@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_POST_FULLY'] = "Used space:";
 $MESS ['PM_HEAD_NEW_FOLDER'] = "New folder";
 $MESS ['F_FOLDER'] = "Folder";

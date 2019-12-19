@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CPAD_DP_TIME_SERVER"] = "Server time";
 $MESS["CPAD_DP_TIME_LOCAL"] = "Local time";
 $MESS["CPAD_DP_TIME_D"] = "days";

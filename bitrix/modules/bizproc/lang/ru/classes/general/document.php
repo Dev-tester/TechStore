@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCGDOC_ADD"] = "Добавить";
 $MESS["BPCGDOC_INVALID_WF_ID"] = "Шаблон бизнес-процесса с кодом #ID# не найден";
 $MESS["BPCGDOC_AUTO_EXECUTE_CREATE"] = "Создание";

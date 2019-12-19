@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2006 Bitrix             #
@@ -167,8 +167,8 @@ $APPLICATION->SetTitle(GetMessage("SALE_SECTION_TITLE"));
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array()
@@ -177,18 +177,18 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SALE_F_LOCATION");?>:</td>
+		<td><?php echo GetMessage("SALE_F_LOCATION");?>:</td>
 		<td>
 			<select name="filter_location">
-				<option value=""><?echo GetMessage("SALE_ALL")?></option>
-				<?$db_vars = CSaleLocation::GetList(Array("SORT"=>"ASC", "COUNTRY_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array(), LANG)?>
-				<?while ($vars = $db_vars->Fetch()):?>
-					<option value="<?echo $vars["ID"]?>"<?if (IntVal($vars["ID"])==IntVal($filter_location)) echo " selected"?>><?echo htmlspecialcharsbx($vars["COUNTRY_NAME"]." - ".$vars["CITY_NAME"])?></option>
-				<?endwhile;?>
+				<option value=""><?php echo GetMessage("SALE_ALL")?></option>
+				<?php $db_vars = CSaleLocation::GetList(Array("SORT"=>"ASC", "COUNTRY_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array(), LANG)?>
+				<?php while ($vars = $db_vars->Fetch()):?>
+					<option value="<?php echo $vars["ID"]?>"<?php if (IntVal($vars["ID"])==IntVal($filter_location)) echo " selected"?>><?php echo htmlspecialcharsbx($vars["COUNTRY_NAME"]." - ".$vars["CITY_NAME"])?></option>
+				<?php endwhile;?>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -199,7 +199,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_1C_TITLE"] = "1C integration";
 $MESS["MAIN_1C_TAB"] = "1C integration";
 $MESS["MAIN_1C_TAB_TITLE"] = "1C integration settings";

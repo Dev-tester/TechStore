@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_IMPORT_POPUP_WINDOW_TITLE"] = "Select correct encoding";
 $MESS["TASKS_IMPORT_LINE"] = "Line ";
 $MESS["TASKS_IMPORT_STOPPED"] = "Import aborted";

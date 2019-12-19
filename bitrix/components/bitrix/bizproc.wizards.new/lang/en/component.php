@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WNC_EMPTY_IBLOCK_TYPE'] = "The information block type is not specified.";
 $MESS ['BPWC_WNC_WRONG_IBLOCK_TYPE'] = "The information block type specified in the component parameters is not found.";
 $MESS ['BPWC_WNC_SESSID'] = "Session security has been compromised. Please fill in the form again.";

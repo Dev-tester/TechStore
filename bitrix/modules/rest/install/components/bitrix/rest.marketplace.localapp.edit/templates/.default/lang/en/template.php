@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MP_ADD_APP_TITLE"] = "New application";
 $MESS["MP_APP_NAME"] = "Application name";
 $MESS["MP_APP_MENU_NAME"] = "Title for Bitrix24 menu";

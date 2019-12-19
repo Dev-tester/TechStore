@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_ERROR_100'] = "Your session is expired. Please try again.";
 $MESS ['P_ERROR_101'] = "Information block was not found.";
 $MESS ['P_ERROR_102'] = "Information block section was not found.";

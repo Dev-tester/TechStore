@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASK_NAME_MAIN_DENIED'] = "Доступ закрыт";
 $MESS ['TASK_NAME_MAIN_CHANGE_PROFILE'] = "Изменение своего профиля";
 $MESS ['TASK_NAME_MAIN_VIEW_ALL_SETTINGS'] = "Просмотр всех данных модуля";

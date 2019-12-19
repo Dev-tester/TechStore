@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DB, $MESS, $APPLICATION, $voteCache;
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin_tools.php");

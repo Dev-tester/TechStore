@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Sale;
 use Bitrix\Crm\Invoice\Invoice;
 use Bitrix\Crm\Invoice\Compatible;

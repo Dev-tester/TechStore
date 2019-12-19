@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $APPLICATION->SetAdditionalCSS('/bitrix/gadgets/bitrix/html_area/styles.css');
@@ -13,9 +13,9 @@ $arData = $arGadget["USERDATA"];
 $content = $arData["content"];
 ?>
 
-<?if(!$bEdit):?>
+<?php if(!$bEdit):?>
 
-<?
+<?php 
 	if($content)
 	{
 		$parser = new CTextParser();
@@ -45,14 +45,14 @@ $content = $arData["content"];
 	}
 ?>
 
-<?if($arParams["PERMISSION"]>"R"):?>
-<div class="gdhtmlareach" style="padding-top: 10px;"><a class="gdhtmlareachlink" href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("gdhtml=".$id."&edit=true", array("gdhtml", "edit"))?>"><?echo GetMessage("GD_HTML_AREA_CHANGE_LINK")?></a></div>
-<?endif?>
+<?php if($arParams["PERMISSION"]>"R"):?>
+<div class="gdhtmlareach" style="padding-top: 10px;"><a class="gdhtmlareachlink" href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("gdhtml=".$id."&edit=true", array("gdhtml", "edit"))?>"><?php echo GetMessage("GD_HTML_AREA_CHANGE_LINK")?></a></div>
+<?php endif?>
 
-<?else:?>
+<?php else:?>
 
 <form action="?gdhtml=<?=$id?>" method="post" id="gdf<?=$id?>">
-<?
+<?php 
 CModule::IncludeModule("fileman");
 
 $LHE = new CLightHTMLEditor;
@@ -79,9 +79,9 @@ $LHE->Show(array(
 ));
 ?>
 	<input type="hidden" name="gdhtmlform" value="Y">
-	<?if ($arParams["MULTIPLE"] == "Y"):?>
+	<?php if ($arParams["MULTIPLE"] == "Y"):?>
 	<input type="hidden" name="dt_page" value="<?=$arParams["DESKTOP_PAGE"]?>">
-	<?endif;?>
+	<?php endif;?>
 	<?=bitrix_sessid_post()?>
 </form>
 <script type="text/javascript">
@@ -92,5 +92,5 @@ function gdhtmlsave()
 	return false;
 }
 </script>
-<a href="javascript:void(0);" onclick="return gdhtmlsave();"><?echo GetMessage("GD_HTML_AREA_SAVE_LINK")?></a> | <a href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam(($arParams["MULTIPLE"]=="Y"?"dt_page=".$arParams["DESKTOP_PAGE"]:""), array("dt_page","gdhtml","edit"))?>"><?echo GetMessage("GD_HTML_AREA_CANCEL_LINK")?></a>
-<?endif?>
+<a href="javascript:void(0);" onclick="return gdhtmlsave();"><?php echo GetMessage("GD_HTML_AREA_SAVE_LINK")?></a> | <a href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam(($arParams["MULTIPLE"]=="Y"?"dt_page=".$arParams["DESKTOP_PAGE"]:""), array("dt_page","gdhtml","edit"))?>"><?php echo GetMessage("GD_HTML_AREA_CANCEL_LINK")?></a>
+<?php endif?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEW_BLOG_MESSAGE_NAME"] = "Новое сообщение в блоге";
 $MESS["NEW_BLOG_MESSAGE_DESC"] = "#BLOG_ID# - ID блога 
 #BLOG_NAME# - Название блога

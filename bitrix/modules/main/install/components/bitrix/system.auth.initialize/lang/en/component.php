@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_MAIN_REG_INIT_MESSAGE_NO_USER'] = "The user was not found.";
 $MESS ['CC_MAIN_REG_INIT_MESSAGE_AUTH_SUCCESS'] = "The profile registration has already been confirmed.";
 $MESS ['CC_MAIN_REG_INIT_MESSAGE_AUTHORIZED'] = "Since you are already authorized you cannot confirm your invitation, please use your existing authorization.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SHOW_INPUT_TIP'] = "Calendar display mode";
 $MESS ['INPUT_NAME_TIP'] = "Name of the first field in range";
 $MESS ['SHOW_TIME_TIP'] = "Allows to input time in the date field";

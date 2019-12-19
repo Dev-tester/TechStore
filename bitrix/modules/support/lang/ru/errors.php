@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_ERROR_ACCESS_DENIED'] = "Доступ запрещен.";
 $MESS ['SUP_FILTER_ERROR'] = "Ошибка в фильтре.";
 $MESS ['SUP_ERROR_ATTACH_NOT_FOUND'] = "Файл не найден.";

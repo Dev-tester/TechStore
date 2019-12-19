@@ -71,7 +71,7 @@ class CLearnRenderRightsEdit
 					);
 				</script>
 				<h3><?php echo GetMessage('LEARNING_RIGHTS_FOR_ADMINISTRATION'); ?></h3>
-				<table width="100%" cellpadding="0" cellspacing="10" border="0" id="<?echo htmlspecialcharsbx($table_id)?>" align="center">
+				<table width="100%" cellpadding="0" cellspacing="10" border="0" id="<?php echo htmlspecialcharsbx($table_id)?>" align="center">
 				<?php
 
 				$access = new CAccess();
@@ -87,12 +87,12 @@ class CLearnRenderRightsEdit
 							continue;
 					?>
 					<tr valign="top">
-						<td align="right"><?echo htmlspecialcharsex($arBaseNames[$symbol]['provider'] . ' ' . $arBaseNames[$symbol]['name'])?>:&nbsp;</td>
+						<td align="right"><?php echo htmlspecialcharsex($arBaseNames[$symbol]['provider'] . ' ' . $arBaseNames[$symbol]['name'])?>:&nbsp;</td>
 						<td align="left">
 							<?php echo htmlspecialcharsex(CLearnAccess::GetNameForTask ($taskId)); ?>
 						</td>
 					</tr>
-					<?
+					<?php 
 					}
 				}
 
@@ -147,7 +147,7 @@ class CLearnRenderRightsEdit
 						?>
 					</td>
 				</tr>
-				<?
+				<?php 
 				}
 			
 				if ( ! $readOnly )
@@ -156,7 +156,7 @@ class CLearnRenderRightsEdit
 					<tr>
 						<td width="40%" align="right">&nbsp;</td>
 						<td width="60%" align="left">
-							<a href="javascript:void(0)"  id="<?echo htmlspecialcharsbx($href_id)?>" class="bx-action-href"><?echo GetMessage("LEARNING_RIGHTS_ADD")?></a>
+							<a href="javascript:void(0)"  id="<?php echo htmlspecialcharsbx($href_id)?>" class="bx-action-href"><?php echo GetMessage("LEARNING_RIGHTS_ADD")?></a>
 						</td>
 					</tr>
 				<?php
@@ -167,6 +167,6 @@ class CLearnRenderRightsEdit
 				<strong><?php echo GetMessage('LEARNING_RIGHTS_NOTE'); ?></strong>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 }

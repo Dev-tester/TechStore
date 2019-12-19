@@ -13,7 +13,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
 	<head>
-		<?$APPLICATION->ShowHead();?>
+		<?php $APPLICATION->ShowHead();?>
 		<style type="text/css">
 			.content-wrap {
 				padding: 10px 0 10px 0;
@@ -23,10 +23,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 			}
 		</style>
 	</head>
-	<body class="<?$APPLICATION->showProperty("BodyClass")?> crm-webform-iframe">
+	<body class="<?php $APPLICATION->showProperty("BodyClass")?> crm-webform-iframe">
 		<div class="content-wrap">
 			<div class="content">
-				<?if(!empty($arResult['ERRORS'])):
+				<?php if(!empty($arResult['ERRORS'])):
 					foreach($arResult['ERRORS'] as $error)
 					{
 						ShowError($error);
@@ -37,7 +37,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 							BX.CrmWebForm = new CrmWebForm({});
 						});
 					</script>
-					<?
+					<?php 
 				else:
 					$this->getComponent()->includeWebFormTemplate();
 				endif;?>

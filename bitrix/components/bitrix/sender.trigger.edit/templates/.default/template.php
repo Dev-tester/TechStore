@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -29,16 +29,16 @@ $containerId = 'bx-sender-campaign-edit';
 			)
 		))?>);
 
-		<?if(empty($arResult['ROW']['TRIGGER_FIELDS'])):?>
+		<?php if(empty($arResult['ROW']['TRIGGER_FIELDS'])):?>
 			BX.Sender.TriggerEditor.setTrigger(false, BX('EVENT_START').value);
 			BX.Sender.TriggerEditor.setTrigger(true, BX('EVENT_END').value);
-		<?endif;?>
+		<?php endif;?>
 	});
 </script>
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="sender-template-edit-wrap">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:sender.ui.panel.title", "", array('LIST' => array(
 		array('type' => 'buttons', 'list' => array(
 			array('type' => 'feedback')
@@ -67,13 +67,13 @@ $containerId = 'bx-sender-campaign-edit';
 			</div>
 			<div class="bx-sender-value">
 				<select name="SITE_ID" class="bx-sender-form-control bx-sender-message-editor-field-select">
-					<?foreach ($arResult['SITES'] as $site):?>
+					<?php foreach ($arResult['SITES'] as $site):?>
 						<option value="<?=htmlspecialcharsbx($site['ID'])?>"
 							<?=($site['SELECTED'] ? 'selected' : '')?>
 						>
 							<?=htmlspecialcharsbx($site['NAME'])?>
 						</option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</div>
 		</div>
@@ -117,12 +117,12 @@ $containerId = 'bx-sender-campaign-edit';
 										onchange="BX.Sender.TriggerEditor.setTrigger(false, this.value);"
 										class="bx-sender-form-control bx-sender-message-editor-field-select"
 									>
-										<?foreach($arResult['TRIGGERS']['AVAILABLE']['START'] as $triggerId => $triggerParams):?>
+										<?php foreach($arResult['TRIGGERS']['AVAILABLE']['START'] as $triggerId => $triggerParams):?>
 											<option
 												value="<?=htmlspecialcharsbx($triggerId)?>"
 												<?=($arResult['TRIGGERS']['EXISTS']['START']['ID'] == $triggerId ? 'selected' : '')?>
 											><?=htmlspecialcharsbx($triggerParams['NAME'])?></option>
-										<?endforeach;?>
+										<?php endforeach;?>
 									</select>
 									<input type="hidden" id="ENDPOINT_START_MODULE_ID" name="ENDPOINT[START][MODULE_ID]" value="<?=htmlspecialcharsbx($arResult['TRIGGERS']['EXISTS']['START']['MODULE_ID'])?>">
 									<input type="hidden" id="ENDPOINT_START_CODE" name="ENDPOINT[START][CODE]" value="<?=htmlspecialcharsbx($arResult['TRIGGERS']['EXISTS']['START']['CODE'])?>">
@@ -137,7 +137,7 @@ $containerId = 'bx-sender-campaign-edit';
 										<div id="ENDPOINT_START_CLOSED_FORM" style="<?=($arResult['TRIGGERS']['EXISTS']['START']['IS_CLOSED_TRIGGER'] == 'Y' ? '' : 'display:none;')?>">
 											<?=Loc::getMessage('SENDER_CAMPAIGN_EDIT_TMPL_RUN_TIME')?>
 											<select id="ENDPOINT_START_CLOSED_TRIGGER_TIME" name="ENDPOINT[START][CLOSED_TRIGGER_TIME]">
-												<?
+												<?php 
 												$timesOfDayHours = array('00', '30');
 												for($hour=0; $hour<24; $hour++):
 													$hourPrint = str_pad($hour, 2, "0", STR_PAD_LEFT);
@@ -145,7 +145,7 @@ $containerId = 'bx-sender-campaign-edit';
 														$hourFullPrint = $hourPrint.":".$timePartHour;
 														?>
 														<option value="<?=$hourFullPrint?>" <?=($hourFullPrint==$arResult['TRIGGERS']['EXISTS']['START']['CLOSED_TRIGGER_TIME'] ? 'selected': '')?>><?=$hourFullPrint?></option>
-														<?
+														<?php 
 													endforeach;
 												endfor;
 												?>
@@ -154,15 +154,15 @@ $containerId = 'bx-sender-campaign-edit';
 										<div id="ENDPOINT_START_RUN_FOR_OLD_DATA_FORM" style="<?=($arResult['TRIGGERS']['EXISTS']['START']['CAN_RUN_FOR_OLD_DATA'] == 'Y' ? '' : 'display:none;')?>">
 											<br>
 											<?=Loc::getMessage('SENDER_CAMPAIGN_EDIT_TMPL_RUN_FOR_OLD_DATA')?>
-											<?if($arResult['TRIGGERS']['EXISTS']['START']['WAS_RUN_FOR_OLD_DATA'] == 'Y'):?>
+											<?php if($arResult['TRIGGERS']['EXISTS']['START']['WAS_RUN_FOR_OLD_DATA'] == 'Y'):?>
 												<input type="hidden" id="ENDPOINT_START_RUN_FOR_OLD_DATA" name="ENDPOINT[START][RUN_FOR_OLD_DATA]" value="Y">
 												<span id="ENDPOINT_START_RUN_FOR_OLD_DATA_RESET" style="color: #878787;">
 												<?=Loc::getMessage('SENDER_CAMPAIGN_EDIT_TMPL_RUN_FOR_OLD_DATA_STATE')?>
 											</span>
-											<?else:?>
+											<?php else:?>
 												<input class="adm-designed-checkbox" type="checkbox" id="ENDPOINT_START_RUN_FOR_OLD_DATA" name="ENDPOINT[START][RUN_FOR_OLD_DATA]" value="Y" <?=($arResult['TRIGGERS']['EXISTS']['START']['RUN_FOR_OLD_DATA']=='Y' ? 'checked' : '')?>>
 												<label for="ENDPOINT_START_RUN_FOR_OLD_DATA" class="adm-designed-checkbox-label"></label>
-											<?endif;?>
+											<?php endif;?>
 											<span data-hint="<?=Loc::getMessage('SENDER_CAMPAIGN_EDIT_TMPL_RUN_FOR_OLD_DATA_HINT')?>">
 										</div>
 										<br>
@@ -199,12 +199,12 @@ $containerId = 'bx-sender-campaign-edit';
 										class="bx-sender-form-control bx-sender-message-editor-field-select"
 									>
 										<option value=""><?=Loc::getMessage('SENDER_CAMPAIGN_EDIT_TMPL_CONDITION_NOTIFY')?></option>
-										<?foreach($arResult['TRIGGERS']['AVAILABLE']['END'] as $triggerId => $triggerParams):?>
+										<?php foreach($arResult['TRIGGERS']['AVAILABLE']['END'] as $triggerId => $triggerParams):?>
 											<option
 												value="<?=htmlspecialcharsbx($triggerId)?>"
 												<?=($arResult['TRIGGERS']['EXISTS']['END']['ID'] == $triggerId ? 'selected' : '')?>
 											><?=htmlspecialcharsbx($triggerParams['NAME'])?></option>
-										<?endforeach;?>
+										<?php endforeach;?>
 									</select>
 									<input type="hidden" id="ENDPOINT_END_MODULE_ID" name="ENDPOINT[END][MODULE_ID]" value="<?=htmlspecialcharsbx($arResult['TRIGGERS']['EXISTS']['END']['MODULE_ID'])?>">
 									<input type="hidden" id="ENDPOINT_END_CODE" name="ENDPOINT[END][CODE]" value="<?=htmlspecialcharsbx($arResult['TRIGGERS']['EXISTS']['END']['CODE'])?>">
@@ -218,7 +218,7 @@ $containerId = 'bx-sender-campaign-edit';
 										<div id="ENDPOINT_END_CLOSED_FORM" style="<?=($arResult['TRIGGERS']['EXISTS']['END']['IS_CLOSED_TRIGGER'] == 'Y' ? '' : 'display:none;')?>">
 											<?=GetMessage('SENDER_CAMPAIGN_EDIT_TMPL_RUN_TIME')?>
 											<select id="ENDPOINT_END_CLOSED_TRIGGER_TIME" name="ENDPOINT[END][CLOSED_TRIGGER_TIME]">
-												<?
+												<?php 
 												$timesOfDayHours = array('00', '30');
 												for($hour=0; $hour<24; $hour++):
 													$hourPrint = str_pad($hour, 2, "0", STR_PAD_LEFT);
@@ -226,7 +226,7 @@ $containerId = 'bx-sender-campaign-edit';
 														$hourFullPrint = $hourPrint.":".$timePartHour;
 														?>
 														<option value="<?=$hourFullPrint?>" <?=($hourFullPrint==$arResult['TRIGGERS']['EXISTS']['END']['CLOSED_TRIGGER_TIME'] ? 'selected': '')?>><?=$hourFullPrint?></option>
-														<?
+														<?php 
 													endforeach;
 												endfor;
 												?>
@@ -244,7 +244,7 @@ $containerId = 'bx-sender-campaign-edit';
 			</table>
 		</div>
 
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:sender.ui.button.panel",
 			"",

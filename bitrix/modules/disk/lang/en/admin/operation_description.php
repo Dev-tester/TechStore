@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_DISK_READ"] = "View items";
 $MESS["OP_NAME_DISK_ADD"] = "Add items";
 $MESS["OP_NAME_DISK_EDIT"] = "Edit items";

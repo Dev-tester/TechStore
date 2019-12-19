@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!function_exists("__wd_check_uf_use_bp_property"))
 {
 	function __wd_check_uf_use_bp_property($iblock_id)
@@ -293,28 +293,28 @@ if (isset($strWarning) && $strWarning != "")
 
 <p><b><?=GetMessage("SN_TITLE_TITLE")?></b></p>
 
-<?
+<?php 
 $popupWindow->EndDescription();
 $popupWindow->StartContent();
 ?>
-<? if ($object == 'group') { ?>
+<?php  if ($object == 'group') { ?>
 <p></p>
 <table class="bx-width100" id="bx_permission_table">
-	<? if('Y' == COption::GetOptionString('webdav', 'webdav_allow_ext_doc_services_local', CWebDavIblock::resolveDefaultUseExtServices())): ?>
+	<?php  if('Y' == COption::GetOptionString('webdav', 'webdav_allow_ext_doc_services_local', CWebDavIblock::resolveDefaultUseExtServices())): ?>
 	<tr>
 		<td width="35%" align="right"><?=GetMessage("WD_DOC_SETTINGS")?></td>
 		<td>
 			<input type="checkbox" name="UF_USE_EXT_SERVICES" id="UF_USE_EXT_SERVICES" value="Y" <?=(CWebDavIblock::resolveDefaultUseExtServices($arLibrary["UF_USE_EXT_SERVICES"]) == "Y"?' checked="checked" ' : '') ?>/>&nbsp;
 			<label for="UF_USE_EXT_SERVICES"><?=GetMessage("WD_OPTIONS_ALLOW_EXT_SERVICES")?></label></td>
 	</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr>
 		<td width="35%" align="right"><?=GetMessage("SN_BP")?></td>
-		<td><input type="checkbox" name="UF_USE_BP" id="UF_USE_BP" value="Y" <?
+		<td><input type="checkbox" name="UF_USE_BP" id="UF_USE_BP" value="Y" <?php 
 			?><?=($arLibrary["UF_USE_BP"] == "N" ? '' : ' checked="checked" ')
 			?> />&nbsp;<label for="UF_USE_BP"><?=GetMessage("SN_BP_LABEL")?></label> </td>
 	</tr>
-<? if (
+<?php  if (
 	$USER->IsAdmin()
 	&& $object === 'group'
 ) {
@@ -334,7 +334,7 @@ $popupWindow->StartContent();
 	<tr class="section">
 		<td colspan="2" align="center"><b><?=GetMessage("WD_TAB15_TITLE")?></b></td>
 	</tr>
-<?
+<?php 
 	$UF_ENTITY = $ob->GetUfEntity();
 	$arUserField = $ob->GetUfFields();
 
@@ -360,7 +360,7 @@ $popupWindow->StartContent();
 			<i><?=htmlspecialcharsbx($type);?></i>
 		</td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 	<tr>
@@ -368,7 +368,7 @@ $popupWindow->StartContent();
 			<a href="/bitrix/admin/userfield_edit.php?ENTITY_ID=<?=htmlspecialcharsbx($UF_ENTITY)?>&back_url=<?=htmlspecialcharsbx($backUrl)?>"><?=GetMessage("IB_WDUF_ADD")?></a>
 		</td>
 	</tr>
-<? } ?>
+<?php  } ?>
 </table>
 <script>
 	function wdNoteShow(e)
@@ -386,8 +386,8 @@ $popupWindow->StartContent();
 <?=GetMessage("SN_BP_NOTE")?>
 </td></tr></table>
 </div>
-<? } ?>
-<?
+<?php  } ?>
+<?php 
 	$arWDRights = Array(
 		"IBLOCK_ID"		=> $arParams["IBLOCK_ID"],
 		"ENTITY_TYPE"	=> "SECTION",
@@ -406,4 +406,4 @@ $popupWindow->StartContent();
 $popupWindow->EndContent();
 $popupWindow->ShowStandardButtons();
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

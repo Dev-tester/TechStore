@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BMLI_MODULE_NOT_INSTALLED"] = "The Common Lists module is not installed.";
 $MESS["CT_BMLI_WRONG_IBLOCK_TYPE"] = "Incorrect information block type.";
 $MESS["CT_BMLI_WRONG_IBLOCK"] = "The list specified is incorrect.";

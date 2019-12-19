@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -221,7 +221,7 @@ if (
 							<?=InputType("radio", "TEMPLATE_EDITOR[".$ind.'_'.$name."_CODE_TYPE]","text",$codeType,false)?>&nbsp;<?=GetMessage("AD_TEXT")?>&nbsp;<?=InputType("radio","TEMPLATE_EDITOR[".$ind.'_'.$name."_CODE_TYPE]","html",$codeType,false)?>&nbsp;HTML
 							<textarea style="width:100%" rows="30" name="<?='TEMPLATE_EDITOR_'.$ind.'_'.$name?>"><?=$strVal?></textarea>
 						</div>
-					<? endif;
+					<?php  endif;
 					$html = ob_get_contents();
 					ob_end_clean();
 				}
@@ -337,7 +337,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST["action"] == 'getCleanTemplat
 						<?=InputType("radio", "TEMPLATE_EDITOR[".$i.'_'.$name."_CODE_TYPE]","text",$codeType,false)?>&nbsp;<?=GetMessage("AD_TEXT")?>&nbsp;<?=InputType("radio","TEMPLATE_EDITOR[".$i.'_'.$name."_CODE_TYPE]","html",$codeType,false)?>&nbsp;HTML
 						<textarea style="width:100%" rows="30" name="<?='TEMPLATE_EDITOR_'.$i.'_'.$name?>"><?=$strVal?></textarea>
 					</div>
-				<? endif;
+				<?php  endif;
 				$html = ob_get_contents();
 				ob_end_clean();
 			}
@@ -862,7 +862,7 @@ if ($str_AD_TYPE == 'template')
 								<?=InputType("radio", "TEMPLATE_EDITOR[".$i.'_'.$name."_CODE_TYPE]","text",$codeType,false)?>&nbsp;<?=GetMessage("AD_TEXT")?>&nbsp;<?=InputType("radio","TEMPLATE_EDITOR[".$i.'_'.$name."_CODE_TYPE]","html",$codeType,false)?>&nbsp;HTML
 								<textarea style="width:100%" rows="30" name="<?='TEMPLATE_EDITOR_'.$i.'_'.$name?>"><?=$strVal?></textarea>
 							</div>
-						<? endif;
+						<?php  endif;
 						$html = ob_get_contents();
 						ob_end_clean();
 					}
@@ -988,7 +988,7 @@ if (count($arMenuActions) > 0)
 $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
-<? if (strlen($strError) > 0)
+<?php  if (strlen($strError) > 0)
 	CAdminMessage::ShowMessage(Array("MESSAGE"=>$strError, "HTML" => true, "TYPE" => "ERROR"));?>
 	<style>
 		#bx-admin-prefix .list-table td, #bx-admin-prefix .internal td {
@@ -1015,18 +1015,18 @@ $context->Show();
 		<?=bitrix_sessid_post()?>
 		<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 		<input type="hidden" name="CONTRACT_ID" value="<?=htmlspecialcharsbx($arContract["ID"])?>">
-		<? if (!$bCopy): ?>
+		<?php  if (!$bCopy): ?>
 			<input type="hidden" name="action" value="<?=htmlspecialcharsbx($action)?>">
 			<input type="hidden" name="ID" value="<?=$ID?>">
-		<? endif ?>
+		<?php  endif ?>
 
-		<?
+		<?php 
 		$tabControl->Begin();
 
 		$tabControl->BeginNextTab();
 		?>
 
-		<?
+		<?php 
 		if ($ID>0) :
 			if ($str_LAMP=='green') $lamp_alt = GetMessage("AD_GREEN_ALT");
 			if ($str_LAMP=='red') $lamp_alt = GetMessage("AD_RED_ALT");
@@ -1036,13 +1036,13 @@ $context->Show();
 				<td width="40%"><?=GetMessage("AD_BANNER_STATUS")?>:</td>
 				<td width="60%"><?=$lamp?><?=$lamp_alt?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($ID>0): ?>
-			<? if (strlen($str_DATE_CREATE) > 0): ?>
+		<?php  if ($ID>0): ?>
+			<?php  if (strlen($str_DATE_CREATE) > 0): ?>
 				<tr valign="top">
 					<td width="40%"><?=GetMessage("AD_CREATED")?></td>
-					<td width="60%"><?=$str_DATE_CREATE?><?
+					<td width="60%"><?=$str_DATE_CREATE?><?php 
 						if (intval($str_CREATED_BY) > 0) :
 							$rsUser = CUser::GetByID($str_CREATED_BY);
 							$arUser = $rsUser->Fetch();
@@ -1050,11 +1050,11 @@ $context->Show();
 						endif;
 						?></td>
 				</tr>
-			<? endif ?>
-			<? if (strlen($str_DATE_MODIFY) > 0): ?>
+			<?php  endif ?>
+			<?php  if (strlen($str_DATE_MODIFY) > 0): ?>
 				<tr valign="top">
 					<td><?=GetMessage("AD_MODIFIED")?></td>
-					<td><?=$str_DATE_MODIFY?><?
+					<td><?=$str_DATE_MODIFY?><?php 
 						if (intval($str_MODIFIED_BY) > 0) :
 							$rsUser = CUser::GetByID($str_MODIFIED_BY);
 							$arUser = $rsUser->Fetch();
@@ -1062,8 +1062,8 @@ $context->Show();
 						endif;
 						?></td>
 				</tr>
-			<? endif ?>
-		<? endif ?>
+			<?php  endif ?>
+		<?php  endif ?>
 
 		<tr valign="top">
 			<td width="40%"><?=GetMessage("AD_CONTRACT")?></td>
@@ -1072,7 +1072,7 @@ $context->Show();
 
 		<tr>
 			<td width="40%"><label for="ACTIVE" ><?=GetMessage("AD_ACTIVE")?></label></td>
-			<td width="60%"><?
+			<td width="60%"><?php 
 				if ($isEditMode) :
 					echo InputType("checkbox", "ACTIVE", "Y", $str_ACTIVE, false, "", 'id="ACTIVE"');
 				else:
@@ -1082,15 +1082,15 @@ $context->Show();
 		</tr>
 		<tr>
 			<td><?=GetMessage("AD_SHOW_INTERVAL").":"?></td>
-			<td><?
+			<td><?php 
 				if ($isEditMode) :
 					echo CalendarPeriod("DATE_SHOW_FROM", $str_DATE_SHOW_FROM, "DATE_SHOW_TO", $str_DATE_SHOW_TO, "bx_adv_edit_form", "N", "", "", 20);
 				else:
 					if (strlen($str_DATE_SHOW_FROM) > 0) :
-						echo GetMessage("AD_FROM")?>&nbsp;<b><?=$str_DATE_SHOW_FROM?></b>&nbsp;<?
+						echo GetMessage("AD_FROM")?>&nbsp;<b><?=$str_DATE_SHOW_FROM?></b>&nbsp;<?php 
 					endif;
 					if (strlen($str_DATE_SHOW_TO) > 0) :
-						echo GetMessage("AD_TILL")?>&nbsp;<b><?=$str_DATE_SHOW_TO?></b><?
+						echo GetMessage("AD_TILL")?>&nbsp;<b><?=$str_DATE_SHOW_TO?></b><?php 
 					endif;
 					if (strlen($str_DATE_SHOW_TO) <= 0 && strlen($str_DATE_SHOW_FROM) <= 0)
 						echo GetMessage("ADV_NOT_SET");
@@ -1099,18 +1099,18 @@ $context->Show();
 		</tr>
 		<tr>
 			<td><?=GetMessage("AD_NAME")?></td>
-			<td><?
+			<td><?php 
 				if ($isEditMode) :
-					?><input type="text" maxlength="255" name="NAME" size="50" value="<?=$str_NAME?>"><?
+					?><input type="text" maxlength="255" name="NAME" size="50" value="<?=$str_NAME?>"><?php 
 				else:
-					?><?=$str_NAME?><?
+					?><?=$str_NAME?><?php 
 				endif;
 				?></td>
 		</tr>
 
 		<tr>
 			<td><?=GetMessage("AD_GROUP")?></td>
-			<td><?
+			<td><?php 
 				if ($isEditMode) :
 
 					$ref = array();
@@ -1125,7 +1125,7 @@ $context->Show();
 						}
 					}
 					?>
-					<input type="text" maxlength="255" name="GROUP_SID" size="30" value="<?=$str_GROUP_SID?>">&nbsp;<?
+					<input type="text" maxlength="255" name="GROUP_SID" size="30" value="<?=$str_GROUP_SID?>">&nbsp;<?php 
 				if (count($ref_id) > 0) :
 				?>
 					<script>
@@ -1138,7 +1138,7 @@ $context->Show();
 						}
 						//-->
 					</script>
-					<?
+					<?php 
 					echo SelectBoxFromArray("SELECT_GROUP", array("reference" => $ref, "reference_id" => $ref_id), "", " ", " OnChange = SelectGroup()");
 				endif;
 
@@ -1152,8 +1152,8 @@ $context->Show();
 		</tr>
 
 		<tr>
-			<td><?=GetMessage("AD_TYPE")?><? if ($isEditMode): ?><span class="required"><sup>1</sup></span><? endif ?></td>
-			<td><?
+			<td><?=GetMessage("AD_TYPE")?><?php  if ($isEditMode): ?><span class="required"><sup>1</sup></span><?php  endif ?></td>
+			<td><?php 
 				if ($isEditMode) :
 
 					$ref = array();
@@ -1184,9 +1184,9 @@ $context->Show();
 
 		<tr>
 			<td width="40%"><?=GetMessage("AD_WEIGHT")?></td>
-			<td width="60%"><?
+			<td width="60%"><?php 
 				if ($isEditMode):
-					?><input type="text" name="WEIGHT" value="<?=$str_WEIGHT;?>" size="10"><?
+					?><input type="text" name="WEIGHT" value="<?=$str_WEIGHT;?>" size="10"><?php 
 				else:
 					echo $str_WEIGHT;
 				endif;
@@ -1197,19 +1197,19 @@ $context->Show();
 			<td colspan="2"><b><?=GetMessage("AD_WHAT")?></b></td>
 		</tr>
 
-		<tr<? if (!$isEditMode) echo ' style="display: none;"'; ?> id='banner_type' valign="top">
+		<tr<?php  if (!$isEditMode) echo ' style="display: none;"'; ?> id='banner_type' valign="top">
 			<td>
 				<?=GetMessage("AD_TYPE_TEMPLATE")?><span class="required"><sup>3</sup></span>
 			</td>
 			<td align="left">
 				<select onchange='setType(this);' name="AD_TYPE">
-					<option id="AD_TYPE_IMAGE" value="image"<? if (((($ID && $str_AD_TYPE=='image')|| !$ID) && !isset($AD_TYPE)) || (isset($AD_TYPE) && ($AD_TYPE == 'image'))): ?> selected<? endif; ?>><?=GetMessage("ADV_BANNER_IMAGE")?></option>
-					<option id="AD_TYPE_FLASH" value="flash"<? if (($ID && $str_AD_TYPE=='flash') || (isset($AD_TYPE) && ($AD_TYPE == 'flash'))): ?> selected<? endif; ?>><?=GetMessage("ADV_BANNER_FLASH")?></option>
-					<option id="AD_TYPE_HTML" value="html"<? if (($ID && $str_AD_TYPE=='html') || (isset($AD_TYPE) && ($AD_TYPE == 'html'))): ?> selected<? endif; ?>><?=GetMessage("ADV_BANNER_HTML")?></option>
-					<?$arTemplates = CComponentUtil::GetTemplatesList('bitrix:advertising.banner.view');?>
-					<?foreach ($arTemplates as $k => $template): ?>
-						<option id="AD_TYPE_TEMPLATE[<?=$k?>]" value="template" data-name="<?=$template['NAME']?>" <? if ((($ID && $str_AD_TYPE=='template') || (isset($AD_TYPE) && ($AD_TYPE == 'template'))) && ($template['NAME'] == $templateName)): ?> selected<? endif; ?>><?=$template['DESCRIPTION']?></option>
-					<?endforeach;?>
+					<option id="AD_TYPE_IMAGE" value="image"<?php  if (((($ID && $str_AD_TYPE=='image')|| !$ID) && !isset($AD_TYPE)) || (isset($AD_TYPE) && ($AD_TYPE == 'image'))): ?> selected<?php  endif; ?>><?=GetMessage("ADV_BANNER_IMAGE")?></option>
+					<option id="AD_TYPE_FLASH" value="flash"<?php  if (($ID && $str_AD_TYPE=='flash') || (isset($AD_TYPE) && ($AD_TYPE == 'flash'))): ?> selected<?php  endif; ?>><?=GetMessage("ADV_BANNER_FLASH")?></option>
+					<option id="AD_TYPE_HTML" value="html"<?php  if (($ID && $str_AD_TYPE=='html') || (isset($AD_TYPE) && ($AD_TYPE == 'html'))): ?> selected<?php  endif; ?>><?=GetMessage("ADV_BANNER_HTML")?></option>
+					<?php $arTemplates = CComponentUtil::GetTemplatesList('bitrix:advertising.banner.view');?>
+					<?php foreach ($arTemplates as $k => $template): ?>
+						<option id="AD_TYPE_TEMPLATE[<?=$k?>]" value="template" data-name="<?=$template['NAME']?>" <?php  if ((($ID && $str_AD_TYPE=='template') || (isset($AD_TYPE) && ($AD_TYPE == 'template'))) && ($template['NAME'] == $templateName)): ?> selected<?php  endif; ?>><?=$template['DESCRIPTION']?></option>
+					<?php endforeach;?>
 				</select>
 				<input type="hidden" id="TEMPLATE_NAME" name="TEMPLATE_NAME" value="">
 				<script>
@@ -1298,7 +1298,7 @@ $context->Show();
 						}
 						else if (type == 'flash')
 						{
-							SwitchRows(['eCodeHeader','eFile',<? if ($str_AD_TYPE=='flash')echo "'eFileLoaded',";?>'eFlashUrl','eFlashJs','eFlashTrans', 'eUrl', 'eUrlTarget', 'eImageAlt'], true);
+							SwitchRows(['eCodeHeader','eFile',<?php  if ($str_AD_TYPE=='flash')echo "'eFileLoaded',";?>'eFlashUrl','eFlashJs','eFlashTrans', 'eUrl', 'eUrlTarget', 'eImageAlt'], true);
 							SwitchRows(['eAltImage', 'eFlashVer'], document.getElementById('FLASH_JS').checked);
 							SwitchRows(['eTemplatePropsHead','eTemplateComponent','eTemplateComponentHead','eAddTemplateBanner','eTemplateProperties','eExtMode'], false);
 							changeTemplateNodes('fade');
@@ -1323,9 +1323,9 @@ $context->Show();
 								else
 									window.oBXBannerTemplate.select(params);
 
-								<? if ($isEditMode): ?>
+								<?php  if ($isEditMode): ?>
 									window.oBXBannerTemplate.initDraggableItems();
-								<? endif ?>
+								<?php  endif ?>
 							});
 						}
 					}
@@ -1427,14 +1427,14 @@ $context->Show();
 			</td>
 		</tr>
 
-		<? if ($isEditMode || intval($str_IMAGE_ID) > 0): ?>
-			<? if ($isEditMode): ?>
+		<?php  if ($isEditMode || intval($str_IMAGE_ID) > 0): ?>
+			<?php  if ($isEditMode): ?>
 				<tr valign="top" id="eFile" style="display: none;">
 					<td><?=GetMessage("ADV_BANNER_FILE")?><span class="required"><sup>1</sup></span></td>
-					<td><? if ($bCopy): ?>
+					<td><?php  if ($bCopy): ?>
 							<input type="hidden" name="IMAGE_ID_copy" value="<?=$str_IMAGE_ID?>">
-						<? endif ?>
-						<? if (class_exists('\Bitrix\Main\UI\FileInput', true))
+						<?php  endif ?>
+						<?php  if (class_exists('\Bitrix\Main\UI\FileInput', true))
 						{
 							echo \Bitrix\Main\UI\FileInput::createInstance(array(
 								"name" => "IMAGE_ID",
@@ -1468,13 +1468,13 @@ $context->Show();
 						}?>
 					</td>
 				</tr>
-			<? endif ?>
+			<?php  endif ?>
 
-			<?
+			<?php 
 			if (intval($str_IMAGE_ID) > 0) :
 				?>
 				<tr valign="top" id="eFileLoaded" style="display: none;">
-					<td align="center" colspan="2"><?
+					<td align="center" colspan="2"><?php 
 						echo CAdvBanner_all::GetHTML(array(
 							"IMAGE_ID" => $str_IMAGE_ID,
 							"FLASH_JS" => $str_FLASH_JS,
@@ -1483,22 +1483,22 @@ $context->Show();
 							"FLASH_VER" => $str_FLASH_VER,
 						));?></td>
 				</tr>
-			<? endif ?>
+			<?php  endif ?>
 
 			<tr id="eFlashTrans" style="display: none;">
 				<td><?=GetMessage('AD_FLASH_TRANSPARENT')?></td>
 				<td>
 					<select id="FLASH_TRANSPARENT" name="FLASH_TRANSPARENT">
-						<option value="transparent"<? if ($str_FLASH_TRANSPARENT == 'transparent'): ?> selected="selected"<? endif; ?>>transparent</option>
-						<option value="opaque"<? if ($str_FLASH_TRANSPARENT == 'opaque'): ?> selected="selected"<? endif; ?>>opaque</option>
-						<option value="window"<? if ($str_FLASH_TRANSPARENT == 'window'): ?> selected="selected"<? endif; ?>>window</option>
+						<option value="transparent"<?php  if ($str_FLASH_TRANSPARENT == 'transparent'): ?> selected="selected"<?php  endif; ?>>transparent</option>
+						<option value="opaque"<?php  if ($str_FLASH_TRANSPARENT == 'opaque'): ?> selected="selected"<?php  endif; ?>>opaque</option>
+						<option value="window"<?php  if ($str_FLASH_TRANSPARENT == 'window'): ?> selected="selected"<?php  endif; ?>>window</option>
 					</select>
 				</td>
 			</tr>
 			<tr id="eFlashJs" style="display: none;">
 				<td><?=GetMessage('AD_FLASH_JS')?> <?=GetMessage('AD_FLASH_JS_DESCRIPTION')?></td>
 				<td>
-					<input type="checkbox" id="FLASH_JS" onclick="SwitchRows(['eAltImage', 'eFlashVer'], this.checked);" name="FLASH_JS" value="Y"<? if ($str_FLASH_JS == 'Y') echo ' checked="checked"'; ?> />
+					<input type="checkbox" id="FLASH_JS" onclick="SwitchRows(['eAltImage', 'eFlashVer'], this.checked);" name="FLASH_JS" value="Y"<?php  if ($str_FLASH_JS == 'Y') echo ' checked="checked"'; ?> />
 				</td>
 			</tr>
 
@@ -1511,10 +1511,10 @@ $context->Show();
 
 			<tr valign="top" id="eAltImage" style="display: none;">
 				<td><?=GetMessage("ADV_FLASH_IMAGE")?></td>
-				<td><? if ($bCopy): ?>
+				<td><?php  if ($bCopy): ?>
 						<input type="hidden" name="FLASH_IMAGE" value="<?=$str_FLASH_IMAGE?>">
-					<? endif ?>
-					<? if (class_exists('\Bitrix\Main\UI\FileInput', true))
+					<?php  endif ?>
+					<?php  if (class_exists('\Bitrix\Main\UI\FileInput', true))
 					{
 						echo \Bitrix\Main\UI\FileInput::createInstance(array(
 							"name" => "FLASH_IMAGE",
@@ -1551,14 +1551,14 @@ $context->Show();
 				</td>
 			</tr>
 			<tr id="eFlashUrl" style="display: none;">
-				<td><?=GetMessage("ADV_BANNER_NO_LINK")?>:<? if ($isEditMode): ?><span class="required"><sup>1</sup></span><? endif ?></td>
-				<td><input type="checkbox" id="NO_URL_IN_FLASH" name="NO_URL_IN_FLASH" value="Y"<? if ($str_NO_URL_IN_FLASH=="Y") echo " checked";?><? if (!$isEditMode) echo ' disabled="true"';?> id="NO_URL_IN_FLASH"></td>
+				<td><?=GetMessage("ADV_BANNER_NO_LINK")?>:<?php  if ($isEditMode): ?><span class="required"><sup>1</sup></span><?php  endif ?></td>
+				<td><input type="checkbox" id="NO_URL_IN_FLASH" name="NO_URL_IN_FLASH" value="Y"<?php  if ($str_NO_URL_IN_FLASH=="Y") echo " checked";?><?php  if (!$isEditMode) echo ' disabled="true"';?> id="NO_URL_IN_FLASH"></td>
 			</tr>
 			<tr id="eUrl" style="display: none;">
-				<td valign="top"><?=GetMessage("AD_URL");?><? if ($isEditMode): ?><span class="required"><sup>1</sup></span><? endif ?></td>
-				<td><?
+				<td valign="top"><?=GetMessage("AD_URL");?><?php  if ($isEditMode): ?><span class="required"><sup>1</sup></span><?php  endif ?></td>
+				<td><?php 
 					if ($isEditMode) :
-						?><input id="iUrl" type="text" size="50" name="URL" value="<?=$str_URL?>"><?
+						?><input id="iUrl" type="text" size="50" name="URL" value="<?=$str_URL?>"><?php 
 					else:
 						if (strlen($str_URL) > 0)
 							echo $str_URL;
@@ -1574,13 +1574,13 @@ $context->Show();
 							}
 						</script>
 						<br /><?=str_replace("#EVENT_GID#", "<a href=\"javascript:PutEventGID('#EVENT_GID#')\"  title='".GetMessage("AD_INS_TEMPL")."'>#EVENT_GID#</a>", GetMessage("AD_CAN_USE_EVENT_GID"))?>
-						<?
+						<?php 
 					endif;
 					?></td>
 			</tr>
 			<tr valign="top" id="eUrlTarget" style="display: none;">
-				<td><?=GetMessage("AD_URL_TARGET");?><? if ($isEditMode): ?><span class="required"><sup>1</sup></span><? endif ?></td>
-				<td><?
+				<td><?=GetMessage("AD_URL_TARGET");?><?php  if ($isEditMode): ?><span class="required"><sup>1</sup></span><?php  endif ?></td>
+				<td><?php 
 					$ref = array(
 						GetMessage("AD_SELF_WINDOW"),
 						GetMessage("AD_BLANK_WINDOW"),
@@ -1606,7 +1606,7 @@ $context->Show();
 							}
 							//-->
 						</script>
-						<input type="text" id="iURL_TARGET" maxlength="255" name="URL_TARGET" size="30" value="<?=$str_URL_TARGET?>"> <?
+						<input type="text" id="iURL_TARGET" maxlength="255" name="URL_TARGET" size="30" value="<?=$str_URL_TARGET?>"> <?php 
 						echo SelectBoxFromArray("SELECT_URL_TARGET", array("reference" => $ref, "reference_id" => $ref_id), "", " ", " OnChange = SelectUrlTarget()");
 					else:
 						$key = array_search($str_URL_TARGET, $ref_id);
@@ -1615,10 +1615,10 @@ $context->Show();
 					?></td>
 			</tr>
 			<tr valign="top" id="eImageAlt" style="display: none;">
-				<td><?=GetMessage("AD_IMAGE_ALT")?><? if ($isEditMode): ?><span class="required"><sup>1</sup></span><? endif ?></td>
-				<td><?
+				<td><?=GetMessage("AD_IMAGE_ALT")?><?php  if ($isEditMode): ?><span class="required"><sup>1</sup></span><?php  endif ?></td>
+				<td><?php 
 					if ($isEditMode) :
-						?><input type="text" name="IMAGE_ALT" maxlength="255" size="50" value="<?=$str_IMAGE_ALT?>"><?
+						?><input type="text" name="IMAGE_ALT" maxlength="255" size="50" value="<?=$str_IMAGE_ALT?>"><?php 
 					else:
 						if (strlen($str_IMAGE_ALT) > 0)
 							echo $str_IMAGE_ALT;
@@ -1627,12 +1627,12 @@ $context->Show();
 					endif;
 					?></td>
 			</tr>
-			<? if ($isEditMode): ?>
+			<?php  if ($isEditMode): ?>
 				<tr valign="top" style="display: none;" id="eCodeHeader">
 					<td colspan="2" align="center"><a href="javascript:void(0)" onclick="SwitchRows(['eCode'], document.getElementById('eCode').style.display == 'none')"><b><?=GetMessage("AD_OR");?></b></a></td>
 				</tr>
-			<? endif; ?>
-		<? endif ?>
+			<?php  endif; ?>
+		<?php  endif ?>
 		<script>
 			var t = null;
 			function PutRandom(str)
@@ -1641,38 +1641,38 @@ $context->Show();
 				BX.fireEvent(document.bx_adv_edit_form.CODE, 'change');
 			}
 		</script>
-		<tr valign="top" id="eCode" style="display:<? if ($str_AD_TYPE <> 'html'): ?>none<? endif?>;">
+		<tr valign="top" id="eCode" style="display:<?php  if ($str_AD_TYPE <> 'html'): ?>none<?php  endif?>;">
 			<td align="center" colspan="2">
 				<table width="95%" cellspacing="0" border="0" cellpadding="0">
-					<? if ($isEditMode):
+					<?php  if ($isEditMode):
 						if (COption::GetOptionString("advertising", "USE_HTML_EDIT", "Y")=="Y" && CModule::IncludeModule("fileman")): ?>
 							<tr valign="top">
-								<td align="center" colspan="2"><?
+								<td align="center" colspan="2"><?php 
 									if (defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1)
 										CFileMan::AddHTMLEditorFrame("CODE", $str_CODE, "CODE_TYPE", $str_CODE_TYPE, array('height' => 450, 'width' => '100%'), "N", 0, "", "onfocus=\"t=this\"");
 									else
 										CFileMan::AddHTMLEditorFrame("CODE", $str_CODE, "CODE_TYPE", $str_CODE_TYPE, 300, "N", 0, "", "onfocus=\"t=this\"");
 									?></td>
 							</tr>
-						<? else: ?>
+						<?php  else: ?>
 							<tr valign="top">
-								<td align="center" colspan="2"><? echo InputType("radio", "CODE_TYPE","text",$str_CODE_TYPE,false)?><?=GetMessage("AD_TEXT")?>/&nbsp;<? echo InputType("radio","CODE_TYPE","html",$str_CODE_TYPE,false)?>&nbsp;HTML&nbsp;</td>
+								<td align="center" colspan="2"><?php  echo InputType("radio", "CODE_TYPE","text",$str_CODE_TYPE,false)?><?=GetMessage("AD_TEXT")?>/&nbsp;<?php  echo InputType("radio","CODE_TYPE","html",$str_CODE_TYPE,false)?>&nbsp;HTML&nbsp;</td>
 							</tr>
 							<tr>
 								<td align="center"><textarea style="width:100%" rows="30" name="CODE" onfocus="t=this"><?=$str_CODE?></textarea></td>
 							</tr>
-						<? endif;
+						<?php  endif;
 					else: ?>
-						<? if (strlen($str_CODE) > 0): ?>
+						<?php  if (strlen($str_CODE) > 0): ?>
 							<tr valign="top">
-								<td align="center" colspan="2"><? echo InputType("radio", "CODE_TYPE","text",$str_CODE_TYPE,false, "", " disabled")?><?=GetMessage("AD_TEXT")?>/&nbsp;<? echo InputType("radio","CODE_TYPE","html",$str_CODE_TYPE,false, "", " disabled")?>&nbsp;HTML&nbsp;</td>
+								<td align="center" colspan="2"><?php  echo InputType("radio", "CODE_TYPE","text",$str_CODE_TYPE,false, "", " disabled")?><?=GetMessage("AD_TEXT")?>/&nbsp;<?php  echo InputType("radio","CODE_TYPE","html",$str_CODE_TYPE,false, "", " disabled")?>&nbsp;HTML&nbsp;</td>
 							</tr>
 							<tr>
 								<td align="center"><?=($str_CODE_TYPE == "text")? $str_CODE : htmlspecialcharsback($str_CODE)?></td>
 							</tr>
-						<? endif ?>
-					<? endif ?>
-					<? if ($isEditMode): ?>
+						<?php  endif ?>
+					<?php  endif ?>
+					<?php  if ($isEditMode): ?>
 						<tr>
 							<td><?=GetMessage("AD_HTML_ALT")?>&nbsp;<a href="javascript:PutRandom('#RANDOM1#')" title="<?=GetMessage("AD_INS_TEMPL")?>">#RANDOM1#</a>,
 								<a href="javascript:PutRandom('#RANDOM2#')" title="<?=GetMessage("AD_INS_TEMPL")?>">#RANDOM2#</a>,
@@ -1681,10 +1681,10 @@ $context->Show();
 								<a href="javascript:PutRandom('#RANDOM5#')" title="<?=GetMessage("AD_INS_TEMPL")?>">#RANDOM5#</a>
 							</td>
 						</tr>
-					<? endif ?>
+					<?php  endif ?>
 				</table></td>
 		</tr>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent('bitrix:main.colorpicker', '', array('SHOW_BUTTON' => 'N'), false, array('HIDE_ICONS' => 'Y'));
 
 		CJSCore::RegisterExt('adv_dragdrop', array('js' => '/bitrix/js/main/core/core_dragdrop.js'));
@@ -1711,17 +1711,17 @@ $context->Show();
 			});
 		</script>
 		<tr id="eTemplateComponentHead" class="heading" style="display:none;">
-			<? if ((!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1) && COption::GetOptionString('advertising', 'SHOW_COMPONENT_PREVIEW') == "Y"): ?>
+			<?php  if ((!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1) && COption::GetOptionString('advertising', 'SHOW_COMPONENT_PREVIEW') == "Y"): ?>
 				<td colspan="2"><b><?=GetMessage("AD_PREVIEW")?></b></td>
-			<? endif ?>
+			<?php  endif ?>
 		</tr>
 		<tr id="eTemplateComponent" valign="top" style="display: none;">
-			<? if ((!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1) && COption::GetOptionString('advertising', 'SHOW_COMPONENT_PREVIEW') == "Y"): ?>
+			<?php  if ((!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1) && COption::GetOptionString('advertising', 'SHOW_COMPONENT_PREVIEW') == "Y"): ?>
 				<td align="center" colspan="2">
 					<script>window.cWidth = BX('eCode').parentNode.clientWidth;</script>
 					<iframe src="adv_banner_preview.php?id=<?=intval($_GET['ID'])?>&name=<?=$str_TEMPLATE["NAME"]?>&bitrix_include_areas=N" id="componentIframe" style="width:100%;display:none;" scrolling="no" frameBorder="0" onLoad="iFrameAutoResize('componentIframe');"></iframe>
 				</td>
-			<? endif ?>
+			<?php  endif ?>
 		</tr>
 		<tr id="eTemplateProperties">
 			<td colspan="2">
@@ -1729,19 +1729,19 @@ $context->Show();
 			</td>
 		</tr>
 		<tr id="eAddTemplateBanner" style="display:none;">
-			<? if (!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1): ?>
+			<?php  if (!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1): ?>
 				<td colspan="2" align="center"><a href="#" onclick='window.oBXBannerTemplate.addNewTBanner();return false;' class="adm-btn adm-btn-add adm-btn-save" title="<?=GetMessage("AD_ADD_SLIDE")?>"><?=GetMessage("AD_ADD_SLIDE")?></a></td>
-			<? else: ?>
+			<?php  else: ?>
 				<td colspan="2" style="text-align: center;"><input type="button" onclick='window.oBXBannerTemplate.addNewTBanner();return false;' class="adm-btn-save" value="<?=GetMessage("AD_ADD_SLIDE")?>" title="<?=GetMessage("AD_ADD_SLIDE")?>"></td>
-			<? endif ?>
+			<?php  endif ?>
 		</tr>
 		<tr class="heading">
 			<td colspan="2"><b><?=GetMessage("AD_BANNER_STATUS")?></b></td>
 		</tr>
-		<? if ($isAdmin || ($isDemo && !$isOwner) || $isManager) : ?>
+		<?php  if ($isAdmin || ($isDemo && !$isOwner) || $isManager) : ?>
 			<tr>
 				<td><?=GetMessage("AD_STATUS")?></td>
-				<td><?
+				<td><?php 
 					$arrStatus = CAdvBanner::GetStatusList();
 					if ($ID == 0)
 					{
@@ -1755,40 +1755,40 @@ $context->Show();
 					echo SelectBoxFromArray("STATUS_SID", $arrStatus, $str_STATUS_SID, " ");
 					?></td>
 			</tr>
-		<? elseif ($ID>0): ?>
+		<?php  elseif ($ID>0): ?>
 			<tr>
 				<td><?=GetMessage("AD_STATUS")?></td>
-				<td><?
+				<td><?php 
 					$arrStatus = CAdvBanner::GetStatusList();
 					$key = array_search($str_STATUS_SID, $arrStatus["reference_id"]);
 					if ($key!==false) echo $arrStatus["reference"][$key];
 					?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($isAdmin || ($isDemo && !$isOwner) || $isManager) : ?>
+		<?php  if ($isAdmin || ($isDemo && !$isOwner) || $isManager) : ?>
 			<tr valign="top">
 				<td><?=GetMessage("AD_STATUS_COMMENTS")?></td>
 				<td><textarea cols="35" name="STATUS_COMMENTS" rows="3" wrap="VIRTUAL"><?=$str_STATUS_COMMENTS?></textarea></td>
 			</tr>
-		<? elseif (strlen($str_STATUS_COMMENTS) > 0): ?>
+		<?php  elseif (strlen($str_STATUS_COMMENTS) > 0): ?>
 			<tr valign="top">
 				<td><?=GetMessage("AD_STATUS_COMMENTS")?></td>
 				<td><?=TxtToHtml($str_STATUS_COMMENTS)?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($isAdmin || ($isDemo && !$isOwner) || $isManager) : ?>
+		<?php  if ($isAdmin || ($isDemo && !$isOwner) || $isManager) : ?>
 			<tr>
 				<td><label for="SEND_EMAIL"><?=GetMessage("AD_SEND_EMAIL")?></label></td>
 				<td><?=InputType("checkbox", "SEND_EMAIL", "Y", $SEND_EMAIL, false, "", 'id="SEND_EMAIL"');?></td>
 			</tr>
-		<? endif ?>
-		<?
+		<?php  endif ?>
+		<?php 
 		$tabControl->BeginNextTab();
 		?>
 
-		<? if ($isAdmin || ($isDemo && !$isOwner) || $isManager): ?>
+		<?php  if ($isAdmin || ($isDemo && !$isOwner) || $isManager): ?>
 			<script>
 				function DisableFixShow(check)
 				{
@@ -1804,59 +1804,59 @@ $context->Show();
 						document.getElementById("RESET_SHOW_COUNT").disabled = !check;
 				}
 			</script>
-		<?$disableFixShow = ($str_FIX_SHOW != "Y" ? " disabled" : "");?>
+		<?php $disableFixShow = ($str_FIX_SHOW != "Y" ? " disabled" : "");?>
 			<tr valign="top">
 				<td width="40%"><label for="FIX_SHOW"><?=GetMessage("AD_FIX_SHOW")?></label></td>
-				<td width="60%"><?
+				<td width="60%"><?php 
 					if ($isEditMode):
 						echo InputType("checkbox", "FIX_SHOW", "Y", $str_FIX_SHOW, false, "", 'id="FIX_SHOW" OnClick="DisableFixShow(this.checked);"');
 					else:
-						?><?=($str_FIX_SHOW=="Y" ? GetMessage("AD_YES") : GetMessage("AD_NO"))?><?
+						?><?=($str_FIX_SHOW=="Y" ? GetMessage("AD_YES") : GetMessage("AD_NO"))?><?php 
 					endif;
 					?></td>
 			</tr>
-		<? if (COption::GetOptionString('advertising', 'DONT_FIX_BANNER_SHOWS') == "Y"): ?>
+		<?php  if (COption::GetOptionString('advertising', 'DONT_FIX_BANNER_SHOWS') == "Y"): ?>
 			<tr><td colspan="2"><?=BeginNote()?><?=GetMessage("AD_EDIT_NOT_FIX")?><?=EndNote()?></td></tr>
-		<? endif ?>
-		<? endif ?>
+		<?php  endif ?>
+		<?php  endif ?>
 
 		<tr valign="top">
 			<td width="40%"><label for="FLYUNIFORM"><?=GetMessage("AD_UNIFORM")?></label><span class="required"><sup>2</sup></span></td>
-			<td width="60%"><?
+			<td width="60%"><?php 
 				if ($isEditMode):
 					echo InputType("checkbox", "FLYUNIFORM", "Y", $str_FLYUNIFORM, false, "", 'id="FLYUNIFORM"');
 				else:
-					?><?=($str_FLYUNIFORM=="Y" ? GetMessage("AD_YES") : GetMessage("AD_NO"))?><?
+					?><?=($str_FLYUNIFORM=="Y" ? GetMessage("AD_YES") : GetMessage("AD_NO"))?><?php 
 				endif;
 				?></td>
 		</tr>
 
-		<? if (!$isEditMode): ?>
+		<?php  if (!$isEditMode): ?>
 			<tr valign="top">
 				<td><?=GetMessage("AD_VISITOR_COUNT_2")?></td>
 				<td><b><?=intval($str_VISITOR_COUNT)?></b>&nbsp;/&nbsp;<?=$str_MAX_VISITOR_COUNT?></td>
 			</tr>
-		<? else: ?>
+		<?php  else: ?>
 			<tr>
 				<td><?=GetMessage("AD_VISITOR_COUNT")?></td>
-				<td><input type="text" name="MAX_VISITOR_COUNT" id="MAX_VISITOR_COUNT" size="10" value = "<?=$str_MAX_VISITOR_COUNT?>"<?=$disableFixShow?>><?
+				<td><input type="text" name="MAX_VISITOR_COUNT" id="MAX_VISITOR_COUNT" size="10" value = "<?=$str_MAX_VISITOR_COUNT?>"<?=$disableFixShow?>><?php 
 					if ($ID>0) :
-						?>&nbsp;<?=GetMessage("AD_VISITORS")?>&nbsp;<b><?=$str_VISITOR_COUNT?></b>&nbsp;&nbsp;<?
+						?>&nbsp;<?=GetMessage("AD_VISITORS")?>&nbsp;<b><?=$str_VISITOR_COUNT?></b>&nbsp;&nbsp;<?php 
 						if ($isAdmin || ($isDemo && !$isOwner) || $isManager)
 						{
 							echo '<label for="RESET_VISITOR_COUNT">'.GetMessage("AD_RESET_COUNTER")."</label>";
-							?>&nbsp;<input type="checkbox" name="RESET_VISITOR_COUNT" value="Y" id="RESET_VISITOR_COUNT"<?=$disableFixShow?>><?
+							?>&nbsp;<input type="checkbox" name="RESET_VISITOR_COUNT" value="Y" id="RESET_VISITOR_COUNT"<?=$disableFixShow?>><?php 
 						}
 					endif;
 					?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
 		<tr>
 			<td><?=GetMessage("AD_SHOWS_FOR_VISITOR")?></td>
-			<td><?
+			<td><?php 
 				if ($isEditMode) :
-					?><input type="text" name="SHOWS_FOR_VISITOR" id="SHOWS_FOR_VISITOR" value="<?=$str_SHOWS_FOR_VISITOR?>" size="10"<?=$disableFixShow?>><?
+					?><input type="text" name="SHOWS_FOR_VISITOR" id="SHOWS_FOR_VISITOR" value="<?=$str_SHOWS_FOR_VISITOR?>" size="10"<?=$disableFixShow?>><?php 
 				else:
 					if (IntVal($str_SHOWS_FOR_VISITOR) > 0)
 						echo $str_SHOWS_FOR_VISITOR;
@@ -1866,28 +1866,28 @@ $context->Show();
 				?></td>
 		</tr>
 
-		<? if (!$isEditMode): ?>
+		<?php  if (!$isEditMode): ?>
 			<tr valign="top">
 				<td><?=GetMessage("AD_SHOW_COUNT_2")?></td>
 				<td><b><?=intval($str_SHOW_COUNT)?></b>&nbsp;/&nbsp;<?=intval($str_MAX_SHOW_COUNT)?></td>
 			</tr>
-		<? else: ?>
+		<?php  else: ?>
 			<tr>
 				<td><?=GetMessage("AD_SHOW_COUNT")?></td>
-				<td><input type="text" name="MAX_SHOW_COUNT" id="MAX_SHOW_COUNT" size="10" value = "<?=$str_MAX_SHOW_COUNT?>"<?=$disableFixShow?>><?
+				<td><input type="text" name="MAX_SHOW_COUNT" id="MAX_SHOW_COUNT" size="10" value = "<?=$str_MAX_SHOW_COUNT?>"<?=$disableFixShow?>><?php 
 					if ($ID>0) :
-						?>&nbsp;<?=GetMessage("AD_SHOWN")?>&nbsp;<b><?=$str_SHOW_COUNT?></b>&nbsp;&nbsp;<?
+						?>&nbsp;<?=GetMessage("AD_SHOWN")?>&nbsp;<b><?=$str_SHOW_COUNT?></b>&nbsp;&nbsp;<?php 
 						if ($isAdmin || ($isDemo && !$isOwner) || $isManager)
 						{
 							echo '<label for="RESET_SHOW_COUNT">'.GetMessage("AD_RESET_COUNTER").'</label>';
-							?>&nbsp;<input type="checkbox" name="RESET_SHOW_COUNT" value="Y" id="RESET_SHOW_COUNT"<?=$disableFixShow?>><?
+							?>&nbsp;<input type="checkbox" name="RESET_SHOW_COUNT" value="Y" id="RESET_SHOW_COUNT"<?=$disableFixShow?>><?php 
 						}
 					endif;
 					?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($isAdmin || ($isDemo && !$isOwner) || $isManager): ?>
+		<?php  if ($isAdmin || ($isDemo && !$isOwner) || $isManager): ?>
 			<script>
 				function ObjDisableR(objName, v)
 				{
@@ -1910,59 +1910,59 @@ $context->Show();
 					}
 				}
 			</script>
-		<?
+		<?php 
 		$disableFixClick = "";
 		if ($str_FIX_CLICK != "Y")
 			$disableFixClick = " disabled";
 		?>
 			<tr valign="top">
 				<td width="40%"><label for="FIX_CLICK"><?=GetMessage("AD_FIX_CLICK")?></label></td>
-				<td width="60%"><?
+				<td width="60%"><?php 
 					if ($isEditMode):
 						echo InputType("checkbox", "FIX_CLICK", "Y", $str_FIX_CLICK, false, "", 'id="FIX_CLICK" OnClick="DisableFixClick();"');
 					else:
-						?><?=($str_FIX_CLICK=="Y" ? GetMessage("AD_YES") : GetMessage("AD_NO"))?><?
+						?><?=($str_FIX_CLICK=="Y" ? GetMessage("AD_YES") : GetMessage("AD_NO"))?><?php 
 					endif;
 					?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if (!$isEditMode): ?>
+		<?php  if (!$isEditMode): ?>
 			<tr valign="top">
 				<td><?=GetMessage("AD_CLICK_COUNT_2")?></td>
 				<td><b><?=intval($str_CLICK_COUNT)?></b>&nbsp;/&nbsp;<?=$str_MAX_CLICK_COUNT?></td>
 			</tr>
-		<? else: ?>
+		<?php  else: ?>
 			<tr>
 				<td><?=GetMessage("AD_CLICK_COUNT")?></td>
-				<td><input type="text" name="MAX_CLICK_COUNT" id="MAX_CLICK_COUNT" size="10" value = "<?=$str_MAX_CLICK_COUNT?>"<?=$disableFixClick?>><?
+				<td><input type="text" name="MAX_CLICK_COUNT" id="MAX_CLICK_COUNT" size="10" value = "<?=$str_MAX_CLICK_COUNT?>"<?=$disableFixClick?>><?php 
 					if ($ID>0) :
-						?>&nbsp;<?=GetMessage("AD_CLICKED")?>&nbsp;<b><?=$str_CLICK_COUNT?></b>&nbsp;&nbsp;&nbsp;<?
+						?>&nbsp;<?=GetMessage("AD_CLICKED")?>&nbsp;<b><?=$str_CLICK_COUNT?></b>&nbsp;&nbsp;&nbsp;<?php 
 						if ($isAdmin || ($isDemo && !$isOwner) || $isManager)
 						{
 							echo '<label for="RESET_CLICK_COUNT">'.GetMessage("AD_RESET_COUNTER").'</label>';
-							?>&nbsp;<input type="checkbox" name="RESET_CLICK_COUNT" value="Y" id="RESET_CLICK_COUNT"<?=$disableFixClick?>><?
+							?>&nbsp;<input type="checkbox" name="RESET_CLICK_COUNT" value="Y" id="RESET_CLICK_COUNT"<?=$disableFixClick?>><?php 
 						}
 					endif;
 					?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($ID>0): ?>
+		<?php  if ($ID>0): ?>
 			<tr valign="top">
 				<td><?=GetMessage("AD_CTR")?></td>
 				<td><b><?=$str_CTR?></b></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
 
 
-		<?
+		<?php 
 		$tabControl->BeginNextTab();
 		?>
 		<tr valign="top">
 			<td width="40%"><?=GetMessage("AD_SITE")?></td>
-			<td width="60%"><?
+			<td width="60%"><?php 
 
 				$arrContractSite =  CAdvContract::GetSiteArray($str_CONTRACT_ID);
 
@@ -1970,7 +1970,7 @@ $context->Show();
 
 					if ($isEditMode) : ?>
 						<div class="adm-list">
-							<?reset($arrSites);
+							<?php reset($arrSites);
 							while (list($sid, $arrS) = each($arrSites)):
 								if (in_array($sid, $arrContractSite)) :
 									$checked = (in_array($sid, $arrSITE)) ? "checked" : "";
@@ -1980,11 +1980,11 @@ $context->Show();
 										<div class="adm-list-control"><input type="checkbox" name="arrSITE[]" value="<?=htmlspecialcharsbx($sid)?>" style="vertical-align:baseline; border-spacing: 0px; margin: 0px; padding: 0px;" id="site_<?=htmlspecialcharsbx($sid)?>" <?=$checked?>></div>
 										<div class="adm-list-label"><?='[<a href="/bitrix/admin/site_edit.php?LID='.urlencode($sid).'&lang='.LANGUAGE_ID.'" title="'.GetMessage("AD_SITE_ALT").'">'.htmlspecialcharsex($sid).'</a>]&nbsp;<label for="site_'.htmlspecialcharsbx($sid).'">'.htmlspecialcharsex($arrS["NAME"])?></label></div>
 									</div>
-									<?
+									<?php 
 								endif;
 							endwhile;?>
 						</div>
-					<? else:
+					<?php  else:
 
 						reset($arrSITE);
 						if (is_array($arrSITE)):
@@ -2004,13 +2004,13 @@ $context->Show();
 
 		<tr valign="top">
 			<td><?=GetMessage("AD_SHOW_PAGES");?></td>
-			<td><?
+			<td><?php 
 				if ($isEditMode) :
 					?>
 					<textarea name="SHOW_PAGE" cols="45" rows="6" wrap="OFF"><?=Main\Text\HtmlFilter::encode($str_SHOW_PAGE)?></textarea>
 					<br>
 					<?=GetMessage("AD_PAGES_ALT1")?>
-					<?
+					<?php 
 				else:
 					$arr = $arrSHOW_PAGE;
 					if (is_array($arr) && count($arr) > 0)
@@ -2027,13 +2027,13 @@ $context->Show();
 		</tr>
 		<tr valign="top">
 			<td><?=GetMessage("AD_NOT_SHOW_PAGES");?></td>
-			<td><?
+			<td><?php 
 				if ($isEditMode) :
 					?>
 					<textarea name="NOT_SHOW_PAGE" cols="45" rows="6" wrap="OFF"><?=Main\Text\HtmlFilter::encode($str_NOT_SHOW_PAGE)?></textarea>
 					<br>
 					<?=GetMessage("AD_PAGES_ALT1")?>
-					<?
+					<?php 
 				else:
 					$arr = $arrNOT_SHOW_PAGE;
 					if (is_array($arr) && count($arr) > 0)
@@ -2049,7 +2049,7 @@ $context->Show();
 				?></td>
 		</tr>
 
-		<? if ($isEditMode):
+		<?php  if ($isEditMode):
 			$rUserGroups = CGroup::GetList($by = "name", $order = "asc", array("ANONYMOUS"=>"N"));
 			while ($arUserGroups = $rUserGroups->Fetch())
 			{
@@ -2060,11 +2060,11 @@ $context->Show();
 			<tr valign="top">
 				<td><?=GetMessage("AD_USER_GROUPS");?><br><img src="/bitrix/images/advertising/mouse.gif" width="44" height="21" border=0 alt=""><br><?=GetMessage("AD_SELECT_WHAT_YOU_NEED")?></td>
 				<td>
-					<input type="radio" id="SHOW_USER_LABEL_Y" name="SHOW_USER_GROUP" value="Y" <? if ($str_SHOW_USER_GROUP=="Y") echo "checked";?>><label for="SHOW_USER_LABEL_Y"><?=GetMessage("AD_USER_GROUP_Y");?></label> <br>
-					<input type="radio" id="SHOW_USER_LABEL_N" name="SHOW_USER_GROUP" value="N" <? if ($str_SHOW_USER_GROUP!="Y") echo "checked";?>><label for="SHOW_USER_LABEL_N"><?=GetMessage("AD_USER_GROUP_N");?></label><br>
+					<input type="radio" id="SHOW_USER_LABEL_Y" name="SHOW_USER_GROUP" value="Y" <?php  if ($str_SHOW_USER_GROUP=="Y") echo "checked";?>><label for="SHOW_USER_LABEL_Y"><?=GetMessage("AD_USER_GROUP_Y");?></label> <br>
+					<input type="radio" id="SHOW_USER_LABEL_N" name="SHOW_USER_GROUP" value="N" <?php  if ($str_SHOW_USER_GROUP!="Y") echo "checked";?>><label for="SHOW_USER_LABEL_N"><?=GetMessage("AD_USER_GROUP_N");?></label><br>
 					<?=SelectBoxMFromArray("arrUSERGROUP[]", array("REFERENCE" => $ug, "REFERENCE_ID" => $ug_id), $arrUSERGROUP, "", false, 10);?></td>
 			</tr>
-		<? else:
+		<?php  else:
 			$ug = '';
 			$rUserGroups = CGroup::GetList($by = "name", $order = "asc", Array("ID"=>implode(" | ",$arrUSERGROUP), "ANONYMOUS"=>"N"));
 			while ($arUserGroups = $rUserGroups->Fetch())
@@ -2073,23 +2073,23 @@ $context->Show();
 			}
 			?>
 			<tr valign="top">
-				<? if (strlen($ug) > 0 && !empty($arrUSERGROUP)): ?>
+				<?php  if (strlen($ug) > 0 && !empty($arrUSERGROUP)): ?>
 					<td><?=GetMessage("AD_USER_GROUP_".$str_SHOW_USER_GROUP);?>:</td>
 					<td><?=$ug?></td>
-				<? else: ?>
+				<?php  else: ?>
 					<td><?=GetMessage("AD_USER_GROUP_Y");?>:</td>
 					<td><?=GetMessage("AD_ALL_1");?></td>
-				<? endif ?>
+				<?php  endif ?>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
 
-		<? if ($isAdmin || $isManager || ($isDemo && !$isOwner)): ?>
+		<?php  if ($isAdmin || $isManager || ($isDemo && !$isOwner)): ?>
 			<tr valign="top">
 				<td><?=GetMessage("AD_KEYWORDS");?></td>
-				<td><?
+				<td><?php 
 					if ($isEditMode) :
-						?><textarea name="KEYWORDS" cols="45" rows="6" wrap="OFF"><?=$str_KEYWORDS?></textarea><br><?=GetMessage("AD_KEYWORDS_ALT")?><?
+						?><textarea name="KEYWORDS" cols="45" rows="6" wrap="OFF"><?=$str_KEYWORDS?></textarea><br><?=GetMessage("AD_KEYWORDS_ALT")?><?php 
 					else:
 						if (!empty($arrKEYWORDS))
 							echo implode("<br>", $arrKEYWORDS);
@@ -2098,9 +2098,9 @@ $context->Show();
 					endif;
 					?></td>
 			</tr>
-		<? endif ?>
+		<?php  endif ?>
 
-		<?
+		<?php 
 		if (CModule::IncludeModule("statistic")):
 			$arDisplay = array();
 			if ($str_STAT_TYPE === "CITY")
@@ -2139,15 +2139,15 @@ $context->Show();
 			<tr valign="top">
 				<td><?=GetMessage("ADV_STAT_WHAT_QUESTION")?>:</td>
 				<td>
-					<label><input type="radio" name="STAT_TYPE" value="COUNTRY" OnClick="stat_type_changed(this);" <?=$str_STAT_TYPE!=="CITY" && $str_STAT_TYPE!=="REGION"? "checked" : ""?><? if (!$isEditMode) echo ' disabled'?>><?=GetMessage("ADV_STAT_WHAT_COUNTRY")?></label><br>
-					<label><input type="radio" name="STAT_TYPE" value="REGION" OnClick="stat_type_changed(this);" <?=$str_STAT_TYPE==="REGION"? "checked" : ""?><? if (!$isEditMode) echo ' disabled'?>><?=GetMessage("ADV_STAT_WHAT_REGION")?></label><br>
-					<label><input type="radio" name="STAT_TYPE" value="CITY" OnClick="stat_type_changed(this);" <?=$str_STAT_TYPE==="CITY"? "checked" : ""?><? if (!$isEditMode) echo ' disabled'?>><?=GetMessage("ADV_STAT_WHAT_CITY")?></label><br>
-					<select style="width:100%" size="10" id="STAT_TYPE_VALUES[]" name="STAT_TYPE_VALUES[]" multiple OnChange="stat_type_values_change()"<? if (!$isEditMode) echo ' disabled'?>>
-						<?foreach ($arDisplay as $key => $value): ?>
+					<label><input type="radio" name="STAT_TYPE" value="COUNTRY" OnClick="stat_type_changed(this);" <?=$str_STAT_TYPE!=="CITY" && $str_STAT_TYPE!=="REGION"? "checked" : ""?><?php  if (!$isEditMode) echo ' disabled'?>><?=GetMessage("ADV_STAT_WHAT_COUNTRY")?></label><br>
+					<label><input type="radio" name="STAT_TYPE" value="REGION" OnClick="stat_type_changed(this);" <?=$str_STAT_TYPE==="REGION"? "checked" : ""?><?php  if (!$isEditMode) echo ' disabled'?>><?=GetMessage("ADV_STAT_WHAT_REGION")?></label><br>
+					<label><input type="radio" name="STAT_TYPE" value="CITY" OnClick="stat_type_changed(this);" <?=$str_STAT_TYPE==="CITY"? "checked" : ""?><?php  if (!$isEditMode) echo ' disabled'?>><?=GetMessage("ADV_STAT_WHAT_CITY")?></label><br>
+					<select style="width:100%" size="10" id="STAT_TYPE_VALUES[]" name="STAT_TYPE_VALUES[]" multiple OnChange="stat_type_values_change()"<?php  if (!$isEditMode) echo ' disabled'?>>
+						<?php foreach ($arDisplay as $key => $value): ?>
 							<option value="<?=$key?>"><?=$value?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
-					<? if ($isEditMode): ?>
+					<?php  if ($isEditMode): ?>
 						<script>
 							var V_STAT_TYPE = <?=CUtil::PHPToJsObject($str_STAT_TYPE);?>;
 							var V_STAT_TYPE_VALUES = <?=CUtil::PHPToJsObject(array(
@@ -2210,10 +2210,10 @@ $context->Show();
 						</script>
 						<input type="hidden" id="ALL_STAT_TYPE_VALUES" name="ALL_STAT_TYPE_VALUES" value="<?=implode(",", array_keys($arDisplay))?>">
 						<input type="button" value="<?=GetMessage("ADV_STAT_WHAT_ADD")?>" OnClick="stat_type_popup();">&nbsp;&nbsp;<input type="button" value="<?=GetMessage("ADV_STAT_WHAT_DELETE")?>" OnClick="jsSelectUtils.deleteSelectedOptions('STAT_TYPE_VALUES[]');stat_type_values_change();">
-					<? endif ?>
+					<?php  endif ?>
 				</td>
 			</tr>
-			<?
+			<?php 
 			if ($isAdmin || ($isDemo && !$isOwner)):
 				$ref = array();
 				$ref_id = array();
@@ -2229,10 +2229,10 @@ $context->Show();
 						<td><?=GetMessage("AD_STAT_ADV")?><br><img src="/bitrix/images/advertising/mouse.gif" width="44" height="21" border=0 alt=""><br><?=GetMessage("AD_SELECT_WHAT_YOU_NEED")?></td>
 						<td><?=SelectBoxMFromArray("arrSTAT_ADV[]", array("REFERENCE" => $ref, "REFERENCE_ID" => $ref_id), $arrSTAT_ADV, "", true, 10);?></td>
 					</tr>
-				<? else: ?>
+				<?php  else: ?>
 					<tr valign="top">
 						<td><?=GetMessage("AD_STAT_ADV")?></td>
-						<td><?
+						<td><?php 
 							if (is_array($arrSTAT_ADV) && count($arrSTAT_ADV) > 0)
 							{
 								foreach ($arrSTAT_ADV as $aid)
@@ -2245,12 +2245,12 @@ $context->Show();
 								echo GetMessage("ADV_NOT_SET");
 							?></td>
 					</tr>
-				<? endif ?>
-			<? endif ?>
+				<?php  endif ?>
+			<?php  endif ?>
 
 			<tr>
 				<td><?=GetMessage("AD_VISITORS_TYPE")?></td>
-				<td><?
+				<td><?php 
 					if ($isEditMode) :
 						$arr = array(
 							"reference" => array(
@@ -2273,7 +2273,7 @@ $context->Show();
 					?></td>
 			</tr>
 
-		<? endif ?>
+		<?php  endif ?>
 
 
 		<tr valign="top">
@@ -2310,7 +2310,7 @@ $context->Show();
 				<table cellspacing="6" cellpadding="0" border="0">
 					<tr>
 						<td>&nbsp;</td>
-						<?
+						<?php 
 						$disabled = (!$isEditMode) ? "disabled" : "";
 						$arrWDAY = array(
 							"MONDAY"	=> GetMessage("AD_MONDAY"),
@@ -2324,18 +2324,18 @@ $context->Show();
 						while (list($key,$value)=each($arrWDAY)) :
 							?>
 							<td><label for="<?=$key?>"><?=$value?></label><br><input <?=$disabled?> type="checkbox" onclick="OnSelectAll(this.checked, '<?=$key?>', true)" id="<?=$key?>"></td>
-							<?
+							<?php 
 						endwhile;
 						?>
 						<td>&nbsp;</td>
 					</tr>
-					<?
+					<?php 
 					$arrCONTRACT_WEEKDAY = CAdvContract::GetWeekdayArray($arContract["ID"]);
 					for ($i=0;$i<=23;$i++):
 						?>
 						<tr>
 							<td><label for="<?=$i?>"><?=$i."&nbsp;-&nbsp;".($i+1)?></label></td>
-							<?
+							<?php 
 							reset($arrWDAY);
 							while (list($key,$value)=each($arrWDAY)) :
 								$checked = "";
@@ -2346,13 +2346,13 @@ $context->Show();
 								if (is_array(${"arr".$key}) && in_array($i,${"arr".$key}) && $disable!="disabled") $checked = "checked";
 								?>
 								<td><input <?=$disabled?> id="arr<?=$key?>_<?=$i?>[]" name="arr<?=$key?>[]" type="checkbox" value="<?=$i?>" <?=$checked?>></td>
-								<?
+								<?php 
 							endwhile;
 							$disabled = (!$isEditMode) ? "disabled" : "";
 							?>
 							<td><input <?=$disabled?> type="checkbox" onclick="OnSelectAll(this.checked, '<?=$i?>', false)" id="<?=$i?>"></td>
 						</tr>
-						<?
+						<?php 
 					endfor;
 					?>
 					<script>
@@ -2397,13 +2397,13 @@ $context->Show();
 				</table></td>
 		</tr>
 
-		<?
+		<?php 
 		if ($isAdmin || ($isDemo && !$isOwner)) :
 
 			$tabControl->BeginNextTab();
 			?>
 
-			<? if ($isEditMode): ?>
+			<?php  if ($isEditMode): ?>
 			<script>
 				<!--
 				function PutEvent(str)
@@ -2433,8 +2433,8 @@ $context->Show();
 					}
 				}
 			</script>
-		<? endif ?>
-		<?
+		<?php  endif ?>
+		<?php 
 		if (strlen($str_STAT_EVENT_1) > 0 || strlen($str_STAT_EVENT_2) > 0 || strlen($str_STAT_EVENT_3) > 0)
 			$FIX_STAT="Y";
 		else
@@ -2443,20 +2443,20 @@ $context->Show();
 			<tr>
 				<td width="40%"><label for="FIX_STAT"><?=GetMessage("AD_FIX_STAT")?></label></td>
 				<td width="60%">
-					<? if ($isEditMode): ?>
-						<input type="checkbox" name="FIX_STAT" id="FIX_STAT" value="Y" OnClick="DisableClick()" <? if ($FIX_STAT=="Y") echo "checked";?>>
-					<? else: ?>
+					<?php  if ($isEditMode): ?>
+						<input type="checkbox" name="FIX_STAT" id="FIX_STAT" value="Y" OnClick="DisableClick()" <?php  if ($FIX_STAT=="Y") echo "checked";?>>
+					<?php  else: ?>
 						<?=GetMessage("ADV_".$FIX_STAT)?>
-					<? endif ?>
+					<?php  endif ?>
 				</td>
 			</tr>
-		<?
+		<?php 
 		if ($isEditMode):
 		?>
 		<tr>
 			<td>event1:</td>
-			<td><input type="text" name="STAT_EVENT_1" id="STAT_EVENT_1" maxlength="255" size="30" value="<?=$str_STAT_EVENT_1?>" onfocus="t=this" <? if ($FIX_STAT!="Y") echo "disabled";?>></td>
-		</tr><?
+			<td><input type="text" name="STAT_EVENT_1" id="STAT_EVENT_1" maxlength="255" size="30" value="<?=$str_STAT_EVENT_1?>" onfocus="t=this" <?php  if ($FIX_STAT!="Y") echo "disabled";?>></td>
+		</tr><?php 
 		else:
 		if (strlen($str_STAT_EVENT_1) > 0):
 			?>
@@ -2464,21 +2464,21 @@ $context->Show();
 				<td>event1:</td>
 				<td><?=$str_STAT_EVENT_1;?></td>
 			</tr>
-		<? endif;
+		<?php  endif;
 		endif;
 		?>
-		<?
+		<?php 
 		if ($isEditMode): ?>
 			<tr>
 				<td>event2:</td>
-				<td><input type="text" name="STAT_EVENT_2" id="STAT_EVENT_2" maxlength="255" size="30" value="<?=$str_STAT_EVENT_2?>" onfocus="t=this" <? if ($FIX_STAT!="Y") echo "disabled";?>>
+				<td><input type="text" name="STAT_EVENT_2" id="STAT_EVENT_2" maxlength="255" size="30" value="<?=$str_STAT_EVENT_2?>" onfocus="t=this" <?php  if ($FIX_STAT!="Y") echo "disabled";?>>
 				</td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
 				<td><?=GetMessage("AD_EVENT12")?></td>
 			</tr>
-			<?
+			<?php 
 		else:
 		if (strlen($str_STAT_EVENT_2) > 0):
 			?>
@@ -2486,13 +2486,13 @@ $context->Show();
 				<td>event2:</td>
 				<td><?=$str_STAT_EVENT_2;?></td>
 			</tr>
-		<? endif;
+		<?php  endif;
 		endif;
 		if ($isEditMode):
 		?>
 			<tr>
 				<td>event3:</td>
-				<td><input type="text" name="STAT_EVENT_3" id="STAT_EVENT_3" maxlength="255"  value="<?=$str_STAT_EVENT_3?>" onfocus="t=this" style="width:80%;" <? if ($FIX_STAT!="Y") echo "disabled";?>></td>
+				<td><input type="text" name="STAT_EVENT_3" id="STAT_EVENT_3" maxlength="255"  value="<?=$str_STAT_EVENT_3?>" onfocus="t=this" style="width:80%;" <?php  if ($FIX_STAT!="Y") echo "disabled";?>></td>
 			</tr>
 		<tr>
 			<td>&nbsp;</td>
@@ -2501,7 +2501,7 @@ $context->Show();
 				<a href="javascript:PutEvent('#BANNER_ID#')" title="<?=GetMessage("AD_INS_TEMPL")?>">#BANNER_ID#</a> - <?=GetMessage("AD_BANNER_ID")?>,
 				<a href="javascript:PutEvent('#CONTRACT_ID#')" title="<?=GetMessage("AD_INS_TEMPL")?>">#CONTRACT_ID#</a> - <?=GetMessage("AD_CONTRACT_ID")?>,
 				<a href="javascript:PutEvent('#TYPE_SID#')" title="<?=GetMessage("AD_INS_TEMPL")?>">#TYPE_SID#</a> - <?=GetMessage("AD_TYPE_SID")?></td>
-		</tr><?
+		</tr><?php 
 		else:
 		if (strlen($str_STAT_EVENT_3) > 0):
 			?>
@@ -2509,27 +2509,27 @@ $context->Show();
 				<td>event3:</td>
 				<td><?=$str_STAT_EVENT_3;?></td>
 			</tr>
-		<? endif;
+		<?php  endif;
 		endif;
 		endif;?>
 
-		<?
+		<?php 
 		$tabControl->BeginNextTab();
 		?>
 		<tr>
-			<td colspan="2" <? if ($isEditMode): ?>align="center"<? endif ?>><?
+			<td colspan="2" <?php  if ($isEditMode): ?>align="center"<?php  endif ?>><?php 
 				if ($isEditMode):
 					?>
 					<textarea style="width:85%" name="COMMENTS" rows="7" wrap="VIRTUAL">
 						<?=$str_COMMENTS?>
 					</textarea>
-					<?
+					<?php 
 				else:
 					echo TxtToHtml($str_COMMENTS);
 				endif;
 				?></td>
 		</tr>
-		<?
+		<?php 
 		$disable = true;
 		if ($isManager || $isAdmin || ($isDemo && !$isOwner) || $isEditMode)
 			$disable = false;
@@ -2539,12 +2539,12 @@ $context->Show();
 		?>
 	</form>
 	<script>
-		<? if (strlen($str_COMMENTS) <= 0 && !$isEditMode): ?>
+		<?php  if (strlen($str_COMMENTS) <= 0 && !$isEditMode): ?>
 			tabControl.DisableTab("edit5");
-		<? endif; ?>
+		<?php  endif; ?>
 		changeType('<?=$str_AD_TYPE?>', {params: <?=CUtil::PHPToJsObject($arPropsTemplate)?>, val: <?=CUtil::PHPToJsObject($arCurVal)?>});
 	</script>
-<?
+<?php 
 if ($isEditMode && (!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1)) :
 	?>
 	<?=BeginNote();?>
@@ -2552,6 +2552,6 @@ if ($isEditMode && (!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1)) :
 	<span class="required"><sup>2</sup></span>&nbsp;<?=GetMessage("AD_NOTE_2")?><br><br>
 	<span class="required"><sup>3</sup></span>&nbsp;<?=GetMessage("AD_JQUERY_WARNING")?>
 	<?=EndNote();?>
-<? endif ?>
+<?php  endif ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

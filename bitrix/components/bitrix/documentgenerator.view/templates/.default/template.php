@@ -36,5 +36,5 @@ BX.ready(function()
 	};
 	var preview = new BX.DocumentGenerator.DocumentPreview(options);
 });
-</script><?
+</script><?php 
 }

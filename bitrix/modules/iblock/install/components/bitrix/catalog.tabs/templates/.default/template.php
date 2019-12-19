@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -19,16 +19,16 @@ if (isset($arParams["DATA"]) && !empty($arParams["DATA"]) && is_array($arParams[
 	$jsObjName = "catalogTabs_".$arResult["ID"];
 	$tabIDList = array();
 ?>
-<div id="<? echo $arResult["ID"]; ?>" class="bx-catalog-tab-section-container"<?=isset($arResult["WIDTH"]) ? ' style="width: '.$arResult["WIDTH"].'px;"' : ''?>>
+<div id="<?php  echo $arResult["ID"]; ?>" class="bx-catalog-tab-section-container"<?=isset($arResult["WIDTH"]) ? ' style="width: '.$arResult["WIDTH"].'px;"' : ''?>>
 	<ul class="bx-catalog-tab-list" style="left: 0;">
-		<?
+		<?php 
 		foreach ($arParams["DATA"] as $tabId => $arTab)
 		{
 			if (isset($arTab["NAME"]) && isset($arTab["CONTENT"]))
 			{
 				$id = $arResult["ID"].$tabId;
 				$tabActive = (isset($arTab["ACTIVE"]) && $arTab["ACTIVE"] == "Y");
-				?><li id="<?=$id?>"><span><?=$arTab["NAME"]?></span></li><?
+				?><li id="<?=$id?>"><span><?=$arTab["NAME"]?></span></li><?php 
 				if($tabActive || $activeTabId === "")
 					$activeTabId = $tabId;
 
@@ -44,7 +44,7 @@ if (isset($arParams["DATA"]) && !empty($arParams["DATA"]) && is_array($arParams[
 		</div>
 	</div>
 </div>
-<?
+<?php 
 $arJSParams = array(
 	'activeTabId' =>  $activeTabId,
 	'tabsContId' => $arResult["ID"],
@@ -52,8 +52,8 @@ $arJSParams = array(
 );
 ?>
 <script type="text/javascript">
-var <?=$jsObjName?> = new JCCatalogTabs(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+var <?=$jsObjName?> = new JCCatalogTabs(<?php  echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
-<?
+<?php 
 }
 ?>

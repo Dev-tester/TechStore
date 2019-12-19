@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 
-<?IncludeTemplateLangFile(__FILE__);?>
+<?php IncludeTemplateLangFile(__FILE__);?>
 
-<? if (defined("BX_AUTH_FORM") && BX_AUTH_FORM === true): ?>
+<?php  if (defined("BX_AUTH_FORM") && BX_AUTH_FORM === true): ?>
 	</td>
 </tr>
 </table>
-<?endif?>
+<?php endif?>
 
 		</td>
 	</tr>

@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -17,17 +17,17 @@ $bodyClass = $APPLICATION->getPageProperty("BodyClass", false);
 $APPLICATION->setPageProperty("BodyClass", trim(sprintf("%s %s", $bodyClass, "pagetitle-toolbar-field-view")));
 ?>
 
-<? $this->setViewTarget('inside_pagetitle', 10); ?>
+<?php  $this->setViewTarget('inside_pagetitle', 10); ?>
 	<div class="pagetitle-container pagetitle-align-right-container" style="padding-right: 12px;">
 		<a class="webform-small-button webform-small-button-blue bx24-top-toolbar-add adm-toolbar-panel-button"
 				href="<?=htmlspecialcharsbx($arResult['PATH_TO_CREATE_GROUP'])?>">
 			<?=Loc::getMessage('CRM_ORDER_BUYER_GROUP_LIST_BTN_ADD')?>
 		</a>
 	</div>
-<? $this->endViewTarget(); ?>
+<?php  $this->endViewTarget(); ?>
 
 <div class='crm-buyer-groups-edit-wrapper'>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.interface.grid',
 		'titleflex',

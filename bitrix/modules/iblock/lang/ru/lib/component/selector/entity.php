@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ENTITY_SELECTOR_FILTER_FIELD_NAME"] = "Название";
 $MESS["ENTITY_SELECTOR_FILTER_FIELD_ID"] = "ID (начальный и конечный)";
 $MESS["ENTITY_SELECTOR_FILTER_FIELD_ACTIVE"] = "Активность";

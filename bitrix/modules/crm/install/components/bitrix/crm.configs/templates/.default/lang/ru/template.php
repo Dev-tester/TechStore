@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIGS_TAB_WHERE_TO_BEGIN"] = "С чего начать";
 $MESS["CRM_CONFIGS_TAB_SETTINGS_FORMS_AND_REPORTS"] = "Настройки форм и отчетов";
 $MESS["CRM_CONFIGS_TAB_CREATION_ON_THE_BASIS"] = "Создание на основании";

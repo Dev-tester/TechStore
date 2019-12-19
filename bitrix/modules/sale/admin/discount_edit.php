@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main;
 use Bitrix\Sale;
@@ -553,12 +553,12 @@ $control->EndPrologContent();
 $control->BeginEpilogContent();
 echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
-<input type="hidden" name="ID" value="<? echo $discountID; ?>">
-<?
+<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
+<input type="hidden" name="ID" value="<?php  echo $discountID; ?>">
+<?php 
 if ($copy)
 {
-	?><input type="hidden" name="action" value="copy"><?
+	?><input type="hidden" name="action" value="copy"><?php 
 }
 echo bitrix_sessid_post();
 $control->EndEpilogContent();
@@ -573,8 +573,8 @@ $control->BeginNextFormTab();
 	$control->AddEditField("NAME", GetMessage("BT_SALE_DISCOUNT_EDIT_FIELDS_NAME").":", false, array("size" => 50, "maxlength" => 255), htmlspecialcharsbx($arDiscount['NAME']));
 	$control->BeginCustomField("PERIOD", GetMessage('SDEN_PERIOD').":",false);
 	?><tr id="tr_PERIOD">
-		<td width="40%"><? echo $control->GetCustomLabelHTML(); ?></td>
-		<td width="60%"><?
+		<td width="40%"><?php  echo $control->GetCustomLabelHTML(); ?></td>
+		<td width="60%"><?php 
 			$periodValue = '';
 			if ('' != $arDiscount['ACTIVE_FROM'] || '' != $arDiscount['ACTIVE_TO'])
 				$periodValue = CAdminCalendar::PERIOD_INTERVAL;
@@ -594,7 +594,7 @@ $control->BeginNextFormTab();
 				$periodValue
 			);
 		?></td>
-	</tr><?
+	</tr><?php 
 	$control->EndCustomField("PERIOD",
 		'<input type="hidden" name="ACTIVE_FROM" value="'.htmlspecialcharsbx($arDiscount['ACTIVE_FROM']).'">'.
 		'<input type="hidden" name="ACTIVE_TO" value="'.htmlspecialcharsbx($arDiscount['ACTIVE_FROM']).'">'
@@ -602,45 +602,45 @@ $control->BeginNextFormTab();
 	$control->AddSection('BT_SALE_DISCOUNT_SECT_PRIORITY', GetMessage('BT_SALE_DISCOUNT_SECTION_PRIORITY'));
 	$control->BeginCustomField('PRIORITY', GetMessage("BT_SALE_DISCOUNT_EDIT_FIELDS_PRIORITY").':', false);
 	?><tr id="tr_PRIORITY">
-		<td width="40%"><span id="tr_HELP_notice"></span>&nbsp;<? echo $control->GetCustomLabelHTML(); ?><br /><? echo GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_PRIORITY_DESCR'); ?></td>
+		<td width="40%"><span id="tr_HELP_notice"></span>&nbsp;<?php  echo $control->GetCustomLabelHTML(); ?><br /><?php  echo GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_PRIORITY_DESCR'); ?></td>
 		<td width="60%">
-			<input type="text" name="PRIORITY" size="20" maxlength="20" value="<? echo intval($arDiscount['PRIORITY']); ?>">
+			<input type="text" name="PRIORITY" size="20" maxlength="20" value="<?php  echo intval($arDiscount['PRIORITY']); ?>">
 		</td>
-	</tr><?
+	</tr><?php 
 	$control->EndCustomField("PRIORITY",
 		'<input type="hidden" name="PRIORITY" value="'.intval($arDiscount['PRIORITY']).'">'
 	);
 	$control->BeginCustomField('SORT', GetMessage("BT_SALE_DISCOUNT_EDIT_FIELDS_SORT_2").':', false);
 	?><tr id="tr_SORT">
-		<td width="40%"><span id="tr_HELP_notice2"></span>&nbsp;<? echo $control->GetCustomLabelHTML(); ?><br /><? echo GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_SORT_DESCR'); ?></td>
+		<td width="40%"><span id="tr_HELP_notice2"></span>&nbsp;<?php  echo $control->GetCustomLabelHTML(); ?><br /><?php  echo GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_SORT_DESCR'); ?></td>
 		<td width="60%">
-			<input type="text" name="SORT" size="20" maxlength="20" value="<? echo intval($arDiscount['SORT']); ?>">
+			<input type="text" name="SORT" size="20" maxlength="20" value="<?php  echo intval($arDiscount['SORT']); ?>">
 		</td>
-	</tr><?
+	</tr><?php 
 	$control->EndCustomField("SORT",
 		'<input type="hidden" name="SORT" value="'.intval($arDiscount['SORT']).'">'
 	);
 	$control->BeginCustomField("LAST_LEVEL_DISCOUNT", GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_LAST_LEVEL_DISCOUNT').":",false);
 	?><tr id="tr_LAST_LEVEL_DISCOUNT">
-		<td width="40%"><span id="tr_HELP_notice3"></span>&nbsp;<? echo $control->GetCustomLabelHTML(); ?>
+		<td width="40%"><span id="tr_HELP_notice3"></span>&nbsp;<?php  echo $control->GetCustomLabelHTML(); ?>
 		</td>
 		<td width="60%">
 			<input type="hidden" value="N" name="LAST_LEVEL_DISCOUNT">
-			<input type="checkbox" value="Y" name="LAST_LEVEL_DISCOUNT" <? echo ('Y' == $arDiscount['LAST_LEVEL_DISCOUNT']? 'checked' : '');?>>
+			<input type="checkbox" value="Y" name="LAST_LEVEL_DISCOUNT" <?php  echo ('Y' == $arDiscount['LAST_LEVEL_DISCOUNT']? 'checked' : '');?>>
 		</td>
-	</tr><?
+	</tr><?php 
 	$control->EndCustomField("LAST_LEVEL_DISCOUNT",
 		'<input type="hidden" name="LAST_LEVEL_DISCOUNT" value="'.htmlspecialcharsbx($arDiscount['LAST_LEVEL_DISCOUNT']).'">'
 	);
 	$control->BeginCustomField("LAST_DISCOUNT", GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_LAST_DISCOUNT').":",false);
 	?><tr id="tr_LAST_DISCOUNT">
-		<td width="40%"><span id="tr_HELP_notice4"></span>&nbsp;<? echo $control->GetCustomLabelHTML(); ?>
+		<td width="40%"><span id="tr_HELP_notice4"></span>&nbsp;<?php  echo $control->GetCustomLabelHTML(); ?>
 		</td>
 		<td width="60%">
 			<input type="hidden" value="N" name="LAST_DISCOUNT">
-			<input type="checkbox" value="Y" name="LAST_DISCOUNT" <? echo ('Y' == $arDiscount['LAST_DISCOUNT']? 'checked' : '');?>>
+			<input type="checkbox" value="Y" name="LAST_DISCOUNT" <?php  echo ('Y' == $arDiscount['LAST_DISCOUNT']? 'checked' : '');?>>
 		</td>
-	</tr><?
+	</tr><?php 
 	$control->EndCustomField("LAST_DISCOUNT",
 		'<input type="hidden" name="LAST_DISCOUNT" value="'.htmlspecialcharsbx($arDiscount['LAST_DISCOUNT']).'">'
 	);
@@ -648,7 +648,7 @@ $control->BeginNextFormTab();
 	$control->AddSection("BT_SALE_DISCOUNT_SECT_APP", GetMessage("BT_SALE_DISCOUNT_SECTIONS_APP"));
 	$control->BeginCustomField("ACTIONS", GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_APP').":",false);
 	?><tr id="ACTIONS">
-		<td valign="top" colspan="2"><div id="tree_actions" style="position: relative; z-index: 1;"></div><?
+		<td valign="top" colspan="2"><div id="tree_actions" style="position: relative; z-index: 1;"></div><?php 
 			if (!is_array($arDiscount['ACTIONS']))
 			{
 				if (CheckSerializedData($arDiscount['ACTIONS']))
@@ -678,7 +678,7 @@ $control->BeginNextFormTab();
 				$obAct->Show($arDiscount['ACTIONS']);
 			}
 		?></td>
-	</tr><?
+	</tr><?php 
 	$strApp = base64_encode(serialize($arDiscount['ACTIONS']));
 
 	$control->EndCustomField('ACTIONS',
@@ -688,7 +688,7 @@ $control->BeginNextFormTab();
 	$control->AddSection("BT_SALE_DISCOUNT_SECT_COND", GetMessage("BT_SALE_DISCOUNT_SECTIONS_COND_ADD"));
 	$control->BeginCustomField("CONDITIONS", GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_COND_ADD').":",false);
 	?><tr id="tr_CONDITIONS">
-		<td valign="top" colspan="2"><div id="tree" style="position: relative; z-index: 1;"></div><?
+		<td valign="top" colspan="2"><div id="tree" style="position: relative; z-index: 1;"></div><?php 
 			if (!is_array($arDiscount['CONDITIONS']))
 			{
 				if (CheckSerializedData($arDiscount['CONDITIONS']))
@@ -717,7 +717,7 @@ $control->BeginNextFormTab();
 				$obCond->Show($arDiscount['CONDITIONS']);
 			}
 		?></td>
-	</tr><?
+	</tr><?php 
 	$strCond = base64_encode(serialize($arDiscount['CONDITIONS']));
 	$control->EndCustomField('CONDITIONS',
 		'<input type="hidden" name="CONDITIONS" value="'.htmlspecialcharsbx($strCond).'">'.
@@ -727,10 +727,10 @@ $control->BeginNextFormTab();
 	$strHidden = '';
 	$control->BeginCustomField('USER_GROUPS', GetMessage('BT_SALE_DISCOUNT_EDIT_FIELDS_GROUPS').':', true);
 	?><tr id="tr_USER_GROUPS" class="adm-detail-required-field">
-		<td valign="top" width="40%"><? echo $control->GetCustomLabelHTML(); ?></td>
+		<td valign="top" width="40%"><?php  echo $control->GetCustomLabelHTML(); ?></td>
 		<td valign="top" width="60%">
 			<select name="USER_GROUPS[]" multiple size="8">
-			<?
+			<?php 
 			foreach ($discountGroupsToShow as $group)
 			{
 				$group['ID'] = (int)$group['ID'];
@@ -739,13 +739,13 @@ $control->BeginNextFormTab();
 				<option value="<?=$group['ID']?>"<?=$selected?>>
 					[<?=$group['ID']?>] <?=htmlspecialcharsEx($group['NAME'])?>
 				</option>
-				<?
+				<?php 
 			}
 			unset($selected, $group);
 			?>
 			</select>
 		</td>
-	</tr><?
+	</tr><?php 
 	if ($discountID > 0 && !empty($arDiscountGroupList))
 	{
 		$arHidden = array();
@@ -769,26 +769,26 @@ $control->BeginNextFormTab();
 	$couponsAjaxPath = '/bitrix/tools/sale/discount_coupon_list.php?lang='.LANGUAGE_ID.'&find_discount_id='.$discountID;
 	if ($discountID > 0 && !$copy)
 	{
-		?><tr id="tr_COUPONS"><td colspan="2"><?
+		?><tr id="tr_COUPONS"><td colspan="2"><?php 
 		require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/sale/tools/discount_coupon_list.php');
-		?></td></tr><?
+		?></td></tr><?php 
 	}
 	else
 	{
 		?><tr id="tr_COUPON_ADD">
-		<td width="40%"><? echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_ADD'); ?></td>
+		<td width="40%"><?php  echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_ADD'); ?></td>
 		<td width="60%">
 			<input type="hidden" value="N" name="COUPON_ADD" id="COUPON_ADD_N">
-			<input type="checkbox" value="Y" name="COUPON_ADD" id="COUPON_ADD_Y" <? echo ($coupons['COUPON_ADD'] == 'Y' ? 'checked' : ''); ?>>
+			<input type="checkbox" value="Y" name="COUPON_ADD" id="COUPON_ADD_Y" <?php  echo ($coupons['COUPON_ADD'] == 'Y' ? 'checked' : ''); ?>>
 		</td>
 		</tr>
-		<tr id="tr_COUPON_COUNT" class="adm-detail-required-field" style="display: <? echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
-			<td width="40%"><? echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_COUNT'); ?></td>
-			<td width="60%"><input type="text" name="COUPON_COUNT" value="<? echo (int)$coupons['COUPON_COUNT']; ?>"></td>
+		<tr id="tr_COUPON_COUNT" class="adm-detail-required-field" style="display: <?php  echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
+			<td width="40%"><?php  echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_COUNT'); ?></td>
+			<td width="60%"><input type="text" name="COUPON_COUNT" value="<?php  echo (int)$coupons['COUPON_COUNT']; ?>"></td>
 		</tr>
-		<tr id="tr_COUPON_PERIOD" style="display: <? echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
-		<td width="40%"><? echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_PERIOD'); ?></td>
-		<td width="60%"><?
+		<tr id="tr_COUPON_PERIOD" style="display: <?php  echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
+		<td width="40%"><?php  echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_PERIOD'); ?></td>
+		<td width="60%"><?php 
 			$periodValue = '';
 			$activeFrom = ($coupons['COUPON']['ACTIVE_FROM'] instanceof Main\Type\DateTime ? $coupons['COUPON']['ACTIVE_FROM']->toString() : '');
 			$activeTo = ($coupons['COUPON']['ACTIVE_TO'] instanceof Main\Type\DateTime ? $coupons['COUPON']['ACTIVE_TO']->toString() : '');
@@ -809,21 +809,21 @@ $control->BeginNextFormTab();
 			unset($calendar);
 			?></td>
 		</tr>
-		<tr id="tr_COUPON_TYPE" class="adm-detail-required-field" style="display: <? echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
-			<td width="40%"><? echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_TYPE'); ?></td>
+		<tr id="tr_COUPON_TYPE" class="adm-detail-required-field" style="display: <?php  echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
+			<td width="40%"><?php  echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_TYPE'); ?></td>
 			<td width="60%">
-				<select name="COUPON[TYPE]" size="3"><?
+				<select name="COUPON[TYPE]" size="3"><?php 
 					foreach ($couponTypes as $type => $title)
 					{
-						?><option value="<? echo $type; ?>" <? echo ($type == $coupons['COUPON']['TYPE'] ? 'selected' : ''); ?>><? echo htmlspecialcharsEx($title); ?></option><?
+						?><option value="<?php  echo $type; ?>" <?php  echo ($type == $coupons['COUPON']['TYPE'] ? 'selected' : ''); ?>><?php  echo htmlspecialcharsEx($title); ?></option><?php 
 					}
 					?></select>
 			</td>
 		</tr>
-		<tr id="tr_COUPON_MAX_USE" style="display: <? echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
-			<td width="40%"><? echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_MAX_USE'); ?></td>
-			<td width="60%"><input type="text" name="COUPON[MAX_USE]" value="<? echo ($coupons['COUPON_MAX_USE'] > 0 ? $coupons['COUPON_MAX_USE'] : ''); ?>"></td>
-		</tr><?
+		<tr id="tr_COUPON_MAX_USE" style="display: <?php  echo ($coupons['COUPON_ADD'] == 'Y' ? 'table-row' : 'none'); ?>;">
+			<td width="40%"><?php  echo GetMessage('BX_SALE_DISCOUNT_EDIT_FIELDS_COUPON_MAX_USE'); ?></td>
+			<td width="60%"><input type="text" name="COUPON[MAX_USE]" value="<?php  echo ($coupons['COUPON_MAX_USE'] > 0 ? $coupons['COUPON_MAX_USE'] : ''); ?>"></td>
+		</tr><?php 
 	}
 	$control->EndCustomField('COUPONS');
 $control->BeginNextFormTab();
@@ -873,4 +873,4 @@ $control->Show();
 		}
 	});
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

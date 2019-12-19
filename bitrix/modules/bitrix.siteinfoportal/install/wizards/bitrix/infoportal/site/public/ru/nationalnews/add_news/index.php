@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Добавить новость");
-?><?$APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", array(
 	"NAV_ON_PAGE" => "10",
 	"USE_CAPTCHA" => "N",
 	"USER_MESSAGE_ADD" => "Ваша новость добавлена. После проверки модератора, будет принято решение о публикации на сайте вашей новости.",
@@ -56,4 +56,4 @@ $APPLICATION->SetTitle("Добавить новость");
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

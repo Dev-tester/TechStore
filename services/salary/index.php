@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/salary/index.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));?>
-<?$APPLICATION->IncludeComponent("bitrix:payroll.1c", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:payroll.1c", ".default", array(
 	"ORG_LIST" => array(
 		0 => GetMessage("SERVICES_ORG_LIST"),
 	),
@@ -17,4 +17,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));?>
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

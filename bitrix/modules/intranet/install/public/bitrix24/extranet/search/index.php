@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/extranet/search/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:search.page", "icons", array(
+<?php $APPLICATION->IncludeComponent("bitrix:search.page", "icons", array(
 	"RESTART" => "N",
 	"CHECK_DATES" => "N",
 	"USE_TITLE_RANK" => "N",
@@ -41,4 +41,4 @@ $APPLICATION->SetTitle(GetMessage("TITLE"));
 	false
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

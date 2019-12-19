@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTERFACE_FILTER_CURRENT"] = "Filter";
 $MESS["INTERFACE_FILTER_LIST_VALUE_NOT_SELECTED"] = "(none)";
 $MESS["INTERFACE_FILTER_SHOW_ALL"] = "Show all filters";

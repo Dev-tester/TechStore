@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 $pageId = "";
 include("util_menu.php");
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:bizproc.task", 
 	"", 
 	Array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CREATE_CALL_EMPTY_PROP"] = "The required parameter is empty: #PROPERTY#";
 $MESS["CRM_CREATE_CALL_SUBJECT"] = "Subject";
 $MESS["CRM_CREATE_CALL_START_TIME"] = "Start date";

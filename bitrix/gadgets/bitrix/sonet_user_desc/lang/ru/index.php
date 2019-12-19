@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SONET_USER_DESC_CONTACT_TITLE"] = "Контактная информация";
 $MESS["GD_SONET_USER_DESC_CONTACT_UNSET"] = "Контактная информация не указана.";
 $MESS["GD_SONET_USER_DESC_CONTACT_UNAVAIL"] = "Контактная информация недоступна.";

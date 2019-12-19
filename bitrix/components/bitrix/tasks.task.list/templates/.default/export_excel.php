@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -32,7 +32,7 @@ $groupCache = [];
 $columnsToIgnore = ['FLAG_COMPLETE', 'RESPONSIBLE_ID', 'CREATED_BY'];
 ?>
 
-<meta http-equiv="Content-type" content="text/html;charset=<? echo LANG_CHARSET ?>"/>
+<meta http-equiv="Content-type" content="text/html;charset=<?php  echo LANG_CHARSET ?>"/>
 
 <table border="1">
 	<thead>

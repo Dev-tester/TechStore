@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Intranet\Internals;
 
 use Bitrix\Main;

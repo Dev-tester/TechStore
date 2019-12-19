@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_FILE_PERMISSIONS", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -113,9 +113,9 @@ WFSAllData['P'] = <?=(is_array($arWorkflowParameters) && !empty($arWorkflowParam
 WFSAllData['V'] = <?=(is_array($arWorkflowVariables) && !empty($arWorkflowVariables) ?CUtil::PhpToJSObject($arWorkflowVariables):'{}')?>;
 WFSAllData['C'] = <?=(is_array($arWorkflowConstants) && !empty($arWorkflowConstants) ?CUtil::PhpToJSObject($arWorkflowConstants):'{}')?>;
 
-<?if ($isAdmin):?>
+<?php if ($isAdmin):?>
 WFSAllData['GC'] = <?=(!empty($arGlobalConstants) ?CUtil::PhpToJSObject($arGlobalConstants):'{}')?>;
-<?endif?>
+<?php endif?>
 
 function WFSStart()
 {
@@ -151,9 +151,9 @@ function WFSStart()
 function WFSFSave()
 {
 	var ajaxData = 'save=Y&document_type=<?= urlencode($_POST['document_type']) ?>&<?= bitrix_sessid_get() ?>';
-	<?foreach ($arAllowableOperations as $op_id => $op_name):?>
+	<?php foreach ($arAllowableOperations as $op_id => $op_name):?>
 		ajaxData += '&perm[<?= $op_id ?>]='+encodeURIComponent(document.getElementById('id_P<?= $op_id ?>').value);
-	<?endforeach;?>
+	<?php endforeach;?>
 
 	var t = document.getElementById('WFSListGC');
 	if (t && WFSAllData['GC'])
@@ -671,7 +671,7 @@ setTimeout(WFSStart, 0);
 
 <form id="bizprocform" name="bizprocform" method="post">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $aTabs = [["DIV" => "edit1", "TAB" => GetMessage("BIZPROC_WFS_TAB_MAIN"), "ICON" => "group_edit", "TITLE" => GetMessage("BIZPROC_WFS_TAB_MAIN_TITLE")]];
 
 if (!($_POST['workflowTemplateAutostart'] & 8))
@@ -695,22 +695,22 @@ $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 <tr>
-	<td><span style="color: #FF0000">*</span><?echo GetMessage("BIZPROC_WFS_PAR_NAME")?></td>
+	<td><span style="color: #FF0000">*</span><?php echo GetMessage("BIZPROC_WFS_PAR_NAME")?></td>
 	<td><input type="text" id="WFStemplate_name" value="<?=htmlspecialcharsbx($_POST['workflowTemplateName'])?>" size="40"></td>
 </tr>
 <tr>
-	<td valign="top"><?echo GetMessage("BIZPROC_WFS_PAR_DESC")?></td>
+	<td valign="top"><?php echo GetMessage("BIZPROC_WFS_PAR_DESC")?></td>
 	<td><textarea cols="35" rows="5"  id="WFStemplate_description"><?=htmlspecialcharsbx($_POST['workflowTemplateDescription'])?></textarea></td>
 </tr>
-<?if ($_POST['workflowTemplateAutostart'] < 8):?>
+<?php if ($_POST['workflowTemplateAutostart'] < 8):?>
 <tr>
-	<td valign="top"><?echo GetMessage("BIZPROC_WFS_PAR_AUTO")?></td>
+	<td valign="top"><?php echo GetMessage("BIZPROC_WFS_PAR_AUTO")?></td>
 	<td>
-		<input type="checkbox" id="WFStemplate_autostart1" value="Y"><label for="WFStemplate_autostart1"><?echo GetMessage("BIZPROC_WFS_PAR_AUTO_ADD")?></label><br>
-		<input type="checkbox" id="WFStemplate_autostart2" value="Y"><label for="WFStemplate_autostart2"><?echo GetMessage("BIZPROC_WFS_PAR_AUTO_UPD")?></label>
+		<input type="checkbox" id="WFStemplate_autostart1" value="Y"><label for="WFStemplate_autostart1"><?php echo GetMessage("BIZPROC_WFS_PAR_AUTO_ADD")?></label><br>
+		<input type="checkbox" id="WFStemplate_autostart2" value="Y"><label for="WFStemplate_autostart2"><?php echo GetMessage("BIZPROC_WFS_PAR_AUTO_UPD")?></label>
 	</td>
 </tr>
-<?
+<?php 
 endif;
 if (!($_POST['workflowTemplateAutostart'] & 8)):
 $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizproc-wf-settings-tab-content-variables']);
@@ -720,17 +720,17 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 		<div id="dparamlistP" class="bizproc-valign-top">
 			<table width="100%" class="internal" id="WFSListP">
 				<tr class="heading">
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
-					<!--td><?echo GetMessage("BIZPROC_WFS_PARAM_DEF")?></td-->
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
+					<!--td><?php echo GetMessage("BIZPROC_WFS_PARAM_DEF")?></td-->
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
 				</tr>
 			</table>
 			<br>
-			<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('P')"><?echo GetMessage("BIZPROC_WFS_ADD_PARAM")?></a></span>
+			<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('P')"><?php echo GetMessage("BIZPROC_WFS_ADD_PARAM")?></a></span>
 		</div>
 		<div id="dparamformP" class="bizproc-valign-top" style="display: none">
 			<table class="internal">
@@ -753,9 +753,9 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 					<td><?=GetMessage("BIZPROC_WFS_PARAM_TYPE")?>:</td>
 					<td>
 						<select id="WFSFormTypeP" onchange="WFSSwitchTypeControl(this.value, 'P');">
-							<?foreach ($arWorkflowParameterTypes as $k => $v):?>
+							<?php foreach ($arWorkflowParameterTypes as $k => $v):?>
 								<option value="<?= $k ?>"><?= htmlspecialcharsbx($v) ?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select><br />
 						<span id="WFSAdditionalTypeInfoP"></span>
 					</td>
@@ -769,7 +769,7 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 					<td><input type="checkbox" id="WFSFormMultP" value="Y" onchange="WFSSwitchTypeControl(null, 'P', {Multiple: this.checked});"></td>
 				</tr>
 				<tr id="WFSFormOptionsRowP" style="display: none;">
-					<td id="tdWFSFormOptionsPromtP"><?echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
+					<td id="tdWFSFormOptionsPromtP"><?php echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
 					<td id="tdWFSFormOptionsP"><textarea id="WFSFormOptionsP" rows="5" cols="30"></textarea></td>
 				</tr>
 				<tr>
@@ -779,13 +779,13 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="button" id="dpsavebuttonformP" value="OK" onclick="WFSParamSaveForm('P')"><input type="button" id="dpcancelbuttonformP" onclick="WFSParamEditForm(false, 'P')" value="<?echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
+					<td colspan="2" align="center"><input type="button" id="dpsavebuttonformP" value="OK" onclick="WFSParamSaveForm('P')"><input type="button" id="dpcancelbuttonformP" onclick="WFSParamEditForm(false, 'P')" value="<?php echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
 				</tr>
 			</table>
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 endif;
 $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizproc-wf-settings-tab-content-variables']);
 ?>
@@ -794,17 +794,17 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 		<div id="dparamlistV" class="bizproc-valign-top">
 			<table width="100%" class="internal" id="WFSListV">
 				<tr class="heading">
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
-					<!--td><?echo GetMessage("BIZPROC_WFS_PARAM_DEF")?></td-->
-					<td><?echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
+					<!--td><?php echo GetMessage("BIZPROC_WFS_PARAM_DEF")?></td-->
+					<td><?php echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
 				</tr>
 			</table>
 			<br>
-			<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('V')"><?echo GetMessage("BP_WF_VAR_ADD")?></a></span>
+			<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('V')"><?php echo GetMessage("BP_WF_VAR_ADD")?></a></span>
 		</div>
 		<div id="dparamformV" class="bizproc-valign-top" style="display: none">
 			<table class="internal">
@@ -827,9 +827,9 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 					<td><?=GetMessage("BIZPROC_WFS_PARAM_TYPE")?>:</td>
 					<td>
 						<select id="WFSFormTypeV" onchange="WFSSwitchTypeControl(this.value, 'V');">
-							<?foreach ($arWorkflowParameterTypes as $k => $v):?>
+							<?php foreach ($arWorkflowParameterTypes as $k => $v):?>
 								<option value="<?= $k ?>"><?= htmlspecialcharsbx($v) ?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select><br />
 						<span id="WFSAdditionalTypeInfoV"></span>
 					</td>
@@ -843,7 +843,7 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 					<td><input type="checkbox" id="WFSFormMultV" value="Y" onchange="WFSSwitchTypeControl(null, 'V', {Multiple: this.checked});"></td>
 				</tr>
 				<tr id="WFSFormOptionsRowV" style="display: none;">
-					<td id="tdWFSFormOptionsPromtV"><?echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
+					<td id="tdWFSFormOptionsPromtV"><?php echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
 					<td id="tdWFSFormOptionsV"><textarea id="WFSFormOptionsV" rows="5" cols="30"></textarea></td>
 				</tr>
 				<tr>
@@ -853,13 +853,13 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2" align="center"><input type="button" id="dpsavebuttonformV" value="OK" onclick="WFSParamSaveForm('V')"><input type="button" id="dpcancelbuttonformV" onclick="WFSParamEditForm(false, 'V')" value="<?echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
+					<td colspan="2" align="center"><input type="button" id="dpsavebuttonformV" value="OK" onclick="WFSParamSaveForm('V')"><input type="button" id="dpcancelbuttonformV" onclick="WFSParamEditForm(false, 'V')" value="<?php echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
 				</tr>
 			</table>
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizproc-wf-settings-tab-content-variables']);
 ?>
 	<tr>
@@ -867,17 +867,17 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 			<div id="dparamlistC" class="bizproc-valign-top">
 				<table width="100%" class="internal" id="WFSListC">
 					<tr class="heading">
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
-						<!--td><?echo GetMessage("BIZPROC_WFS_PARAM_DEF")?></td-->
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
+						<!--td><?php echo GetMessage("BIZPROC_WFS_PARAM_DEF")?></td-->
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
 					</tr>
 				</table>
 				<br>
-				<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('C')"><?echo GetMessage("BP_WF_CONSTANT_ADD")?></a></span>
+				<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('C')"><?php echo GetMessage("BP_WF_CONSTANT_ADD")?></a></span>
 			</div>
 			<div id="dparamformC" class="bizproc-valign-top" style="display: none">
 				<table class="internal">
@@ -900,12 +900,12 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 						<td><?=GetMessage("BIZPROC_WFS_PARAM_TYPE")?>:</td>
 						<td>
 							<select id="WFSFormTypeC" onchange="WFSSwitchTypeControl(this.value, 'C');">
-								<?foreach ($arWorkflowParameterTypes as $k => $v):
+								<?php foreach ($arWorkflowParameterTypes as $k => $v):
 									if ($k === 'file'  || $k === 'F')
 										continue;
 								?>
 									<option value="<?= $k ?>"><?= htmlspecialcharsbx($v) ?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select><br />
 							<span id="WFSAdditionalTypeInfoC"></span>
 						</td>
@@ -919,7 +919,7 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 						<td><input type="checkbox" id="WFSFormMultC" value="Y" onchange="WFSSwitchTypeControl(null, 'C', {Multiple: this.checked});"></td>
 					</tr>
 					<tr id="WFSFormOptionsRowC" style="display: none;">
-						<td id="tdWFSFormOptionsPromtC"><?echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
+						<td id="tdWFSFormOptionsPromtC"><?php echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
 						<td id="tdWFSFormOptionsC"><textarea id="WFSFormOptionsC" rows="5" cols="30"></textarea></td>
 					</tr>
 					<tr>
@@ -929,31 +929,31 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="button" id="dpsavebuttonformC" value="OK" onclick="WFSParamSaveForm('C')"><input type="button" id="dpcancelbuttonformC" onclick="WFSParamEditForm(false, 'C')" value="<?echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
+						<td colspan="2" align="center"><input type="button" id="dpsavebuttonformC" value="OK" onclick="WFSParamSaveForm('C')"><input type="button" id="dpcancelbuttonformC" onclick="WFSParamEditForm(false, 'C')" value="<?php echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
 					</tr>
 				</table>
 			</div>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizproc-wf-settings-tab-content-variables']);
 ?>
 	<tr>
 		<td colspan="2">
-			<?if ($isAdmin):?>
+			<?php if ($isAdmin):?>
 			<div id="dparamlistGC" class="bizproc-valign-top">
 				<table width="100%" class="internal" id="WFSListGC">
 					<tr class="heading">
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
-						<td><?echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_NAME")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAMID")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_TYPE")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_REQUIRED")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_MULT")?></td>
+						<td><?php echo GetMessage("BIZPROC_WFS_PARAM_ACT")?></td>
 					</tr>
 				</table>
 				<br>
-				<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('GC')"><?echo GetMessage("BP_WF_CONSTANT_ADD")?></a></span>
+				<span class="bizproc-wf-settings-tab-add-button" style="padding: 10px;"><a href="javascript:void(0);" onclick="WFSParamNewParam('GC')"><?php echo GetMessage("BP_WF_CONSTANT_ADD")?></a></span>
 			</div>
 			<div id="dparamformGC" class="bizproc-valign-top" style="display: none">
 				<table class="internal">
@@ -976,7 +976,7 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 						<td><?=GetMessage("BIZPROC_WFS_PARAM_TYPE")?>:</td>
 						<td>
 							<select id="WFSFormTypeGC" onchange="WFSSwitchTypeControl(this.value, 'GC');">
-								<?foreach ($arWorkflowParameterTypes as $k => $v):
+								<?php foreach ($arWorkflowParameterTypes as $k => $v):
 									if ($k == 'UF:date')
 										$k = 'date';
 
@@ -984,7 +984,7 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 										continue;
 								?>
 									<option value="<?= $k ?>"><?= htmlspecialcharsbx($v) ?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select><br />
 							<span id="WFSAdditionalTypeInfoGC"></span>
 						</td>
@@ -998,7 +998,7 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 						<td><input type="checkbox" id="WFSFormMultGC" value="Y" onchange="WFSSwitchTypeControl(null, 'GC', {Multiple: this.checked});"></td>
 					</tr>
 					<tr id="WFSFormOptionsRowGC" style="display: none;">
-						<td id="tdWFSFormOptionsPromtGC"><?echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
+						<td id="tdWFSFormOptionsPromtGC"><?php echo GetMessage("BIZPROC_WFS_PARAMLIST")?>:</td>
 						<td id="tdWFSFormOptionsGC"><textarea id="WFSFormOptionsGC" rows="5" cols="30"></textarea></td>
 					</tr>
 					<tr>
@@ -1008,16 +1008,16 @@ $tabControl->BeginNextTab(['className' => 'bizproc-wf-settings-tab-content bizpr
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2" align="center"><input type="button" id="dpsavebuttonformGC" value="OK" onclick="WFSParamSaveForm('GC')"><input type="button" id="dpcancelbuttonformGC" onclick="WFSParamEditForm(false, 'GC')" value="<?echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
+						<td colspan="2" align="center"><input type="button" id="dpsavebuttonformGC" value="OK" onclick="WFSParamSaveForm('GC')"><input type="button" id="dpcancelbuttonformGC" onclick="WFSParamEditForm(false, 'GC')" value="<?php echo GetMessage("BIZPROC_WFS_BUTTON_CANCEL")?>"></td>
 					</tr>
 				</table>
 			</div>
-			<?else:?>
-			<?ShowError(GetMessage('BIZPROC_IS_ADMIN_ERROR'))?>
-			<?endif;?>
+			<?php else:?>
+			<?php ShowError(GetMessage('BIZPROC_IS_ADMIN_ERROR'))?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?
+	<?php 
 if (!empty($arAllowableOperations)):
 	$tabControl->BeginNextTab();
 	$permissions = isset($_POST['arWorkflowTemplate'][0]['Properties']['Permission']) ? $_POST['arWorkflowTemplate'][0]['Properties']['Permission'] : array();
@@ -1031,7 +1031,7 @@ if (!empty($arAllowableOperations)):
 		?>
 		<tr>
 			<td valign="top"><?=htmlspecialcharsbx($op_name)?>:</td>
-			<td valign="top"><?
+			<td valign="top"><?php 
 					$usersP = htmlspecialcharsbx(CBPHelper::UsersArrayToString(
 								$permissions[$op_id],
 								$_POST['arWorkflowTemplate'],
@@ -1043,7 +1043,7 @@ if (!empty($arAllowableOperations)):
 				data-role="bp-selector-button" data-bp-selector-props="<?=htmlspecialcharsbx($selectorProps)?>" />
 			</td>
 		</tr>
-		<?
+		<?php 
 	endforeach;
 endif;
 $tabControl->EndTab();
@@ -1056,6 +1056,6 @@ $tabControl->End();
 
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

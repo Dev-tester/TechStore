@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UR_EMPTY_FIRST_USER_ID"] = "Не указан первый пользователь";
 $MESS["SONET_UR_ERROR_NO_FIRST_USER_ID"] = "Первый пользователь указан неверно";
 $MESS["SONET_UR_EMPTY_SECOND_USER_ID"] = "Не указан второй пользователь";

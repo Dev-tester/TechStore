@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SP_DISPLAY_TYPE_A"] = "Число от-до, с ползунком";
 $MESS["SP_DISPLAY_TYPE_B"] = "Число от-до";
 $MESS["SP_DISPLAY_TYPE_F"] = "Флажки";

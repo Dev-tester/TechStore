@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_WHATSAPPBYTWILIO_MODULE_NOT_INSTALLED"] = "The \"External IM Connectors\" module is not installed.";
 $MESS["IMCONNECTOR_COMPONENT_WHATSAPPBYTWILIO_NO_ACTIVE_CONNECTOR"] = "This connector is inactive.";
 $MESS["IMCONNECTOR_COMPONENT_WHATSAPPBYTWILIO_NO_ANSWER_CLIENT"] = "The server cannot access the portal. Please check your network settings.";

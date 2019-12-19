@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,14 +12,14 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?//elements list?>
+<?php //elements list?>
 <a name="top"></a>
-<?foreach ($arResult['ITEMS'] as $key=>$val):?>
+<?php foreach ($arResult['ITEMS'] as $key=>$val):?>
 	<li class="point-faq"><a href="#<?=$val["ID"]?>"><?=$val['NAME']?></a><br/></li>
-<?endforeach;?>
+<?php endforeach;?>
 <br/>
-<?foreach ($arResult['ITEMS'] as $key=>$val):?>
-<?
+<?php foreach ($arResult['ITEMS'] as $key=>$val):?>
+<?php 
 	$this->AddEditAction($val['ID'],$val['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 	$this->AddDeleteAction($val['ID'],$val['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BSFE_ELEMENT_DELETE_CONFIRM')));
 ?>
@@ -36,9 +36,9 @@ $this->setFrameMode(true);
 		<?=$val['DETAIL_TEXT']?>
 		<br/>
 		<div style="float: left"><a href="#top"><?=GetMessage("SUPPORT_FAQ_GO_UP")?></a></div>
-		<?if ($arParams["SHOW_RATING"] == "Y"):?>
+		<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 			<div class="faq-rating" style="float: right">
-			<?
+			<?php 
 			$GLOBALS["APPLICATION"]->IncludeComponent(
 				"bitrix:rating.vote", $arParams["RATING_TYPE"],
 				Array(
@@ -57,9 +57,9 @@ $this->setFrameMode(true);
 				array("HIDE_ICONS" => "Y")
 			);?>
 			</div>
-		<?endif;?>		
+		<?php endif;?>		
 		</td>
 	</tr>
 </table>
 <br/>
-<?endforeach;?>
+<?php endforeach;?>

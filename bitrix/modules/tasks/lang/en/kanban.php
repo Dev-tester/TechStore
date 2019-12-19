@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_KANBAN_NOTIFY_CHANGE_DEADLINE"] = "Task deadline changed to #date#";
 $MESS["MAIN_KANBAN_NOTIFY_REMOVE_DEADLINE"] = "Task deadline was removed";
 $MESS["MAIN_KANBAN_TITLE_PLACEHOLDER"] = "Name #tag";

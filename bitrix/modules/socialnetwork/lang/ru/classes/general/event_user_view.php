@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_EUV_EMPTY_ENTITY_ID"] = "Не указан код сущности";
 $MESS["SONET_EUV_NO_ENTITY"] = "Запись не найдена";
 $MESS["SONET_EUV_ERROR_DELETE"] = "Не удалось удалить запись о правах на просмотр";

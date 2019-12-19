@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Regional settings";
 $MESS["PAGES"] = "Regions";
 $MESS["NAME"] = "Name";

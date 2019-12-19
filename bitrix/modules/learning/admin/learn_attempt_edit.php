@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -160,14 +160,14 @@ $context->Show();
 
 <?php $tabControl->BeginEpilogContent();?>
 	<?=bitrix_sessid_post()?>
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="from" value="<?echo htmlspecialcharsbx($from)?>">
-	<input type="hidden" name="return_url" value="<?echo htmlspecialcharsbx($return_url)?>">
-	<input type="hidden" name="ID" value="<?echo $ID?>">
+	<input type="hidden" name="from" value="<?php echo htmlspecialcharsbx($from)?>">
+	<input type="hidden" name="return_url" value="<?php echo htmlspecialcharsbx($return_url)?>">
+	<input type="hidden" name="ID" value="<?php echo $ID?>">
 <?php $tabControl->EndEpilogContent();?>
-<?$tabControl->Begin();?>
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->Begin();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("TEST_USER", GetMessage("LEARNING_ADMIN_USER"), false);?>
 <tr>
 	<td width="50%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
@@ -196,7 +196,7 @@ $context->Show();
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<?echo CalendarDate("DATE_START", $str_DATE_START, "form_attempt", "20")?>
+		<?php echo CalendarDate("DATE_START", $str_DATE_START, "form_attempt", "20")?>
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("DATE_START");?>
@@ -204,7 +204,7 @@ $context->Show();
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<?echo CalendarDate("DATE_END", $str_DATE_END, "form_attempt", "20")?>
+		<?php echo CalendarDate("DATE_END", $str_DATE_END, "form_attempt", "20")?>
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("DATE_END");?>
@@ -224,7 +224,7 @@ $context->Show();
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="checkbox" name="COMPLETED" value="Y"<?if($str_COMPLETED=="Y")echo " checked"?>>
+		<input type="checkbox" name="COMPLETED" value="Y"<?php if($str_COMPLETED=="Y")echo " checked"?>>
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("COMPLETED");?>
@@ -232,7 +232,7 @@ $context->Show();
 <tr>
 	<td width="50%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td width="50%">
-		<input type="text" name="SCORE" size="4" maxlength="255" value="<?echo $str_SCORE?>">
+		<input type="text" name="SCORE" size="4" maxlength="255" value="<?php echo $str_SCORE?>">
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("SCORE");?>
@@ -240,21 +240,21 @@ $context->Show();
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="text" name="MAX_SCORE" size="4" maxlength="255" value="<?echo $str_MAX_SCORE?>">
+		<input type="text" name="MAX_SCORE" size="4" maxlength="255" value="<?php echo $str_MAX_SCORE?>">
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("MAX_SCORE");?>
-<?
+<?php 
 $tabControl->BeginNextFormTab();
 $tabControl->BeginCustomField("USER_FIELDS", GetMessage("LEARNING_ADMIN_USER_FIELDS"), false);
 $USER_FIELD_MANAGER->EditFormShowTab("LEARN_ATTEMPT", $bVarsFromForm, $ID);
 $tabControl->EndCustomField("USER_FIELDS");
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(Array("back_url" =>"learn_attempt_admin.php?lang=". LANG.GetFilterParams("filter_", false)));
 $tabControl->arParams["FORM_ACTION"] = $APPLICATION->GetCurPage()."?lang=".LANG.GetFilterParams("filter_");
 $tabControl->Show();
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

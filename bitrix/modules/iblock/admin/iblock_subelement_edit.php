@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main,
 	Bitrix\Main\Loader,
 	Bitrix\Iblock,
@@ -1224,7 +1224,7 @@ else
 		CJSCore::Init(array('window','translit'));
 		?>
 		<script type="text/javascript">
-		var linked=<?if ($bLinked) echo 'true'; else echo 'false';?>;
+		var linked=<?php if ($bLinked) echo 'true'; else echo 'false';?>;
 		function set_linked()
 		{
 			linked=!linked;
@@ -1264,12 +1264,12 @@ else
 				if(from && to && oldValue != from.value)
 				{
 					BX.translit(from.value, {
-						'max_len' : <?echo intval($arTranslit['TRANS_LEN'])?>,
-						'change_case' : '<?echo $arTranslit['TRANS_CASE']?>',
-						'replace_space' : '<?echo $arTranslit['TRANS_SPACE']?>',
-						'replace_other' : '<?echo $arTranslit['TRANS_OTHER']?>',
-						'delete_repeat_replace' : <?echo $arTranslit['TRANS_EAT'] == 'Y'? 'true': 'false'?>,
-						'use_google' : <?echo $arTranslit['USE_GOOGLE'] == 'Y'? 'true': 'false'?>,
+						'max_len' : <?php echo intval($arTranslit['TRANS_LEN'])?>,
+						'change_case' : '<?php echo $arTranslit['TRANS_CASE']?>',
+						'replace_space' : '<?php echo $arTranslit['TRANS_SPACE']?>',
+						'replace_other' : '<?php echo $arTranslit['TRANS_OTHER']?>',
+						'delete_repeat_replace' : <?php echo $arTranslit['TRANS_EAT'] == 'Y'? 'true': 'false'?>,
+						'use_google' : <?php echo $arTranslit['USE_GOOGLE'] == 'Y'? 'true': 'false'?>,
 						'callback' : function(result){to.value = result; setTimeout('transliterate()', 250);}
 					});
 					oldValue = from.value;
@@ -1286,7 +1286,7 @@ else
 		}
 		transliterate();
 		</script>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -1298,24 +1298,24 @@ else
 	$tabControl->BeginEpilogContent();
 echo bitrix_sessid_post();
 echo GetFilterHiddens("find_");?>
-<input type="hidden" name="linked_state" id="linked_state" value="<?if($bLinked) echo 'Y'; else echo 'N';?>">
+<input type="hidden" name="linked_state" id="linked_state" value="<?php if($bLinked) echo 'Y'; else echo 'N';?>">
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="from" value="<?echo htmlspecialcharsbx($from)?>">
-<input type="hidden" name="WF" value="<?echo htmlspecialcharsbx($WF)?>">
-<input type="hidden" name="return_url" value="<?echo htmlspecialcharsbx($return_url)?>">
-<?if ($ID>0 && !$bSubCopy)
+<input type="hidden" name="from" value="<?php echo htmlspecialcharsbx($from)?>">
+<input type="hidden" name="WF" value="<?php echo htmlspecialcharsbx($WF)?>">
+<input type="hidden" name="return_url" value="<?php echo htmlspecialcharsbx($return_url)?>">
+<?php if ($ID>0 && !$bSubCopy)
 {
-	?><input type="hidden" name="ID" value="<?echo $ID?>"><?
+	?><input type="hidden" name="ID" value="<?php echo $ID?>"><?php 
 }
 if ($bSubCopy)
 {
-	?><input type="hidden" name="copyID" value="<? echo $ID; ?>">
-	<input type="hidden" name="action" value="copy"><?
+	?><input type="hidden" name="copyID" value="<?php  echo $ID; ?>">
+	<input type="hidden" name="action" value="copy"><?php 
 }?>
-<input type="hidden" name="IBLOCK_SECTION_ID" value="<?echo intval($IBLOCK_SECTION_ID)?>">
-<input type="hidden" name="PRODUCT_ID" value="<? echo $intProductID; ?>">
-<input type="hidden" name="TMP_ID" value="<?echo htmlspecialcharsbx($strSubTMP_ID)?>">
-<?
+<input type="hidden" name="IBLOCK_SECTION_ID" value="<?php echo intval($IBLOCK_SECTION_ID)?>">
+<input type="hidden" name="PRODUCT_ID" value="<?php  echo $intProductID; ?>">
+<input type="hidden" name="TMP_ID" value="<?php echo htmlspecialcharsbx($strSubTMP_ID)?>">
+<?php 
 CCatalogAdminTools::showFormParams();
 $tabControl->EndEpilogContent();
 
@@ -1343,9 +1343,9 @@ $tabControl->BeginNextFormTab();
 	if ($ID > 0 && !$bSubCopy)
 	{
 		?><tr>
-		<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?></td>
-		<td width="60%"><?echo $str_ID?></td>
-		</tr><?
+		<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?></td>
+		<td width="60%"><?php echo $str_ID?></td>
+		</tr><?php 
 	}
 	$tabControl->EndCustomField("SUB_ID", '');
 
@@ -1354,16 +1354,16 @@ $tabControl->BeginNextFormTab();
 	{
 		if (strlen($str_DATE_CREATE) > 0):?>
 			<tr>
-				<td width="40%"><? echo $tabControl->GetCustomLabelHTML() ?></td>
-				<td width="60%"><? echo $str_DATE_CREATE ?><?
+				<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML() ?></td>
+				<td width="60%"><?php  echo $str_DATE_CREATE ?><?php 
 					if (intval($str_CREATED_BY) > 0):?>
-						<?if ($publicMode):?>
+						<?php if ($publicMode):?>
 							[<?=$str_CREATED_BY ?>]
-						<?else:?>
+						<?php else:?>
 							[<a href="user_edit.php?lang=<?=LANGUAGE_ID; ?>&amp;ID=<?=$str_CREATED_BY; ?>">
-								<? echo $str_CREATED_BY ?></a>]
-						<?endif;?>
-						<?
+								<?php  echo $str_CREATED_BY ?></a>]
+						<?php endif;?>
+						<?php 
 						$rsUser = CUser::GetByID($str_CREATED_BY);
 						$arUser = $rsUser->Fetch();
 						if ($arUser):
@@ -1372,7 +1372,7 @@ $tabControl->BeginNextFormTab();
 					endif;
 					?></td>
 			</tr>
-		<?endif;
+		<?php endif;
 	}
 	$tabControl->EndCustomField("SUB_DATE_CREATE", '');
 
@@ -1380,14 +1380,14 @@ $tabControl->BeginNextFormTab();
 	if ($ID > 0 && !$bSubCopy)
 	{
 		?><tr>
-		<td width="40%"><? echo $tabControl->GetCustomLabelHTML() ?></td>
-		<td width="60%"><? echo $str_TIMESTAMP_X; ?><?
+		<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML() ?></td>
+		<td width="60%"><?php  echo $str_TIMESTAMP_X; ?><?php 
 			if (intval($str_MODIFIED_BY) > 0):?>
-				<?if ($publicMode):?>
+				<?php if ($publicMode):?>
 				[<?=$str_MODIFIED_BY ?>]
-				<?else:?>
+				<?php else:?>
 					[<a href="user_edit.php?lang=<?=LANGUAGE_ID; ?>&amp;ID=<?=$str_MODIFIED_BY; ?>"><?=$str_MODIFIED_BY ?></a>]
-				<?endif;
+				<?php endif;
 				if (intval($str_CREATED_BY) != intval($str_MODIFIED_BY))
 				{
 					$rsUser = CUser::GetByID($str_MODIFIED_BY);
@@ -1397,46 +1397,46 @@ $tabControl->BeginNextFormTab();
 					echo '&nbsp;'.CUser::FormatName($nameFormat, $arUser, false, true);
 				endif;
 			endif ?></td>
-		</tr><?
+		</tr><?php 
 	}
 	$tabControl->EndCustomField("SUB_TIMESTAMP_X", '');
 $tabControl->AddCheckBoxField("SUB_ACTIVE", GetMessage("IBLOCK_FIELD_ACTIVE").":", false, "Y", $str_ACTIVE=="Y");
 $tabControl->BeginCustomField("SUB_ACTIVE_FROM", GetMessage("IBLOCK_FIELD_ACTIVE_PERIOD_FROM"), $arIBlock["FIELDS"]["ACTIVE_FROM"]["IS_REQUIRED"] === "Y");
 ?>
 <tr id="tr_SUB_ACTIVE_FROM">
-	<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-	<td><?echo CAdminCalendar::CalendarDate("SUB_ACTIVE_FROM", $str_ACTIVE_FROM, 19, true)?></td>
+	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+	<td><?php echo CAdminCalendar::CalendarDate("SUB_ACTIVE_FROM", $str_ACTIVE_FROM, 19, true)?></td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField("SUB_ACTIVE_FROM", '<input type="hidden" id="SUB_ACTIVE_FROM" name="SUB_ACTIVE_FROM" value="'.$str_ACTIVE_FROM.'">');
 $tabControl->BeginCustomField("SUB_ACTIVE_TO", GetMessage("IBLOCK_FIELD_ACTIVE_PERIOD_TO"), $arIBlock["FIELDS"]["ACTIVE_TO"]["IS_REQUIRED"] === "Y");
 ?>
 <tr id="tr_SUB_ACTIVE_TO">
-	<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-	<td><?echo CAdminCalendar::CalendarDate("SUB_ACTIVE_TO", $str_ACTIVE_TO, 19, true)?></td>
+	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+	<td><?php echo CAdminCalendar::CalendarDate("SUB_ACTIVE_TO", $str_ACTIVE_TO, 19, true)?></td>
 </tr>
 
-<?
+<?php 
 $tabControl->EndCustomField("SUB_ACTIVE_TO", '<input type="hidden" id="SUB_ACTIVE_TO" name="SUB_ACTIVE_TO" value="'.$str_ACTIVE_TO.'">');
 
 if ($arTranslit["TRANSLITERATION"] == "Y")
 {
 	$tabControl->BeginCustomField("SUB_NAME", GetMessage("IBLOCK_FIELD_NAME").":", true);
 	?><tr id="tr_SUB_NAME">
-	<td><?echo $tabControl->GetCustomLabelHTML()?></td>
+	<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
 	<td style="white-space: nowrap;">
-		<input type="text" size="50" name="SUB_NAME" id="SUB_NAME" maxlength="255" value="<?echo $str_NAME?>"><image id="sub_name_link" title="<?echo GetMessage("IBEL_E_LINK_TIP")?>" class="linked" src="/bitrix/themes/.default/icons/iblock/<?if($bLinked) echo 'link.gif'; else echo 'unlink.gif';?>" onclick="set_linked()">
+		<input type="text" size="50" name="SUB_NAME" id="SUB_NAME" maxlength="255" value="<?php echo $str_NAME?>"><image id="sub_name_link" title="<?php echo GetMessage("IBEL_E_LINK_TIP")?>" class="linked" src="/bitrix/themes/.default/icons/iblock/<?php if($bLinked) echo 'link.gif'; else echo 'unlink.gif';?>" onclick="set_linked()">
 	</td>
-</tr><?
+</tr><?php 
 	$tabControl->EndCustomField("SUB_NAME", '<input type="hidden" name="SUB_NAME" id="SUB_NAME" value="'.$str_NAME.'">');
 
 	$tabControl->BeginCustomField("SUB_CODE", GetMessage("IBLOCK_FIELD_CODE").":", $arIBlock["FIELDS"]["CODE"]["IS_REQUIRED"] === "Y");
 	?><tr id="tr_SUB_CODE">
-	<td><?echo $tabControl->GetCustomLabelHTML()?></td>
+	<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
 	<td style="white-space: nowrap;">
-		<input type="text" size="50" name="SUB_CODE" id="SUB_CODE" maxlength="255" value="<?echo $str_CODE?>"><image id="sub_code_link" title="<?echo GetMessage("IBEL_E_LINK_TIP")?>" class="linked" src="/bitrix/themes/.default/icons/iblock/<?if($bLinked) echo 'link.gif'; else echo 'unlink.gif';?>" onclick="set_linked()">
+		<input type="text" size="50" name="SUB_CODE" id="SUB_CODE" maxlength="255" value="<?php echo $str_CODE?>"><image id="sub_code_link" title="<?php echo GetMessage("IBEL_E_LINK_TIP")?>" class="linked" src="/bitrix/themes/.default/icons/iblock/<?php if($bLinked) echo 'link.gif'; else echo 'unlink.gif';?>" onclick="set_linked()">
 	</td>
-</tr><?
+</tr><?php 
 	$tabControl->EndCustomField("SUB_CODE", '<input type="hidden" name="SUB_CODE" id="SUB_CODE" value="'.$str_CODE.'">');
 }
 else
@@ -1458,7 +1458,7 @@ if (COption::GetOptionString("iblock", "show_xml_id", "N")=="Y")
 		<td>
 			<input type="text" name="SUB_XML_ID" id="SUB_XML_ID" size="20" maxlength="255" value="<?=$str_XML_ID; ?>">
 		</td>
-		</tr><?
+		</tr><?php 
 		$tabControl->EndCustomField("SUB_XML_ID", '<input type="hidden" name="SUB_XML_ID" id="SUB_XML_ID" value="'.$str_XML_ID.'">');
 	}
 	else
@@ -1478,13 +1478,13 @@ if(!empty($PROP)):
 		{
 
 			?>
-			<tr id="tr_PROPERTY_<?echo $prop_fields["ID"];?>"<?if ($prop_fields["PROPERTY_TYPE"]=="F"):?> class="adm-detail-file-row"<?endif?>>
-				<td class="adm-detail-valign-top" width="40%"><?if($prop_fields["HINT"]!=""):
-					?><span id="hint_<?=$ID.'_'.$prop_fields["ID"];?>"></span><script type="text/javascript">BX.hint_replace(BX('hint_<?=$ID.'_'.$prop_fields["ID"];?>'), '<?echo CUtil::JSEscape(htmlspecialcharsbx($prop_fields["HINT"]))?>');</script>&nbsp;<?
-					endif;?><?echo $tabControl->GetCustomLabelHTML();?>:</td>
-				<td width="60%"><?_ShowPropertyField('PROP['.$prop_fields["ID"].']', $prop_fields, $prop_fields["VALUE"], (($historyId <= 0) && (!$bVarsFromForm) && ($ID<=0)), $bVarsFromForm, 50000, $tabControl->GetFormName());?></td>
+			<tr id="tr_PROPERTY_<?php echo $prop_fields["ID"];?>"<?php if ($prop_fields["PROPERTY_TYPE"]=="F"):?> class="adm-detail-file-row"<?php endif?>>
+				<td class="adm-detail-valign-top" width="40%"><?php if($prop_fields["HINT"]!=""):
+					?><span id="hint_<?=$ID.'_'.$prop_fields["ID"];?>"></span><script type="text/javascript">BX.hint_replace(BX('hint_<?=$ID.'_'.$prop_fields["ID"];?>'), '<?php echo CUtil::JSEscape(htmlspecialcharsbx($prop_fields["HINT"]))?>');</script>&nbsp;<?php 
+					endif;?><?php echo $tabControl->GetCustomLabelHTML();?>:</td>
+				<td width="60%"><?php _ShowPropertyField('PROP['.$prop_fields["ID"].']', $prop_fields, $prop_fields["VALUE"], (($historyId <= 0) && (!$bVarsFromForm) && ($ID<=0)), $bVarsFromForm, 50000, $tabControl->GetFormName());?></td>
 			</tr>
-			<?
+			<?php 
 			$hidden = "";
 			if(!is_array($prop_fields["~VALUE"]))
 				$values = array();
@@ -1551,9 +1551,9 @@ if($bVarsFromForm && !array_key_exists("SUB_PREVIEW_PICTURE", $_REQUEST) && $arE
 	$str_PREVIEW_PICTURE = intval($arElement["PREVIEW_PICTURE"]);
 ?>
 	<tr id="tr_SUB_PREVIEW_PICTURE" class="adm-detail-file-row">
-		<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td width="60%">
-			<?if($historyId > 0):
+			<?php if($historyId > 0):
 				echo CFileInput::Show(
 					"SUB_PREVIEW_PICTURE",
 					$str_PREVIEW_PICTURE,
@@ -1585,25 +1585,25 @@ if($bVarsFromForm && !array_key_exists("SUB_PREVIEW_PICTURE", $_REQUEST) && $arE
 			endif;?>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("SUB_PREVIEW_PICTURE", "");
 $tabControl->BeginCustomField("SUB_PREVIEW_TEXT", GetMessage("IBLOCK_FIELD_PREVIEW_TEXT"), $arIBlock["FIELDS"]["PREVIEW_TEXT"]["IS_REQUIRED"] === "Y");
 ?>
 	<tr class="heading" id="tr_SUB_PREVIEW_TEXT_LABEL">
-		<td colspan="2"><?echo $tabControl->GetCustomLabelHTML()?></td>
+		<td colspan="2"><?php echo $tabControl->GetCustomLabelHTML()?></td>
 	</tr>
-	<?if($ID && $PREV_ID && $bWorkflow):?>
+	<?php if($ID && $PREV_ID && $bWorkflow):?>
 	<tr id="tr_SUB_PREVIEW_TEXT_DIFF">
 		<td colspan="2">
 			<div style="width:95%;background-color:white;border:1px solid black;padding:5px">
-				<?echo getDiff($prev_arElement["PREVIEW_TEXT"], $arElement["PREVIEW_TEXT"])?>
+				<?php echo getDiff($prev_arElement["PREVIEW_TEXT"], $arElement["PREVIEW_TEXT"])?>
 			</div>
 		</td>
 	</tr>
-	<?elseif(COption::GetOptionString("iblock", "use_htmledit", "Y")=="Y" && $bFileman):?>
+	<?php elseif(COption::GetOptionString("iblock", "use_htmledit", "Y")=="Y" && $bFileman):?>
 	<tr id="tr_SUB_PREVIEW_TEXT_EDITOR">
 		<td colspan="2" align="center">
-			<?CFileMan::AddHTMLEditorFrame(
+			<?php CFileMan::AddHTMLEditorFrame(
 				"SUB_PREVIEW_TEXT_".$ID,
 				$str_PREVIEW_TEXT,
 				"SUB_PREVIEW_TEXT_TYPE_".$ID,
@@ -1628,23 +1628,23 @@ $tabControl->BeginCustomField("SUB_PREVIEW_TEXT", GetMessage("IBLOCK_FIELD_PREVI
 			);?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr id="tr_SUB_PREVIEW_TEXT_TYPE">
-		<td><?echo GetMessage("IBLOCK_DESC_TYPE")?></td>
+		<td><?php echo GetMessage("IBLOCK_DESC_TYPE")?></td>
 		<td>
-			<?if($arIBlock["FIELDS"]["PREVIEW_TEXT_TYPE_ALLOW_CHANGE"]["DEFAULT_VALUE"] === "N"):?>
-				<input type="hidden" name="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>" value="<?echo $str_PREVIEW_TEXT_TYPE?>"><?echo $str_PREVIEW_TEXT_TYPE!="html"? GetMessage("IBLOCK_DESC_TYPE_TEXT"): GetMessage("IBLOCK_DESC_TYPE_HTML")?>
-			<?else:?>
-				<input type="radio" name="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>" id="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_text" value="text"<?if($str_PREVIEW_TEXT_TYPE!="html")echo " checked"?>> <label for="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_text"><?echo GetMessage("IBLOCK_DESC_TYPE_TEXT")?></label> / <input type="radio" name="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>" id="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_html" value="html"<?if($str_PREVIEW_TEXT_TYPE=="html")echo " checked"?>> <label for="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_html"><?echo GetMessage("IBLOCK_DESC_TYPE_HTML")?></label>
-			<?endif?>
+			<?php if($arIBlock["FIELDS"]["PREVIEW_TEXT_TYPE_ALLOW_CHANGE"]["DEFAULT_VALUE"] === "N"):?>
+				<input type="hidden" name="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>" value="<?php echo $str_PREVIEW_TEXT_TYPE?>"><?php echo $str_PREVIEW_TEXT_TYPE!="html"? GetMessage("IBLOCK_DESC_TYPE_TEXT"): GetMessage("IBLOCK_DESC_TYPE_HTML")?>
+			<?php else:?>
+				<input type="radio" name="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>" id="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_text" value="text"<?php if($str_PREVIEW_TEXT_TYPE!="html")echo " checked"?>> <label for="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_text"><?php echo GetMessage("IBLOCK_DESC_TYPE_TEXT")?></label> / <input type="radio" name="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>" id="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_html" value="html"<?php if($str_PREVIEW_TEXT_TYPE=="html")echo " checked"?>> <label for="SUB_PREVIEW_TEXT_TYPE_<?=$ID; ?>_html"><?php echo GetMessage("IBLOCK_DESC_TYPE_HTML")?></label>
+			<?php endif?>
 		</td>
 	</tr>
 	<tr id="tr_SUB_PREVIEW_TEXT">
 		<td colspan="2" align="center">
-			<textarea cols="60" rows="10" name="SUB_PREVIEW_TEXT_<?=$ID; ?>" style="width:100%"><?echo $str_PREVIEW_TEXT?></textarea>
+			<textarea cols="60" rows="10" name="SUB_PREVIEW_TEXT_<?=$ID; ?>" style="width:100%"><?php echo $str_PREVIEW_TEXT?></textarea>
 		</td>
 	</tr>
-	<?endif;
+	<?php endif;
 $tabControl->EndCustomField("SUB_PREVIEW_TEXT",
 	'<input type="hidden" name="SUB_PREVIEW_TEXT_'.$ID.'" value="'.$str_PREVIEW_TEXT.'">'.
 	'<input type="hidden" name="SUB_PREVIEW_TEXT_TYPE_'.$ID.'" value="'.$str_PREVIEW_TEXT_TYPE.'">'
@@ -1655,9 +1655,9 @@ if($bVarsFromForm && !array_key_exists("SUB_DETAIL_PICTURE", $_REQUEST) && $arEl
 	$str_DETAIL_PICTURE = intval($arElement["DETAIL_PICTURE"]);
 ?>
 	<tr id="tr_SUB_DETAIL_PICTURE" class="adm-detail-file-row">
-		<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td width="60%">
-			<?if($historyId > 0):
+			<?php if($historyId > 0):
 				echo CFileInput::Show(
 					"SUB_DETAIL_PICTURE",
 					$str_DETAIL_PICTURE,
@@ -1689,25 +1689,25 @@ if($bVarsFromForm && !array_key_exists("SUB_DETAIL_PICTURE", $_REQUEST) && $arEl
 			endif;?>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("SUB_DETAIL_PICTURE", "");
 $tabControl->BeginCustomField("SUB_DETAIL_TEXT", GetMessage("IBLOCK_FIELD_DETAIL_TEXT"), $arIBlock["FIELDS"]["DETAIL_TEXT"]["IS_REQUIRED"] === "Y");
 ?>
 	<tr class="heading" id="tr_SUB_DETAIL_TEXT_LABEL">
-		<td colspan="2"><?echo $tabControl->GetCustomLabelHTML()?></td>
+		<td colspan="2"><?php echo $tabControl->GetCustomLabelHTML()?></td>
 	</tr>
-	<?if($ID && $PREV_ID && $bWorkflow):?>
+	<?php if($ID && $PREV_ID && $bWorkflow):?>
 	<tr id="tr_SUB_DETAIL_TEXT_DIFF">
 		<td colspan="2">
 			<div style="width:95%;background-color:white;border:1px solid black;padding:5px">
-				<?echo getDiff($prev_arElement["DETAIL_TEXT"], $arElement["DETAIL_TEXT"])?>
+				<?php echo getDiff($prev_arElement["DETAIL_TEXT"], $arElement["DETAIL_TEXT"])?>
 			</div>
 		</td>
 	</tr>
-	<?elseif(COption::GetOptionString("iblock", "use_htmledit", "Y")=="Y" && $bFileman):?>
+	<?php elseif(COption::GetOptionString("iblock", "use_htmledit", "Y")=="Y" && $bFileman):?>
 	<tr id="tr_SUB_DETAIL_TEXT_EDITOR">
 		<td colspan="2" align="center">
-			<?CFileMan::AddHTMLEditorFrame(
+			<?php CFileMan::AddHTMLEditorFrame(
 				"SUB_DETAIL_TEXT_".$ID,
 				$str_DETAIL_TEXT,
 				"SUB_DETAIL_TEXT_TYPE_".$ID,
@@ -1731,24 +1731,24 @@ $tabControl->BeginCustomField("SUB_DETAIL_TEXT", GetMessage("IBLOCK_FIELD_DETAIL
 			);
 		?></td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr id="tr_SUB_DETAIL_TEXT_TYPE">
-		<td><?echo GetMessage("IBLOCK_DESC_TYPE")?></td>
+		<td><?php echo GetMessage("IBLOCK_DESC_TYPE")?></td>
 		<td>
-			<?if($arIBlock["FIELDS"]["DETAIL_TEXT_TYPE_ALLOW_CHANGE"]["DEFAULT_VALUE"] === "N"):?>
-				<input type="hidden" name="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>" value="<?echo $str_DETAIL_TEXT_TYPE?>"><?echo $str_DETAIL_TEXT_TYPE!="html"? GetMessage("IBLOCK_DESC_TYPE_TEXT"): GetMessage("IBLOCK_DESC_TYPE_HTML")?>
-			<?else:?>
-				<input type="radio" name="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>" id="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_text" value="text"<?if($str_DETAIL_TEXT_TYPE!="html")echo " checked"?>> <label for="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_text"><?echo GetMessage("IBLOCK_DESC_TYPE_TEXT")?></label> / <input type="radio" name="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>" id="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_html" value="html"<?if($str_DETAIL_TEXT_TYPE=="html")echo " checked"?>> <label for="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_html"><?echo GetMessage("IBLOCK_DESC_TYPE_HTML")?></label>
-			<?endif?>
+			<?php if($arIBlock["FIELDS"]["DETAIL_TEXT_TYPE_ALLOW_CHANGE"]["DEFAULT_VALUE"] === "N"):?>
+				<input type="hidden" name="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>" value="<?php echo $str_DETAIL_TEXT_TYPE?>"><?php echo $str_DETAIL_TEXT_TYPE!="html"? GetMessage("IBLOCK_DESC_TYPE_TEXT"): GetMessage("IBLOCK_DESC_TYPE_HTML")?>
+			<?php else:?>
+				<input type="radio" name="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>" id="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_text" value="text"<?php if($str_DETAIL_TEXT_TYPE!="html")echo " checked"?>> <label for="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_text"><?php echo GetMessage("IBLOCK_DESC_TYPE_TEXT")?></label> / <input type="radio" name="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>" id="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_html" value="html"<?php if($str_DETAIL_TEXT_TYPE=="html")echo " checked"?>> <label for="SUB_DETAIL_TEXT_TYPE_<?=$ID; ?>_html"><?php echo GetMessage("IBLOCK_DESC_TYPE_HTML")?></label>
+			<?php endif?>
 		</td>
 	</tr>
 	<tr id="tr_SUB_DETAIL_TEXT">
 		<td colspan="2" align="center">
-			<textarea cols="60" rows="20" name="SUB_DETAIL_TEXT_<?=$ID; ?>" style="width:100%"><?echo $str_DETAIL_TEXT?></textarea>
+			<textarea cols="60" rows="20" name="SUB_DETAIL_TEXT_<?=$ID; ?>" style="width:100%"><?php echo $str_DETAIL_TEXT?></textarea>
 		</td>
 	</tr>
-	<?endif?>
-<?
+	<?php endif?>
+<?php 
 $tabControl->EndCustomField("SUB_DETAIL_TEXT",
 	'<input type="hidden" name="SUB_DETAIL_TEXT_'.$ID.'" value="'.$str_DETAIL_TEXT.'">'.
 	'<input type="hidden" name="SUB_DETAIL_TEXT_TYPE_'.$ID.'" value="'.$str_DETAIL_TEXT_TYPE.'">'
@@ -1761,20 +1761,20 @@ $tabControl->AddSection("SUB_SEO_ADDITIONAL", GetMessage("IBLOCK_EL_TAB_MO"));
 $tabControl->BeginCustomField("SUB_TAGS", GetMessage("IBLOCK_FIELD_TAGS").":", $arIBlock["FIELDS"]["TAGS"]["IS_REQUIRED"] === "Y");
 ?>
 	<tr id="tr_SUB_TAGS">
-		<td><?echo $tabControl->GetCustomLabelHTML()?><br><?echo GetMessage("IBLOCK_ELEMENT_EDIT_TAGS_TIP")?></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?><br><?php echo GetMessage("IBLOCK_ELEMENT_EDIT_TAGS_TIP")?></td>
 		<td>
-			<?if(CModule::IncludeModule('search')):
+			<?php if(CModule::IncludeModule('search')):
 				$arLID = array();
 				$rsSites = CIBlock::GetSite($IBLOCK_ID);
 				while($arSite = $rsSites->Fetch())
 					$arLID[] = $arSite["LID"];
 				echo InputTags("SUB_TAGS", htmlspecialcharsback($str_TAGS), $arLID, 'size="55"');
 			else:?>
-				<input type="text" size="20" name="SUB_TAGS" maxlength="255" value="<?echo $str_TAGS?>">
-			<?endif?>
+				<input type="text" size="20" name="SUB_TAGS" maxlength="255" value="<?php echo $str_TAGS?>">
+			<?php endif?>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("SUB_TAGS",
 	'<input type="hidden" name="SUB_TAGS" value="'.$str_TAGS.'">'
 );
@@ -1791,7 +1791,7 @@ if ($arShowTabs['product_group'])
 {
 	$tabControl->BeginNextFormTab();
 	$tabControl->BeginCustomField('SUBPRODUCT_GROUP', GetMessage('IBLOCK_EL_PRODUCT_GROUP').':', false);
-	?><tr id="tr_SUBPRODUCT_GROUP"><td colspan="2"><?
+	?><tr id="tr_SUBPRODUCT_GROUP"><td colspan="2"><?php 
 
 		$intProductID = (0 < $ID ? CIBlockElement::GetRealElement($ID) : 0);
 
@@ -1811,75 +1811,75 @@ if ($arShowTabs['product_group'])
 
 		CCatalogAdminProductSetEdit::showEditForm($arSets);
 
-		?></td></tr><?
+		?></td></tr><?php 
 	$tabControl->EndCustomField('SUBPRODUCT_SET', '');
 }
 
 if($arShowTabs['workflow']):?>
-<?
+<?php 
 	$tabControl->BeginNextFormTab();
 	$tabControl->BeginCustomField("WORKFLOW_PARAMS", GetMessage("IBLOCK_EL_TAB_WF_TITLE"));
 	if(strlen($pr["DATE_CREATE"])>0):
 	?>
 		<tr id="tr_WF_CREATED">
-			<td width="40%"><?echo GetMessage("IBLOCK_CREATED")?></td>
-			<td width="60%"><?echo $pr["DATE_CREATE"]?><?
+			<td width="40%"><?php echo GetMessage("IBLOCK_CREATED")?></td>
+			<td width="60%"><?php echo $pr["DATE_CREATE"]?><?php 
 			if (intval($pr["CREATED_BY"])>0):
 			?>
-			<?if ($publicMode):?>
+			<?php if ($publicMode):?>
 				[<?=$pr["CREATED_BY"]?>]&nbsp;<?=htmlspecialcharsex($pr["CREATED_USER_NAME"])?>
-			<?else:?>
-				[<a href="user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$pr["CREATED_BY"]?>"><?=$pr["CREATED_BY"]?></a>]&nbsp;<?=htmlspecialcharsex($pr["CREATED_USER_NAME"])?><?
+			<?php else:?>
+				[<a href="user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$pr["CREATED_BY"]?>"><?=$pr["CREATED_BY"]?></a>]&nbsp;<?=htmlspecialcharsex($pr["CREATED_USER_NAME"])?><?php 
 			endif;
 			endif;
 			?></td>
 		</tr>
-	<?endif;?>
-	<?if(strlen($str_TIMESTAMP_X) > 0 && !$bSubCopy):?>
+	<?php endif;?>
+	<?php if(strlen($str_TIMESTAMP_X) > 0 && !$bSubCopy):?>
 	<tr id="tr_WF_MODIFIED">
-		<td><?echo GetMessage("IBLOCK_LAST_UPDATE")?></td>
-		<td><?echo $str_TIMESTAMP_X?><?
+		<td><?php echo GetMessage("IBLOCK_LAST_UPDATE")?></td>
+		<td><?php echo $str_TIMESTAMP_X?><?php 
 		if (intval($str_MODIFIED_BY)>0):
 		?>
-		<?if ($publicMode):?>
+		<?php if ($publicMode):?>
 			[<?= $str_MODIFIED_BY?>]&nbsp;<?=$str_USER_NAME?>
-		<?else:?>
-			[<a href="user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$str_MODIFIED_BY?>"><?echo $str_MODIFIED_BY?></a>]&nbsp;<?=$str_USER_NAME?>
-		<?endif;
+		<?php else:?>
+			[<a href="user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$str_MODIFIED_BY?>"><?php echo $str_MODIFIED_BY?></a>]&nbsp;<?=$str_USER_NAME?>
+		<?php endif;
 		endif;
 		?></td>
 	</tr>
-	<?endif?>
-	<?if($WF=="Y" && strlen($prn_WF_DATE_LOCK)>0):?>
+	<?php endif?>
+	<?php if($WF=="Y" && strlen($prn_WF_DATE_LOCK)>0):?>
 	<tr id="tr_WF_LOCKED">
-		<td><?echo GetMessage("IBLOCK_DATE_LOCK")?></td>
-		<td><?echo $prn_WF_DATE_LOCK?><?
+		<td><?php echo GetMessage("IBLOCK_DATE_LOCK")?></td>
+		<td><?php echo $prn_WF_DATE_LOCK?><?php 
 		if (intval($prn_WF_LOCKED_BY)>0):
 		?>
-		<?if ($publicMode):?>
+		<?php if ($publicMode):?>
 			[<?=$prn_WF_LOCKED_BY?>]&nbsp;<?=$prn_LOCKED_USER_NAME?>
-		<?else:?>
-			[<a href="user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$prn_WF_LOCKED_BY?>"><?=$prn_WF_LOCKED_BY?></a>]&nbsp;<?=$prn_LOCKED_USER_NAME?><?
+		<?php else:?>
+			[<a href="user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$prn_WF_LOCKED_BY?>"><?=$prn_WF_LOCKED_BY?></a>]&nbsp;<?=$prn_LOCKED_USER_NAME?><?php 
 		endif;
 		endif;
 		?></td>
 	</tr>
-	<?endif;
+	<?php endif;
 	$tabControl->EndCustomField("WORKFLOW_PARAMS", "");
 	if ($WF=="Y" || $view=="Y"):
 	$tabControl->BeginCustomField("WF_STATUS_ID", GetMessage("IBLOCK_FIELD_STATUS").":");
 	?>
 	<tr id="tr_WF_STATUS_ID">
-		<td><?echo $tabControl->GetCustomLabelHTML()?></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
 		<td>
-			<?if($ID > 0 && !$bSubCopy):?>
-				<?echo SelectBox("WF_STATUS_ID", CWorkflowStatus::GetDropDownList("N", "desc"), "", $str_WF_STATUS_ID);?>
-			<?else:?>
-				<?echo SelectBox("WF_STATUS_ID", CWorkflowStatus::GetDropDownList("N", "desc"), "", "");?>
-			<?endif?>
+			<?php if($ID > 0 && !$bSubCopy):?>
+				<?php echo SelectBox("WF_STATUS_ID", CWorkflowStatus::GetDropDownList("N", "desc"), "", $str_WF_STATUS_ID);?>
+			<?php else:?>
+				<?php echo SelectBox("WF_STATUS_ID", CWorkflowStatus::GetDropDownList("N", "desc"), "", "");?>
+			<?php endif?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	if($ID > 0 && !$bSubCopy)
 		$hidden = '<input type="hidden" name="WF_STATUS_ID" value="'.$str_WF_STATUS_ID.'">';
 	else
@@ -1897,18 +1897,18 @@ if($arShowTabs['workflow']):?>
 	$tabControl->BeginCustomField("WF_COMMENTS", GetMessage("IBLOCK_COMMENTS"));
 	?>
 	<tr class="heading" id="tr_WF_COMMENTS_LABEL">
-		<td colspan="2"><b><?echo $tabControl->GetCustomLabelHTML()?></b></td>
+		<td colspan="2"><b><?php echo $tabControl->GetCustomLabelHTML()?></b></td>
 	</tr>
 	<tr id="tr_WF_COMMENTS">
 		<td colspan="2">
-			<?if($ID > 0 && !$bSubCopy):?>
-				<textarea name="WF_COMMENTS" style="width:100%" rows="10"><?echo $str_WF_COMMENTS?></textarea>
-			<?else:?>
-				<textarea name="WF_COMMENTS" style="width:100%" rows="10"><?echo ""?></textarea>
-			<?endif?>
+			<?php if($ID > 0 && !$bSubCopy):?>
+				<textarea name="WF_COMMENTS" style="width:100%" rows="10"><?php echo $str_WF_COMMENTS?></textarea>
+			<?php else:?>
+				<textarea name="WF_COMMENTS" style="width:100%" rows="10"><?php echo ""?></textarea>
+			<?php endif?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndCustomField("WF_COMMENTS", '<input type="hidden" name="WF_COMMENTS" value="'.$str_WF_COMMENTS.'">');
 endif;
 
@@ -1922,7 +1922,7 @@ if ($arShowTabs['bizproc']):
 		<td style="width:40%;"><?=GetMessage("IBEL_E_PUBLISHED")?>:</td>
 		<td style="width:60%;"><?=($str_BP_PUBLISHED=="Y"?GetMessage("MAIN_YES"):GetMessage("MAIN_NO"))?></td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndCustomField("BIZPROC_WF_STATUS", '');
 
 	$tabControl->BeginCustomField("BIZPROC", GetMessage("IBEL_E_TAB_BIZPROC"));
@@ -1959,42 +1959,42 @@ if ($arShowTabs['bizproc']):
 							<?= htmlspecialcharsbx($arDocumentState["TEMPLATE_NAME"]) ?>
 						</td>
 						<td width="1%" align="right">
-							<?if (strlen($arDocumentState["ID"]) > 0 && strlen($arDocumentState["WORKFLOW_STATUS"]) > 0):?>
-							(<a href="<?echo htmlspecialcharsbx($selfFolderUrl.CIBlock::GetAdminElementEditLink($IBLOCK_ID, $ID, array(
+							<?php if (strlen($arDocumentState["ID"]) > 0 && strlen($arDocumentState["WORKFLOW_STATUS"]) > 0):?>
+							(<a href="<?php echo htmlspecialcharsbx($selfFolderUrl.CIBlock::GetAdminElementEditLink($IBLOCK_ID, $ID, array(
 								"WF"=>$WF,
 								"find_section_section" => $find_section_section,
 								"stop_bizproc" => $arDocumentState["ID"],
 								"replace_script_name" => true,
-							),  "&".bitrix_sessid_get()))?>"><?echo GetMessage("IBEL_BIZPROC_STOP")?></a>)
-							<?endif;?>
+							),  "&".bitrix_sessid_get()))?>"><?php echo GetMessage("IBEL_BIZPROC_STOP")?></a>)
+							<?php endif;?>
 						</td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 		<tr>
-			<td width="40%"><?echo GetMessage("IBEL_BIZPROC_NAME")?></td>
+			<td width="40%"><?php echo GetMessage("IBEL_BIZPROC_NAME")?></td>
 			<td width="60%"><?= htmlspecialcharsbx($arDocumentState["TEMPLATE_NAME"]) ?></td>
 		</tr>
-		<?if($arDocumentState["TEMPLATE_DESCRIPTION"]!=''):?>
+		<?php if($arDocumentState["TEMPLATE_DESCRIPTION"]!=''):?>
 		<tr>
-			<td width="40%"><?echo GetMessage("IBEL_BIZPROC_DESC")?></td>
+			<td width="40%"><?php echo GetMessage("IBEL_BIZPROC_DESC")?></td>
 			<td width="60%"><?= htmlspecialcharsbx($arDocumentState["TEMPLATE_DESCRIPTION"]) ?></td>
 		</tr>
-		<?endif?>
-		<?if (strlen($arDocumentState["STATE_MODIFIED"]) > 0):?>
+		<?php endif?>
+		<?php if (strlen($arDocumentState["STATE_MODIFIED"]) > 0):?>
 		<tr>
-			<td width="40%"><?echo GetMessage("IBEL_BIZPROC_DATE")?></td>
+			<td width="40%"><?php echo GetMessage("IBEL_BIZPROC_DATE")?></td>
 			<td width="60%"><?= $arDocumentState["STATE_MODIFIED"] ?></td>
 		</tr>
-		<?endif;?>
-		<?if (strlen($arDocumentState["STATE_NAME"]) > 0):?>
+		<?php endif;?>
+		<?php if (strlen($arDocumentState["STATE_NAME"]) > 0):?>
 		<tr>
-			<td width="40%"><?echo GetMessage("IBEL_BIZPROC_STATE")?></td>
-			<td width="60%"><?if (strlen($arDocumentState["ID"]) > 0):?><a href="<?=$selfFolderUrl?>bizproc_log.php?ID=<?= $arDocumentState["ID"] ?>"><?endif;?><?= strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"] ?><?if (strlen($arDocumentState["ID"]) > 0):?></a><?endif;?></td>
+			<td width="40%"><?php echo GetMessage("IBEL_BIZPROC_STATE")?></td>
+			<td width="60%"><?php if (strlen($arDocumentState["ID"]) > 0):?><a href="<?=$selfFolderUrl?>bizproc_log.php?ID=<?= $arDocumentState["ID"] ?>"><?php endif;?><?= strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"] ?><?php if (strlen($arDocumentState["ID"]) > 0):?></a><?php endif;?></td>
 		</tr>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 		if (strlen($arDocumentState["ID"]) <= 0)
 		{
 			CBPDocument::StartWorkflowParametersShow(
@@ -2005,28 +2005,28 @@ if ($arShowTabs['bizproc']):
 			);
 		}
 		?>
-		<?
+		<?php 
 		$arEvents = CBPDocument::GetAllowableEvents($USER->GetID(), $arCurrentUserGroups, $arDocumentState, $arIBlock["RIGHTS_MODE"] === "E");
 		if (!empty($arEvents))
 		{
 			?>
 			<tr>
-				<td width="40%"><?echo GetMessage("IBEL_BIZPROC_RUN_CMD")?></td>
+				<td width="40%"><?php echo GetMessage("IBEL_BIZPROC_RUN_CMD")?></td>
 				<td width="60%">
 					<input type="hidden" name="bizproc_id_<?= $bizProcIndex ?>" value="<?= $arDocumentState["ID"] ?>">
 					<input type="hidden" name="bizproc_template_id_<?= $bizProcIndex ?>" value="<?= $arDocumentState["TEMPLATE_ID"] ?>">
 					<select name="bizproc_event_<?= $bizProcIndex ?>">
-						<option value=""><?echo GetMessage("IBEL_BIZPROC_RUN_CMD_NO")?></option>
-						<?
+						<option value=""><?php echo GetMessage("IBEL_BIZPROC_RUN_CMD_NO")?></option>
+						<?php 
 						foreach ($arEvents as $e)
 						{
-							?><option value="<?= htmlspecialcharsbx($e["NAME"]) ?>"<?= ($_REQUEST["bizproc_event_".$bizProcIndex] == $e["NAME"]) ? " selected" : ""?>><?= htmlspecialcharsbx($e["TITLE"]) ?></option><?
+							?><option value="<?= htmlspecialcharsbx($e["NAME"]) ?>"<?= ($_REQUEST["bizproc_event_".$bizProcIndex] == $e["NAME"]) ? " selected" : ""?>><?= htmlspecialcharsbx($e["TITLE"]) ?></option><?php 
 						}
 						?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 
 		if (strlen($arDocumentState["ID"]) > 0)
@@ -2036,17 +2036,17 @@ if ($arShowTabs['bizproc']):
 			{
 				?>
 				<tr>
-					<td width="40%"><?echo GetMessage("IBEL_BIZPROC_TASKS")?></td>
+					<td width="40%"><?php echo GetMessage("IBEL_BIZPROC_TASKS")?></td>
 					<td width="60%">
-						<?
+						<?php 
 						foreach ($arTasks as $arTask)
 						{
-							?><a href="bizproc_task.php?id=<?= $arTask["ID"] ?>&back_url=<?= urlencode($APPLICATION->GetCurPageParam("", array())) ?>" title="<?= htmlspecialcharsbx($arTask["DESCRIPTION"]) ?>"><?= $arTask["NAME"] ?></a><br /><?
+							?><a href="bizproc_task.php?id=<?= $arTask["ID"] ?>&back_url=<?= urlencode($APPLICATION->GetCurPageParam("", array())) ?>" title="<?= htmlspecialcharsbx($arTask["DESCRIPTION"]) ?>"><?= $arTask["NAME"] ?></a><br /><?php 
 						}
 						?>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 		}
 	}
@@ -2057,11 +2057,11 @@ if ($arShowTabs['bizproc']):
 			<td><br /></td>
 			<td><?=GetMessage("IBEL_BIZPROC_NA")?></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	<input type="hidden" name="bizproc_index" value="<?= $bizProcIndex ?>">
-	<?
+	<?php 
 	if ($ID > 0):
 		$bStartWorkflowPermission = CBPDocument::CanUserOperateDocument(
 			CBPCanUserOperateOperation::StartWorkflow,
@@ -2072,14 +2072,14 @@ if ($arShowTabs['bizproc']):
 		if ($bStartWorkflowPermission):
 			?>
 			<tr class="heading">
-				<td colspan="2"><?echo GetMessage("IBEL_BIZPROC_NEW")?></td>
+				<td colspan="2"><?php echo GetMessage("IBEL_BIZPROC_NEW")?></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<a href="<?=$selfFolderUrl.MODULE_ID?>_start_bizproc.php?document_id=<?= $ID ?>&document_type=<?= DOCUMENT_TYPE ?>&back_url=<?= urlencode($APPLICATION->GetCurPageParam("", array())) ?>"><?echo GetMessage("IBEL_BIZPROC_START")?></a>
+					<a href="<?=$selfFolderUrl.MODULE_ID?>_start_bizproc.php?document_id=<?= $ID ?>&document_type=<?= DOCUMENT_TYPE ?>&back_url=<?= urlencode($APPLICATION->GetCurPageParam("", array())) ?>"><?php echo GetMessage("IBEL_BIZPROC_START")?></a>
 				</td>
 			</tr>
-			<?
+			<?php 
 		endif;
 	endif;
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_ERR_BAD_COUPONS_USED"] = "Die von Ihnen hinzugefügten Gutscheine sind ungültig und können nicht genutzt werden";
 $MESS["BX_SALE_DISCOUNT_APPLY_MODE_ADD_EXT"] = "auch dann anwenden, wenn andere Rabatte im Einsatz sind";
 $MESS["BX_SALE_DISCOUNT_APPLY_MODE_LAST_EXT"] = "nicht anwenden für Produkte, bei denen im Rabatt die Option \"Rabatte nicht mehr anwenden\" aktiviert ist.";

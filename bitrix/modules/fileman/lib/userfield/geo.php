@@ -145,7 +145,7 @@ class Geo extends \Bitrix\Main\UserField\TypeBase
 
 			waitForMap();
 		</script>
-<?
+<?php 
 		$result .= ob_get_clean();
 
 		$result .= '
@@ -225,12 +225,12 @@ class Geo extends \Bitrix\Main\UserField\TypeBase
 		}
 ?>
 		<span style="display: none;" id="<?=$arUserField['FIELD_NAME']?>_valuewrap">
-<?
+<?php 
 		foreach($arHtmlControl['VALUE'] as $value)
 		{
 ?>
 			<input type="hidden" name="<?=$arHtmlControl['NAME']?>" value="<?=$value?>" />
-<?
+<?php 
 		}
 ?>
 		</span>
@@ -248,7 +248,7 @@ class Geo extends \Bitrix\Main\UserField\TypeBase
 
 			});
 		</script>
-		<?
+		<?php 
 
 		return ob_get_clean();
 	}
@@ -290,14 +290,14 @@ class Geo extends \Bitrix\Main\UserField\TypeBase
 ?>
 <span style="display: none;" id="<?=$arUserField['FIELD_NAME']?>_valuewrap">
 	<input type="hidden" name="<?=HtmlFilter::encode($fieldName)?>" value=""/>
-<?
+<?php 
 foreach($value as $point)
 {
 	if(strlen($point) > 0)
 	{
 ?>
 	<input type="hidden" name="<?=HtmlFilter::encode($fieldName)?>" value="<?=$point?>"/>
-<?
+<?php 
 	}
 }
 ?>
@@ -321,7 +321,7 @@ foreach($value as $point)
 		}
 	});
 </script>
-<?
+<?php 
 		$html .= ob_get_clean();
 
 		return $html;

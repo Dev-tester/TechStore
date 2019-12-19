@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_CMP_ACCESS_DENIED"] = "Bitrix24 Sites service is currently available to administrators only.";
 $MESS["LANDING_CMP_ACCESS_DENIED2"] = "Insufficient permission.";
 $MESS["LANDING_CMP_AGREEMENT_NAME"] = "Bitrix24 Sites Terms of Use";

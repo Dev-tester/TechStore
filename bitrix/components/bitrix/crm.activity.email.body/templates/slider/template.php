@@ -133,77 +133,77 @@ $readDatetimeFormatted = !empty($activity['SETTINGS']['READ_CONFIRMED']) && $act
 
 <div class="crm-task-list-mail-border-bottom">
 	<div class="crm-task-list-mail-item-inner-header-container">
-		<div class="crm-task-list-mail-item-inner-header <? if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> crm-task-list-mail-item-inner-header-clickable crm-task-list-mail-item-open<? endif ?>">
+		<div class="crm-task-list-mail-item-inner-header <?php  if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> crm-task-list-mail-item-inner-header-clickable crm-task-list-mail-item-open<?php  endif ?>">
 			<span class="crm-task-list-mail-item-inner-user"
-				<? if (!empty($activity['ITEM_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($activity['ITEM_IMAGE']) ?>'); background-size: 40px 40px; "<? endif ?>>
+				<?php  if (!empty($activity['ITEM_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($activity['ITEM_IMAGE']) ?>'); background-size: 40px 40px; "<?php  endif ?>>
 			</span>
 			<span class="crm-task-list-mail-item-inner-user-container">
 				<span class="crm-task-list-mail-item-inner-user-info">
 					<span class="crm-task-list-mail-item-inner-user-title crm-task-list-mail-item-inner-description-block">
 						<div class="crm-task-list-mail-item-inner-description-main">
-							<? if ($activity['ITEM_FROM_URL']): ?>
+							<?php  if ($activity['ITEM_FROM_URL']): ?>
 								<a class="crm-task-list-mail-item-inner-description-name-link" href="<?=$activity['ITEM_FROM_URL'] ?>" target="_blank"><?=htmlspecialcharsbx($activity['ITEM_FROM_TITLE']) ?></a>
-							<? else: ?>
+							<?php  else: ?>
 								<span class="crm-task-list-mail-item-inner-description-name"><?=htmlspecialcharsbx($activity['ITEM_FROM_TITLE']) ?></span>
-							<? endif ?>
-							<? if (!empty($activity['ITEM_FROM_EMAIL'])): ?>
+							<?php  endif ?>
+							<?php  if (!empty($activity['ITEM_FROM_EMAIL'])): ?>
 								<span class="crm-task-list-mail-item-inner-description-mail"><?=htmlspecialcharsbx($activity['ITEM_FROM_EMAIL']) ?></span>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
-						<div class="crm-task-list-mail-item-inner-description-date <? if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> crm-task-list-mail-item-date crm-activity-email-item-date<? endif ?>">
+						<div class="crm-task-list-mail-item-inner-description-date <?php  if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> crm-task-list-mail-item-date crm-activity-email-item-date<?php  endif ?>">
 							<span>
-								<? if (\CCrmActivityDirection::Outgoing == $activity['DIRECTION']): ?>
+								<?php  if (\CCrmActivityDirection::Outgoing == $activity['DIRECTION']): ?>
 									<?=getMessage('CRM_ACT_EMAIL_VIEW_SENT', array('#DATETIME#' => $startDatetimeFormatted)) ?><!--
-									--><? if (isset($activity['SETTINGS']['IS_BATCH_EMAIL']) && !$activity['SETTINGS']['IS_BATCH_EMAIL']): ?>,
+									--><?php  if (isset($activity['SETTINGS']['IS_BATCH_EMAIL']) && !$activity['SETTINGS']['IS_BATCH_EMAIL']): ?>,
 										<span class="read-confirmed-datetime">
-											<? if (!empty($readDatetimeFormatted)): ?>
+											<?php  if (!empty($readDatetimeFormatted)): ?>
 												<?=getMessage('CRM_ACT_EMAIL_VIEW_READ_CONFIRMED', array('#DATETIME#' => $readDatetimeFormatted)) ?>
-											<? else: ?>
+											<?php  else: ?>
 												<?=getMessage('CRM_ACT_EMAIL_VIEW_READ_AWAITING') ?>
-											<? endif ?>
+											<?php  endif ?>
 										</span>
-									<? endif ?>
-								<? else: ?>
+									<?php  endif ?>
+								<?php  else: ?>
 									<?=getMessage('CRM_ACT_EMAIL_VIEW_RECEIVED', array('#DATETIME#' => $startDatetimeFormatted)) ?>
-								<? endif ?>
+								<?php  endif ?>
 							</span>
 						</div>
 					</span>
 					<div class="crm-task-list-mail-item-inner-send">
-						<? $rcpt = array(
+						<?php  $rcpt = array(
 							getMessage('CRM_ACT_EMAIL_RCPT')     => $activity['ITEM_TO'],
 							getMessage('CRM_ACT_EMAIL_RCPT_CC')  => $activity['ITEM_CC'],
 							getMessage('CRM_ACT_EMAIL_RCPT_BCC') => $activity['ITEM_BCC'],
 						); ?>
-						<? $k = 0; ?>
-						<? foreach ($rcpt as $type => $list): ?>
-							<? if (!empty($list)): ?>
-								<? $count = count($list); ?>
-								<? $limit = $count > ($k > 0 ? 2 : 4) ? ($k > 0 ? 1 : 3) : $count; ?>
+						<?php  $k = 0; ?>
+						<?php  foreach ($rcpt as $type => $list): ?>
+							<?php  if (!empty($list)): ?>
+								<?php  $count = count($list); ?>
+								<?php  $limit = $count > ($k > 0 ? 2 : 4) ? ($k > 0 ? 1 : 3) : $count; ?>
 								<span style="display: inline-block; margin-right: 5px; ">
-									<span class="crm-task-list-mail-item-inner-send-item" <? if ($k > 0): ?> style="color: #000; "<? endif ?>><?=$type ?>:</span>
-									<? foreach ($list as $item): ?>
-										<? if ($limit == 0): ?>
+									<span class="crm-task-list-mail-item-inner-send-item" <?php  if ($k > 0): ?> style="color: #000; "<?php  endif ?>><?=$type ?>:</span>
+									<?php  foreach ($list as $item): ?>
+										<?php  if ($limit == 0): ?>
 											<a class="crm-task-list-mail-item-to-list-more crm-task-list-mail-fake-link" href="#"><?=getMessage('CRM_ACT_EMAIL_CREATE_TO_MORE', array('#NUM#' => $count)) ?></a>
 											<span class="crm-task-list-mail-item-to-list-hidden">
-										<? endif ?>
+										<?php  endif ?>
 										<span class="crm-task-list-mail-item-inner-send-block">
 											<span class="crm-task-list-mail-item-inner-send-user"
-												<? if (!empty($item['IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($item['IMAGE']) ?>'); background-size: 23px 23px; "<? endif ?>>
+												<?php  if (!empty($item['IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($item['IMAGE']) ?>'); background-size: 23px 23px; "<?php  endif ?>>
 											</span>
-											<? if ($item['URL']): ?>
+											<?php  if ($item['URL']): ?>
 												<a class="crm-task-list-mail-item-inner-send-mail-link" href="<?=$item['URL'] ?>" target="_blank"><?=htmlspecialcharsbx($item['TITLE']) ?></a>
-											<? else: ?>
+											<?php  else: ?>
 												<span class="crm-task-list-mail-item-inner-send-mail"><?=htmlspecialcharsbx($item['TITLE']) ?></span>
-											<? endif ?>
+											<?php  endif ?>
 										</span>
-										<? $count--; $limit--; ?>
-									<? endforeach ?>
-									<? if ($limit < -1): ?></span><? endif ?>
+										<?php  $count--; $limit--; ?>
+									<?php  endforeach ?>
+									<?php  if ($limit < -1): ?></span><?php  endif ?>
 								</span>
-								<? $k++; ?>
-							<? endif ?>
-						<? endforeach ?>
+								<?php  $k++; ?>
+							<?php  endif ?>
+						<?php  endforeach ?>
 					</div>
 				</span>
 			</span>
@@ -215,36 +215,36 @@ $readDatetimeFormatted = !empty($activity['SETTINGS']['READ_CONFIRMED']) && $act
 				<div class="crm-task-list-mail-item-control crm-task-list-mail-item-control-reply"><?=getMessage('CRM_ACT_EMAIL_BTN_REPLY') ?></div>
 				<div class="crm-task-list-mail-item-control crm-task-list-mail-item-control-icon-answertoall"><?=getMessage('CRM_ACT_EMAIL_BTN_REPLY_All') ?></div>
 				<div class="crm-task-list-mail-item-control crm-task-list-mail-item-control-icon-resend"><?=getMessage('CRM_ACT_EMAIL_BTN_FWD') ?></div>
-				<? if ($activity['DIRECTION'] == \CCrmActivityDirection::Incoming): ?>
-					<? if ((new \Bitrix\Crm\Exclusion\Access(\CCrmSecurityHelper::getCurrentUserId()))->canWrite()): ?>
+				<?php  if ($activity['DIRECTION'] == \CCrmActivityDirection::Incoming): ?>
+					<?php  if ((new \Bitrix\Crm\Exclusion\Access(\CCrmSecurityHelper::getCurrentUserId()))->canWrite()): ?>
 						<div class="crm-task-list-mail-item-control crm-task-list-mail-item-control-icon-skip"><?=getMessage('CRM_ACT_EMAIL_BTN_SKIP') ?></div>
-					<? endif ?>
+					<?php  endif ?>
 					<div class="crm-task-list-mail-item-control crm-task-list-mail-item-control-icon-spam"><?=getMessage('CRM_ACT_EMAIL_BTN_SPAM') ?></div>
-				<? endif ?>
+				<?php  endif ?>
 				<div class="crm-task-list-mail-item-control crm-task-list-mail-item-control-icon-delete"><?=getMessage('CRM_ACT_EMAIL_BTN_DEL') ?></div>
 			</div>
 		</div>
 	</div>
 	<div id="activity_<?=$activity['ID'] ?>_body" class="crm-task-list-mail-item-inner-body crm-task-list-mail-item-inner-body-slider"></div>
 </div>
-<? if (!empty($activity['__files'])): ?>
+<?php  if (!empty($activity['__files'])): ?>
 	<div class="crm-task-list-mail-file-block crm-task-list-mail-border-bottom">
 		<div class="crm-task-list-mail-file-text"><?=getMessage('CRM_ACT_EMAIL_ATTACHES') ?>:</div>
 		<div class="crm-task-list-mail-file-inner">
 			<div id="activity_<?=$activity['ID'] ?>_files_images_list" class="crm-task-list-mail-file-inner">
-				<? foreach ($activity['__files'] as $item): ?>
-					<? if (empty($item['previewURL'])) continue; ?>
+				<?php  foreach ($activity['__files'] as $item): ?>
+					<?php  if (empty($item['previewURL'])) continue; ?>
 					<div class="crm-task-list-mail-file-item-image">
 						<span class="crm-task-list-mail-file-link-image">
 							<img class="crm-task-list-mail-file-item-img" src="<?=htmlspecialcharsbx($item['previewURL']) ?>"
 								<?=Viewer\ItemAttributes::tryBuildByFileId($item['fileId'], $item['viewURL'])->setTitle($item['fileName'])->setGroupBy(sprintf('crm_activity_%u_files', $activity['ID'])) ?>>
 						</span>
 					</div>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</div>
 			<div class="crm-task-list-mail-file-inner">
-				<? foreach ($activity['__files'] as $item): ?>
-					<? if (!empty($item['previewURL'])) continue; ?>
+				<?php  foreach ($activity['__files'] as $item): ?>
+					<?php  if (!empty($item['previewURL'])) continue; ?>
 					<div class="crm-task-list-mail-file-item diskuf-files-entity">
 						<span class="feed-com-file-icon feed-file-icon-<?=htmlspecialcharsbx(\Bitrix\Main\IO\Path::getExtension($item['fileName'])) ?>"></span>
 						<a class="crm-task-list-mail-file-link" href="<?=htmlspecialcharsbx($item['viewURL']) ?>" target="_blank"
@@ -253,17 +253,17 @@ $readDatetimeFormatted = !empty($activity['SETTINGS']['READ_CONFIRMED']) && $act
 						</a>
 						<div class="crm-task-list-mail-file-link-info"><?=htmlspecialcharsbx($item['fileSize']) ?></div>
 					</div>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</div>
 		</div>
 	</div>
-<? endif ?>
+<?php  endif ?>
 <div class="crm-task-list-mail-message-panel crm-task-list-mail-border-bottom">
-	<div class="crm-task-list-mail-item-user" <? if (!empty($arParams['USER_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($arParams['USER_IMAGE']) ?>'); background-size: 23px 23px; "<? endif ?>></div>
+	<div class="crm-task-list-mail-item-user" <?php  if (!empty($arParams['USER_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($arParams['USER_IMAGE']) ?>'); background-size: 23px 23px; "<?php  endif ?>></div>
 	<div class="crm-task-list-mail-message-panel-text"><?=getMessage('CRM_ACT_EMAIL_REPLY') ?></div>
 </div>
 
-<? $formId = sprintf('crm_act_email_reply_%u_form', $activity['ID']); ?>
+<?php  $formId = sprintf('crm_act_email_reply_%u_form', $activity['ID']); ?>
 <form id="<?=htmlspecialcharsbx($formId) ?>" method="POST"
 	action="/bitrix/components/bitrix/crm.activity.editor/ajax.php?action=save_email&context=activity-<?=$activity['ID'] ?>"
 	class="crm-task-list-mail-border-bottom" style="display: none; margin-top: 10px; ">
@@ -271,14 +271,14 @@ $readDatetimeFormatted = !empty($activity['SETTINGS']['READ_CONFIRMED']) && $act
 	<input type="hidden" name="ACTION" value="SAVE_EMAIL">
 	<input type="hidden" name="DATA[ownerType]" value="<?=\CCrmOwnerType::resolveName($activity['OWNER_TYPE_ID']) ?>">
 	<input type="hidden" name="DATA[ownerID]" value="<?=$activity['OWNER_ID'] ?>">
-	<? if (preg_grep(sprintf('/^%s:/i', preg_quote($ownerUid, '/')), array_keys($rcptSelected + $rcptCcSelected))): ?>
+	<?php  if (preg_grep(sprintf('/^%s:/i', preg_quote($ownerUid, '/')), array_keys($rcptSelected + $rcptCcSelected))): ?>
 		<input type="hidden" name="DATA[ownerRcpt]" value="Y">
-	<? endif ?>
+	<?php  endif ?>
 	<input type="hidden" name="DATA[storageTypeID]" value="<?=\CCrmActivityStorageType::Disk ?>">
 	<input type="hidden" name="DATA[REPLIED_ID]" value="<?=$activity['ID'] ?>">
 	<input type="hidden" name="DATA[content_type]" value="<?=\CCrmContentType::Html ?>">
 
-	<?
+	<?php 
 
 	$inlineFiles = array();
 	$quote = preg_replace_callback(

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\UI;
@@ -12,7 +12,7 @@ if(!CModule::IncludeModule("socialnetwork"))
 
 ?><table width="100%">
 <tr>
-	<td><?
+	<td><?php 
 	if (
 		$arGadgetParams["MEMBERS_LIST"]
 		&& is_array($arGadgetParams["MEMBERS_LIST"])
@@ -37,11 +37,11 @@ if(!CModule::IncludeModule("socialnetwork"))
 			array("HIDE_ICONS" => "Y")
 		);
 
-		?><table width="100%" border="0" class="sonet-user-profile-friend-box"><?
+		?><table width="100%" border="0" class="sonet-user-profile-friend-box"><?php 
 		foreach ($arGadgetParams["MEMBERS_LIST"] as $friend)
 		{
-			?><tr><?
-				?><td align="left"><?
+			?><tr><?php 
+				?><td align="left"><?php 
 
 					$arTmpUser = array(
 						"ID" => $friend["USER_ID"],
@@ -53,29 +53,29 @@ if(!CModule::IncludeModule("socialnetwork"))
 
 					$link = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER"], array("user_id" => $friend["USER_ID"], "USER_ID" => $friend["USER_ID"], "ID" => $friend["USER_ID"]));
 
-					?><table cellspacing="0" cellpadding="0" border="0" class="bx-user-info-anchor" bx-tooltip-user-id="<?=$friend["USER_ID"]?>"><?
-					?><tr><?
-						?><td class="bx-user-info-anchor-cell"><?
-							?><div class="bx-user-info-thumbnail" align="center" valign="middle" style="width: 30px; height: 32px;"><?
-								?><?=$friend["USER_PERSONAL_PHOTO_IMG"]?><?
-							?></div><?
-						?></td><?
-						?><td class="bx-user-info-anchor-cell" valign="top"><?
-							?><a class="bx-user-info-name" href="<?=$link?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $arTmpUser, ($arParams["SHOW_LOGIN"] != "N"))?></a><?
-						?></td><?
-					?></tr><?
-					?></table><?
-				?></td><?
-			?></tr><?
+					?><table cellspacing="0" cellpadding="0" border="0" class="bx-user-info-anchor" bx-tooltip-user-id="<?=$friend["USER_ID"]?>"><?php 
+					?><tr><?php 
+						?><td class="bx-user-info-anchor-cell"><?php 
+							?><div class="bx-user-info-thumbnail" align="center" valign="middle" style="width: 30px; height: 32px;"><?php 
+								?><?=$friend["USER_PERSONAL_PHOTO_IMG"]?><?php 
+							?></div><?php 
+						?></td><?php 
+						?><td class="bx-user-info-anchor-cell" valign="top"><?php 
+							?><a class="bx-user-info-name" href="<?=$link?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $arTmpUser, ($arParams["SHOW_LOGIN"] != "N"))?></a><?php 
+						?></td><?php 
+					?></tr><?php 
+					?></table><?php 
+				?></td><?php 
+			?></tr><?php 
 		}
 		?></table>
 		<br>
 		<a href="<?= $arGadgetParams["URL_GROUP_USERS"] ?>"><?= GetMessage("GD_SONET_GROUP_USERS_AL_USERS") ?> (<?= $arGadgetParams["NUMBER_OF_MEMBERS"] ?>)</a>
-		<br><?
+		<br><?php 
 	}
 	else
 	{
-		?><?= GetMessage("GD_SONET_GROUP_USERS_NO_USERS")?><br><br><?
+		?><?= GetMessage("GD_SONET_GROUP_USERS_NO_USERS")?><br><br><?php 
 	}
 	?></td>
 </tr>

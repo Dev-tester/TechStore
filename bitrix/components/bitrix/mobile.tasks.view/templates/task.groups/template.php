@@ -13,7 +13,7 @@ $GLOBALS['APPLICATION']->ShowCSS();  // bug: style.css can not be displayed, so 
 
 <div id="tasks-all-items" class="tasks-folders-wrap">
 
-	<?
+	<?php 
 	if(is_array($arResult['DATA']['ITEMS']))
 	{
 		foreach($arResult['DATA']['ITEMS'] as $item)
@@ -38,9 +38,9 @@ $GLOBALS['APPLICATION']->ShowCSS();  // bug: style.css can not be displayed, so 
 					</span>
 				</div>
 				<div class="task-folder-index-wrap" style="right: 30px">
-					<?if(intval($item['TASK_COUNT']) > 0):?>
+					<?php if(intval($item['TASK_COUNT']) > 0):?>
 						<span class="task-folder-index"><?=intval($item['TASK_COUNT'])?></span>
-					<?endif?>
+					<?php endif?>
 					<div class="red-alert hidden" data-bx-id="taskgroups-counter">
 						0
 					</div>
@@ -58,5 +58,5 @@ $GLOBALS['APPLICATION']->ShowCSS();  // bug: style.css can not be displayed, so 
 </div>
 
 <script>
-	<?if((string) $arParams['LOGIC_INSTANCE_CODE'] != ''):?>BX['<?=CUtil::JSEscape($arParams['LOGIC_INSTANCE_CODE'])?>']<?/*temporal solution*/?> = <?endif?>new BX.Mobile.Tasks.View.Bitrix.taskgroups({scope: BX('tasks-all-items')});
+	<?php if((string) $arParams['LOGIC_INSTANCE_CODE'] != ''):?>BX['<?=CUtil::JSEscape($arParams['LOGIC_INSTANCE_CODE'])?>']<?php /*temporal solution*/?> = <?php endif?>new BX.Mobile.Tasks.View.Bitrix.taskgroups({scope: BX('tasks-all-items')});
 </script>

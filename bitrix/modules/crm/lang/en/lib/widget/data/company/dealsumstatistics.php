@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMPANY_DEAL_SUM_STAT_PRESET_SUM_TOTAL"] = "Deals total";
 $MESS["CRM_COMPANY_DEAL_SUM_STAT_PRESET_SUCCESS_SUM"] = "Won deals total";
 $MESS["CRM_COMPANY_DEAL_SUM_STAT_PRESET_PROCESS_SUM"] = "Deals in progress total";

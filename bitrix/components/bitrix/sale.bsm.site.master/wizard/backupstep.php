@@ -88,7 +88,7 @@ class BackupStep extends \CWizardStep
 				]) ?></p>
 			<p><?= Loc::getMessage("SALE_BSM_WIZARD_BACKUPSTEP_DESCR_NEXT") ?></p>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -119,7 +119,7 @@ class BackupStep extends \CWizardStep
 					name="<?= $this->GetWizard()->nextButtonID ?>" disabled>
 				<?= $this->GetNextCaption() ?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

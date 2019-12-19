@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_form_save"] = "Сохранить";
 $MESS["interface_form_cancel"] = "Отменить";
 $MESS["interface_form_change"] = "сменить";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Доступ к модулю запрещён";
 $MESS["SALE_LOCATION_L_ITEM_NOT_FOUND"] = "Тип с укзанным идентификатором не найден";
 $MESS["SALE_LOCATION_L_ITEM_SAVE_ERROR"] = "Не удалось обновить тип #ITEM#";

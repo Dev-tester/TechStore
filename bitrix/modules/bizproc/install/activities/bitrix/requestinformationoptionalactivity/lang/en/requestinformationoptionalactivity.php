@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRIOA_ACT_TRACK1"] = "Additional information is to be provided by #VAL#";
 $MESS["BPRIOA_ACT_INFO"] = "Waiting for additional information";
 $MESS["BPRIOA_LOG_COMMENTS"] = "Comment";

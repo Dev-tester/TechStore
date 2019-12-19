@@ -5,7 +5,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 <?=CrmOrderPropsFormEditTemplate::getFieldJsTemplateAll()?>
 
 <script type="text/html" id="tmpl_field_dependency">
-	<?GetCrmOrderPropsFormFieldRelationTemplate(
+	<?php GetCrmOrderPropsFormFieldRelationTemplate(
 		array(
 			'ID' => '%ID%',
 			'IF_FIELD_CODE' => '%IF_FIELD_CODE%',
@@ -16,7 +16,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 	);?>
 </script>
 <script type="text/html" id="tmpl_field_preset">
-	<?GetCrmOrderPropsFormPresetFieldTemplate(
+	<?php GetCrmOrderPropsFormPresetFieldTemplate(
 		array(
 			'CODE' => '%CODE%',
 			'ENTITY_CAPTION' => '%ENTITY_CAPTION%',

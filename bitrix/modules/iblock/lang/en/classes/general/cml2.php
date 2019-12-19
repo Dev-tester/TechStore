@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_XML2_AMOUNT"] = "Amount";
 $MESS["IBLOCK_XML2_ANONS"] = "Anons";
 $MESS["IBLOCK_XML2_ARTICLE"] = "Article";

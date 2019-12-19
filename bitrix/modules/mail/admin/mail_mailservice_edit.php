@@ -139,46 +139,46 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 
 ?>
 
-<? if ($message) echo $message->Show(); ?>
+<?php  if ($message) echo $message->Show(); ?>
 <form method="POST" action="<?=$APPLICATION->GetCurPage(); ?>?lang=<?=LANG; ?>&ID=<?=$ID; ?>" name="form1" enctype="multipart/form-data">
 <?=bitrix_sessid_post(); ?>
 <?=GetFilterHiddens("find_"); ?>
 
-<? $tabControl->Begin(); ?>
-<? $tabControl->BeginNextTab(); ?>
-	<? if ($ID > 0) { ?>
+<?php  $tabControl->Begin(); ?>
+<?php  $tabControl->BeginNextTab(); ?>
+	<?php  if ($ID > 0) { ?>
 	<tr>
 		<td><?=GetMessage("MAIL_MSERVICE_EDT_ID"); ?></td>
 		<td><?=$str_ID; ?></td>
 	</tr>
-	<? } ?>
+	<?php  } ?>
 	<tr>
 		<td width="40%"><?=GetMessage("MAIL_MSERVICE_EDT_SITE_ID"); ?></td>
 		<td width="60%">
 			<select name="SITE_ID">
-				<? $result = Bitrix\Main\SiteTable::getList(array('filter' => array('ACTIVE' => 'Y'), 'order' => array('SORT' => 'ASC'))); ?>
-				<? while (($site = $result->fetch()) !== false): ?>
-					?><option value="<?=$site['LID'] ?>" <? if ($str_SITE_ID == $site['LID']) echo 'selected'; ?>><?=htmlspecialcharsbx($site['NAME']) ?></option>
-				<? endwhile ?>
+				<?php  $result = Bitrix\Main\SiteTable::getList(array('filter' => array('ACTIVE' => 'Y'), 'order' => array('SORT' => 'ASC'))); ?>
+				<?php  while (($site = $result->fetch()) !== false): ?>
+					?><option value="<?=$site['LID'] ?>" <?php  if ($str_SITE_ID == $site['LID']) echo 'selected'; ?>><?=htmlspecialcharsbx($site['NAME']) ?></option>
+				<?php  endwhile ?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("MAIL_MSERVICE_EDT_ACT"); ?></td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<? if ($str_ACTIVE == "Y") { ?> checked="checked"<? } ?>></td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php  if ($str_ACTIVE == "Y") { ?> checked="checked"<?php  } ?>></td>
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage('MAIL_MSERVICE_EDT_ICON'); ?></td>
 		<td>
 			<input type="file" name="ICON">
-			<? if ($icon = Bitrix\Mail\MailServicesTable::getIconSrc($str_NAME, $str_ICON)) { ?>
+			<?php  if ($icon = Bitrix\Mail\MailServicesTable::getIconSrc($str_NAME, $str_ICON)) { ?>
 			<br><br><img src="<?=$icon; ?>" alt="<?=$str_NAME; ?>"><br>
-			<? if ($str_ICON) { ?>
+			<?php  if ($str_ICON) { ?>
 			<input type="checkbox" name="remove_icon" value="Y" id="remove_icon" >
 			<label for="remove_icon"><?=GetMessage("MAIL_MSERVICE_EDT_ICON_REMOVE"); ?></label>
-			<? } ?>
+			<?php  } ?>
 			</div>
-			<? } ?>
+			<?php  } ?>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
@@ -188,14 +188,14 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 	<tr>
 		<td><?=GetMessage("MAIL_MSERVICE_EDT_TYPE"); ?></td>
 		<td>
-			<? if ($ID > 0) { ?>
+			<?php  if ($ID > 0) { ?>
 			<?=$str_TYPE; ?>
-			<? } else { ?>
+			<?php  } else { ?>
 			<select onchange="change_type()" name="TYPE" id="TYPE">
 				<option value="imap">imap</option>
 				<option value="domain">domain</option>
 			</select>
-			<? } ?>
+			<?php  } ?>
 		</td>
 	</tr>
 	<tr id="el0" class="imap">
@@ -213,16 +213,16 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 	<tr id="el3" class="imap">
 		<td><?=GetMessage("MAIL_MSERVICE_EDT_ENCRYPTION"); ?><span class="required"><sup>1</sup></span></td>
 		<td>
-			<select name="ENCRYPTION"<? if (!$bCanUseTLS) { ?> disabled<? } ?>>
+			<select name="ENCRYPTION"<?php  if (!$bCanUseTLS) { ?> disabled<?php  } ?>>
 				<option value=""></option>
-				<option value="Y"<? if ($str_ENCRYPTION == "Y") { ?> selected="selected"<? } ?>><?=GetMessage('MAIN_YES'); ?></option>
-				<option value="N"<? if ($str_ENCRYPTION == "N") { ?> selected="selected"<? } ?>><?=GetMessage('MAIN_NO'); ?></option>
+				<option value="Y"<?php  if ($str_ENCRYPTION == "Y") { ?> selected="selected"<?php  } ?>><?=GetMessage('MAIN_YES'); ?></option>
+				<option value="N"<?php  if ($str_ENCRYPTION == "N") { ?> selected="selected"<?php  } ?>><?=GetMessage('MAIN_NO'); ?></option>
 			</select>
 		</td>
 	</tr>
 	<tr id="el4" class="domain crdomain">
 		<td><?=GetMessage("MAIL_MSERVICE_EDT_PUBLIC"); ?></td>
-		<td><input type="checkbox" name="ENCRYPTION" value="N"<? if (!$ID || $str_ENCRYPTION == 'N') { ?> checked<? } ?>></td>
+		<td><input type="checkbox" name="ENCRYPTION" value="N"<?php  if (!$ID || $str_ENCRYPTION == 'N') { ?> checked<?php  } ?>></td>
 	</tr>
 	<tr id="el5" class="imap">
 		<td><?=GetMessage("MAIL_MSERVICE_EDT_LINK"); ?></td>
@@ -240,12 +240,12 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 
 	function change_type()
 	{
-		<? if ($ID > 0) { ?>
+		<?php  if ($ID > 0) { ?>
 		var type = '<?=$str_TYPE; ?>';
-		<? } else { ?>
+		<?php  } else { ?>
 		var typeSelect = document.getElementById('TYPE');
 		var type = typeSelect.options[typeSelect.selectedIndex].value;
-		<? } ?>
+		<?php  } ?>
 
 		for (var i = 0; i <= 5; i++)
 		{
@@ -274,14 +274,14 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 
 </script>
 
-<? $tabControl->EndTab(); ?>
-<? $tabControl->Buttons(array("disabled" => $MOD_RIGHT < "W", "back_url" => "mail_mailservice_admin.php?lang=".LANG)); ?>
-<? $tabControl->End(); ?>
+<?php  $tabControl->EndTab(); ?>
+<?php  $tabControl->Buttons(array("disabled" => $MOD_RIGHT < "W", "back_url" => "mail_mailservice_admin.php?lang=".LANG)); ?>
+<?php  $tabControl->End(); ?>
 </form>
-<? $tabControl->ShowWarnings("form1", $message); ?>
+<?php  $tabControl->ShowWarnings("form1", $message); ?>
 
 <?=BeginNote(); ?>
 <span class="required"><sup>1</sup></span> <?=GetMessage('MAIL_MSERVICE_EDT_COMMENT1'); ?>
 <?=EndNote(); ?>
 
-<? require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>

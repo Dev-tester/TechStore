@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Config\Option;
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
@@ -125,7 +125,7 @@ if ($arResult['SETTED_UP'] !== false): ?>
 			}
 		};
 
-		<? if ($arResult['HAS_SUCCESS_SYNC']): ?>
+		<?php  if ($arResult['HAS_SUCCESS_SYNC']): ?>
 
 		BX.ready(function ()
 		{
@@ -148,26 +148,26 @@ if ($arResult['SETTED_UP'] !== false): ?>
 				return true;
 			});
 
-			<? if ($arResult['IS_TIME_TO_MAIL_CHECK']): ?>
+			<?php  if ($arResult['IS_TIME_TO_MAIL_CHECK']): ?>
 
 			ExternalMail.check(true);
 
-			<? elseif ($arResult['NEXT_TIME_TO_CHECK'] >= 0): ?>
+			<?php  elseif ($arResult['NEXT_TIME_TO_CHECK'] >= 0): ?>
 
 			ExternalMail.scheduleSync(<?= (int)$arResult['NEXT_TIME_TO_CHECK'] ?>);
 
-			<? endif ?>
+			<?php  endif ?>
 		});
 
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($arResult['FAILED_SYNC_MAILBOX_ID']): ?>
+		<?php  if ($arResult['FAILED_SYNC_MAILBOX_ID']): ?>
 
 		ExternalMail.warning(<?=intval($arResult['FAILED_SYNC_MAILBOX_ID']) ?>);
 
-		<? endif; ?>
+		<?php  endif; ?>
 
 	</script>
 
-<? endif ?>
-<? $frame->end(); ?>
+<?php  endif ?>
+<?php  $frame->end(); ?>

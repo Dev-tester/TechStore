@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_CONFIG_EDIT_NAME"] = "Название Открытой линии";
 $MESS["IMOL_CONFIG_EDIT_CONNECTED_SOURCE"] = "Подключенные каналы коммуникаций";
 $MESS["IMOL_CONFIG_EDIT_CRM"] = "Проверять клиента по базе CRM";

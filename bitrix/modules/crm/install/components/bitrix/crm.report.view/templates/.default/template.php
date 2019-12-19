@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->IncludeComponent(
 	'bitrix:report.view',
@@ -194,10 +194,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arEventTypes = CCrmStatus::GetStatusList('STATUS'); ?>
-			<? foreach($arEventTypes as $key => $val){ ?>
+			<?php  $arEventTypes = CCrmStatus::GetStatusList('STATUS'); ?>
+			<?php  foreach($arEventTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -205,10 +205,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arEventTypes = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arEventTypes as $key => $val){ ?>
+			<?php  $arEventTypes = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arEventTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -216,15 +216,15 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			if ($arResult['REPORT_OWNER_ID'] === 'crm_activity')
 				$arTypes = CCrmActivityType::PrepareFilterItems();
 			else
 				$arTypes = CCrmStatus::GetStatusList('DEAL_TYPE');
 			?>
-			<? foreach($arTypes as $key => $val){ ?>
+			<?php  foreach($arTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -232,15 +232,15 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			if ($arResult['REPORT_OWNER_ID'] === 'crm_activity')
 				$arTypes = CCrmActivityType::PrepareFilterItems();
 			else
 				$arTypes = CCrmStatus::GetStatusList('DEAL_TYPE');
 			?>
-			<? foreach($arTypes as $key => $val){ ?>
+			<?php  foreach($arTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -248,13 +248,13 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			$arDirections = CCrmActivityDirection::GetAllDescriptions(0);
 			unset($arDirections[CCrmActivityDirection::Undefined]);
 			?>
-			<? foreach($arDirections as $key => $val){ ?>
+			<?php  foreach($arDirections as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -262,10 +262,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $priorities = CCrmActivityPriority::PrepareFilterItems(); ?>
-			<? foreach($priorities as $key => $val){ ?>
+			<?php  $priorities = CCrmActivityPriority::PrepareFilterItems(); ?>
+			<?php  foreach($priorities as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -273,10 +273,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arTypes = CCrmCurrencyHelper::PrepareListItems(); ?>
-			<? foreach($arTypes as $key => $val){ ?>
+			<?php  $arTypes = CCrmCurrencyHelper::PrepareListItems(); ?>
+			<?php  foreach($arTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -284,20 +284,20 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arEventTypes = CCrmStatus::GetStatusList('EVENT_TYPE'); ?>
-			<? foreach($arEventTypes as $key => $val){ ?>
+			<?php  $arEventTypes = CCrmStatus::GetStatusList('EVENT_TYPE'); ?>
+			<?php  foreach($arEventTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
 	<div class="filter-field filter-field-eventType chfilter-field-CATEGORY_ID" callback="RTFilter_chooseBoolean">
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
-			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?
+			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?php 
 			$categories = \Bitrix\Crm\Category\DealCategory::getSelectListItems();
 			foreach($categories as $key => $val):
-				?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?
+				?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?php 
 			endforeach;
 		?></select>
 	</div>
@@ -305,16 +305,16 @@ while ($arRes = $obRes->Fetch())
 	<div class="filter-field filter-field-eventType chfilter-field-STAGE_ID" callback="RTFilter_chooseBoolean">
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
-			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?
+			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?php 
 			$categoryGroups = \Bitrix\Crm\Category\DealCategory::getStageGroupInfos();
 			foreach($categoryGroups as $group):
 				$groupName = isset($group['name']) ? $group['name'] : '';
-				if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?endif;
+				if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?php endif;
 				$groupItems = isset($group['items']) && is_array($group['items']) ? $group['items'] : array();
 				foreach($groupItems as $key => $val):
-					?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?
+					?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?php 
 				endforeach;
-				if($groupName !== ''):?></optgroup><?endif;
+				if($groupName !== ''):?></optgroup><?php endif;
 			endforeach;
 		?></select>
 	</div>
@@ -322,16 +322,16 @@ while ($arRes = $obRes->Fetch())
 	<div class="filter-field filter-field-eventType chfilter-field-DEAL_OWNER.STAGE_ID" callback="RTFilter_chooseBoolean">
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
-			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?
+			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?php 
 			$categoryGroups = \Bitrix\Crm\Category\DealCategory::getStageGroupInfos();
 			foreach($categoryGroups as $group):
 				$groupName = isset($group['name']) ? $group['name'] : '';
-				if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?endif;
+				if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?php endif;
 				$groupItems = isset($group['items']) && is_array($group['items']) ? $group['items'] : array();
 				foreach($groupItems as $key => $val):
-				?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?
+				?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?php 
 				endforeach;
-				if($groupName !== ''):?></optgroup><?endif;
+				if($groupName !== ''):?></optgroup><?php endif;
 			endforeach;
 		?></select>
 	</div>
@@ -340,29 +340,29 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			if ($arResult['REPORT_OWNER_ID'] === 'crm_invoice')
 				$arStages = CCrmStatus::GetStatusList('INVOICE_STATUS');
 			else
 				$arStages = CCrmStatus::GetStatusList('STATUS');
 			?>
-			<? foreach($arStages as $key => $val){ ?>
+			<?php  foreach($arStages as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
-	<?
+	<?php 
 	if ($arResult['REPORT_OWNER_ID'] === 'crm_invoice'):
 	?><div class="filter-field filter-field-eventType chfilter-field-PERSON_TYPE_ID" callback="RTFilter_chooseBoolean">
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			$arOptions = CCrmReportHelperBase::getInvoicePersonTypeList();
 			foreach($arOptions as $key => $val){ ?>
 				<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -370,13 +370,13 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			$arOptions = CCrmReportHelperBase::getInvoicePaySystemList();
 			foreach($arOptions as $key => $val){ ?>
 				<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
-	</div><?
+	</div><?php 
 	endif;
 	?>
 
@@ -384,10 +384,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arStages = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arStages as $key => $val){ ?>
+			<?php  $arStages = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arStages as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -395,9 +395,9 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? foreach($arCompanyTypeList as $key => $val){ ?>
+			<?php  foreach($arCompanyTypeList as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -405,9 +405,9 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? foreach($arCompanyTypeList as $key => $val){ ?>
+			<?php  foreach($arCompanyTypeList as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -415,10 +415,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arEventTypes = CCrmStatus::GetStatusList('INDUSTRY'); ?>
-			<? foreach($arEventTypes as $key => $val){ ?>
+			<?php  $arEventTypes = CCrmStatus::GetStatusList('INDUSTRY'); ?>
+			<?php  foreach($arEventTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -426,10 +426,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arEventTypes = CCrmStatus::GetStatusList('EMPLOYEES'); ?>
-			<? foreach($arEventTypes as $key => $val){ ?>
+			<?php  $arEventTypes = CCrmStatus::GetStatusList('EMPLOYEES'); ?>
+			<?php  foreach($arEventTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -437,9 +437,9 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? foreach($arContactTypeList as $key => $val){ ?>
+			<?php  foreach($arContactTypeList as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -447,9 +447,9 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? foreach($arContactTypeList as $key => $val){ ?>
+			<?php  foreach($arContactTypeList as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -457,10 +457,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arEventTypes = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arEventTypes as $key => $val){ ?>
+			<?php  $arEventTypes = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arEventTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -468,10 +468,10 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arEventTypes = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arEventTypes as $key => $val){ ?>
+			<?php  $arEventTypes = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arEventTypes as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
@@ -479,17 +479,17 @@ while ($arRes = $obRes->Fetch())
 		<label for="%ID%" class="filter-field-title">%TITLE% "%COMPARE%"</label>
 		<select id="%ID%" name="%NAME%" class="filter-dropdown" caller="true">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?  $arOriginatorList = CCrmExternalSaleHelper::PrepareListItems() ?>
-			<? foreach($arOriginatorList as $key => $val){ ?>
+			<?php   $arOriginatorList = CCrmExternalSaleHelper::PrepareListItems() ?>
+			<?php  foreach($arOriginatorList as $key => $val){ ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<?}?>
+			<?php }?>
 		</select>
 	</div>
 
 </div>
 
-<?$this->SetViewTarget("sidebar_tools_1", 100);?>
-<? $reportCurrencyID = CCrmReportHelper::GetReportCurrencyID(); ?>
+<?php $this->SetViewTarget("sidebar_tools_1", 100);?>
+<?php  $reportCurrencyID = CCrmReportHelper::GetReportCurrencyID(); ?>
 <div class="sidebar-block">
 	<b class="r2"></b>
 	<b class="r1"></b>
@@ -503,12 +503,12 @@ while ($arRes = $obRes->Fetch())
 	<i class="r1"></i>
 	<i class="r2"></i>
 </div>
-<?$this->EndViewTarget();?>
+<?php $this->EndViewTarget();?>
 <script type="text/javascript">
-	var crmDealElements = <? echo CUtil::PhpToJsObject($arDeals); ?>;
-	var crmCompanyElements = <? echo CUtil::PhpToJsObject($arCompanies); ?>;
-	var crmContactElements = <? echo CUtil::PhpToJsObject($arContacts); ?>;
-	var crmLeadElements = <? echo CUtil::PhpToJsObject($arLeads); ?>;
+	var crmDealElements = <?php  echo CUtil::PhpToJsObject($arDeals); ?>;
+	var crmCompanyElements = <?php  echo CUtil::PhpToJsObject($arCompanies); ?>;
+	var crmContactElements = <?php  echo CUtil::PhpToJsObject($arContacts); ?>;
+	var crmLeadElements = <?php  echo CUtil::PhpToJsObject($arLeads); ?>;
 
 	var crmCompanyDialogID = '';
 	var crmContactDialogID = '';

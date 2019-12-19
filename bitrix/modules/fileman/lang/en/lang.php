@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_TITLE'] = "Site Explorer";
 $MESS ['FILEMAN_DOC_ROOT_TITLE'] = "Files and folders";
 $MESS ['FILEMAN_FILE_NAME'] = "Name";

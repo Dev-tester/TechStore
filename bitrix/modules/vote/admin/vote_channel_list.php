@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager Forum					 #
 # Copyright (c) 2002-2009 Bitrix			 #
@@ -222,7 +222,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 <a name="tb"></a>
 
 <form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
@@ -239,16 +239,16 @@ $oFilter->Begin();
 ?>
 <tr>
 	<td nowrap><b><?=GetMessage("VOTE_F_TITLE")?></b></td>
-	<td nowrap><input type="text" name="find_title" value="<?echo htmlspecialcharsbx($find_title)?>" size="47"><?=InputType("checkbox", "find_title_exact_match", "Y", $find_title_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_title" value="<?php echo htmlspecialcharsbx($find_title)?>" size="47"><?=InputType("checkbox", "find_title_exact_match", "Y", $find_title_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
 <tr>
 	<td>ID:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="top">
 	<td><?=GetMessage("VOTE_F_SITE")?><br><img src="/bitrix/images/vote/mouse.gif" width="44" height="21" border=0 alt=""></td>
-	<td><?
+	<td><?php 
 	$ref = array();
 	$ref_id = array();
 	$rs = CSite::GetList(($v1="sort"), ($v2="asc"));
@@ -262,21 +262,21 @@ $oFilter->Begin();
 </tr>
 <tr>
 	<td nowrap><?=GetMessage("VOTE_F_ACTIVE")?></td>
-	<td nowrap><?
+	<td nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("VOTE_YES"), GetMessage("VOTE_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("VOTE_ALL"));
 		?></td>
 </tr>
 <tr>
 	<td nowrap><?=GetMessage("VOTE_F_SID")?></td>
-	<td nowrap><input type="text" name="find_sid" value="<?echo htmlspecialcharsbx($find_sid)?>" size="47"><?=InputType("checkbox", "find_sid_exact_match", "Y", $find_sid_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_sid" value="<?php echo htmlspecialcharsbx($find_sid)?>" size="47"><?=InputType("checkbox", "find_sid_exact_match", "Y", $find_sid_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PORTAL_ADV_01_absence"] = "Система планування відсутностей";
 $MESS["PORTAL_ADV_03_outlook"] = "Обмін інформацією з Outlook";
 $MESS["PORTAL_ADV_05_xmpp"] = "Миттєві повідомлення XMPP";

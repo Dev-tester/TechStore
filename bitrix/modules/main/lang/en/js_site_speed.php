@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_SITE_SPEED_PAGE"] = "Page";
 $MESS["JS_SITE_SPEED_VERY_FAST"] = "Very fast";
 $MESS["JS_SITE_SPEED_FAST"] = "Fast";

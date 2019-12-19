@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE_TIP"] = "Select one of existing information block types in the list and click <b>OK</b>. This will load information blocks of the selected type. However, in this component this parameter is optional.";
 $MESS["IBLOCK_ID_TIP"] = "Select here one of the existing information blocks. If you select <b><i>(other)</i></b>, you will have to specify the information block ID in the field beside. For example: <b>={\$_REQUEST[\"IBLOCK_ID\"]}</b>";
 $MESS["NEWS_COUNT_TIP"] = "Specifies the number of elements per page.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 
@@ -8,6 +8,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_afte
 $APPLICATION->SetTitle(GetMessage("VI_PAGE_PHONES_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:voximplant.phones", "", array());?>
+<?php $APPLICATION->IncludeComponent("bitrix:voximplant.phones", "", array());?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

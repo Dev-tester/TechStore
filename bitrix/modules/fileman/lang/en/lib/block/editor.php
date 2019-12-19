@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOCK_EDITOR_COMMON_DEFAULT"] = "by default";
 $MESS["BLOCK_EDITOR_COMMON_NO"] = "No";
 $MESS["BLOCK_EDITOR_PREVIEW_MODE_PHONE"] = "Phone";

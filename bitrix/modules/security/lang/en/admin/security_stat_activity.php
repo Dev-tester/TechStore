@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_STATACT_TITLE'] = "Activity Control";
 $MESS ['SEC_STATACT_MAIN_TAB'] = "Activity Control";
 $MESS ['SEC_STATACT_MAIN_TAB_TITLE'] = "Enable or disable activity control";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_ERROR_MAIN_MODULE_URL_SITE_USE"] = "Domain names specified in the Kernel module settings and the current domain are different. Domain name #DOMAIN# specified in the Kernel module settings is used for server response. To change domain name, <a href=\"/bitrix/admin/settings.php?lang=ru&mid=main&mid_menu=1\">modify the \"Site URL\" field.</a>";
 $MESS["IMCONNECTOR_ERROR_SERVER_NAME_USE"] = "The Kernel module's \"Site URL\" field is empty. The current domain name #DOMAIN# will be used for server response. To change domain name, <a href=\"/bitrix/admin/settings.php?lang=ru&mid=main&mid_menu=1\">modify the \"Site URL\" field.</a>";
 $MESS["IMCONNECTOR_NAME_CONNECTOR_AVITO"] = "Avito";

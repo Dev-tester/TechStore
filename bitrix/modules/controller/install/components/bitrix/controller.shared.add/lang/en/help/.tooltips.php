@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["URL_SUBDOMAIN_TIP"] = "Specifies the top level subdomain";
 $MESS["PATH_VHOST_TIP"] = "Specifies the full path to a folder containing rented sites";
 $MESS["MYSQL_PATH_TIP"] = "The path to the mysql executable file";

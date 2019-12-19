@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C30_T_USER"] = "User";
 $MESS["SONET_C30_T_MESSAGE_HIDE"] = "hide";
 $MESS["SONET_C30_T_MESSAGE_SHOW"] = "show";

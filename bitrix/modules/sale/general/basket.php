@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Event;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale;

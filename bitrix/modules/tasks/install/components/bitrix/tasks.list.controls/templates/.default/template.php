@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if($arParams['USE_TITLE_TARGET'] !== 'N')
 {
@@ -12,27 +12,27 @@ if($arParams['USE_TITLE_TARGET'] !== 'N')
 	?>
 	<div class="task-list-toolbar<?= (!$bitrix24 ? " task-list-toolbar-float" : "")?>">
 		<div class="task-list-toolbar-actions">
-			<?
+			<?php 
 //			if (!isset($_REQUEST['IFRAME'])
 //				&& isset($arParams["CUSTOM_ELEMENTS"]["BACK_BUTTON_ALT"]) && $arParams["SECTION_URL_PREFIX"])
 //			{
 //				?><!--<a-->
-<!--					href="--><?//=htmlspecialcharsbx($arParams["SECTION_URL_PREFIX"]."?F_CANCEL=N")?><!--"-->
+<!--					href="--><?php //=htmlspecialcharsbx($arParams["SECTION_URL_PREFIX"]."?F_CANCEL=N")?><!--"-->
 <!--					target="_top"-->
-<!--					class="task-list-back">--><?//=GetMessage('TASKS_TASK_COMPONENT_TEMPLATE_TO_LIST')?><!--</a>-->
-<!--				--><?//
+<!--					class="task-list-back">--><?php //=GetMessage('TASKS_TASK_COMPONENT_TEMPLATE_TO_LIST')?><!--</a>-->
+<!--				--><?php //
 //			}
 
 			if ($arParams["SHOW_SEARCH_FIELD"] === "Y")
 			{
 				?><div class="task-list-toolbar-search">
-					<form action="<?$arParams["PATH_TO_TASKS"]?>" method="GET" name="task-filter-title-form">
+					<form action="<?php $arParams["PATH_TO_TASKS"]?>" method="GET" name="task-filter-title-form">
 						<input class="task-list-toolbar-search-input" id="task-title-button-search-input"
-							name="F_SEARCH" type="text"<?
+							name="F_SEARCH" type="text"<?php 
 								if($arResult["SEARCH_STRING"]):?>
-									value="<? echo htmlspecialcharsbx($arResult["SEARCH_STRING"]); ?>"
-								<?endif?>/>
-						<input type="hidden" name="VIEW" value="<?
+									value="<?php  echo htmlspecialcharsbx($arResult["SEARCH_STRING"]); ?>"
+								<?php endif?>/>
+						<input type="hidden" name="VIEW" value="<?php 
 						if ($arParams["VIEW_TYPE"] == "list")
 						{
 							echo 1;
@@ -46,26 +46,26 @@ if($arParams['USE_TITLE_TARGET'] !== 'N')
 							echo 0;
 						} ?>"
 						/>
-						<input type="hidden"  name="F_ADVANCED" value="Y" /><?
+						<input type="hidden"  name="F_ADVANCED" value="Y" /><?php 
 
 					if (isset($_GET["F_SEARCH"]) && $_GET["F_SEARCH"])
 					{
-						?><a href="<? echo $APPLICATION->GetCurPageParam(
+						?><a href="<?php  echo $APPLICATION->GetCurPageParam(
 							"F_CANCEL=Y",
 							array(
 								"F_TITLE", "F_RESPONSIBLE", "F_CREATED_BY", "F_ACCOMPLICE", "F_AUDITOR",
 								"F_DATE_FROM", "F_DATE_TO", "F_TAGS", "F_STATUS", "F_SUBORDINATE",
 								"F_ADVANCED", "F_SEARCH"
 							)
-						)?>" class="task-list-toolbar-search-reset"></a><?
+						)?>" class="task-list-toolbar-search-reset"></a><?php 
 					}
 					else
 					{
-						?><span class="task-list-toolbar-search-icon" id="task-title-button-search-icon"></span><?
+						?><span class="task-list-toolbar-search-icon" id="task-title-button-search-icon"></span><?php 
 					}
 					?>
 					</form>
-				</div><?
+				</div><?php 
 			}
 
 			if (isset($arParams["CUSTOM_ELEMENTS"]["BACK_BUTTON"]) && isset($arParams["CUSTOM_ELEMENTS"]["BACK_BUTTON"]["name"]))
@@ -83,13 +83,13 @@ if($arParams['USE_TITLE_TARGET'] !== 'N')
 
 				?><a target="_top"
 				style="margin-top: 7px;"
-				<? if ($url) echo " href=\"" . $url . "\""; ?>
+				<?php  if ($url) echo " href=\"" . $url . "\""; ?>
 				class="task-title-button task-title-button-back"
-				<? if ($onclick) echo " onclick=\"" . $onclick . "\"" ?>
+				<?php  if ($onclick) echo " onclick=\"" . $onclick . "\"" ?>
 				><i class="task-title-button-back-icon"></i
-				><span class="task-title-button-back-text"><?
+				><span class="task-title-button-back-text"><?php 
 					echo $arParams["CUSTOM_ELEMENTS"]["BACK_BUTTON"]["name"];
-					?></span></a>&nbsp;<?
+					?></span></a>&nbsp;<?php 
 			}
 
 			if (isset($arParams["CUSTOM_ELEMENTS"]["TEMPLATES_TOOLBAR"]) || $arParams["SHOW_TEMPLATES_TOOLBAR"] === "Y")
@@ -117,7 +117,7 @@ if($arParams['USE_TITLE_TARGET'] !== 'N')
 			}
 			?>
 		</div>
-		<?
+		<?php 
 		if (isset($arParams["CUSTOM_ELEMENTS"]["ADD_BUTTON"]) || $arParams["SHOW_ADD_TASK_BUTTON"] === "Y")
 		{
 			$id = "";
@@ -146,7 +146,7 @@ if($arParams['USE_TITLE_TARGET'] !== 'N')
 							id="<?=$id?>-btn"><?=$name?>
 						</a>
 						<span id="<?=$id?>" class="webform-small-button-right-part"></span>
-					</span><?
+					</span><?php 
 				else: ?>
 					<a
 						href="<?=$url?>"
@@ -154,11 +154,11 @@ if($arParams['USE_TITLE_TARGET'] !== 'N')
 						class="webform-small-button webform-small-button-blue"
 						id="<?=$id?>-btn"><?=$name?>
 					</a>
-				<?endif;
+				<?php endif;
 		}
 		?>
 	</div>
-	<?
+	<?php 
 	if(SITE_TEMPLATE_ID === "bitrix24")
 	{
 		$this->EndViewTarget();

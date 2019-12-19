@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_GR_ED_ER1"] = "Ошибка сохранения";
 $MESS["CTRLR_GR_ED_TITLE_1"] = "Редактирование группы ##ID#";
 $MESS["CTRLR_GR_ED_TITLE_2"] = "Добавление новой группы";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBEL_A_ACCESS_DENIED_STATUS"] = "You do not have enough permissions to edit this record in its current state";
 $MESS["IBEL_A_ACTFROM"] = "Active from";
 $MESS["IBEL_A_ACTIVATE"] = "Activate";

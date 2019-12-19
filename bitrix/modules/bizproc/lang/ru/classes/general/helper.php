@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPCGHLP_INVALID_USER'] = "Пользователь или группа пользователей '#USER#' не найдены.";
 $MESS ['BPCGHLP_DAY1'] = "день";
 $MESS ['BPCGHLP_DAY2'] = "дня";

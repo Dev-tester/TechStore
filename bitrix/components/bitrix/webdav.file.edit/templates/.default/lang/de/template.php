@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_NAME"] = "Überschrift";
 $MESS["WD_FILE"] = "Datei";
 $MESS["WD_FILE_REPLACE"] = "Datei ersetzen";

@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 ?>
 <div class="bizproc-page-task">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])):
 	ShowError($arResult["ERROR_MESSAGE"]);
 endif;
@@ -15,21 +15,21 @@ if ($arResult["ShowMode"] == "Success"):
 	<legend class="bizproc-item-legend bizproc-task-legend">
 		<?= $arResult["TASK"]["NAME"] ?>
 	</legend>
-	<?if (strlen($arResult["TASK"]["DESCRIPTION"]) > 0):?>
+	<?php if (strlen($arResult["TASK"]["DESCRIPTION"]) > 0):?>
 	<div class="bizproc-item-description bizproc-task-description">
 		<?=$arResult["TASK"]["DESCRIPTION"]?>
 	</div>
-	<?endif;
+	<?php endif;
 	if (!empty($arResult["TASK"]["URL"])):?>
 	<div class="bizproc-item-description bizproc-task-document">
 		<a target="_blank" href="<?=$docUrl?>"><?=GetMessage("BPAT_GOTO_DOC")?></a>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="bizproc-item-text bizproc-task-success">
 		<?=GetMessage("BPATL_SUCCESS")?>
 	</div>
 </fieldset>
-<?
+<?php 
 else:
 ?>
 <form method="post" name="task_form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
@@ -43,12 +43,12 @@ else:
 	<legend class="bizproc-item-legend bizproc-task-legend">
 		<?= $arResult["TASK"]["NAME"] ?>
 	</legend>
-	<?if (strlen($arResult["TASK"]["~DESCRIPTION"]) > 0):?>
+	<?php if (strlen($arResult["TASK"]["~DESCRIPTION"]) > 0):?>
 	<div class="bizproc-item-description bizproc-task-description">
 		<br />
 		<?=nl2br($arResult["TASK"]["DESCRIPTION"])?>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="bizproc-item-text bizproc-task-text">
 		<div class="bizproc-task-document">
 			<a target="_blank" href="<?=$docUrl?>"><?=GetMessage("BPAT_GOTO_DOC")?></a>
@@ -69,13 +69,13 @@ else:
 	</div>
 </fieldset>
 </form>
-<?
+<?php 
 endif;	
 ?>
 </div>
 <br><br>
 <h3><?=GetMessage("BPATL_DOC_HISTORY")?></h3>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:bizproc.log",
 	"webdav.bizproc.log",

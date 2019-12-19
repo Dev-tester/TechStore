@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_MENU_TYPE_NAME"] = "Menu type for root level";
 $MESS["CHILD_MENU_TYPE_NAME"] = "Menu type for child levels";
 $MESS["FILEMAN_OPTION_LEFT_MENU_NAME"] = "Left menu";

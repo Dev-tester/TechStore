@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_SORT_PULL_TEXT"] = "Потяните, чтобы обновить...";
 $MESS["M_SORT_DOWN_TEXT"] = "Отпустите, чтобы обновить...";
 $MESS["M_SORT_LOAD_TEXT"] = "Обновление списка...";

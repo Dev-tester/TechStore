@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 $this->IncludeLangFile("show.php");
 /** @var array $arParams */
 /** @var array $arResult */
@@ -24,19 +24,19 @@ foreach ($arResult['FILES'] as $id => $file)
 {
 	if($file['IS_MARK_DELETED'])
 	{
-		?><span <?
-		?>title="<?=htmlspecialcharsbx($file["NAVCHAIN"])?>" <?
-		?> class="feed-com-file-inline feed-com-file-wrap diskuf-files-entity"<?
-		?>><?
-		?><span class="feed-com-file-inline feed-com-file-icon feed-file-icon-<?=htmlspecialcharsbx($file["EXTENSION"])?>"></span><?
-		?><span class="feed-com-file-inline feed-com-file-deleted-name"><?=htmlspecialcharsbx($file["NAME"])?></span><?
-		?><?
-		?></span><?
+		?><span <?php 
+		?>title="<?=htmlspecialcharsbx($file["NAVCHAIN"])?>" <?php 
+		?> class="feed-com-file-inline feed-com-file-wrap diskuf-files-entity"<?php 
+		?>><?php 
+		?><span class="feed-com-file-inline feed-com-file-icon feed-file-icon-<?=htmlspecialcharsbx($file["EXTENSION"])?>"></span><?php 
+		?><span class="feed-com-file-inline feed-com-file-deleted-name"><?=htmlspecialcharsbx($file["NAME"])?></span><?php 
+		?><?php 
+		?></span><?php 
 	}
 	elseif (array_key_exists("IMAGE", $file))
 	{
-		?><div id="disk-attach-<?=$file['ID']?>" class="feed-com-file-inline feed-com-file-inline-image feed-com-file-wrap diskuf-files-entity"><?
-			?><span class="feed-com-file-inline feed-com-img-wrap feed-com-img-load" style="width:<?=$file["INLINE"]["width"]?>px;height:<?=$file["INLINE"]["height"]?>px;"><?
+		?><div id="disk-attach-<?=$file['ID']?>" class="feed-com-file-inline feed-com-file-inline-image feed-com-file-wrap diskuf-files-entity"><?php 
+			?><span class="feed-com-file-inline feed-com-img-wrap feed-com-img-load" style="width:<?=$file["INLINE"]["width"]?>px;height:<?=$file["INLINE"]["height"]?>px;"><?php 
 
 				$id = "disk-inline-image-".$file['ID']."-".$this->getComponent()->randString(4);
 				if (
@@ -47,36 +47,36 @@ foreach ($arResult['FILES'] as $id => $file)
 					$jsIds .= $jsIds !== "" ? ', "'.$id.'"' : '"'.$id.'"';
 				}
 
-				?><img id="<?=$id?>" onload="this.parentNode.className='feed-com-img-wrap';" <?
+				?><img id="<?=$id?>" onload="this.parentNode.className='feed-com-img-wrap';" <?php 
 				if (
 					isset($arParams["LAZYLOAD"]) 
 					&& $arParams["LAZYLOAD"] == "Y"
 				)
 				{
-					?> src="<?=\Bitrix\Disk\Ui\LazyLoad::getBase64Stub()?>" <?
-					?> data-thumb-src="<?=$file["INLINE"]["src"] ?>"<?
+					?> src="<?=\Bitrix\Disk\Ui\LazyLoad::getBase64Stub()?>" <?php 
+					?> data-thumb-src="<?=$file["INLINE"]["src"] ?>"<?php 
 				}
 				else
 				{
-					?> src="<?=$file["INLINE"]["src"]?>" <?
+					?> src="<?=$file["INLINE"]["src"]?>" <?php 
 				}
-				?> width="<?=$file["INLINE"]["width"]?>"<?
-				?> height="<?=$file["INLINE"]["height"]?>"<?
-				?> alt="<?=htmlspecialcharsbx($file["NAME"])?>"<?
+				?> width="<?=$file["INLINE"]["width"]?>"<?php 
+				?> height="<?=$file["INLINE"]["height"]?>"<?php 
+				?> alt="<?=htmlspecialcharsbx($file["NAME"])?>"<?php 
 				?> <?= $file['ATTRIBUTES_FOR_VIEWER']
-				?> bx-attach-file-id="<?=$file['FILE_ID']?>"<?
-				if ($file['XML_ID']): ?> bx-attach-xml-id="<?=$file['XML_ID']?>"<?endif;
-				?> data-bx-width="<?=$file["BASIC"]["width"]?>"<?
-				?> data-bx-height="<?=$file["BASIC"]["height"]?>"<?
+				?> bx-attach-file-id="<?=$file['FILE_ID']?>"<?php 
+				if ($file['XML_ID']): ?> bx-attach-xml-id="<?=$file['XML_ID']?>"<?php endif;
+				?> data-bx-width="<?=$file["BASIC"]["width"]?>"<?php 
+				?> data-bx-height="<?=$file["BASIC"]["height"]?>"<?php 
 				if (!empty($file["ORIGINAL"])) {
-				?> data-bx-full="<?=$file["ORIGINAL"]["src"]?>"<?
-				?> data-bx-full-width="<?=$file["ORIGINAL"]["width"]?>" <?
-				?> data-bx-full-height="<?=$file["ORIGINAL"]["height"]?>"<?
-				?> data-bx-full-size="<?=$file["SIZE"]?>"<? }
-				?> data-bx-onload="Y"<?
-				?> /><?
-			?></span><?
-		?></div><?
+				?> data-bx-full="<?=$file["ORIGINAL"]["src"]?>"<?php 
+				?> data-bx-full-width="<?=$file["ORIGINAL"]["width"]?>" <?php 
+				?> data-bx-full-height="<?=$file["ORIGINAL"]["height"]?>"<?php 
+				?> data-bx-full-size="<?=$file["SIZE"]?>"<?php  }
+				?> data-bx-onload="Y"<?php 
+				?> /><?php 
+			?></span><?php 
+		?></div><?php 
 	}
 	elseif (array_key_exists("VIDEO", $file))
 	{
@@ -84,22 +84,22 @@ foreach ($arResult['FILES'] as $id => $file)
 	}
 	else
 	{
-		?><a target="_blank" href="<?=htmlspecialcharsbx($file["PATH"])?>" <?
-			?>title="<?=htmlspecialcharsbx($file["NAVCHAIN"])?>" <?
-			?>onclick="WDInlineElementClickDispatcher(this, 'disk-attach-<?=$file['ID']?>'); return false;" <?
-			?> alt="<?=htmlspecialcharsbx($file["NAME"])?>" <?
-			?> class="feed-com-file-inline feed-com-file-wrap diskuf-files-entity"<?
-			?> bx-attach-file-id="<?=$file['FILE_ID']?>"<?
-			if ($file['XML_ID']){ ?> bx-attach-xml-id="<?=$file['XML_ID']?>"<?}
-			?>><?
-			?><span class="feed-com-file-inline feed-com-file-icon feed-file-icon-<?=htmlspecialcharsbx($file["EXTENSION"])?>"></span><?
-			?><span class="feed-com-file-inline feed-com-file-name"><?=htmlspecialcharsbx($file["NAME"])?></span><?
-			?><?
-		?></a><?
+		?><a target="_blank" href="<?=htmlspecialcharsbx($file["PATH"])?>" <?php 
+			?>title="<?=htmlspecialcharsbx($file["NAVCHAIN"])?>" <?php 
+			?>onclick="WDInlineElementClickDispatcher(this, 'disk-attach-<?=$file['ID']?>'); return false;" <?php 
+			?> alt="<?=htmlspecialcharsbx($file["NAME"])?>" <?php 
+			?> class="feed-com-file-inline feed-com-file-wrap diskuf-files-entity"<?php 
+			?> bx-attach-file-id="<?=$file['FILE_ID']?>"<?php 
+			if ($file['XML_ID']){ ?> bx-attach-xml-id="<?=$file['XML_ID']?>"<?php }
+			?>><?php 
+			?><span class="feed-com-file-inline feed-com-file-icon feed-file-icon-<?=htmlspecialcharsbx($file["EXTENSION"])?>"></span><?php 
+			?><span class="feed-com-file-inline feed-com-file-name"><?=htmlspecialcharsbx($file["NAME"])?></span><?php 
+			?><?php 
+		?></a><?php 
 	}
 }
 
 if (strlen($jsIds) > 0)
 {
-	?><script>BX.LazyLoad.registerImages([<?=$jsIds?>], typeof oLF != 'undefined' ? oLF.LazyLoadCheckVisibility : false, {dataSrcName: "thumbSrc"});</script><?
+	?><script>BX.LazyLoad.registerImages([<?=$jsIds?>], typeof oLF != 'undefined' ? oLF.LazyLoadCheckVisibility : false, {dataSrcName: "thumbSrc"});</script><?php 
 }

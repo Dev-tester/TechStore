@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 extract($_REQUEST, EXTR_SKIP);
 IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"].BX_PERSONAL_ROOT."/templates/".SITE_TEMPLATE_ID."/main/auth/auth_form.php");
 $cur_page = $GLOBALS["APPLICATION"]->GetCurPage();
@@ -13,16 +13,16 @@ else
 
 ShowMessage($arAuthResult);
 ?>
-<form name="form_auth" method="post" target="_top" action="<?echo htmlspecialcharsbx($page).(($s=DeleteParam(array("logout", "login"))) == ""? "?login=yes":"?$s&login=yes");?>">
+<form name="form_auth" method="post" target="_top" action="<?php echo htmlspecialcharsbx($page).(($s=DeleteParam(array("logout", "login"))) == ""? "?login=yes":"?$s&login=yes");?>">
 
 	<input type="hidden" name="AUTH_FORM" value="Y">
 	<input type="hidden" name="TYPE" value="AUTH">
 	<?=$str?>
-	<?foreach($GLOBALS["HTTP_POST_VARS"] as $vname=>$vvalue):
+	<?php foreach($GLOBALS["HTTP_POST_VARS"] as $vname=>$vvalue):
 	if($vname=="USER_LOGIN")continue;
 	?>
-	<input type="hidden" name="<?echo htmlspecialcharsbx($vname)?>" value="<?echo htmlspecialcharsbx($vvalue)?>">
-	<?endforeach?>
+	<input type="hidden" name="<?php echo htmlspecialcharsbx($vname)?>" value="<?php echo htmlspecialcharsbx($vvalue)?>">
+	<?php endforeach?>
 
 <p><font class="text"><?=GetMessage("AUTH_PLEASE_AUTH")?></font></p>
 <table border="0" cellspacing="0" cellpadding="1" class="tableborder">
@@ -40,17 +40,17 @@ ShowMessage($arAuthResult);
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_LOGIN")?></font></td>
-					<td align="left"  class="tablebody"><input type="text" name="USER_LOGIN" maxlength="50" size="20" value="<?echo htmlspecialcharsbx($last_login)?>" class="inputtext"></td>
+					<td align="left"  class="tablebody"><input type="text" name="USER_LOGIN" maxlength="50" size="20" value="<?php echo htmlspecialcharsbx($last_login)?>" class="inputtext"></td>
 				</tr>
 				<tr> 
 					<td align="right" class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_PASSWORD")?></font></td>
 					<td align="left" class="tablebody"><input type="password" name="USER_PASSWORD" maxlength="50" class="inputtext" size="20"></td>
 				</tr>
-				<?if (COption::GetOptionString("main", "store_password", "Y")=="Y") :?>
+				<?php if (COption::GetOptionString("main", "store_password", "Y")=="Y") :?>
 				<tr> 
 					<td align="center" class="tablebody" colspan="2"><font class="tablebodytext"><input type="checkbox" name="USER_REMEMBER" value="Y" class="inputcheckbox">&nbsp;<?=GetMessage("AUTH_REMEMBER_ME")?></font></td>
 				</tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr> 
 					<td class="tablebody" align="center" colspan="2"><font class="tablebodytext"><input type="submit" name="Login" value="<?=GetMessage("AUTH_AUTHORIZE")?>" class="inputbodybutton"></font></td>
 				</tr>
@@ -59,30 +59,30 @@ ShowMessage($arAuthResult);
 	</tr>
 </table>
 
-<?if ($not_show_links!="Y"):?>
-<?if(COption::GetOptionString("main", "new_user_registration", "N")=="Y"):?>
+<?php if ($not_show_links!="Y"):?>
+<?php if(COption::GetOptionString("main", "new_user_registration", "N")=="Y"):?>
 <p>
 <font class="text">
-<a href="<? echo $cur_page."?register=yes".($s<>""? "&amp;$s":"");?>"><b><?=GetMessage("AUTH_REGISTER")?></b></a>
-<br><?=GetMessage("AUTH_FIRST_ONE")?> <a href="<? echo $cur_page."?register=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_REG_FORM")?></a>.<br>
+<a href="<?php  echo $cur_page."?register=yes".($s<>""? "&amp;$s":"");?>"><b><?=GetMessage("AUTH_REGISTER")?></b></a>
+<br><?=GetMessage("AUTH_FIRST_ONE")?> <a href="<?php  echo $cur_page."?register=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_REG_FORM")?></a>.<br>
 </font>
 </p>
-<?endif;?>
+<?php endif;?>
 <p>
 <font class="text">
-<a href="<?echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><b><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></b></a>
-<br><?=GetMessage("AUTH_GO")?> <a href="<?echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_GO_AUTH_FORM")?></a>
-<br><?=GetMessage("AUTH_MESS_1")?> <a href="<?echo $cur_page."?change_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_CHANGE_FORM")?></a>
+<a href="<?php echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><b><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></b></a>
+<br><?=GetMessage("AUTH_GO")?> <a href="<?php echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_GO_AUTH_FORM")?></a>
+<br><?=GetMessage("AUTH_MESS_1")?> <a href="<?php echo $cur_page."?change_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_CHANGE_FORM")?></a>
 </font>
 </p>
-<?endif;?>
+<?php endif;?>
 </form>
 <script>
 <!--
-<? if (strlen($last_login)>0) : ?>
+<?php  if (strlen($last_login)>0) : ?>
 try{document.form_auth.USER_PASSWORD.focus();}catch(e){}
-<? else : ?>
+<?php  else : ?>
 try{document.form_auth.USER_LOGIN.focus();}catch(e){}
-<? endif; ?>
+<?php  endif; ?>
 // -->
 </script>

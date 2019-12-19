@@ -109,7 +109,7 @@ class CCalendarConvert
 		}
 
 		$this->AddTypesFromIblockType();
-		?><script>top.location = "/bitrix/admin/calendar_convert.php?lang=<?= LANG?>&content_parsed=Y";</script><?
+		?><script>top.location = "/bitrix/admin/calendar_convert.php?lang=<?= LANG?>&content_parsed=Y";</script><?php 
 	}
 
 	function ParseFile($file)
@@ -190,7 +190,7 @@ class CCalendarConvert
 			top.cal_site = '<?= CUtil::JSEscape($site)?>';
 			top.cal_next_path = '<?= CUtil::JSEscape($nextPath)?>';
 		</script>
-		<?
+		<?php 
 		die();
 	}
 
@@ -970,7 +970,7 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 				ExecuteModuleEventEx($arEvent);
 		}
 
-		?><script>top.bx_cal_convert = '<?= $stage?>';</script><?
+		?><script>top.bx_cal_convert = '<?= $stage?>';</script><?php 
 		die();
 	}
 
@@ -1020,7 +1020,7 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 		<?= bitrix_sessid_post();?>
 		<input type="hidden" name="lang" value="<?=LANG?>" />
 		<h1><?= GetMessage('CAL_CONVERT')?></h1>
-		<?if(!isset($RES)):?>
+		<?php if(!isset($RES)):?>
 			<?= BeginNote()?>
 			<?= GetMessage('CAL_NOT_PARSE')?>
 			<?= EndNote();?>
@@ -1030,7 +1030,7 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 		<input id="cal_conv_cur_site" type="hidden" name="cur_site" value="" />
 
 		<input id="bxconv_parse" type="button" value="<?= GetMessage('CAL_PARSE_CONTENT')?>" onclick="parseContent();"/>
-		<?else:?>
+		<?php else:?>
 
 		<input type="hidden" name="convert" value="Y" />
 		<input id="bx_set_params" type="hidden" name="set_params" value="Y" />
@@ -1047,47 +1047,47 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 
 		<h1><?= GetMessage('CAL_CONVERT_IBLOCK_LIST')?></h1>
 		<table class="edit-table">
-		<?foreach ($RES['TYPES'] as $k => $type):
+		<?php foreach ($RES['TYPES'] as $k => $type):
 			$name = 'types['.$k.']'
 			?>
 			<tr>
 				<td  class="field-name">
-					<input name="<?= $name?>[allow]" type="checkbox" <?if($type['checked']){echo ' checked="checked"';}?> <?/*if($type['sys']){echo ' disabled';}*/?> value="Y" title="<?= GetMessage('TYPE_CONVERT_IT')?>"/>
+					<input name="<?= $name?>[allow]" type="checkbox" <?php if($type['checked']){echo ' checked="checked"';}?> <?php /*if($type['sys']){echo ' disabled';}*/?> value="Y" title="<?= GetMessage('TYPE_CONVERT_IT')?>"/>
 				</td>
 				<td class="field-name">
-					<?if ($type['sys']):?>
-						<?/*<input type="hidden" name="<?= $name?>[allow]" value="Y" /> */?>
+					<?php if ($type['sys']):?>
+						<?php /*<input type="hidden" name="<?= $name?>[allow]" value="Y" /> */?>
 						<input type="hidden" name="<?= $name?>[key]" value="<?= htmlspecialcharsbx($k)?>" />
 						<input type="hidden" name="<?= $name?>[title]" value="<?= htmlspecialcharsbx($type['title'])?>" />
 						<?= htmlspecialcharsbx($type['title'])?>
-					<?else:?>
+					<?php else:?>
 						<span class="display: inline-block;"><?= GetMessage('TYPE_ID')?>:</span>
 						<input size="40" name="<?= $name?>[key]" type="text" value="<?= htmlspecialcharsbx($k)?>"><br>
 						<span class="display: inline-block;"><?= GetMessage('TYPE_TITLE')?>:</span>
 						<input size="40" name="<?= $name?>[title]" type="text" value="<?= htmlspecialcharsbx($type['title'])?>">
-					<?endif;?>
+					<?php endif;?>
 				</td>
 				<td  class="field-name">
 					<?= GetMessage('CAL_CONVERT_FROM')?>
 				</td>
 				<td style="text-align: left; padding: 3px 0 3px 10px;">
 					<select name="<?= $name?>[iblock_type]" onchange="changeIblockList(this.value, [BX('type_iblock_sel_<?= $k?>')]);">
-					<?foreach ($IB['types'] as $ibtype_id => $ibtype_name):?>
-						<option value="<?= $ibtype_id?>" <?if($ibtype_id == $type['iblockType']){echo ' selected="selected"';}?>><?= $ibtype_name?></option>
-					<?endforeach;?>
+					<?php foreach ($IB['types'] as $ibtype_id => $ibtype_name):?>
+						<option value="<?= $ibtype_id?>" <?php if($ibtype_id == $type['iblockType']){echo ' selected="selected"';}?>><?= $ibtype_name?></option>
+					<?php endforeach;?>
 					</select>
 					<select id="type_iblock_sel_<?= $k?>" name="<?= $name?>[iblock_id]">
-					<?if ($type['iblockId']):?>
-						<?foreach ($IB['iblocks'][$type['iblockType']] as $iblock_id => $iblock):?>
-							<option value="<?= $iblock_id?>"<? if($iblock_id == $type['iblockId']){echo ' selected="selected"';}?>><?= $iblock?></option>
-						<?endforeach;?>
-					<?else:?>
+					<?php if ($type['iblockId']):?>
+						<?php foreach ($IB['iblocks'][$type['iblockType']] as $iblock_id => $iblock):?>
+							<option value="<?= $iblock_id?>"<?php  if($iblock_id == $type['iblockId']){echo ' selected="selected"';}?>><?= $iblock?></option>
+						<?php endforeach;?>
+					<?php else:?>
 						<option value=""> - </option>
-					<?endif;?>
+					<?php endif;?>
 					</select>
 				</td>
 			</tr>
-		<?endforeach;?>
+		<?php endforeach;?>
 		</table>
 		<h1><?= GetMessage('CAL_CONVERT_SET')?></h1>
 			<div>
@@ -1096,15 +1096,15 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 					<td class="field-name"><label for="cal_work_time"><?= GetMessage("CAL_WORK_TIME")?>:</label></td>
 					<td>
 						<select id="cal_work_time" name="work_time_start">
-							<?foreach($arWorTimeList as $key => $val):?>
-								<option value="<?= $key?>" <? if ($SET['work_time_start'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
-							<?endforeach;?>
+							<?php foreach($arWorTimeList as $key => $val):?>
+								<option value="<?= $key?>" <?php  if ($SET['work_time_start'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
+							<?php endforeach;?>
 						</select>
 						&mdash;
 						<select id="cal_work_time" name="work_time_end">
-							<?foreach($arWorTimeList as $key => $val):?>
-								<option value="<?= $key?>" <? if ($SET['work_time_end'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
-							<?endforeach;?>
+							<?php foreach($arWorTimeList as $key => $val):?>
+								<option value="<?= $key?>" <?php  if ($SET['work_time_end'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
+							<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
@@ -1113,9 +1113,9 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 					<td class="field-name" style="vertical-align: top;"><label for="cal_week_holidays"><?= GetMessage("CAL_WEEK_HOLIDAYS")?>:</label></td>
 					<td>
 						<select size="7" multiple=true id="cal_week_holidays" name="week_holidays[]">
-							<?foreach($arDays as $day):?>
-								<option value="<?= $day?>" <?if (in_array($day, $SET['week_holidays'])){echo ' selected="selected"';}?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
-							<?endforeach;?>
+							<?php foreach($arDays as $day):?>
+								<option value="<?= $day?>" <?php if (in_array($day, $SET['week_holidays'])){echo ' selected="selected"';}?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
+							<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
@@ -1158,9 +1158,9 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 					<td>
 						<select name="rm_iblock_type" onchange="changeIblockList(this.value, [BX('cal_rm_iblock_id'), BX('cal_vr_iblock_id')])">
 							<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-						<?foreach ($IB['types'] as $ibtype_id => $ibtype_name):?>
-							<option value="<?= $ibtype_id?>" <?if($ibtype_id == $SET['rm_iblock_type']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($ibtype_name)?></option>
-						<?endforeach;?>
+						<?php foreach ($IB['types'] as $ibtype_id => $ibtype_name):?>
+							<option value="<?= $ibtype_id?>" <?php if($ibtype_id == $SET['rm_iblock_type']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($ibtype_name)?></option>
+						<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
@@ -1168,13 +1168,13 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 					<td class="field-name"><label for="cal_rm_iblock_id"><?= GetMessage("CAL_RM_IBLOCK_ID")?>:</label></td>
 					<td>
 						<select id="cal_rm_iblock_id" name="rm_iblock_id">
-<?if ($SET['rm_iblock_id']):?>
-				<?foreach ($IB['iblocks'][$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
-					<option value="<?= $iblock_id?>"<? if($iblock_id == $SET['rm_iblock_id']){echo ' selected="selected"';}?>><?= $iblock?></option>
-				<?endforeach;?>
-<?else:?>
+<?php if ($SET['rm_iblock_id']):?>
+				<?php foreach ($IB['iblocks'][$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
+					<option value="<?= $iblock_id?>"<?php  if($iblock_id == $SET['rm_iblock_id']){echo ' selected="selected"';}?>><?= $iblock?></option>
+				<?php endforeach;?>
+<?php else:?>
 				<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-<?endif;?>
+<?php endif;?>
 
 						</select>
 					</td>
@@ -1189,13 +1189,13 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 					<td class="field-name"><label for="cal_vr_iblock_id"><?= GetMessage("CAL_VR_IBLOCK_ID")?>:</label></td>
 					<td>
 						<select id="cal_vr_iblock_id" name="vr_iblock_id"">
-<?if ($SET['vr_iblock_id']):?>
-				<?foreach ($IB['iblocks'][$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
-					<option value="<?= $iblock_id?>"<? if($iblock_id == $SET['vr_iblock_id']){echo ' selected="selected"';}?>><?= $iblock?></option>
-				<?endforeach;?>
-<?else:?>
+<?php if ($SET['vr_iblock_id']):?>
+				<?php foreach ($IB['iblocks'][$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
+					<option value="<?= $iblock_id?>"<?php  if($iblock_id == $SET['vr_iblock_id']){echo ' selected="selected"';}?>><?= $iblock?></option>
+				<?php endforeach;?>
+<?php else:?>
 				<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-<?endif;?>
+<?php endif;?>
 						</select>
 					</td>
 				</tr>
@@ -1208,7 +1208,7 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 
 		<div id="bxconvert_cont" style="display: none;">
 			<div id="bxconvert_notice">
-			<?echo BeginNote(),GetMessage('CAL_CONVERT_PROCESSING_NOTICE'),EndNote();?>
+			<?php echo BeginNote(),GetMessage('CAL_CONVERT_PROCESSING_NOTICE'),EndNote();?>
 			</div>
 			<h1><?= GetMessage('CAL_CONVERT_PROCES')?></h1>
 			<span id="bxconvert_result" style="padding: 10px; display: inline-block; border-radius: 3px; border: 1px solid #A9A9A9; font-size: 11px; color:#808080; margin-bottom: 20px; background: #FFFFFF;">
@@ -1218,7 +1218,7 @@ if (CModule::IncludeModule("intranet") && CModule::IncludeModule("calendar"))
 
 		<input id="bxconv_but_start" type="button" value="<?= GetMessage('CAL_CONVERT_START')?>" onclick="startConvert();"/>
 		<input id="bxconv_go_to_settings" type="button" value="<?= GetMessage('CAL_GO_TO_SETTINGS')?>" onclick="window.location='/bitrix/admin/settings.php?lang=<?= LANG?>&mid=calendar';" style="display: none;"/>
-		<?endif;?>
+		<?php endif;?>
 	</form>
 <script>
 function parseContent()
@@ -1311,6 +1311,6 @@ function changeIblockList(value, arControls)
 }
 </script>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

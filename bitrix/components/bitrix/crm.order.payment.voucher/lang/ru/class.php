@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль crm не установлен.";
 $MESS["CRM_ORDER_PAYMENT_VOUCHER_TITLE"] = "Платежные документы";
 $MESS["CRM_ORDER_PAYMENT_FIELD_PAY_VOUCHER_TITLE"] = "Документ прихода";

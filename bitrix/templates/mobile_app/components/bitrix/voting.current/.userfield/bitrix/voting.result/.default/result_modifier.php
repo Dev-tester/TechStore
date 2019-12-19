@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix Framework
  * @package bitrix
@@ -44,7 +44,7 @@ if ($_REQUEST["VOTE_ID"] == $arParams["VOTE_ID"] && $_REQUEST["AJAX_RESULT"] == 
 	$APPLICATION->RestartBuffer();
 	while(ob_end_clean());
 	header('Content-Type:application/json; charset=UTF-8');
-	?><?=\Bitrix\Main\Web\Json::encode($res)?><?
+	?><?=\Bitrix\Main\Web\Json::encode($res)?><?php 
 	CMain::FinalActions();
 	die();
 }

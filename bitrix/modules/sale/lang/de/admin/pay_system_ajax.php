@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PS_PS_MODE_TITLE"] = "Typ des Zahlungssystems";
 $MESS["SALE_PS_PS_MODE_DOCUMENT_TITLE"] = "Dokumentenvorlage";
 $MESS["SALE_PS_SORT"] = "Sortierung";

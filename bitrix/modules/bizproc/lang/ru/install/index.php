@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BIZPROC_INSTALL_DESCRIPTION'] = "Модуль для создания и работы с бизнес-процессами";
 $MESS ['BIZPROC_PERM_D'] = "доступ запрещен";
 $MESS ['BIZPROC_INSTALL_NAME'] = "Бизнес-процессы";

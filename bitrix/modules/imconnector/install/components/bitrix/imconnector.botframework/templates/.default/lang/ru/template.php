@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_BOTFRAMEWORK_BOT_HANDLE_NAME"] = "Идентификатор бота (Bot handle):";
 $MESS["IMCONNECTOR_COMPONENT_BOTFRAMEWORK_APP_ID_NAME"] = "ID приложения (Microsoft App ID):";
 $MESS["IMCONNECTOR_COMPONENT_BOTFRAMEWORK_APP_SECRET_NAME"] = "Секретный пароль приложения:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ADD_BACK_TO_TASKS_LIST"] = "Back to Tasks";
 $MESS["TASKS_THIS_MONTH"] = "this month";
 $MESS["TASKS_PREVIOUS_MONTH"] = "last month";

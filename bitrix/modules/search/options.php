@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/options.php");
 IncludeModuleLangFile(__FILE__);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/search/prolog.php");
@@ -225,8 +225,8 @@ $context->Show();
 
 $tabControl->Begin();
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?=LANGUAGE_ID?>" id="options">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?=LANGUAGE_ID?>" id="options">
+<?php 
 foreach($aTabs as $aTab):
 	$tabControl->BeginNextTab();
 	foreach($aTab["OPTIONS"] as $name => $arOption):
@@ -238,41 +238,41 @@ foreach($aTabs as $aTab):
 		$disabled = array_key_exists("disabled", $arOption)? $arOption["disabled"]: "";
 		//if (isset($_REQUEST["
 	?>
-		<tr <?if(isset($arOption[2])) echo 'style="display:none" class="show-for-'.htmlspecialcharsbx($arOption[2]).'"'?>>
-			<td width="40%" <?if($type[0]=="textarea") echo 'class="adm-detail-valign-top"'?>>
-				<label for="<?echo htmlspecialcharsbx($name)?>"><?echo $arOption[0]?></label>
+		<tr <?php if(isset($arOption[2])) echo 'style="display:none" class="show-for-'.htmlspecialcharsbx($arOption[2]).'"'?>>
+			<td width="40%" <?php if($type[0]=="textarea") echo 'class="adm-detail-valign-top"'?>>
+				<label for="<?php echo htmlspecialcharsbx($name)?>"><?php echo $arOption[0]?></label>
 			<td width="60%">
-				<?if($type[0]=="checkbox"):?>
-					<input type="checkbox" name="<?echo htmlspecialcharsbx($name)?>" id="<?echo htmlspecialcharsbx($name)?>" value="Y"<?if($val=="Y")echo" checked";?><?if($disabled)echo' disabled="disabled"';?>><?if($disabled) echo '<br>'.$disabled;?>
-				<?elseif($type[0]=="text"):?>
-					<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($name)?>">
-				<?elseif($type[0]=="textarea"):?>
-					<textarea rows="<?echo $type[1]?>" name="<?echo htmlspecialcharsbx($name)?>" style=
-					"width:100%"><?echo htmlspecialcharsbx($val)?></textarea>
-				<?elseif($type[0]=="select"):?>
-					<select name="<?echo htmlspecialcharsbx($name)?>" onchange="doShowAndHide()">
-					<?foreach($type[1] as $key => $value):?>
-						<option value="<?echo htmlspecialcharsbx($key)?>" <?if ($val == $key) echo 'selected="selected"'?>><?echo htmlspecialcharsEx($value)?></option>
-					<?endforeach?>
+				<?php if($type[0]=="checkbox"):?>
+					<input type="checkbox" name="<?php echo htmlspecialcharsbx($name)?>" id="<?php echo htmlspecialcharsbx($name)?>" value="Y"<?php if($val=="Y")echo" checked";?><?php if($disabled)echo' disabled="disabled"';?>><?php if($disabled) echo '<br>'.$disabled;?>
+				<?php elseif($type[0]=="text"):?>
+					<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($name)?>">
+				<?php elseif($type[0]=="textarea"):?>
+					<textarea rows="<?php echo $type[1]?>" name="<?php echo htmlspecialcharsbx($name)?>" style=
+					"width:100%"><?php echo htmlspecialcharsbx($val)?></textarea>
+				<?php elseif($type[0]=="select"):?>
+					<select name="<?php echo htmlspecialcharsbx($name)?>" onchange="doShowAndHide()">
+					<?php foreach($type[1] as $key => $value):?>
+						<option value="<?php echo htmlspecialcharsbx($key)?>" <?php if ($val == $key) echo 'selected="selected"'?>><?php echo htmlspecialcharsEx($value)?></option>
+					<?php endforeach?>
 					</select>
-				<?elseif($type[0]=="note"):?>
-					<?echo BeginNote(), $type[1], EndNote();?>
-				<?endif?>
+				<?php elseif($type[0]=="note"):?>
+					<?php echo BeginNote(), $type[1], EndNote();?>
+				<?php endif?>
 			</td>
 		</tr>
-	<?endforeach;
+	<?php endforeach;
 endforeach;?>
 
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 	<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
 <script>
 function doShowAndHide()

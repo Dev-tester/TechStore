@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global CMain $APPLICATION
  * @global CUser $USER
@@ -41,7 +41,7 @@ class CComponentParamsManager
 			}
 			top.oBXComponentParamsManager = window.oBXComponentParamsManager;
 		</script>
-		<?
+		<?php 
 
 		// For colorpicker
 		$APPLICATION->IncludeComponent(
@@ -88,7 +88,7 @@ class CComponentParamsManager
 			<script>
 				window.__bxResult['<?= $reqId?>'] = <?=CUtil::PhpToJSObject($result)?>;
 			</script>
-			<?
+			<?php 
 			self::DisplayFileDialogsScripts();
 		}
 	}
@@ -245,7 +245,7 @@ class CComponentParamsManager
 						'bReturnResult' => true
 					)
 				);
-				?><script>window._bxMlBrowseButton_<?= strtolower($fd['NAME'])?> = '<?= CUtil::JSEscape($MLRes)?>';</script><?
+				?><script>window._bxMlBrowseButton_<?= strtolower($fd['NAME'])?> = '<?= CUtil::JSEscape($MLRes)?>';</script><?php 
 			}
 
 			CAdminFileDialog::ShowScript(Array

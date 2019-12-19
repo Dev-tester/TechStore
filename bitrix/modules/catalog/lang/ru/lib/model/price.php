@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_MODEL_PRICE_ERR_WRONG_PRICE_ID"] = "Не указан ID ценового предложения";
 $MESS["BX_CATALOG_MODEL_PRICE_ERR_WRONG_PRODUCT_ID"] = "Неверный ID товара";
 $MESS["BX_CATALOG_MODEL_PRICE_ERR_WRONG_CATALOG_GROUP_ID"] = "Неверный ID типа цены";

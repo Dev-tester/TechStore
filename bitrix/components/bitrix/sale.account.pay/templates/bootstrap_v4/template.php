@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -27,7 +27,7 @@ else
 		?>
 		<div class="bx-sap row">
 			<div class="col" id="bx-sap<?=$wrapperId?>">
-				<?
+				<?php 
 				if ($arParams['SELL_VALUES_FROM_VAR'] != 'Y')
 				{
 					if ($arParams['SELL_SHOW_FIXED_VALUES'] === 'Y')
@@ -38,19 +38,19 @@ else
 								<h3 class="mb-2"><?= Loc::getMessage("SAP_FIXED_PAYMENT") ?></h3>
 								<div class="sale-accountpay-fixedpay-container">
 									<div class="sale-accountpay-fixedpay-list">
-										<?
+										<?php 
 										foreach ($arParams["SELL_TOTAL"] as $valueChanging)
 										{
 											?>
 											<div class="sale-accountpay-fixedpay-item"><?=CUtil::JSEscape(htmlspecialcharsbx($valueChanging))?></div>
-											<?
+											<?php 
 										}
 										?>
 									</div>
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="row mb-3">
@@ -58,7 +58,7 @@ else
 							<h3 class="mb-2"><?=Loc::getMessage("SAP_SUM")?></h3>
 							<div class="form-group row">
 								<div class='col-12 col-md-4 input-group'>
-									<?
+									<?php 
 									$inputElement = "
 										<input type='text' placeholder='0.00' 
 											class='form-control sale-accountpay-input text-right' value='0.00' "
@@ -79,7 +79,7 @@ else
 							</div>
 						</div>
 					</div>
-				<?
+				<?php 
 				}
 				else
 				{
@@ -92,7 +92,7 @@ else
 								<h2 class="mb-2"><?=SaleFormatCurrency($arResult["SELL_VAR_PRICE_VALUE"], $arParams['SELL_CURRENCY'])?></h2>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="row mb-3">
@@ -100,32 +100,32 @@ else
 							<input type="hidden" name="<?=CUtil::JSEscape(htmlspecialcharsbx($arParams["VAR"]))?>" class="sale-accountpay-input" value="<?=CUtil::JSEscape(htmlspecialcharsbx($arResult["SELL_VAR_PRICE_VALUE"]))?>">
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 				<div class="row mb-3">
 					<div class="col">
 						<h3 class="mb-2"><?=Loc::getMessage("SAP_TYPE_PAYMENT_TITLE")?></h3>
 						<div class="row sale-accountpay-pp">
-							<?
+							<?php 
 							foreach ($arResult['PAYSYSTEMS_LIST'] as $key => $paySystem)
 							{
 							?>
 								<div class="sale-accountpay-pp-company col-lg-2 col-md-3 col-sm-4 col-6 <?= ($key == 0) ? 'bx-selected' :""?>">
 									<div class="sale-accountpay-pp-company-graf-container">
 										<input type="checkbox" class="sale-accountpay-pp-company-checkbox" name="PAY_SYSTEM_ID" value="<?=$paySystem['ID']?>" <?= ($key == 0) ? "checked='checked'" :""?>>
-										<?
+										<?php 
 										if (isset($paySystem['LOGOTIP']))
 										{
 										?>
 											<div class="sale-accountpay-pp-company-image" style="background-image: url(<?=$paySystem['LOGOTIP']?>);"></div>
-										<?
+										<?php 
 										}
 										?>
 									</div>
 									<div class="sale-accountpay-pp-company-smalltitle"><?=CUtil::JSEscape(htmlspecialcharsbx($paySystem['NAME']))?></div>
 								</div>
-							<?
+							<?php 
 							}
 							?>
 						</div>
@@ -138,7 +138,7 @@ else
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$javascriptParams = array(
 			"alertMessages" => array("wrongInput" => Loc::getMessage('SAP_ERROR_INPUT')),
 			"url" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
@@ -152,14 +152,14 @@ else
 		<script>
 			var sc = new BX.saleAccountPay(<?=$javascriptParams?>);
 		</script>
-	<?
+	<?php 
 	}
 	else
 	{
 		?>
 		<h3><?=Loc::getMessage("SAP_BUY_MONEY")?></h3>
 		<form method="post" name="buyMoney" action="">
-			<?
+			<?php 
 			foreach($arResult["AMOUNT_TO_SHOW"] as $value)
 			{
 				?>
@@ -167,12 +167,12 @@ else
 					value="<?=$value["ID"]?>" id="<?=CUtil::JSEscape(htmlspecialcharsbx($arParams["VAR"])).$value["ID"]?>">
 				<label for="<?=CUtil::JSEscape(htmlspecialcharsbx($arParams["VAR"])).$value["ID"]?>"><?=$value["NAME"]?></label>
 				<br />
-				<?
+				<?php 
 			}
 			?>
 			<input type="submit" class="btn btn-primary" name="button" value="<?=GetMessage("SAP_BUTTON")?>">
 		</form>
-		<?
+		<?php 
 	}
 }
 

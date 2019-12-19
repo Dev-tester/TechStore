@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_CREATED'] = "Создана";
 $MESS ['WD_LAST_UPDATE'] = "Изменена";
 $MESS ['WD_ACTIVE'] = "Активность";

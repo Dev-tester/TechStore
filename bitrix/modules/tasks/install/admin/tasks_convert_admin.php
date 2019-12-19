@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/tasks/admin/tasks_convert_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/tasks/admin/tasks_convert_admin.php");?>

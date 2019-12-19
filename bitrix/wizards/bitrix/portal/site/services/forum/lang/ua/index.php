@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMENTS_GROUP_NAME"] = "Форуми для коментарів";
 $MESS["DOCS_DIRECTORS_COMMENTS_NAME"] = "Коментарі для документів керівництва";
 $MESS["DOCS_SALES_COMMENTS_NAME"] = "Коментарі для документів маркетингу і продажів";

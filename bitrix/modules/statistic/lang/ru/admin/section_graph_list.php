@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_TITLE_PAGE'] = "Посещаемость страницы";
 $MESS ['STAT_TITLE_SECTION'] = "Посещаемость раздела";
 $MESS ['STAT_HITS'] = "хитов";

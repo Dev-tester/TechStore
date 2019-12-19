@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_USER_TIP'] = "The path to a user profile page. Example: sonet_user.php?page=user&user_id=#user_id#.";
 $MESS ['PATH_TO_USER_EDIT_TIP'] = "The path to a user profile editor page. Example: sonet_user_edit.php?page=user&user_id=#user_id#&mode=edit.";
 $MESS ['PAGE_VAR_TIP'] = "Specify the name of the variable to which the social network page will be passed here.";

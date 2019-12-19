@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DSC_CPN_ERR_CODE"] = "Не указан код купона.";
 $MESS["DSC_CPN_ERR_DISC"] = "Не указана скидка купона.";
 $MESS["DSC_TITLE_UPDATE"] = "Изменение параметров купона с кодом #ID#";

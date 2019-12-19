@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_RIGHTS"] = "Insufficient permissions.";
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_INCORRECT_SESSION"] = "Your session has expired. Please close the dialog, log on to the system and try again.";
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_MODULE_SALE_ABSENT"] = "Cannot include the \"e-Store\" module.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATI_FI_UNIXML_EXT"] = "External ID (unique)";
 $MESS["CATI_FI_NAME"] = "Name";
 $MESS["CATI_FI_ACTIV"] = "Active";

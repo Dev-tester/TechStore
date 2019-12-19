@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['RDB_CONNECT_ERROR'] = "Could not connect to database";
 $MESS ['RDB_TABLE_NAME'] = "Table name";
 $MESS ['RDB_ROWS_COUNT'] = "Rows count";

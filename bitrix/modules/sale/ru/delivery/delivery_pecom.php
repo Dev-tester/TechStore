@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************************
  * Delivery services  http://pecom.ru/
  * https://kabinet.pecom.ru/api/v1/

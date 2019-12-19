@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_CE_ERROR'] = "Ошибка";
 $MESS ['SUP_CE_TITLE_EDIT'] = "Редактирование купона %COUPON%";
 $MESS ['SUP_CE_TITLE_NEW'] = "Создание нового купона";

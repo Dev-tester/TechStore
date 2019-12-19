@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_LIST_REBUILD_SEARCH_CONTENT_COMPLETED_SUMMARY"] = "Deal search index has been recreated. Deals processed: #PROCESSED_ITEMS#.";
 $MESS["CRM_DEAL_LIST_REBUILD_SEARCH_CONTENT_NOT_REQUIRED_SUMMARY"] = "Deal search index doesn't need to be recreated.";
 $MESS["CRM_DEAL_LIST_REBUILD_SEARCH_CONTENT_PROGRESS_SUMMARY"] = "Deals processed: #PROCESSED_ITEMS# of #TOTAL_ITEMS#.";

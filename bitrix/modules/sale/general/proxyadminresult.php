@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSaleProxyAdminResult extends CAdminResult
 {
 	private $parameters = array();

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['library_wizard_name'] = "Библиотека документов";
 $MESS ['library_wizard_title'] = "Раздел с хранилищем документов (ЧПУ)";
 $MESS ['library_wizard_settings'] = "Настройки библиотеки документов";

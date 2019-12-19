@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
@@ -15,7 +15,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tr>
 				<td><div class="bx-section-separator bx-first"></div></td>
-<?
+<?php 
 $bWasSeparator = true;
 foreach($arParams["BUTTONS"] as $index=>$item):
 	if(!empty($item["NEWBAR"])):
@@ -41,7 +41,7 @@ foreach($arParams["BUTTONS"] as $index=>$item):
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tr>
 				<td><div class="bx-section-separator bx-first"></div></td>
-<?
+<?php 
 		$bWasSeparator = true;
 		continue;
 	endif;
@@ -49,13 +49,13 @@ foreach($arParams["BUTTONS"] as $index=>$item):
 	if(!empty($item["SEPARATOR"])):
 ?>
 				<td><div class="bx-section-separator"></div></td>
-<?
+<?php 
 		$bWasSeparator = true;
 	else:
 		if(!$bWasSeparator):
 ?>
 				<td><div class="bx-separator"></div></td>
-<?
+<?php 
 		endif;
 		if(!empty($item["MENU"])):
 ?>
@@ -66,15 +66,15 @@ foreach($arParams["BUTTONS"] as $index=>$item):
 				<a href="javascript:void(0);" hidefocus="true" 
 					onclick="this.blur(); jsPopup_<?=$arParams["TOOLBAR_ID"]?>.ShowMenu(this, jsMnu_<?=$arParams["TOOLBAR_ID"].'_'.$index?>); return false;" 
 					title="<?=$item["TITLE"]?>" class="bx-context-button<?=(!empty($item["ICON"])? ' bx-icon '.$item["ICON"]:'')?>"><?=$item["TEXT"]?><img src="<?=$this->GetFolder()?>/images/arr_down.gif" class="bx-arrow" alt=""></a></td>
-<?		
+<?php 		
 		elseif($item["HTML"] <> ""):
 ?>
 				<td><?=$item["HTML"]?></td>
-<?
+<?php 
 		else:
 ?>
 				<td><a href="<?=$item["LINK"]?>" hidefocus="true" title="<?=$item["TITLE"]?>" <?=$item["LINK_PARAM"]?> class="bx-context-button<?=(!empty($item["ICON"])? ' bx-icon '.$item["ICON"]:'')?>"><?=$item["TEXT"]?></a></td>
-<?
+<?php 
 		endif;
 		$bWasSeparator = false;
 	endif;

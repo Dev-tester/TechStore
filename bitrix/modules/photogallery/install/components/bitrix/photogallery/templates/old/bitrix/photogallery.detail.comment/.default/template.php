@@ -1,8 +1,8 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 ?>
 <div id="photo_comments">
-<?
+<?php 
 
 if ($arParams["COMMENTS_TYPE"] == "blog"):
 $APPLICATION->IncludeComponent(
@@ -34,7 +34,7 @@ for (var ii = 0; ii < aLinks.length; ii++)
 		aLinks[ii].href = "";
 	}
 }
-</script><?
+</script><?php 
 endif;
 */
 ?><style>
@@ -59,7 +59,7 @@ table.blog-comment-form th, table.blog-comment-form td{
 .blogButton {
 	font-size: 100%;}
 .blog-comment-text {font-size:100%;}
-</style><?
+</style><?php 
 else:
 $APPLICATION->IncludeComponent(
 	"bitrix:forum.topic.reviews",

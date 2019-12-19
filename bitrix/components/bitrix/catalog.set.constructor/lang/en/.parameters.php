@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_SET_IBLOCK_ID"] = "Information block";
 $MESS["CATALOG_SET_IBLOCK_TYPE"] = "Information block type";
 $MESS["CATALOG_SET_IBLOCK_ELEMENT_ID"] = "Element ID";

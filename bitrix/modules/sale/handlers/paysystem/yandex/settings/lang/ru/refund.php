@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_YANDEX_RETURN_TITLE"] = "Настройка механизма возвратов для Яндекс.Кассы";
 $MESS["SALE_YANDEX_RETURN_SUBTITLE"] = "Настройка взаимодействия по протоколу MWS (<a target=\"_blank\" href=\"https://tech.yandex.ru/money/doc/payment-solution/payment-management/payment-management-about-docpage/\">Merchant Web Services</a>)";
 $MESS["SALE_YANDEX_RETURN_HELP"] = "Для работы с MWS необходимо получить в Яндекс.Деньгах специальный сертификат и загрузить его на этой странице.";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 include(dirname(__FILE__)."/common.php");
 
 $PF_HOST = CSalePaySystemAction::GetParamValue("PAYFLOW_URL");
@@ -14,7 +14,7 @@ $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 <table border="0" width="100%" cellpadding="2" cellspacing="2">
 	<tr>
 	<td class="but2" align="center">
-		<?
+		<?php 
 		//***************************************************
 		//***  START ACTION  ********************************
 		//***************************************************
@@ -160,9 +160,9 @@ $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 			?>
 			<font class="text" color="#009900"><b>
 			Thank you for purchasing!<br>
-			You have been billed <?echo SaleFormatCurrency($AMT, "USD") ?></b>
+			You have been billed <?php echo SaleFormatCurrency($AMT, "USD") ?></b>
 			</font>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -233,20 +233,20 @@ $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 						<th><font class="text">Expiration&nbsp;Date&nbsp;(MM/YY)</font></th>
 						<td>
 							<select name="cardexp1" class="inputselect">
-								<?
+								<?php 
 								$curMonth = intval(date("m"));
 								if (empty($cardexp1)) $cardexp1 = $curMonth;
 								for ($i = 1; $i <= 12; $i++)
 								{
 									$val = (($i < 10) ? "0" : "").$i;
 									?>
-									<option value="<?= $val ?>" <?if ($cardexp1 == $val) echo "selected=\"selected\"";?>><?= $val ?></option>
-									<?
+									<option value="<?= $val ?>" <?php if ($cardexp1 == $val) echo "selected=\"selected\"";?>><?= $val ?></option>
+									<?php 
 								}
 								?>
 							</select>
 							<select name="cardexp2" class="inputselect">
-								<?
+								<?php 
 								$curYear = intval(date("y"));
 								if (empty($cardexp2)) $cardexp2 = $curYear;
 								for ($i = $curYear; $i <= $curYear + 10; $i++)
@@ -254,8 +254,8 @@ $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 									$val = (($i < 10) ? "0" : "").$i;
 									$fullYear = 2000 + intval($val);
 									?>
-									<option value="<?= $val ?>" <?if ($cardexp2 == $val) echo "selected";?>><?= $fullYear ?></option>
-									<?
+									<option value="<?= $val ?>" <?php if ($cardexp2 == $val) echo "selected";?>><?= $fullYear ?></option>
+									<?php 
 								}
 								?>
 							</SELECT>
@@ -263,15 +263,15 @@ $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 					</tr>
 					<tr>
 						<th>Cardholder</th>
-						<td><input type="text" maxlength="250" class="inputtext" name="noc" value="<?echo (strlen($noc) > 0) ? $noc : $noc_def ?>"></td>
+						<td><input type="text" maxlength="250" class="inputtext" name="noc" value="<?php echo (strlen($noc) > 0) ? $noc : $noc_def ?>"></td>
 					</tr>
 					<tr>
 						<th>Address</th>
-						<td><input type="text" size="30" maxlength="250" class="inputtext" name="address1" value="<?echo (strlen($address1) > 0) ? $address1 : $address1_def ?>"></td>
+						<td><input type="text" size="30" maxlength="250" class="inputtext" name="address1" value="<?php echo (strlen($address1) > 0) ? $address1 : $address1_def ?>"></td>
 					</tr>
 					<tr>
 						<th>Zip</th>
-						<td><input type="text" maxlength="10" class="inputtext" name="zipcode" value="<?echo (strlen($zipcode) > 0) ? $zipcode : $zipcode_def ?>"></td>
+						<td><input type="text" maxlength="10" class="inputtext" name="zipcode" value="<?php echo (strlen($zipcode) > 0) ? $zipcode : $zipcode_def ?>"></td>
 					</tr>
 					<tr>
 						<th></th>
@@ -282,7 +282,7 @@ $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 				</table>
 
 			</form>
-			<?
+			<?php 
 		}
 		?>
 	</td>

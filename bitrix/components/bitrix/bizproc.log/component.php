@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (array_key_exists("COMPONENT_VERSION", $arParams) && $arParams["COMPONENT_VERSION"] == 2)
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BXU_LoadingProcess"] = "Идёт загрузка...";
 $MESS["BXU_DNDMessage1"] = "Перетащите картинки #maxCount# в эту область (Drag&amp;Drop)";
 $MESS["BXU_DNDMessage2"] = "Перетащите файлы #maxCount# с расширениями (#ext#) в эту область (Drag&amp;Drop)";

@@ -42,7 +42,7 @@ var listParams  = {
 
 var bcmm = new __BitrixCloudMobMon(listParams);
 
-<?if(isset($arParams["EDIT_URL"])):?>
+<?php if(isset($arParams["EDIT_URL"])):?>
 	var listMenuItems = { items: [
 							{
 								name: "<?=GetMessage("BCLMMD_EDIT")?>",
@@ -118,7 +118,7 @@ var bcmm = new __BitrixCloudMobMon(listParams);
 								}
 		});
 
-<?endif;?>
+<?php endif;?>
 
 app.hidePopupLoader();
 </script>

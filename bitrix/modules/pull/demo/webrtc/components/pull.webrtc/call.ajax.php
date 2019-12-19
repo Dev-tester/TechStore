@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('CALL_AJAX_INIT'))
 {
 	define("CALL_AJAX_INIT", true);

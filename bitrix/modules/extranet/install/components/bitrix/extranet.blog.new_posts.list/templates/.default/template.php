@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 
 if (array_key_exists("CATEGORY", $arParams) && strlen($arParams["CATEGORY"]) > 0)
 	echo GetMessage("BLOG_BLOG_BLOG_CATEGORY_FILTER", array("#CATEGORY#" => htmlspecialcharsbx($arParams["CATEGORY"])));
@@ -16,7 +16,7 @@ if(count($arResult["POSTS"])>0)
 				<tr>
 					<td width="100%" align="left">
 						<span class="blog-post-date"><b><?=$CurPost["DATE_PUBLISH_FORMATED"]?></b></span><br />
-						<span class="blog-author"><b><a href="<?=$CurPost["urlToAuthor"]?>" class="blog-user"></a>&nbsp;<?
+						<span class="blog-author"><b><a href="<?=$CurPost["urlToAuthor"]?>" class="blog-user"></a>&nbsp;<?php 
 						
 						if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($CurPost["urlToBlog"]) > 0 || strlen($CurPost["urlToAuthor"]) > 0) && array_key_exists("BLOG_USER_ALIAS", $CurPost) && strlen($CurPost["BLOG_USER_ALIAS"]) > 0)
 						{
@@ -75,10 +75,10 @@ if(count($arResult["POSTS"])>0)
 		</tr>
 		<tr>
 			<td>
-				<span class="blog-text"><?=$CurPost["TEXT_FORMATED"]?></span><?
+				<span class="blog-text"><?=$CurPost["TEXT_FORMATED"]?></span><?php 
 				if ($CurPost["CUT"] == "Y")
 				{
-					?><br /><br /><div align="left" class="blog-post-date"><a href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_MORE")?></a></div><?
+					?><br /><br /><div align="left" class="blog-post-date"><a href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_MORE")?></a></div><?php 
 				}
 				?>
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" class="blog-table-post-table">
@@ -87,7 +87,7 @@ if(count($arResult["POSTS"])>0)
 				</tr>
 				<tr>
 					<td align="left">						
-						<?
+						<?php 
 						if(!empty($CurPost["CATEGORY"]))
 						{
 							echo GetMessage("BLOG_BLOG_BLOG_CATEGORY");
@@ -96,15 +96,15 @@ if(count($arResult["POSTS"])>0)
 							{
 								if($i!=0)
 									echo ",";
-								?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?
+								?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?php 
 								$i++;
 							}
 						}
 						?></td>
 					<td align="right" nowrap><a href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_PERMALINK")?></a>&nbsp;|&nbsp;
-					<?if($arResult["enable_trackback"] == "Y" && $CurPost["ENABLE_TRACKBACK"]=="Y"):?>
+					<?php if($arResult["enable_trackback"] == "Y" && $CurPost["ENABLE_TRACKBACK"]=="Y"):?>
 						<a href="<?=$CurPost["urlToPost"]?>#trackback">Trackbacks: <?=$CurPost["NUM_TRACKBACKS"];?></a>&nbsp;|&nbsp;
-					<?endif;?>
+					<?php endif;?>
 					<a href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_VIEWS")?> <?=IntVal($CurPost["VIEWS"]);?></a>&nbsp;|&nbsp;
 					<a href="<?=$CurPost["urlToPost"]?>#comment"><?=GetMessage("BLOG_BLOG_BLOG_COMMENTS")?> <?=$CurPost["NUM_COMMENTS"];?></a></td>
 				</tr>
@@ -113,7 +113,7 @@ if(count($arResult["POSTS"])>0)
 		</tr>
 		</table>
 		<br />
-		<?
+		<?php 
 	}
 	if(strlen($arResult["NAV_STRING"])>0)
 		echo $arResult["NAV_STRING"];

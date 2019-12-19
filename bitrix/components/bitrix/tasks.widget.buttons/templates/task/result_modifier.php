@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Tasks\UI;
 use Bitrix\Tasks\Util;

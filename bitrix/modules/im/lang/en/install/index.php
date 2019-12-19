@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_MODULE_NAME"] = "Instant Messenger";
 $MESS["IM_MODULE_DESCRIPTION"] = "Provides support for instant messaging and notification services.";
 $MESS["IM_INSTALL_TITLE"] = "Instant Messenger Module Installation";

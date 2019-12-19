@@ -98,7 +98,7 @@ $backgroundImageCss = 'url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D
 <div class="crm-entity-section crm-entity-section-status-wrap">
 	<div class="crm-entity-section-status-container">
 		<div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-entity-section-status-container-flex">
-			<?foreach($items as $item)
+			<?php foreach($items as $item)
 			{
 				$statusID = htmlspecialcharsbx($item['STATUS_ID']);
 				$name = htmlspecialcharsbx($item['NAME']);
@@ -107,7 +107,7 @@ $backgroundImageCss = 'url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D
 				$isVisible = $item['IS_VISIBLE'];
 
 				?><div data-id="<?=$statusID?>" class="crm-entity-section-status-step"<?=!$isVisible ? ' style="display:none;"' : ''?>>
-					<div class="crm-entity-section-status-step-item"><?
+					<div class="crm-entity-section-status-step-item"><?php 
 						if($isPassed)
 						{
 							$stepColor = urlencode($currentColor);
@@ -119,7 +119,7 @@ $backgroundImageCss = 'url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D
 							?><div data-base-color="<?=$color?>" class="crm-entity-section-status-step-item-text" style="border-image: <?=$stepBackgroundImageCss?>;">
 								<?=$name?>
 							</div>
-						<?}
+						<?php }
 						else
 						{
 							$stepColor = urlencode($color);
@@ -131,9 +131,9 @@ $backgroundImageCss = 'url(data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D
 							?><div data-base-color="<?=$color?>" class="crm-entity-section-status-step-item-text" style="border-image: <?=$stepBackgroundImageCss?>;">
 								<?=$name?>
 							</div>
-						<?}?>
+						<?php }?>
 					</div>
-				</div><?
+				</div><?php 
 			}?>
 		</div>
 	</div>

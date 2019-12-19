@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_FINANCEINFO_USE_INNER_BUDGET"] = "Internes Konto benutzen";
 $MESS["SALE_ORDER_FINANCEINFO_SUM_PAID"] = "Bezahlt";
 $MESS["SALE_ORDER_FINANCEINFO_PAYABLE"] = "Zu bezahlender Restbetrag";

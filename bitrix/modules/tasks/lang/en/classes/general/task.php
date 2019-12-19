@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_NEW_TASK"] = "New task";
 $MESS["TASKS_MESSAGE_DESCRIPTION"] = "Description";
 $MESS["TASKS_MESSAGE_ACCOMPLICES"] = "Participants";

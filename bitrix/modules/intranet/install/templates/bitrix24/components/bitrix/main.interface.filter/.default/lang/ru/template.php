@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_search"] = "Поиск";
 $MESS["interface_grid_show_all"] = "Показать все условия поиска";
 $MESS["interface_grid_hide_all"] = "Скрыть все условия поиска";

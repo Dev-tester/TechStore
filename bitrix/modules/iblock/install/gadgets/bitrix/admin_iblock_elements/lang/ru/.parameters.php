@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_IBEL_EMPTY"] = "-- выбрать --";
 $MESS["GD_IBEL_DONOTUSE"] = "-- не использовать --";
 $MESS["GD_IBEL_IBLOCK_TYPE"] = "Тип инфоблока";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VOLUME_CRM_COUNT"] = "CRM activities";
 $MESS["DISK_VOLUME_IM_CHAT_OWNER"] = "Chat created by";
 $MESS["DISK_VOLUME_PAGE_TITLE"] = "Drive Cleanup";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $url = (empty($_REQUEST["back_url"]) ? false : $_REQUEST["back_url"]); 
 /********************************************************************
 				CANCEL
@@ -27,7 +27,7 @@ if ((!empty($_REQUEST["cancel"])) && check_bitrix_sessid())
 	}
 	
 	$APPLICATION->RestartBuffer();
-	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?
+	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?php 
 	die();
 }
 /********************************************************************
@@ -116,7 +116,7 @@ if (isset($_REQUEST["ACTION"]) && (in_array($_REQUEST["ACTION"], array("LOCK", "
 	}
 	
 	$APPLICATION->RestartBuffer();
-	?><?=CUtil::PhpToJSObject(array("result" => $res["LOCK_STATUS"], "status" => $status));?><?
+	?><?=CUtil::PhpToJSObject(array("result" => $res["LOCK_STATUS"], "status" => $status));?><?php 
 	die();
 }
 /********************************************************************
@@ -448,7 +448,7 @@ if (!$url)
 if ($_REQUEST["AJAX_CALL"] == "Y" || !empty($_REQUEST["bxajaxid"]))
 {
 	$APPLICATION->RestartBuffer();
-	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?
+	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?php 
 	die();
 }
 if (in_array($arParams["ACTION"], array("LOCK", "UNLOCK")))

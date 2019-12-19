@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?if(CModule::IncludeModule('advertising')):?>
-<?$APPLICATION->IncludeComponent("bitrix:advertising.banner", "lefttwo", array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(CModule::IncludeModule('advertising')):?>
+<?php $APPLICATION->IncludeComponent("bitrix:advertising.banner", "lefttwo", array(
 	"TYPE" => "LEFT2",
 	"NOINDEX" => "N",
 	"CACHE_TYPE" => "A",
@@ -11,4 +11,4 @@
 	"ACTIVE_COMPONENT" => "Y"
 	)
 );?>
-<?endif;?>
+<?php endif;?>

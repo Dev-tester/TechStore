@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_CADM_IBLOCK_MODULE_IS_MISSING"] = "Ошибка подключения модуля инфоблоков.";
 $MESS["CAT_CADM_CATALOG_MODULE_IS_MISSING"] = "Ошибка подключения модуля торгового каталога.";
 $MESS["CAT_CADM_NAME"] = "Название";

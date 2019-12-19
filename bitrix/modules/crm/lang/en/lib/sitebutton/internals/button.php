@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BUTTON_LOCATION_TOP_LEFT"] = "Top left";
 $MESS["CRM_BUTTON_LOCATION_TOP_MIDDLE"] = "Top center";
 $MESS["CRM_BUTTON_LOCATION_TOP_RIGHT"] = "Top right";

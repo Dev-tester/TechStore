@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRESET_UFIELDS_TOOLBAR_LIST"] = "Templates";
 $MESS["CRM_PRESET_UFIELDS_TOOLBAR_LIST_TITLE"] = "Templates: #NAME#";
 $MESS["CRM_ALL"] = "Total";

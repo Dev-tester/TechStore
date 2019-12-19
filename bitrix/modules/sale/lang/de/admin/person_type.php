@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPT_ALL"] = "(alle)";
 $MESS["LANG_ALL"] = "Alle Seiten";
 $MESS["SPTAN_UPDATE_ALT"] = "Bearbeiten";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CAllMain $APPLICATION */
@@ -20,7 +20,7 @@ $arParams['ID'] = $arParams['ID'] ?: 'def';
 $containerId = 'sender-ui-user-selector-' . $arParams['ID'];
 ?>
 <span id="<?=htmlspecialcharsbx($containerId)?>" class="sender-ui-user-selector-wrap">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent('bitrix:sender.ui.tile.selector', '', array(
 		'ID' => $arParams['ID'],
 		'LIST' => $arResult['LIST'],
@@ -34,7 +34,7 @@ $containerId = 'sender-ui-user-selector-' . $arParams['ID'];
 		value="<?=htmlspecialcharsbx(implode(',', $arResult['LIST_USER']))?>"
 	>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.ui.selector",
 		".default",

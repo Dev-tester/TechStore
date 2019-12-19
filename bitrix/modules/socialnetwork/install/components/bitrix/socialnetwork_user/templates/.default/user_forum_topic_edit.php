@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 $pageId = "user_forum";
 include("util_menu.php");
 include("util_profile.php");
 ?>
-<?$arInfo = $APPLICATION->IncludeComponent(
+<?php $arInfo = $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.forum.topic.new",
 	"",
 	array(
@@ -35,9 +35,9 @@ include("util_profile.php");
 	),
 	$component,
 	array("HIDE_ICONS" => "Y"));
-?><?
+?><?php 
 if (!empty($arInfo) && $arInfo["PERMISSION"] >= "I"):
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.forum.post_form", 
 	"", 
 	Array(
@@ -73,6 +73,6 @@ if (!empty($arInfo) && $arInfo["PERMISSION"] >= "I"):
 		"SHOW_TAGS" => $arParams["SHOW_TAGS"]),
 	$component,
 	array("HIDE_ICONS" => "Y"));
-?><?
+?><?php 
 endif;
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_SALEMANAGER_SYSTEM_ORDER_EMAIL_WARNING"] = "[B]ATTENTION![/B] Customer information is missing from the order properties; your Bitrix24's administrator email is not specified. Receipt cannot be created. Add missing customer details or administrator data.";
 $MESS["SALESCENTER_SALEMANAGER_SYSTEM_ORDER_NOT_PAID_TEXT"] = "Paid: no";
 $MESS["SALESCENTER_SALEMANAGER_SYSTEM_ORDER_NO_CASHBOXES_WARNING"] = "[B]ATTENTION![/B] There are no cash registers.";

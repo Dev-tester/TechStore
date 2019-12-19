@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -94,9 +94,9 @@ if (!empty($arResult['ITEMS']))
 $intRowsCount = count($arResult['ITEMS']);
 $strRand = $this->randString();
 $strContID = 'cat_top_cont_'.$strRand;
-?><div id="<? echo $strContID; ?>" class="bx_catalog_tile_home_type_2 col<? echo $arParams['LINE_ELEMENT_COUNT']; ?> <? echo $templateData['TEMPLATE_CLASS']; ?>">
+?><div id="<?php  echo $strContID; ?>" class="bx_catalog_tile_home_type_2 col<?php  echo $arParams['LINE_ELEMENT_COUNT']; ?> <?php  echo $templateData['TEMPLATE_CLASS']; ?>">
 	<div class="bx_catalog_tile_section">
-		<?
+		<?php 
 		$boolFirst = true;
 		$arRowIDs = array();
 		foreach ($arResult['ITEMS'] as $keyRow => $arOneRow)
@@ -104,8 +104,8 @@ $strContID = 'cat_top_cont_'.$strRand;
 			$strRowID = 'cat-top-'.$keyRow.'_'.$strRand;
 			$arRowIDs[] = $strRowID;
 			?>
-			<div id="<? echo $strRowID; ?>" class="bx_catalog_tile_slide <? echo ($boolFirst ? 'active' : 'notactive'); ?>">
-				<?
+			<div id="<?php  echo $strRowID; ?>" class="bx_catalog_tile_slide <?php  echo ($boolFirst ? 'active' : 'notactive'); ?>">
+				<?php 
 				foreach ($arOneRow as $keyItem => $arItem)
 				{
 					$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], $strElementEdit);
@@ -154,53 +154,53 @@ $strContID = 'cat_top_cont_'.$strRand;
 					if (isset($arItem['MIN_PRICE']) || isset($arItem['RATIO_PRICE']))
 						$minPrice = (isset($arItem['RATIO_PRICE']) ? $arItem['RATIO_PRICE'] : $arItem['MIN_PRICE']);
 					?>
-					<div class="<? echo ($arItem['SECOND_PICT'] ? 'bx_catalog_item double' : 'bx_catalog_item'); ?>"><div class="bx_catalog_item_container" id="<? echo $strMainID; ?>">
-							<a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images" style="background-image: url('<? echo $arItem['PREVIEW_PICTURE']['SRC']; ?>')" title="<? echo $imgTitle; ?>">
-								<?
+					<div class="<?php  echo ($arItem['SECOND_PICT'] ? 'bx_catalog_item double' : 'bx_catalog_item'); ?>"><div class="bx_catalog_item_container" id="<?php  echo $strMainID; ?>">
+							<a id="<?php  echo $arItemIDs['PICT']; ?>" href="<?php  echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images" style="background-image: url('<?php  echo $arItem['PREVIEW_PICTURE']['SRC']; ?>')" title="<?php  echo $imgTitle; ?>">
+								<?php 
 								if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
 								{
 									?>
-									<div id="<? echo $arItemIDs['DSC_PERC']; ?>" class="bx_stick_disc right bottom" style="display:<? echo (0 < $minPrice['DISCOUNT_DIFF_PERCENT'] ? '' : 'none'); ?>;">-<? echo $minPrice['DISCOUNT_DIFF_PERCENT']; ?>%</div>
-									<?
+									<div id="<?php  echo $arItemIDs['DSC_PERC']; ?>" class="bx_stick_disc right bottom" style="display:<?php  echo (0 < $minPrice['DISCOUNT_DIFF_PERCENT'] ? '' : 'none'); ?>;">-<?php  echo $minPrice['DISCOUNT_DIFF_PERCENT']; ?>%</div>
+									<?php 
 								}
 								if ($arItem['LABEL'])
 								{
 									?>
-									<div class="bx_stick average left top" title="<? echo $arItem['LABEL_VALUE']; ?>"><? echo $arItem['LABEL_VALUE']; ?></div>
-									<?
+									<div class="bx_stick average left top" title="<?php  echo $arItem['LABEL_VALUE']; ?>"><?php  echo $arItem['LABEL_VALUE']; ?></div>
+									<?php 
 								}
 								?>
 							</a>
-							<?
+							<?php 
 							if ($arItem['SECOND_PICT'])
 							{
 								?>
-								<a id="<? echo $arItemIDs['SECOND_PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images_double" style="background-image: url('<? echo (
+								<a id="<?php  echo $arItemIDs['SECOND_PICT']; ?>" href="<?php  echo $arItem['DETAIL_PAGE_URL']; ?>" class="bx_catalog_item_images_double" style="background-image: url('<?php  echo (
 								!empty($arItem['PREVIEW_PICTURE_SECOND'])
 									? $arItem['PREVIEW_PICTURE_SECOND']['SRC']
 									: $arItem['PREVIEW_PICTURE']['SRC']
-								); ?>')" title="<? echo $imgTitle; ?>">
-									<?
+								); ?>')" title="<?php  echo $imgTitle; ?>">
+									<?php 
 									if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
 									{
 										?>
-										<div id="<? echo $arItemIDs['SECOND_DSC_PERC']; ?>" class="bx_stick_disc right bottom" style="display:<? echo (0 < $minPrice['DISCOUNT_DIFF_PERCENT'] ? '' : 'none'); ?>;">-<? echo $minPrice['DISCOUNT_DIFF_PERCENT']; ?>%</div>
-										<?
+										<div id="<?php  echo $arItemIDs['SECOND_DSC_PERC']; ?>" class="bx_stick_disc right bottom" style="display:<?php  echo (0 < $minPrice['DISCOUNT_DIFF_PERCENT'] ? '' : 'none'); ?>;">-<?php  echo $minPrice['DISCOUNT_DIFF_PERCENT']; ?>%</div>
+										<?php 
 									}
 									if ($arItem['LABEL'])
 									{
 										?>
-										<div class="bx_stick average left top" title="<? echo $arItem['LABEL_VALUE']; ?>"><? echo $arItem['LABEL_VALUE']; ?></div>
-										<?
+										<div class="bx_stick average left top" title="<?php  echo $arItem['LABEL_VALUE']; ?>"><?php  echo $arItem['LABEL_VALUE']; ?></div>
+										<?php 
 									}
 									?>
 								</a>
-								<?
+								<?php 
 							}
 							?>
-							<div class="bx_catalog_item_title"><a href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" title="<? echo $productTitle; ?>"><? echo $productTitle; ?></a></div>
-							<div class="bx_catalog_item_price"><div id="<? echo $arItemIDs['PRICE']; ?>" class="bx_price">
-									<?
+							<div class="bx_catalog_item_title"><a href="<?php  echo $arItem['DETAIL_PAGE_URL']; ?>" title="<?php  echo $productTitle; ?>"><?php  echo $productTitle; ?></a></div>
+							<div class="bx_catalog_item_price"><div id="<?php  echo $arItemIDs['PRICE']; ?>" class="bx_price">
+									<?php 
 									if (!empty($minPrice))
 									{
 										if ('N' == $arParams['PRODUCT_DISPLAY_MODE'] && isset($arItem['OFFERS']) && !empty($arItem['OFFERS']))
@@ -225,37 +225,37 @@ $strContID = 'cat_top_cont_'.$strRand;
 										}
 										if ('Y' == $arParams['SHOW_OLD_PRICE'] && $minPrice['DISCOUNT_VALUE'] < $minPrice['VALUE'])
 										{
-											?> <span><? echo $minPrice['PRINT_VALUE']; ?></span><?
+											?> <span><?php  echo $minPrice['PRINT_VALUE']; ?></span><?php 
 										}
 									}
 									unset($minPrice);
 									?>
 								</div></div>
-							<?
+							<?php 
 							$showSubscribeBtn = false;
 							$compareBtnMessage = ($arParams['MESS_BTN_COMPARE'] != '' ? $arParams['MESS_BTN_COMPARE'] : GetMessage('CT_BCT_TPL_MESS_BTN_COMPARE'));
 							if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS']))
 							{
 								?>
 								<div class="bx_catalog_item_controls">
-									<?
+									<?php 
 									if ($arItem['CAN_BUY'])
 									{
 										if ('Y' == $arParams['USE_PRODUCT_QUANTITY'])
 										{
 											?>
 											<div class="bx_catalog_item_controls_blockone"><div style="display: inline-block;position: relative;">
-													<a id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">-</a>
-													<input type="text" class="bx_col_input" id="<? echo $arItemIDs['QUANTITY']; ?>" name="<? echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<? echo $arItem['CATALOG_MEASURE_RATIO']; ?>">
-													<a id="<? echo $arItemIDs['QUANTITY_UP']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">+</a>
-													<span id="<? echo $arItemIDs['QUANTITY_MEASURE']; ?>"><? echo $arItem['CATALOG_MEASURE_NAME']; ?></span>
+													<a id="<?php  echo $arItemIDs['QUANTITY_DOWN']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">-</a>
+													<input type="text" class="bx_col_input" id="<?php  echo $arItemIDs['QUANTITY']; ?>" name="<?php  echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<?php  echo $arItem['CATALOG_MEASURE_RATIO']; ?>">
+													<a id="<?php  echo $arItemIDs['QUANTITY_UP']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">+</a>
+													<span id="<?php  echo $arItemIDs['QUANTITY_MEASURE']; ?>"><?php  echo $arItem['CATALOG_MEASURE_NAME']; ?></span>
 												</div></div>
-											<?
+											<?php 
 										}
 										?>
-										<div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" class="bx_catalog_item_controls_blocktwo">
-											<a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="javascript:void(0)" rel="nofollow">
-												<?
+										<div id="<?php  echo $arItemIDs['BASKET_ACTIONS']; ?>" class="bx_catalog_item_controls_blocktwo">
+											<a id="<?php  echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="javascript:void(0)" rel="nofollow">
+												<?php 
 												if ($arParams['ADD_TO_BASKET_ACTION'] == 'BUY')
 												{
 													echo ('' != $arParams['MESS_BTN_BUY'] ? $arParams['MESS_BTN_BUY'] : GetMessage('CT_BCT_TPL_MESS_BTN_BUY'));
@@ -267,56 +267,56 @@ $strContID = 'cat_top_cont_'.$strRand;
 												?>
 											</a>
 										</div>
-										<?
+										<?php 
 										if ($arParams['DISPLAY_COMPARE'])
 										{
 											?>
 											<div class="bx_catalog_item_controls_blocktwo">
-												<a id="<? echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><? echo $compareBtnMessage; ?></a>
+												<a id="<?php  echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><?php  echo $compareBtnMessage; ?></a>
 											</div>
-											<?
+											<?php 
 										}
 									}
 									else
 									{
 										?>
-										<div id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone"><span class="bx_notavailable">
-<?
+										<div id="<?php  echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone"><span class="bx_notavailable">
+<?php 
 echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : GetMessage('CT_BCT_TPL_MESS_PRODUCT_NOT_AVAILABLE'));
 ?>
 			</span></div>
-										<?
+										<?php 
 										if ($arParams['DISPLAY_COMPARE'] || $showSubscribeBtn)
 										{
 											?>
-											<div class="bx_catalog_item_controls_blocktwo"><?
+											<div class="bx_catalog_item_controls_blocktwo"><?php 
 											if ($arParams['DISPLAY_COMPARE'])
 											{
-												?><a id="<? echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><? echo $compareBtnMessage; ?></a><?
+												?><a id="<?php  echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><?php  echo $compareBtnMessage; ?></a><?php 
 											}
 											if ($showSubscribeBtn)
 											{
 												?>
-												<a id="<? echo $arItemIDs['SUBSCRIBE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><?
+												<a id="<?php  echo $arItemIDs['SUBSCRIBE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><?php 
 												echo ('' != $arParams['MESS_BTN_SUBSCRIBE'] ? $arParams['MESS_BTN_SUBSCRIBE'] : GetMessage('CT_BCT_TPL_MESS_BTN_SUBSCRIBE'));
-												?></a><?
+												?></a><?php 
 											}
 											?>
-											</div><?
+											</div><?php 
 										}
 									}
 									?>
 									<div style="clear: both;"></div>
 								</div>
-							<?
+							<?php 
 							if (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']))
 							{
 							?>
 								<div class="bx_catalog_item_articul">
-									<?
+									<?php 
 									foreach ($arItem['DISPLAY_PROPERTIES'] as $arOneProp)
 									{
-										?><br><strong><? echo $arOneProp['NAME']; ?></strong> <?
+										?><br><strong><?php  echo $arOneProp['NAME']; ?></strong> <?php 
 										echo (
 										is_array($arOneProp['DISPLAY_VALUE'])
 											? implode('<br>', $arOneProp['DISPLAY_VALUE'])
@@ -325,20 +325,20 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 									}
 									?>
 								</div>
-							<?
+							<?php 
 							}
 							$emptyProductProperties = empty($arItem['PRODUCT_PROPERTIES']);
 							if ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET'] && !$emptyProductProperties)
 							{
 							?>
-								<div id="<? echo $arItemIDs['BASKET_PROP_DIV']; ?>" style="display: none;">
-									<?
+								<div id="<?php  echo $arItemIDs['BASKET_PROP_DIV']; ?>" style="display: none;">
+									<?php 
 									if (!empty($arItem['PRODUCT_PROPERTIES_FILL']))
 									{
 										foreach ($arItem['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo)
 										{
 											?>
-											<input type="hidden" name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]" value="<? echo htmlspecialcharsbx($propInfo['ID']); ?>"><?
+											<input type="hidden" name="<?php  echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<?php  echo $propID; ?>]" value="<?php  echo htmlspecialcharsbx($propInfo['ID']); ?>"><?php 
 											if (isset($arItem['PRODUCT_PROPERTIES'][$propID]))
 												unset($arItem['PRODUCT_PROPERTIES'][$propID]);
 										}
@@ -348,13 +348,13 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 									{
 										?>
 										<table>
-											<?
+											<?php 
 											foreach ($arItem['PRODUCT_PROPERTIES'] as $propID => $propInfo)
 											{
 												?>
-												<tr><td><? echo $arItem['PROPERTIES'][$propID]['NAME']; ?></td>
+												<tr><td><?php  echo $arItem['PROPERTIES'][$propID]['NAME']; ?></td>
 													<td>
-														<?
+														<?php 
 														if(
 															'L' == $arItem['PROPERTIES'][$propID]['PROPERTY_TYPE']
 															&& 'C' == $arItem['PROPERTIES'][$propID]['LIST_TYPE']
@@ -362,29 +362,29 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 														{
 															foreach($propInfo['VALUES'] as $valueID => $value)
 															{
-																?><label><input type="radio" name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]" value="<? echo $valueID; ?>" <? echo ($valueID == $propInfo['SELECTED'] ? '"checked"' : ''); ?>><? echo $value; ?></label><br><?
+																?><label><input type="radio" name="<?php  echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<?php  echo $propID; ?>]" value="<?php  echo $valueID; ?>" <?php  echo ($valueID == $propInfo['SELECTED'] ? '"checked"' : ''); ?>><?php  echo $value; ?></label><br><?php 
 															}
 														}
 														else
 														{
-															?><select name="<? echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<? echo $propID; ?>]"><?
+															?><select name="<?php  echo $arParams['PRODUCT_PROPS_VARIABLE']; ?>[<?php  echo $propID; ?>]"><?php 
 															foreach($propInfo['VALUES'] as $valueID => $value)
 															{
-																?><option value="<? echo $valueID; ?>" <? echo ($valueID == $propInfo['SELECTED'] ? '"selected"' : ''); ?>><? echo $value; ?></option><?
+																?><option value="<?php  echo $valueID; ?>" <?php  echo ($valueID == $propInfo['SELECTED'] ? '"selected"' : ''); ?>><?php  echo $value; ?></option><?php 
 															}
-															?></select><?
+															?></select><?php 
 														}
 														?>
 													</td></tr>
-												<?
+												<?php 
 											}
 											?>
 										</table>
-										<?
+										<?php 
 									}
 									?>
 								</div>
-							<?
+							<?php 
 							}
 							$arJSParams = array(
 								'PRODUCT_TYPE' => $arItem['PRODUCT']['TYPE'],
@@ -440,9 +440,9 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 							}
 							?>
 								<script type="text/javascript">
-							var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+							var <?php  echo $strObName; ?> = new JCCatalogTopSlider(<?php  echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 								</script>
-							<?
+							<?php 
 							}
 							else
 							{
@@ -451,26 +451,26 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 							$canBuy = $arItem['JS_OFFERS'][$arItem['OFFERS_SELECTED']]['CAN_BUY'];
 							?>
 								<div class="bx_catalog_item_controls no_touch">
-									<?
+									<?php 
 									if ('Y' == $arParams['USE_PRODUCT_QUANTITY'])
 									{
 										?>
 										<div class="bx_catalog_item_controls_blockone">
-											<a id="<? echo $arItemIDs['QUANTITY_DOWN']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">-</a>
-											<input type="text" class="bx_col_input" id="<? echo $arItemIDs['QUANTITY']; ?>" name="<? echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<? echo $arItem['CATALOG_MEASURE_RATIO']; ?>">
-											<a id="<? echo $arItemIDs['QUANTITY_UP']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">+</a>
-											<span id="<? echo $arItemIDs['QUANTITY_MEASURE']; ?>"></span>
+											<a id="<?php  echo $arItemIDs['QUANTITY_DOWN']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">-</a>
+											<input type="text" class="bx_col_input" id="<?php  echo $arItemIDs['QUANTITY']; ?>" name="<?php  echo $arParams["PRODUCT_QUANTITY_VARIABLE"]; ?>" value="<?php  echo $arItem['CATALOG_MEASURE_RATIO']; ?>">
+											<a id="<?php  echo $arItemIDs['QUANTITY_UP']; ?>" href="javascript:void(0)" class="bx_bt_button_type_2 bx_small" rel="nofollow">+</a>
+											<span id="<?php  echo $arItemIDs['QUANTITY_MEASURE']; ?>"></span>
 										</div>
-										<?
+										<?php 
 									}
 									?>
-									<div id="<? echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone" style="display: <? echo ($canBuy ? 'none' : ''); ?>;"><span class="bx_notavailable">
-<?
+									<div id="<?php  echo $arItemIDs['NOT_AVAILABLE_MESS']; ?>" class="bx_catalog_item_controls_blockone" style="display: <?php  echo ($canBuy ? 'none' : ''); ?>;"><span class="bx_notavailable">
+<?php 
 echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : GetMessage('CT_BCT_TPL_MESS_PRODUCT_NOT_AVAILABLE'));
 ?>
 			</span></div>
-									<div id="<? echo $arItemIDs['BASKET_ACTIONS']; ?>" class="bx_catalog_item_controls_blocktwo" style="display: <? echo ($canBuy ? '' : 'none'); ?>;">
-										<a id="<? echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="javascript:void(0)" rel="nofollow"><?
+									<div id="<?php  echo $arItemIDs['BASKET_ACTIONS']; ?>" class="bx_catalog_item_controls_blocktwo" style="display: <?php  echo ($canBuy ? '' : 'none'); ?>;">
+										<a id="<?php  echo $arItemIDs['BUY_LINK']; ?>" class="bx_bt_button bx_medium" href="javascript:void(0)" rel="nofollow"><?php 
 											if ($arParams['ADD_TO_BASKET_ACTION'] == 'BUY')
 											{
 												echo ('' != $arParams['MESS_BTN_BUY'] ? $arParams['MESS_BTN_BUY'] : GetMessage('CT_BCT_TPL_MESS_BTN_BUY'));
@@ -481,49 +481,49 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 											}
 											?></a>
 									</div>
-									<?
+									<?php 
 									if ($arParams['DISPLAY_COMPARE'])
 									{
 										?>
 										<div class="bx_catalog_item_controls_blocktwo">
-										<a id="<? echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><? echo $compareBtnMessage; ?></a>
-										</div><?
+										<a id="<?php  echo $arItemIDs['COMPARE_LINK']; ?>" class="bx_bt_button_type_2 bx_medium" href="javascript:void(0)"><?php  echo $compareBtnMessage; ?></a>
+										</div><?php 
 									}
 									?>
 									<div style="clear: both;"></div>
 								</div>
-								<?
+								<?php 
 								unset($canBuy);
 							}
 							else
 							{
 								?>
 								<div class="bx_catalog_item_controls no_touch">
-									<a class="bx_bt_button_type_2 bx_medium" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"><?
+									<a class="bx_bt_button_type_2 bx_medium" href="<?php  echo $arItem['DETAIL_PAGE_URL']; ?>"><?php 
 										echo ('' != $arParams['MESS_BTN_DETAIL'] ? $arParams['MESS_BTN_DETAIL'] : GetMessage('CT_BCT_TPL_MESS_BTN_DETAIL'));
 										?></a>
 								</div>
-							<?
+							<?php 
 							}
 							?>
 								<div class="bx_catalog_item_controls touch">
-									<a class="bx_bt_button_type_2 bx_medium" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"><?
+									<a class="bx_bt_button_type_2 bx_medium" href="<?php  echo $arItem['DETAIL_PAGE_URL']; ?>"><?php 
 										echo ('' != $arParams['MESS_BTN_DETAIL'] ? $arParams['MESS_BTN_DETAIL'] : GetMessage('CT_BCT_TPL_MESS_BTN_DETAIL'));
 										?></a>
 								</div>
-							<?
+							<?php 
 							$boolShowOfferProps = ('Y' == $arParams['PRODUCT_DISPLAY_MODE'] && $arItem['OFFERS_PROPS_DISPLAY']);
 							$boolShowProductProps = (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']));
 							if ($boolShowProductProps || $boolShowOfferProps)
 							{
 							?>
 								<div class="bx_catalog_item_articul">
-									<?
+									<?php 
 									if ($boolShowProductProps)
 									{
 										foreach ($arItem['DISPLAY_PROPERTIES'] as $arOneProp)
 										{
-											?><br><strong><? echo $arOneProp['NAME']; ?></strong> <?
+											?><br><strong><?php  echo $arOneProp['NAME']; ?></strong> <?php 
 											echo (
 											is_array($arOneProp['DISPLAY_VALUE'])
 												? implode(' / ', $arOneProp['DISPLAY_VALUE'])
@@ -534,12 +534,12 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 									if ($boolShowOfferProps)
 									{
 										?>
-										<span id="<? echo $arItemIDs['DISPLAY_PROP_DIV']; ?>" style="display: none;"></span>
-										<?
+										<span id="<?php  echo $arItemIDs['DISPLAY_PROP_DIV']; ?>" style="display: none;"></span>
+										<?php 
 									}
 									?>
 								</div>
-							<?
+							<?php 
 							}
 							if ('Y' == $arParams['PRODUCT_DISPLAY_MODE'])
 							{
@@ -547,8 +547,8 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 							{
 							$arSkuProps = array();
 							?>
-								<div class="bx_catalog_item_scu" id="<? echo $arItemIDs['PROP_DIV']; ?>">
-									<?
+								<div class="bx_catalog_item_scu" id="<?php  echo $arItemIDs['PROP_DIV']; ?>">
+									<?php 
 									foreach ($skuTemplate as $propId => $propTemplate)
 									{
 										if (!isset($arItem['SKU_TREE_VALUES'][$propId]))
@@ -599,7 +599,7 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 									unset($arOneJs);
 									?>
 								</div>
-							<?
+							<?php 
 							if ($arItem['OFFERS_PROPS_DISPLAY'])
 							{
 								foreach ($arItem['JS_OFFERS'] as $keyOffer => $arJSOffer)
@@ -681,9 +681,9 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 							}
 							?>
 								<script type="text/javascript">
-							var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+							var <?php  echo $strObName; ?> = new JCCatalogTopSlider(<?php  echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 								</script>
-							<?
+							<?php 
 							}
 							}
 							else
@@ -750,24 +750,24 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 							}
 							?>
 								<script type="text/javascript">
-							var <? echo $strObName; ?> = new JCCatalogTopSlider(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+							var <?php  echo $strObName; ?> = new JCCatalogTopSlider(<?php  echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 								</script>
-								<?
+								<?php 
 							}
 							}
 							?>
 						</div></div>
-					<?
+					<?php 
 				}
 				?>
 				<div style="clear: both;"></div>
 			</div>
-			<?
+			<?php 
 			$boolFirst = false;
 		}
 		?>
 	</div>
-	<?
+	<?php 
 	if (1 < $intRowsCount)
 	{
 		$arJSParams = array(
@@ -793,9 +793,9 @@ echo ('' != $arParams['MESS_NOT_AVAILABLE'] ? $arParams['MESS_NOT_AVAILABLE'] : 
 		}
 		?>
 		<script type="text/javascript">
-			var ob<? echo $strContID; ?> = new JCCatalogTopSliderList(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+			var ob<?php  echo $strContID; ?> = new JCCatalogTopSliderList(<?php  echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 		</script>
-		<?
+		<?php 
 	}
 	?>
 </div>

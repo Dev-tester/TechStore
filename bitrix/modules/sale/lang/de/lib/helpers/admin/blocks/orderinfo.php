@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_INFO"] = "Bestellung ID(#ID#) | Nr. #NUM#, erstellt am #DATE#";
 $MESS["SALE_ORDER_INFO_FIO"] = "Vollständiger Name";
 $MESS["SALE_ORDER_INFO_PHONE"] = "Telefon";

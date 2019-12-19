@@ -1,4 +1,4 @@
-<?
+<?php 
 //<title>CSV Export</title>
 IncludeModuleLangFile($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/catalog/data_export.php');
 

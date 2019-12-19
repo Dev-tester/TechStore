@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_PHONES_TITLE"] = "Connect SIP phones";
 $MESS["VI_PHONES_HELP_1"] = "<p>Connect SIP phones to your Bitrix24 to make and receive calls now.</p>
 <p>Enhance your classic business environment by enabling your employees to view a caller's information on the screen while using common desktop phones.</p>";

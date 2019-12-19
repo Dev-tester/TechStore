@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_SETTINGS_RELOAD"] = "обновить";
 $MESS["IMCONNECTOR_COMPONENT_SETTINGS_NO_CONNECT_CONNECTOR"] = "Нет ни одного доступного для подключения коннектора!";
 $MESS["IMCONNECTOR_COMPONENT_SETTINGS_SOON"] = "скоро";

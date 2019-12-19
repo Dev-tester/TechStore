@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -62,19 +62,19 @@ foreach ($arResult["BRAND_BLOCKS"] as $blockId => $arBB)
 		$tagAttrs .= ' data-popup="'.$popupID.'"';
 
 	?>
-		<?
+		<?php 
 		if ($useLink)
 		{
 			?><a class="brandblock-item" href="<?=htmlspecialcharsbx($arBB['LINK']); ?>" <?=$tagAttrs; ?> target="_blank">
 				<?=$brandInner.$shortDescr.$popupContext; ?>
-			</a><?
+			</a><?php 
 		}
 		else
 		{
 			?>
-			<div class="brandblock-item" id="<?=$brandID;?>" <? echo ($usePopup ? ' data-popup="'.$popupID.'"' : ''); ?> <?=$tagAttrs; ?>>
+			<div class="brandblock-item" id="<?=$brandID;?>" <?php  echo ($usePopup ? ' data-popup="'.$popupID.'"' : ''); ?> <?=$tagAttrs; ?>>
 				<?=$brandInner.$shortDescr.$popupContext; ?>
-			</div><?
+			</div><?php 
 		}
 
 
@@ -83,7 +83,7 @@ foreach ($arResult["BRAND_BLOCKS"] as $blockId => $arBB)
 }
 ?>
 	</div>
-<?
+<?php 
 if (!empty($handlerIDS))
 {
 	$jsParams = array(
@@ -91,7 +91,7 @@ if (!empty($handlerIDS))
 	);
 ?>
 	<script type="text/javascript">
-		var <? echo $strObName; ?> = new JCIblockBrands(<? echo CUtil::PhpToJSObject($jsParams); ?>);
+		var <?php  echo $strObName; ?> = new JCIblockBrands(<?php  echo CUtil::PhpToJSObject($jsParams); ?>);
 	</script>
-<?
+<?php 
 }

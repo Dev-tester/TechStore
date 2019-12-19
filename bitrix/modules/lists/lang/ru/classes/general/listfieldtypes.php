@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_LIST_FIELD_NAME"] = "Название";
 $MESS["LISTS_LIST_FIELD_SORT"] = "Сортировка";
 $MESS["LISTS_LIST_FIELD_ACTIVE_FROM"] = "Начало активности";

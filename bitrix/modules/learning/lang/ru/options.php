@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_OPTIONS_USE_HTMLEDIT'] = "Использовать визуальный редактор";
 $MESS ['LEARNING_OPTIONS_MENU_MAX_COURSES'] = "Количество курсов, выводимых в меню";
 $MESS ['LEARNING_TAB_SET'] = "Настройки модуля обучения";

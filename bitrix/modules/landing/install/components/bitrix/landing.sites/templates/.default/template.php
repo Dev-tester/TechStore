@@ -45,9 +45,9 @@ Manager::setPageView(
 
 <div class="grid-tile-wrap" id="grid-tile-wrap">
 	<div class="grid-tile-inner" id="grid-tile-inner">
-		<?if ($arResult['ACCESS_SITE_NEW'] == 'Y'):?>
+		<?php if ($arResult['ACCESS_SITE_NEW'] == 'Y'):?>
 		<div class="landing-item landing-item-add-new" style="display: <?=$arResult['IS_DELETED'] ? 'none' : 'block';?>;">
-			<?$urlEdit = str_replace('#site_edit#', 0, $arParams['PAGE_URL_SITE_EDIT']);?>
+			<?php $urlEdit = str_replace('#site_edit#', 0, $arParams['PAGE_URL_SITE_EDIT']);?>
 			<span class="landing-item-inner" data-href="<?= $urlEdit;?>">
 				<span class="landing-item-add-new-inner">
 					<span class="landing-item-add-icon"></span>
@@ -57,9 +57,9 @@ Manager::setPageView(
 				</span>
 			</span>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?foreach ($arResult['SITES'] as $item):
+		<?php foreach ($arResult['SITES'] as $item):
 
 			if ($item['DELETE_FINISH'])//@tmp
 			{
@@ -71,8 +71,8 @@ Manager::setPageView(
 			$urlCreatePage = str_replace(array('#site_show#', '#landing_edit#'), array($item['ID'], 0), $arParams['~PAGE_URL_LANDING_EDIT']);
 			$urlView = str_replace('#site_show#', $item['ID'], $arParams['~PAGE_URL_SITE']);
 			?>
-			<div class="landing-item <?
-					?><?= $item['ACTIVE'] != 'Y' || $item['DELETED'] != 'N' ? ' landing-item-unactive' : '';?><?
+			<div class="landing-item <?php 
+					?><?= $item['ACTIVE'] != 'Y' || $item['DELETED'] != 'N' ? ' landing-item-unactive' : '';?><?php 
 					?><?= $item['DELETED'] == 'Y' ? ' landing-item-deleted' : '';?>">
 				<div class="landing-item-inner">
 					<div class="landing-title">
@@ -104,36 +104,36 @@ Manager::setPageView(
 						</div>
 					</div>
 					<span class="landing-item-cover"
-						<?if ($item['PREVIEW']) {?> style="background-image: url(<?= \htmlspecialcharsbx($item['PREVIEW'])?>);"<?}?>>
+						<?php if ($item['PREVIEW']) {?> style="background-image: url(<?= \htmlspecialcharsbx($item['PREVIEW'])?>);"<?php }?>>
 					</span>
 				</div>
-				<?if ($item['DELETED'] == 'Y'):?>
+				<?php if ($item['DELETED'] == 'Y'):?>
 					<span class="landing-item-link"></span>
-				<?else:?>
+				<?php else:?>
 					<a href="<?= $urlView;?>" class="landing-item-link" target="_top"></a>
-				<?endif;?>
+				<?php endif;?>
 				<div class="landing-item-status-block">
 					<div class="landing-item-status-inner">
-						<?if ($item['DELETED'] == 'Y'):?>
+						<?php if ($item['DELETED'] == 'Y'):?>
 							<span class="landing-item-status landing-item-status-unpublished"><?= Loc::getMessage('LANDING_TPL_DELETED');?></span>
-						<?elseif ($item['ACTIVE'] != 'Y'):?>
+						<?php elseif ($item['ACTIVE'] != 'Y'):?>
 							<span class="landing-item-status landing-item-status-unpublished"><?= Loc::getMessage('LANDING_TPL_UNPUBLIC');?></span>
-						<?else:?>
+						<?php else:?>
 							<span class="landing-item-status landing-item-status-published"><?= Loc::getMessage('LANDING_TPL_PUBLIC');?></span>
-						<?endif;?>
-						<?if ($item['DELETED'] == 'Y'):?>
+						<?php endif;?>
+						<?php if ($item['DELETED'] == 'Y'):?>
 						<span class="landing-item-status landing-item-status-changed">
 							<?= Loc::getMessage('LANDING_TPL_TTL_DELETE');?>:
 							<?= $item['DATE_DELETED_DAYS'];?>
 							<?= Loc::getMessage('LANDING_TPL_TTL_DELETE_D');?>
 						</span>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 				</div>
 			</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 
-		<?
+		<?php 
 		// show developer sites (from main module)
 		if ($lastPage && $arResult['SMN_SITES'])
 		{
@@ -173,22 +173,22 @@ Manager::setPageView(
 						<span class="landing-item-cover" style="background-image: url('/bitrix/images/landing/dev_site.png');">
 					</span>
 					</div>
-					<?if ($item['PUBLIC_URL']):?>
+					<?php if ($item['PUBLIC_URL']):?>
 					<a href="<?= \htmlspecialcharsbx($item['PUBLIC_URL']);?>" target="_blank" class="landing-item-link"></a>
-					<?else:?>
+					<?php else:?>
 					<span class="landing-item-link"></span>
-					<?endif;?>
+					<?php endif;?>
 					<div class="landing-item-status-block">
 						<div class="landing-item-status-inner">
-							<?if ($item['ACTIVE'] != 'Y'):?>
+							<?php if ($item['ACTIVE'] != 'Y'):?>
 								<span class="landing-item-status landing-item-status-unpublished"><?= Loc::getMessage('LANDING_TPL_UNPUBLIC');?></span>
-							<?else:?>
+							<?php else:?>
 								<span class="landing-item-status landing-item-status-published"><?= Loc::getMessage('LANDING_TPL_PUBLIC');?></span>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 		}
 		if (
@@ -208,7 +208,7 @@ Manager::setPageView(
 	</div>
 </div>
 
-<?if ($request->get('IS_AJAX') != 'Y' && Manager::isB24()):?>
+<?php if ($request->get('IS_AJAX') != 'Y' && Manager::isB24()):?>
 <div id="landing_domain_popup" style="display: none; width: 400px;">
 	<p><?= Loc::getMessage('LANDING_TPL_TRANSFER_NOTE');?></p>
 	<p id="landing_domain_address_allow" style="display: none;">
@@ -217,7 +217,7 @@ Manager::setPageView(
 	<p id="landing_domain_address_disallow" style="display: none; color: #d2000d;">
 		<?= Loc::getMessage('LANDING_TPL_TRANSFER_NEW_ADDRESS_DISABLED');?>:
 	</p>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:landing.domain_rename',
 		'.default',
 		array(
@@ -226,15 +226,15 @@ Manager::setPageView(
 		),
 		false
 	);?>
-	<?if ($helpUrl = \Bitrix\Landing\Help::getHelpUrl('SITE_TRANSFER')):?>
+	<?php if ($helpUrl = \Bitrix\Landing\Help::getHelpUrl('SITE_TRANSFER')):?>
 	<p><a href="<?= $helpUrl;?>" target="_blank"><?= Loc::getMessage('LANDING_TPL_TRANSFER_HELP_LINK');?></a></p>
-	<?endif;?>
+	<?php endif;?>
 </div>
-<?endif;?>
+<?php endif;?>
 
-<?if ($navigation->getPageCount() > 1):?>
+<?php if ($navigation->getPageCount() > 1):?>
 	<div class="<?= (defined('ADMIN_SECTION') && ADMIN_SECTION === true) ? '' : 'landing-navigation';?>">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:main.pagenavigation',
 				'',//grid
 				array(
@@ -245,7 +245,7 @@ Manager::setPageView(
 				false
 			);?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 
 <script type="text/javascript">
@@ -311,7 +311,7 @@ Manager::setPageView(
 		var createFolderEl = BX('landing-create-folder');
 		var createElement = BX('landing-create-element');
 
-		<?if ($arResult['IS_DELETED']):?>
+		<?php if ($arResult['IS_DELETED']):?>
 		if (createFolderEl)
 		{
 			BX.addClass(createFolderEl, 'ui-btn-disabled');
@@ -320,7 +320,7 @@ Manager::setPageView(
 		{
 			BX.addClass(createElement, 'ui-btn-disabled');
 		}
-		<?else:?>
+		<?php else:?>
 		if (createFolderEl)
 		{
 			BX.removeClass(createFolderEl, 'ui-btn-disabled');
@@ -329,7 +329,7 @@ Manager::setPageView(
 		{
 			BX.removeClass(createElement, 'ui-btn-disabled');
 		}
-		<?endif;?>
+		<?php endif;?>
 	});
 
 	function showTileMenu(node, params)
@@ -474,18 +474,18 @@ Manager::setPageView(
 					}
 				}
 			},
-			<?if (defined('ASD_TTT')):?>
+			<?php if (defined('ASD_TTT')):?>
 			params.exportSite
 			? {
 				delimiter: true
 			}
 			: null,
-			<?if (defined('ASD_TTT')):?>
+			<?php if (defined('ASD_TTT')):?>
 			params.exportSite
 			? {
 				text: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_EXPORT'));?>',
 				href: params.exportSite
-				<?if ($arResult['EXPORT_ENABLED'] == 'N'):?>
+				<?php if ($arResult['EXPORT_ENABLED'] == 'N'):?>
 				,onclick: function(event)
 				{
 					var msg = BX.Landing.UI.Tool.ActionDialog.getInstance();
@@ -496,11 +496,11 @@ Manager::setPageView(
 					});
 					BX.PreventDefault(event);
 				}
-				<?endif;?>
+				<?php endif;?>
 			}
 			: null,
-			<?endif;?>
-			<?if (false && $arParams['TYPE'] != 'STORE' && \Bitrix\Main\ModuleManager::isModuleInstalled('bitrix24')):?>
+			<?php endif;?>
+			<?php if (false && $arParams['TYPE'] != 'STORE' && \Bitrix\Main\ModuleManager::isModuleInstalled('bitrix24')):?>
 			{
 				text: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_TRANSFER'));?>',
 				onclick: function(event)
@@ -516,8 +516,8 @@ Manager::setPageView(
 					BX.PreventDefault(event);
 				}
 			}
-			<?endif;?>
-			<?endif;?>
+			<?php endif;?>
+			<?php endif;?>
 		];
 
 		if (!isMenuShown) {

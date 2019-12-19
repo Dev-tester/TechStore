@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main,
 	Bitrix\Main\Loader,
@@ -228,16 +228,16 @@ $control->EndPrologContent();
 $control->BeginEpilogContent();
 echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
-	<input type="hidden" name="ID" value="<? echo $ruleId; ?>">
-<?
+	<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
+	<input type="hidden" name="ID" value="<?php  echo $ruleId; ?>">
+<?php 
 if ($copy)
 {
-	?><input type="hidden" name="action" value="copy"><?
+	?><input type="hidden" name="action" value="copy"><?php 
 }
 if (!empty($returnUrl))
 {
-	?><input type="hidden" name="return_url" value="<? echo htmlspecialcharsbx($returnUrl); ?>"><?
+	?><input type="hidden" name="return_url" value="<?php  echo htmlspecialcharsbx($returnUrl); ?>"><?php 
 }
 echo bitrix_sessid_post();
 $control->EndEpilogContent();

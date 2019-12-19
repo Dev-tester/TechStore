@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_JS_HELP_WITH_BDISK"] = "Learn more about using documents";
 $MESS["DISK_JS_BTN_DOWNLOAD"] = "Download";
 $MESS["DISK_VIEWER_DESCR_SAVE_FILE_TO_OWN_FILES"] = "File #NAME# has been saved <br>to folder \"Files\\Saved\"";

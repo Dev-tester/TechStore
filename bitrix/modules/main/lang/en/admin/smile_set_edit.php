@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_EDIT_RECORD"] = "Edit Set";
 $MESS["SMILE_NEW_RECORD"] = "Add Set";
 $MESS["ERROR_EDIT_SMILE"] = "Error editing the set";

@@ -89,7 +89,7 @@ $APPLICATION->IncludeComponent(
 	</div>
 </div>
 
-<?
+<?php 
 if (in_array(LANGUAGE_ID, array('ua', 'ru')))
 {
 	?>
@@ -105,6 +105,6 @@ if (in_array(LANGUAGE_ID, array('ua', 'ru')))
 			<?=$arReplaceParams['js_params'];?>
 	});
 	</script>
-	<?
+	<?php 
 }
 ?>

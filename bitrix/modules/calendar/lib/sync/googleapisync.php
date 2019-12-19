@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Calendar\Sync;
 
 use Bitrix\Main\Type;

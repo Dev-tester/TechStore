@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_EVENT_ADD_IDEA_COMMENT"] = "A new comment added to idea";
 $MESS["IDEA_EVENT_ADD_IDEA_COMMENT_PARAM_FULL_PATH"] = "Comment path";
 $MESS["IDEA_EVENT_ADD_IDEA_COMMENT_PARAM_IDEA_TITLE"] = "Idea title";

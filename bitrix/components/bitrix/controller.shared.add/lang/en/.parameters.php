@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CSA_PARAM_CONTROLLER_URL'] = "Controller URL";
 $MESS ['CSA_PARAM_URL_SUBDOMAIN'] = "Top level domain";
 $MESS ['CSA_PARAM_PATH_VHOST'] = "Full path to folder with rented sites";

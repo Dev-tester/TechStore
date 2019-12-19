@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
@@ -378,10 +378,10 @@ else
 	)
 		ShowError(GetMessage("CC_BCIH_ERROR_SESSION_ID_CHANGE"));
 	?><table class="data-table">
-	<tr><td><?echo GetMessage("CC_BCIH_INTERVAL")?></td><td><?echo $arParams["INTERVAL"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCIH_FILE_SIZE_LIMIT")?></td><td><?echo $arParams["FILE_SIZE_LIMIT"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCIH_USE_ZIP")?></td><td><?echo $arParams["USE_ZIP"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCIH_INTERVAL")?></td><td><?php echo $arParams["INTERVAL"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCIH_FILE_SIZE_LIMIT")?></td><td><?php echo $arParams["FILE_SIZE_LIMIT"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCIH_USE_ZIP")?></td><td><?php echo $arParams["USE_ZIP"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

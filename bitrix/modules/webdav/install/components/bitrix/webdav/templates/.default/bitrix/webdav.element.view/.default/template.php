@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -166,13 +166,13 @@ if ($arParams["WORKFLOW"] == "workflow" && $arParams["PERMISSION"] >= "U")
 	}
 }
 ?>
-<? 
+<?php  
 if (($arParams["MERGE_VIEW"] == "Y") && ($this->__component->__parent))
 {
 	$this->__component->__parent->arResult["TABS"][] = array("id" => "tab1", "name" => GetMessage("WD_DOCUMENT"), "title" => GetMessage("WD_DOCUMENT_ALT"), "fields" => $arFields);
 } else {
 ?>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.interface.form",
 		"",
 		array(
@@ -182,8 +182,8 @@ if (($arParams["MERGE_VIEW"] == "Y") && ($this->__component->__parent))
 		),
 		($this->__component->__parent ? $this->__component->__parent : $component)
 	);?>
-<? } ?>
-<?
+<?php  } ?>
+<?php 
 if ($this->__component->__parent)
 {
 	$this->__component->__parent->arResult["arButtons"] = is_array($this->__component->__parent->arResult["arButtons"]) ? $this->__component->__parent->arResult["arButtons"] : array(); 

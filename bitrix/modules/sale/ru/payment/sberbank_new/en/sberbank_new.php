@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SIBP_DTITLE"] = "SberBank Payment Receipt (Russian payment system)";

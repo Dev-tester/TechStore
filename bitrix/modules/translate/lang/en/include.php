@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_MODULE_TITLE"] = "Localization module";
 $MESS["TRANS_APPLY"] = "Apply";
 $MESS["TRANSLATE_ICON_ALT"] = "Translation";

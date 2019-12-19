@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_MODULE_NAME"] = "Продажи в чате";
 $MESS["SALESCENTER_MODULE_DESCRIPTION"] = "Модуль для организации удобных продаж в мессенджерах";
 $MESS["SALESCENTER_INSTALL_TITLE"] = "Установка модуля \"Продажи в чате\"";

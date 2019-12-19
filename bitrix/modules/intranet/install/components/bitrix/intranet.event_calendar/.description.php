@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $calendar2 = (COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && CModule::IncludeModule("calendar"));
 $arComponentDescription = array(
 	"NAME" => GetMessage("EVENT_CALENDAR").($calendar2 ? GetMessage('EC_DEPRECATED') : ''),

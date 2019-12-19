@@ -284,99 +284,99 @@ if($message)
 
 $limitSitesCount = intval(COption::GetOptionInt("main", "PARAM_MAX_SITES", 100));
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="bform" <?if($bNew && $limitSitesCount > 0 && $limitSitesCount <= $sites_cnt)echo ' OnSubmit="alert(\''.GetMessage("SITE_EDIT_WARNING_MAX").'\')"';?>>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="bform" <?php if($bNew && $limitSitesCount > 0 && $limitSitesCount <= $sites_cnt)echo ' OnSubmit="alert(\''.GetMessage("SITE_EDIT_WARNING_MAX").'\')"';?>>
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?if($bNew):?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php if($bNew):?>
 <input type="hidden" name="new" value="Y">
-<?endif?>
-<?if($COPY_ID <> ''):?>
-<input type="hidden" name="COPY" value="<?echo htmlspecialcharsbx($COPY_ID)?>">
-<?endif?>
-<?
+<?php endif?>
+<?php if($COPY_ID <> ''):?>
+<input type="hidden" name="COPY" value="<?php echo htmlspecialcharsbx($COPY_ID)?>">
+<?php endif?>
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr class="adm-detail-required-field">
 		<td width="40%">ID:</td>
-		<td width="60%"><?
+		<td width="60%"><?php 
 			if(!$bNew):
 				echo $str_LID;
-				?><input type="hidden" name="LID" value="<? echo $str_LID?>"><?
+				?><input type="hidden" name="LID" value="<?php  echo $str_LID?>"><?php 
 			else:
-				?><input type="text" name="LID" size="2" maxlength="2" value="<? echo $str_LID?>"><?
+				?><input type="text" name="LID" size="2" maxlength="2" value="<?php  echo $str_LID?>"><?php 
 			endif;
 				?></td>
 	</tr>
 	<tr>
-		<td><label for="ACTIVE"><?echo GetMessage('ACTIVE')?></label></td>
-		<td><input type="checkbox" name="ACTIVE" value="Y" id="ACTIVE"<?if($str_ACTIVE=="Y")echo " checked"?>></td>
+		<td><label for="ACTIVE"><?php echo GetMessage('ACTIVE')?></label></td>
+		<td><input type="checkbox" name="ACTIVE" value="Y" id="ACTIVE"<?php if($str_ACTIVE=="Y")echo " checked"?>></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage('NAME')?></td>
-		<td><input type="text" name="NAME" size="30" value="<? echo $str_NAME?>"></td>
+		<td><?php echo GetMessage('NAME')?></td>
+		<td><input type="text" name="NAME" size="30" value="<?php  echo $str_NAME?>"></td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("MAIN_SITE_DEFINITIONS")?></td>
+		<td colspan="2"><?php echo GetMessage("MAIN_SITE_DEFINITIONS")?></td>
 	</tr>
 	<tr>
-		<td><label for="DEF"><?echo GetMessage('DEF')?></label></td>
-		<td><input type="checkbox" name="DEF" value="Y" id="DEF"<?if($str_DEF=="Y")echo " checked"?>></td>
+		<td><label for="DEF"><?php echo GetMessage('DEF')?></label></td>
+		<td><input type="checkbox" name="DEF" value="Y" id="DEF"<?php if($str_DEF=="Y")echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIN_SITE_DOMAIN")?><br>
-		<?echo GetMessage("MAIN_SITE_EDIT_DOMAINS")?>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIN_SITE_DOMAIN")?><br>
+		<?php echo GetMessage("MAIN_SITE_EDIT_DOMAINS")?>
 		</td>
-		<td><textarea name="DOMAINS" cols="40" rows="5"><? echo $str_DOMAINS?></textarea>
+		<td><textarea name="DOMAINS" cols="40" rows="5"><?php  echo $str_DOMAINS?></textarea>
 		<?=BeginNote();?>
-		<?echo GetMessage("MAIN_SITE_EDIT_DOMAINS_HELP")?>
+		<?php echo GetMessage("MAIN_SITE_EDIT_DOMAINS_HELP")?>
 		<?=EndNote();?>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><? echo GetMessage('DIR')?></td>
-		<td><input type="text" name="DIR" size="30" value="<? echo $str_DIR?>"></td>
+		<td><?php  echo GetMessage('DIR')?></td>
+		<td><input type="text" name="DIR" size="30" value="<?php  echo $str_DIR?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage('SORT')?></td>
-		<td><input type="text" name="SORT" size="10" value="<? echo $str_SORT?>"></td>
+		<td><?php echo GetMessage('SORT')?></td>
+		<td><input type="text" name="SORT" size="10" value="<?php  echo $str_SORT?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_DOC_ROOT")?><br />
-		<?echo GetMessage("MAIN_DOC_ROOT_TIPS")?>
+		<td><?php echo GetMessage("MAIN_DOC_ROOT")?><br />
+		<?php echo GetMessage("MAIN_DOC_ROOT_TIPS")?>
 		</td>
-		<td><input type="text" name="DOC_ROOT" size="30" value="<?echo $str_DOC_ROOT?>">
-		<a title="<?=GetMessage('MAIN_DOC_ROOT_INS')?>" href="javascript:void(0)" onClick="document.bform.DOC_ROOT.value='<?=htmlspecialcharsbx(CUtil::addslashes($_SERVER["DOCUMENT_ROOT"]))?>'; BX.fireEvent(document.bform.DOC_ROOT, 'change')"><?echo GetMessage("MAIN_DOC_ROOT_SET")?></a>
+		<td><input type="text" name="DOC_ROOT" size="30" value="<?php echo $str_DOC_ROOT?>">
+		<a title="<?=GetMessage('MAIN_DOC_ROOT_INS')?>" href="javascript:void(0)" onClick="document.bform.DOC_ROOT.value='<?=htmlspecialcharsbx(CUtil::addslashes($_SERVER["DOCUMENT_ROOT"]))?>'; BX.fireEvent(document.bform.DOC_ROOT, 'change')"><?php echo GetMessage("MAIN_DOC_ROOT_SET")?></a>
 		</td>
 	</tr>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("MAIN_SITE_PARAMS")?></td>
+		<td colspan="2"><?php echo GetMessage("MAIN_SITE_PARAMS")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_SITE_NAME")?></td>
-		<td><input type="text" name="SITE_NAME" size="30" value="<?echo $str_SITE_NAME?>"></td>
+		<td><?php echo GetMessage("MAIN_SITE_NAME")?></td>
+		<td><input type="text" name="SITE_NAME" size="30" value="<?php echo $str_SITE_NAME?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_SERVER_URL")?></td>
-		<td><input type="text" name="SERVER_NAME" size="30" value="<?echo $str_SERVER_NAME?>"></td>
+		<td><?php echo GetMessage("MAIN_SERVER_URL")?></td>
+		<td><input type="text" name="SERVER_NAME" size="30" value="<?php echo $str_SERVER_NAME?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_DEFAULT_EMAIL")?></td>
-		<td><input type="text" name="EMAIL" size="30" value="<?echo $str_EMAIL?>"></td>
+		<td><?php echo GetMessage("MAIN_DEFAULT_EMAIL")?></td>
+		<td><input type="text" name="EMAIL" size="30" value="<?php echo $str_EMAIL?>"></td>
 	</tr>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("site_edit_culture_title")?></td>
+		<td colspan="2"><?php echo GetMessage("site_edit_culture_title")?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("MAIN_SITE_LANG")?></td>
-		<td><?echo CLanguage::SelectBox("LANGUAGE_ID", $str_LANGUAGE_ID);?></td>
+		<td><?php echo GetMessage("MAIN_SITE_LANG")?></td>
+		<td><?php echo CLanguage::SelectBox("LANGUAGE_ID", $str_LANGUAGE_ID);?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("site_edit_culture")?></td>
+		<td><?php echo GetMessage("site_edit_culture")?></td>
 		<td>
-<?
+<?php 
 $cultureRes = \Bitrix\Main\Localization\CultureTable::getList(array('order'=>array('NAME'=>'ASC')));
 $cultures = array();
 while($cult = $cultureRes->fetch())
@@ -410,11 +410,11 @@ function BXSetCulture()
 BX.ready(BXSetCulture);
 </script>
 			<select name="CULTURE_ID" onchange="BXSetCulture()" id="bx_culture_select">
-<?
+<?php 
 foreach($cultures as $cult):
 ?>
-				<option value="<?=$cult["ID"]?>"<?if($cult["ID"] == $str_CULTURE_ID) echo " selected"?>><?=htmlspecialcharsbx($cult["NAME"])?></option>
-<?
+				<option value="<?=$cult["ID"]?>"<?php if($cult["ID"] == $str_CULTURE_ID) echo " selected"?>><?=htmlspecialcharsbx($cult["NAME"])?></option>
+<?php 
 endforeach;
 ?>
 			</select>
@@ -422,54 +422,54 @@ endforeach;
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><a href="culture_edit.php?lang=<?=LANGUAGE_ID?>" id="bx_culture_link"><?echo GetMessage("site_edit_culture_edit")?></a></td>
+		<td><a href="culture_edit.php?lang=<?=LANGUAGE_ID?>" id="bx_culture_link"><?php echo GetMessage("site_edit_culture_edit")?></a></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage('FORMAT_DATE')?></td>
+		<td><?php  echo GetMessage('FORMAT_DATE')?></td>
 		<td><input type="text" name="FORMAT_DATE" size="30" disabled="disabled"></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage('FORMAT_DATETIME')?></td>
+		<td><?php  echo GetMessage('FORMAT_DATETIME')?></td>
 		<td><input type="text" name="FORMAT_DATETIME" size="30" disabled="disabled"></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage('SITE_EDIT_WEEK_START')?></td>
+		<td><?php  echo GetMessage('SITE_EDIT_WEEK_START')?></td>
 		<td><input type="text" name="WEEK_START" size="30" disabled="disabled"></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage('FORMAT_NAME')?></td>
+		<td><?php  echo GetMessage('FORMAT_NAME')?></td>
 		<td><input type="text" name="FORMAT_NAME" size="30" disabled="disabled"></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage('CHARSET')?></td>
+		<td><?php  echo GetMessage('CHARSET')?></td>
 		<td><input type="text" name="CHARSET" size="30" disabled="disabled"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('DIRECTION')?></td>
+		<td><?php echo GetMessage('DIRECTION')?></td>
 		<td><input type="text" name="DIRECTION" size="30" disabled="disabled"></td>
 	</tr>
 
-	<?if($bNew):?>
+	<?php if($bNew):?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("site_edit_mail_templates")?></td>
+		<td colspan="2"><?php echo GetMessage("site_edit_mail_templates")?></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL")?></td>
 		<td>
-			<input type="radio"<?if($SITE_MESSAGE_LINK!="E" && $SITE_MESSAGE_LINK!="C") echo " checked"?> name="SITE_MESSAGE_LINK" value="N" id="SITE_MESSAGE_LINK_n" onClick="if(this.checked){document.bform.SITE_MESSAGE_LINK_E_SITE.disabled=true; document.bform.SITE_MESSAGE_LINK_C_SITE.disabled=true}"><label for="SITE_MESSAGE_LINK_n"> <?echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL_N")?></label><br>
-			<input type="radio"<?if($SITE_MESSAGE_LINK=="E") echo " checked"?> name="SITE_MESSAGE_LINK" id="SITE_MESSAGE_LINK_e" value="E" onClick="if(this.checked){document.bform.SITE_MESSAGE_LINK_C_SITE.disabled=true; document.bform.SITE_MESSAGE_LINK_E_SITE.disabled=false}"><label for="SITE_MESSAGE_LINK_e"> <?echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL_LINK")?></label><br>
+			<input type="radio"<?php if($SITE_MESSAGE_LINK!="E" && $SITE_MESSAGE_LINK!="C") echo " checked"?> name="SITE_MESSAGE_LINK" value="N" id="SITE_MESSAGE_LINK_n" onClick="if(this.checked){document.bform.SITE_MESSAGE_LINK_E_SITE.disabled=true; document.bform.SITE_MESSAGE_LINK_C_SITE.disabled=true}"><label for="SITE_MESSAGE_LINK_n"> <?php echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL_N")?></label><br>
+			<input type="radio"<?php if($SITE_MESSAGE_LINK=="E") echo " checked"?> name="SITE_MESSAGE_LINK" id="SITE_MESSAGE_LINK_e" value="E" onClick="if(this.checked){document.bform.SITE_MESSAGE_LINK_C_SITE.disabled=true; document.bform.SITE_MESSAGE_LINK_E_SITE.disabled=false}"><label for="SITE_MESSAGE_LINK_e"> <?php echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL_LINK")?></label><br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=CSite::SelectBox("SITE_MESSAGE_LINK_E_SITE", $SITE_MESSAGE_LINK_E_SITE, "", "", ($SITE_MESSAGE_LINK!="E"?'disabled':''));?><br>
-			<input type="radio"<?if($SITE_MESSAGE_LINK=="C") echo " checked"?> name="SITE_MESSAGE_LINK" id="SITE_MESSAGE_LINK_c" value="C" onClick="if(this.checked){document.bform.SITE_MESSAGE_LINK_E_SITE.disabled=true; document.bform.SITE_MESSAGE_LINK_C_SITE.disabled=false}"><label for="SITE_MESSAGE_LINK_c"> <?echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL_COPY")?></label><br>
+			<input type="radio"<?php if($SITE_MESSAGE_LINK=="C") echo " checked"?> name="SITE_MESSAGE_LINK" id="SITE_MESSAGE_LINK_c" value="C" onClick="if(this.checked){document.bform.SITE_MESSAGE_LINK_E_SITE.disabled=true; document.bform.SITE_MESSAGE_LINK_C_SITE.disabled=false}"><label for="SITE_MESSAGE_LINK_c"> <?php echo GetMessage("MAIN_SITE_CREATE_MESS_TEPL_COPY")?></label><br>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?=CSite::SelectBox("SITE_MESSAGE_LINK_C_SITE", $SITE_MESSAGE_LINK_C_SITE, "", "", ($SITE_MESSAGE_LINK!="C"?'disabled':''));?><br />
 
 		</td>
 	</tr>
-	<?endif?>
-	<?ConditionJS();?>
+	<?php endif?>
+	<?php ConditionJS();?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("MAIN_SITE_EDIT_TEMPLATE")?></td>
+		<td colspan="2"><?php echo GetMessage("MAIN_SITE_EDIT_TEMPLATE")?></td>
 	</tr>
-	<?if ($bNew):?>
+	<?php if ($bNew):?>
 	<tr>
 		<td>&nbsp;</td>
 		<td>
@@ -487,17 +487,17 @@ endforeach;
 			<input type="checkbox" name="START_SITE_WIZARD_REWRITE" value="Y" id="ID_START_SITE_WIZARD_REWRITE"><label for="ID_START_SITE_WIZARD_REWRITE"><?= GetMessage("M_START_SITE_WIZARD_REWRITE") ?></label>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr id="ID_HIDDENABLE_TR"<?= ($bNew && ($str_START_SITE_WIZARD != "N")) ? "style='display:none'" : ""?>>
 		<td colspan="2" align="center">
 			<table border="0" cellspacing="0" cellpadding="0" class="internal">
 			<tr class="heading">
-				<td align="center" colspan=2><?echo GetMessage("MAIN_SITE_EDIT_TEMPL")?></td>
-				<td align="center"><?echo GetMessage("MAIN_SITE_EDIT_SORT")?></td>
-				<td align="center"><?echo GetMessage("MAIN_SITE_EDIT_TYPE")?></td>
-				<td align="center"><?echo GetMessage("MAIN_SITE_EDIT_COND")?></td>
+				<td align="center" colspan=2><?php echo GetMessage("MAIN_SITE_EDIT_TEMPL")?></td>
+				<td align="center"><?php echo GetMessage("MAIN_SITE_EDIT_SORT")?></td>
+				<td align="center"><?php echo GetMessage("MAIN_SITE_EDIT_TYPE")?></td>
+				<td align="center"><?php echo GetMessage("MAIN_SITE_EDIT_COND")?></td>
 			</tr>
-			<?
+			<?php 
 			$dbSiteRes = CSite::GetTemplateList($LID);
 			if(!$bVarsFromForm)
 			{
@@ -557,14 +557,14 @@ endforeach;
 			<tr>
 				<td>
 					<select name="SITE_TEMPLATE[<?=$i?>][TEMPLATE]" id="SITE_TEMPLATE[<?=$i?>][TEMPLATE]">
-						<option value=""><?echo GetMessage("SITE_EDIT_TEMPL_NO")?></option>
-						<?foreach($arSiteTemplates as $arRes):?>
-						<option value="<?=$arRes["ID"]?>"<?if($val["TEMPLATE"]==$arRes["ID"])echo " selected"?>><?=$arRes["NAME"]?></option>
-						<?endforeach;?>
+						<option value=""><?php echo GetMessage("SITE_EDIT_TEMPL_NO")?></option>
+						<?php foreach($arSiteTemplates as $arRes):?>
+						<option value="<?=$arRes["ID"]?>"<?php if($val["TEMPLATE"]==$arRes["ID"])echo " selected"?>><?=$arRes["NAME"]?></option>
+						<?php endforeach;?>
 					</select>
 				</td>
 				<td>
-					<?
+					<?php 
 					if($bFirst):
 						$bFirst = false;
 					?>
@@ -582,12 +582,12 @@ endforeach;
 							return false;
 						}
 					</script>
-					<?endif?>
+					<?php endif?>
 					<a title="<?=GetMessage('MAIN_PREVIEW_TEMPLATE')?>" href="javascript:void(0)" onclick="bx_preview_template('<?=$i?>')"><img src="/bitrix/images/main/preview.gif" width="16" height="16" border="0"></a>
 				</td>
 				<td><input type="text" size="2" name="SITE_TEMPLATE[<?=$i?>][SORT]" value="<?=htmlspecialcharsex($val["SORT"])?>"></td>
-				<td><?ConditionSelect($i);?></td>
-				<td align="left"><?
+				<td><?php ConditionSelect($i);?></td>
+				<td align="left"><?php 
 ConditionShow(array(
 	"i" => $i,
 	"field_name" => "SITE_TEMPLATE[$i]",
@@ -595,15 +595,15 @@ ConditionShow(array(
 ));
 			?></td>
 			</tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 			</table>
 		</td>
 	</tr>
 
 
-<?$tabControl->Buttons(array("disabled" => !$isAdmin, "back_url"=>"site_admin.php?lang=".LANGUAGE_ID));
+<?php $tabControl->Buttons(array("disabled" => !$isAdmin, "back_url"=>"site_admin.php?lang=".LANGUAGE_ID));
 $tabControl->End();
 $tabControl->ShowWarnings("bform", $message);
 ?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

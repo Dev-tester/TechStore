@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['T_IBLOCK_DESC_FACT'] = "Aktivierungsdatum";
 $MESS ['T_IBLOCK_DESC_ADD_SECTIONS_CHAIN'] = "Bereich in der Navigationskette anzeigen";
 $MESS ['T_IBLOCK_DESC_ASC'] = "Aufsteigend";

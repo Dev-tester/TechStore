@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_SET_NAVCHAIN'] = "Устанавливать цепочку навигации";
 $MESS ['SONET_PATH_TO_USER'] = "Шаблон пути к странице пользователя";
 $MESS ['SONET_PATH_TO_MESSAGES_USERS_MESSAGES'] = "Шаблон пути к истории сообщений пользователя";

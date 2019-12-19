@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_STAT_STATS_ANALYTICS"] = "Аналитика";
 $MESS["SENDER_LETTER_STAT_STATS_CAMPAIGN"] = "Кампания";
 $MESS["SENDER_LETTER_STAT_STATS_COUNTER_SEND_ALL"] = "Всего отправлено писем";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_NEW_TICKET_TITLE"]="Новое обращение";
 $MESS["SUP_EDIT_TICKET_TITLE"]="Обращение # #ID# - #TITLE#";
 $MESS["MODULE_NOT_INSTALL"]="Модуль техподдержки не установлен.";

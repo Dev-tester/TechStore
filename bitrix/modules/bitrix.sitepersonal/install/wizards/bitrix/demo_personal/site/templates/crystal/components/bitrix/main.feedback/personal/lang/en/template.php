@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MFT_NAME'] = "Name";
 $MESS ['MFT_EMAIL'] = "Your E-mail";
 $MESS ['MFT_MESSAGE'] = "Message";

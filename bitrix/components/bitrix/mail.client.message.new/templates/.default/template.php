@@ -21,7 +21,7 @@ $this->setViewTarget('pagetitle_icon');
 
 <span class="mail-msg-title-icon mail-msg-title-icon-outcome"></span>
 
-<?
+<?php 
 
 $this->endViewTarget();
 
@@ -100,7 +100,7 @@ $isCrmEnabled = ($arResult['CRM_ENABLE'] === 'Y');
 
 <div class="mail-msg-view-wrapper">
 	<div data-id="<?=intval($message['ID']) ?>" id="mail-msg-view-details-<?=intval($message['ID']) ?>">
-		<?
+		<?php 
 
 		$formId = 'mail_msg_new_form';
 		$actionUrl = '/bitrix/services/main/ajax.php?c=bitrix%3Amail.client&action=sendMessage&mode=ajax';
@@ -108,11 +108,11 @@ $isCrmEnabled = ($arResult['CRM_ENABLE'] === 'Y');
 		?>
 		<form action="<?= $actionUrl ?>" method="POST" id="<?= htmlspecialcharsbx($formId) ?>">
 			<?= bitrix_sessid_post() ?>
-			<? if ('reply' == $message['__type'] && $message['__parent'] > 0): ?>
+			<?php  if ('reply' == $message['__type'] && $message['__parent'] > 0): ?>
 				<input type="hidden" name="data[IN_REPLY_TO]" value="<?= htmlspecialcharsbx($message['MSG_ID']) ?>">
 				<input type="hidden" name="data[MAILBOX_ID]" value="<?= $message['MAILBOX_ID'] ?>">
-			<? endif ?>
-			<?
+			<?php  endif ?>
+			<?php 
 
 			$inlineFiles = array();
 			$quote = preg_replace_callback(
@@ -286,9 +286,9 @@ BX.ready(function ()
 
 	var mailForm = BXMainMailForm.getForm('<?=\CUtil::jsEscape($formId) ?>');
 	mailForm.init();
-	<? if($arResult['SELECTED_EMAIL_CODE'] && !empty($arResult['LAST_RCPT'][$arResult['SELECTED_EMAIL_CODE']])): ?>
+	<?php  if($arResult['SELECTED_EMAIL_CODE'] && !empty($arResult['LAST_RCPT'][$arResult['SELECTED_EMAIL_CODE']])): ?>
 	mailForm.getField('data[to]').setValue({'<?= CUtil::JSEscape($arResult['SELECTED_EMAIL_CODE']) ?>': 'mailContacts'});
-	<? endif;?>
+	<?php  endif;?>
 });
 
 </script>

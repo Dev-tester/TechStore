@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTET_NOT_SET'] = "(not set)";
 $MESS ['INTET_ADD'] = "Add";
 $MESS ['INTET_CREATE_TITLE'] = "New Task";

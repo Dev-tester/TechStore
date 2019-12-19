@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPVDX_FIELD_ID"] = "Element ID";
 $MESS["BPVDX_FIELD_TIMESTAMP_X"] = "Element Last Modified On";
 $MESS["BPVDX_FIELD_MODYFIED"] = "Modified by";

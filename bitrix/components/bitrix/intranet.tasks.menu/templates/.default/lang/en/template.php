@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTMT_BACK2LIST_DESCR'] = "Back to Task List";
 $MESS ['INTMT_BACK2LIST'] = "Tasks";
 $MESS ['INTMT_EDIT_TASK_DESCR'] = "Edit Current Task";

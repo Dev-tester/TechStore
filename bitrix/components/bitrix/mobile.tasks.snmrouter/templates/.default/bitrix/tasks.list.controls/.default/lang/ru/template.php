@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_PANEL_TAB_ALL"] = "Все";
 $MESS["MB_TASKS_PANEL_TAB_PROJECTS"] = "Проекты";
 $MESS["MB_TASKS_CONTROLS_TITLE"] = "Категории задач";

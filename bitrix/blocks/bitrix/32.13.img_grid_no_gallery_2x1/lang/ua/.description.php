@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_32_13-IMG"] = "Зображення";
 $MESS["LANDING_BLOCK_32_13-IMG1"] = "Зображення (велике)";
 $MESS["LANDING_BLOCK_32_13-IMG2"] = "Зображення (маленьке)";

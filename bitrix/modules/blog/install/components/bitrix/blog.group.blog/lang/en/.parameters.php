@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BGB_BLOG_COUNT'] = "Blogs per page";
 $MESS ['BGB_PATH_TO_BLOG'] = "Blog page path template";
 $MESS ['BGB_PATH_TO_POST'] = "Template of a blog message page";

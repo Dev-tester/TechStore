@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -104,7 +104,7 @@ if (
 
 $gridContainerId = 'bx-iul-'.$arResult['GRID_ID'].'-container';
 
-?><span id="<?=htmlspecialcharsbx($gridContainerId)?>"><?
+?><span id="<?=htmlspecialcharsbx($gridContainerId)?>"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.ui.grid',
 		'',
@@ -123,7 +123,7 @@ $gridContainerId = 'bx-iul-'.$arResult['GRID_ID'].'-container';
 		],
 		$component
 	);
-?></span><?
+?></span><?php 
 
 ?><script>
 	BX.ready(function () {
@@ -149,7 +149,7 @@ $gridContainerId = 'bx-iul-'.$arResult['GRID_ID'].'-container';
 		});
 
 	});
-</script><?
+</script><?php 
 if (
 	SITE_TEMPLATE_ID == 'bitrix24'
 	&& !empty($arParams['SLIDER_PROFILE_USER_ID'])
@@ -178,6 +178,6 @@ if (
 			}
 		);
 	});
-</script><?
+</script><?php 
 }
 ?>

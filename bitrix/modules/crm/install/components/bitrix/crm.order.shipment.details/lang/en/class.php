@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_ERROR_SHIPMENT_SERVICE_RESTRICTED"] = "Delivery service does not match restrictions";
 $MESS["CRM_ORDER_SHIPMENT_EXTRA_SERVICES"] = "Extra services";
 $MESS["CRM_ORDER_SHIPMENT_TITLE2"] = "Shipment ##ACCOUNT_NUMBER#";

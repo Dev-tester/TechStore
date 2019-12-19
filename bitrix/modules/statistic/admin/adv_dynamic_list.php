@@ -180,37 +180,37 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 ?>
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?>
 	</td>
 </tr>
 </form>
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()."?find_adv_id=".intval($find_adv_id), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()."?find_adv_id=".intval($find_adv_id), "form"=>"form1"));$filter->End();?>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <table border="0" width="100%" cellspacing="1" cellpadding="3">
 	<tr>
-		<td valign="top" nowrap><?echo GetMessage("STAT_STRAIGHT")?></td>
-		<td valign="top" nowrap> - <?echo GetMessage("STAT_STRAIGHT_ALT")?></td>
+		<td valign="top" nowrap><?php echo GetMessage("STAT_STRAIGHT")?></td>
+		<td valign="top" nowrap> - <?php echo GetMessage("STAT_STRAIGHT_ALT")?></td>
 	</tr>
 	<tr>
-		<td valign="top" nowrap><?echo GetMessage("STAT_BACK")?>*</td>
-		<td valign="top" nowrap> - <?echo GetMessage("STAT_BACK_ALT")?></td>
+		<td valign="top" nowrap><?php echo GetMessage("STAT_BACK")?>*</td>
+		<td valign="top" nowrap> - <?php echo GetMessage("STAT_BACK_ALT")?></td>
 	</tr>
 	<tr>
-		<td valign="top" nowrap><?echo GetMessage("STAT_NEW")?></td>
-		<td valign="top" nowrap> - <?echo GetMessage("STAT_NEW_ALT")?></td>
+		<td valign="top" nowrap><?php echo GetMessage("STAT_NEW")?></td>
+		<td valign="top" nowrap> - <?php echo GetMessage("STAT_NEW_ALT")?></td>
 	</tr>
 </table>
-<?echo EndNote();?>
+<?php echo EndNote();?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

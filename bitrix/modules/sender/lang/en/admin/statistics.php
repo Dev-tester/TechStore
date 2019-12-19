@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_STATS_CREATE_NEW_LETTER"] = "Create a new newsletter";
 $MESS["SENDER_STATS_TITLE"] = "Start";
 $MESS["SENDER_STATS_EFFICIENCY_TITLE"] = "Newsletter efficiency";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPTLWGT_TITLE"] = "Workflows";
 $MESS["BPTLWGT_RUNNING"] = "Pending";
 $MESS["BPTLWGT_MODULE_DISK"] = "Drive";

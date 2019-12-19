@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_WRONG_SERVICE"] = "Wrong bucket service.";
 $MESS["CLO_STORAGE_EMPTY_BUCKET"] = "The bucket ID is missing.";
 $MESS["CLO_STORAGE_BAD_BUCKET_NAME"] = "The bucket ID contains invalid characters (use only lowercase Latin letters, digits and dashes \"-\").";

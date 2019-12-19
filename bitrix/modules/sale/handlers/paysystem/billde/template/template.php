@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -16,7 +16,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 </style>
 </head>
 
-<?
+<?php 
 
 if ($_REQUEST['BLANK'] == 'Y')
 	$blank = true;
@@ -69,15 +69,15 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 ?>
 
-<body style="margin: 0pt; padding: 0pt;"<? if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<? } ?>>
+<body style="margin: 0pt; padding: 0pt;"<?php  if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<?php  } ?>>
 
 <div style="margin: 0pt; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>">
 
 <table class="header">
 	<tr>
-		<? if ($params["BILLDE_PATH_TO_LOGO"]) { ?>
+		<?php  if ($params["BILLDE_PATH_TO_LOGO"]) { ?>
 		<td style="padding-right: 5pt; ">
-			<? $imgParams = CFile::_GetImgParams($params['BILLDE_PATH_TO_LOGO']);
+			<?php  $imgParams = CFile::_GetImgParams($params['BILLDE_PATH_TO_LOGO']);
 				$dpi = intval($params['BILLDE_LOGO_DPI']) ?: 96;
 				$imgWidth = $imgParams['WIDTH'] * 96 / $dpi;
 				if ($imgWidth > $pageWidth)
@@ -85,7 +85,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 			?>
 			<img src="<?=$imgParams['SRC']; ?>" width="<?=$imgWidth; ?>" />
 		</td>
-		<? } ?>
+		<?php  } ?>
 		<td style="font-size: 3em; ">
 			<b><?=htmlspecialcharsbx($params["SELLER_COMPANY_NAME"]); ?></b>
 		</td>
@@ -95,7 +95,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 <span style="text-decoration: underline">
 	<small>
-		<b><?=htmlspecialcharsbx($params["SELLER_COMPANY_NAME"]); ?><?
+		<b><?=htmlspecialcharsbx($params["SELLER_COMPANY_NAME"]); ?><?php 
 		if ($params["SELLER_COMPANY_ADDRESS"])
 		{
 			$sellerAddr = $params["SELLER_COMPANY_ADDRESS"];
@@ -103,20 +103,20 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 				$sellerAddr = implode(', ', $sellerAddr);
 			else
 				$sellerAddr = str_replace(array("\r\n", "\n", "\r"), ', ', strval($sellerAddr));
-			?> - <?=htmlspecialcharsbx($sellerAddr);?><?
+			?> - <?=htmlspecialcharsbx($sellerAddr);?><?php 
 		}
 ?></b></small></span>
 <br>
 <br>
 <br>
 
-<? if ($params["BUYER_PERSON_COMPANY_NAME"]) { ?>
+<?php  if ($params["BUYER_PERSON_COMPANY_NAME"]) { ?>
 	<b><?=htmlspecialcharsbx($params["BUYER_PERSON_COMPANY_NAME"]); ?></b>
-	<br><?
+	<br><?php 
     if ($params["BUYER_PERSON_COMPANY_PAYER_NAME"])
 	{
-		?><?=htmlspecialcharsbx($params["BUYER_PERSON_COMPANY_PAYER_NAME"]);?><?
-		?><br><?
+		?><?=htmlspecialcharsbx($params["BUYER_PERSON_COMPANY_PAYER_NAME"]);?><?php 
+		?><br><?php 
 	}
 	if ($params["BUYER_PERSON_COMPANY_ADDRESS"])
 	{
@@ -131,19 +131,19 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 				}
 
 				$addrValue = implode('<br>', $buyerAddress)
-				?><div style="display: inline-block; vertical-align: top;"><?= $addrValue ?></div><?
-				?><br><?
+				?><div style="display: inline-block; vertical-align: top;"><?= $addrValue ?></div><?php 
+				?><br><?php 
 				unset($addrValue);
 			}
 		}
 		else
 		{
-			?><?= nl2br(htmlspecialcharsbx($buyerAddress)) ?><?
-			?><br><?
+			?><?= nl2br(htmlspecialcharsbx($buyerAddress)) ?><?php 
+			?><br><?php 
 		}
 		unset($buyerAddress);
 	} ?>
-<? } ?>
+<?php  } ?>
 
 <br>
 <br>
@@ -155,14 +155,14 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 <br>
 <br>
 <br>
-<? if ($params['BILLDE_HEADER_SHOW'] == 'Y'):?>
+<?php  if ($params['BILLDE_HEADER_SHOW'] == 'Y'):?>
 	<table width="100%" style="font-weight: bold">
 		<tr>
 			<td><?=sprintf(
 				htmlspecialcharsbx($params['BILLDE_HEADER']).' Nr. %s',
 				htmlspecialcharsbx($params["ACCOUNT_NUMBER"])
 			); ?></td>
-			<td><? if ($params["BUYER_PERSON_COMPANY_ID"]) {
+			<td><?php  if ($params["BUYER_PERSON_COMPANY_ID"]) {
 			echo sprintf(
 				'Kunden-Nr.: %s',
 				htmlspecialcharsbx($params["BUYER_PERSON_COMPANY_ID"])
@@ -172,7 +172,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 				htmlspecialcharsbx($params["DATE_INSERT"])
 			); ?></td>
 		</tr>
-		<? if ($params["DATE_PAY_BEFORE"]) { ?>
+		<?php  if ($params["DATE_PAY_BEFORE"]) { ?>
 		<tr>
 			<td></td>
 			<td></td>
@@ -182,14 +182,14 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 					?: htmlspecialcharsbx($params["DATE_PAY_BEFORE"])
 			); ?></td>
 		</tr>
-		<? } ?>
+		<?php  } ?>
 	</table>
 	<small><b>Bitte bei Zahlungen und Schriftverkehr angeben!</b></small>
 	<br>
 	<br>
 	<br>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 
 $columnList = array('NUMBER', 'NAME', 'QUANTITY', 'MEASURE', 'PRICE', 'VAT_RATE', 'SUM');
 $arCols = array();
@@ -467,10 +467,10 @@ if ($params['BASKET_ITEMS'])
 ?>
 <table class="it" width="100%">
 	<tr align="center">
-		<?foreach ($arCols as $columnId => $col):?>
+		<?php foreach ($arCols as $columnId => $col):?>
 			<td><?=$col['NAME'];?></td>
-		<?endforeach;?>
-<?
+		<?php endforeach;?>
+<?php 
 
 $rowsCnt = count($arCells);
 for ($n = 1; $n <= $rowsCnt; $n++)
@@ -479,29 +479,29 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 ?>
 	<tr valign="top">
-		<?foreach ($arCols as $columnId => $col):?>
-		<?
+		<?php foreach ($arCols as $columnId => $col):?>
+		<?php 
 			if (!is_null($arCells[$n][$columnId]))
 			{
 				if ($columnId === 'NUMBER')
 				{?>
 					<td align="center"><?=$arCells[$n][$columnId];?></td>
-				<?}
+				<?php }
 				elseif ($columnId === 'NAME')
 				{
 				?>
 					<td align="<?=($n > $items) ? 'right' : 'left';?>"
-						style="word-break: break-word; word-wrap: break-word; <? if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <? } ?>"
-						<? if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<? $accumulated = 0; } ?>>
+						style="word-break: break-word; word-wrap: break-word; <?php  if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <?php  } ?>"
+						<?php  if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0; } ?>>
 						<?=$arCells[$n][$columnId]; ?>
-						<? if (isset($props[$n]) && is_array($props[$n])) { ?>
-						<? foreach ($props[$n] as $property) { ?>
+						<?php  if (isset($props[$n]) && is_array($props[$n])) { ?>
+						<?php  foreach ($props[$n] as $property) { ?>
 						<br>
 						<small><?=$property; ?></small>
-						<? } ?>
-						<? } ?>
+						<?php  } ?>
+						<?php  } ?>
 					</td>
-				<?}
+				<?php }
 				else
 				{
 					if (!is_null($arCells[$n][$columnId]))
@@ -509,17 +509,17 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 						if ($columnId != 'VAT_RATE' || $vat > 0 || is_null($arCells[$n][$columnId]) || $n > $items)
 						{ ?>
 							<td align="right"
-								<? if ($accumulated) { ?>
+								<?php  if ($accumulated) { ?>
 								style="border-width: 0pt 1pt 0pt 0pt"
 								colspan="<?=(($columnId == 'VAT_RATE' && $vat <= 0) ? $accumulated : $accumulated+1); ?>"
-								<? $accumulated = 0; } ?>>
-								<?if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
+								<?php  $accumulated = 0; } ?>>
+								<?php if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
 									<nobr><?=$arCells[$n][$columnId];?></nobr>
-								<?else:?>
+								<?php else:?>
 									<?=$arCells[$n][$columnId]; ?>
-								<?endif;?>
+								<?php endif;?>
 							</td>
-						<? }
+						<?php  }
 					}
 					else
 					{
@@ -532,9 +532,9 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 				$accumulated++;
 			}
 		?>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>
-<?
+<?php 
 
 }
 
@@ -544,68 +544,68 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 <br>
 <br>
 
-<? if ($params["BILLDE_COMMENT1"] || $params["BILLDE_COMMENT2"]) { ?>
-	<? if ($params["BILLDE_COMMENT1"]) { ?>
+<?php  if ($params["BILLDE_COMMENT1"] || $params["BILLDE_COMMENT2"]) { ?>
+	<?php  if ($params["BILLDE_COMMENT1"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILLDE_COMMENT1"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-	<? if ($params["BILLDE_COMMENT2"]) { ?>
+	<?php  } ?>
+	<?php  if ($params["BILLDE_COMMENT2"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILLDE_COMMENT2"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
 <br>
 
-<? if (!$blank) { ?>
+<?php  if (!$blank) { ?>
 <div style="position: relative; "><?=CFile::ShowImage(
 	$params["BILLDE_PATH_TO_STAMP"],
 	160, 160,
 	'style="position: absolute; left: 40pt; "'
 ); ?></div>
-<? } ?>
+<?php  } ?>
 
 <div style="position: relative">
 	<table class="sign">
-		<? if ($params["SELLER_COMPANY_DIRECTOR_POSITION"]) { ?>
+		<?php  if ($params["SELLER_COMPANY_DIRECTOR_POSITION"]) { ?>
 		<tr>
 			<td style="width: 150pt; "><?=htmlspecialcharsbx($params["SELLER_COMPANY_DIRECTOR_POSITION"]); ?></td>
 			<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
-				<? if (!$blank) { ?>
+				<?php  if (!$blank) { ?>
 				<?=CFile::ShowImage($params["SELLER_COMPANY_DIR_SIGN"], 200, 50); ?>
-				<? } ?>
+				<?php  } ?>
 			</td>
 			<td>
-				<? if ($params["SELLER_COMPANY_DIRECTOR_NAME"]) { ?>
+				<?php  if ($params["SELLER_COMPANY_DIRECTOR_NAME"]) { ?>
 				(<?=htmlspecialcharsbx($params["SELLER_COMPANY_DIRECTOR_NAME"]); ?>)
-				<? } ?>
+				<?php  } ?>
 			</td>
 		</tr>
 		<tr><td colspan="3">&nbsp;</td></tr>
-		<? } ?>
-		<? if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]) { ?>
+		<?php  } ?>
+		<?php  if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]) { ?>
 		<tr>
 			<td style="width: 150pt; "><?=htmlspecialcharsbx($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]); ?></td>
 			<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
-				<? if (!$blank) { ?>
+				<?php  if (!$blank) { ?>
 				<?=CFile::ShowImage($params["SELLER_COMPANY_ACC_SIGN"], 200, 50); ?>
-				<? } ?>
+				<?php  } ?>
 			</td>
 			<td>
-				<? if ($params["SELLER_COMPANY_ACCOUNTANT_NAME"]) { ?>
+				<?php  if ($params["SELLER_COMPANY_ACCOUNTANT_NAME"]) { ?>
 				(<?=htmlspecialcharsbx($params["SELLER_COMPANY_ACCOUNTANT_NAME"]); ?>)
-				<? } ?>
+				<?php  } ?>
 			</td>
 		</tr>
-		<? } ?>
+		<?php  } ?>
 	</table>
 </div>
 
@@ -616,7 +616,7 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 <div style="text-align: center">
 
-<?
+<?php 
 
 $sellerName = $params["SELLER_COMPANY_NAME"];
 $sellerAddr = $params["SELLER_COMPANY_ADDRESS"];
@@ -639,7 +639,7 @@ if (!empty($sellerData))
 		$sellerData[$i] = htmlspecialcharsbx($data);
 	}
 	?><small><?=join(' - ', $sellerData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 
@@ -656,7 +656,7 @@ if ($sellerEmail)
 if (!empty($sellerData))
 {
 	?><small><?=join(' - ', $sellerData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 
@@ -682,7 +682,7 @@ if ($bank)
 if (!empty($bankData))
 {
 	?><small><?=join(' - ', $bankData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 
@@ -705,7 +705,7 @@ if ($sellerDir)
 if (!empty($sellerData))
 {
 	?><small><?=join(' - ', $sellerData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 ?>

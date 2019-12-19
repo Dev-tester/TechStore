@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_NEW_MESSAGE_NAME"] = "У Вас новое сообщение";
 $MESS["SONET_NEW_MESSAGE_DESC"] = "#MESSAGE_ID# - ID сообщения
 #USER_ID# - ID пользователя

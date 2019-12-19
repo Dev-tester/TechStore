@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SALE_CHR_REC_ORDER"] = "ID заказа неизвестен.";
 $MESS["SALE_CHR_REC_SUMM"] = "Неверные данные. Суммы не совпадают.";

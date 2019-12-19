@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_RECORDS_LIST'] = "List of orders";
 $MESS ['SALE_CANCEL_ORDER1'] = "Are you sure you want to cancel";
 $MESS ['SALE_CANCEL_ORDER2'] = "the order";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_SITEMAP_STEP"] = "Шаг:";
 $MESS["SEARCH_SITEMAP_STEP_sec"] = "секунд";
 $MESS["SEARCH_SITEMAP_DOC_COUNT"] = "Обработано документов";

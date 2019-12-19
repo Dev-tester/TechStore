@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 if(class_exists("workflow")) return;

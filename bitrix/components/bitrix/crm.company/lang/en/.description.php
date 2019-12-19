@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMPANY_COMPLEX_NAME"] = "Companies";
 $MESS["CRM_COMPANY_COMPLEX_DESCRIPTION"] = "Companies";
 $MESS["CRM_NAME"] = "CRM";

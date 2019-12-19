@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_YANDEX_ID_CHAT"] = "ID Канала (Идентификатор канала, который нужно транслировать в чат):";
 $MESS["IMCONNECTOR_COMPONENT_YANDEX_ACTIVATE"] = "Активировать";
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 //<title>Yandex</title>
 /** @global CDatabase $DB */
 /** @global CUser $USER */
@@ -214,8 +214,8 @@ if ($adminSidePanelHelper->isSidePanel())
 }
 ?>
 <!--suppress JSUnresolvedVariable -->
-<form method="post" action="<?echo $APPLICATION->GetCurPage().$actionParams ?>" name="yandex_setup_form" id="yandex_setup_form">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage().$actionParams ?>" name="yandex_setup_form" id="yandex_setup_form">
+<?php 
 $aTabs = array(
 	array("DIV" => "yand_edit1", "TAB" => GetMessage("CAT_ADM_MISC_EXP_TAB1"), "ICON" => "store", "TITLE" => GetMessage("CAT_ADM_MISC_EXP_TAB1_TITLE")),
 	array("DIV" => "yand_edit2", "TAB" => GetMessage("CAT_ADM_MISC_EXP_TAB2"), "ICON" => "store", "TITLE" => GetMessage("CAT_ADM_MISC_EXP_TAB2_TITLE")),
@@ -344,7 +344,7 @@ if ($STEP == 1)
 
 ?><tr>
 	<td width="40%"><?=GetMessage('BX_CATALOG_EXPORT_IBLOCK'); ?></td>
-	<td width="60%"><?
+	<td width="60%"><?php 
 	echo GetIBlockDropDownListEx(
 		$IBLOCK_ID, 'IBLOCK_TYPE_ID', 'IBLOCK_ID',
 		array(
@@ -360,14 +360,14 @@ if ($STEP == 1)
 	?>
 		<script type="text/javascript">
 		var TreeSelected = [];
-		<?
+		<?php 
 		$intCountSelected = 0;
 		if (!empty($V) && is_array($V))
 		{
 			foreach ($V as $oneKey)
 			{
-				?>TreeSelected[<? echo $intCountSelected ?>] = <? echo (int)$oneKey; ?>;
-				<?
+				?>TreeSelected[<?php  echo $intCountSelected ?>] = <?php  echo (int)$oneKey; ?>;
+				<?php 
 				$intCountSelected++;
 			}
 		}
@@ -422,12 +422,12 @@ if ($STEP == 1)
 		}
 		</script>
 		<select id="SITE_ID" name="SITE_ID">
-		<?
+		<?php 
 		foreach ($currentList as $site)
 		{
 			$selected = ($site['ID'] == $SITE_ID ? ' selected' : '');
 			$name = '['.$site['ID'].'] '.$site['NAME'];
-			?><option value="<?=htmlspecialcharsbx($site['ID']); ?>"<?=$selected; ?>><?=htmlspecialcharsbx($name); ?></option><?
+			?><option value="<?=htmlspecialcharsbx($site['ID']); ?>"<?=$selected; ?>><?=htmlspecialcharsbx($name); ?></option><?php 
 		}
 		unset($name, $selected, $site);
 		?>
@@ -435,14 +435,14 @@ if ($STEP == 1)
 	</td>
 </tr>
 <tr>
-	<td width="40%" valign="top"><?echo GetMessage("CET_SELECT_GROUP");?></td>
-	<td width="60%"><?
+	<td width="40%" valign="top"><?php echo GetMessage("CET_SELECT_GROUP");?></td>
+	<td width="60%"><?php 
 	if ($intCountSelected)
 	{
 		foreach ($V as $oneKey)
 		{
 			$oneKey = (int)$oneKey;
-			?><input type="hidden" value="<? echo $oneKey; ?>" name="V[]" id="oldV<? echo $oneKey; ?>"><?
+			?><input type="hidden" value="<?php  echo $oneKey; ?>" name="V[]" id="oldV<?php  echo $oneKey; ?>"><?php 
 		}
 		unset($oneKey);
 	}
@@ -483,7 +483,7 @@ if ($STEP == 1)
 	function buildNoMenu()
 	{
 		var buffer;
-		buffer = '<?echo GetMessageJS("CET_FIRST_SELECT_IBLOCK");?>';
+		buffer = '<?php echo GetMessageJS("CET_FIRST_SELECT_IBLOCK");?>';
 		BX('tree', true).innerHTML = buffer;
 		BX.closeWait();
 	}
@@ -497,7 +497,7 @@ if ($STEP == 1)
 
 		buffer = '<table border="0" cellspacing="0" cellpadding="0">';
 		buffer += '<tr>';
-		buffer += '<td colspan="2" valign="top" align="left"><input type="checkbox" name="V[]" value="0" id="v0"'+(BX.util.in_array(0,TreeSelected) ? ' checked' : '')+' onclick="delOldV(this);"><label for="v0"><font class="text"><b><?echo CUtil::JSEscape(GetMessage("CET_ALL_GROUPS"));?></b></font></label></td>';
+		buffer += '<td colspan="2" valign="top" align="left"><input type="checkbox" name="V[]" value="0" id="v0"'+(BX.util.in_array(0,TreeSelected) ? ' checked' : '')+' onclick="delOldV(this);"><label for="v0"><font class="text"><b><?php echo CUtil::JSEscape(GetMessage("CET_ALL_GROUPS"));?></b></font></label></td>';
 		buffer += '</tr>';
 
 		for (i in Tree[0])
@@ -570,7 +570,7 @@ if ($STEP == 1)
 		BX.adminPanel.modifyFormElements('yandex_setup_form');
 	}
 	</script>
-	<iframe src="/bitrix/tools/catalog_export/yandex_util.php?IBLOCK_ID=<?=intval($IBLOCK_ID)?>&<? echo bitrix_sessid_get(); ?>" id="id_ifr" name="ifr" style="display:none"></iframe>
+	<iframe src="/bitrix/tools/catalog_export/yandex_util.php?IBLOCK_ID=<?=intval($IBLOCK_ID)?>&<?php  echo bitrix_sessid_get(); ?>" id="id_ifr" name="ifr" style="display:none"></iframe>
 	</td>
 </tr>
 
@@ -586,7 +586,7 @@ if ($STEP == 1)
 				var dat = BX('XML_DATA');
 				var obDetailWindow = new BX.CAdminDialog({
 					'content_url': '/bitrix/tools/catalog_export/yandex_detail.php?lang=<?=LANGUAGE_ID?>&bxpublic=Y&IBLOCK_ID=' + s[s.selectedIndex].value,
-					'content_post': 'XML_DATA='+BX.util.urlencode(dat.value)+'&'+'<?echo bitrix_sessid_get(); ?>',
+					'content_post': 'XML_DATA='+BX.util.urlencode(dat.value)+'&'+'<?php echo bitrix_sessid_get(); ?>',
 					'width': 900, 'height': 550,
 					'resizable': true
 				});
@@ -599,38 +599,38 @@ if ($STEP == 1)
 			BX('XML_DATA').value = data;
 		}
 		</script>
-		<input type="button" onclick="showDetailPopup(); return false;" value="<? echo GetMessage('CAT_DETAIL_PROPS_RUN'); ?>">
+		<input type="button" onclick="showDetailPopup(); return false;" value="<?php  echo GetMessage('CAT_DETAIL_PROPS_RUN'); ?>">
 		<input type="hidden" id="XML_DATA" name="XML_DATA" value="<?=htmlspecialcharsbx($XML_DATA); ?>">
 	</td>
 </tr>
 <tr>
-	<td width="40%"><? echo GetMessage('CAT_YANDEX_CHECK_PERMISSIONS'); ?></td>
+	<td width="40%"><?php  echo GetMessage('CAT_YANDEX_CHECK_PERMISSIONS'); ?></td>
 	<td width="60%">
 		<input type="hidden" name="CHECK_PERMISSIONS" value="N">
 		<input type="checkbox" name="CHECK_PERMISSIONS" value="Y"<?=($checkPermissions == 'Y' ? ' checked' : ''); ?>
 	</td>
 </tr>
 <tr>
-	<td width="40%"><? echo GetMessage('CAT_YANDEX_FILTER_AVAILABLE'); ?></td>
+	<td width="40%"><?php  echo GetMessage('CAT_YANDEX_FILTER_AVAILABLE'); ?></td>
 	<td width="60%">
 		<input type="hidden" name="FILTER_AVAILABLE" value="N">
-		<input type="checkbox" name="FILTER_AVAILABLE" value="Y"<? echo ($filterAvalable == 'Y' ? ' checked' : ''); ?>
+		<input type="checkbox" name="FILTER_AVAILABLE" value="Y"<?php  echo ($filterAvalable == 'Y' ? ' checked' : ''); ?>
 	</td>
 </tr>
 <tr>
-	<td width="40%"><? echo GetMessage('CAT_YANDEX_USE_HTTPS'); ?></td>
+	<td width="40%"><?php  echo GetMessage('CAT_YANDEX_USE_HTTPS'); ?></td>
 	<td width="60%">
 		<input type="hidden" name="USE_HTTPS" value="N">
-		<input type="checkbox" name="USE_HTTPS" value="Y"<? echo ($USE_HTTPS == 'Y' ? ' checked' : ''); ?>
+		<input type="checkbox" name="USE_HTTPS" value="Y"<?php  echo ($USE_HTTPS == 'Y' ? ' checked' : ''); ?>
 	</td>
 </tr>
 <tr>
-	<td width="40%"><? echo GetMessage('CAT_YANDEX_DISABLE_REFERERS'); ?></td>
+	<td width="40%"><?php  echo GetMessage('CAT_YANDEX_DISABLE_REFERERS'); ?></td>
 	<td width="60%">
 		<input type="hidden" name="DISABLE_REFERERS" value="N">
-		<input type="checkbox" name="DISABLE_REFERERS" value="Y"<? echo ($disableReferers == 'Y' ? ' checked' : ''); ?>
+		<input type="checkbox" name="DISABLE_REFERERS" value="Y"<?php  echo ($disableReferers == 'Y' ? ' checked' : ''); ?>
 	</td>
-</tr><?
+</tr><?php 
 	$maxExecutionTime = (isset($maxExecutionTime) ? (int)$maxExecutionTime : 0);
 ?><tr>
 	<td width="40%"><?=GetMessage('CAT_MAX_EXECUTION_TIME');?></td>
@@ -643,9 +643,9 @@ if ($STEP == 1)
 	<td width="60%" style="padding-top: 0;"><small><?=GetMessage("CAT_MAX_EXECUTION_TIME_NOTE");?></small></td>
 </tr>
 <tr>
-	<td width="40%"><?echo GetMessage("CET_SERVER_NAME");?></td>
+	<td width="40%"><?php echo GetMessage("CET_SERVER_NAME");?></td>
 	<td width="60%">
-		<input type="text" name="SETUP_SERVER_NAME" value="<?=htmlspecialcharsbx($SETUP_SERVER_NAME); ?>" size="50"> <input type="button" onclick="this.form['SETUP_SERVER_NAME'].value = window.location.host;" value="<?echo htmlspecialcharsbx(GetMessage('CET_SERVER_NAME_SET_CURRENT'))?>">
+		<input type="text" name="SETUP_SERVER_NAME" value="<?=htmlspecialcharsbx($SETUP_SERVER_NAME); ?>" size="50"> <input type="button" onclick="this.form['SETUP_SERVER_NAME'].value = window.location.host;" value="<?php echo htmlspecialcharsbx(GetMessage('CET_SERVER_NAME_SET_CURRENT'))?>">
 	</td>
 </tr>
 <tr>
@@ -655,20 +655,20 @@ if ($STEP == 1)
 	</td>
 </tr>
 <tr>
-	<td width="40%"><?echo GetMessage("CET_SAVE_FILENAME");?></td>
+	<td width="40%"><?php echo GetMessage("CET_SAVE_FILENAME");?></td>
 	<td width="60%">
-		<b><? echo htmlspecialcharsbx(COption::GetOptionString("catalog", "export_default_path", "/bitrix/catalog_export/"));?></b><input type="text" name="SETUP_FILE_NAME" value="<?=htmlspecialcharsbx($SETUP_FILE_NAME); ?>" size="50">
+		<b><?php  echo htmlspecialcharsbx(COption::GetOptionString("catalog", "export_default_path", "/bitrix/catalog_export/"));?></b><input type="text" name="SETUP_FILE_NAME" value="<?=htmlspecialcharsbx($SETUP_FILE_NAME); ?>" size="50">
 	</td>
 </tr>
-<?
+<?php 
 	if ($ACTION=="EXPORT_SETUP" || $ACTION == 'EXPORT_EDIT' || $ACTION == 'EXPORT_COPY')
 	{
 ?><tr>
-	<td width="40%"><?echo GetMessage("CET_PROFILE_NAME");?></td>
+	<td width="40%"><?php echo GetMessage("CET_PROFILE_NAME");?></td>
 	<td width="60%">
-		<input type="text" name="SETUP_PROFILE_NAME" value="<?echo htmlspecialcharsbx($SETUP_PROFILE_NAME) ?>" size="30">
+		<input type="text" name="SETUP_PROFILE_NAME" value="<?php echo htmlspecialcharsbx($SETUP_PROFILE_NAME) ?>" size="30">
 	</td>
-</tr><?
+</tr><?php 
 	}
 }
 
@@ -693,30 +693,30 @@ $tabControl->EndTab();
 
 $tabControl->Buttons();
 
-?><? echo bitrix_sessid_post();?><?
+?><?php  echo bitrix_sessid_post();?><?php 
 if ($ACTION == 'EXPORT_EDIT' || $ACTION == 'EXPORT_COPY')
 {
-	?><input type="hidden" name="PROFILE_ID" value="<? echo intval($PROFILE_ID); ?>"><?
+	?><input type="hidden" name="PROFILE_ID" value="<?php  echo intval($PROFILE_ID); ?>"><?php 
 }
 
 if (2 > $STEP)
 {
-	?><input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-	<input type="hidden" name="ACT_FILE" value="<?echo htmlspecialcharsbx($_REQUEST["ACT_FILE"]) ?>">
-	<input type="hidden" name="ACTION" value="<?echo htmlspecialcharsbx($ACTION) ?>">
-	<input type="hidden" name="STEP" value="<?echo intval($STEP) + 1 ?>">
+	?><input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+	<input type="hidden" name="ACT_FILE" value="<?php echo htmlspecialcharsbx($_REQUEST["ACT_FILE"]) ?>">
+	<input type="hidden" name="ACTION" value="<?php echo htmlspecialcharsbx($ACTION) ?>">
+	<input type="hidden" name="STEP" value="<?php echo intval($STEP) + 1 ?>">
 	<input type="hidden" name="SETUP_FIELDS_LIST" value="V,IBLOCK_ID,SITE_ID,SETUP_SERVER_NAME,COMPANY_NAME,SETUP_FILE_NAME,XML_DATA,USE_HTTPS,FILTER_AVAILABLE,DISABLE_REFERERS,MAX_EXECUTION_TIME,CHECK_PERMISSIONS">
-	<input type="submit" value="<?echo ($ACTION=="EXPORT")?GetMessage("CET_EXPORT"):GetMessage("CET_SAVE")?>"><?
+	<input type="submit" value="<?php echo ($ACTION=="EXPORT")?GetMessage("CET_EXPORT"):GetMessage("CET_SAVE")?>"><?php 
 }
 
 $tabControl->End();
 ?></form>
 <script type="text/javascript">
-<?if ($STEP < 2):?>
+<?php if ($STEP < 2):?>
 tabYandex.SelectTab("yand_edit1");
 tabYandex.DisableTab("yand_edit2");
-<?elseif ($STEP == 2):?>
+<?php elseif ($STEP == 2):?>
 tabYandex.SelectTab("yand_edit2");
 tabYandex.DisableTab("yand_edit1");
-<?endif;?>
+<?php endif;?>
 </script>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DH_RUSSIANPOST_NAME'] = "Почта России";
 $MESS ['SALE_DH_RUSSIANPOST_DESCRIPTION'] = "Доставка почтой";
 $MESS ['SALE_DH_RUSSIANPOST_GROUND_TITLE'] = "наземная доставка";

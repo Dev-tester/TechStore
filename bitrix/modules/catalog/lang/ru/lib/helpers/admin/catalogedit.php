@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CAT_HELPER_ADMIN_CATALOGEDIT_ERR_IBLOCK_ID_ABSENT"] = "Отсутствует ID инфоблока";
 $MESS["BX_CAT_HELPER_ADMIN_CATALOGEDIT_ERR_IBLOCK_IS_NOT_EXISTS"] = "Указан несуществующий инфоблок";
 $MESS["BX_CAT_HELPER_ADMIN_CATALOGEDIT_ERR_IBLOCK_SITELIST_IS_EMPTY"] = "Список сайтов инфоблока пуст";

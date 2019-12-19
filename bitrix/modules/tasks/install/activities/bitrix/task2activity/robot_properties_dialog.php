@@ -13,7 +13,7 @@ $renderField = function ($fieldId, $field, $value) use ($dialog, $rawValues)
 	?>
 	<div class="bizproc-automation-popup-settings">
 		<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-autocomplete"><?=htmlspecialcharsbx($field['Name'])?>: </span>
-		<?
+		<?php 
 		switch ($field['BaseType'])
 		{
 			case 'string':
@@ -22,7 +22,7 @@ $renderField = function ($fieldId, $field, $value) use ($dialog, $rawValues)
 					   value="<?=htmlspecialcharsbx($value)?>"
 					   data-role="inline-selector-target"
 				>
-				<?
+				<?php 
 				break;
 			case 'user':
 				$userValue = $rawValues[$fieldId];
@@ -52,7 +52,7 @@ $renderField = function ($fieldId, $field, $value) use ($dialog, $rawValues)
 							'required' => $field['Required'],
 						))
 					)?>"></div>
-					<?
+					<?php 
 				}
 				break;
 			case 'datetime':
@@ -62,7 +62,7 @@ $renderField = function ($fieldId, $field, $value) use ($dialog, $rawValues)
 					   data-role="inline-selector-target"
 					   data-selector-type="datetime"
 				>
-				<?
+				<?php 
 				break;
 			case 'text':
 				?>
@@ -70,26 +70,26 @@ $renderField = function ($fieldId, $field, $value) use ($dialog, $rawValues)
 						  class="bizproc-automation-popup-textarea"
 						  data-role="inline-selector-target"
 				><?=htmlspecialcharsbx($value)?></textarea>
-				<?
+				<?php 
 				break;
 			case 'select':
 				$options = isset($field['Options']) && is_array($field['Options'])
 					? $field['Options'] : array();
 				?>
 				<select class="bizproc-automation-popup-settings-dropdown" name="<?=htmlspecialcharsbx($fieldId)?>">
-					<?
+					<?php 
 					foreach ($options as $k => $v)
 					{
 						echo '<option value="'.htmlspecialcharsbx($k).'"'.($k == $value ? ' selected' : '').'>'.htmlspecialcharsbx($v).'</option>';
 					}
 					?>
 				</select>
-				<?
+				<?php 
 				break;
 		}
 		?>
 	</div>
-	<?
+	<?php 
 };
 
 unset($arDocumentFields['PRIORITY']);
@@ -166,7 +166,7 @@ foreach (['TITLE', 'DESCRIPTION', 'RESPONSIBLE_ID', 'DEADLINE'] as $fieldId)
 	<?=GetMessage('TASKS_BP_RPD_ADDITIONAL')?>
 </span>
 <div class="tasks-task2activity-additional-content">
-<?
+<?php 
 	foreach ($arDocumentFields as $fieldId => $field)
 	{
 		if (!in_array($fieldId, $allowedTaskFields))
@@ -195,7 +195,7 @@ foreach (['TITLE', 'DESCRIPTION', 'RESPONSIBLE_ID', 'DEADLINE'] as $fieldId)
 				<?=GetMessage('TASKS_BP_RPD_PRIORITY')?>
 			</label>
 		</div>
-		<?foreach ($checkboxes as $fieldId => $field):?>
+		<?php foreach ($checkboxes as $fieldId => $field):?>
 			<div class="bizproc-automation-popup-checkbox-item">
 				<label class="bizproc-automation-popup-chk-label">
 					<input type="hidden" name="<?=htmlspecialcharsbx($fieldId)?>" value="N">
@@ -219,8 +219,8 @@ foreach (['TITLE', 'DESCRIPTION', 'RESPONSIBLE_ID', 'DEADLINE'] as $fieldId)
 					>
 				</div>
 			<?php endif;?>
-		<?endforeach;?>
-		<?if ($dialog->getDocumentType()[0] === 'tasks'):?>
+		<?php endforeach;?>
+		<?php if ($dialog->getDocumentType()[0] === 'tasks'):?>
 			<div class="bizproc-automation-popup-checkbox-item">
 				<label class="bizproc-automation-popup-chk-label">
 					<input type="hidden" name="AS_CHILD_TASK" value="N">
@@ -228,7 +228,7 @@ foreach (['TITLE', 'DESCRIPTION', 'RESPONSIBLE_ID', 'DEADLINE'] as $fieldId)
 					<?=GetMessage('TASKS_BP_RPD_AS_CHILD_TASK')?>
 				</label>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>
 <input type="hidden" name="HOLD_TO_CLOSE" value="N">

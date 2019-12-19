@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arTemplateParameters = array(
 	"SHOW_LINK_ON_MAIN_PAGE" => array(
 		"NAME" => GetMessage("P_SHOW_LINK_ON_MAIN_PAGE"),

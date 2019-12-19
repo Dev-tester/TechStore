@@ -1,5 +1,5 @@
-<?if(!check_bitrix_sessid()) return;?>
-<?
+<?php if(!check_bitrix_sessid()) return;?>
+<?php 
 global $errors;
 
 if(!is_array($errors) && strlen($errors)<=0 || is_array($errors) && count($errors) <= 0):

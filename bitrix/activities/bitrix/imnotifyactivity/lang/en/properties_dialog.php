@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPIMNA_PD_FROM"] = "Recipient";
 $MESS["BPIMNA_PD_TO"] = "Sender";
 $MESS["BPIMNA_PD_MESSAGE"] = "Notification text";

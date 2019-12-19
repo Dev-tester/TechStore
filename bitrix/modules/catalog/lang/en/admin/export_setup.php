@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CES_ERROR_NO_FILE"] = "Export file is not set.";
 $MESS["CES_ERROR_NO_ACTION"] = "Action is not set.";
 $MESS["CES_ERROR_FILE_NOT_EXIST"] = "Export file is not found:";

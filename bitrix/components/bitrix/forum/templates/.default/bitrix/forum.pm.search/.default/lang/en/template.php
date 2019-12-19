@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_TITLE'] = "User search";
 $MESS ['PM_SEARCH_PATTERN'] = "Use asterisk symbol '*' in your search.<br/>Example: 'I*' - all names that start with I. ";
 $MESS ['PM_SEARCH_INSERT'] = "Search string";

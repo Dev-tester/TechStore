@@ -1,4 +1,4 @@
-<?
+<?php 
 if($INCLUDE_FROM_CACHE!='Y')return false;
 $datecreate = '001575360662';
 $dateexpire = '001576224662';

@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Список обращений");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:support.ticket",
 	"",
 	Array(
@@ -13,4 +13,4 @@ $APPLICATION->SetTitle("Список обращений");
 			"ID" => "ID"
 		)
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

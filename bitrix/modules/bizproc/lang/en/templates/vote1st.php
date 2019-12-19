@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BP_V1ST_NAME"] = "First Approval";
 $MESS["BP_V1ST_DESC"] = "Recommended when approval from a single respondent is sufficient. Create a list of persons who will be suggested to take part in voting. Voting is complete when a first vote has been received.";
 $MESS["BP_V1ST_SEQ"] = "Sequential Business Process";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTION"] = "Actions";
 $MESS["ACTIVE"] = "Active";
 $MESS["CHANGE"] = "Modify";

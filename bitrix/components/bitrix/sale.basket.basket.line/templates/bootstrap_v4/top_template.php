@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /**
  * @global array $arParams
  * @global CUser $USER
@@ -8,16 +8,16 @@
 $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STUB'] == 'Y');
 ?>
 <div class="basket-line">
-<?if (!$compositeStub && $arParams['SHOW_AUTHOR'] == 'Y'):?>
+<?php if (!$compositeStub && $arParams['SHOW_AUTHOR'] == 'Y'):?>
 	<div class="mb-1 basket-line-block">
-		<?if ($USER->IsAuthorized()):
+		<?php if ($USER->IsAuthorized()):
 			$name = trim($USER->GetFullName());
 			if (! $name)
 				$name = trim($USER->GetLogin());
 			?>
 			<a class="basket-line-block-icon-profile" href="<?=$arParams['PATH_TO_PROFILE']?>"><?=htmlspecialcharsbx($name)?></a>
 			<a style='margin-right: 0;' href="?logout=yes"><?=GetMessage('TSB1_LOGOUT')?></a>
-		<?else:
+		<?php else:
 			$arParamsToDelete = array(
 				"login",
 				"login_form",
@@ -37,7 +37,7 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 			$currentUrl = urlencode($APPLICATION->GetCurPageParam("", $arParamsToDelete));
 			if ($arParams['AJAX'] == 'N')
 			{
-				?><script type="text/javascript"><?=$cartId?>.currentUrl = '<?=$currentUrl?>';</script><?
+				?><script type="text/javascript"><?=$cartId?>.currentUrl = '<?=$currentUrl?>';</script><?php 
 			}
 			else
 			{
@@ -49,7 +49,7 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 			$pathToAuthorize .= 'login=yes&backurl='.$currentUrl;
 			?>
 			<a class="basket-line-block-icon-profile" href="<?=$pathToAuthorize?>"><?=GetMessage('TSB1_LOGIN')?></a>
-			<?
+			<?php 
 			if ($arParams['SHOW_REGISTRATION'] === 'Y')
 			{
 				$pathToRegister = $arParams['PATH_TO_REGISTER'];
@@ -57,20 +57,20 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 				$pathToRegister .= 'register=yes&backurl='.$currentUrl;
 				?>
 				<a style="margin-right: 0;" href="<?=$pathToRegister?>"><?=GetMessage('TSB1_REGISTER')?></a>
-				<?
+				<?php 
 			}
 			?>
-		<?endif?>
+		<?php endif?>
 	</div>
-<?endif?>
+<?php endif?>
 
 	<div class="basket-line-block">
-		<?
+		<?php 
 		if (!$arResult["DISABLE_USE_BASKET"])
 		{
 			?>
 			<a class="basket-line-block-icon-cart" href="<?=$arParams['PATH_TO_BASKET']?>"><?=GetMessage('TSB1_CART')?></a>
-			<?
+			<?php 
 		}
 
 		if (!$compositeStub)
@@ -82,11 +82,11 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 				if ($arParams['SHOW_TOTAL_PRICE'] == 'Y')
 				{
 					?>
-					<br <? if ($arParams['POSITION_FIXED'] == 'Y'): ?>class="d-none d-block-sm"<? endif; ?>/>
+					<br <?php  if ($arParams['POSITION_FIXED'] == 'Y'): ?>class="d-none d-block-sm"<?php  endif; ?>/>
 					<span>
 						<?=GetMessage('TSB1_TOTAL_PRICE')?> <strong><?=$arResult['TOTAL_PRICE']?></strong>
 					</span>
-					<?
+					<?php 
 				}
 			}
 		}
@@ -95,6 +95,6 @@ $compositeStub = (isset($arResult['COMPOSITE_STUB']) && $arResult['COMPOSITE_STU
 			<div class="mt-1 basket-line-block">
 				<a href="<?=$arParams['PATH_TO_PERSONAL']?>"><?=GetMessage('TSB1_PERSONAL')?></a>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 	</div>
 </div>

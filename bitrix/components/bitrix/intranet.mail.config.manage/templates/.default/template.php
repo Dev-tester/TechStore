@@ -52,7 +52,7 @@ if (SITE_TEMPLATE_ID == 'bitrix24')
 	$this->setViewTarget('inside_pagetitle'); ?>
 
 	<div class="pagetitle-container pagetitle-flexible-space">
-		<? $APPLICATION->includeComponent(
+		<?php  $APPLICATION->includeComponent(
 			'bitrix:main.ui.filter', '',
 			array(
 				'FILTER_ID'    => $arResult['FILTER_ID'],
@@ -70,22 +70,22 @@ if (SITE_TEMPLATE_ID == 'bitrix24')
 	</div>
 
 	<span class="pagetitle-container pagetitle-align-right-container">
-		<? if ($hasOptions1 || $hasOptions2): ?>
+		<?php  if ($hasOptions1 || $hasOptions2): ?>
 			<span class="webform-small-button webform-small-button-transparent webform-cogwheel" onclick="mb.optionsMenu(this); ">
 				<span class="webform-button-icon"></span>
 			</span>
-		<? endif ?>
-		<? if (!empty($arParams['SERVICES'])): ?>
+		<?php  endif ?>
+		<?php  if (!empty($arParams['SERVICES'])): ?>
 			<span class="webform-small-button webform-small-button-blue webform-small-button-add" onclick="mb.create(); ">
 				<span class="webform-small-button-icon"></span>
 				<span class="webform-small-button-text">
 					<?=getMessage('INTR_MAIL_MANAGE_ADD_MAILBOX2') ?>
 				</span>
 			</span>
-		<? endif ?>
+		<?php  endif ?>
 	</span>
 
-	<? $this->endViewTarget();
+	<?php  $this->endViewTarget();
 }
 else
 {
@@ -97,7 +97,7 @@ else
 				<table style="border: none; border-spacing: 0; ">
 					<tr>
 						<td style="vertical-align: middle; ">
-							<? $APPLICATION->includeComponent(
+							<?php  $APPLICATION->includeComponent(
 								'bitrix:main.ui.filter', '',
 								array(
 									'FILTER_ID'    => $arResult['FILTER_ID'],
@@ -119,21 +119,21 @@ else
 				</table>
 			</td>
 			<td style="vertical-align: middle; text-align: right; ">
-				<? if ($hasOptions1 || $hasOptions2): ?>
+				<?php  if ($hasOptions1 || $hasOptions2): ?>
 					<span class="webform-small-button" onclick="mb.optionsMenu(this); ">
 						<?=getMessage('INTR_MAIL_MANAGE_SETUP') ?>
 					</span>
-				<? endif ?>
-				<? if (!empty($arParams['SERVICES'])): ?>
+				<?php  endif ?>
+				<?php  if (!empty($arParams['SERVICES'])): ?>
 					<span class="webform-small-button webform-small-button-blue" onclick="mb.create(); ">
 						<?=getMessage('INTR_MAIL_MANAGE_ADD_MAILBOX2') ?>
 					</span>
-				<? endif ?>
+				<?php  endif ?>
 			</td>
 		</tr>
 	</table>
 
-	<?
+	<?php 
 }
 
 $APPLICATION->includeComponent(
@@ -178,18 +178,18 @@ $APPLICATION->includeComponent(
 	var services = {};
 	var domainUsers = {};
 
-	<? foreach ($arParams['SERVICES'] as $service)
+	<?php  foreach ($arParams['SERVICES'] as $service)
 	{
 		if ($service['type'] == 'controller')
 		{
-			?>services['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject(array_values($service['domains'])); ?>;<?
-			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?
+			?>services['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject(array_values($service['domains'])); ?>;<?php 
+			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?php 
 		}
 		if (in_array($service['type'], array('domain', 'crdomain')))
 		{
-			?>domains['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?
-			?>services['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?
-			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?
+			?>domains['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?php 
+			?>services['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?php 
+			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?php 
 		}
 	} ?>
 
@@ -569,7 +569,7 @@ $APPLICATION->includeComponent(
 									}
 									else
 									{
-										if (<? if ($arResult['MODE'] == 'user'): ?>uid<? else: ?>true<? endif ?>)
+										if (<?php  if ($arResult['MODE'] == 'user'): ?>uid<?php  else: ?>true<?php  endif ?>)
 											BX.Main.gridManager.getInstanceById('<?=CUtil::jsEscape($arResult['GRID_ID']) ?>').reload();
 
 										mb.dialog.close();
@@ -1055,12 +1055,12 @@ $APPLICATION->includeComponent(
 				[
 					{
 						text: '<?=CUtil::jsEscape(getMessage('INTR_MAIL_MANAGE_MODE_USER')) ?>',
-						className: '<? if ($arResult['MODE'] == 'user'): ?>menu-popup-item-take<? else: ?>dummy<? endif ?>',
+						className: '<?php  if ($arResult['MODE'] == 'user'): ?>menu-popup-item-take<?php  else: ?>dummy<?php  endif ?>',
 						href: '?mode=user'
 					},
 					{
 						text: '<?=CUtil::jsEscape(getMessage('INTR_MAIL_MANAGE_MODE_MAILBOX')) ?>',
-						className: '<? if ($arResult['MODE'] == 'mailbox'): ?>menu-popup-item-take<? else: ?>dummy<? endif ?>',
+						className: '<?php  if ($arResult['MODE'] == 'mailbox'): ?>menu-popup-item-take<?php  else: ?>dummy<?php  endif ?>',
 						href: '?mode=mailbox'
 					}
 				],
@@ -1075,7 +1075,7 @@ $APPLICATION->includeComponent(
 			BX.PopupMenu.show(
 				'mail-manage-options-menu', bind,
 				[
-					<? if ($hasOptions1): ?>
+					<?php  if ($hasOptions1): ?>
 						{
 							text: '<?=CUtil::jsEscape(empty($customDomains)
 								? getMessage('INTR_MAIL_MANAGE_DOMAIN_ADD')
@@ -1083,14 +1083,14 @@ $APPLICATION->includeComponent(
 							) ?>',
 							href: '<?=CUtil::jsEscape($arParams['PATH_TO_MAIL_CFG_DOMAIN']) ?>'
 						}
-					<? endif ?>
-					<? if ($hasOptions1 && $hasOptions2): ?>,<? endif ?>
-					<? if ($hasOptions2): ?>
+					<?php  endif ?>
+					<?php  if ($hasOptions1 && $hasOptions2): ?>,<?php  endif ?>
+					<?php  if ($hasOptions2): ?>
 						{
 							text: '<?=CUtil::jsEscape(getMessage('INTR_MAIL_MANAGE_SETTINGS')) ?>',
 							onclick: mb.settings
 						}
-					<? endif ?>
+					<?php  endif ?>
 				],
 				{
 					offsetLeft: 20,

@@ -50,7 +50,7 @@ foreach ($arDocumentFields as $fieldKey => $fieldValue)
 	<tr>
 		<td align="right" width="40%" valign="top"><?= ($fieldValue["Required"]) ? "<span class=\"adm-required-field\">".htmlspecialcharsbx($fieldValue["Name"])."</span>:" : htmlspecialcharsbx($fieldValue["Name"]) .":" ?></td>
 		<td width="60%" id="td_<?= htmlspecialcharsbx($fieldKey) ?>" valign="top">
-			<?
+			<?php 
 			if ($fieldValue["UserField"])
 			{
 				if ($arCurrentValues[$fieldKey])
@@ -100,7 +100,7 @@ foreach ($arDocumentFields as $fieldKey => $fieldValue)
 					case "L":
 						?>
 						<select id="id_<?= $fieldKey ?>" name="<?= $fieldKey ?>">
-							<?
+							<?php 
 							foreach ($fieldValue["Options"] as $k => $v)
 							{
 								echo '<option value="'.htmlspecialcharsbx($k).'"'.($k."!" === $fieldValueTmp."!" ? ' selected' : '').'>'.htmlspecialcharsbx($v).'</option>';
@@ -109,7 +109,7 @@ foreach ($arDocumentFields as $fieldKey => $fieldValue)
 							}
 							?>
 						</select>
-						<?
+						<?php 
 						echo CBPDocument::ShowParameterField("string", $fieldKey.'_text', $fieldValueTextTmp, Array('size'=> 30));
 						break;
 					case "B":
@@ -118,7 +118,7 @@ foreach ($arDocumentFields as $fieldKey => $fieldValue)
 							<option value="Y"<?= ("Y" == $fieldValueTmp ? ' selected' : '') ?>><?= GetMessage("BPCGHLP_YES") ?></option>
 							<option value="N"<?= ("N" == $fieldValueTmp ? ' selected' : '') ?>><?= GetMessage("BPCGHLP_NO") ?></option>
 						</select>
-						<?
+						<?php 
 						if (in_array($fieldValueTmp, array("Y", "N")))
 						{
 							$fieldValueTmp = "";

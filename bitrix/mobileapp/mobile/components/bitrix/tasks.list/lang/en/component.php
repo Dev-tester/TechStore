@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_TASKS_VIEW_TAB_CHECKLIST"] = "Checklist";
 $MESS["MOBILE_TASKS_VIEW_TAB_COMMENT"] = "Comments";
 $MESS["MOBILE_TASKS_VIEW_TAB_FILES"] = "Files";

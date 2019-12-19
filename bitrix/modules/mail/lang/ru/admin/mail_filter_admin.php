@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_FILT_ADM_TITLE"] = "Правила обработки почты";
 $MESS["MAIL_FILT_ADM_DELERR"] = "Ошибка удаления правила";
 $MESS["MAIL_FILT_ADM_FILT_MBOX"] = "Почтовый ящик";

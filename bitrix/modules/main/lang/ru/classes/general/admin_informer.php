@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AI_NEW_NOTIF"] = "Новые уведомления";
 $MESS["MAIN_AI_ALL_NOTIF"] = "Показать все";
 $MESS["top_panel_ai_updates"] = "Обновления";

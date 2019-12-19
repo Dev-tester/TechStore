@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_STAT_HITS"] = "Хиты";
 $MESS["GD_STAT_HOSTS"] = "Хосты";
 $MESS["GD_STAT_SESSIONS"] = "Сессии";

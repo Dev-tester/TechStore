@@ -360,15 +360,15 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 				<table class="bx-filter-main-table">
 					<tr>
 						<td class="bx-filter-main-table-cell">
-							<div class="bx-filter-tabs-block" id="filter-tabs"><?
+							<div class="bx-filter-tabs-block" id="filter-tabs"><?php 
 								$isActive = !$isFilterFolded
 									? (!$isFilterApplied || $currentFilterID === '')
 									: ($isFilterApplied && $currentFilterID === '');
-								?><span id="<?=htmlspecialcharsbx("{$tabPrefix}filter_default")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active' : ''?><?=$isFilterApplied && $currentFilterID === '' ? ' bx-current-filter-tab' : ''?>"><?= GetMessage('CRM_INTERFACE_FILTER_CURRENT') ?></span><?
+								?><span id="<?=htmlspecialcharsbx("{$tabPrefix}filter_default")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active' : ''?><?=$isFilterApplied && $currentFilterID === '' ? ' bx-current-filter-tab' : ''?>"><?= GetMessage('CRM_INTERFACE_FILTER_CURRENT') ?></span><?php 
 								foreach($savedItems as $itemID => &$item):
 									if(!in_array($itemID, $presetsDeleted, true)):
 										$isActive = $isFilterApplied && $currentFilterID === $itemID;
-										?><span id="<?=htmlspecialcharsbx("{$tabPrefix}{$itemID}")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active bx-current-filter-tab' : ''?>"><?= htmlspecialcharsbx($item['name'])?></span><?
+										?><span id="<?=htmlspecialcharsbx("{$tabPrefix}{$itemID}")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active bx-current-filter-tab' : ''?>"><?= htmlspecialcharsbx($item['name'])?></span><?php 
 									endif;
 								endforeach;
 								unset($item);
@@ -384,7 +384,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 						<td class="bx-filter-main-table-cell">
 							<div class="bx-filter-content<?=$visibileFieldCount > 1 ? '' : ' bx-filter-content-first'?>">
 								<div class="bx-filter-content-table-wrap">
-									<table class="bx-filter-content-table"><?
+									<table class="bx-filter-content-table"><?php 
 									foreach($fields as &$field):
 										$fieldID = $field['id'];
 										$fieldContainerID = "{$fieldContainerPrefix}{$fieldID}";
@@ -394,7 +394,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 											<td class="bx-filter-item-left"><?=htmlspecialcharsbx(isset($field['name']) ? $field['name'] : $fieldID)?>:</td>
 											<td class="bx-filter-item-center">
 												<div class="bx-filter-alignment">
-													<div class=" bx-filter-box-sizing"><?
+													<div class=" bx-filter-box-sizing"><?php 
 														__CrmInterfaceFilterRenderField(
 															$field,
 															$values,
@@ -417,7 +417,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 											<td class="delimiter" colspan="3">
 												<div class="empty"></div>
 											</td>
-										</tr><?
+										</tr><?php 
 									endforeach;
 									unset($field);
 									?></table>
@@ -441,7 +441,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 			</div>
 		</div>
 	</div>
-</form><?
+</form><?php 
 if(is_string($viewID))
 	$this->EndViewTarget();
 

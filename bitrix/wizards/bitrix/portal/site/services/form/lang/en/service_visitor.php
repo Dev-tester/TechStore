@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_VISITOR_FORM_NAME"] = "Pass for visitor";
 $MESS["VISITOR_ACCESS_MENU_NAME"] = "Pass for visitor";
 $MESS["SERVICE_VISITOR_FORM_BUTTON"] = "Submit Order";

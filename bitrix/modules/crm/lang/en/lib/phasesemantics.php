@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_PHASE_SEMANTICS_DEAL_CAPTION'] = "Select stages";
 $MESS['CRM_PHASE_SEMANTICS_DEAL_FAILURE'] = "\"Deal lost\" stage";
 $MESS['CRM_PHASE_SEMANTICS_DEAL_GROUP_TITLE'] = "Stages";

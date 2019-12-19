@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/company/telephones.php");
 
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
-?><?$APPLICATION->IncludeComponent("bitrix:intranet.search", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:intranet.search", ".default", array(
 	"STRUCTURE_PAGE" => "structure.php",
 	"PM_URL" => "#SITE_DIR#company/personal/messages/chat/#USER_ID#/",
 	"PATH_TO_CONPANY_DEPARTMENT" => "#SITE_DIR#company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=#ID#",
@@ -71,4 +71,4 @@ $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 	"DISPLAY_USER_PHOTO" => "N"
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

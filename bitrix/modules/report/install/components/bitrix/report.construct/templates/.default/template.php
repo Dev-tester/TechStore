@@ -18,12 +18,12 @@ if (!empty($arResult['FORM_ERROR']))
 {
 	?>
 	<font color='red'><?=$arResult['FORM_ERROR']?></font><br/><br/>
-	<?
+	<?php 
 }
 
 ?>
 
-<? if ($arParams['ACTION'] == 'delete'): ?>
+<?php  if ($arParams['ACTION'] == 'delete'): ?>
 	<?=sprintf(GetMessage('REPORT_DELETE_CONFIRM'), htmlspecialcharsbx($arResult['report']['TITLE']))?>
 	<br /><br />
 	<form style="float: left;" method="POST" action="<?=CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_REPORT_CONSTRUCT"], array("report_id" => $arParams['REPORT_ID'], 'action' => 'delete_confirmed'));?>">
@@ -34,10 +34,10 @@ if (!empty($arResult['FORM_ERROR']))
 	<form method="GET" action="<?=CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_REPORT_LIST"], array());?>">
 		<input type="submit" value="<?=GetMessage('REPORT_DELETE_CANCEL')?>" />
 	</form>
-	<? return true; ?>
-<? endif; ?>
+	<?php  return true; ?>
+<?php  endif; ?>
 
-<?
+<?php 
 
 $GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/js/report/css/report.css');
 $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/report/construct.js');
@@ -65,9 +65,9 @@ var GLOBAL_REPORT_SELECT_COLUMN_COUNT = 0;
 var GLOBAL_REPORT_FILTER_COUNT = 1;
 var GLOBAL_PRE_FILTERS = null;
 
-<? if (!empty($arResult["preSettings"]["filter"])): ?>
+<?php  if (!empty($arResult["preSettings"]["filter"])): ?>
 GLOBAL_PRE_FILTERS = <?=CUtil::PhpToJSObject($arResult["preSettings"]["filter"])?>;
-<? endif; ?>
+<?php  endif; ?>
 
 BX.message({'REPORT_DEFAULT_TITLE': '<?=CUtil::JSEscape(GetMessage('REPORT_DEFAULT_TITLE'))?>'});
 BX.message({'REPORT_ADD': '<?=CUtil::JSEscape(GetMessage('REPORT_ADD'))?>'});
@@ -99,7 +99,7 @@ initReportControls();
 	</div>
 	<div class="webform-content filter-field-date-combobox">
 		<div class="reports-title-label"><?=GetMessage('REPORT_TITLE')?></div>
-		<?
+		<?php 
 			$_title = '';
 			if (!empty($arResult['report']['TITLE']))
 			{
@@ -121,7 +121,7 @@ initReportControls();
 				<option value="<?=$key?>"<?=($key == $arResult["preSettings"]["period"]['type']) ? ' selected' : ''?>><?=GetMessage('REPORT_CALEND_'.ToUpper($key))?></option>
 			<?php endforeach;?>
 		</select>
-		<?
+		<?php 
 			$_date_from = '';
 			$_date_to = '';
 			if ($arResult["preSettings"]["period"]['type'] == 'interval')
@@ -190,7 +190,7 @@ initReportControls();
 
 	BX.ready(function() {
 
-		<? foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
+		<?php  foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
 			addSelectColumn(BX.findChild(
 				BX('reports-add_col-popup-cont'),
 				{tag:'input', attr:{type:'checkbox', name:'<?=CUtil::JSEscape($selElem['name'])?>'}}, true
@@ -200,23 +200,23 @@ initReportControls();
 			<?=$num?>,
 			<?=($selElem['grouping']) ? 'true' : 'false'?>,
 			<?=($selElem['grouping_subtotal']) ? 'true' : 'false'?>);
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 
-		<? foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
-			<? if (strlen($selElem['prcnt'])): ?>
+		<?php  foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
+			<?php  if (strlen($selElem['prcnt'])): ?>
 				setPrcntView(<?=$num?>, '<?=CUtil::JSEscape($selElem['prcnt'])?>');
-			<? endif; ?>
-		<? endforeach; ?>
+			<?php  endif; ?>
+		<?php  endforeach; ?>
 
-		<? if (array_key_exists("sort", $arResult["preSettings"])): ?>
+		<?php  if (array_key_exists("sort", $arResult["preSettings"])): ?>
 			// add default sort
 			setSelectValue(BX('reports-sort-select'), '<?=CUtil::JSEscape($arResult["preSettings"]['sort'])?>');
-		<? endif; ?>
+		<?php  endif; ?>
 
-		<? if (array_key_exists("sort_type", $arResult["preSettings"])): ?>
+		<?php  if (array_key_exists("sort_type", $arResult["preSettings"])): ?>
 			// add default sort
 			setSelectValue(BX('reports-sort-type-select'), '<?=CUtil::JSEscape($arResult["preSettings"]['sort_type'])?>');
-		<? endif; ?>
+		<?php  endif; ?>
 
 		startSubFilterRestore();
 	});
@@ -268,13 +268,13 @@ initReportControls();
 		<script type="text/javascript">
 
 			BX.ready(function() {
-				<? if (!empty($arResult["preSettings"]["limit"])): ?>
+				<?php  if (!empty($arResult["preSettings"]["limit"])): ?>
 				// add default limit
 				setReportLimit(true, '<?=$arResult["preSettings"]["limit"]?>');
-				<? endif; ?>
-				<? if ($arResult["preSettings"]["grouping_mode"] === true): ?>
+				<?php  endif; ?>
+				<?php  if ($arResult["preSettings"]["grouping_mode"] === true): ?>
 				enableReportLimit(false);
-				<? endif; ?>
+				<?php  endif; ?>
 			});
 
 		</script>
@@ -285,7 +285,7 @@ initReportControls();
 			<input type="text" class="reports-filter-quan-inp" id="report-filter-limit-input" name="report_filter_limit" disabled/>
 		</div>
 
-		<?
+		<?php 
 		$bShowRedNegValsOption =  true;
 		$helperClassName = isset($arParams['REPORT_HELPER_CLASS']) ? $arParams['REPORT_HELPER_CLASS'] : '';
 		if ($helperClassName != '')
@@ -295,7 +295,7 @@ initReportControls();
 				$bShowRedNegValsOption = false;
 		}
 		?>
-		<? if ($bShowRedNegValsOption): ?>
+		<?php  if ($bShowRedNegValsOption): ?>
 		<div class="reports-filter-quan-item">
 			<input type="checkbox" <?=($arResult['preSettings']['red_neg_vals'] === true)?'checked="checked" ':''?>
 				class="reports-checkbox" id="report-negative-values-red-checkbox" name="report_red_neg_vals"/>
@@ -303,7 +303,7 @@ initReportControls();
 				<label for="report-negative-values-red-checkbox"><?=GetMessage('REPORT_NEGATIVE_VALUES_RED')?></label>
 			</span>
 		</div>
-		<? endif;    // if ($bShowRedNegValsOption): ?>
+		<?php  endif;    // if ($bShowRedNegValsOption): ?>
 	</div>
 	<div class="webform-corners-bottom">
 		<div class="webform-left-corner"></div>
@@ -790,7 +790,7 @@ initReportControls();
 <?php endif; // if ($arParams['USE_CHART']): ?>
 
 <!-- Sharing -->
-<? if(!empty($arResult['SHARING_DATA'])): ?>
+<?php  if(!empty($arResult['SHARING_DATA'])): ?>
 <div class="webform-additional-fields">
 	<div class="reports-content-block">
 		<span class="reports-title-sharing">
@@ -803,7 +803,7 @@ initReportControls();
 		<div style="display: none;" id="report-sharing-form-data"></div>
 	</div>
 </div>
-<? endif ?>
+<?php  endif ?>
 
 <!-- save -->
 <div class="webform-buttons task-buttons">
@@ -882,24 +882,24 @@ if (!is_array($refChooseParam) || empty($refChooseParam))
 
 <!-- select calc examples -->
 <div id="report-select-calc-examples" style="display: none">
-	<? foreach($arResult['calcVariations'] as $key => $values): ?>
+	<?php  foreach($arResult['calcVariations'] as $key => $values): ?>
 		<select id="report-select-calc-<?=$key?>" disabled>
-		<? foreach ($values as $v): ?>
+		<?php  foreach ($values as $v): ?>
 			<option value="<?=$v?>"><?=GetMessage('REPORT_SELECT_CALC_VAR_'.$v)?></option>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 		</select>
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 </div>
 
 <!-- filter compare examples -->
 <div id="report-filter-compare-examples" style="display: none">
-	<? foreach($arResult['compareVariations'] as $key => $values): ?>
+	<?php  foreach($arResult['compareVariations'] as $key => $values): ?>
 		<select id="report-filter-compare-<?=$key?>" class="reports-filter-select report-filter-compare-<?=$key?>">
-		<? foreach ($values as $v): ?>
+		<?php  foreach ($values as $v): ?>
 			<option value="<?=$v?>"><?=GetMessage('REPORT_FILTER_COMPARE_VAR_'.$v)?></option>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 		</select>
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 </div>
 
 <!-- filter value control examples -->
@@ -1087,20 +1087,20 @@ $name = $APPLICATION->IncludeComponent(
 	});
 </script>
 
-<?if(!defined('REPORT_LIST_ERROR') && !empty($_SESSION['REPORT_LIST_ERROR'])):?>
-	<? define("REPORT_LIST_ERROR", true); ?>
+<?php if(!defined('REPORT_LIST_ERROR') && !empty($_SESSION['REPORT_LIST_ERROR'])):?>
+	<?php  define("REPORT_LIST_ERROR", true); ?>
 	<div id="report-list-error" style="display: none;"><?=$_SESSION['REPORT_LIST_ERROR']?></div>
-	<? unset($_SESSION['REPORT_LIST_ERROR']); ?>
-<? endif ?>
+	<?php  unset($_SESSION['REPORT_LIST_ERROR']); ?>
+<?php  endif ?>
 
 <?php $this->SetViewTarget("pagetitle", 100);?>
-	<? if($arParams['REPORT_ID'] && false): ?>
+	<?php  if($arParams['REPORT_ID'] && false): ?>
 	<a class="webform-small-button webform-small-button-blue"
 		onclick="BX.Report['<?=$jsClass?>'].export('<?=$arParams['REPORT_ID']?>')">
 		<span class="webform-small-button-text"><?=GetMessage('REPORT_TITLE_EXPORT')?></span>
 	</a>
 	&nbsp;
-	<? endif ?>
+	<?php  endif ?>
 
 	<a class="webform-small-button webform-small-button-blue webform-small-button-back"
 		href="<?=CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_REPORT_LIST"], array());?>">

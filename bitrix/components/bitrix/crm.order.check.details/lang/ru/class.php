@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SECTION_MAIN"] = "О чеке";
 $MESS["CRM_ORDER_SECTION_ADDITIONAL"] = "Платежная информация";
 $MESS["CRM_COLUMN_ORDER_CHECK_ID"] = "ID";

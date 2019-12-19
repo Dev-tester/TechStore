@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_PP_TITLE"] = "Points per message";
 $MESS["FORUM_PP_ERROR_DELETE"] = "Error deleting a record";
 $MESS["FORUM_PP_POINTS_PER_MES"] = "Points per message";

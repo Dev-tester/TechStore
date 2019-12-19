@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_ADD_NEW_REC"] = "Beim Erstellen eines neuen Status ist ein Fehler aufgetreten";
 $MESS["ERROR_ADD_REC"] = "Beim Hinzufügen des Status ist ein Fehler aufgetreten";
 $MESS["ERROR_DELETE"] = "Beim Löschen des Status ist ein Fehler aufgetreten";

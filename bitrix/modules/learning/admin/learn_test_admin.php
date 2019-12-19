@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -302,21 +302,21 @@ $filter = new CAdminFilter(
 
 <form method="get" action="learn_test_admin.php?lang=<?=LANG?>&COURSE_ID=<?=$COURSE_ID?>&PARENT_LESSON_ID=<?php
 	echo ($_GET['PARENT_LESSON_ID'] + 0); ?>&LESSON_PATH=<?php echo htmlspecialcharsbx($_GET['LESSON_PATH']); ?>" name="find_form" onsubmit="return this.set_filter.onclick();">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 	<tr>
-		<td align="right"><?echo GetMessage("LEARNING_NAME")?>:</td>
+		<td align="right"><?php echo GetMessage("LEARNING_NAME")?>:</td>
 		<td align="left">
-			<input type="text" name="filter_name" value="<?echo htmlspecialcharsex($filter_name)?>" size="47">&nbsp;<?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_name" value="<?php echo htmlspecialcharsex($filter_name)?>" size="47">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_F_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("LEARNING_F_ACTIVE")?>:</td>
 		<td>
 			<select name="filter_active">
 				<option value=""><?=htmlspecialcharsex(GetMessage('LEARNING_ALL'))?></option>
-				<option value="Y"<?if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
-				<option value="N"<?if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
+				<option value="Y"<?php if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
+				<option value="N"<?php if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
 			</select>
 		</td>
 	</tr>
@@ -338,7 +338,7 @@ $filter->End();
 </form>
 
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

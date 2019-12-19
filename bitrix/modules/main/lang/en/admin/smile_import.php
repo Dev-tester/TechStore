@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_IMPORT_TITLE"] = "Import smileys";
 $MESS["ERROR_IMPORT_SMILE"] = "Error importing smileys";
 $MESS["ERROR_BAD_SESSID"] = "Your session has expired. Please try again.";

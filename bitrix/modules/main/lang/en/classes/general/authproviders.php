@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["authprov_last"] = "Last";
 $MESS["authprov_all_groups"] = "All groups";
 $MESS["authprov_search"] = "Search";

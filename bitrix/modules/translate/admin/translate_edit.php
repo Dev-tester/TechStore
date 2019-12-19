@@ -395,16 +395,16 @@ elseif ($showOnlyUntranslated == "Y")
 	<input name="download_translate_lang" value="" type="hidden">
 	<input name="path" value="<?= htmlspecialcharsbx($path_back) ?>" type="hidden">
 	<input name="file" value="<?=htmlspecialcharsbx($path)?>" type="hidden">
-	<?if (!$limitEncoding):?>
+	<?php if (!$limitEncoding):?>
 		<input name="convert_encoding" value="Y" type="checkbox" checked="checked">
-	<?endif?>
-	<?if ($limitEncoding):?>
-		<?foreach ($enabledLanguages as $langId):?>
-			<?if ($isEncodingCompatible($langId)):?>
+	<?php endif?>
+	<?php if ($limitEncoding):?>
+		<?php foreach ($enabledLanguages as $langId):?>
+			<?php if ($isEncodingCompatible($langId)):?>
 				<input name="languages[]" value="<?=$langId?>" type="hidden">
-			<?endif?>
-		<?endforeach?>
-	<?endif?>
+			<?php endif?>
+		<?php endforeach?>
+	<?php endif?>
 </form>
 <script>
 	function translate_csv_download(flag){
@@ -412,7 +412,7 @@ elseif ($showOnlyUntranslated == "Y")
 		BX.submit(document.forms['form3']);
 	}
 </script>
-<?
+<?php 
 
 $arSubMenu = array();
 $arSubMenu[] = array(
@@ -462,7 +462,7 @@ $context->Show();
 <p><?=$chain?></p>
 <form name="form1" method="POST" action="<?=$APPLICATION->GetCurPage()?>?show_error=<?=htmlspecialcharsbx($showOnlyUntranslated)?>&file=<?=htmlspecialcharsbx($path)?>&lang=<?=LANGUAGE_ID?>">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => Loc::getMessage("TRANS_TITLE"), "ICON" => "translate_edit", "TITLE" => Loc::getMessage("TRANS_TITLE_TITLE")),
@@ -481,17 +481,17 @@ $tabControl->BeginNextTab();
 			<td colspan="2" style="padding: 0; height: 15px;"></td>
 		</tr>
 		<tr>
-			<td valign="top" align="right" width="35%" nowrap><?echo Loc::getMessage("TRANS_FILENAME")?></td>
+			<td valign="top" align="right" width="35%" nowrap><?php echo Loc::getMessage("TRANS_FILENAME")?></td>
 			<td valign="top" align="left" width="65%" nowrap><b><?=htmlspecialcharsbx(basename($path))?></b></td>
 		</tr>
 		<tr>
-			<td valign="top" align="right" nowrap><?echo Loc::getMessage("TRANS_TOTAL")?></td>
+			<td valign="top" align="right" nowrap><?php echo Loc::getMessage("TRANS_TOTAL")?></td>
 			<td valign="top" align="left" nowrap><?=$total?></td>
 		</tr>
 		<tr>
-			<td valign="top" align="right" nowrap><?echo Loc::getMessage("TRANS_NOT_TRANS")?></td>
+			<td valign="top" align="right" nowrap><?php echo Loc::getMessage("TRANS_NOT_TRANS")?></td>
 			<td valign="top" align="left" nowrap><table border="0" cellspacing="0" cellpadding="0" width="0%" class="internal">
-			<?
+			<?php 
 			$str1 = $str2 = "";
 			if (is_array($arDIFF))
 			{
@@ -511,11 +511,11 @@ $tabControl->BeginNextTab();
 </tr>
 <tr>
 	<td colspan="2" valign="top" align="left" width="100%" nowrap>
-	<?
+	<?php 
 
 	foreach ($enabledLanguages as $langId)
 	{
-		?><input type="hidden" name="LANGS[]" value="<?= htmlspecialcharsbx($langId) ?>"><?
+		?><input type="hidden" name="LANGS[]" value="<?= htmlspecialcharsbx($langId) ?>"><?php 
 	}
 	$boolShowDeleteAll = false;
 	$boolShowDeleteFromCur = false;
@@ -536,7 +536,7 @@ $tabControl->BeginNextTab();
 		?>
 		<table border="0" cellspacing="0" cellpadding="0" width="100%">
 		<colgroup><col width="15%"><col><col  width="10%"></colgroup>
-		<?
+		<?php 
 
 		foreach ($arKEYS as $phraseId)
 		{
@@ -551,7 +551,7 @@ $tabControl->BeginNextTab();
 				}
 			}
 
-			?><input type="hidden" name="KEYS[]" value="<?= htmlspecialcharsbx($phraseId) ?>"><?
+			?><input type="hidden" name="KEYS[]" value="<?= htmlspecialcharsbx($phraseId) ?>"><?php 
 
 			if (($showOnlyUntranslated == 'Y' && $red) || $showOnlyUntranslated == 'N')
 			{
@@ -562,16 +562,16 @@ $tabControl->BeginNextTab();
 				<tr>
 					<td>ID:</td>
 					<td>
-					<?
+					<?php 
 					if ($red)
 					{
-						?><span class="required"><b><?=htmlspecialcharsbx($phraseId); ?></b></span><?
+						?><span class="required"><b><?=htmlspecialcharsbx($phraseId); ?></b></span><?php 
 					}
 					else
 					{
-						?><b><?=htmlspecialcharsbx($phraseId); ?></b><?
+						?><b><?=htmlspecialcharsbx($phraseId); ?></b><?php 
 					}
-					?><a name="<?= htmlspecialcharsbx($phraseId); ?>"></a></td><?
+					?><a name="<?= htmlspecialcharsbx($phraseId); ?>"></a></td><?php 
 
 					$s = ($permissionRight < Translate\Permission::WRITE ? "disabled" : '');
 					?>
@@ -583,7 +583,7 @@ $tabControl->BeginNextTab();
 				<tr>
 					<td colspan="3" style="padding:10px 0;height: 1px;"></td>
 				</tr>
-				<?
+				<?php 
 
 				$rows = 2;
 				foreach ($enabledLanguages as $langId)
@@ -639,7 +639,7 @@ $tabControl->BeginNextTab();
 							<textarea cols="60" rows="<?= $rows ?>" name="<?= $inpKey ?>" style="width:90%"><?= $valMsg ?></textarea>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 			}
 			else
@@ -656,11 +656,11 @@ $tabControl->BeginNextTab();
 					?>
 					<input type="hidden" name="<?= $inpKey ?>_PREV" value="<?= (!empty($arMESS[$langId][$phraseId]) ? 'Y' : '') ?>">
 					<input type="hidden" name="<?= $inpKey ?>" value="<?= $htmlSpecialChars($arMESS[$langId][$phraseId]) ?>">
-					<?
+					<?php 
 				}
 			}
 		}
-		?></table><?
+		?></table><?php 
 	}
 		?>
 		</td>
@@ -712,7 +712,7 @@ $tabControl->BeginNextTab();
 				BX('count_checked').value = intCurrent;
 			}
 		}
-		var arDelCur = <? echo CUtil::PhpToJSObject($arDelFromCur); ?>;
+		var arDelCur = <?php  echo CUtil::PhpToJSObject($arDelFromCur); ?>;
 		function SelectDeleteCurrent(obj)
 		{
 			if (!!obj)
@@ -738,7 +738,7 @@ $tabControl->BeginNextTab();
 	<input type="hidden" name="all_count" id="all_count" value="<?= $key_del; ?>">
 	<input type="hidden" name="show_count" id="show_count" value="<?= $intShowCount; ?>">
 	<input type="hidden" name="count_checked" id="count_checked" value="0">
-	<?
+	<?php 
 	if ($permissionRight >= Translate\Permission::WRITE && $boolShowDeleteFromCur)
 	{
 		?>
@@ -748,7 +748,7 @@ $tabControl->BeginNextTab();
 				<input type="checkbox" name="del_current" id="del_current" onclick="SelectDeleteCurrent(this);">
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 
 	if ($permissionRight >= Translate\Permission::WRITE && $boolShowDeleteAll)
@@ -757,15 +757,15 @@ $tabControl->BeginNextTab();
 		<tr>
 			<td valign="top" align="right" nowrap colspan="2">
 				<b><label for="all"><?=Loc::getMessage("TRANS_DELETE_ALL")?></label></b>
-				<input type="checkbox" name="all" id="all" value="" onclick="SelectAllDelete('<?=$key_del?>');"<?if ($permissionRight<Translate\Permission::WRITE) echo " disabled";?>>
+				<input type="checkbox" name="all" id="all" value="" onclick="SelectAllDelete('<?=$key_del?>');"<?php if ($permissionRight<Translate\Permission::WRITE) echo " disabled";?>>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	</table>
 </td></tr>
-<?
+<?php 
 
 $tabControl->Buttons(array("disabled" => ($permissionRight < Translate\Permission::WRITE), "back_url"=>"translate_list.php?lang=".LANGUAGE_ID."&path=".urlencode($path_back)));
 $tabControl->End();
@@ -773,7 +773,7 @@ $tabControl->End();
 ?>
 </form>
 <br>
-<?
+<?php 
 
 
 
@@ -802,17 +802,17 @@ if ($permissionRight == Translate\Permission::WRITE)
 		<input type="hidden" name="path" value="<?=htmlspecialcharsbx($path_back)?>" >
 		<input name="file" value="<?=htmlspecialcharsbx($path)?>" type="hidden">
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 
 		<tr>
 			<td width="20%" valign="top" nowrap><?=Loc::getMessage('TR_FILE_ACTIONS')?></td>
 			<td valign="top">
 				<label>
-					<input type="radio" name="download_translate_lang" value="A" <?if(!$showOnlyUntranslated):?>checked<?endif?>>
+					<input type="radio" name="download_translate_lang" value="A" <?php if(!$showOnlyUntranslated):?>checked<?php endif?>>
 					<?=Loc::getMessage('TRANS_GET_FULL_TRANSLATE_TITLE')?>
 				</label><br>
 				<label>
-					<input type="radio" name="download_translate_lang" value="N" <?if($showOnlyUntranslated):?>checked<?endif?>>
+					<input type="radio" name="download_translate_lang" value="N" <?php if($showOnlyUntranslated):?>checked<?php endif?>>
 					<?=Loc::getMessage('TRANS_GET_UNTRANSLATE_TITLE')?>
 				</label>
 			</td>
@@ -829,7 +829,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 			<td>
 				<select name="languages[]" multiple="multiple" size="<?= (count($enabledLanguages) <= 7 ? count($enabledLanguages) : 7) ?>">
 					<option value="" <?= (!isset($languages) || empty($languages) ? ' selected="selected"' : '') ?>><?= Loc::getMessage('TR_SELECT_LANGUAGE_ALL') ?></option>
-					<?
+					<?php 
 					$iterator = Main\Localization\LanguageTable::getList([
 						'select' => ['ID', 'NAME'],
 						'filter' => [
@@ -841,7 +841,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 					while ($row = $iterator->fetch())
 					{
 						$isSelected = isset($languages) && in_array($row['ID'], $languages);
-						?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?
+						?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?php 
 					}
 					?>
 				</select>
@@ -854,9 +854,9 @@ if ($permissionRight == Translate\Permission::WRITE)
 			</td>
 		</tr>
 
-		<?$tabControl->EndTab();?>
+		<?php $tabControl->EndTab();?>
 	</form>
-	<?
+	<?php 
 
 	$tabControl->End();
 }

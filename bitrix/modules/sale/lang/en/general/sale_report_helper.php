@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_REPORT_GROUP_NOT_FOUND"] = "Group was not found.";
 $MESS["SALE_REPORT_USER_NOT_AUTH"] = "<not logged in>";
 $MESS["SALE_REPORT_DEFAULT_LEFT_BASKETS"] = "Abandoned shopping carts";

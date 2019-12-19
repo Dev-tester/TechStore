@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_STATUS_ID"] = "Статус предложения";
 $MESS["CRM_COLUMN_PRODUCTS"] = "Продукт";
 $MESS["CRM_COLUMN_OPPORTUNITY"] = "Сумма";

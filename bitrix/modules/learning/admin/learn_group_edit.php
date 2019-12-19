@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -238,7 +238,7 @@ $context = new CAdminContextMenu($aContext);
 $context->Show();
 ?>
 
-<?
+<?php 
 if ($message)
 	echo $message->Show();
 
@@ -249,19 +249,19 @@ if (!isset($str_SORT))
 
 <?php $tabControl->BeginEpilogContent();?>
 	<?=bitrix_sessid_post()?>
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="from" value="<?echo htmlspecialcharsbx($from)?>">
-	<input type="hidden" name="return_url" value="<?echo htmlspecialcharsbx($return_url)?>">
-	<input type="hidden" name="ID" value="<?echo $ID?>">
+	<input type="hidden" name="from" value="<?php echo htmlspecialcharsbx($from)?>">
+	<input type="hidden" name="return_url" value="<?php echo htmlspecialcharsbx($return_url)?>">
+	<input type="hidden" name="ID" value="<?php echo $ID?>">
 <?php $tabControl->EndEpilogContent();?>
-<?$tabControl->Begin();?>
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->Begin();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("TITLE", GetMessage("LEARNING_ADMIN_TITLE"), $required = true);?>
 <tr class="adm-detail-required-field">
 	<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="text" name="TITLE" size="20" maxlength="255" value="<? echo $str_TITLE; ?>">
+		<input type="text" name="TITLE" size="20" maxlength="255" value="<?php  echo $str_TITLE; ?>">
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("TITLE");?>
@@ -269,13 +269,13 @@ if (!isset($str_SORT))
 <tr>
 	<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="text" name="CODE" size="20" maxlength="50" value="<?echo $str_CODE;?>">
+		<input type="text" name="CODE" size="20" maxlength="50" value="<?php echo $str_CODE;?>">
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("CODE");?>
 <?php $tabControl->BeginCustomField("COURSE_LESSON_ID", GetMessage("LEARNING_ADMIN_ATTACHED_COURSE"), $required = true);?>
 	<tr class="adm-detail-required-field">
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td><?php
 			if ($str_COURSE_LESSON_ID)
 			{
@@ -312,7 +312,7 @@ if (!isset($str_SORT))
 				}
 				?>
 			</div>
-			<input id="attached_lesson_id" type="hidden" name="COURSE_LESSON_ID" value="<?echo $str_COURSE_LESSON_ID; ?>">
+			<input id="attached_lesson_id" type="hidden" name="COURSE_LESSON_ID" value="<?php echo $str_COURSE_LESSON_ID; ?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("COURSE_LESSON_ID");?>
@@ -321,7 +321,7 @@ if (!isset($str_SORT))
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<?echo CalendarPeriod("ACTIVE_FROM", $str_ACTIVE_FROM, "ACTIVE_TO", $str_ACTIVE_TO, "learningGroupResultTabControl", "N", "", "", "19")?>
+		<?php echo CalendarPeriod("ACTIVE_FROM", $str_ACTIVE_FROM, "ACTIVE_TO", $str_ACTIVE_TO, "learningGroupResultTabControl", "N", "", "", "19")?>
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("ACTIVE_PERIOD");?>
@@ -329,7 +329,7 @@ if (!isset($str_SORT))
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>>
+		<input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>>
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("ACTIVE");?>
@@ -337,7 +337,7 @@ if (!isset($str_SORT))
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="text" name="SORT" size="4" maxlength="10" value="<?echo htmlspecialcharsbx($str_SORT);?>">
+		<input type="text" name="SORT" size="4" maxlength="10" value="<?php echo htmlspecialcharsbx($str_SORT);?>">
 	</td>
 </tr>
 <?php
@@ -376,12 +376,12 @@ else
 $html .= '</table>';
 ?>
 <tr id="tr_PROPERTY_2">
-	<td class="adm-detail-valign-top" width="40%"><?echo $tabControl->GetCustomLabelHTML();?>:</td>
+	<td class="adm-detail-valign-top" width="40%"><?php echo $tabControl->GetCustomLabelHTML();?>:</td>
 	<td width="60%"><?php
 		echo $html;
 	?></td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField("PROPERTY_2", $hidden);
 
 $tabControl->AddSection("LEARNING_ELEMENT_USERS", GetMessage('LEARNING_GROUP_MEMBERSHIP'));
@@ -413,10 +413,10 @@ foreach($prop_fields['VALUE'] as $id => $value)
 
 $tabControl->BeginCustomField("PROPERTY_1".$prop_fields["ID"], $prop_fields["NAME"], $prop_fields["IS_REQUIRED"]==="Y");
 ?>
-<tr id="tr_PROPERTY_<?echo $prop_fields["ID"];?>"<?if ($prop_fields["PROPERTY_TYPE"]=="F"):?> class="adm-detail-file-row"<?endif?>>
-	<td class="adm-detail-valign-top" width="40%"><?if($prop_fields["HINT"]!=""):
-		?><span id="hint_<?echo $prop_fields["ID"];?>"></span><script>BX.hint_replace(BX('hint_<?echo $prop_fields["ID"];?>'), '<?echo CUtil::JSEscape($prop_fields["HINT"])?>');</script>&nbsp;<?
-	endif;?><?echo $tabControl->GetCustomLabelHTML();?>:</td>
+<tr id="tr_PROPERTY_<?php echo $prop_fields["ID"];?>"<?php if ($prop_fields["PROPERTY_TYPE"]=="F"):?> class="adm-detail-file-row"<?php endif?>>
+	<td class="adm-detail-valign-top" width="40%"><?php if($prop_fields["HINT"]!=""):
+		?><span id="hint_<?php echo $prop_fields["ID"];?>"></span><script>BX.hint_replace(BX('hint_<?php echo $prop_fields["ID"];?>'), '<?php echo CUtil::JSEscape($prop_fields["HINT"])?>');</script>&nbsp;<?php 
+	endif;?><?php echo $tabControl->GetCustomLabelHTML();?>:</td>
 	<td width="60%"><?php
 		if(!($USER->CanDoOperation('view_subordinate_users') || $USER->CanDoOperation('view_all_users')))
 			echo GetMessage('LEARNING_ACCESS_DENIED_TO_USERS');
@@ -424,7 +424,7 @@ $tabControl->BeginCustomField("PROPERTY_1".$prop_fields["ID"], $prop_fields["NAM
 			echo _ShowUserPropertyField('PROP['.$prop_fields["ID"].']', $prop_fields, $prop_fields["VALUE"], false, false, 50000, $tabControl->GetFormName(), $bCopy)
 	?></td>
 </tr>
-<?
+<?php 
 	$hidden = "";
 	if(!is_array($prop_fields["~VALUE"]))
 		$values = Array();

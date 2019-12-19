@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IDEA_MODULE_NAME'] = "Менеджер идей";
 $MESS ['IDEA_MODULE_DESCRIPTION'] = "Менеджер идей";
 

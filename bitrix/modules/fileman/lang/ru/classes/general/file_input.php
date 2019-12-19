@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADM_FILE_ADD"] = "Добавить файл";
 $MESS["ADM_FILE_ADD_M"] = "Добавить файлы";
 $MESS["ADM_FILE_UPLOAD"] = "Загрузить с компьютера";

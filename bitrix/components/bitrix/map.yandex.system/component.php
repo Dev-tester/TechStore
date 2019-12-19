@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (!isset($arParams['YANDEX_VERSION']))
@@ -59,7 +59,7 @@ if (!defined('BX_YMAP_SCRIPT_LOADED'))
 				this.parentNode.removeChild(script);
 			};
 		</script>
-		<?
+		<?php 
 		define('BX_YMAP_SCRIPT_LOADED', 1);
 	}
 }

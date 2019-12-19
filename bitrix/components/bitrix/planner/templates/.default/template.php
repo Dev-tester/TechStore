@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if(is_array($arResult['DATA'])&&count($arResult['DATA'])>0)
 {
 ?>
@@ -98,7 +98,7 @@ if(is_array($arResult['DATA'])&&count($arResult['DATA'])>0)
 	window.BXPLANNER = BXPLANNER;
 })();
 </script>
-<?
+<?php 
 }
 ?>
 

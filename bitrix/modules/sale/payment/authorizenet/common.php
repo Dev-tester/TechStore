@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 include_once(GetLangFileName(dirname(__FILE__)."/", "/payment.php"));
 $arAVSErr = array(
 	"A" => GetMessage("AN_AVS_A"),

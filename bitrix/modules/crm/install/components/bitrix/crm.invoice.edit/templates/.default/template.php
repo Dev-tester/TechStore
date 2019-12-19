@@ -7,7 +7,7 @@ CJSCore::Init(array("popup"));
 global $APPLICATION;
 
 if(isset($arResult['CONVERSION_LEGEND'])):
-	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?
+	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?php 
 endif;
 
 $elementID = (isset($arResult['ELEMENT']) && isset($arResult['ELEMENT']['ID'])) ? intval($arResult['ELEMENT']['ID']) : 0;
@@ -89,7 +89,7 @@ if($arResult['CALL_LIST_ID'] > 0)
 
 $arFormButtons['custom_html'] .= $arResult['FORM_CUSTOM_HTML'];
 
-?><div class="bx-crm-edit-form-wrapper"><?
+?><div class="bx-crm-edit-form-wrapper"><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.interface.form',
 	'edit',
@@ -339,7 +339,7 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 
-		<?if(CCrmPaySystem::isUserMustFillPSProps()):?>
+		<?php if(CCrmPaySystem::isUserMustFillPSProps()):?>
 
 			(function crmInvoicePSPropsDialog()
 			{
@@ -375,7 +375,7 @@ $APPLICATION->IncludeComponent(
 				d.Show();
 			})();
 
-			<?CCrmPaySystem::markPSFillPropsDialogAsViewed();
+			<?php CCrmPaySystem::markPSFillPropsDialogAsViewed();
 		endif;?>
 
 	});

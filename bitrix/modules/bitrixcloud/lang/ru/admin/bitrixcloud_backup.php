@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BCL_BACKUP_TITLE'] = "Резервные копии";
 $MESS ['BCL_BACKUP_USAGE'] = "Использование места: #USAGE# из #QUOTA#.";
 $MESS ['BCL_BACKUP_FILE_NAME'] = "Имя файла";

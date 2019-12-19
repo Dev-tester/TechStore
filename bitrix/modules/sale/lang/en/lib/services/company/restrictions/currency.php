@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COMPANY_RULES_BY_CURRENCY"] = "Currency";
 $MESS["SALE_COMPANY_RULES_BY_CURRENCY_DESC"] = "by currency";
 $MESS["SALE_COMPANY_RULES_BY_CURRENCY_TITLE"] = "by currency";

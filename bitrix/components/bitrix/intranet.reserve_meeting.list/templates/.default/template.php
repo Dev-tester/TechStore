@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,11 +12,11 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
-	<?
+	<?php 
 	$APPLICATION->AddHeadScript('/bitrix/js/main/utils.js');
 	$APPLICATION->AddHeadScript('/bitrix/components/bitrix/intranet.reserve_meeting.list/js/dialogs.js');
 	?>
@@ -49,8 +49,8 @@ else
 		</tr>
 		</thead>
 		<tbody>
-		<?if (Count($arResult["MEETINGS_LIST"]) > 0):?>
-			<?foreach ($arResult["MEETINGS_LIST"] as $arMeeting):?>
+		<?php if (Count($arResult["MEETINGS_LIST"]) > 0):?>
+			<?php foreach ($arResult["MEETINGS_LIST"] as $arMeeting):?>
 				<tr class="intask-row<?=(($iCount % 2) == 0 ? " selected" : "")?>" onmouseover="this.className+=' intask-row-over';" onmouseout="this.className=this.className.replace(' intask-row-over', '');" ondblclick="window.location='<?= $arMeeting["URI"] ?>'" title="<?= $arMeeting["NAME"] ?>">
 					<td class="intask-cell" valign="top" align="center">
 						<script>
@@ -83,13 +83,13 @@ else
 					<td class="intask-cell" valign="top" align="right"><?= $arMeeting["UF_PLACE"] ?></td>
 					<td class="intask-cell" valign="top"><?= $arMeeting["UF_PHONE"] ?></td>
 				</tr>
-				<?$iCount++;?>
-			<?endforeach;?>
-		<?else:?>
+				<?php $iCount++;?>
+			<?php endforeach;?>
+		<?php else:?>
 			<tr class="intask-row">
 				<td class="intask-cell" colspan="6" valign="top"><?= GetMessage("INTDT_NO_TASKS") ?></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 		</tbody>
 	</table>
 	<br />
@@ -103,6 +103,6 @@ else
 		10
 	);
 	</script>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_GG_EMPTY_SITE_ID'] = "Не указан сайт";
 $MESS ['SONET_GG_ERROR_NO_SITE'] = "Сайт указан неверно";
 $MESS ['SONET_GB_EMPTY_NAME'] = "Не указано название";

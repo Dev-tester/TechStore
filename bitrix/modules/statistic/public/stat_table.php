@@ -1,4 +1,4 @@
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:statistic.table",
 	"",
 	Array(

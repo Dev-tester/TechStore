@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_COMPONENT_NEED_REQUIRED_MODULES"] = "Для работы компонента нужны установленные модули магазина, инфоблоков, и каталога.";
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_COMPONENT_DETAIL_URL"] = "URL, ведущий на страницу с содержимым элемента раздела";
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_COMPONENT_PRICES"] = "Цены";

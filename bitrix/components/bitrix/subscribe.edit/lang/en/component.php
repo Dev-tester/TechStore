@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['subscr_title_edit'] = "Edit subscription parameters";
 $MESS ['subscr_title_add'] = "Add subscription address";
 $MESS ['adm_upd_mess'] = "Subscription settings updated.";

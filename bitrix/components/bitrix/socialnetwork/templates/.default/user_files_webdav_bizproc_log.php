@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $db_res = $arParams["OBJECT"]->_get_mixed_list(null, $arParams + array("SHOW_VERSION" => "Y"), $arResult["VARIABLES"]["ELEMENT_ID"]); 
 if (!($db_res && $arResult["ELEMENT"] = $db_res->GetNext()))
 {
@@ -36,7 +36,7 @@ if ($arParams["SET_NAV_CHAIN"] != "N")
 	}
 	$GLOBALS["APPLICATION"]->AddChainItem(htmlspecialcharsEx($arResult["ELEMENT"]["NAME"]));
 }
-?><?$APPLICATION->IncludeComponent("bitrix:bizproc.log", "webdav.bizproc.log", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:bizproc.log", "webdav.bizproc.log", Array(
 	"MODULE_ID" => $arResult["VARIABLES"]["MODULE_ID"], 
 	"ENTITY" => $arResult["VARIABLES"]["ENTITY"], 
     "COMPONENT_VERSION" => 2,

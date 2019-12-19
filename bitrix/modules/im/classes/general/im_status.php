@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Im as IM;
 
 class CIMStatus

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Controller\Filter;
 
 use Bitrix\Main\Error;

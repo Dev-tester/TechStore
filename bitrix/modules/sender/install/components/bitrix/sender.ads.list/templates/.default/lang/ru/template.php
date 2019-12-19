@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_LIST_BTN_ADD"] = "Создать рекламу";
 $MESS["SENDER_LETTER_LIST_ROW_FROM"] = "из";
 $MESS["SENDER_LETTER_LIST_STATE_IS_SENT"] = "Завершена";

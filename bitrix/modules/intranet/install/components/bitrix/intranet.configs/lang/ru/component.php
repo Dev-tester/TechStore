@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_ACCESS_DENIED"] = "Доступ запрещен";
 $MESS["CONFIG_EMAIL_ERROR"] = "Неверно введен E-Mail администратора сайта";
 $MESS["CONFIG_IP_ERROR"] = "Неверно введены IP";

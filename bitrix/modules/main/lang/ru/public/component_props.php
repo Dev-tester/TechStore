@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['comp_prop_title'] = "Параметры компонента";
 $MESS ['comp_prop_close'] = "Закрыть окно";
 $MESS ['comp_prop_err_param'] = "Неверные входные параметры.";

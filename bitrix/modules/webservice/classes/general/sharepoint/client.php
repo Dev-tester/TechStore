@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSPListsClient extends CSOAPClient
 {
 	protected $bInit = false;

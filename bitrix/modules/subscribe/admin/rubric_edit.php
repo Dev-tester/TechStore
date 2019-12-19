@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/prolog.php");
@@ -129,7 +129,7 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?
+<?php 
 if($_REQUEST["mess"] == "ok" && $ID>0)
 	CAdminMessage::ShowMessage(array("MESSAGE"=>GetMessage("rub_saved"), "TYPE"=>"OK"));
 
@@ -139,70 +139,70 @@ elseif($rubric->LAST_ERROR!="")
 	CAdminMessage::ShowMessage($rubric->LAST_ERROR);
 ?>
 
-<form method="POST" Action="<?echo $APPLICATION->GetCurPage()?>" ENCTYPE="multipart/form-data" name="post_form">
-<?
+<form method="POST" Action="<?php echo $APPLICATION->GetCurPage()?>" ENCTYPE="multipart/form-data" name="post_form">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //Rubric
 //********************
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td width="40%"><?echo GetMessage("rub_act")?></td>
-		<td width="60%"><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE == "Y") echo " checked"?>></td>
+		<td width="40%"><?php echo GetMessage("rub_act")?></td>
+		<td width="60%"><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE == "Y") echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("rub_visible")?></td>
-		<td><input type="checkbox" name="VISIBLE" value="Y"<?if($str_VISIBLE == "Y") echo " checked"?>></td>
+		<td><?php echo GetMessage("rub_visible")?></td>
+		<td><input type="checkbox" name="VISIBLE" value="Y"<?php if($str_VISIBLE == "Y") echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("rub_site")?></td>
-		<td><?echo CLang::SelectBox("LID", $str_LID);?></td>
+		<td><?php echo GetMessage("rub_site")?></td>
+		<td><?php echo CLang::SelectBox("LID", $str_LID);?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("rub_name")?></td>
-		<td><input type="text" name="NAME" value="<?echo $str_NAME;?>" size="45" maxlength="100"></td>
+		<td><?php echo GetMessage("rub_name")?></td>
+		<td><input type="text" name="NAME" value="<?php echo $str_NAME;?>" size="45" maxlength="100"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("rub_sort")?></td>
-		<td><input type="text" name="SORT" value="<?echo $str_SORT;?>" size="6"></td>
+		<td><?php echo GetMessage("rub_sort")?></td>
+		<td><input type="text" name="SORT" value="<?php echo $str_SORT;?>" size="6"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("rub_code")?></td>
-		<td><input type="text" name="CODE" value="<?echo $str_CODE;?>" size="45"></td>
+		<td><?php echo GetMessage("rub_code")?></td>
+		<td><input type="text" name="CODE" value="<?php echo $str_CODE;?>" size="45"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("rub_desc")?></td>
-		<td><textarea class="typearea" name="DESCRIPTION" cols="45" rows="5" wrap="VIRTUAL" style="width:100%"><?echo $str_DESCRIPTION; ?></textarea></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("rub_desc")?></td>
+		<td><textarea class="typearea" name="DESCRIPTION" cols="45" rows="5" wrap="VIRTUAL" style="width:100%"><?php echo $str_DESCRIPTION; ?></textarea></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("rub_auto")?></td>
-		<td><input type="checkbox" name="AUTO" value="Y"<?if($str_AUTO == "Y") echo " checked"?> OnClick="if(this.checked) tabControl.EnableTab('edit2'); else tabControl.DisableTab('edit2');"></td>
+		<td><?php echo GetMessage("rub_auto")?></td>
+		<td><input type="checkbox" name="AUTO" value="Y"<?php if($str_AUTO == "Y") echo " checked"?> OnClick="if(this.checked) tabControl.EnableTab('edit2'); else tabControl.DisableTab('edit2');"></td>
 	</tr>
-<?
+<?php 
 //********************
 //Auto params
 //********************
 $tabControl->BeginNextTab();
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("rub_schedule")?></td>
+		<td colspan="2"><?php echo GetMessage("rub_schedule")?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("rub_last_executed"). ":"?></td>
-		<td width="60%"><?echo CalendarDate("LAST_EXECUTED", $str_LAST_EXECUTED, "post_form", "20")?></td>
+		<td width="40%"><?php echo GetMessage("rub_last_executed"). ":"?></td>
+		<td width="60%"><?php echo CalendarDate("LAST_EXECUTED", $str_LAST_EXECUTED, "post_form", "20")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("rub_dom")?></td>
-		<td><input class="typeinput" type="text" name="DAYS_OF_MONTH" value="<?echo $str_DAYS_OF_MONTH;?>" size="30" maxlength="100"></td>
+		<td><?php echo GetMessage("rub_dom")?></td>
+		<td><input class="typeinput" type="text" name="DAYS_OF_MONTH" value="<?php echo $str_DAYS_OF_MONTH;?>" size="30" maxlength="100"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("rub_dow")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("rub_dow")?></td>
 		<td>
 		<table cellspacing=1 cellpadding=0 border=0 class="internal">
-		<?	$arDoW = array(
+		<?php 	$arDoW = array(
 				"1"	=> GetMessage("rubric_mon"),
 				"2"	=> GetMessage("rubric_tue"),
 				"3"	=> GetMessage("rubric_wed"),
@@ -212,65 +212,65 @@ $tabControl->BeginNextTab();
 				"7"	=> GetMessage("rubric_sun")
 			);
 		?>
-			<tr class="heading"><?foreach($arDoW as $strVal=>$strDoW):?>
+			<tr class="heading"><?php foreach($arDoW as $strVal=>$strDoW):?>
 				<td><?=$strDoW?></td>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</tr>
 			<tr>
-			<?foreach($arDoW as $strVal=>$strDoW):?>
-				<td style="text-align:center"><input type="checkbox" name="DAYS_OF_WEEK[]" value="<?=$strVal?>"<?if(array_search($strVal, $DAYS_OF_WEEK) !== false) echo " checked"?>></td>
-			<?endforeach;?>
+			<?php foreach($arDoW as $strVal=>$strDoW):?>
+				<td style="text-align:center"><input type="checkbox" name="DAYS_OF_WEEK[]" value="<?=$strVal?>"<?php if(array_search($strVal, $DAYS_OF_WEEK) !== false) echo " checked"?>></td>
+			<?php endforeach;?>
 			</tr>
 		</table>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("rub_tod")?></td>
-		<td><input type="text" name="TIMES_OF_DAY" value="<?echo $str_TIMES_OF_DAY;?>" size="30" maxlength="255"></td>
+		<td><?php echo GetMessage("rub_tod")?></td>
+		<td><input type="text" name="TIMES_OF_DAY" value="<?php echo $str_TIMES_OF_DAY;?>" size="30" maxlength="255"></td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("rub_template")?></td>
+		<td colspan="2"><?php echo GetMessage("rub_template")?></td>
 	</tr>
-<?
+<?php 
 $arTemplates=CPostingTemplate::GetList();
 if(count($arTemplates)>0):
 ?>
 	<tr class="adm-detail-required-field">
-		<td class="adm-detail-valign-top"><?echo GetMessage("rub_templates")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("rub_templates")?></td>
 		<td><table>
-<?
+<?php 
 	$i=0;
 	foreach($arTemplates as $strTemplate):
 		$arTemplate = CPostingTemplate::GetByID($strTemplate);
 ?>
 		<tr>
-			<td class="adm-detail-valign-top"><input type="radio" id="TEMPLATE<?=$i?>" name="TEMPLATE" value="<?=$arTemplate["PATH"]?>"<?if($str_TEMPLATE==$arTemplate["PATH"]) echo "checked"?>></td>
+			<td class="adm-detail-valign-top"><input type="radio" id="TEMPLATE<?=$i?>" name="TEMPLATE" value="<?=$arTemplate["PATH"]?>"<?php if($str_TEMPLATE==$arTemplate["PATH"]) echo "checked"?>></td>
 			<td>
 				<label for="TEMPLATE<?=$i?>" title="<?=$arTemplate["DESCRIPTION"]?>"><?=(strlen($arTemplate["NAME"])>0?$arTemplate["NAME"]:GetMessage("rub_no_name"))?></label><br>
-				<?if(IsModuleInstalled("fileman")):?>
+				<?php if(IsModuleInstalled("fileman")):?>
 					<a title="<?=GetMessage("rub_manage")?>" href="/bitrix/admin/fileman_admin.php?path=<?=urlencode("/".$arTemplate["PATH"])?>"><?=$arTemplate["PATH"]?></a>
-				<?else:?>
+				<?php else:?>
 					<?=$arTemplate["PATH"]?>
-				<?endif?>
+				<?php endif?>
 			</td>
-		<?$i++?>
+		<?php $i++?>
 		</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 		</table></td>
 	</tr>
-<?else:?>
+<?php else:?>
 	<tr>
 		<td colspan="2"><?=GetMessage("rub_no_templates")?></td>
 	</tr>
-<?endif?>
+<?php endif?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("rub_post_fields")?></td>
+		<td colspan="2"><?php echo GetMessage("rub_post_fields")?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("rub_post_fields_from")?></td>
-		<td><input type="text" name="FROM_FIELD" value="<?echo $str_FROM_FIELD;?>" size="30" maxlength="255"></td>
+		<td><?php echo GetMessage("rub_post_fields_from")?></td>
+		<td><input type="text" name="FROM_FIELD" value="<?php echo $str_FROM_FIELD;?>" size="30" maxlength="255"></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>($POST_RIGHT<"W"),
@@ -279,16 +279,16 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
+<?php echo bitrix_sessid_post();?>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?if($ID>0 && !$bCopy):?>
+<?php if($ID>0 && !$bCopy):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 
-<?
+<?php 
 $tabControl->ShowWarnings("post_form", $message);
 ?>
 
@@ -301,4 +301,4 @@ $tabControl->ShowWarnings("post_form", $message);
 //-->
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

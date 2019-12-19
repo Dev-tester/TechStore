@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FILTER_TITLE"] = "Parameters";
 $MESS["CRM_FILTER_SEND"] = "Request";
 $MESS["CRM_FILTER_PAY_SYSTEM"] = "Payment system";

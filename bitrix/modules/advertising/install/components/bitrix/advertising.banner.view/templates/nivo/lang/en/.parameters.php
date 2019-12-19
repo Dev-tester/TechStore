@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_NIVO_PARAMETER_NO"] = "(not set)";
 $MESS["ADV_NIVO_PARAMETER_IMG"] = "Slide image";
 $MESS["ADV_NIVO_PARAMETER_LINK_URL"] = "Slide link";

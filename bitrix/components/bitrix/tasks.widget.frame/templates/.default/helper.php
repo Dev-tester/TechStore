@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Security\Sign\Signer;
 
 use Bitrix\Tasks\Util\Type\ArrayOption;

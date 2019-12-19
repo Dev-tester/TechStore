@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_31.1.TWO_COLS_TEXT_IMG_NAME"] = "Text with a button and a large image on the left on a dark background";
 $MESS["LANDING_BLOCK_31.1.TWO_COLS_TEXT_IMG_NODES_LANDINGBLOCKNODETITLE"] = "Title";
 $MESS["LANDING_BLOCK_31.1.TWO_COLS_TEXT_IMG_NODES_LANDINGBLOCKNODETEXT"] = "Text";

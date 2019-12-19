@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 CJSCore::Init(array('fx'));
 
@@ -156,16 +156,16 @@ if ($arResult['ERROR_MESSAGE'])
 {
 	?>
 <div class="content-edit-form-notice-error"><span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=$arResult['ERROR_MESSAGE']?></span></div>
-<?
+<?php 
 }
 ?>
 
-<form id="bx_user_profile_form" name="user_profile_edit" method="POST" action="<?echo POST_FORM_ACTION_URI;?>" enctype="multipart/form-data" autocomplete="off">
-	<? if (array_search("PERSONAL_GENDER", $arFields["PERSONAL"]) === false):?><input type="hidden" name="PERSONAL_GENDER" value="<?=$arResult["User"]["PERSONAL_GENDER"]?>" /><?endif?>
-	<?echo bitrix_sessid_post()?>
+<form id="bx_user_profile_form" name="user_profile_edit" method="POST" action="<?php echo POST_FORM_ACTION_URI;?>" enctype="multipart/form-data" autocomplete="off">
+	<?php  if (array_search("PERSONAL_GENDER", $arFields["PERSONAL"]) === false):?><input type="hidden" name="PERSONAL_GENDER" value="<?=$arResult["User"]["PERSONAL_GENDER"]?>" /><?php endif?>
+	<?php echo bitrix_sessid_post()?>
 <table id="content-edit-form-1" class="content-edit-form" cellspacing="0" cellpadding="0">
 
-<?
+<?php 
 foreach ($arFields as $GROUP_ID => $arGroupFields):
 	$groupMsg = "SOCNET_SUPE_TPL_GROUP_".$GROUP_ID;
 	$additionalClassName = "";
@@ -187,11 +187,11 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 				<div class="content-edit-form-header-wrap <?=$additionalClassName;?>"><?=GetMessage($groupMsg)?></div>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 
 	if ($GROUP_ID == "MAIN"):?>
-		<?if (in_array('PASSWORD', $arParams['EDITABLE_FIELDS'])):?>
+		<?php if (in_array('PASSWORD', $arParams['EDITABLE_FIELDS'])):?>
 		<tr>
 			<td class="content-edit-form-field-name"></td>
 			<td class="content-edit-form-event-link" colspan="2"><a href="#showPassword" onclick="return bxUpeToggleHiddenField('content-edit-form-1', 'password')" class="content-edit-form-event-link-tag"><span class="content-edit-form-event-link-icon content-edit-form-icons content-edit-form-icon-password"></span><span class="content-edit-form-event-link-name"><?=GetMessage("SOCNET_CHANGE_PASSWORD")?></span></a></td>
@@ -210,8 +210,8 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 			<td class="content-edit-form-field-input"><input name="CONFIRM_PASSWORD" autocomplete="off" type="password" class="content-edit-form-field-input-text"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-		<?endif;?>
-		<?if (in_array('EMAIL', $arParams['EDITABLE_FIELDS'])):?>
+		<?php endif;?>
+		<?php if (in_array('EMAIL', $arParams['EDITABLE_FIELDS'])):?>
 		<tr>
 			<td class="content-edit-form-field-name"><?=$bNetwork ? GetMessage("ISL_EMAIL_CONTACT") : GetMessage("ISL_EMAIL");?></td>
 			<td class="content-edit-form-field-input">
@@ -220,20 +220,20 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 			</td>
 			<td class="content-edit-form-field-error">&nbsp;</td>
 		</tr>
-		<?endif;?>
-	<?endif;?>
-	<?foreach ($arGroupFields as $FIELD):
+		<?php endif;?>
+	<?php endif;?>
+	<?php foreach ($arGroupFields as $FIELD):
 		if ($FIELD == "FORUM_SHOW_NAME")
 		{
-			?><tr><td><input type="hidden" name="<?echo $FIELD?>" value="Y"/></td></tr><?
+			?><tr><td><input type="hidden" name="<?php echo $FIELD?>" value="Y"/></td></tr><?php 
 			continue;
 		}
 		$value = $arResult['User'][$FIELD];?>
-	<tr <?if ($arResult["IS_BITRIX24"] && (in_array($FIELD, array("UF_TWITTER", "UF_FACEBOOK", "UF_LINKEDIN", "UF_XING")) || in_array($FIELD, array("PERSONAL_MOBILE", "WORK_PHONE", "UF_PHONE_INNER"))) && empty($value) || $FIELD == "GROUP_ID" && $arResult["User"]["IS_EXTRANET"]):?>style="display:none"<?endif;?> data-role="<?=$FIELD?>"<?=($FIELD == "TIME_ZONE" ? " data-field-id=\"time_zone\" style=\"display: ".($arResult["User"]["AUTO_TIME_ZONE"] <> "N" ? "none" : "table-row").";\"" : "")?>>
-<?if(!$bNetwork || $GROUP_ID !== "SOCSERV"):?>
+	<tr <?php if ($arResult["IS_BITRIX24"] && (in_array($FIELD, array("UF_TWITTER", "UF_FACEBOOK", "UF_LINKEDIN", "UF_XING")) || in_array($FIELD, array("PERSONAL_MOBILE", "WORK_PHONE", "UF_PHONE_INNER"))) && empty($value) || $FIELD == "GROUP_ID" && $arResult["User"]["IS_EXTRANET"]):?>style="display:none"<?php endif;?> data-role="<?=$FIELD?>"<?=($FIELD == "TIME_ZONE" ? " data-field-id=\"time_zone\" style=\"display: ".($arResult["User"]["AUTO_TIME_ZONE"] <> "N" ? "none" : "table-row").";\"" : "")?>>
+<?php if(!$bNetwork || $GROUP_ID !== "SOCSERV"):?>
 		<td class="content-edit-form-field-name"><?=$arResult['USER_PROP'][$FIELD] ? $arResult['USER_PROP'][$FIELD] : GetMessage('ISL_'.$FIELD);?></td>
-<?endif;?>
-		<?
+<?php endif;?>
+		<?php 
 		switch ($FIELD)
 		{
 			case "PASSWORD":
@@ -243,37 +243,37 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 				?>
 				<td class="content-edit-form-field-input" colspan="2">
 					<select name="AUTO_TIME_ZONE" onchange="this.form.TIME_ZONE.disabled=(this.value != 'N'); bxUpeToggleHiddenField('content-edit-form-1', 'time_zone', (this.value == 'N'));" class="content-edit-form-field-input-select">
-						<option value=""><?echo GetMessage("soc_profile_time_zones_auto_def")?></option>
-						<option value="Y"<?=($value == "Y"? ' SELECTED="SELECTED"' : '')?>><?echo GetMessage("soc_profile_time_zones_auto_yes")?></option>
-						<option value="N"<?=($value == "N"? ' SELECTED="SELECTED"' : '')?>><?echo GetMessage("soc_profile_time_zones_auto_no")?></option>
+						<option value=""><?php echo GetMessage("soc_profile_time_zones_auto_def")?></option>
+						<option value="Y"<?=($value == "Y"? ' SELECTED="SELECTED"' : '')?>><?php echo GetMessage("soc_profile_time_zones_auto_yes")?></option>
+						<option value="N"<?=($value == "N"? ' SELECTED="SELECTED"' : '')?>><?php echo GetMessage("soc_profile_time_zones_auto_no")?></option>
 					</select>
-				</td><?
+				</td><?php 
 				break;
 			case 'TIME_ZONE':
 				?>
 				<td class="content-edit-form-field-input" colspan="2">
-					<select name="TIME_ZONE"<?if($arResult["User"]["AUTO_TIME_ZONE"] <> "N") echo '  disabled="disabled"'?> class="content-edit-form-field-input-select">
-						<?if (is_array($arResult["TIME_ZONE_LIST"]) && !empty($arResult["TIME_ZONE_LIST"])):?>
-						<?foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
+					<select name="TIME_ZONE"<?php if($arResult["User"]["AUTO_TIME_ZONE"] <> "N") echo '  disabled="disabled"'?> class="content-edit-form-field-input-select">
+						<?php if (is_array($arResult["TIME_ZONE_LIST"]) && !empty($arResult["TIME_ZONE_LIST"])):?>
+						<?php foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
 							<option value="<?=htmlspecialcharsbx($tz)?>"<?=($value == $tz? ' SELECTED="SELECTED"' : '')?>><?=htmlspecialcharsbx($tz_name)?></option>
-							<?endforeach?>
-						<?endif?>
+							<?php endforeach?>
+						<?php endif?>
 					</select>
-				</td><?
+				</td><?php 
 				break;
 			case 'PERSONAL_COUNTRY':
 			case 'WORK_COUNTRY':
 				?>
 				<td class="content-edit-form-field-input" colspan="2">
-					<?echo SelectBoxFromArray($FIELD, GetCountryArray(), $value, GetMessage("ISL_COUNTRY_EMPTY"), "class=\"content-edit-form-field-input-select\"");?>
-				</td><?
+					<?php echo SelectBoxFromArray($FIELD, GetCountryArray(), $value, GetMessage("ISL_COUNTRY_EMPTY"), "class=\"content-edit-form-field-input-select\"");?>
+				</td><?php 
 				break;
 			case 'SOCSERVICES':
 				if(CModule::IncludeModule("socialservices")):
 					?>
 					<td class="content-edit-form-field-input" colspan="<?=$bNetwork?3:2?>">
 						<div class="bx-sonet-profile-field-socserv">
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent("bitrix:socserv.auth.split", $bNetwork ? "network" : "twitpost", array(
 									"SHOW_PROFILES" => "Y",
 									"CAN_DELETE" => "Y",
@@ -284,21 +284,21 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 							?>
 						</div>
 					</td>
-					<?
+					<?php 
 				endif;
 				break;
 			case "PERSONAL_GENDER":?>
 				<td class="content-edit-form-field-input" colspan="2">
-					<div><label><input type="radio" name="<?echo $FIELD?>" value="M"<?echo $value == 'M' ? ' checked="checked"' : ''?> class="content-edit-form-field-input-selector" /><span class="content-edit-form-field-input-selector-name"><?echo GetMessage('ISL_PERSONAL_GENDER_MALE')?></span></label></div>
-					<div><label><input type="radio" name="<?echo $FIELD?>" value="F"<?echo $value == 'F' ? ' checked="checked"' : ''?> class="content-edit-form-field-input-selector" /><span class="content-edit-form-field-input-selector-name"><?echo GetMessage('ISL_PERSONAL_GENDER_FEMALE')?></span></label></div>
-				</td><?
+					<div><label><input type="radio" name="<?php echo $FIELD?>" value="M"<?php echo $value == 'M' ? ' checked="checked"' : ''?> class="content-edit-form-field-input-selector" /><span class="content-edit-form-field-input-selector-name"><?php echo GetMessage('ISL_PERSONAL_GENDER_MALE')?></span></label></div>
+					<div><label><input type="radio" name="<?php echo $FIELD?>" value="F"<?php echo $value == 'F' ? ' checked="checked"' : ''?> class="content-edit-form-field-input-selector" /><span class="content-edit-form-field-input-selector-name"><?php echo GetMessage('ISL_PERSONAL_GENDER_FEMALE')?></span></label></div>
+				</td><?php 
 				break;
 
 			case "PERSONAL_PHOTO":
 			case "WORK_LOGO":
 				?>
 				<td class="content-edit-form-field-input" colspan="2">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent('bitrix:main.file.input', '', array(
 						'INPUT_NAME' => $FIELD.'_ID',
 						'INPUT_NAME_UNSAVED' => $FIELD.'_ID_UNSAVED',
@@ -311,7 +311,7 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 					));
 					?>
 				</td>
-					<?
+					<?php 
 				break;
 
 			case 'PERSONAL_BIRTHDAY':
@@ -321,7 +321,7 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 				$month = is_array($birthday) ? intval($birthday["MM"]) : "";
 				$year = is_array($birthday) ? intval($birthday["YYYY"]) : "";
 				?><td class="content-edit-form-field-input" colspan="2">
-					<?
+					<?php 
 				$daySelect = '<select class="content-edit-form-field-input-select" id="PERSONAL_BIRTHDAY_DAY" name="PERSONAL_BIRTHDAY_DAY" onchange="onPersonalBirthdayChange(event)" onblur="onPersonalBirthdayChange(event)">';
 				$daySelect .= '<option value="">'.GetMessage("ISL_BIRTHDAY_DAY").'</option>';
 				for ($i = 1; $i <= 31; $i++)
@@ -333,11 +333,11 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 				?>
 				<select class="content-edit-form-field-input-select" id="PERSONAL_BIRTHDAY_MONTH" name="PERSONAL_BIRTHDAY_MONTH" onchange="onPersonalBirthdayChange(event)" onblur="onPersonalBirthdayChange(event)">
 					<option value=""><?=GetMessage("ISL_BIRTHDAY_MONTH")?></option>
-					<?for ($i = 0; $i <= 11 ; $i++):?>
-					<option<?if ($month == ($i + 1)):?> selected="selected"<?endif?> value="<?=$i?>"><?=GetMessage("MONTH_".($i + 1))?></option>
-					<?endfor?>
+					<?php for ($i = 0; $i <= 11 ; $i++):?>
+					<option<?php if ($month == ($i + 1)):?> selected="selected"<?php endif?> value="<?=$i?>"><?=GetMessage("MONTH_".($i + 1))?></option>
+					<?php endfor?>
 				</select>
-					<? if (LANGUAGE_ID == "en")
+					<?php  if (LANGUAGE_ID == "en")
 					echo $daySelect;
 				?>
 				<input type="text" class="content-edit-form-field-input-text content-edit-form-field-input-bd" value="<?=($year > 0 ? $year : GetMessage("ISL_BIRTHDAY_YEAR") )?>" onclick="this.setAttribute('data-focus', 'true'); if (this.value == '<?=GetMessage("ISL_BIRTHDAY_YEAR")?>') { this.value = '';}" maxlength="4" id="PERSONAL_BIRTHDAY_YEAR" name="PERSONAL_BIRTHDAY_YEAR" onkeyup="onPersonalBirthdayChange(event)" onblur="this.setAttribute('data-focus', 'false'); if (!BX.type.isNumber(parseInt(this.value))) this.value='<?=GetMessage("ISL_BIRTHDAY_YEAR")?>'; onPersonalBirthdayChange(event)" />
@@ -384,11 +384,11 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 
 				</script>
 				</td>
-			<?
+			<?php 
 				break;
 			case 'GROUP_ID':?>
 				<td class="content-edit-form-field-input" colspan="2">
-				<?if (!$arResult["User"]["IS_EXTRANET"]):?>
+				<?php if (!$arResult["User"]["IS_EXTRANET"]):?>
 					<div class="content-edit-form-field-input-sub">
 						<label style="display: inline-block;">
 							<input
@@ -396,13 +396,13 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 								class="content-edit-form-field-input-selector"
 								id="group_admin"
 								name="IS_ADMIN"
-								<?if ($arResult["IsMyProfile"]):?>
+								<?php if ($arResult["IsMyProfile"]):?>
 									readonly
 									onclick="return false"
-								<?endif;?>
+								<?php endif;?>
 								value="Y"
-								<?if ($arResult['User']['IS_ADMIN']) echo "checked";?>
-								<?if (
+								<?php if ($arResult['User']['IS_ADMIN']) echo "checked";?>
+								<?php if (
 									$arResult['User']['ACTIVE'] != "Y"
 									|| $arResult["IS_BITRIX24"] && $arResult["ADMIN_RIGHTS_RESTRICTED"]
 									&& (
@@ -416,7 +416,7 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 
 							<span class="content-edit-form-field-input-selector-name"><?=GetMessage("ISL_GROUP_ADMIN")?></span>
 
-							<?if (
+							<?php if (
 								$arResult["IS_BITRIX24"]
 								&& $arResult["ADMIN_RIGHTS_RESTRICTED"]
 								&& !$arResult["User"]["IS_INVITED"]
@@ -430,18 +430,18 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 										BX.Socialnetwork.User.ProfileEdit.init();
 									})
 								</script>
-						<?endif?>
+						<?php endif?>
 
-						<?if (
+						<?php if (
 							$arResult["IS_BITRIX24"]
 							&& $arResult["ADMIN_RIGHTS_RESTRICTED"]
 						):
 						?>
 							<div style="display: none">
 								<div id="adminRestrContent" >
-									<?if ($arResult["IS_COMPANY_TARIFF"]):?>
+									<?php if ($arResult["IS_COMPANY_TARIFF"]):?>
 										<div style="padding-bottom: 20px;"><?=GetMessage("SOCNET_RIGHTS_RESTR_COMPANY_TEXT")?></div>
-									<?else:?>
+									<?php else:?>
 										<div style='font-size: 20px; padding-bottom: 20px;'><?=GetMessage("SOCNET_RIGHTS_RESTR_TEXT1")?></div>
 										<div style='padding-bottom: 20px;'><?=GetMessage("SOCNET_RIGHTS_RESTR_TEXT2")?></div>
 										<table width='100%'>
@@ -462,7 +462,7 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 										<div>
 											<a href='javascript:void' onclick='BX.Helper.show("redirect=detail&code=5869717");'><?=GetMessage("SOCNET_RIGHTS_RESTR_MORE")?></a>
 										</div>
-									<?endif?>
+									<?php endif?>
 								</div>
 							</div>
 						</label>
@@ -511,33 +511,33 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 								}
 							})
 						</script>
-						<?endif?>
+						<?php endif?>
 					</div>
-				<?endif;
-				?></td><?
+				<?php endif;
+				?></td><?php 
 				break;
 			case "UF_SKILLS":
 			case "UF_INTERESTS":
-				?><td class="content-edit-form-field-textarea" colspan="2"><textarea name="<?echo $FIELD?>" class="content-edit-form-field-input-textarea"><?=$value?></textarea></td><?
+				?><td class="content-edit-form-field-textarea" colspan="2"><textarea name="<?php echo $FIELD?>" class="content-edit-form-field-input-textarea"><?=$value?></textarea></td><?php 
 				break;
 			case "UF_DEPARTMENT":?>
 			<td class="content-edit-form-field-input" colspan="2">
 				<select name="UF_DEPARTMENT[]" size="5" multiple="multiple" >
-					<?
+					<?php 
 					$rsDepartments = CIBlockSection::GetTreeList(array(
 						"IBLOCK_ID"=>intval(COption::GetOptionInt('intranet', 'iblock_structure', false)),
 					));
 					while($arDepartment = $rsDepartments->GetNext()):
-						?><option value="<?echo $arDepartment["ID"]?>" <?if(is_array($value) && in_array($arDepartment["ID"], $value)) echo "selected"?>><?echo str_repeat("&nbsp;.&nbsp;", $arDepartment["DEPTH_LEVEL"])?><?echo $arDepartment["NAME"]?></option><?
+						?><option value="<?php echo $arDepartment["ID"]?>" <?php if(is_array($value) && in_array($arDepartment["ID"], $value)) echo "selected"?>><?php echo str_repeat("&nbsp;.&nbsp;", $arDepartment["DEPTH_LEVEL"])?><?php echo $arDepartment["NAME"]?></option><?php 
 					endwhile;
 					?>
 				</select>
 			</td>
-				<?break;
+				<?php break;
 			case "UF_PHONE_INNER":?>
 			<td class="content-edit-form-field-input" colspan="2">
-				<input type="text" name="<?echo $FIELD?>" value="<?=$value?>" class="content-edit-form-field-input-text"/>
-			</td><?
+				<input type="text" name="<?php echo $FIELD?>" value="<?=$value?>" class="content-edit-form-field-input-text"/>
+			</td><?php 
 			break;
 			case "UF_TWITTER":
 			case "UF_FACEBOOK":
@@ -545,12 +545,12 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 			case "UF_XING":
 				?>
 				<td class="content-edit-form-field-input" colspan="2">
-					<input type="text" name="<?echo $FIELD?>" placeholder="<?=$SocNetProfileExample[$FIELD]?>" value="<?=$arResult["User"][$FIELD]?>" class="content-edit-form-field-input-text"/>
+					<input type="text" name="<?php echo $FIELD?>" placeholder="<?=$SocNetProfileExample[$FIELD]?>" value="<?=$arResult["User"][$FIELD]?>" class="content-edit-form-field-input-text"/>
 				</td>
-					<?
+					<?php 
 				break;
 			default: ?>
-			<td class="content-edit-form-field-input" colspan="2"><?
+			<td class="content-edit-form-field-input" colspan="2"><?php 
 				if (substr($FIELD, 0, 3) == 'UF_' && !in_array($FIELD, array("UF_SKYPE", "UF_WEB_SITES"))):
 					$APPLICATION->IncludeComponent(
 						'bitrix:system.field.edit',
@@ -563,27 +563,27 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 						array('HIDE_ICONS' => 'Y')
 					);
 				else:
-					?><input type="text" name="<?echo $FIELD?>" value="<?=$value?>" class="content-edit-form-field-input-text"/><?
+					?><input type="text" name="<?php echo $FIELD?>" value="<?=$value?>" class="content-edit-form-field-input-text"/><?php 
 				endif;
-				?></td><?
+				?></td><?php 
 		}
 		?>
 	</tr>
-		<?if ($arResult["IS_BITRIX24"] && $FIELD == "PERSONAL_PHOTO" && in_array('UF_PHONE_INNER', $arFields['MAIN']) && !($arResult['User']["UF_PHONE_INNER"] && $arResult['User']["PERSONAL_MOBILE"] &&  $arResult['User']["WORK_PHONE"])): // for phones link?>
+		<?php if ($arResult["IS_BITRIX24"] && $FIELD == "PERSONAL_PHOTO" && in_array('UF_PHONE_INNER', $arFields['MAIN']) && !($arResult['User']["UF_PHONE_INNER"] && $arResult['User']["PERSONAL_MOBILE"] &&  $arResult['User']["WORK_PHONE"])): // for phones link?>
 	<tr>
 		<td class="content-edit-form-field-name"></td>
 		<td class="content-edit-form-event-link" colspan="2"><a href="#addPhone" onclick="ShowAddPnone(this)" class="content-edit-form-event-link-tag"><span class="content-edit-form-event-link-icon content-edit-form-icons content-edit-form-icon-socnet"></span><span class="content-edit-form-event-link-name"><?=GetMessage("SOCNET_PHONE_ADD")?></span></a></td>
 	</tr>
-		<?endif;?>
-		<?if ($arResult["IS_BITRIX24"] && $FIELD == "UF_SKYPE" && count($arSocialFields) > 0 && $sonetLinkAddShow):?>
+		<?php endif;?>
+		<?php if ($arResult["IS_BITRIX24"] && $FIELD == "UF_SKYPE" && count($arSocialFields) > 0 && $sonetLinkAddShow):?>
 	<tr>
 		<td class="content-edit-form-field-name"></td>
 		<td class="content-edit-form-event-link" colspan="2"><a href="#addSocnet" onclick="ShowAddSocnet(this)" class="content-edit-form-event-link-tag"><span class="content-edit-form-event-link-icon content-edit-form-icons content-edit-form-icon-socnet"></span><span class="content-edit-form-event-link-name"><?=GetMessage("SOCNET_SOCNET_ADD")?></span></a></td>
 	</tr>
-		<?endif?>
-		<?endforeach;?>
-	<?endforeach;?>
-<?
+		<?php endif?>
+		<?php endforeach;?>
+	<?php endforeach;?>
+<?php 
 
 
 if (substr($_REQUEST['backurl'],0,1) != "/")
@@ -593,7 +593,7 @@ if (substr($_REQUEST['backurl'],0,1) != "/")
 	<td class="content-edit-form-field-name"></td>
 	<td class="content-edit-form-buttons" colspan="2">
 		<span class="webform-button webform-button-create" onclick="BX('bx_user_profile_form').elements['submit'].click()"><span class="webform-button-left"></span><span class="webform-button-text"><?=GetMessage("SOCNET_BUTTON_SAVE")?></span><span class="webform-button-right"></span></span>
-			<span class="webform-button" onclick="location.href = '<?echo htmlspecialcharsbx(CUtil::addslashes(
+			<span class="webform-button" onclick="location.href = '<?php echo htmlspecialcharsbx(CUtil::addslashes(
 				$_REQUEST['backurl']
 					? $_REQUEST['backurl']
 					: CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER"], array("user_id" => $arParams["ID"]))
@@ -661,18 +661,18 @@ if (substr($_REQUEST['backurl'],0,1) != "/")
 	{
 		var form = document.forms["user_profile_edit"];
 		BX.PopupMenu.show('socnet_add', bindElement, [
-		<?if (in_array("UF_TWITTER", $arSocialFields)):?>
+		<?php if (in_array("UF_TWITTER", $arSocialFields)):?>
 			{ text : "<?=GetMessage("ISL_UF_TWITTER")?>", className : "menu-popup-no-icon", onclick : function() { form.querySelector("[data-role='UF_TWITTER']").style.display=""; this.popupWindow.close();} },
-			<?endif?>
-		<?if (in_array("UF_FACEBOOK", $arSocialFields)):?>
+			<?php endif?>
+		<?php if (in_array("UF_FACEBOOK", $arSocialFields)):?>
 			{ text : "<?=GetMessage("ISL_UF_FACEBOOK")?>", className : "menu-popup-no-icon", onclick : function() { form.querySelector("[data-role='UF_FACEBOOK']").style.display=""; this.popupWindow.close();}},
-			<?endif?>
-		<?if (in_array("UF_LINKEDIN", $arSocialFields)):?>
+			<?php endif?>
+		<?php if (in_array("UF_LINKEDIN", $arSocialFields)):?>
 			{ text : "<?=GetMessage("ISL_UF_LINKEDIN")?>", className : "menu-popup-no-icon", onclick : function() { form.querySelector("[data-role='UF_LINKEDIN']").style.display=""; this.popupWindow.close();} },
-			<?endif?>
-		<?if (in_array("UF_XING", $arSocialFields)):?>
+			<?php endif?>
+		<?php if (in_array("UF_XING", $arSocialFields)):?>
 			{ text : "<?=GetMessage("ISL_UF_XING")?>", className : "menu-popup-no-icon",  onclick : function() { form.querySelector("[data-role='UF_XING']").style.display=""; this.popupWindow.close();} }
-			<?endif?>
+			<?php endif?>
 		],
 				{
 					offsetTop:10,

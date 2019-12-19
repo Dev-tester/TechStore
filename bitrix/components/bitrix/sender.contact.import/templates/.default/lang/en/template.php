@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONTACT_IMPORT_SET"] = "Add to static recipient list";
 $MESS["SENDER_CONTACT_IMPORT_SET_ADD"] = "New";
 $MESS["SENDER_CONTACT_IMPORT_SET_NAME"] = "using name";

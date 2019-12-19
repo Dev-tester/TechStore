@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -21,19 +21,19 @@ if (isset($templateData['TEMPLATE_THEME']))
 }
 
 ?>
-<div class="smart-filter mb-4 <?=$templateData["TEMPLATE_CLASS"]?> <?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL") echo "smart-filter-horizontal"?>">
+<div class="smart-filter mb-4 <?=$templateData["TEMPLATE_CLASS"]?> <?php if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL") echo "smart-filter-horizontal"?>">
 	<div class="smart-filter-section">
 
-		<div class="smart-filter-title"><?echo GetMessage("CT_BCSF_FILTER_TITLE")?></div>
+		<div class="smart-filter-title"><?php echo GetMessage("CT_BCSF_FILTER_TITLE")?></div>
 
-		<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smart-filter-form">
+		<form name="<?php echo $arResult["FILTER_NAME"]."_form"?>" action="<?php echo $arResult["FORM_ACTION"]?>" method="get" class="smart-filter-form">
 
-			<?foreach($arResult["HIDDEN"] as $arItem):?>
-				<input type="hidden" name="<?echo $arItem["CONTROL_NAME"]?>" id="<?echo $arItem["CONTROL_ID"]?>" value="<?echo $arItem["HTML_VALUE"]?>" />
-			<?endforeach;?>
+			<?php foreach($arResult["HIDDEN"] as $arItem):?>
+				<input type="hidden" name="<?php echo $arItem["CONTROL_NAME"]?>" id="<?php echo $arItem["CONTROL_ID"]?>" value="<?php echo $arItem["HTML_VALUE"]?>" />
+			<?php endforeach;?>
 
 			<div class="row">
-				<?foreach($arResult["ITEMS"] as $key=>$arItem)//prices
+				<?php foreach($arResult["ITEMS"] as $key=>$arItem)//prices
 				{
 					$key = $arItem["ENCODED_ID"];
 					if(isset($arItem["PRICE"])):
@@ -62,7 +62,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 						}
 						?>
 
-						<div class="<?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?else:?>col-12<?endif?> mb-2 smart-filter-parameters-box bx-active">
+						<div class="<?php if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?php else:?>col-12<?php endif?> mb-2 smart-filter-parameters-box bx-active">
 							<span class="smart-filter-container-modef"></span>
 
 							<div class="smart-filter-parameters-box-title" onclick="smartFilter.hideFilterProps(this)">
@@ -81,9 +81,9 @@ if (isset($templateData['TEMPLATE_THEME']))
 													<input
 														class="min-price form-control form-control-sm"
 														type="number"
-														name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
-														id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
-														value="<?echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
+														name="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
+														id="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
+														value="<?php echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
 														size="5"
 														placeholder="<?=GetMessage("CT_BCSF_FILTER_FROM")?>"
 														onkeyup="smartFilter.keyup(this)"
@@ -96,9 +96,9 @@ if (isset($templateData['TEMPLATE_THEME']))
 													<input
 														class="max-price form-control form-control-sm"
 														type="number"
-														name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
-														id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
-														value="<?echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
+														name="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
+														id="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
+														value="<?php echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
 														size="5"
 														placeholder="<?=GetMessage("CT_BCSF_FILTER_TO")?>"
 														onkeyup="smartFilter.keyup(this)"
@@ -109,9 +109,9 @@ if (isset($templateData['TEMPLATE_THEME']))
 
 										<div class="smart-filter-slider-track-container">
 											<div class="smart-filter-slider-track" id="drag_track_<?=$key?>">
-												<?for($i = 0; $i <= $step_num; $i++):?>
+												<?php for($i = 0; $i <= $step_num; $i++):?>
 												<div class="smart-filter-slider-ruler p<?=$i+1?>"><span><?=$prices[$i]?></span></div>
-												<?endfor;?>
+												<?php endfor;?>
 												<div class="smart-filter-slider-price-bar-vd" style="left: 0;right: 0;" id="colorUnavailableActive_<?=$key?>"></div>
 												<div class="smart-filter-slider-price-bar-vn" style="left: 0;right: 0;" id="colorAvailableInactive_<?=$key?>"></div>
 												<div class="smart-filter-slider-price-bar-v"  style="left: 0;right: 0;" id="colorAvailableActive_<?=$key?>"></div>
@@ -125,7 +125,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 
 						$arJsParams = array(
 							"leftSlider" => 'left_slider_'.$key,
@@ -151,7 +151,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 								window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 							});
 						</script>
-					<?endif;
+					<?php endif;
 				}
 
 				//not prices
@@ -164,18 +164,18 @@ if (isset($templateData['TEMPLATE_THEME']))
 						continue;
 					?>
 
-					<div class="<?if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?else:?>col-lg-12<?endif?> mb-2 smart-filter-parameters-box <?if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>bx-active<?endif?>">
+					<div class="<?php if ($arParams["FILTER_VIEW_MODE"] == "HORIZONTAL"):?>col-sm-6 col-md-4<?php else:?>col-lg-12<?php endif?> mb-2 smart-filter-parameters-box <?php if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>bx-active<?php endif?>">
 						<span class="smart-filter-container-modef"></span>
 
 						<div class="smart-filter-parameters-box-title" onclick="smartFilter.hideFilterProps(this)">
 
 							<span class="smart-filter-parameters-box-title-text"><?=$arItem["NAME"]?></span>
 
-							<span data-role="prop_angle" class="smart-filter-angle smart-filter-angle-<?if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>up<?else:?>down<?endif?>">
+							<span data-role="prop_angle" class="smart-filter-angle smart-filter-angle-<?php if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>up<?php else:?>down<?php endif?>">
 								<span  class="smart-filter-angles"></span>
 							</span>
 
-							<?if ($arItem["FILTER_HINT"] <> ""):?>
+							<?php if ($arItem["FILTER_HINT"] <> ""):?>
 								<span class="smart-filter-hint">
 									<span class="smart-filter-hint-icon">?</span>
 									<span class="smart-filter-hint-popup">
@@ -184,12 +184,12 @@ if (isset($templateData['TEMPLATE_THEME']))
 
 										</span>	<?=$arItem["FILTER_HINT"]?></span>
 								</span>
-							<?endif?>
+							<?php endif?>
 						</div>
 
 						<div class="smart-filter-block" data-role="bx_filter_block">
 							<div class="smart-filter-parameters-box-container">
-							<?
+							<?php 
 							$arCur = current($arItem["VALUES"]);
 							switch ($arItem["DISPLAY_TYPE"])
 							{
@@ -203,9 +203,9 @@ if (isset($templateData['TEMPLATE_THEME']))
 												<div class="smart-filter-input-container">
 													<input class="min-price form-control form-control-sm"
 														type="number"
-														name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
-														id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
-														value="<?echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
+														name="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
+														id="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
+														value="<?php echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
 														size="5"
 														placeholder="<?=GetMessage("CT_BCSF_FILTER_FROM")?>"
 														onkeyup="smartFilter.keyup(this)"
@@ -218,9 +218,9 @@ if (isset($templateData['TEMPLATE_THEME']))
 													<input
 														class="max-price form-control form-control-sm"
 														type="number"
-														name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
-														id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
-														value="<?echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
+														name="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
+														id="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
+														value="<?php echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
 														size="5"
 														placeholder="<?=GetMessage("CT_BCSF_FILTER_TO")?>"
 														onkeyup="smartFilter.keyup(this)"
@@ -232,7 +232,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 
 										<div class="smart-filter-slider-track-container">
 											<div class="smart-filter-slider-track" id="drag_track_<?=$key?>">
-												<?
+												<?php 
 													$precision = $arItem["DECIMALS"]? $arItem["DECIMALS"]: 0;
 													$step = ($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"]) / 4;
 													$value1 = number_format($arItem["VALUES"]["MIN"]["VALUE"], $precision, ".", "");
@@ -258,7 +258,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 										</div>
 									</div>
 
-									<?
+									<?php 
 										$arJsParams = array(
 										"leftSlider" => 'left_slider_'.$key,
 										"rightSlider" => 'right_slider_'.$key,
@@ -283,7 +283,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 												window['trackBar<?=$key?>'] = new BX.Iblock.SmartFilter(<?=CUtil::PhpToJSObject($arJsParams)?>);
 											});
 										</script>
-									<?
+									<?php 
 
 								break;
 
@@ -299,9 +299,9 @@ if (isset($templateData['TEMPLATE_THEME']))
 													<input
 														class="min-price form-control form-control-sm"
 														type="number"
-														name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
-														id="<?echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
-														value="<?echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
+														name="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"
+														id="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_ID"]?>"
+														value="<?php echo $arItem["VALUES"]["MIN"]["HTML_VALUE"]?>"
 														size="5"
 														placeholder="<?=GetMessage("CT_BCSF_FILTER_FROM")?>"
 														onkeyup="smartFilter.keyup(this)"
@@ -314,9 +314,9 @@ if (isset($templateData['TEMPLATE_THEME']))
 												<input
 													class="max-price form-control form-control-sm"
 													type="number"
-													name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
-													id="<?echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
-													value="<?echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
+													name="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"
+													id="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_ID"]?>"
+													value="<?php echo $arItem["VALUES"]["MAX"]["HTML_VALUE"]?>"
 													size="5"
 													placeholder="<?=GetMessage("CT_BCSF_FILTER_TO")?>"
 													onkeyup="smartFilter.keyup(this)"
@@ -325,7 +325,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 										</div>
 										</div>
 									</div>
-								<?
+								<?php 
 								break;
 								//endregion
 
@@ -333,16 +333,16 @@ if (isset($templateData['TEMPLATE_THEME']))
 								case "G":
 								?>
 									<div class="smart-filter-input-group-checkbox-pictures">
-										<?foreach ($arItem["VALUES"] as $val => $ar):?>
+										<?php foreach ($arItem["VALUES"] as $val => $ar):?>
 											<input
 												style="display: none"
 												type="checkbox"
 												name="<?=$ar["CONTROL_NAME"]?>"
 												id="<?=$ar["CONTROL_ID"]?>"
 												value="<?=$ar["HTML_VALUE"]?>"
-												<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
+												<?php  echo $ar["CHECKED"]? 'checked="checked"': '' ?>
 											/>
-											<?
+											<?php 
 												$class = "";
 												if ($ar["CHECKED"])
 													$class.= " bx-active";
@@ -354,15 +354,15 @@ if (isset($templateData['TEMPLATE_THEME']))
 												   class="smart-filter-checkbox-label<?=$class?>"
 												   onclick="smartFilter.keyup(BX('<?=CUtil::JSEscape($ar["CONTROL_ID"])?>')); BX.toggleClass(this, 'bx-active');">
 												<span class="smart-filter-checkbox-btn bx-color-sl">
-													<?if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
+													<?php if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
 														<span class="smart-filter-checkbox-btn-image" style="background-image: url('<?=$ar["FILE"]["SRC"]?>');"></span>
-													<?endif?>
+													<?php endif?>
 												</span>
 											</label>
-										<?endforeach?>
+										<?php endforeach?>
 										<div style="clear: both;"></div>
 									</div>
-								<?
+								<?php 
 								break;
 								//endregion
 
@@ -370,16 +370,16 @@ if (isset($templateData['TEMPLATE_THEME']))
 								case "H":
 								?>
 									<div class="smart-filter-input-group-checkbox-pictures-text">
-										<?foreach ($arItem["VALUES"] as $val => $ar):?>
+										<?php foreach ($arItem["VALUES"] as $val => $ar):?>
 										<input
 											style="display: none"
 											type="checkbox"
 											name="<?=$ar["CONTROL_NAME"]?>"
 											id="<?=$ar["CONTROL_ID"]?>"
 											value="<?=$ar["HTML_VALUE"]?>"
-											<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
+											<?php  echo $ar["CHECKED"]? 'checked="checked"': '' ?>
 										/>
-										<?
+										<?php 
 											$class = "";
 											if ($ar["CHECKED"])
 												$class.= " bx-active";
@@ -391,31 +391,31 @@ if (isset($templateData['TEMPLATE_THEME']))
 											   class="smart-filter-checkbox-label<?=$class?>"
 											   onclick="smartFilter.keyup(BX('<?=CUtil::JSEscape($ar["CONTROL_ID"])?>')); BX.toggleClass(this, 'bx-active');">
 											<span class="smart-filter-checkbox-btn">
-												<?if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
+												<?php if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
 													<span class="smart-filter-checkbox-btn-image" style="background-image:url('<?=$ar["FILE"]["SRC"]?>');"></span>
-												<?endif?>
+												<?php endif?>
 											</span>
 											<span class="smart-filter-checkbox-text" title="<?=$ar["VALUE"];?>">
 												<?=$ar["VALUE"];
 												if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):
-													?> (<span data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?
+													?> (<span data-role="count_<?=$ar["CONTROL_ID"]?>"><?php  echo $ar["ELEMENT_COUNT"]; ?></span>)<?php 
 												endif;?>
 											</span>
 										</label>
-									<?endforeach?>
+									<?php endforeach?>
 									</div>
-								<?
+								<?php 
 								break;
 								//endregion
 
 								//region DROPDOWN +
 								case "P":
 								?>
-									<? $checkedItemExist = false; ?>
+									<?php  $checkedItemExist = false; ?>
 									<div class="smart-filter-input-group-dropdown">
 										<div class="smart-filter-dropdown-block" onclick="smartFilter.showDropDownPopup(this, '<?=CUtil::JSEscape($key)?>')">
 											<div class="smart-filter-dropdown-text" data-role="currentOption">
-												<?foreach ($arItem["VALUES"] as $val => $ar)
+												<?php foreach ($arItem["VALUES"] as $val => $ar)
 												{
 													if ($ar["CHECKED"])
 													{
@@ -434,19 +434,19 @@ if (isset($templateData['TEMPLATE_THEME']))
 												style="display: none"
 												type="radio"
 												name="<?=$arCur["CONTROL_NAME_ALT"]?>"
-												id="<? echo "all_".$arCur["CONTROL_ID"] ?>"
+												id="<?php  echo "all_".$arCur["CONTROL_ID"] ?>"
 												value=""
 											/>
-											<?foreach ($arItem["VALUES"] as $val => $ar):?>
+											<?php foreach ($arItem["VALUES"] as $val => $ar):?>
 												<input
 													style="display: none"
 													type="radio"
 													name="<?=$ar["CONTROL_NAME_ALT"]?>"
 													id="<?=$ar["CONTROL_ID"]?>"
-													value="<? echo $ar["HTML_VALUE_ALT"] ?>"
-													<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
+													value="<?php  echo $ar["HTML_VALUE_ALT"] ?>"
+													<?php  echo $ar["CHECKED"]? 'checked="checked"': '' ?>
 												/>
-											<?endforeach?>
+											<?php endforeach?>
 
 											<div class="smart-filter-dropdown-popup" data-role="dropdownContent" style="display: none;">
 												<ul>
@@ -458,7 +458,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 															<?=GetMessage("CT_BCSF_FILTER_ALL"); ?>
 														</label>
 													</li>
-													<?foreach ($arItem["VALUES"] as $val => $ar):
+													<?php foreach ($arItem["VALUES"] as $val => $ar):
 														$class = "";
 														if ($ar["CHECKED"])
 															$class.= " selected";
@@ -473,12 +473,12 @@ if (isset($templateData['TEMPLATE_THEME']))
 																<?=$ar["VALUE"]?>
 															</label>
 														</li>
-													<?endforeach?>
+													<?php endforeach?>
 												</ul>
 											</div>
 										</div>
 									</div>
-								<?
+								<?php 
 								break;
 								//endregion
 
@@ -488,17 +488,17 @@ if (isset($templateData['TEMPLATE_THEME']))
 										<div class="smart-filter-input-group-dropdown">
 											<div class="smart-filter-dropdown-block" onclick="smartFilter.showDropDownPopup(this, '<?=CUtil::JSEscape($key)?>')">
 												<div class="smart-filter-input-group-dropdown-flex" data-role="currentOption">
-													<?
+													<?php 
 													$checkedItemExist = false;
 													foreach ($arItem["VALUES"] as $val => $ar):
 														if ($ar["CHECKED"])
 														{
 														?>
-															<?if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
+															<?php if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
 																<span class="smart-filter-checkbox-btn-image" style="background-image:url('<?=$ar["FILE"]["SRC"]?>');"></span>
-															<?endif?>
+															<?php endif?>
 															<span class="smart-filter-dropdown-text"><?=$ar["VALUE"]?></span>
-														<?
+														<?php 
 															$checkedItemExist = true;
 														}
 													endforeach;
@@ -507,7 +507,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 														?>
 															<span class="smart-filter-checkbox-btn-image all"></span>
 															<span class="smart-filter-dropdown-text"><?=GetMessage("CT_BCSF_FILTER_ALL");?></span>
-														<?
+														<?php 
 													}
 													?>
 												</div>
@@ -518,19 +518,19 @@ if (isset($templateData['TEMPLATE_THEME']))
 													style="display: none"
 													type="radio"
 													name="<?=$arCur["CONTROL_NAME_ALT"]?>"
-													id="<? echo "all_".$arCur["CONTROL_ID"] ?>"
+													id="<?php  echo "all_".$arCur["CONTROL_ID"] ?>"
 													value=""
 												/>
-												<?foreach ($arItem["VALUES"] as $val => $ar):?>
+												<?php foreach ($arItem["VALUES"] as $val => $ar):?>
 													<input
 														style="display: none"
 														type="radio"
 														name="<?=$ar["CONTROL_NAME_ALT"]?>"
 														id="<?=$ar["CONTROL_ID"]?>"
 														value="<?=$ar["HTML_VALUE_ALT"]?>"
-														<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
+														<?php  echo $ar["CHECKED"]? 'checked="checked"': '' ?>
 													/>
-												<?endforeach?>
+												<?php endforeach?>
 
 												<div class="smart-filter-dropdown-popup" data-role="dropdownContent" style="display: none">
 													<ul>
@@ -543,7 +543,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 																<span class="smart-filter-dropdown-text"><?=GetMessage("CT_BCSF_FILTER_ALL"); ?></span>
 															</label>
 														</li>
-													<?
+													<?php 
 													foreach ($arItem["VALUES"] as $val => $ar):
 														$class = "";
 														if ($ar["CHECKED"])
@@ -556,18 +556,18 @@ if (isset($templateData['TEMPLATE_THEME']))
 																   data-role="label_<?=$ar["CONTROL_ID"]?>"
 																   class="smart-filter-param-label<?=$class?>"
 																   onclick="smartFilter.selectDropDownItem(this, '<?=CUtil::JSEscape($ar["CONTROL_ID"])?>')">
-																<?if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
+																<?php if (isset($ar["FILE"]) && !empty($ar["FILE"]["SRC"])):?>
 																	<span class="smart-filter-checkbox-btn-image" style="background-image:url('<?=$ar["FILE"]["SRC"]?>');"></span>
-																<?endif?>
+																<?php endif?>
 																<span class="smart-filter-dropdown-text"><?=$ar["VALUE"]?></span>
 															</label>
 														</li>
-													<?endforeach?>
+													<?php endforeach?>
 													</ul>
 												</div>
 											</div>
 										</div>
-									<?
+									<?php 
 									break;
 								//endregion
 
@@ -576,42 +576,42 @@ if (isset($templateData['TEMPLATE_THEME']))
 									?>
 									<div class="col">
 										<div class="radio">
-											<label class="smart-filter-param-label" for="<? echo "all_".$arCur["CONTROL_ID"] ?>">
+											<label class="smart-filter-param-label" for="<?php  echo "all_".$arCur["CONTROL_ID"] ?>">
 												<span class="smart-filter-input-checkbox">
 													<input
 														type="radio"
 														value=""
-														name="<? echo $arCur["CONTROL_NAME_ALT"] ?>"
-														id="<? echo "all_".$arCur["CONTROL_ID"] ?>"
+														name="<?php  echo $arCur["CONTROL_NAME_ALT"] ?>"
+														id="<?php  echo "all_".$arCur["CONTROL_ID"] ?>"
 														onclick="smartFilter.click(this)"
 													/>
-													<span class="smart-filter-param-text"><? echo GetMessage("CT_BCSF_FILTER_ALL"); ?></span>
+													<span class="smart-filter-param-text"><?php  echo GetMessage("CT_BCSF_FILTER_ALL"); ?></span>
 												</span>
 											</label>
 										</div>
-										<?foreach($arItem["VALUES"] as $val => $ar):?>
+										<?php foreach($arItem["VALUES"] as $val => $ar):?>
 											<div class="radio">
-												<label data-role="label_<?=$ar["CONTROL_ID"]?>" class="smart-filter-param-label" for="<? echo $ar["CONTROL_ID"] ?>">
-													<span class="smart-filter-input-checkbox <? echo $ar["DISABLED"] ? 'disabled': '' ?>">
+												<label data-role="label_<?=$ar["CONTROL_ID"]?>" class="smart-filter-param-label" for="<?php  echo $ar["CONTROL_ID"] ?>">
+													<span class="smart-filter-input-checkbox <?php  echo $ar["DISABLED"] ? 'disabled': '' ?>">
 														<input
 															type="radio"
-															value="<? echo $ar["HTML_VALUE_ALT"] ?>"
-															name="<? echo $ar["CONTROL_NAME_ALT"] ?>"
-															id="<? echo $ar["CONTROL_ID"] ?>"
-															<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
+															value="<?php  echo $ar["HTML_VALUE_ALT"] ?>"
+															name="<?php  echo $ar["CONTROL_NAME_ALT"] ?>"
+															id="<?php  echo $ar["CONTROL_ID"] ?>"
+															<?php  echo $ar["CHECKED"]? 'checked="checked"': '' ?>
 															onclick="smartFilter.click(this)"
 														/>
-														<span class="smart-filter-param-text" title="<?=$ar["VALUE"];?>"><?=$ar["VALUE"];?><?
+														<span class="smart-filter-param-text" title="<?=$ar["VALUE"];?>"><?=$ar["VALUE"];?><?php 
 														if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):
-															?>&nbsp;(<span data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?
+															?>&nbsp;(<span data-role="count_<?=$ar["CONTROL_ID"]?>"><?php  echo $ar["ELEMENT_COUNT"]; ?></span>)<?php 
 														endif;?></span>
 													</span>
 												</label>
 											</div>
-										<?endforeach;?>
+										<?php endforeach;?>
 									</div>
 									<div class="w-100"></div>
-									<?
+									<?php 
 									break;
 
 								//endregion
@@ -621,7 +621,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 									?>
 									<div class="col">
 										<div class=""><div class="smart-filter-input-container smart-filter-calendar-container">
-											<?$APPLICATION->IncludeComponent(
+											<?php $APPLICATION->IncludeComponent(
 												'bitrix:main.calendar',
 												'',
 												array(
@@ -638,7 +638,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 											);?>
 										</div></div>
 										<div class=""><div class="smart-filter-input-container smart-filter-calendar-container">
-											<?$APPLICATION->IncludeComponent(
+											<?php $APPLICATION->IncludeComponent(
 												'bitrix:main.calendar',
 												'',
 												array(
@@ -656,7 +656,7 @@ if (isset($templateData['TEMPLATE_THEME']))
 										</div></div>
 									</div>
 									<div class="w-100"></div>
-									<?
+									<?php 
 									break;
 								//endregion
 
@@ -664,35 +664,35 @@ if (isset($templateData['TEMPLATE_THEME']))
 								default:
 									?>
 								<div class="smart-filter-input-group-checkbox-list">
-										<?foreach($arItem["VALUES"] as $val => $ar):?>
+										<?php foreach($arItem["VALUES"] as $val => $ar):?>
 											<div class="form-group form-check mb-1">
 												<input
 													type="checkbox"
-													value="<? echo $ar["HTML_VALUE"] ?>"
-													name="<? echo $ar["CONTROL_NAME"] ?>"
-													id="<? echo $ar["CONTROL_ID"] ?>"
+													value="<?php  echo $ar["HTML_VALUE"] ?>"
+													name="<?php  echo $ar["CONTROL_NAME"] ?>"
+													id="<?php  echo $ar["CONTROL_ID"] ?>"
 													class="form-check-input"
-													<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
-													<? echo $ar["DISABLED"] ? 'disabled': '' ?>
+													<?php  echo $ar["CHECKED"]? 'checked="checked"': '' ?>
+													<?php  echo $ar["DISABLED"] ? 'disabled': '' ?>
 													onclick="smartFilter.click(this)"
 												/>
-												<label data-role="label_<?=$ar["CONTROL_ID"]?>" class="smart-filter-checkbox-text form-check-label" for="<? echo $ar["CONTROL_ID"] ?>">
+												<label data-role="label_<?=$ar["CONTROL_ID"]?>" class="smart-filter-checkbox-text form-check-label" for="<?php  echo $ar["CONTROL_ID"] ?>">
 													<?=$ar["VALUE"];
 													if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):
-														?>&nbsp;(<span data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?
+														?>&nbsp;(<span data-role="count_<?=$ar["CONTROL_ID"]?>"><?php  echo $ar["ELEMENT_COUNT"]; ?></span>)<?php 
 													endif;?>
 												</label>
 											</div>
-										<?endforeach;?>
+										<?php endforeach;?>
 								</div>
-							<?
+							<?php 
 								//endregion
 							}
 							?>
 							</div>
 						</div>
 					</div>
-				<?
+				<?php 
 				}
 				?>
 			</div><!--//row-->
@@ -715,11 +715,11 @@ if (isset($templateData['TEMPLATE_THEME']))
 								name="del_filter"
 								value="<?=GetMessage("CT_BCSF_DEL_FILTER")?>"
 							/>
-							<div class="smart-filter-popup-result <?if ($arParams["FILTER_VIEW_MODE"] == "VERTICAL") echo $arParams["POPUP_POSITION"]?>" id="modef" <?if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';?> style="display: inline-block;">
-								<?echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">'.intval($arResult["ELEMENT_COUNT"]).'</span>'));?>
+							<div class="smart-filter-popup-result <?php if ($arParams["FILTER_VIEW_MODE"] == "VERTICAL") echo $arParams["POPUP_POSITION"]?>" id="modef" <?php if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';?> style="display: inline-block;">
+								<?php echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">'.intval($arResult["ELEMENT_COUNT"]).'</span>'));?>
 								<span class="arrow"></span>
 								<br/>
-								<a href="<?echo $arResult["FILTER_URL"]?>" target=""><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
+								<a href="<?php echo $arResult["FILTER_URL"]?>" target=""><?php echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
 							</div>
 						</div>
 					</div>
@@ -731,5 +731,5 @@ if (isset($templateData['TEMPLATE_THEME']))
 </div>
 
 <script type="text/javascript">
-	var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>', '<?=CUtil::JSEscape($arParams["FILTER_VIEW_MODE"])?>', <?=CUtil::PhpToJSObject($arResult["JS_FILTER_PARAMS"])?>);
+	var smartFilter = new JCSmartFilter('<?php echo CUtil::JSEscape($arResult["FORM_ACTION"])?>', '<?=CUtil::JSEscape($arParams["FILTER_VIEW_MODE"])?>', <?=CUtil::PhpToJSObject($arResult["JS_FILTER_PARAMS"])?>);
 </script>

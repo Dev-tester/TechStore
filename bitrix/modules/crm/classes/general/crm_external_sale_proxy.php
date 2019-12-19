@@ -1,4 +1,4 @@
-<?
+<?php 
 class CCrmExternalSaleProxy
 {
 	private $externalSaleId = 0;

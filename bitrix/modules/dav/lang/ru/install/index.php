@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['DAV_INSTALL_DESCRIPTION'] = "Модуль поддержки доступа к объектам и коллекциям";
 $MESS ['DAV_PERM_D'] = "доступ запрещен";
 $MESS ['DAV_INSTALL_NAME'] = "DAV";

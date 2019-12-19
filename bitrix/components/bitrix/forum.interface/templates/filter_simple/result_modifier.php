@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arParams["SHOW_STRINGS"] = (intVal($arParams["SHOW_STRINGS"]) > 0 ? $arParams["SHOW_STRINGS"] : 2);
 $arResult["SHOW_FILTER"] = array();
 if ($GLOBALS["USER"]->IsAuthorized())

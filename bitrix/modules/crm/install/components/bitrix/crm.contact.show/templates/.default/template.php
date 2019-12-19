@@ -239,7 +239,7 @@ if($element && $arResult['ENABLE_INSTANT_EDIT']):
 					fullNameField.setExternalEditor(fullNameEditor);
 				}
 
-				<?if(isset($arResult['ENABLE_BIZPROC_LAZY_LOADING']) && $arResult['ENABLE_BIZPROC_LAZY_LOADING'] === true):?>
+				<?php if(isset($arResult['ENABLE_BIZPROC_LAZY_LOADING']) && $arResult['ENABLE_BIZPROC_LAZY_LOADING'] === true):?>
 				var bpContainerId = "<?=$arResult['BIZPROC_CONTAINER_ID']?>";
 				if(BX(bpContainerId))
 				{
@@ -255,11 +255,11 @@ if($element && $arResult['ENABLE_INSTANT_EDIT']):
 						}
 					);
 				}
-				<?endif;?>
+				<?php endif;?>
 			}
 	);
 </script>
-<?endif;?>
+<?php endif;?>
 
 <script type="text/javascript">
 	BX.ready(function(){
@@ -290,7 +290,7 @@ if($element && $arResult['ENABLE_INSTANT_EDIT']):
 	});
 </script>
 
-<?if(isset($arResult['ENABLE_LIVE_FEED_LAZY_LOAD']) && $arResult['ENABLE_LIVE_FEED_LAZY_LOAD'] === true):?>
+<?php if(isset($arResult['ENABLE_LIVE_FEED_LAZY_LOAD']) && $arResult['ENABLE_LIVE_FEED_LAZY_LOAD'] === true):?>
 <script type="text/javascript">
 	(function()
 	{
@@ -343,4 +343,4 @@ if($element && $arResult['ENABLE_INSTANT_EDIT']):
 	);
 	})();
 </script>
-<?endif;?>
+<?php endif;?>

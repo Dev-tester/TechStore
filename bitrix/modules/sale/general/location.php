@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * The entire class was marked as deprecated.
  * It will be removed from future releases. Do not rely on this code.
@@ -84,7 +84,7 @@ class CAllSaleLocation
 			<form action="" method="post">
 				Location 2.0 were disabled.&nbsp;<button name="l2switch" value="ON">Enable</button>
 			</form>
-			<?
+			<?php 
 			return false;
 		}
 		return true;
@@ -95,33 +95,33 @@ class CAllSaleLocation
 	{
 		?>
 
-		<?if($_REQUEST['l2migrated']):?>
-			<?if($_REQUEST['l2migrated'] == 'ON'):?>
-				<?self::locationProSetMigrated();?>
-			<?else:?>
-				<?self::locationProSetRolledBack();?>
-			<?endif?>
-		<?endif?>
+		<?php if($_REQUEST['l2migrated']):?>
+			<?php if($_REQUEST['l2migrated'] == 'ON'):?>
+				<?php self::locationProSetMigrated();?>
+			<?php else:?>
+				<?php self::locationProSetRolledBack();?>
+			<?php endif?>
+		<?php endif?>
 
-		<?if($_REQUEST['l2switch']):?>
-			<?if($_REQUEST['l2switch'] == 'ON'):?>
-				<?self::locationProEnable();?>
-			<?else:?>
-				<?self::locationProDisable();?>
-			<?endif?>
-		<?endif?>
+		<?php if($_REQUEST['l2switch']):?>
+			<?php if($_REQUEST['l2switch'] == 'ON'):?>
+				<?php self::locationProEnable();?>
+			<?php else:?>
+				<?php self::locationProDisable();?>
+			<?php endif?>
+		<?php endif?>
 
-		<?if($_REQUEST['l2debug']):?>
-			<?if($_REQUEST['l2debug'] == 'ON'):?>
-				<?self::locationProDebugEnable();?>
-			<?else:?>
-				<?self::locationProDebugDisable();?>
-			<?endif?>
-		<?endif?>
+		<?php if($_REQUEST['l2debug']):?>
+			<?php if($_REQUEST['l2debug'] == 'ON'):?>
+				<?php self::locationProDebugEnable();?>
+			<?php else:?>
+				<?php self::locationProDebugDisable();?>
+			<?php endif?>
+		<?php endif?>
 
-		<?$l2enabled = self::isLocationProEnabled();?>
-		<?$l2migrated = self::isLocationProMigrated();?>
-		<?$l2debug = self::isLocationProInDebug();?>
+		<?php $l2enabled = self::isLocationProEnabled();?>
+		<?php $l2migrated = self::isLocationProMigrated();?>
+		<?php $l2debug = self::isLocationProInDebug();?>
 
 		<form action="" method="post">
 			Migration: <br />
@@ -138,7 +138,7 @@ class CAllSaleLocation
 			<button name="l2debug" value="<?=($l2debug ? 'OFF' : 'ON')?>"><?=($l2debug ? 'Turn OFF' : 'Turn ON')?></button>
 		</form>
 
-		<?
+		<?php 
 	}
 
 	// for old admin pages the following function should be used

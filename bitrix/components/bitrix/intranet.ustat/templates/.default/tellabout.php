@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!isset($_REQUEST['WHAT']))
 {
@@ -66,7 +66,7 @@ if (!isset($arParams["PATH_TO_POST"]))
 
 <!-- AJAX_EXECUTED_SUCCESSFULLY -->
 
-<?
+<?php 
 if (isset($_REQUEST['AJAX']))
 	die();
 ?>

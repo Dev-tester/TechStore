@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_IBEL_ACTIVE_FILTER"] = "Show Active Only";
 $MESS["USER_TYPE_IBEL_CHECKBOX"] = "Check Box";
 $MESS["USER_TYPE_IBEL_DEFAULT_VALUE"] = "Default Value";

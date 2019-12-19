@@ -14,21 +14,21 @@ if ($_REQUEST['IFRAME'] == 'Y' && $_REQUEST['IFRAME_TYPE'] == 'SIDE_SLIDER')
 
 	?><!DOCTYPE html>
 	<html>
-		<head><? $APPLICATION->showHead(); ?></head>
+		<head><?php  $APPLICATION->showHead(); ?></head>
 		<body style="background: #eef2f4 !important; ">
 			<div style="padding: 0 20px 20px 20px; ">
 				<div class="pagetitle-wrap">
 					<div class="pagetitle-inner-container">
-						<div class="pagetitle-menu" id="pagetitle-menu"><?
+						<div class="pagetitle-menu" id="pagetitle-menu"><?php 
 							$APPLICATION->showViewContent('pagetitle');
 							$APPLICATION->showViewContent('inside_pagetitle');
 						?></div>
 						<div class="pagetitle">
-							<span id="pagetitle" class="pagetitle-item"><? $APPLICATION->showTitle() ?></span>
+							<span id="pagetitle" class="pagetitle-item"><?php  $APPLICATION->showTitle() ?></span>
 						</div>
 					</div>
 				</div>
-	<?
+	<?php 
 }
 
 $APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/crm-entity-show.css");
@@ -40,7 +40,7 @@ $isCanceled = isset($event['IS_CANCELED']) ? $event['IS_CANCELED'] : false;
 
 if($isCanceled)
 {
-	?><div class="crm-view-message"><?=GetMessage('CRM_TEMPLATE_EDIT_EVENT_CANCELED')?></div><?
+	?><div class="crm-view-message"><?=GetMessage('CRM_TEMPLATE_EDIT_EVENT_CANCELED')?></div><?php 
 }
 else
 {
@@ -55,7 +55,7 @@ else
 		)
 	)?>
 	</div>
-	<?
+	<?php 
 }
 
 ?>
@@ -85,14 +85,14 @@ else
 	);
 </script>
 
-<?
+<?php 
 
 if ($_REQUEST['IFRAME'] == 'Y' && $_REQUEST['IFRAME_TYPE'] == 'SIDE_SLIDER')
 {
 	?>
 			</div>
 		</body>
-	</html><?
+	</html><?php 
 
 	require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');
 	die;

@@ -1,4 +1,4 @@
-<?
+<?php 
 define('BX_DONT_SKIP_PULL_INIT', true);
 define('BX_DONT_INCLUDE_MOBILE_TEMPLATE_CSS', true);
 require($_SERVER["DOCUMENT_ROOT"] . "/mobile/headers.php");
@@ -23,4 +23,4 @@ $APPLICATION->IncludeComponent("bitrix:mobile.rtc", "", array(), false, Array("H
 <script type="text/javascript">
 	app.enableSliderMenu(true);
 </script>
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php") ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php") ?>

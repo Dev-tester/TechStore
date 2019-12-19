@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_REPLY"] = "Reply";
 $MESS["F_HIDE_MESSAGES"] = "Hide Messages";
 $MESS["F_SHOW_MESSAGES"] = "Show Messages";

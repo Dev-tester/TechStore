@@ -204,17 +204,17 @@ if ($arResult["TASK"]["REAL_STATUS"] == CTasks::STATE_DECLINED)
 		?><script type="text/javascript">
 			var taskMenu = [
 
-				<?if(is_array($arParams['MENU_ITEMS'])):?>
+				<?php if(is_array($arParams['MENU_ITEMS'])):?>
 
-					<?$i = 0;?>
-					<?foreach($arParams['MENU_ITEMS'] as $item):?>
+					<?php $i = 0;?>
+					<?php foreach($arParams['MENU_ITEMS'] as $item):?>
 						<?=(!$i ? '': ',')?>{ text : '<?=CUtil::JSEscape($item['TITLE'])?>', title : '<?=CUtil::JSEscape($item['TITLE'])?>', className : "<?=CUtil::JSEscape($item['CLASS_NAME'])?>", href : "<?=CUtil::JSEscape($item['HREF'])?>" }
-						<?$i++;?>
-					<?endforeach?>
+						<?php $i++;?>
+					<?php endforeach?>
 
-					<?$showPopupMenu = count($arParams['MENU_ITEMS']) > 0;?>
+					<?php $showPopupMenu = count($arParams['MENU_ITEMS']) > 0;?>
 
-				<?else:?>
+				<?php else:?>
 
 					{ code: 'COPY', text : '<?php echo CUtil::JSEscape(GetMessage("TASKS_COPY_TASK")); ?>', title : '<?php echo CUtil::JSEscape(GetMessage("TASKS_COPY_TASK_EX")); ?>', className : "menu-popup-item-copy", href : "<?php echo $copyUrl.(strpos($copyUrl, "?") === false ? "?" : "&")."COPY=".$arResult["TASK"]["ID"].($arResult["IS_IFRAME"] ? "&IFRAME=Y" : "")?>" }
 					,{ code: 'ADD_SUBTASK', text : '<?php echo CUtil::JSEscape(GetMessage("TASKS_ADD_SUBTASK_2")); ?>', title : '<?php echo CUtil::JSEscape(GetMessage("TASKS_ADD_SUBTASK_2")); ?>', className : "menu-popup-item-create", href: "<?php echo CUtil::JSEscape($createSubtaskUrl)?>", onclick : function(event, item) {AddPopupSubtask(<?php echo $arResult["TASK"]["ID"]?>, event);} }
@@ -232,22 +232,22 @@ if ($arResult["TASK"]["REAL_STATUS"] == CTasks::STATE_DECLINED)
 							tasksDetailPartsNS.toggleFavorite(<?=intval($arResult["TASK"]["ID"])?>, item.inFavorite, this);
 							this.popupWindow.close();
 					} }
-					<?
+					<?php 
 					if ($arResult['TASK']['META:CAN_ADD_TO_DAY_PLAN'] === 'Y')
 					{
 						?>,{ code: 'ADD_TIMEMAN', text : '<?php echo CUtil::JSEscape(GetMessage("TASKS_ADD_TASK_TO_TIMEMAN")); ?>', title : '<?php echo CUtil::JSEscape(GetMessage("TASKS_ADD_TASK_TO_TIMEMAN_EX")); ?>', className : "menu-popup-item-add-to-tm", onclick : function() { var func = false; if (window.top.Add2Timeman) func = window.top.Add2Timeman; else if (window.Add2Timeman) func = window.Add2Timeman; if (func !== false) func (this, <?php echo $arResult["TASK"]["ID"]?>); } }<?php
 					}
 					?>
 
-					<?$showPopupMenu = true;?>
-				<?endif?>
+					<?php $showPopupMenu = true;?>
+				<?php endif?>
 			];
 
 		</script>
-		<?if($showPopupMenu):?>
+		<?php if($showPopupMenu):?>
 			<a href="javascript:void(0)" class="webform-small-button task-small-button-menu" id="task-small-button-menu" onclick="return tasksDetailPartsNS.ShowActionMenu(this, <?php echo $arResult["TASK"]["ID"]?>, taskMenu);"><span class="webform-small-button-left"></span><span class="webform-small-button-icon"></span><span class="webform-small-button-right"></span></a>
-		<?endif?>
-		<?
+		<?php endif?>
+		<?php 
 		if ($arResult['ALLOWED_ACTIONS']['ACTION_DELEGATE'])
 		{
 			$groupIdForSite = 'false';
@@ -309,9 +309,9 @@ if ($arResult["TASK"]["REAL_STATUS"] == CTasks::STATE_DECLINED)
 		}
 		?>
 
-		<?if(is_array($arResult["RATING"]) && intval($arResult["TASK"]["ID"]) && $arParams['SHOW_RATING'] != 'N'):?>
+		<?php if(is_array($arResult["RATING"]) && intval($arResult["TASK"]["ID"]) && $arParams['SHOW_RATING'] != 'N'):?>
 			<span class="feed-inform-ilike task-inform-ilike-container">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:rating.vote",
 					$arParams['RATING_TYPE'],
@@ -332,7 +332,7 @@ if ($arResult["TASK"]["REAL_STATUS"] == CTasks::STATE_DECLINED)
 				);
 				?>
 			</span>
-		<?endif?>
+		<?php endif?>
 </div>
 
 <?php

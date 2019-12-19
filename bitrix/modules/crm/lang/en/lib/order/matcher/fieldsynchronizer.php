@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_MATCHER_ADDRESS"] = "Address";
 $MESS["CRM_ORDER_MATCHER_BANK_DETAIL"] = "Banking details";
 $MESS["CRM_ORDER_MATCHER_LOCATION"] = "Location";

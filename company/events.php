@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/company/events.php");
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:intranet.structure.events", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:intranet.structure.events", ".default", Array(
 	"PM_URL"	=>	"/company/personal/messages/chat/#USER_ID#/",
 	"STRUCTURE_PAGE"	=>	"/company/structure.php",
 	"PATH_TO_CONPANY_DEPARTMENT" => "/company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=#ID#",
@@ -22,4 +22,4 @@ $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 	),
 	"SHOW_FILTER"	=>	"Y"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

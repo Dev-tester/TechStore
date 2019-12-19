@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEVEL_TIP'] = "Specifies the number of levels to show in the site map.";
 $MESS ['COL_NUM_TIP'] = "Specifies the number of columns for the site map.";
 $MESS ['SHOW_DESCRIPTION_TIP'] = "If checked, the section descriptions will be shown, if any.";

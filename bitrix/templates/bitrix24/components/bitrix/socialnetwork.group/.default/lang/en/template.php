@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C6_TOPIC"] = "Topic";
 $MESS["SONET_C6_DESCR"] = "Description";
 $MESS["SONET_C6_CREATED"] = "Created";

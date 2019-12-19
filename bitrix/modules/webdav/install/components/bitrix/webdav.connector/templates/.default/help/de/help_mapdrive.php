@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <h3>Netzlaufwerk-Verbindung</h3>
 <ul>
 <p>Um die Dokumentenbibliothek als Netzlaufwerk über den Dateimanager (Windows Explorer) einzubinden:</p> 
 <li>Starten Sie den Datei-Manager (Explorer);
-<br><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_4.png\',612,498,\'Eine Netzweradresse hinzufügen\');'?>">
+<br><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_4.png\',612,498,\'Eine Netzweradresse hinzufügen\');'?>">
 <img width="250" height="185" border="0" src="<?=$templateFolder.'/images/de/network_add_1_sm.png'?>" style="cursor: pointer;" alt="Bild vergrößern" /></a></li>
 <li>Wählen Sie im Menü den Punkt <b>Service >Netzlaufwerk verbinden</b> aus. Es öffnet sich das Dialogfenster zur Verbindung des Netzlaufwerks:</li>
 <li>Im Feld <b>Laufwerk</b> geben Sie einen Buchstaben für den  Ordner an, mit dem Verbindung hergestellt werden soll;</li>

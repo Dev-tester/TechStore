@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["V_USER_TYPE_DESCRIPTION"] = "Опрос";
 $MESS["V_NEW_CHANNEL"] = "Новая группа опросов";
 $MESS["V_CHANNEL_ID_COLON"] = "Группа опросов:";

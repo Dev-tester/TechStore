@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ML_COL_NAME_0"] = "Фотографії співробітників";
 $MESS["ML_COL_NAME_1"] = "Різне";
 $MESS["ML_COL_NAME_2"] = "Подорожі";

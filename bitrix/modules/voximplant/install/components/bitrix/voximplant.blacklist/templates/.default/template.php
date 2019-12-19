@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 use Bitrix\Main\Localization\Loc;
 
@@ -14,7 +14,7 @@ if($isBitrix24Template)
 	<button id="vox-blacklist-settings" class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting"></button>
 	<button id="vox-blacklist-add" class="ui-btn ui-btn-md ui-btn-primary ui-btn-icon-add"><?= Loc::getMessage("VOX_BLACKLIST_ADD_TO_LIST") ?></button>
 </div>
-<?
+<?php 
 
 if($isBitrix24Template)
 {

@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /**
  * Bitrix vars
@@ -80,7 +80,7 @@ if($arResult['ENABLE_DEMO']):
 			<div id="<?=htmlspecialcharsbx($disableDemoModeButtonID)?>" class="crm-widg-white-bottom-link"><?=GetMessage('CRM_WGT_DISABLE_DEMO')?></div>
 		</div>
 		<div id="<?=htmlspecialcharsbx($demoModeInfoCloseButtonID)?>" class="crm-widg-white-close"></div>
-	</div><?
+	</div><?php 
 endif;
 
 $listUrl = $arResult['PATH_TO_LIST'];
@@ -118,9 +118,9 @@ if($headViewID && is_string($headViewID))
 
 if(!$arResult['ENABLE_TOOLBAR'])
 {
-	?><div class="crm-btn-panel"><span id="<?=htmlspecialcharsbx($settingButtonID)?>" class="crm-btn-panel-btn"></span></div><?
+	?><div class="crm-btn-panel"><span id="<?=htmlspecialcharsbx($settingButtonID)?>" class="crm-btn-panel-btn"></span></div><?php 
 }
-?><div class="crm-filter-wrap"><?
+?><div class="crm-filter-wrap"><?php 
 
 $navigationBar = null;
 if($arResult['ENABLE_NAVIGATION'])
@@ -206,9 +206,9 @@ unset($filterTypeDescriptions[Crm\Widget\FilterPeriodType::BEFORE]);
 <?php if($arParams['NOT_CALCULATE_DATA'] == false): ?>
 
 
-<?
+<?php 
 if(!empty($arResult['BUILDERS'])):
-	?><div id="rebuildMessageWrapper" ></div><?
+	?><div id="rebuildMessageWrapper" ></div><?php 
 endif;
 ?><div class="crm-widget" id="<?=htmlspecialcharsbx($containerID)?>"></div>
 <script type="text/javascript">
@@ -457,7 +457,7 @@ endif;
 									}
 							}
 					},
-					<?/* TODO delete this code in case impossible to fulfill
+					<?php /* TODO delete this code in case impossible to fulfill
 				{
 					name: "barClusterAvatar",
 					title: "",
@@ -476,7 +476,7 @@ endif;
 								}
 						}
 				},
-<?*/?>				{
+<?php */?>				{
 					name: "barStack",
 					title: "<?=GetMessageJS('CRM_WGT_SELECTOR_TYPE_BAR_STACKED')?>",
 					logo: "<?=$templateFolder?>/images/view-bar-stack.jpg",
@@ -572,7 +572,7 @@ endif;
 		}
 	);
 </script>
-<?if(!empty($arResult['BUILDERS'])):?>
+<?php if(!empty($arResult['BUILDERS'])):?>
     <script type="text/javascript">
 		BX.ready(
 			function()
@@ -588,7 +588,7 @@ endif;
 
 				var builderData, builderSettings, builderPanel, builderId, builderPrefix;
 				var prefix = "<?=CUtil::JSEscape($prefix)?>";
-				<?foreach($arResult['BUILDERS'] as $builderData):?>
+				<?php foreach($arResult['BUILDERS'] as $builderData):?>
 				builderData = <?=CUtil::PhpToJSObject($builderData)?>;
 				builderId = BX.type.isNotEmptyString(builderData["ID"]) ? builderData["ID"] : "";
 				builderPrefix = builderId !== "" ? (prefix + "_" + builderId.toLowerCase()) : prefix;
@@ -610,9 +610,9 @@ endif;
 					}
 				);
 				builderPanel.layout();
-				<?endforeach;?>
+				<?php endforeach;?>
 			}
 		);
     </script>
-<?endif;?>
-<?endif;?>
+<?php endif;?>
+<?php endif;?>

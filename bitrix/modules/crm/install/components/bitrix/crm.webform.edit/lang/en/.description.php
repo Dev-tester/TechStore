@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_EDIT_NAME"] = "Edit CRM form";
 $MESS["CRM_WEBFORM_EDIT_DESCRIPTION"] = "Edit CRM form";
 $MESS["CRM_NAME"] = "CRM";

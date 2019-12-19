@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ENTITY_IBLOCK_ID_FIELD"] = "Information block ID";
 $MESS["IBLOCK_ENTITY_YANDEX_EXPORT_FIELD"] = "Export to Yandex";
 $MESS["IBLOCK_ENTITY_SUBSCRIPTION_FIELD"] = "Content selling";

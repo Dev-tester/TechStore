@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Main\Localization\Loc;
@@ -256,7 +256,7 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 <input type="hidden" name="DELIVERY_ID" value="<?=$DELIVERY_ID?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $tabControl->Begin();
 /* General settings */
 $tabControl->BeginNextTab();
@@ -265,17 +265,17 @@ $manager = new ExtraServices\Manager(array($fields), $deliveryService->getCurren
 <tr class="adm-detail-required-field">
 	<td width="40%"><?=Loc::getMessage("SALE_ESDE_FIELD_TYPE")?>:</td>
 	<td width="60%">
-		<?if(!isset($_REQUEST["CLASS_NAME"]) && $fields["RIGHTS"][ExtraServices\Manager::RIGHTS_ADMIN_IDX] == "Y" && $ID <= 0):?>
+		<?php if(!isset($_REQUEST["CLASS_NAME"]) && $fields["RIGHTS"][ExtraServices\Manager::RIGHTS_ADMIN_IDX] == "Y" && $ID <= 0):?>
 			<select name="CLASS_NAME" onchange="top.BX.showWait(); this.form.submit(); /* elements.apply.click();*/">
 				<option value=""></option>
-				<?foreach(ExtraServices\Manager::getClassesList() as $class):?>
+				<?php foreach(ExtraServices\Manager::getClassesList() as $class):?>
 					<option value="<?=$class?>"<?=($fields["CLASS_NAME"] == $class ? " selected" : "")?>><?=$class::getClassTitle()?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
-		<?else:?>
+		<?php else:?>
 			<input type="text" name="CLASS_NAME_DISABLED" value="<?=$fields["CLASS_NAME"]::getClassTitle()?>" readonly>
 			<input type="hidden" name="CLASS_NAME" value="<?=htmlspecialcharsbx($fields["CLASS_NAME"])?>">
-		<?endif;?>
+		<?php endif;?>
 	</td>
 </tr>
 
@@ -304,7 +304,7 @@ $manager = new ExtraServices\Manager(array($fields), $deliveryService->getCurren
 		</td>
 	</tr>
 
-	<?if(isset($fields["CLASS_NAME"]) && strlen($fields["CLASS_NAME"]) > 0):?>
+	<?php if(isset($fields["CLASS_NAME"]) && strlen($fields["CLASS_NAME"]) > 0):?>
 		<tr>
 			<td class="adm-detail-valign-top"><?=(is_callable($fields["CLASS_NAME"].'::getAdminParamsName') ? htmlspecialcharsbx($fields["CLASS_NAME"]::getAdminParamsName()) : Loc::getMessage("SALE_ESDE_FIELD_PARAMS"))?>:</td>
 			<td>
@@ -312,15 +312,15 @@ $manager = new ExtraServices\Manager(array($fields), $deliveryService->getCurren
 			</td>
 		</tr>
 
-		<?if($ID > 0):?>
+		<?php if($ID > 0):?>
 			<tr>
 				<td><?=Loc::getMessage("SALE_ESDE_FIELD_INITIAL")?>:</td>
 				<td>
 						<?=$manager->getItem($ID)->getAdminDefaultControl("INIT_VALUE", isset($fields["INIT_VALUE"]) ? $fields["INIT_VALUE"] : null);?>
 				</td>
 			</tr>
-		<?endif;?>
-	<?endif;?>
+		<?php endif;?>
+	<?php endif;?>
 
 	<tr>
 		<td><?=Loc::getMessage("SALE_ESDE_FIELD_ACTIVE")?>:</td>
@@ -343,7 +343,7 @@ $manager = new ExtraServices\Manager(array($fields), $deliveryService->getCurren
 			<input type="text" name="CODE" value="<?=(isset($fields["CODE"]) ? htmlspecialcharsbx($fields["CODE"]) : "")?>"<?=($fields['RIGHTS'][ExtraServices\Manager::RIGHTS_ADMIN_IDX] != 'Y' ? ' readonly' : '')?>>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => ($saleModulePermissions < "W"),
@@ -355,4 +355,4 @@ $tabControl->End();
 ?>
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

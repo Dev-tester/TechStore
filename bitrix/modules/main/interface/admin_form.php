@@ -834,10 +834,10 @@ class CAdminForm extends CAdminTabControl
 			?>
 				<tr>
 					<td colspan="2" align="left">
-						<a href="/bitrix/admin/userfield_edit.php?lang=<?echo LANGUAGE_ID?>&amp;ENTITY_ID=<?echo urlencode($PROPERTY_ID)?>&amp;back_url=<?echo urlencode($APPLICATION->GetCurPageParam($this->name.'_active_tab=user_fields_tab', array($this->name.'_active_tab')))?>"><?echo $this->GetCustomLabelHTML()?></a>
+						<a href="/bitrix/admin/userfield_edit.php?lang=<?php echo LANGUAGE_ID?>&amp;ENTITY_ID=<?php echo urlencode($PROPERTY_ID)?>&amp;back_url=<?php echo urlencode($APPLICATION->GetCurPageParam($this->name.'_active_tab=user_fields_tab', array($this->name.'_active_tab')))?>"><?php echo $this->GetCustomLabelHTML()?></a>
 					</td>
 				</tr>
-			<?
+			<?php 
 			$this->EndCustomField("USER_FIELDS_ADD", '');
 		}
 
@@ -892,10 +892,10 @@ class CAdminForm extends CAdminTabControl
 			?>
 			<tr>
 				<td colspan="2" align="left">
-					<a href="/bitrix/admin/userfield_edit.php?lang=<?echo LANGUAGE_ID?>&amp;ENTITY_ID=<?echo urlencode($PROPERTY_ID)?>&amp;back_url=<?echo urlencode($APPLICATION->GetCurPageParam($this->name.'_active_tab=user_fields_tab', array($this->name.'_active_tab')))?>"><?echo $this->GetCustomLabelHTML()?></a>
+					<a href="/bitrix/admin/userfield_edit.php?lang=<?php echo LANGUAGE_ID?>&amp;ENTITY_ID=<?php echo urlencode($PROPERTY_ID)?>&amp;back_url=<?php echo urlencode($APPLICATION->GetCurPageParam($this->name.'_active_tab=user_fields_tab', array($this->name.'_active_tab')))?>"><?php echo $this->GetCustomLabelHTML()?></a>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$this->EndCustomField("USER_FIELDS_ADD", '');
 		}
 

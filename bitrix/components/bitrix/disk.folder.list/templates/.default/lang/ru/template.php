@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FOLDER_LIST_LABEL_GRID_TOTAL"] = "Всего";
 $MESS["DISK_FOLDER_LIST_LABEL_SORT_BY"] = "Сортировать";
 $MESS["DISK_FOLDER_LIST_LABEL_SORT_INVERSE_DIRECTION"] = "В обратном порядке";

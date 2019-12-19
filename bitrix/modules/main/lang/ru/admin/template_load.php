@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_T_EDIT_TEMPL_LIST'] = "Список шаблонов сайтов";
 $MESS ['MAIN_T_EDIT_IMP_ERR'] = "Ошибка импорта шаблона";
 $MESS ['MAIN_TEMPLATE_LOAD_ERR_LOAD'] = "Выберите файл для загрузки";

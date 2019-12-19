@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLEE_ACCESS_RIGHTS"] = "User groups allowed to access the list";
 $MESS["CT_BLEE_ADD_BUTTON"] = "Add";
 $MESS["CT_BLEE_BIZPROC_CANCEL_BUTTON"] = "Cancel";

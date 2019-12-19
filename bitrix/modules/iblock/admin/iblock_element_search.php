@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 
 use Bitrix\Iblock;
@@ -554,8 +554,8 @@ $lAdmin->CheckListMode();
 ****************************************************************************/
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_admin.php");
 ?>
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>">
-<?
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>">
+<?php 
 function _ShowGroupPropertyField($name, $property_fields, $values)
 {
 	if(!is_array($values)) $values = array();
@@ -639,48 +639,48 @@ function deleteFilter(el)
 function SelEl(id, name)
 {
 	var el;
-	<?
+	<?php 
 		if ('' != $lookup)
 		{
 			if ('' != $m)
 			{
-				?>window.opener.<? echo $lookup; ?>.AddValue(id);<?
+				?>window.opener.<?php  echo $lookup; ?>.AddValue(id);<?php 
 			}
 			else
 			{
-				?>window.opener.<? echo $lookup; ?>.AddValue(id); window.close();<?
+				?>window.opener.<?php  echo $lookup; ?>.AddValue(id); window.close();<?php 
 			}
 		}
 		else
 		{
-			?><?if($m):?>
-	window.opener.InS<? echo md5($n)?>(id, name);
-	<?else:?>
-	el = window.opener.document.getElementById('<?echo $n?>[<?echo $k?>]');
+			?><?php if($m):?>
+	window.opener.InS<?php  echo md5($n)?>(id, name);
+	<?php else:?>
+	el = window.opener.document.getElementById('<?php echo $n?>[<?php echo $k?>]');
 	if(!el)
-		el = window.opener.document.getElementById('<?echo $n?>');
+		el = window.opener.document.getElementById('<?php echo $n?>');
 	if(el)
 	{
 		el.value = id;
 		if (window.opener.BX)
 			window.opener.BX.fireEvent(el, 'change');
 	}
-	el = window.opener.document.getElementById('sp_<?echo md5($n)?>_<?echo $k?>');
+	el = window.opener.document.getElementById('sp_<?php echo md5($n)?>_<?php echo $k?>');
 	if(!el)
-		el = window.opener.document.getElementById('sp_<?echo $n?>');
+		el = window.opener.document.getElementById('sp_<?php echo $n?>');
 	if(!el)
-		el = window.opener.document.getElementById('<?echo $n?>_link');
+		el = window.opener.document.getElementById('<?php echo $n?>_link');
 	if(el)
 		el.innerHTML = name;
 	window.close();
-	<?endif;?><?
+	<?php endif;?><?php 
 }
 ?>
 }
 
 function SelAll()
 {
-	var frm = BX('form_<?echo $sTableID?>'),
+	var frm = BX('form_<?php echo $sTableID?>'),
 		e,
 		v,
 		n,
@@ -713,7 +713,7 @@ function SelAll()
 
 function reloadFilter(el)
 {
-	var newUrl = '<? echo CUtil::JSEscape($reloadUrl); ?>',
+	var newUrl = '<?php  echo CUtil::JSEscape($reloadUrl); ?>',
 		iblockID = 0;
 
 	if (!el)
@@ -723,7 +723,7 @@ function reloadFilter(el)
 		iblockID = parseInt(el.value, 10);
 		if (isNaN(iblockID))
 			iblockID = 0;
-		if (iblockID > 0 && iblockID != <? echo $IBLOCK_ID; ?>)
+		if (iblockID > 0 && iblockID != <?php  echo $IBLOCK_ID; ?>)
 		{
 			blockedFilter = true;
 			newUrl += ('&IBLOCK_ID=' + iblockID) + ('&filter_iblock_id=' + iblockID) + '&set_filter=y';
@@ -732,19 +732,19 @@ function reloadFilter(el)
 	}
 }
 </script>
-<?
+<?php 
 if ($iblockFix)
 {
-	?><input type="hidden" name="IBLOCK_ID" value="<? echo $IBLOCK_ID; ?>">
-	<input type="hidden" name="filter_iblock_id" value="<? echo $IBLOCK_ID; ?>"><?
+	?><input type="hidden" name="IBLOCK_ID" value="<?php  echo $IBLOCK_ID; ?>">
+	<input type="hidden" name="filter_iblock_id" value="<?php  echo $IBLOCK_ID; ?>"><?php 
 }
 $oFilter->Begin();
 if (!$iblockFix)
 {
 ?>
 	<tr>
-		<td><b><?echo GetMessage("IBLOCK_ELSEARCH_IBLOCK")?></b></td>
-		<td><?echo GetIBlockDropDownListEx(
+		<td><b><?php echo GetMessage("IBLOCK_ELSEARCH_IBLOCK")?></b></td>
+		<td><?php echo GetIBlockDropDownListEx(
 				$IBLOCK_ID,
 				"filter_type",
 				"filter_iblock_id",
@@ -753,27 +753,27 @@ if (!$iblockFix)
 				'reloadFilter(this)'
 			);?></td>
 	</tr>
-<?
+<?php 
 }
 ?>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_ELSEARCH_FROMTO_ID")?></td>
+		<td><?php echo GetMessage("IBLOCK_ELSEARCH_FROMTO_ID")?></td>
 		<td>
-			<input type="text" name="filter_id_start" size="10" value="<?echo htmlspecialcharsbx($filter_id_start)?>">
+			<input type="text" name="filter_id_start" size="10" value="<?php echo htmlspecialcharsbx($filter_id_start)?>">
 			...
-			<input type="text" name="filter_id_end" size="10" value="<?echo htmlspecialcharsbx($filter_id_end)?>">
+			<input type="text" name="filter_id_end" size="10" value="<?php echo htmlspecialcharsbx($filter_id_end)?>">
 		</td>
 	</tr>
 
 	<tr>
-		<td><? echo GetMessage("IBLOCK_FIELD_TIMESTAMP_X").":"?></td>
-		<td><? echo CalendarPeriod("filter_timestamp_from", htmlspecialcharsbx($filter_timestamp_from), "filter_timestamp_to", htmlspecialcharsbx($filter_timestamp_to), "form1")?></td>
+		<td><?php  echo GetMessage("IBLOCK_FIELD_TIMESTAMP_X").":"?></td>
+		<td><?php  echo CalendarPeriod("filter_timestamp_from", htmlspecialcharsbx($filter_timestamp_from), "filter_timestamp_to", htmlspecialcharsbx($filter_timestamp_to), "form1")?></td>
 	</tr>
 
 	<tr>
 		<td><?=GetMessage("IBLOCK_FIELD_MODIFIED_BY")?>:</td>
 		<td>
-			<?echo FindUserID(
+			<?php echo FindUserID(
 				/*$tag_name=*/"filter_modified_user_id",
 				/*$tag_value=*/$filter_modified_user_id,
 				/*$user_name=*/"",
@@ -786,77 +786,77 @@ if (!$iblockFix)
 			);?>
 		</td>
 	</tr>
-	<?if(CModule::IncludeModule("workflow")):?>
+	<?php if(CModule::IncludeModule("workflow")):?>
 	<tr>
 		<td><?=GetMessage("IBLOCK_FIELD_STATUS")?>:</td>
-		<td><input type="text" name="filter_status_id" value="<?echo htmlspecialcharsbx($filter_status_id)?>" size="3">
+		<td><input type="text" name="filter_status_id" value="<?php echo htmlspecialcharsbx($filter_status_id)?>" size="3">
 		<select name="filter_status">
 		<option value=""><?=GetMessage("IBLOCK_VALUE_ANY")?></option>
-		<?
+		<?php 
 		$rs = CWorkflowStatus::GetDropDownList("Y");
 		while($arRs = $rs->GetNext())
 		{
-			?><option value="<?=$arRs["REFERENCE_ID"]?>"<?if($filter_status == $arRs["~REFERENCE_ID"])echo " selected"?>><?=$arRs["REFERENCE"]?></option><?
+			?><option value="<?=$arRs["REFERENCE_ID"]?>"<?php if($filter_status == $arRs["~REFERENCE_ID"])echo " selected"?>><?=$arRs["REFERENCE"]?></option><?php 
 		}
 		?>
 		</select></td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 
-	<?if(is_array($arIBTYPE) && ($arIBTYPE["SECTIONS"] == "Y")):?>
+	<?php if(is_array($arIBTYPE) && ($arIBTYPE["SECTIONS"] == "Y")):?>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_FIELD_SECTION_ID")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_FIELD_SECTION_ID")?>:</td>
 		<td>
 			<select name="filter_section">
-				<option value=""><?echo GetMessage("IBLOCK_VALUE_ANY")?></option>
-				<option value="0"<?if($filter_section=="0")echo" selected"?>><?echo GetMessage("IBLOCK_UPPER_LEVEL")?></option>
-				<?
+				<option value=""><?php echo GetMessage("IBLOCK_VALUE_ANY")?></option>
+				<option value="0"<?php if($filter_section=="0")echo" selected"?>><?php echo GetMessage("IBLOCK_UPPER_LEVEL")?></option>
+				<?php 
 				$bsections = CIBlockSection::GetTreeList(array("IBLOCK_ID"=>$IBLOCK_ID), array("ID", "NAME", "DEPTH_LEVEL"));
 				while($arSection = $bsections->GetNext()):
-					?><option value="<?echo $arSection["ID"]?>"<?if($arSection["ID"]==$filter_section)echo " selected"?>><?echo str_repeat("&nbsp;.&nbsp;", $arSection["DEPTH_LEVEL"])?><?echo $arSection["NAME"]?></option><?
+					?><option value="<?php echo $arSection["ID"]?>"<?php if($arSection["ID"]==$filter_section)echo " selected"?>><?php echo str_repeat("&nbsp;.&nbsp;", $arSection["DEPTH_LEVEL"])?><?php echo $arSection["NAME"]?></option><?php 
 				endwhile;
 				?>
 			</select><br>
 
-			<input type="checkbox" name="filter_subsections" value="Y"<?if($filter_subsections=="Y")echo" checked"?>> <?echo GetMessage("IBLOCK_ELSEARCH_INCLUDING_SUBSECTIONS")?>
+			<input type="checkbox" name="filter_subsections" value="Y"<?php if($filter_subsections=="Y")echo" checked"?>> <?php echo GetMessage("IBLOCK_ELSEARCH_INCLUDING_SUBSECTIONS")?>
 
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 
 	<tr>
-		<td><?echo GetMessage("IBLOCK_FIELD_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_FIELD_ACTIVE")?>:</td>
 		<td>
 			<select name="filter_active">
 				<option value=""><?=htmlspecialcharsbx(GetMessage('IBLOCK_VALUE_ANY'))?></option>
-				<option value="Y"<?if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_YES"))?></option>
-				<option value="N"<?if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_NO"))?></option>
+				<option value="Y"<?php if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_YES"))?></option>
+				<option value="N"<?php if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_NO"))?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("IBLOCK_FIELD_EXTERNAL_ID")?>:</td>
-		<td><input type="text" name="filter_external_id" value="<?echo htmlspecialcharsbx($filter_external_id)?>" size="30"></td>
+		<td><input type="text" name="filter_external_id" value="<?php echo htmlspecialcharsbx($filter_external_id)?>" size="30"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_FIELD_NAME")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_FIELD_NAME")?>:</td>
 		<td>
-			<input type="text" name="filter_name" value="<?echo htmlspecialcharsbx($filter_name)?>" size="30">
+			<input type="text" name="filter_name" value="<?php echo htmlspecialcharsbx($filter_name)?>" size="30">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_FIELD_CODE")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_FIELD_CODE")?>:</td>
 		<td>
-			<input type="text" name="filter_code" value="<?echo htmlspecialcharsbx($filter_code)?>" size="30">
+			<input type="text" name="filter_code" value="<?php echo htmlspecialcharsbx($filter_code)?>" size="30">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_ELSEARCH_DESC")?></td>
+		<td><?php echo GetMessage("IBLOCK_ELSEARCH_DESC")?></td>
 		<td>
-			<input type="text" name="filter_intext" value="<?echo htmlspecialcharsbx($filter_intext)?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_intext" value="<?php echo htmlspecialcharsbx($filter_intext)?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	foreach($arProps as $prop):
 		if($prop["FILTRABLE"]!="Y" || $prop["PROPERTY_TYPE"]=="F")
 			continue;
@@ -864,7 +864,7 @@ if (!$iblockFix)
 	<tr>
 		<td><?=$prop["NAME"]?>:</td>
 		<td>
-			<?if(array_key_exists("GetAdminFilterHTML", $prop["PROPERTY_USER_TYPE"])):
+			<?php if(array_key_exists("GetAdminFilterHTML", $prop["PROPERTY_USER_TYPE"])):
 			echo call_user_func_array($prop["PROPERTY_USER_TYPE"]["GetAdminFilterHTML"], array(
 				$prop,
 				array(
@@ -874,34 +874,34 @@ if (!$iblockFix)
 			));
 			elseif($prop["PROPERTY_TYPE"]=='L'):?>
 				<select name="find_el_property_<?=$prop["ID"]?>">
-					<option value=""><?echo GetMessage("IBLOCK_VALUE_ANY")?></option><?
+					<option value=""><?php echo GetMessage("IBLOCK_VALUE_ANY")?></option><?php 
 					$dbrPEnum = CIBlockPropertyEnum::GetList(array("SORT"=>"ASC", "VALUE"=>"ASC"), array("PROPERTY_ID"=>$prop["ID"]));
 					while($arPEnum = $dbrPEnum->GetNext()):
 					?>
-						<option value="<?=$arPEnum["ID"]?>"<?if(${"find_el_property_".$prop["ID"]} == $arPEnum["ID"])echo " selected"?>><?=$arPEnum["VALUE"]?></option>
-					<?
+						<option value="<?=$arPEnum["ID"]?>"<?php if(${"find_el_property_".$prop["ID"]} == $arPEnum["ID"])echo " selected"?>><?=$arPEnum["VALUE"]?></option>
+					<?php 
 					endwhile;
 			?></select>
-			<?
+			<?php 
 			elseif($prop["PROPERTY_TYPE"]=='G'):
 				_ShowGroupPropertyField('find_el_property_'.$prop["ID"], $prop, ${'find_el_property_'.$prop["ID"]});
 			else:
 				?>
-				<input type="text" name="find_el_property_<?=$prop["ID"]?>" value="<?echo htmlspecialcharsbx(${"find_el_property_".$prop["ID"]})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
-				<?
+				<input type="text" name="find_el_property_<?=$prop["ID"]?>" value="<?php echo htmlspecialcharsbx(${"find_el_property_".$prop["ID"]})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+				<?php 
 			endif;
 			?>
 		</td>
 	</tr>
-	<?endforeach;
+	<?php endforeach;
 
 $oFilter->Buttons();
 ?>
-<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="set_filter" value="<? echo GetMessage("admin_lib_filter_set_butt"); ?>" title="<? echo GetMessage("admin_lib_filter_set_butt_title"); ?>" onclick="return applyFilter(this);"></span>
-<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="del_filter" value="<? echo GetMessage("admin_lib_filter_clear_butt"); ?>" title="<? echo GetMessage("admin_lib_filter_clear_butt_title"); ?>" onclick="return deleteFilter(this);"></span>
-<?$oFilter->End();?>
+<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="set_filter" value="<?php  echo GetMessage("admin_lib_filter_set_butt"); ?>" title="<?php  echo GetMessage("admin_lib_filter_set_butt_title"); ?>" onclick="return applyFilter(this);"></span>
+<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="del_filter" value="<?php  echo GetMessage("admin_lib_filter_clear_butt"); ?>" title="<?php  echo GetMessage("admin_lib_filter_clear_butt_title"); ?>" onclick="return deleteFilter(this);"></span>
+<?php $oFilter->End();?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

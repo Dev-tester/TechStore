@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C10_DO_SAVE'] = "Unassign";
 $MESS ['SONET_C10_SUBTITLE'] = "Group Moderators";
 $MESS ['SONET_C10_ONLINE'] = "Online";

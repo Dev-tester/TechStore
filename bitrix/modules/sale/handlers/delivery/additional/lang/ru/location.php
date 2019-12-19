@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVRS_ADDL_LOCATIONS_ERROR"] = "Не удалось получить файл местоположений";
 $MESS["SALE_DLVRS_ADDL_LOCATIONS_ERROR_TMP"] = "Не удалось сохранить эталонные местоположения во временную таблицу";
 $MESS["SALE_DLVRS_ADDL_LOCATIONS_ERROR_SID"] = "Не удалось получить идентификатор службы доставки";

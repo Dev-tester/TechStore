@@ -21,12 +21,12 @@ if ($isIframe)
 {?>
 <div class="mail-signature-edit-wrap">
 	<div class="mail-signature-is-iframe">
-<?}?>
+<?php }?>
 
 <div id="signature-alert-container">
 </div>
 <div id="signature-editor-container">
-	<?
+	<?php 
 	$editor = new CHTMLEditor;
 	$editor->show([
 		'name'                => 'signature-editor-name',
@@ -78,19 +78,19 @@ if ($isIframe)
 	?></div>
 
 
-<?if ($isIframe)
+<?php if ($isIframe)
 {?>
 	</div>
-<?}
+<?php }
 ?>
 
 	<div class="sender-select" id="sender-select-row">
 		<input type="hidden" name="signatureId" value="<?=$arResult['signatureId'];?>" id="mail-signature-signature-id" />
 		<input type="checkbox" name="sender_bind" value="y" id="sender_bind_checkbox"
-		<?
+		<?php 
 		if($arResult['signatureId'] > 0 && $arResult['sender'])
 		{
-			?> checked<?
+			?> checked<?php 
 		}
 		?> />
 		<span class="mail-signature-edit-sender-text"><?=Loc::getMessage('MAIL_USERSIGNATURE_SENDER_SELECT') ?></span>
@@ -98,22 +98,22 @@ if ($isIframe)
 			<input id="mail_user_signature_sender_type_0" type="radio" name="sender_type" value="0">
 			<label for="mail_user_signature_sender_type_0"><?=Loc::getMessage('MAIL_USERSIGNATURE_SENDER_TYPE_'.strtoupper($arResult['senderType'])) ?></label>
 			<div class="mail-set-singleselect-wrapper">
-				<input type="radio" name="sender_type" value="<?=UserSignatureTable::TYPE_SENDER;?>" id="mail_user_signature_sender_type_<?=UserSignatureTable::TYPE_SENDER;?>" onchange="BX.Mail.UserSignature.Edit.showList('<?=UserSignatureTable::TYPE_SENDER;?>');"<?
+				<input type="radio" name="sender_type" value="<?=UserSignatureTable::TYPE_SENDER;?>" id="mail_user_signature_sender_type_<?=UserSignatureTable::TYPE_SENDER;?>" onchange="BX.Mail.UserSignature.Edit.showList('<?=UserSignatureTable::TYPE_SENDER;?>');"<?php 
 				if($arResult['senderType'] != UserSignatureTable::TYPE_ADDRESS)
 				{
-					?> checked<?
+					?> checked<?php 
 				}?>>
 				<label for="mail_user_signature_sender_type_<?=UserSignatureTable::TYPE_SENDER;?>"><?=Loc::getMessage('MAIL_USERSIGNATURE_SENDER_TYPE_SENDER') ?></label>
-				<input type="radio" name="sender_type" value="<?=UserSignatureTable::TYPE_ADDRESS;?>" id="mail_user_signature_sender_type_<?=UserSignatureTable::TYPE_ADDRESS;?>" onchange="BX.Mail.UserSignature.Edit.showList('<?=UserSignatureTable::TYPE_ADDRESS;?>');"<?
+				<input type="radio" name="sender_type" value="<?=UserSignatureTable::TYPE_ADDRESS;?>" id="mail_user_signature_sender_type_<?=UserSignatureTable::TYPE_ADDRESS;?>" onchange="BX.Mail.UserSignature.Edit.showList('<?=UserSignatureTable::TYPE_ADDRESS;?>');"<?php 
 				if($arResult['senderType'] == UserSignatureTable::TYPE_ADDRESS)
 				{
-					?> checked<?
+					?> checked<?php 
 				}?>>
 				<label for="mail_user_signature_sender_type_<?=UserSignatureTable::TYPE_ADDRESS;?>"><?=Loc::getMessage('MAIL_USERSIGNATURE_SENDER_TYPE_ADDRESS') ?></label>
 			</div>
 		</label>
 
-		<?$display = 'inline-block';
+		<?php $display = 'inline-block';
 		if($arResult['senderType'] != UserSignatureTable::TYPE_SENDER)
 		{
 			$display = 'none';
@@ -123,23 +123,23 @@ if ($isIframe)
 			<input id="mail_user_signature_sender_0" type="radio" name="sender" value="0">
 			<label for="mail_user_signature_sender_0"><?=htmlspecialcharsbx($arResult['selectedSender']);?></label>
 			<div class="mail-set-singleselect-wrapper">
-				<?
+				<?php 
 				foreach($arResult['senders'] as $sender)
 				{
 					?>
-					<input type="radio" name="sender" value="<?=htmlspecialcharsbx($sender);?>" id="mail_user_signature_sender_<?=htmlspecialcharsbx($sender);?>"<?
+					<input type="radio" name="sender" value="<?=htmlspecialcharsbx($sender);?>" id="mail_user_signature_sender_<?=htmlspecialcharsbx($sender);?>"<?php 
 					if($sender == $arResult['selectedSender'])
 					{
 						echo ' checked';
 					}?>>
 					<label for="mail_user_signature_sender_<?=htmlspecialcharsbx($sender);?>"><?=htmlspecialcharsbx($sender);?></label>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</label>
 
-		<?$display = 'none';
+		<?php $display = 'none';
 		if($arResult['senderType'] == UserSignatureTable::TYPE_ADDRESS)
 		{
 			$display = 'inline-block';
@@ -149,17 +149,17 @@ if ($isIframe)
 			<input id="mail_user_signature_address_0" type="radio" name="address" value="0">
 			<label for="mail_user_signature_address_0"><?=htmlspecialcharsbx($arResult['selectedAddress']);?></label>
 			<div class="mail-set-singleselect-wrapper">
-				<?
+				<?php 
 				foreach($arResult['addresses'] as $sender)
 				{
 					?>
-					<input type="radio" name="address" value="<?=htmlspecialcharsbx($sender);?>" id="mail_user_signature_address_<?=htmlspecialcharsbx($sender);?>"<?
+					<input type="radio" name="address" value="<?=htmlspecialcharsbx($sender);?>" id="mail_user_signature_address_<?=htmlspecialcharsbx($sender);?>"<?php 
 					if($sender == $arResult['selectedAddress'])
 					{
 						echo ' checked';
 					}?>>
 					<label for="mail_user_signature_address_<?=htmlspecialcharsbx($sender);?>"><?=htmlspecialcharsbx($sender);?></label>
-					<?
+					<?php 
 				}
 				?>
 			</div>
@@ -174,7 +174,7 @@ if ($isIframe)
 		});
 	</script>
 
-<?
+<?php 
 if($isIframe)
 {
 	$closeLink = '';

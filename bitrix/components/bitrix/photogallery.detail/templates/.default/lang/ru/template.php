@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NO_OF_COUNT"] = "#NO# из #TOTAL#";
 $MESS["P_EDIT"] = "Изменить";
 $MESS["P_EDIT_TITLE"] = "Изменить свойства фотографии";

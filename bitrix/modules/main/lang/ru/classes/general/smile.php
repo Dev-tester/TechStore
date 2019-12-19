@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_SMILE_IMPORT_FILE_ERROR"] = "Ошибка обработки архива, файл не существует.";
 $MESS["MAIN_SMILE_IMPORT_FILE_EXT_ERROR"] = "Ошибка обработки архива, неверный формат файла.";
 $MESS["MAIN_SMILE_IMPORT_UNPACK_ERROR"] = "Ошибка распаковки архива, проверьте файл.";

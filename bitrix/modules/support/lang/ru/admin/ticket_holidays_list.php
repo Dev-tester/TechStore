@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_NAME"] = "Название";
 $MESS["SUP_OPEN_TIME"] = "Действие";
 $MESS["SUP_DATE_FROM"] = "С";

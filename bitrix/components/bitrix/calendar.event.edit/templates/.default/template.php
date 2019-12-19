@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/clock.php");
 global $APPLICATION, $USER_FIELD_MANAGER;
 
@@ -101,14 +101,14 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 <div id="bxec_edit_ed_<?=$id?>" class="bxec-popup">
 	<div style="width: 750px; height: 1px;"></div>
 	<div class="popup-window-tabs" id="<?=$id?>_edit_tabs">
-		<?foreach($arTabs as $tab):?>
-			<span class="popup-window-tab<?if($tab['active']) echo' popup-window-tab-selected';?>" title="<?=$tab['title']?>" id="<?=$tab['id']?>" <?if($tab['show'] === false) echo'style="display:none;"';?>>
+		<?php foreach($arTabs as $tab):?>
+			<span class="popup-window-tab<?php if($tab['active']) echo' popup-window-tab-selected';?>" title="<?=$tab['title']?>" id="<?=$tab['id']?>" <?php if($tab['show'] === false) echo'style="display:none;"';?>>
 				<?= $tab['name']?>
 			</span>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 	<div class="popup-window-tabs-content"  id="<?=$id?>_edit_ed_d_tabcont">
-		<?/* ####### TAB 0 : MAIN ####### */?>
+		<?php /* ####### TAB 0 : MAIN ####### */?>
 		<div id="<?=$id?>ed-tab-0-cont" class="popup-window-tab-content popup-window-tab-content-selected">
 			<div class="bxc-meeting-edit-note"><?= GetMessage('EC_EDIT_MEETING_NOTE')?></div>
 			<div class="bxec-from-to-reminder" id="feed-cal-from-to-cont<?=$id?>">
@@ -118,15 +118,15 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 						<label class="bxec-date-label-full-day" for="<?=$id?>edev-from"><?=GetMessage('EC_EDEV_DATE_FROM')?></label>
 						<input id="feed-cal-event-from<?=$id?>" type="text" class="calendar-inp calendar-inp-cal" name="date_from"/>
 					</span>
-					<span class="bxec-time<?=$addWidthStyle?>"><?CClock::Show(array('inputId' => 'feed_cal_event_from_time'.$id, 'inputName' => 'time_from', 'inputTitle' => GetMessage('EC_EDEV_TIME_FROM'), 'showIcon' => false));?></span>
+					<span class="bxec-time<?=$addWidthStyle?>"><?php CClock::Show(array('inputId' => 'feed_cal_event_from_time'.$id, 'inputName' => 'time_from', 'inputTitle' => GetMessage('EC_EDEV_TIME_FROM'), 'showIcon' => false));?></span>
 					<span class="bxec-mdash">&mdash;</span>
 					<span class="bxec-date">
 						<label class="bxec-date-label" for="<?=$id?>edev-from"><?=GetMessage('EC_EDEV_TO_DATE_TIME')?></label>
 						<label class="bxec-date-label-full-day" for="<?=$id?>edev-from"><?=GetMessage('EC_EDEV_DATE_TO')?></label>
 						<input id="feed-cal-event-to<?=$id?>" type="text" class="calendar-inp calendar-inp-cal" name="date_to"/>
 					</span>
-					<span class="bxec-time<?=$addWidthStyle?>"><?CClock::Show(array('inputId' => 'feed_cal_event_to_time'.$id, 'inputName' => 'time_to','inputTitle' => GetMessage('EC_EDEV_TIME_TO'), 'showIcon' => false));?></span>
-					<div style="display:none;"><?$APPLICATION->IncludeComponent("bitrix:main.calendar",	"",Array("FORM_NAME" => "","INPUT_NAME" => "","INPUT_VALUE" => "","SHOW_TIME" => "N","HIDE_TIMEBAR" => "Y","SHOW_INPUT" => "N"),false, array("HIDE_ICONS" => "Y"));?></div>
+					<span class="bxec-time<?=$addWidthStyle?>"><?php CClock::Show(array('inputId' => 'feed_cal_event_to_time'.$id, 'inputName' => 'time_to','inputTitle' => GetMessage('EC_EDEV_TIME_TO'), 'showIcon' => false));?></span>
+					<div style="display:none;"><?php $APPLICATION->IncludeComponent("bitrix:main.calendar",	"",Array("FORM_NAME" => "","INPUT_NAME" => "","INPUT_VALUE" => "","SHOW_TIME" => "N","HIDE_TIMEBAR" => "Y","SHOW_INPUT" => "N"),false, array("HIDE_ICONS" => "Y"));?></div>
 					<span class="bxec-full-day">
 						<input type="checkbox" id="event-full-day<?=$id?>" value="Y" name="skip_time"/>
 						<label style="display: inline-block;" for="event-full-day<?=$id?>"><?= GetMessage('EC_FULL_DAY')?></label>
@@ -143,16 +143,16 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 							<div class="bxec-timezone-hidden-item">
 								<select id="event-tz-from<?=$id?>" class="calendar-select calendar-tz-select" name="tz_from">
 									<option value=""> - </option>
-									<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+									<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 										<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</select>
 								<span class="bxec-mdash">&mdash;</span>
 								<select id="event-tz-to<?=$id?>" class="calendar-select calendar-tz-select" name="tz_to">
 									<option value=""> - </option>
-									<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+									<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 										<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</select>
 								<span id="event-tz-tip<?=$id?>" class="bxec-popup-tip-btn"></span>
 							</div>
@@ -167,9 +167,9 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 					</span>
 				<select id="event-tz-def<?=$id?>" class="calendar-select calendar-tz-select" name="default_tz" style="width: 280px;">
 					<option value=""> - </option>
-					<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+					<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 						<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 				<span id="event-tz-def-tip<?=$id?>" class="bxec-popup-tip-btn"></span>
 			</div>
@@ -208,7 +208,7 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 				<input id="event-location-new<?=$id?>" type="hidden" value="" name="location[NEW]"/>
 			</div>
 
-			<?if($arParams['bIntranet']):?>
+			<?php if($arParams['bIntranet']):?>
 			<div class="bxec-popup-row bxec-ed-meeting-vis">
 				<span class="bxec-field-label-edev"><label for="<?=$id?>_bxec_accessibility"><?=GetMessage('EC_ACCESSIBILITY')?>:</label></span>
 				<span class="bxec-field-val-2" >
@@ -220,7 +220,7 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 				</select>
 				</span>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 
 			<div class="bxec-popup-row" id="<?=$id?>_sect_cnt">
 				<span class="bxec-field-label-edev"><label for="<?=$id?>_edit_ed_calend_sel"><?=GetMessage('EC_T_CALENDAR')?>:</label></span>
@@ -230,12 +230,12 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 			</div>
 
 		</div>
-		<?/* ####### END TAB 0 ####### */?>
+		<?php /* ####### END TAB 0 ####### */?>
 
-		<?/* ####### TAB 1 : DESCRIPTION - LHE ####### */?>
+		<?php /* ####### TAB 1 : DESCRIPTION - LHE ####### */?>
 		<div id="<?=$id?>ed-tab-1-cont" class="popup-window-tab-content bxec-d-cont-div-lhe">
 			<!-- Description + files -->
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.post.form",
 				"",
@@ -294,9 +294,9 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 			);
 			?>
 		</div>
-		<?/* ####### END TAB 1 ####### */?>
+		<?php /* ####### END TAB 1 ####### */?>
 
-		<?
+		<?php 
 		/* ####### TAB 2 : GUESTS ####### */
 		if($arParams['bSocNet']):?>
 		<div id="<?=$id?>ed-tab-2-cont" class="popup-window-tab-content">
@@ -311,7 +311,7 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 					</span>
 						<a href="#" class="feed-add-destination-link" id="event-grid-dest-add-link"></a>
 						<script>
-							<?
+							<?php 
 							if (is_array($GLOBALS["arExtranetGroupID"]))
 							{
 								?>
@@ -319,7 +319,7 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 							{
 								window['arExtranetGroupID'] = <?=CUtil::PhpToJSObject($GLOBALS["arExtranetGroupID"])?>;
 							}
-							<?
+							<?php 
 						}
 						?>
 							BX.message({
@@ -368,7 +368,7 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 				</div>
 
 				<div class="event-grid-planner-cont" id="event-grid-planner-cont<?= $id?>">
-				<?CCalendarPlanner::Init(array(
+				<?php CCalendarPlanner::Init(array(
 					'id' => $id.'_Planner'
 				));?>
 				</div>
@@ -427,10 +427,10 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 			</div>
 
 		</div>
-		<?/* ####### END TAB 2 ####### */?>
-		<?endif; /* bSocNet */?>
+		<?php /* ####### END TAB 2 ####### */?>
+		<?php endif; /* bSocNet */?>
 
-		<?/* ####### TAB 3 : ADDITIONAL INFO ####### */?>
+		<?php /* ####### TAB 3 : ADDITIONAL INFO ####### */?>
 		<div id="<?=$id?>ed-tab-3-cont" class="popup-window-tab-content">
 			<div class="bxec-popup-row-repeat" id="<?=$id?>_edit_ed_rep_cont">
 				<div class="bxec-popup-row-2" id="<?=$id?>_edit_ed_rep_tr">
@@ -453,24 +453,24 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 					<span class="event-grid-repeat-cont">
 						<span class="event-grid-rep-phrases" id="<?=$id?>_edit_ed_rep_phrase1"></span>
 						<select id="<?=$id?>_edit_ed_rep_count" class="calendar-select" name="rrule[INTERVAL]">
-							<?for ($i = 1; $i < 36; $i++):?>
+							<?php for ($i = 1; $i < 36; $i++):?>
 								<option value="<?=$i?>"><?=$i?></option>
-							<?endfor;?>
+							<?php endfor;?>
 						</select>
 						<span class="event-grid-rep-phrases" id="<?=$id?>_edit_ed_rep_phrase2"></span>
 
 						<span id="<?=$id?>_edit_ed_rep_week_days" class="bxec-rep-week-days">
-							<?
+							<?php 
 							$week_days = CCalendarSceleton::GetWeekDays();
 							for($i = 0; $i < 7; $i++):
 								$id_ = $id.'bxec_week_day_'.$i;?>
 								<input id="<?=$id_?>" type="checkbox" value="<?= $week_days[$i][2]?>">
 								<label for="<?=$id_?>" title="<?=$week_days[$i][0]?>"><?=$week_days[$i][1]?></label>
-								<?if($i == 2)
+								<?php if($i == 2)
 								{
 									echo '<br>';
 								}?>
-							<?endfor;?>
+							<?php endfor;?>
 						</span>
 					</span>
 
@@ -509,7 +509,7 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 				</select>
 			</div>
 
-			<?/*
+			<?php /*
 			<div class="bxec-popup-row-2">
 				<label for="<?=$id?>_bxec_accessibility"><?=GetMessage('EC_EVENT_TYPE')?>:</label>
 				<span class="bxec-field-val-2" >
@@ -527,13 +527,13 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 			</div>
 			*/?>
 
-			<?if($arParams['type'] == 'user'):?>
+			<?php if($arParams['type'] == 'user'):?>
 			<div class="bxec-popup-row-bordered bxec-popup-row-private">
 				<input id="<?=$id?>_bxec_private" type="checkbox" value="Y" title="<?=GetMessage('EC_PRIVATE_NOTICE')?>" name="private_event">
 				<label for="<?=$id?>_bxec_private" title="<?=GetMessage('EC_PRIVATE_NOTICE')?>"><?=GetMessage('EC_PRIVATE_EVENT')?></label>
 				<div><?= GetMessage('EC_PRIVATE_NOTICE')?></div>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 
 			<!-- Color -->
 			<div class="bxec-popup-row-bordered bxec-popup-row-color">
@@ -541,17 +541,17 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 				<input id="<?=$id?>_bxec_text_color" type="hidden" value="" name="text_color" />
 				<label class="bxec-color-label" for="<?=$id?>-event-color-inp"><?=GetMessage('EC_T_COLOR')?>:</label>
 				<div class="bxec-color-selector-cont">
-				<?CCalendarSceleton::DisplayColorSelector($id, 'event');?>
+				<?php CCalendarSceleton::DisplayColorSelector($id, 'event');?>
 				</div>
 			</div>
 
 			<!-- Userfields -->
-			<? if (isset($UF['UF_CRM_CAL_EVENT'])):?>
+			<?php  if (isset($UF['UF_CRM_CAL_EVENT'])):?>
 			<div id="<?=$id?>bxec_uf_group" class="bxec-popup-row-bordered">
-				<?$crmUF = $UF['UF_CRM_CAL_EVENT'];?>
+				<?php $crmUF = $UF['UF_CRM_CAL_EVENT'];?>
 				<label for="event-crm<?=$id?>" class="bxec-uf-crm-label"><?= htmlspecialcharsbx($crmUF["EDIT_FORM_LABEL"])?>:</label>
 				<div class="bxec-uf-crm-cont">
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:system.field.edit",
 						$crmUF["USER_TYPE"]["USER_TYPE_ID"],
 						array(
@@ -562,9 +562,9 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 					);?>
 				</div>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
-		<?/* ####### END TAB 3 ####### */?>
+		<?php /* ####### END TAB 3 ####### */?>
 	</div>
 </div>
 </form>

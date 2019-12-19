@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_MODULE_NOT_INSTALLED"] = "Модуль управления задачами не установлен";
 $MESS["FORUM_MODULE_NOT_INSTALLED"] = "Модуль форум не установлен";
 $MESS["SOCNET_MODULE_NOT_INSTALLED"] = "Модуль \"Социальная сеть\" не установлен";

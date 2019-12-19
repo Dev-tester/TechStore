@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTASK_WF_TMPL_HEEA_T_SetResponsibleEvent'] = "Set Responsible Person";
 $MESS ['INTASK_WF_TMPL_HEEA_T_ApproveEvent'] = "Accept";
 $MESS ['INTASK_WF_TMPL_HEEA_T_InProgressEvent'] = "Start Execution";

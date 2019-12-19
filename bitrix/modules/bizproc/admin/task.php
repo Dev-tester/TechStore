@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 \Bitrix\Main\Loader::includeModule('bizproc');
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/prolog.php");
@@ -170,7 +170,7 @@ else
 		<input type="hidden" name="workflow_id" value="<?= htmlspecialcharsbx($arTask["WORKFLOW_ID"]) ?>">
 		<input type="hidden" name="back_url" value="<?= htmlspecialcharsbx($backUrl) ?>">
 		<?= bitrix_sessid_post() ?>
-		<?
+		<?php 
 		if ($allowAdminAccess)
 			echo '<input type="hidden" name="uid" value="'.intval($arTask["USER_ID"]).'">';
 		?>
@@ -193,7 +193,7 @@ else
 		<input type="hidden" name="workflow_id" value="<?= htmlspecialcharsbx($arTask["WORKFLOW_ID"]) ?>">
 		<input type="hidden" name="back_url" value="<?= htmlspecialcharsbx($backUrl) ?>">
 		<?= bitrix_sessid_post() ?>
-		<?
+		<?php 
 		if ($allowAdminAccess)
 			echo '<input type="hidden" name="uid" value="'.intval($arTask["USER_ID"]).'">';
 
@@ -206,11 +206,11 @@ else
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		?>
-			<?if ($allowAdminAccess):?>
+			<?php if ($allowAdminAccess):?>
 			<tr>
 				<td align="right" valign="top" width="40%"><?= GetMessage("BPAT_USER") ?>:</td>
 				<td width="60%" valign="top">
-					<?
+					<?php 
 					$dbUserTmp = CUser::GetByID($arTask["USER_ID"]);
 					$arUserTmp = $dbUserTmp->GetNext();
 					$str = $arUserTmp? CUser::FormatName(COption::GetOptionString("bizproc", "name_template", CSite::GetNameFormat(false), SITE_ID), $arUserTmp, true) : GetMessage('BPAT_USER_NOT_FOUND');
@@ -219,7 +219,7 @@ else
 					?>
 				</td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			<tr>
 				<td align="right" valign="top" width="40%"><?= GetMessage("BPAT_NAME") ?>:</td>
 				<td width="60%" valign="top"><?= $arTask["NAME"] ?></td>
@@ -228,26 +228,26 @@ else
 				<td align="right" valign="top" width="40%"><?= GetMessage("BPAT_DESCR") ?>:</td>
 				<td width="60%" valign="top"><?= nl2br($arTask["DESCRIPTION"]) ?></td>
 			</tr>
-			<?if (strlen($arTask["PARAMETERS"]["DOCUMENT_URL"]) > 0):?>
+			<?php if (strlen($arTask["PARAMETERS"]["DOCUMENT_URL"]) > 0):?>
 			<tr>
 				<td align="right" valign="top" width="40%">&nbsp;</td>
 				<td width="60%" valign="top"><a href="<?= $arTask["PARAMETERS"]["DOCUMENT_URL"] ?>" target="_blank"><?= GetMessage("BPAT_GOTO_DOC") ?></a></td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			<?= $taskForm; ?>
-		<?
+		<?php 
 		$tabControl->Buttons();
 		?>
 			<?= $taskFormButtons ?>
-		<?
+		<?php 
 		$tabControl->End();
 
 		?>
 	</form>
-	<?
+	<?php 
 }
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

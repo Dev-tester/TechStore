@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_CMEMBER_ERR1'] = "Controller authorisation error";
 $MESS ['MAIN_CMEMBER_AUTH_TYPE'] = "Controller authorisation";
 $MESS ['MAIN_CMEMBER_ERR2'] = "Error sending a message to the controller";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BC_PATH_TO_BLOG'] = "Blog page path template";
 
 $MESS ['BC_BLOG_VAR'] = "Blog identifier variable";

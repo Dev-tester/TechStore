@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_MENU_EDIT_DEF'] = "(по умолчанию)";
 $MESS ['FILEMAN_MENU_EDIT_ENTER_TYPE'] = "Введите тип меню!";
 $MESS ['FILEMAN_MENU_EDIT_EXISTS_ERROR'] = "Меню такого типа уже существует в этой папке!";

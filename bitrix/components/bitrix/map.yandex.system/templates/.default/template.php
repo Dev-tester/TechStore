@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $this->setFrameMode(true);
 ?>
@@ -7,35 +7,35 @@ $this->setFrameMode(true);
 if (!window.GLOBAL_arMapObjects)
 	window.GLOBAL_arMapObjects = {};
 
-function init_<?echo $arParams['MAP_ID']?>()
+function init_<?php echo $arParams['MAP_ID']?>()
 {
 	if (!window.ymaps)
 		return;
 
-	if(typeof window.GLOBAL_arMapObjects['<?echo $arParams['MAP_ID']?>'] !== "undefined")
+	if(typeof window.GLOBAL_arMapObjects['<?php echo $arParams['MAP_ID']?>'] !== "undefined")
 		return;
 
-	var node = BX("BX_YMAP_<?echo $arParams['MAP_ID']?>");
+	var node = BX("BX_YMAP_<?php echo $arParams['MAP_ID']?>");
 	node.innerHTML = '';
 
-	var map = window.GLOBAL_arMapObjects['<?echo $arParams['MAP_ID']?>'] = new ymaps.Map(node, {
-		center: [<?echo $arParams['INIT_MAP_LAT']?>, <?echo $arParams['INIT_MAP_LON']?>],
-		zoom: <?echo $arParams['INIT_MAP_SCALE']?>,
+	var map = window.GLOBAL_arMapObjects['<?php echo $arParams['MAP_ID']?>'] = new ymaps.Map(node, {
+		center: [<?php echo $arParams['INIT_MAP_LAT']?>, <?php echo $arParams['INIT_MAP_LON']?>],
+		zoom: <?php echo $arParams['INIT_MAP_SCALE']?>,
 		type: 'yandex#<?=$arResult['ALL_MAP_TYPES'][$arParams['INIT_MAP_TYPE']]?>'
 	});
 
-<?
+<?php 
 foreach ($arResult['ALL_MAP_OPTIONS'] as $option => $method)
 {
 	if (in_array($option, $arParams['OPTIONS'])):
 ?>
-	map.behaviors.enable("<?echo $method?>");
-<?
+	map.behaviors.enable("<?php echo $method?>");
+<?php 
 	else:
 ?>
-	if (map.behaviors.isEnabled("<?echo $method?>"))
-		map.behaviors.disable("<?echo $method?>");
-<?
+	if (map.behaviors.isEnabled("<?php echo $method?>"))
+		map.behaviors.disable("<?php echo $method?>");
+<?php 
 	endif;
 }
 
@@ -44,7 +44,7 @@ foreach ($arResult['ALL_MAP_CONTROLS'] as $control => $method)
 	if (in_array($control, $arParams['CONTROLS'])):
 ?>
 	map.controls.add('<?=$method?>');
-<?
+<?php 
 	endif;
 }
 
@@ -52,40 +52,40 @@ foreach ($arResult['ALL_MAP_CONTROLS'] as $control => $method)
 if ($arParams['DEV_MODE'] == 'Y'):
 ?>
 	window.bYandexMapScriptsLoaded = true;
-<?
+<?php 
 endif;
 
 if ($arParams['ONMAPREADY']):
 ?>
-	if (window.<?echo $arParams['ONMAPREADY']?>)
+	if (window.<?php echo $arParams['ONMAPREADY']?>)
 	{
-<?
+<?php 
 	if ($arParams['ONMAPREADY_PROPERTY']):
 ?>
-		<?echo $arParams['ONMAPREADY_PROPERTY']?> = map;
-		window.<?echo $arParams['ONMAPREADY']?>();
-<?
+		<?php echo $arParams['ONMAPREADY_PROPERTY']?> = map;
+		window.<?php echo $arParams['ONMAPREADY']?>();
+<?php 
 	else:
 ?>
-		window.<?echo $arParams['ONMAPREADY']?>(map);
-<?
+		window.<?php echo $arParams['ONMAPREADY']?>(map);
+<?php 
 	endif;
 ?>
 	}
-<?
+<?php 
 endif;
 ?>
 }
-<?
+<?php 
 if ($arParams['DEV_MODE'] == 'Y'):
 ?>
-function BXMapLoader_<?echo $arParams['MAP_ID']?>()
+function BXMapLoader_<?php echo $arParams['MAP_ID']?>()
 {
 	if (null == window.bYandexMapScriptsLoaded)
 	{
 		function _wait_for_map(){
 			if (window.ymaps && window.ymaps.Map)
-				init_<?echo $arParams['MAP_ID']?>();
+				init_<?php echo $arParams['MAP_ID']?>();
 			else
 				setTimeout(_wait_for_map, 50);
 		}
@@ -94,34 +94,34 @@ function BXMapLoader_<?echo $arParams['MAP_ID']?>()
 	}
 	else
 	{
-		init_<?echo $arParams['MAP_ID']?>();
+		init_<?php echo $arParams['MAP_ID']?>();
 	}
 }
-<?
+<?php 
 	if ($arParams['WAIT_FOR_EVENT']):
 ?>
 	<?=CUtil::JSEscape($arParams['WAIT_FOR_EVENT'])?> = BXMapLoader_<?=$arParams['MAP_ID']?>;
-<?
+<?php 
 	elseif ($arParams['WAIT_FOR_CUSTOM_EVENT']):
 ?>
 	BX.addCustomEvent('<?=CUtil::JSEscape($arParams['WAIT_FOR_EVENT'])?>', BXMapLoader_<?=$arParams['MAP_ID']?>);
-<?
+<?php 
 	else:
 ?>
-	BX.ready(BXMapLoader_<?echo $arParams['MAP_ID']?>);
-<?
+	BX.ready(BXMapLoader_<?php echo $arParams['MAP_ID']?>);
+<?php 
 	endif;
 else: // $arParams['DEV_MODE'] == 'Y'
 ?>
 
 (function bx_ymaps_waiter(){
 	if(typeof ymaps !== 'undefined')
-		ymaps.ready(init_<?echo $arParams['MAP_ID']?>);
+		ymaps.ready(init_<?php echo $arParams['MAP_ID']?>);
 	else
 		setTimeout(bx_ymaps_waiter, 100);
 })();
 
-<?
+<?php 
 endif; // $arParams['DEV_MODE'] == 'Y'
 ?>
 
@@ -136,4 +136,4 @@ function BXMapYandexAfterShow(mapId)
 }
 
 </script>
-<div id="BX_YMAP_<?echo $arParams['MAP_ID']?>" class="bx-yandex-map" style="height: <?echo $arParams['MAP_HEIGHT'];?>; width: <?echo $arParams['MAP_WIDTH']?>;"><?echo GetMessage('MYS_LOADING'.($arParams['WAIT_FOR_EVENT'] ? '_WAIT' : ''));?></div>
+<div id="BX_YMAP_<?php echo $arParams['MAP_ID']?>" class="bx-yandex-map" style="height: <?php echo $arParams['MAP_HEIGHT'];?>; width: <?php echo $arParams['MAP_WIDTH']?>;"><?php echo GetMessage('MYS_LOADING'.($arParams['WAIT_FOR_EVENT'] ? '_WAIT' : ''));?></div>

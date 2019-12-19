@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RESTR_MGR_CONDITIONALLY_REQUIRED_FIELD_POPUP_CONTENT_2"] = "<div class=\"crm-conditionally-required-field-tab-content\">
 	<div class=\"crm-conditionally-required-field-tab-text\">
 		Stage-specific required fields are only available in <a href=\"/settings/license_all.php\" target=\"_blank\">selected commercial plans</a>.

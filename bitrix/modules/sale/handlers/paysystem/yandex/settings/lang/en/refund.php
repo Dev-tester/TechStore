@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_YANDEX_RETURN_TITLE"] = "Configure Yandex.Checkout Returns";
 $MESS["SALE_YANDEX_RETURN_SUBTITLE"] = "Configure MWS (<a target=\"_blank\" href=\"https://tech.yandex.ru/money/doc/payment-solution/payment-management/payment-management-about-docpage/\">Merchant Web Services</a>)";
 $MESS["SALE_YANDEX_RETURN_HELP"] = "Before using MWS, obtain a Yandex.Money certificate and upload it on this page.";

@@ -1,8 +1,8 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?
+<?php 
 ?>
 <tr>
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPAR_PD_REVIEWERS") ?>:</span></td>
@@ -74,12 +74,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 			<option value="h"<?= ($arCurrentValues["timeout_duration_type"] == "h") ? " selected" : "" ?>><?= GetMessage("BPAR_PD_TIME_H") ?></option>
 			<option value="d"<?= ($arCurrentValues["timeout_duration_type"] == "d") ? " selected" : "" ?>><?= GetMessage("BPAR_PD_TIME_D") ?></option>
 		</select>
-		<?
+		<?php 
 		$delayMinLimit = CBPSchedulerService::getDelayMinLimit();
 		if ($delayMinLimit):
 			?>
 			<p style="color: red;">* <?= GetMessage("BPAR_PD_TIMEOUT_LIMIT") ?>: <?=CBPHelper::FormatTimePeriod($delayMinLimit)?></p>
-			<?
+			<?php 
 		endif;
 		?>
 	</td>
@@ -97,9 +97,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<td align="right"><?= GetMessage("BPAR_PD_DELEGATION_TYPE") ?>:</td>
 	<td>
 		<select name="delegation_type">
-			<?foreach (CBPTaskDelegationType::getSelectList() as $key => $label):?>
+			<?php foreach (CBPTaskDelegationType::getSelectList() as $key => $label):?>
 				<option value="<?=htmlspecialcharsbx($key)?>>"<?= $arCurrentValues["delegation_type"] == $key ? " selected" : "" ?>><?=htmlspecialcharsbx($label)?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>

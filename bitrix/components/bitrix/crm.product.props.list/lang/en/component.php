@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_SALE_MODULE_NOT_INSTALLED"] = "The e-Store module is not installed.";
 $MESS["CRM_PERMISSION_DENIED"] = "Access denied";

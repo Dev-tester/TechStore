@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PS_SERVICE_ERROR_CONNECT_PS"] = "Error connecting to payment system";
 $MESS["SALE_PS_SERVICE_ERROR_HOLD_IS_NOT_SUPPORTED"] = "Payment handler does not support authorization holds";
 $MESS["SALE_PS_SERVICE_ERROR_PARTIAL_CONFIRM_IS_NOT_SUPPORTED"] = "Payment handler does not support partial authorization";

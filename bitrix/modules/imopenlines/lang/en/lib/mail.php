@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_MAIL_HISTORY_TITLE"] = "Your conversation ##SESSION_ID# with representative on #SITE_URL#";
 $MESS["IMOL_MAIL_HISTORY_ACTION_TITLE"] = "Thank you for getting in touch with us";
 $MESS["IMOL_MAIL_HISTORY_ACTION_DESC"] = "Your conversation ##SESSION_ID# with representative on #SITE_URL#";

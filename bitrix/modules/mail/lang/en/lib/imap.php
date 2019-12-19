@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_IMAP_ERR_DEFAULT"] = "Unknown error";
 $MESS["MAIL_IMAP_ERR_CONNECT"] = "Server connection error";
 $MESS["MAIL_IMAP_ERR_COMMUNICATE"] = "Communication error.";

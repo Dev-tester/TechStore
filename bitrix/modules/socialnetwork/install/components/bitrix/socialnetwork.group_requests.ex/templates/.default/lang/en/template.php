@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GRE_T_DO_SAVE"] = "Approve membership";
 $MESS["SONET_GRE_T_REJECT"] = "Decline";
 $MESS["SONET_GRE_T_REJECT_OUT"] = "Cancel invitations";

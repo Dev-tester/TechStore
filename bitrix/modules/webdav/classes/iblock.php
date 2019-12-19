@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager WebDav				 #
 # Copyright (c) 2002-2010 Bitrix			 #

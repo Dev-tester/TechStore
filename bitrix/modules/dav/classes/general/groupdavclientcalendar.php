@@ -1,4 +1,4 @@
-<?
+<?php 
 //define("DAV_CALDAV_DEBUG", true);
 if (COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && CModule::IncludeModule("calendar"))
 {

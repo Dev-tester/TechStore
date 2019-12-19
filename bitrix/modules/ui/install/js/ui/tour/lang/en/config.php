@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_UI_TOUR_BUTTON"] = "Next";
 $MESS["JS_UI_TOUR_BUTTON_CLOSE"] = "Close";
 $MESS["JS_UI_TOUR_BUTTON_SIMPLE"] = "Ok";

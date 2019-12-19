@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
@@ -6,7 +6,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 <tr>
 	<td colspan="2">
 		<table width="100%" border="0" cellpadding="2" cellspacing="2" id="bwfvc_addrow_table">
-			<?
+			<?php 
 			$defaultFieldValue = "";
 			$t = array_keys($arVariables);
 			if (count($t) > 0)
@@ -23,23 +23,23 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 				<tr id="delete_row_<?= $ind ?>">
 					<td>
 						<select name="variable_field_<?= $ind ?>" onchange="BWFVCChangeFieldType(<?= $ind ?>, this.options[this.selectedIndex].value, null)">
-							<?
+							<?php 
 							foreach ($arVariables as $k => $v)
 							{
-								?><option value="<?= htmlspecialcharsbx($k) ?>"<?= ($k == $variableKey) ? " selected" : "" ?>><?= htmlspecialcharsbx($v["Name"]) ?></option><?
+								?><option value="<?= htmlspecialcharsbx($k) ?>"<?= ($k == $variableKey) ? " selected" : "" ?>><?= htmlspecialcharsbx($v["Name"]) ?></option><?php 
 							}
 							?>
 						</select>
 					</td>
 					<td>=</td>
 					<td id="id_td_variable_value_<?= $ind ?>">
-						<input type="text" name="<?= htmlspecialcharsbx($variableKey) ?>" value="<?/*= htmlspecialcharsbx($variableValue) */?>">
+						<input type="text" name="<?= htmlspecialcharsbx($variableKey) ?>" value="<?php /*= htmlspecialcharsbx($variableValue) */?>">
 					</td>
 					<td align="right">
 						<a href="#" onclick="BWFVCDeleteCondition(<?= $ind ?>); return false;"><?= GetMessage("BPSVA_PD_DELETE") ?></a>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 		</table>
@@ -47,7 +47,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 		<?= CAdminCalendar::ShowScript() ?>
 
 		<script language="text/javascript">
-		var bwfvc_arFieldTypes = {<?
+		var bwfvc_arFieldTypes = {<?php 
 		$fl = false;
 		foreach ($arVariables as $key => $value)
 		{
@@ -57,7 +57,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 			$fl = true;
 		}
 		?>};
-		var bwfvc_arFieldOptions = {<?
+		var bwfvc_arFieldOptions = {<?php 
 		$fl = false;
 		foreach ($arVariables as $key => $value)
 		{
@@ -116,13 +116,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 			newSelect.setAttribute('bwfvc_counter', bwfvc_counter);
 			newSelect.onchange = function(){BWFVCChangeFieldType(this.getAttribute("bwfvc_counter"), this.options[this.selectedIndex].value, null)};
 			newSelect.name = "variable_field_" + bwfvc_counter;
-			<?
+			<?php 
 			$i = -1;
 			foreach ($arVariables as $key => $value)
 			{
 				$i++;
 				?>newSelect.options[<?= $i ?>] = new Option("<?= CUtil::JSEscape($value["Name"]) ?>", "<?= CUtil::JSEscape($key) ?>");
-				<?
+				<?php 
 			}
 			?>
 			newCell.appendChild(newSelect);
@@ -157,7 +157,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 			}
 		}
 
-		<?
+		<?php 
 		$i = -1;
 		foreach ($arCurrentValues as $variableKey => $variableValue)
 		{
@@ -167,12 +167,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 			$i++;
 			?>
 			BWFVCChangeFieldType(<?= $i ?>, '<?= CUtil::JSEscape($variableKey) ?>', <?= CUtil::PhpToJSObject($variableValue) ?>);
-			<?
+			<?php 
 		}
 
 		if ($i < 0)
 		{
-			?>BWFVCAddCondition();<?
+			?>BWFVCAddCondition();<?php 
 		}
 		?>
 		</script>

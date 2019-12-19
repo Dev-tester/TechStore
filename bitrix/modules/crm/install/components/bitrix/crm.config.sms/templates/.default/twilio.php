@@ -1,4 +1,4 @@
-<? if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 /** @var array $arResult */
 
@@ -124,7 +124,7 @@ if ($provider->isRegistered())
 					</div>
 				</form>
 			</div>
-		<?else:
+		<?php else:
 			$ownerInfo = $provider->getOwnerInfo();
 			?>
 			<!---->
@@ -143,7 +143,7 @@ if ($provider->isRegistered())
 				</div>
 			</div>
 			<!---->
-		<?endif;?>
+		<?php endif;?>
 		<?php if ($provider->canUse()):?>
 			<div class="sms-settings-step-section sms-settings-step-section-active">
 				<div class="sms-settings-step-number">2</div>
@@ -153,7 +153,7 @@ if ($provider->isRegistered())
 							'#A2#' => '</a>'
 						))?></div>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>
 <script>
@@ -226,12 +226,12 @@ if ($provider->isRegistered())
 				});
 			}
 		};
-		<?if ($provider->isRegistered()):?>
+		<?php if ($provider->isRegistered()):?>
 		var steps = BX('sms-settings-steps');
 		if (steps)
 		{
 			BX.scrollToNode(steps);
 		}
-		<?endif?>
+		<?php endif?>
 	});
 </script>

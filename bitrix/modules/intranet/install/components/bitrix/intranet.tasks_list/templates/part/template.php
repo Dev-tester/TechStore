@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if(count($arResult["Tasks"]) <= 0)
 	echo GetMessage("INTASK_LIST_EMPTY");
 $bFirst = true;
@@ -8,10 +8,10 @@ if (Array_Key_Exists("Tasks", $arResult) && Is_Array($arResult["Tasks"]))
 	{
 		if (!$bFirst)
 		{
-			?><div class="sonet-forum-line"></div><?
+			?><div class="sonet-forum-line"></div><?php 
 		}
 		?>
-		<span class="sonet-forum-post-date"><?
+		<span class="sonet-forum-post-date"><?php 
 		if (StrLen($arTask["FIELDS"]["DATE_ACTIVE_FROM_PRINTABLE"]) > 0 && StrLen($arTask["FIELDS"]["DATE_ACTIVE_TO_PRINTABLE"]) > 0)
 			echo $arTask["FIELDS"]["DATE_ACTIVE_FROM_PRINTABLE"]." - ".$arTask["FIELDS"]["DATE_ACTIVE_TO_PRINTABLE"];
 		elseif (StrLen($arTask["FIELDS"]["DATE_ACTIVE_FROM_PRINTABLE"]) <= 0 && StrLen($arTask["FIELDS"]["DATE_ACTIVE_TO_PRINTABLE"]) > 0)
@@ -21,17 +21,17 @@ if (Array_Key_Exists("Tasks", $arResult) && Is_Array($arResult["Tasks"]))
 		else
 			echo GetMessage("INTASK_NO_DATE_TLP");
 		?></span><br />
-		<b><a href="<?=$arTask["VIEW_URL"]?>"><?echo $arTask["FIELDS"]["NAME_PRINTABLE"];?></a></b><br />
+		<b><a href="<?=$arTask["VIEW_URL"]?>"><?php echo $arTask["FIELDS"]["NAME_PRINTABLE"];?></a></b><br />
 
-		<?if ($arParams["TASK_TYPE"] == "group"):?>
+		<?php if ($arParams["TASK_TYPE"] == "group"):?>
 			<small><?=GetMessage("INTASK_TASKASSIGNEDTO")?>: <?=$arTask["FIELDS"]["PROPERTY_TASKASSIGNEDTO_PRINTABLE"]?></small><br />
-		<?endif;?>
+		<?php endif;?>
 
 		<span class="sonet-forum-post-info">
 			<?=GetMessage("INTASK_TASKPRIORITY")?>:&nbsp;<?=$arTask["FIELDS"]["TASKPRIORITY_PRINTABLE"]?><br />
 			<?=GetMessage("INTASK_TASKSTATUS")?>:&nbsp;<?=$arTask["FIELDS"]["TASKSTATUS_PRINTABLE"]?>
 		</span>
-		<?
+		<?php 
 		$bFirst = false;
 	}
 }

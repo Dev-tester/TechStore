@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_TASKS_PAGE_TITLE_USER_TASKS_RECYCLEBIN"] = "Recycle bin";
 $MESS["SONET_TASKS_MODULE_NOT_INSTALLED"] = "The Tasks module is not installed.";
 $MESS["SONET_TASKS_PAGE_TITLE_USER_TASKS"] = "Tasks";

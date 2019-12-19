@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/advertising/admin/adv_banner_list.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/advertising/admin/adv_banner_list.php");?>

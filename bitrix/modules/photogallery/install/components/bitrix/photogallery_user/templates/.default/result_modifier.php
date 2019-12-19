@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 // TODO: Get rid of this code and put it to the detail_list component
 if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_REQUEST["from_detail_list"]))
@@ -116,7 +116,7 @@ if ($this->__page !== "menu")
 /************** Themes/*********************************************/
 ?>
 
-<?if(!isset($_REQUEST["photo_list_action"]) || !$_REQUEST["photo_list_action"]):?>
+<?php if(!isset($_REQUEST["photo_list_action"]) || !$_REQUEST["photo_list_action"]):?>
 <style>
 div.photo-item-cover-block-container, 
 div.photo-item-cover-block-outer, 
@@ -148,9 +148,9 @@ div.photo-body-text-ajax{
 	padding-top:<?=intVal($arParams["THUMBNAIL_SIZE"] * $arParams["INDEX_PAGE_TOP_ELEMENTS_PERCENT"]/200)?>px;
 	text-align:center;}
 </style>
-<?endif; /*(!isset($_REQUEST["photo_list_action"]) || !$_REQUEST["photo_list_action"])*/?>
+<?php endif; /*(!isset($_REQUEST["photo_list_action"]) || !$_REQUEST["photo_list_action"])*/?>
 
-<?
+<?php 
 	$arResult["MENU_VARIABLES"] = $this->__component->__photogallery_values;
 	if (!is_array($arResult["MENU_VARIABLES"]))
 	{

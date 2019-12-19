@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	
 if ($arParams['SHOW_ACCOUNT_PAGE'] !== 'Y')
@@ -35,7 +35,7 @@ if ($arParams['SHOW_ACCOUNT_PAY_COMPONENT'] !== 'N' && $USER->IsAuthorized())
 	<h3 class="sale-personal-section-account-sub-header">
 		<?=Loc::getMessage("SPS_BUY_MONEY")?>
 	</h3>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:sale.account.pay",
 		"",

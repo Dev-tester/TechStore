@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CHAIN_STATUS_N"] = "Ready to send";
 $MESS["SENDER_CHAIN_STATUS_S"] = "Sending now..";
 $MESS["SENDER_CHAIN_STATUS_W"] = "Waiting to send";

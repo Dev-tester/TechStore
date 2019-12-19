@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AD_YES'] = "Да";
 $MESS ['AD_NO'] = "Нет";
 $MESS ['AD_ALL'] = "(все)";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_PHOTO_SORT_ID'] = "Новые";
 $MESS ['P_PHOTO_SORT_ID_TITLE'] = "по дате добавления";
 $MESS ['P_PHOTO_SORT_SHOWS'] = "Просматриваемые";

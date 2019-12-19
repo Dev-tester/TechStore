@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_ISIA_TPL_SHOW"] = "Show: ";
 $MESS["INTR_ISIA_TPL_ALL"] = "All";
 $MESS["INTR_ISIA_TPL_NOW"] = "Now";

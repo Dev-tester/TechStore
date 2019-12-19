@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUMS"] = "Forums";
 $MESS["NAV"] = "Forums";
 $MESS["ACTIVE"] = "Active";

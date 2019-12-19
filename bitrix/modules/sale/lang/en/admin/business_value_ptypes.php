@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZVAL_PAGE_TITLE"] = "Configure payer types for business meanings";
 $MESS["BIZVAL_PAGE_ERRORS"] = "There were errors";
 $MESS["BIZVAL_PAGE_PTYPES"] = "Payer types";

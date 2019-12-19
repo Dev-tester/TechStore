@@ -132,7 +132,7 @@ if(!empty($arUserSearchFields)):
 ?><script type="text/javascript">
 	BX.ready(
 		function()
-		{<?
+		{<?php 
 			foreach($arUserSearchFields as &$arField):
 				$arUserData = array();
 				if(isset($arField['USER'])):
@@ -146,12 +146,12 @@ if(!empty($arUserSearchFields)):
 				document.getElementsByName('<?=$arField['INPUT_NAME']?>')[0],
 				'<?=$arField['NAME']?>',
 				<?= CUtil::PhpToJSObject($arUserData)?>
-			);<?
+			);<?php 
 			endforeach;
 			unset($arField);
 		?>}
 	);
-</script><?
+</script><?php 
 endif;
 CJSCore::Init(array('crm_import_csv'));?>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $locToCode = array();
 $locToCode['Адыгея Респ'] = '0000028058';
 $locToCode['Алтай Респ'] = '0000028102';

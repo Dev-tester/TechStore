@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["main_profile_history_error_date1"] = "Incorrect start date.";
 $MESS["main_profile_history_error_date2"] = "Incorrect end date.";
 $MESS["main_profile_history_records"] = "Records";

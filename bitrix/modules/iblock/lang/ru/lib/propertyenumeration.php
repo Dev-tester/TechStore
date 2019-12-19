@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_PROPERTY_ENUM_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["IBLOCK_PROPERTY_ENUM_ENTITY_PROPERTY_ID_FIELD"] = "Идентификатор свойства";
 $MESS["IBLOCK_PROPERTY_ENUM_ENTITY_VALUE_FIELD"] = "Значение";

@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIBlockPropertyEnumResult extends CDBResult
 {
 	function Fetch()

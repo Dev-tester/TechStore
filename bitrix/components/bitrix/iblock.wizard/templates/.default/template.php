@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="wizard">
 
 <form method="post"  action="<?=POST_FORM_ACTION_URI?>" name="wizard">
 <input type=hidden name=LAST_SECTION_ID value="<?=$arResult['LAST_SECTION_ID']?>">
 <input type=hidden name=CURRENT_STEP value="<?=$arResult['CURRENT_STEP']?>">
 
-<?
+<?php 
 if ($arResult['ERROR'])
 	echo '<div><font class=wizard_errortext>'.$arResult['ERROR'].'</font></div>';
 elseif($arResult['MESSAGE'])
@@ -19,14 +19,14 @@ elseif($arResult['MESSAGE'])
 	<td background="<?=$templateFolder?>/images/top_fill.gif" style="background-repeat: repeat-x" align=center valign=middle width=60><img src="<?=$templateFolder?>/images/icon2.gif"><br><img src="/bitrix/images/1.gif" height=1 width=60></td>
 	<td background="<?=$templateFolder?>/images/top_fill.gif" style="background-repeat: repeat-x" align=left valign=middle>
 		<div class=wizard_title><?=GetMessage("WZ_TITLE")?></div>
-		<?
+		<?php 
 		if ($arResult['TOP_MESSAGE'])
 			echo "<div class=wizard_smalltext>".$arResult['TOP_MESSAGE']."</div>";
 		?>
 	</td>
 	<td width=6 align=right valign=top><img src="<?=$templateFolder?>/images/top_right.gif"></td>
 </tr>
-<?
+<?php 
 ?>
 <tr>
 	<td style="border-left:1px solid #BEC0CF"><img src="/bitrix/images/1.gif" width=1 height=1></td>
@@ -44,7 +44,7 @@ elseif($arResult['MESSAGE'])
 	<td><img src="/bitrix/images/1.gif" width=1 height=1></td>
 	<td align=center>
 		<table cellspacing=0 cellpadding=8 border=0>
-			<?
+			<?php 
 			if (count($arResult['SECTIONS']))
 			{
 				echo '<tr><td>';
@@ -133,8 +133,8 @@ elseif($arResult['MESSAGE'])
 	<td><img src="/bitrix/images/1.gif" width=1 height=1></td>
 	<td>
 		<p align=right style="padding-right:15px;padding-top:15px">
-		<? if (count($arResult['SECTIONS'])) { ?>
-			<? if ($arResult['CURRENT_STEP']>1) 
+		<?php  if (count($arResult['SECTIONS'])) { ?>
+			<?php  if ($arResult['CURRENT_STEP']>1) 
 			{
 				$img = $templateFolder.'/images/'.LANGUAGE_ID.'/button_back.gif';
 				if (file_exists($_SERVER['DOCUMENT_ROOT'].$img))
@@ -152,14 +152,14 @@ elseif($arResult['MESSAGE'])
 			} 
 		?>
 			<img src="/bitrix/images/1.gif" width=1 height=1>
-		<?
+		<?php 
 			$img = $templateFolder.'/images/'.LANGUAGE_ID.'/button_next.gif';
 			if (file_exists($_SERVER['DOCUMENT_ROOT'].$img))
 				echo '<input type=image src="'.$img.'" name="next">';
 			else
 				echo '<input type=submit value="'.GetMessage('WZ_BTN_NEXT').'" name="next">';
 		?>
-		<? } else { // Finish ?>
+		<?php  } else { // Finish ?>
 			<script>
 			function Goto(url)
 			{
@@ -169,7 +169,7 @@ elseif($arResult['MESSAGE'])
 			}
 			</script>	
 
-			<?
+			<?php 
 			$img = $templateFolder.'/images/'.LANGUAGE_ID.'/button_back.gif';
 			if (file_exists($_SERVER['DOCUMENT_ROOT'].$img))
 				echo '<input type=image src="'.$img.'" name="back">';
@@ -177,14 +177,14 @@ elseif($arResult['MESSAGE'])
 				echo '<input type=submit value="'.GetMessage('WZ_BTN_BACK').'" name="back">';
 			?>
 			<img src="/bitrix/images/1.gif" width=1 height=1>
-			<?
+			<?php 
 			$img = $templateFolder.'/images/'.LANGUAGE_ID.'/button_done.gif';
 			if (file_exists($_SERVER['DOCUMENT_ROOT'].$img))
 				echo '<input type=image src="'.$img.'" name="wizard" onclick="Goto(\''.htmlspecialcharsbx(addslashes($arParams['NEXT_URL'])).'\')">';
 			else
 				echo '<input type=submit value="'.GetMessage('WZ_BTN_FINISH').'" name="wizard" onclick="Goto(\''.htmlspecialcharsbx(addslashes($arParams['NEXT_URL'])).'\')">';
 			?>
-		<? } ?>
+		<?php  } ?>
 		</p>
 	</td>
 	<td style="border-right:1px solid #BEC0CF"><img src="/bitrix/images/1.gif" width=1 height=1></td>
@@ -196,7 +196,7 @@ elseif($arResult['MESSAGE'])
 	<td height=6 width=6 align=right valign=bottom><img src="<?=$templateFolder?>/images/bottom_right.gif"></td>
 </tr>
 </table>
-<?
+<?php 
 	if (count($arResult['HIDDEN']))
 	{
 		foreach($arResult['HIDDEN'] as $k=>$v)
@@ -210,7 +210,7 @@ elseif($arResult['MESSAGE'])
 	}
 ?>
 </form>
-<?
+<?php 
 
 // Help
 if (count($arHelp))
@@ -218,12 +218,12 @@ if (count($arHelp))
 ?>
 	<br>
 	<table cellspacing=4 cellpadding=2 style="background-color:#FFFFEF;border:1px solid #d7d7be;" width="100%">
-<?
+<?php 
 	foreach($arHelp as $i=>$help)
 		echo '<tr><td valign=top><font class=smalltext><b>'.$i.'.</b></font></td><td><font class=smalltext><a name="note'.$i.'"></a> ' . $help . '</font></td></tr>';
 ?>
 	</table>
-<?
+<?php 
 }
 ?>
 </div>

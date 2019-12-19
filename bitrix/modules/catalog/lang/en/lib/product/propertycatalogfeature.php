@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROPERTY_CATALOG_FEATURE_NAME_BASKET_PROPERTY"] = "Add value to shopping cart";
 $MESS["PROPERTY_CATALOG_FEATURE_NAME_SKU_TREE_PROPERTY"] = "Can select SKU's";
 ?>

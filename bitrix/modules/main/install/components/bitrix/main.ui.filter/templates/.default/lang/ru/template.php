@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_FILTER__FILTER"] = "Фильтры";
 $MESS["MAIN_UI_FILTER__ADD_FILTER"] = "Сохранить фильтр";
 $MESS["MAIN_UI_FILTER__BUTTON_SAVE"] = "Сохранить";

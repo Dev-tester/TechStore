@@ -7,9 +7,9 @@ if (!$arResult['IFRAME'])
 {
 	?>
 	<div class="paysystem-page-menu-sidebar">
-		<?$APPLICATION->ShowViewContent("left-panel");?>
+		<?php $APPLICATION->ShowViewContent("left-panel");?>
 	</div>
-	<?
+	<?php 
 }
 
 // menu
@@ -24,7 +24,7 @@ $APPLICATION->IncludeComponent(
 ?>
 
 <div id="salescenter-wrapper" class="salescenter-wrapper <?=($arResult['PAYSYSTEM_ID']) ? '' : 'salescenter-wrapper-template'?>">
-	<?if (!$arResult['PAYSYSTEM_ID']):?>
+	<?php if (!$arResult['PAYSYSTEM_ID']):?>
 		<div id="salescenter-paysystem-info">
 			<div class="ui-mb-15 ui-p-15 ui-bg-color-white">
 				<div class="salescenter-main-header">
@@ -49,10 +49,10 @@ $APPLICATION->IncludeComponent(
 				</div>
 			</div>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<form method="post" action="<?=$arResult['ACTION_URL']?>">
-		<?
+		<?php 
 		// contents
 		foreach ($arResult['CONFIG_MENU'] as $key => $menuItem)
 		{
@@ -60,27 +60,27 @@ $APPLICATION->IncludeComponent(
 
 			?>
 			<div data-paysystem-page="<?=$key?>" class="<?=$paymentPageClass?>">
-				<?include $menuItem['PAGE'];?>
+				<?php include $menuItem['PAGE'];?>
 				<div data-paysystem-title="<?=$menuItem['NAME']?>" class="salescenter-paysystem-page-invisible"></div>
 			</div>
-			<?
+			<?php 
 			if (isset($menuItem['CHILDREN']) && !empty($menuItem['CHILDREN']))
 			{
 				foreach ($menuItem['CHILDREN'] as $childKey => $childMenuItem)
 				{
 					?>
 					<div data-paysystem-page="<?=$childKey?>" class="<?=$paymentPageClass?>">
-						<?include $childMenuItem['PAGE'];?>
+						<?php include $childMenuItem['PAGE'];?>
 						<div data-paysystem-title="<?=$childMenuItem['NAME']?>" class="salescenter-paysystem-page-invisible"></div>
 					</div>
-					<?
+					<?php 
 				}
 			}
 		}
 		?>
 
 		<div id="salescenter-paysystem-buttons">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:ui.button.panel',
 				"",

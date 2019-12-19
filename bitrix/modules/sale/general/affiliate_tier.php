@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $GLOBALS["SALE_AFFILIATE_TIER"] = Array();

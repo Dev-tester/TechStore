@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_BITRIX_HANDLER_NAME_2"] = "Bitrix24";
 $MESS["DISK_BITRIX_HANDLER_NAME"] = "Bitrix24.Viewer";
 $MESS["DISK_BITRIX_HANDLER_ERROR_METHOD_IS_NOT_SUPPORTED"] = "#NAME# does not support this action.";

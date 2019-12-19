@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -7,26 +7,26 @@ use Bitrix\Tasks\Integration\Bitrix24;
 Bitrix24\UI::initLicensePopup('');
 ?>
 
-<?if(!$arResult['COMPONENT_DATA']['RESTRICTION']['USE']):?>
+<?php if(!$arResult['COMPONENT_DATA']['RESTRICTION']['USE']):?>
 	<div class="tasks-btn-restricted tasks-uf-panel-restricted">
 		<?=Loc::getMessage('TASKS_TUFP_LICENSE_RESTRICTED');?> <a href="<?=Bitrix24\UI::getLicenseUrl()?>" target="_blank"><?=Loc::getMessage('TASKS_TUFP_SHOW_DETAILS');?></a>
 	</div>
-<?else:?>
-	<?$arResult['HELPER']->displayFatals();?>
-	<?if(!$arResult['HELPER']->checkHasFatals()):?>
-		<?$arResult['HELPER']->displayWarnings();?>
+<?php else:?>
+	<?php $arResult['HELPER']->displayFatals();?>
+	<?php if(!$arResult['HELPER']->checkHasFatals()):?>
+		<?php $arResult['HELPER']->displayWarnings();?>
 
-		<?$canUse = $arResult['TEMPLATE_DATA']['CAN_USE'];?>
+		<?php $canUse = $arResult['TEMPLATE_DATA']['CAN_USE'];?>
 
 		<div id="<?=$arResult['HELPER']->getScopeId()?>" class="tasks">
 
 			<div class="tasks-uf-panel">
 
-				<?if($canUse):?>
+				<?php if($canUse):?>
 
 					<a href="javascript:void(0);" class="js-id-uf-panel-action tasks-btn-customize tasks-uf-panel-settings"></a>
 
-					<?ob_start();?>
+					<?php ob_start();?>
 					<div class="js-id-item-set-item js-id-item-set-item-{{VALUE}} tasks-uf-panel-row tasks {{DEFACEABLE}} {{REQUIRED}} {{EDIT}} {{INVISIBLE}}" data-type="{{USER_TYPE_ID}}" data-multiple="{{DISPLAY_MULTIPLE}}" data-item-value="{{VALUE}}">
 						<div class="tasks-uf-panel-row-geometry">
 							<div class="js-id-uf-panel-item-drag tasks-btn-drag"></div>
@@ -50,9 +50,9 @@ Bitrix24\UI::initLicensePopup('');
 									<div class="js-id-item-set-item-form tasks-uf-panel-form">
 										<div class="tasks-uf-panel-form-flags">
 											<label title="<?=Loc::getMessage('TASKS_TUFP_FIELD_MULTIPLE_HINT')?>"><input class="js-id-item-set-item-multiple-edit" type="checkbox" /><?=Loc::getMessage('TASKS_TUFP_FIELD_MULTIPLE')?></label>
-											<?$createMandatory = $arResult['COMPONENT_DATA']['RESTRICTION']['CREATE_MANDATORY'];?>
-											<span <?if(!$createMandatory):?>class="tasks-btn-restricted" title="<?=Loc::getMessage('TASKS_TUFP_LICENSE_RESTRICTED_MANDATORY')?>"<?endif?>>
-											<label <?if(!$createMandatory):?>class="disabled"<?endif?>><input class="js-id-item-set-item-required-edit" type="checkbox" <?if(!$createMandatory):?>disabled="disabled"<?endif?>/><?=Loc::getMessage('TASKS_TUFP_FIELD_MANDATORY')?></label>
+											<?php $createMandatory = $arResult['COMPONENT_DATA']['RESTRICTION']['CREATE_MANDATORY'];?>
+											<span <?php if(!$createMandatory):?>class="tasks-btn-restricted" title="<?=Loc::getMessage('TASKS_TUFP_LICENSE_RESTRICTED_MANDATORY')?>"<?php endif?>>
+											<label <?php if(!$createMandatory):?>class="disabled"<?php endif?>><input class="js-id-item-set-item-required-edit" type="checkbox" <?php if(!$createMandatory):?>disabled="disabled"<?php endif?>/><?=Loc::getMessage('TASKS_TUFP_FIELD_MANDATORY')?></label>
 										</span>
 										</div>
 										<div class="tasks-uf-panel-form-buttons">
@@ -66,20 +66,20 @@ Bitrix24\UI::initLicensePopup('');
 							</div>
 							<div class="tasks-uf-panel-row-buttons">
 								<a href="javascript:void(0);" class="js-id-item-set-item-hide tasks-btn-delete tasks-uf-panel-row-button-delete" title="<?=Loc::getMessage('TASKS_TUFP_FIELD_HIDE')?>"></a>
-								<?if($arResult['TEMPLATE_DATA']['CAN_EDIT']):?>
+								<?php if($arResult['TEMPLATE_DATA']['CAN_EDIT']):?>
 									<a href="javascript:void(0);" class="js-id-item-set-item-edit tasks-btn-edit tasks-uf-panel-row-button-edit" title="<?=Loc::getMessage('TASKS_TUFP_FIELD_EDIT')?>"></a>
-								<?endif?>
+								<?php endif?>
 							</div>
 							<div class="tasks-uf-panel-dnd-after"></div>
 						</div>
 					</div>
-					<?$rowTemplate = ob_get_clean();?>
+					<?php $rowTemplate = ob_get_clean();?>
 
 					<div class="js-id-item-set-items js-id-uf-panel-items tasks-uf-panel-items not-empty">
 
 						<div class="tasks-uf-panel-dnd-after panel"></div>
 
-						<?//todo: migrate to <template> tag when get supported?>
+						<?php //todo: migrate to <template> tag when get supported?>
 						<script data-bx-id="item-set-item" type="text/html">
 							<?=$rowTemplate?>
 						</script>
@@ -104,10 +104,10 @@ Bitrix24\UI::initLicensePopup('');
 							</label>
 						</script>
 
-						<?// walk by state, because state is pre-sorted ?>
-						<?foreach($arResult['DATA']['STATE'] as $id => $state):?>
+						<?php // walk by state, because state is pre-sorted ?>
+						<?php foreach($arResult['DATA']['STATE'] as $id => $state):?>
 
-							<?
+							<?php 
 							$uf = $arResult['DATA']['FIELDS'][$arResult['TEMPLATE_DATA']['ID2CODE'][$id]];
 							$ufPublic = $arResult['JS_DATA']['scheme'][$id];
 							$code = $uf['CODE'];
@@ -147,31 +147,31 @@ Bitrix24\UI::initLicensePopup('');
 								'DISPLAY_MULTIPLE' => $ufPublic['MULTIPLE'] || $ufPublic['USER_TYPE_ID'] == 'enumeration' ? '1' : '0',
 							));?>
 
-						<?endforeach?>
+						<?php endforeach?>
 					</div>
 
 					<div class="tasks-uf-panel-new-item-place js-id-item-set-new-item-place js-id-uf-panel-new-item-place">
 					</div>
 
-				<?endif?>
+				<?php endif?>
 
-				<?//action buttons?>
-				<div class="tasks-uf-panel-bottom-actions<?if(!$canUse):?> tasks-uf-panel-bottom-actions-off<?endif?>">
+				<?php //action buttons?>
+				<div class="tasks-uf-panel-bottom-actions<?php if(!$canUse):?> tasks-uf-panel-bottom-actions-off<?php endif?>">
 
-					<?if($canUse):?>
-						<?if($arResult['AUX_DATA']['USER']['IS_SUPER']):?>
-							<span class="<?if(!$arResult['COMPONENT_DATA']['RESTRICTION']['MANAGE']):?>tasks-btn-restricted<?endif?>">
+					<?php if($canUse):?>
+						<?php if($arResult['AUX_DATA']['USER']['IS_SUPER']):?>
+							<span class="<?php if(!$arResult['COMPONENT_DATA']['RESTRICTION']['MANAGE']):?>tasks-btn-restricted<?php endif?>">
 								<a class="tasks-uf-panel-btn-action js-id-uf-panel-add-field" href="javascript:void(0);"><?=Loc::getMessage('TASKS_TUFP_FIELD_ADD')?></a>
 							</span>
-						<?endif?>
+						<?php endif?>
 						<a class="js-id-uf-panel-un-hide-field" href="javascript:void(0);"><?=Loc::getMessage('TASKS_TUFP_FIELD_UN_HIDE')?></a>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('TASKS_TUFP_NO_FIELDS_TO_SHOW');?>
-					<?endif?>
+					<?php endif?>
 
 				</div>
 
-				<?// contents for un-hide-item popup?>
+				<?php // contents for un-hide-item popup?>
 				<div class="js-id-uf-panel-un-hide-menu no-display">
 					<div class="js-id-scrollpane-pane menu-popup tasks-uf-panel-scrollpane tasks-scrollpane">
 						<div class="js-id-scrollpane-body js-id-uf-panel-uhmenu menu-popup-items tasks-scrollpane-body">
@@ -188,7 +188,7 @@ Bitrix24\UI::initLicensePopup('');
 			</div>
 		</div>
 
-		<?$arResult['HELPER']->initializeExtension();?>
+		<?php $arResult['HELPER']->initializeExtension();?>
 
-	<?endif?>
-<?endif?>
+	<?php endif?>
+<?php endif?>

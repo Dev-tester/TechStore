@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_PRESET_TEMPLATE_MAIL_HTML_NAME"] = "Custom HTML";
 $MESS["SENDER_PRESET_TEMPLATE_MAIL_HTML_DESC"] = "Editor will be unavailable";
 $MESS["SENDER_PRESET_TEMPLATE_MAIL_HTML_SUBJECT"] = "Interesting offer here";

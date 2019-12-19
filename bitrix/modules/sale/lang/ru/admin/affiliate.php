@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SAA_ERROR_UPDATE'] = "Ошибка изменения аффилиата";
 $MESS ['SAA_ERROR_DELETE'] = "Ошибка удаления аффилиата";
 $MESS ['SAA_ERROR_ACTIVATE'] = "Ошибка изменения активности аффилиата";

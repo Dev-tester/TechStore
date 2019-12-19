@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUMS"] = "Forums";
 $MESS["FORUM_LIST"] = "List of forums";
 $MESS["FORUM_NAME"] = "Forum name";

@@ -11,9 +11,9 @@ $prefix = htmlspecialcharsbx($UID);
 	<div class="crm_card p0">
 		<div class="crm_card" style="padding: 0 15px;">
 			<div class="crm_card_image">
-			<?if($arResult['USER_PHOTO_URL'] !== ''):?>
+			<?php if($arResult['USER_PHOTO_URL'] !== ''):?>
 				<img src="<?=htmlspecialcharsbx($arResult['USER_PHOTO_URL'])?>" alt="" />
-			<?endif;?>
+			<?php endif;?>
 			</div>
 			<div class="crm_card_name_meeting"><?=htmlspecialcharsbx($arResult['USER_ACTUAL_NAME'])?></div>
 			<div class="crm_card_description_meeting"><?=htmlspecialcharsbx($arResult['USER_ACTUAL_EMAIL'])?></div>

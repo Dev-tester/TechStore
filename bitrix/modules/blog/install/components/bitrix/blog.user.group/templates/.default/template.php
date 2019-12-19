@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["FATAL_ERROR_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FATAL_ERROR_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ERROR_MESSAGE"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 	<script>
@@ -53,7 +53,7 @@ else
 	<input type="hidden" name="group_del" id="group_del">
 
 	<table border=0 cellspacing=1 cellpadding=3 class="blog-group" width=300>
-	<?
+	<?php 
 	if(!empty($arResult["USER_GROUP"]))
 	{
 	foreach($arResult["USER_GROUP"] as $v)
@@ -66,7 +66,7 @@ else
 			<td><a href="javascript:group_edit('<?=$v["ID"]?>')" title="<?=GetMessage("BLOG_NAME_CHANGE")?>" class="blog-group-edit"></a></td>
 			<td><a href="javascript:group_del('<?=$v["ID"]?>')" title="<?=GetMessage("BLOG_GROUP_DELETE")?>" class="blog-group-delete"></a></td>
 		</tr>
-		<?
+		<?php 
 	}
 	}
 	?>
@@ -88,5 +88,5 @@ else
 	</tr>
 	</table>
 	</form>
-<?
+<?php 
 }

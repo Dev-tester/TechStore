@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CRM_CACA_ERR_TOPIC_ABSENT"] = "Topic is not specified.";
 $MESS["BX_CRM_CACA_ERR_DATE_FROM_ABSENT"] = "The start date is not specified";
 $MESS["BX_CRM_CACA_ERR_DATE_FROM_FORMAT"] = "Invalid start date format";

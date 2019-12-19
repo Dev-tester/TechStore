@@ -1,4 +1,4 @@
-<?if(!check_bitrix_sessid()) return;
+<?php if(!check_bitrix_sessid()) return;
 IncludeModuleLangFile(__FILE__); 
 if(is_array($GLOBALS["errors"]) && count($GLOBALS["errors"])>0):
 	echo CAdminMessage::ShowMessage(Array("TYPE"=>"ERROR", "MESSAGE" =>GetMessage("MOD_INST_ERR"), "DETAILS"=>implode("<br>", $GLOBALS["errors"]), "HTML"=>true));
@@ -20,7 +20,7 @@ if ($_REQUEST["INSTALL_PUBLIC"] == "Y" && is_array($_REQUEST["PUBLIC_INFO"]) && 
 		$res["MODE"] = ($res["MODE"] == "sef" ? "sef" : "nsef");
 		if (strLen($res["PATH"]) <= 0)
 		{
-			?><?=$res["ID"]?>. <?=GetMessage("FORUM_BAD_PATH")?><?
+			?><?=$res["ID"]?>. <?=GetMessage("FORUM_BAD_PATH")?><?php 
 			continue;
 		}
 		$res["~PATH"] = preg_replace("/[\/\\\]+/", "/", "/".$res["PATH"]."/");
@@ -50,7 +50,7 @@ if ($_REQUEST["INSTALL_PUBLIC"] == "Y" && is_array($_REQUEST["PUBLIC_INFO"]) && 
 			);
 			Bitrix\Main\UrlRewriter::add(CSite::GetDefSite(), $arFields);
 		}
-		?><p><a href="<?=$res["~PATH"]?>"><?=$res["~PATH"]?></a></p><?
+		?><p><a href="<?=$res["~PATH"]?>"><?=$res["~PATH"]?></a></p><?php 
 	}
 }
 

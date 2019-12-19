@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_DUMP_FILE_CNT"] = "Файлов в архиве:";
 $MESS["MAIN_DUMP_FILE_SIZE"] = "Размер данных:";
 $MESS["MAIN_DUMP_FILE_FINISH"] = "Создание резервной копии завершено";

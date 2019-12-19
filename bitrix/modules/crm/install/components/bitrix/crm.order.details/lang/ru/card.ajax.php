@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ODCA_STATUS"] = "Статус";
 $MESS["CRM_ODCA_PRODUCTS"] = "Товары";
 $MESS["CRM_ODCA_PRICE"] = "Цена";

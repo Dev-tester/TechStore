@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FID_TIP'] = "Forum ID";
 $MESS ['SORT_BY_TIP'] = "Sort Field";
 $MESS ['SORT_ORDER_TIP'] = "Sort Order";

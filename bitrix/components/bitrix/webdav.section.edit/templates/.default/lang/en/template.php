@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_CREATED'] = "Created";
 $MESS ['WD_LAST_UPDATE'] = "Last update";
 $MESS ['WD_PARENT_SECTION'] = "Parent level";

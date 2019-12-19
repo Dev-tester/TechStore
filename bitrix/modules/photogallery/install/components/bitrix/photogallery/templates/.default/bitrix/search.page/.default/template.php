@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!(IsModuleInstalled("search") && $arParams["SHOW_TAGS"] == "Y"))
 	return false;
 
@@ -9,21 +9,21 @@ $arParams["THUMBNAIL_SIZE"] = (intVal($arParams["THUMBNAIL_SIZE"]) > 0 ? intVal(
 $arParams["~TAGS"] = $arResult["REQUEST"]["~TAGS"];
 ?>
 <form action="" method="get">
-<?if($arResult["REQUEST"]["HOW"]=="d"):?>
+<?php if($arResult["REQUEST"]["HOW"]=="d"):?>
 	<input type="hidden" name="how" value="d" />
-<?endif;?>
-	<?if ($arParams['SEF_PAGE_NAME'] && $_REQUEST[$arParams['SEF_PAGE_NAME']] == "search"):?>
+<?php endif;?>
+	<?php if ($arParams['SEF_PAGE_NAME'] && $_REQUEST[$arParams['SEF_PAGE_NAME']] == "search"):?>
 	<input type="hidden" name="<?= $arParams['SEF_PAGE_NAME']?>" value="search" />
-	<?endif;?>
-	<input type="hidden" name="tags" value="<?echo $arResult["REQUEST"]["TAGS"]?>" />
+	<?php endif;?>
+	<input type="hidden" name="tags" value="<?php echo $arResult["REQUEST"]["TAGS"]?>" />
 	<input type="text" name="q" value="<?=$arResult["REQUEST"]["QUERY"]?>" size="40" />
 	&nbsp;<input type="submit" value="<?=GetMessage("SEARCH_GO")?>" />
 </form>
-<?
+<?php 
 	$arResult["TAGS_CHAIN"] = array();
 	if ($arParams["~TAGS"])
 	{
-		?><div class="search-tags-chain" style="padding-bottom:0.2em;"><?=GetMessage("P_TAGS")?>: <?
+		?><div class="search-tags-chain" style="padding-bottom:0.2em;"><?=GetMessage("P_TAGS")?>: <?php 
 		$res = array_unique(explode(",", $arParams["~TAGS"]));
 		$url = array();
 		foreach ($res as $key => $tags)
@@ -40,25 +40,25 @@ $arParams["~TAGS"] = $arResult["REQUEST"]["~TAGS"];
 					"TAG_WITHOUT" => $APPLICATION->GetCurPageParam((count($url_without) > 0 ? "tags=".urlencode(implode(",", $url_without)) : ""), array("tags")),
 				);
 				$arResult["TAGS_CHAIN"][] = $result;
-				?><a href="<?=$result["TAG_PATH"]?>" rel="nofollow"><?=$result["TAG_NAME"]?></a> <?
-				?>[<a href="<?=$result["TAG_WITHOUT"]?>" class="search-tags-link" rel="nofollow">x</a>]  <?
+				?><a href="<?=$result["TAG_PATH"]?>" rel="nofollow"><?=$result["TAG_NAME"]?></a> <?php 
+				?>[<a href="<?=$result["TAG_WITHOUT"]?>" class="search-tags-link" rel="nofollow">x</a>]  <?php 
 			}
 		}
-	?></div><?
+	?></div><?php 
 	}
 ?>
 <br />
-<?if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):
+<?php if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):
 	?>
 	<div class="search-language-guess">
-		<?echo GetMessage("CT_BSP_KEYBOARD_WARNING", array("#query#"=>'<a href="'.$arResult["ORIGINAL_QUERY_URL"].'">'.$arResult["REQUEST"]["ORIGINAL_QUERY"].'</a>'))?>
-	</div><br /><?
+		<?php echo GetMessage("CT_BSP_KEYBOARD_WARNING", array("#query#"=>'<a href="'.$arResult["ORIGINAL_QUERY_URL"].'">'.$arResult["REQUEST"]["ORIGINAL_QUERY"].'</a>'))?>
+	</div><br /><?php 
 endif;?>
-<?
+<?php 
 if ($arResult["REQUEST"]["QUERY"] === false && $arResult["REQUEST"]["TAGS"] === false):
 	"";
 elseif ($arResult["ERROR_CODE"]!=0):
-	?><p><?=GetMessage("SEARCH_ERROR")?></p><?
+	?><p><?=GetMessage("SEARCH_ERROR")?></p><?php 
 	ShowError($arResult["ERROR_TEXT"]);
 	?><p><?=GetMessage("SEARCH_CORRECT_AND_CONTINUE")?></p>
 	<br /><br />
@@ -86,7 +86,7 @@ elseif ($arResult["ERROR_CODE"]!=0):
 			<td><?=GetMessage("SEARCH_BRACKETS_ALT")?></td>
 		</tr>
 	</table>
-<?
+<?php 
 	return true;
 elseif (empty($arResult["ELEMENTS_LIST"])):
 	ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND"));
@@ -123,6 +123,6 @@ elseif (!empty($arResult["ELEMENTS_LIST"])):
 	<div class="empty-clear"></div>
 	</noindex>
 </div>
-<?
+<?php 
 endif;
 ?>

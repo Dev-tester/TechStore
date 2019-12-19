@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EDIT_RECORD"] = "Details on order #ID#";
 $MESS["SALE_RECORDS_LIST"] = "To the order list";
 $MESS["P_ORDER_ID"] = "Order";

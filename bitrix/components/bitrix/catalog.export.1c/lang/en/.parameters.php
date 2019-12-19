@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BCE1_USE_ZIP"] = "Use ZIP compression if possible";
 $MESS["CP_BCE1_IBLOCK_ID"] = "Catalog information block";
 $MESS["CP_BCE1_GROUP_PERMISSIONS"] = "Allow export for";

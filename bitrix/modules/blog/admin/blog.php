@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/blog/include.php");
 
@@ -226,8 +226,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("BLB_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -242,47 +242,47 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("BLB_FILTER_NAME")?>:</td>
-		<td><input type="text" name="filter_name" value="<?echo htmlspecialcharsbx($filter_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLB_FILTER_NAME")?>:</td>
+		<td><input type="text" name="filter_name" value="<?php echo htmlspecialcharsbx($filter_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_FILTER_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("BLB_FILTER_ACTIVE")?>:</td>
 		<td>
 			<select name="filter_active">
-				<option value=""><?echo GetMessage("BLB_F_ALL")?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?echo GetMessage("BLB_YES")?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?echo GetMessage("BLB_NO")?></option>
+				<option value=""><?php echo GetMessage("BLB_F_ALL")?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?php echo GetMessage("BLB_YES")?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?php echo GetMessage("BLB_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_FILTER_URL")?>:</td>
-		<td><input type="text" name="filter_url" value="<?echo htmlspecialcharsbx($filter_url)?>" size="40"></td>
+		<td><?php echo GetMessage("BLB_FILTER_URL")?>:</td>
+		<td><input type="text" name="filter_url" value="<?php echo htmlspecialcharsbx($filter_url)?>" size="40"></td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo GetMessage("BLB_FILTER_GROUP_ID");?>:</td>
+		<td valign="top"><?php echo GetMessage("BLB_FILTER_GROUP_ID");?>:</td>
 		<td>
 			<select name="filter_group_id[]" multiple size="5">
-				<?
+				<?php 
 				
 				$dbGroup = CBlogGroup::GetList(array("NAME" => "ASC"), array());
 				while ($arGroup = $dbGroup->GetNext())
 				{
-					?><option value="<?= $arGroup["ID"] ?>"<?if (in_array($arGroup["ID"], $filter_group_id)) echo " selected"?>>[<?= $arGroup["ID"] ?>] <?= $arGroup["NAME"] ?> (<?= $arGroup["SITE_ID"] ?>)</option><?
+					?><option value="<?= $arGroup["ID"] ?>"<?php if (in_array($arGroup["ID"], $filter_group_id)) echo " selected"?>>[<?= $arGroup["ID"] ?>] <?= $arGroup["NAME"] ?> (<?= $arGroup["SITE_ID"] ?>)</option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_FILTER_OWNER")?>:</td>
-		<td><input type="text" name="filter_owner" value="<?echo htmlspecialcharsbx($filter_owner)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLB_FILTER_OWNER")?>:</td>
+		<td><input type="text" name="filter_owner" value="<?php echo htmlspecialcharsbx($filter_owner)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 	<tr>
 		<td>ID:</td>
-		<td><input type="text" name="filter_id" value="<?echo htmlspecialcharsbx($filter_id)?>" size="40"></td>
+		<td><input type="text" name="filter_id" value="<?php echo htmlspecialcharsbx($filter_id)?>" size="40"></td>
 	</tr>
-<?
+<?php 
 $USER_FIELD_MANAGER->AdminListShowFilter("BLOG_BLOG");
 
 $oFilter->Buttons(
@@ -296,10 +296,10 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

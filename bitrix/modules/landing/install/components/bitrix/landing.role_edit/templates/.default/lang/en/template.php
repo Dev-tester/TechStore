@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_ALERT_CONTENT_RELOADED"] = "You didn't save the changes. The form will be reloaded.";
 $MESS["LANDING_TPL_ADDITIONAL_ACTION_CREATE"] = "Create";
 $MESS["LANDING_TPL_ADDITIONAL_ACTION_MENU24"] = "View";

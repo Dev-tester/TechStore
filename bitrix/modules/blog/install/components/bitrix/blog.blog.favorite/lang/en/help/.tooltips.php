@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MESSAGE_COUNT_TIP'] = "Maximum number of messages that can be displayed on a page. Other posts will be available via the breadcrumb navigation links.";
 $MESS ['PATH_TO_BLOG_TIP'] = "The path to the main blog page. Example: blog_blog.php?page=blog&blog=#blog#.";
 $MESS ['PATH_TO_BLOG_CATEGORY_TIP'] = "The path to a blog page with a tag filter. Example: <nobr>blog_filter.php?page=blog&blog=#blog#<b>&category=#category#</b>.</nobr>";

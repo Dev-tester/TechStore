@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_SECTION_ADD'] = "Create Folder";
 $MESS ['WD_SECTION_ADD_ALT'] = "Creates a nested folder";
 $MESS ['WD_ELEMENT_ADD'] = "Create";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_MEMB_ADMIN_FILTER_URL"] = "URL сайта";
 $MESS["CTRL_MEMB_ADMIN_FILTER_GROUP"] = "Группа";
 $MESS["CTRL_MEMB_ADMIN_FILTER_UNIQID"] = "Уникальный код";

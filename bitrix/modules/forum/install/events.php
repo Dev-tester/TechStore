@@ -1,4 +1,4 @@
-<?
+<?php 
 function UET($EVENT_NAME, $NAME, $LID, $DESCRIPTION)
 {
 	$et = new CEventType;

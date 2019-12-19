@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 define('STOP_STATISTICS', true);
@@ -163,47 +163,47 @@ else
 	?><div id="product_settings_error_div" style="margin:0; display: none;">
 	<div class="adm-info-message-wrap adm-info-message-red">
 		<div class="adm-info-message">
-			<div class="adm-info-message-title"><? echo Loc::getMessage('SALE_DISCOUNT_REINDEX_ERRORS_TITLE'); ?></div>
+			<div class="adm-info-message-title"><?php  echo Loc::getMessage('SALE_DISCOUNT_REINDEX_ERRORS_TITLE'); ?></div>
 			<div id="product_settings_error_cont"></div>
 			<div class="adm-info-message-icon"></div>
 		</div>
 	</div>
 	</div>
-	<form name="product_settings_form" id="product_settings_form" action="<? echo $APPLICATION->GetCurPage(); ?>" method="GET"><?
+	<form name="product_settings_form" id="product_settings_form" action="<?php  echo $APPLICATION->GetCurPage(); ?>" method="GET"><?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?><tr>
-		<td width="40%"><label for="default_quantity_trace"><? echo Loc::getMessage("BX_CATALOG_PRODUCT_SETTINGS_ENABLE_QUANTITY_TRACE"); ?></label></td>
+		<td width="40%"><label for="default_quantity_trace"><?php  echo Loc::getMessage("BX_CATALOG_PRODUCT_SETTINGS_ENABLE_QUANTITY_TRACE"); ?></label></td>
 		<td width="60%">
-			<input type="checkbox" name="default_quantity_trace" id="quantity_trace" value="Y"<? echo ($settings['default_quantity_trace'] === 'Y' ? ' checked' : ''); ?>>
+			<input type="checkbox" name="default_quantity_trace" id="quantity_trace" value="Y"<?php  echo ($settings['default_quantity_trace'] === 'Y' ? ' checked' : ''); ?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><label for="default_can_buy_zero"><? echo Loc::getMessage("BX_CATALOG_PRODUCT_SETTINGS_ALLOW_CAN_BUY_ZERO"); ?></label></td>
+		<td width="40%"><label for="default_can_buy_zero"><?php  echo Loc::getMessage("BX_CATALOG_PRODUCT_SETTINGS_ALLOW_CAN_BUY_ZERO"); ?></label></td>
 		<td width="60%">
-			<input type="checkbox" name="default_can_buy_zero" id="can_buy_zero" value="Y"<? echo ($settings['default_can_buy_zero'] === 'Y' ? ' checked' : ''); ?>>
+			<input type="checkbox" name="default_can_buy_zero" id="can_buy_zero" value="Y"<?php  echo ($settings['default_can_buy_zero'] === 'Y' ? ' checked' : ''); ?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><label for="default_subscribe"><? echo Loc::getMessage("BX_CATALOG_PRODUCT_SETTINGS_PRODUCT_SUBSCRIBE"); ?></label></td>
+		<td width="40%"><label for="default_subscribe"><?php  echo Loc::getMessage("BX_CATALOG_PRODUCT_SETTINGS_PRODUCT_SUBSCRIBE"); ?></label></td>
 		<td width="60%">
-			<input type="checkbox" name="default_subscribe" id="subscribe" value="Y"<?if ($settings['default_subscribe'] === 'Y') echo " checked";?>>
+			<input type="checkbox" name="default_subscribe" id="subscribe" value="Y"<?php if ($settings['default_subscribe'] === 'Y') echo " checked";?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><? echo Loc::getMessage('BX_CATALOG_PRODUCT_SETTINGS_MAX_EXECUTION_TIME')?></td>
-		<td width="60%"><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $oneStepTime; ?>"></td>
+		<td width="40%"><?php  echo Loc::getMessage('BX_CATALOG_PRODUCT_SETTINGS_MAX_EXECUTION_TIME')?></td>
+		<td width="60%"><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $oneStepTime; ?>"></td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->Buttons();
 	?>
-	<input type="button" id="product_settings_start_button" value="<? echo Loc::getMessage('BX_CATALOG_PRODUCT_SETTINGS_UPDATE_BTN')?>">
-	<input type="button" id="product_settings_stop_button" value="<? echo Loc::getMessage('BX_CATALOG_PRODUCT_SETTINGS_STOP_BTN')?>" disabled>
+	<input type="button" id="product_settings_start_button" value="<?php  echo Loc::getMessage('BX_CATALOG_PRODUCT_SETTINGS_UPDATE_BTN')?>">
+	<input type="button" id="product_settings_stop_button" value="<?php  echo Loc::getMessage('BX_CATALOG_PRODUCT_SETTINGS_STOP_BTN')?>" disabled>
 	<div id="reindexReport" style="display: none;"></div>
-	<?
+	<?php 
 	$tabControl->End();
 	?></form>
-	<?
+	<?php 
 	$jsParams = array(
 		'url' => $APPLICATION->GetCurPage(),
 		'options' => array(
@@ -237,9 +237,9 @@ else
 	);
 	?>
 	<script type="text/javascript">
-		var jsProductSettings = new BX.Catalog.ProductSettings(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
+		var jsProductSettings = new BX.Catalog.ProductSettings(<?php  echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
 	</script>
-	<?
+	<?php 
 	if ($_REQUEST["public_mode"] != "Y")
 	{
 		require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

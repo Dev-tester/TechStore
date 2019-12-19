@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -54,63 +54,63 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 
 ?>
 	<form method="POST"
-		action="controller_auth.php?lang=<? echo LANGUAGE_ID ?><? echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): "" ?>"
+		action="controller_auth.php?lang=<?php  echo LANGUAGE_ID ?><?php  echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): "" ?>"
 		enctype="multipart/form-data" name="editform">
-		<?
+		<?php 
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		?>
 		<tr class="heading">
-			<td colspan="2"><? echo GetMessage("CTRLR_AUTH_CS_TAB_TITLE") ?></td>
+			<td colspan="2"><?php  echo GetMessage("CTRLR_AUTH_CS_TAB_TITLE") ?></td>
 		</tr>
 		<tr>
-			<td width="40%"><label for="cauth_cs"><? echo GetMessage("CTRLR_AUTH_CS_LABEL") ?></label> <span
+			<td width="40%"><label for="cauth_cs"><?php  echo GetMessage("CTRLR_AUTH_CS_LABEL") ?></label> <span
 					class="required"><sup>1</sup></span>:
 			</td>
 			<td><input type="hidden" name="auth_cs" value="N"><input type="checkbox" value="Y"
 					name="auth_cs"
-					id="cauth_cs" <? if (COption::GetOptionString("controller", "auth_loc_enabled") == "Y") echo 'checked="checked"'; ?>>
+					id="cauth_cs" <?php  if (COption::GetOptionString("controller", "auth_loc_enabled") == "Y") echo 'checked="checked"'; ?>>
 			</td>
 		</tr>
 		<tr>
-			<td class="adm-detail-valign-top"><? echo GetMessage("CTRLR_AUTH_LOC_GROUPS") ?>:</td>
+			<td class="adm-detail-valign-top"><?php  echo GetMessage("CTRLR_AUTH_LOC_GROUPS") ?>:</td>
 			<td>
-				<a href="<?echo htmlspecialcharsbx('controller_group_map.php?lang='.urlencode(LANGUAGE_ID).'&type=loc')?>"><? echo GetMessage("CTRLR_AUTH_SETUP") ?></a>
+				<a href="<?php echo htmlspecialcharsbx('controller_group_map.php?lang='.urlencode(LANGUAGE_ID).'&type=loc')?>"><?php  echo GetMessage("CTRLR_AUTH_SETUP") ?></a>
 			</td>
 		</tr>
 		<tr class="heading">
-			<td colspan="2"><? echo GetMessage("CTRLR_AUTH_SS_TAB_TITLE") ?></td>
+			<td colspan="2"><?php  echo GetMessage("CTRLR_AUTH_SS_TAB_TITLE") ?></td>
 		</tr>
 		<tr>
-			<td nowrap><label for="cauth_ss"><? echo GetMessage("CTRLR_AUTH_SS_LABEL") ?></label>:</td>
+			<td nowrap><label for="cauth_ss"><?php  echo GetMessage("CTRLR_AUTH_SS_LABEL") ?></label>:</td>
 			<td><input type="hidden" name="auth_ss" value="N"><input type="checkbox" value="Y"
 					name="auth_ss"
-					id="cauth_ss" <? if (COption::GetOptionString("controller", "auth_trans_enabled") == "Y") echo 'checked="checked"'; ?>>
+					id="cauth_ss" <?php  if (COption::GetOptionString("controller", "auth_trans_enabled") == "Y") echo 'checked="checked"'; ?>>
 			</td>
 		</tr>
 		<tr>
-			<td class="adm-detail-valign-top"><? echo GetMessage("CTRLR_AUTH_LOC_GROUPS") ?>:</td>
+			<td class="adm-detail-valign-top"><?php  echo GetMessage("CTRLR_AUTH_LOC_GROUPS") ?>:</td>
 			<td>
-				<a href="<?echo htmlspecialcharsbx('controller_group_map.php?lang='.urlencode(LANGUAGE_ID).'&type=trans')?>"><? echo GetMessage("CTRLR_AUTH_SETUP") ?></a>
+				<a href="<?php echo htmlspecialcharsbx('controller_group_map.php?lang='.urlencode(LANGUAGE_ID).'&type=trans')?>"><?php  echo GetMessage("CTRLR_AUTH_SETUP") ?></a>
 			</td>
 		</tr>
 		<tr class="heading">
-			<td colspan="2"><? echo GetMessage("CTRLR_AUTH_SC_TAB_TITLE") ?></td>
+			<td colspan="2"><?php  echo GetMessage("CTRLR_AUTH_SC_TAB_TITLE") ?></td>
 		</tr>
 		<tr>
-			<td nowrap><label for="cauth_sc"><? echo GetMessage("CTRLR_AUTH_SC_LABEL") ?></label>:</td>
+			<td nowrap><label for="cauth_sc"><?php  echo GetMessage("CTRLR_AUTH_SC_LABEL") ?></label>:</td>
 			<td><input type="hidden" name="auth_sc" value="N"><input type="checkbox" value="Y"
 					name="auth_sc"
-					id="cauth_sc" <? if (COption::GetOptionString("controller", "auth_controller_enabled") == "Y") echo 'checked="checked"'; ?>>
+					id="cauth_sc" <?php  if (COption::GetOptionString("controller", "auth_controller_enabled") == "Y") echo 'checked="checked"'; ?>>
 			</td>
 		</tr>
 		<tr>
-			<td class="adm-detail-valign-top"><? echo GetMessage("CTRLR_AUTH_LOC_GROUPS") ?>:</td>
+			<td class="adm-detail-valign-top"><?php  echo GetMessage("CTRLR_AUTH_LOC_GROUPS") ?>:</td>
 			<td>
-				<a href="<?echo htmlspecialcharsbx('controller_group_map.php?lang='.urlencode(LANGUAGE_ID).'&type=')?>"><? echo GetMessage("CTRLR_AUTH_SETUP") ?></a>
+				<a href="<?php echo htmlspecialcharsbx('controller_group_map.php?lang='.urlencode(LANGUAGE_ID).'&type=')?>"><?php  echo GetMessage("CTRLR_AUTH_SETUP") ?></a>
 			</td>
 		</tr>
-		<?
+		<?php 
 		$tabControl->Buttons(
 			array(
 				"disabled" => !$USER->CanDoOperation("controller_auth_manage"),
@@ -118,15 +118,15 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 			)
 		);
 		?>
-		<? echo bitrix_sessid_post(); ?>
-		<input type="hidden" name="lang" value="<? echo LANGUAGE_ID ?>">
-		<?
+		<?php  echo bitrix_sessid_post(); ?>
+		<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID ?>">
+		<?php 
 		$tabControl->End();
 		?>
 	</form>
-<? echo BeginNote(); ?>
-	<span class="required"><sup>1</sup></span><? echo GetMessage("CTRLR_AUTH_NOTE") ?>
-<? echo EndNote(); ?>
-<?
+<?php  echo BeginNote(); ?>
+	<span class="required"><sup>1</sup></span><?php  echo GetMessage("CTRLR_AUTH_NOTE") ?>
+<?php  echo EndNote(); ?>
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

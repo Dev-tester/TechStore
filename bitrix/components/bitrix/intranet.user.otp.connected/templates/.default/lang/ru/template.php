@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_OTP_AUTH"] = "Двухэтапная авторизация";
 $MESS["INTRANET_USER_OTP_NO_DAYS"] = "бессрочно";
 $MESS["INTRANET_USER_OTP_ACTIVE"] = "Включена";

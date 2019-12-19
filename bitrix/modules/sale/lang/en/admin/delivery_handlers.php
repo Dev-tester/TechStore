@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DH_TITLE'] = "Automated delivery services";
 $MESS ['SALE_EDIT_DESCR'] = "Edit the delivery service preferences";
 $MESS ['SALE_DH_NAV_TITLE'] = "Delivery services";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACTIVE'] = "Record active";
 $MESS ['WD_NAME'] = "Name";
 $MESS ['WD_TAGS'] = "Tags";

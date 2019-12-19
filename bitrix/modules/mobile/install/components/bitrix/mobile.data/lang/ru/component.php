@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MD_EMPLOYEES_TITLE"] = "Сотрудники";
 $MESS["MD_EMPLOYEES_ALL"] = "Всем сотрудникам";
 $MESS["MD_GROUPS_TITLE"] = "Рабочие группы";

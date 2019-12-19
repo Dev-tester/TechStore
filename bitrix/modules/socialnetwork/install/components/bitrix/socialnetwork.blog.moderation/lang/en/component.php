@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "The Blogs module is not installed.";
 $MESS["BLOG_BLOG_BLOG_MES_DELED"] = "The conversation has been deleted successfully.";
 $MESS["BLOG_BLOG_BLOG_MES_DEL_ERROR"] = "Error deleting the conversation.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["access_groups"]="Группы пользователей";
 $MESS["access_group"]="Группа";
 $MESS["access_users"]="Пользователи";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["rub_title"] = "Newsletter categories";
 $MESS["rub_del_err"] = "Cannot delete category.";
 $MESS["rub_nav"] = "Categories";

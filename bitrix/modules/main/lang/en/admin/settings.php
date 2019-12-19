@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_TITLE"] = "Module Settings";
 $MESS["MAIN_KERNEL"] = "Kernel";
 $MESS["MAIN_SELECT"] = "Select";

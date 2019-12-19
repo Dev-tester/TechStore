@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MN_SU_NO_ID"] = "The URL ID is not specified.";
 $MESS["MN_SU_DELETE_ERROR"] = "Error deleting the record.";
 $MESS["MN_SU_NO_URI"] = "The destination URL is not specified.";

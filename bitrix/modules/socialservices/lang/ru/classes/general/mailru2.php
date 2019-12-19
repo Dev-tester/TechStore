@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["socserv_mailru2_id"] = "ID Приложения:";
 $MESS["socserv_mailru2_key"] = "Секрет:";
 $MESS['socserv_mailru2_sett_note'] = "Для получения кодов необходимо <a href=\"https://o2.mail.ru/app/new\">создать приложение</a>.<br />В поле \"Все redirect_uri\" можно указать значение <a href=\"#URL#\">#URL#</a>";

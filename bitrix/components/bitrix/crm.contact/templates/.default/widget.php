@@ -72,7 +72,7 @@ $rowData = $enableDemo ?
 	Activity\CommunicationWidgetPanel::getDemoRowData(CCrmOwnerType::Contact, $isSupervisor)
 	: Activity\CommunicationWidgetPanel::getRowData(CCrmOwnerType::Contact, $isSupervisor);
 
-?><div class="bx-crm-view"><?
+?><div class="bx-crm-view"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.widget_panel',
 		'',

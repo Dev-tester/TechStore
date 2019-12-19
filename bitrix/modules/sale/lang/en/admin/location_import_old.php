@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NO_LOC_FILE"] = "Location data file is not loaded";
 $MESS["ERROR_LOC_FORMAT"] = "Wrong location file format: main language is not set";
 $MESS["NO_MAIN_LANG"] = "Main language from location file is not set on the site";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['mnu_sect'] = "Newsletters";
 $MESS ['mnu_posting'] = "Newsletter issues";
 $MESS ['mnu_posting_alt'] = "Newsletter management";

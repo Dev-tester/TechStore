@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_WGT_DEAL_PAYMENT_CONTROL"] = "Won deal payment control";
 $MESS["CRM_INVOICE_WGT_FUNNEL"] = "Invoice funnel";
 $MESS["CRM_INVOICE_WGT_INVOCE_MANAGER"] = "Employees' invoice handling efficiency";

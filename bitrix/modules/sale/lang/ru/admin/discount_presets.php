@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_PRESET_TITLE"] = "Мастер правил корзины";
 $MESS["BX_SALE_DISCOUNT_PRESET_ANNOUNCE"] = "Описание";
 $MESS["BX_SALE_DISCOUNT_PRESET_CREATE"] = "Создать правило";

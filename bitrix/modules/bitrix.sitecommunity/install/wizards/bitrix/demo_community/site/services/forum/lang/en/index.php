@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GUEST1"] = "Roberto";
 $MESS["GUEST2"] = "Victoria Morrison";
 $MESS["GUEST3"] = "Guest";

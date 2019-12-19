@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DUP_INDEX_TYPE_PERSON"] = "Full name";
 $MESS["CRM_DUP_INDEX_TYPE_ORGANIZATION"] = "Company name";
 $MESS["CRM_DUP_INDEX_TYPE_COMM_PHONE"] = "Phone";

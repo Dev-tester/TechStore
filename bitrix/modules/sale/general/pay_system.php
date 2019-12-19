@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Sale\Internals\PaySystemActionTable;
 
 IncludeModuleLangFile(__FILE__);

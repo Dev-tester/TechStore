@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_IAC_VACATION'] = "ОТПУСК";
 $MESS ['INTR_IAC_ASSIGNMENT'] = "КОМАНДИРОВК";
 $MESS ['IBLOCK_XML2_FILE_ERROR'] = "Ошибка открытия файла.";

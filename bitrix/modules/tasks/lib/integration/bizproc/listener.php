@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Integration\Bizproc;
 
 use Bitrix\Main;

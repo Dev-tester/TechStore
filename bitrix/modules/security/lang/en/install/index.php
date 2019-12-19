@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_MODULE_NAME'] = "Proactive Protection";
 $MESS ['SEC_MODULE_DESCRIPTION'] = "The module for proactive protection of your site.";
 $MESS ['SEC_INSTALL_TITLE'] = "Proactive Protection Module Installation";

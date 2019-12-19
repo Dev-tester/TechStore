@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_URL_TEMPLATES"] = "Управление адресами страниц";
 $MESS["F_MESSAGES_PER_PAGE"] = "Количество сообщений на одной странице";
 $MESS["F_DEFAULT_TID"] = "ID темы";

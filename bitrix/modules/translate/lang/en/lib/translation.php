@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TRANSLATE_ENCODING_UTF_8'] = "Unicode";
 $MESS ['TRANSLATE_ENCODING_WINDOWS_1250'] = "Central European";
 $MESS ['TRANSLATE_ENCODING_WINDOWS_1251'] = "Cyrillic";

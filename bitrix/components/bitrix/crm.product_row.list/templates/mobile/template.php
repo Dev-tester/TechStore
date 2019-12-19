@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /** @var \CBitrixComponent $component */
 if (!\Bitrix\Main\Loader::includeModule("mobile"))
@@ -70,7 +70,7 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 				<span><?= htmlspecialcharsbx(GetMessage('CRM_PRODUCT_TOTAL_BEFORE_DISCOUNT')) ?>:</span>
 			</td>
 			<td class="crm-view-table-total-value-value">
-				<? $productEditorCfg['TOTAL_BEFORE_DISCOUNT_ID'] = $arResult['PREFIX'].'_total_before_discount'; ?>
+				<?php  $productEditorCfg['TOTAL_BEFORE_DISCOUNT_ID'] = $arResult['PREFIX'].'_total_before_discount'; ?>
 				<span id="<?= htmlspecialcharsbx($productEditorCfg['TOTAL_BEFORE_DISCOUNT_ID']) ?>"
 					  class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($arResult['TOTAL_BEFORE_DISCOUNT'], $arResult['CURRENCY_ID']) ?></span>
 			</td>
@@ -79,7 +79,7 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 			<td class="crm-view-table-total-value-title">
 				<span><?= htmlspecialcharsbx(GetMessage('CRM_PRODUCT_TOTAL_DISCOUNT')) ?>:</span>
 			</td>
-			<td class="crm-view-table-total-value-value"><?
+			<td class="crm-view-table-total-value-value"><?php 
 				$productEditorCfg['TOTAL_DISCOUNT_ID'] = $arResult['PREFIX'].'_total_discount';
 				if (round(doubleval($arResult['TOTAL_DISCOUNT']), 2) !== 0.0)
 					$bDiscountExists = true;
@@ -87,7 +87,7 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 				<span id="<?= htmlspecialcharsbx($productEditorCfg['TOTAL_DISCOUNT_ID']) ?>"
 					  class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($arResult['TOTAL_DISCOUNT'], $arResult['CURRENCY_ID']) ?></span>
 			</td>
-		</tr><?
+		</tr><?php 
 		$productEditorTaxList = array();
 		if ($arResult['ALLOW_TAX'] || $arResult['ALLOW_LD_TAX']):
 			?>
@@ -95,12 +95,12 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 				<td class="crm-view-table-total-value-title">
 					<span><?= htmlspecialcharsbx(GetMessage('CRM_PRODUCT_TOTAL_BEFORE_TAX')) ?>:</span>
 				</td>
-				<td class="crm-view-table-total-value-value"><? $productEditorCfg['TOTAL_BEFORE_TAX_ID'] = $arResult['PREFIX'].'_total_before_tax'; ?>
+				<td class="crm-view-table-total-value-value"><?php  $productEditorCfg['TOTAL_BEFORE_TAX_ID'] = $arResult['PREFIX'].'_total_before_tax'; ?>
 					<span id="<?= htmlspecialcharsbx($productEditorCfg['TOTAL_BEFORE_TAX_ID']) ?>"
 						  class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($arResult['TOTAL_BEFORE_TAX'], $arResult['CURRENCY_ID']) ?></span>
 				</td>
 			</tr>
-			<?
+			<?php 
 		endif;
 		if ($arResult['ALLOW_TAX']):
 			$productEditorTaxList[] = array(
@@ -118,7 +118,7 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 				<span id="<?= htmlspecialcharsbx($productEditorCfg['taxValueID']) ?>"
 					  class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($arResult['TOTAL_TAX'], $arResult['CURRENCY_ID']) ?></span>
 			</td>
-			</tr><?
+			</tr><?php 
 		elseif ($arResult['ALLOW_LD_TAX']):
 			$taxList = isset($arResult['TAX_LIST']) ? $arResult['TAX_LIST'] : array();
 			if (!is_array($arResult['TAX_LIST']) || count($arResult['TAX_LIST']) === 0)
@@ -157,7 +157,7 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 				<span
 					<?php echo ($i === 0) ? 'id="'.htmlspecialcharsbx($productEditorCfg['taxValueID']).'" ' : ''; ?>class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($taxInfo['VALUE_MONEY'], $arResult['CURRENCY_ID']) ?></span>
 				</td>
-				</tr><?
+				</tr><?php 
 				$i++;
 			endforeach;
 			$productEditorCfg['LDTaxes'] = $productEditorTaxList;
@@ -170,13 +170,13 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 				<span><?= htmlspecialcharsbx(GetMessage('CRM_PRODUCT_SUM_TOTAL')) ?>:</span>
 			</td>
 			<td class="crm-view-table-total-value-value">
-				<? $productEditorCfg['SUM_TOTAL_ID'] = $arResult['PREFIX'].'_sum_total'; ?>
+				<?php  $productEditorCfg['SUM_TOTAL_ID'] = $arResult['PREFIX'].'_sum_total'; ?>
 				<span id="<?= htmlspecialcharsbx($productEditorCfg['SUM_TOTAL_ID']) ?>"
 					  class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($arResult['TOTAL_SUM'], $arResult['CURRENCY_ID']) ?></span>
 			</td>
 		</tr>
 
-		<?
+		<?php 
 		$productEditorCfg['_discountExistsInit'] = $bDiscountExists;
 		$productEditorCfg['_taxExistsInit'] = $bTaxExists;
 		?>
@@ -184,21 +184,21 @@ $productEditorCfg['enableDiscount'] = $arResult['ENABLE_DISCOUNT'];
 	</table>
 </div>
 
-<div id="mobile-crm-invoice-edit-product" data-role="mobile-crm-invoice-edit-products" class="crm-mobile-product-view-container" <?if (empty($arResult['PRODUCT_ROWS'])):?>style="display: none" <?endif?>>
+<div id="mobile-crm-invoice-edit-product" data-role="mobile-crm-invoice-edit-products" class="crm-mobile-product-view-container" <?php if (empty($arResult['PRODUCT_ROWS'])):?>style="display: none" <?php endif?>>
 	<!--Products' html is generated on javascript, object BX.Mobile.Crm.ProductEditor-->
 </div>
 
-<?if (!$arParams["RESTRICTED_MODE"]):?>
+<?php if (!$arParams["RESTRICTED_MODE"]):?>
 	<a class="mobile-grid-button select-user" href="javascript:void(0)" onclick="BX.Mobile.Crm.loadPageBlank('<?=CUtil::JSEscape($arParams['PRODUCT_SELECTOR_URL_TEMPLATE'])?>')"><?=GetMessage("CRM_BUTTON_SELECT")?></a>
-<?endif?>
+<?php endif?>
 
-<?if ($arParams["RESTRICTED_MODE"] && $arParams['SEND_PRODUCTS_IN_RESTRICTED_MODE']):?>
-	<?foreach($arResult['PRODUCT_ROWS'] as $key => $row):?>
-		<?foreach($row as $id => $val):?>
+<?php if ($arParams["RESTRICTED_MODE"] && $arParams['SEND_PRODUCTS_IN_RESTRICTED_MODE']):?>
+	<?php foreach($arResult['PRODUCT_ROWS'] as $key => $row):?>
+		<?php foreach($row as $id => $val):?>
 		<input type="hidden" name="<?=$arParams["PRODUCT_DATA_FIELD_NAME"]?>[<?=$key?>][<?=$id?>]" value="<?=$val?>">
-		<?endforeach?>
-	<?endforeach?>
-<?endif?>
+		<?php endforeach?>
+	<?php endforeach?>
+<?php endif?>
 
 <script type="text/javascript">
 	var productEditorParams = {

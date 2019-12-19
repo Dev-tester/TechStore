@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($arParams["PERMISSION"] < "W" || empty($_POST["action_button_".$arParams["GRID_ID"]]) || empty($_POST["ID"]))
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -37,7 +37,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_del" value="Y">
 	<?=bitrix_sessid_post();?>
 </form>
-<?
+<?php 
 if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first time open active connector
 {
 	?>
@@ -65,7 +65,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first ti
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
+	<?php include 'messages.php'?>
 	<div class="imconnector-field-container">
 		<div class="imconnector-field-section">
 			<div class="imconnector-field-main-title">
@@ -74,7 +74,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first ti
 			<div class="imconnector-field-box">
 				<div class="imconnector-field-box-entity-row">
 
-					<?
+					<?php 
 					if ($arResult["INFO_CONNECTION"]['URL_CODE_PUBLIC_ID'] > 0)
 					{
 						?>
@@ -86,7 +86,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first ti
 						</span>
 						<span class="imconnector-field-box-entity-icon-copy-to-clipboard copy-to-clipboard"
 							  data-text="<?=htmlspecialcharsbx(CUtil::JSEscape($arResult["INFO_CONNECTION"]["URL_PUBLIC"]))?>"></span>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -94,7 +94,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first ti
 						<div class="imconnector-field-box-subtitle">
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_LIVECHAT_WO_PUBLUC')?>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 
@@ -102,7 +102,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first ti
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 elseif (!$arResult['ACTIVE_STATUS']) //case when open not active connector
 {
@@ -122,7 +122,7 @@ elseif (!$arResult['ACTIVE_STATUS']) //case when open not active connector
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
+	<?php include 'messages.php'?>
 	<div class="imconnector-field-container">
 		<div class="imconnector-field-section">
 			<div class="imconnector-field-main-title">
@@ -148,7 +148,7 @@ elseif (!$arResult['ACTIVE_STATUS']) //case when open not active connector
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -165,11 +165,11 @@ else
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
+	<?php include 'messages.php'?>
 	<form action="<?=$arResult["URL"]["SIMPLE_FORM_EDIT"]?>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_form" value="true">
 		<?=bitrix_sessid_post();?>
-		<?
+		<?php 
 		if ($arResult['INFO_CONNECTION']['BUTTON_INTERFACE'] == 'Y')
 		{
 			?>
@@ -194,7 +194,7 @@ else
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 		<div class="imconnector-field-container">
@@ -290,7 +290,7 @@ else
 							</div><!--imconnector-livechat-public-link-inner-->
 						</div>
 					</div><!--imconnector-livechat-public-link-->
-					<?/**/?>
+					<?php /**/?>
 					<div id="imconnector-livechat-public-link-settings-toggle" class="imconnector-livechat-public-link-settings" style="margin-top: 2px;">
 						<span class="imconnector-livechat-public-link-settings-item"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_LIVECHAT_SF_PAGE_CONFIG')?></span>
 						<span class="imconnector-livechat-public-link-settings-triangle-down"></span>
@@ -301,7 +301,7 @@ else
 							<span class="imconnector-livechat-public-link-settings-inner-param"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_LIVECHAT_SF_PAGE_TYPE')?>:</span>
 							<div class="imconnector-livechat-public-link-settings-inner-content">
 								<div class="imconnector-livechat-public-link-settings-inner-type">
-									<?/*
+									<?php /*
 										<span class="imconnector-livechat-public-link-settings-inner-chat">
 											<label for="colorless" class="imconnector-livechat-public-link-settings-inner-chat-container">
 												<div class="imconnector-livechat-public-link-settings-inner-chat-image imconnector-livechat-colorless"></div>
@@ -332,7 +332,7 @@ else
 											<input class="imconnector-livechat-public-link-settings-inner-upload-item" type="file" name="BACKGROUND_IMAGE">
 										</div>
 										<span id="BACKGROUND_IMAGE_TEXT" class="imconnector-livechat-public-link-settings-inner-upload-info"></span>
-										<?
+										<?php 
 										if($arResult['INFO_CONNECTION']['BACKGROUND_IMAGE'] > 0)
 										{
 											?>
@@ -343,7 +343,7 @@ else
 											<div class="imconnector-livechat-public-link-upload-image-container">
 												<img class="imconnector-livechat-public-link-upload-image" alt="" src="<?=$arResult['INFO_CONNECTION']['BACKGROUND_IMAGE_LINK']?>">
 											</div>
-											<?
+											<?php 
 										}
 										?>
 									</div><!--imconnector-livechat-public-link-settings-inner-upload-->
@@ -397,7 +397,7 @@ else
 													<span class="imconnector-livechat-public-link-settings-bold"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_LIVECHAT_SF_PAGE_SIGN_3')?></span>
 												</span>
 									</label><!--imconnector-livechat-public-link-settings-inner-option-container-->
-									<?
+									<?php 
 									if($arResult['INFO_CONNECTION']['CAN_REMOVE_COPYRIGHT'] == "N")
 									{
 										?>
@@ -417,7 +417,7 @@ else
 												);
 											});
 										</script>
-										<?
+										<?php 
 									}
 									?>
 								</div><!--imconnector-public-link-settings-inner-option-->
@@ -486,6 +486,6 @@ else
 			</div>
 		</div>
 	</form>
-	<?
+	<?php 
 }
 ?>

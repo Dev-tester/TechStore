@@ -1,4 +1,4 @@
-<?if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <div class="calendar-help-title-h1" style="padding-top: 15px;">Справочные материалы</div>
 
 <div class="calendar-help-main-block" style="padding:7px 10px 4px;">

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if($arResult["PHONE_REGISTRATION"])
 {
@@ -8,16 +8,16 @@ if($arResult["PHONE_REGISTRATION"])
 
 <div class="bx-auth">
 
-<?
+<?php 
 ShowMessage($arParams["~AUTH_RESULT"]);
 ?>
 
-<?if($arResult["SHOW_FORM"]):?>
+<?php if($arResult["SHOW_FORM"]):?>
 
 <form method="post" action="<?=$arResult["AUTH_FORM"]?>" name="bform">
-	<?if (strlen($arResult["BACKURL"]) > 0): ?>
+	<?php if (strlen($arResult["BACKURL"]) > 0): ?>
 	<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
-	<? endif ?>
+	<?php  endif ?>
 	<input type="hidden" name="AUTH_FORM" value="Y">
 	<input type="hidden" name="TYPE" value="CHANGE_PWD">
 	<table class="data-table bx-changepass-table">
@@ -27,19 +27,19 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 			</tr>
 		</thead>
 		<tbody>
-<?if($arResult["PHONE_REGISTRATION"]):?>
+<?php if($arResult["PHONE_REGISTRATION"]):?>
 			<tr>
-				<td><?echo GetMessage("sys_auth_chpass_phone_number")?></td>
+				<td><?php echo GetMessage("sys_auth_chpass_phone_number")?></td>
 				<td>
 					<input type="text" value="<?=htmlspecialcharsbx($arResult["USER_PHONE_NUMBER"])?>" class="bx-auth-input" disabled="disabled" />
 					<input type="hidden" name="USER_PHONE_NUMBER" value="<?=htmlspecialcharsbx($arResult["USER_PHONE_NUMBER"])?>" />
 				</td>
 			</tr>
 			<tr>
-				<td><span class="starrequired">*</span><?echo GetMessage("sys_auth_chpass_code")?></td>
+				<td><span class="starrequired">*</span><?php echo GetMessage("sys_auth_chpass_code")?></td>
 				<td><input type="text" name="USER_CHECKWORD" maxlength="50" value="<?=$arResult["USER_CHECKWORD"]?>" class="bx-auth-input" autocomplete="off" /></td>
 			</tr>
-<?else:?>
+<?php else:?>
 			<tr>
 				<td><span class="starrequired">*</span><?=GetMessage("AUTH_LOGIN")?></td>
 				<td><input type="text" name="USER_LOGIN" maxlength="50" value="<?=$arResult["LAST_LOGIN"]?>" class="bx-auth-input" /></td>
@@ -48,30 +48,30 @@ ShowMessage($arParams["~AUTH_RESULT"]);
 				<td><span class="starrequired">*</span><?=GetMessage("AUTH_CHECKWORD")?></td>
 				<td><input type="text" name="USER_CHECKWORD" maxlength="50" value="<?=$arResult["USER_CHECKWORD"]?>" class="bx-auth-input" autocomplete="off" /></td>
 			</tr>
-<?endif?>
+<?php endif?>
 			<tr>
 				<td><span class="starrequired">*</span><?=GetMessage("AUTH_NEW_PASSWORD_REQ")?></td>
 				<td><input type="password" name="USER_PASSWORD" maxlength="255" value="<?=$arResult["USER_PASSWORD"]?>" class="bx-auth-input" autocomplete="off" />
-<?if($arResult["SECURE_AUTH"]):?>
-				<span class="bx-auth-secure" id="bx_auth_secure" title="<?echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
+<?php if($arResult["SECURE_AUTH"]):?>
+				<span class="bx-auth-secure" id="bx_auth_secure" title="<?php echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
 					<div class="bx-auth-secure-icon"></div>
 				</span>
 				<noscript>
-				<span class="bx-auth-secure" title="<?echo GetMessage("AUTH_NONSECURE_NOTE")?>">
+				<span class="bx-auth-secure" title="<?php echo GetMessage("AUTH_NONSECURE_NOTE")?>">
 					<div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
 				</span>
 				</noscript>
 <script type="text/javascript">
 document.getElementById('bx_auth_secure').style.display = 'inline-block';
 </script>
-<?endif?>
+<?php endif?>
 				</td>
 			</tr>
 			<tr>
 				<td><span class="starrequired">*</span><?=GetMessage("AUTH_NEW_PASSWORD_CONFIRM")?></td>
 				<td><input type="password" name="USER_CONFIRM_PASSWORD" maxlength="255" value="<?=$arResult["USER_CONFIRM_PASSWORD"]?>" class="bx-auth-input" autocomplete="off" /></td>
 			</tr>
-		<?if($arResult["USE_CAPTCHA"]):?>
+		<?php if($arResult["USE_CAPTCHA"]):?>
 			<tr>
 				<td></td>
 				<td>
@@ -80,10 +80,10 @@ document.getElementById('bx_auth_secure').style.display = 'inline-block';
 				</td>
 			</tr>
 			<tr>
-				<td><span class="starrequired">*</span><?echo GetMessage("system_auth_captcha")?></td>
+				<td><span class="starrequired">*</span><?php echo GetMessage("system_auth_captcha")?></td>
 				<td><input type="text" name="captcha_word" maxlength="50" value="" /></td>
 			</tr>
-		<?endif?>
+		<?php endif?>
 		</tbody>
 		<tfoot>
 			<tr>
@@ -94,10 +94,10 @@ document.getElementById('bx_auth_secure').style.display = 'inline-block';
 	</table>
 </form>
 
-<p><?echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></p>
+<p><?php echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></p>
 <p><span class="starrequired">*</span><?=GetMessage("AUTH_REQ")?></p>
 
-<?if($arResult["PHONE_REGISTRATION"]):?>
+<?php if($arResult["PHONE_REGISTRATION"]):?>
 
 <script type="text/javascript">
 new BX.PhoneAuth({
@@ -123,13 +123,13 @@ new BX.PhoneAuth({
 });
 </script>
 
-<div id="bx_chpass_error" style="display:none"><?ShowError("error")?></div>
+<div id="bx_chpass_error" style="display:none"><?php ShowError("error")?></div>
 
 <div id="bx_chpass_resend"></div>
 
-<?endif?>
+<?php endif?>
 
-<?endif?>
+<?php endif?>
 
 <p><a href="<?=$arResult["AUTH_AUTH_URL"]?>"><b><?=GetMessage("AUTH_AUTH")?></b></a></p>
 

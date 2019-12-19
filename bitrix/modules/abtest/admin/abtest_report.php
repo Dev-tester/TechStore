@@ -176,11 +176,11 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs, false);
 
 ?>
 
-<? $tabControl->Begin(); ?>
-<? $tabControl->BeginNextTab(); ?>
+<?php  $tabControl->Begin(); ?>
+<?php  $tabControl->BeginNextTab(); ?>
 
 
-<?
+<?php 
 
 $estDays = null;
 if ($abtest['MIN_AMOUNT'] > 0 && $abtest['PORTION'] > 0)
@@ -283,75 +283,75 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 
 <div class="stat-item-block-container abtest-report-container">
 	<div class="stat-item-container item-test-info">
-		<? if ($user_name) : ?>
+		<?php  if ($user_name) : ?>
 		<span class="ab-test-info ab-test-info-right"><?=getMessage($abtest['ACTIVE'] == 'Y' ? 'ABTEST_STARTED_BY' : 'ABTEST_STOPPED_BY'); ?>: <a href="/bitrix/admin/user_edit.php?ID=<?=intval($abtest['USER_ID']); ?>&amp;lang=<?=LANG; ?>"><?=$user_name; ?></a></span>
-		<? endif; ?>
+		<?php  endif; ?>
 		<img style="float: left; margin-right: 15px; " src="/bitrix/images/abtest/ab-test-<?=($abtest['ACTIVE'] == 'Y' ? 'on' : 'off');?>.gif">
-		<? if ($MOD_RIGHT >= 'W') : ?>
-		<? if ($abtest['ACTIVE'] == 'Y') : ?>
+		<?php  if ($MOD_RIGHT >= 'W') : ?>
+		<?php  if ($abtest['ACTIVE'] == 'Y') : ?>
 		<span class="adm-btn" style="vertical-align: baseline; " onclick="if (confirm('<?=CUtil::JSEscape(getMessage('ABTEST_STOP_CONFIRM')); ?>')) window.location='abtest_admin.php?action=stop&amp;ID=<?=intval($abtest['ID']); ?>&amp;lang=<?=LANG; ?>&amp;<?=bitrix_sessid_get(); ?>'; "><?=getMessage('ABTEST_BTN_STOP'); ?></span>
-		<? elseif (empty($active_test)) : ?>
+		<?php  elseif (empty($active_test)) : ?>
 		<span class="adm-btn adm-btn-green" style="vertical-align: baseline; " onclick="if (confirm('<?=CUtil::JSEscape(getMessage('ABTEST_START_CONFIRM')); ?>')) window.location='abtest_admin.php?action=start&amp;ID=<?=intval($abtest['ID']); ?>&amp;lang=<?=LANG; ?>&amp;<?=bitrix_sessid_get(); ?>'; "><?=getMessage('ABTEST_BTN_START'); ?></span>
-		<? else : ?>
+		<?php  else : ?>
 		<span class="adm-btn adm-btn-disabled" style="vertical-align: baseline; margin-right: 0px; " onclick="alert('<?=CUtil::JSEscape(getMessage('ABTEST_ONLYONE_WARNING')); ?>'); "><?=getMessage('ABTEST_BTN_START'); ?></span>
-		<? endif; ?>
-		<? endif; ?>
-		<? if ($abtest['ACTIVE'] == 'Y') : ?>
+		<?php  endif; ?>
+		<?php  endif; ?>
+		<?php  if ($abtest['ACTIVE'] == 'Y') : ?>
 		<span class="ab-test-info">
 			<?=getMessage('ABTEST_START_DATE'); ?>:
 			<span><?=$abtest['START_DATE']->format(Bitrix\Main\Type\Date::convertFormatToPhp($arLang['FORMAT_DATE'])); ?></span>
 		</span>
-		<? if ($end_date) : ?>
+		<?php  if ($end_date) : ?>
 		<span class="ab-test-info">
 			<?=getMessage('ABTEST_STOP_DATE2'); ?>:
 			<span><?=htmlspecialcharsbx($end_date); ?></span>
 		</span>
-		<? endif; ?>
-		<? else : ?>
-		<? if ($abtest['START_DATE']) : ?>
+		<?php  endif; ?>
+		<?php  else : ?>
+		<?php  if ($abtest['START_DATE']) : ?>
 		<span class="ab-test-info">
 			<?=getMessage('ABTEST_START_DATE2'); ?>:
 			<span><?=$abtest['START_DATE']->format(Bitrix\Main\Type\Date::convertFormatToPhp($arLang['FORMAT_DATE'])); ?></span>
 		</span>
-		<? endif; ?>
-		<? if ($abtest['STOP_DATE']) : ?>
+		<?php  endif; ?>
+		<?php  if ($abtest['STOP_DATE']) : ?>
 		<span class="ab-test-info">
 			<?=getMessage('ABTEST_STOP_DATE'); ?>:
 			<span><?=$abtest['STOP_DATE']->format(Bitrix\Main\Type\Date::convertFormatToPhp($arLang['FORMAT_DATE'])); ?></span>
 		</span>
-		<? endif; ?>
-		<? if (!$abtest['START_DATE'] && !$abtest['STOP_DATE']) : ?>
+		<?php  endif; ?>
+		<?php  if (!$abtest['START_DATE'] && !$abtest['STOP_DATE']) : ?>
 		<span class="ab-test-info"><?=getMessage('ABTEST_NEVER_LAUNCHED'); ?></span>
-		<? endif; ?>
-		<? endif; ?>
+		<?php  endif; ?>
+		<?php  endif; ?>
 	</div>
 
-	<? if (!empty($math)) : ?>
+	<?php  if (!empty($math)) : ?>
 	<div class="stat-item-container item-test-info">
 		<div class="adm-input-wrap adm-input-help-icon-wrap">
 			<a class="adm-input-help-icon" href="#math-hint"></a>
 		</div>
 		<span class="ab-test-info" style="padding: 0px; color: <?=($math['pwr'] ? '#729e00' : '#c70000'); ?>; font-weight: bold; ">
 			&bull; <?=getMessage($math['pwr'] ? 'ABTEST_MATH_POWER_YES' : 'ABTEST_MATH_POWER_NO'); ?>
-			<? if (!$math['pwr'] && $estDays) : ?>
+			<?php  if (!$math['pwr'] && $estDays) : ?>
 			(<?=str_replace(
 				array('#NUM#', '#UNIT#'),
 				array($estDays, plural_form($estDays, get_plural_messages('ABTEST_DURATION_DAYS1_'))),
 				getMessage('ABTEST_DURATION_EST')
 			); ?>)
-			<? endif; ?>
+			<?php  endif; ?>
 		</span> <sup>1</sup><br>
 		<span class="ab-test-info" style="padding: 0px; color: <?=($math['sgn'] ? '#729e00' : '#c70000'); ?>; font-weight: bold; ">
 			&bull; <?=getMessage($math['sgn'] ? 'ABTEST_MATH_SIGNIFICANCE_YES' : 'ABTEST_MATH_SIGNIFICANCE_NO'); ?>
 		</span> <sup>2</sup>
 	</div>
-	<? endif; ?>
+	<?php  endif; ?>
 
-	<? if (empty($conversionRates)) : ?>
+	<?php  if (empty($conversionRates)) : ?>
 	<div class="stat-item-container item-conversion-block">
 		<?=getMessage($conversionAvailable ? 'ABTEST_CONVRATES_UNAVAILABLE' : 'ABTEST_CONVERSION_UNAVAILABLE'); ?>
 	</div>
-	<? else : ?>
+	<?php  else : ?>
 	<div class="ab-item-container">
 		<div class="stat-item-container">
 			<span class="ab-item-desc"><span>50%</span> <?=getMessage('ABTEST_VISITS'); ?></span>
@@ -376,7 +376,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 			</div>
 		</div>
 
-		<? if (!empty($arGraphData)) : ?>
+		<?php  if (!empty($arGraphData)) : ?>
 		<script type="text/javascript">
 
 		AmCharts.ready(function()
@@ -480,11 +480,11 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 			chart.write('chart_container');
 		});
 		</script>
-		<? endif; ?>
+		<?php  endif; ?>
 
-		<? $groupARate = round($arGroupABaseRate['RATE']*100, 2); ?>
-		<? $groupBRate = round($arGroupBBaseRate['RATE']*100, 2); ?>
-		<? $rateDiff   = round($groupBRate-$groupARate, 2); ?>
+		<?php  $groupARate = round($arGroupABaseRate['RATE']*100, 2); ?>
+		<?php  $groupBRate = round($arGroupBBaseRate['RATE']*100, 2); ?>
+		<?php  $rateDiff   = round($groupBRate-$groupARate, 2); ?>
 		<div class="stat-item-data-container stat-item-data-container-a">
 			<div class="stat-item-container stat-item-data">
 				<div class="stat-item-container-title">
@@ -500,8 +500,8 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 				</div>
 			</div>
 		</div>
-		<div class="stat-item-data-container<? if ($rateDiff != 0) : ?> stat-item-data-container-dynamics<? endif; ?>">
-			<div class="stat-item-container stat-item-data<? if ($rateDiff != 0) : ?> stat-item-block-<?=($rateDiff > 0 ? 'incr' : 'fall'); ?><? endif; ?>">
+		<div class="stat-item-data-container<?php  if ($rateDiff != 0) : ?> stat-item-data-container-dynamics<?php  endif; ?>">
+			<div class="stat-item-container stat-item-data<?php  if ($rateDiff != 0) : ?> stat-item-block-<?=($rateDiff > 0 ? 'incr' : 'fall'); ?><?php  endif; ?>">
 				<div class="stat-item-container-title">
 					<span class="stat-item-container-title-name"><?=getMessage('ABTEST_CONVERSION_DIFF_TITLE'); ?></span>
 				</div>
@@ -533,8 +533,8 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 		</div>
 	</div>
 
-	<? if (!empty($funnelRates)) : ?>
-	<? $funnelBaseRate = end($funnelRates); ?>
+	<?php  if (!empty($funnelRates)) : ?>
+	<?php  $funnelBaseRate = end($funnelRates); ?>
 	<div class="adm-detail-toolbar">
 		<span class="adm-detail-toolbar-title"><?=getMessage('ABTEST_CONVERSION_FUNNEL_TITLE'); ?></span>
 	</div>
@@ -560,7 +560,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 						</span>
 					</span>
 				</div>
-				<? $sum = array_reduce($funnelRates, function($sum, $type) use ($arGroupAData) {
+				<?php  $sum = array_reduce($funnelRates, function($sum, $type) use ($arGroupAData) {
 					return $sum + $arGroupAData[$type]['SUM'];
 				}, 0); ?>
 				<div id="funnel_a_container">
@@ -569,7 +569,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					</div>
 				</div>
 
-				<? if ($sum > 0) : ?>
+				<?php  if ($sum > 0) : ?>
 				<script type="text/javascript">
 
 				AmCharts.ready(function()
@@ -577,11 +577,11 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					var chart = new AmCharts.AmFunnelChart();
 
 					chart.dataProvider = [
-						<? $k = 0; ?>
-						<? foreach ($funnelRates as $type) : ?>
-						<? $data = $arGroupAData[$type]; ?>
-						<? if ($k++ > 0) echo ','; ?>{'title': '<?=CUtil::JSEscape($data['TYPE']['NAME']); ?>', 'value': <?=sprintf('%.0f', $data['SUM']); ?>, 'unit': '<?=CUtil::JSEscape($data['TYPE']['UNITS']['SUM']); ?>'}
-						<? endforeach; ?>
+						<?php  $k = 0; ?>
+						<?php  foreach ($funnelRates as $type) : ?>
+						<?php  $data = $arGroupAData[$type]; ?>
+						<?php  if ($k++ > 0) echo ','; ?>{'title': '<?=CUtil::JSEscape($data['TYPE']['NAME']); ?>', 'value': <?=sprintf('%.0f', $data['SUM']); ?>, 'unit': '<?=CUtil::JSEscape($data['TYPE']['UNITS']['SUM']); ?>'}
+						<?php  endforeach; ?>
 					];
 					chart.theme        = 'none';
 					chart.labelText    = ' ';
@@ -601,7 +601,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					chart.write('funnel_a_container');
 				});
 				</script>
-				<? endif; ?>
+				<?php  endif; ?>
 
 			</div>
 		</div>
@@ -613,11 +613,11 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 				<span class="stat-item-container-title-name"><?=htmlspecialcharsbx($arGroupBData[$funnelBaseRate]['TYPE']['NAME']); ?></span>
 			</div>
 			<div class="stat-item">
-				<div class="stat-item-block stat-item-block-conversion<? if ($rateDiff != 0) : ?> stat-item-block-conversion-<?=($rateDiff > 0 ? 'incr' : 'fall'); endif; ?>">
+				<div class="stat-item-block stat-item-block-conversion<?php  if ($rateDiff != 0) : ?> stat-item-block-conversion-<?=($rateDiff > 0 ? 'incr' : 'fall'); endif; ?>">
 					<span class="stat-item-block-inner">
 						<span class="stat-item-block-title"><?=getMessage('ABTEST_CONVERSION_VALUE_TITLE'); ?></span>
 						<span class="stat-item-block-digit">
-							<? if ($rateDiff != 0) : ?><span class="stat-item-block-digit-arrow"></span><? endif; ?><?=str_replace('.', ',', $groupBRate); ?><span>%</span>
+							<?php  if ($rateDiff != 0) : ?><span class="stat-item-block-digit-arrow"></span><?php  endif; ?><?=str_replace('.', ',', $groupBRate); ?><span>%</span>
 						</span>
 					</span>
 				</div>
@@ -630,7 +630,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 						</span>
 					</span>
 				</div>
-				<? $sum = array_reduce($funnelRates, function($sum, $type) use ($arGroupBData) {
+				<?php  $sum = array_reduce($funnelRates, function($sum, $type) use ($arGroupBData) {
 					return $sum + $arGroupBData[$type]['SUM'];
 				}, 0); ?>
 				<div id="funnel_b_container">
@@ -639,7 +639,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					</div>
 				</div>
 
-				<? if ($sum > 0) : ?>
+				<?php  if ($sum > 0) : ?>
 				<script type="text/javascript">
 
 				AmCharts.ready(function()
@@ -647,11 +647,11 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					var chart = new AmCharts.AmFunnelChart();
 
 					chart.dataProvider = [
-						<? $k = 0; ?>
-						<? foreach ($funnelRates as $type) : ?>
-						<? $data = $arGroupBData[$type]; ?>
-						<? if ($k++ > 0) echo ','; ?>{'title': '<?=CUtil::JSEscape($data['TYPE']['NAME']); ?>', 'value': <?=sprintf('%.0f', $data['SUM']); ?>, 'unit': '<?=CUtil::JSEscape($data['TYPE']['UNITS']['SUM']); ?>'}
-						<? endforeach; ?>
+						<?php  $k = 0; ?>
+						<?php  foreach ($funnelRates as $type) : ?>
+						<?php  $data = $arGroupBData[$type]; ?>
+						<?php  if ($k++ > 0) echo ','; ?>{'title': '<?=CUtil::JSEscape($data['TYPE']['NAME']); ?>', 'value': <?=sprintf('%.0f', $data['SUM']); ?>, 'unit': '<?=CUtil::JSEscape($data['TYPE']['UNITS']['SUM']); ?>'}
+						<?php  endforeach; ?>
 					];
 					chart.theme        = 'none';
 					chart.labelText    = ' ';
@@ -671,24 +671,24 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					chart.write('funnel_b_container');
 				});
 				</script>
-				<? endif; ?>
+				<?php  endif; ?>
 
 			</div>
 		</div>
 	</div>
-	<? endif; ?>
+	<?php  endif; ?>
 
 	<div class="adm-detail-toolbar">
 		<span class="adm-detail-toolbar-title"><?=getMessage('ABTEST_CONVERSION_COUNTERS_TITLE'); ?></span>
 	</div>
-	<? $arGroupARates = array(); ?>
+	<?php  $arGroupARates = array(); ?>
 	<div id="counters-a" class="stat-item-data-container stat-item-data-container-a">
-		<? $cnt = count($arGroupAData); $k = 0; ?>
-		<? foreach ($allRates as $type) : ?>
-		<? $data = $arGroupAData[$type]; ?>
-		<? $rate = round($data['RATE']*100, 2); ?>
-		<? $arGroupARates[$type] = $rate; ?>
-		<div class="stat-item-container stat-item-data<? if (!is_set($data, 'SUM')) : ?> stat-item-data-short<? endif; ?>">
+		<?php  $cnt = count($arGroupAData); $k = 0; ?>
+		<?php  foreach ($allRates as $type) : ?>
+		<?php  $data = $arGroupAData[$type]; ?>
+		<?php  $rate = round($data['RATE']*100, 2); ?>
+		<?php  $arGroupARates[$type] = $rate; ?>
+		<div class="stat-item-container stat-item-data<?php  if (!is_set($data, 'SUM')) : ?> stat-item-data-short<?php  endif; ?>">
 			<div class="stat-item-container-title">
 				<span class="stat-item-container-title-letter">A</span>
 				<span class="stat-item-container-title-name"><?=htmlspecialcharsbx($data['TYPE']['NAME']); ?></span>
@@ -700,7 +700,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 						<span class="stat-item-block-digit"><?=str_replace('.', ',', $rate); ?><span>%</span></span>
 					</span>
 				</div>
-				<? if (is_set($data, 'SUM')) : ?>
+				<?php  if (is_set($data, 'SUM')) : ?>
 				<div class="stat-item-block stat-item-block-first">
 					<span class="stat-item-block-inner">
 						<span class="stat-item-block-title"><?=getMessage('ABTEST_CONVERSION_SUM_TITLE'); ?></span>
@@ -710,8 +710,8 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 						</span>
 					</span>
 				</div>
-				<? endif; ?>
-				<? $value = floatval(isset($data['QUANTITY']) ? $data['QUANTITY'] : $data['NUMERATOR']); ?>
+				<?php  endif; ?>
+				<?php  $value = floatval(isset($data['QUANTITY']) ? $data['QUANTITY'] : $data['NUMERATOR']); ?>
 				<div class="stat-item-block">
 					<span class="stat-item-block-inner">
 						<span class="stat-item-block-title"><?=getMessage('ABTEST_CONVERSION_CNT_TITLE'); ?></span>
@@ -719,29 +719,29 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					</span>
 				</div>
 			</div>
-			<? if (++$k < $cnt) : ?><span class="stat-item-chain"></span><? endif; ?>
+			<?php  if (++$k < $cnt) : ?><span class="stat-item-chain"></span><?php  endif; ?>
 		</div>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</div>
 	<div id="counters-b" class="stat-item-data-container stat-item-data-container-b">
-		<? $cnt = count($arGroupBData); $k = 0; ?>
-		<? foreach ($allRates as $type) : ?>
-		<? $data = $arGroupBData[$type]; ?>
-		<? $rate = round($data['RATE']*100, 2); ?>
-		<? $rateDiff = round($rate-$arGroupARates[$type], 2); ?>
-		<div class="stat-item-container stat-item-data<? if (!is_set($data, 'SUM')) : ?> stat-item-data-short<? endif; ?>">
+		<?php  $cnt = count($arGroupBData); $k = 0; ?>
+		<?php  foreach ($allRates as $type) : ?>
+		<?php  $data = $arGroupBData[$type]; ?>
+		<?php  $rate = round($data['RATE']*100, 2); ?>
+		<?php  $rateDiff = round($rate-$arGroupARates[$type], 2); ?>
+		<div class="stat-item-container stat-item-data<?php  if (!is_set($data, 'SUM')) : ?> stat-item-data-short<?php  endif; ?>">
 			<div class="stat-item-container-title">
 				<span class="stat-item-container-title-letter">B</span>
 				<span class="stat-item-container-title-name"><?=htmlspecialcharsbx($data['TYPE']['NAME']); ?></span>
 			</div>
 			<div class="stat-item">
-				<div class="stat-item-block stat-item-block-conversion<? if ($rateDiff != 0) : ?> stat-item-block-conversion-<?=($rateDiff > 0 ? 'incr' : 'fall'); endif; ?>">
+				<div class="stat-item-block stat-item-block-conversion<?php  if ($rateDiff != 0) : ?> stat-item-block-conversion-<?=($rateDiff > 0 ? 'incr' : 'fall'); endif; ?>">
 					<span class="stat-item-block-inner">
 						<span class="stat-item-block-title"><?=getMessage('ABTEST_CONVERSION_VALUE_TITLE'); ?></span>
-						<span class="stat-item-block-digit"><? if ($rateDiff != 0) : ?><span class="stat-item-block-digit-arrow"></span><? endif; ?><?=str_replace('.', ',', $rate); ?><span>%</span></span>
+						<span class="stat-item-block-digit"><?php  if ($rateDiff != 0) : ?><span class="stat-item-block-digit-arrow"></span><?php  endif; ?><?=str_replace('.', ',', $rate); ?><span>%</span></span>
 					</span>
 				</div>
-				<? if (is_set($data, 'SUM')) : ?>
+				<?php  if (is_set($data, 'SUM')) : ?>
 				<div class="stat-item-block stat-item-block-first">
 					<span class="stat-item-block-inner">
 						<span class="stat-item-block-title"><?=getMessage('ABTEST_CONVERSION_SUM_TITLE'); ?></span>
@@ -751,8 +751,8 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 						</span>
 					</span>
 				</div>
-				<? endif; ?>
-				<? $value = floatval(isset($data['QUANTITY']) ? $data['QUANTITY'] : $data['NUMERATOR']); ?>
+				<?php  endif; ?>
+				<?php  $value = floatval(isset($data['QUANTITY']) ? $data['QUANTITY'] : $data['NUMERATOR']); ?>
 				<div class="stat-item-block">
 					<span class="stat-item-block-inner">
 						<span class="stat-item-block-title"><?=getMessage('ABTEST_CONVERSION_CNT_TITLE'); ?></span>
@@ -760,9 +760,9 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 					</span>
 				</div>
 			</div>
-			<? if (++$k < $cnt) : ?><span class="stat-item-chain"></span><? endif; ?>
+			<?php  if (++$k < $cnt) : ?><span class="stat-item-chain"></span><?php  endif; ?>
 		</div>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</div>
 	<script type="text/javascript">
 
@@ -783,7 +783,7 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 	var graphFixSize = new BX.FixFontSize({objList: scale_30_1_list, onresize: true});
 	var graphFixSize = new BX.FixFontSize({objList: scale_30_2_list, onresize: true});
 
-	<? if (!empty($funnelRates)) : ?>
+	<?php  if (!empty($funnelRates)) : ?>
 	var scale_30_3_list = [].concat(
 		BX.findChildrenByClassName(BX('funnel-a'), 'scale-num-30-3', true),
 		BX.findChildrenByClassName(BX('funnel-b'), 'scale-num-30-3', true)
@@ -792,16 +792,16 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 		scale_30_3_list[i] = {node: scale_30_3_list[i], maxFontSize: 30, smallestValue: true};
 
 	var graphFixSize = new BX.FixFontSize({objList: scale_30_3_list, onresize: true});
-	<? endif; ?>
+	<?php  endif; ?>
 
 	</script>
-	<? endif; ?>
+	<?php  endif; ?>
 </div>
 
 </td></tr>
 
-<? $tabControl->EndTab(); ?>
-<? $tabControl->End(); ?>
+<?php  $tabControl->EndTab(); ?>
+<?php  $tabControl->End(); ?>
 
 <div class="adm-info-message-wrap">
 	<div class="adm-info-message" id="math-hint">
@@ -810,6 +810,6 @@ $user_name = $abtest['USER_ID'] ? CUser::formatName(
 	</div>
 </div>
 
-<?
+<?php 
 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

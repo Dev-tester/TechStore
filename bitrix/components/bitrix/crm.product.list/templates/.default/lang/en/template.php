@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_ALL'] = "Total";
 $MESS['CRM_PRODUCT_COPY'] = "Copy product";
 $MESS['CRM_PRODUCT_COPY_TITLE'] = "Open product copying page";

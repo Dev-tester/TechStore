@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_DUMP_FILE_CNT"] = "Files compressed:";
 $MESS["MAIN_DUMP_FILE_SIZE"] = "Files size:";
 $MESS["MAIN_DUMP_FILE_FINISH"] = "Backup completed";

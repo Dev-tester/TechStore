@@ -1,4 +1,4 @@
-<?
+<?php 
 return [
 	"rel" => [
 		"mobile.component.im.dialog",

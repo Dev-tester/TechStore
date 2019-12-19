@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 //Functions
@@ -267,27 +267,27 @@ $popupWindow->ShowTitlebar(GetMessage("PAGE_DELETE_WINDOW_TITLE"));
 $popupWindow->StartDescription("bx-delete-page");
 ?>
 <p><?=str_replace("#FILENAME#", htmlspecialcharsbx($path), GetMessage("PAGE_DELETE_CONFIRM_TEXT"))?></p>
-<?
+<?php 
 $popupWindow->EndDescription("bx-delete-page");
 $popupWindow->StartContent();
 if (isset($strWarning) && $strWarning != "")
 	$popupWindow->ShowValidationError($strWarning);
 ?>
-<?if (IsModuleInstalled("fileman")):?>
+<?php if (IsModuleInstalled("fileman")):?>
 	<input type="checkbox" name="delete_from_menu" value="Y" id="bx_delete_from_menu" <?=($deleteFromMenu ? "checked" : "")?>> <label for="bx_delete_from_menu"><?=GetMessage("PAGE_DELETE_FROM_MENU")?></label>
-<?
+<?php 
 if (isset($strNotice) && $strNotice != '')
 	CAdminMessage::ShowMessage(array("MESSAGE" => $strNotice, "TYPE" => "ERROR"))
 ?>
-<?endif?>
+<?php endif?>
 
 
-<?$popupWindow->StartButtons();?>
+<?php $popupWindow->StartButtons();?>
 
 <input name="btn_popup_save" type="button" value="<?=GetMessage("PAGE_DELETE_BUTTON_YES")?>" title="<?=GetMessage("PAGE_DELETE_BUTTON_YES")?>" onclick="BXDeletePage();"/>
 &nbsp;&nbsp;&nbsp;<input name="btn_popup_close" type="button" value="<?=GetMessage("PAGE_DELETE_BUTTON_NO")?>" onclick="<?=$popupWindow->jsPopup?>.CloseDialog()" title="<?=GetMessage("PAGE_DELETE_BUTTON_NO")?>" />
 
-<?$popupWindow->EndButtons();?>
+<?php $popupWindow->EndButtons();?>
 
 <script>
 window.BXDeletePage = function()
@@ -301,4 +301,4 @@ window.BXDeletePage = function()
 }
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

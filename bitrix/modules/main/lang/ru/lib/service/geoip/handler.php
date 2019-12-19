@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_SRV_GEOIP_HNDL_ENTITY_ID_FIELD"] = 'Идентификатор';
 $MESS["MAIN_SRV_GEOIP_HNDL_ENTITY_SORT_FIELD"] = 'Сортировка';
 $MESS["MAIN_SRV_GEOIP_HNDL_ENTITY_ACTIVE_FIELD"] = 'Активность';

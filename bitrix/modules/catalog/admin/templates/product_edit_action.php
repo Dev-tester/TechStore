@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Catalog;
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */

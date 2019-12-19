@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/iblock_e_rights.php")));
 __IncludeLang($file);
 $iblock_id = intval($_REQUEST["IBLOCK_ID"]);
@@ -44,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <div class="buttons">
 <input type="hidden" name="save" value="Y" />
 </div>
-<?
+<?php 
 $popupWindow->EndContent();
 $popupWindow->ShowStandardButtons();
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

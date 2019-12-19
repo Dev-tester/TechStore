@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_CHAT_ANSWER_F"] = "#USER# picked conversation";
 $MESS["IMOL_CHAT_ANSWER_M"] = "#USER# picked conversation";
 $MESS["IMOL_CHAT_APP_ICON_QUICK_DESCRIPTION"] = "Open canned responses database";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?> 
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?> 
 <script type="text/javascript" src="/bitrix/templates/learning/js/imgshw.js"></script>
 
 
@@ -32,7 +32,7 @@ The document library offers two approaches to handle documents: by using a web b
 </ul>
 
 <p>Select the view mode you feel comfortable with and select files or folders to upload.</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/load_form.png\',737,638,\'Document uploading form\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/load_form.png\',737,638,\'Document uploading form\');'?>">
 <img src="<?=$templateFolder.'/images/en/load_form_sm.png'?>" style="CURSOR: pointer" width="300" height="260" alt="Click to Enlarge"  border="0"/></a></p>
 
 <p>Click <b>Upload</b>.</p>
@@ -247,7 +247,7 @@ The document library offers two approaches to handle documents: by using a web b
 <p>Restart the <a href="#oswindowswebclient"><b>Webclient</b></a> service.</p>
 <h4><a name="oswindowswebclient"></a><b>Running the Web Client Service</b></h4>
 <p>Click <b>Start &gt; Control Panel &gt; System and Security &gt; Administrative Tools &gt; Services</b> to open the <b>Services</b> window: 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/webclient.png\',820,599,\'Services\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/webclient.png\',820,599,\'Services\');'?>">
 <img src="<?=$templateFolder.'/images/en/webclient_sm.png'?>" style="CURSOR: pointer" width="250" height="183" alt="Click to Enlarge"  border="0"/></a></p>  
 <p>Find the <b>Web Client</b> service in the list and run or restart it. To have the service run at system start-up, change the <b>Startup</b> parameter to <b>Automatic</b>:
 <p><img src="<?=$templateFolder.'/images/en/properties.png'?>"  width="418" height="474" alt="Click to Enlarge"  border="0"/></p></li>
@@ -277,11 +277,11 @@ The document library offers two approaches to handle documents: by using a web b
 <li>Run Windows Explorer;</li>
 <li>Select <b>Map Network Drive</b>;</li>
 <li>Click the link <b>Connect to a Web site that you can use to store your documents and pictures</b>:</p> 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/network_add_1.png\',630,461,\'Map Network Drive\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/network_add_1.png\',630,461,\'Map Network Drive\');'?>">
 <img width="250" height="183" border="0" src="<?=$templateFolder.'/images/en/network_add_1_sm.png'?>" style="cursor: pointer;" alt="Click to Enlarge" /></a> <br />This will run the <b>Add Network Location</b>.</li>
 <li>In the wizard window, click <b>Next</b>. The next wizard window will appear;</li>
 <li>In this window, click <b>Choose a custom network location</b> and then click <b>Next</b>:
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/network_add_4.png\',610,499,\'Add Network Location\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/network_add_4.png\',610,499,\'Add Network Location\');'?>">
 <img width="250" height="205" border="0" src="<?=$templateFolder.'/images/en/network_add_4_sm.png'?>" style="cursor: pointer;" alt="Click to Enlarge" /></a></li>
 <li>Here, in the <b>Internet or network address</b> field, type the URL of the mapping folder in the format: <i>http://your_server/docs/shared/</i>;</li>
 <li>Click <b>Next</b>. If prompted for a <b>User name</b> and <b>Password</b>, enter your login and password, and then click <b>OK</b>.</li>
@@ -316,7 +316,7 @@ The document library offers two approaches to handle documents: by using a web b
 <ul>
 <li>Run Windows Explorer</b>;</li> 
 <li>Select <i>Tools > Map Network Drive</i>. The network disc wizard will open: 
-<br /><br /><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/network_storage.png\',629,459,\'Map Network Drive\');'?>">
+<br /><br /><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/network_storage.png\',629,459,\'Map Network Drive\');'?>">
 <img width="250" height="183" border="0" src="<?=$templateFolder.'/images/en/network_storage_sm.png'?>" style="cursor: pointer;" alt="Click to Enlarge" /></a></li>
 <li>In the <b>Drive</b> field, specify a letter to map the folder to;</li>
 <li>In the <b>Folder</b> field, enter the path to the library: <i>http://your_server/docs/shared/</i>. If you want this folder to be available when the system starts, check the <b>Reconnect at logon</b> option;</li>
@@ -330,7 +330,7 @@ The document library offers two approaches to handle documents: by using a web b
 <ul>
 <li>Select <i>Finder Go->Connect to Server command</i>;</li>
 <li>Type in the library address in <b>Server Address</b>:</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/macos.png\',465,550,\'Mac OS X\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/en/macos.png\',465,550,\'Mac OS X\');'?>">
 <img width="235" height="278" border="0" src="<?=$templateFolder.'/images/en/macos_sm.png'?>" style="cursor: pointer;" alt="Click to Enlarge" /></a></li>
 </ul>
 <br />

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
@@ -323,13 +323,13 @@ if (($arTABLES = $lAdmin->GroupAction()) && $RIGHT >= "W")
 
 $lAdmin->BeginPrologContent();
 ?>
-<h4><? echo GetMessage("PERFMON_TABLES_ALL") ?></h4>
+<h4><?php  echo GetMessage("PERFMON_TABLES_ALL") ?></h4>
 <script>
 	hrefs = "";
 	rows = new Array();
 	prev = '';
 </script>
-<?
+<?php 
 $lAdmin->EndPrologContent();
 
 $arHeaders = array();
@@ -464,9 +464,9 @@ if ($DB->type == "MYSQL")
 			BX.ready(function ()
 			{
 				<?=$sTableID?>.
-				GetAdminList('<?echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>&full_info=Y');
+				GetAdminList('<?php echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>&full_info=Y');
 			});
-		</script><?
+		</script><?php 
 		$lAdmin->EndEpilogContent();
 	}
 }
@@ -532,7 +532,7 @@ if (strlen($strLastTables) > 0)
 	}
 }
 ?>
-<h4><? echo GetMessage("PERFMON_TABLES_QUICK_SEARCH") ?></h4>
+<h4><?php  echo GetMessage("PERFMON_TABLES_QUICK_SEARCH") ?></h4>
 <input type="text" id="instant-search">
 <script>
 	BX.ready(function ()
@@ -557,7 +557,7 @@ if (strlen($strLastTables) > 0)
 			else
 				location.hash = 'empty';
 
-			var tbody = BX('<?echo $sTableID?>').getElementsByTagName("tbody")[0];
+			var tbody = BX('<?php echo $sTableID?>').getElementsByTagName("tbody")[0];
 			if (!hrefs)
 			{
 				hrefs = BX.findChildren(tbody, {tag: 'a', className: 'table_name'}, true);
@@ -608,7 +608,7 @@ if (strlen($strLastTables) > 0)
 		return false;
 	}
 </script>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

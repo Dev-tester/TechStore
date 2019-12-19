@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_TMP_EXPIRE"] = "Not clocked out";
 $MESS["JS_CORE_TMR_A"] = "Changed";
 $MESS["JS_CORE_TMR_APPROVE"] = "Approve";

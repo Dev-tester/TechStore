@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_ERROR_EMPTY_FROM_USER_ID"] = "The message sender is not specified.";
 $MESS["IM_ERROR_EMPTY_TO_USER_ID"] = "The message recipient is not specified.";
 $MESS["IM_ERROR_EMPTY_MESSAGE"] = "The message text is empty.";

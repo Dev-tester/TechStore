@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <br class="wd-br" />
-<?$ElementID = $APPLICATION->IncludeComponent(
+<?php $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.edit",
 	"",
 	Array(

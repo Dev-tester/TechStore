@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["rub_title_edit"] = "Modify category #";
 $MESS["rub_title_add"] = "Add category";
 $MESS["rub_list_title"] = "List of subscriptions";

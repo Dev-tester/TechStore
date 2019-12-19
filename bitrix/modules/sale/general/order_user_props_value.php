@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllSaleOrderUserPropsValue
 {
 	function GetByID($ID)

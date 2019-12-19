@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C30_T_USER'] = "Пользователь";
 $MESS ['SONET_C30_T_TOTAL'] = "Всего";
 $MESS ['SONET_C30_T_NEW'] = "Новых";

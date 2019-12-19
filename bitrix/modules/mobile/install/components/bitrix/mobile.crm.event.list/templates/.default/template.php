@@ -15,12 +15,12 @@ $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FI
 ?>
 
 <div id="<?=htmlspecialcharsbx($UID)?>" class="crm_wrapper">
-<?if($rubric['ENABLED']):?>
+<?php if($rubric['ENABLED']):?>
 	<div class="crm_head_title tal m0" style="padding: 10px 5px 20px;"><?=htmlspecialcharsbx($rubric['TITLE'])?><span style="font-size: 13px;color: #87949b;"> <?=GetMessage('M_CRM_EVENT_LIST_RUBRIC_LEGEND')?></span></div>
-	<?if($rubricPresetQty > 0):?>
+	<?php if($rubricPresetQty > 0):?>
 		<div class="crm_top_nav col<?=$rubricPresetQty?>">
 			<ul>
-				<?foreach($rubricPresets as $presetKey):
+				<?php foreach($rubricPresets as $presetKey):
 					$presetName = '';
 					$isCurrent = false;
 					if($presetKey === 'clear_filter'):
@@ -38,15 +38,15 @@ $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FI
 						<a class="crm-filter-preset-button" href="#"><?=htmlspecialcharsbx($presetName)?></a>
 						<input type="hidden" class="crm-filter-preset-data" value="<?=htmlspecialcharsbx($presetKey)?>"/>
 					</li>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</ul>
 			<div class="clb"></div>
 		</div>
-	<?endif;?>
-<?endif;?>
+	<?php endif;?>
+<?php endif;?>
 <ul class="crm_dealings_list">
-	<?foreach($arResult['ITEMS'] as &$item):?>
-		<?
+	<?php foreach($arResult['ITEMS'] as &$item):?>
+		<?php 
 		$dataItem = CCrmMobileHelper::PrepareEventData($item);
 		$dispatcherData[] = $dataItem;
 		?>
@@ -54,22 +54,22 @@ $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FI
 			<div class="crm_history_title"><?=htmlspecialcharsbx($dataItem['EVENT_NAME'])?></div>
 			<div class="crm_history_descr">
 				<pre>
-					<?if($dataItem['EVENT_TEXT_2'] !== ''):?>
+					<?php if($dataItem['EVENT_TEXT_2'] !== ''):?>
 						<?=$dataItem['EVENT_TEXT_1']?> &rarr; <?=$dataItem['EVENT_TEXT_2']?>
-					<?else:?>
+					<?php else:?>
 						<?=$dataItem['EVENT_TEXT_1']?>
-					<?endif;?>
+					<?php endif;?>
 				</pre>
 			</div>
 			<div class="crm_history_cnt"><?=htmlspecialcharsbx($dataItem['DATE_CREATE'])?>, <?=htmlspecialcharsbx($dataItem['CREATED_BY_FORMATTED_NAME'])?></div>
 			<div class="clb"></div>
 		</li>
-	<?endforeach;?>
-	<?unset($item);?>
+	<?php endforeach;?>
+	<?php unset($item);?>
 
-	<?if($arResult['PAGE_NEXT_NUMBER'] <= $arResult['PAGE_NAVCOUNT']):?>
+	<?php if($arResult['PAGE_NEXT_NUMBER'] <= $arResult['PAGE_NAVCOUNT']):?>
 		<li class="crm_history_list_item crm_history_list_item_wait"></li>
-	<?endif;?>
+	<?php endif;?>
 </ul></div>
 <script type="text/javascript">
 	BX.ready(
@@ -98,13 +98,13 @@ $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FI
 			);
 
 			var filterPresets = [];
-			<?foreach($filterPresets as $key => &$preset):
+			<?php foreach($filterPresets as $key => &$preset):
 			?>filterPresets.push(
 				{
 					id: '<?=CUtil::JSEscape($key)?>',
 					name: '<?=CUtil::JSEscape($preset['name'])?>',
 					fields: <?=CUtil::PhpToJSObject($preset['fields'])?>
-				});<?
+				});<?php 
 			echo "\n";
 			endforeach;
 			unset($preset);

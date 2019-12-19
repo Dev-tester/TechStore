@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ORDER_ADD"] = "Добавить заказ";
 $MESS["ORDER_ADD_TITLE"] = "Добавить заказ";
 $MESS["ORDER_COPY"] = "Копировать";

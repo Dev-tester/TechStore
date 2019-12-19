@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RMP_VA_CODE"] = "Application ID";
 $MESS["RMP_VA_CATEGORY"] = "Application category";
 $MESS["RMP_SEF_TOP"] = "Application top";

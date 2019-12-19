@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_HELPER_NOT_DEFINED"] = "No helper class defined.";
 $MESS["REPORT_IMPORT_ERROR_FILE_EXT"] = "Invalid file format";
 $MESS["REPORT_IMPORT_ERROR_UPLOADED_FILE"] = "Please upload a file";

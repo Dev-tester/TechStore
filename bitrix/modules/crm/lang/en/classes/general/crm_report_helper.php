@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMPANY_NOT_FOUND"] = "Company was not found.";
 $MESS["CRM_CONTACT_NOT_FOUND"] = "Contact was not found.";
 $MESS["CRM_DEAL_NOT_FOUND"] = "Deal was not found.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_CONVERT_BUTTON"] = "Convert";
 $MESS["IM_CONVERT_STOP"] = "Stop";
 $MESS["IM_CONVERT_STEP"] = "Maximum conversion step duration:";

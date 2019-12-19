@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_INSTALL_FILTER'] = "Устанавливать словари";
 $MESS ['FORUM_REINDEX'] = "Индексировать форум";
 $MESS ['FORUM_INSTALL_PUBLIC'] = "Устанавливать публичную часть";

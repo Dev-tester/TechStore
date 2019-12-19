@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_OANALYSIS_ORDER_DOCUMENTS"] = "Order documentation";
 $MESS["SALE_OANALYSIS_ITEM_NUMBER"] = "#";
 $MESS["SALE_OANALYSIS_ITEM_NAME"] = "Name";

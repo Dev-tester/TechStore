@@ -360,7 +360,7 @@ $lAdmin->BeginPrologContent();
 
 if (!$useSearch && !empty($arrChain))
 {
-	?><p><?
+	?><p><?php 
 	$last_path = '';
 	foreach ($arrChain as $row)
 	{
@@ -368,14 +368,14 @@ if (!$useSearch && !empty($arrChain))
 		if ($row['PATH'] !== '')
 		{
 			$last_path = $row['PATH'];
-			?><a href="?lang=<?= LANGUAGE_ID ?>&path=<?=urlencode($last_path); ?>" title="<?=Loc::getMessage('TR_FOLDER_TITLE'); ?>"><?=htmlspecialcharsbx($row['NAME']); ?></a><?
+			?><a href="?lang=<?= LANGUAGE_ID ?>&path=<?=urlencode($last_path); ?>" title="<?=Loc::getMessage('TR_FOLDER_TITLE'); ?>"><?=htmlspecialcharsbx($row['NAME']); ?></a><?php 
 		}
 		else
 		{
-			?><?=htmlspecialcharsbx($row['NAME']); ?><?
+			?><?=htmlspecialcharsbx($row['NAME']); ?><?php 
 		}
 	}
-	?></p><?
+	?></p><?php 
 }
 
 $lAdmin->EndPrologContent();
@@ -655,7 +655,7 @@ if ($showGroupActions)
 $lAdmin->BeginEpilogContent();
 ?>
 	<input type="hidden" name="go_path" id="go_path" value="">
-<?
+<?php 
 $lAdmin->EndEpilogContent();
 
 //endregion
@@ -676,7 +676,7 @@ ob_start();
 	</tr>
 	</table>
 </form>
-<?
+<?php 
 $s = ob_get_contents();
 ob_end_clean();
 $aContext[] = array("HTML"=>$s);
@@ -762,7 +762,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 {
 	?>
 	<br>
-	<?
+	<?php 
 	$tabControl->Begin();
 
 	//region Form upload csv file
@@ -774,7 +774,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 		<input type="hidden" name="lang" value="<?=LANGUAGE_ID;?>" >
 		<input type="hidden" name="upload_csv" value="1" >
 
-	<?$tabControl->BeginNextTab();?>
+	<?php $tabControl->BeginNextTab();?>
 
 		<tr>
 			<td width="20%" nowrap><?=Loc::getMessage("TR_UPLOAD_CSV_FILE")?></td>
@@ -788,7 +788,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 				<input id="F_ACTION_2" type="radio" name="rewrite_lang_files" value="Y"><label for="F_ACTION_2"><?=Loc::getMessage('TR_REWRITE_LANG_FILES')?></label>
 			</td>
 		</tr>
-		<?
+		<?php 
 		if (!$isUtfMode && !$useTranslationRepository)
 		{
 			?>
@@ -798,7 +798,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 					<input type="checkbox" name="encoding" value="utf-8">
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -808,7 +808,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 				<td width="60%">
 					<select name="encoding">
 						<option value=""></option>
-						<?
+						<?php 
 						foreach ($allowedEncodings as $enc)
 						{
 							$encTitle = Translate\Translation::getEncodingName($enc);
@@ -823,20 +823,20 @@ if ($permissionRight == Translate\Permission::WRITE)
 								$isSelected = ($enc == 'utf-8');
 							}
 
-							?><option value="<?= htmlspecialcharsbx($enc); ?>"<?if ($isSelected) echo " selected";?>><?= $encTitle ?></option><?
+							?><option value="<?= htmlspecialcharsbx($enc); ?>"<?php if ($isSelected) echo " selected";?>><?= $encTitle ?></option><?php 
 						}
 						?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 
 		?>
 
-	<?$tabControl->EndTab();?>
+	<?php $tabControl->EndTab();?>
 	</form>
-	<?
+	<?php 
 
 	//endregion
 
@@ -848,7 +848,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 		<input type="hidden" name="lang" value="<?=LANGUAGE_ID;?>" >
 		<input type="hidden" name="path" value="<?=htmlspecialcharsbx($path);?>" >
 
-	<?$tabControl->BeginNextTab();?>
+	<?php $tabControl->BeginNextTab();?>
 
 		<tr>
 			<td width="20%" valign="top" nowrap><?=Loc::getMessage('TR_FILE_ACTIONS')?></td>
@@ -858,14 +858,14 @@ if ($permissionRight == Translate\Permission::WRITE)
 			</td>
 		</tr>
 
-		<?if(file_exists(Main\Application::getDocumentRoot(). Translate\COLLECT_CUSTOM_LIST)):?>
+		<?php if(file_exists(Main\Application::getDocumentRoot(). Translate\COLLECT_CUSTOM_LIST)):?>
 			<tr>
 				<td valign="top" nowrap>Only <?= Translate\COLLECT_CUSTOM_LIST ?> files:</td>
 				<td valign="top">
 					<input type="checkbox" name="use_custom_list" value="Y">
 				</td>
 			</tr>
-		<?endif?>
+		<?php endif?>
 
 
 		<tr>
@@ -879,7 +879,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 			<td>
 				<select name="languages[]" multiple="multiple" size="<?= (count($enabledLanguages) <= 7 ? count($enabledLanguages) : 7) ?>">
 					<option value="" <?= (!isset($languages) || empty($languages) ? ' selected="selected"' : '') ?>><?= Loc::getMessage('TR_SELECT_LANGUAGE_ALL') ?></option>
-					<?
+					<?php 
 					$iterator = Main\Localization\LanguageTable::getList([
 						'select' => ['ID', 'NAME'],
 						'filter' => [
@@ -891,16 +891,16 @@ if ($permissionRight == Translate\Permission::WRITE)
 					while ($row = $iterator->fetch())
 					{
 						$isSelected = isset($languages) && in_array($row['ID'], $languages);
-						?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?
+						?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?php 
 					}
 					?>
 				</select>
 			</td>
 		</tr>
 
-	<?$tabControl->EndTab();?>
+	<?php $tabControl->EndTab();?>
 	</form>
-	<?
+	<?php 
 
 	//endregion
 
@@ -926,7 +926,7 @@ if ($permissionRight == Translate\Permission::WRITE)
 		}
 	});
 	</script>
-	<?
+	<?php 
 	$tabControl->End();
 
 	//endregion

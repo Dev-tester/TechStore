@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIL_MBOX_EDT_TITLE_1'] = "Изменение параметров почтового ящика ##ID#";
 $MESS ['MAIL_MBOX_EDT_TITLE_2'] = "Новый почтовый ящик";
 $MESS ['MAIL_MBOX_EDT_ERROR'] = "Ошибка при сохранении почтового ящика";

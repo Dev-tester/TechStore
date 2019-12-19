@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $this->IncludeComponentLang("files.php");
 class CCommentFiles
 {
@@ -126,15 +126,15 @@ class CCommentFiles
 ?>
 			<div class="comments-post-attachments">
 				<label><?=GetMessage("F_ATTACH_FILES")?></label>
-<?
+<?php 
 			$parentComponent = null;
 			if (isset($GLOBALS['forumComponent']) && is_object($GLOBALS['forumComponent']))
 				$parentComponent =&$GLOBALS['forumComponent'];
 				foreach ($arResult["REVIEW_FILES"] as $arFile)
 				{
 ?>
-					<div class="comments-post-attachment"><?
-					?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+					<div class="comments-post-attachment"><?php 
+					?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 						"bitrix:forum.interface", "show_file",
 						Array(
 							"FILE" => $arFile,
@@ -148,9 +148,9 @@ class CCommentFiles
 						$parentComponent,
 						array("HIDE_ICONS" => "Y"));
 					?></div>
-<?				}?>
+<?php 				}?>
 			</div>
-<?		}
+<?php 		}
 		return array(array('DISPLAY' => 'AFTER', 'SORT' => '50', 'TEXT' => ob_get_clean()));
 	}
 
@@ -189,8 +189,8 @@ class CCommentFiles
 		{
 			if (!in_array($arFile["FILE_ID"], $arComment["FILES_PARSED"]))
 			{
-				?><div class="comments-message-img"><?
-				?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+				?><div class="comments-message-img"><?php 
+				?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 					"bitrix:forum.interface", "show_file",
 					Array(
 						"FILE" => $arFile,
@@ -203,7 +203,7 @@ class CCommentFiles
 						"SHOW_LINK" => "Y"),
 					$this->component,
 					array("HIDE_ICONS" => "Y"));
-				?></div><?
+				?></div><?php 
 			}
 		}
 		return array(array('DISPLAY' => 'AFTER', 'SORT' => '50', 'TEXT' => ob_get_clean()));
@@ -219,19 +219,19 @@ class CCommentFiles
 		{
 ?>
 		<div class="comments-reply-field comments-reply-field-upload">
-<?
+<?php 
 			$iFileSize = intval(COption::GetOptionString("forum", "file_max_size", 5242880));
 			$sFileSize = CFile::FormatSize($iFileSize);
 
 ?>
-			<div class="comments-upload-info" id="upload_files_info_<?=$arParams["form_index"]?>"><?
+			<div class="comments-upload-info" id="upload_files_info_<?=$arParams["form_index"]?>"><?php 
 			if ($arParams["ALLOW_UPLOAD"] == "F")
 			{
-				?><span><?=str_replace("#EXTENSION#", $arParams["ALLOW_UPLOAD_EXT"], GetMessage("F_FILE_EXTENSION"))?></span><?
+				?><span><?=str_replace("#EXTENSION#", $arParams["ALLOW_UPLOAD_EXT"], GetMessage("F_FILE_EXTENSION"))?></span><?php 
 			}
 				?><span><?=str_replace("#SIZE#", $sFileSize, GetMessage("F_FILE_SIZE"))?></span>
 			</div>
-<?
+<?php 
 			$componentParams = array(
 				'INPUT_NAME' => 'FILE_NEW',
 				'INPUT_NAME_UNSAVED' => 'FILE_NEW_TMP',
@@ -247,7 +247,7 @@ class CCommentFiles
 			$GLOBALS['APPLICATION']->IncludeComponent('bitrix:main.file.input', '', $componentParams, $this->component, array("HIDE_ICONS" => true));
 ?>
 		</div>
-<?
+<?php 
 		}
 		return array(array('DISPLAY' => 'AFTER', 'SORT' => '50', 'TEXT' => ob_get_clean()));
 	}

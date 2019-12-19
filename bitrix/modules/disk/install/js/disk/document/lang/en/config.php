@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_DISK_DOC_TRY_TO_OPEN_BY_LOCAL_PROGRAM_TITLE"] = "Cannot open file. Try to <a href='#' id='#ID#'>open it</a> using Bitrix24.Drive.";
 $MESS["JS_DISK_DOC_TRY_TO_OPEN_BY_LOCAL_PROGRAM_OR_DOWNLOAD"] = "or <a href=\"#DOWNLOAD_LINK#\" target=\"_blank\">download it</a>.";
 $MESS["JS_DISK_DOC_WAITING_FOR_BITRIX24_DESKTOP"] = "Run Bitrix24 Application";

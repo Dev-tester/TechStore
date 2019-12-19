@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ERROR_UPDATE_VAT'] = "Ошибка обновления ставки НДС ##ID#";
 $MESS ['ERROR_DELETE_VAT'] = "Ошибка удаления ставки НДС ##ID#";
 $MESS ['CVAT_NAV'] = "Ставки НДС";

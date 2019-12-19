@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_1CE_IBLOCK_ID"] = "Инфоблок каталога";
 $MESS["CAT_1CE_IBLOCK_ID_EMPTY"] = "не выбран";
 $MESS["CAT_1CE_GROUP_PERMISSIONS"] = "Разрешить выгрузку группам пользователей";

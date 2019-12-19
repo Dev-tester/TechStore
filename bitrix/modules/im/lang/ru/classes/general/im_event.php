@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_EVENT_RATING_BLOG_POST_LIKE"] = "Мне нравится ваше сообщение \"#LINK#\"";
 $MESS["IM_EVENT_RATING_BLOG_POST_MENTION_LIKE"] = "Мне нравится сообщение \"#LINK#\", в котором вы упомянуты";
 $MESS["IM_EVENT_RATING_BLOG_COMMENT_LIKE"] = "Мне нравится ваш #A_START#комментарий#A_END# в сообщении \"#TITLE#\"";

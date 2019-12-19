@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REST_INVOICE_PARAMETERS_DATE_PAY_BEFORE_OFFSET_TYPE_FIELD"] = "Schedule mode to calculate payment due date";
 $MESS["CRM_REST_INVOICE_PARAMETERS_DATE_PAY_BEFORE_OFFSET_VALUE_FIELD"] = "Interval to calculate payment due date";
 $MESS["CRM_REST_INVOICE_PARAMETERS_INTERVAL_FIELD"] = "Time range";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Class implements all further interactions with "mail" module considering "task" entity
  *

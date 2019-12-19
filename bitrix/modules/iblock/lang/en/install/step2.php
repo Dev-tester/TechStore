@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_INSTALL_COMPANY_NEWS'] = "Company news";
 $MESS ['IBLOCK_INSTALL_SOURCE'] = "Source";
 $MESS ['IBLOCK_INSTALL_PRODUCTS'] = "Products";

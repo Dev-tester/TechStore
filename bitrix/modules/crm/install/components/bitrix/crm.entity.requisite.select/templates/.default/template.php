@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
@@ -21,7 +21,7 @@ if($arResult['IFRAME'])
 				window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 			}
 		</script>
-		<?$APPLICATION->ShowHead();?>
+		<?php $APPLICATION->ShowHead();?>
 		<style>.crm-iframe-popup,
 			.crm-iframe-popup.crm-form-page,
 			.crm-iframe-popup.crm-detail-page{
@@ -29,18 +29,18 @@ if($arResult['IFRAME'])
 				padding: 0 15px 21px 21px;
 			}</style>
 	</head>
-	<body class="crm-iframe-popup crm-detail-page template-<?= SITE_TEMPLATE_ID ?> <? if(!$arResult['IFRAME_USE_SCROLL']):?>crm-iframe-popup-no-scroll<?endif ?> <? $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
+	<body class="crm-iframe-popup crm-detail-page template-<?= SITE_TEMPLATE_ID ?> <?php  if(!$arResult['IFRAME_USE_SCROLL']):?>crm-iframe-popup-no-scroll<?php endif ?> <?php  $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
 
 	<div class="crm-iframe-workarea" id="tasks-content-outer">
-	<div class="crm-iframe-sidebar"><?$APPLICATION->ShowViewContent("sidebar"); ?></div>
-	<div class="crm-iframe-content"><?
+	<div class="crm-iframe-sidebar"><?php $APPLICATION->ShowViewContent("sidebar"); ?></div>
+	<div class="crm-iframe-content"><?php 
 }
 
 $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/crm.entity.details/templates/.default/style.css");
 
 ?><div class="crm-entity-wrap">
 	<div class="crm-entity-section crm-entity-section-requisite-selector">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:crm.entity.editor',
 			'',
 			array(
@@ -61,7 +61,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/crm.entity.details/tem
 			)
 		);?>
 		</div>
-</div><?
+</div><?php 
 
 
 $guid = $arResult['GUID'];
@@ -76,14 +76,14 @@ $containerID = "{$prexix}_container";
 			BX.Crm.EntityRequisiteSelector.create("<?=CUtil::JSEscape($guid)?>", {});
 		}
 	);
-</script><?
+</script><?php 
 
 if($arResult['IFRAME'])
 {
 			?></div>
 		</div>
 		</body>
-	</html><?
+	</html><?php 
 	require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');
 	die();
 }

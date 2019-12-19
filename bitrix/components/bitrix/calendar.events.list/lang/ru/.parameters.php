@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EC_TYPE'] = "Тип календаря";
 $MESS ['EC_CALENDAR_SECTION'] = "Секция календаря";
 $MESS ['EC_CALENDAR_SECTION_ALL'] = "все секции";

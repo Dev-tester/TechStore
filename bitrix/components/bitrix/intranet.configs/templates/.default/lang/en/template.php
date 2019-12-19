@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAL_OPTION_FIRSTDAY_FR"] = "Friday";
 $MESS["CAL_OPTION_FIRSTDAY_MO"] = "Monday";
 $MESS["CAL_OPTION_FIRSTDAY_SA"] = "Saturday";

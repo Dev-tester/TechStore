@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_SHOW_WATERMARK'] = "Show watermark template";
 $MESS ['P_WATERMARK_COLORS'] = "Watermark colour";
 $MESS ['P_COLOR_FF0000'] = "Red";

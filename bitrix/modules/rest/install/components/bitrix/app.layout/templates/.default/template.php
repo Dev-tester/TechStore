@@ -29,7 +29,7 @@ if($arResult['APP_STATUS']['PAYMENT_NOTIFY'] == 'Y')
 	}
 ?>
 <div class="app-update-avail"><?=GetMessage('PAYMENT_MESSAGE'.$arResult['APP_STATUS']['MESSAGE_SUFFIX'], $arResult['APP_STATUS']['MESSAGE_REPLACE'])?></div>
-<?
+<?php 
 	if($arResult['APP_STATUS']['PAYMENT_ALLOW'] == 'N')
 	{
 		return;
@@ -40,13 +40,13 @@ if($arResult['APP_NEED_REINSTALL'])
 {
 ?>
 	<div class="app-update-avail"><?=$arResult['IS_ADMIN'] ? GetMessage('REST_ALT_NEED_REINSTALL_ADMIN', array('#DETAIL_URL#' => $arResult['DETAIL_URL'])) : GetMessage('REST_ALT_NEED_REINSTALL');?></div>
-<?
+<?php 
 }
 
 if(array_key_exists('UPDATE_VERSION', $arResult)):
 ?>
 <div id="update_note" class="app-update-avail"><?=$arResult['IS_ADMIN'] ? GetMessage('REST_ALT_UPDATE_AVAIL_ADMIN', array('#DETAIL_URL#' => $arResult['DETAIL_URL'])) : GetMessage('REST_ALT_UPDATE_AVAIL');?><span class="app-update-close" onclick="BX.rest.AppLayout.get('<?=$arResult['APP_SID']?>').hideUpdate('<?=$arResult['UPDATE_VERSION']?>',function(){BX.hide(BX('update_note'))});"></span></div>
-<?
+<?php 
 endif;
 
 $frameName = $arResult['CURRENT_HOST'].'|'.($arResult['CURRENT_HOST_SECURE']?1:0).'|'.$arResult['APP_SID'];
@@ -95,24 +95,24 @@ if($arParams['PLACEMENT'] !== \Bitrix\Rest\PlacementTable::PLACEMENT_DEFAULT)
 	<input type="hidden" name="member_id" value="<?=htmlspecialcharsbx($arResult['MEMBER_ID'])?>">
 	<input type="hidden" name="status" value="<?=htmlspecialcharsbx($arResult['APP_STATUS']['STATUS'])?>">
 	<input type="hidden" name="PLACEMENT" value="<?=htmlspecialcharsbx($arParams["PLACEMENT"])?>">
-<?
+<?php 
 if($arParams['PLACEMENT_OPTIONS']):
 ?>
 	<input type="hidden" name="PLACEMENT_OPTIONS" value="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arParams['~PLACEMENT_OPTIONS']))?>">
-<?
+<?php 
 endif;
 ?>
 </form>
-<?
+<?php 
 $formHtml = '';
 if($arParams['PLACEMENT'] !== \Bitrix\Rest\PlacementTable::PLACEMENT_DEFAULT)
 {
 	$formHtml = ob_get_clean();
 }
 ?>
-<div id="appframe_layout_<?=$arResult['APP_SID']?>" <? if(!empty($frameStyle)) echo ' style="'.implode(';', $frameStyle).'"' ?> class="app-frame-layout">
+<div id="appframe_layout_<?=$arResult['APP_SID']?>" <?php  if(!empty($frameStyle)) echo ' style="'.implode(';', $frameStyle).'"' ?> class="app-frame-layout">
 	<iframe id="appframe_<?=$arResult['APP_SID']?>" name="<?=htmlspecialcharsbx($frameName)?>" frameborder="0" class="app-frame app-loading" style="height: 100%; width: 100%;" allow="geolocation *; microphone *; camera *"></iframe>
-	<div id="appframe_loading_<?=$arResult['APP_SID']?>" class="app-loading-msg" <?if($arParams['SHOW_LOADER'] === 'N'):?> style="display: none;"<?endif;?>>
+	<div id="appframe_loading_<?=$arResult['APP_SID']?>" class="app-loading-msg" <?php if($arParams['SHOW_LOADER'] === 'N'):?> style="display: none;"<?php endif;?>>
 		<?=GetMessage('REST_LOADING', array('#APP_NAME#' =>  htmlspecialcharsbx($arResult['APP_NAME'])))?>
 	</div>
 </div>
@@ -149,16 +149,16 @@ BX.rest.AppLayout.set(
 
 	}
 );
-<?
+<?php 
 if($arParams['PLACEMENT'] !== \Bitrix\Rest\PlacementTable::PLACEMENT_DEFAULT):
 ?>
 BX.rest.AppLayout.get('<?=$arResult['APP_SID']?>').denyInterface(['setTitle', 'setScroll', 'reloadWindow']);
-<?
+<?php 
 endif;
 if($arParams['POPUP']):
 ?>
 BX.rest.AppLayout.get('<?=$arResult['APP_SID']?>').denyInterface(['resizeWindow']);
-<?
+<?php 
 endif;
 if($arParams['INITIALIZE'] !== 'N'):
 ?>
@@ -169,18 +169,18 @@ if(typeof window.BXDesktopSystem !== 'undefined')
 }
 
 BX.ready(function(){
-<?
+<?php 
 	if($arParams['PLACEMENT'] !== \Bitrix\Rest\PlacementTable::PLACEMENT_DEFAULT):
 ?>
 	var formContainer = BX.create('DIV', {style:{display:'none'}, html: '<?=\CUtil::JSEscape($formHtml)?>'});
 	document.body.appendChild(formContainer);
-<?
+<?php 
 	endif;
 ?>
 
 	BX.rest.AppLayout.initialize('<?=\CUtil::JSEscape($arParams['PLACEMENT'])?>', '<?=$arResult['APP_SID']?>');
 });
-<?
+<?php 
 endif;
 ?>
 </script>

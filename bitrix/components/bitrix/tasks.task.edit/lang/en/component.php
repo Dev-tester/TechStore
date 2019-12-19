@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_PRIORITY"] = "(priority)";
 $MESS["TASKS_PRIORITY_L"] = "Low";
 $MESS["TASKS_PRIORITY_N"] = "Normal";

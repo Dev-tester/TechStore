@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_FILE_NAME'] = "Файл";
 $MESS ['WD_MODIFIED_BY'] = "Кто изменил";
 $MESS ['WD_CHANGE_DATE'] = "Дата изменения";

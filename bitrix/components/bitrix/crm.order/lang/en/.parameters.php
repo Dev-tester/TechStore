@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_VAR"] = "Order ID variable name";
 $MESS["CRM_SEF_PATH_TO_INDEX"] = "Index page path";
 $MESS["CRM_SEF_PATH_TO_LIST"] = "Orders page path";

@@ -94,14 +94,14 @@ $arPaths = array(
 				(current($arResult["ORDER"]) == "ASC" && key($arResult["ORDER"]) == "TITLE" ? "DESC" : "ASC"),
 				array("SORTF", "SORTD")
 			); ?>', event)">
-				<? /*<div class="task-head-drag-btn"><span class="task-head-drag-btn-inner"></span></div>*/ ?>
+				<?php  /*<div class="task-head-drag-btn"><span class="task-head-drag-btn-inner"></span></div>*/ ?>
 				<div class="task-head-cell">
 					<span class="task-head-cell-sort-order"></span>
 					<span class="task-head-cell-title"><?php echo GetMessage("TASKS_TEMPLATE_TITLE") ?></span>
 				</div>
 			</th>
 
-			<? /*
+			<?php  /*
 				<th class="task-deadline-column<?php if(is_array($arResult["ORDER"]) && key($arResult["ORDER"]) == "DEADLINE"):?> task-column-selected task-column-order-by-<?php echo (current($arResult["ORDER"]) == "ASC" ? "asc" : "desc")?><?php endif?>" onclick="SortTable('<?php echo $APPLICATION->GetCurPageParam("SORTF=DEADLINE&SORTD=".(current($arResult["ORDER"]) == "ASC" && key($arResult["ORDER"]) == "DEADLINE" ? "DESC" : "ASC"), array("SORTF", "SORTD"));?>', event)">
 					<div class="task-head-drag-btn"><span class="task-head-drag-btn-inner"></span></div>
 					<div class="task-head-cell"><span class="task-head-cell-sort-order"></span><span class="task-head-cell-title"><?php echo GetMessage("TASKS_DEADLINE")?></span></div></th>
@@ -119,7 +119,7 @@ $arPaths = array(
 					: "ASC"),
 				array("SORTF", "SORTD")
 			); ?>', event)">
-				<? /*<div class="task-head-drag-btn"><span class="task-head-drag-btn-inner"></span></div>*/ ?>
+				<?php  /*<div class="task-head-drag-btn"><span class="task-head-drag-btn-inner"></span></div>*/ ?>
 				<div class="task-head-cell">
 					<span class="task-head-cell-sort-order"></span><span class="task-head-cell-title"><?php echo GetMessage(
 					"TASKS_RESPONSIBLE"
@@ -136,14 +136,14 @@ $arPaths = array(
 				(current($arResult["ORDER"]) == "ASC" && key($arResult["ORDER"]) == "CREATED_BY" ? "DESC" : "ASC"),
 				array("SORTF", "SORTD")
 			); ?>', event)">
-				<? /*<div class="task-head-drag-btn"><span class="task-head-drag-btn-inner"></span></div>*/ ?>
+				<?php  /*<div class="task-head-drag-btn"><span class="task-head-drag-btn-inner"></span></div>*/ ?>
 				<div class="task-head-cell">
 					<span class="task-head-cell-sort-order"></span><span class="task-head-cell-title"><?php echo GetMessage(
 					"TASKS_CREATOR"
 				) ?></span></div>
 			</th>
 
-			<? /*
+			<?php  /*
 				<th class="task-grade-column">&nbsp;</th>
 				*/ ?>
 			<th class="task-complete-column">&nbsp;</th>
@@ -153,12 +153,12 @@ $arPaths = array(
 		<tbody>
 		<?php if (sizeof($arResult["TEMPLATES"]) > 0): ?>
 
-		<?
+		<?php 
 		$arPaths['PATH_TO_TASKS_TASK_ADD_BY_TEMPLATE'] = $arPaths['PATH_TO_TASKS_TASK'];
 		?>
 
-		<? foreach ($arResult["TEMPLATES"] as $key => $template): ?>
-		<?
+		<?php  foreach ($arResult["TEMPLATES"] as $key => $template): ?>
+		<?php 
 		// hacks
 		//$template['ALLOWED_ACTIONS'] = $template['META:ALLOWED_ACTIONS'] = array();
 		$template['META:ALLOWED_ACTIONS'] = $template['ALLOWED_ACTIONS'];
@@ -219,10 +219,10 @@ $arPaths = array(
 			array("HIDE_ICONS" => "Y")
 		);
 		?>
-		<? endforeach ?>
+		<?php  endforeach ?>
 
 		<?php endif ?>
-		<tr id="task-list-no-tasks" <? if (count($arResult["TEMPLATES"]) > 0): ?>style="display:none;"<? endif ?>>
+		<tr id="task-list-no-tasks" <?php  if (count($arResult["TEMPLATES"]) > 0): ?>style="display:none;"<?php  endif ?>>
 			<td class="task-new-item-column" colspan="5" style="text-align: center"><?php echo GetMessage(
 				"TASKS_NO_TEMPLATES"
 			); ?></td>
@@ -233,20 +233,20 @@ $arPaths = array(
 		</tbody>
 	</table>
 
-	<? //group actions begin?>
-	<? if ($arParams['SHOW_GROUP_ACTIONS'] !== 'N'): ?>
+	<?php  //group actions begin?>
+	<?php  if ($arParams['SHOW_GROUP_ACTIONS'] !== 'N'): ?>
 
 	<div class="task-table-footer-wrap">
 		<form action="<?=POST_FORM_ACTION_URI?>" id="task-list-group-operations">
 			<div class="task-table-footer">
-				<input type="checkbox" <? //onclick="active_btn(this)"?> id="task_list_group_action_all" class="task-table-foot-checkbox" title="<?=GetMessage(
+				<input type="checkbox" <?php  //onclick="active_btn(this)"?> id="task_list_group_action_all" class="task-table-foot-checkbox" title="<?=GetMessage(
 					'TASKS_LIST_TOOLTIP_FOR_ALL_TEMPLATE_ITEMS'
 				)?>"><label class="task-table-foot-label" for="task_list_group_action_all"><?=GetMessage(
 				'TASKS_LIST_GROUP_ACTION_FOR_ALL'
 			)?>
-			</label><? /*<span class="task-table-footer-btn task-btn-edit"></span><span class="task-table-footer-btn task-btn-del"></span>*/ ?>
+			</label><?php  /*<span class="task-table-footer-btn task-btn-edit"></span><span class="task-table-footer-btn task-btn-del"></span>*/ ?>
 				<select id="task-list-group-action-selector" class="bx24-dropdown task-table-select" onchange="tasksListNS.onActionSelect(this);"/>
-				<? /*<option value="noaction"></option>*/ ?>
+				<?php  /*<option value="noaction"></option>*/ ?>
 				<option value="remove"><?php
 				echo htmlspecialcharsbx(GetMessage('TASKS_DELETE_TEMPLATE'));
 				?></option>
@@ -311,7 +311,7 @@ $arPaths = array(
 		</form>
 	</div>
 
-	<? endif ?>
+	<?php  endif ?>
 
 </div>
 
@@ -350,7 +350,7 @@ $arPaths = array(
 
 	<script>
 
-		<?//minimum js code required to launch task tree grid interface ...?>
+		<?php //minimum js code required to launch task tree grid interface ...?>
 
 		BX.message({
 			TASKS_PATH_TO_USER_PROFILE: '<?php echo CUtil::JSEscape($arParams['PATH_TO_USER_PROFILE'])?>',
@@ -410,5 +410,5 @@ $arPaths = array(
 			}
 		});
 	</script>
-	<? /*<script>tasksListTemplateDefaultInit()</script>*/ ?>
-	<? /*<script>tasksListTemplateDefaultTableViewInit()</script>*/ ?>
+	<?php  /*<script>tasksListTemplateDefaultInit()</script>*/ ?>
+	<?php  /*<script>tasksListTemplateDefaultTableViewInit()</script>*/ ?>

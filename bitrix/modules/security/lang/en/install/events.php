@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VIRUS_DETECTED_NAME'] = "Virus detected";
 $MESS ['VIRUS_DETECTED_DESC'] = "#EMAIL# - Site administrator's e-mail address (from the Kernel module settings)";
 $MESS ['VIRUS_DETECTED_SUBJECT'] = "#SITE_NAME#:  Virus detected";

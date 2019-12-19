@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Web\Json;
@@ -63,14 +63,14 @@ require 'js_templates.php';
 
 <div class="crm-orderform-edit-wrapper">
 	<div id="crm-orderform-error" <?=(!empty($arResult['ERRORS']) ? '' : ' style="display: none;"')?>>
-		<?
+		<?php 
 		foreach ((array)$arResult['ERRORS'] as $error)
 		{
 			?>
 			<div class="crm-entity-widget-content-error-text">
 				<?=$error?>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</div>
@@ -79,7 +79,7 @@ require 'js_templates.php';
 			<?=Loc::getMessage('CRM_ORDERFORM_PERSON_TYPE')?>:
 			<select class="crm-orderform-edit-left-inner-field-select" id="PERSON_TYPE_SELECTOR" name="personTypeId"
 					style="width: initial;">
-				<?
+				<?php 
 				$personTypeName = '';
 
 				foreach ($arResult['PERSON_TYPES'] as $item)
@@ -93,7 +93,7 @@ require 'js_templates.php';
 					}
 					?>
 					<option value="<?=$item['ID']?>" <?=$selected?>><?=$item['NAME']?></option>
-					<?
+					<?php 
 				}
 				?>
 			</select>
@@ -136,7 +136,7 @@ require 'js_templates.php';
 				<div class="crm-orderform-edit-constructor-right-list-container">
 
 					<div class="crm-orderform-edit-right-list">
-						<? crmOrderPropsFormDrawFieldsTree($arResult['AVAILABLE_FIELDS_TREE']); ?>
+						<?php  crmOrderPropsFormDrawFieldsTree($arResult['AVAILABLE_FIELDS_TREE']); ?>
 					</div>
 				</div><!--crm-orderform-edit-constructor-right-list-container-->
 
@@ -145,7 +145,7 @@ require 'js_templates.php';
 			<div class="crm-orderform-edit-constructor-left-container">
 
 				<div id="FIELD_CONTAINER" class="crm-orderform-edit-left-field-container">
-					<?
+					<?php 
 					$sort = 0;
 					foreach ($arResult['FORM']['FIELDS'] as $field):
 						$sort++;
@@ -156,24 +156,24 @@ require 'js_templates.php';
 					?>
 				</div><!--crm-orderform-edit-left-field-container-->
 
-				<? if ($arResult['PERM_CAN_EDIT']): ?>
+				<?php  if ($arResult['PERM_CAN_EDIT']): ?>
 					<div class="crm-orderform-edit-left-field-add-element">
 						<span class="crm-orderform-edit-left-field-add-element-item">
 							<?=Loc::getMessage('CRM_ORDERFORM_EDIT_FORM_ADD_HELP_TEXT')?>
 						</span>
 					</div><!--crm-orderform-edit-left-field-add-element-->
-				<? endif; ?>
+				<?php  endif; ?>
 
 			</div><!--crm-orderform-edit-constructor-left-block-->
 
 		</div><!--crm-orderform-edit-field-constructor-container-->
 
-		<?
+		<?php 
 		$userBlockController->start('DEPENDENCIES', Loc::getMessage('CRM_ORDERFORM_EDIT_DEP_SECTION'), Loc::getMessage('CRM_ORDERFORM_EDIT_DEP_SECTION_NAV'));
 		?>
 		<div class="crm-orderform-edit-task-options-item-open-settings">
 			<div id="DEPENDENCY_CONTAINER" class="crm-orderform-ext-block-dep-list">
-				<?
+				<?php 
 				foreach ($arResult['FORM']['RELATIONS'] as $relation):
 					GetCrmOrderPropsFormFieldRelationTemplate($relation);
 				endforeach;
@@ -182,7 +182,7 @@ require 'js_templates.php';
 
 			<span id="DEPENDENCY_BUTTON_ADD" class="crm-orderform-edit-task-options-rule">&#43; <?=Loc::getMessage('CRM_ORDERFORM_EDIT_DEP_BUTTON_ADD')?></span>
 		</div>
-		<?
+		<?php 
 		$userBlockController->start('ENTITY_SCHEME', Loc::getMessage('CRM_ORDERFORM_EDIT_DOC_SECTION'), Loc::getMessage('CRM_ORDERFORM_EDIT_DOC_SECTION_NAV'));
 		?>
 		<div class="crm-orderform-edit-task-options-item-open-settings">
@@ -195,7 +195,7 @@ require 'js_templates.php';
 			<div id="ENTITY_SCHEME_CONTAINER" class="crm-orderform-edit-task-options-settings-container">
 				<div class="crm-orderform-edit-task-options-document-settings-radio-container" style="display: none;">
 					<input type="hidden" name="ENTITY_SCHEME" value="<?=htmlspecialcharsbx($arResult['ENTITY_SCHEMES']['SELECTED_ID'])?>">
-					<? foreach ($arResult['ENTITY_SCHEMES']['BY_NON_INVOICE'] as $searchSchemeId => $entityScheme): ?>
+					<?php  foreach ($arResult['ENTITY_SCHEMES']['BY_NON_INVOICE'] as $searchSchemeId => $entityScheme): ?>
 						<label for="ENTITY_SCHEME_<?=htmlspecialcharsbx($entityScheme['ID'])?>">
 							<input type="radio" id="ENTITY_SCHEME_<?=htmlspecialcharsbx($entityScheme['ID'])?>"
 									data-bx-order-form-entity-scheme-value=""
@@ -209,7 +209,7 @@ require 'js_templates.php';
 							<?=htmlspecialcharsbx($entityScheme['NAME'])?>
 						</span>
 						</label>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 				</div>
 				<div class="crm-orderform-edit-task-options-document-settings-description">
 				<span class="crm-orderform-edit-task-options-document-settings-description-element">
@@ -223,7 +223,7 @@ require 'js_templates.php';
 					<div class="crm-orderform-edit-task-options-document-duplicate-control">
 						<div class="crm-orderform-edit-task-options-document-duplicate-list-element"><?=Loc::getMessage('CRM_ORDERFORM_EDIT_DOC_DUPLICATES')?>:</div>
 						<div class="crm-orderform-edit-task-options-document-duplicate-list-container">
-							<? foreach ($arResult['DUPLICATE_MODES'] as  $duplicateMode):
+							<?php  foreach ($arResult['DUPLICATE_MODES'] as  $duplicateMode):
 								$duplicateModeNodeId = 'DUPLICATE_MODE_' . htmlspecialcharsbx($duplicateMode['ID']);
 								?>
 								<label for="<?=$duplicateModeNodeId?>" class="task-option-duplicate-label">
@@ -232,13 +232,13 @@ require 'js_templates.php';
 									<?=htmlspecialcharsbx($duplicateMode['CAPTION'])?>
 								</span>
 								</label>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 						</div>
 					</div>
 				</div>
 			</div><!--crm-orderform-edit-task-options-document-settings-container-->
 		</div>
-		<?
+		<?php 
 		$userBlockController->end();
 		?>
 
@@ -253,19 +253,19 @@ require 'js_templates.php';
 						<div class="crm-orderform-edit-task-options-item-open-inner">
 							<div id="crm-orderform-edit-responsible" data-config="<?=htmlspecialcharsbx(Json::encode($arResult['CONFIG_ASSIGNED_BY']))?>"></div>
 
-							<? if ($arResult['ASSIGNED_BY']['IS_SUPPORTED_WORK_TIME']): ?>
+							<?php  if ($arResult['ASSIGNED_BY']['IS_SUPPORTED_WORK_TIME']): ?>
 								<div style="margin: 15px 0 0 0;">
 									<label for="ASSIGNED_WORK_TIME" class="crm-orderform-edit-task-options-stylesheet-label">
 										<input id="ASSIGNED_WORK_TIME" name="ASSIGNED_WORK_TIME" value="Y" type="checkbox" <?=($arResult['ASSIGNED_BY']['WORK_TIME'] ? 'checked' : '')?> class="crm-orderform-edit-task-options-stylesheet-checkbox">
 										<span class="crm-orderform-edit-task-options-stylesheet-element"><?=Loc::getMessage('CRM_ORDERFORM_EDIT_ASSIGNED_WORK_TIME')?></span>
 									</label>
 								</div>
-							<? endif; ?>
+							<?php  endif; ?>
 						</div>
 					</div>
 
 				</div>
-				<?
+				<?php 
 				$userBlockController->showFixed();
 				?>
 			</div>
@@ -273,7 +273,7 @@ require 'js_templates.php';
 			<div class="task-additional-alt" id="ADDITIONAL_OPTION_BUTTON">
 				<div class="task-additional-alt-more"><?=Loc::getMessage('CRM_ORDERFORM_EDIT_NAV_TITLE')?></div>
 				<div class="task-additional-alt-promo">
-					<?
+					<?php 
 					$userBlockController->showNavigation();
 					?>
 				</div>
@@ -281,22 +281,22 @@ require 'js_templates.php';
 
 
 			<div id="ADDITIONAL_OPTION_CONTAINER" class="crm-orderform-edit-task-options crm-orderform-edit-task-options-more task-openable-block">
-				<?
+				<?php 
 				$userBlockController->show();
 				?>
 			</div>
 		</div>
 
-		<? if ($arResult['FORM']['HAS_ADS_FORM_LINKS'] == 'Y'): ?>
+		<?php  if ($arResult['FORM']['HAS_ADS_FORM_LINKS'] == 'Y'): ?>
 			<div class="crm-orderform-edit-system-warning-cont">
 			<span class="crm-orderform-edit-system-warning-text">
 				<?=Loc::getMessage('CRM_ORDERFORM_EDIT_SYSTEM_CANT_COPY_ADS')?>
 			</span>
 			</div>
-		<? endif; ?>
+		<?php  endif; ?>
 
 		<div class="crm-orderform-edit-button-container">
-			<?
+			<?php 
 			if ($arResult['PERM_CAN_EDIT'])
 			{
 				if ($arParams['IFRAME'])
@@ -305,7 +305,7 @@ require 'js_templates.php';
 					<span id="CRM_ORDERFORM_SUBMIT_APPLY" class="ui-btn ui-btn-success">
 						<?=Loc::getMessage('CRM_ORDERFORM_EDIT_BUTTON_SAVE')?>
 					</span>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -313,7 +313,7 @@ require 'js_templates.php';
 					<span id="CRM_ORDERFORM_SUBMIT_BUTTON" class="ui-btn ui-btn-success">
 						<?=Loc::getMessage('CRM_ORDERFORM_EDIT_BUTTON_APPLY')?>
 					</span>
-					<?
+					<?php 
 				}
 			}
 
@@ -323,18 +323,18 @@ require 'js_templates.php';
 				<span id="CRM_ORDERFORM_EDIT_TO_LIST_BOTTOM" class="ui-btn ui-btn-link">
 					<?=Loc::getMessage('CRM_ORDERFORM_EDIT_BACK_TO_LIST')?>
 				</span>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 
-		<?
+		<?php 
 		$signer = new \Bitrix\Main\Security\Sign\Signer;
 		$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'crm.order.matcher.edit');
 		?>
 		<script>
 			jsColorPickerMess = window.jsColorPickerMess = {
-				DefaultColor: '<?echo GetMessageJS('CRM_ORDERFORM_EDIT_COLOR_BUTTON_DEFAULT'); ?>'
+				DefaultColor: '<?php echo GetMessageJS('CRM_ORDERFORM_EDIT_COLOR_BUTTON_DEFAULT'); ?>'
 			};
 
 			BX.ready(function()

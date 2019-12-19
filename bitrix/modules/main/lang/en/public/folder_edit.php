@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FOLDER_EDIT_FILEMAN_ERROR'] = "Site Explorer module is not installed.";
 $MESS ['FOLDER_EDIT_ACCESS_DENIED'] = "Edit access to section is denied.";
 $MESS ['FOLDER_EDIT_WINDOW_TITLE'] = "Section properties";

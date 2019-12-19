@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_PANEL_TAB_EMPLOYEE_PLAN"] = "Занятость";
 $MESS["TASKS_PANEL_TAB_PROJECTS"] = "Проекты";
 $MESS["TASKS_PANEL_TAB_MANAGE"] = "Руковожу";

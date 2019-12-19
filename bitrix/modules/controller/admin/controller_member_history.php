@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -129,29 +129,29 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("CTRL_MEMB_HIST_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="form1" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?">
-	<? $filter->Begin(); ?>
+<form name="form1" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?">
+	<?php  $filter->Begin(); ?>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_HIST_CONTROLLER_MEMBER_ID")?>:</td>
 		<td nowrap>
-			<input type="text" name="find_id" value="<? echo htmlspecialcharsbx($adminFilter['find_id']) ?>" size="47">
+			<input type="text" name="find_id" value="<?php  echo htmlspecialcharsbx($adminFilter['find_id']) ?>" size="47">
 		</td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_HIST_FIELD")?></td>
 		<td>
 			<select name="find_field">
-				<option value=""><? echo GetMessage("CTRL_MEMB_HIST_ANY") ?></option>
-				<option value="CONTROLLER_GROUP_ID" <? if ($adminFilter['find_field'] == "CONTROLLER_GROUP_ID") echo "selected" ?>><? echo GetMessage("CTRL_MEMB_HIST_CONTROLLER_GROUP_ID") ?></option>
-				<option value="SITE_ACTIVE" <? if ($adminFilter['find_field'] == "SITE_ACTIVE") echo "selected" ?>><? echo GetMessage("CTRL_MEMB_HIST_SITE_ACTIVE") ?></option>
+				<option value=""><?php  echo GetMessage("CTRL_MEMB_HIST_ANY") ?></option>
+				<option value="CONTROLLER_GROUP_ID" <?php  if ($adminFilter['find_field'] == "CONTROLLER_GROUP_ID") echo "selected" ?>><?php  echo GetMessage("CTRL_MEMB_HIST_CONTROLLER_GROUP_ID") ?></option>
+				<option value="SITE_ACTIVE" <?php  if ($adminFilter['find_field'] == "SITE_ACTIVE") echo "selected" ?>><?php  echo GetMessage("CTRL_MEMB_HIST_SITE_ACTIVE") ?></option>
 			</select>
 		</td>
 	</tr>
-	<? $filter->Buttons(array("table_id" => $sTableID, "url" => $APPLICATION->GetCurPage(), "form" => "form1"));
+	<?php  $filter->Buttons(array("table_id" => $sTableID, "url" => $APPLICATION->GetCurPage(), "form" => "form1"));
 	$filter->End(); ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

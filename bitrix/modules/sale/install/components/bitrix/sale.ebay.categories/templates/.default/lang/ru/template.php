@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_SEC_REQUIRED"] = "Обязательное";
 $MESS["SALE_EBAY_SEC_ADD_CATEGORY_VARS"] = "Добавить соответствие";
 $MESS["SALE_EBAY_SEC_ADD_CATEGORY_PROP"] = "Создать свойство";

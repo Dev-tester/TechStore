@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_MODULE_NAME1"] = "Marketing24";
 $MESS["SENDER_MODULE_INST_TITLE1"] = "\"Marketing24\" Module Installation";
 $MESS["SENDER_MODULE_UNINST_TITLE1"] = "\"Marketing24\" Module Uninstallation";

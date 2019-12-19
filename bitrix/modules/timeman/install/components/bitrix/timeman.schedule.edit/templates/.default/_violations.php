@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -30,10 +30,10 @@ $showContainer = $violationForm->showViolationContainer();
 		<select name="<?= htmlspecialcharsbx($scheduleForm->getFormName()); ?>[controlledActions]" class="timeman-schedule-form-settings-select"
 				data-role="controlled-actions"
 				data-autoaction="<?= $arResult['isNewSchedule'] ? 'true' : ''; ?>">
-			<? foreach (ScheduleFormHelper::getControlledActionTypes() as $optValue => $textValue) : ?>
+			<?php  foreach (ScheduleFormHelper::getControlledActionTypes() as $optValue => $textValue) : ?>
 				<option value="<?= htmlspecialcharsbx($optValue); ?>" <?= $scheduleForm->controlledActions === $optValue ? 'selected' : ''; ?>>
 					<?= htmlspecialcharsbx($textValue); ?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</div>
 	<div class="timeman-schedule-form-violation">
@@ -41,7 +41,7 @@ $showContainer = $violationForm->showViolationContainer();
 			<span class="timeman-schedule-form-violation-title-text"><?= htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_CONTROL_RECORD_TITLE')); ?></span>
 		</div>
 
-		<?
+		<?php 
 
 
 		require_once '_violations_inner.php';

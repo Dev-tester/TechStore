@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_ARCHIVE_ERR_DFILE'] = "Неверный дескриптор файла";
 $MESS ['MAIN_ARCHIVE_NO_FILE'] = "Файл \"#FILE_NAME#\" не найден";
 $MESS ['MAIN_ARCHIVE_NO_READ'] = "Не удается прочитать папку \"#DIR_NAME#\"";

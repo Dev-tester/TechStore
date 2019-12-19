@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_NAME_CHANGE'] = "Change tag name";
 $MESS ['BLOG_GROUP_DELETE'] = "Delete category";
 $MESS ['BLOG_GROUP_ADD'] = "Add post category";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_AUTH_TITLE"] = "Authorization";
 $MESS["CTRLR_AUTH_CS_LABEL"] = "Allow authorization of controller users";
 $MESS["CTRLR_AUTH_SS_LABEL"] = "Allow transparent authorization";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if(!$USER->CanDoOperation('manage_short_uri') && !$USER->CanDoOperation('view_other_settings'))
@@ -106,41 +106,41 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?
+<?php 
 if($_REQUEST["mess"] == "ok" && $ID>0)
 	CAdminMessage::ShowMessage(array("MESSAGE"=>GetMessage("SU_EF_saved"), "TYPE"=>"OK"));
 if($message)
 	echo $message->Show();
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="short_uri_form">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="short_uri_form">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //Subscriber tab
 //********************
 $tabControl->BeginNextTab();
 ?>
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
-			<td width="40%"><?echo GetMessage("SU_EF_date_add")?></td>
-			<td width="60%"><?echo $str_MODIFIED;?></td>
+			<td width="40%"><?php echo GetMessage("SU_EF_date_add")?></td>
+			<td width="60%"><?php echo $str_MODIFIED;?></td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SU_EF_URI")?></td>
+		<td width="40%"><?php echo GetMessage("SU_EF_URI")?></td>
 		<td width="60%"><input type="text" name="URI" value="<?= $str_URI ?>" size="70"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SU_EF_SHORT_URI")?></td>
+		<td><?php echo GetMessage("SU_EF_SHORT_URI")?></td>
 		<td><input type="text" name="SHORT_URI" value="<?= $str_SHORT_URI ?>" size="70" onkeyup="ShortUriChangeHandler(this.value)"></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
 		<td><span id="id_short_uri_span"></span>
-<?
+<?php 
 $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 ?>
 			<script type="text/javascript">
@@ -158,21 +158,21 @@ $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SU_EF_STATUS")?></td>
+		<td><?php echo GetMessage("SU_EF_STATUS")?></td>
 		<td><?= CBXShortUri::SelectBox("STATUS", $str_STATUS) ?></td>
 	</tr>
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 	<tr>
-		<td><?echo GetMessage("SU_EF_LAST_USED")?></td>
-		<td><?echo $str_LAST_USED;?></td>
+		<td><?php echo GetMessage("SU_EF_LAST_USED")?></td>
+		<td><?php echo $str_LAST_USED;?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SU_EF_NUMBER_USED")?></td>
-		<td><?echo $str_NUMBER_USED;?></td>
+		<td><?php echo GetMessage("SU_EF_NUMBER_USED")?></td>
+		<td><?php echo $str_NUMBER_USED;?></td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>!$isAdmin,
@@ -181,20 +181,20 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?if($ID>0):?>
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php if($ID>0):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("short_uri_form", $message);
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,10 +1,10 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "group_wiki";
 include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group/templates/.default/util_group_menu.php");
 include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group/templates/.default/util_group_profile.php");
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:wiki.menu',
 	'',
 	Array(
@@ -25,7 +25,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group
 	),
 	$component
 );?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:wiki.history',
 	'',
 	Array(

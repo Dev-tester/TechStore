@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GCE_TAB_1"] = "Description";
 $MESS["SONET_GCE_TAB_2"] = "Features";
 $MESS["SONET_GCE_TAB_3"] = "Members";

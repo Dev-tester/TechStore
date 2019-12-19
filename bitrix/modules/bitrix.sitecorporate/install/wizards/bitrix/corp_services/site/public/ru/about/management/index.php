@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Руководство");
 ?>
@@ -43,4 +43,4 @@ $APPLICATION->SetTitle("Руководство");
     </tbody>
   </table>
 </p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

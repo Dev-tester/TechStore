@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_MODULE_NAME'] = "Web Forms";
 $MESS ['FORM_MODULE_DESCRIPTION'] = "This module manages various web forms, allows to store and filter data in the filled forms.";
 $MESS ['FORM_INSTALL_TITLE'] = "Web Forms module installation";

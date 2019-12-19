@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CHANGE_STATUS"] = "Не изменять статус обращения";
 $MESS["SUP_MESSAGE_NOT_FOUND"] = "Сообщение не найдено";
 $MESS["SUP_EDIT_RECORD"] = "Сообщение # #ID# (обращение # #TID#)";

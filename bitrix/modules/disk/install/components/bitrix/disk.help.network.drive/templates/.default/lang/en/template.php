@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_NETWORK_DRIVE_SHAREDDRIVE_TITLE"] = "Show instructions for connecting as a network drive";
 $MESS["DISK_NETWORK_DRIVE_CONNECTOR_HELP_MAPDRIVE"] = "<h3>Mapping the Library as a Network Drive</h3>
 <p>To connect a library as a network disk using <b>file manager</b>:

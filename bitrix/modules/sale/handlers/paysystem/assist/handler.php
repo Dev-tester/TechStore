@@ -134,7 +134,7 @@ class AssistHandler extends PaySystem\ServiceHandler implements PaySystem\IRefun
 
 		header('Content-Type: text/xml');
 		header('Pragma: no-cache');
-		$text = '<?xml version=\'1.0\' encoding=\'UTF-8\'?>\n';
+		$text = '<?php xml version=\'1.0\' encoding=\'UTF-8\'?>\n';
 
 		if ($result->isResultApplied())
 		{

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <?php
 /** @var $APPLICATION CAllMain */
 /** @var $arResult array */
@@ -10,15 +10,15 @@
 	<div class="bx-webdav-invite-access-title"><?= GetMessage('WD_INVITE_MODAL_TAB_GROUP_CONNECTED_TITLE'); ?></div>
 	<div id="bx-webdav-invite-show-access-list" class="bx-webdav-invite-tabs-cont">
 		<span class="bx-webdav-invite-users bx-webdav-invite-owner">
-			<span class="bx-webdav-invite-us-avatar"><?
+			<span class="bx-webdav-invite-us-avatar"><?php 
 				if(!empty($arResult['OWNER']['PHOTO_SRC']))
 				{
-					?><img height="21" width="21" src="<?= $arResult['OWNER']['PHOTO_SRC'] ?>" alt="<?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?>"/><?
+					?><img height="21" width="21" src="<?= $arResult['OWNER']['PHOTO_SRC'] ?>" alt="<?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?>"/><?php 
 				}
 			?></span>
 			<a class="bx-webdav-invite-us-name" href="<?= $arResult['OWNER']['HREF']; ?>" target="_blank" title="<?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?>"><?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?></a>
 		</span>
-		<? if($arResult['CONNECTED_USERS_CAN_EDITED_COUNT'] > 0){ ?>
+		<?php  if($arResult['CONNECTED_USERS_CAN_EDITED_COUNT'] > 0){ ?>
 		<div class="bx-webdav-invite-users-list" style="height: auto;">
 			<div onclick="wdOpenUsersList(this, 'can_edit');" class="bx-webdav-invite-users-title">
 				<span class="bx-webdav-invite-users-title-text"><?=
@@ -34,8 +34,8 @@
 			</div>
 			<div class="bx-webdav-invite-users-block"></div>
 		</div>
-		<? } ?>
-		<? if($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT'] > 0){ ?>
+		<?php  } ?>
+		<?php  if($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT'] > 0){ ?>
 		<div class="bx-webdav-invite-users-list" style="height: auto;">
 			<div onclick="wdOpenUsersList(this, 'cannot_edit');" class="bx-webdav-invite-users-title">
 				<span class="bx-webdav-invite-users-title-text"><?=
@@ -51,8 +51,8 @@
 			</div>
 			<div class="bx-webdav-invite-users-block"></div>
 		</div>
-		<? } ?>
-		<? if($arResult['DISCONNECTED_USERS_COUNT'] > 0){ ?>
+		<?php  } ?>
+		<?php  if($arResult['DISCONNECTED_USERS_COUNT'] > 0){ ?>
 		<div class="bx-webdav-invite-users-list" style="height: auto;">
 			<div onclick="wdOpenUsersList(this, 'disconnect');" class="bx-webdav-invite-users-title">
 				<span class="bx-webdav-invite-users-title-text"><?=
@@ -68,7 +68,7 @@
 			</div>
 			<div class="bx-webdav-invite-users-block"></div>
 		</div>
-		<? } ?>
+		<?php  } ?>
 	</div>
 	<div class="bx-webdav-invite-footer">
 		<a href="javascript:void(0)" onclick="wdOpenConfirmUnlink();" class="webform-button"><span class="webform-button-left"></span><span class="webform-button-text"><?= GetMessage('WD_INVITE_MODAL_BTN_DIE_SELF_ACCESS_SIMPLE'); ?></span><span class="webform-button-right"></span></a>

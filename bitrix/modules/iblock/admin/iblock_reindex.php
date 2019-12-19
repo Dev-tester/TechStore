@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -105,10 +105,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Reindex"]=="Y")
 			echo $message->Show();
 			?>
 			<script type="text/javascript">
-				jsSelectUtils.selectOption(BX('iblock'), <?echo $IBLOCK_ID?>);
-				DoNext(<?echo CUtil::PhpToJSObject($NS)?>);
+				jsSelectUtils.selectOption(BX('iblock'), <?php echo $IBLOCK_ID?>);
+				DoNext(<?php echo CUtil::PhpToJSObject($NS)?>);
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -132,19 +132,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Reindex"]=="Y")
 			echo $message->Show();
 			?>
 			<script type="text/javascript">
-				jsSelectUtils.deleteOption(BX('iblock'), <?echo $IBLOCK_ID?>);
-				<?
+				jsSelectUtils.deleteOption(BX('iblock'), <?php echo $IBLOCK_ID?>);
+				<?php 
 				if (!empty($iblockDropDown) && $NS['iblock'] <= 0)
 				{
 					$IBLOCK_ID = key($iblockDropDown);
 					?>
-					jsSelectUtils.selectOption(BX('iblock'), <?echo $IBLOCK_ID?>);
-					DoNext(<?echo CUtil::PhpToJSObject($NS)?>);
-					<?
+					jsSelectUtils.selectOption(BX('iblock'), <?php echo $IBLOCK_ID?>);
+					DoNext(<?php echo CUtil::PhpToJSObject($NS)?>);
+					<?php 
 				}
 				?>
 			</script>
-			<?
+			<?php 
 		}
 	}
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
@@ -223,7 +223,7 @@ else
 	function DoNext(NS)
 	{
 		var queryString = 'Reindex=Y'
-			+ '&lang=<?echo LANGUAGE_ID?>'
+			+ '&lang=<?php echo LANGUAGE_ID?>'
 			+ '&IBLOCK_ID=' + BX('iblock').value
 			;
 
@@ -253,7 +253,7 @@ else
 	}
 	</script>
 	<div id="reindex_result_div"></div>
-	<?
+	<?php 
 	$aMenu = array(
 		array(
 			"TEXT" => GetMessage("IBLOCK_BACK_TO_ADMIN"),
@@ -264,35 +264,35 @@ else
 	$context = new CAdminContextMenu($aMenu);
 	$context->Show();
 	?>
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo htmlspecialcharsbx(LANG)?>" name="fs1">
-	<?
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo htmlspecialcharsbx(LANG)?>" name="fs1">
+	<?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?>
 		<tr>
-			<td><label for="iblock"><?echo GetMessage("IBLOCK_REINDEX_IBLOCK")?></label></td>
-			<td><select name="iblock" id="iblock"> <?echo GetMessage("IBLOCK_REINDEX_STEP_SEC")?>
-					<option value=""><?echo GetMessage('MAIN_ALL')?></option>
-					<?foreach ($iblockDropDown as $key => $value)
+			<td><label for="iblock"><?php echo GetMessage("IBLOCK_REINDEX_IBLOCK")?></label></td>
+			<td><select name="iblock" id="iblock"> <?php echo GetMessage("IBLOCK_REINDEX_STEP_SEC")?>
+					<option value=""><?php echo GetMessage('MAIN_ALL')?></option>
+					<?php foreach ($iblockDropDown as $key => $value)
 					{
-						?><option value="<?echo htmlspecialcharsbx($key)?>" <?if ($_GET['IBLOCK_ID'] == $key) echo 'selected="selected"';?>><?echo htmlspecialcharsEx($value)?></option><?
+						?><option value="<?php echo htmlspecialcharsbx($key)?>" <?php if ($_GET['IBLOCK_ID'] == $key) echo 'selected="selected"';?>><?php echo htmlspecialcharsEx($value)?></option><?php 
 					}?>
 				</select></td>
 		</tr>
 		<tr>
-			<td><label for="max_execution_time"><?echo GetMessage("IBLOCK_REINDEX_STEP")?></label></td>
-			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $max_execution_time;?>"> <?echo GetMessage("IBLOCK_REINDEX_STEP_SEC")?></td>
+			<td><label for="max_execution_time"><?php echo GetMessage("IBLOCK_REINDEX_STEP")?></label></td>
+			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $max_execution_time;?>"> <?php echo GetMessage("IBLOCK_REINDEX_STEP_SEC")?></td>
 		</tr>
-	<?
+	<?php 
 	$tabControl->Buttons();
 	?>
-		<input type="button" id="start_button" value="<?echo GetMessage("IBLOCK_REINDEX_START_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
+		<input type="button" id="start_button" value="<?php echo GetMessage("IBLOCK_REINDEX_START_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
 		<input type="button" id="stop_button" value="<?=GetMessage("IBLOCK_REINDEX_STOP_BUTTON")?>" OnClick="StopReindex();" disabled>
 		<input type="button" id="continue_button" value="<?=GetMessage("IBLOCK_REINDEX_CONTINUE_BUTTON")?>" OnClick="ContinueReindex();" disabled>
-	<?
+	<?php 
 	$tabControl->End();
 	?>
 	</form>
-	<?
+	<?php 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }

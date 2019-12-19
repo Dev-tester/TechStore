@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEXT_BUTTON"] = "Next";
 $MESS["PREVIOUS_BUTTON"] = "Back";
 $MESS["WELCOME_TEXT"] = "This wizard will help you configure the product in a few simple steps and start working with content.<br /><br /> You will have to choose the design template, color theme and provide the initial settings.";

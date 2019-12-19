@@ -5,7 +5,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)die();
 
 $toolbarID =  $arParams['TOOLBAR_ID'];
 
-?><div class="crm-list-top-bar" id="<?=htmlspecialcharsbx($toolbarID)?>"><?
+?><div class="crm-list-top-bar" id="<?=htmlspecialcharsbx($toolbarID)?>"><?php 
 
 $moreItems = array();
 $enableMoreButton = false;
@@ -69,7 +69,7 @@ foreach($arParams["BUTTONS"] as $item):
 				}
 			});
 		</script>
-		<?
+		<?php 
 		$requisitePresetSelectorIndex++;
 	}
 	elseif($type === 'crm-context-menu')
@@ -95,13 +95,13 @@ foreach($arParams["BUTTONS"] as $item):
 
 		if($alignment !== '')
 		{
-			?><span class="crm-toolbar-alignment-<?=htmlspecialcharsbx($alignment)?>"><?
+			?><span class="crm-toolbar-alignment-<?=htmlspecialcharsbx($alignment)?>"><?php 
 		}
 		$onclick = isset($item['ONCLICK']) ? $item['ONCLICK'] : '';
-		?><a class="<?=$iconClassName !== '' ? htmlspecialcharsbx($iconClassName) : ''?>" href="<?=htmlspecialcharsbx($link)?>" title="<?=htmlspecialcharsbx($title)?>" <?=$onclick !== '' ? ' onclick="'.htmlspecialcharsbx($onclick).'; return false;"' : ''?>><span><?=htmlspecialcharsbx($text)?></span><span class="crm-btn-menu-arrow"></span></a><?
+		?><a class="<?=$iconClassName !== '' ? htmlspecialcharsbx($iconClassName) : ''?>" href="<?=htmlspecialcharsbx($link)?>" title="<?=htmlspecialcharsbx($title)?>" <?=$onclick !== '' ? ' onclick="'.htmlspecialcharsbx($onclick).'; return false;"' : ''?>><span><?=htmlspecialcharsbx($text)?></span><span class="crm-btn-menu-arrow"></span></a><?php 
 		if($alignment !== '')
 		{
-			?></span><?
+			?></span><?php 
 		}
 
 		if(isset($params['SCRIPTS']) && is_array($params['SCRIPTS']))
@@ -110,13 +110,13 @@ foreach($arParams["BUTTONS"] as $item):
 				BX.ready(
 					function()
 					{
-						<?foreach($params['SCRIPTS'] as $script)
+						<?php foreach($params['SCRIPTS'] as $script)
 						{
 							echo $script, ';';
 						}?>
 					}
 				);
-			</script><?
+			</script><?php 
 		}
 	}
 	else
@@ -141,13 +141,13 @@ foreach($arParams["BUTTONS"] as $item):
 
 		if($alignment !== '')
 		{
-			?><span class="crm-toolbar-alignment-<?=htmlspecialcharsbx($alignment)?>"><?
+			?><span class="crm-toolbar-alignment-<?=htmlspecialcharsbx($alignment)?>"><?php 
 		}
 		$onclick = isset($item['ONCLICK']) ? $item['ONCLICK'] : '';
-		?><a class="<?=$iconClassName !== '' ? htmlspecialcharsbx($iconClassName) : ''?>" href="<?=htmlspecialcharsbx($link)?>" title="<?=htmlspecialcharsbx($title)?>" <?=$onclick !== '' ? ' onclick="'.htmlspecialcharsbx($onclick).'; return false;"' : ''?>><span class="crm-toolbar-btn-icon"></span><span><?=htmlspecialcharsbx($text)?></span></a><?
+		?><a class="<?=$iconClassName !== '' ? htmlspecialcharsbx($iconClassName) : ''?>" href="<?=htmlspecialcharsbx($link)?>" title="<?=htmlspecialcharsbx($title)?>" <?=$onclick !== '' ? ' onclick="'.htmlspecialcharsbx($onclick).'; return false;"' : ''?>><span class="crm-toolbar-btn-icon"></span><span><?=htmlspecialcharsbx($text)?></span></a><?php 
 		if($alignment !== '')
 		{
-			?></span><?
+			?></span><?php 
 		}
 	}
 endforeach;
@@ -172,10 +172,10 @@ if(!empty($moreItems)):
 			}
 		);
 	</script>
-<?
+<?php 
 endif;
 if ($labelText != ''):
-?><div class="crm-toolbar-label1"><span id="<?= $toolbarID.'_label' ?>"><?=$labelText?></span></div><?
+?><div class="crm-toolbar-label1"><span id="<?= $toolbarID.'_label' ?>"><?=$labelText?></span></div><?php 
 endif;
 ?></div>
 

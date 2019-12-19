@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Форма заявки");
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:form.result.new",
 	"",
 	Array(
@@ -23,4 +23,4 @@ $APPLICATION->SetTitle("Форма заявки");
 		)
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

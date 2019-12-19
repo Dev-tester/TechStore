@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SEARCH_USER'] = "Найти пользователя";
 $MESS ['F_POST_FULLY'] = "Заполнение ящика:";
 $MESS ['F_HEAD_TO'] = "Адресат";

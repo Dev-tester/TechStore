@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ACCOMPLICE"] = "Participant";
 $MESS["TASKS_ADD_QUICK_TASK"] = "Create quick task";
 $MESS["TASKS_ADD_TASK"] = "New Task";

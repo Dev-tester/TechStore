@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_EDIT_HINT_ANY"] = "* - asterisk matches any number of any characters.
 Examples:
 - All pages in the /catalog/ directory on www.example.com

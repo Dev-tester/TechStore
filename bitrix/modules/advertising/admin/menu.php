@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $ADV_RIGHT = $APPLICATION->GetGroupRight("advertising");

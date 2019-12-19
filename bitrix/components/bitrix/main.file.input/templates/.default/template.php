@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 /**
  * @var array $arParams
  * @var array $arResult
@@ -22,7 +22,7 @@
 		</div>
 	</li>
 </ul>
-<?*/
+<?php */
 
 if ($arParams["SHOW_AVATAR_EDITOR"] == "Y")
 {
@@ -51,8 +51,8 @@ $thumb = <<<HTML
 HTML;
 ?>
 <div class="file-input">
-	<ol class="webform-field-upload-list webform-field-upload-list-<?=$arParams["MULTIPLE"] == "Y" ? "multiple" : "single"?><?
-		?><?=($arParams["SHOW_AVATAR_EDITOR"] == "Y" && $arParams["ALLOW_UPLOAD"] == "I" ? " webform-field-upload-icon-view" : "")?>" id="mfi-<?=$arParams['CONTROL_ID']?>"><?
+	<ol class="webform-field-upload-list webform-field-upload-list-<?=$arParams["MULTIPLE"] == "Y" ? "multiple" : "single"?><?php 
+		?><?=($arParams["SHOW_AVATAR_EDITOR"] == "Y" && $arParams["ALLOW_UPLOAD"] == "I" ? " webform-field-upload-icon-view" : "")?>" id="mfi-<?=$arParams['CONTROL_ID']?>"><?php 
 		foreach ($arResult['FILES'] as $file)
 		{
 			$ext = GetFileExtension($file['ORIGINAL_NAME']);
@@ -70,12 +70,12 @@ HTML;
 					$ext
 				),
 				$thumbForUploaded
-			)?></li><?
+			)?></li><?php 
 		}
 	?></ol>
-	<?if ($arParams["ALLOW_UPLOAD"] != "N")
+	<?php if ($arParams["ALLOW_UPLOAD"] != "N")
 	{
-		?><div class="webform-field-upload" id="mfi-<?=$arParams['CONTROL_ID']?>-button"><?
+		?><div class="webform-field-upload" id="mfi-<?=$arParams['CONTROL_ID']?>-button"><?php 
 			if (isset($arParams["INPUT_CAPTION"]) && !empty($arParams["INPUT_CAPTION"]))
 			{
 				$inputCaption = $arParams["INPUT_CAPTION"];
@@ -84,26 +84,26 @@ HTML;
 			{
 				$inputCaption = ($arParams["ALLOW_UPLOAD"] == "I" ? GetMessage('MFI_INPUT_CAPTION_ADD_IMAGE') : GetMessage('MFI_INPUT_CAPTION_ADD'));
 			}
-			?><span class="webform-small-button webform-button-upload"><?=$inputCaption?></span><?
+			?><span class="webform-small-button webform-button-upload"><?=$inputCaption?></span><?php 
 			if ($arParams["MULTIPLE"] == "N")
 			{
-				?><span class="webform-small-button webform-button-replace"><?=($arParams["ALLOW_UPLOAD"] == "I" ? GetMessage('MFI_INPUT_CAPTION_REPLACE_IMAGE') : GetMessage('MFI_INPUT_CAPTION_REPLACE'))?></span><?
+				?><span class="webform-small-button webform-button-replace"><?=($arParams["ALLOW_UPLOAD"] == "I" ? GetMessage('MFI_INPUT_CAPTION_REPLACE_IMAGE') : GetMessage('MFI_INPUT_CAPTION_REPLACE'))?></span><?php 
 			}
 			if ($arParams["SHOW_AVATAR_EDITOR"] == "Y" && $arParams["ALLOW_UPLOAD"] == "I")
 			{
-				?><input type="button" id="mfi-<?=$arParams['CONTROL_ID']?>-editor" /><?
+				?><input type="button" id="mfi-<?=$arParams['CONTROL_ID']?>-editor" /><?php 
 			}
 			else
 			{
-				?><input type="file" id="file_input_<?=$arParams['CONTROL_ID']?>" <?=$arParams["MULTIPLE"] === 'Y' ? ' multiple="multiple"' : ''?> /><?
+				?><input type="file" id="file_input_<?=$arParams['CONTROL_ID']?>" <?=$arParams["MULTIPLE"] === 'Y' ? ' multiple="multiple"' : ''?> /><?php 
 			}
-		?></div><?
+		?></div><?php 
 		if (!empty($arParams["ALLOW_UPLOAD_EXT"]) || $arParams['MAX_FILE_SIZE'] > 0)
 		{
 			$message = ((!empty($arParams["ALLOW_UPLOAD_EXT"]) && $arParams['MAX_FILE_SIZE'] > 0) ? GetMessage("MFI_NOTICE_1") : (
 					!empty($arParams["ALLOW_UPLOAD_EXT"]) ? GetMessage("MFI_NOTICE_2") : GetMessage("MFI_NOTICE_3")
 			));
-			?><div class="webform-field-upload-notice"><?=str_replace(array("#ext#", "#size#"), array(htmlspecialcharsBx($arParams["ALLOW_UPLOAD_EXT"]), CFile::FormatSize($arParams['MAX_FILE_SIZE'])), $message);?></div><?
+			?><div class="webform-field-upload-notice"><?=str_replace(array("#ext#", "#size#"), array(htmlspecialcharsBx($arParams["ALLOW_UPLOAD_EXT"]), CFile::FormatSize($arParams['MAX_FILE_SIZE'])), $message);?></div><?php 
 		}
 	}
 ?>

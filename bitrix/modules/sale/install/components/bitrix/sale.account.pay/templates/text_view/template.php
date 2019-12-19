@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -27,14 +27,14 @@ else
 	{
 		?>
 		<h3><?=Loc::getMessage("SAP_BUY_MONEY")?></h3>
-		<?
+		<?php 
 		$adit="";
 		if(strlen($arResult["CURRENT_PAGE"]) > 0)
 			$adit = "&CURRENT_PAGE=".$arResult["CURRENT_PAGE"];
 		foreach($arResult["AMOUNT_TO_SHOW"] as $value)
 		{
 
-			?><a href="<?=$value["LINK"].$adit?>" title="<?=Loc::getMessage("SAP_LINK_TITLE")." ".$value["NAME"]?>"><?=$value["NAME"]?></a><br /><?
+			?><a href="<?=$value["LINK"].$adit?>" title="<?=Loc::getMessage("SAP_LINK_TITLE")." ".$value["NAME"]?>"><?=$value["NAME"]?></a><br /><?php 
 		}
 	}
 }

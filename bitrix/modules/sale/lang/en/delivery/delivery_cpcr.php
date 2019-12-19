@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_CPCR_NAME"] = "CPCR";
 $MESS["SALE_DH_CPCR_DESCRIPTION"] = "express post service";
 $MESS["SALE_DH_CPCR_DESCRIPTION_INNER"] = "CPCR services. Based upon the <a href=\"http://www.cpcr.ru/calculator.html\" target=\"_blank\">CPCR tariff calculator</a>. The e-Store address must be specified in the <a href=\"/bitrix/admin/settings.php?mid=sale&lang=en\">module settings</a>. <br /> Russian destinations only.";

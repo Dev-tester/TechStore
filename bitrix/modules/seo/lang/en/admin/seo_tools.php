@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_TOOLS_ERROR_FILE_NOT_FOUND"] = "File not found";
 $MESS["SEO_TOOLS_TAB_PAGE"] = "Page";
 $MESS["SEO_TOOLS_TAB_PAGE_TITLE"] = "Page Statistics";

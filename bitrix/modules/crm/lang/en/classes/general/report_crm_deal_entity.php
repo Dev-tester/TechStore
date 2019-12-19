@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_ENTITY_ID"] = "ID";
 $MESS["CRM_DEAL_ENTITY_TITLE"] = "Name";
 $MESS["CRM_DEAL_ENTITY_OPENED"] = "Available to everyone";

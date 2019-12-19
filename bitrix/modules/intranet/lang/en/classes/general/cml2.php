@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_XML2_FILE_ERROR"] = "Error opening the file.";
 $MESS["IBLOCK_XML2_INDEX_ERROR"] = "Index creation error.";
 $MESS["IBLOCK_XML2_METADATA_ERROR"] = "Catalog metadata import error.";

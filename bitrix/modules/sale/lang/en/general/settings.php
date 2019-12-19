@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGO_ERROR_CURRENCY"] = "The currency #CURRENCY# is bound to a site in the e-Store settings and thus cannot be deleted.";
 $MESS["SKGO_ERROR_DEFAULT_CURRENCY"] = "#CURRENCY# is the online store's default currency. It cannot be deleted as long as the respective module settings remain in place.";
 $MESS["SKGS_NO_DEL_FLAG"] = "The ID of the flag for the records to be deleted is not specified";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DELIVERY_CHANGE_WARNING"] = "First available delivery service selected";
 $MESS["INFO_REQ"] = "You have been successfully registered.";
 $MESS["INNER_PAYMENT_BALANCE_ERROR"] = "Insufficient funds on internal account";

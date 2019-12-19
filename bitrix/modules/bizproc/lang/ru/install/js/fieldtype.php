@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_JS_BP_FIELD_TYPE_YES"] = "Да";
 $MESS["BIZPROC_JS_BP_FIELD_TYPE_NO"] = "Нет";
 $MESS["BIZPROC_JS_BP_FIELD_TYPE_NOT_SELECTED"] = "[не установлено]";

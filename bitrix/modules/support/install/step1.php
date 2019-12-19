@@ -1,7 +1,7 @@
-<?IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/install/install.php");?>
-<form action="<?echo $APPLICATION->GetCurPage()?>" name="form1">
+<?php IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/install/install.php");?>
+<form action="<?php echo $APPLICATION->GetCurPage()?>" name="form1">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
+<input type="hidden" name="lang" value="<?php echo LANG?>">
 <input type="hidden" name="id" value="support">
 <input type="hidden" name="install" value="Y">
 <input type="hidden" name="step" value="2">

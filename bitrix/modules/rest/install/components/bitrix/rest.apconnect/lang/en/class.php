@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["APC_TITLE"] = "Connect your site";
 $MESS["APC_REST_MODULE_NOT_INSTALLED"] = "The \"rest\" module is not installed.";
 $MESS["APC_SOCIALSERVICES_MODULE_NOT_INSTALLED"] = "The \"Social Network\" module is not installed.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2006 Bitrix             #
@@ -116,11 +116,11 @@ function ConditionShow($arArgs=array())
 	$form=$arArgs['form'];
 ?>
 	<div style="display:<?=$arDisplay['empty']?>" id="type_empty<?=$i?>"><?=GetMessage("TYPES_EMPTY_COND")?></div>
-<?if (isset($arConditionTypes['false'])):?>
+<?php if (isset($arConditionTypes['false'])):?>
 <div style="display:<?=$arDisplay['false']?>" id="type_false<?=$i?>"><?=GetMessage("TYPES_FALSE_COND")?></div>
-<?endif;?>
+<?php endif;?>
 	<div style="display:<?=$arDisplay['folder']?>" value="<?=htmlspecialcharsbx($strFolder)?>" id="type_folder<?=$i?>">
-	<?
+	<?php 
 	CAdminFileDialog::ShowScript(Array
 		(
 			"event" => "BtnClick$i",
@@ -135,7 +135,7 @@ function ConditionShow($arArgs=array())
 	?><input title="<?=GetMessage("MAIN_PATH")?>" type="text" size="25" id="fname<?=$i?>" name="<?=$field_name?>[CONDITION_folder]" value="<?=htmlspecialcharsbx($strFolder)?>">&nbsp;<input type="button" name="browse" value="..." onClick="BtnClick<?=$i?>()">
 	</div>
 	<div style="display:<?=$arDisplay['ugroups']?>" id="type_ugroups<?=$i?>">
-		<select title="<?=GetMessage("MAIN_USERGROUPS");?>" multiple size=5 name="<?=$field_name?>[CONDITION_ugroups][]"><?
+		<select title="<?=GetMessage("MAIN_USERGROUPS");?>" multiple size=5 name="<?=$field_name?>[CONDITION_ugroups][]"><?php 
 		reset($arGroupsNames);
 		while ($e=each($arGroupsNames))
 			echo '<option value="'.$e[0].'"'.(in_array($e[0], $arSelGroups)?" selected":"").'>'.htmlspecialcharsbx($e[1]).'</option>';
@@ -155,8 +155,8 @@ function ConditionShow($arArgs=array())
 		<input title="<?=GetMessage("MAIN_URL_VALUE")?>" type="text" size="10" name="<?=$field_name?>[CONDITION_url_value]" value="<?=htmlspecialcharsbx($strUrl_value)?>">
 	</div>
 	<div style="display:<?=$arDisplay['no_access']?>" id="type_no_access<?=$i?>"><?=GetMessage("TYPES_EMPTY_COND")?></div>
-	<div style="display:<?=$arDisplay['php']?>" id="type_php<?=$i?>"><input type="text" size="30" name="<?=$field_name?>[CONDITION_php]" value="<?=htmlspecialcharsex($strCondition)?>" <?echo ((!$USER->CanDoOperation('edit_php')) ? 'disabled' : '');?>></div>
-<?
+	<div style="display:<?=$arDisplay['php']?>" id="type_php<?=$i?>"><input type="text" size="30" name="<?=$field_name?>[CONDITION_php]" value="<?=htmlspecialcharsex($strCondition)?>" <?php echo ((!$USER->CanDoOperation('edit_php')) ? 'disabled' : '');?>></div>
+<?php 
 }
 
 // JavaScript for displaying and hiding conditions of different types
@@ -186,13 +186,13 @@ function ConditionJS($arOpt = array())
 	function ShowSelected(i)
 	{
 		a = document.getElementById("selected_type" + i).value;
-<?
+<?php 
 	while ($e = each($arConditionTypes))
 		print "document.getElementById('type_$e[0]'+i).style.display=\"none\"\n";
 ?>
 		document.getElementById('type_' + a + i).style.display = "block";
 	}
 </script>
-<?
+<?php 
 }
 ?>

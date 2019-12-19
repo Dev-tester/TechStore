@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle(GetMessage("DESKTOP_TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:desktop",
 	"",
 	Array(
@@ -102,4 +102,4 @@ $APPLICATION->SetTitle(GetMessage("DESKTOP_TITLE"));
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -47,7 +47,7 @@ Extension::load("ui.notification");
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="bx-sender-letter-steps">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:sender.ui.panel.title", "", array('LIST' => array(
 		array('type' => 'buttons', 'list' => array(
 			array('type' => 'feedback'),
@@ -69,7 +69,7 @@ Extension::load("ui.notification");
 		<?=bitrix_sessid_post()?>
 
 		<div data-role="template-selector" class="bx-sender-letter-template-selector <?=(!$arResult['SHOW_TEMPLATE_SELECTOR'] ? 'bx-sender-letter-hide' : ' ')?>">
-			<?
+			<?php 
 			if ($arResult['USE_TEMPLATES'])
 			{
 				$APPLICATION->IncludeComponent(
@@ -99,7 +99,7 @@ Extension::load("ui.notification");
 			<input data-role="dispatch" data-code="MONTHS_OF_YEAR" type="hidden" name="DISPATCH[MONTHS_OF_YEAR]">
 			<input data-role="dispatch" data-code="TIMES_OF_DAY" type="hidden" name="DISPATCH[TIMES_OF_DAY]">
 
-			<?
+			<?php 
 			if ($arResult['USE_TEMPLATES'] && $arResult['CAN_CHANGE_TEMPLATE']):
 				/*
 				$this->SetViewTarget("pagetitle", 100);
@@ -107,7 +107,7 @@ Extension::load("ui.notification");
 				<span id="SENDER_LETTER_BUTTON_CHANGE" class="webform-small-button webform-small-button-transparent" style="<?=($arResult['SHOW_TEMPLATE_SELECTOR'] ? 'display: none;' : '')?>">
 					<?=Loc::getMessage('SENDER_LETTER_EDIT_CHANGE_TEMPLATE')?>
 				</span>
-				<?
+				<?php 
 				$this->EndViewTarget();
 				*/
 			endif;
@@ -120,9 +120,9 @@ Extension::load("ui.notification");
 				</div>
 			</div>
 
-			<?if ($arParams['SHOW_CAMPAIGNS']):?>
+			<?php if ($arParams['SHOW_CAMPAIGNS']):?>
 				<div class="sender-letter-edit-row">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:sender.campaign.selector",
 						"",
@@ -136,11 +136,11 @@ Extension::load("ui.notification");
 					);
 					?>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 
-			<?if ($arParams['SHOW_SEGMENTS']):?>
+			<?php if ($arParams['SHOW_SEGMENTS']):?>
 				<div class="sender-letter-edit-row">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:sender.segment.selector",
 						"",
@@ -161,9 +161,9 @@ Extension::load("ui.notification");
 					);
 					?>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:sender.message.editor",
 				"",
@@ -180,7 +180,7 @@ Extension::load("ui.notification");
 		</div>
 
 		<div data-role="letter-buttons" style="<?=($arResult['SHOW_TEMPLATE_SELECTOR'] ? 'display: none;' : '')?>">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:sender.ui.button.panel",
 				"",

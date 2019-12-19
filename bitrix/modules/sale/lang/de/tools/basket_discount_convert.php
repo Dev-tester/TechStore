@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_RIGHTS"] = "Sie haben nicht genügend Rechte.";
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_INCORRECT_SESSION"] = "Ihre Sitzung ist abgelaufen. Sie sollten bitte das Dialogfenster schließen, sich im System einloggen und erneut versuchen.";
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_MODULE_SALE_ABSENT"] = "Das Modul \"Onlineshop\" konnte nicht angeschlossen werden.";

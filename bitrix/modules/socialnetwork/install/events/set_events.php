@@ -1,4 +1,4 @@
-<?
+<?php 
 if (StrLen($pathInMessage) > 0)
 {
 	$pathInMessage = Str_Replace("\\", "/", $pathInMessage);
@@ -204,7 +204,7 @@ while ($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "#LOG_ENTRY_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:socialnetwork.log.entry.mail\",\"\",array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"RECIPIENT_ID\" => \"{#RECIPIENT_ID#}\",\"LOG_ENTRY_ID\" => \"{#LOG_ENTRY_ID#}\",\"URL\" => \"{#URL#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:socialnetwork.log.entry.mail\",\"\",array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"RECIPIENT_ID\" => \"{#RECIPIENT_ID#}\",\"LOG_ENTRY_ID\" => \"{#LOG_ENTRY_ID#}\",\"URL\" => \"{#URL#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_user"
 		));
@@ -216,7 +216,7 @@ while ($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "Re: #LOG_ENTRY_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:socialnetwork.log.entry.mail\",\"\",array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"RECIPIENT_ID\" => \"{#RECIPIENT_ID#}\",\"LOG_ENTRY_ID\" => \"{#LOG_ENTRY_ID#}\",\"COMMENT_ID\" => \"{#COMMENT_ID#}\",\"URL\" => \"{#URL#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:socialnetwork.log.entry.mail\",\"\",array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"RECIPIENT_ID\" => \"{#RECIPIENT_ID#}\",\"LOG_ENTRY_ID\" => \"{#LOG_ENTRY_ID#}\",\"COMMENT_ID\" => \"{#COMMENT_ID#}\",\"URL\" => \"{#URL#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_user"
 		));

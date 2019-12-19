@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var CDatabase $DB
  * @var CMain  $APPLICATION
@@ -218,7 +218,7 @@ if($_REQUEST["table_id"] == $sTableHistory)
 	<form name="find_form_history" method="GET" action="<?=$APPLICATION->GetCurPageParam();?>">
 	<input type="hidden" name="ID" value="<?=$ID?>">
 	<input type="hidden" name="table_id" value="<?=$sTableHistory?>">
-	<?
+	<?php 
 	$arFilterFieldsTmp = array(
 		"filter_user" => Loc::getMessage("SOD_HIST_H_USER"),
 		"filter_date_history" => Loc::getMessage("SOD_HIST_H_DATE"),
@@ -243,7 +243,7 @@ if($_REQUEST["table_id"] == $sTableHistory)
 <tr>
 	<td><?=Loc::getMessage('SOD_HIST_H_DATE')?>:</td>
 	<td>
-		<?echo CalendarPeriod("filters_date_history_from", $filters_date_history_from, "filters_date_history_to", $filters_date_history_to, "find_form_history", "Y")?>
+		<?php echo CalendarPeriod("filters_date_history_from", $filters_date_history_from, "filters_date_history_to", $filters_date_history_to, "find_form_history", "Y")?>
 	</td>
 </tr>
 
@@ -251,10 +251,10 @@ if($_REQUEST["table_id"] == $sTableHistory)
 	<td><?=Loc::getMessage('SOD_HIST_TYPE')?>:</td>
 	<td>
 		<select name="filter_type">
-			<option value=""><?echo Loc::getMessage("SOD_HIST_ALL")?></option>
-			<?foreach ($arOperations as $type => $name):?>
-				<option value="<?=$type?>"<?if ($filter_type== $type) echo " selected"?>><?=htmlspecialcharsbx($name);?></option>
-			<?endforeach;?>
+			<option value=""><?php echo Loc::getMessage("SOD_HIST_ALL")?></option>
+			<?php foreach ($arOperations as $type => $name):?>
+				<option value="<?=$type?>"<?php if ($filter_type== $type) echo " selected"?>><?=htmlspecialcharsbx($name);?></option>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
@@ -262,12 +262,12 @@ if($_REQUEST["table_id"] == $sTableHistory)
 	<td><?=Loc::getMessage('SOD_HIST_IMPORTANT_TYPES')?>:</td>
 	<td>
 		<select name="filter_important">
-			<option value="Y"<?if ($filter_important === 'Y' || $filter_important === null) echo " selected"?>><?=Loc::getMessage("SOD_HIST_YES");?></option>
-			<option value="N"<?if ($filter_important === 'N') echo " selected"?>><?=Loc::getMessage("SOD_HIST_NO");?></option>
+			<option value="Y"<?php if ($filter_important === 'Y' || $filter_important === null) echo " selected"?>><?=Loc::getMessage("SOD_HIST_YES");?></option>
+			<option value="N"<?php if ($filter_important === 'N') echo " selected"?>><?=Loc::getMessage("SOD_HIST_NO");?></option>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableHistory,
@@ -278,7 +278,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 	$lAdminHistory->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));
 ?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EBMNP_MESSAGE_PER_PAGE'] = "Messages per page";
 $MESS ['EBMNP_MESSAGE_LENGTH'] = "Maximum message display length";
 $MESS ['EBMNP_PATH_TO_BLOG'] = "Blog page path template";

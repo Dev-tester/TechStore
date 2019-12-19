@@ -1,17 +1,17 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $GLOBALS["APPLICATION"]->AddHeadScript("/bitrix/js/main/utils.js");
 ?>
 <div class="socnet-chat-body" id="socnet_chat_body">
 <form name="sonet_chat_form" action="" onsubmit="sonet_chat_msg_add(); return false;" onmouseover="if(null != init_form){init_form(this)}" onkeydown="if(null != init_form){init_form(this)}">
-<?
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 ?>
 	<div class="socnet-chat-warning">
 	<span class="errortext"><?= GetMessage("SONET_C50_T_NEED_AUTH") ?></span>
 	</div>
-<?
+<?php 
 }
 elseif (strlen($arResult["FatalError"])>0)
 {
@@ -19,7 +19,7 @@ elseif (strlen($arResult["FatalError"])>0)
 	<div class="socnet-chat-warning">
 	<span class="errortext"><?= $arResult["FatalError"] ?></span><br /><br />
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -29,7 +29,7 @@ else
 		<div class="socnet-chat-warning">
 		<span class="errortext"><?= $arResult["ErrorMessage"] ?></span><br /><br />
 		</div>
-		<?
+		<?php 
 	}
 	?>
 <script type="text/javascript">
@@ -101,7 +101,7 @@ var sonetChatReplyMesageId = '<?= $arResult["REPLY_MESSAGE_ID"]; ?>';
 var sonetSoundOn = <?= ($arResult["USER_OPTIONS"]["sound"] == "Y"? "true":"false")?>;
 var sonetReplyPathTemplate = '<?= CUtil::JSEscape($arParams["PATH_TO_MESSAGE_FORM_MESS"])?>';
 </script>
-<script type="text/javascript" src="/bitrix/components/bitrix/player/mediaplayer/flvscript.js<?echo (strpos($_SERVER["HTTP_USER_AGENT"], "Opera") !== false? '':'?v='.filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/player/mediaplayer/flvscript.js'))?>"></script>
+<script type="text/javascript" src="/bitrix/components/bitrix/player/mediaplayer/flvscript.js<?php echo (strpos($_SERVER["HTTP_USER_AGENT"], "Opera") !== false? '':'?v='.filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/player/mediaplayer/flvscript.js'))?>"></script>
 
 <div style="position:absolute; top:-1000px; left:-1000px;">
 <div id="bx_flv_player_incoming_div" style="display:none">
@@ -137,45 +137,45 @@ showFLVPlayer("bx_flv_player_incoming", "");
 
 	<table cellspacing="0" cellpadding="0">
 		<tr valign="top">
-<?if($arParams["GROUP_ID"] > 0):?>
+<?php if($arParams["GROUP_ID"] > 0):?>
 			<td class="bx-photo"><?= $arResult["Group"]["IMAGE_ID_IMG"] ?></td>
 			<td>
 				<b><?= $arResult["Group"]["NAME"] ?></b>
 			</td>
-<?else:?>
+<?php else:?>
 			<td class="bx-photo"><?= $arResult["User"]["PersonalPhotoImg"] ?></td>
 			<td>
 				<div class="socnet-user-name"><?= $arResult["User"]["NAME_FORMATTED"] ?></div>
 				<div id="socnet_user_online" class="bx-icon <?= ($arResult["IS_ONLINE"]? "bx-icon-online":"bx-icon-offline")?>" title="<?= ($arResult["IS_ONLINE"]? GetMessage("SONET_C50_T_ONLINE"):GetMessage("SONET_CHAT_OFFLINE")) ?>"></div>
 				<div id="socnet_user_online_text"><?= ($arResult["IS_ONLINE"]? GetMessage("SONET_C50_T_ONLINE"):GetMessage("SONET_CHAT_OFFLINE")) ?></div>
 			</td>
-<?
+<?php 
 if($arResult['IS_BIRTHDAY'] || $arResult['IS_ABSENT'] || $arResult['IS_FEATURED']):
 ?>
 			<td class="bx-border">
-				<?if($arResult['IS_BIRTHDAY']):?><div class="bx-icon bx-icon-birth" title="<?= GetMessage("SONET_C50_T_BIRTHDAY") ?>"></div><?endif;?>
-				<?if($arResult['IS_FEATURED']):?><div class="bx-icon bx-icon-featured" title="<?= GetMessage("SONET_C50_T_FEATURED") ?>"></div><?endif;?>
-				<?if($arResult['IS_ABSENT']):?><div class="bx-icon bx-icon-away" title="<?= GetMessage("SONET_C50_T_AWAY") ?>"></div><?endif;?>
+				<?php if($arResult['IS_BIRTHDAY']):?><div class="bx-icon bx-icon-birth" title="<?= GetMessage("SONET_C50_T_BIRTHDAY") ?>"></div><?php endif;?>
+				<?php if($arResult['IS_FEATURED']):?><div class="bx-icon bx-icon-featured" title="<?= GetMessage("SONET_C50_T_FEATURED") ?>"></div><?php endif;?>
+				<?php if($arResult['IS_ABSENT']):?><div class="bx-icon bx-icon-away" title="<?= GetMessage("SONET_C50_T_AWAY") ?>"></div><?php endif;?>
 			</td>
-<?
+<?php 
 endif;
 ?>
-<?
+<?php 
 endif;
 ?>
 			<td class="bx-border">
-			<?if($arParams["GROUP_ID"] > 0):?>
-				<a class="socnet-button socnet-button-group-profile" href="<?= $arResult["Urls"]["Group"] ?>" target="_blank" title="<?echo GetMessage("SONET_GROUP_PROFILE")?>"></a>
-			<?else:?>
-				<?if ($arResult["CurrentUserPerms"]["Operations"]["viewprofile"]):?>
+			<?php if($arParams["GROUP_ID"] > 0):?>
+				<a class="socnet-button socnet-button-group-profile" href="<?= $arResult["Urls"]["Group"] ?>" target="_blank" title="<?php echo GetMessage("SONET_GROUP_PROFILE")?>"></a>
+			<?php else:?>
+				<?php if ($arResult["CurrentUserPerms"]["Operations"]["viewprofile"]):?>
 					<a class="socnet-button socnet-button-profile" href="<?= $arResult["Urls"]["User"] ?>" target="_blank" title="<?= GetMessage("SONET_C50_T_TO_PROFILE_ALT") ?>"></a>
-				<?endif;?>
+				<?php endif;?>
 				<a class="socnet-button socnet-button-history" href="<?= $arResult["Urls"]["UserMessages"] ?>" target="_blank" title="<?= GetMessage("SONET_C50_T_TO_HISTORY_ALT") ?>"></a>
-				<?if ($arResult["CurrentUserPerms"]["Operations"]["videocall"]):?>
+				<?php if ($arResult["CurrentUserPerms"]["Operations"]["videocall"]):?>
 					<a class="socnet-button socnet-button-videocall" href="<?= $arResult["Urls"]["VideoCall"] ?>" target="_blank" onclick="window.open('<?= $arResult["Urls"]["VideoCall"] ?>', '', 'location=yes,status=no,scrollbars=yes,resizable=yes,width=1000,height=600,top='+Math.floor((screen.height - 600)/2-14)+',left='+Math.floor((screen.width - 1000)/2-5)); return false;" title="<?= GetMessage("SONET_C50_T_TO_VIDEO_CALL_ALT") ?>"></a>
-				<?endif;?>
+				<?php endif;?>
 				<a class="socnet-button socnet-button-messages" href="javascript:sonet_load_last_char();" title="<?= GetMessage("SONET_C50_T_LAST_CHAT_ALT") ?>"></a>
-			<?endif;?>
+			<?php endif;?>
 			<a href="javascript:void(0);" class="socnet-button <?=($arResult["USER_OPTIONS"]["sound"] == "Y"? "socnet-sound-on":"socnet-sound-off")?>" title="<?=($arResult["USER_OPTIONS"]["sound"] == "Y"? GetMessage("PM_SOUND_ON"):GetMessage("PM_SOUND_OFF"))?>" onclick="sonet_switch_sound(this)"></a>
 			</td>
 		</tr>
@@ -209,7 +209,7 @@ endif;
 			<br style="clear:both;" />
 		</div>
 		<div class="socnet-chat-smiles">
-<?
+<?php 
 $res_str = '';
 foreach($arResult["PrintSmilesList"] as $res)
 {
@@ -235,58 +235,58 @@ echo $res_str;
 
 </td>
 
-<?
+<?php 
 //contact list
 ?>
 <td class="socnet-user-group-divider" valign="middle" onmousedown="sonet_start_drag(arguments[0]);">
-	<a class="socnet-divider<?=(is_array($arResult["Users"]["List"]) || $arResult["USER_OPTIONS"]["contacts"] == "Y"? ' socnet-divider-right':'')?>" href="javascript:void(0)" onclick="sonet_group_resize(this)" title="<?echo GetMessage("SOCNET_CHAT_RESIZE")?>"></a>
+	<a class="socnet-divider<?=(is_array($arResult["Users"]["List"]) || $arResult["USER_OPTIONS"]["contacts"] == "Y"? ' socnet-divider-right':'')?>" href="javascript:void(0)" onclick="sonet_group_resize(this)" title="<?php echo GetMessage("SOCNET_CHAT_RESIZE")?>"></a>
 </td>
 
-<td class="socnet-user-group" style="display:<?=(is_array($arResult["Users"]["List"]) || $arResult["USER_OPTIONS"]["contacts"] == "Y"? '':'none')?>;<?if($arResult["USER_OPTIONS"]["contacts_width"] > 0) echo ' width:'.$arResult["USER_OPTIONS"]["contacts_width"].'px;'?>" id="socnet_user_group_cell">
-<div id="socnet_user_group"<?if($arResult["USER_OPTIONS"]["contacts_width"] > 0) echo ' style="width:'.$arResult["USER_OPTIONS"]["contacts_width"].'px"'?>>
+<td class="socnet-user-group" style="display:<?=(is_array($arResult["Users"]["List"]) || $arResult["USER_OPTIONS"]["contacts"] == "Y"? '':'none')?>;<?php if($arResult["USER_OPTIONS"]["contacts_width"] > 0) echo ' width:'.$arResult["USER_OPTIONS"]["contacts_width"].'px;'?>" id="socnet_user_group_cell">
+<div id="socnet_user_group"<?php if($arResult["USER_OPTIONS"]["contacts_width"] > 0) echo ' style="width:'.$arResult["USER_OPTIONS"]["contacts_width"].'px"'?>>
 
 <div id="socnet_chat_selectors">
 
 <div class="socnet-group-search">
-	<input type="text" name="search" value="<?echo GetMessage("SONET_CHAT_SEARCH")?>" onfocus="sonet_search_focus(this)" onblur="sonet_search_blur(this)" onkeyup="sonet_search_keypress(this)" title="<?echo GetMessage("SONET_CHAT_SEARCH_TITLE")?>">
+	<input type="text" name="search" value="<?php echo GetMessage("SONET_CHAT_SEARCH")?>" onfocus="sonet_search_focus(this)" onblur="sonet_search_blur(this)" onkeyup="sonet_search_keypress(this)" title="<?php echo GetMessage("SONET_CHAT_SEARCH_TITLE")?>">
 </div>
 
 <div>
-<?
+<?php 
 //socialnetwork group
 if(is_array($arResult["Users"]["List"])):
 ?>
-<div class="socnet-selector socnet-selector-active" id="socnet_selector_group" onclick="sonet_set_selector(this)"><?echo GetMessage("SOCNET_CHAT_GROUP")?></div>
-<?endif?>
-<?
+<div class="socnet-selector socnet-selector-active" id="socnet_selector_group" onclick="sonet_set_selector(this)"><?php echo GetMessage("SOCNET_CHAT_GROUP")?></div>
+<?php endif?>
+<?php 
 //recent users
 if(is_array($arResult["RecentUsers"])):
 ?>
-<div class="socnet-selector<?if(!is_array($arResult["Users"]["List"])) echo " socnet-selector-active"?>" id="socnet_selector_recent" onclick="sonet_set_selector(this)"><?echo GetMessage("SOCNET_CHAT_RECENT")?></div>
-<?endif?>
-<?
+<div class="socnet-selector<?php if(!is_array($arResult["Users"]["List"])) echo " socnet-selector-active"?>" id="socnet_selector_recent" onclick="sonet_set_selector(this)"><?php echo GetMessage("SOCNET_CHAT_RECENT")?></div>
+<?php endif?>
+<?php 
 //friends
 if(is_array($arResult["Friends"])):
 ?>
-<div class="socnet-selector" id="socnet_selector_friends" onclick="sonet_set_selector(this)"><?echo (CModule::IncludeModule('extranet') && CExtranet::IsExtranetSite() ?  GetMessage("SOCNET_CHAT_MY_CONTACTS") : GetMessage("SOCNET_CHAT_FRIENDS"))?></div>
-<?endif?>
-<?
+<div class="socnet-selector" id="socnet_selector_friends" onclick="sonet_set_selector(this)"><?php echo (CModule::IncludeModule('extranet') && CExtranet::IsExtranetSite() ?  GetMessage("SOCNET_CHAT_MY_CONTACTS") : GetMessage("SOCNET_CHAT_FRIENDS"))?></div>
+<?php endif?>
+<?php 
 //intranet structure
 if(is_array($arResult["Structure"])):
 ?>
-<div class="socnet-selector" id="socnet_selector_structure" onclick="sonet_set_selector(this)"><?echo GetMessage("SOCNET_CHAT_STRUCTURE")?></div>
-<?endif?>
+<div class="socnet-selector" id="socnet_selector_structure" onclick="sonet_set_selector(this)"><?php echo GetMessage("SOCNET_CHAT_STRUCTURE")?></div>
+<?php endif?>
 </div>
 
 <div class="socnet-group-separator"></div>
 
 </div>
 
-<div id="socnet_user_list"<?if($arResult["USER_OPTIONS"]["contacts_width"] > 0) echo ' style="width:'.($arResult["USER_OPTIONS"]["contacts_width"]-2).'px"'?>>
+<div id="socnet_user_list"<?php if($arResult["USER_OPTIONS"]["contacts_width"] > 0) echo ' style="width:'.($arResult["USER_OPTIONS"]["contacts_width"]-2).'px"'?>>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td>
-<?
+<?php 
 //socialnetwork group
 if(is_array($arResult["Users"]["List"])):
 ?>
@@ -294,7 +294,7 @@ if(is_array($arResult["Users"]["List"])):
 <div class="socnet-user-section">
 <table cellspacing="0">
 <tr>
-	<td><div id="group_arrow" class="socnet-arrow socnet-arrow-down" title="<?echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'group_<?=$arResult["Group"]["ID"]?>_block');"></div></td>
+	<td><div id="group_arrow" class="socnet-arrow socnet-arrow-down" title="<?php echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'group_<?=$arResult["Group"]["ID"]?>_block');"></div></td>
 	<td><input type="checkbox" name="" value="" id="group_<?=$arResult["Group"]["ID"]?>" checked onclick="sonet_check_group(this);"></td>
 	<td class="socnet-contact-section" ondblclick="sonet_switch_section(document.getElementById('group_arrow'), 'group_<?=$arResult["Group"]["ID"]?>_block');"><?= $arResult["Group"]["NAME"]?></td>
 </tr>
@@ -302,33 +302,33 @@ if(is_array($arResult["Users"]["List"])):
 </div>
 <div style="display:block;" id="group_<?=$arResult["Group"]["ID"]?>_block" class="socnet-user-contact-block">
 
-<?foreach($arResult["Users"]["List"] as $gr_user):?>
+<?php foreach($arResult["Users"]["List"] as $gr_user):?>
 <div class="socnet-user-contact">
 <table cellspacing="0">
 <tr>
 	<td><div class="socnet-indent"></div></td>
 	<td><input type="checkbox" name="USER_ID[]" value="<?=$gr_user["USER_ID"]?>" id="user_<?=$gr_user["USER_ID"]?>" checked></td>
 	<td>
-		<?if($gr_user["SHOW_PROFILE_LINK"]):?>
-			<a class="socnet-status <?=($gr_user["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$gr_user["USER_PROFILE_URL"]?>" title="<?echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
-		<?else:?>
+		<?php if($gr_user["SHOW_PROFILE_LINK"]):?>
+			<a class="socnet-status <?=($gr_user["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$gr_user["USER_PROFILE_URL"]?>" title="<?php echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
+		<?php else:?>
 			<div class="socnet-status <?=($gr_user["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>"></div>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 	<td class="socnet-contact-user"><a href="<?= $gr_user['PATH_TO_MESSAGES_CHAT'] ?>" onclick="sonet_open_chat(this); return false;" title="<?= GetMessage("SONET_C39_SEND_MESSAGE") ?>"><?=$gr_user["USER_NAME_FORMATTED"]?></a></td>
 </tr>
 </table>
 </div>
 
-<?endforeach;?>
+<?php endforeach;?>
 </div>
 </div>
-<?
+<?php 
 //end of socialnetwork group
 endif;
 ?>
 
-<?
+<?php 
 //friends
 if(is_array($arResult["Friends"])):
 ?>
@@ -336,41 +336,41 @@ if(is_array($arResult["Friends"])):
 <div class="socnet-user-section">
 <table cellspacing="0">
 <tr>
-	<td><div id="friends_arrow" class="socnet-arrow socnet-arrow-down" title="<?echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'friends_block');"></div></td>
+	<td><div id="friends_arrow" class="socnet-arrow socnet-arrow-down" title="<?php echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'friends_block');"></div></td>
 	<td><input type="checkbox" name="" value="" id="friends" onclick="sonet_check_group(this);"></td>
-	<td class="socnet-contact-section" ondblclick="sonet_switch_section(document.getElementById('friends_arrow'), 'friends_block');"><?echo (CModule::IncludeModule('extranet') && CExtranet::IsExtranetSite() ? GetMessage("SOCNET_CHAT_MY_CONTACTS_ALL") : GetMessage("SOCNET_CHAT_ALL_FRIENDS"))?></td>
+	<td class="socnet-contact-section" ondblclick="sonet_switch_section(document.getElementById('friends_arrow'), 'friends_block');"><?php echo (CModule::IncludeModule('extranet') && CExtranet::IsExtranetSite() ? GetMessage("SOCNET_CHAT_MY_CONTACTS_ALL") : GetMessage("SOCNET_CHAT_ALL_FRIENDS"))?></td>
 </tr>
 </table>
 </div>
 <div style="display:block;" id="friends_block" class="socnet-user-contact-block">
 
-<?foreach($arResult["Friends"] as $friend):?>
+<?php foreach($arResult["Friends"] as $friend):?>
 <div class="socnet-user-contact">
 <table cellspacing="0">
 <tr>
 	<td><div class="socnet-indent"></div></td>
 	<td><input type="checkbox" name="USER_ID[]" value="<?=$friend["USER_ID"]?>" id="friend_<?=$friend["USER_ID"]?>"></td>
 	<td>
-		<?if($friend["SHOW_PROFILE_LINK"]):?>
-			<a class="socnet-status <?=($friend["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$friend["USER_PROFILE_URL"]?>" title="<?echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
-		<?else:?>
+		<?php if($friend["SHOW_PROFILE_LINK"]):?>
+			<a class="socnet-status <?=($friend["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$friend["USER_PROFILE_URL"]?>" title="<?php echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
+		<?php else:?>
 			<div class="socnet-status <?=($friend["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>"></div>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 	<td class="socnet-contact-user"><a href="<?= $friend['PATH_TO_MESSAGES_CHAT'] ?>" onclick="sonet_open_chat(this); return false;" title="<?= GetMessage("SONET_C39_SEND_MESSAGE") ?>"><?=$friend["USER_NAME_FORMATTED"]?></a></td>
 </tr>
 </table>
 </div>
 
-<?endforeach;?>
+<?php endforeach;?>
 </div>
 </div>
-<?
+<?php 
 //end of friends
 endif;
 ?>
 
-<?
+<?php 
 //recent
 if(is_array($arResult["RecentUsers"])):
 ?>
@@ -378,42 +378,42 @@ if(is_array($arResult["RecentUsers"])):
 <div class="socnet-user-section">
 <table cellspacing="0">
 <tr>
-	<td><div id="recent_arrow" class="socnet-arrow socnet-arrow-down" title="<?echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'recent_block');"></div></td>
+	<td><div id="recent_arrow" class="socnet-arrow socnet-arrow-down" title="<?php echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'recent_block');"></div></td>
 	<td><input type="checkbox" name="" value="" id="recent" onclick="sonet_check_group(this);"></td>
-	<td class="socnet-contact-section" ondblclick="sonet_switch_section(document.getElementById('recent_arrow'), 'recent_block');"><?echo GetMessage("SOCNET_CHAT_RECENT")?></td>
+	<td class="socnet-contact-section" ondblclick="sonet_switch_section(document.getElementById('recent_arrow'), 'recent_block');"><?php echo GetMessage("SOCNET_CHAT_RECENT")?></td>
 </tr>
 </table>
 </div>
 <div style="display:block;" id="recent_block" class="socnet-user-contact-block">
 
-<?foreach($arResult["RecentUsers"] as $recent):?>
+<?php foreach($arResult["RecentUsers"] as $recent):?>
 <div class="socnet-user-contact">
 <table cellspacing="0">
 <tr>
 	<td><div class="socnet-indent"></div></td>
 	<td><input type="checkbox" name="USER_ID[]" value="<?=$recent["USER_ID"]?>" id="recent_<?=$recent["USER_ID"]?>"></td>
 	<td>
-		<?if($recent["SHOW_PROFILE_LINK"]):?>
-			<a class="socnet-status <?=($recent["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$recent["USER_PROFILE_URL"]?>" title="<?echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
-		<?else:?>
+		<?php if($recent["SHOW_PROFILE_LINK"]):?>
+			<a class="socnet-status <?=($recent["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$recent["USER_PROFILE_URL"]?>" title="<?php echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
+		<?php else:?>
 			<div class="socnet-status <?=($recent["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>"></div>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 	<td class="socnet-contact-user"><a href="<?= $recent['PATH_TO_MESSAGES_CHAT'] ?>" onclick="sonet_open_chat(this); return false;" title="<?= GetMessage("SONET_C39_SEND_MESSAGE") ?>"><?=$recent["USER_NAME_FORMATTED"]?></a></td>
 </tr>
 </table>
 </div>
 
-<?endforeach;?>
+<?php endforeach;?>
 </div>
 </div>
-<?
+<?php 
 //end of recent
 endif;
 ?>
 
 
-<?
+<?php 
 //intranet structure
 if(is_array($arResult["Structure"])):
 
@@ -425,15 +425,15 @@ function socnet_show_section(&$arStructure, &$arResult, $CUR_LEVEL = 1)
 			<div class="socnet-user-section">
 				<table cellspacing="0">
 				<tr>
-					<?echo str_repeat('<td><div class="socnet-indent"></div></td>', $department["DEPTH_LEVEL"]-1)?>
-					<td><div id="dep_<?=$department["ID"]?>_arrow" class="socnet-arrow socnet-arrow-right" title="<?echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'dep_<?=$department["ID"]?>_block');"></div></td>
+					<?php echo str_repeat('<td><div class="socnet-indent"></div></td>', $department["DEPTH_LEVEL"]-1)?>
+					<td><div id="dep_<?=$department["ID"]?>_arrow" class="socnet-arrow socnet-arrow-right" title="<?php echo GetMessage("SONET_SECT_TITLE")?>" onclick="sonet_switch_section(this, 'dep_<?=$department["ID"]?>_block');"></div></td>
 					<td><input type="checkbox" name="" value="" id="dep_<?=$department["ID"]?>" onclick="sonet_check_group(this);"></td>
 					<td class="socnet-contact-section" ondblclick="sonet_switch_section(document.getElementById('dep_<?=$department["ID"]?>_arrow'), 'dep_<?=$department["ID"]?>_block');"><?= $department["NAME"]?></td>
 				</tr>
 				</table>
 			</div>
 			<div style="display:none;" id="dep_<?=$department["ID"]?>_block" class="socnet-user-contact-block">
-				<?
+				<?php 
 				$bExit = false;
 				if(list($key, $subdepartment) = each($arStructure))
 				{
@@ -448,30 +448,30 @@ function socnet_show_section(&$arStructure, &$arResult, $CUR_LEVEL = 1)
 						$bExit = true;
 				}
 				?>
-				<?
+				<?php 
 				if(is_array($arResult["UsersInStructure"][$department["ID"]])):
 					foreach($arResult["UsersInStructure"][$department["ID"]] as $dep_user):
 						?><div class="socnet-user-contact">
 							<table cellspacing="0">
 							<tr>
-								<?echo str_repeat('<td><div class="socnet-indent"></div></td>', $department["DEPTH_LEVEL"])?>
+								<?php echo str_repeat('<td><div class="socnet-indent"></div></td>', $department["DEPTH_LEVEL"])?>
 								<td><input type="checkbox" name="USER_ID[]" value="<?=$dep_user["USER_ID"]?>" id="dep_user_<?=$dep_user["USER_ID"]?>"></td>
 								<td>
-								<?if($dep_user["SHOW_PROFILE_LINK"]):?>
-									<a class="socnet-status <?=($dep_user["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$dep_user["USER_PROFILE_URL"]?>" title="<?echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
-								<?else:?>
+								<?php if($dep_user["SHOW_PROFILE_LINK"]):?>
+									<a class="socnet-status <?=($dep_user["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>" href="<?=$dep_user["USER_PROFILE_URL"]?>" title="<?php echo GetMessage("SONET_PROFILE")?>" target="_blank"></a>
+								<?php else:?>
 									<div class="socnet-status <?=($dep_user["IS_ONLINE"]? 'socnet-online':'socnet-offline')?>"></div>
-								<?endif;?>
+								<?php endif;?>
 								</td>
 								<td class="socnet-contact-user"><a href="<?= $dep_user['PATH_TO_MESSAGES_CHAT'] ?>" onclick="sonet_open_chat(this); return false;" title="<?= GetMessage("SONET_C39_SEND_MESSAGE") ?>"><?=$dep_user["USER_NAME_FORMATTED"]?></a></td>
 							</tr>
 							</table>
-						</div><?
+						</div><?php 
 					endforeach;
 				endif;
 				?>
 			</div>
-			<?
+			<?php 
 			if($bExit):
 				return;
 			endif;
@@ -484,11 +484,11 @@ function socnet_show_section(&$arStructure, &$arResult, $CUR_LEVEL = 1)
 }
 ?>
 <div id="socnet_selector_structure_div" style="display:none">
-<?
+<?php 
 socnet_show_section($arResult["Structure"], $arResult);
 ?>
 </div>
-<?
+<?php 
 //end of intranet structure
 endif;
 ?>
@@ -498,12 +498,12 @@ endif;
 </div>
 </div>
 </td>
-<?
+<?php 
 //end of contact list
 ?>
 	</tr>
 </table>
-<?
+<?php 
 }
 ?>
 </form>

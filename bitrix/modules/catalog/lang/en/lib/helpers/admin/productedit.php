@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_HELPER_PRODUCTEDIT_ERR_CATALOG_ABSENT"] = "The information block is not a commercial catalog and does not have SKU's";
 $MESS["BX_CATALOG_HELPER_PRODUCTEDIT_ERR_ELEMENT_EMPTY"] = "Information block element ID is not specified";
 $MESS["BX_CATALOG_HELPER_PRODUCTEDIT_ERR_IBLOCK_EMPTY"] = "Information block ID is not specified";

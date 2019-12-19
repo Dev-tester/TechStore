@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_ERROR_UPDATE"] = "Ошибка обновления параметров группы";
 $MESS["BLG_UPDATE_ALT"] = "Изменить параметры группы";
 $MESS["BLG_DELETE_ALT"] = "Удалить группу";

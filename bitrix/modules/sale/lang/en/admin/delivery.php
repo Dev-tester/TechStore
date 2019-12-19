@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DELETE_ERROR'] = "Error deleting the delivery service. This service probably contains orders.<br>";
 $MESS ['SALE_SECTION_TITLE'] = "Configurable delivery services";
 $MESS ['SALE_F_FILTER'] = "Filter";

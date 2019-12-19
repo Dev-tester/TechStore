@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTROLLER_ERROR_ADD_PERSON_TYPE"] = "Fehler beim Erstellen der Kundengruppe.";
 $MESS["CONTROLLER_ERROR_CODE_PERSON_TYPE_EXISTS"] = "Eine Kundengruppe mit dieser ID existiert bereits. [#CODE#]";
 $MESS["CONTROLLER_ERROR_DELETE_PERSON_TYPE"] = "Fehler beim Löschen der Kundengruppe. [#ID#]";

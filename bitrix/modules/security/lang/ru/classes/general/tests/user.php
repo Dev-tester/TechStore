@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_UsersTest_NAME"] = "Проверка пользователей";
 $MESS["SECURITY_SITE_CHECKER_OTP_NOT_USED"] = "Выключена двухэтапная авторизация";
 $MESS["SECURITY_SITE_CHECKER_OTP_NOT_USED_DETAIL"] = "Двухэтапная авторизация призвана значительно повысить безопасность вашего сайта от фишинг-атак";

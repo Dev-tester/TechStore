@@ -1,4 +1,4 @@
-<?
+<?php 
 //*****************************************************************************************************************
 //	Topic manage
 //************************************!****************************************************************************
@@ -164,35 +164,35 @@ while ($arForum = $rsData->NavNext(true, "t_"))
 	<!--
 	function SetValue(id)
 	{
-		<?if (strLen($FN) <= 0):?>
-			window.opener.document.getElementById("<?echo $FC;?>").value=id;
-		<?else:?>
-			window.opener.document.<?echo $FN;?>["<?echo $FC;?>"].value=id;
-		<?endif;?>
+		<?php if (strLen($FN) <= 0):?>
+			window.opener.document.getElementById("<?php echo $FC;?>").value=id;
+		<?php else:?>
+			window.opener.document.<?php echo $FN;?>["<?php echo $FC;?>"].value=id;
+		<?php endif;?>
 		window.close();
 	}
 	//-->
 	</script>
 
 	<form name="form1" method="get" action="<?=$APPLICATION->GetCurPage()?>?">
-	<?$oFilter->Begin();?>
+	<?php $oFilter->Begin();?>
 	<tr valign="center">
 		<td><b><?=GetMessage("FM_TITLE_FORUM")?>:</b></td>
-		<td><?echo SelectBoxFromArray("FORUM_ID", $arr, $FORUM_ID)?></td>
+		<td><?php echo SelectBoxFromArray("FORUM_ID", $arr, $FORUM_ID)?></td>
 	</tr>
 	<tr valign="center">
-		<td><?echo GetMessage("FM_TITLE_DATE_CREATE").":"?></td>
-		<td><?echo CalendarPeriod("CREATE_DATE_FROM", $CREATE_DATE_FROM, "CREATE_DATE_TO", $CREATE_DATE_TO, "form1","Y")?></td>
+		<td><?php echo GetMessage("FM_TITLE_DATE_CREATE").":"?></td>
+		<td><?php echo CalendarPeriod("CREATE_DATE_FROM", $CREATE_DATE_FROM, "CREATE_DATE_TO", $CREATE_DATE_TO, "form1","Y")?></td>
 	</tr>
 	<tr valign="center">
-		<td><?echo GetMessage("FM_TITLE_DATE_LAST_POST").":"?></td>
-		<td><?echo CalendarPeriod("DATE_FROM", $DATE_FROM, "DATE_TO", $DATE_TO, "form1","Y")?></td>
+		<td><?php echo GetMessage("FM_TITLE_DATE_LAST_POST").":"?></td>
+		<td><?php echo CalendarPeriod("DATE_FROM", $DATE_FROM, "DATE_TO", $DATE_TO, "form1","Y")?></td>
 	</tr>
 
-	<?
+	<?php 
 	$oFilter->Buttons(array("table_id" => $sTableID,"url" => $APPLICATION->GetCurPage(),"form" => "find_form"));
 	$oFilter->End();
-	?></form><?
+	?></form><?php 
 	$lAdmin->DisplayList();
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");
 ?>

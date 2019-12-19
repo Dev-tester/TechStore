@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_DEFAULT_TID'] = "ID темы";
 $MESS ['F_DEFAULT_FID'] = "ID форума";
 $MESS ['F_DEFAULT_MID'] = "ID сообщения";

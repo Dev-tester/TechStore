@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 \Bitrix\Main\Loader::includeModule('sale');
@@ -55,7 +55,7 @@ else
 			<div class="adm-cashbox-border"></div>
 		</div><!--adm-cashbox-container-->
 
-		<? if (!$publicMode): ?>
+		<?php  if (!$publicMode): ?>
 
 			<div class="adm-cashbox-container">
 				<div class="adm-promo-title">
@@ -116,7 +116,7 @@ else
 					</ul>
 				</div>
 			</div>
-		<?else:?>
+		<?php else:?>
 			<div class="adm-cashbox-container">
 				<div class="adm-promo-title">
 					<span class="adm-promo-title-item"><?=Loc::getMessage('SALE_CASHBOX_CONNECT_INSTRUCTION_TITLE')?></span>
@@ -133,10 +133,10 @@ else
 				</ul>
 				<div class="adm-cashbox-border"></div>
 			</div><!--adm-cashbox-container-->
-		<? endif; ?>
+		<?php  endif; ?>
 
 	</div>
-	<?
+	<?php 
 }
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $iblockId = COption::GetOptionInt("intranet", "iblock_tasks", 0);

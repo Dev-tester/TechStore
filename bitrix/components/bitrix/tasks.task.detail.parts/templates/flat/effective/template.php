@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Localization\Loc;
@@ -24,14 +24,14 @@ $rowTemplate = <<<HTML
 HTML;
 ?>
 
-<table id="task-time-table" class="task-time-table<?if ($arParams["PUBLIC_MODE"]):?> task-time-table-public<?endif?>">
+<table id="task-time-table" class="task-time-table<?php if ($arParams["PUBLIC_MODE"]):?> task-time-table-public<?php endif?>">
 	<col class="task-time-date-column" />
 	<col class="task-time-author-column" />
 	<tr>
 		<th class="task-time-date-column"><?=Loc::getMessage("TASKS_ELAPSED_DATE")?></th>
 		<th class="task-time-author-column"><?=Loc::getMessage("TASKS_ELAPSED_AUTHOR")?></th>
 	</tr>
-	<?
+	<?php 
 	$records = array();
 
 	if(!empty($arResult['TEMPLATE_DATA']['DATA']['EFFECTIVE']['ITEMS']))

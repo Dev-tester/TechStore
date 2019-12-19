@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_NOTE_QUESTION"] = "Відповідь";
 $MESS["COMMENT_QUESTION"] = "Коментар";
 $MESS["DATE_ACTUAL_QUESTION"] = "Дата актуальності";

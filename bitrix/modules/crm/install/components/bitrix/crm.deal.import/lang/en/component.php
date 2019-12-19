@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_SOURCE"] = "Source";
 $MESS["CRM_COLUMN_SOURCE_DESCRIPTION"] = "Source information";
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";

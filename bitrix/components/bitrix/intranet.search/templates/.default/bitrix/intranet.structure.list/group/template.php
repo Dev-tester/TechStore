@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (!is_array($arResult['USERS']) || !($USERS_CNT = count($arResult['USERS']))):
@@ -23,7 +23,7 @@ else:
 			echo '<div class="users-departments-chain">' . (isset($arDept['DEPTH_LEVEL'])? implode('&nbsp;|&nbsp;', array_slice($arDeptsChain, 0, $arDept['DEPTH_LEVEL'])) : GetMessage('ISL_DEPARTMENT_NOT_FOUND')) . '</div>';
 ?>
 	<div class="bx-users">
-<?
+<?php 
 			foreach ($arDept['USERS'] as $arUser)
 			{
 				$APPLICATION->IncludeComponent(
@@ -53,7 +53,7 @@ else:
 			
 ?>
 	</div>
-<?
+<?php 
 		}
 	
 	}

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_CONFIG_ACTIVE"] = "Лінія активна";
 $MESS["IMOL_CONFIG_ADD_BOT"] = "Додати чат-бота";
 $MESS["IMOL_CONFIG_AVATAR_LOADED"] = "Завантажені фотографії";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_FORM_GROUP_PARAMS'] = "Параметры компонента";
 $MESS ['COMP_FORM_SEF_RESULT_EDIT_PAGE'] = "Шаблон URL страницы редактирования";
 $MESS ['FORM_COMP_VALUE_YES'] = "Да";

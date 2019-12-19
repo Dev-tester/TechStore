@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CHANGE_STATUS"] = "Do not change ticket status";
 $MESS["SUP_MESSAGE_NOT_FOUND"] = "Message not found";
 $MESS["SUP_EDIT_RECORD"] = "Message # #ID# (ticket # #TID#)";

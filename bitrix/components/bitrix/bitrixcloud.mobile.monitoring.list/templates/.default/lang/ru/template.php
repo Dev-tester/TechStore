@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCLMMSL_MONITORING_HTTP_RESPONSE_TIME"] = "Работоспособность сайта";
 $MESS["BCLMMSL_MONITORING_FAILED_PERIOD"] = "Время простоя";
 $MESS["BCLMMSL_MONITORING_MONITORING_PERIOD"] = "Период измерений";

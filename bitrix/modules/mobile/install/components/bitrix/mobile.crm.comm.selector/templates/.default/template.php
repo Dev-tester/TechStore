@@ -10,9 +10,9 @@ $dispatcherData = array();
 ?><div id="<?=htmlspecialcharsbx($searchContainerID)?>"<?=!$arResult['SHOW_SEARCH_PANEL'] ? ' style="display: none;"' : ''?> class="crm_search active">
 	<div class="crm_input_container"><span class="crm_lupe"></span><input class="crm_search_input" type="text" placeholder="<?=htmlspecialcharsbx(GetMessage($arResult['SEARCH_PLACEHOLDER']))?>" /></div>
 	<a class="crm_button"><?=htmlspecialcharsbx(GetMessage('M_CRM_COMM_SELECT_SEARCH_BUTTON'))?></a>
-</div><?
+</div><?php 
 ?><div id="<?=htmlspecialcharsbx($UID)?>" class="crm_wrapper">
-<ul class="crm_list_tel_list"><?
+<ul class="crm_list_tel_list"><?php 
 	foreach($arResult['ITEMS'] as &$item):
 		$dispatcherDataItem = array(
 			'OWNER_ID' => $item['OWNER_ID'],
@@ -29,14 +29,14 @@ $dispatcherData = array();
 				<img src="<?=htmlspecialcharsbx($item['IMAGE_URL'])?>"/>
 				<strong><?=htmlspecialcharsbx($item['TITLE'])?></strong>
 				<span><?=htmlspecialcharsbx($item['DESCRIPTION'])?></span>
-				<strong style="font-size: 12px;"><?
+				<strong style="font-size: 12px;"><?php 
 					$commCount = count($item['COMMUNICATIONS']);
 					for($i = 0; $i < $commCount; $i++)
 						echo ($i > 0 ? ', ' : ''), htmlspecialcharsbx($item['COMMUNICATIONS'][$i]['VALUE']);
 				?></strong>
 			</div>
 			<div class="clb"></div>
-		</li><?
+		</li><?php 
 		$dispatcherData[] = $dispatcherDataItem;
 		unset($dispatcherDataItem);
 	endforeach;

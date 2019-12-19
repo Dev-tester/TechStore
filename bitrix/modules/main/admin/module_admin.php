@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -165,7 +165,7 @@ function DoAction(oEvent, action, module_id)
 		{
 			ShowWaitWindow();
 			BX.ajax.post(
-				'module_admin.php?lang=<?echo LANGUAGE_ID?>&id='+module_id+'&count='+(oEvent.shiftKey? 10: 1)+'&<?echo bitrix_sessid_get()?>&action='+action,
+				'module_admin.php?lang=<?php echo LANGUAGE_ID?>&id='+module_id+'&count='+(oEvent.shiftKey? 10: 1)+'&<?php echo bitrix_sessid_get()?>&action='+action,
 				null,
 				function(result){
 					CloseWaitWindow();
@@ -180,49 +180,49 @@ function DoAction(oEvent, action, module_id)
 </script>
 <table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
 	<tr class="heading">
-		<td width="60%"><b><?echo GetMessage("MOD_NAME")?></b></td>
-		<td><b><?echo GetMessage("MOD_VERSION")?></b></td>
-		<td><b><?echo GetMessage("MOD_DATE_UPDATE")?></b></td>
-		<td><b><?echo GetMessage("MOD_SETUP")?></b></td>
-		<td><b><?echo GetMessage("MOD_ACTION")?></b></td>
+		<td width="60%"><b><?php echo GetMessage("MOD_NAME")?></b></td>
+		<td><b><?php echo GetMessage("MOD_VERSION")?></b></td>
+		<td><b><?php echo GetMessage("MOD_DATE_UPDATE")?></b></td>
+		<td><b><?php echo GetMessage("MOD_SETUP")?></b></td>
+		<td><b><?php echo GetMessage("MOD_ACTION")?></b></td>
 	</tr>
 	<tr>
-		<td><b><?=GetMessage("MOD_MAIN_MODULE")?></b><br><?
+		<td><b><?=GetMessage("MOD_MAIN_MODULE")?></b><br><?php 
 		$str = str_replace("#A1#","<a  href='update_system.php?lang=".LANG."'>",GetMessage("MOD_MAIN_DESCRIPTION"));
 		$str = str_replace("#A2#","</a>",$str);
 		echo $str;?></td>
-		<td ondblclick="<?echo htmlspecialcharsbx("DoAction(event, 'version_down', 'main')")?>" id="version_for_main"><?echo SM_VERSION;?></td>
-		<td nowrap><?echo CDatabase::FormatDate(SM_VERSION_DATE, "YYYY-MM-DD HH:MI:SS", CLang::GetDateFormat("SHORT"));?></td>
+		<td ondblclick="<?php echo htmlspecialcharsbx("DoAction(event, 'version_down', 'main')")?>" id="version_for_main"><?php echo SM_VERSION;?></td>
+		<td nowrap><?php echo CDatabase::FormatDate(SM_VERSION_DATE, "YYYY-MM-DD HH:MI:SS", CLang::GetDateFormat("SHORT"));?></td>
 		<td><?=GetMessage("MOD_INSTALLED")?></td>
 		<td>&nbsp;</td>
 	</tr>
-<?
+<?php 
 foreach($arModules as $info) :
 ?>
 	<tr>
-		<td><b><?echo htmlspecialcharsex($info["MODULE_NAME"])?></b> <?echo htmlspecialcharsex(strlen($info["MODULE_PARTNER"]) > 0? " <b><i>(".str_replace(array("#NAME#", "#URI#"), array($info["MODULE_PARTNER"], $info["MODULE_PARTNER_URI"]), GetMessage("MOD_PARTNER_NAME")).")</i></b>" : "(".$info["MODULE_ID"].")") ?><br><?echo $info["MODULE_DESCRIPTION"]?></td>
-		<td ondblclick="<?echo htmlspecialcharsbx("DoAction(event, 'version_down', '".CUtil::AddSlashes($info["MODULE_ID"])."')")?>" id="version_for_<?echo htmlspecialcharsbx($info["MODULE_ID"])?>"><?echo $info["MODULE_VERSION"]?></td>
-		<td nowrap><?echo CDatabase::FormatDate($info["MODULE_VERSION_DATE"], "YYYY-MM-DD HH:MI:SS", CLang::GetDateFormat("SHORT"));?></td>
-		<td nowrap><?if($info["IsInstalled"]):?><?echo GetMessage("MOD_INSTALLED")?><?else:?><span class="required"><?echo GetMessage("MOD_NOT_INSTALLED")?></span><?endif?></td>
+		<td><b><?php echo htmlspecialcharsex($info["MODULE_NAME"])?></b> <?php echo htmlspecialcharsex(strlen($info["MODULE_PARTNER"]) > 0? " <b><i>(".str_replace(array("#NAME#", "#URI#"), array($info["MODULE_PARTNER"], $info["MODULE_PARTNER_URI"]), GetMessage("MOD_PARTNER_NAME")).")</i></b>" : "(".$info["MODULE_ID"].")") ?><br><?php echo $info["MODULE_DESCRIPTION"]?></td>
+		<td ondblclick="<?php echo htmlspecialcharsbx("DoAction(event, 'version_down', '".CUtil::AddSlashes($info["MODULE_ID"])."')")?>" id="version_for_<?php echo htmlspecialcharsbx($info["MODULE_ID"])?>"><?php echo $info["MODULE_VERSION"]?></td>
+		<td nowrap><?php echo CDatabase::FormatDate($info["MODULE_VERSION_DATE"], "YYYY-MM-DD HH:MI:SS", CLang::GetDateFormat("SHORT"));?></td>
+		<td nowrap><?php if($info["IsInstalled"]):?><?php echo GetMessage("MOD_INSTALLED")?><?php else:?><span class="required"><?php echo GetMessage("MOD_NOT_INSTALLED")?></span><?php endif?></td>
 		<td>
-			<form action="<?echo $APPLICATION->GetCurPage()?>" method="GET" id="form_for_<?echo htmlspecialcharsbx($info["MODULE_ID"])?>">
-				<input type="hidden" name="action" value="" id="action_for_<?echo htmlspecialcharsbx($info["MODULE_ID"])?>">
-				<input type="hidden" name="lang" value="<?echo LANG?>">
-				<input type="hidden" name="id" value="<?echo htmlspecialcharsbx($info["MODULE_ID"])?>">
+			<form action="<?php echo $APPLICATION->GetCurPage()?>" method="GET" id="form_for_<?php echo htmlspecialcharsbx($info["MODULE_ID"])?>">
+				<input type="hidden" name="action" value="" id="action_for_<?php echo htmlspecialcharsbx($info["MODULE_ID"])?>">
+				<input type="hidden" name="lang" value="<?php echo LANG?>">
+				<input type="hidden" name="id" value="<?php echo htmlspecialcharsbx($info["MODULE_ID"])?>">
 				<?=bitrix_sessid_post()?>
-				<?if($info["IsInstalled"]):?>
-					<input <?if (!$isAdmin || in_array($info["MODULE_ID"], array("fileman", "intranet", "ui")) || $info["MODULE_ID"] == "rest" && IsModuleInstalled('intranet')) echo "disabled" ?> type="submit" name="uninstall" value="<?echo GetMessage("MOD_DELETE")?>">
-				<?else:?>
-					<input <?if (!$isAdmin) echo "disabled" ?> type="submit" class="adm-btn-green" name="install" value="<?echo GetMessage("MOD_INSTALL_BUTTON")?>">
-				<?endif?>
+				<?php if($info["IsInstalled"]):?>
+					<input <?php if (!$isAdmin || in_array($info["MODULE_ID"], array("fileman", "intranet", "ui")) || $info["MODULE_ID"] == "rest" && IsModuleInstalled('intranet')) echo "disabled" ?> type="submit" name="uninstall" value="<?php echo GetMessage("MOD_DELETE")?>">
+				<?php else:?>
+					<input <?php if (!$isAdmin) echo "disabled" ?> type="submit" class="adm-btn-green" name="install" value="<?php echo GetMessage("MOD_INSTALL_BUTTON")?>">
+				<?php endif?>
 			</form>
 		</td>
 	</tr>
 	<tr style="display: none;"><td colspan="5"></td></tr>
-<?
+<?php 
 endforeach;
 ?>
 </table>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_EDIT_RECORD"] = "Event type parameters # #ID#";
 $MESS["STAT_NEW_RECORD"] = "New event type";
 $MESS["STAT_RECORDS_LIST"] = "Event types";

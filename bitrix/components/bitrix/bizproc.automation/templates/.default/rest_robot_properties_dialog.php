@@ -17,11 +17,11 @@ foreach ($properties as $id => $property):
 	?>
 	<div class="bizproc-automation-popup-settings">
 		<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete"><?=htmlspecialcharsbx($title)?>: </span>
-		<?
+		<?php 
 		echo $dialog->renderFieldControl($map[$id], $currentValues[$name]);
 		?>
 	</div>
-	<?
+	<?php 
 endforeach;
 
 if ($activityData['USE_PLACEMENT'] === 'Y' && !empty($activityData['APP_ID_INT'])):
@@ -39,5 +39,5 @@ $actNameJs = htmlspecialcharsbx(CUtil::JSEscape($dialog->getActivityName()));
 			<?=GetMessage('BIZPROC_AUTOMATION_CONFIGURE')?>
 		</span>
 	</div>
-<?
+<?php 
 endif;

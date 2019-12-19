@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CH_TRACKER_WGT_DEMO_TITLE"] = "Это демо-представление, вы можете скрыть его и получить аналитику по вашим данным.";
 $MESS["CRM_CH_TRACKER_WGT_SALE_TARGET"] = "План продаж";
 $MESS["CRM_CH_TRACKER_WGT_ANIMATION_1"] = "Вы можете в любой момент вернуться к обзорному видео, кликнув на значок.";

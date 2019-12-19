@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ERROR_BAD_SESSID'] = "Your session has expired. Please repeat the operation.";
 $MESS ['WD_ERROR_BAD_ACTION'] = "The folder action is not specified.";
 $MESS ['WD_ACCESS_DENIED'] = "Access denied.";

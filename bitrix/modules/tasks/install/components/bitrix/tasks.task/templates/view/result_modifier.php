@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Tasks\UI;
 use \Bitrix\Tasks\Util\Type;

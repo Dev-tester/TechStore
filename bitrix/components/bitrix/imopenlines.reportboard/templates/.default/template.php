@@ -18,12 +18,12 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	$stepperHtml = \Bitrix\Main\Update\Stepper::getHtml('imopenlines');
 	?>
 
-	<?
+	<?php 
 	if ($stepperHtml): ?>
 		<div class="imopenlines-report-stepper-container">
 			<?= $stepperHtml ?>
 		</div>
-	<? endif; ?>
+	<?php  endif; ?>
 	<?php
 
 	/** @var CAllMain $APPLICATION */

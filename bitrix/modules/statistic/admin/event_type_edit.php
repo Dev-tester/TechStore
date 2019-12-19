@@ -143,47 +143,47 @@ if($message)
 ?>
 
 <form method="POST" action="<?=$APPLICATION->GetCurPage()?>">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr class="adm-detail-required-field">
 		<td width="40%">event1:</td>
-		<td width="60%"><input type="text" name="EVENT1" size="20" maxlength="200" value="<?echo $str_EVENT1?>"></td>
+		<td width="60%"><input type="text" name="EVENT1" size="20" maxlength="200" value="<?php echo $str_EVENT1?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td>event2:</td>
-		<td><input type="text" name="EVENT2" size="20" maxlength="200" value="<?echo $str_EVENT2?>"></td>
+		<td><input type="text" name="EVENT2" size="20" maxlength="200" value="<?php echo $str_EVENT2?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_ADV_VISIBLE", array("#LANG#" => LANG));?></td>
-		<td><?echo InputType("checkbox","ADV_VISIBLE","Y",$str_ADV_VISIBLE,false);?></td>
+		<td><?php echo GetMessage("STAT_ADV_VISIBLE", array("#LANG#" => LANG));?></td>
+		<td><?php echo InputType("checkbox","ADV_VISIBLE","Y",$str_ADV_VISIBLE,false);?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_PIE_CHART")?></td>
-		<td><?echo InputType("checkbox","DIAGRAM_DEFAULT","Y",$str_DIAGRAM_DEFAULT,false) ?></td>
+		<td><?php echo GetMessage("STAT_PIE_CHART")?></td>
+		<td><?php echo InputType("checkbox","DIAGRAM_DEFAULT","Y",$str_DIAGRAM_DEFAULT,false) ?></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("STAT_KEEP_DAYS")?></td>
-		<td><input type="text" name="KEEP_DAYS" size="5" value="<?echo $str_KEEP_DAYS?>"></td>
+		<td><?php  echo GetMessage("STAT_KEEP_DAYS")?></td>
+		<td><input type="text" name="KEEP_DAYS" size="5" value="<?php echo $str_KEEP_DAYS?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_DYNAMIC_KEEP_DAYS")?></td>
-		<td><input type="text" name="DYNAMIC_KEEP_DAYS" size="5" value="<?echo $str_DYNAMIC_KEEP_DAYS?>"></td>
+		<td><?php echo GetMessage("STAT_DYNAMIC_KEEP_DAYS")?></td>
+		<td><input type="text" name="DYNAMIC_KEEP_DAYS" size="5" value="<?php echo $str_DYNAMIC_KEEP_DAYS?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_SORT")?></td>
-		<td><input type="text" name="C_SORT" size="5" value="<?echo $str_C_SORT?>"></td>
+		<td><?php echo GetMessage("STAT_SORT")?></td>
+		<td><input type="text" name="C_SORT" size="5" value="<?php echo $str_C_SORT?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_NAME")?></td>
-		<td><input type="text" name="NAME" size="50" maxlength="50" value="<?echo $str_NAME?>"></td>
+		<td><?php echo GetMessage("STAT_NAME")?></td>
+		<td><input type="text" name="NAME" size="50" maxlength="50" value="<?php echo $str_NAME?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_DESCRIPTION")?></td>
-		<td><textarea class="typearea" name="DESCRIPTION" cols="50" rows="6"><?echo $str_DESCRIPTION?></textarea></td>
+		<td><?php echo GetMessage("STAT_DESCRIPTION")?></td>
+		<td><textarea class="typearea" name="DESCRIPTION" cols="50" rows="6"><?php echo $str_DESCRIPTION?></textarea></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>($STAT_RIGHT<"W"),
@@ -193,13 +193,13 @@ $tabControl->Buttons(
 );
 ?>
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="ID" value=<?echo $ID?>>
+<input type="hidden" name="ID" value=<?php echo $ID?>>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 $tabControl->ShowWarnings("post_form", $message);
 ?>
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

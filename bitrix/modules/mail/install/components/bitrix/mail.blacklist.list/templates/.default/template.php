@@ -16,14 +16,14 @@ $APPLICATION->setPageProperty('BodyClass', trim(sprintf('%s %s', $bodyClass, 'pa
 
 if ($isIframe):?>
 <div class="mail-blacklist-is-iframe">
-<?endif;
+<?php endif;
 
 if (SITE_TEMPLATE_ID == 'bitrix24' || $isIframe)
 {
 	$this->setViewTarget('inside_pagetitle'); ?>
 
 	<div class="pagetitle-container mail-pagetitle-flexible-space">
-		<? $APPLICATION->includeComponent(
+		<?php  $APPLICATION->includeComponent(
 			'bitrix:main.ui.filter', '',
 			[
 				'FILTER_ID' => $arResult['FILTER_ID'],
@@ -35,11 +35,11 @@ if (SITE_TEMPLATE_ID == 'bitrix24' || $isIframe)
 	</div>
 
 	<button class="ui-btn ui-btn-primary mail-blacklist-create-btn" data-role="blacklist-create-btn"
-		style="<? if ($_REQUEST['IFRAME'] != 'Y'): ?> margin-right: 20px;<? endif ?>">
+		style="<?php  if ($_REQUEST['IFRAME'] != 'Y'): ?> margin-right: 20px;<?php  endif ?>">
 		<?= Loc::getMessage('MAIL_BLACKLIST_LIST_CREATE_BLACKLIST_2') ?>
 	</button>
 
-	<? $this->endViewTarget();
+	<?php  $this->endViewTarget();
 }
 else
 {
@@ -57,7 +57,7 @@ else
 		<?= Loc::getMessage('MAIL_BLACKLIST_LIST_CREATE_BLACKLIST_2') ?>
 	</button>
 
-	<?
+	<?php 
 }
 
 $APPLICATION->SetTitle(Loc::getMessage('MAIL_BLACKLIST_LIST_PAGE_TITLE_2'));
@@ -146,12 +146,12 @@ $APPLICATION->IncludeComponent(
 			style="min-height: 250px;"
 			data-role="blacklist-mails-textarea"></textarea>
 		</div>
-		<? if ($arResult['isForAllUsers']): ?>
+		<?php  if ($arResult['isForAllUsers']): ?>
 			<div class="" data-role="is-for-all-users-block">
 				<input type="checkbox" class="" name="isForAllUsers" id="isForAllUsers" value="Y">
 				<label class="" for="isForAllUsers" title=""><?= Loc::getMessage('MAIL_BLACKLIST_LIST_POPUP_CHECKBOX_TITLE'); ?></label>
 			</div>
-		<? endif; ?>
+		<?php  endif; ?>
 	</form>
 </div>
 	<script>
@@ -165,6 +165,6 @@ $APPLICATION->IncludeComponent(
 			gridId: '<?= CUtil::JSEscape($arResult['GRID_ID'])?>'
 		});
 	</script>
-<?if ($isIframe):?>
+<?php if ($isIframe):?>
 	</div>
-<?endif;
+<?php endif;

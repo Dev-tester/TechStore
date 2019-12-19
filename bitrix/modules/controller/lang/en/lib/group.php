@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GROUP_ENTITY_ID_FIELD"] = "Group ID";
 $MESS["GROUP_ENTITY_TIMESTAMP_X_FIELD"] = "Modified on";
 $MESS["GROUP_ENTITY_NAME_FIELD"] = "Group name";

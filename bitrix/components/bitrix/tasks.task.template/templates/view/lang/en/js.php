@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_NOTIFY_TASK_DELETED"] = "Template has been deleted";
 $MESS["TASKS_TEMPLATE_POPUP_MENU_CHECKLIST_SECTION"] = "Checklist";
 $MESS["TASKS_TEMPLATE_POPUP_MENU_SHOW_COMPLETED"] = "Show completed checklist items";

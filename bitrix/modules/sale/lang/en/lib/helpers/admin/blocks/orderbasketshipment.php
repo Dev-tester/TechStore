@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_SHIPMENT_BASKET_COMPOSITION"] = "Shipping list";
 $MESS["SALE_ORDER_BASKET_ROW_SETTINGS"] = "Customize columns";
 $MESS["SALE_ORDER_SHIPMENT_BASKET_ALL_PRODUCTS_DEL"] = "Are you sure you want to delete all the products from this shipment?";

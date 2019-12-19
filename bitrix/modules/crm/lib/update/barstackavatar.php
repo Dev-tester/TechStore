@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Update;
 
 use Bitrix\Main\Application;

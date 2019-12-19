@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllSocNetLogCounter
 {
 	public static function GetSubSelect2($entityId, $arParams = array())

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 \Bitrix\Main\Loader::includeModule('bizproc');
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/prolog.php");
@@ -83,7 +83,7 @@ else
 		</tr>
 		<tr>
 			<td align="right" valign="top" width="50%"><?= GetMessage("BPABL_STATE_NAME") ?>:</td>
-			<td width="50%" valign="top"><?
+			<td width="50%" valign="top"><?php 
 			if (strlen($arWorkflowState["STATE_NAME"]) > 0)
 			{
 				if (strlen($arWorkflowState["STATE_TITLE"]) > 0)
@@ -105,7 +105,7 @@ else
 		</tr>
 		<tr>
 			<td colspan="2">
-				<?
+				<?php 
 				if ($adminMode)
 				{
 					$arWorkflowTrack = CBPTrackingService::DumpWorkflow($ID);
@@ -214,10 +214,10 @@ else
 				?>
 			</td>
 		</tr>
-	<?
+	<?php 
 	//$tabControl->Buttons();
 	?>
-	<?
+	<?php 
 	$tabControl->End();
 }
 

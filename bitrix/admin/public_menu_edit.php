@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/public/menu_edit.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/public/menu_edit.php");?>

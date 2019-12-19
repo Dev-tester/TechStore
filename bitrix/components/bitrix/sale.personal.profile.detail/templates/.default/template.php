@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 ?>
@@ -6,7 +6,7 @@ use Bitrix\Main\Localization\Loc;
 	<a href="<?=$arParams["PATH_TO_LIST"]?>"><?=GetMessage("SPPD_RECORDS_LIST")?></a>
 </div>
 
-<?
+<?php 
 if(strlen($arResult["ID"])>0)
 {
 	ShowError($arResult["ERROR_MESSAGE"]);
@@ -33,7 +33,7 @@ if(strlen($arResult["ID"])>0)
 				<input class="form-control" type="text" name="NAME" maxlength="50" id="sale-personal-profile-detail-name" value="<?=$arResult["NAME"]?>" />
 			</div>
 		</div>
-		<?
+		<?php 
 		foreach($arResult["ORDER_PROPS"] as $block)
 		{
 			if (!empty($block["PROPS"]))
@@ -44,7 +44,7 @@ if(strlen($arResult["ID"])>0)
 						<b><?= $block["NAME"]?></b>
 					</h4>
 				</div>
-				<?
+				<?php 
 				foreach($block["PROPS"] as $property)
 				{
 					$key = (int)$property["ID"];
@@ -55,17 +55,17 @@ if(strlen($arResult["ID"])>0)
 					<div class="form-group sale-personal-profile-detail-property-<?=strtolower($property["TYPE"])?>">
 						<label class="sale-personal-profile-detail-form-label col-md-3 text-md-right <?=$alignTop?>" for="sppd-property-<?=$key?>">
 							<?= $property["NAME"]?>:
-							<?
+							<?php 
 							if ($property["REQUIED"] == "Y")
 							{
 								?>
 								<span class="req">*</span>
-								<?
+								<?php 
 							}
 							?>
 						</label>
 						<div class="col-md-12">
-							<?
+							<?php 
 							if ($property["TYPE"] == "CHECKBOX")
 							{
 								?>
@@ -75,8 +75,8 @@ if(strlen($arResult["ID"])>0)
 									type="checkbox"
 									name="<?=$name?>"
 									value="Y"
-									<?if ($currentValue == "Y" || !isset($currentValue) && $property["DEFAULT_VALUE"] == "Y") echo " checked";?>/>
-								<?
+									<?php if ($currentValue == "Y" || !isset($currentValue) && $property["DEFAULT_VALUE"] == "Y") echo " checked";?>/>
+								<?php 
 							}
 							elseif ($property["TYPE"] == "TEXT")
 							{
@@ -93,13 +93,13 @@ if(strlen($arResult["ID"])>0)
 												maxlength="50"
 												id="sppd-property-<?=$key?>"
 												value="<?=$elementValue?>"/>
-										<?
+										<?php 
 									}
 									?>
 									<span class="btn-themes btn-default btn-md btn input-add-multiple"
 										  data-add-type=<?=$property["TYPE"]?>
 										  data-add-name="<?=$name?>[]"><?=Loc::getMessage('SPPD_ADD')?></span>
-									<?
+									<?php 
 								}
 								else
 								{
@@ -110,7 +110,7 @@ if(strlen($arResult["ID"])>0)
 											maxlength="50"
 											id="sppd-property-<?=$key?>"
 											value="<?=$currentValue?>"/>
-									<?
+									<?php 
 								}
 							}
 							elseif ($property["TYPE"] == "SELECT")
@@ -120,19 +120,19 @@ if(strlen($arResult["ID"])>0)
 									class="form-control"
 									name="<?=$name?>"
 									id="sppd-property-<?=$key?>"
-									size="<?echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:1; ?>">
-										<?
+									size="<?php echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:1; ?>">
+										<?php 
 										foreach ($property["VALUES"] as $value)
 										{
 											?>
-											<option value="<?= $value["VALUE"]?>" <?if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"]==$property["DEFAULT_VALUE"]) echo " selected"?>>
+											<option value="<?= $value["VALUE"]?>" <?php if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"]==$property["DEFAULT_VALUE"]) echo " selected"?>>
 												<?= $value["NAME"]?>
 											</option>
-											<?
+											<?php 
 										}
 										?>
 								</select>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "MULTISELECT")
 							{
@@ -141,8 +141,8 @@ if(strlen($arResult["ID"])>0)
 									class="form-control"
 									id="sppd-property-<?=$key?>"
 									multiple name="<?=$name?>[]"
-									size="<?echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:5; ?>">
-										<?
+									size="<?php echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:5; ?>">
+										<?php 
 										$arCurVal = array();
 										$arCurVal = explode(",", $currentValue);
 										for ($i = 0, $cnt = count($arCurVal); $i < $cnt; $i++)
@@ -153,14 +153,14 @@ if(strlen($arResult["ID"])>0)
 										foreach($property["VALUES"] as $value)
 										{
 											?>
-											<option value="<?= $value["VALUE"]?>"<?if (in_array($value["VALUE"], $arCurVal) || !isset($currentValue) && in_array($value["VALUE"], $arDefVal)) echo" selected"?>>
+											<option value="<?= $value["VALUE"]?>"<?php if (in_array($value["VALUE"], $arCurVal) || !isset($currentValue) && in_array($value["VALUE"], $arDefVal)) echo" selected"?>>
 												<?= $value["NAME"]?>
 											</option>
-											<?
+											<?php 
 										}
 										?>
 								</select>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "TEXTAREA")
 							{
@@ -168,11 +168,11 @@ if(strlen($arResult["ID"])>0)
 								<textarea
 									class="form-control"
 									id="sppd-property-<?=$key?>"
-									rows="<?echo ((int)($property["SIZE2"])>0)?$property["SIZE2"]:4; ?>"
-									cols="<?echo ((int)($property["SIZE1"])>0)?$property["SIZE1"]:40; ?>"
+									rows="<?php echo ((int)($property["SIZE2"])>0)?$property["SIZE2"]:4; ?>"
+									cols="<?php echo ((int)($property["SIZE1"])>0)?$property["SIZE1"]:40; ?>"
 									name="<?=$name?>"><?= (isset($currentValue)) ? $currentValue : $property["DEFAULT_VALUE"];?>
 								</textarea>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "LOCATION")
 							{
@@ -212,7 +212,7 @@ if(strlen($arResult["ID"])>0)
 										  data-add-name="<?=$name?>"
 										  data-add-last-key="<?=$code?>"
 										  data-add-template="<?=$locationTemplate?>"><?=Loc::getMessage('SPPD_ADD')?></span>
-									<?
+									<?php 
 								}
 								else
 								{
@@ -245,10 +245,10 @@ if(strlen($arResult["ID"])>0)
 											id="sppd-property-<?=$key?>"
 											name="<?=$name?>"
 											value="<?= $value["VALUE"]?>"
-											<?if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"] == $property["DEFAULT_VALUE"]) echo " checked"?>>
+											<?php if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"] == $property["DEFAULT_VALUE"]) echo " checked"?>>
 										<?= $value["NAME"]?>
 									</div>
-									<?
+									<?php 
 								}
 							}
 							elseif ($property["TYPE"] == "FILE")
@@ -259,12 +259,12 @@ if(strlen($arResult["ID"])>0)
 								{
 									?>
 									<input type="hidden" name="<?=$name?>_del" class="profile-property-input-delete-file">
-									<?
+									<?php 
 									foreach ($profileFiles as $file)
 									{
 										?>
 										<div class="sale-personal-profile-detail-form-file">
-											<?
+											<?php 
 											$fileId = $file['ID'];
 											if (CFile::IsImage($file['FILE_NAME']))
 											{
@@ -272,7 +272,7 @@ if(strlen($arResult["ID"])>0)
 												<div class="sale-personal-profile-detail-prop-img">
 													<?=CFile::ShowImage($fileId, 150, 150, "border=0", "", true)?>
 												</div>
-												<?
+												<?php 
 											}
 											else
 											{
@@ -280,13 +280,13 @@ if(strlen($arResult["ID"])>0)
 												<a download="<?=$file["ORIGINAL_NAME"]?>" href="<?=CFile::GetFileSRC($file)?>">
 													<?=Loc::getMessage('SPPD_DOWNLOAD_FILE', array("#FILE_NAME#" => $file["ORIGINAL_NAME"]))?>
 												</a>
-												<?
+												<?php 
 											}
 											?>
 											<input type="checkbox" value="<?=$fileId?>" class="profile-property-check-file" id="profile-property-check-file-<?=$fileId?>">
 											<label for="profile-property-check-file-<?=$fileId?>"><?=Loc::getMessage('SPPD_DELETE_FILE')?></label>
 										</div>
-										<?
+										<?php 
 									}
 								}
 								?>
@@ -300,33 +300,33 @@ if(strlen($arResult["ID"])>0)
 									<?=CFile::InputFile($name."[]", 20, null, false, 0, "IMAGE", "class='btn sale-personal-profile-detail-input-file' ".$multiple)?>
 								</label>
 								<span class="sale-personal-profile-detail-load-file-cancel sale-personal-profile-hide"></span>
-								<?
+								<?php 
 							}
 
 							if (strlen($property["DESCRIPTION"]) > 0)
 							{
 								?>
 								<br /><small><?= $property["DESCRIPTION"] ?></small>
-								<?
+								<?php 
 							}
 							?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 			}
 		}
 		?>
 		<div class="col-md-offset-3 col-sm-9 sale-personal-profile-btn-block">
-			<input type="submit" class="btn btn-themes btn-default btn-md" name="save" value="<?echo GetMessage("SALE_SAVE") ?>">
+			<input type="submit" class="btn btn-themes btn-default btn-md" name="save" value="<?php echo GetMessage("SALE_SAVE") ?>">
 			&nbsp;
 			<input type="submit" class="btn btn-themes btn-default btn-md"  name="apply" value="<?=GetMessage("SALE_APPLY")?>">
 			&nbsp;
-			<input type="submit" class="btn btn-themes btn-default btn-md"  name="reset" value="<?echo GetMessage("SALE_RESET")?>">
+			<input type="submit" class="btn btn-themes btn-default btn-md"  name="reset" value="<?php echo GetMessage("SALE_RESET")?>">
 		</div>
 	</form>
 	<div class="clearfix"></div>
-	<?
+	<?php 
 	$javascriptParams = array(
 		"ajaxUrl" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
 	);
@@ -339,7 +339,7 @@ if(strlen($arResult["ID"])>0)
 		});
 		BX.Sale.PersonalProfileComponent.PersonalProfileDetail.init(<?=$javascriptParams?>);
 	</script>
-	<?
+	<?php 
 }
 else
 {

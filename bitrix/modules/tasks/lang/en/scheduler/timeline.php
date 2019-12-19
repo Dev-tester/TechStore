@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCHEDULER_PRINT_WRONG_DATE_RANGE"] = "Invalid date range.";
 $MESS["SCHEDULER_PRINT_WRONG_DATE_FROM"] = "The start date is outside the chart range.";
 $MESS["SCHEDULER_PRINT_WRONG_DATE_TO"] = "The end date is outside the chart range.";

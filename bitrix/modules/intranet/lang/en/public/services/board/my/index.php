@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Classifieds";
 $MESS["SERVICES_MESSAGE_ADD"] = "You Ad has been added";
 $MESS["SERVICES_MESSAGE_EDIT"] = "You Ad has been saved";

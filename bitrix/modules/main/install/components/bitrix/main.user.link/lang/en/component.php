@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UL_LOGIN"] = "Login";
 $MESS["MAIN_UL_NAME"] = "First Name";
 $MESS["MAIN_UL_SECOND_NAME"] = "Middle Name";

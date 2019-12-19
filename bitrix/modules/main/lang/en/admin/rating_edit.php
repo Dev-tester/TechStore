@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_RATING_EDIT_RECORD"] = "Edit Rating # #ID#";
 $MESS["MAIN_RATING_NEW_RECORD"] = "New Rating";
 $MESS["RATING_LIST"] = "All Ratings";

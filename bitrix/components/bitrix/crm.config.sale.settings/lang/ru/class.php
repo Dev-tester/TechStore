@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_STATUS_PAGE_TITLE"] = "Статусы заказа";
 $MESS["CRM_ORDER_SHIPMENT_STATUS_PAGE_TITLE"] = "Статусы доставки";
 $MESS["CRM_GLOBAL_PAGE_TITLE"] = "Настройки магазина";

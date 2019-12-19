@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SSMSA_RPD_MARKETPLACE"] = "Выбрать другого провайдера";
 $MESS["CRM_SSMSA_RPD_PROVIDER_IS_DEMO"] = "Провайдер работает в демонстрационном режиме";
 $MESS["CRM_SSMSA_RPD_PROVIDER_CANT_USE"] = "Провайдер не настроен и не готов к работе";

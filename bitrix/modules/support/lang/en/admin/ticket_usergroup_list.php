@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_UGL_PAGES'] = "Pages";
 $MESS ['SUP_UGL_GROUP_ID'] = "Group ID";
 $MESS ['SUP_UGL_USER_ID'] = "User ID";

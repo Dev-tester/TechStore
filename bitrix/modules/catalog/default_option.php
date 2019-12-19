@@ -1,4 +1,4 @@
-<?
+<?php 
 $catalog_default_option = array(
 	'export_default_path' => '/bitrix/catalog_export/',
 	'default_catalog_1c' => '',

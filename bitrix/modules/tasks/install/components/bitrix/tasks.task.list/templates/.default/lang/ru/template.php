@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_COLUMN_ID"] = "ID";
 $MESS["TASKS_COLUMN_TITLE"] = "Название";
 $MESS["TASKS_COLUMN_ORIGINATOR_NAME"] = "Постановщик";

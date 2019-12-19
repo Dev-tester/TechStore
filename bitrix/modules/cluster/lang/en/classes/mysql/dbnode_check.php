@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_AFTER_CONNECT_MSG"] = "The primary database and the system environment must be configured such that there is no file php_interface/after_connect_d7.php.";
 $MESS["CLU_AFTER_CONNECT_D7_MSG"] = "The primary database and the system environment must be configured such that there is no file php_interface/after_connect.php.";
 $MESS["CLU_AFTER_CONNECT_WIZREC"] = "Configure the systems properly and make sure the web site operates correctly. Then, delete the file and run the wizard again.";

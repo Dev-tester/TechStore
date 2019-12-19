@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RECYCLEBIN_CONFIRM_REMOVE"] = "The selected items will be deleted permanently. Are you sure you want to proceed?";
 $MESS["RECYCLEBIN_CONFIRM_RESTORE"] = "Do you want to recover the selected items and move them back to the list?";
 $MESS["RECYCLEBIN_CONTEXT_MENU_TITLE_PREVIEW"] = "Preview";

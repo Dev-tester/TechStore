@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C11_SUBTITLE'] = "A message will be sent inviting the users to the group. The users will be listed here after they have accepted the invitation.";
 $MESS ['SONET_C11_USER'] = "Users";
 $MESS ['SONET_C11_GROUP'] = "Group";

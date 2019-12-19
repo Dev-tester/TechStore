@@ -34,30 +34,30 @@ Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/dialog.js');
 
 Bitrix\Main\UI\Extension::load("ui.progressbar");
 
-?><div id="batchDeletionWrapper"></div><?
+?><div id="batchDeletionWrapper"></div><?php 
 
 if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):
 	?><div id="rebuildContactDupIndexMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONTACT_REBUILD_DUP_INDEX', array('#ID#' => 'rebuildContactDupIndexLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):
-	?><div id="rebuildContactSearchWrapper"></div><?
+	?><div id="rebuildContactSearchWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_BUILD_TIMELINE']):
-	?><div id="buildContactTimelineWrapper"></div><?
+	?><div id="buildContactTimelineWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_BUILD_DUPLICATE_INDEX']):
-	?><div id="buildContactDuplicateIndexWrapper"></div><?
+	?><div id="buildContactDuplicateIndexWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_CONTACT_ATTRS']):
 	?><div id="rebuildContactAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONTACT_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildContactAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_TRANSFER_REQUISITES']):
@@ -68,7 +68,7 @@ if($arResult['NEED_FOR_TRANSFER_REQUISITES']):
 			'SKIP_ID' => 'skipTransferRequisitesLink', 'SKIP_URL' => '#'
 		)
 	)?>
-	</div><?
+	</div><?php 
 endif;
 
 $isInternal = $arResult['INTERNAL'];
@@ -883,7 +883,7 @@ BX.ready(
 );
 </script>
 
-<?if(!$isInternal):?>
+<?php if(!$isInternal):?>
 <script type="text/javascript">
 BX.ready(
 		function()
@@ -908,7 +908,7 @@ BX.ready(
 		}
 );
 </script>
-<?endif;?>
+<?php endif;?>
 <script type="text/javascript">
 BX.ready(
 	function()
@@ -949,7 +949,7 @@ BX.ready(
 	}
 );
 </script>
-<?if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):?>
+<?php if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):?>
 <script type="text/javascript">
 BX.ready(
 	function()
@@ -989,8 +989,8 @@ BX.ready(
 	}
 );
 </script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1017,8 +1017,8 @@ BX.ready(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1045,8 +1045,8 @@ BX.ready(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_BUILD_DUPLICATE_INDEX']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_BUILD_DUPLICATE_INDEX']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1073,8 +1073,8 @@ BX.ready(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_CONTACT_ATTRS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_CONTACT_ATTRS']):?>
 <script type="text/javascript">
 BX.ready(
 	function()
@@ -1098,8 +1098,8 @@ BX.ready(
 	}
 );
 </script>
-<?endif;?>
-<?if($arResult['NEED_FOR_TRANSFER_REQUISITES']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_TRANSFER_REQUISITES']):?>
 <script type="text/javascript">
 BX.ready(
 	function()
@@ -1174,4 +1174,4 @@ BX.ready(
 	}
 );
 </script>
-<?endif;?>
+<?php endif;?>

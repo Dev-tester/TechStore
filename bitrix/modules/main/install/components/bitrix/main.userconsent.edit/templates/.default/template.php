@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -8,12 +8,12 @@ use Bitrix\Main\Localization\Loc;
 /** @var array $arResult */
 
 CUtil::InitJSCore(array("popup"));
-?><div class="main-user-consent-errors"><?
+?><div class="main-user-consent-errors"><?php 
 foreach ($arResult['ERRORS'] as $error)
 {
 	ShowError($error);
 }
-?></div><?
+?></div><?php 
 if ($arResult['IS_SAVED'])
 {
 	?>
@@ -31,7 +31,7 @@ if ($arResult['IS_SAVED'])
 			window.top.BX.onCustomEvent(window.top, 'main-user-consent-saved', []);
 		})();
 	</script>
-	<?
+	<?php 
 	return;
 }
 ?>
@@ -66,7 +66,7 @@ if ($arResult['IS_SAVED'])
 			</div>
 			<div class="main-user-consent-edit-select-container">
 				<select class="main-user-consent-edit-input main-user-consent-edit-select" data-bx-type-selector="" class="">
-					<?
+					<?php 
 					$isCurrentSupportDataProvider = false;
 					foreach ($arResult['TYPE_LIST'] as $type):
 						$typeCode = htmlspecialcharsbx($type['TYPE']);
@@ -85,7 +85,7 @@ if ($arResult['IS_SAVED'])
 						<option data-bx-type="<?=$typeCode?>" data-bx-lang="<?=$lang?>" data-bx-agreement-text="<?=htmlspecialcharsbx($type['AGREEMENT_TEXT'])?>" data-bx-supp-provider="<?=($isSupportDataProv ? 'Y' : 'N')?>" <?=($type['SELECTED'] ? 'selected': '')?>>
 							<?=htmlspecialcharsbx($type['NAME'])?>
 						</option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 
 				<a data-bx-type-view="" data-bx-text="" class="main-user-consent-edit-link-tune" style="display: none;"><?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_BTN_VIEW')?></a>
@@ -104,13 +104,13 @@ if ($arResult['IS_SAVED'])
 				<div class="main-user-consent-edit-select-container">
 					<select data-bx-data-provider-input="" class="main-user-consent-edit-input main-user-consent-edit-select" name="DATA_PROVIDER" class="">
 						<option value=""><?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_DATA_PROVIDER_DEF')?></option>
-						<?foreach ($arResult['DATA_PROVIDER_LIST'] as $provider):
+						<?php foreach ($arResult['DATA_PROVIDER_LIST'] as $provider):
 							$data = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($provider['DATA']));
 							?>
 							<option value="<?=htmlspecialcharsbx($provider['CODE'])?>" data-bx-edit-url="<?=htmlspecialcharsbx($provider['EDIT_URL'])?>" data-bx-data="<?=$data?>" <?=($provider['SELECTED'] ? 'selected': '')?>>
 								<?=htmlspecialcharsbx($provider['NAME'])?>
 							</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 
 					<a data-bx-data-provider-url="" target="_blank" class="main-user-consent-edit-link-tune" style="display: none;"><?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_BTN_TUNE')?></a>
@@ -121,7 +121,7 @@ if ($arResult['IS_SAVED'])
 
 		<div class="main-user-consent-edit-fields" style="">
 
-			<?foreach ($arResult['TYPE_LIST'] as $type):
+			<?php foreach ($arResult['TYPE_LIST'] as $type):
 				$typeCode = htmlspecialcharsbx($type['TYPE']);
 				$lang = htmlspecialcharsbx($type['LANGUAGE_ID']);
 
@@ -131,7 +131,7 @@ if ($arResult['IS_SAVED'])
 				}
 				?>
 				<div data-bx-fields="" data-bx-type="<?=$typeCode?>" data-bx-lang="<?=$lang?>" style="<?=($type['SELECTED'] ? '' : 'display: none;')?>">
-					<?foreach ($type['FIELDS'] as $field):
+					<?php foreach ($type['FIELDS'] as $field):
 
 						$code = htmlspecialcharsbx($field['CODE']);
 						if (isset($field['INPUT_NAME']) && $field['INPUT_NAME'])
@@ -151,12 +151,12 @@ if ($arResult['IS_SAVED'])
 						?>
 						<div data-bx-field="<?=$code?>" class="main-user-consent-edit-fields-field">
 							<div class="main-user-consent-edit-fields-field-label main-user-consent-edit-title">
-								<?
+								<?php 
 								if ($inputShowByCheckbox)
 								{
 									?>
 									<input class="" id="<?=$inputId?>_TOGGLER" data-bx-toggler="" type="checkbox" <?=($inputValue ? 'checked' : '')?>>
-									<?
+									<?php 
 								}
 								?>
 								<label class="" for="<?=$inputId?>_TOGGLER">
@@ -170,7 +170,7 @@ if ($arResult['IS_SAVED'])
 							</div>
 
 							<div data-bx-toggled="" <?=(($inputShowByCheckbox && !$inputValue) ? 'style="display: none;"' : '')?> class="main-user-consent-edit-fields-field-input">
-								<?
+								<?php 
 								switch ($field['TYPE'])
 								{
 									case 'enum':
@@ -206,31 +206,31 @@ if ($arResult['IS_SAVED'])
 								?>
 							</div>
 						</div>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
 		</div>
 
 		<div class="main-user-consent-edit-button-container">
-			<?if ($arParams['CAN_EDIT']):?>
-				<?if (!$arParams['IFRAME']):?>
+			<?php if ($arParams['CAN_EDIT']):?>
+				<?php if (!$arParams['IFRAME']):?>
 					<input name="save" value="<?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_BTN_SAVE')?>" type="submit" class="webform-small-button webform-small-button-accept">
 					<input name="apply" value="<?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_BTN_APPLY')?>" type="submit" class="webform-small-button webform-small-button-transparent">
-				<?else:?>
+				<?php else:?>
 					<input name="save" value="<?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_BTN_SAVE')?>" type="submit" class="webform-small-button webform-small-button-accept">
-				<?endif;?>
-			<?endif;?>
+				<?php endif;?>
+			<?php endif;?>
 			<a id="MAIN_USER_CONSENT_EDIT_BACK_TO_LIST" href="<?=htmlspecialcharsbx($arParams['PATH_TO_LIST'])?>" class="webform-small-button webform-small-button-transparent">
 				<?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_BTN_BACK_TO_LIST')?>
 			</a>
 		</div>
 
-		<?if (!$arParams['CAN_EDIT']):?>
+		<?php if (!$arParams['CAN_EDIT']):?>
 			<div class="main-user-consent-edit-alert">
 				<?=Loc::getMessage('MAIN_USER_CONSENT_EDIT_TMPL_ERROR_ACCESS_EDIT')?>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
 	</form>
 </div>

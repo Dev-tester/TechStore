@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTI_ID'] = "Код";
 $MESS ['INTI_ID_F'] = "Код";
 $MESS ['INTI_TIMESTAMP_X'] = "Изменено";

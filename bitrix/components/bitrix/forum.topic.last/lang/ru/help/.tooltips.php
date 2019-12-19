@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FID_TIP"] = "ID форума";
 $MESS["SORT_BY_TIP"] = "Поле для сортировки";
 $MESS["SORT_ORDER_TIP"] = "Направление сортировки";

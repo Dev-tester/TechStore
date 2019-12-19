@@ -1,4 +1,4 @@
-<?
+<?php 
 define("PUBLIC_AJAX_MODE", true);
 define("NO_KEEP_STATISTIC", "Y");
 define("NO_AGENT_STATISTIC","Y");
@@ -31,7 +31,7 @@ if (check_bitrix_sessid() && CModule::IncludeModule("calendar"))
 
 		$check = CCalendar::CheckMeetingRoom($params);
 
-		?><script>top.BXCRES_Check = <?= CUtil::PhpToJSObject($check)?>;</script><?
+		?><script>top.BXCRES_Check = <?= CUtil::PhpToJSObject($check)?>;</script><?php 
 	}
 	elseif (isset($_REQUEST['bx_event_calendar_update_planner']) && $_REQUEST['bx_event_calendar_update_planner'] === 'Y')
 	{
@@ -176,7 +176,7 @@ if (check_bitrix_sessid() && CModule::IncludeModule("calendar"))
 			}
 		}
 
-		?><script>top.BXCRES_Planner = <?= CUtil::PhpToJSObject($result)?>;</script><?
+		?><script>top.BXCRES_Planner = <?= CUtil::PhpToJSObject($result)?>;</script><?php 
 	}
 }
 else

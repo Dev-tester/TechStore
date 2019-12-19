@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_IMPORT_POPUP_WINDOW_TITLE'] = 'Выберите вариант, в котором кодировка определена правильно';
 $MESS['TASKS_IMPORT_LINE'] = 'Строка ';
 $MESS['TASKS_IMPORT_STOPPED'] = 'Импорт остановлен';

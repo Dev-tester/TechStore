@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['HELP_TITLE'] = "Help";
 $MESS ['HELP_HEADER'] = "Header:";
 $MESS ['HELP_FILENAME'] = "File name:";

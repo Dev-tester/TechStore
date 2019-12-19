@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOCK_EDITOR_COMMON_DEFAULT"] = "по умолчанию";
 $MESS["BLOCK_EDITOR_COMMON_NO"] = "Нет";
 $MESS["BLOCK_EDITOR_PREVIEW_MODE_PHONE"] = "Смартфон";

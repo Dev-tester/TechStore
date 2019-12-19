@@ -1,4 +1,4 @@
-<?
+<?php 
 /*.require_module 'standard';.*/
 /*.require_module 'pcre';.*/
 /*.require_module 'bitrix_main_include_prolog_admin_before';.*/
@@ -171,64 +171,64 @@ else
 	$savedOnce = CBitrixCloudOption::getOption("cdn_config_active")->isExists();
 }
 ?>
-<form method="POST" action="bitrixcloud_cdn.php?lang=<?echo LANGUAGE_ID ?><?echo $_GET["return_url"] ? "&amp;return_url=".urlencode($_GET["return_url"]) : "" ?>" enctype="multipart/form-data" name="editform">
-<?
+<form method="POST" action="bitrixcloud_cdn.php?lang=<?php echo LANGUAGE_ID ?><?php echo $_GET["return_url"] ? "&amp;return_url=".urlencode($_GET["return_url"]) : "" ?>" enctype="multipart/form-data" name="editform">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr>
 		<td width="40%">
-			<label for="cdn_active"><?echo GetMessage("BCL_TURN_ON"); ?>:</label>
+			<label for="cdn_active"><?php echo GetMessage("BCL_TURN_ON"); ?>:</label>
 		</td>
 		<td width="60%">
 			<input type="hidden" name="cdn_active" value="N">
-			<input type="checkbox" id="cdn_active" name="cdn_active" value="Y" <?echo $active ? 'checked="checked"' : '' ?>>
+			<input type="checkbox" id="cdn_active" name="cdn_active" value="Y" <?php echo $active ? 'checked="checked"' : '' ?>>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%">
-			<label for="optimize"><?echo GetMessage("BCL_OPTIMIZE"); ?>:</label>
+			<label for="optimize"><?php echo GetMessage("BCL_OPTIMIZE"); ?>:</label>
 		</td>
 		<td width="60%">
 			<input type="hidden" name="optimize" value="n">
-			<input type="checkbox" id="optimize" name="optimize" value="y" <?echo $optimize ? 'checked="checked"' : '' ?>>
+			<input type="checkbox" id="optimize" name="optimize" value="y" <?php echo $optimize ? 'checked="checked"' : '' ?>>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
 		<td width="40%">
-			<label for="kernel_folder"><?echo GetMessage("BCL_KERNEL"); ?>:</label>
+			<label for="kernel_folder"><?php echo GetMessage("BCL_KERNEL"); ?>:</label>
 		</td>
 		<td width="60%">
 			<input type="hidden" name="kernel_folder" value="n">
-			<input type="checkbox" id="kernel_folder" name="kernel_folder" value="y" <?echo ($kernel_folder ? 'checked="checked"' : '' )?>>
-			<?echo GetMessage("BCL_KERNEL_NOTE")?>
+			<input type="checkbox" id="kernel_folder" name="kernel_folder" value="y" <?php echo ($kernel_folder ? 'checked="checked"' : '' )?>>
+			<?php echo GetMessage("BCL_KERNEL_NOTE")?>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%">
-			<label for="content_folders"><?echo GetMessage("BCL_UPLOAD"); ?>:</label>
+			<label for="content_folders"><?php echo GetMessage("BCL_UPLOAD"); ?>:</label>
 		</td>
 		<td width="60%">
 			<input type="hidden" name="content_folders" value="n">
-			<input type="checkbox" id="content_folders" name="content_folders" value="y" <?echo ($content_folders ? 'checked="checked"' : '' )?>>
-			<?echo GetMessage("BCL_CONTENT_NOTE")?>
+			<input type="checkbox" id="content_folders" name="content_folders" value="y" <?php echo ($content_folders ? 'checked="checked"' : '' )?>>
+			<?php echo GetMessage("BCL_CONTENT_NOTE")?>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
 		<td width="40%">
-			<label for="site_admin"><?echo GetMessage("BCL_ADMIN_PANEL"); ?>:</label>
+			<label for="site_admin"><?php echo GetMessage("BCL_ADMIN_PANEL"); ?>:</label>
 		</td>
 		<td width="60%">
-			<input type="checkbox" id="site_admin" name="site[admin]" value="y" <?echo (!$savedOnce || isset($sites["admin"])) ? 'checked="checked"' : '' ?>>
+			<input type="checkbox" id="site_admin" name="site[admin]" value="y" <?php echo (!$savedOnce || isset($sites["admin"])) ? 'checked="checked"' : '' ?>>
 		</td>
 	</tr>
-<?
+<?php 
 $by = 'sort';
 $order = 'asc';
 $rsSites = CSite::GetList($by, $order);
@@ -237,44 +237,44 @@ while ($arSite = $rsSites->Fetch())
 ?>
 	<tr>
 		<td>
-			<label for="site_<?echo htmlspecialcharsbx($arSite["LID"]); ?>"><?echo htmlspecialcharsEx($arSite["NAME"]." [".$arSite["LID"]."]"); ?>:</label>
+			<label for="site_<?php echo htmlspecialcharsbx($arSite["LID"]); ?>"><?php echo htmlspecialcharsEx($arSite["NAME"]." [".$arSite["LID"]."]"); ?>:</label>
 		</td>
 		<td>
-			<input type="checkbox" id="site_<?echo htmlspecialcharsbx($arSite["LID"]); ?>" name="site[<?echo htmlspecialcharsbx($arSite["LID"]); ?>]" value="y" <?echo (!$savedOnce || isset($sites[$arSite["LID"]])) ? 'checked="checked"' : '' ?>>
+			<input type="checkbox" id="site_<?php echo htmlspecialcharsbx($arSite["LID"]); ?>" name="site[<?php echo htmlspecialcharsbx($arSite["LID"]); ?>]" value="y" <?php echo (!$savedOnce || isset($sites[$arSite["LID"]])) ? 'checked="checked"' : '' ?>>
 		</td>
 	</tr>
-<?
+<?php 
 }
 $tabControl->BeginNextTab();
 ?>
 	<tr class="adm-detail-required-field">
 		<td width="40%">
-			<label  for="server_name"><?echo GetMessage("BCL_SERVER_DOMAIN_NAME");?>:</label>
+			<label  for="server_name"><?php echo GetMessage("BCL_SERVER_DOMAIN_NAME");?>:</label>
 		</td>
 		<td width="60%">
-			<input type="text" id="server_name" name="server_name" value="<?echo htmlspecialcharsbx($server_name); ?>">
+			<input type="text" id="server_name" name="server_name" value="<?php echo htmlspecialcharsbx($server_name); ?>">
 		</td>
 	</tr>
 	<tr>
 		<td width="40%">
-			<label for="https"><?echo GetMessage("BCL_HTTPS"); ?>:</label>
+			<label for="https"><?php echo GetMessage("BCL_HTTPS"); ?>:</label>
 		</td>
 		<td width="60%">
 			<input type="hidden" name="https" value="n">
-			<input type="checkbox" id="https" name="https" value="y" <?echo $https ? 'checked="checked"' : '' ?>>
+			<input type="checkbox" id="https" name="https" value="y" <?php echo $https ? 'checked="checked"' : '' ?>>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(array(
 	"back_url" => $_GET["return_url"] ? $_GET["return_url"] : "bitrixcloud_cdn.php?lang=".LANGUAGE_ID,
 ));
 ?>
-<?echo bitrix_sessid_post(); ?>
-<input type="hidden" name="debug" value="<?echo htmlspecialcharsbx($_REQUEST["debug"]) ?>">
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-<?
+<?php echo bitrix_sessid_post(); ?>
+<input type="hidden" name="debug" value="<?php echo htmlspecialcharsbx($_REQUEST["debug"]) ?>">
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?echo BeginNote(), GetMessage("BCL_NOTE"), EndNote();
+<?php echo BeginNote(), GetMessage("BCL_NOTE"), EndNote();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

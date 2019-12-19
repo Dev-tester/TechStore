@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_REF_edit1_TAB_TITLE"]="Цвет";
 $MESS["WZD_OPTION_REF_NAME"]="*Название";
 $MESS["WZD_OPTION_REF_CODE"]="*Символьный код";

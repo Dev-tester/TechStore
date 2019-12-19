@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2012 Bitrix             #
@@ -110,7 +110,7 @@ $aTabs[] = array('DIV' => 'rights', 'TAB' => GetMessage('MAIN_TAB_RIGHTS'), 'ICO
 
 $tabControl = new CAdminTabControl('tabControl', $aTabs);
 ?>
-<?
+<?php 
 $tabControl->Begin();
 ?>
 <style>
@@ -118,10 +118,10 @@ table.edit-table td.field-name  {
 	width: 40% !important;
 }
 </style>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" name="wiki_settings">
-<?$tabControl->BeginNextTab();?>
-<?__AdmSettingsDrawList('wiki', $arAllOptions);?>
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" name="wiki_settings">
+<?php $tabControl->BeginNextTab();?>
+<?php __AdmSettingsDrawList('wiki', $arAllOptions);?>
+<?php 
 if(IsModuleInstalled('socialnetwork'))
 {
 	$socnet_iblock_id = COption::GetOptionString($module_id, 'socnet_iblock_id');
@@ -131,31 +131,31 @@ if(IsModuleInstalled('socialnetwork'))
 	__AdmSettingsDrawRow('wiki', array('socnet_enable', GetMessage('WIKI_OPTIONS_SOCNET_ENABLE'), $socnet_enable, Array('checkbox')))
 	?>
 	<tr>
-		<td><?echo GetMessage('WIKI_OPTIONS_SOCNET_IBLOCK_ID')?></td>
-		<td><?echo GetIBlockDropDownList($socnet_iblock_id, 'socnet_iblock_type_id', 'socnet_iblock_id', false, 'class="adm-detail-iblock-types"', 'class="adm-detail-iblock-list"');?></td>
+		<td><?php echo GetMessage('WIKI_OPTIONS_SOCNET_IBLOCK_ID')?></td>
+		<td><?php echo GetIBlockDropDownList($socnet_iblock_id, 'socnet_iblock_type_id', 'socnet_iblock_id', false, 'class="adm-detail-iblock-types"', 'class="adm-detail-iblock-list"');?></td>
 	</tr>
-	<?
+	<?php 
 	if(IsModuleInstalled('forum'))
 	{
 		__AdmSettingsDrawList('wiki', $arForumOptions);
 	}
 }?>
-<?$tabControl->BeginNextTab();?>
-<?require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/admin/group_rights.php');?>
-<?$tabControl->Buttons();?>
+<?php $tabControl->BeginNextTab();?>
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/admin/group_rights.php');?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage('MAIN_HINT_RESTORE_DEFAULTS_WARNING'))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo rawurlencode($mid)."&".bitrix_sessid_get();?>";
+	if(confirm('<?php echo AddSlashes(GetMessage('MAIN_HINT_RESTORE_DEFAULTS_WARNING'))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo rawurlencode($mid)."&".bitrix_sessid_get();?>";
 }
 </script>
-<input type="submit" name="Update" <?if ($MOD_RIGHT<'W') echo "disabled" ?> value="<?echo GetMessage('MAIN_SAVE')?>">
-<input type="reset" name="reset" value="<?echo GetMessage('MAIN_RESET')?>">
+<input type="submit" name="Update" <?php if ($MOD_RIGHT<'W') echo "disabled" ?> value="<?php echo GetMessage('MAIN_SAVE')?>">
+<input type="reset" name="reset" value="<?php echo GetMessage('MAIN_RESET')?>">
 <input type="hidden" name="Update" value="Y">
 <?=bitrix_sessid_post();?>
-<input type="button" <?if ($MOD_RIGHT<'W') echo "disabled" ?> title="<?echo GetMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?echo GetMessage('MAIN_RESTORE_DEFAULTS')?>">
-<?$tabControl->End();?>
+<input type="button" <?php if ($MOD_RIGHT<'W') echo "disabled" ?> title="<?php echo GetMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage('MAIN_RESTORE_DEFAULTS')?>">
+<?php $tabControl->End();?>
 </form>
-<?endif;
+<?php endif;
 ?>

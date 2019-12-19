@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/socialnetwork/classes/general/event_user_view.php");
 
 class CSocNetEventUserView extends CAllSocNetEventUserView

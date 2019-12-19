@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -19,7 +19,7 @@ $template = $arResult['ITEM'];
 $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER_TASKS_TEMPLATES"]);
 ?>
 
-<?if($arParams["ENABLE_MENU_TOOLBAR"]):?>
+<?php if($arParams["ENABLE_MENU_TOOLBAR"]):?>
 
 	<?php
     if(!$_REQUEST['IFRAME']) {
@@ -54,7 +54,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
         );
     }?>
 
-	<?$this->SetViewTarget("pagetitle", 100);?>
+	<?php $this->SetViewTarget("pagetitle", 100);?>
 	<div class="task-list-toolbar">
 		<div class="task-list-toolbar-actions">
             <?php if (!$_REQUEST['IFRAME'])
@@ -69,19 +69,19 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 			);
             ?>
 			<button class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting webform-cogwheel" id="templateViewPopupMenuOptions"></button>
-			<?if(!$helper->checkHasFatals()):?>
+			<?php if(!$helper->checkHasFatals()):?>
 				<a class="webform-small-button webform-small-button-blue bx24-top-toolbar-add" href="<?=htmlspecialcharsbx($arParams["PATH_TO_TASKS_TEMPLATE_CREATE_SUB"])?>"><span class="webform-small-button-left"></span><span class="webform-small-button-icon"></span><span class="webform-small-button-text"><?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_ADD_SUBTEMPLATE')?></span><span class="webform-small-button-right"></span></a>
-			<?endif?>
+			<?php endif?>
 		</div>
 	</div>
-	<?$this->EndViewTarget();?>
+	<?php $this->EndViewTarget();?>
 
-<?endif?>
+<?php endif?>
 
-<?$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php $helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
-	<?
+	<?php 
 	$diskUfCode = Integration\Disk\UserField::getMainSysUFCode();
 	$templateData = $arResult['TEMPLATE_DATA'];
 	$templateEData = $templateData['TEMPLATE'];
@@ -93,39 +93,39 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 
 	<div id="<?=$helper->getScopeId()?>" class="task-detail tasks">
 
-		<?$helper->displayWarnings();?>
+		<?php $helper->displayWarnings();?>
 
 		<div class="js-id-task-template-view-file-area task-detail-info">
 			<div class="task-detail-header">
-				<?if($canUpdate):?>
-					<div class="js-id-task-template-view-importance-switch task-info-panel-important <?if($template["PRIORITY"] != CTasks::PRIORITY_HIGH):?>no<?endif?> mutable" data-priority="<?=intval($template["PRIORITY"])?>">
+				<?php if($canUpdate):?>
+					<div class="js-id-task-template-view-importance-switch task-info-panel-important <?php if($template["PRIORITY"] != CTasks::PRIORITY_HIGH):?>no<?php endif?> mutable" data-priority="<?=intval($template["PRIORITY"])?>">
 						<span class="if-no"><?=Loc::getMessage("TASKS_TASK_COMPONENT_TEMPLATE_MAKE_IMPORTANT")?></span>
 						<span class="if-not-no"><?=Loc::getMessage("TASKS_IMPORTANT_TASK")?></span>
 					</div>
-				<?elseif($template["PRIORITY"] == CTasks::PRIORITY_HIGH):?>
+				<?php elseif($template["PRIORITY"] == CTasks::PRIORITY_HIGH):?>
 					<div class="task-info-panel-important">
 						<span class="if-not-no"><?=Loc::getMessage("TASKS_IMPORTANT_TASK")?></span>
 					</div>
-				<?endif?>
+				<?php endif?>
 				<div class="task-detail-subtitle-status">
 					<?=Loc::getMessage('TASKS_TTV_SUB_TITLE', array('#ID#' => $template->getId()))?>
 				</div>
 			</div>
 			<div class="task-detail-content">
-				<?
+				<?php 
 				$checkListItems = $templateData['SE_CHECKLIST'];
 
 				if (strlen($template["DESCRIPTION"])):
 					$extraDesc = $canUpdate || !empty($checkListItems)
 						|| (isset($userFields[$diskUfCode]) && !UserField::isValueEmpty($userFields[$diskUfCode]["VALUE"]))
 					?>
-					<div class="task-detail-description<?if (!$extraDesc):?> task-detail-description-only<?endif?>"
+					<div class="task-detail-description<?php if (!$extraDesc):?> task-detail-description-only<?php endif?>"
 					     id="task-detail-description"><?=$template["DESCRIPTION"]?></div>
-				<? endif ?>
+				<?php  endif ?>
 
-				<?if ($canUpdate || !empty($checkListItems)):?>
+				<?php if ($canUpdate || !empty($checkListItems)):?>
 					<div class="task-detail-checklist">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							'bitrix:tasks.widget.checklist.new',
 							'',
 							array(
@@ -140,26 +140,26 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 							array("HIDE_ICONS" => "Y", "ACTIVE_COMPONENT" => "Y")
 						);?>
 					</div>
-				<?endif?>
+				<?php endif?>
 
-				<?// files\pictures ?>
-				<?if (isset($userFields[$diskUfCode]) && !Bitrix\Tasks\Util\UserField::isValueEmpty($userFields[$diskUfCode]["VALUE"])):?>
+				<?php // files\pictures ?>
+				<?php if (isset($userFields[$diskUfCode]) && !Bitrix\Tasks\Util\UserField::isValueEmpty($userFields[$diskUfCode]["VALUE"])):?>
 					<div class="task-detail-files">
-						<?UserField\UI::showView($userFields[$diskUfCode], array(
+						<?php UserField\UI::showView($userFields[$diskUfCode], array(
 							"PUBLIC_MODE" => $arParams["PUBLIC_MODE"],
 							"ENABLE_AUTO_BINDING_VIEWER" => false // file viewer cannot work in the iframe (see logic.js)
 						));?>
 					</div>
-				<?endif?>
+				<?php endif?>
 
-				<? if (!$arParams["PUBLIC_MODE"]):?>
+				<?php  if (!$arParams["PUBLIC_MODE"]):?>
 					<div class="task-detail-extra">
 
-						<?if($canUpdate || $template['GROUP_ID']):?>
+						<?php if($canUpdate || $template['GROUP_ID']):?>
 							<div class="task-detail-group">
 								<span class="task-detail-group-label"><?=Loc::getMessage("TASKS_TTDP_PROJECT_TASK_IN")?>:</span>
 
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									'bitrix:tasks.widget.member.selector',
 									'projectlink',
 									array(
@@ -174,23 +174,23 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 								);?>
 
 							</div>
-						<?endif?>
+						<?php endif?>
 
-						<? if (!empty($arResult['TEMPLATE_DATA']['TEMPLATE']['SE_PARENTITEM'])):?>
-							<?$parentItem = $arResult['TEMPLATE_DATA']['TEMPLATE']['SE_PARENTITEM'][0];?>
-							<div class="task-detail-supertask"><?
-								?><span class="task-detail-supertask-label"><?=Loc::getMessage($parentItem['ENTITY_TYPE'] == 'T' ? 'TASKS_PARENT_TASK' : 'TASKS_PARENT_TEMPLATE')?>:</span><?
+						<?php  if (!empty($arResult['TEMPLATE_DATA']['TEMPLATE']['SE_PARENTITEM'])):?>
+							<?php $parentItem = $arResult['TEMPLATE_DATA']['TEMPLATE']['SE_PARENTITEM'][0];?>
+							<div class="task-detail-supertask"><?php 
+								?><span class="task-detail-supertask-label"><?=Loc::getMessage($parentItem['ENTITY_TYPE'] == 'T' ? 'TASKS_PARENT_TASK' : 'TASKS_PARENT_TEMPLATE')?>:</span><?php 
 								?><span class="task-detail-supertask-name"><a href="<?=$parentItem["URL"]?>"
 							                                                  class="task-detail-group-link"><?=htmlspecialcharsbx($parentItem["TITLE"])?></a></span>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
-				<? endif ?>
+				<?php  endif ?>
 
-				<?if(count($arResult['TEMPLATE_DATA']['USER_FIELDS_TO_SHOW'])):?>
+				<?php if(count($arResult['TEMPLATE_DATA']['USER_FIELDS_TO_SHOW'])):?>
 					<div class="task-detail-properties">
 						<table cellspacing="0" class="task-detail-properties-layout">
-							<?
+							<?php 
 							foreach ($arResult['TEMPLATE_DATA']['USER_FIELDS_TO_SHOW'] as $userField)
 							{
 								$title = (string) $userField["EDIT_FORM_LABEL"] != '' ? $userField["EDIT_FORM_LABEL"] : $userField["FIELD_NAME"];
@@ -198,24 +198,24 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 								<tr>
 								<td class="task-detail-property-name"><?=htmlspecialcharsbx($title)?></td>
 								<td class="task-detail-property-value">
-									<?UserField\UI::showView($userField, array(
+									<?php UserField\UI::showView($userField, array(
 										"PUBLIC_MODE" => $arParams["PUBLIC_MODE"],
 										"ENABLE_AUTO_BINDING_VIEWER" => true,
 									));?>
 								</td>
-								</tr><?
+								</tr><?php 
 							}
 							?>
 						</table>
 					</div>
-				<?endif?>
+				<?php endif?>
 
 			</div>
 		</div>
 
 		<div class="task-detail-buttons">
 
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:tasks.widget.buttons",
 				"",
 				array(
@@ -269,13 +269,13 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 
 		</div>
 
-		<?if($arResult['TEMPLATE_DATA']['HAVE_SUB_TEMPLATES']):?>
+		<?php if($arResult['TEMPLATE_DATA']['HAVE_SUB_TEMPLATES']):?>
 			<div>
 				<div class="task-detail-list">
 					<div class="task-detail-list-title">
 						<?=Loc::getMessage("TASKS_TASK_SUBTASKS")?>
 					</div>
-					<?
+					<?php 
 						$pathParams = array();
 						if(is_array($arParams))
 						{
@@ -299,13 +299,13 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 					?>
 				</div>
 			</div>
-		<?endif?>
+		<?php endif?>
 
-		<?//related tasks?>
-		<? if (count($templateEData["SE_RELATEDTASK"])):?>
+		<?php //related tasks?>
+		<?php  if (count($templateEData["SE_RELATEDTASK"])):?>
 			<div class="task-detail-list tasks-related-static-grid">
 				<div class="task-detail-list-title"><?=Loc::getMessage('TASKS_TASK_LINKED_TASKS')?></div>
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:tasks.widget.related.selector',
 					'staticgrid',
 					array(
@@ -320,9 +320,9 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 					array("HIDE_ICONS" => "Y", "ACTIVE_COMPONENT" => "Y")
 				);?>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 
-		<?ob_start();?>
+		<?php ob_start();?>
 		<div class="task-detail-comments">
 			<div class="task-comments-and-log">
 				<div class="task-comments-log-switcher">
@@ -337,7 +337,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 
 				<div class="task-switcher-block" style="display: block">
 
-					<?$logResult = $APPLICATION->IncludeComponent(
+					<?php $logResult = $APPLICATION->IncludeComponent(
 						'bitrix:tasks.syslog',
 						'',
 						array(
@@ -352,9 +352,9 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 				</div>
 			</div>
 		</div>
-		<?$html = ob_get_clean();?>
+		<?php $html = ob_get_clean();?>
 
-		<?
+		<?php 
 		if(Result::isA($logResult))
 		{
 			$resultData = $logResult->getData();
@@ -366,7 +366,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 		?>
 
 		<div class="task-footer-wrap" id="footerWrap">
-			<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+			<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 				'BUTTONS' => [
 					[
 						'TYPE' => 'save',
@@ -382,7 +382,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 
 	</div>
 
-	<?
+	<?php 
 	////////////////////////////////////////////////////////
 	//// SIDEBAR
 
@@ -393,7 +393,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 
 			<div class="task-detail-sidebar-content">
 
-				<?if($template["DEADLINE_AFTER"]
+				<?php if($template["DEADLINE_AFTER"]
 					|| $template["START_DATE_PLAN_AFTER"]
 					|| $template["END_DATE_PLAN_AFTER"]
 					|| ($template["ALLOW_TIME_TRACKING"] === "Y" && $template["TIME_ESTIMATE"] > 0)
@@ -403,39 +403,39 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 						<span id="task-detail-status-name" class="task-detail-sidebar-status-text"><?=Loc::getMessage('TASKS_TTDP_DATES');?></span>
 					</div>
 
-					<?if($template["DEADLINE_AFTER"]):?>
+					<?php if($template["DEADLINE_AFTER"]):?>
 						<div class="task-detail-sidebar-item task-detail-sidebar-item-deadline">
 							<div class="task-detail-sidebar-item-title"><?=Loc::getMessage("TASKS_FIELD_DEADLINE_AFTER")?>:</div>
 							<div class="task-detail-sidebar-item-value"><?=$helper->formatDateAfter($matchWorkTime, $template["DEADLINE_AFTER"])?></div>
 						</div>
-					<?endif?>
+					<?php endif?>
 
-					<?if($template["START_DATE_PLAN_AFTER"]):?>
+					<?php if($template["START_DATE_PLAN_AFTER"]):?>
 						<div class="task-detail-sidebar-item">
 							<div class="task-detail-sidebar-item-title"><?=Loc::getMessage("TASKS_FIELD_START_DATE_PLAN_AFTER")?>:</div>
 							<div class="task-detail-sidebar-item-value"><?=$helper->formatDateAfter($matchWorkTime, $template["START_DATE_PLAN_AFTER"])?></div>
 						</div>
-					<?endif?>
+					<?php endif?>
 
-					<?if($template["END_DATE_PLAN_AFTER"]):?>
+					<?php if($template["END_DATE_PLAN_AFTER"]):?>
 						<div class="task-detail-sidebar-item">
 							<div class="task-detail-sidebar-item-title"><?=Loc::getMessage("TASKS_FIELD_END_DATE_PLAN_AFTER")?>:</div>
 							<div class="task-detail-sidebar-item-value"><?=$helper->formatDateAfter($matchWorkTime, $template["END_DATE_PLAN_AFTER"])?></div>
 						</div>
-					<?endif?>
+					<?php endif?>
 
-					<?if($template["ALLOW_TIME_TRACKING"] === "Y" && $template["TIME_ESTIMATE"] > 0):?>
+					<?php if($template["ALLOW_TIME_TRACKING"] === "Y" && $template["TIME_ESTIMATE"] > 0):?>
 						<div class="task-detail-sidebar-item">
 							<div class="task-detail-sidebar-item-title"><?=Loc::getMessage("TASKS_FIELD_TIME_ESTIMATE")?>:</div>
 							<div class="task-detail-sidebar-item-value" id="task-detail-estimate-time-<?=$template["ID"]?>">
 								<?=\Bitrix\Tasks\UI::formatTimeAmount($template["TIME_ESTIMATE"]);?>
 							</div>
 						</div>
-					<?endif?>
+					<?php endif?>
 
-				<?endif?>
+				<?php endif?>
 
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:tasks.widget.member.selector',
 					'view',
 					array(
@@ -450,7 +450,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 					array("HIDE_ICONS" => "Y", "ACTIVE_COMPONENT" => "Y")
 				);?>
 
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:tasks.widget.member.selector',
 					'view',
 					array(
@@ -468,7 +468,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 					array("HIDE_ICONS" => "Y", "ACTIVE_COMPONENT" => "Y")
 				);?>
 
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:tasks.widget.member.selector',
 					'view',
 					array(
@@ -485,7 +485,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 					array("HIDE_ICONS" => "Y", "ACTIVE_COMPONENT" => "Y")
 				);?>
 
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:tasks.widget.member.selector',
 					'view',
 					array(
@@ -503,8 +503,8 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 					array("HIDE_ICONS" => "Y", "ACTIVE_COMPONENT" => "Y")
 				);?>
 
-				<?//replication?>
-				<?if(
+				<?php //replication?>
+				<?php if(
 					!$arParams["PUBLIC_MODE"] &&
 					$template['TPARAM_TYPE'] != 1 &&
 					!$template['BASE_TEMPLATE_ID'] &&
@@ -514,7 +514,7 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 
 					<div class="task-detail-sidebar-info-title"><?=Loc::getMessage("TASKS_SIDEBAR_REGULAR_TASK")?></div>
 					<div class="task-detail-sidebar-info">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							'bitrix:tasks.widget.replication',
 							'view',
 							array(
@@ -531,19 +531,19 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 						);?>
 					</div>
 
-				<?endif?>
+				<?php endif?>
 
-				<?//tags?>
-				<?if(!$arParams["PUBLIC_MODE"]):?>
+				<?php //tags?>
+				<?php if(!$arParams["PUBLIC_MODE"]):?>
 
-					<?$tags = $template['SE_TAG']?>
-					<?if($canUpdate || count($tags)):?>
+					<?php $tags = $template['SE_TAG']?>
+					<?php if($canUpdate || count($tags)):?>
 
-						<?$tagString = \Bitrix\Tasks\UI\Task\Tag::formatTagString($tags);?>
+						<?php $tagString = \Bitrix\Tasks\UI\Task\Tag::formatTagString($tags);?>
 
 						<div class="task-detail-sidebar-info-title"><?=Loc::getMessage("TASKS_TASK_TAGS")?></div>
 						<div class="task-detail-sidebar-info">
-							<div class="task-detail-sidebar-info-tag"><?
+							<div class="task-detail-sidebar-info-tag"><?php 
 								if ($canUpdate)
 								{
 									$APPLICATION->IncludeComponent(
@@ -564,26 +564,26 @@ $toList = str_replace("#user_id#", $arParams["USER_ID"], $arParams["PATH_TO_USER
 								?>
 							</div>
 						</div>
-					<?endif?>
+					<?php endif?>
 
-				<?endif?>
+				<?php endif?>
 
-				<?if(!$arParams["PUBLIC_MODE"] && $template['TPARAM_TYPE'] == 1):?>
+				<?php if(!$arParams["PUBLIC_MODE"] && $template['TPARAM_TYPE'] == 1):?>
 
 					<div class="task-detail-sidebar-info task-detail-sidebar-info-type-new-hint">
 						<?=Loc::getMessage('TASKS_TTV_TYPE_FOR_NEW_USER_HINT');?>
 					</div>
 
-				<?endif?>
+				<?php endif?>
 
 			</div>
 		</div>
 
-	<?
+	<?php 
 	$this->EndViewTarget();
 	?>
 
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_RESULT_LIST'] = "List of results for the form # #FORM_ID#";
 $MESS ['FORM_RESULT_NOT_FOUND'] = "Result not found";
 $MESS ['FORM_PAGE_TITLE'] = "Result # #RESULT_ID#";

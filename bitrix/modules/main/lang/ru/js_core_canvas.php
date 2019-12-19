@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CANVAS_OK"] = "Применить";
 $MESS["CANVAS_CANCEL"] = "Отменить";
 $MESS["CANVAS_DELETE"] = "Удалить";

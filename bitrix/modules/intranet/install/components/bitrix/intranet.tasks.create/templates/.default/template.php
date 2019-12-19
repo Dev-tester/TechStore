@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?= $arResult["FatalError"] ?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,11 +16,11 @@ else
 	{
 		?>
 		<span class='errortext'><?= $arResult["ErrorMessage"] ?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
-	<?
+	<?php 
 	global $intaskAutoExecuteFunctionsCache;
 	$intaskAutoExecuteFunctionsCache = array();
 
@@ -106,7 +106,7 @@ else
 				"ul.bx-subtasklist li.checked{ list-style-image: url(/bitrix/images/fileman/light_htmledit/check_on.gif);}" +
 				"\n";
 				</script>
-				<?
+				<?php 
 				AddEventHandler("fileman", "OnBeforeLightEditorScriptsGet", "lhe_add_js");
 				function lhe_add_js($LheId)
 				{
@@ -377,17 +377,17 @@ else
 					<?= GetMessage("INTET_CURRENT_STATUS") ?>:
 				</td>
 				<td valign="top" align="left" width="70%">
-					<?if ($USER->IsAdmin() && strlen($arResult["DocumentState"]["ID"]) > 0):?><a href="/bitrix/admin/bizproc_log.php?ID=<?= $arResult["DocumentState"]["ID"] ?>"><?endif;?><?= strlen($arResult["DocumentState"]["STATE_TITLE"]) > 0 ? $arResult["DocumentState"]["STATE_TITLE"] : $arResult["DocumentState"]["STATE_NAME"] ?><?if ($USER->IsAdmin() && strlen($arResult["DocumentState"]["ID"]) > 0):?></a><?endif;?>
+					<?php if ($USER->IsAdmin() && strlen($arResult["DocumentState"]["ID"]) > 0):?><a href="/bitrix/admin/bizproc_log.php?ID=<?= $arResult["DocumentState"]["ID"] ?>"><?php endif;?><?= strlen($arResult["DocumentState"]["STATE_TITLE"]) > 0 ? $arResult["DocumentState"]["STATE_TITLE"] : $arResult["DocumentState"]["STATE_NAME"] ?><?php if ($USER->IsAdmin() && strlen($arResult["DocumentState"]["ID"]) > 0):?></a><?php endif;?>
 					<script language="JavaScript">
 					function OnChangeBPCommand(cmd)
 					{
-						<?if ($arParams["ACTION"] == "create"):?>
+						<?php if ($arParams["ACTION"] == "create"):?>
 							var ar = {
 								"-" : new Array('PROPERTY_TaskFinish', 'PROPERTY_TaskReport', 'PROPERTY_TaskComplete', 'PROPERTY_TaskSize', 'PROPERTY_TaskSizeReal'),
 								"CloseEvent" : new Array('PROPERTY_TaskFinish', 'PROPERTY_TaskReport', 'PROPERTY_TaskComplete', 'PROPERTY_TaskSize', 'PROPERTY_TaskSizeReal')
 							};
-						<?else:?>
-							<?if ($arResult["DocumentState"]["STATE_NAME"] == "NotAccepted"):?>
+						<?php else:?>
+							<?php if ($arResult["DocumentState"]["STATE_NAME"] == "NotAccepted"):?>
 								var ar = {
 									"-" : new Array('PROPERTY_TaskFinish', 'PROPERTY_TaskReport', 'PROPERTY_TaskComplete', 'PROPERTY_TaskSize', 'PROPERTY_TaskSizeReal'),
 									"SetResponsibleEvent" : new Array(),
@@ -396,7 +396,7 @@ else
 									"CompleteEvent" : new Array('PROPERTY_TaskFinish', 'PROPERTY_TaskReport', 'PROPERTY_TaskComplete', 'PROPERTY_TaskSize', 'PROPERTY_TaskSizeReal'),
 									"CloseEvent" : new Array('PROPERTY_TaskFinish', 'PROPERTY_TaskReport', 'PROPERTY_TaskComplete', 'PROPERTY_TaskSize', 'PROPERTY_TaskSizeReal')
 								};
-							<?elseif ($arResult["DocumentState"]["STATE_NAME"] == "NotStarted"):?>
+							<?php elseif ($arResult["DocumentState"]["STATE_NAME"] == "NotStarted"):?>
 								var ar = {
 									"-" : new Array('PROPERTY_TaskFinish', 'PROPERTY_TaskComplete', 'PROPERTY_TaskSizeReal'),
 									"SetResponsibleEvent" : new Array(),
@@ -407,7 +407,7 @@ else
 									"WaitingEvent" : new Array(),
 									"DeferredEvent" : new Array()
 								};
-							<?elseif ($arResult["DocumentState"]["STATE_NAME"] == "InProgress"):?>
+							<?php elseif ($arResult["DocumentState"]["STATE_NAME"] == "InProgress"):?>
 								var ar = {
 									"-" : new Array('PROPERTY_TaskFinish', 'PROPERTY_TaskSizeReal'),
 									"SetResponsibleEvent" : new Array(),
@@ -417,16 +417,16 @@ else
 									"WaitingEvent" : new Array(),
 									"DeferredEvent" : new Array()
 								};
-							<?elseif ($arResult["DocumentState"]["STATE_NAME"] == "Completed"):?>
+							<?php elseif ($arResult["DocumentState"]["STATE_NAME"] == "Completed"):?>
 								var ar = {
 									"-" : new Array(),
 									"CloseEvent" : new Array()
 								};
-							<?elseif ($arResult["DocumentState"]["STATE_NAME"] == "Closed"):?>
+							<?php elseif ($arResult["DocumentState"]["STATE_NAME"] == "Closed"):?>
 								var ar = {
 									"-" : new Array()
 								};
-							<?elseif ($arResult["DocumentState"]["STATE_NAME"] == "Waiting"
+							<?php elseif ($arResult["DocumentState"]["STATE_NAME"] == "Waiting"
 								|| $arResult["DocumentState"]["STATE_NAME"] == "Deferred"):?>
 								var ar = {
 									"-" : new Array(),
@@ -439,8 +439,8 @@ else
 									"WaitingEvent" : new Array(),
 									"DeferredEvent" : new Array()
 								};
-							<?endif;?>
-						<?endif;?>
+							<?php endif;?>
+						<?php endif;?>
 
 						for (var i = 0; i < ar["-"].length; i++)
 						{
@@ -448,12 +448,12 @@ else
 							if (o1) o1.style.display = "none";
 						}
 
-						<?if ($arParams["ACTION"] != "create"):?>
+						<?php if ($arParams["ACTION"] != "create"):?>
 							var o1 = document.getElementById("task_field_PROPERTY_TaskAssignedTo");
 							if (o1) o1.style.display = "none";
 							var o1 = document.getElementById("task_field_PROPERTY_TaskAssignedTo_1");
 							if (o1) o1.style.display = "";
-						<?endif;?>
+						<?php endif;?>
 
 						if (cmd.length <= 0)
 							return;
@@ -484,7 +484,7 @@ else
 					</script>
 				</td>
 			</tr>
-			<?
+			<?php 
 			if (count($arResult["DocumentState"]["AllowableEvents"]) > 0)
 			{
 				?>
@@ -495,16 +495,16 @@ else
 					<td valign="top" align="left" width="70%">
 						<select name="bizproc_event" onchange="OnChangeBPCommand(this.options[this.selectedIndex].value)">
 							<option value="">&nbsp;</option>
-							<?
+							<?php 
 							foreach ($arResult["DocumentState"]["AllowableEvents"] as $e)
 							{
-								?><option value="<?= htmlspecialcharsbx($e["NAME"]) ?>"<?= ($_REQUEST["bizproc_event_".$bizProcIndex] == $e["NAME"]) ? " selected" : ""?>><?= htmlspecialcharsbx($e["TITLE"]) ?></option><?
+								?><option value="<?= htmlspecialcharsbx($e["NAME"]) ?>"<?= ($_REQUEST["bizproc_event_".$bizProcIndex] == $e["NAME"]) ? " selected" : ""?>><?= htmlspecialcharsbx($e["TITLE"]) ?></option><?php 
 							}
 							?>
 						</select>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 
 			$bEditFields = ($arParams["ACTION"] == "edit" || $arParams["ACTION"] == "create");
@@ -516,7 +516,7 @@ else
 					<?= GetMessage("INTET_RESPONSIBLE") ?>:
 				</td>
 				<td valign="top" align="left" width="70%">
-					<?
+					<?php 
 					__ShowFieldTmp("PROPERTY_TaskAssignedTo", $arResult["TaskFields"]["PROPERTY_TaskAssignedTo"], $arResult["Task"]["PROPERTY_TaskAssignedTo"], "bx_users_filter_simple_form", $arParams);
 					?>
 				</td>
@@ -531,15 +531,15 @@ else
 				</td>
 			</tr>
 
-			<?foreach ($arResult["TaskFieldsOrder"] as $vvv):?>
-				<?
+			<?php foreach ($arResult["TaskFieldsOrder"] as $vvv):?>
+				<?php 
 				$field = $vvv[0];
 				$arField = $arResult["TaskFields"][$field];
 				?>
-				<?if ($field == "ID" || $field == "PROPERTY_TaskAssignedTo") continue;?>
-				<?if ($arParams["ACTION"] == "create" && !$arField["EDITABLE"]) continue;?>
-				<?if ($arParams["TASK_TYPE"] == "user" && $field == "IBLOCK_SECTION_ID") continue;?>
-				<?
+				<?php if ($field == "ID" || $field == "PROPERTY_TaskAssignedTo") continue;?>
+				<?php if ($arParams["ACTION"] == "create" && !$arField["EDITABLE"]) continue;?>
+				<?php if ($arParams["TASK_TYPE"] == "user" && $field == "IBLOCK_SECTION_ID") continue;?>
+				<?php 
 				if (!$bEditFields || !$arField["EDITABLE"])
 				{
 					$bHasValue = false;
@@ -559,20 +559,20 @@ else
 
 				<tr id="task_field_<?= $field ?>">
 					<td valign="top" align="right" width="30%">
-						<?if ($arField["IS_REQUIRED"] == "Y" && $bEditFields):?>
+						<?php if ($arField["IS_REQUIRED"] == "Y" && $bEditFields):?>
 							<span class="required-field">*</span>
-						<?endif;?>
+						<?php endif;?>
 						<?= $arField["FULL_NAME"] ?>:
 					</td>
 					<td valign="top" align="left" width="70%">
-						<?if ($bEditFields && $arField["EDITABLE"]):?>
-							<?
+						<?php if ($bEditFields && $arField["EDITABLE"]):?>
+							<?php 
 							__ShowFieldTmp($field, $arField, $arResult["Task"][$field], "bx_users_filter_simple_form", $arParams, $arResult);
 							?>
-						<?else:?>
-							<?if (is_array($arResult["Task"][$field."_PRINTABLE"])):?>
-								<?foreach ($arResult["Task"][$field."_PRINTABLE"] as $val):?>
-									<?
+						<?php else:?>
+							<?php if (is_array($arResult["Task"][$field."_PRINTABLE"])):?>
+								<?php foreach ($arResult["Task"][$field."_PRINTABLE"] as $val):?>
+									<?php 
 									if ($arField["Type"] == "file")
 									{
 										echo CFile::ShowFile($val, 0, 300, 300, true)."<br>";
@@ -596,23 +596,23 @@ else
 										}
 									}
 									?><br />
-								<?endforeach?>
-							<?else:?>
+								<?php endforeach?>
+							<?php else:?>
 								<?= $arResult["Task"][$field."_PRINTABLE"] ?>
-							<?endif;?>
-						<?endif;?>
+							<?php endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</table>
 		<?=bitrix_sessid_post()?>
 		<br />
 		<input type="hidden" name="back_url" value="<?= $arResult["back_url"] ?>">
-		<?if ($bEditFields || count($arResult["DocumentState"]["AllowableEvents"]) > 0):?>
+		<?php if ($bEditFields || count($arResult["DocumentState"]["AllowableEvents"]) > 0):?>
 			<input type="submit" name="save" value="<?= GetMessage("INTET_SAVE") ?>">
 			<input type="submit" name="apply" value="<?= GetMessage("INTET_APPLY") ?>">
 			<input type="reset" name="cancel" value="<?= GetMessage("INTET_CANCEL") ?>" onclick="window.location='<?= $arResult["back_url"] ?>'">
-		<?endif;?>
+		<?php endif;?>
 	</form>
 	<script language="JavaScript">
 	<!--
@@ -620,14 +620,14 @@ else
 
 	function verifyTaskForm()
 	{
-		<?
+		<?php 
 		global $intaskAutoExecuteFunctionsCache;
 		if (is_array($intaskAutoExecuteFunctionsCache))
 		{
 			foreach($intaskAutoExecuteFunctionsCache as $f)
 			{
 				?><?= $f ?>; 
-				<?
+				<?php 
 			}
 		}
 		?>
@@ -635,6 +635,6 @@ else
 	}
 	//-->
 	</script>
-	<?
+	<?php 
 }
 ?>

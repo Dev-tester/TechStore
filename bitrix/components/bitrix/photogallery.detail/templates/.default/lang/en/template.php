@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NO_OF_COUNT"] = "#NO# of #TOTAL#";
 $MESS["P_EDIT"] = "Edit";
 $MESS["P_EDIT_TITLE"] = "Edit image properties";

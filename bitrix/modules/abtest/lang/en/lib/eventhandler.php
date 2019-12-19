@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABTEST_PANEL_MENU_BTN"] = "A/B test ##ID#";
 $MESS["ABTEST_PANEL_MENU_MODE_A"] = "Group A";
 $MESS["ABTEST_PANEL_MENU_MODE_B"] = "Group B";

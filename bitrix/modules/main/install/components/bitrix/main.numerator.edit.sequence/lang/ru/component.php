@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['NUMERATOR_EDIT_SEQUENCE_COLUMN_HEADER_NEXT_NUMBER'] = 'Следующий номер будет равен';
 $MESS['NUMERATOR_EDIT_SEQUENCE_COLUMN_HEADER_TEXT_KEY'] = 'Ключ нумератора';
 $MESS['MAIN_NUMERATOR_EDIT_SEQUENCE_PAGE_TITLE'] = 'Текущие номера';

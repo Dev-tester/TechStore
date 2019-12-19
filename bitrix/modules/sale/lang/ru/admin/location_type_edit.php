@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Доступ к модулю запрещён";
 $MESS["SALE_LOCATION_E_ITEM_EDIT"] = "Редактирование типа местоположения: #ITEM_NAME#";
 $MESS["SALE_LOCATION_E_ITEM_NEW"] = "Тип местоположения: добавление";

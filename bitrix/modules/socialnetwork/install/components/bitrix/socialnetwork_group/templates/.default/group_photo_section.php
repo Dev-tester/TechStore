@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "group_photo";
 include("util_group_menu.php");
 
@@ -16,7 +16,7 @@ if ($arParams["FATAL_ERROR"] == "Y"):
 endif;
 
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.user",
 	"",
 	Array(
@@ -54,7 +54,7 @@ endif;
 );
 ?>
 <br />
-<?$result = $APPLICATION->IncludeComponent(
+<?php $result = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section",
 	"",
 	Array(
@@ -94,7 +94,7 @@ endif;
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 // DETAIL LIST
 if ($result && intVal($result["ELEMENTS_CNT"]) > 0)
 {
@@ -114,7 +114,7 @@ endif;
 ?>
 <div class="photo-info-box photo-info-box-photo-list">
 	<div class="photo-info-box-inner">
-<?$result2 = $APPLICATION->IncludeComponent(
+<?php $result2 = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.list.ex",
 	"",
 	Array(
@@ -196,14 +196,14 @@ endif;
 );?>
 	</div>
 </div>
-<?
+<?php 
 if (empty($result2)):
 ?>
 <style>
 div.photo-page-section div.photo-info-box-photo-list {
 	display: none;}
 </style>
-<?
+<?php 
 endif;
 }
 // SECTIONS LIST
@@ -217,7 +217,7 @@ if (intVal($result["SECTIONS_CNT"]) > 0)
 				<?=GetMessage("P_ALBUMS")?>
 			</div>
 		</div>
-	<?$result2 = $APPLICATION->IncludeComponent(
+	<?php $result2 = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section.list",
 	"",
 	Array(
@@ -282,7 +282,7 @@ if (intVal($result["SECTIONS_CNT"]) > 0)
 ?>
 	</div>
 </div>
-<?
+<?php 
 if (empty($result2["SECTIONS"]))
 {
 ?>
@@ -290,7 +290,7 @@ if (empty($result2["SECTIONS"]))
 div.photo-page-section div.photo-info-box-section-list {
 	display: none;}
 </style>
-<?
+<?php 
 }
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_YANDEX_INVOICE"] = "Yandex.Checkout B2B";
 $MESS["SALE_HPS_YANDEX_INVOICE_SHOP_ID"] = "Shop identifier in payment collector system (ShopID)";
 $MESS["SALE_HPS_YANDEX_INVOICE_SHOP_ID_DESC"] = "Yandex Shop ID";

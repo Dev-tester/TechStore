@@ -10,11 +10,11 @@ if (\Bitrix\Landing\Landing::getEditMode())
 	return;
 }
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:sale.order.payment",
 	"",
 	Array(
 	)
 );?>
 
-<?die();?>
+<?php die();?>

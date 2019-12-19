@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS["MAIL_CLIENT_CONFIG_TITLE"] = 'Подключение почтового ящика';
 $MESS["MAIL_CLIENT_CONFIG_EDIT_TITLE"] = 'Управление почтовым ящиком';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B_B_MS_FROM"] = "from";
 $MESS["B_B_MS_REPLY"] = "Reply";
 $MESS["B_B_MS_PARENT"] = "Parent";

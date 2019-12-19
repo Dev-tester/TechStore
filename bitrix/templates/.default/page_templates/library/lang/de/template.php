@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['library_wizard_group_select'] = "(Gruppe wählen)";
 $MESS ['library_wizard_perm_add'] = "Neues Zugriffsrecht";
 $MESS ['library_wizard_comments_allow'] = "Kommentare erlauben:";

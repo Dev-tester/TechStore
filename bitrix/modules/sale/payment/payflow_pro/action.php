@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 // Input:
 // $SALE_INPUT_PARAMS - Array of payment parameters
 // $INPUT_CARD_TYPE - Type of credit card

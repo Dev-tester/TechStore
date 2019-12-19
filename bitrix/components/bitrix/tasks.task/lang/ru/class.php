@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TT_TASKS_MODULE_NOT_INSTALLED'] = 'Модуль "Задачи" не установлен';
 $MESS['TASKS_TT_SOCIALNETWORK_MODULE_NOT_INSTALLED'] = 'Модуль "Социальная сеть" не установлен';
 $MESS['TASKS_TT_FORUM_MODULE_NOT_INSTALLED'] = 'Модуль "Форум" не установлен';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLT_ERR_TITLE_MISSED"] = "The dictionary title is missing.";
 $MESS["FLT_ERR_TYPE_MISSED"] = "The dictionary type is missing.";
 $MESS["FLT_ERR_SIMBOL_MISSED"] = "A symbol is missing.";

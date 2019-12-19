@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_SRV_GEOIP_MM_DESCRIPTION"] = "MaxMind is an industry-leading provider of IP intelligence and online fraud detection tools. <br>
 Website: <a href='https://www.maxmind.com'>https://www.maxmind.com</a><br>
 A user ID and a license key obtained from MaxMind are required to use the MaxMind handler.";

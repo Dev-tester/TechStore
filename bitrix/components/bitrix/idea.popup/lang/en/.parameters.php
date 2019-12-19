@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ONE_BLOG_BLOG_URL"] = "Blog";
 $MESS["BC_POST_IBLOCK_CATEGORIES"] = "Category structure information block";
 $MESS["IDEA_PARAM_POST_BIND_STATUS_DEFAULT"] = "Default status for new ideas";

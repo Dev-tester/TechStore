@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_SETTINGS_MODULE_NOT_INSTALLED"] = "The \"External IM Connectors\" module is not installed..";
 $MESS["IMCONNECTOR_COMPONENT_SETTINGS_SESSION_HAS_EXPIRED"] = "Your session has expired. Please try again.";
 $MESS["IMCONNECTOR_COMPONENT_SETTINGS_OK_UPDATE"] = "Data have been updated.";

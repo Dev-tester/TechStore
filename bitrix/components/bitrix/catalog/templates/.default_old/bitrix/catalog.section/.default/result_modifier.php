@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Type\Collection;
 use Bitrix\Currency\CurrencyTable;
 

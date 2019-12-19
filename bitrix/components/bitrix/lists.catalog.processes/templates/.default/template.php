@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -19,7 +19,7 @@ CJSCore::Init(array('lists'));
 ?>
 
 <div id="bx-lists-lcp-total-div">
-	<?
+	<?php 
 		$isBitrix24Template = (SITE_TEMPLATE_ID == "bitrix24");
 		$pagetitleAlignRightContainer = "lists-align-right-container";
 		if($isBitrix24Template)
@@ -33,18 +33,18 @@ CJSCore::Init(array('lists'));
 		}
 	?>
 	<div class="pagetitle-container pagetitle-align-right-container <?=$pagetitleAlignRightContainer?>">
-		<? if(!$arResult['ALL_PROCESSES_INSTALL']): ?>
+		<?php  if(!$arResult['ALL_PROCESSES_INSTALL']): ?>
 			<button class="ui-btn ui-btn-md ui-btn-success" id="bx-lists-lcp-install-processes"
 					onclick="javascript:BX.Lists['CatalogProcessesClass_<?= $arResult['RAND_STRING']?>']
 							.installProcesses(this);" title="<?= GetMessage("LISTS_LCP_TEMPLATE_BUTTON_INSTALL") ?>">
 				<?= GetMessage("LISTS_LCP_TEMPLATE_BUTTON_INSTALL") ?></button>
-		<? endif; ?>
+		<?php  endif; ?>
 		<a class="ui-btn ui-btn-md ui-btn-light-border ui-btn-themes" title="<?= GetMessage("LISTS_LCP_TEMPLATE_TRANSITION_PROCESSES") ?>" id="bx-lists-lcp-transition-processes"
 		   href="<?= $arResult['LISTS_URL'] ?>">
 			<?= GetMessage("LISTS_LCP_TEMPLATE_TRANSITION_PROCESSES") ?>
 		</a>
 	</div>
-	<?
+	<?php 
 		if($isBitrix24Template)
 		{
 			$this->EndViewTarget();
@@ -52,18 +52,18 @@ CJSCore::Init(array('lists'));
 	?>
 
 	<div class="bx-lists-lcp-description-page">
-		<? if($arResult['ALL_PROCESSES_INSTALL']): ?>
+		<?php  if($arResult['ALL_PROCESSES_INSTALL']): ?>
 			<?= Loc::getMessage('LISTS_LCP_TEMPLATE_DESCRIPTION_PAGE_ALL_INSTALL') ?>
-		<? else: ?>
+		<?php  else: ?>
 			<?= Loc::getMessage('LISTS_LCP_TEMPLATE_DESCRIPTION_PAGE') ?>
-		<? endif; ?>
+		<?php  endif; ?>
 	</div>
 
-	<? if(!empty($arResult['SYSTEM_PROCESSES'])): ?>
+	<?php  if(!empty($arResult['SYSTEM_PROCESSES'])): ?>
 		<table class="bx-lists-lcp-table-processes">
 			<caption><?= Loc::getMessage('LISTS_LCP_TEMPLATE_TITLE_SYSTEM_PROCESSES') ?></caption>
-			<? foreach ($arResult['SYSTEM_PROCESSES'] as $process): ?>
-				<? (isset($process['PICK_OUT'])) ? $pickOut = 'not allocated' : $pickOut = 'allocate' ?>
+			<?php  foreach ($arResult['SYSTEM_PROCESSES'] as $process): ?>
+				<?php  (isset($process['PICK_OUT'])) ? $pickOut = 'not allocated' : $pickOut = 'allocate' ?>
 				<tr
 					id="<?= $pickOut ?>"
 					data-pick-out="<?= $pickOut ?>"
@@ -81,14 +81,14 @@ CJSCore::Init(array('lists'));
 						</div>
 					</td>
 				</tr>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</table>
-	<? endif; ?>
-	<? if(!empty($arResult['USER_PROCESSES'])): ?>
+	<?php  endif; ?>
+	<?php  if(!empty($arResult['USER_PROCESSES'])): ?>
 		<table class="bx-lists-lcp-table-processes">
 			<caption><?= Loc::getMessage('LISTS_LCP_TEMPLATE_TITLE_USER_PROCESSES') ?></caption>
-			<? foreach ($arResult['USER_PROCESSES'] as $process): ?>
-				<? (isset($process['PICK_OUT'])) ? $pickOut = 'not allocated' : $pickOut = 'allocate' ?>
+			<?php  foreach ($arResult['USER_PROCESSES'] as $process): ?>
+				<?php  (isset($process['PICK_OUT'])) ? $pickOut = 'not allocated' : $pickOut = 'allocate' ?>
 				<tr
 					id="<?= $pickOut ?>"
 					data-pick-out="<?= $pickOut ?>"
@@ -106,18 +106,18 @@ CJSCore::Init(array('lists'));
 						</div>
 					</td>
 				</tr>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</table>
-	<? endif; ?>
+	<?php  endif; ?>
 
-	<? if(count($arResult['USER_PROCESSES']) > 10): ?>
+	<?php  if(count($arResult['USER_PROCESSES']) > 10): ?>
 		<div class="bx-lists-lcp-button-block">
 			<button class="ui-btn ui-btn-md ui-btn-success" id="bx-lists-lcp-install-processes"
 					onclick="javascript:BX.Lists['CatalogProcessesClass_<?= $arResult['RAND_STRING']?>']
 							.installProcesses(this);" title="<?= GetMessage("LISTS_LCP_TEMPLATE_BUTTON_INSTALL") ?>">
 				<?= GetMessage("LISTS_LCP_TEMPLATE_BUTTON_INSTALL") ?></button>
 		</div>
-	<? endif; ?>
+	<?php  endif; ?>
 </div>
 
 <input type="hidden" id="bx-lists-lcp-site-id" value="<?= SITE_ID ?>">

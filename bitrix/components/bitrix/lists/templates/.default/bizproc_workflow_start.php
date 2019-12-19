@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if(isset($_REQUEST['back_url']))
 {
@@ -31,7 +31,7 @@ if($isBitrix24Template)
 			<?=GetMessage("CT_BL_LIST_GO_BACK")?>
 		</a>
 	</div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();

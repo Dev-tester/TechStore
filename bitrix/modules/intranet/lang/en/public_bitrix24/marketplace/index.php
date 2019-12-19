@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_TITLE"] = "Top";
 $MESS["MARKETPLACE_NEW"] = "Just In";
 $MESS["MARKETPLACE_BEST"] = "Top";

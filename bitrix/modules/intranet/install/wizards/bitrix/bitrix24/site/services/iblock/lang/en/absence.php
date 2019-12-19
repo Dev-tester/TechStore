@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ABSENCE_FORM_1'] = 'Absence';
 $MESS['ABSENCE_FORM_2'] = 'Choose an absent employee';
 $MESS['ABSENCE_FORM_3'] = 'Absence Type';

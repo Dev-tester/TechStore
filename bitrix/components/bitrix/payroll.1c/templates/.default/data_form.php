@@ -1,13 +1,13 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if($arResult["RESULT"]):?>
-	<?if ($arResult["RESULT"]['ERROR']):?>	
+	<?php if ($arResult["RESULT"]['ERROR']):?>	
 		<span class="error"><?=$arResult["RESULT"]['ERROR'];?></span>
-	<?else:?>
+	<?php else:?>
 		<?=$arResult["RESULT"]['html_form'];?>	
-	<?endif;?>	
-	<?die();?>
-<?else:?>
+	<?php endif;?>	
+	<?php die();?>
+<?php else:?>
 	<div style="background:#EEEEEE;padding:3px;border:1px solid #C2C2C2;width:320px;">
 		<div id="payroll-panel" >
 			<form  name="payroll_params" id="payroll_params" action="" method="POST">
@@ -18,11 +18,11 @@ if($arResult["RESULT"]):?>
 						</td>
 						<td>
 							<select class="payroll-input" name="USERORG">
-								<?foreach ($arResult["ORG_LIST"] as $key=>$arOrgName):?>
-									<?if ($arOrgName):?>						
+								<?php foreach ($arResult["ORG_LIST"] as $key=>$arOrgName):?>
+									<?php if ($arOrgName):?>						
 										<option value="<?=$key?>"><?=$arOrgName;?></option>
-									<?endif;?>
-								<?endforeach;?>
+									<?php endif;?>
+								<?php endforeach;?>
 							</select>
 						</td>
 					</tr>
@@ -51,14 +51,14 @@ if($arResult["RESULT"]):?>
 						</td>
 						<td>
 							<select class="payroll-input payroll-date" name="MONTH">
-								<?for($i=1;$i<=12;$i++):?>
+								<?php for($i=1;$i<=12;$i++):?>
 									<option <?=($i==$arResult["CURRENT_MONTH"]-1)?"selected":"";?> value="<?=$i?>"><?=GetMessage("MONTH_".$i);?></option>					
-								<?endfor;?>
+								<?php endfor;?>
 							</select>
 							<select class="payroll-input payroll-date" name="YEAR">
-								<?for($i=$arResult["CURRENT_YEAR"]-$arParams["YEAR_OFFSET"];$i<=$arResult["CURRENT_YEAR"];$i++):?>
+								<?php for($i=$arResult["CURRENT_YEAR"]-$arParams["YEAR_OFFSET"];$i<=$arResult["CURRENT_YEAR"];$i++):?>
 									<option <?=($i==$arResult["CURRENT_YEAR"])?"selected":"";?> value="<?=$i?>"><?=$i?></option>					
-								<?endfor;?>
+								<?php endfor;?>
 							</select>
 							
 						</td>
@@ -143,4 +143,4 @@ if($arResult["RESULT"]):?>
 				
 	}
 </script>
-<?endif;?>
+<?php endif;?>

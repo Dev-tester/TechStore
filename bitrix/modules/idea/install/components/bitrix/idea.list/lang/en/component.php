@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "The Blogs module is not installed.";
 $MESS["IDEA_CATEGORY_IBLOCK_NOT_CHOSEN"] = "No idea category information block selected.";
 $MESS["IDEA_CATEGORY_NOT_EXISTS"] = "The idea category was not found.";

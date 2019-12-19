@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LU_TITLE_POSTS'] = "User's messages";
 $MESS ['LU_TITLE_LTA'] = "author";
 $MESS ['LU_TITLE_LT'] = "member";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["APP_LIST_TITLE"] = "Мои приложения";
 $MESS["APP_HEADER_NAME"] = "Название";
 $MESS["APP_HEADER_ONLY_API"] = "Использует только API";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["rub_title_edit"] = "Редактирование рассылки #";
 $MESS["rub_title_add"] = "Добавление рассылки";
 $MESS["rub_list_title"] = "Список рассылок";

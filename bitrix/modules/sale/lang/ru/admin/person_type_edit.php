@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SPTEN_NO_PERMS2ADD'] = "У вас недостаточно прав для добавления нового типа плательщика";
 $MESS ['SPTEN_NO_PERSON_TYPE'] = "Тип плательщика ##ID# не найден";
 $MESS ['SPTEN_ERROR_SAVING_PERSON_TYPE'] = "Ошибка сохранения типа плательщика";

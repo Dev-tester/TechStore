@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMS_NAME"] = "Configure access permissions";
 $MESS["CRM_PERMS_DESCRIPTION"] = "Configure CRM access permissions";
 $MESS["CRM_NAME"] = "CRM";

@@ -1,4 +1,4 @@
-<?if (!CModule::IncludeModule("iblock"))
+<?php if (!CModule::IncludeModule("iblock"))
 	return 0;
 
 IncludeModuleLangFile(__FILE__);
@@ -106,14 +106,14 @@ if($_POST["iblock"] == "Y"):
 <script>
 window.location='/bitrix/admin/module_admin.php?step=2&lang=<?=LANGUAGE_ID?>&id=webdav&install=y<?=($ID > 0 ? "&iblock=".$ID : "")?>&<?=bitrix_sessid_get()?>';
 </script>
-<?	
+<?php 	
 	}
 elseif ($_REQUEST["install"] == "Y"):
 ?>
 <script>
 window.location='/bitrix/admin/module_admin.php?step=2&lang=<?=LANGUAGE_ID?>&id=webdav&install=y&<?=bitrix_sessid_get()?>';
 </script>
-<?	
+<?php 	
 endif;	
 ?>
 <form action="<?=$APPLICATION->GetCurPage()?>" name="webdav_form" id="webdav_form" class="form-webdav" method="POST">
@@ -126,7 +126,7 @@ endif;
 	<thead>
 		<tr class="head">
 			<td colspan="2">
-				<input type="checkbox" name="iblock" id="iblock" value="Y" onclick="CheckCreate(this);" <?
+				<input type="checkbox" name="iblock" id="iblock" value="Y" onclick="CheckCreate(this);" <?php 
 					?><?=($_REQUEST["iblock"] == "Y" ? " checked='checked'" : "")?>/> <label for="iblock"><?=GetMessage("WD_CREATE_NEW_IBLOCK")?></label></td></tr>
 	</thead>
 	<tbody>
@@ -134,25 +134,25 @@ endif;
 			<span class="required">*</span><?=GetMessage("WD_CREATE_NEW_IBLOCK_NAME")?>: </td>
 			<td width="90%"><input type="text" name="iblock_name" value="<?=htmlspecialcharsbx($_REQUEST["iblock_name"])?>" /></td></tr>
 		<tr><td><span class="required">*</span><?=GetMessage("WD_CREATE_NEW_IBLOCK_TYPE")?>: </td>
-			<td><input onclick="ChangeStatus(this)" type="radio" name="create_iblock_type" id="create_iblock_type_n" value="N" <?
+			<td><input onclick="ChangeStatus(this)" type="radio" name="create_iblock_type" id="create_iblock_type_n" value="N" <?php 
 					?><?=($_REQUEST["create_iblock_type"] != "Y" ? " checked=\"checked\"" : "")?> />
 				<label for="create_iblock_type_n"><?=GetMessage("WD_SELECT")?>: </label> 
-				<select name="iblock_type_id" <?=($_REQUEST["create_iblock_type"] == "Y" ? "disabled='disabled'" : "")?>><?
+				<select name="iblock_type_id" <?=($_REQUEST["create_iblock_type"] == "Y" ? "disabled='disabled'" : "")?>><?php 
 				$arIBlockType = array();
 				$rsIBlockType = CIBlockType::GetList(array("sort"=>"asc"), array("ACTIVE"=>"Y"));
 				while ($arr=$rsIBlockType->GetNext())
 				{
 					if($ar=CIBlockType::GetByIDLang($arr["ID"], LANGUAGE_ID))
 					{
-						?><option value="<?=$arr["ID"]?>" <?=($_REQUEST["iblock_type_id"] == $arr["ID"] ? " selected='selected'" : "")?>><?="[".$arr["ID"]."] ".$ar["NAME"]?></option><?
+						?><option value="<?=$arr["ID"]?>" <?=($_REQUEST["iblock_type_id"] == $arr["ID"] ? " selected='selected'" : "")?>><?="[".$arr["ID"]."] ".$ar["NAME"]?></option><?php 
 					}
 				}
 			?></select><br />
-			<input onclick="ChangeStatus(this)" type="radio" name="create_iblock_type" id="create_iblock_type_y" value="Y" <?
+			<input onclick="ChangeStatus(this)" type="radio" name="create_iblock_type" id="create_iblock_type_y" value="Y" <?php 
 				?><?=($_REQUEST["create_iblock_type"] == "Y" ? " checked=\"checked\"" : "")?> /> 
 			<label for="create_iblock_type_y"><?=GetMessage("WD_CREATE")?>: </label> 
 			<span class="required">*</span><?=GetMessage("WD_ID")?> (ID): 
-			<input type="text" name="iblock_type_name" value="<?=htmlspecialcharsbx($_REQUEST["iblock_type_name"])?>" <?
+			<input type="text" name="iblock_type_name" value="<?=htmlspecialcharsbx($_REQUEST["iblock_type_name"])?>" <?php 
 				?><?=($_REQUEST["create_iblock_type"] != "Y" ? "disabled='disabled'" : "")?>/><br />
 		</td></tr>
 	</tbody>

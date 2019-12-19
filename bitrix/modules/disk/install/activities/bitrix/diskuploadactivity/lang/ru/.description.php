@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDUA_DESCR_NAME2'] = "Загрузить в Диск";
 $MESS ['BPDUA_DESCR_DESCR2'] = "Загрузить файл в хранилище Диска";
 $MESS ['BPDUA_DESCR_OBJECT_ID'] = "ID файлов Диска";

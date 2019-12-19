@@ -35,7 +35,7 @@ $destroyEventName = 'crm-robot-ads-destroy';
 
 	</script>
 
-<?
+<?php 
 global $APPLICATION;
 $APPLICATION->IncludeComponent(
 	'bitrix:seo.ads.retargeting',

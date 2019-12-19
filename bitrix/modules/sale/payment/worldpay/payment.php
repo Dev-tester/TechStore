@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $iTestTransaction = CSalePaySystemAction::GetParamValue("TEST_TRANSACTION");
 $strYourInstId = CSalePaySystemAction::GetParamValue("SHOP_ID");
 ?>
@@ -12,13 +12,13 @@ $strYourInstId = CSalePaySystemAction::GetParamValue("SHOP_ID");
 			<input type="hidden" name="cartId" value="<?= IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]) ?>">
 			<input type="hidden" name="amount" value="<?= htmlspecialcharsbx($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["SHOULD_PAY"]) ?>">
 			<input type="hidden" name="currency" value="<?= htmlspecialcharsbx($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["CURRENCY"]) ?>">
-			<?if (IntVal($iTestTransaction) > 0):?>
+			<?php if (IntVal($iTestTransaction) > 0):?>
 				<input type="hidden" name="testMode" value="<?= $iTestTransaction ?>">
-			<?endif;?>
+			<?php endif;?>
 			<input type="hidden" name="desc" value="Order #<?= IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]) ?>">
 
 			<!--  order properties codes ->  -->
-			<?
+			<?php 
 			$arTmp = array("name" => "PAYER_NAME", "tel" => "PHONE", "email" => "EMAIL",
 					"fax" => "FAX", "address" => "ADDRESS", "postcode" => "ZIP",
 					"country" => "COUNTRY"
@@ -27,7 +27,7 @@ $strYourInstId = CSalePaySystemAction::GetParamValue("SHOP_ID");
 			{
 				if (($val = CSalePaySystemAction::GetParamValue($value)) !== False)
 				{
-					?><input type="hidden" name="<?= $key ?>" value="<?= htmlspecialcharsbx($val) ?>"><?
+					?><input type="hidden" name="<?= $key ?>" value="<?= htmlspecialcharsbx($val) ?>"><?php 
 				}
 			}
 			?>

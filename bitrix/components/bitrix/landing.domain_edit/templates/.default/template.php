@@ -30,18 +30,18 @@ $row = $arResult['DOMAIN'];
 		<tr>
 			<td><?= $row['ACTIVE']['TITLE']?>:</td>
 			<td>
-				<input type="checkbox" name="fields[ACTIVE]" value="Y"<?if ($row['ACTIVE']['CURRENT'] == 'Y') {?> checked="checked"<?}?>>
+				<input type="checkbox" name="fields[ACTIVE]" value="Y"<?php if ($row['ACTIVE']['CURRENT'] == 'Y') {?> checked="checked"<?php }?>>
 			</td>
 		</tr>
 		<tr>
 			<td><?= $row['PROTOCOL']['TITLE']?>:</td>
 			<td>
 				<select name="fields[PROTOCOL]" class="content-edit-form-field-input-select">
-				<?foreach (\Bitrix\Landing\Domain::getProtocolList() as $code => $val):?>
-					<option value="<?= $code?>"<?if ($val == $row['PROTOCOL']['CURRENT']){?> selected="selected"<?}?>>
+				<?php foreach (\Bitrix\Landing\Domain::getProtocolList() as $code => $val):?>
+					<option value="<?= $code?>"<?php if ($val == $row['PROTOCOL']['CURRENT']){?> selected="selected"<?php }?>>
 						<?= $val?>
 					</option>
-				<?endforeach;?>
+				<?php endforeach;?>
 				</select>
 			</td>
 		</tr>

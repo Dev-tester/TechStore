@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPCRIA_SITES_FILTER_TYPE'] = "Type of site selection";
 $MESS ['BPCRIA_SITES_FILTER_ALL'] = "All sites";
 $MESS ['BPCRIA_SITES_FILTER_GROUPS'] = "Sites from specified groups";

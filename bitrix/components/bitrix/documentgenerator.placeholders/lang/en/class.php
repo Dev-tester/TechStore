@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['DOCGEN_PLACEHOLDERS_COPY_ACTION_TITLE'] = "Copy";
 $MESS['DOCGEN_PLACEHOLDERS_COPY_TITLE'] = "Action";
 $MESS['DOCGEN_PLACEHOLDERS_MODULE_DOCGEN_ERROR'] = "The \"Document Generator\" module is not installed.";

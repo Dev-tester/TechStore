@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_WIDTH'] = "Width";
 $MESS ['F_HEIGHT'] = "Height";
 $MESS ['F_FAMILY'] = "Name group";

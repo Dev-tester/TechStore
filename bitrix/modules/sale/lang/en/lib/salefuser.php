@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_FUSER_ENTITY"] = "Visitor";
 $MESS["SALE_FUSER_ENTITY_ID"] = "ID";
 $MESS["SALE_FUSER_ENTITY_DATE_INSERT"] = "Created on";

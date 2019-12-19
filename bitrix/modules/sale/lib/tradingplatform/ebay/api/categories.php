@@ -11,7 +11,7 @@ class Categories extends Entity
 {
 	protected  function getItems(array $params = array())
 	{
-		$data = '<?xml version="1.0" encoding="utf-8"?>
+		$data = '<?php xml version="1.0" encoding="utf-8"?>
 			<GetCategoriesRequest xmlns="urn:ebay:apis:eBLBaseComponents">
 			<RequesterCredentials>
 			<eBayAuthToken>'.$this->authToken.'</eBayAuthToken>
@@ -80,7 +80,7 @@ class Categories extends Entity
 
 	public function getItemSpecifics(array $params)
 	{
-		$data = '<?xml version="1.0" encoding="utf-8"?>
+		$data = '<?php xml version="1.0" encoding="utf-8"?>
 			<GetCategorySpecificsRequest xmlns="urn:ebay:apis:eBLBaseComponents">';
 		$data.= $this->array2Tags($params);
 		$data.=	'<RequesterCredentials>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_FBINSTAGRAM_DEL_REFERENCE"] = "Удалить привязку";
 $MESS["IMCONNECTOR_COMPONENT_FBINSTAGRAM_AUTHORIZATION"] = "Авторизация";
 $MESS["IMCONNECTOR_COMPONENT_FBINSTAGRAM_INDEX_DESCRIPTION"] = "Подключите Instagram к Открытой линии, чтобы принимать комментарии ваших клиентов к вашим публикациям в рабочем чате Битрикс24. Для подключения необходимо создать публичную страницу Facebook или подключить уже существующую, где вы являетесь администратором и к которой подключен бизнес-аккаунт Instagram";

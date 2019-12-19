@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE"] = "Тип инфоблока";
 $MESS["IBLOCK_IBLOCK"] = "Инфоблок";
 $MESS["T_IBLOCK_DESC_NEWS_PANEL"] = "Добавлять в админ. панель кнопки для этого компонента";

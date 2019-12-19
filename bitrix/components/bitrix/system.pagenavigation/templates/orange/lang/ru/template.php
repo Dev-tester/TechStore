@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["nav_of"] = "из";
 $MESS["nav_begin"] = "начало";
 $MESS["nav_end"] = "конец";

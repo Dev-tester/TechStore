@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SPLT_ADD_PRODUCT"] = "Add product";
 $MESS["CRM_ORDER_SPLT_ADD_STORE"] = "Add warehouse";
 $MESS["CRM_ORDER_SPLT_ARE_YOU_SURE_YOU_WANT"] = "Are you sure you want to delete this item?";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_MODULE_NOT_INSTALL'] = "Модуль социальной сети не установлен.";
 $MESS ['SONET_P_USER_NO_GROUP'] = "Группа не найдена.";
 $MESS ['SONET_C10_NO_PERMS'] = "У вас нет прав на просмотр этой группы";

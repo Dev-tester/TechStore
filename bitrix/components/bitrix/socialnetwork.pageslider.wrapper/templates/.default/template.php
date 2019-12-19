@@ -17,15 +17,15 @@ global $APPLICATION;
 			window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
+	<?php $APPLICATION->ShowHead();?>
 </head>
-<body class="sonet-slider-frame-popup template-<?= SITE_TEMPLATE_ID ?> <? $APPLICATION->ShowProperty('BodyClass'); ?>">
+<body class="sonet-slider-frame-popup template-<?= SITE_TEMPLATE_ID ?> <?php  $APPLICATION->ShowProperty('BodyClass'); ?>">
 	<div class="pagetitle-wrap">
 		<div class="pagetitle-inner-container">
-			<div class="slider-pagetitle-menu"><?$APPLICATION->ShowViewContent("sonet-slider-pagetitle")?></div>
+			<div class="slider-pagetitle-menu"><?php $APPLICATION->ShowViewContent("sonet-slider-pagetitle")?></div>
 			<div class="sonet-slider-pagetitle">
-				<span id="pagetitle" class="sonet-pagetitle-item"><? $APPLICATION->ShowTitle(); ?></span>
-				<span id="pagesubtitle" class="sonet-pagesubtitle-item"><? $APPLICATION->ShowProperty('PageSubtitle'); ?></span>
+				<span id="pagetitle" class="sonet-pagetitle-item"><?php  $APPLICATION->ShowTitle(); ?></span>
+				<span id="pagesubtitle" class="sonet-pagesubtitle-item"><?php  $APPLICATION->ShowProperty('PageSubtitle'); ?></span>
 			</div>
 		</div>
 	</div>
@@ -34,7 +34,7 @@ global $APPLICATION;
 		<div id="workarea-content">
 			<div class="workarea-content-paddings">
 
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					$arParams['POPUP_COMPONENT_NAME'],
 					$arParams['POPUP_COMPONENT_TEMPLATE_NAME'],

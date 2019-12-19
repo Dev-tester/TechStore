@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_BAD_BLOCK_TYPE_ID"] = "Incorrect block type.";
 $MESS["IBLOCK_BAD_BLOCK_ID"] = "Incorrect information block code.";
 $MESS["IBLOCK_BAD_IBLOCK"] = "Section not found or access denied.";

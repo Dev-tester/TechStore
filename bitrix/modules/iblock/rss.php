@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_SECTION", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 header("Content-Type: text/xml");

@@ -456,9 +456,9 @@ class CBPRestActivity
 					<span class="<?=$required?'adm-required-field':''?>">
 						<?= htmlspecialcharsbx($property['NAME']) ?>:
 					</span>
-					<?if (!empty($property['DESCRIPTION'])):?>
+					<?php if (!empty($property['DESCRIPTION'])):?>
 						<br/><?= htmlspecialcharsbx($property['DESCRIPTION']) ?>
-					<?endif;?>
+					<?php endif;?>
 				</td>
 				<td width="60%">
 					<?=$documentService->getFieldInputControl(
@@ -472,7 +472,7 @@ class CBPRestActivity
 				</td>
 			</tr>
 
-			<?
+			<?php 
 		endforeach;
 
 		if (static::checkAdminPermissions()):?>
@@ -482,7 +482,7 @@ class CBPRestActivity
 					<?=$dialog->renderFieldControl('AuthUserId', $currentValues['authuserid'], true, 0)?>
 				</td>
 			</tr>
-		<?endif?>
+		<?php endif?>
 		<tr>
 			<td align="right"><?= Loc::getMessage("BPRA_PD_SET_STATUS_MESSAGE") ?>:</td>
 			<td>
@@ -505,7 +505,7 @@ class CBPRestActivity
 				</select>
 			</td>
 		</tr>
-		<? if ($activityData['USE_SUBSCRIPTION'] != 'N'):?>
+		<?php  if ($activityData['USE_SUBSCRIPTION'] != 'N'):?>
 		<tr>
 			<td align="right"><?= Loc::getMessage("BPRA_PD_TIMEOUT_DURATION") ?>:<br/><?= Loc::getMessage("BPRA_PD_TIMEOUT_DURATION_HINT") ?></td>
 			<td valign="top">
@@ -516,17 +516,17 @@ class CBPRestActivity
 					<option value="h"<?= ($currentValues["timeoutdurationtype"] == "h") ? " selected" : "" ?>><?= Loc::getMessage("BPRA_PD_TIME_H") ?></option>
 					<option value="d"<?= ($currentValues["timeoutdurationtype"] == "d") ? " selected" : "" ?>><?= Loc::getMessage("BPRA_PD_TIME_D") ?></option>
 				</select>
-				<?
+				<?php 
 				$delayMinLimit = CBPSchedulerService::getDelayMinLimit();
 				if ($delayMinLimit):
 					?>
 					<p style="color: red;">* <?= Loc::getMessage("BPRA_PD_TIMEOUT_LIMIT") ?>: <?=CBPHelper::FormatTimePeriod($delayMinLimit)?></p>
-					<?
+					<?php 
 				endif;
 				?>
 			</td>
 		</tr>
-		<?endif;
+		<?php endif;
 
 		if ($activityData['USE_PLACEMENT'] === 'Y' && !empty($activityData['APP_ID_INT'])):
 			CJSCore::Init(['applayout']);
@@ -547,7 +547,7 @@ class CBPRestActivity
 				</button>
 			</td>
 		</tr>
-	<?endif;
+	<?php endif;
 
 		return ob_get_clean();
 	}

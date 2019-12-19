@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Модуль \"Информационные блоки\" не установлен";
 $MESS["INVALID_IBLOCK"] = "Неверный информационный блок";
 $MESS["CATALOG_ERROR2BASKET"] = "Ошибка добавления товара в корзину";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_UPLOAD_TITLE"] = "Передача файла на подключенные сайты";
 $MESS["CTRLR_UPLOAD_ERR_NSELECTED"] = "Не выбрано ни одного клиента для передачи файла.";
 $MESS["CTRLR_UPLOAD_ERR_PACK"] = "Ошибка подготовки файла к передаче.";

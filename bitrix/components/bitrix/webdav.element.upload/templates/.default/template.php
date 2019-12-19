@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -59,7 +59,7 @@ $arParams["NOTE"] = trim($arParams["NOTE"]);
 include(str_replace(array("\\", "//"), "/", dirname(__FILE__)."/script.php"));
 ?>
 <div id="webdav_error_<?=$arParams["INDEX_ON_PAGE"]?>" class="error required starrequired">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])):
 	ShowError($arResult["ERROR_MESSAGE"]);
 endif;
@@ -76,14 +76,14 @@ endif;
 	<td id="upload_comments">
 		<span class="comments">
 			<?=str_replace("#FILE_SIZE#", $arParams["UPLOAD_MAX_FILESIZE"], GetMessage("WD_ATTENTION_FILESIZE"))?>
-			<?
+			<?php 
 			if (!empty($arParams["NOTE"])):
-			?><?=$arParams["~NOTE"]?><?
+			?><?=$arParams["~NOTE"]?><?php 
 			endif;
 			?>
 		</span>
 	</td>
-<?
+<?php 
 if (!$Browser["isOpera"]):
 ?>
 	<td id="description_views">
@@ -93,13 +93,13 @@ if (!$Browser["isOpera"]):
 			<input type="hidden" name="save" value="view_mode" />
 			<?=GetMessage("WD_VIEW")?>: 
 			<select name="view_mode" onclick="if ('<?=$arParams["VIEW_MODE"]?>' != this.value && window.ChangeModeUploader){ChangeModeUploader(this)};">
-<?
+<?php 
 	foreach ($arParams["TEMPLATES"] as $key)
 	{
 ?>
-				<option value="<?=$key?>" <?=($arParams["VIEW_MODE"] == $key ? "selected='selected'" : "")?> title="<?=$arParams["TEMPLATES_DATA"][$key]["title"]?>"><?
+				<option value="<?=$key?>" <?=($arParams["VIEW_MODE"] == $key ? "selected='selected'" : "")?> title="<?=$arParams["TEMPLATES_DATA"][$key]["title"]?>"><?php 
 					?><?=$arParams["TEMPLATES_DATA"][$key]["name"]?></option>
-<?
+<?php 
 	}
 ?>
 			</select>
@@ -108,7 +108,7 @@ if (!$Browser["isOpera"]):
 			</noscript>
 		</form>
 	</td>
-<?
+<?php 
 endif;
 ?>
 	</tr>
@@ -129,7 +129,7 @@ oParams['<?=$arParams["INDEX_ON_PAGE"]?>'] = {
 </script>
 
 <div class="image-uploader-objects">
-<?
+<?php 
 if ($arParams["VIEW_MODE"] == "applet"):
 ?>
 <table border="0" cellpadding="0" cellspacing="0" width="100%" class="image-uploader-table image-upload-applet">
@@ -141,22 +141,22 @@ if ($arParams["VIEW_MODE"] == "applet"):
 		<td class="left">
 			<div class="iu-uploader-buttons">
 				<div class="iu-uploader-button">
-					<a href="#AddFolders" onclick="if (oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['inited'])<?
-						?>{getImageUploader('ImageUploader<?=$arParams["INDEX_ON_PAGE"]?>').AddFolders();} return false;"><?
+					<a href="#AddFolders" onclick="if (oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['inited'])<?php 
+						?>{getImageUploader('ImageUploader<?=$arParams["INDEX_ON_PAGE"]?>').AddFolders();} return false;"><?php 
 						?><div><span><?=GetMessage("AddFolders")?></span></div></a></div>
 				<div class="iu-uploader-button">
-					<a href="#AddFiles" onclick="if (oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['inited'])<?
-						?>{getImageUploader('ImageUploader<?=$arParams["INDEX_ON_PAGE"]?>').AddFiles();} return false;"><?
+					<a href="#AddFiles" onclick="if (oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['inited'])<?php 
+						?>{getImageUploader('ImageUploader<?=$arParams["INDEX_ON_PAGE"]?>').AddFiles();} return false;"><?php 
 						?><div><span><?=GetMessage("AddFiles")?></span></div></a></div>
 				<div class="empty-clear"></div>
 			</div>
 		</td>
 		<td class="right">
 			<div class="iu-uploader-containers">
-				<div class="iu-button-removeall"><?
-					?><a href="#RemoveFiles" onclick="return false;" <?
-						?>onmousedown="if (oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['inited'])<?
-							?>{getImageUploader('ImageUploader<?=$arParams["INDEX_ON_PAGE"]?>').RemoveAllFromUploadList();}"><?
+				<div class="iu-button-removeall"><?php 
+					?><a href="#RemoveFiles" onclick="return false;" <?php 
+						?>onmousedown="if (oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['inited'])<?php 
+							?>{getImageUploader('ImageUploader<?=$arParams["INDEX_ON_PAGE"]?>').RemoveAllFromUploadList();}"><?php 
 						?><span><span><?=GetMessage("RemoveAllFromUploadList")?></span></span>
 					</a>
 				</div>
@@ -193,18 +193,18 @@ if ($arParams["VIEW_MODE"] == "applet"):
 					<label for="Title<?=$arParams["INDEX_ON_PAGE"]?>"><?=GetMessage("Title")?></label>
 					<input name="Title" id="Title<?=$arParams["INDEX_ON_PAGE"]?>" class="Title" type="text" />
 				</div>
-<?
+<?php 
 	if ($arParams["SHOW_TAGS"] == "Y"):
 ?>
 				<div class="iu-uploader-field iu-uploader-field-tags">
 					<label for="Tag<?=$arParams["INDEX_ON_PAGE"]?>"><?=GetMessage("Tags")?></label>
-					<input name="Tag" id="Tag<?=$arParams["INDEX_ON_PAGE"]?>" class="Tag" type="text" <?
+					<input name="Tag" id="Tag<?=$arParams["INDEX_ON_PAGE"]?>" class="Tag" type="text" <?php 
 		if (IsModuleInstalled("search")): 
-					?>onfocus="SendTags(this);" <?
+					?>onfocus="SendTags(this);" <?php 
 		endif;
 					?>/>
 				</div>
-<?
+<?php 
 	endif;
 ?>
 				<div class="iu-uploader-field iu-uploader-field-description">
@@ -219,7 +219,7 @@ if ($arParams["VIEW_MODE"] == "applet"):
 		<td class="right"></td>
 	</tr>
 </table>
-<?
+<?php 
 elseif ($arParams["VIEW_MODE"] == "classic"):
 ?>
 <div id="uploader_<?=$arParams["INDEX_ON_PAGE"]?>">
@@ -230,12 +230,12 @@ elseif ($arParams["VIEW_MODE"] == "classic"):
 		<div id="waitwindow" class="waitwindow"><?=GetMessage("WD_LOADING")?></div>
 	</div>
 </div>
-<?
+<?php 
 else:
 ?>
 <div id="file_object_div_<?=$arParams["INDEX_ON_PAGE"]?>" class="image-upload-form-files"></div>
 <div class="empty-clear"></div>
-<?
+<?php 
 endif;
 ?>
 </div>
@@ -251,7 +251,7 @@ endif;
 	<noscript id="file_object_noscript_<?=$arParams["INDEX_ON_PAGE"]?>">
 	<input type="hidden" name="redirect" value="Y" />
 	<div class="image-upload-form-files">
-<?
+<?php 
 	for ($ii = 1; $ii <= $arParams["UPLOAD_MAX_FILE"]; $ii++):
 ?>
 	<div class="image-upload-form-file">
@@ -270,14 +270,14 @@ endif;
 				<label for="Title_<?=$arParams["INDEX_ON_PAGE"]?>_<?=$ii?>"><?=GetMessage("Title")?></label>
 				<input type="text" name="Title_<?=$ii?>" id="Title_<?=$arParams["INDEX_ON_PAGE"]?>_<?=$ii?>" value="" />
 			</div>
-<?
+<?php 
 	if ($arParams["SHOW_TAGS"] == "Y"):
 ?>
 			<div class="iu-uploader-field iu-uploader-field-tags">
 				<label for="Tag_<?=$arParams["INDEX_ON_PAGE"]?>_<?=$ii?>"><?=GetMessage("Tags")?></label>
 				<input name="Tag_<?=$ii?>" id="Tag_<?=$arParams["INDEX_ON_PAGE"]?>_<?=$ii?>" type="text" />
 			</div>
-<?
+<?php 
 	endif;
 ?>
 			<div class="iu-uploader-field iu-uploader-field-description">
@@ -287,7 +287,7 @@ endif;
 		</div>
 		</div></div></div></div></div>
 	</div>
-<?
+<?php 
 	endfor;
 ?>
 	</div>
@@ -304,12 +304,12 @@ endif;
 	<tr class="buttons-bottom">
 		<td class="left"><div class="empty"></div></td>
 		<td class="middle">
-<?
+<?php 
 include(str_replace(array("\\", "//"), "/", dirname(__FILE__)."/footer.php"));
 ?>
 			<div class="iu-uploader-buttons">
 				<div class="iu-uploader-button">
-					<a href="#SendFiles" id="Send_<?=$arParams["INDEX_ON_PAGE"]?>" class="nonactive" onclick="return false;"><?
+					<a href="#SendFiles" id="Send_<?=$arParams["INDEX_ON_PAGE"]?>" class="nonactive" onclick="return false;"><?php 
 						?><div><span><?=GetMessage("Send")?></span></div>
 					</a>
 				</div>

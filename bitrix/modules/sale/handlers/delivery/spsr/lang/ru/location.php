@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLV_SRV_SPSR_RESP"] = "РЕСП";
 $MESS["SALE_DLV_SRV_SPSR_REPUBLIC"] = "РЕСПУБЛИКА";
 $MESS["SALE_DLV_SRV_SPSR_AUT"] = "АВТ";

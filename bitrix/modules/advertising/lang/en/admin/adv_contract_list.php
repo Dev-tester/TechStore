@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_PAGE_TITLE"] = "Advertising Contracts";
 $MESS["AD_RED"] = "red";
 $MESS["AD_RED_ALT"] = "contract is not active or has expired due to its limitations";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ISL_PERSONAL_BIRTHDAY"] = "Date Of Birth";
 $MESS["ISL_PERSONAL_PHONE"] = "Phone";
 $MESS["INTR_STR_UF_HEAD"] = "Head of department";

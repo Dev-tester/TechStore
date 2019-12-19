@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Dialog. Chooseed fields will be shown in orders list.
  */

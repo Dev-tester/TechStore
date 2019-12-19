@@ -1,4 +1,4 @@
-<?
+<?php 
 class CGlobalCounter
 {
 	const ALL_SITES = '**';

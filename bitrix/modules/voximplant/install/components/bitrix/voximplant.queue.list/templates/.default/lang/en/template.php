@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_QUEUE_IVR"] = "IVR";
 $MESS["VOX_QUEUE_LIST_SELECTED"] = "Total queue groups";
 $MESS["VOX_QUEUE_LIST_ADD"] = "Add queue group";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_CONTROLLER_DENY"] = "Access denied.";
 $MESS["TASK_DESC_CONTROLLER_DENY"] = "Access to the Controller module was denied.";
 $MESS["TASK_NAME_CONTROLLER_AUTH"] = "Authentication";

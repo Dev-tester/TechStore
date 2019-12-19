@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="subscribe-edit">
-<?
+<?php 
 
 foreach($arResult["MESSAGE"] as $itemID=>$itemValue)
 	echo ShowMessage(array("MESSAGE"=>$itemValue, "TYPE"=>"OK"));
@@ -36,8 +36,8 @@ if($arResult["ID"] == 0 && empty($_REQUEST["action"]) || CSubscription::IsAuthor
 		include("status.php");
 	}
 	?>
-	<p><span class="starrequired">*</span><?echo GetMessage("subscr_req")?></p>
-	<?
+	<p><span class="starrequired">*</span><?php echo GetMessage("subscr_req")?></p>
+	<?php 
 }
 else
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sms_template_admin_title"] = "Шаблоны СМС-сообщений";
 $MESS["sms_template_admin_nav"] = "Шаблоны";
 $MESS["sms_template_admin_sites"] = "Сайты";

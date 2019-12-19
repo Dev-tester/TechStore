@@ -1,32 +1,32 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if(isset($arParams["HEAD"])):?>
 	<div class="order_acceptpay_title"><?=$arParams["HEAD"]?></div>
-<?endif;?>
+<?php endif;?>
 
-<?if(!$arResult["SKIP_FORM"]):?>
+<?php if(!$arResult["SKIP_FORM"]):?>
 	<form id="<?=$arResult["FORM_ID"]?>" name="<?=$arResult["FORM_NAME"]?>" enctype="multipart/form-data" action="<?=$arResult["FORM_ACTION"]?>" method="POST">
-<?endif;?>
+<?php endif;?>
 
-	<?if(is_array($arParams["DATA"])):?>
-		<?foreach ($arParams["DATA"] as $arField):?>
+	<?php if(is_array($arParams["DATA"])):?>
+		<?php foreach ($arParams["DATA"] as $arField):?>
 				<?=CAdminMobileEdit::getFieldHtml($arField)?>
-		<?endforeach;?>
-	<?endif;?>
+		<?php endforeach;?>
+	<?php endif;?>
 
-<?if(!$arResult["SKIP_FORM"]):?>
+<?php if(!$arResult["SKIP_FORM"]):?>
 	</form>
-<?endif;?>
+<?php endif;?>
 
-<?if(isset($arParams["TITLE"])):?>
+<?php if(isset($arParams["TITLE"])):?>
 	<script type="text/javascript">
 		app.setPageTitle({title: "<?=$arParams["TITLE"]?>"});
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?if(isset($arParams["BUTTONS"]) && is_array($arParams["BUTTONS"])):?>
+<?php if(isset($arParams["BUTTONS"]) && is_array($arParams["BUTTONS"])):?>
 	<script type="text/javascript">
-	<?if(in_array("SAVE", $arParams["BUTTONS"])):?>
+	<?php if(in_array("SAVE", $arParams["BUTTONS"])):?>
 		app.addButtons({
 			saveButton:
 			{
@@ -39,20 +39,20 @@ if(isset($arParams["HEAD"])):?>
 
 					if(form)
 					{
-						<?if(isset($arParams["ON_JS_CLICK_SUBMIT_BUTTON"])):?>
+						<?php if(isset($arParams["ON_JS_CLICK_SUBMIT_BUTTON"])):?>
 							if(typeof window["<?=$arParams["ON_JS_CLICK_SUBMIT_BUTTON"]?>"] == "function")
 								window["<?=$arParams["ON_JS_CLICK_SUBMIT_BUTTON"]?>"](form);
-						<?else:?>
-							<?if(isset($arResult["ON_BEFORE_FORM_SUBMIT"])):?>
+						<?php else:?>
+							<?php if(isset($arResult["ON_BEFORE_FORM_SUBMIT"])):?>
 								app.onCustomEvent("<?=$arResult["ON_BEFORE_FORM_SUBMIT"]?>");
 								BX.onCustomEvent("<?=$arResult["ON_BEFORE_FORM_SUBMIT"]?>");
-							<?endif;?>
+							<?php endif;?>
 							form.submit();
-						<?endif;?>
+						<?php endif;?>
 					}
 				}
 			}
 		});
-	<?endif;?>
+	<?php endif;?>
 	</script>
-<?endif;?>
+<?php endif;?>

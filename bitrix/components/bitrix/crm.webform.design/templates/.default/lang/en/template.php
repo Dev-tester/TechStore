@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_EDIT_V2_ATTENTION"] = "Attention!";
 $MESS["CRM_WEBFORM_EDIT_V2_ATTENTION_TEXT"] = "The form shows the most recent autosaved changes.";
 $MESS["CRM_WEBFORM_EDIT_V2_AUTO"] = "Auto";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Advertising campaign dynamics";
 $MESS ['STAT_F_PERIOD'] = "Period";
 $MESS ['STAT_ADV_DYN_PAGES'] = "Days";

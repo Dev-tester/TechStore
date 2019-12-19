@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HLBLOCK_ADMIN_ENTITY_TITLE"] = "Entity";
 $MESS["HLBLOCK_ADMIN_ENTITY_EDIT_NAME"] = "Name";
 $MESS["HLBLOCK_ADMIN_ENTITY_EDIT_TABLE_NAME"] = "Database table name";

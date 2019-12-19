@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_B24_SEARCH_LIMIT_RESTRICTION_TITLE"] = "Достигнут лимит <br>в #LIMIT# элементов";
 $MESS["CRM_B24_SEARCH_LIMIT_RESTRICTION_LEAD_TITLE"] = "Достигнут лимит <br>в #LIMIT# лидов";
 $MESS["CRM_B24_SEARCH_LIMIT_RESTRICTION_DEAL_TITLE"] = "Достигнут лимит <br>в #LIMIT# сделок";

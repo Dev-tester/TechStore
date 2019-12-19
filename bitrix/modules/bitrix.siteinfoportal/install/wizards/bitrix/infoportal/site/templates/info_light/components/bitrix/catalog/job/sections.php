@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"",
 	Array(
@@ -15,8 +15,8 @@
 );
 ?>
 
-<?if($arParams["USE_COMPARE"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+<?php if($arParams["USE_COMPARE"]=="Y"):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.compare.list",
 	"",
 	Array(
@@ -29,12 +29,12 @@
 	$component
 );?>
 <br />
-<?endif?>
+<?php endif?>
 
 
-<?if($arParams["SHOW_TOP_ELEMENTS"]!="N"):?>
+<?php if($arParams["SHOW_TOP_ELEMENTS"]!="N"):?>
 <hr />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.top",
 	"",
 	Array(
@@ -63,4 +63,4 @@
 	),
 $component
 );?>
-<?endif?>
+<?php endif?>

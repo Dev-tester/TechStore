@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_FILEEDIT_FILE_EXISTS'] = "Файл с таким именем уже существует!";
 $MESS ['FILEMAN_FILEEDIT_FOLDER_EXISTS'] = "С таким именем определена папка!";
 $MESS ['FILEMAN_FILEEDIT_AS_MENU'] = "Редактировать как меню";

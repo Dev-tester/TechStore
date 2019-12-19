@@ -1,2 +1,2 @@
-<?
+<?php 
 $MESS['TASKS_IM_CHAT_TITLE'] = 'Задача: #TASK_TITLE#';

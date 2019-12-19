@@ -1485,7 +1485,7 @@ class BusinessValueConsumer1C
 					<?=Internals\Input\Manager::getEditHtml($inputNamePrefix.'[NAME]', self::$codeNameInput)?>
 				</td>
 				<td>
-					<?
+					<?php 
 
 					BusinessValueControl::renderMapping(
 						array(),
@@ -1496,7 +1496,7 @@ class BusinessValueConsumer1C
 
 					?>
 				</td>
-				<?
+				<?php 
 
 				$newMappingHTML = ob_get_clean();
 
@@ -1507,14 +1507,14 @@ class BusinessValueConsumer1C
 					</a>
 				</td>
 				<td></td>
-				<?
+				<?php 
 			}
 			elseif (isset($code['CODE_INDEX'])) // rekv code
 			{
 				?>
 				<td><?=Internals\Input\Manager::getEditHtml($inputNamePrefix.'[NAME]', self::$codeNameInput, $code['NAME'] ?: $codeKey)?></td>
 				<td>
-					<?
+					<?php 
 
 					if ($personTypeId)
 						$commonProviderInput = BusinessValueControl::getProviderInput('', self::$rekvProviderKeys);
@@ -1530,14 +1530,14 @@ class BusinessValueConsumer1C
 
 					?>
 				</td>
-				<?
+				<?php 
 			}
 			else // system code
 			{
 				?>
 				<td><?=htmlspecialcharsbx($code['NAME'] ?: $codeKey)?></td>
 				<td>
-					<?
+					<?php 
 
 					if ($personTypeId)
 						$commonProviderInput = BusinessValueControl::getProviderInput('', self::$systemProviderKeys);
@@ -1555,7 +1555,7 @@ class BusinessValueConsumer1C
 
 					?>
 				</td>
-				<?
+				<?php 
 			}
 		}
 		else
@@ -1563,7 +1563,7 @@ class BusinessValueConsumer1C
 			?>
 			<td><?=self::CONSUMER_KEY?></td>
 			<td><?=$codeKey?></td>
-			<?
+			<?php 
 		}
 
 		return $hideCode;

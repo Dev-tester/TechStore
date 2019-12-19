@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_LAC_MESSAGE_SUCCESS"] = "Success";
 $MESS["LISTS_LAC_WRONG_IBLOCK_TYPE"] = "Incorrect information block type.";
 $MESS["LISTS_LAC_WRONG_IBLOCK"] = "The list specified is incorrect.";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->RestartBuffer();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/template.php")));
@@ -32,7 +32,7 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 
 $popupWindow->ShowTitlebar($sTitle);
 $popupWindow->StartDescription();
-?><p><?=str_replace("#PATH#", "/".implode("/", $arResult["NAV_CHAIN"]), $sDescription)?></p><?
+?><p><?=str_replace("#PATH#", "/".implode("/", $arResult["NAV_CHAIN"]), $sDescription)?></p><?php 
 $popupWindow->EndDescription();
 
 
@@ -42,18 +42,18 @@ $popupWindow->StartContent();
 	<input type="hidden" name="edit_section" value="Y" />
 	<input type="hidden" name="popupWindow" value="Y" />
 	<input type="hidden" name="ACTION" value="<?=$arParams["ACTION"]?>" />
-<?if (!empty($_REQUEST["back_url"])): ?>
+<?php if (!empty($_REQUEST["back_url"])): ?>
 	<input type="hidden" name="back_url" value="<?=htmlspecialcharsbx($_REQUEST["back_url"])?>" />
-<?endif;
+<?php endif;
 
 if ($arParams["ACTION"] == "DROP"):
 ?>
 	<?=str_replace("#NAME#", $arResult["SECTION"]["NAME"], GetMessage("WD_DROP_CONFIRM"))?>
-<?
+<?php 
 else:
 ?>
 	<table cellpadding="0" cellspacing="0" border="0" class="edit-table" id="edit2_edit_table" width="100%">
-<?
+<?php 
 
 if ($arParams["ACTION"] == "EDIT"):
 ?>
@@ -63,11 +63,11 @@ if ($arParams["ACTION"] == "EDIT"):
 				<input type="hidden" name="IBLOCK_SECTION_ID" readonly="readonly" value="<?=intval($_REQUEST["IBLOCK_SECTION_ID"])?>" />
 				<input type="button" name="" value="..." /></td>
 		</tr>
-<?
+<?php 
 else:
 ?>
 	<input type="hidden" name="IBLOCK_SECTION_ID" value="<?=$arResult["SECTION"]["IBLOCK_SECTION_ID"]?>" />
-<?
+<?php 
 endif;
 ?>
 		<tr>
@@ -75,15 +75,15 @@ endif;
 			<td width="60%"><input type="text" name="NAME" value="<?=$arResult["SECTION"]["NAME"]?>" style="width:90%;" /></td>
 		</tr>
 	</table>
-<?
+<?php 
 endif;
 
 ?>
 <script type="text/javascript">
 	BX.WindowManager.Get().PARAMS.content_url = "<?=CUtil::JSEscape(POST_FORM_ACTION_URI);?>";
 </script>
-<?
+<?php 
 $popupWindow->EndContent();
 $popupWindow->ShowStandardButtons();
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

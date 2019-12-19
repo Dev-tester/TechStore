@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -13,8 +13,8 @@ if(!empty($arResult['ERROR']))
 ?>
 
 <table border="0" cellpadding="0" cellspacing="0" style="margin:0 auto; padding:0; width: 100%; max-width: 500px " width="100%" align="center">
-<?foreach($arResult['TEMPLATE_MESSAGES'] as $id => $message):?>
-	<?if($message['SYSTEM'] == 'Y') {?>
+<?php foreach($arResult['TEMPLATE_MESSAGES'] as $id => $message):?>
+	<?php if($message['SYSTEM'] == 'Y') {?>
 	<tr>
 		<td></td>
 		<td>
@@ -35,7 +35,7 @@ if(!empty($arResult['ERROR']))
 	<tr>
 		<td colspan="3" style="height: 6px;"></td>
 	</tr>
-	<?} elseif($message['CLIENT'] == 'N') {?>
+	<?php } elseif($message['CLIENT'] == 'N') {?>
 	<tr>
 		<td></td>
 		<td>
@@ -56,7 +56,7 @@ if(!empty($arResult['ERROR']))
 	<tr>
 		<td colspan="3" style="height: 6px;"></td>
 	</tr>
-	<?} else {?>
+	<?php } else {?>
 	<tr>
 		<td style="width: 50px; text-align: left;"><img src="<?=($message['AVATAR']? $message['AVATAR']: $arResult['TEMPLATE_SERVER_ADDRESS'].'/bitrix/components/bitrix/imopenlines.mail.history/templates/.default/images/default_avatar.png')?>" alt="" width="34" height="34" style="border-radius: 50%; width: 34px; height: 34px"></td>
 		<td>
@@ -79,16 +79,16 @@ if(!empty($arResult['ERROR']))
 	<tr>
 		<td colspan="3" style="height: 6px;"></td>
 	</tr>
-	<?}?>
-<?endforeach;?>
+	<?php }?>
+<?php endforeach;?>
 </table>
 
 <div style="width: 100%; border-bottom: 1px solid #EFF0F1;padding-top: 20px;margin-bottom: 30px;"></div>
 
-<?if ($arResult['TEMPLATE_TYPE'] == 'HISTORY'):?>
+<?php if ($arResult['TEMPLATE_TYPE'] == 'HISTORY'):?>
 <div style="text-align: center;padding-bottom: 40px;"><a href="<?=$arResult['TEMPLATE_WIDGET_URL']?>" style="color: #535C6A; text-decoration: underline; font-weight: 400; font-size: 13px; line-height: 15px; font-family: Helvetica, Arial, sans-serif;"><?=$mess['IMOL_MAIL_WRITE_TO_LINE']?></a></div>
-<?else:?>
+<?php else:?>
 <div style="text-align: center; padding-bottom: 20px;"><a href="<?=$arResult['TEMPLATE_WIDGET_URL']?>" style="color: #FFFFFF; text-decoration: none; font-weight: 400; font-size: 13px; line-height: 17px; font-family: Helvetica, Arial, sans-serif; display: inline-block; padding: 11px 24px; background-color: #3BC8F5; border-radius:2px"><?=$mess['IMOL_MAIL_BACK_TO_TALK']?></a></div>
-<?endif;?>
+<?php endif;?>
 
 <div style="width: 100%;margin-bottom: 10px;"><span style="color: #A3ACB2; font-weight: 300; font-size: 11px; line-height: 15px; font-family: Helvetica, Arial, sans-serif;"><?=$mess['IMOL_MAIL_DONT_REPLY_NEW']?></span></div>

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $cartStyle = 'bx-basket';
 $cartId = "bx_basket".$component->getNextNumber();
@@ -21,7 +21,7 @@ else
 </script>
 
 <div id="<?=$cartId?>" class="<?=$cartStyle?>">
-	<?
+	<?php 
 
 	$frame = $this->createFrame('bx_cart_block', false)->begin();
 

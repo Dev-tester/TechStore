@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_DB_DROPINDEX_SUCCESS"] = "The index \"#INDEX#\" of \"#TABLE#\" has been deleted successfully.";
 $MESS["F_DB_DROPINDEX_FAIL"] = "Error deleting the index \"#INDEX#(#FIELDS#)\" of \"#TABLE#\".";
 $MESS["F_DB_DROPINDEX_OFFER"] = "To complete updating the module, you have to delete the index \"#INDEX#\" of the table \"#TABLE#\".";

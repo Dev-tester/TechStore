@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_DISK_PROMO_TITLE_MACOS"] = "Приложение Битрикс24 для macOS";
 $MESS["INTRANET_DISK_PROMO_TITLE_WINDOWS"] = "Приложение Битрикс24 для Windows";
 $MESS["INTRANET_DISK_PROMO_HEADER"] = "Добавьте новые возможности работы с файлами в свой &laquo;Битрикс24&raquo;.";

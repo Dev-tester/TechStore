@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HTTPS_PROMO__ADMIN_TITLE"] = "Подготовить сайт к переходу на HTTPS";
 $MESS["HTTPS_PROMO__SUBTITLE"] = "HTTPS – защита ваших данных и безопасность";
 $MESS["HTTPS_PROMO__TITLE"] = "Настройка HTTPS-соединения для Вашего сайта";

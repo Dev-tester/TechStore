@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBP_ADM_TO_ADD"] = "Add property";
 $MESS["IBP_ADM_TO_ADD_TITLE"] = "Add a new property";
 $MESS["IBP_ADM_ID"] = "ID";

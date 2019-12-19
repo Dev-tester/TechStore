@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -44,24 +44,24 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 ?>
 <div class="row mb-4">
 	<div class="col">
-		<? if ('Y' == $arParams['SHOW_PARENT_NAME'] && 0 < $arResult['SECTION']['ID'])
+		<?php  if ('Y' == $arParams['SHOW_PARENT_NAME'] && 0 < $arResult['SECTION']['ID'])
 		{
 			$this->AddEditAction($arResult['SECTION']['ID'], $arResult['SECTION']['EDIT_LINK'], $strSectionEdit);
 			$this->AddDeleteAction($arResult['SECTION']['ID'], $arResult['SECTION']['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
 
-			?><h2 class="mb-3" id="<? echo $this->GetEditAreaId($arResult['SECTION']['ID']); ?>" ><?
+			?><h2 class="mb-3" id="<?php  echo $this->GetEditAreaId($arResult['SECTION']['ID']); ?>" ><?php 
 			echo (
 			isset($arResult['SECTION']["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"]) && $arResult['SECTION']["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"] != ""
 				? $arResult['SECTION']["IPROPERTY_VALUES"]["SECTION_PAGE_TITLE"]
 				: $arResult['SECTION']['NAME']
 			);
 			?>
-			</h2><?
+			</h2><?php 
 		}
 
 		if (0 < $arResult["SECTIONS_COUNT"])
 		{
-		?><ul class="<? echo $arCurView['LIST']; ?>"><?
+		?><ul class="<?php  echo $arCurView['LIST']; ?>"><?php 
 
 			switch ($arParams['VIEW_MODE'])
 			{
@@ -86,38 +86,38 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 								)
 							);
 							?>
-							<li id="<? echo $this->GetEditAreaId($arSection['ID']); ?>" class="catalog-section-list-item">
+							<li id="<?php  echo $this->GetEditAreaId($arSection['ID']); ?>" class="catalog-section-list-item">
 								<div class="catalog-section-list-line-img-container">
 									<a
-										href="<? echo $arSection['SECTION_PAGE_URL']; ?>"
+										href="<?php  echo $arSection['SECTION_PAGE_URL']; ?>"
 										class="catalog-section-list-item-img"
-										style="background-image:url('<? echo $arSection['PICTURE']['SRC']; ?>');"
-										title="<? echo $arSection['PICTURE']['TITLE']; ?>"
+										style="background-image:url('<?php  echo $arSection['PICTURE']['SRC']; ?>');"
+										title="<?php  echo $arSection['PICTURE']['TITLE']; ?>"
 									></a>
 								</div>
 								<div class="catalog-section-list-item-inner">
 									<h3 class="catalog-section-list-item-title">
-										<a class="catalog-section-list-item-link" href="<? echo $arSection['SECTION_PAGE_URL']; ?>">
-											<? echo $arSection['NAME']; ?>
+										<a class="catalog-section-list-item-link" href="<?php  echo $arSection['SECTION_PAGE_URL']; ?>">
+											<?php  echo $arSection['NAME']; ?>
 										</a>
-										<? if ($arParams["COUNT_ELEMENTS"])
+										<?php  if ($arParams["COUNT_ELEMENTS"])
 										{
 											?>
-											<span class="catalog-section-list-item-counter">(<? echo $arSection['ELEMENT_CNT']; ?>)</span>
-											<?
+											<span class="catalog-section-list-item-counter">(<?php  echo $arSection['ELEMENT_CNT']; ?>)</span>
+											<?php 
 										}
 										?>
 									</h3>
-									<? if ('' != $arSection['DESCRIPTION'])
+									<?php  if ('' != $arSection['DESCRIPTION'])
 									{
 										?>
-										<p class="catalog-section-list-item-description"><? echo $arSection['DESCRIPTION']; ?></p>
-										<?
+										<p class="catalog-section-list-item-description"><?php  echo $arSection['DESCRIPTION']; ?></p>
+										<?php 
 									}
 									?>
 								</div>
 
-						</li><?
+						</li><?php 
 					}
 					unset($arSection);
 					break;
@@ -129,22 +129,22 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 						$this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], $strSectionDelete, $arSectionDeleteParams);
 
 						?>
-						<li id="<? echo $this->GetEditAreaId($arSection['ID']); ?>" class="catalog-section-list-item">
+						<li id="<?php  echo $this->GetEditAreaId($arSection['ID']); ?>" class="catalog-section-list-item">
 							<div class="catalog-section-list-item-inner">
 								<h3 class="catalog-section-list-item-title">
-									<a class="catalog-section-list-item-link" href="<? echo $arSection['SECTION_PAGE_URL']; ?>">
-										<? echo $arSection['NAME']; ?>
+									<a class="catalog-section-list-item-link" href="<?php  echo $arSection['SECTION_PAGE_URL']; ?>">
+										<?php  echo $arSection['NAME']; ?>
 									</a>
-									<? if ($arParams["COUNT_ELEMENTS"])
+									<?php  if ($arParams["COUNT_ELEMENTS"])
 									{
 										?>
-										<span class="catalog-section-list-item-counter">(<? echo $arSection['ELEMENT_CNT']; ?>)</span>
-										<?
+										<span class="catalog-section-list-item-counter">(<?php  echo $arSection['ELEMENT_CNT']; ?>)</span>
+										<?php 
 									}
 									?>
 								</h3>
 							</div>
-						</li><?
+						</li><?php 
 					}
 					unset($arSection);
 					break;
@@ -170,37 +170,37 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 								)
 							);
 							?>
-							<li id="<? echo $this->GetEditAreaId($arSection['ID']); ?>"  class="col-6 col-sm-3 col-md-2 catalog-section-list-item">
+							<li id="<?php  echo $this->GetEditAreaId($arSection['ID']); ?>"  class="col-6 col-sm-3 col-md-2 catalog-section-list-item">
 								<div class="catalog-section-list-tile-img-container">
 									<a
-										href="<? echo $arSection['SECTION_PAGE_URL']; ?>"
+										href="<?php  echo $arSection['SECTION_PAGE_URL']; ?>"
 										class="catalog-section-list-item-img"
-										style="background-image:url('<? echo $arSection['PICTURE']['SRC']; ?>');"
-										title="<? echo $arSection['PICTURE']['TITLE']; ?>"
+										style="background-image:url('<?php  echo $arSection['PICTURE']['SRC']; ?>');"
+										title="<?php  echo $arSection['PICTURE']['TITLE']; ?>"
 										></a>
 								</div>
-								<? if ('Y' != $arParams['HIDE_SECTION_NAME'])
+								<?php  if ('Y' != $arParams['HIDE_SECTION_NAME'])
 								{
 									?>
 										<div class="catalog-section-list-item-inner">
 											<h3 class="catalog-section-list-item-title">
-												<a class="catalog-section-list-item-link" href="<? echo $arSection['SECTION_PAGE_URL']; ?>">
-													<? echo $arSection['NAME']; ?>
+												<a class="catalog-section-list-item-link" href="<?php  echo $arSection['SECTION_PAGE_URL']; ?>">
+													<?php  echo $arSection['NAME']; ?>
 												</a>
-												<? if ($arParams["COUNT_ELEMENTS"])
+												<?php  if ($arParams["COUNT_ELEMENTS"])
 												{
 													?>
-													<span class="catalog-section-list-item-counter">(<? echo $arSection['ELEMENT_CNT']; ?>)</span>
-													<?
+													<span class="catalog-section-list-item-counter">(<?php  echo $arSection['ELEMENT_CNT']; ?>)</span>
+													<?php 
 												}
 												?>
 											</h3>
 										</div>
-									<?
+									<?php 
 								}
 								?>
 							</li>
-						<?
+						<?php 
 					}
 					unset($arSection);
 					break;
@@ -237,15 +237,15 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 						?>
 						<li class="catalog-section-list-item" id="<?=$this->GetEditAreaId($arSection['ID']);?>">
 							<h3 class="catalog-section-list-list-title">
-								<a class="catalog-section-list-list-link" href="<? echo $arSection["SECTION_PAGE_URL"]; ?>"><? echo $arSection["NAME"];?><?
+								<a class="catalog-section-list-list-link" href="<?php  echo $arSection["SECTION_PAGE_URL"]; ?>"><?php  echo $arSection["NAME"];?><?php 
 									if ($arParams["COUNT_ELEMENTS"])
 									{
-										?> <span>(<? echo $arSection["ELEMENT_CNT"]; ?>)</span><?
+										?> <span>(<?php  echo $arSection["ELEMENT_CNT"]; ?>)</span><?php 
 									}
 									?>
 								</a>
 							</h3>
-						<?
+						<?php 
 
 						$intCurrentDepth = $arSection['RELATIVE_DEPTH_LEVEL'];
 						$boolFirst = false;
@@ -262,7 +262,7 @@ $arSectionDeleteParams = array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_C
 					}
 					break;
 			}
-			?></ul><?
+			?></ul><?php 
 		}
 		?>
 	</div>

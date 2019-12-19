@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPWC_WNCT_2LIST"] = "Business Processes";
 $MESS["BPWC_WNCT_SUBTITLE1"] = "New Business Process";
 $MESS["BPWC_WNCT_SUBTITLE11"] = "Edit Business Process";

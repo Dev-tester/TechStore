@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -30,7 +30,7 @@ CJSCore::Init(['access']);
 								<td class="table-blue-td-title"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SETTINGS_PERMS_ROLE_TITLE')) ?></td>
 								<td class="table-blue-td-title"></td>
 							</tr>
-							<?
+							<?php 
 							foreach ($arResult['taskAccessCodes'] as $taskAccessCode)
 							{
 								?>
@@ -48,7 +48,7 @@ CJSCore::Init(['access']);
 														data-task-id="<?= intval($task['ID']); ?>">
 													<?= htmlspecialcharsbx($task['NAME']) ?>
 												</option>
-											<? endforeach; ?>
+											<?php  endforeach; ?>
 										</select>
 									</td>
 									<td class="table-blue-td-action">
@@ -56,7 +56,7 @@ CJSCore::Init(['access']);
 													data-access-code="<?= htmlspecialcharsbx($taskAccessCode['ACCESS_CODE']) ?>"></span>
 									</td>
 								</tr>
-								<?
+								<?php 
 							} ?>
 							<tr class="tm-access-table-last-row">
 								<td colspan="4" class="table-blue-td-link">
@@ -83,14 +83,14 @@ CJSCore::Init(['access']);
 										<a class="tm-edit-role table-blue-edit"
 												title="<?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SETTINGS_PERMS_EDIT')) ?>"
 												href="<?= $this->__component->getEditRoleUrl($task) ?>"></a>
-										<? if ($task['CAN_BE_DELETED']): ?>
+										<?php  if ($task['CAN_BE_DELETED']): ?>
 											<span class="table-blue-delete tm-delete-role"
 													title="<?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SETTINGS_PERMS_DELETE')) ?>"
 													data-task-id="<?= htmlspecialcharsbx($task['ID']) ?>"></span>
-										<? endif; ?>
+										<?php  endif; ?>
 									</td>
 								</tr>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 							<tr class="tm-roles-table-last-row">
 								<td colspan="2" class="tm-edit-role table-blue-td-link">
 									<a href="<?= $this->__component->getEditRoleUrl() ?>" class="table-blue-link"><?=
@@ -126,14 +126,14 @@ CJSCore::Init(['access']);
 	<td class="table-blue-td-param">#NAME#</td>
 	<td class="table-blue-td-select">
 		<select class="tm-select-role table-blue-select" name="PERMS[#ACCESS_CODE#]" data-access-code="#ACCESS_CODE#">
-			<?
+			<?php 
 			foreach ($arResult['tasks'] as $task)
 			{
 				?>
 				<option title="<?= htmlspecialcharsbx($task['NAME']) ?>" value="<?= intval($task['ID']) ?>">
 					<?= htmlspecialcharsbx($task['NAME']) ?>
 				</option>
-				<?
+				<?php 
 			} ?>
 		</select>
 	</td>

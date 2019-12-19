@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_HEADER_SETTINGS"] = "Настройки";
 $MESS["CONFIG_COMPANY_NAME"] = "Название компании";
 $MESS["CONFIG_COMPANY_TITLE_NAME"] = "Название компании в логотипе";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['imp_title'] = "Import emails";
 $MESS ['imp_results'] = "Import results:";
 $MESS ['imp_results_total'] = "Total unique addresses to import:";

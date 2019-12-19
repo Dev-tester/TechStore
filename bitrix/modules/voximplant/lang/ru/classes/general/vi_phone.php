@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_PHONE_CODE_RU"] = "Россия";
 $MESS["VI_PHONE_CODE_GB"] = "Великобритания";
 $MESS["VI_PHONE_CODE_US"] = "США";

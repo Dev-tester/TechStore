@@ -1,23 +1,23 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <a name="trackback"></a>
-<?
+<?php 
 if(strlen($arResult["MESSAGE"])>0)
 {
 	?>
 	<?=$arResult["MESSAGE"]?><br /><br />
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["ERROR_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FATAL_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -26,13 +26,13 @@ else
 		?>
 		<div class="blog-trackback">
 		<a href="<?=$arResult["urlToTrackback"]?>"><?=GetMessage("B_B_MES_TBA")?></a><br />
-		<?
+		<?php 
 		if(!empty($arResult["TrackBack"]))
 		{
 			?>
 			<b>Trackbacks:</b>
 			<table width="100%" cellpadding="0" cellspacing="0" border="0" class="blog-trackback-table">
-			<?
+			<?php 
 			foreach($arResult["TrackBack"] as $arTrack)
 			{
 				?>
@@ -44,27 +44,27 @@ else
 						<b><a href="<?=$arTrack["URL"]?>"><?=$arTrack["BLOG_NAME"]?></a>:</b>&nbsp;<?=$arTrack["POST_DATE_FORMATED"]?><br />
 				<a href="<?=$arTrack["URL"]?>"><?=$arTrack["TITLE"]?></a>
 					</td>
-					<?
+					<?php 
 					if(strlen($arTrack["urlToDelete"])>0)
 					{
 						?>
 						<td align="right" valign="top"><a href="<?=$arTrack["urlToDelete"]."&".bitrix_sessid_get()?>" class="blog-post-delete"></a></td>
-						<?
+						<?php 
 					}
 					?>
 				</tr>
 				<tr><td>
 					<?=$arTrack["PREVIEW_TEXT"]?>
 				<br /><br /></td></tr>
-				<?
+				<?php 
 			}
 			?>
 			</table>
-			<?
+			<?php 
 		}
 		?>
 		</div>
-		<?
+		<?php 
 	}
 }
 ?>

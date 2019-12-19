@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_MESSAGE_CRM_CARD_FULL_NAME"] = "Имя";
 $MESS["IMOL_MESSAGE_CRM_CARD_COMPANY_TITLE"] = "Компания";
 $MESS["IMOL_MESSAGE_CRM_CARD_POST"] = "Должность";

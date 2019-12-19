@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!CModule::IncludeModule("socialnetwork"))
@@ -14,10 +14,10 @@ else
 ?>
 <table width="100%">
 <tr>
-	<td><?
+	<td><?php 
 	if ($arGadgetParams["CAN_VIEW_GROUPS"]):
 		if ($arGadgetParams["GROUPS_LIST"]):
-			?><ul><?
+			?><ul><?php 
 			foreach ($arGadgetParams["GROUPS_LIST"] as $group)
 			{
 				echo "<li><a href=\"".$group["GROUP_URL"]."\">";
@@ -26,22 +26,22 @@ else
 			}
 			?></ul>
 			<a href="<?= $arGadgetParams["URL_GROUPS"] ?>"><?= GetMessage("GD_SONET_USER_GROUPS_ALL_GROUPS") ?></a>
-			<br /><?
+			<br /><?php 
 		else:
 			?><?= GetMessage("GD_SONET_USER_GROUPS_NO_GROUPS") ?>
-			<br><br><?
+			<br><br><?php 
 		endif;
 	else:
 		?><?= GetMessage("GD_SONET_USER_GROUPS_GR_UNAVAIL") ?>
-		<br><br><?
+		<br><br><?php 
 	endif;
 	
 	if ($arGadgetParams["IS_CURRENT_USER"]):
 		if ($arGadgetParams["CAN_CREATE_GROUP"]):
-			?><a href="<?= $arGadgetParams["URL_GROUPS_ADD"] ?>"><?= GetMessage("GD_SONET_USER_GROUPS_CREATE_GROUP") ?></a><br /><?
+			?><a href="<?= $arGadgetParams["URL_GROUPS_ADD"] ?>"><?= GetMessage("GD_SONET_USER_GROUPS_CREATE_GROUP") ?></a><br /><?php 
 		endif;
 		?><a href="<?= $arGadgetParams["URL_GROUPS_SEARCH"] ?>"><?= GetMessage("GD_SONET_USER_GROUPS_SEARCH_GROUP") ?></a><br />
-		<a href="<?= $arGadgetParams["URL_LOG_GROUPS"] ?>"><?= GetMessage("GD_SONET_USER_GROUPS_LOG") ?></a><?
+		<a href="<?= $arGadgetParams["URL_LOG_GROUPS"] ?>"><?= GetMessage("GD_SONET_USER_GROUPS_LOG") ?></a><?php 
 	endif;
 	?></td>
 </tr>

@@ -1,4 +1,4 @@
-<?
+<?php 
 include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/dav/classes/general/connection.php");
 
 class CDavConnection

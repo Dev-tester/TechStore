@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_ACTION_ADD_IN_SITEMAP"] = "Add page to sitemap";
 $MESS["LANDING_TPL_ADDITIONAL"] = "More";
 $MESS["LANDING_TPL_ADDITIONAL_BG"] = "Background";

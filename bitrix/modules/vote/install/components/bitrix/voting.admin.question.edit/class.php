@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace
 {
 	if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
@@ -379,7 +379,7 @@ namespace Bitrix\Vote\Component
 				if (!$directoryExists)
 				{
 					$access = \CBXVirtualIo::GetInstance()->GetFile($directory->GetPath()."/.access.php");
-					$content = '<?$PERM["'.$directory->GetName().'"]["*"]="X";?>';
+					$content = '<?php $PERM["'.$directory->GetName().'"]["*"]="X";?>';
 
 					if (!$access->IsExists() || strpos($access->GetContents(), $content) === false)
 					{

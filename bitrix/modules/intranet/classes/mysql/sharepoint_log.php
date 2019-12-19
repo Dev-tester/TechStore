@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/intranet/classes/general/sharepoint_log.php"); 
 
 class CIntranetSharepointLog extends CAllIntranetSharepointLog

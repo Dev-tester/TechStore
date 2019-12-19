@@ -1,4 +1,4 @@
-<?
+<?php 
 $PERM["tools"]["16"]="T_8";
 $PERM["tools"]["14"]="T_8";
 $PERM["tools"]["5"]="T_8";

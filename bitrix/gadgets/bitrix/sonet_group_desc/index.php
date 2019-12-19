@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!CModule::IncludeModule("socialnetwork"))
@@ -30,23 +30,23 @@ $arGadgetParams["NUMBER_OF_MEMBERS"] = (isset($arGadgetParams["NUMBER_OF_MEMBERS
 ?>
 <h4><?=$arGadgetParams["NAME"]?></h4>
 <table width="100%" cellspacing="2" cellpadding="2">
-<?if($arGadgetParams["CLOSED"] == "Y"):?>
+<?php if($arGadgetParams["CLOSED"] == "Y"):?>
 	<tr>
 		<td colspan="2"><b><?= GetMessage("GD_SONET_GROUP_DESC_ARCHIVE") ?></b></td>
 	</tr>
-<?endif;?>
-<?if(strlen($arGadgetParams["SUBJECT_NAME"])>0):?>
+<?php endif;?>
+<?php if(strlen($arGadgetParams["SUBJECT_NAME"])>0):?>
 	<tr>
 		<td width="25%"><?= GetMessage("GD_SONET_GROUP_DESC_SUBJECT_NAME") ?>:</td>
 		<td width="75%"><?=$arGadgetParams["SUBJECT_NAME"]?></td>
 	</tr>
-<?endif;?>
-<?if(strlen($arGadgetParams["DESCRIPTION"])>0):?>
+<?php endif;?>
+<?php if(strlen($arGadgetParams["DESCRIPTION"])>0):?>
 	<tr>
 		<td width="25%" valign="top"><?= GetMessage('GD_SONET_GROUP_DESC_DESCRIPTION') ?>:</td>
 		<td valign="top" width="75%"><?=$arGadgetParams["DESCRIPTION"]?></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td width="25%"><?= GetMessage("GD_SONET_GROUP_DESC_CREATED") ?>:</td>
 	<td width="75%"><?=$arGadgetParams["DATE_CREATE"]?></td>
@@ -62,13 +62,13 @@ $arGadgetParams["NUMBER_OF_MEMBERS"] = (isset($arGadgetParams["NUMBER_OF_MEMBERS
 	<?=($arGadgetParams["VISIBLE"] == "Y" ? GetMessage("GD_SONET_GROUP_DESC_TYPE_V1") : GetMessage("GD_SONET_GROUP_DESC_TYPE_V2"))?>
 	</td>
 </tr>
-<?
+<?php 
 if (array_key_exists("PROPERTIES_SHOW", $arGadgetParams) && $arGadgetParams["PROPERTIES_SHOW"] == "Y"):
 	foreach ($arGadgetParams["PROPERTIES_DATA"] as $fieldName => $arUserField):
 		if (is_array($arUserField["VALUE"]) && count($arUserField["VALUE"]) > 0 || !is_array($arUserField["VALUE"]) && StrLen($arUserField["VALUE"]) > 0):
 			?><tr>
 				<td width="25%"><?=$arUserField["EDIT_FORM_LABEL"]?>:</td>
-				<td width="75%"><?
+				<td width="75%"><?php 
 				$GLOBALS["APPLICATION"]->IncludeComponent(
 					"bitrix:system.field.view", 
 					$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
@@ -77,7 +77,7 @@ if (array_key_exists("PROPERTIES_SHOW", $arGadgetParams) && $arGadgetParams["PRO
 					array("HIDE_ICONS"=>"Y")
 				);
 				?></td>
-			</tr><?
+			</tr><?php 
 		endif;
 	endforeach;
 endif;
@@ -90,7 +90,7 @@ if (array_key_exists("G_SONET_GROUP_DESC_REQUEST_SENT", $arParams)):
 			<td width="25%" valign="top">
 			<td width="75%"><strong><?= GetMessage("GD_SONET_GROUP_DESC_REQUEST_SENT_MESSAGE");?></strong></td>
 		</tr>
-	<? elseif ($arParams["G_SONET_GROUP_DESC_REQUEST_SENT"] == "G"): 
+	<?php  elseif ($arParams["G_SONET_GROUP_DESC_REQUEST_SENT"] == "G"): 
 
 		global $USER;
 		$url = str_replace("#user_id#", $USER->GetID(), COption::GetOptionString("socialnetwork", "user_request_page", 
@@ -100,6 +100,6 @@ if (array_key_exists("G_SONET_GROUP_DESC_REQUEST_SENT", $arParams)):
 			<td width="25%" valign="top">
 			<td width="75%"><strong><?=GetMessage("GD_SONET_GROUP_DESC_REQUEST_SENT_MESSAGE_BY_GROUP", array("#LINK#" => $url))?></strong></td>
 		</tr>
-	<? endif; ?>
-<? endif; ?>
+	<?php  endif; ?>
+<?php  endif; ?>
 </table>

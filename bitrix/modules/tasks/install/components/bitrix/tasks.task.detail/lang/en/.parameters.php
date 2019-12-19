@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTL_VARIABLE_ALIASES"] = "Variable Aliases";
 $MESS["INTL_TASK_TYPE"] = "Task Type";
 $MESS["INTL_OWNER_ID"] = "Owner ID";

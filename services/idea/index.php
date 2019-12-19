@@ -1,8 +1,8 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/idea/index.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:idea", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:idea", ".default", array(
 	"MESSAGE_COUNT" => "10",
 	"COMMENTS_COUNT" => "10",
 	"DATE_TIME_FORMAT" => "d.m.Y H:i:s",
@@ -67,4 +67,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

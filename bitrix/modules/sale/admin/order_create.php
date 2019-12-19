@@ -1,4 +1,4 @@
-<?
+<?php 
 
 /**
  * @var  CUser $USER
@@ -824,14 +824,14 @@ echo $orderBasket->getScripts(false);
 echo $customDraggableBlocks->getScripts();
 
 // navigation socket
-?><div id="sale-order-edit-block-fast-nav-socket"></div><?
+?><div id="sale-order-edit-block-fast-nav-socket"></div><?php 
 
 
 $aTabs = array(
 	array("DIV" => "tab_order", "TAB" => Loc::getMessage("SALE_OK_TAB_ORDER"), "SHOW_WRAP" => "N", "IS_DRAGGABLE" => "Y"),
 );
 
-?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&SITE_ID=".$siteId?>" name="<?=$formId?>_form" id="<?=$formId?>_form" enctype="multipart/form-data"><?
+?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&SITE_ID=".$siteId?>" name="<?=$formId?>_form" id="<?=$formId?>_form" enctype="multipart/form-data"><?php 
 $tabControl = new CAdminTabControlDrag($formId, $aTabs, $moduleId, false, true);
 $tabControl->AddTabs($customTabber);
 $tabControl->Begin();
@@ -865,19 +865,19 @@ foreach($blocksOrder as $item)
 	<input type="hidden" id="SITE_ID" name="SITE_ID" value="<?=htmlspecialcharsbx($siteId)?>">
 	<input type="hidden" id="OLD_USER_ID" name="OLD_USER_ID" value="0">
 	<input type="hidden" name="BASKET_PREFIX" value="<?=$basketPrefix?>">
-	<?
+	<?php 
 	if ($_REQUEST["ABANDONED"] === 'Y')
 	{
 		?>
 		<input type="hidden" id="ABANDONED_USER_ID" name="ABANDONED_USER_ID" value="<?=(int)$_REQUEST["USER_ID"]?>">
 		<input type="hidden" id="ABANDONED_FUSER_ID" name="ABANDONED_FUSER_ID" value="<?=(int)$_REQUEST["FUSER_ID"]?>">
-		<?
+		<?php 
 	}
 	?>
 	<?=bitrix_sessid_post()?>
 	<div style="position: relative; vertical-align: top">
-		<?$tabControl->DraggableBlocksStart();?>
-		<?
+		<?php $tabControl->DraggableBlocksStart();?>
+		<?php 
 		foreach ($blocksOrder as $blockCode)
 		{
 			echo '<a id="'.$blockCode.'" class="adm-sale-fastnav-anchor"></a>';
@@ -941,7 +941,7 @@ foreach($blocksOrder as $item)
 		?>
 	</div>
 </td></tr>
-<?
+<?php 
 
 $tabControl->EndTab();
 
@@ -969,7 +969,7 @@ $tabControl->End();
 	});
 </script>
 
-<?if(!$result->isSuccess() || $needFieldsRestore):?>
+<?php if(!$result->isSuccess() || $needFieldsRestore):?>
 	<script type="text/javascript">
 		BX.ready( function(){
 			BX.Sale.Admin.OrderEditPage.restoreFormData(
@@ -980,6 +980,6 @@ $tabControl->End();
 			);
 		});
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

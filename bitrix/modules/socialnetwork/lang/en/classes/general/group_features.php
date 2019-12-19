@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_GF_EMPTY_ENTITY_ID'] = "The entity ID is not specified.";
 $MESS ['SONET_GF_ERROR_NO_ENTITY_ID'] = "The entity is incorrect.";
 $MESS ['SONET_GF_EMPTY_FEATURE_ID'] = "Feature is not specified.";

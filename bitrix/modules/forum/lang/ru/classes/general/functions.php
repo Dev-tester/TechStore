@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FRM_CODE"] = "Код";
 $MESS["FRM_QUOTE"] = "Цитата";
 $MESS["FRM_SPOILER"] = "Спойлер";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_CREATED'] = "Erstellt";
 $MESS ['WD_DELETE_SECTION'] = "Löschen";
 $MESS ['WD_LAST_UPDATE'] = "Geändert";

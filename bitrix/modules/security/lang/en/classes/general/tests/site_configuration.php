@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_SiteConfigurationTest_NAME"] = "Website configuration test";
 $MESS["SECURITY_SITE_CHECKER_WAF_OFF"] = "Proactive Filter is disabled.";
 $MESS["SECURITY_SITE_CHECKER_WAF_OFF_DETAIL"] = "Disabled Proactive Filter will definitely not help your website.";

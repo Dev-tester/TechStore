@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/footer.php")));
 if (!file_exists($file))
 	$file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/en/footer.php")));
@@ -13,7 +13,7 @@ if (($arParams["SHOW_FORUMS"] == "Y" && !empty($arResult["GROUPS_FORUMS"]))/* ||
 ?>
 <div class="forum-info-box forum-main-footer">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 	if (false && IsModuleInstalled("search")):
 ?>
 		<div class="forum-search-input">
@@ -24,7 +24,7 @@ if (($arParams["SHOW_FORUMS"] == "Y" && !empty($arResult["GROUPS_FORUMS"]))/* ||
 				<input type="submit" value="OK" name="search_submit" onclick="" />
 			</form>
 		</div>
-<?		
+<?php 		
 	endif;
 
 	if ($arParams["SHOW_FORUMS"] == "Y" && !empty($arResult["GROUPS_FORUMS"])):
@@ -40,20 +40,20 @@ if (($arParams["SHOW_FORUMS"] == "Y" && !empty($arResult["GROUPS_FORUMS"]))/* ||
 			<input type="hidden" name="buf_fid" value="<?=($iFid > 0 ? $iFid : "GID_".$iGid)?>" />
 			<input type="hidden" name="rapid_access" value="Y" />
 			<select name="FID" class="forum-selector-single" onclick="if(this.value!=this.form.buf_fid.value){this.form.submit()}">
-<?
+<?php 
 		foreach ($arResult["GROUPS_FORUMS"] as $key => $res):
 			if ($res["TYPE"] == "GROUP"):
 				$str = str_pad("", ($res["DEPTH"] - 1)*12, "&nbsp;");
 ?>
-				<option value="GID_<?=$res["ID"]?>" <?=($iGid == $res["ID"] ? "selected='selected'" : "")?> <?
+				<option value="GID_<?=$res["ID"]?>" <?=($iGid == $res["ID"] ? "selected='selected'" : "")?> <?php 
 					?>class="groups level<?=$res["DEPTH"]?><?=($iGid == $res["ID"] ? " active" : "")?>"><?=$str.$res["NAME"]?></option>
-<?
+<?php 
 			else:
 			$str = ($res["DEPTH"] > 0 ? str_pad("", $res["DEPTH"]*12, "&nbsp;")."&nbsp;" : "");
 ?>
-				<option value="<?=$res["ID"]?>" <?=($iFid == $res["ID"] ? "selected='selected'" : "")?> <?
+				<option value="<?=$res["ID"]?>" <?=($iFid == $res["ID"] ? "selected='selected'" : "")?> <?php 
 					?>class="forum level<?=$res["DEPTH"]?><?=($iFid == $res["ID"] ? " active" : "")?>"><?=$str.$res["NAME"]?></option>
-<?
+<?php 
 			endif;
 		endforeach;
 ?>
@@ -61,13 +61,13 @@ if (($arParams["SHOW_FORUMS"] == "Y" && !empty($arResult["GROUPS_FORUMS"]))/* ||
 			<input type="submit" value="OK" />
 			</form>
 		</div>
-<?
+<?php 
 	endif;
 ?>
 		<div class="forum-clear-float"></div>
 	</div>
 </div>
-<?
+<?php 
 endif;
 	if ($arParams["SHOW_LEGEND"] == "Y" && in_array($this->__page, array("index", "forums", "list"))):
 ?>
@@ -78,7 +78,7 @@ endif;
 				<span><?=GetMessage("F_INFO_NEW_MESS")?></span></div>
 			<div class="forum-legend-item"><div class="forum-icon-container"><div class="forum-icon forum-icon-default"><!-- ie --></div></div>
 				<span><?=GetMessage("F_INFO_NO_MESS")?></span></div>
-<?
+<?php 
 		if ($this->__page == "list"):
 ?>
 			<div class="forum-legend-item"><div class="forum-icon-container"><div class="forum-icon forum-icon-moved"><!-- ie --></div></div>
@@ -87,14 +87,14 @@ endif;
 				<span><?=GetMessage("F_INFO_PINNED")?></span></div>
 			<div class="forum-legend-item"><div class="forum-icon-container"><div class="forum-icon forum-icon-closed"><!-- ie --></div></div>
 				<span><?=GetMessage("F_INFO_CLOSED")?></span></div>
-<?
+<?php 
 		endif;
 ?>
 			<div class="forum-clear-float"></div>
 		</div>
 	</div>
 </div>
-<?
+<?php 
 	endif;
 
 ?>

@@ -1,19 +1,19 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 ?>
 <tr>
 	<td align="right" width="40%"><?= GetMessage("BPSFA_PD_STATE") ?>:</td>
 	<td width="60%">
 		<select name="target_state_name_1">
 			<option value=""><?= GetMessage("BPSFA_PD_OTHER") ?></option>
-			<?
+			<?php 
 			$fl = false;
 			foreach ($arStates as $key => $value)
 			{
 				if ($key == $arCurrentValues["target_state_name"])
 					$fl = true;
-				?><option value="<?= htmlspecialcharsbx($key) ?>"<?= ($key == $arCurrentValues["target_state_name"]) ? " selected" : "" ?>><?= $value ?></option><?
+				?><option value="<?= htmlspecialcharsbx($key) ?>"<?= ($key == $arCurrentValues["target_state_name"]) ? " selected" : "" ?>><?= $value ?></option><?php 
 			}
 			?>
 		</select><br />
@@ -24,7 +24,7 @@
 	<td align="right" width="40%"></td>
 	<td width="60%">
 		<label>
-			<input type="checkbox" value="Y" name="cancel_current_state" <?
+			<input type="checkbox" value="Y" name="cancel_current_state" <?php 
 				if (isset($arCurrentValues["cancel_current_state"]) && $arCurrentValues["cancel_current_state"] == 'Y') echo 'checked'?>/>
 			<?= GetMessage("BPSSA_CANCEL_CURRENT_STATE") ?>
 		</label>

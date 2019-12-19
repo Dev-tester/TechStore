@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CANCEL_ORDER5"] = "Bereits gelieferte und/oder bezahlte Bestellungen können hier nicht storniert werden.";
 $MESS["SALE_RECORDS_LIST"] = "Bestellübersicht";
 $MESS["SALE_CANCEL_ORDER2"] = "Bestellung";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Dispatcher;
 
 use Bitrix\Tasks\Item;

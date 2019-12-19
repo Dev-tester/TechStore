@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SP_LIST_FIELD_NAME"] = "Name";
 $MESS["SP_LIST_FIELD_SORT"] = "Sorting";
 $MESS["SP_LIST_FIELD_ACTIVE_FROM"] = "Active From";

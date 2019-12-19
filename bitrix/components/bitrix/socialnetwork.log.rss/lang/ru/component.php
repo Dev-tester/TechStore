@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MODULE_NOT_INSTALL"] = "Модуль социальной сети не установлен.";
 $MESS["SONET_C73_TITLE_JOIN1"] = "К группе присоединился новый участник #TITLE#.";
 $MESS["SONET_C73_TITLE_JOIN2"] = "К группе присоединились новые участники #TITLE#.";

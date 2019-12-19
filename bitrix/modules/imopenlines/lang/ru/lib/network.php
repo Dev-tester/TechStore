@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_NETWORK_IMBOT_LOAD_ERROR"] = "Не установлен модуль IMBOT";
 $MESS["IMOL_NETWORK_GUEST_NAME"] = "Гость";
 $MESS["IMOL_NETWORK_NAME"] = "Имя";

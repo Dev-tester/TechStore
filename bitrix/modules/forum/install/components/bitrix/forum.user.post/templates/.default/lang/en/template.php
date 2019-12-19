@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LU_USER_POSTS_ON_TOPIC"] = "Author's messages in topic";
 $MESS["LU_TITLE_LTA"] = "Author's topics";
 $MESS["LU_TITLE_LT"] = "Wrote to";

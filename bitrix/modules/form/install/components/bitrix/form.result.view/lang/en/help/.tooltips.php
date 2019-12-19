@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEF_MODE_TIP'] = "Checking this option enables the SEF mode.";
 $MESS ['RESULT_ID_TIP'] = "Specifies an expression that evaluates to a value of the RESULT_ID variable that contains the web form result ID. By default, contains <nobr><b>={\$_REQUEST[\"RESULT_ID\"]}</b></nobr> which passes RESULT_ID via _REQUEST.";
 $MESS ['SHOW_ADDITIONAL_TIP'] = "Selecting \"Yes\" will display additional fields, if any.";

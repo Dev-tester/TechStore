@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_ED_CHANGE"] = "Изменить";
 $MESS["CRM_ENTITY_ED_CANCEL"] = "Отменить";
 $MESS["CRM_ENTITY_ED_CREATE"] = "Создать";

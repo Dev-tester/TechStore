@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_1C_SALE_TAB"] = "Bestellungen";
 $MESS["MAIN_1C_CATALOG_TAB"] = "Katalog";
 $MESS["MAIN_1C_CATALOG_TAB_TITLE"] = "Katalog-Importeinstellungen konfigurieren";

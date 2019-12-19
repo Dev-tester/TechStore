@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Search engine: site indexing dynamics";
 $MESS ['STAT_F_SEARCHER_ID'] = "Search engine:";
 $MESS ['STAT_F_PERIOD'] = "Period";

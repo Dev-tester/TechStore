@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["CRM_ORDER_PAYMENT_EMPTY_ORDER_ID"] = "Не задан номер заказа.";
 $MESS["CRM_ORDER_PAYMENT_NOT_FOUND"] = "Оплата не найдена";

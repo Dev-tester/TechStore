@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Company Intranet";
 $MESS["UPDATES"] = "Activity Stream";
 $MESS["COMPANY"] = "Employees";

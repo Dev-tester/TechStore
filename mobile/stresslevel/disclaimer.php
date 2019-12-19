@@ -1,11 +1,11 @@
-<?
+<?php 
 use Bitrix\Main\Page\Asset;
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 Asset::getInstance()->addString(Bitrix\MobileApp\Mobile::getInstance()->getViewPort());
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:intranet.stresslevel",
 	".default",
 	array(
@@ -14,4 +14,4 @@ Asset::getInstance()->addString(Bitrix\MobileApp\Mobile::getInstance()->getViewP
 	false
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

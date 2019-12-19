@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOD_HIST_NULL"] = "No updates to this order.";
 $MESS["SOD_HIST_H_DATE"] = "Modified on";
 $MESS["SOD_HIST_H_USER"] = "User";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_EMPTY_GMAP_SETTINGS"] = "Open settings";
 $MESS["LANDING_BLOCK_EMPTY_GMAP_TITLE"] = "Google Maps key is not specified";
 $MESS["LANDING_BLOCK_EMPTY_GMAP_DESC"] = "Please provide a valid Google Maps key in the site preferences.";

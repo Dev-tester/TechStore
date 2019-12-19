@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Zugriff verweigert";
 $MESS["SALE_LOCATION_E_ITEM_EDIT"] = "Service #ITEM_NAME# bearbeiten";
 $MESS["SALE_LOCATION_E_ITEM_NEW"] = "Externer Service: Hinzufügen";

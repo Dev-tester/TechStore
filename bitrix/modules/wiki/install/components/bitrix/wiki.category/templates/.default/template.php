@@ -1,5 +1,5 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(!empty($arResult['FATAL_MESSAGE'])):
 	?>
 	<div class="wiki-errors">
@@ -7,7 +7,7 @@ if(!empty($arResult['FATAL_MESSAGE'])):
 			<?=$arResult['FATAL_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 else:
 	if($arResult['COLUMNS_COUNT']==0)
 		$arResult['COLUMNS_COUNT'] = 1;
@@ -29,40 +29,40 @@ else:
 		?>
 		<div class="wiki-post-header"><?=GetMessage('WIKI_SUBCATEGORY')?></div>
 		<div>
-		<?
+		<?php 
 		foreach ($arResult['CATEGORIES'] as $arSect)
 		{
 			if ($iEl == 0):
-				?> <div style="float:left;  width: <?=$iWidth?>%">  <?
+				?> <div style="float:left;  width: <?=$iWidth?>%">  <?php 
 			endif;
 			$sCurLetter = strtoupper(substr($arSect['NAME'], 0, 1));
 			if ($sPrevLetter != $sCurLetter) :
 				$sPrevLetter = $sCurLetter;
 			?>
 			<div><?=$sPrevLetter?></div>
-			<?
+			<?php 
 			elseif ($iEl == 0 && $iCol > 0):
 				?>
 				<div><?=$sPrevLetter?>(<?=GetMessage('WIKI_CONTINUED')?>)</div>
-				<?
+				<?php 
 			endif;
 
 			?>
 			<a title="<?=$arSect['TITLE']?>" class="<?=($arSect['IS_RED'] == 'Y' ? 'wiki_red' : '')?>" href="<?=$arSect['LINK']?>"><?=$arSect['NAME']?></a>
 			<br/>
-			<?
+			<?php 
 			$iEl++;
 			if ($iEl == $iSectCount):
 				$iEl = 0;
 				$iCol++;
-				?> </div> <?
+				?> </div> <?php 
 			endif;
 		}
 		if ($iEl != 0 && $iEl < $iSectCount):
-			?> </div> <?
+			?> </div> <?php 
 		endif;?>
 		<div style="clear:both"></div>
-		</div> <?
+		</div> <?php 
 	endif;
 
 	if (!empty($arResult['PAGES'])):
@@ -73,11 +73,11 @@ else:
 		?>
 		<div class="wiki-post-header"><?=GetMessage('WIKI_PAGES_IN_SUBCATEGORY')?> "<?=$arResult['CUR_CAT']['NAME']?>"</div>
 		<div>
-		<?
+		<?php 
 		foreach ($arResult['PAGES'] as $arPage)
 		{
 			if ($iEl == 0):
-				?> <div style="float:left;  width: <?=$iWidth?>%">  <?
+				?> <div style="float:left;  width: <?=$iWidth?>%">  <?php 
 			endif;
 
 			$sCurLetter = strtoupper(substr($arPage['NAME'], 0, 1));
@@ -85,30 +85,30 @@ else:
 				$sPrevLetter = $sCurLetter;
 				?>
 				<div><?=$sPrevLetter?></div>
-				<?
+				<?php 
 			elseif ($iEl == 0 && $iCol > 0):
 				?>
 				<div><?=$sPrevLetter?>(<?=GetMessage('WIKI_CONTINUED')?>)</div>
-				<?
+				<?php 
 			endif;
 
 			?>
 			<a title="<?=$arPage['TITLE']?>" class="<?=($arPage['IS_RED'] == 'Y' ? 'wiki_red' : '')?>" href="<?=$arPage['LINK']?>"><?=$arPage['NAME']?></a>
 			<br/>
-			<?
+			<?php 
 			$iEl++;
 			if ($iEl == $iPageCount):
 				$iEl = 0;
 				$iCol++;
-				?> </div> <?
+				?> </div> <?php 
 			endif;
 		}
 		if ($iEl != 0 && $iEl < $iPageCount):
-			?> </div> <?
+			?> </div> <?php 
 		endif;?>
 		<div style="clear:both"></div>
 		</div>
-		<?
+		<?php 
 		$arResult['DB_LIST']->NavPrint(GetMessage('NAV_TITLE'));
 	endif;
 endif;

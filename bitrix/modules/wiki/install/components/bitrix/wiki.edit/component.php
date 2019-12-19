@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Context;
 use Bitrix\Main\Text\Encoding;
 

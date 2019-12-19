@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TUFP_FIELD_MANDATORY"] = "Обязательное";
 $MESS["TASKS_TUFP_FIELD_MULTIPLE"] = "Множественное";
 $MESS["TASKS_TUFP_FIELD_MULTIPLE_HINT"] = "Можно задать только для нового поля";

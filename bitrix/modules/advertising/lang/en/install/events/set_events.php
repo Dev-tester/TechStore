@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADV_BANNER_STATUS_CHANGE_NAME'] = "Banner status was changed";
 $MESS ['ADV_BANNER_STATUS_CHANGE_DESC'] = "#EMAIL_TO# - EMail of message receiver (#OWNER_EMAIL#)
 #ADMIN_EMAIL# - EMail of the users with \"banners manager\" and \"administrator\" roles

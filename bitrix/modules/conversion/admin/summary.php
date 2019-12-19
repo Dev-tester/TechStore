@@ -184,16 +184,16 @@ function conversion_renderRate(array $rate, array $rateType)
 		</div>
 		<div class="stat-item-block stat-item-block-first">
 			<span class="stat-item-block-inner">
-				<?
+				<?php 
 
 				if (isset($rate['SUM']))
 				{
 					?>
 					<span class="stat-item-block-title"><?=Loc::getMessage('CONVERSION_SALE_RATE_SUM')?></span>
 					<span class="stat-item-block-digit"><?=number_format($rate['SUM'])?>
-						<span><? if (isset($rateType['UNITS']['SUM'])) echo $rateType['UNITS']['SUM']; ?></span>
+						<span><?php  if (isset($rateType['UNITS']['SUM'])) echo $rateType['UNITS']['SUM']; ?></span>
 					</span>
-					<?
+					<?php 
 				}
 
 				?>
@@ -206,7 +206,7 @@ function conversion_renderRate(array $rate, array $rateType)
 			</span>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 
 function conversion_renderGraph(array $splitRates, array $splits, $height)
@@ -268,7 +268,7 @@ function conversion_renderGraph(array $splitRates, array $splits, $height)
 			AmCharts.shortMonthNames = shortMonthNames;
 
 			chart.zoomOutText   = '<?=CUtil::JSEscape(Loc::getMessage('CONVERSION_SUMMARY_GRAPH_SHOW_ALL'))?>';
-			chart.dataProvider = <?
+			chart.dataProvider = <?php 
 
 				$json = array();
 
@@ -342,7 +342,7 @@ function conversion_renderGraph(array $splitRates, array $splits, $height)
 			chart.write('bitrix-conversion-graph-<?=$index?>');
 		});
 	</script>
-	<?
+	<?php 
 }
 
 Bitrix\Conversion\AdminHelpers\renderFilter($filter);
@@ -355,7 +355,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 			<div class="adm-detail-content">
 				<div class="adm-detail-title"><?=Loc::getMessage('CONVERSION_SUMMARY_TITLE2')?></div>
 				<div class="adm-detail-content-item-block stat-item-block-container">
-					<?
+					<?php 
 
 					$menuItems = array();
 
@@ -381,7 +381,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 						</div>
 						<div class="stat-graph-container">
 							<span class="stat-graph-title"><?=Loc::getMessage('CONVERSION_SUMMARY_TOTAL_GRAPH')?></span>
-							<?conversion_renderGraph(array('total' => $totalRates), $splits, '200px')?>
+							<?php conversion_renderGraph(array('total' => $totalRates), $splits, '200px')?>
 						</div>
 					</div>
 				</div>
@@ -399,7 +399,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 						<?=($g = $attributeGroupTypes[$attributeGroupName]) ? $g['NAME'] : $attributeGroupName?>
 					</span>
 					<span class="stat-title-select"></span>
-					<?
+					<?php 
 
 					$menuItems = array();
 
@@ -413,7 +413,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 					?>
 				</div>
 				<div class="adm-detail-content-item-block stat-item-block-container">
-					<?
+					<?php 
 
 					// Total Split /////////////////////////////////////////////////////////////////////////////////////
 
@@ -425,7 +425,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 						<span class="stat-item-equality"></span>
 						<div class="stat-graph-container">
 							<span class="stat-graph-title"><?=Loc::getMessage('CONVERSION_SUMMARY_DETAILED')?></span>
-							<?conversion_renderGraph($splitRates, $splits, '300px')?>
+							<?php conversion_renderGraph($splitRates, $splits, '300px')?>
 						</div>
 						<div class="stat-item-title" style="background: <?=$split['BG_COLOR']?>">
 							<?=$split['TITLE']?>
@@ -433,7 +433,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 								<?=$topRateType ? $topRateType['NAME'] : ''?>
 							</span>
 							<span class="stat-item-title-name-select"></span>
-							<?
+							<?php 
 
 							$menuItems = array();
 
@@ -450,7 +450,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 								<?=$totalTopDenominator?> <span>|</span> 100%
 							</span>
 						</div>
-						<?
+						<?php 
 
 						$rateName = key($rates);
 
@@ -461,7 +461,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 
 						?>
 						<div class="stat-item-block-more more-deployed">
-							<?
+							<?php 
 
 							foreach ($rates as $name => $rate)
 							{
@@ -483,7 +483,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 
 					<div class="stat-description">&nbsp;</div>
 
-					<?
+					<?php 
 
 					// Other Splits ////////////////////////////////////////////////////////////////////////////////////
 
@@ -508,16 +508,16 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 
 						?>
 						<div class="stat-item-container">
-							<?
+							<?php 
 
 							if ($index > 1)
 							{
-								?><span class="stat-item-plus" style="background: <?=$split['BG_COLOR']?>"></span><?
+								?><span class="stat-item-plus" style="background: <?=$split['BG_COLOR']?>"></span><?php 
 							}
 
 							?>
 							<div class="stat-item-title" style="background: <?=$split['BG_COLOR']?>">
-								<?
+								<?php 
 
 								if ($split['SPLIT_BY'])
 								{
@@ -540,7 +540,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 									<?=$totalTopDenominator ? number_format($denominator / $totalTopDenominator * 100) : 0?>%
 								</span>
 							</div>
-							<?
+							<?php 
 
 							if ($rate)
 							{
@@ -549,7 +549,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 
 							?>
 							<div class="stat-item-block-more">
-								<?
+								<?php 
 
 								foreach ($rates as $name => $rate)
 								{
@@ -568,7 +568,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 									"><span><span><?=Loc::getMessage('CONVERSION_SUMMARY_MORE')?></span></span></a>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 
 					?>
@@ -581,6 +581,6 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 
 
 	</div>
-<?
+<?php 
 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

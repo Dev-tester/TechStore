@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORGOT_TITLE'] = "Вы забыли ввести поле \"Заголовок\"";
 $MESS ['FORM_FORM_LIST'] = "Список форм";
 $MESS ['FORM_NOT_FOUND'] = "Веб форма не найдена";

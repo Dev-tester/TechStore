@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['DOCUMENT_GROUP_NAME'] = 'Документ';
 $MESS['DOCUMENT_TITLE_FIELD_NAME'] = 'Название документа';
 $MESS['DOCUMENT_TRANSOFMER_MODULE_ERROR'] = 'Конвертация файлов недоступна - модуль не установлен';

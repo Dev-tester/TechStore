@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_WD_MODULE_IS_NOT_INSTALLED'] = "Модуль библиотека документов не установлен.";
 $MESS ['WD_IB_MODULE_IS_NOT_INSTALLED'] = "Модуль инфоблоки не установлен.";
 $MESS ['WD_SN_MODULE_IS_NOT_INSTALLED'] = "Модуль социальная сеть не установлен.";

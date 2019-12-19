@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_METAOG_NAME"] = "Rich formatting for social media";
 $MESS["LANDING_HOOK_METAOG_TITLE"] = "Title";
 $MESS["LANDING_HOOK_METAOG_TITLE_PLACEHOLDER"] = "Enter the page title";

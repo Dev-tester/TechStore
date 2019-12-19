@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arParams["DETAIL_URL_FOR_JS"] = CComponentEngine::MakePathFromTemplate($arParams["~DETAIL_URL"],
 	array(
 		"USER_ALIAS" => $arParams["USER_ALIAS"],

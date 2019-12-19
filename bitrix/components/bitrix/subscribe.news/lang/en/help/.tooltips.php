@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SORT_BY_TIP'] = "Select here the field by which the news items are to be sorted. ";
 $MESS ['SORT_ORDER_TIP'] = "Ascending or descending.";
 $MESS ['SITE_ID_TIP'] = "Select here the site whose information blocks will be used to create newsletters.";

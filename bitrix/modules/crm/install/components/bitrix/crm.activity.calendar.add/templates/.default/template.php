@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (empty($arResult['ERROR_MESSAGE']))
@@ -9,41 +9,41 @@ if (empty($arResult['ERROR_MESSAGE']))
 		?>
 		<script type="text/javascript">
 		top.BX.closeWait();
-		<?
+		<?php 
 		if (!empty($arResult['EVENT_PAGE']))
 		{
-			?>top.location.href = '<?=CUtil::JSEscape($arResult['EVENT_PAGE'])?>';<?
+			?>top.location.href = '<?=CUtil::JSEscape($arResult['EVENT_PAGE'])?>';<?php 
 		}
 		?>
 		top.BX.WindowManager.Get().Close();
 		</script>
-		<?
+		<?php 
 		die();
 	}
 }
 
 ?>
 <form action="/bitrix/components/bitrix/crm.activity.calendar.add/component.ajax.php" target="add_calendarfr" name="load_form" method="post" enctype="multipart/form-data" style="padding-top: 10px;">
-<?
+<?php 
 if (!empty($arResult['ERROR_MESSAGE']))
 {
 	?><div class="crm-errors-calendar-err"><div>
-		<?
+		<?php 
 			echo implode('<br />',$arResult['ERROR_MESSAGE']);
 		?></div>
-	</div><?
+	</div><?php 
 }
 ?>
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="FORM_TYPE" value="<?=$arResult['FORM_TYPE']?>"/>
 <input type="hidden" name="ENTITY_TYPE" value="<?=$arResult['ENTITY_TYPE']?>"/>
-<?
+<?php 
 if (is_array($arResult['ENTITY_ID'])):
 	foreach($arResult['ENTITY_ID'] as $iEntitiID):
-	?><input type="hidden" name="ENTITY_ID[]" value="<?=$iEntitiID?>"/><?
+	?><input type="hidden" name="ENTITY_ID[]" value="<?=$iEntitiID?>"/><?php 
 	endforeach;
 else:
-	?><input type="hidden" name="ENTITY_ID" value="<?=$arResult['ENTITY_ID']?>"/><?
+	?><input type="hidden" name="ENTITY_ID" value="<?=$arResult['ENTITY_ID']?>"/><?php 
 endif;
 ?>
 <input type="hidden" name="EVENT_PAGE" value="" id="EVENT_PAGE" />
@@ -54,7 +54,7 @@ endif;
 		<span class="required">*</span><?=GetMessage('CRM_CALENDAR_TOPIC')?>:
 	</td>
 	<td class="bx-field-value bx-padding">
-		<input type="text" value="<? echo htmlspecialcharsbx($arResult['VALUES']['CALENDAR_TOPIC']); ?>" name="CALENDAR_TOPIC" id="CALENDAR_TOPIC" style="width: 100%;"/>
+		<input type="text" value="<?php  echo htmlspecialcharsbx($arResult['VALUES']['CALENDAR_TOPIC']); ?>" name="CALENDAR_TOPIC" id="CALENDAR_TOPIC" style="width: 100%;"/>
 	</td>
 </tr>
 <tr>
@@ -62,9 +62,9 @@ endif;
 		<span class="required">*</span><?=GetMessage('CRM_CALENDAR_DATE')?>:
 	</td>
 	<td class="bx-field-value bx-padding">
-		<div class="event_date" id="crm_event_date" style="display: inline-block;text-decoration: none; border-bottom: 1px dashed #000;outline:none; cursor: pointer; color: #000" onclick="eventShowDateBox()"><? echo htmlspecialcharsex($arResult['VALUES']['CALENDAR_FROM']);?> - <? echo htmlspecialcharsex($arResult['VALUES']['CALENDAR_TO']);?></div>
+		<div class="event_date" id="crm_event_date" style="display: inline-block;text-decoration: none; border-bottom: 1px dashed #000;outline:none; cursor: pointer; color: #000" onclick="eventShowDateBox()"><?php  echo htmlspecialcharsex($arResult['VALUES']['CALENDAR_FROM']);?> - <?php  echo htmlspecialcharsex($arResult['VALUES']['CALENDAR_TO']);?></div>
 		<div class="event_date_box" id="crm_event_date_box" style="display:none">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:main.calendar',
 				'',
 				array(
@@ -85,32 +85,32 @@ endif;
 <tr>
 	<td class="bx-field-value bx-padding" colspan="2">
 		<input type="hidden" name="REMIND_FLAG" value="N">
-		<input type="checkbox" name="REMIND_FLAG" value="Y" <? echo ('Y' == $arResult['VALUES']['REMIND_FLAG'] ? 'checked' : ''); ?> onclick="eventShowReminBox(this);">&nbsp;
-		<? echo GetMessage('CRM_CALENDAR_REMIND')?>&nbsp;
-		<span id="crm_event_remind_box" style="display: <? echo ('Y' == $arResult['VALUES']['REMIND_FLAG'] ? 'inline' : 'none'); ?>"><? echo GetMessage('CRM_CALENDAR_REMIND_FROM'); ?>&nbsp;
-		<input type="text" value="<? echo intval($arResult['VALUES']['REMIND_LEN']); ?>" name="REMIND_LEN">&nbsp;<select name="REMIND_TYPE">
-		<option value="min" <? echo ('min' == $arResult['VALUES']['REMIND_TYPE'] ? 'selected' : ''); ?>><? echo GetMessage('BX_CRM_CACA_REM_MIN') ?></option>
-		<option value="hour" <? echo ('hour' == $arResult['VALUES']['REMIND_TYPE'] ? 'selected' : ''); ?>><? echo GetMessage('BX_CRM_CACA_REM_HOUR') ?></option>
-		<option value="day" <? echo ('day' == $arResult['VALUES']['REMIND_TYPE'] ? 'selected' : ''); ?>><? echo GetMessage('BX_CRM_CACA_REM_DAY') ?></option>
+		<input type="checkbox" name="REMIND_FLAG" value="Y" <?php  echo ('Y' == $arResult['VALUES']['REMIND_FLAG'] ? 'checked' : ''); ?> onclick="eventShowReminBox(this);">&nbsp;
+		<?php  echo GetMessage('CRM_CALENDAR_REMIND')?>&nbsp;
+		<span id="crm_event_remind_box" style="display: <?php  echo ('Y' == $arResult['VALUES']['REMIND_FLAG'] ? 'inline' : 'none'); ?>"><?php  echo GetMessage('CRM_CALENDAR_REMIND_FROM'); ?>&nbsp;
+		<input type="text" value="<?php  echo intval($arResult['VALUES']['REMIND_LEN']); ?>" name="REMIND_LEN">&nbsp;<select name="REMIND_TYPE">
+		<option value="min" <?php  echo ('min' == $arResult['VALUES']['REMIND_TYPE'] ? 'selected' : ''); ?>><?php  echo GetMessage('BX_CRM_CACA_REM_MIN') ?></option>
+		<option value="hour" <?php  echo ('hour' == $arResult['VALUES']['REMIND_TYPE'] ? 'selected' : ''); ?>><?php  echo GetMessage('BX_CRM_CACA_REM_HOUR') ?></option>
+		<option value="day" <?php  echo ('day' == $arResult['VALUES']['REMIND_TYPE'] ? 'selected' : ''); ?>><?php  echo GetMessage('BX_CRM_CACA_REM_DAY') ?></option>
 		</select>
 		</span>
 	</td>
 </tr>
 <tr>
-	<td class="bx-field-value bx-padding crm-one-row-text"><? echo GetMessage('BX_CRM_CACA_PRIORITY') ?>:</td>
+	<td class="bx-field-value bx-padding crm-one-row-text"><?php  echo GetMessage('BX_CRM_CACA_PRIORITY') ?>:</td>
 	<td class="bx-field-value bx-padding"><select name="PRIORITY">
-	<option value="high" <? echo ('high' == $arResult['VALUES']['PRIORITY'] ? 'selected' : ''); ?>><? echo GetMessage('BX_CRM_CACA_PRIORITY_HIGH') ?></option>
-	<option value="normal" <? echo ('normal' == $arResult['VALUES']['PRIORITY'] ? 'selected' : ''); ?>><? echo GetMessage('BX_CRM_CACA_PRIORITY_NORMAL') ?></option>
-	<option value="low" <? echo ('low' == $arResult['VALUES']['PRIORITY'] ? 'selected' : ''); ?>><? echo GetMessage('BX_CRM_CACA_PRIORITY_LOW') ?></option>
+	<option value="high" <?php  echo ('high' == $arResult['VALUES']['PRIORITY'] ? 'selected' : ''); ?>><?php  echo GetMessage('BX_CRM_CACA_PRIORITY_HIGH') ?></option>
+	<option value="normal" <?php  echo ('normal' == $arResult['VALUES']['PRIORITY'] ? 'selected' : ''); ?>><?php  echo GetMessage('BX_CRM_CACA_PRIORITY_NORMAL') ?></option>
+	<option value="low" <?php  echo ('low' == $arResult['VALUES']['PRIORITY'] ? 'selected' : ''); ?>><?php  echo GetMessage('BX_CRM_CACA_PRIORITY_LOW') ?></option>
 	</select></td>
 </tr>
 <tr>
 	<td class="bx-field-value bx-padding" style="background-image: none;" colspan="2">
-		<? echo GetMessage('CRM_CALENDAR_DESC')?>:
+		<?php  echo GetMessage('CRM_CALENDAR_DESC')?>:
 	</td>
 </tr><tr>
 	<td class="bx-field-value bx-padding event-desc" colspan="2">
-		<textarea id="CALENDAR_DESC" name="CALENDAR_DESC" rows="7" style="width:100%"><? echo htmlspecialcharsbx($arResult['VALUES']['CALENDAR_DESC']); ?></textarea>
+		<textarea id="CALENDAR_DESC" name="CALENDAR_DESC" rows="7" style="width:100%"><?php  echo htmlspecialcharsbx($arResult['VALUES']['CALENDAR_DESC']); ?></textarea>
 	</td>
 </tr>
 </table>

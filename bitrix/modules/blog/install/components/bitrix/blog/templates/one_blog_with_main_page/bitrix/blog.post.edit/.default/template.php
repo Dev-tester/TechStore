@@ -1,22 +1,22 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["MESSAGE"])>0)
 {
 	?>
 	<?=$arResult["MESSAGE"]?><br /><br />
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["ERROR_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FATAL_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {	
@@ -54,12 +54,12 @@ else
 		<input type="button" value="<?=GetMessage("BLOG_P_CANCEL")?>" onclick="self.close()">
 		</form>
 		</html>
-		<?
+		<?php 
 		if(strlen($_POST["do_upload"])>0)
 		{
 			?>
 			<script>
-				<?
+				<?php 
 				if(!empty($arResult["Image"]))
 				{?>
 				my_html = '<?=$arResult["ImageModified"]?>' +
@@ -101,7 +101,7 @@ else
 				oCell.vAlign = 'top';
 				oCell.innerHTML = my_html;
 				
-				<?
+				<?php 
 				if($_GET["htmlEditor"] == "Y")
 				{
 					?>
@@ -119,19 +119,19 @@ else
 							window.opener.arImages[i] = '<?=$arResult["Image"]["ID"]?>';
 						}
 					}
-					<?
+					<?php 
 				}
 				else
 				{
 					?>
 					opener.doInsert('[IMG ID=<?=$arResult["Image"]["ID"]?>]','',false);
-					<?
+					<?php 
 				}
 				}
 				?>
 				self.close();
 			</script>
-			<?
+			<?php 
 		}
 
 		die();
@@ -149,11 +149,11 @@ else
 			var arVideoP = Array();
 			var arVideoW = Array();
 			var arVideoH = Array();
-			<?
+			<?php 
 			$i = 0;
 			foreach($arResult["Images"] as $aImg)
 			{
-				?>arImages['<?=$i?>'] = '<?=$aImg["ID"]?>';<?
+				?>arImages['<?=$i?>'] = '<?=$aImg["ID"]?>';<?php 
 				$i++;
 			}
 
@@ -172,7 +172,7 @@ else
 						arVideoP['<?=$i?>'] = '<?=CUtil::JSEscape($matches[2][$key])?>';
 						arVideoW['<?=$i?>'] = '<?=IntVal($width[1])?>';
 						arVideoH['<?=$i?>'] = '<?=IntVal($height[1])?>';
-						<?
+						<?php 
 						$i++;
 					}
 				}
@@ -190,7 +190,7 @@ else
 			//-->
 			</script>
 			
-			<?
+			<?php 
 			function CustomizeEditorForBlog()
 			{
 				?>
@@ -318,7 +318,7 @@ else
 				//-->
 				</script>
 
-				<?
+				<?php 
 			}
 
 			AddEventHandler("fileman", "OnIncludeHTMLEditorScript", "CustomizeEditorForBlog");
@@ -326,7 +326,7 @@ else
 			<script>
 			jsUtils.addCustomEvent('EditorLoadFinish_POST_MESSAGE_HTML', BXBlogSetEditorContent);
 			</script>
-			<?
+			<?php 
 
 			CFileman::ShowHTMLEditControl("POST_MESSAGE_HTML", $arResult["PostToShow"]["~DETAIL_TEXT"], Array(
 					"site" => SITE_ID,
@@ -387,17 +387,17 @@ else
 					<?=$arResult["postPreview"]["BlogUser"]["AVATAR_img"]?>
 					<?=$arResult["postPreview"]["textFormated"]?>
 					<br clear="all" />
-					<?if(!empty($arResult["postPreview"]["Category"]))
+					<?php if(!empty($arResult["postPreview"]["Category"]))
 					{
 						?>
 						<div class="blog-line"></div>
 						<?=GetMessage("BLOG_BLOG_BLOG_CATEGORY")?>
-						<?$i=0;
+						<?php $i=0;
 						foreach($arResult["postPreview"]["Category"] as $v)
 						{
 							if($i!=0)
 								echo ",";
-							?> <?=$v["NAME"]?><?
+							?> <?=$v["NAME"]?><?php 
 							$i++;
 						}
 					}
@@ -406,7 +406,7 @@ else
 			</tr>
 			</table>
 			<br />
-			<?
+			<?php 
 		}
 
 		?>
@@ -441,18 +441,18 @@ else
 									</select>
 									</td>
 									<td nowrap>
-										&nbsp;<a id="FontColor" class="blogButton" href="javascript:ColorPicker()"><img class="blogButton" src="<?=$templateFolder?>/images/font_color.gif" width="20" height="20" title="<?echo GetMessage("FPF_IMAGE")?>"></a>
-										<a class="blogButton" href="javascript:simpletag('B')"><img class="blogButton" src="<?=$templateFolder?>/images/bold.gif" width="20" height="20" title="<?echo GetMessage("FPF_BOLD")?>"></a>
-										<a class="blogButton" href="javascript:simpletag('I')"><img class="blogButton" src="<?=$templateFolder?>/images/italic.gif" width="20" height="20" title="<?echo GetMessage("FPF_ITALIC")?>"></a>
-										<a class="blogButton" href="javascript:simpletag('U')"><img class="blogButton" src="<?=$templateFolder?>/images/under.gif" width="20" height="20" title="<?echo GetMessage("FPF_UNDER")?>"></a>
-										<a class="blogButton" href="javascript:tag_url()"><img class="blogButton" src="<?=$templateFolder?>/images/link.gif" width="20" height="20" title="<?echo GetMessage("FPF_HYPERLINK")?>"></a>
+										&nbsp;<a id="FontColor" class="blogButton" href="javascript:ColorPicker()"><img class="blogButton" src="<?=$templateFolder?>/images/font_color.gif" width="20" height="20" title="<?php echo GetMessage("FPF_IMAGE")?>"></a>
+										<a class="blogButton" href="javascript:simpletag('B')"><img class="blogButton" src="<?=$templateFolder?>/images/bold.gif" width="20" height="20" title="<?php echo GetMessage("FPF_BOLD")?>"></a>
+										<a class="blogButton" href="javascript:simpletag('I')"><img class="blogButton" src="<?=$templateFolder?>/images/italic.gif" width="20" height="20" title="<?php echo GetMessage("FPF_ITALIC")?>"></a>
+										<a class="blogButton" href="javascript:simpletag('U')"><img class="blogButton" src="<?=$templateFolder?>/images/under.gif" width="20" height="20" title="<?php echo GetMessage("FPF_UNDER")?>"></a>
+										<a class="blogButton" href="javascript:tag_url()"><img class="blogButton" src="<?=$templateFolder?>/images/link.gif" width="20" height="20" title="<?php echo GetMessage("FPF_HYPERLINK")?>"></a>
 										<a class="blogButton" href="javascript:tag_image()"><img class="blogButton" src="<?=$templateFolder?>/images/image_link.gif" width="20" height="20" title="<?=GetMessage("BLOG_P_IMAGE_LINK")?>" id="image-link"></a>
 										<a class="blogButton" href="javascript:ShowImageUpload()"><img class="blogButton" src="<?=$templateFolder?>/images/image.gif" width="20" height="20" title="<?=GetMessage("BLOG_P_DO_UPLOAD")?>" id="image-upload"></a>
 										<a class="blogButton" href="javascript:ShowVideoInput()"><img class="blogButton" src="<?=$templateFolder?>/images/video.gif" width="20" height="20" title="<?=GetMessage("FPF_VIDEO")?>" id="videoImg"></a>
-										<a class="blogButton" href="javascript:quoteMessage()"><img class="blogButton" src="<?=$templateFolder?>/images/quote.gif" width="20" height="20" title="<?echo GetMessage("FPF_QUOTE")?>"></a>
-										<a class="blogButton" href="javascript:simpletag('CODE')"><img class="blogButton" src="<?=$templateFolder?>/images/code.gif" width="20" height="20" title="<?echo GetMessage("FPF_CODE")?>"></a>
-										<a class="blogButton" href="javascript:tag_list()"><img class="blogButton" src="<?=$templateFolder?>/images/list.gif" width="20" height="20" title="<?echo GetMessage("FPF_LIST")?>"></a>
-										<a class="blogButton" href="javascript:void(0)" onclick="doInsert('[CUT]', '', false)"><img class="blogButton" src="<?=$templateFolder?>/images/cut.gif" width="20" height="20" title="<?echo GetMessage("FPF_CUT")?>" id="cutImg"></a>
+										<a class="blogButton" href="javascript:quoteMessage()"><img class="blogButton" src="<?=$templateFolder?>/images/quote.gif" width="20" height="20" title="<?php echo GetMessage("FPF_QUOTE")?>"></a>
+										<a class="blogButton" href="javascript:simpletag('CODE')"><img class="blogButton" src="<?=$templateFolder?>/images/code.gif" width="20" height="20" title="<?php echo GetMessage("FPF_CODE")?>"></a>
+										<a class="blogButton" href="javascript:tag_list()"><img class="blogButton" src="<?=$templateFolder?>/images/list.gif" width="20" height="20" title="<?php echo GetMessage("FPF_LIST")?>"></a>
+										<a class="blogButton" href="javascript:void(0)" onclick="doInsert('[CUT]', '', false)"><img class="blogButton" src="<?=$templateFolder?>/images/cut.gif" width="20" height="20" title="<?php echo GetMessage("FPF_CUT")?>" id="cutImg"></a>
 									</td>
 									<td width="100%" align="right"><a id="close_all" style="visibility:hidden" class="blogButton" href="javascript:closeall()" title="<?=GetMessage("FPF_CLOSE_OPENED_TAGS")?>"><?=GetMessage("FPF_CLOSE_ALL_TAGS")?></a>
 									</td>
@@ -464,7 +464,7 @@ else
 							<td width="100%"><textarea tabindex="2" name="POST_MESSAGE" style="width:99%" rows="15" id="MESSAGE" onKeyPress="check_ctrl_enter(arguments[0])"><?=$arResult["PostToShow"]["DETAIL_TEXT"]?></textarea></td>
 							<td valign="middle">
 								<table class="blog-blog-edit-table-smiles">
-									<?
+									<?php 
 									$ind = 0;
 									foreach($arResult["Smiles"] as $arSmiles)
 									{
@@ -472,7 +472,7 @@ else
 											echo "<tr>";
 										?>
 											<td align="center"><img src="/bitrix/images/blog/smile/<?=$arSmiles["IMAGE"]?>" width="<?=$arSmiles["IMAGE_WIDTH"]?>" height="<?=$arSmiles["IMAGE_HEIGHT"]?>" title="<?=$arSmiles["LANG_NAME"]?>" OnClick="emoticon('<?=$arSmiles["TYPE"]?>')" style="cursor:pointer"></td>
-										<?
+										<?php 
 										if($ind == 1)
 										{
 											echo "</tr>";
@@ -495,7 +495,7 @@ else
 			showEditField('text', 'N');
 			//-->
 			</script>
-			<?
+			<?php 
 			if (!empty($arResult["Images"]))
 			{
 				?>
@@ -505,7 +505,7 @@ else
 					</th>
 					<td>
 						<table class="blog-blog-edit-table" id="img_TABLE">
-						<?
+						<?php 
 						$i=0;
 						foreach($arResult["Images"] as $aImg)
 						{
@@ -517,7 +517,7 @@ else
 									<input name="IMAGE_ID_title[<?=$aImg["ID"]?>]" value="<?=$aImg["TITLE"]?>" style="width:100px;" title="<?=GetMessage("BLOG_BLOG_IN_IMAGES_TITLE")?>"><br />
 									<input type="checkbox" name="IMAGE_ID_del[<?=$aImg["ID"]?>]" id="img_del_<?=$aImg["ID"]?>"> <label for="img_del_<?=$aImg["ID"]?>"><?=GetMessage("BLOG_DELETE")?></label>
 								</td>
-							<?
+							<?php 
 							if($i == 3)
 							{
 								echo "</tr>";
@@ -532,7 +532,7 @@ else
 						</table>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 				
@@ -556,17 +556,17 @@ else
 			<tr>
 				<th valign="top" align="right" nowrap><b><?=GetMessage("BLOG_CATEGORY")?></b></th>
 				<td>
-					<?/*
+					<?php /*
 					<select name="CATEGORY_ID[]" id="CATEGORY_ID" multiple="multiple" size="5">
 						<option value="0"<?=(IntVal($arResult["PostToShow"]["CATEGORY_ID"])==0 ? " selected" : "")?>><?=GetMessage("BLOG_NO_CATEGORY")?></option>
-						<?
+						<?php 
 						foreach($arResult["Category"] as $arCategory)
 						{
 							if($arCategory["Selected"]=="Y")
 								$value .= $arCategory["~NAME"].", ";
 							?>
 							<option value="<?=$arCategory["ID"]?>"<?=($arCategory["Selected"]=="Y" ? " selected" : "")?>><?=$arCategory["NAME"]?></option>
-							<?
+							<?php 
 						}
 						$value = substr($value, 0, strlen($value)-2);
 						?>
@@ -576,7 +576,7 @@ else
 					<div id="category-add"><a href="javascript:AddCategory();" class="blog-category-add" title="<?=GetMessage("BLOG_CATEGORY_ADD")?>"></a>&nbsp;<a href="javascript:AddCategory();" title="<?=GetMessage("BLOG_CATEGORY_ADD")?>"><?=GetMessage("BLOG_CATEGORY_ADD")?></a></div>
 					*/?>
 					<div id="category-new">
-						<?
+						<?php 
 						if(IsModuleInstalled("search"))
 						{
 							$APPLICATION->IncludeComponent("bitrix:search.tags.input", ".default", Array(
@@ -593,7 +593,7 @@ else
 						else
 						{
 							?><input type="text" name="TAGS" value="">
-							<?
+							<?php 
 						}?>
 						<!--<input type="button" name="ok" OnClick="AddCategoryToList()" value="<?=GetMessage("BLOG_CATEGORY_ADD")?>">//-->
 					</div>
@@ -604,7 +604,7 @@ else
 			<tr>
 				<th valign="top" align="right" nowrap> <b><?=GetMessage("BLOG_DATE_PUBLISH")?></b></th>
 				<td nowrap>
-				<?
+				<?php 
 					$APPLICATION->IncludeComponent(
 						'bitrix:main.calendar',
 						'',
@@ -622,7 +622,7 @@ else
 				</td>
 			</tr>
 
-			<?if($arResult["enable_trackback"] == "Y")
+			<?php if($arResult["enable_trackback"] == "Y")
 			{
 				?>
 				<tr>
@@ -635,29 +635,29 @@ else
 						<label for="enable_tb"><?=GetMessage("BLOG_ALLOW_TRACKBACK")?></label>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
-			<?if($arResult["POST_PROPERTIES"]["SHOW"] == "Y"):?>
-				<?foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):?>
+			<?php if($arResult["POST_PROPERTIES"]["SHOW"] == "Y"):?>
+				<?php foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):?>
 				<tr>
 					<th><b><?=$arPostField["EDIT_FORM_LABEL"]?>:</b></th>
 					<td>
-							<?$APPLICATION->IncludeComponent(
+							<?php $APPLICATION->IncludeComponent(
 								"bitrix:system.field.edit", 
 								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 					</td>
 				</tr>			
-				<?endforeach;?>
-			<?endif;?>
-			<?if($USER->IsAdmin()):?>
+				<?php endforeach;?>
+			<?php endif;?>
+			<?php if($USER->IsAdmin()):?>
 				<tr>
 					<td colspan="2"><a href="/bitrix/admin/userfield_edit.php?ENTITY_ID=BLOG_POST&back_url=<?=$arResult["CUR_PAGE"]?>"><?=GetMessage("BLOG_POST_PROPERTY_ADD")?></a></th>
 				</tr>
-			<?endif;?>
+			<?php endif;?>
 			</table>
-			<?
+			<?php 
 //			userconsent only for once for registered early users
 			if ($arParams['USER_CONSENT'] == 'Y' && !$arParams['USER_CONSENT_WAS_GIVEN'])
 			{
@@ -689,8 +689,8 @@ else
 		</form>
 		<br />
 		<span class="blogtext">
-		<?echo GetMessage("FPF_TO_QUOTE_NOTE")?><br />
-		<?echo GetMessage("STOF_REQUIED_FIELDS_NOTE")?><br />
+		<?php echo GetMessage("FPF_TO_QUOTE_NOTE")?><br />
+		<?php echo GetMessage("STOF_REQUIED_FIELDS_NOTE")?><br />
 		<sup>1</sup> - <?=GetMessage("BLOG_FAVORITE_SORT_HINT")?>
 		</span>
 		<script>
@@ -698,7 +698,7 @@ else
 		document.REPLIER.POST_TITLE.focus();
 		//-->
 		</script>
-		<?
+		<?php 
 	}
 }
 ?>

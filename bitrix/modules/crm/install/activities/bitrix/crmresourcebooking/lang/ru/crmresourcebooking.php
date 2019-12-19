@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RB_RESOURCE_FIELD"] = "Поле";
 $MESS["CRM_RB_RESOURCE_NAME"] = "Услуга";
 $MESS["CRM_RB_RESOURCE_START_DATE"] = "Дата начала";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_REPORT'] = "Настройка печатных форм";
 $MESS ['SPS_USER_ID'] = "Код пользователя (ID)";
 $MESS ['SPS_USER_LOGIN'] = "Логин";

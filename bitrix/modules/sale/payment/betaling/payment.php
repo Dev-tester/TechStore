@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $butiksnr = CSalePaySystemAction::GetParamValue("SHOP_CODE");
 $ordrenr = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 $belob = $GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["SHOULD_PAY"];
@@ -30,4 +30,4 @@ function open_window(url)
 }
 </script>
 <input type="submit" value="Payment" name="B1" class="inputbutton" 
-	onclick="javascript:open_window('https://betaling.viborgnet.dk/payment/payment.php?butiksnr=<?echo $butiksnr ?>&ordrenr=<?echo $ordrenr ?>&belob=<?echo $belob ?><?echo $testthis ?>&lang=<?echo $langthis ?>&valuta=<?echo $valuta ?>&afvist=<?echo $afvist ?>&godkendt=<?echo $godkendt ?>&stylesheet=')">
+	onclick="javascript:open_window('https://betaling.viborgnet.dk/payment/payment.php?butiksnr=<?php echo $butiksnr ?>&ordrenr=<?php echo $ordrenr ?>&belob=<?php echo $belob ?><?php echo $testthis ?>&lang=<?php echo $langthis ?>&valuta=<?php echo $valuta ?>&afvist=<?php echo $afvist ?>&godkendt=<?php echo $godkendt ?>&stylesheet=')">

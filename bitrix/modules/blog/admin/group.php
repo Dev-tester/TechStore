@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/blog/include.php");
 
@@ -190,8 +190,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("BLG_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -202,15 +202,15 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("BLG_FILTER_SITE_ID")?>:</td>
-		<td><?echo CLang::SelectBox("filter_site_id", $filter_site_id, GetMessage("BLG_SPT_ALL")) ?>
+		<td><?php echo GetMessage("BLG_FILTER_SITE_ID")?>:</td>
+		<td><?php echo CLang::SelectBox("filter_site_id", $filter_site_id, GetMessage("BLG_SPT_ALL")) ?>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLG_GROUP_NAME")?>:</td>
-		<td><input type="text" name="filter_name" value="<?echo htmlspecialcharsbx($filter_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLG_GROUP_NAME")?>:</td>
+		<td><input type="text" name="filter_name" value="<?php echo htmlspecialcharsbx($filter_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -222,10 +222,10 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

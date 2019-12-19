@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Site paths";
 $MESS ['STAT_F_LAST_PAGE'] = "Last page of the path";
 $MESS ['STAT_F_PAGE'] = "Any page of the path";

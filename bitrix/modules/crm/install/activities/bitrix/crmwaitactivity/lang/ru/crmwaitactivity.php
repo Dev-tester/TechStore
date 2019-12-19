@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WAIT_ACTIVITY_WAIT_TYPE"] = "Тип ожидания";
 $MESS["CRM_WAIT_ACTIVITY_WAIT_AFTER"] = "Ждать указанное количество дней";
 $MESS["CRM_WAIT_ACTIVITY_WAIT_BEFORE"] = "Ждать указанное количество дней до выбранной даты";

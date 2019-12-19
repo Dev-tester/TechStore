@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_TITLE"] = "Настройки \"Ebay\"";
 $MESS["SALE_EBAY_AUTH_FAIL"] = "Ошибка авторизации";
 $MESS["SALE_EBAY_GET_TOKEN_FAIL"] = "Ошибка получения токена";

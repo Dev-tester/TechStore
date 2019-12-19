@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TYPE_PRESET_TEMPLATE_BASE"] = "Standard templates";
 $MESS["TYPE_PRESET_TEMPLATE_USER"] = "My templates";
 $MESS["TYPE_PRESET_TEMPLATE_ADDITIONAL"] = "Additional templates";

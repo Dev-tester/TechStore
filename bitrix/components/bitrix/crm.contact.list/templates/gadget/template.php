@@ -15,7 +15,7 @@ else
 			<div class="crm-contact-element-title"><a href="<?=$arContact['PATH_TO_CONTACT_SHOW']?>" title="<?=$arContact['CONTACT_FORMATTED_NAME']?>" bx-tooltip-user-id="CONTACT_<?=$arContact['~ID']?>" bx-tooltip-loader="<?=htmlspecialcharsbx('/bitrix/components/bitrix/crm.contact.show/card.ajax.php')?>" bx-tooltip-classname="crm_balloon_contact"><?=$arContact['CONTACT_FORMATTED_NAME']?></a></div>
 			<div class="crm-contact-element-status"><?=GetMessage('CRM_COLUMN_CONTACT_TYPE')?>: <span><?=$arResult['TYPE_LIST'][$arContact['TYPE_ID']]?></span></div>
 		</div>
-		<?
+		<?php 
 	}
 }
 ?>

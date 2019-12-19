@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBPCM_TEMPLATE_FILES"] = "Файлы:";
 $MESS["SBPCM_TEMPLATE_AUTHOR_ACTION_M"] = "добавил новый комментарий";
 $MESS["SBPCM_TEMPLATE_AUTHOR_ACTION_F"] = "добавила новый комментарий";

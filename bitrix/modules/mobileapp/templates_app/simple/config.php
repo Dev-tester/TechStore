@@ -1,4 +1,4 @@
-<?
+<?php 
 header("Content-Type: application/x-javascript");
 $hash = "12345678";
 $config = array("appmap" =>

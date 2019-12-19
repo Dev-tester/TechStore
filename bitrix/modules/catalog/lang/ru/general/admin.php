@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_MENU_ROOT_TITLE"] = "Товарный каталог";
 $MESS["CAT_MENU_ROOT"] = "Каталог товаров";
 $MESS["CAT_MENU_ROOT_MULTI"] = "Каталоги товаров";

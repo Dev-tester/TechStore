@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
@@ -144,7 +144,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 					style="display: none; opacity: 0;">
 				<?=$arParams['GIFTS_BLOCK_TITLE']?>
 			</div>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:sale.products.gift.basket',
 				'bootstrap_v4',
@@ -153,7 +153,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			);
 			?>
 		</div>
-		<?
+		<?php 
 	}
 
 	if ($arResult['BASKET_ITEM_MAX_COUNT_EXCEEDED'])
@@ -162,11 +162,11 @@ if (empty($arResult['ERROR_MESSAGE']))
 		<div id="basket-item-message">
 			<?=Loc::getMessage('SBB_BASKET_ITEM_MAX_COUNT_EXCEEDED', array('#PATH#' => $arParams['PATH_TO_BASKET']))?>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 	<div id="basket-root" class="bx-basket bx-<?=$arParams['TEMPLATE_THEME']?> bx-step-opacity" style="opacity: 0;">
-		<?
+		<?php 
 		if (
 			$arParams['BASKET_WITH_ORDER_INTEGRATION'] !== 'Y'
 			&& in_array('top', $arParams['TOTAL_BLOCK_DISPLAY'])
@@ -176,7 +176,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			<div class="row">
 				<div class="col" data-entity="basket-total-block"></div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 
@@ -225,7 +225,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		if (
 			$arParams['BASKET_WITH_ORDER_INTEGRATION'] !== 'Y'
 			&& in_array('bottom', $arParams['TOTAL_BLOCK_DISPLAY'])
@@ -235,11 +235,11 @@ if (empty($arResult['ERROR_MESSAGE']))
 			<div class="row">
 				<div class="col" data-entity="basket-total-block"></div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</div>
-	<?
+	<?php 
 	if (!empty($arResult['CURRENCIES']) && Main\Loader::includeModule('currency'))
 	{
 		CJSCore::Init('currency');
@@ -248,7 +248,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 		<script>
 			BX.Currency.setCurrencies(<?=CUtil::PhpToJSObject($arResult['CURRENCIES'], false, true, true)?>);
 		</script>
-		<?
+		<?php 
 	}
 
 	$signer = new \Bitrix\Main\Security\Sign\Signer;
@@ -268,7 +268,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			templateFolder: '<?=CUtil::JSEscape($templateFolder)?>'
 		});
 	</script>
-	<?
+	<?php 
 	if ($arParams['USE_GIFTS'] === 'Y' && $arParams['GIFTS_PLACE'] === 'BOTTOM')
 	{
 		?>
@@ -279,7 +279,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 					style="display: none; opacity: 0;">
 				<?=$arParams['GIFTS_BLOCK_TITLE']?>
 			</div>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:sale.products.gift.basket',
 				'bootstrap_v4',
@@ -288,7 +288,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			);
 			?>
 		</div>
-		<?
+		<?php 
 	}
 }
 elseif ($arResult['EMPTY_BASKET'])

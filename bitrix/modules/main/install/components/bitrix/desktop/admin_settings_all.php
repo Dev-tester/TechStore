@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("BX_SECURITY_SHOW_MESSAGE", true);
 
@@ -64,7 +64,7 @@ if($REQUEST_METHOD=="POST" && $_REQUEST['save'] == 'Y')
 		top.BX.showWait();
 		top.location.href = '<?=htmlspecialcharsbx(CUtil::JSEscape($desktop_backurl))?>';
 		</script>
-		<?
+		<?php 
 		die();
 	}
 
@@ -82,13 +82,13 @@ $obJSPopup->ShowTitlebar();
 ?>
 <script src="/bitrix/js/main/dd.js" type="text/javascript"></script>
 
-<?
+<?php 
 if($strWarning <> "")
 	$obJSPopup->ShowValidationError($strWarning);
 
 ?>
 
-<?
+<?php 
 // ======================== Show content ============================= //
 $obJSPopup->StartContent();
 ?>
@@ -103,7 +103,7 @@ div.bx-core-dialog-content div.bx-desktopset-current-row div.edit-field-active {
 <thead>
 	<tr class="heading">
 		<td width="0"></td>
-		<td width="50%"><b><?echo GetMessage("CMDESKTOP_ADMIN_SETTINGS_ALL_NAME")?></b></td>
+		<td width="50%"><b><?php echo GetMessage("CMDESKTOP_ADMIN_SETTINGS_ALL_NAME")?></b></td>
 		<td width="0"></td>
 		<td width="0"></td>
 		<td width="0"></td>
@@ -111,7 +111,7 @@ div.bx-core-dialog-content div.bx-desktopset-current-row div.edit-field-active {
 </thead>
 </table>
 
-<div id="bx_desktopset_layout" class="bx-desktopset-layout"><?
+<div id="bx_desktopset_layout" class="bx-desktopset-layout"><?php 
 $itemcnt = 0;
 
 for($i=1; $i<=count($arUserOptions); $i++):
@@ -127,15 +127,15 @@ for($i=1; $i<=count($arUserOptions); $i++):
 		</td>
 		<td>
 			<div onmouseout="rowMouseOut(this)" onmouseover="rowMouseOver(this)" class="edit-field view-area" id="view_area_text_<?=$i?>" onclick="editArea('text_<?=$i?>')" title="<?=GetMessage('CMDESKTOP_ADMIN_SETTINGS_ALL_TOOLTIP_TEXT_EDIT')?>"><?=(strlen($arUserOption["NAME"])>0?htmlspecialcharsbx($arUserOption["NAME"]):GetMessage('CMDESKTOP_ADMIN_SETTINGS_ALL_DIALOG_DESKTOP').$i)?></div>
-			<div class="edit-area" id="edit_area_text_<?=$i?>" style="display: none;"><input type="text" style="width: 220px;" name="text_<?echo $i?>" value="<?=(strlen($arUserOption["NAME"])>0?htmlspecialcharsbx($arUserOption["NAME"]):GetMessage('CMDESKTOP_ADMIN_SETTINGS_ALL_DIALOG_DESKTOP').$i)?>" onblur="viewArea('text_<?=$i?>')" /></div>
+			<div class="edit-area" id="edit_area_text_<?=$i?>" style="display: none;"><input type="text" style="width: 220px;" name="text_<?php echo $i?>" value="<?=(strlen($arUserOption["NAME"])>0?htmlspecialcharsbx($arUserOption["NAME"]):GetMessage('CMDESKTOP_ADMIN_SETTINGS_ALL_DIALOG_DESKTOP').$i)?>" onblur="viewArea('text_<?=$i?>')" /></div>
 		</td>
 		<td><span onclick="dsMoveUp(<?=$i?>)" class="rowcontrol up" style="visibility: <?=($i == 1 ? 'hidden' : 'visible')?>" title="<?=GetMessage('CMDESKTOP_ADMIN_SETTINGS_ALL_TOOLTIP_UP')?>"></span></td>
 		<td><span onclick="dsMoveDown(<?=$i?>)" class="rowcontrol down" style="visibility: <?=($i == count($arUserOptions) ? 'hidden' : 'visible')?>" title="<?=GetMessage('CMDESKTOP_ADMIN_SETTINGS_ALL_TOOLTIP_DOWN')?>"></span></td>
 		<td><span onclick="dsDelete(<?=$i?>)" class="rowcontrol delete" title="<?=GetMessage('CMDESKTOP_ADMIN_SETTINGS_ALL_TOOLTIP_DELETE')?>"></span></td>
 	</tr>
-	</tbody></table></div></div><?
+	</tbody></table></div></div><?php 
 endfor?></div>
-<input type="hidden" name="itemcnt" value="<?echo $itemcnt?>" />
+<input type="hidden" name="itemcnt" value="<?php echo $itemcnt?>" />
 <input type="hidden" name="desktop_backurl" value="<?=htmlspecialcharsbx(CUtil::JSEscape($desktop_backurl))?>">
 <script type="text/javascript">
 var currentRow = null;
@@ -219,7 +219,7 @@ function dsDelete(i)
 	if (GLOBAL_bDisableActions)
 		return;
 
-	var obInput = <?echo $obJSPopup->jsPopup?>.GetForm()['del_' + i];
+	var obInput = <?php echo $obJSPopup->jsPopup?>.GetForm()['del_' + i];
 	var obPlacement = BX('bx_desktopset_row_' + i).parentNode;
 
 	obInput.value = 'Y';
@@ -373,7 +373,7 @@ BX.ready(function ()
 {
 	jsDD.Reset();
 
-<?
+<?php 
 for($i=1; $i<=count($arUserOptions); $i++):
 ?>
 	jsDD.registerDest(BX('bx_desktopset_placement_<?=$i?>'));
@@ -383,7 +383,7 @@ for($i=1; $i<=count($arUserOptions); $i++):
 	obEl.onbxdragstop = BXDD_DragStop;
 	obEl.onbxdraghover = BXDD_DragHover;
 	jsDD.registerObject(obEl);
-<?
+<?php 
 endfor;
 ?>
 	jsDD.registerContainer(BX.WindowManager.Get().GetContent());
@@ -392,6 +392,6 @@ endfor;
 	l.style.MozUserSelect = 'none';
 });
 </script>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 ?>

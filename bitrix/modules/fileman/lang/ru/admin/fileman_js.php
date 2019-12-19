@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_JS_TBSettings'] = "Настройки";
 $MESS ['FILEMAN_JS_TBSaveAs'] = "Сохранить как...";
 $MESS ['FILEMAN_JS_TBSave'] = "Сохранить";

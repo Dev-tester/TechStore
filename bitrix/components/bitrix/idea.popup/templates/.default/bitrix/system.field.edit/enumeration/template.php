@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix Framework
  * @package bitrix
@@ -17,7 +17,7 @@ $bWasSelect = false;
 if (empty($arParams["arUserField"]["ENTITY_VALUE_ID"]) && array_key_exists("SETTINGS", $arParams["arUserField"]) && !empty($arParams["arUserField"]["SETTINGS"]["DEFAULT_VALUE"]))
 	$arResult["VALUE"] = array(strval($arParams["arUserField"]["SETTINGS"]["DEFAULT_VALUE"]));
 
-?><input type="hidden" name="<?=$arParams["arUserField"]["FIELD_NAME"]?>" value=""><?
+?><input type="hidden" name="<?=$arParams["arUserField"]["FIELD_NAME"]?>" value=""><?php 
 
 if ($arParams["arUserField"]["SETTINGS"]["DISPLAY"] == "CHECKBOX")
 {
@@ -29,21 +29,21 @@ if ($arParams["arUserField"]["SETTINGS"]["DISPLAY"] == "CHECKBOX")
 		);
 		$bWasSelect = $bWasSelect || $bSelected;
 
-		?><?if($arParams["arUserField"]["MULTIPLE"]=="Y"):?>
+		?><?php if($arParams["arUserField"]["MULTIPLE"]=="Y"):?>
 			<label><input
 				type="checkbox"
-				value="<?echo $key?>"
-				name="<?echo $arParams["arUserField"]["FIELD_NAME"]?>"
-				<?echo ($bSelected? "checked" : "")?>
+				value="<?php echo $key?>"
+				name="<?php echo $arParams["arUserField"]["FIELD_NAME"]?>"
+				<?php echo ($bSelected? "checked" : "")?>
 			><?=$val?></label><br />
-		<?else:?>
+		<?php else:?>
 			<label><input
 				type="radio"
-				value="<?echo $key?>"
-				name="<?echo $arParams["arUserField"]["FIELD_NAME"]?>"
-				<?echo ($bSelected? "checked" : "")?>
+				value="<?php echo $key?>"
+				name="<?php echo $arParams["arUserField"]["FIELD_NAME"]?>"
+				<?php echo ($bSelected? "checked" : "")?>
 			><?=$val?></label><br />
-		<?endif;?><?
+		<?php endif;?><?php 
 	}
 }
 else
@@ -51,14 +51,14 @@ else
 	?><select
 		class="bx-user-field-enum"
 		name="<?=$arParams["arUserField"]["FIELD_NAME"]?>"
-		<?if($arParams["arUserField"]["SETTINGS"]["LIST_HEIGHT"] > 1):?>
+		<?php if($arParams["arUserField"]["SETTINGS"]["LIST_HEIGHT"] > 1):?>
 			size="<?=$arParams["arUserField"]["SETTINGS"]["LIST_HEIGHT"]?>"
-		<?endif;?>
-		<?if ($arParams["arUserField"]["MULTIPLE"]=="Y"):?>
+		<?php endif;?>
+		<?php if ($arParams["arUserField"]["MULTIPLE"]=="Y"):?>
 			multiple="multiple"
-		<?endif;?>
+		<?php endif;?>
 	>
-	<?
+	<?php 
 	foreach ($arParams["arUserField"]["USER_TYPE"]["FIELDS"] as $key => $val)
 	{
 		$bSelected = in_array(strval($key), $arResult["VALUE"], true) && (
@@ -67,7 +67,7 @@ else
 		);
 		$bWasSelect = $bWasSelect || $bSelected;
 
-		?><option value="<?echo $key?>"<?echo ($bSelected? " selected" : "")?>><?echo $val?></option><?
+		?><option value="<?php echo $key?>"<?php echo ($bSelected? " selected" : "")?>><?php echo $val?></option><?php 
 	}
-	?></select><?
+	?></select><?php 
 }

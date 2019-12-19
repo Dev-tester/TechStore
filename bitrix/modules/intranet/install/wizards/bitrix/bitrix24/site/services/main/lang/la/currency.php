@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['LA_CURRENCY_RUB'] = 'Rublo';
 $MESS['LA_CURRENCY_EUR'] = 'Euro';
 $MESS['LA_CURRENCY_USD'] = 'US Dolar ';

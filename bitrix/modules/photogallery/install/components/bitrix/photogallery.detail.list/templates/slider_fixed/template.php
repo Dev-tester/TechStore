@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"])):
 	return true;
 elseif (!$this->__component->__parent || strpos($this->__component->__parent->__name, "photogallery") === false):
@@ -68,7 +68,7 @@ if ($arResult["NAV_RESULT"]->bNavStart)
 		}
 		$res["from_slider"] = "Y";
 		$APPLICATION->RestartBuffer();
-		?><?=CUtil::PhpToJSObject($res)?><?
+		?><?=CUtil::PhpToJSObject($res)?><?php 
 		die();
 	}
 }
@@ -111,10 +111,10 @@ $cellHeight = $arParams["THUMBNAIL_SIZE"]
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?><div class="photo-navigation photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
-</div><?
+</div><?php 
 endif;
 
-?><div class="photo-photos photo-photos-slider"><?
+?><div class="photo-photos photo-photos-slider"><?php 
 if ($arParams["SHOW_DESCRIPTION"] != "N")
 {
 ?>
@@ -124,7 +124,7 @@ if ($arParams["SHOW_DESCRIPTION"] != "N")
 		</div>
 	</div>
 	<br />
-<?
+<?php 
 }
 
 ?>
@@ -140,20 +140,20 @@ if ($arParams["SHOW_DESCRIPTION"] != "N")
 						<div class="empty"></div></td></tr>
 			</table>
 		</td>
-		<td id="slider_window_<?=$package_id?>" class="slider_window" style="width:<?=($cellWidth*$arParams["SLIDER_COUNT_CELL"] + 10)?>px;"><?
-			?><table id="table_photo_photos_<?=$package_id?>" class="table_photo_photos" border="0" cellpadding="0" cellspacing="0" style="height:<?=($panelHeight-10)?>px;"><tbody><tr><?
+		<td id="slider_window_<?=$package_id?>" class="slider_window" style="width:<?=($cellWidth*$arParams["SLIDER_COUNT_CELL"] + 10)?>px;"><?php 
+			?><table id="table_photo_photos_<?=$package_id?>" class="table_photo_photos" border="0" cellpadding="0" cellspacing="0" style="height:<?=($panelHeight-10)?>px;"><tbody><tr><?php 
 	$i_cnt = 1;
 	foreach ($arResult["ELEMENTS_CURR"] as $res):
-		?><td id="td_<?=$package_id?>_<?=$i_cnt?>" style="width:<?=$cellWidth?>px;"><?
-			?><a href="<?=htmlspecialcharsbx($res["url"])?>" title="<?=$res["title"]?>" <?
-				?>style="width:<?=($res["width"] + 12)?>px;"<?
-				?><?=($res["id"] == $arParams["ELEMENT_ID"] ? " class='active'" : "")?>><?
-				?><img src="<?=$res["src"]?>" <?
-					?>width="<?=$res["width"]?>" height="<?=$res["height"]?>" <?
-					?>alt="<?=$res["alt"]?>" title="<?=$res["title"]?>" <?
-					?>border="0" /><?
-			?></a><?
-		?></td><?
+		?><td id="td_<?=$package_id?>_<?=$i_cnt?>" style="width:<?=$cellWidth?>px;"><?php 
+			?><a href="<?=htmlspecialcharsbx($res["url"])?>" title="<?=$res["title"]?>" <?php 
+				?>style="width:<?=($res["width"] + 12)?>px;"<?php 
+				?><?=($res["id"] == $arParams["ELEMENT_ID"] ? " class='active'" : "")?>><?php 
+				?><img src="<?=$res["src"]?>" <?php 
+					?>width="<?=$res["width"]?>" height="<?=$res["height"]?>" <?php 
+					?>alt="<?=$res["alt"]?>" title="<?=$res["title"]?>" <?php 
+					?>border="0" /><?php 
+			?></a><?php 
+		?></td><?php 
 		$i_cnt++;
 	endforeach;
 	?></tr></tbody></table></td>
@@ -170,7 +170,7 @@ if ($arParams["SHOW_DESCRIPTION"] != "N")
 	</tr>
 </table>
 </div>
-<?
+<?php 
 if (count($arResult["ELEMENTS_CURR"]) < $count_elements)
 {
 ?>
@@ -193,9 +193,9 @@ function to_init_<?=$package_id?>()
 	SliderCopy.ShowItem = function(item_id, number)
 	{
 		var res = this.oSource.Data[item_id];
-		BX('td_<?=$package_id?>_' + number).innerHTML = '<a href="' + res['url'] + '" ' +  <?
+		BX('td_<?=$package_id?>_' + number).innerHTML = '<a href="' + res['url'] + '" ' +  <?php 
 		if ($arParams["ELEMENT_ID"] > 0):
-			?>(res["id"] + '' == '<?=$arParams["ELEMENT_ID"]?>' ? ' class="active"' : '') + <?
+			?>(res["id"] + '' == '<?=$arParams["ELEMENT_ID"]?>' ? ' class="active"' : '') + <?php 
 		endif;?>
 		'><img src="' + res['src'] + '" width="' + res['width'] + '" height="' + res['height'] + '" /></a>';
 
@@ -282,14 +282,14 @@ else if (window.addEventListener)
 else
 	setTimeout(to_init_<?=$package_id?>, 100);
 </script>
-<?
+<?php 
 }
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation photo-navigation-bottom">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 
 if ($arParams["INCLUDE_SLIDER"] == "Y"):

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_ED_SAVE"] = "Save";
 $MESS["FILEMAN_ED_CANC"] = "Cancel";
 $MESS["FILEMAN_ED_RESTORE"] = "Restore Default";

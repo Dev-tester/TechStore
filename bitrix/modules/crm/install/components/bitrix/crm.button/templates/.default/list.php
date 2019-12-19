@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 
 if (!isset($arParams['HIDE_CRM_MENU']) || $arParams['HIDE_CRM_MENU'] != 'Y'):

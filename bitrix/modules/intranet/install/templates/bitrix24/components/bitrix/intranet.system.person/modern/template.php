@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $this->addExternalCss(SITE_TEMPLATE_PATH."/css/employee.css");
@@ -18,36 +18,36 @@ $user_action_menu_number = rand();
 ?>
 <tr id="tr_<?=$arUser["ID"]?>">
 	<td class="employee-table-info">
-		<div class="employee-info-block <? if (!in_array('PERSONAL_PHOTO', $arParams['USER_PROPERTY'])): ?> no-photo<? endif ?><? if (!$arUser['IS_ONLINE']): ?> employee-state-offline<? endif ?>">
-			<? if (in_array('PERSONAL_PHOTO', $arParams['USER_PROPERTY'])): ?>
-			<div class="user-avatar user-default-avatar" <?if ($arUser['PERSONAL_PHOTO_SOURCE']):?>style="background: url('<?=$arUser['PERSONAL_PHOTO_SOURCE']?>') no-repeat center center; background-size: cover;"<?endif;?>></div>
-			<? endif ?>
-			<div class="employee-name<?=($arUser["EXTRANET"] ? ' employee-name-extranet' : '')?>"><a class="employee-name-link" href="<?=$arUser['DETAIL_URL']?>"><?=$name?></a><?if ($arResult['CAN_EDIT_USER'] || $arUser["ACTIVITY_STATUS"] != "inactive"):?><span class="employee-user-action" onclick="user_action_menu<?=$user_action_menu_number?>(this,<?=$arUser['ID'].rand()?>, <?=$arUser['ID']?>, '<?=($arUser["EXTRANET"] ? "1" : "0")?>')"></span><?endif?></div>
+		<div class="employee-info-block <?php  if (!in_array('PERSONAL_PHOTO', $arParams['USER_PROPERTY'])): ?> no-photo<?php  endif ?><?php  if (!$arUser['IS_ONLINE']): ?> employee-state-offline<?php  endif ?>">
+			<?php  if (in_array('PERSONAL_PHOTO', $arParams['USER_PROPERTY'])): ?>
+			<div class="user-avatar user-default-avatar" <?php if ($arUser['PERSONAL_PHOTO_SOURCE']):?>style="background: url('<?=$arUser['PERSONAL_PHOTO_SOURCE']?>') no-repeat center center; background-size: cover;"<?php endif;?>></div>
+			<?php  endif ?>
+			<div class="employee-name<?=($arUser["EXTRANET"] ? ' employee-name-extranet' : '')?>"><a class="employee-name-link" href="<?=$arUser['DETAIL_URL']?>"><?=$name?></a><?php if ($arResult['CAN_EDIT_USER'] || $arUser["ACTIVITY_STATUS"] != "inactive"):?><span class="employee-user-action" onclick="user_action_menu<?=$user_action_menu_number?>(this,<?=$arUser['ID'].rand()?>, <?=$arUser['ID']?>, '<?=($arUser["EXTRANET"] ? "1" : "0")?>')"></span><?php endif?></div>
 			<div class="employee-post"><?=$arUser['WORK_POSITION']?></div>
 			<div class="employee-state">
-				<?=($arUser['IS_ONLINE'] ? GetMessage('INTR_ISP_IS_ONLINE') : GetMessage('INTR_ISP_IS_OFFLINE'));?><?if ($arUser['IS_ABSENT']):?> (<?=GetMessage('INTR_ISP_IS_ABSENT');?>)<?endif?>
+				<?=($arUser['IS_ONLINE'] ? GetMessage('INTR_ISP_IS_ONLINE') : GetMessage('INTR_ISP_IS_OFFLINE'));?><?php if ($arUser['IS_ABSENT']):?> (<?=GetMessage('INTR_ISP_IS_ABSENT');?>)<?php endif?>
 			</div>
-			<?if ($arParams["LIST_MODE"] == "all" && in_array($arUser["ACTIVITY_STATUS"], array("fired", "extranet", "inactive"))):?>
+			<?php if ($arParams["LIST_MODE"] == "all" && in_array($arUser["ACTIVITY_STATUS"], array("fired", "extranet", "inactive"))):?>
 			<span class="employee-dept-post employee-dept-<?=$arUser["ACTIVITY_STATUS"]?>"><?=GetMessage("INTR_USER_".$arUser["ACTIVITY_STATUS"])?></span>
-			<?elseif ($arUser["ADMIN"] && $arUser["ACTIVITY_STATUS"] == "active"):?>
+			<?php elseif ($arUser["ADMIN"] && $arUser["ACTIVITY_STATUS"] == "active"):?>
 				<span class="employee-dept-post employee-dept-admin"><?=GetMessage("INTR_IS_ADMIN")?></span>
-			<?elseif ($arUser["ACTIVITY_STATUS"] == "integrator"):?>
+			<?php elseif ($arUser["ACTIVITY_STATUS"] == "integrator"):?>
 				<span class="employee-dept-post employee-dept-<?=$arUser["ACTIVITY_STATUS"]?>"><?=GetMessage("INTR_USER_".$arUser["ACTIVITY_STATUS"])?></span>
-			<?endif?>
+			<?php endif?>
 		</div>
 	</td>
-	<?if ($arResult['CAN_EDIT_USER']):?>
+	<?php if ($arResult['CAN_EDIT_USER']):?>
 	<td>
-		<? if (!in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))): ?>
+		<?php  if (!in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))): ?>
 			<div style="margin-right: 40px;">
 				<a href="<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER_EDIT'], array("user_id" => $arUser['ID']))?>"><?=GetMessage("INTR_ISP_EDIT_LINK")?></a>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 	</td>
-	<?endif?>
+	<?php endif?>
 
 	<td class="employee-table-phone">
-		<?
+		<?php 
 		/*if (isset($arUser["PERSONAL_MOBILE"]))
 			echo  GetMessage("ISL_PERSONAL_PHONE").": <a href='callto:".$arUser["PERSONAL_MOBILE"]."'>".$arUser["PERSONAL_MOBILE"]."</a><br/>";
 		if (isset($arUser["UF_SKYPE"]))
@@ -59,7 +59,7 @@ $user_action_menu_number = rand();
 			if (in_array($key, array('PERSONAL_PHOTO')))
 				continue;
 			echo $arParams['USER_PROP'][$key] ? $arParams['USER_PROP'][$key] : GetMessage('ISL_'.$key); ?>:
-			<? switch($key)
+			<?php  switch($key)
 			{
 				case 'EMAIL':
 					echo '<a href="mailto:',urlencode($value),'">',htmlspecialcharsbx($value),'</a>';
@@ -139,10 +139,10 @@ $user_action_menu_number = rand();
 					break;
 			} ?>
 			<br />
-		<? } ?>
+		<?php  } ?>
 	</td>
 	<td class="employee-table-dept">
-		<?
+		<?php 
 		if (empty($arUser['DEP_HEAD']) || !is_array($arUser['DEP_HEAD']))
 		{
 			$arUser['DEP_HEAD'] = array();
@@ -166,7 +166,7 @@ $user_action_menu_number = rand();
 			}
 			if (array_key_exists($dep_id, $arUser["DEP_HEAD"])):?>
 			<span class="employee-dept-post"><?=GetMessage("INTR_IS_HEAD")?></span><br />
-			<?endif;
+			<?php endif;
 		}
 		$arHead = array_diff_key($arUser["DEP_HEAD"], $arUser["UF_DEPARTMENT"]);
 		foreach ($arHead as $dep_id => $dep_name)
@@ -183,12 +183,12 @@ $user_action_menu_number = rand();
 				echo "<br>";
 			}
 			?>
-			<span class="employee-dept-post"><?=GetMessage("INTR_IS_HEAD")?></span><br /> <?
+			<span class="employee-dept-post"><?=GetMessage("INTR_IS_HEAD")?></span><br /> <?php 
 		}
 		?>
 	</td>
 </tr>
-<?
+<?php 
 if ($arUser["ACTIVITY_STATUS"] == "fired") $userActive = "Y"; elseif($arUser["ACTIVITY_STATUS"] == "inactive")  $userActive = "D"; else $userActive = "N";
 $userActionHref = CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER_EDIT'], array("user_id" => $arUser['ID']))."?ACTIVE=".$userActive;
 if ($arUser["ACTIVITY_STATUS"] == "fired")
@@ -202,14 +202,14 @@ else
 function user_action_menu<?=$user_action_menu_number?> (button, number, user_id, is_extranet) {
 
 	var popupUserMenuItems = [
-		<?if ($arUser["ACTIVITY_STATUS"] == "active" || $arUser["ACTIVITY_STATUS"] == "extranet"):?>
-			<?if (CBXFeatures::IsFeatureEnabled("Tasks")):?>
+		<?php if ($arUser["ACTIVITY_STATUS"] == "active" || $arUser["ACTIVITY_STATUS"] == "extranet"):?>
+			<?php if (CBXFeatures::IsFeatureEnabled("Tasks")):?>
 				{ text : "<?=GetMessage("INTR_ISP_TASK")?>", onclick : function() { this.popupWindow.close(); taskIFramePopup.add({RESPONSIBLE_ID: user_id});}},
-			<?endif?>
-			<?if ($arResult["CAN_MESSAGE"]):?>
-				{ text : "<?=GetMessage("INTR_ISP_PM")?>", onclick : function() {if (BX.IM) { BXIM.openMessenger(user_id); return false; } else { window.open('<?echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }}},
-			<?endif?>
-		<?elseif ($arUser["ACTIVITY_STATUS"] == "inactive" && (!IsModuleInstalled("bitrix24") && $USER->CanDoOperation('edit_all_users') || $USER->CanDoOperation('bitrix24_invite') && CModule::IncludeModule('bitrix24'))):?>
+			<?php endif?>
+			<?php if ($arResult["CAN_MESSAGE"]):?>
+				{ text : "<?=GetMessage("INTR_ISP_PM")?>", onclick : function() {if (BX.IM) { BXIM.openMessenger(user_id); return false; } else { window.open('<?php echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }}},
+			<?php endif?>
+		<?php elseif ($arUser["ACTIVITY_STATUS"] == "inactive" && (!IsModuleInstalled("bitrix24") && $USER->CanDoOperation('edit_all_users') || $USER->CanDoOperation('bitrix24_invite') && CModule::IncludeModule('bitrix24'))):?>
 			{ text : "<?=GetMessage("INTR_ISP_INVITE")?>", onclick : function() {
 				var myBX = (window.BX? window.BX: (window.top.BX? window.top.BX: null));
 				var user_reinvite = "reinvite_user_id_";
@@ -239,12 +239,12 @@ function user_action_menu<?=$user_action_menu_number?> (button, number, user_id,
 				);
 				return false;
 			}},
-		<?endif;?>
-		<?if ($arUser["ACTIVITY_STATUS"] != "inactive" && CBXFeatures::IsFeatureEnabled("WebMessenger") && $arUser["ID"] != $USER->GetID()):?>
+		<?php endif;?>
+		<?php if ($arUser["ACTIVITY_STATUS"] != "inactive" && CBXFeatures::IsFeatureEnabled("WebMessenger") && $arUser["ID"] != $USER->GetID()):?>
 			{ text : "<?=GetMessage("INTR_ISP_MESSAGE_HISTORY")?>", onclick : function() { this.popupWindow.close(); BXIM.openHistory(user_id);} },
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($arResult['CAN_EDIT_USER'] && $arUser["ID"] != $USER->GetID() && !in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))):?>
+		<?php if ($arResult['CAN_EDIT_USER'] && $arUser["ID"] != $USER->GetID() && !in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))):?>
 			{ text : "<?=$userActionMessage?>", onclick : function() {
 				BX.showWait(button.parentNode.parentNode);
 				if (confirmUser("<?=$arUser["ACTIVITY_STATUS"]?>"))
@@ -281,11 +281,11 @@ function user_action_menu<?=$user_action_menu_number?> (button, number, user_id,
 							}
 							else
 							{
-								<?if ($arUser["SHOW_USER"] != "all"):?>
+								<?php if ($arUser["SHOW_USER"] != "all"):?>
 								BX('tr_'+user_id).style.display = 'none';
-								<?else:?>
+								<?php else:?>
 								window.location.reload();
-								<?endif;?>
+								<?php endif;?>
 							}
 						}
 					});
@@ -300,17 +300,17 @@ function user_action_menu<?=$user_action_menu_number?> (button, number, user_id,
 				}
 				return false;
 			} },
-		<?endif;?>
-		<?if ($arResult['CAN_EDIT_USER'] || $arUser["ID"] == $USER->GetID() and !in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))):?>
+		<?php endif;?>
+		<?php if ($arResult['CAN_EDIT_USER'] || $arUser["ID"] == $USER->GetID() and !in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))):?>
 			{ text : "<?=GetMessage("INTR_ISP_EDIT_USER")?>", href : "<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER_EDIT'], array("user_id" => $arUser['ID']))?>" }
-		<?endif;?>
+		<?php endif;?>
 	];
-	<?if ($arResult['CAN_VIDEO_CALL']):?>
+	<?php if ($arResult['CAN_VIDEO_CALL']):?>
 	if (BXIM && BXIM.checkCallSupport())
 	{
 		popupUserMenuItems.push({ text : "<?=GetMessage("INTR_ISP_VIDEO_CALL")?>", onclick : function() {if (BXIM) { BXIM.callTo(user_id); return false;}}});
 	}
-	<?endif?>
+	<?php endif?>
 
 	BX.PopupMenu.show('more-action-menu'+number, button, popupUserMenuItems,
 		{

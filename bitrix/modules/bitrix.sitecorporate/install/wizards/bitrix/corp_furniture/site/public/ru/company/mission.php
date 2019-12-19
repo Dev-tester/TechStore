@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Миссия и стратегия");
 ?> 
@@ -63,4 +63,4 @@ $APPLICATION->SetTitle("Миссия и стратегия");
 <p> 							Со дня своего основания <b>&laquo;Мебельная компания&raquo;</b> содействует росту благосостояния 							регионов России. Мы понимаем важность 
   <br />
  социальной ответственности нашей Компании 							и останемся примером в вопросах социальной защищенности наших сотрудников. 						</p>
- <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

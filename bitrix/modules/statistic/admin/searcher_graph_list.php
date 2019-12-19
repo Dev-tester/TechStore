@@ -87,7 +87,7 @@ if (strlen($strError)<=0 && count($arrLegend)>0 && count($arrDays)>1) :
 	$height = COption::GetOptionString("statistic", "GRAPH_HEIGHT");
 ?>
 <div class="graph">
-	<?
+	<?php 
 	if($summa == "Y")
 		echo GetMessage("STAT_SUMMARIZED");
 	?>
@@ -96,10 +96,10 @@ if (strlen($strError)<=0 && count($arrLegend)>0 && count($arrDays)>1) :
 		<td>
 			<img class="graph" src="searcher_graph.php?<?=GetFilterParams($arFilterFields)?>&width=<?=$width?>&height=<?=$height?>&lang=<?=LANGUAGE_ID?>" width="<?=$width?>" height="<?=$height?>">
 		</td>
-		<?if($summa == "N"):?>
+		<?php if($summa == "N"):?>
 		<td>
 			<table border="0" cellspacing="0" cellpadding="0" class="legend">
-			<?
+			<?php 
 			reset($arrLegend);
 			while(list($keyL, $arrL) = each($arrLegend)) :
 				$color = $arrL["COLOR"];
@@ -109,27 +109,27 @@ if (strlen($strError)<=0 && count($arrLegend)>0 && count($arrDays)>1) :
 						<div style="background-color: <?="#".$color?>"></div>
 					</td>
 					<td nowrap>
-					<?
+					<?php 
 					if ($arrL["COUNTER_TYPE"]=="DETAIL") :
-						?>[<a title="<?=GetMessage("STAT_SEARCHER_LIST_OPEN")?> " href="<?= htmlspecialcharsbx("/bitrix/admin/searcher_list.php?lang=".urlencode(LANGUAGE_ID)."&find_id=".urlencode($keyL)."&set_filter=Y")?>"><?=$keyL?></a>]&nbsp;<a title="<?=GetMessage("STAT_SEARCHER_DYNAMIC")?>" href="<?= htmlspecialcharsbx("/bitrix/admin/searcher_dynamic_list.php?lang=".urlencode(LANGUAGE_ID)."&find_searcher_id=".urlencode($keyL)."&find_date1=".urlencode($arFilter["DATE1"])."&find_date2=".urlencode($arFilter["DATE2"])."&set_filter=Y")?>"><?=$arrL["NAME"]?></a><?
+						?>[<a title="<?=GetMessage("STAT_SEARCHER_LIST_OPEN")?> " href="<?= htmlspecialcharsbx("/bitrix/admin/searcher_list.php?lang=".urlencode(LANGUAGE_ID)."&find_id=".urlencode($keyL)."&set_filter=Y")?>"><?=$keyL?></a>]&nbsp;<a title="<?=GetMessage("STAT_SEARCHER_DYNAMIC")?>" href="<?= htmlspecialcharsbx("/bitrix/admin/searcher_dynamic_list.php?lang=".urlencode(LANGUAGE_ID)."&find_searcher_id=".urlencode($keyL)."&find_date1=".urlencode($arFilter["DATE1"])."&find_date2=".urlencode($arFilter["DATE2"])."&set_filter=Y")?>"><?=$arrL["NAME"]?></a><?php 
 					else :
-						?><?=GetMessage("STAT_SUMMARIZED")?><?
+						?><?=GetMessage("STAT_SUMMARIZED")?><?php 
 					endif;
 					?></td>
 				</tr>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</table>
 		</td>
-		<?endif?>
+		<?php endif?>
 	</tr>
 	</table>
 </div>
 
-<?
+<?php 
 else :
 	$lAdmin->AddFilterError(GetMessage("STAT_NO_DATA"));
 endif;?>
-<?
+<?php 
 else:
 	$lAdmin->AddFilterError(GetMessage("STAT_GD_NOT_INSTALLED"));
 endif;
@@ -144,7 +144,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 
 ?>
 <form name="form1" method="POST" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -155,10 +155,10 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
 </tr>
-<?
+<?php 
 if (is_array($arrSEARCHERS))
 {
 	$arrSEARCHERS_lower = array_map("strtolower", $arrSEARCHERS);
@@ -199,19 +199,19 @@ if (is_array($arrSEARCHERS))
 }
 ?>
 <tr valign="top">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_SEACHERS")?><br><IMG SRC="/bitrix/images/statistic/mouse.gif" WIDTH="44" HEIGHT="21" BORDER=0 ALT=""></td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_SEACHERS")?><br><IMG SRC="/bitrix/images/statistic/mouse.gif" WIDTH="44" HEIGHT="21" BORDER=0 ALT=""></td>
+	<td width="0%" nowrap><?php 
 	$arr = array("reference"=>array(GetMessage("STAT_SEPARATED"), GetMessage("STAT_SUMMA")), "reference_id"=>array("N","Y"));
 	echo SelectBoxFromArray("find_summa", $arr, htmlspecialcharsbx($find_summa), "", " style=\"width:100%\"")."<br>";
 	echo SelectBoxMFromArray("find_searchers[]",array("REFERENCE"=>$ref, "REFERENCE_ID"=>$ref_id), $find_searchers,"",false,"11", "class=\"typeselect\" style=\"width:100%\"");?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 
@@ -234,4 +234,4 @@ $context->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

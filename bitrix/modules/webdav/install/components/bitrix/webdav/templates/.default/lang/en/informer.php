@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['NOTE_2'] = "If you cannot map a network drive, or if your changes in an MS Office document are not saved, please see the help section on how to configure <a href=\"#HREF##troubles\">MS Windows</a> settings.";
 $MESS ['NOTE_3'] = "If you need to increase the maximum size of uploaded files, please click <a href=\"#HREF##maxfilesize\">here</a>.";
 $MESS ['WD_NEXT_ADVICE'] = "Next Tip

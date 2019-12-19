@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_LICENSE_AGREEMENT_HTML_RICH"] = "<div class=\"tracker-agreement-popup-content\">
 			<ol class=\"tracker-agreement-popup-list\">
 				<li class=\"tracker-agreement-popup-list-item\">

@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -23,17 +23,17 @@
 			<?= htmlspecialcharsbx($data['WORK_POSITION']) ?: '' ?>
 		</span>
 	</div>
-	<? if ($arResult['canReadSettings']): ?>
+	<?php  if ($arResult['canReadSettings']): ?>
 		<span class="timeman-grid-settings-icon timeman-grid-settings-icon-time"
 				data-role="timeman-settings-toggle"
 				data-id="<?php echo htmlspecialcharsbx($data['USER_ID']); ?>"
 				data-type="user"></span>
-	<? endif; ?>
-	<? if ($data['SHOW_DELETE_USER_BTN']): ?>
+	<?php  endif; ?>
+	<?php  if ($data['SHOW_DELETE_USER_BTN']): ?>
 		<span class="timeman-grid-user-delete"
 				data-user-id="<?= htmlspecialcharsbx($data['USER_ID']) ?>"
 				data-role="delete-user-btn"
 				data-user-name="<?= htmlspecialcharsbx($data['FORMATTED_NAME']); ?>"
 		></span>
-	<? endif; ?>
+	<?php  endif; ?>
 </div>

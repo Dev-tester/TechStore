@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_HLP_CHECK_ERROR_SSH2"] = "Отсутствует необходимое расширение SSH2!";
 $MESS["SALE_EBAY_HLP_CHECK_ERROR_SIMPLEXML"] = "Отсутствует необходимое расширение SimpleXML!";
 $MESS["SALE_EBAY_HLP_EVNT_TYPE_ERROR"] = "Ebay ошибка";

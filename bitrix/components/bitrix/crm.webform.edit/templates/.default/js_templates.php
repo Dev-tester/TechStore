@@ -5,7 +5,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 <?=CrmWebFormEditTemplate::getFieldJsTemplateAll()?>
 
 <script type="text/html" id="tmpl_field_dependency">
-	<?GetCrmWebFormFieldDependencyTemplate(
+	<?php GetCrmWebFormFieldDependencyTemplate(
 		array(
 			'ID' => '%ID%',
 			'IF_FIELD_CODE' => '%IF_FIELD_CODE%',
@@ -16,7 +16,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 	);?>
 </script>
 <script type="text/html" id="tmpl_field_preset">
-	<?GetCrmWebFormPresetFieldTemplate(
+	<?php GetCrmWebFormPresetFieldTemplate(
 		array(
 			'CODE' => '%CODE%',
 			'ENTITY_CAPTION' => '%ENTITY_CAPTION%',

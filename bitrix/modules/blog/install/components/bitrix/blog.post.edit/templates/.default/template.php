@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
@@ -7,7 +7,7 @@ if (!$this->__component->__parent || empty($this->__component->__parent->__name)
 endif;
 ?>
 <div class="blog-post-edit">
-<?
+<?php 
 if(strlen($arResult["MESSAGE"])>0)
 {
 	?>
@@ -16,7 +16,7 @@ if(strlen($arResult["MESSAGE"])>0)
 			<?=$arResult["MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
@@ -26,7 +26,7 @@ if(strlen($arResult["ERROR_MESSAGE"])>0)
 			<?=$arResult["ERROR_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
@@ -36,7 +36,7 @@ if(strlen($arResult["FATAL_MESSAGE"])>0)
 			<?=$arResult["FATAL_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 elseif(strlen($arResult["UTIL_MESSAGE"])>0)
 {
@@ -46,7 +46,7 @@ elseif(strlen($arResult["UTIL_MESSAGE"])>0)
 			<?=$arResult["UTIL_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -85,34 +85,34 @@ else
 						<span class="blog-post-comments-link"><a href=""><span class="blog-post-link-caption"><?=GetMessage("BLOG_COMMENTS")?>:</span><span class="blog-post-link-counter">0</span></a></span>
 					</div>
 
-					<?if(!empty($arResult["postPreview"]["Category"]))
+					<?php if(!empty($arResult["postPreview"]["Category"]))
 					{
 						?>
 						<div class="blog-post-tag">
 							<span><?=GetMessage("BLOG_BLOG_BLOG_CATEGORY")?></span>
-							<?
+							<?php 
 							$i=0;
 							foreach($arResult["postPreview"]["Category"] as $v)
 							{
 								if($i!=0)
 									echo ",";
-								?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?
+								?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?php 
 								$i++;
 							}
 							?>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 
 		?>
 		<form action="<?=POST_FORM_ACTION_URI?>" id=<?=$component->createPostFormId()?> name="REPLIER" method="post" enctype="multipart/form-data">
 		<?=bitrix_sessid_post();?>
-		<?
+		<?php 
 		if($arParams["USE_AUTOSAVE"] == "Y")
 		{
 			$as = new CAutoSave();
@@ -121,7 +121,7 @@ else
 			<script>
 			BX.message({'BLOG_POST_AUTOSAVE':'<?=GetMessage("BLOG_POST_AUTOSAVE")?>'});
 			</script>
-			<?
+			<?php 
 		}
 		?>
 		<div class="blog-edit-form blog-edit-post-form blog-post-edit-form">
@@ -131,15 +131,15 @@ else
 			</div>
 			<div class="blog-clear-float"></div>	
 			<div id="blog-post-autosave-hidden" style="display:none;"></div>
-			<?if($arParams["ALLOW_POST_CODE"]):?>
-				<?CUtil::InitJSCore(array('translit'));
+			<?php if($arParams["ALLOW_POST_CODE"]):?>
+				<?php CUtil::InitJSCore(array('translit'));
 				$bLinked = $arParams["ID"] <= 0 && $_POST["linked_state"]!=='N';
 				
 				?>
-				<input type="hidden" name="linked_state" id="linked_state" value="<?if($bLinked) echo 'Y'; else echo 'N';?>">
+				<input type="hidden" name="linked_state" id="linked_state" value="<?php if($bLinked) echo 'Y'; else echo 'N';?>">
 				<script>
 				var oldValue = '';
-				var linked=<?if($bLinked) echo 'true'; else echo 'false';?>;
+				var linked=<?php if($bLinked) echo 'true'; else echo 'false';?>;
 				
 				function set_linked()
 				{
@@ -177,7 +177,7 @@ else
 								'replace_space' : '-',
 								'replace_other' : '',
 								'delete_repeat_replace' : true,
-								'use_google' : <?echo $arParams['USE_GOOGLE_CODE'] == 'Y'? 'true': 'false'?>,
+								'use_google' : <?php echo $arParams['USE_GOOGLE_CODE'] == 'Y'? 'true': 'false'?>,
 								'callback' : function(result){
 										if(result.length > 0 && isFinite(result)) result = '_'+result;
 										to.value = result;
@@ -206,18 +206,18 @@ else
 				transliterate();
 				</script>
 				<div class="blog-post-field blog-post-field-code blog-edit-field blog-edit-field-code">
-					<label for="CODE" class="blog-edit-field-caption"><?=GetMessage("BLOG_P_CODE")?>:</label> <?=$arResult["PATH_TO_POST1"]?><a href="javascript:changeCode()" title="<?=GetMessage("BLOG_CHANGE_CODE")?>" id="post-code-text"><?=(strlen($arResult["PostToShow"]["CODE"]) > 0) ? $arResult["PostToShow"]["CODE"] : GetMessage("BLOG_P_CODE");?></a><span id="post-code-input"><input maxlength="255" size="70" tabindex="2" type="text" name="CODE" id="CODE" value="<?=$arResult["PostToShow"]["CODE"]?>"><image id="code_link" title="<?echo GetMessage("BLOG_LINK_TIP")?>" class="linked" src="/bitrix/themes/.default/icons/iblock/<?if($bLinked) echo 'link.gif'; else echo 'unlink.gif';?>" onclick="set_linked()" /> </span><?=$arResult["PATH_TO_POST2"]?>
+					<label for="CODE" class="blog-edit-field-caption"><?=GetMessage("BLOG_P_CODE")?>:</label> <?=$arResult["PATH_TO_POST1"]?><a href="javascript:changeCode()" title="<?=GetMessage("BLOG_CHANGE_CODE")?>" id="post-code-text"><?=(strlen($arResult["PostToShow"]["CODE"]) > 0) ? $arResult["PostToShow"]["CODE"] : GetMessage("BLOG_P_CODE");?></a><span id="post-code-input"><input maxlength="255" size="70" tabindex="2" type="text" name="CODE" id="CODE" value="<?=$arResult["PostToShow"]["CODE"]?>"><image id="code_link" title="<?php echo GetMessage("BLOG_LINK_TIP")?>" class="linked" src="/bitrix/themes/.default/icons/iblock/<?php if($bLinked) echo 'link.gif'; else echo 'unlink.gif';?>" onclick="set_linked()" /> </span><?=$arResult["PATH_TO_POST2"]?>
 					
 				</div>
 				<div class="blog-clear-float"></div>
-			<?endif;?>
+			<?php endif;?>
 			<div class="blog-post-field blog-post-field-date blog-edit-field blog-edit-field-post-date">
 				<span><input type="hidden" id="DATE_PUBLISH_DEF" name="DATE_PUBLISH_DEF" value="<?=$arResult["PostToShow"]["DATE_PUBLISH"];?>">
 				<div id="date-publ-text">
 					<a href="javascript:changeDate()" title="<?=GetMessage("BLOG_DATE")?>"><?=$arResult["PostToShow"]["DATE_PUBLISH"];?></a>
 				</div>
 				<div id="date-publ" style="display:none;">
-				<?
+				<?php 
 					$APPLICATION->IncludeComponent(
 						'bitrix:main.calendar',
 						'',
@@ -239,22 +239,22 @@ else
 
 		<div class="blog-post-message blog-edit-editor-area blog-edit-field-text">
 			<div class="blog-comment-field blog-comment-field-bbcode">
-				<? include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php"); ?>
+				<?php  include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php"); ?>
 				<input type="hidden" name="USE_NEW_EDITOR" value="Y">
 				<div style="width:0; height:0; overflow:hidden;"><input type="text" tabindex="3" onFocus="window.oBlogLHE.SetFocus()" name="hidden_focus"></div>
 			</div>
 			<br />
-			<?if($arResult["POST_PROPERTIES"]["SHOW"] == "Y" && !empty($arResult["POST_PROPERTIES"]["DATA"]["UF_BLOG_POST_DOC"])):?>
-				<?
+			<?php if($arResult["POST_PROPERTIES"]["SHOW"] == "Y" && !empty($arResult["POST_PROPERTIES"]["DATA"]["UF_BLOG_POST_DOC"])):?>
+				<?php 
 				$eventHandlerID = false;
 				$eventHandlerID = AddEventHandler('main', 'system.field.edit.file', array('CBlogTools', 'blogUFfileEdit'));
 				if ($eventHandlerID !== false && ( intval($eventHandlerID) > 0 ))
 					RemoveEventHandler('main', 'system.field.edit.file', $eventHandlerID);
 				unset($arResult["POST_PROPERTIES"]["DATA"]["UF_BLOG_POST_DOC"]);
 				?>
-			<?endif;?>
+			<?php endif;?>
 
-				<?foreach($arResult["Images"] as $image):
+				<?php foreach($arResult["Images"] as $image):
 					$image["DEL_URL"] = CUtil::JSEscape($image["DEL_URL"]);
 					$arJSFiles[strVal($image["ID"])] = array(
 						"element_id" => $image["ID"],
@@ -277,8 +277,8 @@ else
 					<span class="feed-add-img-title" title="<?=$imageTitle?>"><?=$image["TITLE"]?></span>
 					<span class="feed-add-post-del-but"></span>
 				</span>
-				<?endforeach?>
-				<? $arJSFiles = CUtil::PhpToJSObject($arJSFiles); ?>
+				<?php endforeach?>
+				<?php  $arJSFiles = CUtil::PhpToJSObject($arJSFiles); ?>
 				<script>window['<?=$component->createEditorId()?>Files']=<?=$arJSFiles?>;</script>
 		</div>
 		
@@ -287,7 +287,7 @@ else
 			<div class="blog-post-field-text">
 			<label for="TAGS" class="blog-edit-field-caption"><?=GetMessage("BLOG_CATEGORY")?></label>
 			</div>
-			<span><?
+			<span><?php 
 					if(IsModuleInstalled("search"))
 					{
 						$arSParams = Array(
@@ -303,24 +303,24 @@ else
 					else
 					{
 						?><input type="text" id="TAGS" tabindex="4" name="TAGS" size="30" value="<?=htmlspecialcharsbx($arResult["PostToShow"]["CategoryText"])?>">
-						<?
+						<?php 
 					}?>
 			</span>
 		</div>
 		<div class="blog-clear-float"></div>
 		
 		<div class="blog-post-field blog-post-field-enable-comments blog-edit-field">
-			<span><input name="ENABLE_COMMENTS" id="ENABLE_COMMENTS" type="checkbox" value="N"<?if($arResult["PostToShow"]["ENABLE_COMMENTS"] == "N") echo " checked"?>></span>
+			<span><input name="ENABLE_COMMENTS" id="ENABLE_COMMENTS" type="checkbox" value="N"<?php if($arResult["PostToShow"]["ENABLE_COMMENTS"] == "N") echo " checked"?>></span>
 			<div class="blog-post-field-text"><label for="ENABLE_COMMENTS"><?=GetMessage("BLOG_ENABLE_COMMENTS")?></label></div>
 		</div>
 		<div class="blog-clear-float"></div>
 		<div class="blog-post-field blog-post-field-favorite blog-edit-field">
-			<span><input name="FAVORITE_SORT" id="FAVORITE_SORT" type="checkbox" value="100"<?if(IntVal($arResult["PostToShow"]["FAVORITE_SORT"]) > 0) echo " checked"?>></span>
+			<span><input name="FAVORITE_SORT" id="FAVORITE_SORT" type="checkbox" value="100"<?php if(IntVal($arResult["PostToShow"]["FAVORITE_SORT"]) > 0) echo " checked"?>></span>
 			<div class="blog-post-field-text"><label for="FAVORITE_SORT"><?=GetMessage("BLOG_FAVORITE_SORT")?></label></div>
 		</div>
 		<div class="blog-clear-float"></div>
 		<div class="blog-post-params">
-			<?
+			<?php 
 			function ShowSelectPerms($type, $id, $def, $arr)
 			{
 
@@ -349,13 +349,13 @@ else
 					</tr>
 					<tr>
 						<td><?=GetMessage("BLOG_ALL_USERS")?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_post_everyone_rights"]))
 								echo ShowSelectPerms('p', 1, $arResult["PostToShow"]["arUGperms_p"][1], $arResult["ar_post_everyone_rights"]);
 							else
 								echo ShowSelectPerms('p', 1, $arResult["PostToShow"]["arUGperms_p"][1], $arResult["BLOG_POST_PERMS"]);
 						?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_comment_everyone_rights"]))
 								echo ShowSelectPerms('c', 1, $arResult["PostToShow"]["arUGperms_c"][1], $arResult["ar_comment_everyone_rights"]);
 							else
@@ -364,13 +364,13 @@ else
 					</tr>
 					<tr>
 						<td><?=GetMessage("BLOG_REG_USERS")?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_post_auth_user_rights"]))
 								echo ShowSelectPerms('p', 2, $arResult["PostToShow"]["arUGperms_p"][2], $arResult["ar_post_auth_user_rights"]);
 							else
 								echo ShowSelectPerms('p', 2, $arResult["PostToShow"]["arUGperms_p"][2], $arResult["BLOG_POST_PERMS"]);
 						?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_comment_auth_user_rights"]))
 								echo ShowSelectPerms('c', 2, $arResult["PostToShow"]["arUGperms_c"][2], $arResult["ar_comment_auth_user_rights"]);
 							else
@@ -380,19 +380,19 @@ else
 					</tr>
 
 
-					<?
+					<?php 
 					foreach($arResult["UserGroups"] as $aUGroup)
 					{
 						?>
 						<tr>
 							<td><?=$aUGroup["NAME"]?></td>
-							<td><?
+							<td><?php 
 								if(!empty($arResult["ar_post_group_user_rights"]))
 									echo ShowSelectPerms('p', $aUGroup["ID"], $arResult["PostToShow"]["arUGperms_p"][$aUGroup["ID"]], $arResult["ar_post_group_user_rights"]);
 								else
 									echo ShowSelectPerms('p', $aUGroup["ID"], $arResult["PostToShow"]["arUGperms_p"][$aUGroup["ID"]], $arResult["BLOG_POST_PERMS"]);
 							?></td>
-							<td><?
+							<td><?php 
 								if(!empty($arResult["ar_comment_group_user_rights"]))
 									echo ShowSelectPerms('c', $aUGroup["ID"], $arResult["PostToShow"]["arUGperms_c"][$aUGroup["ID"]], $arResult["ar_comment_group_user_rights"]);
 								else
@@ -400,13 +400,13 @@ else
 							?></td>
 
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 				</table>
 				</div>
 			</div>
-			<?
+			<?php 
 			if(!empty($arResult["avBlog"]) && IntVal($arParams["ID"]) > 0)
 			{
 				?>
@@ -416,54 +416,54 @@ else
 						<div class="blog-post-field-access-title"><?=GetMessage("BPET_MOVE")?></div>
 						<select name="move2blog">
 							<option value=""><?=GetMessage("BPET_MOVE_NO")?></option>
-							<?
+							<?php 
 							foreach($arResult["avBlogCategory"] as $cat => $blogs)
 							{
 								if($cat == "socnet_groups")
 								{
-									?><optgroup label="<?=GetMessage("BPET_MOVE_SOCNET_GROUPS")?>"><?
+									?><optgroup label="<?=GetMessage("BPET_MOVE_SOCNET_GROUPS")?>"><?php 
 								}
 								elseif($cat == "socnet_users")
 								{
-									?><optgroup label="<?=GetMessage("BPET_MOVE_SOCNET_USERS")?>"><?
+									?><optgroup label="<?=GetMessage("BPET_MOVE_SOCNET_USERS")?>"><?php 
 								}
 								$bF = true;
 								foreach($blogs as $blog)
 								{
 									if($cat != "socnet_users" && $cat != "socnet_groups" && $bF)
 									{
-										?><optgroup label="<?=$blog["GROUP_NAME"]?>"><?
+										?><optgroup label="<?=$blog["GROUP_NAME"]?>"><?php 
 										$bF = false;
 									}
-									?><option value="<?=$blog["ID"]?>"<?if($blog["ID"] == $arResult["PostToShow"]["move2blog"]) echo " selected"?>><?=$blog["NAME"]?></option><?
+									?><option value="<?=$blog["ID"]?>"<?php if($blog["ID"] == $arResult["PostToShow"]["move2blog"]) echo " selected"?>><?=$blog["NAME"]?></option><?php 
 								}
-								?></optgroup><?
+								?></optgroup><?php 
 							}
 							?>
 						</select>
 						<br />
-						<input type="checkbox" id="move2blogcopy" name="move2blogcopy" value="Y"<?if($arResult["PostToShow"]["move2blogcopy"] == "Y") echo " checked=\"checked\""?>><label for="move2blogcopy"><?=GetMessage("BPET_MOVE_COPY")?></label>
+						<input type="checkbox" id="move2blogcopy" name="move2blogcopy" value="Y"<?php if($arResult["PostToShow"]["move2blogcopy"] == "Y") echo " checked=\"checked\""?>><label for="move2blogcopy"><?=GetMessage("BPET_MOVE_COPY")?></label>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 
 			<div class="blog-clear-float"></div>
-			<?if($arResult["POST_PROPERTIES"]["SHOW"] == "Y"):?>
+			<?php if($arResult["POST_PROPERTIES"]["SHOW"] == "Y"):?>
 				<div class="blog-post-field blog-post-field-user-prop blog-edit-field">
-					<?foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):
+					<?php foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):
 					?>
 					<div id="blog-post-user-fields-<?=$FIELD_NAME?>"><?=$arPostField["EDIT_FORM_LABEL"].":"?>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:system.field.edit",
 							$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 							array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 					</div>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</div>
 				<div class="blog-clear-float"></div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 		<script type="text/javascript">
 //			init editor for work with images previews
@@ -476,7 +476,7 @@ else
 			});
 		</script>
 			
-		<?if($arParams["SEO_USE"] == "Y"):
+		<?php if($arParams["SEO_USE"] == "Y"):
 			$bShowSEO = false;
 			if(!empty($arResult["PostToShow"]["SEO_TITLE"]) || !empty($arResult["PostToShow"]["SEO_TAGS"]) || !empty($arResult["PostToShow"]["SEO_DESCRIPTION"]))
 				$bShowSEO = true;
@@ -486,9 +486,9 @@ else
 				<div class="blog-post-field-text">
 					<label><a id="blog-show-seo" class="blog-edit-field-caption" href="javascript:void(0)" onclick="BX.toggle(BX('blog-show-seo-fields'));"><?=GetMessage("BLOG_SHOW_SEO")?></a></label>
 				</div>
-				<??>
+				<?php ?>
 
-				<div id="blog-show-seo-fields"<?if(!$bShowSEO):?> style="display:none;"<?endif;?>>
+				<div id="blog-show-seo-fields"<?php if(!$bShowSEO):?> style="display:none;"<?php endif;?>>
 					<div class="blog-post-field-text"><?=GetMessage("BLOG_SHOW_SEO_TITLE");?></div>
 					<input type="text" maxlength="255" size="30" name="SEO_TITLE" value="<?=$arResult["PostToShow"]["SEO_TITLE"]?>">
 					<div class="blog-clear-float"></div>
@@ -500,8 +500,8 @@ else
 					<div class="blog-clear-float"></div>
 				</div>
 			</div>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 //		userconsent only for once for registered early users
 		if ($arParams['USER_CONSENT'] == 'Y' && !$arParams['USER_CONSENT_WAS_GIVEN'])
 		{
@@ -528,9 +528,9 @@ else
 			<input tabindex="5" type="submit" name="save" value="<?=GetMessage("BLOG_PUBLISH")?>">
 			<input type="submit" name="apply" value="<?=GetMessage("BLOG_APPLY")?>">
 			<input type="hidden" name="blog_upload_cid" id="upload-cid" value="">
-			<?if($arResult["perms"] >= BLOG_PERMS_WRITE):?>
+			<?php if($arResult["perms"] >= BLOG_PERMS_WRITE):?>
 				<input type="submit" name="draft" value="<?=GetMessage("BLOG_TO_DRAFT")?>">
-			<?endif;?>
+			<?php endif;?>
 		</div>
 		</div>
 		</form>
@@ -540,7 +540,7 @@ else
 		document.REPLIER.POST_TITLE.focus();
 		//-->
 		</script>
-		<?
+		<?php 
 }
 ?>
 </div>

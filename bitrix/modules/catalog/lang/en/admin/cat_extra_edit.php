@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CEEN_NO_PERMS2ADD"] = "You do not have enough permissions to add a new extra ";
 $MESS["CEEN_NO_DISCOUNT"] = "The extra ##ID# was not found";
 $MESS["CEEN_ERROR_SAVING_EXTRA"] = "Error saving the extra";

@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 if ($arParams["arUserField"]["MULTIPLE"] == "Y")
 {
 	for($i = 0, $l = count($arParams['arUserField']["VALUE"]); $i < $l; $i++)

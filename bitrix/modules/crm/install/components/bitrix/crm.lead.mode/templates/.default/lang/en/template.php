@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_SETTINGS"] = "You can configure #LINK_START# deal creation mode #LINK_END#";
 $MESS["CRM_TYPE_TITLE"] = "Choose the way you want to work with your CRM";
 $MESS["CRM_TYPE_SAVE"] = "Save";

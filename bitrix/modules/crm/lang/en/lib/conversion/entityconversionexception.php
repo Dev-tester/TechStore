@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_CONV_EX_COMPANY_AUTOCREATION_DISABLED'] = "Auto creation of companies disabled.";
 $MESS['CRM_CONV_EX_COMPANY_CREATE_DENIED'] = "Company creation was denied.";
 $MESS['CRM_CONV_EX_COMPANY_CREATE_FAILED'] = "Cannot create a company. Details: ";

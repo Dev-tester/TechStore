@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_SITE_SPEED_TITLE"] = "Site speed";
 $MESS["MAIN_SITE_SPEED_SECONDS"] = "sec";
 $MESS["MAIN_SITE_SPEED_DOMAINS_LABEL"] = "Statistics for domain";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_PECOM_LOC_DIST_1"] = " ";
 $MESS["SALE_DH_PECOM_LOC_DIST_2"] = " ";
 $MESS["SALE_DH_PECOM_LOC_CN_1"] = " ";

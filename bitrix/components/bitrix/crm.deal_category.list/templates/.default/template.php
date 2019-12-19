@@ -121,11 +121,11 @@ $APPLICATION->IncludeComponent(
 				}
 			);
 
-		<?if(isset($arResult['OPEN_EDIT']) && $arResult['OPEN_EDIT'] <= 0):?>
+		<?php if(isset($arResult['OPEN_EDIT']) && $arResult['OPEN_EDIT'] <= 0):?>
 			BX.CrmDealCategoryList.items["<?=$jsGridID?>"].add();
-		<?elseif(isset($arResult['OPEN_EDIT']) && $arResult['OPEN_EDIT'] > 0):?>
+		<?php elseif(isset($arResult['OPEN_EDIT']) && $arResult['OPEN_EDIT'] > 0):?>
 			BX.CrmDealCategoryList.items["<?=$jsGridID?>"].edit(<?=$arResult['OPEN_EDIT']?>);
-		<?endif;?>
+		<?php endif;?>
 
 		}
 	);

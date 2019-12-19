@@ -3,14 +3,14 @@
 		<td valign="top">ID</td>
 		<td valign="top"><?=GetMessage("FORM_TIMESTAMP")?></td>
 		<td valign="top"><?=GetMessage("FORM_STATUS")?></td>
-		<?if ($F_RIGHT>=25):?>
-		<td valign="top"><?echo GetMessage("FORM_USER")?></td>
-		<?if (CModule::IncludeModule("statistic")):?>
-		<td valign="top"><?echo GetMessage("FORM_GUEST_ID")?></td>
-		<td valign="top"><?echo GetMessage("FORM_SESSION_ID")?></td>
-		<?endif;?>
-		<?endif;?>
-		<?
+		<?php if ($F_RIGHT>=25):?>
+		<td valign="top"><?php echo GetMessage("FORM_USER")?></td>
+		<?php if (CModule::IncludeModule("statistic")):?>
+		<td valign="top"><?php echo GetMessage("FORM_GUEST_ID")?></td>
+		<td valign="top"><?php echo GetMessage("FORM_SESSION_ID")?></td>
+		<?php endif;?>
+		<?php endif;?>
+		<?php 
 		CForm::GetResultAnswerArray($WEB_FORM_ID, $arrColumns, $arrAnswers, $arrAnswersSID, array("IN_EXCEL_TABLE" => "Y"));
 		$colspan = 5;
 		reset($arrColumns);
@@ -26,12 +26,12 @@
 				}
 				else $title = htmlspecialcharsbx($arrCol["RESULTS_TABLE_TITLE"]);
 				?>
-				<td valign="top"><?
+				<td valign="top"><?php 
 				if ($F_RIGHT>=25) :
-				?>[<?=$arrCol["ID"]?>]<br><?
+				?>[<?=$arrCol["ID"]?>]<br><?php 
 				endif;
 				echo $title;
-				?></td><?
+				?></td><?php 
 
 			endif;
 
@@ -40,7 +40,7 @@
 		endwhile;
 		?>
 	</tr>
-	<?
+	<?php 
 	$j=0;
 	while ($result->NavNext(true, "f_")) :
 		$j++;
@@ -49,9 +49,9 @@
 	<tr valign="top">
 		<td class="number0" nowrap><?=$f_ID?></td>
 		<td align="center"><?=$f_TIMESTAMP_X?></td>
-		<td><?echo "[".$f_STATUS_ID."] ".$f_STATUS_TITLE?></td>
-		<?if ($F_RIGHT>=25):?>
-		<td><?
+		<td><?php echo "[".$f_STATUS_ID."] ".$f_STATUS_TITLE?></td>
+		<?php if ($F_RIGHT>=25):?>
+		<td><?php 
 			if ($f_USER_ID>0) :
 				$rsUser = CUser::GetByID($f_USER_ID);
 				$rsUser->ExtractFields("u_");
@@ -63,12 +63,12 @@
 				echo GetMessage("FORM_NOT_REGISTERED");
 			endif;
 			?></td>
-		<?if (CModule::IncludeModule("statistic")):?>
-		<td class="number0"><?echo $f_STAT_GUEST_ID?></td>
-		<td class="number0"><?echo $f_STAT_SESSION_ID?></td>
-		<?endif;?>
-		<?endif;?>
-		<?
+		<?php if (CModule::IncludeModule("statistic")):?>
+		<td class="number0"><?php echo $f_STAT_GUEST_ID?></td>
+		<td class="number0"><?php echo $f_STAT_SESSION_ID?></td>
+		<?php endif;?>
+		<?php endif;?>
+		<?php 
 		reset($arrColumns);
 		while (list($FIELD_ID,$arrC) = each($arrColumns)):
 
@@ -76,7 +76,7 @@
 
 			if (($arrC["ADDITIONAL"]=="Y" && $SHOW_ADDITIONAL=="Y") || $arrC["ADDITIONAL"]!="Y") :
 		?>
-		<td valign="top" align="left" nowrap><?
+		<td valign="top" align="left" nowrap><?php 
 			$arrAnswer = $arrAnswers[$f_ID][$FIELD_ID];
 			if (!is_array($arrAnswer)) $arrAnswer = array();
 			reset($arrAnswer);
@@ -116,16 +116,16 @@
 						}
 			endwhile;
 			?></td>
-		<?
+		<?php 
 			endif;
 			endif;
 		endwhile;
 		?>
 	</tr>
-	<?
+	<?php 
 	endwhile;
 	?>
 	<tr valign="top">
-		<td align="left" colspan="<?=$colspan?>"><?=GetMessage("FORM_TOTAL")?>&nbsp;<?echo $result->SelectedRowsCount()?></td>
+		<td align="left" colspan="<?=$colspan?>"><?=GetMessage("FORM_TOTAL")?>&nbsp;<?php echo $result->SelectedRowsCount()?></td>
 	</tr>
 </table>

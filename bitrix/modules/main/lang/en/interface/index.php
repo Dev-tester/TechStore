@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["admin_index_menu"] = "Menu";
 $MESS["admin_index_perf"] = "Performance Monitor";
 $MESS["admin_index_perf_check"] = "Check";

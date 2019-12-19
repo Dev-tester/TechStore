@@ -160,7 +160,7 @@ class EventMessageTable extends Entity\DataManager
 				$ch1 = substr($placeHolder, 0, 1);
 				$ch2 = substr($placeHolder, 0, 2);
 
-				if($ch2 == "<?")
+				if($ch2 == "<?php ")
 					$bOpenPhpTag = true;
 				elseif($ch2 == "?>")
 					$bOpenPhpTag = false;

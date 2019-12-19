@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_PROFILE"] = "Профиль пользователя";
 $MESS["MAIN_WRONG_DATE_FROM"] = "Введите в фильтре правильную дату \"c\"";
 $MESS["MAIN_WRONG_DATE_TILL"] = "Введите в фильтре правильную дату \"по\"";

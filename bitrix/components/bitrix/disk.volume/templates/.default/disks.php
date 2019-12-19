@@ -27,7 +27,7 @@ if (!empty($arResult['ERROR_MESSAGE']))
 ?>
 <div id="disk-volume-disk-grid-<?= $component->getComponentId() ?>">
 	<div class="disk-volume-border"></div>
-	<?
+	<?php 
 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.ui.grid',

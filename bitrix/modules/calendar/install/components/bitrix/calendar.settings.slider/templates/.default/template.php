@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use \Bitrix\Main\Localization\Loc;
 
 $id = $arParams['id'];
@@ -34,19 +34,19 @@ $showPersonalTitle = $showGeneralSettings && $isPersonal;
 	<div class="calendar-slider-workarea" style="min-width: 400px;">
 		<div class="calendar-slider-content">
 			<div class="calendar-settings">
-				<?if($isPersonal):?>
-				<?if($showPersonalTitle):?>
+				<?php if($isPersonal):?>
+				<?php if($showPersonalTitle):?>
 				<div class="calendar-settings-title"><?= Loc::getMessage('EC_SET_TAB_PERSONAL')?></div>
-				<?endif;?>
+				<?php endif;?>
 				<div class="calendar-settings-control">
 					<div class="calendar-settings-control-name"><?=Loc::getMessage('EC_TIMEZONE')?></div>
 					<div class="calendar-field-container calendar-field-container-select">
 						<div class="calendar-field-block">
 							<select id="<?=$id?>_set_tz_sel" class="calendar-field calendar-field-select">
 								<option value=""> - </option>
-								<?foreach($timezoneList as $tz):?>
+								<?php foreach($timezoneList as $tz):?>
 									<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 						</div>
 					</div>
@@ -134,9 +134,9 @@ $showPersonalTitle = $showGeneralSettings && $isPersonal;
 				</div>
 
 				<span id="<?=$id?>_manage_caldav" class="calendar-settings-link-option"><?= Loc::getMessage('EC_MANAGE_CALDAV')?></span>
-				<?endif; //if($isPersonal)?>
+				<?php endif; //if($isPersonal)?>
 
-				<?if ($showGeneralSettings):?>
+				<?php if ($showGeneralSettings):?>
 				<div class="calendar-settings-title"><?=Loc::getMessage('EC_SET_TAB_BASE')?></div>
 				<div class="calendar-settings-control calendar-settings-control-time">
 						<div class="calendar-settings-control-name">
@@ -146,9 +146,9 @@ $showPersonalTitle = $showGeneralSettings && $isPersonal;
 								<div class="calendar-field-container calendar-field-container-select">
 									<div class="calendar-field-block">
 										<select id="<?=$id?>work_time_start" class="calendar-field calendar-field-select">
-											<?foreach($arWorTimeList as $key => $val):?>
+											<?php foreach($arWorTimeList as $key => $val):?>
 												<option value="<?= $key?>"><?= $val?></option>
-											<?endforeach;?>
+											<?php endforeach;?>
 										</select>
 									</div>
 								</div>
@@ -158,9 +158,9 @@ $showPersonalTitle = $showGeneralSettings && $isPersonal;
 								<div class="calendar-field-container calendar-field-container-select">
 									<div class="calendar-field-block">
 										<select id="<?=$id?>work_time_end" class="calendar-field calendar-field-select">
-											<?foreach($arWorTimeList as $key => $val):?>
+											<?php foreach($arWorTimeList as $key => $val):?>
 												<option value="<?= $key?>"><?= $val?></option>
-											<?endforeach;?>
+											<?php endforeach;?>
 										</select>
 									</div>
 								</div>
@@ -170,9 +170,9 @@ $showPersonalTitle = $showGeneralSettings && $isPersonal;
 				<div class="calendar-settings-control">
 						<div class="calendar-settings-control-name"><label for="<?=$id?>week_holidays"><?=Loc::getMessage('EC_WEEK_HOLIDAYS')?></label></div>
 						<select size="7" multiple=true id="<?=$id?>week_holidays" class="calendar-field-multiple-select">
-							<?foreach($arDays as $day):?>
+							<?php foreach($arDays as $day):?>
 								<option class="calendar-field-multiple-select-item" value="<?= $day[2]?>" ><?= $day[0]?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
 				<div class="calendar-settings-control">
@@ -187,16 +187,16 @@ $showPersonalTitle = $showGeneralSettings && $isPersonal;
 							<input type="text" id="<?=$id?>year_workdays" value="" class="calendar-field calendar-field-string"/>
 						</div>
 					</div>
-				<?endif; //if ($showGeneralSettings):?>
+				<?php endif; //if ($showGeneralSettings):?>
 
 				<!-- access -->
-				<?if ($showAccess):?>
+				<?php if ($showAccess):?>
 				<div class="calendar-settings-title"><?=Loc::getMessage('EC_SECT_ACCESS_TAB')?></div>
 					<div class="calendar-settings-access-rights">
 						<div id="<?= $id?>type-access-values-cont" class="bxec-access-cont"></div>
 					</div>
 					<!-- End of access -->
-				<?endif; //if ($showAccess):?>
+				<?php endif; //if ($showAccess):?>
 			</div>
 		</div>
 	</div>

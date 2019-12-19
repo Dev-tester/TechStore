@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['MATCH_TITLE'] = 'Связь с CRM';
 $MESS['TYPE_TITLE'] = 'Тип данных';
 $MESS['PROPERTY_TITLE'] = 'Свойство';

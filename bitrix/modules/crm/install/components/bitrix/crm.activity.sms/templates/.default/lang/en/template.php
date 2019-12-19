@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_SMS_SENDER_ROBOT"] = "Message was sent by SMS robot";
 $MESS["CRM_ACTIVITY_SMS_PHONE_NUMBER"] = "Send to number";
 $MESS["CRM_ACTIVITY_SMS_DESCRIPTION"] = "Message text";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_INVITE_DIALOG_INVITE_TITLE"] = "Пригласить сотрудника";
 $MESS["BX24_INVITE_DIALOG_EMAIL"] = "Введите через запятую или пробел E-mail сотрудников, которых хотите пригласить на портал";
 $MESS["BX24_INVITE_DIALOG_INVITED"] = "<b>Поздравляем!</b><br>На указанные email были высланы приглашения на портал.";

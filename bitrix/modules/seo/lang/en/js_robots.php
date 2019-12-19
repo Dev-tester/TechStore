@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_ROBOT_ACTION_DISALLOW"] = "Disallow file/folder (Disallow)";
 $MESS["SEO_ROBOT_ACTION_DISALLOW_TITLE"] = "Disallow indexing particular files or folders using a wildcard";
 $MESS["SEO_ROBOT_ACTION_DISALLOW_PATH"] = "Disallow folders";

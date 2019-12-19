@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FILTER_DATA_PROVIDER_SEARCH"] = "Search";
 $MESS["CRM_FILTER_DATA_PROVIDER_SEARCH_LAST"] = "Recent items";
 $MESS["CRM_FILTER_DATA_PROVIDER_SEARCH_NO_RESULT"] = "No entries have been found.";

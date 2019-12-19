@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDUV_ACCESS_DENIED'] = "Доступ разрешен только администраторам портала";
 $MESS ['BPDUV_EMPTY_SOURCE_FILE'] = "Не указан файл для загрузки.";
 $MESS ['BPDUV_EMPTY_SOURCE_ID'] = "Не указан исходный файл.";

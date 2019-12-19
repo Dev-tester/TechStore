@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/webservice/include.php");
 
 IncludeModuleLangFile(__FILE__);
@@ -20,7 +20,7 @@ $tabControl->BeginNextTab();
 	</td>
 </tr>
 
-<?
+<?php 
 
 $tabControl->EndTab();
 $tabControl->End();

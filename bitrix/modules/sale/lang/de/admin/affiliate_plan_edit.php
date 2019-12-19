@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAPE1_NO"] = "(Nein)";
 $MESS["SAPE1_RATE1"] = "Affiliate-Tarif";
 $MESS["SAPE1_RATE"] = "Affiliate-Tarif:";

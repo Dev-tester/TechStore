@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -158,7 +158,7 @@ if ($bVarsFromForm)
 
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SCEN_2FLIST"),
@@ -195,18 +195,18 @@ $context->Show();
 if (!CSaleUserCards::CheckPassword())
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>GetMessage("SCE_NO_VALID_PASSWORD"), "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SCE_ATTENTION")));
 ?>
-<?if(strlen($errorMessage)>0)
+<?php if(strlen($errorMessage)>0)
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>$errorMessage, "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SCE_ERROR"), "HTML"=>true));?>
 
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="fccards_edit">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="fccards_edit">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SCEN_TAB_CCARD"), "ICON" => "sale", "TITLE" => GetMessage("SCEN_TAB_CCARD_DESCR"))
 	);
@@ -215,23 +215,23 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?= $ID ?></td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SCE_TIMESTAMP")?></td>
+			<td><?php echo GetMessage("SCE_TIMESTAMP")?></td>
 			<td><?= $str_TIMESTAMP_X ?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SCE_USER")?></td>
-		<td width="60%"><?
+		<td width="40%"><?php echo GetMessage("SCE_USER")?></td>
+		<td width="60%"><?php 
 			$user_name = "";
 			if ($ID>0)
 				$user_name = "[<a title=\"".GetMessage("SCE_USER_PROFILE")."\" href=\"/bitrix/admin/user_edit.php?lang=".LANGUAGE_ID."&ID=".$str_USER_ID."\">".$str_USER_ID."</a>] (".$str_USER_LOGIN.") ".$str_USER_NAME." ".$str_USER_LAST_NAME;
@@ -240,22 +240,22 @@ $tabControl->BeginNextTab();
 			?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_ACTIVE")?></td>
+		<td><?php echo GetMessage("SCE_ACTIVE")?></td>
 		<td>
-			<input type="checkbox" name="ACTIVE" value="Y"<?if ($str_ACTIVE=="Y") echo " checked"?>>
+			<input type="checkbox" name="ACTIVE" value="Y"<?php if ($str_ACTIVE=="Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_SORT")?></td>
+		<td><?php echo GetMessage("SCE_SORT")?></td>
 		<td>
 			<input type="text" name="SORT" size="10" maxlength="20" value="<?= $str_SORT ?>">
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SCE_PAY_SYSTEM")?></td>
+		<td><?php echo GetMessage("SCE_PAY_SYSTEM")?></td>
 		<td>
 			<select name="PAY_SYSTEM_ACTION_ID">
-				<?
+				<?php 
 				$dbPaySysActions = CSalePaySystemAction::GetList(
 						array("NAME" => "ASC", "PT_NAME" => "ASC", "PS_NAME" => "ASC"),
 						array("HAVE_ACTION" => "Y"),
@@ -265,54 +265,54 @@ $tabControl->BeginNextTab();
 					);
 				while ($arPaySysActions = $dbPaySysActions->Fetch())
 				{
-					?><option value="<?= $arPaySysActions["ID"] ?>"<?if (IntVal($str_PAY_SYSTEM_ACTION_ID) == IntVal($arPaySysActions["ID"])) echo " selected";?>><?= htmlspecialcharsEx($arPaySysActions["NAME"]." [".$arPaySysActions["PS_NAME"]." / ".$arPaySysActions["PT_NAME"]."]") ?></option><?
+					?><option value="<?= $arPaySysActions["ID"] ?>"<?php if (IntVal($str_PAY_SYSTEM_ACTION_ID) == IntVal($arPaySysActions["ID"])) echo " selected";?>><?= htmlspecialcharsEx($arPaySysActions["NAME"]." [".$arPaySysActions["PS_NAME"]." / ".$arPaySysActions["PT_NAME"]."]") ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_CURRENCY")?></td>
+		<td><?php echo GetMessage("SCE_CURRENCY")?></td>
 		<td>
-			<?echo CCurrency::SelectBox("CURRENCY", $str_CURRENCY, GetMessage("SCE_ANY"), false, "", "")?>
+			<?php echo CCurrency::SelectBox("CURRENCY", $str_CURRENCY, GetMessage("SCE_ANY"), false, "", "")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_CARD_TYPE")?></td>
+		<td><?php echo GetMessage("SCE_CARD_TYPE")?></td>
 		<td>
 			<select name="CARD_TYPE">
-				<option value="VISA"<?if ($str_CARD_TYPE == "VISA") echo " selected";?>>Visa</option>
-				<option value="MASTERCARD"<?if ($str_CARD_TYPE == "MASTERCARD") echo " selected";?>>MasterCard</option>
-				<option value="AMEX"<?if ($str_CARD_TYPE == "AMEX") echo " selected";?>>Amex</option>
-				<option value="DINERS"<?if ($str_CARD_TYPE == "DINERS") echo " selected";?>>Diners</option>
-				<option value="DISCOVER"<?if ($str_CARD_TYPE == "DISCOVER") echo " selected";?>>Discover</option>
-				<option value="JCB"<?if ($str_CARD_TYPE == "JCB") echo " selected";?>>JCB</option>
-				<option value="ENROUTE"<?if ($str_CARD_TYPE == "ENROUTE") echo " selected";?>>Enroute</option>
+				<option value="VISA"<?php if ($str_CARD_TYPE == "VISA") echo " selected";?>>Visa</option>
+				<option value="MASTERCARD"<?php if ($str_CARD_TYPE == "MASTERCARD") echo " selected";?>>MasterCard</option>
+				<option value="AMEX"<?php if ($str_CARD_TYPE == "AMEX") echo " selected";?>>Amex</option>
+				<option value="DINERS"<?php if ($str_CARD_TYPE == "DINERS") echo " selected";?>>Diners</option>
+				<option value="DISCOVER"<?php if ($str_CARD_TYPE == "DISCOVER") echo " selected";?>>Discover</option>
+				<option value="JCB"<?php if ($str_CARD_TYPE == "JCB") echo " selected";?>>JCB</option>
+				<option value="ENROUTE"<?php if ($str_CARD_TYPE == "ENROUTE") echo " selected";?>>Enroute</option>
 			</select>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SCE_CARD_NUM")?></td>
+		<td><?php echo GetMessage("SCE_CARD_NUM")?></td>
 		<td>
 			<input type="text" name="CARD_NUM" size="30" maxlength="30" value="<?= (($saleModulePermissions == "W") ? $str_CARD_NUM : "XXXXXXXXXXX".substr($str_CARD_NUM, strlen($str_CARD_NUM)-4, 4)); ?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_CARD_EXP")?></td>
+		<td><?php echo GetMessage("SCE_CARD_EXP")?></td>
 		<td>
 			<select name="CARD_EXP_MONTH">
-				<?
+				<?php 
 				for ($i = 1; $i <= 12; $i++)
 				{
-					?><option value="<?= $i ?>"<?if (IntVal($str_CARD_EXP_MONTH) == $i) echo " selected";?>><?= ((strlen($i) < 2) ? "0".$i : $i) ?></option><?
+					?><option value="<?= $i ?>"<?php if (IntVal($str_CARD_EXP_MONTH) == $i) echo " selected";?>><?= ((strlen($i) < 2) ? "0".$i : $i) ?></option><?php 
 				}
 				?>
 			</select>
 			<select name="CARD_EXP_YEAR">
-				<?
+				<?php 
 				for ($i = 2005; $i <= 2100; $i++)
 				{
-					?><option value="<?= $i ?>"<?if (IntVal($str_CARD_EXP_YEAR) == $i) echo " selected";?>><?= $i ?></option><?
+					?><option value="<?= $i ?>"<?php if (IntVal($str_CARD_EXP_YEAR) == $i) echo " selected";?>><?= $i ?></option><?php 
 				}
 				?>
 			</select>
@@ -325,25 +325,25 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_MIN_SUM")?></td>
+		<td><?php echo GetMessage("SCE_MIN_SUM")?></td>
 		<td>
 			<input type="text" name="SUM_MIN" size="10" maxlength="10" value="<?= ((DoubleVal($str_SUM_MIN) > 0) ? roundEx($str_SUM_MIN, SALE_VALUE_PRECISION) : "") ?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_MAX_SUM")?></td>
+		<td><?php echo GetMessage("SCE_MAX_SUM")?></td>
 		<td>
 			<input type="text" name="SUM_MAX" size="10" maxlength="10" value="<?= ((DoubleVal($str_SUM_MAX) > 0) ? roundEx($str_SUM_MAX, SALE_VALUE_PRECISION) : "") ?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_SUM_CURRENCY")?></td>
+		<td><?php echo GetMessage("SCE_SUM_CURRENCY")?></td>
 		<td>
-			<?echo CCurrency::SelectBox("SUM_CURRENCY", $str_SUM_CURRENCY, "", false, "", "class='typeselect'")?>
+			<?php echo CCurrency::SelectBox("SUM_CURRENCY", $str_SUM_CURRENCY, "", false, "", "class='typeselect'")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SCE_DESCRIPTION")?></td>
+		<td><?php echo GetMessage("SCE_DESCRIPTION")?></td>
 		<td>
 			<input type="text" name="DESCRIPTION" size="40" maxlength="250" value="<?= $str_DESCRIPTION ?>">
 		</td>
@@ -353,71 +353,71 @@ $tabControl->BeginNextTab();
 		<td colspan="2" align="center">&nbsp;</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("SCE_LAST_ACTIV")?></td>
+		<td colspan="2"><?php echo GetMessage("SCE_LAST_ACTIV")?></td>
 	</tr>
-	<?
+	<?php 
 	if ($str_LAST_STATUS == "Y" || $str_LAST_STATUS == "N")
 	{
 		?>
 		<tr>
-			<td><?echo GetMessage("SCE_STATUS")?></td>
+			<td><?php echo GetMessage("SCE_STATUS")?></td>
 			<td>
 				<?= (($str_LAST_STATUS == "Y") ? GetMessage("SCE_SUCCESS") : GetMessage("SCE_ERROR")) ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SCE_STATUS_CODE")?></td>
+			<td><?php echo GetMessage("SCE_STATUS_CODE")?></td>
 			<td>
 				<?= $str_LAST_STATUS_CODE ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SCE_DESCRIPTION")?></td>
+			<td><?php echo GetMessage("SCE_DESCRIPTION")?></td>
 			<td>
 				<?= $str_LAST_STATUS_DESCRIPTION ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SCE_MESSAGE")?></td>
+			<td><?php echo GetMessage("SCE_MESSAGE")?></td>
 			<td>
 				<?= $str_LAST_STATUS_MESSAGE ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SCE_SUM")?></td>
+			<td><?php echo GetMessage("SCE_SUM")?></td>
 			<td>
 				<?= $str_LAST_SUM ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SCE_CUR")?></td>
+			<td><?php echo GetMessage("SCE_CUR")?></td>
 			<td>
 				<?= $str_LAST_CURRENCY ?>
 			</td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SCE_DATE")?></td>
+			<td><?php echo GetMessage("SCE_DATE")?></td>
 			<td>
 				<?= $str_LAST_DATE ?>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
 		<tr>
-			<td colspan="2" align="center"><?echo GetMessage("SCE_NONE")?></td>
+			<td colspan="2" align="center"><?php echo GetMessage("SCE_NONE")?></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($saleModulePermissions < "W"),
@@ -426,11 +426,11 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

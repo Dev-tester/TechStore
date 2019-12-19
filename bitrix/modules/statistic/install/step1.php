@@ -1,8 +1,8 @@
-<?
+<?php 
 $allow_initial = false;
 if (!$DB->Query("SELECT count('x') FROM b_stat_day", true))	$allow_initial = "Y";
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 <input type="hidden" name="id" value="statistic">
@@ -18,7 +18,7 @@ if (!$DB->Query("SELECT count('x') FROM b_stat_day", true))	$allow_initial = "Y"
 		<td><label for="CREATE_I2C_INDEX"><?=GetMessage("STAT_CREATE_I2C_DB")?></label></td>
 		<td><input type="checkbox" name="CREATE_I2C_INDEX" id="CREATE_I2C_INDEX" value="Y"></td>
 	</tr>
-	<? if ($allow_initial == "Y") : ?>
+	<?php  if ($allow_initial == "Y") : ?>
 	<tr>
 		<td><?=GetMessage("STAT_START_HITS")?></td>
 		<td><input type="text" name="START_HITS" value="0" size="5"></td>
@@ -31,17 +31,17 @@ if (!$DB->Query("SELECT count('x') FROM b_stat_day", true))	$allow_initial = "Y"
 		<td><?=GetMessage("STAT_START_GUESTS")?></td>
 		<td><input type="text" name="START_GUESTS" value="0" size="5"></td>
 	</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 </table><br>
-<?if(CModule::IncludeModule('cluster')):?>
-<p><?echo GetMessage("STAT_INSTALL_DATABASE")?><select name="DATABASE">
-	<option value=""><?echo GetMessage("STAT_MAIN_DATABASE")?></option><?
+<?php if(CModule::IncludeModule('cluster')):?>
+<p><?php echo GetMessage("STAT_INSTALL_DATABASE")?><select name="DATABASE">
+	<option value=""><?php echo GetMessage("STAT_MAIN_DATABASE")?></option><?php 
 	$rsDBNodes = CClusterDBNode::GetListForModuleInstall();
 	while($arDBNode = $rsDBNodes->Fetch()):
-	?><option value="<?echo $arDBNode["ID"]?>"><?echo htmlspecialcharsbx($arDBNode["NAME"])?></option><?
+	?><option value="<?php echo $arDBNode["ID"]?>"><?php echo htmlspecialcharsbx($arDBNode["NAME"])?></option><?php 
 	endwhile;
 	?></select></p>
 <br>
-<?endif;?>
-<input type="submit" name="inst" value="<?echo GetMessage("MOD_INSTALL")?>">
+<?php endif;?>
+<input type="submit" name="inst" value="<?php echo GetMessage("MOD_INSTALL")?>">
 </form>

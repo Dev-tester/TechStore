@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_CANNOT_ADD_DEPENDENCY"] = "Cannot link these tasks";
 $MESS["TASKS_CLOSE_PAGE_CONFIRM"] = "The changes you have made may be lost.";
 $MESS["TASKS_DELETE_SUCCESS"] = "Task has been deleted";

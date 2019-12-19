@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_LAST_SEEN_F"] = "#POSITION#. Last seen #LAST_SEEN#";
 $MESS["IM_LAST_SEEN_M"] = "#POSITION#. Last seen #LAST_SEEN#";
 $MESS["IM_LAST_SEEN_SHORT_F"] = "Last seen #LAST_SEEN#";

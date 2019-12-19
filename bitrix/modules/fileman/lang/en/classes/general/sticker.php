@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FMST_TYPE_PUBLIC"] = "public";
 $MESS["FMST_TYPE_PERSONAL"] = "personal";
 $MESS["FMST_TYPE_PERSONAL_TITLE"] = "This note is currently visible to you only. Click here to change visibility.";

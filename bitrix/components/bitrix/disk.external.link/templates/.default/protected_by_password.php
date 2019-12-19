@@ -28,11 +28,11 @@ else
 			<div class="bx-disk-popup-content">
 				<div class="bx-disk-popup-content-inner">
 					<div class="bx-disk-pass-popup-title"><?= $helloMessage ?></div>
-					<? if($arResult['VALID_PASSWORD'] === false) { ?>
+					<?php  if($arResult['VALID_PASSWORD'] === false) { ?>
 						<div class="bx-disk-pass-popup-title-descript" style="color: red;"><?= $component->getMessage('DISK_EXT_LINK_PROTECT_BY_WRONG_PASSWORD') ?></div>
-					<? } else { ?>
+					<?php  } else { ?>
 						<div class="bx-disk-pass-popup-title-descript"><?= $component->getMessage('DISK_EXT_LINK_PROTECT_BY_PASSWORD_DESCR') ?></div>
-					<? } ?>
+					<?php  } ?>
 					<label class="bx-disk-popup-label"><?= $component->getMessage('DISK_EXT_LINK_LABEL_PASSWORD') ?>:</label>
 					<input id="bx-disk-popup-input-pass" class="bx-disk-popup-input" name="PASSWORD" type="password">
 				</div>

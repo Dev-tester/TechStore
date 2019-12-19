@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -232,9 +232,9 @@ $actionUrl = $APPLICATION->GetCurPage()."?ID=".$ID."&lang=".LANGUAGE_ID;
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<?=bitrix_sessid_post()?><?
+<?=bitrix_sessid_post()?><?php 
 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SAEN_TAB_ACCOUNT"), "ICON" => "sale", "TITLE" => GetMessage("SAEN_TAB_ACCOUNT_DESCR"))
@@ -253,32 +253,32 @@ $tabControl->BeginNextTab();
 			<td width="60%"><?=$ID?></td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("SAE_TIMESTAMP")?></td>
+			<td><?php echo GetMessage("SAE_TIMESTAMP")?></td>
 			<td><?=$str_TIMESTAMP_X?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SAE_USER1")?></td>
+		<td width="40%"><?php echo GetMessage("SAE_USER1")?></td>
 		<td width="60%">
-			<?if ($ID > 0):?>
+			<?php if ($ID > 0):?>
 				<input type="hidden" name="USER_ID" value="<?=$str_USER_ID?>">
-				[<a title="<?echo GetMessage("SAE_USER_PROFILE")?>" href="<?=$profileUrl?>"><?=$str_USER_ID?></a>] (<?=$str_USER_LOGIN?>) <?=$str_USER_NAME?> <?=$str_USER_LAST_NAME?>
-			<?else:?>
-			<?echo FindUserID("USER_ID", $str_USER_ID);?>
-			<?endif;?>
+				[<a title="<?php echo GetMessage("SAE_USER_PROFILE")?>" href="<?=$profileUrl?>"><?=$str_USER_ID?></a>] (<?=$str_USER_LOGIN?>) <?=$str_USER_NAME?> <?=$str_USER_LAST_NAME?>
+			<?php else:?>
+			<?php echo FindUserID("USER_ID", $str_USER_ID);?>
+			<?php endif;?>
 			</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SAE_SUM")?></td>
+		<td><?php echo GetMessage("SAE_SUM")?></td>
 		<td>
 			<input type="text" name="CURRENT_BUDGET" size="10" maxlength="20" value="<?= roundEx($str_CURRENT_BUDGET, SALE_VALUE_PRECISION) ?>">
-			<?
+			<?php 
 			if ($ID > 0)
 			{
 				?>
 				<input type="hidden" name="CURRENCY" value="<?= $str_CURRENCY ?>">
 				<?= $str_CURRENCY ?>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -287,40 +287,40 @@ $tabControl->BeginNextTab();
 			?>
 		</td>
 	</tr>
-	<?if ($ID > 0 && $str_LOCKED=="Y"):?>
+	<?php if ($ID > 0 && $str_LOCKED=="Y"):?>
 		<tr>
-			<td><?echo GetMessage("SAE_UNLOCK")?></td>
+			<td><?php echo GetMessage("SAE_UNLOCK")?></td>
 			<td>
-				<input type="checkbox" name="UNLOCK" value="Y"<?if ($str_LOCKED != "Y") echo " disabled"?>>
-				<?
+				<input type="checkbox" name="UNLOCK" value="Y"<?php if ($str_LOCKED != "Y") echo " disabled"?>>
+				<?php 
 				if ($str_LOCKED=="Y")
 					echo GetMessage("SAE_LOCKED").$str_DATE_LOCKED.")";
 				?>
 			</td>
 		</tr>
-	<?endif;
+	<?php endif;
 		
 	if ($ID > 0 && $str_LOCKED=="N"):?>
 		<tr>
-			<td><?echo GetMessage("SAE_LOCK")?></td>
+			<td><?php echo GetMessage("SAE_LOCK")?></td>
 			<td>
-				<input type="checkbox" name="UNLOCK" value="N"<?if ($str_LOCKED != "N") echo " disabled"?>>
+				<input type="checkbox" name="UNLOCK" value="N"<?php if ($str_LOCKED != "N") echo " disabled"?>>
 			</td>
 		</tr>
-	<?endif;?>	
+	<?php endif;?>	
 	<tr>
-		<td valign="top"><?echo GetMessage("SAE_NOTES")?></td>
+		<td valign="top"><?php echo GetMessage("SAE_NOTES")?></td>
 		<td valign="top">
 			<textarea name="NOTES" rows="3" cols="40"><?= $str_NOTES ?></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo GetMessage("SAE_OSN")?><br><small><?echo GetMessage("SAE_OSN_NOTE")?></small></td>
+		<td valign="top"><?php echo GetMessage("SAE_OSN")?><br><small><?php echo GetMessage("SAE_OSN_NOTE")?></small></td>
 		<td valign="top">
 			<textarea name="CHANGE_REASON" rows="3" cols="40"><?= htmlspecialcharsEx($CHANGE_REASON) ?></textarea>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "U"), "back_url" => $listUrl));
@@ -328,4 +328,4 @@ $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "U"), "back_u
 $tabControl->End();
 ?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

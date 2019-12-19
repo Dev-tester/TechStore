@@ -213,7 +213,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 
 			<div class="adm-detail-content">
 				<div class="adm-detail-content-item-block">
-					<?
+					<?php 
 
 					$menuItems = array();
 
@@ -227,16 +227,16 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 					?>
 					<div class="adm-profit-title"><?=Loc::getMessage('CONVERSION_DETAILED_FILTER_SPLIT').': '.($attributeType['NAME'] ?: $attributeName)?></div>
 					<div class="adm-profit-title"><?=Loc::getMessage('CONVERSION_DETAILED_FILTER_RATE').': '.($rateType['NAME'] ?: $rateName)?></div>
-					<?
+					<?php 
 
 					foreach ($filterInfo as $name => $value)
 					{
 						?>
 						<div class="adm-profit-title"><?=$name.': '.$value?></div>
-						<?
+						<?php 
 					}
 
-					?><br><?
+					?><br><?php 
 
 					$adminList->DisplayList();
 
@@ -249,6 +249,6 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 			</div>
 		</div>
 	</div>
-<?
+<?php 
 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

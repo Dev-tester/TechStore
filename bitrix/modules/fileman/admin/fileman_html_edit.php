@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -412,7 +412,7 @@ if(!$bVarsFromForm)
 
 					//Trim php tags
 					$src = $arPHP[$n][2];
-					if (SubStr($src, 0, 5) == "<?"."php")
+					if (SubStr($src, 0, 5) == "<?php "."php")
 						$src = SubStr($src, 5);
 					else
 						$src = SubStr($src, 2);
@@ -489,9 +489,9 @@ foreach($arParsedPath["AR_PATH"] as $chainLevel)
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<?CAdminMessage::ShowMessage($strWarning);?>
+<?php CAdminMessage::ShowMessage($strWarning);?>
 
-<?if(strlen($strWarning) <=0 || $bVarsFromForm):
+<?php if(strlen($strWarning) <=0 || $bVarsFromForm):
 //$aMenu = array();
 $aMenu = array(
 	array(
@@ -637,7 +637,7 @@ BX.addCustomEvent(window, 'onAfterFileDialogShow', function(){
 		_filenameDialogInput.value = _filenamePageInput.value;
 });
 </script>
-<?
+<?php 
 $u->Show();
 ?>
 <form action="fileman_html_edit.php?lang=<?=LANG?>" method="post" enctype="multipart/form-data" name="ffilemanedit" id="ffilemanedit">
@@ -650,18 +650,18 @@ $u->Show();
 <input type="hidden" name="template" value="<?= htmlspecialcharsbx($template)?>">
 <input type="hidden" name="back_url" value="<?=htmlspecialcharsbx($back_url)?>">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $tabControl->Begin();
 //********************
 //Posting issue
 //********************
 $tabControl->BeginNextTab();
 ?>
-	<?if(!$bEdit):?>
+	<?php if(!$bEdit):?>
 		<tr><td><label for="bx_template"><?= GetMessage("FILEMAN_FILEEDIT_TEMPLATE")?></label></td>
 		<td>
 		<input type="hidden" name="new" id="new" value="y">
-		<?$arTemplates = CFileman::GetFileTemplates(LANGUAGE_ID, array($site_template));?>
+		<?php $arTemplates = CFileman::GetFileTemplates(LANGUAGE_ID, array($site_template));?>
 
 		<script>
 		function templateOnChange(_this)
@@ -674,7 +674,7 @@ $tabControl->BeginNextTab();
 			if (_title)
 				_title = '&oldtitle='+encodeURIComponent(_title);
 
-			<?
+			<?php 
 			$logic = ( $logical == "Y"  ? '&logical=Y' : '' );
 
 			$folderPath = $_REQUEST['path'];
@@ -684,18 +684,18 @@ $tabControl->BeginNextTab();
 		}
 		</script>
 
-		<?
+		<?php 
 		if (isset($_GET['oldtitle']) && strlen($_GET['oldtitle']) > 0 && !$bVarsFromForm)
 			$title = $GLOBALS["APPLICATION"]->ConvertCharset($_GET['oldtitle'], "UTF-8", LANG_CHARSET);
 		if (isset($_GET['oldname']) && strlen($_GET['oldname']) > 0 && !$bVarsFromForm)
 			$filename = $GLOBALS["APPLICATION"]->ConvertCharset($_GET['oldname'], "UTF-8", LANG_CHARSET);
 		?>
 		<select id="bx_template" name="template" onchange="templateOnChange(this);">
-			<?
+			<?php 
 			$cntTemp = count($arTemplates);
 			for($i = 0; $i < $cntTemp; $i++):?>
-			<option value="<?= htmlspecialcharsbx($arTemplates[$i]["file"])?>"<?if($template==$arTemplates[$i]["file"])echo " selected"?>><?= htmlspecialcharsbx($arTemplates[$i]["name"])?></option>
-			<?endfor;?>
+			<option value="<?= htmlspecialcharsbx($arTemplates[$i]["file"])?>"<?php if($template==$arTemplates[$i]["file"])echo " selected"?>><?= htmlspecialcharsbx($arTemplates[$i]["name"])?></option>
+			<?php endfor;?>
 		</select></td></tr>
 		<tr>
 			<td width="30%"><label for="title"><?= GetMessage("FILEMAN_FILEEDIT_TITLE")?></label></td>
@@ -704,7 +704,7 @@ $tabControl->BeginNextTab();
 		<tr>
 			<td><label for="filename"><?= GetMessage("FILEMAN_FILEEDIT_NAME")?></td>
 			<td>
-				<?if (isset($filename2))
+				<?php if (isset($filename2))
 					$filename = $filename2;?>
 				<input type="text" name="filename" id="filename" style="float: left;" size="60" maxlength="255" value="<?= htmlspecialcharsbx($filename)?>" />
 			</td>
@@ -756,7 +756,7 @@ $tabControl->BeginNextTab();
 					}
 				</script>
 			</td></tr>
-	<?else:?>
+	<?php else:?>
 		<tr>
 			<td width="30%"><label for="title"><?= GetMessage("FILEMAN_FILEEDIT_TITLE")?></label></td>
 			<td width="70%"><input type="text" id="title" name="title" size="60" maxlength="255" value="<?= htmlspecialcharsbx($title)?>">
@@ -767,16 +767,16 @@ $tabControl->BeginNextTab();
 			</td>
 		</tr>
 	<tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
 	<td colspan="2">
-		<? /* Transliteration - only for new files*/
+		<?php  /* Transliteration - only for new files*/
 		if (!$bEdit && COption::GetOptionString("fileman", "use_translit", true))
 		{
 			$bLinked = !isset($_REQUEST['filename']) && $_REQUEST['bxfm_linked'] != "N" && $filename != 'index.php';
 			?>
-			<input type="hidden" name="bxfm_linked" id="bxfm_linked" value="<? echo $bLinked ? "Y" : "N";?>)" />
-			<?
+			<input type="hidden" name="bxfm_linked" id="bxfm_linked" value="<?php  echo $bLinked ? "Y" : "N";?>)" />
+			<?php 
 			include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/classes/general/fileman_utils.php");
 			CFilemanTransliterate::Init(array(
 				'fromInputId' => 'title',
@@ -800,14 +800,14 @@ $tabControl->BeginNextTab();
 				pTitle = BX('title');
 
 			var bOldPath = (pPath.value == path);
-			<?if(!$bEdit):?>
+			<?php if(!$bEdit):?>
 				pPath.value = path;
 				pFilename.value = filename;
-			<?else:?>
+			<?php else:?>
 				pPath.value = path;
 				pFilename.value = filename;
 				BX('new').value = "y";
-			<?endif?>
+			<?php endif?>
 
 			BX('site').value = site;
 			if (pTitle)
@@ -867,7 +867,7 @@ $tabControl->BeginNextTab();
 			}
 		}
 		</script>
-		<?
+		<?php 
 		AddEventHandler("fileman", "OnBeforeHTMLEditorScriptsGet", "__FE_editorScripts");
 		function __FE_editorScripts($editorName, $arEditorParams){return array("JS" => array('html_edit_editor.js'));}
 		?>
@@ -877,10 +877,10 @@ $tabControl->BeginNextTab();
 		FE_MESS.FILEMAN_HTMLED_MANAGE_TB = "<?=GetMessage("FILEMAN_HTMLED_MANAGE_TB")?>";
 		window.bEditProps = <?= $bEditProps ? 'true' : 'false'?>;
 
-		var _bEdit = <?echo ($bEdit) ? 'true' : 'false'; ?>
+		var _bEdit = <?php echo ($bEdit) ? 'true' : 'false'; ?>
 		</script>
-		<?if ($useEditor3):?>
-			<?
+		<?php if ($useEditor3):?>
+			<?php 
 			$relPath = isset($path) ? $path : "/";
 			$site = isset($site) ? $site : "";
 			$__path = Rel2Abs("/", $relPath);
@@ -925,8 +925,8 @@ $tabControl->BeginNextTab();
 				}
 			});
 			</script>
-		<?else:?>
-			<? CFileman::ShowHTMLEditControl("filesrc", $filesrc, Array(
+		<?php else:?>
+			<?php  CFileman::ShowHTMLEditControl("filesrc", $filesrc, Array(
 				"site"=>$site,
 				"templateID"=>$templateID,
 				"bUseOnlyDefinedStyles"=>COption::GetOptionString("fileman", "show_untitled_styles", "N")!="Y",
@@ -942,10 +942,10 @@ $tabControl->BeginNextTab();
 				"limit_php_access" => $limit_php_access
 				)
 			);?>
-		<?endif;?>
+		<?php endif;?>
 	</td></tr>
-	<?if($bEditProps):?>
-	<?$tabControl->BeginNextTab();?>
+	<?php if($bEditProps):?>
+	<?php $tabControl->BeginNextTab();?>
 	<tr>
 		<td>
 			<input type="hidden" name="prop_edit" value="Y">
@@ -974,7 +974,7 @@ $tabControl->BeginNextTab();
 					<td><?= GetMessage("FILEMAN_H_EDIT_PROP")?></td>
 					<td><?= GetMessage("FILEMAN_EDIT_PROPSVAL")?></td>
 				</tr>
-				<?
+				<?php 
 				$arPropTypes = CFileMan::GetPropstypes($site);
 				$tag_prop_name = '';
 				$search_exist = false;
@@ -1063,34 +1063,34 @@ $tabControl->BeginNextTab();
 					<tr>
 						<td  valign="top" >
 							<input type="hidden" id="H_CODE_<?=$i;?>" name="H_CODE_<?=$i;?>" value="<?=htmlspecialcharsbx($arProp["CODE"])?>">
-							<?if($arProp["NAME"]):?>
+							<?php if($arProp["NAME"]):?>
 								<input type="hidden" id="CODE_<?=$i;?>" name="CODE_<?=$i;?>" value="<?=htmlspecialcharsbx($arProp["CODE"])?>">
 								<input type="hidden" id="NAME_<?=$i;?>" name="NAME_<?=$i;?>" value="<?=htmlspecialcharsbx($arProp["NAME"]);?>">
 								<?=htmlspecialcharsbx($arProp["NAME"]);?>:
-							<?else:?>
-								<input type="text" name="CODE_<?=$i?>" id="CODE_<?=$i?>" value="<?echo htmlspecialcharsbx((isset($_POST["CODE_$i"])) ? $_POST["CODE_$i"] : $arProp["CODE"]);?>" size="30">:
-							<?endif;?>
+							<?php else:?>
+								<input type="text" name="CODE_<?=$i?>" id="CODE_<?=$i?>" value="<?php echo htmlspecialcharsbx((isset($_POST["CODE_$i"])) ? $_POST["CODE_$i"] : $arProp["CODE"]);?>" size="30">:
+							<?php endif;?>
 						</td>
 						<td>
-							<?
+							<?php 
 							$value_ = (isset($_POST["VALUE_$i"])) ? $_POST["VALUE_$i"] : $arProp["VALUE"];
 							if($arProp["CODE"] == $tag_prop_name && $search_exist):
 								echo InputTags("VALUE_".$i, $value_, array($documentSite), 'size="55"', "VALUE_".$i);
 							else:?>
 								<input type="text" name="VALUE_<?=$i?>" id="VALUE_<?=$i?>" value="<?=htmlspecialcharsbx($value_);?>" size="60">
-							<?endif;
+							<?php endif;
 							if($APPLICATION->GetDirProperty($arProp["CODE"], Array($site, $path)))
 							{
-								?><br><small><b><?=GetMessage("FILEMAN_FILE_EDIT_FOLDER_PROP")?></b> <?echo htmlspecialcharsbx($APPLICATION->GetDirProperty($arProp["CODE"], Array($site, $path)));?></small><?
+								?><br><small><b><?=GetMessage("FILEMAN_FILE_EDIT_FOLDER_PROP")?></b> <?php echo htmlspecialcharsbx($APPLICATION->GetDirProperty($arProp["CODE"], Array($site, $path)));?></small><?php 
 							}?>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 				?>
 				<tr>
 					<td colspan="2">
-						<input type="hidden" id="maxind" name="maxind" value="<?echo $ind; ?>">
+						<input type="hidden" id="maxind" name="maxind" value="<?php echo $ind; ?>">
 						<input type="button" name="propeditmore"  value="<?= GetMessage("FILEMAN_EDIT_PROPSMORE")?>" onClick="_MoreRProps()">
 					</td>
 				</tr>
@@ -1098,22 +1098,22 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<!-- END FILE PROPS -->
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 	if ($USER->CanDoOperation('fileman_add_element_to_menu') && $USER->CanDoFileOperation('fm_add_to_menu',$arPath)):
 	$tabControl->BeginNextTab();
 	$add_to_menu_check = true;
 	?>
 	<tr>
 		<td width="40%"><label for="add_to_menu"><?= GetMessage("FILEMAN_H_EDIT_ADD")?></label></td>
-		<td width="60%"><input type="checkbox" id="add_to_menu" name="add_to_menu" value="Y" onclick="__heAddToMenu()" <?if($_POST['add_to_menu'] == 'Y') echo 'checked';?>></td>
+		<td width="60%"><input type="checkbox" id="add_to_menu" name="add_to_menu" value="Y" onclick="__heAddToMenu()" <?php if($_POST['add_to_menu'] == 'Y') echo 'checked';?>></td>
 	</tr>
 
-	<tr id="ex"<?if($_POST['add_to_menu']!='Y') echo ' style="display:none;"';?>>
+	<tr id="ex"<?php if($_POST['add_to_menu']!='Y') echo ' style="display:none;"';?>>
 		<td><?= GetMessage("FILEMAN_H_EDIT_TMENU")?></td>
 		<td>
 			<select id="menutype" name="menutype" onChange="chtyp()">
-			<?
+			<?php 
 				$armt = GetMenuTypes($site);
 				$arAllItems = Array();
 				$strSelected = "";
@@ -1138,8 +1138,8 @@ $tabControl->BeginNextTab();
 					if($strSelected=="")
 						$strSelected = $key;
 					?><option value="<?= htmlspecialcharsex($key)?>"
-					<?if(isset($_POST['menutype']) && $_POST['menutype'] == $key) echo 'selected';?>>
-					<?= htmlspecialcharsex($title." [".$key."]")?></option><?
+					<?php if(isset($_POST['menutype']) && $_POST['menutype'] == $key) echo 'selected';?>>
+					<?= htmlspecialcharsex($title." [".$key."]")?></option><?php 
 				}
 			?>
 			</select>
@@ -1168,7 +1168,7 @@ function __heAddToMenu()
 		BX("e3").style.display = 'none';
 	}
 }
-<?
+<?php 
 $arTypes = array_keys($arAllItems);
 $strTypes = "";
 $strItems = "";
@@ -1304,46 +1304,46 @@ BX.ready(function() {
 	});
 })
 </script>
-<tr id="e0"<?if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
+<tr id="e0"<?php if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
 	<td valign="top"><?= GetMessage("FILEMAN_H_EDIT_MENUIT")?></td>
 	<td>
 		<input type="radio" name="itemtype" id="itemtype_n" value="n" onclick="chitemtype()"
-		<?if($n = (!isset($_POST['itemtype']) || $_POST['itemtype'] != 'e')) echo 'checked';?>> <label for="itemtype_n"><?= GetMessage("FILEMAN_H_EDIT_MENUITNEW")?></label><br>
-		<input type="radio" name="itemtype" id="itemtype_e" value="e" onclick="chitemtype()"<?if(!$n) echo 'checked';?>> <label for="itemtype_e"><?echo GetMessage("FILEMAN_H_EDIT_MENUITEX")?></label>
+		<?php if($n = (!isset($_POST['itemtype']) || $_POST['itemtype'] != 'e')) echo 'checked';?>> <label for="itemtype_n"><?= GetMessage("FILEMAN_H_EDIT_MENUITNEW")?></label><br>
+		<input type="radio" name="itemtype" id="itemtype_e" value="e" onclick="chitemtype()"<?php if(!$n) echo 'checked';?>> <label for="itemtype_e"><?php echo GetMessage("FILEMAN_H_EDIT_MENUITEX")?></label>
 	</td>
 </tr>
-<tr id="e1"<?if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
-	<td><?echo GetMessage("FILEMAN_H_EDIT_MENU_NEW_NAME")?></td>
-	<td><input type="text" name="newp" id="newp" value="<?if(isset($_POST['newp'])) echo htmlspecialcharsbx($_POST['newp']);?>"></td>
+<tr id="e1"<?php if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
+	<td><?php echo GetMessage("FILEMAN_H_EDIT_MENU_NEW_NAME")?></td>
+	<td><input type="text" name="newp" id="newp" value="<?php if(isset($_POST['newp'])) echo htmlspecialcharsbx($_POST['newp']);?>"></td>
 </tr>
-<tr id="e2"<?if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
-	<td><?echo GetMessage("FILEMAN_H_EDIT_MENU_INS_BEFORE")?></td>
+<tr id="e2"<?php if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
+	<td><?php echo GetMessage("FILEMAN_H_EDIT_MENU_INS_BEFORE")?></td>
 	<td>
-		<select name="newppos" id="newppos"><?
+		<select name="newppos" id="newppos"><?php 
 			$arItems = $arAllItems[$strSelected];
 			$l = count($arItems);
 			for($i = 0; $i < $l; $i++):
-				?><option value="<?= $i + 1?>" <?if(isset($_POST['newppos']) && $_POST['newppos'] == $i + 1) echo 'selected';?>><?= $arItems[$i]?></option><?
+				?><option value="<?= $i + 1?>" <?php if(isset($_POST['newppos']) && $_POST['newppos'] == $i + 1) echo 'selected';?>><?= $arItems[$i]?></option><?php 
 			endfor;
-			?><option value="0" <?if(isset($_POST['newppos']) && $_POST['newppos'] == 0) echo 'selected';?>><?echo GetMessage("FILEMAN_H_EDIT_MENU_LAST")?></option>
+			?><option value="0" <?php if(isset($_POST['newppos']) && $_POST['newppos'] == 0) echo 'selected';?>><?php echo GetMessage("FILEMAN_H_EDIT_MENU_LAST")?></option>
 		</select>
 	</td>
 </tr>
-<tr id="e3"<?if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
-	<td><?echo GetMessage("FILEMAN_H_EDIT_MENU_ITEM")?></td>
+<tr id="e3"<?php if($_REQUEST['add_to_menu']!='Y')echo ' style="display:none;"';?>>
+	<td><?php echo GetMessage("FILEMAN_H_EDIT_MENU_ITEM")?></td>
 	<td>
-		<select name="menuitem" id="menuitem"><?
+		<select name="menuitem" id="menuitem"><?php 
 			$arItems = $arAllItems[$strSelected];
 			$l = count($arItems);
 			for($i = 0; $i < $l; $i++):
-			?><option value="<?= $i + 1?>" <?if(isset($_POST['menuitem']) && $_POST['menuitem'] == $i + 1) echo 'selected';?>><?= $arItems[$i]?></option><?
+			?><option value="<?= $i + 1?>" <?php if(isset($_POST['menuitem']) && $_POST['menuitem'] == $i + 1) echo 'selected';?>><?= $arItems[$i]?></option><?php 
 			endfor;
 		?></select>
 			<input type="hidden" name="apply2" id="apply2" value="">
 			<input type="hidden" name="save" value="Y">
 	</td>
 </tr>
-<?
+<?php 
 else:
 	$add_to_menu_check = false;
 endif; //if "menu adding tab" show
@@ -1351,11 +1351,11 @@ $tabControl->Buttons(array("disabled"=>false, "back_url"=>$url));
 $tabControl->End();
 ?>
 	</form>
-<?endif;//if(strlen($strWarning)<=0 || $bVarsFromForm):?>
+<?php endif;//if(strlen($strWarning)<=0 || $bVarsFromForm):?>
 
-<?if($_REQUEST['add_to_menu']=='Y' && $add_to_menu_check):?>
+<?php if($_REQUEST['add_to_menu']=='Y' && $add_to_menu_check):?>
 <script>chtyp();</script>
-<? endif;?>
+<?php  endif;?>
 <br>
 <br>
 <br>
@@ -1363,6 +1363,6 @@ $tabControl->End();
 <br>
 <br>
 <br>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

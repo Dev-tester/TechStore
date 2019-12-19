@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_ANSWER_TYPE_CHECKBOX"] = "multiselect (checkbox)";
 $MESS["VOTE_ANSWER_TYPE_DROPDOWN"] = "listbox item (dropdown)";
 $MESS["VOTE_ANSWER_TYPE_MULTISELECT"] = "multiple listbox items (multiselect)";

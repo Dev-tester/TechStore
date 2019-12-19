@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_CL_PAGES'] = "Records";
 $MESS ['SUP_CL_FLT_COUPON'] = "Coupon";
 $MESS ['SUP_CL_FLT_COUPON_ID'] = "Coupon ID";

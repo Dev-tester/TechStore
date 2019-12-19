@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS ['INTR_ISBN_NAME_TEMPLATE_DEFAULT'] = "#NOBR##LAST_NAME# #NAME##/NOBR#";
 ?>

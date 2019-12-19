@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_EMP_WINDOW_TITLE'] = "Выбор сотрудника";
 $MESS ['INTR_EMP_WINDOW_CLOSE'] = "Закрыть";
 $MESS ['INTR_EMP_WAIT'] = "Подождите, идет загрузка списка...";

@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	?>
 	<span class='errortext'><?= $arResult["FatalErrorMessage"] ?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?= $arResult["ErrorMessage"] ?></span><br /><br />
-		<?
+		<?php 
 	}
 	if(empty($arParams["SHOW_TOOLBAR"]))
 		$arParams["SHOW_TOOLBAR"] == "Y";
@@ -46,13 +46,13 @@ else
 		<tr>
 			<th colspan="2"><?= GetMessage("BPWC_WVCT_SUBTITLE") ?></th>
 		</tr>
-		<?
+		<?php 
 		foreach ($arResult["VARIABLES"] as $parameterKey => $arParameter)
 		{
 			?>
 			<tr>
-				<td align="right" width="40%" valign="top"><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
-				<td width="60%" valign="top"><?
+				<td align="right" width="40%" valign="top"><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?php if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
+				<td width="60%" valign="top"><?php 
 					echo $arResult["DocumentService"]->GetFieldInputControl(
 						$arResult["DOCUMENT_TYPE"],
 						$arParameter,
@@ -63,13 +63,13 @@ else
 					);
 				?></td>
 			</tr>
-			<?
+			<?php 
 		}
 		if (count($arResult["VARIABLES"]) <= 0)
 		{
 			?>
 			<tr><td><?= GetMessage("BPWC_WVCT_EMPTY") ?></td></tr>
-			<?
+			<?php 
 		}
 		?>
 		</table>
@@ -79,6 +79,6 @@ else
 		<input type="submit" name="apply_variables" value="<?= GetMessage("BPWC_WVCT_APPLY") ?>">
 		<input type="submit" name="cancel_variables"  value="<?= GetMessage("BPWC_WVCT_CANCEL") ?>">
 	</form>
-	<?
+	<?php 
 }
 ?>

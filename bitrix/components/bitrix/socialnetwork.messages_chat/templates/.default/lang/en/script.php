@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_CT94_4'] = "April";
 $MESS ['SONET_CT94_8'] = "August";
 $MESS ['FORUM_HELP_BOLD'] = "Bold (alt + b)";

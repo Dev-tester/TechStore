@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -242,7 +242,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SLN_2FLIST"),
@@ -271,53 +271,53 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?
+<?php 
 CAdminMessage::ShowMessage($strError);
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="fform">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="fform">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
 	<tr>
 		<td width="40%">ID:</td>
 		<td width="60%">
-			<?if ($ID>0):?><?echo $ID ?><?else:?><?echo GetMessage("SALE_NEW")?><?endif;?>
+			<?php if ($ID>0):?><?php echo $ID ?><?php else:?><?php echo GetMessage("SALE_NEW")?><?php endif;?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_SORT")?>:</td>
+		<td><?php echo GetMessage("SALE_SORT")?>:</td>
 		<td>
-			<input type="text" name="SORT" value="<?echo $str_SORT ?>" size="10">
+			<input type="text" name="SORT" value="<?php echo $str_SORT ?>" size="10">
 		</td>
 	</tr>
 
 
 	<tr>
-		<td><?echo GetMessage("SALE_DEFAULT_LOC")?>:</td>
+		<td><?php echo GetMessage("SALE_DEFAULT_LOC")?>:</td>
 		<td>
-			<input type="checkbox" name="LOC_DEFAULT" value="Y" <?if ($str_LOC_DEFAULT=="Y") echo "checked";?>>
+			<input type="checkbox" name="LOC_DEFAULT" value="Y" <?php if ($str_LOC_DEFAULT=="Y") echo "checked";?>>
 		</td>
 	</tr>
 
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("F_COUNTRY")?></td>
+		<td colspan="2"><?php echo GetMessage("F_COUNTRY")?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td>
-			<?echo GetMessage("F_COUNTRY") ?>:
+			<?php echo GetMessage("F_COUNTRY") ?>:
 		</td>
 		<td>
 			<script language="JavaScript">
@@ -333,7 +333,7 @@ $tabControl->BeginNextTab();
 				else
 					document.fform.COUNTRY_SHORT_NAME.disabled = !enabled;
 
-<?
+<?php 
 				for ($i = 0, $max = count($arSysLangs); $i < $max; $i++):
 					$l = CUtil::JSEscape($arSysLangs[$i])
 ?>
@@ -346,7 +346,7 @@ $tabControl->BeginNextTab();
 						document.fform.COUNTRY_SHORT_NAME_<?=$l?>[document.fform.COUNTRY_SHORT_NAME_<?=$l?>.length-1].disabled = !enabled;
 					else
 						document.fform.COUNTRY_SHORT_NAME_<?=$l?>.disabled = !enabled;
-				<?endfor;?>
+				<?php endfor;?>
 			}
 
 			function SetContact()
@@ -354,14 +354,14 @@ $tabControl->BeginNextTab();
 				COUNTRY_LIST = eval("document.fform.COUNTRY_ID");
 				CHANGE_COUNTRY = eval("document.fform.CHANGE_COUNTRY");
 
-				<?if ($ID>0):?>
+				<?php if ($ID>0):?>
 				if (parseInt(COUNTRY_LIST.selectedIndex)==0)
 				{
 					CHANGE_COUNTRY.checked = false;
 				}
-				<?endif;?>
+				<?php endif;?>
 
-				if (parseInt(COUNTRY_LIST.selectedIndex)==0 <?if ($ID>0) echo "|| CHANGE_COUNTRY.checked";?>)
+				if (parseInt(COUNTRY_LIST.selectedIndex)==0 <?php if ($ID>0) echo "|| CHANGE_COUNTRY.checked";?>)
 				{
 					SetEnabled(true);
 				}
@@ -373,13 +373,13 @@ $tabControl->BeginNextTab();
 			</script>
 
 			<select name="COUNTRY_ID" OnChange="SetContact()">
-				<option value="0"><?echo GetMessage("NEW_COUNTRY")?></option>
-				<option value="" <?if ((isset($COUNTRY_ID) && $COUNTRY_ID == "") || $str_COUNTRY_ID == "0") echo " selected";?>><?echo GetMessage("WITHOUT_COUNTRY")?></option>
-				<?
+				<option value="0"><?php echo GetMessage("NEW_COUNTRY")?></option>
+				<option value="" <?php if ((isset($COUNTRY_ID) && $COUNTRY_ID == "") || $str_COUNTRY_ID == "0") echo " selected";?>><?php echo GetMessage("WITHOUT_COUNTRY")?></option>
+				<?php 
 				$db_contList = CSaleLocation::GetCountryList(Array("NAME"=>"ASC"), Array(), LANG);
 				while ($arContList = $db_contList->Fetch())
 				{
-					?><option value="<?echo $arContList["ID"] ?>"<?if (IntVal($arContList["ID"])==IntVal($str_COUNTRY_ID)) echo " selected";?>><?echo htmlspecialcharsbx($arContList["NAME_ORIG"]) ?> [<?echo htmlspecialcharsbx($arContList["NAME_LANG"]) ?>]</option><?
+					?><option value="<?php echo $arContList["ID"] ?>"<?php if (IntVal($arContList["ID"])==IntVal($str_COUNTRY_ID)) echo " selected";?>><?php echo htmlspecialcharsbx($arContList["NAME_ORIG"]) ?> [<?php echo htmlspecialcharsbx($arContList["NAME_LANG"]) ?>]</option><?php 
 				}
 				?>
 			</select>
@@ -387,22 +387,22 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><b><?echo GetMessage("F_OR") ?></b></td>
+		<td colspan="2" align="center"><b><?php echo GetMessage("F_OR") ?></b></td>
 	</tr>
 	<tr>
-		<td colspan="2" align="center"><?echo GetMessage("SALE_NEW_CNTR") ?></td>
+		<td colspan="2" align="center"><?php echo GetMessage("SALE_NEW_CNTR") ?></td>
 	</tr>
-	<?if ($ID>0):?>
+	<?php if ($ID>0):?>
 		<tr>
 			<td>
-				<?echo GetMessage("SALE_CHANGE_CNTR")?>:
+				<?php echo GetMessage("SALE_CHANGE_CNTR")?>:
 			</td>
 			<td>
-				<input type="checkbox" name="CHANGE_COUNTRY" value="Y" <?if ($CHANGE_COUNTRY=="Y") echo "checked";?> OnClick="SetContact()">
+				<input type="checkbox" name="CHANGE_COUNTRY" value="Y" <?php if ($CHANGE_COUNTRY=="Y") echo "checked";?> OnClick="SetContact()">
 			</td>
 		</tr>
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 	$arCountry = CSaleLocation::GetCountryByID($str_COUNTRY_ID);
 	$str_COUNTRY_NAME = htmlspecialcharbx($arCountry["NAME"]);
 	$str_COUNTRY_SHORT_NAME = htmlspecialcharbx($arCountry["SHORT_NAME"]);
@@ -414,21 +414,21 @@ $tabControl->BeginNextTab();
 	?>
 	<tr class="adm-detail-required-field">
 		<td>
-			<?echo GetMessage("SALE_FULL_NAME")?>:
+			<?php echo GetMessage("SALE_FULL_NAME")?>:
 		</td>
 		<td>
-			<input type="text" name="COUNTRY_NAME" value="<?echo $str_COUNTRY_NAME ?>" size="30">
+			<input type="text" name="COUNTRY_NAME" value="<?php echo $str_COUNTRY_NAME ?>" size="30">
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?echo GetMessage("SALE_SHORT_NAME")?>:
+			<?php echo GetMessage("SALE_SHORT_NAME")?>:
 		</td>
 		<td>
-			<input type="text" name="COUNTRY_SHORT_NAME" value="<?echo $str_COUNTRY_SHORT_NAME ?>" size="30">
+			<input type="text" name="COUNTRY_SHORT_NAME" value="<?php echo $str_COUNTRY_SHORT_NAME ?>" size="30">
 		</td>
 	</tr>
-	<?
+	<?php 
 	for ($i = 0, $max = count($arSysLangs); $i < $max; $i++):
 		$arCountry = CSaleLocation::GetCountryLangByID($str_COUNTRY_ID, $arSysLangs[$i]);
 		$str_COUNTRY_NAME = htmlspecialcharbx($arCountry["NAME"]);
@@ -441,31 +441,31 @@ $tabControl->BeginNextTab();
 		?>
 		<tr>
 			<td valign="top" align="center" colspan="2">
-				<b>[<?echo $arSysLangs[$i];?>] <?echo $arSysLangNames[$i];?></b>
+				<b>[<?php echo $arSysLangs[$i];?>] <?php echo $arSysLangNames[$i];?></b>
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td>
-				<?echo GetMessage("SALE_FULL_NAME")?>:
+				<?php echo GetMessage("SALE_FULL_NAME")?>:
 			</td>
 			<td>
-				<input type="text" name="COUNTRY_NAME_<?=$arSysLangs[$i]?>" value="<?echo $str_COUNTRY_NAME ?>" size="30">
+				<input type="text" name="COUNTRY_NAME_<?=$arSysLangs[$i]?>" value="<?php echo $str_COUNTRY_NAME ?>" size="30">
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?echo GetMessage("SALE_SHORT_NAME")?>:
+				<?php echo GetMessage("SALE_SHORT_NAME")?>:
 			</td>
 			<td>
-				<input type="text" name="COUNTRY_SHORT_NAME_<?=$arSysLangs[$i]?>" value="<?echo $str_COUNTRY_SHORT_NAME ?>" size="30">
+				<input type="text" name="COUNTRY_SHORT_NAME_<?=$arSysLangs[$i]?>" value="<?php echo $str_COUNTRY_SHORT_NAME ?>" size="30">
 			</td>
 		</tr>
-		<?
+		<?php 
 	endfor;
 	?>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("SALE_REGION")?>
+		<td colspan="2"><?php echo GetMessage("SALE_REGION")?>
 			<script>
 				function ResetRegion(woutCity)
 				{
@@ -491,7 +491,7 @@ $tabControl->BeginNextTab();
 					else
 						document.fform.REGION_SHORT_NAME.disabled = !enabled;
 
-					<?
+					<?php 
 					for ($i = 0, $max = count($arSysLangs); $i < $max; $i++):
 						$l = CUtil::JSEscape($arSysLangs[$i])
 					?>
@@ -504,20 +504,20 @@ $tabControl->BeginNextTab();
 							document.fform.REGION_SHORT_NAME_<?=$l?>[document.fform.REGION_SHORT_NAME_<?=$l?>.length-1].disabled = !enabled;
 						else
 							document.fform.REGION_SHORT_NAME_<?=$l?>.disabled = !enabled;
-					<?endfor;?>
+					<?php endfor;?>
 				}
 			</script>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td>
-			<?echo GetMessage("F_REGION")?>:
+			<?php echo GetMessage("F_REGION")?>:
 		</td>
 		<td>
 			<select name="REGION_ID" id="REGION_ID" OnChange="ResetRegion()">
-				<option value="0"><?echo GetMessage("NEW_REGION")?></option>
-				<option value="" <?if ((isset($REGION_ID) && $REGION_ID == "") || $str_REGION_ID == "" || $str_REGION_ID == "0") echo " selected";?> ><?echo GetMessage("WITHOUT_REGION")?></option>
-				<?
+				<option value="0"><?php echo GetMessage("NEW_REGION")?></option>
+				<option value="" <?php if ((isset($REGION_ID) && $REGION_ID == "") || $str_REGION_ID == "" || $str_REGION_ID == "0") echo " selected";?> ><?php echo GetMessage("WITHOUT_REGION")?></option>
+				<?php 
 				$arFilterRegion = array();
 				if (isset($str_COUNTRY_ID) && $str_COUNTRY_ID > 0)
 					$arFilterRegion["COUNTRY_ID"] = $str_COUNTRY_ID;
@@ -525,13 +525,13 @@ $tabControl->BeginNextTab();
 				$dbRegionList = CSaleLocation::GetRegionList(array("NAME"=>"ASC"), $arFilterRegion, LANG);
 				while ($arRegionList = $dbRegionList->Fetch())
 				{
-					?><option value="<?echo $arRegionList["ID"] ?>"<?if (IntVal($arRegionList["ID"])==IntVal($str_REGION_ID)) echo " selected";?>><?echo htmlspecialcharsbx($arRegionList["NAME_ORIG"]) ?> [<?echo htmlspecialcharsbx($arRegionList["NAME_LANG"]) ?>]</option><?
+					?><option value="<?php echo $arRegionList["ID"] ?>"<?php if (IntVal($arRegionList["ID"])==IntVal($str_REGION_ID)) echo " selected";?>><?php echo htmlspecialcharsbx($arRegionList["NAME_ORIG"]) ?> [<?php echo htmlspecialcharsbx($arRegionList["NAME_LANG"]) ?>]</option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$arRegion = CSaleLocation::GetRegionByID($str_REGION_ID);
 	$str_REGION_NAME = htmlspecialcharbx($arRegion["NAME"]);
 	$str_REGION_SHORT_NAME = htmlspecialcharbx($arRegion["SHORT_NAME"]);
@@ -560,21 +560,21 @@ $tabControl->BeginNextTab();
 	?>
 	<tr class="adm-detail-required-field">
 		<td>
-			<?echo GetMessage("SALE_FULL_NAME")?>:
+			<?php echo GetMessage("SALE_FULL_NAME")?>:
 		</td>
 		<td>
-			<input type="text" name="REGION_NAME" value="<?echo $str_REGION_NAME ?>" size="30">
+			<input type="text" name="REGION_NAME" value="<?php echo $str_REGION_NAME ?>" size="30">
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?echo GetMessage("SALE_SHORT_NAME")?>:
+			<?php echo GetMessage("SALE_SHORT_NAME")?>:
 		</td>
 		<td>
-			<input type="text" name="REGION_SHORT_NAME" value="<?echo $str_REGION_SHORT_NAME ?>" size="30">
+			<input type="text" name="REGION_SHORT_NAME" value="<?php echo $str_REGION_SHORT_NAME ?>" size="30">
 		</td>
 	</tr>
-	<?
+	<?php 
 	for ($i = 0, $max = count($arSysLangs); $i < $max; $i++):
 		$arRegion = CSaleLocation::GetRegionLangByID($str_REGION_ID, $arSysLangs[$i]);
 		$str_REGION_NAME = htmlspecialcharbx($arRegion["NAME"]);
@@ -587,58 +587,58 @@ $tabControl->BeginNextTab();
 		?>
 		<tr>
 			<td align="center" colspan="2">
-				<b>[<?=$arSysLangs[$i]?>] <?echo $arSysLangNames[$i] ?></b>
+				<b>[<?=$arSysLangs[$i]?>] <?php echo $arSysLangNames[$i] ?></b>
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td>
-				<?echo GetMessage("SALE_FULL_NAME")?>:
+				<?php echo GetMessage("SALE_FULL_NAME")?>:
 			</td>
 			<td>
-				<input type="text" name="REGION_NAME_<?=$arSysLangs[$i]?>" value="<?echo $str_REGION_NAME ?>" size="30">
+				<input type="text" name="REGION_NAME_<?=$arSysLangs[$i]?>" value="<?php echo $str_REGION_NAME ?>" size="30">
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?echo GetMessage("SALE_SHORT_NAME")?>:
+				<?php echo GetMessage("SALE_SHORT_NAME")?>:
 			</td>
 			<td>
-				<input type="text" name="REGION_SHORT_NAME_<?=$arSysLangs[$i]?>" value="<?echo $str_REGION_SHORT_NAME ?>" size="30">
+				<input type="text" name="REGION_SHORT_NAME_<?=$arSysLangs[$i]?>" value="<?php echo $str_REGION_SHORT_NAME ?>" size="30">
 			</td>
 		</tr>
-		<?
+		<?php 
 	endfor;
 	?>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("SALE_CITY")?></td>
+		<td colspan="2"><?php echo GetMessage("SALE_CITY")?></td>
 	</tr>
 
 	<tr>
 		<td>
-			<?echo GetMessage("SALE_WITHOUT_CITY")?>:
+			<?php echo GetMessage("SALE_WITHOUT_CITY")?>:
 		</td>
 		<td>
-			<input type="checkbox" name="WITHOUT_CITY" id="WITHOUT_CITY" value="Y" <?if ($str_WITHOUT_CITY=="Y") echo "checked";?>>
+			<input type="checkbox" name="WITHOUT_CITY" id="WITHOUT_CITY" value="Y" <?php if ($str_WITHOUT_CITY=="Y") echo "checked";?>>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td>
-			<?echo GetMessage("SALE_FULL_NAME")?>:
+			<?php echo GetMessage("SALE_FULL_NAME")?>:
 		</td>
 		<td>
-			<input type="text" name="CITY_NAME" value="<?echo $str_CITY_NAME ?>" size="30">
+			<input type="text" name="CITY_NAME" value="<?php echo $str_CITY_NAME ?>" size="30">
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?echo GetMessage("SALE_SHORT_NAME")?>:
+			<?php echo GetMessage("SALE_SHORT_NAME")?>:
 		</td>
 		<td>
-			<input type="text" name="CITY_SHORT_NAME" value="<?echo $str_CITY_SHORT_NAME ?>" size="30">
+			<input type="text" name="CITY_SHORT_NAME" value="<?php echo $str_CITY_SHORT_NAME ?>" size="30">
 		</td>
 	</tr>
-	<?
+	<?php 
 	for ($i = 0, $max = count($arSysLangs); $i < $max; $i++):
 		$arCity = CSaleLocation::GetCityLangByID($str_CITY_ID, $arSysLangs[$i]);
 		$str_CITY_NAME = htmlspecialcharbx($arCity["NAME"]);
@@ -651,33 +651,33 @@ $tabControl->BeginNextTab();
 		?>
 		<tr>
 			<td align="center" colspan="2">
-				<b>[<?=$arSysLangs[$i]?>] <?echo $arSysLangNames[$i] ?></b>
+				<b>[<?=$arSysLangs[$i]?>] <?php echo $arSysLangNames[$i] ?></b>
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td>
-				<?echo GetMessage("SALE_FULL_NAME")?>:
+				<?php echo GetMessage("SALE_FULL_NAME")?>:
 			</td>
 			<td>
-				<input type="text" name="CITY_NAME_<?=$arSysLangs[$i]?>" value="<?echo $str_CITY_NAME ?>" size="30">
+				<input type="text" name="CITY_NAME_<?=$arSysLangs[$i]?>" value="<?php echo $str_CITY_NAME ?>" size="30">
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?echo GetMessage("SALE_SHORT_NAME")?>:
+				<?php echo GetMessage("SALE_SHORT_NAME")?>:
 			</td>
 			<td>
-				<input type="text" name="CITY_SHORT_NAME_<?=$arSysLangs[$i]?>" value="<?echo $str_CITY_SHORT_NAME ?>" size="30">
+				<input type="text" name="CITY_SHORT_NAME_<?=$arSysLangs[$i]?>" value="<?php echo $str_CITY_SHORT_NAME ?>" size="30">
 			</td>
 		</tr>
-		<?
+		<?php 
 	endfor;
 	?>
 	<script language="JavaScript">
 		SetContact();
 		ResetRegion('<?=$str_WITHOUT_CITY?>');
 	</script>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 		<tr>
@@ -701,12 +701,12 @@ $tabControl->BeginNextTab();
 				return false;
 			}
 			</script>
-			<div id="zip_list"><?
+			<div id="zip_list"><?php 
 			$cnt = count($arZipList);
 			for ($i = 0; $i < $cnt; $i++):
 ?>
 				<input type="text" name="ZIP[]" value="<?=htmlspecialcharsbx($arZipList[$i]["ZIP"])?>" size="10" /><br />
-<?
+<?php 
 			endfor;
 			?>
 			<input type="text" name="ZIP[]" value="" size="10" id="" /><br />
@@ -725,11 +725,11 @@ BX.ready(function() {
 })
 </script>
 		</tr>
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($saleModulePermissions < "W"),
@@ -738,9 +738,9 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

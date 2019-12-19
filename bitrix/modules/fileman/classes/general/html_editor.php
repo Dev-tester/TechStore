@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global CMain $APPLICATION
  * @global CUser $USER
@@ -167,7 +167,7 @@ class CHTMLEditor
 				BX.onCustomEvent(window, "OnBXHtmlEditorInit");
 				top.BXHtmlEditorAjaxResponse = {};
 			})(window);
-		</script><?
+		</script><?php 
 
 		$basePath = '/bitrix/js/fileman/html_editor/';
 		$this->id = (isset($arParams['id']) && strlen($arParams['id']) > 0) ? $arParams['id'] : 'bxeditor'.substr(uniqid(mt_rand(), true), 0, 4);
@@ -546,7 +546,7 @@ class CHTMLEditor
 			</div>
 			<div id="bx-html-editor-file-dialogs-<?=$this->id?>" style="display: none;"></div>
 		</div>
-	<?
+	<?php 
 	}
 
 	function Run($display = true)
@@ -567,12 +567,12 @@ class CHTMLEditor
 			config.templateParams = <?= $this->SafeJsonEncode($templateParams)?>;
 			config.snippets = <?= $this->SafeJsonEncode($snippets)?>;
 			config.components = <?= $this->SafeJsonEncode($components)?>;
-			<?if($display):?>
+			<?php if($display):?>
 			window.BXHtmlEditor.Show(config);
-			<?else:?>
+			<?php else:?>
 			window.BXHtmlEditor.SaveConfig(config);
-			<?endif;?>
-		</script><?
+			<?php endif;?>
+		</script><?php 
 	}
 
 	function SafeJsonEncode($data = array())
@@ -591,7 +591,7 @@ class CHTMLEditor
 	function InitLangMess()
 	{
 		$mess_lang = \Bitrix\Main\Localization\Loc::loadLanguageFile($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/fileman/classes/general/html_editor_js.php');
-		?><script>BX.message(<?=CUtil::PhpToJSObject($mess_lang, false);?>);</script><?
+		?><script>BX.message(<?=CUtil::PhpToJSObject($mess_lang, false);?>);</script><?php 
 	}
 
 	public static function GetSnippets($templateId, $bClearCache = false)
@@ -1062,7 +1062,7 @@ class CHTMLEditor
 			{
 				?>
 				<script>top.BXHtmlEditorAjaxResponse['<?= $reqId?>'] = <?= \Bitrix\Main\Web\Json::encode($Res)?>;</script>
-			<?
+			<?php 
 			}
 		}
 	}

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\SiteButton\Internals;
 
 use Bitrix\Main\Localization\Loc;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REQUISITE_ERR_INVALID_ENTITY_TYPE"] = "Incorrect details entity type";
 $MESS["CRM_REQUISITE_ERR_INVALID_ENTITY_ID"] = "No entity specified for use with details.";
 $MESS["CRM_REQUISITE_ERR_ON_DELETE"] = "Error deleting details.";

@@ -22,7 +22,7 @@ UI\Extension::load("ui.tooltip");
 include_once(str_replace(array("\\", "//"), "/", __DIR__."/messages.php"));
 ?>
 
-<?
+<?php 
 foreach($arResult['VERSIONS'] as $version)
 {
 	$title = Loc::getMessage('DISK_UF_VERSION_HISTORY_FILE', array('#NUMBER#' => $version['GLOBAL_CONTENT_VERSION']));
@@ -42,21 +42,21 @@ foreach($arResult['VERSIONS'] as $version)
 	<div class="feed-com-files-cont">
 		<div class="feed-com-file-wrap">
 				<span id="lock-anchor-created-<?= $version['ID'] ?>-<?= $component->getComponentId() ?>" bx-tooltip-user-id="<?=$tooltipUserId?>" class="feed-con-file-icon feed-file-icon-<?=htmlspecialcharsbx($version['EXTENSION'])?> js-disk-locked-document-tooltip">
-				<? if($version['IS_LOCKED']) { ?>
+				<?php  if($version['IS_LOCKED']) { ?>
 					<div class="disk-locked-document-block-icon-small-file"></div>
-				<? } ?>
+				<?php  } ?>
 				</span>
 				<span class="feed-com-file-name-wrap">
-					<a <?= ($version['FROM_EXTERNAL_SYSTEM'] && $version['CAN_UPDATE'])? 'style="color:#d9930a;"' : '' ?> target="_blank" href="<?=htmlspecialcharsbx($version['DOWNLOAD_URL'])?>"<?
-						?> id="disk-attach-<?=$version['ID'] . '-' . $version['GLOBAL_CONTENT_VERSION'] ?>"<?
-						?> class="feed-com-file-name" <?
-						?> title="<?=htmlspecialcharsbx($version['NAME'])?>" <?
+					<a <?= ($version['FROM_EXTERNAL_SYSTEM'] && $version['CAN_UPDATE'])? 'style="color:#d9930a;"' : '' ?> target="_blank" href="<?=htmlspecialcharsbx($version['DOWNLOAD_URL'])?>"<?php 
+						?> id="disk-attach-<?=$version['ID'] . '-' . $version['GLOBAL_CONTENT_VERSION'] ?>"<?php 
+						?> class="feed-com-file-name" <?php 
+						?> title="<?=htmlspecialcharsbx($version['NAME'])?>" <?php 
 						?> data-bx-baseElementId="disk-attach-<?=$version['ID']?>" <?=
 							$version['ATTRIBUTES_FOR_VIEWER']
-						?> alt="<?=htmlspecialcharsbx($version['NAME'])?>"<?
-					?>><?=htmlspecialcharsbx($version['NAME'])?><?
-					?></a><?
-					?><span class="feed-com-file-size"><?=$version['SIZE']?></span><?
+						?> alt="<?=htmlspecialcharsbx($version['NAME'])?>"<?php 
+					?>><?=htmlspecialcharsbx($version['NAME'])?><?php 
+					?></a><?php 
+					?><span class="feed-com-file-size"><?=$version['SIZE']?></span><?php 
 					?><script type="text/javascript">
 						var WDpreButtons_<?= $version['ID'] . '_' . $version['GLOBAL_CONTENT_VERSION'] ?> = [
 							{text : BX.message('JS_CORE_VIEWER_VIEW_ELEMENT'), className : "bx-viewer-popup-item item-view", href : "#", onclick: function(e){
@@ -64,7 +64,7 @@ foreach($arResult['VERSIONS'] as $version)
 								BX.PopupMenu.currentItem.popupWindow.close();
 								return e.preventDefault();
 							}},
-							<? if($version['EDITABLE'] && $version['CAN_UPDATE'] && (!$version['IS_LOCKED'] || $version['IS_LOCKED_BY_SELF'])){ ?>
+							<?php  if($version['EDITABLE'] && $version['CAN_UPDATE'] && (!$version['IS_LOCKED'] || $version['IS_LOCKED_BY_SELF'])){ ?>
 							{text : BX.message('JS_CORE_VIEWER_EDIT'), className : "bx-viewer-popup-item item-edit", href : "#", onclick: function(e){
 								top.BX.UI.Viewer.Instance.runActionByNode(BX("disk-attach-<?=$version['ID'] . '-' . $version['GLOBAL_CONTENT_VERSION'] ?>"), 'edit', {
 								modalWindow: BX.Disk.openBlankDocumentPopup()
@@ -72,36 +72,36 @@ foreach($arResult['VERSIONS'] as $version)
 								BX.PopupMenu.currentItem.popupWindow.close();
 								return e.preventDefault();
 							}},
-							<? } ?>
-							<? if(!$arParams['DISABLE_LOCAL_EDIT']){ ?>
+							<?php  } ?>
+							<?php  if(!$arParams['DISABLE_LOCAL_EDIT']){ ?>
 							{text : BX.message('JS_CORE_VIEWER_SAVE_TO_OWN_FILES'), className : "bx-viewer-popup-item item-b24", href : "#", onclick: function(e){
 								top.BX.UI.Viewer.Instance.runActionByNode(BX("disk-attach-<?=$version['ID'] . '-' . $version['GLOBAL_CONTENT_VERSION'] ?>"), 'copyToMe');
 								BX.PopupMenu.currentItem.popupWindow.close();
 								return e.preventDefault();
 							}},
-							<? } ?>
-							<? if($version['FROM_EXTERNAL_SYSTEM'] && $version['CAN_UPDATE']){ ?>
+							<?php  } ?>
+							<?php  if($version['FROM_EXTERNAL_SYSTEM'] && $version['CAN_UPDATE']){ ?>
 							{text : '<?= GetMessageJS('DISK_UF_FILE_RUN_FILE_IMPORT') ?>', className : "bx-viewer-popup-item item-toload", href : "#", onclick: function(e){
 								top.BX.Disk.UF.runImport({id: <?= $version['ID'] ?>, name: '<?= CUtil::JSEscape($version['NAME']) ?>'});
 								BX.PopupMenu.currentItem.popupWindow.close();
 								return e.preventDefault();
 							}},
-							<? } ?>
+							<?php  } ?>
 							{text : BX.message('JS_CORE_VIEWER_DOWNLOAD_TO_PC'), className : "bx-viewer-popup-item item-download", href : "<?=$version["DOWNLOAD_URL"]?>", onclick: function(e){BX.PopupMenu.currentItem.popupWindow.close();}}
-							<? if(!$arParams['DISABLE_LOCAL_EDIT']){ ?>
+							<?php  if(!$arParams['DISABLE_LOCAL_EDIT']){ ?>
 							,
 							{text : '<?= GetMessageJS('DISK_UF_FILE_SETTINGS_DOCS') ?>', className : "bx-viewer-popup-item item-setting", href : "#", onclick: function(e){
 								BX.Disk.InformationPopups.openWindowForSelectDocumentService({viewInUf: true});
 								BX.PopupMenu.currentItem.popupWindow.close();
 								return e.preventDefault();
 							}}
-							<? } ?>
+							<?php  } ?>
 						];
 
-					</script><?
+					</script><?php 
 					?><span class="feed-con-file-changes-link feed-con-file-changes-link-more" onclick="return DiskActionFileMenu('<?= $version['ID'] . '-' . $version['GLOBAL_CONTENT_VERSION'] ?>', this, WDpreButtons_<?= $version['ID'] . '_' . $version['GLOBAL_CONTENT_VERSION'] ?>); return false;"><?= Loc::getMessage('DISK_UF_VERSION_MORE_ACTIONS') ?></span>
 				</span>
 			</div>
 	</div>
 </div>
-<? } ?>
+<?php  } ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ECLFV_EVENT"] = "Event";
 $MESS["ECLFV_EVENT_NAME"] = "Event name";
 $MESS["ECLFV_EVENT_START"] = "Event date and time";

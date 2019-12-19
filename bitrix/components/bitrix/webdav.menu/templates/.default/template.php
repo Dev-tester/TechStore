@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->AddHeadString('<script src="/bitrix/components/bitrix/webdav/templates/.default/script.js"></script>', true);
@@ -178,7 +178,7 @@ function WDMappingDrive(path)
 	sizer.document.write(text);
 }
 </script>
-<?
+<?php 
 endif;
 ?>
 <script>
@@ -187,7 +187,7 @@ if (typeof oText != "object")
 oText['error_create_1'] = '<?=CUtil::JSEscape(GetMessage("WD_ERROR_1"))?>';
 oText['error_create_2'] = '<?=CUtil::JSEscape(GetMessage("WD_ERROR_2"))?>';
 oText['message01'] = '<?=CUtil::JSEscape(GetMessage("WD_DELETE_CONFIRM"))?>';
-</script><?
+</script><?php 
 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.toolbar",

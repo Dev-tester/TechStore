@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DASHBOARD_WIDGET_REMOVE_TITLE"] = "Delete";
 $MESS["DASHBOARD_WIDGET_REMOVE_CONTENT"] = "Are you sure you want to delete the block?";
 $MESS["DASHBOARD_WIDGET_REMOVE_ACCEPT_TITLE"] = "Yes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_EDIT_RECORD'] = "Изменение службы доставки # #ID#";
 $MESS ['SALE_NEW_RECORD'] = "Новая служба доставки";
 $MESS ['SALE_RECORDS_LIST'] = "В список служб доставки";

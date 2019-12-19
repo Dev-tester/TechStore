@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_MODULE_NAME"] = "Распознавание лиц";
 $MESS["FACEID_MODULE_DESCRIPTION"] = "Модуль распознавание лиц для Битрикс24.";
 $MESS["FACEID_INSTALL_TITLE"] = "Установка модуля \"Распознавание лиц\"";

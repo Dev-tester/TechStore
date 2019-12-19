@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["REPORT_DEFAULT_COLOR_FIELD_LABEL"] = "Color:";
 ?>

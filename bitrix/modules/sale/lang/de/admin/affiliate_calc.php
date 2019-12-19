@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAC_PLAN_PERIOD_HINT2"] = "(Beim Festlegen der Umsatzplanung werden nur die Bestellungen, die in diesem Zeitraum eingegangen sind, als Grundlage genommen)";
 $MESS["SAC_ALL_AFFILIATES_HINT"] = "<small>Für die Affiliate-Auswahl klicken Sie auf #LINK1#Affiliate#LINK2#.</a></small>";
 $MESS["SAC_SEC_0"] = "0 = in einem Schritt berechnen";

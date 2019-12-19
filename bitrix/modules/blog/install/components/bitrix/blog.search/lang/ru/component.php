@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MODULE_NOT_INSTALL'] = "Модуль блогов не установлен.";
 $MESS ['SEARCH_MODULE_NOT_INSTALL'] = "Модуль поиска не установлен.";
 $MESS ['BLOG_MAIN_SEARCH_TITLE'] = "Поиск по блогам";

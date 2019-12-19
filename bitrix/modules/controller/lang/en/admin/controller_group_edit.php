@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_GR_ED_ER1"] = "An error occurred while saving";
 $MESS["CTRLR_GR_ED_TITLE_1"] = "Edit Group ##ID#";
 $MESS["CTRLR_GR_ED_TITLE_2"] = "New Group";

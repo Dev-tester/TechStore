@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORM_LIST'] = "Список форм";
 $MESS ['FORM_NOT_FOUND'] = "Неверный ID формы";
 $MESS ['FORM_PAGE_TITLE'] = "Шаблон показа формы # #ID#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_51_2_COUNTDOWN_04--NAME"] = "Timer on a dimmed background image";
 $MESS["LANDING_BLOCK_51_2_COUNTDOWN_04--DATE"] = "End date";
 $MESS["LANDING_BLOCK_51_2_COUNTDOWN_04--IMG"] = "Background image";

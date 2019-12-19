@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_PROVIDER_LIVEFEED_NAME"] = "Activity Stream";
 $MESS["CRM_ACTIVITY_PROVIDER_LIVEFEED_TYPE_LOG_ENTRY"] = "Activity Stream message";
 $MESS["CRM_ACTIVITY_PROVIDER_LIVEFEED_TYPE_LOG_COMMENT"] = "Activity Stream message comment";

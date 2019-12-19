@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arMonths_r = array();
@@ -6,22 +6,22 @@ for ($i = 1; $i <= 12; $i++)
 {
 	$arMonths_r[$i] = ToLower(GetMessage('MONTH_'.$i.'_S'));
 }
-?><div class="bx-birthday-layout-include"><?
+?><div class="bx-birthday-layout-include"><?php 
 if ($arParams['bShowFilter'])
 {
-	?><div class="bx-birthday-officelink"><?
+	?><div class="bx-birthday-officelink"><?php 
 	if ($arResult['CURRENT_USER']['DEPARTMENT_TOP'])
 	{
 		if ($arResult['ONLY_MINE'] == 'Y')
 		{
-			?><a href="<?echo $APPLICATION->GetCurPageParam('', array('department'))?>"><?echo GetMessage('INTR_ISBN_TPL_FILTER_ALL');?></a><br /><?
+			?><a href="<?php echo $APPLICATION->GetCurPageParam('', array('department'))?>"><?php echo GetMessage('INTR_ISBN_TPL_FILTER_ALL');?></a><br /><?php 
 		}
 		else
 		{
-			?><a href="<?echo $APPLICATION->GetCurPageParam('department='.$arResult['CURRENT_USER']['DEPARTMENT_TOP'], array('department'))?>"><?echo GetMessage('INTR_ISBN_TPL_FILTER_MINE')?></a><br /><?
+			?><a href="<?php echo $APPLICATION->GetCurPageParam('department='.$arResult['CURRENT_USER']['DEPARTMENT_TOP'], array('department'))?>"><?php echo GetMessage('INTR_ISBN_TPL_FILTER_MINE')?></a><br /><?php 
 		}
 	}
-	?></div><?
+	?></div><?php 
 }
 
 foreach ($arResult['USERS'] as $arUser)
@@ -34,9 +34,9 @@ foreach ($arResult['USERS'] as $arUser)
 	?><div class="bx-user-info">
 		<div class="bx-user-info-inner">
 			<div class="bx-user-image<?=$arUser['PERSONAL_PHOTO'] ? '' : ' bx-user-image-default'?>"><a href="<?=$arUser['DETAIL_URL']?>"><?=$arUser['PERSONAL_PHOTO'] ? $arUser['PERSONAL_PHOTO'] : '' ?></a></div>
-			<div class="bx-user-birthday<?echo $arUser['IS_BIRTHDAY'] ? ' bx-user-birthday-today' : ''?> intranet-date"><?echo $birthday;?></div>
+			<div class="bx-user-birthday<?php echo $arUser['IS_BIRTHDAY'] ? ' bx-user-birthday-today' : ''?> intranet-date"><?php echo $birthday;?></div>
 			<div class="bx-user-name">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent("bitrix:main.user.link",
 				'',
 				array(
@@ -63,7 +63,7 @@ foreach ($arResult['USERS'] as $arUser)
 				false,
 				array("HIDE_ICONS" => "Y")
 			);
-			?></div><?
+			?></div><?php 
 
 			foreach($arParams["USER_PROPERTY"] as $field)
 			{
@@ -74,7 +74,7 @@ foreach ($arResult['USERS'] as $arUser)
 				{
 					if (array_key_exists($field, $arResult["arUserField"]))
 					{
-						?><div class="bx-user-post"><?
+						?><div class="bx-user-post"><?php 
 						$APPLICATION->IncludeComponent(
 							"bitrix:system.field.view", 
 							$arResult["arUserField"][$key]["USER_TYPE"]["USER_TYPE_ID"], 
@@ -84,7 +84,7 @@ foreach ($arResult['USERS'] as $arUser)
 							null,
 							array("HIDE_ICONS"=>"Y")
 						);
-						?></div><?
+						?></div><?php 
 					}
 					else
 					{
@@ -99,7 +99,7 @@ foreach ($arResult['USERS'] as $arUser)
 							case "GENDER":
 								if (in_array($arUser[$field], array("F", "M")))
 								{
-									?><div class="bx-user-post"><?=GetMessage("INTR_ISBN_TPL_USER_PROPERTY_".$field)?>: <?=GetMessage("INTR_ISBN_TPL_USER_PROPERTY_".$field."_".$arUser[$field])?></div><?
+									?><div class="bx-user-post"><?=GetMessage("INTR_ISBN_TPL_USER_PROPERTY_".$field)?>: <?=GetMessage("INTR_ISBN_TPL_USER_PROPERTY_".$field."_".$arUser[$field])?></div><?php 
 								}
 								break;
 							case "ID":
@@ -121,14 +121,14 @@ foreach ($arResult['USERS'] as $arUser)
 							case "WORK_PHONE":
 							case "WORK_FAX":
 							case "XML_ID":
-								?><div class="bx-user-post"><?=GetMessage("INTR_ISBN_TPL_USER_PROPERTY_".$field)?>: <?=htmlspecialcharsbx($arUser[$field])?></div><?
+								?><div class="bx-user-post"><?=GetMessage("INTR_ISBN_TPL_USER_PROPERTY_".$field)?>: <?=htmlspecialcharsbx($arUser[$field])?></div><?php 
 								break;
 							case "PERSONAL_PROFESSION":
 							case "WORK_POSITION":
 							case "WORK_COMPANY":
 							case "PERSONAL_NOTES":
 							case "ADMIN_NOTES":
-								?><div class="bx-user-post"><?=htmlspecialcharsbx($arUser[$field])?></div><?
+								?><div class="bx-user-post"><?=htmlspecialcharsbx($arUser[$field])?></div><?php 
 								break;
 							default:
 						}
@@ -137,6 +137,6 @@ foreach ($arResult['USERS'] as $arUser)
 			}
 			?><div class="bx-users-delimiter"></div>
 		</div>
-	</div><?
+	</div><?php 
 }
 ?></div>

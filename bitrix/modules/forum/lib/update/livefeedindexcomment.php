@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Forum\Update;
 
 use \Bitrix\Main\Update\Stepper;

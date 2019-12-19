@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Analytics;
@@ -37,7 +37,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/gadgets/bitrix/admin_sitespeed/site_spee
 </div>
 <div style="cursor:move;" class="bx-gadgets-side"></div>
 
-<?
+<?php 
 $currentHost = preg_replace("/:(80|443)$/", "", $_SERVER["HTTP_HOST"]);
 $currentHost = CUtil::JSEscape($currentHost);
 ?>

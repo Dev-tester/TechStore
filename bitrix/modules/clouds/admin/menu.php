@@ -1,4 +1,4 @@
-<?
+<?php 
 /*.require_module 'bitrix_main_include_prolog_admin_before';.*/
 IncludeModuleLangFile(__FILE__);
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EVENT_LIST_USER_FIELD"] = "Employee";
 $MESS["EVENT_LIST_DATE_FIELD"] = "Date";
 $MESS["EVENT_LIST_IP_FIELD"] = "IP";

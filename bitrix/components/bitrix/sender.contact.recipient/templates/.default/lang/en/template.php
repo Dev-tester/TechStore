@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONTACT_LIST_BTN_ADD"] = "Add to list";
 $MESS["SENDER_CONTACT_LIST_BTN_REMOVE_FROM_BL"] = "Remove from black list";
 $MESS["SENDER_CONTACT_LIST_BTN_REMOVE_FROM_BL_TITLE"] = "Remove from black list";

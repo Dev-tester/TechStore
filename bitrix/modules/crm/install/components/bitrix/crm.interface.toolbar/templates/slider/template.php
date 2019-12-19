@@ -57,7 +57,7 @@ foreach($arParams['BUTTONS'] as $item)
 
 $this->SetViewTarget('inside_pagetitle', 10000);
 
-?><div id="<?=htmlspecialcharsbx($toolbarID)?>" class="pagetitle-container pagetitle-align-right-container crm-pagetitle-btn-box"><?
+?><div id="<?=htmlspecialcharsbx($toolbarID)?>" class="pagetitle-container pagetitle-align-right-container crm-pagetitle-btn-box"><?php 
 
 if($communicationPanel)
 {
@@ -77,13 +77,13 @@ if($communicationPanel)
 		$ownerInfo = isset($data['OWNER_INFO']) && is_array($data['OWNER_INFO']) ? $data['OWNER_INFO'] : array();
 		?>
 		<div class="crm-entity-actions-container">
-			<?if(!$enableCall || empty($phones))
+			<?php if(!$enableCall || empty($phones))
 			{
-				?><div id="<?=htmlspecialcharsbx($callButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-phone-call ui-btn-disabled ui-btn-themes"></div><?
+				?><div id="<?=htmlspecialcharsbx($callButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-phone-call ui-btn-disabled ui-btn-themes"></div><?php 
 			}
 			else
 			{
-				?><div id="<?=htmlspecialcharsbx($callButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-phone-call ui-btn-themes"></div><?
+				?><div id="<?=htmlspecialcharsbx($callButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-phone-call ui-btn-themes"></div><?php 
 			}?>
 			<script type="text/javascript">
 				BX.ready(
@@ -105,13 +105,13 @@ if($communicationPanel)
 				);
 			</script>
 			<!--<div class="webform-small-button webform-small-button-transparent crm-contact-menu-sms-icon-not-available"></div>-->
-			<?if(empty($emails))
+			<?php if(empty($emails))
 			{
-				?><div id="<?=htmlspecialcharsbx($emailButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-mail ui-btn-disabled ui-btn-themes"></div><?
+				?><div id="<?=htmlspecialcharsbx($emailButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-mail ui-btn-disabled ui-btn-themes"></div><?php 
 			}
 			else
 			{
-				?><div id="<?=htmlspecialcharsbx($emailButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-mail ui-btn-themes"></div><?
+				?><div id="<?=htmlspecialcharsbx($emailButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-mail ui-btn-themes"></div><?php 
 			}?>
 			<script type="text/javascript">
 				BX.ready(
@@ -128,13 +128,13 @@ if($communicationPanel)
 					}
 				);
 			</script>
-			<?if(empty($messengers))
+			<?php if(empty($messengers))
 			{
-				?><div id="<?=htmlspecialcharsbx($messengerButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-chat ui-btn-disabled ui-btn-themes"></div><?
+				?><div id="<?=htmlspecialcharsbx($messengerButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-chat ui-btn-disabled ui-btn-themes"></div><?php 
 			}
 			else
 			{
-				?><div id="<?=htmlspecialcharsbx($messengerButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-chat ui-btn-themes"></div><?
+				?><div id="<?=htmlspecialcharsbx($messengerButtonId)?>" class="ui-btn ui-btn-light-border ui-btn-icon-chat ui-btn-themes"></div><?php 
 			}?>
 			<script type="text/javascript">
 				BX.ready(
@@ -152,7 +152,7 @@ if($communicationPanel)
 				);
 			</script>
 		</div>
-		<?
+		<?php 
 }
 if($enableMoreButton)
 {
@@ -173,7 +173,7 @@ if($enableMoreButton)
 				);
 			}
 		);
-	</script><?
+	</script><?php 
 }
 
 if(!empty($restAppButtons))
@@ -205,7 +205,7 @@ if(!empty($restAppButtons))
 					);
 				}
 			);
-		</script><?
+		</script><?php 
 	}
 }
 
@@ -221,7 +221,7 @@ if($documentButton)
 			button.init();
 		});
 	</script>
-	<?
+	<?php 
 }
 
 foreach($items as $item)
@@ -242,7 +242,7 @@ foreach($items as $item)
 		?><div class="webform-small-button webform-small-button-blue webform-button-icon-triangle-down crm-btn-toolbar-menu"<?=$onClick !== '' ? " onclick=\"{$onClick}; return false;\"" : ''?>>
 			<span class="webform-small-button-text"><?=$text?></span>
 			<span class="webform-button-icon-triangle"></span>
-		</div><?
+		</div><?php 
 
 		if(!empty($menuItems))
 		{
@@ -263,7 +263,7 @@ foreach($items as $item)
 						);
 					}
 				);
-			</script><?
+			</script><?php 
 		}
 	}
 	elseif($type == 'toolbar-conv-scheme')
@@ -309,10 +309,10 @@ foreach($items as $item)
 				function()
 				{
 					//region Toolbar script
-					<?$selectorID = CUtil::JSEscape($name);?>
-					<?$originUrl = CUtil::JSEscape($originUrl);?>
-					<?if($isPermitted):?>
-						<?if($entityTypeID === CCrmOwnerType::Lead):?>
+					<?php $selectorID = CUtil::JSEscape($name);?>
+					<?php $originUrl = CUtil::JSEscape($originUrl);?>
+					<?php if($isPermitted):?>
+						<?php if($entityTypeID === CCrmOwnerType::Lead):?>
 							BX.CrmLeadConversionSchemeSelector.create(
 								"<?=$selectorID?>",
 								{
@@ -327,7 +327,7 @@ foreach($items as $item)
 									hintMessages: <?=CUtil::PhpToJSObject($hint)?>
 								}
 							);
-						<?elseif($entityTypeID === CCrmOwnerType::Deal):?>
+						<?php elseif($entityTypeID === CCrmOwnerType::Deal):?>
 							BX.CrmDealConversionSchemeSelector.create(
 								"<?=$selectorID?>",
 								{
@@ -364,7 +364,7 @@ foreach($items as $item)
 									);
 								}
 							);
-						<?elseif($entityTypeID === CCrmOwnerType::Quote):?>
+						<?php elseif($entityTypeID === CCrmOwnerType::Quote):?>
 							BX.CrmQuoteConversionSchemeSelector.create(
 								"<?=$selectorID?>",
 								{
@@ -402,25 +402,25 @@ foreach($items as $item)
 									);
 								}
 							);
-						<?endif;?>
-					<?elseif($lockScript !== ''):?>
+						<?php endif;?>
+					<?php elseif($lockScript !== ''):?>
 						var showLockInfo = function()
 						{
 							<?=$lockScript?>
 						};
 						BX.bind(BX("<?=$labelID?>"), "click", showLockInfo );
-						<?if($entityTypeID === CCrmOwnerType::Deal):?>
+						<?php if($entityTypeID === CCrmOwnerType::Deal):?>
 							BX.addCustomEvent(window, "CrmCreateQuoteFromDeal", showLockInfo);
 							BX.addCustomEvent(window, "CrmCreateInvoiceFromDeal", showLockInfo);
-						<?elseif($entityTypeID === CCrmOwnerType::Quote):?>
+						<?php elseif($entityTypeID === CCrmOwnerType::Quote):?>
 							BX.addCustomEvent(window, "CrmCreateDealFromQuote", showLockInfo);
 							BX.addCustomEvent(window, "CrmCreateInvoiceFromQuote", showLockInfo);
-						<?endif;?>
-					<?endif;?>
+						<?php endif;?>
+					<?php endif;?>
 					//endregion
 				}
 			);
-		</script><?
+		</script><?php 
 	}
 	elseif($type == 'bizproc-starter-button')
 	{
@@ -452,13 +452,13 @@ foreach($items as $item)
 				}
 			);
 		</script>
-		<?
+		<?php 
 		endif;
 	}
 	else
 	{
-		?><a target="_top" class="webform-small-button webform-small-button-blue crm-top-toolbar-add<?=$icon !== '' ? " {$icon}" : ''?>" href="<?=$link?>" title="<?=$title?>"<?=$onClick !== '' ? " onclick=\"{$onClick}; return false;\"" : ''?>><?=$text?></a><?
+		?><a target="_top" class="webform-small-button webform-small-button-blue crm-top-toolbar-add<?=$icon !== '' ? " {$icon}" : ''?>" href="<?=$link?>" title="<?=$title?>"<?=$onClick !== '' ? " onclick=\"{$onClick}; return false;\"" : ''?>><?=$text?></a><?php 
 	}
 }
-?></div><?
+?></div><?php 
 $this->EndViewTarget();

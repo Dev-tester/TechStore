@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_BP_EPMTY_TASKS'] = "No tasks to execute.";
 $MESS ['SONET_BP_TASKS'] = "Current Tasks";
 $MESS ['SONET_BP_TRACKING'] = "Task Archive";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Config;
 use Bitrix\Main\Localization\Loc;
@@ -238,41 +238,41 @@ if(!$fatalFailure) // no fatals like "module not installed, etc."
 	$tabControl->BeginEpilogContent();
 
 	?>
-	<?if(strlen($_REQUEST['return_url'])):?>
+	<?php if(strlen($_REQUEST['return_url'])):?>
 		<input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($returnUrl)?>">
-	<?endif?>
+	<?php endif?>
 	<?=bitrix_sessid_post()?>
-	<?
+	<?php 
 	$tabControl->EndEpilogContent();
 }
 
 $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E_ITEM_EDIT', array('#ITEM_NAME#' => $nameToDisplay)) : Loc::getMessage('SALE_LOCATION_E_ITEM_NEW'));
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<?
+<?php 
 #####################################
 #### Data output
 #####################################
 ?>
 
-<?//temporal code?>
-<?if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php //temporal code?>
+<?php if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
 
-<?SearchHelper::checkIndexesValid();?>
+<?php SearchHelper::checkIndexesValid();?>
 
-<?if($fatalFailure):?>
+<?php if($fatalFailure):?>
 
-	<?CAdminMessage::ShowMessage(array('MESSAGE' => $fatalFailureMessage, 'type' => 'ERROR'))?>
+	<?php CAdminMessage::ShowMessage(array('MESSAGE' => $fatalFailureMessage, 'type' => 'ERROR'))?>
 
-<?else:?>
+<?php else:?>
 
-	<?if($actionFailure):?>
-		<?CAdminMessage::ShowMessage(array('MESSAGE' => $actionFailureMessage, 'type' => 'ERROR'))?>
-	<?endif?>
+	<?php if($actionFailure):?>
+		<?php CAdminMessage::ShowMessage(array('MESSAGE' => $actionFailureMessage, 'type' => 'ERROR'))?>
+	<?php endif?>
 
-	<?
+	<?php 
 	$topMenu->Show();
 
 	$args = array();
@@ -285,54 +285,54 @@ $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E
 	$tabControl->BeginNextFormTab();
 	?>
 
-	<?$requiredFld = ' class="adm-detail-required-field"';?>
+	<?php $requiredFld = ' class="adm-detail-required-field"';?>
 
-	<?$columns = Helper::getColumns('detail');?>
-	<?foreach($columns as $code => $field):?>
+	<?php $columns = Helper::getColumns('detail');?>
+	<?php foreach($columns as $code => $field):?>
 
-		<?if($code == 'ID' && !$id) continue; // new node or copied ?>
-		<?if(Helper::checkIsNameField($code)) continue; // we`ll output names in a different manner ?>
+		<?php if($code == 'ID' && !$id) continue; // new node or copied ?>
+		<?php if(Helper::checkIsNameField($code)) continue; // we`ll output names in a different manner ?>
 
-		<?$value = Helper::makeSafeDisplay($formData[$code], $code);?>
+		<?php $value = Helper::makeSafeDisplay($formData[$code], $code);?>
 
-		<?$tabControl->BeginCustomField($code, $field['title']);?>
+		<?php $tabControl->BeginCustomField($code, $field['title']);?>
 
-			<?if(!$geoHeadingShown && ($code == 'LATITUDE' || $code == 'LONGITUDE')):?>
+			<?php if(!$geoHeadingShown && ($code == 'LATITUDE' || $code == 'LONGITUDE')):?>
 				<tr class="heading">
 					<td colspan="2"><?=Loc::getMessage('SALE_LOCATION_E_GEODATA')?></td>
 				</tr>
-				<?$geoHeadingShown = true;?>
-			<?endif?>
+				<?php $geoHeadingShown = true;?>
+			<?php endif?>
 
 			<tr<?=($field['required'] || $code == 'ID' ? $requiredFld : '')?>>
 				<td width="40%"><?=$field['title']?>:</td>
 				<td width="60%">
 
-					<?if($code == 'ID'):?>
+					<?php if($code == 'ID'):?>
 
 						<?=$id?>
 						<input type="hidden" name="element[ID]" value="<?=$id?>" />
 
-					<?elseif($code == 'TYPE_ID'):?>
+					<?php elseif($code == 'TYPE_ID'):?>
 
 						<select name="element[TYPE_ID]">
-							<?foreach(Helper::getTypeList() as $tId => $type):?>
+							<?php foreach(Helper::getTypeList() as $tId => $type):?>
 								<option value="<?=$tId?>"<?=($tId == $value ? ' selected' : '')?>><?=htmlspecialcharsbx($type)?></option>
-							<?endforeach?>
+							<?php endforeach?>
 						</select>
 
-					<?elseif($code == 'PARENT_ID'):?>
+					<?php elseif($code == 'PARENT_ID'):?>
 
 						<div style="max-width: 500px">
 
-							<?/*$APPLICATION->IncludeComponent(
+							<?php /*$APPLICATION->IncludeComponent(
 								"bitrix:map.yandex.view",
 								"",
 							Array(),
 							false
 							);*/?>
 
-							<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.".Helper::getWidgetAppearance(), "", array(
+							<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.".Helper::getWidgetAppearance(), "", array(
 								"ID" => $value,
 								"CODE" => "",
 								"INPUT_NAME" => "element[PARENT_ID]",
@@ -350,111 +350,111 @@ $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E
 
 						</div>
 
-					<?else:?>
+					<?php else:?>
 
-						<input type="text" name="element[<?=$code?>]" value="<?=$value?>" <?if($code == 'SORT'):?>size="7"<?endif?> />
+						<input type="text" name="element[<?=$code?>]" value="<?=$value?>" <?php if($code == 'SORT'):?>size="7"<?php endif?> />
 
-					<?endif?>
+					<?php endif?>
 
 				</td>
 			</tr>
-		<?$tabControl->EndCustomField($code, '');?>
+		<?php $tabControl->EndCustomField($code, '');?>
 
-	<?endforeach?>
+	<?php endforeach?>
 
-	<?
+	<?php 
 	$languages = Helper::getLanguageList();
 	$nameMap = Helper::getNameMap();
 	?>
-	<?$tabControl->BeginCustomField('NAME', Loc::getMessage('SALE_LOCATION_E_HEADING_NAME_ALL'));?>
-	<?foreach($languages as $lang):?>
+	<?php $tabControl->BeginCustomField('NAME', Loc::getMessage('SALE_LOCATION_E_HEADING_NAME_ALL'));?>
+	<?php foreach($languages as $lang):?>
 
 		<tr class="heading">
 			<td colspan="2"><?=Loc::getMessage('SALE_LOCATION_E_HEADING_NAME', array('#LANGUAGE_ID#' => htmlspecialcharsbx($lang)))?></td>
 		</tr>
 
-		<?$lang = ToUpper($lang);?>
+		<?php $lang = ToUpper($lang);?>
 
-		<?foreach($nameMap as $code => $field):?>
-			<?$value = Helper::makeSafeDisplay($formData[$code.'_'.$lang], $code);?>
+		<?php foreach($nameMap as $code => $field):?>
+			<?php $value = Helper::makeSafeDisplay($formData[$code.'_'.$lang], $code);?>
 			<tr<?=($field['required'] || $code == 'ID' ? $requiredFld : '')?>>
 				<td width="40%"><?=$field['title']?></td>
 				<td width="60%">
 					<input type="text" name="element[<?=$code?>_<?=$lang?>]" value="<?=$value?>" size="20" maxlength="255" />
 				</td>
 			</tr>
-		<?endforeach?>
+		<?php endforeach?>
 
-	<?endforeach?>
-	<?$tabControl->EndCustomField('NAME', '');?>
+	<?php endforeach?>
+	<?php $tabControl->EndCustomField('NAME', '');?>
 
-	<?$tabControl->BeginNextFormTab();?>
-	<?$tabControl->BeginCustomField('EXTERNAL', Loc::getMessage('SALE_LOCATION_E_HEADING_EXTERNAL'));?>
+	<?php $tabControl->BeginNextFormTab();?>
+	<?php $tabControl->BeginCustomField('EXTERNAL', Loc::getMessage('SALE_LOCATION_E_HEADING_EXTERNAL'));?>
 
-		<?$services = Helper::getExternalServicesList();?>
+		<?php $services = Helper::getExternalServicesList();?>
 		<tr>
 			<td>
 
-				<?if(empty($services)):?>
+				<?php if(empty($services)):?>
 
 					<?=Loc::getMessage('SALE_LOCATION_E_NO_SERVICES')?> <a href="<?=ExternalServiceHelper::getListUrl()?>" target="blank_"><?=Loc::getMessage('SALE_LOCATION_E_NO_SERVICES_LIST_PAGE')?></a>
 
-				<?else:?>
+				<?php else:?>
 
-					<?$randTag = rand(99, 999);?>
-					<?$externalMap = Helper::getExternalMap();?>
+					<?php $randTag = rand(99, 999);?>
+					<?php $externalMap = Helper::getExternalMap();?>
 					<div id="ib_external_values_<?=$randTag?>">
 
 						<table class="internal" style="margin: 0 auto">
 							<tbody class="bx-ui-dynamiclist-container">
 								<tr class="heading">
-									<?foreach($externalMap as $code => $field):?>
+									<?php foreach($externalMap as $code => $field):?>
 										<td><?=$field['title']?></td>
-									<?endforeach?>
+									<?php endforeach?>
 									<td><?=Loc::getMessage('SALE_LOCATION_E_HEADER_EXT_REMOVE')?></td>
 								</tr>
 
-								<?if(is_array($formData['EXTERNAL']) && !empty($formData['EXTERNAL'])):?>
+								<?php if(is_array($formData['EXTERNAL']) && !empty($formData['EXTERNAL'])):?>
 
-									<?foreach($formData['EXTERNAL'] as $id => $ext):?>
+									<?php foreach($formData['EXTERNAL'] as $id => $ext):?>
 										<tr>
-											<?foreach($externalMap as $code => $field):?>
-												<?$value = Helper::makeSafeDisplay($ext[$code], $code);?>
+											<?php foreach($externalMap as $code => $field):?>
+												<?php $value = Helper::makeSafeDisplay($ext[$code], $code);?>
 												<td>
-													<?if($code == 'SERVICE_ID'):?>
+													<?php if($code == 'SERVICE_ID'):?>
 														<select name="element[EXTERNAL][<?=$ext['ID']?>][<?=$code?>]">
-															<?foreach($services as $sId => $serv):?>
+															<?php foreach($services as $sId => $serv):?>
 																<option value="<?=intval($serv['ID'])?>"<?=($serv['ID'] == $value ? ' selected' : '')?>><?=htmlspecialcharsbx($serv['CODE'])?></option>
-															<?endforeach?>
+															<?php endforeach?>
 														</select>
-													<?elseif($code == 'ID'):?>
-														<?if(intval($value)):?>
+													<?php elseif($code == 'ID'):?>
+														<?php if(intval($value)):?>
 															<?=$value?>
-														<?endif?>
-													<?else:?>
+														<?php endif?>
+													<?php else:?>
 														<input type="text" name="element[EXTERNAL][<?=$ext['ID']?>][<?=$code?>]" value="<?=$value?>" size="20" />
-													<?endif?>
+													<?php endif?>
 												</td>
-											<?endforeach?>
+											<?php endforeach?>
 
 											<td style="text-align: center">
-												<?if($ext['ID']):?>
+												<?php if($ext['ID']):?>
 													<input type="checkbox" name="element[EXTERNAL][<?=$ext['ID']?>][REMOVE]" value="1" />
-												<?endif?>
+												<?php endif?>
 											</td>
 										</tr>
-									<?endforeach?>
+									<?php endforeach?>
 
-								<?endif?>
+								<?php endif?>
 
 								<script type="text/html" data-template-id="bx-ui-dynamiclist-row">
 									<tr>
 										<td></td>
 										<td>
 											<select name="element[EXTERNAL][n{{column_id}}][SERVICE_ID]">
-												<?foreach($services as $sId => $serv):?>
+												<?php foreach($services as $sId => $serv):?>
 													<option value="<?=intval($serv['ID'])?>"><?=htmlspecialcharsbx($serv['CODE'])?></option>
-												<?endforeach?>
+												<?php endforeach?>
 											</select>
 										</td>
 										<td>
@@ -479,13 +479,13 @@ $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E
 						});
 					</script>
 
-				<?endif?>
+				<?php endif?>
 
 			</td>
 		</tr>
-	<?$tabControl->EndCustomField('EXTERNAL', '');?>
+	<?php $tabControl->EndCustomField('EXTERNAL', '');?>
 
-	<?
+	<?php 
 	$tabControl->Buttons(array(
 		"disabled" => !$userIsAdmin,
 		"btnSaveAndAdd" => true,
@@ -497,6 +497,6 @@ $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E
 	$tabControl->Show();
 	?>
 
-<?endif?>
+<?php endif?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

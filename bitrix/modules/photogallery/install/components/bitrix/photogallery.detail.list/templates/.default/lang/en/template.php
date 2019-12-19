@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_SELECT_ALL'] = "Select all";
 $MESS ['P_DELETE_SELECTED'] = "Delete";
 $MESS ['P_MOVE_SELECTED'] = "Move";

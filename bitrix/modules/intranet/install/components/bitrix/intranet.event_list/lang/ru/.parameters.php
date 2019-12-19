@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ECL_GROUP_BASE_SETTINGS'] = "Основные настройки";
 $MESS ['ECL_P_IBLOCK_TYPE'] = "Тип инфоблока";
 $MESS ['ECL_P_IBLOCK'] = "Инфоблок";

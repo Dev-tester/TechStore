@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE_TIP'] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type.";
 $MESS ['DISPLAY_PANEL_TIP'] = "If checked, the editor buttons will display in the Site Edit mode on the Control Panel toolbar, and in the component toolbox area.";
 $MESS ['IBLOCK_ID_TIP'] = "Specify here the information block that will store the photos. Alternatively, you can select <b>(other)-></b> and specify the information block ID in the field beside.";

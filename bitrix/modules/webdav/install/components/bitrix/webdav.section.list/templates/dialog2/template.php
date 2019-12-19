@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!defined('ADMIN_THEME_ID'))
 {
@@ -144,7 +144,7 @@ if (isset($_REQUEST['WD_LOAD_ITEMS']))
 		'FORM_PATH' : '<?=CUtil::JSEscape($ob->_path)?>',
 		'FORM_IBLOCK_ID' : '<?=intval($ob->IBLOCK_ID)?>'
 	};
-<?
+<?php 
 	die();
 }
 else
@@ -173,16 +173,16 @@ else
 					'IBLOCK_SECTION_ID': targetSectionID,
 					'redirect' : 'N',
 					'overwrite' : 1,
-<? if (isset($_REQUEST['ID'])) { ?>
+<?php  if (isset($_REQUEST['ID'])) { ?>
 					'ID[]' :	"<?=CUtil::JSEscape($_REQUEST['ID'])?>",
-<? } ?>
-<? if (isset($_REQUEST['fake']) && ($_REQUEST['fake'] == 'Y')) { ?>
+<?php  } ?>
+<?php  if (isset($_REQUEST['fake']) && ($_REQUEST['fake'] == 'Y')) { ?>
 					'fake' :	'Y'
-<? } ?>
+<?php  } ?>
 				});
 			}
 		}
-<?*/
+<?php */
 		$saveAction = ob_get_clean();
 	}
 ?>
@@ -225,6 +225,6 @@ else
 			'gridOrder' : {'column': 'name', 'order':'asc'}
 		});
 	</script>
-<?
+<?php 
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

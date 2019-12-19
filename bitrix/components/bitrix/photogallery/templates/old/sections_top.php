@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $URL_NAME_DEFAULT = array(
 	"search" => "PAGE_NAME=search",
 	"detail_list" => "PAGE_NAME=detail_list&SECTION_ID=#SECTION_ID#&ELEMENT_ID=#ELEMENT_ID#");
@@ -15,7 +15,7 @@ if ($arParams["SHOW_TAGS"] == "Y" && IsModuleInstalled("search"))
 {
 ?>
 	<div class="tags-cloud">
-<?
+<?php 
 	$APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default",
 		Array(
 			"SEARCH" => $arResult["REQUEST"]["~QUERY"],
@@ -42,7 +42,7 @@ if ($arParams["SHOW_TAGS"] == "Y" && IsModuleInstalled("search"))
 	);
 ?>
 	</div>
-<?
+<?php 
 }
 if (is_array($arParams["SHOW_LINK_ON_MAIN_PAGE"]))
 {
@@ -81,25 +81,25 @@ if (is_array($arParams["SHOW_LINK_ON_MAIN_PAGE"]))
 
 ?>
 	<div class="photo-controls photo-view only-on-main">
-<?
+<?php 
 $counter = 1;
 foreach ($arRes as $key => $val):
 	if ($counter > 1):
-	?><div class="empty"></div><?
+	?><div class="empty"></div><?php 
 	endif;
-	?><noindex><a rel="nofollow" href="<?=$val["url"]?>" <?
-		?>class="photo-view <?=$key?> <?=($counter == 1 ? "photo-item-first" : "")?> <?=($counter == count($arRes) ? "photo-item-last" : "")?>" <?
-		?>title="<?=$val["description"]?>"><span><?=$val["title"]?></span></a></noindex><?
+	?><noindex><a rel="nofollow" href="<?=$val["url"]?>" <?php 
+		?>class="photo-view <?=$key?> <?=($counter == 1 ? "photo-item-first" : "")?> <?=($counter == count($arRes) ? "photo-item-last" : "")?>" <?php 
+		?>title="<?=$val["description"]?>"><span><?=$val["title"]?></span></a></noindex><?php 
 	$counter++;
 endforeach;
 ?>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 
 }
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section.list",
 	"",
 	Array(
@@ -134,7 +134,7 @@ endforeach;
 	),
 	$component
 );
-?><?
+?><?php 
 
 if($arParams["SET_TITLE"] != "N"):
 	$GLOBALS["APPLICATION"]->SetTitle(GetMessage("P_PHOTO"));

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_WGT_PAGE_TITLE"] = "Аналитические отчёты по лидам";
 $MESS["CRM_LEAD_WGT_FUNNEL"] = "Воронка по лидам";
 $MESS["CRM_LEAD_WGT_QTY_LEAD_NEW"] = "Количество новых лидов";

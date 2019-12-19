@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CAT_ENABLE_PROCESSING_DEPRECATED_EVENTS"] = "Enable legacy event support:";
 $MESS["BX_CAT_RESERVE_CONDITION_EMPTY"] = "unassigned";
 $MESS["BX_CAT_SYSTEM_SETTINGS"] = "System settings";

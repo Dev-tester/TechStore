@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ["COMP_FORM_GROUP_PARAMS"] = "Параметры компонента";
 $MESS ["FORM_COMP_VALUE_YES"] = "Да";
 $MESS ["FORM_COMP_VALUE_NO"] = "Нет";

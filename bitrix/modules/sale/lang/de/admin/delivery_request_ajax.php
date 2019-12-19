@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_REQ_AJAX_CREATE"] = "Transportbestellung erstellen";
 $MESS["SALE_DELIVERY_REQ_AJAX_DELIVERY_NOT_FOUND"] = "Lieferservice mit ID \"#DELIVERY_ID#\" kann nicht gefunden werden";
 $MESS["SALE_DELIVERY_REQ_AJAX_NOT_SUPPORT"] = "Lieferservice mit ID \"#DELIVERY_ID#\" unterstützt keine Transportbestellungen";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_IBEL_NAME_ID"] = "ID";
 $MESS["GD_IBEL_NAME_NAME"] = "Заголовок";
 $MESS["GD_IBEL_NAME_DATE_ACTIVE_FROM"] = "Дата начала активности";

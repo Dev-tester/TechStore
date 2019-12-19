@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ME_LIST_TITLE'] = "К списку собраний";
 $MESS['ME_VIEW_TITLE'] = "К просмотру";
 $MESS['ME_TITLE'] = "Тема";

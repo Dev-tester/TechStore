@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_WIZARD_NEXT_CAPTION'] = "Далее >";
 $MESS ['MAIN_WIZARD_PREV_CAPTION'] = "< Назад";
 $MESS ['MAIN_WIZARD_FINISH_CAPTION'] = "Готово";

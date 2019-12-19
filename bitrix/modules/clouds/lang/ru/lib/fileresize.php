@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_RESIZE_ENTITY_ID_FIELD"] = "Идентификатор задания";
 $MESS["FILE_RESIZE_ENTITY_TIMESTAMP_X_FIELD"] = "Время создания задания";
 $MESS["FILE_RESIZE_ENTITY_ERROR_CODE_FIELD"] = "Код ошибки";

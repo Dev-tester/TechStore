@@ -1,11 +1,11 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!empty($arResult["FIELDS_FORMATTED"]))
 {
 	if ($arResult["FORMAT"] == "table")
 	{
-		?><table class="crm-feed-info-table"><?
+		?><table class="crm-feed-info-table"><?php 
 	}
 
 	if ($arResult["FORMAT"] == "table")
@@ -49,7 +49,7 @@ if (!empty($arResult["FIELDS_FORMATTED"]))
 
 	if ($arResult["FORMAT"] == "table")
 	{
-		?></table><?
+		?></table><?php 
 	}	
 }
 ?>

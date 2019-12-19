@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_INVOICE_EXPORT"] = "Invoices: export";
 $MESS["CRM_TAB_INVOICE_EXPORT_TITLE"] = "Configure 1C:Enterprise invoice export";
 $MESS["CRM_TAB_INVOICE_PROF_COM"] = "Invoices: company profile";

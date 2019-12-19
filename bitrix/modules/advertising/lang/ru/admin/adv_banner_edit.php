@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_BACK_TO_BANNER_LIST"] = "Список";
 $MESS["AD_BACK_TO_BANNER_LIST_TITLE"] = "Перейти в список баннеров";
 $MESS["AD_EDIT_RECORD"] = "Баннер # #ID#";

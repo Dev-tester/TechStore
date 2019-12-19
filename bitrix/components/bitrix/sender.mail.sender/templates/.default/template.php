@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CAllMain $APPLICATION */
@@ -30,7 +30,7 @@ $containerId = 'sender-ui-mailbox-selector';
 	});
 </script>
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="sender-ui-mailbox-selector-wrap">
-	<span class="sender-ui-mailbox-icon"<?if ($arResult['CURRENT']['icon']):?> style="background-image: url(<?=htmlspecialcharsbx($arResult['CURRENT']['icon'])?>)<?endif?>"></span>
+	<span class="sender-ui-mailbox-icon"<?php if ($arResult['CURRENT']['icon']):?> style="background-image: url(<?=htmlspecialcharsbx($arResult['CURRENT']['icon'])?>)<?php endif?>"></span>
 	<span class="sender-ui-mailbox-dropdown"  data-role="mailbox-wrap">
 		<span data-role="mailbox" class="sender-ui-mailbox-name">
 			<?=htmlspecialcharsbx($arResult['CURRENT']['name'])?>

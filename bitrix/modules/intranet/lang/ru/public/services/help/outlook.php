@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Двунаправленная интеграция с Microsoft Outlook";
 $MESS["SERVICES_LINK1"] = "Подключить контакты";
 $MESS["SERVICES_LINK2"] = "Подключить задачи";

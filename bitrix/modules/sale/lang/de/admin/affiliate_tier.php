@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAT1_ALL"] = "(alle)";
 $MESS["SAT1_AFF"] = "Affiliate";
 $MESS["SAT1_NOTE2"] = "Affiliate <i>C</i> hat sich auf der Seite über den Affiliate <i>B</i> registriert, der Affiliate <i>B</i> - über den Affiliate <i>A</i>. Angenommen, betragen die Ebenenstruktur-Tarife für die 1. Ebene 10%, für die zweite 5%. Wenn der Affiliate <i>C</i> für seine Verkäufe <nobr>1000 EUR</nobr> bekommt, bekommt der Affiliate <i>B</i> zusätzlich zu seinen Verkäufen noch <nobr>100 EUR</nobr> und der Affiiate <i>A</i> <nobr>50 EUR</nobr>.";

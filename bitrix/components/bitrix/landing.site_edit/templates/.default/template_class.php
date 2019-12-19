@@ -36,7 +36,7 @@ class Template
 		{
 			$pageFields = $hooks[$code]->getPageFields();
 
-			?><div class="ui-checkbox-hidden-input"><?
+			?><div class="ui-checkbox-hidden-input"><?php 
 
 				// use-checkbox
 				if (isset($pageFields[$code . '_USE']))
@@ -48,7 +48,7 @@ class Template
 					));
 				}
 
-				?><div class="ui-checkbox-hidden-input-inner"><?
+				?><div class="ui-checkbox-hidden-input-inner"><?php 
 
 				// use-label
 				if (isset($pageFields[$code . '_USE']))
@@ -57,7 +57,7 @@ class Template
 						<label class="ui-checkbox-label" for="<?= 'checkbox-' . strtolower($code) . '-use';?>">
 							<?= $pageFields[$code . '_USE']->getLabel();?>
 						</label>
-					<?
+					<?php 
 					if ($hooks[$code]->isLocked())
 					{
 						?>
@@ -75,7 +75,7 @@ class Template
 								}
 							});
 						</script>
-						<?
+						<?php 
 					}
 					unset($pageFields[$code . '_USE']);
 				}
@@ -103,9 +103,9 @@ class Template
 					echo '</div>';
 				}
 
-				?></div><?
+				?></div><?php 
 
-			?></div><?
+			?></div><?php 
 		}
 	}
 
@@ -140,28 +140,28 @@ class Template
 						disableLink: true,
                         disableAltField: true,
                         allowClear: true
-						<?if ($imgId):?>
+						<?php if ($imgId):?>
 						,content: {
 							src: '<?= \CUtil::jsEscape(str_replace(' ', '%20', \htmlspecialcharsbx((int) $imgId > 0 ? \Bitrix\Landing\File::getFilePath($imgId) : $imgId)));?>',
 							id : <?= $imgId ? intval($imgId) : -1?>,
 							alt : ''
 						}
-						<?else:?>
+						<?php else:?>
 						,content: {
 							src: '<?= \CUtil::jsEscape(str_replace(' ', '%20', \htmlspecialcharsbx($imgPath)));?>',
 							id : -1,
 							alt : ''
 						}
-						<?endif;?>
-						<?if (isset($params['width']) && isset($params['height'])):?>
+						<?php endif;?>
+						<?php if (isset($params['width']) && isset($params['height'])):?>
 						,dimensions: {
 							width: <?= (int)$params['width']?>,
 							height: <?= (int)$params['height']?>
 						}
-						<?endif;?>
-						<?if (isset($params['uploadParams']) && !empty($params['uploadParams'])):?>
+						<?php endif;?>
+						<?php if (isset($params['uploadParams']) && !empty($params['uploadParams'])):?>
 						,uploadParams: <?= \CUtil::phpToJsObject($params['uploadParams']);?>
-						<?endif;?>
+						<?php endif;?>
 					});
 
 					if (imageFieldWrapper)
@@ -177,17 +177,17 @@ class Template
 													: img.src;
 							});
 						}
-						<?if (isset($params['imgEditId'])):?>
+						<?php if (isset($params['imgEditId'])):?>
 						BX.bind(BX('<?= $params['imgEditId']?>'), 'click', function (event)
 						{
 							imageField.onUploadClick(event);
 						});
-						<?endif;?>
+						<?php endif;?>
 					}
 				}
 			});
 		</script>
-		<?
+		<?php 
 		$field->viewForm(array(
 			'id' => 'landing-form-' . $code . '-input',
 			'name_format' => 'fields[ADDITIONAL_FIELDS][#field_code#]'

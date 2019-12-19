@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "group_photo";
 include("util_group_menu.php");
 include("util_group_profile.php");
-?><?
+?><?php 
 if ($arParams["FATAL_ERROR"] == "Y"):
 	if (!empty($arParams["ERROR_MESSAGE"])):
 		ShowError($arParams["ERROR_MESSAGE"]);
@@ -14,7 +14,7 @@ if ($arParams["FATAL_ERROR"] == "Y"):
 endif;
 
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.user",
 	".default",
 	Array(
@@ -51,7 +51,7 @@ endif;
 	array("HIDE_ICONS" => "Y")
 );?>
 <br />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.gallery.edit",
 	"",
 	Array(

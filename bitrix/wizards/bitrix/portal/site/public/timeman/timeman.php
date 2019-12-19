@@ -1,11 +1,11 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php"); 
 $APPLICATION->SetPageProperty("HIDE_SIDEBAR", "Y");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_after.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/timeman/timeman.php");
 
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
-?> <?
+?> <?php 
 if (\Bitrix\Main\Loader::includeModule('timeman'))
 {
 	$APPLICATION->IncludeComponent(
@@ -21,4 +21,4 @@ if (\Bitrix\Main\Loader::includeModule('timeman'))
 	);
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

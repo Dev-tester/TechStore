@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_HLP_FLAG_CANCELED"] = "Флаг отмены";
 $MESS["SALE_EBAY_HLP_FLAG_DELIVERY"] = "Флаг доставки";
 $MESS["SALE_EBAY_HLP_FLAG_PAYED"] = "Флаг оплаты";

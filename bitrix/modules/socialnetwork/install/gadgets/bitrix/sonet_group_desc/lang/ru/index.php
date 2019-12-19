@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SONET_GROUP_DESC_NAME"] = "Рабочая группа";
 $MESS["GD_SONET_GROUP_DESC_ARCHIVE"] = "Архивная группа";
 $MESS["GD_SONET_GROUP_DESC_SUBJECT_NAME"] = "Тема";

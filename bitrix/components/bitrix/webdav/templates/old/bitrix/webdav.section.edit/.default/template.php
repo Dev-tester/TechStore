@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -12,41 +12,41 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 	<input type="hidden" name="SECTION_ID" value="<?=$arParams["SECTION_ID"]?>" />
 	<input type="hidden" name="edit_section" value="Y" />
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="webdav-form">
-<?
+<?php 
 if ($arParams["ACTION"] == "DROP"):
 ?>
-<?
+<?php 
 	if(strlen($arResult["SECTION"]["DATE_CREATE"]) > 0)
 	{
 ?>
 	<tr>
 		<th><?=GetMessage("WD_CREATED")?>:</th>
-		<td><span class="date"><?=$arResult["SECTION"]["DATE_CREATE"]?></span><?
+		<td><span class="date"><?=$arResult["SECTION"]["DATE_CREATE"]?></span><?php 
 		if (!empty($arResult["USER"]["USER_".$arResult["SECTION"]["CREATED_BY"]]))
 		{
 			$res = $arResult["USER"]["USER_".$arResult["SECTION"]["CREATED_BY"]];
 ?>
 				[<a href="<?=$res["URL"]?>"><?=$res["ID"]?></a>]
 				(<?=$res["LOGIN"]?>) <?=$res["NAME"]?> <?=$res["LAST_NAME"]?>
-<?
+<?php 
 		}
 ?>
 		</td>
 	</tr>
 	<tr>
 		<th><?=GetMessage("WD_LAST_UPDATE")?>:</th>
-		<td><span class="date"><?=$arResult["SECTION"]["TIMESTAMP_X"]?></span><?
+		<td><span class="date"><?=$arResult["SECTION"]["TIMESTAMP_X"]?></span><?php 
 		if (!empty($arResult["USER"]["USER_".$arResult["SECTION"]["MODIFIED_BY"]]))
 		{
 			$res = $arResult["USER"]["USER_".$arResult["SECTION"]["MODIFIED_BY"]];
 ?>
 				[<a href="<?=$res["URL"]?>"><?=$res["ID"]?></a>]
 				(<?=$res["LOGIN"]?>) <?=$res["NAME"]?> <?=$res["LAST_NAME"]?>
-<?
+<?php 
 		}
 ?>		</td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 	<tr>
@@ -57,17 +57,17 @@ if ($arParams["ACTION"] == "DROP"):
 		<th><?=GetMessage("WD_NAME")?>:</th>
 		<td><?=$arResult["SECTION"]["NAME"]?></td>
 	</tr>
-<?/*?>	<tr>
+<?php /*?>	<tr>
 		<th><?=GetMessage("WD_SORT")?>:</th>
 		<td><?=$arResult["SECTION"]["SORT"]?></td>
 	</tr>
-<?*/?>
-<?/*?>	<tr>
+<?php */?>
+<?php /*?>	<tr>
 		<th><?=GetMessage("WD_PICTURE")?>:</th>
 		<td>
 			<?=CFile::ShowImage($arResult["SECTION"]["PICTURE"], 200, 200, "border=0 class='file'", "", true)?>
 		</td>
-	</tr><?*/?>
+	</tr><?php */?>
 	</tbody>
 	
 	<tfoot>
@@ -77,46 +77,46 @@ if ($arParams["ACTION"] == "DROP"):
 			</td>
 	</tfoot>
 </table>
-<?
+<?php 
 else:
 ?>
 	<tbody>
-<?
+<?php 
 if ($arResult["SECTION"]["ID"] > 0)
 {
 ?>
-<?
+<?php 
 	if(strlen($arResult["SECTION"]["DATE_CREATE"]) > 0)
 	{
 ?>
 	<tr>
 		<th><?=GetMessage("WD_CREATED")?>:</th>
-		<td><span class="date"><?=$arResult["SECTION"]["DATE_CREATE"]?></span><?
+		<td><span class="date"><?=$arResult["SECTION"]["DATE_CREATE"]?></span><?php 
 		if (!empty($arResult["USER"]["USER_".$arResult["SECTION"]["CREATED_BY"]]))
 		{
 			$res = $arResult["USER"]["USER_".$arResult["SECTION"]["CREATED_BY"]];
 ?>
 				[<a href="<?=$res["URL"]?>"><?=$res["ID"]?></a>]
 				(<?=$res["LOGIN"]?>) <?=$res["NAME"]?> <?=$res["LAST_NAME"]?>
-<?
+<?php 
 		}
 ?>
 		</td>
 	</tr>
 	<tr>
 		<th><?=GetMessage("WD_LAST_UPDATE")?>:</th>
-		<td><span class="date"><?=$arResult["SECTION"]["TIMESTAMP_X"]?></span><?
+		<td><span class="date"><?=$arResult["SECTION"]["TIMESTAMP_X"]?></span><?php 
 		if (!empty($arResult["USER"]["USER_".$arResult["SECTION"]["MODIFIED_BY"]]))
 		{
 			$res = $arResult["USER"]["USER_".$arResult["SECTION"]["MODIFIED_BY"]];
 ?>
 				[<a href="<?=$res["URL"]?>"><?=$res["ID"]?></a>]
 				(<?=$res["LOGIN"]?>) <?=$res["NAME"]?> <?=$res["LAST_NAME"]?>
-<?
+<?php 
 		}
 ?>		</td>
 	</tr>
-<?
+<?php 
 	}
 }
 /*?>
@@ -125,21 +125,21 @@ if ($arResult["SECTION"]["ID"] > 0)
 		<td><input type="checkbox" class="checkbox" name="ACTIVE" id="WEBDAV_ACTIVE" value="Y" <?=($arResult["SECTION"]["ACTIVE"]=="Y" ? "checked" : "")?> />
 			<label for="WEBDAV_ACTIVE"><?=GetMessage("WD_ACTIVE_FOLDER")?></label></td>
 	</tr>
-<?*/
+<?php */
 ?>
 	<tr>
 		<th><?=GetMessage("WD_PARENT_SECTION")?>:</th>
 		<td>
 		<select name="IBLOCK_SECTION_ID" class="select">
 			<option value="0" <?=(empty($arResult["SECTION"]["IBLOCK_SECTION_ID"]) ? "selected" : "")?>><?=GetMessage("WD_CONTENT")?></option>
-<?
+<?php 
 foreach ($arResult["SECTION_LIST"] as $res)
 {
 	if ($arParams["ACTION"] == "EDIT" && $arParams["SECTION_ID"] == $res["ID"])
 	{
 ?>
 			<optgroup label="<?=str_repeat(".", $res["DEPTH_LEVEL"])?><?=($res["NAME"])?>"></optgroup>
-<?
+<?php 
 		continue; 
 	}
 	
@@ -147,7 +147,7 @@ foreach ($arResult["SECTION_LIST"] as $res)
 ?>
 			<option value="<?=htmlspecialchars($res["ID"])?>" <?=($arResult["SECTION"]["IBLOCK_SECTION_ID"] == $res["ID"] ? "selected" : "")?>>
 				<?=str_repeat(".", $res["DEPTH_LEVEL"])?><?=($res["NAME"])?></option>
-<?
+<?php 
 }
 ?>
 		</select>
@@ -157,12 +157,12 @@ foreach ($arResult["SECTION_LIST"] as $res)
 		<th><span class="required starrequired">*</span><?=GetMessage("WD_NAME")?>:</th>
 		<td><input type="text" class="text" name="NAME" value="<?=$arResult["SECTION"]["NAME"]?>" /></td>
 	</tr>
-<?/*?>	<tr>
+<?php /*?>	<tr>
 		<th><?=GetMessage("WD_SORT")?>:</th>
 		<td><input type="text" class="text" name="SORT" value="<?=$arResult["SECTION"]["SORT"]?>" /></td>
 	</tr>
-<?*/?>
-<?/*?>
+<?php */?>
+<?php /*?>
 	<tr>
 		<th><?=GetMessage("WD_PICTURE")?>:</th>
 		<td>
@@ -170,7 +170,7 @@ foreach ($arResult["SECTION_LIST"] as $res)
 			<?=CFile::ShowImage($arResult["SECTION"]["PICTURE"], 200, 200, "border=0 class='file'", "", true)?>
 		</td>
 	</tr>
-<?*/?>
+<?php */?>
 	</tbody>
 	<tfoot>
 		<td colspan="2">
@@ -180,6 +180,6 @@ foreach ($arResult["SECTION_LIST"] as $res)
 			</td>
 	</tfoot>
 </table>
-<?
+<?php 
 endif;
 ?></form>

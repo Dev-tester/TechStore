@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TRACKERWD_CMP_ERROR_ANON"] = "Ошибка авторизации";
 $MESS["FACEID_TRACKERWD_CMP_ERROR_TIMEMAN_ACCESS"] = "Нет доступа к изменению рабочего времени сотрудников";
 $MESS["FACEID_TRACKERWD_CMP_ERROR_AGREEMENT"] = "Не принято лицензионное соглашение по использованию распознавания лиц";

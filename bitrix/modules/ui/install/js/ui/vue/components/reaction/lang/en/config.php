@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UI_VUE_REACTION_ICON_LIKE"] = "Like";
 $MESS["UI_VUE_REACTION_ICON_KISS"] = "Kiss";
 $MESS["UI_VUE_REACTION_ICON_LAUGH"] = "Laugh";

@@ -1,4 +1,4 @@
-<?global $DOCUMENT_ROOT, $MESS;
+<?php global $DOCUMENT_ROOT, $MESS;
 if (!function_exists("CreatePattern"))
 {
 	function CreatePattern($pattern="", $DICTIONARY_ID=0)

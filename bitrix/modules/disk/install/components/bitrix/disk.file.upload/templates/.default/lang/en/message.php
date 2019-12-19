@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DFU_UPLOAD_TITLE1"] = "Upload New Document";
 $MESS["DFU_UPLOAD_TITLE2"] = "Uploaded #NUMBER# files of #COUNT#";
 $MESS["DFU_UPLOAD_CANCELED"] = "Upload canceled";

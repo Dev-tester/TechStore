@@ -52,7 +52,7 @@ $toolbarId = $arParams['TOOLBAR_ID'];
 					</tbody>
 				</table>
 			</td>
-			<? if(!empty($arParams['DROPDOWN_FILTER'])){ ?>
+			<?php  if(!empty($arParams['DROPDOWN_FILTER'])){ ?>
 			<td class="bx-disk-content " style="text-align: right;">
 				<?= Loc::getMessage('DISK_INTERFACE_TOOLBAR_LABEL_FOR_DROPDOWN_FILTERS') ?>:
 											<span id="<?= $toolbarId.'_dropdown_filter' ?>" class="popup-control">
@@ -64,7 +64,7 @@ $toolbarId = $arParams['TOOLBAR_ID'];
 												</span>
 											</span>
 			</td>
-			<? } ?>
+			<?php  } ?>
 		</tr>
 
 		</tbody>
@@ -73,7 +73,7 @@ $toolbarId = $arParams['TOOLBAR_ID'];
 <script>
 (function() {
 	BX.ready(function () {
-		<? if(!empty($arResult['DROPDOWN_FILTER_JS'])){ ?>
+		<?php  if(!empty($arResult['DROPDOWN_FILTER_JS'])){ ?>
 		var element = BX("<?=CUtil::JSEscape($toolbarId.'_dropdown_filter')?>");
 		BX.bind(
 			element,
@@ -96,7 +96,7 @@ $toolbarId = $arParams['TOOLBAR_ID'];
 				);
 			}
 		);
-		<? } ?>
+		<?php  } ?>
 	});
 })();
 </script>

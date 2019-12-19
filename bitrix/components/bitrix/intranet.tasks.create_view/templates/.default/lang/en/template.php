@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTVT_NOT_SET'] = "(not set)";
 $MESS ['INTVT_YES'] = "Yes";
 $MESS ['INTVT_NO'] = "No";

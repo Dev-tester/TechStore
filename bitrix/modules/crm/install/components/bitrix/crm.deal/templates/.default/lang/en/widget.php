@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_WGT_FUNNEL"] = "Sales funnel for deals";
 $MESS["CRM_DEAL_WGT_SUM_DEAL_OVERALL"] = "Total value of deals";
 $MESS["CRM_DEAL_WGT_SUM_DEAL_WON"] = "Total of deals won";

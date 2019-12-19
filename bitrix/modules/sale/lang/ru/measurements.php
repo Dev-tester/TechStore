@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEASURE_MG"] = "мг";
 $MESS["MEASURE_MG"] = "мг";
 $MESS["MEASURE_G"] = "г";

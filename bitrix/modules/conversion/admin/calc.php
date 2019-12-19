@@ -154,7 +154,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 				<div class="adm-detail-title"><?=Loc::getMessage('CONVERSION_CALC_TITLE2')?></div>
 				<div class="adm-detail-content-item-block">
 					<div class="adm-profit-block">
-						<?
+						<?php 
 
 						$menuItems = array();
 
@@ -346,7 +346,7 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 		{
 			'use strict';
 
-			<?
+			<?php 
 
 				$funnelData = array();
 				$initialGrosses = array();
@@ -664,6 +664,6 @@ Bitrix\Conversion\AdminHelpers\renderFilter($filter);
 		});
 
 	</script>
-<?
+<?php 
 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

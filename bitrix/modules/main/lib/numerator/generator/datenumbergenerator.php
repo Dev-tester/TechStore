@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\Numerator\Generator;
 
 use Bitrix\Main\Localization\Loc;

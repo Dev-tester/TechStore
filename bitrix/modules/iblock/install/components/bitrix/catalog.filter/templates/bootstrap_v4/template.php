@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -16,17 +16,17 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 $this->setFrameMode(true);
 ?>
 <div class="mb-3 catalog-filter<?=$themeClass?>">
-	<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get">
+	<form name="<?php echo $arResult["FILTER_NAME"]."_form"?>" action="<?php echo $arResult["FORM_ACTION"]?>" method="get">
 		<div class="container-fluid">
 			<div class="mb-3 row">
 				<div class="col bx-filter-title"><?=GetMessage("CT_BCF_FILTER_TITLE")?></div>
 			</div>
 			<div class="mb-3 row">
-				<?foreach($arResult["ITEMS"] as $arItem):?>
-					<?if(array_key_exists("HIDDEN", $arItem)):?>
+				<?php foreach($arResult["ITEMS"] as $arItem):?>
+					<?php if(array_key_exists("HIDDEN", $arItem)):?>
 						<?=$arItem["INPUT"]?>
 
-					<?elseif ($arItem["TYPE"] == "RANGE"):?>
+					<?php elseif ($arItem["TYPE"] == "RANGE"):?>
 						<div class="f1 mb-2 col-sm-6 col-md-4 catalog-filter-block">
 							<div class="mb-1 catalog-filter-block-title"><?=$arItem["NAME"]?></div>
 							<div class="catalog-filter-block-body d-flex">
@@ -52,12 +52,12 @@ $this->setFrameMode(true);
 							</div>
 						</div>
 
-					<?elseif ($arItem["TYPE"] == "DATE_RANGE"):?>
+					<?php elseif ($arItem["TYPE"] == "DATE_RANGE"):?>
 						<div class="f2 mb-2 col-sm-6 col-md-4 catalog-filter-block">
 							<div class="mb-1 catalog-filter-block-title"><?=$arItem["NAME"]?>></div>
 							<div class="catalog-filter-block-body">
 								<div class="col-6">
-									<?$APPLICATION->IncludeComponent(
+									<?php $APPLICATION->IncludeComponent(
 										'bitrix:main.calendar',
 										'',
 										array(
@@ -74,7 +74,7 @@ $this->setFrameMode(true);
 									);?>
 								</div>
 								<div class="col-6">
-									<?$APPLICATION->IncludeComponent(
+									<?php $APPLICATION->IncludeComponent(
 										'bitrix:main.calendar',
 										'',
 										array(
@@ -93,68 +93,68 @@ $this->setFrameMode(true);
 							</div>
 						</div>
 
-					<?elseif ($arItem["TYPE"] == "SELECT"):?>
+					<?php elseif ($arItem["TYPE"] == "SELECT"):?>
 						<div class="f3 mb-2 col-sm-6 col-md-4 catalog-filter-block">
 							<div class="mb-1 catalog-filter-block-title"><?=$arItem["NAME"]?></div>
 							<div class="catalog-filter-block-body">
 								<select name="<?=$arItem["INPUT_NAME"].($arItem["MULTIPLE"] == "Y" ? "[]" : "")?>">
-									<?foreach ($arItem["LIST"] as $key => $value):?>
+									<?php foreach ($arItem["LIST"] as $key => $value):?>
 										<option
 											value="<?=htmlspecialcharsBx($key)?>"
-											<?if ($key == $arItem["INPUT_VALUE"]) echo 'selected="selected"'?>
+											<?php if ($key == $arItem["INPUT_VALUE"]) echo 'selected="selected"'?>
 										><?=htmlspecialcharsEx($value)?></option>
-									<?endforeach?>
+									<?php endforeach?>
 								</select>
 							</div>
 						</div>
 
-					<?elseif ($arItem["TYPE"] == "CHECKBOX"):?>
+					<?php elseif ($arItem["TYPE"] == "CHECKBOX"):?>
 						<div class="f4 mb-2 col-sm-6 col-md-4 catalog-filter-block">
 							<div class="mb-1 catalog-filter-block-title"><?=$arItem["NAME"]?></div>
 							<div class="catalog-filter-block-body">
-								<? $arListValue = (is_array($arItem["~INPUT_VALUE"]) ? $arItem["~INPUT_VALUE"] : array($arItem["~INPUT_VALUE"]));
+								<?php  $arListValue = (is_array($arItem["~INPUT_VALUE"]) ? $arItem["~INPUT_VALUE"] : array($arItem["~INPUT_VALUE"]));
 								foreach ($arItem["LIST"] as $key => $value):?>
 									<div class="form-check">
 										<input
 											type="checkbox"
 											class="form-check-input"
 											value="<?=htmlspecialcharsBx($key)?>"
-											name="<?echo $arItem["INPUT_NAME"]?>[]"
-											<?if (in_array($key, $arListValue)) echo 'checked="checked"'?>
+											name="<?php echo $arItem["INPUT_NAME"]?>[]"
+											<?php if (in_array($key, $arListValue)) echo 'checked="checked"'?>
 										>
-										<label class="form-check-label" for="<?echo $arItem["INPUT_NAME"]?>">?=htmlspecialcharsEx($value)?></label>
+										<label class="form-check-label" for="<?php echo $arItem["INPUT_NAME"]?>">?=htmlspecialcharsEx($value)?></label>
 									</div>
-								<?endforeach?>
+								<?php endforeach?>
 							</div>
 						</div>
 
-					<?elseif ($arItem["TYPE"] == "RADIO"):?>
+					<?php elseif ($arItem["TYPE"] == "RADIO"):?>
 						<div class="f5 mb-2 col-sm-6 col-md-4 catalog-filter-block">
 							<div class="mb-1 catalog-filter-block-title"><?=$arItem["NAME"]?></div>
 							<div class="catalog-filter-block-body">
-								<? $arListValue = (is_array($arItem["~INPUT_VALUE"]) ? $arItem["~INPUT_VALUE"] : array($arItem["~INPUT_VALUE"]));
+								<?php  $arListValue = (is_array($arItem["~INPUT_VALUE"]) ? $arItem["~INPUT_VALUE"] : array($arItem["~INPUT_VALUE"]));
 								foreach ($arItem["LIST"] as $key => $value):?>
 									<div class="form-check">
 										<input
 											type="radio"
 											class="form-check-input"
 											value="<?=htmlspecialcharsBx($key)?>"
-											name="<?echo $arItem["INPUT_NAME"]?>"
-											<?if (in_array($key, $arListValue)) echo 'checked="checked"'?>
+											name="<?php echo $arItem["INPUT_NAME"]?>"
+											<?php if (in_array($key, $arListValue)) echo 'checked="checked"'?>
 										>
-										<label class="form-check-label" for="<?echo $arItem["INPUT_NAME"]?>"><?=htmlspecialcharsEx($value)?></label>
+										<label class="form-check-label" for="<?php echo $arItem["INPUT_NAME"]?>"><?=htmlspecialcharsEx($value)?></label>
 									</div>
-								<?endforeach?>
+								<?php endforeach?>
 							</div>
 						</div>
 
-					<?else:?>
+					<?php else:?>
 						<div class="f6 mb-2 col-sm-6 col-md-4 catalog-filter-block">
 							<div class="mb-1 catalog-filter-block-title"><?=$arItem["NAME"]?></div>
 							<div class="catalog-filter-block-body"><?=$arItem["INPUT"]?></div>
 						</div>
-					<?endif?>
-				<?endforeach;?>
+					<?php endif?>
+				<?php endforeach;?>
 			</div>
 			<div class="row">
 				<div class="col">

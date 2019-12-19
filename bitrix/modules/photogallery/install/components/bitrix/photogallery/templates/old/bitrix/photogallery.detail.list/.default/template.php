@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"])):
 	return true;
 endif;
@@ -41,31 +41,31 @@ $bShowInput = false;
 if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 	<div class="photo-error"><?=ShowError($arResult["ERROR_MESSAGE"])?></div>
-<?
+<?php 
 endif;
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 	<div class="photo-navigation photo-navigation-top"><?=$arResult["NAV_STRING"]?></div>
-<?
+<?php 
 endif;
 
 if ($arParams["SHOW_CONTROLS"] == "Y" && !empty($arParams["PICTURES"])):
 ?>
 	<div class="photo-controls photo-view">
-<?
+<?php 
 	$arRes = array_merge(array("standart" => array("title" => GetMessage("P_STANDARD"))),$arParams["PICTURES"]);
 ?>
 	<span class="photo-view sights"><?=GetMessage("P_PICTURES_SIGHT")?>:
 		<select name="picture" onchange="ChangeText(this);" title="<?=GetMessage("P_PICTURES_SIGHT_TITLE")?>">
-<?
+<?php 
 	foreach ($arRes as $key => $val):
-		?><option value="<?=$key?>"<?=($key."" == $arParams["PICTURES_SIGHT"]."" ? " selected" : "")?>><?=$val["title"]?></option><?
+		?><option value="<?=$key?>"<?=($key."" == $arParams["PICTURES_SIGHT"]."" ? " selected" : "")?>><?=$val["title"]?></option><?php 
 	endforeach;
 ?>
 		</select>
 	</span>
 	</div>
-<?
+<?php 
 endif;
 
 if ($arParams["SHOW_FORM"] == "Y"):
@@ -77,56 +77,56 @@ if ($arParams["SHOW_FORM"] == "Y"):
 		<input type="hidden" name="SECTION_ID" value="<?=$arParams["SECTION_ID"]?>" />
 		<input type="hidden" name="IBLOCK_ID" value="<?=$arParams["IBLOCK_ID"]?>" />
 		<input type="hidden" name="REDIRECT_URL" value="<?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("", array(), false))?>" />
-<?
+<?php 
 	if ($arParams["SHOW_CONTROLS"] == "Y" && $arParams["DetailListViewMode"] == "edit"):
 		$bShowInput = true;
 ?>
 	<div class="photo-controls">
-		<noindex><a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam("view_mode=view&".bitrix_sessid_get(), array("view_mode", "sessid"), false)?>"<?
+		<noindex><a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam("view_mode=view&".bitrix_sessid_get(), array("view_mode", "sessid"), false)?>"<?php 
 			?> class="photo-action go-to-view" title="<?=GetMessage("P_VIEW_TITLE")?>"><span><?=GetMessage("P_VIEW")?></span></a></noindex>
-		<a href="#" class="photo-action select-all" onclick="return SelectAll(this.firstChild);"><?
-			?><input type="hidden" id="select_all1" name="select_all" value="N" /><?=GetMessage("P_SELECT_ALL")?></a><?
+		<a href="#" class="photo-action select-all" onclick="return SelectAll(this.firstChild);"><?php 
+			?><input type="hidden" id="select_all1" name="select_all" value="N" /><?=GetMessage("P_SELECT_ALL")?></a><?php 
 		?><a href="#" onclick="return Delete(this.previousSibling.firstChild.form);" class="photo-action delete">
 			<span><?=GetMessage("P_DELETE_SELECTED")?></span></a>
-		<a href="#" onclick="this.style.display='none';this.nextSibling.style.display='block'; return false;" class="photo-action move"><?
-			?><span><?=GetMessage("P_MOVE_SELECTED")?></span></a><?
+		<a href="#" onclick="this.style.display='none';this.nextSibling.style.display='block'; return false;" class="photo-action move"><?php 
+			?><span><?=GetMessage("P_MOVE_SELECTED")?></span></a><?php 
 		?><span style="display:none;">
 			<a href="#" onclick="return false;" class="photo-action move"><span><?=GetMessage("P_MOVE_SELECTED_IN")?></span></a>
-			<select name="TO_SECTION_ID"><?
+			<select name="TO_SECTION_ID"><?php 
 			foreach ($arResult["SECTIONS_LIST"] as $key => $val):
-				?><option value="<?=$key?>" <?
-					?> <?=((intVal($arParams["SECTION_ID"]) == intVal($key)) ? " selected='selected'" : "")?>><?=$val?></option><?
+				?><option value="<?=$key?>" <?php 
+					?> <?=((intVal($arParams["SECTION_ID"]) == intVal($key)) ? " selected='selected'" : "")?>><?=$val?></option><?php 
 			endforeach;
 			?></select><input type="button" name="name_submit" value="OK" onclick="Move(this.form)" />
 		</span>
 		<div class="empty-clear"></div>
 	</div>
-<?
+<?php 
 	elseif ($arParams["SHOW_CONTROLS"] == "Y"):
 ?>
 	<div class="photo-controls photo-action">
-		<noindex><a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam("view_mode=edit&amp;".bitrix_sessid_get(), array("view_mode", "sessid"), false)?>"<?
+		<noindex><a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam("view_mode=edit&amp;".bitrix_sessid_get(), array("view_mode", "sessid"), false)?>"<?php 
 			?> title="<?=GetMessage("P_EDIT_TITLE")?>" class="photo-action go-to-edit"><span><?=GetMessage("P_EDIT")?></span></a></noindex>
 		<div class="empty-clear"></div>
 	</div>
 
-<?
+<?php 
 	else:
 		$bShowInput = true;
 ?>
 	<div class="photo-controls photo-action select-all">
-		<noindex><a rel="nofollow" href="#" class="photo-action select-all" onclick="return SelectAll(this.firstChild); return false;"><?
+		<noindex><a rel="nofollow" href="#" class="photo-action select-all" onclick="return SelectAll(this.firstChild); return false;"><?php 
 			?><input type="hidden" id="select_all1" name="select_all" value="N" /><?=GetMessage("P_SELECT_ALL")?></a></noindex>
 		<div class="empty-clear"></div>
 	</div>
-<?
+<?php 
 	endif;
 endif;
 
 $current_date = "";
 ?>
 <div class="photo-photo-list photo-photos">
-<?
+<?php 
 foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 	if (!is_array($arItem)):
 		continue;
@@ -135,55 +135,55 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 		if ($this_date != $current_date)
 		{
 			$current_date = $this_date;
-			?><div class="group-by-days photo-date"><?=PhotoDateFormat($arParams["NEW_DATE_TIME_FORMAT"], MakeTimeStamp($this_date, "DD.MM.YYYY"))?></div><?
+			?><div class="group-by-days photo-date"><?=PhotoDateFormat($arParams["NEW_DATE_TIME_FORMAT"], MakeTimeStamp($this_date, "DD.MM.YYYY"))?></div><?php 
 		}
 	endif;
 	$bActiveElement = ($arItem["ACTIVE"] != "Y" ? false : true);
 ?>
-<table border="0" cellpadding="0" cellspacing="0" class="photo-photo-item <?=($bShowInput ? " photo-photo-item-edit" : "")?><?
-	?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?>"<?
+<table border="0" cellpadding="0" cellspacing="0" class="photo-photo-item <?=($bShowInput ? " photo-photo-item-edit" : "")?><?php 
+	?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?>"<?php 
 	?> style="height: <?=($arResult["ELEMENTS"]["MAX_HEIGHT"] + 19)
 		/* 19: 5*2 - padding; 2*2 - image-border; 2*2 - div-border; 5 - additional space*/ ?>px;"><tr><td>
 	<div class="photo-photo photo-photo-item-inner" onmouseover="ShowDescription('<?=$arItem["ID"]?>')" onmouseout="HideDescription('<?=$arItem["ID"]?>')">
-<?
+<?php 
 	$sTitle = htmlspecialcharsEx($arItem["~NAME"].(!$bActiveElement ? GetMessage("P_PHOTO_NOT_APPROVED") : ""));
 
 	$sImage = CFile::ShowImage($arItem["PICTURE"], $arParams["THUMBS_SIZE"], $arParams["THUMBS_SIZE"],
 		"border=\"0\" vspace=\"0\" hspace=\"0\" alt=\"".$sTitle."\" title=\"".$sTitle."\"");
 
 	if (!is_array($arItem["PICTURE"])):
-		?><div class="empty"></div><?
+		?><div class="empty"></div><?php 
 	elseif ($arResult["USER_HAVE_ACCESS"] != "Y"):
-		?><?=$sImage?><?
+		?><?=$sImage?><?php 
 	elseif (!$bShowInput):
-		?><a href="<?=$arItem["URL"]?>"><?=$sImage?></a><?
+		?><a href="<?=$arItem["URL"]?>"><?=$sImage?></a><?php 
 	else:
-		?><input type="checkbox" value="<?=$arItem["ID"]?>" name="items[]" id="items_<?=$arItem["ID"]?>" <?
-			?><?=(($arResult["bVarsFromForm"] == "Y" && in_array($arItem["ID"], $_REQUEST["items"])) ? "checked" : "")?> /><?
-		?><a href="#" onclick="this.previousSibling.checked=!this.previousSibling.checked; return false;"><?
-			?><?=$sImage?></a><?
+		?><input type="checkbox" value="<?=$arItem["ID"]?>" name="items[]" id="items_<?=$arItem["ID"]?>" <?php 
+			?><?=(($arResult["bVarsFromForm"] == "Y" && in_array($arItem["ID"], $_REQUEST["items"])) ? "checked" : "")?> /><?php 
+		?><a href="#" onclick="this.previousSibling.checked=!this.previousSibling.checked; return false;"><?php 
+			?><?=$sImage?></a><?php 
 	endif;
 
 	if (!$bShowInput):
 ?>
 	<div style="position:relative;" class="photo-photo-item-description">
 		<div class="photo-photo-item-description-inner" id="item_<?=$arItem["ID"]?>" <?=(PhotoGetBrowser() == "opera" ? 'style="overflow:auto; height:150px;"' : '')?>>
-<?
+<?php 
 		if ($arResult["USER_HAVE_ACCESS"] == "Y"):
 ?>
 			<div class="photo-title"><a href="<?=$arItem["URL"]?>"><?=$arItem["NAME"]?></a></div>
 			<div class="photo-controls photo-view">
-				<noindex><a rel="nofollow" href="<?=$arItem["SLIDE_SHOW_URL"]?>" <?
+				<noindex><a rel="nofollow" href="<?=$arItem["SLIDE_SHOW_URL"]?>" <?php 
 					?> class="photo-view original" title="<?=GetMessage("P_FULL_SCREEN_TITLE")?>"><?=GetMessage("P_FULL_SCREEN")?></a></noindex></div>
-<?
+<?php 
 		else:
 ?>
 			<div class="photo-title"><?=$arItem["NAME"]?></div>
-<?
+<?php 
 		endif;
 ?>
 			<div class="photo-date"><?=$arItem["DATE_CREATE"]?></div>
-<?
+<?php 
 
 		if ($arParams["SHOW_TAGS"] == "Y"):
 			$tmp = array();
@@ -194,14 +194,14 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 			if (!empty($tmp)):
 ?>
 			<div class="photo-tags"><?=implode(", ", $tmp)?></div>
-<?
+<?php 
 			endif;
 		endif;
 
 		if ($arParams["SHOW_RATING"] == "Y"):
 ?>
 			<div class="photo-rating">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:iblock.vote",
 				"ajax",
@@ -220,41 +220,41 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 			);
 			?>
 			</div>
-<?
+<?php 
 		endif;
 
 		if ($arParams["SHOW_SHOWS"] == "Y"):
 ?>
 			<div class="photo-shows"><?=GetMessage("P_SHOWS")?>: <?=intVal($arItem["SHOW_COUNTER"])?></div>
-<?
+<?php 
 		endif;
 
 		if ($arParams["SHOW_COMMENTS"] == "Y"):
 ?>
 			<div class="photo-shows"><?=GetMessage("P_COMMENTS")?>: <?=intVal($arParams["COMMENTS_TYPE"] != "blog" ? $arItem["PROPERTIES"]["FORUM_MESSAGE_CNT"]["VALUE"] : $arItem["PROPERTIES"]["BLOG_COMMENTS_CNT"]["VALUE"])?></div>
-<?
+<?php 
 		endif;
 
 		if (!empty($arItem["PREVIEW_TEXT"])):
-			?><div class="photo-description"><?=$arItem["PREVIEW_TEXT"]?></div><?
+			?><div class="photo-description"><?=$arItem["PREVIEW_TEXT"]?></div><?php 
 		endif;
 		?></div>
 	</div>
-<?
+<?php 
 endif;
 ?>
 </div>
 </td></tr></table>
-<?
+<?php 
 endforeach;
 ?>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 if ($arParams["SHOW_FORM"] == "Y"):
 ?>
 </form>
-<?
+<?php 
 	if ($arParams["DetailListViewMode"] == "edit"):
 ?>
 <script type="text/javascript">
@@ -291,14 +291,14 @@ function __check_form(form, name) {
 	return bNotEmpty;
 }
 </script>
-<?
+<?php 
 	endif;
 endif;
 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 	<div class="photo-navigation photo-navigation-bottom"><?=$arResult["NAV_STRING"]?></div>
-<?
+<?php 
 endif;
 
 

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $sTplDir = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/group_files_")));
 
 if (empty($arParams["FORM_ID"]))

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_MEASURE_MEMORY_USAGE"] = "#percent#% of used memory";
 $MESS["PERFMON_MEASURE_CACHE_REC"] = "Increase the cache size.";
 $MESS["PERFMON_MEASURE_SET_REC"] = "Set to \"#value#\".";

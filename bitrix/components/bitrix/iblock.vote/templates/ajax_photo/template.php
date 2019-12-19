@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -65,17 +65,17 @@ $arParams["IDENTIFICATOR"] = (empty($arParams["~IDENTIFICATOR"]) ? '' : $arParam
 ?>
 <!--BX_PHOTO_RATING-->
 <div class="iblock-vote" id="vote_<?=$arParams["IDENTIFICATOR"]?><?= $arResult["ID"]?>" title="<?= $title?>">
-	<?foreach($arResult["VOTE_NAMES"] as $i => $name):
+	<?php foreach($arResult["VOTE_NAMES"] as $i => $name):
 		$id = 'vote_'.$arResult["ID"].'_'.$i;
 		$class = "photo-rating-star".(($DISPLAY_VALUE && round($DISPLAY_VALUE) > $i) ? " photo-rating-star-select" : "");
 	?>
 		<span id="vote_<?=$arResult["ID"]?>_<?=$i?>" class="<?= $class?>"
-			<?if(!$arResult["VOTED"]):?>
+			<?php if(!$arResult["VOTED"]):?>
 				onmouseover="if(window.voteScript){voteScript.trace_vote(this, true);}"
 				onmouseout="if(window.voteScript){voteScript.trace_vote(this, false);}"
 				onclick="if(window.voteScript){voteScript.do_vote(this, 'vote_<?= $arResult["ID"]?>', <?= $arResult["AJAX_PARAMS"]?>);}"
-			<?endif;?>
+			<?php endif;?>
 		>&nbsp;</span>
-	<?endforeach;?>
+	<?php endforeach;?>
 </div>
 <!--BX_PHOTO_RATING_END-->

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGU_NO_USER"] = "Der Nutzer mit der ID #ID# wurde nicht gefunden ";
 $MESS["SKGU_NO_ACCOUNT"] = "Das interne Konto des Nutzers wurde nicht gefunden";
 $MESS["SKGU_EMPTY_USER_ID"] = "Das Feld \"Nutzer\" wurde leer gelassen";

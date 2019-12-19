@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_REPORT"] = "Reports Settings";
 $MESS["SPS_USER_ID"] = "User ID";
 $MESS["SPS_USER_LOGIN"] = "Login";

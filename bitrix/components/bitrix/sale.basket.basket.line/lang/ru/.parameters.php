@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBBL_PATH_TO_BASKET"] = "Страница корзины";
 $MESS["SBBL_SHOW_NUM_PRODUCTS"] = "Показывать количество товаров";
 $MESS["SBBL_SHOW_TOTAL_PRICE"] = "Показывать общую сумму по товарам";

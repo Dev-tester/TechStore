@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['LEARNING_LESSON_ID_NAME'] = "Идентификатор урока";
 $MESS['LEARNING_SELF_TEST_TEMPLATE_NAME'] = "URL, ведущий на страницу с самотестированием";
 $MESS['LEARNING_PATH_TO_USER_PROFILE'] = "URL, ведущий на страницу с профилем пользователя";

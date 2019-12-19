@@ -1,4 +1,4 @@
-<?
+<?php 
 
 //	ClearVars();
 	if(!check_bitrix_sessid() || !CModule::IncludeModule("iblock"))
@@ -264,7 +264,7 @@
 		<script>
 		window.location='/bitrix/admin/module_admin.php?step=3&lang=<?=LANGUAGE_ID."&id=wiki&install=y&".bitrix_sessid_get()?>';
 		</script>
-		<?
+		<?php 
 	}
 
 ?>

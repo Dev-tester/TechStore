@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_DSE_2DLIST'] = "Delivery services";
 $MESS['SALE_DSE_2DS_EDIT'] = "Back to delivery service";
 $MESS['SALE_DSE_2GLIST'] = "View groups";

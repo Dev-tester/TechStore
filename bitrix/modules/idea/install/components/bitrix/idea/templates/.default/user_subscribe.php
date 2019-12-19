@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if($arParams["SET_NAV_CHAIN"]=="Y")
 	$APPLICATION->AddChainItem(GetMessage("IDEA_SUBSCRIBE_MINE_TITLE"), $arResult["~PATH_TO_USER_SUBSCRIBE"]);
 if($arParams["SET_TITLE"]=="Y")
 	$APPLICATION->SetTitle(GetMessage("IDEA_SUBSCRIBE_MINE_TITLE"));
 ?>
 <div class="idea-managment-content">
-	<?if(!empty($arResult["ACTIONS"])):?>
-	<?$APPLICATION->IncludeComponent(
+	<?php if(!empty($arResult["ACTIONS"])):?>
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.interface.toolbar",
 		"",
 		array(
@@ -14,10 +14,10 @@ if($arParams["SET_TITLE"]=="Y")
 		),
 		$component
 	);?>
-	<?endif;?>
-	<?//Side bar tools?>
-	<?$this->SetViewTarget("sidebar", 100)?>
-		<?$APPLICATION->IncludeComponent(
+	<?php endif;?>
+	<?php //Side bar tools?>
+	<?php $this->SetViewTarget("sidebar", 100)?>
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.category.list",
 				"",
 				Array(
@@ -28,7 +28,7 @@ if($arParams["SET_TITLE"]=="Y")
 				$component
 		);
 		?>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.statistic",
 				"",
 				Array(
@@ -39,7 +39,7 @@ if($arParams["SET_TITLE"]=="Y")
 				$component
 		);
 		?>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.tags",
 				"",
 				Array(
@@ -51,9 +51,9 @@ if($arParams["SET_TITLE"]=="Y")
 				$component
 		);
 		?>
-	<?$this->EndViewTarget();?>
-	<?$this->SetViewTarget("idea_body", 100)?>
-		<?$APPLICATION->IncludeComponent(
+	<?php $this->EndViewTarget();?>
+	<?php $this->SetViewTarget("idea_body", 100)?>
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:idea.subscribe",
 			"",
 			array(
@@ -62,15 +62,15 @@ if($arParams["SET_TITLE"]=="Y")
 			),
 			$component
 		);?>
-	<?$this->EndViewTarget();?>
-	<?if($arResult["IS_CORPORTAL"] != "Y"):?>
+	<?php $this->EndViewTarget();?>
+	<?php if($arResult["IS_CORPORTAL"] != "Y"):?>
 		<div class="idea-managment-content-left">
-			<?$APPLICATION->ShowViewContent("sidebar")?>
+			<?php $APPLICATION->ShowViewContent("sidebar")?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="idea-managment-content-right">
-		<?$APPLICATION->ShowViewContent("idea_filter")?>
-		<?$APPLICATION->ShowViewContent("idea_body")?>
+		<?php $APPLICATION->ShowViewContent("idea_filter")?>
+		<?php $APPLICATION->ShowViewContent("idea_body")?>
 	</div>
 	<div style="clear:both;"></div>
 </div>

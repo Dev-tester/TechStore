@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -33,12 +33,12 @@ if ($bOnHit):
 <script type="text/javascript">
 BX.ready(function(){BX.defer(BX.adminLogin.setAuthResult, BX.adminLogin)(<?=CUtil::PhpToJsObject($arAuthResult)?>);});
 </script>
-<?
+<?php 
 else:
 ?>
 <script type="text/javascript" bxrunfirst="true">
 top.BX.adminLogin.setAuthResult(<?=CUtil::PhpToJsObject($arAuthResult)?>);
 </script>
-<?
+<?php 
 endif;
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 return array(
 	"NAME"=>GetMessage("theme_name"),
 	"DESCRIPTION"=>GetMessage("theme_desc"),

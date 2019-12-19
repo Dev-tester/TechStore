@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -84,7 +84,7 @@ if ($bVarsFromForm)
 	$DB->InitTableVarsForEdit("b_sale_order_props_group", "", "str_");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("SOPGEN_2FLIST"),
@@ -113,16 +113,16 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($errorMessage);?>
+<?php CAdminMessage::ShowMessage($errorMessage);?>
 
 <form method="POST" action="<?=$APPLICATION->GetCurPage()."?ID=".$ID."&lang=".LANGUAGE_ID.GetFilterParams("filter_", false)?>" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SOPGEN_TAB_PROPS_GRP"), "ICON" => "sale", "TITLE" => GetMessage("SOPGEN_TAB_PROPS_GRP_DESCR"))
 	);
@@ -131,18 +131,18 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
 		<tr>
-			<td width="40%"><?echo GetMessage("SOPGEN_PERSON_TYPE")?>:</td>
-			<?
+			<td width="40%"><?php echo GetMessage("SOPGEN_PERSON_TYPE")?>:</td>
+			<?php 
 			$arPersType = Array();
 			$dbPersonType = CSalePersonType::GetList(array("SORT" => "ASC", "NAME" => "ASC"), array("ID" => $str_PERSON_TYPE_ID));
 			if($arPersonType = $dbPersonType->Fetch())
@@ -152,32 +152,32 @@ $tabControl->BeginNextTab();
 			?>
 			<td width="60%"><?= "[".$arPersType["ID"]."] ".($arPersType["NAME"])." (".htmlspecialcharsEx($arPersType["LID"]).")" ?></td>
 		</tr>
-	<?else:?>
+	<?php else:?>
 		<tr class="adm-detail-required-field">
-			<td width="40%"><?echo GetMessage("SOPGEN_PERSON_TYPE")?>:</td>
+			<td width="40%"><?php echo GetMessage("SOPGEN_PERSON_TYPE")?>:</td>
 			<td width="60%">
-				<?echo CSalePersonType::SelectBox("PERSON_TYPE_ID", $str_PERSON_TYPE_ID, "", True, "", "")?>
+				<?php echo CSalePersonType::SelectBox("PERSON_TYPE_ID", $str_PERSON_TYPE_ID, "", True, "", "")?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SOPGEN_NAME")?>:</td>
+		<td width="40%"><?php echo GetMessage("SOPGEN_NAME")?>:</td>
 		<td width="60%">
 			<input type="text" name="NAME" size="30" maxlength="256" value="<?= $str_NAME ?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SOPGEN_SORT")?>:</td>
+		<td><?php echo GetMessage("SOPGEN_SORT")?>:</td>
 		<td>
 			<input type="text" name="SORT" value="<?= IntVal($str_SORT) ?>">
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($saleModulePermissions < "W"),
@@ -186,8 +186,8 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

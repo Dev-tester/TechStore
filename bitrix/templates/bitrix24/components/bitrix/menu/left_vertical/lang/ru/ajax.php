@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEFT_MENU_SELF_ITEM_EMPTY_ERROR"] = "Не заполнены все поля.";
 $MESS["LEFT_MENU_SELF_ITEM_LINK_ERROR"] = "Некорректная ссылка на страницу.";
 $MESS["LEFT_MENU_SELF_ITEM_DUBLICATE_ERROR"] = "Данная страница уже добавлена в избранное.";

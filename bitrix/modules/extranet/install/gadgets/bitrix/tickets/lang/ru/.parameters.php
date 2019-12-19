@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_TICKETS_P_PATH_TO_TICKET_EDIT'] = "Путь к странице редактирования обращения";
 $MESS ['GD_TICKETS_P_PATH_TO_TICKET_NEW'] = "Путь к странице создания обращения";
 $MESS ['GD_TICKETS_P_LAMP'] = "Фильтр по статусу";

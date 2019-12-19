@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UI_ENTITY_EDITOR_ADD"] = "Add";
 $MESS["UI_ENTITY_EDITOR_BOOLEAN_TITLE"] = "Yes/No";
 $MESS["UI_ENTITY_EDITOR_CANCEL"] = "Cancel";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NO_KEEP_STATISTIC", true);
 define("BX_STATISTIC_BUFFER_USED", false);
 define("NO_LANG_FILES", true);
@@ -990,8 +990,8 @@ if(CModule::IncludeModule("socialnetwork"))
 
 				ob_start();
 				?><script>
-					top.arLogCom<?=$arLog["ID"]?><?=$commentId?> = '<?=$arComment["EVENT"]["ID"]?>';<?
-				?></script><?
+					top.arLogCom<?=$arLog["ID"]?><?=$commentId?> = '<?=$arComment["EVENT"]["ID"]?>';<?php 
+				?></script><?php 
 				$t = ob_get_clean();
 
 				$records[$commentId] = array(
@@ -1385,7 +1385,7 @@ if(CModule::IncludeModule("socialnetwork"))
 	}
 
 	header('Content-Type:application/json; charset=UTF-8');
-	?><?=\Bitrix\Main\Web\Json::encode($arResult)?><?
+	?><?=\Bitrix\Main\Web\Json::encode($arResult)?><?php 
 	/** @noinspection PhpUndefinedClassInspection */
 	\CMain::finalActions();
 	die;

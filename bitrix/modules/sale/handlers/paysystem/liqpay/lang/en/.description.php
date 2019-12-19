@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_LIQPAY_CURRENCY"] = "Order currency";
 $MESS["SALE_HPS_LIQPAY_MERCHANT_ID"] = "Merchant ID";
 $MESS["SALE_HPS_LIQPAY_MERCHANT_ID_DESC"] = "Please refer to https://www.liqpay.com/?do=shop_access";

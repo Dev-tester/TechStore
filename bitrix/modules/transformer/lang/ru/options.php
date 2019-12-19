@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANSFORMER_TAB_SETTINGS"] = "Настройки";
 $MESS["TRANSFORMER_TAB_TITLE_SETTINGS_2"] = "Параметры подключения";
 $MESS["TRANSFORMER_ACCOUNT_ERROR_PUBLIC"] = "Вы указали не корректный публичный адрес";

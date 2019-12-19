@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_QIWI_NAME"] = "Qiwi Wallet";
 $MESS["SALE_HPS_QIWI_SHOP_ID"] = "e-Store ID.";
 $MESS["SALE_HPS_QIWI_SHOP_ID_DESCR"] = "Pick this ID from the settings page in the <a target='_blank' href='https://ishop.qiwi.com/options/merchants.action'>HTTP preferences</a> section.";

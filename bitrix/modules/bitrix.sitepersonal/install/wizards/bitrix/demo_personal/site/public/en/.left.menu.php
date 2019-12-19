@@ -1,4 +1,4 @@
-<?
+<?php 
 $aMenuLinks = Array(
 	Array(
 		"New Blog Post", 

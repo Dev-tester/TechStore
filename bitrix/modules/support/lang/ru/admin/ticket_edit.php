@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_SITE"] = "Сайт:";
 $MESS["SUP_LAST_MESSAGE_DATE"] = "Дата ответа";
 $MESS["CHANGE_STATUS"] = "Не изменять статус обращения";

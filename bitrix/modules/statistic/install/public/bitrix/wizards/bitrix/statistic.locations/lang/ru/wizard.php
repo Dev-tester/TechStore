@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATWIZ_NO_MODULE_ERROR'] = "Модуль статистики не установлен. Продолжение работы мастера не возможно.";
 $MESS ['STATWIZ_FILES_NOT_FOUND'] = "Не найдено ни одного подходящего файла. Загрузите файлы с сайта www.maxmind.com или ipgeobase.ru или ip-to-country.webhosting.info в указанный выше каталог и попробуйте запустить мастер еще раз.";
 $MESS ['STATWIZ_STEP1_TITLE'] = "Мастер создания индекса";

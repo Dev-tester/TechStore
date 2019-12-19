@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PS_USER_ID"] = "Код пользователя (ID)";
 $MESS["CRM_PS_USER_LOGIN"] = "Логин";
 $MESS["CRM_PS_USER_NAME"] = "Имя";

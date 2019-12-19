@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!empty($_REQUEST['action_button_'.$arResult["GRID_ID"]]))
 {
 	//@TODO remake
@@ -12,7 +12,7 @@ if (strlen($arResult["FatalErrorMessage"]) > 0)
 	<div class="bp-errortext">
 		<?= $arResult["FatalErrorMessage"] ?>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -26,16 +26,16 @@ else
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tbody>
 							<tr>
-								<?foreach ($arResult['DOCUMENT_TYPES'] as $uid => $dt):?>
+								<?php foreach ($arResult['DOCUMENT_TYPES'] as $uid => $dt):?>
 									<td>
 										<a href="<?=$APPLICATION->GetCurPage().($uid!='*'?'?type='.$uid:'')?>" hidefocus="true" class="bp-context-button <?=!empty($dt['ACTIVE'])?'active':''?>">
 											<span class="bp-context-button-text"><?=htmlspecialcharsbx($dt['NAME'])?></span>
-											<?if (!empty($dt['CNT'])):?>
+											<?php if (!empty($dt['CNT'])):?>
 											<span class="bp-context-button-notice"><?=$dt['CNT']?></span>
-											<?endif?>
+											<?php endif?>
 										</a>
 									</td>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</tr>
 							</tbody>
 						</table>
@@ -45,7 +45,7 @@ else
 			</table>
 		</div>
 	</div>
-	<?
+	<?php 
 
 	if (strlen($arResult["ErrorMessage"]) > 0)
 	{
@@ -53,7 +53,7 @@ else
 		<div class="bp-errortext">
 			<p><?= $arResult["ErrorMessage"] ?></p>
 		</div>
-		<?
+		<?php 
 	}
 
 	$navString = '';

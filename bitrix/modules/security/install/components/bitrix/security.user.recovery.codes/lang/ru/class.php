@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SECURITY_USER_RECOVERY_CODES_TITLE'] = "Резервные коды";
 $MESS['SECURITY_USER_RECOVERY_CODES_AUTH_ERROR'] = "Вы должны быть авторизованы.";
 $MESS['SECURITY_USER_RECOVERY_CODES_MODULE_ERROR'] = "Модуль security не установлен";

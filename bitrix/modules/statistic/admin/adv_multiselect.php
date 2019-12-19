@@ -90,13 +90,13 @@ $APPLICATION->SetTitle(GetMessage("STAT_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_admin.php")?>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
 
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("MAIN_FIND")?>:</b></td>
 	<td nowrap>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
 
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(
 				"ID",
@@ -119,26 +119,26 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_adm
 
 <tr>
 	<td>ID:</td>
-	<td><input type="text" name="find_id" size="35" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="35" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>referer1:</td>
-	<td><input type="text" name="find_referer1" size="35" value="<?echo htmlspecialcharsbx($find_referer1)?>"><?=ShowExactMatchCheckbox("find_referer1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_referer1" size="35" value="<?php echo htmlspecialcharsbx($find_referer1)?>"><?=ShowExactMatchCheckbox("find_referer1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>referer2:</td>
-	<td><input type="text" name="find_referer2" size="35" value="<?echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_referer2" size="35" value="<?php echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("STAT_DESCRIPTION")?>:</td>
-	<td><input type="text" name="find_description" size="35" value="<?echo htmlspecialcharsbx($find_description)?>"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_description" size="35" value="<?php echo htmlspecialcharsbx($find_description)?>"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
 
-<?$filter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));$filter->End();?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
 
 <script language="JavaScript">
@@ -190,4 +190,4 @@ function setTargetValue(id, field)
 //-->
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

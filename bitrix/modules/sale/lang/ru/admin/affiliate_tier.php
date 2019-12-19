@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAT1_ERROR_UPDATE"]="Ошибка изменения пирамиды";
 $MESS["SAT1_ERROR_DELETE"]="Ошибка удаления пирамиды";
 $MESS["SAT1_AFF"]="Аффилиаты";

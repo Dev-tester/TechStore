@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BOT_ENTITY_BOT_ID_FIELD"] = "Bot ID";
 $MESS["BOT_ENTITY_MODULE_ID_FIELD"] = "Module ID";
 $MESS["BOT_ENTITY_TO_CLASS_FIELD"] = "Bot handler class";

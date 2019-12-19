@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:forum.message.approve",
 	"",
 	array(
@@ -40,5 +40,5 @@
 		"HIDE_USER_ACTION" => $arParams["HIDE_USER_ACTION"]
 	),
 	$component
-);?><?
+);?><?php 
 ?>

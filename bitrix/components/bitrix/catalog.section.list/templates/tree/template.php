@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -15,7 +15,7 @@ $this->setFrameMode(true);
 $strTitle = "";
 ?>
 <div class="catalog-section-list">
-	<?
+	<?php 
 	$TOP_DEPTH = $arResult["SECTION"]["DEPTH_LEVEL"];
 	$CURRENT_DEPTH = $TOP_DEPTH;
 
@@ -55,7 +55,7 @@ $strTitle = "";
 		}
 
 		echo "\n",str_repeat("\t", $arSection["DEPTH_LEVEL"]-$TOP_DEPTH);
-		?><li id="<?=$this->GetEditAreaId($arSection['ID']);?>"><?=$link?><?
+		?><li id="<?=$this->GetEditAreaId($arSection['ID']);?>"><?=$link?><?php 
 
 		$CURRENT_DEPTH = $arSection["DEPTH_LEVEL"];
 	}

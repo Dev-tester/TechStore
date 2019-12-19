@@ -160,7 +160,7 @@ namespace
 		<span id="adm-sale-ebay-wiazard-admin-msg"></span>
 		<table>
 			<tr><td style="vertical-align: top;">
-				<form method="POST" action="<?echo $APPLICATION->GetCurPageParam('', array('STEP', 'SITE_ID', 'CLEAN_CACHE'))?>" name="form">
+				<form method="POST" action="<?php echo $APPLICATION->GetCurPageParam('', array('STEP', 'SITE_ID', 'CLEAN_CACHE'))?>" name="form">
 				<?=bitrix_sessid_post();?>
 				<div id="result">
 					<table width="100%">
@@ -182,10 +182,10 @@ namespace
 				<input type="hidden" name="STEP" value="<?=$step?>">
 				<input type="hidden" name="lang" value="<?=LANGUAGE_ID;?>"><br>
 				<input type="hidden" name="SITE_ID" value="<?=$siteId?>">
-				<?if($step > 0):?>
+				<?php if($step > 0):?>
 					<input type="submit" value="<-- <?=Loc::getMessage('SALE_EBAY_W_BACK')?>" class="adm-btn-save" name="PREV_STEP">
-				<?endif;?>
-				<?if((count($stepClassesList) > ($step+1))
+				<?php endif;?>
+				<?php if((count($stepClassesList) > ($step+1))
 					&& (
 						!$wizardPrevStep
 						|| !$wizardPrevStep->mustBeCompletedBeforeNext()
@@ -196,49 +196,49 @@ namespace
 						)
 					):?>
 					<input type="submit" value="<?=($step <= 0) ? Loc::getMessage('SALE_EBAY_W_START_SETTING') : Loc::getMessage('SALE_EBAY_W_FURTHER').' -->'?>" class="adm-btn-save" name="NEXT_STEP">
-				<?endif;?>
+				<?php endif;?>
 			</form>
 			</td><td style="vertical-align: top;">
 				<div class="adm-sale-ebay-wizard-state">
 					<div class="adm-sale-ebay-wizard-state-header"><?=Loc::getMessage('SALE_EBAY_W_CONTENTS')?></div>
 					<div class="adm-sale-ebay-wizard-state-body">
-						<?/** @var Wizard\Step $fullClassName */?>
-						<?$prevStepCompleted = true;?>
-						<?foreach($stepClassesList as $classStep => $class):?>
-							<?$fullClassName = '\Bitrix\Sale\TradingPlatform\Ebay\Wizard\\'.$class;?>
+						<?php /** @var Wizard\Step $fullClassName */?>
+						<?php $prevStepCompleted = true;?>
+						<?php foreach($stepClassesList as $classStep => $class):?>
+							<?php $fullClassName = '\Bitrix\Sale\TradingPlatform\Ebay\Wizard\\'.$class;?>
 							<div class="adm-sale-ebay-wizard-state-item<?=($classStep == $step ? ' active' : '')?>">
-								<?if($prevStepCompleted && $fullClassName::hasState()):?>
+								<?php if($prevStepCompleted && $fullClassName::hasState()):?>
 									<?=Wizard\Step::getLampHtml($fullClassName::isSucceed($siteId, $settings))?>
-								<?else:?>
+								<?php else:?>
 									<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-								<?endif;?>
-								<?if($prevStepCompleted):?>
+								<?php endif;?>
+								<?php if($prevStepCompleted):?>
 									<a href="<?=$APPLICATION->GetCurPageParam(
 										'lang='.LANGUAGE_ID.'&STEP='.$classStep.'&SITE_ID='.$siteId,
 										array('STEP', 'lang', 'SITE_ID', 'CLEAN_CACHE'))
 										?>">
 										<?=htmlspecialcharsbx($fullClassName::getName())?>
 									</a>
-								<?else:?>
+								<?php else:?>
 									<?=htmlspecialcharsbx($fullClassName::getName())?>
-								<?endif?>
+								<?php endif?>
 							</div>
-							<?$prevStepCompleted = $prevStepCompleted && (!$fullClassName::mustBeCompletedBeforeNext() || ($fullClassName::mustBeCompletedBeforeNext() && $fullClassName::isSucceed($siteId, $settings)));?>
-						<?endforeach;?>
+							<?php $prevStepCompleted = $prevStepCompleted && (!$fullClassName::mustBeCompletedBeforeNext() || ($fullClassName::mustBeCompletedBeforeNext() && $fullClassName::isSucceed($siteId, $settings)));?>
+						<?php endforeach;?>
 					</div>
 				</div>
 				<br><input type="button" value="<?=Loc::getMessage('SALE_EBAY_W_CLEAN_CACHE')?>" class="adm-btn-save" name="CLEAN_CACHE_BUTT" onclick="window.location.href='<?=$APPLICATION->GetCurPageParam('lang='.LANGUAGE_ID.'&STEP='.$step.'&SITE_ID='.$siteId.'&CLEAN_CACHE=Y', array('SITE_ID', 'STEP', 'lang', 'CLEAN_CACHE'))?>';">
 			</td></tr>
 		</table>
 
-		<?if($adminMessage = $wizardStep->getAdminMessage()):?>
+		<?php if($adminMessage = $wizardStep->getAdminMessage()):?>
 			<script type="text/javascript">
 				BX.ready( function(){
 					BX("adm-sale-ebay-wiazard-admin-msg").innerHTML = "<?=CUtil::JSEscape($adminMessage->Show())?>";
 				});
 			</script>
-		<?endif;?>
-	<?
+		<?php endif;?>
+	<?php 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }
 namespace Bitrix\Sale\TradingPlatform\Ebay\Wizard
@@ -358,7 +358,7 @@ namespace Bitrix\Sale\TradingPlatform\Ebay\Wizard
 				if(empty($settings[$siteId]["API"]["AUTH_TOKEN"]))
 					return array();
 
-				$data = '<?xml version="1.0" encoding="utf-8"?>
+				$data = '<?php xml version="1.0" encoding="utf-8"?>
 					<GetUserRequest xmlns="urn:ebay:apis:eBLBaseComponents">
 					<RequesterCredentials>
 						<eBayAuthToken>'.$settings[$siteId]["API"]["AUTH_TOKEN"].'</eBayAuthToken>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_ENTITY_ID_FIELD"] = "Идентификатор кассы";
 $MESS["SALE_CASHBOX_ENTITY_NAME_FIELD"] = "Название";
 $MESS["SALE_CASHBOX_ENTITY_EMAIL_FIELD"] = "Email";

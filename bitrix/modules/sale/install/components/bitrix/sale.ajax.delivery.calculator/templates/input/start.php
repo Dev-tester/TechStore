@@ -1,7 +1,7 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
-<?
+<?php 
 if ($arResult["B_ADMIN"] == "Y")
 {
 	$APPLICATION->AddHeadScript("/bitrix/js/main/cphttprequest.js");

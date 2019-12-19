@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/telephony/editgroup.php");
@@ -7,7 +7,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_afte
 $APPLICATION->SetTitle(GetMessage("VI_PAGE_EDIT_GROUP_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrapper",
+<?php $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrapper",
 	"",
 	array(
 		"POPUP_COMPONENT_NAME" => "bitrix:voximplant.queue.edit",
@@ -20,5 +20,5 @@ $APPLICATION->SetTitle(GetMessage("VI_PAGE_EDIT_GROUP_TITLE"));
 	)
 );?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 
@@ -45,7 +45,7 @@ $strThemeName = strtolower($arTemplate["NAME"]);
 	@include(WIZARD_TEMPLATE_ABSOLUTE_PATH."/description.php"); 
 $arTemplate["NAME"] .= " (".$strThemeName.")"; 
 	
-	$strContent = '<?$arTemplate = Array("NAME" => "'.EscapePHPString($arTemplate["NAME"]).'", "DESCRIPTION" => "'.EscapePHPString($arTemplate["DESCRIPTION"]).'");?>'; 
+	$strContent = '<?php $arTemplate = Array("NAME" => "'.EscapePHPString($arTemplate["NAME"]).'", "DESCRIPTION" => "'.EscapePHPString($arTemplate["DESCRIPTION"]).'");?>'; 
 	$fd = @fopen($abs_path, "wb");
 	if ($fd)
 	{

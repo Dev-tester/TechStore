@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CWebDavExtLinks
@@ -316,10 +316,10 @@ class CWebDavExtLinks
 ?>		
 	<div class="ext-link-dialog-content">
 		<div class="ext-link-section">
-			<span><span class="ext-link-dialog-file-name"><? echo $fileName; ?></span><? echo $size . $changeTime; ?></span>
+			<span><span class="ext-link-dialog-file-name"><?php  echo $fileName; ?></span><?php  echo $size . $changeTime; ?></span>
 		</div>
 
-<?
+<?php 
 		if(self::IsFirstView())
 		{
 ?>
@@ -327,16 +327,16 @@ class CWebDavExtLinks
 			<div class="ext-link-dialog-wrap">
 				<div class="ext-link-dialog-info-block">
 					<div class="ext-link-dialog-img"></div>
-					<div class="ext-link-dialog-title"><? echo GetMessage("WD_EXT_LINKS_DIALOG_GREEN_WINDOW_TITLE");?></div>
+					<div class="ext-link-dialog-title"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_GREEN_WINDOW_TITLE");?></div>
 					<div class="ext-link-dialog-text">
-						<? echo GetMessage("WD_EXT_LINKS_DIALOG_GREEN_WINDOW_TEXT");?>
+						<?php  echo GetMessage("WD_EXT_LINKS_DIALOG_GREEN_WINDOW_TEXT");?>
 					</div>
-					<a href="<? echo $demoLink; ?>" class="ext-link-dialog-link"><? echo GetMessage("WD_EXT_LINKS_DIALOG_GREEN_WINDOW_LINK");?></a>
+					<a href="<?php  echo $demoLink; ?>" class="ext-link-dialog-link"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_GREEN_WINDOW_LINK");?></a>
 					<span class="ext-link-dialog-close-btn" onclick="ExtLinkDialogCloseGreenWindow(this)"></span>
 				</div>
 			</div>
 		</div>
-<?
+<?php 
 		}
 		if($linksNum > 0)
 		{
@@ -347,7 +347,7 @@ class CWebDavExtLinks
 				<thead onclick="ExtLinkDialogInitSpoiler(this)">
 					<tr>
 						<th>
-							<div><? echo ( str_replace("#n#", '<span>(<span id="ext-link-spoiler-amount">' . $linksNum . '</span>)</span>', GetMessage("WD_EXT_LINKS_DIALOG_SPOILER_TITLE")) ); ?></div>
+							<div><?php  echo ( str_replace("#n#", '<span>(<span id="ext-link-spoiler-amount">' . $linksNum . '</span>)</span>', GetMessage("WD_EXT_LINKS_DIALOG_SPOILER_TITLE")) ); ?></div>
 						</th>
 					</tr>
 				</thead>
@@ -355,7 +355,7 @@ class CWebDavExtLinks
 					<tr>
 						<td>
 							<div id="ext-link-list-div" class="ext-link-list-div">
-<?
+<?php 
 			$n = 0;
 			foreach($arLinks as $v)
 			{
@@ -394,44 +394,44 @@ class CWebDavExtLinks
 					</tr>
 					<tr>
 						<td>
-							<span class="ext-link-delite-all" onclick="ExtLinkDialogDeleteAllLinks('<? echo htmlspecialcharsbx($urlFull); ?>','<? echo htmlspecialcharsbx($url); ?>')"><span class="ext-link-comments-link-text"> <? echo GetMessage("WD_EXT_LINKS_DIALOG_DELETE_ALL_LINKS"); ?></span><i></i></span>
+							<span class="ext-link-delite-all" onclick="ExtLinkDialogDeleteAllLinks('<?php  echo htmlspecialcharsbx($urlFull); ?>','<?php  echo htmlspecialcharsbx($url); ?>')"><span class="ext-link-comments-link-text"> <?php  echo GetMessage("WD_EXT_LINKS_DIALOG_DELETE_ALL_LINKS"); ?></span><i></i></span>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 		</div>
-<?
+<?php 
 		}
 ?>
 		<div id="ext-link-time-div" class="ext-link-section">
-			<input name="ext-link-time-cb" class="ext-link-time-checkbox" type="checkbox" id="ext-link-time-cb"/><label for="ext-link-time-cb"><? echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_TITLE"); ?></label>
+			<input name="ext-link-time-cb" class="ext-link-time-checkbox" type="checkbox" id="ext-link-time-cb"/><label for="ext-link-time-cb"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_TITLE"); ?></label>
 			<span class="mdl-pwd" id="e2p">
 				<span class="ext-link-dash">&ndash;</span>
 				<input name="ext-link-time-inp" id="ext-link-time-inp" type="text"/>
 				<select name="ext-link-time-sel" id="ext-link-time-sel">
-					<option value="day"><? echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_DAY"); ?></option>
-					<option value="hour" selected><? echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_HOUR"); ?></option>
-					<option value="minute"><? echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_MIN"); ?></option>
+					<option value="day"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_DAY"); ?></option>
+					<option value="hour" selected><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_HOUR"); ?></option>
+					<option value="minute"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_TIME_MIN"); ?></option>
 				</select>
 			</span>
 		</div>
 		<div id="ext-link-pass-div" class="ext-link-section">
-			<input name="ext-link-pass-cb" id="ext-link-pass-cb" class="ext-link-time-checkbox" type="checkbox"/><label for="ext-link-pass-cb"><? echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_PASS_TITLE"); ?></label>
+			<input name="ext-link-pass-cb" id="ext-link-pass-cb" class="ext-link-time-checkbox" type="checkbox"/><label for="ext-link-pass-cb"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_PASS_TITLE"); ?></label>
 			<div class="mdl-pwd" id="e3p">
-				<span><? echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_PASS1"); ?>:</span><input name="ext-link-pass-inp1" class="ext-link-pass-inp" id="ext-link-pass-inp1" type="password" onKeyUp="onKeyPress();"/><br/>
-				<span><? echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_PASS2"); ?>:</span><input name="ext-link-pass-inp2" class="ext-link-pass-inp" id="ext-link-pass-inp2" type="password" onKeyUp="onKeyPress();"/>
+				<span><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_PASS1"); ?>:</span><input name="ext-link-pass-inp1" class="ext-link-pass-inp" id="ext-link-pass-inp1" type="password" onKeyUp="onKeyPress();"/><br/>
+				<span><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_FILE_ACCESS_PASS2"); ?>:</span><input name="ext-link-pass-inp2" class="ext-link-pass-inp" id="ext-link-pass-inp2" type="password" onKeyUp="onKeyPress();"/>
 					<div id="ext-link-pass-ico-ok"></div>
-					<div id="ext-link-pass-text-wrong"><? echo GetMessage("WD_EXT_LINKS_DIALOG_PASS_WRONG"); ?></div>
-					<div id="ext-link-pass-text-empty"><? echo GetMessage("WD_EXT_LINKS_DIALOG_PASS_EMPTY"); ?></div>
+					<div id="ext-link-pass-text-wrong"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_PASS_WRONG"); ?></div>
+					<div id="ext-link-pass-text-empty"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_PASS_EMPTY"); ?></div>
 			</div>
 		</div>
 
 		<div class="ext-link-comments">
-			<span id="ext-link-comments-link" class="ext-link-comments-link" onClick="ExtLinkDialogAddDescription();"><span class="ext-link-comments-link-text"><? echo GetMessage("WD_EXT_LINKS_DIALOG_ADD_COMENT"); ?></span></span>
+			<span id="ext-link-comments-link" class="ext-link-comments-link" onClick="ExtLinkDialogAddDescription();"><span class="ext-link-comments-link-text"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_ADD_COMENT"); ?></span></span>
 			<textarea id="text-link-comments-textarea" class="text-link-comments-textarea ext-link-hidden-comments"></textarea>
-			<textarea id="text-link-comments-textarea2" style="display:none;"><? echo $description; ?></textarea>
-			<span id="ext-link-comments-link-remove" class="ext-link-comments-link-remove ext-link-hidden-comments" onClick="ExtLinkDialogDeleteDescription();"><span class="ext-link-comments-link-text"><? echo GetMessage("WD_EXT_LINKS_DIALOG_DELETE_COMENT"); ?></span></span>
+			<textarea id="text-link-comments-textarea2" style="display:none;"><?php  echo $description; ?></textarea>
+			<span id="ext-link-comments-link-remove" class="ext-link-comments-link-remove ext-link-hidden-comments" onClick="ExtLinkDialogDeleteDescription();"><span class="ext-link-comments-link-text"><?php  echo GetMessage("WD_EXT_LINKS_DIALOG_DELETE_COMENT"); ?></span></span>
 			</div>
 		<div id="ext-link-url-div" class="ext-link-section ext-link-link ext-link-hidden">
 			<input id="ext-link-res-url" type="text" class="mdl-result"/>
@@ -439,7 +439,7 @@ class CWebDavExtLinks
 		<div id="ext-link-white-block" class="ext-link-white-block"></div>
 	</div>
 
-<?
+<?php 
 		die();
 
 	}

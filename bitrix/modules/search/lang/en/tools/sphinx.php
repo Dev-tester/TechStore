@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_SPHINX_CONN_ERROR_INDEX_NAME"] = "Search index identifier may only contain Latin letters, numbers and underscores.";
 $MESS["SEARCH_SPHINX_CONN_EXT_IS_MISSING"] = "MySql extension is not installed.";
 $MESS["SEARCH_SPHINX_CONN_ERROR"] = "Connection error (#ERRSTR#).";

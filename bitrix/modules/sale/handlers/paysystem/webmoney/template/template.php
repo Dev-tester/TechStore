@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -12,11 +12,11 @@ if ($params['ENCODING'])
 <div class="mb-4" >
 	<form id="pay" name="pay" method="POST" action="<?=$params['URL']?>">
 		<input type="hidden" name="LMI_PAYMENT_AMOUNT" value="<?=round($params["PAYMENT_SHOULD_PAY"], 2);?>">
-		<?if (ToUpper($params['ENCODING']) == 'UTF-8' || ToUpper(SITE_CHARSET) == 'UTF-8') :?>
+		<?php if (ToUpper($params['ENCODING']) == 'UTF-8' || ToUpper(SITE_CHARSET) == 'UTF-8') :?>
 			<input type="hidden" name="LMI_PAYMENT_DESC_BASE64" value="<?=base64_encode($paymentDesc);?>">
-		<?else:?>
+		<?php else:?>
 			<input type="hidden" name="LMI_PAYMENT_DESC" value="<?=$paymentDesc;?>">
-		<?endif;?>
+		<?php endif;?>
 		<input type="hidden" name="LMI_PAYMENT_NO" value="<?=htmlspecialcharsbx($params["PAYMENT_ID"])?>">
 		<input type="hidden" name="LMI_PAYEE_PURSE" value="<?=htmlspecialcharsbx($params["WEBMONEY_SHOP_ACCT"])?>">
 		<input type="hidden" name="LMI_SIM_MODE" value="<?=htmlspecialcharsbx($params["WEBMONEY_TEST_MODE"])?>">

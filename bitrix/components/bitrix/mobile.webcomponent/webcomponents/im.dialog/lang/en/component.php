@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMPONENT_LOADING_MESSAGES"] = "Load messages...";
 $MESS["CHAT_USER_LIST_EXIT"] = "Log out";
 $MESS["CHAT_USER_LIST_KICK"] = "Remove";

@@ -10,7 +10,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 ?>
 <section class="landing-block g-pt-100 g-pb-100">
 	<div class="container g-font-size-13">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:sale.basket.basket',
 			'bootstrap_v4',
 			array(

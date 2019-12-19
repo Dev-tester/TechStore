@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $id = $arResult['ID'];
 $event = $arResult['EVENT'];
 ?>
@@ -17,8 +17,8 @@ $event = $arResult['EVENT'];
 			<div class="calendar-event-label"><?= GetMessage('ECLFV_EVENT_START')?>:</div>
 			<span class="calendar-event-text" id="feed-event-view-from-<?=$id?>"></span>
 		</div>
-		<?if ($event['RRULE'] !== ''):?>
-		<?
+		<?php if ($event['RRULE'] !== ''):?>
+		<?php 
 		$repeatHTML = '';
 		$RRULE = CCalendarEvent::ParseRRULE($event['RRULE']);
 		switch ($RRULE['FREQ'])
@@ -67,27 +67,27 @@ $event = $arResult['EVENT'];
 			<div class="calendar-event-label"><?=GetMessage('EC_T_REPEAT')?>:</div>
 			<span class="calendar-event-text"><?= $repeatHTML?></span>
 		</div>
-		<?endif;/*RRULE*/?>
-		<?if (!empty($event['LOCATION'])):?>
+		<?php endif;/*RRULE*/?>
+		<?php if (!empty($event['LOCATION'])):?>
 		<div class="calendar-event-item">
 			<div class="calendar-event-label"><?= GetMessage('ECLFV_EVENT_LOCATION')?>:</div>
 			<span class="calendar-event-text"><?= htmlspecialcharsex($event['LOCATION'])?></span>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?
+		<?php 
 		$bAcc = count($event['ACCEPTED_ATTENDEES']) > 0;
 		$bDec = count($event['DECLINED_ATTENDEES']) > 0;
 		?>
 		<div id="feed-event-attendees-cont-<?=$id?>" class="calendar-event-item" style="display:<?= (($bAcc || $bDec) ? "block" : "none")?>;">
 			<div class="calendar-event-label"><?= GetMessage('ECLFV_INVITE_ATTENDEES')?>:</div>
 			<span id="feed-event-attendees-wrap-<?=$id?>">
-				<? if ($bAcc):?>
-				<span class="calendar-event-text"><?= GetMessage('ECLFV_INVITE_ATTENDEES_ACC', array('#ATTENDEES_NUM#' => CCalendar::GetAttendeesMessage(count($event['ACCEPTED_ATTENDEES']))))?></span><?if ($bDec){echo ', ';}?>
-				<?endif;?>
-				<? if ($bDec):?>
+				<?php  if ($bAcc):?>
+				<span class="calendar-event-text"><?= GetMessage('ECLFV_INVITE_ATTENDEES_ACC', array('#ATTENDEES_NUM#' => CCalendar::GetAttendeesMessage(count($event['ACCEPTED_ATTENDEES']))))?></span><?php if ($bDec){echo ', ';}?>
+				<?php endif;?>
+				<?php  if ($bDec):?>
 					<span  class="calendar-event-text"><?= GetMessage('ECLFV_INVITE_ATTENDEES_DEC', array('#ATTENDEES_NUM#' => CCalendar::GetAttendeesMessage(count($event['DECLINED_ATTENDEES']))))?></span>
-				<?endif;?>
+				<?php endif;?>
 			</span>
 		</div>
 
@@ -139,11 +139,11 @@ $event = $arResult['EVENT'];
 	});
 </script>
 
-<?/* Don't delete or change html comments below. It used to display results */?>
+<?php /* Don't delete or change html comments below. It used to display results */?>
 <!--#BX_FEED_EVENT_FOOTER_MESSAGE#-->
-<?if ($arResult['UF_WEBDAV_CAL_EVENT']):?>
+<?php if ($arResult['UF_WEBDAV_CAL_EVENT']):?>
 <div id="bx-feed-cal-view-files-<?=$id?>" class="feed-cal-view-uf-block">
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:system.field.view",
 	$arResult['UF_WEBDAV_CAL_EVENT']["USER_TYPE"]["USER_TYPE_ID"],
 	array(
@@ -155,5 +155,5 @@ $event = $arResult['EVENT'];
 );
 ?>
 </div>
-<?endif;?>
+<?php endif;?>
 <!--#BX_FEED_EVENT_FOOTER_MESSAGE_END#-->

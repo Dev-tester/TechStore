@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\UI;
@@ -41,22 +41,22 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm-preview.css');
 			<td><?= GetMessage('CRM_FIELD_CONTACT_FULL_NAME')?>: </td>
 			<td><?=htmlspecialcharsbx($arResult['FULL_NAME'])?></td>
 		</tr>
-		<? foreach($arResult['CONTACT_INFO'] as $contactInfoType => $contactInfoValue): ?>
+		<?php  foreach($arResult['CONTACT_INFO'] as $contactInfoType => $contactInfoValue): ?>
 			<tr>
 				<td><?= GetMessage('CRM_CONTACT_INFO_'.$contactInfoType)?>: </td>
 				<td>
-					<?
+					<?php 
 					$contactInfoValue = htmlspecialcharsbx($contactInfoValue);
 					switch($contactInfoType)
 					{
 						case 'EMAIL':
-							?><a href="mailto:<?=$contactInfoValue?>" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?
+							?><a href="mailto:<?=$contactInfoValue?>" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?php 
 							break;
 						case 'PHONE':
-							?><a href="callto://<?=$contactInfoValue?>" onclick="if(typeof(BXIM) !== 'undefined') { BXIM.phoneTo('8 4012 531249'); return BX.PreventDefault(event); }" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?
+							?><a href="callto://<?=$contactInfoValue?>" onclick="if(typeof(BXIM) !== 'undefined') { BXIM.phoneTo('8 4012 531249'); return BX.PreventDefault(event); }" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?php 
 							break;
 						case 'WEB':
-							?><a href="http://<?=$contactInfoValue?>" target="_blank"><?=$contactInfoValue?></a><?
+							?><a href="http://<?=$contactInfoValue?>" target="_blank"><?=$contactInfoValue?></a><?php 
 							break;
 						default:
 							echo $contactInfoValue;
@@ -64,6 +64,6 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm-preview.css');
 					?>
 				</td>
 			</tr>
-		<? endforeach ?>
+		<?php  endforeach ?>
 	</table>
 </div>

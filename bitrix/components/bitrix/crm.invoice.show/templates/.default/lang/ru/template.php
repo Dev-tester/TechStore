@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EDIT_BTN_TTL"] = "Кликнуть для редактирования";
 $MESS["CRM_LOCK_BTN_TTL"] = "Редактирование недоступно";
 $MESS["CRM_INVOICE_SHOW_TITLE"] = "Счёт №#ACCOUNT_NUMBER# &mdash; #ORDER_TOPIC#";

@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="photo-page-detail-list">
-<?
+<?php 
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -37,14 +37,14 @@ if ($arParams["USE_COMMENTS"] == "Y")
 <noindex>
 <div class="photo-controls photo-controls-mainpage">
 	<ul class="photo-controls">
-<?
+<?php 
 $counter = 1;
 foreach ($arSort as $key => $val):
-	?><li class="photo-control <?=$key?> <?=($counter == 1 ? "photo-control-first" : "")?> <?=($counter == count($arRes) ? "photo-control-last" : "")?> <?
+	?><li class="photo-control <?=$key?> <?=($counter == 1 ? "photo-control-first" : "")?> <?=($counter == count($arRes) ? "photo-control-last" : "")?> <?php 
 		?><?=($order == $key ? " photo-control-active " : "")?>">
-		<a href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=".$key, array("order"))?>" <?
+		<a href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=".$key, array("order"))?>" <?php 
 			?>rel="nofollow" title="<?=$val["description"]?>"><span><?=$val["title"]?></span></a>
-	</li><?
+	</li><?php 
 	$counter++;
 endforeach;
 ?>
@@ -52,7 +52,7 @@ endforeach;
 	<div class="empty-clear"></div>
 </div>
 </noindex>
-<?
+<?php 
 $photo_from = trim($_REQUEST["photo_from"]);
 $photo_to = trim($_REQUEST["photo_to"]);
 ?>
@@ -62,7 +62,7 @@ $photo_to = trim($_REQUEST["photo_to"]);
 		<div class="photo-filter-fields">
 			<div class="photo-filter-field photo-calendar-field">
 				<label for="photo_from"><?=GetMessage("P_CHOSE_PHOTO_FROM_PERIOD")?>:</label>
-				<?$APPLICATION->IncludeComponent("bitrix:main.calendar", ".default",
+				<?php $APPLICATION->IncludeComponent("bitrix:main.calendar", ".default",
 					Array(
 						"SHOW_INPUT" => "Y",
 						"INPUT_NAME" => "photo_from",
@@ -81,8 +81,8 @@ $photo_to = trim($_REQUEST["photo_to"]);
 		</div>
 	</form>
 </div>
-<?
-?><div id="detail_list_order"><?
+<?php 
+?><div id="detail_list_order"><?php 
 	$arParams["ELEMENT_FILTER"] = array();
 	$sTitle = GetMessage("P_TITLE_ID");
 	if ($order == "shows")
@@ -105,7 +105,7 @@ $photo_to = trim($_REQUEST["photo_to"]);
 	}
 
 ?>
-	<?$APPLICATION->IncludeComponent("bitrix:photogallery.detail.list.ex",
+	<?php $APPLICATION->IncludeComponent("bitrix:photogallery.detail.list.ex",
 		"",
 		Array(
 			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
@@ -169,7 +169,7 @@ $photo_to = trim($_REQUEST["photo_to"]);
 		array("HIDE_ICONS" => "Y")
 	);
 ?></div>
-<?
+<?php 
 /********************************************************************
 				Standart
 ********************************************************************/

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_1C_START_FACE_CARD_NAME"] = "Face-карт";
 $MESS["CRM_1C_START_FACE_CARD_ADV_1"] = "Простое подключение";
 $MESS["CRM_1C_START_FACE_CARD_ADV_2"] = "Легкая настройка";

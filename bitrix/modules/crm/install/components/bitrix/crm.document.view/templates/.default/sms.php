@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Localization\Loc;
 
@@ -27,7 +27,7 @@ if($arParams['IS_SLIDER'])
 				window.location = "<?=CUtil::JSEscape((new \Bitrix\Main\Web\Uri(\Bitrix\Main\Application::getInstance()->getContext()->getRequest()->getRequestUri()))->deleteParams(['IFRAME', 'IFRAME_TYPE']));?>" + window.location.hash;
 			}
 		</script>
-		<?$APPLICATION->ShowHead(); ?>
+		<?php $APPLICATION->ShowHead(); ?>
 	</head>
 	<body class="docs-preview-slider-wrap">
 	<div class="docs-preview-title">
@@ -40,13 +40,13 @@ if($arParams['IS_SLIDER'])
 			</div>
 		</div>
 	</div>
-<?}
+<?php }
 
 if(isset($arResult['ERRORS']) && !empty($arResult['ERRORS']))
 {
 ?>
 <div class="ui-alert ui-alert-danger ui-alert-icon-danger ui-alert-text-center">
-<span class="ui-alert-message"><?
+<span class="ui-alert-message"><?php 
 	if(is_array($arResult['ERRORS']))
 	{
 		foreach($arResult['ERRORS'] as $error)
@@ -61,7 +61,7 @@ if(isset($arResult['ERRORS']) && !empty($arResult['ERRORS']))
 	}
 	?></span>
 </div>
-<?
+<?php 
 }
 else
 {
@@ -71,6 +71,6 @@ else
 if($arParams['IS_SLIDER'])
 {
 	?></body>
-	</html><?
+	</html><?php 
 	\Bitrix\Main\Application::getInstance()->terminate();
 }

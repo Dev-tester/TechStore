@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WIZARD_TITLE'] = "Настройка продукта<br>&laquo;1С-Битрикс: Управление сайтом&raquo;";
 $MESS ['WIZARD_TITLE_SOL'] = "";
 $MESS ['COPYRIGHT'] = "&copy; &laquo;Битрикс&raquo;, #CURRENT_YEAR#";

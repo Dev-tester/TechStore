@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Intranet\Integration\Main\UISelector;
 
 use Bitrix\Main\Loader;

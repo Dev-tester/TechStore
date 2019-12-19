@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/extranet/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
@@ -67,7 +67,7 @@ $APPLICATION->IncludeComponent(
 		"AUTH" => "Y",
 	)
 );?>
-<?if ($GLOBALS["USER"]->IsAuthorized()){
+<?php if ($GLOBALS["USER"]->IsAuthorized()){
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.blog.blog",
 		"important",
@@ -121,7 +121,7 @@ $APPLICATION->IncludeComponent(
 		null
 	);
 }?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:tasks.filter.v2",
 	"widget",
 	array(
@@ -134,4 +134,4 @@ $APPLICATION->IncludeComponent(
 	null,
 	array("HIDE_ICONS" => "N")
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

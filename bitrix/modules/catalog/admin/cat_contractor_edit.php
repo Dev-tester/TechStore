@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/prolog.php");
 global $APPLICATION;
@@ -184,7 +184,7 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($errorMessage);?>
+<?php CAdminMessage::ShowMessage($errorMessage);?>
 
 	<script>
 		function fContractorChangeType(el)
@@ -214,18 +214,18 @@ $context->Show();
 		}
 
 	</script>
-	<?
+	<?php 
 	$actionUrl = $APPLICATION->GetCurPage();
 	$actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 	?>
 	<form enctype="multipart/form-data" method="POST" action="<?=$actionUrl?>" name="contractor_edit">
-		<?echo GetFilterHiddens("filter_");?>
+		<?php echo GetFilterHiddens("filter_");?>
 		<input type="hidden" name="Update" value="Y">
-		<input type="hidden" name="lang" value="<?echo LANG ?>">
-		<input type="hidden" name="ID" value="<?echo $ID ?>">
+		<input type="hidden" name="lang" value="<?php echo LANG ?>">
+		<input type="hidden" name="ID" value="<?php echo $ID ?>">
 		<?=bitrix_sessid_post()?>
 
-		<?
+		<?php 
 		$aTabs = array(
 			array("DIV" => "edit1", "TAB" => GetMessage("CONTRACTOR_TAB"), "ICON" => "catalog", "TITLE" => GetMessage("CONTRACTOR_TAB_DESCR")),
 		);
@@ -234,7 +234,7 @@ $context->Show();
 		$tabControl->Begin();
 		?>
 
-		<?
+		<?php 
 		$tabControl->BeginNextTab();
 		?>
 		<style>
@@ -242,7 +242,7 @@ $context->Show();
 				color: #CCC;
 			}
 		</style>
-		<?if ($ID > 0):
+		<?php if ($ID > 0):
 			$typeReadOnly = true;
 			?>
 
@@ -250,43 +250,43 @@ $context->Show();
 				<td>ID:</td>
 				<td><?= $ID ?></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 
 		<tr class="adm-detail-required-field">
 			<td width="40%"><?= GetMessage("CONTRACTOR_TYPE") ?>:</td>
 			<td width="60%">
 				<input type="hidden" name="PERSON_TYPE" value="<?=$str_PERSON_TYPE?>">
-				<select <?if($typeReadOnly) echo " disabled";?> name="PERSON_TYPE" onchange="fContractorChangeType(this);">
-					<option <? if(intval($str_PERSON_TYPE) == CONTRACTOR_INDIVIDUAL) echo" selected";?> value="1"><?= GetMessage("CONTRACTOR_INDIVIDUAL") ?></option>
-					<option <? if(intval($str_PERSON_TYPE) == CONTRACTOR_JURIDICAL) echo" selected";?> value="2"><?= GetMessage("CONTRACTOR_JURIDICAL") ?></option>
+				<select <?php if($typeReadOnly) echo " disabled";?> name="PERSON_TYPE" onchange="fContractorChangeType(this);">
+					<option <?php  if(intval($str_PERSON_TYPE) == CONTRACTOR_INDIVIDUAL) echo" selected";?> value="1"><?= GetMessage("CONTRACTOR_INDIVIDUAL") ?></option>
+					<option <?php  if(intval($str_PERSON_TYPE) == CONTRACTOR_JURIDICAL) echo" selected";?> value="2"><?= GetMessage("CONTRACTOR_JURIDICAL") ?></option>
 				</select>
 			</td>
 		</tr>
 
-		<tr class="adm-detail-required-field" id="company-name-tr" <? if($str_PERSON_TYPE == 1) echo "style=\"display: none\"";?>>
+		<tr class="adm-detail-required-field" id="company-name-tr" <?php  if($str_PERSON_TYPE == 1) echo "style=\"display: none\"";?>>
 			<td width="40%"><?= GetMessage("CONTRACTOR_COMPANY") ?>:</td>
 			<td width="60%">
 				<input type="text" name="COMPANY" value="<?=$str_COMPANY?>" size="30" />
 			</td>
 
 		</tr>
-		<tr id="company-inn-tr"<? if($str_PERSON_TYPE == CONTRACTOR_INDIVIDUAL) echo "style=\"display: none\"";?>>
+		<tr id="company-inn-tr"<?php  if($str_PERSON_TYPE == CONTRACTOR_INDIVIDUAL) echo "style=\"display: none\"";?>>
 			<td><?= GetMessage("CONTRACTOR_INN") ?>:</td>
 			<td>
 				<input type="text" name="INN" value="<?=$str_INN?>" size="30" />
 			</td>
 		</tr>
-		<?if(trim(GetMessage("CONTRACTOR_KPP")) != ''):?>
-			<tr id="company-kpp-tr" <? if($str_PERSON_TYPE == CONTRACTOR_INDIVIDUAL) echo "style=\"display: none\"";?>>
+		<?php if(trim(GetMessage("CONTRACTOR_KPP")) != ''):?>
+			<tr id="company-kpp-tr" <?php  if($str_PERSON_TYPE == CONTRACTOR_INDIVIDUAL) echo "style=\"display: none\"";?>>
 				<td><?= GetMessage("CONTRACTOR_KPP") ?>:</td>
 				<td>
 					<input type="text" name="KPP" value="<?=$str_KPP?>" size="30" />
 				</td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 		<tr class="adm-detail-required-field">
 			<td> <span id="title_span">
-			<?
+			<?php 
 					if($str_PERSON_TYPE == CONTRACTOR_JURIDICAL)
 						echo GetMessage("CONTRACTOR_TITLE_JURIDICAL");
 					else
@@ -314,7 +314,7 @@ $context->Show();
 			</td>
 		</tr>
 		<tr>
-			<td  class="adm-detail-valign-top"><span id="address_span"><? 	if($str_PERSON_TYPE == CONTRACTOR_JURIDICAL) echo GetMessage("CONTRACTOR_ADDRESS_JURIDICAL"); else echo GetMessage("CONTRACTOR_ADDRESS"); ?>:</span></td>
+			<td  class="adm-detail-valign-top"><span id="address_span"><?php  	if($str_PERSON_TYPE == CONTRACTOR_JURIDICAL) echo GetMessage("CONTRACTOR_ADDRESS_JURIDICAL"); else echo GetMessage("CONTRACTOR_ADDRESS"); ?>:</span></td>
 			<td>
 				<textarea cols="35" rows="3" class="typearea" name="ADDRESS" wrap="virtual"><?= $str_ADDRESS ?></textarea>
 			</td>
@@ -322,7 +322,7 @@ $context->Show();
 
 		</tr>
 
-		<?echo
+		<?php echo
 		$tabControl->EndTab();
 
 		$tabControl->Buttons(array("disabled" => $bReadOnly, "back_url" => $listUrl));
@@ -330,4 +330,4 @@ $context->Show();
 		?>
 	</form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

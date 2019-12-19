@@ -105,67 +105,67 @@ if($e = $APPLICATION->GetException())
 if($message)
 	echo $message->Show();
 ?>
-<form name="f_agent" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>" method="POST">
+<form name="f_agent" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>" method="POST">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $editTab->Begin();
 $editTab->BeginNextTab();
 ?>
-	<input type="hidden" name="ID" value=<?echo $ID?>>
-	<?if($ID > 0):?>
+	<input type="hidden" name="ID" value=<?php echo $ID?>>
+	<?php if($ID > 0):?>
 	<tr>
-		<td><?echo GetMessage("MAIN_AGENT_LAST_EXEC")?></td>
-		<td><?echo $a_LAST_EXEC?></td>
+		<td><?php echo GetMessage("MAIN_AGENT_LAST_EXEC")?></td>
+		<td><?php echo $a_LAST_EXEC?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("MAIN_AGENT_START_EXEC")?>:</td>
-		<td width="60%"><?echo CalendarDate("NEXT_EXEC", htmlspecialcharsbx($a_NEXT_EXEC), "f_agent", 20)?></td>
+		<td width="40%"><?php echo GetMessage("MAIN_AGENT_START_EXEC")?>:</td>
+		<td width="60%"><?php echo CalendarDate("NEXT_EXEC", htmlspecialcharsbx($a_NEXT_EXEC), "f_agent", 20)?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('MAIN_AGENT_ACTIVE')?></td>
+		<td><?php echo GetMessage('MAIN_AGENT_ACTIVE')?></td>
 		<td>
 			<input type="hidden" name="ACTIVE" value="N">
-			<input type="checkbox" name="ACTIVE" value="Y"<?if($a_ACTIVE=="Y") echo " checked"?>>
+			<input type="checkbox" name="ACTIVE" value="Y"<?php if($a_ACTIVE=="Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_AGENT_MODULE_ID")?></td>
-		<td><input type="text" name="MODULE_ID" size="40" value="<? echo $a_MODULE_ID?>"></td>
+		<td><?php echo GetMessage("MAIN_AGENT_MODULE_ID")?></td>
+		<td><input type="text" name="MODULE_ID" size="40" value="<?php  echo $a_MODULE_ID?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("MAIN_AGENT_NAME")?></td>
-		<td><input type="text" name="NAME" size="40" value="<? echo $a_NAME?>"></td>
+		<td><?php echo GetMessage("MAIN_AGENT_NAME")?></td>
+		<td><input type="text" name="NAME" size="40" value="<?php  echo $a_NAME?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_AGENT_USER_ID")?></td>
-		<td><?echo FindUserID("USER_ID", $a_USER_ID, "", "f_agent", 4)?>
+		<td><?php echo GetMessage("MAIN_AGENT_USER_ID")?></td>
+		<td><?php echo FindUserID("USER_ID", $a_USER_ID, "", "f_agent", 4)?>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_AGENT_SORT")?></td>
-		<td><input type="text" name="SORT" size="40" value="<? echo $a_SORT?>"></td>
+		<td><?php echo GetMessage("MAIN_AGENT_SORT")?></td>
+		<td><input type="text" name="SORT" size="40" value="<?php  echo $a_SORT?>"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIN_AGENT_PERIODICAL1")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIN_AGENT_PERIODICAL1")?></td>
 		<td>
-			<label><input type="radio" name="IS_PERIOD" value="N"<?if($a_IS_PERIOD<>"Y") echo " checked"?>><?echo GetMessage("MAIN_AGENT_PERIODICAL_INTERVAL")?></label><br>
-			<label><input type="radio" name="IS_PERIOD" value="Y"<?if($a_IS_PERIOD=="Y") echo " checked"?>><?echo GetMessage("MAIN_AGENT_PERIODICAL_TIME")?></label>
+			<label><input type="radio" name="IS_PERIOD" value="N"<?php if($a_IS_PERIOD<>"Y") echo " checked"?>><?php echo GetMessage("MAIN_AGENT_PERIODICAL_INTERVAL")?></label><br>
+			<label><input type="radio" name="IS_PERIOD" value="Y"<?php if($a_IS_PERIOD=="Y") echo " checked"?>><?php echo GetMessage("MAIN_AGENT_PERIODICAL_TIME")?></label>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_AGENT_INTERVAL")?></td>
-		<td><input type="text" name="AGENT_INTERVAL" size="40" value="<? echo $a_AGENT_INTERVAL?>"></td>
+		<td><?php echo GetMessage("MAIN_AGENT_INTERVAL")?></td>
+		<td><input type="text" name="AGENT_INTERVAL" size="40" value="<?php  echo $a_AGENT_INTERVAL?>"></td>
 	</tr>
 
-<?
+<?php 
 $editTab->Buttons(array("disabled"=>!$isAdmin, "back_url"=>"agent_list.php?lang=".LANGUAGE_ID));
 $editTab->End();
 ?>
 </form>
-<?
+<?php 
 $editTab->ShowWarnings("f_agent", $message);
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

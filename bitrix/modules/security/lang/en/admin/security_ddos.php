@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MFD_ER_DOMAIN"] = " ";
 $MESS["MFD_ER_IP"] = " ";
 $MESS["MFD_ER_NAME"] = " ";

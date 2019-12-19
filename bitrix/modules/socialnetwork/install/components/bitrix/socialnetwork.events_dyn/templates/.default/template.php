@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\UI;
 
@@ -101,7 +101,7 @@ $ajax_page = $APPLICATION->GetCurPageParam("", array("bxajaxid", "logout"));
 		sonetDynevNfier_9xx: '<?=CUtil::JSEscape(GetMessage("SONET_C2_NFIER_MESSAGES_9xx"))?>'
 	});	
 //-->
-</script><?
+</script><?php 
 
 if (isset($arParams["JAVASCRIPT_ONLY"]) && $arParams["JAVASCRIPT_ONLY"] == "Y")
 	return;

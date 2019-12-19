@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location\Admin\Helper;
@@ -27,4 +27,4 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

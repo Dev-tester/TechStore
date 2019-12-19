@@ -1,7 +1,7 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
-<?
+<?php 
 if (!is_array($arResult['USERS']) || !($USERS_CNT = count($arResult['USERS']))):
 	if ($arResult['EMPTY_UNFILTERED_LIST'] == 'Y'):
 		ShowNote(GetMessage('INTR_ISL_TPL_NOTE_UNFILTERED'));
@@ -22,34 +22,34 @@ else:
 		}
 	}
 ?>
-<?if ($arParams['SHOW_NAV_TOP'] == 'Y'):?>
-<div class="bx-users-nav"><?echo $arResult['USERS_NAV']?></div>
-<?else:?>
+<?php if ($arParams['SHOW_NAV_TOP'] == 'Y'):?>
+<div class="bx-users-nav"><?php echo $arResult['USERS_NAV']?></div>
+<?php else:?>
 <a name="nav_start"></a>
-<?endif;?>
+<?php endif;?>
 <table class="bx-users-table data-table">
 	<thead>
 		<tr>
-<?
+<?php 
 foreach ($arParams['USER_PROPERTY'] as $key):
 ?>
 			<td><?=strLen($arResult['USER_PROP'][$key]["EDIT_FORM_LABEL"]) > 0 ? $arResult['USER_PROP'][$key]["EDIT_FORM_LABEL"] : GetMessage('ISL_'.$key)?></td>
-<?
+<?php 
 endforeach;
 ?>
 			<td></td>
 		</tr>
 	</thead>
 	<tbody>
-<?
+<?php 
 	//for ($i = 0; $i < $USERS_CNT; $i++):
 	foreach ($arResult['USERS'] as $i => $arUser):
 ?>
 		<tr>
-<?
+<?php 
 		foreach ($arParams['USER_PROPERTY'] as $key):
 ?>
-			<td><?
+			<td><?php 
 			switch($key)
 			{
 				case 'UF_DEPARTMENT':
@@ -177,59 +177,59 @@ endforeach;
 			
 			echo $arResult['USERS'][$i][$key];
 ?></td>
-<?
+<?php 
 		endforeach;
 ?>
 			<td class="bx-user-controls-cell">
-	<?
+	<?php 
 	if ($USER->IsAuthorized() && (!isset($arUser['ACTIVE']) || $arUser['ACTIVE'] == 'Y')):
 		?>
 		<ul>
-			<?
+			<?php 
 			if ($arUser['CAN_MESSAGE'] && $arParams['PM_URL']):	
 				?>
-				<li class="bx-icon bx-icon-message"><a href="<?echo ($url = str_replace('#USER_ID#', $arUser['ID'], $arParams['PM_URL']))?>" onclick="if (BX.IM) { BXIM.openMessenger(<?=$arUser['ID']?>); return false; } else {window.open('<?echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false;}"><?echo GetMessage('INTR_ISP_PM')?></a></li>
-				<?
+				<li class="bx-icon bx-icon-message"><a href="<?php echo ($url = str_replace('#USER_ID#', $arUser['ID'], $arParams['PM_URL']))?>" onclick="if (BX.IM) { BXIM.openMessenger(<?=$arUser['ID']?>); return false; } else {window.open('<?php echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false;}"><?php echo GetMessage('INTR_ISP_PM')?></a></li>
+				<?php 
 			endif;
 			?>
-			<?
+			<?php 
 			if ($arUser['CAN_VIDEO_CALL'] && $arParams['PATH_TO_VIDEO_CALL']):	
 				?>
-				<li class="bx-icon bx-icon-video"><a href="<?echo $arUser["Urls"]["VideoCall"]?>" onclick="window.open('<?echo $arUser["Urls"]["VideoCall"] ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=1000,height=600,top='+Math.floor((screen.height - 600)/2-14)+',left='+Math.floor((screen.width - 1000)/2-5)); return false;"><?echo GetMessage('INTR_ISP_VIDEO_CALL')?></a></li>
-				<?
+				<li class="bx-icon bx-icon-video"><a href="<?php echo $arUser["Urls"]["VideoCall"]?>" onclick="window.open('<?php echo $arUser["Urls"]["VideoCall"] ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=1000,height=600,top='+Math.floor((screen.height - 600)/2-14)+',left='+Math.floor((screen.width - 1000)/2-5)); return false;"><?php echo GetMessage('INTR_ISP_VIDEO_CALL')?></a></li>
+				<?php 
 			endif;
 			?>			
-			<?
+			<?php 
 			if ($arResult['CAN_EDIT_USER']):
 				?>
-				<li class="bx-icon bx-icon-edit"><a href="<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER_EDIT'], array("user_id" => $arUser['ID']))?>"><?echo GetMessage('INTR_ISP_EDIT_USER')?></a></li>
-				<?
+				<li class="bx-icon bx-icon-edit"><a href="<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER_EDIT'], array("user_id" => $arUser['ID']))?>"><?php echo GetMessage('INTR_ISP_EDIT_USER')?></a></li>
+				<?php 
 			endif;
 			?>
 		</ul>
-		<?
+		<?php 
 	endif;
 	if ($arUser['IS_ONLINE'] || $arUser['IS_BIRTHDAY'] || $arUser['IS_ABSENT'] || $arUser['IS_FEATURED']):
 		?>
 		<ul>
-			<?if ($arUser['IS_ONLINE']):?><li class="bx-icon bx-icon-online"><?echo GetMessage('INTR_ISP_IS_ONLINE')?></li><?endif;?>
-			<?if ($arUser['IS_ABSENT']):?><li class="bx-icon bx-icon-away"><?echo GetMessage('INTR_ISP_IS_ABSENT')?></li><?endif;?>
-			<?if ($arUser['IS_BIRTHDAY']):?><li class="bx-icon bx-icon-birth"><?echo GetMessage('INTR_ISP_IS_BIRTHDAY')?></li><?endif;?>
-			<?if ($arUser['IS_FEATURED']):?><li class="bx-icon bx-icon-featured"><?echo GetMessage('INTR_ISP_IS_FEATURED')?></li><?endif;?>
+			<?php if ($arUser['IS_ONLINE']):?><li class="bx-icon bx-icon-online"><?php echo GetMessage('INTR_ISP_IS_ONLINE')?></li><?php endif;?>
+			<?php if ($arUser['IS_ABSENT']):?><li class="bx-icon bx-icon-away"><?php echo GetMessage('INTR_ISP_IS_ABSENT')?></li><?php endif;?>
+			<?php if ($arUser['IS_BIRTHDAY']):?><li class="bx-icon bx-icon-birth"><?php echo GetMessage('INTR_ISP_IS_BIRTHDAY')?></li><?php endif;?>
+			<?php if ($arUser['IS_FEATURED']):?><li class="bx-icon bx-icon-featured"><?php echo GetMessage('INTR_ISP_IS_FEATURED')?></li><?php endif;?>
 		</ul>
-		<?
+		<?php 
 	endif;
 	?>
 			</td>
 		</tr>
-<?
+<?php 
 	endforeach;
 ?>
 	</tbody>
 </table>
-<?if ($arParams['SHOW_NAV_BOTTOM'] == 'Y'):?>
-<div class="bx-users-nav"><?echo $arResult['USERS_NAV']?></div>
-<?endif;?>
-<?
+<?php if ($arParams['SHOW_NAV_BOTTOM'] == 'Y'):?>
+<div class="bx-users-nav"><?php echo $arResult['USERS_NAV']?></div>
+<?php endif;?>
+<?php 
 endif;
 ?>

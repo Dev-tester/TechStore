@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_PAGE_TITLE"] = "Подключение ККМ";
 $MESS["SALE_CASHBOX_TITLE_FZ"] = "Соответствие ФЗ-54";
 $MESS["SALE_CASHBOX_TITLE"] = "Интернет Касса в 1С-Битрикс";

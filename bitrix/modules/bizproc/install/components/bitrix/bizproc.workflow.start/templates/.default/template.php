@@ -1,9 +1,9 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/main/utils.js');
 CBPDocument::AddShowParameterInit($arParams["DOCUMENT_TYPE"][0], "only_users", $arParams["DOCUMENT_TYPE"][2], $arParams["DOCUMENT_TYPE"][1]);
 ?>
 <div class="bizproc-page-workflow-start">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])):
 	ShowError($arResult["ERROR_MESSAGE"]);
 endif;
@@ -32,18 +32,18 @@ elseif ($arResult["SHOW_MODE"] == "WorkflowParameters")
 	<legend class="bizproc-item-legend bizproc-workflow-template-title">
 		<?=$arResult["TEMPLATES"][$arParams["TEMPLATE_ID"]]["NAME"]?>
 	</legend>
-	<?if($arResult["TEMPLATES"][$arParams["TEMPLATE_ID"]]["DESCRIPTION"]!=''):?>
+	<?php if($arResult["TEMPLATES"][$arParams["TEMPLATE_ID"]]["DESCRIPTION"]!=''):?>
 	<div class="bizproc-item-description bizproc-workflow-template-description">
 		<?= $arResult["TEMPLATES"][$arParams["TEMPLATE_ID"]]["DESCRIPTION"] ?>
 	</div>
-	<?endif;
+	<?php endif;
 
 	if (!empty($arResult["TEMPLATES"][$arParams["TEMPLATE_ID"]]["PARAMETERS"]))
 	{
 ?>
 	<div class="bizproc-item-text">
 		<ul class="bizproc-list bizproc-workflow-template-params">
-<?
+<?php 
 	foreach ($arResult["TEMPLATES"][$arParams["TEMPLATE_ID"]]["PARAMETERS"] as $parameterKey => $arParameter)
 	{
 		if ($parameterKey == "TargetUser")
@@ -53,13 +53,13 @@ elseif ($arResult["SHOW_MODE"] == "WorkflowParameters")
 			<div class="bizproc-field bizproc-field-<?=$arParameter["Type"]?>">
 				<label class="bizproc-field-name">
 					<?=($arParameter["Required"] ? "<span class=\"required\">*</span> " : "")?>
-						<span class="bizproc-field-title"><?=htmlspecialcharsbx($arParameter["Name"])?></span><?
+						<span class="bizproc-field-title"><?=htmlspecialcharsbx($arParameter["Name"])?></span><?php 
 					if (strlen($arParameter["Description"]) > 0):
-						?><span class="bizproc-field-description"> (<?=htmlspecialcharsbx($arParameter["Description"])?>)</span><?
+						?><span class="bizproc-field-description"> (<?=htmlspecialcharsbx($arParameter["Description"])?>)</span><?php 
 					endif;
 					?>:
 				</label>
-				<span class="bizproc-field-value"><?
+				<span class="bizproc-field-value"><?php 
 					echo $documentService->GetFieldInputControl(
 						$arParams["DOCUMENT_TYPE"],
 						$arParameter,
@@ -71,12 +71,12 @@ elseif ($arResult["SHOW_MODE"] == "WorkflowParameters")
 				?></span>
 			</div>
 		</li>
-<?
+<?php 
 	}
 ?>
 		</ul>
 	</div>
-<?
+<?php 
 	}
 ?>
 	<div class="bizproc-item-buttons bizproc-workflow-start-buttons">
@@ -85,7 +85,7 @@ elseif ($arResult["SHOW_MODE"] == "WorkflowParameters")
 	</div>
 </fieldset>
 </form>
-<?
+<?php 
 }
 elseif ($arResult["SHOW_MODE"] == "SelectWorkflow" && count($arResult["TEMPLATES"]) > 0)
 {
@@ -96,20 +96,20 @@ elseif ($arResult["SHOW_MODE"] == "SelectWorkflow" && count($arResult["TEMPLATES
 	$bFirst = true;
 ?>
 	<ul class="bizproc-list bizproc-workflow-templates">
-		<?foreach ($arResult["TEMPLATES"] as $workflowTemplateId => $arWorkflowTemplate):?>
+		<?php foreach ($arResult["TEMPLATES"] as $workflowTemplateId => $arWorkflowTemplate):?>
 			<li class="bizproc-list-item bizproc-workflow-template">
 				<div class="bizproc-item-title">
 					<a href="<?=$arResult["TEMPLATES"][$arWorkflowTemplate["ID"]]["URL"]?>"><?=$arWorkflowTemplate["NAME"]?></a>
 				</div>
-				<?if (strlen($arWorkflowTemplate["DESCRIPTION"]) > 0):?>
+				<?php if (strlen($arWorkflowTemplate["DESCRIPTION"]) > 0):?>
 				<div class="bizproc-item-description">
 					<?= $arWorkflowTemplate["DESCRIPTION"] ?>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 			</li>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</ul>
-<?
+<?php 
 }
 elseif ($arResult["SHOW_MODE"] == "SelectWorkflow")
 {

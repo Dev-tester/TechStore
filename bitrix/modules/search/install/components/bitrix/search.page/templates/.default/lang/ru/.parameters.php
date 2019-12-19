@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BSP_USE_SUGGEST"] = "Показывать подсказку с поисковыми фразами";
 $MESS["TP_BSP_SHOW_RATING"] = "Включить рейтинг";
 $MESS["TP_BSP_SHOW_RATING_CONFIG"] = "по умолчанию";

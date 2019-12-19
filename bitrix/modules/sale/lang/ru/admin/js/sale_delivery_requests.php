@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_REQ_DIALOG_CONTENT"] = "Содержимое отгрузки";
 $MESS["SALE_DELIVERY_REQ_DIALOG_CLOSE"] = "Закрыть";
 $MESS["SALE_DELIVERY_REQ_ERROR"] = "Ошибка";

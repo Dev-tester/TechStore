@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["CONFIG_ENTITY_APP_CODE_FIELD"] = "Код приложения";
 $MESS["CONFIG_ENTITY_PLATFORM_FIELD"] = "Платформа";

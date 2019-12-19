@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EDIT_RECORD"] = "Изменение платежной системы # #ID#";
 $MESS["SALE_NEW_RECORD"] = "Новая платежная система";
 $MESS["SALE_RECORDS_LIST"] = "В список платежных систем";

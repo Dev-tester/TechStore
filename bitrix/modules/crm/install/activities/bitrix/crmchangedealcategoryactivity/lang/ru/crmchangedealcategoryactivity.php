@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CDCA_CATEGORY"] = "Направление";
 $MESS["CRM_CDCA_EMPTY_CATEGORY"] = "Не указано направление";
 $MESS["CRM_CDCA_NO_SOURCE_FIELDS"] = "Не удалось получить данные исходной сделки";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_MENU_TYPE"] = "Type";
 $MESS["CRM_PRODUCT_MENU_TYPE_NOT_SELECTED"] = "[not selected]";
 $MESS["CRM_PRODUCT_MENU_TYPE_SECTIONS"] = "Sections";

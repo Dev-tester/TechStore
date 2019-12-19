@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_SELECT_ALL'] = "Выбрать все";
 $MESS ['P_DELETE_SELECTED'] = "Удалить";
 $MESS ['P_MOVE_SELECTED'] = "Перенести";

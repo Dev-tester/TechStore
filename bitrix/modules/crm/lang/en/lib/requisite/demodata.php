@@ -1,4 +1,4 @@
-<?
+<?php 
 // RU C RQ1
 $MESS["CRM_RQ_IMP_DMO_RU_C_RQ1_NAME"] = " ";
 $MESS["CRM_RQ_IMP_DMO_RU_C_RQ1_RQ_LAST_NAME"] = " ";

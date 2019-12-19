@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PS_MANAGER_GROUP_CONNECT_SETTINGS_YANDEX"] = "Yander connection parameters";
 $MESS["SALE_PS_MANAGER_GROUP_CONNECT_SETTINGS"] = "Connection parameters";
 $MESS["SALE_PS_MANAGER_GROUP_CONNECT_SETTINGS_WEBMONEY"] = "Yander connection parameters";

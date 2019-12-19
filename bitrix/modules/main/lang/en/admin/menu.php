@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_MENU_AGENT"] = "Agents";
 $MESS["MAIN_MENU_AGENT_ALT"] = "Agent Management";
 $MESS["MAIN_MENU_CACHE"] = "Cache Settings";

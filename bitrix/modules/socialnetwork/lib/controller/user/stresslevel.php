@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Socialnetwork\Controller\User;
 
 use Bitrix\Main\Error;

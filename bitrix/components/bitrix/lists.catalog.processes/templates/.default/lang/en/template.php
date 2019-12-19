@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_LCP_TEMPLATE_DESCRIPTION_PAGE"] = "Select workflows to be installed";
 $MESS["LISTS_LCP_TEMPLATE_TITLE_SYSTEM_PROCESSES"] = "Standard workflows";
 $MESS["LISTS_LCP_TEMPLATE_TITLE_USER_PROCESSES"] = "Custom workflows";

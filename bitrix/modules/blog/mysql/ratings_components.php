@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/blog/general/ratings_components.php");
 
 class CRatingsComponentsBlog extends CAllRatingsComponentsBlog

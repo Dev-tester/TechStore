@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_STATUS_ONLINE"] = "Online";
 $MESS["IM_STATUS_OFFLINE"] = "Offline";
 $MESS["IM_STATUS_DND"] = "Don't disturb";

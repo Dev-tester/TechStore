@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CES_ERROR_NO_FILE"] = "Не указан файл импорта.";
 $MESS["CES_ERROR_NO_ACTION"] = "Не указано действие над файлом импорта.";
 $MESS["CES_ERROR_FILE_NOT_EXIST"] = "Файл импорта не найден:";

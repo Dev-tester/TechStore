@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEO_PCRE_ERROR'] = "The value of pcre.backtrack_limit (#PCRE_BACKTRACK_LIMIT#) is less that the text length (#TEXT_LEN#) and cannot be changed using ini_set. The form can produce incorrect results.";
 $MESS ['SEO_H1_UNIQUE_ERROR'] = "The page contains multiple &lt;H1&gt; headings (#COUNT#). Found headings: #VALUES#.";
 $MESS ['SEO_H1_ABSENT_ERROR'] = "The page does not contain &lt;H1&gt; headings.";

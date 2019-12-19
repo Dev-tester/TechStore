@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILL_LA_TITLE"] = "Factura (Español)";
 $MESS["SALE_HPS_BILL_LA_DDESCR"] = "Versión impresa de la factura. Se abrirá en una nueva ventana.";
 $MESS["SALE_HPS_BILL_LA_DATE"] = "Fecha de la orden";

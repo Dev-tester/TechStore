@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_ZIP_ERR_READ'] = "Не удается открыть файл \"#FILE_NAME#\"";
 $MESS ['MAIN_ZIP_ERR_READ_TMP'] = "Не удается открыть временный файл \"#FILE_NAME#\" для записи";
 $MESS ['MAIN_ZIP_ERR_READ_MODE'] = "Не удается открыть файл \"#FILE_NAME#\" в режиме \"#MODE#\"";

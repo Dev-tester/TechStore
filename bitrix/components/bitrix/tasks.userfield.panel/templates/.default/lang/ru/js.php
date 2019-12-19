@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TUFP_NEW_FIELD_STRING'] = 'Новое строковое поле';
 $MESS['TASKS_TUFP_NEW_FIELD_DOUBLE'] = 'Новое числовое поле';
 $MESS['TASKS_TUFP_NEW_FIELD_DATETIME'] = 'Новое поле даты';

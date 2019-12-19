@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NO_UID'] = "The user ID is not specified.";
 $MESS ['F_NO_DUSER'] = "User #UID# is not found";
 $MESS ['F_OK_MESSAGE_SEND'] = "Message was successfully sent";

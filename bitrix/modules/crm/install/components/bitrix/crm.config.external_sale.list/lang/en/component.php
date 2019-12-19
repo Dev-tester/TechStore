@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMISSION_DENIED"] = "You don't have permission to access this form.";
 $MESS["JHGFDC_STOP"] = "Delete";
 $MESS["JHGFDC_STOP_ALT"] = "Are you sure you want to delete this record?";

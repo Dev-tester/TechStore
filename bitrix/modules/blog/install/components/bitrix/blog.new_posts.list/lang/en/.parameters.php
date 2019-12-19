@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BMNP_MESSAGE_PER_PAGE"] = "Messages per page";
 $MESS["BMNP_PATH_TO_BLOG"] = "Blog page path template";
 $MESS["BMNP_PATH_TO_POST"] = "Template of a blog message page";

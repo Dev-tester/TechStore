@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Translate;
 
 \Bitrix\Main\Localization\Loc::loadLanguageFile(__FILE__);

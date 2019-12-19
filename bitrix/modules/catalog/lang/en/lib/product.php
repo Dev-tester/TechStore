@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRODUCT_ENTITY_AVAILABLE_FIELD"] = "Available for purchase";
 $MESS["PRODUCT_ENTITY_BARCODE_MULTI_FIELD"] = "Unique barcode for each item";
 $MESS["PRODUCT_ENTITY_BUNDLE_FIELD"] = "In bundle";

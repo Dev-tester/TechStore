@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (!empty($arResult)):?>
-	<? 
+<?php if (!empty($arResult)):?>
+	<?php  
 	$firstNum = 0; 
 	$lastNum = 0;
 
@@ -15,7 +15,7 @@
 
 	?>
 	<ul id="footer-links">
-	<?
+	<?php 
 	for ($i = 0; $i < count($arResult); $i++ )
 	{
 		$arItem = $arResult[$i];
@@ -32,14 +32,14 @@
 				$cssClass .= (strlen($cssClass) > 0 ? " last-item" : "last-item");
                 
 			?>
-			<li <? if (strlen($cssClass) > 0) { ?>class="<?= $cssClass ?>"<? } ?>>
+			<li <?php  if (strlen($cssClass) > 0) { ?>class="<?= $cssClass ?>"<?php  } ?>>
 				<a href="<?=$arItem["LINK"]?>"><span><?=$arItem["TEXT"]?></span></a>
 		            </li>
-			<?
+			<?php 
 		endif;
 	};
 	?>
 	</ul>
-	<?
+	<?php 
     ?>
-<? endif; ?>
+<?php  endif; ?>

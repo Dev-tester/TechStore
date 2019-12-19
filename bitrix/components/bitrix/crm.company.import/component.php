@@ -155,7 +155,7 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 			?>
 			<div class="crm_import_require_fields">
 			<p><?=GetMessage('CRM_REQUIRE_FIELDS')?>: <b><?=implode('</b>, <b>', $arRequireFields)?></b>.</p>
-			<?
+			<?php 
 			if ($importRequisite)
 			{
 				// requisite import hints
@@ -172,7 +172,7 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 							array('#RQ_ID#' => '"<b>'.$rqReqFieldTitles['RQ_ID'].'</b>"')
 						)?>
 					</p>
-					<?
+					<?php 
 					if ($requisiteOptions['presetAssociate'])
 					{
 						if ($requisiteOptions['presetAssociateById'])
@@ -183,16 +183,16 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 									'CRM_IMPORT_HINT_RQ_03',
 									array('#RQ_PRESET_ID#' => '"<b>'.$rqReqFieldTitles['RQ_PRESET_ID'].'</b>"')
 								)?>
-							<?
+							<?php 
 							if ($requisiteOptions['requisitePresetUseDefault'])
 							{
 								?><br>
 								<?=GetMessage('CRM_IMPORT_HINT_RQ_06')?>
-								<?
+								<?php 
 							}
 							?>
 							</p>
-							<?
+							<?php 
 						}
 						else if (!$requisiteOptions['presetAssociateById'])
 						{
@@ -203,16 +203,16 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 									'CRM_IMPORT_HINT_RQ_05',
 									array('#RQ_PRESET_NAME#' => '"<b>'.$rqReqFieldTitles['RQ_PRESET_NAME'].'</b>"')
 								)?>
-							<?
+							<?php 
 							if ($requisiteOptions['requisitePresetUseDefault'])
 							{
 								?><br>
 								<?=GetMessage('CRM_IMPORT_HINT_RQ_06')?>
-								<?
+								<?php 
 							}
 							?>
 							</p>
-							<?
+							<?php 
 						}
 					}
 					else
@@ -221,7 +221,7 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 						<p>
 							<?=GetMessage('CRM_IMPORT_HINT_RQ_07')?>
 						</p>
-						<?
+						<?php 
 					}
 
 					if (isset($presense['address']))
@@ -242,7 +242,7 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 									array('#RQ_RQ_ADDR_TYPE#' => implode(', ', $addrFieldTitles))
 								)?>
 							</p>
-							<?
+							<?php 
 						}
 						unset($addrFieldTitles);
 					}
@@ -260,12 +260,12 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 								array('#BD_ID#' => '"<b>'.$rqReqFieldTitles['BD_ID'].'</b>"')
 							)?>
 						</p>
-						<?
+						<?php 
 					}
 				}
 			}
 			?>
-			</div><?
+			</div><?php 
 			$sVal = ob_get_contents();
 			ob_end_clean();
 			$arResult['FIELDS']['tab_2'][] = array(
@@ -298,17 +298,17 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 		<div id="crm_import_example" class="crm_import_example">
 			<table cellspacing="0" cellpadding="0" class="crm_import_example_table">
 				<tr>
-					<?foreach ($arHeader as $key => $value):?>
+					<?php foreach ($arHeader as $key => $value):?>
 						<th><?=htmlspecialcharsbx($value)?></th>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</tr>
-				<?foreach ($arRows as $arRow):?>
+				<?php foreach ($arRows as $arRow):?>
 					<tr>
-					<?foreach ($arRow as $row):?>
+					<?php foreach ($arRow as $row):?>
 						<td><?=htmlspecialcharsbx($row)?></td>
-					<?endforeach;?>
+					<?php endforeach;?>
 					</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</table>
 		</div>
 		<script type="text/javascript">
@@ -318,7 +318,7 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 			if (windowSizes.innerWidth > 1280)
 				BX('crm_import_example').style.width = '1065px';
 		</script>
-		<?
+		<?php 
 		$sVal = ob_get_contents();
 		ob_end_clean();
 		$arResult['FIELDS']['tab_2'][] = array(
@@ -2041,9 +2041,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid())
 				<table cellspacing="0" cellpadding="0" class="crm_import_example_table" id="crm_import_example_table">
 					<tbody id="crm_import_example_table_body">
 					<tr>
-						<?foreach ($_SESSION['CRM_IMPORT_FILE_HEADERS'] as $key => $value):?>
+						<?php foreach ($_SESSION['CRM_IMPORT_FILE_HEADERS'] as $key => $value):?>
 							<th><?=htmlspecialcharsbx($value)?></th>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</tr>
 					</tbody>
 				</table>
@@ -2057,7 +2057,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid())
 					BX('crm_import_example').style.width = '1065px';
 				crmImportAjax('<?=$APPLICATION->GetCurPage()?>');
 			</script>
-			<?
+			<?php 
 			$sVal = ob_get_contents();
 			ob_end_clean();
 			$arResult['FIELDS']['tab_4'][] = array(

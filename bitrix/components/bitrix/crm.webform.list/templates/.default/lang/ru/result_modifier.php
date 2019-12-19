@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_LIST_ACTIONS_VIEW"] = "Просмотреть";
 $MESS["CRM_WEBFORM_LIST_ACTIONS_EDIT"] = "Редактировать";
 $MESS["CRM_WEBFORM_LIST_ACTIONS_COPY"] = "Создать на основании";

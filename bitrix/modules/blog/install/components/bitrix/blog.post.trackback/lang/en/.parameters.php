@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPH_BLOG_URL'] = "Blog URL";
 $MESS ['BPH_PATH_TO_TRACKBACK'] = "Trackback path template";
 $MESS ['BPH_BLOG_VAR'] = "Blog identifier variable";

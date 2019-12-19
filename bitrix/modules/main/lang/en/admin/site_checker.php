@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERR_MAX_INPUT_VARS"] = "The value of max_input_vars must be #MIN# or greater. The current value is: #CURRENT#";
 $MESS["ERR_NO_MODS"] = "The required extensions are not installed:";
 $MESS["ERR_NO_MODS_DOC_GENERATOR"] = "The Document Generator module requires php-xml and php-zip extensions.";

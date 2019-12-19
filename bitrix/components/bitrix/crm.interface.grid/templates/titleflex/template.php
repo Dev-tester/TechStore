@@ -188,6 +188,6 @@ if(is_array($extensionConfig))
 				);
 			}
 		);
-	</script><?
+	</script><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Sale\Discount\Index;
 use Bitrix\Sale\Internals;
 

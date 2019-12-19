@@ -1280,7 +1280,7 @@ else
 			width: 450,
 			heght: 400,
 			buttons: [
-				<? if(!$listNonSupportedFeatures){ ?>
+				<?php  if(!$listNonSupportedFeatures){ ?>
 				{
 					title: '<?= GetMessageJS('DISCOUNT_CATALOG_MIGRATOR_CONVERT_START_BUTTON')?>',
 					id: 'run',
@@ -1294,7 +1294,7 @@ else
 						this.parentWindow.Close();
 					}
 				},
-				<? } ?>
+				<?php  } ?>
 				{
 					title: BX.message('JS_CORE_WINDOW_CLOSE'),
 					id: 'close',

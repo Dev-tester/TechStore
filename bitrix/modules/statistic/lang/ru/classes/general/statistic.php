@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_PAGE_GRAPH_PANEL_BUTTON'] = "График посещаемости страницы";
 $MESS ['STAT_LINK_STAT_HIDE_PANEL_BUTTON'] = "Скрыть статистику переходов по ссылкам с данной страницы";
 $MESS ['STAT_LINK_STAT_PANEL_BUTTON'] = "Диаграмма переходов по ссылкам с данной страницы";

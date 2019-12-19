@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_MODULE_NAME"] = "Tasks";
 $MESS["TASKS_MODULE_DESC"] = "Task management module";
 $MESS["TASKS_INSTALL_COPY_PUBLIC"] = "Copy Public Section Scripts";

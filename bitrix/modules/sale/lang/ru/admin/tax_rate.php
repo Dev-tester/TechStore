@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TAX_TITLE'] = "Налоги";
 $MESS ['ERROR_DEL_TAX'] = "Ошибка удаления налога";
 $MESS ['SALE_ADD_TAX'] = "Добавить";

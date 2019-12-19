@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_RSS_TYPE'] = "RSS format";
 $MESS ['F_FID_RANGE'] = "Allow RSS in forums";
 $MESS ['F_COUNT'] = "Number of elements to export";

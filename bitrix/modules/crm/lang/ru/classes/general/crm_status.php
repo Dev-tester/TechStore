@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_TYPE_STATUS"] = "Статусы";
 $MESS["CRM_STATUS_TYPE_SOURCE"] = "Источники";
 $MESS["CRM_STATUS_TYPE_CONTACT_TYPE"] = "Тип контакта";

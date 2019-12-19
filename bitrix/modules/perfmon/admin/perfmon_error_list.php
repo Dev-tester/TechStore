@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -219,14 +219,14 @@ $oFilter = new CAdminFilter(
 );
 ?>
 
-<form name="find_form" method="get" action="<? echo $APPLICATION->GetCurPage(); ?>">
-	<? $oFilter->Begin(); ?>
+<form name="find_form" method="get" action="<?php  echo $APPLICATION->GetCurPage(); ?>">
+	<?php  $oFilter->Begin(); ?>
 	<tr>
 		<td><b><?=GetMessage("PERFMON_ERR_FIND")?>:</b></td>
 		<td>
-			<input type="text" size="25" name="find" value="<? echo htmlspecialcharsbx($find) ?>"
+			<input type="text" size="25" name="find" value="<?php  echo htmlspecialcharsbx($find) ?>"
 				title="<?=GetMessage("PERFMON_ERR_FIND")?>">
-			<?
+			<?php 
 			$arr = array(
 				"reference" => array(
 					GetMessage("PERFMON_ERR_HIT_ID"),
@@ -245,43 +245,43 @@ $oFilter = new CAdminFilter(
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_ERR_HIT_ID")?></td>
-		<td><input type="text" name="find_hit_id" size="47" value="<? echo htmlspecialcharsbx($find_hit_id) ?>">
+		<td><input type="text" name="find_hit_id" size="47" value="<?php  echo htmlspecialcharsbx($find_hit_id) ?>">
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_ERR_NO")?></td>
 		<td>
 			<div class="adm-list">
-			<? foreach ($arErrorCodes as $key => $value): ?>
+			<?php  foreach ($arErrorCodes as $key => $value): ?>
 				<div class="adm-list-item">
 					<div class="adm-list-control">
 						<input
 							type="checkbox"
-							id="ck_<? echo $key ?>"
-							value="<? echo $key ?>"
-							name="find_errno[]" <? if (is_array($find_errno) && in_array($key, $find_errno))
+							id="ck_<?php  echo $key ?>"
+							value="<?php  echo $key ?>"
+							name="find_errno[]" <?php  if (is_array($find_errno) && in_array($key, $find_errno))
 							echo "checked" ?>
 						/>
 					</div>
 					<div class="adm-list-label">
-						<label for="ck_<? echo $key ?>"><? echo $value ?></label>
+						<label for="ck_<?php  echo $key ?>"><?php  echo $value ?></label>
 					</div>
 				</div>
-			<? endforeach ?>
+			<?php  endforeach ?>
 			</div>
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_ERR_FILE")?></td>
 		<td><input type="text" name="find_errfile" size="47"
-			value="<? echo htmlspecialcharsbx($find_errfile) ?>"></td>
+			value="<?php  echo htmlspecialcharsbx($find_errfile) ?>"></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_ERR_TEXT")?></td>
-		<td><input type="text" name="find_errstr" size="47" value="<? echo htmlspecialcharsbx($find_errstr) ?>">
+		<td><input type="text" name="find_errstr" size="47" value="<?php  echo htmlspecialcharsbx($find_errstr) ?>">
 		</td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(array(
 		"table_id" => $sTableID,
 		"url" => $APPLICATION->GetCurPage(),
@@ -291,6 +291,6 @@ $oFilter = new CAdminFilter(
 	?>
 </form>
 
-<? $lAdmin->DisplayList(); ?>
+<?php  $lAdmin->DisplayList(); ?>
 
-<? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

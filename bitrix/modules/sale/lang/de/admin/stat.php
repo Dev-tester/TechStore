@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DATE"] = "Datum";
 $MESS["SALE_COUNT"] = "Gesamtmenge";
 $MESS["SALE_PAYED_PROC"] = "Bezahlt (%)";

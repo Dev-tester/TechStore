@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['INTR_ISS_GROUP_FILTER'] = "Filter Parameters";
 $MESS['INTR_ISS_PARAM_LIST_URL'] = "Employee List Page";
 $MESS['INTR_ISS_PARAM_FILTER_NAME'] = "Filter Name";

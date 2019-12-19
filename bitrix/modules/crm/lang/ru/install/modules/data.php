@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORD_PROP_2"] = "Местоположение";
 $MESS["CRM_ORD_PROP_21"] = "Город";
 $MESS["CRM_ORD_PROP_4"] = "Индекс";

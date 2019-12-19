@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_MODULE_NAME"] = "Cloud Storages";
 $MESS["CLO_MODULE_DESCRIPTION"] = "Supports cloud file storages.";
 $MESS["CLO_INSTALL_TITLE"] = "Cloud Storages Module Installation";

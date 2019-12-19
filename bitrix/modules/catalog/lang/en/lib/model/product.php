@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_MODEL_PRODUCT_ERR_WRONG_PRODUCT_ID"] = "The product ID is missing.";
 $MESS["BX_CATALOG_MODEL_PRODUCT_ERR_ELEMENT_NOT_EXISTS"] = "Cannot find target information block item for which the product properties are to be created.";
 $MESS["BX_CATALOG_MODEL_PRODUCT_ERR_SIMPLE_IBLOCK"] = "The information block is not part of the Commercial Catalog module.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIL_CHECK_TITLE'] = "Check for new mail";
 $MESS ['MAIL_CHECK_CHECK'] = "Receive mail:";
 $MESS ['MAIL_CHECK_CHECK_ALL'] = "(all mailboxes)";

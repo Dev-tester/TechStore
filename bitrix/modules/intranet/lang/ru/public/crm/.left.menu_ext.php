@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_CRM_DESKTOP"] = "Рабочий стол";
 $MESS["MENU_CRM_STREAM"] = "Лента";
 $MESS["MENU_CRM_ACTIVITY"] = "Мои дела";

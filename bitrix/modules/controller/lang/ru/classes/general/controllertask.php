@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_TASK_TYPE_SET_SETTINGS"]="Установить групповые настройки";
 $MESS["CTRLR_TASK_TYPE_UPDATE"]="Обновить сайт";
 $MESS["CTRLR_TASK_TYPE_COUNTERS_UPDATE"]="Обновить счетчики";

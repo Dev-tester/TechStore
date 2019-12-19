@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_ERROR_CALL_PRIVACY"] = "Could not make the call because the callee only accepts calls from persons on their contact list.";
 $MESS["IM_CALL_CHAT_WAIT"] = "Call not completed: #USER_NAME# did not answer.";
 $MESS["IM_CALL_CHAT_BUSY_M"] = "Call not completed: #USER_NAME# is presently on a different call.";

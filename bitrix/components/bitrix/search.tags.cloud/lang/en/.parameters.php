@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_CHECK_DATES"] = "Search only unexpired documents";
 $MESS["SEARCH_SORT"] = "Rank tags";
 $MESS["SEARCH_NAME"] = "By name";

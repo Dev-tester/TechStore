@@ -1,4 +1,4 @@
-<?
+<?php 
 define("START_EXEC_EPILOG_AFTER_1", microtime());
 $GLOBALS["BX_STATE"] = "EA";
 

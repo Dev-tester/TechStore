@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!CModule::IncludeModule("forum")):
 	ShowError(GetMessage("F_NO_MODULE"));
 	return false;
@@ -160,7 +160,7 @@ if (!empty($arError)):
 		if ($_REQUEST["CONVERT_DATA"] == "Y")
 			array_walk($res, "htmlspecialcharsbx");
 		$APPLICATION->RestartBuffer();
-		?><?=CUtil::PhpToJSObject($res)?><?
+		?><?=CUtil::PhpToJSObject($res)?><?php 
 		die();
 	endif;
 	ShowError($arError["title"]);

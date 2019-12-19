@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -29,8 +29,8 @@ use \Bitrix\Main\Localization\Loc;
 			</div>
 		</div>
 	</div>
-<? include 'messages.php'; ?>
-<?
+<?php  include 'messages.php'; ?>
+<?php 
 if ($arResult['ACTIVE_STATUS'])
 {
 	?>
@@ -45,7 +45,7 @@ if ($arResult['ACTIVE_STATUS'])
 				</span>
 			</div>
 		</div>
-		<?
+		<?php 
 		if ($arResult['FORM']['USER']['URI'] != '')
 		{
 			?>
@@ -60,11 +60,11 @@ if ($arResult['ACTIVE_STATUS'])
 					<?=Loc::getMessage('CRM_OIIE_CREATE_WITHOUT_CONNECTION')?>
 				</button>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</div>
-	<?
+	<?php 
 }
 ?>
 <div class="ui-alert ui-alert-success ui-alert-icon-warning ui-alert-success-instagram-app">

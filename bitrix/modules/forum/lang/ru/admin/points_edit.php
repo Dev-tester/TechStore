@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_PE_ERROR_UPDATE"] = "Ошибка изменения параметров звания";
 $MESS["FORUM_PE_ERROR_ADD"] = "Ошибка добавления нового звания";
 $MESS["FORUM_PE_TITLE_UPDATE"] = "Изменение звания ##ID#";

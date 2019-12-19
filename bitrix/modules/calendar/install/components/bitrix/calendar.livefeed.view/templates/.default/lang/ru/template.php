@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ECLFV_EVENT'] = "Событие";
 $MESS ['ECLFV_EVENT_NAME'] = "Название события";
 $MESS ['ECLFV_EVENT_START'] = "Начало";

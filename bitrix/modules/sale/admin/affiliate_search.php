@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2006 Bitrix             #
@@ -160,9 +160,9 @@ function SelEl(id)
 //-->
 </script>
 
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-	<input type="hidden" name="func_name" value="<?echo htmlspecialcharsbx($func_name)?>">
-	<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+	<input type="hidden" name="func_name" value="<?php echo htmlspecialcharsbx($func_name)?>">
+	<?php 
 	$oFilter = new CAdminFilter(
 		$sTableID."_filter",
 		array(
@@ -177,53 +177,53 @@ function SelEl(id)
 	$oFilter->Begin();
 	?>
 	<tr>
-		<td><?echo GetMessage("SAS1_SITE1")?></td>
-		<td><?echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAS1_ALL")) ?></td>
+		<td><?php echo GetMessage("SAS1_SITE1")?></td>
+		<td><?php echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAS1_ALL")) ?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAS1_USER1")?></td>
+		<td><?php echo GetMessage("SAS1_USER1")?></td>
 		<td>
 			<input type="text" name="filter_user" size="50" value="<?= htmlspecialcharsbx($filter_user) ?>">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAS1_PLAN1")?></td>
+		<td><?php echo GetMessage("SAS1_PLAN1")?></td>
 		<td>
 			<select name="filter_plan_id">
 				<option value=""><?= htmlspecialcharsex(GetMessage("SAS1_ALL")); ?></option>
-				<?
+				<?php 
 				$dbPlan = CSaleAffiliatePlan::GetList(array("NAME" => "ASC"), array(), false, false, array("ID", "NAME", "SITE_ID"));
 				while ($arPlan = $dbPlan->Fetch())
 				{
-					?><option value="<?= $arPlan["ID"] ?>"<?if ($filter_plan_id == $arPlan["ID"]) echo " selected"?>><?= htmlspecialcharsex("[".$arPlan["ID"]."] ".$arPlan["NAME"]." (".$arPlan["SITE_ID"].")") ?></option><?
+					?><option value="<?= $arPlan["ID"] ?>"<?php if ($filter_plan_id == $arPlan["ID"]) echo " selected"?>><?= htmlspecialcharsex("[".$arPlan["ID"]."] ".$arPlan["NAME"]." (".$arPlan["SITE_ID"].")") ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAS1_ACTIVE1")?></td>
+		<td><?php echo GetMessage("SAS1_ACTIVE1")?></td>
 		<td>
 			<select name="filter_active">
 				<option value=""><?= htmlspecialcharsex(GetMessage("SAS1_ALL")); ?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAS1_YES")) ?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAS1_NO")) ?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAS1_YES")) ?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAS1_NO")) ?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAS1_LAST_CALC1")?></td>
+		<td><?php echo GetMessage("SAS1_LAST_CALC1")?></td>
 		<td>
-			<?echo CalendarPeriod("filter_last_calculate_from", $filter_last_calculate_from, "filter_last_calculate_to", $filter_last_calculate_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_last_calculate_from", $filter_last_calculate_from, "filter_last_calculate_to", $filter_last_calculate_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAS1_DATE_REG1")?></td>
+		<td><?php echo GetMessage("SAS1_DATE_REG1")?></td>
 		<td>
-			<?echo CalendarPeriod("filter_date_create_from", $filter_date_create_from, "filter_date_create_to", $filter_date_create_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_date_create_from", $filter_date_create_from, "filter_date_create_to", $filter_date_create_to, "find_form", "Y")?>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -236,9 +236,9 @@ $oFilter->End();
 
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 <br>
-<input type="button" class="typebutton" value="<?echo GetMessage("SAS1_CLOSE")?>" onClick="window.close();">
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");?>
+<input type="button" class="typebutton" value="<?php echo GetMessage("SAS1_CLOSE")?>" onClick="window.close();">
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");?>

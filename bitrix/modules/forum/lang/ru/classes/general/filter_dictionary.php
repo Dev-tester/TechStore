@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLT_ERR_TITLE_MISSED"] = "Не введены данные: название словаря.";
 $MESS["FLT_ERR_TYPE_MISSED"] = "Не введены данные: тип словаря.";
 $MESS["FLT_ERR_SIMBOL_MISSED"] = "Не введены данные: символ.";

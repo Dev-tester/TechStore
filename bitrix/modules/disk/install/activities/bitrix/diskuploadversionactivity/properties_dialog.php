@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 CJSCore::Init('file_dialog');
 ?>
@@ -7,7 +7,7 @@ CJSCore::Init('file_dialog');
 		<span class="adm-required-field"><?= GetMessage("BPDUV_PD_SOURCE_ID") ?>:</span>
 	</td>
 	<td width="60%">
-		<?
+		<?php 
 		$objectId = 0;
 		$objectName = GetMessage('BPDUV_PD_LABEL_DISK_EMPTY');
 		if ($arCurrentValues['source_id'] && !CBPDocument::IsExpression($arCurrentValues['source_id']))

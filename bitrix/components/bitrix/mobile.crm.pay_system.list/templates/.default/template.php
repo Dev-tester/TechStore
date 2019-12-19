@@ -8,7 +8,7 @@ $UID = $arResult['UID'];
 $typeID = $arResult['TYPE_ID'];
 
 $dispatcherData = array();
-?><div id="<?=htmlspecialcharsbx($UID)?>"><ul class="crm_contact_list_people_list"><?
+?><div id="<?=htmlspecialcharsbx($UID)?>"><ul class="crm_contact_list_people_list"><?php 
 	foreach($arResult['ITEMS'] as &$item):
 		$dispatcherData[] = array(
 			'ID' => $item['ID'],
@@ -19,7 +19,7 @@ $dispatcherData = array();
 				<strong><?=htmlspecialcharsbx($item['NAME'])?></strong>
 				<input type="hidden" class="crm_entity_info" value="<?=htmlspecialcharsbx($item['ID'])?>" />
 			</div>
-		</li><?
+		</li><?php 
 	endforeach;
 	unset($item);
 ?></ul></div>

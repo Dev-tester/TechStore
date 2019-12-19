@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['DISK_EXTERNAL_LINK_LIST_ACT_DOWNLOAD'] = 'Скачать';
 $MESS['DISK_EXTERNAL_LINK_LIST_ACT_DISABLE_EXTERNAL_LINK'] = 'Отключить публичную ссылку';
 $MESS['DISK_EXTERNAL_LINK_LIST_COLUMN_NAME'] = 'Название';

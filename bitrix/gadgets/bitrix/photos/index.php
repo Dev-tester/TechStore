@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["DETAIL_URL"] = (isset($arGadgetParams["DETAIL_URL"])?$arGadgetParams["DETAIL_URL"]:"/about/gallery/#SECTION_ID#/#ELEMENT_ID#/");
@@ -8,7 +8,7 @@ $arGadgetParams["PAGE_ELEMENTS"] = intval($arGadgetParams["PAGE_ELEMENTS"]);
 $arGadgetParams["PAGE_ELEMENTS"] = ($arGadgetParams["PAGE_ELEMENTS"]>0 && $arGadgetParams["PAGE_ELEMENTS"]<=50 ? $arGadgetParams["PAGE_ELEMENTS"] : "6");
 $arGadgetParams["USE_COMMENTS"] = (isset($arGadgetParams["USE_COMMENTS"]) && $arGadgetParams["USE_COMMENTS"] == "Y") ? "Y" : "N";
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.list.ex",
 	"",
@@ -66,8 +66,8 @@ $APPLICATION->IncludeComponent(
 	Array("HIDE_ICONS"=>"Y")
 );?>
 
-<?if(strlen($arGadgetParams["LIST_URL"])>0):?>
+<?php if(strlen($arGadgetParams["LIST_URL"])>0):?>
 <br />
-<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?echo GetMessage("GD_PHOTOS_MORE")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
+<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?php echo GetMessage("GD_PHOTOS_MORE")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
 <br /></div>
-<?endif?>
+<?php endif?>

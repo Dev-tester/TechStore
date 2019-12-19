@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -48,7 +48,7 @@ if ($arParams["PERMISSION"] <= "U" || $arParams["PERMISSION"] == "W" && $arParam
 }
 else
 {
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.grid",
 	"",
 	array(
@@ -88,13 +88,13 @@ function __wd_add_move_action()
 }
 __wd_add_move_action();
 </script>
-<?
+<?php 
 }
 
 if (!empty($arParams["SHOW_NOTE"])):
 ?>
 <br />
 <div class="wd-help-list selected" id="wd_list_note"><?=$arParams["~SHOW_NOTE"]?></div>
-<?
+<?php 
 endif;
 ?>

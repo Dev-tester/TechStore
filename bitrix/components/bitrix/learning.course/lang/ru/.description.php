@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_COURSE_COMPLEX_NAME"]="Учебный курс";
 $MESS["LEARNING_COURSE_COMPLEX_DESC"]="Учебный курс";
 $MESS["LEARNING_SERVICE"]="Обучение";

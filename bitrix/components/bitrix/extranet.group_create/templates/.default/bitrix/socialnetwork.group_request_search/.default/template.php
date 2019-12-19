@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,7 +16,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 
 	if ($arResult["ShowForm"] == "Input")
@@ -33,7 +33,7 @@ else
 						<tr>
 							<td valign="top" width="10%" align="right" nowrap><span class="required-field">*</span><?= GetMessage("SONET_C11_USER") ?>:</td>
 							<td valign="top">
-							<?
+							<?php 
 
 							if (CModule::IncludeModule('extranet') && CExtranet::IsExtranetSite())
 								$bExtranet = true;
@@ -84,14 +84,14 @@ else
 						<tr>
 							<td valign="top" align="right" width="10%" nowrap><?= GetMessage("SONET_C11_GROUP") ?>:</td>
 							<td valign="top" colspan="2">
-								<b><?
+								<b><?php 
 								echo "<a href=\"".$arResult["Urls"]["Group"]."\">";
 								echo $arResult["Group"]["NAME"];
 								echo "</a>";
 								?></b>
 							</td>
 						</tr>
-						<?
+						<?php 
 
 						// default invitation message
 						$message = htmlspecialcharsex($_POST["MESSAGE"]);
@@ -120,36 +120,36 @@ else
 			<td valign="top" width="25%"></td>
 		</tr>
 		</table>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
-		<?if ($arResult["SuccessUsers"]):?>
+		<?php if ($arResult["SuccessUsers"]):?>
 			<?= GetMessage("SONET_C11_SUCCESS") ?><br><br>
 			<?= GetMessage("SONET_C33_T_SUCCESS_LIST") ?><br>
-			<?foreach ($arResult["SuccessUsers"] as $user):?>
-				<?if (StrLen($user[1]) > 0):?><a href="<?= $user[1] ?>"><?endif;?><?= $user[0] ?><?if (StrLen($user[1]) > 0):?></a><?endif;?><br />
-			<?endforeach;?>
+			<?php foreach ($arResult["SuccessUsers"] as $user):?>
+				<?php if (StrLen($user[1]) > 0):?><a href="<?= $user[1] ?>"><?php endif;?><?= $user[0] ?><?php if (StrLen($user[1]) > 0):?></a><?php endif;?><br />
+			<?php endforeach;?>
 			<br />
-		<?endif;?>
-		<?if ($arResult["ErrorUsers"]):?>
+		<?php endif;?>
+		<?php if ($arResult["ErrorUsers"]):?>
 			<?= GetMessage("SONET_C33_T_ERROR_LIST") ?><br>
-			<?foreach ($arResult["ErrorUsers"] as $user):?>
-				<?if (StrLen($user[1]) > 0):?><a href="<?= $user[1] ?>"><?endif;?><?= $user[0] ?><?if (StrLen($user[1]) > 0):?></a><?endif;?><br />
-			<?endforeach;?>
+			<?php foreach ($arResult["ErrorUsers"] as $user):?>
+				<?php if (StrLen($user[1]) > 0):?><a href="<?= $user[1] ?>"><?php endif;?><?= $user[0] ?><?php if (StrLen($user[1]) > 0):?></a><?php endif;?><br />
+			<?php endforeach;?>
 			<br />
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 		if(strlen($arResult["WarningMessage"])>0)
 		{
 			?>
 			<br /><span class='errortext'><?=$arResult["WarningMessage"]?></span><br /><br />
-			<?
+			<?php 
 		}
 		?>
-		<br /><a href="<? echo $arResult["Urls"]["Group"]; ?>"><? echo GetMessage("SONET_C11_MESSAGE_GROUP_LINK"); ?><? echo $arResult["Group"]["NAME"]; ?></a><br />
-		<?
+		<br /><a href="<?php  echo $arResult["Urls"]["Group"]; ?>"><?php  echo GetMessage("SONET_C11_MESSAGE_GROUP_LINK"); ?><?php  echo $arResult["Group"]["NAME"]; ?></a><br />
+		<?php 
 	}
 }
 ?>

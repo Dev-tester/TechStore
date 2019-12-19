@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_FILTER_ALL"] = "(все)";
 $MESS["CRM_INVOICE_FILTER_ACCOUNT_NUMBER"] = "Номер";
 $MESS["CRM_INVOICE_FILTER_ENTITIES_LINKS"] = "Связано с";

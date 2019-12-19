@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $res = array("STRING" => preg_replace("/[^0-9]/is", "/", $arParams["THUMBS_SIZE"]));
 list($res["WIDTH"], $res["HEIGHT"]) = explode("/", $res["STRING"]);
 $arParams["THUMBS_SIZE"] = (intVal($res["WIDTH"]) > 0 ? intVal($res["WIDTH"]) : 120);

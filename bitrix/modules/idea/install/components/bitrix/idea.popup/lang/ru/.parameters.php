@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ONE_BLOG_BLOG_URL"] = "Блог";
 $MESS["BC_POST_IBLOCK_CATEGORIES"] = "Инфоблок, в котором хранится структура категорий";
 $MESS["IDEA_PARAM_POST_BIND_STATUS_DEFAULT"] = "Статус по умолчанию для новой идеи";

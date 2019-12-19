@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_MENU_ITEM"] = "Веб-кластер";
 $MESS["CLU_MENU_TITLE"] = "Управление веб-кластером";
 $MESS["CLU_MENU_DBNODE_ITEM"] = "Шардинг";

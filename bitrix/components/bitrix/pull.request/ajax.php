@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('PULL_AJAX_INIT'))
 {
 	define("PULL_AJAX_INIT", true);

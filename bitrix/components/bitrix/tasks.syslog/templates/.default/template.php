@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -9,12 +9,12 @@ $helper = $arResult['HELPER'];
 $arParams =& $helper->getComponent()->arParams; // make $arParams the same variable as $this->__component->arParams, as it really should be
 ?>
 
-<?//$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php //$helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
 
-		<?//$helper->displayWarnings();?>
+		<?php //$helper->displayWarnings();?>
 
 		<table id="task-log-table" class="task-log-table">
 			<col class="task-log-type-column" />
@@ -29,7 +29,7 @@ $arParams =& $helper->getComponent()->arParams; // make $arParams the same varia
 				<th class="task-log-column-header task-log-errors-column"><?=Loc::getMessage('TASKS_CSL_T_COL_ERRORS')?></th>
 			</tr>
 
-			<?foreach($arResult['DATA']['ITEMS'] as $item):?>
+			<?php foreach($arResult['DATA']['ITEMS'] as $item):?>
 
 				<tr>
 					<td class="task-log-column-data task-log-type-column task-log-message-level-<?=intval($item['TYPE'])?>">
@@ -42,24 +42,24 @@ $arParams =& $helper->getComponent()->arParams; // make $arParams the same varia
 						<?=htmlspecialcharsbx($item['MESSAGE']);?>
 					</td>
 					<td class="task-log-column-data task-log-errors-column">
-						<?if(count($item['ERROR'])):?>
+						<?php if(count($item['ERROR'])):?>
 							<ul class="task-log-errors">
-							<?foreach($item['ERROR'] as $error):?>
+							<?php foreach($item['ERROR'] as $error):?>
 								<li><?=htmlspecialcharsbx($error->getMessage())?></li>
-							<?endforeach?>
+							<?php endforeach?>
 							</ul>
-						<?else:?>
+						<?php else:?>
 							<?=Loc::getMessage('TASKS_CSL_T_NO_ERROR')?>
-						<?endif?>
+						<?php endif?>
 					</td>
 				</tr>
 
-			<?endforeach?>
+			<?php endforeach?>
 
 		</table>
 
 	</div>
 
-	<?//$helper->initializeExtension();?>
+	<?php //$helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

@@ -1231,8 +1231,8 @@ class Vote extends BaseObject implements \ArrayAccess
 				$LANG_CHARSET = LANG_CHARSET;
 
 				$res = <<<XML
-<?xml version="1.0" charset="{$LANG_CHARSET}"?>
-<?mso-application progid="Excel.Sheet"?>
+<?php xml version="1.0" charset="{$LANG_CHARSET}"?>
+<?php mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40">
 	<Styles>
 		<Style ss:ID="bold">

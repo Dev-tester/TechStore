@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (
 	!defined("SITE_TEMPLATE_ID")
 	|| SITE_TEMPLATE_ID != "bitrix24"
 )
 {
-	?><?
+	?><?php 
 	$arUserProfileResult = $APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.user_profile",
 		"short", 
@@ -47,6 +47,6 @@ if (
 		$component,
 		array("HIDE_ICONS" => "Y") 
 	);
-	?><?
+	?><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -41,7 +41,7 @@ Asset::getInstance()->addJs($this->GetFolder().'/right.js');
 <input type="hidden" id="bx-lists-select-site-dir" value="<?= SITE_DIR ?>" />
 <input type="hidden" id="bx-lists-random-string" value="<?= $arResult['RAND_STRING'] ?>" />
 
-<? $frame = $this->createFrame("bp-livefeed")->begin(""); ?>
+<?php  $frame = $this->createFrame("bp-livefeed")->begin(""); ?>
 <script type="text/javascript">
 	BX(function () {
 		BX.Lists['LiveFeedClass_<?= $arResult['RAND_STRING']?>'] = new BX.Lists.LiveFeedClass({
@@ -54,7 +54,7 @@ Asset::getInstance()->addJs($this->GetFolder().'/right.js');
 		});
 	});
 </script>
-<? $frame->end(); ?>
+<?php  $frame->end(); ?>
 
 <script type="text/javascript">
 	BX.message({

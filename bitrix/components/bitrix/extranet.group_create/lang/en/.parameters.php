@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_USER_VAR'] = "User ID Variable";
 $MESS ['SONET_GROUP_VAR'] = "Group ID Variable";
 $MESS ['SONET_PAGE_VAR'] = "Page Variable";

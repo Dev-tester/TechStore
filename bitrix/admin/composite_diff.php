@@ -1,1 +1,1 @@
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/composite_diff.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/composite_diff.php");?>

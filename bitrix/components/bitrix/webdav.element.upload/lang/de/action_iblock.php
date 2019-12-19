@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_FILE_MODIFIED'] = "Datei bearbeiten";
 $MESS ['WD_ERROR_DOUBLE_NAME_TITLE'] = "Fehler beim Laden der Datei #NAME# mit der Bezeichnung \"#TITLE#\". Datei mit der Bezeichnung \"#TITLE#\" existiert bereits.";
 $MESS ['WD_ERROR_UPDATE'] = "Beim Aktualisieren der Datei ist ein Fehler aufgetreten.";

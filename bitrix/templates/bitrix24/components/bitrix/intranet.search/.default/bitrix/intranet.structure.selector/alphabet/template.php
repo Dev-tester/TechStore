@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if ($arResult['FILTER_VALUES'][$arParams['FILTER_NAME'].'_LAST_NAME'])
@@ -19,7 +19,7 @@ foreach ($arResult['ALPHABET'] as $lang => $arMess)
 {
 ?>
 <div id="employee-ABC" class="employee-ABC-popup" style="display:none;">
-<?
+<?php 
 	$alph = $arMess['ISS_TPL_ALPH'];
 	$alph_len = strlen($alph);
 	for ($i = 0; $i < $alph_len; $i++)
@@ -28,10 +28,10 @@ foreach ($arResult['ALPHABET'] as $lang => $arMess)
 		$bCurrent = $arResult['FILTER_VALUES'][$arParams['FILTER_NAME'].'_LAST_NAME'] == $symbol.'%';
 		if ($bCurrent && !$current_lang)
 			$current_lang = $lang;
-?><a class="employee-ABC-letter" href="<?=$arParams['LIST_URL']?>set_filter_<?=$arParams['FILTER_NAME']?>=Y&<?=$arParams['FILTER_NAME']?>_LAST_NAME=<?=urlencode($symbol.'%')?><?=GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVars)?>"><?=$bCurrent ? '<b>' : ''?><?=$symbol?><?=$bCurrent ? '</b>' : ''?></a><?
+?><a class="employee-ABC-letter" href="<?=$arParams['LIST_URL']?>set_filter_<?=$arParams['FILTER_NAME']?>=Y&<?=$arParams['FILTER_NAME']?>_LAST_NAME=<?=urlencode($symbol.'%')?><?=GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVars)?>"><?=$bCurrent ? '<b>' : ''?><?=$symbol?><?=$bCurrent ? '</b>' : ''?></a><?php 
 	}
-?><a class="employee-ABC-letter" href="<?=$arParams['LIST_URL']?>set_filter_<?=$arParams['FILTER_NAME']?>=Y<?=GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVars)?>"><?echo $arMess['ISS_TPL_APLH_ALL']?></a>
+?><a class="employee-ABC-letter" href="<?=$arParams['LIST_URL']?>set_filter_<?=$arParams['FILTER_NAME']?>=Y<?=GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVars)?>"><?php echo $arMess['ISS_TPL_APLH_ALL']?></a>
 </div>
-<?
+<?php 
 }
 ?>

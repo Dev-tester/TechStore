@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:voting.form", "with_description", 
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:voting.form", "with_description", 
 	array(
 		"VOTE_ID" => $arResult["VOTE_ID"],
 		"VOTE_RESULT_TEMPLATE" => $arResult["VOTE_RESULT_TEMPLATE"],

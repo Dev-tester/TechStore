@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Composite;
 use Bitrix\Main\Composite\Internals\Model\PageTable;
@@ -236,7 +236,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 
 
 <form method="GET" action="<?=$APPLICATION->getCurPage()?>" name="find_form">
-<?
+<?php 
 $filterControl = new CAdminFilter(
 	$tableID."_filter",
 	array(
@@ -316,7 +316,7 @@ $filterControl->begin();
 
 	</tr>
 
-<?
+<?php 
 $filterControl->buttons(array(
 	"table_id" => $tableID,
 	"url"=> $APPLICATION->getCurPage(),
@@ -328,7 +328,7 @@ $filterControl->end();
 </form>
 
 
-<?
+<?php 
 $adminList->displayList();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

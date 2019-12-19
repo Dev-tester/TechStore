@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var CMain $APPLICATION
  * @var CUser $USER
@@ -66,8 +66,8 @@ ob_start();
 							<div>#TEXT#</div>
 						</div>
 					</div>
-					<div class="feed-post-text-more" bx-mpl-block="more-button" <?
-						?>onclick="BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'onExpandComment', [this]); return BX.PreventDefault(this);" <?
+					<div class="feed-post-text-more" bx-mpl-block="more-button" <?php 
+						?>onclick="BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'onExpandComment', [this]); return BX.PreventDefault(this);" <?php 
 						?>id="record-#FULL_ID#-more">
 						<div class="feed-post-text-more-but"><div class="feed-post-text-more-left"></div><div class="feed-post-text-more-right"></div></div>
 					</div>
@@ -79,48 +79,48 @@ ob_start();
 		</div>
 		<div class="feed-com-informers-bottom">
 			#BEFORE_ACTIONS#
-			<?if ( $arParams["SHOW_POST_FORM"] == "Y" )
+			<?php if ( $arParams["SHOW_POST_FORM"] == "Y" )
 			{
-				?><a href="javascript:void(0);" class="feed-com-reply feed-com-reply-#SHOW_POST_FORM#" <?
-				?>id="record-#FULL_ID#-actions-reply" <?
-				?>onclick="BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'onReply', [this]);" <?
-				?>bx-mpl-author-id="#AUTHOR_ID#" <?
-				?>bx-mpl-author-gender="#AUTHOR_PERSONAL_GENDER#" <?
-				?>bx-mpl-author-name="#AUTHOR_NAME#"><?=GetMessage("BLOG_C_REPLY")?></a><?
+				?><a href="javascript:void(0);" class="feed-com-reply feed-com-reply-#SHOW_POST_FORM#" <?php 
+				?>id="record-#FULL_ID#-actions-reply" <?php 
+				?>onclick="BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'onReply', [this]);" <?php 
+				?>bx-mpl-author-id="#AUTHOR_ID#" <?php 
+				?>bx-mpl-author-gender="#AUTHOR_PERSONAL_GENDER#" <?php 
+				?>bx-mpl-author-name="#AUTHOR_NAME#"><?=GetMessage("BLOG_C_REPLY")?></a><?php 
 			} ?>
-			<a href="#" <?
-			?>id="record-#FULL_ID#-actions" <?
-				?>bx-mpl-view-url="#VIEW_URL#" bx-mpl-view-show="#VIEW_SHOW#" <?
-				?>bx-mpl-edit-url="#EDIT_URL#" bx-mpl-edit-show="#EDIT_SHOW#" <?
-				?>bx-mpl-moderate-url="#MODERATE_URL#" bx-mpl-moderate-show="#MODERATE_SHOW#" bx-mpl-moderate-approved="#APPROVED#" <?
-				?>bx-mpl-delete-url="#DELETE_URL###ID#" bx-mpl-delete-show="#DELETE_SHOW#" <?
-				?>bx-mpl-createtask-show="#CREATETASK_SHOW#" <?
-				?>bx-mpl-post-entity-type="#POST_ENTITY_TYPE#" <?
-				?>bx-mpl-comment-entity-type="#COMMENT_ENTITY_TYPE#" <?
+			<a href="#" <?php 
+			?>id="record-#FULL_ID#-actions" <?php 
+				?>bx-mpl-view-url="#VIEW_URL#" bx-mpl-view-show="#VIEW_SHOW#" <?php 
+				?>bx-mpl-edit-url="#EDIT_URL#" bx-mpl-edit-show="#EDIT_SHOW#" <?php 
+				?>bx-mpl-moderate-url="#MODERATE_URL#" bx-mpl-moderate-show="#MODERATE_SHOW#" bx-mpl-moderate-approved="#APPROVED#" <?php 
+				?>bx-mpl-delete-url="#DELETE_URL###ID#" bx-mpl-delete-show="#DELETE_SHOW#" <?php 
+				?>bx-mpl-createtask-show="#CREATETASK_SHOW#" <?php 
+				?>bx-mpl-post-entity-type="#POST_ENTITY_TYPE#" <?php 
+				?>bx-mpl-comment-entity-type="#COMMENT_ENTITY_TYPE#" <?php 
 				if (!!$arParams["bPublicPage"])
 				{
-				?>onclick="javascript:void(0); return BX.PreventDefault(this);" <?
+				?>onclick="javascript:void(0); return BX.PreventDefault(this);" <?php 
 				}
 				else
 				{
-				?>onclick="BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'onShowActions', [this, '#ID#']); return BX.PreventDefault(this);" <?
+				?>onclick="BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'onShowActions', [this, '#ID#']); return BX.PreventDefault(this);" <?php 
 				}
-				?>class="feed-post-more-link feed-post-more-link-#VIEW_SHOW#-#EDIT_SHOW#-#MODERATE_SHOW#-#DELETE_SHOW#"><?
-				?><span class="feed-post-more-text"><?=GetMessage("BLOG_C_BUTTON_MORE")?></span><?
+				?>class="feed-post-more-link feed-post-more-link-#VIEW_SHOW#-#EDIT_SHOW#-#MODERATE_SHOW#-#DELETE_SHOW#"><?php 
+				?><span class="feed-post-more-text"><?=GetMessage("BLOG_C_BUTTON_MORE")?></span><?php 
 			?></a>
 			#AFTER_ACTIONS#
 		</div>
-		#AFTER_RECORD#<?
-		?><script>BX.ready(function() { BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'OnUCCommentIsInDOM', ['#ID#', BX('<?=$eventNodeIdTemplate?>')]);});</script><?
+		#AFTER_RECORD#<?php 
+		?><script>BX.ready(function() { BX.onCustomEvent(BX('<?=$eventNodeIdTemplate?>'), 'OnUCCommentIsInDOM', ['#ID#', BX('<?=$eventNodeIdTemplate?>')]);});</script><?php 
 	?></div>
 	<div id="record-#FULL_ID#-placeholder" class="blog-comment-edit feed-com-add-block blog-post-edit feed-com-add-box" style="display:none;"></div>
 	<!--RCRD_END_#FULL_ID#-->
-<?
+<?php 
 $template = preg_replace("/[\t\n]/", "", ob_get_clean());
-?><div id="<?=$eventNodeId?>"><?
+?><div id="<?=$eventNodeId?>"><?php 
 if (empty($arParams["RECORDS"]))
 {
-	?><div id="record-<?=$arParams["ENTITY_XML_ID"]?>-corner" class="feed-com-corner"></div><?
+	?><div id="record-<?=$arParams["ENTITY_XML_ID"]?>-corner" class="feed-com-corner"></div><?php 
 }
 else
 {
@@ -132,16 +132,16 @@ else
 
 			if ($arParams["PREORDER"] == "Y")
 			{
-				?><div id="record-<?=$prefixNode?>-hidden" class="feed-hidden-post" style="display:none; overflow:hidden;"></div> <?
+				?><div id="record-<?=$prefixNode?>-hidden" class="feed-hidden-post" style="display:none; overflow:hidden;"></div> <?php 
 			}
-			?><div class="feed-com-header"><?
-				?><a class="feed-com-all" href="<?=$arParams["NAV_STRING"]?>" id="<?=$prefixNode?>_page_nav" bx-mpl-comments-count="<?=$arResult["NAV_STRING_COUNT_MORE"]?>"><?
-					?><?=($arParams["PREORDER"] == "Y" ? GetMessage("BLOG_C_VIEW1") : GetMessage("BLOG_C_VIEW2"))?> <span class="feed-com-all-count"><?=$arResult["NAV_STRING_COUNT_MORE"]?></span><i></i><?
-				?></a><?
-			?></div><?
+			?><div class="feed-com-header"><?php 
+				?><a class="feed-com-all" href="<?=$arParams["NAV_STRING"]?>" id="<?=$prefixNode?>_page_nav" bx-mpl-comments-count="<?=$arResult["NAV_STRING_COUNT_MORE"]?>"><?php 
+					?><?=($arParams["PREORDER"] == "Y" ? GetMessage("BLOG_C_VIEW1") : GetMessage("BLOG_C_VIEW2"))?> <span class="feed-com-all-count"><?=$arResult["NAV_STRING_COUNT_MORE"]?></span><i></i><?php 
+				?></a><?php 
+			?></div><?php 
 			if ($arParams["PREORDER"] != "Y")
 			{
-				?><div id="record-<?=$prefixNode?>-hidden" class="feed-hidden-post" style="display:none; overflow:hidden;"></div> <?
+				?><div id="record-<?=$prefixNode?>-hidden" class="feed-hidden-post" style="display:none; overflow:hidden;"></div> <?php 
 			}
 			$arParams["NAV_STRING"] = ob_get_clean();
 		}
@@ -151,10 +151,10 @@ else
 		}
 	}
 	$tmp = reset($arParams["RECORDS"]);
-	?><div class="feed-com-corner<?=($arParams["NAV_STRING"] === "" && $tmp["NEW"] == "Y" ? " feed-post-block-yellow-corner" : "")?>"></div><?
-	if ($arParams["PREORDER"] != "Y"): ?><?=$arParams["NAV_STRING"]?><? endif;
+	?><div class="feed-com-corner<?=($arParams["NAV_STRING"] === "" && $tmp["NEW"] == "Y" ? " feed-post-block-yellow-corner" : "")?>"></div><?php 
+	if ($arParams["PREORDER"] != "Y"): ?><?=$arParams["NAV_STRING"]?><?php  endif;
 	$iCount = 0;
-	?><!--RCRDLIST_<?=$arParams["ENTITY_XML_ID"]?>--><?
+	?><!--RCRDLIST_<?=$arParams["ENTITY_XML_ID"]?>--><?php 
 	foreach ($arParams["RECORDS"] as $res)
 	{
 		if (intval($res["ID"]) <= 0)
@@ -164,18 +164,18 @@ else
 
 		$res["AUTHOR"] = (is_array($res["AUTHOR"]) ? $res["AUTHOR"] : array());
 		$iCount++;
-		?><div id="record-<?=$arParams["ENTITY_XML_ID"]?>-<?=$res["ID"]?>-cover" <?
-			?>bx-mpl-xml-id="<?=$arParams["ENTITY_XML_ID"]?>" <?
-			?>bx-mpl-entity-id="<?=$res["ID"]?>" <?
-			?>bx-mpl-read-status="<?=(($res["NEW"] == "Y" ? "new" : "old"))?>" <?
-			?>bx-mpl-block="main" <?
-			?>class="feed-com-block-cover"><?
+		?><div id="record-<?=$arParams["ENTITY_XML_ID"]?>-<?=$res["ID"]?>-cover" <?php 
+			?>bx-mpl-xml-id="<?=$arParams["ENTITY_XML_ID"]?>" <?php 
+			?>bx-mpl-entity-id="<?=$res["ID"]?>" <?php 
+			?>bx-mpl-read-status="<?=(($res["NEW"] == "Y" ? "new" : "old"))?>" <?php 
+			?>bx-mpl-block="main" <?php 
+			?>class="feed-com-block-cover"><?php 
 		?><?=$this->__component->parseTemplate($res, $arParams, $template)?>
 		</div>
-	<?
+	<?php 
 	}
-	?><!--RCRDLIST_END_<?=$arParams["ENTITY_XML_ID"]?>--><?
-	if ($arParams["PREORDER"] == "Y"): ?><?=$arParams["NAV_STRING"]?><? endif;
+	?><!--RCRDLIST_END_<?=$arParams["ENTITY_XML_ID"]?>--><?php 
+	if ($arParams["PREORDER"] == "Y"): ?><?=$arParams["NAV_STRING"]?><?php  endif;
 }
 $ajaxParams = [];
 if ($this->__component->__parent instanceof \Bitrix\Main\Engine\Contract\Controllerable)
@@ -234,7 +234,7 @@ BX.ready(function(){
 			BIND_VIEWER : '<?=$arParams["BIND_VIEWER"]?>'
 		}
 	);
-	<?if ($arParams["BIND_VIEWER"] === "Y")
+	<?php if ($arParams["BIND_VIEWER"] === "Y")
 	{?>
 	setTimeout(function(){
 		if (BX["viewElementBind"])
@@ -247,14 +247,14 @@ BX.ready(function(){
 			);
 		}
 	}, 500);
-	<?}?>
+	<?php }?>
 });
 </script>
-<div id="record-<?=$prefixNode?>-new"></div><?
+<div id="record-<?=$prefixNode?>-new"></div><?php 
 if (!empty($arParams["ERROR_MESSAGE"]))
 {
 	?><div class="feed-add-error"><span class="feed-add-info-text"><span class="feed-add-info-icon"></span>
-		<b><?=GetMessage("B_B_PC_COM_ERROR")?></b><br /><?=$arParams["ERROR_MESSAGE"]?></span></div><?
+		<b><?=GetMessage("B_B_PC_COM_ERROR")?></b><br /><?=$arParams["ERROR_MESSAGE"]?></span></div><?php 
 }
 include_once(__DIR__."/messages.php");
 if ($arParams["SHOW_POST_FORM"] == "Y")
@@ -263,25 +263,25 @@ if ($arParams["SHOW_POST_FORM"] == "Y")
 
 	?><div class="feed-com-add-box-outer" id="record-<?=$prefixNode?>-form-holder">
 
-		<div class="feed-com-avatar feed-com-avatar-<?=($AUTHOR_AVATAR == '/bitrix/images/1.gif' ? "N" : "Y")?>"><?
-			?><img width="37" height="37" src="<?=$AUTHOR_AVATAR?>"><?
+		<div class="feed-com-avatar feed-com-avatar-<?=($AUTHOR_AVATAR == '/bitrix/images/1.gif' ? "N" : "Y")?>"><?php 
+			?><img width="37" height="37" src="<?=$AUTHOR_AVATAR?>"><?php 
 		?></div>
 
 		<div class="feed-com-add-box">
-			<div id="record-<?=$arParams["ENTITY_XML_ID"]?>-0-placeholder" class="blog-comment-edit feed-com-add-block blog-post-edit" style="display:none;"><?
-			?></div><?
-			?><div class="feed-com-footer" onclick="BX.onCustomEvent(BX('<?=$eventNodeId?>'), 'onReply', [this]);" <?
-			?><?if ($arParams['SHOW_MINIMIZED'] != "Y"): ?> style="display:none;" <? endif; ?>><?
-				?><div class="feed-com-add"><?
-					?><a class="feed-com-add-link" href="javascript:void(0);" style="outline: none;" hidefocus="true"><?=GetMessage("B_B_MS_ADD_COMMENT")?></a><?
-				?></div><?
-			?></div><?
+			<div id="record-<?=$arParams["ENTITY_XML_ID"]?>-0-placeholder" class="blog-comment-edit feed-com-add-block blog-post-edit" style="display:none;"><?php 
+			?></div><?php 
+			?><div class="feed-com-footer" onclick="BX.onCustomEvent(BX('<?=$eventNodeId?>'), 'onReply', [this]);" <?php 
+			?><?php if ($arParams['SHOW_MINIMIZED'] != "Y"): ?> style="display:none;" <?php  endif; ?>><?php 
+				?><div class="feed-com-add"><?php 
+					?><a class="feed-com-add-link" href="javascript:void(0);" style="outline: none;" hidefocus="true"><?=GetMessage("B_B_MS_ADD_COMMENT")?></a><?php 
+				?></div><?php 
+			?></div><?php 
 			?><div id="record-<?=$arParams["ENTITY_XML_ID"]?>-writers-block" class="feed-com-writers" style="display:none;">
 				<div id="record-<?=$arParams["ENTITY_XML_ID"]?>-writers" class="feed-com-writers-wrap"></div>
 				<div class="feed-com-writers-pen"></div>
 			</div>
 		</div>
 	</div>
-<?
+<?php 
 }
 ?></div><?

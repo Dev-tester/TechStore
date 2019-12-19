@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_YM_TITLE"] = " ";
 $MESS["SALE_YM_OAUTH_TOKEN"] = " ";
 $MESS["SALE_YM_OAUTH_CLIENT_ID"] = " ";

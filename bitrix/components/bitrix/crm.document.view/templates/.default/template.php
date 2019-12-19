@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -28,7 +28,7 @@ if($arParams['IS_SLIDER'])
 			window.location = "<?=CUtil::JSEscape((new \Bitrix\Main\Web\Uri(\Bitrix\Main\Application::getInstance()->getContext()->getRequest()->getRequestUri()))->deleteParams(['IFRAME', 'IFRAME_TYPE']));?>" + window.location.hash;
 		}
 	</script>
-	<?$APPLICATION->ShowHead(); ?>
+	<?php $APPLICATION->ShowHead(); ?>
 </head>
 <body class="docs-preview-slider-wrap">
 <div class="docs-preview-title">
@@ -40,17 +40,17 @@ if($arParams['IS_SLIDER'])
 			</div>
 			<div class="docs-preview-buttons">
 				<button class="ui-btn ui-btn-md ui-btn-light-border ui-btn-icon-print" id="crm-document-print"></button>
-				<?if(Bitrix24Manager::isEnabled())
+				<?php if(Bitrix24Manager::isEnabled())
 				{
 					?><button class="ui-btn ui-btn-md ui-btn-light-border" onclick="BX.DocumentGenerator.Feedback.open('<?=CUtil::JSEscape($arResult['PROVIDER']);?>', '<?=CUtil::JSEscape($arResult['TEMPLATE_NAME']);?>', '<?=CUtil::JSEscape($arResult['TEMPLATE_CODE']);?>');"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_FEEDBACK');?></button>
-					<?
+					<?php 
 				}?>
 				<button class="ui-btn ui-btn-md ui-btn-primary ui-btn-dropdown" id="crm-document-send"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_SEND');?></button>
 			</div>
 		</div>
 	</div>
 </div>
-<?}
+<?php }
 else
 {
 	$APPLICATION->SetTitle($arResult['title']);
@@ -78,12 +78,12 @@ $APPLICATION->IncludeComponent(
 ?>
 <div class="docs-preview-wrap">
 	<div class="docs-preview-inner docs-preview-inner-slider">
-		<div class="ui-alert ui-alert-danger ui-alert-icon-danger ui-alert-text-center" id="crm-document-view-error"<?
+		<div class="ui-alert ui-alert-danger ui-alert-icon-danger ui-alert-text-center" id="crm-document-view-error"<?php 
 		if($arResult['ERRORS'] || $arResult['transformationErrorMessage'])
 		{
 			?> style="display: block;"
-		<?}?>>
-			<span class="ui-alert-message" id="crm-document-view-error-message"><?if(is_array($arResult['ERRORS']))
+		<?php }?>>
+			<span class="ui-alert-message" id="crm-document-view-error-message"><?php if(is_array($arResult['ERRORS']))
 			{
 				foreach($arResult['ERRORS'] as $error)
 				{
@@ -97,10 +97,10 @@ $APPLICATION->IncludeComponent(
 			}?></span>
 			<span class="ui-alert-close-btn" onclick="BX.hide(BX('crm-document-view-error'));"></span>
 		</div>
-		<?if(!$arResult['ERRORS'])
+		<?php if(!$arResult['ERRORS'])
 		{?>
 		<div class="docs-preview-img" id="crm-document-image">
-			<div class="docs-preview-error" id="docs-preview-transform-error"<?if($arResult['isTransformationError']){?> style="display: block;"<?}?>>
+			<div class="docs-preview-error" id="docs-preview-transform-error"<?php if($arResult['isTransformationError']){?> style="display: block;"<?php }?>>
 				<div class="docs-preview-error-message">
 					<span class="docs-preview-error-message-text"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_TRANSFORM_ERROR');?></span>
 					<span class="docs-preview-error-message-text"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_TRY_LATER');?></span>
@@ -108,7 +108,7 @@ $APPLICATION->IncludeComponent(
 				</div>
 				<div class="docs-preview-error-img"></div>
 			</div>
-			<div class="docs-preview-upload" id="docs-preview-node"<?if(!$arResult['isTransformationError'] && !$arResult['imageUrl']){?> style="display: block;"<?}?>>
+			<div class="docs-preview-upload" id="docs-preview-node"<?php if(!$arResult['isTransformationError'] && !$arResult['imageUrl']){?> style="display: block;"<?php }?>>
 				<div class="docs-preview-upload-message">
 					<span class="docs-preview-upload-message-text" id="docs-preview-node-message"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_PREVIEW_TIME_MESSAGE');?></span>
 					<div class="docs-preview-upload-progress">
@@ -131,9 +131,9 @@ $APPLICATION->IncludeComponent(
 				BX.Crm.DocumentView.init(<?=CUtil::PhpToJSObject($arResult);?>);
 			});
 		</script>
-		<?}?>
+		<?php }?>
 	</div>
-	<?if(!$arResult['ERRORS'])
+	<?php if(!$arResult['ERRORS'])
 	{?>
 	<div class="docs-preview-sidebar-wrapper">
 		<div class="docs-preview-sidebar">
@@ -149,19 +149,19 @@ $APPLICATION->IncludeComponent(
 					</div>
 				</div>
 			</div>
-			<?if(\Bitrix\DocumentGenerator\Driver::getInstance()->getUserPermissions()->canModifyDocuments())
+			<?php if(\Bitrix\DocumentGenerator\Driver::getInstance()->getUserPermissions()->canModifyDocuments())
 			{?>
 			<div class="docs-preview-block">
-				<input class="docs-preview-checkbox" type="checkbox" id="crm-document-stamp"<?if($arResult['stampsEnabled']){
-					?> checked<?
+				<input class="docs-preview-checkbox" type="checkbox" id="crm-document-stamp"<?php if($arResult['stampsEnabled']){
+					?> checked<?php 
 				}
 				if(!$arResult['editTemplateUrl'])
-					{?> disabled<?
+					{?> disabled<?php 
 				}
                 ?>>
 				<label class="docs-preview-checkbox-label docs-preview-link-pointer" type="text" for="crm-document-stamp"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_SIGNED');?></label>
 			</div>
-			<?}?>
+			<?php }?>
 		</div>
 		<div class="docs-preview-link-inner docs-preview-link-inner-public">
 			<div class="docs-preview-public-link">
@@ -170,7 +170,7 @@ $APPLICATION->IncludeComponent(
 						<div class="docs-preview-public-link-copy">
 							<span class="docs-preview-public-link-title" for="crm-document-public-url"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_PUBLIC_LINK');?></span>
 							<div class="docs-preview-switcher-inner">
-								<div class="docs-preview-switcher docs-preview-switcher-on<?if(!$arResult['publicUrl']){?> docs-preview-switcher-off<?}?>" id="docs-preview-switcher">
+								<div class="docs-preview-switcher docs-preview-switcher-on<?php if(!$arResult['publicUrl']){?> docs-preview-switcher-off<?php }?>" id="docs-preview-switcher">
 									<span class="docs-preview-switcher-label"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_PUBLIC_ON');?></span>
 									<div class="docs-preview-switcher-point"></div>
 								</div>
@@ -179,21 +179,21 @@ $APPLICATION->IncludeComponent(
 					</div>
 				</div>
 			</div>
-			<div id="crm-document-public-value-container"<?if(!$arResult['publicUrl']){?> style="height: 0;"<?}?>>
+			<div id="crm-document-public-value-container"<?php if(!$arResult['publicUrl']){?> style="height: 0;"<?php }?>>
 				<div class="docs-preview-link-value">
 					<div class="docs-preview-public-link-input-copy" id="crm-document-copy-public-url"></div>
 					<input class="docs-preview-public-link-input" value="<?=htmlspecialcharsbx($arResult['publicUrl']);?>" type="text" id="crm-document-public-url-container" readonly>
 				</div>
 			</div>
 		</div>
-		<?if(!is_bool($arResult['editTemplateUrl']))
+		<?php if(!is_bool($arResult['editTemplateUrl']))
 		{?>
 		<div class="docs-preview-link-inner">
 			<div class="docs-preview-link-block">
 				<span class="docs-preview-link-text" id="crm-document-edit-template"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_EDIT_TEMPLATE');?></span>
 			</div>
 		</div>
-		<?}
+		<?php }
 		if($arResult['editDocumentUrl'])
 		{?>
 		<div class="docs-preview-link-inner">
@@ -201,24 +201,24 @@ $APPLICATION->IncludeComponent(
 				<span class="docs-preview-link-text" id="crm-document-edit-document"><?=Loc::getMessage('CRM_DOCUMENT_VIEW_EDIT_DOCUMENT');?></span>
 			</div>
 		</div>
-		<?}?>
+		<?php }?>
 	</div>
-		<?if($arResult['editMyCompanyRequisitesUrl'])
+		<?php if($arResult['editMyCompanyRequisitesUrl'])
 		{
 		?><div class="docs-preview-sidebar docs-preview-sidebar-details">
 			<div class="docs-preview-details-inner">
 				<?=Loc::getMessage('CRM_DOCUMENT_VIEW_CREATE_OR_EDIT_MY_COMPANY_REQUISITES', ['#URL#' => $arResult['editMyCompanyRequisitesUrl']]);?>
 			</div>
 		</div>
-		<?}?>
+		<?php }?>
 	</div>
-	<?}?>
+	<?php }?>
 </div>
-<?if($arParams['IS_SLIDER'])
+<?php if($arParams['IS_SLIDER'])
 {
 	?>
 </body>
 	</html>
-<?
+<?php 
 	\Bitrix\Main\Application::getInstance()->terminate();
 }

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (
 	(defined("SONET_GROUP_NEEDED") && SONET_GROUP_NEEDED == true)
 	|| (
@@ -8,7 +8,7 @@ if (
 	)
 )
 {
-	?><?
+	?><?php 
 	$arGroup = $APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.group", 
 		"short", 
@@ -43,6 +43,6 @@ if (
 		$component,
 		array("HIDE_ICONS" => "Y") 
 	);
-	?><?
+	?><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_HIDDEN_BUY"] = "Containts in-app purchases";
 $MESS["MARKETPLACE_APP_DEVELOPER"] = "Developer:";
 $MESS["MARKETPLACE_MORE_BUTTON"] = "More...";

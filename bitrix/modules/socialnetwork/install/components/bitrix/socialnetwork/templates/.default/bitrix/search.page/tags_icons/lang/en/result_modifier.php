@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEARCH_CONTENT_TYPE_FORUM_U'] = "Forum";
 $MESS ['SEARCH_CONTENT_TYPE_FILES_U'] = "Files";
 $MESS ['SEARCH_CONTENT_TYPE_CALENDAR_U'] = "Calendar";

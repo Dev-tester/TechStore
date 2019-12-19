@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DELIVERY_REQ_LIST_DELETE'] = "Заявка \"#ID#\" удалена";
 $MESS ['SALE_DELIVERY_REQ_LIST_DELETE_ERROR'] = "При удалении заявки \"#ID#\" возникли ошибки";
 $MESS ['SALE_DELIVERY_REQ_LIST_UNKNOWN_ACTION'] = "Неизвестное действие \"#ACTION#\"";

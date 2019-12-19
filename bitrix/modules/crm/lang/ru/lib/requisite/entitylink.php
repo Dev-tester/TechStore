@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_LINK_ENTITY_TYPE_ID_FIELD"] =  "ID типа сущности";
 $MESS["CRM_ENTITY_LINK_ENTITY_ID_FIELD"] =  "ID сущности";
 $MESS["CRM_ENTITY_LINK_REQUISITE_ID_FIELD"] = "Привязка к реквизитам";

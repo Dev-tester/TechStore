@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_CURRENCY_CLASSIFIER_FORM_TITLE"] = "Add currency from code registry";
 $MESS["ADMIN_CURRENCY_CLASSIFIER_FORM_TAB_SEARCH_AND_SETTINGS"] = "Search and settings";
 $MESS["ADMIN_CURRENCY_CLASSIFIER_FORM_TAB_SEARCH_AND_SETTINGS_TITLE"] = "Currency settings and search preferences";

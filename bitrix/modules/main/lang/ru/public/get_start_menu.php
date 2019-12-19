@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['get_start_menu_dbl'] = "(двойной щелчок - перейти)";
 $MESS ['get_start_menu_loading'] = "Загрузка...";
 $MESS ['get_start_menu_loading_title'] = "Загружаются пункты меню...";

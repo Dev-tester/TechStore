@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_ACTION_ADD_CUSTOM_TITLE"] = "Add custom page";
 $MESS["SALESCENTER_MANAGER_ADD_URL_SUCCESS"] = "Page added";
 $MESS["SALESCENTER_MANAGER_CONNECT_POPUP_DESCRIPTION"] = "Add your company information and start selling via messengers and social networks.";

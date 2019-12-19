@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,25 +13,25 @@
 $this->setFrameMode(true);
 ?>
 <div class="rss-show">
-<h2><?echo $arResult["title"] ?></h2>
-<?
+<h2><?php echo $arResult["title"] ?></h2>
+<?php 
 if(is_array($arResult["item"])):
 foreach($arResult["item"] as $arItem):?>
-	<?if(strlen($arItem["enclosure"]["url"])>0):?>
+	<?php if(strlen($arItem["enclosure"]["url"])>0):?>
 		<img src="<?=$arItem["enclosure"]["url"]?>" alt="<?=$arItem["enclosure"]["url"]?>" /><br />
-	<?endif;?>
-	<?if(strlen($arItem["pubDate"])>0):?>
+	<?php endif;?>
+	<?php if(strlen($arItem["pubDate"])>0):?>
 		<p><?=CIBlockRSS::XMLDate2Dec($arItem["pubDate"], FORMAT_DATE)?></p>
-	<?endif;?>
-	<?if(strlen($arItem["link"])>0):?>
+	<?php endif;?>
+	<?php if(strlen($arItem["link"])>0):?>
 		<a href="<?=$arItem["link"]?>"><?=$arItem["title"]?></a>
-	<?else:?>
+	<?php else:?>
 		<?=$arItem["title"]?>
-	<?endif;?>
+	<?php endif;?>
 	<p>
-	<?echo $arItem["description"];?>
+	<?php echo $arItem["description"];?>
 	</p>
 	<br />
-<?endforeach;
+<?php endforeach;
 endif;?>
 </div>

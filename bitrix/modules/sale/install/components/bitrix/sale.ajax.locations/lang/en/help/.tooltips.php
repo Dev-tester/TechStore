@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COUNTRY_INPUT_NAME_TIP'] = "The name of a form field to contain the country name.";
 $MESS ['CITY_INPUT_NAME_TIP'] = "The name of a form field to contain the city or location name.";
 $MESS ['COUNTRY_TIP'] = "Select here the country that will be displayed first in the list.";

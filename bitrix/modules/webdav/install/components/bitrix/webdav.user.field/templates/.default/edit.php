@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 __IncludeLang(dirname(__FILE__).'/lang/'.LANGUAGE_ID.'/'.basename(__FILE__));
 
 CJSCore::Init(array('wdfiledialog', 'ajax', 'dd'));
@@ -58,7 +58,7 @@ include_once($path);
 		WD_TMPLT_PREVIEW_IMG : '<?=CUtil::JSEscape($previewImg)?>'
 	});
 </script>
-<?
+<?php 
 
 if (is_array($arValue) && !empty($arValue))
 {
@@ -66,16 +66,16 @@ if (is_array($arValue) && !empty($arValue))
 		$sValues = 'BX.findChildren(BX("wduf-selectdialog-'.$arResult['UID'].'"), {"className" : "wd-inline-file"}, true)';
 }
 ?>
-		<?if(empty($arResult['ELEMENTS']))
+		<?php if(empty($arResult['ELEMENTS']))
 		{
-			?><a href="javascript:void(0);" <?
-				?>id="wduf-selectdialogswitcher-<?=$arResult['UID']?>" <?
-				?>class="wduf-selectdialog-switcher" <?
-				?>onclick="BX.onCustomEvent(this.parentNode, 'WDLoadFormController')"><?
-					?><span><?=GetMessage("WDUF_UPLOAD_DOCUMENT")?></span></a><?
+			?><a href="javascript:void(0);" <?php 
+				?>id="wduf-selectdialogswitcher-<?=$arResult['UID']?>" <?php 
+				?>class="wduf-selectdialog-switcher" <?php 
+				?>onclick="BX.onCustomEvent(this.parentNode, 'WDLoadFormController')"><?php 
+					?><span><?=GetMessage("WDUF_UPLOAD_DOCUMENT")?></span></a><?php 
 		}?>
 		<div id="wduf-selectdialog-<?=$arResult['UID']?>" class="wduf-selectdialog">
-			<div class="wduf-files-block"<?if(!empty($arResult['ELEMENTS'])){?> style="display:block;"<?}?>>
+			<div class="wduf-files-block"<?php if(!empty($arResult['ELEMENTS'])){?> style="display:block;"<?php }?>>
 				<div class="wduf-label">
 					<?=GetMessage("WDUF_ATTACHMENTS")?>
 					<span class="wduf-label-icon"></span>
@@ -83,7 +83,7 @@ if (is_array($arValue) && !empty($arValue))
 				<div class="wduf-placeholder">
 					<table cellspacing="0" class="files-list">
 						<tbody class="wduf-placeholder-tbody">
-<?
+<?php 
 	if (
 		isset($arResult['ELEMENTS'])
 		&& !empty($arResult['ELEMENTS'])
@@ -95,56 +95,56 @@ if (is_array($arValue) && !empty($arValue))
 								<td class="files-name">
 									<span class="files-text">
 										<span class="f-wrap"><?=htmlspecialcharsEx($arElement['NAME'])?></span>
-<?		if ($arElement['URL_PREVIEW'] != '') { ?>
+<?php 		if ($arElement['URL_PREVIEW'] != '') { ?>
 										<span class="wd-files-icon files-preview-wrap">
 											<span class="files-preview-border">
 												<span class="files-preview-alignment">
-													<img class="files-preview" src="<?=$arElement['URL_PREVIEW']?>" <?
-														?> data-bx-width="<?=$arElement['FILE']['WIDTH']?>"<?
-														?> data-bx-height="<?=$arElement['FILE']['HEIGHT']?>"<?
-														?> data-bx-document="<?=$arElement['URL_GET']?>"<?
+													<img class="files-preview" src="<?=$arElement['URL_PREVIEW']?>" <?php 
+														?> data-bx-width="<?=$arElement['FILE']['WIDTH']?>"<?php 
+														?> data-bx-height="<?=$arElement['FILE']['HEIGHT']?>"<?php 
+														?> data-bx-document="<?=$arElement['URL_GET']?>"<?php 
 													?> />
 												</span>
 											</span>
 										</span>
-<?		} else { ?>
+<?php 		} else { ?>
 										<span class="wd-files-icon feed-file-icon-<?=GetFileExtension($arElement['NAME'])?>"></span>
-<?		}?>
-<?		if ($arElement['URL_DELETE_DROPPED'] !== '') { ?>
+<?php 		}?>
+<?php 		if ($arElement['URL_DELETE_DROPPED'] !== '') { ?>
 										<a class="file-edit" href="<?=$arElement['URL_DELETE_DROPPED']?>">edit</a>
-<?		} ?>
+<?php 		} ?>
 									</span>
 								</td>
 								<td class="files-size"><?=$arElement["FILE_SIZE"]?></td>
 								<td class="files-storage">
 									<div class="files-storage-block">
-<?		if ($arElement['DROPPED']) { ?>
+<?php 		if ($arElement['DROPPED']) { ?>
 										<span class="files-storage-text">
 											<?=GetMessage("WD_SAVED_PATH")?>:
 										</span>
 										<a class="files-path" href="javascript:void(0);"><?=htmlspecialcharsEx($arElement['TITLE'])?></a>
 										<span class="edit-stor"></span>
-<?		} else { ?>
+<?php 		} else { ?>
 										<span class="files-placement"><?=htmlspecialcharsEx($arElement['TITLE'])?></span>
-<?		} ?>
+<?php 		} ?>
 										<input id="wduf-doc<?=$arElement['ID']?>" type="hidden" name="<?=htmlspecialcharsbx($arResult['controlName'])?>" value="<?=$arElement['ID']?>" />
 									</div>
 								</td>
 							</tr>
-<?
+<?php 
 		} // foreach
 	} // if
 ?>
 						</tbody>
 					</table>
-				<? if($arResult['showCheckboxToAllowEdit']){ ?>
+				<?php  if($arResult['showCheckboxToAllowEdit']){ ?>
 				<div class="feed-add-post-files-activity">
 					<div class="feed-add-post-files-activity-item">
 						<input type="hidden" value="0" name="<?= $arResult['ufToSaveAllowEdit']['FIELD']?>">
 						<input name="<?= $arResult['ufToSaveAllowEdit']['FIELD'] ?>" value="1" type="checkbox" <?=($arResult['ufToSaveAllowEdit']['VALUE'] ? "checked=\"checked\"": "")?> id="wduf-edit-rigths-doc" class="feed-add-post-files-activity-checkbox"><label class="feed-add-post-files-activity-label" for="wduf-edit-rigths-doc"><?= GetMessage('WDUF_FILE_EDIT_BY_DESTINATION_USERS'); ?></label>
 					</div>
 				</div>
-				<? } ?>
+				<?php  } ?>
 				</div>
 			</div>
 			<div class="wduf-extended">
@@ -155,7 +155,7 @@ if (is_array($arValue) && !empty($arValue))
 				<?= WDRenderTable(!empty($arResult['allowCreateDocByExtServices']), $addClass); ?>
 			</div>
 <script type="text/javascript">
-<?
+<?php 
 $userPath = COption::GetOptionString('intranet', 'path_user', '/company/personal/user/#USER_ID#/', SITE_ID);
 if (!empty($userPath))
 {

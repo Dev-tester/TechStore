@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STOREAS_BACK_BUTTON"] = "Мастер";
 $MESS["STOREAS_DONE"] = "выполнено";
 $MESS["STOREAS_NOT_DONE"] = "не выполнено";

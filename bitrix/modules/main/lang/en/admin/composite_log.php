@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_COMPOSITE_LOG_TITLE"] = "Debug Log";
 $MESS["MAIN_COMPOSITE_LOG_PAGES"] = "Entries";
 $MESS["MAIN_COMPOSITE_LOG_PAGE_COLUMN"] = "Page";

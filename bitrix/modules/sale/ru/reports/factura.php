@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 /*
 Данный документ учитывает только налог с мнемоническим кодом "NDS". Остальные налоги при формировании документа не отображаются
 
@@ -450,7 +450,7 @@ width:86pt'>
 </tr>
 <tr class=xl50 height=18 style='mso-height-source:userset;height:13.5pt'>
 	<td height=18 class=xl50 style='height:13.5pt'>Адрес</td>
-	<td class=xl50 colspan=10 style='mso-ignore:colspan'><? echo $arParams["COUNTRY"].", ".$arParams["INDEX"].", г. ".$arParams["CITY"].", ".$arParams["ADDRESS"];?></td>
+	<td class=xl50 colspan=10 style='mso-ignore:colspan'><?php  echo $arParams["COUNTRY"].", ".$arParams["INDEX"].", г. ".$arParams["CITY"].", ".$arParams["ADDRESS"];?></td>
 </tr>	 
 <tr class=xl50 height=18 style='mso-height-source:userset;height:13.5pt'>
 	<td height=18 class=xl50 style='height:13.5pt'>ИНН/КПП продавца</td>
@@ -463,18 +463,18 @@ width:86pt'>
 <tr class=xl50 height=18 style='mso-height-source:userset;height:13.5pt'>
 	<td height=18 class=xl50 style='height:13.5pt'>Грузополучатель и его адрес</td>
 	<td class=xl64 colspan=10 style='mso-ignore:colspan'>
-	<?if(empty($arParams))
+	<?php if(empty($arParams))
 	{	?>
-		<?//изменить F_NAME, F_INDEX,... на реальные мнемонические коды свойств?>
-		<?echo $arOrderProps["F_NAME"];?>,
-		<?echo $arOrderProps["F_INDEX"];?>
-		<?
+		<?php //изменить F_NAME, F_INDEX,... на реальные мнемонические коды свойств?>
+		<?php echo $arOrderProps["F_NAME"];?>,
+		<?php echo $arOrderProps["F_INDEX"];?>
+		<?php 
 		$arVal = CSaleLocation::GetByID($arOrderProps["F_LOCATION"], "ru");
 		echo htmlspecialcharsbx($arVal["COUNTRY_NAME"]." - ".$arVal["CITY_NAME"]);
 		?>
-		<?if (strlen($arOrderProps["F_CITY"])>0) echo ", г. ".$arOrderProps["F_CITY"];?>
-		<?if (strlen($arOrderProps["F_ADDRESS"])>0) echo ", ".$arOrderProps["F_ADDRESS"];?>
-		<?
+		<?php if (strlen($arOrderProps["F_CITY"])>0) echo ", г. ".$arOrderProps["F_CITY"];?>
+		<?php if (strlen($arOrderProps["F_ADDRESS"])>0) echo ", ".$arOrderProps["F_ADDRESS"];?>
+		<?php 
 	}
 	else
 	{
@@ -484,7 +484,7 @@ width:86pt'>
 			$buyerName = $arParams["BUYER_LAST_NAME"]." ".$arParams["BUYER_FIRST_NAME"]." ".$arParams["BUYER_SECOND_NAME"];
 		?>
 		<?=$buyerName;?>, <?=$arParams["BUYER_COUNTRY"]?>, <?=$arParams["BUYER_INDEX"]?>, г. <?=$arParams["BUYER_CITY"]?>, <?=$arParams["BUYER_ADDRESS"]?>
-		<?
+		<?php 
 	}
 	?>
 </td>
@@ -498,7 +498,7 @@ width:86pt'>
 <tr class=xl50 height=18 style='mso-height-source:userset;height:13.5pt'>
 	<td height=18 class=xl47 style='height:13.5pt'>Покупатель</td>
 	<td class=xl64 colspan=10>
-	<?if(empty($arParams))
+	<?php if(empty($arParams))
 	{	
 		//изменить F_NAME на реальный мнемонический код свойства заказа "название компании"
 		echo $arOrderProps["F_NAME"];
@@ -512,7 +512,7 @@ width:86pt'>
 <tr class=xl50 height=18 style='mso-height-source:userset;height:13.5pt'>
 	<td height=18 class=xl50 style='height:13.5pt'>Адрес</td>
 	<td colspan=10 class=xl50 style='mso-ignore:colspan'>
-	<?if(empty($arParams))
+	<?php if(empty($arParams))
 	{	
 		
 		//изменить F_INDEX, F_LOCATION,... на реальные мнемонические коды свойств
@@ -533,7 +533,7 @@ width:86pt'>
 <tr class=xl50 height=18 style='mso-height-source:userset;height:13.5pt'>
 	<td height=18 class=xl50 style='height:13.5pt'>ИНН/КПП покупателя</td>
 	<td colspan=10 class=xl68>
-	<?if(empty($arParams))
+	<?php if(empty($arParams))
 	{	
 		//изменить F_INN на реальный мнемонический код свойства заказа "INN компании"
 		echo $arOrderProps["F_INN"];
@@ -590,7 +590,7 @@ width:86pt'>
 				<td class="xl38">10a</td>
 				<td class="xl38">11</td>
 			</tr>
-<?
+<?php 
 $priceTotal = 0;
 $bUseVat = false;
 $arBasketOrder = array();
@@ -698,8 +698,8 @@ foreach ($arBasketOrder as $arBasket):
 ?>
 <tr class=xl39>
 	<td class=xl66 width=213 style='border-top:none;width:233pt'>
-		<?echo htmlspecialcharsEx($arBasket["NAME"]) ?>
-		<?
+		<?php echo htmlspecialcharsEx($arBasket["NAME"]) ?>
+		<?php 
 		if (is_array($arBasket["PROPS"]) && $_GET["PROPS_ENABLE"] == "Y")
 		{
 			foreach($arBasket["PROPS"] as $vv)
@@ -712,10 +712,10 @@ foreach ($arBasketOrder as $arBasket):
 	</td>
 	<td class=xl40>---</td>
 	<td class=xl40 width=40 style='border-top:none;border-left:none;width:30pt'><?=$arBasket['MEASURE_TEXT']?></td>
-	<td class=xl41 style='border-top:none;border-left:none'><?echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$mi]);?></td>
+	<td class=xl41 style='border-top:none;border-left:none'><?php echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$mi]);?></td>
 	<td align="right" class=xl42 style='border-top:none;border-left:none'><?=CCurrencyLang::CurrencyFormat($item_price, $arOrder["CURRENCY"], false);?></td>
 	<td class=xl42 align=right style='border-top:none;border-left:none' x:num>
-		<?
+		<?php 
 			echo CCurrencyLang::CurrencyFormat($item_price * $arQuantities[$mi], $arOrder["CURRENCY"], false);
 			if (empty($arBasket['SET_PARENT_ID']))
 			{
@@ -728,7 +728,7 @@ foreach ($arBasketOrder as $arBasket):
 	width:32pt'><?=($taxRate > 0 || count($arTaxList) > 0) ? $taxRate."%" : "Без НДС";?></td>
 	<td class=xl45 align=right width=78 style='border-top:none;border-left:none;
 	width:59pt' x:num>
-		<?
+		<?php 
 			echo CCurrencyLang::CurrencyFormat($nds_val*$arQuantities[$mi], $arOrder["CURRENCY"], false);
 			if (empty($arBasket['SET_PARENT_ID']))
 			{
@@ -739,7 +739,7 @@ foreach ($arBasketOrder as $arBasket):
 
 	<td class=xl45 align=right width=83 style='border-top:none;border-left:none;
 	width:62pt' x:num>
-		<?
+		<?php 
 			echo CCurrencyLang::CurrencyFormat($item_price*$arQuantities[$mi]+$nds_val*$arQuantities[$mi], $arOrder["CURRENCY"], false);
 			if (empty($arBasket['SET_PARENT_ID']))
 			{
@@ -751,7 +751,7 @@ foreach ($arBasketOrder as $arBasket):
 	<td class=xl46 ><input size="5" style="border:0px solid #000000;font-size:14px;font-style:bold;text-align:center;" type="text" value="---"></td>
 	<td class=xl53 width=114 style='border-top:none;border-left:none;width:86pt'>---</td>
 </tr>
-<?
+<?php 
 $mi++;
 endforeach;
 
@@ -781,7 +781,7 @@ if ($arOrder["DELIVERY_ID"]):
 	<td class=xl46 ><input size="5" style="border:0px solid #000000;font-size:14px;font-style:bold;text-align:center;" type="text" value="---"></td>
 	<td class=xl53 width=114 style='border-top:none;border-left:none;width:86pt'>---</td>
 </tr>
-<?endif?>
+<?php endif?>
 <tr>
 	<td class=xl58>Всего к оплате:</td>
 	<td class=xl59>&nbsp;</td>
@@ -804,9 +804,9 @@ if ($arOrder["DELIVERY_ID"]):
 </tr>
 <tr valign="top">
 	<td colspan=4 class=xl36>Руководитель организации<br> или иное уполномоченное лицо
-		_______________ <input size="16" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?echo ((strlen($arParams["DIRECTOR"]) > 0) ? $arParams["DIRECTOR"] : "_______________")?> /"></td>
+		_______________ <input size="16" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?php echo ((strlen($arParams["DIRECTOR"]) > 0) ? $arParams["DIRECTOR"] : "_______________")?> /"></td>
 	<td class=xl36 colspan=2 style='mso-ignore:colspan'></td>
-	<td colspan=6 class=xl32 style='mso-ignore:colspan'>Главный бухгалтер<br> или иное уполномоченное лицо _______________ <input size="16" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?echo ((strlen($arParams["BUHG"]) > 0) ? $arParams["BUHG"] : "_______________")?> /"></td>
+	<td colspan=6 class=xl32 style='mso-ignore:colspan'>Главный бухгалтер<br> или иное уполномоченное лицо _______________ <input size="16" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?php echo ((strlen($arParams["BUHG"]) > 0) ? $arParams["BUHG"] : "_______________")?> /"></td>
 </tr>
 <tr height=0 style='display:none'>
 	<td height=0 colspan=11 class=xl32 style='mso-ignore:colspan'></td>

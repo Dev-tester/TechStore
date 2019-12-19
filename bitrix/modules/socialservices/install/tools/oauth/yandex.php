@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 This is callback page for Yandex OAuth 2.0 authentication.
 Dropbox redirects only to specific back url set in the OAuth application.

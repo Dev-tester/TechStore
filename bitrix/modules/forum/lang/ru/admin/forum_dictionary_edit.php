@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLTR_IS_NOT_ADD"] = "Изменения не сохранены.";
 $MESS["FLTR_IS_NOT_UPDATE"] = "Изменения не сохранены.";
 $MESS["FLTR_NEW"] = "Добавить словарь";

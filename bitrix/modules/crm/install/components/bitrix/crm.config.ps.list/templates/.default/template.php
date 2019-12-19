@@ -1,22 +1,22 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
 use \Bitrix\Main\Localization\Loc;
 ?>
 <div class="crm-config-ps-list-wrapper">
-	<?if ($arResult['CAN_ADD']):?>
+	<?php if ($arResult['CAN_ADD']):?>
 		<a href="<?=$arParams['PATH_TO_PS_ADD'];?>" style="display: block">
 			<div class="crm-config-ps-list-createform-container">
 				<div class="crm-config-ps-list-createform-element"><?=Loc::getMessage('CRM_PS_LIST_PS_CREATE')?></div>
 				<span class="crm-config-ps-list-createform-description"><?=Loc::getMessage('CRM_PS_LIST_PS_CREATE_DESC')?></span>
 			</div>
 		</a>
-	<?endif;?>
+	<?php endif;?>
 	<div class="crm-config-ps-list-header-container">
 		<h3 id="close-title" class="crm-config-ps-list-header"><?=Loc::getMessage('CRM_PS_LIST_TITLE')?></h3>
 	</div>
-	<?foreach ($arResult['PAY_SYSTEMS'] as $paySystem):?>
+	<?php foreach ($arResult['PAY_SYSTEMS'] as $paySystem):?>
 		<div id="close-row-<?=$paySystem['ID'];?>" class="crm-config-ps-list-widget-row">
 			<div class="crm-config-ps-list-buttons-container">
 				<div class="crm-config-ps-list-buttons">
@@ -37,7 +37,7 @@ use \Bitrix\Main\Localization\Loc;
 						<div class="crm-config-ps-list-widget-content-amt">
 							<div class="crm-config-ps-list-widget-content-image">
 								<a href="<?=$paySystem['PATH_TO_PS_EDIT'];?>">
-									<?
+									<?php 
 									if ($paySystem["LOGOTIP"] > 0)
 									{
 										$logo = CFile::GetFileArray($paySystem["LOGOTIP"]);
@@ -76,13 +76,13 @@ use \Bitrix\Main\Localization\Loc;
 							<span class="crm-webform-deal-text"><?=$paySystem['DESCRIPTION']['RETURN'];?></span>
 						</div>
 					</div>
-					<?if (array_key_exists('REFERRER', $paySystem['DESCRIPTION']) && $paySystem['IS_TUNED'] === 'N'):?>
+					<?php if (array_key_exists('REFERRER', $paySystem['DESCRIPTION']) && $paySystem['IS_TUNED'] === 'N'):?>
 						<div class="crm-config-ps-list-referrer-container">
 							<div class="crm-config-ps-list-deal-element">
 								<span class="crm-webform-deal-text"><?=$paySystem['DESCRIPTION']['REFERRER'];?></span>
 							</div>
 						</div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 				<div class="crm-config-ps-list-activate-wrapper">
 					<div class="crm-config-ps-list-activate-container">
@@ -91,7 +91,7 @@ use \Bitrix\Main\Localization\Loc;
 							<span id="active_on_<?=$paySystem['ID'];?>" class="crm-config-ps-list-activate-button">
 								<span class="crm-config-ps-list-activate-button-text"><?=Loc::getMessage('CRM_PS_LIST_PS_ACTIVE_BTN_ON')?></span>
 							</span>
-							<?
+							<?php 
 								if ($paySystem['ACTIVE'] == 'Y')
 									$className = 'crm-config-ps-list-not-activate-button';
 								else
@@ -110,7 +110,7 @@ use \Bitrix\Main\Localization\Loc;
 				</div>
 			</div>
 		</div>
-	<?endforeach;?>
+	<?php endforeach;?>
 </div>
 
 <script type="text/javascript">

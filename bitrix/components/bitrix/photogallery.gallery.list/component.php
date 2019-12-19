@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!IsModuleInstalled("photogallery"))
 	return ShowError(GetMessage("P_MODULE_IS_NOT_INSTALLED"));
 elseif (!IsModuleInstalled("iblock"))

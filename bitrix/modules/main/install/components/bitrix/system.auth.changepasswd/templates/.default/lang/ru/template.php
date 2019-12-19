@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AUTH_CHANGE_PASSWORD'] = "Смена пароля";
 $MESS ['AUTH_LOGIN'] = "Логин:";
 $MESS ['AUTH_CHECKWORD'] = "Контрольная строка:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MODULE_NOT_INSTALL'] = "The Social Network module is not installed.";
 $MESS ['SONET_P_USER_NO_USER'] = "User was not found.";
 $MESS ['SONET_C26_PAGE_TITLE'] = "Send Message to User";

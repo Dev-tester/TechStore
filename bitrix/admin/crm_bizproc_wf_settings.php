@@ -1,4 +1,4 @@
-<?
+<?php 
 define('MODULE_ID', 'crm');
 if (!empty($_REQUEST['entity']))
 {

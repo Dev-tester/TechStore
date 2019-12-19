@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASKET_ITEM_WRONG_PRICE"] = "Error getting the price for \"#PRODUCT_NAME#\"";
 $MESS["SALE_BASKET_ITEM_ERR_QUANTITY_ZERO"] = "Product \"#PRODUCT_NAME#\" quantity cannot be zero or less than zero";
 $MESS["SALE_BASKET_ITEM_ERR_CURRENCY_EMPTY"] = "Product currency is missing";

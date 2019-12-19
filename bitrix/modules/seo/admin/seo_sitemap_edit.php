@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_admin_before.php");
 
 define('ADMIN_MODULE_NAME', 'seo');
@@ -295,10 +295,10 @@ function seo_getDir($bLogical, $site_id, $dir, $depth, $checked, $arChecked = ar
 			$varName = $arDir['TYPE'] == 'D' ? 'DIR' : 'FILE';
 ?>
 <div class="sitemap-dir-item">
-<?
+<?php 
 			if($arDir['TYPE']=='D'):
 ?>
-	<span onclick="loadDir(<?=$bLogical?'true':'false'?>, this, '<?=CUtil::JSEscape($d)?>', '<?=$r?>', '<?=$depth+1?>', BX('DIR_<?=$d?>').checked)" class="sitemap-tree-icon"></span><?
+	<span onclick="loadDir(<?=$bLogical?'true':'false'?>, this, '<?=CUtil::JSEscape($d)?>', '<?=$r?>', '<?=$depth+1?>', BX('DIR_<?=$d?>').checked)" class="sitemap-tree-icon"></span><?php 
 			endif;
 ?><span class="sitemap-dir-item-text">
 		<input type="hidden" name="<?=$varName?>[<?=$d?>]" value="N" />
@@ -307,7 +307,7 @@ function seo_getDir($bLogical, $site_id, $dir, $depth, $checked, $arChecked = ar
 	</span>
 	<div id="subdirs_<?=$r?>" class="sitemap-dir-item-children"></div>
 </div>
-<?
+<?php 
 		}
 	}
 	else
@@ -354,7 +354,7 @@ function seo_getIblock($iblockId, $sectionId, $sectionChecked, $elementChecked, 
 		<td width="100"><?=Loc::getMessage('SEO_SITEMAP_IBLOCK_SECTION_SECTION')?></td>
 		<td width="100"><?=Loc::getMessage('SEO_SITEMAP_IBLOCK_SECTION_ELEMENTS')?></td>
 	</tr>
-<?
+<?php 
 			}
 ?>
 	<tr>
@@ -366,7 +366,7 @@ function seo_getIblock($iblockId, $sectionId, $sectionChecked, $elementChecked, 
 	<tr style="display: none" id="subdirs_row_<?=$r?>">
 		<td colspan="4" id="subdirs_<?=$r?>" align="center"></td>
 	</tr>
-<?
+<?php 
 		}
 
 		if(!$bFound)
@@ -498,7 +498,7 @@ if(!empty($errors))
 <form method="POST" action="<?=POST_FORM_ACTION_URI?>" name="sitemap_form">
 	<input type="hidden" name="ID" value="<?=$mapId?>">
 	<input type="hidden" name="site_id" value="<?=$siteId?>">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
@@ -512,13 +512,13 @@ $tabControl->BeginNextTab();
 		<option value="0"<?=$arSitemap['SETTINGS']['PROTO'] == 0 ? ' selected="selected"' : ''?>>http</option>
 		<option value="1"<?=$arSitemap['SETTINGS']['PROTO'] == 1 ? ' selected="selected"' : ''?>>https</option>
 	</select> <b>://</b> <select name="DOMAIN">
-<?
+<?php 
 foreach($arSite['DOMAINS'] as $domain):
 	$hd = Converter::getHtmlConverter()->encode($domain);
 	$hdc = Converter::getHtmlConverter()->encode(CBXPunycode::ToUnicode($domain, $e = null));
 ?>
 	<option value="<?=$hd?>"<?=$domain == $arSitemap['SETTINGS']['DOMAIN'] ? ' selected="selected"' : ''?>><?=$hdc?></option>
-<?
+<?php 
 endforeach;
 ?>
 </select> <b><?=Converter::getHtmlConverter()->encode($arSite['DIR']);?></b> <input type="text" name="FILENAME_INDEX" value="<?=Converter::getHtmlConverter()->encode($arSitemap['SETTINGS']["FILENAME_INDEX"])?>" /></td>
@@ -528,17 +528,17 @@ endforeach;
 	<style>
 		.adm-info-message{margin-top:0 !important;}
 	</style>
-	<td><?echo BeginNote(),Loc::getMessage("SITEMAP_FILENAME_ADDRESS_ATTENTION"),EndNote();?></td>
+	<td><?php echo BeginNote(),Loc::getMessage("SITEMAP_FILENAME_ADDRESS_ATTENTION"),EndNote();?></td>
 </tr>
 <tr>
-	<td width="40%"><label for="SITEMAP_ROBOTS_Y"><?echo Loc::getMessage("SITEMAP_ROBOTS")?>:</label></td>
+	<td width="40%"><label for="SITEMAP_ROBOTS_Y"><?php echo Loc::getMessage("SITEMAP_ROBOTS")?>:</label></td>
 	<td width="60%"><input type="hidden"  name="ROBOTS" value="N"><input type="checkbox" id="SITEMAP_ROBOTS_Y" name="ROBOTS" value="Y"<?=$arSitemap['SETTINGS']['ROBOTS'] == 'Y' ? ' checked="checked"' : ''?>> <label for="SITEMAP_ROBOTS_Y"><?=Loc::getMessage('MAIN_YES')?></label></td>
 </tr>
 <tr>
 	<td width="40%"><?=Loc::getMessage('SITEMAP_DATE_RUN')?>:</td>
 	<td width="60%"><?=$arSitemap['DATE_RUN'] ? $arSitemap['DATE_RUN'] : Loc::getMessage('SITEMAP_DATE_RUN_NEVER')?></td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 
 $startDir = HtmlFilter::encode($arSite['DIR']);
@@ -627,14 +627,14 @@ function _check_all(div, isElement, v)
 	<td width="60%">
 <input type="hidden" name="DIR[<?=$startDir?>]" value="N" /><input type="checkbox" name="DIR[<?=$startDir?>]" id="DIR_<?=$startDir?>"<?=$bChecked ? ' checked="checked"' : ''?> value="Y" onclick="checkAll('<?=$startDir?>', this.checked);" />&nbsp;<label for="DIR_<?=$startDir?>"><?=$startDir?></label></div>
 <div id="subdirs_<?=$startDir?>">
-<?
+<?php 
 if(is_array($arSitemap['SETTINGS']['FILE']))
 {
 	foreach($arSitemap['SETTINGS']['FILE'] as $dir => $value)
 	{
 ?>
 	<input type="hidden" name="FILE[<?=Converter::getHtmlConverter()->encode($dir);?>]" value="<?=$value=='N'?'N':'Y'?>" />
-<?
+<?php 
 	}
 }
 else
@@ -650,7 +650,7 @@ if(is_array($arSitemap['SETTINGS']['DIR']))
 		{
 ?>
 	<input type="hidden" name="DIR[<?=Converter::getHtmlConverter()->encode($dir);?>]" value="<?=$value=='N'?'N':'Y'?>" />
-<?
+<?php 
 		}
 	}
 
@@ -669,14 +669,14 @@ echo seo_getDir($bLogical, $siteId, $startDir, 1, $bChecked, $arChecked);
 <tr>
 	<td width="40%" valign="top"><?=Loc::getMessage('SEO_SITEMAP_STRUCTURE_FILE_MASK')?>: </td>
 	<td width="60%"><input type="text" name="FILE_MASK" value="<?=Converter::getHtmlConverter()->encode($arSitemap['SETTINGS']['FILE_MASK'])?>" />
-<?
+<?php 
 echo BeginNote();
 echo Loc::getMessage('SEO_FILE_MASK_HELP');
 echo EndNote();
 ?>
 	</td>
 </tr>
-<?
+<?php 
 if($bIBlock)
 {
 	$tabControl->BeginNextTab();
@@ -688,7 +688,7 @@ if($bIBlock)
 
 <tr>
 	<td colspan="2" align="center">
-<?
+<?php 
 	$dbRes = CIBlock::GetList(array("ID" => "ASC"), array(
 		'SITE_ID' => $siteId
 	));
@@ -775,7 +775,7 @@ function setIblockActive(check, cont)
 				<td width="100"><?=Loc::getMessage('SEO_SITEMAP_IBLOCK_SECTIONS')?></td>
 				<td width="120"><?=Loc::getMessage('SEO_SITEMAP_IBLOCK_ELEMENTS')?></td>
 			</tr>
-<?
+<?php 
 			$bFound = true;
 		}
 
@@ -806,7 +806,7 @@ function setIblockActive(check, cont)
 				<td align="center"><input type="hidden" name="IBLOCK_ELEMENT[<?=$d?>]" value="N" /><input type="checkbox" name="IBLOCK_ELEMENT[<?=$d?>]" id="IBLOCK_ELEMENT_<?=$d?>" value="Y"<?=$bElement?'':' disabled="disabled"'?><?=$bElementChecked?' checked="checked"':''?> onclick="checkAllElement('<?=$r?>', this.checked);" />&nbsp;<label for="IBLOCK_ELEMENT_<?=$d?>"><?=Loc::getMessage('MAIN_YES')?></label></td>
 			</tr>
 			<tr style="display: none" id="subdirs_row_<?=$r?>">
-<?
+<?php 
 
 		if(is_array($arSitemap['SETTINGS']['IBLOCK_SECTION_SECTION'][$arRes['ID']]))
 		{
@@ -814,7 +814,7 @@ function setIblockActive(check, cont)
 			{
 ?>
 				<input type="hidden" name="IBLOCK_SECTION_SECTION[<?=$arRes['ID']?>][<?=Converter::getHtmlConverter()->encode($dir);?>]" value="<?=$value=='N'?'N':'Y'?>" />
-<?
+<?php 
 			}
 		}
 
@@ -824,20 +824,20 @@ function setIblockActive(check, cont)
 			{
 ?>
 				<input type="hidden" name="IBLOCK_SECTION_ELEMENT[<?=$arRes['ID']?>][<?=Converter::getHtmlConverter()->encode($dir);?>]" value="<?=$value=='N'?'N':'Y'?>" />
-<?
+<?php 
 			}
 		}
 ?>
 				<td colspan="6" align="center" id="subdirs_<?=$r?>"></td>
 			</tr>
-<?
+<?php 
 	}
 
 	if($bFound)
 	{
 ?>
 		</table>
-<?
+<?php 
 	}
 	else
 	{
@@ -846,7 +846,7 @@ function setIblockActive(check, cont)
 ?>
 	</td>
 </tr>
-<?
+<?php 
 }
 if($bForum)
 {
@@ -859,7 +859,7 @@ if($bForum)
 
 <tr>
 	<td colspan="2" align="center">
-<?
+<?php 
 	$dbRes = CForumNew::GetListEx(array("ID" => "ASC"), array('PERMS' => array(2, 'A'), 'ACTIVE' => 'Y', 'SITE_ID' => $siteId));
 	$bFound = false;
 	while (!!$dbRes && ($arRes = $dbRes->Fetch()))
@@ -889,7 +889,7 @@ function setForumActive(check, cont)
 				<td width="100"><?=GetMessage("SEO_SITEMAP_IBLOCK_AUTO")?></td>
 				<td width="100"><?=GetMessage("SEO_SITEMAP_FORUM_TOPIC")?></td>
 			</tr>
-<?
+<?php 
 			$bFound = true;
 		}
 
@@ -910,14 +910,14 @@ function setForumActive(check, cont)
 				<td align="center"><input type="hidden" name="FORUM_AUTO[<?=$d?>]" value="N" /><input type="checkbox" name="FORUM_AUTO[<?=$d?>]" id="FORUM_AUTO_<?=$d?>" value="Y"<?=$bAuto?' checked="checked"':''?> />&nbsp;<label for="FORUM_AUTO_<?=$d?>"><?=Loc::getMessage('MAIN_YES')?></label></td>
 				<td align="center"><input type="hidden" name="FORUM_TOPIC[<?=$d?>]" value="N" /><input type="checkbox" name="FORUM_TOPIC[<?=$d?>]" id="FORUM_TOPIC_<?=$d?>" value="Y"<?=$bTopic?'':' disabled="disabled"'?><?=$bTopicChecked?' checked="checked"':''?> />&nbsp;<label for="FORUM_ELEMENT_<?=$d?>"><?=Loc::getMessage('MAIN_YES')?></label></td>
 			</tr>
-<?
+<?php 
 	}
 
 	if($bFound)
 	{
 ?>
 		</table>
-<?
+<?php 
 	}
 	else
 	{
@@ -926,13 +926,13 @@ function setForumActive(check, cont)
 ?>
 	</td>
 </tr>
-<?
+<?php 
 }
 $tabControl->Buttons(array());
 ?>
 <input type="submit" name="save_and_add" value="<?=Converter::getHtmlConverter()->encode(Loc::getMessage('SEO_SITEMAP_SAVEANDRUN'))?>" />
 <?=bitrix_sessid_post();?>
-<?
+<?php 
 $tabControl->End();
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

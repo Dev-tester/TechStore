@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_CHANGE_STATUS_S'] = "#SERVER_NAME#: Статус заявки №#RS_RESULT_ID# изменен на [#RS_STATUS_NAME#] (#RS_FORM_NAME#)";
 $MESS ['FORM_CHANGE_STATUS_B'] = "Здравствуйте, #RS_USER_NAME#!
 

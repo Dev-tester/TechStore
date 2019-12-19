@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_ANALYTICS_LIMIT_MASK_TEXT'] = 'Аналитические отчёты ограничены количеством элементов в CRM.';
 $MESS['CRM_ANALYTICS_LIMIT_MASK_TEXT_FOR_MORE_INFO'] = 'Подробнее читайте на странице сравнения тарифов.';
 

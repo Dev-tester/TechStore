@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_PAGE_TITLE"] = "List of forms";
 $MESS["FORM_F_NAME"] = "Title:";
 $MESS["FORM_F_SID"] = "Symbolic identifier:";

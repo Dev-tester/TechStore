@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AUTH_CHD_FIELD_CAPTCHA"] = "Type the characters you see on the picture";
 $MESS["MAIN_AUTH_CHD_FIELD_CHECKWORD"] = "Checkword";
 $MESS["MAIN_AUTH_CHD_FIELD_LOGIN"] = "Login";

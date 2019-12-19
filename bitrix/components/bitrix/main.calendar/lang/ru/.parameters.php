@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_MAIN_CALENDAR_SHOW_INPUT'] = "Показывать элемент управления";
 $MESS ['COMP_MAIN_CALENDAR_SHOW_INPUT_Y'] = "с полем ввода";
 $MESS ['COMP_MAIN_CALENDAR_SHOW_INPUT_N'] = "только иконку";

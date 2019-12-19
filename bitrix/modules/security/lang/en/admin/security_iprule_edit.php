@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_IP_EDIT_TAB"] = "Rule";
 $MESS["SEC_IP_EDIT_TAB_TITLE"] = "Edit IP block rule";
 $MESS["SEC_IP_EDIT_SAVE_ERROR"] = "Error saving the rule.";

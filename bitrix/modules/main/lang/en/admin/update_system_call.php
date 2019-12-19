@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUPC_ME_LOAD"] = "Cannot download updates";
 $MESS["SUPC_ME_PACK"] = "Cannot extract files from archive";
 $MESS["SUPC_ME_CHECK"] = "File write verification error";

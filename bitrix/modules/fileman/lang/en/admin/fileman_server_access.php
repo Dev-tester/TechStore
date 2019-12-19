@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_SERV_ACCESS_TITLE"] = "Server Permissions";
 $MESS["FILEMAN_SA_TAB"] = "Server Permissions";
 $MESS["FILEMAN_SA_TAB_ALT"] = "Server permissions for files and folders (Unix/Linux)";

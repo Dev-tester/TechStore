@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->AddHeadString(
 	'<link type="text/css" rel="stylesheet" href="/bitrix/themes/.default/check-list-style.css">');?>
@@ -12,7 +12,7 @@ $APPLICATION->AddHeadString(
 	.bx-picture-statistic{vertical-align:middle;display:inline-block}
 	.bx-table-checklist{text-align:center;width:80%;}
 </style>
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/checklist.php");
 $checklist = new CCheckList;
 $isStarted = $checklist->started;
@@ -33,7 +33,7 @@ else
 	}
 }
 ?>
-<?if($isStarted):?>
+<?php if($isStarted):?>
 	<div class="bx-gadgets-warning">
 		<div class="bx-gadgets-warning-bord"></div>
 		<div class="bx-gadgets-warning-bord2"></div>
@@ -59,7 +59,7 @@ else
 		</tr>
 	</table><br>
 	<div><?=GetMessage("CL_TO_CHECKLIST_PAGE2",Array("#LANG#"=>LANG));?></div>
-<?elseif(is_array($arReport)):?>
+<?php elseif(is_array($arReport)):?>
 	<span class="project-checked"></span>
 	<div class="bx-gadgets-warning bx-gadgets-info">
 		<div class="bx-gadgets-warning-bord"></div>
@@ -91,8 +91,8 @@ else
 			<?=$arReport["COMPANY_NAME"]?> (<?=$arReport["TESTER"]?>)
 			</span>
 		</span>
-<?else:?>
+<?php else:?>
 	<span class="bx-gadgets-warning-cont-ball"><?=GetMessage("CL_NOT_CHECKED_YET");?></span><br><br>
 	<?=GetMessage("CL_TO_CHECKLIST_PAGE",Array("#LANG#"=>LANG));?>
 
-<?endif;?>
+<?php endif;?>

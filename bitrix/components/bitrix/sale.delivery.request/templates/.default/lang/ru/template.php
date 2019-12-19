@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CSDRT_SHIPMENTS_AMOUNT"] = "Количество отгрузок";
 $MESS["SALE_CSDRT_WEIGHT"] = "Общий вес отгрузок";
 $MESS["SALE_CSDRT_CREATE_REQUEST"] = "Создать новую заявку";

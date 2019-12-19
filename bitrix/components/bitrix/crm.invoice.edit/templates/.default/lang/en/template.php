@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Invoice";
 $MESS["CRM_TAB_1_TITLE"] = "Invoice parameters";
 $MESS["CRM_INVOICE_SHOW_TITLE"] = "Invoice ##ACCOUNT_NUMBER# &mdash; #ORDER_TOPIC#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_SEL_BTN"] = "Выбрать";
 $MESS["CRM_ENTITY_SEL_SEARCH"] = "Поиск";
 $MESS["CRM_SEL_SEARCH_NO_RESULT"] = "Ничего не найдено.";

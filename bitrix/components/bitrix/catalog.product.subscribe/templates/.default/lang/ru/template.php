@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CPST_SUBSCRIBE_BUTTON_NAME"] = "Подписаться";
 $MESS["CPST_SUBSCRIBE_POPUP_TITLE"] = "Подписка на товар";
 $MESS["CPST_SUBSCRIBE_BUTTON_CLOSE"] = "Закрыть";

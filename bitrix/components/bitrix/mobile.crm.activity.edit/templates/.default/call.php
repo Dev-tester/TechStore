@@ -49,11 +49,11 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 				<td class="tal fwb">
 					<input id="<?=$prefix?>_notify_value" type="text" class="crm_input_text" style="width: 35%;min-width:0;max-width: 35%;vertical-align: top;" value="<?= $entity['NOTIFY_VALUE'] > 0 ? $entity['NOTIFY_VALUE'] : 15 ?>" />
 					<select id="<?=$prefix?>_notify_type" style="width: 40%;min-width:0;max-width: 40%; vertical-align: top;" class="crm_input_select">
-						<?foreach($arResult['NOTIFY_TYPES'] as $notifyType):?>
+						<?php foreach($arResult['NOTIFY_TYPES'] as $notifyType):?>
 							<option value="<?=htmlspecialcharsbx($notifyType['value'])?>">
 								<?=htmlspecialcharsbx($notifyType['text'])?>
 							</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr></tbody></table>
@@ -64,7 +64,7 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 		<div class="crm_block_title fln"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_EDIT_CALL_FIELD_COMM'))?></div>
 		<hr />
 		<div id="<?=$prefix?>_communication" class="crm_card" style="padding-bottom: 0;">
-			<?foreach($communications as &$comm):?>
+			<?php foreach($communications as &$comm):?>
 			<div class="task-form-participant-block">
 				<div class="task-form-participant-row">
 					<div class="task-form-participant-row-name">
@@ -74,8 +74,8 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 					<div class="task-form-participant-btn"><i></i></div>
 				</div>
 			</div>
-			<?endforeach;?>
-			<?unset($comm);?>
+			<?php endforeach;?>
+			<?php unset($comm);?>
 			<div class="tac" style="margin-top: 20px;"><a id="<?=$prefix?>_add_communication" class="crm_people_cont_aqua_two" href="#">+ <?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_EDIT_CALL_ADD_COMM'))?></a></div>
 		</div>
 	</div>
@@ -145,7 +145,7 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 				userSelectorCancelButton: '<?=GetMessageJS('M_CRM_ACTIVITY_EDIT_USER_SELECTOR_CANCEL_BTN')?>'
 			};
 
-			<?
+			<?php 
 			$onDealSelectEventName = 'onCrmDealSelectForCallActivity_'.$arResult['ENTITY_ID'];
 			$dealSelectorUrl = CHTTP::urlAddParams($arResult['DEAL_SELECTOR_URL'], array(
 				"event" => $onDealSelectEventName

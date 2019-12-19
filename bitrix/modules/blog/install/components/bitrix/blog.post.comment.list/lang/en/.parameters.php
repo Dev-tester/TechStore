@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPC_BLOG_URL"] = "Blog URL";
 $MESS["BPC_PATH_TO_BLOG"] = "Blog page path template";
 $MESS["BPC_PATH_TO_USER"] = "Template of the blog user page path";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_SPN_TPL_USE_PAGE_SIZE"] = "User can select page size";
 $MESS["CP_SPN_TPL_PAGE_SIZE_FROM_LINE_COUNT"] = "Page size is a multiple of table row item count";
 $MESS["CP_SPN_TPL_PAGE_SIZES"] = "Page size";

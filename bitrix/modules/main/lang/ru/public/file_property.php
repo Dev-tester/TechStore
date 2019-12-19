@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PAGE_PROP_ACCESS_DENIED'] = "Доступ к редактированию страницы запрещен.";
 $MESS ['PAGE_PROP_FILE_NOT_FOUND'] = "Указанного файла не существует.";
 $MESS ['PAGE_PROP_WINDOW_TITLE'] = "Свойства страницы";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_PE_ERROR_NONAME'] = "The rank title in #LANG# is missing";
 $MESS ['FORUM_PE_ERROR_MIN_POINTS_EMPTY'] = "The value of minimum points is not specified";
 $MESS ['FORUM_PE_ERROR_MIN_POINTS_EXIST'] = "The specified value of minimum points already exists";

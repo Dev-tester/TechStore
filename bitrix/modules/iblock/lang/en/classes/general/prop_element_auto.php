@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_UT_EAUTOCOMPLETE_DESCR"] = "Link-to-element autocomplete text box";
 $MESS["BT_UT_EAUTOCOMPLETE_SETTING_TITLE"] = "Autocomplete Parameters";
 $MESS["BT_UT_EAUTOCOMPLETE_SETTING_SHOW_ADD"] = "Show Add Item Button";

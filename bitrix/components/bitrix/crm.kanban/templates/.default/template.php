@@ -232,17 +232,17 @@ include 'editors.php';
 
 			Kanban.draw();
 
-			<?if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD' || $arParams['ENTITY_TYPE_CHR'] == 'INVOICE'):?>
+			<?php if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD' || $arParams['ENTITY_TYPE_CHR'] == 'INVOICE'):?>
 			BX.addCustomEvent("Crm.Kanban.Grid:onItemMovedFinal", BX.delegate(BX.Crm.KanbanComponent.columnPopup, this));
-			<?endif;?>
+			<?php endif;?>
 
-			<?if ($arParams['ENTITY_TYPE_CHR'] == 'INVOICE'):?>
+			<?php if ($arParams['ENTITY_TYPE_CHR'] == 'INVOICE'):?>
 			BX.addCustomEvent("Crm.Kanban.Grid:onBeforeItemCapturedStart", BX.delegate(BX.Crm.KanbanComponent.dropPopup, this));
-			<?endif;?>
+			<?php endif;?>
 
-			<?if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):?>
+			<?php if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):?>
 			BX.addCustomEvent("onPopupClose", BX.proxy(BX.Crm.KanbanComponent.onPopupClose, this));
-			<?endif;?>
+			<?php endif;?>
 
 			BX.message(
 				{
@@ -254,9 +254,9 @@ include 'editors.php';
 	);
 </script>
 
-<?include $_SERVER['DOCUMENT_ROOT'] . $this->getFolder() . '/popups.php'?>
+<?php include $_SERVER['DOCUMENT_ROOT'] . $this->getFolder() . '/popups.php'?>
 
-<?if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):
+<?php if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):
 	Loc::loadMessages($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/crm.lead.list/templates/.default/template.php');
 	?>
 	<script type="text/javascript">
@@ -320,4 +320,4 @@ include 'editors.php';
 			}
 		);
 	</script>
-<?endif;
+<?php endif;

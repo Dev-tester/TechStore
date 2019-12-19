@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VVE_ALLOW_TO_CHANGE_MIND"] = "Разрешить менять мнение";
 $MESS["VVE_ALLOW_TO_VIEW_RESULTS"] = "Разрешить просмотр результатов до голосования";
 $MESS["VVE_QUESTION"] = "Вопрос ";

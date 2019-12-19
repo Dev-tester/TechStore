@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRICE_ENTITY_ID_FIELD"] = "Price ID";
 $MESS["PRICE_ENTITY_PRODUCT_ID_FIELD"] = "Product ID";
 $MESS["PRICE_ENTITY_EXTRA_ID_FIELD"] = "Surcharge ID";

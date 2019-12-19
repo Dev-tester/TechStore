@@ -98,9 +98,9 @@ if(empty($arResult['FILES']) || $hideSelectDialog):?>
 	<a href="javascript:void(0);" id="diskuf-selectdialogswitcher-<?=$arResult['UID']?>"
 	   class="diskuf-selectdialog-switcher" onclick="BX.onCustomEvent(this.parentNode, 'DiskLoadFormController', ['<?=$show?>']);
 	   return false;"><span><?=GetMessage("WDUF_UPLOAD_DOCUMENT")?></span></a>
-<?endif?>
-<div id="diskuf-selectdialog-<?=$arResult['UID']?>" class="diskuf-files-entity diskuf-selectdialog bx-disk" <?if(empty($arResult['FILES']) || $hideSelectDialog){?> style="display:none;"<?}?>>
-	<div class="diskuf-files-block"<?if(!empty($arResult['FILES'])){?> style="display:block;"<?}?>>
+<?php endif?>
+<div id="diskuf-selectdialog-<?=$arResult['UID']?>" class="diskuf-files-entity diskuf-selectdialog bx-disk" <?php if(empty($arResult['FILES']) || $hideSelectDialog){?> style="display:none;"<?php }?>>
+	<div class="diskuf-files-block"<?php if(!empty($arResult['FILES'])){?> style="display:block;"<?php }?>>
 		<div class="diskuf-label">
 			<?=GetMessage("WDUF_ATTACHMENTS")?>
 			<span class="diskuf-label-icon"></span>
@@ -108,7 +108,7 @@ if(empty($arResult['FILES']) || $hideSelectDialog):?>
 		<div class="diskuf-placeholder">
 			<table cellspacing="0" class="files-list">
 				<tbody class="diskuf-placeholder-tbody">
-<?
+<?php 
 foreach ($arResult['FILES'] as $file)
 {
 	if (array_key_exists("IMAGE", $file))
@@ -130,9 +130,9 @@ foreach ($arResult['FILES'] as $file)
 		$file["preview_url"] = "data:image/png;base64,";
 	}
 ?>
-				<tr class="wd-inline-file" id="disk-edit-attach<?=$file['ID']?>" bx-attach-file-id="<?=\Bitrix\Disk\Uf\FileUserType::NEW_FILE_PREFIX?><?=$file['FILE_ID']?>"<?
-					if($file['XML_ID']): ?> bx-attach-xml-id="<?=$file['XML_ID']?>"<?endif;
-					if($file['TYPE_FILE']): ?> bx-attach-file-type="<?=$file['TYPE_FILE'];?>"<?endif;?>><?
+				<tr class="wd-inline-file" id="disk-edit-attach<?=$file['ID']?>" bx-attach-file-id="<?=\Bitrix\Disk\Uf\FileUserType::NEW_FILE_PREFIX?><?=$file['FILE_ID']?>"<?php 
+					if($file['XML_ID']): ?> bx-attach-xml-id="<?=$file['XML_ID']?>"<?php endif;
+					if($file['TYPE_FILE']): ?> bx-attach-file-type="<?=$file['TYPE_FILE'];?>"<?php endif;?>><?php 
 					$f = str_replace(array("#control_name#", "#CONTROL_NAME#", '<span class="files-name-edit-btn"></span>'), array($arResult['controlName'], $arResult['controlName'], ''), $uploadedFile);
 					foreach ($file as $k => $v)
 					{
@@ -149,24 +149,24 @@ foreach ($arResult['FILES'] as $file)
 					}
 					?><?=$f?>
 				</tr>
-<?
+<?php 
 }  // foreach
 ?>
 			</tbody>
 		</table>
-		<? if(!empty($arResult['DISK_ATTACHED_OBJECT_ALLOW_EDIT']) && !$hideCheckboxAllowEdit) { ?>
+		<?php  if(!empty($arResult['DISK_ATTACHED_OBJECT_ALLOW_EDIT']) && !$hideCheckboxAllowEdit) { ?>
 		<div class="feed-add-post-files-activity">
 			<div class="feed-add-post-files-activity-item">
 				<input name="<?= $arResult['INPUT_NAME_OBJECT_ALLOW_EDIT'] ?>" <?= (empty($arResult['SHARE_EDIT_ON_OBJECT_UF'])? '' : 'checked="checked"') ?> value="1" type="checkbox" id="diskuf-edit-rigths-doc" class="feed-add-post-files-activity-checkbox"><label class="feed-add-post-files-activity-label" for="diskuf-edit-rigths-doc"><?= GetMessage('WDUF_FILE_EDIT_BY_DESTINATION_USERS'); ?></label>
 			</div>
 		</div>
-		<? } ?>
+		<?php  } ?>
 		</div>
 	</div>
 	<div class="diskuf-extended">
-	<? if($arParams['arUserField']['MULTIPLE'] == 'Y') { ?>
+	<?php  if($arParams['arUserField']['MULTIPLE'] == 'Y') { ?>
 		<input type="hidden" name="<?=htmlspecialcharsbx($arResult['controlName'])?>" value="" />
-	<? } ?>
+	<?php  } ?>
 		<div class="diskuf-extended-overlay">
 			<div class="diskuf-extended-overlay-inner">
 				<span class="diskuf-extended-overlay-icon"></span>
@@ -176,16 +176,16 @@ foreach ($arResult['FILES'] as $file)
 		<?= DiskRenderTable(!empty($arResult['CAN_CREATE_FILE_BY_CLOUD']), $addClass, $arResult['DEFAULT_DOCUMENT_SERVICE_EDIT_NAME']); ?>
 	</div>
 	<div class="diskuf-simple">
-	<? if($arParams['arUserField']['MULTIPLE'] == 'Y') { ?>
+	<?php  if($arParams['arUserField']['MULTIPLE'] == 'Y') { ?>
 		<input type="hidden" name="<?=htmlspecialcharsbx($arResult['controlName'])?>" value="" />
-	<? } ?>
+	<?php  } ?>
 		<?= DiskRenderTable(!empty($arResult['CAN_CREATE_FILE_BY_CLOUD']), $addClass, $arResult['DEFAULT_DOCUMENT_SERVICE_EDIT_NAME']); ?>
 	</div>
 <script type="text/javascript">
 BX.ready(function(){
-	<? if($arParams['DISABLE_LOCAL_EDIT']){ ?>
+	<?php  if($arParams['DISABLE_LOCAL_EDIT']){ ?>
 	BX.Disk.Document.Local.Instance.disable();
-	<? } ?>
+	<?php  } ?>
 	BX.Disk.UF.add({
 		UID : '<?=$arResult['UID']?>',
 		controlName : '<?= CUtil::JSEscape($arResult['controlName'])?>',
@@ -206,7 +206,7 @@ BX.message({
 });
 </script>
 </div>
-<?
+<?php 
 if(\Bitrix\Disk\Integration\Bitrix24Manager::isEnabled() && \Bitrix\Disk\Integration\Bitrix24Manager::isLicensePaid())
 {
 	\Bitrix\Disk\Integration\Bitrix24Manager::initLicenseInfoPopupJS('disk_transformation_video_limit');

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_BUYER_FIND"] = "Search customers";
 $MESS["SALE_ORDER_BUYER_START_TO_CREATE"] = "or provide customer data to create a new one";
 $MESS["SALE_ORDER_BUYER"] = "Customer";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/cluster/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -115,42 +115,42 @@ function jsDelete(form_id, message)
 	}
 }
 </script>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-	<?if($ID > 0):?>
+	<?php if($ID > 0):?>
 		<tr>
-			<td><?echo GetMessage("CLU_GROUP_EDIT_ID")?>:</td>
-			<td><?echo $str_ID;?></td>
+			<td><?php echo GetMessage("CLU_GROUP_EDIT_ID")?>:</td>
+			<td><?php echo $str_ID;?></td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("CLU_GROUP_EDIT_NAME")?>:</td>
-		<td width="60%"><input type="text" size="40" name="NAME" value="<?echo $str_NAME?>"></td>
+		<td width="40%"><?php echo GetMessage("CLU_GROUP_EDIT_NAME")?>:</td>
+		<td width="60%"><input type="text" size="40" name="NAME" value="<?php echo $str_NAME?>"></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"back_url"=>"cluster_index.php?lang=".LANG,
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
 <input type="hidden" name="action" id="action" value="">
-<?if($ID>0):?>
+<?php if($ID>0):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("editform", $message);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

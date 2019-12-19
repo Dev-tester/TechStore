@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAP_BUY_MONEY"] = "Top up account";
 $MESS["SAP_FIXED_PAYMENT"] = "Fixed payment";
 $MESS["SAP_LINK_TITLE"] = "Add funds to account";

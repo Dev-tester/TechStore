@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_HOSTS_TITLE"] = "Hosts/domains";
 $MESS["SECURITY_HOSTS_MAIN_TAB"] = "Parameters";
 $MESS["SECURITY_HOSTS_MAIN_TAB_TITLE"] = "Hosts security parameters";

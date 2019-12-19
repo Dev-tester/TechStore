@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACTIVE"] = "Record active:";
 $MESS["IBLOCK_CODE"] = "Mnemonic code:";
 $MESS["IBLOCK_CONTENT"] = "Upper level";

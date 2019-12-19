@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALENDAR_MODULE_IS_NOT_INSTALLED"] = "The \"Event Calendar\" module is not installed.";
 $MESS["EVENTS_GROUP_TODAY"] = "Today";
 $MESS["EVENTS_GROUP_TOMORROW"] = "Tomorrow";

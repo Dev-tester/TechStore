@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_OP_NAME_DELETE"] = "Delete";
 $MESS["LANDING_OP_NAME_EDIT"] = "Edit";
 $MESS["LANDING_OP_NAME_PUBLIC"] = "Publish";

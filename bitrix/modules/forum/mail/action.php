@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 if(CModule::IncludeModule("socialnetwork")):
 ?>
@@ -13,7 +13,7 @@ if(CModule::IncludeModule("socialnetwork")):
 			<td><?=GetMessage("FORUM_MAIL_COLUMN_USE_TOPIC")?></td>
 			<td><?=GetMessage("FORUM_MAIL_COLUMN_SUF")?></td>
 		</tr>
-		<?
+		<?php 
 		$dblist = CForumEMail::GetMailFilters($ID);
 		while($arFF=$dblist->GetNext()):?>
 		<tr>
@@ -24,8 +24,8 @@ if(CModule::IncludeModule("socialnetwork")):
 			<td><?=$arFF['USE_SUBJECT']?></td>
 			<td><?=$arFF['SUBJECT_SUF']?></td>
 		</tr>
-		<?endwhile;?>
+		<?php endwhile;?>
 	</table>
 		</td>
 </tr>
-<?endif?>
+<?php endif?>

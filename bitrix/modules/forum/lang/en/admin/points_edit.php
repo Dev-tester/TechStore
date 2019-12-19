@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_PE_ERROR_UPDATE"] = "Error while updating score";
 $MESS["FORUM_PE_ERROR_ADD"] = "Error while adding score";
 $MESS["FORUM_PE_TITLE_UPDATE"] = "Modify score ##ID#";

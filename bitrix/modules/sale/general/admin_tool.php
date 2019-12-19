@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 use Bitrix\Iblock;
 use Bitrix\Catalog;
@@ -884,9 +884,9 @@ function fGetBuyerType($PERSON_TYPE_ID, $LID, $USER_ID = '', $ORDER_ID = 0, $for
 			ob_start();
 			?>
 
-			<?if($arProperties['IS_LOCATION'] == 'Y'):?>
+			<?php if($arProperties['IS_LOCATION'] == 'Y'):?>
 
-				<?
+				<?php 
 				$funcId = 'changeLocationCity_'.$arProperties['ID'];
 				?>
 
@@ -897,9 +897,9 @@ function fGetBuyerType($PERSON_TYPE_ID, $LID, $USER_ID = '', $ORDER_ID = 0, $for
 					window.orderNewLocationPropId = <?=intval($arProperties['ID'])?>;
 				</script>
 
-			<?endif?>
+			<?php endif?>
 
-			<?
+			<?php 
 			CSaleLocation::proxySaleAjaxLocationsComponent(
 				array(
 					"SITE_ID" => $LID,
@@ -2213,63 +2213,63 @@ function getColumnsHeaders($arUserColumns, $page = "edit", $bWithStores = false)
 			case "COLUMN_NUMBER":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_NUMBER")?></td>
-				<?
+				<?php 
 				break;
 
 			case "COLUMN_NAME":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_NAME")?></td>
-				<?
+				<?php 
 				break;
 
 			case "COLUMN_IMAGE":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_IMAGE")?></td>
-				<?
+				<?php 
 				break;
 
 			case "COLUMN_QUANTITY":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_QUANTITY")?></td>
-				<?
+				<?php 
 				if ($bWithStores):
 				?>
 					<td><?=GetMessage("SALE_F_STORE")?></td>
 					<td><?=GetMessage("SALE_F_STORE_CUR_AMOUNT")?></td>
 					<td><?=GetMessage("SALE_F_STORE_AMOUNT")?></td>
 					<td><?=GetMessage("SALE_F_STORE_BARCODE")?></td>
-				<?
+				<?php 
 				endif;
 				break;
 
 			case "COLUMN_REMAINING_QUANTITY":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_REMAINING_QUANTITY")?></td>
-				<?
+				<?php 
 				break;
 
 			case "COLUMN_PROPS":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_PROPS")?></td>
-				<?
+				<?php 
 				break;
 
 			case "COLUMN_PRICE":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_PRICE")?></td>
-				<?
+				<?php 
 				break;
 
 			case "COLUMN_SUM":
 				?>
 				<td><?=GetMessage($prefix."COLUMN_SUM")?></td>
-				<?
+				<?php 
 				break;
 
 			default:
 				?>
 				<td><?=$columnName?></td>
-				<?
+				<?php 
 				break;
 		}
 	}

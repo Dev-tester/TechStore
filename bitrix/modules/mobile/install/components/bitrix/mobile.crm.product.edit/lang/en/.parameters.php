@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CATALOG_ID"] = "Commercial Catalog";
 $MESS["CRM_PRODUCT_ID"] = "Product ID";
 $MESS["CRM_PRODUCT_ID_PARAM"] = "Product ID variable name";

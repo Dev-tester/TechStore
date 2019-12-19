@@ -1,9 +1,9 @@
-<?
+<?php 
 define('CONFIRM_PAGE', true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Registration Confirmation");
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:system.auth.initialize",
 	"",
 	Array(
@@ -13,4 +13,4 @@ $APPLICATION->SetTitle("Registration Confirmation");
 	),
 false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

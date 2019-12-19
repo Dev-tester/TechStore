@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Event type graph";
 $MESS ['STAT_F_PERIOD'] = "Period";
 $MESS ['STAT_F_EVENTS'] = "Event types:";

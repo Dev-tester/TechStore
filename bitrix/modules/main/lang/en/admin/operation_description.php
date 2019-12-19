@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_VIEW_OWN_PROFILE"] = "View personal profile";
 $MESS["OP_NAME_VIEW_SUBORDINATE_USERS"] = "View users of allowed groups";
 $MESS["OP_NAME_VIEW_ALL_USERS"] = "View all users";

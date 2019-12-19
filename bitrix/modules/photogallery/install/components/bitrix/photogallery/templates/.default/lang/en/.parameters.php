@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_WATERMARK_COLORS"] = "Watermark colour";
 $MESS["P_COLOR_FF0000"] = "Red";
 $MESS["P_COLOR_FFA500"] = "Orange";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EXTRANET_WG_TO_ARCHIVE_NAME'] = "Рабочая группа переведена в архив";
 $MESS ['EXTRANET_WG_TO_ARCHIVE_DESC'] = "#WG_ID# - ID рабочей группы
 #WG_NAME# - Название рабочей группы

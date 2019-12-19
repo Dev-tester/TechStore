@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 __IncludeLang(dirname(__FILE__)."/lang/".LANGUAGE_ID."/include.php");
@@ -983,7 +983,7 @@ if (!function_exists("__logUFfileShowMobile"))
 		{
 			if (sizeof($arResult["VALUE"]) > 0)
 			{
-				?><div class="post-item-attached-file-wrap"><?
+				?><div class="post-item-attached-file-wrap"><?php 
 
 				foreach ($arResult["VALUE"] as $fileID)
 				{
@@ -1000,13 +1000,13 @@ if (!function_exists("__logUFfileShowMobile"))
 						$arFile["EXTENSION"] = $ext;
 						$arFile["LINK"] = "/bitrix/components/bitrix/socialnetwork.log.ex/show_file.php?bp_fid=".$fileID;
 						$arFile["FILE_SIZE"] = CFile::FormatSize($arFile["FILE_SIZE"]);
-						?><div class="post-item-attached-file"><?
-							?><a onclick="app.openDocument({'url' : '<?=$arFile["LINK"]?>'});" href="javascript:void()" class="post-item-attached-file-link"><span><?=htmlspecialcharsbx($arFile["ORIGINAL_NAME"])?></span><span>(<?=$arFile["FILE_SIZE"]?>)</span></a><?
-						?></div><?
+						?><div class="post-item-attached-file"><?php 
+							?><a onclick="app.openDocument({'url' : '<?=$arFile["LINK"]?>'});" href="javascript:void()" class="post-item-attached-file-link"><span><?=htmlspecialcharsbx($arFile["ORIGINAL_NAME"])?></span><span>(<?=$arFile["FILE_SIZE"]?>)</span></a><?php 
+						?></div><?php 
 					}
 				}
 
-				?></div><?
+				?></div><?php 
 			}
 			$result = true;
 		}

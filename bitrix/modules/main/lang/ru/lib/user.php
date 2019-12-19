@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_ENTITY_ID_FIELD"] = "ID";
 $MESS["MAIN_USER_ENTITY_DATE_REGISTER_FIELD"] = "Дата регистрации";
 $MESS["MAIN_USER_ENTITY_DATE_REG_SHORT_FIELD"] = "Дата регистрации";

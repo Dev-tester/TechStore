@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var array $arResult
  * @var CMain $APPLICATION
@@ -19,7 +19,7 @@ if($arResult['ERRORS'] && $arResult['ERRORS'] instanceof \Bitrix\Main\ErrorColle
 <form method="POST">
 	<input type="hidden" name="act" value="save">
 	<input type="hidden" name="ID" value="<?=htmlspecialcharsbx($arResult['ID'])?>">
-	<?echo bitrix_sessid_post()?>
+	<?php echo bitrix_sessid_post()?>
 	<div style="display: flex; align-items:center; margin-left: 20px; height: 40px;">
 		<label for="form-input-name"><?=GetMessage('VOXIMPLANT_ROLE_LABEL')?>:</label>
 		<input id="form-input-name" name="NAME" value="<?=htmlspecialcharsbx($arResult['NAME'])?>">
@@ -33,7 +33,7 @@ if($arResult['ERRORS'] && $arResult['ERRORS'] instanceof \Bitrix\Main\ErrorColle
 						<th class="table-blue-td-title"><?=GetMessage('VOXIMPLANT_ROLE_ACTION')?></th>
 						<th class="table-blue-td-title"><?=GetMessage('VOXIMPLANT_ROLE_PERMISSION')?></th>
 					</tr>
-					<?foreach ($arResult['PERMISSION_MAP'] as $entity => $actions)
+					<?php foreach ($arResult['PERMISSION_MAP'] as $entity => $actions)
 					{
 						$firstAction = true;
 						foreach ($actions as $action => $availablePermissions)
@@ -44,16 +44,16 @@ if($arResult['ERRORS'] && $arResult['ERRORS'] instanceof \Bitrix\Main\ErrorColle
 									<td class="table-blue-td-param"><?=htmlspecialcharsbx(\Bitrix\Voximplant\Security\Permissions::getActionName($action))?></td>
 									<td class="table-blue-td-select">
 										<select name="PERMISSIONS[<?=$entity?>][<?=$action?>]" class="table-blue-select">
-											<?foreach ($availablePermissions as $permission):?>
+											<?php foreach ($availablePermissions as $permission):?>
 												<option value="<?=$permission?>" <?=($permission === $arResult['PERMISSIONS'][$entity][$action] ? 'selected' : '')?>>
 													<?=htmlspecialcharsbx(\Bitrix\Voximplant\Security\Permissions::getPermissionName($permission))?>
 												</option>
-											<?endforeach;?>
+											<?php endforeach;?>
 										</select>
 									</td>
 
 								</tr>
-							<?
+							<?php 
 							$firstAction = false;
 						}
 					}
@@ -63,7 +63,7 @@ if($arResult['ERRORS'] && $arResult['ERRORS'] instanceof \Bitrix\Main\ErrorColle
 		</tr>
 	</table>
 
-	<?
+	<?php 
 
 	$buttons = [];
 
@@ -80,7 +80,7 @@ if($arResult['ERRORS'] && $arResult['ERRORS'] instanceof \Bitrix\Main\ErrorColle
 		false
 	); ?>
 </form>
-<?
+<?php 
 if(!$arResult['CAN_EDIT'])
 {
 	CBitrix24::initLicenseInfoPopupJS();
@@ -95,5 +95,5 @@ if(!$arResult['CAN_EDIT'])
 			viOpenTrialPopup('permissions');
 		});
 	</script>
-	<?
+	<?php 
 }

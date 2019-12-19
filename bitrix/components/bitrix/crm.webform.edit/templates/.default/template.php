@@ -56,7 +56,7 @@ $userBlockController = new CrmWebFormEditUserBlockController(
 );
 ?>
 
-<?$jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];?>
+<?php $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];?>
 <script>
 	BX.ready(function()
 	{
@@ -117,23 +117,23 @@ $userBlockController = new CrmWebFormEditUserBlockController(
 	});
 </script>
 
-<?
+<?php 
 	require 'js_templates.php';
 ?>
 
-<?$this->SetViewTarget('pagetitle', 5);?>
+<?php $this->SetViewTarget('pagetitle', 5);?>
 	<a id="CRM_WEBFORM_EDIT_TO_LIST" href="<?=htmlspecialcharsbx($arResult['PATH_TO_WEB_FORM_LIST'])?>" class="crm-webform-edit-list-back"><?=Loc::getMessage('CRM_WEBFORM_EDIT_BACK_TO_LIST1')?></a>
-<?$this->EndViewTarget();?>
+<?php $this->EndViewTarget();?>
 
-<?
+<?php 
 if (!empty($arResult['ERRORS']))
 {
-	?><div class="crm-webform-edit-top-block"><?
+	?><div class="crm-webform-edit-top-block"><?php 
 	foreach ($arResult['ERRORS'] as $error)
 	{
 		ShowError($error);
 	}
-	?></div><?
+	?></div><?php 
 }
 ?>
 
@@ -165,24 +165,24 @@ if (!empty($arResult['ERRORS']))
 		</div>
 	</div>
 
-	<?if($arResult['IS_AVAILABLE_EMBEDDING_PORTAL']):?>
+	<?php if($arResult['IS_AVAILABLE_EMBEDDING_PORTAL']):?>
 	<div class="crm-webform-edit-v2-settings" <?=($isAvailableDesign ? '' : 'onclick="return false;"')?>>
 		<span class="ui-btn ui-btn-light-border ui-btn-xs <?=($isAvailableDesign ? '' : 'ui-btn-disabled')?>">
 			<?=Loc::getMessage('CRM_WEBFORM_EDIT_V2_DESIGN_SETUP')?>
 		</span>
 		<span class="crm-webform-edit-v2-settings-item-label">
-			<?if($arResult['FORM']['ID']):?>
-				<?if($arResult['IS_AVAILABLE_EMBEDDING']):?>
+			<?php if($arResult['FORM']['ID']):?>
+				<?php if($arResult['IS_AVAILABLE_EMBEDDING']):?>
 					<?=Loc::getMessage('CRM_WEBFORM_EDIT_V2_DESIGN_TEXT')?>
-				<?else:?>
+				<?php else:?>
 					<?=Loc::getMessage('CRM_WEBFORM_EDIT_V2_DESIGN_TEXT_UNAVAILABLE')?>
-				<?endif;?>
-			<?else:?>
+				<?php endif;?>
+			<?php else:?>
 				<?=Loc::getMessage('CRM_WEBFORM_EDIT_V2_DESIGN_TEXT_AFTER_CREATE')?>
-			<?endif;?>
+			<?php endif;?>
 		</span>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 
 
 	<div class="crm-webform-edit-constructor-container" id="FORM_CONTAINER">
@@ -198,7 +198,7 @@ if (!empty($arResult['ERRORS']))
 			<div class="crm-webform-edit-constructor-right-list-container">
 
 				<div class="crm-webform-edit-right-list">
-					<?foreach($arResult['AVAILABLE_FIELDS_TREE'] as $entityName => $entityFields):
+					<?php foreach($arResult['AVAILABLE_FIELDS_TREE'] as $entityName => $entityFields):
 						if(in_array($entityName, array('CATALOG', 'ACTIVITY')))
 						{
 							continue;
@@ -214,13 +214,13 @@ if (!empty($arResult['ERRORS']))
 						</div>
 
 						<ul class="crm-webform-edit-right-inner-list">
-							<?foreach($entityFields['FIELDS'] as $field):?>
+							<?php foreach($entityFields['FIELDS'] as $field):?>
 							<li data-bx-crm-wf-selector-field-name="<?=htmlspecialcharsbx($field['name'])?>" class="crm-webform-edit-right-inner-list-item"
 							><?=htmlspecialcharsbx($field['caption'])?></li>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</ul>
 					</span>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</div>
 			</div><!--crm-webform-edit-constructor-right-list-container-->
 
@@ -239,11 +239,11 @@ if (!empty($arResult['ERRORS']))
 					<li class="crm-webform-edit-right-add-element-list-item">
 						<span data-bx-crm-wf-selector-btn-add="br" class="crm-webform-element-list-line-break"><?=Loc::getMessage('CRM_WEBFORM_EDIT_FORM_TREE_ADD_FIELD_BR')?></span>
 					</li>
-					<?if($arResult['IS_AVAILABLE_EMBEDDING_PORTAL']):?>
+					<?php if($arResult['IS_AVAILABLE_EMBEDDING_PORTAL']):?>
 					<li class="crm-webform-edit-right-add-element-list-item">
 						<span data-bx-crm-wf-selector-btn-add="page" class="crm-webform-element-list-line-page"><?=Loc::getMessage('CRM_WEBFORM_EDIT_FORM_TREE_ADD_FIELD_PAGE')?></span>
 					</li>
-					<?endif;?>
+					<?php endif;?>
 				</ul>
 			</div><!--crm-webform-edit-constructor-right-add-element-container-->
 
@@ -267,7 +267,7 @@ if (!empty($arResult['ERRORS']))
 				</div><!--crm-webform-edit-left-field-description-container-->
 				<div id="DESCRIPTION_EDITOR_CONTAINER" style="position: relative;" class="crm-webform-edit-animate <?=$arResult['FORM']['DESCRIPTION'] ? 'crm-webform-edit-animate-show' : ''?>">
 					<div style="color: #bfbfbf; font-size: 17px; padding: 0 0; position: relative;">
-				<?
+				<?php 
 				$editor = new CHTMLEditor;
 				$res = array_merge(
 					array(
@@ -331,7 +331,7 @@ if (!empty($arResult['ERRORS']))
 			</div><!--crm-webform-edit-left-field-header-container-->
 
 			<div id="FIELD_CONTAINER" class="crm-webform-edit-left-field-container">
-				<?
+				<?php 
 				$sort = 0;
 				foreach($arResult['FORM']['FIELDS'] as $field):
 					$sort++;
@@ -343,11 +343,11 @@ if (!empty($arResult['ERRORS']))
 				?>
 			</div><!--crm-webform-edit-left-field-container-->
 
-			<?if($arResult['PERM_CAN_EDIT']):?>
+			<?php if($arResult['PERM_CAN_EDIT']):?>
 			<div class="crm-webform-edit-left-field-add-element">
 				<span class="crm-webform-edit-left-field-add-element-item"><?=Loc::getMessage('CRM_WEBFORM_EDIT_FORM_ADD_HELP_TEXT')?></span>
 			</div><!--crm-webform-edit-left-field-add-element-->
-			<?endif;?>
+			<?php endif;?>
 
 			<div id="FORM_BUTTON_CONTAINER" class="crm-webform-edit-left-field-button-container">
 				<div class="crm-webform-edit-left-field-button-wrapper">
@@ -382,7 +382,7 @@ if (!empty($arResult['ERRORS']))
 
 	</div><!--crm-webform-edit-field-constructor-container-->
 
-	<?
+	<?php 
 	$userBlockController->start('COPYRIGHT', Loc::getMessage('CRM_WEBFORM_EDIT_COPYRIGHT_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_COPYRIGHT_SECTION_NAV'));
 	?>
 	<label id="COPYRIGHT_REMOVED_CONT" for="COPYRIGHT_REMOVED" class="task-field-label">
@@ -392,12 +392,12 @@ if (!empty($arResult['ERRORS']))
 			<span class="crm-webform-edit-task-options-checkbox-element <?=($arResult['CAN_REMOVE_COPYRIGHT'] ? '' : 'crm-webform-copyright-disabled')?>"><?=Loc::getMessage('CRM_WEBFORM_EDIT_COPYRIGHT_DEMO')?></span>
 		</span>
 	</label>
-	<?
+	<?php 
 	$userBlockController->start('DEPENDENCIES', Loc::getMessage('CRM_WEBFORM_EDIT_DEP_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_DEP_SECTION_NAV'));
 	?>
 	<div class="crm-webform-edit-task-options-item-open-settings">
 				<div id="DEPENDENCY_CONTAINER" class="crm-webform-ext-block-dep-list">
-					<?
+					<?php 
 					foreach($arResult['FORM']['DEPENDENCIES'] as $dependency):
 						GetCrmWebFormFieldDependencyTemplate($dependency);
 					endforeach;
@@ -406,7 +406,7 @@ if (!empty($arResult['ERRORS']))
 
 				<span id="DEPENDENCY_BUTTON_ADD" class="crm-webform-edit-task-options-rule">&#43; <?=Loc::getMessage('CRM_WEBFORM_EDIT_DEP_BUTTON_ADD')?></span>
 	</div>
-	<?
+	<?php 
 	$userBlockController->start('ENTITY_SCHEME', Loc::getMessage('CRM_WEBFORM_EDIT_DOC_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_DOC_SECTION_NAV'));
 	?>
 	<div class="crm-webform-edit-task-options-item-open-settings">
@@ -417,7 +417,7 @@ if (!empty($arResult['ERRORS']))
 		<div id="ENTITY_SCHEME_CONTAINER" class="crm-webform-edit-task-options-settings-container">
 			<div class="crm-webform-edit-task-options-document-settings-radio-container">
 				<input type="hidden" name="ENTITY_SCHEME" value="<?=htmlspecialcharsbx($arResult['ENTITY_SCHEMES']['SELECTED_ID'])?>">
-				<?foreach($arResult['ENTITY_SCHEMES']['BY_NON_INVOICE'] as $searchSchemeId => $entityScheme):?>
+				<?php foreach($arResult['ENTITY_SCHEMES']['BY_NON_INVOICE'] as $searchSchemeId => $entityScheme):?>
 					<label for="ENTITY_SCHEME_<?=htmlspecialcharsbx($entityScheme['ID'])?>">
 						<input type="radio" id="ENTITY_SCHEME_<?=htmlspecialcharsbx($entityScheme['ID'])?>"
 							data-bx-web-form-entity-scheme-value=""
@@ -431,7 +431,7 @@ if (!empty($arResult['ERRORS']))
 							<?=htmlspecialcharsbx($entityScheme['NAME'])?>
 						</span>
 					</label>
-				<?endforeach;?>
+				<?php endforeach;?>
 				<label for="ENTITY_SCHEMES_ADD_INVOICE">
 					<input data-bx-web-form-entity-scheme-invoice="" id="ENTITY_SCHEMES_ADD_INVOICE" type="checkbox" <?=($arResult['ENTITY_SCHEMES']['HAS_INVOICE'] ? 'checked' : '')?> class="crm-webform-edit-task-options-document-settings-radio">
 					<span class="crm-webform-edit-task-options-document-settings-radio-element"><?=Loc::getMessage('CRM_WEBFORM_EDIT_DOC_ADD_INVOICE')?></span>
@@ -455,11 +455,11 @@ if (!empty($arResult['ERRORS']))
 					<div class="crm-webform-edit-task-options-document-duplicate-list-element"><?=Loc::getMessage('CRM_WEBFORM_EDIT_DEAL_CATEGORY_LIST')?>:</div>
 					<div class="crm-webform-edit-task-options-document-duplicate-list-container">
 						<select id="DEAL_CATEGORY" name="DEAL_CATEGORY" class="crm-webform-edit-task-options-rule-select">
-							<?foreach($arResult['DEAL_CATEGORY_LIST'] as  $dealCategory):?>
+							<?php foreach($arResult['DEAL_CATEGORY_LIST'] as  $dealCategory):?>
 								<option value="<?=htmlspecialcharsbx($dealCategory['ID'])?>" <?=($dealCategory['SELECTED'] ? 'selected' : '')?>>
 									<?=htmlspecialcharsbx($dealCategory['NAME'])?>
 								</option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
 				</div>
@@ -482,7 +482,7 @@ if (!empty($arResult['ERRORS']))
 				<div class="crm-webform-edit-task-options-document-duplicate-control">
 					<div class="crm-webform-edit-task-options-document-duplicate-list-element"><?=Loc::getMessage('CRM_WEBFORM_EDIT_DOC_DUPLICATES')?>:</div>
 					<div class="crm-webform-edit-task-options-document-duplicate-list-container">
-						<?foreach($arResult['DUPLICATE_MODES'] as  $duplicateMode):
+						<?php foreach($arResult['DUPLICATE_MODES'] as  $duplicateMode):
 							$duplicateModeNodeId = 'DUPLICATE_MODE_' . htmlspecialcharsbx($duplicateMode['ID']);
 						?>
 							<label for="<?=$duplicateModeNodeId?>" class="task-option-duplicate-label">
@@ -491,7 +491,7 @@ if (!empty($arResult['ERRORS']))
 									<?=htmlspecialcharsbx($duplicateMode['CAPTION'])?>
 								</span>
 							</label>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</div>
 				</div>
 			</div>
@@ -509,14 +509,14 @@ if (!empty($arResult['ERRORS']))
 							<br>
 							<?=Loc::getMessage('CRM_WEBFORM_EDIT_DOC_INVOICE_CHOOSE_PAYER')?>:
 						</div>
-						<?foreach($arResult['INVOICE_PAYER_TYPES'] as $payerCode => $payer):?>
+						<?php foreach($arResult['INVOICE_PAYER_TYPES'] as $payerCode => $payer):?>
 							<label for="INVOICE_SETTINGS_PAYER_<?=htmlspecialcharsbx($payer['ID'])?>" class="crm-webform-edit-task-options-account-setup-label">
 								<input id="INVOICE_SETTINGS_PAYER_<?=htmlspecialcharsbx($payer['ID'])?>" name="INVOICE_SETTINGS[PAYER]" type="radio" <?=($payer['SELECTED'] ? 'checked' : '')?> value="<?=htmlspecialcharsbx($payer['ID'])?>" class="crm-webform-edit-task-options-account-setup-input">
 								<span class="crm-webform-edit-task-options-account-setup-element">
 									<?=Loc::getMessage('CRM_WEBFORM_EDIT_DOC_INVOICE_PAYER_' . $payer['ID'])?>
 								</span>
 							</label>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</div>
 
 					<div data-bx-crm-webform-invoice-product="">
@@ -543,7 +543,7 @@ if (!empty($arResult['ERRORS']))
 						<label for="IS_PAY"><?=Loc::getMessage('CRM_WEBFORM_EDIT_IS_PAY_TITLE')?></label>
 					</div>
 					<div id="PAY_SYSTEM_CONT" class="<?=($arResult['FORM']['IS_PAY'] == 'Y' ? '' : 'crm-webform-display-none')?>">
-						<?
+						<?php 
 						$APPLICATION->IncludeComponent(
 							'bitrix:crm.config.ps.list',
 							'block',
@@ -557,7 +557,7 @@ if (!empty($arResult['ERRORS']))
 			</div><!--crm-webform-edit-task-options-account-setup-->
 		</div><!--crm-webform-edit-task-options-document-settings-container-->
 	</div>
-	<?
+	<?php 
 	$userBlockController->start('PRESET_FIELDS', Loc::getMessage('CRM_WEBFORM_EDIT_PRESET_FIELDS_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_PRESET_FIELDS_SECTION_NAV'));
 	?>
 		<label for="USE_PRESET_FIELDS" class="task-field-label task-field-label-repeat">
@@ -569,7 +569,7 @@ if (!empty($arResult['ERRORS']))
 		<div class="crm-webform-edit-task-options-item-open-settings">
 		<div id="PRESET_FIELDS" class="crm-webform-edit-animate <?=($arResult['FORM']['HAS_PRESET_FIELDS'] ? 'crm-webform-edit-animate-show' : '')?>">
 			<div id="PRESET_FIELD_CONTAINER">
-				<?
+				<?php 
 				foreach($arResult['FORM']['PRESET_FIELDS'] as $field):
 					GetCrmWebFormPresetFieldTemplate(array(
 						'CODE' => $field['CODE'],
@@ -586,20 +586,20 @@ if (!empty($arResult['ERRORS']))
 			<div class="crm-webform-edit-task-edit-add-deal-stage">
 				<span class="crm-webform-edit-task-edit-add-deal-input-container">
 					<select id="PRESET_FIELD_SELECTOR" class="crm-webform-edit-task-edit-add-deal-select">
-						<?foreach($arResult['PRESET_AVAILABLE_FIELDS_TREE'] as $entityName => $entityFields):?>
+						<?php foreach($arResult['PRESET_AVAILABLE_FIELDS_TREE'] as $entityName => $entityFields):?>
 							<optgroup data-bx-crm-wf-entity="<?=$entityName?>" label="<?=$entityFields['CAPTION']?>" id="PRESET_FIELDS_OPTGROUP_<?=$entityName?>">
-								<?foreach($entityFields['FIELDS'] as $field):?>
+								<?php foreach($entityFields['FIELDS'] as $field):?>
 									<option value="<?=htmlspecialcharsbx($field['name'])?>"><?=htmlspecialcharsbx($field['caption'])?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</optgroup>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</span>
 				<span id="PRESET_FIELD_SELECTOR_BTN" class="crm-webform-edit-task-edit-add-deal-item"><?=Loc::getMessage('CRM_WEBFORM_EDIT_PRESET_FIELDS_ADD_BUTTON')?></span>
 			</div><!--crm-webform-edit-task-edit-deal-stage-->
 		</div>
 		</div>
-	<?
+	<?php 
 	$userBlockController->start('EXTERNAL_ANALYTICS', Loc::getMessage('CRM_WEBFORM_EDIT_EXTERNAL_ANALYTICS_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_EXTERNAL_ANALYTICS_SECTION_NAV'));
 	?>
 	<div class="crm-webform-edit-task-options-item-open-settings">
@@ -607,7 +607,7 @@ if (!empty($arResult['ERRORS']))
 			<div class="crm-webform-edit-task-options-metrics-container">
 				<div id="CRM_WEBFORM_EXTERNAL_ANALYTICS" class="crm-webform-edit-task-options-metric">
 
-					<?if(in_array(LANGUAGE_ID, array('ru', 'ua', 'kz', 'by'))):?>
+					<?php if(in_array(LANGUAGE_ID, array('ru', 'ua', 'kz', 'by'))):?>
 					<div data-bx-crm-webform-ext-an="ya" class="<?=($arResult['FORM']['YANDEX_METRIC_ID'] ? 'crm-webform-edit-task-options-metric-exist' : '')?>">
 						<div class="crm-webform-edit-task-options-metric-option">
 							<span class="crm-webform-edit-task-options-metric-item"><?=Loc::getMessage('CRM_WEBFORM_EDIT_EXTERNAL_ANALYTICS_YA')?>:</span>
@@ -634,17 +634,17 @@ if (!empty($arResult['ERRORS']))
 									<td class="crm-webform-edit-metric-col"><?=Loc::getMessage('CRM_WEBFORM_EDIT_EXTERNAL_ANALYTICS_YA_STAT_STEP')?></td>
 									<td class="crm-webform-edit-metric-col"><?=Loc::getMessage('CRM_WEBFORM_EDIT_EXTERNAL_ANALYTICS_YA_STAT_GOAL_ID')?></td>
 								</tr>
-								<?foreach($arResult['EXTERNAL_ANALYTICS_DATA']['STEPS'] as $step):?>
+								<?php foreach($arResult['EXTERNAL_ANALYTICS_DATA']['STEPS'] as $step):?>
 									<tr class="crm-webform-edit-metric-even">
 										<td><?=htmlspecialcharsbx($step['NAME'])?></td>
 										<td><?=htmlspecialcharsbx($step['EVENT'] ? $step['EVENT'] : $step['CODE'])?></td>
 									</tr>
-								<?endforeach;?>
+								<?php endforeach;?>
 								</tbody>
 							</table>
 						</div><!--crm-webform-edit-task-options-metric-create-->
 					</div>
-					<?endif;?>
+					<?php endif;?>
 
 					<div data-bx-crm-webform-ext-an="ga" class="<?=($arResult['FORM']['GOOGLE_ANALYTICS_ID'] ? 'crm-webform-edit-task-options-metric-exist' : '')?>">
 						<div class="crm-webform-edit-task-options-metric-option">
@@ -673,12 +673,12 @@ if (!empty($arResult['ERRORS']))
 									<td class="crm-webform-edit-metric-col"><?=Loc::getMessage('CRM_WEBFORM_EDIT_EXTERNAL_ANALYTICS_GA_STAT_EVENT')?></td>
 									<td class="crm-webform-edit-metric-col"><?=Loc::getMessage('CRM_WEBFORM_EDIT_EXTERNAL_ANALYTICS_GA_STAT_PAGE')?></td>
 								</tr>
-								<?foreach($arResult['EXTERNAL_ANALYTICS_DATA']['STEPS'] as $step):?>
+								<?php foreach($arResult['EXTERNAL_ANALYTICS_DATA']['STEPS'] as $step):?>
 									<tr class="crm-webform-edit-metric-even">
 										<td><?=htmlspecialcharsbx($step['NAME'])?></td>
 										<td><?=htmlspecialcharsbx($step['CODE'])?></td>
 									</tr>
-								<?endforeach;?>
+								<?php endforeach;?>
 								</tbody>
 							</table>
 						</div><!--crm-webform-edit-task-options-metric-create-->
@@ -694,7 +694,7 @@ if (!empty($arResult['ERRORS']))
 			</div>
 		</div><!--crm-webform-edit-task-options-settings-container-->
 	</div>
-	<?
+	<?php 
 	$userBlockController->start('THEME', Loc::getMessage('CRM_WEBFORM_EDIT_THEME_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_THEME_SECTION_NAV'));
 	?>
 	<div class="crm-webform-edit-task-options-item-open-settings">
@@ -702,7 +702,7 @@ if (!empty($arResult['ERRORS']))
 			<div class="crm-webform-edit-task-options-settings-title"><?=Loc::getMessage('CRM_WEBFORM_EDIT_THEME_TITLE')?>:</div>
 		</div><!--crm-webform-edit-task-options-item-open-inner-->
 		<div class="crm-webform-edit-form-type-container">
-			<?foreach($arResult['TEMPLATES'] as $template):
+			<?php foreach($arResult['TEMPLATES'] as $template):
 				$templateId = htmlspecialcharsbx($template['ID']);
 				?>
 				<span class="crm-webform-edit-task-options-form-type">
@@ -716,7 +716,7 @@ if (!empty($arResult['ERRORS']))
 						</span>
 					</label>
 				</span>
-			<?endforeach;?>
+			<?php endforeach;?>
 
 			<div class="crm-webform-edit-task-edit-sent-options-redirect-container">
 				<div class="crm-webform-edit-task-edit-sent-redirect-checkbox-container">
@@ -736,7 +736,7 @@ if (!empty($arResult['ERRORS']))
 					<?=CFile::InputFile('BACKGROUND_IMAGE', '', 0)?>
 					<span id="BACKGROUND_IMAGE_TEXT" style="display: none;"><?=Loc::getMessage('CRM_WEBFORM_EDIT_THEME_UPLOAD_NO')?></span>
 				</div>
-				<?if($arResult['FORM']['BACKGROUND_IMAGE']):?>
+				<?php if($arResult['FORM']['BACKGROUND_IMAGE']):?>
 				<label for="BACKGROUND_IMAGE_del" class="crm-webform-edit-form-type-upload-checkbox-container">
 					<input id="BACKGROUND_IMAGE_del"  name="BACKGROUND_IMAGE_del" value="Y" type="checkbox" class="crm-webform-edit-form-type-upload-checkbox">
 					<span class="crm-webform-edit-form-type-upload-checkbox-element"><?=Loc::getMessage('CRM_WEBFORM_EDIT_THEME_UPLOAD_DEL')?></span>
@@ -744,11 +744,11 @@ if (!empty($arResult['ERRORS']))
 				<div class="crm-webform-edit-form-type-upload-image-container">
 					<img src="<?=htmlspecialcharsbx($arResult['FORM']['BACKGROUND_IMAGE_PATH'])?>" alt="" class="crm-webform-edit-form-type-upload-image">
 				</div>
-				<?endif;?>
+				<?php endif;?>
 			</div><!--crm-webform-edit-task-options-form-type-upload-->
 		</div><!--crm-webform-edit-form-type-container-->
 	</div>
-	<?
+	<?php 
 	$userBlockController->start('CSS', Loc::getMessage('CRM_WEBFORM_EDIT_CSS_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_CSS_SECTION_NAV'));
 	$arResult['FORM']['USE_CSS_TEXT'] = ($arResult['FORM']['CSS_PATH'] || $arResult['FORM']['CSS_TEXT']);
 	?>
@@ -780,7 +780,7 @@ if (!empty($arResult['ERRORS']))
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 	$userBlockController->start('LICENCE', Loc::getMessage('CRM_WEBFORM_EDIT_LICENCE_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_LICENCE_SECTION_NAV'));
 	?>
 		<label for="USE_LICENCE" class="task-field-label">
@@ -791,7 +791,7 @@ if (!empty($arResult['ERRORS']))
 		</label>
 		<div id="LICENCE_CONTAINER" class="crm-webform-edit-userconsent-container <?=($arResult['FORM']['USE_LICENCE'] == 'Y' ? '' : 'crm-webform-display-none')?>">
 
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:intranet.userconsent.selector",
 				"",
 				array(
@@ -812,7 +812,7 @@ if (!empty($arResult['ERRORS']))
 			</div>
 		</div>
 
-	<?
+	<?php 
 	$userBlockController->start('RESULT_ACTIONS', Loc::getMessage('CRM_WEBFORM_EDIT_RESULT_ACTIONS_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_RESULT_ACTIONS_SECTION_NAV'));
 	?>
 	<div class="crm-webform-edit-task-options-item-open-settings">
@@ -891,15 +891,15 @@ if (!empty($arResult['ERRORS']))
 				</span>
 			</label>
 			<select id="RESULT_REDIRECT_DELAY" name="RESULT_REDIRECT_DELAY" class="crm-webform-edit-task-options-rule-select" style="max-width: 100px;">
-				<?foreach($arResult['RESULT_REDIRECT_DELAY_LIST'] as $delay):?>
+				<?php foreach($arResult['RESULT_REDIRECT_DELAY_LIST'] as $delay):?>
 				<option value="<?=htmlspecialcharsbx($delay['VALUE'])?>" <?=($delay['SELECTED'] ? 'selected' : '')?>>
 					<?=htmlspecialcharsbx($delay['NAME'])?>
 				</option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</div><!--crm-webform-edit-task-options-item-open-inner-->
 	</div>
-	<?
+	<?php 
 	$userBlockController->start('SECURITY', Loc::getMessage('CRM_WEBFORM_EDIT_SECURITY_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_SECURITY_SECTION_NAV'));
 	?>
 	<div class="crm-webform-edit-task-options-stylesheet">
@@ -940,12 +940,12 @@ if (!empty($arResult['ERRORS']))
 			<a target="_blank" href="https://www.google.com/recaptcha/"><?=Loc::getMessage('CRM_WEBFORM_EDIT_CAPTCHA_HOW_TO_GET')?></a>
 		</div>
 	</div><!--crm-webform-edit-task-options-metric-create-->
-	<?
+	<?php 
 	if (count($arResult['ADS_FORM']) > 0):
 	$userBlockController->start('ADS', Loc::getMessage('CRM_WEBFORM_EDIT_ADS_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_ADS_SECTION_NAV'));
 	?>
 	<div id="CRM_WEBFORM_ADS_FORM">
-		<?foreach ($arResult['ADS_FORM'] as $adsForm):?>
+		<?php foreach ($arResult['ADS_FORM'] as $adsForm):?>
 			<div style="margin: 0 0 10px 0;">
 				<a href="<?=htmlspecialcharsbx($adsForm['PATH_TO_ADS'])?>"
 					data-bx-ads-button="<?=htmlspecialcharsbx($adsForm['TYPE'])?>"
@@ -955,15 +955,15 @@ if (!empty($arResult['ERRORS']))
 				</a>
 				<?=($adsForm['HAS_LINKS'] ? Loc::getMessage('CRM_WEBFORM_EDIT_ADS_LINKED') : '')?>
 			</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div><!--crm-webform-edit-task-options-metric-create-->
-	<?
+	<?php 
 	endif;
 
 	if($arResult['CALL_BACK_FORM']['CAN_USE']):
 	$userBlockController->start('CALL_BACK_FORM', Loc::getMessage('CRM_WEBFORM_EDIT_CALL_BACK_FORM_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_CALL_BACK_FORM_SECTION_NAV'));
 	?>
-		<?if(count($arResult['CALL_BACK_FORM']['CALL_FROM']) > 0):?>
+		<?php if(count($arResult['CALL_BACK_FORM']['CALL_FROM']) > 0):?>
 		<div class="crm-webform-edit-task-options-stylesheet">
 			<label for="IS_CALLBACK_FORM" class="crm-webform-edit-task-options-stylesheet-label">
 				<input id="IS_CALLBACK_FORM" name="IS_CALLBACK_FORM" value="Y" type="checkbox" <?=($arResult['FORM']['IS_CALLBACK_FORM'] == 'Y' ? 'checked' : '')?> class="crm-webform-edit-task-options-stylesheet-checkbox">
@@ -981,11 +981,11 @@ if (!empty($arResult['ERRORS']))
 				<div class="crm-webform-edit-task-edit-deal-sent-redirect-input-container">
 					<select name="CALL_FROM" class="crm-webform-edit-task-options-rule-select">
 						<option value=""><?=Loc::getMessage('CRM_WEBFORM_EDIT_CALL_BACK_FORM_CALL_FROM_SELECT')?></option>
-						<?foreach($arResult['CALL_BACK_FORM']['CALL_FROM'] as $callFrom):?>
+						<?php foreach($arResult['CALL_BACK_FORM']['CALL_FROM'] as $callFrom):?>
 							<option value="<?=htmlspecialcharsbx($callFrom['ID'])?>" <?=($callFrom['SELECTED'] ? 'selected' : '')?>>
 								<?=htmlspecialcharsbx($callFrom['VALUE'])?>
 							</option>
-						<?endforeach?>
+						<?php endforeach?>
 					</select>
 				</div>
 			</div>
@@ -999,16 +999,16 @@ if (!empty($arResult['ERRORS']))
 				</div>
 			</div>
 		</div>
-		<?else:?>
+		<?php else:?>
 			<?=Loc::getMessage('CRM_WEBFORM_EDIT_CALL_BACK_FORM_NO_NUMBERS')?>
-		<?endif;?>
-	<?
+		<?php endif;?>
+	<?php 
 	endif;
 	if($arResult['FORM']['ID']):
 	$userBlockController->start('SCRIPTS', Loc::getMessage('CRM_WEBFORM_EDIT_SCRIPTS_SECTION'), Loc::getMessage('CRM_WEBFORM_EDIT_SCRIPTS_SECTION_NAV'));
 	?>
 	<div class="crm-webform-edit-task-options-item-open-settings">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:crm.webform.script',
 			'',
@@ -1022,7 +1022,7 @@ if (!empty($arResult['ERRORS']))
 		);
 		?>
 	</div>
-	<?
+	<?php 
 	endif;
 	$userBlockController->end();
 	?>
@@ -1031,22 +1031,22 @@ if (!empty($arResult['ERRORS']))
 
 		<div id="FIXED_OPTION_PLACE" class="crm-webform-edit-task-options task-openable-block">
 
-			<?if($arResult['IS_AVAILABLE_EMBEDDING_PORTAL']):?>
+			<?php if($arResult['IS_AVAILABLE_EMBEDDING_PORTAL']):?>
 			<div class="crm-webform-edit-task-options-item-destination-wrap">
 				<div class="crm-webform-edit-task-options-item crm-webform-edit-task-options-item-destination">
 					<span class="crm-webform-edit-task-options-item-param"><?=Loc::getMessage('CRM_WEBFORM_EDIT_LANGUAGE')?>:</span>
 					<div class="crm-webform-edit-task-options-item-open-inner">
 						<select name="LANGUAGE_ID" class="crm-webform-edit-task-options-rule-select">
-							<?foreach($arResult['LANGUAGES'] as  $languageId => $language):?>
+							<?php foreach($arResult['LANGUAGES'] as  $languageId => $language):?>
 								<option value="<?=htmlspecialcharsbx($languageId)?>" <?=($language['SELECTED'] ? 'selected' : '')?>>
 									<?=htmlspecialcharsbx($language['NAME'])?>
 								</option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
 				</div>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 
 			<div id="CRM_WEBFORM_RESPONSIBLE" class="crm-webform-edit-task-options-item-destination-wrap">
 
@@ -1055,19 +1055,19 @@ if (!empty($arResult['ERRORS']))
 					<div class="crm-webform-edit-task-options-item-open-inner">
 						<div id="crm-webform-edit-responsible" data-config="<?= htmlspecialcharsbx(Json::encode($arResult['CONFIG_ASSIGNED_BY'])) ?>"></div>
 
-						<?if($arResult['ASSIGNED_BY']['IS_SUPPORTED_WORK_TIME']):?>
+						<?php if($arResult['ASSIGNED_BY']['IS_SUPPORTED_WORK_TIME']):?>
 						<div style="margin: 15px 0 0 0;">
 							<label for="ASSIGNED_WORK_TIME" class="crm-webform-edit-task-options-stylesheet-label">
 								<input id="ASSIGNED_WORK_TIME" name="ASSIGNED_WORK_TIME" value="Y" type="checkbox" <?=($arResult['ASSIGNED_BY']['WORK_TIME'] ? 'checked' : '')?> class="crm-webform-edit-task-options-stylesheet-checkbox">
 								<span class="crm-webform-edit-task-options-stylesheet-element"><?=Loc::getMessage('CRM_WEBFORM_EDIT_ASSIGNED_WORK_TIME')?></span>
 							</label>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 				</div>
 
 			</div>
-			<?
+			<?php 
 			$userBlockController->showFixed();
 			?>
 		</div>
@@ -1075,7 +1075,7 @@ if (!empty($arResult['ERRORS']))
 		<div class="task-additional-alt" id="ADDITIONAL_OPTION_BUTTON">
 			<div class="task-additional-alt-more"><?=Loc::getMessage('CRM_WEBFORM_EDIT_NAV_TITLE')?></div>
 			<div class="task-additional-alt-promo">
-				<?
+				<?php 
 				$userBlockController->showNavigation();
 				?>
 			</div>
@@ -1083,21 +1083,21 @@ if (!empty($arResult['ERRORS']))
 
 
 		<div id="ADDITIONAL_OPTION_CONTAINER" class="crm-webform-edit-task-options crm-webform-edit-task-options-more task-openable-block">
-			<?
+			<?php 
 			$userBlockController->show();
 			?>
 		</div>
 	</div>
 
-	<?if($arResult['FORM']['HAS_ADS_FORM_LINKS'] == 'Y'):?>
+	<?php if($arResult['FORM']['HAS_ADS_FORM_LINKS'] == 'Y'):?>
 		<div class="crm-webform-edit-system-warning-cont">
 			<span class="crm-webform-edit-system-warning-text">
 				<?=Loc::getMessage('CRM_WEBFORM_EDIT_SYSTEM_CANT_COPY_ADS')?>
 			</span>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
-	<?$APPLICATION->IncludeComponent("bitrix:ui.button.panel", "", [
+	<?php $APPLICATION->IncludeComponent("bitrix:ui.button.panel", "", [
 		'BUTTONS' => $arResult['PERM_CAN_EDIT']
 			?
 			$arResult['FORM']['IS_READONLY'] === 'Y'
@@ -1143,12 +1143,12 @@ if (!empty($arResult['ERRORS']))
 <div style="display: none;">
 	<div class="crm-webform-edit-task-edit-deal-stage-macros-presets" id="CRM_WEB_FORM_POPUP_PRESET_MACROS">
 		<div class="rm-webform-edit-task-edit-deal-stage-macros-presets-inner">
-			<?foreach($arResult['PRESET_MACROS_LIST'] as $macros):?>
+			<?php foreach($arResult['PRESET_MACROS_LIST'] as $macros):?>
 				<span class="crm-webform-edit-task-edit-deal-stage-macros-presets-item" data-bx-preset-macros="<?=htmlspecialcharsbx($macros['CODE'])?>" title="<?=htmlspecialcharsbx($macros['CODE'] . ' - ' . $macros['DESC'])?>">
 					<?=htmlspecialcharsbx($macros['NAME'])?>
 				</span>
 				<br>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
 	</div>
 	<div id="CRM_WEB_FORM_POPUP_SETTINGS">

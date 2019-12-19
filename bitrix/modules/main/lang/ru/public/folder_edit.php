@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FOLDER_EDIT_FILEMAN_ERROR'] = "Модуль \"Управление структурой\" не установлен.";
 $MESS ['FOLDER_EDIT_ACCESS_DENIED'] = "Доступ к редактированию раздела запрещен.";
 $MESS ['FOLDER_EDIT_WINDOW_TITLE'] = "Свойства раздела";

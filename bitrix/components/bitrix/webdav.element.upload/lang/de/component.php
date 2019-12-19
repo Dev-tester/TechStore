@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACCESS_DENIED'] = "Zugriff verweigert.";
 $MESS ['WD_ERROR_BAD_SECTION'] = "Der Ordner wurde nicht gefunden.";
 $MESS ['WD_TITLE'] = "Dateien hochladen";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBB_DESC_YES"] = "Да";
 $MESS["SBB_DESC_NO"] = "Нет";
 $MESS["SBB_PATH_TO_ORDER"] = "Страница оформления заказа";

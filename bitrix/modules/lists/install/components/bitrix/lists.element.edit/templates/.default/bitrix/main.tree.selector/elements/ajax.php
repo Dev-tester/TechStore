@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("BX_SECURITY_SHOW_MESSAGE", true);
 
@@ -153,22 +153,22 @@ if(isset($_GET['value']))
 <div class="title">
 <table cellspacing="0" width="100%">
 	<tr>
-		<td width="100%" class="title-text" onmousedown="jsFloatDiv.StartDrag(arguments[0], document.getElementById('<?echo $win_id?>'));">&nbsp;</td>
-		<td width="0%"><a class="close" href="javascript:document.getElementById('<?echo $win_id?>').__object.CloseDialog();" title="<?=GetMessage("CT_BMTS_WINDOW_CLOSE")?>"></a></td>
+		<td width="100%" class="title-text" onmousedown="jsFloatDiv.StartDrag(arguments[0], document.getElementById('<?php echo $win_id?>'));">&nbsp;</td>
+		<td width="0%"><a class="close" href="javascript:document.getElementById('<?php echo $win_id?>').__object.CloseDialog();" title="<?=GetMessage("CT_BMTS_WINDOW_CLOSE")?>"></a></td>
 	</tr>
 </table>
 </div>
 <script>
-var current_selected = <?echo CUtil::PhpToJsObject(array_values($arValues))?>;
+var current_selected = <?php echo CUtil::PhpToJsObject(array_values($arValues))?>;
 </script>
 <div class="content" id="_f_popup_content" style="height: 400px; overflow-x: hidden; oveflow-y: auto; padding: 0px;"><input id="bx_emp_search_control" type="text" style="width: 99.99%" value="" autocomplete="off" />
 
 <script>
-document.getElementById('<?echo $win_id?>').__object.InitControl('bx_emp_search_control');
+document.getElementById('<?php echo $win_id?>').__object.InitControl('bx_emp_search_control');
 </script>
 
 <div class="mts-section-list" id="mts_search_layout">
-<?
+<?php 
 	function EmployeeDrawStructure($arStructure, $arSections, $key, $win_id)
 	{
 		foreach ($arStructure[$key] as $ID)
@@ -226,7 +226,7 @@ document.getElementById('<?echo $win_id?>').__object.InitControl('bx_emp_search_
 
 ?>
 <script>
-<?
+<?php 
 	if (count($arOpenedSections) > 0)
 	{
 		$arSectionList = array();
@@ -239,21 +239,21 @@ document.getElementById('<?echo $win_id?>').__object.InitControl('bx_emp_search_
 				$arSectionList[] = $opened_section;
 
 ?>
-document.getElementById('<?echo $win_id?>').__object.LoadSection('<?echo intval($opened_section)?>', true);
-<?
+document.getElementById('<?php echo $win_id?>').__object.LoadSection('<?php echo intval($opened_section)?>', true);
+<?php 
 				$opened_section = $arSections[$opened_section]['IBLOCK_SECTION_ID'];
 			}
 		}
 	}
 ?>
-	document.getElementById('<?echo $win_id?>').__object.LoadSection('0', true);
+	document.getElementById('<?php echo $win_id?>').__object.LoadSection('0', true);
 </script>
 	</div>
 </div>
 <div class="buttons">
-	<input type="button" id="submitbtn" value="<?echo GetMessage('CT_BMTS_SUBMIT')?>" onclick="document.getElementById('<?echo $win_id?>').__object.ElementSet();" />
-	<input type="button" value="<?echo GetMessage('CT_BMTS_CANCEL')?>" onclick="document.getElementById('<?echo $win_id?>').__object.CloseDialog();" />
+	<input type="button" id="submitbtn" value="<?php echo GetMessage('CT_BMTS_SUBMIT')?>" onclick="document.getElementById('<?php echo $win_id?>').__object.ElementSet();" />
+	<input type="button" value="<?php echo GetMessage('CT_BMTS_CANCEL')?>" onclick="document.getElementById('<?php echo $win_id?>').__object.CloseDialog();" />
 </div>
-<?
+<?php 
 }
 ?>

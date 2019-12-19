@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOL_TPL_EMPTY_ORDER_LIST"] = "Текущие заказы не найдены";
 $MESS["SPOL_TPL_EMPTY_HISTORY_ORDER_LIST"] = "История заказов отсутствует";
 $MESS["SPOL_TPL_EMPTY_CANCELED_ORDER"] = "Отмененных заказов нет";

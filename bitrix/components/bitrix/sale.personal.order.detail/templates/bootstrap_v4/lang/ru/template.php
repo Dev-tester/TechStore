@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOD_ORDER"] = "Заказ";
 $MESS["SPOD_FROM"] = "от";
 $MESS["SPOD_ORDER_STATUS"] = "Текущий статус";

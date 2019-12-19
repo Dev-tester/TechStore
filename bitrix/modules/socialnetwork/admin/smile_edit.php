@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -220,7 +220,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 			"TEXT" => GetMessage("FSN_2FLIST"),
@@ -248,15 +248,15 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($strErrorMessage);?>
+<?php CAdminMessage::ShowMessage($strErrorMessage);?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="fform" enctype="multipart/form-data">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="fform" enctype="multipart/form-data">
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("FSN_TAB_SMILE"), "ICON" => "sonet", "TITLE" => GetMessage("FSN_TAB_SMILE_DESCR"))
 );
@@ -268,42 +268,42 @@ $tabControl->BeginNextTab();
 
 if ($ID > 0):
 ?><tr>
-	<td width="40%"><?echo GetMessage("SONET_CODE")?>:</td>
-	<td width="60%"><?echo $ID ?></td>
-</tr><?
+	<td width="40%"><?php echo GetMessage("SONET_CODE")?>:</td>
+	<td width="60%"><?php echo $ID ?></td>
+</tr><?php 
 endif;
 ?><tr>
-	<td width="40%"><?echo GetMessage("SONET_SORT")?>:</td>
+	<td width="40%"><?php echo GetMessage("SONET_SORT")?>:</td>
 	<td width="60%">
-		<input type="text" name="SORT" value="<?echo $str_SORT ?>" size="10">
+		<input type="text" name="SORT" value="<?php echo $str_SORT ?>" size="10">
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SONET_TYPE")?>:</td>
+	<td><?php echo GetMessage("SONET_TYPE")?>:</td>
 	<td>
 		<select name="SMILE_TYPE">
-			<option value="S" <?if ($str_SMILE_TYPE=="S") echo "selected";?>><?echo GetMessage("FSE_SMILE");?></option>
-			<option value="I" <?if ($str_SMILE_TYPE=="I") echo "selected";?>><?echo GetMessage("FSE_ICON");?></option>
+			<option value="S" <?php if ($str_SMILE_TYPE=="S") echo "selected";?>><?php echo GetMessage("FSE_SMILE");?></option>
+			<option value="I" <?php if ($str_SMILE_TYPE=="I") echo "selected";?>><?php echo GetMessage("FSE_ICON");?></option>
 		</select>
 	</td>
 </tr>
 <tr>
-	<td valign="top"><?echo GetMessage("SONET_TYPING")?>:<br><small><?echo GetMessage("SONET_TYPING_NOTE")?></small></td>
+	<td valign="top"><?php echo GetMessage("SONET_TYPING")?>:<br><small><?php echo GetMessage("SONET_TYPING_NOTE")?></small></td>
 	<td valign="top">
-		<input type="text" name="TYPING" value="<?echo $str_TYPING ?>" size="50">
+		<input type="text" name="TYPING" value="<?php echo $str_TYPING ?>" size="50">
 	</td>
 </tr>
 
 <tr class="adm-detail-required-field">
-	<td class="adm-detail-valign-top"><?echo GetMessage("SONET_IMAGE")?>:<br><small><?echo GetMessage("SONET_IMAGE_NOTE")?></small></td>
+	<td class="adm-detail-valign-top"><?php echo GetMessage("SONET_IMAGE")?>:<br><small><?php echo GetMessage("SONET_IMAGE_NOTE")?></small></td>
 	<td>
-		<input type="file" name="IMAGE1" size="30"><?
+		<input type="file" name="IMAGE1" size="30"><?php 
 		if (strlen($f_IMAGE)>0)
 		{
-			?><div style="padding-top: 10px;"><img src="/bitrix/images/socialnetwork/<?echo ($f_SMILE_TYPE=="I")?"icon":"smile" ?>/<?echo $f_IMAGE?>" border="0" <?echo (IntVal($f_IMAGE_WIDTH)>0) ? "width=\"".$f_IMAGE_WIDTH."\"" : "" ?> <?echo (IntVal($f_IMAGE_WIDTH)>0) ? "height=\"".$f_IMAGE_HEIGHT."\"" : "" ?>></div><?
+			?><div style="padding-top: 10px;"><img src="/bitrix/images/socialnetwork/<?php echo ($f_SMILE_TYPE=="I")?"icon":"smile" ?>/<?php echo $f_IMAGE?>" border="0" <?php echo (IntVal($f_IMAGE_WIDTH)>0) ? "width=\"".$f_IMAGE_WIDTH."\"" : "" ?> <?php echo (IntVal($f_IMAGE_WIDTH)>0) ? "height=\"".$f_IMAGE_HEIGHT."\"" : "" ?>></div><?php 
 		}
 	?></td>
-</tr><?
+</tr><?php 
 
 for ($i = 0; $i < count($arSysLangs); $i++):
 	$arSmileLang = CSocNetSmile::GetLangByID($ID, $arSysLangs[$i]);
@@ -315,16 +315,16 @@ for ($i = 0; $i < count($arSysLangs); $i++):
 		$str_DESCRIPTION = htmlspecialcharsbx(${"DESCRIPTION_".$arSysLangs[$i]});
 	}
 	?><tr class="heading">
-		<td colspan="2">[<?echo $arSysLangs[$i];?>] <?echo $arSysLangNames[$i];?></td>
+		<td colspan="2">[<?php echo $arSysLangs[$i];?>] <?php echo $arSysLangNames[$i];?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td>
-			<?echo GetMessage("SONET_NAME")?>:
+			<?php echo GetMessage("SONET_NAME")?>:
 		</td>
 		<td>
-			<input type="text" name="NAME_<?echo $arSysLangs[$i] ?>" value="<?echo $str_NAME ?>" size="40">
+			<input type="text" name="NAME_<?php echo $arSysLangs[$i] ?>" value="<?php echo $str_NAME ?>" size="40">
 		</td>
-	</tr><?
+	</tr><?php 
 endfor;
 
 $tabControl->EndTab();
@@ -339,4 +339,4 @@ $tabControl->Buttons(
 $tabControl->End();
 
 ?></form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_PRODUCT_ID'] = "Идентификатор";
 $MESS ['SALE_NAME'] = "Название товара";
 $MESS ['SALE_COUNT'] = "Количество корзин";

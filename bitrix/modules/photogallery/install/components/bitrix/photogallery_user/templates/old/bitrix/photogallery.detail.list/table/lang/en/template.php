@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_SELECT_ALL'] = "Select all";
 $MESS ['P_DELETE_SELECTED'] = "Delete selected photos";
 $MESS ['P_DELETE_CONFIRM'] = "Are sure you want to delete photos irreversibly?";

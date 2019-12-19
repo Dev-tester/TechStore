@@ -66,7 +66,7 @@ if(!function_exists("qiwiWalletXmlResponse"))
 		$APPLICATION->RestartBuffer();
 		header("Content-Type: text/xml");
 		header("Pragma: no-cache");
-		$xml = '<?xml version="1.0" encoding="UTF-8"?><result><result_code>' . $code . '</result_code></result>';
+		$xml = '<?php xml version="1.0" encoding="UTF-8"?><result><result_code>' . $code . '</result_code></result>';
 		$siteCharset = Application::getInstance()->getContext()->getCulture()->getCharset();
 		print \CharsetConverter::getInstance()->ConvertCharset($xml, $siteCharset, "utf-8");
 		die();

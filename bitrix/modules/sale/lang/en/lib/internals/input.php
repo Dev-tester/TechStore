@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INPUT_TYPE"] = "Type";
 $MESS["INPUT_REQUIRED"] = "Required";
 $MESS["INPUT_REQUIRED_ERROR"] = "this field is required";

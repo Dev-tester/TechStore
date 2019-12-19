@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (!empty($arResult["ITEMS"])):?>
+<?php if (!empty($arResult["ITEMS"])):?>
 
 <div class="learn-course-tree">
 	<ul>
 
-	<?
+	<?php 
 		$bracketLevel = 0;
 		foreach ($arResult["ITEMS"] as $arItem):
 			if ( $arItem["DEPTH_LEVEL"] <= $bracketLevel )
@@ -16,11 +16,11 @@
 			}
 		?>
 
-		<?if ($arItem["TYPE"] == "CH"):
+		<?php if ($arItem["TYPE"] == "CH"):
 			$bracketLevel++;
 
 		?>
-			<li<?if($arItem["CHAPTER_OPEN"] === false):?> class="close"<?elseif($arItem["SELECTED"] === true):?> class="selected"<?endif?>>
+			<li<?php if($arItem["CHAPTER_OPEN"] === false):?> class="close"<?php elseif($arItem["SELECTED"] === true):?> class="selected"<?php endif?>>
 				<div class="chapter" <?php if (!$arItem['DELAYED']) { ?>onClick="JMenu.OpenChapter(this,'<?=$arItem["ID"]?>')"<?php } ?>></div>
 				<div class="item-text"><a 
 					<?php if ($arItem['DELAYED']) echo 'style="color:gray;"'; ?>
@@ -29,7 +29,7 @@
 						echo $arItem["URL"];
 					else
 						echo 'javascript:void(0);';
-				?>"<?if($arItem["SELECTED"]):?> class="selected"<?endif?>><?php
+				?>"<?php if($arItem["SELECTED"]):?> class="selected"<?php endif?>><?php
 					echo $arItem["NAME"];
 					if ($arItem['DELAYED'])
 					{
@@ -43,7 +43,7 @@
 					}
 					?></a></div>
 				<ul>
-		<?elseif($arItem["TYPE"] == "LE"):?>
+		<?php elseif($arItem["TYPE"] == "LE"):?>
 			<li>
 				<div class="lesson"></div>
 				<div class="item-text"><a <?php if ($arItem['DELAYED']) echo 'style="color:gray;"'; ?> 
@@ -52,7 +52,7 @@
 						echo $arItem["URL"];
 					else
 						echo 'javascript:void(0);';
-				?>"<?if($arItem["SELECTED"]):?> class="selected"<?endif?>><?php
+				?>"<?php if($arItem["SELECTED"]):?> class="selected"<?php endif?>><?php
 					echo $arItem["NAME"];
 					if ($arItem['DELAYED'])
 					{
@@ -66,19 +66,19 @@
 					}
 					?></a></div>
 			</li>
-		<?elseif($arItem["TYPE"] == "CD"):?>
+		<?php elseif($arItem["TYPE"] == "CD"):?>
 			<li>
 				<div class="course-detail"></div>
-				<div class="item-text"><a href="<?=$arItem["URL"]?>"<?if($arItem["SELECTED"]):?> class="selected"<?endif?>><?=$arItem["NAME"]?></a></div>
+				<div class="item-text"><a href="<?=$arItem["URL"]?>"<?php if($arItem["SELECTED"]):?> class="selected"<?php endif?>><?=$arItem["NAME"]?></a></div>
 			</li>
-		<?elseif($arItem["TYPE"] == "TL"):?>
+		<?php elseif($arItem["TYPE"] == "TL"):?>
 			<li>
 				<div class="test-list"></div>
-				<div class="item-text"><a href="<?=$arItem["URL"]?>"<?if($arItem["SELECTED"]):?> class="selected"<?endif?>><?=$arItem["NAME"]?></a></div>
+				<div class="item-text"><a href="<?=$arItem["URL"]?>"<?php if($arItem["SELECTED"]):?> class="selected"<?php endif?>><?=$arItem["NAME"]?></a></div>
 			</li>
-		<?endif?>
+		<?php endif?>
 
-	<?endforeach?>
+	<?php endforeach?>
 
 	</ul>
 </div>
@@ -87,4 +87,4 @@
 	var JMenu = new JCMenu('<?=(array_key_exists("LEARN_MENU_".$arParams["COURSE_ID"],$_COOKIE ) ? CUtil::JSEscape($_COOKIE["LEARN_MENU_".$arParams["COURSE_ID"]]) :"")?>', '<?=$arParams["COURSE_ID"]?>');
 </script>
 
-<?endif?>
+<?php endif?>

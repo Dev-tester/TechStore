@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $bTask = CBXFeatures::IsFeatureEnabled('tasks') && IsModuleInstalled('tasks');
@@ -24,7 +24,7 @@ if ($bTask)
 
 <div class="webform-round-corners webform-additional-block webform-additional-block-topless">
 	<div class="webform-content" id="agenda_block">
-<?
+<?php 
 $display = (!$arParams['COPY'] && $arResult['MEETING']['CURRENT_STATE'] && $arResult['MEETING']['CURRENT_STATE'] !== CMeeting::STATE_PREPARE) ? 'block' : 'none';
 ?>
 		<div class="meeting-detail-tabs-wrap" id="switcher" style="display: <?=$display;?>">
@@ -55,7 +55,7 @@ $display = (!$arParams['COPY'] && $arResult['MEETING']['CURRENT_STATE'] && $arRe
 			</div>
 			<div id="agenda_blocks_outside" class="meeting-agenda-blocks-outside"></div>
 		</div>
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 	$APPLICATION->IncludeComponent(
 		"bitrix:meeting.selector",
@@ -72,7 +72,7 @@ if ($arResult['CAN_EDIT']):
 	if ($bTask):
 ?>
 <div id="task_selector" style="display: none;">
-<?
+<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:tasks.task.selector",
 		".default",
@@ -90,7 +90,7 @@ if ($arResult['CAN_EDIT']):
 	);
 ?>
 </div>
-<?
+<?php 
 	endif;
 ?>
 		<span class="meeting-agenda-add-item-wrap meeting-agenda-protocol-visible">
@@ -99,13 +99,13 @@ if ($arResult['CAN_EDIT']):
 		<span class="meeting-agenda-add-item-wrap meeting-agenda-protocol-visible">
 			<a class="meeting-agenda-add-item meeting-dash-link" href="javascript:void(0)" onclick="showMeetingSelector(this)"><?=GetMessage('ME_ADD_EX')?></a>
 		</span>
-<?
+<?php 
 	if ($bTask):
 ?>
 		<span class="meeting-agenda-add-item-wrap meeting-agenda-protocol-visible">
 			<a href="javascript:void(0)" onclick="showTaskSelector(this)" class="meeting-agenda-add-item meeting-dash-link"><?=GetMessage('ME_TASK_ADD')?></a>
 		</span>
-<?
+<?php 
 	endif;
 ?>
 		<div class="meeting-agenda-add-item-wrap meeting-agenda-agenda-visible meeting-toolbar-layout" id="meeting_toolbar_layout">
@@ -113,21 +113,21 @@ if ($arResult['CAN_EDIT']):
 					<span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=GetMessage('ME_AGENDA_ADD')?></span><span class="webform-small-button-right"></span>
 			</a>
 			<a class="meeting-agenda-bot-link meeting-dash-link" href="javascript:void(0)" onclick="showMeetingSelector(this)"><?=GetMessage('ME_ADD_EX')?></a>
-<?
+<?php 
 	if ($bTask && $arResult['CAN_EDIT']):
 ?>
 			<a href="javascript:void(0)" onclick="showTaskSelector(this)" class="meeting-agenda-bot-link meeting-dash-link"><?=GetMessage('ME_TASK_ADD')?></a>
-<?
+<?php 
 	endif;
 ?>
 		</div>
-<?
+<?php 
 endif;
 if ($arResult['CAN_EDIT'] || strlen($arResult['MEETING']['PROTOCOL_TEXT']) > 0):
 ?>
 		<div class="meeting-agenda-protocol-text meeting-agenda-protocol-visible">
 			<span class="meeting-new-agenda-title"><?=GetMessage('ME_PROTO')?></span>
-<?
+<?php 
 	if ($arResult['CAN_EDIT']):
 		$editor_id = "MEProto";
 
@@ -147,7 +147,7 @@ BX.addCustomEvent(window, 'LHE_OnInit', function(ed) {
 	}
 });
 </script>
-<?
+<?php 
 		$APPLICATION->IncludeComponent('bitrix:fileman.light_editor', '', array(
 			'ID' => $editor_id,
 			'CONTENT' => $arResult['MEETING']['~PROTOCOL_TEXT'],
@@ -161,11 +161,11 @@ BX.addCustomEvent(window, 'LHE_OnInit', function(ed) {
 	else:
 ?>
 		<div class="meeting-agenda-protocol-text-content"><?=$arResult['MEETING']['~PROTOCOL_TEXT'];?></div>
-<?
+<?php 
 	endif;
 ?>
 		</div>
-<?
+<?php 
 endif;
 ?>
 	</div>
@@ -174,22 +174,22 @@ endif;
 		<div class="webform-right-corner"></div>
 	</div>
 </div>
-<?
+<?php 
 if (is_array($arResult['MEETING']['AGENDA'])):
 ?>
 <script type="text/javascript">BX.ready(function(){
-<?
+<?php 
 	foreach ($arResult['MEETING']['AGENDA'] as $item_id => $arItem):
 		if (MakeTimeStamp($arItem['DEADLINE'])<=0)
 			$arItem['DEADLINE'] = '';
 ?>
 addRow(<?=CUtil::PhpToJsObject($arItem, false, true)?>, null);
-<?
+<?php 
 	endforeach;
 ?>
 
 });</script>
-<?
+<?php 
 endif;
 ?>
 <script type="text/javascript">
@@ -235,7 +235,7 @@ function updateSelect(copy)
 	}
 }
 
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 function editRow(row, bSkipFocus)
@@ -312,7 +312,7 @@ function viewRow(row, bSave)
 
 	return new_row;
 }
-<?
+<?php 
 endif;
 ?>
 function addRow(data, previousSibling, bReturn)
@@ -369,11 +369,11 @@ function addRow(data, previousSibling, bReturn)
 	var bChecked = data.INSTANCE_TYPE == '<?=CMeetingInstance::TYPE_AGENDA?>';
 
 	h += '<div class="meeting-ag-block-title-wrap' + (bChecked ? ' meeting-ag-cont-block-checked' : '')+'">';
-<?
+<?php 
 if($arResult['CAN_EDIT']):
 ?>
 	h += '<div class="meeting-sub-bl-checkbox-wrap' + (bChecked ? ' meeting-checkbox-checked' : '') + '" onmousedown="BX.PreventDefault(arguments[0])" onclick="checkboxClick(this)" title="<?=CUtil::JSEscape(htmlspecialcharsbx(GetMessage('ME_AGENDA_TT_CHECK')))?>"></div>';
-<?
+<?php 
 endif;
 ?>
 	h += '<span class="meet-ag-block-title-num bx-list-number"></span>\
@@ -495,14 +495,14 @@ endif;
 </div>\
 <div class="meeting-comments-wrap" id="agenda_item_comments_'+key+'" style="display: none;"><span onclick="toggleComments(null, this.parentNode);" class="meeting-hide-com meeting-dash-link"><?=CUtil::JSEscape(GetMessage('ME_AGENDA_HIDE_COMMENTS'))?></span><div></div></div></div></div></div>\
 <div class="meeting-ag-block-bottom"><div class="meeting-ag-block-bl"></div><div class="meeting-ag-block-br"></div></div>';
-<?
+<?php 
 if($arResult['CAN_EDIT']):
 ?>
 	h += '\
 <div class="meeting-ag-edit-block"><div class="meeting-ag-edit-bl-cont"><div class="meeting-ag-edit-close" onmousedown="BX.PreventDefault(arguments[0])" onclick="deleteRow(\''+key+'\', BX.findParent(this, window.listItemParams.isItem));" title="<?=CUtil::JSEscape(htmlspecialcharsbx(GetMessage('ME_AGENDA_TT_DELETE')))?>"></div><div class="meeting-ag-edit-edit" onmousedown="BX.PreventDefault(arguments[0])" onclick="editRow(BX.findParent(this, window.listItemParams.isItem));" title="<?=CUtil::JSEscape(htmlspecialcharsbx(GetMessage('ME_AGENDA_TT_EDIT')))?>"></div></div>\
 <div class="meeting-ag-edit-bl-top"></div><div class="meeting-ag-edit-bl-bot"></div></div>\
 <div class="meeting-ag-add-sub-item" title="<?=CUtil::JSEscape(htmlspecialcharsbx(GetMessage('ME_AGENDA_TT_ADDSUB')))?>"><span  onmousedown="BX.PreventDefault(arguments[0])" onclick="plusClick(this)"></span></div><div class="meeting-ag-draggable" title="<?=CUtil::JSEscape(htmlspecialcharsbx(GetMessage('ME_AGENDA_TT_DRAG')))?>"></div><div  onmousedown="BX.PreventDefault(arguments[0])" onclick="shiftRow(this.parentNode)" class="meeting-ag-shift" title="<?=CUtil::JSEscape(htmlspecialcharsbx(GetMessage('ME_AGENDA_TT_SHIFT')))?>"></div>';
-<?
+<?php 
 endif;
 ?>
 
@@ -552,7 +552,7 @@ endif;
 		p.insertBefore(row, q);
 		updateIndexes();
 	}
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 	row.onbxdragstart = rowDragStart;
@@ -569,12 +569,12 @@ if ($arResult['CAN_EDIT']):
 	}
 
 	jsDD.registerObject(row);
-<?
+<?php 
 endif;
 ?>
 	return row;
 }
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 function deleteRow(item_id, row, bShiftChildren, bSkipConfirm)
@@ -830,7 +830,7 @@ function addTaskRow(task)
 	window.task_selector_wnd.close();
 	saveData();
 }
-<?
+<?php 
 endif;
 ?>
 
@@ -879,7 +879,7 @@ function toggleComments(row, com_row, display)
 			if (com_row.bx_comments)
 				BX.toggle(com_row.bx_comments);
 		}
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 		if (com_row.style.display == 'block')
@@ -888,7 +888,7 @@ if ($arResult['CAN_EDIT']):
 		{
 			jsDD.Enable();
 		}
-<?
+<?php 
 endif;
 ?>
 		if (com_row && row && !row.BXINSTANCECOMMENTSLOADED && display != 'none')
@@ -1029,7 +1029,7 @@ function showReport(r, el)
 	window['BXREPORTPOPUP_'+r].show();
 }
 
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 /* drag'n'drop */
@@ -1121,22 +1121,22 @@ function rowDragHover(dest, x, y)
 		}
 	}
 }
-<?
+<?php 
 endif;
 ?>
 BX.ready(function()
 {
 window.listItemParams.startDiv = [BX('agenda_blocks'), BX('agenda_blocks_outside')];
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 	if (!$arResult['MEETING']['AGENDA']):
 ?>
 	editRow(addRow({EDITABLE: true}, null), true);
-<?
+<?php 
 	endif;
 ?>
 	jsDD.refreshDestArea();
-<?
+<?php 
 endif;
 ?>
 });

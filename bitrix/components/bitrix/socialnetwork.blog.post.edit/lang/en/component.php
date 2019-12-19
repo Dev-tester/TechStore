@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BLG_GRP_NAME'] = "Started in";
 $MESS['BLOG_BLOG_BLOG_MES_DEL_ERROR'] = "Error deleting message";
 $MESS['BLOG_BLOG_BLOG_MES_DEL_NO_RIGHTS'] = "You do not have permission to delete this message";

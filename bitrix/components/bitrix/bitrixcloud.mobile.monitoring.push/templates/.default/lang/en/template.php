@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCMMP_TITLE"] = "Website Inspector";
 $MESS["BCMMP_TITLE2"] = "Configure PUSH notifications";
 $MESS["BCMMP_DOMAINS_TITLE"] = "Domains";

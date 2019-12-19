@@ -36,7 +36,7 @@ if($arResult['ERRORS']->count() > 0)
 
 		</td>
 	</tr>
-<?
+<?php 
 if(count($arResult['CLIENT_ACCESS']) > 0)
 {
 ?>
@@ -44,7 +44,7 @@ if(count($arResult['CLIENT_ACCESS']) > 0)
 		<td style="padding-bottom: 20px;">
 			<?=\Bitrix\Main\Localization\Loc::getMessage('RAPC_ACCESS')?>
 			<ul>
-<?
+<?php 
 	foreach($arResult['CLIENT_ACCESS'] as $scope)
 	{
 		$scopeName = GetMessage("REST_SCOPE_".toUpper($scope));
@@ -60,7 +60,7 @@ if(count($arResult['CLIENT_ACCESS']) > 0)
 			</ul>
 		</td>
 	</tr>
-<?
+<?php 
 }
 ?>
 	<tr>

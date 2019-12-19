@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Корпоративным клиентам");
 ?>
@@ -13,4 +13,4 @@ $APPLICATION->SetTitle("Корпоративным клиентам");
     <li><a href="ibank.php">Интернет-банкинг</a></li> 
 </ul> 	
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

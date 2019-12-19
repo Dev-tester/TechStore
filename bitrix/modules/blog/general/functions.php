@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Config\Option;
 
 IncludeModuleLangFile(__FILE__);
@@ -695,7 +695,7 @@ class CBlogTools
 					<div class="feed-com-files">
 						<div class="feed-com-files-title"><?=GetMessage('BLOG_FILES')?></div>
 						<div class="feed-com-files-cont">
-				<?
+				<?php 
 			}
 			foreach ($arResult['VALUE'] as $fileID)
 			{
@@ -720,7 +720,7 @@ class CBlogTools
 							<span class="feed-con-file-size">(<?=$arFile['FILE_SIZE']?>)</span>
 							</div>
 						</div>
-					<?
+					<?php 
 				}
 			}
 			if (sizeof($arResult['VALUE']) > 0)
@@ -728,7 +728,7 @@ class CBlogTools
 				?>
 						</div>
 					</div>
-				<?
+				<?php 
 			}
 			$result = true;
 		}

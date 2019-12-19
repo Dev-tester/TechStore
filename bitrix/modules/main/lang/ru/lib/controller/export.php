@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_EXPORT_COMPLETED"] = "Формирование файла экспорта завершено.";
 $MESS["MAIN_EXPORT_ACTION_CANCEL"] = "Выгрузка данных отменена.";
 $MESS["MAIN_EXPORT_ACTION_EXPORT"] = "Обработано записей: #PROCESSED_ITEMS# из #TOTAL_ITEMS#. Размер файла: #FILE_SIZE_FORMAT#.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_W_TITLE"] = "eBay Connection Wizard";
 $MESS["SALE_EBAY_W_ERROR"] = "Error";
 $MESS["SALE_EBAY_W_SALE_NOT_INSTALLED"] = "The e-Store module is not installed.";

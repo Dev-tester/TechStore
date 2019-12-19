@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/options.php");
 CModule::IncludeModule('calendar');
@@ -186,7 +186,7 @@ $tabControl->Begin();
 ?>
 <form method="post" name="cal_opt_form" action="<?= $APPLICATION->GetCurPage()?>?mid=<?= urlencode($mid)?>&amp;lang=<?= LANGUAGE_ID?>">
 <?= bitrix_sessid_post();?>
-<?
+<?php 
 $arDays = Array('MO', 'TU', 'WE', 'TH', 'FR', 'SA', 'SU');
 
 $arWorTimeList = array();
@@ -201,15 +201,15 @@ $tabControl->BeginNextTab();
 		<td><label for="cal_work_time"><?= GetMessage("CAL_WORK_TIME")?>:</label></td>
 		<td>
 			<select id="cal_work_time" name="work_time_start">
-				<?foreach($arWorTimeList as $key => $val):?>
-					<option value="<?= $key?>" <? if ($SET['work_time_start'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
-				<?endforeach;?>
+				<?php foreach($arWorTimeList as $key => $val):?>
+					<option value="<?= $key?>" <?php  if ($SET['work_time_start'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
+				<?php endforeach;?>
 			</select>
 			&mdash;
 			<select id="cal_work_time" name="work_time_end">
-				<?foreach($arWorTimeList as $key => $val):?>
-					<option value="<?= $key?>" <? if ($SET['work_time_end'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
-				<?endforeach;?>
+				<?php foreach($arWorTimeList as $key => $val):?>
+					<option value="<?= $key?>" <?php  if ($SET['work_time_end'] == $key){echo ' selected="selected" ';}?>><?= $val?></option>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -218,20 +218,20 @@ $tabControl->BeginNextTab();
 		<td style="vertical-align: top;"><label for="cal_week_holidays"><?= GetMessage("CAL_WEEK_HOLIDAYS")?>:</label></td>
 		<td>
 			<select size="7" multiple=true id="cal_week_holidays" name="week_holidays[]">
-				<?foreach($arDays as $day):?>
-					<option value="<?= $day?>" <?if (in_array($day, $SET['week_holidays'])){echo ' selected="selected"';}?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
-				<?endforeach;?>
+				<?php foreach($arDays as $day):?>
+					<option value="<?= $day?>" <?php if (in_array($day, $SET['week_holidays'])){echo ' selected="selected"';}?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
-	<? /*
+	<?php  /*
 	<tr>
 		<td><label for="cal_week_start"><?= GetMessage("CAL_OPTION_FIRSTDAY")?>:</label></td>
 		<td>
 			<select id="cal_week_start" name="week_start">
-				<?foreach($arDays as $day):?>
-					<option value="<?= $day?>" <? if ($SET['week_start'] == $day){echo ' selected="selected" ';}?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
-				<?endforeach;?>
+				<?php foreach($arDays as $day):?>
+					<option value="<?= $day?>" <?php  if ($SET['week_start'] == $day){echo ' selected="selected" ';}?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -249,7 +249,7 @@ $tabControl->BeginNextTab();
 			<input name="year_workdays" type="text" value="<?= htmlspecialcharsbx($SET['year_workdays'])?>" id="cal_year_workdays" size="60"/>
 		</td>
 	</tr>
-	<?if (CCalendar::IsIntranetEnabled()):?>
+	<?php if (CCalendar::IsIntranetEnabled()):?>
 	<tr>
 		<td><label for="cal_user_name_template"><?= GetMessage("CAL_USER_NAME_TEMPLATE")?>:</label></td>
 		<td>
@@ -257,19 +257,19 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
     <tr>
-        <td><input name="sync_by_push" type="checkbox" value="Y" id="cal_sync_by_push" <?if($SET['sync_by_push']){echo'checked';}?>/></td>
+        <td><input name="sync_by_push" type="checkbox" value="Y" id="cal_sync_by_push" <?php if($SET['sync_by_push']){echo'checked';}?>/></td>
         <td>
             <label for="cal_sync_by_push"><?= GetMessage("CAL_SYNC_BY_PUSH")?></label>
         </td>
     </tr>
 	<tr>
-		<td><input name="user_show_login" type="checkbox" value="Y" id="cal_user_show_login" <?if($SET['user_show_login']){echo'checked';}?>/></td>
+		<td><input name="user_show_login" type="checkbox" value="Y" id="cal_user_show_login" <?php if($SET['user_show_login']){echo'checked';}?>/></td>
 		<td>
 			<label for="cal_user_show_login"><?= GetMessage("CAL_USER_SHOW_LOGIN")?></label>
 		</td>
 	</tr>
 	<tr title="<?= GetMessage('CAL_DEP_MANAGER_SUB_TITLE')?>">
-		<td><input name="dep_manager_sub" type="checkbox" value="Y" id="cal_dep_manager_sub" <?if($SET['dep_manager_sub']){echo'checked';}?>/></td>
+		<td><input name="dep_manager_sub" type="checkbox" value="Y" id="cal_dep_manager_sub" <?php if($SET['dep_manager_sub']){echo'checked';}?>/></td>
 		<td>
 			<label for="cal_dep_manager_sub"><?= GetMessage("CAL_DEP_MANAGER_SUB")?></label>
 		</td>
@@ -278,9 +278,9 @@ $tabControl->BeginNextTab();
 		<td style="vertical-align: top;"><label for="denied_superpose_types"><?= GetMessage("CAL_SP_TYPES")?>:</label></td>
 		<td>
 			<select size="3" multiple=true id="denied_superpose_types" name="denied_superpose_types[]">
-				<?foreach($arTypes as $type):?>
-					<option value="<?= $type["XML_ID"]?>" <?if (!in_array($type["XML_ID"], $SET['denied_superpose_types'])){echo ' selected="selected"';}?>><?= htmlspecialcharsex($type["NAME"])?></option>
-				<?endforeach;?>
+				<?php foreach($arTypes as $type):?>
+					<option value="<?= $type["XML_ID"]?>" <?php if (!in_array($type["XML_ID"], $SET['denied_superpose_types'])){echo ' selected="selected"';}?>><?= htmlspecialcharsex($type["NAME"])?></option>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -288,13 +288,13 @@ $tabControl->BeginNextTab();
 	<!-- Path parameters title -->
 	<tr class="heading"><td colSpan="2"><?= GetMessage('CAL_PATH_TITLE')?></td></tr>
 
-	<?
+	<?php 
 	$arPathes = CCalendar::GetPathesList();
 	$commonForSites = $SET['pathes_for_sites'];
 	if (count($sites) > 1):?>
 	<tr>
 		<td>
-		<input name="pathes_for_sites" type="checkbox"  id="cal_pathes_for_sites" <?if($commonForSites){echo 'checked=true';}?> value="Y" /></td>
+		<input name="pathes_for_sites" type="checkbox"  id="cal_pathes_for_sites" <?php if($commonForSites){echo 'checked=true';}?> value="Y" /></td>
 		<td>
 			<label for="cal_pathes_for_sites"><?= GetMessage("CAL_PATH_COMMON")?></label>
 <script>
@@ -302,27 +302,27 @@ BX.ready(function(){
 	BX('cal_pathes_for_sites').onclick = function()
 	{
 		BX('bx-cal-opt-sites-pathes-tr').style.display = this.checked ? 'none' : '';
-		<?foreach($arPathes as $pathName):?>
+		<?php foreach($arPathes as $pathName):?>
 			BX('bx-cal-opt-path-<?= $pathName?>').style.display = this.checked ? '' : 'none';
-		<?endforeach;?>
+		<?php endforeach;?>
 	};
 });
 </script>
 		</td>
 	</tr>
-	<tr id="bx-cal-opt-sites-pathes-tr" <?if($commonForSites){echo'style="display:none;"';}?>>
+	<tr id="bx-cal-opt-sites-pathes-tr" <?php if($commonForSites){echo'style="display:none;"';}?>>
 		<td colSpan="2" align="center">
-		<?
+		<?php 
 		$aSubTabs = array();
 		foreach($sites as $siteId => $siteName)
 			$aSubTabs[] = array("DIV" => "opt_cal_path_".$siteId, "TAB" => $siteName, 'TITLE' => $siteName);
 
 		$innerTabControl = new CAdminViewTabControl("childTabControlUserCommonPath", $aSubTabs);
 		$innerTabControl->Begin();?>
-		<?foreach($sites as $siteId => $siteName):?>
-		<?$innerTabControl->BeginNextTab();?>
+		<?php foreach($sites as $siteId => $siteName):?>
+		<?php $innerTabControl->BeginNextTab();?>
 			<table>
-			<?
+			<?php 
 			foreach($arPathes as $pathName)
 			{
 				$val = $SET['pathes'][$siteId][$pathName];
@@ -349,15 +349,15 @@ BX.ready(function(){
 						<input name="pathes[<?= $siteId?>][<?= $pathName?>]" type="text" value="<?= htmlspecialcharsbx($val)?>" id="cal_<?= $pathName?>" size="60"/>
 					</td>
 				</tr>
-			<?}?>
+			<?php }?>
 			</table>
-		<?endforeach;?>
-		<?$innerTabControl->End();?>
+		<?php endforeach;?>
+		<?php $innerTabControl->End();?>
 		</td>
 	</tr>
-	<?endif; /* if (count($sites) > 1)*/?>
+	<?php endif; /* if (count($sites) > 1)*/?>
 
-	<?
+	<?php 
 	/* common pathes for all sites*/
 	if (count($sites) <= 1)
 		$commonForSites = true;
@@ -379,16 +379,16 @@ BX.ready(function(){
 		}
 
 		?>
-	<tr id="bx-cal-opt-path-<?= $pathName?>"  <?if(!$commonForSites){echo'style="display:none;"';}?>>
+	<tr id="bx-cal-opt-path-<?= $pathName?>"  <?php if(!$commonForSites){echo'style="display:none;"';}?>>
 		<td><label for="cal_<?=$pathName?>"><?= htmlspecialcharsbx($title)?>:</label></td>
 		<td>
 			<input name="<?= $pathName?>" type="text" value="<?= htmlspecialcharsbx($SET[$pathName])?>" id="cal_<?= $pathName?>" size="60"/>
 		</td>
 	</tr>
-	<?}?>
+	<?php }?>
 
 	<!-- Reserve meetings and video reserve meetings -->
-	<?
+	<?php 
 		$reserveMeetingForSites = $SET['rm_for_sites'];
 		if (count($sites) <= 1)
 			$reserveMeetingForSites = true;
@@ -399,17 +399,17 @@ BX.ready(function(){
 		<td>
 			<select name="rm_iblock_type" onchange="changeIblockList(this.value)">
 				<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-				<?foreach ($arIBTypes as $ibtype_id => $ibtype_name):?>
-					<option value="<?= $ibtype_id?>" <?if($ibtype_id == $SET['rm_iblock_type']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($ibtype_name)?></option>
-				<?endforeach;?>
+				<?php foreach ($arIBTypes as $ibtype_id => $ibtype_name):?>
+					<option value="<?= $ibtype_id?>" <?php if($ibtype_id == $SET['rm_iblock_type']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($ibtype_name)?></option>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
 
-	<?if (count($sites) > 1):?>
+	<?php if (count($sites) > 1):?>
 	<tr>
 		<td>
-			<input name="reserve_meetings_for_sites" type="checkbox"  id="cal_reserve_meetings_for_sites" value="Y" <?if($reserveMeetingForSites){echo 'checked';}?>>
+			<input name="reserve_meetings_for_sites" type="checkbox"  id="cal_reserve_meetings_for_sites" value="Y" <?php if($reserveMeetingForSites){echo 'checked';}?>>
 		</td>
 		<td>
 			<label for="cal_reserve_meetings_for_sites"><?= GetMessage("CAL_PATH_COMMON")?></label>
@@ -425,9 +425,9 @@ BX.ready(function(){
 		</td>
 	</tr>
 
-	<tr id="bx-cal-opt-sites-rm-tr" <?if($reserveMeetingForSites){echo'style="display:none;"';}?>>
+	<tr id="bx-cal-opt-sites-rm-tr" <?php if($reserveMeetingForSites){echo'style="display:none;"';}?>>
 		<td colSpan="2" align="center">
-			<?
+			<?php 
 			$aSubTabs = array();
 			foreach($sites as $siteId => $siteName)
 				$aSubTabs[] = array("DIV" => "opt_cal_rm_".$siteId, "TAB" => $siteName, 'TITLE' => $siteName);
@@ -435,68 +435,68 @@ BX.ready(function(){
 			$innerTabControl = new CAdminViewTabControl("childTabControlUserCommon", $aSubTabs);
 			$innerTabControl->Begin();?>
 
-			<?foreach($sites as $siteId => $siteName):?>
-				<?$innerTabControl->BeginNextTab();?>
+			<?php foreach($sites as $siteId => $siteName):?>
+				<?php $innerTabControl->BeginNextTab();?>
 				<table>
 					<tr>
 						<td class="field-name"><label for="cal_rm_iblock_id_<?= $siteId?>"><?= GetMessage("CAL_RM_IBLOCK_ID")?>:</label></td>
 						<td>
 							<select id="cal_rm_iblock_id_<?= $siteId?>" name="rm_iblock_ids[<?= $siteId?>]">
-								<?if ($SET['rm_iblock_type']):?>
+								<?php if ($SET['rm_iblock_type']):?>
 									<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-									<?foreach ($arIB[$SET['rm_iblock_type']] as $iblock_id => $iblock):
+									<?php foreach ($arIB[$SET['rm_iblock_type']] as $iblock_id => $iblock):
 										$valueForSite = COption::GetOptionString('calendar', 'rm_iblock_id', "", $siteId, true);?>
-										<option value="<?= $iblock_id?>"<? if($iblock_id == $valueForSite){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($iblock)?></option>
-									<?endforeach;?>
-								<?else:?>
+										<option value="<?= $iblock_id?>"<?php  if($iblock_id == $valueForSite){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($iblock)?></option>
+									<?php endforeach;?>
+								<?php else:?>
 									<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-								<?endif;?>
+								<?php endif;?>
 							</select>
 						</td>
 					</tr>
 				</table>
 
-				<?endforeach;?>
-			<?$innerTabControl->End();?>
+				<?php endforeach;?>
+			<?php $innerTabControl->End();?>
 		</td>
 	</tr>
-	<?endif; /* if (count($sites) > 1)*/?>
+	<?php endif; /* if (count($sites) > 1)*/?>
 
-	<tr id="bx-cal-opt-common-rm-tr" <?if(!$reserveMeetingForSites) {echo'style="display:none;"';}?>>
+	<tr id="bx-cal-opt-common-rm-tr" <?php if(!$reserveMeetingForSites) {echo'style="display:none;"';}?>>
 		<td><label for="cal_rm_iblock_id"><?= GetMessage("CAL_RM_IBLOCK_ID")?>:</label></td>
 		<td>
 			<select id="cal_rm_iblock_id" name="rm_iblock_id">
-<?if ($SET['rm_iblock_type']):?>
+<?php if ($SET['rm_iblock_type']):?>
 	<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-	<?foreach ($arIB[$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
-		<option value="<?= $iblock_id?>"<? if($iblock_id == $SET['rm_iblock_id']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($iblock)?></option>
-	<?endforeach;?>
-<?else:?>
+	<?php foreach ($arIB[$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
+		<option value="<?= $iblock_id?>"<?php  if($iblock_id == $SET['rm_iblock_id']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($iblock)?></option>
+	<?php endforeach;?>
+<?php else:?>
 	<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-<?endif;?>
+<?php endif;?>
 
 			</select>
 		</td>
 	</tr>
 
-	<?if (CModule::IncludeModule("video")):?>
+	<?php if (CModule::IncludeModule("video")):?>
 	<tr>
 		<td><label for="cal_vr_iblock_id"><?= GetMessage("CAL_VR_IBLOCK_ID")?>:</label></td>
 		<td>
 			<select id="cal_vr_iblock_id" name="vr_iblock_id"">
-<?if ($SET['rm_iblock_type']):?>
+<?php if ($SET['rm_iblock_type']):?>
 	<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-	<?foreach ($arIB[$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
-		<option value="<?= $iblock_id?>"<? if($iblock_id == $SET['vr_iblock_id']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($iblock)?></option>
-	<?endforeach;?>
-<?else:?>
+	<?php foreach ($arIB[$SET['rm_iblock_type']] as $iblock_id => $iblock):?>
+		<option value="<?= $iblock_id?>"<?php  if($iblock_id == $SET['vr_iblock_id']){echo ' selected="selected"';}?>><?= htmlspecialcharsbx($iblock)?></option>
+	<?php endforeach;?>
+<?php else:?>
 	<option value=""><?= GetMessage('CAL_NOT_SET')?></option>
-<?endif;?>
+<?php endif;?>
 			</select>
 		</td>
 	</tr>
-	<?endif?>
-	<?endif?>
+	<?php endif?>
+	<?php endif?>
 
 
 	<!-- Comments settings -->
@@ -506,27 +506,27 @@ BX.ready(function(){
 		<td>
 			<select name="calendar_forum_id">
 				<option value="0">&nbsp;</option>
-				<?foreach ($arForums as $key => $value):?>
+				<?php foreach ($arForums as $key => $value):?>
 					<option value="<?= $key ?>"<?= $SET['forum_id'] == $key ? " selected" : "" ?>><?=  $value?></option>
-				<? endforeach?>
+				<?php  endforeach?>
 			</select>
 		</td>
 	</tr>
 	<!-- END Comments settings -->
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 	<tr class="">
 		<td colspan="2" style="text-align: left;">
 			<a class="bxco-add-type" href="javascript:void(0);" onclick="addType(); return false;" title="<?= GetMessage('CAL_ADD_TYPE_TITLE')?>"><i></i><span><?= GetMessage('CAL_ADD_TYPE')?></span></a>
 		</td>
 	</tr>
 	<tr><td colspan="2" align="center">
-<?
+<?php 
 $APPLICATION->SetAdditionalCSS("/bitrix/js/calendar/cal-style.css");
 $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/js/calendar/cal-controlls.js");
 ?>
 	<table id="bxcal_type_tbl" style="width: 650px;">
-		<?
+		<?php 
 		$actionUrl = '/bitrix/admin/settings.php?mid=calendar&lang='.LANG;
 		$arXML_ID = array();
 		for ($i = 0, $l = count($arTypes); $i < $l; $i++):
@@ -536,21 +536,21 @@ $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/js/calendar/cal-controlls.js");
 			<tr><td>
 			<?= OutputTypeHtml($type)?>
 			</td></tr>
-		<?endfor;?>
+		<?php endfor;?>
 	</table>
 	</td></tr>
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 	<input type="submit" class="adm-btn-save" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" />
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
 		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?= htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("CAL_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("CAL_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
 
 <div id="edit_type_dialog" class="bxco-popup">
@@ -710,7 +710,7 @@ function delType(xml_id)
 }
 </script>
 
-<?
+<?php 
 function OutputTypeHtml($type)
 {
 	$XML_ID = preg_replace("/[^a-zA-Z0-9_]/i", "", $type['XML_ID']);
@@ -722,9 +722,9 @@ function OutputTypeHtml($type)
 			<a href="javascript:void(0);" onclick="delType('<?= $XML_ID?>'); return false;"><?= GetMessage('CAL_DELETE')?></a>
 			<a href="javascript:void(0);" onclick="addType(<?= htmlspecialcharsbx(CUtil::PhpToJsObject($type))?>); return false;"><?= GetMessage('CAL_CHANGE')?></a>
 		</div>
-		<? if(strlen($type['DESCRIPTION']) > 0):?>
+		<?php  if(strlen($type['DESCRIPTION']) > 0):?>
 			<span class="bxcopt-type-desc"><?= htmlspecialcharsbx($type['DESCRIPTION'])?></span>
-		<? endif;?>
+		<?php  endif;?>
 		<div class="bxcopt-type-access-cont">
 			<span class="bxcopt-type-access-cont-title"><?= GetMessage('CAL_TYPE_PERMISSION_ACCESS')?>:</span>
 			<div class="bxcopt-type-access-values-cont" id="type-access-values-cont<?= $XML_ID?>"></div>
@@ -755,7 +755,7 @@ BX.ready(function()
 </script>
 	</div>
 
-<?
+<?php 
 }
 
 ?>

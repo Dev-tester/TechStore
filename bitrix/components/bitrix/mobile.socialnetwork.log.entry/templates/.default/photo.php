@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
@@ -10,7 +10,7 @@
 /** @global CMain $APPLICATION */
 
 ?>
-<div id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>" class="post-item-post-<?=($arEvent["EVENT"]["EVENT_ID"] == "photo" ? "block-full" : "img-block")?> post-item-block-inner post-item-contentview" bx-content-view-xml-id="<?=(!empty($arResult["CONTENT_ID"]) ? htmlspecialcharsBx($arResult["CONTENT_ID"]) : "")?>"<?=$strOnClick?>><?
+<div id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>" class="post-item-post-<?=($arEvent["EVENT"]["EVENT_ID"] == "photo" ? "block-full" : "img-block")?> post-item-block-inner post-item-contentview" bx-content-view-xml-id="<?=(!empty($arResult["CONTENT_ID"]) ? htmlspecialcharsBx($arResult["CONTENT_ID"]) : "")?>"<?=$strOnClick?>><?php 
 
 	$arPhotoItems = array();
 	$photo_section_id = false;
@@ -83,7 +83,7 @@
 			&& count($arPhotoItems) > 0
 		)
 		{
-			?><?$APPLICATION->IncludeComponent(
+			?><?php $APPLICATION->IncludeComponent(
 				"bitrix:photogallery.detail.list.ex",
 				"mobile",
 				Array(
@@ -176,7 +176,7 @@
 				array(
 					"HIDE_ICONS" => "Y"
 				)
-			);?><?
+			);?><?php 
 		}
 	}
 

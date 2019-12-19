@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_08_5_CARD"] = "Column";
 $MESS["LANDING_BLOCK_08_5_DIVIDING_STRIP"] = "Separator";
 $MESS["LANDING_BLOCK_08_5_INFO"] = "Information";

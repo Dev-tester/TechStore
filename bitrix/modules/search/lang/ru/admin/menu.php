@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['mnu_search'] = "Поиск";
 $MESS ['mnu_customrank'] = "Правила сортировки";
 $MESS ['mnu_customrank_alt'] = "Управление сортировкой результатов поиска";

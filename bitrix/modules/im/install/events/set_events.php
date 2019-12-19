@@ -1,4 +1,4 @@
-<?
+<?php 
 $isIntranet = file_exists($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/");
 $langs = CLanguage::GetList(($b=""), ($o=""));
 while ($lang = $langs->Fetch())
@@ -48,7 +48,7 @@ while ($lang = $langs->Fetch())
 	{
 		if ($isIntranet)
 		{
-			$notifyMessage = "<?EventMessageThemeCompiler::includeComponent(\"bitrix:intranet.template.mail\",\"\",array(\"MESSAGE\" => \"{#MESSAGE#}\",\"FROM_USER\" => \"{#FROM_USER#}\",\"USER_NAME\" => \"{#USER_NAME#}\",\"SERVER_NAME\" => \"{#SERVER_NAME#}\",\"DATE_CREATE\" => \"{#DATE_CREATE#}\",\"FROM_USER_ID\" => \"{#FROM_USER_ID# }\",\"TEMPLATE_TYPE\" => \"IM_NEW_NOTIFY\"));?>";
+			$notifyMessage = "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:intranet.template.mail\",\"\",array(\"MESSAGE\" => \"{#MESSAGE#}\",\"FROM_USER\" => \"{#FROM_USER#}\",\"USER_NAME\" => \"{#USER_NAME#}\",\"SERVER_NAME\" => \"{#SERVER_NAME#}\",\"DATE_CREATE\" => \"{#DATE_CREATE#}\",\"FROM_USER_ID\" => \"{#FROM_USER_ID# }\",\"TEMPLATE_TYPE\" => \"IM_NEW_NOTIFY\"));?>";
 		}
 		else
 		{
@@ -91,7 +91,7 @@ while ($lang = $langs->Fetch())
 
 		if ($isIntranet)
 		{
-			$newMessage = "<?EventMessageThemeCompiler::includeComponent(\"bitrix:intranet.template.mail\",\"\",array(\"MESSAGE\" => \"{#MESSAGES#}\",\"FROM_USER\" => \"{#FROM_USER#}\",\"USER_NAME\" => \"{#USER_NAME#}\",\"SERVER_NAME\" => \"{#SERVER_NAME#}\",\"DATE_CREATE\" => \"{#DATE_CREATE#}\",\"FROM_USER_ID\" => \"{#FROM_USER_ID# }\",\"TEMPLATE_TYPE\" => \"IM_NEW_MESSAGE\"));?>";
+			$newMessage = "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:intranet.template.mail\",\"\",array(\"MESSAGE\" => \"{#MESSAGES#}\",\"FROM_USER\" => \"{#FROM_USER#}\",\"USER_NAME\" => \"{#USER_NAME#}\",\"SERVER_NAME\" => \"{#SERVER_NAME#}\",\"DATE_CREATE\" => \"{#DATE_CREATE#}\",\"FROM_USER_ID\" => \"{#FROM_USER_ID# }\",\"TEMPLATE_TYPE\" => \"IM_NEW_MESSAGE\"));?>";
 		}
 		else
 		{
@@ -116,7 +116,7 @@ while ($lang = $langs->Fetch())
 
 		if ($isIntranet)
 		{
-			$newGroupMessage = "<?EventMessageThemeCompiler::includeComponent(\"bitrix:intranet.template.mail\",\"\",array(\"MESSAGE\" => \"{#MESSAGES#}\",\"MESSAGES_FROM_USERS\" => \"{#MESSAGES_FROM_USERS#}\",\"FROM_USER\" => \"{#FROM_USERS#}\",\"USER_NAME\" => \"{#USER_NAME#}\",\"SERVER_NAME\" => \"{#SERVER_NAME#}\",\"DATE_CREATE\" => \"{#DATE_CREATE#}\",\"FROM_USER_ID\" => \"{#FROM_USER_ID# }\",\"TEMPLATE_TYPE\" => \"IM_NEW_MESSAGE_GROUP\"));?>";
+			$newGroupMessage = "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:intranet.template.mail\",\"\",array(\"MESSAGE\" => \"{#MESSAGES#}\",\"MESSAGES_FROM_USERS\" => \"{#MESSAGES_FROM_USERS#}\",\"FROM_USER\" => \"{#FROM_USERS#}\",\"USER_NAME\" => \"{#USER_NAME#}\",\"SERVER_NAME\" => \"{#SERVER_NAME#}\",\"DATE_CREATE\" => \"{#DATE_CREATE#}\",\"FROM_USER_ID\" => \"{#FROM_USER_ID# }\",\"TEMPLATE_TYPE\" => \"IM_NEW_MESSAGE_GROUP\"));?>";
 		}
 		else
 		{

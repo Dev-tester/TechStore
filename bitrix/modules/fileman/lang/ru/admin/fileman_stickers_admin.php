@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FM_ST_SETTINGS"] = "Настройки";
 $MESS["FM_ST_SETTINGS_TITLE"] = "Настройки стикеров";
 $MESS["FM_ST_ACCESS"] = "Доступ";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HLP_ORDERBUILDER_SHIPMENT_NOT_FOUND"] = "Отгрузка не найдена";
 $MESS["SALE_HLP_ORDERBUILDER_PAYMENT_NOT_FOUND"] = "Оплата не найдена";
 $MESS["SALE_HLP_ORDERBUILDER_DATE_FORMAT_ERROR"] = "Некорректный формат даты документа";

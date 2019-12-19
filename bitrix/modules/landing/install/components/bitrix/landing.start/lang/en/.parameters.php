@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_CMP_PAR_LANDING_TYPE"] = "Site type";
 $MESS["LANDING_CMP_PAR_SHOW_MENU"] = "Show Menu";
 $MESS["LANDING_CMP_PAR_SM_DOMAINS"] = "Domains";

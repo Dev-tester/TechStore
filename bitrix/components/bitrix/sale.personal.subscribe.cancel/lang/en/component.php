@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_MODULE_NOT_INSTALL'] = "e-Store module is not installed";
 $MESS['SALE_ACCESS_DENIED']="You have to authorise to cancel the subscription";
 $MESS["SPSC_TITLE"] = "Cancel subscription no. #ID#";

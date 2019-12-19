@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_SHP_TBL_ID_FIELD"] = "ID";
 $MESS["SALE_DLVR_REQ_SHP_TBL_SHIPMENT_ID_FIELD"] = "Shipment ID";
 $MESS["SALE_DLVR_REQ_SHP_TBL_REQUEST_ID_FIELD"] = "Transportation order ID";

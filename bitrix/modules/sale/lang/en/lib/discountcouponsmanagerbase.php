@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DCM_COUPONS_VERIFY_ERR"] = "Coupon verification error";
 $MESS["BX_SALE_DCM_ERR_BAD_MODE"] = "Bad manager mode";
 $MESS["BX_SALE_DCM_ERR_BAD_USER_ID"] = "Customer ID is missing";

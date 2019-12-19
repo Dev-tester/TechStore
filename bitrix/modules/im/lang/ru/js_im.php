@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_DISK_FOLDER_NAME"] = "Бизнес-чат - сохраненные файлы";
 $MESS["IM_DISK_VIEWER_DESCR_SAVE_FILE_TO_OWN_FILES"] = "Файл #NAME# успешно сохранен<br>в папку \"#FOLDER#\"";
 $MESS["IM_DISK_VIEWER_DESCR_PROCESS_SAVE_FILE_TO_OWN_FILES"] = "Файл #NAME# сохраняется<br>на ваш \"Битрикс24.Диск\"";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_LIVE_FEED"] = "Activity Stream";
 $MESS["MENU_TASKS"] = "Tasks";
 $MESS["MENU_BLOG"] = "Conversations";

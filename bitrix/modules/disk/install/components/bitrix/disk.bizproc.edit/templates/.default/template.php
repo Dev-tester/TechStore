@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var array $arParams */
 /** @var array $arResult */
@@ -103,8 +103,8 @@ function BCPProcessExport()
 		alert('<?= GetMessageJS("BIZPROC_EMPTY_EXPORT") ?>');
 		return false;
 	}
-	<?$v = str_replace("&amp;", "&", str_replace("#ID#", $ID, $arResult["EDIT_PAGE_TEMPLATE"]));?>
-	window.open('<?=CUtil::JSEscape($v)?><?if(strpos($v, "?")):?>&<?else:?>?<?endif?>action=exportTemplate&<?=bitrix_sessid_get()?>');
+	<?php $v = str_replace("&amp;", "&", str_replace("#ID#", $ID, $arResult["EDIT_PAGE_TEMPLATE"]));?>
+	window.open('<?=CUtil::JSEscape($v)?><?php if(strpos($v, "?")):?>&<?php else:?>?<?php endif?>action=exportTemplate&<?=bitrix_sessid_get()?>');
 }
 
 function BCPProcessImport()
@@ -149,14 +149,14 @@ function BCPSaveTemplateComplete()
 {
 }
 
-<?$v = str_replace("&amp;", "&", POST_FORM_ACTION_URI);?>
+<?php $v = str_replace("&amp;", "&", POST_FORM_ACTION_URI);?>
 
 function BCPSaveUserParams()
 {
 	var data = JSToPHP(arUserParams, 'USER_PARAMS');
 
 	jsExtLoader.onajaxfinish = BCPSaveTemplateComplete;
-	jsExtLoader.startPost('<?= CUtil::JSEscape($v) ?><?if(strpos($v, "?")):?>&<?else:?>?<?endif?><?=bitrix_sessid_get()?>&action=saveAjax&saveuserparams=Y', data);
+	jsExtLoader.startPost('<?= CUtil::JSEscape($v) ?><?php if(strpos($v, "?")):?>&<?php else:?>?<?php endif?><?=bitrix_sessid_get()?>&action=saveAjax&saveuserparams=Y', data);
 }
 
 function BCPSaveTemplate(save)
@@ -173,7 +173,7 @@ function BCPSaveTemplate(save)
 
 	jsExtLoader.onajaxfinish = BCPSaveTemplateComplete;
 	// TODO: add sessid
-	jsExtLoader.startPost('<?=CUtil::JSEscape($v)?><?if(strpos($v, "?")):?>&<?else:?>?<?endif?><?=bitrix_sessid_get()?>&action=saveAjax'+
+	jsExtLoader.startPost('<?=CUtil::JSEscape($v)?><?php if(strpos($v, "?")):?>&<?php else:?>?<?php endif?><?=bitrix_sessid_get()?>&action=saveAjax'+
 		(save ? '': '&apply=Y'),
 		data);
 }
@@ -195,18 +195,18 @@ function BCPShowParams()
 	'width': 800,
 	'resizable' : false
 	})).Show();
-	<? if($arResult['HIDE_TAB_PERMISSION']) { ?>
+	<?php  if($arResult['HIDE_TAB_PERMISSION']) { ?>
 	BX.addCustomEvent(BX.WindowManager.Get(), 'onWindowRegister', BX.defer(function(){
 		BX.remove(BX('tab_cont_edit4'));
 	}));
-	<? } ?>
+	<?php  } ?>
 }
 </script>
 <div style="background-color: #FFFFFF;">
-<?
+<?php 
 if($arParams['SHOW_TOOLBAR']=='Y'):
 ?>
-<?
+<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.interface.toolbar",
 		"",
@@ -216,7 +216,7 @@ if($arParams['SHOW_TOOLBAR']=='Y'):
 		$component, array("HIDE_ICONS" => "Y")
 	);
 ?>
-<?endif?>
+<?php endif?>
 
 <style>
 div#bx_admin_form table.edit-tab td div.edit-tab-inner {height: 310px;}
@@ -256,7 +256,7 @@ td.statset {background: url(/bitrix/images/bizproc/stat_sett.gif) 50% center no-
 <script src="/bitrix/js/main/public_tools.js"></script>
 <script src="/bitrix/js/bizproc/bizproc.js"></script>
 
-<?
+<?php 
 global $JSMESS;
 $JSMESS = Array();
 function GetJSLangMess($f, $actId)
@@ -378,9 +378,9 @@ function start()
 		return;
 	}
 	BizProcRender(arWorkflowTemplate, document.getElementById('wf1'));
-	<?if($ID<=0):?>
+	<?php if($ID<=0):?>
 	BCPShowParams();
-	<?endif;?>
+	<?php endif;?>
 }
 
 setTimeout("start()", 0);
@@ -391,9 +391,9 @@ setTimeout("start()", 0);
 
 <div id="bizprocsavebuttons">
 <br>
-<input type="button" onclick="BCPSaveTemplate(true);" value="<?echo Loc::getMessage("BIZPROC_WFEDIT_SAVE_BUTTON")?>">
-<input type="button" onclick="BCPSaveTemplate();" value="<?echo Loc::getMessage("BIZPROC_WFEDIT_APPLY_BUTTON")?>">
-<input type="button" onclick="window.location='<?=htmlspecialcharsbx(CUtil::JSEscape($arResult['LIST_PAGE_URL']))?>';" value="<?echo Loc::getMessage("BIZPROC_WFEDIT_CANCEL_BUTTON")?>">
+<input type="button" onclick="BCPSaveTemplate(true);" value="<?php echo Loc::getMessage("BIZPROC_WFEDIT_SAVE_BUTTON")?>">
+<input type="button" onclick="BCPSaveTemplate();" value="<?php echo Loc::getMessage("BIZPROC_WFEDIT_APPLY_BUTTON")?>">
+<input type="button" onclick="window.location='<?=htmlspecialcharsbx(CUtil::JSEscape($arResult['LIST_PAGE_URL']))?>';" value="<?php echo Loc::getMessage("BIZPROC_WFEDIT_CANCEL_BUTTON")?>">
 </div>
 
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -72,7 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && ($_POST["save"] <> '' || $_POST["appl
 		$CONTENT = LPA::Process($_POST["CONTENT"], htmlspecialcharsback($str_CONTENT));
 		//Add ..->ShowPanel() and WORK_AREA
 		$ucont = strtolower($CONTENT);
-		$sp = '<?$APPLICATION->ShowPanel();?>';
+		$sp = '<?php $APPLICATION->ShowPanel();?>';
 		$body = '<body>';
 		$wa = '#WORK_AREA#';
 		$body_pos = strpos($ucont, $body);
@@ -177,7 +177,7 @@ if ($lpa || $lpa_view)
 			$new_content .= $s_cont;
 
 			$src = $arPHP[$n][2];
-			$src = SubStr($src, (SubStr($src, 0, 5) == "<?"."php") ? 5 : 2, -2); // Trim php tags
+			$src = SubStr($src, (SubStr($src, 0, 5) == "<?php "."php") ? 5 : 2, -2); // Trim php tags
 
 			$comp2_begin = '$APPLICATION->INCLUDECOMPONENT(';
 			if (strtoupper(substr($src, 0, strlen($comp2_begin))) == $comp2_begin) //If it's Component 2, keep the php code
@@ -240,56 +240,56 @@ if (strlen($ID)>0 && $edit_php)
 $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="bform">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="bform">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<input type="hidden" name="edit" value="<?echo ($bEdit? 'Y':'N')?>">
-<?
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<input type="hidden" name="edit" value="<?php echo ($bEdit? 'Y':'N')?>">
+<?php 
 $tabControl->Begin();
 
 $tabControl->BeginNextTab();
 ?>
 	<tr class="adm-detail-required-field">
 		<td width="40%">ID:</td>
-		<td width="60%"><?
+		<td width="60%"><?php 
 			if($bEdit):
 				echo $str_ID;
-				?><input type="hidden" name="ID" value="<?echo $str_ID?>">
-				(<a title="<?=GetMessage("MAIN_PREVIEW_FOLDER")?>" href="fileman_admin.php?lang=<?=LANG?>&amp;path=<?=urlencode($templFields["PATH"])?>"><?echo $str_PATH?>/</a>)
-			<?
+				?><input type="hidden" name="ID" value="<?php echo $str_ID?>">
+				(<a title="<?=GetMessage("MAIN_PREVIEW_FOLDER")?>" href="fileman_admin.php?lang=<?=LANG?>&amp;path=<?=urlencode($templFields["PATH"])?>"><?php echo $str_PATH?>/</a>)
+			<?php 
 			else:
-				?><input type="text" name="ID" size="20" maxlength="255" value="<? echo $str_ID?>"><?
+				?><input type="text" name="ID" size="20" maxlength="255" value="<?php  echo $str_ID?>"><?php 
 			endif;
 			?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_T_EDIT_NAME")?></td>
-		<td><input type="text" name="NAME" size="40" maxlength="50" value="<? echo $str_NAME?>"></td>
+		<td><?php echo GetMessage("MAIN_T_EDIT_NAME")?></td>
+		<td><input type="text" name="NAME" size="40" maxlength="50" value="<?php  echo $str_NAME?>"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIN_T_EDIT_DESCRIPTION")?></td>
-		<td><textarea name="DESCRIPTION" cols="30" rows="3"><?echo $str_DESCRIPTION?></textarea></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIN_T_EDIT_DESCRIPTION")?></td>
+		<td><textarea name="DESCRIPTION" cols="30" rows="3"><?php echo $str_DESCRIPTION?></textarea></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SITE_TEMPL_EDIT_SORT")?></td>
-		<td><input type="text" name="SORT" size="20" value="<? echo $str_SORT?>"></td>
+		<td><?php echo GetMessage("SITE_TEMPL_EDIT_SORT")?></td>
+		<td><input type="text" name="SORT" size="20" value="<?php  echo $str_SORT?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_TEMPLATE_TYPE")?></td>
+		<td><?php echo GetMessage("MAIN_TEMPLATE_TYPE")?></td>
 		<td>
 			<select name="TYPE">
-				<option value="" <?=($str_TYPE==""?"selected":"")?>><?echo GetMessage("MAIN_TEMPLATE_TYPE_SITE")?></option>
-				<option value="mail" <?=($str_TYPE=="mail"?"selected":"")?>><?echo GetMessage("MAIN_TEMPLATE_TYPE_MAIL")?></option>
+				<option value="" <?=($str_TYPE==""?"selected":"")?>><?php echo GetMessage("MAIN_TEMPLATE_TYPE_SITE")?></option>
+				<option value="mail" <?=($str_TYPE=="mail"?"selected":"")?>><?php echo GetMessage("MAIN_TEMPLATE_TYPE_MAIL")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("MAIN_T_EDIT_CONTENT", array("#WORK_AREA#"=>'<a href="javascript:void(0)" onclick="InsertWorkArea();" title="'.GetMessage("MAIN_T_EDIT_INSERT_WORK_AREA").'">#WORK_AREA#</a>'))?></td>
+		<td colspan="2"><?php echo GetMessage("MAIN_T_EDIT_CONTENT", array("#WORK_AREA#"=>'<a href="javascript:void(0)" onclick="InsertWorkArea();" title="'.GetMessage("MAIN_T_EDIT_INSERT_WORK_AREA").'">#WORK_AREA#</a>'))?></td>
 	</tr>
 
 	<tr>
 		<td align="center" colspan="2">
-			<?if(COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y")
+			<?php if(COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y")
 			{
 				$codeEditorId = CCodeEditor::Show(
 					array(
@@ -298,22 +298,22 @@ $tabControl->BeginNextTab();
 					));
 			}?>
 
-			<textarea rows="28" cols="60" style="width:100%" id="bxed_CONTENT" name="CONTENT" wrap="off"><?echo htmlspecialcharsbx(htmlspecialcharsback($str_CONTENT))?></textarea>
+			<textarea rows="28" cols="60" style="width:100%" id="bxed_CONTENT" name="CONTENT" wrap="off"><?php echo htmlspecialcharsbx(htmlspecialcharsback($str_CONTENT))?></textarea>
 
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td align="center" colspan="2"><textarea rows="25" cols="60" style="width:100%" id="__STYLES" name="STYLES" wrap="off"><?echo $str_STYLES?></textarea></td>
+		<td align="center" colspan="2"><textarea rows="25" cols="60" style="width:100%" id="__STYLES" name="STYLES" wrap="off"><?php echo $str_STYLES?></textarea></td>
 	</tr>
 	<tr class="heading">
-		<td align="center" colspan="2"><?echo GetMessage("STYLE_DESCRIPTIONS")?></td>
+		<td align="center" colspan="2"><?php echo GetMessage("STYLE_DESCRIPTIONS")?></td>
 	</tr>
 	<tr>
 		<td align="center" colspan="2">
-		<?
+		<?php 
 		$io = CBXVirtualIo::GetInstance();
 		$stylesPath = $io->RelativeToAbsolutePath($templFields["PATH"]."/.styles.php");
 		$arStyles = array();
@@ -350,10 +350,10 @@ $tabControl->BeginNextTab();
 	</script>
 			<table border="0" cellspacing="1" cellpadding="3" id="proptab"  class="internal">
 				<tr class="heading">
-					<td width="210px"><?echo GetMessage("MAIN_STYLE_NAME")?></td>
-					<td width="380px"><?echo GetMessage("MAIN_STYLE_DESCRIPTION")?></td>
+					<td width="210px"><?php echo GetMessage("MAIN_STYLE_NAME")?></td>
+					<td width="380px"><?php echo GetMessage("MAIN_STYLE_DESCRIPTION")?></td>
 				</tr>
-				<?
+				<?php 
 				$arStylesDesc = Array();
 				$i = 0;
 				if (!is_array($arStyles))
@@ -372,7 +372,7 @@ $tabControl->BeginNextTab();
 							<input type="text" name="VALUE_<?=$i?>" id="VALUE_<?=$i?>" value="<?=htmlspecialcharsbx($title_)?>" size="60">
 						</td>
 					</tr>
-					<?
+					<?php 
 					$i++;
 				}
 
@@ -380,33 +380,33 @@ $tabControl->BeginNextTab();
 				?>
 				<tr>
 					<td colspan="2">
-						<input type="hidden" id="maxind" name="maxind" value="<?echo $ind; ?>">
+						<input type="hidden" id="maxind" name="maxind" value="<?php echo $ind; ?>">
 						<input type="hidden" id="styles_path" name="styles_path" value="<?=htmlspecialcharsbx($stylesPath)?>">
-						<input type="button" name="propeditmore"  value="<?echo GetMessage("MAIN_STYLE_MORE")?>" onClick="_MoreRProps()">
+						<input type="button" name="propeditmore"  value="<?php echo GetMessage("MAIN_STYLE_MORE")?>" onClick="_MoreRProps()">
 					</td>
 				</tr>
 			</table>
 
-		<?if (count($arStyles)<1):?>
+		<?php if (count($arStyles)<1):?>
 			<script>_MoreRProps();</script>
-		<?endif;?>
+		<?php endif;?>
 
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td align="center" colspan="2"><textarea rows="25" cols="60" style="width:100%" id="__TEMPLATE_STYLES" name="TEMPLATE_STYLES" wrap="off"><?echo $str_TEMPLATE_STYLES?></textarea></td>
+		<td align="center" colspan="2"><textarea rows="25" cols="60" style="width:100%" id="__TEMPLATE_STYLES" name="TEMPLATE_STYLES" wrap="off"><?php echo $str_TEMPLATE_STYLES?></textarea></td>
 	</tr>
-<?if($bEdit):?>
-<?
+<?php if($bEdit):?>
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
 		<td colspan="2">
 			<table cellspacing="0" class="internal">
-			<?
+			<?php 
 			$dbFiles = CSiteTemplate::GetContent($ID);
 			while($arFiles = $dbFiles->GetNext()):
 				if($arFiles["NAME"]=="header.php" || $arFiles["NAME"]=="footer.php" || $arFiles["NAME"]=="styles.css" || $arFiles["NAME"]=="template_styles.css" || $arFiles["NAME"]=="description.php")
@@ -419,47 +419,47 @@ $tabControl->BeginNextTab();
 				<td><?=htmlspecialcharsbx($arFiles["NAME"])?></td>
 				<td><?=htmlspecialcharsbx($arFiles["DESCRIPTION"])?></td>
 				<td>
-					<?if($fType == 'SOURCE'):?>
-						<a title ="<?=GetMessage("MAIN_MOD_FILE").htmlspecialcharsbx($arFiles["NAME"])?>" href="fileman_file_edit.php?lang=<?=LANG?>&amp;full_src=Y&amp;path=<?=urlencode($arFiles["ABS_PATH"])?>&amp;back_url=<?=urlencode($_SERVER["REQUEST_URI"])?>"><?echo GetMessage("MAIN_T_EDIT_CHANGE")?></a>
-					<?elseif($fType == 'IMAGE' || $fType == 'FLASH'):?>
-						<?echo ShowImage($arFiles["ABS_PATH"], $iMaxW=50, $iMaxH=50, $sParams=null, $strImageUrl="", $bPopup=true, $sPopupTitle=GetMessage("template_edit_open_pic"));?>
-					<?endif?>
+					<?php if($fType == 'SOURCE'):?>
+						<a title ="<?=GetMessage("MAIN_MOD_FILE").htmlspecialcharsbx($arFiles["NAME"])?>" href="fileman_file_edit.php?lang=<?=LANG?>&amp;full_src=Y&amp;path=<?=urlencode($arFiles["ABS_PATH"])?>&amp;back_url=<?=urlencode($_SERVER["REQUEST_URI"])?>"><?php echo GetMessage("MAIN_T_EDIT_CHANGE")?></a>
+					<?php elseif($fType == 'IMAGE' || $fType == 'FLASH'):?>
+						<?php echo ShowImage($arFiles["ABS_PATH"], $iMaxW=50, $iMaxH=50, $sParams=null, $strImageUrl="", $bPopup=true, $sPopupTitle=GetMessage("template_edit_open_pic"));?>
+					<?php endif?>
 				</td>
 			</tr>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</table>
 		</td>
 	</tr>
 	<tr>
 		<td align="left" colspan="2">
-			<a title="<?=GetMessage("MAIN_T_EDIT_ADD_TITLE")?>" href="fileman_file_edit.php?lang=<?=LANG?>&amp;full_src=Y&amp;back_url=<?=urlencode($_SERVER["REQUEST_URI"])?>&amp;path=<?=urlencode($templFields["PATH"])?>&amp;new=y"><?echo GetMessage("MAIN_T_EDIT_ADD")?></a><br>
-			<a title="<?echo GetMessage("template_edit_upload_title")?>" href="fileman_file_upload.php?lang=<?=LANG?>&amp;path=<?=urlencode($templFields["PATH"])?>"><?echo GetMessage("template_edit_upload")?></a><br>
-			<a title="<?echo GetMessage("template_edit_structure_title")?>" href="fileman_admin.php?lang=<?=LANG?>&amp;path=<?=urlencode($templFields["PATH"])?>"><?echo GetMessage("template_edit_structure")?></a>
+			<a title="<?=GetMessage("MAIN_T_EDIT_ADD_TITLE")?>" href="fileman_file_edit.php?lang=<?=LANG?>&amp;full_src=Y&amp;back_url=<?=urlencode($_SERVER["REQUEST_URI"])?>&amp;path=<?=urlencode($templFields["PATH"])?>&amp;new=y"><?php echo GetMessage("MAIN_T_EDIT_ADD")?></a><br>
+			<a title="<?php echo GetMessage("template_edit_upload_title")?>" href="fileman_file_upload.php?lang=<?=LANG?>&amp;path=<?=urlencode($templFields["PATH"])?>"><?php echo GetMessage("template_edit_upload")?></a><br>
+			<a title="<?php echo GetMessage("template_edit_structure_title")?>" href="fileman_admin.php?lang=<?=LANG?>&amp;path=<?=urlencode($templFields["PATH"])?>"><?php echo GetMessage("template_edit_structure")?></a>
 		</td>
 	</tr>
-<?endif?>
-<?
+<?php endif?>
+<?php 
 $tabControl->Buttons();
 $aParams = array("disabled" => (!$edit_php && !$lpa), "back_url" => "".($isEditingMessageThemePage ? "message_theme_admin.php" : "template_admin.php")."?lang=".LANGUAGE_ID);
 $dis = (!$edit_php && !$lpa);
 ?>
-<input <?echo ($dis ? "disabled":"")?> type="submit" name="save" value="<?=GetMessage("admin_lib_edit_save")?>" title="<?=GetMessage("admin_lib_edit_save_title")?>" class="adm-btn-save">
-<input <?echo ($dis ? "disabled":"")?> type="submit" name="apply" value="<?=GetMessage("admin_lib_edit_apply")?>" title="<?GetMessage("admin_lib_edit_apply_title")?>">
-<?
+<input <?php echo ($dis ? "disabled":"")?> type="submit" name="save" value="<?=GetMessage("admin_lib_edit_save")?>" title="<?=GetMessage("admin_lib_edit_save_title")?>" class="adm-btn-save">
+<input <?php echo ($dis ? "disabled":"")?> type="submit" name="apply" value="<?=GetMessage("admin_lib_edit_apply")?>" title="<?php GetMessage("admin_lib_edit_apply_title")?>">
+<?php 
 if (($USER->CanDoOperation('edit_other_settings') || $USER->CanDoOperation('lpa_template_edit')) && !empty($ID) && !$isEditingMessageThemePage):
 	$signer = new Bitrix\Main\Security\Sign\Signer();
 	$sign = $signer->sign($ID, "template_preview".bitrix_sessid());
 ?>
 <input type="button" value="<?=GetMessage('FILEMAN_PREVIEW_TEMPLATE')?>" name="template_preview" onclick="preview_template('<?=htmlspecialcharsbx(CUtil::JSEscape($ID))?>', '<?= bitrix_sessid()?>', '<?=htmlspecialcharsbx(CUtil::JSEscape($sign))?>');" title="<?=GetMessage('FILEMAN_PREVIEW_TEMPLATE_TITLE')?>">
-<?
+<?php 
 endif;
 ?>
 <input type="button" value="<?=GetMessage("admin_lib_edit_cancel")?>" name="cancel" onClick="window.location='<?=CUtil::JSEscape($aParams["back_url"])?>'" title="<?=GetMessage("admin_lib_edit_cancel_title")?>">
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
 
 <script>
-	<? if ($codeEditorId): ?>
+	<?php  if ($codeEditorId): ?>
 		BX.ready(function(){
 			var codeEditor = top.BXCodeEditors['<?= $codeEditorId?>'];
 			window.InsertWorkArea = function()
@@ -504,15 +504,15 @@ endif;
 				}
 			};
 		});
-	<?else:?>
+	<?php else:?>
 		BX.ready(function(){
 			window.InsertWorkArea = function()
 			{
 				BX('bxed_CONTENT').value += '#WORK_AREA#';
 			};
 		});
-	<?endif?>
+	<?php endif?>
 
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

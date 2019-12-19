@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_NAME"] = "Persönliche Produktangebote";
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_PRODUCTS_TITLE"] = "Produkte";
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_PRODUCTS_DESC"] = "Produkte, die an einen individuellen Kunden empfohlen werden";

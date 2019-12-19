@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_CREATE_FOLDER"] = "Create folder";
 $MESS["LANDING_TPL_CREATE_FOLDER_ACTION"] = "Create";
 $MESS["LANDING_TPL_FLT_CREATED_BY_ID"] = "Created by";

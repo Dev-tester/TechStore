@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLL_SELECTED"] = "Число записей";
 $MESS["OL_STAT_BACK"] = "Назад";
 $MESS["OL_STAT_BACK_TITLE"] = "Вернуться назад";

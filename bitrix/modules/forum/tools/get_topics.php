@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 
 if (($_GET["admin_section"]=="Y") && (!defined("ADMIN_SECTION")))
@@ -21,6 +21,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_adm
 <!--
 window.parent.document.getElementById("div_<?=CUtil::JSEscape($strName)?>").innerHTML='<?=CUtil::JSEscape($res)?>';
 //-->
-</script><?
+</script><?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");
 ?>

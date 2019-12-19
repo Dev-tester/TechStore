@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPO_ORDERS_PER_PAGE"] = "Количество заказов на одной странице";
 $MESS["SPO_DESC_YES"] = "Да";
 $MESS["SPO_DESC_NO"] = "Нет";

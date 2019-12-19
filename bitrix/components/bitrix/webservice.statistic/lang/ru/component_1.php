@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_WS_STAT_LF_TITLE"] = "Статистика";
 $MESS["BX_WS_STAT_LF_HITS"] = "Хиты";
 $MESS["BX_WS_STAT_LF_SESSIONS"] = "Сессии";

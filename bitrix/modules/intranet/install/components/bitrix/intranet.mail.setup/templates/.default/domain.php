@@ -9,7 +9,7 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 
 ?>
 
-<? if (empty($arResult['ERRORS']) && $crDomainSetup) { ?>
+<?php  if (empty($arResult['ERRORS']) && $crDomainSetup) { ?>
 
 <div id="crdomain">
 
@@ -24,11 +24,11 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 			<div class="mail-set-item-block-l">
 				<span class="post-dialog-stat-text"><strong>@<?=$arResult['SETTINGS']['domain']; ?></strong></span>
 				<span id="check-domain-status" class="post-dialog-stat-alert-wait">
-					<? if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
+					<?php  if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
 					<?=GetMessage('INTR_MAIL_DOMAIN_WAITCONFIRM'); ?>
-					<? } else if ($arResult['STATUS']['stage'] == 'mx-check') { ?>
+					<?php  } else if ($arResult['STATUS']['stage'] == 'mx-check') { ?>
 					<?=GetMessage('INTR_MAIL_DOMAIN_WAITMX'); ?>
-					<? } ?>
+					<?php  } ?>
 				</span>
 			</div>
 		</div>
@@ -39,13 +39,13 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 		</form>
 	</div>
 
-	<? if (!$registeredDomain) { ?>
+	<?php  if (!$registeredDomain) { ?>
 	<div id="crdomain-instr">
 		<div class="mail-white-block">
 			<div class="mail-white-block-inner">
 				<div class="mail-white-block-title"><?=GetMessage('INTR_MAIL_DOMAIN_INSTR_TITLE'); ?></div>
 				<div class="mail-white-block-title2"><?=GetMessage('INTR_MAIL_DOMAIN_INSTR_STEP1'); ?></div>
-				<? if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
+				<?php  if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
 				<div class="mail-white-block-text"><?=GetMessage('INTR_MAIL_DOMAIN_INSTR_STEP1_PROMPT'); ?></div>
 				<ul class="mail-white-block-list">
 					<li class="mail-white-block-list-li">
@@ -74,49 +74,49 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 						<?=str_replace(array('#SECRET_N#', '#DOMAIN#'), array($arResult['STATUS']['secrets']['name'], $arResult['SETTINGS']['domain']), GetMessage('INTR_MAIL_DOMAIN_INSTR_STEP1_C_HINT')); ?>
 					</li>
 				</ul>
-				<? } ?>
+				<?php  } ?>
 				<div class="mail-domain-status">
-					<? if ($arResult['STATUS']['stage'] == 'mx-check') { ?>
+					<?php  if ($arResult['STATUS']['stage'] == 'mx-check') { ?>
 					<div class="mail-domain-status-title" style="font-weight: normal; "><?=GetMessage('INTR_MAIL_DOMAIN_STATUS_TITLE2'); ?></div>
-					<? } else { ?>
+					<?php  } else { ?>
 					<div class="mail-domain-status-title"><?=GetMessage('INTR_MAIL_DOMAIN_STATUS_TITLE'); ?></div>
-					<? } ?>
+					<?php  } ?>
 					<div class="mail-set-item-block-wrap">
-						<div id="check-confirm-form" class="mail-set-item-block<? if ($arResult['STATUS']['stage'] == 'owner-check') { ?> post-status-error<? } ?>">
+						<div id="check-confirm-form" class="mail-set-item-block<?php  if ($arResult['STATUS']['stage'] == 'owner-check') { ?> post-status-error<?php  } ?>">
 							<div class="mail-set-item-right-btns">
 								<span id="check-confirm-status" class="post-dialog-stat-alert"><?=GetMessage($arResult['STATUS']['stage'] == 'owner-check' ? 'INTR_MAIL_DOMAIN_STATUS_NOCONFIRM' : 'INTR_MAIL_DOMAIN_STATUS_CONFIRM'); ?></span>
 								<span id="check-confirm" class="webform-button">
 									<span class="webform-button-left"></span><span class="webform-button-text"><?=GetMessage('INTR_MAIL_DOMAIN_CHECK'); ?></span><span class="webform-button-right"></span>
 								</span>
 							</div>
-							<? $lastDomainCheck = isset($arResult['STATUS']['last_check']) ? strtotime($arResult['STATUS']['last_check']) : 0; ?>
-							<? $nextDomainCheck = isset($arResult['STATUS']['next_check']) ? strtotime($arResult['STATUS']['next_check']) : 0; ?>
-							<? $nextDomainCheck = $nextDomainCheck > time() ? $nextDomainCheck : 0; ?>
-							<div id="check-confirm-text" class="mail-set-item-text<? if (!$lastDomainCheck || !$nextDomainCheck) { ?> onerow<? } ?>">
-								<? if (!$lastDomainCheck && !$nextDomainCheck) { ?>
+							<?php  $lastDomainCheck = isset($arResult['STATUS']['last_check']) ? strtotime($arResult['STATUS']['last_check']) : 0; ?>
+							<?php  $nextDomainCheck = isset($arResult['STATUS']['next_check']) ? strtotime($arResult['STATUS']['next_check']) : 0; ?>
+							<?php  $nextDomainCheck = $nextDomainCheck > time() ? $nextDomainCheck : 0; ?>
+							<div id="check-confirm-text" class="mail-set-item-text<?php  if (!$lastDomainCheck || !$nextDomainCheck) { ?> onerow<?php  } ?>">
+								<?php  if (!$lastDomainCheck && !$nextDomainCheck) { ?>
 								<?=GetMessage('INTR_MAIL_CHECK_TEXT_NA'); ?>
-								<? } ?>
-								<? if ($lastDomainCheck > 0) { ?>
+								<?php  } ?>
+								<?php  if ($lastDomainCheck > 0) { ?>
 								<?=str_replace('#DATE#', FormatDate(
 									array('s' => 'sago', 'i' => 'iago', 'H' => 'Hago', 'd' => 'dago', 'm' => 'mago', 'Y' => 'Yago'),
 									$lastDomainCheck
 								), GetMessage('INTR_MAIL_CHECK_TEXT')); ?>
-								<? } ?>
-								<? if ($nextDomainCheck > 0) { ?>
-								<? if ($lastDomainCheck > 0) { ?><br><small><? } ?>
+								<?php  } ?>
+								<?php  if ($nextDomainCheck > 0) { ?>
+								<?php  if ($lastDomainCheck > 0) { ?><br><small><?php  } ?>
 								<?=str_replace('#DATE#', FormatDate(
 									array('s' => 'sdiff', 'i' => 'idiff', 'H' => 'Hdiff', 'd' => 'ddiff', 'm' => 'mdiff', 'Y' => 'Ydiff'),
 									time() - ($nextDomainCheck - time())
 								), GetMessage('INTR_MAIL_CHECK_TEXT_NEXT')); ?>
-								<? if ($lastDomainCheck > 0) { ?></small><? } ?>
-								<? } ?>
+								<?php  if ($lastDomainCheck > 0) { ?></small><?php  } ?>
+								<?php  } ?>
 							</div>
 						</div>
 					</div>
 				</div>
-				<? if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
+				<?php  if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
 				<div class="mail-white-block-text"><?=GetMessage('INTR_MAIL_DOMAIN_INSTR_STEP1_HINT'); ?></div>
-				<? } ?>
+				<?php  } ?>
 			</div>
 		</div>
 		<div class="mail-white-block mail-white-block-lspace">
@@ -151,36 +151,36 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 									<span class="webform-button-left"></span><span class="webform-button-text"><?=GetMessage('INTR_MAIL_DOMAIN_CHECK'); ?></span><span class="webform-button-right"></span>
 								</span>
 							</div>
-							<? $lastDomainCheck = isset($arResult['STATUS']['last_check']) ? strtotime($arResult['STATUS']['last_check']) : 0; ?>
-							<? $nextDomainCheck = isset($arResult['STATUS']['next_check']) ? strtotime($arResult['STATUS']['next_check']) : 0; ?>
-							<? $nextDomainCheck = $nextDomainCheck > time() ? $nextDomainCheck : 0; ?>
-							<div id="check-mx-text" class="mail-set-item-text<? if (!$lastDomainCheck || !$nextDomainCheck) { ?> onerow<? } ?>">
-								<? if (!$lastDomainCheck && !$nextDomainCheck) { ?>
+							<?php  $lastDomainCheck = isset($arResult['STATUS']['last_check']) ? strtotime($arResult['STATUS']['last_check']) : 0; ?>
+							<?php  $nextDomainCheck = isset($arResult['STATUS']['next_check']) ? strtotime($arResult['STATUS']['next_check']) : 0; ?>
+							<?php  $nextDomainCheck = $nextDomainCheck > time() ? $nextDomainCheck : 0; ?>
+							<div id="check-mx-text" class="mail-set-item-text<?php  if (!$lastDomainCheck || !$nextDomainCheck) { ?> onerow<?php  } ?>">
+								<?php  if (!$lastDomainCheck && !$nextDomainCheck) { ?>
 								<?=GetMessage('INTR_MAIL_CHECK_TEXT_NA'); ?>
-								<? } ?>
-								<? if ($lastDomainCheck > 0) { ?>
+								<?php  } ?>
+								<?php  if ($lastDomainCheck > 0) { ?>
 								<?=str_replace('#DATE#', FormatDate(
 									array('s' => 'sago', 'i' => 'iago', 'H' => 'Hago', 'd' => 'dago', 'm' => 'mago', 'Y' => 'Yago'),
 									$lastDomainCheck
 								), GetMessage('INTR_MAIL_CHECK_TEXT')); ?>
-								<? } ?>
-								<? if ($nextDomainCheck > 0) { ?>
-								<? if ($lastDomainCheck > 0) { ?><br><small><? } ?>
+								<?php  } ?>
+								<?php  if ($nextDomainCheck > 0) { ?>
+								<?php  if ($lastDomainCheck > 0) { ?><br><small><?php  } ?>
 								<?=str_replace('#DATE#', FormatDate(
 									array('s' => 'sdiff', 'i' => 'idiff', 'H' => 'Hdiff', 'd' => 'ddiff', 'm' => 'mdiff', 'Y' => 'Ydiff'),
 									time() - ($nextDomainCheck - time())
 								), GetMessage('INTR_MAIL_CHECK_TEXT_NEXT')); ?>
-								<? if ($lastDomainCheck > 0) { ?></small><? } ?>
-								<? } ?>
+								<?php  if ($lastDomainCheck > 0) { ?></small><?php  } ?>
+								<?php  } ?>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<? } else { ?>
+		<?php  } else { ?>
 		<div id="mail-info-message" class="mail-info-message"><?=GetMessage('INTR_MAIL_DOMAIN_SETUP_HINT'); ?></div>
-		<? } ?>
+		<?php  } ?>
 	</div>
 </div>
 
@@ -303,45 +303,45 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 
 </script>
 
-<? } else { ?>
+<?php  } else { ?>
 
-<div id="domain" class="mail-set-wrap<? if (IsIE() == 8) { ?> bx-ie bx-ie8<? } ?>"<? if (empty($arResult['SETTINGS'])) { ?> style="display: none; "<? } ?>>
+<div id="domain" class="mail-set-wrap<?php  if (IsIE() == 8) { ?> bx-ie bx-ie8<?php  } ?>"<?php  if (empty($arResult['SETTINGS'])) { ?> style="display: none; "<?php  } ?>>
 
 	<div class="post-dialog-domain mail-white-block-token mail-white-small">
 
-		<? if ($arResult['SERVICE']) { ?>
+		<?php  if ($arResult['SERVICE']) { ?>
 		<div class="mail-white-block-text"><?=GetMessage('INTR_MAIL_DOMAIN_TITLE2'); ?></div>
-		<? } else { ?>
+		<?php  } else { ?>
 		<div class="mail-white-block-title2"><?=GetMessage('INTR_MAIL_DOMAIN_TITLE'); ?></div>
-		<? } ?>
+		<?php  } ?>
 
-		<? if (!empty($arResult['ERRORS'])) { ?>
+		<?php  if (!empty($arResult['ERRORS'])) { ?>
 		<div class="post-dialog-alert">
 			<span class="post-dialog-alert-align"></span>
 			<span class="post-dialog-alert-icon"></span>
 			<span class="post-dialog-alert-text">
-			<? foreach ($arResult['ERRORS'] as $k => $error) { if ($k > 0) { ?><br><? } echo $error; } ?>
+			<?php  foreach ($arResult['ERRORS'] as $k => $error) { if ($k > 0) { ?><br><?php  } echo $error; } ?>
 			</span>
 		</div>
-		<? } else if ($arResult['SERVICE'] && $arResult['STATUS']['stage'] != 'added') { ?>
+		<?php  } else if ($arResult['SERVICE'] && $arResult['STATUS']['stage'] != 'added') { ?>
 		<div class="post-dialog-alert post-dialog-warning">
 			<span class="post-dialog-alert-align post-dialog-warning-align"></span>
 			<span class="post-dialog-alert-text post-dialog-warning-text">
-			<? if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
+			<?php  if ($arResult['STATUS']['stage'] == 'owner-check') { ?>
 			<?=GetMessage('INTR_MAIL_DOMAIN_NOCONFIRM'); ?>
-			<? } else if ($arResult['STATUS']['stage'] == 'mx-check') { ?>
+			<?php  } else if ($arResult['STATUS']['stage'] == 'mx-check') { ?>
 			<?=GetMessage('INTR_MAIL_DOMAIN_NOMX'); ?>
-			<? } ?>
+			<?php  } ?>
 			</span>
 		</div>
-		<? } ?>
+		<?php  } ?>
 
 		<form id="domain_form" name="domain_form" action="<?=POST_FORM_ACTION_URI; ?>" method="POST">
 			<input type="hidden" name="page" value="domain">
 			<input type="hidden" name="act" value="save">
 			<input type="hidden" name="type" value="<?=($arResult['SERVICE'] && $arResult['SETTINGS']['type'] == 'crdomain' ? 'delegate' : 'connect'); ?>">
 			<?=bitrix_sessid_post(); ?>
-			<? if ($arResult['SERVICE']) { ?>
+			<?php  if ($arResult['SERVICE']) { ?>
 			<div class="mail-set-item-block">
 				<div class="mail-set-item-block-r">
 					<span id="domain_remove" class="webform-button webform-button-decline">
@@ -350,30 +350,30 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 				</div>
 				<div class="mail-set-item-block-l">
 					<span class="post-dialog-stat-text"><strong>@<?=$arResult['SETTINGS']['domain']; ?></strong></span>
-					<? if (!empty($arResult['STATUS']['stage']) && $arResult['STATUS']['stage'] == 'added') { ?>
+					<?php  if (!empty($arResult['STATUS']['stage']) && $arResult['STATUS']['stage'] == 'added') { ?>
 					<a href="?page=manage" class="mail-set-item-block-set-link"><strong><?=GetMessage('INTR_MAIL_MANAGE'); ?></strong></a>
-					<? } ?>
+					<?php  } ?>
 				</div>
 			</div>
-			<? } else { ?>
+			<?php  } else { ?>
 			<div class="post-dialog-inp-item">
 				<span class="post-dialog-inp-label"><?=GetMessage('INTR_MAIL_INP_DOMAIN'); ?></span>
-				<input id="domain-inp" name="domain" type="text" class="post-dialog-inp"<? if (!empty($arResult['SETTINGS']['domain'])) { ?> value="<?=htmlspecialcharsbx($arResult['SETTINGS']['domain']); ?>"<? } ?>>
+				<input id="domain-inp" name="domain" type="text" class="post-dialog-inp"<?php  if (!empty($arResult['SETTINGS']['domain'])) { ?> value="<?=htmlspecialcharsbx($arResult['SETTINGS']['domain']); ?>"<?php  } ?>>
 			</div>
-			<? } ?>
-			<? if (!$arResult['SERVICE'] || $arResult['SETTINGS']['type'] == 'domain') { ?>
+			<?php  } ?>
+			<?php  if (!$arResult['SERVICE'] || $arResult['SETTINGS']['type'] == 'domain') { ?>
 			<div class="post-dialog-inp-item">
 				<span class="post-dialog-inp-label"><?=GetMessage('INTR_MAIL_INP_TOKEN'); ?>
-					<span id="token-container"<? if (empty($arResult['SETTINGS']['domain'])) { ?> style="display: none; "<? } ?>>
-						(<a id="token-link" onclick="window.open(this.href+'&'+(new Date()).getTime(), '_blank', 'height=480,width=720,top='+parseInt(screen.height/2-240)+',left='+parseInt(screen.width/2-360)); return false; " href="https://pddimp.yandex.ru/api2/admin/get_token?domain=<? if (!empty($arResult['SETTINGS']['domain'])) { echo htmlspecialcharsbx($arResult['SETTINGS']['domain']); } ?>" target="_blank"><?=GetMessage('INTR_MAIL_GET_TOKEN'); ?></a>)
+					<span id="token-container"<?php  if (empty($arResult['SETTINGS']['domain'])) { ?> style="display: none; "<?php  } ?>>
+						(<a id="token-link" onclick="window.open(this.href+'&'+(new Date()).getTime(), '_blank', 'height=480,width=720,top='+parseInt(screen.height/2-240)+',left='+parseInt(screen.width/2-360)); return false; " href="https://pddimp.yandex.ru/api2/admin/get_token?domain=<?php  if (!empty($arResult['SETTINGS']['domain'])) { echo htmlspecialcharsbx($arResult['SETTINGS']['domain']); } ?>" target="_blank"><?=GetMessage('INTR_MAIL_GET_TOKEN'); ?></a>)
 					</span>
 				</span>
-				<input id="token" name="token" type="text" class="post-dialog-inp"<? if (!empty($arResult['SETTINGS']['token'])) { ?> value="<?=htmlspecialcharsbx($arResult['SETTINGS']['token']); ?>"<? } ?>>
+				<input id="token" name="token" type="text" class="post-dialog-inp"<?php  if (!empty($arResult['SETTINGS']['token'])) { ?> value="<?=htmlspecialcharsbx($arResult['SETTINGS']['token']); ?>"<?php  } ?>>
 			</div>
-			<? } ?>
+			<?php  } ?>
 			<div class="post-dialog-inp-item">
 				<label>
-					<input id="public" name="public" type="checkbox" value="Y" style="margin: 5px 3px 5px 0px; "<? if (empty($arResult['SETTINGS']['public']) || $arResult['SETTINGS']['public'] == 'Y') { ?> checked<? } ?> />
+					<input id="public" name="public" type="checkbox" value="Y" style="margin: 5px 3px 5px 0px; "<?php  if (empty($arResult['SETTINGS']['public']) || $arResult['SETTINGS']['public'] == 'Y') { ?> checked<?php  } ?> />
 					<?=GetMessage('INTR_MAIL_INP_PUBLIC_DOMAIN'); ?>
 				</label>
 			</div>
@@ -386,13 +386,13 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 			<?=bitrix_sessid_post(); ?>
 		</form>
 
-		<? if (!$arResult['SERVICE'] || $arResult['SETTINGS']['type'] == 'domain') { ?>
-		<? if (empty($arResult['STATUS']['stage']) || $arResult['STATUS']['stage'] != 'added') { ?>
+		<?php  if (!$arResult['SERVICE'] || $arResult['SETTINGS']['type'] == 'domain') { ?>
+		<?php  if (empty($arResult['STATUS']['stage']) || $arResult['STATUS']['stage'] != 'added') { ?>
 		<div class="mail-set-ifo-box mail-set-ifo-box-light mail-set-ifo-box-no-corner">
 			<?=GetMessage('INTR_MAIL_DOMAIN_HELP'); ?>
 		</div>
-		<? } ?>
-		<? } ?>
+		<?php  } ?>
+		<?php  } ?>
 
 		<div class="post-dialog-footer">
 			<a id="domain_save" href="#" class="webform-button webform-button-accept">
@@ -439,9 +439,9 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 
 </script>
 
-<? if (empty($arResult['SETTINGS'])) { ?>
+<?php  if (empty($arResult['SETTINGS'])) { ?>
 
-<div id="new-domain" class="mail-set-wrap<? if (IsIE() == 8) { ?> bx-ie bx-ie8<? } ?>" style="display: none; ">
+<div id="new-domain" class="mail-set-wrap<?php  if (IsIE() == 8) { ?> bx-ie bx-ie8<?php  } ?>" style="display: none; ">
 	<div id="reg-block" class="post-dialog-domain mail-white-block-domain mail-white-small">
 		<div class="mail-white-block-title"><?=GetMessage('INTR_MAIL_DOMAIN_CHOOSE_TITLE'); ?></div>
 		<form id="reg_domain_form" name="domain_form" action="<?=POST_FORM_ACTION_URI; ?>" method="POST">
@@ -831,9 +831,9 @@ $registeredDomain = (boolean) ($arResult['SETTINGS']['flags'] & CMail::F_DOMAIN_
 
 </script>
 
-<? } ?>
+<?php  } ?>
 
-<? } ?>
+<?php  } ?>
 
 <script type="text/javascript">
 

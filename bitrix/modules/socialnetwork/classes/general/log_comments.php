@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 use Bitrix\Socialnetwork\Item\LogIndex;

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -17,7 +17,7 @@ $arResult["FIELDS"] = array(
 			'<input type="button" name="" value="..." />'), */
 	array("id" => "NAME", "name" => GetMessage("WD_NAME"), "type" => "text", "value" => $_REQUEST["NAME"])); 
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.form",
 	"",
 	array(
@@ -36,7 +36,7 @@ $arResult["FIELDS"] = array(
 	),
 	($this->__component->__parent ? $this->__component->__parent : $component)
 );?>
-<?
+<?php 
 if ($this->__component->__parent)
 {
 	$this->__component->__parent->arResult["arButtons"] = is_array($this->__component->__parent->arResult["arButtons"]) ? $this->__component->__parent->arResult["arButtons"] : array(); 

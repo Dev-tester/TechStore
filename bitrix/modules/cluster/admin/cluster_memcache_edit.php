@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/cluster/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -117,49 +117,49 @@ if($message)
 	echo $message->Show();
 
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-	<?if(is_array($arServer)):?>
+	<?php if(is_array($arServer)):?>
 		<tr>
-			<td><?echo GetMessage("CLU_MEMCACHE_EDIT_ID")?>:</td>
-			<td><?echo intval($arServer["ID"]);?></td>
+			<td><?php echo GetMessage("CLU_MEMCACHE_EDIT_ID")?>:</td>
+			<td><?php echo intval($arServer["ID"]);?></td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLU_MEMCACHE_EDIT_HOST")?>:</td>
-		<td width="60%"><input type="text" size="20" name="HOST" value="<?echo $str_HOST?>"></td>
+		<td width="40%"><?php echo GetMessage("CLU_MEMCACHE_EDIT_HOST")?>:</td>
+		<td width="60%"><input type="text" size="20" name="HOST" value="<?php echo $str_HOST?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLU_MEMCACHE_EDIT_PORT")?>:</td>
-		<td><input type="text" size="6" name="PORT" value="<?echo $str_PORT?>"></td>
+		<td><?php echo GetMessage("CLU_MEMCACHE_EDIT_PORT")?>:</td>
+		<td><input type="text" size="6" name="PORT" value="<?php echo $str_PORT?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLU_MEMCACHE_EDIT_WEIGHT")?>:</td>
-		<td><input type="text" size="6" name="WEIGHT" value="<?echo $str_WEIGHT?>"></td>
+		<td><?php echo GetMessage("CLU_MEMCACHE_EDIT_WEIGHT")?>:</td>
+		<td><input type="text" size="6" name="WEIGHT" value="<?php echo $str_WEIGHT?>"></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"back_url"=>"cluster_memcache_list.php?lang=".LANGUAGE_ID."&group_id=".$group_id,
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-<input type="hidden" name="group_id" value="<?echo $group_id?>">
-<?if(is_array($arServer)):?>
-	<input type="hidden" name="ID" value="<?echo intval($arServer["ID"])?>">
-<?endif;?>
-<?
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+<input type="hidden" name="group_id" value="<?php echo $group_id?>">
+<?php if(is_array($arServer)):?>
+	<input type="hidden" name="ID" value="<?php echo intval($arServer["ID"])?>">
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 $tabControl->ShowWarnings("editform", $message);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

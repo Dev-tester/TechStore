@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CURRENCY_RUR"] = "руб.";
 $MESS["VI_CURRENCY_EUR"] = "&euro;";
 $MESS["VI_CURRENCY_USD"] = "$";

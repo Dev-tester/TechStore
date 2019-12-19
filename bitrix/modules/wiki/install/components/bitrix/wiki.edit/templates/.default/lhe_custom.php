@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 if(CModule::IncludeModule('fileman')):
 	AddEventHandler('fileman', 'OnIncludeLightEditorScript', 'CustomizeLightEditorForWiki');
@@ -233,13 +233,13 @@ if(CModule::IncludeModule('fileman')):
 		}
 
 		</script>
-		<?
+		<?php 
 	}
 	?>
 	<script>
 
 	</script>
-	<?
+	<?php 
 
 	$ar = array(
 		'width' => '100%',

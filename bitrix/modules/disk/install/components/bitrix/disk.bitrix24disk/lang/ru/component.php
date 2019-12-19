@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_DISK_ERROR"] = "Ошибка";
 $MESS["WD_DISK_JS_ERROR_DEFAULT"] = "Произошла ошибка.";
 $MESS["WD_DISK_JS_ERROR_UNKNOWN"] = "Неизвестная ошибка.";

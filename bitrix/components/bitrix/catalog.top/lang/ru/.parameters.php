@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACTIONS"] = "Настройки действий";
 $MESS["SORT_SETTINGS"] = "Настройки сортировки";
 $MESS["IBLOCK_DETAIL_URL"] = "URL, ведущий на страницу с содержимым элемента раздела";

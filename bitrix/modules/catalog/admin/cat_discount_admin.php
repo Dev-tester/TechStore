@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -587,8 +587,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("DISCOUNT_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -606,16 +606,16 @@ $oFilter->Begin();
 ?>
 	<tr>
 		<td><?= GetMessage("DSC_SITE") ?>:</td>
-		<td><?
+		<td><?php 
 			$siteSize = count($siteList);
 			if ($siteSize > 10)
 				$siteSize = 10;
 			elseif ($siteSize < 3)
 				$siteSize = 3;
-			?><select name="filter_site_id[]" multiple size="<?=$siteSize; ?>"><?
+			?><select name="filter_site_id[]" multiple size="<?=$siteSize; ?>"><?php 
 			foreach ($siteList as $row)
 			{
-				?><option value="<?=$row['LID']; ?>"<?=(in_array($row['LID'], $filterSite) ? ' selected' : ''); ?>>[<?=$row['LID']; ?>]&nbsp;<?=htmlspecialcharsbx($row['NAME']); ?></option><?
+				?><option value="<?=$row['LID']; ?>"<?=(in_array($row['LID'], $filterSite) ? ' selected' : ''); ?>>[<?=$row['LID']; ?>]&nbsp;<?=htmlspecialcharsbx($row['NAME']); ?></option><?php 
 			}
 			unset($row);
 			?></select>
@@ -626,15 +626,15 @@ $oFilter->Begin();
 		<td>
 			<select name="filter_active">
 				<option value=""><?=htmlspecialcharsbx("(".GetMessage("DSC_ALL").")"); ?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_YES")); ?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_NO")); ?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_YES")); ?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_NO")); ?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td><?= GetMessage("DSC_PERIOD") ?> (<?= CSite::GetDateFormat("SHORT") ?>):</td>
 		<td>
-			<?echo CalendarPeriod("filter_date_active_from", $filter_date_active_from, "filter_date_active_to", $filter_date_active_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_date_active_from", $filter_date_active_from, "filter_date_active_to", $filter_date_active_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
@@ -654,13 +654,13 @@ $oFilter->Begin();
 		<td>
 			<select name="filter_renewal">
 				<option value=""><?=htmlspecialcharsbx("(".GetMessage("DSC_ALL").")"); ?></option>
-				<option value="Y"<?if ($filter_renewal=="Y") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_YES")); ?></option>
-				<option value="N"<?if ($filter_renewal=="N") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_NO")); ?></option>
+				<option value="Y"<?php if ($filter_renewal=="Y") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_YES")); ?></option>
+				<option value="N"<?php if ($filter_renewal=="N") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_NO")); ?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage('DSC_VALUE'); ?>:</td>
+		<td><?php  echo GetMessage('DSC_VALUE'); ?>:</td>
 		<td>
 			<input type="text" name="filter_value_start" value="<?=htmlspecialcharsbx($filter_value_start); ?>" size="15">
 			...
@@ -672,12 +672,12 @@ $oFilter->Begin();
 		<td>
 			<select name="filter_use_coupons">
 				<option value=""><?=htmlspecialcharsbx("(".GetMessage("DSC_ALL").")"); ?></option>
-				<option value="Y"<?if ($filter_use_coupons=="Y") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_YES")); ?></option>
-				<option value="N"<?if ($filter_use_coupons=="N") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_NO")); ?></option>
+				<option value="Y"<?php if ($filter_use_coupons=="Y") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_YES")); ?></option>
+				<option value="N"<?php if ($filter_use_coupons=="N") echo " selected"?>><?=htmlspecialcharsbx(GetMessage("DSC_NO")); ?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -688,7 +688,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

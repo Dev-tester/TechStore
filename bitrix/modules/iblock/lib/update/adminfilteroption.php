@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Iblock\Update;
 
 use Bitrix\Main\Update\AdminFilterOption as BaseAdminFilterOption;

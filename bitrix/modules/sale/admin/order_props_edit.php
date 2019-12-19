@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_before.php');
 
 $saleModulePermissions = $APPLICATION->GetGroupRight('sale');
@@ -638,7 +638,7 @@ if ($errors)
 	<input type="hidden" name="PREVIOUS-TYPE" value="<?=htmlspecialcharsbx($property['TYPE'])?>">
 	<?=bitrix_sessid_post()?>
 
-	<?
+	<?php 
 	$tabs = [
 		[
 			'DIV' => 'edit1',
@@ -665,7 +665,7 @@ if ($errors)
 
 	<tr class="heading"><td colspan="2"><?=Loc::getMessage('PROPERTY_TITLE')?></td></tr>
 
-	<?foreach ($propertySettings as $name => $input):
+	<?php foreach ($propertySettings as $name => $input):
 		if ($input['HIDDEN'] != 'Y')
 		{
 			$tr = $input['REQUIRED'] == 'Y' ? ' class="adm-detail-required-field"' : '';
@@ -677,56 +677,56 @@ if ($errors)
 			}
 		}
 		?>
-		<?if ($name == 'TYPE'):?><tr class="heading"><td colspan="2"><?=Loc::getMessage('TYPE_TITLE')?></td></tr><?endif?>
+		<?php if ($name == 'TYPE'):?><tr class="heading"><td colspan="2"><?=Loc::getMessage('TYPE_TITLE')?></td></tr><?php endif?>
 		<tr<?=$tr?>>
 			<td width="40%"<?=$td?>><?=$input['LABEL']?>:</td>
 			<td width="60%"<?=$td?>>
 				<?=Input\Manager::getEditHtml($name, $input, $property[$name]).$input['RLABEL']?>
-				<?if ($input['DESCRIPTION']):?>
+				<?php if ($input['DESCRIPTION']):?>
 					<small><?=$input['DESCRIPTION']?></small>
-				<?endif?>
+				<?php endif?>
 			</td>
 		</tr>
-	<?endforeach?>
+	<?php endforeach?>
 
-	<?if ($property['TYPE'] == 'ENUM'):?>
+	<?php if ($property['TYPE'] == 'ENUM'):?>
 		<tr>
 			<td colspan="2" align="center">
 				<table cellspacing="0" class="internal">
 					<tr class="heading">
 						<td align="center"></td>
-						<?foreach ($variantSettings as $input):?>
+						<?php foreach ($variantSettings as $input):?>
 							<td align="center"><?=$input['LABEL']?></td>
-						<?endforeach?>
+						<?php endforeach?>
 						<td align="center"><?=Loc::getMessage('SALE_VARIANTS_DEL')?></td>
 					</tr>
-					<?
+					<?php 
 					for ($index = 1; $index <= 5; ++ $index)
 						$variants []= array();
 					$index = 0;
 					foreach ($variants as $variant):?>
 						<tr>
 							<td><?=++$index?></td>
-							<?foreach ($variantSettings as $name => $input): $input['REQUIRED'] = 'N'?>
-								<?
+							<?php foreach ($variantSettings as $name => $input): $input['REQUIRED'] = 'N'?>
+								<?php 
 									if ($name === 'XML_ID')
 									{
 										$input['VALUE'] = \Bitrix\Sale\Internals\OrderPropsVariantTable::generateXmlId();
 									}
 								?>
 								<td><?=Input\Manager::getEditHtml("VARIANTS[$index][$name]", $input, $variant[$name])?></td>
-							<?endforeach?>
+							<?php endforeach?>
 							<td><input type="checkbox" name="VARIANTS[<?=$index?>][DELETE]"></td>
 						</tr>
-					<?endforeach?>
+					<?php endforeach?>
 				</table>
 			</td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 
-	<?$tabControl->BeginNextTab()?>
+	<?php $tabControl->BeginNextTab()?>
 
-	<?foreach ($relationsSettings as $name => $input):
+	<?php foreach ($relationsSettings as $name => $input):
 		if (empty($relations[$name]))
 		{
 			$value = array('-1');
@@ -737,15 +737,15 @@ if ($errors)
 		}
 		?>
 		<tr>
-			<?
+			<?php 
 			if ($property['TYPE'] == 'LOCATION' && $property['IS_LOCATION'] == 'Y')
 				$input['DISABLED'] = true;
 			?>
 			<td width="40%"><?=$input['LABEL']?>:</td>
 			<td width="60%"><?=Input\Manager::getEditHtml("RELATIONS[$name]", $input, $value)?></td>
 		</tr>
-	<?endforeach?>
-	<?
+	<?php endforeach?>
+	<?php 
 	$tabControl->EndTab();
 	$tabControl->Buttons(array(
 		'disabled' => ($saleModulePermissions < 'W'),
@@ -755,4 +755,4 @@ if ($errors)
 	?>
 </form>
 
-<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');
+<?php require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

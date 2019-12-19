@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EXTRANET_SAVE'] = "Сохранить";
 $MESS ['EXTRANET_RESET'] = "Сбросить";
 $MESS ['EXTRANET_USER_GROUP'] = "Группа пользователей экстранет:";

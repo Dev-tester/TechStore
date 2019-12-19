@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 use Bitrix\Main\Localization\Loc;
@@ -18,7 +18,7 @@ Loc::loadMessages(__FILE__);
 </style>
 </head>
 
-<?
+<?php 
 
 if ($_REQUEST['BLANK'] == 'Y')
 	$blank = true;
@@ -71,15 +71,15 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 ?>
 
-<body style="margin: 0pt; padding: 0pt;"<? if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<? } ?>>
+<body style="margin: 0pt; padding: 0pt;"<?php  if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<?php  } ?>>
 
 <div style="margin: 0pt; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>">
-<?if ($params['BILLUA_HEADER']):?>
+<?php if ($params['BILLUA_HEADER']):?>
 	<b><?=htmlspecialcharsbx($params['BILLUA_HEADER']).Loc::getMessage('SALE_HPS_BILLUA_TITLE', array('#PAYMENT_NUMBER#' => htmlspecialcharsbx($params["ACCOUNT_NUMBER"]), '#PAYMENT_DATE#' => htmlspecialcharsbx($params["DATE_INSERT"]))); ?></b>
 	<br>
 	<br>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 
 $buyerPhone = $params["BUYER_PERSON_COMPANY_PHONE"];
 $buyerFax = $params["BUYER_PERSON_COMPANY_FAX"];
@@ -87,7 +87,7 @@ $buyerFax = $params["BUYER_PERSON_COMPANY_FAX"];
 ?>
 
 <table class="acc">
-	<? if ($params['BILLUA_SELLER_SHOW'] == 'Y'):?>
+	<?php  if ($params['BILLUA_SELLER_SHOW'] == 'Y'):?>
 		<tr>
 			<td><?=Loc::getMessage('SALE_HPS_BILLUA_SELLER')?>:</td>
 			<td style="padding-left: 4pt; ">
@@ -96,7 +96,7 @@ $buyerFax = $params["BUYER_PERSON_COMPANY_FAX"];
 				<?=Loc::getMessage('SALE_HPS_BILLUA_SELLER_COMPANY_RS')?> <?=htmlspecialcharsbx($params["SELLER_COMPANY_BANK_ACCOUNT"]); ?>,
 				<?=Loc::getMessage('SALE_HPS_BILLUA_SELLER_COMPANY_BANK')?> <?=htmlspecialcharsbx($params["SELLER_COMPANY_BANK_NAME"]); ?>,
 				<?=Loc::getMessage('SALE_HPS_BILLUA_SELLER_COMPANY_MFO')?> <?=htmlspecialcharsbx($params["SELLER_COMPANY_MFO"]); ?>
-				<br><?
+				<br><?php 
 				$sellerAddr = '';
 				if ($params["SELLER_COMPANY_ADDRESS"])
 				{
@@ -108,11 +108,11 @@ $buyerFax = $params["BUYER_PERSON_COMPANY_FAX"];
 				}
 				?>
 				<?=Loc::getMessage('SALE_HPS_BILLUA_SELLER_COMPANY_ADDRESS')?>: <?=htmlspecialcharsbx($sellerAddr);?>,
-				<?if($params["SELLER_COMPANY_PHONE"]):?>
+				<?php if($params["SELLER_COMPANY_PHONE"]):?>
 					<?=Loc::getMessage('SALE_HPS_BILLUA_SELLER_COMPANY_PHONE')?>: <?=htmlspecialcharsbx($params["SELLER_COMPANY_PHONE"]); ?>
-				<?endif;?>
+				<?php endif;?>
 				<br>
-				<?
+				<?php 
 				$requisiteList = array();
 				foreach (array('EDRPOY', 'IPN', 'PDV') as $value)
 				{
@@ -124,21 +124,21 @@ $buyerFax = $params["BUYER_PERSON_COMPANY_FAX"];
 				if ($params["SELLER_COMPANY_SYS"]) { ?>
 				<br>
 				<?=htmlspecialcharsbx($params["SELLER_COMPANY_SYS"]); ?>
-				<? } ?>
+				<?php  } ?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
-	<?if ($params['BILLUA_PAYER_SHOW'] === 'Y') :?>
+	<?php if ($params['BILLUA_PAYER_SHOW'] === 'Y') :?>
 		<tr>
 			<td><?=Loc::getMessage('SALE_HPS_BILLUA_BUYER');?>:</td>
 			<td style="padding-left: 4pt; ">
 				<?=htmlspecialcharsbx($params["BUYER_PERSON_COMPANY_NAME"]); ?>
-				<? if ($buyerPhone || $buyerFax) { ?>
+				<?php  if ($buyerPhone || $buyerFax) { ?>
 				<br>
-				<? if ($buyerPhone) { ?><?=Loc::getMessage('SALE_HPS_BILLUA_BUYER_PHONE')?>: <?=htmlspecialcharsbx($buyerPhone); ?><? if ($buyerFax) { ?>, <? } ?><? } ?>
-				<? if ($buyerFax) { ?><?=Loc::getMessage('SALE_HPS_BILLUA_BUYER_FAX')?>: <?=htmlspecialcharsbx($buyerFax); ?><? } ?>
-				<? } ?><?
+				<?php  if ($buyerPhone) { ?><?=Loc::getMessage('SALE_HPS_BILLUA_BUYER_PHONE')?>: <?=htmlspecialcharsbx($buyerPhone); ?><?php  if ($buyerFax) { ?>, <?php  } ?><?php  } ?>
+				<?php  if ($buyerFax) { ?><?=Loc::getMessage('SALE_HPS_BILLUA_BUYER_FAX')?>: <?=htmlspecialcharsbx($buyerFax); ?><?php  } ?>
+				<?php  } ?><?php 
 				if ($params["BUYER_PERSON_COMPANY_ADDRESS"])
 				{
 					$buyerAddr = $params["BUYER_PERSON_COMPANY_ADDRESS"];
@@ -146,23 +146,23 @@ $buyerFax = $params["BUYER_PERSON_COMPANY_FAX"];
 						$buyerAddr = implode(', ', $buyerAddr);
 					else
 						$buyerAddr = str_replace(array("\r\n", "\n", "\r"), ', ', strval($buyerAddr));
-					?><br><?
-					?><?=Loc::getMessage('SALE_HPS_BILLUA_BUYER_ADDRESS')?>: <?=htmlspecialcharsbx($buyerAddr);?><?
+					?><br><?php 
+					?><?=Loc::getMessage('SALE_HPS_BILLUA_BUYER_ADDRESS')?>: <?=htmlspecialcharsbx($buyerAddr);?><?php 
 				}
 				?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 </table>
 <br>
 
-<? if ($params["BUYER_PERSON_COMPANY_DOGOVOR"]) { ?>
+<?php  if ($params["BUYER_PERSON_COMPANY_DOGOVOR"]) { ?>
 <?=Loc::getMessage('SALE_HPS_BILLUA_BUYER_DOGOVOR')?>: <?=htmlspecialcharsbx($params["BUYER_PERSON_COMPANY_DOGOVOR"]); ?>
 <br>
-<? } ?>
+<?php  } ?>
 <br>
 
-<?
+<?php 
 $arCurFormat = CCurrencyLang::GetCurrencyFormat($params['CURRENCY']);
 $currency = trim(str_replace('#', '', $arCurFormat['FORMAT_STRING']));
 
@@ -395,11 +395,11 @@ if ($params['BASKET_ITEMS'])
 ?>
 <table class="it" width="100%">
 	<tr>
-		<?foreach ($arCols as $columnId => $col):?>
+		<?php foreach ($arCols as $columnId => $col):?>
 			<td><?=$col['NAME'];?></td>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>
-<?
+<?php 
 
 $rowsCnt = count($arCells);
 for ($n = 1; $n <= $rowsCnt; $n++)
@@ -408,28 +408,28 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 ?>
 	<tr valign="top">
-		<?foreach ($arCols as $columnId => $col):
+		<?php foreach ($arCols as $columnId => $col):
 			if (!is_null($arCells[$n][$columnId]))
 			{
 				if ($columnId === 'NUMBER')
 				{?>
 					<td align="center"><?=$arCells[$n][$columnId];?></td>
-				<?}
+				<?php }
 				elseif ($columnId === 'NAME')
 				{
 				?>
 					<td align="<?=($n > $items) ? 'right' : 'left';?>"
-						style="word-break: break-word; word-wrap: break-word; <? if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <? } ?>"
-						<? if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<? $accumulated = 0; } ?>>
+						style="word-break: break-word; word-wrap: break-word; <?php  if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <?php  } ?>"
+						<?php  if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0; } ?>>
 						<?=$arCells[$n][$columnId]; ?>
-						<? if (isset($props[$n]) && is_array($props[$n])) { ?>
-						<? foreach ($props[$n] as $property) { ?>
+						<?php  if (isset($props[$n]) && is_array($props[$n])) { ?>
+						<?php  foreach ($props[$n] as $property) { ?>
 						<br>
 						<small><?=$property; ?></small>
-						<? } ?>
-						<? } ?>
+						<?php  } ?>
+						<?php  } ?>
 					</td>
-				<?}
+				<?php }
 				else
 				{
 					if (!is_null($arCells[$n][$columnId]))
@@ -437,17 +437,17 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 						if ($columnId != 'VAT_RATE' || $vat > 0 || is_null($arCells[$n][$columnId]) || $n > $items)
 						{ ?>
 							<td align="right"
-								<? if ($accumulated) { ?>
+								<?php  if ($accumulated) { ?>
 								style="border-width: 0pt 1pt 0pt 0pt"
 								colspan="<?=(($columnId == 'VAT_RATE' && $vat <= 0) ? $accumulated : $accumulated+1); ?>"
-								<? $accumulated = 0; } ?>>
-								<?if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
+								<?php  $accumulated = 0; } ?>>
+								<?php if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
 									<nobr><?=$arCells[$n][$columnId];?></nobr>
-								<?else:?>
+								<?php else:?>
 									<?=$arCells[$n][$columnId]; ?>
-								<?endif;?>
+								<?php endif;?>
 							</td>
-						<? }
+						<?php  }
 					}
 					else
 					{
@@ -461,10 +461,10 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 			}
 		endforeach;?>
 	</tr>
-<?}?>
+<?php }?>
 </table>
 <br>
-<?if ($params['BILLUA_TOTAL_SHOW'] == 'Y'): ?>
+<?php if ($params['BILLUA_TOTAL_SHOW'] == 'Y'): ?>
 	<b><?=sprintf(
 		Loc::getMessage('SALE_HPS_BILLUA_BASKET_ITEMS_TOTAL'),
 		$items,
@@ -482,50 +482,50 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 	); ?></b>
 	<br>
 
-	<? if ($vat > 0) { ?>
+	<?php  if ($vat > 0) { ?>
 	<b><?=sprintf(
 		Loc::getMessage('SALE_HPS_BILLUA_BASKET_ITEMS_TAX'),
 		($params['CURRENCY'] == "UAH")
 			? Number2Word_Rus($orderTax, "Y", $params['CURRENCY'])
 			: SaleFormatCurrency($orderTax, $params['CURRENCY'], false)
 	); ?></b>
-	<? } elseif($orderTax == 0) { ?>
+	<?php  } elseif($orderTax == 0) { ?>
 	<b><?=Loc::getMessage('SALE_HPS_BILLUA_BASKET_ITEMS_WITHOUT_TAX');?></b>
-	<? } ?>
+	<?php  } ?>
 	<br>
 	<br>
-<?endif;?>
-<? if ($params["BILLUA_COMMENT1"] || $params["BILLUA_COMMENT2"]) { ?>
+<?php endif;?>
+<?php  if ($params["BILLUA_COMMENT1"] || $params["BILLUA_COMMENT2"]) { ?>
 <b><?=Loc::getMessage('SALE_HPS_BILLUA_COMMENT')?></b>
 <br>
-	<? if ($params["BILLUA_COMMENT1"]) { ?>
+	<?php  if ($params["BILLUA_COMMENT1"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILLUA_COMMENT1"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-	<? if ($params["BILLUA_COMMENT2"]) { ?>
+	<?php  } ?>
+	<?php  if ($params["BILLUA_COMMENT2"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILLUA_COMMENT2"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
-<?if ($params['BILLUA_FOOTER_SHOW'] == 'Y'):?>
+<?php if ($params['BILLUA_FOOTER_SHOW'] == 'Y'):?>
 	<div style="border-bottom: 1pt solid #000000; width:100%; ">&nbsp;</div>
 
-	<? if (!$blank) { ?>
+	<?php  if (!$blank) { ?>
 	<div style="position: relative; "><?=CFile::ShowImage(
 		$params["BILLUA_PATH_TO_STAMP"],
 		160, 160,
 		'style="position: absolute; left: 40pt; "'
 	); ?></div>
-	<? } ?>
+	<?php  } ?>
 
 	<br>
 	<div style="position: relative">
@@ -533,9 +533,9 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 			<tr>
 				<td><?=Loc::getMessage('SALE_HPS_BILLUA_WRITER')?>:&nbsp;</td>
 				<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
-					<? if (!$blank) { ?>
+					<?php  if (!$blank) { ?>
 					<?=CFile::ShowImage($params["SELLER_COMPANY_ACC_SIGN"], 200, 50); ?>
-					<? } ?>
+					<?php  } ?>
 				</td>
 				<td style="width: 160pt; ">
 					<input
@@ -545,7 +545,7 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 					>
 				</td>
 				<td style="width: 20pt; ">&nbsp;</td>
-				<?if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]):?>
+				<?php if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]):?>
 					<td><?=Loc::getMessage('SALE_HPS_BILLUA_ACC_POSITION')?>:&nbsp;</td>
 					<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; ">
 						<input
@@ -554,22 +554,22 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 							value="<?=htmlspecialcharsbx($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]); ?>"
 						>
 					</td>
-				<?endif;?>
+				<?php endif;?>
 			</tr>
 		</table>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 <br>
 <br>
 
-<? if ($params["DATE_PAY_BEFORE"]) { ?>
+<?php  if ($params["DATE_PAY_BEFORE"]) { ?>
 <div style="text-align: right; "><b><?=sprintf(
 	Loc::getMessage('SALE_HPS_BILLUA_DATE_PAID_BEFORE'),
 	ConvertDateTime($params["DATE_PAY_BEFORE"], FORMAT_DATE)
 		?: htmlspecialcharsbx($params["DATE_PAY_BEFORE"])
 ); ?></b></div>
-<? } ?>
+<?php  } ?>
 
 </div>
 

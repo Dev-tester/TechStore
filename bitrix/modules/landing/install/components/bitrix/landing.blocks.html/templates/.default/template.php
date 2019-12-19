@@ -30,7 +30,7 @@ else if ($arParams['EDIT_MODE'] == 'Y')
 			<?= Loc::getMessage('LANDING_TPL_NOT_IN_PREVIEW_MODE');?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else if ($arParams['ENABLED'] == 'Y' || $arParams['PREVIEW_MODE'] == 'Y')
 {

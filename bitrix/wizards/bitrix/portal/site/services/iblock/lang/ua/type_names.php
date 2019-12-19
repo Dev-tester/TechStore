@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEWS_TYPE_NAME"] = "Новини";
 $MESS["NEWS_ELEMENT_NAME"] = "Новина";
 $MESS["STRUCTURE_TYPE_NAME"] = "Оргструктура";

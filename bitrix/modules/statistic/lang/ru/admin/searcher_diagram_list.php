@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Круговая диаграмма индексации сайта";
 $MESS ['STAT_F_PERIOD'] = "Период";
 $MESS ['STAT_VIEW_SEARCHER_HITS'] = "Хиты поисковика";

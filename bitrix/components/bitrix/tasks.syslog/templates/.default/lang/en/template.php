@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_CSL_T_MESSAGE_TYPE_1"] = "Notification";
 $MESS["TASKS_CSL_T_MESSAGE_TYPE_2"] = "Warning";
 $MESS["TASKS_CSL_T_MESSAGE_TYPE_3"] = "Error";

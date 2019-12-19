@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager						 #
 # Copyright (c) 2002-2010 Bitrix			 #
@@ -166,7 +166,7 @@ $aTabs[] = array("DIV" => "history", "TAB" => GetMessage("HISTORY_TAB_SET"), "IC
 
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 ?>
-<?
+<?php 
 $tabControl->Begin();
 ?>
 <script>
@@ -284,9 +284,9 @@ textarea { word-wrap: break-word; }
 #tblTYPES .wd-quick-view wbr {display:inline-block;}
 </style>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" name="webdav_settings">
-<?$tabControl->BeginNextTab();?>
-<?__AdmSettingsDrawList("webdav", $arAllOptions);?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" name="webdav_settings">
+<?php $tabControl->BeginNextTab();?>
+<?php __AdmSettingsDrawList("webdav", $arAllOptions);?>
 
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("WEBDAV_OPTIONS_FILE_TYPES")?></td>
@@ -295,11 +295,11 @@ textarea { word-wrap: break-word; }
 		<td valign="top" colspan="2">
 		<table border="0" cellspacing="0" cellpadding="0" class="internal" align="center" id="tblTYPES">
 			<tr class="heading">
-				<td><?echo GetMessage("WEBDAV_OPTIONS_FILES_TYPE_NAME")?></td>
-				<td><?echo GetMessage("WEBDAV_OPTIONS_FILES_TYPE_EXTENSIONS")?></td>
-				<td><?echo GetMessage("WEBDAV_OPTIONS_FILES_TYPE_REMOVE")?></td>
+				<td><?php echo GetMessage("WEBDAV_OPTIONS_FILES_TYPE_NAME")?></td>
+				<td><?php echo GetMessage("WEBDAV_OPTIONS_FILES_TYPE_EXTENSIONS")?></td>
+				<td><?php echo GetMessage("WEBDAV_OPTIONS_FILES_TYPE_REMOVE")?></td>
 			</tr>
-<?
+<?php 
 $n = 0;
 foreach ($arFileTypes as $sFileTypeProps)
 {
@@ -322,27 +322,27 @@ foreach ($arFileTypes as $sFileTypeProps)
 					<input type="checkbox" name="remove_<?=$n?>" />
 				</td>
 			</tr>
-<?
+<?php 
 	$n++;
 }
 ?>
 			<tr>
 				<td colspan="3" style="border:none">
 				<br />
-				<input type="button" value="<?echo GetMessage("WEBDAV_OPTIONS_ADD_FILE_TYPE")?>" onClick="addNewTableRow('tblTYPES', /right\[(n)([0-9]*)\]/g, 2)">
+				<input type="button" value="<?php echo GetMessage("WEBDAV_OPTIONS_ADD_FILE_TYPE")?>" onClick="addNewTableRow('tblTYPES', /right\[(n)([0-9]*)\]/g, 2)">
 				</td>
 			</tr>
 		</table>
 		</td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
-	<?__AdmSettingsDrawList("webdav", $arHistoryOptions);?>
-<?$tabControl->Buttons();?>
+<?php $tabControl->BeginNextTab();?>
+	<?php __AdmSettingsDrawList("webdav", $arHistoryOptions);?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)."&".bitrix_sessid_get();?>";
+	if(confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)."&".bitrix_sessid_get();?>";
 }
 BX(function() {
 	try {
@@ -352,13 +352,13 @@ BX(function() {
 	} catch(err) {}
 });
 </script>
-<input type="submit" name="Update" <?if ($MOD_RIGHT<"W") echo "disabled" ?> value="<?echo GetMessage("MAIN_SAVE")?>">
-<input type="reset" name="reset" value="<?echo GetMessage("MAIN_RESET")?>">
+<input type="submit" name="Update" <?php if ($MOD_RIGHT<"W") echo "disabled" ?> value="<?php echo GetMessage("MAIN_SAVE")?>">
+<input type="reset" name="reset" value="<?php echo GetMessage("MAIN_RESET")?>">
 <input type="hidden" name="Update" value="Y">
 <?=bitrix_sessid_post();?>
-<input type="button" <?if ($MOD_RIGHT<"W") echo "disabled" ?> title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input type="button" <?php if ($MOD_RIGHT<"W") echo "disabled" ?> title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
-<?
+<?php 
 }
 ?>

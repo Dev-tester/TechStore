@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GENERAL_PAGE_GROUP_ID"] = "Blogs group";
 $MESS["GENERAL_PAGE_PATH_TO_BLOG"] = "Path to User's Blog";
 $MESS["GENERAL_PAGE_PATH_TO_POST"] = "Path to user blog post";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEF_MODE_TIP'] = "Checking this option enables the SEF mode.";
 $MESS ['WEB_FORM_ID_TIP'] = "The drop-down list contains all currently exsiting web forms. Alternatively, you can select <i>other</i> to use an external form ID passed via _REQUEST.";
 $MESS ['LIST_URL_TIP'] = "Specifies the path to a result review page. If you do not need to open a page with results upon form submit, you can leave this field empty.";

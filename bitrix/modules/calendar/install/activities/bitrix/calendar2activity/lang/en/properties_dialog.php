@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPSNMA_PD_CALENDAR_TYPE"] = "Calendar type (optional)";
 $MESS["BPSNMA_PD_CALENDAR_OWNER"] = "Calendar owner ID (optional)";
 $MESS["BPSNMA_PD_CALENDAR_SECTION"] = "Calendar section ID (optional)";

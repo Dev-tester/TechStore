@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_VIEW'] = "View";
 $MESS ['WD_IU_APPLET'] = "Standard";
 $MESS ['WD_IU_APPLET_TITLE'] = "Convenient mode allowing to provide additional file details.";

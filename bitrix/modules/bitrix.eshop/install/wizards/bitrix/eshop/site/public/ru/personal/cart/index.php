@@ -1,8 +1,8 @@
-<?
+<?php 
 define("HIDE_SIDEBAR", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Корзина");
-?><?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket", "bootstrap_v4", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:sale.basket.basket", "bootstrap_v4", array(
 	"COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
 	"COLUMNS_LIST" => array(
 		0 => "NAME",
@@ -32,4 +32,4 @@ $APPLICATION->SetTitle("Корзина");
 	),
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

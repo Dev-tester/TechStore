@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_COMMENTAUX_JS_SHARE_TEXT"] = "Новый получатель: #SHARE_LIST#";
 $MESS["SONET_COMMENTAUX_JS_SHARE_TEXT_1"] = "Новые получатели: #SHARE_LIST#";
 $MESS["SONET_COMMENTAUX_JS_CREATETASK_BLOG_POST"] = "Создана задача \"#TASK_NAME#\" на основании сообщения Живой ленты.";

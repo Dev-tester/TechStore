@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_SALE_STATUS_VIEW"] = "Anzeigen";
 $MESS["OP_NAME_SALE_STATUS_CANCEL"] = "Option zum Stornieren";
 $MESS["OP_NAME_SALE_STATUS_MARK"] = "Option für Markierung einer problematischen Bestellung";

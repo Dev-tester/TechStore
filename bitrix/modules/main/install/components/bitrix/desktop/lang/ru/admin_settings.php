@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CMDESKTOP_ADMIN_COLUMNS"] = "Столбцов";
 $MESS["CMDESKTOP_ADMIN_COLUMN_WIDTH"] = "Ширина столбца (px или %) #";
 $MESS["CMDESKTOP_ADMIN_SETTINGS_DIALOG_TITLE"] = "Настройки рабочего стола";

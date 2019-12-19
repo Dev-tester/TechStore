@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPC_MES_EDIT"] = "Редактировать";
 $MESS["BPC_MES_SHOW"] = "Показать";
 $MESS["BPC_MES_HIDE"] = "Скрыть";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -40,10 +40,10 @@ if ($_SESSION["PERFMON_CLEAR_MESSAGE"])
 }
 ?>
 
-<form name="clear_form" method="post" action="<?echo $APPLICATION->GetCurPage();?>">
-	<?echo bitrix_sessid_post();?>
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="clear" value="<?echo GetMessage("PERFMON_CLEAR_BUTTON");?>">
+<form name="clear_form" method="post" action="<?php echo $APPLICATION->GetCurPage();?>">
+	<?php echo bitrix_sessid_post();?>
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="clear" value="<?php echo GetMessage("PERFMON_CLEAR_BUTTON");?>">
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

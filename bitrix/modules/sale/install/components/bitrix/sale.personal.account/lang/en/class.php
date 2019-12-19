@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_MODULE_NOT_INSTALL'] = "e-Store module is not installed";
 $MESS["SPA_TITLE"] = "My account";
 $MESS["SPA_MY_ACCOUNT"] = "As of #DATE#, your user account has the following funds available:";

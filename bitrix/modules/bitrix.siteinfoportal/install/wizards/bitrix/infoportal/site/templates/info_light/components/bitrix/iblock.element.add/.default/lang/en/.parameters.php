@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MFP_SEND_EMAIL"] = "Send New Element Notification E-mail";
 $MESS["MFP_EMAIL_TO"] = "Destination E-mail Address";
 $MESS["MFP_EMAIL_SUBJECT"] = "Subject";

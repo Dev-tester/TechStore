@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["TASKS_WARNING_RESPONSIBLE_IS_ABSENCE"] = "#FORMATTED_USER_NAME# will be absent from #DATE_FROM# to #DATE_TO# (#ABSCENCE_REASON#)";
 ?>

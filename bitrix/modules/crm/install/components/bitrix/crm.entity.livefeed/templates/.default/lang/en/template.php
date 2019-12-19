@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_LF_MENU_BTN_MESSAGE"] = "Message";
 $MESS["CRM_ENTITY_LF_MENU_BTN_TASK"] = "Task";
 $MESS["CRM_ENTITY_LF_MENU_BTN_MEETING"] = "Meeting";

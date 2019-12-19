@@ -1,4 +1,4 @@
-<?
+<?php 
 $arClasses = array(
 	"CBPActivity" => "classes/general/activity.php",
 	"CBPActivityCondition" => "classes/general/activitycondition.php",

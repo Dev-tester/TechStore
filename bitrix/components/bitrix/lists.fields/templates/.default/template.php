@@ -1,4 +1,4 @@
-<? if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -44,7 +44,7 @@ elseif(!IsModuleInstalled("intranet"))
 		<?=Loc::getMessage('CT_BLF_TOOLBAR_ADD')?>
 	</a>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();

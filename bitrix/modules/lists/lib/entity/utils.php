@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Lists\Entity;
 
 class Utils

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_IBLOCK_REDIRECT_ENTITY_ENTITY_IBLOCK"] = "Information block";
 $MESS["BX_IBLOCK_REDIRECT_ENTITY_ENTITY_ELEMENT"] = "Information block element";
 $MESS["BX_IBLOCK_REDIRECT_ENTITY_TITLE"] = "View information block or element";

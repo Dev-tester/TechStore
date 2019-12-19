@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
@@ -33,12 +33,12 @@ else
 	<div class="<?=$contentBlockClass?>">
 
 
-		<?
+		<?php 
 		//region Filter
 		if ($isFilter): ?>
 			<div class="row">
 				<div class="col<?=(isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' d-none d-sm-block' : '')?>">
-					<? $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "bootstrap_v4", array(
+					<?php  $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "bootstrap_v4", array(
 							"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 							"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 							"SECTION_ID" => $arCurSection['ID'],
@@ -68,13 +68,13 @@ else
 					?>
 				</div>
 			</div>
-		<? endif
+		<?php  endif
 		//endregion
 		?>
 
 		<div class="row">
 			<div class="col">
-				<?
+				<?php 
 				if (ModuleManager::isModuleInstalled("sale"))
 				{
 					$arRecomData = array();
@@ -98,14 +98,14 @@ else
 					{
 						?>
 						<div data-entity="parent-container">
-							<?
+							<?php 
 							if (!isset($arParams['GIFTS_SECTION_LIST_HIDE_BLOCK_TITLE']) || $arParams['GIFTS_SECTION_LIST_HIDE_BLOCK_TITLE'] !== 'Y')
 							{
 								?>
 								<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
 									<?=($arParams['GIFTS_SECTION_LIST_BLOCK_TITLE'] ?: \Bitrix\Main\Localization\Loc::getMessage('CT_GIFTS_SECTION_LIST_BLOCK_TITLE_DEFAULT'))?>
 								</div>
-								<?
+								<?php 
 							}
 
 							CBitrixComponent::includeComponentClass('bitrix:sale.products.gift.section');
@@ -187,7 +187,7 @@ else
 							);
 							?>
 						</div>
-						<?
+						<?php 
 					}
 				}
 				?>
@@ -196,7 +196,7 @@ else
 
 		<div class="row">
 			<div class="col">
-				<? $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "bootstrap_v4", array(
+				<?php  $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "bootstrap_v4", array(
 						"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 						"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 						"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
@@ -363,7 +363,7 @@ else
 			</div>
 		</div>
 
-		<? $GLOBALS['CATALOG_CURRENT_SECTION_ID'] = $intSectionID;
+		<?php  $GLOBALS['CATALOG_CURRENT_SECTION_ID'] = $intSectionID;
 
 		if (ModuleManager::isModuleInstalled("sale"))
 		{
@@ -375,7 +375,7 @@ else
 					<div class="row">
 						<div class="col" data-entity="parent-container">
 							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;"><?=GetMessage('CATALOG_PERSONAL_RECOM')?></div>
-							<? $APPLICATION->IncludeComponent(
+							<?php  $APPLICATION->IncludeComponent(
 								"bitrix:catalog.section",
 								"bootstrap_v4", array(
 									"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
@@ -489,7 +489,7 @@ else
 							);?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 			}
 		}
@@ -497,9 +497,9 @@ else
 		?>
 	</div>
 
-	<? if ($isSidebar): ?>
+	<?php  if ($isSidebar): ?>
 		<div class="col-md-3 col-sm-4<?=($isSidebarLeft ? " order-2 order-sm-1" : " order-2")?>">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent("bitrix:main.include", "", array(
 					"AREA_FILE_SHOW" => "file",
 					"PATH" => $arParams["SIDEBAR_PATH"],
@@ -511,5 +511,5 @@ else
 			);
 			?>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 </div>

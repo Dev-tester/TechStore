@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_REGISTER"] = "Регистрация";
 $MESS["AUTH_NAME"] = "Имя:";
 $MESS["AUTH_LAST_NAME"] = "Фамилия:";

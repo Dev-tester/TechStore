@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SWMPP_DTITLE"] = "Оплата через WebMoney (PCI)";

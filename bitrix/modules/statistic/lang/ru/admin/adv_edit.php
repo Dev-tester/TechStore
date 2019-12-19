@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_FORGOT_REFERER'] = "Вы забыли ввести referer1, referer2";
 $MESS ['STAT_WRONG_REFERER'] = "Такие referer1 и referer2 уже используются";
 $MESS ['STAT_EDIT_RECORD'] = "Рекламная кампания # #ID#";

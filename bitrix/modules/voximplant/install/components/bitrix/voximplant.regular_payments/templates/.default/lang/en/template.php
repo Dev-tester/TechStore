@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_REGULAR_TITLE"] = "Recurring payments";
 $MESS["VI_REGULAR_TABLE_NUMBER"] = "Number";
 $MESS["VI_REGULAR_TABLE_PAID_BEFORE"] = "Paid until";

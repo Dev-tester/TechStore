@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTE_REMIND_TASK_MESSAGE'] = "Reminder for the task \"#NAME#\"
 
 [url=#URL_VIEW#]View[/url]";

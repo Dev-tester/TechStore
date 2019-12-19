@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["fav_general_err_name"] = "Поле &quot;Наименование&quot; не может быть пустым.";
 $MESS["fav_general_err_url"] = "Поле &quot;Ссылка&quot; не может быть пустым.";
 $MESS["fav_general_err_user"] = "Указанный пользователь не существует.";

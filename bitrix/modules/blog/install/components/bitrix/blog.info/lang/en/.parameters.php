@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BI_PATH_TO_BLOG'] = "Blog page path template";
 $MESS ['BI_PATH_TO_BLOG_CATEGORY'] = "Blog page path template with the tag filter";
 $MESS ['BI_PATH_TO_USER'] = "Template of the blog user page path";

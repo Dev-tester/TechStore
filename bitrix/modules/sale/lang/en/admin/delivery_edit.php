@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EDIT_RECORD"] = "Edit delivery service # #ID#";
 $MESS["SALE_NEW_RECORD"] = "New delivery service";
 $MESS["SALE_RECORDS_LIST"] = "To the list of delivery services";

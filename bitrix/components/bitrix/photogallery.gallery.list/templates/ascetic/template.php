@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["GALLERIES"])):
 	return false;
 elseif (!$this->__component->__parent || strpos($this->__component->__parent->__name, "photogallery") === false):
@@ -21,7 +21,7 @@ div.photo-gallery-avatar{
 	width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;
 	height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;}
 </style>
-<?
+<?php 
 endif;
 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
@@ -29,47 +29,47 @@ if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATI
 <div class="photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>
 <ul class="photo-items-list photo-galleries-list-ascetic">
-<?
+<?php 
 foreach($arResult["GALLERIES"] as $res):
 ?>
 	<li class="photo-item photo-gallery-item">
 		<div class="photo-item photo-gallery-item">
 			<div class="photo-gallery-avatar-box">
-				<a href="<?=$res["LINK"]["VIEW"]?>" class="photo-gallery-avatar" <?
+				<a href="<?=$res["LINK"]["VIEW"]?>" class="photo-gallery-avatar" <?php 
 					?>title="<?=str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>">
-					<div class="photo-gallery-avatar <?=(empty($res["PICTURE"]["SRC"])? "photo-gallery-avatar-empty" : "")?>"<?
+					<div class="photo-gallery-avatar <?=(empty($res["PICTURE"]["SRC"])? "photo-gallery-avatar-empty" : "")?>"<?php 
 				if (!empty($res["PICTURE"]["SRC"])):
-						?> style="background-image:url('<?=$res["PICTURE"]["SRC"]?>');"<?
+						?> style="background-image:url('<?=$res["PICTURE"]["SRC"]?>');"<?php 
 				endif;
 				?>></div></a>
 			</div>
-			<div class="photo-gallery-name <?
+			<div class="photo-gallery-name <?php 
 				?><?=(intVal($res["UF_GALLERY_SIZE"]) > 0 ? "photo-gallery-nonempty" : "photo-gallery-empty")?>">
 				<a href="<?=$res["LINK"]["VIEW"]?>" title="<?=str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>"><?=$res["NAME"]?></a>
 			</div>
-<?
+<?php 
 			if (!empty($res["DESCRIPTION"])):
 ?>
 			<div class="photo-gallery-description"><?=$res["DESCRIPTION"]?></div>
-<?
+<?php 
 			endif;
 ?>
 			<div class="empty-clear"></div>
 		</div>
 	</li>
-<?
+<?php 
 endforeach;
-?></ul><?
+?></ul><?php 
 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation-bottom">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>

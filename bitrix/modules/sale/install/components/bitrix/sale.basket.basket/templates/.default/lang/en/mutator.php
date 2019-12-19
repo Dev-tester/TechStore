@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBB_DETAIL_PICTURE_NAME"] = "Detailed image";
 $MESS["SBB_PREVIEW_TEXT_NAME"] = "Short description";
 $MESS["SBB_PRICE_TYPE_NAME"] = "Price type";

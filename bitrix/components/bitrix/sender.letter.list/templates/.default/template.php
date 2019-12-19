@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -38,7 +38,7 @@ foreach ($arResult['ROWS'] as $index => $data)
 		<div class="sender-letter-list-desc-small-black">
 			<?=htmlspecialcharsbx($data['MESSAGE_NAME'])?>
 		</div>
-		<?
+		<?php 
 		$data['TITLE'] = ob_get_clean();
 	}
 
@@ -121,14 +121,14 @@ foreach ($arResult['ROWS'] as $index => $data)
 		$buttonAction = htmlspecialcharsbx($buttonAction);
 		?>
 		<div class="sender-letter-list-block-flexible">
-			<?if ($buttonCaption):?>
+			<?php if ($buttonCaption):?>
 			<div onclick="<?=$buttonAction?> event.stopPropagation(); return false;" class="sender-letter-list-button sender-letter-list-button-<?=$buttonColor?>" title="<?=htmlspecialcharsbx($buttonTitle)?>">
 				<span class="sender-letter-list-button-icon sender-letter-list-button-icon-<?=$buttonIcon?>"></span>
 					<span class="sender-letter-list-button-name">
 					<?=htmlspecialcharsbx($buttonCaption)?>
 				</span>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 			<div class="sender-letter-list-desc-date">
 				<div class="sender-letter-list-desc-small-grey">
 					<?=htmlspecialcharsbx($dateCaption)?>
@@ -138,7 +138,7 @@ foreach ($arResult['ROWS'] as $index => $data)
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$data['ACTIONS'] = ob_get_clean();
 	}
 
@@ -149,12 +149,12 @@ foreach ($arResult['ROWS'] as $index => $data)
 		?>
 		<div class="sender-letter-list-desc-normal-black">
 			<span class="sender-letter-list-desc-normal-text"><?=htmlspecialcharsbx($data['STATE_NAME'])?></span>
-			<?if ($data['STATE']['isSendingLimitExceeded']):?>
+			<?php if ($data['STATE']['isSendingLimitExceeded']):?>
 				<span class="sender-letter-list-icon-speedo" title="<?=Loc::getMessage('SENDER_LETTER_LIST_SPEED_TITLE')?>"></span>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 		<div class="sender-letter-list-desc-normal-grey">
-			<?
+			<?php 
 			if ($data['STATE']['isFinished'])
 			{
 				$count = number_format((int) $data['COUNT']['sent'], 0, '.', ' ');
@@ -163,7 +163,7 @@ foreach ($arResult['ROWS'] as $index => $data)
 					<span class="sender-letter-list-icon-subject"></span>
 					<?=$count?>
 				</span>
-				<?
+				<?php 
 			}
 			elseif ($data['STATE']['wasStartedSending'])
 			{
@@ -176,7 +176,7 @@ foreach ($arResult['ROWS'] as $index => $data)
 							<circle class="sender-letter-list-inner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"/>
 						</svg>
 					</span>
-					<?
+					<?php 
 				}
 
 				$sent = 1;
@@ -187,12 +187,12 @@ foreach ($arResult['ROWS'] as $index => $data)
 				$sent *= 100;
 				?>
 				<span title="<?=Loc::getMessage('SENDER_LETTER_LIST_SENDING_TITLE', array('%count%' => "$sent%"))?>">
-					<?if (!$data['STATE']['isSending']):?>
+					<?php if (!$data['STATE']['isSending']):?>
 						<span class="sender-letter-list-icon-subject"></span>
-					<?endif;?>
+					<?php endif;?>
 					<?=htmlspecialcharsbx($sent)?>%
 				</span>
-				<?
+				<?php 
 				if (!$data['STATE']['isSending'])
 				{
 					?>
@@ -200,7 +200,7 @@ foreach ($arResult['ROWS'] as $index => $data)
 						<span class="sender-letter-list-icon-time"></span>
 						<?=htmlspecialcharsbx($data['DURATION']);?>
 					</span>
-					<?
+					<?php 
 				}
 			}
 			else
@@ -215,11 +215,11 @@ foreach ($arResult['ROWS'] as $index => $data)
 					<span class="sender-letter-list-icon-time"></span>
 					<?=htmlspecialcharsbx($data['DURATION']);?>
 				</span>
-				<?
+				<?php 
 			}
 			?>
 		</div>
-		<?
+		<?php 
 		$data['STATUS'] = ob_get_clean();
 	}
 
@@ -235,7 +235,7 @@ foreach ($arResult['ROWS'] as $index => $data)
 		>
 			<?=Loc::getMessage('SENDER_LETTER_LIST_ROW_RECIPIENT')?>
 		</a>
-		<?
+		<?php 
 	}
 	if ($data['HAS_STATISTICS'])
 	{
@@ -246,7 +246,7 @@ foreach ($arResult['ROWS'] as $index => $data)
 			onclick="BX.Sender.Page.open('<?=CUtil::JSEscape($data['URLS']['STAT'])?>'); return false;"
 			href="<?=htmlspecialcharsbx($data['URLS']['STAT'])?>"
 		>
-			<?
+			<?php 
 			$views = $data['STATS']['READ'];
 			$views .= '%';
 			echo Loc::getMessage('SENDER_LETTER_LIST_ROW_STATS_VIEWS', ['#COUNT#' => $views])?>
@@ -255,12 +255,12 @@ foreach ($arResult['ROWS'] as $index => $data)
 		   onclick="BX.Sender.Page.open('<?=CUtil::JSEscape($data['URLS']['STAT'])?>'); return false;"
 		   href="<?=htmlspecialcharsbx($data['URLS']['STAT'])?>"
 		>
-			<?
+			<?php 
 			$clicks = $data['STATS']['CLICK'];
 			$clicks .= '%';
 			echo Loc::getMessage('SENDER_LETTER_LIST_ROW_STATS_CLICKS', ['#COUNT#' => $clicks])?>
 		</a>
-		<?
+		<?php 
 	}
 	$data['STATS'] = ob_get_clean();
 

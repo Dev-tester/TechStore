@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACTIONS"] = "Настройки действий";
 $MESS["SORT_SETTINGS"] = "Настройки сортировки";
 $MESS["BIG_DATA_SETTINGS"] = "Настройки BigData";

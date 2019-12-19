@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_SC_BLOG_SECTION_TITLE"] = "Комментарии на сайте";
 $MESS["CATALOG_SC_FB_SECTION_TITLE"] = "Комментарии в Facebook";
 $MESS["CATALOG_SC_VK_SECTION_TITLE"] = "Комментарии В Контакте";

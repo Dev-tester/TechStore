@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLUWIZ_NO_MODULE_ERROR"] = "The Web Cluster module is not installed. The wizard will now abort.";
 $MESS["CLUWIZ_NO_NODE_ERROR"] = "The slave database is not specified. The wizard will now abort.";
 $MESS["CLUWIZ_NO_CONN_ERROR"] = "Error connecting to the slave database. The wizard will now abort.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PSL_PAGE_TITLE"] = "Subscriptions";
 $MESS["PSL_ACCESS_DENIED"] = "Access denied";
 $MESS["PSL_USER_CONTACT"] = "User contact";

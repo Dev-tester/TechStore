@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Доступ к модулю запрещён";
 $MESS["SALE_LOCATION_L_ITEM_NOT_FOUND"] = "Привязка с укзанным идентификатором не найдена";
 $MESS["SALE_LOCATION_L_PAGES"] = "Привязки к сайту";

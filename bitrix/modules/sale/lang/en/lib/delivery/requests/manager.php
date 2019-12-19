@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_SHIPMENT_ID"] = "Transportation order must be greater than zero.";
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_SHIPMENT_NOT_IN_REQUEST"] = "Shipment \"#SHIPMENT_ID#\" is not part of any transportation order.";
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_DELIVERY_NOT_FOUND"] = "No delivery service defined for shipment ID \"#SHIPMENT_LINK#\".";

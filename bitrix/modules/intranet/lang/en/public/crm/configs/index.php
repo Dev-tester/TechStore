@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TITLE"] = "Settings";
 $MESS["CRM_MENU_STATUS"] = "Selection lists";
 $MESS["CRM_MENU_CURRENCY"] = "Currencies";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONTACT_STEPWISE_STATE_TEMPLATE"] = "#processed# of #total#";
 $MESS["CRM_CONTACT_ACTION_DELETE"] = "Delete";
 $MESS["CRM_CONTACT_BATCH_DELETION_COMPLETED"] = "Contacts have been deleted.";

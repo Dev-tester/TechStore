@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_DOCUMENTS_ACCESS_ERROR"] = "Access to provider was denied";
 $MESS["DOCGEN_DOCUMENTS_CREATED_BY_TITLE"] = "Created by";
 $MESS["DOCGEN_DOCUMENTS_CREATE_TIME_TITLE"] = "Created on";

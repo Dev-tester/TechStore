@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_EDITOR_ADD_TASK"] = "Добавить задачу";
 $MESS["CRM_ACTIVITY_EDITOR_ADD_CALL"] = "Добавить звонок";
 $MESS["CRM_ACTIVITY_EDITOR_ADD_MEETING"] = "Добавить встречу";

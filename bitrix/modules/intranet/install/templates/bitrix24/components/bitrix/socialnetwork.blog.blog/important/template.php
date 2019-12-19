@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->addExternalCss(SITE_TEMPLATE_PATH."/css/sidebar.css");
 
 $GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/rating.vote/templates/like/popup.css');
@@ -45,18 +45,18 @@ $res = reset($arRes["data"]);
 $this->SetViewTarget("sidebar", 80);
 $frame = $this->createFrame()->begin();
 ?>
-<div class="sidebar-widget sidebar-imp-messages" id="blog-<?=$uid?>"<?if(empty($arRes["data"])){?> style="display:none;"<?}?>>
+<div class="sidebar-widget sidebar-imp-messages" id="blog-<?=$uid?>"<?php if(empty($arRes["data"])){?> style="display:none;"<?php }?>>
 	<div class="sidebar-imp-mess-top"><?=GetMessage("SBB_IMPORTANT")?></div>
 	<div class="sidebar-imp-mess-tmp-wrap">
 		<div class="sidebar-imp-mess-tmp">
 			<div class="sidebar-imp-mess" id="message-block-<?=$uid?>">
 				<div class="sidebar-imp-mess-wrap" id="blog-leaf-<?=$uid?>">
-					<div class="user-avatar sidebar-user-avatar user-default-avatar"<?if($res["author_avatar"]!==""){?> <?=$res["author_avatar"]?><?}?>></div>
+					<div class="user-avatar sidebar-user-avatar user-default-avatar"<?php if($res["author_avatar"]!==""){?> <?=$res["author_avatar"]?><?php }?>></div>
 					<a href="<?=$res["author_url"]?>" class="sidebar-imp-mess-title"><?=$res["author_name"]?></a>
 					<a href="<?=$res["post_url"]?>" class="sidebar-imp-mess-text"><?=$res["post_text"]?></a>
 				</div>
 				<div class="sidebar-imp-mess-wrap" id="blog-text-<?=$uid?>">
-					<div class="user-avatar sidebar-user-avatar user-default-avatar"<?if($res["author_avatar"]!==""){?> <?=$res["author_avatar"]?><?}?>></div>
+					<div class="user-avatar sidebar-user-avatar user-default-avatar"<?php if($res["author_avatar"]!==""){?> <?=$res["author_avatar"]?><?php }?>></div>
 					<a href="<?=$res["author_url"]?>" class="sidebar-imp-mess-title"><?=$res["author_name"]?></a>
 					<a href="<?=$res["post_url"]?>" class="sidebar-imp-mess-text"><?=$res["post_text"]?></a>
 				</div>
@@ -70,8 +70,8 @@ $frame = $this->createFrame()->begin();
 					<div class="sidebar-imp-mess-nav-block">
 						<span class="sidebar-imp-mess-nav-arrow-l" id="blog-<?=$uid?>-right"></span>
 						<span class="sidebar-imp-mess-nav-arrow-r" id="blog-<?=$uid?>-left"></span>
-						<span id="blog-<?=$uid?>-current" class="sidebar-imp-mess-nav-current-page">1</span><?
-							?><span class="sidebar-imp-mess-nav-separator">/</span><?
+						<span id="blog-<?=$uid?>-current" class="sidebar-imp-mess-nav-current-page">1</span><?php 
+							?><span class="sidebar-imp-mess-nav-separator">/</span><?php 
 						?><span id="blog-<?=$uid?>-total" class="sidebar-imp-mess-nav-total-page"><?=$arResult["NAV_RESULT"]->NavRecordCount?></span>
 					</div>
 				</div>
@@ -79,7 +79,7 @@ $frame = $this->createFrame()->begin();
 		</div>
 	</div>
 </div>
-<?
+<?php 
 $filter = $arParams["FILTER"];
 // For composite mode
 unset($filter["<=DATE_PUBLISH"]);
@@ -125,6 +125,6 @@ BX.ready(function(){
 	}
 });
 </script>
-<?
+<?php 
 $frame->end();
 $this->EndViewTarget();

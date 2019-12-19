@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/mobile/tools/mobile_crm_product.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/mobile/tools/mobile_crm_product.php");?>

@@ -26,7 +26,7 @@ Extension::load(['ui.buttons', 'ui.icons', 'ui.common', 'ui.alerts',]);
 						<div class="salescenter-main-header-title-container">
 							<div style="margin-bottom: 15px;" class="ui-title-3"><?=Loc::getMessage($arResult['handlerDescription']['title'])?></div>
 							<div class="salescenter-main-header-feedback-container">
-								<?Bitrix\SalesCenter\Integration\Bitrix24Manager::getInstance()->renderFeedbackButton();?>
+								<?php Bitrix\SalesCenter\Integration\Bitrix24Manager::getInstance()->renderFeedbackButton();?>
 							</div>
 						</div>
 						<hr class="ui-hr" style="margin-bottom: 15px;">

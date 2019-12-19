@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_DHL_USA_NAME"] = "DHL (USA)";
 $MESS["SALE_DH_DHL_USA_DESCRIPTION"] = "Служба доставки DHL (USA)";
 $MESS["SALE_DH_DHL_USA_DESCRIPTION_INNER"] = "Обработчик доставки сервисом <a href=\"http://www.dhl-usa.com\" target=\"_blank\">DHL (USA)</a>. Работает на основе онлайн-калькулятора. Обрабатываются заказы на доставку из США по всему миру. Для работы необходима установка ZIP-кода в настройках модуля \"Интернет-магазин\"";

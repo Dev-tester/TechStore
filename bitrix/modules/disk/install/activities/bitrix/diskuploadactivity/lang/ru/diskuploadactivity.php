@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDUA_ACCESS_DENIED'] = "Доступ разрешен только администраторам портала";
 $MESS ['BPDUA_EMPTY_ENTITY_TYPE'] = "Не указан тип места хранения";
 $MESS ['BPDUA_EMPTY_ENTITY_ID'] = "Не указано место хранения";

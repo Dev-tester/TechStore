@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLV_SRV_SPSR_PROFILE_TITLE"] = "Сервис СПСР-ЭКСПРЕСС";
 $MESS["SALE_DLV_SRV_SPSR_PROFILE_DESCRIPTION"] = " ";
 $MESS["SALE_DLV_SRV_SPSR_PROFILE_MAIN_TITLE"] = "Настройки";

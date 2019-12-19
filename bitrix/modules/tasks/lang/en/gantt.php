@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_GANTT_EMPTY_DATE"] = "none";
 $MESS["TASKS_GANTT_CHART_TITLE"] = "Tasks";
 $MESS["TASKS_GANTT_DATE_START"] = "Start date";

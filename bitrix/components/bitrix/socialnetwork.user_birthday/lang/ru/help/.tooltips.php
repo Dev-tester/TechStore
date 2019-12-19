@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PATH_TO_USER_TIP"] = "Указывается путь к странице профиля пользователя. Например: sonet_user.php?page=user&user_id=#user_id#.";
 $MESS["PATH_TO_USER_EDIT_TIP"] = "Указывается путь к странице редактирования профиля пользователя. Например: sonet_user_edit.php?page=user&user_id=#user_id#&mode=edit.";
 $MESS["PAGE_VAR_TIP"] = "Указывается имя переменной, которой передается страница социальной сети.";

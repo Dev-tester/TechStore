@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPGEDA_PROP_DIALOG_TEMPLATE_FIELDS"] = "Document fields";
 $MESS["BPGEDA_PROP_DIALOG_ADD_FIELD"] = "Add field";
 $MESS["BPGEDA_PROP_DIALOG_ADD"] = "Add";

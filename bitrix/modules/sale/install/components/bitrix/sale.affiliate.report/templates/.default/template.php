@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 if ($arResult)
 {
@@ -13,7 +13,7 @@ if ($arResult)
 		<tbody>
 			<tr>
 				<td><?=GetMessage("SPCAS1_PERIOD")?></td>
-				<td><?$APPLICATION->IncludeComponent(
+				<td><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.calendar",
 	"",
 	Array(
@@ -48,12 +48,12 @@ if ($arResult)
 				<td><?=GetMessage("SPCAS1_SUM")?></td>
 			</tr>
 		</thead>
-		<?
+		<?php 
 		if ($arResult["ROWS"])
 		{
 		?>
 			<tbody>
-			<?
+			<?php 
 			foreach ($arResult["ROWS"] as $arRow)
 			{
 				?>
@@ -62,7 +62,7 @@ if ($arResult)
 					<td><?=$arRow["QUANTITY"]?></td>
 					<td><?=$arRow["SUM_FORMAT"]?></td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 			</tbody>
@@ -73,7 +73,7 @@ if ($arResult)
 					<td><?=$arResult["TOTAL"]["SUM_FORMAT"]?></td>
 				</tr>
 			</tfoot>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -83,14 +83,14 @@ if ($arResult)
 					<td colspan="3"><?=ShowNote(GetMessage("SPCAS1_NO_ACT"))?></td>
 				</tr>
 			</tbody>
-			<?
+			<?php 
 		}
 		?>
 	</table>
-	<?
+	<?php 
 }
 else
 {
-	?><?=ShowError(GetMessage("SPCAS1_UNACTIVE_AFF"))?><?
+	?><?=ShowError(GetMessage("SPCAS1_UNACTIVE_AFF"))?><?php 
 }
 ?>

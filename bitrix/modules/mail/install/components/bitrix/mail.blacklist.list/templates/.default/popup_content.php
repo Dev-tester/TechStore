@@ -14,11 +14,11 @@ use Bitrix\Main\Localization\Loc;
 				style="min-height: 250px;"
 				data-role="blacklist-mails-textarea"></textarea>
 		</div>
-		<? if ($isForAllUsers): ?>
+		<?php  if ($isForAllUsers): ?>
 			<div class="" data-role="is-for-all-users-block">
 				<input type="checkbox" class="" name="isForAllUsers" id="isForAllUsers" value="Y">
 				<label class="" for="isForAllUsers" title=""><?= Loc::getMessage('MAIL_BLACKLIST_LIST_POPUP_CHECKBOX_TITLE'); ?></label>
 			</div>
-		<? endif; ?>
+		<?php  endif; ?>
 	</form>
 </div>

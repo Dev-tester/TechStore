@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_RIGHTS"] = "Access permissions";
 $MESS["MARKETPLACE_UPDATE_BUTTON"] = "Update";
 $MESS["MARKETPLACE_DELETE_BUTTON"] = "Delete";

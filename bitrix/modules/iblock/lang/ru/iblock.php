@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_BAD_BLOCK_TYPE_ID"] = "Неверный тип блока.";
 $MESS["IBLOCK_BAD_BLOCK_ID"] = "Неверный код информационного блока.";
 $MESS["IBLOCK_BAD_IBLOCK"] = "Информационный блок не найден или доступ к нему запрещен.";

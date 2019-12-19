@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAE_NO_SITE_PLAN"] = "The plan site is not specified";
 $MESS["SAE_NO_USER"] = "User is not specified";
 $MESS["SAE_NO_PLAN"] = "Plan is not specified";

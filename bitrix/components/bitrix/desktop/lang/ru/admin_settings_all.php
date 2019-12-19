@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CMDESKTOP_ADMIN_SETTINGS_ALL_DIALOG_TITLE"] = "Управление рабочими столами";
 $MESS["CMDESKTOP_ADMIN_SETTINGS_ALL_DIALOG_DESKTOP"] = "Рабочий стол ";
 $MESS["CMDESKTOP_ADMIN_SETTINGS_ALL_NAME"] = "Название";

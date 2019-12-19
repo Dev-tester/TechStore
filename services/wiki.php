@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/wiki.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
-?><?$APPLICATION->IncludeComponent("bitrix:wiki", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:wiki", ".default", array(
 	"IBLOCK_TYPE" => "wiki",
 	"IBLOCK_ID" => "24",
 	"CACHE_TYPE" => "A",
@@ -38,4 +38,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

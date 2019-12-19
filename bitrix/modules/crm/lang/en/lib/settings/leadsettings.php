@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_BATCH_CONVERSION_TITLE"] = "Convert Leads";
 $MESS["CRM_LEAD_BATCH_CONVERSION_COMPLETED"] = "Leads have been converted.";
 $MESS["CRM_LEAD_BATCH_CONVERSION_COUNT_SUCCEEDED"] = "Successfully converted: #number_leads#.";

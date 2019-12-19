@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Обратная связь");
 ?> 
-<?$APPLICATION->IncludeComponent("bitrix:main.feedback", "personal", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:main.feedback", "personal", Array(
 	"USE_CAPTCHA" => "Y",	// Использовать защиту от автоматических сообщений (CAPTCHA) для неавторизованных пользователей
 	"OK_TEXT" => "Спасибо, ваше сообщение отправлено.",	// Сообщение, выводимое пользователю после отправки
 	"EMAIL_TO" => "",	// E-mail, на который будет отправлено письмо
@@ -25,4 +25,4 @@ $APPLICATION->SetTitle("Обратная связь");
  
   <li>Skype: Fadeeva_Victoria.</li>
  </ul>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_CRM_DEAL_LIST_DEAL_COUNT"] = "Количество сделок на странице";
 $MESS["GD_CRM_ONLY_MY"] = "Только мои";
 $MESS["GD_CRM_SORT"] = "Сортировка";

@@ -115,56 +115,56 @@ if($arResult['ENABLE_SALESCENTER'])
 					<a data-item-id="comment" class="crm-entity-stream-section-new-action" href="#">
 						<?=GetMessage('CRM_TIMELINE_COMMENT')?>
 					</a>
-					<?if($arResult['ENABLE_WAIT'])
+					<?php if($arResult['ENABLE_WAIT'])
 					{?>
 					<a data-item-id="wait" data-item-title="<?=GetMessage('CRM_TIMELINE_WAIT')?>" class="crm-entity-stream-section-new-action" href="#">
 							<?=GetMessage('CRM_TIMELINE_WAIT')?>
 					</a>
-					<?}?>
-					<?if($arResult['ENABLE_CALL'])
+					<?php }?>
+					<?php if($arResult['ENABLE_CALL'])
 					{?>
 					<a data-item-id="call" data-item-title="<?=GetMessage('CRM_TIMELINE_CALL')?>" class="crm-entity-stream-section-new-action" href="#">
 						<?=GetMessage('CRM_TIMELINE_CALL')?>
 					</a>
-					<?}?>
-					<?if($arResult['ENABLE_SMS'])
+					<?php }?>
+					<?php if($arResult['ENABLE_SMS'])
 					{?>
 					<a data-item-id="sms" data-item-title="SMS" class="crm-entity-stream-section-new-action" href="#">
 						SMS
 					</a>
-					<?}?>
-					<?if($arResult['ENABLE_EMAIL'])
+					<?php }?>
+					<?php if($arResult['ENABLE_EMAIL'])
 					{?>
 					<a data-item-id="email" data-item-title="<?=GetMessage('CRM_TIMELINE_EMAIL')?>" class="crm-entity-stream-section-new-action" href="#">
 						<?=GetMessage('CRM_TIMELINE_EMAIL')?>
 					</a>
-					<?}?>
-					<?if($arResult['ENABLE_TASK'])
+					<?php }?>
+					<?php if($arResult['ENABLE_TASK'])
 					{?>
 					<a data-item-id="task" data-item-title="<?=GetMessage('CRM_TIMELINE_TASK')?>" class="crm-entity-stream-section-new-action" href="#">
 						<?=GetMessage('CRM_TIMELINE_TASK')?>
 					</a>
-					<?}?>
-					<?if($arResult['ENABLE_MEETING'])
+					<?php }?>
+					<?php if($arResult['ENABLE_MEETING'])
 					{?>
 					<a data-item-id="meeting" data-item-title="<?=GetMessage('CRM_TIMELINE_MEETING')?>" class="crm-entity-stream-section-new-action" href="#">
 						<?=GetMessage('CRM_TIMELINE_MEETING')?>
 					</a>
-					<?}?>
-					<?if($arResult['ENABLE_VISIT'])
+					<?php }?>
+					<?php if($arResult['ENABLE_VISIT'])
 					{?>
 					<a data-item-id="visit" data-item-title="<?=GetMessage('CRM_TIMELINE_VISIT')?>" class="crm-entity-stream-section-new-action" href="#">
 						<?=GetMessage('CRM_TIMELINE_VISIT')?>
 					</a>
-					<?}?>
-					<?if(count($arResult['ADDITIONAL_TABS']) > 0)
+					<?php }?>
+					<?php if(count($arResult['ADDITIONAL_TABS']) > 0)
 					{
 						foreach($arResult['ADDITIONAL_TABS'] as $tab)
 						{?>
 							<a data-item-id="<?=$tab['id']?>" data-item-title="<?=\Bitrix\Main\Text\HtmlFilter::encode($tab['name'])?>" class="crm-entity-stream-section-new-action" href="#">
 								<?=\Bitrix\Main\Text\HtmlFilter::encode($tab['name'])?>
 							</a>
-						<?}
+						<?php }
 					}?>
 
 					<a class="crm-entity-stream-section-new-action-more" href="#">
@@ -194,7 +194,7 @@ if($arResult['ENABLE_SALESCENTER'])
 					</div>
 				</div>
 				<div id="<?=htmlspecialcharsbx($smsContainerID)?>" class="crm-entity-stream-content-new-detail focus" style="display: none;">
-					<?if (!$arResult['SMS_CAN_SEND_MESSAGE']):?>
+					<?php if (!$arResult['SMS_CAN_SEND_MESSAGE']):?>
 					<div class="crm-entity-stream-content-sms-conditions-container">
 						<div class="crm-entity-stream-content-sms-conditions">
 							<div class="crm-entity-stream-content-sms-conditions-text">
@@ -217,7 +217,7 @@ if($arResult['ENABLE_SALESCENTER'])
 						}
 						?>
 					</div>
-					<?else:?>
+					<?php else:?>
 					<div class="crm-entity-stream-content-sms-buttons-container">
 						<?php if($arResult['ENABLE_SALESCENTER'])
 						{?>
@@ -242,7 +242,7 @@ if($arResult['ENABLE_SALESCENTER'])
 							<div class="crm-entity-stream-content-sms-document-icon"></div>
 							<div class="crm-entity-stream-content-sms-button-text"><?=GetMessage('CRM_TIMELINE_SMS_SEND_DOCUMENT');?></div>
 						</div>
-						<?}?>
+						<?php }?>
 						<div class="crm-entity-stream-content-sms-detail-toggle" data-role="sms-detail-switcher">
 							<?=GetMessage('CRM_TIMELINE_DETAILS');?>
 						</div>
@@ -250,8 +250,8 @@ if($arResult['ENABLE_SALESCENTER'])
 					<div class="crm-entity-stream-content-sms-conditions-container hidden" data-role="sms-detail">
 						<div class="crm-entity-stream-content-sms-conditions">
 							<div class="crm-entity-stream-content-sms-conditions-text">
-								<?=GetMessage('CRM_TIMELINE_SMS_SENDER')?> <a href="#" data-role="sender-selector">sender</a><span data-role="from-container"><?=GetMessage('CRM_TIMELINE_SMS_FROM')?><?
-									?> <a data-role="from-selector" href="#">from_number</a></span><?
+								<?=GetMessage('CRM_TIMELINE_SMS_SENDER')?> <a href="#" data-role="sender-selector">sender</a><span data-role="from-container"><?=GetMessage('CRM_TIMELINE_SMS_FROM')?><?php 
+									?> <a data-role="from-selector" href="#">from_number</a></span><?php 
 								?><span data-role="client-container"> <?=GetMessage('CRM_TIMELINE_SMS_TO')?> <a data-role="client-selector" href="#">client_caption</a> <a data-role="to-selector" href="#">to_number</a></span>
 							</div>
 							<!--<span class="crm-entity-stream-content-sms-conditions-helper-icon"></span>-->
@@ -316,18 +316,18 @@ if($arResult['ENABLE_SALESCENTER'])
 							<?=GetMessage('CRM_TIMELINE_SEND')?>
 						</button>
 						<a id="<?=htmlspecialcharsbx($smsCancelButtonID)?>" href="#" class="ui-btn ui-btn-xs ui-btn-link"><?=GetMessage('CRM_TIMELINE_CANCEL_BTN')?></a>
-						<div class="crm-entity-stream-content-sms-symbol-counter"><?=GetMessage("CRM_TIMELINE_SMS_SYMBOLS")?><?
-							?><span class="crm-entity-stream-content-sms-symbol-counter-number" data-role="message-length-counter" data-length-max="200">0</span><?
-							?><?=GetMessage("CRM_TIMELINE_SMS_SYMBOLS_FROM")?><?
+						<div class="crm-entity-stream-content-sms-symbol-counter"><?=GetMessage("CRM_TIMELINE_SMS_SYMBOLS")?><?php 
+							?><span class="crm-entity-stream-content-sms-symbol-counter-number" data-role="message-length-counter" data-length-max="200">0</span><?php 
+							?><?=GetMessage("CRM_TIMELINE_SMS_SYMBOLS_FROM")?><?php 
 							?><span class="crm-entity-stream-content-sms-symbol-counter-number">200</span>
 						</div>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 			</div>
 		</div>
 	</div>
-</div><?
+</div><?php 
 $filterClassName = $arResult['IS_HISTORY_FILTER_APPLIED']
 	? 'crm-entity-stream-section-filter-show' : 'crm-entity-stream-section-filter-hide';
 
@@ -335,7 +335,7 @@ $filterClassName = $arResult['IS_HISTORY_FILTER_APPLIED']
 	<div class="crm-entity-stream-section-content">
 		<div>
 			<div class="crm-entity-stream-filter-container">
-				<?
+				<?php 
 				$APPLICATION->includeComponent(
 					'bitrix:main.ui.filter',
 					'',
@@ -669,4 +669,4 @@ $filterClassName = $arResult['IS_HISTORY_FILTER_APPLIED']
 		}
 	);
 </script>
-<?
+<?php 

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Timeman\Form\Worktime\WorktimeRecordForm;
 use Bitrix\Timeman\Helper\TimeHelper;

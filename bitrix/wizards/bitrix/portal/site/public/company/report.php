@@ -1,11 +1,11 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/company/report.php");
 
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 $APPLICATION->AddChainItem(GetMessage("COMPANY_TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:tasks.report",
 	".default",
 	array(
@@ -31,4 +31,4 @@ $APPLICATION->AddChainItem(GetMessage("COMPANY_TITLE"));
 		"SET_TITLE"     => "N"
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

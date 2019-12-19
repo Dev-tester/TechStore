@@ -1,1 +1,1 @@
-<?$MESS["CRM_TRACKING_UI_GRID_PATH"] = "Путь клиента";
+<?php $MESS["CRM_TRACKING_UI_GRID_PATH"] = "Путь клиента";

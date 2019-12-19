@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_FILTER_STATUS_SEMANTIC_ID"] = "Состояние";
 $MESS["CRM_LEAD_FILTER_COMMUNICATION_TYPE"] = "Способ связи";
 $MESS["CRM_LEAD_FILTER_PHONE"] = "Телефон";

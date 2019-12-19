@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL_TEMPLATES'] = "Управление адресами страниц";
 $MESS ['F_TOPICS_PER_PAGE'] = "Количество тем на одной странице";
 $MESS ['F_READ_TEMPLATE'] = "Страница чтения темы";

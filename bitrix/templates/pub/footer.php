@@ -23,17 +23,17 @@ if (!in_array($logoLang, array('ru', 'ua', 'en')))
 	<tr class="main-wrapper-footer">
 		<td class="main-wrapper-footer-cell">
 			<div class="content-wrap">
-				<? if (isModuleInstalled('bitrix24')) :
+				<?php  if (isModuleInstalled('bitrix24')) :
 					\Bitrix\Main\UI\Extension::load("ui.buttons"); ?>
-					<? include_once $_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH.'/languages.php'; ?>
+					<?php  include_once $_SERVER['DOCUMENT_ROOT'].SITE_TEMPLATE_PATH.'/languages.php'; ?>
 					<button class="ui-btn pub-btn-lang ui-btn-light-border ui-btn-sm ui-btn-themes ui-btn-dropdown ui-btn-no-caps" id="bx-lang-btn" onclick="pubLanguage.showSelector(this, <?=CUtil::PhpToJSObject($b24Languages)?>); "><?=$b24Languages[LANGUAGE_ID]["NAME"]?></button>
-				<? endif; ?>
-				<? if (!defined('SKIP_TEMPLATE_B24_SIGN') || !SKIP_TEMPLATE_B24_SIGN): ?>
+				<?php  endif; ?>
+				<?php  if (!defined('SKIP_TEMPLATE_B24_SIGN') || !SKIP_TEMPLATE_B24_SIGN): ?>
 					<a class="footer-logo <?=$logoLang ?>" target="_blank" href="<?=CIntranetUtils::getB24Link('pub') ?>">
 						<span class="footer-logo-text"><?=getMessage('POWERED_BY') ?></span>
 						<span class="footer-logo-img"></span>
 					</a>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
 		</td>
 	</tr>
@@ -96,7 +96,7 @@ var pubTemplate = {
 
 };
 
-<?
+<?php 
 
 $pageError = false;
 
@@ -128,9 +128,9 @@ BX.ready(function()
 {
 	pubTemplate.showError('<?=CUtil::jsEscape($pageError); ?>');
 });
-<? endif; ?>
+<?php  endif; ?>
 
-<? if (isModuleInstalled('bitrix24')) : ?>
+<?php  if (isModuleInstalled('bitrix24')) : ?>
 
 var pubLanguage = {
 	items: [],
@@ -165,7 +165,7 @@ var pubLanguage = {
 
 };
 
-<? endif; ?>
+<?php  endif; ?>
 
 </script>
 

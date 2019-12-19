@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <div class="its-menu" id="its_menu_div">
 <table cellpadding="0" cellspacing="0" border="0" class="its-menu">
@@ -12,8 +12,8 @@
 			<td class="center">
 				<table cellpadding="0" cellspacing="0" border="0" class="its-menu-inner">
 					<tr>
-						<?if ($arParams["PAGE_ID"] == "meeting"):?>
-							<?if ($arResult["Perms"]["CanReserve"]):?>
+						<?php if ($arParams["PAGE_ID"] == "meeting"):?>
+							<?php if ($arResult["Perms"]["CanReserve"]):?>
 								<td><div class="section-separator"></div></td>
 								<td>
 									<div class="controls controls-view meet_reserve">
@@ -22,10 +22,10 @@
 										</a>
 									</div>
 								</td>
-							<?endif;?>
-						<?endif;?>
+							<?php endif;?>
+						<?php endif;?>
 
-						<?if ($arParams["PAGE_ID"] == "reserve_meeting" || $arParams["PAGE_ID"] == "view_item"):?>
+						<?php if ($arParams["PAGE_ID"] == "reserve_meeting" || $arParams["PAGE_ID"] == "view_item"):?>
 							<td><div class="section-separator"></div></td>
 							<td>
 								<div class="controls controls-view meet_graph">
@@ -34,10 +34,10 @@
 									</a>
 								</div>
 							</td>
-						<?endif;?>
+						<?php endif;?>
 
-						<?if ($arParams["PAGE_ID"] == "meeting" || $arParams["PAGE_ID"] == "reserve_meeting"):?>
-							<?if ($arResult["Perms"]["CanModify"]):?>
+						<?php if ($arParams["PAGE_ID"] == "meeting" || $arParams["PAGE_ID"] == "reserve_meeting"):?>
+							<?php if ($arResult["Perms"]["CanModify"]):?>
 								<td><div class="section-separator"></div></td>
 								<td>
 									<div class="controls controls-view sections_add">
@@ -46,8 +46,8 @@
 										</a>
 									</div>
 								</td>
-							<?endif;?>
-						<?endif;?>
+							<?php endif;?>
+						<?php endif;?>
 
 						<td><div class="separator"></div></td>
 						<td>
@@ -67,8 +67,8 @@
 							</div>
 						</td>
 
-						<?if ($arParams["PAGE_ID"] == "list"):?>
-							<?if ($arResult["Perms"]["CanModify"]):?>
+						<?php if ($arParams["PAGE_ID"] == "list"):?>
+							<?php if ($arResult["Perms"]["CanModify"]):?>
 								<td><div class="separator"></div></td>
 								<td>
 									<div class="controls controls-view sections_add">
@@ -77,8 +77,8 @@
 										</a>
 									</div>
 								</td>
-							<?endif;?>
-						<?endif;?>
+							<?php endif;?>
+						<?php endif;?>
 					</tr>
 				</table>
 			</td>

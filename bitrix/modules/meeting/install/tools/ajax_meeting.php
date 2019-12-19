@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/meeting/tools/ajax_meeting.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/meeting/tools/ajax_meeting.php");?>

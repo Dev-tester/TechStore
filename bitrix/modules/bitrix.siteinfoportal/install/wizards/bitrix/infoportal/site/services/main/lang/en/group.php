@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REGISTERED_USERS"] = "Registered users";
 $MESS["COMMUNITY_WIZARD_ADMINISTRATOR"] = "Information Portal Administrators";
 $MESS["COMMUNITY_WIZARD_ADMINISTRATOR_DESCR"] = "Users in this user group have access to and can moderate any content of the portal.";

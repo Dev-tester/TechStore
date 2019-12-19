@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACCESS_DENIED"] = "Доступ запрещен.";
 $MESS["CRM_ENTITY_TYPE_NOT_SUPPORTED"] = "TYPE_NOT_SUPPORTED: Тип '#ENTITY_TYPE#' не поддерживается в текущем контексте.";
 

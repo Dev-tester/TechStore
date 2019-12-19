@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_NAME_TEMPLATE"] = "[#ID#] #NAME# #LAST_NAME#";
 $MESS["SONET_ERROR_UPDATE"] = "Error updating the group parameters.";
 $MESS["SONET_DELETE_ALT"] = "Delete Group";

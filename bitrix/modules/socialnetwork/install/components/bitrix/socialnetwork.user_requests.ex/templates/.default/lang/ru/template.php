@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_URE_T_DO_SAVE"] = "Подтвердить запрос";
 $MESS["SONET_URE_T_REJECT"] = "Отказать";
 $MESS["SONET_URE_T_REJECT_OUT"] = "Отменить приглашение";

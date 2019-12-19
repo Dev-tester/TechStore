@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var \Bitrix\Bizproc\Activity\PropertiesDialog $dialog */
 
 \Bitrix\Main\Page\Asset::getInstance()->addJs(getLocalPath('activities/bitrix/crmgenerateentitydocumentactivity/script.js'));
@@ -13,7 +13,7 @@ foreach ($map as $fieldId => $field)
 	<tr>
 		<td align="right" width="40%"><?=htmlspecialcharsbx($field['Name'])?>:</td>
 		<td width="60%">
-			<?
+			<?php 
 			$filedType = $dialog->getFieldTypeObject($field);
 			if(!$filedType)
 			{
@@ -27,7 +27,7 @@ foreach ($map as $fieldId => $field)
 			?>
 		</td>
 	</tr>
-<?}?>
+<?php }?>
 <tr>
 	<td colspan="2" align="center" width="100%" style="text-align: center;"><h3><?=GetMessage('BPGEDA_PROP_DIALOG_TEMPLATE_FIELDS');?></h3></td>
 </tr>
@@ -36,18 +36,18 @@ foreach ($map as $fieldId => $field)
 	<td>
 		<select id="add_new_field_select">
 			<option value=""></option>
-			<?
+			<?php 
 			if(isset($map['Values']) && isset($map['Values']['TemplateFields']) && is_array($map['Values']['TemplateFields']))
 			{
 				foreach($map['Values']['TemplateFields'] as $placeholder => $field)
 				{
 					?>
-					<option value="<?=$placeholder;?>"><?echo $placeholder;
+					<option value="<?=$placeholder;?>"><?php echo $placeholder;
 					if($field['title'])
 					{
 						echo ' ('.$field['title'].')';
 					}?></option>
-					<?
+					<?php 
 				}
 			}
 			?>
@@ -56,7 +56,7 @@ foreach ($map as $fieldId => $field)
 		<button id="add_new_field_button"><?=GetMessage('BPGEDA_PROP_DIALOG_ADD');?></button>
 	</td>
 </tr>
-<?
+<?php 
 $providerClassName = \CBPCrmGenerateEntityDocumentActivity::getDataProviderByEntityTypeId(\CCrmOwnerType::ResolveID($dialog->getDocumentType()[2]));
 $values = $dialog->getCurrentValue('values');
 if(is_array($values))
@@ -66,7 +66,7 @@ if(is_array($values))
 		<tr class="bp-geda-fields-tr">
 			<?=\CBPCrmGenerateEntityDocumentActivity::renderValuePropertyDialog(false, $providerClassName, $name, $map['Values']['TemplateFields'][$name], $value);?>
 		</tr>
-	<?}
+	<?php }
 }?>
 <script>
 	BX.ready(function()

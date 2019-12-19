@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAGE_SERVICE"] = "Service Page";
 $MESS["PAGE_SERVICE_TITLE"] = "Service Page";
 $MESS["PAGE_ARTICLE"] = "Article";

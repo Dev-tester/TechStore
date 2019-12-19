@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Ссылающиеся сайты";
 $MESS ['STAT_F_SESSION'] = "ID сессии:";
 $MESS ['STAT_F_ID'] = "ID:";

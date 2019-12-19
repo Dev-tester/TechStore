@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["user_sett_tab"] = "Настройки";
 $MESS["user_sett_tab_title"] = "Настройки интерфейса";
 $MESS["user_sett_del"] = "Удаление";

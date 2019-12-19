@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -16,7 +16,7 @@ use Bitrix\Main\Localization\Loc;
 
 ?>
 <div class="bx-disk-bizproc-section">
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:bizproc.task.list", "", Array(
 	"USER_ID" => "", 
 	"WORKFLOW_ID" => "", 

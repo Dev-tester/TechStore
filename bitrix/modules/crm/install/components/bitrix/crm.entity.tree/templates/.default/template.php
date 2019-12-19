@@ -110,13 +110,13 @@ if (!function_exists('CrmEntityTreeDrawActivity'))
 			}
 			?>
 			<div class="crm-doc-drop">
-				<div class="crm-doc-drop-link" data-role="drop-link"><?
-					?><span class="crm-doc-drop-link-border"><?= $label?></span> <?
-					?><span class="crm-doc-drop-link-number">(<?= count($activity[$type][$id])?>)</span><?
+				<div class="crm-doc-drop-link" data-role="drop-link"><?php 
+					?><span class="crm-doc-drop-link-border"><?= $label?></span> <?php 
+					?><span class="crm-doc-drop-link-number">(<?= count($activity[$type][$id])?>)</span><?php 
 				?></div>
 				<div class="crm-doc-droplist-wrapper">
 					<ul class="crm-doc-droplist">
-						<?foreach ($activity[$type][$id] as $item):
+						<?php foreach ($activity[$type][$id] as $item):
 							$visual = $activityTypes['default'];
 							if (array_key_exists($item['TYPE_ID'], $activityTypes))
 							{
@@ -139,11 +139,11 @@ if (!function_exists('CrmEntityTreeDrawActivity'))
 							}
 							?>
 							<li class="crm-doc-droplist-item <?= $visual['icon']?>" title="<?= $visual['title']?>"><?= $item['SUBJECT']?></li>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</ul>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 }
@@ -192,14 +192,14 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 				<div class="crm-doc-cart<?= $selected ? ' crm-tree-active' : ''?><?= $counter == 1 ? ' crm-doc-cart-top' : ''?>">
 					<div class="crm-doc-title"><span class="crm-doc-title-gray"><?= $lang['LEAD']?>:</span>
 						<a href="<?= $item['URL']?>" class="crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?= $item['TITLE']?></a>
-						<?if ($item['IS_RETURN_CUSTOMER'] == 'Y'):?>
+						<?php if ($item['IS_RETURN_CUSTOMER'] == 'Y'):?>
 						<div>
 							<?= Loc::getMessage('CRM_ENTITY_TREE_IS_RETURN_CUSTOMER');?>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 					<div class="crm-doc-info">
-						<?if ($item['STATUS_ID']):
+						<?php if ($item['STATUS_ID']):
 							$name = $statuses['STATUS'][$item['STATUS_ID']]['NAME'];
 							$width = isset($statuses['STATUS'][$item['STATUS_ID']]['CHUNK'])
 									? round($statuses['STATUS'][$item['STATUS_ID']]['CHUNK'] * 100 / $statuses['STATUS']['__COUNT'], 2)
@@ -214,11 +214,11 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 							</div>
 							<div class="crm-doc-info-text"><?= $name?></div>
 						</div>
-						<?endif;?>
-						<?if ($item['ASSIGNED_BY_ID'] > 0):?>
+						<?php endif;?>
+						<?php if ($item['ASSIGNED_BY_ID'] > 0):?>
 						<div class="crm-doc-info-responsible">
 							<div class="crm-doc-info-text"><?= $lang['ASSIGNED_BY']?>:
-								<?
+								<?php 
 								echo CCrmViewHelper::PrepareUserBaloonHtml(
 											array(
 												'PREFIX' => 'LEAD_'.$item['ID'].'_'.$item['ASSIGNED_BY_ID'],
@@ -230,16 +230,16 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 								?>
 							</div>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 						<div class="crm-doc-info-param">
 							<table class="crm-doc-table">
 								<tbody>
-								<?if ($item['SOURCE_ID']):?>
+								<?php if ($item['SOURCE_ID']):?>
 								<tr>
 									<td><?= $lang['SOURCE']?>:</td>
 									<td><?= $statuses['SOURCE'][$item['SOURCE_ID']]['NAME']?></td>
 								</tr>
-								<?endif;?>
+								<?php endif;?>
 								<tr>
 									<td><?= $lang['DATE_CREATE']?>:</td>
 									<td><?= CrmEntityTreeConvertDateTime($item['DATE_CREATE'], FORMAT_DATE)?></td>
@@ -247,22 +247,22 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 								</tbody>
 							</table>
 						</div>
-						<?CrmEntityTreeDrawActivity($item['ID'], $item['TREE_TYPE'], $result['ACTIVITY']);?>
+						<?php CrmEntityTreeDrawActivity($item['ID'], $item['TREE_TYPE'], $result['ACTIVITY']);?>
 					</div>
 				</div>
-				<?
+				<?php 
 				break;
 			case $codes['company']:
 			case $codes['contact']:
 				?>
 				<div class="crm-doc-cart<?= $selected ? ' crm-tree-active' : ''?><?= $counter == 1 ? ' crm-doc-cart-top' : ''?>">
 					<div class="crm-doc-cart-user">
-						<div class="crm-doc-cart-<?= $item['TREE_TYPE'] == $codes['company'] ? 'company' : 'user'?>-avatar"<?
-															?><?if ($item['TREE_TYPE'] == $codes['company'] && $item['LOGO']){?> style="background-image: url('<?= $item['LOGO_FILE']['src']?>'); background-position: center;"<?}?><?
-															?><?if ($item['TREE_TYPE'] == $codes['contact'] && $item['PHOTO']){?> style="background-image: url('<?= $item['PHOTO_FILE']['src']?>'); background-position: center;"<?}?><?
+						<div class="crm-doc-cart-<?= $item['TREE_TYPE'] == $codes['company'] ? 'company' : 'user'?>-avatar"<?php 
+															?><?php if ($item['TREE_TYPE'] == $codes['company'] && $item['LOGO']){?> style="background-image: url('<?= $item['LOGO_FILE']['src']?>'); background-position: center;"<?php }?><?php 
+															?><?php if ($item['TREE_TYPE'] == $codes['contact'] && $item['PHOTO']){?> style="background-image: url('<?= $item['PHOTO_FILE']['src']?>'); background-position: center;"<?php }?><?php 
 															?>></div>
 						<div class="crm-doc-cart-user-info">
-							<a href="<?= $item['URL']?>" class="crm-doc-cart-user-name crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?
+							<a href="<?= $item['URL']?>" class="crm-doc-cart-user-name crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?php 
 								if ($item['TREE_TYPE'] == $codes['company'])
 								{
 									echo $item['TITLE'];
@@ -272,67 +272,67 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 									echo $item['LAST_NAME'], ' ', $item['NAME'], ' ', $item['SECOND_NAME'];
 								}
 							?></a>
-							<?if ($item['TREE_TYPE'] == $codes['contact'] && $item['COMPANY_TITLE']):?>
+							<?php if ($item['TREE_TYPE'] == $codes['contact'] && $item['COMPANY_TITLE']):?>
 							<div class="crm-doc-cart-user-company"><?= $item['COMPANY_TITLE']?></div>
-							<?endif;?>
-							<?if ($item['TREE_TYPE'] == $codes['company'] && $item['COMPANY_TYPE']):?>
+							<?php endif;?>
+							<?php if ($item['TREE_TYPE'] == $codes['company'] && $item['COMPANY_TYPE']):?>
 							<div class="crm-doc-cart-user-company"><?= $statuses['COMPANY_TYPE'][$item['COMPANY_TYPE']]['NAME']?></div>
-							<?endif;?>
-							<?CrmEntityTreeDrawActivity($item['ID'], $item['TREE_TYPE'], $result['ACTIVITY'], $item['LEAD_ID']);?>
+							<?php endif;?>
+							<?php CrmEntityTreeDrawActivity($item['ID'], $item['TREE_TYPE'], $result['ACTIVITY'], $item['LEAD_ID']);?>
 						</div>
 					</div>
-					<?if (isset($item['FM_VALUES'])):?>
+					<?php if (isset($item['FM_VALUES'])):?>
 					<div class="crm-doc-cart-contact">
 						<table>
-						<?if (isset($item['FM_VALUES']['EMAIL'])):?>
+						<?php if (isset($item['FM_VALUES']['EMAIL'])):?>
 							<tr>
-								<td><?if ($p == 0){?><?= $lang['EMAIL']?>: <?}?></td>
+								<td><?php if ($p == 0){?><?= $lang['EMAIL']?>: <?php }?></td>
 								<td>
-									<?foreach ($item['FM_VALUES']['EMAIL'] as $p => $val):?>
+									<?php foreach ($item['FM_VALUES']['EMAIL'] as $p => $val):?>
 										<a href="mailto:<?= $val?>" class="crm-doc-gray crm-doc-bold crm-doc-clear crm-doc-cart-contact-item-email"><?= $val?></a>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</td>
 							</tr>
-						<?endif;?>
-						<?if (isset($item['FM_VALUES']['PHONE'])):?>
+						<?php endif;?>
+						<?php if (isset($item['FM_VALUES']['PHONE'])):?>
 							<tr>
 								<td><?= $lang['PHONE']?>: </td>
 								<td>
-									<?foreach ($item['FM_VALUES']['PHONE'] as $p => $val):
+									<?php foreach ($item['FM_VALUES']['PHONE'] as $p => $val):
 										$formatCU = \CCrmCallToUrl::PrepareLinkAttributes($val, array(
 											'ENTITY_TYPE' => $item['TREE_TYPE'],
 											'ENTITY_ID' => $item['ID']
 										));
 										?>
-									<a href="<?= htmlspecialcharsbx($formatCU['HREF'])?>"<?
-										?><?if ($formatCU['ONCLICK'] != ''){?> onclick="<?= htmlspecialcharsbx($formatCU['ONCLICK'])?>"<?}?><?
-										?> class="crm-doc-gray crm-doc-bold crm-doc-clear crm-doc-cart-contact-item-phone"><?
-											?><?= $val?><?
+									<a href="<?= htmlspecialcharsbx($formatCU['HREF'])?>"<?php 
+										?><?php if ($formatCU['ONCLICK'] != ''){?> onclick="<?= htmlspecialcharsbx($formatCU['ONCLICK'])?>"<?php }?><?php 
+										?> class="crm-doc-gray crm-doc-bold crm-doc-clear crm-doc-cart-contact-item-phone"><?php 
+											?><?= $val?><?php 
 										?></a>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</td>
 							</tr>
-						<?endif;?>
+						<?php endif;?>
 						</table>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 					<div class="crm-doc-cart-create">
 						<?= $lang['DATE_CREATE']?>: <span class="crm-doc-gray"><?= CrmEntityTreeConvertDateTime($item['DATE_CREATE'], FORMAT_DATE)?></span>
 					</div>
 				</div>
-				<?
+				<?php 
 				break;
 			case $codes['deal']:
 				?>
 				<div class="crm-doc-cart<?= $selected ? ' crm-tree-active' : ''?><?= $counter == 1 ? ' crm-doc-cart-top' : ''?>">
 					<div class="crm-doc-cart-info">
-						<a href="<?= $item['URL']?>" class="crm-doc-cart-title crm-doc-cart-title-deal crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?
-							?><span class="crm-doc-gray"><?= $lang['DEAL']?>:</span> <?
-							?><?= $item['TITLE']?><?
+						<a href="<?= $item['URL']?>" class="crm-doc-cart-title crm-doc-cart-title-deal crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?php 
+							?><span class="crm-doc-gray"><?= $lang['DEAL']?>:</span> <?php 
+							?><?= $item['TITLE']?><?php 
 						?></a>
-						<?if ($item['ASSIGNED_BY_ID'] > 0):?>
+						<?php if ($item['ASSIGNED_BY_ID'] > 0):?>
 						<div class="crm-doc-info-text"><?= $lang['ASSIGNED_BY']?>:
-							<?
+							<?php 
 							echo CCrmViewHelper::PrepareUserBaloonHtml(
 										array(
 											'PREFIX' => 'DEAL_'.$item['ID'].'_'.$item['ASSIGNED_BY_ID'],
@@ -343,12 +343,12 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 							)
 							?>
 						</div>
-						<?endif;?>
-						<?CrmEntityTreeDrawActivity($item['ID'], $item['TREE_TYPE'], $result['ACTIVITY'], $item['LEAD_ID']);?>
+						<?php endif;?>
+						<?php CrmEntityTreeDrawActivity($item['ID'], $item['TREE_TYPE'], $result['ACTIVITY'], $item['LEAD_ID']);?>
 					</div>
 					<div class="crm-doc-cart-param">
 						<div class="crm-doc-info-progress">
-							<?if ($item['STAGE_ID']):
+							<?php if ($item['STAGE_ID']):
 								$statusGroup = $item['CATEGORY_ID'] > 0 ? $statuses['DEAL_STAGE_' . $item['CATEGORY_ID']] : $statuses['DEAL_STAGE'];
 								$name = $statusGroup[$item['STAGE_ID']]['NAME'];
 								$width = isset($statusGroup[$item['STAGE_ID']]['CHUNK'])
@@ -362,41 +362,41 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 								<div class="crm-doc-info-progressbar-indikator" style="background-color: <?= $color?>; width: <?= $width?>%"></div>
 							</div>
 							<div class="crm-doc-info-text"><?= $name?></div>
-							<?endif;?>
+							<?php endif;?>
 							<table class="crm-doc-info-table">
 								<tr>
 									<td><?= $lang['DATE_BEGIN']?>:</td>
 									<td><?= CrmEntityTreeConvertDateTime($item['BEGINDATE'] ? $item['BEGINDATE'] : $item['DATE_CREATE'], FORMAT_DATE)?></td>
 								</tr>
-								<?if ($item['CLOSEDATE']):?>
+								<?php if ($item['CLOSEDATE']):?>
 								<tr>
 									<td><?= $lang['DATE_CLOSE']?>:</td>
 									<td><?= CrmEntityTreeConvertDateTime($item['CLOSEDATE'], FORMAT_DATE)?></td>
 								</tr>
-								<?endif;?>
-								<?if ($item['OPPORTUNITY'] > 0):?>
+								<?php endif;?>
+								<?php if ($item['OPPORTUNITY'] > 0):?>
 								<tr>
 									<td><?= $lang['SUM']?>:</td>
 									<td><?= $item['OPPORTUNITY_FORMATTED']?></td>
 								</tr>
-								<?endif;?>
+								<?php endif;?>
 							</table>
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 				break;
 			case $codes['quote']:
 				?>
 				<div class="crm-doc-cart<?= $selected ? ' crm-tree-active' : ''?><?= $counter == 1 ? ' crm-doc-cart-top' : ''?>">
 					<div class="crm-doc-cart-info">
-						<a href="<?= $item['URL']?>" target="_top" class="crm-doc-cart-title crm-doc-cart-title-sentence crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?
-							?><span class="crm-doc-gray"><?= $lang['QUOTE']?>:</span> <?
-							?><?= $item['TITLE']?><?
+						<a href="<?= $item['URL']?>" target="_top" class="crm-doc-cart-title crm-doc-cart-title-sentence crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?php 
+							?><span class="crm-doc-gray"><?= $lang['QUOTE']?>:</span> <?php 
+							?><?= $item['TITLE']?><?php 
 						?></a>
-						<?if ($item['ASSIGNED_BY_ID'] > 0):?>
+						<?php if ($item['ASSIGNED_BY_ID'] > 0):?>
 						<div class="crm-doc-info-text"><?= $lang['ASSIGNED_BY']?>:
-						<?
+						<?php 
 						echo CCrmViewHelper::PrepareUserBaloonHtml(
 									array(
 										'PREFIX' => 'QUOTE_'.$item['ID'].'_'.$item['ASSIGNED_BY_ID'],
@@ -407,11 +407,11 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 						)
 						?>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 					<div class="crm-doc-cart-param">
 						<div class="crm-doc-info-progress">
-							<?if ($item['STATUS_ID']):
+							<?php if ($item['STATUS_ID']):
 								$name = $statuses['QUOTE_STATUS'][$item['STATUS_ID']]['NAME'];
 								$width = isset($statuses['QUOTE_STATUS'][$item['STATUS_ID']]['CHUNK'])
 										? round($statuses['QUOTE_STATUS'][$item['STATUS_ID']]['CHUNK'] * 100 / $statuses['QUOTE_STATUS']['__COUNT'], 2)
@@ -424,7 +424,7 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 								<div class="crm-doc-info-progressbar-indikator" style="background-color: <?= $color?>; width: <?= $width?>%"></div>
 							</div>
 							<div class="crm-doc-info-text"><?= $name?></div>
-							<?endif;?>
+							<?php endif;?>
 							<table class="crm-doc-info-table">
 								<col class="crm-doc-info-table-1">
 								<col class="crm-doc-info-table-2">
@@ -432,17 +432,17 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 									<td><?= $lang['DATE_BILL']?>:</td>
 									<td><?= CrmEntityTreeConvertDateTime($item['BEGINDATE'] ? $item['BEGINDATE'] : $item['DATE_CREATE'], FORMAT_DATE)?></td>
 								</tr>
-								<?if ($item['CLOSEDATE']):?>
+								<?php if ($item['CLOSEDATE']):?>
 								<tr>
 									<td><?= $lang['DATE_CLOSE']?>:</td>
 									<td><?= CrmEntityTreeConvertDateTime($item['CLOSEDATE'], FORMAT_DATE)?></td>
 								</tr>
-								<?endif;?>
+								<?php endif;?>
 							</table>
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 				break;
 			case $codes['order']:
 			case $codes['order_payment']:
@@ -451,13 +451,13 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 				?>
 				<div class="crm-doc-cart<?= $selected ? ' crm-tree-active' : ''?><?= $counter == 1 ? ' crm-doc-cart-top' : ''?>">
 					<div class="crm-doc-cart-info">
-						<a href="<?= $item['URL']?>" target="_top" class="crm-doc-cart-title crm-doc-cart-title-invoice crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?
-							?><span class="crm-doc-gray"><?= $lang[strtoupper($item['TREE_TYPE'])]?><?= $item['ACCOUNT_NUMBER']?>:</span> <?
-							?><?= strlen($item['ORDER_TOPIC']) > 0 ? $item['ORDER_TOPIC'] : Loc::getMessage('CRM_ENTITY_TREE_UNTITLED')?><?
+						<a href="<?= $item['URL']?>" target="_top" class="crm-doc-cart-title crm-doc-cart-title-invoice crm-tree-link" data-id="<?= $item['ID']?>" data-type="<?= $item['TREE_TYPE']?>"><?php 
+							?><span class="crm-doc-gray"><?= $lang[strtoupper($item['TREE_TYPE'])]?><?= $item['ACCOUNT_NUMBER']?>:</span> <?php 
+							?><?= strlen($item['ORDER_TOPIC']) > 0 ? $item['ORDER_TOPIC'] : Loc::getMessage('CRM_ENTITY_TREE_UNTITLED')?><?php 
 						?></a>
-						<?if ($item['RESPONSIBLE_ID'] > 0):?>
+						<?php if ($item['RESPONSIBLE_ID'] > 0):?>
 						<div class="crm-doc-info-text"><?= $lang['ASSIGNED_BY']?>:
-						<?
+						<?php 
 						echo CCrmViewHelper::PrepareUserBaloonHtml(
 									array(
 										'PREFIX' => 'INVOICE_'.$item['ID'].'_'.$item['RESPONSIBLE_ID'],
@@ -468,11 +468,11 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 						)
 						?>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 					<div class="crm-doc-cart-param">
 						<div class="crm-doc-info-progress">
-							<?if ($item['STATUS_ID']):
+							<?php if ($item['STATUS_ID']):
 								$typeStatusName = $item['TREE_TYPE'].'_STATUS';
 								$name = $statuses[$typeStatusName][$item['STATUS_ID']]['NAME'];
 								$width = isset($statuses[$typeStatusName][$item['STATUS_ID']]['CHUNK'])
@@ -504,18 +504,18 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 								<div class="crm-doc-info-progressbar-indikator" style="background-color: <?= $color?>; width: <?= $width?>%"></div>
 							</div>
 							<div class="crm-doc-info-text"><?= $name?></div>
-							<?endif;?>
+							<?php endif;?>
 							<table class="crm-doc-info-table">
 								<tr>
 									<td><?= $lang['DATE_BILL']?>:</td>
 									<td><?= CrmEntityTreeConvertDateTime($item['DATE_BILL'] ? $item['DATE_BILL'] : $item['DATE_INSERT_FORMAT'], FORMAT_DATE)?></td>
 								</tr>
-								<?if ($item['DATE_PAY_BEFORE']):?>
+								<?php if ($item['DATE_PAY_BEFORE']):?>
 								<tr>
 									<td><?= $lang['DATE_PAYED']?>:</td>
 									<td><?= CrmEntityTreeConvertDateTime($item['DATE_PAY_BEFORE'], FORMAT_DATE)?></td>
 								</tr>
-								<?endif;?>
+								<?php endif;?>
 								<tr>
 									<td><?= $lang['SUM']?>:</td>
 									<td><?= $item['PRICE_FORMATTED']?></td>
@@ -524,7 +524,7 @@ if (!function_exists('CrmEntityTreeDrawItem'))
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 				break;
 		}
 		echo '</li>';
@@ -560,7 +560,7 @@ if (!function_exists('CrmEntityTreeDrawRecur'))
 
 <div class="crm-doc">
 	<div class="crm-doc-three">
-	<?
+	<?php 
 	//parent with base element
 	foreach ($arResult['BASE'] as $item)
 	{

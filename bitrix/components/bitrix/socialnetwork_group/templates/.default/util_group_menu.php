@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -38,14 +38,14 @@ $arReturnGroupMenu = $APPLICATION->IncludeComponent(
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><?
+?><?php 
 if (
 	$GLOBALS["USER"]->IsAuthorized()
 	&& COption::GetOptionString("main", "wizard_solution", "", SITE_ID) == "community"
 )
 	include("util_community.php");
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.admin.set",
 	"",

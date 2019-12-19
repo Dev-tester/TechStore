@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader,
 	Bitrix\Iblock,
 	Bitrix\Catalog,

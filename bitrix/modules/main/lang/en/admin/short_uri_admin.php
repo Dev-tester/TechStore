@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SU_AF_WRONG_UPDATE_FROM"] = "The first last-modified date is incorrect.";
 $MESS["SU_AF_WRONG_UPDATE_TILL"] = "The last last-modified date is incorrect.";
 $MESS["SU_AF_WRONG_INSERT_FROM"] = "The first last-used date is incorrect.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $blogWarningTmp = "";
 
 if (CModule::IncludeModule("blog") && check_bitrix_sessid()):

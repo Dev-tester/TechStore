@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_LIST_CTRL_CATEGORY_ALL"] = "all";
 $MESS["TASKS_LIST_CTRL_CATEGORY_ATTENTION"] = "attention required";
 $MESS["TASKS_LIST_CTRL_CATEGORY_COMPLETED"] = "completed";

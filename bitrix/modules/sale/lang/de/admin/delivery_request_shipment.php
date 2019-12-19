@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_REQ_DRS_WRONG_ID"] = "Ungültige ID der Transportbestellung";
 $MESS["SALE_DELIVERY_REQ_DRS_WRONG_SHP_ID"] = "Ungültige ID der Auslieferung";
 $MESS["SALE_DELIVERY_REQ_DRS_LIST"] = "Liste der Bestellungen in der Transportbestellung";

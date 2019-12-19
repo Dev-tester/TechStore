@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_SOCNET_TAB"] = "Lists";
 $MESS["LISTS_SOCNET_LOG_GROUP"] = "Lists";
 $MESS["LISTS_DEL_SOCNET_LOG_GROUP"] = "Lists (deletion)";

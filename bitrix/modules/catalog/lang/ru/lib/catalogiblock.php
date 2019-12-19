@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ENTITY_IBLOCK_ID_FIELD"] = "Идентификатор инфоблока";
 $MESS["IBLOCK_ENTITY_YANDEX_EXPORT_FIELD"] = "Экспортировать в Яндекс";
 $MESS["IBLOCK_ENTITY_SUBSCRIPTION_FIELD"] = "Продажа контента";

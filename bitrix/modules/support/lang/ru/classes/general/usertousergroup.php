@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_ERROR_USER_ID_EMPTY'] = "Пустой ID пользователя.";
 $MESS ['SUP_ERROR_GROUP_ID_EMPTY'] = "Пустой ID группы.";
 $MESS ['SUP_ERROR_USERGROUP_EXISTS'] = "Этот пользователь уже состоит в этой группе.";

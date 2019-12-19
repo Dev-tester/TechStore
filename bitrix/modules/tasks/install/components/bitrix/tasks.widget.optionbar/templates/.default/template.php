@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -9,13 +9,13 @@ $helper = $arResult['HELPER'];
 $arParams =& $helper->getComponent()->arParams; // make $arParams the same variable as $this->__component->arParams, as it really should be
 ?>
 
-<?//$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php //$helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
 
-		<?foreach($arParams['OPTIONS'] as $option):?>
-			<?$optionJs = ToLower(str_replace('_', '-', $option['CODE']));?>
+		<?php foreach($arParams['OPTIONS'] as $option):?>
+			<?php $optionJs = ToLower(str_replace('_', '-', $option['CODE']));?>
 			<div class="task-options-field">
 				<div class="task-options-field-inner">
 					<label
@@ -27,9 +27,9 @@ $arParams =& $helper->getComponent()->arParams; // make $arParams the same varia
 						data-hint-enabled="<?=htmlspecialcharsbx($option['HINT_ENABLED'])?>"
 						data-hint-text="<?=$option['HINT_TEXT']?>"
 					>
-						<?if($option['HELP_TEXT'] != ''):?>
+						<?php if($option['HELP_TEXT'] != ''):?>
 							<span class="js-id-hint-help task-options-help tasks-icon-help tasks-help-cursor"><?=$option['HELP_TEXT']?></span>
-						<?endif?>
+						<?php endif?>
 						<input
 							data-target="<?=htmlspecialcharsbx($optionJs)?>"
 							data-flag-name="<?=htmlspecialcharsbx($option['CODE'])?>"
@@ -54,17 +54,17 @@ $arParams =& $helper->getComponent()->arParams; // make $arParams the same varia
 						<?=($option['DISABLED'] ? 'disabled' : '')?>
 					/>
 
-					<?if($option['LINK']):?>
+					<?php if($option['LINK']):?>
                         <a href="<?=htmlspecialcharsbx($option['LINK']['URL'])?>" target="_blank"><?=htmlspecialcharsbx($option['LINK']['TEXT'])?></a>
-					<?endif?>
-					<?if($option['LINKS']):?>
-                        <?foreach($option['LINKS'] as $link):?>
+					<?php endif?>
+					<?php if($option['LINKS']):?>
+                        <?php foreach($option['LINKS'] as $link):?>
                             <a href="<?=htmlspecialcharsbx($link['URL'])?>" target="_blank"><?=htmlspecialcharsbx($link['TEXT'])?></a>
-                        <?endforeach?>
-					<?endif?>
-					<?if($option['FIELDS']):?>
+                        <?php endforeach?>
+					<?php endif?>
+					<?php if($option['FIELDS']):?>
                     <div id="js-id-wg-optbar-fields" class="js-id-wg-optbar-fields">
-                        <?foreach($option['FIELDS'] as $field):
+                        <?php foreach($option['FIELDS'] as $field):
                             if(!isset($field['ID']))
                             {
 	                            $field['ID'] = 'field-'.randString(5);
@@ -73,16 +73,16 @@ $arParams =& $helper->getComponent()->arParams; // make $arParams the same varia
                             <div id="<?=$field['ID']?>" class="js-id-wg-optbar-field js-id-wg-optbar-field-<?=$field['TYPE']?>">
                                 <?php include(__DIR__.'/'.strtolower($field['TYPE']).'-field.php')?>
                             </div>
-                        <?endforeach?>
+                        <?php endforeach?>
                     </div>
-					<?endif?>
+					<?php endif?>
 
 				</div>
 			</div>
-		<?endforeach?>
+		<?php endforeach?>
 
 	</div>
 
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

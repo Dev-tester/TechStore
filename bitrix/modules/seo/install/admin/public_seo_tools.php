@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/seo/admin/seo_tools.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/seo/admin/seo_tools.php");?>

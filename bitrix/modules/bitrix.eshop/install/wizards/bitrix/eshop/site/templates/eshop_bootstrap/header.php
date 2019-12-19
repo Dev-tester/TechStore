@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/templates/".SITE_TEMPLATE_ID."/header.php");
 CJSCore::Init(array("fx"));
 $curPage = $APPLICATION->GetCurPage(true);
@@ -10,17 +10,17 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
 	<link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico" />
-	<?$APPLICATION->ShowHead();?>
-	<?
+	<?php $APPLICATION->ShowHead();?>
+	<?php 
 	$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/colors.css", true);
 	$APPLICATION->SetAdditionalCSS("/bitrix/css/main/bootstrap.css");
 	$APPLICATION->SetAdditionalCSS("/bitrix/css/main/font-awesome.css");
 	?>
-	<title><?$APPLICATION->ShowTitle()?></title>
+	<title><?php $APPLICATION->ShowTitle()?></title>
 </head>
-<body class="bx-background-image bx-theme-<?=$theme?>" <?$APPLICATION->ShowProperty("backgroundImage");?>>
-<div id="panel"><?$APPLICATION->ShowPanel();?></div>
-<?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
+<body class="bx-background-image bx-theme-<?=$theme?>" <?php $APPLICATION->ShowProperty("backgroundImage");?>>
+<div id="panel"><?php $APPLICATION->ShowPanel();?></div>
+<?php $APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
 <div class="bx-wrapper" id="bx_eshop_wrap">
 	<header class="bx-header">
 		<div class="bx-header-section container">
@@ -28,29 +28,29 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 					<div class="bx-logo">
 						<a class="bx-logo-block hidden-xs" href="<?=htmlspecialcharsbx(SITE_DIR)?>">
-							<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo.php"), false);?>
+							<?php $APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo.php"), false);?>
 						</a>
 						<a class="bx-logo-block hidden-lg hidden-md hidden-sm text-center" href="<?=htmlspecialcharsbx(SITE_DIR)?>">
-							<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo_mobile.php"), false);?>
+							<?php $APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo_mobile.php"), false);?>
 						</a>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
 					<div class="bx-inc-orginfo">
 						<div>
-							<span class="bx-inc-orginfo-phone"><i class="fa fa-phone"></i> <?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/telephone.php"), false);?></span>
+							<span class="bx-inc-orginfo-phone"><i class="fa fa-phone"></i> <?php $APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/telephone.php"), false);?></span>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
 					<div class="bx-worktime">
 						<div class="bx-worktime-prop">
-							<?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/schedule.php"), false);?>
+							<?php $APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/schedule.php"), false);?>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 hidden-xs">
-					<?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "", array(
+					<?php $APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "", array(
 							"PATH_TO_BASKET" => SITE_DIR."personal/cart/",
 							"PATH_TO_PERSONAL" => SITE_DIR."personal/",
 							"SHOW_PERSONAL_LINK" => "N",
@@ -69,7 +69,7 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 			</div>
 			<div class="row">
 				<div class="col-md-12 hidden-xs">
-					<?$APPLICATION->IncludeComponent("bitrix:menu", "catalog_horizontal", array(
+					<?php $APPLICATION->IncludeComponent("bitrix:menu", "catalog_horizontal", array(
 							"ROOT_MENU_TYPE" => "left",
 							"MENU_CACHE_TYPE" => "A",
 							"MENU_CACHE_TIME" => "36000000",
@@ -88,10 +88,10 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 					);?>
 				</div>
 			</div>
-			<?if ($curPage != SITE_DIR."index.php"):?>
+			<?php if ($curPage != SITE_DIR."index.php"):?>
 			<div class="row">
 				<div class="col-lg-12">
-					<?$APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
+					<?php $APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
 							"NUM_CATEGORIES" => "1",
 							"TOP_COUNT" => "5",
 							"CHECK_DATES" => "N",
@@ -120,15 +120,15 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 					);?>
 				</div>
 			</div>
-			<?endif?>
+			<?php endif?>
 
-			<?
+			<?php 
 			if ($curPage != SITE_DIR."index.php")
 			{
 			?>
 			<div class="row">
 				<div class="col-lg-12" id="navigation">
-					<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "", array(
+					<?php $APPLICATION->IncludeComponent("bitrix:breadcrumb", "", array(
 							"START_FROM" => "0",
 							"PATH" => "",
 							"SITE_ID" => "-"
@@ -138,14 +138,14 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 					);?>
 				</div>
 			</div>
-			<h1 class="bx-title dbg_title" id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
-			<?
+			<h1 class="bx-title dbg_title" id="pagetitle"><?php $APPLICATION->ShowTitle(false);?></h1>
+			<?php 
 			}
 			else
 			{
 			?>
-			<h1 style="display: none"><?$APPLICATION->ShowTitle()?></h1>
-			<?
+			<h1 style="display: none"><?php $APPLICATION->ShowTitle()?></h1>
+			<?php 
 			}
 			?>
 		</div>
@@ -154,7 +154,7 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 	<div class="workarea">
 		<div class="container bx-content-seection">
 			<div class="row">
-			<?
+			<?php 
 			$hideSidebar =
 				defined("HIDE_SIDEBAR") && HIDE_SIDEBAR == true
 				|| preg_match("~^".SITE_DIR."(catalog|personal\\/cart|personal\\/order\\/make)/~", $curPage)

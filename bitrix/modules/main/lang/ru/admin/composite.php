@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_COMPOSITE_TITLE"] = "Композитный сайт";
 $MESS["MAIN_COMPOSITE_WARNING"] = "Включен режим статического кеширования. Выключите.";
 $MESS["MAIN_COMPOSITE_TAB"] = "Композитный режим";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @var CMain $APPLICATION */
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -31,12 +31,12 @@ if(isset($_REQUEST["action"]))
 				<tr><td><?=Loc::getMessage("SALE_EBAY_YOUR_SFTP_TOKEN_EXP")?>:</td><td><input type="text" id="SALE_EBAY_SETTINGS_SFTP_TOKEN_EXP" value="" readonly></td></tr>
 				<tr><td><?=Loc::getMessage("SALE_EBAY_YOUR_SFTP_USER_NAME")?>:</td><td><input type="text" id="SALE_EBAY_SETTINGS_SFTP_USER_NAME" value="" readonly></td></tr>
 				<tr><td><?=Loc::getMessage("SALE_EBAY_YOUR_SFTP_ACCOUNT_STATE")?>:</td><td><input type="text" id="SALE_EBAY_SETTINGS_SFTP_ACCOUNT_STATE" value="" readonly></td></tr>
-			<?
+			<?php 
 			$tabControl->EndTab();
 			$tabControl->Buttons();
 			?>
 				<input type="button"  value="<?=Loc::getMessage("SALE_EBAY_CLOSE")?>" onclick="window.close();">
-			<?
+			<?php 
 			$tabControl->End();
 			?>
 
@@ -44,7 +44,7 @@ if(isset($_REQUEST["action"]))
 				if(BX.Sale.EbayAdmin.setOpenerFieldsFromHash('SFTP_TOKEN'))
 					window.close();
 			</script>
-			<?
+			<?php 
 			break;
 
 		case "SHOW_TOKEN":
@@ -62,12 +62,12 @@ if(isset($_REQUEST["action"]))
 			?>
 				<tr><td><?=Loc::getMessage("SALE_EBAY_YOUR_TOKEN")?>:</td><td><textarea id="SALE_EBAY_SETTINGS_API_TOKEN" value="" readonly rows="10" cols="100"></textarea></td></tr>
 				<tr><td><?=Loc::getMessage("SALE_EBAY_YOUR_TOKEN_EXP")?>:</td><td><input type="text" id="SALE_EBAY_SETTINGS_API_TOKEN_EXP" value="" readonly></td></tr>
-			<?
+			<?php 
 			$tabControl->EndTab();
 			$tabControl->Buttons();
 			?>
 				<input type="button"  value="<?=Loc::getMessage("SALE_EBAY_CLOSE")?>" onclick="window.close();">
-			<?
+			<?php 
 			$tabControl->End();
 			?>
 
@@ -75,7 +75,7 @@ if(isset($_REQUEST["action"]))
 						if(BX.Sale.EbayAdmin.setOpenerFieldsFromHash('API_TOKEN'))
 							window.close();
 				</script>
-			<?
+			<?php 
 			break;
 
 		case "APP_REJECTED":
@@ -84,7 +84,7 @@ if(isset($_REQUEST["action"]))
 					if(BX.Sale.EbayAdmin.showAlertOpener("<?=Loc::getMessage("SALE_EBAY_AUTH_FAIL")?>"))
 						window.close();
 				</script>
-			<?
+			<?php 
 
 			break;
 
@@ -110,7 +110,7 @@ if(isset($_REQUEST["action"]))
 				else
 					window.location.href = 'sale_ebay_general.php?lang=<?=LANGUAGE_ID?>';
 			</script>
-			<?
+			<?php 
 
 			break;
 

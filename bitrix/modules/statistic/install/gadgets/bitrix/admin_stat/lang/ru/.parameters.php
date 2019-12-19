@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_STAT_P_SITE_ID"] = "Сайт";
 $MESS["GD_STAT_P_SITE_ID_ALL"] = "Все";
 $MESS["GD_STAT_P_HIDE_GRAPH"] = "Скрывать график";

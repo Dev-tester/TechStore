@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_DEMO_STORE_CLOTHES-NEMW1--NAME"] = "Новость 1";
 $MESS["NOTTRANSLATE--LANDING_DEMO_STORE_CLOTHES-NEMW1--TEXT_1"] = "Новости";
 $MESS["NOTTRANSLATE--LANDING_DEMO_STORE_CLOTHES-NEMW1--TEXT_2"] = "Новое веяние в одежде - получено прочное водостойкое соединение";

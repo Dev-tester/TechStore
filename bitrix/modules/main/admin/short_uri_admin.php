@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 IncludeModuleLangFile(__FILE__);
@@ -219,34 +219,34 @@ $oFilter = new CAdminFilter(
 );
 ?>
 
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("SU_AF_F_URI")?>:</b></td>
 	<td>
-		<input type="text" size="47" name="find_uri" value="<?echo htmlspecialcharsbx($find_uri)?>">&nbsp;<?=ShowFilterLogicHelp()?>
+		<input type="text" size="47" name="find_uri" value="<?php echo htmlspecialcharsbx($find_uri)?>">&nbsp;<?=ShowFilterLogicHelp()?>
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SU_AF_F_SHORT_URI")?>:</td>
-	<td><input type="text" name="find_short_uri" size="47" value="<?echo htmlspecialcharsbx($find_short_uri)?>"></td>
+	<td><?php echo GetMessage("SU_AF_F_SHORT_URI")?>:</td>
+	<td><input type="text" name="find_short_uri" size="47" value="<?php echo htmlspecialcharsbx($find_short_uri)?>"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SU_AF_F_MODIFIED")?>:</td>
-	<td><?echo CalendarPeriod("find_modified_1", htmlspecialcharsbx($find_modified_1), "find_modified_2", htmlspecialcharsbx($find_modified_2), "find_form","Y")?></td>
+	<td><?php echo GetMessage("SU_AF_F_MODIFIED")?>:</td>
+	<td><?php echo CalendarPeriod("find_modified_1", htmlspecialcharsbx($find_modified_1), "find_modified_2", htmlspecialcharsbx($find_modified_2), "find_form","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SU_AF_F_LAST_USED")?>:</td>
-	<td><?echo CalendarPeriod("find_last_used_1", htmlspecialcharsbx($find_last_used_1), "find_last_used_2", htmlspecialcharsbx($find_last_used_2), "find_form","Y")?></td>
+	<td><?php echo GetMessage("SU_AF_F_LAST_USED")?>:</td>
+	<td><?php echo CalendarPeriod("find_last_used_1", htmlspecialcharsbx($find_last_used_1), "find_last_used_2", htmlspecialcharsbx($find_last_used_2), "find_form","Y")?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

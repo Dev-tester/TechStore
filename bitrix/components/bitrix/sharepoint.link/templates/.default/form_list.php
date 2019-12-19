@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die(); 
 
 __IncludeLang($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/lang/'.LANGUAGE_ID.'/template.php');
@@ -26,7 +26,7 @@ else
 }
 ?>
 
-<?
+<?php 
 $arIntervals = array(600, 1800, 3600, 10800, 28800, 86400, 0);
 ?>
 <input type="hidden" name="step" value="4" />
@@ -42,11 +42,11 @@ $arIntervals = array(600, 1800, 3600, 10800, 28800, 86400, 0);
 			<tr>
 				<td class="bx-popup-label bx-width30" valign="top"><?=GetMessage('SL_FORM_LIST_INTERVAL')?>: </td>
 				<td><small>
-<?
+<?php 
 foreach ($arIntervals as $int):
 ?>
 					<input type="radio" name="sp_interval" value="<?=$int?>" id="sp_interval_<?=$int?>"<?=$int == $arResult['SERVICE']['SYNC_PERIOD'] ? ' checked="checked"' : '';?> />&nbsp;<label for="sp_interval_<?=$int?>"><?=GetMessage('SL_FORM_LIST_INTERVAL_'.$int)?></label><br />
-<?
+<?php 
 endforeach;
 ?>
 				</small></td>
@@ -63,7 +63,7 @@ endforeach;
 			</tr>
 			<tr>
 				<td colspan="2"><table class="bx-width100" id="sp_fields"><tbody>
-<?
+<?php 
 $arFields = array();
 foreach ($arResult['LIST']['FIELDS'] as $field)
 {
@@ -77,24 +77,24 @@ foreach ($arValue as $key => $value):
 						<td><?=htmlspecialcharsex($arFields[$key][0])?> (<?=htmlspecialcharsex($key)?>)</td>
 						<td><?=htmlspecialcharsex($arTypes[$value])?></td>
 					</tr>
-<?
+<?php 
 endforeach;
 ?>
 					<tr id="sp_select_control" colspan="2" style="display: none;">
 						<td valign="top" class="bx-width50"><select name="sp_field" style="width: 100%;">
-<?
+<?php 
 foreach ($arResult['LIST']['FIELDS'] as $field):
 ?>
 								<option value="<?=$field['Name'].':'.$field['Type']?>"><?=htmlspecialcharsex($field['DisplayName']).' ('.htmlspecialcharsex($field['Name']).')'?></option>
-<?
+<?php 
 endforeach;
 ?>
 						</select></td>
 						<td valign="top" class="bx-width50">
-							<span id="bx_field_select"><?
+							<span id="bx_field_select"><?php 
 echo CIntranetSharepoint::GetTypesHTML($arParams['IBLOCK_ID'], 'bx_field');
 						?></span>
-							<span id="bx_field_select_create" style="display: none;"><?
+							<span id="bx_field_select_create" style="display: none;"><?php 
 echo CIntranetSharepoint::GetTypesCreateHTML('bx_field_create');
 							?></span>
 							<input type="checkbox" id="bx_field_create_new" onclick="SLswitchSelectors(this.checked)" />&nbsp;<label for="bx_field_create_new"><?=GetMessage('SL_FORM_LIST_FIELD_CREATE')?></label>
@@ -209,7 +209,7 @@ function SLadd()
 
 </script>
 
-<?
+<?php 
 $arInternalDataTypes = array('Lookup', 'Computed', 'WorkSpaceLink');
 $arInternalFields = array(
 	'_HasCopyDestinations', 

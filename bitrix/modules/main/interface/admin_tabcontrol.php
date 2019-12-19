@@ -154,7 +154,7 @@ class CAdminTabControl
 ?>
 <div class="adm-detail-block" id="<?=$this->name?>_layout">
 	<div class="adm-detail-tabs-block<?=$this->bShowSettings?' adm-detail-tabs-block-settings':''?>" id="<?=$this->name?>_tabs">
-<?
+<?php 
 		}
 
 		$len = count($this->tabs);
@@ -176,7 +176,7 @@ class CAdminTabControl
 ?>
 	</div>
 	<div class="adm-detail-content-wrap">
-<?
+<?php 
 		}
 		else
 		{

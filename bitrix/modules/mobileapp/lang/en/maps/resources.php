@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RES_ICON"] = "Icon (#size#)";
 $MESS["RES_GP_PROMO_IMAGE"] = "Image for \"Recommended\" area in Google Play";
 $MESS["RES_LAUNCH_SCREEN_PORT"] = "Launch screen, portrait (#size#)";

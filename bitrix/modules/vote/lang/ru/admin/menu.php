@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_MENU_MAIN'] = "Опросы";
 $MESS ['VOTE_MENU_VOTE'] = "Список опросов";
 $MESS ['VOTE_MENU_ADDITIONAL'] = "Дополнительно";

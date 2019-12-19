@@ -1,4 +1,4 @@
-<?
+<?php 
 define("DAV_CALDAV_DEBUG", false);
 
 if (!class_exists("CDavGroupdavClientCalendar"))

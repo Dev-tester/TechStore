@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_AUTOMATION_CMP_TITLE_LEAD_VIEW"] = "Текущее состояние лида: «#TITLE#»";
 $MESS["CRM_AUTOMATION_CMP_TITLE_LEAD_EDIT"] = "Настройка роботов для всех лидов";
 $MESS["CRM_AUTOMATION_CMP_TITLE_DEAL_VIEW"] = "Текущее состояние сделки: «#TITLE#»";

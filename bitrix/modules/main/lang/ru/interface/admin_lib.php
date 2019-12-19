@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["admin_lib_hide_menu"] = "Скрыть меню";
 $MESS["admin_lib_show_menu"] = "Показать меню";
 $MESS["admin_lib_less_buttons"] = "Уменьшить кнопки";

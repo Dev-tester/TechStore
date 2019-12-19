@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCOM_INSTALL_NAME"] = "Corporate Service Site";
 $MESS["SCOM_INSTALL_DESCRIPTION"] = "A corporate site wizard to create a model bank corporate site";
 $MESS["SCOM_INSTALL_TITLE"] = "Module Installation";

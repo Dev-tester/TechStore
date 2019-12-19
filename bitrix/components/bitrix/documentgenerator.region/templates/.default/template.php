@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -14,19 +14,19 @@ $this->IncludeLangFile();
 
 CJSCore::Init(['sidepanel', 'loader']);
 ?>
-<div class="docs-region-error-message" id="edit-region-error-message"<?if($arResult['ERROR']){?> style="display: block;"><?=htmlspecialcharsbx($arResult['ERROR']);}else{?>><?}?></div>
+<div class="docs-region-error-message" id="edit-region-error-message"<?php if($arResult['ERROR']){?> style="display: block;"><?=htmlspecialcharsbx($arResult['ERROR']);}else{?>><?php }?></div>
 <div class="docs-region-wrap">
 	<div class="docs-region-container">
 		<label class="docs-region-label"><?=Loc::getMessage('DOCGEN_REGION_EDIT_LANGUAGE');?></label>
 		<div class="docs-region-select-wrap">
 			<select class="docs-region-select" id="edit-region-culture-select" autocomplete="off">
 				<option value="0"><?=Loc::getMessage('DOCGEN_REGION_EDIT_EMPTY');?></option>
-				<? foreach ($arResult["cultures"] as $culture)
+				<?php  foreach ($arResult["cultures"] as $culture)
 				{?>
 					<option value="<?=htmlspecialcharsbx($culture['ID']);?>"
 						<?=($arResult['region'] && $arResult['region']['LANGUAGE_ID'] == $culture['LANGUAGE_ID']) ? 'selected="selected"' : ''; ?>
 					><?= htmlspecialcharsbx($culture['NAME']); ?></option>
-				<?}?>
+				<?php }?>
 			</select>
 		</div>
 	</div>
@@ -43,11 +43,11 @@ CJSCore::Init(['sidepanel', 'loader']);
 		<label class="docs-region-label"><?=Loc::getMessage('DOCGEN_REGION_EDIT_FORMAT_DATE');?></label>
 		<div class="docs-region-select-wrap">
 			<select class="docs-region-select" id="edit-region-format-date-select" autocomplete="off">
-				<? foreach ($arResult["dateFormats"] as $format)
+				<?php  foreach ($arResult["dateFormats"] as $format)
 				{?>
 					<option <?=($arResult['region'] && $arResult['region']['FORMAT_DATE'] == $format) ? 'selected="selected"' : ''; ?>
 					><?= htmlspecialcharsbx($format); ?></option>
-				<?}?>
+				<?php }?>
 			</select>
 		</div>
 	</div>
@@ -57,11 +57,11 @@ CJSCore::Init(['sidepanel', 'loader']);
 		<label class="docs-region-label"><?=Loc::getMessage('DOCGEN_REGION_EDIT_FORMAT_TIME');?></label>
 		<div class="docs-region-select-wrap">
 			<select class="docs-region-select" id="edit-region-format-time-select" autocomplete="off">
-				<? foreach ($arResult["timeFormats"] as $format)
+				<?php  foreach ($arResult["timeFormats"] as $format)
 				{?>
 					<option <?=($arResult['region'] && $arResult['region']['FORMAT_TIME'] == $format) ? 'selected="selected"' : ''; ?>
 					><?= htmlspecialcharsbx($format); ?></option>
-				<?}?>
+				<?php }?>
 			</select>
 		</div>
 	</div>
@@ -71,20 +71,20 @@ CJSCore::Init(['sidepanel', 'loader']);
 		<label class="docs-region-label"><?=Loc::getMessage('DOCGEN_REGION_EDIT_FORMAT_NAME');?></label>
 		<div class="docs-region-select-wrap">
 			<select class="docs-region-select" id="edit-region-format-name-select" autocomplete="off">
-				<? foreach ($arResult["nameFormats"] as $format => $name)
+				<?php  foreach ($arResult["nameFormats"] as $format => $name)
 				{?>
 					<option value="<?=htmlspecialcharsbx($format);?>" <?=($arResult['region'] && $arResult['region']['FORMAT_NAME'] == $format) ? 'selected="selected"' : ''; ?>
 					><?= htmlspecialcharsbx($name); ?></option>
-				<?}?>
+				<?php }?>
 			</select>
 		</div>
 	</div>
 </div>
-<?if(!empty($arResult['phrases']))
+<?php if(!empty($arResult['phrases']))
 {
 ?>
 <div class="docs-region-phrases-title"><?=Loc::getMessage('DOCGEN_REGION_EDIT_PHRASES_TITLE');?></div>
-	<?foreach($arResult['phrases'] as $code => $title)
+	<?php foreach($arResult['phrases'] as $code => $title)
 	{
 		?>
 		<div class="docs-region-wrap">
@@ -93,9 +93,9 @@ CJSCore::Init(['sidepanel', 'loader']);
 				<input class="docs-region-input docs-region-phrase-input" name="<?=htmlspecialcharsbx($code);?>" value="<?=htmlspecialcharsbx($arResult['region']['phrases'][$code]);?>" />
 			</div>
 		</div>
-		<?
+		<?php 
 	}?>
-<?}?>
+<?php }?>
 <script>
 	BX.ready(function()
 	{

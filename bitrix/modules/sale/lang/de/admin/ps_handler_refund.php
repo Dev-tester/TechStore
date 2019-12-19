@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACCESS_DENIED"] = "Zugriff verweigert";
 $MESS["SALE_REFUND_HANDLERS_TITLE"] = "Rückgaben konfigurieren";
 $MESS["SALE_REFUND_HANDLERS_LIST_EXTERNAL_ID"] = "Shop-ID";

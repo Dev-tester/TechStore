@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -22,7 +22,7 @@ else
 {
 	$basketAction = (isset($arParams['DETAIL_ADD_TO_BASKET_ACTION']) ? $arParams['DETAIL_ADD_TO_BASKET_ACTION'] : array());
 }
-?><?$ElementID = $APPLICATION->IncludeComponent(
+?><?php $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.element",
 	"",
 	array(
@@ -123,14 +123,14 @@ else
 		'SHOW_BASIS_PRICE' => (isset($arParams['DETAIL_SHOW_BASIS_PRICE']) ? $arParams['DETAIL_SHOW_BASIS_PRICE'] : 'Y')
 	),
 	$component
-);?><?
+);?><?php 
 $GLOBALS["CATALOG_CURRENT_ELEMENT_ID"] = $ElementID;
 unset($basketAction);
 if ($ElementID > 0)
 {
 	if($arParams["USE_STORE"] == "Y" && ModuleManager::isModuleInstalled("catalog"))
 	{
-		?><?$APPLICATION->IncludeComponent("bitrix:catalog.store.amount", ".default", array(
+		?><?php $APPLICATION->IncludeComponent("bitrix:catalog.store.amount", ".default", array(
 			"ELEMENT_ID" => $ElementID,
 			"STORE_PATH" => $arParams['STORE_PATH'],
 			"CACHE_TYPE" => "A",
@@ -146,7 +146,7 @@ if ($ElementID > 0)
 		),
 		$component,
 		array("HIDE_ICONS" => "Y")
-	);?><?
+	);?><?php 
 	}
 
 	$arRecomData = array();
@@ -217,7 +217,7 @@ if ($ElementID > 0)
 	{
 		if (ModuleManager::isModuleInstalled("sale") && (!isset($arParams['USE_BIG_DATA']) || $arParams['USE_BIG_DATA'] != 'N'))
 		{
-			?><?$APPLICATION->IncludeComponent("bitrix:catalog.bigdata.products", "", array(
+			?><?php $APPLICATION->IncludeComponent("bitrix:catalog.bigdata.products", "", array(
 				"LINE_ELEMENT_COUNT" => 5,
 				"TEMPLATE_THEME" => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 				"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
@@ -274,7 +274,7 @@ if ($ElementID > 0)
 		}
 		if (($arRecomData['IBLOCK_LINK'] != '' || $arRecomData['ALL_LINK'] != ''))
 		{
-			?><?
+			?><?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:catalog.recommended.products",
 				"",
@@ -319,13 +319,13 @@ if ($ElementID > 0)
 				$component,
 				array("HIDE_ICONS" => "Y")
 			);
-			?><?
+			?><?php 
 		}
 	}
 
 	if($arParams["USE_ALSO_BUY"] == "Y" && ModuleManager::isModuleInstalled("sale") && !empty($arRecomData))
 	{
-		?><?$APPLICATION->IncludeComponent("bitrix:sale.recommended.products", ".default", array(
+		?><?php $APPLICATION->IncludeComponent("bitrix:sale.recommended.products", ".default", array(
 			"ID" => $ElementID,
 			"TEMPLATE_THEME" => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 			"MIN_BUYES" => $arParams["ALSO_BUY_MIN_BUYES"],
@@ -356,7 +356,7 @@ if ($ElementID > 0)
 		$component,
 		array("HIDE_ICONS" => "Y")
 	);
-		?><?
+		?><?php 
 	}
 }
 ?>

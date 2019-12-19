@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADD"] = "Adds a new language";
 $MESS["CHARSET"] = "Charset:";
 $MESS["DAY_OF_WEEK_0"] = "Sunday";

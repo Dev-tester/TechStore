@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ITSRM1_MEETING_LIST_DESCR'] = "Перейти в список переговорных";
 $MESS ['ITSRM1_MEETING_LIST'] = "Список переговорных";
 $MESS ['ITSRM1_MEETING_SEARCH_DESCR'] = "Перейти в поиск переговорных";

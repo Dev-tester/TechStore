@@ -111,7 +111,7 @@ elseif($find_diagram_type=="DURATION"):
 		</td>
 		<td valign="center">
 			<table cellpadding="0" cellspacing="0" border="0" class="legend">
-				<?
+				<?php 
 				$i=0;
 				foreach($arrTime as $key):
 					$i++;
@@ -123,21 +123,21 @@ elseif($find_diagram_type=="DURATION"):
 					<td valign="center" class="color">
 						<div style="background-color: <?="#".$color?>"></div>
 					</td>
-					<td align="right" nowrap class="number"><?echo sprintf("%01.2f", $procent)."%"?></td>
+					<td align="right" nowrap class="number"><?php echo sprintf("%01.2f", $procent)."%"?></td>
 					<td align="right" nowrap class="number">(<?=$arSum[$key]?>)</td>
-					<td nowrap><?echo GetMessage("STAT_".$key);?></td>
+					<td nowrap><?php echo GetMessage("STAT_".$key);?></td>
 				</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</table>
 		</td>
 	</tr></table>
 	</div>
-<?else:?>
+<?php else:?>
 	<div class="graph">
 	<?=GetMessage("STAT_HITS_GRAPH")?>
 	<table cellspacing="0" cellpadding="0" class="graph" border="0" align="center"><tr>
 		<td valign="center" class="graph">
-			<img class="graph" src="/bitrix/admin/attentiveness_graph.php?find_date1=<?echo urlencode($find_date1)?>&find_date2=<?=urlencode($find_date2)?>&find_site_id=<?=urlencode($find_site_id)?>&width=<?=$width?>&height=<?=$height?>&lang=<?=LANGUAGE_ID?>" width="<?=$width?>" height="<?=$height?>">
+			<img class="graph" src="/bitrix/admin/attentiveness_graph.php?find_date1=<?php echo urlencode($find_date1)?>&find_date2=<?=urlencode($find_date2)?>&find_site_id=<?=urlencode($find_site_id)?>&width=<?=$width?>&height=<?=$height?>&lang=<?=LANGUAGE_ID?>" width="<?=$width?>" height="<?=$height?>">
 		</td>
 	</tr></table>
 	</div>
@@ -150,7 +150,7 @@ elseif($find_diagram_type=="DURATION"):
 		</td>
 		<td valign="center">
 			<table cellpadding="0" cellspacing="0" border="0" class="legend">
-				<?
+				<?php 
 				$i=0;
 				foreach($arrHits as $key):
 					$i++;
@@ -165,16 +165,16 @@ elseif($find_diagram_type=="DURATION"):
 					<td valign="center" class="color">
 						<div style="background-color: <?="#".$color?>"></div>
 					</td>
-					<td align="right" nowrap class="number"><?echo sprintf("%01.2f", $procent)."%"?></td>
-					<td align="right" nowrap class="number">(<a href="/bitrix/admin/session_list.php?find_hits1=<?=$hits1?>&find_hits2=<?=$hits2?>&set_filter=Y"><?echo $arSum[$key]?></a>)</td>
-					<td nowrap><?echo GetMessage("STAT_".$key);?></td>
+					<td align="right" nowrap class="number"><?php echo sprintf("%01.2f", $procent)."%"?></td>
+					<td align="right" nowrap class="number">(<a href="/bitrix/admin/session_list.php?find_hits1=<?=$hits1?>&find_hits2=<?=$hits2?>&set_filter=Y"><?php echo $arSum[$key]?></a>)</td>
+					<td nowrap><?php echo GetMessage("STAT_".$key);?></td>
 				</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</table>
 		</td>
 	</tr></table>
 	</div>
-<?
+<?php 
 endif;
 
 $lAdmin->EndCustomContent();
@@ -184,22 +184,22 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("STAT_PAGE_TITLE"));
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="form1" method="GET" action="<?$APPLICATION->GetCurPage();?>">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php $APPLICATION->GetCurPage();?>">
+<?php $filter->Begin();?>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_SITE")?>:</td>
-	<td width="0%" nowrap><?echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("MAIN_ALL"), "");?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_SITE")?>:</td>
+	<td width="0%" nowrap><?php echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("MAIN_ALL"), "");?></td>
 </tr>
 <input type="hidden" name="find_diagram_type" value="<?=$find_diagram_type?>">
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

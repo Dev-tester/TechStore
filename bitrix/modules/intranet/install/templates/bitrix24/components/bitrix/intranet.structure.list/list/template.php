@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $this->addExternalCss(SITE_TEMPLATE_PATH."/css/employee.css");
 
@@ -15,7 +15,7 @@ else:
 
 <div class="employee-table-wrap">
 	<table id="employee-table" class="employee-table" cellspacing="0">
-<?
+<?php 
 	if (isset($arResult['FILTER_VALUES']['UF_DEPARTMENT']) && is_array($arResult['FILTER_VALUES']['UF_DEPARTMENT']))
 	{
 		foreach ($arResult['USERS'] as $key => $arUser)
@@ -64,4 +64,4 @@ else:
 
 <?=$arResult['USERS_NAV'];?>
 
-<?endif?>
+<?php endif?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_UT_SKU_SETTING_TITLE"] = "SKU Settings";
 $MESS["BT_UT_SKU_SETTING_IBLOCK_MESS"] = "Use \"Add\" Button Text Specified In Information Block Parameters";
 $MESS["BT_UT_SKU_SETTING_MAX_WIDTH"] = "Input Field Maximum Width, pix. (0 - unlimited)";

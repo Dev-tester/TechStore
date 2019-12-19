@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_SELECTOR_DEF_NOT_SELECTED"] = "(не выбрано)";
 $MESS["MAIN_USER_CONSENT_SELECTOR_BTN_EDIT"] = "Настроить";
 $MESS["MAIN_USER_CONSENT_SELECTOR_BTN_CREATE"] = "Создать соглашение";

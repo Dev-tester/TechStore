@@ -197,9 +197,9 @@ $editorCfg = array(
 
 if($enableToolbar && $hasOwnToolbar):
 	if($hasOwnContainer):
-		?><div id="<?=htmlspecialcharsbx($containerID)?>" class="crm-view-actions-wrapper"><?
+		?><div id="<?=htmlspecialcharsbx($containerID)?>" class="crm-view-actions-wrapper"><?php 
 	endif;
-	?><div class="crm-view-message" style="<?= isset($arResult['EDITOR_ITEMS']) && count($arResult['EDITOR_ITEMS']) > 0 ? 'display: none;' : '' ?>"><?=htmlspecialcharsbx(GetMessage('CRM_ACTIVITY_EDITOR_NO_ITEMS'))?></div><?
+	?><div class="crm-view-message" style="<?= isset($arResult['EDITOR_ITEMS']) && count($arResult['EDITOR_ITEMS']) > 0 ? 'display: none;' : '' ?>"><?=htmlspecialcharsbx(GetMessage('CRM_ACTIVITY_EDITOR_NO_ITEMS'))?></div><?php 
 
 	$toolbarButtons = array();
 	if($editorCfg['enableTasks'])
@@ -246,7 +246,7 @@ if($enableToolbar && $hasOwnToolbar):
 		array('HIDE_ICONS' => 'Y')
 	);
 	if($hasOwnContainer):
-		?></div><?
+		?></div><?php 
 	endif;
 endif;
 
@@ -254,7 +254,7 @@ if (!$skipVisualComponents):
 
 	if(!$arResult['ENABLE_WEBDAV'] && !$arResult['ENABLE_DISK']):
 ?><!--Hidden container is used in dialogs-->
-<div id="<?= $editorCfg['uploadID'] ?>" style="display:none;"><?
+<div id="<?= $editorCfg['uploadID'] ?>" style="display:none;"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.file.input',
 		'',
@@ -270,7 +270,7 @@ if (!$skipVisualComponents):
 		array('HIDE_ICONS' => 'Y')
 	);
 ?></div>
-<?endif;?>
+<?php endif;?>
 <!--Hidden container is used in dialogs-->
 <div id="<?= $editorCfg['callClockID'] ?>" style="display:none;">
 <script type="text/javascript">
@@ -284,7 +284,7 @@ if (!$skipVisualComponents):
 		}
 	)();
 </script>
-<?CClock::Show(
+<?php CClock::Show(
 		array(
 			'view' => 'label',
 			'inputId' => $editorCfg['callClockInputID'],
@@ -306,7 +306,7 @@ if (!$skipVisualComponents):
 		}
 	)();
 </script>
-<?CClock::Show(
+<?php CClock::Show(
 		array(
 			'view' => 'label',
 			'inputId' => $editorCfg['meetingClockInputID'],
@@ -317,7 +317,7 @@ if (!$skipVisualComponents):
 ?></div>
 <!--Hidden container is used in dialogs-->
 <div id="<?=$editorCfg['emailLheContainerID'] ?>" style="display:none;">
-<?
+<?php 
 	$emailEditor = new CHTMLEditor;
 	$emailEditor->show(array(
 		'name'                => $editorCfg['emailLheJsName'],
@@ -364,9 +364,9 @@ if (!$skipVisualComponents):
 		),
 	));
 ?></div>
-<?if(!$arResult['ENABLE_WEBDAV'] && !$arResult['ENABLE_DISK']):
+<?php if(!$arResult['ENABLE_WEBDAV'] && !$arResult['ENABLE_DISK']):
 ?><!--Hidden container is used in dialogs-->
-<div id="<?= $editorCfg['emailUploadContainerID'] ?>" style="display:none;"><?
+<div id="<?= $editorCfg['emailUploadContainerID'] ?>" style="display:none;"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.file.input',
 		'',
@@ -382,8 +382,8 @@ if (!$skipVisualComponents):
 		array('HIDE_ICONS' => 'Y')
 	);
 ?></div>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 endif; //$skipVisualComponents
 if($arResult['ENABLE_TASK_ADD']):
 	$APPLICATION->IncludeComponent(
@@ -462,16 +462,16 @@ endif;
 					}
 				);
 
-				<?if($arResult['ENABLE_DISK']):?>
+				<?php if($arResult['ENABLE_DISK']):?>
 					BX.CrmActivityEditor.messages["diskAttachFiles"] = "<?= GetMessageJS('CRM_ACTIVITY_DISK_ATTACH_FILE')?>";
 					BX.CrmActivityEditor.messages["diskAttachedFiles"] = "<?= GetMessageJS('CRM_ACTIVITY_DISK_ATTACHED_FILES')?>";
 					BX.CrmActivityEditor.messages["diskSelectFile"] = "<?= GetMessageJS('CRM_ACTIVITY_DISK_SELECT_FILE')?>";
 					BX.CrmActivityEditor.messages["diskSelectFileLegend"] = "<?= GetMessageJS('CRM_ACTIVITY_DISK_SELECT_FILE_LEGEND')?>";
 					BX.CrmActivityEditor.messages["diskUploadFile"] = "<?= GetMessageJS('CRM_ACTIVITY_DISK_UPLOAD_FILE')?>";
 					BX.CrmActivityEditor.messages["diskUploadFileLegend"] = "<?= GetMessageJS('CRM_ACTIVITY_DISK_UPLOAD_FILE_LEGEND')?>";
-				<?endif;?>
+				<?php endif;?>
 
-				<?if($arResult['ENABLE_WEBDAV']):?>
+				<?php if($arResult['ENABLE_WEBDAV']):?>
 					BX.CrmActivityEditor.messages["webdavFileLoading"] = "<?= GetMessageJS('CRM_ACTIVITY_WEBDAV_FILE_LOADING')?>";
 					BX.CrmActivityEditor.messages["webdavFileAlreadyExists"] = "<?= GetMessageJS('CRM_ACTIVITY_WEBDAV_FILE_ALREADY_EXISTS')?>";
 					BX.CrmActivityEditor.messages["webdavFileAccessDenied"] = "<?= GetMessageJS('CRM_ACTIVITY_WEBDAV_FILE_ACCESS_DENIED')?>";
@@ -481,7 +481,7 @@ endif;
 					BX.CrmActivityEditor.messages["webdavSelectFile"] = "<?= GetMessageJS('CRM_ACTIVITY_WEBDAV_SELECT_FILE')?>";
 					BX.CrmActivityEditor.messages["webdavSelectFromLib"] = "<?= GetMessageJS('CRM_ACTIVITY_WEBDAV_SELECT_FROM_LIB')?>";
 					BX.CrmActivityEditor.messages["webdavLoadFiles"] = "<?= GetMessageJS('CRM_ACTIVITY_WEBDAV_LOAD_FILES')?>";
-				<?endif;?>
+				<?php endif;?>
 			}
 
 			if(typeof(BX.CrmActivityEditor.flashPlayerUrl) === 'undefined')

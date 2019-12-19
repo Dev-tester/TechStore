@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTASK_TD_FIELD_ID"] = "Task ID";
 $MESS["INTASK_TD_FIELD_TIMESTAMP_X"] = "Task Modification Date";
 $MESS["INTASK_TD_FIELD_MODIFIED"] = "Task Modified By";

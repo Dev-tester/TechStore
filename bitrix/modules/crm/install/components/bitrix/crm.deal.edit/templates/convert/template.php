@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 $APPLICATION->AddHeadScript('/bitrix/js/crm/interface_form.js');
 // resort additional fields
@@ -48,7 +48,7 @@ $bChecked = (isset($_POST['CONVERT_DEAL']) && $_POST['CONVERT_DEAL'] == 'Y');
 </table>	
 <div class="bx-edit-table" id="DEAL_form" style="display:<?=($bChecked ? 'block' : 'none')?>">
 <table cellpadding="0" cellspacing="0" border="0" class="bx-edit-table" id="tab_convert_deal_edit_table" style="background-color: #f0f4ff;">
-<?
+<?php 
 $i = 0;
 $cnt = count($arResult['FIELDS']['tab_1']);
 $prevType = '';
@@ -67,7 +67,7 @@ foreach($arResult['FIELDS']['tab_1'] as $field):
 		$sClassSuf2 .= ' bx-add-value';
 		?>
 		<tr id="tr_deal_add_fields"><td colspan="2" class="bx-add-fields-section"><a href="javascript:showAdditionalFields('deal')" id="deal_a"><?=GetMessage('CRM_ADDITIONAL_FIELDS')?></a></td></tr>
-		<?
+		<?php 
 	endif;			
 
 	$className = '';
@@ -83,12 +83,12 @@ foreach($arResult['FIELDS']['tab_1'] as $field):
 	if($prevType == 'section')
 		$className .= ' bx-after-heading';
 ?>
-	<tr<?if($className <> ''):?> class="<?=$className?>"<?endif?> <?=($bAddFields ? 'style="display:none"' : '')?>>
-<?
+	<tr<?php if($className <> ''):?> class="<?=$className?>"<?php endif?> <?=($bAddFields ? 'style="display:none"' : '')?>>
+<?php 
 if($field["type"] == 'section'):
 ?>
 		<td colspan="2" class="bx-heading"><?=$field["name"]?></td>
-<?
+<?php 
 else:
 	$val = (isset($field["value"])? $field["value"] : $arParams["~DATA"][$field["id"]]);
 
@@ -124,12 +124,12 @@ else:
 		if($field["required"])
 			$bWasRequired = true;
 ?>
-		<td class="bx-field-name<?=$sClassSuf?><?if($field["type"] <> 'label') echo' bx-padding'?>"><?=($field["required"]? '<span class="required">*</span>':'')?><?=$field["name"]?>:</td>
-<?
+		<td class="bx-field-name<?=$sClassSuf?><?php if($field["type"] <> 'label') echo' bx-padding'?>"><?=($field["required"]? '<span class="required">*</span>':'')?><?=$field["name"]?>:</td>
+<?php 
 	endif
 ?>
 		<td class="bx-field-value<?=$sClassSuf2?>"<?=($field["colspan"]? ' colspan="2"':'')?>>
-<?
+<?php 
 	switch($field["type"]):
 		case 'label':
 		case 'custom':
@@ -141,28 +141,28 @@ else:
 ?>
 <input type="hidden" name="<?=$field["id"]?>" value="N">
 <input type="checkbox" name="<?=$field["id"]?>" value="Y"<?=($val == "Y"? ' checked':'')?><?=$params?>>
-<?
+<?php 
 			break;
 		case 'textarea':
 ?>
 <textarea name="<?=$field["id"]?>"<?=$params?>><?=$val?></textarea>
-<?
+<?php 
 			break;
 		case 'list':
 ?>
 <select name="<?=$field["id"]?>"<?=$params?>>
-<?
+<?php 
 			if(is_array($field["items"])):
 				if(!is_array($val))
 					$val = array($val);
 				foreach($field["items"] as $k=>$v):
 ?>
 	<option value="<?=htmlspecialcharsbx($k)?>"<?=(in_array($k, $val)? ' selected':'')?>><?=htmlspecialcharsbx($v)?></option>
-<?
+<?php 
 				endforeach;
 ?>
 </select>
-<?
+<?php 
 			endif;
 			break;
 		case 'file':
@@ -178,7 +178,7 @@ else:
 			break;
 		case 'date':
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:main.calendar",
 	"",
 	array(
@@ -191,7 +191,7 @@ else:
 	$component,
 	array("HIDE_ICONS"=>true)
 );?>
-<?
+<?php 
 			break;
 		case 'intranet_user_search':
 			$params = isset($field['componentParams']) ? $field['componentParams'] : array();
@@ -204,7 +204,7 @@ else:
 					$params['USER'] = $arUser;
 				endif;
 				?><input type="text" class="bx-crm-edit-input" id="<?=htmlspecialcharsbx($params['SEARCH_INPUT_NAME'])?>" name="<?=htmlspecialcharsbx($params['SEARCH_INPUT_NAME'])?>">
-			<input type="hidden" name="<?=htmlspecialcharsbx($params['INPUT_NAME'])?>" value="<?=htmlspecialcharsbx($val)?>"><?
+			<input type="hidden" name="<?=htmlspecialcharsbx($params['INPUT_NAME'])?>" value="<?=htmlspecialcharsbx($val)?>"><?php 
 				$arUserSearchFields[] = $params;
 				$APPLICATION->IncludeComponent(
 					'bitrix:intranet.user.selector.new',
@@ -225,14 +225,14 @@ else:
 		default:
 ?>
 <input type="text" name="<?=$field["id"]?>" value="<?=htmlspecialcharsbx($val)?>"<?=$params?>>
-<?
+<?php 
 			break;
 	endswitch;
 ?>
 		</td>
-<?endif?>
+<?php endif?>
 	</tr>
-<?
+<?php 
 	$prevType = $field["type"];
 endforeach;
 ?>
@@ -309,12 +309,12 @@ endforeach;
 			}
 		}
 	);
-</script><?
+</script><?php 
 if(!empty($arUserSearchFields)):
 ?><script type="text/javascript">
 	BX.ready(
 		function()
-		{<?
+		{<?php 
 			foreach($arUserSearchFields as &$arField):
 				$arUserData = array();
 				if(isset($arField['USER'])):
@@ -331,10 +331,10 @@ if(!empty($arUserSearchFields)):
 				document.getElementsByName('<?=$arField['INPUT_NAME']?>')[0],
 				'<?=$arField['NAME']?>',
 				<?= CUtil::PhpToJSObject($arUserData)?>
-			);<?
+			);<?php 
 			endforeach;
 			unset($arField);
 		?>}
 	);
-</script><?
+</script><?php 
 endif;

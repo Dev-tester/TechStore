@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPS_USER_ID"] = "Код пользователя (ID)";
 $MESS["SPS_USER_LOGIN"] = "Логин";
 $MESS["SPS_USER_NAME"] = "Имя";

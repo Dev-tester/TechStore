@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BST_MODULE_NOT_INSTALLED"] = "Sorry, the search module is temporary unavailable.";
 $MESS["CC_BST_ALL_RESULTS"] = "All Results";
 $MESS["CC_BST_MORE"] = "more";

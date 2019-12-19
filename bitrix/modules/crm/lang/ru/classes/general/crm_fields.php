@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELDS_LEAD"] = "Лид";
 $MESS["CRM_FIELDS_LEAD_DESC"] = "Пользовательские поля для \"Лидов\"";
 $MESS["CRM_FIELDS_CONTACT"] = "Контакт";

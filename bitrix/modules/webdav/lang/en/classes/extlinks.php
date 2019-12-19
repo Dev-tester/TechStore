@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_EXT_LINKS_DIALOG_TITLE"] = "Share this file";
 $MESS["WD_EXT_LINKS_DIALOG_CLOSE_BUTTON"] = "Close";
 $MESS["WD_EXT_LINKS_DIALOG_LOADING"] = "Loading...";

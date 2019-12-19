@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_ADD_NEW_REC"] = "Error adding a new status";
 $MESS["ERROR_ADD_REC"] = "Error adding a status ";
 $MESS["ERROR_DELETE"] = "Error deleting the status";

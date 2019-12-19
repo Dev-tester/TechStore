@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
@@ -31,7 +31,7 @@ $otherPresets = $presetManager->getPresetsByCategory($presetManager::CATEGORY_OT
 $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 ?>
 	<div class="sale-discount-list-wrapper">
-		<? if($productsPresets){ ?>
+		<?php  if($productsPresets){ ?>
 		<div class="sale-discount-list-container products open /*close*/">
 			<!-- BLOCK TITLE container -->
 			<div class="sale-discount-list-title-container">
@@ -44,7 +44,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 			<div class="sale-discount-list-content-container">
 				<div class="sale-discount-list-content-container-blocks">
 
-			<?
+			<?php 
 			foreach($productsPresets as $preset)
 			{
 				$extendedDescription = $preset->getExtendedDescription();
@@ -70,33 +70,33 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 							<div class="sale-discount-list-block-title"><?= $preset->getTitle() ?></div>
 							<div class="sale-discount-list-block-info">
 								<dl>
-									<? if($extendedDescription['DISCOUNT_TYPE']){ ?>
+									<?php  if($extendedDescription['DISCOUNT_TYPE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_TYPE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_TYPE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_VALUE']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_VALUE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_VALUE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_VALUE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_CONDITION']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_CONDITION']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_CONDITION') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_CONDITION'] ?></dd>
-									<? } ?>
+									<?php  } ?>
 								</dl>
 							</div>
 							<div class="sale-discount-list-block-btn">
 								<a <?=$targetHref?> href="<?= $createDiscountLink ?>"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_CREATE_BY_PRESET') ?></a>
-								<? if($presetManager->hasCreatedDiscounts($preset)){ ?>
+								<?php  if($presetManager->hasCreatedDiscounts($preset)){ ?>
 								<a href="<?= $listDiscountLink ?>" target="_top"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_LIST_BY_PRESET') ?></a>
-								<? } ?>
+								<?php  } ?>
 							</div>
 						</div>
 					</div>
 
 			<!--  -->
-			<? } ?>
+			<?php  } ?>
 				</div>
 			</div>
 		</div>
-		<? } ?>
-		<? if($deliveryPresets){ ?>
+		<?php  } ?>
+		<?php  if($deliveryPresets){ ?>
 		<div class="sale-discount-list-container delivery open /*close*/">
 			<!-- BLOCK TITLE container -->
 			<div class="sale-discount-list-title-container">
@@ -109,7 +109,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 			<div class="sale-discount-list-content-container">
 				<div class="sale-discount-list-content-container-blocks">
 
-			<?
+			<?php 
 			foreach($deliveryPresets as $preset)
 			{
 				$extendedDescription = $preset->getExtendedDescription();
@@ -135,33 +135,33 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 							<div class="sale-discount-list-block-title"><?= $preset->getTitle() ?></div>
 							<div class="sale-discount-list-block-info">
 								<dl>
-									<? if($extendedDescription['DISCOUNT_TYPE']){ ?>
+									<?php  if($extendedDescription['DISCOUNT_TYPE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_TYPE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_TYPE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_VALUE']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_VALUE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_VALUE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_VALUE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_CONDITION']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_CONDITION']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_CONDITION') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_CONDITION'] ?></dd>
-									<? } ?>
+									<?php  } ?>
 								</dl>
 							</div>
 							<div class="sale-discount-list-block-btn">
 								<a <?=$targetHref?> href="<?= $createDiscountLink ?>"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_CREATE_BY_PRESET') ?></a>
-								<? if($presetManager->hasCreatedDiscounts($preset)){ ?>
+								<?php  if($presetManager->hasCreatedDiscounts($preset)){ ?>
 								<a href="<?= $listDiscountLink ?>" target="_top"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_LIST_BY_PRESET') ?></a>
-								<? } ?>
+								<?php  } ?>
 							</div>
 						</div>
 					</div>
 
 			<!--  -->
-			<? } ?>
+			<?php  } ?>
 				</div>
 			</div>
 		</div>
-		<? } ?>
-		<? if($paymentPresets){ ?>
+		<?php  } ?>
+		<?php  if($paymentPresets){ ?>
 		<div class="sale-discount-list-container payment open /*close*/">
 			<!-- BLOCK TITLE container -->
 			<div class="sale-discount-list-title-container">
@@ -174,7 +174,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 			<div class="sale-discount-list-content-container">
 				<div class="sale-discount-list-content-container-blocks">
 
-			<?
+			<?php 
 			foreach($paymentPresets as $preset)
 			{
 				$extendedDescription = $preset->getExtendedDescription();
@@ -200,33 +200,33 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 							<div class="sale-discount-list-block-title"><?= $preset->getTitle() ?></div>
 							<div class="sale-discount-list-block-info">
 								<dl>
-									<? if($extendedDescription['DISCOUNT_TYPE']){ ?>
+									<?php  if($extendedDescription['DISCOUNT_TYPE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_TYPE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_TYPE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_VALUE']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_VALUE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_VALUE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_VALUE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_CONDITION']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_CONDITION']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_CONDITION') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_CONDITION'] ?></dd>
-									<? } ?>
+									<?php  } ?>
 								</dl>
 							</div>
 							<div class="sale-discount-list-block-btn">
 								<a <?=$targetHref?> href="<?= $createDiscountLink ?>"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_CREATE_BY_PRESET') ?></a>
-								<? if($presetManager->hasCreatedDiscounts($preset)){ ?>
+								<?php  if($presetManager->hasCreatedDiscounts($preset)){ ?>
 								<a href="<?= $listDiscountLink ?>" target="_top"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_LIST_BY_PRESET') ?></a>
-								<? } ?>
+								<?php  } ?>
 							</div>
 						</div>
 					</div>
 
 			<!--  -->
-			<? } ?>
+			<?php  } ?>
 				</div>
 			</div>
 		</div>
-		<? } ?>
-		<? if($otherPresets){ ?>
+		<?php  } ?>
+		<?php  if($otherPresets){ ?>
 		<div class="sale-discount-list-container others open /*close*/">
 			<!-- BLOCK TITLE container -->
 			<div class="sale-discount-list-title-container">
@@ -239,7 +239,7 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 			<div class="sale-discount-list-content-container">
 				<div class="sale-discount-list-content-container-blocks">
 
-			<?
+			<?php 
 			foreach($otherPresets as $preset)
 			{
 				$extendedDescription = $preset->getExtendedDescription();
@@ -265,32 +265,32 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_TITLE'));
 							<div class="sale-discount-list-block-title"><?= $preset->getTitle() ?></div>
 							<div class="sale-discount-list-block-info">
 								<dl>
-									<? if($extendedDescription['DISCOUNT_TYPE']){ ?>
+									<?php  if($extendedDescription['DISCOUNT_TYPE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_TYPE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_TYPE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_VALUE']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_VALUE']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_VALUE') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_VALUE'] ?></dd>
-									<? } ?>
-									<? if($extendedDescription['DISCOUNT_CONDITION']){ ?>
+									<?php  } ?>
+									<?php  if($extendedDescription['DISCOUNT_CONDITION']){ ?>
 									<dt><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_TITLE_CONDITION') ?>:</dt><dd><?= $extendedDescription['DISCOUNT_CONDITION'] ?></dd>
-									<? } ?>
+									<?php  } ?>
 								</dl>
 							</div>
 							<div class="sale-discount-list-block-btn">
 								<a <?=$targetHref?> href="<?= $createDiscountLink ?>"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_CREATE_BY_PRESET') ?></a>
-								<? if($presetManager->hasCreatedDiscounts($preset)){ ?>
+								<?php  if($presetManager->hasCreatedDiscounts($preset)){ ?>
 								<a href="<?= $listDiscountLink ?>" target="_top"><?= Loc::getMessage('SALE_DISCOUNT_PRESET_LIST_ITEM_LIST_BY_PRESET') ?></a>
-								<? } ?>
+								<?php  } ?>
 							</div>
 						</div>
 					</div>
 
 			<!--  -->
-			<? } ?>
+			<?php  } ?>
 				</div>
 			</div>
 		</div>
-		<? } ?>
+		<?php  } ?>
 	</div>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:bizproc.log", "webdav.bizproc.log", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:bizproc.log", "webdav.bizproc.log", Array(
 	"MODULE_ID" => MODULE_ID,
 	"ENTITY" => ENTITY,
 	"DOCUMENT_TYPE" => DOCUMENT_TYPE,

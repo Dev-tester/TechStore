@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_DUPLICATE_TREATMENT_COUNT_NUMBER_BLOCK_TITLE_NEW"] = "Sessions, returning enquiries";
 $MESS["REPORT_FIRST_TREATMENT_COUNT_NUMBER_BLOCK_TITLE_NEW"] = "Sessions, new enquiries";
 $MESS["REPORT_STAFF_CUT_WIDGET_TITLE_NEW"] = "Agent statistics";

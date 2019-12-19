@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SENDER_B24_LICENSE_RC_TITLE'] = "Генератор продаж";
 $MESS ['SENDER_B24_LICENSE_AD_TITLE'] = "Управление рекламой";
 $MESS ['SENDER_B24_LICENSE_MAILING_TITLE'] = "Рассылки SMS, мессенджеры и инфо звонки ";

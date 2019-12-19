@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
@@ -22,7 +22,7 @@ $isFormInline = $defaultTemplateContainerId == $templateContainerId;
 
 <div id="<?=$templateContainerId?>" class="crm-webform-script-popup <?=($isFormInline ? 'crm-webform-inline' : '')?>">
 
-	<?if($isFormInline):?>
+	<?php if($isFormInline):?>
 		<div class="crm-webform-script-tab-body-item-container">
 			<div class="crm-webform-script-tab-body-item-subtitle"><?=Loc::getMessage('CRM_WEBFORM_SCRIPT_LINK')?>:</div>
 			<div class="crm-webform-script-tab-body-item-content crm-webform-script-item-inline">
@@ -38,17 +38,17 @@ $isFormInline = $defaultTemplateContainerId == $templateContainerId;
 		<?=Loc::getMessage('CRM_WEBFORM_SCRIPT_SCRIPT_ON_SITE')?>:
 		<br>
 		<br>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($arResult['IS_AVAILABLE_EMBEDDING']):?>
+	<?php if ($arResult['IS_AVAILABLE_EMBEDDING']):?>
 		<label ><input type="checkbox" data-bx-webform-script-selector="">
 			<?=Loc::getMessage('CRM_WEBFORM_SCRIPT_SELECTOR')?>
 		</label><br><br>
-	<?endif;?>
+	<?php endif;?>
 
 	<div class="crm-webform-script-tab-container">
 		<div class="crm-webform-script-tab-list">
-			<?
+			<?php 
 			$counter = 0;
 			foreach($scriptTypes as $type):
 				$addClass = $counter > 0 ? '' : 'crm-webform-script-tab-item-active';
@@ -59,11 +59,11 @@ $isFormInline = $defaultTemplateContainerId == $templateContainerId;
 				<span data-bx-webform-script-tab-btn="<?=$type?>" class="<?=$addClass?> crm-webform-script-tab-item">
 					<?=Loc::getMessage('CRM_WEBFORM_SCRIPT_TAB_SCRIPT_' . $msgType)?>
 				</span>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
 	</div>
 
-	<?
+	<?php 
 	$counter = 0;
 	foreach($scriptTypes as $type):
 		$addStyle = $counter > 0 ? 'display: none;' : '';
@@ -84,7 +84,7 @@ $isFormInline = $defaultTemplateContainerId == $templateContainerId;
 							<?=$getFormattedScript($arResult['SCRIPTS'][$type]['text'])?>
 						</div>
 					</div>
-					<?if ($type !== 'INLINE'):?>
+					<?php if ($type !== 'INLINE'):?>
 						<div class="crm-webform-script-code-settings">
 							<span class="crm-webform-script-code-setting">
 								<?=Loc::getMessage('CRM_WEBFORM_SCRIPT_PARAM_VIEW_TYPE')?>
@@ -123,25 +123,25 @@ $isFormInline = $defaultTemplateContainerId == $templateContainerId;
 								</select>
 							</span>
 						</div>
-						<?if ($type !== 'AUTO'):?>
+						<?php if ($type !== 'AUTO'):?>
 							<div class="crm-webform-script-code-settings">
 								<?=Loc::getMessage('CRM_WEBFORM_SCRIPT_HINT_INJECT')?>
 							</div>
-						<?else:?>
+						<?php else:?>
 							<div class="crm-webform-script-code-settings">
 								<span class="crm-webform-script-code-setting">
 									<?=Loc::getMessage('CRM_WEBFORM_SCRIPT_PARAM_DELAY')?>
 									<select name="VIEWS[<?=$typeLower?>][delay]" <?=($isFormInline ? '' : 'disabled')?>>
-										<?foreach ([3,5,7,10,15,20,25,30,40,60, 120] as $delay):?>
+										<?php foreach ([3,5,7,10,15,20,25,30,40,60, 120] as $delay):?>
 											<option value="<?=$delay?>" <?=($view['delay'] == $delay ? 'selected' : '')?>>
 												<?=$delay?> <?=Loc::getMessage('CRM_WEBFORM_SCRIPT_SEC')?>
 											</option>
-										<?endforeach?>
+										<?php endforeach?>
 									</select>
 								</span>
 							</div>
-						<?endif;?>
-					<?endif;?>
+						<?php endif;?>
+					<?php endif;?>
 				</div>
 				<div data-bx-webform-script-kind="old" style="<?=(!$arResult['IS_AVAILABLE_EMBEDDING'] ? '' : 'display: none;')?>">
 					<div class="crm-webform-script-tab-body-item-inner">
@@ -152,10 +152,10 @@ $isFormInline = $defaultTemplateContainerId == $templateContainerId;
 				</div>
 			</div>
 		</div>
-	<?endforeach;?>
+	<?php endforeach;?>
 
 	<div class="crm-webform-script-tab-body-item-button-container" >
-	<?
+	<?php 
 	$counter = 0;
 	foreach($scriptTypes as $type):
 		$addStyle = $counter > 0 ? 'display: none;' : '';
@@ -165,7 +165,7 @@ $isFormInline = $defaultTemplateContainerId == $templateContainerId;
 		<span style="<?=$addStyle?>" data-bx-webform-script-copy-btn="SCRIPT_<?=$type?>" class="webform-small-button webform-small-button-blue crm-webform-edit-task-options-fields-rule-button">
 			<?=Loc::getMessage('CRM_WEBFORM_SCRIPT_BTN_COPY')?>
 		</span>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</div>
 
 </div>

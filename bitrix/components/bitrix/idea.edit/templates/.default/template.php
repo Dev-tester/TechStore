@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var array $arParams
  * @var array $arResult
@@ -13,7 +13,7 @@ if(strlen($arResult["FATAL_MESSAGE"]) > 0)
 			<?=$arResult["FATAL_MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 	return;
 }
 elseif(strlen($arResult["UTIL_MESSAGE"]) > 0)
@@ -24,13 +24,13 @@ elseif(strlen($arResult["UTIL_MESSAGE"]) > 0)
 			<?=$arResult["UTIL_MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 	return;
 }
 
 ?>
 <div class="blog-post-edit">
-<?
+<?php 
 if(strlen($arResult["MESSAGE"]) > 0)
 {
 	?>
@@ -39,7 +39,7 @@ if(strlen($arResult["MESSAGE"]) > 0)
 			<?=$arResult["MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 {
@@ -49,7 +49,7 @@ if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 			<?=$arResult["ERROR_MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 }
 
 if ($arResult["preview"] == "Y" && !empty($arResult["PostToShow"]) > 0)
@@ -67,9 +67,9 @@ $className .= " blog-post-day-" . IntVal($arResult["postPreview"]["DATE_PUBLISH_
 		<div class="blog-post-info-back blog-post-info-top">
 			<div class="blog-post-info">
 				<div class="blog-author"><div class="blog-author-icon"></div><?=$arResult["postPreview"]["AuthorName"]?></div>
-				<div class="blog-post-date"><?
-					?><span class="blog-post-day"><?=$arResult["postPreview"]["DATE_PUBLISH_DATE"]?></span><?
-					?><span class="blog-post-time"><?=$arResult["postPreview"]["DATE_PUBLISH_TIME"]?></span><?
+				<div class="blog-post-date"><?php 
+					?><span class="blog-post-day"><?=$arResult["postPreview"]["DATE_PUBLISH_DATE"]?></span><?php 
+					?><span class="blog-post-time"><?=$arResult["postPreview"]["DATE_PUBLISH_TIME"]?></span><?php 
 					?><span class="blog-post-date-formated"><?=$arResult["postPreview"]["DATE_PUBLISH_FORMATED"]?></span>
 				</div>
 			</div>
@@ -83,53 +83,53 @@ $className .= " blog-post-day-" . IntVal($arResult["postPreview"]["DATE_PUBLISH_
 			<div class="blog-post-info-bottom">
 				<div class="blog-post-info">
 					<div class="blog-author"><div class="blog-author-icon"></div><?=$arResult["postPreview"]["AuthorName"]?></div>
-					<div class="blog-post-date"><?
-						?><span class="blog-post-day"><?=$arResult["postPreview"]["DATE_PUBLISH_DATE"]?></span><?
-						?><span class="blog-post-time"><?=$arResult["postPreview"]["DATE_PUBLISH_TIME"]?></span><?
+					<div class="blog-post-date"><?php 
+						?><span class="blog-post-day"><?=$arResult["postPreview"]["DATE_PUBLISH_DATE"]?></span><?php 
+						?><span class="blog-post-time"><?=$arResult["postPreview"]["DATE_PUBLISH_TIME"]?></span><?php 
 						?><span class="blog-post-date-formated"><?=$arResult["postPreview"]["DATE_PUBLISH_FORMATED"]?></span>
 					</div>
 				</div>
 			</div>
 			<div class="blog-post-meta-util">
-				<span class="blog-post-views-link"><a href=""><?
-					?><span class="blog-post-link-caption"><?=GetMessage("BLOG_VIEWS")?>:</span><?
+				<span class="blog-post-views-link"><a href=""><?php 
+					?><span class="blog-post-link-caption"><?=GetMessage("BLOG_VIEWS")?>:</span><?php 
 					?><span class="blog-post-link-counter">0</span></a></span>
-				<span class="blog-post-comments-link"><a href=""><?
-					?><span class="blog-post-link-caption"><?=GetMessage("BLOG_COMMENTS")?>:</span><?
+				<span class="blog-post-comments-link"><a href=""><?php 
+					?><span class="blog-post-link-caption"><?=GetMessage("BLOG_COMMENTS")?>:</span><?php 
 					?><span class="blog-post-link-counter">0</span></a></span>
 			</div>
 
-			<?if(!empty($arResult["postPreview"]["Category"]))
+			<?php if(!empty($arResult["postPreview"]["Category"]))
 			{
 				?>
 				<div class="blog-post-tag">
 					<span><?=GetMessage("BLOG_BLOG_BLOG_CATEGORY")?></span>
-					<?
+					<?php 
 					$i = 0;
 					foreach($arResult["postPreview"]["Category"] as $v)
 					{
 						if($i != 0)
 							echo ",";
-						?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?
+						?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?php 
 						$i++;
 					}
 					?>
 				</div>
-			<?
+			<?php 
 			}
 			?>
 		</div>
 	</div>
-<?
+<?php 
 }
 ?>
 <form action="<?=POST_FORM_ACTION_URI?>" name="<?=$arResult['FORM_NAME']?>" id="<?=$arResult['FORM_NAME']?>" method="post" enctype="multipart/form-data">
 <?=bitrix_sessid_post();?>
-<? if($arParams["ALLOW_POST_CODE"])
+<?php  if($arParams["ALLOW_POST_CODE"])
 {
 	CUtil::InitJSCore(array('translit'));
-	?><input type="hidden" name="USE_GOOGLE_CODE" value="<?=($arParams['USE_GOOGLE_CODE'] ? "Y" : "N")?>" /><?
-	?><input maxlength="255" type="hidden" name="CODE" value="<?=$arResult["PostToShow"]["CODE"]?>" /><?
+	?><input type="hidden" name="USE_GOOGLE_CODE" value="<?=($arParams['USE_GOOGLE_CODE'] ? "Y" : "N")?>" /><?php 
+	?><input maxlength="255" type="hidden" name="CODE" value="<?=$arResult["PostToShow"]["CODE"]?>" /><?php 
 }
 ?>
 <div class="blog-edit-form blog-edit-post-form blog-post-edit-form">
@@ -142,7 +142,7 @@ $className .= " blog-post-day-" . IntVal($arResult["postPreview"]["DATE_PUBLISH_
 		<div class="blog-post-field blog-post-field-date blog-edit-field blog-edit-field-post-date">
 			<input type="hidden" id="DATE_PUBLISH_DEF" name="DATE_PUBLISH_DEF" value="<?=$arResult["PostToShow"]["DATE_PUBLISH"];?>">
 			<div id="date-publ" style="display:none;">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:main.calendar',
 					'.default',
 					array(
@@ -162,30 +162,30 @@ $className .= " blog-post-day-" . IntVal($arResult["postPreview"]["DATE_PUBLISH_
 	<div class="blog-field-title-idea"><?=GetMessage("IDEA_DESCRIPTION_TITLE")?></div>
 	<div class="blog-post-message blog-edit-editor-area blog-edit-field-text">
 		<div class="blog-comment-field blog-comment-field-bbcode">
-			<? include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php"); ?>
-<!--			--><?//initLHEForIdea('LHEIdeaId', $arResult, $arParams)?>
+			<?php  include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php"); ?>
+<!--			--><?php //initLHEForIdea('LHEIdeaId', $arResult, $arParams)?>
 			<input type="hidden" name="USE_NEW_EDITOR" value="Y">
 			<div style="width:0; height:0; overflow:hidden;"><input type="text" tabindex="3" onFocus="window.oBlogLHE.SetFocus()" name="hidden_focus"></div>
 		</div>
-		<div class="blog-post-field blog-post-field-images blog-edit-field" id="blog-post-image"><?
+		<div class="blog-post-field blog-post-field-images blog-edit-field" id="blog-post-image"><?php 
 		if (!empty($arResult["Images"]))
 		{
-			?><div class="blog-field-title-images"><?=GetMessage("BLOG_P_IMAGES")?></div><?
+			?><div class="blog-field-title-images"><?=GetMessage("BLOG_P_IMAGES")?></div><?php 
 			foreach($arResult["Images"] as $aImg)
 			{
 				?><div class="blog-post-image-item">
 					<div class="blog-post-image-item-border">
-						<label for="IMAGE_ID_title_<?=$aImg["ID"]?>"><? // do not do spaces between this nodes
+						<label for="IMAGE_ID_title_<?=$aImg["ID"]?>"><?php  // do not do spaces between this nodes
 							?><img src="<?=$aImg["PARAMS"]["SRC"]?>" id="<?=$aImg["ID"]?>" />
 						</label></div>
 					<div class="blog-post-image-item-text">
 						<input id="IMAGE_ID_title_<?=$aImg["ID"]?>" name="IMAGE_ID_title[<?=$aImg["ID"]?>]" value="<?=$aImg["TITLE"]?>" title="<?=GetMessage("BLOG_BLOG_IN_IMAGES_TITLE")?>" />
 					</div>
 				<div class="blog-post-image-item-act">
-						<input type="checkbox" name="IMAGE_ID_del[<?=$aImg["ID"]?>]" id="img_del_<?=$aImg["ID"]?>"><?
+						<input type="checkbox" name="IMAGE_ID_del[<?=$aImg["ID"]?>]" id="img_del_<?=$aImg["ID"]?>"><?php 
 						?><label for="img_del_<?=$aImg["ID"]?>"><?=GetMessage("BLOG_DELETE")?></label>
 					</div>
-				</div><?
+				</div><?php 
 			}
 		}
 		?>
@@ -194,7 +194,7 @@ $className .= " blog-post-day-" . IntVal($arResult["postPreview"]["DATE_PUBLISH_
 	<div class="blog-clear-float"></div>
 	<div class="blog-post-field blog-post-field-category blog-edit-field blog-edit-field-tags">
 		<div class="blog-field-title-tags"><label for="TAGS"><?=GetMessage("BLOG_CATEGORY")?></label></div>
-		<?
+		<?php 
 		if(IsModuleInstalled("search"))
 		{
 			$arSParams = Array(
@@ -214,19 +214,19 @@ $className .= " blog-post-day-" . IntVal($arResult["postPreview"]["DATE_PUBLISH_
 		}
 		else
 		{
-			?><input type="text" id="TAGS" tabindex="3" name="TAGS" size="30" value="<?=$arResult["PostToShow"]["CategoryText"]?>" /><?
+			?><input type="text" id="TAGS" tabindex="3" name="TAGS" size="30" value="<?=$arResult["PostToShow"]["CategoryText"]?>" /><?php 
 		}?>
 	</div>
 	<div class="blog-clear-float"></div>
-	<?if($arResult["POST_PROPERTIES"]["UF_SHOW_BLOCK"]):?>
+	<?php if($arResult["POST_PROPERTIES"]["UF_SHOW_BLOCK"]):?>
 		<div class="blog-post-params">
 			<div class="blog-post-field blog-post-field-user-prop blog-edit-field">
-				<?foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):
+				<?php foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):
 					if ($arResult["POST_PROPERTIES"]["DATA"][$FIELD_NAME]["UF_SHOW"] === false)
 						continue;
 					?>
 					<div style="float:left; margin-right:20px;"><?=$arPostField["EDIT_FORM_LABEL"]?>:
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:system.field.edit",
 							$arPostField["UF_TEMPLATE"],
 							array(
@@ -237,13 +237,13 @@ $className .= " blog-post-day-" . IntVal($arResult["postPreview"]["DATE_PUBLISH_
 							array("HIDE_ICONS" => "Y"));
 						?>
 					</div>
-					<? if($FIELD_NAME == "UF_CATEGORY_CODE"):?><br style="clear: both;" /><br/><? endif;?>
-				<? endforeach;?>
+					<?php  if($FIELD_NAME == "UF_CATEGORY_CODE"):?><br style="clear: both;" /><br/><?php  endif;?>
+				<?php  endforeach;?>
 				<br style="clear: both;" />
 			</div>
 			<div class="blog-clear-float"></div>
 		</div>
-	<? endif;?>
+	<?php  endif;?>
 	<input type="hidden" name="save" value="Y">
 	<div class="idea-add-comment">
 		<a class="idea-add-button" onclick="this.disabled=true;BX.submit(BX('<?=$arResult['FORM_NAME']?>'));" onmouseup="BX.removeClass(this,'feed-add-button-press')" onmousedown="BX.addClass(this, 'feed-add-button-press')" href="javascript:void(0)">

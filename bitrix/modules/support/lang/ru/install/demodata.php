@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_DEF_SLA_NAME'] = "По умолчанию";
 $MESS ['SUP_DEF_BUGS'] = "Ошибки";
 $MESS ['SUP_DEF_ORDER_PAYMENT'] = "Оплата заказа";

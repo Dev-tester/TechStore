@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ME_LIST_TITLE"] = "Вернуться к списку собраний";
 $MESS["ME_FILES"] = "Файлы";
 $MESS["MI_BLOCK_TITLE"] = "Описание вопроса";

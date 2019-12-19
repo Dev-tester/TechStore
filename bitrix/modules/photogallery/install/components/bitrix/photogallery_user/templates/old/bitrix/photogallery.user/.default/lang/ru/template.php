@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_GALLERY_CREATE'] = "Создать мою галерею";
 $MESS ['P_GALLERY_CREATE_TITLE'] = "Создать персональную фотогалерею";
 $MESS ['P_UPLOAD'] = "Загрузить фото";

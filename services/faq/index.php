@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/faq/index.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:support.faq", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:support.faq", ".default", Array(
 	"IBLOCK_TYPE"	=>	"services",
 	"IBLOCK_ID"	=>	"9",
 	"SECTION"	=>	"-",
@@ -27,4 +27,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 		"detail"	=>	"#SECTION_ID#/#ELEMENT_ID#",
 	)
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

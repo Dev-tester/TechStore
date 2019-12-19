@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 define ('BX_AJAX_PARAM_ID', 'bxajaxid');

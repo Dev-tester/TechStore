@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FID_TIP'] = "The forum ID";
 $MESS ['USE_DESC_PAGE_TIP'] = "Use reverse breadcrumbs";
 $MESS ['URL_TEMPLATES_INDEX_TIP'] = "The forums page";

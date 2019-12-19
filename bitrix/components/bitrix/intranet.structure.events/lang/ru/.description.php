@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_GROUP_NAME'] = 'Корпоративный портал';
 $MESS ['INTR_ISE_COMPONENT_NAME'] = 'Кадровые изменения';
 $MESS ['INTR_ISE_COMPONENT_DESCR'] = 'Список последних кадровых перестановок в компании';

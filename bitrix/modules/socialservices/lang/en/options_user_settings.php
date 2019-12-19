@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["socialservices_TAB"] = "Bitrix24";
 $MESS["socialservices_TAB_TITLE"] = "Bitrix24 profile settings";
 $MESS["SS_USERTAB_NOT_CONNECTED_SELF"] = "You haven't still linked Bitrix24 to your profile.";

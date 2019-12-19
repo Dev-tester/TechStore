@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_TIME_TMPL_TITLE_NEW"] = "Рассылка %name% создана и готова к отправке!";
 $MESS["SENDER_LETTER_TIME_TMPL_TITLE_EXISTS"] = "Рассылка %name%";
 $MESS["SENDER_LETTER_TIME_TMPL_ACT_SEND"] = "Отправить рассылку";

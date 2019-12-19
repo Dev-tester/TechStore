@@ -1,24 +1,24 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location\Admin\LocationHelper as Helper;
 
 Loc::loadMessages(__FILE__);
 ?>
 
-<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+<?php if(!empty($arResult['ERRORS']['FATAL'])):?>
 
-	<?foreach($arResult['ERRORS']['FATAL'] as $error):?>
+	<?php foreach($arResult['ERRORS']['FATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
+	<?php endforeach?>
 
-<?else:?>
+<?php else:?>
 
-	<?foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
+	<?php foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
+	<?php endforeach?>
 
-	<?
+	<?php 
 	global $APPLICATION;
 	$APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
 
@@ -124,7 +124,7 @@ Loc::loadMessages(__FILE__);
 		bxCRMLLTInstance = new BX.crmLocationListTools();
 	</script>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.interface.grid',
 		'',
@@ -160,4 +160,4 @@ Loc::loadMessages(__FILE__);
 	);
 	?>
 
-<?endif?>
+<?php endif?>

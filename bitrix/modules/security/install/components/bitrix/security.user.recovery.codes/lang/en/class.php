@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_USER_RECOVERY_CODES_TITLE"] = "Recovery codes";
 $MESS["SECURITY_USER_RECOVERY_CODES_AUTH_ERROR"] = "You are not logged in.";
 $MESS["SECURITY_USER_RECOVERY_CODES_MODULE_ERROR"] = "The Security module is not installed.";

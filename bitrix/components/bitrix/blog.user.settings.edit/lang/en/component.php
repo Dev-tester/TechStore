@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BLOG_MODULE_NOT_INSTALL'] = "Blog module is not installed.";
 $MESS ['B_B_US_NO_RIGHT'] = "You do not have permissions to manage this blog";
 $MESS ['B_B_US_NO_BLOG'] = "Blog is not found";

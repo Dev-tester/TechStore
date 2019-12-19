@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_KP_LESS_1"] = " ";
 $MESS["SALE_DH_KP_MORE_1"] = " ";
 $MESS["SALE_DH_KP_NAME"] = " ";

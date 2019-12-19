@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_MENU_TELEPHONY_BALANCE"] = "Balance and Statistics";
 $MESS["SERVICES_MENU_TELEPHONY_LINES"] = "Phone Numbers";
 $MESS["SERVICES_MENU_TELEPHONY_CONNECT"] = "Connection";

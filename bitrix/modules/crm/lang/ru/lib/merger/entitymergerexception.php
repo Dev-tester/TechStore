@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_MERGER_EXCEPTION_CONFLICT_RESOLUTION_NOT_SUPPORTED"] = "Режим разрешения конфликтов \"#RESOLUTION_CAPTION#\" не поддерживается.";
 $MESS["CRM_ENTITY_MERGER_EXCEPTION_CONFLICT_OCCURRED"] = "Автоматическое объединение невозможно из-за конфликта данных.";
 $MESS["CRM_ENTITY_MERGER_EXCEPTION_READ_DENIED"] = "Отсуствует право на чтение \"#TITLE#\" [#ID#].";

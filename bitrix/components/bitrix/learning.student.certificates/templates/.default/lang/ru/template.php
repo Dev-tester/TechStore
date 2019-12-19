@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_MYCOURSES_CODE'] = "Курс";
 $MESS ['LEARNING_MYCOURSES_COURSE'] = "Название";
 $MESS ['LEARNING_MYCOURSES_SCORE'] = "Баллов";

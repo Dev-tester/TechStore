@@ -21,7 +21,7 @@ $removePatternWidgetDialogCancelText = $arResult['REPORT_PATTERN_WIDGET_REMOVE_D
 		<div class="report-visualconstructor-add-title-container"><?= Loc::getMessage('SELECT_REPORT_TYPE_TITLE_IN_ADD_FORM') ?></div>
 		<div class="report-visualconstructor-add-control-container">
 			<!--            <div data-type="create-widget-button" class="ui-btn ui-btn-primary ui-btn-md ui-btn-icon-add">-->
-			<? //=Loc::getMessage('CREATE_REPORT_TYPE_TITLE_IN_ADD_FORM')?><!--</div>-->
+			<?php  //=Loc::getMessage('CREATE_REPORT_TYPE_TITLE_IN_ADD_FORM')?><!--</div>-->
 		</div>
 	</div>
 	<div class="report-visualconstructor-add-content">

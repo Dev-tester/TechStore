@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "statistic");
 define("ADMIN_MODULE_ICON", "<a href=\"stat_list.php?lang=".LANG."\"><img src=\"/bitrix/images/statistic/statistic.gif\" width=\"48\" height=\"48\" border=\"0\" alt=\"".GetMessage("STAT_MODULE_TITLE")."\" title=\"".GetMessage("STAT_MODULE_TITLE")."\"></a>");
 

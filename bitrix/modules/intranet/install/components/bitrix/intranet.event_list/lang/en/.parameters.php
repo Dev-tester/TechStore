@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ECL_GROUP_BASE_SETTINGS'] = "Main Settings";
 $MESS ['ECL_P_IBLOCK_TYPE'] = "Information Block Type";
 $MESS ['ECL_P_IBLOCK'] = "Information Block";

@@ -36,7 +36,7 @@ endif;
 	<?=bitrix_sessid_post();?>
 	<table id="content-edit-form-config" class="content-edit-form" cellspacing="0" cellpadding="0">
 
-<?
+<?php 
 if($arResult['INFO']['ID'] > 0):
 ?>
 
@@ -53,7 +53,7 @@ if($arResult['INFO']['ID'] > 0):
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-<?
+<?php 
 endif;
 ?>
 
@@ -126,7 +126,7 @@ if(is_array($arResult["EVENTS"])):
 ?>
 				<b><?=$scopeName?></b>
 				<div style="padding-left: 20px;"><?=$scopeHtml?></div>
-<?
+<?php 
 		}
 	}
 ?>

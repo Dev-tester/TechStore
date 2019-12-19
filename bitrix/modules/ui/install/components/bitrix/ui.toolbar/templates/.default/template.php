@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\UI\Toolbar\Facade\Toolbar;
 
@@ -30,17 +30,17 @@ $titleStyles = !empty($titleProps) ? ' style="'.$titleProps.'"' : "";
 ?>
 
 <div id="uiToolbarContainer" class="ui-toolbar">
-	<div id="pagetitleContainer" class="ui-toolbar-title-box"<?=$titleStyles?>><?
-		?><span id="pagetitle" class="ui-toolbar-title-item"><?=$APPLICATION->getTitle(false)?></span><?
+	<div id="pagetitleContainer" class="ui-toolbar-title-box"<?=$titleStyles?>><?php 
+		?><span id="pagetitle" class="ui-toolbar-title-item"><?=$APPLICATION->getTitle(false)?></span><?php 
 		?><?= $favoriteStar ?>
-	</div><?
+	</div><?php 
 
 	if (strlen($filter)):
-		?><div class="ui-toolbar-filter-box"><?=$filter?><?=$filterButtons?></div><?
+		?><div class="ui-toolbar-filter-box"><?=$filter?><?=$filterButtons?></div><?php 
 	endif;
 
 	if (strlen($rightButtons)):
-		?><div class="ui-toolbar-btn-box"><?=$rightButtons?></div><?
+		?><div class="ui-toolbar-btn-box"><?=$rightButtons?></div><?php 
 	endif;
 ?></div>
 

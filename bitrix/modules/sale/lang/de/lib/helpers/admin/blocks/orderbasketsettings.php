@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_BASKET_JS_SETTINGS_TITLE"] = "Einstellungen der Ansicht";
 $MESS["SALE_ORDER_BASKET_JS_SETTINGS_APPLY"] = "Anwenden";
 $MESS["SALE_ORDER_BASKET_SETTINGS_AVAILABLE_COLUMNS"] = "Verfügbare Spalten";

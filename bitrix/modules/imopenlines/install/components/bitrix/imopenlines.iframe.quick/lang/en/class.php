@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_QUICK_ANSWERS_INFO_TITLE_NEW"] = "Use canned responses to provide fast response to frequently asked questions";
 $MESS["IMOL_QUICK_ANSWERS_EDIT_SECTION_TITLE"] = "Create canned response in the section";
 $MESS["IMOL_QUICK_ANSWERS_EDIT_TEXT_PLACEHOLDER"] = "Canned response text";

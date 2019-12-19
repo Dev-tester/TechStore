@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_DISC_SUBCOUPON_DISCOUNT_ID_ABSENT"] = "No discount is specified for the new coupon.";
 $MESS["BT_CAT_DISC_SUBCOUPON_FIELD_COUNT"] = "Coupons";
 $MESS["BT_CAT_DISC_SUBCOUPON_ERR_COUPON_TYPE_BAD"] = "Invalid coupon type";

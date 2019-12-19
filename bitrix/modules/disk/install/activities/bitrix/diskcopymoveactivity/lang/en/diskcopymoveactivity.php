@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDCM_ACCESS_DENIED"] = "Access denied to anyone but the portal administrators.";
 $MESS["BPDCM_EMPTY_ENTITY_TYPE"] = "Storage type is missing.";
 $MESS["BPDCM_EMPTY_ENTITY_ID"] = "Storage is not specified.";

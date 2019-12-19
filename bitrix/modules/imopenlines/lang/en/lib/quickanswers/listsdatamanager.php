@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_QA_IBLOCK_NAME"] = "Canned responses";
 $MESS["IMOL_QA_IBLOCK_DESCRIPTION"] = "Contains canned responses for use with Open Channels";
 $MESS["IMOL_QA_IBLOCK_ELEMENTS_NAME"] = "Responses";

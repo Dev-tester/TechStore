@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -92,6 +92,6 @@ if (window.parent.document.getElementById("div_<?=$strName?>"))
 	window.parent.document.getElementById("div_<?=$strName?>").innerHTML = '<?=CUtil::JSEscape($res)?>';
 }
 </script>
-<?
+<?php 
 }
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php");

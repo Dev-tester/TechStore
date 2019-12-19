@@ -405,7 +405,7 @@ final class BusinessValueControl
 					<col class="adm-detail-content-cell-l" width="40%">
 					<col class="adm-detail-content-cell-r" width="60%">
 				</colgroup>
-				<?
+				<?php 
 
 				$personHasHiddenRows = 0;
 
@@ -415,7 +415,7 @@ final class BusinessValueControl
 
 					?>
 					<tbody>
-						<?
+						<?php 
 
 						ob_start(); // $rowsHTML
 
@@ -437,7 +437,7 @@ final class BusinessValueControl
 								<tr>
 									<td></td>
 									<td style="color:#ff1118; padding: 1em 0 0 13em;">
-										<?
+										<?php 
 
 										foreach ($error as $k => $e)
 											echo htmlspecialcharsbx(is_array($e) ? implode(', ', $e) : $e).'<br>';
@@ -445,7 +445,7 @@ final class BusinessValueControl
 										?>
 									</td>
 								</tr>
-								<?
+								<?php 
 							}
 
 //							$mappings = array(
@@ -490,7 +490,7 @@ final class BusinessValueControl
 							{
 								?>
 								<td>
-									<?
+									<?php 
 
 									if (is_array($code['CONSUMERS']) && count($code['CONSUMERS']) > 1)
 									{
@@ -499,7 +499,7 @@ final class BusinessValueControl
 										?>
 										<img src="/bitrix/js/main/core/images/hint.gif" style="cursor: help;"
 										     title="<?=htmlspecialcharsbx(implode(', ', $code['CONSUMERS']))?>">
-										<?
+										<?php 
 									}
 									else
 									{
@@ -510,13 +510,13 @@ final class BusinessValueControl
 									{
 										?>
 										<div style="font-size:10px;"><?=htmlspecialcharsbx($code['DESCRIPTION'])?></div>
-										<?
+										<?php 
 									}
 
 									?>
 								</td>
 								<td>
-									<?
+									<?php 
 
 									$commonProviderInput = $commonProviderValueInput = null;
 
@@ -547,17 +547,17 @@ final class BusinessValueControl
 
 									?>
 								</td>
-								<?
+								<?php 
 							}
 
 							$columnsHTML = ob_get_clean();
 
 							?>
-							<tr<?
+							<tr<?php 
 
 							if ($hideFilledCodes && $hideCode)
 							{
-								?> class="<?=$this->name.$personTypeId?>row-with-value" style="display:none;"<?
+								?> class="<?=$this->name.$personTypeId?>row-with-value" style="display:none;"<?php 
 								$personHasHiddenRows = true;
 							}
 							else
@@ -568,7 +568,7 @@ final class BusinessValueControl
 							?>>
 								<?=$columnsHTML?>
 							</tr>
-							<?
+							<?php 
 						}
 
 						$rowsHTML = ob_get_clean();
@@ -576,7 +576,7 @@ final class BusinessValueControl
 						if ($groupName)
 						{
 							?>
-							<tr<?
+							<tr<?php 
 
 							if ($hideFilledCodes && ! $groupHasVisibleRows)
 								echo ' class="'.$this->name.$personTypeId.'row-with-value" style="display:none;"';
@@ -589,19 +589,19 @@ final class BusinessValueControl
 									<?=htmlspecialcharsbx($groupName)?>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 
 						echo $rowsHTML;
 
 						?>
 					</tbody>
-					<?
+					<?php 
 				}
 
 				?>
 			</table>
-			<?
+			<?php 
 
 			if ($hideFilledCodes && $personHasHiddenRows)
 			{
@@ -611,7 +611,7 @@ final class BusinessValueControl
 						<?=Loc::getMessage('BIZVAL_PAGE_SHOW_ROWS')?>
 					</a>
 				</p>
-				<?
+				<?php 
 			}
 		}
 
@@ -705,19 +705,19 @@ final class BusinessValueControl
 			<input
 				type="checkbox"
 				name="<?=$inputNamePrefix?>[DELETE]"'
-				<?if (! $mappings['EXACT'] && $mappings['COMMON']):?>
+				<?php if (! $mappings['EXACT'] && $mappings['COMMON']):?>
 					checked
-				<?endif?>
-				<?if ($m = $mappings['EXACT']):?>
+				<?php endif?>
+				<?php if ($m = $mappings['EXACT']):?>
 					data-initial-key="<?=htmlspecialcharsbx($m['PROVIDER_KEY'])?>"
 					data-initial-value="<?=htmlspecialcharsbx($m['PROVIDER_VALUE'])?>"
-				<?endif?>
-				<?if ($m = $mappings['COMMON']):?>
+				<?php endif?>
+				<?php if ($m = $mappings['COMMON']):?>
 					data-default-key="<?=htmlspecialcharsbx($m['PROVIDER_KEY'])?>"
 					data-default-value="<?=htmlspecialcharsbx($m['PROVIDER_VALUE'])?>"
-				<?endif?>
+				<?php endif?>
 				onclick="bizvalToggleDelete(this)">
-		</label><?
+		</label><?php 
 
 		return $providerValue; // $hideCode TODO
 	}
@@ -773,7 +773,7 @@ final class BusinessValueControl
 				var	providerKey = keyElement.options[keyElement.selectedIndex].value,
 					wrapElement = keyElement.parentNode.nextSibling,
 					name = wrapElement.firstChild.name,
-					personProviderValueInput = <?
+					personProviderValueInput = <?php 
 
 						$personProviderValueInput = self::$personProviderValueInput;
 
@@ -992,7 +992,7 @@ final class BusinessValueControl
 					nodes[i].style.display = display;
 			}
 
-			<?
+			<?php 
 
 			foreach (BusinessValue::getConsumers() as $consumerKey => $consumer)
 				if (is_callable($consumer['GET_JAVASCRIPT']))
@@ -1000,7 +1000,7 @@ final class BusinessValueControl
 
 			?>
 		</script>
-		<?
+		<?php 
 	}
 
 	/** @internal */

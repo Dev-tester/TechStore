@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SECURITY_LEVEL"] = "Вы можете проверить текущий уровень безопасности в <a href=\"security_panel.php?lang=#LANGUAGE_ID#\">Панели безопасности</a> модуля.";
 $MESS["GD_SECURITY_SCANNER_TITLE"] = "Сканер<br>безопасности";
 $MESS["GD_SECURITY_MODULE_INSTALL"] = "Установить";

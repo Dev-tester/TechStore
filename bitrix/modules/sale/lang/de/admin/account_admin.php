@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAA_ERROR_DELETE"] = "Beim Löschen des Kotos Nr. #ID# ist ein Fehler aufgetreten";
 $MESS["SAA_ERROR_MONEY"] = "Beim Aufladen des Kontos Nr. #ID# ist ein Fehler aufgetreten";
 $MESS["SAA_ERROR_GET"] = "Beim Abrufen der Kontoparameter Nr. #ID# ist ein Fehler aufgetreten";

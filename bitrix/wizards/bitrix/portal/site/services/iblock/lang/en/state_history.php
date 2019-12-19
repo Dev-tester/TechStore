@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STATE_FORM_1"]="Change in Employee Status Form";
 $MESS["STATE_FORM_2"]="Choose the Employee whose status has changed";
 $MESS["STATE_FORM_3"]="Date of Change in Status";

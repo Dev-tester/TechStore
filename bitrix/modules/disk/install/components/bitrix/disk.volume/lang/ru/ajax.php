@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VOLUME_FILE_DELETE_OK"] = "Файл удален";
 $MESS["DISK_VOLUME_GROUP_FILE_DELETE_OK"] = "Файлы удалены";
 $MESS["DISK_VOLUME_FILE_VERSION_DELETE_OK"] = "Неиспользуемые версии файла удалены";

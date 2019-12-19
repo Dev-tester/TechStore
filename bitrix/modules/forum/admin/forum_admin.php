@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/forum/include.php");
 
@@ -334,8 +334,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("FORUMS"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -349,7 +349,7 @@ $oFilter->Begin();
 	<tr>
 		<td><b><?= GetMessage("FFAN_SITE_ID") ?>:</b></td>
 		<td>
-			<?echo CSite::SelectBox("filter_site_id", $filter_site_id, "(".GetMessage("FFAN_ALL").")"); ?>
+			<?php echo CSite::SelectBox("filter_site_id", $filter_site_id, "(".GetMessage("FFAN_ALL").")"); ?>
 		</td>
 	</tr>
 	<tr>
@@ -357,8 +357,8 @@ $oFilter->Begin();
 		<td>
 			<select name="filter_active">
 				<option value=""><?= htmlspecialcharsex("(".GetMessage("FFAN_ALL").")") ?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?=htmlspecialcharsex(GetMessage("FFAN_YES")) ?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?=htmlspecialcharsex(GetMessage("FFAN_NO")) ?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?=htmlspecialcharsex(GetMessage("FFAN_YES")) ?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?=htmlspecialcharsex(GetMessage("FFAN_NO")) ?></option>
 			</select>
 		</td>
 	</tr>
@@ -368,19 +368,19 @@ $oFilter->Begin();
 
 				<select name="filter_group_id">
 					<option value="">(<?=GetMessage("FFAN_ALL");?>)</option>
-					<?
+					<?php 
 				foreach ($arForumGroupsTitle as $key => $val):
 					?>
 					<option value="<?=$key?>"
 					<?=(intVal($filter_group_id)==intVal($key) ? " selected" : "")?>
-					><?=htmlspecialcharsbx($val)?></option><?
+					><?=htmlspecialcharsbx($val)?></option><?php 
 				endforeach;
 				?>
 				</select>
 
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -391,13 +391,13 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 <style>
 dl, dd, dt { margin: 0; }
 dt.empty-path { text-decoration: line-through; }
 </style>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

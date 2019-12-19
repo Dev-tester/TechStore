@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_REQUIRED_PARAMATERS"] = "The parameter  \"#PARAM#\" is required but missing.";
 $MESS["ERROR_PRODUCT_NOT_FOUND"] = "Cannot find the product to be subscribed for.";
 $MESS["ERROR_SUBSCRIBE_DENIED"] = "Subscription denied";

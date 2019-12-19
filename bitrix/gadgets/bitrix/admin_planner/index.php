@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 CUtil::InitJSCore(array());
 
@@ -14,7 +14,7 @@ if($clientId == '' || $clientSecret == '' || $portalURI == '')
 	<div class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t" style="font-weight: bold; line-height: 28px;">
 		<?=GetMessage("GD_PLANNER_SETUP_NEED");?>
 	</div>
-	<?
+	<?php 
 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CTRL_MEMB_HIST_TITLE'] = "История сайта";
 $MESS ['CTRL_MEMB_HIST_BACK'] = "Сайт";
 $MESS ['CTRL_MEMB_HIST_BACK_TITLE'] = "Вернуться к редактированию сайта";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_DETAIL_HELP"] = "More";
 $MESS["LANDING_HOOK_GACOUNTER_COUNTER"] = "Google Analytics";
 $MESS["LANDING_HOOK_GACOUNTER_LOCKED"] = "<p>Use Google Analytics to collect and analyze site traffic statistics. This feature is only available on selected commercial plans.</p><p>Upgrade now to get access to extended site settings.</p>";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_MODULE_NOT_INSTALLED"] = "The Tasks module is not installed.";
 $MESS["FORUM_MODULE_NOT_INSTALLED"] = "The Forum module is not installed.";
 $MESS["SOCNET_MODULE_NOT_INSTALLED"] = "The Social Network module is not installed.";

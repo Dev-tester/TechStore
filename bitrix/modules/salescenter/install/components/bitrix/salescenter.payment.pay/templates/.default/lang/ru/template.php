@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPP_PAID_TITLE"] = "Платеж № #ACCOUNT_NUMBER#, от #DATE_INSERT#";
 $MESS["SPP_PAID"] = "Оплачено";
 $MESS["SPP_SUM"] = "Сумма: #SUM#";

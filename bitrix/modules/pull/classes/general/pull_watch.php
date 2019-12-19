@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllPullWatch
 {
 	const bucket_size = 100;

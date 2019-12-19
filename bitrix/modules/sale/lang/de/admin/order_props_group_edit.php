@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOPGEN_CANCEL"] = "Abbrechen";
 $MESS["SOPGEN_APPLY"] = "Anwenden";
 $MESS["SOPGEN_ERROR_SAVING_PROPS_GRP"] = "Beim Speichern der Feldergruppe ist ein Fehler aufgetreten";

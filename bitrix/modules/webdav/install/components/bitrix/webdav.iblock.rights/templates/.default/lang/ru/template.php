@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_TAB_PERMISSIONS"] = "Доступ";
 $MESS["WD_TAB_PERMISSIONS_ELEMENT"] = "Права доступа к документу \"#NAME#\"";
 $MESS["WD_TAB_PERMISSIONS_SECTION"] = "Права доступа к папке \"#NAME#\"";

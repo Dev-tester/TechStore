@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_PAGE_TITLE"] = "Список форм";
 $MESS["FORM_F_NAME"] = "Заголовок:";
 $MESS["FORM_F_SID"] = "Символьный идентификатор:";

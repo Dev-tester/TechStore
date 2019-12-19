@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_LOG_DESTINATION_MORE_1"] = "and #COUNT# more recipient";
 $MESS["MOBILE_LOG_DESTINATION_MORE_2"] = "and #COUNT# more recipients";
 $MESS["MOBILE_LOG_DESTINATION_MORE_3"] = "and #COUNT# more recipients";

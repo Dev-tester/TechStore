@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_FILTER_ALL"] = "(все)";
 $MESS["CRM_DEAL_FILTER_STAGE_SEMANTIC_ID"] = "Группа стадий";
 $MESS["CRM_DEAL_FILTER_ACTIVITY_COUNTER"] = "Дела";

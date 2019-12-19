@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SC_ADD_CASHBOX_BUTTOM"] = "Add cash register";
 $MESS["SC_CASHBOX_ATOL_DESCRITION"] = "You have to use a cash register to receive payments using cash money or credit cards.";
 $MESS["SC_CASHBOX_ATOL_TITLE"] = "ATOL Online";

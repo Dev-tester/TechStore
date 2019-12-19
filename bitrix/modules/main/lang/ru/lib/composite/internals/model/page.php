@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAGE_ENTITY_CACHE_KEY_FIELD"] = "ID кеша";
 $MESS["PAGE_ENTITY_HOST_FIELD"] = "Хост";
 $MESS["PAGE_ENTITY_URI_FIELD"] = "Адрес страницы";

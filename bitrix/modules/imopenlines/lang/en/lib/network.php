@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_NETWORK_DEMO"] = "A day of demo mode";
 $MESS["IMOL_NETWORK_EMAIL_NEW"] = "Email";
 $MESS["IMOL_NETWORK_GEO_DATA"] = "Region";

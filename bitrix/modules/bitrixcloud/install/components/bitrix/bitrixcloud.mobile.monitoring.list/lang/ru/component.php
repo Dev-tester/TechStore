@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCLMMSL_BC_NOT_INSTALLED"] = "Не установлен модуль \"Облако 1С-Битрикс\"";
 $MESS["BCLMMSL_MA_NOT_INSTALLED"] = "Не установлен модуль \"Мобильная платформа\"";
 $MESS["BCLMMSL_MONITORING_NO_DATA_AVAILABLE"] = "невозможно определить";

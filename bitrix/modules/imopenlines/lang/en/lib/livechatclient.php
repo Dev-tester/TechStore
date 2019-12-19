@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_LCC_ERROR_IM_LOAD"] = "Error initializing Instant Messenger module.";
 $MESS["IMOL_LCC_ERROR_PULL_LOAD"] = "Error initializing Push & Pull module.";
 $MESS["IMOL_LCC_ERROR_USER_ID"] = "User ID is invalid.";

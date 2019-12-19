@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
 use Bitrix\Main\Localization\Loc;
@@ -38,7 +38,7 @@ else
 								</span>
 								</div>
 								<div class="crm-entity-widget-content">
-									<?
+									<?php 
 									foreach ($arResult['FIELDS'] as $field)
 									{
 										?>
@@ -50,7 +50,7 @@ else
 												</span>
 											</div>
 											<div class="crm-entity-widget-content-block-inner">
-												<?
+												<?php 
 												if ($field['TYPE'] === 'checkbox')
 												{
 													$value = isset($arResult['BUYER'][$field['ID']])
@@ -64,14 +64,14 @@ else
 														<input type="hidden" name="<?=$field['ID']?>" value="N">
 														<input type="checkbox" name="<?=$field['ID']?>" value="Y"
 															<?=($checked ? 'checked="checked"' : '')?>>
-														<?
+														<?php 
 													}
 													else
 													{
 														?>
 														<input type="hidden" name="<?=$field['ID']?>"
 																value="<?=$value?>">
-														<?
+														<?php 
 														echo $checked
 															? Loc::getMessage('CRM_ORDER_BUYER_EDIT_YES')
 															: Loc::getMessage('CRM_ORDER_BUYER_EDIT_NO');
@@ -90,21 +90,21 @@ else
 																class="crm-entity-widget-content-input"
 																name="<?=$field['ID']?>"
 																value="<?=$value?>">
-														<?
+														<?php 
 													}
 													else
 													{
 														?>
 														<input type="hidden" name="<?=$field['ID']?>"
 																value="<?=$value?>">
-														<?
+														<?php 
 														echo $value;
 													}
 												}
 												?>
 											</div>
 										</div>
-										<?
+										<?php 
 									}
 									?>
 								</div>
@@ -125,13 +125,13 @@ else
 									<div class="crm-entity-widget-content-block crm-entity-widget-content-block-field-select">
 										<select class="crm-order-buyer-group-edit-field-select" name="GROUP_ID[]"
 												multiple size="<?=count($arResult['GROUPS'])?>">
-											<?
+											<?php 
 											foreach ($arResult['GROUPS'] as $group)
 											{
 												$selected = in_array($group['ID'], $arResult['USER_GROUPS']) ? 'selected' : '';
 												?>
 												<option value="<?=$group['ID']?>" <?=$selected?>><?=htmlspecialcharsbx($group['NAME'])?></option>
-												<?
+												<?php 
 											}
 											?>
 										</select>
@@ -143,7 +143,7 @@ else
 				</td>
 			</tr>
 		</table>
-		<?
+		<?php 
 		if ($arParams['IFRAME'])
 		{
 			?>
@@ -157,7 +157,7 @@ else
 					</a>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -167,11 +167,11 @@ else
 					<?=Loc::getMessage('CRM_ORDER_BUYER_EDIT_BUTTON_APPLY')?>
 				</a>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</form>
-	<?
+	<?php 
 	$signer = new \Bitrix\Main\Security\Sign\Signer;
 	$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'crm.order.buyer_group.edit');
 	?>
@@ -182,5 +182,5 @@ else
 			componentName: '<?=CUtil::JSEscape($this->getComponent()->getName())?>'
 		});
 	</script>
-	<?
+	<?php 
 }

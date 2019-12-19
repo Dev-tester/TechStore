@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Internals\Helper\Task\Template;
 
 use Bitrix\Tasks\Internals\Task\Template\DependenceTable;

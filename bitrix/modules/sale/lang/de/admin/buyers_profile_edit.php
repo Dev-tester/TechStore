@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUYER_PE_ACCESS_DENIED"] = "Zugriff verweigert.";
 $MESS["BUYER_PE_TAB_PROFILE"] = "Profil";
 $MESS["BUYER_PE_TITLE"] = "Profil #NAME# bearbeiten";

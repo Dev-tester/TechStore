@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SPCP_DTITLE"] = "RoboKassa";
 $MESS["SPCP_DDESCR"] = "Оплата через платежную систему <a href=\"http://www.robokassa.ru\">www.robokassa.ru</a><br /> Для получения результата от Платежной системы сообщите ей адреса в случае успешной оплаты (Result_URL и Success_URL) и разместите на этих страницах компонент bitrix:sale.order.payment.receive с соответствующими параметрами.";

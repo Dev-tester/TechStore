@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLEE_TOOLBAR_LIST_TITLE"] = "Перейти в список элементов";
 $MESS["CT_BLEE_TOOLBAR_DELETE_TITLE"] = "Удалить элемент и вернуться в список.";
 $MESS["CT_BLEE_TOOLBAR_DELETE_WARNING"] = "Вы уверены, что хотите удалить этот элемент?";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Application,
 	Bitrix\Main\Localization\Loc,
 	Bitrix\Main\Type\Collection,

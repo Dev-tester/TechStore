@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.messages_menu",
 	"",
@@ -24,7 +24,7 @@ $APPLICATION->IncludeComponent(
 
 <br />
 
-<?
+<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:intranet.tasks",
 		".default",

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\Composite;
 
 /**
@@ -439,7 +439,7 @@ class Helper
 		$fh = fopen($tempFileName, "wb");
 		if ($fh !== false)
 		{
-			$content = "<?\n\$arHTMLPagesOptions = array(\n";
+			$content = "<?php \n\$arHTMLPagesOptions = array(\n";
 			foreach ($arOptions as $key => $value)
 			{
 				if (is_integer($key))

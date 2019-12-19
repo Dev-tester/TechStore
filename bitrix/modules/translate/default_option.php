@@ -1,4 +1,4 @@
-<?
+<?php 
 $translate_default_option = array(
 	"INIT_FOLDERS"	=> "/bitrix/",
 	"ONLY_ERRORS"	=> "Y",

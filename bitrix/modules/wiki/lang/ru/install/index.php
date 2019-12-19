@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_INSTALL_NAME"] = "Wiki";
 $MESS["WIKI_INSTALL_DESCRIPTION"] = "Модуль дает возможность ведения wiki-страниц на сайте.";
 $MESS["WIKI_INSTALL_TITLE"] = "Установка модуля wiki";

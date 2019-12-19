@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WNCT_STATE'] = "Текущий статус";
 $MESS ['BPWC_WNCT_TASKS'] = "Ваши задания";
 $MESS ['BPWC_WNCT_EVENTS'] = "Отправить событие";

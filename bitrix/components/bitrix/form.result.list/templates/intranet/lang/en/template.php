@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_RESULT_TITLE"] = "Order #";
 $MESS["FORM_WRONG_DATE_CREATE_FROM"] = "Please enter the correct \"from\" date (\"Created\" field)";
 $MESS["FORM_WRONG_DATE_CREATE_TO"] = "Please enter the correct \"till\" date (\"Created\" field)";

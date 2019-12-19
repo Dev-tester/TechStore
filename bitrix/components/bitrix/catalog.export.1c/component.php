@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if(CModule::IncludeModule('iblock'))
@@ -1159,11 +1159,11 @@ else
 	)
 		ShowError(GetMessage("CC_BCE1_ERROR_SESSION_ID_CHANGE"));
 	?><table class="data-table">
-	<tr><td><?echo GetMessage("CC_BCE1_IBLOCK_ID")?></td><td><?echo $arParams["IBLOCK_ID"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCE1_INTERVAL")?></td><td><?echo $arParams["INTERVAL"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCE1_ELEMENTS_PER_STEP")?></td><td><?echo $arParams["ELEMENTS_PER_STEP"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCE1_USE_ZIP")?></td><td><?echo $arParams["USE_ZIP"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCE1_IBLOCK_ID")?></td><td><?php echo $arParams["IBLOCK_ID"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCE1_INTERVAL")?></td><td><?php echo $arParams["INTERVAL"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCE1_ELEMENTS_PER_STEP")?></td><td><?php echo $arParams["ELEMENTS_PER_STEP"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCE1_USE_ZIP")?></td><td><?php echo $arParams["USE_ZIP"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

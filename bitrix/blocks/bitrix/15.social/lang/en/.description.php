@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_15.SOCIAL_NAME"] = "Social buttons, arranged to occupy full page width";
 $MESS["LANDING_BLOCK_15.SOCIAL_NODES_LANDINGBLOCKNODELIST"] = "Social button";
 $MESS["LANDING_BLOCK_15.SOCIAL_NODES_LANDINGBLOCKNODELISTIMG"] = "Icon";

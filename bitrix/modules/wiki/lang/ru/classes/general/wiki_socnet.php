@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_SOCNET_TAB"] = "Wiki";
 $MESS["WIKI_PERM_WRITE"] = "Создание/изменение страниц";
 $MESS["WIKI_PERM_WRITE_W"] = "Создание/изменение страниц в визуальном редакторе";

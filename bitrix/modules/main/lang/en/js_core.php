@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_LOADING"] = "Loading...";
 $MESS["JS_CORE_WINDOW_CLOSE"] = "Close";
 $MESS["JS_CORE_WINDOW_EXPAND"] = "Expand";

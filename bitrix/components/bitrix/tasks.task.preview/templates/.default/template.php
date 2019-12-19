@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /**
  * @var $arResult
@@ -20,7 +20,7 @@ UI\Extension::load("ui.tooltip");
 			</a>
 		</span>
 
-		<?if((int)$arResult["TASK"]["RESPONSIBLE_ID"] > 0):?>
+		<?php if((int)$arResult["TASK"]["RESPONSIBLE_ID"] > 0):?>
 			<span class="urlpreview__icon-destination"></span>
 			<div class="task-preview-header-icon">
 				<img src="<?=(isset($arResult['TASK']["RESPONSIBLE_PHOTO"]) && strlen($arResult['TASK']["RESPONSIBLE_PHOTO"]) > 0 ? $arResult['TASK']["RESPONSIBLE_PHOTO"] : "/bitrix/images/1.gif")?>" width="<?=$arParams["AVATAR_SIZE"]?>" height="<?=$arParams["AVATAR_SIZE"]?>">
@@ -30,7 +30,7 @@ UI\Extension::load("ui.tooltip");
 					<?=htmlspecialcharsbx($arResult['TASK']['RESPONSIBLE_FORMATTED'])?>
 				</a>
 			</span>
-		<?endif?>
+		<?php endif?>
 		<span class="urlpreview__time-wrap">
 			<a href="<?=htmlspecialcharsbx($arParams['URL'])?>">
 				<span class="urlpreview__time">
@@ -46,14 +46,14 @@ UI\Extension::load("ui.tooltip");
 		<?=GetMessage('TASKS_STATUS')?>:
 		<?= GetMessage("TASKS_STATUS_".$arResult["TASK"]["REAL_STATUS"])?><br>
 
-		<?if(strlen($arResult["TASK"]["DEADLINE"]) > 0):?>
+		<?php if(strlen($arResult["TASK"]["DEADLINE"]) > 0):?>
 			<?=GetMessage("TASKS_DEADLINE")?>:
 			<?=FormatDateFromDB($arResult["TASK"]["DEADLINE"], "SHORT")?><br>
-		<?endif?>
+		<?php endif?>
 
-		<?if(strlen($arResult["TASK"]["CLOSED_DATE"]) > 0):?>
+		<?php if(strlen($arResult["TASK"]["CLOSED_DATE"]) > 0):?>
 			<?=GetMessage("TASKS_CLOSED_DATE")?>:
 			<?=FormatDateFromDB($arResult["TASK"]["CLOSED_DATE"], "SHORT")?><br>
-		<?endif?>
+		<?php endif?>
 	</div>
 </div>

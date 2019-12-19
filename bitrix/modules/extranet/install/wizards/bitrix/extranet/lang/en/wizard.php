@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEXT_BUTTON"] = "Next";
 $MESS["PREVIOUS_BUTTON"] = "Back";
 $MESS["WELCOME_TEXT"] = "This wizard will guide you through the 6 steps needed to set up your extranet site. You can start using the new site and start loading content as soon as the wizard is finished.<br /><br />Select the extranet site design and the colour theme and specify the initial configuration settings.";

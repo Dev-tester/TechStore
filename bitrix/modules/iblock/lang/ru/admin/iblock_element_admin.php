@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBEL_A_SECTIONS"] = "Разделы";
 $MESS["IBLOCK_EL_ADMIN_DESC"] = "Описание:";
 $MESS["IBLOCK_EL_ADMIN_DCREATE"] = "Дата создания";

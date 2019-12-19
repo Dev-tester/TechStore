@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/include.php");
 
@@ -270,9 +270,9 @@ if ($isCOnverted)
 else
 {
 	?>
-	<form method="post" name="intr_convert_form" action="<? echo $APPLICATION->GetCurPage() ?>?lang=<? echo LANGUAGE_ID ?>">
-		<? echo bitrix_sessid_post(); ?>
-		<?
+	<form method="post" name="intr_convert_form" action="<?php  echo $APPLICATION->GetCurPage() ?>?lang=<?php  echo LANGUAGE_ID ?>">
+		<?php  echo bitrix_sessid_post(); ?>
+		<?php 
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		?>
@@ -299,23 +299,23 @@ else
 		</tr>
 		<tr>
 			<td width="3%"><input type="checkbox" name="int_convert_public_section" id="int_convert_public_section" value="Y" checked></td>
-			<td width="97%"><label for="int_convert_public_section"><?echo GetMessage("INTRANET_PUBLIC_CONVERT_SECTIONS")?></label></td>
+			<td width="97%"><label for="int_convert_public_section"><?php echo GetMessage("INTRANET_PUBLIC_CONVERT_SECTIONS")?></label></td>
 
 		</tr>
 		<tr>
 			<td width="3%"><input type="checkbox" name="int_convert_public_index" id="int_convert_public_index" value="Y" checked></td>
-			<td width="97%"><label for="int_convert_public_index"><?echo GetMessage("INTRANET_PUBLIC_CONVERT_INDEX")?></label></td>
+			<td width="97%"><label for="int_convert_public_index"><?php echo GetMessage("INTRANET_PUBLIC_CONVERT_INDEX")?></label></td>
 		</tr>
-		<?
+		<?php 
 		$tabControl->Buttons();
 		?>
-		<input type="submit" id="convert_button" name="convert_button" value="<? echo GetMessage("INTRANET_PUBLIC_CONVERT_BUTTON") ?>" class="adm-btn-save">
-		<input type="submit" id="skip_convert_button" name="skip_convert_button" value="<? echo GetMessage("INTRANET_PUBLIC_SKIP_CONVERT_BUTTON") ?>">
-		<?
+		<input type="submit" id="convert_button" name="convert_button" value="<?php  echo GetMessage("INTRANET_PUBLIC_CONVERT_BUTTON") ?>" class="adm-btn-save">
+		<input type="submit" id="skip_convert_button" name="skip_convert_button" value="<?php  echo GetMessage("INTRANET_PUBLIC_SKIP_CONVERT_BUTTON") ?>">
+		<?php 
 		$tabControl->End();
 		?>
 	</form>
-	<?
+	<?php 
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

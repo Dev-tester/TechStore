@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\UI;
@@ -21,9 +21,9 @@ UI\Extension::load("ui.tooltip");
 						<a href="<?=htmlspecialcharsbx($arParams['URL'])?>"><span class="urlpreview__time"><?=htmlspecialcharsbx($arResult["POST"]["DATE_FORMATTED"])?></span></a>
 					</span>
 				</span>
-				<?if($arResult['POST']['TITLE']):?>
+				<?php if($arResult['POST']['TITLE']):?>
 					<p><strong><?=htmlspecialcharsbx($arResult['POST']['TITLE'])?></strong></p>
-				<?endif?>
+				<?php endif?>
 				<p><?=htmlspecialcharsbx($arResult['POST']['PREVIEW_TEXT'])?></p>
 			</td>
 		</tr>

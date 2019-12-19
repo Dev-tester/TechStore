@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_CALLER_ID_BUTTON_CONFIRM"] = "Confirm";
 $MESS["VOX_CALLER_ID_BUTTON_LINK"] = "Connect";
 $MESS["VOX_CALLER_ID_BUTTON_PROLONG"] = "Extend connection";

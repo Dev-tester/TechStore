@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
@@ -173,12 +173,12 @@ if ($_REQUEST['MODE'] == 'EMPLOYEES')
 	$APPLICATION->RestartBuffer();
 	Header('Content-Type: application/x-javascript; charset='.LANG_CHARSET);
 ?>
-BXShowEmployees('<?echo $SECTION_ID?>', <?echo CUtil::PhpToJsObject($arUsers)?>);
-<?
+BXShowEmployees('<?php echo $SECTION_ID?>', <?php echo CUtil::PhpToJsObject($arUsers)?>);
+<?php 
 	if ($SECTION_ID == 'last'):
 ?>
-window.arLastSelected = <?echo CUtil::PhpToJsObject($arLastSelected)?>;
-<?
+window.arLastSelected = <?php echo CUtil::PhpToJsObject($arLastSelected)?>;
+<?php 
 	endif;
 	die();
 }
@@ -220,8 +220,8 @@ elseif ($_REQUEST['MODE'] == 'SEARCH')
 
 	Header('Content-Type: application/x-javascript; charset='.LANG_CHARSET);
 ?>
-jsEmpSearch.SetResult(<?echo CUtil::PhpToJsObject($arUsers)?>);
-<?
+jsEmpSearch.SetResult(<?php echo CUtil::PhpToJsObject($arUsers)?>);
+<?php 
 	die();
 }
 
@@ -258,17 +258,17 @@ if (isset($_GET['value']))
 <div class="title">
 <table cellspacing="0" width="100%">
 	<tr>
-		<td width="100%" class="title-text" onmousedown="jsFloatDiv.StartDrag(arguments[0], document.getElementById('<?=htmlspecialcharsbx($win_id) ?>'));"><?echo GetMessage('INTR_EMP_WINDOW_TITLE')?></td>
+		<td width="100%" class="title-text" onmousedown="jsFloatDiv.StartDrag(arguments[0], document.getElementById('<?=htmlspecialcharsbx($win_id) ?>'));"><?php echo GetMessage('INTR_EMP_WINDOW_TITLE')?></td>
 		<td width="0%"><a class="close" href="javascript:document.getElementById('<?=htmlspecialcharsbx($win_id) ?>').__object.CloseDialog();" title="<?=GetMessage("INTR_EMP_WINDOW_CLOSE")?>"></a></td>
 	</tr>
 </table>
 </div>
 <script>
-var current_selected = <?echo CUtil::PhpToJsObject($current_user)?>;
+var current_selected = <?php echo CUtil::PhpToJsObject($current_user)?>;
 var arLastSelected = [];
 function BXEmployeeSelect()
 {
-<?
+<?php 
 if ($bMultiple):
 ?>
 	var bFound = false;
@@ -294,7 +294,7 @@ if ($bMultiple):
 		this.firstChild.checked = true;
 	}
 
-<?
+<?php 
 else:
 ?>
 	if (current_selected > 0 && document.getElementById('bx_employee_' + current_selected))
@@ -304,35 +304,35 @@ else:
 
 	current_selected = this.BX_ID;
 	this.className = 'bx-employee-row bx-emp-selected';
-<?
+<?php 
 endif;
 ?>
 }
 
 function BXEmployeeSet()
 {
-	if (current_selected<?if ($bMultiple):?>.length<?endif;?> > 0)
+	if (current_selected<?php if ($bMultiple):?>.length<?php endif;?> > 0)
 	{
 
-		document.getElementById('<?echo $win_id?>').__object.SetValue(current_selected);
-		document.getElementById('<?echo $win_id?>').__object.OnSelect();
+		document.getElementById('<?php echo $win_id?>').__object.SetValue(current_selected);
+		document.getElementById('<?php echo $win_id?>').__object.OnSelect();
 
-		var arSelected = <?if ($bMultiple):?>current_selected<?else:?>[current_selected]<?endif;?>.concat(arLastSelected).slice(0, 15);
+		var arSelected = <?php if ($bMultiple):?>current_selected<?php else:?>[current_selected]<?php endif;?>.concat(arLastSelected).slice(0, 15);
 
 
 		jsUserOptions.SaveOption('intranet', 'user_search', 'last_selected', arSelected);
 
-		document.getElementById('<?echo $win_id?>').__object.CloseDialog();
+		document.getElementById('<?php echo $win_id?>').__object.CloseDialog();
 	}
 }
 
 function BXShowEmployees(SECTION_ID, arEmployees)
 {
-	if (null == document.getElementById('<?echo $win_id?>'))
+	if (null == document.getElementById('<?php echo $win_id?>'))
 		return false;
 
 	var obSection = document.getElementById('bx_employee_section_' + SECTION_ID);
-	var obMain = document.getElementById('<?echo $win_id?>').__object;
+	var obMain = document.getElementById('<?php echo $win_id?>').__object;
 
 	if (!obSection.BX_LOADED)
 	{
@@ -360,7 +360,7 @@ function BXShowEmployees(SECTION_ID, arEmployees)
 
 				obUserRow.BX_ID = arEmployees[i].ID;
 
-<?
+<?php 
 if ($bMultiple):
 ?>
 				var obCheckbox = BX.create('INPUT', {
@@ -380,25 +380,25 @@ if ($bMultiple):
 						break;
 					}
 				}
-<?
+<?php 
 else:
 ?>
 				if (obUserRow.BX_ID == current_selected)
 					obUserRow.className += ' bx-emp-selected';
 
 				obUserRow.ondblclick = BXEmployeeSet;
-<?
+<?php 
 endif;
 ?>
 				obUserRow.onclick = BXEmployeeSelect;
 
-				obUserRow.innerHTML = '<div class="bx-employee-photo' + (arEmployees[i].PHOTO ? '' : ' bx-no-photo') + '"' + (arEmployees[i].HEAD ? ' style="border-color: #1952BE"' : '') + '>' + arEmployees[i].PHOTO + '</div><div class="bx-employee-info"><div class="bx-employee-name">' + arEmployees[i].NAME + '</div><div class="bx-employee-position"' + (arEmployees[i].HEAD ? ' style="color: #1952BE; font-weight: bold;"' : '') + '>' + arEmployees[i].WORK_POSITION + (arEmployees[i].HEAD ? ', <?echo CUtil::JSEscape(GetMessage('INTR_EMP_HEAD'))?>' : '') + '</div></div>';
+				obUserRow.innerHTML = '<div class="bx-employee-photo' + (arEmployees[i].PHOTO ? '' : ' bx-no-photo') + '"' + (arEmployees[i].HEAD ? ' style="border-color: #1952BE"' : '') + '>' + arEmployees[i].PHOTO + '</div><div class="bx-employee-info"><div class="bx-employee-name">' + arEmployees[i].NAME + '</div><div class="bx-employee-position"' + (arEmployees[i].HEAD ? ' style="color: #1952BE; font-weight: bold;"' : '') + '>' + arEmployees[i].WORK_POSITION + (arEmployees[i].HEAD ? ', <?php echo CUtil::JSEscape(GetMessage('INTR_EMP_HEAD'))?>' : '') + '</div></div>';
 
-<?
+<?php 
 if ($bMultiple):
 ?>
 				obUserRow.insertBefore(obCheckbox, obUserRow.firstChild);
-<?
+<?php 
 endif;
 ?>
 
@@ -422,7 +422,7 @@ function BXLoadEmployees(SECTION_ID, bShowOnly, bScrollToSection)
 
 	if (null == obSection.BX_LOADED)
 	{
-		var url = '/bitrix/components/bitrix/intranet.user.search/ajax.php?lang=<?echo LANGUAGE_ID?>&MODE=EMPLOYEES&SECTION_ID=' + SECTION_ID + '&SITE_ID=<?=$SITE_ID?>' + '&IS_EXTRANET=<?=(($bExtranet) ? "Y" : "N")?>&sessid=<?=bitrix_sessid();?>&nt=<?=urlencode($nameTemplate);?>';
+		var url = '/bitrix/components/bitrix/intranet.user.search/ajax.php?lang=<?php echo LANGUAGE_ID?>&MODE=EMPLOYEES&SECTION_ID=' + SECTION_ID + '&SITE_ID=<?=$SITE_ID?>' + '&IS_EXTRANET=<?=(($bExtranet) ? "Y" : "N")?>&sessid=<?=bitrix_sessid();?>&nt=<?=urlencode($nameTemplate);?>';
 
 		if (bScrollToSection)
 		{
@@ -471,7 +471,7 @@ var jsEmpSearch = {
 		this._control = document.getElementById(control_id);
 		if (this._control)
 		{
-			this._control.value = '<?echo CUtil::JSEscape(GetMessage('INTR_EMP_SEARCH'))?>';
+			this._control.value = '<?php echo CUtil::JSEscape(GetMessage('INTR_EMP_SEARCH'))?>';
 			this._control.value_tmp = this._control.value;
 
 			this._control.className = 'bx-search-control-empty';
@@ -492,7 +492,7 @@ var jsEmpSearch = {
 		if (jsEmpSearch._control.value && jsEmpSearch._control.value != jsEmpSearch._control.value_tmp)
 		{
 			jsEmpSearch._value = jsEmpSearch._control.value;
-			jsUtils.loadJSFile('/bitrix/components/bitrix/intranet.user.search/ajax.php?lang=<?echo LANGUAGE_ID?>&MODE=SEARCH&search=' + encodeURIComponent(jsEmpSearch._value) + '&SITE_ID=<?=$SITE_ID?>' + '&IS_EXTRANET=<?=(($bExtranet) ? "Y" : "N")?>&sessid=<?=bitrix_sessid();?>&nt=<?=urlencode($nameTemplate);?>');
+			jsUtils.loadJSFile('/bitrix/components/bitrix/intranet.user.search/ajax.php?lang=<?php echo LANGUAGE_ID?>&MODE=SEARCH&search=' + encodeURIComponent(jsEmpSearch._value) + '&SITE_ID=<?=$SITE_ID?>' + '&IS_EXTRANET=<?=(($bExtranet) ? "Y" : "N")?>&sessid=<?=bitrix_sessid();?>&nt=<?=urlencode($nameTemplate);?>');
 		}
 	},
 
@@ -541,7 +541,7 @@ var jsEmpSearch = {
 		}
 		else
 		{
-			jsEmpSearch._div.innerHTML = '<i><?echo CUtil::JSEscape(GetMessage('INTR_EMP_NOTHING_FOUND'));?></i>';
+			jsEmpSearch._div.innerHTML = '<i><?php echo CUtil::JSEscape(GetMessage('INTR_EMP_NOTHING_FOUND'));?></i>';
 		}
 	},
 
@@ -586,7 +586,7 @@ var jsEmpSearch = {
 		}
 		else
 		{
-<?
+<?php 
 if (!$bMultiple):
 ?>
 
@@ -595,11 +595,11 @@ if (!$bMultiple):
 				document.getElementById('bx_employee_' + current_selected).className = 'bx-employee-row';
 			}
 
-<?
+<?php 
 endif;
 ?>
 
-			current_selected<?echo $bMultiple ? '[current_selected.length]' : ''?> = parseInt(this.__bx_data.ID);
+			current_selected<?php echo $bMultiple ? '[current_selected.length]' : ''?> = parseInt(this.__bx_data.ID);
 		}
 	},
 
@@ -698,16 +698,16 @@ endif;
 <script>
 jsEmpSearch.InitControl('bx_emp_search_control');
 </script>
-<?
+<?php 
 	if (true || is_array($arLastSelected) && count($arLastSelected) > 0):
 ?>
 <div class="bx-employee-section-list" id="bx_employee_search_layout">
-	<div class="bx-employee-section-first" onclick="BXLoadEmployees('last')" id="bx_employee_section_last"><div class="bx-employee-section-name bx-emp-opened"><?echo GetMessage('INTR_EMP_LAST')?></div></div>
-	<div style="display: none;" id="bx_children_last"><div class="bx-employees-list" id="bx_employees_last" style="margin-left: 15px"><i><?echo GetMessage('INTR_EMP_WAIT')?></i></div></div>
+	<div class="bx-employee-section-first" onclick="BXLoadEmployees('last')" id="bx_employee_section_last"><div class="bx-employee-section-name bx-emp-opened"><?php echo GetMessage('INTR_EMP_LAST')?></div></div>
+	<div style="display: none;" id="bx_children_last"><div class="bx-employees-list" id="bx_employees_last" style="margin-left: 15px"><i><?php echo GetMessage('INTR_EMP_WAIT')?></i></div></div>
 <script>
 BXLoadEmployees('last', true);
 </script>
-<?
+<?php 
 	endif;
 
 	function EmployeeDrawStructure($arStructure, $arSections, $key)
@@ -762,7 +762,7 @@ BXLoadEmployees('last', true);
 	{
 ?>
 <script>
-<?
+<?php 
 		$arSectionList = array();
 		foreach ($arOpenedSections as $opened_section)
 		{
@@ -773,20 +773,20 @@ BXLoadEmployees('last', true);
 				$arSectionList[] = $opened_section;
 
 ?>
-section_id = '<?echo $opened_section?>';
+section_id = '<?php echo $opened_section?>';
 BXLoadEmployees(section_id, true);
-<?
+<?php 
 				$opened_section = $arSections[$opened_section]['IBLOCK_SECTION_ID'];
 			}
 		}
 ?>
 </script>
-<?
+<?php 
 	}
 ?>
 	</div>
 </div>
 <div class="buttons">
-	<input type="button" id="submitbtn" value="<?echo GetMessage('INTR_EMP_SUBMIT')?>" onclick="BXEmployeeSet();" title="<?echo GetMessage('INTR_EMP_SUBMIT_TITLE')?>" />
-	<input type="button" value="<?echo GetMessage('INTR_EMP_CANCEL')?>" onclick="document.getElementById('<?=htmlspecialcharsbx($win_id) ?>').__object.CloseDialog();" title="<?echo GetMessage('INTR_EMP_CANCEL_TITLE')?>" />
+	<input type="button" id="submitbtn" value="<?php echo GetMessage('INTR_EMP_SUBMIT')?>" onclick="BXEmployeeSet();" title="<?php echo GetMessage('INTR_EMP_SUBMIT_TITLE')?>" />
+	<input type="button" value="<?php echo GetMessage('INTR_EMP_CANCEL')?>" onclick="document.getElementById('<?=htmlspecialcharsbx($win_id) ?>').__object.CloseDialog();" title="<?php echo GetMessage('INTR_EMP_CANCEL_TITLE')?>" />
 </div>

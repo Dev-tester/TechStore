@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZVAL_PAGE_TITLE"] = "Kundengruppen für Geschäftsbedeutungen konfigurieren";
 $MESS["BIZVAL_PAGE_ERRORS"] = "Es gab Fehler";
 $MESS["BIZVAL_PAGE_PTYPES"] = "Kundengruppen";

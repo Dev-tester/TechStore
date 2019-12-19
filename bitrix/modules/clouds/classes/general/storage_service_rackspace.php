@@ -1,4 +1,4 @@
-<?
+<?php 
 class CCloudStorageService_RackSpaceCloudFiles extends CCloudStorageService_OpenStackStorage
 {
 	function GetObject()

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_GANTT_MONTH_JAN"] = "January";
 $MESS["TASKS_GANTT_MONTH_FEB"] = "February";
 $MESS["TASKS_GANTT_MONTH_MAR"] = "March";

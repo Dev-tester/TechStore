@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (!array_key_exists("TEXT_LIMIT", $arParams) || $arParams["TEXT_LIMIT"] <= 0)

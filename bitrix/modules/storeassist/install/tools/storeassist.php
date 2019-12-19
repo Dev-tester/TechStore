@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/storeassist/tools/storeassist.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/storeassist/tools/storeassist.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_KANBAN_ED_CANCEL"] = "cancel";
 $MESS["CRM_KANBAN_ED_CHANGE"] = "change";
 $MESS["CRM_KANBAN_ED_CHANGE_USER"] = "Change";

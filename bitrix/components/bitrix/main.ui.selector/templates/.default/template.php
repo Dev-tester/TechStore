@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var CBitrixComponentTemplate $this
  * @var $arParams
@@ -21,7 +21,7 @@ $frame = $this->createFrame()->begin(false);
 
 if (!empty($arParams['LOAD_JS']))
 {
-	?><script src="<?=htmlspecialcharsbx($this->getFolder()).'/script.js'?>"></script><?
+	?><script src="<?=htmlspecialcharsbx($this->getFolder()).'/script.js'?>"></script><?php 
 }
 ?>
 <script>
@@ -100,24 +100,24 @@ if (!empty($arParams['LOAD_JS']))
 			BX.removeCustomEvent(window, "<?=$arParams["OPTIONS"]["eventInit"]?>", arguments.callee);
 		};
 
-		<?
+		<?php 
 		if (!empty($arParams["OPTIONS"]["eventInit"]))
 		{
 			?>
 			BX.addCustomEvent(window, "<?=$arParams["OPTIONS"]["eventInit"]?>", f);
-			<?
+			<?php 
 		}
 		else
 		{
 			?>
 			f();
-			<?
+			<?php 
 		}
 		?>
 
 	});
 </script>
 
-<?
+<?php 
 $frame->end();
 ?>

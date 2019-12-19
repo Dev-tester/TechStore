@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_ACTION_DEFAULT_SUBJECT'] = 'Новое дело (#DATE#)';
 $MESS['CRM_CALL_ACTION_DEFAULT_SUBJECT'] = 'Новый звонок (#DATE#)';
 $MESS['CRM_MEETING_ACTION_DEFAULT_SUBJECT'] = 'Новая встреча (#DATE#)';

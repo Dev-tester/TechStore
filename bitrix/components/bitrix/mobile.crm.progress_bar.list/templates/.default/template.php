@@ -21,7 +21,7 @@ elseif($entityTypeID === CCrmOwnerType::Invoice)
 	echo CCrmViewHelper::RenderInvoiceStatusSettings();
 
 ?><div id="<?=htmlspecialcharsbx($UID)?>"><div class="crm_block_container">
-	<div class="crm_card p0"><?
+	<div class="crm_card p0"><?php 
 		$i = -1;
 		$c = count($arResult['ITEMS']);
 		foreach($arResult['ITEMS'] as &$item):
@@ -44,7 +44,7 @@ elseif($entityTypeID === CCrmOwnerType::Invoice)
 						</td>
 						<td>
 							<div style="padding: 0 10px;">
-								<strong><?=htmlspecialcharsbx($item['NAME'])?></strong><?
+								<strong><?=htmlspecialcharsbx($item['NAME'])?></strong><?php 
 									CCrmMobileHelper::RenderProgressBar(
 										array(
 											'LAYOUT' => 'big',
@@ -59,10 +59,10 @@ elseif($entityTypeID === CCrmOwnerType::Invoice)
 					</tr>
 				</tbody>
 			</table>
-		</div><?
+		</div><?php 
 		//Check for separator rendering
 		if(++$i < ($c - 1)):
-		?><hr /><?
+		?><hr /><?php 
 		endif;
 		endforeach;
 		unset($item);

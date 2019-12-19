@@ -1,4 +1,4 @@
-<?define("STOP_STATISTICS", true);
+<?php define("STOP_STATISTICS", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 // **************************************************************************************
 if(!function_exists("__UnEscape"))

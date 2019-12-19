@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -36,7 +36,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_del" value="Y">
 	<?=bitrix_sessid_post();?>
 </form>
-<?
+<?php 
 if (empty($arResult['PAGE']))
 {
 	?>
@@ -46,7 +46,7 @@ if (empty($arResult['PAGE']))
 				<div class="connector-icon ui-icon ui-icon-service-<?=$iconCode?>"><i></i></div>
 			</div>
 			<div class="imconnector-field-box">
-				<?
+				<?php 
 				if ($arResult['STATUS']) //case when connection competed
 				{
 					?>
@@ -65,7 +65,7 @@ if (empty($arResult['PAGE']))
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 						</button>
 					</div>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -73,7 +73,7 @@ if (empty($arResult['PAGE']))
 					<div class="imconnector-field-main-subtitle">
 						<?=$arResult['NAME']?>
 					</div>
-					<?
+					<?php 
 					if ($arResult['ACTIVE_STATUS'])
 					{
 						?>
@@ -89,7 +89,7 @@ if (empty($arResult['PAGE']))
 								<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 							</button>
 						</div>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -107,17 +107,17 @@ if (empty($arResult['PAGE']))
 								<?=Loc::getMessage('IMCONNECTOR_COMPONENT_YANDEX_ACTIVATE')?>
 							</button>
 						</form>
-						<?
+						<?php 
 					}
 					?>
-					<?
+					<?php 
 				}
 				?>
 
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 	include 'messages.php';
 }
 else
@@ -139,7 +139,7 @@ else
 
 			</div>
 		</div>
-		<? include 'messages.php'?>
+		<?php  include 'messages.php'?>
 		<div class="imconnector-field-section imconnector-field-section-control">
 			<div class="imconnector-field-box">
 				<div class="imconnector-field-box-subtitle">
@@ -159,6 +159,6 @@ else
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

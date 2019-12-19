@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/about/career.php");
 $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"web20",
 	Array(
@@ -75,4 +75,4 @@ $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 	)
 );?> <hr />
 <?=GetMessage("ABOUT_INFO")?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

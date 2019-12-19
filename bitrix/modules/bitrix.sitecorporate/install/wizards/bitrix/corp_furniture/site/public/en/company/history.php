@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Key Milestones");
 ?> 
@@ -19,4 +19,4 @@ $APPLICATION->SetTitle("Key Milestones");
     <tr><td valign="top">2010</td><td>Fitting out XXX Liner</td></tr>
    </tbody>
  </table>
- <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

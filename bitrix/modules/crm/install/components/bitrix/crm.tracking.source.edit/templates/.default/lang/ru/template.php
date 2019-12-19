@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SOURCE_EDIT_TITLE"] = "Подключите %name% к сквозной аналитике";
 $MESS["CRM_TRACKING_SOURCE_EDIT_TEXT"] = "Получите отчет, который покажет сколько продаж приносят затраты на рекламу в %name% и насколько эффективно менеджеры обрабатывают входящие заявки.";
 $MESS["CRM_TRACKING_SOURCE_EDIT_AUTH"] = "Авторизируйтесь в %name%";

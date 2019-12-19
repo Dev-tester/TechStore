@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_SETTINGS_CART_POSITION"] = "Shopping cart alignment";
 $MESS["LANDING_HOOK_SETTINGS_CART_POSITION_BC"] = "Bottom center";
 $MESS["LANDING_HOOK_SETTINGS_CART_POSITION_BL"] = "Left bottom";

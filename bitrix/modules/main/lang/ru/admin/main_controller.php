@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_ADM_CONTROLLER_ERR8'] = "Для добавления необходимы административные привилегии на подключаемом сайте";
 $MESS ['MAIN_ADM_CONTROLLER_ERR2'] = "Разовый купон на регистрацию просрочен";
 $MESS ['MAIN_ADM_CONTROLLER_ERR3'] = "Не задан URL контроллера";

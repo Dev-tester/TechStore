@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['INTR_ISS_GROUP_FILTER'] = 'Параметры фильтра';
 $MESS['INTR_ISS_PARAM_LIST_URL'] = 'Страница списка пользователей';
 $MESS['INTR_ISS_PARAM_FILTER_NAME'] = 'Имя фильтра';

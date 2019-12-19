@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPABS_TITLE"] = "Assignments";
 $MESS["BPATL_NAV"] = "Assignments";
 $MESS["BPTL_C_DETAIL"] = "Details";

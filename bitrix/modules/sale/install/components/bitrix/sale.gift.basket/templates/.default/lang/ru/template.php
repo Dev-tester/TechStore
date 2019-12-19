@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CVP_TPL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
 $MESS["CVP_TPL_MESS_BTN_BUY"] = "Купить";
 $MESS["CVP_TPL_MESS_BTN_BUY_GIFT"] = "Выбрать";

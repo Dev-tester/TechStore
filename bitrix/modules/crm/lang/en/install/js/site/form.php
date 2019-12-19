@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SITE_FORM_BASKET_DISCOUNT"] = "You save";
 $MESS["CRM_SITE_FORM_BASKET_SUM"] = "Without discount";
 $MESS["CRM_SITE_FORM_BASKET_TOTAL"] = "Total";

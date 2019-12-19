@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOD_HIST_NULL"] = "По данному заказу изменений нет";
 $MESS["SOD_HIST_H_DATE"] = "Дата изменения";
 $MESS["SOD_HIST_H_USER"] = "Пользователь";

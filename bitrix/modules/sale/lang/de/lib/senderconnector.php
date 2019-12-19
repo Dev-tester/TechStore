@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_buyer_name"] = "Onlineshop-Kunden";
 $MESS["sender_connector_buyer_all"] = "Beliebig";
 $MESS["sender_connector_buyer_y"] = "Ja";

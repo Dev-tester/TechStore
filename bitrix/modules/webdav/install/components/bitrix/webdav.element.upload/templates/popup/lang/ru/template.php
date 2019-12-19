@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_DROP_CONFIRM"] = "Удалить папку #NAME# без возможности восстановления?";
 $MESS["WD_NAME"] = "Название";
 $MESS["WD_DROP_SECTION"] = "Удаление папки #NAME#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COPY_QUEUE_ENTITY_ID_FIELD"] = "Идентификатор задания на копирование файла";
 $MESS["COPY_QUEUE_ENTITY_TIMESTAMP_X_FIELD"] = "Время создания задания";
 $MESS["COPY_QUEUE_ENTITY_OP_FIELD"] = "Код операции";

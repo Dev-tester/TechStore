@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ["LEARNING_FILTER_USER_NAME"] = "Имя";
 $MESS ["LEARNING_FILTER_USER_LAST_NAME"] = "Фамилия";
 $MESS ["LEARNING_FILTER_USER_LOGIN"] = "Логин";

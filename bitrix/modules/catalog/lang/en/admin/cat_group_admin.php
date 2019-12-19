@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GROUP_TITLE"] = "Price types";
 $MESS["ADD_GROUP"] = "Add";
 $MESS["GROUP_PAGES"] = "Types";

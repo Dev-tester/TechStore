@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -1834,11 +1834,11 @@ class CBlogPostCommentEdit extends CBitrixComponent
 			ob_start();
 			?>
 			<div id="blog-comment-page">
-				<?RecursiveComments($this->arResult["CommentsResult"], $this->arResult["firstLevel"], 0, true, $this->arResult["canModerate"],
+				<?php RecursiveComments($this->arResult["CommentsResult"], $this->arResult["firstLevel"], 0, true, $this->arResult["canModerate"],
 					$this->arResult["User"], $this->arResult["use_captcha"], $this->arResult["CanUserComment"],
 					$this->arResult["COMMENT_ERROR"], $this->arResult["Comments"], $this->arParams);?>
 			</div>
-			<?
+			<?php 
 			echo ob_get_clean();
 		}
 		
@@ -1851,12 +1851,12 @@ class CBlogPostCommentEdit extends CBitrixComponent
 				$tmp = $this->arResult["CommentsResult"];
 				$tmp[0] = $this->arResult["PagesComment"][$i];
 				?>
-				<div id="blog-comment-page-<?=$i?>"<?if($this->arResult["PAGE"] != $i) echo "style=\"display:none;\""?>>
-					<?RecursiveComments($tmp, $this->arResult["firstLevel"], 0, true, $this->arResult["canModerate"],
+				<div id="blog-comment-page-<?=$i?>"<?php if($this->arResult["PAGE"] != $i) echo "style=\"display:none;\""?>>
+					<?php RecursiveComments($tmp, $this->arResult["firstLevel"], 0, true, $this->arResult["canModerate"],
 						$this->arResult["User"], $this->arResult["use_captcha"], $this->arResult["CanUserComment"],
 						$this->arResult["COMMENT_ERROR"], $this->arResult["Comments"], $this->arParams);?>
 				</div>
-				<?
+				<?php 
 			}
 			echo ob_get_clean();
 		}

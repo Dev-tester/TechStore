@@ -37,33 +37,33 @@ $calendarId = 'CrmCalendarLeadListGrid';
 $newLeadUrl = preg_replace("/#lead_id#/i", "0", $arParams['PATH_TO_LEAD_DETAILS']);
 $leadSliderRegexp = preg_replace("/#lead_id#/i", "(\\\\\d+)", $arParams['PATH_TO_LEAD_DETAILS']);
 
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):
 	?><div id="rebuildLeadDupIndexMsg" class="crm-view-message">
 		<?=GetMessage('CRM_LEAD_REBUILD_DUP_INDEX', array('#ID#' => 'rebuildLeadDupIndexLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT'])
 {
-	?><div id="rebuildLeadSearchWrapper"></div><?
+	?><div id="rebuildLeadSearchWrapper"></div><?php 
 }
 
 if($arResult['NEED_FOR_BUILD_TIMELINE'])
 {
-	?><div id="buildLeadTimelineWrapper"></div><?
+	?><div id="buildLeadTimelineWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING'])
 {
-	?><div id="refreshLeadAccountingWrapper"></div><?
+	?><div id="refreshLeadAccountingWrapper"></div><?php 
 }
 
 if($arResult['NEED_FOR_REBUILD_LEAD_ATTRS']):
 	?><div id="rebuildLeadAttrsMsg" class="crm-view-message">
 	<?=GetMessage('CRM_LEAD_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildLeadAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 endif;
-?></div><?
+?></div><?php 
 
 if(isset($arResult['ERROR_HTML'])):
 	ShowError($arResult['ERROR_HTML']);
@@ -280,7 +280,7 @@ foreach($arResult['LEAD'] as $sKey => $arLead)
 				};
 		}
 	);
-</script><?
+</script><?php 
 
 //region Filter
 //Skip rendering of grid filter for internal grid request (filter already created)
@@ -362,7 +362,7 @@ if(!Bitrix\Main\Grid\Context::isInternalRequest()
 			});
 		});
 	</script>
-	<?
+	<?php 
 }
 //endregion
 
@@ -493,7 +493,7 @@ BX.ready(function(){
 		}
 	});
 
-	<?if ($allowWrite):?>
+	<?php if ($allowWrite):?>
 	BX.addCustomEvent(eventCalendar, 'createNewEntry', function(params)
 	{
 		if (params)
@@ -517,7 +517,7 @@ BX.ready(function(){
 			BX.SidePanel.Instance.open(url, {cacheable: false, loader: "crm-entity-details-loader"});
 		}
 	});
-	<?endif;?>
+	<?php endif;?>
 
 	// Handle of changing type of field which is used to display entries on calendar grid
 	BX.addCustomEvent(eventCalendar, 'changeViewMode', function(params)

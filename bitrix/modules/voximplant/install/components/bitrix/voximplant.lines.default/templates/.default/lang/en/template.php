@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_NUMBERS_TITLE_2"] = "Configure default numbers";
 $MESS["VI_NUMBERS_CONFIG"] = "Configure";
 $MESS["VI_NUMBERS_CONFIG_BACKPHONE"] = "Default number for outgoing calls";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELD_CONVERT_COMPANY"] = "Конвертировать в компанию";
 $MESS["CRM_FIELD_CONVERT_COMPANY_CHOISE"] = "Выбрать компанию";
 $MESS["CRM_FIELD_CONVERT_COMPANY_LIST"] = "Выбрать из списка";

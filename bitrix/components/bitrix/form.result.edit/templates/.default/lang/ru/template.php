@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_CHANGE_TO'] = "сменить на";
 $MESS ['FORM_CURRENT_STATUS'] = "Текущий статус: ";
 $MESS ['FORM_ENLARGE'] = "Увеличить";

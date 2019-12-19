@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCA_ERROR_DELETE"] = "Beim Löschen der Kreditkarte Nr. #ID# ist ein Fehler aufgetreten";
 $MESS["SCA_ERROR_UPDATE"] = "Beim Aktualisieren des Kreditkarten-Parameters Nr. #ID# ist ein Fehler aufgetreten";
 $MESS["SCA_TITLE"] = "Kreditkarten";

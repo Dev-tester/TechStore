@@ -14,4 +14,4 @@ foreach (array_keys($map) as $propertyId):
 	</span>
 	<?=$dialog->renderFieldControl($map[$propertyId])?>
 </div>
-<?endforeach;?>
+<?php endforeach;?>

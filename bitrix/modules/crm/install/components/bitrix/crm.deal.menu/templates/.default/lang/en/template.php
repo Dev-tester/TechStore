@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_CONV_ACCESS_DENIED"] = "You need permission to create contacts, companies and deals to complete the operation.";
 $MESS["CRM_DEAL_CONV_GENERAL_ERROR"] = "Generic conversion error.";
 $MESS["CRM_DEAL_CONV_DIALOG_TITLE"] = "Generate entity based on deal";

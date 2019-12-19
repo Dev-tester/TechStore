@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_WGT_PAGE_TITLE"] = "Аналитические отчёты по сделкам";
 $MESS["CRM_DEAL_WGT_PAGE_TITLE_SHORT"] = "Отчёты по сделкам";
 $MESS["CRM_DEAL_WGT_DEAL_CATEGORY"] = "Направление";

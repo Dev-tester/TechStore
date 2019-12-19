@@ -20,20 +20,20 @@ $layoutWrapClassName = isset($arParams['LAYOUT_WRAP_CLASSNAME']) ? $arParams['LA
 
 ?><div id="<?=htmlspecialcharsbx($containerID)?>" class="crm-interface-toolbar-button-container">
     <button id="<?=htmlspecialcharsbx($selectorButtonID)?>" class="ui-btn ui-btn-light-border ui-btn-themes
-		<?if($arResult['IS_CUSTOMIZED'])
+		<?php if($arResult['IS_CUSTOMIZED'])
     {
-        ?> ui-btn-dropdown<?
+        ?> ui-btn-dropdown<?php 
     }
     elseif($arResult['CAN_CREATE_CATEGORY'])
     {
-        ?> ui-btn-icon-add<?
+        ?> ui-btn-icon-add<?php 
     }
     ?>">
         <?=$arResult['CATEGORY_NAME'] !== ''
             ? htmlspecialcharsbx($arResult['CATEGORY_NAME']) : GetMessage('CRM_DEAL_CATEGORY_SELECTOR')?>
-        <?if($arResult['CATEGORY_COUNTER'] > 0)
+        <?php if($arResult['CATEGORY_COUNTER'] > 0)
         {
-            ?><i id="<?=htmlspecialcharsbx($counterContainerID)?>" class="ui-btn-counter"><?=$arResult['CATEGORY_COUNTER']?></i><?
+            ?><i id="<?=htmlspecialcharsbx($counterContainerID)?>" class="ui-btn-counter"><?=$arResult['CATEGORY_COUNTER']?></i><?php 
         }
         ?></button>
 </div>

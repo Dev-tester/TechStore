@@ -23,7 +23,7 @@ Loc::loadMessages($_SERVER['DOCUMENT_ROOT'].BX_ROOT.'/modules/tasks/install/comp
 
 ?>
 
-<?include('process.php');?>
+<?php include('process.php');?>
 
 <script>
 BX.message(<?=CUtil::PhpToJSObject(array(
@@ -31,7 +31,7 @@ BX.message(<?=CUtil::PhpToJSObject(array(
 	'TASKS_TASK_CONFIRM_START_TIMER' => Loc::getMessage('TASKS_TASK_CONFIRM_START_TIMER')
 ))?>);
 </script>
-<?
+<?php 
 $cls1 = 'page-one-column';
 $cls2 = 'flexible-layout';
 
@@ -438,8 +438,8 @@ if (
 	<div class="task-table-footer-wrap" <?php if (isset($arParams['HIDE_GROUP_ACTIONS']) && ($arParams['HIDE_GROUP_ACTIONS'] === 'Y')) echo 'style="display:none;"' ?>>
 	<form action="<?=POST_FORM_ACTION_URI?>" id="task-list-group-operations">
 		<div class="task-table-footer">
-			<input type="checkbox" <?//onclick="active_btn(this)"?> id="task_list_group_action_all" class="task-table-foot-checkbox" title="<?=GetMessage('TASKS_LIST_TOOLTIP_FOR_ALL_ITEMS')?>"><label class="task-table-foot-label" for="task_list_group_action_all"><?=GetMessage('TASKS_LIST_GROUP_ACTION_FOR_ALL')?>
-			</label><?/*<span class="task-table-footer-btn task-btn-edit"></span><span class="task-table-footer-btn task-btn-del"></span>*/?>
+			<input type="checkbox" <?php //onclick="active_btn(this)"?> id="task_list_group_action_all" class="task-table-foot-checkbox" title="<?=GetMessage('TASKS_LIST_TOOLTIP_FOR_ALL_ITEMS')?>"><label class="task-table-foot-label" for="task_list_group_action_all"><?=GetMessage('TASKS_LIST_GROUP_ACTION_FOR_ALL')?>
+			</label><?php /*<span class="task-table-footer-btn task-btn-edit"></span><span class="task-table-footer-btn task-btn-del"></span>*/?>
 			<select id="task-list-group-action-selector" class="bx24-dropdown task-table-select" onchange="tasksListNS.onActionSelect(this);">
 				<option value="noaction"></option>
 				<option value="complete"><?php
@@ -467,12 +467,12 @@ if (
 					echo htmlspecialcharsbx(GetMessage('TASKS_LIST_GROUP_ACTION_ADD_ACCOMPLICE'));
 				?></option>
 
-				<?if(!($arResult['VIEW_STATE']['SPECIAL_PRESET_SELECTED']['CODENAME'] == 'FAVORITE' && $arResult['VIEW_STATE']['SECTION_SELECTED']['CODENAME'] == 'VIEW_SECTION_ADVANCED_FILTER')):?>
-					<?// adding is blocked when filtering by this preset?>
+				<?php if(!($arResult['VIEW_STATE']['SPECIAL_PRESET_SELECTED']['CODENAME'] == 'FAVORITE' && $arResult['VIEW_STATE']['SECTION_SELECTED']['CODENAME'] == 'VIEW_SECTION_ADVANCED_FILTER')):?>
+					<?php // adding is blocked when filtering by this preset?>
 					<option value="add_favorite"><?php
 						echo htmlspecialcharsbx(GetMessage('TASKS_LIST_GROUP_ACTION_ADD_FAVORITE'));
 					?></option>
-				<?endif?>
+				<?php endif?>
 
 				<option value="delete_favorite"><?php
 					echo htmlspecialcharsbx(GetMessage('TASKS_LIST_GROUP_ACTION_DELETE_FAVORITE'));
@@ -727,9 +727,9 @@ if (
 })();
 </script>
 
-<? if (strlen($arResult["NAV_STRING"])):?>
+<?php  if (strlen($arResult["NAV_STRING"])):?>
 	<br /><?=$arResult["NAV_STRING"]?>
-<? endif?>
+<?php  endif?>
 
 <?php if (!isset($arParams["HIDE_VIEWS"]) || $arParams["HIDE_VIEWS"] != "Y"):?>
 	<?php
@@ -775,7 +775,7 @@ if (
 
 				<ul class="task-filter-extra-links">
 					<li><i class="task-list-to-excel"></i><a href="<?=($APPLICATION->GetCurPageParam("EXCEL=Y&ncc=1", array("PAGEN_".$arResult["NAV_PARAMS"]["PAGEN"], "SHOWALL_".$arResult["NAV_PARAMS"]["PAGEN"], "VIEW")))?>"><?php echo GetMessage("TASKS_EXPORT_EXCEL")?></a></li>
-					<li><i class="task-list-to-outlook"></i><a href="javascript:<?echo CIntranetUtils::GetStsSyncURL(array('LINK_URL' => $arParams['PATH_TO_TASKS']), 'tasks')?>"><?php echo GetMessage("TASKS_EXPORT_OUTLOOK")?></a></li>
+					<li><i class="task-list-to-outlook"></i><a href="javascript:<?php echo CIntranetUtils::GetStsSyncURL(array('LINK_URL' => $arParams['PATH_TO_TASKS']), 'tasks')?>"><?php echo GetMessage("TASKS_EXPORT_OUTLOOK")?></a></li>
 				</ul>
 			</div>
 		</div>

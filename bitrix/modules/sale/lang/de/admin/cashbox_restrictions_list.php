@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ESDL_ACCESS_DENIED"] = "Zugriff verweigert";
 $MESS["SALE_RDL_LIST"] = "Einschränkungen";
 $MESS["SALE_RDL_COL_ID"] = "ID";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_MODULE_NAME"] = "Site Explorer";
 $MESS["FILEMAN_MODULE_DESCRIPTION"] = "This module manages the site content, structure, menus and user access permissions.";
 $MESS["FILEMAN_DENIED"] = "denied";

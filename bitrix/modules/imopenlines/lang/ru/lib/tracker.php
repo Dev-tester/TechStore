@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_TRACKER_LEAD_ADD"] = "На основе контактной информации создан новый лид";
 $MESS["IMOL_TRACKER_LEAD_EXTEND"] = "Контактная информация сохранена в лид";
 $MESS["IMOL_TRACKER_CONTACT_EXTEND"] = "Контактная информация сохранена в контакт";

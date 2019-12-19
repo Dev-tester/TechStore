@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_FILE_PERMISSIONS", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_js.php");
@@ -105,7 +105,7 @@ if($_POST["save"] == "Y" && check_bitrix_sessid())
 		ReDraw();
 		<?=$popupWindow->jsPopup?>.CloseDialog();
 		</script>
-		<?
+		<?php 
 		die();
 	}
 }
@@ -141,9 +141,9 @@ CBPDocument::AddShowParameterInit(MODULE_ID, "all", $_POST['document_type'], ENT
 <input type="hidden" name="id" value="<?=htmlspecialcharsbx($activityName)?>">
 <input type="hidden" name="current_site_id" value="<?=htmlspecialcharsbx($currentSiteId)?>">
 
-<? $tableID = "tbl-activity-".randString(5);?>
+<?php  $tableID = "tbl-activity-".randString(5);?>
 <table class="adm-detail-content-table edit-table" id="<?=$tableID?>">
-<?
+<?php 
 if(count($arErrors)>0)
 {
 	echo '<tr><td colspan="2">';
@@ -175,20 +175,20 @@ function HideShowId()
 }
 </script>
 <tr>
-	<td align="right" width="40%"><?echo GetMessage("BIZPROC_AS_ACT_TITLE")?></td>
+	<td align="right" width="40%"><?php echo GetMessage("BIZPROC_AS_ACT_TITLE")?></td>
 	<td width="60%">
 		<table width="100%"><tr>
 		<td width="95%"><?= CBPDocument::ShowParameterField("string", "title", $val, array("size" => 50, "id"=>"bpastitle")) ?></td>
-		<td width="5%">[<a href="javascript:void(0)" onclick="HideShowId()" title="<?echo GetMessage("BP_ACT_SET_ID_SHOWHIDE")?>"><?echo GetMessage("BP_ACT_SET_ID")?></a>]</td>
+		<td width="5%">[<a href="javascript:void(0)" onclick="HideShowId()" title="<?php echo GetMessage("BP_ACT_SET_ID_SHOWHIDE")?>"><?php echo GetMessage("BP_ACT_SET_ID")?></a>]</td>
 		</tr></table>
 	</td>
 </tr>
-<tr <?if(!$bShowId):?> style="display:none"<?endif?> id="id_activity_name">
-	<td align="right" width="40%"><?echo GetMessage("BP_ACT_SET_ID_ROW")?></td>
+<tr <?php if(!$bShowId):?> style="display:none"<?php endif?> id="id_activity_name">
+	<td align="right" width="40%"><?php echo GetMessage("BP_ACT_SET_ID_ROW")?></td>
 	<td width="60%"><input type="text" name="activity_id" value="<?=htmlspecialcharsbx($activity_id)?>" size="50"></td>
 </tr>
 
-<?
+<?php 
 $z = CBPActivity::CallStaticMethod(
 	$activityType,
 	"GetPropertiesDialog",
@@ -238,7 +238,7 @@ setTimeout("document.getElementById('bpastitle').focus();", 100);
 
 <input type="hidden" name="save" value="Y" />
 <input type="hidden" name="postback" value="Y" />
-<?
+<?php 
 $popupWindow->EndContent();
 $popupWindow->StartButtons();
 $popupWindow->ShowStandardButtons();

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCUMENTGENERATOR_INSTALL_DEPENDENCIES_ERROR"] = "The module requires PHP classes \\DOMDocument and \\ZipArchive.<br />Please install and activate PHP extenstions php-zip and php-xml";
 $MESS["DOCUMENTGENERATOR_MODULE_NAME"] = "Document Generator";
 $MESS["DOCUMENTGENERATOR_MODULE_DESCRIPTION"] = "This module will auto create documents based on templates.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VOLUME_PAGE_TITLE"] = "Очистка места на диске";
 $MESS["DISK_VOLUME_MORE"] = "Подробнее";
 $MESS["DISK_VOLUME_OPEN"] = "Открыть";

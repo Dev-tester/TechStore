@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_ROLE_ACTION"] = "Action";
 $MESS["DOCGEN_ROLE_CANCEL"] = "Cancel";
 $MESS["DOCGEN_ROLE_ENTITY"] = "Entity";

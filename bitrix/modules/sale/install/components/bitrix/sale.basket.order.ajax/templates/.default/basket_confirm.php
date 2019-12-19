@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="notetext">
-<?
+<?php 
 if (!empty($arResult["ORDER"]))
 {
 	?>
@@ -13,7 +13,7 @@ if (!empty($arResult["ORDER"]))
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 	if (!empty($arResult["PAY_SYSTEM"]))
 	{
 		?>
@@ -25,13 +25,13 @@ if (!empty($arResult["ORDER"]))
 					<?=GetMessage("SOA_TEMPL_PAY")?>: <?= $arResult["PAY_SYSTEM"]["NAME"] ?>
 				</td>
 			</tr>
-			<?
+			<?php 
 			if (strlen($arResult["PAY_SYSTEM"]["ACTION_FILE"]) > 0)
 			{
 				?>
 				<tr>
 					<td>
-						<?
+						<?php 
 						if ($arResult["PAY_SYSTEM"]["NEW_WINDOW"] == "Y")
 						{
 							?>
@@ -39,7 +39,7 @@ if (!empty($arResult["ORDER"]))
 								window.open('<?=$arParams["PATH_TO_PAYMENT"]?>?ORDER_ID=<?= $arResult["ORDER_BASKET"]["ORDER_ID"] ?>');
 							</script>
 							<?= GetMessage("SOA_TEMPL_PAY_LINK", Array("#LINK#" => $arParams["PATH_TO_PAYMENT"]."?ORDER_ID=".$arResult["ORDER_BASKET"]["ORDER_ID"])) ?>
-							<?
+							<?php 
 						}
 						else
 						{
@@ -84,12 +84,12 @@ if (!empty($arResult["ORDER"]))
 						?>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 		</table>
 
-		<?
+		<?php 
 		if ($arResult["ERR_ACCOUNT"] == "Y")
 			echo "<div>".GetMessage("NEWO_PAY_FROM_ACCOUNT_ERR")."</div>";
 	}
@@ -107,7 +107,7 @@ else
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>
 </div>

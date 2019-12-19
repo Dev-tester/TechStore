@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Наши реквизиты");
 ?>
@@ -127,4 +127,4 @@ $APPLICATION->SetTitle("Наши реквизиты");
 			<li>E-mail: <a href="mailto:RusBk@mail.rusbank.ru">RusBk@mail.rusbank.ru</a></li> 
 		</ul>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

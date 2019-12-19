@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C29_T_SENDER'] = "Отправитель";
 $MESS ['SONET_C29_T_MESSAGE'] = "Сообщение";
 $MESS ['SONET_C29_T_ACTIONS'] = "Действия";

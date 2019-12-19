@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_KANBAN_HELPER_FLT_TITLE"] = "Заголовок";
 $MESS["CRM_KANBAN_HELPER_FLT_DATE_CREATE"] = "Дата создания";
 $MESS["CRM_KANBAN_HELPER_FLT_BEGINDATE_DEAL"] = "Дата начала";

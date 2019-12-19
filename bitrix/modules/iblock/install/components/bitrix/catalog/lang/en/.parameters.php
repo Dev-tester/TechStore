@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BC_GROUP_BIG_DATA_SETTINGS"] = "Personal recommendations";
 $MESS["IBLOCK_ACTIONS"] = "Action settings";
 $MESS["IBLOCK_SORT_ASC"] = "ascending";

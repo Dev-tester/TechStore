@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USMP_NO_MODULE'] = "Модуль не найден";
 $MESS ['USMP_BACK'] = "Вернуться";
 $MESS ['USMP_TITLE'] = "Модуль #ID#";

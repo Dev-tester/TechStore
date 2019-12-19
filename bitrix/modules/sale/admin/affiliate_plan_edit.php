@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -241,7 +241,7 @@ if ($bVarsFromForm)
 	$DB->InitTableVarsForEdit("b_sale_affiliate_plan", "", "str_");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SAPE1_LIST"),
@@ -274,18 +274,18 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?if(strlen($errorMessage)>0)
+<?php if(strlen($errorMessage)>0)
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>$errorMessage, "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SAPE1_ERROR_SAVE"), "HTML"=>true));?>
 
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("SAPE1_PLAN"), "ICON" => "sale", "TITLE" => GetMessage("SAPE1_PLAN_PARAM")),
 	array("DIV" => "edit2", "TAB" => GetMessage("SAPE1_SECTIONS"), "ICON" => "sale", "TITLE" => GetMessage("SAPE1_SECTIONS_ALT")),
@@ -295,49 +295,49 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
 		<tr>
-			<td width="40%"><?echo GetMessage("SAPE1_TIMESTAMP_X")?></td>
+			<td width="40%"><?php echo GetMessage("SAPE1_TIMESTAMP_X")?></td>
 			<td width="60%"><?=$str_TIMESTAMP_X?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SAPE1_SITE")?></td>
+		<td width="40%"><?php echo GetMessage("SAPE1_SITE")?></td>
 		<td width="60%">
-			<?echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "");?>
+			<?php echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "");?>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SAPE1_NAME")?></td>
+		<td><?php echo GetMessage("SAPE1_NAME")?></td>
 		<td>
 			<input type="text" name="NAME" size="60" maxlength="250" value="<?= $str_NAME ?>">
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("SAPE1_DESCR")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("SAPE1_DESCR")?></td>
 		<td>
 			<textarea name="DESCRIPTION" rows="5" cols="60"><?= $str_DESCRIPTION ?></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAPE1_ACTIVE")?></td>
+		<td><?php echo GetMessage("SAPE1_ACTIVE")?></td>
 		<td>
-			<input type="checkbox" name="ACTIVE" value="Y"<?if ($str_ACTIVE == "Y") echo " checked"?>>
+			<input type="checkbox" name="ACTIVE" value="Y"<?php if ($str_ACTIVE == "Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SAPE1_RATE")?></td>
+		<td><?php echo GetMessage("SAPE1_RATE")?></td>
 		<td>
 			<input type="text" name="BASE_RATE" size="10" maxlength="10" value="<?= roundEx($str_BASE_RATE, SALE_VALUE_PRECISION) ?>">
-			<?
+			<?php 
 			if ($bVarsFromForm)
 			{
 				$str_BASE_RATE_TYPE_CMN = $BASE_RATE_TYPE_CMN;
@@ -352,7 +352,7 @@ $tabControl->BeginNextTab();
 			?>
 			<select name="BASE_RATE_TYPE_CMN">
 				<option value="P"<?= ($str_BASE_RATE_TYPE_CMN == "P") ? " selected" : "" ?>>%</option>
-				<?
+				<?php 
 				$arCurrencies = array();
 				$dbCurrencyList = CCurrency::GetList(($b = "currency"), ($o = "asc"));
 				while ($arCurrency = $dbCurrencyList->Fetch())
@@ -360,7 +360,7 @@ $tabControl->BeginNextTab();
 
 				foreach ($arCurrencies as $key => $value)
 				{
-					?><option value="<?= $key ?>"<?= ($key == $str_BASE_RATE_TYPE_CMN) ? " selected" : "" ?>><?= $value ?></option><?
+					?><option value="<?= $key ?>"<?= ($key == $str_BASE_RATE_TYPE_CMN) ? " selected" : "" ?>><?= $value ?></option><?php 
 				}
 				?>
 			</select>
@@ -372,7 +372,7 @@ $tabControl->BeginNextTab();
 			<input type="text" name="MIN_PLAN_VALUE" size="10" maxlength="10" value="<?= IntVal($str_MIN_PLAN_VALUE) ?>">
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
@@ -528,7 +528,7 @@ $tabControl->BeginNextTab();
 			//-->
 			</script>
 
-			<?
+			<?php 
 			$arIBlockCache = array();
 			$arIBlockTypeCache = array();
 			$maxLevel = 0;
@@ -587,7 +587,7 @@ $tabControl->BeginNextTab();
 				<?=$str2;?>
 				//-->
 				</script>
-				<?
+				<?php 
 			}
 			?>
 			<script type="text/javascript">
@@ -626,7 +626,7 @@ $tabControl->BeginNextTab();
 
 				var str = "";
 
-				<?
+				<?php 
 				if ($simpleForm != "Y")
 				{
 					?>
@@ -634,11 +634,11 @@ $tabControl->BeginNextTab();
 					oCell.vAlign = 'top';
 					str = '';
 					str += '<select name="MODULE_ID_' + cnt + '" id="ID_MODULE_ID_' + cnt + '" OnChange="ModuleChange(' + cnt + ')" style="width:150px;">';
-					<?
+					<?php 
 					$dbModuleList = CModule::GetList();
 					while ($arModuleList = $dbModuleList->Fetch())
 					{
-						?>str += '<option value="<?= $arModuleList["ID"] ?>"><?= htmlspecialcharsbx($arModuleList["ID"]) ?></option>';<?
+						?>str += '<option value="<?= $arModuleList["ID"] ?>"><?= htmlspecialcharsbx($arModuleList["ID"]) ?></option>';<?php 
 					}
 					?>
 					str += '</select>';
@@ -654,7 +654,7 @@ $tabControl->BeginNextTab();
 							break;
 						}
 					}
-					<?
+					<?php 
 				}
 				?>
 
@@ -666,22 +666,22 @@ $tabControl->BeginNextTab();
 				str += '<div id="ID_CATALOG_GROUP_' + cnt + '" style="display: none;">';
 				str += '<select name="SECTION_IBLOCK_ID_' + cnt + '" onChange="ChlistIBlock(' + cnt + ')" style="width:300px;">';
 				str += '<option value="0"> - </option>';
-				<?
+				<?php 
 				foreach ($arIBlockCache as $key => $arIBlock)
 				{
-					?>str += '<option value="<?= $arIBlock["ID"] ?>"><?= htmlspecialcharsbx("[".$arIBlockTypeCache[$arIBlock["IBLOCK_TYPE_ID"]]."] ".$arIBlock["NAME"]) ?></option>';<?
+					?>str += '<option value="<?= $arIBlock["ID"] ?>"><?= htmlspecialcharsbx("[".$arIBlockTypeCache[$arIBlock["IBLOCK_TYPE_ID"]]."] ".$arIBlock["NAME"]) ?></option>';<?php 
 				}
 				?>
 				str += '</select><br>';
-				<?
+				<?php 
 				$initValue = 0;
 				for ($i = 0; $i < $maxLevel; $i++)
 				{
 					?>
 					str += '<select name="SECTION_SELECTOR_LEVEL_' + cnt + '[<?= $i ?>]" onChange="Chlist(' + cnt + ', <?= $i ?>)" style="width:300px;">';
-					str += '<option value=""><?echo GetMessage("SAPE1_NO")?></option>';
+					str += '<option value=""><?php echo GetMessage("SAPE1_NO")?></option>';
 					str += '</select><br>';
-					<?
+					<?php 
 				}
 				?>
 				str += '</div>';
@@ -698,10 +698,10 @@ $tabControl->BeginNextTab();
 				str += '<input type="text" name="RATE_' + cnt + '" size="10" maxlength="10" value="' + rate + '">';
 				str += '<select name="RATE_TYPE_CMN_' + cnt + '" id="ID_RATE_TYPE_CMN_' + cnt + '" style="width:100px;">';
 				str += '<option value="P">%</option>';
-				<?
+				<?php 
 				foreach ($arCurrencies as $key => $value)
 				{
-					?>str += '<option value="<?= $key ?>"><?= htmlspecialcharsbx($value) ?></option>';<?
+					?>str += '<option value="<?= $key ?>"><?= htmlspecialcharsbx($value) ?></option>';<?php 
 				}
 				?>
 				str += '</select>';
@@ -721,19 +721,19 @@ $tabControl->BeginNextTab();
 				var oCell = oRow.insertCell(-1);
 				oCell.vAlign = 'top';
 				str = '';
-				str += '<a href="javascript:if(confirm(\'<?echo GetMessage("SAPE1_DELETE1_CONF")?>\')) AffDeleteSectionRow(' + cnt + ')"><?echo GetMessage("SAPE1_DELETE1")?></a>';
+				str += '<a href="javascript:if(confirm(\'<?php echo GetMessage("SAPE1_DELETE1_CONF")?>\')) AffDeleteSectionRow(' + cnt + ')"><?php echo GetMessage("SAPE1_DELETE1")?></a>';
 				oCell.innerHTML = str;
 
 				ChlistIBlock(cnt);
 
-				<?
+				<?php 
 				if ($simpleForm != "Y")
 				{
-					?>ModuleChange(cnt);<?
+					?>ModuleChange(cnt);<?php 
 				}
 				else
 				{
-					?>ShowHideSectionBox(cnt, true);<?
+					?>ShowHideSectionBox(cnt, true);<?php 
 				}
 				?>
 
@@ -790,17 +790,17 @@ $tabControl->BeginNextTab();
 			<input type="hidden" name="NUM_SECTIONS" id="NUM_SECTIONS" value="-1">
 			<table cellpadding="3" cellspacing="1" border="0" width="100%" class="internal" id="SECTIONS_TABLE">
 				<tr class="heading">
-					<?
+					<?php 
 					if ($simpleForm != "Y")
 					{
-						?><td><?echo GetMessage("SAPE1_MODULE")?></td><?
+						?><td><?php echo GetMessage("SAPE1_MODULE")?></td><?php 
 					}
 					?>
-					<td><?echo GetMessage("SAPE1_SECTION")?></td>
-					<td><?echo GetMessage("SAPE1_RATE1")?></td>
+					<td><?php echo GetMessage("SAPE1_SECTION")?></td>
+					<td><?php echo GetMessage("SAPE1_RATE1")?></td>
 					<td>&nbsp;</td>
 				</tr>
-				<?
+				<?php 
 				$cnt = -1;
 				if ($bVarsFromForm)
 				{
@@ -833,7 +833,7 @@ $tabControl->BeginNextTab();
 							AffAddSectionRow(-1, <?= CUtil::JSEscape(${"ID_".$i}) ?>, '<?= CUtil::JSEscape(${"MODULE_ID_".$i}) ?>', '<?= CUtil::JSEscape(${"SECTION_ID_".$i}) ?>', '<?= CUtil::JSEscape(${"RATE_".$i}) ?>', '<?= CUtil::JSEscape(${"RATE_TYPE_CMN_".$i}) ?>', <?= ((StrLen($str) > 0) ? "new Array(0, ".$str.")" : "new Array()") ?>);
 							//-->
 							</script>
-							<?
+							<?php 
 						}
 					}
 				}
@@ -869,7 +869,7 @@ $tabControl->BeginNextTab();
 						AffAddSectionRow(-1, <?= $arPlanSection["ID"] ?>, '<?= CUtil::JSEscape($str_MODULE_ID) ?>', '<?= CUtil::JSEscape($str_SECTION_ID) ?>', '<?= CUtil::JSEscape($str_RATE) ?>', '<?= CUtil::JSEscape($str_RATE_TYPE_CMN) ?>', <?= ((StrLen($str) > 0) ? "new Array(0, ".$str.")" : "new Array()") ?>);
 						//-->
 						</script>
-						<?
+						<?php 
 					}
 				}
 				?>
@@ -877,14 +877,14 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td colspan="2"><input type="button" value="<?echo GetMessage("SAPE1_ADD1")?>" OnClick="AffAddSectionRow(-1);"></td>
+		<td colspan="2"><input type="button" value="<?php echo GetMessage("SAPE1_ADD1")?>" OnClick="AffAddSectionRow(-1);"></td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => ($saleModulePermissions < "W"),
@@ -893,9 +893,9 @@ $tabControl->Buttons(
 );
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

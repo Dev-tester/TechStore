@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 IncludeModuleLangFile(__FILE__);
 
@@ -16,10 +16,10 @@ if (isset($webdav_installer_errors) && is_array($webdav_installer_errors) && (co
 		'HTML' => true
 	));
 	?>
-	<form action="<?echo $APPLICATION->GetCurPage()?>">
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">
+	<form action="<?php echo $APPLICATION->GetCurPage()?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">
 	</form>
-	<?
+	<?php 
 }
 ?>

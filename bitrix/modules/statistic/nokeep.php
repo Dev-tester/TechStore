@@ -1,4 +1,4 @@
-<?
+<?php 
 function SetNoKeepStatistics()
 {
 	@include($_SERVER["DOCUMENT_ROOT"]."/bitrix/license_key.php");

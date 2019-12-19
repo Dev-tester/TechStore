@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_JS_BUTTON_OK'] = "Да";
 $MESS['CRM_JS_BUTTON_CANCEL'] = "Отмена";
 $MESS['CRM_JS_DELETE_CONFIRM'] = "Вы уверены, что хотите удалить элемент?";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ME_ADD"] = "New meeting";
 $MESS["ME_DETAIL"] = "View meeting";
 $MESS["ME_DETAIL_EX"] = "View and edit meeting";

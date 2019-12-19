@@ -165,22 +165,22 @@ $filterControl = new CAdminFilter('conversionFilterControl', $filterPopup);
 
 ?>
 	<form name="conversionFilter" method="get" action="<?=$APPLICATION->GetCurPage()?>?">
-		<?$filterControl->Begin()?>
+		<?php $filterControl->Begin()?>
 		<tr>
 			<td><?=Loc::getMessage('CONVERSION_DETAILED_FILTER_PERIOD')?>:</td>
 			<td>
-				<?Bitrix\Conversion\AdminHelpers\renderPeriod($filter)?>
+				<?php Bitrix\Conversion\AdminHelpers\renderPeriod($filter)?>
 			</td>
 		</tr>
 		<tr>
 			<td><?=Loc::getMessage('CONVERSION_DETAILED_FILTER_RATE')?>:</td>
 			<td>
 				<select name="rate">
-					<?
+					<?php 
 
 					foreach ($rateTypes as $name => $type)
 					{
-						?><option value="<?=$name?>"<?=$name == $filter['rate'] ? ' selected' : ''?>><?=$type['NAME']?></option><?
+						?><option value="<?=$name?>"<?=$name == $filter['rate'] ? ' selected' : ''?>><?=$type['NAME']?></option><?php 
 					}
 
 					?>
@@ -191,18 +191,18 @@ $filterControl = new CAdminFilter('conversionFilterControl', $filterPopup);
 			<td><?=Loc::getMessage('CONVERSION_DETAILED_FILTER_SPLIT')?>:</td>
 			<td>
 				<select name="split">
-					<?
+					<?php 
 
 					foreach ($attributeTypes as $name => $type)
 					{
-						?><option value="<?=$name?>"<?=$name == $filter['split'] ? ' selected' : ''?>><?=$type['NAME']?></option><?
+						?><option value="<?=$name?>"<?=$name == $filter['split'] ? ' selected' : ''?>><?=$type['NAME']?></option><?php 
 					}
 
 					?>
 				</select>
 			</td>
 		</tr>
-		<?
+		<?php 
 
 		foreach ($attributeTypes as $aname => $atype)
 		{
@@ -214,18 +214,18 @@ $filterControl = new CAdminFilter('conversionFilterControl', $filterPopup);
 					<td>
 						<select name="<?=$aname?>">
 							<option><?=Loc::getMessage('CONVERSION_DETAILED_FILTER_ALL')?></option>
-							<?
+							<?php 
 
 							foreach ($getAttributeValues() as $name => $type)
 							{
-								?><option value="<?=$name?>"<?=$name == $filter[$aname] ? ' selected' : ''?>><?=$type['NAME']?></option><?
+								?><option value="<?=$name?>"<?=$name == $filter[$aname] ? ' selected' : ''?>><?=$type['NAME']?></option><?php 
 							}
 
 							?>
 						</select>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 		}
 
@@ -240,7 +240,7 @@ $filterControl = new CAdminFilter('conversionFilterControl', $filterPopup);
 
 		?>
 	</form>
-<?
+<?php 
 
 $adminList->DisplayList();
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_WF_ATTENTION1'] = "Achtung! Sie können hochgeladene Dateien nicht verändern.";
 $MESS ['WD_BP'] = "Geschäftsprozesse";
 $MESS ['IBEL_BIZPROC_DATE'] = "Datum des aktuellen Status:";

@@ -14,14 +14,14 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 use Bitrix\Main\Localization\Loc;
 ?>
 
-<?
+<?php 
 CJSCore::Init(array('disk'));
 \Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/components/bitrix/disk.interface.grid/templates/.default/bitrix/main.interface.grid/.default/style.css');
 ?>
 
 <div class="bx-disk-interface-toolbar-container" style="max-height: 60px; overflow: hidden;">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:disk.breadcrumbs',
 		'',
@@ -36,7 +36,7 @@ CJSCore::Init(array('disk'));
 	<div style="clear: both;"></div>
 </div>
 <div class="bx-disk-interface-filelist">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.ui.grid',
 		'',

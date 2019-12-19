@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_TYPE_ENTITY_CODE_FIELD"] = "Symbolischer Code";
 $MESS["SALE_LOCATION_TYPE_ENTITY_SORT_FIELD"] = "Sortierung";
 $MESS["SALE_LOCATION_TYPE_ENTITY_DEPTH_LEVEL_FIELD"] = "Verschachtelungsebene";

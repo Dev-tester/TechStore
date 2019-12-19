@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_PERMISSIONS", true);
 define("STOP_STATISTICS", true);
 define("BX_SENDPULL_COUNTER_QUEUE_DISABLE", true);

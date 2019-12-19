@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["main_incl_file_comp_param"] = "Edit component parameters";
 $MESS["main_comp_button_menu_title"] = "Edit component parameters";
 $MESS["main_comp_copy_templ"] = "Copy component template";

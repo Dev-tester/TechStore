@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MODULE_NOT_INSTALL"] = "Модуль социальной сети не установлен.";
 $MESS["SONET_URE_NO_USER"] = "Пользователь не найден.";
 $MESS["SONET_URE_PAGE_TITLE"] = "Приглашения и запросы пользователя";

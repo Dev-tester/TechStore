@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_MODULE_NOT_INSTALLED"] = "Модуль wiki не установлен.";
 $MESS["WIKI_SOCNET_INITIALIZING_FAILED"] = "Ошибка инициализации Соц.Сети";
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Модуль iblock не установлен.";

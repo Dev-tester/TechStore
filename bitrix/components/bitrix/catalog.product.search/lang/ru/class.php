@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPS_TIMESTAMP"] = "Дата изменения";
 $MESS["SPS_ANY"] = "любой";
 $MESS["SPS_ACTIVE"] = "Активен";

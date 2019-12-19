@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (is_array($arResult["SEARCH"]) && !empty($arResult["SEARCH"]))
 {
 ?>
@@ -11,10 +11,10 @@ if (is_array($arResult["SEARCH"]) && !empty($arResult["SEARCH"]))
 		</div>
 		<div class="tags-cloud">
 			<noindex>
-				<div class="search-tags-cloud" <?=$arParams["WIDTH"]?>><?
+				<div class="search-tags-cloud" <?=$arParams["WIDTH"]?>><?php 
 					foreach ($arResult["SEARCH"] as $key => $res)
 					{
-					?><a href="<?=$res["URL"]?>" style="font-size: <?=$res["FONT_SIZE"]?>px;" rel="nofollow"><?=$res["NAME"]?></a> <?
+					?><a href="<?=$res["URL"]?>" style="font-size: <?=$res["FONT_SIZE"]?>px;" rel="nofollow"><?=$res["NAME"]?></a> <?php 
 					}
 				?></div>
 			</noindex>
@@ -22,6 +22,6 @@ if (is_array($arResult["SEARCH"]) && !empty($arResult["SEARCH"]))
 	</div>
 </div>
 
-<?
+<?php 
 }
 ?>

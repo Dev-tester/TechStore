@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_TITLE'] = "Blog name:";
 $MESS ['BLOG_TITLE_DESCR'] = "Specify a unique name which would describe your blog";
 $MESS ['BLOG_DESCR'] = "Blog description:";

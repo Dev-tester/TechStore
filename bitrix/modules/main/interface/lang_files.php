@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main;
 
@@ -13,15 +13,15 @@ if ($_SESSION["SHOW_LANG_FILES"] != "Y" || defined('NO_LANG_FILES'))
 
 if (defined('ADMIN_SECTION'))
 {
-	?><div style="overflow: auto; width:100%; height: 200px; background-color:#F8F9FC; border: 1px solid #E7EAF5"><?
+	?><div style="overflow: auto; width:100%; height: 200px; background-color:#F8F9FC; border: 1px solid #E7EAF5"><?php 
 }
 else
 {
-	?><div style="overflow: auto; width:100%; height: 200px; background-color:white; border: 1px solid black"><?
+	?><div style="overflow: auto; width:100%; height: 200px; background-color:white; border: 1px solid black"><?php 
 }
 ?>
 <table cellpadding="2">
-<?
+<?php 
 $NEW_LANGS = Main\Localization\Loc::getIncludedFiles();
 if (!empty($NEW_LANGS))
 	$NEW_LANGS = array_values($NEW_LANGS);
@@ -92,20 +92,20 @@ foreach($NEW_LANGS as $i=>$vvv):
 </td>
 <td valign="top"><font class="text"><?=$stf?></font></td>
 </tr>
-<?
+<?php 
 	endif;
 endforeach;
 ?>
 </table>
 </div>
-<?
+<?php 
 
 if(defined('NO_LANG_FILES') || (defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == true))
 	return;
 
 ?>
 <form method="<?=$_SERVER["REQUEST_METHOD"]?>"
-	action="<?
+	action="<?php 
 		echo $APPLICATION->GetCurPage();
 		if($_SERVER["REQUEST_METHOD"]=="POST")
 		{
@@ -114,18 +114,18 @@ if(defined('NO_LANG_FILES') || (defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == t
 		}
 		?>"
 >
-	<?
+	<?php 
 	if($_SERVER["REQUEST_METHOD"]=="POST")
 		$v = $_POST;
 	else
 		$v = $_GET;
 	?>
-	<?
+	<?php 
 	foreach($v as $vname=>$vvalue):
 		if($vname=="srchlngfilb" || $vname=="srchlngfil") continue;
 	?>
-	<input type="hidden" name="<?echo htmlspecialcharsbx($vname)?>" value="<?echo htmlspecialcharsbx($vvalue)?>">
-	<?endforeach?>
+	<input type="hidden" name="<?php echo htmlspecialcharsbx($vname)?>" value="<?php echo htmlspecialcharsbx($vvalue)?>">
+	<?php endforeach?>
 	<input type="text" size="100" class="typeinput" name="srchlngfil"  value="<?=htmlspecialcharsbx($_REQUEST["srchlngfil"])?>">
 	<input type="submit" class="button" name="srchlngfilb" value="OK">
 </form>

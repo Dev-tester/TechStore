@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPC_TEXT_ENTER_URL'] = "Введите полный адрес (URL)";
 $MESS ['BPC_TEXT_ENTER_URL_NAME'] = "Введите название сайта";
 $MESS ['BPC_TEXT_ENTER_IMAGE'] = "Введите полный адрес (URL) изображения";

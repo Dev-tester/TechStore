@@ -18,14 +18,14 @@ $APPLICATION->setPageProperty('BodyClass', trim(sprintf('%s %s', $bodyClass, 'pa
 
 if ($isIframe):?>
 	<div class="mail-signature-is-iframe">
-<?endif;
+<?php endif;
 
 if (SITE_TEMPLATE_ID == 'bitrix24' || $isIframe)
 {
 	$this->setViewTarget('inside_pagetitle'); ?>
 
 	<div class="pagetitle-container mail-pagetitle-flexible-space">
-		<? $APPLICATION->includeComponent(
+		<?php  $APPLICATION->includeComponent(
 			'bitrix:main.ui.filter', '',
 			$arResult['FILTER']
 		); ?>
@@ -35,7 +35,7 @@ if (SITE_TEMPLATE_ID == 'bitrix24' || $isIframe)
 		<?= Loc::getMessage('MAIL_USERSIGNATURE_ADD_BUTTON') ?>
 	</button>
 
-	<? $this->endViewTarget();
+	<?php  $this->endViewTarget();
 }
 else
 {
@@ -48,13 +48,13 @@ else
 		<?= Loc::getMessage('MAIL_USERSIGNATURE_ADD_BUTTON') ?>
 	</button>
 
-	<?
+	<?php 
 }
 
 $APPLICATION->SetTitle(Loc::getMessage('MAIL_USERSIGNATURE_LIST_TITLE'));
 
 ?><div id="signature-alert-container">
-</div><?
+</div><?php 
 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.ui.grid",
@@ -62,10 +62,10 @@ $APPLICATION->IncludeComponent(
 	$arResult['GRID']
 );?>
 
-<?if ($isIframe)
+<?php if ($isIframe)
 {?>
 	</div>
-<?}?>
+<?php }?>
 <script>
 	BX.ready(function() {
 		<?='BX.message('.\CUtil::PhpToJSObject(\Bitrix\Main\Localization\Loc::loadLanguageFile(__FILE__)).');'?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Web\Json;
@@ -59,7 +59,7 @@ Extension::load("ui.buttons");
 Extension::load("ui.buttons.icons");
 ?>
 	<div class="pagetitle-container pagetitle-flexible-space">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:main.ui.filter",
 			"",
@@ -73,7 +73,7 @@ Extension::load("ui.buttons.icons");
 		);
 		?>
 	</div>
-	<?if ($arParams['CAN_EDIT']):?>
+	<?php if ($arParams['CAN_EDIT']):?>
 	<div class="pagetitle-container pagetitle-align-right-container">
 		<a id="CRM_EXCLUSION_BUTTON_ADD"
 			href="<?=htmlspecialcharsbx($arParams['PATH_TO_IMPORT'])?>"
@@ -82,8 +82,8 @@ Extension::load("ui.buttons.icons");
 			<?=Loc::getMessage('CRM_EXCLUSION_LIST_BTN_ADD')?>
 		</a>
 	</div>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 if ($isBitrix24Template)
 {
 	$this->EndViewTarget();

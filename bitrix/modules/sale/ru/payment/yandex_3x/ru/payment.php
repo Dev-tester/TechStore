@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SPCP_DTITLE"] = "Яндекс.Касса 3.x";
 $MESS["SHOP_ID"] = "Идентификатор магазина в ЦПП (ShopID)";

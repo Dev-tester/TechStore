@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 use \Bitrix\ImConnector\Library;
@@ -39,7 +39,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_del" value="Y">
 	<?=bitrix_sessid_post();?>
 </form>
-<?
+<?php 
 if (empty($arResult['PAGE'])) //case of first opening
 {
 	?>
@@ -49,7 +49,7 @@ if (empty($arResult['PAGE'])) //case of first opening
 				<div class="connector-icon ui-icon ui-icon-service-<?=$iconCode?>"><i></i></div>
 			</div>
 			<div class="imconnector-field-box">
-			<?
+			<?php 
 			if ($arResult['STATUS']) //first open active form
 			{
 				?>
@@ -68,7 +68,7 @@ if (empty($arResult['PAGE'])) //case of first opening
 						<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 					</button>
 				</div>
-				<?
+				<?php 
 			}
 			elseif($arResult['ACTIVE_STATUS']) //first open form with started setting
 			{
@@ -88,7 +88,7 @@ if (empty($arResult['PAGE'])) //case of first opening
 						<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 					</button>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -111,14 +111,14 @@ if (empty($arResult['PAGE'])) //case of first opening
 						</button>
 					</form>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
-	<?
+	<?php include 'messages.php'?>
+	<?php 
 	if ($arResult['STATUS']) //first open active form
 	{
 		?>
@@ -138,17 +138,17 @@ if (empty($arResult['PAGE'])) //case of first opening
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
 		<div class="imconnector-field-container">
 			<div class="imconnector-field-section">
-				<?include 'connection-help.php';?>
+				<?php include 'connection-help.php';?>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 }
 else //shows form
@@ -169,10 +169,10 @@ else //shows form
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
+	<?php include 'messages.php'?>
 	<div class="imconnector-field-container">
 		<div class="imconnector-field-section imconnector-field-section-control">
-			<?
+			<?php 
 			if(!empty($arResult["URL_WEBHOOK"]))
 			{
 				?>
@@ -192,13 +192,13 @@ else //shows form
 						</button>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 
 			<form action="<?=$arResult["URL"]["SIMPLE_FORM_EDIT"]?>"
 				  method="post"
-				  <?if(empty($arResult["INFO_CONNECTION"])) { ?>class="imconnector-field-control-box-border" <? } ?>>
+				  <?php if(empty($arResult["INFO_CONNECTION"])) { ?>class="imconnector-field-control-box-border" <?php  } ?>>
 				<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_form" value="true">
 				<?=bitrix_sessid_post();?>
 				<div class="imconnector-step-text">
@@ -407,7 +407,7 @@ else //shows form
 						   value="<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_SAVE')?>">
 				</div>
 
-				<?
+				<?php 
 				/*if($arResult["SAVE_STATUS"])
 				{
 					?>
@@ -421,18 +421,18 @@ else //shows form
 							   class="webform-small-button webform-small-button-accept"
 							   value="<?=Loc::getMessage('IMCONNECTOR_COMPONENT_BOTFRAMEWORK_TESTED')?>">
 					</div>
-					<?
+					<?php 
 				}*/
 				?>
 
-				<?
+				<?php 
 					if(!empty($arResult["STATUS"]))
 					{
 						include 'final.php';
 					}
 				?>
 			</form>
-			<?
+			<?php 
 			if (empty($arResult['INFO_CONNECTION']))
 			{
 				include 'connection-help.php';
@@ -440,6 +440,6 @@ else //shows form
 			?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var array $arParams */
 /** @var array $arResult */
@@ -21,20 +21,20 @@ CJSCore::Init([
 $patternToEditTemplate = $arParams['EDIT_URL'];
 $patternToEditTemplate = substr($patternToEditTemplate, 0, strpos($patternToEditTemplate, '#'));
 ?>
-<? $this->setViewTarget("inside_pagetitle", 10); ?>
+<?php  $this->setViewTarget("inside_pagetitle", 10); ?>
 	<div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;">
 		<div class="pagetitle-container pagetitle-align-right-container">
 			<span id="bx-disk-create-bp" class="ui-btn ui-btn-primary ui-btn-dropdown"><?= Loc::getMessage('DISK_BIZPROC_LIST_CREATE_BP') ?></span>
 		</div>
 	</div>
-<? $this->endViewTarget(); ?>
+<?php  $this->endViewTarget(); ?>
 
 
-<? if (empty($arResult['GRID_TEMPLATES'])): ?>
+<?php  if (empty($arResult['GRID_TEMPLATES'])): ?>
 <div class='wd-help-list selected'>
 	<?=str_replace("#HREF#",'"'.$APPLICATION->getCurPageParam("action=createDefault&".bitrix_sessid_get(), array("action", "sessid")).'"',Loc::getMessage("WD_EMPTY"))?>
 </div>
-<? else:
+<?php  else:
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.interface.grid',
 		'',
@@ -63,19 +63,19 @@ endif;
 if($arResult['CREATE_NEW_TEMPLATES']):?>
 	<br />
 	<?=str_replace("#HREF#",'"'.$APPLICATION->getCurPageParam("action=createDefault&".bitrix_sessid_get(), array("action", "sessid")).'"',Loc::getMessage("WD_EMPTY_NEW"))?>
-<? endif;
+<?php  endif;
 if (Loader::includeModule('bizprocdesigner')):?>
 <br />
 <div class='wd-help-list selected'>
 	<?= Loc::getMessage('BPATT_HELP1_TEXT')?><br />
 	<?= Loc::getMessage('BPATT_HELP2_TEXT')?>
 </div>
-<?endif;
+<?php endif;
 if($arResult['PROMPT_OLD_TEMPLATE']): ?>
 <div class='bx-disk-prompt-old-template'>
 	<p><?= Loc::getMessage('PROMPT_OLD_TEMPLATE') ?></p>
 </div>
-<? endif;?>
+<?php  endif;?>
 
 <script type="text/javascript">
 	BX(function () {

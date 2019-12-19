@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_TP_EBAY_FDPO_ORDER_PROCESSED"] = "Bestellung ##ORDER_ID# wurde erfolgreich verarbeitet";
 $MESS["SALE_TP_EBAY_FDPO_ORDER_ERROR"] = "Fehler bei Verarbeitung der Bestellung ##ORDER_ID# ";
 $MESS["SALE_TP_EBAY_FDPO_ORDER_SKIPPED"] = "Bestellung ##ORDER_ID# wurde nicht verarbeitet, weil sie nicht bezahlt ist";

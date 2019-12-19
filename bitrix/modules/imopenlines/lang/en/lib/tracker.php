@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_TRACKER_ERROR_NO_REQUIRED_PARAMETERS"] = "Required parameters were not submitted or have invalid format";
 $MESS["IMOL_TRACKER_SESSION_DEAL"] = "Deal";
 $MESS["IMOL_TRACKER_SESSION_COMPANY"] = "Company";

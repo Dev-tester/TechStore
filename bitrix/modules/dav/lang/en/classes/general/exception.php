@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DAVCGERR_NULL_ARG"] = "The value of '#PARAM#' is undefined.";
 $MESS["DAVCGERR_INVALID_ARG"] = "The value of '#PARAM#' is invalid.";
 $MESS["DAVCGERR_INVALID_ARG1"] = "The value of '#PARAM#' must be #VALUE#.";

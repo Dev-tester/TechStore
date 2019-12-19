@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CPSA_MODULE_NOT_INSTALLED"] = "Модуль \"#NAME#\" не установлен";
 $MESS["CPSA_CONTACT_TYPE_NOT_FOUND"] = "Нет доступного типа контакта";
 $MESS["CPSA_SUCCESS_SUBSCRIBE"] = "Вы успешно подписались";

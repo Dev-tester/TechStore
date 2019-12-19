@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_CHANNEL"] = "Channel:";
 $MESS["VOTE_VOTE"] = "Poll:";
 $MESS["VOTE_PAGE_TITLE"] = "Vote # #ID#";

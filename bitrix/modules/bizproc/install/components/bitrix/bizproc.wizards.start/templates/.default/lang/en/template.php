@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WRCT_SUCCESS'] = "Your request has been created successfully.";
 $MESS ['BPWC_WRCT_ERROR'] = "The request has failed to run.";
 $MESS ['BPWC_WRCT_2LIST'] = "Business Processes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADDITIONAL_PROPS_DEFAULT"] = "Additional properties";
 $MESS["ADD_DEFAULT"] = "Add";
 $MESS["AUTH_BLOCK_NAME_DEFAULT"] = "Log in";

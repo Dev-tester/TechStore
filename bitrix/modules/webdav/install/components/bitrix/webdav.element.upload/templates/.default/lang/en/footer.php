@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_WF_STATUS'] = "Status for New Uploaded Files";
 $MESS ['WD_WF_ATTENTION1'] = "Attention! You cannot modify uploaded files.";
 $MESS ['WD_WF_ATTENTION2'] = "You can edit files in status #STATUS#.";

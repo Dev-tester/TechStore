@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_OIIV_CANCEL'] = "Cancel";
 $MESS['CRM_OIIV_CREATE_STORE'] = "Create online store";
 $MESS['CRM_OIIV_IMPORT'] = "Import";

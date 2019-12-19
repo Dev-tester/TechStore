@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ISV_PARAM_NAME_TEMPLATE'] = "Name format";
 $MESS ['INTR_ISV_PARAM_NAME_TEMPLATE_DEFAULT'] = "#NOBR##NAME# #LAST_NAME##/NOBR#";
 $MESS ['INTR_ISV_PARAM_SHOW_LOGIN'] = "Show Login Name if no required user name fields are available";

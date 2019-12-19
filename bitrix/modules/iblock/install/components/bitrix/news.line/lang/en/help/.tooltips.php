@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE_TIP'] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type.";
 $MESS ['IBLOCKS_TIP'] = "Select here one of the existing information blocks. You can select multiple items by holding  <b>Ctrl</b> down.";
 $MESS ['NEWS_COUNT_TIP'] = "Specifies the number of elements per page.";

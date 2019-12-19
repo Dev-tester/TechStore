@@ -44,7 +44,7 @@ if($arResult['NEED_FOR_FIX_STATUSES']): ?>
 	<div id="fixStatusesMsg" class="crm-view-message">
 		<?=GetMessage('CRM_STATUS_FIX_STATUSES', array('#ID#' => 'fixStatusesLink', '#URL#' => '#'))?>
 	</div>
-<? endif;
+<?php  endif;
 $tabActive = 'status_tab_active';
 $jsClass = 'CrmConfigStatusClass_'.$arResult['RAND_STRING'];
 
@@ -77,28 +77,28 @@ else
 <div id="crm-container" class="crm-container">
 
 	<div id="status_box" class="crm-transaction-menu">
-		<? foreach($arResult['HEADERS'] as $entityId => $headerName): ?>
-			<?$headerName = htmlspecialcharsbx($headerName);?>
-			<? $tabActive = ('status_tab_'.$entityId == $arResult['ACTIVE_TAB']) ? 'status_tab_active':'' ?>
+		<?php  foreach($arResult['HEADERS'] as $entityId => $headerName): ?>
+			<?php $headerName = htmlspecialcharsbx($headerName);?>
+			<?php  $tabActive = ('status_tab_'.$entityId == $arResult['ACTIVE_TAB']) ? 'status_tab_active':'' ?>
 			<a href="javascript:void(0)" id="status_tab_<?=$entityId?>" class="status_tab <?=$tabActive?>"
 			   onclick="BX['<?=$jsClass?>'].selectTab('<?=$entityId ?>');" title="<?=$headerName?>">
 				<span><?=$headerName?></span>
 			</a>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</div>
 
 	<div class="crm-transaction-stage">
-		<? foreach($arResult['HEADERS'] as $entityId => $headerName): ?>
-			<? $isActive = $entityId === $arResult['ACTIVE_ENTITY_ID']; ?>
-			<? $maxSort = 0; ?>
-			<? if(isset($arResult['ENTITY'][$entityId])): ?>
-			<? $entitySettings = $arResult['ENTITY'][$entityId];?>
+		<?php  foreach($arResult['HEADERS'] as $entityId => $headerName): ?>
+			<?php  $isActive = $entityId === $arResult['ACTIVE_ENTITY_ID']; ?>
+			<?php  $maxSort = 0; ?>
+			<?php  if(isset($arResult['ENTITY'][$entityId])): ?>
+			<?php  $entitySettings = $arResult['ENTITY'][$entityId];?>
 			<div id="content_<?=$entityId?>"
 				 class="crm-status-content<?= $isActive ? ' active' : ''?>">
 
 				<div class="transaction-stage transaction-initial-stage">
 
-					<?
+					<?php 
 						$iconClass = '';
 						$blockClass = '';
 						$colorValue = $initialFields[$entityId]['COLOR'] ? $initialFields[$entityId]['COLOR'] : '#ACE9FB';
@@ -113,14 +113,14 @@ else
 						 style="<?=htmlspecialcharsbx($style)?>">
 						<div id="phase-panel" data-class="transaction-stage-phase-panel"
 							 class="<?=$blockClass?> transaction-stage-phase-panel">
-							<?if($initialFields[$entityId]['SYSTEM'] == 'Y' &&
+							<?php if($initialFields[$entityId]['SYSTEM'] == 'Y' &&
 								!empty($initialFields[$entityId]['NAME_INIT'])):?>
 								<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$initialFields[$entityId]['ID']?>',
 									'<?=htmlspecialcharsbx($initialFields[$entityId]['NAME_INIT'])?>')"
 									class="transaction-stage-phase-panel-button
 									transaction-stage-phase-panel-button-refresh"
 									title="<?=GetMessage('CRM_STATUS_LIST_RECOVERY_NAME')?>"></div>
-							<?endif?>
+							<?php endif?>
 							<div class="transaction-stage-phase-panel-button"
 								 title="<?=GetMessage('CRM_STATUS_EDIT_COLOR')?>"
 								 onclick="BX['<?=$jsClass?>'].correctionColorPicker(event,
@@ -163,9 +163,9 @@ else
 
 				<div id="extra-storage-<?=$entityId?>" class="transaction-stage droppable">
 					<div class="transaction-stage-title"><?=GetMessage('CRM_STATUS_TITLE_EXTRA_'.$entityId)?></div>
-					<? foreach($extraFields[$entityId] as $field): ?>
+					<?php  foreach($extraFields[$entityId] as $field): ?>
 
-						<?
+						<?php 
 							$blockClass = '';
 							$iconClass = '';
 							$colorValue = $field['COLOR'] ? $field['COLOR'] : '#ACE9FB';
@@ -178,13 +178,13 @@ else
 							 data-sort="<?=$field['SORT']?>" ondblclick="BX['<?=$jsClass?>'].editField('<?=$field['ID']?>');">
 							<div id="phase-panel" data-class="transaction-stage-phase-panel"
 								 class="<?=$blockClass?> transaction-stage-phase-panel">
-								<?if(!empty($field['NAME_INIT'])):?>
+								<?php if(!empty($field['NAME_INIT'])):?>
 									<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$field['ID']?>',
 										'<?=htmlspecialcharsbx($field['NAME_INIT'])?>')"
 										 title="<?=GetMessage('CRM_STATUS_LIST_RECOVERY_NAME')?>"
 										 class="transaction-stage-phase-panel-button
 									transaction-stage-phase-panel-button-refresh"></div>
-								<?endif?>
+								<?php endif?>
 								<div class="transaction-stage-phase-panel-button"
 									 title="<?=GetMessage('CRM_STATUS_EDIT_COLOR')?>"
 									 onclick="BX['<?=$jsClass?>'].correctionColorPicker(event, '<?=$field['ID']?>')">
@@ -225,7 +225,7 @@ else
 								   id="stage-status-id-<?=$field['ID']?>" data-status-id="1"
 								   value="<?=htmlspecialcharsbx($field['STATUS_ID'])?>">
 						</div>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 					<a href="javascript:void(0)" onclick="BX['<?=$jsClass?>'].addField(this);"
 					   class="transaction-stage-addphase draghandle" data-space="main">+
 						<span><?=isset($entitySettings['ADD_CAPTION']) ? $entitySettings['ADD_CAPTION'] : GetMessage('CRM_STATUS_ADD')?></span>
@@ -242,7 +242,7 @@ else
 					</div>
 					<div class="transaction-stage-final-column">
 
-						<?
+						<?php 
 							$blockClass = '';
 							$iconClass = '';
 							$colorValue = $finalFields[$entityId]['SUCCESSFUL']['COLOR'] ?
@@ -259,7 +259,7 @@ else
 								 style="<?=htmlspecialcharsbx($style)?>" data-success="1">
 								<div id="phase-panel" data-class="transaction-stage-phase-panel"
 									 class="<?=$blockClass?> transaction-stage-phase-panel">
-									<?if($finalFields[$entityId]['SUCCESSFUL']['SYSTEM'] == 'Y' &&
+									<?php if($finalFields[$entityId]['SUCCESSFUL']['SYSTEM'] == 'Y' &&
 										!empty($finalFields[$entityId]['SUCCESSFUL']['NAME_INIT'])):?>
 										<div onclick="BX['<?=$jsClass?>'].recoveryName(
 											'<?=$finalFields[$entityId]['SUCCESSFUL']['ID']?>',
@@ -267,7 +267,7 @@ else
 											 title="<?=GetMessage('CRM_STATUS_LIST_RECOVERY_NAME')?>"
 											 class="transaction-stage-phase-panel-button
 												transaction-stage-phase-panel-button-refresh"></div>
-									<?endif?>
+									<?php endif?>
 									<div class="transaction-stage-phase-panel-button"
 										 title="<?=GetMessage('CRM_STATUS_EDIT_COLOR')?>"
 										 onclick="BX['<?=$jsClass?>'].correctionColorPicker(event,
@@ -311,7 +311,7 @@ else
 					</div>
 					<div class="transaction-stage-final-column">
 
-						<?
+						<?php 
 							$blockClass = '';
 							$iconClass = '';
 							$colorValue = $finalFields[$entityId]['UNSUCCESSFUL']['COLOR'] ?
@@ -328,7 +328,7 @@ else
 								 style="<?=htmlspecialcharsbx($style)?>" data-success="0">
 								<div id="phase-panel" data-class="transaction-stage-phase-panel"
 									 class="<?=$blockClass?> transaction-stage-phase-panel">
-									<?if($finalFields[$entityId]['UNSUCCESSFUL']['SYSTEM'] == 'Y' &&
+									<?php if($finalFields[$entityId]['UNSUCCESSFUL']['SYSTEM'] == 'Y' &&
 										!empty($finalFields[$entityId]['UNSUCCESSFUL']['NAME_INIT'])):?>
 										<div onclick="BX['<?=$jsClass?>'].recoveryName(
 											'<?=$finalFields[$entityId]['UNSUCCESSFUL']['ID']?>',
@@ -336,7 +336,7 @@ else
 											 title="<?=GetMessage('CRM_STATUS_LIST_RECOVERY_NAME')?>"
 											 class="transaction-stage-phase-panel-button
 												transaction-stage-phase-panel-button-refresh"></div>
-									<?endif?>
+									<?php endif?>
 									<div class="transaction-stage-phase-panel-button"
 										 title="<?=GetMessage('CRM_STATUS_EDIT_COLOR')?>"
 										 onclick="BX['<?=$jsClass?>'].correctionColorPicker(event,
@@ -374,9 +374,9 @@ else
 									   id="stage-status-id-<?=$finalFields[$entityId]['UNSUCCESSFUL']['ID']?>" data-status-id="1"
 									   value="<?=htmlspecialcharsbx($finalFields[$entityId]['UNSUCCESSFUL']['STATUS_ID'])?>">
 							</div>
-							<? foreach($extraFinalFields[$entityId] as $field): ?>
+							<?php  foreach($extraFinalFields[$entityId] as $field): ?>
 
-								<?
+								<?php 
 									$blockClass = '';
 									$iconClass = '';
 									$colorValue = $field['COLOR'] ? $field['COLOR'] : '#FFBEBD';
@@ -391,13 +391,13 @@ else
 									 style="<?=htmlspecialcharsbx($style)?>">
 									<div id="phase-panel" data-class="transaction-stage-phase-panel"
 										 class="<?=$blockClass?> transaction-stage-phase-panel">
-										<?if(!empty($field['NAME_INIT'])):?>
+										<?php if(!empty($field['NAME_INIT'])):?>
 											<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$field['ID']?>',
 												'<?=htmlspecialcharsbx($field['NAME_INIT'])?>')"
 												 title="<?=GetMessage('CRM_STATUS_LIST_RECOVERY_NAME')?>"
 												 class="transaction-stage-phase-panel-button
 													transaction-stage-phase-panel-button-refresh"></div>
-										<?endif?>
+										<?php endif?>
 										<div class="transaction-stage-phase-panel-button"
 											 title="<?=GetMessage('CRM_STATUS_EDIT_COLOR')?>"
 											 onclick="BX['<?=$jsClass?>'].correctionColorPicker(event,
@@ -440,7 +440,7 @@ else
 										   id="stage-status-id-<?=$field['ID']?>" data-status-id="1"
 										   value="<?=htmlspecialcharsbx($field['STATUS_ID'])?>">
 								</div>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 							<a href="javascript:void(0)" onclick="BX['<?=$jsClass?>'].addField(this);"
 							   data-space="final" class="transaction-stage-addphase draghandle">+
 								<span><?=isset($entitySettings['ADD_CAPTION']) ? $entitySettings['ADD_CAPTION'] : GetMessage('CRM_STATUS_ADD')?></span>
@@ -488,11 +488,11 @@ else
 												style="background:<?=(isset($initialFields[$entityId]['COLOR'])) ?
 													htmlspecialcharsbx($initialFields[$entityId]['COLOR']) : '#ACE9FB'?>">&nbsp;</td>
 
-											<?foreach($extraFields[$entityId] as $field):?>
+											<?php foreach($extraFields[$entityId] as $field):?>
 												<td data-scale-type="main"
 													style="background:<?= (isset($field['COLOR'])) ?
 														htmlspecialcharsbx($field['COLOR']) : '#ACE9FB'?>">&nbsp;</td>
-											<?endforeach;?>
+											<?php endforeach;?>
 											<td id="previously-scale-final-cell-<?=$entityId?>">
 												<span class="stage-name"><?=GetMessage('CRM_STATUS_FINAL_TITLE')?></span>
 											</td>
@@ -503,11 +503,11 @@ else
 													<?=$initialFields[$entityId]['NUMBER']?>
 												</span>
 											</td>
-											<?foreach($extraFields[$entityId] as $field):?>
+											<?php foreach($extraFields[$entityId] as $field):?>
 												<td data-scale-type="main">
 													<span class="stage-name"><?=$field['NUMBER']?></span>
 												</td>
-											<?endforeach;?>
+											<?php endforeach;?>
 											<td id="previously-scale-number-final-cell-<?=$entityId?>">
 												<span class="stage-name">&nbsp;</span>
 											</td>
@@ -526,10 +526,10 @@ else
 										<tr id="previously-scale-final-un-success-<?=$entityId?>">
 											<td style="background:<?=(isset($finalFields[$entityId]['UNSUCCESSFUL']['COLOR'])) ?
 												htmlspecialcharsbx($finalFields[$entityId]['UNSUCCESSFUL']['COLOR']) : '#FFBEBD'?>">&nbsp;</td>
-											<?foreach($extraFinalFields[$entityId] as $field):?>
+											<?php foreach($extraFinalFields[$entityId] as $field):?>
 												<td style="background:<?= (isset($field['COLOR'])) ?
 													htmlspecialcharsbx($field['COLOR']) : '#FFBEBD'?>">&nbsp;</td>
-											<?endforeach;?>
+											<?php endforeach;?>
 										</tr>
 										<tr id="previously-scale-number-final-un-success-<?=$entityId?>">
 											<td>
@@ -537,9 +537,9 @@ else
 													<?=$finalFields[$entityId]['UNSUCCESSFUL']['NUMBER']?>
 												</span>
 											</td>
-											<?foreach($extraFinalFields[$entityId] as $field):?>
+											<?php foreach($extraFinalFields[$entityId] as $field):?>
 												<td><span class="stage-name"><?=$field['NUMBER']?></span></td>
-											<?endforeach;?>
+											<?php endforeach;?>
 										</tr>
 									</table>
 								</td>
@@ -575,34 +575,34 @@ else
 
 			</div>
 
-			<? else: ?>
+			<?php  else: ?>
 
 			<div id="content_<?=$entityId?>"
 				 class="crm-status-content<?=('status_tab_'.$entityId == $arResult['ACTIVE_TAB'])? ' active' : ''?>">
 
 				<div id="extra-storage-<?=$entityId?>" class="transaction-stage droppable">
-					<? $number = 1; ?>
-					<? foreach($arResult["ROWS"][$entityId] as $field): ?>
-						<? $field['NUMBER'] = $number; ?>
+					<?php  $number = 1; ?>
+					<?php  foreach($arResult["ROWS"][$entityId] as $field): ?>
+						<?php  $field['NUMBER'] = $number; ?>
 						<div class="transaction-stage-phase draghandle" data-calculate="1" data-success="1"
 							 style="background: #d3eef9"
 							 id="field-phase-<?=$field['ID']?>" data-space="<?=$field['ID']?>" data-sort="<?=$field['SORT']?>"
 							 ondblclick="BX['<?=$jsClass?>'].editField('<?=$field['ID']?>');">
 
-							<? if($field['SYSTEM'] == 'Y'): ?>
+							<?php  if($field['SYSTEM'] == 'Y'): ?>
 								<div class="transaction-stage-phase-panel">
-									<?if(!empty($field['NAME_INIT'])):?>
+									<?php if(!empty($field['NAME_INIT'])):?>
 										<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$field['ID']?>',
 											'<?=htmlspecialcharsbx($field['NAME_INIT'])?>')"
 											 title="<?=GetMessage('CRM_STATUS_LIST_RECOVERY_NAME')?>"
 											 class="transaction-stage-phase-panel-button
 												transaction-stage-phase-panel-button-refresh"></div>
-									<?endif?>
+									<?php endif?>
 								</div>
 								<span class="transaction-stage-phase-icon transaction-stage-phase-icon-move draggable">
 									<span class="transaction-stage-phase-icon-burger"></span>
 								</span>
-							<? else: ?>
+							<?php  else: ?>
 								<div class="transaction-stage-phase-panel">
 									<div onclick="BX['<?=$jsClass?>'].openPopupBeforeDeleteField('<?=$field['ID']?>')"
 										 title="<?=GetMessage('CRM_STATUS_DELETE_FIELD')?>"
@@ -612,7 +612,7 @@ else
 								<span class="transaction-stage-phase-icon transaction-stage-phase-icon-move draggable">
 									<span class="transaction-stage-phase-icon-burger"></span>
 								</span>
-							<? endif; ?>
+							<?php  endif; ?>
 
 							<span class="transaction-stage-phase-title">
 								<span id="field-title-inner-<?=$field['ID']?>" class="transaction-stage-phase-title-inner">
@@ -637,8 +637,8 @@ else
 								   id="stage-status-id-<?=$field['ID']?>" data-status-id="1"
 								   value="<?=htmlspecialcharsbx($field['STATUS_ID'])?>">
 						</div>
-						<? $number++ ?>
-					<? endforeach; ?>
+						<?php  $number++ ?>
+					<?php  endforeach; ?>
 					<a href="javascript:void(0)" onclick="BX['<?=$jsClass?>'].addField(this);"
 					   class="transaction-stage-addphase draghandle" data-space="main">+
 						<span><?=GetMessage('CRM_STATUS_ADD')?></span>
@@ -647,10 +647,10 @@ else
 
 			</div>
 
-			<? endif; ?>
-		<? endforeach; ?>
+			<?php  endif; ?>
+		<?php  endforeach; ?>
 		<div id="crm-configs-footer" class="webform-buttons webform-buttons-fixed">
-			<span class="crm-fixedbtn <?if($blockFixed):?>crm-fixedbtn-pin<?endif?>"
+			<span class="crm-fixedbtn <?php if($blockFixed):?>crm-fixedbtn-pin<?php endif?>"
 				  onclick="BX['<?=$jsClass?>'].fixFooter(this);" title="<?=$titleFooterPin?>"></span>
 			<input type="submit" value="<?=GetMessage('CRM_STATUS_BUTTONS_SAVE');?>"
 				   class="webform-small-button webform-small-button-accept">
@@ -663,7 +663,7 @@ else
 
 </form>
 
-<?
+<?php 
 function getColorText($color, &$iconClass, &$blockClass)
 {
 	$r = ord(pack("H*", substr($color, 1, 2)));
@@ -693,7 +693,7 @@ function getColorText($color, &$iconClass, &$blockClass)
 	}
 </script>
 <div id="block-color-picker" class="crm-config-status-block-color-picker">
-	<? $APPLICATION->includeComponent(
+	<?php  $APPLICATION->includeComponent(
 		"bitrix:main.colorpicker",
 		"",
 		array(
@@ -722,11 +722,11 @@ function getColorText($color, &$iconClass, &$blockClass)
 			}
 		);
 
-<?foreach($arResult['ENTITY'] as $entityId => $entitySettings):?>
-	<?if(isset($entitySettings['DEFAULT_NAME'])):?>
+<?php foreach($arResult['ENTITY'] as $entityId => $entitySettings):?>
+	<?php if(isset($entitySettings['DEFAULT_NAME'])):?>
 		BX.message({ CRM_STATUS_NEW_<?=$entityId?>: "<?=CUtil::JSEscape($entitySettings['DEFAULT_NAME'])?>" });
-	<?endif;?>
-<?endforeach;?>
+	<?php endif;?>
+<?php endforeach;?>
 
 		BX.CrmConfigStatusClass.semanticEntityTypes = <?=CUtil::PhpToJsObject(array_keys($arResult["ENTITY"]))?>;
 
@@ -747,7 +747,7 @@ function getColorText($color, &$iconClass, &$blockClass)
 			blockFixed: '<?=$blockFixed?>'
 		});
 
-		<? if($arResult['NEED_FOR_FIX_STATUSES']): ?>
+		<?php  if($arResult['NEED_FOR_FIX_STATUSES']): ?>
 			var fixStatusesLink = BX("fixStatusesLink");
 			if(fixStatusesLink)
 			{
@@ -756,7 +756,7 @@ function getColorText($color, &$iconClass, &$blockClass)
 					return BX.PreventDefault(e);
 				});
 			}
-		<? endif; ?>
+		<?php  endif; ?>
 
 		DragManager.onDragStart = function(dragObject) {
 			BX['<?=$jsClass?>'].setDragStartParentElement(dragObject.avatar.parentElement);

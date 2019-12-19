@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPADH_RECOVERY_SUCCESS"] = "The record has been successfully recovered from the history.";
 $MESS["BPADH_F_AUTHOR_ANY"] = "any";
 $MESS["BPADH_DELETE_DOC_CONFIRM"] = "Are you sure you want to delete this record?";

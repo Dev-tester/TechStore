@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -58,10 +58,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && ($edit_php || $lpa) && check_bitrix_s
 				//Trim php tags
 				$src = $arPHP[$n][2];
 				if (substr($src, 0, 5) == "<?php")
-					$src = '<?'.substr($src, 5);
+					$src = '<?php '.substr($src, 5);
 
 				//If it's Component 2 - we handle it's params, non components2 will be erased
-				$comp2_begin = '<?$APPLICATION->INCLUDECOMPONENT(';
+				$comp2_begin = '<?php $APPLICATION->INCLUDECOMPONENT(';
 				if (strtoupper(substr($src,0, strlen($comp2_begin))) == $comp2_begin)
 				{
 					$arRes = PHPParser::CheckForComponent2($src);
@@ -116,7 +116,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && ($edit_php || $lpa) && check_bitrix_s
 						else
 							$code .= "\t".'Array()'.$br.');';
 
-						$code = '<?'.$code.'?>';
+						$code = '<?php '.$code.'?>';
 						$new_content .= $code;
 
 					}
@@ -170,7 +170,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && ($edit_php || $lpa) && check_bitrix_s
 					continue;
 				}
 				//Trim php tags
-				$src = SubStr($src, ((SubStr($src, 0, 5) == "<?"."php") ? 5 : 2));
+				$src = SubStr($src, ((SubStr($src, 0, 5) == "<?php "."php") ? 5 : 2));
 				$src = SubStr($src, 0, -2);
 
 				$comp2_begin = '$APPLICATION->INCLUDECOMPONENT(';
@@ -192,17 +192,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && ($edit_php || $lpa) && check_bitrix_s
 			$php_fr_num = intval(substr($CONTENT, $php_begin + 4, 4)) - 1; // Number of PHP fragment from #PHPXXXX# conctruction
 			if (isset($arPHPscripts[$php_fr_num]))
 			{
-				$codeFragment = '<?'.$arPHPscripts[$php_fr_num].'?>';
+				$codeFragment = '<?php '.$arPHPscripts[$php_fr_num].'?>';
 			}
 			else
 			{
-				$codeFragment = '<??>';
+				$codeFragment = '<?php ?>';
 			}
 			$CONTENT = substr($CONTENT, 0, $php_begin).$codeFragment.substr($CONTENT, $php_begin + 9);
 		}
 
 		//Add ..->ShowPanel() & "Secutity Stubs"
-		$sp = '<?$APPLICATION->ShowPanel();?>';
+		$sp = '<?php $APPLICATION->ShowPanel();?>';
 		$body = '<body>';
 		$body_pos = strpos($CONTENT, $body);
 		if ($body_pos > 0)
@@ -255,7 +255,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && ($edit_php || $lpa) && check_bitrix_s
 BX.adminPanel.closeWait();
 __status = true;
 </script>
-	<?
+	<?php 
 }
 
 function unifyPHPfragment($str)
@@ -285,7 +285,7 @@ BX.adminPanel.closeWait();
 __status = false;
 strWarning = '<?=CUtil::JSEscape($strWaring)?>';
 </script>
-	<?
+	<?php 
 	die();
 }
 ?>

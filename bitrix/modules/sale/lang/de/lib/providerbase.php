@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PROVIDER_RESERVE_SHIPMENT_ITEM_QUANTITY_NOT_ENOUGH"] = "Produktmenge ist nicht ausreichend";
 $MESS["SALE_PROVIDER_RESERVE_SHIPMENT_ITEM_WRONG_AVAILABLE_QUANTITY"] = "Die Menge von \"#PRODUCT_NAME#\" ist auf Lager nicht ausreichend.";
 $MESS["SALE_PROVIDER_RESERVE_BASKET_ITEM_ERROR"] = "Fehler beim Reservieren der Positionen im Warenkorb";

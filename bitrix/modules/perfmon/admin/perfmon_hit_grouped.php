@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -208,16 +208,16 @@ $oFilter = new CAdminFilter(
 );
 ?>
 
-<form name="find_form" method="get" action="<? echo $APPLICATION->GetCurPage(); ?>">
-	<? $oFilter->Begin(); ?>
+<form name="find_form" method="get" action="<?php  echo $APPLICATION->GetCurPage(); ?>">
+	<?php  $oFilter->Begin(); ?>
 	<tr>
-		<td><?echo GetMessage("PERFMON_HIT_PAGE")?>:</td>
+		<td><?php echo GetMessage("PERFMON_HIT_PAGE")?>:</td>
 		<td><input type="text" name="find_script_name" size="47"
-			value="<? echo htmlspecialcharsbx($find_script_name) ?>"></td>
+			value="<?php  echo htmlspecialcharsbx($find_script_name) ?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("PERFMON_HIT_IS_ADMIN")?>:</td>
-		<td><?
+		<td><?php echo GetMessage("PERFMON_HIT_IS_ADMIN")?>:</td>
+		<td><?php 
 			$arr = array(
 				"reference" => array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")),
 				"reference_id" => array("Y", "N")
@@ -227,9 +227,9 @@ $oFilter = new CAdminFilter(
 	</tr>
 	<tr>
 		<td><?=GetMessage("PERFMON_HIT_COUNT")?>:</td>
-		<td><input type="text" name="find_count_from" size="7" value="<?echo htmlspecialcharsbx($find_count_from)?>">...<input type="text" name="find_count_to" size="7" value="<? echo htmlspecialcharsbx($find_count_to) ?>"></td>
+		<td><input type="text" name="find_count_from" size="7" value="<?php echo htmlspecialcharsbx($find_count_from)?>">...<input type="text" name="find_count_to" size="7" value="<?php  echo htmlspecialcharsbx($find_count_to) ?>"></td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(array(
 		"table_id" => $sTableID,
 		"url" => $APPLICATION->GetCurPage(),
@@ -239,7 +239,7 @@ $oFilter = new CAdminFilter(
 	?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

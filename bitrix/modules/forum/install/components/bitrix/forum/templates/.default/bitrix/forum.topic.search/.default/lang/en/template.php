@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FMM_SEARCH_TITLE'] = "Search for topic";
 $MESS ['FMM_ON_FORUM'] = "in forum";
 $MESS ['F_FORUM'] = "Forum";

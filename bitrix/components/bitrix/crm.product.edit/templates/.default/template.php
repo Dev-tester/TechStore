@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 global $APPLICATION;
 
@@ -346,7 +346,7 @@ foreach($arResult['PROPS'] as $propID => $arProp)
 				if ($element_id > 0 && array_key_exists($element_id, $items))
 					$arValues[] = $items[$element_id].' ['.$element_id.']';
 		}
-		?><input type="hidden" name="<?echo $propID?>[]" value=""><? //This will emulate empty input
+		?><input type="hidden" name="<?php echo $propID?>[]" value=""><?php  //This will emulate empty input
 		$control_id = $APPLICATION->IncludeComponent(
 			'bitrix:main.lookup.input',
 			'elements',
@@ -381,7 +381,7 @@ foreach($arResult['PROPS'] as $propID => $arProp)
 				'SOCNET_GROUP_ID' => '',
 			), $component, array('HIDE_ICONS' => 'Y')
 		);
-		?><a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()"><?echo GetMessage('CRM_PRODUCT_PROP_CHOOSE_ELEMENT')?></a><?
+		?><a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()"><?php echo GetMessage('CRM_PRODUCT_PROP_CHOOSE_ELEMENT')?></a><?php 
 
 		$html = ob_get_contents();
 		ob_end_clean();

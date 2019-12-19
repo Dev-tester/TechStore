@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_LCP_TITLE"] = "Workflows Directory";
 $MESS["CC_LCP_MODULE_NOT_INSTALLED"] = "Common Lists module is not installed.";
 $MESS["CC_LCP_WRONG_IBLOCK_TYPE"] = "Wrong information block type.";

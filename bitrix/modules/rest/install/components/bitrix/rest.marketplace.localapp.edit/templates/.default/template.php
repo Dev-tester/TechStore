@@ -65,20 +65,20 @@ endif;
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="APP_ONLY_API"><?=GetMessage('MP_APP_API')?><br/><span style="font-weight: normal;color:#AEA8A8"><?=GetMessage("MP_APP_API_DESC")?></span></label></td>
 			<td class="content-edit-form-field-input">
-				<input type="checkbox" name="APP_ONLY_API" id="APP_ONLY_API" <?if ($onlyApi):?>checked<?endif?>/>
+				<input type="checkbox" name="APP_ONLY_API" id="APP_ONLY_API" <?php if ($onlyApi):?>checked<?php endif?>/>
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-		<tr data-role="app_menu_name" <?if($onlyApi):?>style="display: none" <?endif?>>
+		<tr data-role="app_menu_name" <?php if($onlyApi):?>style="display: none" <?php endif?>>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left" style="min-width: 300px;"><?=GetMessage('MP_APP_MOBILE')?></td>
 			<td class="content-edit-form-field-input">
-				<input type="checkbox" name="MOBILE" id="MOBILE" <? if($arResult['APP']['MOBILE'] == 'Y'): ?>checked<? endif ?>/>
+				<input type="checkbox" name="MOBILE" id="MOBILE" <?php  if($arResult['APP']['MOBILE'] == 'Y'): ?>checked<?php  endif ?>/>
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-		<tr data-role="app_menu_name" <?if($onlyApi):?>style="display: none" <?endif?>>
+		<tr data-role="app_menu_name" <?php if($onlyApi):?>style="display: none" <?php endif?>>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('MP_APP_MENU_NAME')?>*</td>
 			<td>
 				<table>
@@ -113,7 +113,7 @@ if(is_array($arResult["SCOPE"])):
 
 		$scopeName .= ' <small>('.$scope.')</small>';
 ?>
-				<input type="checkbox" name="SCOPE[]" id="APP_<?=$scope?>" value="<?=$scope?>" <?if(in_array($scope, $arResult["APP"]["SCOPE"])):?>checked="checked"<?endif?>/>
+				<input type="checkbox" name="SCOPE[]" id="APP_<?=$scope?>" value="<?=$scope?>" <?php if(in_array($scope, $arResult["APP"]["SCOPE"])):?>checked="checked"<?php endif?>/>
 				<label for="APP_<?=$scope?>"><?=$scopeName?></label><br/>
 <?php
 	endforeach;
@@ -145,14 +145,14 @@ endif;
 if($arResult['ALLOW_ZIP']):
 ?>
 
-		<tr data-role="app_menu_name" <? if($onlyApi): ?>style="display: none" <? endif ?>>
+		<tr data-role="app_menu_name" <?php  if($onlyApi): ?>style="display: none" <?php  endif ?>>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left" style="padding-bottom:10px"><?=GetMessage('MP_APP_OR')?></td>
 			<td class="content-edit-form-field-input">
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-		<tr style="box-sizing:border-box;width: 100%;padding: 35px 45px;border-radius: 3px;background-color: #f7f9f9; <? if($onlyApi): ?>display: none;<? endif ?>" data-role="app_menu_name">
+		<tr style="box-sizing:border-box;width: 100%;padding: 35px 45px;border-radius: 3px;background-color: #f7f9f9; <?php  if($onlyApi): ?>display: none;<?php  endif ?>" data-role="app_menu_name">
 			<td style="padding-top:20px; padding-bottom:20px" class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('MP_APP_UPLOAD')?>*</td>
 			<td class="content-edit-form-field-input">
 				<input type="file" name="APP_ZIP" value=""/>
@@ -160,14 +160,14 @@ if($arResult['ALLOW_ZIP']):
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-<?
+<?php 
 endif;
 ?>
 
 		<tr>
 			<td colspan="3">
 				<div class="mp_notify_message" style="margin: 20px 0px 10px 0px">
-					<?if ($arResult["APP"]["ID"] <= 0):?><?=GetMessage("MP_APP_INFO")?><?endif?>
+					<?php if ($arResult["APP"]["ID"] <= 0):?><?=GetMessage("MP_APP_INFO")?><?php endif?>
 					<?=GetMessage("MP_APP_DOC")?>
 				</div>
 			</td>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -8,7 +8,7 @@ use Bitrix\Main\Localization\Loc; ?>
 	<div class="timeman-schedule-form-settings-name-block">
 		<span class="timeman-schedule-form-settings-name"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SCHEDULE_EDIT_USERS_TITLE')); ?></span>
 	</div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.user.selector",
 		"",
@@ -36,7 +36,7 @@ use Bitrix\Main\Localization\Loc; ?>
 	<div class="timeman-schedule-form-settings-name-block">
 		<span class="timeman-schedule-form-settings-name"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SCHEDULE_EDIT_EXCLUDE_USERS_SUB_TITLE')); ?></span>
 	</div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.user.selector",
 		"",

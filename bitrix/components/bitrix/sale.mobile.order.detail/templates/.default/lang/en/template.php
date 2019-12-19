@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PULL_TEXT"] = "Pull to refresh...";
 $MESS["DOWN_TEXT"] = "Release to refresh...";
 $MESS["LOAD_TEXT"] = "Updating ...";

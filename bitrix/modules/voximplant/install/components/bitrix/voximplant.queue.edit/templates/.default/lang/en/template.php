@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LM_ADD1"] = "Add employees";
 $MESS["LM_ADD2"] = "Add more";
 $MESS["VI_CONFIG_EDIT_ALLOW_INTERCEPT"] = "Allow call interception in this queue group";

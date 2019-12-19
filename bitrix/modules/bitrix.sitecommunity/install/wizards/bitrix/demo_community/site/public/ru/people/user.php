@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Люди");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:socialnetwork_user", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:socialnetwork_user", ".default", array(
 	"ITEM_DETAIL_COUNT" => "32",
 	"ITEM_MAIN_COUNT" => "6",
 	"DATE_TIME_FORMAT" => "d.m.y G:i",
@@ -247,4 +247,4 @@ $APPLICATION->SetTitle("Люди");
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

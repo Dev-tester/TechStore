@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE'] = "Тип инфо-блока";
 $MESS ['IBLOCK_IBLOCK'] = "Инфо-блок";
 $MESS ['IBLOCK_BINDING'] = "Показывать";

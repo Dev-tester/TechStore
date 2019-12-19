@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -66,7 +66,7 @@ if (is_array($arParams["SHOW_LINK_ON_MAIN_PAGE"]))
 		}
 	}
 }
-?><div class="photo-page-main"><?
+?><div class="photo-page-main"><?php 
 if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($arRes))
 {
 	ob_start();
@@ -77,7 +77,7 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 		<ul class="photo-controls">
 			<li class="photo-control photo-control-first photo-control-album-add">
 				<a rel="nofollow" href="<?=CComponentEngine::MakePathFromTemplate($arParams["SECTION_EDIT_URL"],
-					array("SECTION_ID" => "0", "ACTION" => "new"))?>" <?
+					array("SECTION_ID" => "0", "ACTION" => "new"))?>" <?php 
 					?>onclick="EditAlbum('<?=CUtil::JSEscape(CComponentEngine::MakePathFromTemplate($arParams["~SECTION_EDIT_URL"],
 						array("SECTION_ID" => "0", "ACTION" => "new")))?>'); return false;">
 					<span><?=GetMessage("P_ADD_ALBUM")?></span></a>
@@ -89,7 +89,7 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 		</ul>
 		<div class="empty-clear"></div>
 	</div>
-	<?
+	<?php 
 	}
 	if (!empty($arRes))
 	{
@@ -103,12 +103,12 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 		</div>
 		<div class="photo-controls photo-controls-mainpage">
 			<ul class="photo-controls">
-		<?
+		<?php 
 		$counter = 1;
 		foreach ($arRes as $key => $val):
 			?><li class="photo-control <?=$key?> <?=($counter == 1 ? "photo-control-first" : "")?> <?=($counter == count($arRes) ? "photo-control-last" : "")?>">
 				<a rel="nofollow" href="<?=$val["url"]?>" title="<?=$val["description"]?>"><span><?=$val["title"]?></span></a>
-			</li><?
+			</li><?php 
 			$counter++;
 		endforeach;
 		?>
@@ -117,11 +117,11 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 		</div>
 	</div>
 </noindex>
-<?
+<?php 
 	}
 	if ($arParams["SHOW_TAGS"] == "Y")
 	{
-	?><?$result = $APPLICATION->IncludeComponent(
+	?><?php $result = $APPLICATION->IncludeComponent(
 		"bitrix:search.tags.cloud",
 		"photogallery",
 		Array(
@@ -147,7 +147,7 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 		),
 		$component,
 		array("HIDE_ICONS" => "Y")
-	);?><?
+	);?><?php 
 	}
 	$res = ob_get_clean();
 	if (!empty($res)):
@@ -155,11 +155,11 @@ if ($arParams["PERMISSION"] >= "U" || $arParams["SHOW_TAGS"] == "Y" || !empty($a
 	<div id="photo-main-page-right">
 		<?=$res?>
 	</div>
-<?
+<?php 
 	endif;
 }
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section.list",
 	"",
 	Array(
@@ -260,7 +260,7 @@ function __photo_check_right_height()
 }
 //setTimeout(__photo_check_right_height, 150);
 </script>
-<?
+<?php 
 
 if($arParams["SET_TITLE"] != "N"):
 	$GLOBALS["APPLICATION"]->SetTitle(GetMessage("P_PHOTO"));

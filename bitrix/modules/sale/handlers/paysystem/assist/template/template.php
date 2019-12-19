@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 
@@ -7,12 +7,12 @@ $context = \Bitrix\Main\Application::getInstance()->getContext();
 <div class="paysystem-yandex mb-4" id="paysystem-assest">
 	<form id="paysystem-assest-form" action="<?=$params['URL'];?>" METHOD="POST" target="_blank">
 
-	<p><?echo Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_PROMT"); ?></p>
-	<p><?echo Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_ACCOUNT_NO"); ?>
-		<?echo $payment->getField('ACCOUNT_NUMBER').Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_ORDER_FROM").$params['PAYMENT_DATE_INSERT']; ?></p>
-	<p><?echo Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_ORDER_SUM"); ?>
-	<?echo SaleFormatCurrency($params['PAYMENT_SHOULD_PAY'], $params['PAYMENT_CURRENCY']); ?></p>
-	<?$comment = "Invoice ".$params['PAYMENT_ID']." (".$params['PAYMENT_DATE_INSERT'].")";?>
+	<p><?php echo Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_PROMT"); ?></p>
+	<p><?php echo Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_ACCOUNT_NO"); ?>
+		<?php echo $payment->getField('ACCOUNT_NUMBER').Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_ORDER_FROM").$params['PAYMENT_DATE_INSERT']; ?></p>
+	<p><?php echo Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_ORDER_SUM"); ?>
+	<?php echo SaleFormatCurrency($params['PAYMENT_SHOULD_PAY'], $params['PAYMENT_CURRENCY']); ?></p>
+	<?php $comment = "Invoice ".$params['PAYMENT_ID']." (".$params['PAYMENT_DATE_INSERT'].")";?>
 
 	<input type="hidden" name="Merchant_ID" value="<?=htmlspecialcharsbx($params['ASSIST_SHOP_IDP']);?>">
 	<input type="hidden" name="OrderNumber" value="<?=htmlspecialcharsbx($params['PAYMENT_ID'])?>">
@@ -38,7 +38,7 @@ $context = \Bitrix\Main\Application::getInstance()->getContext();
 	<input type="submit" name="Submit" class="btn btn-primary pl-4 pr-4" value="<?=Loc::getMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_ACTION");?>">
 </form>
 
-<p><strong><?echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES_TITLE")?></strong></p>
-<p><?echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES")?></p>
-<p><strong><?echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES_TITLE1")?></strong></p>
-<p><?echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES1")?></p>
+<p><strong><?php echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES_TITLE")?></strong></p>
+<p><?php echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES")?></p>
+<p><strong><?php echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES_TITLE1")?></strong></p>
+<p><?php echo GetMessage("SALE_HANDLERS_PAY_SYSTEM_ASSIST_NOTES1")?></p>

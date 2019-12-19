@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_ABSENCE_REPORT_FROM_CALENDAR"] = "Автоматический отчет. Событие в календаре: \"#TITLE#\"";
 $MESS["TIMEMAN_ABSENCE_CALENDAR_ENTRY_TITLE"] = "Событие в календаре";
 $MESS["TIMEMAN_ABSENCE_TEXT_DESKTOP_LAST_DATE"] = "Последняя активность: #TIME#";

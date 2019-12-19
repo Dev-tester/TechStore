@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_WEBDAV_FILE_DESCRIPTION"] = "Документ из библиотеки документов";
 $MESS["USER_TYPE_WEBDAV_FILE_IBLOCK_ID"] = "Инфоблок библиотеки документов";
 $MESS["USER_TYPE_WEBDAV_FILE_SECTION_ID"] = "Папка библиотеки документов";

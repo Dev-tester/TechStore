@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Security\Mfa\Otp;
 use Bitrix\Security\Mfa\OtpException;
 
@@ -194,7 +194,7 @@ class CSecurityUser
 					"IS_PERIOD" => "N"
 				));
 				$f = fopen($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/security/options_user_settings.php", "w");
-				fwrite($f, "<?include(\$_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/security/options_user_settings_1.php\");?>");
+				fwrite($f, "<?php include(\$_SERVER[\"DOCUMENT_ROOT\"].\"/bitrix/modules/security/options_user_settings_1.php\");?>");
 				fclose($f);
 				COption::SetOptionString('security', 'otp_enabled', 'Y');
 			}

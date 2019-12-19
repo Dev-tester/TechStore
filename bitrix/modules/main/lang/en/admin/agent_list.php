@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AGENT_LIST_PAGE"] = "Agent list:";
 $MESS["MAIN_AGENT_ID"] = "ID";
 $MESS["MAIN_AGENT_MODULE_ID"] = "Module";

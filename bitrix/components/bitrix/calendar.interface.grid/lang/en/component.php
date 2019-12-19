@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_CALENDAR_INDEX"] = "Index calendar events";
 $MESS["EC_CALENDAR_SPOTLIGHT_LIST"] = "Switch between various calendar views for your convenience. Try our new Schedule view created for busy professionals who need a list view of all meetings and appointments.";
 $MESS["EC_CALENDAR_SPOTLIGHT_SYNC"] = "Synchronize your calendars with other services and mobile devices automatically. The synchronization works both ways.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define('SKIP_TEMPLATE_AUTH_ERROR', true);
 define('NOT_CHECK_PERMISSIONS', true);
 

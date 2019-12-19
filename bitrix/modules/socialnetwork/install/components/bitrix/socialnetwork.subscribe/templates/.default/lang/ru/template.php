@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C4_FUNC_TITLE"] = "Обновления \"#NAME#\"";
 $MESS["SONET_C4_SUBMIT"] = "Изменить подписку";
 $MESS["SONET_C4_GR_SUCCESS"] = "Подписка на обновления группы успешно изменена.";

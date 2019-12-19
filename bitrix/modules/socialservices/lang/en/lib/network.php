@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24NET_SEARCH_STRING_TO_SHORT"] = "Search string is too short.";
 $MESS["B24NET_SOCSERV_NOT_INSTALLED"] = "The \"Social Services\" module is not installed.";
 $MESS["B24NET_SOCSERV_TRANSPORT_ERROR"] = "Error authenticating on Bitrix24.Network. Please log in again.";

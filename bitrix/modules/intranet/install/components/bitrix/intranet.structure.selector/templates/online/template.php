@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $bChecked = false;
@@ -18,5 +18,5 @@ $extraUrl = 'set_filter_'.$arParams['FILTER_NAME'].'=Y'
 
 $onclick = 'window.location.href=\''.CUtil::JSEscape($arParams['LIST_URL'].$extraUrl).'\' + (this.checked ? \''.CUtil::JSEscape('&'.$arParams['FILTER_NAME'].'_IS_ONLINE=Y').'\' : \'\')';
 ?>
-<input type="checkbox" name="<?echo $arParams['FILTER_NAME'].'_IS_ONLINE'?>" value="Y" <?echo $bChecked ? 'checked="checked"' : ''?> id="<?echo $arParams['FILTER_NAME'].'_IS_ONLINE'?>" title="<?echo GetMessage('ISS_TPL_ONLINE_TITLE')?>" onclick="<?echo htmlspecialcharsbx($onclick)?>" />
-<label for="<?echo $arParams['FILTER_NAME'].'_IS_ONLINE'?>" title="<?echo GetMessage('ISS_TPL_ONLINE_TITLE')?>"><?echo GetMessage('ISS_TPL_ONLINE_LABEL')?></label>
+<input type="checkbox" name="<?php echo $arParams['FILTER_NAME'].'_IS_ONLINE'?>" value="Y" <?php echo $bChecked ? 'checked="checked"' : ''?> id="<?php echo $arParams['FILTER_NAME'].'_IS_ONLINE'?>" title="<?php echo GetMessage('ISS_TPL_ONLINE_TITLE')?>" onclick="<?php echo htmlspecialcharsbx($onclick)?>" />
+<label for="<?php echo $arParams['FILTER_NAME'].'_IS_ONLINE'?>" title="<?php echo GetMessage('ISS_TPL_ONLINE_TITLE')?>"><?php echo GetMessage('ISS_TPL_ONLINE_LABEL')?></label>

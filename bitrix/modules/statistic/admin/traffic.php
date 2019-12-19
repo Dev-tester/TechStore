@@ -120,7 +120,7 @@ else
 
 $lAdmin->BeginPrologContent();
 ?>
-<?
+<?php 
 /***************************************************************************
 			HTML form
 ****************************************************************************/
@@ -136,7 +136,7 @@ elseif (count($lAdmin->arFilterErrors)==0) :
 		$height = COption::GetOptionString("statistic", "GRAPH_HEIGHT");
 	?>
 <div class="graph">
-<?echo $arrParams[$graph_type][2]?>
+<?php echo $arrParams[$graph_type][2]?>
 <table cellspacing="0" cellpadding="0" class="graph" border="0" align="center">
 <tr>
 	<td valign="center" class="graph">
@@ -144,50 +144,50 @@ elseif (count($lAdmin->arFilterErrors)==0) :
 	</td>
 	<td valign="center">
 	<table cellpadding="2" cellspacing="0" border="0" class="legend">
-		<?if ($find_hit=="Y"):?>
+		<?php if ($find_hit=="Y"):?>
 		<tr>
 			<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["HITS"]?>" width="45" height="2"></td>
 			<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_HITS_2")?></td>
 		</tr>
-		<?endif;?>
-		<?if ($find_host=="Y"):?>
+		<?php endif;?>
+		<?php if ($find_host=="Y"):?>
 		<tr>
 			<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["HOSTS"]?>" width="45" height="2"></td>
 			<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_HOSTS_2")?></td>
 		</tr>
-		<?endif;?>
-		<?if ($find_session=="Y"):?>
+		<?php endif;?>
+		<?php if ($find_session=="Y"):?>
 		<tr>
 			<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["SESSIONS"]?>" width="45" height="2"></td>
 			<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_SESSIONS_2")?></td>
 		</tr>
-		<?endif;?>
-		<?if ($find_event=="Y"):?>
+		<?php endif;?>
+		<?php if ($find_event=="Y"):?>
 		<tr>
 			<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["EVENTS"]?>" width="45" height="2"></td>
 			<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_EVENTS_2")?></td>
 		</tr>
-		<?endif;?>
-		<?if ($find_guest=="Y" && !$site_filtered):?>
+		<?php endif;?>
+		<?php if ($find_guest=="Y" && !$site_filtered):?>
 		<tr>
 			<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["GUESTS"]?>" width="45" height="2"></td>
 			<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_GUESTS_2")?></td>
 		</tr>
-		<?endif;?>
-		<?if ($find_new_guest=="Y" && !$site_filtered):?>
+		<?php endif;?>
+		<?php if ($find_new_guest=="Y" && !$site_filtered):?>
 		<tr>
 			<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["NEW_GUESTS"]?>" width="45" height="2"></td>
 			<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_NEW_GUESTS_2")?></td>
 		</tr>
-		<?endif;?>
+		<?php endif;?>
 	</table>
 	</td>
 </tr>
 </table>
 </div>
-<?endif;?>
-<h2><?echo $arrParams[$graph_type][3]?></h2>
-<?
+<?php endif;?>
+<h2><?php echo $arrParams[$graph_type][3]?></h2>
+<?php 
 $lAdmin->EndPrologContent();
 
 if($graph_type=="date")
@@ -444,44 +444,44 @@ $oFilter = new CAdminFilter($sTableID."_filter",array(
 ?>
 
 <form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
-	<td><?echo GetMessage("STAT_PERIOD")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
+	<td><?php echo GetMessage("STAT_PERIOD")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_SITE")?>:</td>
-	<td><?echo SelectBoxMFromArray("find_site_id[]", $arSiteDropdown, $find_site_id, "", "");?></td>
+	<td><?php echo GetMessage("STAT_SITE")?>:</td>
+	<td><?php echo SelectBoxMFromArray("find_site_id[]", $arSiteDropdown, $find_site_id, "", "");?></td>
 </tr>
 <tr valign="top">
 	<td><?=GetMessage("STAT_SHOW")?>:</td>
 	<td>
-		<?echo InputType("checkbox","find_hit","Y",$find_hit,false,false,'id="find_hit"');?>
+		<?php echo InputType("checkbox","find_hit","Y",$find_hit,false,false,'id="find_hit"');?>
 		<label for="find_hit"><?=GetMessage("STAT_HITS_2")?></label><br>
-		<?echo InputType("checkbox","find_host","Y",$find_host,false,false,'id="find_host"'); ?>
+		<?php echo InputType("checkbox","find_host","Y",$find_host,false,false,'id="find_host"'); ?>
 		<label for="find_host"><?=GetMessage("STAT_HOSTS_2")?></label><br>
-		<?echo InputType("checkbox","find_session","Y",$find_session,false,false,'id="find_session"'); ?>
+		<?php echo InputType("checkbox","find_session","Y",$find_session,false,false,'id="find_session"'); ?>
 		<label for="find_session"><?=GetMessage("STAT_SESSIONS_2")?></label><br>
-		<?echo InputType("checkbox","find_event","Y",$find_event,false,false,'id="find_event"'); ?>
+		<?php echo InputType("checkbox","find_event","Y",$find_event,false,false,'id="find_event"'); ?>
 		<label for="find_event"><?=GetMessage("STAT_EVENTS_2")?></label><br>
-		<?echo InputType("checkbox","find_guest","Y",$find_guest,false,false,'id="find_guest"'); ?>
+		<?php echo InputType("checkbox","find_guest","Y",$find_guest,false,false,'id="find_guest"'); ?>
 		<label for="find_guest"><?=GetMessage("STAT_GUESTS_2")?></label><br>
-		<?echo InputType("checkbox","find_new_guest","Y",$find_new_guest,false,false,'id="find_new_guest"'); ?>
+		<?php echo InputType("checkbox","find_new_guest","Y",$find_new_guest,false,false,'id="find_new_guest"'); ?>
 		<label for="find_new_guest"><?=GetMessage("STAT_NEW_GUESTS_2")?></label><br>
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form" => "find_form", "report"=>true));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

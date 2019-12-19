@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_TEMPLATE_MESSAGE'] = "A new file in the document library: [url=#LINK#]#TITLE#[/url].
 
 #BODY#";

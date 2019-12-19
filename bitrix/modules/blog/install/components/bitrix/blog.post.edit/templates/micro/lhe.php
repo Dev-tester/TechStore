@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(CModule::IncludeModule("fileman"))
 {
 	?>
@@ -7,20 +7,20 @@ if(CModule::IncludeModule("fileman"))
 	BX.message({'BLOG_POST_AUTOSAVE':'<?=GetMessage("BLOG_POST_AUTOSAVE")?>'});
 	var arImages = Array();
 	var arImagesId = Array();
-	<?
+	<?php 
 	$i = 0;
 	foreach($arResult["Images"] as $aImg)
 	{
 		?>
 		arImages['<?=$i?>'] = '<?=CUtil::JSEscape($aImg["PARAMS"]["SRC"])?>';
 		arImagesId['<?=$i?>'] = '<?=$aImg["ID"]?>';
-		<?
+		<?php 
 		$i++;
 	}
 	?>
 	</script>
 
-	<?
+	<?php 
 	function CustomizeLightEditorForBlog()
 	{
 		?>
@@ -339,7 +339,7 @@ if(CModule::IncludeModule("fileman"))
 			BX('add-microblog').disabled = true;
 		};
 		</script>
-		<?
+		<?php 
 	}
 	?>
 	<script>
@@ -347,15 +347,15 @@ if(CModule::IncludeModule("fileman"))
 	window.blogCtrlEnterHandler = function(e)
 	{
 		oBlogLHE.SaveContent();
-		<?if ($arParams['USER_CONSENT'] == 'Y' && (empty($arResult["User"]) || !$arParams['USER_CONSENT_WAS_GIVEN'])):?>
+		<?php if ($arParams['USER_CONSENT'] == 'Y' && (empty($arResult["User"]) || !$arParams['USER_CONSENT_WAS_GIVEN'])):?>
 			window.checkConsent();
-		<?else:?>
+		<?php else:?>
 			if (document.forms.REPLIER)
 				document.forms.REPLIER.submit();
-		<?endif;?>
+		<?php endif;?>
 	};
 	</script>
-	<?
+	<?php 
 	
 	AddEventHandler("fileman", "OnIncludeLightEditorScript", "CustomizeLightEditorForBlog");
 
@@ -373,7 +373,7 @@ if(CModule::IncludeModule("fileman"))
 	}
 	?>
 	<div id="edit-post-text">
-	<?
+	<?php 
 	$bbCode = true;
 	if($arResult["allow_html"] == "Y" && (($arResult["PostToShow"]["DETAIL_TEXT_TYPE"] == "html" && $_REQUEST["load_editor"] != "N") || $_REQUEST["load_editor"] == "Y"))
 		$bbCode = false;
@@ -415,7 +415,7 @@ if(CModule::IncludeModule("fileman"))
 		'bSetDefaultCodeView' => false, // Set first view to CODE or to WYSIWYG
 		'bBBParseImageSize' => true // [IMG ID=XXX WEIGHT=5 HEIGHT=6],  [IMGWEIGHT=5 HEIGHT=6]/image.gif[/IMG]
 	));
-	?></div><?
+	?></div><?php 
 }
 ?>
 <script>
@@ -432,11 +432,11 @@ function blogCheckLength()
 			BX("blog-post-micro-lhe-but").appendChild(el);
 			if(BX("slog-mb-hide"))
 				BX("blog-post-micro-lhe-hide").innerHTML = BX("slog-mb-hide").innerHTML;
-			<?
+			<?php 
 			/*
 			if(COption::GetOptionString("blog", "use_autosave", "Y") == "Y")
 			{
-				?>BlogPostAutoSaveIcon();<?
+				?>BlogPostAutoSaveIcon();<?php 
 			}
 			*/
 			?>

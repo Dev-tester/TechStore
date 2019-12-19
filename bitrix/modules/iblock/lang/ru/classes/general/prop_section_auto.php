@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_UT_SAUTOCOMPLETE_DESCR"] = "Привязка к разделам с автозаполнением";
 $MESS["BT_UT_SAUTOCOMPLETE_SETTING_TITLE"] = "Настройки привязки к разделам с автозаполнением";
 $MESS["BT_UT_SAUTOCOMPLETE_SETTING_SHOW_ADD"] = "Показывать кнопку добавления разделов";

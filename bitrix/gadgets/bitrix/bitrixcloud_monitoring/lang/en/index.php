@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_BITRIXCLOUD_MONITOR"] = "Cloud<br>Inspector";
 $MESS["GD_BITRIXCLOUD_MONITOR_BTN_OK"] = "Details";
 $MESS["GD_BITRIXCLOUD_MONITOR_MESS_OK"] = "There are<br>no issues.";

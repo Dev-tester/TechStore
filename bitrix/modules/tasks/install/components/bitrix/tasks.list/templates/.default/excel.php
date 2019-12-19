@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $this->IncludeLangFile('template.php');
@@ -22,7 +22,7 @@ $arExcelFields = array(
 	"GROUP_ID"
 );
 ?>
-<meta http-equiv="Content-type" content="text/html;charset=<?echo LANG_CHARSET?>" />
+<meta http-equiv="Content-type" content="text/html;charset=<?php echo LANG_CHARSET?>" />
 <table border="1">
 	<thead>
 		<tr>

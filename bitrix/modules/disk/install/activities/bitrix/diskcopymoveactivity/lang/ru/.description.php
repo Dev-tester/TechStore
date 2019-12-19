@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDCM_DESCR_DESCR2'] = "Копировать/Переместить в Диске";
 $MESS ['BPDCM_DESCR_NAME2'] = "Копировать/Переместить в Диске";
 $MESS ['BPDCM_DESCR_OBJECT_ID'] = "ID объектов Диска";

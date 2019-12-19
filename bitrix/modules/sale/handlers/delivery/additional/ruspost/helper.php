@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Sale\Handlers\Delivery\Additional\RusPost;
 
 use Bitrix\Main\Error;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BH_PATH_TO_BLOG"] = "Conversations page path template";
 $MESS["BH_PATH_TO_POST_EDIT"] = "Conversation edit page path template";
 $MESS["BH_PATH_TO_DRAFT"] = "Conversation drafts page path template";

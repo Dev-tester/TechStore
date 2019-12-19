@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $sTplName = (isset($_REQUEST["use_light_view"]) && strToUpper($_REQUEST["use_light_view"]) == "Y") ? "popup" : ".default";
 $result = $APPLICATION->IncludeComponent("bitrix:webdav.element.upload", $sTplName, Array(
 	"OBJECT"	=>	$arParams["OBJECT"], 
@@ -39,6 +39,6 @@ $result = $APPLICATION->IncludeComponent("bitrix:webdav.element.upload", $sTplNa
 	"NOTE" => $arResult["VARIABLES"]["NOTE"]
 	),
 	$component
-);?><?
+);?><?php 
 $this->__component->arParams["ANSWER_UPLOAD_PAGE"] = $result;
 ?>

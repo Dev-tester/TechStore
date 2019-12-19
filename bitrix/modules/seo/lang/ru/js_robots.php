@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_ROBOT_ACTION_AUTO"] = "Стартовый набор";
 $MESS["SEO_ROBOT_ACTION_AUTO_TITLE"] = "Набор стандартных правил и ограничений";
 $MESS["SEO_ROBOT_ACTION_DISALLOW"] = "Запретить файл/папку (Disallow)";

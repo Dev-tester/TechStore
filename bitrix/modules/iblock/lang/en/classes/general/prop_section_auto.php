@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_UT_SAUTOCOMPLETE_DESCR"] = "Bind to sections with autocomplete";
 $MESS["BT_UT_SAUTOCOMPLETE_SETTING_TITLE"] = "Settings for autocomplete fields";
 $MESS["BT_UT_SAUTOCOMPLETE_SETTING_SHOW_ADD"] = "Show \"Add section\" button";

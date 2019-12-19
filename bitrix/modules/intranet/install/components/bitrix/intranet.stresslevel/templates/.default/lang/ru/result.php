@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_RESULT_PAGETITLE"] = "Уровень стресса";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_RESULT_PAGETITLE_LINK"] = "Прочитайте, #A_BEGIN#как это работает#A_END#";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_RESULT_PAGETITLE_LINK_HREF"] = "https://welltory.com/ru/how-it-works/";

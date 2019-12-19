@@ -170,7 +170,7 @@ if(strlen($_POST['Update'].$_GET['RestoreDefaults'])>0 && check_bitrix_sessid() 
 	}
 }
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 <?php echo bitrix_sessid_post()?>
 <?php
 $tabControl->Begin();
@@ -197,19 +197,19 @@ $arExcludeSites = CPullOptions::GetExcludeSites();
 	<tr>
 		<td width="40%"><?=GetMessage("PULL_OPTIONS_STATUS")?>:</td>
 		<td width="60%">
-			<? if(CPullOptions::ModuleEnable()): ?>
+			<?php  if(CPullOptions::ModuleEnable()): ?>
 				<span style="color:green; font-weight: bold"><?=GetMessage("PULL_OPTIONS_STATUS_Y")?></span>
-			<? else: ?>
+			<?php  else: ?>
 				<span style="color:gray; font-weight: bold"><?=GetMessage("PULL_OPTIONS_STATUS_N")?></span>
-			<? endif; ?>
+			<?php  endif; ?>
 		</td>
 	</tr>
-<? if(CPullOptions::ModuleEnable()): ?>
+<?php  if(CPullOptions::ModuleEnable()): ?>
 	<tr>
 		<td width="40%"><?=GetMessage("PULL_OPTIONS_USE")?>:</td>
 		<td width="60%"><?=implode(", ", $arDependentModule)?></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 	<tr>
 		<td width="40%"></td>
 		<td width="60%"></td>
@@ -258,52 +258,52 @@ $arExcludeSites = CPullOptions::GetExcludeSites();
 	<tr>
 		<td align="right"><?=Loc::getMessage("PULL_OPTIONS_CLOUD_SERVER_REGISTRATION")?>:</td>
 		<td>
-			<? if (SharedServer\Config::isRegistered()): ?>
+			<?php  if (SharedServer\Config::isRegistered()): ?>
 				<span style="color:green; font-weight: bold"><?= Loc::getMessage("PULL_OPTIONS_CLOUD_REGISTRATION_ACTIVE")?></span>
-			<? else: ?>
-				<? if (count($registrationErrors) > 0): ?>
+			<?php  else: ?>
+				<?php  if (count($registrationErrors) > 0): ?>
 					<span style="color:red; font-weight: bold;"><?= Loc::getMessage("PULL_OPTIONS_CLOUD_REGISTRATION_ERROR") ?>: <?=htmlspecialcharsbx($registrationErrors[0])?></span>
-				<? else: ?>
+				<?php  else: ?>
 					<span style="color:red; font-weight: bold;"><?= Loc::getMessage("PULL_OPTIONS_CLOUD_REGISTRATION_INACTIVE")?></span>
-				<? endif ?>
-			<? endif ?>
+				<?php  endif ?>
+			<?php  endif ?>
 		</td>
 	</tr>
-	<? if (SharedServer\Config::isRegistered()): ?>
+	<?php  if (SharedServer\Config::isRegistered()): ?>
 		<tr>
 			<td align="right"><?=Loc::getMessage("PULL_OPTIONS_CLOUD_SERVER_ADDRESS")?>:</td>
 			<td><?=htmlspecialcharsbx(SharedServer\Config::getServerAddress())?></td>
 		</tr>
-	<? else: ?>
+	<?php  else: ?>
 		<tr>
 			<td align="right"><?=Loc::getMessage("PULL_OPTIONS_REGISTER_ON_CLOUD_SERVER")?>:</td>
 			<td>
-				<? $cloudServerResult = SharedServer\Client::getServerList();?>
-				<? if($cloudServerResult->isSuccess()): ?>
+				<?php  $cloudServerResult = SharedServer\Client::getServerList();?>
+				<?php  if($cloudServerResult->isSuccess()): ?>
 					<select name="cloud_server_hostname">
 						<option value="">
 							<?=Loc::getMessage("PULL_OPTIONS_CLOUD_SERVER_ADDRESS_AUTO_SELECT")?>
 						</option>
-						<? foreach ($cloudServerResult->getData()['serverList'] as $server): ?>
+						<?php  foreach ($cloudServerResult->getData()['serverList'] as $server): ?>
 							<option value="<?= htmlspecialcharsbx($server['url'])?>">
 								<?= htmlspecialcharsbx($server['url'] . " (" . $server['region']. ")") ?>
 							</option>
-						<? endforeach ?>
+						<?php  endforeach ?>
 					</select>
-				<? else: ?>
+				<?php  else: ?>
 					<span style="color:red;"><?=Loc::getMessage("PULL_OPTIONS_CLOUD_SERVER_ADDRESS_LIST_ERROR", ["#HOST#" => SharedServer\Config::DEFAULT_SERVER])?></span>
-				<? endif ?>
+				<?php  endif ?>
 			</td>
 		</tr>
-		<? if ($MOD_RIGHT >= 'W'): ?>
+		<?php  if ($MOD_RIGHT >= 'W'): ?>
 			<tr>
 				<td></td>
 				<td >
 					<input type="submit" name="Update" value="<?= Loc::getMessage('PULL_OPTIONS_CLOUD_SERVER_REGISTER')?>" class="adm-btn-save">
 				</td>
 			</tr>
-		<? endif ?>
-	<? endif ?>
+		<?php  endif ?>
+	<?php  endif ?>
 	<tr>
 		<td colspan="2" align="center">
 			<?= BeginNote()?>
@@ -409,7 +409,7 @@ $arExcludeSites = CPullOptions::GetExcludeSites();
 			<?=GetMessage("PULL_OPTIONS_WEBSOCKET_DESC")?>
 		</td>
 	</tr>
-	<?if (count($arSites) > 1 || count($arExcludeSites) > 0):?>
+	<?php if (count($arSites) > 1 || count($arExcludeSites) > 0):?>
 	<tr class="heading">
 		<td colspan="2"><b><?=GetMessage('PULL_OPTIONS_HEAD_BLOCK')?></b></td>
 	</tr>
@@ -418,15 +418,15 @@ $arExcludeSites = CPullOptions::GetExcludeSites();
 		<td>
 			<select name="exclude_sites[]" multiple size="4">
 				<option value=""></option>
-			<?foreach($arSites as $site):?>
-				<option value="<?=$site['ID']?>" <?=(isset($arExcludeSites[$site['ID']])?' selected':'')?>><? echo $site['NAME'].' ['.$site['ID'].']'?></option>
-			<?endforeach;?>
+			<?php foreach($arSites as $site):?>
+				<option value="<?=$site['ID']?>" <?=(isset($arExcludeSites[$site['ID']])?' selected':'')?>><?php  echo $site['NAME'].' ['.$site['ID'].']'?></option>
+			<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 BX.bind(BX('push_enable'), 'change', function(){
 	BX('push_message_per_hit').disabled = !this.checked;
@@ -618,15 +618,15 @@ BX.bind(BX('config_signature_key'), 'keyup', function() {
 });
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage('MAIN_HINT_RESTORE_DEFAULTS_WARNING'))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)."&".bitrix_sessid_get();?>";
+	if(confirm('<?php echo AddSlashes(GetMessage('MAIN_HINT_RESTORE_DEFAULTS_WARNING'))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)."&".bitrix_sessid_get();?>";
 }
 </script>
-<input type="submit" name="Update" <?if ($MOD_RIGHT<'W') echo "disabled" ?> value="<?echo GetMessage('MAIN_SAVE')?>" class="adm-btn-save">
-<input type="reset" name="reset" value="<?echo GetMessage('MAIN_RESET')?>">
+<input type="submit" name="Update" <?php if ($MOD_RIGHT<'W') echo "disabled" ?> value="<?php echo GetMessage('MAIN_SAVE')?>" class="adm-btn-save">
+<input type="reset" name="reset" value="<?php echo GetMessage('MAIN_RESET')?>">
 <?=bitrix_sessid_post();?>
-<input type="button" <?if ($MOD_RIGHT<'W') echo "disabled" ?> title="<?echo GetMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?echo GetMessage('MAIN_RESTORE_DEFAULTS')?>">
-<?$tabControl->End();?>
+<input type="button" <?php if ($MOD_RIGHT<'W') echo "disabled" ?> title="<?php echo GetMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage('MAIN_RESTORE_DEFAULTS')?>">
+<?php $tabControl->End();?>
 </form>
 <?=BeginNote();?>
 	<?=GetMessage("PULL_OPTIONS_NGINX_DOC")?> <a href="<?=(LANGUAGE_ID == "ru"? "http://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=41&LESSON_ID=2033": "http://www.bitrixsoft.com/support/training/course/index.php?COURSE_ID=26&LESSON_ID=5144")?>" target="_blank"><?=GetMessage("PULL_OPTIONS_NGINX_DOC_LINK")?></a>.

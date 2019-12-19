@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_MODULE_NAME"] = "Web Analytics";
 $MESS["STAT_MODULE_DESCRIPTION"] = "This module collects and displays site statistics.";
 $MESS["STAT_INSTALL_TITLE"] = "Statistics module installation";

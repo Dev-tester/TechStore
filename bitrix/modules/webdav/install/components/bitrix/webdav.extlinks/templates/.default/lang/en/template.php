@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_EXT_LINK_COMP_LINK"] = "Download file";
 $MESS["WD_EXT_LINK_COMP_REMOVED"] = "The link is invalid or file was deleted.";
 $MESS["WD_EXT_LINK_COMP_T1"] = "File is available on the Intranet.";

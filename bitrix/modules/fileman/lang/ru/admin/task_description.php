@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_FILEMAN_DENIED"] = "Доступ закрыт";
 $MESS["TASK_NAME_FILEMAN_ALLOWED_FOLDERS"] = "Редактирование файлов и папок";
 $MESS["TASK_NAME_FILEMAN_FULL_ACCESS"] = "Полный доступ";

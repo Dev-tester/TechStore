@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_CHAT_ACCESS_DENIED"] = "Access denied";
 $MESS["B24C_CHAT_TITLE"] = "Live Chat";
 $MESS["B24C_CHAT_P1"] = "Get more feedback from your customers with Live Chat. This tool is ideal to help a customer navigate across the site or choose a product they need, or help them place an order.";

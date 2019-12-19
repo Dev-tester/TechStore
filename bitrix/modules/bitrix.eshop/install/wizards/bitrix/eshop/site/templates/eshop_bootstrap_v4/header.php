@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/templates/".SITE_TEMPLATE_ID."/header.php");
 CJSCore::Init(array("fx"));
 
@@ -15,15 +15,15 @@ $curPage = $APPLICATION->GetCurPage(true);
 ?><!DOCTYPE html>
 <html xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
 <head>
-	<title><?$APPLICATION->ShowTitle()?></title>
+	<title><?php $APPLICATION->ShowTitle()?></title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
 	<link rel="shortcut icon" type="image/x-icon" href="<?=SITE_DIR?>favicon.ico" />
-	<? $APPLICATION->ShowHead(); ?>
+	<?php  $APPLICATION->ShowHead(); ?>
 </head>
-<body class="bx-background-image bx-theme-<?=$theme?>" <?$APPLICATION->ShowProperty("backgroundImage");?>>
-<div id="panel"><? $APPLICATION->ShowPanel(); ?></div>
-<?$APPLICATION->IncludeComponent(
+<body class="bx-background-image bx-theme-<?=$theme?>" <?php $APPLICATION->ShowProperty("backgroundImage");?>>
+<div id="panel"><?php  $APPLICATION->ShowPanel(); ?></div>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:eshop.banner",
 	"",
 	array()
@@ -36,7 +36,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 				<div class="d-block d-md-none bx-menu-button-mobile" data-role='bx-menu-button-mobile-position'></div>
 				<div class="col-12 col-md-auto bx-header-logo">
 					<a class="bx-logo-block d-none d-md-block" href="<?=SITE_DIR?>">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:main.include",
 							"",
 							array(
@@ -46,7 +46,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 						);?>
 					</a>
 					<a class="bx-logo-block d-block d-md-none text-center" href="<?=SITE_DIR?>">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:main.include",
 							"",
 							array(
@@ -59,7 +59,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 				</div>
 
 				<div class="col-auto d-none d-md-block bx-header-personal">
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:sale.basket.basket.line",
 						"bootstrap_v4",
 						array(
@@ -85,7 +85,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 							<div class="bx-header-phone-block">
 								<i class="bx-header-phone-icon"></i>
 								<span class="bx-header-phone-number">
-									<?$APPLICATION->IncludeComponent(
+									<?php $APPLICATION->IncludeComponent(
 										"bitrix:main.include",
 										"",
 										array(
@@ -101,7 +101,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 							<div class="bx-header-worktime">
 								<div class="bx-worktime-title"><?=GetMessage('HEADER_WORK_TIME'); ?></div>
 								<div class="bx-worktime-schedule">
-									<?$APPLICATION->IncludeComponent(
+									<?php $APPLICATION->IncludeComponent(
 										"bitrix:main.include",
 										"",
 										array(
@@ -121,7 +121,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 			<!--region menu-->
 			<div class="row mb-4 d-none d-md-block">
 				<div class="col">
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:menu",
 						"bootstrap_v4",
 						array(
@@ -146,10 +146,10 @@ $curPage = $APPLICATION->GetCurPage(true);
 			<!--endregion-->
 
 			<!--region search.title -->
-			<?if ($curPage != SITE_DIR."index.php"):?>
+			<?php if ($curPage != SITE_DIR."index.php"):?>
 				<div class="row mb-4">
 					<div class="col">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:search.title",
 							"bootstrap_v4",
 							array(
@@ -181,14 +181,14 @@ $curPage = $APPLICATION->GetCurPage(true);
 						);?>
 					</div>
 				</div>
-			<?endif?>
+			<?php endif?>
 			<!--endregion-->
 
 			<!--region breadcrumb-->
-			<?if ($curPage != SITE_DIR."index.php"):?>
+			<?php if ($curPage != SITE_DIR."index.php"):?>
 				<div class="row mb-4">
 					<div class="col" id="navigation">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:breadcrumb",
 							"universal",
 							array(
@@ -201,8 +201,8 @@ $curPage = $APPLICATION->GetCurPage(true);
 						);?>
 					</div>
 				</div>
-				<h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
-			<?endif?>
+				<h1 id="pagetitle"><?php $APPLICATION->ShowTitle(false);?></h1>
+			<?php endif?>
 			<!--endregion-->
 		</div>
 	</header>
@@ -210,5 +210,5 @@ $curPage = $APPLICATION->GetCurPage(true);
 	<div class="workarea">
 		<div class="container bx-content-section">
 			<div class="row">
-			<?$needSidebar = preg_match("~^".SITE_DIR."(catalog|personal\/cart|personal\/order\/make)/~", $curPage);?>
+			<?php $needSidebar = preg_match("~^".SITE_DIR."(catalog|personal\/cart|personal\/order\/make)/~", $curPage);?>
 				<div class="bx-content <?=($needSidebar ? "col" : "col-md-9 col-sm-8")?>">

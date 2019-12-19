@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LDAP_OPTIONS_SAVE"] = "Сохранить";
 $MESS["LDAP_OPTIONS_RESET"] = "Отменить";
 $MESS["LDAP_OPTIONS_GROUP_LIMIT"] = "Максимальное количество LDAP записей, выбираемых за один запрос:";

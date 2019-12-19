@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCGWTL_CANT_DELETE"] = "Cannot delete the business process template because one or more active business process(es) exist using this template.";
 $MESS["BPCGWTL_UNKNOWN_ERROR"] = "Unknown error.";
 $MESS["BPCGWTL_INVALID_WF_ID"] = "The business process template '#ID#' was not found.";

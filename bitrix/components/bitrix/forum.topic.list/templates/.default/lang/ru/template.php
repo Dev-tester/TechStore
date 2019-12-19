@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SUBSCRIBE'] = "Подписаться";
 $MESS ['F_SUBSCRIBE_TO_NEW_POSTS'] = "Получать уведомления о новых сообщениях по E-mail";
 $MESS ['F_HEAD_TOPICS'] = "Темы";

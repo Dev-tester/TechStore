@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_ARCHIVE_ERR_DFILE"] = "Invalid file descriptor";
 $MESS["MAIN_ARCHIVE_NO_FILE"] = "The file \"#FILE_NAME#\" was not found.";
 $MESS["MAIN_ARCHIVE_NO_READ"] = "The folder \"#DIR_NAME#\" is not accessible.";

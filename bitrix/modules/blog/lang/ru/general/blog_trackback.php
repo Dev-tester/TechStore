@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GT_EMPTY_BLOG_ID"] = "Не указан блог";
 $MESS["BLG_GT_ERROR_NO_BLOG"] = "Блог с кодом &quot;#ID#&quot; не найден";
 $MESS["BLG_GT_EMPTY_POST_ID"] = "Не указано сообщение";

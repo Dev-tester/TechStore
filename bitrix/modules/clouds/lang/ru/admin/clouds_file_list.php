@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_FILE_NAME"] = "Название";
 $MESS["CLO_STORAGE_FILE_SIZE"] = "Размер";
 $MESS["CLO_STORAGE_FILE_COUNT"] = "Количество";

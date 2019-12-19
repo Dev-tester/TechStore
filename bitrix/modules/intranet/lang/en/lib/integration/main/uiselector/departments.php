@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_SELECTOR_EXTRANET"] = "Extranet";
 $MESS["MAIN_UI_SELECTOR_SELECT_FLAT_TEXT_DEPARTMENTS"] = "All department employees";
 $MESS["MAIN_UI_SELECTOR_SELECT_TEXT_DEPARTMENTS"] = "All department and subdepartment employees";

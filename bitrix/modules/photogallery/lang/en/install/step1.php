@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_CREATE_NEW_IBLOCK'] = "New information block";
 $MESS ['P_CREATE_NEW_IBLOCK_NAME'] = "Information block name";
 $MESS ['P_CREATE_NEW_IBLOCK_TYPE'] = "Information block type";

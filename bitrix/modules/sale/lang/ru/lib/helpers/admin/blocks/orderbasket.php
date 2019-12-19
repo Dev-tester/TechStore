@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_BASKET_COMPOSITION"] = "Состав заказа";
 $MESS["SALE_ORDER_BASKET_PRODUCT_ADD"] = "Добавить товар";
 $MESS["SALE_ORDER_BASKET_PRODUCT_NEW"] = "Новый товар";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CONFIG_SIP_ACCEPT"] = "Pay";
 $MESS["VI_CONFIG_SIP_ACCEPT_2"] = "Buy";
 $MESS["VI_CONFIG_SIP_ACCEPT_3"] = "Buy SIP Connector";

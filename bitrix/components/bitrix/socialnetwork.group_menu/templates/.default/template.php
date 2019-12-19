@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -7,8 +7,8 @@
 /** @global CMain $APPLICATION */
 CUtil::InitJSCore(array("ajax", "popup"));
 ?>
-<div style="margin-bottom: 1em;"><?
-	?><div style="float: left;"><?
+<div style="margin-bottom: 1em;"><?php 
+	?><div style="float: left;"><?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:socialnetwork.menu", 
 			"", 
@@ -26,8 +26,8 @@ CUtil::InitJSCore(array("ajax", "popup"));
 			$component,
 			array("HIDE_ICONS" => "Y")
 		);
-	?></div><?
-	?><div style="float: left;"><?
+	?></div><?php 
+	?><div style="float: left;"><?php 
 		?><script>
 			BX.message({
 				SGMErrorSessionWrong: '<?=GetMessageJS("SONET_SGM_T_SESSION_WRONG")?>',
@@ -39,11 +39,11 @@ CUtil::InitJSCore(array("ajax", "popup"));
 				SGMSubscribeButtonTitleOn: '<?=GetMessageJS("SONET_SGM_T_NOTIFY_TITLE_ON")?>',
 				SGMSubscribeButtonTitleOff: '<?=GetMessageJS("SONET_SGM_T_NOTIFY_TITLE_OFF")?>'
 			});
-		</script><?
+		</script><?php 
 		if (in_array($arResult["CurrentUserPerms"]["UserRole"], array(SONET_ROLES_OWNER, SONET_ROLES_MODERATOR, SONET_ROLES_USER)))
 		{
-			?><a id="group_menu_subscribe_button" class="profile-menu-notify-btn<?=($arResult["bSubscribed"] ? " profile-menu-notify-btn-active" : "")?>" title="<?=GetMessage("SONET_SGM_T_NOTIFY_TITLE_".($arResult["bSubscribed"] ? "ON" : "OFF"))?>" href="#" onclick="__SGMSetSubscribe(<?=$arParams["GROUP_ID"]?>, event);" style="position: relative; bottom: -2px; margin-left: -44px;"></a><?
+			?><a id="group_menu_subscribe_button" class="profile-menu-notify-btn<?=($arResult["bSubscribed"] ? " profile-menu-notify-btn-active" : "")?>" title="<?=GetMessage("SONET_SGM_T_NOTIFY_TITLE_".($arResult["bSubscribed"] ? "ON" : "OFF"))?>" href="#" onclick="__SGMSetSubscribe(<?=$arParams["GROUP_ID"]?>, event);" style="position: relative; bottom: -2px; margin-left: -44px;"></a><?php 
 		}
-	?></div><?
-	?><div style="clear: both;"></div><?
+	?></div><?php 
+	?><div style="clear: both;"></div><?php 
 ?></div>

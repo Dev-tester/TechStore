@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_STAT_P_SITE_ID"] = "Website";
 $MESS["GD_STAT_P_SITE_ID_ALL"] = "All";
 $MESS["GD_STAT_P_HIDE_GRAPH"] = "Hide chart";

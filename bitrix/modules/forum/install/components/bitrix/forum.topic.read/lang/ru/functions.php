@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_STAT_TOPICS'] = "тем";
 $MESS ['F_STAT_TOPICS_1'] = "тема";
 $MESS ['F_STAT_TOPICS_2_4'] = "темы";

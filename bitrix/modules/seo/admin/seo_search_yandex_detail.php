@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_admin_before.php");
 
 define('ADMIN_MODULE_NAME', 'seo');
@@ -112,7 +112,7 @@ $siteNameEnc = Converter::getHtmlConverter()->encode($arDomain['SITE_NAME']);
 		<td><?=Loc::getMessage('SEO_SITE')?>:</td>
 		<td>[<a href="site_edit.php?lang=<?=LANGUAGE_ID?>&amp;LID=<?=urlencode($siteIdEnc)?>"><?=$siteIdEnc?></a>] <?=$siteNameEnc?></td>
 	</tr>
-<?
+<?php 
 if(is_array($arSiteInfo[$domain]))
 {
 	if(isset($arSiteInfo[$domain]['tic']))
@@ -123,7 +123,7 @@ if(is_array($arSiteInfo[$domain]))
 		<td><?=Loc::getMessage('SEO_YANDEX_TCY')?>:</td>
 		<td><b><?=$arSiteInfo[$domain]['tic']?></b></td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 <!--	indexing status-->
@@ -134,7 +134,7 @@ if(is_array($arSiteInfo[$domain]))
 			Loc::getMessage('SEO_YANDEX_CRAWLING_'.$arSiteInfo[$domain]['host_data_status']) ?>
 		</td>
 	</tr>
-<?
+<?php 
 	if(isset($arSiteInfo[$domain]['downloaded_pages_count']))
 	{
 ?>
@@ -142,7 +142,7 @@ if(is_array($arSiteInfo[$domain]))
 		<td><?=Loc::getMessage('SEO_YANDEX_URL_COUNT')?>:</td>
 		<td><?=$arSiteInfo[$domain]['downloaded_pages_count']?></td>
 	</tr>
-<?
+<?php 
 	}
 	if(isset($arSiteInfo[$domain]['excluded_pages_count']))
 	{
@@ -151,7 +151,7 @@ if(is_array($arSiteInfo[$domain]))
 		<td><?=Loc::getMessage('SEO_YANDEX_URL_ERRORS')?>:</td>
 		<td><?=$arSiteInfo[$domain]['excluded_pages_count']?></td>
 	</tr>
-<?
+<?php 
 	}
 	if(isset($arSiteInfo[$domain]['searchable_pages_count']))
 	{
@@ -160,24 +160,24 @@ if(is_array($arSiteInfo[$domain]))
 		<td><?=Loc::getMessage('SEO_YANDEX_INDEX_COUNT')?>:</td>
 		<td><?=$arSiteInfo[$domain]['searchable_pages_count']?></td>
 	</tr>
-<?
+<?php 
 	}
 	
 	if(isset($arSiteInfo[$domain]['site_problems']))
 	{
 ?>
 	<tr><td><?=Loc::getMessage('SEO_YANDEX_SITE_PROBLEMS')?>:</td><td>
-	<?foreach($arSiteInfo[$domain]['site_problems'] as $problem => $count):?>
+	<?php foreach($arSiteInfo[$domain]['site_problems'] as $problem => $count):?>
 		<?=Loc::getMessage('SEO_YANDEX_SITE_PROBLEMS_TYPE_'.$problem)?> - <?=$count?><br>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</td></tr>
-<?
+<?php 
 	}
 ?>
 	<tr>
 		<td colspan="2" align="center"><?=BeginNote()?><a href="http://webmaster.yandex.ru/" target="_blank"><?=Loc::getMessage('SEO_YANDEX_WEBMASTER_TOOLS_LINK')?></a><?=EndNote()?></td>
 	</tr>
-<?
+<?php 
 }
 else
 {
@@ -185,7 +185,7 @@ else
 <tr>
 	<td></td><td><?=BeginNote(),Loc::getMessage('SEO_ERROR_NO_INFO', array("#DOMAIN#" => $siteDomainEncView)),EndNote()?></td>
 </tr>
-<?
+<?php 
 }
 
 $tabControl->BeginNextTab();
@@ -193,7 +193,7 @@ $tabControl->BeginNextTab();
 <tr>
 	<td><div id="seo_yandex_top-queries" align="center"><?=BeginNote(),Loc::getMessage('SEO_LOADING'),EndNote();?></div></td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
@@ -201,7 +201,7 @@ $tabControl->BeginNextTab();
 </tr><tr>
 	<td align="center"><?=BeginNote(),Loc::getMessage('SEO_DETAIL_ORIGINAL_HINT'),EndNote();?></td>
 </tr>
-<?
+<?php 
 $tabControl->End();
 ?>
 <script type="text/javascript">
@@ -293,6 +293,6 @@ function BXLoadInfo(action)
 	);
 }
 </script>
-<?
+<?php 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

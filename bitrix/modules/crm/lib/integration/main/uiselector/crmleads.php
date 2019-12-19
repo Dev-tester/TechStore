@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Integration\Main\UISelector;
 
 use Bitrix\Main\Localization\Loc;

@@ -27,7 +27,7 @@
 						</div>
 
 						<div data-bx-block-editor-block-type="component">
-							<?EventMessageThemeCompiler::includeComponent(
+							<?php EventMessageThemeCompiler::includeComponent(
 								"bitrix:sale.basket.basket.small.mail",
 								"",
 								Array(

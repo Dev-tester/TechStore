@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_IMPORT_SNS"] = "Aside from typical importing, you can import using vCard.<br> To do this in <b>MS Outlook</b>, go to Contacts and select the business cards to be sent.  Under Actions, choose <b>send as business card</b> and specify the email address of the recipient <b>%EMAIL%</b>";
 $MESS["CRM_TAB_1"] = "Import Settings";
 $MESS["CRM_TAB_1_TITLE"] = "Edit import settings";

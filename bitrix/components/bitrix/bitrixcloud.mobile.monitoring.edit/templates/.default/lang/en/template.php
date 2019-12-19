@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCLMME_TITLE"] = "Inspector parameters";
 $MESS["BCLMME_DOMAIN_TITLE"] = "Domain";
 $MESS["BCLMME_HTTP_RESPONSE_TIME_TITLE"] = "Website response";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_DEMO_STORE_CLOTHES-MAINPAGE--DESC"] = "A clothing store template. Start online sales in no time!";
 $MESS["LANDING_DEMO_STORE_CLOTHES-MAINPAGE--NAME"] = "Main page";
 $MESS["LANDING_DEMO_STORE_CLOTHES-MAINPAGE--TEXT_1"] = "This week's lowest prices!";

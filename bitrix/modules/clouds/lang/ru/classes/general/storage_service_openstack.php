@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_OPENSTACK_EMPTY_HOST"] = "Не задано имя сервера.";
 $MESS["CLO_STORAGE_OPENSTACK_EMPTY_USER"] = "Не задано имя пользователя.";
 $MESS["CLO_STORAGE_OPENSTACK_EMPTY_KEY"] = "Не задан ключ доступа.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Mission & Strategy";
 $MESS["ABOUT_INFO"] = "<img height=\"268\" align=\"\" width=\"400\" src=\"#SITE#images/en/company/about/cp1.jpg\" />
 <br /><br />

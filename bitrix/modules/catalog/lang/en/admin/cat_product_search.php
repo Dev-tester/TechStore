@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPS_SEARCH_TITLE"] = "Products";
 $MESS["SPS_CATALOG"] = "Catalog";
 $MESS["SPS_ID_FROM_TO"] = "beginning and ending";

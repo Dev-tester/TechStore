@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_CNT_ADMIN_FILTER_GROUP"]="Группа";
 $MESS["CTRL_CNT_ADMIN_FILTER_ANY"]="(любая)";
 $MESS["CTRL_CNT_ADMIN_TITLE"]="Счетчики";

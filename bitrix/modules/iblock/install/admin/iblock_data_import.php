@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/iblock/admin/data_import.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/iblock/admin/data_import.php");?>

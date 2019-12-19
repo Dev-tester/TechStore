@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AVTOR_PREF"] = "Автор:";
 $MESS["F_ERR_EMPTY_FORUM_ID"] = "Не указан форум.";
 $MESS["F_ERR_INVALID_FORUM_ID"] = "Неверно указан форум.";

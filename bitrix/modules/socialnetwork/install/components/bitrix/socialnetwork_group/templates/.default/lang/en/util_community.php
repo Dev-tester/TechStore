@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SGM_T_SESSION_WRONG"] = "Your session has expired. Please try again.";
 $MESS["SONET_SGM_T_NOT_ATHORIZED"] = "You are not logged in.";
 $MESS["SONET_SGM_T_MODULE_NOT_INSTALLED"] = "The Social Network module is not installed.";

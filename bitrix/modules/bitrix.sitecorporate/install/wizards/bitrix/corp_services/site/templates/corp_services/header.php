@@ -1,17 +1,17 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 IncludeTemplateLangFile(__FILE__);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title><?$APPLICATION->ShowTitle()?></title>
+	<title><?php $APPLICATION->ShowTitle()?></title>
 	<link rel="shortcut icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/favicon.ico" />
 	
 	<link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/common.css" />
 	
-	<?$APPLICATION->ShowHead();?>
+	<?php $APPLICATION->ShowHead();?>
 	
 	<!--[if lte IE 6]>
 	<style type="text/css">
@@ -37,17 +37,17 @@ IncludeTemplateLangFile(__FILE__);
 <body>
 		<div id="page-wrapper">
 		
-			<div id="panel"><?$APPLICATION->ShowPanel();?></div>
+			<div id="panel"><?php $APPLICATION->ShowPanel();?></div>
 	
 			<div id="header">
 				<table>
 					<tr>
-						<td id="logo"><a href="<?=SITE_DIR?>" title="<?=GetMessage("HDR_GOTO_MAIN")?>"><?$APPLICATION->IncludeFile(
+						<td id="logo"><a href="<?=SITE_DIR?>" title="<?=GetMessage("HDR_GOTO_MAIN")?>"><?php $APPLICATION->IncludeFile(
 									SITE_DIR."include/company_name.php",
 									Array(),
 									Array("MODE"=>"html")
 								);?></a></td>
-						<td id="slogan"><?$APPLICATION->IncludeFile(
+						<td id="slogan"><?php $APPLICATION->IncludeFile(
 									SITE_DIR."include/company_slogan.php",
 									Array(),
 									Array("MODE"=>"html")
@@ -57,7 +57,7 @@ IncludeTemplateLangFile(__FILE__);
 
 				
 				<div id="search">
-				<?$APPLICATION->IncludeComponent("bitrix:search.form", "flat", array(
+				<?php $APPLICATION->IncludeComponent("bitrix:search.form", "flat", array(
 					"PAGE" => "#SITE_DIR#search/index.php"
 					),
 					false
@@ -65,7 +65,7 @@ IncludeTemplateLangFile(__FILE__);
 				</div>
 			</div>
 
-<?$APPLICATION->IncludeComponent("bitrix:menu", "top", array(
+<?php $APPLICATION->IncludeComponent("bitrix:menu", "top", array(
 	"ROOT_MENU_TYPE" => "top",
 	"MENU_CACHE_TYPE" => "Y",
 	"MENU_CACHE_TIME" => "36000000",
@@ -83,9 +83,9 @@ IncludeTemplateLangFile(__FILE__);
 		
 			<div id="content-wrapper">
 				<div id="content">
-				<?if($APPLICATION->GetCurPage(false)==SITE_DIR):?>
+				<?php if($APPLICATION->GetCurPage(false)==SITE_DIR):?>
 					<div id="banner">
-						<div id="banner-image"><?$APPLICATION->IncludeFile(
+						<div id="banner-image"><?php $APPLICATION->IncludeFile(
 									SITE_DIR."include/banner.php",
 									Array(),
 									Array("MODE"=>"html")
@@ -94,7 +94,7 @@ IncludeTemplateLangFile(__FILE__);
 							<tr>
 								<td width="35%">&nbsp;</td>
 								<td>
-								<?$APPLICATION->IncludeFile(
+								<?php $APPLICATION->IncludeFile(
 									SITE_DIR."include/banner_text.php",
 									Array(),
 									Array("MODE"=>"text")
@@ -104,9 +104,9 @@ IncludeTemplateLangFile(__FILE__);
 						</table>
 						<div id="banner-overlay"></div>
 					</div>
-				<?else:?>
+				<?php else:?>
 					<div id="breadcrumb">
-						<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", ".default", array(
+						<?php $APPLICATION->IncludeComponent("bitrix:breadcrumb", ".default", array(
 	"START_FROM" => "1",
 	"PATH" => "",
 	"SITE_ID" => SITE_ID
@@ -114,10 +114,10 @@ IncludeTemplateLangFile(__FILE__);
 	false
 );?>
 					</div>					
-				<?endif?>					
+				<?php endif?>					
 					<div id="workarea-wrapper">
 						<div id="left-menu">
-						<?$APPLICATION->IncludeComponent("bitrix:menu", "tree", array(
+						<?php $APPLICATION->IncludeComponent("bitrix:menu", "tree", array(
 							"ROOT_MENU_TYPE" => "leftfirst",
 							"MENU_CACHE_TYPE" => "Y",
 							"MENU_CACHE_TIME" => "36000000",
@@ -134,5 +134,5 @@ IncludeTemplateLangFile(__FILE__);
 						</div>						
 						<div id="workarea">
 							<div id="workarea-inner">
-							<h5><?$APPLICATION->ShowTitle(false);?></h5> 
+							<h5><?php $APPLICATION->ShowTitle(false);?></h5> 
 

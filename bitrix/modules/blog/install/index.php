@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/blog/install/index.php");
 

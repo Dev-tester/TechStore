@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_LIST_ITEMS_YES"] = "Yes";
 $MESS["TASKS_LIST_ITEMS_NO"] = "No";
 $MESS["TASKS_LIST_ITEMS_STATUS_1"] = "New";

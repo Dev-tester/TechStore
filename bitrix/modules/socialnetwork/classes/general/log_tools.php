@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Socialnetwork\ComponentHelper;
 
 IncludeModuleLangFile(__FILE__);
@@ -5202,7 +5202,7 @@ class CSocNetLogTools
 			{
 				?><div class="feed-com-files">
 					<div class="feed-com-files-title"><?=GetMessage("LOG_FILES")?></div>
-					<div class="feed-com-files-cont"><?
+					<div class="feed-com-files-cont"><?php 
 
 					foreach ($arResult["VALUE"] as $fileID)
 					{
@@ -5225,12 +5225,12 @@ class CSocNetLogTools
 									<a target="_blank" href="<?=htmlspecialcharsbx($arFile["LINK"])?>" class="feed-com-file-name"><?=htmlspecialcharsbx($arFile["ORIGINAL_NAME"])?></a>
 									<span class="feed-con-file-size">(<?=$arFile["FILE_SIZE"]?>)</span>
 								</div>
-							</div><?
+							</div><?php 
 						}
 					}
 
 					?></div>
-				</div><?
+				</div><?php 
 			}
 
 			$result = true;

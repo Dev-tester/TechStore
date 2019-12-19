@@ -1,4 +1,4 @@
-<?
+<?php 
 $forumWarningTmp = "";
 if (CModule::IncludeModule("forum") && check_bitrix_sessid()):
 	$arforumFields = Array(

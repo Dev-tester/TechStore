@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EXTRANET_MODULE_NAME'] = "Экстранет";
 $MESS ['EXTRANET_MODULE_DESC'] = "Модуль, поддерживающий работу сотрудников компании с внешними партнерами.";
 $MESS ['EXTRANET_INSTALL_TITLE'] = "Установка модуля Экстранет";

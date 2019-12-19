@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SECURITY_LEVEL"] = "You can check the present security level of the module at the <a href=\"security_panel.php?lang=#LANGUAGE_ID#\">Security Panel</a>.";
 $MESS["GD_SECURITY_SCANNER_TITLE"] = "Security<br>scanner";
 $MESS["GD_SECURITY_MODULE_INSTALL"] = "Install";

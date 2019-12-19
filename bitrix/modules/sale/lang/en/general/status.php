@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGS_ORDER_ID"] = "order ID";
 $MESS["SKGS_ORDER_DATE"] = "order date";
 $MESS["SKGS_ORDER_STATUS"] = "order status";

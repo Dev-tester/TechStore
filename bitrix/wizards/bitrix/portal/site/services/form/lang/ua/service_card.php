@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_NOTE_QUESTION"] = "Відповідь";
 $MESS["BUSINESS_CARD_MENU_NAME"] = "Замовлення візитних карток";
 $MESS["COMMENT_QUESTION"] = "Коментар";

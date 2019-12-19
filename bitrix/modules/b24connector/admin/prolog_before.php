@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "b24connector");
 
 use Bitrix\Main\Localization\Loc;

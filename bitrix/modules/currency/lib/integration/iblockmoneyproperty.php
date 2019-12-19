@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Currency\Integration;
 
 use Bitrix\Main\Localization\Loc;
@@ -567,7 +567,7 @@ class IblockMoneyProperty
 			});
 			});
 		</script>
-		<?
+		<?php 
 		$script = ob_get_contents();
 		ob_end_clean();
 		return  $script;

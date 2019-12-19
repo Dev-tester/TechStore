@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 extract($_REQUEST, EXTR_SKIP);
 IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"].BX_PERSONAL_ROOT."/templates/".SITE_TEMPLATE_ID."/main/auth/auth_form.php");
 $cur_page = $GLOBALS["APPLICATION"]->GetCurPage();
@@ -37,7 +37,7 @@ ShowMessage($arAuthResult);
 				<tr>
 					<td align="right" class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_LOGIN")?></font></td>
 					<td valign="middle" align="left" class="tablebody" nowrap><nobr>
-						<input type="text" name="USER_LOGIN" maxlength="50" size="20" value="<?echo htmlspecialcharsbx($last_login)?>" class="inputtext">&nbsp;<font class="tablebodytext"><?=GetMessage("AUTH_OR")?>&nbsp;</nobr></font>
+						<input type="text" name="USER_LOGIN" maxlength="50" size="20" value="<?php echo htmlspecialcharsbx($last_login)?>" class="inputtext">&nbsp;<font class="tablebodytext"><?=GetMessage("AUTH_OR")?>&nbsp;</nobr></font>
 					</td>
 				</tr>
 				<tr> 

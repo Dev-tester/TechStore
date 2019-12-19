@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_TICKET'] = "Trouble ticket";
 $MESS ['SUP_MIN'] = "min.";
 $MESS ['SUP_USERS_ONLINE'] = "For the last #TIME# the ticket viewed by";

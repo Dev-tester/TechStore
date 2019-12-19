@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -164,10 +164,10 @@ $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 CAdminMessage::ShowMessage($errorMessage);?>
 <form method="POST" action="<?=$actionUrl?>" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post();
 
 $aTabs = array(
@@ -183,33 +183,33 @@ $tabControl->BeginNextTab();
 		?><tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
-		</tr><?
+		</tr><?php 
 	}
 	?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("CEEN_NAME")?>:</td>
+		<td width="40%"><?php echo GetMessage("CEEN_NAME")?>:</td>
 		<td width="60%">
-			<input type="text" name="NAME" size="50" value="<? echo htmlspecialcharsbx($str_NAME); ?>">
+			<input type="text" name="NAME" size="50" value="<?php  echo htmlspecialcharsbx($str_NAME); ?>">
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("CEEN_PERCENTAGE")?>:</td>
+		<td width="40%"><?php echo GetMessage("CEEN_PERCENTAGE")?>:</td>
 		<td width="60%">
 			<input type="text" name="PERCENTAGE" size="10" maxlength="20" value="<?=htmlspecialcharsbx($str_PERCENTAGE); ?>" />%
 		</td>
 	</tr>
-	<?
+	<?php 
 	if ($ID > 0)
 	{
 		?>
 		<tr>
-			<td width="40%"><?echo GetMessage("CEEN_RECALC")?>:</td>
+			<td width="40%"><?php echo GetMessage("CEEN_RECALC")?>:</td>
 			<td width="60%">
 				<input type="hidden" name="RECALCULATE" value="N" />
-				<input type="checkbox" name="RECALCULATE" value="Y"<?if ($str_RECALCULATE == "Y") echo " checked"?> />
+				<input type="checkbox" name="RECALCULATE" value="Y"<?php if ($str_RECALCULATE == "Y") echo " checked"?> />
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 
 $tabControl->EndTab();
@@ -217,4 +217,4 @@ $tabControl->Buttons(array("disabled" => $bReadOnly, "back_url" => $listUrl));
 $tabControl->End();
 ?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

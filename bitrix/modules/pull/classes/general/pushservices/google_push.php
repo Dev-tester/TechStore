@@ -1,4 +1,4 @@
-<?
+<?php 
 
 class CGoogleMessage extends CPushMessage
 {

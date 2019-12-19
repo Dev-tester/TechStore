@@ -19,7 +19,7 @@
 	}
 	//-->
 	</script>
-	<?
+	<?php 
 	$arSites= Array();
 	$dbSites = CSite::GetList(($b = ""), ($o = ""), Array("ACTIVE" => "Y"));
 	while ($site = $dbSites->GetNext())
@@ -30,33 +30,33 @@
 	<table class="list-table">
 	<tr class="head">
 		<td> </td>
-	<?foreach($arSites as $fSite):?>
+	<?php foreach($arSites as $fSite):?>
 			<td><?=$fSite["NAME"]?></td>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</tr>
 	<tr>
 		<td><?=GetMessage("BLI_COPY_PUBLIC_FILES") ?>:</td>
-		<?foreach($arSites as $fSite):?>
+		<?php foreach($arSites as $fSite):?>
 			<td><input type="checkbox" name="install_public_<?=$fSite["SITE_ID"]?>" value="Y" onclick="ChangeInstallPublic(this.checked, '<?=CUtil::JSEscape($fSite["SITE_ID"])?>')"></td>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>
 	<tr>
 		<td><?=GetMessage("BLI_INSTALL_404") ?>:</td>
-		<?foreach($arSites as $fSite):?>
+		<?php foreach($arSites as $fSite):?>
 			<td><input type="checkbox" name="is404_<?=$fSite["SITE_ID"]?>" id="is404_<?=$fSite["SITE_ID"]?>" value="Y" checked></td>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>
 	<tr>
 		<td><?=GetMessage("BLI_COPY_FOLDER") ?>:</td>
-		<?foreach($arSites as $fSite):?>
+		<?php foreach($arSites as $fSite):?>
 			<td><input type="text" name="public_path_<?=$fSite["SITE_ID"]?>" id="public_path_<?=$fSite["SITE_ID"]?>" value="blog"></td>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>			
 	<tr>
 		<td><?= GetMessage("BLOG_INSTALL_PUBLIC_REW") ?>:</td>
-		<?foreach($arSites as $fSite):?>
+		<?php foreach($arSites as $fSite):?>
 			<td><input type="checkbox" name="public_rewrite_<?=$fSite["SITE_ID"]?>" id="public_rewrite_<?=$fSite["SITE_ID"]?>" value="Y"></td>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>
 	</table>
 	<p>
@@ -66,9 +66,9 @@
 
 	<script language="JavaScript">
 	<!--
-	<?foreach($arSites as $fSite):?>
+	<?php foreach($arSites as $fSite):?>
 		ChangeInstallPublic(false, '<?=CUtil::JSEscape($fSite["SITE_ID"]);?>');
-	<?endforeach;?>
+	<?php endforeach;?>
 	//-->
 	</script>
 	<br>

@@ -13,4 +13,4 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var \Bitrix\Disk\Internals\BaseComponent $component */
 ?>
 Error
-<? //$arResult['exception'] ?>
+<?php  //$arResult['exception'] ?>

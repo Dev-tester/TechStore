@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Location\Comparator;
 
 use Bitrix\Sale\Delivery\ExternalLocationMap;

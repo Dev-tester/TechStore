@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_FIELD_CONTENT"] = "Contents";
 $MESS["CRM_QUOTE_FIELD_LEAD_ID"] = "Lead";
 $MESS["CRM_QUOTE_FIELD_LOCATION_ID"] = "Location";

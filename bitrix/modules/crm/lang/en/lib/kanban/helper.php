@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_KANBAN_HELPER_DPR_MY"] = "My Deals";
 $MESS["CRM_KANBAN_HELPER_DPR_WON"] = "Won deals";
 $MESS["CRM_KANBAN_HELPER_DPR_WORK"] = "Deals in progress";

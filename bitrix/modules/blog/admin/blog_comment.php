@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/blog/include.php");
 
@@ -334,8 +334,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("BLB_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -362,121 +362,121 @@ $oFilter->Begin();
 ?>
 	<tr>
 		<td>ID:</td>
-		<td><input type="text" name="filter_id" value="<?echo htmlspecialcharsbx($filter_id)?>" size="20"></td>
+		<td><input type="text" name="filter_id" value="<?php echo htmlspecialcharsbx($filter_id)?>" size="20"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_DATE_CREATE");?>:</td>
+		<td><?php echo GetMessage("BLB_DATE_CREATE");?>:</td>
 		<td>
-			<?echo CalendarPeriod("filter_date_create_from", $filter_date_create_from, "filter_date_create_to", $filter_date_create_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_date_create_from", $filter_date_create_from, "filter_date_create_to", $filter_date_create_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_AUTHOR_ID");?>:</td>
+		<td><?php echo GetMessage("BLB_AUTHOR_ID");?>:</td>
 		<td>
-			<?echo FindUserID("filter_author_id", $filter_author_id, "", "find_form");?>
+			<?php echo FindUserID("filter_author_id", $filter_author_id, "", "find_form");?>
 		</td>
 	</tr>	
 	<tr>
-		<td><?echo GetMessage("BLB_AUTHOR_NAME")?>:</td>
-		<td><input type="text" name="filter_author_name" value="<?echo htmlspecialcharsbx($filter_author_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLB_AUTHOR_NAME")?>:</td>
+		<td><input type="text" name="filter_author_name" value="<?php echo htmlspecialcharsbx($filter_author_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>	
 	<tr>
-		<td><?echo GetMessage("BLB_AUTHOR_EMAIL")?>:</td>
-		<td><input type="text" name="filter_author_email" value="<?echo htmlspecialcharsbx($filter_author_email)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLB_AUTHOR_EMAIL")?>:</td>
+		<td><input type="text" name="filter_author_email" value="<?php echo htmlspecialcharsbx($filter_author_email)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>	
 	<tr>
-		<td><?echo GetMessage("BLB_AUTHOR_ANONYM")?>:</td>
+		<td><?php echo GetMessage("BLB_AUTHOR_ANONYM")?>:</td>
 		<td>
 			<select name="filter_author_anonym">
-				<option value=""><?echo GetMessage("BLB_F_ALL")?></option>
-				<option value="Y"<?if ($filter_author_anonym=="Y") echo " selected"?>><?echo GetMessage("BLB_YES")?></option>
-				<option value="N"<?if ($filter_author_anonym=="N") echo " selected"?>><?echo GetMessage("BLB_NO")?></option>
+				<option value=""><?php echo GetMessage("BLB_F_ALL")?></option>
+				<option value="Y"<?php if ($filter_author_anonym=="Y") echo " selected"?>><?php echo GetMessage("BLB_YES")?></option>
+				<option value="N"<?php if ($filter_author_anonym=="N") echo " selected"?>><?php echo GetMessage("BLB_NO")?></option>
 			</select>
 		</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("BLB_POST_TEXT")?>:</td>
-		<td><input type="text" name="filter_post_text" value="<?echo htmlspecialcharsbx($filter_post_text)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLB_POST_TEXT")?>:</td>
+		<td><input type="text" name="filter_post_text" value="<?php echo htmlspecialcharsbx($filter_post_text)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>	
 	<tr>
-		<td><?echo GetMessage("BLB_AUTHOR_IP")?>:</td>
-		<td><input type="text" name="filter_author_ip" value="<?echo htmlspecialcharsbx($filter_author_ip)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLB_AUTHOR_IP")?>:</td>
+		<td><input type="text" name="filter_author_ip" value="<?php echo htmlspecialcharsbx($filter_author_ip)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_AUTHOR_IP1")?>:</td>
-		<td><input type="text" name="filter_author_ip1" value="<?echo htmlspecialcharsbx($filter_author_ip1)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("BLB_AUTHOR_IP1")?>:</td>
+		<td><input type="text" name="filter_author_ip1" value="<?php echo htmlspecialcharsbx($filter_author_ip1)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_PUBLISH_STATUS")?>:</td>
+		<td><?php echo GetMessage("BLB_PUBLISH_STATUS")?>:</td>
 		<td>
 			<select name="filter_publish_status">
-				<option value=""><?echo GetMessage("BLB_F_ALL")?></option>
-				<option value="P"<?if ($filter_publish_status=="P") echo " selected"?>><?echo GetMessage("BLB_YES")?></option>
-				<option value="K"<?if ($filter_publish_status=="K") echo " selected"?>><?echo GetMessage("BLB_NO")?></option>
+				<option value=""><?php echo GetMessage("BLB_F_ALL")?></option>
+				<option value="P"<?php if ($filter_publish_status=="P") echo " selected"?>><?php echo GetMessage("BLB_YES")?></option>
+				<option value="K"<?php if ($filter_publish_status=="K") echo " selected"?>><?php echo GetMessage("BLB_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_BLOG_ID")?>:</td>
-		<td><input type="text" name="filter_blog_id" value="<?echo htmlspecialcharsbx($filter_blog_id)?>" size="20"></td>
+		<td><?php echo GetMessage("BLB_BLOG_ID")?>:</td>
+		<td><input type="text" name="filter_blog_id" value="<?php echo htmlspecialcharsbx($filter_blog_id)?>" size="20"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_POST_ID")?>:</td>
-		<td><input type="text" name="filter_post_id" value="<?echo htmlspecialcharsbx($filter_post_id)?>" size="20"></td>
+		<td><?php echo GetMessage("BLB_POST_ID")?>:</td>
+		<td><input type="text" name="filter_post_id" value="<?php echo htmlspecialcharsbx($filter_post_id)?>" size="20"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_BLOG_OWNER_ID");?>:</td>
+		<td><?php echo GetMessage("BLB_BLOG_OWNER_ID");?>:</td>
 		<td>
-			<?echo FindUserID("filter_owner_id", $filter_owner_id, "", "find_form");?>
+			<?php echo FindUserID("filter_owner_id", $filter_owner_id, "", "find_form");?>
 		</td>
 	</tr>	
 	<tr>
-		<td><?echo GetMessage("BLB_BLOG_SOCNET_GROUP_ID")?>:</td>
-		<td><input type="text" name="filter_socnet_group_id" value="<?echo htmlspecialcharsbx($filter_socnet_group_id)?>" size="20"></td>
+		<td><?php echo GetMessage("BLB_BLOG_SOCNET_GROUP_ID")?>:</td>
+		<td><input type="text" name="filter_socnet_group_id" value="<?php echo htmlspecialcharsbx($filter_socnet_group_id)?>" size="20"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_BLOG_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("BLB_BLOG_ACTIVE")?>:</td>
 		<td>
 			<select name="filter_blog_active">
-				<option value=""><?echo GetMessage("BLB_F_ALL")?></option>
-				<option value="Y"<?if ($filter_blog_active=="Y") echo " selected"?>><?echo GetMessage("BLB_YES")?></option>
-				<option value="N"<?if ($filter_blog_active=="N") echo " selected"?>><?echo GetMessage("BLB_NO")?></option>
+				<option value=""><?php echo GetMessage("BLB_F_ALL")?></option>
+				<option value="Y"<?php if ($filter_blog_active=="Y") echo " selected"?>><?php echo GetMessage("BLB_YES")?></option>
+				<option value="N"<?php if ($filter_blog_active=="N") echo " selected"?>><?php echo GetMessage("BLB_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo GetMessage("BLB_BLOG_GROUP_ID");?>:</td>
+		<td valign="top"><?php echo GetMessage("BLB_BLOG_GROUP_ID");?>:</td>
 		<td>
 			<select name="filter_blog_group_id[]" multiple size="5">
-				<option value=""><?echo GetMessage("BLB_F_ALL")?></option>
-				<?
+				<option value=""><?php echo GetMessage("BLB_F_ALL")?></option>
+				<?php 
 				$dbGroup = CBlogGroup::GetList(array("NAME" => "ASC"), array());
 				while ($arGroup = $dbGroup->GetNext())
 				{
-					?><option value="<?= $arGroup["ID"] ?>"<?if (in_array($arGroup["ID"], $filter_blog_group_id)) echo " selected"?>>[<?= $arGroup["ID"] ?>] <?= $arGroup["NAME"] ?> (<?= $arGroup["SITE_ID"] ?>)</option><?
+					?><option value="<?= $arGroup["ID"] ?>"<?php if (in_array($arGroup["ID"], $filter_blog_group_id)) echo " selected"?>>[<?= $arGroup["ID"] ?>] <?= $arGroup["NAME"] ?> (<?= $arGroup["SITE_ID"] ?>)</option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLB_BLOG_GROUP_SITE_ID");?>:</td>
+		<td><?php echo GetMessage("BLB_BLOG_GROUP_SITE_ID");?>:</td>
 		<td>
 			<select name="filter_blog_group_site_id">
 				<option value=""><?= GetMessage("BLB_F_ALL") ?></option>
-				<?
+				<?php 
 				$dbSitesList = CLang::GetList(($b1="sort"), ($o1="asc"));
 				while ($arSitesList = $dbSitesList->GetNext())
 				{
-					?><option value="<?= ($arSitesList["LID"])?>"<?if ($arSitesList["LID"] == $filter_blog_group_site_id) echo " selected";?>>[<?= ($arSitesList["LID"]) ?>]&nbsp;<?= ($arSitesList["NAME"]) ?></option><?
+					?><option value="<?= ($arSitesList["LID"])?>"<?php if ($arSitesList["LID"] == $filter_blog_group_site_id) echo " selected";?>>[<?= ($arSitesList["LID"]) ?>]&nbsp;<?= ($arSitesList["NAME"]) ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $USER_FIELD_MANAGER->AdminListShowFilter("BLOG_COMMENT");
 
 $oFilter->Buttons(
@@ -489,9 +489,9 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

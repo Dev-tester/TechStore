@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Application;
 use \Bitrix\Sale\PaySystem;
 
@@ -21,4 +21,4 @@ if (CModule::IncludeModule("sale"))
 	}
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

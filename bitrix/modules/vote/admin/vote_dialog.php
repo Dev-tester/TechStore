@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -50,11 +50,11 @@ function KeyPress()
 		window.close();
 }
 </script>
-<title><?echo htmlspecialcharsbx($title)?></title>
-<meta http-equiv="Content-Type" content="text/html; charset=<?echo LANG_CHARSET?>">
+<title><?php echo htmlspecialcharsbx($title)?></title>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo LANG_CHARSET?>">
 </HEAD>
 <BODY onKeyPress="KeyPress()">
-<?
+<?php 
 if($fname=="")
 	echo GetMessage("VOTE_DIALOGS_BAD_TYPE");
 else
@@ -64,6 +64,6 @@ else
 ?>
 </BODY>
 </HTML>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");
 ?>

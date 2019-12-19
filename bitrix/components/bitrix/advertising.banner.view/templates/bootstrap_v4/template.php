@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /**
  * @var CBitrixComponent $component
@@ -69,34 +69,34 @@ else
 }
 ?>
 
-<? if ($arParams['CASUAL_PROPERTIES']['TYPE'] == 'template'): ?>
+<?php  if ($arParams['CASUAL_PROPERTIES']['TYPE'] == 'template'): ?>
 <div class="bx-slider-preset-<?=$arParams['PROPS']['PRESET']?>">
-	<? /* if ($arParams['PROPS']['LINK_URL'] != '' && !isset($arParams['PREVIEW'])): ?>
+	<?php  /* if ($arParams['PROPS']['LINK_URL'] != '' && !isset($arParams['PREVIEW'])): ?>
 		<a href="<?=$arParams['PROPS']['LINK_URL']?>" title="<?=$arParams['PROPS']['LINK_TITLE']?>" target="<?=$arParams['PROPS']['LINK_TARGET']?>" style="display:block;">
-	<? endif */?>
+	<?php  endif */?>
 
-	<? if (isset($arParams['PROPS']['BACKGROUND']) && $arParams['PROPS']['BACKGROUND'] == 'video'): ?>
+	<?php  if (isset($arParams['PROPS']['BACKGROUND']) && $arParams['PROPS']['BACKGROUND'] == 'video'): ?>
 		<div align="center" class="d-block w-100 embed-responsive embed-responsive-16by9">
 			<video <?=$arParams['PROPS']['VIDEO_MUTE']?> loop class="embed-responsive-item">
-			<? if (isset($arParams['FILES']['VIDEO_MP4']['SRC'])): ?>
+			<?php  if (isset($arParams['FILES']['VIDEO_MP4']['SRC'])): ?>
 				<source src="<?=$arParams['FILES']['VIDEO_MP4']['SRC']?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
-			<? endif ?>
+			<?php  endif ?>
 
-			<? if (isset($arParams['FILES']['VIDEO_WEBM']['SRC'])): ?>
+			<?php  if (isset($arParams['FILES']['VIDEO_WEBM']['SRC'])): ?>
 				<source src="<?=$arParams['FILES']['VIDEO_WEBM']['SRC']?>" type='video/webm; codecs="vp8, vorbis"'>
-			<? endif ?>
+			<?php  endif ?>
 			</video>
 		</div>
-	<? elseif (isset($arParams['PROPS']['BACKGROUND']) && $arParams['PROPS']['BACKGROUND'] == 'stream'): ?>
+	<?php  elseif (isset($arParams['PROPS']['BACKGROUND']) && $arParams['PROPS']['BACKGROUND'] == 'stream'): ?>
 		<div class="d-block w-100 embed-responsive embed-responsive-16by9">
 			<iframe id='yt_player_<?=$rnd?>' class="embed-responsive-item" src="https://www.youtube.com/embed/<?=$id?>?enablejsapi=1&controls=0&showinfo=0&rel=0<?=$arParams['AUTOPLAY']?>"></iframe>
 
-			<? if ($arParams['PROPS']['LINK_URL'] != '' && !isset($arParams['PREVIEW'])): ?>
+			<?php  if ($arParams['PROPS']['LINK_URL'] != '' && !isset($arParams['PREVIEW'])): ?>
 				<a href="<?=$arParams['PROPS']['LINK_URL']?>" title="<?=$arParams['PROPS']['LINK_TITLE']?>"
 					target="<?=$arParams['PROPS']['LINK_TARGET']?>"
 					style="position:absolute; top:0; left:0; display:inline-block; width:100%; height:100%; z-index:2;">
 				</a>
-			<? endif ?>
+			<?php  endif ?>
 
 			<script>
 				if (!yt_player)
@@ -104,36 +104,36 @@ else
 				yt_player['<?=$rnd?>'] = {id: 'yt_player_<?=$rnd?>', mute: '<?=$arParams['PROPS']['STREAM_MUTE']?>'};
 			</script>
 		</div>
-	<? else: ?>
+	<?php  else: ?>
 		<img src="<?=$arParams['FILES']['IMG']['SRC']?>" class="d-block w-100" alt="<?=$arParams['FILES']['IMG']['DESCRIPTION']?>" title="<?=$arParams['FILES']['IMG']['DESCRIPTION']?>">
-	<? endif ?>
+	<?php  endif ?>
 
-	<? if ($arParams['EXT_MODE'] == 'N'): ?>
-		<? if ($arParams['PROPS']['OVERLAY'] == 'Y'): ?>
+	<?php  if ($arParams['EXT_MODE'] == 'N'): ?>
+		<?php  if ($arParams['PROPS']['OVERLAY'] == 'Y'): ?>
 			<div class="bx-advertisingbanner-pattern" style="background:rgba(<?=$arParams['PROPS']['OVERLAY_COLOR']?>)"></div>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($arParams['PROPS']['HEADING_SHOW'] == 'Y' || $arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y' || $arParams['PROPS']['BUTTON'] == 'Y'): ?>
-			<div class="bx-advertisingbanner-content<?=$playClass?>"<?=$animation?> <? if ($arParams['PROPS']['PRESET']==2 || $arParams['PROPS']['PRESET']==3){echo 'style="background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');"';}?>>
-				<? if ($arParams['PROPS']['HEADING_SHOW'] == 'Y'): ?>
-					<div id='text<?=$rnd?>' class="bx-advertisingbanner-text-title" style="display:inline-block;font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<? if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>"><?=$headingText?></div>
-				<? endif ?>
+		<?php  if ($arParams['PROPS']['HEADING_SHOW'] == 'Y' || $arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y' || $arParams['PROPS']['BUTTON'] == 'Y'): ?>
+			<div class="bx-advertisingbanner-content<?=$playClass?>"<?=$animation?> <?php  if ($arParams['PROPS']['PRESET']==2 || $arParams['PROPS']['PRESET']==3){echo 'style="background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');"';}?>>
+				<?php  if ($arParams['PROPS']['HEADING_SHOW'] == 'Y'): ?>
+					<div id='text<?=$rnd?>' class="bx-advertisingbanner-text-title" style="display:inline-block;font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<?php  if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>"><?=$headingText?></div>
+				<?php  endif ?>
 
-				<? if ($arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y'): ?>
+				<?php  if ($arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y'): ?>
 					<div
 						id='announce<?=$rnd?>'
 						class="bx-advertisingbanner-text-block<?=$mobileHide?>"
 						style="font-size:<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_COLOR']?>;background:rgba(<?=$arParams['PROPS']['ANNOUNCEMENT_BG_COLOR']?>);"><?=$announcementText?></div>
-				<? endif ?>
+				<?php  endif ?>
 
-				<? if ($arParams['PROPS']['BUTTON'] == 'Y'): ?>
+				<?php  if ($arParams['PROPS']['BUTTON'] == 'Y'): ?>
 					<div class="bx-advertisingbanner-btn-container">
-					<? if (isset($arParams['PREVIEW'])): ?>
+					<?php  if (isset($arParams['PREVIEW'])): ?>
 						<button
 							class="bx-advertisingbanner-btn btn"
 							style="background-color: rgb(<?=$arParams['PROPS']['BUTTON_BG_COLOR']?>);color:#<?=$arParams['PROPS']['BUTTON_FONT_COLOR']?>;border: 0;"
 						><?=$arParams['PROPS']['BUTTON_TEXT']?></button>
-					<? else: ?>
+					<?php  else: ?>
 						<a
 							class="bx-advertisingbanner-btn btn"
 							href="<?=$arParams['PROPS']['BUTTON_LINK_URL']?>"
@@ -141,37 +141,37 @@ else
 							target="<?=$arParams['PROPS']['BUTTON_LINK_TARGET']?>"
 							style="background-color: rgb(<?=$arParams['PROPS']['BUTTON_BG_COLOR']?>);color:#<?=$arParams['PROPS']['BUTTON_FONT_COLOR']?>"
 						><?=$arParams['PROPS']['BUTTON_TEXT']?></a>
-					<? endif ?>
+					<?php  endif ?>
 					</div>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
-		<? endif ?>
-	<? elseif ($arParams['EXT_MODE'] == 'Y'): ?>
+		<?php  endif ?>
+	<?php  elseif ($arParams['EXT_MODE'] == 'Y'): ?>
 		<?=$headingText?>
-	<? endif ?>
+	<?php  endif ?>
 
-	<? /* if ($arParams['PROPS']['LINK_URL'] != '' && !isset($arParams['PREVIEW'])): ?>
+	<?php  /* if ($arParams['PROPS']['LINK_URL'] != '' && !isset($arParams['PREVIEW'])): ?>
 		</a>
-	<? endif */ ?>
+	<?php  endif */ ?>
 
 	<script>
 		var objList = [];
 		if (BX('text<?=$rnd?>'))
 			objList.push({node : BX('text<?=$rnd?>'), maxFontSize : <?=$arParams['PROPS']['HEADING_FONT_SIZE']?>, smallestValue : false});
-		<? if (!isset($arParams['PREVIEW'])): ?>
+		<?php  if (!isset($arParams['PREVIEW'])): ?>
 			BX.FixFontSize.init({
 				objList : objList,
 				onresize : true
 			});
-		<? endif ?>
+		<?php  endif ?>
 	</script>
 </div>
-<? else: ?>
-	<? if ($arParams['CASUAL_PROPERTIES']['URL'] != '' && !isset($arParams['PREVIEW'])): ?>
+<?php  else: ?>
+	<?php  if ($arParams['CASUAL_PROPERTIES']['URL'] != '' && !isset($arParams['PREVIEW'])): ?>
 		<a href="<?=$arParams['CASUAL_PROPERTIES']['URL']?>" title="<?=$arParams['CASUAL_PROPERTIES']['ALT']?>" target="<?=$arParams['CASUAL_PROPERTIES']['URL_TARGET']?>" style="display:block;">
-	<? endif ?>
+	<?php  endif ?>
 	<img src="<?=$arParams['FILES']['CASUAL_IMG']['SRC']?>" class="center-block img-responsive">
-	<? if ($arParams['CASUAL_PROPERTIES']['URL'] != '' && !isset($arParams['PREVIEW'])): ?>
+	<?php  if ($arParams['CASUAL_PROPERTIES']['URL'] != '' && !isset($arParams['PREVIEW'])): ?>
 		</a>
-	<? endif ?>
-<? endif ?>
+	<?php  endif ?>
+<?php  endif ?>

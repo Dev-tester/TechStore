@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ABOUT_DEADLINE"] = "Before deadline";
 $MESS["TASKS_ACCEPT_TASK"] = "Accept Task";
 $MESS["TASKS_ADD_BACK_TO_TASKS_LIST"] = "Back to Tasks";

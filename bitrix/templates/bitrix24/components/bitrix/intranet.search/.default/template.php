@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $this->addExternalCss(SITE_TEMPLATE_PATH."/css/employee.css");
 
@@ -28,13 +28,13 @@ $outlook_link = 'javascript:'.CIntranetUtils::GetStsSyncURL(
 global $USER;
 ?>
 
-<?$this->SetViewTarget("pagetitle", 100);?>
+<?php $this->SetViewTarget("pagetitle", 100);?>
 
 <div class="bx24-top-bar-search-wrap employee-search-wrap">
-	<?$arFilterValues = $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", "advanced", $arParams, $component, array('HIDE_ICONS' => 'Y'));?>
+	<?php $arFilterValues = $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", "advanced", $arParams, $component, array('HIDE_ICONS' => 'Y'));?>
 </div>
 
-<?
+<?php 
 if ((CModule::IncludeModule('bitrix24') &&
 	 CBitrix24::isInvitingUsersAllowed() ||
 	 !IsModuleInstalled("bitrix24") &&
@@ -49,38 +49,38 @@ if ((CModule::IncludeModule('bitrix24') &&
 		<span class="webform-small-button-icon"></span>
 		<span class="webform-small-button-text"><?=GetMessage("INTR_COMP_IS_TPL_TOOLBAR_USER_INVITE")?></span>
 	</span>
-<?endif;?>
+<?php endif;?>
 
-<?$this->EndViewTarget()?>
+<?php $this->EndViewTarget()?>
 
-<?if($arParams["USE_VIEW_SELECTOR"]!="N"):
+<?php if($arParams["USE_VIEW_SELECTOR"]!="N"):
 
 	$abFilter = array_key_exists($arParams['FILTER_NAME'].'_LAST_NAME', $arFilterValues) ? $arFilterValues[$arParams['FILTER_NAME'].'_LAST_NAME'] : "";
 ?>
 <div class="employee-filter-block">
 	<span id="employee-filter" class="employee-filter">
-		<span class="filter-but-wrap <?if ($show_user == 'active') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?echo $APPLICATION->GetCurPageParam('show_user=active', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_ACTIVE')?></span></a><span class="filter-but-right"></span></span>
-			<?if (!(CModule::IncludeModule('extranet') && CExtranet::IsExtranetSite())):?> 
-				<?if (COption::GetOptionString("bitrix24", "show_fired_employees", "Y") == "Y"):?>
-				<span class="filter-but-wrap <?if ($show_user == 'fired') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?echo $APPLICATION->GetCurPageParam('show_user=fired', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_FIRED')?></span></a><span class="filter-but-right"></span></span>
-				<?endif?>
-				<?if ($USER->CanDoOperation('edit_all_users')):?>
-					<?if (CModule::IncludeModule("extranet") && strlen(COption::GetOptionString("extranet", "extranet_site")) > 0):?>
-					<span class="filter-but-wrap <?if ($show_user == 'extranet') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?echo $APPLICATION->GetCurPageParam('show_user=extranet', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_EXTRANET')?></span></a><span class="filter-but-right"></span></span>
-					<?endif?>
-					<span class="filter-but-wrap <?if ($show_user == 'inactive') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?echo $APPLICATION->GetCurPageParam('show_user=inactive', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_INACTIVE')?></span></a><span class="filter-but-right"></span></span>
-					<span class="filter-but-wrap <?if ($show_user == 'all') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?echo $APPLICATION->GetCurPageParam('show_user=all', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_ALL')?></span></a><span class="filter-but-right"></span></span>
-				<?endif;?>
-			<?endif;?>
-	</span><span id="filter-but-ABC" class="filter-but-wrap filter-but-ABC<?if (strlen($abFilter) > 0):?> filter-but-act<?endif?>"><span class="filter-but-left"></span><span class="filter-but-text-block"><?if ($abFilter == ""):?><span class="filter-but-Ab"><span
-	class="filter-but-blue"><?=GetMessage("INTR_COMP_IS_TPL_FILTER_ALPH_LETTER1")?></span><?=GetMessage("INTR_COMP_IS_TPL_FILTER_ALPH_LETTER2")?></span><?endif?><span class="filter-but-text"><?=GetMessage('INTR_COMP_IS_TPL_FILTER_ALPH')?><?=(strlen($abFilter) > 0 ? ": ".htmlspecialcharsbx(substr($abFilter, 0, 1)) : "")?></span></span><span class="filter-but-right"></span></span>
+		<span class="filter-but-wrap <?php if ($show_user == 'active') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?php echo $APPLICATION->GetCurPageParam('show_user=active', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_ACTIVE')?></span></a><span class="filter-but-right"></span></span>
+			<?php if (!(CModule::IncludeModule('extranet') && CExtranet::IsExtranetSite())):?> 
+				<?php if (COption::GetOptionString("bitrix24", "show_fired_employees", "Y") == "Y"):?>
+				<span class="filter-but-wrap <?php if ($show_user == 'fired') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?php echo $APPLICATION->GetCurPageParam('show_user=fired', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_FIRED')?></span></a><span class="filter-but-right"></span></span>
+				<?php endif?>
+				<?php if ($USER->CanDoOperation('edit_all_users')):?>
+					<?php if (CModule::IncludeModule("extranet") && strlen(COption::GetOptionString("extranet", "extranet_site")) > 0):?>
+					<span class="filter-but-wrap <?php if ($show_user == 'extranet') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?php echo $APPLICATION->GetCurPageParam('show_user=extranet', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_EXTRANET')?></span></a><span class="filter-but-right"></span></span>
+					<?php endif?>
+					<span class="filter-but-wrap <?php if ($show_user == 'inactive') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?php echo $APPLICATION->GetCurPageParam('show_user=inactive', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_INACTIVE')?></span></a><span class="filter-but-right"></span></span>
+					<span class="filter-but-wrap <?php if ($show_user == 'all') echo " filter-but-act";?>"><span class="filter-but-left"></span><a href="<?php echo $APPLICATION->GetCurPageParam('show_user=all', array('show_user'));?>"><span class="filter-but-text-block"><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_ALL')?></span></a><span class="filter-but-right"></span></span>
+				<?php endif;?>
+			<?php endif;?>
+	</span><span id="filter-but-ABC" class="filter-but-wrap filter-but-ABC<?php if (strlen($abFilter) > 0):?> filter-but-act<?php endif?>"><span class="filter-but-left"></span><span class="filter-but-text-block"><?php if ($abFilter == ""):?><span class="filter-but-Ab"><span
+	class="filter-but-blue"><?=GetMessage("INTR_COMP_IS_TPL_FILTER_ALPH_LETTER1")?></span><?=GetMessage("INTR_COMP_IS_TPL_FILTER_ALPH_LETTER2")?></span><?php endif?><span class="filter-but-text"><?=GetMessage('INTR_COMP_IS_TPL_FILTER_ALPH')?><?=(strlen($abFilter) > 0 ? ": ".htmlspecialcharsbx(substr($abFilter, 0, 1)) : "")?></span></span><span class="filter-but-right"></span></span>
 	<span id="filter-but-more" class="filter-but-wrap filter-but-more"><span class="filter-but-left"></span><span class="filter-but-text-block"><span class="filter-but-icon"></span><?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_USER_MORE')?></span><span class="filter-but-right"></span></span>
 	<div class="employee-filter-left"></div>
 	<div class="employee-filter-right"></div>
 </div>
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 
 $arParams['USER_PROPERTY'] = $arParams['USER_PROPERTY_LIST'];
 $arParams['SHOW_USER'] = $show_user;
@@ -125,7 +125,7 @@ $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", 'alphabet',
 		
 		BX.PopupMenu.show('more-action-menu', BX('filter-but-more'), [
 			{ text : "<?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_EXCEL')?>", className: "menu-popup-no-icon", href : "<?=$APPLICATION->GetCurPageParam('current_view=table&excel=yes&ncc=1', array('excel', 'current_view'))?>"},
-			{ text : "<?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_OUTLOOK')?>", className: "menu-popup-no-icon", href : "<?echo $outlook_link;?>"},
+			{ text : "<?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_OUTLOOK')?>", className: "menu-popup-no-icon", href : "<?php echo $outlook_link;?>"},
 			{ text : "<?=GetMessage('INTR_COMP_IS_TPL_TOOLBAR_CARDDAV')?>", className: "menu-popup-no-icon", href : "javascript:<?= $APPLICATION->GetPopupLink(
 					Array(
 						"URL"=> "/bitrix/groupdav.php?lang=".LANG."&help=Y&dialog=Y",
@@ -150,7 +150,7 @@ $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", 'alphabet',
 		moreActionMenu.popupWindow.setBindElement(BX('filter-but-more'));
 
 </script>
-<?
+<?php 
 if (IsModuleInstalled("bitrix24"))
 {
 	$APPLICATION->IncludeComponent("bitrix:intranet.structure.list", 'list', $arParams, $component, array('HIDE_ICONS' => 'Y'));	
@@ -204,5 +204,5 @@ if (
 				}
 			);
 		});
-	</script><?
+	</script><?php 
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Localization\Loc;
@@ -124,7 +124,7 @@ $trackedFields = CTaskLog::getTrackedFields();
 		<th class="task-log-what-column"><?=Loc::getMessage("TASKS_LOG_WHAT")?></th>
 	</tr>
 
-	<? foreach ($logRecords as $record):
+	<?php  foreach ($logRecords as $record):
 
 		$authorName = tasksFormatNameShort(
 			$record["USER_NAME"],
@@ -145,20 +145,20 @@ $trackedFields = CTaskLog::getTrackedFields();
 			<span class="task-log-date"><?=FormatDateFromDB($record["CREATED_DATE"]);?></span>
 		</td>
 		<td class="task-log-author-column">
-			<?
+			<?php 
 			if ($authorUrl !== "")
 			{
-				?><a class="task-log-author" target="_top" href="<?=$authorUrl?>"><?=$authorName?></a><?
+				?><a class="task-log-author" target="_top" href="<?=$authorUrl?>"><?=$authorName?></a><?php 
 			}
 			else
 			{
-				?><?=$authorName?><?
+				?><?=$authorName?><?php 
 			}
 			?>
 		</td>
 		<td class="task-log-where-column">
 
-			<?
+			<?php 
 			$fieldName = Loc::getMessage("TASKS_LOG_".$record["FIELD"]);
 			if($record['FIELD'] == \Bitrix\Tasks\Integration\Disk\UserField::getMainSysUFCode())
 			{
@@ -170,14 +170,14 @@ $trackedFields = CTaskLog::getTrackedFields();
 			}
 			?>
 
-			<span class="task-log-where"><?=htmlspecialcharsbx($fieldName)?><?
+			<span class="task-log-where"><?=htmlspecialcharsbx($fieldName)?><?php 
 			if ($record["FIELD"] == "DELETED_FILES")
 			{
-				?>: <?=htmlspecialcharsbx($record["FROM_VALUE"])?><?
+				?>: <?=htmlspecialcharsbx($record["FROM_VALUE"])?><?php 
 			}
 			elseif ($record["FIELD"] == "NEW_FILES")
 			{
-				?>: <?=htmlspecialcharsbx($record["TO_VALUE"])?><?
+				?>: <?=htmlspecialcharsbx($record["TO_VALUE"])?><?php 
 			}
 			elseif ($record["FIELD"] == "COMMENT" || $record["FIELD"] == "COMMENT_EDIT" || $record["FIELD"] == "COMMENT_DEL")
 			{
@@ -188,22 +188,22 @@ $trackedFields = CTaskLog::getTrackedFields();
 				{
 					if ($record["FIELD"] != "COMMENT_DEL")
 					{
-						?> <a class="task-log-link" href="<?=$link?>">#<?=$record["TO_VALUE"]?></a><?
+						?> <a class="task-log-link" href="<?=$link?>">#<?=$record["TO_VALUE"]?></a><?php 
 					}
 					else
 					{
-						?> #<?=$record["TO_VALUE"]?><?
+						?> #<?=$record["TO_VALUE"]?><?php 
 					}
 				}
 			}
 			?></span>
 		</td>
-		<td class="task-log-what-column"><span class="task-log-what"><?
+		<td class="task-log-what-column"><span class="task-log-what"><?php 
 		switch($record["FIELD"])
 		{
 			case "DURATION_PLAN_SECONDS":
 				echo lambda_sgkrg456d_funcFormatForHuman($record["FROM_VALUE"]);
-				?><span class="task-log-arrow">&rarr;</span><?
+				?><span class="task-log-arrow">&rarr;</span><?php 
 				echo lambda_sgkrg456d_funcFormatForHuman($record["TO_VALUE"]);
 				break;
 
@@ -233,24 +233,24 @@ $trackedFields = CTaskLog::getTrackedFields();
 					$to = UI::convertBBCodeToHtmlSimple($record["TO_VALUE"]);
 				}
 
-				?><?=$from?><span class="task-log-arrow">&rarr;</span><?=$to?><?
+				?><?=$from?><span class="task-log-arrow">&rarr;</span><?=$to?><?php 
 				break;
 
 			case "CHECKLIST_ITEM_UNCHECK":
 				echo '<span style="text-decoration:line-through; color: grey;">'.UI::convertBBCodeToHtmlSimple($record["FROM_VALUE"]).'</span>';
 				?><span class="task-log-arrow">&rarr;</span><?= UI::convertBBCodeToHtmlSimple($record["TO_VALUE"])?>
-				<?
+				<?php 
 				break;
 
 			case 'CHECKLIST_ITEM_CHECK':
 				echo UI::convertBBCodeToHtmlSimple($record["FROM_VALUE"]);
-				?><span class="task-log-arrow">&rarr;</span><?
+				?><span class="task-log-arrow">&rarr;</span><?php 
 				echo '<span style="text-decoration:line-through; color: grey;">'.UI::convertBBCodeToHtmlSimple($record["TO_VALUE"]).'</span>';
 				break;
 
 			case "DURATION_FACT":
 				echo lambda_sgkrg457d_funcFormatForHumanMinutes($record["FROM_VALUE"]);
-				?><span class="task-log-arrow">&rarr;</span><?
+				?><span class="task-log-arrow">&rarr;</span><?php 
 				echo lambda_sgkrg457d_funcFormatForHumanMinutes($record["TO_VALUE"]);
 				break;
 
@@ -258,7 +258,7 @@ $trackedFields = CTaskLog::getTrackedFields();
 			case "TIME_SPENT_IN_LOGS":
 				$bDataInSeconds = true;
 				echo lambda_sgkrg457d_funcFormatForHumanMinutes($record["FROM_VALUE"], true);	// true => data in seconds
-				?><span class="task-log-arrow">&rarr;</span><?
+				?><span class="task-log-arrow">&rarr;</span><?php 
 				echo lambda_sgkrg457d_funcFormatForHumanMinutes($record["TO_VALUE"], true);	// true => data in seconds
 				break;
 
@@ -311,7 +311,7 @@ $trackedFields = CTaskLog::getTrackedFields();
 						$userToName;
 				}
 				?>
-				<?=$userFromStr?><span class="task-log-arrow">&rarr;</span><?=$userToStr?><?
+				<?=$userFromStr?><span class="task-log-arrow">&rarr;</span><?=$userToStr?><?php 
 				break;
 
 			case "DEADLINE":
@@ -323,7 +323,7 @@ $trackedFields = CTaskLog::getTrackedFields();
 					print(\Bitrix\Tasks\UI::formatDateTime($record["FROM_VALUE"], '^'.\Bitrix\Tasks\UI::getDateTimeFormat()));
 				}
 
-				?><span class="task-log-arrow">&rarr;</span><?
+				?><span class="task-log-arrow">&rarr;</span><?php 
 
 				if ($record["TO_VALUE"] > 0)
 				{
@@ -412,11 +412,11 @@ $trackedFields = CTaskLog::getTrackedFields();
 					}
 				}
 
-				echo implode(", ", $usersFromStr)?><span class="task-log-arrow">&rarr;</span><? echo implode(", ", $usersToStr);
+				echo implode(", ", $usersFromStr)?><span class="task-log-arrow">&rarr;</span><?php  echo implode(", ", $usersToStr);
 				break;
 
 			case "TAGS":
-				echo str_replace(",", ", ", htmlspecialcharsbx($record["FROM_VALUE"]))?><span class="task-log-arrow">&rarr;</span><? echo str_replace(",", ", ", htmlspecialcharsbx($record["TO_VALUE"]));
+				echo str_replace(",", ", ", htmlspecialcharsbx($record["FROM_VALUE"]))?><span class="task-log-arrow">&rarr;</span><?php  echo str_replace(",", ", ", htmlspecialcharsbx($record["TO_VALUE"]));
 				break;
 
 			case "PRIORITY":
@@ -436,14 +436,14 @@ $trackedFields = CTaskLog::getTrackedFields();
 
 					if ($groupFrom["URL"] !== "")
 					{
-						?><a class="task-log-link" href="<?=$groupFrom["URL"]; ?>" target="_top"><?=htmlspecialcharsbx($groupFrom["NAME"])?></a><?
+						?><a class="task-log-link" href="<?=$groupFrom["URL"]; ?>" target="_top"><?=htmlspecialcharsbx($groupFrom["NAME"])?></a><?php 
 					}
 					else
 					{
-						?><?=htmlspecialcharsbx($groupFrom["NAME"])?><?
+						?><?=htmlspecialcharsbx($groupFrom["NAME"])?><?php 
 					}
 				}
-				?><span class="task-log-arrow">&rarr;</span><?
+				?><span class="task-log-arrow">&rarr;</span><?php 
 				if ($record["TO_VALUE"] && isset($groups[$record["TO_VALUE"]]) &&
 					CSocNetGroup::CanUserViewGroup($USER->getId(), $record["TO_VALUE"]))
 				{
@@ -455,11 +455,11 @@ $trackedFields = CTaskLog::getTrackedFields();
 
 					if ($groupTo["URL"] !== "")
 					{
-						?><a class="task-log-link" href="<?=$groupTo["URL"]?>" target="_top"><?=htmlspecialcharsbx($groupTo["NAME"])?></a><?
+						?><a class="task-log-link" href="<?=$groupTo["URL"]?>" target="_top"><?=htmlspecialcharsbx($groupTo["NAME"])?></a><?php 
 					}
 					else
 					{
-						?><?=htmlspecialcharsbx($groupTo["NAME"])?><?
+						?><?=htmlspecialcharsbx($groupTo["NAME"])?><?php 
 					}
 				}
 				break;
@@ -475,14 +475,14 @@ $trackedFields = CTaskLog::getTrackedFields();
 
 					if ($taskFrom["URL"] !== "")
 					{
-						?><a class="task-log-link" href="<?=$taskFrom["URL"]?>"><?=htmlspecialcharsbx($taskFrom["TITLE"])?></a><?
+						?><a class="task-log-link" href="<?=$taskFrom["URL"]?>"><?=htmlspecialcharsbx($taskFrom["TITLE"])?></a><?php 
 					}
 					else
 					{
-						?><?=htmlspecialcharsbx($taskFrom["TITLE"])?><?
+						?><?=htmlspecialcharsbx($taskFrom["TITLE"])?><?php 
 					}
 				}
-				?><span class="task-log-arrow">&rarr;</span><?
+				?><span class="task-log-arrow">&rarr;</span><?php 
 				if ($record["TO_VALUE"] && isset($relatedTasks[$record["TO_VALUE"]]))
 				{
 					$taskFrom = $relatedTasks[$record["TO_VALUE"]];
@@ -493,11 +493,11 @@ $trackedFields = CTaskLog::getTrackedFields();
 
 					if ($taskFrom["URL"] !== "")
 					{
-						?><a class="task-log-link" href="<?=$taskFrom["URL"]?>"><?=htmlspecialcharsbx($taskFrom["TITLE"])?></a><?
+						?><a class="task-log-link" href="<?=$taskFrom["URL"]?>"><?=htmlspecialcharsbx($taskFrom["TITLE"])?></a><?php 
 					}
 					else
 					{
-						?><?=htmlspecialcharsbx($taskFrom["TITLE"])?><?
+						?><?=htmlspecialcharsbx($taskFrom["TITLE"])?><?php 
 					}
 				}
 				break;
@@ -563,7 +563,7 @@ $trackedFields = CTaskLog::getTrackedFields();
 					}
 				}
 
-				echo implode(", ", $tasksFromStr)?><span class="task-log-arrow">&rarr;</span><? echo implode(", ", $tasksToStr);
+				echo implode(", ", $tasksFromStr)?><span class="task-log-arrow">&rarr;</span><?php  echo implode(", ", $tasksToStr);
 				break;
 
 			case "STATUS":
@@ -571,11 +571,11 @@ $trackedFields = CTaskLog::getTrackedFields();
 				break;
 
 			case "MARK":
-				echo !$record["FROM_VALUE"] ? Loc::getMessage("TASKS_MARK_NONE") : Loc::getMessage("TASKS_MARK_".$record["FROM_VALUE"])?><span class="task-log-arrow">&rarr;</span><? echo !$record["TO_VALUE"] ? Loc::getMessage("TASKS_MARK_NONE") : Loc::getMessage("TASKS_MARK_".$record["TO_VALUE"]);
+				echo !$record["FROM_VALUE"] ? Loc::getMessage("TASKS_MARK_NONE") : Loc::getMessage("TASKS_MARK_".$record["FROM_VALUE"])?><span class="task-log-arrow">&rarr;</span><?php  echo !$record["TO_VALUE"] ? Loc::getMessage("TASKS_MARK_NONE") : Loc::getMessage("TASKS_MARK_".$record["TO_VALUE"]);
 				break;
 
 			case "ADD_IN_REPORT":
-				echo $record["FROM_VALUE"] == "Y" ? Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_YES") : Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_NO")?><span class="task-log-arrow">&rarr;</span><? echo $record["TO_VALUE"] == "Y" ? Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_YES") : Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_NO");
+				echo $record["FROM_VALUE"] == "Y" ? Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_YES") : Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_NO")?><span class="task-log-arrow">&rarr;</span><?php  echo $record["TO_VALUE"] == "Y" ? Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_YES") : Loc::getMessage("TASKS_SIDEBAR_IN_REPORT_NO");
 				break;
 
 			default:
@@ -585,5 +585,5 @@ $trackedFields = CTaskLog::getTrackedFields();
 			?></span>
 		</td>
 	</tr>
-	<? endforeach ?>
+	<?php  endforeach ?>
 </table>

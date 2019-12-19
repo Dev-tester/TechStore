@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_M_CALL_ST_TIMEOUT"] = "User in unavailable";
 $MESS["MOBILEAPP_CALL_NO_ACCESS"] = "Your call has been terminated. The contact may not have access to camera or microphone.";
 $MESS["MOBILEAPP_CALL_BUSY"] = "Cannot make the call because the contact is presently on a different call.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_F_PERIOD"] = "Period";
 $MESS["SUP_PAGE_TITLE"] = "Diagrams";
 $MESS["SUP_WRONG_DATE_FROM"] = "Please enter the correct \"from\" date for the \"Period\"";

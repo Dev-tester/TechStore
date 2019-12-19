@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['sms_template_active_title'] = "Active";
 $MESS['sms_template_event_name_title'] = "Event name";
 $MESS['sms_template_id_title'] = "Template ID";

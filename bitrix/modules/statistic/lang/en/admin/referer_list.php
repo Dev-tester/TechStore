@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Referring sites";
 $MESS ['STAT_F_SESSION'] = "Session ID:";
 $MESS ['STAT_F_ID'] = "ID:";

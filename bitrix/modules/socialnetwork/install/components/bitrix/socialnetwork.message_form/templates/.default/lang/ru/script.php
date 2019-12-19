@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_TRANSLIT_EN'] = "Ru->En";
 $MESS ['FORUM_LIST_PROMPT'] = "Введите пункт списка. Нажмите 'Отмена' или оставьте пробел для завершения списка";
 $MESS ['FORUM_TEXT_ENTER_URL'] = "Введите полный адрес (URL)";

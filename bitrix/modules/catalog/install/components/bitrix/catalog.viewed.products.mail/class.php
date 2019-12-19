@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Iblock;
 use Bitrix\Main;
 

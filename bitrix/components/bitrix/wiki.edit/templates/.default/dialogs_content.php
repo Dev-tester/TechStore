@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
 <script type="text/template" id="template-insert-image">
 	<table>
 		<tr>
@@ -14,18 +14,18 @@
 			<td width="30%"><?=GetMessage('WIKI_CATEGORY_NAME')?>:</td>
 			<td width="70%"><input type="text" id="category_name" name="category_name" value="" /></td>
 		</tr>
-		<?if(count($arResult['TREE']) > 1):?>
+		<?php if(count($arResult['TREE']) > 1):?>
 			<tr>
 				<td width="30%"><?=GetMessage('WIKI_CATEGORY_SELECT')?>:</td>
 				<td width="70%">
 					<select id="category_select" onchange="if(this.options[this.selectedIndex].value != -1) BX('category_name').value = this.options[this.selectedIndex].value" style="width: 240px;">
-						<?foreach ($arResult['TREE'] as $key => $value):?>
+						<?php foreach ($arResult['TREE'] as $key => $value):?>
 							<option value="<?=CUtil::JSEscape($key)?>" title="<?=CUtil::JSEscape(htmlspecialcharsbx($value, ENT_QUOTES))?>"><?=CUtil::JSEscape(htmlspecialcharsbx($value, ENT_QUOTES))?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 	</table>
 </script>
 

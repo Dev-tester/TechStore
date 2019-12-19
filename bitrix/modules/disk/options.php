@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Disk\ZipNginx;
 
@@ -93,37 +93,37 @@ if($_SERVER["REQUEST_METHOD"]=="POST" && ($_POST['Update'] || $_POST['Apply'] ||
 
 $tabControl->Begin();
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?echo LANGUAGE_ID?>">
-<?$tabControl->BeginNextTab();?>
-	<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?php echo LANGUAGE_ID?>">
+<?php $tabControl->BeginNextTab();?>
+	<?php 
 	foreach($arAllOptions as $arOption):
 		$val = COption::GetOptionString("disk", $arOption[0], $arOption[2]);
 		$type = $arOption[3];
 	?>
 	<tr>
-		<td width="40%" nowrap <?if($type[0]=="textarea") echo 'class="adm-detail-valign-top"'?>>
-			<label for="<?echo htmlspecialcharsbx($arOption[0])?>"><?echo $arOption[1]?>:</label>
+		<td width="40%" nowrap <?php if($type[0]=="textarea") echo 'class="adm-detail-valign-top"'?>>
+			<label for="<?php echo htmlspecialcharsbx($arOption[0])?>"><?php echo $arOption[1]?>:</label>
 		<td width="60%">
-			<?if($type[0]=="checkbox"):?>
-				<input type="checkbox" id="<?echo htmlspecialcharsbx($arOption[0])?>" name="<?echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-			<?elseif($type[0]=="text"):?>
-				<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($arOption[0])?>">
-			<?elseif($type[0]=="textarea"):?>
-				<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($arOption[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-			<?elseif($type[0]=="selectbox"):?>
-				<select name="<?echo htmlspecialcharsbx($arOption[0])?>">
-					<?
+			<?php if($type[0]=="checkbox"):?>
+				<input type="checkbox" id="<?php echo htmlspecialcharsbx($arOption[0])?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+			<?php elseif($type[0]=="text"):?>
+				<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>">
+			<?php elseif($type[0]=="textarea"):?>
+				<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+			<?php elseif($type[0]=="selectbox"):?>
+				<select name="<?php echo htmlspecialcharsbx($arOption[0])?>">
+					<?php 
 					foreach ($type[1] as $key => $value)
 					{
-						?><option value="<?= $key ?>"<?= ($key == $val) ? " selected" : "" ?>><?= $value ?></option><?
+						?><option value="<?= $key ?>"<?= ($key == $val) ? " selected" : "" ?>><?= $value ?></option><?php 
 					}
 					?>
 				</select>
-			<?endif?>
-			&nbsp;<? echo (empty($notices[$arOption[0]])? '' : $notices[$arOption[0]])  ?>
+			<?php endif?>
+			&nbsp;<?php  echo (empty($notices[$arOption[0]])? '' : $notices[$arOption[0]])  ?>
 		</td>
 	</tr>
-	<? if($noticeBlock[$arOption[0]]): ?>
+	<?php  if($noticeBlock[$arOption[0]]): ?>
 		<tr>
 			<td colspan="2" align="center">
 				<div class="adm-info-message-wrap" align="center">
@@ -133,16 +133,16 @@ $tabControl->Begin();
 				</div>
 			</td>
 		</tr>
-	<? endif; ?>
-	<?endforeach?>
-<?$tabControl->Buttons();?>
+	<?php  endif; ?>
+	<?php endforeach?>
+<?php $tabControl->Buttons();?>
 	<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>

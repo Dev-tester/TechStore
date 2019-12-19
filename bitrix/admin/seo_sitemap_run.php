@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/seo/admin/seo_sitemap_run.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/seo/admin/seo_sitemap_run.php");?>

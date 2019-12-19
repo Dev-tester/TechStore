@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PUSH_ENTITY_ID_FIELD"] = "ID";
 $MESS["PUSH_ENTITY_USER_ID_FIELD"] = "Идентификатор записи";
 $MESS["PUSH_ENTITY_DEVICE_TYPE_FIELD"] = "Тип устройства";

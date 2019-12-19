@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_BOOL_DESCRIPTION"] = "Да/Нет";
 $MESS["USER_TYPE_BOOL_DISPLAY"] = "Внешний вид";
 $MESS["USER_TYPE_BOOL_CHECKBOX"] = "Флажок";

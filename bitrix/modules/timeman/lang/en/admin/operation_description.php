@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_DESC_TM_MANAGE"] = "Personal Working Time Control";
 $MESS["OP_DESC_TM_MANAGE_ALL"] = "Anybody's Working Time Control";
 $MESS["OP_DESC_TM_READ"] = "All Report Access";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -38,10 +38,10 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 	);
 }
 ?>
-<div class="timeman-schedule-form-wrap <? if ($arResult['isSlider']): ?>timeman-schedule-form-slider<? endif; ?>">
+<div class="timeman-schedule-form-wrap <?php  if ($arResult['isSlider']): ?>timeman-schedule-form-slider<?php  endif; ?>">
 	<div class="timeman-schedule-form-inner">
 		<form action="" class="timeman-schedule-form-form-js" method="post"
-				data-role="timeman-schedule-form"><?
+				data-role="timeman-schedule-form"><?php 
 
 			// SCHEDULE FIELDS ;
 
@@ -52,7 +52,7 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 			</div>
 
 			<input type="hidden" name="<?= htmlspecialcharsbx($scheduleIdFormName) ?>" value="<?= $arResult['SCHEDULE_ID']; ?>">
-			<div class="timeman-schedule-form-block <? if ($arResult['isSlider']): ?>timeman-schedule-form-block-title-slider<? endif; ?>">
+			<div class="timeman-schedule-form-block <?php  if ($arResult['isSlider']): ?>timeman-schedule-form-block-title-slider<?php  endif; ?>">
 				<div class="timeman-schedule-form-settings">
 					<div class="timeman-schedule-form-settings-inner">
 						<div class="timeman-schedule-form-settings-name-block">
@@ -60,10 +60,10 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 						</div>
 						<select name="<?= $scheduleFormName; ?>[type]" class="timeman-schedule-form-settings-select"
 								data-role="timeman-schedule-type-select">
-							<? foreach (ScheduleFormHelper::getScheduleTypes() as $optValue => $textValue) : ?>
+							<?php  foreach (ScheduleFormHelper::getScheduleTypes() as $optValue => $textValue) : ?>
 								<option value="<?= htmlspecialcharsbx($optValue); ?>" <?= $scheduleForm->type === $optValue ? 'selected' : ''; ?>>
 									<?= htmlspecialcharsbx($textValue); ?></option>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 						</select>
 					</div>
 					<div class="timeman-schedule-form-settings-inner">
@@ -86,13 +86,13 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 							</div>
 							<select name="<?= $scheduleFormName; ?>[reportPeriod]" class="timeman-schedule-form-settings-select"
 									data-role="timeman-report-period-select">
-								<? foreach (ScheduleFormHelper::getReportPeriods() as $optValue => $textValue) : ?>
+								<?php  foreach (ScheduleFormHelper::getReportPeriods() as $optValue => $textValue) : ?>
 									<option value="<?= htmlspecialcharsbx($optValue); ?>" <?= $scheduleForm->reportPeriod === $optValue ? 'selected' : ''; ?>>
 										<?= htmlspecialcharsbx($textValue); ?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</div>
-						<?
+						<?php 
 						$reportCss = '';
 						$period = $scheduleForm->reportPeriod ?: reset(ScheduleFormHelper::getReportPeriodsValues());
 						if (!in_array($period, $arResult['WEEKS_PERIODS'], true))
@@ -108,20 +108,20 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 									?></span>
 							</div>
 							<select name="<?= $scheduleFormName; ?>[reportPeriodStartWeekDay]" class="timeman-schedule-form-settings-select">
-								<? foreach (ScheduleFormHelper::getReportPeriodWeekDays() as $optValue => $textValue) : ?>
+								<?php  foreach (ScheduleFormHelper::getReportPeriodWeekDays() as $optValue => $textValue) : ?>
 									<option value="<?= htmlspecialcharsbx($optValue); ?>" <?= $scheduleForm->reportPeriodStartWeekDay === $optValue ? 'selected' : ''; ?>>
 										<?= htmlspecialcharsbx($textValue); ?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</div>
-					</div><?
+					</div><?php 
 
 
 					require_once '_users.php';
 
 
 					?></div>
-			</div><?
+			</div><?php 
 
 
 			require_once '_shifts.php';
@@ -153,7 +153,7 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 								htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SCHEDULE_EDIT_REPORT_ALLOW_BROWSER'));
 								?></label>
 						</div>
-						<? if (\Bitrix\Main\Loader::includeModule('faceid') && \Bitrix\FaceId\FaceId::isAvailable()): ?>
+						<?php  if (\Bitrix\Main\Loader::includeModule('faceid') && \Bitrix\FaceId\FaceId::isAvailable()): ?>
 							<div class="timeman-schedule-form-limit-item">
 								<input class="timeman-schedule-form-violation-hidden-input" type="checkbox" id="Bitrix24.Time"
 										data-role="startTimeAllowedDevice"
@@ -164,7 +164,7 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 									htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SCHEDULE_EDIT_REPORT_ALLOW_B24_TIME'));
 									?></label>
 							</div>
-						<? endif; ?>
+						<?php  endif; ?>
 						<div class="timeman-schedule-form-limit-item">
 							<input class="timeman-schedule-form-violation-hidden-input" type="checkbox" id="mobile"
 									data-role="startTimeAllowedDevice"
@@ -178,10 +178,10 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 			</div>
 			<div class="timeman-schedule-form-buttons">
 				<div class="timeman-schedule-form-buttons-inner">
-					<? if ($arResult['canUpdateSchedule']): ?>
+					<?php  if ($arResult['canUpdateSchedule']): ?>
 						<button class="ui-btn ui-btn-md ui-btn-success"
 								data-role="timeman-schedule-btn-save"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_EDIT_BTN_SAVE_TITLE')); ?></button>
-					<? endif; ?>
+					<?php  endif; ?>
 					<button class="ui-btn ui-btn-md ui-btn-link"
 							data-role="timeman-schedule-btn-cancel"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_EDIT_BTN_CANCEL_TITLE')); ?></button>
 				</div>
@@ -189,7 +189,7 @@ if (\Bitrix\Main\Loader::includeModule('ui'))
 		</form>
 	</div>
 </div>
-<?
+<?php 
 $shiftWorkdaysOptions = [];
 foreach ($arResult['shiftWorkdaysOptions'] as $index => $title)
 {

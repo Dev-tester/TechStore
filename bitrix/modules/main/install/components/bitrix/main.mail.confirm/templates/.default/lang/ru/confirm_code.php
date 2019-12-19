@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS['MAIN_MAIL_CONFIRM_MESSAGE_HINT'] = 'Для подтверждения email-адреса введите данный код в вашем Битрикс24.';
 $MESS['MAIN_MAIL_CONFIRM_MESSAGE_FAQ_Q1'] = 'Для чего нужно подтверждать email?';

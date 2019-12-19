@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
@@ -16,7 +16,7 @@ if ($ex = $APPLICATION->GetException())
 else
 	echo \CAdminMessage::ShowNote(Loc::getMessage("MOD_UNINST_OK"));
 ?>
-<form action="<?echo $APPLICATION->GetCurPage(); ?>">
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-	<input type="submit" name="" value="<?echo Loc::getMessage("MOD_BACK"); ?>">
+<form action="<?php echo $APPLICATION->GetCurPage(); ?>">
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+	<input type="submit" name="" value="<?php echo Loc::getMessage("MOD_BACK"); ?>">
 <form>

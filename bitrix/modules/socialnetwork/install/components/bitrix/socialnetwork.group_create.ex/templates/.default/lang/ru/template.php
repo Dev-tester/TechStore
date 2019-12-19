@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GCE_T_SUBTITLE"] = "Параметры группы";
 $MESS["SONET_GCE_T_NAME2"] = "Введите название группы";
 $MESS["SONET_GCE_T_NAME2_PROJECT"] = "Введите название проекта";

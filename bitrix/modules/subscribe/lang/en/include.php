@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['POST_TEXT'] = "text";
 $MESS ['POST_HTML'] = "html";
 $MESS ['POST_STATUS_DRAFT'] = "Draft";

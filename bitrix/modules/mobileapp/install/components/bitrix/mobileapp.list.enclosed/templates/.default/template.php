@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
 
 
 <div class="order_component" id="<?=$arResult['JS_CONTAINER_ID']?>">
 
-	<?
+	<?php 
 	$strHtml = '';
 	if(!is_array($arResult["DATA"]) || empty($arResult["DATA"]))
 	{
@@ -21,11 +21,11 @@
 
 ?>
 </div>
-<?if(isset($arParams["TITLE"])):?>
+<?php if(isset($arParams["TITLE"])):?>
 	<script type="text/javascript">
 		app.setPageTitle({title: "<?=$arParams["TITLE"]?>"});
 	</script>
-<?endif;
+<?php endif;
 
 function getListSectionHtml($arSection, $bBackGround = false, $level = 0)
 {

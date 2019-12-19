@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_USER_integrator"] = "Bitrix24 partner";
 $MESS["ISL_ID"] = "ID";
 $MESS["ISL_FULL_NAME"] = "Full Name";

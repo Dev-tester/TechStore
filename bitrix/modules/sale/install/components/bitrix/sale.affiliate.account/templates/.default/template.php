@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if ($arResult)
 {
 	?>
@@ -12,7 +12,7 @@ if ($arResult)
 		<tbody>
 		<tr>
 			<td><?=GetMessage("SPCA_PERIOD")?></td>
-			<td><?$APPLICATION->IncludeComponent(
+			<td><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.calendar",
 	"",
 	Array(
@@ -49,7 +49,7 @@ if ($arResult)
 			</tr>
 		</thead>
 		<tbody>
-		<?
+		<?php 
 		if (count($arResult["TRANSACT"]) > 0)
 		{
 			foreach ($arResult["TRANSACT"] as $arTransact)
@@ -61,7 +61,7 @@ if ($arResult)
 					<td><?=$arTransact["AMOUNT_OUTCOME"]?></td>
 					<td><?=$arTransact["DESCRIPTION_NOTES"]?></td>
 				</tr>
-				<?
+				<?php 
 			}
 		}
 		else
@@ -70,7 +70,7 @@ if ($arResult)
 			<tr>
 				<td colspan="4"><?=ShowNote(GetMessage("SPCA_NO_ACT"))?></td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 		</tbody>
@@ -83,10 +83,10 @@ if ($arResult)
 		</tr>
 		</tfoot>
 	</table>
-	<?
+	<?php 
 }
 else
 {
-	?><?=ShowError(GetMessage("SPCA_UNACTIVE_AFF"))?><?
+	?><?=ShowError(GetMessage("SPCA_UNACTIVE_AFF"))?><?php 
 }
 ?>

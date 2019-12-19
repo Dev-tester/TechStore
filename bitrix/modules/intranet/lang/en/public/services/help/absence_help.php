@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Planning the Events";
 $MESS["SERVICES_INFO"] = "Planning a meeting and cracking your head over proper time to be convenient for your colleagues? The Portal is your best scheduling help! Any employee can be invited whose status is other than <b>Away</b>:
 <ul>

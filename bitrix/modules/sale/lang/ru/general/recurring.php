@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGR_EMPTY_USER_ID"]="Не указан код пользователя";
 $MESS["SKGR_EMPTY_NEXT_DATE"]="Не указана дата следующего платежа";
 $MESS["SKGR_EMPTY_ORDER_ID"]="Не указан код заказа";

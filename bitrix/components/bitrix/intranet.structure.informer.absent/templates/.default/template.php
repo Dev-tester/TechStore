@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 //echo '<pre>'; print_r($arResult['ENTRIES']); echo '</pre>';
@@ -10,19 +10,19 @@ $cur_url .= strpos($cur_url,'?')===false?'?':'&';
 ?>
 <a name="informer_absent"></a>
 <div class="bx-absent-layout-include">
-	<div class="bx-absent-mode-switcher"><?
+	<div class="bx-absent-mode-switcher"><?php 
 $i = 0;
 foreach ($arResult['MODES_LIST'] as $mode):
 	if ($i++ > 0) echo '&nbsp;|&nbsp;';
 	
 	if ($arParams['mode']==$mode):
-?><b><?echo GetMessage('INTR_ISIA_TPL_'.strtoupper($mode))?></b><?
+?><b><?php echo GetMessage('INTR_ISIA_TPL_'.strtoupper($mode))?></b><?php 
 	else:
-?><a href="<?=$cur_url ?>absence_mode=<?=$mode ?>#informer_absent"><?=getMessage('INTR_ISIA_TPL_'.strtoupper($mode)) ?></a><?
+?><a href="<?=$cur_url ?>absence_mode=<?=$mode ?>#informer_absent"><?=getMessage('INTR_ISIA_TPL_'.strtoupper($mode)) ?></a><?php 
 	endif;
 endforeach;
 	?></div>
-<?
+<?php 
 $num = 0;
 
 if (count($arResult['ENTRIES']) > 0)
@@ -39,11 +39,11 @@ if (count($arResult['ENTRIES']) > 0)
 			.(strlen($arEntry['DESCRIPTION']) > 0 ? '<br />'.htmlspecialcharsbx($arEntry['DESCRIPTION']) : '')
 			.'<br /><br />'.$arEntry['DATE_FROM'].' - '.$arEntry['DATE_TO'];
 ?>
-	<div class="bx-user-info" id="bx_absence_<?=$arEntry['ID']?>" onmouseover="new BXHint('<?echo CUtil::JSEscape($hint_text)?>', this)">
+	<div class="bx-user-info" id="bx_absence_<?=$arEntry['ID']?>" onmouseover="new BXHint('<?php echo CUtil::JSEscape($hint_text)?>', this)">
 		<div class="bx-user-info-inner">
 			<div class="bx-user-image<?=$arUser['PERSONAL_PHOTO'] ? '' : ' bx-user-image-default'?>"><a href="<?=$arUser['DETAIL_URL']?>"><?=$arUser['PERSONAL_PHOTO'] ? $arUser['PERSONAL_PHOTO'] : '' ?></a></div>
 			
-			<div class="bx-user-name"><?
+			<div class="bx-user-name"><?php 
 		$APPLICATION->IncludeComponent("bitrix:main.user.link",
 			'',
 			array(
@@ -71,9 +71,9 @@ if (count($arResult['ENTRIES']) > 0)
 			array("HIDE_ICONS" => "Y")
 		);
 			?></div>
-			<div class="bx-user-post"><?echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
+			<div class="bx-user-post"><?php echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
 			<div class="bx-user-date intranet-date">
-<?
+<?php 
 		$bAllDayOnly = false;
 		if (date('Y-m-d', $arEntry['DATE_ACTIVE_FROM_TS']) == date('Y-m-d', $arEntry['DATE_ACTIVE_TO_TS']))
 		{
@@ -94,15 +94,15 @@ if (count($arResult['ENTRIES']) > 0)
 		}
 ?>
 				<div class="intranet-date-more">
-<?
+<?php 
 		if ($bAllDayOnly):
 ?>
 				<?=$arEntry['DATE_FROM']?>
-<?
+<?php 
 		else:
 ?>
-				<?echo GetMessage('INTR_ISIA_TPL_FROM')?> <?=$arEntry['DATE_FROM'].$delimiter.GetMessage('INTR_ISIA_TPL_TILL')?> <?=$arEntry['DATE_TO']?>
-<?
+				<?php echo GetMessage('INTR_ISIA_TPL_FROM')?> <?=$arEntry['DATE_FROM'].$delimiter.GetMessage('INTR_ISIA_TPL_TILL')?> <?=$arEntry['DATE_TO']?>
+<?php 
 		endif;
 ?>
 				</div>
@@ -110,14 +110,14 @@ if (count($arResult['ENTRIES']) > 0)
 			<div class="bx-users-delimiter"></div>
 		</div>
 	</div>
-<?
+<?php 
 	} // endforeach
 }
 else
 {
 ?>
-	<br /><?echo GetMessage('INTR_ISIA_TPL_NO_ABSENCES')?>
-<?
+	<br /><?php echo GetMessage('INTR_ISIA_TPL_NO_ABSENCES')?>
+<?php 
 } // endif;
 ?>
 </div>

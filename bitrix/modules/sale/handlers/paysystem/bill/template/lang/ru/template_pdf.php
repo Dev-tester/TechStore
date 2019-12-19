@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILL_INN"] = "ИНН #INN#";
 $MESS["SALE_HPS_BILL_KPP"] = "КПП #KPP#";
 $MESS["SALE_HPS_BILL_SELLER_NAME"] = "Получатель";

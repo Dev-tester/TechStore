@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_NIVO_EFFECT"] = "Slide change effect";
 $MESS["ADV_NIVO_EFFECT_RANDOM"] = "random";
 $MESS["ADV_NIVO_CYCLING"] = "Auto advance";

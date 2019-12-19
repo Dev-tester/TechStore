@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_theme_grey"] = "Grey";
 $MESS["interface_grid_theme_blue"] = "Antique Blue";
 $MESS["interface_grid_theme_brown"] = "Brown";

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$ElementID = $APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.edit",
 	"",
 	Array(

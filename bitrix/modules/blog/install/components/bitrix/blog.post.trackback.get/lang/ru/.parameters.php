@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPTG_BLOG_URL'] = "Адрес блога";
 $MESS ['BPTG_PATH_TO_POST'] = "Шаблон пути к сообщению";
 $MESS ['BPTG_BLOG_VAR'] = "Имя переменной для идентификатора блога";

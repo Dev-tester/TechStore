@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_DEFAULT_MESSAGE_TYPE"] = "Тип отображения формы редактирования (ответ, редактирование, новая тема)";
 $MESS["F_DEFAULT_FID"] = "ID форума";
 $MESS["F_DEFAULT_TID"] = "ID темы";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABSENCE_FORM_2"] = "Choose an absent user
 ";
 $MESS["APP_RIGHTS"] = "User access permissions";

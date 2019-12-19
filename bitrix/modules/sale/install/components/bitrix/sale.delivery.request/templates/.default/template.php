@@ -1,12 +1,12 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->addExternalJs($templateFolder.'/script.js');
 ?>
 
-<?if(!empty($arResult['DELIVERIES'])):?>
-	<?foreach($arResult['DELIVERIES'] as $deliveryId => $delivery):?>
+<?php if(!empty($arResult['DELIVERIES'])):?>
+	<?php foreach($arResult['DELIVERIES'] as $deliveryId => $delivery):?>
 		<div id="delivery-request-for-<?=$deliveryId?>">
 			<div class="admin-delivery-request-box">
 				<div class="admin-delivery-request-inner">
@@ -36,14 +36,14 @@ $this->addExternalJs($templateFolder.'/script.js');
 				<input class="adm-btn-green" type="button" name="" value="<?=Loc::getMessage('SALE_CSDRT_ADD_SHIPMENT_TO_REQUEST')?>" onclick="BX.Sale.Delivery.Request.Component.processRequest({action: 'addShipmentsToRequest', deliveryId: <?=$delivery['DELIVERY_ID']?>, shipmentIds: <?=CUtil::PhpToJSObject($delivery['SHIPMENT_IDS'])?>, weight: <?=$delivery['WEIGHT']?>}); return false;">
 			</div>
 		</div>
-	<?endforeach;?>
-<?else:?>
+	<?php endforeach;?>
+<?php else:?>
 	<div class="admin-delivery-request-box">
 		<div class="admin-delivery-request-confirm red">
 			<?=Loc::getMessage('SALE_CSDRT_COMPATIBLE_DELIVERIES_NOT_FOUND')?>
 		</div>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 <script type="text/javascript">
 	BX.ready(function ()
@@ -58,13 +58,13 @@ $this->addExternalJs($templateFolder.'/script.js');
 
 		BX.Sale.Delivery.Request.Component.ajaxUrl = '<?=$arResult['AJAX_URL']?>';
 
-		<?if(!empty($arParams['ACTION']) && count($arResult['DELIVERIES']) == 1):?>
-			<?$delivery = current($arResult['DELIVERIES']);?>
-			<?if($arParams['ACTION'] == 'CREATE_DELIVERY_REQUEST'):?>
+		<?php if(!empty($arParams['ACTION']) && count($arResult['DELIVERIES']) == 1):?>
+			<?php $delivery = current($arResult['DELIVERIES']);?>
+			<?php if($arParams['ACTION'] == 'CREATE_DELIVERY_REQUEST'):?>
 				<?="BX.Sale.Delivery.Request.Component.processRequest({action: 'createDeliveryRequest', deliveryId: ".$delivery['DELIVERY_ID'].", shipmentIds: ".CUtil::PhpToJSObject($delivery['SHIPMENT_IDS']).", weight: ".$delivery['WEIGHT']."});"?>
-			<?elseif($arParams['ACTION'] == 'ADD_SHIPMENTS_TO_REQUEST'):?>
+			<?php elseif($arParams['ACTION'] == 'ADD_SHIPMENTS_TO_REQUEST'):?>
 				<?="BX.Sale.Delivery.Request.Component.processRequest({action: 'addShipmentsToRequest', deliveryId: ".$delivery['DELIVERY_ID'].", shipmentIds: ".CUtil::PhpToJSObject($delivery['SHIPMENT_IDS']).", weight: ".$delivery['WEIGHT']."});"?>
-			<?endif;?>
-		<?endif;?>
+			<?php endif;?>
+		<?php endif;?>
 	});
 </script>

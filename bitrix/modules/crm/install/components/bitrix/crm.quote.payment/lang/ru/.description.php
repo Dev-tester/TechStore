@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS["CRM_QUOTE_PAYMENT_NAME"] = "Просмотр счёта в формате HTML/PDF";
 $MESS["CRM_QUOTE_PAYMENT_DESCRIPTION"] = "Просмотр счёта в формате HTML/PDF";

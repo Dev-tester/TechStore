@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var CBitrixComponentTemplate $this
  * @var array $arParams
@@ -51,9 +51,9 @@ if ($request->getQuery("report") == "Y")
 ?>
 <script>
 	BX.MTimeManReport(BX("mobile-timeman"), <?=CUtil::PhpToJSObject($arResult["START_INFO"]);?>);
-</script><?
+</script><?php 
 		$feedFrame->beginStub();
-?><div class="mobile-timeman-loader"></div><?
+?><div class="mobile-timeman-loader"></div><?php 
 		$feedFrame->end();
 ?><div class="mobile-timeman mobile-timeman-report" id="mobile-timeman">
 	<div class="mobile-timeman-completion">
@@ -73,11 +73,11 @@ if ($request->getQuery("report") == "Y")
 		TM_MENU_CANCEL : '<?=GetMessageJS('TM_MENU_CANCEL')?>'
 	});
 </script>
-<?
+<?php 
 	}
 	else
 	{
-		?><?=GetMessage("TM_ERROR1")?><?
+		?><?=GetMessage("TM_ERROR1")?><?php 
 	}
 }
 else if ($request->getQuery("edit") == "Y")
@@ -93,31 +93,31 @@ BX.MTimeManEdit(
 	<?=CUtil::PhpToJSObject($arResult["START_INFO"]);?>,
 	{time : '<?=$arParams["TIME_FORMAT"]?>'}
 );
-</script><?
+</script><?php 
 	$feedFrame->beginStub();
-?><div class="mobile-timeman-loader"></div><?
+?><div class="mobile-timeman-loader"></div><?php 
 	$feedFrame->end();
 ?>
 <div class="mobile-timeman" id="mobile-timeman">
 	<div class="mobile-timeman-completion">
 		<div class="mobile-timeman-control-timing">
 			<div class="mobile-timeman-control-timing-title"><?=GetMessage("TM_BEGINNING")?></div>
-			<div class="mobile-timeman-control-timing-time"></div><?
+			<div class="mobile-timeman-control-timing-time"></div><?php 
 			?><input type="hidden" data-bx-timeman="start-timestamp" value="0" />
 		</div>
 		<div class="mobile-timeman-control-timing">
 			<div class="mobile-timeman-control-timing-title"><?=GetMessage("TM_END")?></div>
-			<div class="mobile-timeman-control-timing-time"></div><?
+			<div class="mobile-timeman-control-timing-time"></div><?php 
 			?><input type="hidden" data-bx-timeman="finish-timestamp" value="0" />
 		</div>
 		<div class="mobile-timeman-control-timing">
 			<div class="mobile-timeman-control-timing-title"><?=GetMessage("TM_PAUSE")?></div>
-			<div class="mobile-timeman-control-timing-time"></div><?
+			<div class="mobile-timeman-control-timing-time"></div><?php 
 			?><input type="hidden" data-bx-timeman="pause-timestamp" value="0" />
 		</div>
 		<div class="mobile-timeman-control-timing">
 			<div class="mobile-timeman-control-timing-title"><?=GetMessage("TM_DURATION")?></div>
-			<div class="mobile-timeman-control-timing-time"></div><?
+			<div class="mobile-timeman-control-timing-time"></div><?php 
 			?><input type="hidden" data-bx-timeman="duration-timestamp" value="0" />
 		</div>
 		<textarea <?=$disabled?> class="mobile-timeman-completion-textarea" data-bx-timeman="edit-reason" placeholder="<?=GetMessage("TM_REASON2")?>"></textarea>
@@ -134,7 +134,7 @@ BX.MTimeManEdit(
 		PULLDOWN_LOADING : '<?=GetMessageJS('PULLDOWN_LOADING')?>'
 	});
 </script>
-<?
+<?php 
 }
 else
 {
@@ -148,9 +148,9 @@ BX.MTimeMan(BX("mobile-timeman"), <?=CUtil::PhpToJSObject($arResult["START_INFO"
 	date : '<?=$arParams["DATE_FORMAT"]?>',
 	time : '<?=$arParams["TIME_FORMAT"]?>'
 });
-</script><?
+</script><?php 
 $feedFrame->beginStub();
-?><div class="mobile-timeman-loader"></div><?
+?><div class="mobile-timeman-loader"></div><?php 
 $feedFrame->end();
 
 	$stateTimer = 0;
@@ -173,7 +173,7 @@ $feedFrame->end();
 		<div class="mobile-timeman-start-block" data-bx-timeman="start-block">
 			<div class="mobile-timeman-control-timing">
 				<div class="mobile-timeman-control-timing-title"><?=GetMessage("TM_BEGINNING")?></div>
-				<div class="mobile-timeman-control-timing-time">8:00</div><?
+				<div class="mobile-timeman-control-timing-time">8:00</div><?php 
 				?><input type="hidden" data-bx-timeman="start-timestamp" value="<?=28800?>" />
 			</div>
 			<textarea class="mobile-timeman-completion-textarea" data-bx-timeman="start-reason" placeholder="<?=GetMessage("TM_REASON_START")?>"></textarea>
@@ -184,7 +184,7 @@ $feedFrame->end();
 		<div class="mobile-timeman-stop-block" data-bx-timeman="stop-block">
 			<div class="mobile-timeman-control-timing">
 				<div class="mobile-timeman-control-timing-title"><?=GetMessage("TM_END")?></div>
-				<div class="mobile-timeman-control-timing-time">18:00</div><?
+				<div class="mobile-timeman-control-timing-time">18:00</div><?php 
 				?><input type="hidden" data-bx-timeman="stop-timestamp" value="64800" />
 			</div>
 			<textarea class="mobile-timeman-completion-textarea" data-bx-timeman="stop-reason" placeholder="<?=GetMessage("TM_REASON_END")?>"></textarea>
@@ -211,5 +211,5 @@ $feedFrame->end();
 	});
 </script>
 </div>
-<?
+<?php 
 }

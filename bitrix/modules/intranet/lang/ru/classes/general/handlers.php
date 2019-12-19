@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_HIRED"] = "Принят";
 $MESS["INTR_OUTLOOK_PREFIX_CONTACTS"] = "Корпоративный портал";
 $MESS["INTR_OUTLOOK_TITLE_CONTACTS"] = "Сотрудники";

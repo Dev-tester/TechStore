@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LU_TITLE_POSTS'] = "Сообщения пользователя";
 $MESS ['LU_TITLE_LTA'] = "автор тем";
 $MESS ['LU_TITLE_LT'] = "участник тем";

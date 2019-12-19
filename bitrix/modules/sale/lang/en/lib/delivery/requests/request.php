@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_TBL_ID_FIELD"] = "ID";
 $MESS["SALE_DLVR_REQ_TBL_DATE_INSERT_FIELD"] = "Added on";
 $MESS["SALE_DLVR_REQ_TBL_DELIVERY_ID_FIELD"] = "Delivery service";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_ASSERT_INTEGER_EXPECTED"] = "The value of #ARG_NAME# must be an integer.";
 $MESS["SALE_LOCATION_ASSERT_INTEGER_NOTNULL_EXPECTED"] = "The value of #ARG_NAME# must be an positive integer.";
 $MESS["SALE_LOCATION_ASSERT_ARRAY_NOT_EMPTY_EXPECTED"] = "The value of #ARG_NAME# must be a non-empty array.";

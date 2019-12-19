@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ERROR_UPDATE_VAT'] = "Error updating tax rate ##ID#";
 $MESS ['ERROR_DELETE_VAT'] = "Error deleting tax rate ##ID#";
 $MESS ['CVAT_NAV'] = "Tax rates";

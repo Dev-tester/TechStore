@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACTIVE"] = "Запись активна:";
 $MESS["IBLOCK_CODE"] = "Символьный код:";
 $MESS["IBLOCK_CONTENT"] = "Верхний уровень";

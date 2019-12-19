@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_TITLE'] = "Название";
 $MESS ['P_DATE'] = "Дата";
 $MESS ['P_TAGS'] = "Теги";

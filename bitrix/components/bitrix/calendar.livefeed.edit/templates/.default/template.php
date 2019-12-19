@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $id = $arResult['ID'];
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/clock.php");
 
@@ -16,7 +16,7 @@ $addWidthStyle = IsAmPmMode() ? ' ampm-width' : '';
 </div>
 
 <!-- Description + files -->
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 		"bitrix:main.post.form",
 		"",
@@ -85,14 +85,14 @@ $APPLICATION->IncludeComponent(
 				<label class="feed-event-date-label-full-day" for="<?=$id?>edev-from"><?=GetMessage('EC_EDEV_DATE_FROM')?></label>
 				<input id="feed-cal-event-from<?=$id?>" name="DATE_FROM" type="text" class="calendar-inp calendar-inp-cal"/>
 			</span>
-			<span class="feed-event-time<?=$addWidthStyle?>"><?CClock::Show(array('inputId' => 'feed_cal_event_from_time'.$id, 'inputName' => 'TIME_FROM_', 'inputTitle' => GetMessage('ECLF_TIME_FROM'), 'showIcon' => false));?></span>
+			<span class="feed-event-time<?=$addWidthStyle?>"><?php CClock::Show(array('inputId' => 'feed_cal_event_from_time'.$id, 'inputName' => 'TIME_FROM_', 'inputTitle' => GetMessage('ECLF_TIME_FROM'), 'showIcon' => false));?></span>
 			<span class="feed-event-mdash">&mdash;</span>
 			<span class="feed-event-date">
 				<label class="feed-event-date-label" for="<?=$id?>edev-from"><?=GetMessage('ECLF_EVENT_TO_DATE_TIME')?></label>
 				<label class="feed-event-date-label-full-day" for="<?=$id?>edev-from"><?=GetMessage('EC_EDEV_DATE_TO')?></label>
 				<input id="feed-cal-event-to<?=$id?>" name="DATE_TO" type="text" class="calendar-inp calendar-inp-cal"/>
 			</span>
-			<span class="feed-event-time<?=$addWidthStyle?>"><?CClock::Show(array('inputId' => 'feed_cal_event_to_time'.$id, 'inputName' => 'TIME_TO_', 'inputTitle' => GetMessage('ECLF_TIME_TO'), 'showIcon' => false));?></span>
+			<span class="feed-event-time<?=$addWidthStyle?>"><?php CClock::Show(array('inputId' => 'feed_cal_event_to_time'.$id, 'inputName' => 'TIME_TO_', 'inputTitle' => GetMessage('ECLF_TIME_TO'), 'showIcon' => false));?></span>
 		</span>
 		<span class="feed-event-full-day">
 			<input type="checkbox" id="event-full-day<?=$id?>" value="Y" name="EVENT_FULL_DAY"/>
@@ -108,16 +108,16 @@ $APPLICATION->IncludeComponent(
 					<div class="feed-ev-timezone-hidden-item">
 						<select id="feed-cal-tz-from<?=$id?>" class="calendar-select feed-ev-tz-select" name="TZ_FROM">
 							<option value=""> - </option>
-							<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+							<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 								<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 						<span class="feed-event-mdash">&mdash;</span>
 						<select id="feed-cal-tz-to<?=$id?>" class="calendar-select feed-ev-tz-select" name="TZ_TO">
 							<option value=""> - </option>
-							<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+							<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 								<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 						<span id="feed-cal-tz-tip<?=$id?>" class="feed-event-tip-btn"></span>
 					</div>
@@ -132,9 +132,9 @@ $APPLICATION->IncludeComponent(
 		</span>
 		<select id="feed-cal-tz-def<?=$id?>" class="calendar-select feed-ev-tz-select" name="DEFAULT_TZ" style="width: 280px;">
 			<option value=""> - </option>
-			<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+			<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 				<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 		<span id="feed-cal-tz-def-tip<?=$id?>" class="feed-event-tip-btn"></span>
 	</div>
@@ -165,7 +165,7 @@ $APPLICATION->IncludeComponent(
 <!-- Destination - "Attendees" -->
 <div class="feed-event-destination-block">
 	<div class="feed-event-destination-title"><?=GetMessage("ECLF_DESTINATION")?>:</div>
-	<div class="feed-event-destination-wrap" id="feed-event-dest-cont"><?
+	<div class="feed-event-destination-wrap" id="feed-event-dest-cont"><?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:main.user.selector",
 			"",
@@ -194,7 +194,7 @@ $APPLICATION->IncludeComponent(
 
 <div class="feed-event-planner-block" id="event-planner-block<?=$id?>">
 	<div class="feed-event-planner-title" id="event-planner-block-title<?=$id?>"><?=GetMessage("ECLF_PLANNER_TITLE")?>:</div>
-	<?CCalendarPlanner::Init(array('id' => 'calendarLiveFeedPlanner'));?>
+	<?php CCalendarPlanner::Init(array('id' => 'calendarLiveFeedPlanner'));?>
 	<div class="feed-event-planner-link-wrap" id="event-planner-expand-link-wrap<?=$id?>">
 		<span class="feed-ev-planner-link"><?= GetMessage('ECLF_PLANNER_FULL_FORM')?></span>
 	</div>
@@ -248,9 +248,9 @@ $APPLICATION->IncludeComponent(
 								<span class="event-feed-rep-phrase event-feed-rep-phrase-yearly"><?= GetMessage('EC_JS_EVERY_M')
 									?></span>
 								<select id="<?=$id?>_edit_ed_rep_count" class="calendar-select" name="EVENT_RRULE[INTERVAL]">
-									<?for ($i = 1; $i < 36; $i++):?>
+									<?php for ($i = 1; $i < 36; $i++):?>
 										<option value="<?=$i?>"><?=$i?></option>
-									<?endfor;?>
+									<?php endfor;?>
 								</select>
 								<span class="event-feed-rep-phrase event-feed-rep-phrase-daily"><?= GetMessage('EC_JS_DAY_P')?></span>
 								<span class="event-feed-rep-phrase event-feed-rep-phrase-weekly"><?= GetMessage('EC_JS_WEEK_P')
@@ -282,13 +282,13 @@ $APPLICATION->IncludeComponent(
 								</span>
 							</div>
 							<div class="feed-cal-week-days-cont">
-								<?
+								<?php 
 								$week_days = CCalendarSceleton::GetWeekDays();
 								for($i = 0; $i < 7; $i++):
 									$id_ = $id.'bxec_week_day_'.$i;?>
 									<input id="<?=$id_?>" type="checkbox" value="<?= $week_days[$i][2]?>" name="EVENT_RRULE[BYDAY][]">
 									<label for="<?=$id_?>" title="<?=$week_days[$i][0]?>"><?=$week_days[$i][1]?></label>
-								<?endfor;?>
+								<?php endfor;?>
 							</div>
 						</div>
 					</td>
@@ -300,9 +300,9 @@ $APPLICATION->IncludeComponent(
 					</td>
 					<td class="feed-cal-addit-right-c">
 						<select name="EVENT_SECTION" class="calendar-select" id="event-section<?=$id?>" style="width:250px;">
-							<?foreach ($arParams['SECTIONS'] as $section):?>
+							<?php foreach ($arParams['SECTIONS'] as $section):?>
 								<option value="<?= $section['ID']?>"><?= htmlspecialcharsbx($section['NAME'])?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
@@ -319,14 +319,14 @@ $APPLICATION->IncludeComponent(
 					</td>
 				</tr>
 
-				<? if (false && isset($arResult['USER_FIELDS']['UF_CRM_CAL_EVENT'])): ?>
-					<?$crmUF = $arResult['USER_FIELDS']['UF_CRM_CAL_EVENT'];?>
+				<?php  if (false && isset($arResult['USER_FIELDS']['UF_CRM_CAL_EVENT'])): ?>
+					<?php $crmUF = $arResult['USER_FIELDS']['UF_CRM_CAL_EVENT'];?>
 				<tr>
 					<td class="feed-cal-addit-left-c">
 						<label for="event-crm<?=$id?>"><?= htmlspecialcharsbx($crmUF["EDIT_FORM_LABEL"])?></label>
 					</td>
 					<td class="feed-cal-addit-right-c">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:system.field.edit",
 							$crmUF["USER_TYPE"]["USER_TYPE_ID"],
 							array(
@@ -337,7 +337,7 @@ $APPLICATION->IncludeComponent(
 						);?>
 					</td>
 				</tr>
-				<?endif;?>
+				<?php endif;?>
 			</table>
 		</div>
 		<span id="feed-cal-additional-hide" class="feed-event-more-link-open"><span class="feed-event-more-link-text"><?= GetMessage('ECLF_HIDE_ADD_SECT')?></span><span class="feed-event-more-link-icon"></span></span>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_CL_ERR_CHECK_MAIL"] = "Error receiving mail from mailbox";
 $MESS["MAIL_CL_ERR_NAME"] = "Field not entered:";
 $MESS["MAIL_CL_NAME"] = "Name";

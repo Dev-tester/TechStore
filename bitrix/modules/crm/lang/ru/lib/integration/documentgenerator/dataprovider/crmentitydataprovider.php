@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DOCGEN_CRMENTITYDATAPROVIDER_COMMENT"] = "Создан новый документ <a class=\"document-title-link\">#TITLE#</a>";
 $MESS["CRM_DOCGEN_CRMENTITYDATAPROVIDER_MY_COMPANY_TITLE"] = "Моя компания";
 $MESS["CRM_DOCGEN_CRMENTITYDATAPROVIDER_BANK_DETAIL_TITLE"] = "Банковские реквизиты";

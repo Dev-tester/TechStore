@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!CModule::IncludeModule("photogallery"))
 	return ShowError(GetMessage("P_MODULE_IS_NOT_INSTALLED"));
@@ -179,7 +179,7 @@ $arResult = array(
 		"URL_TEMPLATES" => $arResult["URL_TEMPLATES"],
 		"VARIABLES" => $arVariables,
 		"ALIASES" => $arVariableAliases);
-?><?
+?><?php 
 
 /********************************************************************
 				Input params

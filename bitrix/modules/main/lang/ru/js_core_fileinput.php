@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_FILE_UPLOAD"] = "Загрузить с компьютера";
 $MESS["JS_CORE_FILE_INSERT_PATH"] = "Вставить путь к файлу";
 $MESS["JS_CORE_FILE_MEDIALIB"] = "Выбрать из медиабиблиотеки";

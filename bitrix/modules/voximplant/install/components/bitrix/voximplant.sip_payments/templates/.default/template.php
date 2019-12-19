@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CJSCore::RegisterExt('voximplant_sip_payments', array(
@@ -14,7 +14,7 @@ CJSCore::Init(array('voximplant.common', 'voximplant_sip_payments'));
 <a name="sipConnector"></a>
 <div class="tel-history-block">
 	<div class="tel-history-title"><?=GetMessage('VI_SIP_TITLE')?></div>
-	<?if ($arResult['SIP_NOTICE_OLD_CONFIG_OFFICE_PBX']):?>
+	<?php if ($arResult['SIP_NOTICE_OLD_CONFIG_OFFICE_PBX']):?>
 		<div class="tel-notice-in-block" id="vi_sip_notify_block">
 			<?=GetMessage('VI_NOTICE_OLD_CONFIG_OFFICE_PBX', Array('#ACCOUNT_NAME#' => $arResult['ACCOUNT_NAME']))?>
 			<div class="tel-sip-notice-button">
@@ -23,8 +23,8 @@ CJSCore::Init(array('voximplant.common', 'voximplant_sip_payments'));
 				</span>
 			</div>
 		</div>
-	<?endif;?>
-	<?if($arResult['DATE_END']):?>
+	<?php endif;?>
+	<?php if($arResult['DATE_END']):?>
 		<div class="tel-sip-paid-content">
 			<div class="tel-sip-paid-left">
 				<?=GetMessage('VI_SIP_PAID_BEFORE', Array('#DATE#' => '<b>'.$arResult['DATE_END'].'</b>'))?>
@@ -34,14 +34,14 @@ CJSCore::Init(array('voximplant.common', 'voximplant_sip_payments'));
 				</div>
 			</div>
 			<div class="tel-sip-paid-right">
-				<?if (!empty($arResult['LINK_TO_BUY'])):?>
+				<?php if (!empty($arResult['LINK_TO_BUY'])):?>
 					<a href="<?=$arResult['LINK_TO_BUY']?>" class="tel-balance-blue-btn tel-sip-button">
 						<span class="tel-balance-update-btn-text"><?=GetMessage('VI_SIP_BUTTON')?></span>
 					</a>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</div>
-	<?else:?>
+	<?php else:?>
 		<div class="tel-sip-paid-content">
 			<div class="tel-sip-paid-left">
 				<?=GetMessage('VI_SIP_PAID_FREE', Array('#COUNT#' => '<b>'.$arResult['FREE'].'</b>'))?>
@@ -53,5 +53,5 @@ CJSCore::Init(array('voximplant.common', 'voximplant_sip_payments'));
 				</a>
 			</div>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 </div>

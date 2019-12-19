@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TIMELINE_DOCUMENT_DELETED"] = "Document deleted";
 $MESS["CRM_PERMISSION_DENIED"] = "Access denied";
 $MESS["CRM_WAIT_ACTION_INVALID_REQUEST_DATA"] = "Request contains incorrect parameters.";

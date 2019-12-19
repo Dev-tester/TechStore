@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROPERTY_FEATURE_ENTITY_ID_FIELD"] = "Идентификатор записи";
 $MESS["PROPERTY_FEATURE_ENTITY_PROPERTY_ID_FIELD"] = "Идентификатор свойства";
 $MESS["PROPERTY_FEATURE_ENTITY_MODULE_ID_FIELD"] = "Модуль";

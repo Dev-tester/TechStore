@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CALL_LIST_SUBJECT"] = "Тема обзвона";
 $MESS["CRM_CALL_LIST_DESCRIPTION"] = "Задание на обзвон";
 $MESS["CRM_CALL_LIST_TITLE"] = "Список обзвона";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_MNU_SECT"] = "Performance";
 $MESS["PERFMON_MNU_SECT_TITLE"] = "Performance Monitor";
 $MESS["PERFMON_MNU_HIT_LIST"] = "Hits";

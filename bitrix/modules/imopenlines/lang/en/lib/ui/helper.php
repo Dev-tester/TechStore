@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_UI_HELPER_STAT_INDEX"] = "Add statistics to search index";
 $MESS["IMOL_UI_HELPER_ENTITY_SEL_BTN"] = "Select";
 $MESS["IMOL_UI_HELPER_ENTITY_SEL_SEARCH"] = "Search";

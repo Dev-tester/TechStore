@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PAGE_DELETE_ACCESS_DENIED'] = "You have no permissions to delete this file.";
 $MESS ['PAGE_DELETE_FILE_NOT_FOUND'] = "Specified file does not exist.";
 $MESS ['PAGE_DELETE_WINDOW_TITLE'] = "Delete Page Confirmation";

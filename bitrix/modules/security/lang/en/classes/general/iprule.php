@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SECURITY_IPRULE_ERROR_SELF_BLOCK'] = "Your IP (#IP#) matches the range. If you are sure you are correct, save the form again.";
 $MESS ['SECURITY_IPRULE_ERROR_SELF_BLOCK_2'] = "Your IP (#IP#) matches the range.";
 $MESS ['SECURITY_IPRULE_ERROR_WONG_IP'] = "Wrong IP address (#IP#).";

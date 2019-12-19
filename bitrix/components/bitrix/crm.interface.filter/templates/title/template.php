@@ -70,10 +70,10 @@ if(isset($arParams['~FILTER']) && is_array($arParams['~FILTER']))
 			}
 		}
 	);
-	</script><?
+	</script><?php 
 	if(!empty($entitySelectors))
 	{
-		?><script type="text/javascript"><?
+		?><script type="text/javascript"><?php 
 			foreach($entitySelectors as $entitySelector)
 			{
 				$selectorID = $entitySelector['ID'];
@@ -94,9 +94,9 @@ if(isset($arParams['~FILTER']) && is_array($arParams['~FILTER']))
 					}
 				);
 			}
-		);<?
+		);<?php 
 		}
-		?></script><?
+		?></script><?php 
 	}
 	//endregion
 }
@@ -133,8 +133,8 @@ if($hasNavigationBar)
 	}
 
 	?><div class="crm-view-switcher pagetitle-align-right-container">
-<!--	<div class="crm-view-switcher-name">--><?//=GetMessage('CRM_INT_FILTER_NAV_BAR_TITLE')?><!--:</div>-->
-	<div class="crm-view-switcher-list"><?
+<!--	<div class="crm-view-switcher-name">--><?php //=GetMessage('CRM_INT_FILTER_NAV_BAR_TITLE')?><!--:</div>-->
+	<div class="crm-view-switcher-list"><?php 
 		$itemQty = 0;
 		foreach($navigationBarItems as $barItem)
 		{
@@ -147,7 +147,7 @@ if($hasNavigationBar)
 			{
 				?><a href="<?=htmlspecialcharsbx($itemUrl)?>" class="ui-btn ui-btn-light-border ui-btn-no-caps ui-btn-themes ui-btn-round crm-robot-btn">
 					<?=htmlspecialcharsbx($itemName)?>
-				</a><?
+				</a><?php 
 				continue;
 			}
 
@@ -162,7 +162,7 @@ if($hasNavigationBar)
 			$navigationBarConfig['items'][] = $itemConfig;
 			?><div id="<?=htmlspecialcharsbx($itemElementID)?>" class="<?=$className?>">
 				<?=htmlspecialcharsbx($itemName)?>
-			</div><?
+			</div><?php 
 		}
 		?></div>
 	</div>
@@ -176,7 +176,7 @@ if($hasNavigationBar)
 				);
 			}
 		);
-	</script><?
+	</script><?php 
 
 	if($isBitrix24Template)
 	{
@@ -193,7 +193,7 @@ if($viewID === '')
 
 $this->SetViewTarget($viewID, 0);
 //region Filter
-?><div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;"><?
+?><div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;"><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.ui.filter',
 	'',
@@ -213,5 +213,5 @@ $APPLICATION->IncludeComponent(
 	$component
 );
 //endregion
-?></div><?
+?></div><?php 
 $this->EndViewTarget();

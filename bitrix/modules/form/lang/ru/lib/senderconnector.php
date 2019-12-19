@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_form_name"] = "Веб-формы";
 $MESS["sender_connector_form_required_settings"] = "Требуется обязательная настройка";
 $MESS["sender_connector_form_select"] = "(выберите форму)";

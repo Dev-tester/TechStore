@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RMP_VA_ID"] = "Application ID";
 $MESS["RMP_SEF_INDEX"] = "Index page";
 $MESS["RMP_SEF_LIST"] = "Applications";

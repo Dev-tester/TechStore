@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAP1_ERROR_UPDATE_PLAN"] = "An error occurred while updating the plan";
 $MESS["SAP1_ERROR_DELETE_PLAN"] = "An error occurred while deleting the plan";
 $MESS["SAP1_ERROR_ACTIVE_PLAN"] = "An error occurred while changing the plan active status";

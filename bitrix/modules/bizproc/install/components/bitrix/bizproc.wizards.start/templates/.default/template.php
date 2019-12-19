@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	?>
 	<span class='errortext'><?= $arResult["FatalErrorMessage"] ?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,20 +12,20 @@ else
 	{
 		?>
 		<font class='errortext'><?= $arResult["ErrorMessage"] ?></font><br /><br />
-		<?
+		<?php 
 	}
 
 	if ($arResult["ShowMode"] == "StartWorkflowSuccess")
 	{
 		?>
 		<?= GetMessage("BPWC_WRCT_SUCCESS") ?>
-		<?
+		<?php 
 	}
 	elseif ($arResult["ShowMode"] == "StartWorkflowError")
 	{
 		?>
 		<?= GetMessage("BPWC_WRCT_ERROR") ?>
-		<?
+		<?php 
 	}
 	elseif ($arResult["ShowMode"] == "WorkflowParameters")
 	{
@@ -61,23 +61,23 @@ else
 					<?= $arResult["TEMPLATE"]["NAME"] ?>
 				</td>
 			</tr>
-			<?if ($arResult["TEMPLATE"]["DESCRIPTION"] != ''):?>
+			<?php if ($arResult["TEMPLATE"]["DESCRIPTION"] != ''):?>
 				<tr>
 					<td align="right" width="40%"><?= GetMessage("BPWC_WRCT_DESCR") ?>:</td>
 					<td width="60%">
 						<?= $arResult["TEMPLATE"]["DESCRIPTION"] ?>
 					</td>
 				</tr>
-			<?endif?>
-			<?
+			<?php endif?>
+			<?php 
 			foreach ($arResult["TEMPLATE"]["PARAMETERS"] as $parameterKey => $arParameter)
 			{
 				if ($parameterKey == "TargetUser")
 					continue;
 				?>
 				<tr>
-					<td align="right" width="40%" valign="top"><?= $arParameter["Required"] ? "<span style=\"color:red\">*</span> " : ""?><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
-					<td width="60%" valign="top"><?
+					<td align="right" width="40%" valign="top"><?= $arParameter["Required"] ? "<span style=\"color:red\">*</span> " : ""?><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?php if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
+					<td width="60%" valign="top"><?php 
 						echo $arResult["DocumentService"]->GetFieldInputControl(
 							array("bizproc", "CBPVirtualDocument", "type_".$arParams["BLOCK_ID"]),
 							$arParameter,
@@ -88,14 +88,14 @@ else
 						);
 					?></td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 			</table>
 			<input type="submit" name="DoStartParamWorkflow" value="<?= strlen($arResult["CreateTitle"]) > 0 ? $arResult["CreateTitle"] : GetMessage("BPWC_WRCT_SAVE") ?>" />
 			<input type="submit" name="CancelStartParamWorkflow" value="<?= GetMessage("BPWC_WRCT_CANCEL") ?>" />
 		</form>
-		<?
+		<?php 
 	}
 	elseif ($arResult["ShowMode"] == "SelectWorkflow")
 	{
@@ -110,7 +110,7 @@ else
 						<?= $arWorkflowTemplate["DESCRIPTION"] ?>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 		}
 		else
@@ -119,7 +119,7 @@ else
 			<tr>
 				<td colspan="2"><?= GetMessage("BPABS_NO_TEMPLATES") ?></td>
 			</tr>
-			<?
+			<?php 
 		}
 	}
 }

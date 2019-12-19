@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -8,20 +8,20 @@ Loc::loadMessages(__FILE__);
 $helper = $arResult['HELPER'];
 ?>
 
-<?$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php $helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
 
-		<?$helper->displayWarnings();?>
+		<?php $helper->displayWarnings();?>
 		
-		<?$data = $arParams['ENTITY_DATA'];?>
-		<?$inputPrefix = htmlspecialcharsbx($arParams['INPUT_PREFIX']);?>
+		<?php $data = $arParams['ENTITY_DATA'];?>
+		<?php $inputPrefix = htmlspecialcharsbx($arParams['INPUT_PREFIX']);?>
 
-		<?$checked = $data['ALLOW_TIME_TRACKING'] == 'Y';?>
+		<?php $checked = $data['ALLOW_TIME_TRACKING'] == 'Y';?>
 		<label class="task-field-label task-field-label-tm"><input class="js-id-timeestimate-flag task-options-checkbox" data-target="allow-time-tracking" data-flag-name="ALLOW_TIME_TRACKING" <?=($checked? 'checked' : '')?> type="checkbox"><?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_TIME_TO_DO')?></label>
 		<input class="js-id-timeestimate-allow-time-tracking" type="hidden" name="<?=$inputPrefix?>[ALLOW_TIME_TRACKING]" value="<?=($checked ? 'Y' : 'N')?>" />
-		<span class="js-id-timeestimate-inputs task-options-inp-container-time task-openable-block<?if(!$checked):?> invisible<?endif?>">
+		<span class="js-id-timeestimate-inputs task-options-inp-container-time task-openable-block<?php if(!$checked):?> invisible<?php endif?>">
             <span class="task-options-inp-container">
                 <input type="text" class="js-id-timeestimate-time js-id-timeestimate-hour task-options-inp" value="<?=($arResult['HOURS'] ? $arResult['HOURS'] : '')?>" />
             </span>
@@ -35,6 +35,6 @@ $helper = $arResult['HELPER'];
 
 	</div>
 
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

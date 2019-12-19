@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRESET_TYPE_BASKET"] = "Для корзины";
 $MESS["PRESET_TYPE_ORDER"] = "Для заказов";
 $MESS["PRESET_MAIL_TEMPLATE_HELLO"] = "Здравствуйте!";

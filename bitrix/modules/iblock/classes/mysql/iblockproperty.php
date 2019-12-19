@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIBlockProperty extends CAllIBlockProperty
 {
 	function _Update($ID, $arFields, $bCheckDescription = false)

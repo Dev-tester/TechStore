@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_F_LOGIC"] = "Логика между полями";
 $MESS["STAT_GUEST_ID"] = "ID посетителя";
 $MESS["STAT_EDIT_USER"] = "Профайл пользователя";

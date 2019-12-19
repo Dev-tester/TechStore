@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_OPTIONS_ALLOW_HTML"] = "Use visual editor; allow HTML";
 $MESS["WIKI_OPTIONS_IMAGE_MAX_WIDTH"] = "Maximum image width (pixels):";
 $MESS["WIKI_OPTIONS_IMAGE_MAX_HEIGHT"] = "Maximum image height (pixels):";

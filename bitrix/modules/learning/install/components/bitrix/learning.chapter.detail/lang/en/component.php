@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MODULE_NOT_FOUND"] = "e-Learning module is not installed.";
 $MESS["LEARNING_CHAPTER_DENIED"] = "Chapter not found or access denied.";
 $MESS["LEARNING_COURSES_LESSON_ADD"] = "Add a new lesson";

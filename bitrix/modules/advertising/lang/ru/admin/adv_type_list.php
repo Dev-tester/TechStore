@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_PAGE_TITLE"] = "Типы баннеров";
 $MESS["AD_F_ID"] = "ID";
 $MESS["AD_F_DATE_MODIFY"] = "Изменено";

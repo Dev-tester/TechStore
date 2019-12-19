@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/affiliate_tier.php");
 
 class CSaleAffiliateTier extends CAllSaleAffiliateTier

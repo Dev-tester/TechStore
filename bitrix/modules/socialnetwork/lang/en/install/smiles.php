@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FICON_BIGGRIN'] = "Big Grin";
 $MESS ['FICON_SMILE'] = "Smile";
 $MESS ['FICON_SAD'] = "Sad";

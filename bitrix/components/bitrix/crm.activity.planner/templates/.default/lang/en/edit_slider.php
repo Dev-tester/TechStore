@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_PLANNER_ORDER"] = "Order";
 $MESS["CRM_ACTIVITY_PLANNER_TODAY"] = "today";
 $MESS["CRM_ACTIVITY_PLANNER_TOMORROW"] = "tomorrow";

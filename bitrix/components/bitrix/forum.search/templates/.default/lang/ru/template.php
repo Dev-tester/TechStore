@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "Поиск";
 $MESS ['F_KEYWORDS'] = "Поиск";
 $MESS ['F_FORUM'] = "Форум";

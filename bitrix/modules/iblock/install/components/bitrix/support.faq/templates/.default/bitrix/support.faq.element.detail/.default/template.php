@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,11 +12,11 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?//elements detail?>
+<?php //elements detail?>
 <table cellpadding="0" cellspacing="0" class="data-table" width="100%">
 	<tr>
 		<th>
-		<?
+		<?php 
 		//add edit element button
 		if(isset($arResult['ITEM']['EDIT_BUTTON']))
 			echo $arResult['ITEM']['EDIT_BUTTON'];
@@ -29,9 +29,9 @@ $this->setFrameMode(true);
 		<?=$arResult['ITEM']['PREVIEW_TEXT']?>
 		<?=$arResult['ITEM']['DETAIL_TEXT']?>
 		
-		<?if ($arParams["SHOW_RATING"] == "Y"):?>
+		<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 			<div class="faq-rating" style="float: right">
-			<?$GLOBALS["APPLICATION"]->IncludeComponent(
+			<?php $GLOBALS["APPLICATION"]->IncludeComponent(
 				"bitrix:rating.vote", $arParams["RATING_TYPE"],
 				Array(
 					"ENTITY_TYPE_ID" => "IBLOCK_ELEMENT",
@@ -49,7 +49,7 @@ $this->setFrameMode(true);
 				array("HIDE_ICONS" => "Y")
 			);?>
 			</div>
-		<?endif;?>	
+		<?php endif;?>	
 		</td>
 	</tr>
 </table>

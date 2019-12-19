@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arParams["ALLOW_CREATE_GROUP"] == "Y")
 {
 	$popupName = randString(6);
@@ -23,6 +23,6 @@ if ($arParams["ALLOW_CREATE_GROUP"] == "Y")
 		<div class="sonet-add-group-button-fill"><a onclick="<?=$strOnClick?>" href="<?=$arParams["~HREF"]?>" class="sonet-add-group-button-fill-text"><?= GetMessage("SONET_C36_T_CREATE") ?></a></div>
 		<a onclick="<?=$strOnClick?>" class="sonet-add-group-button-right" href="<?=$arParams["~HREF"]?>" title="<?= GetMessage("SONET_C36_T_CREATE") ?>"></a>
 		<div class="sonet-add-group-button-clear"></div>
-	</div><?
+	</div><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -134,7 +134,7 @@ if ($bVarsFromForm)
 	$DB->InitTableVarsForEdit("b_sale_affiliate", "", "str_");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SAE_AFF_LIST"),
@@ -167,14 +167,14 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?if(strlen($errorMessage)>0)
+<?php if(strlen($errorMessage)>0)
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>$errorMessage, "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SAE_ERROR_SAVE_AFF"), "HTML"=>true));?>
 
 <script language="JavaScript">
 <!--
 var arSitesArray = new Array();
 var arCurrenciesArray = new Array();
-<?
+<?php 
 $arBaseLangCurrencies = array();
 $i = -1;
 $dbSiteList = CSite::GetList(($b = "sort"), ($o = "asc"));
@@ -184,36 +184,36 @@ while ($arSite = $dbSiteList->Fetch())
 	?>
 	arSitesArray[<?= $i ?>] = '<?= CUtil::JSEscape($arSite["LID"]) ?>';
 	arCurrenciesArray[<?= $i ?>] = '<?= CUtil::JSEscape(CSaleLang::GetLangCurrency($arSite["LID"])) ?>';
-	<?
+	<?php 
 }
 ?>
 //-->
 </script>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
 		<tr>
-			<td width="40%"><?echo GetMessage("SAE_DATE_UPDATE")?></td>
+			<td width="40%"><?php echo GetMessage("SAE_DATE_UPDATE")?></td>
 			<td width="60%"><?=$str_TIMESTAMP_X?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SAE_SITE")?></td>
+		<td width="40%"><?php echo GetMessage("SAE_SITE")?></td>
 		<td width="60%">
 			<script language="JavaScript">
 			<!--
@@ -234,13 +234,13 @@ $tabControl->BeginNextTab();
 			}
 			//-->
 			</script>
-			<?echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "OnChangeSite(this[this.selectedIndex].value)");?>
+			<?php echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "OnChangeSite(this[this.selectedIndex].value)");?>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SAE_USER")?></td>
+		<td><?php echo GetMessage("SAE_USER")?></td>
 		<td>
-			<?
+			<?php 
 			$userName = "";
 			if ($str_USER_ID > 0)
 			{
@@ -254,7 +254,7 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo GetMessage("SAE_AFFILIATE_REG")?></td>
+		<td valign="top"><?php echo GetMessage("SAE_AFFILIATE_REG")?></td>
 		<td valign="top">
 			<input type="text" name="AFFILIATE_ID" value="<?= $str_AFFILIATE_ID ?>" size="10" maxlength="10">
 			<IFRAME name="hiddenframe_affiliate" id="id_hiddenframe_affiliate" src="" width="0" height="0" style="width:0px; height:0px; border: 0px"></IFRAME>
@@ -298,65 +298,65 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SAE_PLAN")?></td>
+		<td><?php echo GetMessage("SAE_PLAN")?></td>
 		<td>
 			<select name="PLAN_ID">
-				<?
+				<?php 
 				$dbPlan = CSaleAffiliatePlan::GetList(array("NAME" => "ASC"), array(), false, false, array("ID", "NAME", "SITE_ID"));
 				while ($arPlan = $dbPlan->Fetch())
 				{
-					?><option value="<?= $arPlan["ID"] ?>"<?if ($str_PLAN_ID == $arPlan["ID"]) echo " selected"?>><?= htmlspecialcharsex("[".$arPlan["ID"]."] ".$arPlan["NAME"]." (".$arPlan["SITE_ID"].")") ?></option><?
+					?><option value="<?= $arPlan["ID"] ?>"<?php if ($str_PLAN_ID == $arPlan["ID"]) echo " selected"?>><?= htmlspecialcharsex("[".$arPlan["ID"]."] ".$arPlan["NAME"]." (".$arPlan["SITE_ID"].")") ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAE_FIX_PLAN")?>:</td>
+		<td><?php echo GetMessage("SAE_FIX_PLAN")?>:</td>
 		<td>
-			<input type="checkbox" name="FIX_PLAN" value="Y"<?if ($str_FIX_PLAN == "Y") echo " checked"?>>
+			<input type="checkbox" name="FIX_PLAN" value="Y"<?php if ($str_FIX_PLAN == "Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAE_ACTIVE")?></td>
+		<td><?php echo GetMessage("SAE_ACTIVE")?></td>
 		<td>
-			<input type="checkbox" name="ACTIVE" value="Y"<?if ($str_ACTIVE == "Y") echo " checked"?>>
+			<input type="checkbox" name="ACTIVE" value="Y"<?php if ($str_ACTIVE == "Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("SAE_DATE_REG")?>:</td>
+		<td><?php echo GetMessage("SAE_DATE_REG")?>:</td>
 		<td>
 			<?= CalendarDate("DATE_CREATE", $str_DATE_CREATE, "form1", "20", ""); ?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAE_PAYED_SUM")?></td>
+		<td><?php echo GetMessage("SAE_PAYED_SUM")?></td>
 		<td>
 			<input type="text" name="PAID_SUM" size="10" maxlength="15" value="<?= $str_PAID_SUM ?>">
 			<span id="DIV_PAID_SUM_CURRENCY"></span>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAE_PENDING_SUM")?></td>
+		<td><?php echo GetMessage("SAE_PENDING_SUM")?></td>
 		<td>
 			<input type="text" name="PENDING_SUM" size="10" maxlength="15" value="<?= $str_PENDING_SUM ?>">
 			<span id="DIV_PENDING_SUM_CURRENCY"></span>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAE_LAST_CALC")?>:</td>
+		<td><?php echo GetMessage("SAE_LAST_CALC")?>:</td>
 		<td>
 			<?= CalendarDate("LAST_CALCULATE", $str_LAST_CALCULATE, "form1", "20", ""); ?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAE_AFF_SITE")?>:</td>
+		<td><?php echo GetMessage("SAE_AFF_SITE")?>:</td>
 		<td>
 			<input type="text" name="AFF_SITE" size="60" maxlength="200" value="<?= $str_AFF_SITE ?>">
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("SAE_AFF_DESCRIPTION")?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("SAE_AFF_DESCRIPTION")?>:</td>
 		<td>
 			<textarea name="AFF_DESCRIPTION" rows="3" cols="50"><?= $str_AFF_DESCRIPTION ?></textarea>
 		</td>
@@ -366,11 +366,11 @@ $tabControl->BeginNextTab();
 	OnChangeSite(document.form1.SITE_ID[document.form1.SITE_ID.selectedIndex].value);
 	//-->
 	</script>
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => ($saleModulePermissions < "W"),
@@ -379,9 +379,9 @@ $tabControl->Buttons(
 );
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

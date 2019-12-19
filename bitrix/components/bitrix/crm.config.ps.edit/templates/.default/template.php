@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
 
@@ -27,7 +27,7 @@ ob_start();
 ?>
 <div style="<?=$formStyle?>">
 <form name="form_<?=$arResult["FORM_ID"]?>" id="form_<?=$arResult["FORM_ID"]?>" action="<?=POST_FORM_ACTION_URI?>" method="POST" enctype="multipart/form-data">
-	<?
+	<?php 
 	if ($isSidePanel && !empty($arResult['SIDE_PANEL_ERROR']))
 	{
 		showError($arResult['SIDE_PANEL_ERROR']);
@@ -38,12 +38,12 @@ ob_start();
 	<?=bitrix_sessid_post();?>
 	<table width="100%" class="bx-settings-table">
 		<tbody id="PS_INFO">
-			<?if ($arResult['PAY_SYSTEM']['ID']): ?>
+			<?php if ($arResult['PAY_SYSTEM']['ID']): ?>
 				<tr>
 					<td width="40%" class="bx-field-name">ID: </td>
 					<td class="bx-field-value"><?=$arResult['PAY_SYSTEM']['ID'] ?: ''?></td>
 				</tr>
-			<?endif;?>
+			<?php endif;?>
 			<tr>
 				<td width="40%" class="bx-field-name"><?=Loc::getMessage('CRM_PS_FIELD_NAME')?>: </td>
 				<td class="bx-field-value"><input type="text" name="NAME" value="<?=$arResult['PAY_SYSTEM']['NAME'] ? htmlspecialcharsbx($arResult['PAY_SYSTEM']['NAME']) : ''?>"></td>
@@ -52,41 +52,41 @@ ob_start();
 				<td width="40%" class="bx-field-name"><?=Loc::getMessage('CRM_PS_FIELD_ACTION_FILE')?>: </td>
 				<td class="bx-field-value">
 					<select name="ACTION_FILE" id="ACTION_FILE">
-						<?foreach ($arResult['PAY_SYSTEM_LIST'] as $id => $name):?>
+						<?php foreach ($arResult['PAY_SYSTEM_LIST'] as $id => $name):?>
 							<option value="<?=$id;?>" <?=(strpos($arResult['PAY_SYSTEM']['ACTION_FILE'], $id) !== false) ? 'selected' : ''?>><?=$name;?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 				$isInvoiceHandler = strpos($arResult['PAY_SYSTEM']['ACTION_FILE'], 'invoicedocument') === 0;
 				$postfix = $isInvoiceHandler ? '_DOCUMENT' : '';
 			?>
-			<?if (isset($arResult['PS_MODE']) || $isInvoiceHandler):?>
+			<?php if (isset($arResult['PS_MODE']) || $isInvoiceHandler):?>
 				<tr>
 					<td width="40%" class="bx-field-name"><?=Loc::getMessage('CRM_PS_FIELD_PS_MODE'.$postfix)?>: </td>
 					<td class="bx-field-value">
-						<?if ($arResult['PS_MODE']):?>
+						<?php if ($arResult['PS_MODE']):?>
 							<select name="PS_MODE" id="PS_MODE" onchange="BX.crmPSActionFile.onHandlerModeChange(this);">
-								<?foreach ($arResult['PS_MODE'] as $id => $name):?>
+								<?php foreach ($arResult['PS_MODE'] as $id => $name):?>
 									<option value="<?=$id;?>" <?=($arResult['PAY_SYSTEM']['PS_MODE'] == $id) ? 'selected' : ''?>><?=$name;?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
-						<?endif;?>
-						<?if ($isInvoiceHandler):?>
+						<?php endif;?>
+						<?php if ($isInvoiceHandler):?>
 							<span class="bx-button-add-template" onclick='BX.SidePanel.Instance.open("<?=$arResult['INVOICE_DOC_ADD_LINK'];?>", {width: 930, events: {onCloseComplete: function() {BX.crmPSActionFile.onSelect(BX("ACTION_FILE"));}}});'>
 								<?=Loc::getMessage('CRM_PS_FIELD_TEMPLATE_DOCUMENT_ADD');?>
 							</span>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
-			<?endif;?>
+			<?php endif;?>
 			<tr>
 				<td width="40%" class="bx-field-name"><?=Loc::getMessage('CRM_PS_FIELD_SORT')?>: </td>
 				<td class="bx-field-value"><input type="text" name="SORT" value="<?=$arResult['PAY_SYSTEM']['SORT'] ?: ''?>"></td>
 			</tr>
 			<tr>
-				<?
+				<?php 
 					$checked = ($arResult['PAY_SYSTEM']['ACTIVE'] !== 'N');
 				?>
 				<td width="40%" class="bx-field-name"><?=Loc::getMessage('CRM_PS_FIELD_ACTIVE')?>: </td>
@@ -100,23 +100,23 @@ ob_start();
 				<td width="40%" class="bx-field-name"><?=Loc::getMessage('CRM_PS_FIELD_PERSON_TYPE_ID')?>: </td>
 				<td class="bx-field-value">
 					<select name="PERSON_TYPE_ID">
-						<?foreach ($arResult['PERSON_TYPE_LIST'] as $id => $name):?>
+						<?php foreach ($arResult['PERSON_TYPE_LIST'] as $id => $name):?>
 							<option value="<?=$id;?>" <?=($arResult['PAY_SYSTEM']['PERSON_TYPE_ID'] == $id) ? 'selected' : ''?>><?=$name;?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
 		</tbody>
-		<?if (isset($arResult['SECURITY'])):?>
+		<?php if (isset($arResult['SECURITY'])):?>
 			<tbody id="SECURITY">
-			<?foreach ($arResult['SECURITY'] as $name => $value):?>
+			<?php foreach ($arResult['SECURITY'] as $name => $value):?>
 				<tr>
 					<td width="40%" class="bx-field-name"><?=$value['NAME'];?>:</td>
 					<td class="bx-field-value"><?=$value['VALUE'];?></td>
 				<tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 			</tbody>
-		<?endif;?>
+		<?php endif;?>
 		<tbody>
 			<tr>
 				<td colspan="2">
@@ -129,8 +129,8 @@ ob_start();
 	<table cellspacing="0" class="bx-edit-tabs" width="52%" id="bx-tabs">
 		<tr>
 			<td class="bx-tab-indent"><div class="empty"></div></td>
-			<?foreach($arResult['BUSINESS_VALUE'] as $tab):?>
-				<?
+			<?php foreach($arResult['BUSINESS_VALUE'] as $tab):?>
+				<?php 
 					$bSelected = $tab["id"] === 'PAYMENT';
 				?>
 				<td title="<?=htmlspecialcharsbx($tab["title"])?>" id="tab_cont_<?=$tab["id"]?>" class="bx-tab-container<?=($bSelected? "-selected":"")?>" onclick="BX.crmPSPropType.SelectTab('<?=$tab["id"]?>');" onmouseover="BX.crmPSPropType.HoverTab('<?=$tab["id"]?>', true);" onmouseout="BX.crmPSPropType.HoverTab('<?=$tab["id"]?>', false);">
@@ -142,40 +142,40 @@ ob_start();
 						</tr>
 					</table>
 				</td>
-			<?endforeach;?>
+			<?php endforeach;?>
 			<td width="100%" style="white-space:nowrap; text-align:right"></td>
 		</tr>
 	</table>
 	<table cellspacing="0" class="bx-edit-tab" width="100%" style="table-layout: auto">
 					<tr>
 						<td width="60%" style="vertical-align: top;">
-	<?
+	<?php 
 	$arResult["SELECTED_TAB"] = 'PAYMENT';
 	$bWasRequired = false;
 	foreach($arResult["BUSINESS_VALUE"] as $groupId => $tab):
 	?>
-	<div id="inner_tab_<?=$tab["id"]?>" class="bx-edit-tab-inner"<?if($tab["id"] <> $arResult["SELECTED_TAB"]) echo ' style="display:none;"'?>>
+	<div id="inner_tab_<?=$tab["id"]?>" class="bx-edit-tab-inner"<?php if($tab["id"] <> $arResult["SELECTED_TAB"]) echo ' style="display:none;"'?>>
 	<div style="height: 100%;">
-	<?if($tab["title"] <> ''):?>
+	<?php if($tab["title"] <> ''):?>
 		<div class="bx-edit-tab-title">
 		<table cellpadding="0" cellspacing="0" border="0" class="bx-edit-tab-title">
 			<tr>
-		<?
+		<?php 
 			if($tab["icon"] <> ""):
 		?>
 				<td class="bx-icon"><div class="<?=htmlspecialcharsbx($tab["icon"])?>"></div></td>
-		<?
+		<?php 
 			endif
 		?>
 				<td class="bx-form-title"><?=htmlspecialcharsbx($tab["title"])?></td>
 			</tr>
 		</table>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<div class="bx-edit-table">
 	<table cellpadding="0" cellspacing="0" border="0" class="bx-edit-table <?=(isset($tab["class"]) ? $tab['class'] : '')?>" id="<?=$tab["id"]?>_edit_table">
-	<?
+	<?php 
 	$i = 0;
 	$j = 0;
 	$cnt = count($tab["fields"]);
@@ -208,8 +208,8 @@ ob_start();
 		if(strlen($field['class']))
 			$className[] = $field['class'];
 	?>
-		<tr<?if(!empty($className)):?> class="<?=implode(' ', $className)?>"<?endif?><?if(!empty($style)):?> style="<?= $style ?>"<?endif?>>
-	<?
+		<tr<?php if(!empty($className)):?> class="<?=implode(' ', $className)?>"<?php endif?><?php if(!empty($style)):?> style="<?= $style ?>"<?php endif?>>
+	<?php 
 		$val = (isset($field["value"])? $field["value"] : $arParams["~DATA"][$field["id"]]);
 
 		//default attributes
@@ -232,12 +232,12 @@ ob_start();
 			if($field["required"])
 				$bWasRequired = true;
 	?>
-			<td class="bx-field-name<?if($field["type"] <> 'label') echo' bx-padding'?> bx-props-field-width"<?if($field["title"] <> '') echo ' title="'.htmlspecialcharsEx($field["title"]).'"'?>><?=($field["required"]? '<span class="required">*</span>':'')?><?if(strlen($field["name"])):?><?=htmlspecialcharsEx($field["name"])?>:<?endif?></td>
-	<?
+			<td class="bx-field-name<?php if($field["type"] <> 'label') echo' bx-padding'?> bx-props-field-width"<?php if($field["title"] <> '') echo ' title="'.htmlspecialcharsEx($field["title"]).'"'?>><?=($field["required"]? '<span class="required">*</span>':'')?><?php if(strlen($field["name"])):?><?=htmlspecialcharsEx($field["name"])?>:<?php endif?></td>
+	<?php 
 		endif
 	?>
 			<td class="bx-field-value"<?=($field["colspan"]? ' colspan="2"':'')?>>
-	<?
+	<?php 
 		switch($field["type"]):
 			case 'label':
 			case 'custom':
@@ -246,29 +246,29 @@ ob_start();
 			default:
 	?>
 	<input type="text" name="<?=$field["id"]?>" value="<?=$val?>"<?=$params?>>
-	<?
+	<?php 
 				break;
 		endswitch;
 	?>
 			</td>
 		</tr>
-	<?if ($groupId === 'COLUMN_SETTINGS' && $j % 3 === 0) : ?>
+	<?php if ($groupId === 'COLUMN_SETTINGS' && $j % 3 === 0) : ?>
 		<tr><td colspan="2"></td></tr>
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 		$prevType = $field["type"];
 	endforeach;
 	?>
-	<?if ($tab["id"] == 'COLUMN_SETTINGS'):?>
+	<?php if ($tab["id"] == 'COLUMN_SETTINGS'):?>
 		<tr id="ADD_USER_PROP">
 			<td colspan="2" style="text-align: center;"><?=$userPropsList;?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	</table>
 	</div>
 	</div>
 	</div>
-	<?
+	<?php 
 	endforeach;
 	?>
 		</td>
@@ -280,13 +280,13 @@ ob_start();
 	</tr>
 </table>
 	<div class="bx-buttons">
-		<input type="submit" name="save" value="<?echo GetMessage("CRM_BUTTON_FORM_SAVE")?>" title="<?echo GetMessage("CRM_BUTTON_FORM_SAVE_TITLE")?>" />
-		<input type="submit" name="apply" value="<?echo GetMessage("CRM_BUTTON_FORM_APPLY")?>" title="<?echo GetMessage("CRM_BUTTON_FORM_APPLY_TITLE")?>" />
-		<input type="button" value="<?echo GetMessage("CRM_BUTTON_FORM_CANCEL")?>" name="cancel" onclick="cancelEdit()" title="<?echo GetMessage("CRM_BUTTON_FORM_CANCEL_TITLE")?>" />
+		<input type="submit" name="save" value="<?php echo GetMessage("CRM_BUTTON_FORM_SAVE")?>" title="<?php echo GetMessage("CRM_BUTTON_FORM_SAVE_TITLE")?>" />
+		<input type="submit" name="apply" value="<?php echo GetMessage("CRM_BUTTON_FORM_APPLY")?>" title="<?php echo GetMessage("CRM_BUTTON_FORM_APPLY_TITLE")?>" />
+		<input type="button" value="<?php echo GetMessage("CRM_BUTTON_FORM_CANCEL")?>" name="cancel" onclick="cancelEdit()" title="<?php echo GetMessage("CRM_BUTTON_FORM_CANCEL_TITLE")?>" />
 	</div>
 </form>
 </div>
-<?
+<?php 
 
 $typeValuesTmpl = '<select name="TYPE_#FIELD_ID#" id="TYPE_#FIELD_ID#">'.
 					'<option value="">'.GetMessage("CRM_PS_TYPES_OTHER").'</option>'.
@@ -373,34 +373,34 @@ $checkboxValuesTmpl = '<select name="TYPE_#FIELD_ID#" id="TYPE_#FIELD_ID#" style
 
 	BX.crmPSActionFile.onHandlerModeChange();
 
-	<? if (isset($_REQUEST['SIDE_PANEL_REQUEST']) && $_REQUEST['SIDE_PANEL_REQUEST'] === 'Y'): ?>
+	<?php  if (isset($_REQUEST['SIDE_PANEL_REQUEST']) && $_REQUEST['SIDE_PANEL_REQUEST'] === 'Y'): ?>
 	BX.ready(function () {
 		if (top.BX.SidePanel.Instance && top.BX.SidePanel.Instance.getTopSlider())
 		{
 			var requestType = 'apply';
-			<? if (isset($_REQUEST['SIDE_PANEL_SAVE']) && $_REQUEST['SIDE_PANEL_SAVE'] === 'Y'): ?>
+			<?php  if (isset($_REQUEST['SIDE_PANEL_SAVE']) && $_REQUEST['SIDE_PANEL_SAVE'] === 'Y'): ?>
 				requestType = 'save';
-			<? endif; ?>
+			<?php  endif; ?>
 			top.BX.onCustomEvent('SidePanel:postMessage', [window, requestType, {}]);
 		}
 	});
-	<? endif; ?>
+	<?php  endif; ?>
 
 	function cancelEdit()
 	{
-		<? if ($isSidePanel): ?>
+		<?php  if ($isSidePanel): ?>
 			if (top.BX.SidePanel.Instance && top.BX.SidePanel.Instance.getTopSlider())
 			{
 				top.BX.SidePanel.Instance.close();
 			}
-		<? else: ?>
+		<?php  else: ?>
 			window.location='<?=htmlspecialcharsbx(CUtil::addslashes($arResult['BACK_URL']))?>';
-		<? endif; ?>
+		<?php  endif; ?>
 	}
 
 </script>
 
-<?
+<?php 
 $componentContent = ob_get_clean();
 if ($isSidePanel)
 {

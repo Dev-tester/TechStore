@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 $pageId = "group_forum";
 include("util_group_menu.php");
 include("util_group_profile.php");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:socialnetwork.forum.topic.list", "", 
+<?php $APPLICATION->IncludeComponent("bitrix:socialnetwork.forum.topic.list", "", 
 	Array(
 		"FID"	=>	$arParams["FORUM_ID"],
 		"USE_DESC_PAGE" => $arParams["USE_DESC_PAGE"], 

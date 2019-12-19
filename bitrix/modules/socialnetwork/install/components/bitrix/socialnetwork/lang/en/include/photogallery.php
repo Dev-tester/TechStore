@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_PHOTO"] = "Photo";
 $MESS["SONET_PHOTO_IS_NOT_ACTIVE"] = "The \"Photos\" feature is not enabled.";
 $MESS["SONET_P_MODULE_IS_NOT_INSTALLED"] = "The Photo Gallery module is not installed.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_ERR_SESSION_TIME_IS_UP"] = "Your session has expired. Please repost your message.";
 $MESS["POSTM_CAPTCHA"] = "The CAPTCHA code is incorrect.";
 $MESS["F_NO_MODULE"] = "Forum module is not installed";

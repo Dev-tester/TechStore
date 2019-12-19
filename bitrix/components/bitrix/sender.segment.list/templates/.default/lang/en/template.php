@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SEGMENT_LIST_BTN_ADD"] = "Create segment";
 $MESS["SENDER_SEGMENT_LIST_BTN_EDIT"] = "Edit";
 $MESS["SENDER_SEGMENT_LIST_BTN_EDIT_TITLE"] = "Edit";

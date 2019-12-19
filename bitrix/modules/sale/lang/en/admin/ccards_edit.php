@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCE_EMPTY_USER"] = "The field \"User\" is empty";
 $MESS["SCE_EMPTY_PAY_SYS"] = "The field \"Payment system\" is empty";
 $MESS["SCE_EMPTY_CARD_TYPE"] = "The field \"Card number\" is empty";

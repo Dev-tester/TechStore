@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SITE_ADDITIONAL"] = "More";
 $MESS["CRM_TRACKING_SITE_ADD_EMAIL"] = "add email";
 $MESS["CRM_TRACKING_SITE_ADD_PHONE"] = "add number";

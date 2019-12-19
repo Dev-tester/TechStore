@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (!CModule::IncludeModule('bizproc') || !CModule::IncludeModule('bizprocdesigner'))
@@ -121,7 +121,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 			<script>
 			alert('<?=GetMessage("BIZPROC_USER_PARAMS_SAVE_ERROR")?>');
 			</script>
-			<?
+			<?php 
 			die();
 		}
 		CUserOptions::SetOption("~bizprocdesigner", "activity_settings", $d);
@@ -174,7 +174,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 		<script>
 			alert('<?=GetMessage("BIZPROC_WFEDIT_SAVE_ERROR")?>\n<?=preg_replace("#\.\W?#", ".\\n", AddSlashes(htmlspecialcharsbx($e->getMessage())))?>');
 		</script>
-		<?
+		<?php 
 		die();
 	}
 
@@ -197,7 +197,7 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['saveajax']=='Y' && check_bit
 	<script>
 	window.location = '<?=($_REQUEST["apply"]=="Y"? str_replace("#ID#", $ID, $arResult["EDIT_PAGE_TEMPLATE"]) : CUtil::JSEscape($arResult["LIST_PAGE_URL"]))?>';
 	</script>
-	<?
+	<?php 
 	die();
 }
 
@@ -252,14 +252,14 @@ if($_SERVER['REQUEST_METHOD']=='POST' && $_REQUEST['import_template']=='Y' && ch
 	}
 	?>
 	<script>
-	<?if (intval($r) <= 0):?>
+	<?php if (intval($r) <= 0):?>
 		alert('<?= GetMessage("BIZPROC_WFEDIT_IMPORT_ERROR").(strlen($errTmp) > 0 ? ": ".$errTmp : "" ) ?>');
-	<?else:?>
-		<?$ID = $r;?>
-	<?endif;?>
+	<?php else:?>
+		<?php $ID = $r;?>
+	<?php endif;?>
 		window.location = '<?=str_replace("#ID#", $ID, $arResult["EDIT_PAGE_TEMPLATE"])?>';
 	</script>
-	<?
+	<?php 
 	die();
 }
 

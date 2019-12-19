@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVRS_ADD_SP_SAVE"] = "Save";
 $MESS["SALE_DLVRS_ADD_SP_CHOOSE_TITLE"] = "Select drop-off location";
 $MESS["SALE_DLVRS_ADD_NAME"] = "Extra delivery systems";

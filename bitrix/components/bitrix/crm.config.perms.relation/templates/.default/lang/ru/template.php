@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMS_TYPE_NONE"] = "Нет доступа";
 $MESS["CRM_PERMS_PERM_ADD"] = "Добавить право доступа";
 $MESS["CRM_PERMS_PERM_DELETE"] = "Удалить";

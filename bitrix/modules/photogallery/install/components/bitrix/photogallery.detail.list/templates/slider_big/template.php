@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (empty($arResult["ELEMENTS_LIST"]))
 	return false;
@@ -66,7 +66,7 @@ if ($_REQUEST["return_array"] == "Y")
 		if ($arParams["USE_RATING"] == "Y")
 		{
 			ob_start();
-			?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+			?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 				"bitrix:iblock.vote",
 				"ajax",
 				Array(
@@ -82,7 +82,7 @@ if ($_REQUEST["return_array"] == "Y")
 				),
 				($this->__component->__parent ? $this->__component->__parent : $component),
 				array("HIDE_ICONS" => "Y")
-			);?><?
+			);?><?php 
 			$text = ob_get_clean();
 			$arResult["ELEMENTS_LIST_JS"][$key]["rating"] = preg_replace(
 				array("/\<script([^>]+)\>/is", "/\<\/script([^>]*)\>/is", "/(?<=\001)([^\002]+)(?=\002)/is", "/[\n\t\001\002]/", "/\s\s/"),
@@ -152,7 +152,7 @@ if ($_REQUEST["return_array"] == "Y")
 		}
 	}
 	$GLOBALS["APPLICATION"]->RestartBuffer();
-		?><?=CUtil::PhpToJSObject($res)?><?
+		?><?=CUtil::PhpToJSObject($res)?><?php 
 	die();
 }
 
@@ -193,9 +193,9 @@ ob_start();
 	<div id="bx_slider_container_outer" style="height:<?=$arSlideParams['height']?>px;width:<?=$arSlideParams['width']?>px;">
 		<div id="bx_slider_container_header" style="height:20px;width:100%;background-color:white;visibility:hidden;overflow:hidden;">
 			<div style="padding: 0 10px 0 10px;">
-				<a href="#" id="bx_slider_nav_stop" <?
-					?>style="float:right;" <?
-					?>onclick="if(player){player.stop();PhotoMenu.PopupHide();} return false;" <?
+				<a href="#" id="bx_slider_nav_stop" <?php 
+					?>style="float:right;" <?php 
+					?>onclick="if(player){player.stop();PhotoMenu.PopupHide();} return false;" <?php 
 					?>title="<?=GetMessage("P_CLOSE_TITLE")?>"><span></span></a>
 				<div class="bxp-data-pagen"><div><?=GetMessage("P_PHOTOS")?><span id="element_number"></span><?=GetMessage("P_OF")?><span id="element_count"></span></div></div>
 			</div>
@@ -223,10 +223,10 @@ ob_start();
 										<table cellpadding="0" border="0" cellspacing="0" class="bxp-mixer-container-table">
 											<tr>
 												<td class="bxp-mixer-container-player">
-													<a href="#" id="bx_slider_nav_play" <?
-														?>onclick="if(player){if (player.params['status'] == 'paused') <?
-															?>{player.play(); this.title='<?=GetMessage("P_PAUSE_TITLE")?>';} <?
-															?>else {player.stop(); this.title='<?=GetMessage("P_PLAY_TITLE")?>';}} return false;" <?
+													<a href="#" id="bx_slider_nav_play" <?php 
+														?>onclick="if(player){if (player.params['status'] == 'paused') <?php 
+															?>{player.play(); this.title='<?=GetMessage("P_PAUSE_TITLE")?>';} <?php 
+															?>else {player.stop(); this.title='<?=GetMessage("P_PLAY_TITLE")?>';}} return false;" <?php 
 														?>title="<?=GetMessage("P_PLAY_TITLE")?>"><span></span></a>
 												</td>
 												<td class="bxp-mixer-container-speed">
@@ -262,7 +262,7 @@ ob_start();
 		</div>
 	</div>
 </div>
-<? $arTemplate = ob_get_clean(); ?>
+<?php  $arTemplate = ob_get_clean(); ?>
 <script>
 var oPhotoObjects = {
 	min_slider_width: <?=$arSlideParams['width']?>,
@@ -273,13 +273,13 @@ window.__photo_params = {
 	'user_id' : <?=intVal($GLOBALS['USER']->GetID())?>,
 	'speed' : <?=$arSlideParams['speed']?>,
 	'effects' : <?=($arSlideParams['effects'] == "Y" ? "true" : "false");?>,
-	'template' : ('<div class="photo-title"><a href="#url#">#title#</a></div>' + <?
+	'template' : ('<div class="photo-title"><a href="#url#">#title#</a></div>' + <?php 
 	if ($arParams["USE_RATING"] == "Y"):
-		?> '<div class="photo-rating">#rating#</div>' + <?
+		?> '<div class="photo-rating">#rating#</div>' + <?php 
 	endif;
-		?>'<table cellpadding="0" border="0" cellspacing="0"><tr>' + <?
+		?>'<table cellpadding="0" border="0" cellspacing="0"><tr>' + <?php 
 	if ($arParams["USE_COMMENTS"] == "Y"):
-		?>'<td class="td-slider-first"><div class="photo-comments"><a href="#url#">#comments#</a></div></td>' + <?
+		?>'<td class="td-slider-first"><div class="photo-comments"><a href="#url#">#comments#</a></div></td>' + <?php 
 	endif;
 		?>'<td class="<?=($arParams["USE_COMMENTS"] == "Y" ? "td-slider-last" : "td-slider-single")?>"><div class="photo-shows">#shows#</div></td></tr></table>'),
 	'template_additional' : '<div class="photo-description">#description#</div>'

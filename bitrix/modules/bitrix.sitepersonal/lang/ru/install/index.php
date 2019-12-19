@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPER_INSTALL_NAME"] = "Персональный сайт";
 $MESS["SPER_INSTALL_DESCRIPTION"] = "Персональный сайт";
 $MESS["SPER_INSTALL_TITLE"] = "Установка модуля";

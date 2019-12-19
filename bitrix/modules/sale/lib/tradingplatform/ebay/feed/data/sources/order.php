@@ -41,7 +41,7 @@ class Order extends DataSource implements \Iterator
 		$content = file_get_contents($this->dataFiles[$this->currentFileIdx]);
 		$skipLength = strtolower(SITE_CHARSET) != 'utf-8' ? 3 : 1;
 		$content = substr($content, $skipLength);
-		$content = "<?xml version='1.0' encoding='UTF-8'?>".$content;
+		$content = "<?php xml version='1.0' encoding='UTF-8'?>".$content;
 		return $content;
 	}
 

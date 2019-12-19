@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_FORMATTER_ERR_FORMAT_DESCR_BAD"] = "Неверный формат описания";
 $MESS["SALE_DISCOUNT_FORMATTER_ERR_FORMAT_TYPE_BAD"] = "Неверный тип описания";
 $MESS["SALE_DISCOUNT_FORMATTER_MESS_SUMM_FORMAT"] = "#VALUE# на общую сумму группы товаров";

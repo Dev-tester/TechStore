@@ -32,13 +32,13 @@ if($showStub)
 {
 	?><div class="crm-counter">
 		<div class="crm-counter-title"><?=GetMessage('CRM_COUNTER_STUB')?></div>
-	</div><?
+	</div><?php 
 }
 else
 {
 	?><div id="<?=htmlspecialcharsbx($containerID)?>" class="crm-counter">
 		<div id="<?=htmlspecialcharsbx($valueContainerID)?>" class="crm-counter-title" style="<?=$total > 0 ? '' : 'display: none;'?>">
-			<span class="crm-page-name"><?=htmlspecialcharsbx($caption)?>: </span><?
+			<span class="crm-page-name"><?=htmlspecialcharsbx($caption)?>: </span><?php 
 			foreach($data as $code => $item)
 			{
 				$typeID = isset($item['TYPE_ID']) ? $item['TYPE_ID'] : 0;
@@ -65,7 +65,7 @@ else
 					class="crm-counter-container <?=$className?>"
 					style="<?=$value > 0 ? '' : 'display: none;'?>">
 				<?=GetMessage("CRM_COUNTER_TYPE_{$typeName}", array('#VALUE#' => $value))?>
-				</a><?
+				</a><?php 
 			}
 		?></div>
 		<div id="<?=htmlspecialcharsbx($stubContainerID)?>" class="crm-counter-title" style="<?=$total > 0 ? 'display: none;' : ''?>">
@@ -96,5 +96,5 @@ else
 				);
 			}
 		);
-	</script><?
+	</script><?php 
 }

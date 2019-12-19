@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRIA_PD_APPROVERS"] = "Employees to provide additional information";
 $MESS["BPRIA_PD_TYPE"] = "Approval type";
 $MESS["BPRIA_PD_TYPE_ALL"] = "All Employees";

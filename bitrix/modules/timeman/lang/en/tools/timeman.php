@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_CALENDAR_CHOOSE"] = "Select Calendar";
 $MESS["TM_CLOCK_SELECT_DATE_LINK"] = "Change day";
 $MESS["TM_CONFIRM_LATE_OPEN"] = "Are you sure you want to clock in at #TIME#?";

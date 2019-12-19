@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_TP_EBAY_FDPO_ORDER_PROCESSED"] = "Order ##ORDER_ID# has been processed successfully";
 $MESS["SALE_TP_EBAY_FDPO_ORDER_ERROR"] = "Error processing order ##ORDER_ID# ";
 $MESS["SALE_TP_EBAY_FDPO_ORDER_SKIPPED"] = "Order ##ORDER_ID# was not processed because it is unpaid";

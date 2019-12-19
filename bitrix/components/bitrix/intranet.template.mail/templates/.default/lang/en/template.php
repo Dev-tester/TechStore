@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_BITRIX24"] = "Bitrix24";
 $MESS["INTRANET_CHANGE_NOTIFY_SETTINGS"] = "Edit notification settings";
 $MESS["INTRANET_INVITE_ACCEPT"] = "Accept invitation";

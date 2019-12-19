@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NO_MODULE'] = "Forum module is not installed";
 $MESS ['F_NO_NAME'] = "Please enter your name";
 $MESS ['F_NO_EMAIL1'] = "Please enter your";

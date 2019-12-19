@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLL_TOOLBAR_ADD_ELEMENT_TITLE"] = "Add new element to current section";
 $MESS["CT_BLL_TOOLBAR_EDIT_SECTION"] = "Section Management";
 $MESS["CT_BLL_TOOLBAR_EDIT_SECTION_TITLE"] = "Edit and delete sections";

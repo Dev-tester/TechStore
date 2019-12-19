@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPTEN_CRM_TITLE"] = "Интеграция с CRM";
 $MESS["SPTEN_TAB_1"] = "Интеграция с CRM";
 $MESS["SPTEN_TAB_1_DESCR"] = "Интеграция с CRM";

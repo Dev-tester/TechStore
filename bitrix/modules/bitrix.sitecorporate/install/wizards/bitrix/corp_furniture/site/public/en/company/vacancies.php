@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Careers");
 ?><p>Our Furniture Company is always looking for intelligent, imaginative and self-motivated people for all levels of our company. </p>
-<?$APPLICATION->IncludeComponent("bitrix:furniture.vacancies", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:furniture.vacancies", ".default", array(
 	"IBLOCK_TYPE" => "vacancies",
 	"IBLOCK_ID" => "#VACANCIES_IBLOCK_ID#",
 	"AJAX_MODE" => "N",
@@ -16,4 +16,4 @@ $APPLICATION->SetTitle("Careers");
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

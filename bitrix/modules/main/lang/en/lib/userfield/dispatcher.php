@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UF_DISPATCHER_ERROR_FORMAT"] = "Invalid field description format";
 $MESS["MAIN_UF_DISPATCHER_ERROR_SIGNATURE"] = "Data signature validation error";
 $MESS["MAIN_UF_DISPATCHER_ERROR_FIELD_NOT_FOUND"] = "Field was not found";

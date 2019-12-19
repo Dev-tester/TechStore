@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_CHANNEL_POOL_TESTER_TITLE_SUPPORT"] = "Номер поддерживает коллтрекинг";
 $MESS["CRM_TRACKING_CHANNEL_POOL_TESTER_TITLE_SUPPORT_DESC"] = "На данный номер поступали звонки, коллтрекинг работает.";
 $MESS["CRM_TRACKING_CHANNEL_POOL_TESTER_TITLE_UNKNOWN"] = "Звонки на номер отсутствуют";

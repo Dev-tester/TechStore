@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -25,7 +25,7 @@ $jsClass = 'ListsProcessesClass_'.$randString;
 <div id="bx-lists-store_items" class="bx-lists-store-items"></div>
 <input type="hidden" id="bx-lists-select-site" value="<?= SITE_DIR ?>" />
 <input type="hidden" id="bx-lists-select-site-id" value="<?= SITE_ID ?>" />
-<?
+<?php 
 if (is_array($arResult["RECORDS"]))
 {
 	foreach ($arResult["RECORDS"] as &$record)
@@ -74,7 +74,7 @@ elseif(!IsModuleInstalled("intranet"))
 }
 ?>
 <div class="pagetitle-container pagetitle-flexible-space <?=$pagetitleFlexibleSpace?>">
-	<? $APPLICATION->IncludeComponent(
+	<?php  $APPLICATION->IncludeComponent(
 		"bitrix:main.ui.filter",
 		"",
 		array(
@@ -92,7 +92,7 @@ elseif(!IsModuleInstalled("intranet"))
 		<span class="webform-small-button-text"><?=Loc::getMessage("CT_BLL_BUTTON_NEW_PROCESSES")?></span>
 	</span>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();

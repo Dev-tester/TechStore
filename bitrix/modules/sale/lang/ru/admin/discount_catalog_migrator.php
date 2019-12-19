@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_CATALOG_MIGRATOR_CONVERT_FAILED"] = "Произошла ошибка при попытке переноса скидок";
 $MESS["DISCOUNT_CATALOG_MIGRATOR_PROCESSED_SUMMARY"] = "Перенесено скидок (нарастающим итогом):";
 $MESS["DISCOUNT_CATALOG_MIGRATOR_CONVERT_IN_PROGRESS"] = "Еще не все скидки перенесены";

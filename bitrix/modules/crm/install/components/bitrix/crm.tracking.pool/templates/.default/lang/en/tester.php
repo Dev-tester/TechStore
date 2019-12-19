@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_CHANNEL_POOL_TESTER_RESULT_FAIL"] = "Number does not support call tracking";
 $MESS["CRM_TRACKING_CHANNEL_POOL_TESTER_RESULT_SUCCESS"] = "Number supports call tracking";
 $MESS["CRM_TRACKING_CHANNEL_POOL_TESTER_RESULT_UNKNOWN"] = "Failed to track call to this number";

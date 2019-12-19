@@ -1,4 +1,4 @@
-<?
+<?php 
 $arRUSSIANPOSTCountryList = array(
 	"36" => "АВСТРАЛИЯ",
 	"40" => "АВСТРИЯ",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_PRESET_TEMPLATE_RC_EMPTY"] = "Custom";
 $MESS["SENDER_PRESET_TEMPLATE_RC_EMPTY_DESC"] = "Be creative and increase sales";
 $MESS["SENDER_PRESET_TEMPLATE_RC_HINT_EVERY_DAY"] = "The campaign will run daily.<br>

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("GW_DEBUG", false); // Debug
 define("DAV_EXCH_DEBUG", false); // Log
 

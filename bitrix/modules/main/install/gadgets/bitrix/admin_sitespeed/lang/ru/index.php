@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SPEED_TITLE"] = "Скорость сайта";
 $MESS["GD_SPEED_UNIT"] = "Сек.";
 $MESS["GD_SPEED_VERY_FAST"] = "Очень<br>быстро";

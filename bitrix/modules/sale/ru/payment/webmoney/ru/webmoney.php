@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SWMP_DTITLE"] = "Оплата через WebMoney";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_BACKUP_JOB_TITLE"] = "Backup schedule";
 $MESS["BCL_BACKUP_JOB_URL"] = "Server";
 $MESS["BCL_BACKUP_JOB_TIME"] = "Time (UTC)";

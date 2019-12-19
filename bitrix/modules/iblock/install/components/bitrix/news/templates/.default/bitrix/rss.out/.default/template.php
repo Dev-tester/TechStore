@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,19 +12,19 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(false);
 ?>
-<?='<?xml version="1.0" encoding="'.SITE_CHARSET.'"?>'?>
-<rss version="2.0"<?if($arParams["YANDEX"]) echo ' xmlns="http://backend.userland.com/rss2" xmlns:yandex="http://news.yandex.ru"';?>>
+<?='<?php xml version="1.0" encoding="'.SITE_CHARSET.'"?>'?>
+<rss version="2.0"<?php if($arParams["YANDEX"]) echo ' xmlns="http://backend.userland.com/rss2" xmlns:yandex="http://news.yandex.ru"';?>>
 <channel>
 <title><?=$arResult["NAME"].(strlen($arResult["SECTION"]["NAME"])>0?" / ".$arResult["SECTION"]["NAME"]:"")?></title>
 <link><?="http://".$arResult["SERVER_NAME"]?></link>
 <description><?=strlen($arResult["SECTION"]["DESCRIPTION"])>0?$arResult["SECTION"]["DESCRIPTION"]:$arResult["DESCRIPTION"]?></description>
 <lastBuildDate><?=date("r")?></lastBuildDate>
 <ttl><?=$arResult["RSS_TTL"]?></ttl>
-<?if(is_array($arResult["PICTURE"])):?>
-	<?$image = substr($arResult["PICTURE"]["SRC"], 0, 1) == "/"? "http://".$arResult["SERVER_NAME"].$arResult["PICTURE"]["SRC"]: $arResult["PICTURE"]["SRC"];?>
-	<?if($arParams["YANDEX"]):?>
+<?php if(is_array($arResult["PICTURE"])):?>
+	<?php $image = substr($arResult["PICTURE"]["SRC"], 0, 1) == "/"? "http://".$arResult["SERVER_NAME"].$arResult["PICTURE"]["SRC"]: $arResult["PICTURE"]["SRC"];?>
+	<?php if($arParams["YANDEX"]):?>
 		<yandex:logo><?=$image?></yandex:logo>
-		<?
+		<?php 
 		$squareSize = min($arResult["PICTURE"]["WIDTH"], $arResult["PICTURE"]["HEIGHT"]);
 		if ($squareSize > 0)
 		{
@@ -36,11 +36,11 @@ $this->setFrameMode(false);
 			if ($squarePicture)
 			{
 				$squareImage = substr($squarePicture["src"], 0, 1) == "/"? "http://".$arResult["SERVER_NAME"].$squarePicture["src"]: $squarePicture["src"];
-				?><yandex:logo type="square"><?=$squareImage?></yandex:logo><?
+				?><yandex:logo type="square"><?=$squareImage?></yandex:logo><?php 
 			}
 		}
 		?>
-	<?else:?>
+	<?php else:?>
 		
 		<image>
 			<title><?=$arResult["NAME"]?></title>
@@ -49,24 +49,24 @@ $this->setFrameMode(false);
 			<width><?=$arResult["PICTURE"]["WIDTH"]?></width>
 			<height><?=$arResult["PICTURE"]["HEIGHT"]?></height>
 		</image>
-	<?endif?>
-<?endif?>
-<?foreach($arResult["ITEMS"] as $arItem):?>
+	<?php endif?>
+<?php endif?>
+<?php foreach($arResult["ITEMS"] as $arItem):?>
 <item>
 	<title><?=$arItem["title"]?></title>
 	<link><?=$arItem["link"]?></link>
 	<description><?=$arItem["description"]?></description>
-	<?if(is_array($arItem["enclosure"])):?>
+	<?php if(is_array($arItem["enclosure"])):?>
 		<enclosure url="<?=$arItem["enclosure"]["url"]?>" length="<?=$arItem["enclosure"]["length"]?>" type="<?=$arItem["enclosure"]["type"]?>"/>
-	<?endif?>
-	<?if($arItem["category"]):?>
+	<?php endif?>
+	<?php if($arItem["category"]):?>
 		<category><?=$arItem["category"]?></category>
-	<?endif?>
-	<?if($arParams["YANDEX"]):?>
+	<?php endif?>
+	<?php if($arParams["YANDEX"]):?>
 		<yandex:full-text><?=$arItem["full-text"]?></yandex:full-text>
-	<?endif?>
+	<?php endif?>
 	<pubDate><?=$arItem["pubDate"]?></pubDate>
 </item>
-<?endforeach?>
+<?php endforeach?>
 </channel>
 </rss>

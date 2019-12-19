@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!function_exists("__mpl_get_avatar"))
 {
 	function __mpl_get_avatar()
@@ -31,14 +31,14 @@ if (!function_exists("__mpl_get_avatar"))
 }
 ?>
 <script type="text/javascript">
-<? if (IsModuleInstalled("im")): ?>
+<?php  if (IsModuleInstalled("im")): ?>
 if (window.SPC)
 {
 	SPC.notifyManagerShow();
 }
-<? endif ?>
+<?php  endif ?>
 
-<? if (IsModuleInstalled("socialnetwork")): ?>
+<?php  if (IsModuleInstalled("socialnetwork")): ?>
 if (BX.CommentAux)
 {
 	BX.CommentAux.init({
@@ -49,7 +49,7 @@ if (BX.CommentAux)
 		availableUsersList: <?=CUtil::PhpToJSObject($arResult["availableUsersList"])?>,
 	});
 }
-<? endif ?>
+<?php  endif ?>
 
 BX.message({
 	MPL_HAVE_WRITTEN : ' <?=GetMessageJS("MPL_HAVE_WRITTEN")?>', // space here is important
@@ -63,7 +63,7 @@ BX.message({
 	BPC_MES_DELETE : '<?=GetMessageJS("BPC_MES_DELETE")?>',
 	BPC_MES_DELETE_POST_CONFIRM : '<?=GetMessageJS("BPC_MES_DELETE_POST_CONFIRM")?>',
 	BPC_MES_CREATE_TASK : '<?=GetMessageJS("BPC_MES_CREATE_TASK")?>',
-<?/* deprecated ?>	MPL_RECORD_TEMPLATE : '<?=CUtil::JSEscape($template)?>',<?*/?>
+<?php /* deprecated ?>	MPL_RECORD_TEMPLATE : '<?=CUtil::JSEscape($template)?>',<?php */?>
 	JERROR_NO_MESSAGE : '<?=GetMessageJS("JERROR_NO_MESSAGE")?>',
 	BLOG_C_HIDE : '<?=GetMessageJS("BLOG_C_HIDE")?>',
 	MPL_IS_EXTRANET_SITE: '<?=(CModule::IncludeModule("extranet") && CExtranet::IsExtranetSite() ? 'Y' : 'N')?>',
@@ -73,12 +73,12 @@ BX.message({
 	MPL_ERROR_OCCURRED : '<?=GetMessageJS('MPL_ERROR_OCCURRED')?>',
 	MPL_CLOSE : '<?=GetMessageJS('MPL_CLOSE')?>',
 	MPL_LINK_COPIED : '<?=GetMessageJS('MPL_LINK_COPIED')?>'
-	<?
+	<?php 
 		if (IsModuleInstalled("socialnetwork"))
 		{
 			?>
 			, MPL_WORKGROUPS_PATH : '<?=CUtil::JSEscape(COption::GetOptionString("socialnetwork", "workgroups_page", SITE_DIR."workgroups/", SITE_ID))?>'
-			<?
+			<?php 
 		}
 	?>
 	});

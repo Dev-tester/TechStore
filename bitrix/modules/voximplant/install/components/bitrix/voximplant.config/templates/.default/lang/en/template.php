@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CONFIG_WELCOME_MESSAGE"] = "Make calls to your clients from Bitrix24 at affordable rates. Rent a number to accept incoming calls. Record conversations, add incoming call events to the CRM, create contacts from incoming calls and view call reports all with Bitrix24.";
 $MESS["VI_CONFIG_BUY"] = "Rent phone number";
 $MESS["VI_CONFIG_BUY_DESC_1"] = "route calls across employees";

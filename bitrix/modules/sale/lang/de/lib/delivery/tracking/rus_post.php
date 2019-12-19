@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_TRACKING_RUS_POST_TITLE"] = "Potschta Rossii";
 $MESS["SALE_DELIVERY_TRACKING_RUS_POST_DESCRIPTION"] = "Verfolgung funktioniert mit API der #A1#Potschta Rossii#A2#</a>";
 $MESS["SALE_DELIVERY_TRACKING_RUS_POST_LOGIN"] = "Login";

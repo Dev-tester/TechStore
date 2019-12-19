@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_PRODUCT_BASKET_ERR_SEARCHER"] = "A search system cannot be a buyer.";
 $MESS["BX_CATALOG_PRODUCT_BASKET_ERR_NO_PRODUCT"] = "The product was not found.";
 $MESS["BX_CATALOG_PRODUCT_BASKET_ERR_NO_SALE"] = "The e-Store module is not installed.";

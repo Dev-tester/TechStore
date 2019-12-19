@@ -1,4 +1,4 @@
-<?
+<?php 
 $langs = CLanguage::GetList(($b=""), ($o=""));
 while ($lang = $langs->Fetch())
 {
@@ -36,7 +36,7 @@ while ($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#DEFAULT_EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "#EMAIL_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:imopenlines.mail.history\",\"\",Array(\"TEMPLATE_TYPE\" => \"HISTORY\",\"TEMPLATE_SESSION_ID\" => \"{#TEMPLATE_SESSION_ID#}\",\"TEMPLATE_SERVER_ADDRESS\" => \"{#TEMPLATE_SERVER_ADDRESS#}\",\"TEMPLATE_ACTION_TITLE\" => \"{#TEMPLATE_ACTION_TITLE#}\",\"TEMPLATE_ACTION_DESC\" => \"{#TEMPLATE_ACTION_DESC#}\",\"TEMPLATE_WIDGET_DOMAIN\" => \"{#TEMPLATE_WIDGET_DOMAIN#}\",\"TEMPLATE_WIDGET_URL\" => \"{#TEMPLATE_WIDGET_URL#}\",\"TEMPLATE_LINE_NAME\" => \"{#TEMPLATE_LINE_NAME#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:imopenlines.mail.history\",\"\",Array(\"TEMPLATE_TYPE\" => \"HISTORY\",\"TEMPLATE_SESSION_ID\" => \"{#TEMPLATE_SESSION_ID#}\",\"TEMPLATE_SERVER_ADDRESS\" => \"{#TEMPLATE_SERVER_ADDRESS#}\",\"TEMPLATE_ACTION_TITLE\" => \"{#TEMPLATE_ACTION_TITLE#}\",\"TEMPLATE_ACTION_DESC\" => \"{#TEMPLATE_ACTION_DESC#}\",\"TEMPLATE_WIDGET_DOMAIN\" => \"{#TEMPLATE_WIDGET_DOMAIN#}\",\"TEMPLATE_WIDGET_URL\" => \"{#TEMPLATE_WIDGET_URL#}\",\"TEMPLATE_LINE_NAME\" => \"{#TEMPLATE_LINE_NAME#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_imopenlines"
 		));
@@ -49,7 +49,7 @@ while ($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#DEFAULT_EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "#EMAIL_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:imopenlines.mail.history\",\"\",Array(\"TEMPLATE_TYPE\" => \"ANSWER\",\"TEMPLATE_SESSION_ID\" => \"{#TEMPLATE_SESSION_ID#}\",\"TEMPLATE_SERVER_ADDRESS\" => \"{#TEMPLATE_SERVER_ADDRESS#}\",\"TEMPLATE_ACTION_TITLE\" => \"{#TEMPLATE_ACTION_TITLE#}\",\"TEMPLATE_ACTION_DESC\" => \"{#TEMPLATE_ACTION_DESC#}\",\"TEMPLATE_WIDGET_DOMAIN\" => \"{#TEMPLATE_WIDGET_DOMAIN#}\",\"TEMPLATE_WIDGET_URL\" => \"{#TEMPLATE_WIDGET_URL#}\",\"TEMPLATE_LINE_NAME\" => \"{#TEMPLATE_LINE_NAME#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:imopenlines.mail.history\",\"\",Array(\"TEMPLATE_TYPE\" => \"ANSWER\",\"TEMPLATE_SESSION_ID\" => \"{#TEMPLATE_SESSION_ID#}\",\"TEMPLATE_SERVER_ADDRESS\" => \"{#TEMPLATE_SERVER_ADDRESS#}\",\"TEMPLATE_ACTION_TITLE\" => \"{#TEMPLATE_ACTION_TITLE#}\",\"TEMPLATE_ACTION_DESC\" => \"{#TEMPLATE_ACTION_DESC#}\",\"TEMPLATE_WIDGET_DOMAIN\" => \"{#TEMPLATE_WIDGET_DOMAIN#}\",\"TEMPLATE_WIDGET_URL\" => \"{#TEMPLATE_WIDGET_URL#}\",\"TEMPLATE_LINE_NAME\" => \"{#TEMPLATE_LINE_NAME#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_imopenlines"
 		));

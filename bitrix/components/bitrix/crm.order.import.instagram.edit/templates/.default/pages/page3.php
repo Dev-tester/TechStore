@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -19,7 +19,7 @@ use \Bitrix\Main\Localization\Loc;
 		<div class="crm-order-instagram-edit-section">
 			<?=Loc::getMessage('CRM_OIIE_SELECT_THE_PAGE')?>
 		</div>
-		<?
+		<?php 
 		foreach ($arResult['FORM']['PAGES'] as $page)
 		{
 			if (empty($page['ACTIVE']))
@@ -29,22 +29,22 @@ use \Bitrix\Main\Localization\Loc;
 					: '';
 				?>
 				<div class="crm-order-instagram-edit-connect">
-					<? if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
+					<?php  if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
 					<span class="crm-order-instagram-edit-user">
-					<? else: ?>
+					<?php  else: ?>
 					<a href="https://instagram.com/<?=$page['INFO']['INSTAGRAM']['USERNAME']?>/"
 							target="_blank"
 							class="crm-order-instagram-edit-user">
-					<? endif; ?>
+					<?php  endif; ?>
 						<span class="crm-order-instagram-edit-user-img"<?=$logo?>></span>
 						<span class="crm-order-instagram-edit-user-name">
 							<?=$page['INFO']['INSTAGRAM']['NAME']?>
 						</span>
-					<? if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
+					<?php  if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
 					</span>
-					<? else: ?>
+					<?php  else: ?>
 					</a>
-					<? endif; ?>
+					<?php  endif; ?>
 					<form action="<?=$arResult["URL"]["SIMPLE_FORM"]?>" method="post">
 						<input type="hidden"
 								name="<?=$arResult["CONNECTOR"]?>_form"
@@ -59,7 +59,7 @@ use \Bitrix\Main\Localization\Loc;
 						</button>
 					</form>
 				</div>
-			<?
+			<?php 
 			}
 		}
 		?>

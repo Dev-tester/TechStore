@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_GRP_ERR_NAME"] = "Name field cannot be empty.";
 $MESS["CTRLR_GRP_SET_MAIN_NAME"] = "Kernel";
 $MESS["CTRLR_GRP_SET_MAIN_OPT_CACHE"] = "Auto cache components";

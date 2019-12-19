@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FPF_CREATE"] = "Новая тема";
 $MESS["FPF_GUEST"] = "Гость";
 $MESS["FPF_SEND"] = "Отправить";

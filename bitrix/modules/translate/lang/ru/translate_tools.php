@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TR_TOOLS_ERROR_EMPTY_FILE"] = "Нет файла";
 $MESS["TR_TOOLS_ERROR_FILE_NOT_LANG"] = "Файл \"%FILE%\" не является языковым";
 $MESS["TR_TOOLS_ERROR_WRITE_FILE"] = "Невозможно перезаписать файл \"%FILE%\"";

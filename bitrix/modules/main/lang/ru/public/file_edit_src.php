@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["public_file_edit_edit_cp"] = "Редактировать файл в панели управления";
 $MESS["FILEMAN_FILEEDIT_FILE_EXISTS"] = "Файл с таким именем уже существует!";
 $MESS["FILEMAN_FILEEDIT_FILENAME_EMPTY"] = "Имя файла не задано";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE_TIP"] = "Select here one of the information blocks currently existing in the system.";
 $MESS["IBLOCK_URL_TIP"] = "The path to a page containing the information block sections.";
 $MESS["DISPLAY_PANEL_TIP"] = "If checked, the tool buttons will be shown on the administration toolbar and the component edit area toolbar in the site edit mode.";

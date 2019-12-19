@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_TITLE_ORDER"] = "order #ENTITY_NAME#";
 $MESS["CRM_COMMENT_IM_MENTION_POST"] = "Mentioned you in comment to \"#ENTITY_TITLE#\", comment text: \"#COMMENT#\"";
 $MESS["CRM_COMMENT_IM_MENTION_POST_M"] = "Mentioned you in comment to \"#ENTITY_TITLE#\", comment text: \"#COMMENT#\"";

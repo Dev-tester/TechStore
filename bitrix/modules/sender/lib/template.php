@@ -268,13 +268,13 @@ class TemplateTable extends ORM\Data\DataManager
 
 		ob_start();
 		?>
-		<div id="bx-sender-visual-editor-<?=$fieldName?>" style="<?if($isDisplayBlockEditor):?>display: none;<?endif;?>">
+		<div id="bx-sender-visual-editor-<?=$fieldName?>" style="<?php if($isDisplayBlockEditor):?>display: none;<?php endif;?>">
 			<script>
 				BX.ready(function(){
-					<?if(!$isInit): $isInit = true;?>
+					<?php if(!$isInit): $isInit = true;?>
 						var letterManager = new SenderLetterManager;
 						letterManager.setPlaceHolderList(<?=\CUtil::PhpToJSObject(PostingRecipientTable::getPersonalizeList());?>);
-					<?endif;?>
+					<?php endif;?>
 				});
 
 				BX.message({
@@ -289,11 +289,11 @@ class TemplateTable extends ORM\Data\DataManager
 
 		</div>
 
-		<div id="bx-sender-block-editor-<?=htmlspecialcharsbx($fieldName)?>" style="<?if(!$isDisplayBlockEditor):?>display: none;<?endif;?>">
+		<div id="bx-sender-block-editor-<?=htmlspecialcharsbx($fieldName)?>" style="<?php if(!$isDisplayBlockEditor):?>display: none;<?php endif;?>">
 			<br/>
 			<input type="hidden" name="<?=htmlspecialcharsbx($templateTypeInput)?>" value="<?=htmlspecialcharsbx($templateType)?>" />
 			<input type="hidden" name="<?=htmlspecialcharsbx($templateIdInput)?>" value="<?=htmlspecialcharsbx($templateId)?>" />
-			<?
+			<?php 
 			$url = '';
 			if($isDisplayBlockEditor)
 			{
@@ -322,7 +322,7 @@ class TemplateTable extends ORM\Data\DataManager
 			?>
 		</div>
 
-		<?
+		<?php 
 		if($showSaveTemplate):
 		?>
 		<script>
@@ -341,7 +341,7 @@ class TemplateTable extends ORM\Data\DataManager
 			</span>
 			<span id="TEMPLATE_ACTION_SAVE_NAME_CONT" style="display: none;"> <?=Loc::getMessage('SENDER_TEMPLATE_EDITOR_SAVE_NAME')?> <input type="text" name="TEMPLATE_ACTION_SAVE_NAME"></span>
 		</div>
-		<?
+		<?php 
 		endif;
 
 		return ob_get_clean();

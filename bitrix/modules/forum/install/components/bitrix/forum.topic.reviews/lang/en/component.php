@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_NO_MODULE"] = "Forum module is not installed";
 $MESS["F_NO_MODULE_IBLOCK"] = "Information Blocks module is not installed";
 $MESS["F_ERR_FID_EMPTY"] = "Reviews forum is not set";

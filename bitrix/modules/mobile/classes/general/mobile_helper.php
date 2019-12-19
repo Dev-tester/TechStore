@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Socialnetwork\Livefeed\TasksTask;
 use Bitrix\Socialnetwork\LogTable;
@@ -303,8 +303,8 @@ class CMobileHelper
 				?><script>
 					top.text<?=$arFields["arComment"]["ID"]?> = text<?=$arFields["arComment"]["ID"]?> = '<?=CUtil::JSEscape(\Bitrix\Main\Text\Emoji::decode(htmlspecialcharsBack($arFields["arComment"]["POST_TEXT"])))?>';
 					top.title<?=$arFields["arComment"]["ID"]?> = title<?=$arFields["arComment"]["ID"]?> = '<?=(isset($arFields["arComment"]["TITLE"]) ? CUtil::JSEscape(\Bitrix\Main\Text\Emoji::decode($arFields["arComment"]["TITLE"])) : '')?>';
-					top.arComFiles<?=$arFields["arComment"]["ID"]?> = [];<?
-				?></script><?
+					top.arComFiles<?=$arFields["arComment"]["ID"]?> = [];<?php 
+				?></script><?php 
 				$arCommentParams["AFTER"] .= ob_get_clean();
 			}
 

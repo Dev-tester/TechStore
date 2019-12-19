@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPABL_TYPE_5"] = "Action '#ACTIVITY#'#NOTE#";
 $MESS["BPABL_TYPE_4"] = "Action '#ACTIVITY#'#NOTE# error";
 $MESS["BPABL_STATUS_3"] = "Being Canceled";

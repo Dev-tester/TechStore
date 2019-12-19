@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TAB_NAME_IM_OPENLINES"] = "Open Channels";
 $MESS["TAB_NAME_IM_RECENT"] = "Chats";
 $MESS["TAB_NAME_MORE"] = "Menu";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LDAP_EDIT_TITLE_NEW"] = "Новый сервер";
 $MESS["LDAP_EDIT_LIST"] = "Список AD / LDAP серверов";
 $MESS["LDAP_EDIT_NEW"] = "Добавить новый сервер";

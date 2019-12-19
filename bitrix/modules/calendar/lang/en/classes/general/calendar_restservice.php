@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAL_REST_RESOURCE_NEW_ERROR"] = "Error creating resource";
 $MESS["CAL_REST_RESOURCE_UPDATE_ERROR"] = "Error updating resource";
 $MESS["CAL_REST_RES_TYPE_ERROR"] = "Incorrect resource type. Possible values: #ALLOWED_TYPES#";

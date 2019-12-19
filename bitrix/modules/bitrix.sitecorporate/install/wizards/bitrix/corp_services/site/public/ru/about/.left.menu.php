@@ -1,4 +1,4 @@
-<?
+<?php 
 $aMenuLinks = Array(
 	Array(
 		"Информация о компании", 

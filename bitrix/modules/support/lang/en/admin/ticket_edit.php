@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_SITE"] = "Site:";
 $MESS["SUP_LAST_MESSAGE_DATE"] = "Answer date";
 $MESS["CHANGE_STATUS"] = "Do not change ticket status";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INS_TITLE"] = "Bitrix Site Manager Installation";
 $MESS["INS_TITLE2"] = "System Installation";
 $MESS["INS_TITLE3"] = "Bitrix Site Manager";

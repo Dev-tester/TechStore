@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SITE_URL_TIP'] = "URL сайта";
 $MESS ['COMMAND_TIP'] = "Команда";
 $MESS ['ACTION_TIP'] = "Действие";

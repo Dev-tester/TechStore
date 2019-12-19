@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -43,7 +43,7 @@ else
 			</tr>
 		</table>
 	</div>
-	<?echo GetMessage('INTST_OUTLOOK_WARNING')?>
+	<?php echo GetMessage('INTST_OUTLOOK_WARNING')?>
 	<script>
 	window.EC_MESS = <?= $arResult['BX_MESS'] ?>;
 	setTimeout(
@@ -55,6 +55,6 @@ else
 		10
 	);
 	</script>
-	<?
+	<?php 
 }
 ?>

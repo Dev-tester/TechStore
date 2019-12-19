@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
 
@@ -381,9 +381,9 @@ if(empty($fatal))
 } // empty($fatal)
 ?>
 
-<?$APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE').($nameToDisplay ? ': '.$nameToDisplay : ''))?>
+<?php $APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE').($nameToDisplay ? ': '.$nameToDisplay : ''))?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 if (!$publicMode && \Bitrix\Sale\Update\CrmEntityCreatorStepper::isNeedStub())
 {
 	$APPLICATION->IncludeComponent("bitrix:sale.admin.page.stub", ".default");
@@ -401,9 +401,9 @@ else
 		}
 		?>
 		<div class="error-message">
-			<?CAdminMessage::ShowMessage($messageParams)?>
+			<?php CAdminMessage::ShowMessage($messageParams)?>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{

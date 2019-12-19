@@ -219,11 +219,11 @@ $APPLICATION->SetTitle(GetMessage("CRM_TYPE_SETTINGS"));
 					<div class="crm-lead-mode-slider-dropdown">
 						<div class="crm-lead-mode-slider-dropdown-after"></div>
 						<select class="crm-lead-mode-slider-dropdown-element" name="dealCategoryId" id="slc-deal">
-							<?foreach ($arResult['DEAL_CATEGORIES'] as $id => $name):?>
+							<?php foreach ($arResult['DEAL_CATEGORIES'] as $id => $name):?>
 							<option value="<?=htmlspecialcharsbx($id)?>" <?=($id == $dealCategory)? 'selected' : ''?>>
 								<?=htmlspecialcharsbx($name)?>
 							</option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
 				</div>
@@ -237,7 +237,7 @@ $APPLICATION->SetTitle(GetMessage("CRM_TYPE_SETTINGS"));
 		</div>
 	</div>
 </div>
-<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 	'BUTTONS' =>
 		[
 			[

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MFC1_CANT_LOAD_DATAFILE"] = "Cannot load the data file.";
 $MESS["MFC1_CANT_OPEN_ERRORFILE"] = "Cannot open the error file.";
 $MESS["MFC1_CANT_CREATE_ERRORFILE"] = "Cannot create the error file.";

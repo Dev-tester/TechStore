@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Im\Update;
 
 use Bitrix\Im\Model\MessageTable;

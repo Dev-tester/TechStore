@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_DROP_CONFIRM'] = "Wollen Sie den Ordner #NAME# unwiderruflich löschen?";
 $MESS ['WD_CANCEL'] = "Abbrechen";
 $MESS ['WD_ADD_SECTION'] = "Ordner erstellen";

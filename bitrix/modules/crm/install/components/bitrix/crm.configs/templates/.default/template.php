@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
@@ -290,46 +290,46 @@ foreach($tabs as $tabId => $tabName)
 
 <div class="crm-container">
 <div class="view-report-wrapper-container">
-<?if(!empty($tabs)):?>
+<?php if(!empty($tabs)):?>
 	<div class="view-report-wrapper-wrapp">
 	<div class="view-report-wrapper-shell">
 
 		<div class="view-report-sidebar view-report-sidebar-settings">
-			<? $counter = 0; ?>
-			<? foreach($tabs as $tabId => $tabName): ?>
-				<? $class = (!$counter) ? 'sidebar-tab sidebar-tab-active' : 'sidebar-tab'?>
+			<?php  $counter = 0; ?>
+			<?php  foreach($tabs as $tabId => $tabName): ?>
+				<?php  $class = (!$counter) ? 'sidebar-tab sidebar-tab-active' : 'sidebar-tab'?>
 				<a href="javascript:void(0)" class="<?=$class?>" id="tab_<?=$tabId?>"
 					onclick="javascript:BX['CrmConfigClass_<?= $arResult['RAND_STRING']?>'].selectTab('<?=$tabId ?>');">
 					<?=$tabName?>
 				</a>
-				<? $counter++; ?>
-			<? endforeach; ?>
+				<?php  $counter++; ?>
+			<?php  endforeach; ?>
 		</div>
 
 		<div class="view-report-wrapper">
-			<? $counter = 0; ?>
-			<? foreach($items as $contentId => $contentList): ?>
-				<? $class = (!$counter)? 'view-report-wrapper-inner active' : 'view-report-wrapper-inner'?>
+			<?php  $counter = 0; ?>
+			<?php  foreach($items as $contentId => $contentList): ?>
+				<?php  $class = (!$counter)? 'view-report-wrapper-inner active' : 'view-report-wrapper-inner'?>
 				<div class="<?= $class ?>" id="<?=$contentId?>">
-					<? foreach($contentList as $itemData): ?>
+					<?php  foreach($contentList as $itemData): ?>
 						<a href="<?=$itemData['URL']?>" class="view-report-wrapper-inner-item">
 							<span class="view-report-wrapper-inner-img <?=$itemData['ICON_CLASS']?>"></span>
 							<span class="view-report-wrapper-inner-title"><?=$itemData['NAME']?></span>
 						</a>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 					<div class="view-report-wrapper-inner-clarification">
 						<?=$contentDescription[$contentId]?>
 					</div>
 				</div>
-				<? $counter++; ?>
-			<? endforeach; ?>
+				<?php  $counter++; ?>
+			<?php  endforeach; ?>
 		</div>
 
 	</div>
 	</div>
-<?else:?>
+<?php else:?>
 	<div class="crm-configs-error-container"><?=GetMessage("CRM_CONFIGS_NO_ACCESS_ERROR")?></div>
-<?endif;?>
+<?php endif;?>
 </div>
 </div>
 

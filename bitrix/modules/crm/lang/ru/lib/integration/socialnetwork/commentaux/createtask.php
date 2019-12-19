@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_EXT_COMMENTAUX_CREATE_TASK_CRM_LEAD"] = "Задача создана на основании #A_BEGIN#записи Живой ленты о создании или изменении лида CRM#A_END#";
 $MESS["SONET_EXT_COMMENTAUX_CREATE_TASK_CRM_ENTITY_COMMENT_LEAD"] = "Задача создана на основании #A_BEGIN#комментария к записи Живой ленты о создании или изменении лида CRM#A_END#";
 $MESS["SONET_COMMENTAUX_CREATETASK_POST_CRM_LEAD"] = "Создана задача \"#TASK_NAME#\" на основании записи Живой ленты о создании или изменении лида CRM.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var array $arParams */
 /** @var array $arResult */
@@ -59,21 +59,21 @@ $APPLICATION->includeComponent('bitrix:disk.interface.toolbar', '', array(
 <br />
 <div class="bx-disk-aggregator-common-div">
 	<ul>
-		<?
+		<?php 
 		foreach ($arResult["COMMON_DISK"] as $key=>$data):
 			if ($key == 'GROUP' || $key == 'USER' || $key == 'EXTRANET_USER'): ?>
 				<li class="bx-disk-aggregator-list-folder">
 					<img src="/bitrix/images/disk/default_folder.png" class="bx-disk-aggregator-icon-main" />
 					<p class="bx-disk-aggregator-p-link" id="<?= $data["ID"] ?>"><?= htmlspecialcharsbx($data["TITLE"]) ?></p>
 				</li>
-			<?
+			<?php 
 			else:
 			?>
 				<li class="bx-disk-aggregator-list">
 					<img src="<?= $data["ICON"] ?>" class="bx-disk-aggregator-icon-main" />
 					<a class="bx-disk-aggregator-a-link" href="<?= $data["URL"] ?>"><?= htmlspecialcharsbx($data["TITLE"]) ?></a>
 				</li>
-			<?endif;
+			<?php endif;
 		endforeach;
 		?>
 	</ul>
@@ -91,7 +91,7 @@ $APPLICATION->includeComponent('bitrix:disk.interface.toolbar', '', array(
 	<p><?=Loc::getMessage("DISK_AGGREGATOR_NETWORK_DRIVE") ?></p>
 </div>
 
-<? $linkOnNetworkDrive = CUtil::JSescape($arResult["NETWORK_DRIVE_LINK"]); ?>
+<?php  $linkOnNetworkDrive = CUtil::JSescape($arResult["NETWORK_DRIVE_LINK"]); ?>
 
 <script>
 	BX(function () {
@@ -126,6 +126,6 @@ $APPLICATION->includeComponent('bitrix:disk.interface.toolbar', '', array(
 		DISK_AGGREGATOR_BTN_CLOSE: '<?= GetMessageJS("DISK_AGGREGATOR_BTN_CLOSE") ?>'
 	});
 </script>
-<?
+<?php 
 $APPLICATION->IncludeComponent('bitrix:disk.help.network.drive','');
 ?>

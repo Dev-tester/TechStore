@@ -1,4 +1,4 @@
-<?
+<?php 
 global $VOTE_CACHE_VOTING;
 $VOTE_CACHE_VOTING = Array();
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEF_MODE_TIP'] = "Enables the SEF mode.";
 $MESS ['SHOW_FIELDS_TIP'] = "Select here the additional fields that you want to display in the registration form.";
 $MESS ['REQUIRED_FIELDS_TIP'] = "Specify the mandatory fileds here.";

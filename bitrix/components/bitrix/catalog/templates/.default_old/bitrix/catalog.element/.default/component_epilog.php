@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $templateData */
 /** @var @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
@@ -17,20 +17,20 @@ if (isset($templateData['TEMPLATE_LIBRARY']) && !empty($templateData['TEMPLATE_L
 	{
 	?>
 	<script type="text/javascript">
-		BX.Currency.setCurrencies(<? echo $templateData['CURRENCIES']; ?>);
+		BX.Currency.setCurrencies(<?php  echo $templateData['CURRENCIES']; ?>);
 	</script>
-<?
+<?php 
 	}
 }
 if (isset($templateData['JS_OBJ']))
 {
 ?><script type="text/javascript">
 BX.ready(BX.defer(function(){
-	if (!!window.<? echo $templateData['JS_OBJ']; ?>)
+	if (!!window.<?php  echo $templateData['JS_OBJ']; ?>)
 	{
-		window.<? echo $templateData['JS_OBJ']; ?>.allowViewedCount(true);
+		window.<?php  echo $templateData['JS_OBJ']; ?>.allowViewedCount(true);
 	}
 }));
-</script><?
+</script><?php 
 }
 ?>

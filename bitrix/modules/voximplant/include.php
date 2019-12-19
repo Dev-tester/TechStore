@@ -1,4 +1,4 @@
-<?
+<?php 
 
 CModule::AddAutoloadClasses(
 	"voximplant",

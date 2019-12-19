@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_CLIENT_MAILBOX_NOT_FOUND"] = "Mailbox was not found";
 $MESS["MAIL_CLIENT_WRONG_PARAMETERS"] = "Invalid parameters";
 $MESS["MAIL_CLIENT_MOVE_TO_SELF_FOLDER"] = "Message is already in selected folder";

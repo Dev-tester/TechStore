@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 $GLOBALS["LEARNING_SITE_PATH"] = Array();
 

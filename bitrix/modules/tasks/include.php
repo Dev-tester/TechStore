@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/tasks/lang.php");
 
 // all common phrases place here

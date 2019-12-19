@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Application;
 use Bitrix\Main\Page\Asset;
 use Bitrix\Sale\Order;
@@ -392,12 +392,12 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 
 // Problem block
-?><div id="sale-adm-order-problem-block"><?
+?><div id="sale-adm-order-problem-block"><?php 
 if($shipmentId > 0 && $shipment->getField("MARKED") == "Y")
 {
 	echo \Bitrix\Sale\Helpers\Admin\Blocks\OrderMarker::getViewForEntity($saleOrder->getId(), $shipmentId);
 }
-?></div><?
+?></div><?php 
 
 if(!empty($errors))
 	CAdminMessage::ShowMessage(implode("<br>\n", $errors));
@@ -413,7 +413,7 @@ if ($shipmentId > 0)
 }
 
 $formId = "order_shipment_edit_info";
-?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".$lang.'&order_id='.$orderId.$urlForm.GetFilterParams("filter_", false).(($shipmentId > 0) ? '&shipment_id='.$shipmentId : '').'&backurl='.urlencode($backUrl)?>" name="<?=$formId?>_form" id="<?=$formId?>_form"><?
+?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".$lang.'&order_id='.$orderId.$urlForm.GetFilterParams("filter_", false).(($shipmentId > 0) ? '&shipment_id='.$shipmentId : '').'&backurl='.urlencode($backUrl)?>" name="<?=$formId?>_form" id="<?=$formId?>_form"><?php 
 $tabControl = new CAdminTabControlDrag($formId, $aTabs, $moduleId, false, true);
 $tabControl->Begin();
 
@@ -436,7 +436,7 @@ $shipmentOrderBasket = new \Bitrix\Sale\Helpers\Admin\Blocks\OrderBasketShipment
 <input type="hidden" id="order_id" name="order_id" value="<?=$orderId?>">
 <input type="hidden" id="site_id" name="site_id" value="<?=$siteId;?>">
 <?=bitrix_sessid_post();?>
-<?
+<?php 
 \Bitrix\Main\Page\Asset::getInstance()->addJs("/bitrix/js/sale/admin/order_ajaxer.js");
 \Bitrix\Sale\Delivery\Requests\Manager::initJs();
 
@@ -450,8 +450,8 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/admin_tool.
 <tr>
 	<td>
 		<div style="position: relative; vertical-align: top">
-			<?$tabControl->DraggableBlocksStart();?>
-			<?
+			<?php $tabControl->DraggableBlocksStart();?>
+			<?php 
 				foreach ($blocksOrder as $blockCode)
 				{
 					$tabControl->DraggableBlockBegin(GetMessage("SALE_BLOCK_TITLE_".toUpper($blockCode)), $blockCode);
@@ -481,13 +481,13 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/admin_tool.
 	</td>
 </tr>
 
-<?
+<?php 
 
 //--TAB order
 $tabControl->EndTab();
 ?>
 </form>
-<?
+<?php 
 if ($shipmentId > 0):
 	//TAB history --
 	$tabControl->BeginNextTab();
@@ -495,7 +495,7 @@ if ($shipmentId > 0):
 	<tr>
 		<td id="order-history"><?= $historyContent; ?></td>
 	</tr>
-<?
+<?php 
 	//-- TAB history
 	$tabControl->EndTab();
 
@@ -505,7 +505,7 @@ if ($shipmentId > 0):
 	<tr>
 		<td>
 			<div style="position:relative; vertical-align:top">
-				<?
+				<?php 
 				$orderBasket = new \Bitrix\Sale\Helpers\Admin\Blocks\OrderBasket(
 					$saleOrder,
 					"BX.Sale.Admin.OrderBasketObj",
@@ -518,7 +518,7 @@ if ($shipmentId > 0):
 			</div>
 		</td>
 	</tr>
-	<?
+	<?php 
 
 	//-- TAB analysis
 	$tabControl->EndTab();
@@ -535,4 +535,4 @@ $tabControl->End();
 <div style="display: none;">
 	<?=$shipmentOrderBasket->getSettingsDialogContent();?>
 </div>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

@@ -7,7 +7,7 @@ $this->SetViewTarget('inside_pagetitle', 10000);
 ?>
 <button class="ui-btn ui-btn-md ui-btn-light-border <?=(!$arResult['isSitePublished'] || !$arResult['isOrderPublicUrlAvailable'] || $arResult['disableSendButton'] || $arResult['isPaymentsLimitReached']) ? ' ui-btn-disabled' : ''?>" onclick="BX.Salescenter.Orders.sendGridOrders();"><?=\Bitrix\Main\Localization\Loc::getMessage('SALESCENTER_SEND_ORDER');?></button>
 <button class="ui-btn ui-btn-md ui-btn-primary" onclick="BX.Salescenter.Manager.showOrderAdd();"><?=\Bitrix\Main\Localization\Loc::getMessage('SALESCENTER_ADD_ORDER');?></button>
-<?
+<?php 
 $this->EndViewTarget();
 
 /*$APPLICATION->IncludeComponent(
@@ -48,9 +48,9 @@ $APPLICATION->IncludeComponent(
 
 		BX.Salescenter.Orders.init(<?=\CUtil::PhpToJSObject($arResult);?>);
 
-		<?if($arResult['orderId'] > 0)
+		<?php if($arResult['orderId'] > 0)
 		{
-			?>BX.Salescenter.Orders.highlightOrder(<?=intval($arResult['orderId']);?>);<?
+			?>BX.Salescenter.Orders.highlightOrder(<?=intval($arResult['orderId']);?>);<?php 
 		}?>
 	});
 </script>

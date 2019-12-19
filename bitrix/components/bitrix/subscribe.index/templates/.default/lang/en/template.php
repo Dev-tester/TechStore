@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUBSCR_NEW_TITLE'] = "New subscriber address";
 $MESS ['SUBSCR_NEW_NOTE'] = "Here you can subscribe to the newssletters from our site.
 Choose subscription categories, enter your e-mail and click the <i>Subscribe</i> button. ";

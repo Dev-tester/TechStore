@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!CModule::IncludeModule("photogallery"))
 	return ShowError(GetMessage("P_MODULE_IS_NOT_INSTALLED"));
 elseif (!IsModuleInstalled("iblock"))
@@ -54,7 +54,7 @@ echo '<'.'?xml version="1.0" encoding="utf-8"?'.'>'."\n";
 ?>
 <playlist version="1" xmlns="http://xspf.org/ns/0/">
 	<trackList>
-<?
+<?php 
 if (is_array($res) && count($res) > 0):
 
 $maxChar = 28;
@@ -84,11 +84,11 @@ foreach($res as $photo):
 			<location><?= CHTTP::URN2URI($photo['src'])?></location>
 			<info><?= $detailUrl?></info>
 		</track>
-<?endforeach;
+<?php endforeach;
 endif;?>
 	</trackList>
 </playlist>
-<?
+<?php 
 	die();
 }
 

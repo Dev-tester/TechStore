@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Controller\Filter;
 
 class Lead extends \Bitrix\Crm\Controller\Filter\Base

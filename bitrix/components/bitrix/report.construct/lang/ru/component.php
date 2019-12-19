@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_NOT_FOUND"] = "Отчет с ID `%s` не найден.";
 $MESS["REPORT_VIEW_PERMISSION_DENIED"] = "Недостаточно прав для просмотра отчета.";
 $MESS["REPORT_TITLE_NOT_SELECTED"] = "Не указано название отчета.";

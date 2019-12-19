@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/timeman/classes/general/timeman_entry.php");
 
 class CTimeManEntry extends CAllTimeManEntry

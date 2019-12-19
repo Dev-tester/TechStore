@@ -364,10 +364,10 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 ?>
 <div class="crm-detail-lead-wrap-wrap">
 	<div class="crm-detail-lead-wrap" id="<?=htmlspecialcharsbx($containerID)?>">
-		<div class="crm-detail-title"><?
+		<div class="crm-detail-title"><?php 
 			if($lockData['ENABLED']):
 				$isLocked = $lockData['IS_LOCKED']
-				?><span class="crm-contact-locked-icon<?=$isLocked ? '' : ' crm-contact-unlocked-icon'?>" title="<?=htmlspecialcharsbx($isLocked ? $lockData['LOCK_LEGEND'] : $lockData['UNLOCK_LEGEND'])?>"></span><?
+				?><span class="crm-contact-locked-icon<?=$isLocked ? '' : ' crm-contact-unlocked-icon'?>" title="<?=htmlspecialcharsbx($isLocked ? $lockData['LOCK_LEGEND'] : $lockData['UNLOCK_LEGEND'])?>"></span><?php 
 			endif;
 
 			$logoID = isset($titleData['LOGO_ID']) ? intval($titleData['LOGO_ID']) : 0;
@@ -382,7 +382,7 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 			if(is_array($logoInfo) && isset($logoInfo['src'])):
 				?><div class="crm-detail-info-resp-img">
 					<img src="<?=htmlspecialcharsbx($logoInfo['src'])?>"/>
-				</div><?
+				</div><?php 
 			endif;
 			if(!$titleData['EDITABLE']):
 				?><div class="crm-title-name-wrap">
@@ -391,13 +391,13 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 							<?=htmlspecialcharsbx($titleData['VALUE'])?>
 						</span>
 					</span>
-				</div><?
+				</div><?php 
 				if($arResult['LEGEND'] !== ''):
-					?><span class="crm-detail-title-number">(<?=htmlspecialcharsbx($arResult['LEGEND'])?>)</span><?
+					?><span class="crm-detail-title-number">(<?=htmlspecialcharsbx($arResult['LEGEND'])?>)</span><?php 
 				endif;
 			else:
 			?><div class="crm-instant-editor-fld-block crm-title-name-wrap">
-				<span class="crm-detail-title-name"><?
+				<span class="crm-detail-title-name"><?php 
 				CCrmViewHelper::RenderInstantEditorField(
 					array(
 						'TYPE' => 'TEXT',
@@ -411,12 +411,12 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 				);
 				?></span>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 			<span class="crm-detail-title-btns">
 				<a class="crm-detail-toggle" href="#"><?=htmlspecialcharsbx(GetMessage(
 					$isFolded ? 'CRM_ENT_SMR_SHOW_DETAILS' : 'CRM_ENT_SMR_HIDE_DETAILS'))?></a>
 			</span>
-		</div><?
+		</div><?php 
 		foreach($blocks as $block):
 			$isFold = isset($block['IS_FOLD']) ? $block['IS_FOLD'] : false;
 			$enableAutoWidth = isset($block['AUTO_WIDTH']) ? $block['AUTO_WIDTH'] : false;
@@ -426,42 +426,42 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 			if($layout === 'HORIZONTAL'):
 				$sections = isset($block['SECTIONS']) ? $block['SECTIONS'] : null;
 				if(!is_array($sections) || empty($sections)) continue;
-				?><div class="<?=$className?> crm-detail-info-blocks-wrap"<?=!$isDisplayed ? ' style="display:none;"' : ''?>><div class="crm-detail-info-blocks"><table class="crm-detail-info-blocks-table"><tbody><tr><?
+				?><div class="<?=$className?> crm-detail-info-blocks-wrap"<?=!$isDisplayed ? ' style="display:none;"' : ''?>><div class="crm-detail-info-blocks"><table class="crm-detail-info-blocks-table"><tbody><tr><?php 
 				$sectionCount = 0;
 				foreach($sections as &$section):
 					$items = isset($section['ITEMS']) ? $section['ITEMS'] : null;
 					if(!is_array($items) || empty($items)) continue;
 					$sectionCount++;
-					?><td class="crm-detail-info-block<?= $enableAutoWidth ? ' crm-detail-info-block-width-auto' : ''?>"><?
+					?><td class="crm-detail-info-block<?= $enableAutoWidth ? ' crm-detail-info-block-width-auto' : ''?>"><?php 
 						foreach($items as &$item):
 							if(!__CrmEntitySummaryIsDisplayable($item)) continue;
 							$type = isset($item['TYPE']) ? strtoupper($item['TYPE']) : '';
-							?><div class="crm-detail-info-item"><?
+							?><div class="crm-detail-info-item"><?php 
 								if($enableAutoWidth):
-									?><div class="crm-detail-no-float"><?
+									?><div class="crm-detail-no-float"><?php 
 								endif;
 									__CrmEntitySummaryRenderHorSectionItem($item);
 								if($enableAutoWidth):
-									?></div><?
+									?></div><?php 
 								endif;
-							?></div><?
+							?></div><?php 
 						endforeach;
 						unset($item);
-					?></td><?
+					?></td><?php 
 				endforeach;
 				unset($section);
-				?></tr></tbody></table><?
+				?></tr></tbody></table><?php 
 				$borderCount = $sectionCount - 1;
 				for($i = 1; $i <= $borderCount; $i++):
-					?><div class="crm-detail-info-item-border_<?=$i?>"></div><?
+					?><div class="crm-detail-info-item-border_<?=$i?>"></div><?php 
 			endfor;
-			?></div></div><?
+			?></div></div><?php 
 			elseif($layout === 'SINGLE'):
 			$item = isset($block['ITEM']) ? $block['ITEM'] : null;
 			if(is_array($item)):
-				?><div class="<?=$className?> crm-detail-comments"<?=!$isDisplayed ? ' style="display:none;"' : ''?>><?
+				?><div class="<?=$className?> crm-detail-comments"<?=!$isDisplayed ? ' style="display:none;"' : ''?>><?php 
 					__CrmEntitySummaryRenderSingleSectionItem($item);
-				?></div><?
+				?></div><?php 
 			endif;
 			else:
 				$sections = isset($block['SECTIONS']) ? $block['SECTIONS'] : null;
@@ -477,21 +477,21 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 					unset($item);
 					if($itemQty === 0) continue;
 					?><div class="<?=$className?><?= $sectionIndex < ($sectionCount - 1) ? ' crm-detail-comments' : ' crm-detail-info-bottom'?>"<?=!$isDisplayed ? ' style="display:none;"' : ''?>>
-					<table class="crm-detail-info-table"><tbody><?
+					<table class="crm-detail-info-table"><tbody><?php 
 					foreach($items as &$item):
 						if(!__CrmEntitySummaryIsDisplayable($item, false)) continue;
 						$enableTitle = isset($item['ENABLE_TITLE']) && is_bool($item['ENABLE_TITLE']) ? $item['ENABLE_TITLE'] : true;
 						$title = isset($item['TITLE']) ? $item['TITLE'] : '';
 						$value = isset($item['VALUE']) ? $item['VALUE'] : '';
-						?><tr><?
+						?><tr><?php 
 							if($enableTitle):
-								?><td class="crm-detail-info-table-cell"><?=htmlspecialcharsbx($title)?>:</td><?
+								?><td class="crm-detail-info-table-cell"><?=htmlspecialcharsbx($title)?>:</td><?php 
 							endif;
 							?><td class="crm-detail-info-table-cell-r"<?=!$enableTitle ? ' colspan="2"' : ''?>><?=$value?></td>
-						</tr><?
+						</tr><?php 
 					endforeach;
 					unset($item);
-					?></tbody></table></div><?
+					?></tbody></table></div><?php 
 					$sectionIndex++;
 				endforeach;
 				unset($section);
@@ -525,7 +525,7 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 			}
 	);
 </script>
-<?if(isset($sipData['ENTITY_TYPE']) && $sipData['ENTITY_TYPE'] !== ''):?>
+<?php if(isset($sipData['ENTITY_TYPE']) && $sipData['ENTITY_TYPE'] !== ''):?>
 <script type="text/javascript">
 	BX.ready(
 			function()
@@ -546,4 +546,4 @@ if(!function_exists('__CrmEntitySummaryRenderHorSectionItem'))
 			}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

@@ -122,45 +122,45 @@ if($dbr_arr = $dbr->ExtractFields("str_")):
 
 
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<input type="hidden" name="ID" value="<?echo $ID?>">
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<input type="hidden" name="ID" value="<?php echo $ID?>">
 <a name="tb"></a>
 
-<?$tabControl->Begin();?>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->Begin();?>
+<?php $tabControl->BeginNextTab();?>
 
 	<tr>
-		<td width="40%"><?echo GetMessage("MAIL_MSG_VIEW_DATE")?></td>
+		<td width="40%"><?php echo GetMessage("MAIL_MSG_VIEW_DATE")?></td>
 		<td width="60%"><?=$str_FIELD_DATE?></td>
 	</tr>
-	<?if(strlen($dbr_arr["FIELD_FROM"])>0):?>
+	<?php if(strlen($dbr_arr["FIELD_FROM"])>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_FROM")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_FROM")?></td>
 		<td><?=TxtToHTML($dbr_arr["FIELD_FROM"])?></td>
 	</tr>
-	<?endif?>
-	<?if(strlen($dbr_arr["FIELD_TO"])>0):?>
+	<?php endif?>
+	<?php if(strlen($dbr_arr["FIELD_TO"])>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_TO")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_TO")?></td>
 		<td><?=TxtToHTML($dbr_arr["FIELD_TO"])?></td>
 	</tr>
-	<?endif?>
-	<?if(strlen($dbr_arr["FIELD_CC"])>0):?>
+	<?php endif?>
+	<?php if(strlen($dbr_arr["FIELD_CC"])>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_CC")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_CC")?></td>
 		<td><?=TxtToHTML($dbr_arr["FIELD_CC"])?></td>
 	</tr>
-	<?endif?>
-	<?if(strlen($dbr_arr["FIELD_BCC"])>0):?>
+	<?php endif?>
+	<?php if(strlen($dbr_arr["FIELD_BCC"])>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_BCC")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_BCC")?></td>
 		<td><?=TxtToHTML($dbr_arr["FIELD_BCC"])?></td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_SUBJECT")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_SUBJECT")?></td>
 		<td>
 		<script>
 		function hideshowhdr()
@@ -175,7 +175,7 @@ if($dbr_arr = $dbr->ExtractFields("str_")):
 		</script>
 			<table width="100%"><tr>
 			<td width="80%"><?=TxtToHTML($dbr_arr["SUBJECT"])?></td>
-			<td width="20%" nowrap><a href="javascript:void(0)" onclick="hideshowhdr()" title="<?echo GetMessage("MMV_SHOW_HEADER_TITLE")?>"><?echo GetMessage("MMV_SHOW_HEADER")?></a><?if(COption::GetOptionString("mail", "save_src", B_MAIL_SAVE_SRC)=="Y" && $dbr_arr["FULL_TEXT"]!=''):?> | <a href="/bitrix/admin/mail_message_view.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=intval($ID)?>&amp;show=original" target="_blank" title="<?echo GetMessage("MMV_SHOW_ORIG_TITLE")?>"><?echo GetMessage("MMV_SHOW_ORIG")?></a><?endif?></td>
+			<td width="20%" nowrap><a href="javascript:void(0)" onclick="hideshowhdr()" title="<?php echo GetMessage("MMV_SHOW_HEADER_TITLE")?>"><?php echo GetMessage("MMV_SHOW_HEADER")?></a><?php if(COption::GetOptionString("mail", "save_src", B_MAIL_SAVE_SRC)=="Y" && $dbr_arr["FULL_TEXT"]!=''):?> | <a href="/bitrix/admin/mail_message_view.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=intval($ID)?>&amp;show=original" target="_blank" title="<?php echo GetMessage("MMV_SHOW_ORIG_TITLE")?>"><?php echo GetMessage("MMV_SHOW_ORIG")?></a><?php endif?></td>
 			</tr></table>
 		</td>
 	</tr>
@@ -184,7 +184,7 @@ if($dbr_arr = $dbr->ExtractFields("str_")):
 		<td><?=nl2br(htmlspecialcharsbx($dbr_arr["HEADER"]))?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	function _ConvReplies($str1, $str2)
 	{
 		$str2 = str_replace('\"', '"', $str2);
@@ -198,86 +198,86 @@ if($dbr_arr = $dbr->ExtractFields("str_")):
 	<tr>
 		<td colspan="2" style="background:white; padding: 15px;"><?=preg_replace_callback("'(^|\r\n)[\s]*([A-Za-z]*(&gt;)+)([^\r\n]+)'", create_function('$m', "return _ConvReplies(\$m[2], \$m[4]);"), TxtToHTML($dbr_arr["BODY"]))?></td>
 	</tr>
-	<?
+	<?php 
 	if($dbr_arr["ATTACHMENTS"]>0):
 
 		$dbr_attach = CMailAttachment::GetList(Array("NAME"=>"ASC", "ID"=>"ASC"), Array("MESSAGE_ID"=>$dbr_arr["ID"]));
 	?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_ATTACHMENTS")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_ATTACHMENTS")?></td>
 		<td>
-		<?while($dbr_attach_arr = $dbr_attach->GetNext()):?>
-			<a target="_blank" href="mail_attachment_view.php?lang=<?=LANG?>&amp;ID=<?=$dbr_attach_arr["ID"]?>"><?=(strlen($dbr_attach_arr["FILE_NAME"])>0?$dbr_attach_arr["FILE_NAME"]:GetMessage("MAIL_MSG_VIEW_NNM"))?></a> (<?
+		<?php while($dbr_attach_arr = $dbr_attach->GetNext()):?>
+			<a target="_blank" href="mail_attachment_view.php?lang=<?=LANG?>&amp;ID=<?=$dbr_attach_arr["ID"]?>"><?=(strlen($dbr_attach_arr["FILE_NAME"])>0?$dbr_attach_arr["FILE_NAME"]:GetMessage("MAIL_MSG_VIEW_NNM"))?></a> (<?php 
 				echo CFile::FormatSize($dbr_attach_arr["FILE_SIZE"]);
 			?>)<br>
-		<?endwhile?>
+		<?php endwhile?>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_STATUS")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_STATUS")?></td>
 		<td>
 
-			<?if($dbr_arr["SPAM"]=="Y"):?>
-				<?if($dbr_arr["NEW_MESSAGE"]!="Y"):?>
-				<div class="mail-message-spam" title="<?echo GetMessage("MAIL_MSG_VIEW_READ_SPAM")?>"></div> <?echo GetMessage("MAIL_MSG_VIEW_READ_SPAM")?>
-				<?else:?>
-				<div class="mail-message-unread-spam" title="<?echo GetMessage("MAIL_MSG_VIEW_NOTREAD_SPAM")?>"></div> <?echo GetMessage("MAIL_MSG_VIEW_NOTREAD_SPAM")?>
-				<?endif?>
-			<?elseif($dbr_arr["SPAM"]=="N"):?>
-				<?if($dbr_arr["NEW_MESSAGE"]!="Y"):?>
-				<div class="mail-message-notspam" title="<?echo GetMessage("MAIL_MSG_VIEW_READ_NOTSPAM")?>"></div>
-				<?else:?>
-				<div class="mail-message-unread-notspam" title="<?echo GetMessage("MAIL_MSG_VIEW_NOTREAD_NOTSPAM")?>"></div>
-				<?endif?>
-			<?else:?>
-				<?if($dbr_arr["NEW_MESSAGE"]!="Y"):?>
-				<div class="mail-message" title="<?echo GetMessage("MAIL_MSG_VIEW_READ")?>"></div> <?echo GetMessage("MAIL_MSG_VIEW_READ_NOSTATUS")?>
-				<?else:?>
-				<div class="mail-message-unread" title="<?echo GetMessage("MAIL_MSG_VIEW_NOTREAD_STATUS")?>"></div> <?echo GetMessage("MAIL_MSG_VIEW_NOTREAD_NOSTATUS")?>
-				<?endif?>
-			<?endif?>
+			<?php if($dbr_arr["SPAM"]=="Y"):?>
+				<?php if($dbr_arr["NEW_MESSAGE"]!="Y"):?>
+				<div class="mail-message-spam" title="<?php echo GetMessage("MAIL_MSG_VIEW_READ_SPAM")?>"></div> <?php echo GetMessage("MAIL_MSG_VIEW_READ_SPAM")?>
+				<?php else:?>
+				<div class="mail-message-unread-spam" title="<?php echo GetMessage("MAIL_MSG_VIEW_NOTREAD_SPAM")?>"></div> <?php echo GetMessage("MAIL_MSG_VIEW_NOTREAD_SPAM")?>
+				<?php endif?>
+			<?php elseif($dbr_arr["SPAM"]=="N"):?>
+				<?php if($dbr_arr["NEW_MESSAGE"]!="Y"):?>
+				<div class="mail-message-notspam" title="<?php echo GetMessage("MAIL_MSG_VIEW_READ_NOTSPAM")?>"></div>
+				<?php else:?>
+				<div class="mail-message-unread-notspam" title="<?php echo GetMessage("MAIL_MSG_VIEW_NOTREAD_NOTSPAM")?>"></div>
+				<?php endif?>
+			<?php else:?>
+				<?php if($dbr_arr["NEW_MESSAGE"]!="Y"):?>
+				<div class="mail-message" title="<?php echo GetMessage("MAIL_MSG_VIEW_READ")?>"></div> <?php echo GetMessage("MAIL_MSG_VIEW_READ_NOSTATUS")?>
+				<?php else:?>
+				<div class="mail-message-unread" title="<?php echo GetMessage("MAIL_MSG_VIEW_NOTREAD_STATUS")?>"></div> <?php echo GetMessage("MAIL_MSG_VIEW_NOTREAD_NOSTATUS")?>
+				<?php endif?>
+			<?php endif?>
 			<span title="<?=htmlspecialcharsbx(preg_replace('/(.?) ([.0-9]+) ([0-9]+) ([0-9]+)/', '\\1 = \\2% (\\3 bad, \\4 good)', $dbr_arr["SPAM_WORDS"]))?>">
-			(<?echo GetMessage("MAIL_MSG_VIEW_SPAM_PROB")?> <?=$dbr_arr["SPAM_RATING"]?>%)
+			(<?php echo GetMessage("MAIL_MSG_VIEW_SPAM_PROB")?> <?=$dbr_arr["SPAM_RATING"]?>%)
 			</span>
 		</td>
 	</tr>
-	<?if($dbr_arr["SPAM"]=="Y"):?>
+	<?php if($dbr_arr["SPAM"]=="Y"):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_MARK_AS_NOTSPAM")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_MARK_AS_NOTSPAM")?></td>
 		<td><input type="checkbox" name="MARK_AS_NOT_SPAM" value="Y"></td>
 	</tr>
-	<?elseif($dbr_arr["SPAM"]=="N"):?>
+	<?php elseif($dbr_arr["SPAM"]=="N"):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_MARK_AS_SPAM")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_MARK_AS_SPAM")?></td>
 		<td><input type="checkbox" name="MARK_AS_SPAM" value="Y"></td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_MSG_VIEW_SPAM_LEARN")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_MSG_VIEW_SPAM_LEARN")?></td>
 		<td>
-			<input type="radio" name="MARK_SPAM" value="?" id="MARK_SPAM_1" checked><label for="MARK_SPAM_1"><?echo GetMessage("MAIL_MSG_VIEW_SPAM_NOTLEARN")?></label><br>
-			<input type="radio" name="MARK_SPAM" value="Y" id="MARK_SPAM_2"><label for="MARK_SPAM_2"><?echo GetMessage("MAIL_MSG_VIEW_ACT_MARK_AS_SPAM")?></label><br>
-			<input type="radio" name="MARK_SPAM" value="N" id="MARK_SPAM_3"><label for="MARK_SPAM_3"><?echo GetMessage("MAIL_MSG_VIEW_ACT_MARK_AS_NOTSPAM")?></label><br>
+			<input type="radio" name="MARK_SPAM" value="?" id="MARK_SPAM_1" checked><label for="MARK_SPAM_1"><?php echo GetMessage("MAIL_MSG_VIEW_SPAM_NOTLEARN")?></label><br>
+			<input type="radio" name="MARK_SPAM" value="Y" id="MARK_SPAM_2"><label for="MARK_SPAM_2"><?php echo GetMessage("MAIL_MSG_VIEW_ACT_MARK_AS_SPAM")?></label><br>
+			<input type="radio" name="MARK_SPAM" value="N" id="MARK_SPAM_3"><label for="MARK_SPAM_3"><?php echo GetMessage("MAIL_MSG_VIEW_ACT_MARK_AS_NOTSPAM")?></label><br>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_ACT_RULE")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_ACT_RULE")?></td>
 		<td>
 		<select name="MANUAL_FILTER">
-		<option value=""><?echo GetMessage("MAIL_MSG_VIEW_ACT_RULE_NOT")?></option>
-		<option value="all"><?echo GetMessage("MAIL_MSG_VIEW_ACT_RULE_ALL")?></option>
-		<?
+		<option value=""><?php echo GetMessage("MAIL_MSG_VIEW_ACT_RULE_NOT")?></option>
+		<option value="all"><?php echo GetMessage("MAIL_MSG_VIEW_ACT_RULE_ALL")?></option>
+		<?php 
 		$res = CMailFilter::GetList(Array("NAME"=>"ASC"), Array("ACTIVE"=>"Y", "WHEN_MANUALLY_RUN"=>"Y", "MAILBOX_ID"=>$dbr_arr["MAILBOX_ID"]));
 		while($flt_arr = $res->Fetch()):
-		?><option value="<?=htmlspecialcharsbx($flt_arr['ID']) ?>"><?=htmlspecialcharsbx($flt_arr["NAME"])?> [<?=htmlspecialcharsbx($flt_arr["ID"])?>]</option><?
+		?><option value="<?=htmlspecialcharsbx($flt_arr['ID']) ?>"><?=htmlspecialcharsbx($flt_arr["NAME"])?> [<?=htmlspecialcharsbx($flt_arr["ID"])?>]</option><?php 
 		endwhile?>
 		</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIL_MSG_VIEW_ACT_RULE_DELETE")?></td>
+		<td><?php echo GetMessage("MAIL_MSG_VIEW_ACT_RULE_DELETE")?></td>
 		<td><input type="checkbox" name="DELETE_MESSAGE" value="Y"></td>
 	</tr>
 
@@ -286,27 +286,27 @@ if($dbr_arr = $dbr->ExtractFields("str_")):
 	<tr>
 		<td colspan="2" align="center">
 
-<?$ml_res = CMailLog::GetList(Array("ID"=>"ASC"), Array("MESSAGE_ID"=>$ID));?>
+<?php $ml_res = CMailLog::GetList(Array("ID"=>"ASC"), Array("MESSAGE_ID"=>$ID));?>
 <select style="width:80%;" size="5">
-<?while($arr_log = $ml_res->GetNext()):?>
+<?php while($arr_log = $ml_res->GetNext()):?>
 <option>(<?=$arr_log["DATE_INSERT"]?>) <?=$arr_log["MESSAGE_TEXT"]?></option>
-<?endwhile;?>
+<?php endwhile;?>
 </select>
 
 		</td>
 	</tr>
 
 
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 
 <input type="hidden" name="save_form" value="Y">
-<input <?if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="save"  class="adm-btn-save" value="<?echo GetMessage("MAIL_MSG_VIEW_SAVE")?>">
-&nbsp;<input <?if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="apply" value="<?echo GetMessage("MAIL_MSG_VIEW_APPLY")?>">
-&nbsp;<input <?if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="prev" value="&lt;&lt;" title="<?echo GetMessage("MAIL_MSG_VIEW_SAVE_PREV")?>">
-&nbsp;<input <?if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="next" value="&gt;&gt;" title="<?echo GetMessage("MAIL_MSG_VIEW_SAVE_NEXT")?>">
-<?$tabControl->End();?>
+<input <?php if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="save"  class="adm-btn-save" value="<?php echo GetMessage("MAIL_MSG_VIEW_SAVE")?>">
+&nbsp;<input <?php if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="apply" value="<?php echo GetMessage("MAIL_MSG_VIEW_APPLY")?>">
+&nbsp;<input <?php if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="prev" value="&lt;&lt;" title="<?php echo GetMessage("MAIL_MSG_VIEW_SAVE_PREV")?>">
+&nbsp;<input <?php if ($MOD_RIGHT<"W") echo "disabled" ?> type="submit" name="next" value="&gt;&gt;" title="<?php echo GetMessage("MAIL_MSG_VIEW_SAVE_NEXT")?>">
+<?php $tabControl->End();?>
 </form>
-<?
+<?php 
 else:
 	$APPLICATION->SetTitle(GetMessage("MAIL_MSG_VIEW_TITLE"));
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");

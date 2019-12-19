@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PLAYER_TYPE_TIP"] = "<b>Autodetect</b>: select this if the file format cannot be defined;<br /><br /><b>WMV Player</b>: supports WMV, WMA. This option requires Microsoft Silverlight;<br /><br /><b>Flash Player</b>: supports FLV7 Video, FLV8 Video etc.; <a target=\"_blank\" href=\"http://code.longtailvideo.com/trac/wiki/FlashFormats#Mediafileformats\">All supportet formats... </a>.";
 $MESS["USE_PLAYLIST_TIP"] = "To enable playlist, mark this option and specify the playlist pathname.";
 $MESS["PATH_TIP"] = "The path to a media or playlist file. You should specify a full pathname relative to the site root. <a target=\"_blank\" href=\"http://code.longtailvideo.com/trac/wiki/FlashFormats#Playlistformats\">Supported playlist formats</a>. Links to YouTube media are also supported.";

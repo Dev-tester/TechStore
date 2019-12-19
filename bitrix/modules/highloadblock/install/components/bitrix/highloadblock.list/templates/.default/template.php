@@ -1,4 +1,4 @@
-<?
+<?php 
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
@@ -19,8 +19,8 @@ if (!empty($arResult['ERROR']))
 <table cellspacing="0" class="reports-list-table" id="report-result-table">
 	<!-- head -->
 	<tr>
-		<? $i = 0; foreach(array_keys($arResult['tableColumns']) as $col): ?>
-		<?
+		<?php  $i = 0; foreach(array_keys($arResult['tableColumns']) as $col): ?>
+		<?php 
 		$i++;
 
 		if ($i == 1)
@@ -63,18 +63,18 @@ if (!empty($arResult['ERROR']))
 
 		?>
 		<th class="<?=$th_class?>" colId="<?=htmlspecialcharsbx($col)?>" defaultSort="<?=$defaultSort?>">
-			<div class="reports-head-cell"><?if($defaultSort):
-				?><span class="reports-table-arrow"></span><?
+			<div class="reports-head-cell"><?php if($defaultSort):
+				?><span class="reports-table-arrow"></span><?php 
 			endif?><span class="reports-head-cell-title"><?=htmlspecialcharsex($title)?></span></div>
 		</th>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</tr>
 
 	<!-- data -->
-	<? foreach ($arResult['rows'] as $row): ?>
+	<?php  foreach ($arResult['rows'] as $row): ?>
 	<tr class="reports-list-item">
-		<? $i = 0; foreach(array_keys($arResult['tableColumns']) as $col): ?>
-		<?
+		<?php  $i = 0; foreach(array_keys($arResult['tableColumns']) as $col): ?>
+		<?php 
 		$i++;
 		if ($i == 1)
 		{
@@ -110,9 +110,9 @@ if (!empty($arResult['ERROR']))
 
 		?>
 		<td class="<?=$td_class?>"><?=$finalValue?></td>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</tr>
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 
 </table>
 

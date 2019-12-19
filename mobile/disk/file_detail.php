@@ -1,7 +1,7 @@
-<?require($_SERVER['DOCUMENT_ROOT'] . '/mobile/headers.php');
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/mobile/headers.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:mobile.disk.file.detail",
 	".default",
 	array(
@@ -10,4 +10,4 @@ require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
 	array("HIDE_ICONS" => "Y")
 );
 ?>
-<?require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php');?>

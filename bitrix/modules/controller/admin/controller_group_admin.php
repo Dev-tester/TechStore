@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -264,42 +264,42 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("CTRLR_GR_AD_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="form1" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?">
-	<? $filter->Begin(); ?>
+<form name="form1" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?">
+	<?php  $filter->Begin(); ?>
 	<tr>
 		<td nowrap><label for="find_name"><?=GetMessage("CTRLR_GR_AD_COL_NAME")?></label>:</td>
 		<td nowrap>
-			<input type="text" name="find_name" id="find_name" value="<? echo htmlspecialcharsbx($adminFilter['find_name']) ?>" size="47">
+			<input type="text" name="find_name" id="find_name" value="<?php  echo htmlspecialcharsbx($adminFilter['find_name']) ?>" size="47">
 		</td>
 	</tr>
 
 	<tr>
 		<td nowrap><label for="find_id"><?=GetMessage("CTRLR_GR_AD_COL_ID")?></label>:</td>
 		<td nowrap>
-			<input type="text" name="find_id" id="find_id" value="<? echo htmlspecialcharsbx($adminFilter['find_id']) ?>" size="47">
+			<input type="text" name="find_id" id="find_id" value="<?php  echo htmlspecialcharsbx($adminFilter['find_id']) ?>" size="47">
 		</td>
 	</tr>
 
 	<tr>
 		<td nowrap><?=GetMessage("CTRLR_GR_AD_FLT_MODIF")?>:</td>
-		<td nowrap><? echo CalendarPeriod("find_timestamp_x_from", $adminFilter['find_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['find_timestamp_x_to'], "form1", "Y") ?></td>
+		<td nowrap><?php  echo CalendarPeriod("find_timestamp_x_from", $adminFilter['find_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['find_timestamp_x_to'], "form1", "Y") ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRLR_GR_AD_FLT_CREAT")?>:</td>
-		<td nowrap><? echo CalendarPeriod("find_created_from", $adminFilter['find_created_from'], "find_created_to", $adminFilter['find_created_to'], "form1", "Y") ?></td>
+		<td nowrap><?php  echo CalendarPeriod("find_created_from", $adminFilter['find_created_from'], "find_created_to", $adminFilter['find_created_to'], "form1", "Y") ?></td>
 	</tr>
-	<? if (false): ?>
+	<?php  if (false): ?>
 		<tr>
 			<td nowrap><?=GetMessage("CTRLR_GR_AD_FLT_ACT_FROM")?>:</td>
-			<td nowrap><? echo CalendarPeriod("find_active_from_from", $adminFilter['find_active_from_from'], "find_active_from_to", $adminFilter['find_active_from_to'], "form1", "Y") ?></td>
+			<td nowrap><?php  echo CalendarPeriod("find_active_from_from", $adminFilter['find_active_from_from'], "find_active_from_to", $adminFilter['find_active_from_to'], "form1", "Y") ?></td>
 		</tr>
 		<tr>
 			<td nowrap><?=GetMessage("CTRLR_GR_AD_FLT_ACT_TO")?>:</td>
-			<td nowrap><? echo CalendarPeriod("find_active_to_from", $adminFilter['find_active_to_from'], "find_active_to_to", $adminFilter['find_active_to_to'], "form1", "Y") ?></td>
+			<td nowrap><?php  echo CalendarPeriod("find_active_to_from", $adminFilter['find_active_to_from'], "find_active_to_to", $adminFilter['find_active_to_to'], "form1", "Y") ?></td>
 		</tr>
-	<? endif ?>
+	<?php  endif ?>
 
-	<?
+	<?php 
 	$USER_FIELD_MANAGER->AdminListShowFilter($entity_id);
 	$filter->Buttons(array(
 		"table_id" => $sTableID,
@@ -310,6 +310,6 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 	?>
 
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

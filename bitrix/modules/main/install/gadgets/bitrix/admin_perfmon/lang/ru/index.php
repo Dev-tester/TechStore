@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_PERFMON"] = "Монитор<br>производительности";
 $MESS["GD_PERFMON_NO_RES"] = "Оценка не проводилась. #STARTLINK#Протести&shy;руйте производитель&shy;ность#ENDLINK#.";
 $MESS["GD_PERFMON_CUR"] = "Текущая<br>оценка";

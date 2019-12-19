@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EXT_SALE_IMPORT_EMPTY_ANSW"] = "Пустой ответ от сервера";
 $MESS["CRM_EXT_SALE_IMPORT_UNKNOWN_ANSW"] = "Ответ сервера не опознан. Первые 100 символов ответа: ";
 $MESS["CRM_EXT_SALE_IMPORT_ERROR_XML"] = "Ошибка обработки ответа сервера";

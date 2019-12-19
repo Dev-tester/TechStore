@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Recyclebin;
 
 use \Bitrix\Main\Loader;

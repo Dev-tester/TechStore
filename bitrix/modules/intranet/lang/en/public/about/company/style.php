@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Corporate Culture";
 $MESS["ABOUT_INFO1"] = "<p>Our corporate culture is the source of the results that we produce.
 It is who we are as an organization, and the context in which we operate.

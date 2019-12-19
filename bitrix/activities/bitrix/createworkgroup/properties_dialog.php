@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
@@ -30,14 +30,14 @@ global $DB, $USER, $APPLICATION;
 		<?=CBPDocument::ShowParameterField("user", 'users', $arCurrentValues['users'], Array('rows'=> 3))?>
 	</td>
 </tr>
-<?
+<?php 
 foreach ($arDocumentFields as $fieldKey => $fieldValue)
 {
 	?>
 	<tr>
 		<td align="right" width="40%" valign="top"><?= ($fieldValue["Required"]) ? "<span class=\"adm-required-field\">".htmlspecialcharsbx($fieldValue["Name"])."</span>:" : htmlspecialcharsbx($fieldValue["Name"]) .":" ?></td>
 		<td width="60%" id="td_<?= htmlspecialcharsbx($fieldKey) ?>" valign="top">
-			<?
+			<?php 
 			if ($fieldValue["UserField"])
 			{
 				if ($arCurrentValues[$fieldKey])
@@ -66,7 +66,7 @@ foreach ($arDocumentFields as $fieldKey => $fieldValue)
 			?>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 ?>
 <tr>
@@ -74,17 +74,17 @@ foreach ($arDocumentFields as $fieldKey => $fieldValue)
 	<td width="60%">
 		<select name="group_site">
 			<option value="">(<?= GetMessage("BPCWG_SITE_OTHER") ?>)</option>
-			<?
+			<?php 
 			$b = $o = "";
 			$expression = CBPDocument::IsExpression($arCurrentValues["group_site"]) ? htmlspecialcharsbx($arCurrentValues["group_site"]) : '';
 			$dbSites = CSite::GetList($b, $o, Array("ACTIVE" => "Y"));
 			while ($site = $dbSites->GetNext())
 			{
-				?><option value="<?= $site["LID"] ?>"<?= ($site["LID"] == $arCurrentValues["group_site"]) ? " selected" : ""?>>[<?= $site["LID"] ?>] <?= $site["NAME"] ?></option><?
+				?><option value="<?= $site["LID"] ?>"<?= ($site["LID"] == $arCurrentValues["group_site"]) ? " selected" : ""?>>[<?= $site["LID"] ?>] <?= $site["NAME"] ?></option><?php 
 			}
 			?>
 		</select><br>
 		<?=CBPDocument::ShowParameterField("string", 'group_site_x', $expression, Array('size'=> 30))?>
 	</td>
 </tr>
-<? echo $APPLICATION->GetCSS();?>
+<?php  echo $APPLICATION->GetCSS();?>

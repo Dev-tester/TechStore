@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SHOW_SCHEDULE"] = "Отображать график работы";
 $MESS["SHOW_PHONE"] = "Отображать телефон";
 $MESS["CATALOG_SEF_INDEX"] = "Список складов";

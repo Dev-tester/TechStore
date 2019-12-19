@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $disabled = false;
@@ -18,19 +18,19 @@ if ($arParams["AJAX_CALL"] != "Y"
 		}?>
 
 		<div><input onChange="<?=$arParams["ONCITYCHANGE"]?>;" <?=$checked?> type="radio" name="NEW_LOCATION_<?=$arParams["ORDER_PROPS_ID"]?>" value="<?=$val["ID"]?>" id="loc_<?=$val["ID"]?>" /><label for="loc_<?=$val["ID"]?>"><?=$val["LOC_DEFAULT_NAME"]?></label></div>
-	<?endforeach;?>
+	<?php endforeach;?>
 
-	<input <? if($isChecked!="Y") echo 'checked';?> type="radio" onclick="newlocation(<?=$arParams["ORDER_PROPS_ID"]?>);" name="NEW_LOCATION_<?=$arParams["ORDER_PROPS_ID"]?>" value="0" id="loc_0" /><label for="loc_0"><?=GetMessage("LOC_DEFAULT_NAME_NULL")?></label>
-<?endif;?>
+	<input <?php  if($isChecked!="Y") echo 'checked';?> type="radio" onclick="newlocation(<?=$arParams["ORDER_PROPS_ID"]?>);" name="NEW_LOCATION_<?=$arParams["ORDER_PROPS_ID"]?>" value="0" id="loc_0" /><label for="loc_0"><?=GetMessage("LOC_DEFAULT_NAME_NULL")?></label>
+<?php endif;?>
 
-<?
+<?php 
 if (isset($_REQUEST["NEW_LOCATION_".$arParams["ORDER_PROPS_ID"]]) && IntVal($_REQUEST["NEW_LOCATION_".$arParams["ORDER_PROPS_ID"]]) > 0)
 	$disabled = true;
 ?>
 
-<?if ($arParams["AJAX_CALL"] != "Y"):?><div id="LOCATION_<?=$arParams["CITY_INPUT_NAME"];?>"><?endif?>
+<?php if ($arParams["AJAX_CALL"] != "Y"):?><div id="LOCATION_<?=$arParams["CITY_INPUT_NAME"];?>"><?php endif?>
 
-<?
+<?php 
 $countryName = "";
 if (count($arResult["COUNTRY_LIST"]) == 1)
 	$cDisabled = true;
@@ -38,33 +38,33 @@ else
 	$cDisabled = false;
 ?>
 
-<?if (count($arResult["COUNTRY_LIST"]) > 0):?>
-	<?
+<?php if (count($arResult["COUNTRY_LIST"]) > 0):?>
+	<?php 
 	if ($arResult["EMPTY_CITY"] == "Y" && $arResult["EMPTY_REGION"] == "Y")
 		$change = $arParams["ONCITYCHANGE"];
 	else
 		$change = "getLocation(this.value, '', '', ".$arResult["JS_PARAMS"].", '".CUtil::JSEscape($arParams["SITE_ID"])."', '".$arParams['ADMIN_SECTION']."')";
 	?>
-	<?if($cDisabled):?>
+	<?php if($cDisabled):?>
 		<div style="display:none">
-	<?endif?>
-	<select <?if($disabled || $cDisabled) echo "disabled";?> id="<?=$arParams["COUNTRY_INPUT_NAME"].$arParams["CITY_INPUT_NAME"]?>" name="<?=$arParams["COUNTRY_INPUT_NAME"].$arParams["CITY_INPUT_NAME"]?>" onChange="<?=$change?>" type="location">
-		<option><?echo GetMessage('SAL_CHOOSE_COUNTRY')?></option>
-		<?foreach ($arResult["COUNTRY_LIST"] as $arCountry):?>
-			<option value="<?=$arCountry["ID"]?>"<?if ($arCountry["ID"] == $arParams["COUNTRY"]):?> selected="selected"<?endif;?>><?=$arCountry["NAME_LANG"]?></option>
-			<?if ($arCountry["ID"] == $arParams["COUNTRY"]) $countryName = $arCountry["NAME_LANG"];?>
-		<?endforeach;?>
+	<?php endif?>
+	<select <?php if($disabled || $cDisabled) echo "disabled";?> id="<?=$arParams["COUNTRY_INPUT_NAME"].$arParams["CITY_INPUT_NAME"]?>" name="<?=$arParams["COUNTRY_INPUT_NAME"].$arParams["CITY_INPUT_NAME"]?>" onChange="<?=$change?>" type="location">
+		<option><?php echo GetMessage('SAL_CHOOSE_COUNTRY')?></option>
+		<?php foreach ($arResult["COUNTRY_LIST"] as $arCountry):?>
+			<option value="<?=$arCountry["ID"]?>"<?php if ($arCountry["ID"] == $arParams["COUNTRY"]):?> selected="selected"<?php endif;?>><?=$arCountry["NAME_LANG"]?></option>
+			<?php if ($arCountry["ID"] == $arParams["COUNTRY"]) $countryName = $arCountry["NAME_LANG"];?>
+		<?php endforeach;?>
 	</select>
-	<?if($cDisabled):?>
+	<?php if($cDisabled):?>
 		</div>
-		<?if(strlen($countryName) > 0):?>
+		<?php if(strlen($countryName) > 0):?>
 			<div class="sale_locations_fixed"><?=GetMessage("SAL_LOC_COUNTRY").": ".$countryName."<br>"?></div>
-		<?endif;?>
-	<?endif?>
+		<?php endif;?>
+	<?php endif?>
 
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 $regionName = "";
 if (count($arResult["REGION_LIST"]) == 1)
 	$rDisabled = true;
@@ -80,40 +80,40 @@ else
 	$idAttrValue = $arParams["CITY_INPUT_NAME"];
 }
 ?>
-<?if (count($arResult["REGION_LIST"]) > 0):?>
-	<?
+<?php if (count($arResult["REGION_LIST"]) > 0):?>
+	<?php 
 	$id = "";
 	if (count($arResult["COUNTRY_LIST"]) <= 0):
 		$id = "id=\"".$arParams["COUNTRY_INPUT_NAME"].$arParams["CITY_INPUT_NAME"]."\"";
 	endif;?>
 
-	<?
+	<?php 
 	if ($arResult["EMPTY_CITY"] == "Y")
 		$change = $arParams["ONCITYCHANGE"];
 	else
 		$change = "decideRegionOrCity(".$arParams["COUNTRY"].", this.value, '', ".$arResult["JS_PARAMS"].", '".CUtil::JSEscape($arParams["SITE_ID"])."', '".$arParams['ADMIN_SECTION']."', '".$idAttrValue."')";
 	?>
 
-	<?if($rDisabled):?>
+	<?php if($rDisabled):?>
 		<div style="display:none">
-	<?endif?>
-	<select <?=$id?> <?if($disabled || $rDisabled) echo "disabled";?> name="<?=$arParams["REGION_INPUT_NAME"].$arParams["CITY_INPUT_NAME"]?>" onChange="<?=$change?>" type="location">
-		<option><?echo GetMessage('SAL_CHOOSE_REGION')?></option>
-		<?foreach ($arResult["REGION_LIST"] as $arRegion):?>
-			<option value="<?=$arRegion["ID"]?>"<?if ($arRegion["ID"] == $arParams["REGION"]):?> selected="selected"<?endif;?>><?=$arRegion["NAME_LANG"]?></option>
-			<?if ($arRegion["ID"] == $arParams["REGION"]) $regionName = $arRegion["NAME_LANG"];?>
-		<?endforeach;?>
+	<?php endif?>
+	<select <?=$id?> <?php if($disabled || $rDisabled) echo "disabled";?> name="<?=$arParams["REGION_INPUT_NAME"].$arParams["CITY_INPUT_NAME"]?>" onChange="<?=$change?>" type="location">
+		<option><?php echo GetMessage('SAL_CHOOSE_REGION')?></option>
+		<?php foreach ($arResult["REGION_LIST"] as $arRegion):?>
+			<option value="<?=$arRegion["ID"]?>"<?php if ($arRegion["ID"] == $arParams["REGION"]):?> selected="selected"<?php endif;?>><?=$arRegion["NAME_LANG"]?></option>
+			<?php if ($arRegion["ID"] == $arParams["REGION"]) $regionName = $arRegion["NAME_LANG"];?>
+		<?php endforeach;?>
 	</select>
-	<?if($rDisabled):?>
+	<?php if($rDisabled):?>
 		</div>
-		<?if(strlen($regionName) > 0):?>
+		<?php if(strlen($regionName) > 0):?>
 			<div class="sale_locations_fixed"><?=GetMessage("SAL_LOC_REGION").": ".$regionName?></div>
-		<?endif;?>
-	<?endif?>
-<?endif;?>
+		<?php endif;?>
+	<?php endif?>
+<?php endif;?>
 
-<?if (count($arResult["CITY_LIST"]) > 0):?>
-	<?
+<?php if (count($arResult["CITY_LIST"]) > 0):?>
+	<?php 
 
 	$cityName = "";
 	$id = "";
@@ -126,29 +126,29 @@ else
 	$id = "id=\"".$idAttrValue."\"";
 	?>
 
-	<?if($cDisabled):?>
+	<?php if($cDisabled):?>
 		<div style="display:none">
-	<?endif?>
-	<select <?=$id?> <?if($disabled) echo "disabled";?> name="<?=$arParams["CITY_INPUT_NAME"]?>"<?if (strlen($arParams["ONCITYCHANGE"]) > 0):?> onchange="<?=$arParams["ONCITYCHANGE"]?>"<?endif;?> type="location">
-		<option><?echo GetMessage('SAL_CHOOSE_CITY')?></option>
-		<?foreach ($arResult["CITY_LIST"] as $arCity):?>
-			<option value="<?=$arCity["ID"]?>"<?if ($arCity["ID"] == $arParams["CITY"]):?> selected="selected"<?endif;?>><?=($arCity['CITY_ID'] > 0 ? $arCity["CITY_NAME"] : GetMessage('SAL_CHOOSE_CITY_OTHER'))?></option>
-			<?if($arCity["ID"] == $arParams["CITY"]) $cityName = $arCity["CITY_NAME"];?>
-		<?endforeach;?>
+	<?php endif?>
+	<select <?=$id?> <?php if($disabled) echo "disabled";?> name="<?=$arParams["CITY_INPUT_NAME"]?>"<?php if (strlen($arParams["ONCITYCHANGE"]) > 0):?> onchange="<?=$arParams["ONCITYCHANGE"]?>"<?php endif;?> type="location">
+		<option><?php echo GetMessage('SAL_CHOOSE_CITY')?></option>
+		<?php foreach ($arResult["CITY_LIST"] as $arCity):?>
+			<option value="<?=$arCity["ID"]?>"<?php if ($arCity["ID"] == $arParams["CITY"]):?> selected="selected"<?php endif;?>><?=($arCity['CITY_ID'] > 0 ? $arCity["CITY_NAME"] : GetMessage('SAL_CHOOSE_CITY_OTHER'))?></option>
+			<?php if($arCity["ID"] == $arParams["CITY"]) $cityName = $arCity["CITY_NAME"];?>
+		<?php endforeach;?>
 	</select>
-	<?
+	<?php 
 	if($cDisabled):?>
 		</div>
-		<?if(strlen($cityName) > 0):?>
+		<?php if(strlen($cityName) > 0):?>
 			<div class="sale_locations_fixed"><?=GetMessage("SAL_LOC_CITY").": ".$cityName?></div>
-		<?endif;?>
-	<?endif?>
+		<?php endif;?>
+	<?php endif?>
 
-<?endif;?>
+<?php endif;?>
 
-<?if ($arParams["AJAX_CALL"] != "Y"):?></div><div id="wait_container_<?=$arParams["CITY_INPUT_NAME"]?>" style="display: none;"></div><?endif;?>
+<?php if ($arParams["AJAX_CALL"] != "Y"):?></div><div id="wait_container_<?=$arParams["CITY_INPUT_NAME"]?>" style="display: none;"></div><?php endif;?>
 
-<?if ($arParams["AJAX_CALL"] != "Y" && $arParams["PUBLIC"] != "N"):?>
+<?php if ($arParams["AJAX_CALL"] != "Y" && $arParams["PUBLIC"] != "N"):?>
 <script>
 	function newlocation(orderPropId)
 	{
@@ -190,4 +190,4 @@ else
 		}
 	}
 </script>
-<?endif;?>
+<?php endif;?>

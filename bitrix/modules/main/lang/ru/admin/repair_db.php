@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['RDB_CONNECT_ERROR'] = "Ошибка соединения с базой данных";
 $MESS ['RDB_TABLE_NAME'] = "Название таблицы";
 $MESS ['RDB_ROWS_COUNT'] = "Количество записей";

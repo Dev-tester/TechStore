@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["nav_prev"]="предыдущая";
 $MESS["nav_paged"]="По стр.";
 $MESS["pages"]="Страницы:";

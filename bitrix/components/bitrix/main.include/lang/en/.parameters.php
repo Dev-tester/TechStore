@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_INCLUDE_PAGE'] = "for page";
 $MESS ['MAIN_INCLUDE_SECT'] = "for section";
 $MESS ['MAIN_INCLUDE_FILE'] = "from file";

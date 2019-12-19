@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Order cancel dialog
  */

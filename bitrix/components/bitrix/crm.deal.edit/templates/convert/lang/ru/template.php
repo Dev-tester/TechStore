@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELD_CONVERT_DEAL"] = "Конвертировать в сделку";
 $MESS["CRM_ADDITIONAL_FIELDS"] = "Прочее";
 $MESS["CRM_FIELD_EVENT_DESCRIPTION"] = "Описание планируемого события";

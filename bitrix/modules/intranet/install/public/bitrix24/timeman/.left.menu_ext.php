@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\FaceId\FaceId;
 use Bitrix\Main\Loader;

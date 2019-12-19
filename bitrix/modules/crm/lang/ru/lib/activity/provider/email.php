@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EMAIL_ACTIVITY_PROVIDER_RCPT"] = "Кому";
 $MESS["CRM_ACTIVITY_PROVIDER_EMAIL_NAME"] = "Написать письмо";
 $MESS["CRM_ACTIVITY_PROVIDER_EMAIL_STATUS_READ"] = "Прочитано";

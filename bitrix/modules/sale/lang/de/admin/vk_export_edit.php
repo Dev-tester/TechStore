@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_VK_TITLE_NEW"] = "VK Export  Neues Profil";
 $MESS["SALE_VK_TITLE"] = "VK Export  - #E1#";
 $MESS["SALE_VK_ONLY_RUSSIAN"] = "Export nach VK ist nur auf Russisch verfügbar.";

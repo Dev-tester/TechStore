@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_SET_IBLOCK_ID"] = "Инфоблок";
 $MESS["CATALOG_SET_IBLOCK_TYPE"] = "Тип инфоблока";
 $MESS["CATALOG_SET_IBLOCK_ELEMENT_ID"] = "ID элемента";

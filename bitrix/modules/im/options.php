@@ -216,7 +216,7 @@ if(strlen($_POST['Update'].$_GET['RestoreDefaults'])>0 && check_bitrix_sessid() 
 	}
 }
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 <?php echo bitrix_sessid_post()?>
 <?php
 $tabControl->Begin();
@@ -251,29 +251,29 @@ $arReference = Array(
 	'location' => Array(Loc::getMessage('IM_PANEL_LOCATION_TL'), Loc::getMessage('IM_PANEL_LOCATION_TR'), Loc::getMessage('IM_PANEL_LOCATION_TC'), Loc::getMessage('IM_PANEL_LOCATION_BL'), Loc::getMessage('IM_PANEL_LOCATION_BR'), Loc::getMessage('IM_PANEL_LOCATION_BC'))
 );
 ?>
-	<?if(IsModuleInstalled('voximplant')):?>
+	<?php if(IsModuleInstalled('voximplant')):?>
 	<tr>
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_OPTIONS_CALL_SERVER_ENABLED")?>:</td>
 		<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" name="CALL_SERVER_ENABLED" <?=(COption::GetOptionString("im", 'call_server_enabled')?'checked="checked"' :'')?>></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_OPTIONS_TURN_SERVER_SELF_2")?>:</td>
 		<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" onclick="toogleVideoOptions(this)" name="TURN_SERVER_SELF" <?=($selfVideoServer?'checked="checked"' :'')?>></td>
 	</tr>
-	<tr id="video_group_2" <?if (!$selfVideoServer):?>style="display: none"<?endif;?>>
+	<tr id="video_group_2" <?php if (!$selfVideoServer):?>style="display: none"<?php endif;?>>
 		<td class="adm-detail-content-cell-l"><?=Loc::getMessage("IM_OPTIONS_TURN_SERVER")?>:</td>
 		<td class="adm-detail-content-cell-r"><input type="input" size="40" value="<?=htmlspecialcharsbx(COption::GetOptionString("im", "turn_server"))?>" name="TURN_SERVER"></td>
 	</tr>
-	<tr id="video_group_3" <?if (!$selfVideoServer):?>style="display: none"<?endif;?>>
+	<tr id="video_group_3" <?php if (!$selfVideoServer):?>style="display: none"<?php endif;?>>
 		<td class="adm-detail-content-cell-l"><?=Loc::getMessage("IM_OPTIONS_TURN_SERVER_FIREFOX")?>:</td>
 		<td class="adm-detail-content-cell-r"><input type="input" size="40" value="<?=htmlspecialcharsbx(COption::GetOptionString("im", "turn_server_firefox"))?>" name="TURN_SERVER_FIREFOX"></td>
 	</tr>
-	<tr id="video_group_4" <?if (!$selfVideoServer):?>style="display: none"<?endif;?>>
+	<tr id="video_group_4" <?php if (!$selfVideoServer):?>style="display: none"<?php endif;?>>
 		<td class="adm-detail-content-cell-l"><?=Loc::getMessage("IM_OPTIONS_TURN_SERVER_LOGIN")?>:</td>
 		<td class="adm-detail-content-cell-r"><input type="input" size="20" value="<?=htmlspecialcharsbx(COption::GetOptionString("im", "turn_server_login"))?>" name="TURN_SERVER_LOGIN"></td>
 	</tr>
-	<tr id="video_group_5" <?if (!$selfVideoServer):?>style="display: none"<?endif;?>	>
+	<tr id="video_group_5" <?php if (!$selfVideoServer):?>style="display: none"<?php endif;?>	>
 		<td class="adm-detail-content-cell-l"><?=Loc::getMessage("IM_OPTIONS_TURN_SERVER_PASSWORD")?>:<br><small>(<?=Loc::getMessage("IM_OPTIONS_TURN_SERVER_PASSWORD_HINT")?>)</small></td>
 		<td class="adm-detail-content-cell-r"><input type="input" size="20" value="<?=htmlspecialcharsbx(COption::GetOptionString("im", "turn_server_password"))?>" name="TURN_SERVER_PASSWORD"></td>
 	</tr>
@@ -301,7 +301,7 @@ $arReference = Array(
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_SEND_BY_ENTER")?></td>
 		<td class="adm-detail-content-cell-r" width="60%"><?=SelectBoxFromArray("SEND_BY_ENTER", array('reference_id' => $arReferenceId['sendByEnter'], 'reference' => $arReference['sendByEnter']), $arSettingsDefault['sendByEnter']? 'Y': 'N');?></td>
 	</tr>
-	<?/*<tr>
+	<?php /*<tr>
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_CORRECT_TEXT")?></td>
 		<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" name="CORRECT_TEXT" value="Y" <?=($arSettingsDefault['correctText']?'checked="checked"' :'')?>></td>
 	</tr>*/?>
@@ -309,7 +309,7 @@ $arReference = Array(
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_PANEL_LOCATION")?></td>
 		<td class="adm-detail-content-cell-r" width="60%"><?=SelectBoxFromArray("PANEL_LOCATION", array('reference_id' => $arReferenceId['location'], 'reference' => $arReference['location']), $arSettingsDefault['location']);?></td>
 	</tr>
-	<?if(!IsModuleInstalled('intranet')):?>
+	<?php if(!IsModuleInstalled('intranet')):?>
 	<tr>
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_PRIVACY_MESS")?></td>
 		<td class="adm-detail-content-cell-r" width="60%"><?=SelectBoxFromArray("PRIVACY_MESSAGE", array('reference_id' => $arReferenceId['select'], 'reference' => $arReference['select1']), $arSettingsDefault['privacyMessage']);?></td>
@@ -326,13 +326,13 @@ $arReference = Array(
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_PRIVACY_SEARCH")?></td>
 		<td class="adm-detail-content-cell-r" width="60%"><?=SelectBoxFromArray("PRIVACY_SEARCH", array('reference_id' => $arReferenceId['select'], 'reference' => $arReference['select1']), $arSettingsDefault['privacySearch']);?></td>
 	</tr>
-	<?if(IsModuleInstalled('b24network')):?>
+	<?php if(IsModuleInstalled('b24network')):?>
 	<tr>
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_PRIVACY_PROFILE")?></td>
 		<td class="adm-detail-content-cell-r" width="60%"><?=SelectBoxFromArray("PRIVACY_PROFILE", array('reference_id' => $arReferenceId['select3'], 'reference' => $arReference['select3']), $arSettingsDefault['privacyProfile']);?></td>
 	</tr>
-	<?endif;?>
-	<?endif;?>
+	<?php endif;?>
+	<?php endif;?>
 	<tr>
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_START_CHAT_MESSAGE")?></td>
 		<td class="adm-detail-content-cell-r" width="60%"><?=SelectBoxFromArray("START_CHAT_MESSAGE", array('reference_id' => Array('first', 'last'), 'reference' => Array(Loc::getMessage('IM_START_CHAT_MESSAGE_FIRST'), Loc::getMessage('IM_START_CHAT_MESSAGE_LAST'))), COption::GetOptionString("im", 'start_chat_message'));?></td>
@@ -345,7 +345,7 @@ $arReference = Array(
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_OPEN_CHAT_ENABLE")?>:</td>
 		<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" name="OPEN_CHAT_ENABLE" <?=(COption::GetOptionString("im", 'open_chat_enable')?'checked="checked"' :'')?>></td>
 	</tr>
-	<?if(IsModuleInstalled('intranet')):?>
+	<?php if(IsModuleInstalled('intranet')):?>
 	<tr>
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_CONTACT_LIST_LOAD")?>:</td>
 		<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" name="CONTACT_LIST_LOAD" <?=(COption::GetOptionString("im", 'contact_list_load')?'checked="checked"' :'')?>></td>
@@ -358,7 +358,7 @@ $arReference = Array(
 		<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("IM_GENERAL_CHAT_MESSAGE_LEAVE")?>:</td>
 		<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" name="GENERAL_CHAT_MESSAGE_LEAVE" <?=(COption::GetOptionString("im", 'general_chat_message_leave')?'checked="checked"' :'')?>></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td align="right"></td>
 		<td></td>
@@ -382,9 +382,9 @@ foreach ($arSites as $site)
 		<tr>
 			<td align ="right" valign="middle" width="50%"><?=Loc::getMessage("IM_OPTIONS_NAME_TEMPLATE");?>:</td>
 			<td>
-				<?$curVal = CIMContactList::GetUserNameTemplate($site["LID"]);?>
+				<?php $curVal = CIMContactList::GetUserNameTemplate($site["LID"]);?>
 				<select name="<?=$key?>_<?=$site["LID"]?>">
-					<?
+					<?php 
 					$arNameTemplates = CSite::GetNameTemplates();
 					$arNameTemplates = array_reverse($arNameTemplates, true); //prepend array with default '' => Site Format value
 					$arNameTemplates[""] = Loc::getMessage("IM_OPTIONS_NAME_IN_IM_FORMAT");
@@ -392,13 +392,13 @@ foreach ($arSites as $site)
 					foreach ($arNameTemplates as $template => $phrase)
 					{
 						$template = str_replace(array("#NOBR#","#/NOBR#"), array("",""), $template);
-						?><option value="<?= $template?>" <?=(($template == $curVal) ? " selected" : "")?> ><?= $phrase?></option><?
+						?><option value="<?= $template?>" <?=(($template == $curVal) ? " selected" : "")?> ><?= $phrase?></option><?php 
 					}
 					?>
 				</select>
 			</td>
 		</tr>
-	<?
+	<?php 
 		}
 		else
 		{
@@ -419,7 +419,7 @@ $subTabControl->End();
 ?>
 		</td>
 	</tr>
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function toogleVideoOptions(el)
 {
@@ -431,13 +431,13 @@ function toogleVideoOptions(el)
 }
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(Loc::getMessage('MAIN_HINT_RESTORE_DEFAULTS_WARNING'))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)."&".bitrix_sessid_get();?>";
+	if(confirm('<?php echo AddSlashes(Loc::getMessage('MAIN_HINT_RESTORE_DEFAULTS_WARNING'))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)."&".bitrix_sessid_get();?>";
 }
 </script>
-<input type="submit" name="Update" <?if ($MOD_RIGHT<'W') echo "disabled" ?> value="<?echo Loc::getMessage('MAIN_SAVE')?>">
-<input type="reset" name="reset" value="<?echo Loc::getMessage('MAIN_RESET')?>">
+<input type="submit" name="Update" <?php if ($MOD_RIGHT<'W') echo "disabled" ?> value="<?php echo Loc::getMessage('MAIN_SAVE')?>">
+<input type="reset" name="reset" value="<?php echo Loc::getMessage('MAIN_RESET')?>">
 <?=bitrix_sessid_post();?>
-<input type="button" <?if ($MOD_RIGHT<'W') echo "disabled" ?> title="<?echo Loc::getMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?echo Loc::getMessage('MAIN_RESTORE_DEFAULTS')?>">
-<?$tabControl->End();?>
+<input type="button" <?php if ($MOD_RIGHT<'W') echo "disabled" ?> title="<?php echo Loc::getMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?php echo Loc::getMessage('MAIN_RESTORE_DEFAULTS')?>">
+<?php $tabControl->End();?>
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_SCRIPT_BTN_COPY"] = "копировать";
 $MESS["CRM_WEBFORM_SCRIPT_BTN_EDIT"] = "настроить";
 $MESS["CRM_WEBFORM_SCRIPT_TAB_ONPAGE"] = "На странице";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RESUME_FORM_NAME"] = "Your CV";
 $MESS["RESUME_MENU_NAME"] = "CV";
 $MESS["RESUME_ORDER_FORM_BUTTON"] = "Submit Order";

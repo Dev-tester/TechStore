@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DELIVERY_SERVICE_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["DELIVERY_SERVICE_ENTITY_CODE_FIELD"] = "Код";
 $MESS["DELIVERY_SERVICE_ENTITY_PARENT_ID_FIELD"] = "Идетификатор родителя";

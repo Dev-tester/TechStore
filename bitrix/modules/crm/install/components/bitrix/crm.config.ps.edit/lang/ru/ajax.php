@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_PS_MODULE_NOT_INSTALLED'] = 'Модуль CRM не установлен';
 $MESS['CRM_PS_ACCESS_DENIED'] = 'Доступ запрещен';
 $MESS['CRM_PS_NOT_CONFIGURED'] = 'Перед генерацией приватного ключа, необходимо настроить обработчик';

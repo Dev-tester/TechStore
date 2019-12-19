@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -37,7 +37,7 @@ $placeholder = $arResult["placeholder"]["api_token"] ? Loc::getMessage('IMCONNEC
 	<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_del" value="Y">
 	<?=bitrix_sessid_post();?>
 </form>
-<?
+<?php 
 if (empty($arResult['PAGE']))
 {
 
@@ -48,7 +48,7 @@ if (empty($arResult['PAGE']))
 				<div class="connector-icon ui-icon ui-icon-service-<?=$iconCode?>"><i></i></div>
 			</div>
 			<div class="imconnector-field-box">
-				<?
+				<?php 
 				if ($arResult['STATUS']) //case when connection competed
 				{
 					?>
@@ -67,7 +67,7 @@ if (empty($arResult['PAGE']))
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 						</button>
 					</div>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -75,7 +75,7 @@ if (empty($arResult['PAGE']))
 					<div class="imconnector-field-main-subtitle">
 						<?=$arResult['NAME']?>
 					</div>
-					<?
+					<?php 
 					if ($arResult['ACTIVE_STATUS'])
 					{
 						?>
@@ -91,7 +91,7 @@ if (empty($arResult['PAGE']))
 								<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 							</button>
 						</div>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -109,17 +109,17 @@ if (empty($arResult['PAGE']))
 								<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_TO_CONNECT')?>
 							</button>
 						</form>
-						<?
+						<?php 
 					}
 					?>
-					<?
+					<?php 
 				}
 				?>
 
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 	include 'messages.php';
 
 	if ($arResult['STATUS'])
@@ -131,10 +131,10 @@ if (empty($arResult['PAGE']))
 		?>
 		<div class="imconnector-field-container">
 			<div class="imconnector-field-section">
-				<?include 'connection-help.php';?>
+				<?php include 'connection-help.php';?>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 }
 else
@@ -146,7 +146,7 @@ else
 				<div class="connector-icon ui-icon ui-icon-service-<?=$iconCode?>"><i></i></div>
 			</div>
 			<div class="imconnector-field-box">
-				<?
+				<?php 
 				if (empty($arResult['INFO_CONNECTION']))
 				{
 					?>
@@ -156,7 +156,7 @@ else
 					<div class="imconnector-field-box-content">
 						<?=Loc::getMessage('IMCONNECTOR_COMPONENT_TELEGRAMBOT_CONNECT_STEP', array('#ID#' => Loc::getMessage('IMCONNECTOR_COMPONENT_TELEGRAMBOT_INFO_CONNECT_ID')))?>
 					</div>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -167,12 +167,12 @@ else
 					<div class="imconnector-field-box-content">
 						<?=Loc::getMessage('IMCONNECTOR_COMPONENT_TELEGRAMBOT_FINAL_FORM_DESCRIPTION')?>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
-		<? include 'messages.php'?>
+		<?php  include 'messages.php'?>
 		<div class="imconnector-field-section imconnector-field-section-control">
 			<div class="imconnector-field-box">
 				<div class="imconnector-field-box-subtitle">
@@ -198,7 +198,7 @@ else
 					</button>
 				</form>
 			</div>
-			<?
+			<?php 
 			if (empty($arResult['INFO_CONNECTION'])) //not connected yet case
 			{
 				include 'connection-help.php';
@@ -210,6 +210,6 @@ else
 			?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

@@ -1,10 +1,10 @@
-<?
+<?php 
 define('CONFIRM_PAGE', true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/extranet/confirm/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:system.auth.initialize",
 	"",
 	Array(
@@ -14,4 +14,4 @@ $APPLICATION->SetTitle(GetMessage("TITLE"));
 	),
 false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

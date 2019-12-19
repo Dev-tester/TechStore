@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_AJAX_ACTION_CONFIRM_DELETE'] = "Подтвердите, выполнить удаление \"%name%\"?";
 $MESS ['MAIN_AJAX_ACTION_DELETE'] = "Удалить";
 $MESS ['MAIN_AJAX_ACTION_APPLY'] = "Выполнить";

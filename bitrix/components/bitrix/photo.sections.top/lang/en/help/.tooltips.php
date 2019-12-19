@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE_TIP'] = "Select one of existing information block types in the list and click <b>OK</b>. This will load information blocks of the selected type.";
 $MESS ['IBLOCK_ID_TIP'] = "Select an information block of the selected type. If you have chosen <i>other</i>, specify the information block ID in the next field.";
 $MESS ['SECTION_SORT_FIELD_TIP'] = "The field by which sections are to be sorted within an information block.";

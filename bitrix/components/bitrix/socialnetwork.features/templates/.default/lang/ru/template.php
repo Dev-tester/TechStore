@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C4_FUNC_TITLE"] = "Функционал \"#NAME#\" включен";
 $MESS["SONET_C4_FUNC_TITLE_ON"] = "Функционал \"#NAME#\" включен";
 $MESS["SONET_C4_FUNC_TITLE_OFF"] = "Функционал \"#NAME#\" выключен";

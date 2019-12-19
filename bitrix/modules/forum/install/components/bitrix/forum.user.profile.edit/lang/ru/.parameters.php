@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL_TEMPLATES'] = "Управление адресами страниц";
 $MESS ['F_PROFILE_VIEW_TEMPLATE'] = "Страница просмотра профиля";
 $MESS ['F_DEFAULT_UID'] = "ID пользователя";

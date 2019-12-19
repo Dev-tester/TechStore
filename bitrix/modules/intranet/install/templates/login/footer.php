@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 					<div class="log-popup-caption-wrap">
 						<div class="log-popup-caption">
-							<?if (IsModuleInstalled("bitrix24")):?>
+							<?php if (IsModuleInstalled("bitrix24")):?>
 								<div id="language-box" class="language-box <?=LANGUAGE_ID?>">
 									<span id="language-arrow" class="language-flag"><span class="arrow"></span></span>
 								</div>
-							<?endif?>
+							<?php endif?>
 							<?=GetMessage("BITRIX24_COPYRIGHT_B24", array("#CURRENT_YEAR#" => date("Y")))?>
 						</div>
 					</div>

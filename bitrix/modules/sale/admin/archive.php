@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 use Bitrix\Main,
 	Bitrix\Main\Loader,
@@ -134,7 +134,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["archive"]=="Y" && check_bi
 			DoNext(<?= $count?>);
 			count = <?= $count?>;
 		</script>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -188,8 +188,8 @@ else
 		function DoNext(countArchived)
 		{
 			var queryString = 'archive=Y'
-				+ '&lang=<?echo htmlspecialcharsbx(LANG)?>'
-				+ '&<?echo bitrix_sessid_get()?>';
+				+ '&lang=<?php echo htmlspecialcharsbx(LANG)?>'
+				+ '&<?php echo bitrix_sessid_get()?>';
 
 			if(!stop)
 			{
@@ -272,8 +272,8 @@ else
 
 	<div id="archive_result_div" style="margin:0">
 	</div>
-	<form method="GET" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo htmlspecialcharsbx(LANG)?>" id="archiveForm">
-		<?
+	<form method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo htmlspecialcharsbx(LANG)?>" id="archiveForm">
+		<?php 
 			$tabControl->Begin();
 			$tabControl->BeginNextTab();
 			$filterValues = Option::get('sale', 'archive_params');
@@ -287,24 +287,24 @@ else
 			}
 		?>
 		<tr>
-			<td><label for="archive_count_execution"><?echo Loc::getMessage("ARCHIVE_STEP")?>:</label></td>
-			<td><input type="text" name="archive_count_execution" id="archive_count_execution" size="3" value="<?echo $countExecutionOrders;?>"> <?echo Loc::getMessage("ARCHIVE_STEP_ORDER")?></td>
+			<td><label for="archive_count_execution"><?php echo Loc::getMessage("ARCHIVE_STEP")?>:</label></td>
+			<td><input type="text" name="archive_count_execution" id="archive_count_execution" size="3" value="<?php echo $countExecutionOrders;?>"> <?php echo Loc::getMessage("ARCHIVE_STEP_ORDER")?></td>
 		</tr>
 		<tr>
 			<td><label for="archive_period"><?=Loc::getMessage("ARCHIVE_PERIOD")?>:</label></td>
 			<td><input type="text" name="archive_period" value="<?=(int)$filterValues['PERIOD'] ? (int)$filterValues['PERIOD'] : 365?>" size="5" id="archive_period"></td>
 		</tr>
-		<?
+		<?php 
 		if($saleModulePermissions >= "W")
 		{
 			?>
 			<tr>
-				<td valign="top"><label for="archive_blocked_order_accept"><?echo Loc::getMessage("ARCHIVE_BLOCKED_ORDER_ACCEPT")?>:</label></td>
+				<td valign="top"><label for="archive_blocked_order_accept"><?php echo Loc::getMessage("ARCHIVE_BLOCKED_ORDER_ACCEPT")?>:</label></td>
 				<td>
-					<input type="checkbox" name="archive_blocked_order_accept" id="archive_blocked_order_accept" value="Y" <?if(Option::get("sale", "archive_blocked_order") === "Y") echo "checked"?>>
+					<input type="checkbox" name="archive_blocked_order_accept" id="archive_blocked_order_accept" value="Y" <?php if(Option::get("sale", "archive_blocked_order") === "Y") echo "checked"?>>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$shopList = array();
 			$siteList = \Bitrix\Main\SiteTable::getList();
 			while ($site = $siteList->fetch())
@@ -322,13 +322,13 @@ else
 					<td><label for="archive_site"><?=Loc::getMessage("ARCHIVE_SITE")?>:</label></td>
 					<td>
 						<select name="archive_site[]" id="archive_site" multiple size="<?=(count($shopList) < 5) ? count($shopList) : 5?>">
-							<?
+							<?php 
 							foreach($shopList as $id => $site)
 							{
 								?>
 								<option
 									value="<?= htmlspecialcharsbx($id) ?>"
-									<?
+									<?php 
 										if (
 											(is_array($filterValues['LID'])	&& in_array($id, $filterValues['LID']))
 											|| empty($filterValues['LID'])
@@ -338,21 +338,21 @@ else
 								>
 									<?=htmlspecialcharsbx($site)?>
 								</option>
-								<?
+								<?php 
 							}
 							?>
 						</select>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 		}		
 		?>
 		<tr>
-			<td valign="top"><label for="archive_status_id"><?echo Loc::getMessage("ARCHIVE_STATUS")?>:</label></td>
+			<td valign="top"><label for="archive_status_id"><?php echo Loc::getMessage("ARCHIVE_STATUS")?>:</label></td>
 			<td>
 				<select name="archive_status_id[]" id="archive_status_id" multiple size="3">
-					<?
+					<?php 
 						$allStatusNames = \Bitrix\Sale\OrderStatus::getAllStatusesNames();
 
 						foreach($statusesList as  $statusCode)
@@ -362,7 +362,7 @@ else
 							?>
 							<option
 								value="<?= htmlspecialcharsbx($statusCode) ?>"
-								<?
+								<?php 
 									if (
 										(is_array($filterValues['STATUS_ID']) && in_array($statusCode, $filterValues['STATUS_ID']))
 										|| empty($filterValues['STATUS_ID'])
@@ -372,7 +372,7 @@ else
 							>
 								[<?= htmlspecialcharsbx($statusCode) ?>] <?= htmlspecialcharsbx($statusName) ?>
 							</option>
-							<?
+							<?php 
 						}
 					?>
 				</select>
@@ -380,50 +380,50 @@ else
 		</tr>
 		<tr>
 			<td>
-				<label for="ORDER_ARCHIVE_PAYED"><?echo Loc::getMessage("ARCHIVE_PAYED")?>:</label>
+				<label for="ORDER_ARCHIVE_PAYED"><?php echo Loc::getMessage("ARCHIVE_PAYED")?>:</label>
 			</td>
 			<td>
 				<select name="archive_payed" id="ORDER_ARCHIVE_PAYED">
-					<option value="" selected><?echo Loc::getMessage("ARCHIVE_ALL")?></option>
-					<option value="Y"<?if($filterValues['=PAYED'] == "Y") echo " selected"?>><?echo Loc::getMessage("ARCHIVE_YES")?></option>
-					<option value="N"<?if($filterValues['=PAYED'] == 'N') echo " selected"?>><?echo Loc::getMessage("ARCHIVE_NO")?></option>
+					<option value="" selected><?php echo Loc::getMessage("ARCHIVE_ALL")?></option>
+					<option value="Y"<?php if($filterValues['=PAYED'] == "Y") echo " selected"?>><?php echo Loc::getMessage("ARCHIVE_YES")?></option>
+					<option value="N"<?php if($filterValues['=PAYED'] == 'N') echo " selected"?>><?php echo Loc::getMessage("ARCHIVE_NO")?></option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<label for="ORDER_ARCHIVE_CANCELED"><?echo Loc::getMessage("ARCHIVE_CANCELED")?>:</label>
+				<label for="ORDER_ARCHIVE_CANCELED"><?php echo Loc::getMessage("ARCHIVE_CANCELED")?>:</label>
 			</td>
 			<td>
 				<select name="archive_canceled" id="ORDER_ARCHIVE_CANCELED">
-					<option value="" selected><?echo Loc::getMessage("ARCHIVE_ALL")?></option>
-					<option value="Y"<?if($filterValues['=CANCELED'] == "Y") echo " selected"?>><?echo Loc::getMessage("ARCHIVE_YES")?></option>
-					<option value="N"<?if($filterValues['=CANCELED'] == 'N') echo " selected"?>><?echo Loc::getMessage("ARCHIVE_NO")?></option>
+					<option value="" selected><?php echo Loc::getMessage("ARCHIVE_ALL")?></option>
+					<option value="Y"<?php if($filterValues['=CANCELED'] == "Y") echo " selected"?>><?php echo Loc::getMessage("ARCHIVE_YES")?></option>
+					<option value="N"<?php if($filterValues['=CANCELED'] == 'N') echo " selected"?>><?php echo Loc::getMessage("ARCHIVE_NO")?></option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<label for="ORDER_ARCHIVE_DEDUCTED"><?echo Loc::getMessage("ARCHIVE_DEDUCTED")?>:</label>
+				<label for="ORDER_ARCHIVE_DEDUCTED"><?php echo Loc::getMessage("ARCHIVE_DEDUCTED")?>:</label>
 			</td>
 			<td>
 				<select name="archive_deducted" id="ORDER_ARCHIVE_DEDUCTED">
-					<option value="" selected><?echo Loc::getMessage("ARCHIVE_ALL")?></option>
-					<option value="Y"<?if($filterValues['=DEDUCTED'] == "Y") echo " selected"?>><?echo Loc::getMessage("ARCHIVE_YES")?></option>
-					<option value="N"<?if($filterValues['=DEDUCTED'] == 'N') echo " selected"?>><?echo Loc::getMessage("ARCHIVE_NO")?></option>
+					<option value="" selected><?php echo Loc::getMessage("ARCHIVE_ALL")?></option>
+					<option value="Y"<?php if($filterValues['=DEDUCTED'] == "Y") echo " selected"?>><?php echo Loc::getMessage("ARCHIVE_YES")?></option>
+					<option value="N"<?php if($filterValues['=DEDUCTED'] == 'N') echo " selected"?>><?php echo Loc::getMessage("ARCHIVE_NO")?></option>
 				</select>
 			</td>
 		</tr>
-		<?
+		<?php 
 			$tabControl->Buttons();
 		?>
-		<input type="button" id="start_button" value="<?echo Loc::getMessage("ARCHIVE_ARCHIVE_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
+		<input type="button" id="start_button" value="<?php echo Loc::getMessage("ARCHIVE_ARCHIVE_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
 		<input type="button" id="stop_button" value="<?=Loc::getMessage("ARCHIVE_STOP")?>" OnClick="StopArchive();" disabled>
 		<input type="button" id="continue_button" value="<?=Loc::getMessage("ARCHIVE_CONTINUE")?>" OnClick="ContinueArchive();" disabled>
-		<?
+		<?php 
 			$tabControl->End();
 		?>
 	</form>
-<?
+<?php 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }

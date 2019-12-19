@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADM_IMP_NO_DATA_FILE"] = "Файл с данными не загружен и не выбран. Загрузка невозможна.";
 $MESS["IBLOCK_ADM_IMP_NO_DATA_FILE_SIMPLE"] = "Файл с данными не выбран. Загрузка невозможна.";
 $MESS["IBLOCK_ADM_IMP_NO_IBLOCK"] = "Информационный блок не выбран. Загрузка невозможна.";

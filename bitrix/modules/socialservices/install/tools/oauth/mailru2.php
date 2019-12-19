@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 This is callback page for MailRu OAuth 2.0 authentication.
 MailRu redirects only to specific back url set in the OAuth application.

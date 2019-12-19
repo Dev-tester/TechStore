@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_JS_BP_SELECTOR_ACTIVITIES"] = "Additional results";
 $MESS["BIZPROC_JS_BP_SELECTOR_CONSTANTS"] = "Constants";
 $MESS["BIZPROC_JS_BP_SELECTOR_DATE"] = "Current date";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAA_ERROR_UPDATE"] = "Beim Aktualisieren des Affiliates ist ein Fehler aufgetreten";
 $MESS["SAA_ERROR_DELETE"] = "Beim Löschen des Afilliates ist ein Fehler aufgetreten";
 $MESS["SAA_ERROR_ACTIVATE"] = "Beim Ändern des Affiliate-Status ist ein Fehler aufgetreten";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRADING_PLATFORM_SFTP_ERROR_CONNECT"] = "Die SSH-Verbindung mit \"#HOST#\":\"#PORT# kann nicht hergestellt werden";
 $MESS["TRADING_PLATFORM_SFTP_ERROR_SSH2_EXT"] = "Die Erweiterung PHP SSH2 ist nicht installiert";
 $MESS["TRADING_PLATFORM_SFTP_ERROR_FINGERPRINT"] = "Ungültiger Fingerabdruck von #HOST#! Der Fingerabdruck wurde entweder legal geändert, oder es ist das Ergebnis eines \"Man-in-the-middle\" Angriffs. Aktueller Host-Fingerabdruck:\"#FINGERPRINT1#\", erwartet wird: \"#FINGERPRINT2#\".";

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS["MAIL_CLIENT_HOME_TITLE"] = "Почта";
 

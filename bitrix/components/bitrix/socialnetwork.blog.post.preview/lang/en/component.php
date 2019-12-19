@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_POST_PREVIEW_TITLE"] = "Message";
 $MESS["BLOG_POST_PREVIEW_AUTHOR"] = "Created by";
 $MESS["BLOG_POST_PUBLISHED"] = "Published on";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 // To remember: only active user $USER can create new photogallery
 if (!CModule::IncludeModule("photogallery"))
 	return ShowError(GetMessage("P_MODULE_IS_NOT_INSTALLED"));

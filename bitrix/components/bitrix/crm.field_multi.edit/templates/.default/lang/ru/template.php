@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_LIST_DELETE"] = "Удалить";
 $MESS["CRM_STATUS_LIST_ADD"] = "Добавить";
 $MESS["CRM_STATUS_BUTTONS_SAVE"] = "Сохранить";

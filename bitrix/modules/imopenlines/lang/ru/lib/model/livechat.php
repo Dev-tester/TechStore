@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LIVECHAT_ENTITY_CONFIG_ID_FIELD"] = "ID настройки";
 $MESS["LIVECHAT_ENTITY_URL_CODE_FIELD"] = "Код ссылки (внутренний)";
 $MESS["LIVECHAT_ENTITY_URL_CODE_ID_FIELD"] = "Идентификатор кода ссылки (внутренний)";

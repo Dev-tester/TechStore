@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIGS_LINK_TEXT"] = "View CRM settings";
 $MESS["CRM_CONFIGS_LINK_TITLE"] = "Opens CRM settings form";
 $MESS["CRM_TRACKER_SECTION_TITLE"] = "Presets";

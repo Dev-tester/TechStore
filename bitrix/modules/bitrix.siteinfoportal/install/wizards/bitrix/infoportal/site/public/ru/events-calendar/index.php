@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("События города");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:calendar.grid",
 	"",
 	Array(
@@ -10,4 +10,4 @@ $APPLICATION->SetTitle("События города");
 		"ALLOW_RES_MEETING" => "N"
 	),
 false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

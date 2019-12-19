@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C2_ONLINE"] = "Сейчас на сайте";
 $MESS["SONET_C2_GR_INV"] = "Приглашает";
 $MESS["SONET_C2_MS_TITLE"] = "Новое сообщение!";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Help";
 $MESS["SERVICES_MENU_EXTRANET"] = "Extranet";
 $MESS["SERVICES_MENU_ABSENCE_HELP"] = "Absence Planning";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BSP_USE_SUGGEST"] = "Show search phrase prompts";
 $MESS["TP_BSP_SHOW_ITEM_TAGS"] = "Show Document Tags";
 $MESS["TP_BSP_TAGS_INHERIT"] = "Narrow search area";

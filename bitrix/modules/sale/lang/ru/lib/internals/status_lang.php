@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['B_SALE_STATUS_LANG_STATUS_ID'  ] = 'Код статуса';
 $MESS['B_SALE_STATUS_LANG_LID'        ] = 'Код языка';
 $MESS['B_SALE_STATUS_LANG_NAME'       ] = 'Название';

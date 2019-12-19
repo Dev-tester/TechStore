@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script>
 function onLightEditorShow(content)
 {
@@ -10,7 +10,7 @@ function onLightEditorShow(content)
 
 function showComment(key, error, userName, userEmail, needData)
 {
-	<?
+	<?php 
 	if($arResult["use_captcha"]===true)
 	{
 		?>
@@ -20,7 +20,7 @@ function showComment(key, error, userName, userEmail, needData)
 			BX("captcha").src = '/bitrix/tools/captcha.php?captcha_code=' + data["captcha_sid"];
 			BX("captcha").style.display = "";
 		});
-		<?
+		<?php 
 	}
 	?>
 
@@ -151,7 +151,7 @@ function submitComment()
 {
 	oBlogComLHE.SaveContent();
 	obForm = BX('form_comment');
-	<?
+	<?php 
 	if($arParams["AJAX_POST"] == "Y")
 	{
 		?>
@@ -171,7 +171,7 @@ function submitComment()
 		BX.showWait('bxlhe_frame_LHEBlogCom');
 		BX.ajax.submitComponentForm(obForm, id);
 		setTimeout("waitResult('"+val+"')", 100);
-		<?
+		<?php 
 	}
 	?>
 	BX.submit(obForm);

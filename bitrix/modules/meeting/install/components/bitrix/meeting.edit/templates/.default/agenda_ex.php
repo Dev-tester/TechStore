@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $control_id = RandString(8);
 
 if (count($arResult['MEETING']['AGENDA']) > 0):
@@ -20,14 +20,14 @@ if (count($arResult['MEETING']['AGENDA']) > 0):
 ?>
 <script type="text/javascript">
 var parentAgenda = {}, parentAgendaInstance = {}, parentAgendaRows = {};
-<?
+<?php 
 	foreach ($arResult['MEETING']['AGENDA'] as $item_id => $arItem):
 		if (MakeTimeStamp($arItem['DEADLINE'])<=0)
 			$arItem['DEADLINE'] = '';
 ?>
 parentAgenda[<?=$arItem['ITEM_ID']?>] = <?=CUtil::PhpToJsObject($arItem, false, true)?>;
 parentAgendaInstance[<?=$arItem['ID']?>] = '<?=$arItem['ITEM_ID']?>';
-<?
+<?php 
 	endforeach;
 ?>
 
@@ -64,7 +64,7 @@ function addItems()
 
 					if (!row)
 					{
-						parentAgenda[item_id].ORIGINAL_TYPE = '<?CMeetingInstance::TYPE_AGENDA?>';
+						parentAgenda[item_id].ORIGINAL_TYPE = '<?php CMeetingInstance::TYPE_AGENDA?>';
 
 						if (parentAgenda[item_id].INSTANCE_PARENT_ID && parentAgendaRows[parentAgenda[item_id].INSTANCE_PARENT_ID])
 						{
@@ -112,13 +112,13 @@ function addItems()
 </script>
 <div class="meeting-new-checkbox-select-all" class="meeting-selectors">
 	<span class="meeting-selector-item">
-		<?if ($arResult['POPUP']):?><span class="meeting-sub-bl-checkbox-wrap" onclick="meeting_checkbox_checkall(this.firstChild)"><input type="checkbox" id="meeting-new-select-all-<?=$control_id?>" class="meeting-sub-bl-checkbox" onclick="meeting_checkbox_checkall(this)" /></span><?else:?><input type="checkbox" id="meeting-new-select-all-<?=$control_id?>" onclick="meeting_checkbox_checkall(this)" /><?endif;?><label for="meeting-new-select-all-<?=$control_id?>"><?=GetMessage('ME_SELECT_ALL')?></label>
+		<?php if ($arResult['POPUP']):?><span class="meeting-sub-bl-checkbox-wrap" onclick="meeting_checkbox_checkall(this.firstChild)"><input type="checkbox" id="meeting-new-select-all-<?=$control_id?>" class="meeting-sub-bl-checkbox" onclick="meeting_checkbox_checkall(this)" /></span><?php else:?><input type="checkbox" id="meeting-new-select-all-<?=$control_id?>" onclick="meeting_checkbox_checkall(this)" /><?php endif;?><label for="meeting-new-select-all-<?=$control_id?>"><?=GetMessage('ME_SELECT_ALL')?></label>
 	</span><span class="meeting-selector-item">
-		<?if ($arResult['POPUP']):?><span class="meeting-sub-bl-checkbox-wrap" onclick="meeting_checkbox_checkall(this.firstChild, true)"><input type="checkbox" id="meeting-new-select-opened-<?=$control_id?>" class="meeting-sub-bl-checkbox" onclick="meeting_checkbox_checkall(this)" /></span><?else:?><input type="checkbox" id="meeting-new-select-opened-<?=$control_id?>" onclick="meeting_checkbox_checkall(this, true)" /><?endif;?><label for="meeting-new-select-opened-<?=$control_id?>"><?=GetMessage('ME_SELECT_OPENED')?></label>
+		<?php if ($arResult['POPUP']):?><span class="meeting-sub-bl-checkbox-wrap" onclick="meeting_checkbox_checkall(this.firstChild, true)"><input type="checkbox" id="meeting-new-select-opened-<?=$control_id?>" class="meeting-sub-bl-checkbox" onclick="meeting_checkbox_checkall(this)" /></span><?php else:?><input type="checkbox" id="meeting-new-select-opened-<?=$control_id?>" onclick="meeting_checkbox_checkall(this, true)" /><?php endif;?><label for="meeting-new-select-opened-<?=$control_id?>"><?=GetMessage('ME_SELECT_OPENED')?></label>
 	</span>
 </div>
 <div id="meeting_parent_items_<?=$control_id?>">
-<?
+<?php 
 	$ix = 1;
 	$ix1 = 1;
 	foreach ($arAgenda as $key => $arItem):
@@ -144,9 +144,9 @@ function addItems()
 
 ?>
 		<div class="<?=$className?>">
-			<?if ($arResult['POPUP']):?><span class="meeting-sub-bl-checkbox-wrap"><input type="checkbox" class="meeting-sub-bl-checkbox" id="meeting-new-checkbox-<?=$key?>" name="PARENT_ITEMS[]" value="<?=$arItem['ITEM_ID']?>" /></span><?else:?><input type="checkbox" id="meeting-new-checkbox-<?=$key?>" name="PARENT_ITEMS[]" value="<?=$arItem['ITEM_ID']?>" /><?endif;?><label for="meeting-new-checkbox-<?=$key?>"><?=$index?> <?=$arItem['TITLE']?></label>
+			<?php if ($arResult['POPUP']):?><span class="meeting-sub-bl-checkbox-wrap"><input type="checkbox" class="meeting-sub-bl-checkbox" id="meeting-new-checkbox-<?=$key?>" name="PARENT_ITEMS[]" value="<?=$arItem['ITEM_ID']?>" /></span><?php else:?><input type="checkbox" id="meeting-new-checkbox-<?=$key?>" name="PARENT_ITEMS[]" value="<?=$arItem['ITEM_ID']?>" /><?php endif;?><label for="meeting-new-checkbox-<?=$key?>"><?=$index?> <?=$arItem['TITLE']?></label>
 		</div>
-<?
+<?php 
 	endforeach;
 ?>
 </div>
@@ -161,16 +161,16 @@ function meeting_checkbox_checkall(el, bCheckClass)
 	for (i = 0; i < ar.length; i++)
 	{
 		if (ar[i] != el && ar[i].checked)
-<?if ($arResult['POPUP']):?>
+<?php if ($arResult['POPUP']):?>
 			meeting_checkbox_click.apply(ar[i].parentNode);
-<?else:?>
+<?php else:?>
 			ar[i].checked = false;
-<?endif;?>
+<?php endif;?>
 	}
 
-<?if ($arResult['POPUP']):?>
+<?php if ($arResult['POPUP']):?>
 	meeting_checkbox_click.apply(el.parentNode);
-<?endif;?>
+<?php endif;?>
 
 	var items = BX.findChildren(BX('meeting_parent_items_<?=$control_id?>'), {tag: 'INPUT', property: {name: 'PARENT_ITEMS[]'}}, true), c = el.checked;
 	if (items && items.length > 0)
@@ -181,24 +181,24 @@ function meeting_checkbox_checkall(el, bCheckClass)
 			if (!c)
 				new_checked = false;
 			else
-				new_checked = !bCheckClass || !BX.hasClass(items[i].parentNode<?if($arResult['POPUP']):?>.parentNode<?endif;?>, 'meeting-new-checkbox-agenda');
+				new_checked = !bCheckClass || !BX.hasClass(items[i].parentNode<?php if($arResult['POPUP']):?>.parentNode<?php endif;?>, 'meeting-new-checkbox-agenda');
 
-<?
+<?php 
 if ($arResult['POPUP']):
 ?>
 			if (old_checked != new_checked)
 				meeting_checkbox_click.apply(items[i].parentNode);
-<?
+<?php 
 else:
 ?>
 			items[i].checked = new_checked;
-<?
+<?php 
 endif;
 ?>
 		}
 	}
 }
-<?
+<?php 
 if ($arResult['POPUP']):
 ?>
 function meeting_checkbox_click(e)
@@ -226,10 +226,10 @@ BX.ready(function() {
 	BX.bindDelegate(BX('meeting_parent_items_<?=$control_id?>'), 'click', meeting_checkbox_check_node, meeting_checkbox_click);
 });
 ;
-<?
+<?php 
 endif;
 ?>
 </script>
-<?
+<?php 
 endif;
 ?>

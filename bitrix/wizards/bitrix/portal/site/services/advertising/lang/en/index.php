@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PORTAL_ADV_100_100_ONE"] = "Primary / First side banner 100x100";
 $MESS["PORTAL_ADV_100_100_TWO"] = "Secondary / Second side banner 100x100";
 $MESS["PORTAL_ADV_468_60_TOP"] = "Top banner 468x60";

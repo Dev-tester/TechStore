@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SHIPMENT_ACCOUNT_NUMBER_EXISTS"] = "Оплата з таким номером уже існує";
 $MESS["SALE_SHIPMENT_DELIVERY_SERVICE_EMPTY"] = "Служба доставки не вказана";
 $MESS["SALE_SHIPMENT_EXIST_SHIPPED"] = "Відвантаження вже відвантажено. Відмініть відвантаження";

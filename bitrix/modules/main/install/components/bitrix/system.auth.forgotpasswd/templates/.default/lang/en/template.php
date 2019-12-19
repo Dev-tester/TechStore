@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_AUTH"] = "Authorization";
 $MESS["AUTH_SEND"] = "Send";
 $MESS["sys_forgot_pass_label"] = "Recover password using:";

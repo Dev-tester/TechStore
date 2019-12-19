@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATISTIC_ACTIVITY_EXCEEDING_NAME'] = "Превышение лимита активности";
 $MESS ['STATISTIC_ACTIVITY_EXCEEDING_DESC'] = "#ACTIVITY_TIME_LIMIT# - тестовый интервал времени
 #ACTIVITY_HITS# - кол-во хитов за тестовый интервал времени

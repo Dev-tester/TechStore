@@ -1,58 +1,58 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <div class="catalog-detail" itemscope itemtype = "http://schema.org/Product">
 
 	<table class="catalog-detail" cellspacing="0">
 		<tr>
-			<?
+			<?php 
 			if(intval($arResult["IMAGE_ID"]) > 0)
 			{
 				?>
 				<td class="catalog-detail-image">
 					<div class="catalog-detail-image" id="catalog-detail-main-image">
-						<?echo CFile::ShowImage($arResult["IMAGE_ID"], 250, 200, "border=0", "", true);?>
+						<?php echo CFile::ShowImage($arResult["IMAGE_ID"], 250, 200, "border=0", "", true);?>
 					</div>
 				</td>
-				<?
+				<?php 
 			}
 			?>
-			<?
+			<?php 
 			if(isset($arResult["LIST_URL"]))
 			{
 				?>
 				<div class="catalog-item-links">
 					<a href="<?=$arResult["LIST_URL"]?>"><?=GetMessage("BACK_STORE_LIST")?>  </a>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 
 			<td class="catalog-detail-desc">
-				<?if($arResult["TITLE"]):?>
+				<?php if($arResult["TITLE"]):?>
 				<span itemprop = "description"><?=GetMessage("S_NAME")." ".$arResult["TITLE"];?></span>
 				<div class="catalog-detail-line"></div>
-				<?endif;?>
-				<?if($arResult["DESCRIPTION"]):?>
+				<?php endif;?>
+				<?php if($arResult["DESCRIPTION"]):?>
 				<span itemprop = "description"><?=$arResult["DESCRIPTION"];?></span>
 				<div class="catalog-detail-line"></div>
-				<?endif;?>
-				<?if($arResult["ADDRESS"]):?>
+				<?php endif;?>
+				<?php if($arResult["ADDRESS"]):?>
 				<span itemprop = "description"><?=GetMessage("S_ADDRESS")." ".$arResult["ADDRESS"];?></span>
 				<div class="catalog-detail-line"></div>
-				<?endif;?>
-				<?if($arResult["PHONE"] != ''):?>
+				<?php endif;?>
+				<?php if($arResult["PHONE"] != ''):?>
 				<span itemprop = "description"><?=GetMessage("S_PHONE")." ".$arResult["PHONE"];?></span>
 				<div class="catalog-detail-line"></div>
-				<?endif;?>
-				<?if ($arResult["SCHEDULE"] != ''):?>
+				<?php endif;?>
+				<?php if ($arResult["SCHEDULE"] != ''):?>
 				<span itemprop = "description"><?=GetMessage("S_SCHEDULE")." ".$arResult["SCHEDULE"];?></span>
 				<div class="catalog-detail-line"></div>
-				<?endif;?>
+				<?php endif;?>
 			</td>
 		</tr>
 	</table>
 	<div id="map" class="catalog-detail-recommend">
-		<?
+		<?php 
 		if(($arResult["GPS_N"]) != 0 && ($arResult["GPS_S"]) != 0)
 		{
 			$gpsN = substr($arResult["GPS_N"],0,15);

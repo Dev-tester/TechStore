@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SHOP_MENU_SHOP_TITLE"] = "Магазины";
 $MESS["SHOP_MENU_SHOP_LIST_TITLE"] = "Список магазинов";
 $MESS["SHOP_MENU_SHOP_ROLES_TITLE"] = "Права доступа";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCOM_BUTTON_NAME"] = "Мастер#BR#настройки";
 $MESS["SCOM_BUTTON_DESCRIPTION"] = "Запустить мастер смены дизайна и настроек сайта";
 $MESS["STOM_BUTTON_TITLE_W1"] = "Запустить мастер смены дизайна и настройки магазина";

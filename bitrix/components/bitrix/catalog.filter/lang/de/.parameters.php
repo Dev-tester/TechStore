@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_PRICES"] = "Preise";
 $MESS["IBLOCK_TYPE"] = "Informationsblocktyp";
 $MESS["IBLOCK_IBLOCK"] = "Informationsblock";

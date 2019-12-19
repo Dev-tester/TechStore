@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_DB_DROPINDEX_SUCCESS'] = "Индекс \"#INDEX#\" для таблицы \"#TABLE#\" успешно удалён.";
 $MESS ['F_DB_DROPINDEX_FAIL'] = "Произошла ошибка при удалении индекса \"#INDEX#(#FIELDS#)\" для таблицы \"#TABLE#\".";
 $MESS ['F_DB_DROPINDEX_OFFER'] = "Для завершения обновления модуля необходимо удалить индекс \"#INDEX#\" для таблицы \"#TABLE#\".";

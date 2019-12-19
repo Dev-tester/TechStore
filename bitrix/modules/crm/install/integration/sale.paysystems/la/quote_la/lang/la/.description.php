@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBLP_DTITLE"] = "Cotización (Español)";
 $MESS["SBLP_DDESCR"] = " Imprimir cotización. Se abrirá una nueva ventana.";
 

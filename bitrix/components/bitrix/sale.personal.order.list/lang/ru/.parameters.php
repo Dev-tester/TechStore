@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOL_DESC_YES"] = "Да";
 $MESS["SPOL_DESC_NO"] = "Нет";
 $MESS["SPOL_PATH_TO_DETAIL"] = "Страница c подробной информацией о заказе";

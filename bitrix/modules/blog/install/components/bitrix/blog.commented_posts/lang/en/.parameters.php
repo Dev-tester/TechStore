@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BMNP_PATH_TO_BLOG'] = "Blog page path template";
 $MESS ['BMNP_PATH_TO_POST'] = "Template of a blog message page";
 $MESS ['BMNP_PATH_TO_USER'] = "Template of the blog user page path";

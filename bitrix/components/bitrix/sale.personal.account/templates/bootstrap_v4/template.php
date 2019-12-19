@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!empty($arResult['ERRORS']))
 {
 	$component = $this->__component;
@@ -15,12 +15,12 @@ if (!empty($arResult['ERRORS']))
 			<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 				<div class="alert alert-danger"><?=$arResult['ERRORS'][$component::E_NOT_AUTHORIZED]?></div>
 			</div>
-			<? $authListGetParams = array(); ?>
+			<?php  $authListGetParams = array(); ?>
 			<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-				<?$APPLICATION->AuthForm('', false, false, 'N', false);?>
+				<?php $APPLICATION->AuthForm('', false, false, 'N', false);?>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 }
 else
@@ -35,7 +35,7 @@ else
 				</div>
 				<div class="sale-personal-account-wallet-list-container">
 					<div class="sale-personal-account-wallet-list">
-						<?
+						<?php 
 							foreach($arResult["ACCOUNT_LIST"] as $accountValue)
 							{
 								?>
@@ -46,7 +46,7 @@ else
 										<div class="sale-personal-account-wallet-currency-item"><?=$accountValue["CURRENCY_FULL_NAME"]?></div>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 						?>
 					</div>
@@ -54,5 +54,5 @@ else
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }

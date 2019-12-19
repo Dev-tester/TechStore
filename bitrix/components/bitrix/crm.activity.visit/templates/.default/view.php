@@ -1,9 +1,9 @@
 <?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
 <div class="crm-task-list-call">
-	<?foreach($arResult['RECORDS'] as $k => $record):?>
+	<?php foreach($arResult['RECORDS'] as $k => $record):?>
 		<div class="crm-task-list-call-walkman">
 			<span class="crm-task-list-call-walkman-item" style="height: 30px; overflow: hidden;">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:player",
 					"audio",
@@ -61,7 +61,7 @@
 				</a>
 			</span>
 		</div>
-	<?endforeach?>
+	<?php endforeach?>
 	<div class="crm-task-list-call-info">
 		<div class="crm-task-list-call-info-container">
 			<span class="crm-task-list-call-info-name">
@@ -74,7 +74,7 @@
 	</div>
 </div>
 
-<? if (!empty($arResult['PHOTO'])): ?>
+<?php  if (!empty($arResult['PHOTO'])): ?>
 	<br><?=GetMessage('CRM_ACTIVITY_FACEID_PHOTO_FIELD_DESCRIPTION')?>:<br>
 	<img src="<?=$arResult['PHOTO']['URL']?>">
-<? endif ?>
+<?php  endif ?>

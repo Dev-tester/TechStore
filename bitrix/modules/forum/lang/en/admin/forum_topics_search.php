@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FM_WRONG_DATE_CREATE_FROM'] = "Please type the correct lower bound of the creation date range";
 $MESS ['FM_TOPICS'] = "Messages";
 $MESS ['FORUM_TOPICS'] = "Manage topics";

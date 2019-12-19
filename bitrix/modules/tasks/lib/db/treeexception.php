@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\DB;
 
 class TreeException 					extends \Bitrix\Main\SystemException {};

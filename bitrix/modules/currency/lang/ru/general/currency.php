@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_CURR_ERR_CURR_CUR_ID_BAD"] = "Неверный идентификатор валюты";
 $MESS["BT_MOD_CURR_ERR_CURR_CUR_ID_ABSENT"] = "Не указан идентификатор валюты";
 $MESS["BT_MOD_CURR_ERR_CURR_AMOUNT_CNT_ABSENT"] = "Не задан номинал";

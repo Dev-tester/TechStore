@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:lists.element.edit", ".default", array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:lists.element.edit", ".default", array(
 	"IBLOCK_TYPE_ID" => $arParams["IBLOCK_TYPE_ID"],
 	"IBLOCK_ID" => $arResult["VARIABLES"]["list_id"],
 	"SECTION_ID" => $arResult["VARIABLES"]["section_id"],

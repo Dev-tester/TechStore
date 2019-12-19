@@ -18,7 +18,7 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 ?>
 
 <div class="crm-webform-list-wrapper">
-	<?if(!$arResult['HIDE_DESC']):?>
+	<?php if(!$arResult['HIDE_DESC']):?>
 	<div id="CRM_LIST_DESC_CONT" class="crm-webform-list-info">
 		<h2 class="crm-webform-list-info-title"><?=Loc::getMessage('OL_COMPONENT_LIST_PROMO_1')?></h2>
 		<div class="crm-webform-list-info-visual">
@@ -49,15 +49,15 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 		<span class="imopenlines-list-info-slogan"><?=Loc::getMessage('OL_COMPONENT_LIST_PROMO_8')?></span>
 		<span id="CRM_LIST_DESC_BTN_HIDE" class="crm-webform-list-info-btn-hide" title="<?=Loc::getMessage('COL_COMPONENT_LIST_HIDE_DESC')?>"></span>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div id="crm_web_form_list_container">
-<?if(!empty($arResult['LINES'])):?>
+<?php if(!empty($arResult['LINES'])):?>
 	<div class="crm-webform-list-header-container">
 		<h3 id="close-title" class="crm-webform-list-header"><?=Loc::getMessage('OL_COMPONENT_LIST_HEADER')?></h3>
 	</div>
-<?endif;?>
+<?php endif;?>
 <div data-bx-crm-webform-item="0"></div>
-<?foreach($arResult['LINES'] as $line):?>
+<?php foreach($arResult['LINES'] as $line):?>
 	<div class="crm-webform-list-widget-row"
 		data-bx-crm-webform-item="<?=intval($line['ID'])?>"
 	    data-bx-crm-webform-item-is-system="0"
@@ -115,13 +115,13 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 				<div class="crm-webform-list-active-info-container">
 					<div data-bx-crm-webform-item-active-date="" class="crm-webform-list-active-info">
 						<div class="crm-webform-list-active-info-def">
-							<?if($line['CHANGE_DATE_DISPLAY']):?>
+							<?php if($line['CHANGE_DATE_DISPLAY']):?>
 							<span class="crm-webform-list-text">
 								<?=Loc::getMessage('OL_COMPONENT_LIST_MODIFY_DATE')?>
 								<?=$line['DATE_CREATE_DISPLAY_DATE']?> <?=Loc::getMessage('OL_COMPONENT_LIST_ITEM_ACTIVE_ACT_ON')?> <?=$line['CHANGE_DATE_DISPLAY']?>:
 							</span>
 							<span class="crm-webform-list-date">
-								<?
+								<?php 
 								if($line['CHANGE_BY_DISPLAY']['ICON'])
 								{
 									$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($line['CHANGE_BY_DISPLAY']['ICON']) .'\');';
@@ -140,7 +140,7 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 									</a>
 								</span>
 							</span>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 						<div class="crm-webform-list-active-info-now">
 							<span class="crm-webform-list-text">
@@ -148,7 +148,7 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 								<span class="crm-webform-list-activate-comments-deact"><?=Loc::getMessage('OL_COMPONENT_LIST_ITEM_ACTIVE_OFF_NOW')?>:</span>
 							</span>
 							<span class="crm-webform-list-date">
-								<?
+								<?php 
 								if($line['CHANGE_BY_NOW_DISPLAY']['ICON'])
 								{
 									$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($line['CHANGE_BY_NOW_DISPLAY']['ICON']) .'\');';
@@ -176,25 +176,25 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 						<span class="crm-webform-deal-text"><?=Loc::getMessage('OL_COMPONENT_LIST_COUNT_LEAD', array("#COUNT#" => $line['STATS_LEAD']))?></span>
 					</div>
 				</div>
-				<?if (!empty($line['ACTIVE_CONNECTORS'])):?>
+				<?php if (!empty($line['ACTIVE_CONNECTORS'])):?>
 				<div class="crm-webform-list-inner-block crm-webform-list-social-container">
 					<div class="crm-webform-list-social-inner">
 						<span class="crm-webform-list-social-text"><?=Loc::getMessage('OL_COMPONENT_LIST_CONNECTORS')?></span>
 						<span class="crm-webform-list-social-icon-container">
-							<?foreach ($line['ACTIVE_CONNECTORS'] as $id=>$name):?>
-								<<?
-								if($line['CAN_EDIT_CONNECTOR']):?>a<?else:?>span<?endif;
+							<?php foreach ($line['ACTIVE_CONNECTORS'] as $id=>$name):?>
+								<<?php 
+								if($line['CAN_EDIT_CONNECTOR']):?>a<?php else:?>span<?php endif;
 								if($line['CAN_EDIT_CONNECTOR']):?>
 									onclick="BX.SidePanel.Instance.open('<?=CUtil::JSEscape(str_replace(array('#ID#', '#LINE#'), array($id, $line['ID']), $arResult['PATH_TO_CONNECTOR']))?>', {width: 700})"
-								<?endif;
-								?> class="<?if($line['CAN_EDIT_CONNECTOR']):?>crm-webform-list-social-icon-cursor<?endif;?> crm-webform-list-social-icon ui-icon ui-icon-service-<?=$arResult['ICON_MAP'][$id]?>" title="<?=$name?>"><i></i></<?
-								if($line['CAN_EDIT_CONNECTOR']):?>a<?else:?>span<?endif;
+								<?php endif;
+								?> class="<?php if($line['CAN_EDIT_CONNECTOR']):?>crm-webform-list-social-icon-cursor<?php endif;?> crm-webform-list-social-icon ui-icon ui-icon-service-<?=$arResult['ICON_MAP'][$id]?>" title="<?=$name?>"><i></i></<?php 
+								if($line['CAN_EDIT_CONNECTOR']):?>a<?php else:?>span<?php endif;
 								?>>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</span>
 					</div>
 				</div>
-				<?endif?>
+				<?php endif?>
 				<div class="crm-webform-list-inner-block crm-webform-list-stats-container">
 					<div class="crm-webform-list-stats-inner">
 						<span class="crm-webform-list-stats-text"><?=Loc::getMessage('OL_COMPONENT_LIST_STATS')?></span>
@@ -208,16 +208,16 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 						<span class="crm-webform-list-member-text"><?=Loc::getMessage('OL_COMPONENT_LIST_QUEUE_NEW')?> <?=count($line['QUEUE']); ?></span>
 					</div>
 				</div>
-				<?/*
+				<?php /*
 				<div class="crm-webform-list-member-container">
 					<div class="crm-webform-list-member-inner">
 						<span class="crm-webform-list-member-text"><?=Loc::getMessage('OL_COMPONENT_LIST_QUEUE_NEW')?></span>
 						<span class="crm-webform-list-member-roster-container">
 							<span class="crm-webform-list-member-roster">
-								<? $queueCount = count($line['QUEUE']); ?>
-								<?for($i=0; $i < $queueCount; $i++):?>
+								<?php  $queueCount = count($line['QUEUE']); ?>
+								<?php for($i=0; $i < $queueCount; $i++):?>
 								<span class="crm-webform-list-member-roster-user"></span>
-								<?endfor;?>
+								<?php endfor;?>
 							</span>
 						</span>
 					</div>
@@ -240,11 +240,11 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 			<div class="crm-webform-list-button-settings-container">
 				<a onclick="BX.SidePanel.Instance.open('<?=str_replace('#ID#', $line['ID'], $arResult['PATH_TO_EDIT'])?>', {width: 996})"
 				   class="webform-small-button webform-small-button-transparent crm-webform-list-button-settings">
-					<?if(!$line["CAN_EDIT"]):?>
+					<?php if(!$line["CAN_EDIT"]):?>
 						<?=Loc::getMessage('OL_COMPONENT_LIST_ACTIONS_VIEW')?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('OL_COMPONENT_LIST_ACTIONS_EDIT')?>
-					<?endif;?>
+					<?php endif;?>
 				</a>
 
 				<span data-bx-crm-webform-item-active-btn=""
@@ -252,16 +252,16 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 					  data-bx-text-off="<?=Loc::getMessage('OL_COMPONENT_LIST_ITEM_ACTIVE_BTN_OFF')?>"
 					  class="webform-small-button <?=($line['ACTIVE'] <> 'Y' ? 'webform-small-button-accept' : 'webform-small-button-transparent')?> crm-webform-list-button-settings"
 				>
-					<?if($line['ACTIVE'] == 'Y'):?>
+					<?php if($line['ACTIVE'] == 'Y'):?>
 						<?=Loc::getMessage('OL_COMPONENT_LIST_ITEM_ACTIVE_BTN_OFF')?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('OL_COMPONENT_LIST_ITEM_ACTIVE_BTN_ON')?>
-					<?endif;?>
+					<?php endif;?>
 				</span>
 			</div>
 		</div>
 	</div>
-<?endforeach;?>
+<?php endforeach;?>
 </div>
 </div>
 
@@ -290,7 +290,7 @@ if(\Bitrix\Main\Loader::includeModule("bitrix24"))
 		));
 	});
 </script>
-<?
+<?php 
 if ($arResult['PERM_CAN_EDIT'])
 {
 	$this->SetViewTarget("pagetitle", 10);
@@ -301,7 +301,7 @@ if ($arResult['PERM_CAN_EDIT'])
 			<?=Loc::getMessage('OL_COMPONENT_LIST_ADD_LINE')?>
 		</span>
 	</div>
-	<?
+	<?php 
 	$this->EndViewTarget();
 }
 ?>

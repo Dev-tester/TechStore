@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_BACK_TO_ADMIN"] = "Back to information block list";
 $MESS["IB_E_ACCESS_D"] = "Deny";
 $MESS["IB_E_ACCESS_R"] = "Read";

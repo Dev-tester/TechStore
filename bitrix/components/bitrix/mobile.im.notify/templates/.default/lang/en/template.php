@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NM_FOLD"] = "Collapse";
 $MESS["NM_UNFOLD"] = "Expand";
 $MESS["NM_MORE"] = "Details";

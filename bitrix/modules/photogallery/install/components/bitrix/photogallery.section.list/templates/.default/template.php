@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -31,22 +31,22 @@ div.photo-album-avatar{
 ul.photo-album-list div.photo-item-info-block-outside {
 	width: <?=($arParams["ALBUM_PHOTO_SIZE"] + 48)?>px;}
 </style>
-<?
+<?php 
 endif;
 ?>
 
-<?if (empty($arResult["SECTIONS"])):?>
+<?php if (empty($arResult["SECTIONS"])):?>
 <div class="photo-info-box photo-info-box-sections-list-empty">
 	<div class="photo-info-box-inner"><?=GetMessage("P_EMPTY_DATA")?></div>
 </div>
-<?
+<?php 
 return false;
 endif;?>
 
-<ul class="photo-items-list photo-album-list<?if($arParams['PHOTO_LIST_MODE'] == "Y"){echo " photo-album-list-first-photos";}?>">
-	<?foreach($arResult["SECTIONS"] as $res):?>
+<ul class="photo-items-list photo-album-list<?php if($arParams['PHOTO_LIST_MODE'] == "Y"){echo " photo-album-list-first-photos";}?>">
+	<?php foreach($arResult["SECTIONS"] as $res):?>
 	<li class="photo-album-item photo-album-<?=($res["ACTIVE"] != "Y" ? "nonactive" : "active")?> <?=(
-		!empty($res["PASSWORD"]) ? "photo-album-password" : "")?>" id="photo_album_info_<?=$res["ID"]?>" <?
+		!empty($res["PASSWORD"]) ? "photo-album-password" : "")?>" id="photo_album_info_<?=$res["ID"]?>" <?php 
 		if ($res["ACTIVE"] != "Y" || !empty($res["PASSWORD"]))
 		{
 			$sTitle = GetMessage("P_ALBUM_IS_NOT_ACTIVE");
@@ -54,12 +54,12 @@ endif;?>
 				$sTitle = GetMessage("P_ALBUM_IS_NOT_ACTIVE_AND_PASSWORDED");
 			elseif (!empty($res["PASSWORD"]))
 				$sTitle = GetMessage("P_ALBUM_IS_PASSWORDED");
-			?> title="<?=$sTitle?>" <?
+			?> title="<?=$sTitle?>" <?php 
 		}
 		?>>
 
-	<?if($arParams['PHOTO_LIST_MODE'] == "Y"):?>
-		<?if ($res["ACTIVE"] != "Y" || !empty($res["PASSWORD"]))
+	<?php if($arParams['PHOTO_LIST_MODE'] == "Y"):?>
+		<?php if ($res["ACTIVE"] != "Y" || !empty($res["PASSWORD"]))
 		{
 			$sTitle = GetMessage("P_ALBUM_IS_NOT_ACTIVE");
 			if ($res["ACTIVE"] != "Y" && !empty($res["PASSWORD"]))
@@ -71,26 +71,26 @@ endif;?>
 		<div>
 			<div class="album-top-section">
 				<a class="album-name" href="<?=$res["LINK"]?>" title="<?= $res["NAME"].$sTitle?>"><?= $res["NAME"]?></a>
-				<?if (!empty($res["PASSWORD"])):?>
+				<?php if (!empty($res["PASSWORD"])):?>
 					<span class="album-passworded">(<?= GetMessage("P_ALBUM_IS_PASSWORDED_SHORT")?>)</span>
-				<?endif;?>
-				<? if($res["DATE"]):?>
+				<?php endif;?>
+				<?php  if($res["DATE"]):?>
 				<span class="album-date"><?= $res["DATE"]?></span>
-				<?endif;?>
-				<? if($res["ELEMENTS_CNT"] > 0):?>
+				<?php endif;?>
+				<?php  if($res["ELEMENTS_CNT"] > 0):?>
 				<span class="album-photos">(<a class="more-photos" href="<?=$res["LINK"]?>" title="<?= GetMessage('P_OTHER_PHOTOS_TITLE')?>"><?= $res["ELEMENTS_CNT"]." ".GetMessage('P_SECT_PHOTOS')?></a>)</span>
-				<?endif;?>
+				<?php endif;?>
 			</div>
-			<?if ($arParams["PERMISSION"] >= "W"):?>
+			<?php if ($arParams["PERMISSION"] >= "W"):?>
 				<div class="album-list-action-cont">
 					<a rel="nofollow" href="<?=$res["EDIT_LINK"]?>" class="photo-control-edit photo-control-album-edit" title="<?=GetMessage("P_SECTION_EDIT_TITLE")?>"><?=GetMessage("P_SECTION_EDIT")?></a>
 					<a rel="nofollow" href="<?= $res["DROP_LINK"]."&".bitrix_sessid_get()?>" class="photo-control-drop photo-control-album-drop" onclick="if (confirm('<?=GetMessage('P_SECTION_DELETE_ASK')?>')) {DropAlbum(this.href, parseInt('<?=$res["ID"]?>'));} return BX.PreventDefault(arguments[0]);" title="<?= GetMessage("P_SECTION_DELETE_TITLE")?>"><span><?=GetMessage("P_SECTION_DELETE")?></span></a>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 
 			<div class="album-photos-section">
-				<? if($res["ELEMENTS_CNT"] > 0):?>
-<?$APPLICATION->IncludeComponent(
+				<?php  if($res["ELEMENTS_CNT"] > 0):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.list.ex",
 	"",
 	Array(
@@ -152,29 +152,29 @@ endif;?>
 	$component,
 	array("HIDE_ICONS" => "Y")
 );?>
-				<?else:?>
+				<?php else:?>
 					<span class="album-no-photos"><?= GetMessage('P_NO_PHOTOS')?></span>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 			<div class="album-separator-line"></div>
 		</div>
-	<?else:?>
+	<?php else:?>
 		<div class="photo-item-cover-block-outside">
 			<div class="photo-item-cover-block-container">
 				<div class="photo-item-cover-block-outer">
 					<div class="photo-item-cover-block-inner">
 						<div class="photo-item-cover-block-inside">
 							<div class="photo-item-cover photo-album-avatar <?=(empty($res["DETAIL_PICTURE"]["SRC"])? "photo-album-avatar-empty" : "")?>" id="photo_album_cover_<?=$res["ID"]?>" title="<?= htmlspecialcharsbx($res["~NAME"])?>"
-								<?if (!empty($res["DETAIL_PICTURE"]["SRC"])):?>
+								<?php if (!empty($res["DETAIL_PICTURE"]["SRC"])):?>
 									style="background-image:url('<?=$res["DETAIL_PICTURE"]["SRC"]?>');"
-								<?endif;?>
-								<?if ($arParams["PERMISSION"] >= "W"):?>
+								<?php endif;?>
+								<?php if ($arParams["PERMISSION"] >= "W"):?>
 									onmouseover="BX.addClass(this, 'photo-album-avatar-edit');"
-								<?else:?>
+								<?php else:?>
 									onclick="window.location='<?=CUtil::JSEscape(htmlspecialcharsbx($res["~LINK"]))?>';"
-								<?endif;?>
+								<?php endif;?>
 								>
-								<?if ($arParams["PERMISSION"] >= "W"):?>
+								<?php if ($arParams["PERMISSION"] >= "W"):?>
 								<div class="photo-album-menu" onmouseout="BX.removeClass(this.parentNode, 'photo-album-avatar-edit')" onclick="window.location='<?=CUtil::JSEscape(htmlspecialcharsbx($res["~LINK"]))?>';">
 									<div class="photo-album-menu-substrate"></div>
 										<div class="photo-album-menu-controls">
@@ -182,7 +182,7 @@ endif;?>
 										<a rel="nofollow" href="<?= $res["DROP_LINK"]."&".bitrix_sessid_get()?>" class="photo-control-drop photo-control-album-drop" onclick="if (confirm('<?=GetMessage('P_SECTION_DELETE_ASK')?>')) {DropAlbum(this.href, parseInt('<?=$res["ID"]?>'));} return BX.PreventDefault(arguments[0]);" title="<?= GetMessage("P_SECTION_DELETE_TITLE")?>"><span><?=GetMessage("P_SECTION_DELETE")?></span></a>
 									</div>
 								</div>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 						</div>
 					</div>
@@ -204,18 +204,18 @@ endif;?>
 				</div>
 			</div>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 	</li>
-<?endforeach;?>
+<?php endforeach;?>
 </ul>
 <div class="empty-clear"></div>
 
-<?
+<?php 
 if (!empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation photo-navigation-bottom">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>

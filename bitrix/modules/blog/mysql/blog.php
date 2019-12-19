@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/blog/general/blog.php");
 
 class CBlog extends CAllBlog

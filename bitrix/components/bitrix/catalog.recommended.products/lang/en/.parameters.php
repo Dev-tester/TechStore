@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_COMPONENT_NEED_REQUIRED_MODULES"] = "This component requires the e-Store, Information Blocks and Commercial Catalog modules.";
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_COMPONENT_DETAIL_URL"] = "Item details URL";
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_COMPONENT_PRICES"] = "Prices";

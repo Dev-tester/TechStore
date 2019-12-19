@@ -1,8 +1,8 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <div class="crm-recur-options-field-fn crm-recur-options-field-ok">
-	<?
+	<?php 
 	if (LANGUAGE_ID == 'ru')
 	{
 		echo $arResult['HINT'];

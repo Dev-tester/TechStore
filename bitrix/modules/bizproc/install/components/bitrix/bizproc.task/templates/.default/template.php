@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 \Bitrix\Main\UI\Extension::load("ui.viewer");
 \Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/bizproc/tools.js');
@@ -29,27 +29,27 @@ if (empty($arResult['DOCUMENT_ICON']))
 		BPAT_DELEGATE_CANCEL : '<?=GetMessageJS('BPAT_DELEGATE_CANCEL')?>'
 	});
 </script>
-<?if ($arParams['POPUP']):?>
+<?php if ($arParams['POPUP']):?>
 <div class="bp-popup-title"><?=htmlspecialcharsbx($arResult["WORKFLOW_TEMPLATE_NAME"])?></div>
 <div class="bp-popup">
-<?endif?>
-<div class="bp-task-page bp-lent <?if (empty($arResult["TASK"]['STARTED_BY_PHOTO_SRC'])):?>no-photo<?endif?>">
-	<?if (!empty($arResult["TASK"]['STARTED_BY_PHOTO_SRC'])):?>
+<?php endif?>
+<div class="bp-task-page bp-lent <?php if (empty($arResult["TASK"]['STARTED_BY_PHOTO_SRC'])):?>no-photo<?php endif?>">
+	<?php if (!empty($arResult["TASK"]['STARTED_BY_PHOTO_SRC'])):?>
 	<span class="bp-avatar" bx-tooltip-user-id="<?=(int)$arResult["TASK"]['STARTED_BY']?>" bx-tooltip-classname="intrantet-user-selector-tooltip">
 		<img src="<?=$arResult["TASK"]['STARTED_BY_PHOTO_SRC']?>" alt="">
 	</span>
-	<?endif?>
+	<?php endif?>
 	<span class="bp-title"><?=$arResult["TASK"]["NAME"]?></span>
-	<?if ($arResult["TASK"]["DOCUMENT_NAME"]):?>
+	<?php if ($arResult["TASK"]["DOCUMENT_NAME"]):?>
 	<span class="bp-title-desc">
 		<span class="bp-title-desc-icon">
 			<img src="<?=htmlspecialcharsbx($arResult['DOCUMENT_ICON'])?>" width="36" border="0" />
 		</span>
 		<span class=""><?=$arResult["TASK"]["DOCUMENT_NAME"]?></span>
 	</span>
-	<?endif?>
+	<?php endif?>
 	<div class="bp-short-process-inner">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:bizproc.workflow.faces",
 			"",
 			array(
@@ -76,7 +76,7 @@ if (empty($arResult['DOCUMENT_ICON']))
 		elseif ($arResult["TASK"]['IS_INLINE'] == 'Y'):?>
 			<div class="bp-btn-panel">
 				<div class="bp-btn-panel-inner">
-				<?
+				<?php 
 				if ($arParams['POPUP']):
 				foreach ($arResult['TaskControls']['BUTTONS'] as $control):
 					$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::No || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Cancel ? 'decline' : 'accept';
@@ -87,7 +87,7 @@ if (empty($arResult['DOCUMENT_ICON']))
 					?>
 					<a href="#" onclick="return BX.Bizproc.doInlineTask(<?=$props?>, function(){ if (!!BX.Bizproc.taskPopupInstance) BX.Bizproc.taskPopupInstance.close(); if (BX.Bizproc.taskPopupCallback) return BX.Bizproc.taskPopupCallback(); window.location.reload()}, this)"
 						class="bp-button bp-button bp-button-<?=$class?>"><span class="bp-button-icon"></span><span class="bp-button-text"><?=$control['TEXT']?></span></a>
-				<?
+				<?php 
 				endforeach;
 				else: ?>
 					<form method="post" action="<?=POST_FORM_ACTION_URI?>">
@@ -97,7 +97,7 @@ if (empty($arResult['DOCUMENT_ICON']))
 						<input type="hidden" name="TASK_ID" value="<?= (int)$arResult["TASK"]["ID"] ?>" />
 						<input type="hidden" name="workflow_id" value="<?= htmlspecialcharsbx($arResult["TASK"]["WORKFLOW_ID"]) ?>" />
 						<input type="hidden" name="back_url" value="<?= htmlspecialcharsbx($arResult['backUrl']) ?>" />
-						<?
+						<?php 
 						foreach ($arResult['TaskControls']['BUTTONS'] as $control):
 							$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::No || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Cancel ? 'decline' : 'accept';
 							$props = CUtil::PhpToJSObject(array(
@@ -111,23 +111,23 @@ if (empty($arResult['DOCUMENT_ICON']))
 									style="border: none">
 								<span class="bp-button-icon"></span><span class="bp-button-text"><?=$control['TEXT']?></span>
 							</button>
-							<?
+							<?php 
 						endforeach;
 						?>
 					</form>
-				<?endif;?>
+				<?php endif;?>
 				</div>
 			</div>
-		<?endif?>
+		<?php endif?>
 	</div>
 	<div class="bp-task-block">
-		<?
+		<?php 
 		if (!empty($arResult["ERROR_MESSAGE"])):
 			ShowError($arResult["ERROR_MESSAGE"]);
 		endif;
 		?>
 		<span class="bp-task-block-title"><?=GetMessage("BPATL_TASK_TITLE")?>: </span>
-		<?
+		<?php 
 		if (strlen($arResult["TASK"]["DESCRIPTION"]) > 0):
 			echo \CBPViewHelper::prepareTaskDescription($arResult["TASK"]["DESCRIPTION"]);
 		else:
@@ -137,19 +137,19 @@ if (empty($arResult['DOCUMENT_ICON']))
 
 		<br /><br />
 		<p>
-			<?if (!empty($arResult["TASK"]["URL"]["VIEW"])):?>
-			<a href="<?=$arResult["TASK"]["URL"]["VIEW"]?>" <?if ($arParams['POPUP']):?>target="_blank" <?endif?>><?=GetMessage("BPAT_GOTO_DOC")?></a>
-			<?endif;?>
+			<?php if (!empty($arResult["TASK"]["URL"]["VIEW"])):?>
+			<a href="<?=$arResult["TASK"]["URL"]["VIEW"]?>" <?php if ($arParams['POPUP']):?>target="_blank" <?php endif?>><?=GetMessage("BPAT_GOTO_DOC")?></a>
+			<?php endif;?>
 		</p>
-		<?
+		<?php 
 		if ($showDelegationButton && $arResult["TASK"]['IS_INLINE'] == 'Y'):?>
 			<a href="#" class="bp-button bp-button-transparent bp-button-first" onclick="return BX.Bizproc.showDelegationPopup(this, <?= (int)$arResult["TASK"]["ID"] ?>, <?= (int)$arParams["USER_ID"] ?>)"><span></span><?=GetMessage('BPAT_DELEGATE_LABEL')?></a>
-		<?
+		<?php 
 		endif;
 		if ($arResult["ShowMode"] != "Success" && $arResult["TASK"]['IS_INLINE'] != 'Y'):
 			?>
 			<form method="post" name="bp_task_<?=$cmpId?>" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data"
-			<?if ($arParams['POPUP']):?> onsubmit="return BX.Bizproc.postTaskForm(this, event)"<?endif?>>
+			<?php if ($arParams['POPUP']):?> onsubmit="return BX.Bizproc.postTaskForm(this, event)"<?php endif?>>
 				<?= bitrix_sessid_post() ?>
 				<input type="hidden" name="" value="" id="bp_task_<?=$cmpId?>_submiter">
 				<input type="hidden" name="action" value="doTask" />
@@ -161,8 +161,8 @@ if (empty($arResult['DOCUMENT_ICON']))
 					<?= $arResult["TaskForm"]?>
 				</table>
 				<div class="bizproc-item-buttons">
-					<?if (!empty($arResult['TaskControls']['BUTTONS'])):?>
-						<?
+					<?php if (!empty($arResult['TaskControls']['BUTTONS'])):?>
+						<?php 
 						foreach ($arResult['TaskControls']['BUTTONS'] as $control):
 							$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::No || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Cancel ? 'decline' : 'accept';
 							$props = CUtil::PhpToJSObject(array(
@@ -176,14 +176,14 @@ if (empty($arResult['DOCUMENT_ICON']))
 									style="border: none">
 								<?=$control['TEXT']?>
 							</button>
-						<?
+						<?php 
 						endforeach;
 						?>
-					<?else: echo $arResult["TaskFormButtons"]; endif;?>
+					<?php else: echo $arResult["TaskFormButtons"]; endif;?>
 
-					<?if ($showDelegationButton):?>
+					<?php if ($showDelegationButton):?>
 						<a href="#" class="bp-button bp-button-transparent" onclick="return BX.Bizproc.showDelegationPopup(this, <?= (int)$arResult["TASK"]["ID"] ?>, <?= (int)$arParams["USER_ID"] ?>)"><span></span><?=GetMessage('BPAT_DELEGATE_LABEL')?></a>
-					<?endif?>
+					<?php endif?>
 				</div>
 				<script>
 					BX.ready(function(){
@@ -204,11 +204,11 @@ if (empty($arResult['DOCUMENT_ICON']))
 					});
 				</script>
 			</form>
-		<?
+		<?php 
 		endif;
 		?>
 	</div>
-	<?if (!$arParams['POPUP']):?>
+	<?php if (!$arParams['POPUP']):?>
 	<div class="bp-tab-container">
 		<div id="bp-task-tabs-header" class="bp-tabs-block">
 			<span id="bp-task-tab-1" class="bp-tab bp-tab-active" onclick="return function(){
@@ -236,8 +236,8 @@ if (empty($arResult['DOCUMENT_ICON']))
 		<div id="bp-task-tabs-content" class="bp-tab-contents">
 			<div id="bp-task-tab-1-content" class="bp-tab-content active">
 
-	<?endif?>
-				<?
+	<?php endif?>
+				<?php 
 				if (!isset($arParams['IFRAME']) || $arParams['IFRAME'] == 'N'):
 					// A < E < I < M < Q < U < Y
 					// A - NO ACCESS, E - READ, I - ANSWER
@@ -281,13 +281,13 @@ if (empty($arResult['DOCUMENT_ICON']))
 							clearInterval(interval);
 					}, 300);">
 				</iframe>
-				<?
+				<?php 
 				endif;
 	if (!$arParams['POPUP']):?>
 			</div>
 
 			<div id="bp-task-tab-2-content" class="bp-tab-content">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:bizproc.log",
 					"",
@@ -304,5 +304,5 @@ if (empty($arResult['DOCUMENT_ICON']))
 			</div>
 		</div>
 	</div>
-	<?endif?>
+	<?php endif?>
 </div>

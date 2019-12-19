@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTDT_NO_TASKS'] = "No meeting rooms";
 $MESS ['INTASK_C31T_SEARCH'] = "Search";
 $MESS ['INTASK_C31T_ROOM'] = "Room";

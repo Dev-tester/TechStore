@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SWMWP_DTITLE"] = "Payment via WebMoney (Web) (Russian payment system)";

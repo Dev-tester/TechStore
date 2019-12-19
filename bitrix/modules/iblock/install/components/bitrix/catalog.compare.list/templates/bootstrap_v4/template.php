@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -24,7 +24,7 @@ if ($arParams['POSITION_FIXED'] == 'Y')
 
 $style = ($itemCount == 0 ? ' style="display: none;"' : '');
 
-?><div id="<?=$idCompareCount; ?>" class="<?=$mainClass; ?> "<?=$style;?>><?
+?><div id="<?=$idCompareCount; ?>" class="<?=$mainClass; ?> "<?=$style;?>><?php 
 unset($style, $mainClass);
 
 if ($needReload)
@@ -50,7 +50,7 @@ if ($itemCount > 0)
 					<th  scope="col" class="text-center" colspan="2"><strong><?=GetMessage("CATALOG_COMPARE_ELEMENTS")?></strong></th>
 				</tr>
 			</thead>
-			<tbody><?
+			<tbody><?php 
 				foreach($arResult as $arElement)
 				{
 					?><tr data-block="item-row" data-row-id="row<?=$arElement['PARENT_ID']; ?>">
@@ -60,12 +60,12 @@ if ($itemCount > 0)
 						<td class="text-right align-middle">
 							<a class="text-muted" href="javascript:void(0);" data-id="<?=$arElement['PARENT_ID']; ?>" rel="nofollow"><?=GetMessage("CATALOG_DELETE")?></a>
 						</td>
-					</tr><?
+					</tr><?php 
 				}
 				?>
 			</tbody>
 		</table>
-	</div><?
+	</div><?php 
 }
 $frame->end();
 if ($needReload)
@@ -108,6 +108,6 @@ $jsParams = array(
 );
 ?>
 	<script type="text/javascript">
-		var <?=$obCompare; ?> = new JCCatalogCompareList(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>)
+		var <?=$obCompare; ?> = new JCCatalogCompareList(<?php  echo CUtil::PhpToJSObject($jsParams, false, true); ?>)
 	</script>
 </div>

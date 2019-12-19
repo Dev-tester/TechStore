@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SENDER_RC_SEGMENT_SELECTOR_INCLUDE_EDIT_TITLE'] = "Выбор сегментов";
 $MESS ['SENDER_RC_COMP_LETTER_EDIT_TITLE_TEMPLATES'] = "Готовые сценарии продаж для бизнеса";
 $MESS ['SENDER_RC_COMP_LETTER_EDIT_TITLE_EDIT'] = "Редактирование задания";

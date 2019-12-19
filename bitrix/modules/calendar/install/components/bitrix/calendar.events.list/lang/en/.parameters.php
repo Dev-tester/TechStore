@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_TYPE"] = "Calendar type";
 $MESS["ECL_P_INIT_DATE"] = "Initialized on";
 $MESS["ECL_P_SHOW_CUR_DATE"] = "-Current Date-";

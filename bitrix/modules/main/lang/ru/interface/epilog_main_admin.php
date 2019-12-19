@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["epilog_support_link"] = "Техподдержка";
 $MESS["EPILOG_ADMIN_SM_1c_bitrix"] = "1С-Битрикс: Управление сайтом";
 $MESS["EPILOG_ADMIN_COPY_1c_bitrix"] = "&copy; Битрикс, 2016";

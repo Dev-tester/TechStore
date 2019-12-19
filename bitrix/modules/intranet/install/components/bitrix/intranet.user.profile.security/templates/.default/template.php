@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use Bitrix\Main\Localization\Loc;
 
 $APPLICATION->SetTitle("");
@@ -7,13 +7,13 @@ $APPLICATION->SetTitle("");
 \Bitrix\Main\UI\Extension::load('intranet.security');
 ?>
 
-<?if (\Bitrix\Main\Context::getCurrent()->getRequest()->get('IFRAME') !== 'Y'):?>
+<?php if (\Bitrix\Main\Context::getCurrent()->getRequest()->get('IFRAME') !== 'Y'):?>
 	<div class="intranet-user-profile-menu-sidebar">
-		<?$APPLICATION->ShowViewContent("left-panel");?>
+		<?php $APPLICATION->ShowViewContent("left-panel");?>
 	</div>
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 	"ITEMS" => $arResult["MENU_ITEMS"],
 	"TITLE" => Loc::getMessage("INTRANET_USER_PROFILE_SECURITY_MENU_TITLE")
@@ -22,7 +22,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 
 <div id="intranet-user-profile-security-content"
 	 class="intranet-user-profile-security-content
-	 <?if(\Bitrix\Main\Context::getCurrent()->getRequest()->get('IFRAME') !== 'Y'):
+	 <?php if(\Bitrix\Main\Context::getCurrent()->getRequest()->get('IFRAME') !== 'Y'):
 		 echo "intranet-user-profile-security-container";
 	 endif?>"
 >

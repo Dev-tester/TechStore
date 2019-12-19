@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_LOG_TITLE'] = "Живая лента";
 $MESS ['GD_LOG_MORE'] = "Живая лента";
 $MESS ['GD_LOG_USER'] = "пользователи";

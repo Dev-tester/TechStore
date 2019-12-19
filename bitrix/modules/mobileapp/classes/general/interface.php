@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAdminMobileMenu
 {
 	const DEFAULT_ITEM_SORT = 100;

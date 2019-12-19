@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_CONTACT_EDIT_SAVE_BTN"] = "Сохранить";
 $MESS["M_CRM_CONTACT_EDIT_CONTINUE_BTN"] = "Продолжить";
 $MESS["M_CRM_CONTACT_EDIT_CANCEL_BTN"] = "Отменить";

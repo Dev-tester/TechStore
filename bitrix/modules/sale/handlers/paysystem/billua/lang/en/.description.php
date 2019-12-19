@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILL_UA_DTITLE"] = "Invoice (Ukrainian)";
 $MESS["SALE_HPS_BILL_UA_DATE"] = "Order date";
 $MESS["SALE_HPS_BILL_UA_DATE_DESC"] = "The date the order was submitted";

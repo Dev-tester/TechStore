@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_FIELD_BLOCK_ID"] = "Block ID";
 $MESS["LANDING_TABLE_FIELD_FILTER_ID"] = "Filter ID";
 ?>

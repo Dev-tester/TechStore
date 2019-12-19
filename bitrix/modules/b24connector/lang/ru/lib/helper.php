@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['B24C_HLP_GM_TEXT'] = "Клиенты";
 $MESS['B24C_HLP_GM_TITLE'] = "Интеграция портала с Битрикс24";
 $MESS["B24C_HLP_INTEGRATION"] = "Коммуникации с клиентами";

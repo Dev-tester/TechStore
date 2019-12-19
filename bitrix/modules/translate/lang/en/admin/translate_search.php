@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TRANS_REPLACE'] = "Replace";
 $MESS['TRANS_REPLACE_TITLE'] = "Replace text in strings";
 $MESS['TRANS_SEARCH'] = "Search";

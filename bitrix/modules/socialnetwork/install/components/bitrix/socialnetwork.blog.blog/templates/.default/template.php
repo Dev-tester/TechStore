@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->AddHeadScript("/bitrix/components/bitrix/socialnetwork.log.ex/templates/.default/script.js");
 
 ?><script>
@@ -6,25 +6,25 @@ $APPLICATION->AddHeadScript("/bitrix/components/bitrix/socialnetwork.log.ex/temp
 		sonetLESetPath: '<?=CUtil::JSEscape('/bitrix/components/bitrix/socialnetwork.log.entry/ajax.php')?>'
 	});
 </script>
-<div id="blog-posts-content"><?
+<div id="blog-posts-content"><?php 
 if(!empty($arResult["OK_MESSAGE"]))
 {
 	?>
 	<div class="blog-notes blog-note-box">
 		<div class="blog-note-text">
 			<ul>
-				<?
+				<?php 
 				foreach($arResult["OK_MESSAGE"] as $v)
 				{
 					?>
 					<li><?=$v?></li>
-					<?
+					<?php 
 				}
 				?>
 			</ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(!empty($arResult["MESSAGE"]))
 {
@@ -32,18 +32,18 @@ if(!empty($arResult["MESSAGE"]))
 	<div class="blog-textinfo blog-note-box">
 		<div class="blog-textinfo-text">
 			<ul>
-				<?
+				<?php 
 				foreach($arResult["MESSAGE"] as $v)
 				{
 					?>
 					<li><?=$v?></li>
-					<?
+					<?php 
 				}
 				?>
 			</ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(!empty($arResult["ERROR_MESSAGE"]))
 {
@@ -51,18 +51,18 @@ if(!empty($arResult["ERROR_MESSAGE"]))
 	<div class="blog-errors blog-note-box blog-note-error">
 		<div class="blog-error-text">
 			<ul>
-				<?
+				<?php 
 				foreach($arResult["ERROR_MESSAGE"] as $v)
 				{
 					?>
 					<li><?=$v?></li>
-					<?
+					<?php 
 				}
 				?>
 			</ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 
 if(count($arResult["POST"])>0)
@@ -70,7 +70,7 @@ if(count($arResult["POST"])>0)
 	foreach($arResult["POST"] as $ind => $CurPost)
 	{
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:socialnetwork.blog.post", 
 				"", 
@@ -120,7 +120,7 @@ if(count($arResult["POST"])>0)
 				$component 
 			);
 		?>
-		<?
+		<?php 
 	}
 	if(strlen($arResult["NAV_STRING"])>0)
 		echo $arResult["NAV_STRING"];

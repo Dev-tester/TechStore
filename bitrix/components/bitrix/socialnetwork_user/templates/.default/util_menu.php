@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (
 	SITE_TEMPLATE_ID != "bitrix24"
 	|| !$GLOBALS["USER"]->IsAuthorized() 
@@ -41,7 +41,7 @@ if (
 	);
 }
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.admin.set",
 	"",

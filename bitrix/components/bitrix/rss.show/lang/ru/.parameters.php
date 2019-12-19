@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["T_IBLOCK_DESC_RSS_OUT_CHANNEL"] = "Находятся ли новости вне канала (обычно нет)";
 $MESS["T_IBLOCK_DESC_RSS_NUM_NEWS"] = "Количество новостей для показа (0 - не ограничивать)";
 $MESS["CP_BRS_URL"] = "Адрес ленты rss";

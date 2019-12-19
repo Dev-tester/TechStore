@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_1C_CREATE"] = "Создать по необходимости";
 $MESS["CAT_1C_CURRENT"] = "Текущий";
 $MESS["CAT_1C_NONE"] = "ничего";

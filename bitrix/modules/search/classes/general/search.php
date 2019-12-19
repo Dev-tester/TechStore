@@ -1794,7 +1794,7 @@ class CAllSearch extends CDBResult
 				}
 				continue;
 			}
-			elseif ($a[$i] === '<?' && !$bPHP) //start of php
+			elseif ($a[$i] === '<?php ' && !$bPHP) //start of php
 			{
 				$bPHP = true;
 				$i++;

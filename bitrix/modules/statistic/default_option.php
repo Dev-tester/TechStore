@@ -1,4 +1,4 @@
-<?
+<?php 
 $statistic_default_option = array(
 	"SAVE_VISITS"					=> "Y",
 	"SAVE_REFERERS"					=> "Y",

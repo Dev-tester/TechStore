@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CHECK_DATES_TIP"] = "Specifies to search only the active (unexpired) documents.";
 $MESS["arrWHERE_TIP"] = "Select items that will be included in the \"Search area\" list.";
 $MESS["arrFILTER_TIP"] = "Allows to narrow the search area. For example, you can specify to search only static files.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBEL_A_BP_H"] = "Business Processes";
 $MESS["IBEL_A_BP_PROC"] = "Process";
 $MESS["IBEL_A_BP_TASK"] = "Task";

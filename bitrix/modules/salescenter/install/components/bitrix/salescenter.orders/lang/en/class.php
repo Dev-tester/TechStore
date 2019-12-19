@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_MODULE_ERROR"] = "The \"Sales Center\" module is not installed.";
 $MESS["SALESCENTER_ORDERS_ADD_ORDER"] = "New order";
 $MESS["SALESCENTER_ORDERS_LIMITS_MESSAGE"] = "Please upgrade to one of the commercial plans to continue handling orders and receive payments via the Sales Center.";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (CModule::IncludeModule("socialnetwork"))
 {
@@ -22,9 +22,9 @@ while ($arSubjectTmp = $dbSubjects->GetNext())
 <div class="filter-box filter-people">
 	<form method="get" action="#SITE_DIR#groups/" class="bx-selector-form filter-form">
 		<input type="hidden" name="page" value="group_search">
-		<?if ($_REQUEST["how"] == "d"):?>
+		<?php if ($_REQUEST["how"] == "d"):?>
 			<input type="hidden" name="how" value="d">
-		<?endif;?>
+		<?php endif;?>
 		<div class="filter-item filter-name">
 			<label for="filter-name"><span class="required-field">*</span>Search:</label>
 			<input type="text" id="filter-name" name="q" class="filter-textbox" value="<?= htmlspecialcharsbx(trim($_REQUEST["q"])) ?>"/>
@@ -33,9 +33,9 @@ while ($arSubjectTmp = $dbSubjects->GetNext())
 			<label for="filter-subject">Subject:</label>
 			<select name="subject" id="filter-subject" class="filter-select">
 				<option value="">Any</option>
-				<?foreach ($arSubjects as $k => $v):?>
+				<?php foreach ($arSubjects as $k => $v):?>
 					<option value="<?= $k ?>"<?= ($k == $_REQUEST["subject"]) ? " selected" : "" ?>><?= $v ?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</div>
 		<div class="filter-button">
@@ -47,6 +47,6 @@ while ($arSubjectTmp = $dbSubjects->GetNext())
 	</div>
 	<div class="corner left-bottom"></div><div class="corner right-bottom"></div>
 </div>
-<?
+<?php 
 }
 ?>

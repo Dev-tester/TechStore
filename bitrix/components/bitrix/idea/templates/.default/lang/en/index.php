@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_INDEX_PAGE_TITLE"] = "All Ideas";
 $MESS["IDEA_CATEGORY_PAGE_TITLE"] = "Ideas for";
 $MESS["IDEA_USER_IDEA_LIST_MINE"] = "My ideas";

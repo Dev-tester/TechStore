@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 
@@ -36,50 +36,50 @@ $arGadgetParams["PATH_TO_LIB"] = (
 ?>
 
 <ul>
-<?if($arGadgetParams["SHOW_GENERAL"]!="N"):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_GENERAL"], $p)?>"><?echo GetMessage("GD_PROFILE_GENERAL")?></a>
+<?php if($arGadgetParams["SHOW_GENERAL"]!="N"):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_GENERAL"], $p)?>"><?php echo GetMessage("GD_PROFILE_GENERAL")?></a>
 <ul>
-	<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_PROFILE_EDIT"], $p)?>"><?echo GetMessage("GD_PROFILE_CH_PROFILE")?></a>
-	<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_LOG"], $p)?>"><?echo GetMessage("GD_PROFILE_LOG")?></a><?
+	<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_PROFILE_EDIT"], $p)?>"><?php echo GetMessage("GD_PROFILE_CH_PROFILE")?></a>
+	<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_LOG"], $p)?>"><?php echo GetMessage("GD_PROFILE_LOG")?></a><?php 
 	if (!IsModuleInstalled("im"))
 	{
-		?><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_MSG"], $p)?>"><?echo GetMessage("GD_PROFILE_MSG")?></a><?
+		?><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_MSG"], $p)?>"><?php echo GetMessage("GD_PROFILE_MSG")?></a><?php 
 	}
 ?></ul>
-<?endif;?>
-<?if($arGadgetParams["SHOW_GROUPS"]!="N"):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_GROUPS"], $p)?>"><?echo GetMessage("GD_PROFILE_GROUPS")?></a>
-	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_GROUP_NEW"], $p)?>"><?echo GetMessage("GD_PROFILE_GROUP_NEW")?></a></ul>
-<?endif?>
+<?php endif;?>
+<?php if($arGadgetParams["SHOW_GROUPS"]!="N"):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_GROUPS"], $p)?>"><?php echo GetMessage("GD_PROFILE_GROUPS")?></a>
+	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_GROUP_NEW"], $p)?>"><?php echo GetMessage("GD_PROFILE_GROUP_NEW")?></a></ul>
+<?php endif?>
 
 
-<?if($arGadgetParams["SHOW_BLOG"]!="N" && is_set($arResult, "blog")):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_BLOG"], $p)?>"><?echo GetMessage("GD_PROFILE_BLOG")?></a>
-	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_BLOG_NEW"], $p)?>"><?echo GetMessage("GD_PROFILE_BLOG_NEW")?></a></ul>
-<?endif;?>
+<?php if($arGadgetParams["SHOW_BLOG"]!="N" && is_set($arResult, "blog")):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_BLOG"], $p)?>"><?php echo GetMessage("GD_PROFILE_BLOG")?></a>
+	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_BLOG_NEW"], $p)?>"><?php echo GetMessage("GD_PROFILE_BLOG_NEW")?></a></ul>
+<?php endif;?>
 
 
-<?if($arGadgetParams["SHOW_CAL"]!="N" && is_set($arResult, "calendar")):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_CAL"], $p)?>"><?echo GetMessage("GD_PROFILE_CAL")?></a>
-<?endif;?>
+<?php if($arGadgetParams["SHOW_CAL"]!="N" && is_set($arResult, "calendar")):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_CAL"], $p)?>"><?php echo GetMessage("GD_PROFILE_CAL")?></a>
+<?php endif;?>
 
-<?if($arGadgetParams["SHOW_TASK"]!="N" && is_set($arResult, "tasks")):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK"], $p)?>"><?echo GetMessage("GD_PROFILE_TASKS")?></a>
-	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK_NEW"], $p)?>"><?echo GetMessage("GD_PROFILE_TASK_NEW")?></a></ul>
-<?endif;?>
+<?php if($arGadgetParams["SHOW_TASK"]!="N" && is_set($arResult, "tasks")):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK"], $p)?>"><?php echo GetMessage("GD_PROFILE_TASKS")?></a>
+	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK_NEW"], $p)?>"><?php echo GetMessage("GD_PROFILE_TASK_NEW")?></a></ul>
+<?php endif;?>
 
-<?if($arGadgetParams["SHOW_LIB"]!="N" && is_set($arResult, "files")):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_LIB"], $p)?>"><?echo GetMessage("GD_PROFILE_LIB")?></a>
-<?endif;?>
+<?php if($arGadgetParams["SHOW_LIB"]!="N" && is_set($arResult, "files")):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_LIB"], $p)?>"><?php echo GetMessage("GD_PROFILE_LIB")?></a>
+<?php endif;?>
 
-<?if($arGadgetParams["SHOW_PHOTO"]!="N" && is_set($arResult, "photo")):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_PHOTO"], $p)?>"><?echo GetMessage("GD_PROFILE_PHOTO")?></a>
-	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_PHOTO_NEW"], $p)?>"><?echo GetMessage("GD_PROFILE_PHOTO_NEW")?></a></ul>
-<?endif;?>
+<?php if($arGadgetParams["SHOW_PHOTO"]!="N" && is_set($arResult, "photo")):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_PHOTO"], $p)?>"><?php echo GetMessage("GD_PROFILE_PHOTO")?></a>
+	<ul><li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_PHOTO_NEW"], $p)?>"><?php echo GetMessage("GD_PROFILE_PHOTO_NEW")?></a></ul>
+<?php endif;?>
 
 
-<?if($arGadgetParams["SHOW_FORUM"]!="N" && is_set($arResult, "forum")):?>
-<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_FORUM"], $p)?>"><?echo GetMessage("GD_PROFILE_FORUM")?></a>
-<?endif;?>
+<?php if($arGadgetParams["SHOW_FORUM"]!="N" && is_set($arResult, "forum")):?>
+<li><a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_FORUM"], $p)?>"><?php echo GetMessage("GD_PROFILE_FORUM")?></a>
+<?php endif;?>
 
 </ul>

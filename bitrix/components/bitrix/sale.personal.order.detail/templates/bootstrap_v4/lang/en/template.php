@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOPD_TPL_RESTRICTED_PAID_MESSAGE"] = "<b>Notice:</b> the order can be paid after it has been verified by a sales representative";
 $MESS["SPOD_ACCOUNT"] = "Account";
 $MESS["SPOD_ACCOUNT_DATA"] = "Your account information";

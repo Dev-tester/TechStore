@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\B24Connector;
 
 use Bitrix\Main\Localization\Loc;

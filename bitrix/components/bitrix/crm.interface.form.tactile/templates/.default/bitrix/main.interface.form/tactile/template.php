@@ -115,11 +115,11 @@ $isVisible = $mode !== 'VIEW' || !isset($arResult['OPTIONS']['show_in_view_mode'
 <div id="<?=$containerID?>" class="bx-interface-form bx-crm-edit-form"<?=!$isVisible ? ' style="display:none;"' : ''?>>
 <script type="text/javascript">
 	var bxForm_<?=$arParams['FORM_ID']?> = null;
-</script><?
+</script><?php 
 if($arParams['SHOW_FORM_TAG']):
 ?><form name="form_<?=$arParams['FORM_ID']?>" id="form_<?=$arParams["FORM_ID"]?>" action="<?=POST_FORM_ACTION_URI?>" method="POST" enctype="multipart/form-data">
 	<?=bitrix_sessid_post();?>
-	<input type="hidden" id="<?=$arParams["FORM_ID"]?>_active_tab" name="<?=$arParams["FORM_ID"]?>_active_tab" value="<?=htmlspecialcharsbx($arResult["SELECTED_TAB"])?>"><?
+	<input type="hidden" id="<?=$arParams["FORM_ID"]?>_active_tab" name="<?=$arParams["FORM_ID"]?>_active_tab" value="<?=htmlspecialcharsbx($arResult["SELECTED_TAB"])?>"><?php 
 endif;
 
 $canCreateUserField = (
@@ -137,7 +137,7 @@ if (isset($arParams['IS_MODAL']) && $arParams['IS_MODAL'] === 'Y')
 	<span id="<?=$arParams['FORM_ID']?>_menu" class="crm-toolbar-btn crm-title-btn">
 			<span class="crm-toolbar-btn-icon"></span>
 		</span>
-	</div><?
+	</div><?php 
 }
 else
 {
@@ -148,13 +148,13 @@ else
 		<span id="<?=$arParams['FORM_ID']?>_menu" class="crm-toolbar-btn crm-title-btn">
 			<span class="crm-toolbar-btn-icon"></span>
 		</span>
-	</div><?
+	</div><?php 
 	endif;
 }
 
 $prefix = isset($arParams['~PREFIX']) ? strtolower($arParams['~PREFIX']) : '';
 $sectionWrapperID = $formIDLower.'_section_wrapper';
-?><div id="<?=$sectionWrapperID?>" class="crm-offer-main-wrap"><?
+?><div id="<?=$sectionWrapperID?>" class="crm-offer-main-wrap"><?php 
 $sipManagerRequired = false;
 $enableFieldDrag = !isset($settings['ENABLE_FIELD_DRAG']) || $settings['ENABLE_FIELD_DRAG'] === 'Y';
 $enableSectionDrag = $canEditSection;
@@ -168,11 +168,11 @@ foreach($arSections as &$arSection):
 	if($prefix !== "")
 		$sectionNodePrefix = "{$prefix}_{$sectionNodePrefix}";
 
-	?><table id="<?=$sectionNodePrefix?>_contents" class="crm-offer-info-table<?=$mode === 'VIEW' ? ' crm-offer-main-info-text' : ''?>"><tbody><?
+	?><table id="<?=$sectionNodePrefix?>_contents" class="crm-offer-info-table<?=$mode === 'VIEW' ? ' crm-offer-main-info-text' : ''?>"><tbody><?php 
 	$associatedField = isset($arSection['SECTION_FIELD']['associatedField']) && is_array($arSection['SECTION_FIELD']['associatedField'])
 		? $arSection['SECTION_FIELD']['associatedField'] : null;
 
-	?><tr id="<?=$arSection['SECTION_ID']?>"><?
+	?><tr id="<?=$arSection['SECTION_ID']?>"><?php 
 		$sectionName = isset($arSection['SECTION_NAME'])
 			? htmlspecialcharsbx($arSection['SECTION_NAME']) : $arSection['SECTION_ID'];
 		if($associatedField !== null && isset($associatedField['value'])):
@@ -182,20 +182,20 @@ foreach($arSections as &$arSection):
 			<div class="crm-offer-title">
 				<span class="crm-offer-drg-btn"<?= ($enableSectionDrag ? '' : ' style="display: none;"')?>></span>
 				<span class="crm-offer-title-text"><?=$sectionName?></span>
-				<span class="crm-offer-title-set-wrap"><?
+				<span class="crm-offer-title-set-wrap"><?php 
 				if($mode === 'EDIT'):
-				?><span id="<?= $sectionNodePrefix ?>_edit" class="crm-offer-title-edit"<?= ($canEditSection ? '' : ' style="display: none;"') ?>></span><?
+				?><span id="<?= $sectionNodePrefix ?>_edit" class="crm-offer-title-edit"<?= ($canEditSection ? '' : ' style="display: none;"') ?>></span><?php 
 				endif;
-				?><span id="<?=$sectionNodePrefix?>_delete" class="crm-offer-title-del"<?= ($canEditSection ? '' : ' style="display: none;"') ?>></span><?
+				?><span id="<?=$sectionNodePrefix?>_delete" class="crm-offer-title-del"<?= ($canEditSection ? '' : ' style="display: none;"') ?>></span><?php 
 				?></span>
-			</div><?
+			</div><?php 
 			if($associatedField !== null):
 				$associatedFieldID = isset($associatedField['id']) ? htmlspecialcharsbx($associatedField['id']) : '';
 				$associatedFieldValue= isset($associatedField['value']) ? htmlspecialcharsbx($associatedField['value']) : '';
-				?><input type="hidden" id="<?=$associatedFieldID?>" name="<?=$associatedFieldID?>" value="<?=$associatedFieldValue?>" /><?
+				?><input type="hidden" id="<?=$associatedFieldID?>" name="<?=$associatedFieldID?>" value="<?=$associatedFieldValue?>" /><?php 
 			endif;
 		?></td>
-	</tr><?
+	</tr><?php 
 	$fieldCount = 0;
 	foreach($arSection['FIELDS'] as &$field):
 		$fieldNodePrefix = strtolower($field["id"]);
@@ -211,7 +211,7 @@ foreach($arSections as &$arSection):
 
 		$rowContainerID = "{$fieldNodePrefix}_wrap";
 		?><tr id="<?=$rowContainerID?>"<?=$visible ? '' : 'style="display:none;"'?> class="<?=$containerClassName?>" data-dragdrop-context="field" data-dragdrop-id="<?=$field["id"]?>"<?=$dragDropType !== '' ? ' data-dragdrop-type="'.$dragDropType.'"' : ''?>>
-			<td class="crm-offer-info-drg-btn" <?= ($enableFieldDrag ? '' : ' style="display: none;"') ?>><span class="crm-offer-drg-btn"></span></td><?
+			<td class="crm-offer-info-drg-btn" <?= ($enableFieldDrag ? '' : ' style="display: none;"') ?>><span class="crm-offer-drg-btn"></span></td><?php 
 		$required = isset($field['required']) && $field['required'] === true;
 		$persistent = isset($field['persistent']) && $field['persistent'] === true;
 
@@ -263,18 +263,18 @@ foreach($arSections as &$arSection):
 			?><td class="crm-offer-info-right" colspan="4">
 			<div class="crm-offer-editor-title">
 				<div class="crm-offer-editor-title-contents-wapper">
-					<?if($required):?><span class="required">*</span><?endif;?>
+					<?php if($required):?><span class="required">*</span><?php endif;?>
 					<span class="crm-offer-editor-title-contents"><?=htmlspecialcharsEx($field['name'])?></span>
 				</div>
 			</div>
 			<div class="crm-offer-editor-wrap crm-offer-info-data-wrap"><?=$val?></div>
-			<span class="crm-offer-edit-btn-wrap"><?
+			<span class="crm-offer-edit-btn-wrap"><?php 
 				if(!$required && !$persistent):
-				?><span class="crm-offer-item-del"></span><?
+				?><span class="crm-offer-item-del"></span><?php 
 				endif;
 				?><span class="crm-offer-item-edit"></span>
 			</span>
-			</td><!-- "crm-offer-info-right" --><?
+			</td><!-- "crm-offer-info-right" --><?php 
 		elseif ($field['type'] === 'recurring_params'):
 			?>
 			<td class="crm-offer-last-td" colspan="4">
@@ -292,7 +292,7 @@ foreach($arSections as &$arSection):
 					?>
 				</div>
 			</td>
-			<?
+			<?php 
 		elseif($field['type'] === 'lhe'):
 			$params = isset($field['componentParams']) ? $field['componentParams'] : array();
 			$params['id'] = strtolower("{$arParams['FORM_ID']}_{$field['id']}");
@@ -312,7 +312,7 @@ foreach($arSections as &$arSection):
 						}
 					});
 				});
-				</script><?
+				</script><?php 
 			}
 
 			CModule::IncludeModule('fileman');
@@ -320,18 +320,18 @@ foreach($arSections as &$arSection):
 			?><td class="crm-offer-info-right" colspan="4">
 				<div class="crm-offer-editor-title">
 					<div class="crm-offer-editor-title-contents-wapper">
-						<?if($required):?><span class="required">*</span><?endif;?>
+						<?php if($required):?><span class="required">*</span><?php endif;?>
 						<span class="crm-offer-editor-title-contents"><?=htmlspecialcharsEx($field['name'])?></span>
 					</div>
 				</div>
-				<div class="crm-offer-editor-wrap crm-offer-info-data-wrap"><?$lhe->Show($params);?></div>
-				<span class="crm-offer-edit-btn-wrap"><?
+				<div class="crm-offer-editor-wrap crm-offer-info-data-wrap"><?php $lhe->Show($params);?></div>
+				<span class="crm-offer-edit-btn-wrap"><?php 
 					if(!$required && !$persistent):
-					?><span class="crm-offer-item-del"></span><?
+					?><span class="crm-offer-item-del"></span><?php 
 					endif;
 					?><span class="crm-offer-item-edit"></span>
 				</span>
-			</td><!-- "crm-offer-info-right" --><?
+			</td><!-- "crm-offer-info-right" --><?php 
 		elseif($field['type'] === 'multiple_address'):
 			$params = isset($field['componentParams']) ? $field['componentParams'] : array();
 			$addressData = isset($params['DATA']) && is_array($params['DATA']) ? $params['DATA'] : array();
@@ -385,7 +385,7 @@ foreach($arSections as &$arSection):
 							<span class="crm-offer-requisite-option-arrow"></span>
 						</span>
 						<div class="crm-offer-requisite-form-wrap">
-							<div class="crm-multi-address"><?
+							<div class="crm-multi-address"><?php 
 							foreach($addressData as $addressTypeID => $addresFields):
 								if($fielNameTemplate === '')
 									$itemWrapperID = "{$field['id']}_wrapper";
@@ -410,7 +410,7 @@ foreach($arSections as &$arSection):
 													</span>
 												</div>
 											</td>
-										</tr><?
+										</tr><?php 
 										foreach($addressScheme as $addressSchemeItem):
 											$addresFieldName = $addressSchemeItem['name'];
 											$addresFieldType = $addressSchemeItem['type'];
@@ -454,7 +454,7 @@ foreach($arSections as &$arSection):
 															);
 														</script>
 													</td>
-												</tr><?
+												</tr><?php 
 											else:
 												?><tr>
 													<td class="crm-offer-info-left">
@@ -462,22 +462,22 @@ foreach($arSections as &$arSection):
 														<span class="crm-offer-info-label"><?=$addressLabels[$addresFieldName]?>:</span>
 													</td>
 													<td class="crm-offer-info-right">
-														<div class="crm-offer-info-data-wrap"><?
+														<div class="crm-offer-info-data-wrap"><?php 
 															if($addresFieldType === 'multilinetext'):?>
-																<textarea class="crm-offer-textarea" name="<?=htmlspecialcharsEx($addresFieldQualifiedName)?>"><?=htmlspecialcharsbx($addresFieldValue)?></textarea><?
+																<textarea class="crm-offer-textarea" name="<?=htmlspecialcharsEx($addresFieldQualifiedName)?>"><?=htmlspecialcharsbx($addresFieldValue)?></textarea><?php 
 															else:?>
 																<input class="crm-offer-item-inp" name="<?=htmlspecialcharsEx($addresFieldQualifiedName)?>" type="text" value="<?=htmlspecialcharsbx($addresFieldValue)?>" />
-															<?endif;
+															<?php endif;
 														?></div>
 													</td>
 												<td class="crm-offer-info-right-btn"></td>
 												<td class="crm-offer-last-td"></td>
-												</tr><?
+												</tr><?php 
 											endif;
 										endforeach;
 										?>
 									</tbody></table>
-								</div><?
+								</div><?php 
 							endforeach;
 							?></div>
 						</div>
@@ -519,7 +519,7 @@ foreach($arSections as &$arSection):
 					);
 				</script>
 			</td>
-			<?
+			<?php 
 		elseif($field['type'] === 'address'):
 			$params = isset($field['componentParams']) ? $field['componentParams'] : array();
 			$addressData = isset($params['DATA']) ? $params['DATA'] : array();
@@ -531,7 +531,7 @@ foreach($arSections as &$arSection):
 					</div>
 				</div>
 				<div class="crm-offer-info-data-wrap">
-					<table class="crm-offer-info-table"><tbody><?
+					<table class="crm-offer-info-table"><tbody><?php 
 					$addressLabels = Bitrix\Crm\EntityAddress::getLabels();
 					foreach($addressData as $itemKey => $item):
 						$itemValue = isset($item['VALUE']) ? $item['VALUE'] : '';
@@ -543,7 +543,7 @@ foreach($arSections as &$arSection):
 								<span class="crm-offer-info-label"><?=$addressLabels[$itemKey]?>:</span>
 							</td>
 							<td class="crm-offer-info-right">
-								<div class="crm-offer-info-data-wrap"><?
+								<div class="crm-offer-info-data-wrap"><?php 
 									if(is_array($itemLocality)):
 										$searchInputID = "{$arParams['FORM_ID']}_{$itemName}";
 										$dataInputID = "{$arParams['FORM_ID']}_{$itemLocality['NAME']}";
@@ -564,30 +564,30 @@ foreach($arSections as &$arSection):
 													);
 												}
 											);
-										</script><?
+										</script><?php 
 									else:
 										if(isset($item['IS_MULTILINE']) && $item['IS_MULTILINE']):
-											?><textarea class="crm-offer-textarea" name="<?=htmlspecialcharsEx($itemName)?>"><?=htmlspecialcharsbx($itemValue)?></textarea><?
+											?><textarea class="crm-offer-textarea" name="<?=htmlspecialcharsEx($itemName)?>"><?=htmlspecialcharsbx($itemValue)?></textarea><?php 
 										else:
-											?><input class="crm-offer-item-inp" name="<?=htmlspecialcharsEx($itemName)?>" type="text" value="<?=htmlspecialcharsbx($itemValue)?>" /><?
+											?><input class="crm-offer-item-inp" name="<?=htmlspecialcharsEx($itemName)?>" type="text" value="<?=htmlspecialcharsbx($itemValue)?>" /><?php 
 										endif;
 									endif;
 								?></div>
 							</td>
-						</tr><?
+						</tr><?php 
 					endforeach;
 				?></tbody></table>
 				</div>
 			</td><!-- "crm-offer-info-left" -->
-			<td class="crm-offer-info-right-btn"><?
+			<td class="crm-offer-info-right-btn"><?php 
 				if(!$required && !$persistent):
-					?><span class="crm-offer-item-del"></span><?
+					?><span class="crm-offer-item-del"></span><?php 
 				endif;
 				if($mode === 'EDIT'):
-					?><span class="crm-offer-item-edit"></span><?
+					?><span class="crm-offer-item-edit"></span><?php 
 				endif;
 			?></td>
-			<td class="crm-offer-last-td"></td><?
+			<td class="crm-offer-last-td"></td><?php 
 		elseif($field['type'] === 'bank_details'):
 			$params = isset($field['componentParams']) ? $field['componentParams'] : array();
 			$containerId = isset($params['CONTAINER_ID']) ? $params['CONTAINER_ID'] : '';
@@ -621,15 +621,15 @@ foreach($arSections as &$arSection):
 				});
 			</script>
 			</td>
-			<?
+			<?php 
 		else:
 			?><td class="crm-offer-info-left">
 				<div class="crm-offer-info-label-wrap"><span class="crm-offer-info-label-alignment"></span><span class="crm-offer-info-label">
-					<?if($required):?><span class="required">*</span><?endif;?>
-					<?if(!in_array($field['type'], array('checkbox', 'vertical_checkbox'))):?><?=htmlspecialcharsEx($field['name'])?>:<?endif;?>
+					<?php if($required):?><span class="required">*</span><?php endif;?>
+					<?php if(!in_array($field['type'], array('checkbox', 'vertical_checkbox'))):?><?=htmlspecialcharsEx($field['name'])?>:<?php endif;?>
 				</span></div>
-			</td><?
-			?><td class="crm-offer-info-right"><div class="crm-offer-info-data-wrap"><?
+			</td><?php 
+			?><td class="crm-offer-info-right"><div class="crm-offer-info-data-wrap"><?php 
 			$advancedInfoHTML = '';
 			switch($field['type']):
 					case 'label':
@@ -641,15 +641,15 @@ foreach($arSections as &$arSection):
 							$wrap = isset($field['wrap']) && $field['wrap'] === true;
 							if($isUserField):
 								?>
-								<div class="bx-crm-edit-user-field"><?
+								<div class="bx-crm-edit-user-field"><?php 
 								elseif($wrap):
 								?>
-								<div class="bx-crm-edit-field"><?
+								<div class="bx-crm-edit-field"><?php 
 									endif;
 
 									echo $val;
 									if($isUserField || $wrap):
-									?></div><?
+									?></div><?php 
 							endif;
 						}
 						break;
@@ -658,25 +658,25 @@ foreach($arSections as &$arSection):
 						$chkBxId = strtolower($field['id']).'_chbx';
 						?><input type="hidden" name="<?=$field['id']?>" value="N">
 						<input class="crm-offer-checkbox" type="checkbox" id="<?=$chkBxId?>" name="<?=$field['id']?>" value="Y"<?=($val == 'Y'? ' checked':'')?><?=$params?>/>
-						<label class="crm-offer-label" for="<?=$chkBxId?>"><?=htmlspecialcharsEx($field['name'])?></label><?
+						<label class="crm-offer-label" for="<?=$chkBxId?>"><?=htmlspecialcharsEx($field['name'])?></label><?php 
 						break;
 					case 'textarea':
-						?><textarea class="crm-offer-textarea" name="<?=$field["id"]?>"<?=$params?>><?=$valEncoded?></textarea><?
+						?><textarea class="crm-offer-textarea" name="<?=$field["id"]?>"<?=$params?>><?=$valEncoded?></textarea><?php 
 						break;
 					case 'list':
-						?><select class="crm-item-table-select" name="<?=$field["id"]?>"<?=$params?>><?
+						?><select class="crm-item-table-select" name="<?=$field["id"]?>"<?=$params?>><?php 
 							if(is_array($field["items"])):
 								if(!is_array($val))
 									$val = array($val);
 								$val = array_map("strval", $val);
 								foreach($field["items"] as $k=>$v):
-									?><option value="<?=htmlspecialcharsbx($k)?>"<?=(in_array(strval($k), $val, true) ? ' selected':'')?>><?=htmlspecialcharsEx($v)?></option><?
+									?><option value="<?=htmlspecialcharsbx($k)?>"<?=(in_array(strval($k), $val, true) ? ' selected':'')?>><?=htmlspecialcharsEx($v)?></option><?php 
 								endforeach;
 							endif;
-							?></select><?
+							?></select><?php 
 						break;
 					case 'file':
-						?><div class="bx-crm-edit-file-field"><?
+						?><div class="bx-crm-edit-file-field"><?php 
 							$arDefParams = array("iMaxW"=>150, "iMaxH"=>150, "sParams"=>"border=0", "strImageUrl"=>"", "bPopup"=>true, "sPopupTitle"=>false, "size"=>20);
 							foreach($arDefParams as $k=>$v)
 								if(!array_key_exists($k, $field["params"]))
@@ -685,28 +685,28 @@ foreach($arSections as &$arSection):
 							echo CFile::InputFile($field["id"], $field["params"]["size"], $val);
 							if($val <> '')
 								echo '<br>'.CFile::ShowImage($val, $field["params"]["iMaxW"], $field["params"]["iMaxH"], $field["params"]["sParams"], $field["params"]["strImageUrl"], $field["params"]["bPopup"], $field["params"]["sPopupTitle"]);
-							?></div><?
+							?></div><?php 
 						break;
 					case 'date':
 						$fieldId = $field['id'];
 						?><input id="<?=$fieldId?>" name="<?=$fieldId?>" class="crm-offer-item-inp crm-item-table-date" type="text" value="<?=$valEncoded?>" />
 						<script type="text/javascript">
 							BX.ready(function(){ BX.CrmDateLinkField.create(BX('<?=CUtil::JSEscape($fieldId)?>'), null, { showTime: true, setFocusOnShow: false }); });
-						</script><?
+						</script><?php 
 						break;
 					case 'date_short':
 						$fieldId = $field['id'];
 						?><input id="<?=$fieldId?>" name="<?=$fieldId?>" class="crm-offer-item-inp crm-item-table-date" type="text" value="<?=$valEncoded?>" />
 						<script type="text/javascript">
 							BX.ready(function(){ BX.CrmDateLinkField.create(BX('<?=CUtil::JSEscape($fieldId)?>'), null, { showTime: false, setFocusOnShow: false }); });
-						</script><?
+						</script><?php 
 						break;
 					case 'date_link':
 						$dataID = "{$arParams['FORM_ID']}_{$field['id']}_DATA";
 						$viewID = "{$arParams['FORM_ID']}_{$field['id']}_VIEW";
 						?><span id="<?=htmlspecialcharsbx($viewID)?>" class="bx-crm-edit-datetime-link"><?=htmlspecialcharsEx($val !== '' ? $val : GetMessage('interface_form_set_datetime'))?></span>
 						<input id="<?=htmlspecialcharsbx($dataID)?>" type="hidden" name="<?=htmlspecialcharsbx($field['id'])?>" value="<?=$valEncoded?>" <?=$params?>>
-						<script type="text/javascript">BX.ready(function(){ BX.CrmDateLinkField.create(BX('<?=CUtil::addslashes($dataID)?>'), BX('<?=CUtil::addslashes($viewID)?>'), { showTime: false }); });</script><?
+						<script type="text/javascript">BX.ready(function(){ BX.CrmDateLinkField.create(BX('<?=CUtil::addslashes($dataID)?>'), BX('<?=CUtil::addslashes($viewID)?>'), { showTime: false }); });</script><?php 
 						break;
 					case 'intranet_user_search':
 						$params = isset($field['componentParams']) ? $field['componentParams'] : array();
@@ -716,7 +716,7 @@ foreach($arSections as &$arSection):
 								$params['USER'] = $arUser;
 							endif;
 							?><input type="text" class="crm-offer-item-inp" name="<?=htmlspecialcharsbx($params['SEARCH_INPUT_NAME'])?>">
-						<input type="hidden" name="<?=htmlspecialcharsbx($params['INPUT_NAME'])?>" value="<?=$valEncoded?>"><?
+						<input type="hidden" name="<?=htmlspecialcharsbx($params['INPUT_NAME'])?>" value="<?=$valEncoded?>"><?php 
 							$arUserSearchFields[] = $params;
 							$APPLICATION->IncludeComponent(
 								'bitrix:intranet.user.selector.new',
@@ -775,9 +775,9 @@ foreach($arSections as &$arSection):
 							$advancedInfoHTML = '<div id="'.htmlspecialcharsbx($containerID.'_descr').'" class="crm-offer-info-description"></div>';
 							?><div id="<?=htmlspecialcharsbx($containerID)?>" class="bx-crm-edit-crm-entity-field">
 							<div class="bx-crm-entity-info-wrapper"></div>
-							<input type="hidden" id="<?=htmlspecialcharsbx($dataInputID)?>" name="<?=htmlspecialcharsbx($dataInputName)?>" value="<?=$entityID?>" /><?
+							<input type="hidden" id="<?=htmlspecialcharsbx($dataInputID)?>" name="<?=htmlspecialcharsbx($dataInputName)?>" value="<?=$entityID?>" /><?php 
 							if($newDataInputName !== ''):
-							?><input type="hidden" id="<?=htmlspecialcharsbx($newDataInputID)?>" name="<?=htmlspecialcharsbx($newDataInputName)?>" value="<?=$newEntityID?>" /><?
+							?><input type="hidden" id="<?=htmlspecialcharsbx($newDataInputID)?>" name="<?=htmlspecialcharsbx($newDataInputName)?>" value="<?=$newEntityID?>" /><?php 
 							endif;
 							if ($requireRequisiteData)
 							{
@@ -795,7 +795,7 @@ foreach($arSections as &$arSection):
 										$rqLinkedInputName = $field['id'].$postfix;
 								}
 								$rqLinkedInputId = "{$arParams['FORM_ID']}_DATA_INPUT_{$rqLinkedInputName}";
-								?><input type="hidden" id="<?= htmlspecialcharsbx($rqLinkedInputId) ?>" name="<?= htmlspecialcharsbx($rqLinkedInputName) ?>" value="<?= $rqLinkedId ?>" /><?
+								?><input type="hidden" id="<?= htmlspecialcharsbx($rqLinkedInputId) ?>" name="<?= htmlspecialcharsbx($rqLinkedInputName) ?>" value="<?= $rqLinkedId ?>" /><?php 
 								
 								$bdLinkedInputName = '';
 								if (isset($params['BANK_DETAIL_INPUT_NAME']))
@@ -811,15 +811,15 @@ foreach($arSections as &$arSection):
 										$bdLinkedInputName = $field['id'].$postfix;
 								}
 								$bdLinkedInputId = "{$arParams['FORM_ID']}_DATA_INPUT_{$bdLinkedInputName}";
-								?><input type="hidden" id="<?= htmlspecialcharsbx($bdLinkedInputId) ?>" name="<?= htmlspecialcharsbx($bdLinkedInputName) ?>" value="<?= $bdLinkedId ?>" /><?
+								?><input type="hidden" id="<?= htmlspecialcharsbx($bdLinkedInputId) ?>" name="<?= htmlspecialcharsbx($bdLinkedInputName) ?>" value="<?= $bdLinkedId ?>" /><?php 
 							}
 							?><div class="bx-crm-entity-buttons-wrapper">
-							<span id="<?=htmlspecialcharsbx($changeButtonID)?>" class="bx-crm-edit-crm-entity-change"><?= htmlspecialcharsbx(GetMessage('intarface_form_select'))?></span><?
+							<span id="<?=htmlspecialcharsbx($changeButtonID)?>" class="bx-crm-edit-crm-entity-change"><?= htmlspecialcharsbx(GetMessage('intarface_form_select'))?></span><?php 
 							if($newDataInputName !== ''):
-							?> <span class="bx-crm-edit-crm-entity-add"><?=htmlspecialcharsEx(GetMessage('interface_form_add_new_entity'))?></span><?
+							?> <span class="bx-crm-edit-crm-entity-add"><?=htmlspecialcharsEx(GetMessage('interface_form_add_new_entity'))?></span><?php 
 							endif;
 						?></div>
-						</div><?
+						</div><?php 
 							$serviceUrl = '';
 							$createUrl = '';
 							$actionName = '';
@@ -943,7 +943,7 @@ foreach($arSections as &$arSection):
 										);
 									}
 							);
-						</script><?
+						</script><?php 
 						endif;
 						break;
 					case 'crm_client_selector':
@@ -1000,9 +1000,9 @@ foreach($arSections as &$arSection):
 							?><div id="<?=htmlspecialcharsbx($containerID)?>" class="bx-crm-edit-crm-entity-field">
 							<div class="bx-crm-entity-info-wrapper"></div>
 							<input type="hidden" id="<?=htmlspecialcharsbx($dataInputID)?>" name="<?=htmlspecialcharsbx($dataInputName)?>" value="<?=htmlspecialcharsbx($inputValue)?>" />
-							<? if($newDataInputName !== ''): ?>
+							<?php  if($newDataInputName !== ''): ?>
 								<input type="hidden" id="<?=htmlspecialcharsbx($newDataInputID)?>" name="<?=htmlspecialcharsbx($newDataInputName)?>" value="" />
-							<? endif;
+							<?php  endif;
 							if ($requireRequisiteData)
 							{
 								$rqLinkedInputName = '';
@@ -1019,7 +1019,7 @@ foreach($arSections as &$arSection):
 										$rqLinkedInputName = $field['id'].$postfix;
 								}
 								$rqLinkedInputId = "{$arParams['FORM_ID']}_DATA_INPUT_{$rqLinkedInputName}";
-								?><input type="hidden" id="<?= htmlspecialcharsbx($rqLinkedInputId) ?>" name="<?= htmlspecialcharsbx($rqLinkedInputName) ?>" value="<?= $rqLinkedId ?>" /><?
+								?><input type="hidden" id="<?= htmlspecialcharsbx($rqLinkedInputId) ?>" name="<?= htmlspecialcharsbx($rqLinkedInputName) ?>" value="<?= $rqLinkedId ?>" /><?php 
 								
 								$bdLinkedInputName = '';
 								if (isset($params['BANK_DETAIL_INPUT_NAME']))
@@ -1035,12 +1035,12 @@ foreach($arSections as &$arSection):
 										$bdLinkedInputName = $field['id'].$postfix;
 								}
 								$bdLinkedInputId = "{$arParams['FORM_ID']}_DATA_INPUT_{$bdLinkedInputName}";
-								?><input type="hidden" id="<?= htmlspecialcharsbx($bdLinkedInputId) ?>" name="<?= htmlspecialcharsbx($bdLinkedInputName) ?>" value="<?= $bdLinkedId ?>" /><?
+								?><input type="hidden" id="<?= htmlspecialcharsbx($bdLinkedInputId) ?>" name="<?= htmlspecialcharsbx($bdLinkedInputName) ?>" value="<?= $bdLinkedId ?>" /><?php 
 							}
 							?>
 							<!--<div class="bx-crm-entity-buttons-wrapper">-->
 								<span id="<?=htmlspecialcharsbx($changeButtonID)?>" class="bx-crm-edit-crm-entity-change"><?= htmlspecialcharsbx(GetMessage('intarface_form_select'))?></span>
-								<? if($newDataInputName !== ''): ?>
+								<?php  if($newDataInputName !== ''): ?>
 									<br>
 									<span id="<?=htmlspecialcharsbx($createEntitiesBlockID)?>" class="bx-crm-edit-description"<?=($entityID>0)?' style="display: none;"':''?>>
 									<span><?=htmlspecialcharsEx(GetMessage('interface_form_add_new_entity'))?> </span>
@@ -1048,9 +1048,9 @@ foreach($arSections as &$arSection):
 									<span><?= htmlspecialcharsbx(' '.GetMessage('interface_form_add_btn_or')).' '?></span>
 									<span id="<?=htmlspecialcharsbx($addContactButtonID)?>" class="bx-crm-edit-crm-entity-add"><?= htmlspecialcharsbx(GetMessage('interface_form_add_btn_contact'))?></span>
 									</span>
-								<? endif; ?>
+								<?php  endif; ?>
 							<!--</div>-->
-							</div><?
+							</div><?php 
 							$dialogSettings['CONTACT'] = array(
 								'addButtonName' => GetMessage('interface_form_add_dialog_btn_add'),
 								'cancelButtonName' => GetMessage('interface_form_cancel'),
@@ -1180,7 +1180,7 @@ foreach($arSections as &$arSection):
 									);
 								}
 							);
-						</script><?
+						</script><?php 
 						}
 						break;
 					case 'crm_multiple_client_selector':
@@ -1279,7 +1279,7 @@ foreach($arSections as &$arSection):
 								$entitiesInputID = "{$arParams['FORM_ID']}_{$entitiesInputName}";
 								?>
 								<input type="hidden" id="<?= htmlspecialcharsbx($entitiesInputID) ?>" name="<?= htmlspecialcharsbx($entitiesInputName) ?>" value="<?= implode(',', $entityIDs) ?>" />
-								<?
+								<?php 
 
 								$viewerContainerID = "{$arParams['FORM_ID']}_FIELD_CONTAINER_{$field['id']}";
 								$advancedInfoHTML = '<div id="'.htmlspecialcharsbx($viewerContainerID).'" class="crm-offer-info-description"></div>';
@@ -1360,7 +1360,7 @@ foreach($arSections as &$arSection):
 											).layout();
 										}
 									);
-								</script><?
+								</script><?php 
 							}
 						}
 						break;
@@ -1444,7 +1444,7 @@ foreach($arSections as &$arSection):
 									<input type="hidden" id="<?= htmlspecialcharsbx($entityInputID) ?>" name="<?= htmlspecialcharsbx($entityInputName) ?>" value="<?= $entityID ?>" />
 									<input type="hidden" id="<?= htmlspecialcharsbx($requisiteInputID) ?>" name="<?= htmlspecialcharsbx($requisiteInputName) ?>" value="<?= $requisiteID ?>" />
 									<input type="hidden" id="<?= htmlspecialcharsbx($bankDetailInputID) ?>" name="<?= htmlspecialcharsbx($bankDetailInputName) ?>" value="<?= $bankDetailID ?>" />
-									<?
+									<?php 
 								}
 
 								$viewerContainerID = "{$arParams['FORM_ID']}_FIELD_CONTAINER_{$field['id']}";
@@ -1531,7 +1531,7 @@ foreach($arSections as &$arSection):
 										).layout();
 									}
 								);
-							</script><?
+							</script><?php 
 							}
 						}
 						break;
@@ -1647,7 +1647,7 @@ foreach($arSections as &$arSection):
 									<input type="hidden" id="<?= htmlspecialcharsbx($secondaryEntitiesInputID) ?>" name="<?= htmlspecialcharsbx($secondaryEntitiesInputName) ?>" value="<?= implode(',', $secondaryEntityIDs) ?>" />
 									<input type="hidden" id="<?= htmlspecialcharsbx($requisiteInputID) ?>" name="<?= htmlspecialcharsbx($requisiteInputName) ?>" value="<?= $requisiteID ?>" />
 									<input type="hidden" id="<?= htmlspecialcharsbx($bankDetailInputID) ?>" name="<?= htmlspecialcharsbx($bankDetailInputName) ?>" value="<?= $bankDetailID ?>" />
-									<?
+									<?php 
 								}
 
 								$viewerContainerID = "{$arParams['FORM_ID']}_FIELD_CONTAINER_{$field['id']}";
@@ -1744,7 +1744,7 @@ foreach($arSections as &$arSection):
 											).layout();
 										}
 									);
-								</script><?
+								</script><?php 
 							}
 						}
 						break;
@@ -1770,26 +1770,26 @@ foreach($arSections as &$arSection):
 								}
 							);
 						</script>
-						<?
+						<?php 
 						break;
 					default:
-						?><input type="text" class="crm-offer-item-inp" name="<?=$field["id"]?>" value="<?=$valEncoded?>"<?=$params?>><?
+						?><input type="text" class="crm-offer-item-inp" name="<?=$field["id"]?>" value="<?=$valEncoded?>"<?=$params?>><?php 
 				endswitch;
-			?></div><?
+			?></div><?php 
 			if ($advancedInfoHTML !== '')
 				echo $advancedInfoHTML;
 			?></td><!-- "crm-offer-info-right" -->
-			<td class="crm-offer-info-right-btn"><?
+			<td class="crm-offer-info-right-btn"><?php 
 				if(!$required && !$persistent):
-					?><span class="crm-offer-item-del"></span><?
+					?><span class="crm-offer-item-del"></span><?php 
 				endif;
 				if($mode === 'EDIT'):
-					?><span class="crm-offer-item-edit"></span><?
+					?><span class="crm-offer-item-edit"></span><?php 
 				endif;
 				?></td>
-			<td class="crm-offer-last-td"></td><?
+			<td class="crm-offer-last-td"></td><?php 
 		endif;
-		?></tr><?
+		?></tr><?php 
 		$fieldCount++;
 	endforeach;
 	unset($field);
@@ -1798,19 +1798,19 @@ foreach($arSections as &$arSection):
 		<td class="crm-offer-info-left"></td>
 		<td class="crm-offer-info-right">
 			<div class="crm-offer-item-link-wrap">
-				<? if ($canCreateUserField): ?>
+				<?php  if ($canCreateUserField): ?>
 				<span id="<?=$sectionNodePrefix?>_add_field" class="crm-offer-info-link"><?=GetMessage('interface_form_add_btn_add_field')?></span>
-				<? endif; ?>
-				<? if ($canCreateSection): ?>
+				<?php  endif; ?>
+				<?php  if ($canCreateSection): ?>
 				<span id="<?=$sectionNodePrefix?>_add_section" class="crm-offer-info-link"><?=GetMessage('interface_form_add_btn_add_section')?></span>
-				<? endif; ?>
+				<?php  endif; ?>
 				<span id="<?=$sectionNodePrefix?>_restore_field" class="crm-offer-info-link"><?=GetMessage('interface_form_add_btn_restore_field')?></span>
 			</div>
 		</td>
 		<td class="crm-offer-info-right-btn"></td>
 		<td class="crm-offer-last-td"></td>
 	</tr>
-	</tbody></table><!-- "crm-offer-info-table" --><?
+	</tbody></table><!-- "crm-offer-info-table" --><?php 
 endforeach;
 unset($arSection);
 
@@ -1845,7 +1845,7 @@ if ($sipManagerRequired)
 			}
 		}
 	);
-</script><?
+</script><?php 
 }
 
 $arFieldSets = isset($arParams['FIELD_SETS']) ? $arParams['FIELD_SETS'] : array();
@@ -1855,7 +1855,7 @@ if(!empty($arFieldSets)):
 		if($html === '')
 			continue;
 		?><div class="bx-crm-view-fieldset">
-		<h2 class="bx-crm-view-fieldset-title"><? if (isset($arFieldSet['REQUIRED']) && $arFieldSet['REQUIRED'] === true): ?><span class="required">*</span><? endif; ?><?=isset($arFieldSet['NAME']) ? htmlspecialcharsbx($arFieldSet['NAME']) : ''?></h2>
+		<h2 class="bx-crm-view-fieldset-title"><?php  if (isset($arFieldSet['REQUIRED']) && $arFieldSet['REQUIRED'] === true): ?><span class="required">*</span><?php  endif; ?><?=isset($arFieldSet['NAME']) ? htmlspecialcharsbx($arFieldSet['NAME']) : ''?></h2>
 			<div class="bx-crm-view-fieldset-content">
 				<table class="bx-crm-view-fieldset-content-table">
 					<tbody>
@@ -1865,11 +1865,11 @@ if(!empty($arFieldSets)):
 				</tbody>
 			</table>
 		</div>
-		</div><?
+		</div><?php 
 	endforeach;
 	unset($arFieldSet);
 endif;
-?></div><!-- "crm-offer-main-wrap" --><?
+?></div><!-- "crm-offer-main-wrap" --><?php 
 
 if(isset($arParams['~BUTTONS'])):
 	if(isset($arParams['~BUTTONS']['standard_buttons']) && $arParams['~BUTTONS']['standard_buttons']):
@@ -1899,16 +1899,16 @@ if(isset($arParams['~BUTTONS'])):
 			unset($customTitles);
 		}
 		?><div class="ui-btn-container ui-btn-container-center">
-		<input class="ui-btn ui-btn-success" type="submit" name="saveAndView" id="<?=$arParams["FORM_ID"]?>_saveAndView" value="<?=htmlspecialcharsbx($buttonsTitles['saveAndView']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['saveAndView']['title'])?>" /><?
+		<input class="ui-btn ui-btn-success" type="submit" name="saveAndView" id="<?=$arParams["FORM_ID"]?>_saveAndView" value="<?=htmlspecialcharsbx($buttonsTitles['saveAndView']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['saveAndView']['title'])?>" /><?php 
 		if(isset($arParams['IS_NEW']) && $arParams['IS_NEW'] === true):
-			?><input class="ui-btn ui-btn-success" type="submit" name="saveAndAdd" id="<?=$arParams["FORM_ID"]?>_saveAndAdd" value="<?=htmlspecialcharsbx($buttonsTitles['saveAndAdd']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['saveAndAdd']['title'])?>" /><?
+			?><input class="ui-btn ui-btn-success" type="submit" name="saveAndAdd" id="<?=$arParams["FORM_ID"]?>_saveAndAdd" value="<?=htmlspecialcharsbx($buttonsTitles['saveAndAdd']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['saveAndAdd']['title'])?>" /><?php 
 		else:
-			?><input class="ui-btn ui-btn-light-border" type="submit" name="apply" id="<?=$arParams["FORM_ID"]?>_apply" value="<?=htmlspecialcharsbx($buttonsTitles['apply']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['apply']['title'])?>" /><?
+			?><input class="ui-btn ui-btn-light-border" type="submit" name="apply" id="<?=$arParams["FORM_ID"]?>_apply" value="<?=htmlspecialcharsbx($buttonsTitles['apply']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['apply']['title'])?>" /><?php 
 		endif;
 		if(isset($arParams['~BUTTONS']['back_url']) && $arParams['~BUTTONS']['back_url'] !== ''):
-			?><input class="ui-btn ui-btn-link" type="button" name="cancel" onclick="window.location='<?=CUtil::JSEscape($arParams['~BUTTONS']['back_url'])?>'" value="<?= htmlspecialcharsbx($buttonsTitles['cancel']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['cancel']['title'])?>" /><?
+			?><input class="ui-btn ui-btn-link" type="button" name="cancel" onclick="window.location='<?=CUtil::JSEscape($arParams['~BUTTONS']['back_url'])?>'" value="<?= htmlspecialcharsbx($buttonsTitles['cancel']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['cancel']['title'])?>" /><?php 
 		endif;
-		?></div><?
+		?></div><?php 
 	elseif(isset($arParams['~BUTTONS']['wizard_buttons']) && $arParams['~BUTTONS']['wizard_buttons']):
 		$buttonsTitles = array(
 			'continue' => array(
@@ -1921,11 +1921,11 @@ if(isset($arParams['~BUTTONS'])):
 			)
 		);
 		?><div class="ui-btn-container ui-btn-container-center">
-			<input class="ui-btn ui-btn-success" type="submit" name="continue" id="<?=$arParams["FORM_ID"]?>_continue" value="<?=htmlspecialcharsbx($buttonsTitles['continue']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['continue']['title'])?>" /><?
+			<input class="ui-btn ui-btn-success" type="submit" name="continue" id="<?=$arParams["FORM_ID"]?>_continue" value="<?=htmlspecialcharsbx($buttonsTitles['continue']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['continue']['title'])?>" /><?php 
 			if(isset($arParams['~BUTTONS']['back_url']) && $arParams['~BUTTONS']['back_url'] !== ''):
-				?><input class="ui-btn ui-btn-link" type="button" name="cancel" onclick="window.location='<?=CUtil::JSEscape($arParams['~BUTTONS']['back_url'])?>'" value="<?= htmlspecialcharsbx($buttonsTitles['cancel']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['cancel']['title'])?>" /><?
+				?><input class="ui-btn ui-btn-link" type="button" name="cancel" onclick="window.location='<?=CUtil::JSEscape($arParams['~BUTTONS']['back_url'])?>'" value="<?= htmlspecialcharsbx($buttonsTitles['cancel']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['cancel']['title'])?>" /><?php 
 			endif;
-		?></div><?
+		?></div><?php 
 	elseif(isset($arParams['~BUTTONS']['dialog_buttons']) && $arParams['~BUTTONS']['dialog_buttons']):
 		$buttonsTitles = array(
 			'save' => array(
@@ -1940,7 +1940,7 @@ if(isset($arParams['~BUTTONS'])):
 		?><div class="ui-btn-container ui-btn-container-center">
 			<input class="ui-btn ui-btn-success" type="submit" name="save" id="<?=$arParams["FORM_ID"]?>_save" value="<?=htmlspecialcharsbx($buttonsTitles['save']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['save']['title'])?>" />
 			<input class="ui-btn ui-btn-link" type="submit" name="cancel" id="<?=$arParams["FORM_ID"]?>_cancel" value="<?= htmlspecialcharsbx($buttonsTitles['cancel']['value'])?>" title="<?= htmlspecialcharsbx($buttonsTitles['cancel']['title'])?>" />
-		</div><?
+		</div><?php 
 	endif;
 	if(isset($arParams['~BUTTONS']['custom_html'])):
 		echo $arParams['~BUTTONS']['custom_html'];
@@ -1948,7 +1948,7 @@ if(isset($arParams['~BUTTONS'])):
 endif;
 
 if($arParams['SHOW_FORM_TAG']):
-	?></form><?
+	?></form><?php 
 endif;
 
 if($GLOBALS['USER']->IsAuthorized() && $arParams["SHOW_SETTINGS"] == true):?>
@@ -1957,7 +1957,7 @@ if($GLOBALS['USER']->IsAuthorized() && $arParams["SHOW_SETTINGS"] == true):?>
 	<div id="form_settings_<?=$arParams["FORM_ID"]?>">
 		<table width="100%">
 			<tr class="section">
-				<td colspan="2"><?echo GetMessage("interface_form_tabs")?></td>
+				<td colspan="2"><?php echo GetMessage("interface_form_tabs")?></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
@@ -1968,42 +1968,42 @@ if($GLOBALS['USER']->IsAuthorized() && $arParams["SHOW_SETTINGS"] == true):?>
 								</select>
 							</td>
 							<td style="background-image:none">
-								<div style="margin-bottom:5px"><input type="button" name="tab_up_btn" value="<?echo GetMessage("intarface_form_up")?>" title="<?echo GetMessage("intarface_form_up_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabMoveUp()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="tab_down_btn" value="<?echo GetMessage("intarface_form_up_down")?>" title="<?echo GetMessage("intarface_form_down_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabMoveDown()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="tab_add_btn" value="<?echo GetMessage("intarface_form_add")?>" title="<?echo GetMessage("intarface_form_add_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabAdd()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="tab_edit_btn" value="<?echo GetMessage("intarface_form_edit")?>" title="<?echo GetMessage("intarface_form_edit_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabEdit()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="tab_del_btn" value="<?echo GetMessage("intarface_form_del")?>" title="<?echo GetMessage("intarface_form_del_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabDelete()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="tab_up_btn" value="<?php echo GetMessage("intarface_form_up")?>" title="<?php echo GetMessage("intarface_form_up_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabMoveUp()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="tab_down_btn" value="<?php echo GetMessage("intarface_form_up_down")?>" title="<?php echo GetMessage("intarface_form_down_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabMoveDown()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="tab_add_btn" value="<?php echo GetMessage("intarface_form_add")?>" title="<?php echo GetMessage("intarface_form_add_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabAdd()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="tab_edit_btn" value="<?php echo GetMessage("intarface_form_edit")?>" title="<?php echo GetMessage("intarface_form_edit_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabEdit()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="tab_del_btn" value="<?php echo GetMessage("intarface_form_del")?>" title="<?php echo GetMessage("intarface_form_del_title")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.TabDelete()"></div>
 							</td>
 						</tr>
 					</table>
 				</td>
 			</tr>
 			<tr class="section">
-				<td colspan="2"><?echo GetMessage("intarface_form_fields")?></td>
+				<td colspan="2"><?php echo GetMessage("intarface_form_fields")?></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
 					<table>
 						<tr>
 							<td style="background-image:none" nowrap>
-								<div style="margin-bottom:5px"><?echo GetMessage("intarface_form_fields_available")?></div>
+								<div style="margin-bottom:5px"><?php echo GetMessage("intarface_form_fields_available")?></div>
 								<select style="min-width:150px;" name="all_fields" multiple size="12" ondblclick="this.form.add_btn.onclick()" onchange="bxForm_<?=$arParams["FORM_ID"]?>.ProcessButtons()">
 								</select>
 							</td>
 							<td style="background-image:none">
-								<div style="margin-bottom:5px"><input type="button" name="add_btn" value="&gt;" title="<?echo GetMessage("intarface_form_add_field")?>" style="width:30px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsAdd()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="del_btn" value="&lt;" title="<?echo GetMessage("intarface_form_del_field")?>" style="width:30px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsDelete()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="add_btn" value="&gt;" title="<?php echo GetMessage("intarface_form_add_field")?>" style="width:30px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsAdd()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="del_btn" value="&lt;" title="<?php echo GetMessage("intarface_form_del_field")?>" style="width:30px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsDelete()"></div>
 							</td>
 							<td style="background-image:none" nowrap>
-								<div style="margin-bottom:5px"><?echo GetMessage("intarface_form_fields_on_tab")?></div>
+								<div style="margin-bottom:5px"><?php echo GetMessage("intarface_form_fields_on_tab")?></div>
 								<select style="min-width:150px;" name="fields" multiple size="12" ondblclick="this.form.del_btn.onclick()" onchange="bxForm_<?=$arParams["FORM_ID"]?>.ProcessButtons()">
 								</select>
 							</td>
 							<td style="background-image:none">
-								<div style="margin-bottom:5px"><input type="button" name="up_btn" value="<?echo GetMessage("intarface_form_up")?>" title="<?echo GetMessage("intarface_form_up_title")?>" style="width:80px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsMoveUp()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="down_btn" value="<?echo GetMessage("intarface_form_up_down")?>" title="<?echo GetMessage("intarface_form_down_title")?>" style="width:80px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsMoveDown()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="field_add_btn" value="<?echo GetMessage("intarface_form_add")?>" title="<?echo GetMessage("intarface_form_add_sect")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldAdd()"></div>
-								<div style="margin-bottom:5px"><input type="button" name="field_edit_btn" value="<?echo GetMessage("intarface_form_edit")?>" title="<?echo GetMessage("intarface_form_edit_field")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldEdit()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="up_btn" value="<?php echo GetMessage("intarface_form_up")?>" title="<?php echo GetMessage("intarface_form_up_title")?>" style="width:80px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsMoveUp()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="down_btn" value="<?php echo GetMessage("intarface_form_up_down")?>" title="<?php echo GetMessage("intarface_form_down_title")?>" style="width:80px;" disabled onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldsMoveDown()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="field_add_btn" value="<?php echo GetMessage("intarface_form_add")?>" title="<?php echo GetMessage("intarface_form_add_sect")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldAdd()"></div>
+								<div style="margin-bottom:5px"><input type="button" name="field_edit_btn" value="<?php echo GetMessage("intarface_form_edit")?>" title="<?php echo GetMessage("intarface_form_edit_field")?>" style="width:80px;" onclick="bxForm_<?=$arParams["FORM_ID"]?>.FieldEdit()"></div>
 							</td>
 						</tr>
 					</table>
@@ -2012,7 +2012,7 @@ if($GLOBALS['USER']->IsAuthorized() && $arParams["SHOW_SETTINGS"] == true):?>
 		</table>
 	</div>
 
-</div><?
+</div><?php 
 endif; //$GLOBALS['USER']->IsAuthorized()
 
 $variables = array(
@@ -2049,20 +2049,20 @@ $variables = array(
 ?><script type="text/javascript">
 var formSettingsDialog<?=$arParams["FORM_ID"]?>;
 bxForm_<?=$arParams["FORM_ID"]?> = new BxCrmInterfaceForm('<?=$arParams["FORM_ID"]?>', <?=CUtil::PhpToJsObject(array_keys($arResult["TABS"]))?>);
-bxForm_<?=$arParams["FORM_ID"]?>.vars = <?=CUtil::PhpToJsObject($variables)?>;<?
+bxForm_<?=$arParams["FORM_ID"]?>.vars = <?=CUtil::PhpToJsObject($variables)?>;<?php 
 if($arParams["SHOW_SETTINGS"] == true):
 	?>bxForm_<?=$arParams["FORM_ID"]?>.oTabsMeta = <?=CUtil::PhpToJsObject($arResult["TABS_META"])?>;
-bxForm_<?=$arParams["FORM_ID"]?>.oFields = <?=CUtil::PhpToJsObject($arResult["AVAILABLE_FIELDS"])?>;<?
+bxForm_<?=$arParams["FORM_ID"]?>.oFields = <?=CUtil::PhpToJsObject($arResult["AVAILABLE_FIELDS"])?>;<?php 
 endif;
 
 if($arResult["OPTIONS"]["expand_tabs"] == "Y"):
-	?>BX.ready(function(){bxForm_<?=$arParams["FORM_ID"]?>.ToggleTabs(true);});<?
+	?>BX.ready(function(){bxForm_<?=$arParams["FORM_ID"]?>.ToggleTabs(true);});<?php 
 endif;
 ?>bxForm_<?=$arParams["FORM_ID"]?>.Initialize();
 bxForm_<?=$arParams["FORM_ID"]?>.EnableSigleSubmit(true);
-</script><?
+</script><?php 
 
-?></div><!-- bx-interface-form --><?
+?></div><!-- bx-interface-form --><?php 
 ?><script type="text/javascript">
 	BX.ready(
 		function()
@@ -2143,12 +2143,12 @@ bxForm_<?=$arParams["FORM_ID"]?>.EnableSigleSubmit(true);
 			);
 		}
 	);
-</script><?
+</script><?php 
 if(!empty($arUserSearchFields)):
 ?><script type="text/javascript">
 	BX.ready(
 		function()
-		{<?
+		{<?php 
 			foreach($arUserSearchFields as &$arField):
 				$arUserData = array();
 				if(isset($arField['USER'])):
@@ -2164,10 +2164,10 @@ if(!empty($arUserSearchFields)):
 				document.getElementsByName('<?=$arField['INPUT_NAME']?>')[0],
 				'<?=$arField['NAME']?>',
 				<?= CUtil::PhpToJSObject($arUserData)?>
-			);<?
+			);<?php 
 			endforeach;
 			unset($arField);
 		?>}
 	);
-</script><?
+</script><?php 
 endif;

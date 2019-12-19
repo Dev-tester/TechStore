@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['T_LEARNING_DETAIL_ID'] = "Test ID";
 $MESS ['LEARNING_DESC_YES'] = "Yes";
 $MESS ['LEARNING_DESC_NO'] = "No";

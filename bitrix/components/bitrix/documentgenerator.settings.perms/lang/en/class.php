@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_SETTINGS_PERMS_ADD_ROLE_TITLE"] = "Create a new role";
 $MESS["DOCGEN_SETTINGS_PERMS_EDIT_ROLE_NOT_FOUND"] = "Role was not found.";
 $MESS["DOCGEN_SETTINGS_PERMS_EDIT_ROLE_TITLE"] = "Edit role #ROLE#";

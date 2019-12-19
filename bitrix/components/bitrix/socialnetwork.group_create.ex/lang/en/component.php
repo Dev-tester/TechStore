@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GCE_ERR_SPAM_PERMS"] = "Permissions for sending messages to workgroup are not set";
 $MESS["SONET_MODULE_NOT_INSTALL"] = "The Social Network module is not installed.";
 $MESS["SONET_GCE_ERR_NAME"] = "The group name is not specified.";

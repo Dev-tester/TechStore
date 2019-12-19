@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASK_NAME_TIMEMAN_DENIED'] = "Доступ закрыт";
 $MESS ['TASK_NAME_TIMEMAN_SUBORDINATE'] = "Сотрудник или руководитель подразделения";
 $MESS ['TASK_NAME_TIMEMAN_READ'] = "Отдел кадров";

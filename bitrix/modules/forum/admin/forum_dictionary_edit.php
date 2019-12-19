@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Unquotable words.
 ********************************************************************/
@@ -100,7 +100,7 @@
 	<input type="hidden" name="Update" value="Y" />
 	<input type="hidden" name="lang" value="<?=LANG ?>" />
 	<input type="hidden" name="DICTIONARY_ID" value="<?=htmlspecialcharsbx($arFields["ID"])?>" />
-	<?=bitrix_sessid_post()?><?
+	<?=bitrix_sessid_post()?><?php 
 	$aTabs = array(array("DIV" => "edit", "TAB" => GetMessage("FLTR_NEW"), "ICON" => "forum", "TITLE" => ""));
 	$tabControl = new CAdminTabControl("tabControl", $aTabs);
 	$tabControl->Begin();
@@ -120,13 +120,13 @@
 			</select>
 		</td>
 	</tr>
-<?$tabControl->EndTab();?>
-<?$tabControl->Buttons(
+<?php $tabControl->EndTab();?>
+<?php $tabControl->Buttons(
 		array(
 				"disabled" => (!CFilterUnquotableWords::FilterPerm()),
 				"back_url" => "/bitrix/admin/forum_dictionary.php?TYPE=".$TYPE."&lang=".LANG
 			)
 	);?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form><br>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

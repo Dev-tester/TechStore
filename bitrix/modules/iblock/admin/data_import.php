@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 CModule::IncludeModule("iblock");
@@ -1076,23 +1076,23 @@ if (!$bAllLinesLoaded)
 		$strParams.= "&metki_f=".urlencode($metki_f)."&first_names_f=".urlencode($first_names_f);
 ?>
 
-	<?echo GetMessage("IBLOCK_ADM_IMP_AUTO_REFRESH"); ?>
-	<a href="<?echo $APPLICATION->GetCurPage(); ?>?lang=<?echo LANGUAGE_ID; ?>&<?echo $strParams ?>"><?echo GetMessage("IBLOCK_ADM_IMP_AUTO_REFRESH_STEP"); ?></a><br>
+	<?php echo GetMessage("IBLOCK_ADM_IMP_AUTO_REFRESH"); ?>
+	<a href="<?php echo $APPLICATION->GetCurPage(); ?>?lang=<?php echo LANGUAGE_ID; ?>&<?php echo $strParams ?>"><?php echo GetMessage("IBLOCK_ADM_IMP_AUTO_REFRESH_STEP"); ?></a><br>
 
 	<script type="text/javascript">
 	function DoNext()
 	{
-		window.location="<?echo $APPLICATION->GetCurPage(); ?>?lang=<?echo LANG ?>&<?echo $strParams ?>";
+		window.location="<?php echo $APPLICATION->GetCurPage(); ?>?lang=<?php echo LANG ?>&<?php echo $strParams ?>";
 	}
 	setTimeout('DoNext()', 2000);
 	</script>
-	<?
+	<?php 
 }
 ?>
 
 <form method="POST" action="<?=$APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID; ?>" ENCTYPE="multipart/form-data" name="dataload" id="dataload">
 
-<?$aTabs = array(
+<?php $aTabs = array(
 	array(
 		"DIV" => "edit1",
 		"TAB" => GetMessage("IBLOCK_ADM_IMP_TAB1") ,
@@ -1126,11 +1126,11 @@ if ($STEP == 1)
 {
 ?>
 	<tr>
-		<td width="40%"><?echo GetMessage("IBLOCK_ADM_IMP_DATA_FILE"); ?></td>
+		<td width="40%"><?php echo GetMessage("IBLOCK_ADM_IMP_DATA_FILE"); ?></td>
 		<td width="60%">
-			<input type="text" name="URL_DATA_FILE" value="<?echo htmlspecialcharsbx($URL_DATA_FILE); ?>" size="30">
-			<input type="button" value="<?echo GetMessage("IBLOCK_ADM_IMP_OPEN"); ?>" OnClick="BtnClick()">
-			<?CAdminFileDialog::ShowScript(array(
+			<input type="text" name="URL_DATA_FILE" value="<?php echo htmlspecialcharsbx($URL_DATA_FILE); ?>" size="30">
+			<input type="button" value="<?php echo GetMessage("IBLOCK_ADM_IMP_OPEN"); ?>" OnClick="BtnClick()">
+			<?php CAdminFileDialog::ShowScript(array(
 		"event" => "BtnClick",
 		"arResultDest" => array(
 			"FORM_NAME" => "dataload",
@@ -1153,12 +1153,12 @@ if ($STEP == 1)
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("IBLOCK_ADM_IMP_INFOBLOCK"); ?></td>
+		<td><?php echo GetMessage("IBLOCK_ADM_IMP_INFOBLOCK"); ?></td>
 		<td>
-			<?echo GetIBlockDropDownList($IBLOCK_ID, 'IBLOCK_TYPE_ID', 'IBLOCK_ID', false, 'class="adm-detail-iblock-types"', 'class="adm-detail-iblock-list"'); ?>
+			<?php echo GetIBlockDropDownList($IBLOCK_ID, 'IBLOCK_TYPE_ID', 'IBLOCK_ID', false, 'class="adm-detail-iblock-types"', 'class="adm-detail-iblock-list"'); ?>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 $tabControl->EndTab();
 
@@ -1242,78 +1242,78 @@ if ($STEP == 2)
 			}
 			</script>
 
-			<input type="radio" name="fields_type" id="fields_type_R" value="R" <?
+			<input type="radio" name="fields_type" id="fields_type_R" value="R" <?php 
 	if ($fields_type == "R" || strlen($fields_type) <= 0)
-		echo "checked"; ?> onClick="ChangeExtra()"><label for="fields_type_R"><?echo GetMessage("IBLOCK_ADM_IMP_RAZDELITEL"); ?></label><br>
-			<input type="radio" name="fields_type" id="fields_type_F" value="F" <?
+		echo "checked"; ?> onClick="ChangeExtra()"><label for="fields_type_R"><?php echo GetMessage("IBLOCK_ADM_IMP_RAZDELITEL"); ?></label><br>
+			<input type="radio" name="fields_type" id="fields_type_F" value="F" <?php 
 	if ($fields_type == "F")
-		echo "checked"; ?> onClick="ChangeExtra()"><label for="fields_type_F"><?echo GetMessage("IBLOCK_ADM_IMP_FIXED"); ?></label>
+		echo "checked"; ?> onClick="ChangeExtra()"><label for="fields_type_F"><?php echo GetMessage("IBLOCK_ADM_IMP_FIXED"); ?></label>
 
 		</td>
 	</tr>
 
 	<tr id="table_r" class="heading">
-		<td colspan="2"><?echo GetMessage("IBLOCK_ADM_IMP_RAZDEL1"); ?></td>
+		<td colspan="2"><?php echo GetMessage("IBLOCK_ADM_IMP_RAZDEL1"); ?></td>
 	</tr>
 	<tr id="table_r1">
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_ADM_IMP_RAZDEL_TYPE"); ?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_ADM_IMP_RAZDEL_TYPE"); ?>:</td>
 		<td>
-			<input type="radio" name="delimiter_r" id="delimiter_r_TZP" value="TZP" <?
+			<input type="radio" name="delimiter_r" id="delimiter_r_TZP" value="TZP" <?php 
 	if ($delimiter_r == "TZP" || strlen($delimiter_r) <= 0)
-		echo "checked" ?>><label for="delimiter_r_TZP"><?echo GetMessage("IBLOCK_ADM_IMP_TZP"); ?></label><br>
-			<input type="radio" name="delimiter_r" id="delimiter_r_ZPT" value="ZPT" <?
+		echo "checked" ?>><label for="delimiter_r_TZP"><?php echo GetMessage("IBLOCK_ADM_IMP_TZP"); ?></label><br>
+			<input type="radio" name="delimiter_r" id="delimiter_r_ZPT" value="ZPT" <?php 
 	if ($delimiter_r == "ZPT")
-		echo "checked" ?>><label for="delimiter_r_ZPT"><?echo GetMessage("IBLOCK_ADM_IMP_ZPT"); ?></label><br>
-			<input type="radio" name="delimiter_r" id="delimiter_r_TAB" value="TAB" <?
+		echo "checked" ?>><label for="delimiter_r_ZPT"><?php echo GetMessage("IBLOCK_ADM_IMP_ZPT"); ?></label><br>
+			<input type="radio" name="delimiter_r" id="delimiter_r_TAB" value="TAB" <?php 
 	if ($delimiter_r == "TAB")
-		echo "checked" ?>><label for="delimiter_r_TAB"><?echo GetMessage("IBLOCK_ADM_IMP_TAB"); ?></label><br>
-			<input type="radio" name="delimiter_r" id="delimiter_r_SPS" value="SPS" <?
+		echo "checked" ?>><label for="delimiter_r_TAB"><?php echo GetMessage("IBLOCK_ADM_IMP_TAB"); ?></label><br>
+			<input type="radio" name="delimiter_r" id="delimiter_r_SPS" value="SPS" <?php 
 	if ($delimiter_r == "SPS")
-		echo "checked" ?>><label for="delimiter_r_SPS"><?echo GetMessage("IBLOCK_ADM_IMP_SPS"); ?></label><br>
-			<input type="radio" name="delimiter_r" id="delimiter_r_OTR" value="OTR" <?
+		echo "checked" ?>><label for="delimiter_r_SPS"><?php echo GetMessage("IBLOCK_ADM_IMP_SPS"); ?></label><br>
+			<input type="radio" name="delimiter_r" id="delimiter_r_OTR" value="OTR" <?php 
 	if ($delimiter_r == "OTR")
-		echo "checked" ?>><label for="delimiter_r_OTR"><?echo GetMessage("IBLOCK_ADM_IMP_OTR"); ?></label>
-			<input type="text" name="delimiter_other_r" size="3" value="<?echo htmlspecialcharsbx($delimiter_other_r); ?>">
+		echo "checked" ?>><label for="delimiter_r_OTR"><?php echo GetMessage("IBLOCK_ADM_IMP_OTR"); ?></label>
+			<input type="text" name="delimiter_other_r" size="3" value="<?php echo htmlspecialcharsbx($delimiter_other_r); ?>">
 		</td>
 	</tr>
 	<tr id="table_r2">
-		<td><?echo GetMessage("IBLOCK_ADM_IMP_FIRST_NAMES"); ?>:</td>
+		<td><?php echo GetMessage("IBLOCK_ADM_IMP_FIRST_NAMES"); ?>:</td>
 		<td>
 			<input type="hidden" name="first_names_r" id="first_names_r_N" value="N">
-			<input type="checkbox" name="first_names_r" id="first_names_r_Y" value="Y" <?
+			<input type="checkbox" name="first_names_r" id="first_names_r_Y" value="Y" <?php 
 	if ($first_names_r != "N")
 		echo "checked" ?>>
 		</td>
 	</tr>
 
 	<tr id="table_f" class="heading">
-		<td colspan="2"><?echo GetMessage("IBLOCK_ADM_IMP_FIX1"); ?></td>
+		<td colspan="2"><?php echo GetMessage("IBLOCK_ADM_IMP_FIX1"); ?></td>
 	</tr>
 	<tr id="table_f1">
 		<td class="adm-detail-valign-top">
-			<?echo GetMessage("IBLOCK_ADM_IMP_FIX_MET"); ?><br>
-			<small><?echo GetMessage("IBLOCK_ADM_IMP_FIX_MET_DESCR"); ?></small>:
+			<?php echo GetMessage("IBLOCK_ADM_IMP_FIX_MET"); ?><br>
+			<small><?php echo GetMessage("IBLOCK_ADM_IMP_FIX_MET_DESCR"); ?></small>:
 		</td>
 		<td>
-			<textarea name="metki_f" rows="7" cols="3"><?echo htmlspecialcharsbx($metki_f); ?></textarea>
+			<textarea name="metki_f" rows="7" cols="3"><?php echo htmlspecialcharsbx($metki_f); ?></textarea>
 		</td>
 	</tr>
 	<tr id="table_f2">
-		<td><?echo GetMessage("IBLOCK_ADM_IMP_FIRST_NAMES"); ?>:</td>
+		<td><?php echo GetMessage("IBLOCK_ADM_IMP_FIRST_NAMES"); ?>:</td>
 		<td>
 			<input type="hidden" name="first_names_f" id="first_names_f_N" value="N">
-			<input type="checkbox" name="first_names_f" id="first_names_f_Y" value="Y" <?
+			<input type="checkbox" name="first_names_f" id="first_names_f_Y" value="Y" <?php 
 	if ($first_names_f == "Y")
 		echo "checked" ?>>
 		</td>
 	</tr>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("IBLOCK_ADM_IMP_DATA_SAMPLES"); ?></td>
+		<td colspan="2"><?php echo GetMessage("IBLOCK_ADM_IMP_DATA_SAMPLES"); ?></td>
 	</tr>
 	<tr>
 		<td align="center" colspan="2">
-			<?$sContent = "";
+			<?php $sContent = "";
 	if (strlen($DATA_FILE_NAME) > 0)
 	{
 		$DATA_FILE_NAME = trim(str_replace("\\", "/", trim($DATA_FILE_NAME)) , "/");
@@ -1339,10 +1339,10 @@ if ($STEP == 2)
 		}
 	}
 ?>
-			<textarea name="data" rows="10" cols="80" style="width:100%"><?echo htmlspecialcharsbx($sContent); ?></textarea>
+			<textarea name="data" rows="10" cols="80" style="width:100%"><?php echo htmlspecialcharsbx($sContent); ?></textarea>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 $tabControl->EndTab();
 
@@ -1351,9 +1351,9 @@ if ($STEP == 3)
 {
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("IBLOCK_ADM_IMP_FIELDS_SOOT"); ?></td>
+		<td colspan="2"><?php echo GetMessage("IBLOCK_ADM_IMP_FIELDS_SOOT"); ?></td>
 	</tr>
-	<?
+	<?php 
 	$arAvailFields = array();
 	foreach ($arIBlockAvailProdFields as $field_name => $arField)
 	{
@@ -1396,12 +1396,12 @@ if ($STEP == 3)
 ?>
 		<tr>
 			<td width="40%">
-				<b><?echo GetMessage("IBLOCK_ADM_IMP_FIELD"); ?> <?echo $i + 1 ?></b> (<?echo htmlspecialcharsbx($field); ?>):
+				<b><?php echo GetMessage("IBLOCK_ADM_IMP_FIELD"); ?> <?php echo $i + 1 ?></b> (<?php echo htmlspecialcharsbx($field); ?>):
 			</td>
 			<td width="60%">
-				<select name="field_<?echo $i ?>">
+				<select name="field_<?php echo $i ?>">
 					<option value=""> - </option>
-					<?
+					<?php 
 		foreach ($arAvailFields as $ar)
 		{
 			$bSelected = ${"field_".$i} == $ar["value"];
@@ -1411,81 +1411,81 @@ if ($STEP == 3)
 			if (!$bSelected && !isset(${"field_".$i}))
 				$bSelected = $ar["code"] == $field;
 ?>
-						<option value="<?echo htmlspecialcharsbx($ar["value"]); ?>" <?
+						<option value="<?php echo htmlspecialcharsbx($ar["value"]); ?>" <?php 
 			if ($bSelected)
-				echo "selected" ?>><?echo htmlspecialcharsbx($ar["name"]); ?></option>
-						<?
+				echo "selected" ?>><?php echo htmlspecialcharsbx($ar["name"]); ?></option>
+						<?php 
 		}
 ?>
 				</select>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 ?>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("IBLOCK_ADM_IMP_ADDIT_SETTINGS"); ?></td>
+		<td colspan="2"><?php echo GetMessage("IBLOCK_ADM_IMP_ADDIT_SETTINGS"); ?></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_ADM_IMP_IMG_PATH"); ?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_ADM_IMP_IMG_PATH"); ?>:</td>
 		<td>
-			<input type="text" name="PATH2IMAGE_FILES" size="40" value="<?echo htmlspecialcharsbx($PATH2IMAGE_FILES); ?>"><br>
-			<small><?echo GetMessage("IBLOCK_ADM_IMP_IMG_PATH_DESCR"); ?><br></small>
+			<input type="text" name="PATH2IMAGE_FILES" size="40" value="<?php echo htmlspecialcharsbx($PATH2IMAGE_FILES); ?>"><br>
+			<small><?php echo GetMessage("IBLOCK_ADM_IMP_IMG_PATH_DESCR"); ?><br></small>
 		</td>
 	</tr>
 	<tr>
-		<td><label for="IMAGE_RESIZE"><?echo GetMessage("IBLOCK_ADM_IMP_IMG_RESIZE"); ?>:</label></td>
+		<td><label for="IMAGE_RESIZE"><?php echo GetMessage("IBLOCK_ADM_IMP_IMG_RESIZE"); ?>:</label></td>
 		<td>
-			<input type="checkbox" name="IMAGE_RESIZE" id="IMAGE_RESIZE" value="Y" <?echo ($IMAGE_RESIZE === "Y" ? "checked" : ""); ?>>
+			<input type="checkbox" name="IMAGE_RESIZE" id="IMAGE_RESIZE" value="Y" <?php echo ($IMAGE_RESIZE === "Y" ? "checked" : ""); ?>>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_ADM_IMP_PROP_PATH"); ?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_ADM_IMP_PROP_PATH"); ?>:</td>
 		<td>
-			<input type="text" name="PATH2PROP_FILES" size="40" value="<?echo htmlspecialcharsbx($PATH2PROP_FILES); ?>"><br>
-			<small><?echo GetMessage("IBLOCK_ADM_IMP_PROP_PATH_DESCR"); ?><br></small>
+			<input type="text" name="PATH2PROP_FILES" size="40" value="<?php echo htmlspecialcharsbx($PATH2PROP_FILES); ?>"><br>
+			<small><?php echo GetMessage("IBLOCK_ADM_IMP_PROP_PATH_DESCR"); ?><br></small>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_ADM_IMP_OUTFILE"); ?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_ADM_IMP_OUTFILE"); ?>:</td>
 		<td>
-			<input type="radio" id="outFileAction_H" name="outFileAction" value="H" <?
+			<input type="radio" id="outFileAction_H" name="outFileAction" value="H" <?php 
 	if ($outFileAction == "H")
-		echo "checked"; ?>><label for="outFileAction_H"><?echo GetMessage("IBLOCK_ADM_IMP_OF_DEACT"); ?></label><br>
-			<input type="radio" id="outFileAction_D" name="outFileAction" value="D" <?
+		echo "checked"; ?>><label for="outFileAction_H"><?php echo GetMessage("IBLOCK_ADM_IMP_OF_DEACT"); ?></label><br>
+			<input type="radio" id="outFileAction_D" name="outFileAction" value="D" <?php 
 	if ($outFileAction == "D")
-		echo "checked"; ?>><label for="outFileAction_D"><?echo GetMessage("IBLOCK_ADM_IMP_OF_DEL"); ?></label><br>
-			<input type="radio" id="outFileAction_F" name="outFileAction" value="F" <?
+		echo "checked"; ?>><label for="outFileAction_D"><?php echo GetMessage("IBLOCK_ADM_IMP_OF_DEL"); ?></label><br>
+			<input type="radio" id="outFileAction_F" name="outFileAction" value="F" <?php 
 	if (strlen($outFileAction) <= 0 || $outFileAction == "F")
-		echo "checked"; ?>><label for="outFileAction_F"><?echo GetMessage("IBLOCK_ADM_IMP_OF_KEEP"); ?></label>
+		echo "checked"; ?>><label for="outFileAction_F"><?php echo GetMessage("IBLOCK_ADM_IMP_OF_KEEP"); ?></label>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_ADM_IMP_INACTIVE_PRODS"); ?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_ADM_IMP_INACTIVE_PRODS"); ?>:</td>
 		<td>
-			<input type="radio" id="inFileAction_F" name="inFileAction" value="F" <?
+			<input type="radio" id="inFileAction_F" name="inFileAction" value="F" <?php 
 	if (strlen($inFileAction) <= 0 || ($inFileAction == "F"))
-		echo "checked"; ?>><label for="inFileAction_F"><?echo GetMessage("IBLOCK_ADM_IMP_KEEP_AS_IS"); ?></label><br>
-			<input type="radio" id="inFileAction_A" name="inFileAction" value="A" <?
+		echo "checked"; ?>><label for="inFileAction_F"><?php echo GetMessage("IBLOCK_ADM_IMP_KEEP_AS_IS"); ?></label><br>
+			<input type="radio" id="inFileAction_A" name="inFileAction" value="A" <?php 
 	if ($inFileAction == "A")
-		echo "checked"; ?>><label for="inFileAction_A"><?echo GetMessage("IBLOCK_ADM_IMP_ACTIVATE_PROD"); ?></label>
+		echo "checked"; ?>><label for="inFileAction_A"><?php echo GetMessage("IBLOCK_ADM_IMP_ACTIVATE_PROD"); ?></label>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_ADM_IMP_AUTO_STEP_TIME"); ?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_ADM_IMP_AUTO_STEP_TIME"); ?>:</td>
 		<td align="left">
-			<input type="text" name="max_execution_time" size="6" value="<?echo htmlspecialcharsbx($max_execution_time); ?>"><br>
-			<small><?echo GetMessage("IBLOCK_ADM_IMP_AUTO_STEP_TIME_NOTE"); ?><br></small>
+			<input type="text" name="max_execution_time" size="6" value="<?php echo htmlspecialcharsbx($max_execution_time); ?>"><br>
+			<small><?php echo GetMessage("IBLOCK_ADM_IMP_AUTO_STEP_TIME_NOTE"); ?><br></small>
 		</td>
 	</tr>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("IBLOCK_ADM_IMP_DATA_SAMPLES"); ?></td>
+		<td colspan="2"><?php echo GetMessage("IBLOCK_ADM_IMP_DATA_SAMPLES"); ?></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
-			<?$sContent = "";
+			<?php $sContent = "";
 	if (strlen($DATA_FILE_NAME) > 0)
 	{
 		$DATA_FILE_NAME = trim(str_replace("\\", "/", trim($DATA_FILE_NAME)) , "/");
@@ -1511,10 +1511,10 @@ if ($STEP == 3)
 		}
 	}
 ?>
-			<textarea name="data" rows="10" cols="80" style="width:100%"><?echo htmlspecialcharsbx($sContent); ?></textarea>
+			<textarea name="data" rows="10" cols="80" style="width:100%"><?php echo htmlspecialcharsbx($sContent); ?></textarea>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 $tabControl->EndTab();
 
@@ -1524,7 +1524,7 @@ if ($STEP == 4)
 ?>
 	<tr>
 		<td>
-		<? CAdminMessage::ShowMessage(array(
+		<?php  CAdminMessage::ShowMessage(array(
 			"TYPE" => "PROGRESS",
 			"MESSAGE" => !$bAllLinesLoaded? GetMessage("IBLOCK_ADM_IMP_AUTO_REFRESH_CONTINUE"): GetMessage("IBLOCK_ADM_IMP_SUCCESS"),
 			"DETAILS" =>
@@ -1543,102 +1543,102 @@ if ($STEP == 4)
 		))?>
 		</td>
 	</tr>
-<?
+<?php 
 }
 $tabControl->EndTab();
 
 $tabControl->Buttons();
 
 if ($STEP < 4): ?>
-	<input type="hidden" name="STEP" value="<?echo $STEP + 1; ?>">
-	<?echo bitrix_sessid_post(); ?>
-	<?
+	<input type="hidden" name="STEP" value="<?php echo $STEP + 1; ?>">
+	<?php echo bitrix_sessid_post(); ?>
+	<?php 
 	if ($STEP > 1): ?>
-		<input type="hidden" name="URL_DATA_FILE" value="<?echo htmlspecialcharsbx($DATA_FILE_NAME); ?>">
-		<input type="hidden" name="IBLOCK_ID" value="<?echo $IBLOCK_ID ?>">
-	<?
+		<input type="hidden" name="URL_DATA_FILE" value="<?php echo htmlspecialcharsbx($DATA_FILE_NAME); ?>">
+		<input type="hidden" name="IBLOCK_ID" value="<?php echo $IBLOCK_ID ?>">
+	<?php 
 	endif; ?>
 
-	<?
+	<?php 
 	if ($STEP <> 2): ?>
-		<input type="hidden" name="fields_type" value="<?echo htmlspecialcharsbx($fields_type); ?>">
-		<input type="hidden" name="delimiter_r" value="<?echo htmlspecialcharsbx($delimiter_r); ?>">
-		<input type="hidden" name="delimiter_other_r" value="<?echo htmlspecialcharsbx($delimiter_other_r); ?>">
-		<input type="hidden" name="first_names_r" value="<?echo htmlspecialcharsbx($first_names_r); ?>">
-		<input type="hidden" name="metki_f" value="<?echo htmlspecialcharsbx($metki_f); ?>">
-		<input type="hidden" name="first_names_f" value="<?echo htmlspecialcharsbx($first_names_f); ?>">
-	<?
+		<input type="hidden" name="fields_type" value="<?php echo htmlspecialcharsbx($fields_type); ?>">
+		<input type="hidden" name="delimiter_r" value="<?php echo htmlspecialcharsbx($delimiter_r); ?>">
+		<input type="hidden" name="delimiter_other_r" value="<?php echo htmlspecialcharsbx($delimiter_other_r); ?>">
+		<input type="hidden" name="first_names_r" value="<?php echo htmlspecialcharsbx($first_names_r); ?>">
+		<input type="hidden" name="metki_f" value="<?php echo htmlspecialcharsbx($metki_f); ?>">
+		<input type="hidden" name="first_names_f" value="<?php echo htmlspecialcharsbx($first_names_f); ?>">
+	<?php 
 	endif; ?>
 
-	<?
+	<?php 
 	if ($STEP <> 3): ?>
-		<?
+		<?php 
 		foreach ($_POST as $name => $value): ?>
-			<?
+			<?php 
 			if (preg_match("/^field_(\\d+)$/", $name)): ?>
-				<input type="hidden" name="<?echo $name ?>" value="<?echo htmlspecialcharsbx($value); ?>">
-			<?
+				<input type="hidden" name="<?php echo $name ?>" value="<?php echo htmlspecialcharsbx($value); ?>">
+			<?php 
 			endif
 ?>
-		<?
+		<?php 
 		endforeach ?>
-		<input type="hidden" name="PATH2IMAGE_FILES" value="<?echo htmlspecialcharsbx($PATH2IMAGE_FILES); ?>">
-		<input type="hidden" name="IMAGE_RESIZE" value="<?echo htmlspecialcharsbx($IMAGE_RESIZE); ?>">
-		<input type="hidden" name="PATH2PROP_FILES" value="<?echo htmlspecialcharsbx($PATH2PROP_FILES); ?>">
-		<input type="hidden" name="outFileAction" value="<?echo htmlspecialcharsbx($outFileAction); ?>">
-		<input type="hidden" name="inFileAction" value="<?echo htmlspecialcharsbx($inFileAction); ?>">
-		<input type="hidden" name="max_execution_time" value="<?echo htmlspecialcharsbx($max_execution_time); ?>">
-	<?
+		<input type="hidden" name="PATH2IMAGE_FILES" value="<?php echo htmlspecialcharsbx($PATH2IMAGE_FILES); ?>">
+		<input type="hidden" name="IMAGE_RESIZE" value="<?php echo htmlspecialcharsbx($IMAGE_RESIZE); ?>">
+		<input type="hidden" name="PATH2PROP_FILES" value="<?php echo htmlspecialcharsbx($PATH2PROP_FILES); ?>">
+		<input type="hidden" name="outFileAction" value="<?php echo htmlspecialcharsbx($outFileAction); ?>">
+		<input type="hidden" name="inFileAction" value="<?php echo htmlspecialcharsbx($inFileAction); ?>">
+		<input type="hidden" name="max_execution_time" value="<?php echo htmlspecialcharsbx($max_execution_time); ?>">
+	<?php 
 	endif; ?>
 
-	<?
+	<?php 
 	if ($STEP > 1): ?>
-	<input type="submit" name="backButton" value="&lt;&lt; <?echo GetMessage("IBLOCK_ADM_IMP_BACK"); ?>">
-	<?
+	<input type="submit" name="backButton" value="&lt;&lt; <?php echo GetMessage("IBLOCK_ADM_IMP_BACK"); ?>">
+	<?php 
 	endif
 ?>
-	<input type="submit" value="<?echo ($STEP == 3) ? GetMessage("IBLOCK_ADM_IMP_NEXT_STEP_F") : GetMessage("IBLOCK_ADM_IMP_NEXT_STEP"); ?> &gt;&gt;" name="submit_btn" class="adm-btn-save">
+	<input type="submit" value="<?php echo ($STEP == 3) ? GetMessage("IBLOCK_ADM_IMP_NEXT_STEP_F") : GetMessage("IBLOCK_ADM_IMP_NEXT_STEP"); ?> &gt;&gt;" name="submit_btn" class="adm-btn-save">
 
-	<?if ($STEP == 2)
+	<?php if ($STEP == 2)
 	{
 ?>
 		<script type="text/javascript">
 			DeactivateAllExtra();
 			ChangeExtra();
 		</script>
-		<?
+		<?php 
 	}
 ?>
-<?
+<?php 
 	else: ?>
-	<input type="submit" name="backButton2" value="&lt;&lt; <?echo GetMessage("IBLOCK_ADM_IMP_2_1_STEP"); ?>" class="adm-btn-save">
-<?
+	<input type="submit" name="backButton2" value="&lt;&lt; <?php echo GetMessage("IBLOCK_ADM_IMP_2_1_STEP"); ?>" class="adm-btn-save">
+<?php 
 	endif;
 
 $tabControl->End();
 ?>
 </form>
 <script type="text/javascript">
-<?if ($STEP < 2): ?>
+<?php if ($STEP < 2): ?>
 tabControl.SelectTab("edit1");
 tabControl.DisableTab("edit2");
 tabControl.DisableTab("edit3");
 tabControl.DisableTab("edit4");
-<?elseif ($STEP == 2): ?>
+<?php elseif ($STEP == 2): ?>
 tabControl.SelectTab("edit2");
 tabControl.DisableTab("edit1");
 tabControl.DisableTab("edit3");
 tabControl.DisableTab("edit4");
-<?elseif ($STEP == 3): ?>
+<?php elseif ($STEP == 3): ?>
 tabControl.SelectTab("edit3");
 tabControl.DisableTab("edit1");
 tabControl.DisableTab("edit2");
 tabControl.DisableTab("edit4");
-<?elseif ($STEP > 3): ?>
+<?php elseif ($STEP > 3): ?>
 tabControl.SelectTab("edit4");
 tabControl.DisableTab("edit1");
 tabControl.DisableTab("edit2");
 tabControl.DisableTab("edit3");
-<?endif; ?>
+<?php endif; ?>
 </script>
-<?require ($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");
+<?php require ($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");

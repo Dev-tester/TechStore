@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if(empty($arResult["FATAL_ERROR_MESSAGE"]) && ($arParams["SET_NAV_CHAIN"]=="Y" || $arParams["SET_TITLE"]=="Y"))
 {
 	$this->__template->IncludeLangFile('component_epilog.php');

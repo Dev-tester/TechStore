@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_ANTIVIRUS_TITLE'] = "Web antivirus";
 $MESS ['SEC_ANTIVIRUS_MAIN_TAB'] = "Web antivirus";
 $MESS ['SEC_ANTIVIRUS_MAIN_TAB_TITLE'] = "Activate web antivirus.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_SALE_NOT_INSTALLED"] = "Модуль sale не установлен.";
 $MESS["CRM_INVOICE_STATUS_P"] = "Оплачен";
 $MESS["CRM_INVOICE_STATUS_D"] = "Отклонён";

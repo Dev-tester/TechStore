@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_NOT_FOUND"] = "Quote was not found.";
 $MESS["CRM_QUOTE_ID_NOT_DEFINED"] = "Quote ID was not found";
 $MESS["CRM_QUOTE_ACCESS_DENIED"] = "Access denied";

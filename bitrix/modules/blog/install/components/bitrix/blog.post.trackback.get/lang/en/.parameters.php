@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPTG_BLOG_URL'] = "Blog URL";
 $MESS ['BPTG_PATH_TO_POST'] = "Post path template";
 $MESS ['BPTG_BLOG_VAR'] = "Blog identifier variable";

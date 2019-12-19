@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ERROR_ADD_ACTION'] = "Beim Hinzufügen des Zahlungssystem-Handlers ist ein Fehler aufgetreten";
 $MESS['ERROR_ADD_PAY_SYS'] = "Beim Hinzufügen des Zahlungssystems ist ein Fehler aufgetreten";
 $MESS['ERROR_EDIT_ACTION'] = "Beim Aktualisieren des Zahlungssystem-Handlers ist ein Fehler aufgetreten";

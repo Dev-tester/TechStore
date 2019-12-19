@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGOUP_EMPTY_PERS_TYPE"] = "Die Kundengruppe wurde nicht definiert ";
 $MESS["SKGOUP_UNAUTH"] = "Sie sind nicht autorisiert ";
 $MESS["SKGOUP_NO_USER_ID"] = "Die Nutzer-ID wurde nicht angegeben";

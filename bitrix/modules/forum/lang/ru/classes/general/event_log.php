@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_MESSAGE_APPROVE"] = "Показ сообщения";
 $MESS["FORUM_MESSAGE_UNAPPROVE"] = "Скрытие сообщения";
 $MESS["FORUM_MESSAGE_MOVE"] = "Перенос сообщения";

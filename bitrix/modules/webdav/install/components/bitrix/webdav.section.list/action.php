@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($_REQUEST["edit"] != "Y" && !is_set($_POST, "action_button_".$arParams["GRID_ID"])):
 	return true;
 endif;

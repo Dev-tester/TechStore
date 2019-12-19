@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_FOR_NAME"] = "New vote";
 $MESS["VOTE_FOR_DESC"] = "#ID# - Vote result ID
 #TIME# - Time of vote

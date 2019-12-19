@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FM_WRONG_DATE_CREATE_FROM'] = "Введите в фильтре правильную \"Дату создания\" \"c\"";
 $MESS['FM_TOPICS'] = "Cообщений";
 $MESS['FORUM_TOPICS'] = "Управление темами";

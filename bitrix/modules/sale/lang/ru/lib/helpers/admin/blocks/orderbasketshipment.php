@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_SHIPMENT_BASKET_COMPOSITION"] = "Состав отгрузки";
 $MESS["SALE_ORDER_BASKET_ROW_SETTINGS"] = "Настроить колонки";
 $MESS["SALE_ORDER_SHIPMENT_BASKET_ALL_PRODUCTS_DEL"] = "Вы действительно хотите удалить все товары из отгрузки?";

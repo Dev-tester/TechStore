@@ -1,4 +1,4 @@
-<?
+<?php 
 $className = "CXMPPSharedGroupIQ";
 $classVersion = 2;
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MODULE_NOT_INSTALL"] = "Модуль социальной сети не установлен.";
 $MESS["SONET_WORKGROUPS_FEATURE_DISABLED"] = "Функционал рабочих групп отключен.";
 $MESS["SONET_LOADING"] = "Загрузка...";

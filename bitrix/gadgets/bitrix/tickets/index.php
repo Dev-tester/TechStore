@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["PATH_TO_TICKET_EDIT"] = ($arGadgetParams["PATH_TO_TICKET_EDIT"] ? $arGadgetParams["PATH_TO_TICKET_EDIT"] : "/extranet/services/support.php?ID=#ID#");

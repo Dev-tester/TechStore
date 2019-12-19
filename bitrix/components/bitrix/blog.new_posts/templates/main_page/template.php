@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 ?>
 <div class="bx-new-layout-include">
-<?
+<?php 
 if(empty($arResult))
 	echo GetMessage("BLOG_BLOG_EMPTY");
 
@@ -11,9 +11,9 @@ foreach($arResult as $arPost)
 	?>
 	<div class="blg-mp-info">
 		<div class="blg-mp-info-inner">
-			<div class="blg-mp-date intranet-date"><?echo $arPost["DATE_PUBLISH_FORMATED"];?></div>
+			<div class="blg-mp-date intranet-date"><?php echo $arPost["DATE_PUBLISH_FORMATED"];?></div>
 			<div class="blg-mp-name">
-			<?
+			<?php 
 			if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($arPost["urlToBlog"]) > 0 || strlen($arPost["urlToAuthor"]) > 0) && array_key_exists("BLOG_USER_ALIAS", $arPost) && strlen($arPost["BLOG_USER_ALIAS"]) > 0)
 				$arTmpUser = array(
 					"NAME" => "",
@@ -31,7 +31,7 @@ foreach($arResult as $arPost)
 					"NAME_LIST_FORMATTED" => "",
 				);	
 			?>			
-			<?
+			<?php 
 			$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 				'',
 				array(
@@ -63,17 +63,17 @@ foreach($arResult as $arPost)
 			);
 			?>			
 			</div>
-			<div class="blg-mp-post"><a href="<?=$arPost["urlToPost"]?>"><?echo $arPost["TITLE"]?></a></div>
-			<?if(IntVal($arPost["VIEWS"]) > 0):?>
+			<div class="blg-mp-post"><a href="<?=$arPost["urlToPost"]?>"><?php echo $arPost["TITLE"]?></a></div>
+			<?php if(IntVal($arPost["VIEWS"]) > 0):?>
 				<div class="blg-mp-post"><?=GetMessage("BLOG_BLOG_M_VIEWS")?> <?=$arPost["VIEWS"]?></div>
-			<?endif;?>
-			<?if(IntVal($arPost["NUM_COMMENTS"]) > 0):?>
+			<?php endif;?>
+			<?php if(IntVal($arPost["NUM_COMMENTS"]) > 0):?>
 				<div class="blg-mp-post"><?=GetMessage("BLOG_BLOG_M_NUM_COMMENTS")?> <?=$arPost["NUM_COMMENTS"]?></div>
-			<?endif;?>
+			<?php endif;?>
 			<div class="bx-users-delimiter"></div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>	
 </div>

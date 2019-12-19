@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CAllMeetingReports
 {
 	abstract public static function GetList($arOrder = array(), $arFilter = array(), $arGroupBy = false, $arNavStartParams = false, $arSelectFields = array());

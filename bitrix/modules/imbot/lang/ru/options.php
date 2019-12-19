@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMBOT_TAB_SETTINGS"] = "Настройки";
 $MESS["IMBOT_TAB_TITLE_SETTINGS_2"] = "Параметры подключения";
 $MESS["IMBOT_ACCOUNT_ERROR_PUBLIC"] = "Вы указали не корректный публичный адрес";

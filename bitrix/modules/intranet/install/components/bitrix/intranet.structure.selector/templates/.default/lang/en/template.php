@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ISS_TPL_DEPARTMENT_MINE'] = "My Department Only";
 $MESS ['INTR_ISS_TPL_DEPARTMENT'] = "Department";
 $MESS ['INTR_ISS_TPL_POST'] = "Position";

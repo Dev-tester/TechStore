@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Bizproc\SchedulerEventTable;
 use Bitrix\Main\Loader;
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_BLANK_FILE_DATA_TYPE_DOCX"] = "Document";
 $MESS["DISK_BLANK_FILE_DATA_TYPE_XLSX"] = "Spreadsheet";
 $MESS["DISK_BLANK_FILE_DATA_TYPE_PPTX"] = "Presentation";

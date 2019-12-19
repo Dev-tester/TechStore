@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REPORT_VAR"] = "Report ID variable";
 $MESS["CRM_ACTION_VAR"] = "Action ID variable";
 $MESS["CRM_SEF_PATH_TO_INDEX"] = "Index page path template";

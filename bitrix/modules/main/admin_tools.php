@@ -920,7 +920,7 @@ function SetPrologProperty($prolog, $property_key, $property_val)
 
 function IsPHP($src)
 {
-	if(strpos($src, "<?")!==false)
+	if(strpos($src, "<?php ")!==false)
 		return true;
 	if(preg_match("/(<script[^>]*language\\s*=\\s*)('|\"|)php('|\"|)([^>]*>)/i", $src))
 		return true;

@@ -82,7 +82,7 @@ $tabControl = new \CAdminTabControl("tabControl2", $aTabs, false, true);
 <input type="hidden" name="tr_search" value="1">
 <input type="hidden" id="replace_oper" name="replace_oper" value="N">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $tabControl->Begin();
 
 $tabControl->BeginNextTab();
@@ -91,7 +91,7 @@ $tabControl->BeginNextTab();
 		<td><?= Loc::getMessage("TR_SEARCH_LANGUAGE")?>:</td>
 		<td>
 			<select name="search_language">
-				<?
+				<?php 
 				$iterator = Main\Localization\LanguageTable::getList([
 					'select' => ['ID', 'NAME'],
 					'filter' => [
@@ -103,7 +103,7 @@ $tabControl->BeginNextTab();
 				while ($row = $iterator->fetch())
 				{
 					$isSelected = (isset($search_language) && $search_language == $row['ID']) || (LANGUAGE_ID == $row['ID']);
-					?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?
+					?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?php 
 				}
 				?>
 			</select>
@@ -129,7 +129,7 @@ $tabControl->BeginNextTab();
 		<td><?= Loc::getMessage("TR_SEARCH_SUBFOLDERS")?>:</td>
 		<td><input type="checkbox" name="search_subfolders" value="Y" checked="checked"></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 
 if ($hasPermissionEditPhp)
@@ -140,7 +140,7 @@ if ($hasPermissionEditPhp)
 		<td><?= Loc::getMessage("TR_SEARCH_LANGUAGE")?>:</td>
 		<td>
 			<select name="search_language2">
-				<?
+				<?php 
 				$iterator = Main\Localization\LanguageTable::getList([
 					'select' => ['ID', 'NAME'],
 					'filter' => [
@@ -152,7 +152,7 @@ if ($hasPermissionEditPhp)
 				while ($row = $iterator->fetch())
 				{
 					$isSelected = (isset($search_language2) && $search_language2 == $row['ID']) || (LANGUAGE_ID == $row['ID']);
-					?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?
+					?><option value="<?= $row['ID'] ?>" <?= ($isSelected ? ' selected=""' : '') ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?php 
 				}
 				?>
 			</select>
@@ -182,7 +182,7 @@ if ($hasPermissionEditPhp)
 		<td><?= Loc::getMessage("TR_SEARCH_SUBFOLDERS")?>:</td>
 		<td><input type="checkbox" name="search_subfolders2" value="Y" checked="checked"></td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndTab();
 }
 ?>
@@ -236,14 +236,14 @@ BX.bind(document, 'keypress', function (event)
 });
 
 </script>
-<?
+<?php 
 
 $tabControl->Buttons();
 $tabControl->End();
 ?>
 
 </form>
-<?
+<?php 
 //endregion
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

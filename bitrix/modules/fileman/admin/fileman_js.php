@@ -1,4 +1,4 @@
-<?
+<?php 
 $HTTP_ACCEPT_ENCODING = '';
 session_cache_limiter("public");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
@@ -32,7 +32,7 @@ if (!isset($_SERVER['HTTP_IF_NONE_MATCH']) || $_SERVER['HTTP_IF_NONE_MATCH'] != 
 			$sMess .= "'".substr($aMess[$i], strlen("FILEMAN_JS_"))."': '".CUtil::addslashes(GetMessage($aMess[$i]))."',";
 
 	$sMess = rtrim($sMess,',');
-	?>var BX_MESS = {<?=$sMess?>};<?
+	?>var BX_MESS = {<?=$sMess?>};<?php 
 }
 else
 {

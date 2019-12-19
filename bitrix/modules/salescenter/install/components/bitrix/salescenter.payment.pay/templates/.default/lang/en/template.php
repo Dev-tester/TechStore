@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPP_EMPTY_TEMPLATE_FOOTER"] = "Please select a different payment system to pay online";
 $MESS["SPP_EMPTY_TEMPLATE_PAY_SYSTEM_NAME_FIELD"] = "Payment method:";
 $MESS["SPP_EMPTY_TEMPLATE_SUM_WITH_CURRENCY_FIELD"] = "Order total:";

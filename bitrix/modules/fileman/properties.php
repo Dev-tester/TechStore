@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $GLOBALS['YANDEX_MAP_PROPERTY'] = array();
@@ -166,19 +166,19 @@ class CIBlockPropertyMapGoogle extends CIBlockPropertyMapInterface
 			$GLOBALS['GOOGLE_MAP_PROPERTY'][$arProperty['ID']] = $MAP_ID;
 
 ?>
-<div id="bx_map_hint_<?echo $MAP_ID?>" style="display: none;">
-	<div id="bx_map_hint_value_<?echo $MAP_ID?>" style="display: <?echo $bHasValue ? 'block' : 'none'?>;">
-<?
+<div id="bx_map_hint_<?php echo $MAP_ID?>" style="display: none;">
+	<div id="bx_map_hint_value_<?php echo $MAP_ID?>" style="display: <?php echo $bHasValue ? 'block' : 'none'?>;">
+<?php 
 		echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_INSTR_VALUE').'<br /><br />';
 ?>
 	</div>
-	<div id="bx_map_hint_novalue_<?echo $MAP_ID?>" style="display: <?echo $bHasValue ? 'none' : 'block'?>;">
-<?
+	<div id="bx_map_hint_novalue_<?php echo $MAP_ID?>" style="display: <?php echo $bHasValue ? 'none' : 'block'?>;">
+<?php 
 		echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_INSTR').'<br /><br />';
 ?>
 	</div>
 </div>
-<?
+<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:map.google.system',
 			'',
@@ -210,40 +210,40 @@ class CIBlockPropertyMapGoogle extends CIBlockPropertyMapInterface
 		}
 	});
 
-	<?if($arProperty['MULTIPLE'] == 'N'):?>
-		function setPointValue_<?echo $MAP_ID?>(obPoint)
+	<?php if($arProperty['MULTIPLE'] == 'N'):?>
+		function setPointValue_<?php echo $MAP_ID?>(obPoint)
 		{
-			if (null == window.obPoint_<?echo $MAP_ID?>__n0_)
+			if (null == window.obPoint_<?php echo $MAP_ID?>__n0_)
 			{
-				window.obPoint_<?echo $MAP_ID?>__n0_ = new google.maps.Marker({
+				window.obPoint_<?php echo $MAP_ID?>__n0_ = new google.maps.Marker({
 					position: obPoint.latLng,
-					map: window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'],
+					map: window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'],
 					draggable:true
 				});
 
-				google.maps.event.addListener(window.obPoint_<?echo $MAP_ID?>__n0_, "dragend", updatePointPosition_<?echo $MAP_ID?>__n0_);
+				google.maps.event.addListener(window.obPoint_<?php echo $MAP_ID?>__n0_, "dragend", updatePointPosition_<?php echo $MAP_ID?>__n0_);
 			}
 			else
 			{
-				window.obPoint_<?echo $MAP_ID?>__n0_.setPosition(obPoint.latLng);
+				window.obPoint_<?php echo $MAP_ID?>__n0_.setPosition(obPoint.latLng);
 			}
 
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
-			BX('point_control_<?echo $MAP_ID?>__n0_').style.display = 'inline-block';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('point_control_<?php echo $MAP_ID?>__n0_').style.display = 'inline-block';
 
-			updatePointPosition_<?echo $MAP_ID?>__n0_(obPoint);
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(obPoint_<?echo $MAP_ID?>__n0_.getPosition());
+			updatePointPosition_<?php echo $MAP_ID?>__n0_(obPoint);
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(obPoint_<?php echo $MAP_ID?>__n0_.getPosition());
 		}
-	<?else:?>
-		function setPointValue_<?echo $MAP_ID?>(obPoint)
+	<?php else:?>
+		function setPointValue_<?php echo $MAP_ID?>(obPoint)
 		{
 			var i = 0, point = [], k = [];
-			while (BX('point_<?echo $MAP_ID?>__n' + i + '_lat'))
+			while (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat'))
 			{
-				if(BX('point_<?echo $MAP_ID?>__n' + i + '_lat').value == ''
-					&& BX('point_<?echo $MAP_ID?>__n' + i + '_lon')
-					&& BX('point_<?echo $MAP_ID?>__n' + i + '_lon').value == '')
+				if(BX('point_<?php echo $MAP_ID?>__n' + i + '_lat').value == ''
+					&& BX('point_<?php echo $MAP_ID?>__n' + i + '_lon')
+					&& BX('point_<?php echo $MAP_ID?>__n' + i + '_lon').value == '')
 				{
 					k.push(i);
 				}
@@ -251,176 +251,176 @@ class CIBlockPropertyMapGoogle extends CIBlockPropertyMapInterface
 			}
 			if (k.length <= 1)
 			{
-				window.addNewRow(BX('point_<?echo $MAP_ID?>__n0_lat').parentNode.parentNode.parentNode.parentNode.id);
+				window.addNewRow(BX('point_<?php echo $MAP_ID?>__n0_lat').parentNode.parentNode.parentNode.parentNode.id);
 			}
 			k = (k.length) ? Math.min.apply(null, k) : i;
-			var obPnt = 'obPoint_<?echo $MAP_ID?>__n'+k+'_',
-				updPP = 'updatePointPosition_<?echo $MAP_ID?>__n'+k+'_';
+			var obPnt = 'obPoint_<?php echo $MAP_ID?>__n'+k+'_',
+				updPP = 'updatePointPosition_<?php echo $MAP_ID?>__n'+k+'_';
 			if(window[updPP])
 			{
 				window[obPnt] = null;
 
 				window[obPnt] = new google.maps.Marker({
 					position: obPoint.latLng,
-					map: window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'],
+					map: window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'],
 					draggable:true
 				});
-				google.maps.event.addListener(window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, "dragend", updatePointPosition_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_);
+				google.maps.event.addListener(window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, "dragend", updatePointPosition_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_);
 				window[updPP](obPoint);
 			}
 
-			BX('point_control_<?echo $MAP_ID?>__n'+k+'_').style.display = 'inline-block';
+			BX('point_control_<?php echo $MAP_ID?>__n'+k+'_').style.display = 'inline-block';
 
-			updateMapHint_<?echo $MAP_ID?>();
+			updateMapHint_<?php echo $MAP_ID?>();
 		}
-	<?endif;?>
+	<?php endif;?>
 
-	function updateMapHint_<?echo $MAP_ID?>()
+	function updateMapHint_<?php echo $MAP_ID?>()
 	{
 		var noValue = true,
 			i = 0;
-		while (BX('point_<?echo $MAP_ID?>__n' + i + '_lat'))
+		while (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat'))
 		{
-			if (BX('point_<?echo $MAP_ID?>__n' + i + '_lat').value !== '' || !BX('point_<?echo $MAP_ID?>__n' + i + '_lon') || BX('point_<?echo $MAP_ID?>__n' + i + '_lon').value !=='')
+			if (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat').value !== '' || !BX('point_<?php echo $MAP_ID?>__n' + i + '_lon') || BX('point_<?php echo $MAP_ID?>__n' + i + '_lon').value !=='')
 				noValue = false;
 			i++;
 		}
 		if (noValue)
 		{
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'block';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'none';
 		}
 		else
 		{
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
 		}
 	}
 </script>
 
-<div id="bx_address_search_control_<?echo $MAP_ID?>" style="display: none;margin-top:15px;"><?echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_SEARCH')?><input type="text" name="bx_address_<?echo $MAP_ID?>" id="bx_address_<?echo $MAP_ID?>" value="" style="width: 300px;" autocomplete="off" /></div>
+<div id="bx_address_search_control_<?php echo $MAP_ID?>" style="display: none;margin-top:15px;"><?php echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_SEARCH')?><input type="text" name="bx_address_<?php echo $MAP_ID?>" id="bx_address_<?php echo $MAP_ID?>" value="" style="width: 300px;" autocomplete="off" /></div>
 <br />
-<?
+<?php 
 		}
 ?>
-<input type="text" style="width:125px;margin:0 0 4px" name="point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat" id="point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat" onchange="setInputPointValue_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()" />, <input type="text" style="width:125px;margin:0 15px 4px 0;" name="point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon" id="point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon" onchange="setInputPointValue_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()" />
-<div id="point_control_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_" style="display:none;margin:0 0 4px"><a href="javascript:void(0);" onclick="findPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()"><?echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_GOTO_POINT')?></a> | <a href="javascript:void(0);" onclick="if (confirm('<?echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_GOOGLE_REMOVE_POINT_CONFIRM'))?>')) removePoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()"><?echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_REMOVE_POINT')?></a></div><br />
-<input type="text" style="display:none;" id="value_<?echo $MAP_ID;?>__n<?=$googleMapLastNumber?>_" name="<?=htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" value="<?=htmlspecialcharsEx($value["VALUE"])?>" />
+<input type="text" style="width:125px;margin:0 0 4px" name="point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat" id="point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat" onchange="setInputPointValue_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()" />, <input type="text" style="width:125px;margin:0 15px 4px 0;" name="point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon" id="point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon" onchange="setInputPointValue_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()" />
+<div id="point_control_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_" style="display:none;margin:0 0 4px"><a href="javascript:void(0);" onclick="findPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()"><?php echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_GOTO_POINT')?></a> | <a href="javascript:void(0);" onclick="if (confirm('<?php echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_GOOGLE_REMOVE_POINT_CONFIRM'))?>')) removePoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()"><?php echo GetMessage('IBLOCK_PROP_MAP_GOOGLE_REMOVE_POINT')?></a></div><br />
+<input type="text" style="display:none;" id="value_<?php echo $MAP_ID;?>__n<?=$googleMapLastNumber?>_" name="<?=htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" value="<?=htmlspecialcharsEx($value["VALUE"])?>" />
 <script>
 	window.jsAdminGoogleMess = {
-		nothing_found: '<?echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_GOOGLE_NOTHING_FOUND'))?>'
+		nothing_found: '<?php echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_GOOGLE_NOTHING_FOUND'))?>'
 	}
 	BX.loadCSS('/bitrix/components/bitrix/map.google.view/settings/settings.css');
 
-	function BXWaitForMap_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
+	function BXWaitForMap_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
 	{
-		if (!window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'])
-			setTimeout(BXWaitForMap_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, 300);
+		if (!window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'])
+			setTimeout(BXWaitForMap_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, 300);
 		else
 		{
-			if(!window.markersBounds_<?echo $MAP_ID?>)
-				window.markersBounds_<?echo $MAP_ID?> = new google.maps.LatLngBounds();
-			window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_ = null;
+			if(!window.markersBounds_<?php echo $MAP_ID?>)
+				window.markersBounds_<?php echo $MAP_ID?> = new google.maps.LatLngBounds();
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_ = null;
 
-			google.maps.event.clearListeners(window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'], 'dblclick');
-			google.maps.event.addListener(window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'], 'dblclick', window.setPointValue_<?echo $MAP_ID?>);
+			google.maps.event.clearListeners(window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'], 'dblclick');
+			google.maps.event.addListener(window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'], 'dblclick', window.setPointValue_<?php echo $MAP_ID?>);
 
-			var searchInput = BX('bx_address_<?echo $MAP_ID?>');
-			BX.bind(searchInput,"keydown", jsGoogleCESearch_<?echo $MAP_ID;?>.setTypingStarted);
-			BX.bind(searchInput,"contextmenu", jsGoogleCESearch_<?echo $MAP_ID;?>.setTypingStarted);
-			BX('point_control_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_').style.display = 'none';
+			var searchInput = BX('bx_address_<?php echo $MAP_ID?>');
+			BX.bind(searchInput,"keydown", jsGoogleCESearch_<?php echo $MAP_ID;?>.setTypingStarted);
+			BX.bind(searchInput,"contextmenu", jsGoogleCESearch_<?php echo $MAP_ID;?>.setTypingStarted);
+			BX('point_control_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_').style.display = 'none';
 
-			<?if ($bHasValue):?>
-				setPointValue_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_({latLng: new google.maps.LatLng(<?echo $POINT_LAT?>, <?echo $POINT_LON?>)});
-				window.markersBounds_<?echo $MAP_ID?>.extend(new google.maps.LatLng(<?echo $POINT_LAT?>, <?echo $POINT_LON?>));
+			<?php if ($bHasValue):?>
+				setPointValue_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_({latLng: new google.maps.LatLng(<?php echo $POINT_LAT?>, <?php echo $POINT_LON?>)});
+				window.markersBounds_<?php echo $MAP_ID?>.extend(new google.maps.LatLng(<?php echo $POINT_LAT?>, <?php echo $POINT_LON?>));
 				if (<?=$googleMapLastNumber?> > 0)
-					window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].setCenter(window.markersBounds_<?echo $MAP_ID?>.getCenter(), window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].fitBounds(window.markersBounds_<?echo $MAP_ID?>));
-			<?endif;?>
+					window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].setCenter(window.markersBounds_<?php echo $MAP_ID?>.getCenter(), window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].fitBounds(window.markersBounds_<?php echo $MAP_ID?>));
+			<?php endif;?>
 
-			BX('bx_address_search_control_<?echo $MAP_ID?>').style.display = 'block';
-			BX('bx_map_hint_<?echo $MAP_ID?>').style.display = 'block';
+			BX('bx_address_search_control_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_<?php echo $MAP_ID?>').style.display = 'block';
 		}
 	}
 
 
-function findPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
+function findPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
 {
-	if (null != window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_)
-		window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.getPosition());
+	if (null != window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_)
+		window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.getPosition());
 }
 
-function removePoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
+function removePoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
 {
-	window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.setMap(null);
-	window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_ = null;
+	window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.setMap(null);
+	window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_ = null;
 
-	BX('point_control_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_').style.display = 'none';
+	BX('point_control_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_').style.display = 'none';
 
-	updatePointPosition_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_();
+	updatePointPosition_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_();
 
-	updateMapHint_<?echo $MAP_ID?>();
+	updateMapHint_<?php echo $MAP_ID?>();
 }
 
-function setPointValue_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(obEvent)
+function setPointValue_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(obEvent)
 {
 	var obPoint = BX.type.isArray(obEvent) ? {latLng: new google.maps.LatLng(obEvent[0], obEvent[1])} : {latLng: new google.maps.LatLng(obEvent.latLng.lat(), obEvent.latLng.lng())};
 
-	if (null == window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_)
+	if (null == window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_)
 	{
-		window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_ = new google.maps.Marker({
+		window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_ = new google.maps.Marker({
 			position: obPoint.latLng,
-			map: window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'],
+			map: window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'],
 			draggable:true
 		});
-		google.maps.event.addListener(window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, "dragend", updatePointPosition_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_);
+		google.maps.event.addListener(window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, "dragend", updatePointPosition_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_);
 	}
 	else
 	{
-		window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.setPosition(obPoint.latLng);
+		window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.setPosition(obPoint.latLng);
 	}
 
-	BX('point_control_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_').style.display = 'inline-block';
-	BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-	BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
+	BX('point_control_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_').style.display = 'inline-block';
+	BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+	BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
 
-	updatePointPosition_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(obPoint);
-	window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.getPosition());
+	updatePointPosition_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(obPoint);
+	window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.getPosition());
 }
 
-function setInputPointValue_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
+function setInputPointValue_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_()
 {
-	var vv = [BX('point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat').value, BX('point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon').value];
+	var vv = [BX('point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat').value, BX('point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon').value];
 	if (vv[0] == '' && vv[1] == '')
 	{
-		removePoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_();
+		removePoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_();
 	}
-	var v = [parseFloat(BX('point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat').value), parseFloat(BX('point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon').value)];
+	var v = [parseFloat(BX('point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat').value), parseFloat(BX('point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon').value)];
 	if (!isNaN(v[0]) && !isNaN(v[1]))
 	{
-		setPointValue_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(v);
+		setPointValue_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(v);
 	}
 }
 
-function updatePointPosition_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(obPoint)
+function updatePointPosition_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_(obPoint)
 {
 	var obP = [];
 	if (!!obPoint && !!obPoint.latLng)
 		obP.push(obPoint.latLng.lat(), obPoint.latLng.lng());
-	else if (!!window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_)
-		obP.push(window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.latLng.lat(), window.obPoint_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.latLng.lng());
+	else if (!!window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_)
+		obP.push(window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.latLng.lat(), window.obPoint_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_.latLng.lng());
 	else
 		obP = null;
-	var obInput = BX('value_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_');
+	var obInput = BX('value_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_');
 	obInput.value = null == obP ? '' : obP[0] + ',' + obP[1];
-	BX('point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat').value = obP ? obP[0] : '';
-	BX('point_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon').value = obP ? obP[1] : '';
+	BX('point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lat').value = obP ? obP[0] : '';
+	BX('point_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_lon').value = obP ? obP[1] : '';
 }
 
    BX.ready(function(){
-   	setTimeout(BXWaitForMap_<?echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, 100);
+   	setTimeout(BXWaitForMap_<?php echo $MAP_ID?>__n<?=$googleMapLastNumber?>_, 100);
    });
 
-var jsGoogleCESearch_<?echo $MAP_ID;?> = {
+var jsGoogleCESearch_<?php echo $MAP_ID;?> = {
 	bInited: false,
 
 	map: null,
@@ -435,17 +435,17 @@ var jsGoogleCESearch_<?echo $MAP_ID;?> = {
 
 	__init: function(input)
 	{
-		if (jsGoogleCESearch_<?echo $MAP_ID;?>.bInited) return;
+		if (jsGoogleCESearch_<?php echo $MAP_ID;?>.bInited) return;
 
-		jsGoogleCESearch_<?echo $MAP_ID;?>.map = window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'];
-		jsGoogleCESearch_<?echo $MAP_ID;?>.obInput = input;
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.map = window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'];
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.obInput = input;
 
-		//input.form.onsubmit = function() {jsGoogleCESearch_<?echo $MAP_ID;?>.doSearch(); return false;}
+		//input.form.onsubmit = function() {jsGoogleCESearch_<?php echo $MAP_ID;?>.doSearch(); return false;}
 
-		input.onfocus = jsGoogleCESearch_<?echo $MAP_ID;?>.showResults;
-		input.onblur = jsGoogleCESearch_<?echo $MAP_ID;?>.hideResults;
+		input.onfocus = jsGoogleCESearch_<?php echo $MAP_ID;?>.showResults;
+		input.onblur = jsGoogleCESearch_<?php echo $MAP_ID;?>.hideResults;
 
-		jsGoogleCESearch_<?echo $MAP_ID;?>.bInited = true;
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.bInited = true;
 	},
 
 	setTypingStarted: function(e)
@@ -455,41 +455,41 @@ var jsGoogleCESearch_<?echo $MAP_ID;?> = {
 
 		if (e.keyCode == 13)
 		{
-			jsGoogleCESearch_<?echo $MAP_ID;?>.doSearch();
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.doSearch();
 			return false;
 		}
 		else
 		{
 
-			if (!jsGoogleCESearch_<?echo $MAP_ID;?>.bInited)
-				jsGoogleCESearch_<?echo $MAP_ID;?>.__init(this);
+			if (!jsGoogleCESearch_<?php echo $MAP_ID;?>.bInited)
+				jsGoogleCESearch_<?php echo $MAP_ID;?>.__init(this);
 
 			if (e.type=="contextmenu")
-					jsGoogleCESearch_<?echo $MAP_ID;?>.timerDelay=3000;
+					jsGoogleCESearch_<?php echo $MAP_ID;?>.timerDelay=3000;
 			else
-					jsGoogleCESearch_<?echo $MAP_ID;?>.timerDelay=1000;
+					jsGoogleCESearch_<?php echo $MAP_ID;?>.timerDelay=1000;
 
-			jsGoogleCESearch_<?echo $MAP_ID;?>.hideResults();
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.hideResults();
 
-			if (null != jsGoogleCESearch_<?echo $MAP_ID;?>.timerID)
-				clearTimeout(jsGoogleCESearch_<?echo $MAP_ID;?>.timerID);
+			if (null != jsGoogleCESearch_<?php echo $MAP_ID;?>.timerID)
+				clearTimeout(jsGoogleCESearch_<?php echo $MAP_ID;?>.timerID);
 
-			jsGoogleCESearch_<?echo $MAP_ID;?>.timerID = setTimeout(jsGoogleCESearch_<?echo $MAP_ID;?>.doSearch, jsGoogleCESearch_<?echo $MAP_ID;?>.timerDelay);
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.timerID = setTimeout(jsGoogleCESearch_<?php echo $MAP_ID;?>.doSearch, jsGoogleCESearch_<?php echo $MAP_ID;?>.timerDelay);
 		}
 	},
 
 	doSearch: function()
 	{
-		var value = jsUtils.trim(jsGoogleCESearch_<?echo $MAP_ID;?>.obInput.value);
+		var value = jsUtils.trim(jsGoogleCESearch_<?php echo $MAP_ID;?>.obInput.value);
 		if (value.length > 1)
 		{
-			if (null == jsGoogleCESearch_<?echo $MAP_ID;?>.geocoder)
-				jsGoogleCESearch_<?echo $MAP_ID;?>.geocoder = new google.maps.Geocoder();
+			if (null == jsGoogleCESearch_<?php echo $MAP_ID;?>.geocoder)
+				jsGoogleCESearch_<?php echo $MAP_ID;?>.geocoder = new google.maps.Geocoder();
 
-			jsGoogleCESearch_<?echo $MAP_ID;?>.geocoder.geocode({
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.geocoder.geocode({
 				address: value,
 				language: '<?=LANGUAGE_ID?>'
-			}, jsGoogleCESearch_<?echo $MAP_ID;?>.__searchResultsLoad);
+			}, jsGoogleCESearch_<?php echo $MAP_ID;?>.__searchResultsLoad);
 		}
 	},
 
@@ -500,21 +500,21 @@ var jsGoogleCESearch_<?echo $MAP_ID;?> = {
 
 	setResultsCoordinates: function()
 	{
-		var obPos = jsUtils.GetRealPos(jsGoogleCESearch_<?echo $MAP_ID;?>.obInput);
-		jsGoogleCESearch_<?echo $MAP_ID;?>.obOut.style.top = (obPos.bottom + 2) + 'px';
-		jsGoogleCESearch_<?echo $MAP_ID;?>.obOut.style.left = obPos.left + 'px';
+		var obPos = jsUtils.GetRealPos(jsGoogleCESearch_<?php echo $MAP_ID;?>.obInput);
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut.style.top = (obPos.bottom + 2) + 'px';
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut.style.left = obPos.left + 'px';
 	},
 
 	__generateOutput: function()
 	{
-		jsGoogleCESearch_<?echo $MAP_ID;?>.obOut = document.body.appendChild(document.createElement('UL'));
-		jsGoogleCESearch_<?echo $MAP_ID;?>.obOut.className = 'bx-google-address-search-results';
-		jsGoogleCESearch_<?echo $MAP_ID;?>.setResultsCoordinates();
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut = document.body.appendChild(document.createElement('UL'));
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut.className = 'bx-google-address-search-results';
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.setResultsCoordinates();
 	},
 
 	__searchResultsLoad: function(obResult, status)
 	{
-		var _this = jsGoogleCESearch_<?echo $MAP_ID;?>;
+		var _this = jsGoogleCESearch_<?php echo $MAP_ID;?>;
 
 		if (status != google.maps.GeocoderStatus.OK && status != google.maps.GeocoderStatus.ZERO_RESULTS)
 		{
@@ -583,60 +583,60 @@ var jsGoogleCESearch_<?echo $MAP_ID;?> = {
 	{
 		if (null !== this.BXSearchIndex)
 		{
-			jsGoogleCESearch_<?echo $MAP_ID;?>.map.setCenter(jsGoogleCESearch_<?echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].location);
-			if (jsGoogleCESearch_<?echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].viewport)
-				jsGoogleCESearch_<?echo $MAP_ID;?>.map.fitBounds(jsGoogleCESearch_<?echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].viewport);
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.map.setCenter(jsGoogleCESearch_<?php echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].location);
+			if (jsGoogleCESearch_<?php echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].viewport)
+				jsGoogleCESearch_<?php echo $MAP_ID;?>.map.fitBounds(jsGoogleCESearch_<?php echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].viewport);
 		}
 	},
 
 	showResults: function()
 	{
-		if (null != jsGoogleCESearch_<?echo $MAP_ID;?>.obOut)
+		if (null != jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut)
 		{
-			jsGoogleCESearch_<?echo $MAP_ID;?>.setResultsCoordinates();
-			jsGoogleCESearch_<?echo $MAP_ID;?>.obOut.style.display = 'block';
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.setResultsCoordinates();
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut.style.display = 'block';
 		}
 	},
 
 	hideResults: function()
 	{
-		if (null != jsGoogleCESearch_<?echo $MAP_ID;?>.obOut)
+		if (null != jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut)
 		{
-			setTimeout("jsGoogleCESearch_<?echo $MAP_ID;?>.obOut.style.display = 'none'", 300);
+			setTimeout("jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut.style.display = 'none'", 300);
 		}
 	},
 
 	clearSearchResults: function()
 	{
-		for (var i = 0; i < jsGoogleCESearch_<?echo $MAP_ID;?>.arSearchResults.length; i++)
+		for (var i = 0; i < jsGoogleCESearch_<?php echo $MAP_ID;?>.arSearchResults.length; i++)
 		{
-			delete jsGoogleCESearch_<?echo $MAP_ID;?>.arSearchResults[i];
+			delete jsGoogleCESearch_<?php echo $MAP_ID;?>.arSearchResults[i];
 		}
 
-		jsGoogleCESearch_<?echo $MAP_ID;?>.arSearchResults = [];
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.arSearchResults = [];
 	},
 
 	clear: function()
 	{
-		if (!jsGoogleCESearch_<?echo $MAP_ID;?>.bInited)
+		if (!jsGoogleCESearch_<?php echo $MAP_ID;?>.bInited)
 			return;
 
-		jsGoogleCESearch_<?echo $MAP_ID;?>.bInited = false;
-		if (null != jsGoogleCESearch_<?echo $MAP_ID;?>.obOut)
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.bInited = false;
+		if (null != jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut)
 		{
-			jsGoogleCESearch_<?echo $MAP_ID;?>.obOut.parentNode.removeChild(jsGoogleCESearch_<?echo $MAP_ID;?>.obOut);
-			jsGoogleCESearch_<?echo $MAP_ID;?>.obOut = null;
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut.parentNode.removeChild(jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut);
+			jsGoogleCESearch_<?php echo $MAP_ID;?>.obOut = null;
 		}
 
-		jsGoogleCESearch_<?echo $MAP_ID;?>.arSearchResults = [];
-		jsGoogleCESearch_<?echo $MAP_ID;?>.map = null;
-		jsGoogleCESearch_<?echo $MAP_ID;?>.geocoder = null;
-		jsGoogleCESearch_<?echo $MAP_ID;?>.obInput = null;
-		jsGoogleCESearch_<?echo $MAP_ID;?>.timerID = null;
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.arSearchResults = [];
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.map = null;
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.geocoder = null;
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.obInput = null;
+		jsGoogleCESearch_<?php echo $MAP_ID;?>.timerID = null;
 	}
 }
 </script>
-<?
+<?php 
 	$out = ob_get_contents();
 	ob_end_clean();
 
@@ -714,18 +714,18 @@ class CIBlockPropertyMapYandex extends CIBlockPropertyMapInterface
 	{
 		echo BeginNote();
 ?>
-<div id="key_input_control_<?echo $MAP_ID?>">
-		<?echo str_replace('#DOMAIN#', $strDomain, GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_MESSAGE'))?><br /><br />
-		<?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY')?><input type="text" name="map_yandex_key_<?echo $MAP_ID?>" id="map_yandex_key_<?echo $MAP_ID?>" /> <input type="button" value="<?echo htmlspecialcharsbx(GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_BUTTON'))?>" onclick="setYandexKey('<?echo $strDomain?>', 'map_yandex_key_<?echo $MAP_ID?>')" /> <input type="button" value="<?echo htmlspecialcharsbx(GetMessage('IBLOCK_PROP_MAP_YANDEX_SAVE_KEY_BUTTON'))?>" onclick="saveYandexKey('<?echo $strDomain?>', 'map_yandex_key_<?echo $MAP_ID?>')" />
+<div id="key_input_control_<?php echo $MAP_ID?>">
+		<?php echo str_replace('#DOMAIN#', $strDomain, GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_MESSAGE'))?><br /><br />
+		<?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY')?><input type="text" name="map_yandex_key_<?php echo $MAP_ID?>" id="map_yandex_key_<?php echo $MAP_ID?>" /> <input type="button" value="<?php echo htmlspecialcharsbx(GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_BUTTON'))?>" onclick="setYandexKey('<?php echo $strDomain?>', 'map_yandex_key_<?php echo $MAP_ID?>')" /> <input type="button" value="<?php echo htmlspecialcharsbx(GetMessage('IBLOCK_PROP_MAP_YANDEX_SAVE_KEY_BUTTON'))?>" onclick="saveYandexKey('<?php echo $strDomain?>', 'map_yandex_key_<?php echo $MAP_ID?>')" />
 </div>
-<div id="key_input_message_<?echo $MAP_ID?>" style="display: none;"><?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_OKMESSAGE')?></div>
-<?
+<div id="key_input_message_<?php echo $MAP_ID?>" style="display: none;"><?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_OKMESSAGE')?></div>
+<?php 
 		echo EndNote();
 ?>
 <script type="text/javascript">
 function setYandexKey(domain, input)
 {
-	LoadMap_<?echo $MAP_ID?>(document.getElementById(input).value);
+	LoadMap_<?php echo $MAP_ID?>(document.getElementById(input).value);
 }
 
 function saveYandexKey(domain, input)
@@ -737,21 +737,21 @@ function saveYandexKey(domain, input)
 		CloseWaitWindow();
 		if (result == 'OK')
 		{
-			document.getElementById('key_input_control_<?echo $MAP_ID?>').style.display = 'none';
-			document.getElementById('key_input_message_<?echo $MAP_ID?>').style.display = 'block';
-			if (!window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'])
+			document.getElementById('key_input_control_<?php echo $MAP_ID?>').style.display = 'none';
+			document.getElementById('key_input_message_<?php echo $MAP_ID?>').style.display = 'block';
+			if (!window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'])
 				setYandexKey(domain, input);
 		}
 		else
-			alert('<?echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_ERRORMESSAGE'))?>');
+			alert('<?php echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_NO_KEY_ERRORMESSAGE'))?>');
 	}
 
-	var data = 'key_type=yandex&domain=' + domain + '&key=' + value + '&<?echo bitrix_sessid_get()?>';
+	var data = 'key_type=yandex&domain=' + domain + '&key=' + value + '&<?php echo bitrix_sessid_get()?>';
 	ShowWaitWindow();
-	CHttpRequest.Post('/bitrix/admin/settings.php?lang=<?echo LANGUAGE_ID?>&mid=fileman&save_map_key=Y', data);
+	CHttpRequest.Post('/bitrix/admin/settings.php?lang=<?php echo LANGUAGE_ID?>&mid=fileman&save_map_key=Y', data);
 }
 </script>
-<?
+<?php 
 	} // _DrawKeyInputControl()
 
 	public static function GetSettingsHTML($arProperty, $strHTMLControlName, &$arPropertyFields)
@@ -816,19 +816,19 @@ function saveYandexKey(domain, input)
 
 
 ?>
-<div id="bx_map_hint_<?echo $MAP_ID?>" style="display: none;">
-	<div id="bx_map_hint_value_<?echo $MAP_ID?>" style="display: <?echo $bHasValue ? 'block' : 'none'?>;">
-<?
+<div id="bx_map_hint_<?php echo $MAP_ID?>" style="display: none;">
+	<div id="bx_map_hint_value_<?php echo $MAP_ID?>" style="display: <?php echo $bHasValue ? 'block' : 'none'?>;">
+<?php 
 			echo GetMessage('IBLOCK_PROP_MAP_YANDEX_INSTR_VALUE').'<br /><br />';
 ?>
 	</div>
-	<div id="bx_map_hint_novalue_<?echo $MAP_ID?>" style="display: <?echo $bHasValue ? 'none' : 'block'?>;">
-<?
+	<div id="bx_map_hint_novalue_<?php echo $MAP_ID?>" style="display: <?php echo $bHasValue ? 'none' : 'block'?>;">
+<?php 
 			echo GetMessage('IBLOCK_PROP_MAP_YANDEX_INSTR').'<br /><br />';
 ?>
 	</div>
 </div>
-<?
+<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:map.yandex.system',
 				'',
@@ -860,39 +860,39 @@ function saveYandexKey(domain, input)
 		}
 	});
 
-	<?if($arProperty['MULTIPLE'] == 'N'):?>
-		function setPointValue_<?echo $MAP_ID?>(obEvent)
+	<?php if($arProperty['MULTIPLE'] == 'N'):?>
+		function setPointValue_<?php echo $MAP_ID?>(obEvent)
 		{
 			var obPoint = BX.type.isArray(obEvent) ? obEvent : obEvent.get("coordPosition");
 
-			if (null == window.obPoint_<?echo $MAP_ID?>__n0_)
+			if (null == window.obPoint_<?php echo $MAP_ID?>__n0_)
 			{
-				window.obPoint_<?echo $MAP_ID?>__n0_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
-				window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?echo $MAP_ID?>__n0_);
-				window.obPoint_<?echo $MAP_ID?>__n0_.events.add('dragend', updatePointPosition_<?echo $MAP_ID?>__n0_);
+				window.obPoint_<?php echo $MAP_ID?>__n0_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
+				window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?php echo $MAP_ID?>__n0_);
+				window.obPoint_<?php echo $MAP_ID?>__n0_.events.add('dragend', updatePointPosition_<?php echo $MAP_ID?>__n0_);
 			}
 			else
 			{
-				window.obPoint_<?echo $MAP_ID?>__n0_.geometry.setCoordinates(obPoint);
+				window.obPoint_<?php echo $MAP_ID?>__n0_.geometry.setCoordinates(obPoint);
 			}
 
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
-			BX('point_control_<?echo $MAP_ID?>__n0_').style.display = 'inline-block';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('point_control_<?php echo $MAP_ID?>__n0_').style.display = 'inline-block';
 
-			updatePointPosition_<?echo $MAP_ID?>__n0_(obPoint);
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(obPoint_<?echo $MAP_ID?>__n0_.geometry.getCoordinates(), {delay:0});
+			updatePointPosition_<?php echo $MAP_ID?>__n0_(obPoint);
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(obPoint_<?php echo $MAP_ID?>__n0_.geometry.getCoordinates(), {delay:0});
 		}
-	<?else:?>
-		function setPointValue_<?echo $MAP_ID?>(obEvent)
+	<?php else:?>
+		function setPointValue_<?php echo $MAP_ID?>(obEvent)
 		{
 			var obPoint = BX.type.isArray(obEvent) ? obEvent : obEvent.get("coordPosition");
 			var i = 0, point = [], k = [];
-			while (BX('point_<?echo $MAP_ID?>__n' + i + '_lat'))
+			while (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat'))
 			{
-				if(BX('point_<?echo $MAP_ID?>__n' + i + '_lat').value == ''
-					&& BX('point_<?echo $MAP_ID?>__n' + i + '_lon')
-					&& BX('point_<?echo $MAP_ID?>__n' + i + '_lon').value == '')
+				if(BX('point_<?php echo $MAP_ID?>__n' + i + '_lat').value == ''
+					&& BX('point_<?php echo $MAP_ID?>__n' + i + '_lon')
+					&& BX('point_<?php echo $MAP_ID?>__n' + i + '_lon').value == '')
 				{
 					k.push(i);
 				}
@@ -900,183 +900,183 @@ function saveYandexKey(domain, input)
 			}
 			if (k.length <= 1)
 			{
-				window.addNewRow(BX('point_<?echo $MAP_ID?>__n0_lat').parentNode.parentNode.parentNode.parentNode.id);
+				window.addNewRow(BX('point_<?php echo $MAP_ID?>__n0_lat').parentNode.parentNode.parentNode.parentNode.id);
 			}
 			k = (k.length) ? Math.min.apply(null, k) : i;
-			var obPnt = 'obPoint_<?echo $MAP_ID?>__n'+k+'_',
-				updPP = 'updatePointPosition_<?echo $MAP_ID?>__n'+k+'_';
+			var obPnt = 'obPoint_<?php echo $MAP_ID?>__n'+k+'_',
+				updPP = 'updatePointPosition_<?php echo $MAP_ID?>__n'+k+'_';
 			if(window[updPP])
 			{
 				window[obPnt] = null;
 				window[obPnt] = new ymaps.Placemark(obPoint, {}, {draggable:true});
-				window.GLOBAL_arMapObjects["<?echo $MAP_ID?>"].geoObjects.add(window[obPnt]);
+				window.GLOBAL_arMapObjects["<?php echo $MAP_ID?>"].geoObjects.add(window[obPnt]);
 				window[obPnt].events.add("dragend", window[updPP]);
 				window[updPP](obPoint);
 			}
 
-			BX('point_control_<?echo $MAP_ID?>__n'+k+'_').style.display = 'inline-block';
+			BX('point_control_<?php echo $MAP_ID?>__n'+k+'_').style.display = 'inline-block';
 
-			updateMapHint_<?echo $MAP_ID?>();
+			updateMapHint_<?php echo $MAP_ID?>();
 		}
-	<?endif;?>
+	<?php endif;?>
 
-	function setDefaultPreset_<?echo $MAP_ID?>()
+	function setDefaultPreset_<?php echo $MAP_ID?>()
 	{
-		if(window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects)
+		if(window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects)
 		{
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.each(function (geoObject) {
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.each(function (geoObject) {
 				geoObject.options.set({preset: 'twirl#blueIcon'});
 			});
 		}
 	}
 
-	function updateMapHint_<?echo $MAP_ID?>()
+	function updateMapHint_<?php echo $MAP_ID?>()
 	{
 		var noValue = true,
 			i = 0;
-		while (BX('point_<?echo $MAP_ID?>__n' + i + '_lat'))
+		while (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat'))
 		{
-			if (BX('point_<?echo $MAP_ID?>__n' + i + '_lat').value !== '' || !BX('point_<?echo $MAP_ID?>__n' + i + '_lon') || BX('point_<?echo $MAP_ID?>__n' + i + '_lon').value !=='')
+			if (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat').value !== '' || !BX('point_<?php echo $MAP_ID?>__n' + i + '_lon') || BX('point_<?php echo $MAP_ID?>__n' + i + '_lon').value !=='')
 				noValue = false;
 			i++;
 		}
 		if (noValue)
 		{
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'block';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'none';
 		}
 		else
 		{
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
 		}
 	}
 </script>
 
-<div id="bx_address_search_control_<?echo $MAP_ID?>" style="display: none;margin-top:15px;"><?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_SEARCH')?><input type="text" name="bx_address_<?echo $MAP_ID?>" id="bx_address_<?echo $MAP_ID?>" value="" style="width: 300px;" autocomplete="off" /></div>
+<div id="bx_address_search_control_<?php echo $MAP_ID?>" style="display: none;margin-top:15px;"><?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_SEARCH')?><input type="text" name="bx_address_<?php echo $MAP_ID?>" id="bx_address_<?php echo $MAP_ID?>" value="" style="width: 300px;" autocomplete="off" /></div>
 <br />
-<?
+<?php 
 		}
 ?>
-<input type="text" style="width:125px;margin:0 0 4px" name="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" id="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" onchange="setInputPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />, <input type="text" style="width:125px;margin:0 15px 4px 0;" name="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" id="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" onchange="setInputPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />
-<div id="point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_" style="display:none;margin:0 0 4px"><a href="javascript:void(0);" onclick="findPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_GOTO_POINT')?></a> | <a href="javascript:void(0);" onclick="if (confirm('<?echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT_CONFIRM'))?>')) removePoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT')?></a></div><br />
-<input type="text" style="display:none;" id="value_<?echo $MAP_ID;?>__n<?=$yandexMapLastNumber?>_" name="<?=htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" value="<?=htmlspecialcharsEx($value["VALUE"])?>" />
+<input type="text" style="width:125px;margin:0 0 4px" name="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" id="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" onchange="setInputPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />, <input type="text" style="width:125px;margin:0 15px 4px 0;" name="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" id="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" onchange="setInputPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />
+<div id="point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_" style="display:none;margin:0 0 4px"><a href="javascript:void(0);" onclick="findPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_GOTO_POINT')?></a> | <a href="javascript:void(0);" onclick="if (confirm('<?php echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT_CONFIRM'))?>')) removePoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT')?></a></div><br />
+<input type="text" style="display:none;" id="value_<?php echo $MAP_ID;?>__n<?=$yandexMapLastNumber?>_" name="<?=htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" value="<?=htmlspecialcharsEx($value["VALUE"])?>" />
 <script>
 	window.jsAdminYandexMess = {
-		nothing_found: '<?echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_NOTHING_FOUND'))?>'
+		nothing_found: '<?php echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_NOTHING_FOUND'))?>'
 	}
 	jsUtils.loadCSSFile('/bitrix/components/bitrix/map.yandex.view/settings/settings.css');
 
-	function BXWaitForMap_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function BXWaitForMap_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		if (!window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'])
-			setTimeout(BXWaitForMap_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 300);
+		if (!window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'])
+			setTimeout(BXWaitForMap_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 300);
 		else
 		{
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
 
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].events.remove('dblclick', window.setPointValue_<?echo $MAP_ID?>);
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].events.add('dblclick', window.setPointValue_<?echo $MAP_ID?>);
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].events.add('click', window.setDefaultPreset_<?echo $MAP_ID?>);
-			var searchInput = BX('bx_address_<?echo $MAP_ID?>');
-			BX.bind(searchInput, "keydown", jsYandexCESearch_<?echo $MAP_ID;?>.setTypingStarted);
-			BX.bind(searchInput, "contextmenu", jsYandexCESearch_<?echo $MAP_ID;?>.setTypingStarted);
-			BX('point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].events.remove('dblclick', window.setPointValue_<?php echo $MAP_ID?>);
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].events.add('dblclick', window.setPointValue_<?php echo $MAP_ID?>);
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].events.add('click', window.setDefaultPreset_<?php echo $MAP_ID?>);
+			var searchInput = BX('bx_address_<?php echo $MAP_ID?>');
+			BX.bind(searchInput, "keydown", jsYandexCESearch_<?php echo $MAP_ID;?>.setTypingStarted);
+			BX.bind(searchInput, "contextmenu", jsYandexCESearch_<?php echo $MAP_ID;?>.setTypingStarted);
+			BX('point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
 
-			<?if ($bHasValue):?>
-				setPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_([<?echo $POINT_LAT?>, <?echo $POINT_LON?>]);
+			<?php if ($bHasValue):?>
+				setPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_([<?php echo $POINT_LAT?>, <?php echo $POINT_LON?>]);
 				if (<?=$yandexMapLastNumber?> > 0)
-					window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].setBounds(window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.getBounds(), {checkZoomRange: true});
-			<?endif;?>
+					window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].setBounds(window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.getBounds(), {checkZoomRange: true});
+			<?php endif;?>
 
-			BX('bx_address_search_control_<?echo $MAP_ID?>').style.display = 'block';
-			BX('bx_map_hint_<?echo $MAP_ID?>').style.display = 'block';
+			BX('bx_address_search_control_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_<?php echo $MAP_ID?>').style.display = 'block';
 
 		}
 	}
 
-	function findPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function findPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		if (null != window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
+		if (null != window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
 		{
-			window.setDefaultPreset_<?echo $MAP_ID?>();
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.options.set({preset: 'twirl#redIcon'});
+			window.setDefaultPreset_<?php echo $MAP_ID?>();
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.options.set({preset: 'twirl#redIcon'});
 
 		}
 	}
 
-	function removePoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function removePoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.remove(window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
-		window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
+		window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.remove(window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
+		window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
 
-		BX('point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
+		BX('point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
 
-		updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
+		updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
 
-		updateMapHint_<?echo $MAP_ID?>();
+		updateMapHint_<?php echo $MAP_ID?>();
 	}
 
-	function setPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obEvent)
+	function setPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obEvent)
 	{
 		var obPoint = BX.type.isArray(obEvent) ? obEvent : obEvent.get("coordPosition");
 
-		if (null == window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
+		if (null == window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
 		{
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.events.add('dragend', updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.events.add('dragend', updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
 		}
 		else
 		{
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.setCoordinates(obPoint);
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.setCoordinates(obPoint);
 		}
 
-		BX('point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'inline-block';
-		BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-		BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
+		BX('point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'inline-block';
+		BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+		BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
 
-		updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint);
-		window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
+		updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint);
+		window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
 	}
 
-	function setInputPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function setInputPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		var vv = [BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value, BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value];
+		var vv = [BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value, BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value];
 		if (vv[0] == '' && vv[1] == '')
 		{
-			removePoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
+			removePoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
 		}
-		var v = [parseFloat(BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value), parseFloat(BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value)];
+		var v = [parseFloat(BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value), parseFloat(BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value)];
 		if (!isNaN(v[0]) && !isNaN(v[1]))
 		{
-			setPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(v);
+			setPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(v);
 		}
 	}
 
-	function updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint)
+	function updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint)
 	{
 		//var obPosition = obPoint.getGeoPoint();
 		if (!!obPoint && !!obPoint.geometry)
 			obPoint = obPoint.geometry.getCoordinates();
-		else if (!!window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
-			obPoint = window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates();
+		else if (!!window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
+			obPoint = window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates();
 		else
 			obPoint = null;
 
-		var obInput = BX('value_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_');
+		var obInput = BX('value_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_');
 		obInput.value = null == obPoint ? '' : obPoint[0] + ',' + obPoint[1];
 
-		BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value = obPoint ? obPoint[0] : '';
-		BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value = obPoint ? obPoint[1] : '';
+		BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value = obPoint ? obPoint[0] : '';
+		BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value = obPoint ? obPoint[1] : '';
 	}
 
 	BX.ready(function(){
-		setTimeout(BXWaitForMap_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 100);
+		setTimeout(BXWaitForMap_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 100);
    });
 
-	var jsYandexCESearch_<?echo $MAP_ID;?> = {
+	var jsYandexCESearch_<?php echo $MAP_ID;?> = {
 
 		bInited: false,
 
@@ -1093,15 +1093,15 @@ function saveYandexKey(domain, input)
 
 		__init: function(input)
 		{
-			if (jsYandexCESearch_<?echo $MAP_ID;?>.bInited) return;
+			if (jsYandexCESearch_<?php echo $MAP_ID;?>.bInited) return;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.map = window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'];
-			jsYandexCESearch_<?echo $MAP_ID;?>.obInput = input;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.map = window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'];
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obInput = input;
 
-			input.onfocus = jsYandexCESearch_<?echo $MAP_ID;?>.showResults;
-			input.onblur = jsYandexCESearch_<?echo $MAP_ID;?>.hideResults;
+			input.onfocus = jsYandexCESearch_<?php echo $MAP_ID;?>.showResults;
+			input.onblur = jsYandexCESearch_<?php echo $MAP_ID;?>.hideResults;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.bInited = true;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.bInited = true;
 		},
 
 		setTypingStarted: function(e)
@@ -1109,39 +1109,39 @@ function saveYandexKey(domain, input)
 			if (null == e)
 				e = window.event;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.hideResults();
+			jsYandexCESearch_<?php echo $MAP_ID;?>.hideResults();
 
 			if (e.keyCode == 13 )
 			{
-				jsYandexCESearch_<?echo $MAP_ID;?>.doSearch();
+				jsYandexCESearch_<?php echo $MAP_ID;?>.doSearch();
 				return false;
 			}
 			else
 			{
-				if (!jsYandexCESearch_<?echo $MAP_ID;?>.bInited)
-					jsYandexCESearch_<?echo $MAP_ID;?>.__init(this);
+				if (!jsYandexCESearch_<?php echo $MAP_ID;?>.bInited)
+					jsYandexCESearch_<?php echo $MAP_ID;?>.__init(this);
 
 				if (e.type=="contextmenu")
-					jsYandexCESearch_<?echo $MAP_ID;?>.timerDelay=3000;
+					jsYandexCESearch_<?php echo $MAP_ID;?>.timerDelay=3000;
 				else
-					jsYandexCESearch_<?echo $MAP_ID;?>.timerDelay=1000;
+					jsYandexCESearch_<?php echo $MAP_ID;?>.timerDelay=1000;
 
-				if (null != jsYandexCESearch_<?echo $MAP_ID;?>.timerID)
-					clearTimeout(jsYandexCESearch_<?echo $MAP_ID;?>.timerID);
+				if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.timerID)
+					clearTimeout(jsYandexCESearch_<?php echo $MAP_ID;?>.timerID);
 
-				jsYandexCESearch_<?echo $MAP_ID;?>.timerID = setTimeout(jsYandexCESearch_<?echo $MAP_ID;?>.doSearch, jsYandexCESearch_<?echo $MAP_ID;?>.timerDelay);
+				jsYandexCESearch_<?php echo $MAP_ID;?>.timerID = setTimeout(jsYandexCESearch_<?php echo $MAP_ID;?>.doSearch, jsYandexCESearch_<?php echo $MAP_ID;?>.timerDelay);
 			}
 		},
 
 		doSearch: function()
 		{
-			this.strLastSearch = jsUtils.trim(jsYandexCESearch_<?echo $MAP_ID;?>.obInput.value);
+			this.strLastSearch = jsUtils.trim(jsYandexCESearch_<?php echo $MAP_ID;?>.obInput.value);
 
 			if (this.strLastSearch.length > 1)
 			{
 				ymaps.geocode(this.strLastSearch).then(
-					jsYandexCESearch_<?echo $MAP_ID;?>.__searchResultsLoad,
-					jsYandexCESearch_<?echo $MAP_ID;?>.handleError
+					jsYandexCESearch_<?php echo $MAP_ID;?>.__searchResultsLoad,
+					jsYandexCESearch_<?php echo $MAP_ID;?>.handleError
 				);
 			}
 		},
@@ -1153,20 +1153,20 @@ function saveYandexKey(domain, input)
 
 		setResultsCoordinates: function()
 		{
-			var obPos = jsUtils.GetRealPos(jsYandexCESearch_<?echo $MAP_ID;?>.obInput);
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.top = (obPos.bottom + 2) + 'px';
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.left = obPos.left + 'px';
+			var obPos = jsUtils.GetRealPos(jsYandexCESearch_<?php echo $MAP_ID;?>.obInput);
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.top = (obPos.bottom + 2) + 'px';
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.left = obPos.left + 'px';
 		},
 
 		__generateOutput: function()
 		{
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut = document.body.appendChild(document.createElement('UL'));
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut.className = 'bx-yandex-address-search-results';
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut = document.body.appendChild(document.createElement('UL'));
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.className = 'bx-yandex-address-search-results';
 		},
 
 		__searchResultsLoad: function(res)
 		{
-			var _this = jsYandexCESearch_<?echo $MAP_ID;?>;
+			var _this = jsYandexCESearch_<?php echo $MAP_ID;?>;
 
 			if (null == _this.obOut)
 				_this.__generateOutput();
@@ -1190,7 +1190,7 @@ function saveYandexKey(domain, input)
 					obLink.href = "javascript:void(0)";
 					var obText = obLink.appendChild(document.createElement('SPAN'));
 					obText.appendChild(document.createTextNode(
-						jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults[i].properties.get('metaDataProperty').GeocoderMetaData.text
+						jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults[i].properties.get('metaDataProperty').GeocoderMetaData.text
 					));
 
 					obLink.BXSearchIndex = i;
@@ -1213,63 +1213,63 @@ function saveYandexKey(domain, input)
 		{
 			if (null !== this.BXSearchIndex)
 			{
-				var bounds =  jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].properties.get('boundedBy');
-				jsYandexCESearch_<?echo $MAP_ID;?>.map.setBounds(bounds, { checkZoomRange: true });
+				var bounds =  jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].properties.get('boundedBy');
+				jsYandexCESearch_<?php echo $MAP_ID;?>.map.setBounds(bounds, { checkZoomRange: true });
 			}
 		},
 
 		showResults: function()
 		{
-			if(this.strLastSearch!=jsUtils.trim(jsYandexCESearch_<?echo $MAP_ID;?>.obInput.value))
-				jsYandexCESearch_<?echo $MAP_ID;?>.doSearch();
+			if(this.strLastSearch!=jsUtils.trim(jsYandexCESearch_<?php echo $MAP_ID;?>.obInput.value))
+				jsYandexCESearch_<?php echo $MAP_ID;?>.doSearch();
 
-			if (null != jsYandexCESearch_<?echo $MAP_ID;?>.obOut)
+			if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.obOut)
 			{
-				jsYandexCESearch_<?echo $MAP_ID;?>.setResultsCoordinates();
-				jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.display = 'block';
+				jsYandexCESearch_<?php echo $MAP_ID;?>.setResultsCoordinates();
+				jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.display = 'block';
 			}
 		},
 
 		hideResults: function()
 		{
-			if (null != jsYandexCESearch_<?echo $MAP_ID;?>.obOut)
+			if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.obOut)
 			{
-				setTimeout("jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.display = 'none'", 300);
+				setTimeout("jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.display = 'none'", 300);
 			}
 		},
 
 		clearSearchResults: function()
 		{
-			for (var i = 0; i < jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults.length; i++)
+			for (var i = 0; i < jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults.length; i++)
 			{
-				delete jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults[i];
+				delete jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults[i];
 			}
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults = [];
+			jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults = [];
 		},
 
 		clear: function()
 		{
-			if (!jsYandexCESearch_<?echo $MAP_ID;?>.bInited)
+			if (!jsYandexCESearch_<?php echo $MAP_ID;?>.bInited)
 				return;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.bInited = false;
-			if (null != jsYandexCESearch_<?echo $MAP_ID;?>.obOut)
+			jsYandexCESearch_<?php echo $MAP_ID;?>.bInited = false;
+			if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.obOut)
 			{
-				jsYandexCESearch_<?echo $MAP_ID;?>.obOut.parentNode.removeChild(jsYandexCESearch_<?echo $MAP_ID;?>.obOut);
-				jsYandexCESearch_<?echo $MAP_ID;?>.obOut = null;
+				jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.parentNode.removeChild(jsYandexCESearch_<?php echo $MAP_ID;?>.obOut);
+				jsYandexCESearch_<?php echo $MAP_ID;?>.obOut = null;
 			}
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults = [];
-			jsYandexCESearch_<?echo $MAP_ID;?>.map = null;
-			jsYandexCESearch_<?echo $MAP_ID;?>.geocoder = null;
-			jsYandexCESearch_<?echo $MAP_ID;?>.obInput = null;
-			jsYandexCESearch_<?echo $MAP_ID;?>.timerID = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults = [];
+			jsYandexCESearch_<?php echo $MAP_ID;?>.map = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.geocoder = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obInput = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.timerID = null;
 		}
 	}
 
 </script>
-<?
+<?php 
 		$out = ob_get_contents();
 		ob_end_clean();
 
@@ -1305,7 +1305,7 @@ function saveYandexKey(domain, input)
 		}
 		ob_start();?>
 		<div>
-				<?
+				<?php 
 		if ($arProperty['MULTIPLE'] == 'Y' && isset($GLOBALS['YANDEX_MAP_PROPERTY'][$arProperty['ID']]))
 		{
 			$MAP_ID = $GLOBALS['YANDEX_MAP_PROPERTY'][$arProperty['ID']];
@@ -1317,19 +1317,19 @@ function saveYandexKey(domain, input)
 
 
 ?>
-<div id="bx_map_hint_<?echo $MAP_ID?>" style="display: none;">
-	<div id="bx_map_hint_value_<?echo $MAP_ID?>" style="display: <?echo $bHasValue ? 'block' : 'none'?>;">
-<?
+<div id="bx_map_hint_<?php echo $MAP_ID?>" style="display: none;">
+	<div id="bx_map_hint_value_<?php echo $MAP_ID?>" style="display: <?php echo $bHasValue ? 'block' : 'none'?>;">
+<?php 
 			echo GetMessage('IBLOCK_PROP_MAP_YANDEX_INSTR_VALUE').'<br /><br />';
 ?>
 	</div>
-	<div id="bx_map_hint_novalue_<?echo $MAP_ID?>" style="display: <?echo $bHasValue ? 'none' : 'block'?>;">
-<?
+	<div id="bx_map_hint_novalue_<?php echo $MAP_ID?>" style="display: <?php echo $bHasValue ? 'none' : 'block'?>;">
+<?php 
 			echo GetMessage('IBLOCK_PROP_MAP_YANDEX_INSTR').'<br /><br />';
 ?>
 	</div>
 </div>
-<?
+<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:map.yandex.system',
 				'',
@@ -1358,39 +1358,39 @@ function saveYandexKey(domain, input)
 		}
 	});
 
-	<?if($arProperty['MULTIPLE'] == 'N'):?>
-		function setPointValue_<?echo $MAP_ID?>(obEvent)
+	<?php if($arProperty['MULTIPLE'] == 'N'):?>
+		function setPointValue_<?php echo $MAP_ID?>(obEvent)
 		{
 			var obPoint = BX.type.isArray(obEvent) ? obEvent : obEvent.get("coordPosition");
 
-			if (null == window.obPoint_<?echo $MAP_ID?>__n0_)
+			if (null == window.obPoint_<?php echo $MAP_ID?>__n0_)
 			{
-				window.obPoint_<?echo $MAP_ID?>__n0_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
-				window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?echo $MAP_ID?>__n0_);
-				window.obPoint_<?echo $MAP_ID?>__n0_.events.add('dragend', updatePointPosition_<?echo $MAP_ID?>__n0_);
+				window.obPoint_<?php echo $MAP_ID?>__n0_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
+				window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?php echo $MAP_ID?>__n0_);
+				window.obPoint_<?php echo $MAP_ID?>__n0_.events.add('dragend', updatePointPosition_<?php echo $MAP_ID?>__n0_);
 			}
 			else
 			{
-				window.obPoint_<?echo $MAP_ID?>__n0_.geometry.setCoordinates(obPoint);
+				window.obPoint_<?php echo $MAP_ID?>__n0_.geometry.setCoordinates(obPoint);
 			}
 
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
-			BX('point_control_<?echo $MAP_ID?>__n0_').style.display = 'inline-block';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('point_control_<?php echo $MAP_ID?>__n0_').style.display = 'inline-block';
 
-			updatePointPosition_<?echo $MAP_ID?>__n0_(obPoint);
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(obPoint_<?echo $MAP_ID?>__n0_.geometry.getCoordinates(), {delay:0});
+			updatePointPosition_<?php echo $MAP_ID?>__n0_(obPoint);
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(obPoint_<?php echo $MAP_ID?>__n0_.geometry.getCoordinates(), {delay:0});
 		}
-	<?else:?>
-		function setPointValue_<?echo $MAP_ID?>(obEvent)
+	<?php else:?>
+		function setPointValue_<?php echo $MAP_ID?>(obEvent)
 		{
 			var obPoint = BX.type.isArray(obEvent) ? obEvent : obEvent.get("coordPosition");
 			var i = 0, point = [], k = [];
-			while (BX('point_<?echo $MAP_ID?>__n' + i + '_lat'))
+			while (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat'))
 			{
-				if(BX('point_<?echo $MAP_ID?>__n' + i + '_lat').value == ''
-					&& BX('point_<?echo $MAP_ID?>__n' + i + '_lon')
-					&& BX('point_<?echo $MAP_ID?>__n' + i + '_lon').value == '')
+				if(BX('point_<?php echo $MAP_ID?>__n' + i + '_lat').value == ''
+					&& BX('point_<?php echo $MAP_ID?>__n' + i + '_lon')
+					&& BX('point_<?php echo $MAP_ID?>__n' + i + '_lon').value == '')
 				{
 					k.push(i);
 				}
@@ -1398,28 +1398,28 @@ function saveYandexKey(domain, input)
 			}
 			if (k.length <= 1)
 			{
-				BX('point_<?echo $MAP_ID?>__n0_lat').parentNode.parentNode.id = '<?echo $MAP_ID?>';
-				addNewRow_<?echo $MAP_ID?>(BX('point_<?echo $MAP_ID?>__n0_lat').parentNode.parentNode.id);
+				BX('point_<?php echo $MAP_ID?>__n0_lat').parentNode.parentNode.id = '<?php echo $MAP_ID?>';
+				addNewRow_<?php echo $MAP_ID?>(BX('point_<?php echo $MAP_ID?>__n0_lat').parentNode.parentNode.id);
 			}
 			k = (k.length) ? Math.min.apply(null, k) : i;
-			var obPnt = 'obPoint_<?echo $MAP_ID?>__n'+k+'_',
-				updPP = 'updatePointPosition_<?echo $MAP_ID?>__n'+k+'_';
+			var obPnt = 'obPoint_<?php echo $MAP_ID?>__n'+k+'_',
+				updPP = 'updatePointPosition_<?php echo $MAP_ID?>__n'+k+'_';
 			if(window[updPP])
 			{
 				window[obPnt] = null;
 				window[obPnt] = new ymaps.Placemark(obPoint, {}, {draggable:true});
-				window.GLOBAL_arMapObjects["<?echo $MAP_ID?>"].geoObjects.add(window[obPnt]);
+				window.GLOBAL_arMapObjects["<?php echo $MAP_ID?>"].geoObjects.add(window[obPnt]);
 				window[obPnt].events.add("dragend", window[updPP]);
 				window[updPP](obPoint);
 			}
 
-			BX('point_control_<?echo $MAP_ID?>__n'+k+'_').style.display = 'inline-block';
+			BX('point_control_<?php echo $MAP_ID?>__n'+k+'_').style.display = 'inline-block';
 
-			updateMapHint_<?echo $MAP_ID?>();
+			updateMapHint_<?php echo $MAP_ID?>();
 		}
-	<?endif;?>
+	<?php endif;?>
 
-	function addNewRow_<?echo $MAP_ID?>(tdID, row_to_clone)
+	function addNewRow_<?php echo $MAP_ID?>(tdID, row_to_clone)
 	{
 		var TD = document.getElementById(tdID);
 		var cnt = BX.findChildren(TD, {tag : 'DIV'}, false).length;
@@ -1463,12 +1463,12 @@ function saveYandexKey(domain, input)
 		}
 		oDiv.innerHTML = sHTML;
 
-		var inputName = document.getElementById('value_<?echo $MAP_ID;?>__n<?=$yandexMapLastNumber?>_').name;
+		var inputName = document.getElementById('value_<?php echo $MAP_ID;?>__n<?=$yandexMapLastNumber?>_').name;
 		p = 0;
 		s = inputName.indexOf('][',p);
 		e = inputName.indexOf(']',s+1);
 		inputName = inputName.substr(0, s)+']['+(++n)+']'+inputName.substr(e+1);
-		document.getElementById('value_<?echo $MAP_ID;?>__n' + --n + '_').name = inputName;
+		document.getElementById('value_<?php echo $MAP_ID;?>__n' + --n + '_').name = inputName;
 
 		var patt = new RegExp ("<"+"script"+">[^\000]*?<"+"\/"+"script"+">", "ig");
 		var code = sHTML.match(patt);
@@ -1505,162 +1505,162 @@ function saveYandexKey(domain, input)
 		}, 10);
 	}
 
-	function setDefaultPreset_<?echo $MAP_ID?>()
+	function setDefaultPreset_<?php echo $MAP_ID?>()
 	{
-		if(window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects)
+		if(window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects)
 		{
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.each(function (geoObject) {
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.each(function (geoObject) {
 				geoObject.options.set({preset: 'twirl#blueIcon'});
 			});
 		}
 	}
 
-	function updateMapHint_<?echo $MAP_ID?>()
+	function updateMapHint_<?php echo $MAP_ID?>()
 	{
 		var noValue = true,
 			i = 0;
-		while (BX('point_<?echo $MAP_ID?>__n' + i + '_lat'))
+		while (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat'))
 		{
-			if (BX('point_<?echo $MAP_ID?>__n' + i + '_lat').value !== '' || !BX('point_<?echo $MAP_ID?>__n' + i + '_lon') || BX('point_<?echo $MAP_ID?>__n' + i + '_lon').value !=='')
+			if (BX('point_<?php echo $MAP_ID?>__n' + i + '_lat').value !== '' || !BX('point_<?php echo $MAP_ID?>__n' + i + '_lon') || BX('point_<?php echo $MAP_ID?>__n' + i + '_lon').value !=='')
 				noValue = false;
 			i++;
 		}
 		if (noValue)
 		{
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'block';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'none';
 		}
 		else
 		{
-			BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-			BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+			BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
 		}
 	}
 </script>
 
-<div id="bx_address_search_control_<?echo $MAP_ID?>" style="display: none;margin-top:15px;"><?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_SEARCH')?><input type="text" name="bx_address_<?echo $MAP_ID?>" id="bx_address_<?echo $MAP_ID?>" value="" style="width: 300px;" autocomplete="off" /></div>
+<div id="bx_address_search_control_<?php echo $MAP_ID?>" style="display: none;margin-top:15px;"><?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_SEARCH')?><input type="text" name="bx_address_<?php echo $MAP_ID?>" id="bx_address_<?php echo $MAP_ID?>" value="" style="width: 300px;" autocomplete="off" /></div>
 <br />
-<?
+<?php 
 		}
 ?>
-<input type="text" style="width:125px;margin:0 0 4px" name="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" id="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" onchange="setInputPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />, <input type="text" style="width:125px;margin:0 15px 4px 0;" name="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" id="point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" onchange="setInputPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />
-<div id="point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_" style="display:none;margin:0 0 4px;font-size: 12px"><a href="javascript:void(0);" onclick="findPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_GOTO_POINT')?></a> | <a href="javascript:void(0);" onclick="if (confirm('<?echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT_CONFIRM'))?>')) removePoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?echo GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT')?></a></div><br />
-<input type="text" style="display:none;" id="value_<?echo $MAP_ID;?>__n<?=$yandexMapLastNumber?>_" name="<?=htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" value="<?=htmlspecialcharsEx($value["VALUE"])?>" />
+<input type="text" style="width:125px;margin:0 0 4px" name="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" id="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat" onchange="setInputPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />, <input type="text" style="width:125px;margin:0 15px 4px 0;" name="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" id="point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon" onchange="setInputPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()" />
+<div id="point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_" style="display:none;margin:0 0 4px;font-size: 12px"><a href="javascript:void(0);" onclick="findPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_GOTO_POINT')?></a> | <a href="javascript:void(0);" onclick="if (confirm('<?php echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT_CONFIRM'))?>')) removePoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()"><?php echo GetMessage('IBLOCK_PROP_MAP_YANDEX_REMOVE_POINT')?></a></div><br />
+<input type="text" style="display:none;" id="value_<?php echo $MAP_ID;?>__n<?=$yandexMapLastNumber?>_" name="<?=htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" value="<?=htmlspecialcharsEx($value["VALUE"])?>" />
 <script>
 	window.jsAdminYandexMess = {
-		nothing_found: '<?echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_NOTHING_FOUND'))?>'
+		nothing_found: '<?php echo CUtil::JSEscape(GetMessage('IBLOCK_PROP_MAP_YANDEX_NOTHING_FOUND'))?>'
 	}
 	jsUtils.loadCSSFile('/bitrix/components/bitrix/map.yandex.view/settings/settings.css');
 
-	function BXWaitForMap_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function BXWaitForMap_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		if (!window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'])
-			setTimeout(BXWaitForMap_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 300);
+		if (!window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'])
+			setTimeout(BXWaitForMap_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 300);
 		else
 		{
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
 
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].events.remove('dblclick', window.setPointValue_<?echo $MAP_ID?>);
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].events.add('dblclick', window.setPointValue_<?echo $MAP_ID?>);
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].events.add('click', window.setDefaultPreset_<?echo $MAP_ID?>);
-			var searchInput = BX('bx_address_<?echo $MAP_ID?>');
-			BX.bind(searchInput, "keydown", jsYandexCESearch_<?echo $MAP_ID;?>.setTypingStarted);
-			BX.bind(searchInput, "contextmenu", jsYandexCESearch_<?echo $MAP_ID;?>.setTypingStarted);
-			BX('point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].events.remove('dblclick', window.setPointValue_<?php echo $MAP_ID?>);
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].events.add('dblclick', window.setPointValue_<?php echo $MAP_ID?>);
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].events.add('click', window.setDefaultPreset_<?php echo $MAP_ID?>);
+			var searchInput = BX('bx_address_<?php echo $MAP_ID?>');
+			BX.bind(searchInput, "keydown", jsYandexCESearch_<?php echo $MAP_ID;?>.setTypingStarted);
+			BX.bind(searchInput, "contextmenu", jsYandexCESearch_<?php echo $MAP_ID;?>.setTypingStarted);
+			BX('point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
 
-			<?if ($bHasValue):?>
-				setPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_([<?echo $POINT_LAT?>, <?echo $POINT_LON?>]);
+			<?php if ($bHasValue):?>
+				setPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_([<?php echo $POINT_LAT?>, <?php echo $POINT_LON?>]);
 				if (<?=$yandexMapLastNumber?> > 0)
-					window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].setBounds(window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.getBounds(), {checkZoomRange: true});
-			<?endif;?>
+					window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].setBounds(window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.getBounds(), {checkZoomRange: true});
+			<?php endif;?>
 
-			BX('bx_address_search_control_<?echo $MAP_ID?>').style.display = 'block';
-			BX('bx_map_hint_<?echo $MAP_ID?>').style.display = 'block';
+			BX('bx_address_search_control_<?php echo $MAP_ID?>').style.display = 'block';
+			BX('bx_map_hint_<?php echo $MAP_ID?>').style.display = 'block';
 
 		}
 	}
 
-	function findPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function findPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		if (null != window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
+		if (null != window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
 		{
-			window.setDefaultPreset_<?echo $MAP_ID?>();
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.options.set({preset: 'twirl#redIcon'});
+			window.setDefaultPreset_<?php echo $MAP_ID?>();
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.options.set({preset: 'twirl#redIcon'});
 
 		}
 	}
 
-	function removePoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function removePoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.remove(window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
-		window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
+		window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.remove(window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
+		window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = null;
 
-		BX('point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
+		BX('point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'none';
 
-		updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
+		updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
 
-		updateMapHint_<?echo $MAP_ID?>();
+		updateMapHint_<?php echo $MAP_ID?>();
 	}
 
-	function setPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obEvent)
+	function setPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obEvent)
 	{
 		var obPoint = BX.type.isArray(obEvent) ? obEvent : obEvent.get("coordPosition");
 
-		if (null == window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
+		if (null == window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
 		{
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
-			window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.events.add('dragend', updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_ = new ymaps.Placemark(obPoint, {}, {draggable:true});
+			window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].geoObjects.add(window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.events.add('dragend', updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_);
 		}
 		else
 		{
-			window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.setCoordinates(obPoint);
+			window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.setCoordinates(obPoint);
 		}
 
-		BX('point_control_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'inline-block';
-		BX('bx_map_hint_novalue_<?echo $MAP_ID?>').style.display = 'none';
-		BX('bx_map_hint_value_<?echo $MAP_ID?>').style.display = 'block';
+		BX('point_control_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_').style.display = 'inline-block';
+		BX('bx_map_hint_novalue_<?php echo $MAP_ID?>').style.display = 'none';
+		BX('bx_map_hint_value_<?php echo $MAP_ID?>').style.display = 'block';
 
-		updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint);
-		window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'].panTo(obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
+		updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint);
+		window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'].panTo(obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates(),{delay:0});
 	}
 
-	function setInputPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
+	function setInputPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_()
 	{
-		var vv = [BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value, BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value];
+		var vv = [BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value, BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value];
 		if (vv[0] == '' && vv[1] == '')
 		{
-			removePoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
+			removePoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_();
 		}
-		var v = [parseFloat(BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value), parseFloat(BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value)];
+		var v = [parseFloat(BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value), parseFloat(BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value)];
 		if (!isNaN(v[0]) && !isNaN(v[1]))
 		{
-			setPointValue_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(v);
+			setPointValue_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(v);
 		}
 	}
 
-	function updatePointPosition_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint)
+	function updatePointPosition_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_(obPoint)
 	{
 		if (!!obPoint && !!obPoint.geometry)
 			obPoint = obPoint.geometry.getCoordinates();
-		else if (!!window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
-			obPoint = window.obPoint_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates();
+		else if (!!window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_)
+			obPoint = window.obPoint_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_.geometry.getCoordinates();
 		else
 			obPoint = null;
 
-		var obInput = BX('value_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_');
+		var obInput = BX('value_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_');
 		obInput.value = null == obPoint ? '' : obPoint[0] + ',' + obPoint[1];
 
-		BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value = obPoint ? obPoint[0] : '';
-		BX('point_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value = obPoint ? obPoint[1] : '';
+		BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lat').value = obPoint ? obPoint[0] : '';
+		BX('point_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_lon').value = obPoint ? obPoint[1] : '';
 	}
 
    BX.ready(function(){
-   	setTimeout(BXWaitForMap_<?echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 100);
+   	setTimeout(BXWaitForMap_<?php echo $MAP_ID?>__n<?=$yandexMapLastNumber?>_, 100);
    });
 
-   var jsYandexCESearch_<?echo $MAP_ID;?> = {
+   var jsYandexCESearch_<?php echo $MAP_ID;?> = {
 
 		bInited: false,
 
@@ -1677,15 +1677,15 @@ function saveYandexKey(domain, input)
 
 		__init: function(input)
 		{
-			if (jsYandexCESearch_<?echo $MAP_ID;?>.bInited) return;
+			if (jsYandexCESearch_<?php echo $MAP_ID;?>.bInited) return;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.map = window.GLOBAL_arMapObjects['<?echo $MAP_ID?>'];
-			jsYandexCESearch_<?echo $MAP_ID;?>.obInput = input;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.map = window.GLOBAL_arMapObjects['<?php echo $MAP_ID?>'];
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obInput = input;
 
-			input.onfocus = jsYandexCESearch_<?echo $MAP_ID;?>.showResults;
-			input.onblur = jsYandexCESearch_<?echo $MAP_ID;?>.hideResults;
+			input.onfocus = jsYandexCESearch_<?php echo $MAP_ID;?>.showResults;
+			input.onblur = jsYandexCESearch_<?php echo $MAP_ID;?>.hideResults;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.bInited = true;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.bInited = true;
 		},
 
 		setTypingStarted: function(e)
@@ -1693,39 +1693,39 @@ function saveYandexKey(domain, input)
 			if (null == e)
 				e = window.event;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.hideResults();
+			jsYandexCESearch_<?php echo $MAP_ID;?>.hideResults();
 
 			if (e.keyCode == 13 )
 			{
-				jsYandexCESearch_<?echo $MAP_ID;?>.doSearch();
+				jsYandexCESearch_<?php echo $MAP_ID;?>.doSearch();
 				return false;
 			}
 			else
 			{
-				if (!jsYandexCESearch_<?echo $MAP_ID;?>.bInited)
-					jsYandexCESearch_<?echo $MAP_ID;?>.__init(this);
+				if (!jsYandexCESearch_<?php echo $MAP_ID;?>.bInited)
+					jsYandexCESearch_<?php echo $MAP_ID;?>.__init(this);
 
 				if (e.type=="contextmenu")
-					jsYandexCESearch_<?echo $MAP_ID;?>.timerDelay=3000;
+					jsYandexCESearch_<?php echo $MAP_ID;?>.timerDelay=3000;
 				else
-					jsYandexCESearch_<?echo $MAP_ID;?>.timerDelay=1000;
+					jsYandexCESearch_<?php echo $MAP_ID;?>.timerDelay=1000;
 
-				if (null != jsYandexCESearch_<?echo $MAP_ID;?>.timerID)
-					clearTimeout(jsYandexCESearch_<?echo $MAP_ID;?>.timerID);
+				if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.timerID)
+					clearTimeout(jsYandexCESearch_<?php echo $MAP_ID;?>.timerID);
 
-				jsYandexCESearch_<?echo $MAP_ID;?>.timerID = setTimeout(jsYandexCESearch_<?echo $MAP_ID;?>.doSearch, jsYandexCESearch_<?echo $MAP_ID;?>.timerDelay);
+				jsYandexCESearch_<?php echo $MAP_ID;?>.timerID = setTimeout(jsYandexCESearch_<?php echo $MAP_ID;?>.doSearch, jsYandexCESearch_<?php echo $MAP_ID;?>.timerDelay);
 			}
 		},
 
 		doSearch: function()
 		{
-			this.strLastSearch = jsUtils.trim(jsYandexCESearch_<?echo $MAP_ID;?>.obInput.value);
+			this.strLastSearch = jsUtils.trim(jsYandexCESearch_<?php echo $MAP_ID;?>.obInput.value);
 
 			if (this.strLastSearch.length > 1)
 			{
 				ymaps.geocode(this.strLastSearch).then(
-					jsYandexCESearch_<?echo $MAP_ID;?>.__searchResultsLoad,
-					jsYandexCESearch_<?echo $MAP_ID;?>.handleError
+					jsYandexCESearch_<?php echo $MAP_ID;?>.__searchResultsLoad,
+					jsYandexCESearch_<?php echo $MAP_ID;?>.handleError
 				);
 			}
 		},
@@ -1737,20 +1737,20 @@ function saveYandexKey(domain, input)
 
 		setResultsCoordinates: function()
 		{
-			var obPos = jsUtils.GetRealPos(jsYandexCESearch_<?echo $MAP_ID;?>.obInput);
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.top = (obPos.bottom + 2) + 'px';
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.left = obPos.left + 'px';
+			var obPos = jsUtils.GetRealPos(jsYandexCESearch_<?php echo $MAP_ID;?>.obInput);
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.top = (obPos.bottom + 2) + 'px';
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.left = obPos.left + 'px';
 		},
 
 		__generateOutput: function()
 		{
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut = document.body.appendChild(document.createElement('UL'));
-			jsYandexCESearch_<?echo $MAP_ID;?>.obOut.className = 'bx-yandex-address-search-results';
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut = document.body.appendChild(document.createElement('UL'));
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.className = 'bx-yandex-address-search-results';
 		},
 
 		__searchResultsLoad: function(res)
 		{
-			var _this = jsYandexCESearch_<?echo $MAP_ID;?>;
+			var _this = jsYandexCESearch_<?php echo $MAP_ID;?>;
 
 			if (null == _this.obOut)
 				_this.__generateOutput();
@@ -1774,7 +1774,7 @@ function saveYandexKey(domain, input)
 					obLink.href = "javascript:void(0)";
 					var obText = obLink.appendChild(document.createElement('SPAN'));
 					obText.appendChild(document.createTextNode(
-						jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults[i].properties.get('metaDataProperty').GeocoderMetaData.text
+						jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults[i].properties.get('metaDataProperty').GeocoderMetaData.text
 					));
 
 					obLink.BXSearchIndex = i;
@@ -1796,58 +1796,58 @@ function saveYandexKey(domain, input)
 		{
 			if (null !== this.BXSearchIndex)
 			{
-				var bounds =  jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].properties.get('boundedBy');
-				jsYandexCESearch_<?echo $MAP_ID;?>.map.setBounds(bounds, { checkZoomRange: true });
+				var bounds =  jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults[this.BXSearchIndex].properties.get('boundedBy');
+				jsYandexCESearch_<?php echo $MAP_ID;?>.map.setBounds(bounds, { checkZoomRange: true });
 			}
 		},
 
 		showResults: function()
 		{
-			if(this.strLastSearch!=jsUtils.trim(jsYandexCESearch_<?echo $MAP_ID;?>.obInput.value))
-				jsYandexCESearch_<?echo $MAP_ID;?>.doSearch();
+			if(this.strLastSearch!=jsUtils.trim(jsYandexCESearch_<?php echo $MAP_ID;?>.obInput.value))
+				jsYandexCESearch_<?php echo $MAP_ID;?>.doSearch();
 
-			if (null != jsYandexCESearch_<?echo $MAP_ID;?>.obOut)
+			if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.obOut)
 			{
-				jsYandexCESearch_<?echo $MAP_ID;?>.setResultsCoordinates();
-				jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.display = 'block';
+				jsYandexCESearch_<?php echo $MAP_ID;?>.setResultsCoordinates();
+				jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.display = 'block';
 			}
 		},
 
 		hideResults: function()
 		{
-			if (null != jsYandexCESearch_<?echo $MAP_ID;?>.obOut)
+			if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.obOut)
 			{
-				setTimeout("jsYandexCESearch_<?echo $MAP_ID;?>.obOut.style.display = 'none'", 300);
+				setTimeout("jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.style.display = 'none'", 300);
 			}
 		},
 
 		clearSearchResults: function()
 		{
-			for (var i = 0; i < jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults.length; i++)
+			for (var i = 0; i < jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults.length; i++)
 			{
-				delete jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults[i];
+				delete jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults[i];
 			}
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults = [];
+			jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults = [];
 		},
 
 		clear: function()
 		{
-			if (!jsYandexCESearch_<?echo $MAP_ID;?>.bInited)
+			if (!jsYandexCESearch_<?php echo $MAP_ID;?>.bInited)
 				return;
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.bInited = false;
-			if (null != jsYandexCESearch_<?echo $MAP_ID;?>.obOut)
+			jsYandexCESearch_<?php echo $MAP_ID;?>.bInited = false;
+			if (null != jsYandexCESearch_<?php echo $MAP_ID;?>.obOut)
 			{
-				jsYandexCESearch_<?echo $MAP_ID;?>.obOut.parentNode.removeChild(jsYandexCESearch_<?echo $MAP_ID;?>.obOut);
-				jsYandexCESearch_<?echo $MAP_ID;?>.obOut = null;
+				jsYandexCESearch_<?php echo $MAP_ID;?>.obOut.parentNode.removeChild(jsYandexCESearch_<?php echo $MAP_ID;?>.obOut);
+				jsYandexCESearch_<?php echo $MAP_ID;?>.obOut = null;
 			}
 
-			jsYandexCESearch_<?echo $MAP_ID;?>.arSearchResults = [];
-			jsYandexCESearch_<?echo $MAP_ID;?>.map = null;
-			jsYandexCESearch_<?echo $MAP_ID;?>.geocoder = null;
-			jsYandexCESearch_<?echo $MAP_ID;?>.obInput = null;
-			jsYandexCESearch_<?echo $MAP_ID;?>.timerID = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.arSearchResults = [];
+			jsYandexCESearch_<?php echo $MAP_ID;?>.map = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.geocoder = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.obInput = null;
+			jsYandexCESearch_<?php echo $MAP_ID;?>.timerID = null;
 		}
 	}
 
@@ -1855,7 +1855,7 @@ function saveYandexKey(domain, input)
 
 		</div>
 
-		<?$out = ob_get_contents();
+		<?php $out = ob_get_contents();
 		ob_end_clean();
 
 		if ($arProperty['MULTIPLE'] == 'Y')
@@ -2011,15 +2011,15 @@ tr.bx-prop-sub-title td{background: #E2E1E0! important; color: #525355! importan
 	<td><?= GetMessage('IBLOCK_PROP_VIDEO_SET_CONTROLBAR')?>:</td>
 	<td>
 		<select  name="<?= $name?>[CONTROLBAR]">
-			<option value="bottom" <? if($val["CONTROLBAR"] == 'bottom') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_CONTROLBAR_DOWN')?></option>
-			<option value="none" <? if($val["CONTROLBAR"] == 'none') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_CONTROLBAR_NONE')?></option>
+			<option value="bottom" <?php  if($val["CONTROLBAR"] == 'bottom') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_CONTROLBAR_DOWN')?></option>
+			<option value="none" <?php  if($val["CONTROLBAR"] == 'none') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_CONTROLBAR_NONE')?></option>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td><?= GetMessage('IBLOCK_PROP_VIDEO_SET_AUTOSTART')?>:</td>
 	<td>
-		<input value="Y" type="checkbox" name="<?= $name?>[AUTOSTART]" <? if($val["AUTOSTART"] == 'Y') echo 'checked="checked"';?>/>
+		<input value="Y" type="checkbox" name="<?= $name?>[AUTOSTART]" <?php  if($val["AUTOSTART"] == 'Y') echo 'checked="checked"';?>/>
 	</td>
 </tr>
 <tr>
@@ -2070,9 +2070,9 @@ jsUtils.loadJSFile("/bitrix/components/bitrix/player/js/prop_skin_selector.js", 
 	<td><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_FLV')?>:</td>
 	<td>
 		<select  name="<?= $name?>[WMODE_FLV]">
-			<option value="window" <? if($val["WMODE_FLV"] == 'window' || !$val["WMODE_FLV"]) echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_WINDOW')?></option>
-			<option value="opaque" <? if($val["WMODE_FLV"] == 'opaque') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_OPAQUE')?></option>
-			<option value="transparent" <? if($val["WMODE_FLV"] == 'transparent') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_TRANSPARENT')?></option>
+			<option value="window" <?php  if($val["WMODE_FLV"] == 'window' || !$val["WMODE_FLV"]) echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_WINDOW')?></option>
+			<option value="opaque" <?php  if($val["WMODE_FLV"] == 'opaque') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_OPAQUE')?></option>
+			<option value="transparent" <?php  if($val["WMODE_FLV"] == 'transparent') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_TRANSPARENT')?></option>
 		</select>
 	</td>
 </tr>
@@ -2103,12 +2103,12 @@ jsUtils.loadJSFile("/bitrix/components/bitrix/player/js/prop_skin_selector.js", 
 	<td><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_WMV')?>:</td>
 	<td>
 		<select  name="<?= $name?>[WMODE_WMV]">
-			<option value="window" <? if($val["WMODE_WMV"] == 'window') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_WINDOW')?></option>
-			<option value="windowless" <? if($val["WMODE_WMV"] == 'windowless') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_TRANSPARENT')?></option>
+			<option value="window" <?php  if($val["WMODE_WMV"] == 'window') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_WINDOW')?></option>
+			<option value="windowless" <?php  if($val["WMODE_WMV"] == 'windowless') echo 'selected';?>><?= GetMessage('IBLOCK_PROP_VIDEO_SET_WMODE_TRANSPARENT')?></option>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 		$result .= ob_get_contents();
 		ob_end_clean();
 		return $result;
@@ -2146,12 +2146,12 @@ table.bx-video-prop-tbl img.spacer{display:block;float:left;height:1px;margin-to
 
 <table class="bx-video-prop-tbl">
 	<tr class="bx-prop-main-title"><td colSpan="2"><?= GetMessage('IBLOCK_PROP_VIDEO_PARAMS_TITLE')?></td></tr>
-	<? if ($controlMode != "iblock_element_admin"): ?>
-		<? if(strlen($path) > 0):?>
+	<?php  if ($controlMode != "iblock_element_admin"): ?>
+		<?php  if(strlen($path) > 0):?>
 			<tr class="heading"><td colSpan="2"><?= GetMessage('IBLOCK_PROP_VIDEO_PARAMS_TITLE_VIEW')?></td></tr>
 			<tr>
 				<td colSpan="2" style="text-align: center;">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:player",
 				"",
 				array(
@@ -2187,13 +2187,13 @@ table.bx-video-prop-tbl img.spacer{display:block;float:left;height:1px;margin-to
 		); ?>
 				</td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 
 		<tr><td class="bx-pr-title" style="width: 300px;"></td><td style="width: 240px;"></td></tr>
 
 		<tr class="heading"><td colSpan="2"><?= GetMessage('IBLOCK_PROP_VIDEO_PARAMS_TITLE_MAIN')?></td></tr>
 
-		<? if(strlen($path) > 0):?>
+		<?php  if(strlen($path) > 0):?>
 			<tr>
 				<td class="bx-pr-title"><?= GetMessage('IBLOCK_PROP_VIDEO_FILE')?>:</td>
 				<td>
@@ -2207,23 +2207,23 @@ table.bx-video-prop-tbl img.spacer{display:block;float:left;height:1px;margin-to
 					</div>
 				</td>
 			</tr>
-			<? if(CVideoProperty::CheckFileInUploadDir($path)):?>
+			<?php  if(CVideoProperty::CheckFileInUploadDir($path)):?>
 				<tr id="bx_video_del_row_<?= $id?>" style="display: none;">
 					<td class="bx-pr-title"></td>
 					<td>
 						<input type="checkbox" value="Y" id="bx_video_del_<?= $id?>" checked="checked" name= "<?= $name?>[DEL_CUR_FILE]" /><label for="bx_video_del_<?= $id?>"><?= GetMessage('IBLOCK_PROP_VIDEO_DEL_FILE')?></label>
 					</td>
 				</tr>
-			<?endif;?>
-		<?endif;?>
+			<?php endif;?>
+		<?php endif;?>
 
-		<tr id="bx_video_new_path_row_<?= $id?>" <?if (strlen($path) > 0){ echo 'style="display: none;"'; }?>>
+		<tr id="bx_video_new_path_row_<?= $id?>" <?php if (strlen($path) > 0){ echo 'style="display: none;"'; }?>>
 			<td class="bx-pr-title" style="width: 300px;"><?= GetMessage(strlen($path) > 0 ? 'IBLOCK_PROP_VIDEO_PATH_NEW' : 'IBLOCK_PROP_VIDEO_PATH')?>:</td>
 			<td style="width: 240px;">
 			<img src="/bitrix/images/1.gif" class="spacer" />
 			<div id="bx_video_path_cont1_<?= $id?>" style="display: none;">
 			<input type="text" size="30" value="" id="bx_video_path_<?= $id?>"  style="float:left;" name= "<?= $name?>[PATH]" />
-			<?
+			<?php 
 			CAdminFileDialog::ShowScript(Array
 				(
 					"event" => "OpenFileBrowser_".$id,
@@ -2258,7 +2258,7 @@ table.bx-video-prop-tbl img.spacer{display:block;float:left;height:1px;margin-to
 			</div>
 			</td>
 		</tr>
-	<?else:?>
+	<?php else:?>
 		<tr>
 			<td class="bx-pr-title"><?= GetMessage('IBLOCK_PROP_VIDEO_FILE')?>:</td>
 			<td>
@@ -2267,7 +2267,7 @@ table.bx-video-prop-tbl img.spacer{display:block;float:left;height:1px;margin-to
 				</div>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr>
 		<td class="bx-pr-title"><?= GetMessage('IBLOCK_PROP_VIDEO_SIZE')?>:</td>
@@ -2362,7 +2362,7 @@ function ChangeOrLeaveFile<?= $id?>(bChange)
 }
 </script>
 </div>
-<?
+<?php 
 		$s = ob_get_contents();
 		ob_end_clean();
 		return $s;
@@ -2538,7 +2538,7 @@ function ChangeOrLeaveFile<?= $id?>(bChange)
 		$title = strlen($val['title']) > 0 ? $val['title'] : "";
 ?>
 <div title="<?= addslashes($title)?>">
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:player",
 	"",
 	array(
@@ -2573,7 +2573,7 @@ function ChangeOrLeaveFile<?= $id?>(bChange)
 		array('HIDE_ICONS' => 'Y')
 ); ?>
 </div>
-<?
+<?php 
 		$s = ob_get_contents();
 		ob_end_clean();
 		return $s;

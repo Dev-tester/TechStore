@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_T_EDIT_TITLE_EDIT'] = "Редактирование шаблона";
 $MESS ['MAIN_T_EDIT_TITLE_NEW'] = "Новый шаблон";
 $MESS ['MAIN_T_EDIT_TEMPL_LIST'] = "Список шаблонов";

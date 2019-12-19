@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACGA1_NO_SITE"] = "Die Seite der Umsatzplanung wurde nicht angegeben";
 $MESS["ACGA1_NO_PLAN"] = "Die Umsatzplanungs ID wurde nicht angegeben";
 $MESS["ACGA1_ERROR_FUNC"] = "Beim Ausführen der Funktion ist ein Fehler aufgetreten";

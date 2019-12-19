@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['MEETINGS_NAME'] = "Собрания и планерки";
 $MESS['MEETINGS_DESCRIPTION'] = "Комплексный компонент для управления собраниями";
 $MESS['INTR_GROUP_NAME'] = "Корпоративный портал";

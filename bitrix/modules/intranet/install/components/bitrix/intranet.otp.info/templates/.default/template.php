@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 CJSCore::Init("popup");
 ?>
@@ -12,9 +12,9 @@ CJSCore::Init("popup");
 		<div class="bx-otp-info-popup-col-right">
 			<div class="bx-otp-info-popup-content-title"><?=GetMessage("INTRANET_OTP_MANDATORY_TITLE")?></div>
 			<?=GetMessage("INTRANET_OTP_MANDATORY_DESCR")?>
-			<?if (intval($arResult["USER"]["OTP_DAYS_LEFT"])):?>
+			<?php if (intval($arResult["USER"]["OTP_DAYS_LEFT"])):?>
 				<?=GetMessage("INTRANET_OTP_MANDATORY_DESCR2", array("#NUM#" => $arResult["USER"]["OTP_DAYS_LEFT"]))?>
-			<?endif?>
+			<?php endif?>
 		</div>
 		<div class="clb"></div>
 	</div>

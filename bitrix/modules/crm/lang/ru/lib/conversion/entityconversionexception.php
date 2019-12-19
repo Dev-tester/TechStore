@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONV_EX_LEAD_NOT_FOUND"] = "Лид не найден.";
 $MESS["CRM_CONV_EX_CONTACT_NOT_FOUND"] = "Контакт не найден.";
 $MESS["CRM_CONV_EX_COMPANY_NOT_FOUND"] = "Компания не найдена.";

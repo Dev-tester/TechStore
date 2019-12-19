@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_TAB_SETTINGS"] = "Настройка";
 $MESS["MAIN_TAB_TITLE_SETTINGS"] = "Настройка";
 $MESS["MAIN_TAB_PARTNER_NAME"] = "Партнер, разрабатывающий проект";

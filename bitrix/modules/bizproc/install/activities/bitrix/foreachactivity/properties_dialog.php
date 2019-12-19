@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <tbody>
@@ -7,10 +7,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 		<td width="60%">
 			<select name="variable">
 				<option value="">...</option>
-				<?
+				<?php 
 				foreach ($workflowVariables as $varName => $varInfo)
 				{
-					?><option value="<?=htmlspecialcharsbx($varName)?>"<?= ($arCurrentValues["variable"] == $varName) ? " selected" : "" ?>><?= $varInfo["Name"] ?></option><?
+					?><option value="<?=htmlspecialcharsbx($varName)?>"<?= ($arCurrentValues["variable"] == $varName) ? " selected" : "" ?>><?= $varInfo["Name"] ?></option><?php 
 				}
 				?>
 			</select>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_BLOG_TIP'] = "The path to the main page of <i>this</i> blog. Example: blog_blog.php?page=blog&blog=#blog#.";
 $MESS ['PATH_TO_BLOG_INDEX_TIP'] = "Specifies the path to the blog index page, e.g. <b>blog.php</b>.";
 $MESS ['PATH_TO_DRAFT_TIP'] = "The path to a page containing draft messages of the blog. Example: <nobr>blog_b_draft.php?page=draft&blog=#blog#.";

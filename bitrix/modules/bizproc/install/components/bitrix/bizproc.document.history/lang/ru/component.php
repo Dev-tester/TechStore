@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_WEBDAV_IS_NOT_INSTALLED'] = "Модуль библиотеки документов не установлен.";
 $MESS ['BPADH_RECOVERY_ERROR'] = "Не удалось восстановить запись из истории.";
 $MESS ['BPADH_RECOVERY_OK'] = "Запись восстановлена из истории.";

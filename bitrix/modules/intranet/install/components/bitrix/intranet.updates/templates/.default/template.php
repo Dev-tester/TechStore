@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 CUtil::InitJSCore("popup");
 $APPLICATION->AddHeadScript("/bitrix/js/main/admin_tools.js");
 $bLockControls = false;
@@ -11,40 +11,40 @@ $bLockControls = false;
 		</td>
 	</tr>
 
-	<?if (is_array($arResult["UPDATE_LIST"]) && array_key_exists("CLIENT", $arResult["UPDATE_LIST"])):?>
+	<?php if (is_array($arResult["UPDATE_LIST"]) && array_key_exists("CLIENT", $arResult["UPDATE_LIST"])):?>
 		<tr>
-			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_ACTIVE")?></td>
-			<td class="content-edit-form-field-input"><?echo GetMessage("SUP_ACTIVE_PERIOD_TO", array("#DATE_TO#"=>((strlen($arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"]) > 0) ? $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"] : "<i>N/A</i>")));?></td>
+			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_ACTIVE")?></td>
+			<td class="content-edit-form-field-input"><?php echo GetMessage("SUP_ACTIVE_PERIOD_TO", array("#DATE_TO#"=>((strlen($arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"]) > 0) ? $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"] : "<i>N/A</i>")));?></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 		<tr>
-			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_SERVER")?></td>
-			<td class="content-edit-form-field-input"><?echo $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["HTTP_HOST"]?></td>
+			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_SERVER")?></td>
+			<td class="content-edit-form-field-input"><?php echo $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["HTTP_HOST"]?></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-	<?else:?>
+	<?php else:?>
 		<tr>
-			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_SERVER")?></td>
-			<td class="content-edit-form-field-input"><?echo (($s=COption::GetOptionString("main", "update_site"))==""? "-":$s)?></td>
+			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_SERVER")?></td>
+			<td class="content-edit-form-field-input"><?php echo (($s=COption::GetOptionString("main", "update_site"))==""? "-":$s)?></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
-		<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_SUBI_CHECK")?></td>
+		<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_SUBI_CHECK")?></td>
 		<td class="content-edit-form-field-input"><?= COption::GetOptionString("main", "update_system_check", "-") ?></td>
 		<td class="content-edit-form-field-error"></td>
 	</tr>
 
 	<tr>
-		<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_SUBI_UPD")?></td>
+		<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_SUBI_UPD")?></td>
 		<td class="content-edit-form-field-input"><?= COption::GetOptionString("main", "update_system_update", "-") ?></td>
 		<td class="content-edit-form-field-error"></td>
 	</tr>
 
 	<tr>
-		<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_SU_RECOMEND")?></td>
+		<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_SU_RECOMEND")?></td>
 		<td class="content-edit-form-field-input">
-			<?
+			<?php 
 			$bComma = False;
 			if ($arResult["UPDATES_NUM"] > 0)
 			{
@@ -77,7 +77,7 @@ $bLockControls = false;
 	}
 </script>
 
-<? // license
+<?php  // license
 if (!$arResult["IS_LICENSE_SIGNED"])
 {
 	$bLockControls = true;
@@ -180,7 +180,7 @@ if (!$arResult["IS_LICENSE_SIGNED"])
 			BX.PopupWindowManager._currentPopup.close();
 		}
 	</script>
-	<?
+	<?php 
 }
 
 if ($arResult["IS_LICENSE_FOUND"])
@@ -233,7 +233,7 @@ if ($arResult["IS_LICENSE_FOUND"])
 				CHttpRequest.Send('/bitrix/admin/update_system_act.php?query_type=updateupdate&<?= bitrix_sessid_get() ?>&updRand=' + updRand);
 			}
 		</script>
-	<?
+	<?php 
 	}
 
 	//updates
@@ -281,12 +281,12 @@ if ($arResult["IS_LICENSE_FOUND"])
 		<table border="0" cellspacing="1" cellpadding="3" width="100%" class="content-edit-form">
 			<tr>
 				<td style="padding: 10px 0 0 22px">
-					<input type="button" id="install_updates_button" name="install_updates"<?= (($arResult["COUNT_MODULE_UPDATES"] <= 0 && $arResult["COUNT_LANG_UPDATES"] <= 0 || $bLockControls) ? " disabled" : "") ?> value="<?= GetMessage("SUP_SU_UPD_BUTTON") ?>" onclick="InstallUpdates()" class="webform-small-button webform-small-button-accept <?if ($arResult["COUNT_MODULE_UPDATES"] <= 0 && $arResult["COUNT_LANG_UPDATES"] <= 0 || $bLockControls):?>webform-button-disable<?endif?>">
+					<input type="button" id="install_updates_button" name="install_updates"<?= (($arResult["COUNT_MODULE_UPDATES"] <= 0 && $arResult["COUNT_LANG_UPDATES"] <= 0 || $bLockControls) ? " disabled" : "") ?> value="<?= GetMessage("SUP_SU_UPD_BUTTON") ?>" onclick="InstallUpdates()" class="webform-small-button webform-small-button-accept <?php if ($arResult["COUNT_MODULE_UPDATES"] <= 0 && $arResult["COUNT_LANG_UPDATES"] <= 0 || $bLockControls):?>webform-button-disable<?php endif?>">
 				</td>
 			</tr>
 		</table>
 	</div>
-<?
+<?php 
 }
 
 ?>

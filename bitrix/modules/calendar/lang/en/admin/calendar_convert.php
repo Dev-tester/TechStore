@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOD_BACK"] = "Back to modules";
 $MESS["TYPE_ID"] = "Symbolic code";
 $MESS["TYPE_TITLE"] = "Name";

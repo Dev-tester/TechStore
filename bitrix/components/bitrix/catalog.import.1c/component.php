@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
@@ -687,24 +687,24 @@ else
 	)
 		ShowError(GetMessage("CC_BSC1_ERROR_SESSION_ID_CHANGE"));
 	?><table class="data-table">
-	<tr><td><?echo GetMessage("CC_BCI1_IBLOCK_TYPE")?></td><td><?echo $arParams["IBLOCK_TYPE"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_SITE_LIST")?></td><td><?echo implode(", ", $arParams["SITE_LIST"])?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_INTERVAL")?></td><td><?echo $arParams["INTERVAL"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_ELEMENT_ACTION")?></td><td><?echo $arAction[$arParams["ELEMENT_ACTION"]]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_SECTION_ACTION")?></td><td><?echo $arAction[$arParams["SECTION_ACTION"]]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_FILE_SIZE_LIMIT")?></td><td><?echo $arParams["FILE_SIZE_LIMIT"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_USE_CRC")?></td><td><?echo $arParams["USE_CRC"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_USE_ZIP")?></td><td><?echo $arParams["USE_ZIP"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_USE_IBLOCK_PICTURE_SETTINGS")?></td><td><?echo $arParams["USE_IBLOCK_PICTURE_SETTINGS"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<?if (!$arParams["USE_IBLOCK_PICTURE_SETTINGS"]):?>
-		<tr><td><?echo GetMessage("CC_BCI1_GENERATE_PREVIEW")?></td><td><?echo $arParams["GENERATE_PREVIEW"]? GetMessage("MAIN_YES")." ".$arParams["PREVIEW_WIDTH"]."x".$arParams["PREVIEW_HEIGHT"]: GetMessage("MAIN_NO")?></td></tr>
-		<tr><td><?echo GetMessage("CC_BCI1_DETAIL_RESIZE")?></td><td><?echo $arParams["DETAIL_RESIZE"]? GetMessage("MAIN_YES")." ".$arParams["DETAIL_WIDTH"]."x".$arParams["DETAIL_HEIGHT"]: GetMessage("MAIN_NO")?></td></tr>
-	<?endif?>
-	<tr><td><?echo GetMessage("CC_BCI1_TRANSLIT_ON_ADD")?></td><td><?echo $arParams["TRANSLIT_ON_ADD"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_TRANSLIT_ON_UPDATE")?></td><td><?echo $arParams["TRANSLIT_ON_UPDATE"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<?if ($arParams["TRANSLIT_ON_ADD"] || $arParams["TRANSLIT_ON_UPDATE"]):?>
-		<tr><td><?echo GetMessage("CC_BCI1_TRANSLIT_MAX_LEN")?></td><td><?echo $arParams["TRANSLIT_MAX_LEN"]?></td></tr>
-		<tr><td><?echo GetMessage("CC_BCI1_TRANSLIT_CHANGE_CASE")?></td><td><?
+	<tr><td><?php echo GetMessage("CC_BCI1_IBLOCK_TYPE")?></td><td><?php echo $arParams["IBLOCK_TYPE"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_SITE_LIST")?></td><td><?php echo implode(", ", $arParams["SITE_LIST"])?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_INTERVAL")?></td><td><?php echo $arParams["INTERVAL"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_ELEMENT_ACTION")?></td><td><?php echo $arAction[$arParams["ELEMENT_ACTION"]]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_SECTION_ACTION")?></td><td><?php echo $arAction[$arParams["SECTION_ACTION"]]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_FILE_SIZE_LIMIT")?></td><td><?php echo $arParams["FILE_SIZE_LIMIT"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_USE_CRC")?></td><td><?php echo $arParams["USE_CRC"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_USE_ZIP")?></td><td><?php echo $arParams["USE_ZIP"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_USE_IBLOCK_PICTURE_SETTINGS")?></td><td><?php echo $arParams["USE_IBLOCK_PICTURE_SETTINGS"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<?php if (!$arParams["USE_IBLOCK_PICTURE_SETTINGS"]):?>
+		<tr><td><?php echo GetMessage("CC_BCI1_GENERATE_PREVIEW")?></td><td><?php echo $arParams["GENERATE_PREVIEW"]? GetMessage("MAIN_YES")." ".$arParams["PREVIEW_WIDTH"]."x".$arParams["PREVIEW_HEIGHT"]: GetMessage("MAIN_NO")?></td></tr>
+		<tr><td><?php echo GetMessage("CC_BCI1_DETAIL_RESIZE")?></td><td><?php echo $arParams["DETAIL_RESIZE"]? GetMessage("MAIN_YES")." ".$arParams["DETAIL_WIDTH"]."x".$arParams["DETAIL_HEIGHT"]: GetMessage("MAIN_NO")?></td></tr>
+	<?php endif?>
+	<tr><td><?php echo GetMessage("CC_BCI1_TRANSLIT_ON_ADD")?></td><td><?php echo $arParams["TRANSLIT_ON_ADD"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_TRANSLIT_ON_UPDATE")?></td><td><?php echo $arParams["TRANSLIT_ON_UPDATE"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<?php if ($arParams["TRANSLIT_ON_ADD"] || $arParams["TRANSLIT_ON_UPDATE"]):?>
+		<tr><td><?php echo GetMessage("CC_BCI1_TRANSLIT_MAX_LEN")?></td><td><?php echo $arParams["TRANSLIT_MAX_LEN"]?></td></tr>
+		<tr><td><?php echo GetMessage("CC_BCI1_TRANSLIT_CHANGE_CASE")?></td><td><?php 
 			if ($arParams["TRANSLIT_CHANGE_CASE"] == "L" || $arParams["TRANSLIT_CHANGE_CASE"] == "l")
 				echo GetMessage("CC_BCI1_TRANSLIT_CHANGE_CASE_LOWER");
 			elseif ($arParams["TRANSLIT_CHANGE_CASE"] == "U" || $arParams["TRANSLIT_CHANGE_CASE"] == "u")
@@ -712,13 +712,13 @@ else
 			else
 				echo GetMessage("CC_BCI1_TRANSLIT_CHANGE_CASE_PRESERVE");
 		?></td></tr>
-		<tr><td><?echo GetMessage("CC_BCI1_TRANSLIT_REPLACE_SPACE")?></td><td><?echo $arParams["TRANSLIT_REPLACE_SPACE"]?></td></tr>
-		<tr><td><?echo GetMessage("CC_BCI1_TRANSLIT_REPLACE_OTHER")?></td><td><?echo $arParams["TRANSLIT_REPLACE_OTHER"]?></td></tr>
-		<tr><td><?echo GetMessage("CC_BCI1_TRANSLIT_DELETE_REPEAT_REPLACE")?></td><td><?echo $arParams["TRANSLIT_DELETE_REPEAT_REPLACE"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<?endif?>
-	<tr><td><?echo GetMessage("CC_BCI1_USE_OFFERS")?></td><td><?echo $arParams["USE_OFFERS"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_FORCE_OFFERS")?></td><td><?echo $arParams["FORCE_OFFERS"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_DISABLE_CHANGE_PRICE_NAME")?></td><td><?echo $arParams["DISABLE_CHANGE_PRICE_NAME"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+		<tr><td><?php echo GetMessage("CC_BCI1_TRANSLIT_REPLACE_SPACE")?></td><td><?php echo $arParams["TRANSLIT_REPLACE_SPACE"]?></td></tr>
+		<tr><td><?php echo GetMessage("CC_BCI1_TRANSLIT_REPLACE_OTHER")?></td><td><?php echo $arParams["TRANSLIT_REPLACE_OTHER"]?></td></tr>
+		<tr><td><?php echo GetMessage("CC_BCI1_TRANSLIT_DELETE_REPEAT_REPLACE")?></td><td><?php echo $arParams["TRANSLIT_DELETE_REPEAT_REPLACE"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<?php endif?>
+	<tr><td><?php echo GetMessage("CC_BCI1_USE_OFFERS")?></td><td><?php echo $arParams["USE_OFFERS"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_FORCE_OFFERS")?></td><td><?php echo $arParams["FORCE_OFFERS"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_DISABLE_CHANGE_PRICE_NAME")?></td><td><?php echo $arParams["DISABLE_CHANGE_PRICE_NAME"]? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
 	</table>
-	<?
+	<?php 
 }

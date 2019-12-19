@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HK_EDIT_ERROR"] = "Cannot save keyboard shortcuts";
 $MESS["HK_UPDATE_ERROR"] = "Cannot update keyboard shortcuts";
 $MESS["HK_EDIT_SUCCESS"] = "Keyboard shortcuts have been saved successfully";

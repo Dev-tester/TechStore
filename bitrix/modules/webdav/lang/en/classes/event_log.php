@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOG_TYPE_DOCUMENTS"] = "Document Library";
 $MESS["LOG_TYPE_ELEMENT_ADD"] = "Add file";
 $MESS["LOG_TYPE_SECTION_ADD"] = "Create folder";

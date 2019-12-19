@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_ID'] = "Код";
 $MESS ['P_NAME'] = "Название";
 $MESS ['P_PERSON_TYPE_ID'] = "Тип плательщика";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_UF_VERSION_HISTORY_FILE_MAIL"] = "Версия #NUMBER#:";
 $MESS["DISK_UF_HEAD_VERSION_HISTORY_FILE_MAIL"] = "Файл:";
 ?>

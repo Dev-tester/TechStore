@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************************
 Delivery services for Russian Post Service (http://www.russianpost.ru/)
 Calculations based on RP rates:

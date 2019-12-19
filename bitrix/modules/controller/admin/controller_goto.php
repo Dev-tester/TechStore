@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_PERMISSIONS", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
@@ -135,7 +135,7 @@ else
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 	ShowError("Error: ".$e->GetString());
 	?>
-	<a href="/bitrix/admin/controller_member_admin.php?lang=<?=LANGUAGE_ID?>"><? echo GetMessage("CTRLR_GOTO_BACK") ?></a>
-	<?
+	<a href="/bitrix/admin/controller_member_admin.php?lang=<?=LANGUAGE_ID?>"><?php  echo GetMessage("CTRLR_GOTO_BACK") ?></a>
+	<?php 
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }

@@ -34,9 +34,9 @@ $APPLICATION->includeComponent(
 
 <script type="text/javascript">
 BX.message({
-	<? if(!empty($arResult['CLOUD_DOCUMENT'])){ ?>
+	<?php  if(!empty($arResult['CLOUD_DOCUMENT'])){ ?>
 	wd_service_edit_doc_default: '<?= CUtil::JSEscape($arResult['CLOUD_DOCUMENT']['DEFAULT_SERVICE']) ?>',
-	<? } ?>
+	<?php  } ?>
 	DISK_FOLDER_TOOLBAR_LABEL_LOCAL_BDISK_EDIT: '<?= CUtil::JSEscape(\Bitrix\Disk\Document\LocalDocumentController::getName()) ?>',
 	DISK_FOLDER_TOOLBAR_LABEL_NAME_CREATE_FOLDER: '<?=GetMessageJS("DISK_FOLDER_TOOLBAR_LABEL_NAME_CREATE_FOLDER")?>',
 	DISK_FOLDER_TOOLBAR_LABEL_NAME_RIGHTS_USER: '<?=GetMessageJS("DISK_FOLDER_TOOLBAR_LABEL_NAME_RIGHTS_USER")?>',
@@ -64,12 +64,12 @@ BX.ready(function () {
 	BX.Disk['FolderToolbarClass_<?= $component->getComponentId() ?>'] = new BX.Disk.FolderToolbarClass({
 		id: 'folder_toolbar',
 		destFormName: BXSocNetLogDestinationFormName,
-		<? if(!empty($arResult['CLOUD_DOCUMENT'])){ ?>
+		<?php  if(!empty($arResult['CLOUD_DOCUMENT'])){ ?>
 		defaultService: "<?= CUtil::JSUrlEscape($arResult['CLOUD_DOCUMENT']['DEFAULT_SERVICE']) ?>",
 		defaultServiceLabel: "<?= CUtil::JSUrlEscape($arResult['CLOUD_DOCUMENT']['DEFAULT_SERVICE_LABEL']) ?>",
 		createBlankFileUrl: "<?= CUtil::JSUrlEscape($arResult['CLOUD_DOCUMENT']['CREATE_BLANK_FILE_URL']) ?>",
 		renameBlankFileUrl: "<?= CUtil::JSUrlEscape($arResult['CLOUD_DOCUMENT']['RENAME_BLANK_FILE_URL']) ?>",
-		<? } ?>
+		<?php  } ?>
 		targetFolderId: "<?= $arParams['FOLDER_ID'] ?>"
 	});
 

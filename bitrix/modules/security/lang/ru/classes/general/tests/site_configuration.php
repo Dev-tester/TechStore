@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_SiteConfigurationTest_NAME"] = "Проверка настроек сайта";
 $MESS["SECURITY_SITE_CHECKER_WAF_OFF"] = "Проактивный фильтр выключен";
 $MESS["SECURITY_SITE_CHECKER_WAF_OFF_DETAIL"] = "Выключенный проактивный фильтр не сможет отразить попытки нападения на ресурс";

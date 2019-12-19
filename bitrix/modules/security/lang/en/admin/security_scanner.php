@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_SCANNER_MAIN_TAB"] = "Scan";
 $MESS["SEC_SCANNER_TITLE"] = "Security scanner";
 $MESS["SEC_SCANNER_SETTINGS_TAB"] = "Settings";

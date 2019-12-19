@@ -1,4 +1,4 @@
-<?
+<?php 
 class CTimeManAdminReport
 {
 	private $bShowAll = true;

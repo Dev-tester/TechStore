@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("NO_AGENT_STATISTIC","Y");
 define("NO_AGENT_CHECK", true);
@@ -6,7 +6,7 @@ define("DisableEventsCheck", true);
 define('BX_SECURITY_SESSION_READONLY', true);
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
-if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 const IMAGE_MAX_WIDTH = 1000;
 const IMAGE_MIN_WIDTH = 10;

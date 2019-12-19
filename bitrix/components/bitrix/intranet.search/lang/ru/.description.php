@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_GROUP_NAME'] = 'Корпоративный портал';
 $MESS ['INTR_IS_COMPONENT_NAME'] = 'Поиск сотрудника';
 $MESS ['INTR_IS_COMPONENT_DESCR'] = 'Вывод комплексной формы поиска сотрудника';

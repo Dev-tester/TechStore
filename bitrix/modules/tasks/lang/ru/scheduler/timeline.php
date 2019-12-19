@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCHEDULER_PRINT_WRONG_DATE_RANGE"] = "Неверный диапазон дат.";
 $MESS["SCHEDULER_PRINT_WRONG_DATE_FROM"] = "Дата начала выходит за рамки диапазона диаграммы.";
 $MESS["SCHEDULER_PRINT_WRONG_DATE_TO"] = "Дата завершения выходит за рамки диапазона диаграммы.";

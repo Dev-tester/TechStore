@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_CAMPAIGN_ENTITY_CAMPAIGN_ID_FIELD"] = "Campaign ID";
 $MESS["ADV_CAMPAIGN_ENTITY_GROUP_ID_FIELD"] = "Group ID";
 $MESS["ADV_CAMPAIGN_ENTITY_AUTO_QUANTITY_OFF_FIELD"] = "Auto disable when product is out of stock";

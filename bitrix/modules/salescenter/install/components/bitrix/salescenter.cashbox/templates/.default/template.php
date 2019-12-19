@@ -46,7 +46,7 @@ Extension::load([
 
 	<div id="salescenter-wrapper" class="salescenter-wrapper">
 		<form method="post" id="salescenter-form">
-			<?
+			<?php 
 			foreach ($arResult['menu'] as $id => $page)
 			{
 				$cashboxPageClass = ($page['ACTIVE'] ? "salescenter-cashbox-page-show" : "salescenter-cashbox-page-hide salescenter-cashbox-page-invisible");
@@ -67,7 +67,7 @@ Extension::load([
 									<div class="salescenter-main-header-title-container">
 										<div class="ui-title-3" style="margin-bottom: 0;"><?=Loc::getMessage($arResult['handlerDescription']['title'])?></div>
 										<div class="salescenter-main-header-feedback-container">
-											<?Bitrix\SalesCenter\Integration\Bitrix24Manager::getInstance()->renderFeedbackButton();?>
+											<?php Bitrix\SalesCenter\Integration\Bitrix24Manager::getInstance()->renderFeedbackButton();?>
 										</div>
 										<div class="salescenter-main-header-switcher-container">
 											<span data-switcher="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode([

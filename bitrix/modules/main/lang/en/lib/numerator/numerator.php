@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NUMERATOR_DEFAULT_NUMERATOR_NAME"] = "Automatic numbering template  #NUMBER#";
 $MESS["TITLE_BITRIX_MAIN_NUMERATOR_NUMERATOR_NAME_TITLE"] = "Automatic numbering template name";
 $MESS["TITLE_BITRIX_MAIN_NUMERATOR_NUMERATOR_TEMPLATE_TITLE"] = "Number format";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_CHANGE_PASSWORD"] = "Password changing";
 $MESS["AUTH_LOGIN"] = "Login";
 $MESS["AUTH_CHECKWORD"] = "Check string";

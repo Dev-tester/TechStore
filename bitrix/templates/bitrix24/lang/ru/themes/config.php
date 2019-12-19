@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIX24_THEME_DEFAULT"] = "Битрикс24";
 $MESS["BITRIX24_THEME_DEFAULT_WITH_PATTERN"] = "Битрикс24 с узором";
 $MESS["BITRIX24_THEME_SUNSET"] = "Закат";

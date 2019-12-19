@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\Numerator;
 
 use Bitrix\Main\Event;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_ACCESS"] = "Access";
 $MESS["TM_ACCESS_COMMON"] = "Common Access Permissions";
 $MESS["TM_ACCESS_EDIT_CURRENT_DAY"] = "Employees Can Edit Current Workday";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_SAVE_ERR"] = "Ошибка при изменении валюты #ID#: #ERROR_TEXT#";
 $MESS["CURRENCY_SAVE_ERR2"] = "Ошибка при изменении валюты #ID#";
 $MESS["currency_err1"] = "Ошибка удаления валюты.";

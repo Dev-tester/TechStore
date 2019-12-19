@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_BACK_TO_CONTRACT_LIST"] = "Список контрактов";
 $MESS["AD_BACK_TO_CONTRACT_LIST_TITLE"] = "Просмотреть список контрактов";
 $MESS["AD_EDIT_RECORD"] = "Контракт # #ID#";

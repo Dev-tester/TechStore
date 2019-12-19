@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FOLDER_MODEL_ERROR_NON_UNIQUE_NAME"] = "Неуникальное имя объекта.";
 $MESS["DISK_FOLDER_MODEL_ERROR_COULD_NOT_DELETE_WITH_CODE"] = "Невозможно удалить папку с кодом #CODE#.";
 $MESS["DISK_FOLDER_MODEL_ERROR_COULD_NOT_SAVE_FILE"] = "Не удалось сохранить файл.";

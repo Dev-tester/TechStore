@@ -11,8 +11,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 $elementCode = $classBlock->get('ELEMENT_CODE');
 ?>
 
-<?if ($classBlock->get('SHOW_CART')):?>
-	<?$APPLICATION->IncludeComponent(
+<?php if ($classBlock->get('SHOW_CART')):?>
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:sale.basket.basket.line',
 		'.default',
 		array(
@@ -38,10 +38,10 @@ $elementCode = $classBlock->get('ELEMENT_CODE');
 		),
 		false
 	);?>
-<?endif;?>
+<?php endif;?>
 
-<?if ($classBlock->get('DISPLAY_COMPARE') == 'Y'):?>
-	<?$APPLICATION->IncludeComponent(
+<?php if ($classBlock->get('DISPLAY_COMPARE') == 'Y'):?>
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:catalog.compare.list',
 		'',
 		array(
@@ -57,13 +57,13 @@ $elementCode = $classBlock->get('ELEMENT_CODE');
 		),
 		false
 	);?>
-<?endif;?>
+<?php endif;?>
 
 <section class="landing-block g-pt-20 g-pb-20">
 	<div class="container">
 		<div class="tab-content g-pt-20">
 			<div class="tab-pane fade show active">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:catalog.element',
 					'bootstrap_v4',
 					array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_INSTALL_PUBLIC'] = "Install Public Section";
 $MESS ['WD_SEF_MODE'] = "Install Conponent in SEF Mode";
 $MESS ['WD_REWRITE_PUBLIC'] = "Overwrite Existing Files";

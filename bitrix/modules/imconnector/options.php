@@ -82,27 +82,27 @@ if ($request->isPost() && $request['Update'] . $request['Apply'] . $request['Res
 $tabControl = new \CAdminTabControl('tabControl', $aTabs);
 
 ?>
-<? $tabControl->Begin(); ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=htmlspecialcharsbx($request['lang'])?>">
+<?php  $tabControl->Begin(); ?>
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=htmlspecialcharsbx($request['lang'])?>">
 
-	<? foreach ($aTabs as $aTab):
+	<?php  foreach ($aTabs as $aTab):
 			if($aTab['OPTIONS']):?>
-		<? $tabControl->BeginNextTab(); ?>
-		<? \__AdmSettingsDrawList($module_id, $aTab['OPTIONS']); ?>
+		<?php  $tabControl->BeginNextTab(); ?>
+		<?php  \__AdmSettingsDrawList($module_id, $aTab['OPTIONS']); ?>
 
-	<?	  endif;
+	<?php 	  endif;
 		endforeach;
 
 	$tabControl->Buttons(); ?>
-	<?if($request["back_url_settings"] <> ''):?>
+	<?php if($request["back_url_settings"] <> ''):?>
 		<input type="submit" name="Update" value="<?=Loc::getMessage("MAIN_SAVE")?>" title="<?=Loc::getMessage("MAIN_OPT_SAVE_TITLE")?>">
-	<?endif?>
+	<?php endif?>
 	<input type="submit" name="Apply" value="<?=Loc::getMessage("MAIN_OPT_APPLY")?>" title="<?=Loc::getMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if($request["back_url_settings"] <> ''):?>
-		<input type="button" name="Cancel" value="<?=Loc::getMessage("MAIN_OPT_CANCEL")?>" title="<?=Loc::getMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo \htmlspecialcharsbx(\CUtil::addslashes($request["back_url_settings"]))?>'">
+	<?php if($request["back_url_settings"] <> ''):?>
+		<input type="button" name="Cancel" value="<?=Loc::getMessage("MAIN_OPT_CANCEL")?>" title="<?=Loc::getMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo \htmlspecialcharsbx(\CUtil::addslashes($request["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=\htmlspecialcharsbx($request["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo Loc::getMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?echo AddSlashes(Loc::getMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo Loc::getMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo Loc::getMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?php echo AddSlashes(Loc::getMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo Loc::getMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=\bitrix_sessid_post();?>
 </form>
-<? $tabControl->End(); ?>
+<?php  $tabControl->End(); ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UFE_T_FRIENDS_SUBTITLE"] = "Друзья";
 $MESS["SONET_UFE_T_BAN_SUBTITLE"] = "Заблокированные пользователи";
 $MESS["SONET_UFE_T_ACTIONS_TITLE"] = "Действия";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADD_ERROR_REQUIRED"] = "Поле '#PROPERTY_NAME#' должно быть заполнено!";
 $MESS["IBLOCK_ADD_ELEMENT_NOT_FOUND"] = "Элемент не найден";
 $MESS["IBLOCK_ADD_ACCESS_DENIED"] = "Нет доступа";

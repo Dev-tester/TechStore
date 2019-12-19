@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PERF_MODULE_NAME'] = "Performance monitor";
 $MESS ['PERF_MODULE_DESCRIPTION'] = "Module to monitor site performance parameters";
 $MESS ['PERF_INSTALL_TITLE'] = "Install Performance Monitor Module";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_DATE_START"] = "Дата старта";
 $MESS["TASKS_DATE_END"] = "Дата финиша";
 $MESS["TASKS_DATE_STARTED"] = "Начало выполнения";

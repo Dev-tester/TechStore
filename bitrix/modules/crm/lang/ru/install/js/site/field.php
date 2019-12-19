@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SITE_FORM_FIELD_REMOVE"] = "Убрать поле";
 $MESS["CRM_SITE_FORM_FIELD_ADD"] = "Добавить еще";
 $MESS["CRM_SITE_FORM_FIELD_ERROR_REQUIRED"] = "Поле обязательно для заполнения";

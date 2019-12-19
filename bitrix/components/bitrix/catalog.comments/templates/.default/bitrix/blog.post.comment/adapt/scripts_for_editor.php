@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script>
 
 //for NEW EDITOR processing
@@ -39,14 +39,14 @@ window.FCForm = function(arParams)
 	this.windowEvents =
 		{
 			OnUCAfterRecordEdit : BX.delegate(function(entityId, id, data, act) {
-				<?if($arResult["use_captcha"]===true):?>
+				<?php if($arResult["use_captcha"]===true):?>
 				BX.ajax.getCaptcha(function(data) {
 					BX("captcha_word").value = "";
 					BX("captcha_code").value = data["captcha_sid"];
 					BX("captcha").src = '/bitrix/tools/captcha.php?captcha_code=' + data["captcha_sid"];
 					BX("captcha").style.display = "";
 				});
-				<?endif;?>
+				<?php endif;?>
 				
 				if (!!this.entitiesId[entityId]) {
 					if (act === "EDIT" || act === "ADD" || act === "REPLY")
@@ -408,11 +408,11 @@ window.replyCommentNew = function(key, postId)
 
 window.submitCommentNew = function()
 {
-	<?if ($arResult['userID'] == NULL && $arParams['USER_CONSENT'] == 'Y'):?>
+	<?php if ($arResult['userID'] == NULL && $arParams['USER_CONSENT'] == 'Y'):?>
 		window["UC"]["f<?=$component->createPostFormId()?>"].checkConsent();
-	<?else:?>
+	<?php else:?>
 		window["UC"]["f<?=$component->createPostFormId()?>"].submit();
-	<?endif;?>
+	<?php endif;?>
 };
 
 window.cancelComment = function()
@@ -537,7 +537,7 @@ window.blogCommentCtrlEnterHandler = function(e)
 
 </script>
 
-<?
+<?php 
 //first initial bind - add only editor form ID
 $component->bindPostToEditorForm(null, $component->createPostFormId(), null);
 ?>

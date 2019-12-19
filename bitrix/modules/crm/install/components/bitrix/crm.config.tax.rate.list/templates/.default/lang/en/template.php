@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAXRATE_EDIT_TITLE"] = "Edit this tax rate";
 $MESS["CRM_TAXRATE_EDIT"] = "Edit tax rate";
 $MESS["CRM_TAXRATE_DELETE_TITLE"] = "Delete this tax rate";

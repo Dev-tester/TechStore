@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_ENTITY_CURRENCY_FIELD"] = "Валюта";
 $MESS["CURRENCY_ENTITY_AMOUNT_CNT_FIELD"] = "Номинал";
 $MESS["CURRENCY_ENTITY_AMOUNT_FIELD"] = "Курс по умолчанию";

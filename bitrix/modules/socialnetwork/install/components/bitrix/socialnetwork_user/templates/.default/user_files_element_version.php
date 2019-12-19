@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:webdav.element.edit", "", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:webdav.element.edit", "", Array(
 	"OBJECT"	=>	$arParams["OBJECT"], 
 	"IBLOCK_TYPE"	=>	$arParams["FILES_USER_IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["FILES_USER_IBLOCK_ID"],
@@ -43,7 +43,7 @@
 	array("HIDE_ICONS" => "Y")
 );
 ?>
-<?if (strtolower($arResult["VARIABLES"]["ACTION"]) == "clone"):?>
+<?php if (strtolower($arResult["VARIABLES"]["ACTION"]) == "clone"):?>
 <script>
 if (/*@cc_on ! @*/ false && new ActiveXObject("SharePoint.OpenDocuments.2"))
 {
@@ -69,6 +69,6 @@ if (/*@cc_on ! @*/ false && new ActiveXObject("SharePoint.OpenDocuments.2"))
 	);
 }
 </script>
-<?
+<?php 
 endif;
 ?>

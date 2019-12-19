@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Bizproc\WorkflowInstanceTable;
 use Bitrix\Crm;

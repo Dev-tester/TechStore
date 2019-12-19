@@ -25,9 +25,9 @@ $arParams['PAGE_URL_SITE_EDIT'] = str_replace(
 );
 ?>
 
-<?if ($arResult['VARS']['landing_edit']):?>
+<?php if ($arResult['VARS']['landing_edit']):?>
 
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:landing.landing_edit',
 		'.default',
 		array(
@@ -40,9 +40,9 @@ $arParams['PAGE_URL_SITE_EDIT'] = str_replace(
 		$component
 	);?>
 
-<?elseif ($template = $request->get('tpl')):?>
+<?php elseif ($template = $request->get('tpl')):?>
 
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:landing.demo_preview',
 		'.default',
 		array(
@@ -54,9 +54,9 @@ $arParams['PAGE_URL_SITE_EDIT'] = str_replace(
 		$component
 	);?>
 
-<?else:?>
+<?php else:?>
 
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:landing.demo',
 		'.default',
 		array(
@@ -69,4 +69,4 @@ $arParams['PAGE_URL_SITE_EDIT'] = str_replace(
 		$component
 	);?>
 
-<?endif;?>
+<?php endif;?>

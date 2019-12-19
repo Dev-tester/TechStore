@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_SETTINGS_PERMS_ADD"] = "Add";
 $MESS["TIMEMAN_SETTINGS_PERMS_ADD_ACCESS"] = "Add access permission";
 $MESS["TIMEMAN_SETTINGS_PERMS_DELETE"] = "Delete";

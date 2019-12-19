@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DAV_SYNCHRONIZE_TITLE"] = "Synchronization parameters";
 $MESS["dav_app_synchronize_auth"] = "You have to be logged in before using synchronization parameters.";
 $MESS["DAV_ACCOUNTS"] = "System Users";

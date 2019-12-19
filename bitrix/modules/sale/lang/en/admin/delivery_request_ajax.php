@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_REQ_AJAX_CREATE"] = "Create transportation order";
 $MESS["SALE_DELIVERY_REQ_AJAX_DELIVERY_NOT_FOUND"] = "Cannot find delivery service ID \"#DELIVERY_ID#\"";
 $MESS["SALE_DELIVERY_REQ_AJAX_NOT_SUPPORT"] = "Delivery service ID \"#DELIVERY_ID#\" does not support transportation orders";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DELIVERY_REQ_DRS_WRONG_ID'] = "Неверный идентификатор заявки";
 $MESS ['SALE_DELIVERY_REQ_DRS_WRONG_SHP_ID'] = "Неверный идентификатор отгрузки";
 $MESS ['SALE_DELIVERY_REQ_DRS_LIST'] = "Список заказов для заявки";

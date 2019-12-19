@@ -1,4 +1,4 @@
-<?
+<?php 
 \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
 
 $count = 0;

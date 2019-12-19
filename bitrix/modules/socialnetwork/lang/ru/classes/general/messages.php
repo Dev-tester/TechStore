@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_M_EMPTY_FROM_USER_ID'] = "Не указан отправитель";
 $MESS ['SONET_M_ERROR_NO_FROM_USER_ID'] = "Отправитель указан неверно";
 $MESS ['SONET_M_EMPTY_TO_USER_ID'] = "Не указан получатель";

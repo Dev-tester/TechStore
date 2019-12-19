@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_ERROR"] = "Ошибка:";
 $MESS["VOTE_ERROR_BY_SESSION"] = "В этой сессии уже голосовали [session].";
 $MESS["VOTE_ERROR_BY_USER_AUTH"] = "Надо авторизоваться [user_auth].";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_EDIT_TITLE"] = "Изменение поля #ID#";
 $MESS["USER_TYPE_ADD_TITLE"] = "Добавление нового поля";
 $MESS["USER_TYPE_LIST"] = "Список";

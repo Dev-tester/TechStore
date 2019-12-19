@@ -1,10 +1,10 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
-<?
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
+<?php 
 // Put this file into some empty folder
 // and run "URLs processing" -> "Re-creation" ( /bitrix/admin/urlrewrite_reindex.php )
 // Open http://<your site>/max/images/ in browser
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photo",
 	"",
 	Array(
@@ -43,4 +43,4 @@
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

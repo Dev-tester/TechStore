@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_REQ_VIEW_MAIN"] = "Allgemein";
 $MESS["SALE_DELIVERY_REQ_VIEW_MAIN_T"] = "Allgemeine Informationen zur Transportbestellung";
 $MESS["SALE_DELIVERY_REQ_VIEW_CONTENT"] = "Inhalte";

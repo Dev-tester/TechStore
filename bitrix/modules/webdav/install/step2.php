@@ -1,4 +1,4 @@
-<?if (!CModule::IncludeModule("iblock"))
+<?php if (!CModule::IncludeModule("iblock"))
 	return;
 IncludeModuleLangFile(__FILE__);
 $arError = array();
@@ -116,14 +116,14 @@ if($_REQUEST["install_public"] == "Y"):
 <script>
 window.location='/bitrix/admin/module_admin.php?step=3&lang=<?=LANGUAGE_ID?>&id=webdav&install=y&<?=bitrix_sessid_get()?>';
 </script>
-<?	
+<?php 	
 	}
 elseif ($_POST["install"] == "Y"):
 ?>
 <script>
 window.location='/bitrix/admin/module_admin.php?step=3&lang=<?=LANGUAGE_ID?>&id=webdav&install=y&<?=bitrix_sessid_get()?>';
 </script>
-<?	
+<?php 	
 endif;
 
 $iblock_id = (empty($_REQUEST["IBLOCK_ID"]) ? $_REQUEST["iblock"] : $_REQUEST["IBLOCK_ID"]);
@@ -151,7 +151,7 @@ while($arr=$rsIBlock->Fetch())
 	<thead>
 		<tr class="head">
 			<td>
-				<input type="checkbox" name="install_public" id="install_public" value="Y" onclick="CheckCreate(this);" <?
+				<input type="checkbox" name="install_public" id="install_public" value="Y" onclick="CheckCreate(this);" <?php 
 					?><?=($_REQUEST["install_public"] == "Y" ? " checked='checked'" : "")?>/> <label for="install_public"><?=GetMessage("WD_INSTALL_PUBLIC")?></label></td></tr>
 	</thead>
 	<tbody>

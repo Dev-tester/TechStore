@@ -40,7 +40,7 @@ if(strlen($_POST['Update'])>0 && check_bitrix_sessid())
 	}
 }
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 	<?php echo bitrix_sessid_post()?>
 	<?php
 	$tabControl->Begin();
@@ -49,7 +49,7 @@ if(strlen($_POST['Update'])>0 && check_bitrix_sessid())
 		<tr>
 			<td colspan="2" align="center"><b style="color:red"><?=$errorMessage?></b></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td width="40%"><?=GetMessage("TRANSFORMER_PUBLIC_URL")?>:</td>
 		<td width="60%"><input type="text" name="PUBLIC_URL" value="<?=htmlspecialcharsbx(\Bitrix\Transformer\Http::getServerAddress())?>" /></td>
@@ -66,8 +66,8 @@ if(strlen($_POST['Update'])>0 && check_bitrix_sessid())
 		<td width="40%"><?=GetMessage("TRANSFORMER_STREAM_TIME")?>:</td>
 		<td width="60%"><input type="text" name="STREAM_TIME" value="<?=COption::GetOptionInt("transformer", "stream_time", 2);?>" /></td>
 	</tr>
-	<?$tabControl->Buttons();?>
-	<input type="submit" name="Update" value="<?echo GetMessage('MAIN_SAVE')?>">
-	<input type="reset" name="reset" value="<?echo GetMessage('MAIN_RESET')?>">
-	<?$tabControl->End();?>
+	<?php $tabControl->Buttons();?>
+	<input type="submit" name="Update" value="<?php echo GetMessage('MAIN_SAVE')?>">
+	<input type="reset" name="reset" value="<?php echo GetMessage('MAIN_RESET')?>">
+	<?php $tabControl->End();?>
 </form>

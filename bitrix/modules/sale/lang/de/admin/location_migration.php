@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_MIGRATION_TITLE"] = "Auf Standorte 2.0 migrieren";
 $MESS["SALE_LOCATION_MIGRATION_TAB_MIGRATION_TITLE"] = "Auf Standorte 2.0 migrieren";
 $MESS["SALE_LOCATION_MIGRATION_START"] = "Migrieren";

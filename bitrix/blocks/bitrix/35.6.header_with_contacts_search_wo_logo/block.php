@@ -71,7 +71,7 @@ $settings = \Bitrix\Landing\Hook\Page\Settings::getDataForSite(
 			</div>
 
 			<div class="col-sm-3">
-				<? $APPLICATION->IncludeComponent("bitrix:search.title", "bootstrap_v4", array(
+				<?php  $APPLICATION->IncludeComponent("bitrix:search.title", "bootstrap_v4", array(
 					"NUM_CATEGORIES" => "1",
 					"TOP_COUNT" => "5",
 					"CHECK_DATES" => "N",

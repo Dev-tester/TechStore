@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['LEARNING_CHAPTER_ID_NAME'] = "Идентификатор главы";
 $MESS['LEARNING_CHAPTER_DETAIL_TEMPLATE_NAME'] = "URL, ведущий на страницу с главой";
 $MESS['LEARNING_LESSON_DETAIL_TEMPLATE_NAME'] = "URL, ведущий на страницу с уроком";

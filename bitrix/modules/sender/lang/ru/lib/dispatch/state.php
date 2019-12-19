@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_DISPATCH_STATE_N"] = "Новая";
 $MESS["SENDER_DISPATCH_STATE_I"] = "Подготовка";
 $MESS["SENDER_DISPATCH_STATE_R"] = "Готова к отправке";

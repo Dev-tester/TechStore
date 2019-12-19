@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EXPORT_NO_PERSON_TYPE_ID"] = "Не задан тип плательщика";
 $MESS["SALE_EXPORT_ERROR_PERSON_TYPE_ID"] = "Тип плательщика не найден";
 $MESS["SALE_EXPORT_COM_INFORMATION"] = "КоммерческаяИнформация";

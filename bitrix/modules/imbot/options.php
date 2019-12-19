@@ -114,7 +114,7 @@ if(strlen($_POST['Update'])>0 && check_bitrix_sessid())
 	}
 }
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 <?php echo bitrix_sessid_post()?>
 <?php
 $tabControl->Begin();
@@ -123,12 +123,12 @@ if ($errorMessage):?>
 <tr>
 	<td colspan="2" align="center"><b style="color:red"><?=$errorMessage?></b></td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td width="40%"><?=GetMessage("IMBOT_ACCOUNT_URL")?>:</td>
 	<td width="60%"><input type="text" name="PUBLIC_URL" value="<?=htmlspecialcharsbx(\Bitrix\ImBot\Http::getServerAddress())?>" /></td>
 </tr>
-<?if (COption::GetOptionInt("imbot", "debug")):?>
+<?php if (COption::GetOptionInt("imbot", "debug")):?>
 <tr>
 	<td width="40%" valign="top"><?=GetMessage("IMBOT_WAIT_RESPONSE")?>:</td>
 	<td width="60%">
@@ -136,7 +136,7 @@ if ($errorMessage):?>
 		<?=GetMessage("IMBOT_WAIT_RESPONSE_DESC")?>
 	</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td width="40%"><?=GetMessage("IMBOT_ACCOUNT_DEBUG")?>:</td>
 	<td width="60%"><input type="checkbox" name="DEBUG_MODE" value="Y" <?=(COption::GetOptionInt("imbot", "debug")? 'checked':'')?> /></td>
@@ -156,16 +156,16 @@ if ($errorMessage):?>
 	<td width="40%"><?=\Bitrix\ImBot\Bot\PropertiesUa::getLangMessage('IMBOT_PROPERTIESUA_BOT_NAME').' ('.\Bitrix\Main\Localization\Loc::getMessage('IMBOT_BOT_POSTFIX_UA').')'?>:</td>
 	<td width="60%"><input type="checkbox" name="BOT_PROPERTIESUA" value="Y" <?=(\Bitrix\ImBot\Bot\PropertiesUa::getBotId()? 'checked':'')?> /></td>
 </tr>
-<? if (!\CModule::IncludeModule('bitrix24')): ?>
+<?php  if (!\CModule::IncludeModule('bitrix24')): ?>
 <tr>
 	<td width="40%"><?=\Bitrix\ImBot\Bot\Properties::getLangMessage('IMBOT_SUPPORT_BOT_NAME')?>:</td>
 	<td width="60%"><input type="checkbox" name="BOT_SUPPORT" value="Y" <?=(\Bitrix\ImBot\Bot\Support::getBotId()? 'checked':'')?> /></td>
 </tr>
-<?endif;?>
-<?$tabControl->Buttons();?>
-<input type="submit" name="Update" value="<?echo GetMessage('MAIN_SAVE')?>">
-<input type="reset" name="reset" value="<?echo GetMessage('MAIN_RESET')?>">
-<?$tabControl->End();?>
+<?php endif;?>
+<?php $tabControl->Buttons();?>
+<input type="submit" name="Update" value="<?php echo GetMessage('MAIN_SAVE')?>">
+<input type="reset" name="reset" value="<?php echo GetMessage('MAIN_RESET')?>">
+<?php $tabControl->End();?>
 </form>
 <div class="adm-info-message-wrap">
 	<div class="adm-info-message">

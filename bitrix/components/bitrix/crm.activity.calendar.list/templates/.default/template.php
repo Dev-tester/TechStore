@@ -37,7 +37,7 @@ function crm_activity_calendar_delete_grid(title, message, btnTitle, path)
 	d.Show();
 }
 </script>
-<?
+<?php 
 	for ($i=0, $ic=sizeof($arResult['FILTER']); $i < $ic; $i++)
 	{
 		if ($arResult['FILTER'][$i]['type'] === 'user')

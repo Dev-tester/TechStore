@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -23,7 +23,7 @@ if($USER->IsAuthorized()):?>
 <div class="intranet-user-profile-security">
 	<?= Loc::getMessage('DAV_CARDDAV_SETTINGS_HELP', array("#SERVER#" => $_SERVER["SERVER_NAME"])) ?>
 	<form action="<?=$arParams['ACTION_URI']?>" method="post" id="synchronize_settings_form" name="synchronize-settings-form" >
-		<?echo bitrix_sessid_post()?>
+		<?php echo bitrix_sessid_post()?>
         <br>
 		<table class="content-edit-form">
             <tr>
@@ -63,12 +63,12 @@ if($USER->IsAuthorized()):?>
 				<td class="content-edit-form-field-input" >
 					<div class="ui-ctl ui-ctl-multiple-select">
 						<select name="DAV_SYNC_SETTINGS[ACCOUNTS][UF_DEPARTMENT][]" size="5" multiple="multiple" class="ui-ctl-element">
-							<?
+							<?php 
 							$rsDepartments = CIBlockSection::GetTreeList(array(
 								"IBLOCK_ID"=>intval(COption::GetOptionInt('intranet', 'iblock_structure', false)),
 							));
 							while($arDepartment = $rsDepartments->GetNext()):
-								?><option value="<?echo $arDepartment["ID"]?>" <?if(is_array($arResult['ACCOUNTS']['UF_DEPARTMENT']) && in_array($arDepartment["ID"], $arResult['ACCOUNTS']['UF_DEPARTMENT'])) echo "selected"?>><?echo str_repeat("&nbsp;.&nbsp;", $arDepartment["DEPTH_LEVEL"])?><?echo $arDepartment["NAME"]?></option><?
+								?><option value="<?php echo $arDepartment["ID"]?>" <?php if(is_array($arResult['ACCOUNTS']['UF_DEPARTMENT']) && in_array($arDepartment["ID"], $arResult['ACCOUNTS']['UF_DEPARTMENT'])) echo "selected"?>><?php echo str_repeat("&nbsp;.&nbsp;", $arDepartment["DEPTH_LEVEL"])?><?php echo $arDepartment["NAME"]?></option><?php 
 							endwhile;
 							?>
 						</select>

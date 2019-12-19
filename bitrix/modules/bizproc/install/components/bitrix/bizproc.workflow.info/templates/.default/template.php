@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 \Bitrix\Main\UI\Extension::load("ui.tooltip");
 
 if ($arResult["NeedAuth"] == "Y")
@@ -10,36 +10,36 @@ elseif (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	?>
 	<p><span class='errortext' style="color: red;"><?= $arResult["FatalErrorMessage"] ?></span><br/></p>
-	<?
+	<?php 
 }
 else
 {
 	\Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/bizproc/tools.js');
 ?>
 
-	<?if ($arParams['POPUP']):?>
+	<?php if ($arParams['POPUP']):?>
 	<div class="bp-popup-title"><?=GetMessage('BPWFI_PAGE_TITLE')?></div>
 	<div class="bp-popup">
-	<?endif?>
-	<div class="bp-task-page bp-lent <?if (empty($arResult['startedByPhotoSrc'])):?>no-photo<?endif?>">
-		<?if (!empty($arResult['startedByPhotoSrc'])):?>
+	<?php endif?>
+	<div class="bp-task-page bp-lent <?php if (empty($arResult['startedByPhotoSrc'])):?>no-photo<?php endif?>">
+		<?php if (!empty($arResult['startedByPhotoSrc'])):?>
 			<span class="bp-avatar" bx-tooltip-user-id="<?=(int)$arResult['WorkflowState']['STARTED_BY']?>" bx-tooltip-classname="intrantet-user-selector-tooltip">
 				<img src="<?=$arResult['startedByPhotoSrc']?>" alt="">
 			</span>
-		<?endif?>
+		<?php endif?>
 		<span class="bp-title"><?=htmlspecialcharsbx($arResult['WorkflowState']['TEMPLATE_NAME'])?></span>
 	<span class="bp-title-desc">
 		<span class="bp-title-desc-icon">
-			<?if (empty($arResult['DOCUMENT_ICON'])):?>
+			<?php if (empty($arResult['DOCUMENT_ICON'])):?>
 				<img src="<?=htmlspecialcharsbx($templateFolder)?>/images/icon-bp-process.png" width="36" height="30" border="0" />
-			<?else:?>
+			<?php else:?>
 				<img src="<?=htmlspecialcharsbx($arResult['DOCUMENT_ICON'])?>" width="36" height="30" border="0" />
-			<?endif?>
+			<?php endif?>
 		</span>
 		<span class=""><?=htmlspecialcharsbx($arResult['DOCUMENT_NAME'])?></span>
 	</span>
 		<div class="bp-short-process-inner">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:bizproc.workflow.faces',
 				'',
 				array(
@@ -52,7 +52,7 @@ else
 				<span class="bp-status-inner"><span><?=htmlspecialcharsbx($arResult["WorkflowState"]['STATE_TITLE'])?></span></span>
 			</span>
 		</div>
-		<?if (!$arParams['POPUP']):?>
+		<?php if (!$arParams['POPUP']):?>
 		<div class="bp-tab-container">
 			<div id="bp-task-tabs-header" class="bp-tabs-block">
 			<span id="bp-task-tab-1" class="bp-tab bp-tab-active" onclick="return function(){
@@ -80,8 +80,8 @@ else
 			<div id="bp-task-tabs-content" class="bp-tab-contents">
 				<div id="bp-task-tab-1-content" class="bp-tab-content active">
 
-					<?endif?>
-					<?
+					<?php endif?>
+					<?php 
 					// A < E < I < M < Q < U < Y
 					// A - NO ACCESS, E - READ, I - ANSWER
 					// M - NEW TOPIC
@@ -101,11 +101,11 @@ else
 						array('HIDE_ICONS' => 'Y')
 					);
 					?>
-					<?if (!$arParams['POPUP']):?>
+					<?php if (!$arParams['POPUP']):?>
 				</div>
 
 				<div id="bp-task-tab-2-content" class="bp-tab-content">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:bizproc.log",
 						"",
@@ -122,8 +122,8 @@ else
 				</div>
 			</div>
 		</div>
-	<?endif?>
+	<?php endif?>
 	</div>
-<?
+<?php 
 }
 ?>

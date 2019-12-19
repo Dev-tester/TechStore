@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_ERROR_WRONG_HANDLER_FILE"] = "Неверный файл обработчика";
 $MESS["SALE_DH_ERROR_HANDLER_NOT_INSTALLED"] = "Служба доставки не установлена";
 $MESS["SALE_DH_CF_ERROR_P_RESTRICTIONS_WEIGHT"] = "Ограничение по весу";

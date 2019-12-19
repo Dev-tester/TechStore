@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_INT_MAIN_CALENDAR_FORM_NAME'] = "Имя формы";
 $MESS ['COMP_INT_MAIN_CALENDAR_INPUT_NAME'] = "Имя первого поля интервала";
 $MESS ['COMP_INT_MAIN_CALENDAR_INPUT_NAME_FINISH'] = "Имя второго поля интервала";

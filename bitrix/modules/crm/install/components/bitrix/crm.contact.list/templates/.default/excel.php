@@ -39,16 +39,16 @@ else
 
 	if (!$isStExport || $isStExportFirstPage)
 	{
-		?><meta http-equiv="Content-type" content="text/html;charset=<?echo LANG_CHARSET?>" />
+		?><meta http-equiv="Content-type" content="text/html;charset=<?php echo LANG_CHARSET?>" />
 		<table border="1">
 		<thead>
-			<tr><?
+			<tr><?php 
 			// Display headers
 			foreach($arResult['SELECTED_HEADERS'] as $headerID)
 			{
 				$arHead = isset($arHeaders[$headerID]) ? $arHeaders[$headerID] : null;
 				if($arHead):
-					?><th><?=$arHead['name']?></th><?
+					?><th><?=$arHead['name']?></th><?php 
 				endif;
 			}
 			if ($isRequisiteMultiline)
@@ -57,18 +57,18 @@ else
 				{
 					if (isset($rqHeaders[$rqHeaderId]))
 					{
-						?><th><?=htmlspecialcharsbx($rqHeaders[$rqHeaderId]['name'])?></th><?
+						?><th><?=htmlspecialcharsbx($rqHeaders[$rqHeaderId]['name'])?></th><?php 
 					}
 				}
 			}
 			?></tr>
 		</thead>
-		<tbody><?
+		<tbody><?php 
 	}
 
 	foreach ($arResult['CONTACT'] as $i => &$arContact)
 	{
-		?><tr><?
+		?><tr><?php 
 		foreach($arResult['SELECTED_HEADERS'] as $headerID)
 		{
 			$arHead = isset($arHeaders[$headerID]) ? $arHeaders[$headerID] : null;
@@ -116,7 +116,7 @@ else
 						$result = strval($arContact[$headerID]);
 					endif;
 			}
-			?><td><?=$result?></td><?
+			?><td><?=$result?></td><?php 
 		}
 		if ($isRequisiteMultiline)
 		{
@@ -151,12 +151,12 @@ else
 			{
 				if ($rowIndex > 0)
 				{
-					?></tr><tr><?
+					?></tr><tr><?php 
 					foreach ($arResult['SELECTED_HEADERS'] as $headerId)
 					{
 						if(isset($arHeaders[$headerId]))
 						{
-							?><td></td><?
+							?><td></td><?php 
 						}
 					}
 				}
@@ -165,17 +165,17 @@ else
 				{
 					foreach ($rqRows[$rowIndex] as $rqValue)
 					{
-						?><td><?= htmlspecialcharsbx($rqValue) ?></td><?
+						?><td><?= htmlspecialcharsbx($rqValue) ?></td><?php 
 					}
 				}
 
 				$rowIndex++;
 			}
 		}
-		?></tr><?
+		?></tr><?php 
 	}
 	if (!$isStExport || $isStExportLastPage)
 	{
-		?></tbody></table><?
+		?></tbody></table><?php 
 	}
 }

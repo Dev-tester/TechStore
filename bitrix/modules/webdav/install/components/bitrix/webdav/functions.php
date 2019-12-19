@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/interface/admin_lib.php");
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/functions.php")));
 __IncludeLang($file);
@@ -1406,7 +1406,7 @@ BX.message({
 });
 
 </script>
-<?
+<?php 
 		}
 		return array("actions" => $arActions, "columns" => $aCols);
 	}

@@ -68,7 +68,7 @@ if ($isBitrix24Template)
 	</div>
 <?php endif?>
 
-<? if (!$isBitrix24Template):?>
+<?php  if (!$isBitrix24Template):?>
 	<div class="tasks-interface-toolbar-container">
 <?php endif ?>
 
@@ -92,11 +92,11 @@ if ($isBitrix24Template)
 		<?php endif?>
 	<?php endif?>
 
-<? if (!$isBitrix24Template):?>
+<?php  if (!$isBitrix24Template):?>
 	</div>
-<? endif ?>
+<?php  endif ?>
 
-<?if ($isBitrix24Template)
+<?php if ($isBitrix24Template)
 {
     $this->EndViewTarget();
 }
@@ -126,7 +126,7 @@ if ($isBitrix24Template)
 	?>
 </div>
 
-<?
+<?php 
 if ($arResult['COUNTERS_SHOW'])
 {
 	$arResult['HELPER']->initializeExtension();
@@ -151,7 +151,7 @@ if ($arResult['SPOTLIGHT_TIMELINE'])
 				robotsBtn.setAttribute('data-project-id', newId);
 			});
 		}
-		<?if ($arResult['SPOTLIGHT_TIMELINE']):?>
+		<?php if ($arResult['SPOTLIGHT_TIMELINE']):?>
 		var spotlight = new BX.SpotLight({
 			id: 'tasks_timeline',
 			targetElement: BX('tasks_view_mode_timeline'),
@@ -161,6 +161,6 @@ if ($arResult['SPOTLIGHT_TIMELINE'])
 			lightMode: true
 		});
 		spotlight.show();
-		<?endif;?>
+		<?php endif;?>
 	});
 </script>

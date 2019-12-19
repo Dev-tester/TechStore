@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NOTTRANSLATE--LANDING_DEMO_STORE_CLOTHES-FILTER--TEXT_1"] = "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>";
 $MESS["LANDING_DEMO_STORE_CLOTHES-FILTER--TEXT_1"] = "Reach us";
 $MESS["LANDING_DEMO_STORE_CLOTHES-FILTER--TEXT_2"] = "Phone";

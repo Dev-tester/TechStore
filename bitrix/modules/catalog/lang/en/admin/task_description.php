@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_CATALOG_DENIED"] = "Access denied";
 $MESS["TASK_NAME_CATALOG_READ"] = "Read";
 $MESS["TASK_NAME_CATALOG_PRICE_EDIT"] = "Edit prices";

@@ -1,4 +1,4 @@
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /**
  * @var $APPLICATION CMain
  */
@@ -132,12 +132,12 @@ if($message)
 	echo $message->Show();
 
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>" name="fform">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>" name="fform">
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $aTabs = array( array("DIV" => "edit1", "TAB" => GetMessage("FGN_TAB_GROUP"), "ICON" => "forum", "TITLE" => GetMessage("FGN_TAB_GROUP_DESCR")) );
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
@@ -147,27 +147,27 @@ if ($ID > 0):?>
 		<td width="40%">ID:</td>
 		<td width="60%"><?=$ID?></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 	<tr>
 		<td width="40%"><?=GetMessage("FORUM_SORT")?>:</td>
 		<td width="60%"><input type="text" name="SORT" value="<?=$fields["SORT"]?>" size="10" /></td>
 	</tr>
 	<tr>
 		<td width="40%"><?=GetMessage("FORUM_PARENT_ID")?>:</td>
-		<td width="60%"><select name="FORUM_GROUP[PARENT_ID]"><?
+		<td width="60%"><select name="FORUM_GROUP[PARENT_ID]"><?php 
 	foreach ($arGroups as $res)
 	{
-		?><option <?
+		?><option <?php 
 		if ($ID > 0 && ($ID == $res["ID"] || $fields["LEFT_MARGIN"] < $res["LEFT_MARGIN"] && $res["RIGHT_MARGIN"] < $fields["RIGHT_MARGIN"]))
 		{
-			?> disabled="disabled" <?
+			?> disabled="disabled" <?php 
 		}
-		?>value="<?=$res["ID"]?>" <?=($res["ID"] == $fields["PARENT_ID"] ? "selected" : "")?>><?=str_pad("", ($res["DEPTH_LEVEL"] - 1), ".")?><?=$res["NAME"]?></option><?
+		?>value="<?=$res["ID"]?>" <?=($res["ID"] == $fields["PARENT_ID"] ? "selected" : "")?>><?=str_pad("", ($res["DEPTH_LEVEL"] - 1), ".")?><?=$res["NAME"]?></option><?php 
 	}
 		?></select>
 		</td>
 	</tr>
-	<?
+	<?php 
 	foreach ($fields["LANG"] as $lid => $res)
 	{
 		if (!array_key_exists($lid, $arSysLangs))
@@ -184,7 +184,7 @@ if ($ID > 0):?>
 		<td><?=GetMessage("FORUM_DESCR")?>:</td>
 		<td><textarea name="FORUM_GROUP[LANG][<?=$lid?>][DESCRIPTION]" rows="3" cols="40"><?=htmlspecialcharsbx($res["DESCRIPTION"])?></textarea></td>
 	</tr>
-	<?
+	<?php 
 	}
 
 $tabControl->EndTab();
@@ -199,4 +199,4 @@ $tabControl->End();
 $tabControl->ShowWarnings("fform", $message);
 ?>
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

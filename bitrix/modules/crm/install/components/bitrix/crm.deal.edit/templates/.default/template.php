@@ -7,7 +7,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/crm-entity-show.css");
 CJSCore::Init(["sidepanel"]);
 
 if(isset($arResult['CONVERSION_LEGEND'])):
-	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?
+	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?php 
 endif;
 
 $arTabs = array();
@@ -198,7 +198,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?
+<?php 
 if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
 	<script type="text/javascript">
 		BX.ready(
@@ -241,4 +241,4 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 			}
 		);
 	</script>
-<?endif;?>
+<?php endif;?>

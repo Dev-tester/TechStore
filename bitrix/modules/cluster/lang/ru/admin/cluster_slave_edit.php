@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_SLAVE_EDIT_ERROR"] = "Указано неверное подключение для редактирования.";
 $MESS["CLU_SLAVE_EDIT_TAB"] = "Параметры";
 $MESS["CLU_SLAVE_EDIT_TAB_TITLE1"] = "Настройка параметров slave базы данных";

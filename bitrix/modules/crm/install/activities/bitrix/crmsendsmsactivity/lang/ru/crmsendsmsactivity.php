@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SSMSA_EMPTY_TEXT"] = "Не указан текст сообщения";
 $MESS["CRM_SSMSA_EMPTY_PROVIDER"] = "Не выбран провайдер";
 $MESS["CRM_SSMSA_MESSAGE_TEXT"] = "Текст сообщения";

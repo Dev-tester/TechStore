@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_EXTERNAL_LINK_ERROR_DISABLED_MODE"] = "На портале отключена работа с публичными ссылками на файлы.";
 $MESS["DISK_EXTERNAL_OBJECT_COLUMN_NAME"] = "Название";
 $MESS["DISK_EXTERNAL_OBJECT_COLUMN_CREATE_TIME"] = "Создан";

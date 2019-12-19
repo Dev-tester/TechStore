@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMISSION_DENIED"] = "Access denied";
 $MESS["CRM_ERROR_WRONG_ORDER_ID"] = "Invalid order ID";
 $MESS["CRM_ERROR_WRONG_ORDER"] = "Order was not found";

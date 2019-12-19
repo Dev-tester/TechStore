@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_CONFIG_USER_EMAIL_PULL_TEXT"] = "Потяните, чтобы обновить...";
 $MESS["M_CRM_CONFIG_USER_EMAIL_DOWN_TEXT"] = "Отпустите, чтобы обновить...";
 $MESS["M_CRM_CONFIG_USER_EMAIL_LOAD_TEXT"] = "Обновление формы...";

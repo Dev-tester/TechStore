@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true){die();}
 
 use Bitrix\Main\Localization\Loc;
@@ -10,7 +10,7 @@ if (isset($arResult["ERROR"]) && !empty($arResult["ERROR"]))
 {
 	foreach ($arResult["ERROR"] as $error)
 	{
-		?><div class="task-message-label error"><?=htmlspecialcharsbx($error["MESSAGE"])?></div><?
+		?><div class="task-message-label error"><?=htmlspecialcharsbx($error["MESSAGE"])?></div><?php 
 	}
 
 	return;
@@ -48,7 +48,7 @@ $isBitrix24Template = SITE_TEMPLATE_ID === "bitrix24";
 	array('HIDE_ICONS' => true)
 ); ?>
 
-<?
+<?php 
 if ($isBitrix24Template)
 {
 	$this->SetViewTarget('inside_pagetitle');
@@ -58,10 +58,10 @@ if ($isBitrix24Template)
 
 	if (!$isBitrix24Template): ?>
 		<div class="tasks-interface-filter-container">
-	<? endif ?>
+	<?php  endif ?>
 
 		<div class="pagetitle-container pagetitle-flexible-space">
-			<? $APPLICATION->IncludeComponent(
+			<?php  $APPLICATION->IncludeComponent(
 				"bitrix:main.ui.filter",
 				"",
 				array(
@@ -86,9 +86,9 @@ if ($isBitrix24Template)
 			</a>
 		</div>
 
-	<? if (!$isBitrix24Template): ?>
+	<?php  if (!$isBitrix24Template): ?>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 <?php
 //endregion
 
@@ -199,7 +199,7 @@ if (isset($arResult['FILTERS']) && is_array($arResult['FILTERS']))
 	if (!empty($selectors))
 	{
 		?>
-		<script type="text/javascript"><?
+		<script type="text/javascript"><?php 
 			foreach ($selectors as $groupSelector)
 			{
 			$selectorID = $groupSelector['ID'];
@@ -218,9 +218,9 @@ if (isset($arResult['FILTERS']) && is_array($arResult['FILTERS']))
 						}
 					);
 				}
-			);<?
+			);<?php 
 			}
-			?></script><?
+			?></script><?php 
 	}
 }
 ?>

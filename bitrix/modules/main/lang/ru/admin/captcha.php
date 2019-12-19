@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_ADM_CAPTCHA_PARAM1'] = "Прозрачность текста в процентах от 0 до 100";
 $MESS ['MAIN_ADM_CAPTCHA_PARAM2'] = "Нижняя граница случайного цвета фона";
 $MESS ['MAIN_ADM_CAPTCHA_PARAM3'] = "Верхняя граница случайного цвета фона";

@@ -22,11 +22,11 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 
-<?if($arResult['IS_ENABLED_STEPPER']):?>
+<?php if($arResult['IS_ENABLED_STEPPER']):?>
 	<div class="report-analytics-stepper-wrapper">
 		<?=\Bitrix\Main\Update\Stepper::getHtml($arResult['STEPPER_IDS'])?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 <div id="report-visualconstructor-board"></div>
 <script>

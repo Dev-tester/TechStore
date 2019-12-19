@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_COPY_TASK"] = "Копировать";
 $MESS["TASKS_ADD_TASK_TO_TIMEMAN"] = "Добавить в план рабочего дня";
 $MESS["TASKS_COPY_TASK_EX"] = "Создать задачу на основе текущей";

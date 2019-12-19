@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"])):
 	return true;
 elseif (!$this->__component->__parent || strpos($this->__component->__parent->__name, "photogallery") === false):
@@ -77,7 +77,7 @@ if ($arResult["NAV_RESULT"]->bNavStart)
 		}
 		$res["from_slider"] = "Y";
 		$APPLICATION->RestartBuffer();
-		?><?=CUtil::PhpToJSObject($res)?><?
+		?><?=CUtil::PhpToJSObject($res)?><?php 
 		die();
 	}
 }
@@ -90,10 +90,10 @@ $last = $first + $arParams["SLIDER_COUNT_CELL"] - 1;
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?><div class="photo-navigation photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
-</div><?
+</div><?php 
 endif;
 
-?><div class="photo-photos photo-photos-slider"><?
+?><div class="photo-photos photo-photos-slider"><?php 
 if ($arParams["SHOW_DESCRIPTION"] != "N" && false)
 {
 ?>
@@ -103,7 +103,7 @@ if ($arParams["SHOW_DESCRIPTION"] != "N" && false)
 		</div>
 	</div>
 	<br />
-<?
+<?php 
 }
 
 $i_cnt = 1; $i_reserve = 20;
@@ -115,22 +115,22 @@ foreach ($arResult["ELEMENTS_LIST_JS"] as $key => $res):
 				<table class="photo-slider-thumb" cellpadding="0">
 					<tr>
 						<td>
-						<?if ($res["id"] == $arParams["ELEMENT_ID"]):?>
+						<?php if ($res["id"] == $arParams["ELEMENT_ID"]):?>
 							<div class="image">
-								<img border="0" width="<?=$res["width"]?>" height="<?=$res["height"]?>" alt="<?=$res["alt"]?>" <?
+								<img border="0" width="<?=$res["width"]?>" height="<?=$res["height"]?>" alt="<?=$res["alt"]?>" <?php 
 									?>src="<?=$res["src"]?>" title="<?=$res["title"]?>" />
 							</div>
-						<?else:?>
+						<?php else:?>
 							<a href="<?=htmlspecialcharsbx($res["url"])?>">
-								<img border="0" width="<?=$res["width"]?>" height="<?=$res["height"]?>" alt="<?=$res["alt"]?>" <?
+								<img border="0" width="<?=$res["width"]?>" height="<?=$res["height"]?>" alt="<?=$res["alt"]?>" <?php 
 									?>src="<?=$res["src"]?>" title="<?=$res["title"]?>" />
 							</a>
-						<?endif;?>
+						<?php endif;?>
 						</td>
 					</tr>
 				</table>
 			</div>
-<?
+<?php 
 	$i_cnt++;
 	$b_founded_active = ($b_founded_active || $res["id"] == $arParams["ELEMENT_ID"]);
 	if (!$b_founded_active)
@@ -144,7 +144,7 @@ $str = ob_get_clean();
 	<div class="photo-slider-inner">
 		<div class="photo-slider-container">
 			<span id="prev_<?=$package_id?>" class="<?=(true ? "photo-prev-enabled" : "photo-prev-disabled")?>"></span>
-			<div class="photo-slider-data" id="slider_window_<?=$package_id?>"><?
+			<div class="photo-slider-data" id="slider_window_<?=$package_id?>"><?php 
 				?><div class="photo-slider-data-list" <?=($i_leftward > 0 ? 'style="left: -'.$i_leftward.'px;"' : '')?>>
 					<?=$str?>
 				</div>
@@ -185,14 +185,14 @@ else if (window.addEventListener)
 else
 	setTimeout(__photo_init_slider<?=$package_id?>, 100);
 </script>
-<?
+<?php 
 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation photo-navigation-bottom">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 if ($arParams["INCLUDE_SLIDER"] == "Y"):
 	$this->__component->setTemplateName("slider_big");

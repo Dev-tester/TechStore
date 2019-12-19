@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,7 +16,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>	
 	<script language="javascript">
@@ -47,9 +47,9 @@ else
 	</script>
 
 	<form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
-		<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+		<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 			<?=$arResult["NAV_STRING"]?><br /><br />
-		<?endif;?>
+		<?php endif;?>
 		<div class="sonet-cntnr-group-requests">
 		<table width="100%" class="sonet-user-profile-friends data-table">
 			<tr>
@@ -60,9 +60,9 @@ else
 				<th width="20%"><?= GetMessage("SONET_C12_SENDER") ?></th>
 				<th width="80%"><?= GetMessage("SONET_C12_MESSAGE") ?></th>
 			</tr>
-			<?$ind = 0;?>
-			<?if ($arResult["Requests"] && $arResult["Requests"]["List"]):?>
-				<?foreach ($arResult["Requests"]["List"] as $friend):?>
+			<?php $ind = 0;?>
+			<?php if ($arResult["Requests"] && $arResult["Requests"]["List"]):?>
+				<?php foreach ($arResult["Requests"]["List"] as $friend):?>
 					<tr>
 						<td valign="top" align="center" width="0%">
 							<input type="checkbox" name="checked_<?= $ind ?>" value="Y">
@@ -70,7 +70,7 @@ else
 						</td>
 						<td valign="top" width="20%">
 							<?= $friend["USER_PERSONAL_PHOTO_IMG"]; ?><br />
-							<?
+							<?php 
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -108,16 +108,16 @@ else
 							<?= $friend["MESSAGE"]; ?>
 						</td>
 					</tr>
-					<?$ind++;?>
-				<?endforeach;?>
-			<?else:?>
+					<?php $ind++;?>
+				<?php endforeach;?>
+			<?php else:?>
 				<tr><td colspan="3"><?= GetMessage("SONET_C12_NO_REQUESTS") ?><br /><?= GetMessage("SONET_C12_NO_REQUESTS_DESCR") ?></td></tr>
-			<?endif;?>
+			<?php endif;?>
 		</table>
 		</div>
-		<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+		<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 			<?=$arResult["NAV_STRING"]?><br /><br />
-		<?endif;?>
+		<?php endif;?>
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<?=bitrix_sessid_post()?>
 		<input type="submit" name="save" value="<?= GetMessage("SONET_C12_DO_SAVE") ?>">
@@ -125,6 +125,6 @@ else
 	</form>
 
 	<a href="<?= $arResult["Urls"]["RequestSearch"] ?>"><?= GetMessage("SONET_C12_INVITE") ?></a>
-	<?
+	<?php 
 }
 ?>

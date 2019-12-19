@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_MODULE_IMCONNECTOR_NOT_INSTALLED"] = "Модуль коннекторов мессенджеров не установлен";
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_MODULE_IMOPENLINES_NOT_INSTALLED"] = "Модуль открытые линии не установлен";
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_NO_ACTIVE_CONNECTOR"] = "Данный коннектор не активен";

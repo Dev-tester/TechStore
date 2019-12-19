@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_SUMMARY_TITLE"] = "Сводная страница конверсии";
 $MESS["CONVERSION_SUMMARY_TITLE2"] = "Конверсия";
 $MESS["CONVERSION_SUMMARY_PERIOD"] = "Показатель общий за период: #from# - #to#";

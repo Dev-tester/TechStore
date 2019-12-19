@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_M_SUPPORT"] = "Helpdesk";
 $MESS["SUP_M_TICKETS"] = "Trouble tickets";
 $MESS["SUP_M_TICKETS_ALT"] = "Visitor trouble tickets";

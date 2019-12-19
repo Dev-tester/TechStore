@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUPPORT_FAQ_GROUP_SETTINGS"] = "Component settings";
 $MESS["SUPPORT_FAQ_SETTING_IBTYPES"] = "Information block types";
 $MESS["SUPPORT_FAQ_SETTING_IBLIST"] = "Information blocks";

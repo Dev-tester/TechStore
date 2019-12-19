@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_LOADING"] = "Загрузка...";
 $MESS["JS_CORE_NO_DATA"] = "- Нет данных -";
 $MESS["JS_CORE_WINDOW_CLOSE"] = "Закрыть";

@@ -1,4 +1,4 @@
-<?
+<?php 
 foreach($arResult['ITEMS'] as $k=>$arElement)
 {
 	$user_id = $arElement['DISPLAY_PROPERTIES']['USER_ID']['DISPLAY_VALUE'];

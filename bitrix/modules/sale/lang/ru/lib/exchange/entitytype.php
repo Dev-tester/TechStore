@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_TYPE_ORDER"] = "Заказ";
 $MESS["SALE_TYPE_SHIPMENT"] = "Отгрузка";
 $MESS["SALE_TYPE_PAYMENT_CASH"] = "Наличная оплата";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PATH_SAVE"] = "Save";
 $MESS["PATH_RESET"] = "Reset";
 $MESS["FORUM_FROM_EMAIL"] = "Use this \"From\" address in forum e-mail messages";

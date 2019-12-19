@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_REPLY"] = "Reply";
 $MESS["F_QUOTE"] = "Quote";
 $MESS["F_ANCHOR"] = "Link to this post";

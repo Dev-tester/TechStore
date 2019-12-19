@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTACT_CENTER_MAIL"] = "Почта";
 $MESS["CONTACT_CENTER_TELEPHONY"] = "Телефония";
 $MESS["CONTACT_CENTER_WIDGET"] = "Виджет на сайт";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_COMMENTAUX_FILEVERSION_TEXT"] = "Загрузил(а) новую версию файла";
 $MESS["SONET_COMMENTAUX_FILEVERSION_TEXT_M"] = "Загрузил новую версию файла";
 $MESS["SONET_COMMENTAUX_FILEVERSION_TEXT_F"] = "Загрузила новую версию файла";

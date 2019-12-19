@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 CUtil::InitJSCore(array('popup', 'tooltip', 'task_popups'));
@@ -158,7 +158,7 @@ if (iframePopup)
 	window.top.BX.TasksIFrameInst.isEditMode = false;
 }
 
-<?/*
+<?php /*
 var taskData = <?php
 	$bSkipJsMenu = false;
 	$bIsIe = false;
@@ -314,7 +314,7 @@ if ($arResult["IS_IFRAME"])
 }
 ?>
 
-<?/*
+<?php /*
 var tasks_funcOnChangeOfSomeDateFields = function (field)
 {
 	value = field.value;
@@ -459,7 +459,7 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 				echo $arResult['TASK']['DESCRIPTION'];
 			?></div>
 
-			<?if(is_array($arResult['CHECKLIST_ITEMS']) && !empty($arResult['CHECKLIST_ITEMS'])):?>
+			<?php if(is_array($arResult['CHECKLIST_ITEMS']) && !empty($arResult['CHECKLIST_ITEMS'])):?>
 
 				<?php
 				$APPLICATION->IncludeComponent(
@@ -483,16 +483,16 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 				);
 				?>
 
-			<?endif?>
+			<?php endif?>
 		</div>
 	</div>
 
-	<?if($arResult['DISPLAY_BLOCKS']['CONNECTED_ENTITIES'] || $arResult['DISPLAY_BLOCKS']['PROPERTIES']):?>
+	<?php if($arResult['DISPLAY_BLOCKS']['CONNECTED_ENTITIES'] || $arResult['DISPLAY_BLOCKS']['PROPERTIES']):?>
 
 		<div class="webform-round-corners webform-additional-block webform-additional-block-topless">
 			<div class="webform-content">
 
-				<?if(!empty($arResult["TASK"]["TAGS"])):/*remove when write access enabled*/?>
+				<?php if(!empty($arResult["TASK"]["TAGS"])):/*remove when write access enabled*/?>
 
 					<table cellspacing="0" class="task-detail-additional-layout">
 						<tr>
@@ -532,9 +532,9 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 						</tr>
 					</table>
 
-				<?endif?>
+				<?php endif?>
 
-				<?// group?>
+				<?php // group?>
 				<?php if ($arResult['ALLOWED_ACTIONS']['ACTION_EDIT']):?>
 					<div class="task-detail-group"><label><?php echo GetMessage("TASKS_TASK_GROUP")?>:</label><span class="task-detail-group-name task-detail-group-name-inline"><a href="<?php echo $arResult["TASK"]["GROUP_ID"] ? CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_GROUP"], array("group_id" => $arResult["TASK"]["GROUP_ID"])) : "javascript: void(0);"?>" class="webform-field-action-link" id="task-group-change"><?php if ($arResult["TASK"]["GROUP_ID"]):?><?php echo $arResult["TASK"]["GROUP_NAME"]?></a><span class="task-group-delete" onclick="tasksDetailsNS.clearGroup(<?php echo $arResult["TASK"]["GROUP_ID"]?>, this)"></span><?php else:?><?php echo GetMessage("TASKS_GROUP_ADD")?></a><?php endif?></span></div>
 					<input id="task-detail-selected-group-id" type="hidden" value="<?php echo (int) $arResult["TASK"]["GROUP_ID"]; ?>">
@@ -542,7 +542,7 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 					<div class="task-detail-group"><span class="task-detail-group-label"><?php echo GetMessage("TASKS_TASK_GROUP")?>:</span><span class="task-detail-group-name"><a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_GROUP"], array("group_id" => $arResult["TASK"]["GROUP_ID"]))?>" class="task-detail-group-link" target="_top"><?php echo $arResult["GROUPS"][$arResult["TASK"]["GROUP_ID"]]['NAME']?></a></span></div>
 				<?php endif?>
 
-				<?
+				<?php 
 				if (intval($arResult["TASK"]["BASE_TEMPLATE_ID"]))
 				{
 					?>
@@ -550,7 +550,7 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 							<span class="task-detail-supertask-label"><?php echo GetMessage("TASKS_BASE_TEMPLATE")?>:</span>
 							<span class="task-detail-group-name"><a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_TEMPLATES_TEMPLATE"], array("template_id" => $arResult["TASK"]["BASE_TEMPLATE_ID"], "action" => "view"))?>" class="task-detail-group-link"<?php if ($arResult["IS_IFRAME"]):?> onclick="taskIFramePopup.view(<?php echo $arResult["TASK"]["BASE_TEMPLATE_ID"]?>);return false;"<?php endif?>><?php echo $arResult["TASK"]["BASE_TEMPLATE_DATA"]["TITLE"]?></a></span>
 						</div>
-					<?
+					<?php 
 				}
 
 				if ($arResult["TASK"]["PARENT_ID"])
@@ -568,7 +568,7 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 				}
 				?>
 
-				<?
+				<?php 
 				if (is_array($arResult["USER_FIELDS"]))
 				{
 					foreach ($arResult["USER_FIELDS"] as $arUserField)
@@ -581,14 +581,14 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 				}
 				?>
 
-				<?if($arResult['DISPLAY_BLOCKS']['PROPERTIES']):?>
+				<?php if($arResult['DISPLAY_BLOCKS']['PROPERTIES']):?>
 
-					<?if(is_array($arResult["USER_FIELDS"])):?>
+					<?php if(is_array($arResult["USER_FIELDS"])):?>
 
 						<div class="task-detail-properties<?=(!$arResult['DISPLAY_BLOCKS']['CONNECTED_ENTITIES'] ? ' task-detail-properties-no-line' : '')?>">
 							<table cellspacing="0" class="task-properties-layout">
-								<?//todo: uf managing form here (as a component)?>
-								<?
+								<?php //todo: uf managing form here (as a component)?>
+								<?php 
 								$deprecatedUfs = array('file', 'vote', 'video', 'disk_version', 'string_formatted', 'url_preview');
 								foreach($arResult["USER_FIELDS"] as $arUserField)
 								{
@@ -605,7 +605,7 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 									<tr>
 										<td class="task-property-name"><?php echo htmlspecialcharsbx($arUserField["EDIT_FORM_LABEL"])?>:</td>
 										<td class="task-property-value"><span class="fields">
-											<?\Bitrix\Tasks\Util\UserField\UI::showView($arUserField);?>
+											<?php \Bitrix\Tasks\Util\UserField\UI::showView($arUserField);?>
 										</td>
 									</tr>
 									<?php
@@ -614,9 +614,9 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 							</table>
 						</div>
 
-					<?endif?>
+					<?php endif?>
 
-				<?endif?>
+				<?php endif?>
 
 			</div>
 			<div class="webform-corners-bottom">
@@ -625,9 +625,9 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 			</div>
 		</div>
 
-	<?endif?>
+	<?php endif?>
 
-	<?
+	<?php 
 	// =========================== Start of buttons area ===========================
 
 	$menuItems = array();
@@ -683,10 +683,10 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 
 	<div class="task-detail-subtasks <?php if ($arResult['IS_IFRAME']) echo 'task-detail-subtasks-iframe'; ?>"
 		id="task-detail-subtasks-block"
-		<?if(!intval($arResult['TASK']['TEMPLATE_CHILDREN_COUNT'])):?>style="display: none"<?endif?>
+		<?php if(!intval($arResult['TASK']['TEMPLATE_CHILDREN_COUNT'])):?>style="display: none"<?php endif?>
 	>
 
-		<?
+		<?php 
 		$pathParams = array();
 		if(is_array($arParams))
 		{
@@ -718,7 +718,7 @@ var tasks_funcOnChangeOfSomeDateFields = function (field)
 		?>
 	</div>
 
-	<?/*
+	<?php /*
 	<?php if (sizeof($arResult["PREV_TASKS"])):?>
 	<div class="task-detail-previous-tasks">
 		<div class="task-list">

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_ACCESS_DENIED"] = "Access denied";
 $MESS["LANDING_BLOCK_NOT_FOUND"] = "Block was not found in the landing";
 $MESS["LANDING_BLOCK_UNABLE_DEL_INC"] = "Template area cannot be deleted";

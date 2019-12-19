@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 $sTplDir = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/")));
 
 include($sTplDir."tab_section.php");

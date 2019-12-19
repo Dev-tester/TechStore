@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -6,9 +6,9 @@ use Bitrix\Main\Localization\Loc;
 if(!$arResult['CONVERTED'] && $arResult['CAN_CONVERT'])
 {
 	?>
-	<?$arResult['HELPER']->displayFatals();?>
-	<?if(!$arResult['HELPER']->checkHasFatals()):?>
-		<?$arResult['HELPER']->displayWarnings();?>
+	<?php $arResult['HELPER']->displayFatals();?>
+	<?php if(!$arResult['HELPER']->checkHasFatals()):?>
+		<?php $arResult['HELPER']->displayWarnings();?>
 
 		<div id="<?=$arResult['HELPER']->getScopeId()?>" class="tasks">
 
@@ -45,8 +45,8 @@ if(!$arResult['CONVERTED'] && $arResult['CAN_CONVERT'])
 
 		</div>
 
-		<?$arResult['HELPER']->initializeExtension();?>
+		<?php $arResult['HELPER']->initializeExtension();?>
 
-	<?endif?>
-	<?
+	<?php endif?>
+	<?php 
 }

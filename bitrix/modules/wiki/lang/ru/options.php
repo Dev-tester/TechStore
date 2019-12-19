@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_OPTIONS_ALLOW_HTML"] = "Разрешить использование визуального редактора и HTML";
 $MESS["WIKI_OPTIONS_IMAGE_MAX_WIDTH"] = "Максимальная ширина загружаемого изображения (пикселей)";
 $MESS["WIKI_OPTIONS_IMAGE_MAX_HEIGHT"] = "Максимальная высота загружаемого изображения (пикселей)";

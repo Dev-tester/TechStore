@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GG_EMPTY_SITE_ID"] = "The site is not specified.";
 $MESS["SONET_GG_ERROR_NO_SITE"] = "The site is incorrect.";
 $MESS["SONET_GB_EMPTY_NAME"] = "The title is not specified.";

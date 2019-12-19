@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $templateData */
 if (isset($templateData['JS_OBJ']))
 {
@@ -8,14 +8,14 @@ if (isset($templateData['JS_OBJ']))
 <script type="text/javascript">
 BX.ready(
 	BX.defer(function(){
-		if (!!window.<? echo $templateData['JS_OBJ']; ?>)
+		if (!!window.<?php  echo $templateData['JS_OBJ']; ?>)
 		{
-			window.<? echo $templateData['JS_OBJ']; ?>.bindEvents();
+			window.<?php  echo $templateData['JS_OBJ']; ?>.bindEvents();
 		}
 	})
 );
 </script>
-<?
+<?php 
 	}
 }
 ?>

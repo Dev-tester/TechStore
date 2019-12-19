@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_ROLE_ERROR_EMPTY_NAME"] = "Role name is not specified";
 $MESS["IMOL_ROLE_ERROR_INSUFFICIENT_RIGHTS"] = "Insufficient access permissions";
 $MESS["IMOL_ROLE_LICENSE_ERROR"] = "Error saving role.";

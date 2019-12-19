@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TASK_SORTING_ENTITY_USER_ID_FIELD"] = "Идентификатор пользователя";
 $MESS["TASKS_TASK_SORTING_ENTITY_TASK_ID_FIELD"] = "Идентификатор задачи";
 $MESS["TASKS_TASK_SORTING_ENTITY_GROUP_ID_FIELD"] = "Идентификатор группы";

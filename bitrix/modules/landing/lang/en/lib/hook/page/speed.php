@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_SPEED_HELP"] = "Learn more about Site Boost";
 $MESS["LANDING_HOOK_SPEED_TTILE"] = "Site boost";
 $MESS["LANDING_HOOK_SPEED_USE_LAZY"] = "Enable Lazy Load for images";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALENDAR_MODULE_IS_NOT_INSTALLED"] = 'Модуль "Календарь событий" не установлен';
 $MESS["EVENTS_GROUP_TODAY"] = 'Сегодня';
 $MESS["EVENTS_GROUP_TOMORROW"] = 'Завтра';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_ERROR_NO_MODULE"] = "The SEO module is not installed.";
 $MESS["SEO_ERROR_SITEMAP_NOT_FOUND"] = "Sitemap was not found.";
 $MESS["SEO_ERROR_SITEMAP_NO_SITE"] = "Website is not specified.";

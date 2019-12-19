@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/classes/general/rating_rules.php");
 IncludeModuleLangFile(__FILE__);
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_PUBLIC_CONVERT2_BUTTON"] = "Convert now";
 $MESS["INTRANET_PUBLIC_CONVERT2_DESC"] = "The user search page and external users page now use a new component that shows entries as a table with advanced filters.";
 $MESS["INTRANET_PUBLIC_CONVERT2_DESC_TITLE"] = "Convert public pages in the Company and Contacts sections to view this new feature in action (also applies to Extranet sites if the respective module is installed).";

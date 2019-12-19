@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_DRIVER_FORM_NAME"] = "Услуги водителя";
 $MESS["DRIVER_SERVICES_MENU_NAME"] = "Услуги водителя";
 $MESS["SERVICE_DRIVER_FORM_BUTTON"] = "Отправить заявку";

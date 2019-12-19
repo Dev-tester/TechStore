@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_INVITE_DIALOG_ERROR_EXTRANET_NO_SONET_GROUP_INVITE"] = "Для приглашения внешних пользователей необходимо указать группу";
 $MESS["BX24_INVITE_DIALOG_INVITED"] = "<b>Поздравляем!</b><br><br>На указанные email были высланы приглашения в Битрикс24.<br><br>Список приглашенных пользователей можно увидеть в <a style=\"white-space:nowrap;\" href=\"#SITE_DIR#company/?show_user=inactive\">списке сотрудников</a>.";
 $MESS["BX24_INVITE_DIALOG_INVITE_PHONE"] = "<b>Поздравляем!</b><br><br>На указанные номера были высланы приглашения в Битрикс24.<br><br>Список приглашенных пользователей можно увидеть в <a style=\"white-space:nowrap;\" href=\"#SITE_DIR#company/?show_user=inactive\">списке сотрудников</a>.";

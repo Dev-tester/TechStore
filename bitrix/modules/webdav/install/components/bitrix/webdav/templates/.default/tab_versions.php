@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 if ($arParams['OBJECT']->CheckRight($arResult["VARIABLES"]["PERMISSION"], "element_edit") < "U")
 	return false;

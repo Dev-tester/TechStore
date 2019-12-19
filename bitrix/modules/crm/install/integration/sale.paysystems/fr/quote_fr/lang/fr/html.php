@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBLP_Q_FR_TEXT_NUMBER"] = "#";
 $MESS["SBLP_Q_FR_TEXT_PHONE"] = "Téléphone";
 $MESS["SBLP_CUSTOMER_FAX"] = "Fax";

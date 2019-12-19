@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_LCP_TITLE"] = "Каталог Бизнес процессов";
 $MESS["CC_LCP_MODULE_NOT_INSTALLED"] = "Модуль универсальных списков не установлен.";
 $MESS["CC_LCP_WRONG_IBLOCK_TYPE"] = "Неверный тип информационного блока.";

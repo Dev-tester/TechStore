@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_QH_TITLE"] = "Qiwi Wallet";
 $MESS["SALE_QH_DESCRIPTION"] = "<div class='adm-info-message'>
 	<a href='https://ishop.qiwi.com' target='_blank'>Visa QIWI Wallet</a><br/>

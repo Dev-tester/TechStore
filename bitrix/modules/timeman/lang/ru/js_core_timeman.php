@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_TM"] = "Учет рабочего времени";
 $MESS["JS_CORE_TM_POPUP_OPEN"] = "Рабочий день:";
 $MESS["JS_CORE_TM_WD"] = "Рабочий день";

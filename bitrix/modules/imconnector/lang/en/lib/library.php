@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_ADD_EXISTING_CONNECTOR"] = "Attempt to add a connector that already exist";
 $MESS["IMCONNECTOR_DELETE_NOT_EXISTING_CONNECTOR"] = "Attempt to delete an inactive connector";
 $MESS["IMCONNECTOR_EMPTY_PARAMETRS"] = "Empty parameters provided";

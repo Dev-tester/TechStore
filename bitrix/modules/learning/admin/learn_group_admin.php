@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -197,25 +197,25 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 	$APPLICATION->AuthForm(GetMessage("ACCESS_DENIED"), false);
 ?>
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
+<?php $filter->Begin();?>
 
 	<tr>
-		<td><b><?echo GetMessage("LEARNING_ADMIN_GROUPS_TITLE")?>:</b></td>
+		<td><b><?php echo GetMessage("LEARNING_ADMIN_GROUPS_TITLE")?>:</b></td>
 		<td align="left">
-			<input type="text" name="filter_title" value="<?echo htmlspecialcharsex($filter_title)?>" size="30">
+			<input type="text" name="filter_title" value="<?php echo htmlspecialcharsex($filter_title)?>" size="30">
 		</td>
 	</tr>
 
 	<tr>
 		<td>ID:</b></td>
-		<td><input type="text" name="filter_id" value="<?echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
+		<td><input type="text" name="filter_id" value="<?php echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
 	</tr>
 
 	<tr>
 		<td><?=GetMessage("LEARNING_ADMIN_GROUPS_ACTIVE")?>:</td>
 		<td>
-			<?
+			<?php 
 			$arr = array("reference"=>array(GetMessage("LEARNING_YES"), GetMessage("LEARNING_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("filter_active", $arr, htmlspecialcharsex($filter_active), GetMessage('LEARNING_ALL'));
 			?>
@@ -223,47 +223,47 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 	</tr>
 
 	<tr>
-		<td><b><?echo GetMessage("LEARNING_ADMIN_GROUPS_CODE")?>:</b></td>
+		<td><b><?php echo GetMessage("LEARNING_ADMIN_GROUPS_CODE")?>:</b></td>
 		<td align="left">
-			<input type="text" name="filter_code" value="<?echo htmlspecialcharsex($filter_code)?>" size="30">
+			<input type="text" name="filter_code" value="<?php echo htmlspecialcharsex($filter_code)?>" size="30">
 		</td>
 	</tr>
 
 	<tr>
-		<td><b><?echo GetMessage("LEARNING_ADMIN_GROUPS_COURSE_TITLE")?>:</b></td>
+		<td><b><?php echo GetMessage("LEARNING_ADMIN_GROUPS_COURSE_TITLE")?>:</b></td>
 		<td align="left">
-			<input type="text" name="filter_course_title" value="<?echo htmlspecialcharsex($filter_course_title)?>" size="30">
+			<input type="text" name="filter_course_title" value="<?php echo htmlspecialcharsex($filter_course_title)?>" size="30">
 		</td>
 	</tr>
 
 	<tr>
-		<td><b><?echo GetMessage("LEARNING_ADMIN_GROUPS_COURSE_LESSON_ID")?>:</b></td>
+		<td><b><?php echo GetMessage("LEARNING_ADMIN_GROUPS_COURSE_LESSON_ID")?>:</b></td>
 		<td align="left">
-			<input type="text" name="filter_course_lesson_id" value="<?echo htmlspecialcharsex($filter_course_lesson_id); ?>" size="30">
+			<input type="text" name="filter_course_lesson_id" value="<?php echo htmlspecialcharsex($filter_course_lesson_id); ?>" size="30">
 		</td>
 	</tr>
 
 	<tr>
-		<td><b><?echo GetMessage("LEARNING_ADMIN_GROUPS_SORT")?>:</b></td>
+		<td><b><?php echo GetMessage("LEARNING_ADMIN_GROUPS_SORT")?>:</b></td>
 		<td align="left">
-			<input type="text" name="filter_sort" value="<?echo htmlspecialcharsex($filter_sort)?>" size="30">
+			<input type="text" name="filter_sort" value="<?php echo htmlspecialcharsex($filter_sort)?>" size="30">
 		</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_ADMIN_GROUPS_ACTIVE_FROM")?>:</td>
-		<td><?echo CalendarPeriod("filter_active_from_from", htmlspecialcharsex($filter_active_from_from), "filter_active_from_to", htmlspecialcharsex($filter_active_from_to), "filter_active_from")?></td>
+		<td><?php echo GetMessage("LEARNING_ADMIN_GROUPS_ACTIVE_FROM")?>:</td>
+		<td><?php echo CalendarPeriod("filter_active_from_from", htmlspecialcharsex($filter_active_from_from), "filter_active_from_to", htmlspecialcharsex($filter_active_from_to), "filter_active_from")?></td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_ADMIN_GROUPS_ACTIVE_TO")?>:</td>
-		<td><?echo CalendarPeriod("filter_active_to_from", htmlspecialcharsex($filter_active_to_from), "filter_active_to_to", htmlspecialcharsex($filter_active_to_to), "filter_active_to")?></td>
+		<td><?php echo GetMessage("LEARNING_ADMIN_GROUPS_ACTIVE_TO")?>:</td>
+		<td><?php echo CalendarPeriod("filter_active_to_from", htmlspecialcharsex($filter_active_to_from), "filter_active_to_to", htmlspecialcharsex($filter_active_to_to), "filter_active_to")?></td>
 	</tr>
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()."?".GetFilterParams("filter_"), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()."?".GetFilterParams("filter_"), "form"=>"form1"));$filter->End();?>
 </form>
 
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

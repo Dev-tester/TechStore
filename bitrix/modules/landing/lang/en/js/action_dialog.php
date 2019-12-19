@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_ACTION_DIALOG_TITLE"] = "Attention";
 $MESS["LANDING_ACTION_DIALOG_CONTENT"] = "Confirm action";
 $MESS["LANDING_ACTION_DIALOG_CONFIRM_BUTTON"] = "Continue";

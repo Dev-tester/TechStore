@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BXU_LoadingProcess"] = "Now loading...";
 $MESS["BXU_Preview"] = "Show thumbnails";
 $MESS["BXU_NonPreview"] = "Show icons";

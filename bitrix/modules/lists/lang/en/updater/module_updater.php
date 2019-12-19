@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NAME"] = "Workflows";
 $MESS["SECTION_NAME"] = "Sections";
 $MESS["ELEMENT_NAME"] = "Elements";

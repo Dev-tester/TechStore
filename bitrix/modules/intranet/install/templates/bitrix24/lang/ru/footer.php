@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIX24_COPYRIGHT1"] = "Работает с удовольствием на";
 $MESS["BITRIX24_COPYRIGHT2"] = "&copy; «Битрикс», #CURRENT_YEAR#";
 $MESS["BITRIX24_REVIEW"] = "Обсудить Битрикс24";

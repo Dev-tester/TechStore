@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCDA_FIELD_REQUIED"] = "The field '#FIELD#' is required.";
 $MESS["BPSA_CHECK_LIST_ITEMS"] = "Checklist";
 $MESS["BPSA_CYCLING_ERROR"] = "Task was not created because one or more actions may cause infinite recursion.";

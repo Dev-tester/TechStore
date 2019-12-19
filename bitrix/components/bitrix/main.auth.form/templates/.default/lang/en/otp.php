@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AUTH_OTP_FIELD_CAPTCHA"] = "Type the characters you see on the picture";
 $MESS["MAIN_AUTH_OTP_FIELD_OTP"] = "One-time password";
 $MESS["MAIN_AUTH_OTP_FIELD_REMEMBER"] = "Remember code on this computer";

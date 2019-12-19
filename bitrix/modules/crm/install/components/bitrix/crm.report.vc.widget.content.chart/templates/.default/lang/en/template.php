@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REPORT_VC_W_C_CHART_STAGE_ACTIONS"] = "Actions";
 $MESS["CRM_REPORT_VC_W_C_CHART_STAGE_AVG_COST"] = "average price";
 $MESS["CRM_REPORT_VC_W_C_CHART_STAGE_COMING_SOON"] = "Coming soon!";

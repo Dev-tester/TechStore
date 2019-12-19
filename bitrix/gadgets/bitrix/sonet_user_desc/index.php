@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\UI;
@@ -12,12 +12,12 @@ if(!CModule::IncludeModule("socialnetwork"))
 
 $sRatingTemplate = ($arParams["RATING_TYPE"] == "") ? COption::GetOptionString("main", "rating_vote_type", "standart") : $arParams["RATING_TYPE"];
 
-?><h4 class="bx-sonet-user-desc-username"><?=htmlspecialcharsback($arGadgetParams['USER_NAME'])?></h4><?
+?><h4 class="bx-sonet-user-desc-username"><?=htmlspecialcharsback($arGadgetParams['USER_NAME'])?></h4><?php 
 
 if ($arGadgetParams['CAN_VIEW_PROFILE'])
 {
 
-	?><table width="100%" cellspacing="2" cellpadding="3"><?
+	?><table width="100%" cellspacing="2" cellpadding="3"><?php 
 	if ($arGadgetParams['FIELDS_MAIN_SHOW'] == "Y")
 	{
 		foreach ($arGadgetParams['FIELDS_MAIN_DATA'] as $fieldName => $arUserField)
@@ -26,8 +26,8 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 			{
 				?><tr valign="top">
 					<td width="40%"><?= $arUserField["NAME"] ?>:</td>
-					<td width="60%"><?if (StrLen($arUserField["SEARCH"]) > 0):?><a href="<?= $arUserField["SEARCH"] ?>"><?endif;?><?= $arUserField["VALUE"] ?><?if (StrLen($arUserField["SEARCH"]) > 0):?></a><?endif;?></td>
-				</tr><?
+					<td width="60%"><?php if (StrLen($arUserField["SEARCH"]) > 0):?><a href="<?= $arUserField["SEARCH"] ?>"><?php endif;?><?= $arUserField["VALUE"] ?><?php if (StrLen($arUserField["SEARCH"]) > 0):?></a><?php endif;?></td>
+				</tr><?php 
 			}
 		}
 	}
@@ -40,7 +40,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 			{
 				?><tr valign="top">
 					<td width="40%"><?=$arUserField["EDIT_FORM_LABEL"]?>:</td>
-					<td width="60%"><?
+					<td width="60%"><?php 
 					$bInChain = ($fieldName == "UF_DEPARTMENT" ? "Y" : "N");
 					$GLOBALS["APPLICATION"]->IncludeComponent(
 						"bitrix:system.field.view", 
@@ -50,7 +50,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 						array("HIDE_ICONS"=>"Y")
 					);
 					?></td>
-				</tr><?
+				</tr><?php 
 			}
 		}
 	}
@@ -77,29 +77,29 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 			array("HIDE_ICONS" => "Y")
 		);
 		?><tr valign="top">
-			<td width="40%"><?echo GetMessage("GD_SONET_USER_DESC_MANAGER")?></td>
-			<td width="60%"><?
+			<td width="40%"><?php echo GetMessage("GD_SONET_USER_DESC_MANAGER")?></td>
+			<td width="60%"><?php 
 				foreach($arGadgetParams['MANAGERS'] as $manager)
 				{
-					?><div style="margin-bottom:4px;"><?
-						?><a href="<?=CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER"], array("user_id" => $manager["ID"], "USER_ID" => $manager["ID"], "ID" => $manager["ID"]))?>" bx-tooltip-user-id="<?=$manager["ID"]?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $manager, ($arParams["SHOW_LOGIN"] != "N"))?></a><?
-					?></div><?
+					?><div style="margin-bottom:4px;"><?php 
+						?><a href="<?=CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER"], array("user_id" => $manager["ID"], "USER_ID" => $manager["ID"], "ID" => $manager["ID"]))?>" bx-tooltip-user-id="<?=$manager["ID"]?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $manager, ($arParams["SHOW_LOGIN"] != "N"))?></a><?php 
+					?></div><?php 
 				}
 			?></td>
-		</tr><?
+		</tr><?php 
 	}
 
 	if(is_array($arGadgetParams['DEPARTMENTS']) && !empty($arGadgetParams['DEPARTMENTS']))
 	{
 		?><tr valign="top">
-			<td width="40%"><?echo GetMessage("GD_SONET_USER_DESC_EMPLOYEES")?></td>
-			<td width="60%"><?
+			<td width="40%"><?php echo GetMessage("GD_SONET_USER_DESC_EMPLOYEES")?></td>
+			<td width="60%"><?php 
 				foreach($arGadgetParams['DEPARTMENTS'] as $dep)
 				{
-					?><a href="<?=$dep['URL']?>"><?=$dep['NAME']?></a><?if($dep['EMPLOYEE_COUNT'] > 0):?><span title="<?echo GetMessage("GD_SONET_USER_DESC_EMPLOYEES_NUM")?>"> (<?=$dep['EMPLOYEE_COUNT']?>)<span><?endif?><br><?
+					?><a href="<?=$dep['URL']?>"><?=$dep['NAME']?></a><?php if($dep['EMPLOYEE_COUNT'] > 0):?><span title="<?php echo GetMessage("GD_SONET_USER_DESC_EMPLOYEES_NUM")?>"> (<?=$dep['EMPLOYEE_COUNT']?>)<span><?php endif?><br><?php 
 				}
 			?></td>
-		</tr><?
+		</tr><?php 
 	}
 
 	if ($sRatingTemplate == "standart")
@@ -115,12 +115,12 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 				?><tr valign="top">
 					<td width="40%"><?=$arRating["NAME"]?>:</td>
 					<td width="60%"><?=$arRating["VALUE"]?></td>
-				</tr><?
+				</tr><?php 
 			}
 			?><tr valign="top">
 				<td width="40%"><?=GetMessage("GD_SONET_USER_DESC_VOTE")?>:</td>
 				<td width="60%">
-					<?$APPLICATION->IncludeComponent("bitrix:rating.vote","",
+					<?php $APPLICATION->IncludeComponent("bitrix:rating.vote","",
 						array(
 							"ENTITY_TYPE_ID" => "USER",
 							"ENTITY_ID" => $arParams["USER_ID"],
@@ -131,7 +131,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 					);?>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		elseif (strlen($arGadgetParams['RATING_NAME']) > 0)
 		{
@@ -141,8 +141,8 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 			</tr>
 			<tr valign="top">
 				<td width="40%"><?=GetMessage("GD_SONET_USER_DESC_VOTE")?>:</td>
-				<td width="60%"><?
-					?><?$APPLICATION->IncludeComponent("bitrix:rating.vote","",
+				<td width="60%"><?php 
+					?><?php $APPLICATION->IncludeComponent("bitrix:rating.vote","",
 						array(
 							"ENTITY_TYPE_ID" => "USER",
 							"ENTITY_ID" => $arParams["USER_ID"],
@@ -150,18 +150,18 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 						),
 						null,
 						array("HIDE_ICONS" => "Y")
-					);?><?
+					);?><?php 
 				?></td>
-			</tr><?
+			</tr><?php 
 		}
 	}
 
-	?></table><?
+	?></table><?php 
 
 	if (!empty($arGadgetParams["EMAIL_FORWARD_TO"]))
 	{
 		?><h4 class="bx-sonet-user-desc-contact"><?= GetMessage("GD_SONET_USER_DESC_FORWARD_TO") ?></h4>
-		<table width="100%" cellspacing="2" cellpadding="3"><?
+		<table width="100%" cellspacing="2" cellpadding="3"><?php 
 			if (!empty($arGadgetParams["EMAIL_FORWARD_TO"]['BLOG_POST']))
 			{
 				?><tr valign="top">
@@ -173,7 +173,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 							<a href="javascript:void(0);" onclick="socnetUserDescObj.showLink(this);" class="user-profile-link user-profile-show-link-btn"><?=GetMessage("GD_SONET_USER_DESC_FORWARD_TO_SHOW")?></a>
 						</div>
 					</td>
-				</tr><?
+				</tr><?php 
 			}
 			if (!empty($arGadgetParams["EMAIL_FORWARD_TO"]['TASKS_TASK']))
 			{
@@ -186,13 +186,13 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 						<a href="javascript:void(0);" onclick="socnetUserDescObj.showLink(this);" class="user-profile-link user-profile-show-link-btn"><?=GetMessage("GD_SONET_USER_DESC_FORWARD_TO_SHOW")?></a>
 					</div>
 				</td>
-				</tr><?
+				</tr><?php 
 			}
-		?></table><?
+		?></table><?php 
 	}
 
 	?><h4 class="bx-sonet-user-desc-contact"><?= GetMessage("GD_SONET_USER_DESC_CONTACT_TITLE") ?></h4>
-	<table width="100%" cellspacing="2" cellpadding="3"><?
+	<table width="100%" cellspacing="2" cellpadding="3"><?php 
 	if ($arGadgetParams['CAN_VIEW_CONTACTS'])
 	{
 		$bContactsEmpty = true;
@@ -204,8 +204,8 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 				{
 					?><tr valign="top">
 						<td width="40%"><?= $arUserField["NAME"] ?>:</td>
-						<td width="60%"><?if (StrLen($arUserField["SEARCH"]) > 0):?><a href="<?= $arUserField["SEARCH"] ?>"><?endif;?><?= $arUserField["VALUE"] ?><?if (StrLen($arUserField["SEARCH"]) > 0):?></a><?endif;?></td>
-					</tr><?
+						<td width="60%"><?php if (StrLen($arUserField["SEARCH"]) > 0):?><a href="<?= $arUserField["SEARCH"] ?>"><?php endif;?><?= $arUserField["VALUE"] ?><?php if (StrLen($arUserField["SEARCH"]) > 0):?></a><?php endif;?></td>
+					</tr><?php 
 					$bContactsEmpty = false;
 				}
 			}
@@ -219,7 +219,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 				{
 					?><tr valign="top">
 						<td width="40%"><?=$arUserField["EDIT_FORM_LABEL"]?>:</td>
-						<td width="60%"><?
+						<td width="60%"><?php 
 						$bInChain = ($fieldName == "UF_DEPARTMENT" ? "Y" : "N");
 						$GLOBALS["APPLICATION"]->IncludeComponent(
 							"bitrix:system.field.view", 
@@ -229,7 +229,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 							array("HIDE_ICONS"=>"Y")
 						);
 						?></td>
-					</tr><?
+					</tr><?php 
 					$bContactsEmpty = false;
 				}
 			}
@@ -239,28 +239,28 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 		{
 			?><tr>
 				<td colspan="2"><?= GetMessage("GD_SONET_USER_DESC_CONTACT_UNSET") ?></td>
-			</tr><?
+			</tr><?php 
 		}
 	}
 	else
 	{
 		?><tr>
 			<td colspan="2"><?= GetMessage("GD_SONET_USER_DESC_CONTACT_UNAVAIL") ?></td>
-		</tr><?
+		</tr><?php 
 	}
-	?></table><?
+	?></table><?php 
 	
 	if ($arGadgetParams['FIELDS_PERSONAL_SHOW'] == "Y" || $arGadgetParams['PROPERTIES_PERSONAL_SHOW'] == "Y"):
 		?><h4 class="bx-sonet-user-desc-personal"><?= GetMessage("GD_SONET_USER_DESC_PERSONAL_TITLE") ?></h4>
-		<table width="100%" cellspacing="2" cellpadding="3"><?
+		<table width="100%" cellspacing="2" cellpadding="3"><?php 
 		$bNoPersonalInfo = true;
 		if ($arGadgetParams['FIELDS_PERSONAL_SHOW'] == "Y"):
 			foreach ($arGadgetParams['FIELDS_PERSONAL_DATA'] as $fieldName => $arUserField):
 				if (StrLen($arUserField["VALUE"]) > 0):
 					?><tr valign="top">
 						<td width="40%"><?= $arUserField["NAME"] ?>:</td>
-						<td width="60%"><?if (StrLen($arUserField["SEARCH"]) > 0):?><a href="<?= $arUserField["SEARCH"] ?>"><?endif;?><?= $arUserField["VALUE"] ?><?if (StrLen($arUserField["SEARCH"]) > 0):?></a><?endif;?></td>
-					</tr><?
+						<td width="60%"><?php if (StrLen($arUserField["SEARCH"]) > 0):?><a href="<?= $arUserField["SEARCH"] ?>"><?php endif;?><?= $arUserField["VALUE"] ?><?php if (StrLen($arUserField["SEARCH"]) > 0):?></a><?php endif;?></td>
+					</tr><?php 
 					$bNoPersonalInfo = false;
 				endif;
 			endforeach;
@@ -271,7 +271,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 					?><tr valign="top">
 						<td width="40%"><?=$arUserField["EDIT_FORM_LABEL"]?>:</td>
 						<td width="60%">
-						<?
+						<?php 
 						$bInChain = ($fieldName == "UF_DEPARTMENT" ? "Y" : "N");
 						$GLOBALS["APPLICATION"]->IncludeComponent(
 							"bitrix:system.field.view", 
@@ -282,7 +282,7 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 						);
 						?>
 						</td>
-					</tr><?
+					</tr><?php 
 					$bNoPersonalInfo = false;
 				endif;
 			endforeach;
@@ -290,9 +290,9 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 		if ($bNoPersonalInfo):
 			?><tr>
 				<td colspan="2"><?= GetMessage("GD_SONET_USER_DESC_PERSONAL_UNAVAIL") ?></td>
-			</tr><?
+			</tr><?php 
 		endif;
-		?></table><?
+		?></table><?php 
 	endif;
 
 	$arJSParams = array(
@@ -317,49 +317,49 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 			<tr>
 				<td class="user-profile-nowrap" style="width: 40%"><?=GetMessage("GD_SONET_USER_DESC_OTP_AUTH")?>:</td>
 				<td style="width: 60%">
-					<?
+					<?php 
 					if ($arGadgetParams["OTP"]["IS_ACTIVE"])
 					{
 						?>
 						<span><?=GetMessage("GD_SONET_USER_DESC_OTP_ACTIVE")?></span>
 
-						<?if (
+						<?php if (
 						!$arGadgetParams["OTP"]["IS_MANDATORY"] && ($USER->GetID() == $arParams["USER_ID"] || $USER->CanDoOperation('security_edit_user_otp'))
 						|| $arGadgetParams["OTP"]["IS_MANDATORY"] && $USER->CanDoOperation('security_edit_user_otp')
 						):?>
 							<a href="javascript:void(0)" onclick="socnetUserDescObj.showOtpDaysPopup(this, '<?=CUtil::JSEscape($arParams["USER_ID"])?>', 'activate')"><?=GetMessage("GD_SONET_USER_DESC_OTP_DEACTIVATE")?></a>
-						<?endif?>
+						<?php endif?>
 
-						<?if ($USER->GetID() == $arParams["USER_ID"]):?>
+						<?php if ($USER->GetID() == $arParams["USER_ID"]):?>
 							<a href="<?=$arParams["G_SONET_USER_LINKS_URL_SECURITY"]?>"><?=GetMessage("GD_SONET_USER_DESC_OTP_CHANGE_PHONE")?></a>
-						<?endif?>
-						<?
+						<?php endif?>
+						<?php 
 					}
 					elseif (!$arGadgetParams["OTP"]["IS_ACTIVE"] && $arGadgetParams["OTP"]["IS_MANDATORY"])
 					{
 						?>
 						<span><?=GetMessage("GD_SONET_USER_DESC_OTP_NOT_ACTIVE")?></span>
 
-						<?if ($USER->GetID() == $arParams["USER_ID"]):?>
-							<?if ($arGadgetParams["OTP"]["IS_EXIST"]):?>
+						<?php if ($USER->GetID() == $arParams["USER_ID"]):?>
+							<?php if ($arGadgetParams["OTP"]["IS_EXIST"]):?>
 								<a href="javascript:void(0)" onclick="socnetUserDescObj.activateUserOtp('<?=CUtil::JSEscape($arParams["USER_ID"])?>')"><?=GetMessage("GD_SONET_USER_DESC_OTP_ACTIVATE")?></a>
 								<a href="<?=$arParams["G_SONET_USER_LINKS_URL_SECURITY"]?>"><?=GetMessage("GD_SONET_USER_DESC_OTP_CHANGE_PHONE")?></a>
-							<?else:?>
+							<?php else:?>
 								<a href="<?=$arParams["G_SONET_USER_LINKS_URL_SECURITY"]?>"><?=GetMessage("GD_SONET_USER_DESC_OTP_ACTIVATE")?></a>
-							<?endif?>
-						<?elseif ($USER->CanDoOperation('security_edit_user_otp')):?>
-							<?if ($arGadgetParams["OTP"]["IS_EXIST"]):?>
+							<?php endif?>
+						<?php elseif ($USER->CanDoOperation('security_edit_user_otp')):?>
+							<?php if ($arGadgetParams["OTP"]["IS_EXIST"]):?>
 								<a href="javascript:void(0)" onclick="socnetUserDescObj.activateUserOtp('<?=CUtil::JSEscape($arParams["USER_ID"])?>')"><?=GetMessage("GD_SONET_USER_DESC_OTP_ACTIVATE")?></a>
-							<?else:?>
+							<?php else:?>
 								<a href="javascript:void(0)" onclick="socnetUserDescObj.showOtpDaysPopup(this, '<?=CUtil::JSEscape($arParams["USER_ID"])?>', 'defer')">
 									<?=GetMessage("GD_SONET_USER_DESC_OTP_PROROGUE")?>
 								</a>
-							<?endif?>
-						<?endif?>
-							<?if ($arGadgetParams["OTP"]["NUM_LEFT_DAYS"]):?>
+							<?php endif?>
+						<?php endif?>
+							<?php if ($arGadgetParams["OTP"]["NUM_LEFT_DAYS"]):?>
 							<span><?=GetMessage("GD_SONET_USER_DESC_OTP_LEFT_DAYS", array("#NUM#" => "<strong>".$arGadgetParams["OTP"]["NUM_LEFT_DAYS"]."</strong>"))?></span>
-						<?endif?>
-					<?
+						<?php endif?>
+					<?php 
 					}
 					elseif (
 						!$arGadgetParams["OTP"]["IS_ACTIVE"]
@@ -372,40 +372,40 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 						<span><?=GetMessage("GD_SONET_USER_DESC_OTP_NOT_ACTIVE")?></span>
 						<a href="javascript:void(0)" onclick="socnetUserDescObj.activateUserOtp('<?=CUtil::JSEscape($arParams["USER_ID"])?>')"><?=GetMessage("GD_SONET_USER_DESC_OTP_ACTIVATE")?></a>
 						<a href="<?=$arParams["G_SONET_USER_LINKS_URL_SECURITY"]?>"><?=GetMessage("GD_SONET_USER_DESC_OTP_CHANGE_PHONE")?></a>
-					<?
+					<?php 
 					}
 					?>
 				</td>
 			</tr>
-			<?if ($USER->GetID() == $arParams["USER_ID"]):?>
+			<?php if ($USER->GetID() == $arParams["USER_ID"]):?>
 				<tr>
 					<td class="user-profile-nowrap" style="width: 40%"><?=GetMessage("GD_SONET_USER_DESC_OTP_PASSWORDS")?>:</td>
 					<td style="width: 60%">
 						<a href="<?=$arParams["G_SONET_USER_LINKS_URL_PASSWORDS"]?>"><?=GetMessage("GD_SONET_USER_DESC_OTP_PASSWORDS_SETUP")?></a>
 					</td>
 				</tr>
-			<?endif?>
+			<?php endif?>
 
-			<?if (!empty($arParams["G_SONET_USER_LINKS_URL_SYNCHRONIZE"]) && $USER->GetID() == $arParams["USER_ID"]):?>
+			<?php if (!empty($arParams["G_SONET_USER_LINKS_URL_SYNCHRONIZE"]) && $USER->GetID() == $arParams["USER_ID"]):?>
                 <tr>
                     <td class="user-profile-nowrap" style="width: 40%"><?=GetMessage("GD_SONET_USER_DESC_SYNCHRONIZE")?>:</td>
                     <td style="width: 60%">
                         <a href="<?=$arParams["G_SONET_USER_LINKS_URL_SYNCHRONIZE"]?>"><?=GetMessage("GD_SONET_USER_DESC_SYNCHRONIZE_SETUP")?></a>
                     </td>
                 </tr>
-			<?endif?>
+			<?php endif?>
 
-			<?if ($USER->GetID() == $arParams["USER_ID"] && $arGadgetParams["OTP"]["IS_ACTIVE"] && $arGadgetParams["OTP"]["ARE_RECOVERY_CODES_ENABLED"]):?>
+			<?php if ($USER->GetID() == $arParams["USER_ID"] && $arGadgetParams["OTP"]["IS_ACTIVE"] && $arGadgetParams["OTP"]["ARE_RECOVERY_CODES_ENABLED"]):?>
 			<tr>
 				<td class="user-profile-nowrap" style="width: 40%"><?=GetMessage("GD_SONET_USER_DESC_OTP_CODES")?>:</td>
 				<td style="width: 60%">
 					<a href="<?=$arParams["G_SONET_USER_LINKS_URL_CODES"]?>"><?=GetMessage("GD_SONET_USER_DESC_OTP_CODES_SHOW")?></a>
 				</td>
 			</tr>
-			<?endif?>
+			<?php endif?>
 		</table>
 
-		<?
+		<?php 
 		$arDays = array();
 		for($i=1; $i<=10; $i++)
 		{
@@ -589,6 +589,6 @@ if ($arGadgetParams['CAN_VIEW_PROFILE'])
 
 		var socnetUserDescObj = new BX.Socialnetwork.Gadget.UserDesc(<?=CUtil::PhpToJSObject($arJSParams)?>);
 	</script>
-	<?
+	<?php 
 }
 ?>

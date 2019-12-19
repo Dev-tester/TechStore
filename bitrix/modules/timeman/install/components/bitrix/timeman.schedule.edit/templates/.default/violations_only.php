@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -55,7 +55,7 @@ $violationFormName = htmlspecialcharsbx($violationFormName);
 				name="<?= $violationFormName . "[id]"; ?>"
 				value="<?php echo $violationForm->id > 0 ? (int)$violationForm->id : ''; ?>"
 		>
-		<?
+		<?php 
 
 
 		require_once '_violations_inner.php';

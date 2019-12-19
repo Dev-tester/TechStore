@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SE_SYNC_TITLE"] = "Синхронизация";
 $MESS["SE_SYNC_SUBTITLE_TITLE"] = "Календари и контакты";
 $MESS["SE_SYNC_CAL_TITLE"] = "Синхронизировать календарь";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
@@ -25,9 +25,9 @@ $taskData = $arParams["TASK"];
 
 		<span data-bx-id="task-view-b-time-elapsed"><?=\Bitrix\Tasks\UI::formatTimeAmount($taskData['TIME_ELAPSED']);?></span>
 
-		<?if ($taskData["TIME_ESTIMATE"] > 0):?>
+		<?php if ($taskData["TIME_ESTIMATE"] > 0):?>
 			/ <?=\Bitrix\Tasks\UI::formatTimeAmount($taskData["TIME_ESTIMATE"]);?>
-		<?endif?>
+		<?php endif?>
 		</span>
 		<span class="task-timeman-arrow"></span>
 	</span>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTL_VARIABLE_ALIASES'] = "Псевдонимы переменных";
 $MESS ['INTL_TASK_TYPE'] = "Тип задач";
 $MESS ['INTL_OWNER_ID'] = "Код владельца";

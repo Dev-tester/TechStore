@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIGDATA_PERSONALIZATION"] = "Personalisierung";
 $MESS["BIGDATA_CONVERT"] = "Verkaufen Sie mehr als Ihre Konkurrenten!";
 $MESS["BIGDATA_NUM_ONE"] = "Bitrix BigData<br>ist ein Top-Aggregator der Onlineshops.";

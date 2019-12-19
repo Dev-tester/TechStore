@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global \CAllMain $APPLICATION */
@@ -36,7 +36,7 @@ $getTileLayout = function (array $tile = [])
 	?>
 	<div data-role="tile/item"
 		data-id="<?=$id?>"
-		class="ui-tile-list-item<? if ($tile['comingSoon']):?> ui-tile-list-item-disabled<?endif?>"
+		class="ui-tile-list-item<?php  if ($tile['comingSoon']):?> ui-tile-list-item-disabled<?php endif?>"
 		style="<?=$bgcolor?>"
 	>
 		<div class="ui-tile-list-logo-container">
@@ -47,13 +47,13 @@ $getTileLayout = function (array $tile = [])
 		<div class="ui-tile-list-name">
 			<span data-role="tile/item/name" class="ui-tile-list-name-text" style="<?=$color?>"><?=$name?></span>
 		</div>
-		<? if ($tile['comingSoon']): ?>
+		<?php  if ($tile['comingSoon']): ?>
 		<div class="ui-tile-list-label">
 			<span class="ui-tile-list-label-text"><?=Loc::getMessage('UI_TILE_LIST_COMMING_SOON')?></span>
 		</div>
-		<? endif ?>
+		<?php  endif ?>
 	</div>
-	<?
+	<?php 
 	return ob_get_clean();
 };
 
@@ -74,14 +74,14 @@ $containerId .= $arParams['ID'] ?: 'def';
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="ui-tile-list-block">
 	<div class="ui-tile-list-wrap">
 		<div data-role="tile/items" class="ui-tile-list-list">
-			<?
+			<?php 
 			foreach ($arResult['LIST'] as $tile)
 			{
 				echo $getTileLayout($tile);
 			}
 			?>
 
-			<?if ($arParams['SHOW_BUTTON_ADD']):?>
+			<?php if ($arParams['SHOW_BUTTON_ADD']):?>
 				<div data-role="tile/add" class="ui-tile-list-item ui-tile-list-item-add">
 					<div class="ui-tile-list-logo-container">
 						<span class="ui-tile-list-logo ui-tile-list-logo-add"></span>
@@ -92,7 +92,7 @@ $containerId .= $arParams['ID'] ?: 'def';
 						)?></span>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 	</div>
 

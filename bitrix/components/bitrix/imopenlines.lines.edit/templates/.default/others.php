@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 \Bitrix\Main\UI\Extension::load("ui.notification");
@@ -35,7 +35,7 @@ use \Bitrix\Main\Localization\Loc;
 				<input type="checkbox"
 					   id="imol_active_checkbox"
 					   name="CONFIG[ACTIVE]"
-					   <?if($arResult['CONFIG']['ACTIVE'] == 'Y'):?>checked="checked"<?endif;?>
+					   <?php if($arResult['CONFIG']['ACTIVE'] == 'Y'):?>checked="checked"<?php endif;?>
 					   value="Y"
 					   class="imopenlines-control-checkbox">
 				<?=Loc::getMessage('IMOL_CONFIG_ACTIVE')?>
@@ -66,14 +66,14 @@ use \Bitrix\Main\Localization\Loc;
 			<div class="imopenlines-control-container imopenlines-control-select">
 				<div class="imopenlines-control-inner">
 					<select name="CONFIG[LANGUAGE_ID]" id="imol_lang_select" class="imopenlines-control-input">
-						<?
+						<?php 
 						foreach ($arResult['LANGUAGE_LIST'] as $lang => $langText)
 						{
 							?>
-							<option value="<?=$lang?>" <?if($arResult["CONFIG"]["LANGUAGE_ID"] == $lang) { ?>selected<? }?>>
+							<option value="<?=$lang?>" <?php if($arResult["CONFIG"]["LANGUAGE_ID"] == $lang) { ?>selected<?php  }?>>
 								<?=is_array($langText) ? $langText['NAME'] : $langText?>
 							</option>
-							<?
+							<?php 
 						}
 						?>
 					</select>

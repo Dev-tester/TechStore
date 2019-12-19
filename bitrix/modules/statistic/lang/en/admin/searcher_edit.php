@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_FORGOT_NAME'] = "Please fill in the \"Name\" field";
 $MESS ['STAT_EDIT_RECORD'] = "Settings for search engine # #ID#";
 $MESS ['STAT_NEW_RECORD'] = "New search engine";

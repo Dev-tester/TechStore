@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_PL_EVENTS"] = "Events";
 $MESS["JS_CORE_PL_EVENTS_ADD"] = "new event";
 $MESS["JS_CORE_PL_EVENT_ABSENT"] = "out of office";

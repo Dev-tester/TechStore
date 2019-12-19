@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_MENU_ITYPE"] = "Типы инфоблоков";
 $MESS["IBLOCK_MENU_EXPORT"] = "Экспорт";
 $MESS["IBLOCK_MENU_EXPORT_ALT"] = "Экспорт данных в формат CSV";

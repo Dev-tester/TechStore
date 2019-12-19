@@ -1,9 +1,9 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
 <?= $javascriptFunctions ?>
-<?
+<?php 
 $arC = array(
 	"=" => GetMessage("BPFC_PD_EQ"),
 	">" => GetMessage("BPFC_PD_GT"),
@@ -38,12 +38,12 @@ foreach ($arVariableConditionCount as $i)
 			<td align="right" width="40%" class="adm-detail-content-cell-l">
 				<select name="variable_condition_joiner_<?=$i?>">
 					<option value="0"><?= GetMessage("BPFC_PD_AND") ?></option>
-					<option value="1" <?if($arCurrentValues["variable_condition_joiner_".$i]==1) echo 'selected'?>><?= GetMessage("BPFC_PD_OR") ?></option>
+					<option value="1" <?php if($arCurrentValues["variable_condition_joiner_".$i]==1) echo 'selected'?>><?= GetMessage("BPFC_PD_OR") ?></option>
 				</select>
 			</td>
 			<td align="right" width="60%" class="adm-detail-content-cell-r"><a href="#" onclick="BWFVCDeleteCondition(<?= $i ?>); return false;"><?= GetMessage("BPFC_PD_DELETE") ?></a></td>
 		</tr>
-		<?
+		<?php 
 	}
 	$arCurrentValues["variable_condition_count"] .= $i;
 	if ($i > $bwfvcCounter)
@@ -53,24 +53,24 @@ foreach ($arVariableConditionCount as $i)
 		<td align="right" width="40%" class="adm-detail-content-cell-l"><?= GetMessage("BPFC_PD_FIELD") ?>:</td>
 		<td width="60%" class="adm-detail-content-cell-r">
 			<select name="variable_condition_field_<?= $i ?>" data-old="<?=htmlspecialcharsbx($arCurrentValues["variable_condition_field_".$i])?>" onchange="BWFVCSetAndChangeFieldType(<?= $i ?>, this)">
-				<?if ($arProperties):?><optgroup label="<?=GetMessage('BPFC_PD_PARAMS')?>"><?endif;
+				<?php if ($arProperties):?><optgroup label="<?=GetMessage('BPFC_PD_PARAMS')?>"><?php endif;
 				foreach ($arProperties as $key => $value)
 				{
 					if (strlen($defaultFieldValue) <= 0)
 						$defaultFieldValue = $key;
-					?><option value="<?= htmlspecialcharsbx($key) ?>"<?= ($arCurrentValues["variable_condition_field_".$i] == $key) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"]) ?></option><?
+					?><option value="<?= htmlspecialcharsbx($key) ?>"<?= ($arCurrentValues["variable_condition_field_".$i] == $key) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"]) ?></option><?php 
 				}
 				?>
-				<?if ($arProperties):?></optgroup><?endif;
-				if ($arVariables):?><optgroup label="<?=GetMessage('BPFC_PD_VARS')?>"><?endif;
+				<?php if ($arProperties):?></optgroup><?php endif;
+				if ($arVariables):?><optgroup label="<?=GetMessage('BPFC_PD_VARS')?>"><?php endif;
 				foreach ($arVariables as $key => $value)
 				{
 					if (strlen($defaultFieldValue) <= 0)
 						$defaultFieldValue = $key;
-					?><option value="<?= htmlspecialcharsbx($key) ?>"<?= ($arCurrentValues["variable_condition_field_".$i] == $key) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"]) ?></option><?
+					?><option value="<?= htmlspecialcharsbx($key) ?>"<?= ($arCurrentValues["variable_condition_field_".$i] == $key) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"]) ?></option><?php 
 				}
 				?>
-				<?if ($arVariables):?></optgroup><?endif;?>
+				<?php if ($arVariables):?></optgroup><?php endif;?>
 			</select>
 		</td>
 	</tr>
@@ -78,23 +78,23 @@ foreach ($arVariableConditionCount as $i)
 		<td align="right" width="40%" class="adm-detail-content-cell-l"><?= GetMessage("BPFC_PD_CONDITION") ?>:</td>
 		<td width="60%" class="adm-detail-content-cell-r">
 			<select name="variable_condition_condition_<?= $i ?>" onchange="BWFVCChangeCondition(<?= $i ?>, this.options[this.selectedIndex].value)">
-				<?
+				<?php 
 				foreach ($arC as $key => $value)
 				{
-					?><option value="<?= $key ?>"<?= ($arCurrentValues["variable_condition_condition_".$i] == $key) ? " selected" : "" ?>><?= $value ?></option><?
+					?><option value="<?= $key ?>"<?= ($arCurrentValues["variable_condition_condition_".$i] == $key) ? " selected" : "" ?>><?= $value ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
-	<? $hidden = in_array($arCurrentValues["variable_condition_condition_".$i], ['empty', '!empty']);?>
-	<tr id="id_tr_variable_condition_value_<?= $i ?>" style="<?if ($hidden) echo 'display:none'?>">
+	<?php  $hidden = in_array($arCurrentValues["variable_condition_condition_".$i], ['empty', '!empty']);?>
+	<tr id="id_tr_variable_condition_value_<?= $i ?>" style="<?php if ($hidden) echo 'display:none'?>">
 		<td align="right" width="40%" class="adm-detail-content-cell-l"><?= GetMessage("BPFC_PD_VALUE") ?>:</td>
 		<td width="60%" id="id_td_variable_condition_value_<?= $i ?>" class="adm-detail-content-cell-r">
 			<input type="text" name="variable_condition_value_<?= $i ?>" value="<?= htmlspecialcharsbx((string)$arCurrentValues["variable_condition_value_".$i]) ?>">
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 ?>
 <tr id="bwfvc_addrow_tr">
@@ -102,7 +102,7 @@ foreach ($arVariableConditionCount as $i)
 	<td class="adm-detail-content-cell-r">
 		<?= CAdminCalendar::ShowScript() ?>
 		<script language="JavaScript">
-		var bwfvc_arFieldTypes = {<?
+		var bwfvc_arFieldTypes = {<?php 
 		$fl = false;
 		foreach ($arProperties as $key => $value)
 		{
@@ -223,19 +223,19 @@ foreach ($arVariableConditionCount as $i)
 				newSelect.setAttribute('bwfvc_counter', bwfvc_counter);
 				newSelect.onchange = function(){BWFVCSetAndChangeFieldType(this.getAttribute("bwfvc_counter"), this)};
 				newSelect.name = "variable_condition_field_" + bwfvc_counter;
-				<?
+				<?php 
 				$i = -1;
 				foreach ($arProperties as $key => $value)
 				{
 					$i++;
 					?>newSelect.options[<?= $i ?>] = new Option("<?= htmlspecialcharsbx($value["Name"]) ?>", "<?= htmlspecialcharsbx($key) ?>");
-					<?
+					<?php 
 				}
 				foreach ($arVariables as $key => $value)
 				{
 					$i++;
 					?>newSelect.options[<?= $i ?>] = new Option("<?= htmlspecialcharsbx($value["Name"]) ?>", "<?= htmlspecialcharsbx($key) ?>");
-					<?
+					<?php 
 				}
 				?>
 				newCell.appendChild(newSelect);
@@ -253,13 +253,13 @@ foreach ($arVariableConditionCount as $i)
 				newSelect.name = "variable_condition_condition_" + bwfvc_counter;
 				newSelect.setAttribute('bwfvc_counter', bwfvc_counter);
 				newSelect.onchange = function(){BWFVCChangeCondition(this.getAttribute("bwfvc_counter"), this.options[this.selectedIndex].value)};
-				<?
+				<?php 
 				$i = -1;
 				foreach ($arC as $key => $value)
 				{
 					$i++;
 					?>newSelect.options[<?= $i ?>] = new Option("<?= htmlspecialcharsbx($value) ?>", "<?= htmlspecialcharsbx($key) ?>");
-					<?
+					<?php 
 				}
 				?>
 				newCell.appendChild(newSelect);
@@ -323,7 +323,7 @@ foreach ($arVariableConditionCount as $i)
 			}
 		}
 
-		<?
+		<?php 
 		foreach ($arVariableConditionCount as $i)
 		{
 			if (intval($i)."!" != $i."!")
@@ -333,7 +333,7 @@ foreach ($arVariableConditionCount as $i)
 			$v = (array_key_exists("variable_condition_field_".$i, $arCurrentValues) ? $arCurrentValues["variable_condition_field_".$i] : $defaultFieldValue);
 			?>
 			BWFVCChangeFieldType(<?= $i ?>, '<?= CUtil::JSEscape($v) ?>', <?= CUtil::PhpToJSObject($arCurrentValues["variable_condition_value_".$i]) ?>);
-			<?
+			<?php 
 		}
 		?>
 		</script>

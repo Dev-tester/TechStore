@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["GALLERIES"])):
 	return false;
 endif;
@@ -13,7 +13,7 @@ div.photo-gallery-avatar{
 	width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;
 	height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;}
 </style>
-<?
+<?php 
 endif;
 
 if ($arResult["I"]["ACTIONS"]["CREATE_GALLERY"] =="Y" && $arParams["USER_ID"] == $GLOBALS["USER"]->GetId()):
@@ -30,7 +30,7 @@ if ($arResult["I"]["ACTIONS"]["CREATE_GALLERY"] =="Y" && $arParams["USER_ID"] ==
 		<div class="empty-clear"></div>
 	</div> 
 </noindex>
-<?
+<?php 
 endif;
 
 if (!empty($arResult["NAV_STRING"])):
@@ -38,11 +38,11 @@ if (!empty($arResult["NAV_STRING"])):
 <div class="photo-navigation photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>
 <ul class="photo-items-list photo-galleries-list">
-<?
+<?php 
 foreach($arResult["GALLERIES"] as $res):
 $title = "";
 if ($res["UF_DEFAULT"] == "Y")
@@ -61,15 +61,15 @@ if ($title != "")
 				<div class="photo-item-cover-block-outer">
 					<div class="photo-item-cover-block-inner">
 						<div class="photo-item-cover-block-inside">
-							<a href="<?=$res["LINK"]["VIEW"]?>" class="photo-item-cover-link" <?
+							<a href="<?=$res["LINK"]["VIEW"]?>" class="photo-item-cover-link" <?php 
 								?>title="<?=str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>">
-								<div class="photo-item-cover photo-gallery-avatar <?=(empty($res["PICTURE"]["SRC"])? "photo-gallery-avatar-empty" : "")?>" <?
+								<div class="photo-item-cover photo-gallery-avatar <?=(empty($res["PICTURE"]["SRC"])? "photo-gallery-avatar-empty" : "")?>" <?php 
 									if (!empty($res["PICTURE"]["SRC"])):
-										?> style="background-image:url('<?=$res["PICTURE"]["SRC"]?>');" <?
+										?> style="background-image:url('<?=$res["PICTURE"]["SRC"]?>');" <?php 
 									endif;?>>
-									<div class="photo-item-cover-block-empty"></div><?
+									<div class="photo-item-cover-block-empty"></div><?php 
 									if ($res["UF_DEFAULT"] == "Y"):
-										?><div class="gallery-active" title="<?=GetMessage("P_GALLERY_ACTIVE")?>"></div><?
+										?><div class="gallery-active" title="<?=GetMessage("P_GALLERY_ACTIVE")?>"></div><?php 
 									endif;
 									?></div>
 							</a>
@@ -85,16 +85,16 @@ if ($title != "")
 						<div class="photo-gallery-name">
 							<span class="photo-gallery-name">
 								<a href="<?=$res["LINK"]["VIEW"]?>" title="<?=str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>">
-								<?=$res["NAME"]?></a></span><?
+								<?=$res["NAME"]?></a></span><?php 
 							if (empty($res["CODE"])):
-								?><div class="gallery-error-code" title="<?=GetMessage("P_ERROR_CODE")?>"></div><?
+								?><div class="gallery-error-code" title="<?=GetMessage("P_ERROR_CODE")?>"></div><?php 
 							endif;
 						?></div>
-						<?
+						<?php 
 						if (!empty($res["DESCRIPTION"])):
 						?>
 						<div class="photo-gallery-description"><?=$res["DESCRIPTION"]?></div>
-						<?
+						<?php 
 						endif;
 						if ($arResult["I"]["PERMISSION"] >= "W"):
 						?>
@@ -111,15 +111,15 @@ if ($title != "")
 										<span><?=GetMessage("P_GALLERY_EDIT")?></span></a>
 								</li>
 								<li class="photo-control photo-control-last photo-control-drop photo-control-gallery-drop">
-									<a rel="nofollow" href="<?=$res["LINK"]["DROP"]?>" <?
-										?>onclick="return confirm('<?=GetMessage('P_GALLERY_DELETE_ASK')?>');"><?
+									<a rel="nofollow" href="<?=$res["LINK"]["DROP"]?>" <?php 
+										?>onclick="return confirm('<?=GetMessage('P_GALLERY_DELETE_ASK')?>');"><?php 
 										?><span><?=GetMessage("P_GALLERY_DELETE")?></span></a>
 								</li>
 							</ul>
 							<div class="empty-clear"></div>
 						</div>
 						</noindex>
-						<?
+						<?php 
 						endif;
 						?>
 					</div>
@@ -128,17 +128,17 @@ if ($title != "")
 		</td>
 	</tr></tbody></table>
 	</li>
-<?
+<?php 
 endforeach;
 ?>
 </ul>
 <div class="empty-clear"></div>
-<?
+<?php 
 if (!empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation photo-navigation-bottom">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>

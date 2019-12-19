@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ABSENCE_FORM_1'] = 'Abwesenheit';
 $MESS['ABSENCE_FORM_2'] = 'Abwesenden Mitarbeiter wдhlen';
 $MESS['ABSENCE_FORM_3'] = 'Abwesenheitstyp';

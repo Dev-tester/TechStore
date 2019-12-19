@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REMOVE_BUTTON_TITLE"] = "Удалить отмеченные элементы";
 $MESS["EDIT_BUTTON_TITLE"] = "Редактировать отмеченные элементы";
 $MESS["EDIT_ACTION_NAME"] = "Редактировать";

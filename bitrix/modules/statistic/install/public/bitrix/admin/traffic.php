@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/statistic/admin/traffic.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/statistic/admin/traffic.php");?>

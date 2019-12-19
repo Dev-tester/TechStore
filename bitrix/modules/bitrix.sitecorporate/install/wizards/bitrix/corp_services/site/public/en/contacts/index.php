@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Contacts");
 ?>
@@ -35,7 +35,7 @@ $APPLICATION->SetTitle("Contacts");
 	bank@bank.com
 <h2>Bank Branch in Bristol</h2> 
 
-<p><?$APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", array(
+<p><?php $APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", array(
 	"KEY" => "ABQIAAAAOSNukcWVjXaGbDo6npRDcxS1yLxjXbTnpHav15fICwCqFS-qhhSby0EyD6rK_qL4vuBSKpeCz5cOjw",
 	"INIT_MAP_TYPE" => "NORMAL",
 	"MAP_DATA" => "a:4:{s:10:\"google_lat\";d:51.45665432908274;s:10:\"google_lon\";d:-2.592473030090332;s:12:\"google_scale\";i:15;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:0:\"\";s:3:\"LON\";d:-2.592473030090332;s:3:\"LAT\";d:51.455878838401;}}}",
@@ -56,4 +56,4 @@ $APPLICATION->SetTitle("Contacts");
 	),
 	false
 );?></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

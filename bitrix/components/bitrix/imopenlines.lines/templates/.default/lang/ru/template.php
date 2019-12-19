@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OL_COMPONENT_LIST_ITEM_FILL_START"] = "всего попыток";
 $MESS["OL_COMPONENT_LIST_ITEM_FILL_END"] = "успешно заполнено";
 $MESS["OL_COMPONENT_LIST_ITEM_DATE_CREATE"] = "Дата создания";

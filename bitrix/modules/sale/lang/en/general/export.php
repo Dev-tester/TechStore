@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EXPORT_NO_PERSON_TYPE_ID"] = "Payer type is not defined";
 $MESS["SALE_EXPORT_ERROR_PERSON_TYPE_ID"] = "The payer type was not found";
 $MESS["SALE_EXPORT_COM_INFORMATION"] = "CommerceInformation";

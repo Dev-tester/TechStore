@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -12,12 +12,12 @@ use Bitrix\Main\Localization\Loc;
 
 if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 {
-	?><div id="socialnetwork-group-sidebar-block"><?
+	?><div id="socialnetwork-group-sidebar-block"><?php 
 }
 
 ?><div class="socialnetwork-group-sidebar-block">
 	<div class="socialnetwork-group-sidebar-block-inner">
-	<? if ($arResult["CanView"]["content_search"]):?>
+	<?php  if ($arResult["CanView"]["content_search"]):?>
 		<div class="socialnetwork-group-search">
 			<div class="socialnetwork-group-search-item">
 				<form class="socialnetwork-group-search-form" action="<?=$arResult["Urls"]["content_search"]?>">
@@ -31,9 +31,9 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 				</form>
 			</div>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 	
-	<? if ($arResult["Owner"]):
+	<?php  if ($arResult["Owner"]):
 		$userName = \CUser::FormatName(
 			str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]),
 			array(
@@ -56,9 +56,9 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 						<a
 							class="socialnetwork-group-user-avatar user-default-avatar"
 							href="<?=htmlspecialcharsback($arResult["Owner"]["USER_PROFILE_URL"])?>"
-							<? if ($avatar):?>
+							<?php  if ($avatar):?>
 								style="background: url('<?=$avatar?>'); background-size: cover"
-							<? endif ?>
+							<?php  endif ?>
 						>
 						</a>
 						<div class="socialnetwork-group-user-info">
@@ -67,13 +67,13 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 								" socialnetwork-group-user-name-extranet" : "")?>">
 								<a href="<?=htmlspecialcharsback($arResult["Owner"]["USER_PROFILE_URL"])?>"><?=$userName?></a>
 							</div>
-							<div class="socialnetwork-group-user-position"><?
+							<div class="socialnetwork-group-user-position"><?php 
 								if (IsModuleInstalled("intranet") && strlen($arResult["Owner"]["USER_WORK_POSITION"]) > 0):
-									?><?=$arResult["Owner"]["USER_WORK_POSITION"]?><?
+									?><?=$arResult["Owner"]["USER_WORK_POSITION"]?><?php 
 								elseif ($arResult["Owner"]["USER_IS_EXTRANET"] == "Y"):
-									?><?=GetMessage("SONET_C6_USER_IS_EXTRANET")?><?
+									?><?=GetMessage("SONET_C6_USER_IS_EXTRANET")?><?php 
 								else:
-									?>&nbsp;<?
+									?>&nbsp;<?php 
 								endif;
 								?>
 							</div>
@@ -82,7 +82,7 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 				</div>
 			</div>
 		</div>
-	<?endif; ?>
+	<?php endif; ?>
 	<table cellspacing="0" class="socialnetwork-group-layout">
 		<tr class="socialnetwork-group-layout-row">
 			<td class="socialnetwork-group-layout-left-column"><?=GetMessage("SONET_C6_CREATED")?>:</td>
@@ -97,7 +97,7 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 		<tr class="socialnetwork-group-layout-row">
 			<td class="socialnetwork-group-layout-left-column"><?=Loc::getMessage($arResult['Group']['PROJECT'] == 'Y' ? "SONET_C6_TYPE_PROJECT" : "SONET_C6_TYPE")?>:</td>
 			<td class="socialnetwork-group-layout-right-column"><?=$arResult['Group']['Type']['NAME']?></td>
-		</tr><?
+		</tr><?php 
 
 		if ($arResult['Group']['PROJECT'] == 'Y')
 		{
@@ -106,14 +106,14 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 				?><tr class="socialnetwork-group-layout-row">
 					<td class="socialnetwork-group-layout-left-column"><?=Loc::getMessage("SONET_C6_PROJECT_DATE_START")?>:</td>
 					<td class="socialnetwork-group-layout-right-column"><?=FormatDateFromDB($arResult["Group"]["PROJECT_DATE_START"], $arParams["DATE_FORMAT"], true)?></td>
-				</tr><?
+				</tr><?php 
 			}
 			if (!empty($arResult['Group']['PROJECT_DATE_FINISH']))
 			{
 				?><tr class="socialnetwork-group-layout-row">
 				<td class="socialnetwork-group-layout-left-column"><?=Loc::getMessage("SONET_C6_PROJECT_DATE_FINISH")?>:</td>
 				<td class="socialnetwork-group-layout-right-column"><?=FormatDateFromDB($arResult["Group"]["PROJECT_DATE_FINISH"], $arParams["DATE_FORMAT"], true)?></td>
-				</tr><?
+				</tr><?php 
 			}
 		}
 
@@ -121,7 +121,7 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 		{
 			?><tr class="socialnetwork-group-layout-row">
 				<td class="socialnetwork-group-layout-left-column"><?=GetMessage("SONET_C6_DEPARTMENTS")?>:</td>
-				<td class="socialnetwork-group-layout-right-column"><?
+				<td class="socialnetwork-group-layout-right-column"><?php 
 					$arDepartmentFormatted = array();
 					foreach($arResult["GroupDepartments"] as $arDepartment)
 					{
@@ -129,7 +129,7 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 					}
 					echo implode(', ', $arDepartmentFormatted);
 				?></td>
-			</tr><?
+			</tr><?php 
 		}
 
 		if ($arResult["GroupProperties"]["SHOW"] === "Y")
@@ -143,7 +143,7 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 				{
 					?><tr class="socialnetwork-group-layout-row">
 						<td class="socialnetwork-group-layout-left-column"><?=$arUserField["EDIT_FORM_LABEL"]?>:</td>
-						<td class="socialnetwork-group-layout-right-column"><?
+						<td class="socialnetwork-group-layout-right-column"><?php 
 							$APPLICATION->IncludeComponent(
 								"bitrix:system.field.view",
 								$arUserField["USER_TYPE"]["USER_TYPE_ID"],
@@ -152,7 +152,7 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 								array("HIDE_ICONS"=>"Y")
 							);
 						?></td>
-					</tr><?
+					</tr><?php 
 				}
 			}
 		}
@@ -165,17 +165,17 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 			?><tr class="socialnetwork-group-layout-row">
 				<td class="socialnetwork-group-layout-left-column"><?=Loc::getMessage("SONET_C6_TAGS")?>:</td>
 				<td class="socialnetwork-group-layout-right-column">
-					<div class="socialnetwork-group-sidebar-tag-box"><?
+					<div class="socialnetwork-group-sidebar-tag-box"><?php 
 					foreach($arResult["Group"]["KEYWORDS_LIST"] as $keyword)
 					{
-						?><a bx-tag-value="<?=$keyword?>" href="<?=CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_GROUP_TAG"], array('tag' => $keyword));?>" class="socialnetwork-group-sidebar-tag"><?=$keyword?></a><?
+						?><a bx-tag-value="<?=$keyword?>" href="<?=CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_GROUP_TAG"], array('tag' => $keyword));?>" class="socialnetwork-group-sidebar-tag"><?=$keyword?></a><?php 
 					}
 					?></div>
 				</td>
-			</tr><?
+			</tr><?php 
 		}
 
-	?></table><?
+	?></table><?php 
 
 	if (
 		strlen($arResult["Group"]["DESCRIPTION"]) > 0 &&
@@ -194,7 +194,7 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 
 		?><div class="socialnetwork-group-desc-box">
 			<div class="socialnetwork-group-title"><?=GetMessage("SONET_C6_DESCR")?></div>
-			<div class="socialnetwork-group-desc-text"><?
+			<div class="socialnetwork-group-desc-text"><?php 
 				echo $desc;
 				if (strlen($descEnding) > 0):
 					?><span class="socialnetwork-group-desc-more">...
@@ -205,9 +205,9 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 							<?=GetMessage("SONET_C6_MORE")?>
 						</span>
 					</span><span class="socialnetwork-group-desc-full"><?=$descEnding?></span>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
-		</div><?
+		</div><?php 
 	}
 
 	if ($arResult["Moderators"]["List"]):
@@ -216,27 +216,27 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 		<div class="socialnetwork-group-users socialnetwork-group-moderator">
 			<div class="socialnetwork-group-users-inner">
 				<div class="socialnetwork-group-title"><?=GetMessage($arResult['Group']['PROJECT'] == 'Y' ? "SONET_C6_ACT_MODN_PROJECT" : "SONET_C6_ACT_MODN")?>
-					<? if (count($arResult["Moderators"]["List"]) > $itemsLimit):?>
+					<?php  if (count($arResult["Moderators"]["List"]) > $itemsLimit):?>
 						(<a
-							href="<?=htmlspecialcharsback($arResult["Urls"]["GroupMods"])?>"><?
+							href="<?=htmlspecialcharsback($arResult["Urls"]["GroupMods"])?>"><?php 
 							echo $arResult["Group"]["NUMBER_OF_MODERATORS"]
 							?></a>)
-					<? endif ?>
+					<?php  endif ?>
 
-					<? if (
+					<?php  if (
 						$arResult["CurrentUserPerms"]["UserCanModifyGroup"] &&
 						$USER->IsAuthorized() &&
 						!$arResult["HideArchiveLinks"]
 					):?>
 						<a
 							class="socialnetwork-group-title-link dashed"
-							href="<?=htmlspecialcharsback($arResult["Urls"]["GroupMods"])?>"><?
+							href="<?=htmlspecialcharsback($arResult["Urls"]["GroupMods"])?>"><?php 
 								echo GetMessage("SONET_C6_ACT_MODN_ACTION")?>
 						</a>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 				<div class="socialnetwork-group-users-list">
-					<? foreach ($arResult["Moderators"]["List"] as $friend):
+					<?php  foreach ($arResult["Moderators"]["List"] as $friend):
 
 						if (!$itemsLimit--)
 						{
@@ -261,9 +261,9 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 							<a
 								class="socialnetwork-group-user-avatar user-default-avatar"
 								href="<?=htmlspecialcharsback($friend["USER_PROFILE_URL"])?>"
-								<? if ($avatar): ?>
+								<?php  if ($avatar): ?>
 									style="background: url('<?=$avatar?>'); background-size: cover"
-								<? endif ?>
+								<?php  endif ?>
 							>
 							</a>
 							<div class="socialnetwork-group-user-info">
@@ -273,22 +273,22 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 								">
 									<a href="<?=htmlspecialcharsback($friend["USER_PROFILE_URL"])?>"><?=$userName?></a>
 								</div>
-								<div class="socialnetwork-group-user-position"><?
+								<div class="socialnetwork-group-user-position"><?php 
 									if (IsModuleInstalled("intranet") && strlen($friend["USER_WORK_POSITION"]) > 0):
-										?><?=$friend["USER_WORK_POSITION"]?><?
+										?><?=$friend["USER_WORK_POSITION"]?><?php 
 									elseif ($friend["USER_IS_EXTRANET"] == "Y"):
-										?><?=GetMessage("SONET_C6_USER_IS_EXTRANET")?><?
+										?><?=GetMessage("SONET_C6_USER_IS_EXTRANET")?><?php 
 									else:
-										?>&nbsp;<?
+										?>&nbsp;<?php 
 									endif;
 									?>
 								</div>
 							</div>
 						</div>
-					<? endforeach ?>
+					<?php  endforeach ?>
 				</div>
 			</div>
-		</div><?
+		</div><?php 
 	endif;
 
 	if ($arResult["Members"]["List"]): ?>
@@ -297,9 +297,9 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 				<div class="socialnetwork-group-title">
 					<?=GetMessage("SONET_C6_ACT_USER1")?>
 					(<a
-						href="<?=htmlspecialcharsback($arResult["Urls"]["GroupUsers"])?>"><?
+						href="<?=htmlspecialcharsback($arResult["Urls"]["GroupUsers"])?>"><?php 
 							echo $arResult["Group"]["NUMBER_OF_MEMBERS"]
-					?></a>)<?
+					?></a>)<?php 
 
 					if (
 						$USER->IsAuthorized() &&
@@ -314,10 +314,10 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 										? $arResult["Urls"]["Invite"]
 										: $arResult["Urls"]["Edit"].(strpos($arResult["Urls"]["Edit"], "?") !== false ? "&" : '?')."tab=invite"
 							)?>"
-							><?=Loc::getMessage($arResult['Group']['PROJECT'] == 'Y' ? "SONET_C6_ACT_REQU_PROJECT" : "SONET_C6_ACT_REQU")?></a><?
+							><?=Loc::getMessage($arResult['Group']['PROJECT'] == 'Y' ? "SONET_C6_ACT_REQU_PROJECT" : "SONET_C6_ACT_REQU")?></a><?php 
 					}
 				?></div>
-				<div class="socialnetwork-group-users-list"><?
+				<div class="socialnetwork-group-users-list"><?php 
 				foreach ($arResult["Members"]["List"] as $friend):
 
 					$userName = CUser::FormatName(
@@ -341,22 +341,22 @@ if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 							href="<?=htmlspecialcharsback($friend["USER_PROFILE_URL"])?>"
 							class="socialnetwork-group-member-avatar user-default-avatar"
 							title="<?=$userName?>"
-							<? if ($avatar): ?>
+							<?php  if ($avatar): ?>
 								style="background: url('<?=$avatar?>'); background-size: cover"
-							<? endif ?>
+							<?php  endif ?>
 						>
 						</a>
-					</div><?
+					</div><?php 
 					endforeach;
 					?>
 				</div>
 			</div>
-		</div><?
+		</div><?php 
 	endif ?>
 	</div>
 </div>
 
-<?
+<?php 
 if (
 	!\Bitrix\Main\ModuleManager::isModuleInstalled('bitrix24')
 	&& $arParams["SHOW_SEARCH_TAGS_CLOUD"] == 'Y'
@@ -407,12 +407,12 @@ if (
 	{
 		?><div class="socialnetwork-group-sidebar-block" style="margin-top: 10px;">
 			<div class="socialnetwork-group-sidebar-block-inner"><?=$tagsCloud?></div>
-		</div><?
+		</div><?php 
 	}
 }
 
 if ($_REQUEST['BLOCK_RELOAD'] != 'Y')
 {
-	?></div><?
+	?></div><?php 
 }
 ?>

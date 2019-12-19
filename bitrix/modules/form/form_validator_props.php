@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $FORM_RIGHT = $APPLICATION->GetGroupRight("form");
@@ -39,14 +39,14 @@ if ($bFound)
 	<form name="val_settings_form">
 		<input type="hidden" name="VALIDATOR" value="<?=htmlspecialcharsbx($validator_name)?>" />
 		<table cellspacing="0" align="center">
-<?
+<?php 
 		foreach ($arSettings as $settingName => $arSetting)
 		{
 ?>
 			<tr>
 				<td id="PARAM_TITLE_<?=htmlspecialcharsbx($settingName);?>"><?=htmlspecialcharsbx($arSetting["TITLE"])?>:</td>
 				<td>
-<?
+<?php 
 			switch ($arSetting["TYPE"])
 			{
 				case "CHECKBOX":
@@ -78,16 +78,16 @@ if ($bFound)
 ?>
 				</td>
 			</tr>
-<?
+<?php 
 		} // endforeach
 ?>
 		</table>
 	</form>
 
-<?
+<?php 
 	}
 }
 else
 {
-	?><div align="center"><?=ShowError(GetMessage('FORM_VALIDATOR_NOT_FOUND'));?></div><?
+	?><div align="center"><?=ShowError(GetMessage('FORM_VALIDATOR_NOT_FOUND'));?></div><?php 
 }

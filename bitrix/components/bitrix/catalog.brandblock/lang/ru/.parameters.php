@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_CB_IBLOCK_TYPE"] = "Тип инфоблока";
 $MESS["IBLOCK_CB_IBLOCK_ID"] = "Идентификатор инфоблока";
 $MESS["IBLOCK_CB_ELEMENT_ID"] = "Идентификатор элемента инфоблока";

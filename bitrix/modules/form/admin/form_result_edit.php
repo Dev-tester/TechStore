@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -201,7 +201,7 @@ $context->Show();
 echo BeginNote('width="100%"');
 ?>
 <b><?=GetMessage("FORM_FORM_NAME")?></b> [<a title='<?=GetMessage("FORM_EDIT_FORM")?>' href='form_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$WEB_FORM_ID?>'><?=$WEB_FORM_ID?></a>]&nbsp;(<?=htmlspecialcharsbx($arForm["SID"])?>)&nbsp;<?=htmlspecialcharsbx($arForm["NAME"])?>
-<?
+<?php 
 echo EndNote();
 
 if ($can_add)
@@ -244,19 +244,19 @@ if ($can_edit) :
 		?>
 		<br />
 		<table cellspacing="0" cellpadding="2">
-			<?if ($F_RIGHT>=25):?>
+			<?php if ($F_RIGHT>=25):?>
 			<tr>
 				<td><b><?=GetMessage("FORM_ID")?></b></td>
 				<td><?=$arrResult["ID"]?></td>
 			</tr>
 			<tr>
 				<td><b><?=GetMessage("FORM_FORM_NAME")?></b></td>
-				<td><?
+				<td><?php 
 				echo "[<a href='form_edit.php?lang=".LANGUAGE_ID."&ID=".$WEB_FORM_ID."'>". $WEB_FORM_ID."</a>]&nbsp;(".htmlspecialcharsbx($arForm["SID"]).")&nbsp;".htmlspecialcharsbx($arForm["NAME"]);
 				?></td>
 			</tr>
-			<?endif;?>
-			<?
+			<?php endif;?>
+			<?php 
 			if (intval($arrResult["USER_ID"])>0)
 			{
 				$rsUser = CUser::GetByID($arrResult["USER_ID"]);
@@ -268,9 +268,9 @@ if ($can_edit) :
 			?>
 			<tr>
 				<td><b><?=GetMessage("FORM_DATE_CREATE")?></b></td>
-				<td><?=$arrResult["DATE_CREATE"]?><?
+				<td><?=$arrResult["DATE_CREATE"]?><?php 
 					if ($F_RIGHT>=25):
-						?>&nbsp;&nbsp;&nbsp;<?
+						?>&nbsp;&nbsp;&nbsp;<?php 
 						if (intval($arrResult["USER_ID"])>0) :
 							echo "[<a title='".GetMessage("FORM_EDIT_USER")."' href='user_edit.php?lang=".LANGUAGE_ID."&ID=".$arrResult["USER_ID"]."'>".$arrResult["USER_ID"]."</a>] (".htmlspecialcharsbx($arrResult["LOGIN"]).") ".htmlspecialcharsbx($arrResult["USER_NAME"])."";
 							echo ($arrResult["USER_AUTH"]=="N") ? " ".GetMessage("FORM_NOT_AUTH")."" : "";
@@ -284,36 +284,36 @@ if ($can_edit) :
 				<td><b><?=GetMessage("FORM_TIMESTAMP")?></b></td>
 				<td><?=$arrResult["TIMESTAMP_X"]?></td>
 			</tr>
-			<?if ($F_RIGHT>=25):?>
-			<?if (CModule::IncludeModule("statistic")):?>
-			<?if (intval($arrResult["STAT_GUEST_ID"])>0):?>
+			<?php if ($F_RIGHT>=25):?>
+			<?php if (CModule::IncludeModule("statistic")):?>
+			<?php if (intval($arrResult["STAT_GUEST_ID"])>0):?>
 			<tr>
 				<td><b><?=GetMessage("FORM_GUEST")?></b></td>
 				<td>[<a title="<?=GetMessage("FORM_GUEST_ALT")?>" href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$arrResult["STAT_GUEST_ID"]?>&set_filter=Y"><?=$arrResult["STAT_GUEST_ID"]?></a>]</td>
 			</tr>
-			<?endif;?>
-			<?if (intval($arrResult["STAT_SESSION_ID"])>0):?>
+			<?php endif;?>
+			<?php if (intval($arrResult["STAT_SESSION_ID"])>0):?>
 			<tr>
 				<td><b><?=GetMessage("FORM_SESSION")?></b></td>
 				<td>[<a title="<?=GetMessage("FORM_SESSION_ALT")?>" href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$arrResult["STAT_SESSION_ID"]?>&set_filter=Y"><?=$arrResult["STAT_SESSION_ID"]?></a>]</td>
 			</tr>
-			<?endif;?>
-			<?endif;?>
-			<?endif;?>
+			<?php endif;?>
+			<?php endif;?>
+			<?php endif;?>
 		</table>
-		<?if ($F_RIGHT>=25):?>
+		<?php if ($F_RIGHT>=25):?>
 		<form name="form1" action="" method="GET">
-		<?echo bitrix_sessid_post();?>
+		<?php echo bitrix_sessid_post();?>
 		<input type="hidden" name="WEB_FORM_ID" value="<?=intval($WEB_FORM_ID)?>">
 		<input type="hidden" name="RESULT_ID" value="<?=intval($RESULT_ID)?>">
 		<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-		<?=GetMessage("FORM_EDIT_RESULT_TEMPLATE")?><?
+		<?=GetMessage("FORM_EDIT_RESULT_TEMPLATE")?><?php 
 		echo SelectBoxFromArray("EDIT_RESULT_TEMPLATE", CForm::GetTemplateList("EDIT_RESULT"), htmlspecialcharsbx($EDIT_RESULT_TEMPLATE), "","class='typeselect'",true);
-		?>&nbsp;<input <?if ($F_RIGHT<30) echo "disabled"?> type="submit" name="save" value="<?=GetMessage("FORM_SAVE")?>">
+		?>&nbsp;<input <?php if ($F_RIGHT<30) echo "disabled"?> type="submit" name="save" value="<?=GetMessage("FORM_SAVE")?>">
 		</form>
-		<?endif;?>
+		<?php endif;?>
 		<hr /><br />
-		<?
+		<?php 
 
 		CFormResult::Edit($RESULT_ID, $arrVALUES, $EDIT_RESULT_TEMPLATE, $EDIT_ADDITIONAL, $EDIT_STATUS);
 
@@ -321,10 +321,10 @@ if ($can_edit) :
 
 // *************************************** NORMAL FORM WITHOUT ARCHAISTIC PERVERSIONS ***********************
 ?>
-<form name="form1" action="/bitrix/admin/form_result_edit.php?lang=<?echo LANG?>&WEB_FORM_ID=<?echo $WEB_FORM_ID?><?if($RESULT_ID>0): echo '&RESULT_ID='.$RESULT_ID; endif;?>" method="POST" enctype="multipart/form-data">
+<form name="form1" action="/bitrix/admin/form_result_edit.php?lang=<?php echo LANG?>&WEB_FORM_ID=<?php echo $WEB_FORM_ID?><?php if($RESULT_ID>0): echo '&RESULT_ID='.$RESULT_ID; endif;?>" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="MAX_FILE_SIZE" value="20000000" />
-<?echo bitrix_sessid_post();?>
-<?
+<?php echo bitrix_sessid_post();?>
+<?php 
 	$WEB_FORM_ID = CForm::GetDataByID($WEB_FORM_ID, $arForm, $arQuestions, $arAnswers, $arDropDown, $arMultiSelect, $EDIT_ADDITIONAL == 'Y' ? 'ALL' : 'N');
 
 	if (!$strError && $RESULT_ID > 0)
@@ -393,52 +393,52 @@ if ($can_edit) :
 	$tabControl->BeginNextTab();
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage('FORM_RESULT_EDIT_COMMON')?></td>
+		<td colspan="2"><?php echo GetMessage('FORM_RESULT_EDIT_COMMON')?></td>
 	</tr>
-<?
+<?php 
 	if ($RESULT_ID > 0):
 ?>
 	<tr>
 		<td>ID:</td>
 		<td><?=$RESULT_ID?></td>
 	</tr>
-<?
+<?php 
 	endif;
 ?>
 	<tr>
-		<td><?echo GetMessage('FORM_RESULT_EDIT_FORM')?>: </td>
+		<td><?php echo GetMessage('FORM_RESULT_EDIT_FORM')?>: </td>
 		<td>[<a href="/bitrix/admin/form_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$WEB_FORM_ID?>"><?=$WEB_FORM_ID?></a>]&nbsp;<a href="/bitrix/admin/form_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$WEB_FORM_ID?>"><?=htmlspecialcharsbx($arForm["NAME"])?> (<?=htmlspecialcharsbx($arForm["SID"])?>)</a></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('FORM_RESULT_EDIT_AUTHOR')?>:</td>
+		<td><?php echo GetMessage('FORM_RESULT_EDIT_AUTHOR')?>:</td>
 		<td>
-<?
+<?php 
 	if ($RESULT_ID <= 0):
 		echo FindUserID("USER_ID", $arUser['ID']);
 	elseif (is_array($arUser)):
 ?>
-			[<a title="<?echo GetMessage('FORM_RESULT_EDIT_USER')?>" href='/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$arUser["ID"]?>'><?=$arUser['ID']?></a>] <a title="<?echo GetMessage('FORM_RESULT_EDIT_USER')?>" href='/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$arUser["ID"]?>'><?=htmlspecialcharsbx($arUser["NAME"])?> <?=htmlspecialcharsbx($arUser["LAST_NAME"])?> (<?=htmlspecialcharsbx($arUser['LOGIN'])?>)</a><?if($arrResult["RESULT_USER_AUTH"] == "N"): ?>&nbsp;<?echo GetMessage('FORM_RESULT_EDIT_USER_NOTAUTH')?><?endif;?>
-<?
+			[<a title="<?php echo GetMessage('FORM_RESULT_EDIT_USER')?>" href='/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$arUser["ID"]?>'><?=$arUser['ID']?></a>] <a title="<?php echo GetMessage('FORM_RESULT_EDIT_USER')?>" href='/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$arUser["ID"]?>'><?=htmlspecialcharsbx($arUser["NAME"])?> <?=htmlspecialcharsbx($arUser["LAST_NAME"])?> (<?=htmlspecialcharsbx($arUser['LOGIN'])?>)</a><?php if($arrResult["RESULT_USER_AUTH"] == "N"): ?>&nbsp;<?php echo GetMessage('FORM_RESULT_EDIT_USER_NOTAUTH')?><?php endif;?>
+<?php 
 	else:
 ?>
-			<?echo GetMessage('FORM_RESULT_EDIT_USER_NOTREG')?>
-<?
+			<?php echo GetMessage('FORM_RESULT_EDIT_USER_NOTREG')?>
+<?php 
 	endif;
 ?>
 		</td>
 	</tr>
-<?
+<?php 
 	if ($RESULT_ID > 0):
 ?>
 	<tr>
-		<td><?echo GetMessage('FORM_RESULT_EDIT_CREATED')?>:</td>
+		<td><?php echo GetMessage('FORM_RESULT_EDIT_CREATED')?>:</td>
 		<td><?=$arrResult["DATE_CREATE"]?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('FORM_RESULT_EDIT_CHANGED')?>:</td>
+		<td><?php echo GetMessage('FORM_RESULT_EDIT_CHANGED')?>:</td>
 		<td><?=$arrResult["TIMESTAMP_X"]?></td>
 	</tr>
-<?
+<?php 
 		if (IsModuleInstalled('statistic'))
 		{
 ?>
@@ -450,36 +450,36 @@ if ($can_edit) :
 		<td><?=GetMessage("FORM_SESSION")?></td>
 		<td>[<a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$arrResult["STAT_SESSION_ID"]?>&find_id_exact_match=Y&set_filter=Y"><?=$arrResult["STAT_SESSION_ID"]?></a>]</td>
 	</tr>
-<?
+<?php 
 		}
 	endif; // RESULT_ID > 0
 	if ($EDIT_STATUS == 'Y'):
 ?>
 <tr class="heading">
-	<td colspan="2"><?echo GetMessage('FORM_RESULT_EDIT_STATUS')?></td>
+	<td colspan="2"><?php echo GetMessage('FORM_RESULT_EDIT_STATUS')?></td>
 </tr>
-<?
+<?php 
 		if ($RESULT_ID > 0):
 ?>
 <tr>
-	<td valign="top"><?echo GetMessage('FORM_RESULT_EDIT_STATUS_CURRENT')?>: </td>
-	<td><b><?echo htmlspecialcharsEx($arrResult["STATUS_TITLE"])?></b></td>
+	<td valign="top"><?php echo GetMessage('FORM_RESULT_EDIT_STATUS_CURRENT')?>: </td>
+	<td><b><?php echo htmlspecialcharsEx($arrResult["STATUS_TITLE"])?></b></td>
 </tr>
-<?
+<?php 
 		endif;// ($RESULT_ID > 0):
 ?>
 <tr>
-	<td valign="top"><?echo GetMessage('FORM_RESULT_EDIT_STATUS_'.($RESULT_ID > 0 ? 'CHANGE' : 'SET'))?>: </td>
-	<td><?echo $RESULT_STATUS_FORM?></td>
+	<td valign="top"><?php echo GetMessage('FORM_RESULT_EDIT_STATUS_'.($RESULT_ID > 0 ? 'CHANGE' : 'SET'))?>: </td>
+	<td><?php echo $RESULT_STATUS_FORM?></td>
 </tr>
-<?
+<?php 
 	endif;// EDIT_STATUS=Y
 
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage('FORM_RESULT_EDIT_FIELDS')?></td>
+		<td colspan="2"><?php echo GetMessage('FORM_RESULT_EDIT_FIELDS')?></td>
 	</tr>
-<?
+<?php 
 	if ($EDIT_ADDITIONAL == 'Y')
 	{
 		$arQuestionsNew = array();
@@ -506,18 +506,18 @@ if ($can_edit) :
 		if ($arQuestion['ADDITIONAL'] == 'Y' && ($q++) == 0):
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage('FORM_RESULT_EDIT_FIELDS_ADDITIONAL')?></td>
+		<td colspan="2"><?php echo GetMessage('FORM_RESULT_EDIT_FIELDS_ADDITIONAL')?></td>
 	</tr>
-<?
+<?php 
 			endif;
 ?>
 	<tr<?=$arQuestion["REQUIRED"] == "Y" ? ' class="adm-detail-required-field"' : ''?>>
 		<td valign="top">
-<?
+<?php 
 		echo $arQuestion["TITLE_TYPE"] == "html" ? $arQuestion["TITLE"] : nl2br(htmlspecialcharsbx(trim($arQuestion["TITLE"])));
 ?>
 		</td><td>
-<?
+<?php 
 		if (is_array($arAnswers[$FIELD_SID]))
 		{
 			$show_dropdown = "N";
@@ -784,7 +784,7 @@ if ($can_edit) :
 ?>
 		</td>
 	</tr>
-<?
+<?php 
 	}
 
 	$tabControl->EndTab();
@@ -792,7 +792,7 @@ if ($can_edit) :
 	$tabControl->End();
 ?>
 </form>
-<?
+<?php 
 
 	endif;
 

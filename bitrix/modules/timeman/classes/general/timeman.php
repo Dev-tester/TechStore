@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Timeman\Model\Schedule\Schedule;
 use Bitrix\Timeman\Model\Schedule\ScheduleTable;

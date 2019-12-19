@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILLBY_TITLE"] = "Invoice";
 $MESS["SALE_HPS_BILLBY_INN"] = "Taxpayer ID";
 $MESS["SALE_HPS_BILLBY_ADDR_TITLE"] = "Address";

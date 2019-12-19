@@ -1,4 +1,4 @@
-<?
+<?php 
 class CMeetingEventHandlers
 {
 	public static function OnTaskDelete($task_id)

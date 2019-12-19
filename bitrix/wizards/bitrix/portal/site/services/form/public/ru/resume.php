@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Обращение по вакансии");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:form.result.new", "", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:form.result.new", "", Array(
 	"WEB_FORM_ID"	=>	"#RESUME_FORM_ID#",
 	"IGNORE_CUSTOM_TEMPLATE"	=>	"N",
 	"USE_EXTENDED_ERRORS"	=>	"N",
@@ -24,4 +24,4 @@ $APPLICATION->SetTitle("Обращение по вакансии");
 );?>
 
 <p><a href="career.php">Вернуться к списку вакансий</a></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_OPT_DAILY_REPORT_TIME2"] = "Когда отослать очередной статистический отчет по E-Mail:";
 $MESS["STAT_OPT_ONLINE_INTERVAL"] = "Интервал посетителей в online (сек.):";
 $MESS["STAT_OPT_RECORDS_LIMIT"] = "Максимальное кол-во показываемых записей в таблицах:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_FORGOT_NAME"] = "Please provide the \"Name\" for the record # #ID#";
 $MESS["SUP_TICKETS_DIC_TITLE"] = "Trouble ticket dictionary";
 $MESS["SUP_F_ID"] = "ID";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Delivery\AdminPage\DeliveryRestrictions
 {
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/lib/delivery/inputs.php");

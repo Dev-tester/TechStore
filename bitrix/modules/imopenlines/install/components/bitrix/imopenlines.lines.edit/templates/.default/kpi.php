@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 use \Bitrix\Imopenlines\Limit;
@@ -36,25 +36,25 @@ $arResult["KPI_MENU"]["kpiFurtherAnswer"]["inputElement"] = "imol_kpi_further_an
 				<input type="hidden" name="CONFIG[KPI_FIRST_ANSWER_TIME]" id="imol_kpi_first_answer_time" value="<?=$arResult["CONFIG"]["KPI_FIRST_ANSWER_TIME"]?>">
 			</div>
 		</div>
-		<div id="imol_kpi_first_answer_full_block" <? if ($arResult["CONFIG"]["KPI_FIRST_ANSWER_TIME"] == 0) { ?>class="invisible"<? } ?>>
+		<div id="imol_kpi_first_answer_full_block" <?php  if ($arResult["CONFIG"]["KPI_FIRST_ANSWER_TIME"] == 0) { ?>class="invisible"<?php  } ?>>
 			<div class="imopenlines-control-checkbox-container">
 				<label class="imopenlines-control-checkbox-label">
 					<input id="imol_kpi_first_answer_alert"
 						   type="checkbox"
 						   class="imopenlines-control-checkbox"
 						   name="CONFIG[KPI_FIRST_ANSWER_ALERT]"
-						   <?if($arResult['CONFIG']['KPI_FIRST_ANSWER_ALERT'] == 'Y') {?>checked="checked"<?}?>
+						   <?php if($arResult['CONFIG']['KPI_FIRST_ANSWER_ALERT'] == 'Y') {?>checked="checked"<?php }?>
 						   value="Y">
 					<?=Loc::getMessage('IMOL_CONFIG_EDIT_KPI_ANSWER_ALERT')?>
 				</label>
 			</div>
-			<div id="imol_kpi_first_answer_inner_block" <?if($arResult['CONFIG']['KPI_FIRST_ANSWER_ALERT'] != 'Y') {?>class="invisible"<? } ?>>
+			<div id="imol_kpi_first_answer_inner_block" <?php if($arResult['CONFIG']['KPI_FIRST_ANSWER_ALERT'] != 'Y') {?>class="invisible"<?php  } ?>>
 				<div class="imopenlines-form-settings-inner">
 					<div class="imopenlines-control-subtitle">
 						<?=Loc::getMessage("IMOL_CONFIG_EDIT_KPI_ANSWER_ALERT_LIST")?>
 						<span data-hint="<?=htmlspecialcharsbx(Loc::getMessage("IMOL_CONFIG_EDIT_KPI_FIRST_ANSWER_DESC"))?>"></span>
 					</div>
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						'bitrix:main.user.selector',
 						'',
 						[
@@ -90,25 +90,25 @@ $arResult["KPI_MENU"]["kpiFurtherAnswer"]["inputElement"] = "imol_kpi_further_an
 				<input type="hidden" name="CONFIG[KPI_FURTHER_ANSWER_TIME]" id="imol_kpi_further_answer_time" value="<?=$arResult["CONFIG"]["KPI_FURTHER_ANSWER_TIME"]?>">
 			</div>
 		</div>
-		<div id="imol_kpi_further_answer_full_block" <? if ($arResult["CONFIG"]["KPI_FURTHER_ANSWER_TIME"] == 0) { ?>class="invisible"<? } ?>>
+		<div id="imol_kpi_further_answer_full_block" <?php  if ($arResult["CONFIG"]["KPI_FURTHER_ANSWER_TIME"] == 0) { ?>class="invisible"<?php  } ?>>
 			<div class="imopenlines-control-checkbox-container">
 				<label class="imopenlines-control-checkbox-label">
 					<input id="imol_kpi_further_answer_alert"
 						   type="checkbox"
 						   class="imopenlines-control-checkbox"
 						   name="CONFIG[KPI_FURTHER_ANSWER_ALERT]"
-						   <?if($arResult['CONFIG']['KPI_FURTHER_ANSWER_ALERT'] == 'Y') {?>checked="checked"<?}?>
+						   <?php if($arResult['CONFIG']['KPI_FURTHER_ANSWER_ALERT'] == 'Y') {?>checked="checked"<?php }?>
 						   value="Y">
 					<?=Loc::getMessage('IMOL_CONFIG_EDIT_KPI_ANSWER_ALERT')?>
 				</label>
 			</div>
-			<div id="imol_kpi_further_answer_inner_block" <?if($arResult['CONFIG']['KPI_FURTHER_ANSWER_ALERT'] != 'Y') {?>class="invisible"<? } ?>>
+			<div id="imol_kpi_further_answer_inner_block" <?php if($arResult['CONFIG']['KPI_FURTHER_ANSWER_ALERT'] != 'Y') {?>class="invisible"<?php  } ?>>
 				<div class="imopenlines-form-settings-inner">
 					<div class="imopenlines-control-subtitle">
 						<?=Loc::getMessage("IMOL_CONFIG_EDIT_KPI_ANSWER_ALERT_LIST")?>
 						<span data-hint="<?=htmlspecialcharsbx(Loc::getMessage("IMOL_CONFIG_EDIT_KPI_FURTHER_ANSWER_DESC"))?>"></span>
 					</div>
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						'bitrix:main.user.selector',
 						'',
 						[
@@ -132,13 +132,13 @@ $arResult["KPI_MENU"]["kpiFurtherAnswer"]["inputElement"] = "imol_kpi_further_an
 			</div>
 		</div>
 	</div>
-	<?/*<div class="imopenlines-control-container">
+	<?php /*<div class="imopenlines-control-container">
 		<div class="imopenlines-control-checkbox-container">
 			<label class="imopenlines-control-checkbox-label">
 				<input type="checkbox"
 					   class="imopenlines-control-checkbox"
 					   name="CONFIG[KPI_CHECK_OPERATOR_ACTIVITY]"
-					   <?if($arResult['CONFIG']['KPI_CHECK_OPERATOR_ACTIVITY'] == 'Y') {?>checked="checked"<?}?>
+					   <?php if($arResult['CONFIG']['KPI_CHECK_OPERATOR_ACTIVITY'] == 'Y') {?>checked="checked"<?php }?>
 					   value="Y">
 				<?=Loc::getMessage('IMOL_CONFIG_EDIT_KPI_CHECK_OPERATOR_ACTIVITY')?>
 			</label>

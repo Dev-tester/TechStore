@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_OBJECT_ENTITY_STORAGE_ID_FIELD"] = "Хранилище";
 $MESS["DISK_OBJECT_ENTITY_PARENT_ID_FIELD"] = "Родитель";
 $MESS["DISK_OBJECT_ENTITY_ERROR_UPDATE_STORAGE_ID"] = "Невозможно обновить #FIELD# у уже созданного объекта.";

@@ -12,7 +12,7 @@
 	{
 		?>
 	<font color='red'><?=$arResult['FORM_ERROR']?></font><br/><br/>
-	<?
+	<?php 
 	}
 
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/js/report/css/report.css');
@@ -158,7 +158,7 @@ AAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent;
 <div class="reports-constructor">
 
 <div class="adm-filter-wrap">
-	<?
+	<?php 
 		$_title = '';
 		if (!empty($arResult['report']['TITLE'])) $_title = $arResult['report']['TITLE'];
 	?>
@@ -177,7 +177,7 @@ AAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent;
 
 
 	<?php /*    Site option    */ ?>
-	<? if (isset($arParams['F_SALE_SITE'])): ?>
+	<?php  if (isset($arParams['F_SALE_SITE'])): ?>
 	<div class="reports-title-label"><?=GetMessage('SALE_REPORT_SITE')?></div>
 
 	<div class="adm-filter-alignment adm-calendar-block">
@@ -188,22 +188,22 @@ AAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent;
 			?>
 			<span class="adm-select-wrap">
 				<select class="adm-select" id="sale-site-filter" name="F_SALE_SITE">
-					<? foreach($siteList as $kLID => $vSiteName): ?>
+					<?php  foreach($siteList as $kLID => $vSiteName): ?>
 					<option <?php
 								if ($kLID==$selected) echo 'selected="1"';
 								?>value="<?=htmlspecialcharsbx($kLID)?>"><?=htmlspecialcharsbx($vSiteName)?></option>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 				</select>
 			</span>
 		</div>
 	</div>
-	<? endif; ?>
+	<?php  endif; ?>
 
 
 
 	<div class="reports-title-label"><?=GetMessage('REPORT_PERIOD')?></div>
 
-	<?
+	<?php 
 	$_date_from = '';
 	$_date_to = '';
 	if ($arResult["preSettings"]["period"]['type'] == 'interval')
@@ -369,7 +369,7 @@ AAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent;
 
 			GLOBAL_REPORT_SELECT_COLUMN_COUNT = 0;
 
-		<? foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
+		<?php  foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
 				addSelectColumn(BX.findChild(
 						BX('reports-add_col-popup-cont'),
 						{tag:'input', attr:{type:'checkbox', name:'<?=CUtil::JSEscape($selElem['name'])?>'}}, true
@@ -379,23 +379,23 @@ AAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent;
 					<?=$num?>,
 					<?=($selElem['grouping']) ? 'true' : 'false'?>,
 					<?=($selElem['grouping_subtotal']) ? 'true' : 'false'?>);
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 
-		<? foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
-				<? if (strlen($selElem['prcnt'])): ?>
+		<?php  foreach ($arResult['preSettings']['select'] as $num => $selElem): ?>
+				<?php  if (strlen($selElem['prcnt'])): ?>
 					setPrcntView(<?=$num?>, '<?=CUtil::JSEscape($selElem['prcnt'])?>');
-					<? endif; ?>
-				<? endforeach; ?>
+					<?php  endif; ?>
+				<?php  endforeach; ?>
 
-		<? if (array_key_exists("sort", $arResult["preSettings"])): ?>
+		<?php  if (array_key_exists("sort", $arResult["preSettings"])): ?>
 				// add default sort
 				setSelectValue(BX('reports-sort-select'), '<?=CUtil::JSEscape($arResult["preSettings"]['sort'])?>');
-				<? endif; ?>
+				<?php  endif; ?>
 
-		<? if (array_key_exists("sort_type", $arResult["preSettings"])): ?>
+		<?php  if (array_key_exists("sort_type", $arResult["preSettings"])): ?>
 				// add default sort
 				setSelectValue(BX('reports-sort-type-select'), '<?=CUtil::JSEscape($arResult["preSettings"]['sort_type'])?>');
-				<? endif; ?>
+				<?php  endif; ?>
 
 			startSubFilterRestore();
 		});
@@ -449,18 +449,18 @@ AAAAElFTkSuQmCC") no-repeat scroll 0 0 transparent;
 			var GLOBAL_REPORT_GROUPING_COLUMNS_COUNT = 0;
 			var GLOBAL_PRE_FILTERS = null;
 
-			<? if (!empty($arResult["preSettings"]["filter"])): ?>
+			<?php  if (!empty($arResult["preSettings"]["filter"])): ?>
 				var GLOBAL_PRE_FILTERS = <?=CUtil::PhpToJSObject($arResult["preSettings"]["filter"])?>;
-			<? endif; ?>
+			<?php  endif; ?>
 
 			BX.ready(function() {
-				<? if (!empty($arResult["preSettings"]["limit"])): ?>
+				<?php  if (!empty($arResult["preSettings"]["limit"])): ?>
 				// add default limit
 				setReportLimit(true, '<?=$arResult["preSettings"]["limit"]?>');
-				<? endif; ?>
-				<? if ($arResult["preSettings"]["grouping_mode"] === true): ?>
+				<?php  endif; ?>
+				<?php  if ($arResult["preSettings"]["grouping_mode"] === true): ?>
 				enableReportLimit(false);
-				<? endif; ?>
+				<?php  endif; ?>
 			});
 
 		</script>
@@ -1009,24 +1009,24 @@ if (!is_array($refChooseParam) || empty($refChooseParam))
 
 <!-- select calc examples -->
 <div id="report-select-calc-examples" style="display: none">
-	<? foreach($arResult['calcVariations'] as $key => $values): ?>
+	<?php  foreach($arResult['calcVariations'] as $key => $values): ?>
 	<select id="report-select-calc-<?=$key?>" disabled>
-		<? foreach ($values as $v): ?>
+		<?php  foreach ($values as $v): ?>
 		<option value="<?=htmlspecialcharsbx($v)?>"><?=GetMessage('REPORT_SELECT_CALC_VAR_'.htmlspecialcharsbx($v))?></option>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</select>
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 </div>
 
 <!-- filter compare examples -->
 <div id="report-filter-compare-examples" style="display: none">
-	<? foreach($arResult['compareVariations'] as $key => $values): ?>
+	<?php  foreach($arResult['compareVariations'] as $key => $values): ?>
 	<select id="report-filter-compare-<?=htmlspecialcharsbx($key)?>" class="report-filter-compare-<?=htmlspecialcharsbx($key)?>">
-		<? foreach ($values as $v): ?>
+		<?php  foreach ($values as $v): ?>
 		<option value="<?=$v?>"><?=GetMessage('REPORT_FILTER_COMPARE_VAR_'.$v)?></option>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</select>
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 </div>
 
 <!-- filter value control examples -->

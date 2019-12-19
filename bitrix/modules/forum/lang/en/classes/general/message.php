@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AVTOR_PREF"] = "Author:";
 $MESS["F_ERR_FORUM_IS_LOST"] = "The forum is not found.";
 $MESS["F_ERR_EMPTY_FORUM_ID"] = "The forum is not specified.";

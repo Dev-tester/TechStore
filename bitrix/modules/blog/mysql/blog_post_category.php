@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/blog/general/blog_post_category.php");
 
 class CBlogPostCategory extends CAllBlogPostCategory

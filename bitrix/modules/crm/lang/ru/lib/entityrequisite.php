@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REQUISITE_ERR_INVALID_ENTITY_TYPE"] = "Некорректный тип сущности для реквизитов";
 $MESS["CRM_REQUISITE_ERR_INVALID_ENTITY_ID"] = "Не указана сущность для реквизитов";
 $MESS["CRM_REQUISITE_ERR_ON_DELETE"] = "Ошибка при удалении реквизитов";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_REPLICATOR_TASK_CREATED'] = 'Создана задача по расписанию';
 $MESS['TASKS_REPLICATOR_TASK_CREATED_WITH_ERRORS'] = 'Создана задача по расписанию, с ошибками';
 $MESS['TASKS_REPLICATOR_TASK_WAS_NOT_CREATED'] = 'Задача по расписанию не была создана';

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -84,19 +84,19 @@ foreach ($arResult['DEPARTMENTS_USERS_DATA']['DEPARTMENTS'] as $departmentId => 
 				{
 					ob_start(); ?>
 				<div class="timeman-grid-worktime timeman-grid-worktime-absence-block timeman-grid-cell-absence-<?= htmlspecialcharsbx($recordShiftplanData['ABSENCE_PART']) ?>">
-					<?
+					<?php 
 					if (empty($recordShiftplanData['WORKTIME_RECORD'])):?>
-						<div class="timeman-grid-worktime-inner" <? if ($recordShiftplanData['ABSENCE_HINT']): ?>
+						<div class="timeman-grid-worktime-inner" <?php  if ($recordShiftplanData['ABSENCE_HINT']): ?>
 							data-hint-no-icon data-hint="<?php echo htmlspecialcharsbx($recordShiftplanData['ABSENCE_HINT']) ?>"
-						<? endif; ?>
+						<?php  endif; ?>
 						>
 								<span class="timeman-grid-worktime-absence-desc"><?=
 									htmlspecialcharsbx(isset($recordShiftplanData['ABSENCE_TITLE']) ? $recordShiftplanData['ABSENCE_TITLE'] : '')
 									?></span>
 						</div>
-						</div><? // end of absence-block
+						</div><?php  // end of absence-block
 						?>
-					<? endif;
+					<?php  endif;
 					$itemHtml .= ob_get_clean();
 				}
 

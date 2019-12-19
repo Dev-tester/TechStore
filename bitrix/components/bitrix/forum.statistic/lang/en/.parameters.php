@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_URL_TEMPLATES"] = "URLs processing";
 $MESS["F_DEFAULT_TID"] = "Topic ID";
 $MESS["F_DEFAULT_FID"] = "Forum ID";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_TIP"] = "Search";
 $MESS["TAGS_TIP"] = "Tag";
 $MESS["SORT_TIP"] = "Select here the tag sort mode: by name or by views.";

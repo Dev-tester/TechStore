@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 $renderLog = function($log) use ($arResult)
 {
@@ -11,9 +11,9 @@ $renderLog = function($log) use ($arResult)
 		<div class="crm-task-list-mail-item crm-activity-email-logitem-<?=intval($item['ID']) ?>"
 			data-id="<?=intval($item['ID']) ?>" data-log="<?=htmlspecialcharsbx($log) ?>">
 			<span class="crm-task-list-mail-item-icon-reply-<?=($item['DIRECTION'] == \CCrmActivityDirection::Incoming ? 'incoming' : 'coming') ?>"></span>
-			<span class="crm-task-list-mail-item-icon <? if ($item['COMPLETED'] != 'Y'): ?>active-mail<? endif ?>"></span>
+			<span class="crm-task-list-mail-item-icon <?php  if ($item['COMPLETED'] != 'Y'): ?>active-mail<?php  endif ?>"></span>
 			<span class="crm-task-list-mail-item-user"
-				<? if (!empty($item['LOG_IMAGE'])): ?>style="background: url('<?=htmlspecialcharsbx($item['LOG_IMAGE']) ?>'); background-size: 23px 23px; "<? endif ?>>
+				<?php  if (!empty($item['LOG_IMAGE'])): ?>style="background: url('<?=htmlspecialcharsbx($item['LOG_IMAGE']) ?>'); background-size: 23px 23px; "<?php  endif ?>>
 				</span>
 			<span class="crm-task-list-mail-item-name"><?=htmlspecialcharsbx($item['LOG_TITLE']) ?></span>
 			<span class="crm-task-list-mail-item-description"><?=htmlspecialcharsbx($item['SUBJECT']) ?></span>
@@ -23,7 +23,7 @@ $renderLog = function($log) use ($arResult)
 			style="display: none; text-align: center; " data-empty="1">
 			<div class="crm-task-list-mail-item-loading"></div>
 		</div>
-		<?
+		<?php 
 	}
 };
 
@@ -34,15 +34,15 @@ $arParams['ACTIVITY']['DESCRIPTION_HTML'] = $arParams['~ACTIVITY']['DESCRIPTION_
 <div class="crm-task-list-mail">
 
 	<div class="crm-task-list-mail-item-separator"
-		style="margin-bottom: 1px; <? if (count($arResult['LOG']['A']) < $arParams['PAGE_SIZE']): ?> display: none; <? endif ?>">
+		style="margin-bottom: 1px; <?php  if (count($arResult['LOG']['A']) < $arParams['PAGE_SIZE']): ?> display: none; <?php  endif ?>">
 		<a class="crm-task-list-mail-more crm-task-list-mail-more-a" href="#"><?=getMessage('CRM_ACT_EMAIL_HISTORY_MORE') ?></a>
 	</div>
 
-	<? $renderLog('A'); ?>
+	<?php  $renderLog('A'); ?>
 
 	<div style="display: none; "></div>
 	<div class="crm-task-list-mail-item-inner crm-task-list-mail-border-bottom" id="crm-activity-email-details-<?=intval($arParams['ACTIVITY']['ID']) ?>">
-		<? $APPLICATION->includeComponent(
+		<?php  $APPLICATION->includeComponent(
 			'bitrix:crm.activity.email.body', '',
 			array('ACTIVITY' => $arParams['ACTIVITY']),
 			false,
@@ -50,10 +50,10 @@ $arParams['ACTIVITY']['DESCRIPTION_HTML'] = $arParams['~ACTIVITY']['DESCRIPTION_
 		); ?>
 	</div>
 
-	<? $renderLog('B'); ?>
+	<?php  $renderLog('B'); ?>
 
 	<div class="crm-task-list-mail-item-separator"
-		style="margin-top: 1px; <? if (count($arResult['LOG']['B']) < $arParams['PAGE_SIZE']): ?> display: none; <? endif ?>">
+		style="margin-top: 1px; <?php  if (count($arResult['LOG']['B']) < $arParams['PAGE_SIZE']): ?> display: none; <?php  endif ?>">
 		<a class="crm-task-list-mail-more crm-task-list-mail-more-b" href="#"><?=getMessage('CRM_ACT_EMAIL_HISTORY_MORE') ?></a>
 	</div>
 </div>

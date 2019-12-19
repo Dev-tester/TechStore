@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/search/index.php");
 $APPLICATION->SetTitle(GetMessage("SEARCH_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:search.page",
 	"icons",
 	Array(
@@ -32,4 +32,4 @@ $APPLICATION->SetTitle(GetMessage("SEARCH_TITLE"));
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

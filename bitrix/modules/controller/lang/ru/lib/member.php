@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEMBER_ENTITY_ID_FIELD"] = "Идентификатор сайта";
 $MESS["MEMBER_ENTITY_MEMBER_ID_FIELD"] = "Уникальный код";
 $MESS["MEMBER_ENTITY_SECRET_ID_FIELD"] = "Разделяемый секрет";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_CATEGORY_DEPARTMENT_USER"] = "Employees";
 $MESS["SEARCH_BACK"] = "Back to list";
 $MESS["SEARCH_CATEGORY_USER"] = "EMPLOYEES";

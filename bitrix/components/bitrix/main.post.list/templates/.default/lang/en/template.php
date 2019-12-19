@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_C_VIEW2"] = "Previous comments";
 $MESS["B_B_MS_LINK"] = "Link";
 $MESS["BPC_MES_EDIT"] = "Edit";

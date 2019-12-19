@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_HBLOCK_DENIED"] = "Access denied";
 $MESS["TASK_DESC_HBLOCK_DENIED"] = "Access to highload information block was denied.";
 $MESS["TASK_NAME_HBLOCK_READ"] = "Read";

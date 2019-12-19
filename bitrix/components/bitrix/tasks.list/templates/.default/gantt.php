@@ -80,7 +80,7 @@ else
 
 
 ?>
-<?include('process.php');?>
+<?php include('process.php');?>
 
 <script type="text/javascript">
 BX.message({
@@ -362,7 +362,7 @@ BX.message({
 				worktime: "<?=$hours?>",
 				canDragTasks: <?= CUtil::PhpToJSObject($canDragTasks)?>,
 				oneGroupMode: <?=($currentGroupId > 0 ? "true" : "false")?>,
-				treeMode: <?
+				treeMode: <?php 
 				if ($arResult['VIEW_STATE']['SUBMODES']['VIEW_SUBMODE_WITH_SUBTASKS']['SELECTED'] === 'Y')
 					echo 'true';
 				else
@@ -526,21 +526,21 @@ BX.message({
 			}
 		);
 
-		<?// hellish hack, sorry for that?>
+		<?php // hellish hack, sorry for that?>
 		window.COMPANY_WORKTIME = {h: <?=intval($arResult['COMPANY_WORKTIME']['END']['H'])?>, m: <?=intval($arResult['COMPANY_WORKTIME']['END']['M'])?>};
 
 		var projects = [
-			<? $i = 0?>
-			<? foreach($arResult["GROUPS"] as $arGroup):?>
-				<? $i++ ?>
+			<?php  $i = 0?>
+			<?php  foreach($arResult["GROUPS"] as $arGroup):?>
+				<?php  $i++ ?>
 				{
 					id : <?=$arGroup["ID"]?>,
 					name : "<?=CUtil::JSEscape($arGroup["NAME"])?>",
 					opened : <?=CUtil::PhpToJSObject($arGroup["EXPANDED"])?>,
 					canCreateTasks: <?=CUtil::PhpToJSObject($arGroup["CAN_CREATE_TASKS"])?>,
 					canEditTasks: <?=CUtil::PhpToJSObject($arGroup["CAN_EDIT_TASKS"])?>
-				}<? if ($i != sizeof($arResult["GROUPS"])):?>,<?endif?>
-			<? endforeach?>
+				}<?php  if ($i != sizeof($arResult["GROUPS"])):?>,<?php endif?>
+			<?php  endforeach?>
 		];
 		ganttChart.addProjectsFromJSON(projects);
 
@@ -572,7 +572,7 @@ BX.message({
 
 		ganttChart.addTasksFromJSON(tasks);
 
-		<?
+		<?php 
 		$deps = array();
 		foreach($arResult["TASKS"] as $arTask)
 		{
@@ -668,7 +668,7 @@ BX.message({
 
 		<ul class="task-filter-extra-links">
 			<li><i class="task-list-to-excel"></i><a href="<?=($APPLICATION->GetCurPageParam("EXCEL=Y&ncc=1", array("PAGEN_".$arResult["NAV_PARAMS"]["PAGEN"], "SHOWALL_".$arResult["NAV_PARAMS"]["PAGEN"], "VIEW")))?>"><?php echo GetMessage("TASKS_EXPORT_EXCEL")?></a></li>
-			<li><i class="task-list-to-outlook"></i><a href="javascript:<?echo CIntranetUtils::GetStsSyncURL(array('LINK_URL' => $arParams['PATH_TO_TASKS']), 'tasks')?>"><?php echo GetMessage("TASKS_EXPORT_OUTLOOK")?></a></li>
+			<li><i class="task-list-to-outlook"></i><a href="javascript:<?php echo CIntranetUtils::GetStsSyncURL(array('LINK_URL' => $arParams['PATH_TO_TASKS']), 'tasks')?>"><?php echo GetMessage("TASKS_EXPORT_OUTLOOK")?></a></li>
 		</ul>
 	</div>
 </div>

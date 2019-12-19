@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEFAULT_SITE_NAME"] = "Сайт за умовчанням";
 $MESS["MAIN_OPT_DEF_LINKS"] = "[IMG]/images/icons/bullet_dot.gif[/IMG] [url=http://www.1c-bitrix.ua]Сайт нашої компанії[/url]
 

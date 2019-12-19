@@ -1,4 +1,4 @@
-<?
+<?php 
 $form_default_option = array(
 	"SHOW_TEMPLATE_PATH" => BX_PERSONAL_ROOT."/php_interface/include/form/form_show/",
 	"SHOW_RESULT_TEMPLATE_PATH" => BX_PERSONAL_ROOT."/php_interface/include/form/result_show/",

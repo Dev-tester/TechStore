@@ -8,7 +8,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 if (!\Bitrix\Crm\Settings\LeadSettings::isEnabled())
 {
 	CCrmComponentHelper::RegisterScriptLink('/bitrix/js/crm/common.js');
-	?><script><?=\Bitrix\Crm\Settings\LeadSettings::showCrmTypePopup();?></script><?
+	?><script><?=\Bitrix\Crm\Settings\LeadSettings::showCrmTypePopup();?></script><?php 
 }
 
 global $APPLICATION;
@@ -70,7 +70,7 @@ if($isSupervisor && isset($_REQUEST['super']))
 	$isSupervisor = strtoupper($_REQUEST['super']) === 'Y';
 }
 
-?><div class="bx-crm-view"><?
+?><div class="bx-crm-view"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.widget_panel',
 		'',

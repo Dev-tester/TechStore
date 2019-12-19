@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Tracking\Call;
 
 use Bitrix\Main\Loader;

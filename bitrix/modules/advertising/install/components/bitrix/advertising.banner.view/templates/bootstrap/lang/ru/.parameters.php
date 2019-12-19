@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADV_BS_PARAMETER_BACKGROUND'] = "Тип слайда";
 $MESS ['ADV_BS_PARAMETER_NO'] = "(не установлено)";
 $MESS ['ADV_BS_PARAMETER_BACKGROUND_IMAGE'] = "изображение";

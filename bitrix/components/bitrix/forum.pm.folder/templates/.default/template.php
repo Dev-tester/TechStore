@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -18,14 +18,14 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 <div style="float:right;">
@@ -34,7 +34,7 @@ endif;
 </div>
 <div class="forum-clear-float"></div>
 
-<?
+<?php 
 
 if (($arParams["mode"] == "new") || ($arParams["mode"] == "edit"))
 {
@@ -54,7 +54,7 @@ if (($arParams["mode"] == "new") || ($arParams["mode"] == "edit"))
 	</div>
 </div>
 </form>
-<?
+<?php 
 	return false;
 }
 ?>
@@ -66,7 +66,7 @@ if (($arParams["mode"] == "new") || ($arParams["mode"] == "edit"))
 	<div class="forum-header-title"><span><?=GetMessage("PM_PM")?></span></div>
 </div>
 
-<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?
+<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?php 
 	?>onsubmit="return Validate(this)" name="MESSAGES_<?=$iIndex?>" id="MESSAGES_<?=$iIndex?>">
 	<?=bitrix_sessid_post()?>
 <div class="forum-block-container">
@@ -81,7 +81,7 @@ if (($arParams["mode"] == "new") || ($arParams["mode"] == "edit"))
 				</tr>
 			</thead>
 			<tbody>
-<?
+<?php 
 $iCount = 0;
 for ($ii = 1; $ii <= $arResult["FORUM_SystemFolder"]; $ii++):
 	if ($arParams["version"] == 2 && $ii == 2)
@@ -95,25 +95,25 @@ for ($ii = 1; $ii <= $arResult["FORUM_SystemFolder"]; $ii++):
 					</td>
 					<td>
 						<?=$arResult["SYSTEM_FOLDER"][$ii]["cnt"]?>
-				<?
+				<?php 
 				if ($arResult["SYSTEM_FOLDER"][$ii]["CNT_NEW"] > 0):
 				?>
 						(<a href="<?=$arResult["SYSTEM_FOLDER"][$ii]["URL"]["FOLDER"]?>"><?=$arResult["SYSTEM_FOLDER"][$ii]["CNT_NEW"]?></a>)
-				<?
+				<?php 
 				endif;
 				?>
 					</td>
 					<td class="forum-last-column">
-						<input type="checkbox" name="FID[]" id="FID_<?=$ii?>" value="<?=$ii?>"  onclick="onClickCheckbox(this);" <?
+						<input type="checkbox" name="FID[]" id="FID_<?=$ii?>" value="<?=$ii?>"  onclick="onClickCheckbox(this);" <?php 
 				if (in_array($ii, $arResult["FID"])):
-						?> checked="checked" <?
+						?> checked="checked" <?php 
 				elseif (!empty($arResult["USER_FOLDER"])):
-/*						?> disabled="disabled" <?*/
+/*						?> disabled="disabled" <?php */
 				endif;
 						?> />
 					</td>
 				</tr>
-<?
+<?php 
 endfor;
 foreach ($arResult["USER_FOLDER"] as $res):
 	$iCount++;
@@ -126,23 +126,23 @@ foreach ($arResult["USER_FOLDER"] as $res):
 					</td>
 					<td class="forum-column-message">
 						<?=$res["CNT"]?>
-				<?
+				<?php 
 				if ($res["CNT_NEW"] > 0):
 				?>
 						(<a href="<?=$res["URL"]["FOLDER"]?>"><?=$res["CNT_NEW"]?></a>)
-				<?
+				<?php 
 				endif;
 				?>
 					</td>
 					<td class="forum-last-column forum-column-action">
-						<input type="checkbox" name="FID[]" id="FID_<?=$res["ID"]?>" value="<?=$res["ID"]?>"  onclick="onClickCheckbox(this);"<?
+						<input type="checkbox" name="FID[]" id="FID_<?=$res["ID"]?>" value="<?=$res["ID"]?>"  onclick="onClickCheckbox(this);"<?php 
 				if (in_array($res["ID"], $arResult["FID"])):
-						?> checked="checked" <?
+						?> checked="checked" <?php 
 				endif;
 						?> />
 					</td>
 				</tr>
-<?
+<?php 
 endforeach;
 ?>
 			</tbody>
@@ -153,11 +153,11 @@ endforeach;
 							<div class="forum-topics-moderate">
 								<select name="action" onclick="onClickSelect(this)">
 									<option value="remove"><?=GetMessage("F_REMOVE")?></option>
-								<?
+								<?php 
 								if (!empty($arResult["USER_FOLDER"])):
 								?>
 									<option value="delete"><?=GetMessage("F_DELETE")?></option>
-								<?
+								<?php 
 								endif;
 								?>
 								</select>&nbsp;<input type="submit" value="OK" onclick="" />
@@ -196,7 +196,7 @@ function onClickSelect(oObj)
 }
 </script>
 
-<?
+<?php 
 	// GetMessage("PM_FOLDER_ID_1");
 	// GetMessage("PM_FOLDER_ID_2");
 	// GetMessage("PM_FOLDER_ID_3");

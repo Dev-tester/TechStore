@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_YANDEX_ID_CHAT"] = "Channel ID (the ID to be passed on to a chat):";
 $MESS["IMCONNECTOR_COMPONENT_YANDEX_ACTIVATE"] = "Activate";
 $MESS["IMCONNECTOR_COMPONENT_YANDEX_FINAL_FORM_DESCRIPTION"] = "Yandex Chat has been connected to your Open Channel. To configure the connection, use your <a href=\"#URL#\" target=\"_blank\">Yandex Conversations profile</a>. Follow the configuration manual <a onclick=\"top.BX.Helper.show('#ID#');\" class=\"imconnector-field-box-link\">here</a>.";

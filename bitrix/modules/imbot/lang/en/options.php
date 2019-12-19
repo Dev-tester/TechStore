@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMBOT_TAB_SETTINGS"] = "Settings";
 $MESS["IMBOT_TAB_TITLE_SETTINGS_2"] = "Connection parameters";
 $MESS["IMBOT_ACCOUNT_ERROR_PUBLIC"] = "No correct public address specified.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)
 	die();
 
@@ -10,20 +10,20 @@ if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)
 if(count($arResult["INTERVALS"]) > 0):
 ?>
 <select name="<?=$arParams["SELECT_NAME"]?>" onchange="bxCalendarInterval.OnDateChange(this)">
-<?
+<?php 
 	foreach($arResult["INTERVALS"] as $k=>$v):
 ?>
-	<option value="<?=$k?>"<?if($arParams["~SELECT_VALUE"] == $k) echo ' selected="selected"'?>><?=$v?></option>
-<?
+	<option value="<?=$k?>"<?php if($arParams["~SELECT_VALUE"] == $k) echo ' selected="selected"'?>><?=$v?></option>
+<?php 
 	endforeach;
 ?>
 </select>
-<?
+<?php 
 endif;
 ?>
 <span class="bx-filter-br" style="display:none"></span>
-<span class="bx-filter-days" style="display:none"><input type="text" name="<?=$arParams["INPUT_NAME_DAYS"]?>" value="<?=$arParams["INPUT_VALUE_DAYS"]?>" class="filter-date-days" size="5" /> <?echo GetMessage("inerface_grid_days")?></span>
-<span class="bx-filter-from" style="display:none"><input type="text" name="<?=$arParams["INPUT_NAME_FROM"]?>" value="<?=$arParams["INPUT_VALUE_FROM"]?>" class="filter-date-interval"<?=$arParams["~INPUT_PARAMS"]?> /><?
+<span class="bx-filter-days" style="display:none"><input type="text" name="<?=$arParams["INPUT_NAME_DAYS"]?>" value="<?=$arParams["INPUT_VALUE_DAYS"]?>" class="filter-date-days" size="5" /> <?php echo GetMessage("inerface_grid_days")?></span>
+<span class="bx-filter-from" style="display:none"><input type="text" name="<?=$arParams["INPUT_NAME_FROM"]?>" value="<?=$arParams["INPUT_VALUE_FROM"]?>" class="filter-date-interval"<?=$arParams["~INPUT_PARAMS"]?> /><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.calendar",
 	"",
@@ -35,7 +35,7 @@ $APPLICATION->IncludeComponent(
 	),
 	$component,
 	array("HIDE_ICONS"=>true)
-);?></span><span class="bx-filter-hellip" style="display:none">&hellip;</span><span class="bx-filter-to" style="display:none"><input type="text" name="<?=$arParams["INPUT_NAME_TO"]?>" value="<?=$arParams["INPUT_VALUE_TO"]?>" class="filter-date-interval"<?=$arParams["~INPUT_PARAMS"]?> /><?
+);?></span><span class="bx-filter-hellip" style="display:none">&hellip;</span><span class="bx-filter-to" style="display:none"><input type="text" name="<?=$arParams["INPUT_NAME_TO"]?>" value="<?=$arParams["INPUT_VALUE_TO"]?>" class="filter-date-interval"<?=$arParams["~INPUT_PARAMS"]?> /><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.calendar",
 	"",

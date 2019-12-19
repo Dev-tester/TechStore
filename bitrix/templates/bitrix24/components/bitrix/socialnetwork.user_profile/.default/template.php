@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix vars
  * @global array $arResult
@@ -37,24 +37,24 @@ else
 	<div class="user-profile-block-wrap-l">
 		<table class="user-profile-img-wrap">
 			<tr>
-				<td><?if(is_array($arResult["User"]["PersonalPhotoFile"])):
+				<td><?php if(is_array($arResult["User"]["PersonalPhotoFile"])):
 						echo $arResult["User"]["PersonalPhotoImg"];
 					else:
-						?><span class="user-profile-img-default user-default-avatar"></span><?
+						?><span class="user-profile-img-default user-default-avatar"></span><?php 
 					endif
 				?></td>
 			</tr>
 		</table>
-		<?if (
+		<?php if (
 			$arUser["ACTIVITY_STATUS"] != "fired"
 			&& $arUser["ACTIVITY_STATUS"] != "invited"
 			&& $USER->GetID() != $arUser['ID']
 			&& !in_array($arUser["EXTERNAL_AUTH_ID"], \Bitrix\Socialnetwork\ComponentHelper::checkPredefinedAuthIdList(array('email')))
 		):
-			?><a class="webform-small-button webform-small-button-accept" href="javascript:void(0)" onclick="if (BX.IM) { BXIM.openMessenger(<?=$arUser['ID']?>); return false; } else { window.open('<?echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=GetMessage("SONET_SEND_MESSAGE")?></span><span class="webform-small-button-right"></span></a><br/><br/><?
+			?><a class="webform-small-button webform-small-button-accept" href="javascript:void(0)" onclick="if (BX.IM) { BXIM.openMessenger(<?=$arUser['ID']?>); return false; } else { window.open('<?php echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=GetMessage("SONET_SEND_MESSAGE")?></span><span class="webform-small-button-right"></span></a><br/><br/><?php 
 
 			if (!in_array($arUser["EXTERNAL_AUTH_ID"], \Bitrix\Socialnetwork\ComponentHelper::checkPredefinedAuthIdList(array('bot', 'imconnector')))):
-				?><a class="webform-small-button webform-small-button-blue webform-small-button-video" id="im-call-button" href="javascript:void(0)" onclick="if (BXIM) { BXIM.callTo(<?=$arUser['ID']?>); return false; }"><span class="webform-small-button-icon"></span><span><?=GetMessage("SONET_VIDEO_CALL")?></span></a><br/><br/><?
+				?><a class="webform-small-button webform-small-button-blue webform-small-button-video" id="im-call-button" href="javascript:void(0)" onclick="if (BXIM) { BXIM.callTo(<?=$arUser['ID']?>); return false; }"><span class="webform-small-button-icon"></span><span><?=GetMessage("SONET_VIDEO_CALL")?></span></a><br/><br/><?php 
 			endif;
 			?>
 			<script type="text/javascript">
@@ -65,10 +65,10 @@ else
 					}
 				});
 			</script>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 	<div class="user-profile-block-wrap-r">
-		<?
+		<?php 
 		if (
 			($arResult['CAN_EDIT_USER'] || $USER->GetID() == $arUser["ID"])
 			&& !in_array($arUser["EXTERNAL_AUTH_ID"], Array('imconnector', 'bot'))
@@ -80,22 +80,22 @@ else
 			<div class="user-profile-events-cont">
 				<a href="<?=htmlspecialcharsbx($arResult['Urls']['Edit']) ?>" class="user-profile-events-item user-profile-edit"><i></i><?=GetMessage("SONET_EDIT_PROFILE")?></a>
 
-			<? if ($arUser['ACTIVITY_STATUS'] == 'email') : ?>
+			<?php  if ($arUser['ACTIVITY_STATUS'] == 'email') : ?>
 
-					<? if (isModuleInstalled('bitrix24') && $USER->canDoOperation('edit_all_users')) : ?>
+					<?php  if (isModuleInstalled('bitrix24') && $USER->canDoOperation('edit_all_users')) : ?>
 						<a href="javascript:void(0)" onclick="socnetUserProfileObj.showExtranet2IntranetForm('<?=CUtil::JSEscape($arUser["ID"])?>', true); return false;"  class="user-profile-events-item user-profile-add-sub"><i></i><?=GetMessage("SONET_EXTRANET_TO_INTRANET_EMAIL")?></a>
-					<? endif; ?>
+					<?php  endif; ?>
 
-			<? else : ?>
+			<?php  else : ?>
 
-					<? if ($arUser["ACTIVITY_STATUS"] == "invited" && ($USER->CanDoOperation('bitrix24_invite') && CModule::IncludeModule('bitrix24') || !IsModuleInstalled("bitrix24") && $USER->CanDoOperation('edit_all_users'))):
+					<?php  if ($arUser["ACTIVITY_STATUS"] == "invited" && ($USER->CanDoOperation('bitrix24_invite') && CModule::IncludeModule('bitrix24') || !IsModuleInstalled("bitrix24") && $USER->CanDoOperation('edit_all_users'))):
 						?><a id="link" href="javascript:void(0)" class="user-profile-events-item  user-profile-add-sub" onclick="socnetUserProfileObj.reinvite('<?=CUtil::JSEscape($arUser["ID"])?>', '<?=($arUser["IS_EXTRANET"] ? "Y" : "N")?>', this);">
 							<i></i><?=GetMessage("SONET_REINVITE")?>
-						</a><?
+						</a><?php 
 					endif;
 
 					if ($USER->CanDoOperation("edit_all_users") && $USER->GetID() != $arUser['ID']):?>
-						<?
+						<?php 
 						if (
 							!$arResult["User"]["IS_EXTRANET"]
 							|| (
@@ -105,49 +105,49 @@ else
 						):
 						?>
 						<a href="javascript:void(0)" onclick="socnetUserProfileObj.changeUserActivity('<?=CUtil::JSEscape($arUser["ID"])?>', '<?=CUtil::JSEscape($userActive)?>');" class="user-profile-events-item user-profile-dismiss"><i></i>
-							<?if ($arUser["ACTIVITY_STATUS"] == "invited")
+							<?php if ($arUser["ACTIVITY_STATUS"] == "invited")
 								echo GetMessage('SONET_DELETE');
 							elseif ($arUser["ACTIVITY_STATUS"] == "fired")
 								echo GetMessage('SONET_RESTORE');
 							else
 								echo GetMessage('SONET_DEACTIVATE');?>
 						</a>
-						<?endif;?>
-					<?endif;?>
+						<?php endif;?>
+					<?php endif;?>
 
 					<!--extranet to intranet-->
-					<?if ($arUser["ACTIVITY_STATUS"] == "extranet" && IsModuleInstalled('bitrix24') && $USER->CanDoOperation("edit_all_users")):?>
+					<?php if ($arUser["ACTIVITY_STATUS"] == "extranet" && IsModuleInstalled('bitrix24') && $USER->CanDoOperation("edit_all_users")):?>
 						<a href="javascript:void(0)" onclick="socnetUserProfileObj.showExtranet2IntranetForm('<?=CUtil::JSEscape($arUser["ID"])?>'); return false;"  class="user-profile-events-item user-profile-add-sub"><i></i><?=GetMessage("SONET_EXTRANET_TO_INTRANET")?></a>
-					<?endif;?>
+					<?php endif;?>
 
 					<!-- security-->
-					<?if (
+					<?php if (
 						isset($arResult["Urls"]["Security"])
 						&& $arResult["User"]["OTP"]["IS_ENABLED"] !== "N"
 						&& $USER->GetID() == $arUser['ID']
 						&& !$arResult["User"]["OTP"]["IS_EXIST"]
 					):?>
 						<a href="<?=$arResult["Urls"]["Security"]?>" class="user-profile-events-item user-profile-security"><i></i><?=GetMessage("SONET_SECURITY")?></a>
-					<?endif;?>
+					<?php endif;?>
 
 					<!-- passwords-->
-					<?if (
+					<?php if (
 						isset($arResult["Urls"]["Passwords"])
 						&&  $USER->GetID() == $arUser['ID']
 					):?>
 						<a href="<?=$arResult["Urls"]["Passwords"]?>" class="user-profile-events-item user-profile-pass-app"><i></i><?=GetMessage("SONET_PASSWORDS")?></a>
-					<?endif;?>
+					<?php endif;?>
 
                     <!-- synchronisations-->
-                    <?if (
+                    <?php if (
                         isset($arResult["Urls"]["Synchronize"])
                         &&  $USER->GetID() == $arUser['ID']
                     ):?>
                         <a href="<?=$arResult["Urls"]["Synchronize"]?>" class="user-profile-events-item user-profile-sync-settings"><i></i><?=GetMessage("SONET_SYNCHRONIZE")?></a>
-                    <?endif;?>
+                    <?php endif;?>
 
 					<!-- codes -->
-					<?if (
+					<?php if (
 						isset($arResult["Urls"]["Codes"])
 						&& $arResult["User"]["OTP"]["IS_ENABLED"] !== "N"
 						&& $USER->GetID() == $arUser['ID']
@@ -155,18 +155,18 @@ else
 						&& $arResult["User"]["OTP"]["IS_ACTIVE"]
 					):?>
 						<a href="<?=$arResult["Urls"]["Codes"]?>" class="user-profile-events-item user-profile-codes"><i></i><?=GetMessage("SONET_OTP_CODES")?></a>
-					<?endif;?>
+					<?php endif;?>
 
-			<? endif; ?>
+			<?php  endif; ?>
 			</div>
 
-			<div class="user-profile-events-cont"><?
+			<div class="user-profile-events-cont"><?php 
 				if (
 					file_exists($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork.admin.set")
 					&& $arResult["SHOW_SONET_ADMIN"]
 
 				):
-					?><?
+					?><?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:socialnetwork.admin.set",
 						"",
@@ -176,11 +176,11 @@ else
 						$component,
 						array("HIDE_ICONS" => "Y")
 					);
-					?><a href="#" class="user-profile-events-item user-profile-adm-mode" onclick="__SASSetAdmin(); return false;"><i></i><?=GetMessage("SONET_SONET_ADMIN_ON")?></a><?
+					?><a href="#" class="user-profile-events-item user-profile-adm-mode" onclick="__SASSetAdmin(); return false;"><i></i><?=GetMessage("SONET_SONET_ADMIN_ON")?></a><?php 
 				endif;
 			?></div>
 		</div>
-		<?
+		<?php 
 		}
 
 		if(CModule::IncludeModule("socialnetwork") && CModule::IncludeModule("intranet"))
@@ -203,7 +203,7 @@ else
 			<col class="user-profile-block-col-2">
 			<tr>
 				<td class="user-profile-block-title" colspan="2"><?=GetMessage("SONET_CONTACT_TITLE")?></td>
-			</tr><?
+			</tr><?php 
 			if (is_array($arResult["UserFieldsContact"]["DATA"]))
 			{
 				foreach ($arResult["UserFieldsContact"]["DATA"] as $field => $arUserField)
@@ -215,7 +215,7 @@ else
 					{
 						?><tr>
 							<td class="user-profile-nowrap"><?=$arUserField["NAME"].":"?></td>
-							<td class="user-profile-nowrap-second"><?
+							<td class="user-profile-nowrap-second"><?php 
 								switch ($field)
 								{
 									case "PERSONAL_MOBILE":
@@ -234,7 +234,7 @@ else
 											{
 												?>
 												<span class="sonet_call_btn" onclick="BXIM.phoneTo('<?=CUtil::JSEscape($arResult["User"][$field])?>');"></span>
-												<?
+												<?php 
 											}
 										}
 										break;
@@ -242,7 +242,7 @@ else
 										echo $arUserField["VALUE"];
 								}
 							?></td>
-						</tr><?
+						</tr><?php 
 					}
 				}
 			}
@@ -258,7 +258,7 @@ else
 					{
 						?><tr>
 							<td class="user-profile-nowrap"><?=$arUserField["EDIT_FORM_LABEL"].":"?></td>
-							<td class="user-profile-nowrap"><?
+							<td class="user-profile-nowrap"><?php 
 								$value = htmlspecialcharsbx($arUserField["VALUE"]);
 								switch ($field)
 								{
@@ -267,12 +267,12 @@ else
 									case "UF_XING":
 										$href = (!preg_match('#^https?://#i', trim($value)) ? 'http://' : '').trim($value); ?>
 										<a href="<?=$href?>"><?=$value?></a>
-										<?break;
+										<?php break;
 									case "UF_TWITTER":?>
-										<a href="http://twitter.com/<?=$value?>"><?=$value?></a><?
+										<a href="http://twitter.com/<?=$value?>"><?=$value?></a><?php 
 										break;
 									case "UF_SKYPE":?>
-										<a href="callto:<?=$value?>"><?=$value?></a><?
+										<a href="callto:<?=$value?>"><?=$value?></a><?php 
 										break;
 									default:
 										$GLOBALS["APPLICATION"]->IncludeComponent(
@@ -284,13 +284,13 @@ else
 										);
 								}
 							?></td>
-						</tr><?
+						</tr><?php 
 					}
 				}
 			}
 			?>
 <!--otp-->
-			<?
+			<?php 
 			if (
 				$arResult["User"]["OTP"]["IS_ENABLED"] !== "N"
 				&&
@@ -310,53 +310,53 @@ else
 				</tr>
 				<tr>
 					<td class="user-profile-nowrap"><?=GetMessage("SONET_OTP_AUTH")?></td>
-					<td><?
+					<td><?php 
 						if ($arResult["User"]["OTP"]["IS_ACTIVE"])
 						{
 							?>
 								<span class="user-profile-otp-on" style="margin-right: 15px"><?=GetMessage("SONET_OTP_ACTIVE")?></span>
 
-								<?if ($USER->CanDoOperation('security_edit_user_otp') || !$arResult["User"]["OTP"]["IS_MANDATORY"]):?>
+								<?php if ($USER->CanDoOperation('security_edit_user_otp') || !$arResult["User"]["OTP"]["IS_MANDATORY"]):?>
 									<a class="user-profile-otp-link-blue" href="javascript:void(0)" onclick="socnetUserProfileObj.showOtpDaysPopup(this, '<?=CUtil::JSEscape($arResult["User"]["ID"])?>', 'deactivate')"><?=GetMessage("SONET_OTP_DEACTIVATE")?></a>
-								<?endif?>
+								<?php endif?>
 
-								<?if ($USER->GetID() == $arResult["User"]["ID"]):?>
+								<?php if ($USER->GetID() == $arResult["User"]["ID"]):?>
 									<a class="user-profile-otp-link-blue" href="<?=$arResult["Urls"]["Security"]?>"><?=GetMessage("SONET_OTP_CHANGE_PHONE")?></a>
-								<?endif?>
-							<?
+								<?php endif?>
+							<?php 
 						}
 						elseif (
 							!$arResult["User"]["OTP"]["IS_ACTIVE"]
 							&& $arResult["User"]["OTP"]["IS_MANDATORY"]
 						)
 						{
-							?><span class="user-profile-otp-off" style="margin-right: 15px"><?=($arResult["User"]["OTP"]["IS_EXIST"]) ? GetMessage("SONET_OTP_NOT_ACTIVE") : GetMessage("SONET_OTP_NOT_EXIST")?></span><?
+							?><span class="user-profile-otp-off" style="margin-right: 15px"><?=($arResult["User"]["OTP"]["IS_EXIST"]) ? GetMessage("SONET_OTP_NOT_ACTIVE") : GetMessage("SONET_OTP_NOT_EXIST")?></span><?php 
 
 							if ($arResult["User"]["OTP"]["IS_EXIST"])
 							{
-								?><a class="user-profile-otp-link-blue" href="javascript:void(0)" onclick="socnetUserProfileObj.activateUserOtp('<?=CUtil::JSEscape($arResult["User"]["ID"])?>')"><?=GetMessage("SONET_OTP_ACTIVATE")?></a><?
+								?><a class="user-profile-otp-link-blue" href="javascript:void(0)" onclick="socnetUserProfileObj.activateUserOtp('<?=CUtil::JSEscape($arResult["User"]["ID"])?>')"><?=GetMessage("SONET_OTP_ACTIVATE")?></a><?php 
 								if ($USER->GetID() == $arResult["User"]["ID"])
 								{
-									?><a class="user-profile-otp-link-blue" href="<?=$arResult["Urls"]["Security"]?>"><?=GetMessage("SONET_OTP_CHANGE_PHONE")?></a><?
+									?><a class="user-profile-otp-link-blue" href="<?=$arResult["Urls"]["Security"]?>"><?=GetMessage("SONET_OTP_CHANGE_PHONE")?></a><?php 
 								}
 							}
 							else
 							{
 								if ($USER->GetID() == $arResult["User"]["ID"])
 								{
-									?><a class="user-profile-otp-link-blue" href="<?=$arResult["Urls"]["Security"]?>"><?=GetMessage("SONET_OTP_SETUP")?></a><?
+									?><a class="user-profile-otp-link-blue" href="<?=$arResult["Urls"]["Security"]?>"><?=GetMessage("SONET_OTP_SETUP")?></a><?php 
 								}
 								else
 								{
-									?><a class="user-profile-otp-link-blue" href="javascript:void(0)" onclick="socnetUserProfileObj.showOtpDaysPopup(this, '<?=CUtil::JSEscape($arResult["User"]["ID"])?>', 'defer')"><?
-										?><?=GetMessage("SONET_OTP_PROROGUE")?><?
-									?></a><?
+									?><a class="user-profile-otp-link-blue" href="javascript:void(0)" onclick="socnetUserProfileObj.showOtpDaysPopup(this, '<?=CUtil::JSEscape($arResult["User"]["ID"])?>', 'defer')"><?php 
+										?><?=GetMessage("SONET_OTP_PROROGUE")?><?php 
+									?></a><?php 
 								}
 							}
 
 							if ($arResult["User"]["OTP"]["NUM_LEFT_DAYS"])
 							{
-								?><span class="user-profile-otp-days"><?=GetMessage("SONET_OTP_LEFT_DAYS", array("#NUM#" => "<strong>".$arResult["User"]["OTP"]["NUM_LEFT_DAYS"]."</strong>"))?></span><?
+								?><span class="user-profile-otp-days"><?=GetMessage("SONET_OTP_LEFT_DAYS", array("#NUM#" => "<strong>".$arResult["User"]["OTP"]["NUM_LEFT_DAYS"]."</strong>"))?></span><?php 
 							}
 						}
 						elseif (
@@ -366,20 +366,20 @@ else
 						)
 						{
 							?><span class="user-profile-otp-off" style="margin-right: 15px"><?=GetMessage("SONET_OTP_NOT_ACTIVE")?></span>
-							<a class="user-profile-otp-link-blue" href="javascript:void(0)" onclick="socnetUserProfileObj.activateUserOtp('<?=CUtil::JSEscape($arResult["User"]["ID"])?>')"><?=GetMessage("SONET_OTP_ACTIVATE")?></a><?
+							<a class="user-profile-otp-link-blue" href="javascript:void(0)" onclick="socnetUserProfileObj.activateUserOtp('<?=CUtil::JSEscape($arResult["User"]["ID"])?>')"><?=GetMessage("SONET_OTP_ACTIVATE")?></a><?php 
 							if ($USER->GetID() == $arResult["User"]["ID"])
 							{
-								?><a class="user-profile-otp-link-blue" href="<?=$arResult["Urls"]["Security"]?>"><?=GetMessage("SONET_OTP_CHANGE_PHONE")?></a><?
+								?><a class="user-profile-otp-link-blue" href="<?=$arResult["Urls"]["Security"]?>"><?=GetMessage("SONET_OTP_CHANGE_PHONE")?></a><?php 
 							}
 
 							if ($arResult["User"]["OTP"]["NUM_LEFT_DAYS"])
 							{
-								?><span class="user-profile-otp-days"><?=GetMessage("SONET_OTP_LEFT_DAYS", array("#NUM#" => "<strong>".$arResult["User"]["OTP"]["NUM_LEFT_DAYS"]."</strong>"))?></span><?
+								?><span class="user-profile-otp-days"><?=GetMessage("SONET_OTP_LEFT_DAYS", array("#NUM#" => "<strong>".$arResult["User"]["OTP"]["NUM_LEFT_DAYS"]."</strong>"))?></span><?php 
 							}
 						}
 					?></td>
 				</tr>
-				<!-- passwords --><?
+				<!-- passwords --><?php 
 				if ($USER->GetID() == $arResult["User"]["ID"])
 				{
 					?><tr>
@@ -387,9 +387,9 @@ else
 						<td>
 							<a href="<?=$arResult["Urls"]["Passwords"]?>"><?=GetMessage("SONET_PASSWORDS_SETTINGS")?></a>
 						</td>
-					</tr><?
+					</tr><?php 
 				}
-				?><!-- codes --><?
+				?><!-- codes --><?php 
 				if (
 					$USER->GetID() == $arResult["User"]["ID"]
 					&& $arResult["User"]["OTP"]["IS_ACTIVE"]
@@ -401,8 +401,8 @@ else
 						<td>
 							<a href="<?=$arResult["Urls"]["Codes"]?>"><?=GetMessage("SONET_OTP_CODES_SHOW")?></a>
 						</td>
-					</tr><?
-					?><tr><td><br/><br/></td></tr><?
+					</tr><?php 
+					?><tr><td><br/><br/></td></tr><?php 
 				}
 			}
 			?>
@@ -410,26 +410,26 @@ else
 			<tr>
 				<td class="user-profile-block-title" colspan="2"><?=GetMessage("SONET_COMMON_TITLE")?></td>
 			</tr>
-			<?
+			<?php 
 
 				?><tr >
 					<td class="user-profile-nowrap""><?=GetMessage("SONET_USER_STATUS").":"?></td>
 					<td>
-						<? $onlineStatus = CUser::GetOnlineStatus($arUser['ID'], MakeTimeStamp($arUser["LAST_ACTIVITY_DATE"], "YYYY-MM-DD HH-MI-SS")); ?>
-						<span class="user-profile-status-icon user-profile-status-icon-<?=$onlineStatus['STATUS']?>"><?=$onlineStatus['STATUS_TEXT']?></span><?
+						<?php  $onlineStatus = CUser::GetOnlineStatus($arUser['ID'], MakeTimeStamp($arUser["LAST_ACTIVITY_DATE"], "YYYY-MM-DD HH-MI-SS")); ?>
+						<span class="user-profile-status-icon user-profile-status-icon-<?=$onlineStatus['STATUS']?>"><?=$onlineStatus['STATUS_TEXT']?></span><?php 
 						if($onlineStatus['STATUS'] == 'idle'):
 							echo ($onlineStatus['LAST_SEEN_TEXT']? ", ".GetMessage('SONET_LAST_SEEN_IDLE_'.($arUser["PERSONAL_GENDER"] == 'F'? 'F': 'M'), Array('#LAST_SEEN#' => $onlineStatus['LAST_SEEN_TEXT'])): '');
 						else:
 							echo ($onlineStatus['LAST_SEEN_TEXT']? ", ".GetMessage('SONET_LAST_SEEN_'.($arUser["PERSONAL_GENDER"] == 'F'? 'F': 'M'), Array('#LAST_SEEN#' => $onlineStatus['LAST_SEEN_TEXT'])): '');
 						endif;
 						?>
-						<?if (!in_array($arUser['ACTIVITY_STATUS'], array('active', 'email'))):?>
+						<?php if (!in_array($arUser['ACTIVITY_STATUS'], array('active', 'email'))):?>
 							<div class="user-activity-status">
 								<span class="employee-dept-post employee-dept-<?=$arUser["ACTIVITY_STATUS"]?>"><?=GetMessage("SONET_USER_".$arUser["ACTIVITY_STATUS"])?></span>
 							</div>
-						<?endif;?>
+						<?php endif;?>
 					</td>
-				</tr><?
+				</tr><?php 
 			
 			if (is_array($arResult["UserFieldsMain"]["DATA"]))
 			{
@@ -447,7 +447,7 @@ else
 						?><tr>
 							<td class="user-profile-nowrap"><?=$arUserField["NAME"].":"?></td>
 							<td><?=$arUserField["VALUE"];?></td>
-						</tr><?
+						</tr><?php 
 					}
 				}
 			}
@@ -472,7 +472,7 @@ else
 					{
 						?><tr>
 							<td class="user-profile-nowrap"><?=$arUserField["EDIT_FORM_LABEL"].":"?></td>
-							<td><?
+							<td><?php 
 								$bInChain = ($field == "UF_DEPARTMENT" ? "Y" : "N");
 								$GLOBALS["APPLICATION"]->IncludeComponent(
 									"bitrix:system.field.view",
@@ -482,7 +482,7 @@ else
 									array("HIDE_ICONS"=>"Y")
 								);
 							?></td>
-						</tr><?
+						</tr><?php 
 					}
 				}
 			}
@@ -491,34 +491,34 @@ else
 			{
 				?><tr>
 					<td class="user-profile-nowrap"><?=GetMessage("SONET_MANAGERS").":"?></td>
-					<td><?
+					<td><?php 
 						$bFirst = true;
 						foreach ($arResult['MANAGERS'] as $id => $sub_user)
 						{
 							if (!$bFirst) echo ', '; else $bFirst = false;
 							$name = CUser::FormatName($arParams['NAME_TEMPLATE'], $sub_user, true, false);
-							?><a class="user-profile-link" href="<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"]))?>"><?=$name?></a><?
-							if (strlen($sub_user["WORK_POSITION"]) > 0) echo " (".$sub_user["WORK_POSITION"].")";?><?
+							?><a class="user-profile-link" href="<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"]))?>"><?=$name?></a><?php 
+							if (strlen($sub_user["WORK_POSITION"]) > 0) echo " (".$sub_user["WORK_POSITION"].")";?><?php 
 						}
 					?></td>
-				</tr><?
+				</tr><?php 
 			}
 
 			if (is_array($arResult['SUBORDINATE']) && count($arResult['SUBORDINATE'])>0)
 			{
 				?><tr>
 					<td class="user-profile-nowrap"><?=GetMessage("SONET_SUBORDINATE").":"?></td>
-					<td><?
+					<td><?php 
 						$bFirst = true;
 						foreach ($arResult['SUBORDINATE'] as $id => $sub_user)
 						{
 							if (!$bFirst) echo ', '; else $bFirst = false;
 							$name = CUser::FormatName($arParams['NAME_TEMPLATE'], $sub_user, true, false);
-							?><a class="user-profile-link" href="<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"]))?>"><?=$name?></a><?
-							if (strlen($sub_user["WORK_POSITION"]) > 0) echo " (".$sub_user["WORK_POSITION"].")";?><?
+							?><a class="user-profile-link" href="<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"]))?>"><?=$name?></a><?php 
+							if (strlen($sub_user["WORK_POSITION"]) > 0) echo " (".$sub_user["WORK_POSITION"].")";?><?php 
 						}
 					?></td>
-				</tr><?
+				</tr><?php 
 			}
 
 			if (!empty($arResult["User"]["EMAIL_FORWARD_TO"]))
@@ -528,7 +528,7 @@ else
 						<?=GetMessage("SONET_EMAIL_FORWARD_TO")?>
 						<span class="user-profile-email-help" id="user-profile-email-help" data-text="<?=htmlspecialcharsbx(GetMessage("SONET_EMAIL_FORWARD_TO_HINT"))?>">?</span>
 					</td>
-				</tr><?
+				</tr><?php 
 				if (!empty($arResult["User"]["EMAIL_FORWARD_TO"]['BLOG_POST']))
 				{
 					?><tr>
@@ -540,7 +540,7 @@ else
 								<span onclick="socnetUserProfileObj.showLink(this);" class="user-profile-link user-profile-show-link-btn"><?=GetMessage("SONET_EMAIL_FORWARD_TO_SHOW")?></span>
 							</div>
 						</td>
-					</tr><?
+					</tr><?php 
 				}
 				if (!empty($arResult["User"]["EMAIL_FORWARD_TO"]['TASKS_TASK']))
 				{
@@ -553,7 +553,7 @@ else
 							<span onclick="socnetUserProfileObj.showLink(this);" class="user-profile-link user-profile-show-link-btn"><?=GetMessage("SONET_EMAIL_FORWARD_TO_SHOW")?></span>
 						</div>
 					</td>
-					</tr><?
+					</tr><?php 
 				}
 			}
 
@@ -614,8 +614,8 @@ else
 			{
 				?><tr>
 					<td class="user-profile-block-title" colspan="2"><?=GetMessage("SONET_ADDITIONAL_TITLE")?></td>
-				</tr><?
-				?><?=$additional?><?
+				</tr><?php 
+				?><?=$additional?><?php 
 			}
 
 			if(
@@ -631,7 +631,7 @@ else
 				</tr>
 				<tr>
 					<td colspan="2">
-<?
+<?php 
 				$APPLICATION->IncludeComponent(
 					'bitrix:socserv.contacts',
 					'',
@@ -644,12 +644,12 @@ else
 ?>
 					</td>
 				</tr>
-<?
+<?php 
 			}
 
 		?></table>
 	</div>
-</div><?
+</div><?php 
 
 if ($arUser["ACTIVITY_STATUS"] == "fired")
 {

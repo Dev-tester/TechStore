@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_PERCENT'] = "Percent";
 $MESS ['STAT_PAGE_TITLE'] = "Advertising campaign comparative analysis";
 $MESS ['STAT_F_SELECT_ADV'] = "Advertising campaigns";

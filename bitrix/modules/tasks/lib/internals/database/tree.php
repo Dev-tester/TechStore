@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Closure table tree implementation
  * 

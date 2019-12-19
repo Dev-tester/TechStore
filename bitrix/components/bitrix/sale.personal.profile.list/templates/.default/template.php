@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -11,7 +11,7 @@ if(strlen($arResult["NAV_STRING"]) > 0)
 {
 	?>
 	<p><?=$arResult["NAV_STRING"]?></p>
-	<?
+	<?php 
 }
 
 if (is_array($arResult["PROFILES"]) && !empty($arResult["PROFILES"]))
@@ -19,7 +19,7 @@ if (is_array($arResult["PROFILES"]) && !empty($arResult["PROFILES"]))
 	?>
 	<table class="table sale-personal-profile-list-container">
 		<tr>
-			<?
+			<?php 
 			$dataColumns = array(
 				"ID", "DATE_UPDATE", "NAME", "PERSON_TYPE_ID"
 			);
@@ -35,12 +35,12 @@ if (is_array($arResult["PROFILES"]) && !empty($arResult["PROFILES"]))
 						<i class="fa fa-chevron-down"></i>
 					</a>
 				</th>
-				<?
+				<?php 
 			}
 			?>
 			<th><?=Loc::getMessage("SALE_ACTION")?></th>
 		</tr>
-		<?foreach($arResult["PROFILES"] as $val)
+		<?php foreach($arResult["PROFILES"] as $val)
 		{
 			?>
 			<tr>
@@ -59,21 +59,21 @@ if (is_array($arResult["PROFILES"]) && !empty($arResult["PROFILES"]))
 					</a>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}?>
 	</table>
-	<?
+	<?php 
 	if(strlen($arResult["NAV_STRING"]) > 0)
 	{
 		?>
 		<p><?=$arResult["NAV_STRING"]?></p>
-		<?
+		<?php 
 	}
 }
 elseif ($arResult['USER_IS_NOT_AUTHORIZED'] !== 'Y')
 {
 	?>
 	<h3><?=Loc::getMessage("STPPL_EMPTY_PROFILE_LIST") ?></h3>
-	<?
+	<?php 
 }
 ?>

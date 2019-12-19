@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -79,7 +79,7 @@ foreach ($arGroups as $group)
 <input type="hidden" name="lang" value="<?= LANGUAGE_ID?>">
 <?= bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "stickers_settings", "TAB" => GetMessage("FM_ST_SETTINGS"), "ICON" => "fileman", "TITLE" => GetMessage("FM_ST_SETTINGS_TITLE")),
 	array("DIV" => "stickers_access", "TAB" => GetMessage("FM_ST_ACCESS"), "ICON" => "fileman", "TITLE" => GetMessage("FM_ST_ACCESS_TITLE")),
@@ -90,13 +90,13 @@ $tabControl->Begin();
 ?>
 
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 <tr>
 	<td colspan="2">
 		<table>
 		<tr>
 			<td class="adm-detail-content-cell-l" width="40%">
-				<input type="checkbox" name="set_hide_bottom" id="set_hide_bottom" value="Y" <? if (COption::GetOptionString("fileman", "stickers_hide_bottom", "Y") == "Y") {echo "checked";}?>/>
+				<input type="checkbox" name="set_hide_bottom" id="set_hide_bottom" value="Y" <?php  if (COption::GetOptionString("fileman", "stickers_hide_bottom", "Y") == "Y") {echo "checked";}?>/>
 			</td>
 			<td class="adm-detail-content-cell-r" width="60%"><label for="set_hide_bottom"><?= GetMessage('FM_ST_SET_HIDE_BOTTOM')?></label></td>
 		</tr>
@@ -114,18 +114,18 @@ $tabControl->Begin();
 		</tr>
 		<tr>
 			<td class="adm-detail-content-cell-l">
-				<input type="checkbox" name="use_hotkeys" id="use_hotkeys" value="Y" <?if(COption::GetOptionString("fileman", "stickers_use_hotkeys", "Y") == "Y"){echo "checked";}?>/>
+				<input type="checkbox" name="use_hotkeys" id="use_hotkeys" value="Y" <?php if(COption::GetOptionString("fileman", "stickers_use_hotkeys", "Y") == "Y"){echo "checked";}?>/>
 			</td>
 			<td class="adm-detail-content-cell-r"><label for="use_hotkeys"><?= GetMessage('FM_ST_USE_HOTKEYS')?></label></td>
 		</tr>
 		<tr>
 			<td class="adm-detail-content-cell-l"><label for="set_sizes"><?= GetMessage('FM_ST_SET_SIZES')?>:</label></td>
 			<td class="adm-detail-content-cell-r">
-				<?$size = COption::GetOptionString("fileman", "stickers_start_sizes", "350_200");?>
+				<?php $size = COption::GetOptionString("fileman", "stickers_start_sizes", "350_200");?>
 				<select name="set_sizes" id="set_sizes">
-					<option value="280_160" <? if ($size == "280_160") {echo "selected";}?>>280 x 160</option>
-					<option value="350_200" <? if ($size == "350_200") {echo "selected";}?>>350 x 200</option>
-					<option value="400_250" <? if ($size == "400_250") {echo "selected";}?>>400 x 250</option>
+					<option value="280_160" <?php  if ($size == "280_160") {echo "selected";}?>>280 x 160</option>
+					<option value="350_200" <?php  if ($size == "350_200") {echo "selected";}?>>350 x 200</option>
+					<option value="400_250" <?php  if ($size == "400_250") {echo "selected";}?>>400 x 250</option>
 				</select>
 			</td>
 		</tr>
@@ -138,7 +138,7 @@ $tabControl->Begin();
 		</table>
 	</td>
 </tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
 <tr>
 	<td colspan="2">
@@ -168,26 +168,26 @@ $tabControl->Begin();
 			<td class="field-name" width="50%"><label for="st_default_access"><b><?= GetMessage('FM_ST_ACCESS_DEFAULT')?>:</b></label></td>
 			<td  width="50%">
 				<select name="st_default_access" id="st_default_access">
-				<?foreach ($arTasks as $id => $task):?>
-					<option value="<?= $id?>" <? if($id == $defaultAccess){echo 'selected';}?>>
-					<? echo(strlen($task['letter']) > 0 ? '['.$task['letter'].'] ' : '').$task['title']; ?></option>
-				<?endforeach;?>
+				<?php foreach ($arTasks as $id => $task):?>
+					<option value="<?= $id?>" <?php  if($id == $defaultAccess){echo 'selected';}?>>
+					<?php  echo(strlen($task['letter']) > 0 ? '['.$task['letter'].'] ' : '').$task['title']; ?></option>
+				<?php endforeach;?>
 				</select></td>
 		</tr>
 
-		<?foreach($arTaskPerm as $group_id => $task_id):?>
+		<?php foreach($arTaskPerm as $group_id => $task_id):?>
 		<tr>
 			<td class="field-name" width="50%"><label for="TASKS_<?= $group_id?>"><?= htmlspecialcharsex($arGroupIndex[$group_id])." [<a title=\"".GetMessage("FM_ST_EDIT_GROUP_TITLE")."\" href=\"/bitrix/admin/group_edit.php?ID=".$group_id."&amp;lang=".LANGUAGE_ID."\">".$group_id."</a>]"?>:</label></td>
 			<td  width="50%">
 				<select name="TASKS_<?= $group_id?>" id="TASKS_<?= $group_id?>">
 					<option value="">&lt;  <?= GetMessage('FM_ST_ACCESS_DEFAULT')?> &gt;</option>
-					<?foreach ($arTasks as $id => $task):?>
-						<option value="<?= $id?>" <?if ($task_id == $id){ echo" selected";}?>><?= htmlspecialcharsex((strlen($task['letter']) > 0 ? '['.$task['letter'].'] ' : '').$task['title'])?></option>
-					<?endforeach;?>
+					<?php foreach ($arTasks as $id => $task):?>
+						<option value="<?= $id?>" <?php if ($task_id == $id){ echo" selected";}?>><?= htmlspecialcharsex((strlen($task['letter']) > 0 ? '['.$task['letter'].'] ' : '').$task['title'])?></option>
+					<?php endforeach;?>
 				</select>
 			</td>
 		</tr>
-		<?endforeach;?>
+		<?php endforeach;?>
 
 			<tr>
 				<td class="field-name" width="50%">
@@ -217,9 +217,9 @@ $tabControl->Begin();
 	</td>
 </tr>
 
-<?$tabControl->EndTab();?>
+<?php $tabControl->EndTab();?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => false,
@@ -228,12 +228,12 @@ $tabControl->Buttons(
 );
 ?>
 
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 
 </form>
 
 
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

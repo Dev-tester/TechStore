@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Intranet\Composite;
 
 use Bitrix\Main\Config\Option;

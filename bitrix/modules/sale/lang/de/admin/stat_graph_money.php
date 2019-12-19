@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DATE"] = "Datum ";
 $MESS["SALE_SUMM"] = "Preis ";
 $MESS["SALE_S_DATE"] = "Bestellungsdatum ";

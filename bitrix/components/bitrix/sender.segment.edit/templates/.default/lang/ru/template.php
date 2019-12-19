@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SEGMENT_EDIT_TMPL_PATTERN_TITLE"] = "%name% от %date%";
 $MESS["SENDER_SEGMENT_EDIT_TMPL_PATTERN_TITLE1"] = "%name% от %date%";
 $MESS["SENDER_SEGMENT_EDIT_TMPL_NEW_TITLE"] = "Сегмент";

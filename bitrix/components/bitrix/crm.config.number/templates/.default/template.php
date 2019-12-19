@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $rnd = $arResult['RND'];
 $cfgRnd = 'rnd_cfg_number_'.$rnd.((strlen($arResult['ENTITY_NAME']) > 0) ? '_'.$arResult['ENTITY_NAME'] : '');
@@ -11,9 +11,9 @@ $cfgRnd = 'rnd_cfg_number_'.$rnd.((strlen($arResult['ENTITY_NAME']) > 0) ? '_'.$
 		</td>
 		<td class="bx-field-value">
 			<select name="<?=$rnd.'_template'?>" onChange="showNumberAdditionalFields(this.selectedIndex)">
-				<?foreach($arResult['NUM_TEMPLATES'] as $template => $templateName):?>
+				<?php foreach($arResult['NUM_TEMPLATES'] as $template => $templateName):?>
 					<option value="<?=$template?>"<?=($arResult['ACC_NUM_TMPL'] == $template ? ' selected' : '')?>><?=$templateName?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -40,9 +40,9 @@ $cfgRnd = 'rnd_cfg_number_'.$rnd.((strlen($arResult['ENTITY_NAME']) > 0) ? '_'.$
 		</td>
 		<td  class="bx-field-value">
 			<select name="<?=$rnd.'_random_length'?>">
-				<?for($i = 5; $i < 11; $i++):?>
+				<?php for($i = 5; $i < 11; $i++):?>
 					<option value="<?=$i?>"<?=($arResult['ACC_NUM_DATA'] == $i) ? "selected" : "" ?>><?=$i?></option>
-				<?endfor;?>
+				<?php endfor;?>
 			</select>
 			<br/><br/>
 			<?=GetMessage("CRM_NUMBER_TEMPLATE_EXAMPLE")?>&nbsp;6B7R1, 8CB2A59X8X

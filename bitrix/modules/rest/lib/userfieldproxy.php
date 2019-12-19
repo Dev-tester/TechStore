@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Rest;
 use Bitrix\Main;
 use Bitrix\Rest\Api\UserFieldType;

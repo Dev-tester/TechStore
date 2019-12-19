@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PULL_TAB_SETTINGS"] = "Настройки";
 $MESS["PULL_TAB_TITLE_SETTINGS"] = "Настройка параметров модуля";
 $MESS["PULL_OPTIONS_PATH_TO_LISTENER"] = "Путь для чтения команд (HTTP)";

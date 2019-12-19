@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_LIVE_FEED"] = "Живая лента";
 $MESS["MENU_TASKS"] = "Задачи и Проекты";
 $MESS["MENU_CALENDAR"] = "Календарь";

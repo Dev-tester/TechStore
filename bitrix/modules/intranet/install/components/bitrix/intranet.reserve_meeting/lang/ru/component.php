@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTERANET_MODULE_NOT_INSTALL'] = "Модуль интранета не установлен.";
 $MESS ['SONET_LOADING'] = "Загрузка...";
 $MESS ['SONET_GROUP'] = "Группа";

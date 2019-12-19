@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -631,8 +631,8 @@ window.library_AddForumRights = function()
 			}
 
 			$s = 
-'<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
-<?$APPLICATION->IncludeComponent("bitrix:webdav", ".default", array(
+'<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
+<?php $APPLICATION->IncludeComponent("bitrix:webdav", ".default", array(
 	"RESOURCE_TYPE" => "IBLOCK", 
 	"IBLOCK_TYPE" => "'.EscapePHPString($iblock_type).'",
 	"IBLOCK_ID" => "'.intval($iblock_id).'",
@@ -693,7 +693,7 @@ window.library_AddForumRights = function()
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
 			return $s;
 		}
 		else
@@ -705,8 +705,8 @@ window.library_AddForumRights = function()
 				$GLOBALS["APPLICATION"]->SetFileAccessPermission($_REQUEST["library_FOLDER"], $_REQUEST["library_FOLDER_PERMISSION"]);
 			}
 			$s = 
-'<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
-<?$APPLICATION->IncludeComponent("bitrix:webdav", ".default", array(
+'<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
+<?php $APPLICATION->IncludeComponent("bitrix:webdav", ".default", array(
 	"RESOURCE_TYPE" => "FOLDER",
 	"FOLDER" => "'.EscapePHPString($_REQUEST["library_FOLDER"]).'",
 	"USE_AUTH" => "Y",
@@ -724,7 +724,7 @@ window.library_AddForumRights = function()
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
 			return $s;
 		}
 	}

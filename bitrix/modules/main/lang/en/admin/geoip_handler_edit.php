@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GEOIP_EDIT_TITLE"] = "Geolocation Handler Settings";
 $MESS["GEOIP_EDIT_LIST"] = "List";
 $MESS["GEOIP_EDIT_LIST_T"] = "Geolocation handlers";

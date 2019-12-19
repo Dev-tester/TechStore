@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -15,7 +15,7 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 
 if($arParams["USE_COMPARE"]=="Y")
 {
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.compare.list",
 	"",
 	array(
@@ -27,7 +27,7 @@ if($arParams["USE_COMPARE"]=="Y")
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 }
 if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
 {
@@ -37,7 +37,7 @@ else
 {
 	$basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 }
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.search",
 	"",
 	array(

@@ -41,43 +41,43 @@ use \Bitrix\Crm\Conversion\LeadConversionScheme;
 use \Bitrix\Crm\Category\DealCategory;
 use \Bitrix\Crm\Conversion\EntityConverter;
 
-?><div id="batchConversionWrapper"></div><?
-?><div id="batchDeletionWrapper"></div><?
-?><div id="batchActionWrapper"></div><?
+?><div id="batchConversionWrapper"></div><?php 
+?><div id="batchDeletionWrapper"></div><?php 
+?><div id="batchActionWrapper"></div><?php 
 
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):
 	?><div id="rebuildLeadDupIndexMsg" class="crm-view-message">
 		<?=GetMessage('CRM_LEAD_REBUILD_DUP_INDEX', array('#ID#' => 'rebuildLeadDupIndexLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT'])
 {
-	?><div id="rebuildLeadSearchWrapper"></div><?
+	?><div id="rebuildLeadSearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_TIMELINE_SEARCH_CONTENT'])
 {
-	?><div id="buildTimelineSearchWrapper"></div><?
+	?><div id="buildTimelineSearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_BUILD_TIMELINE'])
 {
-	?><div id="buildLeadTimelineWrapper"></div><?
+	?><div id="buildLeadTimelineWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING'])
 {
-	?><div id="refreshLeadAccountingWrapper"></div><?
+	?><div id="refreshLeadAccountingWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_LEAD_SEMANTICS'])
 {
-	?><div id="rebuildLeadSemanticsWrapper"></div><?
+	?><div id="rebuildLeadSemanticsWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_LEAD_ATTRS']):
 	?><div id="rebuildLeadAttrsMsg" class="crm-view-message">
 	<?=GetMessage('CRM_LEAD_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildLeadAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 endif;
-?></div><?
+?></div><?php 
 
 if(isset($arResult['ERROR_HTML'])):
 	ShowError($arResult['ERROR_HTML']);
@@ -1137,7 +1137,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?if(!$isInternal):?>
+<?php if(!$isInternal):?>
 <script type="text/javascript">
 	BX.ready(
 			function()
@@ -1159,8 +1159,8 @@ $APPLICATION->IncludeComponent(
 			}
 	);
 </script>
-<?endif;?>
-<?if($arResult['CAN_CONVERT'] && isset($arResult['CONVERSION']['CONFIGS'])):?>
+<?php endif;?>
+<?php if($arResult['CAN_CONVERT'] && isset($arResult['CONVERSION']['CONFIGS'])):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -1231,8 +1231,8 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -1273,8 +1273,8 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1301,8 +1301,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_TIMELINE_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_TIMELINE_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1329,8 +1329,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1357,8 +1357,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1385,8 +1385,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_LEAD_SEMANTICS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_LEAD_SEMANTICS']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1413,8 +1413,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_LEAD_ATTRS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_LEAD_ATTRS']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -1438,4 +1438,4 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

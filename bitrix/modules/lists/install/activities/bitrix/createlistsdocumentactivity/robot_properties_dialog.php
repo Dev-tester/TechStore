@@ -11,14 +11,14 @@ $docType = $dialog->getMap()['DocumentType'];
 </div>
 
 <div id="lists_document_fields">
-	<?
+	<?php 
 	$baseTypes = \Bitrix\Bizproc\FieldType::getBaseTypesMap();
 	foreach ($documentFields as $fieldKey => $fieldValue):?>
 		<div class="bizproc-automation-popup-settings">
 			<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 				<?=htmlspecialcharsbx($fieldValue["Name"])?>:
 			</span>
-			<?
+			<?php 
 			echo $documentService->GetFieldInputControl(
 				$listsDocumentType,
 				$fieldValue,
@@ -29,7 +29,7 @@ $docType = $dialog->getMap()['DocumentType'];
 			)
 			?>
 		</div>
-	<?endforeach;?>
+	<?php endforeach;?>
 </div>
 <script>
 	BX.ready(function()

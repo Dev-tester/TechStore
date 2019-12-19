@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arResult["CURRENT_SECTION"] = $current_section = intval($arResult['FILTER_VALUES'][$arParams['FILTER_NAME'].'_UF_DEPARTMENT']);

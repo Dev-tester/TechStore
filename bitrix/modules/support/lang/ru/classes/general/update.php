@@ -1,4 +1,4 @@
-<?
+<?php 
 
 /*
 $MESS['SUP_UPDATE_ADD_TABLES_BEGIN'] = 'Начинаем создавать таблицы.';

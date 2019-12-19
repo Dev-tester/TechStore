@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADM_IMP_NO_DATA_FILE"] = "No data file has been loaded or selected. Cannot import.";
 $MESS["IBLOCK_ADM_IMP_NO_IBLOCK"] = "No information block has been selected. Cannot import.";
 $MESS["IBLOCK_ADM_IMP_NO_FILE_FORMAT"] = "Please set the data file format and properties.";

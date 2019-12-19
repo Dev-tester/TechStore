@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -25,12 +25,12 @@ endif;
 $sTitle = htmlspecialcharsEx($arResult["ELEMENT"]["~NAME"]);
 ?>
 <div class="photo-controls  photo-action">
-	<noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["BACK_LINK"]?>" title="<?=GetMessage("P_GO_TO_SECTION")?>" class="photo-action back-to-album" <?
+	<noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["BACK_LINK"]?>" title="<?=GetMessage("P_GO_TO_SECTION")?>" class="photo-action back-to-album" <?php 
 	?>><?=GetMessage("P_UP")?></a></noindex>
-<?
+<?php 
 if (!empty($arResult["SECTION"]["UPLOAD_LINK"])):
-	?><noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["UPLOAD_LINK"]?>" title="<?=GetMessage("P_UPLOAD_TITLE")?>" class="photo-action photo-upload" <?
-	?>><?=GetMessage("P_UPLOAD")?></a></noindex><?
+	?><noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["UPLOAD_LINK"]?>" title="<?=GetMessage("P_UPLOAD_TITLE")?>" class="photo-action photo-upload" <?php 
+	?>><?=GetMessage("P_UPLOAD")?></a></noindex><?php 
 endif;
 ?>
 	<div class="empty-clear"></div>
@@ -51,38 +51,38 @@ endif;
 			</div>
 		</div>
 
-<?
+<?php 
 $ii = ($arResult["ELEMENT"]["CURRENT"]["NO"] - 1);
 ?>
 		<div id="photo_navigation" class="photo-detail-inner-navigation">
 			<table cellpadding="5" cellspacing="0" border="0"><tr><td>
-<?
+<?php 
 	if (!empty($arResult["ELEMENTS_LIST"][$ii-1]["DETAIL_PAGE_URL"])):
 ?>
 				<a href="<?=$arResult["ELEMENTS_LIST"][$ii-1]["DETAIL_PAGE_URL"]?>">
 					<div id="photo_go_to_prev" title="<?=GetMessage("P_GO_TO_PREV")?>"></div>
 				</a>
-<?
+<?php 
 	else :
 ?>
 				<div id="photo_go_to_prev_disabled" title="<?=GetMessage("P_GO_TO_PREV")?>"></div>
-<?
+<?php 
 	endif;
 ?>
 			</td>
 			<td nowrap="nowrap"><?=GetMessage("NO_OF_COUNT",array("#NO#"=>$arResult["ELEMENT"]["CURRENT"]["NO"],"#TOTAL#"=>$arResult["ELEMENT"]["CURRENT"]["COUNT"]))?></td>
 			<td>
-<?
+<?php 
 	if (!empty($arResult["ELEMENTS_LIST"][$ii+1]["DETAIL_PAGE_URL"])):
 ?>
 				<a href="<?=$arResult["ELEMENTS_LIST"][$ii+1]["DETAIL_PAGE_URL"]?>">
 					<div id="photo_go_to_next" title="<?=GetMessage("P_GO_TO_NEXT")?>"></div>
 				</a>
-<?
+<?php 
 	else:
 ?>
 				<div id="photo_go_to_next_disabled" title="<?=GetMessage("P_GO_TO_NEXT")?>"></div>
-<?
+<?php 
 	endif;
 ?>
 			</td></tr></table>
@@ -91,49 +91,49 @@ $ii = ($arResult["ELEMENT"]["CURRENT"]["NO"] - 1);
 	<div id="photo_text_description" class="photo-detail-inner-description">
 		<div class="photo-title" id="photo_title"><?=$arResult["ELEMENT"]["NAME"]?></div>
 		<div class="photo-date" id="photo_date"><?=$arResult["ELEMENT"]["DATE_CREATE"]?></div>
-<?
+<?php 
 
 	if ($arParams["SHOW_TAGS"] == "Y" && !empty($arResult["ELEMENT"]["TAGS_LIST"])):
-		?><div class="photo-tags" id="photo_tags"><?
+		?><div class="photo-tags" id="photo_tags"><?php 
 		foreach ($arResult["ELEMENT"]["TAGS_LIST"] as $key => $val):
-			?><noindex><a rel="nofollow" href="<?=$val["TAGS_URL"]?>"><?=$val["TAGS_NAME"]?></a></noindex><?
+			?><noindex><a rel="nofollow" href="<?=$val["TAGS_URL"]?>"><?=$val["TAGS_NAME"]?></a></noindex><?php 
 			if ($key != (count($arResult["ELEMENT"]["TAGS_LIST"]) - 1)):
-			?>, <?
+			?>, <?php 
 			endif;
 		endforeach;
-		?></div><?
+		?></div><?php 
 	elseif ($arParams["SHOW_TAGS"] == "Y"):
-		?><div class="photo-tags" id="photo_tags"><?=$arResult["ELEMENT"]["TAGS"]?></div><?
+		?><div class="photo-tags" id="photo_tags"><?=$arResult["ELEMENT"]["TAGS"]?></div><?php 
 	endif;
 ?>
 		<div class="photo-description" id="photo_description"><?=$arResult["ELEMENT"]["DETAIL_TEXT"]?></div>
 
 		<div class="photo-controls photo-view">
-<?
+<?php 
 	if (!empty($arResult["SLIDE_SHOW"])):
-			?><noindex><a rel="nofollow" href="<?=$arResult["SLIDE_SHOW"]?>" class="photo-view slide-show" title="<?=GetMessage("P_SLIDE_SHOW_TITLE")?>"><?
-					?><?=GetMessage("P_SLIDE_SHOW")?></a></noindex><?
+			?><noindex><a rel="nofollow" href="<?=$arResult["SLIDE_SHOW"]?>" class="photo-view slide-show" title="<?=GetMessage("P_SLIDE_SHOW_TITLE")?>"><?php 
+					?><?=GetMessage("P_SLIDE_SHOW")?></a></noindex><?php 
 	endif;
 
 	if (!empty($arResult["ELEMENT"]["REAL_PICTURE"]["SRC"])):
-			?><noindex><a rel="nofollow" href="<?echo $arResult["ELEMENT"]["REAL_PICTURE"]["SRC"];?>" <?
+			?><noindex><a rel="nofollow" href="<?php echo $arResult["ELEMENT"]["REAL_PICTURE"]["SRC"];?>" <?php 
 					?>title="<?=GetMessage("P_ORIGINAL_TITLE")?>"
-					onclick="ShowOriginal('<?echo CUtil::JSEscape($arResult["ELEMENT"]["REAL_PICTURE"]["SRC"])?>', '<?=CUtil::JSEscape($arResult["ELEMENT"]["NAME"])?>'); return false;" class="photo-view original"><?
-					?><?=GetMessage("P_ORIGINAL")?></a></noindex><?
+					onclick="ShowOriginal('<?php echo CUtil::JSEscape($arResult["ELEMENT"]["REAL_PICTURE"]["SRC"])?>', '<?=CUtil::JSEscape($arResult["ELEMENT"]["NAME"])?>'); return false;" class="photo-view original"><?php 
+					?><?=GetMessage("P_ORIGINAL")?></a></noindex><?php 
 	endif;
 ?>
 		</div>
 
 		<div class="photo-controls">
-<?
+<?php 
 	if (!empty($arResult["ELEMENT"]["EDIT_URL"])):
-		?><noindex><a rel="nofollow" href="<?=$arResult["ELEMENT"]["EDIT_URL"]?>" title="<?=GetMessage("P_EDIT_TITLE")?>" <?
-			?>onclick="EditPhoto('<?=CUtil::JSEscape($arResult["ELEMENT"]["~EDIT_URL"])?>'); return false;" id="photo_edit" <?
-			?>class="photo-action edit"><?=GetMessage("P_EDIT")?></a></noindex><?
+		?><noindex><a rel="nofollow" href="<?=$arResult["ELEMENT"]["EDIT_URL"]?>" title="<?=GetMessage("P_EDIT_TITLE")?>" <?php 
+			?>onclick="EditPhoto('<?=CUtil::JSEscape($arResult["ELEMENT"]["~EDIT_URL"])?>'); return false;" id="photo_edit" <?php 
+			?>class="photo-action edit"><?=GetMessage("P_EDIT")?></a></noindex><?php 
 	endif;
 	if (!empty($arResult["ELEMENT"]["DROP_URL"])):
-			?><noindex><a rel="nofollow" href="<?=$arResult["ELEMENT"]["DROP_URL"]?>" title="<?=GetMessage("P_DROP_TITLE")?>" <?
-				?>onclick="return confirm('<?=GetMessage("P_DROP_CONFIM")?>');" id="photo_drop" class="photo-action delete"><?=GetMessage("P_DROP")?></a></noindex><br /><br /><?
+			?><noindex><a rel="nofollow" href="<?=$arResult["ELEMENT"]["DROP_URL"]?>" title="<?=GetMessage("P_DROP_TITLE")?>" <?php 
+				?>onclick="return confirm('<?=GetMessage("P_DROP_CONFIM")?>');" id="photo_drop" class="photo-action delete"><?=GetMessage("P_DROP")?></a></noindex><br /><br /><?php 
 	endif;
 ?>
 		</div>

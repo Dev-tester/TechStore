@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LOG_ID'] = "ID";
 $MESS ['LOG_ENTITY_ID'] = "ID документа";
 $MESS ['LOG_ENTITY_TYPE_ID'] = "Тип документа";

@@ -577,13 +577,13 @@ $arFilterDropDown[]=GetMessage("STAT_F_DIAGRAM_DEFAULT");
 
 $oFilter = new CAdminFilter($sTableID."_filter",$arFilterDropDown);
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("STAT_F_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_F_FIND_ENTER")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_F_FIND_ENTER")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				"event1",
@@ -601,87 +601,87 @@ $oFilter = new CAdminFilter($sTableID."_filter",$arFilterDropDown);
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ID")?></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ID")?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>event1:</td>
-	<td><input type="text" name="find_event1" size="47" value="<?echo htmlspecialcharsbx($find_event1)?>"><?=ShowExactMatchCheckbox("find_event1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_event1" size="47" value="<?php echo htmlspecialcharsbx($find_event1)?>"><?=ShowExactMatchCheckbox("find_event1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>event2:</td>
-	<td><input type="text" name="find_event2" size="47" value="<?echo htmlspecialcharsbx($find_event2)?>"><?=ShowExactMatchCheckbox("find_event2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_event2" size="47" value="<?php echo htmlspecialcharsbx($find_event2)?>"><?=ShowExactMatchCheckbox("find_event2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_NAME")?></td>
-	<td><input type="text" name="find_name" size="47" value="<?echo htmlspecialcharsbx($find_name)?>"><?=ShowExactMatchCheckbox("find_name")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_NAME")?></td>
+	<td><input type="text" name="find_name" size="47" value="<?php echo htmlspecialcharsbx($find_name)?>"><?=ShowExactMatchCheckbox("find_name")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_DESCRIPTION")?></td>
-	<td><input type="text" name="find_description" size="47" value="<?echo htmlspecialcharsbx($find_description)?>"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_DESCRIPTION")?></td>
+	<td><input type="text" name="find_description" size="47" value="<?php echo htmlspecialcharsbx($find_description)?>"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_DATE_ENTER")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date_enter_1", $find_date_enter_1, "find_date_enter_2", $find_date_enter_2, "find_form", "Y")?></td>
+	<td><?php echo GetMessage("STAT_F_DATE_ENTER")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date_enter_1", $find_date_enter_1, "find_date_enter_2", $find_date_enter_2, "find_form", "Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_DATE_LAST")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date_last_1", $find_date_last_1, "find_date_last_2", $find_date_last_2, "find_form", "Y")?></td>
+	<td><?php echo GetMessage("STAT_F_DATE_LAST")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date_last_1", $find_date_last_1, "find_date_last_2", $find_date_last_2, "find_form", "Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date1_period", $find_date1_period, "find_date2_period", $find_date2_period, "find_form","Y")?></td>
+	<td><?php echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date1_period", $find_date1_period, "find_date2_period", $find_date2_period, "find_form","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_COUNTER")?></td>
-	<td><input type="text" name="find_counter1" size="9" value="<?echo htmlspecialcharsbx($find_counter1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_counter2" size="9" value="<?echo htmlspecialcharsbx($find_counter2)?>"></td>
+	<td><?php echo GetMessage("STAT_F_COUNTER")?></td>
+	<td><input type="text" name="find_counter1" size="9" value="<?php echo htmlspecialcharsbx($find_counter1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_counter2" size="9" value="<?php echo htmlspecialcharsbx($find_counter2)?>"></td>
 </tr>
-<?if($STAT_RIGHT>"M"):?>
+<?php if($STAT_RIGHT>"M"):?>
 <tr>
-	<td><?echo GetMessage("STAT_F_MONEY")?></td>
-	<td><input type="text" name="find_money1" size="9" value="<?echo htmlspecialcharsbx($find_money1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_money2" size="9" value="<?echo htmlspecialcharsbx($find_money2)?>"></td>
+	<td><?php echo GetMessage("STAT_F_MONEY")?></td>
+	<td><input type="text" name="find_money1" size="9" value="<?php echo htmlspecialcharsbx($find_money1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_money2" size="9" value="<?php echo htmlspecialcharsbx($find_money2)?>"></td>
 </tr>
-<?if($currency_module=="Y"):?>
+<?php if($currency_module=="Y"):?>
 <tr valign="center">
-	<td><?echo GetMessage("STAT_F_CURRENCY")?></td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_CURRENCY")?></td>
+	<td><?php 
 	echo SelectBoxFromArray("find_currency", $arrCurrency, htmlspecialcharsbx($find_currency), GetMessage("STAT_F_BASE_CURRENCY"));?></td>
 </tr>
-<?endif;?>
-<?endif;?>
+<?php endif;?>
+<?php endif;?>
 <tr>
-	<td><?echo GetMessage("STAT_F_KEEP_DAYS")?></td>
-	<td><input type="text" name="find_keep_days1" size="9" value="<?echo htmlspecialcharsbx($find_keep_days1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_keep_days2" size="9" value="<?echo htmlspecialcharsbx($find_keep_days2)?>"></td>
+	<td><?php echo GetMessage("STAT_F_KEEP_DAYS")?></td>
+	<td><input type="text" name="find_keep_days1" size="9" value="<?php echo htmlspecialcharsbx($find_keep_days1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_keep_days2" size="9" value="<?php echo htmlspecialcharsbx($find_keep_days2)?>"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_DYNAMIC_KEEP_DAYS")?></td>
-	<td><input type="text" name="find_dynamic_keep_days1" size="9" value="<?echo htmlspecialcharsbx($find_dynamic_keep_days1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_dynamic_keep_days2" size="9" value="<?echo htmlspecialcharsbx($find_dynamic_keep_days2)?>"></td>
+	<td><?php echo GetMessage("STAT_F_DYNAMIC_KEEP_DAYS")?></td>
+	<td><input type="text" name="find_dynamic_keep_days1" size="9" value="<?php echo htmlspecialcharsbx($find_dynamic_keep_days1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_dynamic_keep_days2" size="9" value="<?php echo htmlspecialcharsbx($find_dynamic_keep_days2)?>"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ADV_VISIBLE")?></td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_ADV_VISIBLE")?></td>
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_adv_visible", $arr, htmlspecialcharsbx($find_adv_visible), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_DIAGRAM_DEFAULT")?></td>
-	<td class="tablebody" width="0%" nowrap><?
+	<td><?php echo GetMessage("STAT_F_DIAGRAM_DEFAULT")?></td>
+	<td class="tablebody" width="0%" nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_diagram_default", $arr, htmlspecialcharsbx($find_diagram_default), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

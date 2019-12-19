@@ -43,12 +43,12 @@ if ($isBitrix24Template)
 }
 ?>
 
-<?if (!$isBitrix24Template):?>
+<?php if (!$isBitrix24Template):?>
 <div class="tasks-interface-filter-container">
-<?endif;?>
+<?php endif;?>
 
-	<div class="pagetitle-container<?if (!$isBitrix24Template) {?> pagetitle-container-light<?}?> pagetitle-flexible-space">
-		<?$APPLICATION->IncludeComponent(
+	<div class="pagetitle-container<?php if (!$isBitrix24Template) {?> pagetitle-container-light<?php }?> pagetitle-flexible-space">
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:main.ui.filter',
 			'',
 			array(
@@ -75,7 +75,7 @@ if ($isBitrix24Template)
 			<?= Loc::getMessage('LANDING_TPL_RECYCLE_BIN');?>
 		</span>
 
-		<?if ($arParams['SETTING_LINK']):
+		<?php if ($arParams['SETTING_LINK']):
 			// for compatibility
 			if (!is_array($arParams['SETTING_LINK']))
 			{
@@ -87,35 +87,35 @@ if ($isBitrix24Template)
 			?>
 			<script type="text/javascript">
 				var landingSettingsButtons = [
-					<?
+					<?php 
 					$bFirst = true;
 					foreach ($arParams['SETTING_LINK'] as $link):?>
-						<?if (isset($link['LINK']) && isset($link['TITLE'])):?>
+						<?php if (isset($link['LINK']) && isset($link['TITLE'])):?>
 						<?= !$bFirst ? ',' : '';?>{
 							href: '<?= \CUtil::JSEscape($link['LINK']);?>',
 							text: '<?= \CUtil::JSEscape($link['TITLE']);?>'
 						}
-						<?
+						<?php 
 						$bFirst = false;
 						endif;?>
-					<?endforeach;?>
+					<?php endforeach;?>
 				];
 			</script>
 			<a class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting" id="landing-menu-settings" href="#"></a>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($arParams['FOLDER_SITE_ID']):?>
-		<a class="ui-btn ui-btn-light-border ui-btn-icon-add-folder ui-btn-themes landing-filter-buttons-add-folder" <?
-			?>id="landing-create-folder" <?
-			?>data-action="<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_CREATE_FOLDER_ACTION'));?>" <?
-			?>data-siteId="<?= $arParams['FOLDER_SITE_ID'];?>" <?
-			?>href="javascript:void(0);" <?
+		<?php if ($arParams['FOLDER_SITE_ID']):?>
+		<a class="ui-btn ui-btn-light-border ui-btn-icon-add-folder ui-btn-themes landing-filter-buttons-add-folder" <?php 
+			?>id="landing-create-folder" <?php 
+			?>data-action="<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_CREATE_FOLDER_ACTION'));?>" <?php 
+			?>data-siteId="<?= $arParams['FOLDER_SITE_ID'];?>" <?php 
+			?>href="javascript:void(0);" <?php 
 			?>title="<?= Loc::getMessage('LANDING_TPL_CREATE_FOLDER');?>"></a>
-		<?else:?>
+		<?php else:?>
 		&nbsp;&nbsp;
-		<?endif;?>
+		<?php endif;?>
 
-		<?
+		<?php 
 		if (isset($arParams['BUTTONS']) && is_array($arParams['BUTTONS']))
 		{
 			if (count($arParams['BUTTONS']) == 1)
@@ -129,44 +129,44 @@ if ($isBitrix24Template)
 						<?= \htmlspecialcharsbx($buuton['TITLE']);?>
 					</a>
 				</div>
-				<?
+				<?php 
 				}
 			}
 			else
 			{
 				$buuton = array_shift($arParams['BUTTONS']);
 				?>
-				<?if (isset($buuton['LINK']) && isset($buuton['TITLE'])):?>
+				<?php if (isset($buuton['LINK']) && isset($buuton['TITLE'])):?>
 				<div class="pagetitle-container pagetitle-align-right-container" id="landing-menu-actions">
-					<a href="<?= \htmlspecialcharsbx($buuton['LINK']);?>" id="landing-create-element" <?
+					<a href="<?= \htmlspecialcharsbx($buuton['LINK']);?>" id="landing-create-element" <?php 
 						?>class="ui-btn ui-btn-md ui-btn-primary ui-btn-icon-add landing-filter-action-link ui-btn-dropdown">
 						<?= \htmlspecialcharsbx($buuton['TITLE']);?>
 					</a>
 				</div>
 				<script type="text/javascript">
 					var landingCreateButtons = [
-						<?foreach ($arParams['BUTTONS'] as $buuton):?>
-							<?if (isset($buuton['LINK']) && isset($buuton['TITLE'])):?>
+						<?php foreach ($arParams['BUTTONS'] as $buuton):?>
+							<?php if (isset($buuton['LINK']) && isset($buuton['TITLE'])):?>
 							{
 								href: '<?= \CUtil::JSEscape($buuton['LINK']);?>',
 								text: '<?= \CUtil::JSEscape($buuton['TITLE']);?>'
 							},
-							<?endif;?>
-						<?endforeach;?>
+							<?php endif;?>
+						<?php endforeach;?>
 						null
 					];
 				</script>
-				<?endif;?>
-				<?
+				<?php endif;?>
+				<?php 
 			}
 		}
 		?>
 	</div>
 
 
-<?if (!$isBitrix24Template):?>
+<?php if (!$isBitrix24Template):?>
 </div>
-<?endif;?>
+<?php endif;?>
 
 <?php
 if ($isBitrix24Template)

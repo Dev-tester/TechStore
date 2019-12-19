@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REST_IBLOCK_NAME"] = "Marketplace24 Application Data Storage";
 $MESS["REST_IBLOCK_SECTION_NAME"] = "Sections";
 $MESS["REST_IBLOCK_ELEMENT_NAME"] = "Items";

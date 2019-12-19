@@ -30,7 +30,7 @@ if ($arParams['VIEW_TARGET'])
 		'portal' => $portal,
 	])?>);
 </script>
-<?
+<?php 
 if ($arParams['VIEW_TARGET'])
 {
 	$this->EndViewTarget();

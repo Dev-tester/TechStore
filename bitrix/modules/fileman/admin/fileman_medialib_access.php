@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -67,7 +67,7 @@ while($arRes = $res->Fetch())
 <input type="hidden" name="lang" value="<?= LANG ?>">
 <?= bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "medialib_access", "TAB" => GetMessage("FM_ML_TAB_NAME"), "ICON" => "fileman", "TITLE" => GetMessage("FM_ML_TAB_TITLE")),
 );
@@ -75,7 +75,7 @@ $aTabs = array(
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
 <tr>
 	<td colspan="2">
@@ -87,7 +87,7 @@ $tabControl->Begin();
 
 <tr>
 	<td colspan="2">
-		<? /* INTERNAL TABLE */ ?>
+		<?php  /* INTERNAL TABLE */ ?>
 
 	<table class="internal">
 		<tr class="heading">
@@ -98,7 +98,7 @@ $tabControl->Begin();
 					<?= GetMessage("ML_ACCESS_TASK")?>
 				</td>
 		</tr>
-			<?
+			<?php 
 			//for each groups
 			foreach ($arGroups as $arGroup)
 			{
@@ -110,24 +110,24 @@ $tabControl->Begin();
 				</td>
 				<td>
 					<select name="g_<?= $arGroup['ID']?>" class="typeselect">
-						<?foreach ($arTasks as $id => $ar):?>
-							<option value="<?=$id?>"<?if ($arGroupTask[$arGroup['ID']] == $id) echo" selected";?>><?= htmlspecialcharsex($ar['title']);?></option>
-						<?endforeach;?>
+						<?php foreach ($arTasks as $id => $ar):?>
+							<option value="<?=$id?>"<?php if ($arGroupTask[$arGroup['ID']] == $id) echo" selected";?>><?= htmlspecialcharsex($ar['title']);?></option>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 			}
 			?>
 	</table>
 
-		<? /* INTERNAL TABLE */ ?>
+		<?php  /* INTERNAL TABLE */ ?>
 	</td>
 </tr>
 
-<?$tabControl->EndTab();?>
+<?php $tabControl->EndTab();?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => false,
@@ -136,12 +136,12 @@ $tabControl->Buttons(
 );
 ?>
 
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 
 </form>
 <script>
 function colsOnChange(pSel){window.location = "/bitrix/admin/fileman_medialib_access.php?col_id=" + pSel.value + "&lang=<?= LANGUAGE_ID?>&<?= bitrix_sessid_get()?>";}
 </script>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

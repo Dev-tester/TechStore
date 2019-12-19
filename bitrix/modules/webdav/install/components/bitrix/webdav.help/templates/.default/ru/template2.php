@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script type="text/javascript" src="/bitrix/js/webdav/imgshw.js"></script>
 С библиотекой документов можно работать двумя способами: через браузер (Internet Explorer, Opera, FireFox и т.д.) или через WebDAV-клиенты ОС (для ОС Windows: компонент веб-папок, подключение диска). <br><br>
 <ul>
@@ -31,7 +31,7 @@
 </ul>
 
 <p>Выберите подходящий вам вид формы и укажите документы, которые должны быть загружены.</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/load_form.png\',661,575,\'Форма для загрузки документов\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/load_form.png\',661,575,\'Форма для загрузки документов\');'?>">
 <img src="<?=$templateFolder.'/images/load_form_sm.png'?>" style="CURSOR: pointer" width="300" height="261" alt="Нажмите на рисунок, чтобы увеличить"  border="0"/></a></p>
 
 <p>Нажмите кнопку <b>Загрузить</b>.</p>
@@ -42,17 +42,17 @@
 <p>В некоторых случаях требуется выполнение некоторых операций с загруженным документом. Например, утвердить или согласовать документ. Для этого используются бизнес-процессы</p>
 
 <p>Для запуска бизнес-процесса в контекстном меню пункт <b>Новый бизнес-процесс</b>:</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/new_bizproc.png\',622,459,\'Запуск бизнес-процесса\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/new_bizproc.png\',622,459,\'Запуск бизнес-процесса\');'?>">
 <img src="<?=$templateFolder.'/images/new_bizproc_sm.png'?>" style="CURSOR: pointer" alt="Нажмите на рисунок, чтобы увеличить"  border="0"/></a></p>
-<? if (!empty($arResult['BPHELP'])) { ?>
+<?php  if (!empty($arResult['BPHELP'])) { ?>
 <p><b>Примечание</b>: подробную информацию о бизнес-процессах смотрите на странице <a href="<?=$arResult['BPHELP']?>" target="_blank">Бизнес-процессы</a>.</p>
-<? } ?>
+<?php  } ?>
 <p>Для перехода к управлению шаблонами бизнес-процессов нажмите на кнопку <b>Бизнес-процессы</b>, расположенную на контекстной панели:</p> 
 
 <br/>
 <h4><a name="delete"></a>Изменение, удаление документов</h4>
 <p>Управление документами осуществляется либо с помощью контекстного меню: 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/delete_file.png\',399,516,\'Изменение, удаление документов\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/delete_file.png\',399,516,\'Изменение, удаление документов\');'?>">
 <img src="<?=$templateFolder.'/images/delete_file_sm.png'?>" style="CURSOR: pointer" alt="Нажмите на рисунок, чтобы увеличить"  border="0"/></a></p>
 либо с помощью панели групповых действий, расположенных под списком документов. 
 <br/><br/>
@@ -233,7 +233,7 @@
   <li><a href="/bitrix/webdav/office14.reg">изменить реестр</a> для <b>Microsoft Office 2010</b></li> 
 </ul>
 <p>Нажмите кнопку <b>Запустить</b> в окне загрузки файла, в диалоге <b>Редактора реестра</b> с предупреждением о недостоверности источника нажмите <b>Да</b>:</p> 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/vista_reg_2.png\',572,212,\'Диалог ОС\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/vista_reg_2.png\',572,212,\'Диалог ОС\');'?>">
 <img src="<?=$templateFolder.'/images/vista_reg_2_sm.png'?>" style="CURSOR: pointer" width="250" height="93" alt="Нажмите на рисунок, чтобы увеличить"  border="0"/></a></p>
 <p>Если вы используете браузер, который не позволяет запускать .reg файлы, то необходимо скачать файл и запустить или внести изменения в реестр вручную при помощи <b>Редактора реестра</b>.</p>
 <p><b>Изменение параметров с помощью Редактора реестра</b></p>
@@ -266,10 +266,10 @@
 <p><b>Во-вторых</b>, необходимо перезапустить службу <a href="#oswindowswebclient"><b>Веб-клиент (WebClient)</b></a>.</p>
 <h4><a name="oswindowswebclient"></a><b>Перезапуск службы Веб-клиент</b></h4>
 <p>Для перезапуска перейдите: <b>Пуск &gt; Панель управления &gt; Администрирование &gt; Службы</b>. Откроется диалог <b>Службы</b>: 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/web_client.png\',638,450,\'Службы\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/web_client.png\',638,450,\'Службы\');'?>">
 <img src="<?=$templateFolder.'/images/web_client_sm.png'?>" style="CURSOR: pointer" width="300" height="212" alt="Нажмите на рисунок, чтобы увеличить"  border="0"/></a></p>  
 <p>Найдите в общем списке служб строку <b>Веб-клиент (WebClient)</b>, перезапустите (запустите). Чтобы служба запускалась в дальнейшем при старте ОС, необходимо в свойствах службы установить значение параметра <b>Тип запуска</b> в <b>Авто</b>:
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/web_client_prop.png\',410,461,\'Свойство службы Веб-клиент\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/web_client_prop.png\',410,461,\'Свойство службы Веб-клиент\');'?>">
 <img src="<?=$templateFolder.'/images/web_client_prop_sm.png'?>" style="CURSOR: pointer" width="205" height="230" alt="Нажмите на рисунок, чтобы увеличить"  border="0"/></a></p></li>
 <p>Можно приступать непосредственно к подключению папки.</p>
 
@@ -292,18 +292,18 @@
 <p>Нажмите на кнопку <b>Подключить</b>, расположенную на панели инструментов. </p>
 <p><img border="0" src="<?=$templateFolder.'/images/load_contex_panel.png'?>" /></p>
 <p>В открывшемся диалоге вы увидете доступные способы подключения для вашего браузера и ОС.</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/connection.png\',719,490,\'Подключение\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/connection.png\',719,490,\'Подключение\');'?>">
 <img src="<?=$templateFolder.'/images/connection_sm.png'?>" style="CURSOR: pointer" alt="Нажмите на рисунок, чтобы увеличить"  border="0"/></a></p>  
 <p>Если вы не используете <b>Internet Explorer</b> или если библиотека не была открыта как веб-папка при нажати на кнопку в диалоговом окне, то выполните следующие действия:</p>
 <ul>
 <li>Запустите <b>Проводник</b></li>
 <li>Выберите в меню пункт <b>Сервис &gt; Подключить сетевой диск</b></li>
 <li>С помощью ссылки <b>Подписаться на хранилище в Интернете или подключиться к сетевому серверу</b> запустите <b>Мастер добавления в сетевое окружение</b>:</p> 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_add_1.png\',447,322,\'Подключение сетевого диска\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_add_1.png\',447,322,\'Подключение сетевого диска\');'?>">
 <img width="250" height="180" border="0" src="<?=$templateFolder.'/images/network_add_1_sm.png'?>" style="cursor: pointer;" alt="Нажмите на рисунок, чтобы увеличить" /></a></li>
 <li>Нажмите кнопку <b>Далее</b>, откроется второе окно <b>Мастера</b></li>
 <li>В этом окне сделайте активным позицию <b>Выберите другое сетевое размещение</b> и нажмите кнопку <b>Далее</b>. Откроется следующий шаг <b>Мастера</b>:
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_add_4.png\',563,459,\'Добавление в сетевое окружение: Шаг 3\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_add_4.png\',563,459,\'Добавление в сетевое окружение: Шаг 3\');'?>">
 <img width="250" height="204" border="0" src="<?=$templateFolder.'/images/network_add_4_sm.png'?>" style="cursor: pointer;" alt="Нажмите на рисунок, чтобы увеличить" /></a></li>
 <li>В поле <b>Сетевой адрес или адрес в Интернете</b> введите URL подключаемой папки вида: <i>http://<ваш_сервер>/docs/shared/</i>.</li>
 <li>Нажмите кнопку <b>Далее</b>. Если появится окно для авторизации, то введите данные для авторизации на сервере.</li>
@@ -341,7 +341,7 @@
 <ul>
 <li>Запустите <b>Проводник.</b></li> 
 <li>Выберите в меню пункт <i>Сервис > Подключить сетевой диск</i>. Откроется диалог подключения сетевого диска: 
-<br><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_storage.png\',628,465,\'Подключение сетевого диска\');'?>">
+<br><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_storage.png\',628,465,\'Подключение сетевого диска\');'?>">
 <img width="250" height="185" border="0" src="<?=$templateFolder.'/images/network_storage_sm.png'?>" style="cursor: pointer;" alt="Нажмите на рисунок, чтобы увеличить" /></a></li>
 <li>В поле <b>Диск</b> назначьте букву для подключаемой папки.</li>
 <li>В поле <b>Папка</b> введите путь до библиотеки: <i>http://&lt;ваш_сервер&gt;/docs/shared/</i>. Если необходимо, чтобы папка подключалась для просмотра при каждом запуске системы, установите флажок <b>Восстанавливать при входе в систему</b>.</li>
@@ -357,7 +357,7 @@
 <ul>
 <li>Откройте <i>Finder Go->Connect to Server command</i>.</li>
 <li>Введите адрес к библиотеке в поле <b>Server Address</b>:</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/macos.png\',465,550,\'Mac OS X\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/macos.png\',465,550,\'Mac OS X\');'?>">
 <img width="235" height="278" border="0" src="<?=$templateFolder.'/images/macos_sm.png'?>" style="cursor: pointer;" alt="Нажмите на рисунок, чтобы увеличить" /></a></li>
 </ul>
 <br />

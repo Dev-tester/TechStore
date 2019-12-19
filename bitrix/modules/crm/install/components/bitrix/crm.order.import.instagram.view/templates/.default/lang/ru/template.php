@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OIIV_SELECT_MEDIA"] = "Выберите публикации для импорта";
 $MESS["CRM_OIIV_SELECT_NO_MEDIA"] = "Доступных для импорта публикаций на данный момент нет";
 $MESS["CRM_OIIV_INSTAGRAM_CONNECTED"] = "подключен";

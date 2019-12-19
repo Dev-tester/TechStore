@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_LIST_PARAMS_PATH_TO_DEPARTMENT"] = "Путь к странице подразделения";
 $MESS["INTRANET_USER_LIST_PARAMS_PATH_TO_USER"] = "Путь к странице профиля пользователя";
 $MESS["INTRANET_USER_LIST_PARAMS_USER_PROPERTY_LIST"] = "Поля пользователя, доступные для показа";

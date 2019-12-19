@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_COMMENTAUX_CREATETASK_POST_INTRANET_NEW_USER"] = "Task \"#TASK_NAME#\" has been created because a new user was added.";
 $MESS["SONET_COMMENTAUX_CREATETASK_POST_BITRIX24_NEW_USER"] = "Task \"#TASK_NAME#\" has been created because a new user was added.";
 $MESS["SONET_COMMENTAUX_CREATETASK_COMMENT_LOG_COMMENT_INTRANET_NEW_USER"] = "Task \"#TASK_NAME#\" has been created based on a #A_BEGIN#comment left to a new user addition entry#A_END#.";

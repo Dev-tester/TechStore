@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MFI_CONFIRM"] = "Удалить файл?";
 $MESS["MFI_INPUT_CAPTION_ADD"] = "Добавить файл";
 $MESS["MFI_INPUT_CAPTION_ADD_IMAGE"] = "Добавить изображение";

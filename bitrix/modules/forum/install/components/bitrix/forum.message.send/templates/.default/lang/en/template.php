@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NAME'] = "Name";
 $MESS ['F_ICQ'] = "ICQ number";
 $MESS ['F_EMAIL'] = "E-Mail address";

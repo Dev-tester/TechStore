@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 //IncludeTemplateLangFile(__FILE__);
 #######
 $t_COL=array("00","33","66","99","CC","FF");
@@ -9,7 +9,7 @@ $t_COL=array("00","33","66","99","CC","FF");
 <tr>
 <td>
 <table cellspacing="1" cellpadding="0" border="0" bgcolor="#FFFFFF">
-<?
+<?php 
 for($i=0;$i<216;$i++) 
 {
 
@@ -25,7 +25,7 @@ print "<td bgcolor='$t_curCOL' onmousedown=\"alterfont('$t_curCOL','COLOR')\"><i
 </table>
 </td>
 </tr>
-</table></div><?
+</table></div><?php 
 ########
 ?>
 <script language=JavaScript>
@@ -36,12 +36,12 @@ var U_open = 0;
 var QUOTE_open = 0;
 var CODE_open = 0;
 var CUT_open = 0;
-var text_enter_url = "<?echo GetMessage("BPC_TEXT_ENTER_URL");?>";
-var text_enter_url_name = "<?echo GetMessage("BPC_TEXT_ENTER_URL_NAME");?>";
-var text_enter_image = "<?echo GetMessage("BPC_TEXT_ENTER_IMAGE");?>";
-var list_prompt = "<?echo GetMessage("BPC_LIST_PROMPT");?>";
-var error_no_url = "<?echo GetMessage("BPC_ERROR_NO_URL");?>";
-var error_no_title = "<?echo GetMessage("BPC_ERROR_NO_TITLE");?>";
+var text_enter_url = "<?php echo GetMessage("BPC_TEXT_ENTER_URL");?>";
+var text_enter_url_name = "<?php echo GetMessage("BPC_TEXT_ENTER_URL_NAME");?>";
+var text_enter_image = "<?php echo GetMessage("BPC_TEXT_ENTER_IMAGE");?>";
+var list_prompt = "<?php echo GetMessage("BPC_LIST_PROMPT");?>";
+var error_no_url = "<?php echo GetMessage("BPC_ERROR_NO_URL");?>";
+var error_no_title = "<?php echo GetMessage("BPC_ERROR_NO_TITLE");?>";
 
 var bbtags = new Array();
 

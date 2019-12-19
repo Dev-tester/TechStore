@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["APP_ENTITY_ID_FIELD"] = "Идентификатор записи";
 $MESS["APP_ENTITY_CODE_FIELD"] = "Символьный код";
 $MESS["APP_ENTITY_PLATFORM_FIELD"] = "Платформа";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AD_F_PERIOD'] = "Период";
 $MESS ['AD_PAGE_TITLE'] = "Графики";
 $MESS ['AD_SERVER_TIME'] = "Время на сервере:";

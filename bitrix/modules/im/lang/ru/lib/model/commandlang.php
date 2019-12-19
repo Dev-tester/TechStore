@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMAND_LANG_ENTITY_ID_FIELD"] = "Идентификатор перевода";
 $MESS["COMMAND_LANG_ENTITY_COMMAND_ID_FIELD"] = "Идентификатор команды";
 $MESS["COMMAND_LANG_ENTITY_LANGUAGE_ID_FIELD"] = "Идентификатор языка";

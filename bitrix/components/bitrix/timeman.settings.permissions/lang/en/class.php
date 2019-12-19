@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_TM_MANAGE"] = "My clock-in and clock-out";
 $MESS["OP_NAME_TM_MANAGE_ALL"] = "Other persons' clock-in and clock-out";
 $MESS["OP_NAME_TM_READ"] = "View all records";

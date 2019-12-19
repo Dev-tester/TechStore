@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->IncludeLangFile('template.php');
 /**
  * @global CMain $APPLICATION
@@ -20,11 +20,11 @@ if(!isset($_POST["blog_upload_image"]))
 </form>
 </body>
 </html>
-<?
+<?php 
 }
 else
 {
-?><script><?if(!empty($arResult["Image"])):?>
+?><script><?php if(!empty($arResult["Image"])):?>
 (function () {
 	var imgTable = top.BX('blog-post-image');
 	if(imgTable)
@@ -50,11 +50,11 @@ else
 		}));
 	}
 	window.bxBlogImageId = top.bxBlogImageId = '<?=$arResult["Image"]["ID"]?>';
-})();<?
+})();<?php 
 elseif(strlen($arResult["ERROR_MESSAGE"]) > 0):
-?>alert('<?=$arResult["ERROR_MESSAGE"]?>');	<?
+?>alert('<?=$arResult["ERROR_MESSAGE"]?>');	<?php 
 endif;
-?></script><?
+?></script><?php 
 }
 die();
 ?>

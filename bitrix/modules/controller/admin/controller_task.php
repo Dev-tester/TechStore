@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -81,9 +81,9 @@ if (
 			echo $message->Show();
 			?>
 			<script>
-				Start(<?echo $iCntTotal?>, <?echo $iCntExecuted?>);
+				Start(<?php echo $iCntTotal?>, <?php echo $iCntExecuted?>);
 			</script>
-			<?
+			<?php 
 		}
 	}
 	else
@@ -101,7 +101,7 @@ if (
 		<script>
 			CloseWaitWindow();
 		</script>
-		<?
+		<?php 
 	}
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
 }
@@ -296,7 +296,7 @@ $lAdmin->AddAdminContextMenu(array());
 $lAdmin->BeginPrologContent();
 ?>
 <div id="progress">
-	<?
+	<?php 
 	if ($iTaskNCnt > 0 && $USER->CanDoOperation("controller_task_run"))
 	{
 		$message = new CAdminMessage(array(
@@ -323,7 +323,7 @@ $lAdmin->BeginPrologContent();
 	{
 		ShowWaitWindow();
 		BX.ajax.post(
-			'controller_task.php?lang=<?echo LANGUAGE_ID?>&<?echo bitrix_sessid_get()?>&act=process&cnt=' + cnt + '&executed=' + executed,
+			'controller_task.php?lang=<?php echo LANGUAGE_ID?>&<?php echo bitrix_sessid_get()?>&act=process&cnt=' + cnt + '&executed=' + executed,
 			null,
 			function (result)
 			{
@@ -332,7 +332,7 @@ $lAdmin->BeginPrologContent();
 		);
 	}
 </script>
-<?
+<?php 
 $lAdmin->EndPrologContent();
 
 
@@ -341,60 +341,60 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("CTRLR_TASK_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="form1" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?">
-	<? $filter->Begin(); ?>
+<form name="form1" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?">
+	<?php  $filter->Begin(); ?>
 
 	<tr>
 		<td><?=GetMessage("CTRLR_TASK_FLR_ST")?>:</td>
 		<td>
 			<select name="find_status[]" multiple="multiple">
-				<? foreach ($arStatus as $status_id => $status_name): ?>
-					<option value="<?=htmlspecialcharsbx($status_id)?>"<? if (in_array($status_id, $find_status)) echo ' selected' ?>><?=htmlspecialcharsEx($status_name)?></option>
-				<? endforeach ?>
+				<?php  foreach ($arStatus as $status_id => $status_name): ?>
+					<option value="<?=htmlspecialcharsbx($status_id)?>"<?php  if (in_array($status_id, $find_status)) echo ' selected' ?>><?=htmlspecialcharsEx($status_name)?></option>
+				<?php  endforeach ?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td>ID:</td>
 		<td>
-			<input type="text" name="find_id" value="<? echo htmlspecialcharsbx($_REQUEST["find_id"]) ?>" size="47">
+			<input type="text" name="find_id" value="<?php  echo htmlspecialcharsbx($_REQUEST["find_id"]) ?>" size="47">
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("CTRLR_TASK_FLT_CLIENT")?>:</td>
 		<td>
-			<input type="text" name="find_controller_member_id" value="<? echo htmlspecialcharsbx($_REQUEST["find_controller_member_id"]) ?>" size="47">
+			<input type="text" name="find_controller_member_id" value="<?php  echo htmlspecialcharsbx($_REQUEST["find_controller_member_id"]) ?>" size="47">
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("CTRLR_TASK_FLT_OPERATION")?>:</td>
 		<td>
 			<select name="find_task_id">
-				<option value=""><? echo GetMessage("CTRLR_TASK_FLR_ANY") ?></option>
-				<? foreach ($arTask as $task_id => $task_name): ?>
-					<option value="<?=htmlspecialcharsbx($task_id)?>" <? if ($_REQUEST["find_task_id"] == $task_id) echo ' selected="selected"'; ?>><?=htmlspecialcharsEx($task_name)?></option>
-				<? endforeach ?>
+				<option value=""><?php  echo GetMessage("CTRLR_TASK_FLR_ANY") ?></option>
+				<?php  foreach ($arTask as $task_id => $task_name): ?>
+					<option value="<?=htmlspecialcharsbx($task_id)?>" <?php  if ($_REQUEST["find_task_id"] == $task_id) echo ' selected="selected"'; ?>><?=htmlspecialcharsEx($task_name)?></option>
+				<?php  endforeach ?>
 			</select>
 	</tr>
 	<tr>
 		<td><?=GetMessage("CTRLR_TASK_FLT_EXECUTED")?>:</td>
-		<td><? echo CalendarPeriod("find_executed_from", $adminFilter["find_executed_from"], "find_executed_to", $adminFilter["find_executed_to"], "form1", "Y") ?></td>
+		<td><?php  echo CalendarPeriod("find_executed_from", $adminFilter["find_executed_from"], "find_executed_to", $adminFilter["find_executed_to"], "form1", "Y") ?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("CTRLR_TASK_FLT_MODYFIED")?>:</td>
-		<td><? echo CalendarPeriod("find_timestamp_x_from", $adminFilter["find_timestamp_x_from"], "find_timestamp_x_to", $adminFilter["find_timestamp_x_to"], "form1", "Y") ?></td>
+		<td><?php  echo CalendarPeriod("find_timestamp_x_from", $adminFilter["find_timestamp_x_from"], "find_timestamp_x_to", $adminFilter["find_timestamp_x_to"], "form1", "Y") ?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("CTRLR_TASK_FLT_CREATED")?>:</td>
-		<td><? echo CalendarPeriod("find_created_from", $adminFilter["find_created_from"], "find_created_to", $adminFilter["find_created_to"], "form1", "Y") ?></td>
+		<td><?php  echo CalendarPeriod("find_created_from", $adminFilter["find_created_from"], "find_created_to", $adminFilter["find_created_to"], "form1", "Y") ?></td>
 	</tr>
 
-	<? $filter->Buttons(array("table_id" => $sTableID, "url" => $APPLICATION->GetCurPage(), "form" => "form1"));
+	<?php  $filter->Buttons(array("table_id" => $sTableID, "url" => $APPLICATION->GetCurPage(), "form" => "form1"));
 	$filter->End(); ?>
 
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>

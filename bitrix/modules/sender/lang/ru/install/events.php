@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUBSCRIBE_CONFIRM_NAME'] = "Подтверждение подписки";
 $MESS ['SUBSCRIBE_CONFIRM_DESC'] = "#EMAIL# - адрес подписки
 #DATE# - дата добавления/изменения адреса

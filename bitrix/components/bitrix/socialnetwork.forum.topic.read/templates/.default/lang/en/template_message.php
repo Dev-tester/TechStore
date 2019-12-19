@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_REPLY"] = "Reply";
 $MESS["F_AUTHOR_PROFILE"] = "User profile";
 $MESS["F_NUM_MESS"] = "Posts:";

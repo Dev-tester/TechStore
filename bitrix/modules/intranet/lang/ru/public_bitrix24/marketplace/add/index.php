@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_TITLE"] = "Добавить приложение";
 $MESS["MARKETPLACE_BUTTON"] = "Продолжить";
 $MESS["MARKETPLACE_PAGE_TITLE"] = "Как добавить свое приложение в Битрикс24?";

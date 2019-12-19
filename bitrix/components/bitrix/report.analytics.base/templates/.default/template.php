@@ -13,18 +13,18 @@ if ($isBitrix24Template)
 }
 ?>
 
-<? if (!$isBitrix24Template): ?>
+<?php  if (!$isBitrix24Template): ?>
 <div class="tasks-interface-filter-container">
-	<? endif ?>
+	<?php  endif ?>
 
-	<div class="pagetitle-container<? if (!$isBitrix24Template): ?> pagetitle-container-light<? endif ?> pagetitle-flexible-space">
+	<div class="pagetitle-container<?php  if (!$isBitrix24Template): ?> pagetitle-container-light<?php  endif ?> pagetitle-flexible-space">
 		<div class="pagetitle-container pagetitle-align-right-container">
 
 		</div>
 	</div>
-	<? if (!$isBitrix24Template): ?>
+	<?php  if (!$isBitrix24Template): ?>
 </div>
-<? endif ?>
+<?php  endif ?>
 <?php
 if ($isBitrix24Template)
 {
@@ -33,7 +33,7 @@ if ($isBitrix24Template)
 
 ?>
 <div id="report-analytics-page" class="report-analytics-page-wrapper">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 		"ID" => 'report-analytic-left-menu',
 		"ITEMS" => $arResult['MENU_ITEMS'],

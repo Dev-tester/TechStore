@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
 $bodyClass = $APPLICATION->GetPageProperty("BodyClass");
@@ -13,7 +13,7 @@ if (\Bitrix\Main\Loader::includeModule("bitrix24"))
 	$licenseType = CBitrix24::getLicenseType();
 }
 ?>
-<?
+<?php 
 if (IsModuleInstalled("timeman"))
 {
 	$APPLICATION->IncludeComponent(
@@ -37,8 +37,8 @@ elseif (!(!IsModuleInstalled("timeman") && in_array($licenseType, array("company
 	<div style="text-align: center;"><img src="images/<?=$lang?>/workreport.png"/></div>
 	<p><?=GetMessage("TARIFF_RESTRICTION_TEXT2")?></p>
 	<br/>
-	<div style="text-align: center;"><?CBitrix24::showTariffRestrictionButtons("workreport")?></div>
-	<?
+	<div style="text-align: center;"><?php CBitrix24::showTariffRestrictionButtons("workreport")?></div>
+	<?php 
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BST_FORM_PAGE"] = "Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)";
 $MESS["CP_BST_NUM_CATEGORIES"] = "Количество категорий поиска";
 $MESS["CP_BST_NUM_CATEGORY"] = "Категория ##NUM#";

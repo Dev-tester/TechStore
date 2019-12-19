@@ -1,4 +1,4 @@
-<?
+<?php 
 $siteID = isset($_REQUEST['site']) ? substr(preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['site']), 0, 2) : '';
 if($siteID !== '')
 {
@@ -28,7 +28,7 @@ $APPLICATION->RestartBuffer();
 			window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
+	<?php $APPLICATION->ShowHead();?>
 	<style>.task-iframe-popup,
 		.task-iframe-popup.task-form-page,
 		.task-iframe-popup.task-detail-page{
@@ -36,11 +36,11 @@ $APPLICATION->RestartBuffer();
 			padding: 0 15px 21px 21px;
 		}</style>
 </head>
-<body class="task-iframe-popup task-detail-page template-<?=SITE_TEMPLATE_ID?> <? $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
+<body class="task-iframe-popup task-detail-page template-<?=SITE_TEMPLATE_ID?> <?php  $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
 
 <div class="task-iframe-workarea" id="tasks-content-outer">
-<div class="task-iframe-sidebar"><?$APPLICATION->ShowViewContent("sidebar"); ?></div>
-<div class="task-iframe-content"><?
+<div class="task-iframe-sidebar"><?php $APPLICATION->ShowViewContent("sidebar"); ?></div>
+<div class="task-iframe-content"><?php 
 
 if(!\Bitrix\Main\Loader::includeModule('crm'))
 {
@@ -99,7 +99,7 @@ else
 ?></div>
 </div>
 </body>
-</html><?
+</html><?php 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');
 die();
 ?>

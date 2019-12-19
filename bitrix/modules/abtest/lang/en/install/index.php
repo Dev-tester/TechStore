@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABTEST_MODULE_NAME"] = "A/B Testing";
 $MESS["ABTEST_MODULE_DESCRIPTION"] = "A/B Testing Module";
 $MESS["ABTEST_INSTALL_TITLE"] = "\"A/B Testing\" Module Installation";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["library_wizard_name"] = "Document Library";
 $MESS["library_wizard_title"] = "Document Library Section (SEF)";
 $MESS["library_wizard_settings"] = "Document Library Settings";

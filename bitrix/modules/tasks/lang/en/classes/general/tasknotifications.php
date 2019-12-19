@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_NOTIFICATIONS_I_REACTION"] = "\"#REACTION#\"";
 $MESS["TASKS_NOTIFICATIONS_I_REACT_TASK"] = "Reacted to your task #LINK#";
 $MESS["TASKS_NOTIFICATIONS_I_REACT_TASK_M"] = "Reacted to your task #LINK#";

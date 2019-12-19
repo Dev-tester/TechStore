@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_PRESET_ITEM_CD_NAME"] = "Contact info";
 $MESS["CRM_WEBFORM_PRESET_ITEM_CD_CAPTION"] = "Contact info";
 $MESS["CRM_WEBFORM_PRESET_ITEM_CD_DESCRIPTION"] = "Please leave your contact info and we will contact you back";

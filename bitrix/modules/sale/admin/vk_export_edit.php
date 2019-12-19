@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Main\Localization\Loc;
@@ -395,7 +395,7 @@ $tabControl = new CAdminTabControl("tabControl", $arrTabs);
 ///////////////////////////////////////////////////////////////////
 ?>
 <div id="vk_export_notify__progress">
-	<?
+	<?php 
 	if ($runningProcess)
 		echo Vk\Journal::getProgressMessage($exportId, $runningProcess['TYPE']);
 	?>
@@ -414,23 +414,23 @@ $tabControl = new CAdminTabControl("tabControl", $arrTabs);
 	?>
 </div>
 
-<? $tabControl->Begin(); ?>
+<?php  $tabControl->Begin(); ?>
 <!--	----------------------------------------------------->
 <!--	EXPORT tab-->
-<? if ($vk->isActive() && $vk->isActiveById($exportId)): ?>
+<?php  if ($vk->isActive() && $vk->isActiveById($exportId)): ?>
 <?php $tabControl->BeginNextTab(); ?>
 
 <!--	NOTIFY about running agent-->
-<? if ($runningProcess): ?>
+<?php  if ($runningProcess): ?>
 	<script>
 		BX.ready(function () {
 			BX.Sale.VkAdmin.exportProcessProlog();
 			BX.Sale.VkAdmin.startFeed("<?=$runningProcess['TYPE']?>", "<?=$exportId?>");
 		});
 	</script>
-<? endif; ?>
+<?php  endif; ?>
 
-<?
+<?php 
 //	formatted BUTTONS
 //	if exists running process - not active buttons
 $additionalMenuAdd = array();
@@ -493,14 +493,14 @@ foreach (array('ALBUMS', 'PRODUCTS') as $type1)
 		<?php $errorsNormal = $logger->getErrorsList(false); ?>
 		<div id="vk_export_notify__error_normal"
 			 style="display:<?= (strlen($errorsNormal) > 0) ? 'block' : 'none' ?>">
-			<? echo BeginNote(); ?>
+			<?php  echo BeginNote(); ?>
 			<span id="vk_export_notify__error_normal__msg"><?= $errorsNormal ?></span>
 			<span id="vk_export_notify__error_normal__button">
 			<input type="button" value="<?= Loc::getMessage("SALE_VK_EXPORT_BUTTON_CLEAR_LOG") ?>"
 				   onclick="if(confirm('<?= Loc::getMessage("SALE_VK_EXPORT_BUTTON_CLEAR_LOG_ALERT") ?>'))
 					   {BX.Sale.VkAdmin.clearErrorLog('<?= $exportId ?>');}">
 			</span>
-			<? echo EndNote(); ?>
+			<?php  echo EndNote(); ?>
 		</div>
 		<?=$logger->getErrorExpandScript();?>
 	</td>
@@ -516,7 +516,7 @@ foreach (array('ALBUMS', 'PRODUCTS') as $type1)
 		</div>
 	</td>
 </tr>
-<? endif; ?>
+<?php  endif; ?>
 
 
 <?php
@@ -533,7 +533,7 @@ $tabControl->BeginNextTab();
 		<td colspan="2">
 			<?php if ($exportId): ?>
 				<input type="hidden" name="ID" value="<?= htmlspecialcharsbx($exportId) ?>">
-			<? endif; ?>
+			<?php  endif; ?>
 		</td>
 	</tr>
 	
@@ -581,7 +581,7 @@ $tabControl->BeginNextTab();
 	</tr>
 	
 	<!--		get TOKEN-->
-	<? if (
+	<?php  if (
 		isset($vkSettings["VK_SETTINGS"]["APP_ID"]) && !empty($vkSettings["VK_SETTINGS"]["APP_ID"]) &&
 		isset($vkSettings["VK_SETTINGS"]["SECRET"]) && !empty($vkSettings["VK_SETTINGS"]["SECRET"])
 	):
@@ -592,10 +592,10 @@ $tabControl->BeginNextTab();
 				<a href="<?= $authUrl ?>"><?= Loc::getMessage($authButtonText) ?></a>
 			</td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	
 	
-	<? if ($exportId && strlen($vkGroupsSelector) > 0): ?>
+	<?php  if ($exportId && strlen($vkGroupsSelector) > 0): ?>
 		<tr class="heading">
 			<td colspan="2"><?= Loc::getMessage("SALE_VK_SETTINGS_VK_SETTINGS") ?></td>
 		</tr>
@@ -611,7 +611,7 @@ $tabControl->BeginNextTab();
 			</td>
 			<td><?=$vkGroupsSelector?></td>
 		</tr>
-	<?endif; //group selector?>
+	<?php endif; //group selector?>
 	
 	
 	<?php if ($exportId && strlen($vkCategorySelector) > 0): ?>
@@ -630,10 +630,10 @@ $tabControl->BeginNextTab();
 						name="VK[EXPORT_SETTINGS][CATEGORY_DEFAULT]"><?= $vkCategorySelector ?></select>
 			</td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	
 	
-	<? if ($vk->isActive() && $vk->isActiveById($exportId)): ?>
+	<?php  if ($vk->isActive() && $vk->isActiveById($exportId)): ?>
 		<tr class="heading">
 			<td colspan="2"><?= Loc::getMessage("SALE_VK_SETTINGS_EXPORT") ?></td>
 		</tr>
@@ -709,7 +709,7 @@ $tabControl->BeginNextTab();
 						type="checkbox" name="VK[EXPORT_SETTINGS][RICH_LOG]" value="1">
 			</td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	
 	<tr height="25">
 		<td></td>
@@ -729,7 +729,7 @@ $tabControl->BeginNextTab();
 </form>
 
 
-<? if ($vk->isActive() && $vk->isActiveById($exportId)): ?>
+<?php  if ($vk->isActive() && $vk->isActiveById($exportId)): ?>
 	<?php
 //	export MAP
 	$tabControl->BeginNextTab();
@@ -741,10 +741,10 @@ $tabControl->BeginNextTab();
 			<?= EndNote() ?>
 		</td>
 	</tr>
-<? endif; ?>
+<?php  endif; ?>
 <?php
 $tabControl->End();
 ?>
 
 
-<? require($_SERVER["DOCUMENT_ROOT"] . BX_ROOT . "/modules/main/include/epilog_admin.php");
+<?php  require($_SERVER["DOCUMENT_ROOT"] . BX_ROOT . "/modules/main/include/epilog_admin.php");

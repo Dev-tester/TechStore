@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_INVITE_MODAL_OWNER_USER"] = "(владелец)";
 $MESS["WD_INVITE_MODAL_OWNER_GROUP"] = "(группа)";
 $MESS["WD_INVITE_MODAL_TITLE_SHARING"] = "Открыть общий доступ к папке";

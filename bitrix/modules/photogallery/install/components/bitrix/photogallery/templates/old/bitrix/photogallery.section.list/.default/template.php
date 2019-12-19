@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 
 if (!is_array($arResult["SECTIONS"]) || empty($arResult["SECTIONS"])):
@@ -13,7 +13,7 @@ $arParams["WORD_LENGTH"] = (intVal($arParams["WORD_LENGTH"]) > 0 ? intVal($arPar
 
 ?>
 <div class="photo-albums-list photo-albums">
-<?
+<?php 
 $ELEMENTS_CNT = false; $SECTIONS_CNT = false;
 $SECTIONS_ELEMENTS_CNT = false;
 foreach ($arResult["SECTIONS"] as $res):
@@ -35,13 +35,13 @@ foreach ($arResult["SECTIONS"] as $res):
 				<div class="outer" style="width:<?=($arParams["ALBUM_PHOTO_THUMBS_SIZE"] + 38)?>px;">
 					<div class="tool" style="height:<?=$arParams["ALBUM_PHOTO_THUMBS_SIZE"]?>px;"></div>
 					<div class="inner">
-						<a href="<?=$res["LINK"]?>" <?
+						<a href="<?=$res["LINK"]?>" <?php 
 							?>title="<?=htmlspecialcharsbx($res["~NAME"])?><?=
 							htmlspecialcharsbx(!empty($res["DESCRIPTION"]) ? ", ".$res["DESCRIPTION"] : "")?>">
-							<div class="photo-album-cover" id="photo_album_cover_<?=$res["ID"]?>" <?
-								?>style="width:<?=$arParams["ALBUM_PHOTO_THUMBS_SIZE"]?>px; height:<?=$arParams["ALBUM_PHOTO_THUMBS_SIZE"]?>px;<?
+							<div class="photo-album-cover" id="photo_album_cover_<?=$res["ID"]?>" <?php 
+								?>style="width:<?=$arParams["ALBUM_PHOTO_THUMBS_SIZE"]?>px; height:<?=$arParams["ALBUM_PHOTO_THUMBS_SIZE"]?>px;<?php 
 							if (!empty($res["PICTURE"]["SRC"])):
-								?>background-image:url('<?=$res["PICTURE"]["SRC"]?>');<?
+								?>background-image:url('<?=$res["PICTURE"]["SRC"]?>');<?php 
 							endif;
 								?>" title="<?=htmlspecialcharsbx($res["~NAME"])?>"></div>
 						</a>
@@ -54,61 +54,61 @@ foreach ($arResult["SECTIONS"] as $res):
 	</div>
 	<div class="photo-album-info">
 		<div class="photo-album-info-name name" id="photo_album_name_<?=$res["ID"]?>" style="width:<?=($arParams["ALBUM_PHOTO_THUMBS_SIZE"] + 38)?>px;">
-			<a href="<?=$res["LINK"]?>" title="<?=htmlspecialcharsbx(empty($res["~DESCRIPTION"]) ? $res["~NAME"] : $res["~DESCRIPTION"])?>" <?
+			<a href="<?=$res["LINK"]?>" title="<?=htmlspecialcharsbx(empty($res["~DESCRIPTION"]) ? $res["~NAME"] : $res["~DESCRIPTION"])?>" <?php 
 				?>class="photo-album-info-name" style="width:<?=($arParams["ALBUM_PHOTO_THUMBS_SIZE"])?>px;">
 				<?=(strLen($res["NAME"]) > $arParams["WORD_LENGTH"] ? htmlspecialcharsbx(subStr($res["~NAME"], 0, ($arParams["WORD_LENGTH"]-3)))."..." : $res["NAME"])?>
 			</a>
 		</div>
-		<?
+		<?php 
 	if ($arParams["PERMISSION"] <= "U"):
 ?>
 		<div class="photo-album-info-cnt-values">
 			<?=GetMessage("P_PHOTOS_CNT")?>: <a href="<?=$res["LINK"]?>"><?=$res["ELEMENTS_CNT"]?></a>
 		</div>
-<?
+<?php 
 
 	elseif ($ELEMENTS_CNT || $SECTIONS_CNT):
 
 ?>
 		<div class="photo-album-info-cnt-values">
-<?
+<?php 
 
 		if ($SECTIONS_ELEMENTS_CNT):
 		?>
 			<div class="photo-album-info-cnt-value photo-album-info-cnt-photo"><?=GetMessage("P_PHOTOS_CNT")?>: <a href="<?=$res["LINK"]?>"><?=$res["ELEMENTS_CNT"]?></a></div>
 			<div class="photo-album-info-cnt-value photo-album-info-cnt-album">
-		<?
+		<?php 
 			if (intVal($res["SECTIONS_CNT"]) > 0):
-				?><?=GetMessage("P_ALBUMS_CNT")?>: <a href="<?=$res["LINK"]?>"><?=$res["SECTIONS_CNT"]?></a><?
+				?><?=GetMessage("P_ALBUMS_CNT")?>: <a href="<?=$res["LINK"]?>"><?=$res["SECTIONS_CNT"]?></a><?php 
 			else:
-				?><?=GetMessage("P_ALBUMS_CNT_NO");?><?
+				?><?=GetMessage("P_ALBUMS_CNT_NO");?><?php 
 			endif;
 		?>
 			</div>
-		<?
+		<?php 
 		elseif (intVal($res["SECTIONS_CNT"]) > 0):
 		?>
 			<div class="photo-album-info-cnt-value photo-album-info-cnt-album">
 				<?=GetMessage("P_ALBUMS_CNT")?>: <a href="<?=$res["LINK"]?>"><?=$res["SECTIONS_CNT"]?></a>
 			</div>
-		<?
+		<?php 
 		elseif (intVal($res["ELEMENTS_CNT"]) > 0):
 		?>
 			<div class="photo-album-info-cnt-value photo-album-info-cnt-photo">
 				<?=GetMessage("P_PHOTOS_CNT")?>: <a href="<?=$res["LINK"]?>"><?=$res["ELEMENTS_CNT"]?></a>
 			</div>
-		<?
+		<?php 
 		else:
-		?><div class="photo-album-info-cnt-value photo-album-info-cnt-photo"><br /></div><?
+		?><div class="photo-album-info-cnt-value photo-album-info-cnt-photo"><br /></div><?php 
 		endif;
 ?>
 		</div>
-<?
+<?php 
 	endif;
 ?>
 	</div>
 </div>
-<?
+<?php 
 endforeach;
 ?>
 	<div class="empty-clear"></div>

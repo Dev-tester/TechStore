@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $oldItemsSort = CUserOptions::GetOption("bitrix24", "user_menu_items_".SITE_ID);
 $oldItemsAdded = CUserOptions::GetOption("bitrix24", "user_added_favorite_items_".SITE_ID);

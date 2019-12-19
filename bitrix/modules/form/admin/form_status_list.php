@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -265,7 +265,7 @@ $context->Show();
 
 echo BeginNote('width="100%"');?>
 <b><?=GetMessage("FORM_FORM_NAME")?></b> [<a title='<?=GetMessage("FORM_EDIT_FORM")?>' href='form_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$WEB_FORM_ID?>'><?=$WEB_FORM_ID?></a>]&nbsp;(<?=htmlspecialcharsbx($arForm["SID"])?>)&nbsp;<?=htmlspecialcharsbx($arForm["NAME"])?>
-<?echo EndNote();
+<?php echo EndNote();
 
 echo ShowError($strError);
 echo ShowNote($strNote);
@@ -273,7 +273,7 @@ echo ShowNote($strNote);
 // Filter
 ?>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>">
-<?
+<?php 
 	$oFilter = new CAdminFilter(
         	$sTableID."_filter",
 	        array(
@@ -288,34 +288,34 @@ $oFilter->Begin();
 ?>
 <tr>
 	<td nowrap><b><?=GetMessage("FORM_F_TITLE")?></b></td>
-	<td nowrap><input type="text" name="find_title" value="<?echo htmlspecialcharsbx($find_title)?>" size="47"><?=InputType("checkbox", "find_title_exact_match", "Y", $find_title_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_title" value="<?php echo htmlspecialcharsbx($find_title)?>" size="47"><?=InputType("checkbox", "find_title_exact_match", "Y", $find_title_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("FORM_F_ID")?></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td nowrap><?=GetMessage("FORM_F_ACTIVE")?></td>
-	<td nowrap><?
+	<td nowrap><?php 
 	$arr = array("reference"=>array(GetMessage("FORM_YES"), GetMessage("FORM_NO")), "reference_id"=>array("Y","N"));
 	echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("FORM_ALL"));
 	?></td>
 </tr>
 <tr>
 	<td nowrap><?=GetMessage("FORM_F_DESCRIPTION")?></td>
-	<td nowrap><input type="text" name="find_description" value="<?echo htmlspecialcharsbx($find_description)?>" size="47"><?=InputType("checkbox", "find_description_exact_match", "Y", $find_description_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_description" value="<?php echo htmlspecialcharsbx($find_description)?>" size="47"><?=InputType("checkbox", "find_description_exact_match", "Y", $find_description_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("FORM_F_RESULTS")?></td>
+	<td nowrap><?php echo GetMessage("FORM_F_RESULTS")?></td>
 	<td nowrap><input type="text" name="find_results_1" value="<?=htmlspecialcharsbx($find_results_1)?>" size="5">&nbsp;<?=GetMessage("FORM_TILL")?>&nbsp;<input type="text" name="find_results_2" value="<?=htmlspecialcharsbx($find_results_2)?>" size="5"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>"form_status_list.php?lang=".LANGUAGE_ID."&WEB_FORM_ID=$WEB_FORM_ID"));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

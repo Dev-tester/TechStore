@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <table class="learn-work-table">
 <tr>
 	<td class="learn-left-data" valign="top">
-	<?if (intval($arParams["COURSE_ID"]) > 0):?>
-		<?$APPLICATION->IncludeComponent("bitrix:learning.course.tree", "", Array(
+	<?php if (intval($arParams["COURSE_ID"]) > 0):?>
+		<?php $APPLICATION->IncludeComponent("bitrix:learning.course.tree", "", Array(
 			"COURSE_ID"	=> $arParams["COURSE_ID"],
 			"COURSE_DETAIL_TEMPLATE"	=> $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["course.detail"],
 			"CHAPTER_DETAIL_TEMPLATE"	=> $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["chapter.detail"],
@@ -20,13 +20,13 @@
 			),
 			$component
 		);?>
-	<?endif?>
+	<?php endif?>
 
 	</td>
 
 	<td class="learn-right-data" valign="top">
-	<?if (intval($arParams["COURSE_ID"]) > 0):?>
-		<?$APPLICATION->IncludeComponent("bitrix:learning.course.contents", "", Array(
+	<?php if (intval($arParams["COURSE_ID"]) > 0):?>
+		<?php $APPLICATION->IncludeComponent("bitrix:learning.course.contents", "", Array(
 			"COURSE_ID"	=> $arParams["COURSE_ID"],
 			"CHECK_PERMISSIONS" => $arParams["CHECK_PERMISSIONS"],
 			"SET_TITLE" => $arParams["SET_TITLE"],
@@ -35,7 +35,7 @@
 			),
 			$component
 		);?>
-	<?endif?>
+	<?php endif?>
 	</td>
 
 </tr>

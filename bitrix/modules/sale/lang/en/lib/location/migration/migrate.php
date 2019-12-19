@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_TYPE_COUNTRY"] = "Country";
 $MESS["SALE_LOCATION_TYPE_REGION"] = "Region";
 $MESS["SALE_LOCATION_TYPE_CITY"] = "City";

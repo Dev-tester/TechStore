@@ -1,4 +1,4 @@
-<?
+<?php 
 $langs = CLanguage::GetList(($b=""), ($o=""));
 while($lang = $langs->Fetch())
 {
@@ -88,7 +88,7 @@ while($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "#TASK_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_user"
 		));
@@ -100,7 +100,7 @@ while($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "#TASK_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_user"
 		));
@@ -112,7 +112,7 @@ while($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "#TASK_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_user"
 		));
@@ -124,7 +124,7 @@ while($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => "#TASK_TITLE#",
-			"MESSAGE" => "<?EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"ENTITY\" => \"COMMENT\", \"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
+			"MESSAGE" => "<?php EventMessageThemeCompiler::includeComponent(\"bitrix:tasks.mail.task\",\"\",Array(\"ENTITY\" => \"COMMENT\", \"EMAIL_TO\" => \"{#EMAIL_TO#}\",\"USER_RECEIVER\" => \"{#RECIPIENT_ID#}\",\"ID\" => \"{#TASK_ID#}\"));?>",
 			"BODY_TYPE" => "html",
 			"SITE_TEMPLATE_ID" => "mail_user"
 		));
@@ -137,7 +137,7 @@ while($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => '#SUBJECT#',
-			"MESSAGE" => '<?EventMessageThemeCompiler::includeComponent(
+			"MESSAGE" => '<?php EventMessageThemeCompiler::includeComponent(
 	"bitrix:tasks.task.mail",
 	"",
 	array(
@@ -163,7 +163,7 @@ while($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => '#SUBJECT#',
-			"MESSAGE" => '<?EventMessageThemeCompiler::includeComponent(
+			"MESSAGE" => '<?php EventMessageThemeCompiler::includeComponent(
 	"bitrix:tasks.task.mail",
 	"",
 	array(
@@ -191,7 +191,7 @@ while($lang = $langs->Fetch())
 			"EMAIL_FROM" => "#EMAIL_FROM#",
 			"EMAIL_TO" => "#EMAIL_TO#",
 			"SUBJECT" => '#SUBJECT#',
-			"MESSAGE" => '<?EventMessageThemeCompiler::includeComponent(
+			"MESSAGE" => '<?php EventMessageThemeCompiler::includeComponent(
 	"bitrix:tasks.task.mail",
 	"",
 	array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTROLLER_ERROR_ADD_PROPS_GROUP"] = "Error creating group.";
 $MESS["CONTROLLER_ERROR_DELETE_PROPS_GROUP"] = "Error deleting group. [#ID#]";
 $MESS["CONTROLLER_ERROR_NAME_FIELD_EMPTY"] = "Group name is not specified";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_LCC_ERROR_IM_LOAD"] = "Ошибка загрузки модуля Веб-мессенджер";
 $MESS["IMOL_LCC_ERROR_PULL_LOAD"] = "Ошибка загрузки модуля Push & Pull";
 $MESS["IMOL_LCC_ERROR_USER_ID"] = "Указан не корректный идентификатор пользователя";

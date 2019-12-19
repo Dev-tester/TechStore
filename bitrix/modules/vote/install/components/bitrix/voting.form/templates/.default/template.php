@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!empty($arResult["ERROR_MESSAGE"])): 
 ?>
 <div class="vote-note-box vote-note-error">
 	<div class="vote-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"])?></div>
 </div>
-<?
+<?php 
 endif;
 
 if (!empty($arResult["OK_MESSAGE"])): 
@@ -13,7 +13,7 @@ if (!empty($arResult["OK_MESSAGE"])):
 <div class="vote-note-box vote-note-note">
 	<div class="vote-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"])?></div>
 </div>
-<?
+<?php 
 endif;
 
 if (empty($arResult["VOTE"])):
@@ -31,40 +31,40 @@ endif;
 	<?=bitrix_sessid_post()?>
 	
 <ol class="vote-items-list vote-question-list">
-<?
+<?php 
 	$iCount = 0;
 	foreach ($arResult["QUESTIONS"] as $arQuestion):
 		$iCount++;
 
 ?>
-	<li class="vote-item-vote <?=($iCount == 1 ? "vote-item-vote-first " : "")?><?
-				?><?=($iCount == count($arResult["QUESTIONS"]) ? "vote-item-vote-last " : "")?><?
-				?><?=($iCount%2 == 1 ? "vote-item-vote-odd " : "vote-item-vote-even ")?><?
+	<li class="vote-item-vote <?=($iCount == 1 ? "vote-item-vote-first " : "")?><?php 
+				?><?=($iCount == count($arResult["QUESTIONS"]) ? "vote-item-vote-last " : "")?><?php 
+				?><?=($iCount%2 == 1 ? "vote-item-vote-odd " : "vote-item-vote-even ")?><?php 
 				?>">
 
 		<div class="vote-item-header">
 
-<?
+<?php 
 		if ($arQuestion["IMAGE"] !== false):
 ?>
 			<div class="vote-item-image"><img src="<?=$arQuestion["IMAGE"]["SRC"]?>" width="30" height="30" /></div>
-<?
+<?php 
 		endif;
 ?>
-	<div class="vote-item-title vote-item-question"><?=$arQuestion["QUESTION"]?><?if($arQuestion["REQUIRED"]=="Y"){echo "<span class='starrequired'>*</span>";}?></div>
+	<div class="vote-item-title vote-item-question"><?=$arQuestion["QUESTION"]?><?php if($arQuestion["REQUIRED"]=="Y"){echo "<span class='starrequired'>*</span>";}?></div>
 			<div class="vote-clear-float"></div>
 		</div>
 		
 		<ol class="vote-items-list vote-answers-list">
-<?
+<?php 
 		$iCountAnswers = 0;
 		foreach ($arQuestion["ANSWERS"] as $arAnswer):
 			$iCountAnswers++;
 ?>
-			<li class="vote-item-vote <?=($iCountAnswers == 1 ? "vote-item-vote-first " : "")?><?
-						?><?=($iCountAnswers == count($arQuestion["ANSWERS"]) ? "vote-item-vote-last " : "")?><?
+			<li class="vote-item-vote <?=($iCountAnswers == 1 ? "vote-item-vote-first " : "")?><?php 
+						?><?=($iCountAnswers == count($arQuestion["ANSWERS"]) ? "vote-item-vote-last " : "")?><?php 
 						?><?=($iCountAnswers%2 == 1 ? "vote-item-vote-odd " : "vote-item-vote-even ")?>">
-<?
+<?php 
 			switch ($arAnswer["FIELD_TYPE"]):
 					case 0://radio
 						$value=(isset($_REQUEST['vote_radio_'.$arAnswer["QUESTION_ID"]]) && 
@@ -88,76 +88,76 @@ endif;
 					break;
 				endswitch;
 ?>
-<?
+<?php 
 			switch ($arAnswer["FIELD_TYPE"]):
 					case 0://radio
 ?>
 						<span class="vote-answer-item vote-answer-item-radio">
-						<input type="radio" <?=$value?> name="vote_radio_<?=$arAnswer["QUESTION_ID"]?>" <?
-								?>id="vote_radio_<?=$arAnswer["QUESTION_ID"]?>_<?=$arAnswer["ID"]?>" <?
+						<input type="radio" <?=$value?> name="vote_radio_<?=$arAnswer["QUESTION_ID"]?>" <?php 
+								?>id="vote_radio_<?=$arAnswer["QUESTION_ID"]?>_<?=$arAnswer["ID"]?>" <?php 
 								?>value="<?=$arAnswer["ID"]?>" <?=$arAnswer["~FIELD_PARAM"]?> />
 							<label for="vote_radio_<?=$arAnswer["QUESTION_ID"]?>_<?=$arAnswer["ID"]?>"><?=$arAnswer["MESSAGE"]?></label>
 						</span>
-<?
+<?php 
 					break;
 					case 1://checkbox?>
 						<span class="vote-answer-item vote-answer-item-checkbox">
-							<input <?=$value?> type="checkbox" name="vote_checkbox_<?=$arAnswer["QUESTION_ID"]?>[]" value="<?=$arAnswer["ID"]?>" <?
+							<input <?=$value?> type="checkbox" name="vote_checkbox_<?=$arAnswer["QUESTION_ID"]?>[]" value="<?=$arAnswer["ID"]?>" <?php 
 								?> id="vote_checkbox_<?=$arAnswer["QUESTION_ID"]?>_<?=$arAnswer["ID"]?>" <?=$arAnswer["~FIELD_PARAM"]?> />
 							<label for="vote_checkbox_<?=$arAnswer["QUESTION_ID"]?>_<?=$arAnswer["ID"]?>"><?=$arAnswer["MESSAGE"]?></label>
 						</span>
-					<?break?>
+					<?php break?>
 
-					<?case 2://dropdown?>
+					<?php case 2://dropdown?>
 						<span class="vote-answer-item vote-answer-item-dropdown">
 							<select name="vote_dropdown_<?=$arAnswer["QUESTION_ID"]?>" <?=$arAnswer["~FIELD_PARAM"]?>>
 								<option value=""><?=GetMessage("VOTE_DROPDOWN_SET")?></option>
-							<?foreach ($arAnswer["DROPDOWN"] as $arDropDown):?>
+							<?php foreach ($arAnswer["DROPDOWN"] as $arDropDown):?>
 								<option value="<?=$arDropDown["ID"]?>" <?=($arDropDown["ID"] === $value)?'selected="selected"':''?>><?=$arDropDown["MESSAGE"]?></option>
-							<?endforeach?>
+							<?php endforeach?>
 							</select>
 						</span>
-					<?break?>
+					<?php break?>
 
-					<?case 3://multiselect?>
+					<?php case 3://multiselect?>
 						<span class="vote-answer-item vote-answer-item-multiselect">
 							<select name="vote_multiselect_<?=$arAnswer["QUESTION_ID"]?>[]" <?=$arAnswer["~FIELD_PARAM"]?> multiple="multiple">
-							<?foreach ($arAnswer["MULTISELECT"] as $arMultiSelect):?>
+							<?php foreach ($arAnswer["MULTISELECT"] as $arMultiSelect):?>
 								<option value="<?=$arMultiSelect["ID"]?>" <?=(array_search($arMultiSelect["ID"], $value)!==false)?'selected="selected"':''?>><?=$arMultiSelect["MESSAGE"]?></option>
-							<?endforeach?>
+							<?php endforeach?>
 							</select>
 						</span>
-					<?break?>
+					<?php break?>
 
-					<?case 4://text field?>
+					<?php case 4://text field?>
 						<span class="vote-answer-item vote-answer-item-textfield">
 							<label for="vote_field_<?=$arAnswer["ID"]?>"><?=$arAnswer["MESSAGE"]?></label>
-							<input type="text" name="vote_field_<?=$arAnswer["ID"]?>" id="vote_field_<?=$arAnswer["ID"]?>" <?
+							<input type="text" name="vote_field_<?=$arAnswer["ID"]?>" id="vote_field_<?=$arAnswer["ID"]?>" <?php 
 								?>value="<?=$value?>" size="<?=$arAnswer["FIELD_WIDTH"]?>" <?=$arAnswer["~FIELD_PARAM"]?> /></span>
-					<?break?>
+					<?php break?>
 
-					<?case 5://memo?>
+					<?php case 5://memo?>
 						<span class="vote-answer-item vote-answer-item-memo">
 							<label for="vote_memo_<?=$arAnswer["ID"]?>"><?=$arAnswer["MESSAGE"]?></label><br />
-							<textarea name="vote_memo_<?=$arAnswer["ID"]?>" id="vote_memo_<?=$arAnswer["ID"]?>" <?
-								?><?=$arAnswer["~FIELD_PARAM"]?> cols="<?=$arAnswer["FIELD_WIDTH"]?>" <?
+							<textarea name="vote_memo_<?=$arAnswer["ID"]?>" id="vote_memo_<?=$arAnswer["ID"]?>" <?php 
+								?><?=$arAnswer["~FIELD_PARAM"]?> cols="<?=$arAnswer["FIELD_WIDTH"]?>" <?php 
 							?>rows="<?=$arAnswer["FIELD_HEIGHT"]?>"><?=$value?></textarea>
 						</span>
-					<?break;
+					<?php break;
 				endswitch;
 ?>
 			</li>
-<?
+<?php 
 			endforeach
 ?>
 		</ol>
 	</li>
-<?
+<?php 
 		endforeach
 ?>
 </ol>
 
-<? if (isset($arResult["CAPTCHA_CODE"])):  ?>
+<?php  if (isset($arResult["CAPTCHA_CODE"])):  ?>
 <div class="vote-item-header">
 	<div class="vote-item-title vote-item-question"><?=GetMessage("F_CAPTCHA_TITLE")?></div>
 	<div class="vote-clear-float"></div>
@@ -172,13 +172,13 @@ endif;
 		<input type="text" size="20" name="captcha_word" autocomplete="off" />
 	</div>
 </div>
-<? endif // CAPTCHA_CODE ?>
+<?php  endif // CAPTCHA_CODE ?>
 
 <div class="vote-form-box-buttons vote-vote-footer">
 	<span class="vote-form-box-button vote-form-box-button-first"><input type="submit" name="vote" value="<?=GetMessage("VOTE_SUBMIT_BUTTON")?>" /></span>
-<?/*?>	<span class="vote-form-box-button vote-form-box-button-last"><input type="reset" value="<?=GetMessage("VOTE_RESET")?>" /></span><?*/?>
+<?php /*?>	<span class="vote-form-box-button vote-form-box-button-last"><input type="reset" value="<?=GetMessage("VOTE_RESET")?>" /></span><?php */?>
 	<span class="vote-form-box-button vote-form-box-button-last">
-		<a name="show_result" <?
+		<a name="show_result" <?php 
 			?>href="<?=$arResult["URL"]["RESULT"]?>"><?=GetMessage("VOTE_RESULTS")?></a>
 	</span>
 </div>

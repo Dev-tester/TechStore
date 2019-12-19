@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_TAB_PERMISSIONS"] = "Access";
 $MESS["WD_TAB_PERMISSIONS_ELEMENT"] = "Document access permissions";
 $MESS["WD_TAB_PERMISSIONS_SECTION"] = "Folder access permissions";

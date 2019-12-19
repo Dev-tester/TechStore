@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_DBNODE_LIST_TITLE"] = "Vertical Sharding: Module Databases";
 $MESS["CLU_DBNODE_LIST_ID"] = "ID";
 $MESS["CLU_DBNODE_LIST_FLAG"] = "State";

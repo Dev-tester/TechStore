@@ -1,4 +1,4 @@
-<?
+<?php 
 header("P3P: policyref=\"/bitrix/p3p.xml\", CP=\"NON DSP COR CUR ADM DEV PSA PSD OUR UNR BUS UNI COM NAV INT DEM STA\"");
 header("Content-type: image/png");
 if(isset($_GET["k"]) && isset($_GET["s"]) && is_string($_GET["k"]) && is_string($_GET["s"]) && $_GET["k"] <> '')

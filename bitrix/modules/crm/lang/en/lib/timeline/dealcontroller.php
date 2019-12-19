@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_DEAL_BASE_CAPTION_DEAL_RECURRING'] = "Created from template";
 $MESS['CRM_DEAL_BASE_CAPTION_LEAD'] = "Based on lead";
 $MESS['CRM_DEAL_CREATION'] = "Deal added";

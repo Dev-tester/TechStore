@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPEAA_EMPTY_MESSAGE"] = "Свойство 'Текст сообщения' не указано.";
 $MESS["BPEAA_EMPTY_TYPE"] = "Свойство 'Тип события' не указано.";
 $MESS["BPEAA_EVENT_TEXT"] = "Текст сообщения";

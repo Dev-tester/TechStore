@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Lists\Entity;
 
 use Bitrix\Lists\Service\Param;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONTACT_POST"] = "Должность";
 $MESS["CRM_CONTACT_INFO_PHONE"] = "Телефон";
 $MESS["CRM_CONTACT_INFO_EMAIL"] = "Email";

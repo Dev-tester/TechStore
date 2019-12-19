@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PHOTO_ELEMENT_NOT_FOUND'] = "Фотография не найдена.";
 $MESS ['IBLOCK_MODULE_NOT_INSTALLED'] = "Модуль информационных блоков не установлен.";
 $MESS ['P_ORIGINAL'] = "Оригинал";

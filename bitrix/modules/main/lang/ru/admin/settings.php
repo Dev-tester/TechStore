@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_TITLE'] = "Настройки модуля";
 $MESS ['MAIN_KERNEL'] = "Главный модуль";
 $MESS ['MAIN_SELECT'] = "Выбрать";

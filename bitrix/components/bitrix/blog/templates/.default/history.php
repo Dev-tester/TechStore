@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <div class="body-blog">
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"",
 	Array(
@@ -27,7 +27,7 @@
 	$component
 );?>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 		"bitrix:blog.new_posts.list", 
 		"", 

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\PaySystem\AdminPage\PaySystemRestrictions
 {
 	use Bitrix\Main\Application;

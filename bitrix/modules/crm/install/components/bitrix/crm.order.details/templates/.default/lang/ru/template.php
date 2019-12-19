@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_DETAIL_HISTORY_STUB"] = "Прямо сейчас вы создаёте заказ...";
 $MESS["CRM_ORDER_CANCEL_TITLE"] = "Отмена заказа";
 $MESS["CRM_ORDER_CANCEL_DIALOG_CONTENT"] = "Вы уверены, что хотите отменить этот заказ?";

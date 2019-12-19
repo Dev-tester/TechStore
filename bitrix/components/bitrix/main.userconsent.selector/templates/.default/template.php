@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -15,11 +15,11 @@ CJSCore::Init("sidepanel");
 	});
 </script>
 <div data-bx-user-consent-selector="" class="main-user-consent-selector-wrapper">
-	<?if ($arResult['DESCRIPTION']):?>
+	<?php if ($arResult['DESCRIPTION']):?>
 	<div class="main-user-consent-selector-alert">
 		<?=$arResult['DESCRIPTION']?>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="main-user-consent-selector-block">
 		<div class="main-user-consent-selector-block-name">
 			<?=Loc::getMessage('MAIN_USER_CONSENT_SELECTOR_CHOOSE')?>:
@@ -27,11 +27,11 @@ CJSCore::Init("sidepanel");
 		<div class="main-user-consent-selector-block-input">
 			<select class="main-user-consent-selector-block-input-item" data-bx-selector="" name="<?=htmlspecialcharsbx($arParams['INPUT_NAME'])?>">
 				<option value=""><?=Loc::getMessage('MAIN_USER_CONSENT_SELECTOR_DEF_NOT_SELECTED')?></option>
-				<?foreach ($arResult['LIST'] as $item):?>
+				<?php foreach ($arResult['LIST'] as $item):?>
 					<option value="<?=htmlspecialcharsbx($item['ID'])?>" <?=($item['SELECTED'] ? 'selected' : '')?>>
 						<?=htmlspecialcharsbx($item['NAME'])?>
 					</option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 
 			<a class="main-user-consent-selector-block-link main-user-consent-selector-block-link-bold"

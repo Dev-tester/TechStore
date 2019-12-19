@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$arForums = $APPLICATION->IncludeComponent("bitrix:forum.index", "", 
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $arForums = $APPLICATION->IncludeComponent("bitrix:forum.index", "", 
 	array(
 		"URL_TEMPLATES_INDEX" =>  $arResult["URL_TEMPLATES_INDEX"],
 		"URL_TEMPLATES_FORUMS" =>  $arResult["URL_TEMPLATES_FORUMS"],
@@ -35,7 +35,7 @@
 		"SHOW_RSS" => $arParams["USE_RSS"]	
 	),
 	$component
-);?><?
+);?><?php 
 if (sizeof($arParams['SHOW_STATISTIC_BLOCK']) > 0)
 {
 	$APPLICATION->IncludeComponent("bitrix:forum.statistic", ".default", Array(

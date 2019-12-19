@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 CJSCore::Init(array('window', 'lists'));
 Bitrix\Main\UI\Extension::load("ui.buttons");
@@ -61,13 +61,13 @@ elseif(!IsModuleInstalled("intranet"))
 	<a href="<?=$arResult["LIST_SECTION_URL"]?>" class="ui-btn ui-btn-sm ui-btn-link ui-btn-themes lists-list-back">
 		<?=GetMessage("CT_BLEE_TOOLBAR_RETURN_LIST_ELEMENT")?>
 	</a>
-	<?if($listAction):?>
+	<?php if($listAction):?>
 	<span id="lists-title-action" class="ui-btn ui-btn-sm ui-btn-light-border ui-btn-dropdown ui-btn-themes">
 		<?=GetMessage("CT_BLEE_TOOLBAR_ACTION")?>
 	</span>
-	<?endif;?>
+	<?php endif;?>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();

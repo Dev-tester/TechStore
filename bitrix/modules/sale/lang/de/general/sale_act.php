@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_SALE_ACT_GROUP_BASKET_SELECT_TYPE_CLOSEOUT"] = "Fixierter Preis";
 $MESS["BT_SALE_ACT_GROUP_GLOBAL_PREFIX"] = "Aktionen ausführen:";
 $MESS["BT_SALE_ACT_DELIVERY_LABEL"] = "Versandkosten ändern";

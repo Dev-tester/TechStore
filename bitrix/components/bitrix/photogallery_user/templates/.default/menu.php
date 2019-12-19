@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ob_start();
-?><?$result = $APPLICATION->IncludeComponent(
+?><?php $result = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.user",
 	"",
 	Array(
@@ -37,7 +37,7 @@ ob_start();
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 $res = ob_get_clean();
 $this->__component->__photogallery_values = $result;
 
@@ -99,8 +99,8 @@ if ($arParams["SHOW_NAVIGATION"] != "N" && $arResult["PAGE_NAME"] != "INDEX"):
 endif;
 ?>
 <div class="empty-clear"></div>
-<?
+<?php 
 if ($arResult["PAGE_NAME"] == "GALLERY" && !empty($result) && !empty($result["ALL"]["GALLERY"])):
-	?><?=$res?><?
+	?><?=$res?><?php 
 endif;
 ?>

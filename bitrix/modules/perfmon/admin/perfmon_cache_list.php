@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -614,14 +614,14 @@ if ($group == "none")
 	);
 	?>
 
-	<form name="find_form" method="get" action="<? echo $APPLICATION->GetCurPage(); ?>">
-		<? $oFilter->Begin(); ?>
+	<form name="find_form" method="get" action="<?php  echo $APPLICATION->GetCurPage(); ?>">
+		<?php  $oFilter->Begin(); ?>
 		<tr>
 			<td><b><?=GetMessage("PERFMON_CACHE_FIND")?>:</b></td>
 			<td>
-				<input type="text" size="25" name="find" value="<? echo htmlspecialcharsbx($find) ?>"
+				<input type="text" size="25" name="find" value="<?php  echo htmlspecialcharsbx($find) ?>"
 					title="<?=GetMessage("PERFMON_CACHE_FIND")?>">
-				<?
+				<?php 
 				$arr = array(
 					"reference" => array(
 						GetMessage("PERFMON_CACHE_COMPONENT_NAME"),
@@ -639,26 +639,26 @@ if ($group == "none")
 		<tr>
 			<td><?=GetMessage("PERFMON_CACHE_COMPONENT_NAME")?></td>
 			<td><input type="text" name="find_component_name" size="47"
-				value="<? echo htmlspecialcharsbx($find_component_name) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_component_name) ?>"></td>
 		</tr>
 		<tr>
 			<td><?=GetMessage("PERFMON_CACHE_MODULE_NAME")?></td>
 			<td><input type="text" name="find_module_name" size="47"
-				value="<? echo htmlspecialcharsbx($find_module_name) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_module_name) ?>"></td>
 		</tr>
 		<tr>
 			<td><?=GetMessage("PERFMON_CACHE_HIT_ID")?></td>
 			<td><input type="text" name="find_hit_id" size="47"
-				value="<? echo htmlspecialcharsbx($find_hit_id) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_hit_id) ?>"></td>
 		</tr>
 		<tr>
 			<td><?=GetMessage("PERFMON_CACHE_COMPONENT_ID")?></td>
 			<td><input type="text" name="find_component_id" size="47"
-				value="<? echo htmlspecialcharsbx($find_component_id) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_component_id) ?>"></td>
 		</tr>
 		<tr>
-			<td><? echo GetMessage("PERFMON_CACHE_OP_MODE") ?>:</td>
-			<td><?
+			<td><?php  echo GetMessage("PERFMON_CACHE_OP_MODE") ?>:</td>
+			<td><?php 
 				$arr = array(
 					"reference" => array(
 						GetMessage("PERFMON_CACHE_OP_MODE_R"),
@@ -677,19 +677,19 @@ if ($group == "none")
 		<tr>
 			<td><?=GetMessage("PERFMON_CACHE_BASE_DIR")?></td>
 			<td><input type="text" name="find_base_dir" size="47"
-				value="<? echo htmlspecialcharsbx($find_base_dir) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_base_dir) ?>"></td>
 		</tr>
 		<tr>
 			<td><?=GetMessage("PERFMON_CACHE_INIT_DIR")?></td>
 			<td><input type="text" name="find_init_dir" size="47"
-				value="<? echo htmlspecialcharsbx($find_init_dir) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_init_dir) ?>"></td>
 		</tr>
 		<tr>
 			<td><?=GetMessage("PERFMON_CACHE_FILE_NAME")?></td>
 			<td><input type="text" name="find_file_name" size="47"
-				value="<? echo htmlspecialcharsbx($find_file_name) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_file_name) ?>"></td>
 		</tr>
-		<?
+		<?php 
 		$oFilter->Buttons(array(
 			"table_id" => $sTableID,
 			"url" => $APPLICATION->GetCurPage(),
@@ -698,9 +698,9 @@ if ($group == "none")
 		$oFilter->End();
 		?>
 	</form>
-<?
+<?php 
 }
 
 $lAdmin->DisplayList();?>
 
-<? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

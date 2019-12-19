@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["SALE_HANDLERS_REST_HANDLER_BUTTON_PAID"] = "Bezahlen";
 ?>

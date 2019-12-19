@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/absence.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/absence.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMP_VI_ACCESS_DENIED"] = "Недостаточно прав доступа";
 $MESS["COMP_VI_WRONG_BACKUP_NUMBER"] = "Резервный номер должен быть указан в международном формате";
 $MESS["VI_CONFIG_CURRENT_CONNECTION"] = "текущее подключение";

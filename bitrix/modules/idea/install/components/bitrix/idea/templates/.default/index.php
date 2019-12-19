@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 /**
  * @global CMain $APPLICATION
  * @global CUser $USER
@@ -36,9 +36,9 @@ if (array_key_exists("category_1", $arResult["VARIABLES"]))
 if(strlen($arResult["LIFE_SEARCH_QUERY"]) > 0)
 	$arFilter["~TITLE"] = '%'.$arResult["LIFE_SEARCH_QUERY"].'%';
 ?>
-	<?//Side bar tools?>
-	<?$this->SetViewTarget("sidebar", 100)?>
-		<?$APPLICATION->IncludeComponent(
+	<?php //Side bar tools?>
+	<?php $this->SetViewTarget("sidebar", 100)?>
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:idea.category.list",
 			"",
 			Array(
@@ -50,7 +50,7 @@ if(strlen($arResult["LIFE_SEARCH_QUERY"]) > 0)
 			$component
 		);
 		?>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:idea.statistic",
 			"",
 			Array(
@@ -61,7 +61,7 @@ if(strlen($arResult["LIFE_SEARCH_QUERY"]) > 0)
 			$component
 		);
 		?>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:idea.tags",
 			"",
 			Array(
@@ -73,13 +73,13 @@ if(strlen($arResult["LIFE_SEARCH_QUERY"]) > 0)
 			$component
 		);
 		?>
-	<?$this->EndViewTarget();?>
-	<?//Work Field?>
-	<?$this->SetViewTarget("idea_filter", 100)?>
-		<?if($arParams["DISABLE_RSS"] != "Y"):
+	<?php $this->EndViewTarget();?>
+	<?php //Work Field?>
+	<?php $this->SetViewTarget("idea_filter", 100)?>
+		<?php if($arParams["DISABLE_RSS"] != "Y"):
 			$pathPostfix = ($pageMode == "index" ? "" : "_".ToUpper(str_replace(array("_1", "_2"), "", $pageMode)));/*.
 				(strpos($pageMode, "status") !== false ? "_STATUS" : "")*/;
-			?><?
+			?><?php 
 $APPLICATION->IncludeComponent(
 				"bitrix:blog.rss.link",
 				"",
@@ -101,8 +101,8 @@ $APPLICATION->IncludeComponent(
 				$component
 			);
 			?>
-		<?endif;?>
-		<?$pathPostfix = ToUpper(str_replace("_status", "", ($pageMode == "index" || $pageMode == "status_0" ? "" : $pageMode)));
+		<?php endif;?>
+		<?php $pathPostfix = ToUpper(str_replace("_status", "", ($pageMode == "index" || $pageMode == "status_0" ? "" : $pageMode)));
 		$APPLICATION->IncludeComponent(
 			"bitrix:idea.filter",
 			"",
@@ -131,9 +131,9 @@ $APPLICATION->IncludeComponent(
 			$component
 		);
 		?>
-	<?$this->EndViewTarget();?>
-	<?$this->SetViewTarget("idea_body", 100)?>
-		<?$APPLICATION->IncludeComponent(
+	<?php $this->EndViewTarget();?>
+	<?php $this->SetViewTarget("idea_body", 100)?>
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:idea.list",
 			"",
 			Array(
@@ -181,8 +181,8 @@ $APPLICATION->IncludeComponent(
 			),
 			$component
 	);?>
-	<?$this->EndViewTarget();?>
-<?
+	<?php $this->EndViewTarget();?>
+<?php 
 if($USER->IsAuthorized())
 {
 	$notifyEmail = new \Bitrix\Idea\NotifyEmail();
@@ -207,7 +207,7 @@ if($USER->IsAuthorized())
 
 ?>
 <div class="idea-managment-content">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.interface.toolbar",
 		"",
 		array(
@@ -215,18 +215,18 @@ if($USER->IsAuthorized())
 		),
 		$component
 	);?>
-	<?if($arResult["IS_CORPORTAL"] != "Y"):?>
+	<?php if($arResult["IS_CORPORTAL"] != "Y"):?>
 		<div class="idea-managment-content-left">
-			<?$APPLICATION->ShowViewContent("sidebar")?>
+			<?php $APPLICATION->ShowViewContent("sidebar")?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="idea-managment-content-right">
-		<?$APPLICATION->ShowViewContent("idea_filter")?>
-		<?$APPLICATION->ShowViewContent("idea_body")?>
+		<?php $APPLICATION->ShowViewContent("idea_filter")?>
+		<?php $APPLICATION->ShowViewContent("idea_body")?>
 	</div>
 	<div style="clear:both;"></div>
 </div>
-<?
+<?php 
 if($arParams["SET_NAV_CHAIN"] == "Y" || $arParams["SET_TITLE"] == "Y")
 {
 	if (strpos($pageMode, "user") !== false)

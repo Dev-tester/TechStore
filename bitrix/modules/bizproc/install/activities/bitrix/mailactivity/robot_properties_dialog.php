@@ -19,7 +19,7 @@ $mailboxes = $runtimeData['mailboxes'];
 
 if ($from):?>
 	<div style="display:none;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent('bitrix:main.mail.confirm', '');
 		?>
 	</div>
@@ -28,7 +28,7 @@ if ($from):?>
 		<input type="hidden" name="<?=htmlspecialcharsbx($from['FieldName'])?>" value="<?=htmlspecialcharsbx($fromValue)?>" data-role="mailbox-selector-value">
 		<a class="bizproc-automation-popup-settings-link" data-role="mailbox-selector"></a>
 	</div>
-<?
+<?php 
 endif;
 ?>
 
@@ -111,7 +111,7 @@ endif;
 	<input type="hidden" name="<?=htmlspecialcharsbx($map['MailCharset']['FieldName'])?>" value="<?=htmlspecialcharsbx(SITE_CHARSET)?>">
 	<input type="hidden" name="<?=htmlspecialcharsbx($map['DirrectMail']['FieldName'])?>" value="N">
 	<input type="hidden" name="<?=htmlspecialcharsbx($map['MailSite']['FieldName'])?>" value="<?=htmlspecialcharsbx(SITE_ID)?>">
-<?
+<?php 
 $config = array(
 	'type' => $dialog->getCurrentValue($attachmentType['FieldName']),
 	'typeInputName' => $attachmentType['FieldName'],
@@ -140,7 +140,7 @@ else
 $configAttributeValue = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($config));
 ?>
 	<div class="bizproc-automation-popup-settings" data-role="file-selector" data-config="<?=$configAttributeValue?>"></div>
-<?if ($from):?>
+<?php if ($from):?>
 	<script>
 
 		BX.ready(function ()
@@ -238,4 +238,4 @@ $configAttributeValue = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($config
 			setMailbox(mailboxSelectorValue.value);
 		});
 	</script>
-<?endif;
+<?php endif;

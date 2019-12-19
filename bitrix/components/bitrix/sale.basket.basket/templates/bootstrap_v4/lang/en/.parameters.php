@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_SBB_TPL_PROPERTIES_RECALCULATE_BASKET"] = "Shopping cart recalculation properties";
 $MESS["CP_SBB_TPL_THEME_SITE"] = "Use theme as defined by the site (for bitrix.eshop)";
 $MESS["CP_SBB_TPL_THEME_BLUE"] = "Blue (default theme)";

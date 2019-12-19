@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SL_IMPORT_ERROR_FILES"] = "Die Dateinamen sind nicht korrekt.";
 $MESS["SL_IMPORT_ERROR_NO_LOC_FILE"] = "Es wurde keine Datei mit Standorten hochgeladen.";
 $MESS["SL_IMPORT_ERROR_WRONG_LOC_FILE"] = "Das Format der Datei mit Standorten ist nicht korrekt.";

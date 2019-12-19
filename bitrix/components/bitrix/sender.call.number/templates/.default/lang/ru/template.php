@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SENDER_CALL_NUMBER_SETUP'] = "настроить номер";
 $MESS ['SENDER_CALL_NUMBER_SELECT'] = "совершать звонок с номера";
 $MESS ['SENDER_CALL_NUMBER_HINT'] = "Добавить или настроить номер вы можете в настройках телефонии.

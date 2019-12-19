@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_TITLE"] = "Лучшее";
 $MESS["MARKETPLACE_NEW"] = "Новинки";
 $MESS["MARKETPLACE_BEST"] = "Лучшие";

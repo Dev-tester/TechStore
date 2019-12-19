@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!CModule::IncludeModule('bizproc'))
 	return;
 
@@ -163,7 +163,7 @@ class CCrmDocument
 			$fieldValueTmp = $fieldValue;
 			?>
 			<select id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>" style="width:280px" name="<?= htmlspecialcharsbx($arFieldName["Field"]).($arFieldType["Multiple"] ? "[]" : "") ?>"<?= ($arFieldType["Multiple"] ? ' size="5" multiple' : '') ?>>
-				<?
+				<?php 
 				if (!$arFieldType['Required'])
 					echo '<option value="">['.GetMessage('BPVDX_NOT_SET').']</option>';
 				foreach ($arFieldType['Options'] as $k => $v)
@@ -175,11 +175,11 @@ class CCrmDocument
 				}
 				?>
 			</select>
-			<?
+			<?php 
 			if ($bAllowSelection)
 			{
 				?>
-				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" name="<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" value="<?
+				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" name="<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" value="<?php 
 				if (count($fieldValueTmp) > 0)
 				{
 					$a = array_values($fieldValueTmp);
@@ -187,7 +187,7 @@ class CCrmDocument
 				}
 				?>">
 				<input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text', 'select');">
-				<?
+				<?php 
 			}
 		}
 		elseif ($arFieldType['Type'] == 'web' || $arFieldType['Type'] == 'phone' || $arFieldType['Type'] == 'email' || $arFieldType['Type'] == 'im')
@@ -223,11 +223,11 @@ class CCrmDocument
 			if ($bAllowSelection)
 			{
 				?>
-				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" name="<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" value="<?
+				<br /><input type="text" id="id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" name="<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text" value="<?php 
 					echo $value2;
 				?>">
 				<input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>_text', 'select');">
-				<?
+				<?php 
 			}
 			/*$arUserFieldType = $USER_FIELD_MANAGER->GetUserType($sType);
 			$arUserField = array(
@@ -281,7 +281,7 @@ class CCrmDocument
 		elseif ($arFieldType['Type'] == 'user')
 		{
 			$fieldValue = CBPHelper::UsersArrayToString($fieldValue, null, $arDocumentID["DOCUMENT_TYPE"]);
-			?><input type="text" size="40" id="id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>" name="<?= htmlspecialcharsbx($arFieldName['Field']) ?>" value="<?= htmlspecialcharsbx($fieldValue) ?>"><input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>', 'user');"><?
+			?><input type="text" size="40" id="id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>" name="<?= htmlspecialcharsbx($arFieldName['Field']) ?>" value="<?= htmlspecialcharsbx($fieldValue) ?>"><input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($arFieldName['Field']) ?>', 'user');"><?php 
 		}
 		else
 		{
@@ -346,7 +346,7 @@ class CCrmDocument
 				}
 				//-->
 				</script>
-				<?
+				<?php 
 			}
 
 			if ($arFieldType['Multiple'])
@@ -420,7 +420,7 @@ class CCrmDocument
 							<script>
 							BX.loadCSS('/bitrix/js/crm/css/crm.css');
 							</script>
-							<?
+							<?php 
 						}
 						$arUserFieldType = $USER_FIELD_MANAGER->GetUserType($sType);
 
@@ -498,13 +498,13 @@ class CCrmDocument
 						{
 							case 'int':
 								unset($fieldValueTmp[$key]);
-								?><input type="text" size="10" id="<?=$fieldNameId?>" name="<?=$fieldNameName?>" value="<?=htmlspecialcharsbx($value)?>"><?
+								?><input type="text" size="10" id="<?=$fieldNameId?>" name="<?=$fieldNameName?>" value="<?=htmlspecialcharsbx($value)?>"><?php 
 								break;
 							case 'file':
 								if ($publicMode)
 								{
 									//unset($fieldValueTmp[$key]);
-									?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?
+									?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?php 
 								}
 								break;
 							case 'bool':
@@ -512,14 +512,14 @@ class CCrmDocument
 									unset($fieldValueTmp[$key]);
 								?>
 								<select id='<?= $fieldNameId ?>' name='<?= $fieldNameName ?>'>
-									<?
+									<?php 
 									if (!$arFieldType['Required'])
 										echo '<option value="">['.GetMessage("BPVDX_NOT_SET").']</option>';
 									?>
 									<option value="Y"<?= (in_array("Y", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPVDX_YES") ?></option>
 									<option value="N"<?= (in_array("N", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPVDX_NO") ?></option>
 								</select>
-								<?
+								<?php 
 								break;
 							case "date":
 							case "datetime":
@@ -546,11 +546,11 @@ class CCrmDocument
 								break;
 							case 'text':
 								unset($fieldValueTmp[$key]);
-								?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?
+								?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?php 
 								break;
 							default:
 								unset($fieldValueTmp[$key]);
-								?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?
+								?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 						}
 					}
 
@@ -558,7 +558,7 @@ class CCrmDocument
 					{
 						if (!in_array($arFieldType["Type"], array("file", "bool", "date", "datetime")) && (strpos($arFieldType['Type'], 'UF:') !== 0))
 						{
-							?><input type="button" value="..." onclick="BPAShowSelector('<?= $fieldNameId ?>', '<?= $arFieldType["BaseType"] ?>');"><?
+							?><input type="button" value="..." onclick="BPAShowSelector('<?= $fieldNameId ?>', '<?= $arFieldType["BaseType"] ?>');"><?php 
 						}
 					}
 
@@ -584,7 +584,7 @@ class CCrmDocument
 				if (in_array($arFieldType['Type'], array('file', 'bool', "date", "datetime")) || (strpos($arFieldType['Type'], 'UF:') === 0))
 				{
 					?>
-					<input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?
+					<input type="text" id="id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text" value="<?php 
 					if (count($fieldValueTmp) > 0)
 					{
 						$a = array_values($fieldValueTmp);
@@ -592,7 +592,7 @@ class CCrmDocument
 					}
 					?>">
 					<input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($arFieldName["Field"]) ?>_text', '<?= htmlspecialcharsbx($arFieldType["BaseType"]) ?>');">
-					<?
+					<?php 
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_SORT_PULL_TEXT"] = "Pull down to refresh...";
 $MESS["M_SORT_DOWN_TEXT"] = "Release to refresh...";
 $MESS["M_SORT_LOAD_TEXT"] = "Updating...";

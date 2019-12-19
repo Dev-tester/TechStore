@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIG_AUTOMATION_HELP_TITLE"] = "Automate sales and client management with Bitrix24 CRM";
 $MESS["CRM_CONFIG_AUTOMATION_HELP_1_1"] = "Quick onboarding for new sales agents. Automation rules and triggers set who needs to do what and when.";
 $MESS["CRM_CONFIG_AUTOMATION_HELP_1_2"] = "Free your sales agents from their routine.";

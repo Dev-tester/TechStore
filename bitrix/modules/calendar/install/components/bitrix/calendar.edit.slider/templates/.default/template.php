@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use \Bitrix\Main\Localization\Loc;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/clock.php");
@@ -115,10 +115,10 @@ if($isSocialnetworkEnabled)
 						</div>
 
 						<div data-bx-block-placeholer="description" class="calendar-field-placeholder">
-							<?if ($fieldsList["description"]["pinned"]):?>
+							<?php if ($fieldsList["description"]["pinned"]):?>
 							<div id="<?=$id?>_description_main_wrap" class="calendar-info-panel-description">
 								<div class="js-calendar-field-name" style="display: none;"><?= Loc::getMessage('EC_EDIT_SLIDER_DESCRIPTION_COLUMN')?></div>
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									"bitrix:main.post.form",
 									"",
 									array(
@@ -176,7 +176,7 @@ if($isSocialnetworkEnabled)
 								);?>
 								<span data-bx-fixfield="description" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 							</div>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 					</div>
 
@@ -200,7 +200,7 @@ if($isSocialnetworkEnabled)
 									<span class="calendar-event-time">
 										<span class="calendar-field-container calendar-field-container-select">
 											<span class="calendar-field-block">
-												<?CClock::Show(array(
+												<?php CClock::Show(array(
 													'inputId' => $id.'_time_from',
 													'inputName' => 'time_from',
 													'inputClass' => 'calendar-field calendar-field-datetime-menu',
@@ -223,7 +223,7 @@ if($isSocialnetworkEnabled)
 									<span class="calendar-event-time">
 										<span class="calendar-field-container calendar-field-container-select">
 											<span class="calendar-field-block">
-												<?CClock::Show(array(
+												<?php CClock::Show(array(
 													'inputId' => $id.'_time_to',
 													'inputName' => 'time_to',
 													'inputClass' => 'calendar-field calendar-field-datetime-menu',
@@ -247,9 +247,9 @@ if($isSocialnetworkEnabled)
 													<span class="calendar-field-block">
 														<select id="<?=$id?>_timezone_from" class="calendar-field calendar-field-select" name="tz_from">
 															<option value=""> - </option>
-															<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+															<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 																<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-															<?endforeach;?>
+															<?php endforeach;?>
 														</select>
 													</span>
 												</span>
@@ -260,9 +260,9 @@ if($isSocialnetworkEnabled)
 													<span class="calendar-field-block">
 														<select id="<?=$id?>_timezone_to" class="calendar-field calendar-field-select" name="tz_to">
 															<option value=""> - </option>
-															<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+															<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 																<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-															<?endforeach;?>
+															<?php endforeach;?>
 														</select>
 													</span>
 												</span>
@@ -279,9 +279,9 @@ if($isSocialnetworkEnabled)
 												<span class="calendar-field-block">
 													<select id="<?=$id?>_timezone_default" class="calendar-field calendar-field-select" name="tz_def">
 														<option value=""> - </option>
-														<?foreach($arResult['TIMEZONE_LIST'] as $tz):?>
+														<?php foreach($arResult['TIMEZONE_LIST'] as $tz):?>
 															<option value="<?= $tz['timezone_id']?>"><?= htmlspecialcharsEx($tz['title'])?></option>
-														<?endforeach;?>
+														<?php endforeach;?>
 													</select>
 												</span>
 											</span>
@@ -294,9 +294,9 @@ if($isSocialnetworkEnabled)
 						<!--endregion-->
 
 						<!--region reminder-->
-						<?$field = "reminder";?>
+						<?php $field = "reminder";?>
 						<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-						<?if (!($fieldsList[$field]["pinned"]))
+						<?php if (!($fieldsList[$field]["pinned"]))
 						{
 							ob_start();
 						}?>
@@ -321,7 +321,7 @@ if($isSocialnetworkEnabled)
 							</div>
 							<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 						</div>
-						<?if (!$fieldsList[$field]["pinned"])
+						<?php if (!$fieldsList[$field]["pinned"])
 						{
 							$fieldsList[$field]["html"] = ob_get_contents();
 							ob_end_clean();
@@ -330,9 +330,9 @@ if($isSocialnetworkEnabled)
 						<!--endregion-->
 
 						<!--region section-->
-						<?$field = "section";?>
+						<?php $field = "section";?>
 						<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-						<?if (!$fieldsList[$field]["pinned"])
+						<?php if (!$fieldsList[$field]["pinned"])
 						{
 							ob_start();
 						}?>
@@ -349,7 +349,7 @@ if($isSocialnetworkEnabled)
 							</div>
 							<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 						</div>
-						<?if (!$fieldsList[$field]["pinned"])
+						<?php if (!$fieldsList[$field]["pinned"])
 						{
 							$fieldsList[$field]["html"] = ob_get_contents();
 							ob_end_clean();
@@ -358,9 +358,9 @@ if($isSocialnetworkEnabled)
 						<!--endregion-->
 
 						<!--region RRule-->
-						<?$field = "rrule";?>
+						<?php $field = "rrule";?>
 						<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-						<?if (!$fieldsList[$field]["pinned"])
+						<?php if (!$fieldsList[$field]["pinned"])
 						{
 							ob_start();
 						}?>
@@ -397,9 +397,9 @@ if($isSocialnetworkEnabled)
 														<div class="calendar-field-container calendar-field-container-select">
 															<span class="calendar-field-block calendar-rrule-count">
 																<select id="<?=$id?>_rrule_count" class="calendar-field calendar-field-select" name="EVENT_RRULE[INTERVAL]">
-																	<?for ($i = 1; $i < 36; $i++):?>
+																	<?php for ($i = 1; $i < 36; $i++):?>
 																		<option value="<?=$i?>"><?=$i?></option>
-																	<?endfor;?>
+																	<?php endfor;?>
 																</select>
 															</span>
 														</div>
@@ -413,9 +413,9 @@ if($isSocialnetworkEnabled)
 												</div>
 
 												<div class="calendar-options-sub-item calendar-week-day-container">
-													<?foreach(array('MO','TU','WE','TH','FR','SA','SU') as $day):?>
+													<?php foreach(array('MO','TU','WE','TH','FR','SA','SU') as $day):?>
 													<label class="calendar-options-day"><input id="<?=$id?>_rrule_byday_<?= $day?>" name="EVENT_RRULE[BYDAY][]" class="calendar-options-day-checkbox" type="checkbox" value="<?= $day?>"><?= Loc::getMessage('EC_EDIT_SLIDER_'.$day)?></label>
-													<?endforeach;?>
+													<?php endforeach;?>
 												</div>
 											</div>
 										</div>
@@ -487,7 +487,7 @@ if($isSocialnetworkEnabled)
 							</div>
 							<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 						</div>
-						<?if (!$fieldsList[$field]["pinned"])
+						<?php if (!$fieldsList[$field]["pinned"])
 						{
 							$fieldsList[$field]["html"] = ob_get_contents();
 							ob_end_clean();
@@ -496,9 +496,9 @@ if($isSocialnetworkEnabled)
 						<!--endregion-->
 
 						<!--region Location-->
-						<?$field = "location";?>
+						<?php $field = "location";?>
 						<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-						<?if (!$fieldsList[$field]["pinned"])
+						<?php if (!$fieldsList[$field]["pinned"])
 						{
 							ob_start();
 						}?>
@@ -513,7 +513,7 @@ if($isSocialnetworkEnabled)
 							</div>
 							<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 						</div>
-						<?if (!$fieldsList[$field]["pinned"])
+						<?php if (!$fieldsList[$field]["pinned"])
 						{
 							$fieldsList[$field]["html"] = ob_get_contents();
 							ob_end_clean();
@@ -523,9 +523,9 @@ if($isSocialnetworkEnabled)
 
 						<!--region Destination-->
 						<div class="calendar-options-item calendar-options-item-border calendar-options-item-destination" style="border-bottom: none;">
-							<?if ($event['IS_MEETING'] && is_array($event['ATTENDEES_CODES'])):?>
+							<?php if ($event['IS_MEETING'] && is_array($event['ATTENDEES_CODES'])):?>
 							<input id="<?=$id?>_attendees_codes" type="hidden" value="<?= implode($event['ATTENDEES_CODES'], ',')?>" />
-							<?endif;?>
+							<?php endif;?>
 							<div class="calendar-options-item-column-left">
 								<div class="calendar-options-item-name js-calendar-field-name"  id="<?=$id?>_attendees_title_wrap"><?= Loc::getMessage('EC_EDIT_SLIDER_ATTENDEES_COLUMN')?></div>
 							</div>
@@ -538,7 +538,7 @@ if($isSocialnetworkEnabled)
 						<div class="calendar-options-item-planner calendar-options-item-border">
 							<div class="calendar-options-item-column-planner">
 								<div class="calendar-edit-planner-wrap" id="<?=$id?>_planner_wrap">
-									<?CCalendarPlanner::Init(array(
+									<?php CCalendarPlanner::Init(array(
 										'id' => $id.'_slider_planner'
 									));?>
 								</div>
@@ -562,7 +562,7 @@ if($isSocialnetworkEnabled)
 												</label>
 											</div>
 										</div>
-										<?if ($event['ID']):?>
+										<?php if ($event['ID']):?>
 										<div class="calendar-field-container calendar-field-container-checkbox">
 											<div class="calendar-field-block">
 												<label type="text" class="calendar-field-checkbox-label">
@@ -573,7 +573,7 @@ if($isSocialnetworkEnabled)
 												</label>
 											</div>
 										</div>
-										<?endif;?>
+										<?php endif;?>
 									</div>
 								</div>
 							</div>
@@ -581,9 +581,9 @@ if($isSocialnetworkEnabled)
 						<!--endregion-->
 
 						<!--region Color-->
-						<?$field = "color";?>
+						<?php $field = "color";?>
 						<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-							<?if (!$fieldsList[$field]["pinned"])
+							<?php if (!$fieldsList[$field]["pinned"])
 							{
 								ob_start();
 							}?>
@@ -603,7 +603,7 @@ if($isSocialnetworkEnabled)
 								</div>
 								<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 							</div>
-							<?if (!$fieldsList[$field]["pinned"])
+							<?php if (!$fieldsList[$field]["pinned"])
 							{
 								$fieldsList[$field]["html"] = ob_get_contents();
 								ob_end_clean();
@@ -612,12 +612,12 @@ if($isSocialnetworkEnabled)
 						<!--endregion-->
 
 						<!--region Private-->
-						<?$field = "private";
+						<?php $field = "private";
 						if (isset($fieldsList[$field]))
 						{
 						?>
 						<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-							<?if (!$fieldsList[$field]["pinned"])
+							<?php if (!$fieldsList[$field]["pinned"])
 							{
 								ob_start();
 							}?>
@@ -640,22 +640,22 @@ if($isSocialnetworkEnabled)
 								</div>
 								<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 							</div>
-							<?if (!$fieldsList[$field]["pinned"])
+							<?php if (!$fieldsList[$field]["pinned"])
 							{
 								$fieldsList[$field]["html"] = ob_get_contents();
 								ob_end_clean();
 							}?>
 						</div>
-						<?}?>
+						<?php }?>
 						<!--endregion-->
 
 						<!--region accessibility-->
-						<? $field = "accessibility";
+						<?php  $field = "accessibility";
 							if (isset($fieldsList[$field]))
 							{
 							?>
 							<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-								<?if (!$fieldsList[$field]["pinned"])
+								<?php if (!$fieldsList[$field]["pinned"])
 								{
 									ob_start();
 								}?>
@@ -671,11 +671,11 @@ if($isSocialnetworkEnabled)
 														<option value="busy"><?=GetMessage('EC_EDIT_SLIDER_ACC_B')?></option>
 														<option value="quest"><?=GetMessage('EC_EDIT_SLIDER_ACC_Q')?></option>
 														<option value="free"><?=GetMessage('EC_EDIT_SLIDER_ACC_F')?></option>
-														<?if (!CCalendar::IsBitrix24()
+														<?php if (!CCalendar::IsBitrix24()
 															|| COption::GetOptionString("bitrix24",  "absence_limits_enabled", "") != "Y"
 															|| \Bitrix\Bitrix24\Feature::isFeatureEnabled("absence")):?>
 															<option value="absent"><?=GetMessage('EC_EDIT_SLIDER_ACC_A')?> (<?=GetMessage('EC_EDIT_SLIDER_ACC_EX')?>)</option>
-														<?endif;?>
+														<?php endif;?>
 													</select>
 												</div>
 											</div>
@@ -683,23 +683,23 @@ if($isSocialnetworkEnabled)
 									</div>
 									<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 								</div>
-								<?if (!$fieldsList[$field]["pinned"])
+								<?php if (!$fieldsList[$field]["pinned"])
 								{
 									$fieldsList[$field]["html"] = ob_get_contents();
 									ob_end_clean();
 								}?>
 							</div>
-						<?}?>
+						<?php }?>
 						<!--endregion-->
 
 						<!--region crm-->
-						<?$field = "crm";
+						<?php $field = "crm";
 						if ($isCrmEnabled && isset($fieldsList[$field]))
 						{
 							$crmUF = $UF['UF_CRM_CAL_EVENT'];
 						?>
 						<div data-bx-block-placeholer="<?= $field?>" class="calendar-field-placeholder">
-							<?if (!$fieldsList[$field]["pinned"])
+							<?php if (!$fieldsList[$field]["pinned"])
 							{
 								ob_start();
 							}?>
@@ -710,7 +710,7 @@ if($isSocialnetworkEnabled)
 								<div class="calendar-options-item-column-right">
 									<div class="calendar-options-item-column-one">
 										<div class="calendar-options-uf-crm-cont">
-											<?$APPLICATION->IncludeComponent(
+											<?php $APPLICATION->IncludeComponent(
 												"bitrix:system.field.edit",
 												$crmUF["USER_TYPE"]["USER_TYPE_ID"],
 												array(
@@ -724,13 +724,13 @@ if($isSocialnetworkEnabled)
 								</div>
 								<span data-bx-fixfield="<?= $field?>" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
 							</div>
-							<?if (!$fieldsList[$field]["pinned"])
+							<?php if (!$fieldsList[$field]["pinned"])
 							{
 								$fieldsList[$field]["html"] = ob_get_contents();
 								ob_end_clean();
 							}?>
 						</div>
-						<?}?>
+						<?php }?>
 						<!--endregion-->
 					</div>
 
@@ -738,20 +738,20 @@ if($isSocialnetworkEnabled)
 						<div id="<?=$id?>_additional_switch" class="calendar-additional-alt">
 							<div class="calendar-additional-alt-more"><?= Loc::getMessage('EC_EDIT_SLIDER_ADDITIONAL_TITLE')?></div>
 							<div id="<?=$id?>_additional_pinned_names" class="calendar-additional-alt-promo">
-								<?foreach ($fieldsList as $fieldId => $field)
+								<?php foreach ($fieldsList as $fieldId => $field)
 								{
 									if(!$field["pinned"])
 									{
 										?>
 										<span class="calendar-additional-alt-promo-text"><?= $field["title"]?></span>
-										<?
+										<?php 
 									}
 								}?>
 							</div>
 						</div>
 						<div  id="<?=$id?>_additional_block" class="calendar-options calendar-options-more calendar-openable-block invisible">
 							<div data-bx-block-placeholer="description" class="calendar-field-additional-placeholder"
-								<?if ($fieldsList["description"]["pinned"]){echo 'style="display: none;"';}?>>
+								<?php if ($fieldsList["description"]["pinned"]){echo 'style="display: none;"';}?>>
 								<!--region Description-->
 									<div class="calendar-options-item calendar-options-item-border calendar-options-item-destination">
 										<div class="calendar-options-item-column-left">
@@ -761,9 +761,9 @@ if($isSocialnetworkEnabled)
 											<div class="calendar-options-item-column-one">
 												<div class="calendar-field-container calendar-field-container-textarea">
 													<div id="<?=$id?>_description_additional_wrap" data-bx-block-placeholer="description" class="calendar-field-block calendar-info-panel-description">
-													<?if (!$fieldsList["description"]["pinned"]):?>
+													<?php if (!$fieldsList["description"]["pinned"]):?>
 														<div class="js-calendar-field-name" style="display: none;"><?= Loc::getMessage('EC_EDIT_SLIDER_DESCRIPTION_COLUMN')?></div>
-														<?$APPLICATION->IncludeComponent(
+														<?php $APPLICATION->IncludeComponent(
 															"bitrix:main.post.form",
 															"",
 															array(
@@ -820,7 +820,7 @@ if($isSocialnetworkEnabled)
 															)
 														);?>
 														<span data-bx-fixfield="description" class="calendar-option-fixedbtn" title="<?= Loc::getMessage('EC_EDIT_SLIDER_FIX_FIELD')?>"></span>
-														<?endif;?>
+														<?php endif;?>
 													</div>
 												</div>
 											</div>
@@ -829,19 +829,19 @@ if($isSocialnetworkEnabled)
 								<!--endregion-->
 							</div>
 
-							<?
+							<?php 
 							foreach ($fieldsList as $fieldId => $field)
 							{
 								if ($fieldId != 'description')
 								{
 									?>
 									<div data-bx-block-placeholer="<?= $fieldId ?>"
-										 class="calendar-field-additional-placeholder"><?
+										 class="calendar-field-additional-placeholder"><?php 
 									if(!$field["pinned"] && $field["html"])
 									{
 										echo $field["html"];
 									}
-									?></div><?
+									?></div><?php 
 								}
 							}
 							?>

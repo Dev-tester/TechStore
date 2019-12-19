@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EC_INTRANET_MODULE_NOT_INSTALLED'] = "Модуль интранета не установлен";
 $MESS ['EC_IBLOCK_MODULE_NOT_INSTALLED'] = "Модуль информационных блоков не установлен";
 $MESS ['INTS_NO_IBLOCK_PERMS'] = "У вас нет прав на просмотр информационного блока переговорных";

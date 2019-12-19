@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_MIGRATION_TITLE"] = "Переход на местоположения 2.0";
 $MESS["SALE_LOCATION_MIGRATION_TAB_MIGRATION_TITLE"] = "Переход на местоположения 2.0";
 $MESS["SALE_LOCATION_MIGRATION_START"] = "Выполнить переход";

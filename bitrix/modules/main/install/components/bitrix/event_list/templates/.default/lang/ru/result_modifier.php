@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EVENT_LIST_DATE_FILTER_NO_NO_NO_1"] = "(нет)";
 $MESS["EVENT_LIST_DATE_FILTER_TODAY"] = "сегодня";
 $MESS["EVENT_LIST_DATE_FILTER_YESTERDAY"] = "вчера";

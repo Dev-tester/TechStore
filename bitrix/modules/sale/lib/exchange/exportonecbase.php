@@ -13,7 +13,7 @@ abstract class ExportOneCBase extends ExportPattern
 	 */
 	public function outputXmlCMLHeader()
 	{
-		return "<?xml version=\"1.0\" encoding=\"windows-1251\"?>\n".
+		return "<?php xml version=\"1.0\" encoding=\"windows-1251\"?>\n".
 			"<".
 			DocumentBase::getLangByCodeField("COM_INFORMATION")." ".
 			DocumentBase::getLangByCodeField("SHEM_VERSION")."=\"".$this->getShemVersion()."\" ".

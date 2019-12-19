@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 This is callback page for LiveID OAuth 2.0 authentication.
 LiveID redirects only to specific back url set in the OAuth application.

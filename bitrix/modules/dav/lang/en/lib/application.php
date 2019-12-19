@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["dav_app_calendar"] = "Calendar";
 $MESS["dav_app_calendar_desc"] = "Synchronize your calendar's events to see planned events and activities. Select the synchronization target to configure and click \"Get Password\".";
 $MESS["dav_app_calendar_phone"] = "Mobile phone";

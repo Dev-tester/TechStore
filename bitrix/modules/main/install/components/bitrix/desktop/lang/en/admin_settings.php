@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CMDESKTOP_ADMIN_COLUMNS"] = "Columns";
 $MESS["CMDESKTOP_ADMIN_COLUMN_WIDTH"] = "Column width (px or %) #";
 $MESS["CMDESKTOP_ADMIN_SETTINGS_DIALOG_TITLE"] = "Desktop Settings";

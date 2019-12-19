@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_PAGE_TITLE'] = "Внимательность посетителей";
 $MESS ['STAT_F_SITE'] = "Сайт";
 $MESS ['STAT_F_PERIOD'] = "Период";

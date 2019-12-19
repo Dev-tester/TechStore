@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_RIGHTS"] = "Insufficient permissions.";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_SALE_ABSENT"] = "Cannot include the \"e-Store\" module.";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_CATALOG_ABSENT"] = "Could not use the Commercial Catalog module.";

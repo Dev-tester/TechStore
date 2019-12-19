@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C36_T_FILTER_NAME"] = "Name";
 $MESS["SONET_C36_T_FILTER_TAG"] = "Tag";
 $MESS["SONET_C36_T_FILTER_OWNER"] = "Owner";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['WD_HELP_BPHELP_TEXT'] = "<p><b>Note</b>: detailed information about business processes can be found on the <a href=\"#LINK#\" target=\"_blank\">Business Processes</a> page.</p>";
 $MESS['WD_HELP_FULL_TEXT'] = "The document library offers two approaches to handle documents: by using a web browser (Internet Explorer, Opera, Fire Fox etc.), or via the WebDAV client (web folders and remote drives in Windows). <br><br>
 <ul>

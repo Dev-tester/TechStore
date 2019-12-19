@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDERBUILDER_PRODUCT_ERROR"] = "Ошибка получения информации о товаре (позиция \"#BASKET_CODE#\")";
 $MESS["CRM_ORDERBUILDER_DATE_PAID_ERROR"] = "Поле \"Дата оплаты\" заполнено неверно";
 $MESS["CRM_ORDERBUILDER_DATE_PAY_BEFORE_ERROR"] = "Поле \"Оплатить до\" заполнено неверно";

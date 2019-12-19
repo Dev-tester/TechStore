@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DAV_HELP_NAME"] = "DAV Module";
 $MESS["DAV_HELP_TEXT"] = "The DAV module makes it possible to synchronize calendars and contacts on the website with any
 software and devices supporting CardDAV and CardDAV protocols. iPhone and iPad support

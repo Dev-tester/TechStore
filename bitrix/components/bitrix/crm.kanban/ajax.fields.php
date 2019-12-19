@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Full copy from crm.lead.list/filter.ajax.php
  * with some changes from crm.deal.list/filter.ajax.php

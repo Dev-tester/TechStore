@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C12_DO_RESEND'] = "Send Again";
 $MESS ['SONET_C12_DO_REJECT'] = "Cancel Invitations";
 $MESS ['SONET_C12_SUBTITLE'] = "Group Entry Invitations";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_WEBFOLDER_TITLE"] = "Connect as a Web Folder";
 $MESS["WD_USEADDRESS"] = "Use the following address for connection:";
 $MESS["WD_CONNECT"] = "Connect";

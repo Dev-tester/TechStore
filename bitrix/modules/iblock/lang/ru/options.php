@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_OPTION_SECTION_SYSTEM"] = "Системные настройки";
 $MESS["IBLOCK_OPTION_SECTION_LIST_AND_FORM"] = "Списки и формы редактирования элементов";
 $MESS["IBLOCK_OPTION_SECTION_CUSTOM_FORM"] = "Пользовательские формы редактирования элементов";

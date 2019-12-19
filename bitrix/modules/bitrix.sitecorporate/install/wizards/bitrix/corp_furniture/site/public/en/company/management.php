@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Designer Profiles");
 ?>
@@ -34,4 +34,4 @@ $APPLICATION->SetTitle("Designer Profiles");
 		 The newest designer of Furniture Company is a young American designer who has already worked on many products for the top European manufacturers.</td></tr>
   </tbody>
 </table>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

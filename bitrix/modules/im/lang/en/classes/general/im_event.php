@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_EVENT_RATING_PHOTO_ALBUM_LIKE"] = "I like your #A_START#album#A_END# \"#TITLE#\"";
 $MESS["IM_EVENT_RATING_PHOTO_ALBUM1_LIKE"] = "I like your #A_START#album#A_END#";
 $MESS["IM_EVENT_RATING_PHOTO_ALBUM_REACT"] = "Reacted on your #A_START#album#A_END# \"#TITLE#\"";

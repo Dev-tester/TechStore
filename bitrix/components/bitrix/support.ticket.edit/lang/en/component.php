@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_NEW_TICKET_TITLE'] = "New ticket";
 $MESS ['SUP_EDIT_TICKET_TITLE'] = "Ticket # #ID# - #TITLE#";
 $MESS ['MODULE_NOT_INSTALL'] = "Helpdesk module is not installed.";

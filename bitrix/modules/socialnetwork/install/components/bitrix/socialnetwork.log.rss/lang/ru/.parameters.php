@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_VARIABLE_ALIASES"] = "Имена переменных";
 $MESS["SONET_EVENTS_VAR"] = "Имя переменной для идентификатора события";
 $MESS["SONET_PATH_TO_USER"] = "Шаблон пути к странице пользователя";

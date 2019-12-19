@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACTIVE'] = "Die Datei ist aktiv";
 $MESS ['WD_NAME'] = "Überschrift";
 $MESS ['WD_TAGS'] = "Tags";

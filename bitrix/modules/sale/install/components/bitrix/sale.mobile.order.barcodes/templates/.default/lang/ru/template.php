@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOB_PRODUCT_NAME"] = "Наименование товара";
 $MESS["SMOB_BUTTON_CHECK"] = "Проверить";
 $MESS["SMOB_BUTTON_SAVE"] = "Сохранить";

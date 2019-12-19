@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSocNetSearch
 {
 	var $_params;

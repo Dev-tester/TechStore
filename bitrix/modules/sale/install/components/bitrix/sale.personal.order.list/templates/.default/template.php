@@ -1,4 +1,4 @@
-<?
+<?php 
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
@@ -43,25 +43,25 @@ else
 			{
 				?>
 				<h3><?= Loc::getMessage('SPOL_TPL_EMPTY_CANCELED_ORDER')?></h3>
-				<?
+				<?php 
 			}
 			else
 			{
 				?>
 				<h3><?= Loc::getMessage('SPOL_TPL_EMPTY_HISTORY_ORDER_LIST')?></h3>
-				<?
+				<?php 
 			}
 		}
 		else
 		{
 			?>
 			<h3><?= Loc::getMessage('SPOL_TPL_EMPTY_ORDER_LIST')?></h3>
-			<?
+			<?php 
 		}
 	}
 	?>
 	<div class="row col-md-12 col-sm-12">
-		<?
+		<?php 
 		$nothing = !isset($_REQUEST["filter_history"]) && !isset($_REQUEST["show_all"]);
 		$clearFromLink = array("filter_history","filter_status","show_all", "show_canceled");
 
@@ -69,37 +69,37 @@ else
 		{
 			?>
 			<a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("filter_history=Y", $clearFromLink, false)?>">
-				<?echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_HISTORY")?>
+				<?php echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_HISTORY")?>
 			</a>
-			<?
+			<?php 
 		}
 		if ($_REQUEST["filter_history"] == 'Y')
 		{
 			?>
 			<a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("", $clearFromLink, false)?>">
-				<?echo Loc::getMessage("SPOL_TPL_CUR_ORDERS")?>
+				<?php echo Loc::getMessage("SPOL_TPL_CUR_ORDERS")?>
 			</a>
-			<?
+			<?php 
 			if ($_REQUEST["show_canceled"] == 'Y')
 			{
 				?>
 				<a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("filter_history=Y", $clearFromLink, false)?>">
-					<?echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_HISTORY")?>
+					<?php echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_HISTORY")?>
 				</a>
-				<?
+				<?php 
 			}
 			else
 			{
 				?>
 				<a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("filter_history=Y&show_canceled=Y", $clearFromLink, false)?>">
-					<?echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_CANCELED")?>
+					<?php echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_CANCELED")?>
 				</a>
-				<?
+				<?php 
 			}
 		}
 		?>
 	</div>
-	<?
+	<?php 
 	if (!count($arResult['ORDERS']))
 	{
 		?>
@@ -108,7 +108,7 @@ else
 				<?=Loc::getMessage('SPOL_TPL_LINK_TO_CATALOG')?>
 			</a>
 		</div>
-		<?
+		<?php 
 	}
 
 	if ($_REQUEST["filter_history"] !== 'Y')
@@ -126,7 +126,7 @@ else
 				<h1 class="sale-order-title">
 					<?= Loc::getMessage('SPOL_TPL_ORDER_IN_STATUSES') ?> &laquo;<?=htmlspecialcharsbx($arResult['INFO']['STATUS'][$orderHeaderStatus]['NAME'])?>&raquo;
 				</h1>
-				<?
+				<?php 
 			}
 			?>
 			<div class="col-md-12 col-sm-12 sale-order-list-container">
@@ -138,7 +138,7 @@ else
 							<?=Loc::getMessage('SPOL_TPL_FROM_DATE')?>
 							<?=$order['ORDER']['DATE_INSERT']->format($arParams['ACTIVE_DATE_FORMAT'])?>,
 							<?=count($order['BASKET_ITEMS']);?>
-							<?
+							<?php 
 							$count = count($order['BASKET_ITEMS']) % 10;
 							if ($count == '1')
 							{
@@ -164,7 +164,7 @@ else
 							<span class="sale-order-list-inner-title-line-item"><?=Loc::getMessage('SPOL_TPL_PAYMENT')?></span>
 							<span class="sale-order-list-inner-title-line-border"></span>
 						</span>
-						<?
+						<?php 
 						$showDelimeter = false;
 						foreach ($order['PAYMENT'] as $payment)
 						{
@@ -181,12 +181,12 @@ else
 							}
 							?>
 							<div class="row sale-order-list-inner-row">
-								<?
+								<?php 
 								if ($showDelimeter)
 								{
 									?>
 									<div class="sale-order-list-top-border"></div>
-									<?
+									<?php 
 								}
 								else
 								{
@@ -197,7 +197,7 @@ else
 								<div class="sale-order-list-inner-row-body">
 									<div class="col-md-9 col-sm-8 col-xs-12 sale-order-list-payment">
 										<div class="sale-order-list-payment-title">
-											<?
+											<?php 
 											$paymentSubTitle = Loc::getMessage('SPOL_TPL_BILL')." ".Loc::getMessage('SPOL_TPL_NUMBER_SIGN').htmlspecialcharsbx($payment['ACCOUNT_NUMBER']);
 											if(isset($payment['DATE_BILL']))
 											{
@@ -207,24 +207,24 @@ else
 											echo $paymentSubTitle;
 											?>
 											<span class="sale-order-list-payment-title-element"><?=$payment['PAY_SYSTEM_NAME']?></span>
-											<?
+											<?php 
 											if ($payment['PAID'] === 'Y')
 											{
 												?>
 												<span class="sale-order-list-status-success"><?=Loc::getMessage('SPOL_TPL_PAID')?></span>
-												<?
+												<?php 
 											}
 											elseif ($order['ORDER']['IS_ALLOW_PAY'] == 'N')
 											{
 												?>
 												<span class="sale-order-list-status-restricted"><?=Loc::getMessage('SPOL_TPL_RESTRICTED_PAID')?></span>
-												<?
+												<?php 
 											}
 											else
 											{
 												?>
 												<span class="sale-order-list-status-alert"><?=Loc::getMessage('SPOL_TPL_NOTPAID')?></span>
-												<?
+												<?php 
 											}
 											?>
 										</div>
@@ -233,7 +233,7 @@ else
 
 											<span class="sale-order-list-payment-number"><?=$payment['FORMATED_SUM']?></span>
 										</div>
-										<?
+										<?php 
 										if (!empty($payment['CHECK_DATA']))
 										{
 											$listCheckLinks = "";
@@ -255,7 +255,7 @@ else
 														<?=$listCheckLinks?>
 													</div>
 												</div>
-												<?
+												<?php 
 											}
 										}
 										if ($payment['PAID'] !== 'Y' && $order['ORDER']['LOCK_CHANGE_PAYSYSTEM'] !== 'Y')
@@ -264,7 +264,7 @@ else
 											<a href="#" class="sale-order-list-change-payment" id="<?= htmlspecialcharsbx($payment['ACCOUNT_NUMBER']) ?>">
 												<?= Loc::getMessage('SPOL_TPL_CHANGE_PAY_TYPE') ?>
 											</a>
-											<?
+											<?php 
 										}
 										if ($order['ORDER']['IS_ALLOW_PAY'] == 'N' && $payment['PAID'] !== 'Y')
 										{
@@ -272,12 +272,12 @@ else
 											<div class="sale-order-list-status-restricted-message-block">
 												<span class="sale-order-list-status-restricted-message"><?=Loc::getMessage('SOPL_TPL_RESTRICTED_PAID_MESSAGE')?></span>
 											</div>
-											<?
+											<?php 
 										}
 										?>
 
 									</div>
-									<?
+									<?php 
 									if ($payment['PAID'] === 'N' && $payment['IS_CASH'] !== 'Y' && $payment['ACTION_FILE'] !== 'cash')
 									{
 										if ($order['ORDER']['IS_ALLOW_PAY'] == 'N')
@@ -288,7 +288,7 @@ else
 													<?=Loc::getMessage('SPOL_TPL_PAY')?>
 												</a>
 											</div>
-											<?
+											<?php 
 										}
 										elseif ($payment['NEW_WINDOW'] === 'Y')
 										{
@@ -298,7 +298,7 @@ else
 													<?=Loc::getMessage('SPOL_TPL_PAY')?>
 												</a>
 											</div>
-											<?
+											<?php 
 										}
 										else
 										{
@@ -308,7 +308,7 @@ else
 													<?=Loc::getMessage('SPOL_TPL_PAY')?>
 												</a>
 											</div>
-											<?
+											<?php 
 										}
 									}
 									?>
@@ -320,7 +320,7 @@ else
 									</a>
 								</div>
 							</div>
-							<?
+							<?php 
 						}
 						if (!empty($order['SHIPMENT']))
 						{
@@ -329,7 +329,7 @@ else
 								<span class="sale-order-list-inner-title-line-item"><?=Loc::getMessage('SPOL_TPL_DELIVERY')?></span>
 								<span class="sale-order-list-inner-title-line-border"></span>
 							</div>
-							<?
+							<?php 
 						}
 						$showDelimeter = false;
 						foreach ($order['SHIPMENT'] as $shipment)
@@ -340,12 +340,12 @@ else
 							}
 							?>
 							<div class="row sale-order-list-inner-row">
-								<?
+								<?php 
 									if ($showDelimeter)
 									{
 										?>
 										<div class="sale-order-list-top-border"></div>
-										<?
+										<?php 
 									}
 									else
 									{
@@ -356,7 +356,7 @@ else
 									<div class="sale-order-list-shipment-title">
 									<span class="sale-order-list-shipment-element">
 										<?=Loc::getMessage('SPOL_TPL_LOAD')?>
-										<?
+										<?php 
 										$shipmentSubTitle = Loc::getMessage('SPOL_TPL_NUMBER_SIGN').htmlspecialcharsbx($shipment['ACCOUNT_NUMBER']);
 										if ($shipment['DATE_DEDUCTED'])
 										{
@@ -370,18 +370,18 @@ else
 										echo $shipmentSubTitle;
 										?>
 									</span>
-										<?
+										<?php 
 										if ($shipment['DEDUCTED'] == 'Y')
 										{
 											?>
 											<span class="sale-order-list-status-success"><?=Loc::getMessage('SPOL_TPL_LOADED');?></span>
-											<?
+											<?php 
 										}
 										else
 										{
 											?>
 											<span class="sale-order-list-status-alert"><?=Loc::getMessage('SPOL_TPL_NOTLOADED');?></span>
-											<?
+											<?php 
 										}
 										?>
 									</div>
@@ -391,7 +391,7 @@ else
 										<span class="sale-order-list-shipment-status-block"><?=htmlspecialcharsbx($shipment['DELIVERY_STATUS_NAME'])?></span>
 									</div>
 
-									<?
+									<?php 
 									if (!empty($shipment['DELIVERY_ID']))
 									{
 										?>
@@ -399,7 +399,7 @@ else
 											<?=Loc::getMessage('SPOL_TPL_DELIVERY_SERVICE')?>:
 											<?=$arResult['INFO']['DELIVERY'][$shipment['DELIVERY_ID']]['NAME']?>
 										</div>
-										<?
+										<?php 
 									}
 
 									if (!empty($shipment['TRACKING_NUMBER']))
@@ -410,11 +410,11 @@ else
 											<span class="sale-order-list-shipment-id"><?=htmlspecialcharsbx($shipment['TRACKING_NUMBER'])?></span>
 											<span class="sale-order-list-shipment-id-icon"></span>
 										</div>
-										<?
+										<?php 
 									}
 									?>
 								</div>
-								<?
+								<?php 
 								if (strlen($shipment['TRACKING_URL']) > 0)
 								{
 									?>
@@ -423,11 +423,11 @@ else
 											<?=Loc::getMessage('SPOL_TPL_CHECK_POSTID')?>
 										</a>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
-							<?
+							<?php 
 						}
 						?>
 						<div class="row sale-order-list-inner-row">
@@ -438,21 +438,21 @@ else
 							<div class="col-md-2 col-sm-12 sale-order-list-repeat-container">
 								<a class="sale-order-list-repeat-link" href="<?=htmlspecialcharsbx($order["ORDER"]["URL_TO_COPY"])?>"><?=Loc::getMessage('SPOL_TPL_REPEAT_ORDER')?></a>
 							</div>
-							<?
+							<?php 
 							if ($order['ORDER']['CAN_CANCEL'] !== 'N')
 							{
 								?>
 								<div class="col-md-2 col-sm-12 sale-order-list-cancel-container">
 									<a class="sale-order-list-cancel-link" href="<?=htmlspecialcharsbx($order["ORDER"]["URL_TO_CANCEL"])?>"><?=Loc::getMessage('SPOL_TPL_CANCEL_ORDER')?></a>
 								</div>
-								<?
+								<?php 
 							}
 							?>
 						</div>
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	else
@@ -465,7 +465,7 @@ else
 			<h1 class="sale-order-title">
 				<?= Loc::getMessage('SPOL_TPL_ORDERS_CANCELED_HEADER') ?>
 			</h1>
-			<?
+			<?php 
 		}
 
 		foreach ($arResult['ORDERS'] as $key => $order)
@@ -477,7 +477,7 @@ else
 				<h1 class="sale-order-title">
 					<?= Loc::getMessage('SPOL_TPL_ORDER_IN_STATUSES') ?> &laquo;<?=htmlspecialcharsbx($arResult['INFO']['STATUS'][$orderHeaderStatus]['NAME'])?>&raquo;
 				</h1>
-				<?
+				<?php 
 			}
 			?>
 			<div class="col-md-12 col-sm-12 sale-order-list-container">
@@ -492,7 +492,7 @@ else
 									<?= Loc::getMessage('SPOL_TPL_FROM_DATE') ?>
 									<?= $order['ORDER']['DATE_INSERT'] ?>,
 									<?= count($order['BASKET_ITEMS']); ?>
-									<?
+									<?php 
 									$count = substr(count($order['BASKET_ITEMS']), -1);
 									if ($count == '1')
 									{
@@ -512,14 +512,14 @@ else
 								</h2>
 							</div>
 							<div class="col-md-4 col-sm-12 sale-order-list-accomplished-date-container">
-								<?
+								<?php 
 								if ($_REQUEST["show_canceled"] !== 'Y')
 								{
 									?>
 									<span class="sale-order-list-accomplished-date">
 										<?= Loc::getMessage('SPOL_TPL_ORDER_FINISHED')?>
 									</span>
-									<?
+									<?php 
 								}
 								else
 								{
@@ -527,7 +527,7 @@ else
 									<span class="sale-order-list-accomplished-date canceled-order">
 										<?= Loc::getMessage('SPOL_TPL_ORDER_CANCELED')?>
 									</span>
-									<?
+									<?php 
 								}
 								?>
 								<span class="sale-order-list-accomplished-date-number"><?= $order['ORDER']['DATE_STATUS_FORMATED'] ?></span>
@@ -552,12 +552,12 @@ else
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	?>
 	<div class="clearfix"></div>
-	<?
+	<?php 
 	echo $arResult["NAV_STRING"];
 
 	if ($_REQUEST["filter_history"] !== 'Y')
@@ -573,7 +573,7 @@ else
 		<script>
 			BX.Sale.PersonalOrderComponent.PersonalOrderList.init(<?=$javascriptParams?>);
 		</script>
-		<?
+		<?php 
 	}
 }
 ?>

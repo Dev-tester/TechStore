@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!check_bitrix_sessid()) return;
 
 global $obModule;
@@ -229,7 +229,7 @@ if($obModule->errors===false && $news == "Y" && strlen($news_dir) > 0):
 		<td align="center"><p><b><?=GetMessage("IBLOCK_SITE")?></b></p></td>
 		<td align="center"><p><b><?=GetMessage("IBLOCK_LINK")?></b></p></td>
 	</tr>
-	<?
+	<?php 
 	$sites = CSite::GetList($by, $order, Array("ACTIVE"=>"Y"));
 	while($site = $sites->Fetch())
 	{
@@ -239,14 +239,14 @@ if($obModule->errors===false && $news == "Y" && strlen($news_dir) > 0):
 		$url = $site["DIR"].$news_dir.'/';
 		?>
 		<tr>
-			<td width="0%"><p>[<?=$site["ID"]?>] <?echo htmlspecialcharsbx($site["NAME"]);?></p></td>
-			<td width="0%"><p><a href="<?echo htmlspecialcharsbx($server.$url);?>"><?echo htmlspecialcharsEx($url);?></a></p></td>
+			<td width="0%"><p>[<?=$site["ID"]?>] <?php echo htmlspecialcharsbx($site["NAME"]);?></p></td>
+			<td width="0%"><p><a href="<?php echo htmlspecialcharsbx($server.$url);?>"><?php echo htmlspecialcharsEx($url);?></a></p></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 </table>
-<?
+<?php 
 endif;
 
 if($obModule->errors===false && $catalog == "Y" && strlen($catalog_dir) > 0):
@@ -257,25 +257,25 @@ if($obModule->errors===false && $catalog == "Y" && strlen($catalog_dir) > 0):
 		<td align="center"><p><b><?=GetMessage("IBLOCK_SITE")?></b></p></td>
 		<td align="center"><p><b><?=GetMessage("IBLOCK_LINK")?></b></p></td>
 	</tr>
-	<?
+	<?php 
 	$sites = CSite::GetList($by, $order, Array("ACTIVE"=>"Y"));
 	while($site = $sites->Fetch())
 	{
 		?>
 		<tr>
 			<td width="0%"><p>[<?=$site["ID"]?>] <?=htmlspecialcharsbx($site["NAME"])?></p></td>
-			<td width="0%"><p><a href="<?if(strlen($site["SERVER_NAME"])>0) echo "http://".$site["SERVER_NAME"];?><?=$site["DIR"].$catalog_dir?>/"><?=$site["DIR"].$catalog_dir?>/</a></p></td>
+			<td width="0%"><p><a href="<?php if(strlen($site["SERVER_NAME"])>0) echo "http://".$site["SERVER_NAME"];?><?=$site["DIR"].$catalog_dir?>/"><?=$site["DIR"].$catalog_dir?>/</a></p></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 </table>
-<?
+<?php 
 endif;
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
 <p>
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">
 </p>
 <form>

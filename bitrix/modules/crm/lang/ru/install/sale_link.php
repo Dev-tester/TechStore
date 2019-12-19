@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SALE_STATUS_A"] = "Подтвержден";
 $MESS["CRM_SALE_STATUS_D"] = "Отклонён";
 $MESS["CRM_SALE_STATUS_P"] = "Оплачен";

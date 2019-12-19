@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_before.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/sale/prolog.php');
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/sale/include.php');
@@ -350,12 +350,12 @@ if ($errors)
 }
 
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?ID=<?=htmlspecialcharsbx($statusId)?>&lang=<?=LANGUAGE_ID?>" name="fform">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?ID=<?=htmlspecialcharsbx($statusId)?>&lang=<?=LANGUAGE_ID?>" name="fform">
 	<?=GetFilterHiddens('filter_')?>
 	<input type="hidden" name="Update" value="Y">
 	<?=bitrix_sessid_post()?>
 
-	<?
+	<?php 
 	$tabControl = new CAdminTabControl("tabControl", array(
 		array("DIV" => "edit1", "TAB" => Loc::getMessage("SSEN_TAB_STATUS"), "ICON" => "sale", "TITLE" => Loc::getMessage("SSEN_TAB_STATUS_DESCR")),
 	));
@@ -366,11 +366,11 @@ if ($errors)
 	<tr class="adm-detail-required-field">
 		<td width="40%"><?=$statusFields['ID']->getTitle()?><?=$statusId ? '' : ' (1-2 '.Loc::getMessage('SALE_CODE_LEN').')'?>:</td>
 		<td width="60%">
-			<?if ($statusId):?>
+			<?php if ($statusId):?>
 				<b><?=$statusId?></b>
-			<?else:?>
+			<?php else:?>
 				<input type="text" name="NEW_ID" value="<?=htmlspecialcharsbx($status['ID'])?>" size="4" maxlength="2">
-			<?endif?>
+			<?php endif?>
 		</td>
 	</tr>
 	<tr>
@@ -389,7 +389,7 @@ if ($errors)
 	<tr>
 		<td><?=Loc::getMessage('SSEN_NOTIFY_ASK')?>:</td>
 		<td>
-			<input type="checkbox" name="NOTIFY"<?if (! ($statusId && $status['NOTIFY'] == 'N')):?> checked="checked"<?endif?> onclick="(
+			<input type="checkbox" name="NOTIFY"<?php if (! ($statusId && $status['NOTIFY'] == 'N')):?> checked="checked"<?php endif?> onclick="(
 				function (box)
 				{
 					var link = BX('status-template-link');
@@ -401,9 +401,9 @@ if ($errors)
 			)(this)">
 			&nbsp;
 			<a id="status-template-link"
-				<?if ($statusId):?>
+				<?php if ($statusId):?>
 					href="/bitrix/admin/message_admin.php?lang=<?=LANGUAGE_ID?>&find_event_type=SALE_STATUS_CHANGED_<?=$statusId?>" target="_blank"
-				<?else:?>
+				<?php else:?>
 					href="#" onclick="(new BX.CDialog({
 						title: '<?=Loc::getMessage('SSEN_NOTIFY_W_TITLE')?>',
 						content: '<?=Loc::getMessage('SSEN_NOTIFY_W_CONTENT')?>',
@@ -412,10 +412,10 @@ if ($errors)
 						resizable: false,
 						buttons: [BX.CDialog.prototype.btnClose]
 					})).Show()"
-				<?endif?>
-				<?if ($statusId && $status['NOTIFY'] == 'N'):?>
+				<?php endif?>
+				<?php if ($statusId && $status['NOTIFY'] == 'N'):?>
 					style="display:none"
-				<?endif?>
+				<?php endif?>
 			><?=Loc::getMessage('SSEN_NOTIFY_LINK')?></a>
 		</td>
 	</tr>
@@ -448,7 +448,7 @@ if ($errors)
 				document.getElementById("new_color_label").style.background = color;
 			}
 			</script>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.colorpicker",
 				"",
@@ -468,7 +468,7 @@ if ($errors)
 		<td><?=$statusFields['XML_ID']->getTitle()?>:</td>
 		<td><input type="text" name="XML_ID" value="<?=$status['XML_ID'] ? htmlspecialcharsbx($status['XML_ID']): StatusTable::generateXmlId();?>" size="30"></td>
 	</tr>
-	<?foreach ($languages as $languageId => $languageName):?>
+	<?php foreach ($languages as $languageId => $languageName):?>
 		<tr class="heading">
 			<td colspan="2">[<?=htmlspecialcharsex($languageId)?>] <?=htmlspecialcharsex($languageName)?></td>
 		</tr>
@@ -482,32 +482,32 @@ if ($errors)
 				<textarea name="DESCRIPTION_<?=htmlspecialcharsbx($languageId); ?>" cols="35" rows="3"><?=htmlspecialcharsbx($translations[$languageId]['DESCRIPTION'])?></textarea>
 			</td>
 		</tr>
-	<?endforeach?>
+	<?php endforeach?>
 	<tr class="heading">
 		<td colspan="2"><?=Loc::getMessage('SSEN_ACCESS_PERMS')?></td>
 	</tr>
-	<?if ($groups):?>
-		<?foreach ($groups as $groupId => $groupName): $groupTaskId = $groupTasks[$groupId]['TASK_ID']?>
+	<?php if ($groups):?>
+		<?php foreach ($groups as $groupId => $groupName): $groupTaskId = $groupTasks[$groupId]['TASK_ID']?>
 			<tr>
 				<td><?=htmlspecialcharsbx($groupName)?></td>
 				<td>
 					<select name="TASK<?=$groupId?>">
-						<?foreach ($tasks as $taskId => $task):?>
+						<?php foreach ($tasks as $taskId => $task):?>
 							<option value="<?=$taskId?>" <?=$taskId == $groupTaskId ? 'selected': ''?>>
 								<?=htmlspecialcharsbx(($name = Loc::getMessage('TASK_NAME_'.strtoupper($task['NAME']))) ? $name : $task['NAME'])?>
 							</option>
-						<?endforeach?>
+						<?php endforeach?>
 					</select>
 				</td>
 			</tr>
-		<?endforeach?>
-	<?else:?>
+		<?php endforeach?>
+	<?php else:?>
 		<tr>
 			<td colspan="2" style="text-align: center;">
 				<?=Loc::getMessage('SSEN_PERM_GROUPS_ABSENT')?>
 			</td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
 		<td>
 			<a href="settings.php?lang=<?=LANGUAGE_ID?>&mid=sale&tabControl_active_tab=edit4" target="_blank">
@@ -521,7 +521,7 @@ if ($errors)
 		</td>
 	</tr>
 
-	<?
+	<?php 
 	$tabControl->EndTab();
 	$tabControl->Buttons(array(
 		"disabled" => $readOnly,
@@ -532,4 +532,4 @@ if ($errors)
 
 </form>
 
-<?require($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/epilog_admin.php");

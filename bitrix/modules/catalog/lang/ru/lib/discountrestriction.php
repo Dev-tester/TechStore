@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_RESTRICTION_ENTITY_ID_FIELD"] = "Идентификатор записи";
 $MESS["DISCOUNT_RESTRICTION_ENTITY_DISCOUNT_ID_FIELD"] = "Идентификатор скидки на товар";
 $MESS["DISCOUNT_RESTRICTION_ENTITY_ACTIVE_FIELD"] = "Активность";

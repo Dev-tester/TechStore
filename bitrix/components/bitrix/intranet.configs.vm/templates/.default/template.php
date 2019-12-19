@@ -1,16 +1,16 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?/*if (!$arResult["IS_SCALE_AVAILABLE"]):?>
+<?php /*if (!$arResult["IS_SCALE_AVAILABLE"]):?>
 
-	<?return;?>
-<?endif*/?>
+	<?php return;?>
+<?php endif*/?>
 
-<?if(isset($_GET['success'])): ?>
+<?php if(isset($_GET['success'])): ?>
 	<div class="content-edit-form-notice-successfully">
 		<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=GetMessage('CONFIG_VM_SAVE_SUCCESSFULLY')?></span>
 	</div>
-<?endif;?>
-<div class="content-edit-form-notice-error" <?if (!$arResult["ERROR"]):?>style="display: none;"<?endif?> id="CONFIG_VM_error_block">
+<?php endif;?>
+<div class="content-edit-form-notice-error" <?php if (!$arResult["ERROR"]):?>style="display: none;"<?php endif?> id="CONFIG_VM_error_block">
 	<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=$arResult["ERROR"]?></span>
 </div>
 
@@ -19,7 +19,7 @@
 	<?=bitrix_sessid_post();?>
 
 	<table id="content-edit-form-config" class="content-edit-form" cellspacing="0" cellpadding="0">
-		<?
+		<?php 
 	if ($arResult["IS_SCALE_AVAILABLE"])
 	{
 		?>
@@ -28,14 +28,14 @@
 				<div class="content-edit-form-header-wrap content-edit-form-header-wrap-blue"><?=GetMessage('CONFIG_VM_SMTP_TITLE')?></div>
 			</td>
 		</tr>
-		<? if (!$arResult["IS_BXENV_CORRECT_VERSION"]):?>
+		<?php  if (!$arResult["IS_BXENV_CORRECT_VERSION"]):?>
 		<tr>
 			<td class="content-edit-form-field-input" colspan="3">
 				<div class="CONFIG_VM_notify_message" style="margin: 10px 0 10px 20px;"><?=GetMessage("CONFIG_VM_BXENV_UPDATE")?>
 				<a href="javascript:void(0)" onclick="BX.Helper.show('redirect=detail&HD_ID=<?=GetMessage("CONFIG_VM_BXENV_UPDATE_ARTICLE_ID")?>');"><?=GetMessage("CONFIG_VM_MORE")?></a></div>
 			</td>
 		</tr>
-		<?else:?>
+		<?php else:?>
 
 		<tr>
 			<td class="content-edit-form-field-name" style="width:370px; padding-right:30px"><?=GetMessage('CONFIG_VM_SMTP_HOST')?></td>
@@ -64,7 +64,7 @@
 		<tr>
 			<td class="content-edit-form-field-name" style="width:370px; padding-right:30px"><label for="smtp_tls"><?=GetMessage('CONFIG_VM_SMTP_TLS')?></label></td>
 			<td class="content-edit-form-field-input">
-				<input type="checkbox" name="smtp_tls" id="smtp_tls" value="Y" <?if ($arResult["SCALE_SMTP_INFO"]["SMTPTLS"] == "Y"):?>checked<?endif;?> />
+				<input type="checkbox" name="smtp_tls" id="smtp_tls" value="Y" <?php if ($arResult["SCALE_SMTP_INFO"]["SMTPTLS"] == "Y"):?>checked<?php endif;?> />
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
@@ -72,12 +72,12 @@
 		<tr>
 			<td class="content-edit-form-field-name" style="width:370px; padding-right:30px"><label for="smtp_use_auth"><?=GetMessage('CONFIG_VM_SMTP_AUTH')?></label></td>
 			<td class="content-edit-form-field-input">
-				<input type="checkbox" name="smtp_use_auth" id="smtp_use_auth" value="Y" <?if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] == "Y"):?>checked<?endif;?> />
+				<input type="checkbox" name="smtp_use_auth" id="smtp_use_auth" value="Y" <?php if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] == "Y"):?>checked<?php endif;?> />
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-		<tr data-role="smtp-auth" <?if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] != "Y"):?>style="display: none"<?endif?>>
+		<tr data-role="smtp-auth" <?php if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] != "Y"):?>style="display: none"<?php endif?>>
 			<td class="content-edit-form-field-name" style="width:370px; padding-right:30px"><?=GetMessage('CONFIG_VM_SMTP_USER')?></td>
 			<td class="content-edit-form-field-input">
 				<input type="text" name="smtp_user" value="<?=isset($arResult["SCALE_SMTP_INFO"]["SMTP_USER"]) ? htmlspecialcharsbx($arResult["SCALE_SMTP_INFO"]["SMTP_USER"]) : ""?>"  class="content-edit-form-field-input-text"/>
@@ -85,7 +85,7 @@
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-		<tr data-role="smtp-auth" <?if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] != "Y"):?>style="display: none"<?endif?>>
+		<tr data-role="smtp-auth" <?php if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] != "Y"):?>style="display: none"<?php endif?>>
 			<td class="content-edit-form-field-name" style="width:370px; padding-right:30px"><?=GetMessage('CONFIG_VM_SMTP_PASSWORD')?></td>
 			<td class="content-edit-form-field-input">
 				<input type="password" name="smtp_password" value="<?=isset($arResult["SCALE_SMTP_INFO"]["SMTP_PASSWORD"]) ? htmlspecialcharsbx($arResult["SCALE_SMTP_INFO"]["SMTP_PASSWORD"]) : ""?>"  class="content-edit-form-field-input-text"/>
@@ -93,7 +93,7 @@
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-		<tr data-role="smtp-auth" <?if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] != "Y"):?>style="display: none"<?endif?>>
+		<tr data-role="smtp-auth" <?php if ($arResult["SCALE_SMTP_INFO"]["SMTP_USE_AUTH"] != "Y"):?>style="display: none"<?php endif?>>
 			<td class="content-edit-form-field-name" style="width:370px; padding-right:30px"><?=GetMessage('CONFIG_VM_SMTP_REPEAT_PASSWORD')?></td>
 			<td class="content-edit-form-field-input">
 				<input type="password" name="smtp_repeat_password" value="<?=isset($arResult["SCALE_SMTP_INFO"]["SMTP_PASSWORD"]) ? htmlspecialcharsbx($arResult["SCALE_SMTP_INFO"]["SMTP_PASSWORD"]) : ""?>"  class="content-edit-form-field-input-text"/>
@@ -132,7 +132,7 @@
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-	<?	endif;
+	<?php 	endif;
 	}
 	?>
 	</table>
@@ -208,7 +208,7 @@
 	</form>
 </div>
 
-<?
+<?php 
 $arJSParams = array(
 	"ajaxPath" => $this->GetFolder()."/ajax.php",
 	"siteNameConf" => $arResult["SITE_NAME_CONF"]

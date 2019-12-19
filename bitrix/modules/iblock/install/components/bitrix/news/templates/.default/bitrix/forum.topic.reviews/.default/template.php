@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix vars
  *
@@ -27,40 +27,40 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 1):
 	</div>
 	<div class="reviews-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 ?>
 <div class="reviews-block-container reviews-reviews-block-container" id="<?=$arParams["FORM_ID"]?>container">
 	<div class="reviews-block-outer">
 		<div class="reviews-block-inner">
-<?
+<?php 
 $iCount = 0;
 foreach ($arResult["MESSAGES"] as $res):
 	$iCount++;
-	?><table cellspacing="0" border="0" class="reviews-post-table <?=($iCount == 1 ? "reviews-post-first " : "")?><?
-		?><?=($iCount == count($arResult["MESSAGES"]) ? "reviews-post-last " : "")?><?
-		?><?=($iCount%2 == 1 ? "reviews-post-odd " : "reviews-post-even ")?><?
+	?><table cellspacing="0" border="0" class="reviews-post-table <?=($iCount == 1 ? "reviews-post-first " : "")?><?php 
+		?><?=($iCount == count($arResult["MESSAGES"]) ? "reviews-post-last " : "")?><?php 
+		?><?=($iCount%2 == 1 ? "reviews-post-odd " : "reviews-post-even ")?><?php 
 		?><?=(($res["APPROVED"] == 'Y') ? "" : "reviews-post-hidden")
 		?>" bx-author-id="<?=$res["AUTHOR_ID"]?>" bx-author-name="<?=$res["AUTHOR_NAME"]?>" id="message<?=$res["ID"]?>">
 		<thead><tr><td>
-		<?
+		<?php 
 		if ($arParams["SHOW_AVATAR"] != "N")
 		{
 			?>
-			<div class="review-avatar"><?
-				if(is_array($res["AVATAR"]) && array_key_exists("HTML", $res["AVATAR"])): ?><?=$res["AVATAR"]["HTML"]?><?
-				else: ?><img src="/bitrix/components/bitrix/forum.topic.reviews/templates/.default/images/noavatar.gif" border="0" /><? endif;
+			<div class="review-avatar"><?php 
+				if(is_array($res["AVATAR"]) && array_key_exists("HTML", $res["AVATAR"])): ?><?=$res["AVATAR"]["HTML"]?><?php 
+				else: ?><img src="/bitrix/components/bitrix/forum.topic.reviews/templates/.default/images/noavatar.gif" border="0" /><?php  endif;
 			?></div>
-		<?
+		<?php 
 		}
 		?>
-		<?
+		<?php 
 		if ($arParams["SHOW_RATING"] == "Y")
 		{
 			?>
 			<div class="review-rating rating_vote_graphic">
-				<?
+				<?php 
 				$arRatingParams = Array(
 						"ENTITY_TYPE_ID" => "FORUM_POST",
 						"ENTITY_ID" => $res["ID"],
@@ -82,15 +82,15 @@ foreach ($arResult["MESSAGES"] as $res):
 				$APPLICATION->IncludeComponent( "bitrix:rating.vote", $arParams["RATING_TYPE"], $arRatingParams, $component, array("HIDE_ICONS" => "Y"));
 				?>
 			</div>
-		<?
+		<?php 
 		}
 		?>
 <div>
-		<b><?
+		<b><?php 
 		if (intval($res["AUTHOR_ID"]) > 0 && !empty($res["AUTHOR_URL"])):
-			?><a href="<?=$res["AUTHOR_URL"]?>"><?=$res["AUTHOR_NAME"]?></a><?
+			?><a href="<?=$res["AUTHOR_URL"]?>"><?=$res["AUTHOR_NAME"]?></a><?php 
 		else:
-			?><?=$res["AUTHOR_NAME"]?><?
+			?><?=$res["AUTHOR_NAME"]?><?php 
 		endif;
 		?></b>
 		<span class='message-post-date'><?=$res["POST_DATE"]?></span>
@@ -101,10 +101,10 @@ foreach ($arResult["MESSAGES"] as $res):
 	<tbody>
 	<tr><td>
 		<div class="reviews-text" id="message_text_<?=$res["ID"]?>"><?=$res["POST_MESSAGE_TEXT"]?></div>
-<?
+<?php 
 	foreach ($res["FILES"] as $arFile):
-	?><div class="reviews-message-img"><?
-		?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+	?><div class="reviews-message-img"><?php 
+		?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 			"bitrix:forum.interface", "show_file",
 			Array(
 				"FILE" => $arFile,
@@ -117,42 +117,42 @@ foreach ($arResult["MESSAGES"] as $res):
 				"SHOW_LINK" => "Y"),
 			null,
 			array("HIDE_ICONS" => "Y"));
-	?></div><?
+	?></div><?php 
 	endforeach;
 ?>
 	</td></tr>
 	<tr class="reviews-actions">
 		<td>
-<?
+<?php 
 	if ($arResult["SHOW_POST_FORM"] == "Y")
 	{
 		?>
 		<div class="reviews-post-reply-buttons"><noindex>
 			<a href="#review_anchor" style='margin-left:0;' title="<?=GetMessage("F_NAME")?>" class="reviews-button-small" bx-act="reply"><?=GetMessage("F_NAME")?></a>
-<?			if ($arResult["FORUM"]["ALLOW_QUOTE"] == "Y")
+<?php 			if ($arResult["FORUM"]["ALLOW_QUOTE"] == "Y")
 			{
 				?>
 				<span class="separator"></span>
-				<a href="#review_anchor" title="<?=GetMessage("F_QUOTE_HINT")?>" class="reviews-button-small" bx-act="quote"><?=GetMessage("F_QUOTE_FULL")?></a><?
+				<a href="#review_anchor" title="<?=GetMessage("F_QUOTE_HINT")?>" class="reviews-button-small" bx-act="quote"><?=GetMessage("F_QUOTE_FULL")?></a><?php 
 			}
 			if ($arResult["PANELS"]["MODERATE"] == "Y")
 			{
 				?>
 				<span class="separator"></span>
-				<a rel="nofollow" href="<?=htmlspecialcharsbx($res["URL"]["~MODERATE"])?>" class="reviews-button-small" bx-act="moderate"><?=GetMessage((($res["APPROVED"] == 'Y') ? "F_HIDE" : "F_SHOW"))?></a><?
+				<a rel="nofollow" href="<?=htmlspecialcharsbx($res["URL"]["~MODERATE"])?>" class="reviews-button-small" bx-act="moderate"><?=GetMessage((($res["APPROVED"] == 'Y') ? "F_HIDE" : "F_SHOW"))?></a><?php 
 			}
 			if ($arResult["PANELS"]["DELETE"] == "Y")
 			{
 				?>
 				<span class="separator"></span>
 				<a rel="nofollow" href="<?=htmlspecialcharsbx($res["URL"]["~DELETE"])?>" class="reviews-button-small" bx-act="del"><?=GetMessage("F_DELETE")?></a>
-<?			}
+<?php 			}
 			if ($arParams["SHOW_RATING"] == "Y")
 			{
 				?>
 				<span class="rating_vote_text">
 				<span class="separator"></span>
-				<?
+				<?php 
 				$arRatingParams = Array(
 						"ENTITY_TYPE_ID" => "FORUM_POST",
 						"ENTITY_ID" => $res["ID"],
@@ -171,23 +171,23 @@ foreach ($arResult["MESSAGES"] as $res):
 				$arRatingParams = array_merge($arRatingParams, $res['RATING']);
 				$GLOBALS["APPLICATION"]->IncludeComponent( "bitrix:rating.vote", $arParams["RATING_TYPE"], $arRatingParams, $component, array("HIDE_ICONS" => "Y"));
 				?>
-			</span><?
+			</span><?php 
 			}
 ?>
 		</noindex></div>
-<?
+<?php 
 	}
 ?>
 		</td>
 	</tr>
 	</tbody>
-	</table><?
+	</table><?php 
 endforeach;
 ?>
 		</div>
 	</div>
 </div>
-<?
+<?php 
 
 if (strlen($arResult["NAV_STRING"]) > 0 && $arResult["NAV_RESULT"]->NavPageCount > 1):
 ?>
@@ -197,7 +197,7 @@ if (strlen($arResult["NAV_STRING"]) > 0 && $arResult["NAV_RESULT"]->NavPageCount
 	</div>
 	<div class="reviews-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 
@@ -209,7 +209,7 @@ if (!empty($arResult["read"]) && $arParams["SHOW_LINK_TO_FORUM"] != "N"):
 	</div>
 </div>
 
-<?
+<?php 
 endif;
 
 endif;
@@ -220,7 +220,7 @@ if (empty($arResult["ERROR_MESSAGE"]) && !empty($arResult["OK_MESSAGE"])):
 	<a name="reviewnote"></a>
 	<div class="reviews-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"]);?></div>
 </div>
-<?
+<?php 
 endif;
 
 if ($arResult["SHOW_POST_FORM"] != "Y"):
@@ -239,16 +239,16 @@ if (!empty($arResult["MESSAGE_VIEW"])):
 	<div class="reviews-info-box-inner">
 		<div class="reviews-post-entry">
 			<div class="reviews-post-text"><?=$arResult["MESSAGE_VIEW"]["POST_MESSAGE_TEXT"]?></div>
-<?
+<?php 
 		if (!empty($arResult["REVIEW_FILES"])):
 ?>
 			<div class="reviews-post-attachments">
 				<label><?=GetMessage("F_ATTACH_FILES")?></label>
-<?
+<?php 
 			foreach ($arResult["REVIEW_FILES"] as $arFile):
 ?>
-				<div class="reviews-post-attachment"><?
-				?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+				<div class="reviews-post-attachment"><?php 
+				?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 					"bitrix:forum.interface", "show_file",
 					Array(
 						"FILE" => $arFile,
@@ -262,11 +262,11 @@ if (!empty($arResult["MESSAGE_VIEW"])):
 					null,
 					array("HIDE_ICONS" => "Y"));
 				?></div>
-<?
+<?php 
 			endforeach;
 ?>
 			</div>
-<?
+<?php 
 		endif;
 ?>
 		</div>
@@ -274,7 +274,7 @@ if (!empty($arResult["MESSAGE_VIEW"])):
 </div>
 <div class="reviews-br"></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 <script type="text/javascript">
@@ -298,6 +298,6 @@ endif;
 		);
 	});
 </script>
-<?
+<?php 
 include(__DIR__."/form.php");
 ?>

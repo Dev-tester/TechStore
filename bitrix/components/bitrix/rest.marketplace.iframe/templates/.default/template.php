@@ -27,7 +27,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 	}
 </script>
-<?$APPLICATION->ShowHead();?>
+<?php $APPLICATION->ShowHead();?>
 </head>
 <body class="rest-mp-slider-body">
 <div class="rest-mp-slider-wrap">

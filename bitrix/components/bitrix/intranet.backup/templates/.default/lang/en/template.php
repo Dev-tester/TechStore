@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BACKUP_PROGRESS_HINT"] = "The backup copy is now being created. Please don't close the page.";
 $MESS["BACKUP_PROGRESS_TEXT"] = "Creating backup";
 $MESS["BACKUP_BUTTON"] = "Create Backup";

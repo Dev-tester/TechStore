@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -146,7 +146,7 @@ $lAdmin->InitFilter($arFilterFields);
 
 $lAdmin->BeginPrologContent();
 ?>
-<?
+<?php 
 /***************************************************************************
 		HTML form
 ****************************************************************************/
@@ -167,7 +167,7 @@ elseif (count($lAdmin->arFilterErrors)==0) :
 <tr>
 	<td valign="top">
 	<table cellpadding="2" cellspacing="0" border="0" class="legend">
-		<?
+		<?php 
 		$i = 0;
 		foreach($arCurrencyInfo as $k => $v)
 		{
@@ -176,29 +176,29 @@ elseif (count($lAdmin->arFilterErrors)==0) :
 				<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=<?=$arColor[$i]?>" width="45" height="2"></td>
 				<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("SALE_COUNT")?> (<?=$v?>)</td>
 			</tr>
-			<?endif;
+			<?php endif;
 			$i++;
 			if (${"find_payed_".$k}=="Y"):?>
 			<tr>
 				<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=<?=$arColor[$i]?>" width="45" height="2"></td>
 				<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("SALE_PAYED")?> (<?=$v?>)</td>
 			</tr>
-			<?endif;
+			<?php endif;
 			$i++;
 			if (${"find_allow_delivery_".$k}=="Y"):?>
 			<tr>
 				<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=<?=$arColor[$i]?>" width="45" height="2"></td>
 				<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("SALE_ALLOW_DELIVERY")?> (<?=$v?>)</td>
 			</tr>
-			<?endif;
+			<?php endif;
 			$i++;
 			if (${"find_canceled_".$k}=="Y"):?>
 			<tr>
 				<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=<?=$arColor[$i]?>" width="45" height="2"></td>
 				<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("SALE_CANCELED")?> (<?=$v?>)</td>
 			</tr>
-			<?endif;?>
-			<?
+			<?php endif;?>
+			<?php 
 			$i++;
 			foreach($arStatus as $k1 => $v1)
 			{
@@ -207,7 +207,7 @@ elseif (count($lAdmin->arFilterErrors)==0) :
 					<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=<?=$arColor[$i]?>" width="45" height="2"></td>
 					<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=$v1?> (<?=$v?>)</td>
 				</tr>
-				<?endif;
+				<?php endif;
 				$i++;
 			}
 		}
@@ -217,9 +217,9 @@ elseif (count($lAdmin->arFilterErrors)==0) :
 </tr>
 </table>
 </div>
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 $lAdmin->EndPrologContent();
 
 
@@ -241,21 +241,21 @@ $oFilter = new CAdminFilter($sTableID."_filter",array(
 ?>
 
 <form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
-	<td><?echo GetMessage("SALE_S_DATE").":"?></td>
-	<td><?echo CalendarPeriod("filter_date_from", $filter_date_from, "filter_date_to", $filter_date_to, "find_form", "Y")?></td>
+	<td><?php echo GetMessage("SALE_S_DATE").":"?></td>
+	<td><?php echo CalendarPeriod("filter_date_from", $filter_date_from, "filter_date_to", $filter_date_to, "find_form", "Y")?></td>
 </tr>
 
 <tr>
-	<td valign="top"><?echo GetMessage("SALE_S_SITE");?>:</td>
+	<td valign="top"><?php echo GetMessage("SALE_S_SITE");?>:</td>
 	<td>
-		<?
+		<?php 
 		foreach($arSite as $k => $v)
 		{
-			?><input type="checkbox" name="filter_site_id[]" value="<?=$k?>" id="site_<?=$k?>"<?if(in_array($k, $filter_site_id)) echo " checked"?>> <label for="site_<?=$k?>"><?=$v?></label><br /><?
+			?><input type="checkbox" name="filter_site_id[]" value="<?=$k?>" id="site_<?=$k?>"<?php if(in_array($k, $filter_site_id)) echo " checked"?>> <label for="site_<?=$k?>"><?=$v?></label><br /><?php 
 		}
 		?>
 	</td>
@@ -264,16 +264,16 @@ $oFilter->Begin();
 	<td><?=GetMessage("SALE_SHOW")?>:</td>
 	<td>
 		<select name="filter_find[]" multiple>
-			<option value="find_all"<?if ($find_all=="Y") echo " selected"?>><?echo GetMessage("SALE_COUNT")?></option>
-			<option value="find_payed"<?if ($find_payed=="Y") echo " selected"?>><?echo GetMessage("SALE_PAYED")?></option>
-			<option value="find_allow_delivery"<?if ($find_allow_delivery=="Y") echo " selected"?>><?echo GetMessage("SALE_ALLOW_DELIVERY")?></option>
-			<option value="find_canceled"<?if ($find_canceled=="Y") echo " selected"?>><?echo GetMessage("SALE_CANCELED")?></option>
-			<?
+			<option value="find_all"<?php if ($find_all=="Y") echo " selected"?>><?php echo GetMessage("SALE_COUNT")?></option>
+			<option value="find_payed"<?php if ($find_payed=="Y") echo " selected"?>><?php echo GetMessage("SALE_PAYED")?></option>
+			<option value="find_allow_delivery"<?php if ($find_allow_delivery=="Y") echo " selected"?>><?php echo GetMessage("SALE_ALLOW_DELIVERY")?></option>
+			<option value="find_canceled"<?php if ($find_canceled=="Y") echo " selected"?>><?php echo GetMessage("SALE_CANCELED")?></option>
+			<?php 
 				foreach($arStatus as $id => $name)
 				{
 					?>
-					<option value="find_status_<?=$id?>" <?if (${"find_status_$id"}=="Y") echo " selected"?>><?=htmlspecialcharsbx($name)?></option>
-					<?
+					<option value="find_status_<?=$id?>" <?php if (${"find_status_$id"}=="Y") echo " selected"?>><?=htmlspecialcharsbx($name)?></option>
+					<?php 
 				}
 			?>
 		</select>
@@ -281,27 +281,27 @@ $oFilter->Begin();
 </tr>
 
 	<tr>
-		<td><?echo GetMessage("SALE_S_BY")?>:</td>
+		<td><?php echo GetMessage("SALE_S_BY")?>:</td>
 		<td>
 			<select name="filter_by">
-				<option value="day"<?if ($filter_by=="day") echo " selected"?>><?echo GetMessage("SALE_S_DAY")?></option>
-				<option value="week"<?if ($filter_by=="week") echo " selected"?>><?echo GetMessage("SALE_S_WEEK")?></option>
-				<option value="month"<?if ($filter_by=="month") echo " selected"?>><?echo GetMessage("SALE_S_MONTH")?></option>
-				<option value="year"<?if ($filter_by=="year") echo " selected"?>><?echo GetMessage("SALE_S_YEAR")?></option>
+				<option value="day"<?php if ($filter_by=="day") echo " selected"?>><?php echo GetMessage("SALE_S_DAY")?></option>
+				<option value="week"<?php if ($filter_by=="week") echo " selected"?>><?php echo GetMessage("SALE_S_WEEK")?></option>
+				<option value="month"<?php if ($filter_by=="month") echo " selected"?>><?php echo GetMessage("SALE_S_MONTH")?></option>
+				<option value="year"<?php if ($filter_by=="year") echo " selected"?>><?php echo GetMessage("SALE_S_YEAR")?></option>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form" => "find_form", "report"=>true));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

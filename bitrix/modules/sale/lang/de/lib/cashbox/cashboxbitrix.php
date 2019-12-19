@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_BITRIX_TITLE"] = "Bitrix Cash-Register";
 $MESS["SALE_CASHBOX_BITRIX_ERR"] = "Fehler beim Ausdrucken vom Kassenzettel";
 $MESS["SALE_CASHBOX_BITRIX_ERR-3800"] = "Kein Bargeld im Kassenapparat für eine Rückgabe";

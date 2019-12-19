@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TOPICS_PER_PAGE'] = "Number of topics per page";
 $MESS ['F_SET_NAVIGATION'] = "Show Breadcrumb navigation";
 $MESS ['F_INDEX_TEMPLATE'] = "Forums List page";

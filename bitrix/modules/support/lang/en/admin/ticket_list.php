@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_F_HOLD_ON"] = "Request on hold";
 $MESS["SUP_LAST_MESSAGE_DATE_EX"] = "Priority";
 $MESS["SUP_LAST_MESSAGE_DATE"] = "Answer date";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_INDEX_TITLE"] = "Управление веб-кластером";
 $MESS["CLU_INDEX_ADD_GROUP"] = "Добавить группу";
 $MESS["CLU_INDEX_ADD_GROUP_TITLE"] = "Добавить новую группу серверов";

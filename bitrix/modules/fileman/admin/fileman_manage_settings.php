@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 if (!$USER->CanDoOperation('fileman_edit_existent_files') || !check_bitrix_sessid())
@@ -101,20 +101,20 @@ if ($target == 'get_all')
 	else
 		$taskbars = false;
 
-	?><script><?
+	?><script><?php 
 	if (is_array($taskbars))
 	{
-		?>window.arTaskbarSettings = [];<?
+		?>window.arTaskbarSettings = [];<?php 
 		foreach($taskbars as $tname => $tskbr)
 		{
 			// Display settings
-			?>window.arTaskbarSettings["<?= CUtil::JSEscape($tname)?>"] = {show: <?= $tskbr['show'] ? 'true' : 'false'?>, set: <?= $tskbr['set'] == 2 ? 2 : 3?>, active: <?= $tskbr['active'] ? 'true' : 'false'?>};<?
+			?>window.arTaskbarSettings["<?= CUtil::JSEscape($tname)?>"] = {show: <?= $tskbr['show'] ? 'true' : 'false'?>, set: <?= $tskbr['set'] == 2 ? 2 : 3?>, active: <?= $tskbr['active'] ? 'true' : 'false'?>};<?php 
 		}
 	}
-	?></script><?
+	?></script><?php 
 
 	//Get taskbarset settings
-	?><script><?
+	?><script><?php 
 	$taskbarset = CUserOptions::GetOption("fileman", "taskbarset_settings_".$edname, false);
 	if ($taskbarset !== false && CheckSerializedData($taskbarset))
 		$taskbarset = unserialize($taskbarset);
@@ -123,16 +123,16 @@ if ($target == 'get_all')
 
 	if (is_array($taskbarset))
 	{
-		?>window.arTBSetsSettings = [];<?
+		?>window.arTBSetsSettings = [];<?php 
 		foreach($taskbarset as $iNum => $tskbrset)
 		{
 			if ($iNum != 2)
 				$iNum = 3;
 			?>window.arTBSetsSettings["<?= intVal($iNum)?>"] = {show: <?= $tskbrset['show'] ? 'true' : 'false'?>, size: <?= intVal($tskbrset['size'])?>};
-			<?
+			<?php 
 		}
 	}
-	?></script><?
+	?></script><?php 
 
 	$show_tooltips = CUserOptions::GetOption("fileman", "show_tooltips".$edname, "Y");
 	$visualEffects = CUserOptions::GetOption("fileman", "visual_effects".$edname, "Y");
@@ -158,29 +158,29 @@ if ($target == 'text_type' && isset($_REQUEST['type']))
 function displayJSAddSett($tooltips, $visualEffects)
 {?>
 <script>
-window.__show_tooltips = <?echo $tooltips == "N" ? "false" : "true";?>;
-window.__visual_effects = <?echo $visualEffects == "N" ? "false" : "true";?>;
+window.__show_tooltips = <?php echo $tooltips == "N" ? "false" : "true";?>;
+window.__visual_effects = <?php echo $visualEffects == "N" ? "false" : "true";?>;
 </script>
-<?}
+<?php }
 
 function displayJSToolbar($tlbrname,$show,$docked,$arPos)
 {
 	?>
 	<script>
 	var _ar = {};
-	_ar.show = <?echo($show == 'true' ? 'true' : 'false');?>;
-	_ar.docked = <?echo($docked=='true' ? 'true' : 'false');?>;
-	<?if ($docked=='true'):?>
+	_ar.show = <?php echo($show == 'true' ? 'true' : 'false');?>;
+	_ar.docked = <?php echo($docked=='true' ? 'true' : 'false');?>;
+	<?php if ($docked=='true'):?>
 		_ar.position = [<?= intVal($arPos[0])?>,<?= intVal($arPos[1])?>,<?= intVal($arPos[2])?>];
-	<?else:?>
+	<?php else:?>
 		_ar.position = {
-			x : '<?echo CUtil::JSEscape(substr($arPos[0], -2) == "px" ? substr($arPos[0],0,-2) : $arPos[0]);?>',
-			y : '<?echo CUtil::JSEscape(substr($arPos[1], -2) == "px" ? substr($arPos[1],0,-2) : $arPos[1]);?>'
+			x : '<?php echo CUtil::JSEscape(substr($arPos[0], -2) == "px" ? substr($arPos[0],0,-2) : $arPos[0]);?>',
+			y : '<?php echo CUtil::JSEscape(substr($arPos[1], -2) == "px" ? substr($arPos[1],0,-2) : $arPos[1]);?>'
 		};
-	<?endif;?>
+	<?php endif;?>
 	window.arToolbarSettings["<?= CUtil::JSEscape($tlbrname)?>"] = _ar;
 	</script>
-	<?
+	<?php 
 }
 
 function displayJSTaskbar($tskbrname,$show,$docked,$arPos,$auto)
@@ -192,7 +192,7 @@ function displayJSTaskbar($tskbrname,$show,$docked,$arPos,$auto)
 	_ar.docked = <?= ($docked=='true' ? 'true' : 'false');?>;
 	window.arTaskbarSettings["<?=$tskbrname;?>"] = _ar;
 	</script>
-	<?
+	<?php 
 }
 
 function _addslashes($str)
@@ -213,7 +213,7 @@ function getToolbarSettings($settings)
 	<script>
 	window.arToolbarSettings = [];
 	</script>
-	<?
+	<?php 
 	$res = explode("||", $settings);
 	$len = count($res);
 
@@ -235,7 +235,7 @@ function getTaskbarSettings($settings)
 	<script>
 	window.arTaskbarSettings = [];
 	</script>
-	<?
+	<?php 
 	$res = explode("||", $settings);
 	$len = count($res);
 

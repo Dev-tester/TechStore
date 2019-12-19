@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!empty($arResult["ERROR_MESSAGE"])):
 	ShowError($arResult["ERROR_MESSAGE"]);
 endif;
@@ -28,7 +28,7 @@ foreach($arResult['GRID_VERSIONS'] as $rowID=>$row)
 	$arResult['GRID_VERSIONS'][$rowID]['columns']["MODIFIED"] = FormatDate('X', MakeTimeStamp($row['data']["MODIFIED"]));
 }
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.grid",
 	"",
 	array(

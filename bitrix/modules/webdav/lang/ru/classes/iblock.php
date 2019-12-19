@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_PROPERTY_FILE"] = "Файл (webdav)";
 $MESS["WD_PROPERTY_NAME_FILE"] = "Файл (webdav)";
 $MESS["WD_PROPERTY_WEBDAV_INFO"] = "Информация о ресурсе (webdav)";

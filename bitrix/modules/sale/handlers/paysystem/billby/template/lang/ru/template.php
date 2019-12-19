@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILLBY_TITLE"] = "Счет";
 $MESS["SALE_HPS_BILLBY_INN"] = "УНП";
 $MESS["SALE_HPS_BILLBY_ADDR_TITLE"] = "Адрес";

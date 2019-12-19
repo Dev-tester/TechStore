@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_NAME"] = "Personal product offers";
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_PRODUCTS_TITLE"] = "Products";
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_PRODUCTS_DESC"] = "Products recommended to an individual customer";

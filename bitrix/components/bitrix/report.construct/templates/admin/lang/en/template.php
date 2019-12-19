@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_CONSTRUCT"] = "Report Wizard";
 $MESS["REPORT_TITLE"] = "Report name";
 $MESS["REPORT_DEFAULT_TITLE"] = "New report";

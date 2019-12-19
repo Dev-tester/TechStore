@@ -16,7 +16,7 @@ $event = isset($arResult['EXTERNAL_EVENT']) && is_array($arResult['EXTERNAL_EVEN
 $isCanceled = isset($event['IS_CANCELED']) ? $event['IS_CANCELED'] : false;
 
 if($isCanceled):
-?><div class="crm-view-message"><?=GetMessage('CRM_DEAL_EDIT_EVENT_CANCELED')?></div><?
+?><div class="crm-view-message"><?=GetMessage('CRM_DEAL_EDIT_EVENT_CANCELED')?></div><?php 
 else:
 	$info = isset($arResult['INFO']) && is_array($arResult['INFO']) ? $arResult['INFO'] : array();
 ?><div class="crm-view-message">
@@ -27,7 +27,7 @@ else:
 			'#TITLE#' => isset($info['title']) ? htmlspecialcharsbx($info['title']) : ''
 		)
 	)?>
-</div><?
+</div><?php 
 endif;
 ?><script type="text/javascript">
 	BX.ready(

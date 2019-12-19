@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/workflow/prolog.php");
 
@@ -569,7 +569,7 @@ if ($USER->CanDoFileOperation('fm_lpa', Array($str_SITE_ID, $str_FILENAME)) && !
 
 			//Trim php tags
 			$src = $arPHP[$n][2];
-			if (SubStr($src, 0, 5) == "<?"."php")
+			if (SubStr($src, 0, 5) == "<?php "."php")
 				$src = SubStr($src, 5);
 			else
 				$src = SubStr($src, 2);
@@ -689,25 +689,25 @@ function ShowFile(did, fname)
 <input type="hidden" name="ID" value="<?=$ID?>">
 <input type="hidden" name="OLD_STATUS_ID" value="<?=$str_STATUS_ID?>">
 <input type="hidden" name="lang" value="<?=LANG?>">
-<input type="hidden" name="return_url" value="<?echo htmlspecialcharsbx($return_url)?>">
-<?
+<input type="hidden" name="return_url" value="<?php echo htmlspecialcharsbx($return_url)?>">
+<?php 
 
 $tabControl->BeginNextTab();
 ?>
-	<?if ($ID<=0 && !is_file($_SERVER["DOCUMENT_ROOT"].$fname)):?>
+	<?php if ($ID<=0 && !is_file($_SERVER["DOCUMENT_ROOT"].$fname)):?>
 	<tr>
 		<td><?=GetMessage("FLOW_TEMPLATE")?></td>
-		<td><select name="template" onchange="window.location='/bitrix/admin/workflow_edit.php?lang=<?echo LANG?>&amp;fname=<?echo UrlEncode($fname)?>&amp;template='+escape(this[this.selectedIndex].value)"><?
+		<td><select name="template" onchange="window.location='/bitrix/admin/workflow_edit.php?lang=<?php echo LANG?>&amp;fname=<?php echo UrlEncode($fname)?>&amp;template='+escape(this[this.selectedIndex].value)"><?php 
 		foreach($arTemplates as $Template)
 		{
-		?><option value="<?echo htmlspecialcharsbx($Template["file"])?>"<?if($template == $Template["file"])echo " selected"?>><?echo htmlspecialcharsbx($Template["name"])?></option><?
+		?><option value="<?php echo htmlspecialcharsbx($Template["file"])?>"<?php if($template == $Template["file"])echo " selected"?>><?php echo htmlspecialcharsbx($Template["name"])?></option><?php 
 		}
 		?></select></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td width="40%"><?=GetMessage("FLOW_STATUS")?></td>
-		<td width="60%"><?
+		<td width="60%"><?php 
 		if ($str_STATUS_ID!=1 || $message) :
 			if ($ID<=0)
 			{
@@ -717,39 +717,39 @@ $tabControl->BeginNextTab();
 			}
 			echo SelectBox("STATUS_ID", CWorkflowStatus::GetDropDownList(), "", $str_STATUS_ID);
 		else :
-		?>[<a href="workflow_status_edit.php?lang=<?=LANG?>&amp;ID=<?=$str_STATUS_ID?>"><?=$str_STATUS_ID?></a>]&nbsp;<?=$str_STATUS_TITLE?><?
+		?>[<a href="workflow_status_edit.php?lang=<?=LANG?>&amp;ID=<?=$str_STATUS_ID?>"><?=$str_STATUS_ID?></a>]&nbsp;<?=$str_STATUS_TITLE?><?php 
 		endif;
 		?></td>
 	</tr>
-	<?if($ID>0):?>
+	<?php if($ID>0):?>
 	<tr>
 		<td><?=GetMessage("FLOW_DATE_ENTER")?></td>
-		<td><?=$str_DATE_ENTER?>&nbsp;[<a href="user_edit.php?ID=<?=$str_ENTERED_BY?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?=$str_ENTERED_BY?></a>]&nbsp;<?echo$str_EUSER_NAME?></td>
+		<td><?=$str_DATE_ENTER?>&nbsp;[<a href="user_edit.php?ID=<?=$str_ENTERED_BY?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?=$str_ENTERED_BY?></a>]&nbsp;<?php echo$str_EUSER_NAME?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("FLOW_DATE_MODIFY")?></td>
-		<td><?=$str_DATE_MODIFY?>&nbsp;[<a href="user_edit.php?ID=<?=$str_MODIFIED_BY?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?=$str_MODIFIED_BY?></a>]&nbsp;<? echo $str_MUSER_NAME?></td>
+		<td><?=$str_DATE_MODIFY?>&nbsp;[<a href="user_edit.php?ID=<?=$str_MODIFIED_BY?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?=$str_MODIFIED_BY?></a>]&nbsp;<?php  echo $str_MUSER_NAME?></td>
 	</tr>
-	<?	if ($str_LOCK_STATUS!="green"):?>
+	<?php 	if ($str_LOCK_STATUS!="green"):?>
 	<tr>
 		<td><?=GetMessage("FLOW_DATE_LOCK")?>:</td>
-		<td><?=$str_DATE_LOCK?>&nbsp;[<a href="user_edit.php?ID=<?=$str_LOCKED_BY?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?=$str_LOCKED_BY?></a>]&nbsp;<?echo $str_LUSER_NAME?>&nbsp;<?if ($str_LOCKED_BY==$USER->GetID()):?><span class="required">(!)</span><?endif;?></td>
+		<td><?=$str_DATE_LOCK?>&nbsp;[<a href="user_edit.php?ID=<?=$str_LOCKED_BY?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?=$str_LOCKED_BY?></a>]&nbsp;<?php echo $str_LUSER_NAME?>&nbsp;<?php if ($str_LOCKED_BY==$USER->GetID()):?><span class="required">(!)</span><?php endif;?></td>
 	</tr>
-	<?endif;?>
-	<?endif;?>
+	<?php endif;?>
+	<?php endif;?>
 
-	<?if(CSite::IsDistinctDocRoots()):?>
+	<?php if(CSite::IsDistinctDocRoots()):?>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("FLOW_EDIT_SITE")?></td>
+		<td><?php echo GetMessage("FLOW_EDIT_SITE")?></td>
 		<td><?=CSite::SelectBox("SITE_ID", $str_SITE_ID);?></td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 	<tr class="adm-detail-required-field">
 		<td><?=GetMessage("FLOW_FULL_FILENAME")?></td>
 		<td>
 			<input type="text" id="FILENAME" name="FILENAME" size="30"  maxlength="255" value="<?=$str_FILENAME?>">
 			<input type="button"  name="browse" value="..." OnClick="BtnClick()">
-			<?
+			<?php 
 			CAdminFileDialog::ShowScript
 			(
 				Array(
@@ -770,11 +770,11 @@ $tabControl->BeginNextTab();
 		<td><?=GetMessage("FLOW_TITLE")?></td>
 		<td><input type="text" name="TITLE" maxlength="255" value="<?=$str_TITLE?>" style="width:60%"></td>
 	</tr>
-	<?
+	<?php 
 	if(COption::GetOptionString("workflow", "USE_HTML_EDIT", "Y")=="Y" && CModule::IncludeModule("fileman")):
 	?>
 	<tr>
-		<td colspan="2" align="center"><?
+		<td colspan="2" align="center"><?php 
 		$limit_php_access = ($USER->CanDoFileOperation('fm_lpa', array($str_SITE_ID, $str_FILENAME)) && !$USER->CanDoOperation('edit_php'));
 		$bWithoutPHP = !$USER->CanDoOperation('edit_php') && !$limit_php_access;
 
@@ -796,17 +796,17 @@ $tabControl->BeginNextTab();
 
 		?></td>
 	</tr>
-	<?
+	<?php 
 	else:
 	?>
 	<tr>
-		<td colspan="2" align="center"><? echo InputType("radio","BODY_TYPE","text",$str_BODY_TYPE,false)?>&nbsp;<?echo GetMessage("FLOW_TEXT")?>/&nbsp;<?echo InputType("radio","BODY_TYPE","html",$str_BODY_TYPE,false)?>&nbsp;HTML&nbsp;<br><textarea name="BODY" style="width:100%" rows="30" wrap="VIRTUAL"><?echo $str_BODY?></textarea></td>
+		<td colspan="2" align="center"><?php  echo InputType("radio","BODY_TYPE","text",$str_BODY_TYPE,false)?>&nbsp;<?php echo GetMessage("FLOW_TEXT")?>/&nbsp;<?php echo InputType("radio","BODY_TYPE","html",$str_BODY_TYPE,false)?>&nbsp;HTML&nbsp;<br><textarea name="BODY" style="width:100%" rows="30" wrap="VIRTUAL"><?php echo $str_BODY?></textarea></td>
 	</tr>
-	<?
+	<?php 
 	endif;
 	?>
-<?$tabControl->BeginNextTab();?>
-	<?
+<?php $tabControl->BeginNextTab();?>
+	<?php 
 	if (!empty($arDocFiles)):
 	?>
 	<tr>
@@ -814,39 +814,39 @@ $tabControl->BeginNextTab();
 			<table border="0" cellspacing="0" cellpadding="0" width="100%" class="internal">
 				<tr class="heading">
 					<td>ID</td>
-					<td><?echo GetMessage("FLOW_FILENAME")?></td>
-					<td><?echo GetMessage("FLOW_SIZE")?></td>
-					<td><?echo GetMessage("FLOW_FILE_TIMESTAMP")?></td>
-					<td><?echo GetMessage("FLOW_UPLOADED_BY")?></td>
-					<td><?echo GetMessage("FLOW_DEL")?></td>
+					<td><?php echo GetMessage("FLOW_FILENAME")?></td>
+					<td><?php echo GetMessage("FLOW_SIZE")?></td>
+					<td><?php echo GetMessage("FLOW_FILE_TIMESTAMP")?></td>
+					<td><?php echo GetMessage("FLOW_UPLOADED_BY")?></td>
+					<td><?php echo GetMessage("FLOW_DEL")?></td>
 				</tr>
-				<?foreach ($arDocFiles as $zr) :?>
+				<?php foreach ($arDocFiles as $zr) :?>
 				<tr>
 					<td><?=$zr["ID"]?></td>
-					<td><a title="<?=GetMessage("FLOW_VIEW_IMAGE")?>" href="javascript:void(0)" OnClick="ShowFile(<?=$ID?>,'<?=$zr["FILENAME"]?>')"><?=$zr["FILENAME"]?></a><?
+					<td><a title="<?=GetMessage("FLOW_VIEW_IMAGE")?>" href="javascript:void(0)" OnClick="ShowFile(<?=$ID?>,'<?=$zr["FILENAME"]?>')"><?=$zr["FILENAME"]?></a><?php 
 					$ext = GetFileExtension($zr["FILENAME"]);
 					if($USER->IsAdmin() || !in_array($ext, $arExt)) :
-						?>&nbsp;&nbsp;<a href="workflow_file_download.php?did=<?=$ID?>&amp;fname=<?echo $zr["FILENAME"]?>" title="<?=GetMessage("FLOW_DOWNLOAD_FILE")?>"><img onmouseover="this.src='/bitrix/images/workflow/download_file.gif'" onmouseout="this.src='/bitrix/images/workflow/download_file_t.gif'" src="/bitrix/images/workflow/download_file_t.gif" width="16" height="16" border=0></a><?
+						?>&nbsp;&nbsp;<a href="workflow_file_download.php?did=<?=$ID?>&amp;fname=<?php echo $zr["FILENAME"]?>" title="<?=GetMessage("FLOW_DOWNLOAD_FILE")?>"><img onmouseover="this.src='/bitrix/images/workflow/download_file.gif'" onmouseout="this.src='/bitrix/images/workflow/download_file_t.gif'" src="/bitrix/images/workflow/download_file_t.gif" width="16" height="16" border=0></a><?php 
 					endif;
 					?></td>
 					<td><?=$zr["FILESIZE"]?></td>
 					<td><?=$zr["TIMESTAMP_X"]?></td>
-					<td>[<a href="user_edit.php?ID=<?echo $zr["MODIFIED_BY"]?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?echo $zr["MODIFIED_BY"]?></a>]&nbsp;<?echo $zr["USER_NAME"]?></td>
+					<td>[<a href="user_edit.php?ID=<?php echo $zr["MODIFIED_BY"]?>&lang=<?=LANG?>" title="<?=GetMessage('FLOW_USER_ALT')?>"><?php echo $zr["MODIFIED_BY"]?></a>]&nbsp;<?php echo $zr["USER_NAME"]?></td>
 					<td><input type="checkbox" name="del_files[]" value="<?=$zr["ID"]?>"></td>
 				</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</table>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td colspan=2>
 			<table border="0" cellspacing="0" cellpadding="0" width="100%" class="internal">
 				<tr class="heading">
-					<td><?echo GetMessage("FLOW_FILEUPLOAD_NAME")?></td>
-					<td><?echo GetMessage("FLOW_FILEUPLOAD_FILE")?></td>
+					<td><?php echo GetMessage("FLOW_FILEUPLOAD_NAME")?></td>
+					<td><?php echo GetMessage("FLOW_FILEUPLOAD_FILE")?></td>
 				</tr>
-				<?
+				<?php 
 				for($i=1; $i<=3; $i++):
 				?>
 				<tr>
@@ -854,24 +854,24 @@ $tabControl->BeginNextTab();
 					<td style="text-align:center"><input type="file" name="file_<?=$i?>" size="30" maxlength="255" value="" onChange="NewFileName(this, <?=$i?>)" id="file_<?=$i?>">
 					</td>
 				</tr>
-				<?endfor?>
-				<input type="hidden" name="nums" value="<?echo $i;?>" id="nums">
+				<?php endfor?>
+				<input type="hidden" name="nums" value="<?php echo $i;?>" id="nums">
 			</table>
 		</td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 	<tr>
-		<td align="center" colspan="2"><textarea name="COMMENTS" rows="15" style="width:100%;"><?echo $str_COMMENTS?></textarea></td>
+		<td align="center" colspan="2"><textarea name="COMMENTS" rows="15" style="width:100%;"><?php echo $str_COMMENTS?></textarea></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(array(
 	"disabled" => $WORKFLOW_RIGHT <= "R" || $str_LOCK_STATUS == "red",
 	"back_url" => "workflow_list.php?lang=".LANGUAGE_ID,
 ));
 ?>
 </form>
-<?
+<?php 
 $tabControl->End();
 $tabControl->ShowWarnings("form1", $message);
 ?>
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$result = $APPLICATION->IncludeComponent("bitrix:webdav.element.upload", ".default", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $result = $APPLICATION->IncludeComponent("bitrix:webdav.element.upload", ".default", Array(
 	"OBJECT"	=>	$arParams["OBJECT"], 
 	"SECTION_ID"	=>	$arResult["VARIABLES"]["SECTION_ID"],
 	"REPLACE_SYMBOLS"	=>	$arParams["REPLACE_SYMBOLS"],
@@ -38,6 +38,6 @@
 	"NOTE" => $arResult["VARIABLES"]["NOTE"]
 	),
 	$component
-);?><?
+);?><?php 
 $this->__component->arParams["ANSWER_UPLOAD_PAGE"] = $result;
 ?>

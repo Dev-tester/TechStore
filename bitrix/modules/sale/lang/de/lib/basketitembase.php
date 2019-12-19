@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASKET_ITEM_WRONG_PRICE"] = "Fehler beim Abrufen vom Preis für \"#PRODUCT_NAME#\"";
 $MESS["SALE_BASKET_ITEM_ERR_QUANTITY_ZERO"] = "Produktmenge \"#PRODUCT_NAME#\" kann nicht null oder kleiner als null sein";
 $MESS["SALE_BASKET_ITEM_ERR_CURRENCY_EMPTY"] = "Produktwährung fehlt";

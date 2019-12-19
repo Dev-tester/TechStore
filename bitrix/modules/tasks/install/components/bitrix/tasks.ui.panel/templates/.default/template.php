@@ -98,7 +98,7 @@ $this->SetViewTarget('inside_pagetitle', 100);
 		<span class="webform-small-button webform-small-button-blue bx24-top-toolbar-add"><?= Loc::getMessage('TASKS_ADD_NEW')?></span>
 	</a>
 </div>
-<?
+<?php 
 $this->EndViewTarget();
 
 // navigation bar
@@ -122,7 +122,7 @@ if (!empty($navItems))
 	$this->SetViewTarget('below_pagetitle', 100);
 	?><div class="tasks-view-switcher pagetitle-align-right-container">
 	<div class="tasks-view-switcher-name"><?= Loc::getMessage('TASKS_FILTER_NAV_BAR_TITLE')?>:</div>
-	<div class="tasks-view-switcher-list"><?
+	<div class="tasks-view-switcher-list"><?php 
 		$itemQty = 0;
 		foreach($navItems as $barItem)
 		{
@@ -138,10 +138,10 @@ if (!empty($navItems))
 				<a href="<?= htmlspecialcharsbx(isset($barItem['url']) ? $barItem['url'] : '')?>">
 					<?=htmlspecialcharsbx(isset($barItem['name']) ? $barItem['name'] : $itemID)?>
 				</a>
-			</div><?
+			</div><?php 
 		}
 		?></div>
 	</div>
-	<?
+	<?php 
 	$this->EndViewTarget();
 }

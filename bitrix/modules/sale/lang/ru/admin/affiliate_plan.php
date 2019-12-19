@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAP1_ERROR_UPDATE_PLAN"] = "Ошибка изменения плана";
 $MESS["SAP1_ERROR_DELETE_PLAN"] = "Ошибка удаления плана";
 $MESS["SAP1_ERROR_ACTIVE_PLAN"] = "Ошибка изменения активности плана";

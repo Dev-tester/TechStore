@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_REPEAT_DAY_0"] = "Monday";
 $MESS["TASKS_REPEAT_DAY_1"] = "Tuesday";
 $MESS["TASKS_REPEAT_DAY_2"] = "Wednesday";

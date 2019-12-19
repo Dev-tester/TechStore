@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MODULE_NOT_INSTALLED"] = "The Mail module is not installed.";
 $MESS["INTR_MAIL_MAX_AGE_ERROR"] = "Please specify synchronization interval.";
 $MESS["INTR_MAIL_IMAP_DIRS"] = "Select folders to synchronize";

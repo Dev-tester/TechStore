@@ -1,4 +1,4 @@
-<?
+<?php 
 define("PUBLIC_AJAX_MODE", true);
 define("NO_AGENT_CHECK", true);
 define("DisableEventsCheck", true);
@@ -161,14 +161,14 @@ else
 		return;
 	}
 ?>
-<div style="width:450px; "><?
+<div style="width:450px; "><?php 
 	if ($ID>1)
 	{
 	?>
-	<form method="POST" action="<?echo BX_ROOT."/tools/intranet_structure.php?site_id=".$SITE_ID."&IBLOCK_SECTION_ID=".intval($_POST["IBLOCK_SECTION_ID"])?>" id="STRUCTURE_FORM">
+	<form method="POST" action="<?php echo BX_ROOT."/tools/intranet_structure.php?site_id=".$SITE_ID."&IBLOCK_SECTION_ID=".intval($_POST["IBLOCK_SECTION_ID"])?>" id="STRUCTURE_FORM">
 		<p><?=GetMessage("INTR_STRUCTURE_SUCCESS")?></p>
 		<input type="hidden" name="reload" value="Y">
-	</form><?
+	</form><?php 
 	}
 	else
 	{
@@ -177,23 +177,23 @@ else
 			$rsSection = CIBlockSection::GetList(array(), array("ID" => intval($arParams["UF_DEPARTMENT_ID"]), "IBLOCK_ID" => $iblockID),false, array('UF_HEAD'));
 			$arSection = $rsSection->Fetch();
 		}?>
-	<form method="POST" action="<?echo BX_ROOT."/tools/intranet_structure.php"?>" id="STRUCTURE_FORM"><?
+	<form method="POST" action="<?php echo BX_ROOT."/tools/intranet_structure.php"?>" id="STRUCTURE_FORM"><?php 
 		if (isset($_POST['CURRENT_DEPARTMENT_ID']) || isset($arSection["ID"])):?>
-		<input type="hidden" value="<?=(isset($_POST['CURRENT_DEPARTMENT_ID'])) ? htmlspecialcharsbx($_POST['CURRENT_DEPARTMENT_ID']) : $arSection['ID']?>" name="CURRENT_DEPARTMENT_ID"><?
+		<input type="hidden" value="<?=(isset($_POST['CURRENT_DEPARTMENT_ID'])) ? htmlspecialcharsbx($_POST['CURRENT_DEPARTMENT_ID']) : $arSection['ID']?>" name="CURRENT_DEPARTMENT_ID"><?php 
 		endif;?>
 		<table width="100%" cellpadding="5">
 			<tr valign="bottom">
 				<td>
-					<div style="font-size:14px;font-weight:bold;padding-bottom:8px"><label for="NAME"><?echo GetMessage("INTR_STRUCTURE_NAME")?></label></div>
-					<input type="text" value="<?if (isset($_POST['NAME'])) echo htmlspecialcharsbx($_POST['NAME']); elseif (isset($arSection["NAME"])) echo htmlspecialcharsbx($arSection["NAME"])?>" name="NAME" id="NAME" style="width:100%;font-size:14px;border:1px #c8c8c8 solid;">
+					<div style="font-size:14px;font-weight:bold;padding-bottom:8px"><label for="NAME"><?php echo GetMessage("INTR_STRUCTURE_NAME")?></label></div>
+					<input type="text" value="<?php if (isset($_POST['NAME'])) echo htmlspecialcharsbx($_POST['NAME']); elseif (isset($arSection["NAME"])) echo htmlspecialcharsbx($arSection["NAME"])?>" name="NAME" id="NAME" style="width:100%;font-size:14px;border:1px #c8c8c8 solid;">
 				</td>
 			</tr>
-			<?if (!(isset($arParams["UF_DEPARTMENT_ID"]) && empty($arSection["IBLOCK_SECTION_ID"])))://for top department no parent department?>
+			<?php if (!(isset($arParams["UF_DEPARTMENT_ID"]) && empty($arSection["IBLOCK_SECTION_ID"])))://for top department no parent department?>
 			<tr valign="bottom">
 				<td>
-					<div style="font-size:14px;font-weight:bold;padding-bottom:8px"><label for="IBLOCK_SECTION_ID"><?echo GetMessage("INTR_STRUCTURE_DEPARTMENT")?></label></div>
+					<div style="font-size:14px;font-weight:bold;padding-bottom:8px"><label for="IBLOCK_SECTION_ID"><?php echo GetMessage("INTR_STRUCTURE_DEPARTMENT")?></label></div>
 					<select name="IBLOCK_SECTION_ID" id="IBLOCK_SECTION_ID" style="width:100%;font-size:14px;border:1px #c8c8c8 solid;">
-						<?
+						<?php 
 						$rsDepartments = CIBlockSection::GetTreeList(array(
 							"IBLOCK_ID"=>intval(COption::GetOptionInt('intranet', 'iblock_structure', false)),
 						));
@@ -207,17 +207,17 @@ else
 						elseif (isset($_GET["IBLOCK_SECTION_ID"]) && intval($_GET["IBLOCK_SECTION_ID"]) > 0)
 							$CurrentIblockSectionID = intval($_GET["IBLOCK_SECTION_ID"]);
 						while($arDepartment = $rsDepartments->GetNext()):
-							?><option value="<?echo $arDepartment["ID"]?>" <?if($CurrentIblockSectionID==$arDepartment["ID"]) echo "selected"?>><?echo str_repeat("&nbsp;.&nbsp;", $arDepartment["DEPTH_LEVEL"])?><?echo $arDepartment["NAME"]?></option><?
+							?><option value="<?php echo $arDepartment["ID"]?>" <?php if($CurrentIblockSectionID==$arDepartment["ID"]) echo "selected"?>><?php echo str_repeat("&nbsp;.&nbsp;", $arDepartment["DEPTH_LEVEL"])?><?php echo $arDepartment["NAME"]?></option><?php 
 						endwhile;
 						?>
 					</select>
 				</td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			<tr valign="bottom">
 				<td colspan="2">
-					<div style="font-size:14px;font-weight:bold;padding-bottom:8px"><label for="UF_HEAD"><?echo GetMessage("INTR_STRUCTURE_HEAD")?></label></div>
-					<?
+					<div style="font-size:14px;font-weight:bold;padding-bottom:8px"><label for="UF_HEAD"><?php echo GetMessage("INTR_STRUCTURE_HEAD")?></label></div>
+					<?php 
 					$UF_HeadName = "";
 					if (isset($_POST['UF_HEAD']))
 					{
@@ -234,13 +234,13 @@ else
 
 					$controlName = "Single_" . RandString(6);
 					?>
-					<input type="hidden" id="uf_head" value="<?if (isset($_POST['UF_HEAD'])) echo htmlspecialcharsbx($_POST['UF_HEAD']); elseif (isset($arSection["UF_HEAD"]))  echo htmlspecialcharsbx($arSection["UF_HEAD"])?>" name="UF_HEAD" style="width:35px;font-size:14px;border:1px #c8c8c8 solid;">
-					<div id="structure-department-head-div" style="margin-bottom: 5px;"<?if ($UF_HeadName == ""):?>style="display:none;"<?endif;?>>
+					<input type="hidden" id="uf_head" value="<?php if (isset($_POST['UF_HEAD'])) echo htmlspecialcharsbx($_POST['UF_HEAD']); elseif (isset($arSection["UF_HEAD"]))  echo htmlspecialcharsbx($arSection["UF_HEAD"])?>" name="UF_HEAD" style="width:35px;font-size:14px;border:1px #c8c8c8 solid;">
+					<div id="structure-department-head-div" style="margin-bottom: 5px;"<?php if ($UF_HeadName == ""):?>style="display:none;"<?php endif;?>>
 						<span id="uf_head_name" style="margin-right:5px;"><?=$UF_HeadName?></span>
-						<span id="structure-department-head" class="structure-department-head" <?if ($UF_HeadName != ""):?>style="visibility:visible;"<?endif;?> onclick='BX("uf_head").value = ""; BX("uf_head_name").innerHTML = ""; BX("structure-department-head").style.visibility="hidden"; BX("structure-department-head-div").style.display="none"'></span>
+						<span id="structure-department-head" class="structure-department-head" <?php if ($UF_HeadName != ""):?>style="visibility:visible;"<?php endif;?> onclick='BX("uf_head").value = ""; BX("uf_head_name").innerHTML = ""; BX("structure-department-head").style.visibility="hidden"; BX("structure-department-head-div").style.display="none"'></span>
 					</div>
 					<a href="javascript:void(0)" id="single-user-choice"><?=GetMessage("INTR_UF_HEAD_CHOOSE")?></a>
-					<?CUtil::InitJSCore(array('popup'));?>
+					<?php CUtil::InitJSCore(array('popup'));?>
 
 					<script type="text/javascript" src="/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/users.js"></script>
 					<script type="text/javascript">BX.loadCSS('/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/style.css');</script>
@@ -294,7 +294,7 @@ else
 							BX.bind(BX("clear-user-choice"), "click", Clear);
 						});
 					</script>
-					<?$name = $APPLICATION->IncludeComponent(
+					<?php $name = $APPLICATION->IncludeComponent(
 							"bitrix:intranet.user.selector.new", ".default", array(
 								"MULTIPLE" => "N",
 								"NAME" => $controlName,
@@ -308,10 +308,10 @@ else
 				</td>
 			</tr>
 		</table>
-		<?echo bitrix_sessid_post()?>
-		<input type="hidden" name="site_id" value="<?echo htmlspecialcharsbx($SITE_ID)?>">
+		<?php echo bitrix_sessid_post()?>
+		<input type="hidden" name="site_id" value="<?php echo htmlspecialcharsbx($SITE_ID)?>">
 	</form>
-<?
+<?php 
 	}
 ?>
 	<script type="text/javascript">
@@ -325,25 +325,25 @@ else
 
 		var myPopup = myBX.IntranetStructure.popup;
 		var myButton = myPopup.buttons[0];
-		<?if(isset($arParams["UF_DEPARTMENT_ID"]) || $_POST['CURRENT_DEPARTMENT_ID']):?>
+		<?php if(isset($arParams["UF_DEPARTMENT_ID"]) || $_POST['CURRENT_DEPARTMENT_ID']):?>
 			myButton.setName('<?=\CUtil::jsEscape(getMessage('INTR_STRUCTURE_EDIT')) ?>');
 			myPopup.setTitleBar('<?=\CUtil::jsEscape(getMessage('INTR_EDIT_TITLE')) ?>');
-		<?elseif ($ID > 1):?>
+		<?php elseif ($ID > 1):?>
 			myButton.setName('<?=\CUtil::jsEscape(getMessage('INTR_STRUCTURE_ADD_MORE')) ?>');
 			myPopup.setTitleBar('<?=\CUtil::jsEscape(getMessage('INTR_ADD_TITLE')) ?>');
-		<?else:?>
+		<?php else:?>
 			myButton.setName('<?=\CUtil::jsEscape(getMessage('INTR_STRUCTURE_ADD')) ?>');
 			myPopup.setTitleBar('<?=\CUtil::jsEscape(getMessage('INTR_ADD_TITLE')) ?>');
-		<?endif?>
+		<?php endif?>
 
 		myPopup = null;
 		myButton = null;
 		myBX = null;
 	</script>
-<?
+<?php 
 }
 ?>
 </div>
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 ?>

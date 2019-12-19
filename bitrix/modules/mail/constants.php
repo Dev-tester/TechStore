@@ -1,4 +1,4 @@
-<?
+<?php 
 define("B_MAIL_TIMEOUT", 30);
 define("B_MAIL_CHECK_SPAM", "Y");
 define("B_MAIL_SPAM_COEFF", 80);

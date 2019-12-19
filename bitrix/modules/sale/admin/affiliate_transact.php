@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -136,8 +136,8 @@ $APPLICATION->SetTitle(GetMessage("SAT2_AFF_TRANSACTIONS"));
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -151,7 +151,7 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SAT2_AFFILIATE1")?></td>
+		<td><?php echo GetMessage("SAT2_AFFILIATE1")?></td>
 		<td>
 			<input type="text" name="filter_affiliate_id" value="<?= htmlspecialcharsbx($filter_affiliate_id) ?>" size="10" maxlength="10">
 			<IFRAME name="hiddenframe_affiliate" id="id_hiddenframe_affiliate" src="" width="0" height="0" style="width:0px; height:0px; border: 0px"></IFRAME>
@@ -194,24 +194,24 @@ $oFilter->Begin();
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAT2_USER1")?></td>
+		<td><?php echo GetMessage("SAT2_USER1")?></td>
 		<td>
 			<input type="text" name="filter_user" size="50" value="<?= htmlspecialcharsbx($filter_user) ?>">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 	<tr>
-		<td nowrap><?echo GetMessage("SAT2_DATE_TRANSACT")?></td>
+		<td nowrap><?php echo GetMessage("SAT2_DATE_TRANSACT")?></td>
 		<td>
-			<?echo CalendarPeriod("filter_transact_date_from", $filter_transact_date_from, "filter_transact_date_to", $filter_transact_date_to, "bfilter", "Y")?>
+			<?php echo CalendarPeriod("filter_transact_date_from", $filter_transact_date_from, "filter_transact_date_to", $filter_transact_date_to, "bfilter", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAT2_CURRENCY1")?></td>
+		<td><?php echo GetMessage("SAT2_CURRENCY1")?></td>
 		<td>
 			<?= CCurrency::SelectBox("filter_currency", $filter_currency, GetMessage("SAT2_ALL"), True, "", ""); ?>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -222,7 +222,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

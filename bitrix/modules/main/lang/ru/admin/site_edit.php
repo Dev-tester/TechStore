@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EDIT_SITE_TITLE"] = "Редактирование сайта \"#ID#\"";
 $MESS["NEW_SITE_TITLE"] = "Добавление сайта";
 $MESS["NAME"] = "Название:";

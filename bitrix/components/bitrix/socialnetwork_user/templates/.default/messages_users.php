@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (
 	!IsModuleInstalled("im")
 	&& SITE_TEMPLATE_ID != "bitrix24"
 ):
-	?><?
+	?><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.messages_menu",
 		"",
@@ -25,7 +25,7 @@ if (
 		),
 		$component
 	);
-	?><?
+	?><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.messages_requests", 
 		"", 
@@ -53,7 +53,7 @@ if (
 		),
 		$component 
 	);
-	?><?
+	?><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.messages_users", 
 		"", 
@@ -81,6 +81,6 @@ if (
 		),
 		$component 
 	);
-	?><?
+	?><?php 
 endif;
 ?>

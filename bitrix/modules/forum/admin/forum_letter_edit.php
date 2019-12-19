@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Profanity dictionary.
 ********************************************************************/
@@ -90,7 +90,7 @@
 	<input type="hidden" name="Update" value="Y">
 	<input type="hidden" name="lang" value="<?=LANG ?>">
 	<input type="hidden" name="ID" value="<?=$ID ?>">
-	<?=bitrix_sessid_post()?><?
+	<?=bitrix_sessid_post()?><?php 
 	$aTabs = array(array("DIV" => "edit", "TAB" => GetMessage("FLTR_TITLE"), "ICON" => "forum", "TITLE" => $sDocTitle,));
 	$tabControl = new CAdminTabControl("tabControl", $aTabs);
 	$tabControl->Begin();
@@ -112,13 +112,13 @@
 			<input type="text" name="REPLACEMENT" size="40" maxlength="255" value="<?=htmlspecialcharsbx($str_REPLACEMENT)?>">
 		</td>
 	</tr>
-<?$tabControl->EndTab();?>
-<?$tabControl->Buttons(
+<?php $tabControl->EndTab();?>
+<?php $tabControl->Buttons(
 		array(
 				"disabled" => (!$forumPermWrite),
 				"back_url" => "/bitrix/admin/forum_letter.php?DICTIONARY_ID=".$DICTIONARY_ID."&lang=".LANG
 			)
 	);?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

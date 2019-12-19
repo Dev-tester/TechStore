@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Счёт";
 $MESS["CRM_TAB_1_TITLE"] = "Свойства счёта";
 $MESS["CRM_INVOICE_SHOW_TITLE"] = "Счёт №#ACCOUNT_NUMBER# &mdash; #ORDER_TOPIC#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["AN_CC_YEAR"] = "Please enter valid credit card expiration year.";

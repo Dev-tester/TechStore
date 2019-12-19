@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GROUP_DESCRIPTION_0"] = "Робоча група по роботі над новим корпоративним сайтом";
 $MESS["SONET_GROUP_DESCRIPTION_1"] = "Маркетингова група з реклами та піару";
 $MESS["SONET_GROUP_DESCRIPTION_10"] = "Фінансове планування діяльності організації";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_WRONG_TIMESTAMP_FROM"] = "Введите в фильтре правильную дату изменения \"c\"";
 $MESS["SALE_WRONG_TIMESTAMP_TILL"] = "Введите в фильтре правильную дату изменения \"по\"";
 $MESS["SALE_FROM_TILL_TIMESTAMP"] = "Дата изменения \"по\" должна быть больше чем дата \"с\"";

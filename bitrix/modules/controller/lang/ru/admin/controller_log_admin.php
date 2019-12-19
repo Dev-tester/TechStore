@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CTRL_LOG_ADMIN_FILTER_ID'] = "ID";
 $MESS ['CTRL_LOG_ADMIN_FILTER_STATUS'] = "Статус";
 $MESS ['CTRL_LOG_ADMIN_FILTER_DESC'] = "Описание";

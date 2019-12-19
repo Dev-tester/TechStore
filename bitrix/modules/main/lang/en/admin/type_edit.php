@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADD"] = "Add email template";
 $MESS["EDIT_TITLE"] = "Edit event #TYPE#";
 $MESS["ERROR_LANG_EMPTY"] = "No language parameters specified";

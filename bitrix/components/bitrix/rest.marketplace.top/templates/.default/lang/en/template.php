@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_SHOW_APP"] = "View";
 $MESS["MARKETPLACE_PRICE_FREE"] = "Free";
 $MESS["MARKETPLACE_PRICE_PAID"] = "Paid";

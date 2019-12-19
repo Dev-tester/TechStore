@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -11,7 +11,7 @@ $this->SetViewTarget("sidebar", 200);
 	<div class="sidebar-widget-top">
 		<div class="sidebar-widget-top-title"><?=GetMessage("TASKS_FILTER_TITLE")?></div>
 
-		<?
+		<?php 
 		$path = \Bitrix\Tasks\Integration\Socialnetwork\UI\Task::getActionPath();
 		$url = \Bitrix\Tasks\UI\Task::makeActionUrl($path);
 		?>
@@ -19,7 +19,7 @@ $this->SetViewTarget("sidebar", 200);
 		<a class="plus-icon" href="<?=$url?>"></a>
 	</div>
 	<div class="sidebar-widget-item-wrap">
-	<?
+	<?php 
 	if ($arResult['USE_ROLE_FILTER'] === 'Y')
 	{
 		foreach($arResult["ROLES_LIST"] as $roleCodename => $roleData)
@@ -86,7 +86,7 @@ $this->SetViewTarget("sidebar", 200);
 				</span>
 			</a>
 
-			<?
+			<?php 
 		}
 	}
 	?>

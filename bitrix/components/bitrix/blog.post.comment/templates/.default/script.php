@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script>
 
 //	it is scripts from old-version editor. Them work with new editor too and not was overwriting.
 
 function showComment(key, error, userName, userEmail, needData)
 {
-	<?
+	<?php 
 	if($arResult["use_captcha"]===true)
 	{
 		?>
@@ -15,7 +15,7 @@ function showComment(key, error, userName, userEmail, needData)
 			BX("captcha").src = '/bitrix/tools/captcha.php?captcha_code=' + data["captcha_sid"];
 			BX("captcha").style.display = "";
 		});
-		<?
+		<?php 
 	}
 	?>
 	subject = '';
@@ -164,7 +164,7 @@ function deleteComment(url, id)
 
 	return false;
 }
-<?if($arResult["NEED_NAV"] == "Y"):?>
+<?php if($arResult["NEED_NAV"] == "Y"):?>
 function bcNavAjax(page, th)
 {
 //	get url from attrubute or just from href
@@ -222,6 +222,6 @@ function bcNav(page, th)
 	}, 300);
 	return false;
 }
-<?endif;?>
+<?php endif;?>
 
 </script>

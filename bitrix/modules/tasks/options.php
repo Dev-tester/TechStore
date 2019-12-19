@@ -81,7 +81,7 @@ if($REQUEST_METHOD=="POST" && strlen($Update.$Apply.$RestoreDefaults)>0 && check
 // check and restore CTaskCountersProcessor::agent();, if there is no one
 //CTaskCountersProcessor::ensureAgentExists();
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?php echo LANG?>">
 <?php echo bitrix_sessid_post()?>
 <?php
 $tabControl->Begin();
@@ -102,7 +102,7 @@ $tabControl->BeginNextTab();
 	<tr>
 		<td align="right"><?php echo GetMessage("TASKS_COMMENTS_ALLOW_EDIT_REMOVE")?>:</td>
 		<td>
-			<?$value = COption::GetOptionString("tasks", "task_comment_allow_edit");?>
+			<?php $value = COption::GetOptionString("tasks", "task_comment_allow_edit");?>
 			<input type="checkbox" name="task_comment_allow_edit" value="Y"<?=($value == 'Y' || $value == '1' ? " checked" : "" )?> />
 		</td>
 	</tr>

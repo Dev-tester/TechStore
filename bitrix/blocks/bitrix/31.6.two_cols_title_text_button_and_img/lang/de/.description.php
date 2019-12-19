@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_31_6-CARD"] = "Blockelement";
 $MESS["LANDING_BLOCK_31_6-COLUMN"] = "Spalte";
 $MESS["LANDING_BLOCK_31_6-IMAGE"] = "Bild";

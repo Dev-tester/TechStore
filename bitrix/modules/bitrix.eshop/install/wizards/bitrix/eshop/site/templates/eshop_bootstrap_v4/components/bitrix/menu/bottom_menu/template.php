@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
@@ -18,12 +18,12 @@ if (empty($arResult))
 ?>
 <nav class="d-block">
 	<ul class="nav flex-column">
-		<?foreach($arResult as $itemIdex => $arItem):?>
-			<?if ($arItem["DEPTH_LEVEL"] == "1"):?>
+		<?php foreach($arResult as $itemIdex => $arItem):?>
+			<?php if ($arItem["DEPTH_LEVEL"] == "1"):?>
 				<li class="nav-item">
 					<a href="<?=htmlspecialcharsbx($arItem["LINK"])?>" class="text-white nav-link"><?=htmlspecialcharsbx($arItem["TEXT"])?></a>
 				</li>
-			<?endif?>
-		<?endforeach;?>
+			<?php endif?>
+		<?php endforeach;?>
 	</ul>
 </nav>

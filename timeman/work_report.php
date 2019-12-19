@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php"); 
 $APPLICATION->SetPageProperty("HIDE_SIDEBAR", "Y");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_after.php");
@@ -6,7 +6,7 @@ IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public
 
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 ?> 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:ui.sidepanel.wrapper",
 	"",
@@ -17,4 +17,4 @@ $APPLICATION->IncludeComponent(
 	)
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

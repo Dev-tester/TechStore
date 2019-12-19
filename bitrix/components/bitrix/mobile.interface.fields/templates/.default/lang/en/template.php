@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_FIELDS_PULL_TEXT"] = "Pull down to refresh...";
 $MESS["M_FIELDS_DOWN_TEXT"] = "Release to refresh...";
 $MESS["M_FIELDS_LOAD_TEXT"] = "Updating...";

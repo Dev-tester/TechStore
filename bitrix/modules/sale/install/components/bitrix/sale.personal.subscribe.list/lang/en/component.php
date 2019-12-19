@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_MODULE_NOT_INSTALL'] = "e-Store module is not installed";
 $MESS['SPSL_DEFAULT_TITLE']="Recurring payments";
 $MESS['SPSL_PAGES'] = "Recurring payments";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CATI_NO_DATA_FILE'] = "The data file has been neither loaded nor selected. Unable to import.";
 $MESS ['CATI_NO_IBLOCK'] = "Information block not selected. Unable to import.";
 $MESS ['CATI_NO_FILE_FORMAT'] = "Please specify the format and properties of the data file.";

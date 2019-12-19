@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOC_BASKET_ADDED"] = "Produkt hinzugefügt";
 $MESS["SOC_BASKET_ADDED_INFO"] = "#QUANTITY# Stück von #NAME# (##PRODUCT_ID#) wurden zu Ihrem Warenkorb hinzugefügt.";
 $MESS["SOC_BASKET_ITEM_ADD_ERROR_INFO"] = "Beim Hinzufügen eines Elements zum Warenkorb ist ein Fehler \"#ERROR#\" aufgetreten";

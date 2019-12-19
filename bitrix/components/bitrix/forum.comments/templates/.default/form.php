@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 foreach (GetModuleEvents('forum', 'OnCommentFormDisplay', true) as $arEvent)
 {
 	$arExt = ExecuteModuleEventEx($arEvent);
@@ -10,17 +10,17 @@ foreach (GetModuleEvents('forum', 'OnCommentFormDisplay', true) as $arEvent)
 }
 ?>
 <a name="review_anchor"></a>
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"]))
 {
 	?>
 	<div class="feed-add-error">
 		<span class="feed-add-info-text"><span class="feed-add-info-icon"></span><?=$arResult["ERROR_MESSAGE"]?></span>
 	</div>
-<?
+<?php 
 }
 ?>
-<form name="<?=$arParams["FORM_ID"]?>" id="<?=$arParams["FORM_ID"]?>" action="<?=POST_FORM_ACTION_URI?>"<?
+<form name="<?=$arParams["FORM_ID"]?>" id="<?=$arParams["FORM_ID"]?>" action="<?=POST_FORM_ACTION_URI?>"<?php 
 ?> method="POST" enctype="multipart/form-data" class="comments-form">
 	<input type="hidden" name="back_page" value="<?=$arResult["CURRENT_PAGE"]?>" />
 	<input type="hidden" name="ENTITY_XML_ID" value="<?=$arParams["ENTITY_XML_ID"]?>" />
@@ -29,7 +29,7 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 	<input type="hidden" name="REVIEW_USE_SMILES" value="Y"  />
 	<input type="hidden" name="comment_review" value="Y"  />
 	<?=bitrix_sessid_post()?>
-	<?
+	<?php 
 	if ($arParams['AUTOSAVE'])
 		$arParams['AUTOSAVE']->Init();
 		ob_start();
@@ -39,23 +39,23 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 			?>
 			<div class="comments-reply-fields">
 				<div class="comments-reply-field-user">
-					<div class="comments-reply-field comments-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?
+					<div class="comments-reply-field comments-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?php 
 							?><span class="comments-required-field">*</span></label>
 						<span><input name="REVIEW_AUTHOR" id="REVIEW_AUTHOR<?=$arParams["form_index"]?>" size="30" type="text" value="<?=$arResult["REVIEW_AUTHOR"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-					<?
+					<?php 
 					if ($arParams["ASK_GUEST_EMAIL"]=="Y")
 					{
 						?>
 						<div class="comments-reply-field-user-sep">&nbsp;</div>
 						<div class="comments-reply-field comments-reply-field-email"><label for="REVIEW_EMAIL<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_EMAIL")?></label>
 							<span><input type="text" name="REVIEW_EMAIL" id="REVIEW_EMAIL<?=$arParams["form_index"]?>" size="30" value="<?=$arResult["REVIEW_EMAIL"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-					<?
+					<?php 
 					}
 					?>
 					<div class="comments-clear-float"></div>
 				</div>
 			</div>
-		<?
+		<?php 
 		}
 		$html_before_textarea = ob_get_clean();
 		ob_start();
@@ -73,7 +73,7 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 					<img src="/bitrix/tools/captcha.php?captcha_code=<?=$arResult["CAPTCHA_CODE"]?>" alt="<?=GetMessage("F_CAPTCHA_TITLE")?>" />
 				</div>
 			</div>
-		<?
+		<?php 
 		}
 		$html_after_textarea = ob_get_clean();
 
@@ -163,7 +163,7 @@ BX.message({
 	FCCID : '<?=$arParams["mfi"]?>'
 });
 </script>
-<?
+<?php 
 if ($arParams['AUTOSAVE'])
 	$arParams['AUTOSAVE']->LoadScript(array(
 		"formID" => "COMMENTS".CUtil::JSEscape($arParams["form_index"]),

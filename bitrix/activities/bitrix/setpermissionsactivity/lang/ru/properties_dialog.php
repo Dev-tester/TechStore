@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPSA_PD_PERM'] = "Право на операцию \"#OP#\" имеют";
 $MESS ['BPSA_PD_PERM_REWRITE'] = "Перезаписать";
 $MESS ['BPSA_PD_PERM_CLEAR'] = "Очистить";

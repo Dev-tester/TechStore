@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_EDIT_SLIDER_EDIT_TITLE"] = "Edit Event";
 $MESS["EC_EDIT_SLIDER_NEW_TITLE"] = "New Event";
 $MESS["EC_EDIT_SLIDER_IMPORTANT_EVENT"] = "This event is important";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (is_array($arResult["ACCOUNT_LIST"]))
 {
 	?>
@@ -9,7 +9,7 @@ if (is_array($arResult["ACCOUNT_LIST"]))
 		</div>
 		<div class="sale-personal-account-wallet-list-container">
 			<div class="sale-personal-account-wallet-list">
-				<?
+				<?php 
 					foreach($arResult["ACCOUNT_LIST"] as $accountValue)
 					{
 						?>
@@ -20,11 +20,11 @@ if (is_array($arResult["ACCOUNT_LIST"]))
 								<div class="sale-personal-account-wallet-currency-item"><?=$accountValue["CURRENCY_FULL_NAME"]?></div>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 				?>
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }

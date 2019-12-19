@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
 use Bitrix\Main\Localization\Loc;
@@ -25,7 +25,7 @@ if ($arParams["TASK_ID"] > 0)
 }
 ?>
 <div class="bx-disk-bizproc-section">
-<?
+<?php 
 if ($arResult["TASK"])
 {
 	$docID = $arResult["TASK"]["PARAMETERS"]["DOCUMENT_ID"][2];

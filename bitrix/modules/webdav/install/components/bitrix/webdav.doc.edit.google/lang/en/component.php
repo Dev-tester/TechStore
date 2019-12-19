@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_DOC_EDIT_UPLOAD_DOC_TO_GOOGLE"] = "Upload document";
 $MESS["WD_DOC_INSTALL_SOCSERV"] = "The Social Services module is not installed.";
 $MESS["WD_DOC_INSTALL_SOCSERV_GOOGLE"] = "Google Plus support is not properly configured.";

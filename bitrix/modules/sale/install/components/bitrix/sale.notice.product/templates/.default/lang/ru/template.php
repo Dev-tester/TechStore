@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NOTIFY_TITLE"] = "Уведомление о поступлении";
 $MESS["NOTIFY"] = "Уведомить о поступлении";
 $MESS["NOTIFY_POPUP_MAIL"] = "Ваш email";

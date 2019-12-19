@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_MESS_INVITE"] = "Пользователь #OWNER_NAME# приглашает вас принять участие во встрече \"#TITLE#\", которая состоится #ACTIVE_FROM#";
 $MESS["EC_MESS_INVITE_SITE"] = "Приглашаю вас принять участие во встрече \"[B]#TITLE#[/B]\", которая состоится [B]#ACTIVE_FROM#[/B]";
 $MESS["EC_MESS_REC_INVITE"] = "Пользователь #OWNER_NAME# приглашает вас принять участие в повторяемой встрече \"#TITLE#\" #ACTIVE_FROM#, #RRULE#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TITLE'] = "Результаты теста";
 $MESS ['LEARNING_ADMIN_RESULTS'] = "Результаты";
 $MESS ['LEARNING_ERROR'] = "Ошибка при сохранении теста";

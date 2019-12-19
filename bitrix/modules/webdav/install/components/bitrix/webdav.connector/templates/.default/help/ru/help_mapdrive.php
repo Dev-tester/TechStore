@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <h3>Подключение сетевого диска</h3>
 <p>Для подключения библиотеки как сетевого диска при помощи <b>проводника</b>:
 <ul>
 <li>Запустите <b>Проводник.</b></li> 
 <li>Выберите в меню пункт <i>Сервис > Подключить сетевой диск</i>. Откроется диалог подключения сетевого диска: 
-<br><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_storage.png\',628,465,\'Подключение сетевого диска\');'?>">
+<br><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/network_storage.png\',628,465,\'Подключение сетевого диска\');'?>">
 <img width="250" height="185" border="0" src="<?=$templateFolder.'/images/network_storage_sm.png'?>" style="cursor: pointer;" alt="Нажмите на рисунок, чтобы увеличить" /></a></li>
 <li>В поле <b>Диск</b> назначьте букву для подключаемой папки.</li>
 <li>В поле <b>Папка</b> введите путь до библиотеки: <i>http://&lt;ваш_сервер&gt;/docs/shared/</i>. Если необходимо, чтобы папка подключалась для просмотра при каждом запуске системы, установите флажок <b>Восстанавливать при входе в систему</b>.</li>

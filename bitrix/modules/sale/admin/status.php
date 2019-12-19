@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale;
@@ -220,10 +220,10 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 $lAdmin->DisplayList();
 ?>
 <br>
-<?echo BeginNote();?>
-	<?echo GetMessage("SALE_NOTES1")?><br>
-	<?echo GetMessage("SALE_NOTES2")?><br>
-<?echo EndNote();?>
-<?
+<?php echo BeginNote();?>
+	<?php echo GetMessage("SALE_NOTES1")?><br>
+	<?php echo GetMessage("SALE_NOTES2")?><br>
+<?php echo EndNote();?>
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

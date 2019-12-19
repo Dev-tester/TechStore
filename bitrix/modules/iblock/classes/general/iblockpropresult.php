@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Iblock\PropertyTable;
 use Bitrix\Main\Type\Collection;
 

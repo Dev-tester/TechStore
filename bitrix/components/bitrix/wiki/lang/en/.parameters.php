@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_REVIEW_SETTINGS"] = "Discussion Settings";
 $MESS["F_FORUM_ID"] = "Discussion Forum ID";
 $MESS["F_USE_CAPTCHA"] = "Use CAPTCHA";

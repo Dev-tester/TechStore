@@ -1,4 +1,4 @@
-<?
+<?php 
 class CCalendarPlanner
 {
 	public static function Init($config = array(), $initialParams = false)
@@ -48,7 +48,7 @@ class CCalendarPlanner
 				);
 			});
 		</script>
-		<?
+		<?php 
 	}
 
 	public static function prepareData($params = array())

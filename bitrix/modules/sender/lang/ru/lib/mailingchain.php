@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CHAIN_STATUS_N"] = "Готов к отправке";
 $MESS["SENDER_CHAIN_STATUS_S"] = "В процессе отправки..";
 $MESS["SENDER_CHAIN_STATUS_W"] = "Ожидание дня отправки";

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$APPLICATION->IncludeComponent("bitrix:voting.current", "light", array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $APPLICATION->IncludeComponent("bitrix:voting.current", "light", array(
 	"CHANNEL_SID" => "#SYMBOLIC_NAME#",
 	"VOTE_ID" => "",
 	"VOTE_ALL_RESULTS" => "N",
@@ -19,7 +19,7 @@
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <td valign="top" width="50%">
-<?$APPLICATION->IncludeComponent("bitrix:news.list", "vacancy", array(
+<?php $APPLICATION->IncludeComponent("bitrix:news.list", "vacancy", array(
 	"IBLOCK_TYPE" => "job",
 	"IBLOCK_ID" => "#VACANCY_IBLOCK_ID#",
 	"NEWS_COUNT" => "10",
@@ -68,7 +68,7 @@
 	"NAME_BLOCK" => "Вакансии",
 	),
 	false
-);?></td><td  valign="top" width="50%"><?$APPLICATION->IncludeComponent("bitrix:news.list", "resume", array(
+);?></td><td  valign="top" width="50%"><?php $APPLICATION->IncludeComponent("bitrix:news.list", "resume", array(
 	"IBLOCK_TYPE" => "job",
 	"IBLOCK_ID" => "#RESUME_IBLOCK_ID#",
 	"NEWS_COUNT" => "10",

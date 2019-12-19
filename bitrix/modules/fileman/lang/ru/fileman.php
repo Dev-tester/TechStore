@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_FILEMAN_SCRIPT_TEXT"] = "Скрипт/текст";
 $MESS["FILEMAN_FILEMAN_PIC"] = "Изображение";
 $MESS["FILEMAN_FILEMAN_UNK"] = "Неизвестный";

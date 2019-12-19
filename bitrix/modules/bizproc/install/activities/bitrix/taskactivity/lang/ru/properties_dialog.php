@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPTA1A_TASK_TYPE'] = "Тип задачи";
 $MESS ['BPTA1A_TASK_TYPE_U'] = "Пользователь";
 $MESS ['BPTA1A_TASK_TYPE_G'] = "Группа";

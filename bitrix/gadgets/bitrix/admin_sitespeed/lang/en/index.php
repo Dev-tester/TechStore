@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SPEED_TITLE"] = "Site speed";
 $MESS["GD_SPEED_UNIT"] = "Sec";
 $MESS["GD_SPEED_VERY_FAST"] = "Very<br>fast";

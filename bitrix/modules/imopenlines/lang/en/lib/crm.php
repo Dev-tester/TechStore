@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_CRM_ERROR_NO_SESSION"] = "No Open Channel session found";
 $MESS["IMOL_CRM_ERROR_CREATING_LEAD"] = "Error creating lead";
 $MESS["IMOL_CRM_ERROR_NOT_LOAD_CRM"] = "Error loading CRM";

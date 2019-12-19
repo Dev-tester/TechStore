@@ -29,11 +29,11 @@ $APPLICATION->setTitle(Loc::getMessage('DISK_FILE_VIEW_FILE_TITLE_USERFIELDS', [
 	<input type="hidden" name="fileId" value="<?= $arResult['FILE']['ID'] ?>">
 <table>
 	<tbody>
-		<? foreach($arResult["USER_FIELDS"] as $arUserField) {?>
+		<?php  foreach($arResult["USER_FIELDS"] as $arUserField) {?>
 		<tr>
 			<td class="bx-disk-filepage-fileinfo-param"><?php echo htmlspecialcharsbx($arUserField["EDIT_FORM_LABEL"])?>:</td>
 			<td class="bx-disk-filepage-fileinfo-value">
-				<?
+				<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:system.field.edit",
 						$arUserField["USER_TYPE"]["USER_TYPE_ID"],
@@ -46,7 +46,7 @@ $APPLICATION->setTitle(Loc::getMessage('DISK_FILE_VIEW_FILE_TITLE_USERFIELDS', [
 				 ?>
 			</td>
 		</tr>
-		<? }?>
+		<?php  }?>
 	</tbody>
 </table>
 	<div class="webform-buttons disk-detail-uf-form-buttons-fixed">

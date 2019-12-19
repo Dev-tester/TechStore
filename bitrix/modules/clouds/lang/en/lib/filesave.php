@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_SAVE_ENTITY_BUCKET_ID_FIELD"] = "Storage ID";
 $MESS["FILE_SAVE_ENTITY_EXTERNAL_ID_FIELD"] = "External file ID";
 $MESS["FILE_SAVE_ENTITY_FILE_NAME_FIELD"] = "File name";

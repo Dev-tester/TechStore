@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_ALFABANK_TITLE"] = "Альфа Б2Б";
 $MESS["SALE_HPS_ALFABANK_DATE"] = "Дата оплаты";
 $MESS["SALE_HPS_ALFABANK_EXT_SYSTEM_CODE"] = "Код услуги партнера";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_INFO_product"] = "Проект работает на основе";
 $MESS["GD_INFO_product_name_1c_bitrix"] = "1С-Битрикс: Управление сайтом";
 $MESS["GD_INFO_product_name_1c_bitrix_portal"] = "1С-Битрикс: Корпоративный портал";

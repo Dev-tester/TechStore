@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TYPE_TITLE"] = "Выберите удобный способ работы с CRM";
 $MESS["CRM_TYPE_SAVE"] = "Сохранить";
 $MESS["CRM_TYPE_CANCEL"] = "Отменить";

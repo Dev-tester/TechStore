@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 \Bitrix\Main\Loader::includeModule('sale');
@@ -219,8 +219,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /********************  BODY  *****************************************/
 /*********************************************************************/
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -234,14 +234,14 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SALE_F_LOCATION")?>:</td>
+		<td><?php echo GetMessage("SALE_F_LOCATION")?>:</td>
 		<td>
 
-			<?if(CSaleLocation::isLocationProEnabled()):?>
+			<?php if(CSaleLocation::isLocationProEnabled()):?>
 
 				<div style="width: 100%; margin-left: 12px">
 
-					<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.search", "", array(
+					<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.search", "", array(
 						"ID" => $filter_location,
 						"CODE" => "",
 						"INPUT_NAME" => 'filter_location',
@@ -266,25 +266,25 @@ $oFilter->Begin();
 					}
 				</style>
 
-			<?else:?>
+			<?php else:?>
 				<select name="filter_location">
-					<option value=""><?echo GetMessage("SALE_ALL")?></option>
-					<?$db_vars = CSaleLocation::GetList(Array("SORT"=>"ASC", "COUNTRY_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array(), LANG)?>
-					<?while ($vars = $db_vars->Fetch()):?>
-						<option value="<?echo $vars["ID"]?>"<?if (IntVal($vars["ID"])==IntVal($filter_location)) echo " selected"?>><?echo htmlspecialcharsbx($vars["COUNTRY_NAME"]." - ".$vars["CITY_NAME"])?></option>
-					<?endwhile;?>
+					<option value=""><?php echo GetMessage("SALE_ALL")?></option>
+					<?php $db_vars = CSaleLocation::GetList(Array("SORT"=>"ASC", "COUNTRY_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array(), LANG)?>
+					<?php while ($vars = $db_vars->Fetch()):?>
+						<option value="<?php echo $vars["ID"]?>"<?php if (IntVal($vars["ID"])==IntVal($filter_location)) echo " selected"?>><?php echo htmlspecialcharsbx($vars["COUNTRY_NAME"]." - ".$vars["CITY_NAME"])?></option>
+					<?php endwhile;?>
 				</select>
-			<?endif?>
+			<?php endif?>
 
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_LANG");?>:</td>
+		<td><?php echo GetMessage("SALE_F_LANG");?>:</td>
 		<td>
 			<script language="JavaScript">
 			var arLang = new Array();
 			var arCurr = new Array();
-			<?
+			<?php 
 			$db_extras = CLang::GetList(($b="name"), ($o="asc"));
 			$i = 0;
 			while ($extras = $db_extras->Fetch())
@@ -324,44 +324,44 @@ $oFilter->Begin();
 				}
 			}
 			</script>
-			<?echo CLang::SelectBox("filter_lang", $filter_lang, GetMessage("SALE_ALL"), "LangChange()") ?>
+			<?php echo CLang::SelectBox("filter_lang", $filter_lang, GetMessage("SALE_ALL"), "LangChange()") ?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_WEIGHT")?>:</td>
+		<td><?php echo GetMessage("SALE_F_WEIGHT")?>:</td>
 		<td>
-			<?echo GetMessage("SALE_F_FROM")?>
-			<input type="text" name="filter_weight_from" value="<?echo htmlspecialcharsbx($filter_weight_from) ?>" size="5">
-			<?echo GetMessage("SALE_F_TO")?>
-			<input type="text" name="filter_weight_to" value="<?echo htmlspecialcharsbx($filter_weight_to) ?>" size="5">
+			<?php echo GetMessage("SALE_F_FROM")?>
+			<input type="text" name="filter_weight_from" value="<?php echo htmlspecialcharsbx($filter_weight_from) ?>" size="5">
+			<?php echo GetMessage("SALE_F_TO")?>
+			<input type="text" name="filter_weight_to" value="<?php echo htmlspecialcharsbx($filter_weight_to) ?>" size="5">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_ORDER_PRICE")?>:</td>
+		<td><?php echo GetMessage("SALE_F_ORDER_PRICE")?>:</td>
 		<td>
-			<?echo GetMessage("SALE_F_FROM")?>
-			<input type="text" name="filter_order_price_from" value="<?echo htmlspecialcharsbx($filter_order_price_from) ?>" size="10">
-			<?echo GetMessage("SALE_F_TO")?>
-			<input type="text" name="filter_order_price_to" value="<?echo htmlspecialcharsbx($filter_order_price_to) ?>" size="10">
-			<input type="text" name="f_currency" value="<?echo CSaleLang::GetLangCurrency($filter_lang) ?>" size="3" readonly>
+			<?php echo GetMessage("SALE_F_FROM")?>
+			<input type="text" name="filter_order_price_from" value="<?php echo htmlspecialcharsbx($filter_order_price_from) ?>" size="10">
+			<?php echo GetMessage("SALE_F_TO")?>
+			<input type="text" name="filter_order_price_to" value="<?php echo htmlspecialcharsbx($filter_order_price_to) ?>" size="10">
+			<input type="text" name="f_currency" value="<?php echo CSaleLang::GetLangCurrency($filter_lang) ?>" size="3" readonly>
 			<script language="JavaScript">
 			LangChange();
 			</script>
 			<br>
-			<small><?echo GetMessage("SALE_F_ORDER_PRICE_DESC")?></small>
+			<small><?php echo GetMessage("SALE_F_ORDER_PRICE_DESC")?></small>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("SALE_F_ACTIVE")?>:</td>
 		<td>
 			<select name="filter_active">
-				<option value=""><?echo GetMessage("SALE_ALL")?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?echo GetMessage("SALE_YES")?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?echo GetMessage("SALE_NO")?></option>
+				<option value=""><?php echo GetMessage("SALE_ALL")?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?php echo GetMessage("SALE_YES")?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?php echo GetMessage("SALE_NO")?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -373,7 +373,7 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

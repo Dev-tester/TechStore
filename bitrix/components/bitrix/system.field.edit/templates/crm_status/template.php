@@ -1,14 +1,14 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $bWasSelect = false;
 
 ?>
 <span class="fields crm_status field-wrap">
-<select name="<?=$arParams["arUserField"]["FIELD_NAME"]?>"<?
+<select name="<?=$arParams["arUserField"]["FIELD_NAME"]?>"<?php 
 if ($arParams["arUserField"]["MULTIPLE"]=="Y"):
-?> multiple="multiple"<?
+?> multiple="multiple"<?php 
 endif;
-?>><?
+?>><?php 
 
 foreach ($arParams["arUserField"]["USER_TYPE"]["FIELDS"] as $key => $val)
 {
@@ -18,7 +18,7 @@ foreach ($arParams["arUserField"]["USER_TYPE"]["FIELDS"] as $key => $val)
 	);
 	$bWasSelect = $bWasSelect || $bSelected;
 
-	?><option value="<?echo $key?>"<?echo ($bSelected? " selected" : "")?>><?echo $val?></option><?
+	?><option value="<?php echo $key?>"<?php echo ($bSelected? " selected" : "")?>><?php echo $val?></option><?php 
 }
 ?></select>
 </span><?

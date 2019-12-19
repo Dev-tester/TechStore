@@ -281,15 +281,15 @@ $tabControl->BeginEpilogContent();
 	<input type="hidden" name="lang" value="<?= LANGUAGE_ID?>">
 	<input type="hidden" name="action" value="<?= $action?>">
 
-<?$tabControl->EndEpilogContent();?>
+<?php $tabControl->EndEpilogContent();?>
 
-	<? $tabControl->Begin(array(
+	<?php  $tabControl->Begin(array(
 		'FORM_ACTION' => $APPLICATION->GetCurPage().'?ENTITY_ID='.$hlblock['ID'].'&ID='.IntVal($ID).'&lang='.LANG
 	));?>
 
-	<? $tabControl->BeginNextFormTab(); ?>
+	<?php  $tabControl->BeginNextFormTab(); ?>
 
-	<?
+	<?php 
 	$ufields = $USER_FIELD_MANAGER->GetUserFields('HLBLOCK_'.$hlblock['ID']);
 	$hasSomeFields = !empty($ufields);
 
@@ -318,7 +318,7 @@ $tabControl->BeginEpilogContent();
 	echo $tabControl->ShowUserFieldsWithReadyData('HLBLOCK_'.$hlblock['ID'], $row, $bVarsFromForm, 'ID');
 	?>
 
-	<?
+	<?php 
 	$disable = true;
 	if($isEditMode)
 		$disable = false;
@@ -339,7 +339,7 @@ $tabControl->BeginEpilogContent();
 
 
 
-<?
+<?php 
 
 if ($_REQUEST['mode'] == 'list')
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin_js.php');

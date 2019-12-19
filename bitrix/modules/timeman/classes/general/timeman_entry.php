@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Timeman\Helper\TimeHelper;
 use Bitrix\Timeman\Service\DependencyManager;

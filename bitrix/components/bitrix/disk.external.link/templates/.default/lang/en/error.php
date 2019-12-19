@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_EXT_LINK_INVALID"] = "Public link is invalid.";
 $MESS["DISK_EXT_LINK_TITLE"] = "File not found";
 $MESS["DISK_EXT_LINK_TEXT"] = "File not found";

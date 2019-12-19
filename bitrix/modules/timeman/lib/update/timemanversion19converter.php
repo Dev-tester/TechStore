@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Timeman\Update;
 
 use Bitrix\Main\Application;

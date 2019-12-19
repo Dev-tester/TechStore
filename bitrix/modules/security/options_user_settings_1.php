@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global int $ID - Edited user id
  * @global string $strError - Save error
@@ -16,17 +16,17 @@ if(!CModule::IncludeModule("security")):?>
 	<tr>
 		<td><?=GetMessage("SEC_OTP_NEW_ACCESS_DENIED")?></td>
 	</tr>
-<?
+<?php 
 	return;
 endif;
 ?>
-<?if(
+<?php if(
 	$ID <= 0
 	|| ($USER->getID() != $ID && !$USER->CanDoOperation('security_edit_user_otp'))
 )
 	return;
 ?>
-<?
+<?php 
 CJSCore::Init(array('qrcode', 'ajax', 'window'));
 $APPLICATION->AddHeadScript('/bitrix/js/security/admin/page/user-edit.js');
 $otp = Otp::getByUser($ID);
@@ -128,11 +128,11 @@ $jsSettings = array(
 				<?=GetMessage("SEC_OTP_TYPE")?>:
 			</td>
 			<td>
-				<?foreach($availableTypes as $value):?>
+				<?php foreach($availableTypes as $value):?>
 					<span class="type-title" data-show-type="<?=$value?>">
 						<?=(isset($availableTypesDescription[$value]['title'])? $availableTypesDescription[$value]['title'] : $value)?>
 					</span>
-				<?endforeach?>
+				<?php endforeach?>
 			</td>
 		</tr>
 		<tr>
@@ -203,8 +203,8 @@ $jsSettings = array(
 	</td>
 </tr>
 <!--Popup ends-->
-<?if (!$otp->isActivated()):?>
-	<?if (
+<?php if (!$otp->isActivated()):?>
+	<?php if (
 		Otp::isMandatoryUsing()
 		&& $otp->getInitialDate() // User trigger any of OTP mechanisms
 		&& $USER->CanDoOperation('security_edit_user_otp')
@@ -212,49 +212,49 @@ $jsSettings = array(
 	):?>
 		<tr>
 			<td>
-		<?if (!$otp->isMandatorySkipped()):?>
+		<?php if (!$otp->isMandatorySkipped()):?>
 				<?=BeginNote()?>
 				<?=getMessage('SEC_OTP_MANDATORY_EXPIRED')?>
 				<span class="otp-link-button" id="otp-deffer"><?=GetMessage('SEC_OTP_MANDATORY_DEFFER')?></span>
 				<?=EndNote()?>
-		<?elseif ($otp->isMandatorySkipped() && $otp->getDeactivateUntil()):?>
+		<?php elseif ($otp->isMandatorySkipped() && $otp->getDeactivateUntil()):?>
 				<?=BeginNote()?>
 				<?=getMessage('SEC_OTP_MANDATORY_ALMOST_EXPIRED', array('#DATE#' => $otp->getDeactivateUntil()))?>
 				<span class="otp-link-button" id="otp-deffer"><?=GetMessage('SEC_OTP_MANDATORY_DEFFER')?></span>
 				<?=EndNote()?>
-		<?else:?>
+		<?php else:?>
 				<?=BeginNote()?>
 				<?=getMessage('SEC_OTP_MANDATORY_DISABLED')?>
 				<span class="otp-link-button" id="otp-mandatory-active">
-					<?if (empty($deactivateDays)):?>
+					<?php if (empty($deactivateDays)):?>
 						<?=GetMessage('SEC_OTP_MANDATORY_ENABLE_DEFAULT')?>
-					<?else:?>
+					<?php else:?>
 						<?=GetMessage('SEC_OTP_MANDATORY_ENABLE')?>
-					<?endif;?>
+					<?php endif;?>
 				</span>
 				<?=EndNote()?>
-		<?endif;?>
+		<?php endif;?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
-		<?if ($otp->isInitialized()):?>
+		<?php if ($otp->isInitialized()):?>
 			<td style="text-align: left;">
 				<a class="adm-btn-save adm-btn" id="otp-activate"><?=GetMessage('SEC_OTP_ENABLE')?></a>
-				<?if ($deactivateUntil):?>
+				<?php if ($deactivateUntil):?>
 					<span>(<?=getMessage('SEC_OTP_DEACTIVATE_UNTIL', array('#DATE#' => $deactivateUntil))?>)</span>
-				<?endif;?>
+				<?php endif;?>
 			</td>
 			<td style="text-align: right;">
 				<a class="adm-btn-save adm-btn adm-btn-menu" id="otp-connect-device"><?=GetMessage('SEC_OTP_CONNECT_DEVICE')?></a>
 				<a class="adm-btn-save adm-btn adm-btn-menu" id="otp-connect-mobile" style="margin-left: 20px;"><?=GetMessage('SEC_OTP_CONNECT_MOBILE')?></a>
 			</td>
-		<?else:?>
+		<?php else:?>
 			<td colspan="2">
 				<a class="adm-btn-save adm-btn adm-btn-menu" id="otp-connect-device"><?=GetMessage('SEC_OTP_CONNECT_DEVICE')?></a>
 				<a class="adm-btn-save adm-btn adm-btn-menu" id="otp-connect-mobile" style="margin-left: 20px;"><?=GetMessage('SEC_OTP_CONNECT_MOBILE')?></a>
 			</td>
-		<?endif;?>
+		<?php endif;?>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -268,7 +268,7 @@ $jsSettings = array(
 						getMessage('SEC_OTP_DESCRIPTION_INTRO_INTRANET'):
 						getMessage('SEC_OTP_DESCRIPTION_INTRO_SITE'))?>
 				</div>
-				<?
+				<?php 
 				if (in_array(LANGUAGE_ID, array('en', 'ru', 'de'), true))
 					$imageLanguage = LANGUAGE_ID;
 				else
@@ -297,9 +297,9 @@ $jsSettings = array(
 			</div>
 		</td>
 	</tr>
-<?else:?>
-	<?if (Otp::isRecoveryCodesEnabled()):?>
-		<?
+<?php else:?>
+	<?php if (Otp::isRecoveryCodesEnabled()):?>
+		<?php 
 		$codes = \Bitrix\Security\Mfa\RecoveryCodesTable::getList(array(
 			'select' => array('ID'),
 			'filter' => array('=USER_ID' => $ID),
@@ -308,38 +308,38 @@ $jsSettings = array(
 		if (!$codes):?>
 			<tr data-role="otp-recovery-codes-warning">
 				<td colspan="2">
-					<?CAdminMessage::ShowMessage(array(
+					<?php CAdminMessage::ShowMessage(array(
 						"MESSAGE" => GetMessage('SEC_OTP_WARNING_RECOVERY_CODES'),
 						"TYPE" => 'ERROR',
 						"HTML" => true
 					));?>
 				</td>
 			</tr>
-		<?endif;?>
-	<?endif;?>
+		<?php endif;?>
+	<?php endif;?>
 	<tr>
 		<td style="text-align: left;">
 			<span><?=GetMessage('SEC_OTP_CONNECTED')?></span>
-			<?if(
+			<?php if(
 				!Otp::isMandatoryUsing()
 				|| $otp->canSkipMandatory()
 				|| $USER->CanDoOperation('security_edit_user_otp')
 			):?>
 				<span class="otp-link-button" id="otp-deactivate"><?=GetMessage('SEC_OTP_DISABLE')?></span>
-			<?endif;?>
-			<?if (Otp::isRecoveryCodesEnabled()):?>
+			<?php endif;?>
+			<?php if (Otp::isRecoveryCodesEnabled()):?>
 				<span class="otp-link-button" id="otp-show-recovery-codes"><?=GetMessage('SEC_OTP_RECOVERY_CODES_BUTTON')?></span>
-			<?endif;?>
-			<?if ($USER->CanDoOperation('security_edit_user_otp')):?>
+			<?php endif;?>
+			<?php if ($USER->CanDoOperation('security_edit_user_otp')):?>
 				<span class="otp-link-button" id="otp-reinitialize"><?=GetMessage('SEC_OTP_SYNC_NOW')?></span>
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td style="text-align: right;">
 			<a class="adm-btn-save adm-btn adm-btn-menu" id="otp-connect-device"><?=GetMessage('SEC_OTP_CONNECT_NEW_DEVICE')?></a>
 			<a class="adm-btn-save adm-btn adm-btn-menu" id="otp-connect-mobile" style="margin-left: 20px;"><?=GetMessage('SEC_OTP_CONNECT_NEW_MOBILE')?></a>
 		</td>
 	</tr>
-	<?if ($USER->CanDoOperation('security_edit_user_otp')):?>
+	<?php if ($USER->CanDoOperation('security_edit_user_otp')):?>
 		<tr class="heading" style="display:none;" data-show-on-reinitialize="yes">
 			<td colspan="2"><?=GetMessage("SEC_OTP_INIT")?></td>
 			<input type="hidden" name="profile_module_id[]" value="security">
@@ -360,5 +360,5 @@ $jsSettings = array(
 				<input type="text" autocomplete="off" id="security_SYNC2" name="security_SYNC2" size="8" maxlength="8" value="">
 			</td>
 		</tr>
-	<?endif;?>
-<?endif;?>
+	<?php endif;?>
+<?php endif;?>

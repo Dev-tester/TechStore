@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C30_F_VIDEO_TRANSFORM_POPUP_BUTTON_PUBLISH_TITLE"] = "Publish even if still unconverted";
 $MESS["SONET_C30_F_VIDEO_TRANSFORM_POPUP_TITLE"] = "Convert Video";
 $MESS["SONET_C30_F_VIDEO_TRANSFORM_POPUP_TEXT1"] = "Video file attached to the message you posted has been queued for conversion.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_ERROR_WRONG_HANDLER_FILE"] = "Wrong services script";
 $MESS["SALE_DH_ERROR_HANDLER_NOT_INSTALLED"] = "The delivery service is not installed";
 $MESS["SALE_DH_CF_ERROR_P_RESTRICTIONS_WEIGHT"] = "Weight restriction";

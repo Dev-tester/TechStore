@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!CModule::IncludeModule("socialnetwork"))
@@ -19,7 +19,7 @@ if (!is_array($arGadgetParams) || !array_key_exists("TEXT_LIMIT", $arGadgetParam
 if ($bWiki)
 {
 	?>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:wiki.show",
 		"gadget",
 		Array(
@@ -39,7 +39,7 @@ if ($bWiki)
 		false,
 		array("HIDE_ICONS" => "Y")							
 	);?>
-	<?
+	<?php 
 }
 else
 	echo GetMessage('GD_SONET_GROUP_WIKI_FEATURE_INACTIVE');

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ABSC_GROUP_FILTER'] = "Filter Parameters";
 $MESS ['INTR_ABSC_PARAM_CALENDAR_IBLOCK_TYPE'] = "Information Block Type for Personal Calendars";
 $MESS ['INTR_ABSC_PARAM_CALENDAR_IBLOCK_ID'] = "Information Block for Personal Calendars";

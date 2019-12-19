@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_IMPORT_TITLE"] = "Импорт пользователей";
 $MESS["USER_IMPORT_SOURCE_TAB"] = "Источник данных";
 $MESS["USER_IMPORT_SOURCE_TAB_DESC"] = "Выберите источник данных";

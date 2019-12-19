@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CUtil::InitJSCore(array("ajax"));
 
@@ -7,19 +7,19 @@ if(strlen($arResult["MESSAGE"])>0)
 {
 	?>
 	<?=$arResult["MESSAGE"]?><br /><br />
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["ERROR_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FATAL_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -57,14 +57,14 @@ else
 									<a id=image class=blogButton href='javascript:tag_image()'><img src="<?=$templateFolder?>/images/image_link.gif" width="20" height="20" title="<?=GetMessage("BLOG_P_INSERT_IMAGE_LINK")?>" class="blogButton"></a>
 									<a id=quote class=blogButton href='javascript:quoteMessage()'><img src="<?=$templateFolder?>/images/quote.gif" width="20" height="20" title="<?=GetMessage("BPC_QUOTE")?>" class="blogButton"></a>
 									<a id=code class=blogButton href='javascript:simpletag("CODE")'><img src="<?=$templateFolder?>/images/code.gif" width="20" height="20" title="<?=GetMessage("BPC_CODE")?>" class="blogButton"></a>
-									<a id=list class=blogButton href='javascript:tag_list()'><img src="<?=$templateFolder?>/images/list.gif" width="20" height="20" title="<?=GetMessage("BPC_LIST")?>" class="blogButton"<?if($arResult["use_captcha"]!==true) echo ' onload="imageLoaded()"'?>></a>
+									<a id=list class=blogButton href='javascript:tag_list()'><img src="<?=$templateFolder?>/images/list.gif" width="20" height="20" title="<?=GetMessage("BPC_LIST")?>" class="blogButton"<?php if($arResult["use_captcha"]!==true) echo ' onload="imageLoaded()"'?>></a>
 								</td>
 								<td width=100% align=right nowrap><a id=close_all style=visibility:hidden class=blogButton href='javascript:closeall()' title='<?=GetMessage("BPC_CLOSE_OPENED_TAGS")?>'><?=GetMessage("BPC_CLOSE_ALL_TAGS")?></a></td>
 							</tr>
 					</table>
 						</td>
 					</tr>
-					<?
+					<?php 
 					if(empty($arResult["User"]))
 					{
 						?>
@@ -76,17 +76,17 @@ else
 							<td class="padding" align="right">Email:</td>
 							<td><input size="50" type="text" name="user_email" id="user_email" value="<?=htmlspecialcharsEx($_SESSION["blog_user_email"])?>"></td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
-					<?if($arParams["NOT_USE_COMMENT_TITLE"] != "Y")
+					<?php if($arParams["NOT_USE_COMMENT_TITLE"] != "Y")
 					{
 						?>
 						<tr valign="top">
 							<td class="padding" width="0%" align="right"><?=GetMessage("B_B_MS_SUBJECT")?></td>
 							<td width="100%"><input size="50" type="text" name="subject" id="subject" value=""></td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 					<tr valign="top">
@@ -94,7 +94,7 @@ else
 						<td><textarea name="comment" id="comment" style="width:95%" rows="5" id="MESSAGE" onKeyPress="check_ctrl_enter(arguments[0])"></textarea>
 						</td>
 					</tr>
-					<?
+					<?php 
 					if($arResult["use_captcha"]===true)
 					{
 						?>
@@ -113,12 +113,12 @@ else
 								<input type="text" size="10" name="captcha_word" id="captcha_word" value="">
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 					<tr>
 						<td></td>
-						<td><?
+						<td><?php 
 							//							userconsent only for unregistered users
 							if (empty($arResult["User"]) && $arParams['USER_CONSENT'] == 'Y')
 							{
@@ -158,7 +158,7 @@ else
 	var last_div = '';
 	function showComment(key, subject, error, comment, userName, userEmail)
 	{
-		<?
+		<?php 
 		if ($arResult["use_captcha"]===true)
 		{
 			?>
@@ -168,7 +168,7 @@ else
 				BX("captcha").src = '/bitrix/tools/captcha.php?captcha_code=' + data["captcha_sid"];
 				BX("captcha").style.display = "";
 			});
-			<?
+			<?php 
 		}
 		?>
 
@@ -199,7 +199,7 @@ else
 	}
 	//-->
 	</script>
-	<?
+	<?php 
 	function ShowComment($comment, $tabCount=0, $tabSize=30, $canModerate=false, $User=Array(), $use_captcha=false, $bCanUserComment=false, $errorComment=false, $arParams)
 	{
 		$tabWidth = $tabCount*$tabSize;
@@ -218,7 +218,7 @@ else
 						<td align="right">
 						<table width="0%" class="blog-table-post-comment-table-date">
 						<tr>
-						<?
+						<?php 
 						if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($comment["urlToBlog"]) > 0 || strlen($comment["urlToAuthor"]) > 0) && array_key_exists("ALIAS", $comment["BlogUser"]) && strlen($comment["BlogUser"]["ALIAS"]) > 0)
 							$arTmpUser = array(
 								"NAME" => "",
@@ -241,7 +241,7 @@ else
 							?>
 							<td align="right" nowrap><a href="<?=$comment["urlToAuthor"]?>" class="blog-user"></a></td>
 							<td align="right" nowrap>
-							<?
+							<?php 
 							$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 								'',
 								array(
@@ -273,14 +273,14 @@ else
 							);
 							?>
 							</td>
-							<?
+							<?php 
 						}
 						elseif(strlen($comment["urlToAuthor"])>0)
 						{
 							?>
 							<td align="right" nowrap><a href="<?=$comment["urlToAuthor"]?>" class="blog-user"></a></td>
 							<td align="right" nowrap>
-							<?
+							<?php 
 							$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 								'',
 								array(
@@ -311,14 +311,14 @@ else
 							);
 							?>
 							</td>
-							<?
+							<?php 
 						}
 						else
 						{
 							?>
 							<td align="right" nowrap><div class="blog-user"></div></td>
 							<td align="right" nowrap><?=$comment["AuthorName"]?></td>
-							<?
+							<?php 
 						}
 
 						if(strlen($comment["urlToDelete"])>0)
@@ -327,20 +327,20 @@ else
 							{
 								?>
 								<td align="right" nowrap><small>(Email: <a href="mailto:<?=$comment["AuthorEmail"]?>"><?=$comment["AuthorEmail"]?></a>)</small></td>
-								<?
+								<?php 
 							}
 
 							if($comment["ShowIP"] == "Y")
 							{
 								?>
-								<td align="right" nowrap><small>(<?=GetMessage("B_B_MS_FROM")?> <?=$comment["AUTHOR_IP"]?><?if(strlen($comment["AUTHOR_IP1"])>0) echo ', '.$comment["AUTHOR_IP1"];?>)</small>&nbsp;</td>
-								<?
+								<td align="right" nowrap><small>(<?=GetMessage("B_B_MS_FROM")?> <?=$comment["AUTHOR_IP"]?><?php if(strlen($comment["AUTHOR_IP1"])>0) echo ', '.$comment["AUTHOR_IP1"];?>)</small>&nbsp;</td>
+								<?php 
 							}
 							?>
 							<td align="right">
 								<a href="javascript:if(confirm('<?=GetMessage("BPC_MES_DELETE_POST_CONFIRM")?>')) window.location='<?=$comment["urlToDelete"]."&".bitrix_sessid_get()?>'" class="blog-post-delete"></a>
 							</td>
-							<?
+							<?php 
 						}
 						?>
 						</tr>
@@ -352,38 +352,38 @@ else
 				<tr>
 					<td>
 						<?=$comment["AVATAR_img"]?>
-						<?if(strlen($comment["TitleFormated"])>0)
+						<?php if(strlen($comment["TitleFormated"])>0)
 						{
 							?>
 							<b><?=$comment["TitleFormated"]?></b><br />
-							<?
+							<?php 
 						}
 						?>
 						<?=$comment["TextFormated"]?>
 						<br clear="all">
-						<?
+						<?php 
 						if($bCanUserComment===true)
 						{
 							?>
 							(<a href="javascript:void(0)" onclick="return showComment('<?=$comment["ID"]?>', '<?=$comment["CommentTitle"]?>', '', '', '', '')"><?=GetMessage("B_B_MS_REPLY")?></a>)&nbsp;
-							<?
+							<?php 
 						}
 
 						if(IntVal($comment["PARENT_ID"])>0)
 						{
 							?>
 							(<a href="#<?=$comment["PARENT_ID"]?>"><?=GetMessage("B_B_MS_PARENT")?></a>)&nbsp;
-							<?
+							<?php 
 						}
 						?>
 						(<a href="#<?=$comment["ID"]?>"><?=GetMessage("B_B_MS_LINK")?></a>)
 					</td>
 				</tr>
 				</table>
-						<?
+						<?php 
 						if(strlen($errorComment)<=0 && $_POST["parentId"]==$comment["ID"] && strlen($_POST["preview"]) > 0)
 						{							
-							?><div style="border:1px solid red"><?
+							?><div style="border:1px solid red"><?php 
 								$commentPreview = Array(
 										"ID" => "preview",
 										"TitleFormated" => htmlspecialcharsbx($_POST["subject"]),
@@ -392,15 +392,15 @@ else
 										"DATE_CREATE" => GetMessage("B_B_MS_PREVIEW_TITLE"),
 									);
 								ShowComment($commentPreview, ($level+1), 30, $canModerate, $User, $use_captcha, $bCanUserComment, $errorComment, $arParams);
-							?></div><?
+							?></div><?php 
 						}
 						if(strlen($errorComment)>0 && IntVal($_POST["parentId"])==$comment["ID"] && $bCanUserComment===true)
 						{							
-							?><span class='errortext'><?=$errorComment?></span><?
+							?><span class='errortext'><?=$errorComment?></span><?php 
 						}
 						?>
 						<div id="form_comment_<?=$comment['ID']?>"></div>
-						<?
+						<?php 
 						if((strlen($errorComment)>0 || strlen($_POST["preview"]) > 0) && IntVal($_POST["parentId"])==$comment["ID"] && $bCanUserComment===true)
 						{
 							$form1 = CUtil::JSEscape($_POST["comment"]);
@@ -415,13 +415,13 @@ else
 							showComment('<?=$comment["ID"]?>', '<?=$subj?>', 'Y', cmt, '<?=$user_name?>', '<?=$user_email?>');
 							//-->
 							</script>
-							<?
+							<?php 
 						}
 						?>
 			</td>
 		</tr>
 		</table>
-		<?
+		<?php 
 	}
 
 	function RecursiveComments($sArray, $key, $level=0, $first=false, $canModerate=false, $User, $use_captcha, $bCanUserComment, $errorComment, $arParams)
@@ -451,24 +451,24 @@ else
 	?>
 	<div class="blog-line"></div>
 
-	<?
+	<?php 
 	if($arResult["NEED_NAV"] == "Y")
 	{
 		?><div align="center">
 		<table class="blog-table-post-comment" style="width:0%;">
 		<tr>
-			<th nowrap><?=GetMessage("BPC_PAGE")?> <?=$arResult["PAGE"]?> <?=GetMessage("BPC_PAGE_OF")?> <?=$arResult["PAGE_COUNT"]?><br /><?
+			<th nowrap><?=GetMessage("BPC_PAGE")?> <?=$arResult["PAGE"]?> <?=GetMessage("BPC_PAGE_OF")?> <?=$arResult["PAGE_COUNT"]?><br /><?php 
 		foreach($arResult["PAGES"] as $v)
 		{
 			echo $v;
 		}
 		?></th>
 		</tr>
-		</table></div><?
+		</table></div><?php 
 	}
 	?>
 
-	<?
+	<?php 
 	if($arResult["CanUserComment"])
 	{
 		$postTitle = "";
@@ -478,10 +478,10 @@ else
 		?>
 		<div align="center" class="blog-comment-text"><a name="comment"></a><a href="javascript:void(0)" onclick="return showComment('0', '<?=$postTitle?>')"><b><?=GetMessage("B_B_MS_ADD_COMMENT")?></b></a><br /></div>
 		<a name="0"></a>
-		<?
+		<?php 
 		if(strlen($arResult["COMMENT_ERROR"]) <= 0 && strlen($_POST["parentId"]) < 2 && IntVal($_POST["parentId"])==0 && strlen($_POST["preview"]) > 0)
 		{							
-			?><div style="border:1px solid red"><?
+			?><div style="border:1px solid red"><?php 
 				$commentPreview = Array(
 						"ID" => "preview",
 						"TitleFormated" => htmlspecialcharsbx($_POST["subject"]),
@@ -490,18 +490,18 @@ else
 						"DATE_CREATE" => GetMessage("B_B_MS_PREVIEW_TITLE"),
 					);
 				ShowComment($commentPreview, 0, 30, false, $arResult["User"], $arResult["use_captcha"], $arResult["CanUserComment"], false, $arParams);
-			?></div><?
+			?></div><?php 
 		}
 
 		if(strlen($arResult["COMMENT_ERROR"])>0 && strlen($_POST["parentId"]) < 2 && IntVal($_POST["parentId"])==0)
 		{
 			?>
 			<span class='errortext'><?=$arResult["COMMENT_ERROR"]?></span>
-			<?
+			<?php 
 		}
 		?>
 		<div id=form_comment_0></div><br />
-		<?
+		<?php 
 		if((strlen($arResult["COMMENT_ERROR"])>0 || strlen($_POST["preview"]) > 0) && IntVal($_POST["parentId"]) == 0 && strlen($_POST["parentId"]) < 2)
 		{
 			$form1 = CUtil::JSEscape($_POST["comment"]);
@@ -516,7 +516,7 @@ else
 			showComment('0', '<?=$subj?>', 'Y', cmt, '<?=$user_name?>', '<?=$user_email?>');
 			//-->
 			</script>
-			<?
+			<?php 
 		}
 	}
 
@@ -527,24 +527,24 @@ else
 		?><div align="center">
 		<table class="blog-table-post-comment" style="width:0%;">
 		<tr>
-			<th nowrap><?=GetMessage("BPC_PAGE")?> <?=$arResult["PAGE"]?> <?=GetMessage("BPC_PAGE_OF")?> <?=$arResult["PAGE_COUNT"]?><br /><?
+			<th nowrap><?=GetMessage("BPC_PAGE")?> <?=$arResult["PAGE"]?> <?=GetMessage("BPC_PAGE_OF")?> <?=$arResult["PAGE_COUNT"]?><br /><?php 
 		foreach($arResult["PAGES"] as $v)
 		{
 			echo $v;
 		}
 		?></th>
 		</tr>
-		</table></div><?
+		</table></div><?php 
 	}
 
 	if($arResult["CanUserComment"] && count($arResult["Comments"])>2)
 	{
 		?>
 		<div align="center" class="blog-comment-text"><a href="#comments" onclick="return showComment('00', '<?=$postTitle?>')"><b><?=GetMessage("B_B_MS_ADD_COMMENT")?></b></a><br /></div><a name="00"></a>
-		<?
+		<?php 
 		if(strlen($arResult["COMMENT_ERROR"]) <= 0 && $_POST["parentId"] == "00" && strlen($_POST["parentId"]) > 1 && strlen($_POST["preview"]) > 0)
 		{							
-			?><div style="border:1px solid red"><?
+			?><div style="border:1px solid red"><?php 
 				$commentPreview = Array(
 						"ID" => "preview",
 						"TitleFormated" => htmlspecialcharsbx($_POST["subject"]),
@@ -553,19 +553,19 @@ else
 						"DATE_CREATE" => GetMessage("B_B_MS_PREVIEW_TITLE"),
 					);
 				ShowComment($commentPreview, 0, 30, false, $arResult["User"], $arResult["use_captcha"], $arResult["CanUserComment"], $arResult["COMMENT_ERROR"], $arParams);
-			?></div><?
+			?></div><?php 
 		}
 		
 		if(strlen($arResult["COMMENT_ERROR"])>0 && $_POST["parentId"] == "00" && strlen($_POST["parentId"]) > 1)
 		{
 			?>
 			<span class='errortext'><?=$arResult["COMMENT_ERROR"]?></span>
-			<?
+			<?php 
 		}
 		?>
 
 		<div id=form_comment_00></div><br />
-		<?
+		<?php 
 		if((strlen($arResult["COMMENT_ERROR"])>0 || strlen($_POST["preview"]) > 0) && $_POST["parentId"] == "00" && strlen($_POST["parentId"]) > 1)
 		{
 			$form1 = CUtil::JSEscape($_POST["comment"]);
@@ -580,7 +580,7 @@ else
 			showComment('00', '<?=$subj?>', 'Y', cmt, '<?=$user_name?>', '<?=$user_email?>');
 			//-->
 			</script>
-			<?
+			<?php 
 		}
 
 	}

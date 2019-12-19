@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_TC_TITLE"] = "Ваш личный помощник";
 $MESS["JS_CORE_TC_MESSAGE_LINE_1"] = "Я заметила, что вас не было на рабочем месте #TIME#";
 $MESS["JS_CORE_TC_MESSAGE_LINE_2"] = "Расскажите, чем вы занимались в это время?";

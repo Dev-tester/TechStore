@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DOCUMENT_OPERATION_WRITE"] = "Запись";
 $MESS["CRM_DOCUMENT_OPERATION_READ"] = "Чтение";
 $MESS["CRM_DOCUMENT_OPERATION_ADD"] = "Добавление";

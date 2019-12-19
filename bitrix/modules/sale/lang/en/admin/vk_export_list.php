@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_VK_TITLE"] = "VK product exchange - profiles";
 $MESS["SALE_VK_TABLE__NEW_EXPORT"] = "New export";
 $MESS["SALE_VK_TABLE__ID"] = "ID";

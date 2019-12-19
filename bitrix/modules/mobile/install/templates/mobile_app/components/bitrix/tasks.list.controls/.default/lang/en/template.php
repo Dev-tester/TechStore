@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_PULL"] = "Pull down to refresh";
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_DOWN"] = "Release to refresh";
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_LOADING"] = "Updating data...";

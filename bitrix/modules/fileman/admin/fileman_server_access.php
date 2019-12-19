@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -151,17 +151,17 @@ if ($REQUEST_METHOD == "POST" && $USER->CanDoOperation('fileman_admin_folders') 
 	clearstatcache();
 	?>
 	<script>
-	<?if ($bBreak):  // Execution breaks on timeout?>
+	<?php if ($bBreak):  // Execution breaks on timeout?>
 		window.spBtimeout = true;
 		window.spLastPath = '<?= CUtil::JSEscape(CFilemanUtils::TrimPath($nextPath))?>';
-	<? else: ?>
+	<?php  else: ?>
 		window.spBtimeout = false;
-	<? endif; ?>
+	<?php  endif; ?>
 
 	window.spBstoped = <?= $bStoped ? 'true' : 'false'?>;
 	window.spResult = <?= CUtil::PhpToJSObject($oChmod->Result)?>;
 	</script>
-	<?
+	<?php 
 	die();
 }
 
@@ -204,19 +204,19 @@ $aMenu = array(
 $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
-<?CAdminMessage::ShowMessage($strNotice);?>
-<?CAdminMessage::ShowMessage($strWarning);?>
+<?php CAdminMessage::ShowMessage($strNotice);?>
+<?php CAdminMessage::ShowMessage($strWarning);?>
 
-<?if($strWarning == ""):?>
+<?php if($strWarning == ""):?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("FILEMAN_SA_TAB"), "ICON" => "fileman", "TITLE" => GetMessage("FILEMAN_SA_TAB_ALT"))
 );
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
 <tr>
 	<td colspan="2">
@@ -241,8 +241,8 @@ $tabControl->Begin();
 				<td class="bxsp-status"><?= GetMessage("FM_SA_CHANGE_STATUS")?></td>
 			</tr>
 
-		<?for($i = 0, $l = count($arFilesEx); $i < $l; $i++):?>
-			<?
+		<?php for($i = 0, $l = count($arFilesEx); $i < $l; $i++):?>
+			<?php 
 			if (CFileMan::IsWindows())
 			{
 				$html = $arFilesEx[$i]["PERM"][0] == '444' ? GetMessage("FM_SA_WIN_READONLY") : GetMessage("FM_SA_WIN_FULL_ACCESS");
@@ -260,17 +260,17 @@ $tabControl->Begin();
 				<td class="bxsp-value" title="<?= $title?>"><?= $html?></td>
 				<td class="bxsp-status"><?= GetMessage("FM_SA_IN_PROC")?>...</td>
 			</tr>
-		<?endfor;?>
+		<?php endfor;?>
 		</table>
 	</td>
 </tr>
 
 <tr>
 	<td colspan="2">
-		<?$ar = array('owner', 'group', 'public');?>
+		<?php $ar = array('owner', 'group', 'public');?>
 		<span style="font-weight: bold; padding: 5px 15px;"><?= GetMessage("FM_SA_SET_NEW")?>:</b>
 		<div class="bxfm-sperm-cont">
-			<? foreach(array('owner', 'group', 'public') as $k):?>
+			<?php  foreach(array('owner', 'group', 'public') as $k):?>
 			<div class="bx-s-perm-gr">
 				<div class="bx-s-title"><?= GetMessage("FM_SA_".strtoupper($k))?></div>
 				<table class="bxsp-tbl"><tr>
@@ -287,7 +287,7 @@ $tabControl->Begin();
 					<td><input id="bxsp_<?= $k?>_value" type="text" readonly="readonly" size="2"/></td>
 				</tr></table>
 			</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 
 			<table class="bxsp-tbl-2">
 				<tr>
@@ -297,18 +297,18 @@ $tabControl->Begin();
 					</td>
 				</tr>
 
-				<?if ($bCurrentValueDiff):?>
+				<?php if ($bCurrentValueDiff):?>
 				<tr id="bxsp_cur_val_diff">
 					<td colSpan="4"><i style="color: #494949;"><?= GetMessage("FILEMAN_SA_CUR_VALUE_DIFF")?></i></td>
 				</tr>
-				<?endif;?>
+				<?php endif;?>
 
-				<?if ($bFolderInList):?>
+				<?php if ($bFolderInList):?>
 				<tr>
 					<td style="width: 20px;"><input name="recurcive" id="bxsp_recurcive" type="checkbox" value="Y" checked="checked"/></td>
 					<td><label for="bxsp_recurcive"><?= GetMessage("FM_SA_SET_RECURCIVE")?></label></td>
 				</tr>
-				<?endif;?>
+				<?php endif;?>
 			</table>
 		</div>
 <script>
@@ -332,15 +332,15 @@ BX.ready(function()
 	</td>
 </tr>
 
-<?$tabControl->EndTab();?>
-<?$tabControl->Buttons(false);?>
+<?php $tabControl->EndTab();?>
+<?php $tabControl->Buttons(false);?>
 
 <input type="button" id="bx_sp_save" value="<?= GetMessage("admin_lib_edit_save")?>" title="<?= GetMessage("admin_lib_edit_save_title")?>" />
 <input type="button" id="bx_sp_apply" value="<?= GetMessage("admin_lib_edit_apply")?>" title="<?= GetMessage("admin_lib_edit_apply_title")?>" />
 <input type="button" id="bx_sp_cancel" value="<?= GetMessage("admin_lib_edit_cancel")?>" title="<?= GetMessage("admin_lib_edit_cancel_title")?>" />
 
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 
-<?endif;?>
+<?php endif;?>
 <br>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

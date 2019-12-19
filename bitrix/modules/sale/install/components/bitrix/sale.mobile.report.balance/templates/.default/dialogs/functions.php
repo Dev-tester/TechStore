@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Usefull dialogs functions
  */
@@ -10,11 +10,11 @@ function printStatusesListHtml($arStatuses, $currentStatusId, $showTitle = true)
 	<form id="status_form">
 			<div class="order_status_component">
 				<div class="order_status_infoblock">
-					<?if($showTitle):?>
+					<?php if($showTitle):?>
 						<div class="order_acceptpay_infoblock_title"><?=GetMessage('SMOD_STATUS');?></div>
-					<?endif;?>
+					<?php endif;?>
 					<ul>
-						<?foreach ($arStatuses as $status):?>
+						<?php foreach ($arStatuses as $status):?>
 							<li>
 								<div id="r_container_<?=$status["ID"]?>" title="<?=$status["ID"]?>" class="order_status_li_container <?=($status['ID'] == $currentStatusId ? ' checked' : '')?>" onclick="MAorderStatusControl._onStatusClick(this);">
 									<table>
@@ -25,7 +25,7 @@ function printStatusesListHtml($arStatuses, $currentStatusId, $showTitle = true)
 									</table>
 								</div>
 							</li>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</ul>
 				</div>
 			</div>
@@ -71,6 +71,6 @@ function printStatusesListHtml($arStatuses, $currentStatusId, $showTitle = true)
 			}
 		};
 	</script>
-	<?
+	<?php 
 }
 ?>

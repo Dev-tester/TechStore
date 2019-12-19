@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_RESTORE_DEFAULTS"] = "По умолчанию";
 $MESS["opt_def_from"] = "Адрес отправителя по умолчанию:";
 $MESS["opt_method_agent"] = "Агент";

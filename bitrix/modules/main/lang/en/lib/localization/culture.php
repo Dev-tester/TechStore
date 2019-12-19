@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["culture_err_del_lang"] = "Cannot delete regional options because they are used by language #LID#.";
 $MESS["culture_err_del_site"] = "Cannot delete regional options because they are used by website #LID#.";
 $MESS["culture_entity_name"] = "Name";

@@ -75,7 +75,7 @@ $APPLICATION->IncludeComponent(
 				BX.Crm.OrderDetailManager.messages = {};
 			}
 		);
-</script><?
+</script><?php 
 
 $editorContext = array(
 	'PARAMS' => $arResult['CONTEXT_PARAMS'],
@@ -150,7 +150,7 @@ if ($arResult['IS_AJAX_CALL'])
 					BX.CrmOrderStatusManager.statusInfoValues = <?= CUtil::PhpToJSObject($GLOBALS['OnCrmCrmOrderListAfterAjaxHandlerParams']['arOrderStatusInfoValues']) ?>;
 				}
 			});
-		</script><?
+		</script><?php 
 
 		return '';
 	}
@@ -168,5 +168,5 @@ else
 			}
 		});
 	</script>
-	<?
+	<?php 
 }

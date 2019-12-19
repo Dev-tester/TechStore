@@ -32,13 +32,13 @@ if(!function_exists('__CrmActivityListRenderItems'))
 	if($editorCfg['ENABLE_TOOLBAR']):
 		$toolbarID = $editorCfg['EDITOR_ID'].'_toolbar';
 		?><ul id="<?= htmlspecialcharsbx($toolbarID)?>" class="crm-view-actions">
-			<?if($editorCfg['ENABLE_TASK_ADD']):?>
+			<?php if($editorCfg['ENABLE_TASK_ADD']):?>
 			<li class="crm-activity-command-add-task">
 				<i></i>
 				<span><?=htmlspecialcharsbx(GetMessage('CRM_ACTIVITY_LIST_ADD_TASK'))?></span>
 			</li>
-			<?endif;?>
-			<?if($editorCfg['ENABLE_CALENDAR_EVENT_ADD']):?>
+			<?php endif;?>
+			<?php if($editorCfg['ENABLE_CALENDAR_EVENT_ADD']):?>
 			<li class="crm-activity-command-add-call">
 				<i></i>
 				<span><?=htmlspecialcharsbx(GetMessage('CRM_ACTIVITY_LIST_ADD_CALL'))?></span>
@@ -47,15 +47,15 @@ if(!function_exists('__CrmActivityListRenderItems'))
 				<i></i>
 				<span><?=htmlspecialcharsbx(GetMessage('CRM_ACTIVITY_LIST_ADD_MEETING'))?></span>
 			</li>
-			<?endif;?>
-			<?if($editorCfg['ENABLE_EMAIL_ADD']):?>
+			<?php endif;?>
+			<?php if($editorCfg['ENABLE_EMAIL_ADD']):?>
 			<li class="crm-activity-command-add-email">
 				<i></i>
 				<span><?=htmlspecialcharsbx(GetMessage('CRM_ACTIVITY_LIST_ADD_EMAIL'))?></span>
 			</li>
-			<?endif;?>
+			<?php endif;?>
 		</ul>
-	<?endif;?>
+	<?php endif;?>
 	<table class="crm-view-table crm-activity-table">
 		<thead>
 			<tr class="crm-activity-table-head" style="<?= $count > 0 ? '' : 'display:none;' ?>" >
@@ -67,7 +67,7 @@ if(!function_exists('__CrmActivityListRenderItems'))
 			</tr>
 		</thead>
 		<tbody>
-			<?
+			<?php 
 			$processed = 0;
 			for($i = 0; $i < $count; $i++)
 			{
@@ -154,9 +154,9 @@ if(!function_exists('__CrmActivityListRenderItems'))
 				?>
 			<tr id="<?= htmlspecialcharsbx($rowID) ?>" class="<?=htmlspecialcharsbx($rowClass)?>" style="<?= $showTop > 0 && $processed > $showTop ? 'display:none;' : '' ?>">
 				<td><!--Delete-->
-					<?if(!$arResult['READ_ONLY']):?>
+					<?php if(!$arResult['READ_ONLY']):?>
 						<span class="crm-view-table-column-delete"></span>
-					<?endif;?>
+					<?php endif;?>
 				</td>
 				<td> <!--Type-->
 					<a class="crm-activity-type" href="#"><?= $item['TYPE_NAME'] ?></a>
@@ -165,7 +165,7 @@ if(!function_exists('__CrmActivityListRenderItems'))
 					<a class="crm-activity-subject" href="#"><?= $item['SUBJECT']?></a>
 				</td>
 				<td> <!--End time-->
-					<? $deadline = isset($item['~DEADLINE']) ? MakeTimeStamp($item['~DEADLINE']) : null; ?>
+					<?php  $deadline = isset($item['~DEADLINE']) ? MakeTimeStamp($item['~DEADLINE']) : null; ?>
 					<span <?= $item['~COMPLETED'] !== 'Y' && $deadline !== null && $deadline < $now ? 'style="color:#ff0000;"' : '' ?>>
 						<?= $deadline !== null ? htmlspecialcharsbx(CCrmComponentHelper::TrimDateTimeString(FormatDate('FULL', $deadline))) : '' ?>
 					</span>
@@ -176,18 +176,18 @@ if(!function_exists('__CrmActivityListRenderItems'))
 			</span>
 				</td>
 			</tr>
-				<?
+				<?php 
 			}
 			unset($item);
 			?>
 		</tbody>
 	</table>
-	<?if($showTop > 0 && $processed > $showTop)
+	<?php if($showTop > 0 && $processed > $showTop)
 	{?>
 	<div class="crm-activity-show-all-wrapper">
 		<a href="#" class="crm-activity-command-show-all" ><?= str_replace('#COUNT#', strval($processed), GetMessage('CRM_ACTIVITY_SHOW_ALL'))?></a>
 	</div>
-	<?}
+	<?php }
 
 		$GLOBALS['APPLICATION']->IncludeComponent(
 			'bitrix:crm.activity.editor',
@@ -217,7 +217,7 @@ if(!function_exists('__CrmActivityListRenderItems'))
 }
 ?>
 <div class="crm-activity-container">
-<?
+<?php 
 	$selectorContainerID =  $arResult['PREFIX'].'_selector_container';
 	$showRecentButtonID = $arResult['PREFIX'].'_show_recent_btn';
 	$showHistoryButtonID = $arResult['PREFIX'].'_show_history_btn';
@@ -234,7 +234,7 @@ if(!function_exists('__CrmActivityListRenderItems'))
 		</li>
 	</ul>
 </div>
-<?
+<?php 
 	$prefixUpper = strtoupper($arResult['PREFIX']);
 	$prefixLower = strtolower($arResult['PREFIX']);
 
@@ -246,9 +246,9 @@ if(!function_exists('__CrmActivityListRenderItems'))
 	$editorCfg['BUTTON_ID'] = $showRecentButtonID;
 ?>
 <div id="<?= htmlspecialcharsbx($editorCfg['CONTAINER_ID']) ?>" class="crm-activity-current" style="">
-<? __CrmActivityListRenderItems($arResult['ITEMS'], 'NOT_COMPLETED', $arResult['SHOW_TOP'], $editorCfg); ?>
+<?php  __CrmActivityListRenderItems($arResult['ITEMS'], 'NOT_COMPLETED', $arResult['SHOW_TOP'], $editorCfg); ?>
 </div>
-<?
+<?php 
 	$editorCfg['PREFIX'] = $prefixUpper.'_HISTORY';
 	$editorCfg['EDITOR_ID'] = $historyEditorID;
 	$editorCfg['EDITOR_TYPE'] = 'HISTORY';
@@ -257,7 +257,7 @@ if(!function_exists('__CrmActivityListRenderItems'))
 	$editorCfg['BUTTON_ID'] = $showHistoryButtonID;
 	?>
 <div id="<?= htmlspecialcharsbx($editorCfg['CONTAINER_ID']) ?>" class="crm-activity-history" style="display:none;">
-	<? __CrmActivityListRenderItems($arResult['ITEMS'], 'COMPLETED', $arResult['SHOW_TOP'], $editorCfg); ?>
+	<?php  __CrmActivityListRenderItems($arResult['ITEMS'], 'COMPLETED', $arResult['SHOW_TOP'], $editorCfg); ?>
 </div>
 </div>
 <script type="text/javascript">

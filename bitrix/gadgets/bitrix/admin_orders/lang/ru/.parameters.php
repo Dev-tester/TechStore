@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_ORDERS_P_SITE_ID"] = "Сайт";
 $MESS["GD_ORDERS_P_SITE_ID_ALL"] = "Все";
 $MESS["GD_ORDERS_P_STATUS_1"] = "Состояния заказов";

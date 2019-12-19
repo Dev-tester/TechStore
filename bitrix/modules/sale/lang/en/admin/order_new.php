@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEWO_NO_SITE_SELECT"] = "Web store was not found.";
 $MESS["NEWO_CUSTOM_FIELD"] = "Customize";
 $MESS["NEWO_CUSTOM_FIELD_TITLE"] = "Customize form fields";

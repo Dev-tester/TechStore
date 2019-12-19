@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ELSEARCH_TITLE"] = "Поиск элемента";
 $MESS["IBLOCK_ELSEARCH_LOCK_BY"] = "Кем заблокирована";
 $MESS["IBLOCK_ELSEARCH_CHOOSE_IBLOCK"] = "Выберите информационный блок";

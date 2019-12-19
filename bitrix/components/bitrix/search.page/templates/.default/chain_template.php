@@ -1,4 +1,4 @@
-<?
+<?php 
 //Navigation chain template
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 

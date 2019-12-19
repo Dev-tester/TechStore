@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GL_EVENT_TITLE_BLOG_POST"] = "сообщение: #TITLE#";
 $MESS["SONET_GL_EVENT_TITLE_BLOG_POST_24"] = "Сообщение";
 $MESS["SONET_GL_EVENT_TITLE_GROUP_BLOG_POST_MAIL"] = "В группе \"#ENTITY#\" #CREATED_BY# создал новое сообщение #TITLE#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CT_MAIN_REG_INIT_CONFIRM'] = "Подтвердить";
 $MESS ['CT_MAIN_REG_INIT_TITLE'] = "Подтверждение регистрации";
 $MESS ['CT_MAIN_REG_INIT_LOGIN_TITLE'] = "E-mail";

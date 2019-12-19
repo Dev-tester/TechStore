@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Currency;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/currency/general/currency_rate.php");

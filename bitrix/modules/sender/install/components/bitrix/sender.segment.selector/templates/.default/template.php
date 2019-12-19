@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -41,7 +41,7 @@ $containerId = 'sender-segment-selector';
 			$getMessageLocal('SENDER_SEGMENT_SELECTOR_INCLUDE_EDIT_TITLE')
 		)?>
 	</div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent('bitrix:sender.ui.tile.selector', '', array(
 		'INPUT_NAME' => 'SEGMENT[INCLUDE]',
 		'ID' => 'segment-include',
@@ -56,34 +56,34 @@ $containerId = 'sender-segment-selector';
 			<div class="sender-segment-selector-block" <?=($arParams['SHOW_COUNTERS'] ? '' : 'style="display: none;"')?>>
 				<div class="sender-segment-selector-block-name">
 					<?=$getMessageLocal('SENDER_SEGMENT_SELECTOR_RECIPIENT_COUNT')?>:
-					<?if(!$arParams['IS_RECIPIENT_COUNT_EXACT']):?>~<?endif;?>
+					<?php if(!$arParams['IS_RECIPIENT_COUNT_EXACT']):?>~<?php endif;?>
 				</div>
 				<div data-role="counter" class="sender-segment-selector-block-number">
 					<?=htmlspecialcharsbx($arParams['RECIPIENT_COUNT'])?>
 				</div>
-				<?if($arParams['IS_RECIPIENT_COUNT_EXACT']):?>
+				<?php if($arParams['IS_RECIPIENT_COUNT_EXACT']):?>
 					<div data-hint="<?=$getMessageLocal('SENDER_SEGMENT_SELECTOR_RECIPIENT_COUNT_EXACT_HINT1')?>"></div>
-				<?else:?>
+				<?php else:?>
 					<div data-hint="<?=$getMessageLocal('SENDER_SEGMENT_SELECTOR_RECIPIENT_COUNT_HINT')?>"></div>
-				<?endif;?>
+				<?php endif;?>
 				<div data-role="duration" class="sender-segment-selector-duration <?=($arParams['DURATION_FORMATTED'] ? 'sender-segment-selector-duration-active' : '')?>">
 					<span><?=Loc::getMessage('SENDER_SEGMENT_SELECTOR_SEND_TIME')?>: ~ </span>
 					<span data-role="duration-text"><?=htmlspecialcharsbx($arParams['DURATION_FORMATTED'])?></span>
 				</div>
 			</div>
-			<?if(!$arParams['READONLY']):?>
+			<?php if(!$arParams['READONLY']):?>
 				<a data-role="exclude-add-button" class="sender-segment-selector-link <?=(!$arResult['HAS_EXCLUDE_SEGMENTS'] ? 'sender-segment-selector-link-active' : '')?>">
 					<?=Loc::getMessage('SENDER_SEGMENT_SELECTOR_EXCLUDES')?>
 				</a>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 
 		<div data-role="exclude-container" class="sender-segment-selector-exclude" style="<?=(!$arResult['HAS_EXCLUDE_SEGMENTS'] ? 'display: none;' : '')?>">
-			<?if(!$arParams['READONLY']):?>
+			<?php if(!$arParams['READONLY']):?>
 				<div data-role="exclude-remove-button" class="sender-close-icon">
 					<div class="sender-close-icon-item"></div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 			<div class="sender-segment-selector-title">
 				<?=($arParams['READONLY'] ?
 					Loc::getMessage('SENDER_SEGMENT_SELECTOR_EXCLUDE_VIEW_TITLE')
@@ -91,7 +91,7 @@ $containerId = 'sender-segment-selector';
 					Loc::getMessage('SENDER_SEGMENT_SELECTOR_EXCLUDE_EDIT_TITLE')
 				)?>
 			</div>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent('bitrix:sender.ui.tile.selector', '', array(
 				'INPUT_NAME' => 'SEGMENT[EXCLUDE]',
 				'ID' => 'segment-exclude',

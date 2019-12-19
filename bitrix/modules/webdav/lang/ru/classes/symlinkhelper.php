@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_SYMLINK_TEMPLATE_NAME"] = "#NAME#";
 $MESS["WD_SYMLINK_INVITE_APPROVE_Y"] = "Подключить папку";
 $MESS["WD_SYMLINK_INVITE_APPROVE_N"] = "Отказаться";

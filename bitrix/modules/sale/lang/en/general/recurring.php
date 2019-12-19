@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGR_EMPTY_USER_ID"] = "The user ID is not specified";
 $MESS["SKGR_EMPTY_NEXT_DATE"] = "The date of the next payment is not specified";
 $MESS["SKGR_EMPTY_ORDER_ID"] = "The order ID is not specified";

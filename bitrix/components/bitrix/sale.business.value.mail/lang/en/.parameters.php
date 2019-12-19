@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BVAL_MAIL_PARAM_PROVIDER"] = "Data source";
 $MESS["SALE_BVAL_MAIL_PARAM_GROUP"] = "Field group";
 $MESS["SALE_BVAL_MAIL_PARAM_FIELD"] = "Fields";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!CModule::IncludeModule("sale") || !CModule::IncludeModule("currency"))
@@ -103,7 +103,7 @@ foreach($arFields as $k => $v)
 		gdSaleGraphTabControl_<?=$arGadgetParams["RND_STRING"]?> = new gdTabControl('bx_gd_tabset_sale_graph_<?=$arGadgetParams["RND_STRING"]?>');
 	});
 </script>
-<?
+<?php 
 $aTabs = array(
 	array(
 		"DIV" => "bx_gd_sale_graph1_".$arGadgetParams["RND_STRING"],
@@ -125,17 +125,17 @@ $tabControl = new CAdminViewTabControl("saleGraphTabControl_".$arGadgetParams["R
 
 ?>
 <div class="bx-gadgets-tabs-wrap" id="bx_gd_tabset_sale_graph_<?=$arGadgetParams["RND_STRING"]?>">
-	<?
+	<?php 
 	$tabControl->Begin();
 	for($i = 0; $i < count($aTabs); $i++)
 		$tabControl->BeginNextTab();
 	$tabControl->End();
 	?>
 	<div class="bx-gadgets-tabs-cont">
-		<?
+		<?php 
 		for($i = 0; $i < count($aTabs); $i++)
 		{
-			?><div id="<?=$aTabs[$i]["DIV"]?>_content" style="display: <?=($i==0 ? "block" : "none")?>;" class="bx-gadgets-tab-container"><?
+			?><div id="<?=$aTabs[$i]["DIV"]?>_content" style="display: <?=($i==0 ? "block" : "none")?>;" class="bx-gadgets-tab-container"><?php 
 				if ($i == 0)
 				{
 					?>
@@ -149,36 +149,36 @@ $tabControl = new CAdminViewTabControl("saleGraphTabControl_".$arGadgetParams["R
 						<td valign="top">
 							<table cellpadding="2" cellspacing="0" border="0" class="legend" style="font-size:100%;">
 							<tbody>
-								<?if($arFields["find_all"] == "Y"):?>
+								<?php if($arFields["find_all"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=08738C" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L_ALL")?></td>
 								</tr>
-								<?endif;?>
-								<?if($arFields["find_payed"] == "Y"):?>
+								<?php endif;?>
+								<?php if($arFields["find_payed"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=C6B59C" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L_PAYED")?></td>
 								</tr>
-								<?endif;?>
-								<?if($arFields["find_allow_delivery"] == "Y"):?>
+								<?php endif;?>
+								<?php if($arFields["find_allow_delivery"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=0000FF" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L_AD")?></td>
 								</tr>
-								<?endif;?>
-								<?if($arFields["find_canceled"] == "Y"):?>
+								<?php endif;?>
+								<?php if($arFields["find_canceled"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=FF0000" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L_CANCELED")?></td>
 								</tr>
-								<?endif;?>
+								<?php endif;?>
 							</tbody>
 							</table>
 						</td>
 					</tr>
 					</tbody></table>
-					<?
+					<?php 
 				}
 				elseif ($i == 1)
 				{
@@ -193,39 +193,39 @@ $tabControl = new CAdminViewTabControl("saleGraphTabControl_".$arGadgetParams["R
 						<td valign="top">
 							<table cellpadding="2" cellspacing="0" border="0" class="legend" style="font-size:100%;">
 							<tbody>
-								<?if($arFields["find_all"] == "Y"):?>
+								<?php if($arFields["find_all"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=08738C" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L2_ALL")?></td>
 								</tr>
-								<?endif;?>
-								<?if($arFields["find_payed"] == "Y"):?>
+								<?php endif;?>
+								<?php if($arFields["find_payed"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=C6B59C" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L2_PAYED")?></td>
 								</tr>
-								<?endif;?>
-								<?if($arFields["find_allow_delivery"] == "Y"):?>
+								<?php endif;?>
+								<?php if($arFields["find_allow_delivery"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=0000FF" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L2_AD")?></td>
 								</tr>
-								<?endif;?>
-								<?if($arFields["find_canceled"] == "Y"):?>
+								<?php endif;?>
+								<?php if($arFields["find_canceled"] == "Y"):?>
 								<tr>
 									<td valign="center"><img src="/bitrix/admin/sale_graph_legend.php?color=FF0000" width="45" height="2" style="margin-bottom: 4px;"></td>
 									<td nowrap=""><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("GD_ORDERS_L2_CANCELED")?></td>
 								</tr>
-								<?endif;?>
+								<?php endif;?>
 							</tbody>
 							</table>
 						</td>
 					</tr>
 					</tbody></table>
-					<?
+					<?php 
 				}?>
 			</div>
-		<?
+		<?php 
 		}?>
 	</div>
 </div>

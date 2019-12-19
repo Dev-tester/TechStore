@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_VM_HEADER_SETTINGS"] = "Settings";
 $MESS["CONFIG_VM_SMTP_TITLE"] = "E-Mail Configuration";
 $MESS["CONFIG_VM_SMTP_HOST"] = "SMTP server";

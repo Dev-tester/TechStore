@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $strError = "";
@@ -20,22 +20,22 @@ if (CModule::IncludeModule("learning")):
 	<input type="hidden" name="profile_module_id[]" value="learning">
 	<tr valign="top">
 			<td align="right" width="40%"><?=GetMessage("learning_PUBLIC_PROFILE");?>:</td>
-			<td width="60%"><input type="checkbox" name="student_PUBLIC_PROFILE" value="Y" <?if ($str_student_PUBLIC_PROFILE=="Y") echo "checked";?>></td>
+			<td width="60%"><input type="checkbox" name="student_PUBLIC_PROFILE" value="Y" <?php if ($str_student_PUBLIC_PROFILE=="Y") echo "checked";?>></td>
 	</tr>
 
 	<tr valign="top">
 		<td align="right"><?=GetMessage("learning_RESUME");?>:</td>
-		<td><textarea class="typearea" name="student_RESUME" style="width:50%; height:200px;"><?echo $str_student_RESUME; ?></textarea></td>
+		<td><textarea class="typearea" name="student_RESUME" style="width:50%; height:200px;"><?php echo $str_student_RESUME; ?></textarea></td>
 	</tr>
 
-<?if (strlen($str_student_TRANSCRIPT)>0):?>
+<?php if (strlen($str_student_TRANSCRIPT)>0):?>
 	<tr valign="top">
 		<td align="right"><?=GetMessage("learning_TRANSCRIPT");?>:</td>
 		<td>
 			<?=$str_student_TRANSCRIPT?>-<?=$ID?>
 		</td>
 	</tr>
-<?endif?>
+<?php endif?>
 
 	<tr valign="top">
 		<td align="right"></td>
@@ -44,4 +44,4 @@ if (CModule::IncludeModule("learning")):
 			<a href="/bitrix/admin/learn_gradebook_admin.php?lang=<?=LANG?>&amp;filter_user=<?=$ID?>&amp;set_filter=Y"><?=GetMessage("learning_GRADEBOOK")?></a>
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -88,31 +88,31 @@ CAdminMessage::ShowMessage(array(
 );
 ?>
 
-<form method="POST" action="security_frame.php?lang=<?echo LANGUAGE_ID?><?echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>" enctype="multipart/form-data" name="editform">
-<?
+<form method="POST" action="security_frame.php?lang=<?php echo LANGUAGE_ID?><?php echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>" enctype="multipart/form-data" name="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
 	<td colspan="2" align="left">
-<?if(CSecurityFrame::IsActive()):?>
+<?php if(CSecurityFrame::IsActive()):?>
 		<input type="hidden" name="frame_active" value="N">
-		<input type="submit" name="frame_siteb" value="<?echo GetMessage("SEC_FRAME_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
-<?else:?>
+		<input type="submit" name="frame_siteb" value="<?php echo GetMessage("SEC_FRAME_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
+<?php else:?>
 		<input type="hidden" name="frame_active" value="Y">
-		<input type="submit" name="frame_siteb" value="<?echo GetMessage("SEC_FRAME_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
-<?endif?>
+		<input type="submit" name="frame_siteb" value="<?php echo GetMessage("SEC_FRAME_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+<?php endif?>
 	</td>
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><?echo GetMessage("SEC_FRAME_NOTE")?>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?><?php echo GetMessage("SEC_FRAME_NOTE")?>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 $arMasks = array();
 if($bVarsFromForm)
@@ -135,21 +135,21 @@ else
 }
 ?>
 <tr>
-	<td class="adm-detail-valign-top" width="40%"><?echo GetMessage("SEC_FRAME_MASKS")?></td>
+	<td class="adm-detail-valign-top" width="40%"><?php echo GetMessage("SEC_FRAME_MASKS")?></td>
 	<td width="60%">
 	<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbFRAME_MASKS">
-		<?foreach($arMasks as $i => $arMask):?>
+		<?php foreach($arMasks as $i => $arMask):?>
 			<tr><td nowrap style="padding-bottom: 3px;">
-				<input type="text" size="45" name="FRAME_MASKS[<?echo $i?>][MASK]" value="<?echo $arMask["FRAME_MASK"]?>">&nbsp;<?echo GetMessage("SEC_FRAME_SITE")?>&nbsp;<?echo CSite::SelectBox("FRAME_MASKS[$i][SITE_ID]", $arMask["SITE_ID"], GetMessage("MAIN_ALL"), "");?><br>
+				<input type="text" size="45" name="FRAME_MASKS[<?php echo $i?>][MASK]" value="<?php echo $arMask["FRAME_MASK"]?>">&nbsp;<?php echo GetMessage("SEC_FRAME_SITE")?>&nbsp;<?php echo CSite::SelectBox("FRAME_MASKS[$i][SITE_ID]", $arMask["SITE_ID"], GetMessage("MAIN_ALL"), "");?><br>
 			</td></tr>
-		<?endforeach;?>
-		<?if(!$bVarsFromForm):?>
+		<?php endforeach;?>
+		<?php if(!$bVarsFromForm):?>
 			<tr class="security-addable-row"><td nowrap style="padding-bottom: 3px;">
-				<input type="text" size="45" name="FRAME_MASKS[n0][MASK]" value="">&nbsp;<?echo GetMessage("SEC_FRAME_SITE")?>&nbsp;<?echo CSite::SelectBox("FRAME_MASKS[n0][SITE_ID]", "", GetMessage("MAIN_ALL"), "");?><br>
+				<input type="text" size="45" name="FRAME_MASKS[n0][MASK]" value="">&nbsp;<?php echo GetMessage("SEC_FRAME_SITE")?>&nbsp;<?php echo CSite::SelectBox("FRAME_MASKS[n0][SITE_ID]", "", GetMessage("MAIN_ALL"), "");?><br>
 			</td></tr>
-		<?endif;?>
+		<?php endif;?>
 			<tr><td>
-				<br><input type="button" id="add-button" value="<?echo GetMessage("SEC_FRAME_ADD")?>">
+				<br><input type="button" id="add-button" value="<?php echo GetMessage("SEC_FRAME_ADD")?>">
 			</td></tr>
 		</table>
 	</td>
@@ -162,7 +162,7 @@ else
 		}]
 	}
 </script>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -170,12 +170,12 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

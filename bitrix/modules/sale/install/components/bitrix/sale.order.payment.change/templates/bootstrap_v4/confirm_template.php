@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_before.php');
 
 use Bitrix\Main\Localization\Loc;
@@ -26,7 +26,7 @@ else
 			<p><b><?=Loc::getMessage("SOPC_PAY_SYSTEM_CHANGED")?></b></p>
 			<p><?=Loc::getMessage("SOPC_PAY_SYSTEM_NOT_ALLOW_PAY")?></p>
 		</div>
-		<?
+		<?php 
 	}
 	elseif ($arResult['SHOW_INNER_TEMPLATE'] == 'Y')
 	{
@@ -39,7 +39,7 @@ else
 							<div class="sale-order-payment-change-inner-row-body">
 								<div class="col-xs-12 sale-order-inner-padding-bottom">
 									<div class="sale-order-payment-change-payment-title sale-order-inner-padding-bottom">
-										<?
+										<?php 
 											$paymentSubTitle = Loc::getMessage('SOPC_TPL_BILL')." ".Loc::getMessage('SOPC_TPL_NUMBER_SIGN').$arResult['PAYMENT']['ACCOUNT_NUMBER'];
 											if(isset($arResult['PAYMENT']['DATE_BILL']))
 											{
@@ -59,7 +59,7 @@ else
 										<span class="sale-order-payment-change-payment-number"><?=SaleFormatCurrency($arResult['INNER_PAYMENT_INFO']['CURRENT_BUDGET'], $arResult['INNER_PAYMENT_INFO']["CURRENCY"])?></span>
 									</div>
 
-									<?
+									<?php 
 									$inputSum = $arResult['INNER_PAYMENT_INFO']['CURRENT_BUDGET'] > $arResult['PAYMENT']["SUM"] ?  $arResult['PAYMENT']["SUM"] : $arResult['INNER_PAYMENT_INFO']['CURRENT_BUDGET'];
 
 									if (
@@ -83,7 +83,7 @@ else
 													</div>
 												</div>
 											</div>
-											<?
+											<?php 
 										}
 										?>
 										<div class="sale-order-payment-change-payment-price">
@@ -91,11 +91,11 @@ else
 												<?=Loc::getMessage('SOPC_TPL_PAY_BUTTON')?>
 											</a>
 										</div>
-										<?
+										<?php 
 									}
 									?>
 								</div>
-							<?
+							<?php 
 							if (
 								($arParams['ONLY_INNER_FULL'] !== 'Y' &&(float)$arResult['INNER_PAYMENT_INFO']['CURRENT_BUDGET'] > 0)
 								|| ($arParams['ONLY_INNER_FULL'] === 'Y' && $arResult['INNER_PAYMENT_INFO']['CURRENT_BUDGET'] >= $arResult['PAYMENT']["SUM"])
@@ -107,15 +107,15 @@ else
 										<?=Loc::getMessage('SOPC_HANDLERS_PAY_SYSTEM_WARNING_RETURN');?>
 									</span>
 								</div>
-								<?
+								<?php 
 							}
 							else
 							{
 								?>
 								<div class="col-xs-12">
-									<?ShowError(Loc::getMessage('SOPC_LOW_BALANCE'));?>
+									<?php ShowError(Loc::getMessage('SOPC_LOW_BALANCE'));?>
 								</div>
-								<?
+								<?php 
 							}
 							?>
 							</div>
@@ -124,7 +124,7 @@ else
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		if ((float)$arResult['INNER_PAYMENT_INFO']['CURRENT_BUDGET'] > 0)
 		{
 			$javascriptParams = array(
@@ -141,7 +141,7 @@ else
 			<script>
 				var sc = new BX.Sale.OrderInnerPayment(<?=$javascriptParams?>);
 			</script>
-			<?
+			<?php 
 		}
 	}
 	elseif (empty($arResult['PAYMENT_LINK']) && !$arResult['IS_CASH'] && strlen($arResult['TEMPLATE']))
@@ -156,24 +156,24 @@ else
 				<p><?=Loc::getMessage("SOPC_ORDER_SUC", array("#ORDER_ID#"=>$arResult['ORDER_ID'],"#ORDER_DATE#"=>$arResult['ORDER_DATE']))?></p>
 				<p><?=Loc::getMessage("SOPC_PAYMENT_SUC", array("#PAYMENT_ID#"=>$arResult['PAYMENT_ID']))?></p>
 				<p><?=Loc::getMessage("SOPC_PAYMENT_SYSTEM_NAME", array("#PAY_SYSTEM_NAME#"=>$arResult['PAY_SYSTEM_NAME']))?></p>
-				<?
+				<?php 
 				if (!$arResult['IS_CASH'] && strlen($arResult['PAYMENT_LINK']))
 				{
 					?>
 					<p><?=Loc::getMessage("SOPC_PAY_LINK", array("#LINK#"=>$arResult['PAYMENT_LINK']))?></p>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
-		<?
+		<?php 
 		if (!$arResult['IS_CASH'] && strlen($arResult['PAYMENT_LINK']))
 		{
 			?>
 			<script type="text/javascript">
 				window.open("<?=$arResult['PAYMENT_LINK']?>");
 			</script>
-			<?
+			<?php 
 		}
 	}
 }

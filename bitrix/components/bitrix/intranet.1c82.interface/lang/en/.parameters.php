@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["1C_URL"] = "1C Version 8.2 URL";
 $MESS["1C_LOGIN"] = "Login";
 $MESS["1C_PASS"] = "Password";

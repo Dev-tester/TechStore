@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["I_NO_PRODUCT"] = "Product no. #ID# was not found";
 $MESS["I_NO_TRIAL_PRODUCT"] = "Product no. #ID# was not found (for trial no. #TRIAL_ID#)";
 $MESS["I_PRODUCT_NOT_SUBSCR"] = "Product no. #ID# does not support subscription";

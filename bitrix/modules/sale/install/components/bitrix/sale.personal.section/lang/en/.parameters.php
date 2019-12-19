@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPS_DISALLOW_CANCEL"] = "Don't allow order cancellation";
 $MESS["SPS_GROUP_ACCOUNT"] = "Customer account page";
 $MESS["SPS_GROUP_ORDER"] = "Customer orders page";

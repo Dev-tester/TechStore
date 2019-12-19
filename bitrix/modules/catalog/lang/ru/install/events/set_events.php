@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMAIL_FOOTER_BR"] = "С уважением, администрация";
 $MESS["SMAIL_FOOTER_SHOP"] = "Интернет-магазина";
 $MESS["SMAIL_UNSUBSCRIBE"] = "Отписаться";

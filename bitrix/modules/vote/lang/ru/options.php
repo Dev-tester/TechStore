@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_SAVE'] = "Сохранить";
 $MESS ['VOTE_RESET'] = "Сбросить";
 $MESS ['VOTE_USE_HTML_EDIT'] = "Использовать HTML-редактор:";

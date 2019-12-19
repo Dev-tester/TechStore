@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_CRM_DESKTOP"] = "CRM Desktop";
 $MESS["MENU_CRM_STREAM"] = "Activity Stream";
 $MESS["MENU_CRM_ACTIVITY"] = "My Activities";

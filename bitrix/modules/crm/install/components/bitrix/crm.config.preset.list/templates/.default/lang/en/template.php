@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRESET_TOOLBAR_ADD"] = "Add template";
 $MESS["CRM_PRESET_TOOLBAR_ADD_TITLE"] = "Add new template";
 $MESS["CRM_PRESET_TOOLBAR_EDIT"] = "Edit template";

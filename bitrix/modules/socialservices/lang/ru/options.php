@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["soc_serv_opt_allow"] = "Разрешить авторизацию через внешние сервисы";
 $MESS["soc_serv_opt_list"] = "Список сервисов:";
 $MESS["soc_serv_opt_list_title"] = "Внешние сервисы";

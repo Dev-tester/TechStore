@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HK_PANEL_TITLE"] = "Customize keyboard shortcuts";
 $MESS["MTP_SHORT_URI"] = "Short URL";
 $MESS["MTP_SHORT_URI1"] = "Add short URL";

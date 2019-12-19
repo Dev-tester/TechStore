@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['class_rub_err_name'] = "Category name is required.";
 $MESS ['class_rub_err_lang'] = "Incorrect language.";
 $MESS ['class_rub_err_lang2'] = "Please set the language.";

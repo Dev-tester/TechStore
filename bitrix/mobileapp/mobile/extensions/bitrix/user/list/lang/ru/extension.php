@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOAD_MORE_USERS"] = "Загрузить ещe";
 $MESS["LOAD_MORE_RESULT"] = "Еще результаты";
 $MESS["SEARCH_LOADING"] = "Поиск...";

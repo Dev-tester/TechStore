@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SENDER_SUBSCR_MODULE_NOT_INSTALLED']='Модуль Email-маркетинга в настоящее время недоступен.';
 $MESS['SENDER_SUBSCR_MODULE_NOT_INSTALLED1']='Модуль Маркетинг 24 в настоящее время недоступен.';
 $MESS['SENDER_SUBSCR_TITLE']='Подписка на рассылки';

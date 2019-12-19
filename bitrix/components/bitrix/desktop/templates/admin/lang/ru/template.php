@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CMDESKTOP_TDEF_ERR1"] = "Ошибка сохранения позиции гаджета на сервере.";
 $MESS["CMDESKTOP_TDEF_ERR2"] = "Ошибка добавления гаджета на сервере.";
 $MESS["CMDESKTOP_TDEF_SETTINGS"] = "Настроить";

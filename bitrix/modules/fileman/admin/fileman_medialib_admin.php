@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -63,7 +63,7 @@ if ($curType === false)
 	$curType = $arMLTypes[0];
 }
 
-?><script><?$arCols = CMedialib::GetCollections($exParams);?></script><?
+?><script><?php $arCols = CMedialib::GetCollections($exParams);?></script><?php 
 
 $arTypeCols = array();
 for ($i = 0, $l = count($arCols); $i < $l; $i++)
@@ -147,8 +147,8 @@ if (count($aContext) > 0)
 ?>
 
 <script>
-<?CMedialib::AppendLangMessages();?>
-<?CMedialib::AppendLangMessagesEx();?>
+<?php CMedialib::AppendLangMessages();?>
+<?php CMedialib::AppendLangMessagesEx();?>
 
 BX.ready(function()
 	{
@@ -213,7 +213,7 @@ BX.ready(function()
 		);
 	}
 );
-</script><?
+</script><?php 
 ?>
 
 <div class="ml-cont">
@@ -241,7 +241,7 @@ BX.ready(function()
 <?= BeginNote().GetMessage('ML_NO_COLS_EX').EndNote();?>
 </div>
 
-<? if ($bCols): ?>
+<?php  if ($bCols): ?>
 <br />
 <table class="multiaction" style = "display:<?= (CMedialib::CanDoOperation('medialib_del_item', 0)||CMedialib::CanDoOperation('medialib_del_collection', 0)) ? 'block' : 'none'?>">
 	<tr class="top">
@@ -269,10 +269,10 @@ BX.ready(function()
 	</tr>
 	<tr class="bottom"><td class="left"><div class="empty"/></td><td><div class="empty"/></td><td class="right"><div class="empty"/></td></tr>
 </table>
-<?endif;?>
+<?php endif;?>
 
 <div class="bxml-subdialog-cont">
-<?
+<?php 
 CMedialib::BuildAddCollectionDialog($Params);
 CMedialib::BuildAddItemDialog($Params);
 CMedialib::BuildConfirmDialog($Params);
@@ -280,7 +280,7 @@ CMedialib::BuildViewItemDialog($Params);
 CMedialib::BuildChangeType($Params);
 ?>
 </div>
-<?
+<?php 
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

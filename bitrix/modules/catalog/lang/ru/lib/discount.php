@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_ENTITY_ID_FIELD"] = "Идентификатор скидки";
 $MESS["DISCOUNT_ENTITY_XML_ID_FIELD"] = "Внешний код";
 $MESS["DISCOUNT_ENTITY_SITE_ID_FIELD"] = "Сайт";

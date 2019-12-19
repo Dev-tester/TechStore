@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_VACANCY_0"] = "Vacancy";
 $MESS["WZD_OPTION_VACANCY_1"] = "Published";
 $MESS["WZD_OPTION_VACANCY_2"] = "Activity Start";

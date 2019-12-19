@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("BX_ROOT"))
 	define("BX_ROOT", "/bitrix");
 

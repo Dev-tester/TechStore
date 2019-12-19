@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_BFSD_TITLE"] = "Open file";
 $MESS["MAIN_BFSD_FILENAME"] = "File name";
 $MESS["MAIN_BFSD_FILETYPE"] = "File type";

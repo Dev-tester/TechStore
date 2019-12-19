@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_SHIPMENT_ID"] = "Идентификатор отгрузки должен быть больше нуля";
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_SHIPMENT_NOT_IN_REQUEST"] = "Отгрузка \"#SHIPMENT_ID#\" не входит ни в одну транспортную заявку";
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_DELIVERY_NOT_FOUND"] = "Служба доставки для отгрузки с идентификатором \"#SHIPMENT_LINK#\" не определена";

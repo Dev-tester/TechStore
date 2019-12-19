@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -263,8 +263,8 @@ $APPLICATION->SetTitle(GetMessage("SALE_SECTION_TITLE"));
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -280,85 +280,85 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SALE_F_PERS_TYPE");?>:</td>
+		<td><?php echo GetMessage("SALE_F_PERS_TYPE");?>:</td>
 		<td>
 			<select name="filter_person_type_id">
-				<option value="">(<?echo GetMessage("SALE_ALL")?>)</option>
-				<?
+				<option value="">(<?php echo GetMessage("SALE_ALL")?>)</option>
+				<?php 
 				foreach($arPersonTypeList as $val)
 				{
-					?><option value="<?echo $val["ID"]?>"<?if (IntVal($filter_person_type_id)==IntVal($val["ID"])) echo " selected"?>>[<?echo $val["ID"] ?>] <?echo $val["NAME"]?> (<?echo htmlspecialcharsEx($val["LID"]) ?>)</option><?
+					?><option value="<?php echo $val["ID"]?>"<?php if (IntVal($filter_person_type_id)==IntVal($val["ID"])) echo " selected"?>>[<?php echo $val["ID"] ?>] <?php echo $val["NAME"]?> (<?php echo htmlspecialcharsEx($val["LID"]) ?>)</option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_TYPE")?>:</td>
+		<td><?php echo GetMessage("SALE_F_TYPE")?>:</td>
 		<td>
 			<select name="filter_type">
-				<option value="">(<?echo GetMessage("SALE_ALL")?>)</option>
-				<?
+				<option value="">(<?php echo GetMessage("SALE_ALL")?>)</option>
+				<?php 
 				foreach ($inputTypes as $name => $type):
-					?><option value="<?=$name?>"<?= $filter_type == $name ? ' selected' : ''?>>[<?=$name?>] <?=$type['NAME']?></option><?
+					?><option value="<?=$name?>"<?= $filter_type == $name ? ' selected' : ''?>>[<?=$name?>] <?=$type['NAME']?></option><?php 
 				endforeach;
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_USER")?>:</td>
+		<td><?php echo GetMessage("SALE_F_USER")?>:</td>
 		<td>
 			<select name="filter_user">
-				<option value="">(<?echo GetMessage("SALE_ALL")?>)</option>
-				<option value="Y"<?if ($filter_user=="Y") echo " selected"?>><?echo GetMessage("SALE_YES")?></option>
-				<option value="N"<?if ($filter_user=="N") echo " selected"?>><?echo GetMessage("SALE_NO")?></option>
+				<option value="">(<?php echo GetMessage("SALE_ALL")?>)</option>
+				<option value="Y"<?php if ($filter_user=="Y") echo " selected"?>><?php echo GetMessage("SALE_YES")?></option>
+				<option value="N"<?php if ($filter_user=="N") echo " selected"?>><?php echo GetMessage("SALE_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_GROUP");?>:</td>
+		<td><?php echo GetMessage("SALE_F_GROUP");?>:</td>
 		<td>
 			<select name="filter_group">
-				<option value="">(<?echo GetMessage("SALE_ALL")?>)</option>
-				<?
+				<option value="">(<?php echo GetMessage("SALE_ALL")?>)</option>
+				<?php 
 				$l = CSaleOrderPropsGroup::GetList(Array("PERSON_TYPE_ID" => "ASC","SORT" => "ASC", "NAME" => "ASC"));
 				while ($arL = $l->Fetch()):
-					?><option value="<?echo $arL["ID"]?>"<?if (IntVal($filter_group)==IntVal($arL["ID"])) echo " selected"?>>[<?echo $arL["ID"] ?>] <?echo htmlspecialcharsbx($arL["NAME"])?> <?if (!empty($arPersonTypeList[$arL["PERSON_TYPE_ID"]])) echo "(".$arPersonTypeList[$arL["PERSON_TYPE_ID"]]["NAME"]." (".htmlspecialcharsEx($arPersonTypeList[$arL["PERSON_TYPE_ID"]]["LID"]).")".")";?></option><?
+					?><option value="<?php echo $arL["ID"]?>"<?php if (IntVal($filter_group)==IntVal($arL["ID"])) echo " selected"?>>[<?php echo $arL["ID"] ?>] <?php echo htmlspecialcharsbx($arL["NAME"])?> <?php if (!empty($arPersonTypeList[$arL["PERSON_TYPE_ID"]])) echo "(".$arPersonTypeList[$arL["PERSON_TYPE_ID"]]["NAME"]." (".htmlspecialcharsEx($arPersonTypeList[$arL["PERSON_TYPE_ID"]]["LID"]).")".")";?></option><?php 
 				endwhile;
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_CODE")?>:</td>
+		<td><?php echo GetMessage("SALE_F_CODE")?>:</td>
 		<td>
 			<input type="text" name="filter_code" value="<?=htmlspecialcharsbx($filter_code)?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_FIELD_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("SALE_FIELD_ACTIVE")?>:</td>
 		<td>
 			<select name="filter_active">
-				<option value="">(<?echo GetMessage("SALE_ALL")?>)</option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?echo GetMessage("SALE_YES")?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?echo GetMessage("SALE_NO")?></option>
+				<option value="">(<?php echo GetMessage("SALE_ALL")?>)</option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?php echo GetMessage("SALE_YES")?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?php echo GetMessage("SALE_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_FIELD_UTIL")?>:</td>
+		<td><?php echo GetMessage("SALE_FIELD_UTIL")?>:</td>
 		<td>
 			<select name="filter_util">
-				<option value="">(<?echo GetMessage("SALE_ALL")?>)</option>
-				<option value="Y"<?if ($filter_util=="Y") echo " selected"?>><?echo GetMessage("SALE_YES")?></option>
-				<option value="N"<?if ($filter_util=="N") echo " selected"?>><?echo GetMessage("SALE_NO")?></option>
+				<option value="">(<?php echo GetMessage("SALE_ALL")?>)</option>
+				<option value="Y"<?php if ($filter_util=="Y") echo " selected"?>><?php echo GetMessage("SALE_YES")?></option>
+				<option value="N"<?php if ($filter_util=="N") echo " selected"?>><?php echo GetMessage("SALE_NO")?></option>
 			</select>
 		</td>
 	</tr>
 
 
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -370,7 +370,7 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

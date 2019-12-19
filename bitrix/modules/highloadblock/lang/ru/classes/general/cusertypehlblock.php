@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_HLEL_DESCRIPTION"] = "Привязка к элементам highload-блоков";
 $MESS["USER_TYPE_HLEL_DISPLAY"] = "Highload-блок";
 $MESS["USER_TYPE_HLEL_CHECKBOX"] = "Флажки";

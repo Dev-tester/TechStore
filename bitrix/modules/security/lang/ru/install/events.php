@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VIRUS_DETECTED_NAME'] = "Обнаружен вирус";
 $MESS ['VIRUS_DETECTED_DESC'] = "#EMAIL# - E-Mail администратора сайта (из настроек главного модуля)";
 $MESS ['VIRUS_DETECTED_SUBJECT'] = "#SITE_NAME#: Обнаружен вирус";

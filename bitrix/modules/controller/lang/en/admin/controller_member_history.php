@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_MEMB_HIST_TITLE"] = "Website history";
 $MESS["CTRL_MEMB_HIST_BACK"] = "Website";
 $MESS["CTRL_MEMB_HIST_BACK_TITLE"] = "Back to website editor";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SENDER_SEGMENT_SELECTOR_BUTTON_SELECT'] = "выбрать сегмент";
 $MESS ['SENDER_SEGMENT_SELECTOR_SEARCHER_TITLE'] = "Сегменты";
 $MESS ['SENDER_SEGMENT_SELECTOR_INCLUDE_EDIT_TITLE'] = "Выбор сегментов получателей";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTIVE"] = "Active";
 $MESS["ACTIVE_TITLE"] = "active";
 $MESS["INDEX"] = "Indexing";

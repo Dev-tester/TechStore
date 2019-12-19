@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "Обновления";
 $MESS ['FL_INCORRECT_LAST_MESSAGE_DATE'] = "Неверная дата обновления темы в фильтре.";
 $MESS ['FL_TOPIC_LIST'] = "Темы";

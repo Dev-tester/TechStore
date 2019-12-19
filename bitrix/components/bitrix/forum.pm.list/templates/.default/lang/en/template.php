@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_EMPTY_FOLDER'] = "No messages";
 $MESS ['PM_POST_FULLY'] = "Used space:";
 $MESS ['PM_HEAD_SENDER'] = "From";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "Модуль блогов не установлен.";
 $MESS["BLOG_BLOG_BLOG_MES_DELED"] = "Сообщение удалено";
 $MESS["BLOG_BLOG_BLOG_MES_DEL_ERROR"] = "Ошибка удаления сообщения";

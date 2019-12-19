@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_COMP_IS_TPL_FILTER_SIMPLE"] = "Поиск";
 $MESS["INTR_COMP_IS_TPL_FILTER_ADV"] = "Расширенный поиск";
 $MESS["INTR_COMP_IS_TPL_FILTER_ALPH"] = "Поиск по алфавиту";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TYPE_PRESET_TEMPLATE_LAST"] = "Недавно использованные";
 $MESS["TYPE_PRESET_TEMPLATE_BASE"] = "Штатные шаблоны";
 $MESS["TYPE_PRESET_TEMPLATE_USER"] = "Мои шаблоны";

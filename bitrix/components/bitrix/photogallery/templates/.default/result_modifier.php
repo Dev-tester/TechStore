@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arResult["MENU_VARIABLES"] = array();
 if ($this->__page !== "menu")
@@ -74,7 +74,7 @@ ul.photo-album-list div.photo-item-info-block-outside {
 ul.photo-album-thumbs-list div.photo-item-info-block-inner {
 	width:<?=($arParams["ALBUM_PHOTO_THUMBS_SIZE"] + 48)?>px;}
 </style>
-<?
+<?php 
 }
 // else
 // {

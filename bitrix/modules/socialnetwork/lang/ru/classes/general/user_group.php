@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UG_EMPTY_USER_ID"] = "Не указан пользователь";
 $MESS["SONET_UG_ERROR_NO_USER_ID"] = "Пользователь указан неверно";
 $MESS["SONET_UG_EMPTY_GROUP_ID"] = "Не указана группа";

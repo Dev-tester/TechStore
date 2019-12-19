@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EDIT_MESSAGE_TITLE'] = "Редактирование почтового шаблона # #ID#";
 $MESS ['NEW_MESSAGE_TITLE'] = "Добавление почтового шаблона";
 $MESS ['RECORD_LIST'] = "Список шаблонов";

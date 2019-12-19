@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["post_title_edit"] = "Редактирование выпуска #";
 $MESS["post_title_add"] = "Добавление выпуска";
 $MESS["post_list_title"] = "Показать список выбранных адресов";

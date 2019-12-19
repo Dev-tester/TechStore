@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_LEAD_EDIT_SAVE_BTN"] = "Save";
 $MESS["M_CRM_LEAD_EDIT_CANCEL_BTN"] = "Cancel";
 $MESS["M_CRM_LEAD_EDIT_CREATE_TITLE"] = "New lead";

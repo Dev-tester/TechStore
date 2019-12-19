@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AUTH_REGISTER'] = "Register";
 $MESS ['AUTH_NAME'] = "First Name";
 $MESS ['AUTH_LAST_NAME'] = "Last Name";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "Help";
 $MESS ['F_TITLE_NAV'] = "Help";
 $MESS ['F_NO_MODULE'] = "Forum module is not installed.";

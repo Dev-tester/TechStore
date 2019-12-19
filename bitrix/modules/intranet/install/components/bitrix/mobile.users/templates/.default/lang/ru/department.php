@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BM_TO_MAIN"] = "На главную";
 $MESS["BM_WRITE"] = "Написать";
 $MESS["BM_DEPARTMENT"] = "Подразделение";

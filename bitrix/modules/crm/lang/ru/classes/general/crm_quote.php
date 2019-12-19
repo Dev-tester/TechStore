@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_STATUS_DRAFT"] = "Черновик";
 $MESS["CRM_QUOTE_STATUS_SENT"] = "Отправлено клиенту";
 $MESS["CRM_QUOTE_STATUS_RECEIVED"] = "Рассматривается клиентом";

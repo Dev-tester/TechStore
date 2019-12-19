@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_0.MENU_1_NAME"] = "Меню из шаблона «Корпоративный» с логотипом слева и пунктами меню справа";
 $MESS["LANDING_BLOCK_0.MENU_1_NODES_LANDINGBLOCKNODEMENULIST"] = "Меню";
 $MESS["LANDING_BLOCK_0.MENU_1_NODES_LANDINGBLOCKNODEMENULISTITEMLINK"] = "Пункт меню";

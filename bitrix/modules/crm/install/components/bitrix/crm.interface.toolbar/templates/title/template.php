@@ -36,7 +36,7 @@ foreach($arParams['BUTTONS'] as $item)
 
 $this->SetViewTarget('inside_pagetitle', 10000);
 
-?><div id="<?=htmlspecialcharsbx($toolbarId)?>" class="pagetitle-container pagetitle-align-right-container"><?
+?><div id="<?=htmlspecialcharsbx($toolbarId)?>" class="pagetitle-container pagetitle-align-right-container"><?php 
 if(!empty($moreItems))
 {
 	$buttonID = "{$toolbarId}_button";
@@ -58,7 +58,7 @@ if(!empty($moreItems))
 		);
 	</script>
 	<button id="<?=htmlspecialcharsbx($buttonID)?>" class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting"></button>
-	<?
+	<?php 
 }
 $itemCount = count($items);
 for($i = 0; $i < $itemCount; $i++)
@@ -81,7 +81,7 @@ for($i = 0; $i < $itemCount; $i++)
 		<button id="<?=htmlspecialcharsbx($buttonID)?>" class="ui-btn ui-btn-primary ui-btn-dropdown" <?=$onClick !== '' ? " onclick=\"{$onClick}; return false;\"" : ''?>>
 			<?=$text?>
 		</button>
-		<?
+		<?php 
 		if(!empty($menuItems))
 		{
 			?><script type="text/javascript">
@@ -99,7 +99,7 @@ for($i = 0; $i < $itemCount; $i++)
 						);
 					}
 				);
-			</script><?
+			</script><?php 
 		}
 	}
 	elseif($type === 'crm-btn-double')
@@ -130,14 +130,14 @@ for($i = 0; $i < $itemCount; $i++)
             <a href="<?=$link?>" class="ui-btn-main" title="<?=$title?>"<?=$onClick !== '' ? " onclick=\"{$onClick}; return false;\"" : ''?>><?=$text?></a>
             <button id="<?=$buttonID?>" class="ui-btn-menu"></button>
         </div>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
 		<a href="<?=$link?>" class="ui-btn ui-btn-primary ui-btn-icon-add crm-btn-toolbar-add" title="<?=$title?>"<?=$onClick !== '' ? " onclick=\"{$onClick}; return false;\"" : ''?>><?=$text?></a>
-		<?
+		<?php 
 	}
 }
-?></div><?
+?></div><?php 
 $this->EndViewTarget();

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -14,10 +14,10 @@
 $buttonId = $this->randString();
 ?>
 <div class="bx-subscribe"  id="sender-subscribe">
-<?
+<?php 
 $frame = $this->createFrame("sender-subscribe", false)->begin();
 ?>
-	<?if(isset($arResult['MESSAGE'])): CJSCore::Init(array("popup"));?>
+	<?php if(isset($arResult['MESSAGE'])): CJSCore::Init(array("popup"));?>
 		<div id="sender-subscribe-response-cont" style="display: none;">
 			<div class="bx_subscribe_response_container">
 				<table>
@@ -48,7 +48,7 @@ $frame = $this->createFrame("sender-subscribe", false)->begin();
 				oPopup.show();
 			});
 		</script>
-	<?endif;?>
+	<?php endif;?>
 
 	<script>
 		(function () {
@@ -107,20 +107,20 @@ $frame = $this->createFrame("sender-subscribe", false)->begin();
 		</div>
 
 		<div style="<?=($arParams['HIDE_MAILINGS'] <> 'Y' ? '' : 'display: none;')?>">
-			<?if(count($arResult["RUBRICS"])>0):?>
+			<?php if(count($arResult["RUBRICS"])>0):?>
 				<div class="bx-subscribe-desc"><?=GetMessage("subscr_form_title_desc")?></div>
-			<?endif;?>
-			<?foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
+			<?php endif;?>
+			<?php foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
 			<div class="bx_subscribe_checkbox_container">
-				<input type="checkbox" name="SENDER_SUBSCRIBE_RUB_ID[]" id="SENDER_SUBSCRIBE_RUB_ID_<?=$itemValue["ID"]?>" value="<?=$itemValue["ID"]?>"<?if($itemValue["CHECKED"]) echo " checked"?>>
+				<input type="checkbox" name="SENDER_SUBSCRIBE_RUB_ID[]" id="SENDER_SUBSCRIBE_RUB_ID_<?=$itemValue["ID"]?>" value="<?=$itemValue["ID"]?>"<?php if($itemValue["CHECKED"]) echo " checked"?>>
 				<label for="SENDER_SUBSCRIBE_RUB_ID_<?=$itemValue["ID"]?>"><?=htmlspecialcharsbx($itemValue["NAME"])?></label>
 			</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
 
-		<?if ($arParams['USER_CONSENT'] == 'Y'):?>
+		<?php if ($arParams['USER_CONSENT'] == 'Y'):?>
 		<div class="bx_subscribe_checkbox_container bx-sender-subscribe-agreement">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:main.userconsent.request",
 				"",
 				array(
@@ -137,16 +137,16 @@ $frame = $this->createFrame("sender-subscribe", false)->begin();
 				)
 			);?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
 		<div class="bx_subscribe_submit_container">
 			<button class="sender-btn btn-subscribe" id="bx_subscribe_btn_<?=$buttonId?>"><span><?=GetMessage("subscr_form_button")?></span></button>
 		</div>
 	</form>
-<?
+<?php 
 $frame->beginStub();
 ?>
-	<?if(isset($arResult['MESSAGE'])): CJSCore::Init(array("popup"));?>
+	<?php if(isset($arResult['MESSAGE'])): CJSCore::Init(array("popup"));?>
 		<div id="sender-subscribe-response-cont" style="display: none;">
 			<div class="bx_subscribe_response_container">
 				<table>
@@ -177,7 +177,7 @@ $frame->beginStub();
 				oPopup.show();
 			});
 		</script>
-	<?endif;?>
+	<?php endif;?>
 
 	<script>
 		(function () {
@@ -236,20 +236,20 @@ $frame->beginStub();
 		</div>
 
 		<div style="<?=($arParams['HIDE_MAILINGS'] <> 'Y' ? '' : 'display: none;')?>">
-			<?if(count($arResult["RUBRICS"])>0):?>
+			<?php if(count($arResult["RUBRICS"])>0):?>
 				<div class="bx-subscribe-desc"><?=GetMessage("subscr_form_title_desc")?></div>
-			<?endif;?>
-			<?foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
+			<?php endif;?>
+			<?php foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
 				<div class="bx_subscribe_checkbox_container">
 					<input type="checkbox" name="SENDER_SUBSCRIBE_RUB_ID[]" id="SENDER_SUBSCRIBE_RUB_ID_<?=$itemValue["ID"]?>" value="<?=$itemValue["ID"]?>">
 					<label for="SENDER_SUBSCRIBE_RUB_ID_<?=$itemValue["ID"]?>"><?=htmlspecialcharsbx($itemValue["NAME"])?></label>
 				</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
 
-		<?if ($arParams['USER_CONSENT_USE'] == 'Y'):?>
+		<?php if ($arParams['USER_CONSENT_USE'] == 'Y'):?>
 		<div class="bx_subscribe_checkbox_container bx-sender-subscribe-agreement">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:main.userconsent.request",
 				"",
 				array(
@@ -266,13 +266,13 @@ $frame->beginStub();
 				)
 			);?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
 		<div class="bx_subscribe_submit_container">
 			<button class="sender-btn btn-subscribe" id="bx_subscribe_btn_<?=$buttonId?>"><span><?=GetMessage("subscr_form_button")?></span></button>
 		</div>
 	</form>
-<?
+<?php 
 $frame->end();
 ?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CHECK_PRINT_ERROR_TYPE_NAME"] = "Benachrichtigung über einen Fehler beim Ausdrucken vom Kassenzettel";
 $MESS["SALE_CHECK_PRINT_ERROR_TYPE_DESC"] = "#ORDER_ACCOUNT_NUMBER# - ID der Bestellung
 #ORDER_DATE# - Bestelldatum

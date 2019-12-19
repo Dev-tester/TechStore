@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['XMPP_AXS_TITLE'] = "XMPP сервер";
 $MESS ['XMPP_AXS_TAB1'] = "XMPP сервер";
 $MESS ['XMPP_AXS_TAB1_TITLE'] = "XMPP сервер";

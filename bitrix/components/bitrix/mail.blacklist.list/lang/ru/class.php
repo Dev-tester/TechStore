@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_BLACKLIST_LIST_POPUP_CHECKBOX_TITLE"] = 'Для всех пользователей';
 $MESS['MAIL_BLACKLIST_LIST_INTERNAL_ERROR_TITLE'] = 'Произошла внутренняя ошибка';
 $MESS['MAIL_BLACKLIST_LIST_INTERNAL_AJAX_DELETE_ERROR'] = 'Ошибка при удалении';

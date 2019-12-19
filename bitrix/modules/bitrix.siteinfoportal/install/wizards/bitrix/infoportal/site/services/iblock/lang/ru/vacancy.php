@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_VACANCY_0"] = "Резюме";
 $MESS["WZD_OPTION_VACANCY_1"] = "Публикуется на сайте";
 $MESS["WZD_OPTION_VACANCY_2"] = "Начало публикации с ";

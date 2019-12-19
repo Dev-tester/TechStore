@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Delivery\Requests;
 
 class ResultFile extends Result

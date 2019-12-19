@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -324,66 +324,66 @@ if ($message)
 
 echo $USER_FIELD_MANAGER->ShowScript();
 ?>
-<form method="POST" action="<? echo $APPLICATION->GetCurPage() ?>?lang=<?=LANG?>&ID=<?=$ID?>" name="form1">
+<form method="POST" action="<?php  echo $APPLICATION->GetCurPage() ?>?lang=<?=LANG?>&ID=<?=$ID?>" name="form1">
 	<?=bitrix_sessid_post()?>
-	<? echo GetFilterHiddens("find_"); ?>
-	<? $tabControl->Begin(); ?>
-	<? $tabControl->BeginNextTab(); ?>
-	<? if ($ID > 0): ?>
+	<?php  echo GetFilterHiddens("find_"); ?>
+	<?php  $tabControl->Begin(); ?>
+	<?php  $tabControl->BeginNextTab(); ?>
+	<?php  if ($ID > 0): ?>
 		<tr>
-			<td><? echo GetMessage("CTRLR_GR_ED_ID") ?></td>
-			<td><? echo $ID ?></td>
+			<td><?php  echo GetMessage("CTRLR_GR_ED_ID") ?></td>
+			<td><?php  echo $ID ?></td>
 		</tr>
-	<? endif ?>
-	<? if (!$copy_id): ?>
+	<?php  endif ?>
+	<?php  if (!$copy_id): ?>
 		<tr>
-			<td><? echo GetMessage("CTRLR_GR_ED_CREATED") ?></td>
-			<td><? echo htmlspecialcharsEx($arGroupFields['DATE_CREATE']) ?><?
+			<td><?php  echo GetMessage("CTRLR_GR_ED_CREATED") ?></td>
+			<td><?php  echo htmlspecialcharsEx($arGroupFields['DATE_CREATE']) ?><?php 
 				if ($arGroupFields['CREATED_BY_LOGIN'] <> '')
 					echo htmlspecialcharsEx(' ('.$arGroupFields['CREATED_BY_LOGIN'].') '.$arGroupFields['CREATED_BY_NAME'].' '.$arGroupFields['CREATED_BY_LAST_NAME']);
 			?></td>
 		</tr>
-	<? endif; ?>
-	<? if (!$copy_id): ?>
+	<?php  endif; ?>
+	<?php  if (!$copy_id): ?>
 		<tr>
-			<td><? echo GetMessage("CTRLR_GR_ED_MODIFIED") ?></td>
-			<td><? echo htmlspecialcharsEx($arGroupFields['TIMESTAMP_X']) ?><?
+			<td><?php  echo GetMessage("CTRLR_GR_ED_MODIFIED") ?></td>
+			<td><?php  echo htmlspecialcharsEx($arGroupFields['TIMESTAMP_X']) ?><?php 
 				if ($arGroupFields['MODIFIED_BY_LOGIN'] <> '')
 					echo htmlspecialcharsEx(' ('.$arGroupFields['MODIFIED_BY_LOGIN'].') '.$arGroupFields['MODIFIED_BY_NAME'].' '.$arGroupFields['MODIFIED_BY_LAST_NAME']);
 			?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><label for="NAME"><? echo GetMessage("CTRLR_GR_ED_NAME") ?></label></td>
+		<td width="40%"><label for="NAME"><?php  echo GetMessage("CTRLR_GR_ED_NAME") ?></label></td>
 		<td width="60%"><input type="text" name="NAME" id="NAME" size="53" maxlength="255" value="<?=htmlspecialcharsbx($arGroupFields['NAME'])?>"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><label for="DESCRIPTION"><? echo GetMessage("CTRLR_GR_ED_DESC") ?></label></td>
-		<td><textarea name="DESCRIPTION" id="DESCRIPTION" cols="40" rows="5"><? echo htmlspecialcharsbx($arGroupFields['DESCRIPTION']) ?></textarea></td>
+		<td class="adm-detail-valign-top"><label for="DESCRIPTION"><?php  echo GetMessage("CTRLR_GR_ED_DESC") ?></label></td>
+		<td><textarea name="DESCRIPTION" id="DESCRIPTION" cols="40" rows="5"><?php  echo htmlspecialcharsbx($arGroupFields['DESCRIPTION']) ?></textarea></td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><? echo GetMessage("CTRLR_GR_ED_UPD") ?></td>
+		<td colspan="2"><?php  echo GetMessage("CTRLR_GR_ED_UPD") ?></td>
 	</tr>
 	<tr>
-		<td><label for="UPDATE_PERIOD"><? echo GetMessage("CTRLR_GR_ED_AUTOUPD") ?></label><br/>
-			<? echo GetMessage("CTRLR_GR_ED_AUTOUPD_HELP") ?></td>
+		<td><label for="UPDATE_PERIOD"><?php  echo GetMessage("CTRLR_GR_ED_AUTOUPD") ?></label><br/>
+			<?php  echo GetMessage("CTRLR_GR_ED_AUTOUPD_HELP") ?></td>
 		<td>
 			<input type="text" name="UPDATE_PERIOD" id="UPDATE_PERIOD" size="6" maxlength="6" value="<?=($arGroupFields['UPDATE_PERIOD'] < 0 || trim($arGroupFields['UPDATE_PERIOD']) == ''? '': htmlspecialcharsbx($arGroupFields['UPDATE_PERIOD']))?>">
 		</td>
 	</tr>
-	<? if ($ID > 0): ?>
+	<?php  if ($ID > 0): ?>
 		<tr>
 			<td>
-				<label for="UPDATE_NOW"><? echo GetMessage("CTRLR_GR_ED_UPD_NOW") ?></label>
+				<label for="UPDATE_NOW"><?php  echo GetMessage("CTRLR_GR_ED_UPD_NOW") ?></label>
 			</td>
 			<td>
-				<input type="checkbox" name="UPDATE_NOW" id="UPDATE_NOW" value="Y" title="<? echo GetMessage("CTRLR_GR_ED_TO_TASKS") ?>">
+				<input type="checkbox" name="UPDATE_NOW" id="UPDATE_NOW" value="Y" title="<?php  echo GetMessage("CTRLR_GR_ED_TO_TASKS") ?>">
 			</td>
 		</tr>
-	<? endif ?>
+	<?php  endif ?>
 
-	<? $tabControl->BeginNextTab(); ?>
-	<?
+	<?php  $tabControl->BeginNextTab(); ?>
+	<?php 
 	if ($bVarsFromForm)
 	{
 		$arGroupOptions = array();
@@ -432,29 +432,29 @@ echo $USER_FIELD_MANAGER->ShowScript();
 	$arDefGroupOptions = $arGroupOptions["default"];
 	?>
 	<tr>
-		<td width="40%" class="adm-detail-valign-top"><label for="modules"><? echo GetMessage("CTRLR_GR_ED_INSTALLED") ?></label></td>
+		<td width="40%" class="adm-detail-valign-top"><label for="modules"><?php  echo GetMessage("CTRLR_GR_ED_INSTALLED") ?></label></td>
 		<td width="60%">
-			<input type="checkbox" <? if (isset($arDefGroupOptions["modules"])) echo "checked"; ?> name="OPTIONS[default][modules]" id="ACT_modules" value="Y" onclick="document.getElementById('modules').disabled=!this.checked;" title="<? echo GetMessage("CTRLR_GR_ED_CHCKBOX") ?>"><br>
-			<? $arModules = CControllerGroupSettings::GetModules(); ?>
+			<input type="checkbox" <?php  if (isset($arDefGroupOptions["modules"])) echo "checked"; ?> name="OPTIONS[default][modules]" id="ACT_modules" value="Y" onclick="document.getElementById('modules').disabled=!this.checked;" title="<?php  echo GetMessage("CTRLR_GR_ED_CHCKBOX") ?>"><br>
+			<?php  $arModules = CControllerGroupSettings::GetModules(); ?>
 			<select
 				name="OPTIONS[default][modules][]"
 				size="24"
 				multiple="multiple"
 				id="modules"
-				<? if (!isset($arDefGroupOptions["modules"])) echo " disabled"; ?>
+				<?php  if (!isset($arDefGroupOptions["modules"])) echo " disabled"; ?>
 			>
-				<? foreach ($arModules as $module_id => $name):
+				<?php  foreach ($arModules as $module_id => $name):
 					if ($module_id == "main")
 						continue;
 					?>
-					<option value="<?=htmlspecialcharsbx($module_id)?>"<? if (is_array($arDefGroupOptions["modules"]) && in_array($module_id, $arDefGroupOptions["modules"])) echo ' selected'; ?>><?=htmlspecialcharsbx($name)?></option>
-				<? endforeach; ?>
+					<option value="<?=htmlspecialcharsbx($module_id)?>"<?php  if (is_array($arDefGroupOptions["modules"]) && in_array($module_id, $arDefGroupOptions["modules"])) echo ' selected'; ?>><?=htmlspecialcharsbx($name)?></option>
+				<?php  endforeach; ?>
 			</select>
 		</td>
 	</tr>
 
-	<? $tabControl->BeginNextTab(); ?>
-	<?
+	<?php  $tabControl->BeginNextTab(); ?>
+	<?php 
 	$arModuleOptions = CControllerGroupSettings::GetData();
 	foreach ($arModuleOptions as $module_id => $info):
 		if (!is_array($info["options"]) || count($info["options"]) <= 0)
@@ -463,7 +463,7 @@ echo $USER_FIELD_MANAGER->ShowScript();
 		<tr class="heading">
 			<td colspan="2"><?=htmlspecialcharsEx($info["name"])?></td>
 		</tr>
-		<?
+		<?php 
 		$arOptions = $info["options"];
 		foreach ($arOptions as $id => $arOptionParams):
 
@@ -472,7 +472,7 @@ echo $USER_FIELD_MANAGER->ShowScript();
 				<tr>
 					<td colspan="2" align="center"><?=htmlspecialcharsEx($arOptionParams)?>:</td>
 				</tr>
-				<?
+				<?php 
 			else:
 				if (isset($arDefGroupOptions["options"][$module_id][$id]))
 					$OptionValue = $arDefGroupOptions["options"][$module_id][$id];
@@ -485,11 +485,11 @@ echo $USER_FIELD_MANAGER->ShowScript();
 							:</label></td>
 					<td width="60%"><?=CControllerGroupSettings::GenerateInput($id, $arOptionParams, $OptionValue)?></td>
 				</tr>
-			<? endif; ?>
-		<? endforeach; ?>
-	<? endforeach; ?>
+			<?php  endif; ?>
+		<?php  endforeach; ?>
+	<?php  endforeach; ?>
 
-	<?
+	<?php 
 	$tabControl->BeginNextTab();
 
 	$security = $arDefGroupOptions["security"];
@@ -529,14 +529,14 @@ echo $USER_FIELD_MANAGER->ShowScript();
 	<br>
 	<table class="internal">
 		<tr>
-			<td colspan="2"><label for="SECURITY_#I#_GROUP"><? echo GetMessage("CTRLR_GR_ED_GROUP") ?></label>:
+			<td colspan="2"><label for="SECURITY_#I#_GROUP"><?php  echo GetMessage("CTRLR_GR_ED_GROUP") ?></label>:
 				<input type="text" name="SECURITY[#I#][GROUP]" id="SECURITY_#I#_GROUP" size="15" value="#GROUP_NAME#"></td>
 		</tr>
 		<tr>
-			<td align="center"><? echo GetMessage("CTRLR_GR_ED_MODULE") ?></td>
-			<td align="center"><? echo GetMessage("CTRLR_GR_ED_LEVEL") ?></td>
+			<td align="center"><?php  echo GetMessage("CTRLR_GR_ED_MODULE") ?></td>
+			<td align="center"><?php  echo GetMessage("CTRLR_GR_ED_LEVEL") ?></td>
 		</tr>
-		<?
+		<?php 
 		foreach ($arModuleRights as $module_id => $permissions):
 			$fieldName = 'SECURITY[#I#][RIGHTS]['.$module_id.']';
 			?>
@@ -544,30 +544,30 @@ echo $USER_FIELD_MANAGER->ShowScript();
 				<td><label for="<?=htmlspecialcharsbx('ACT_'.$fieldName)?>"><?=htmlspecialcharsbx($arModules[$module_id])?>
 						: </label></td>
 				<td nowrap>
-					<input type="checkbox" name="<?=htmlspecialcharsbx($fieldName)?>" id="<?=htmlspecialcharsbx("ACT_".$fieldName)?>" value="Y" title="<? echo GetMessage("CTRLR_GR_ED_CHCKBOX") ?>"
+					<input type="checkbox" name="<?=htmlspecialcharsbx($fieldName)?>" id="<?=htmlspecialcharsbx("ACT_".$fieldName)?>" value="Y" title="<?php  echo GetMessage("CTRLR_GR_ED_CHCKBOX") ?>"
 						onclick="BX('<?=CUtil::JSEscape('E_'.$fieldName)?>').disabled=!this.checked;if(this.checked)BX('<?=CUtil::JSEscape('E_'.$fieldName)?>').focus();"
 					/>&nbsp;
 					<select
 						name="<?=htmlspecialcharsbx($fieldName)?>"
-						<? if ($module_id == 'main'): ?>onchange="BX('<?=CUtil::JSEscape('SUB_'.$fieldName)?>').style.display = (!__CheckTaskSubord(this.value)?'none':'inline');" <? endif ?>
+						<?php  if ($module_id == 'main'): ?>onchange="BX('<?=CUtil::JSEscape('SUB_'.$fieldName)?>').style.display = (!__CheckTaskSubord(this.value)?'none':'inline');" <?php  endif ?>
 						id="<?=htmlspecialcharsbx('E_'.$fieldName)?>"
 						disabled="disabled"
 						title=""
 					>
 						<option value=""><?=GetMessage("CTRLR_GR_ED_LEVEL_DEF")?></option>
-						<? foreach ($permissions["reference"] as $j => $reference): ?>
+						<?php  foreach ($permissions["reference"] as $j => $reference): ?>
 							<option value="<?=$permissions["reference_id"][$j]?>"><?=htmlspecialcharsEx($reference)?></option>
-						<? endforeach ?>
+						<?php  endforeach ?>
 					</select>
-					<? if ($module_id == 'main'): ?>
+					<?php  if ($module_id == 'main'): ?>
 						<br>
-						<textarea name="SUB_SECURITY[#I#]" title="<? echo GetMessage("CTRLR_GR_ED_SUBORD") ?>" rows="3" cols="40" id="SUB_<?=$fieldName?>" style="display:none;"></textarea>
-					<? endif ?>
+						<textarea name="SUB_SECURITY[#I#]" title="<?php  echo GetMessage("CTRLR_GR_ED_SUBORD") ?>" rows="3" cols="40" id="SUB_<?=$fieldName?>" style="display:none;"></textarea>
+					<?php  endif ?>
 				</td>
 			</tr>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</table>
-	<?
+	<?php 
 	$content = ob_get_contents();
 	ob_end_clean();
 	?>
@@ -640,7 +640,7 @@ echo $USER_FIELD_MANAGER->ShowScript();
 		});
 	</script>
 	<tr>
-		<td width="40%"><label for="OPTIONS_default_security_limit_admin"><? echo GetMessage("CTRLR_GR_ED_NOADMIN") ?></label></td>
+		<td width="40%"><label for="OPTIONS_default_security_limit_admin"><?php  echo GetMessage("CTRLR_GR_ED_NOADMIN") ?></label></td>
 		<td width="60%">
 			<input
 				onclick="if(this.checked && !__CheckNewAdmin())__NewSecGroup('Administrators', true);"
@@ -648,14 +648,14 @@ echo $USER_FIELD_MANAGER->ShowScript();
 				name="OPTIONS[default][security][limit_admin]"
 				id="OPTIONS_default_security_limit_admin"
 				value="Y"
-				<? if ($security["limit_admin"] == "Y") echo ' checked'; ?>
+				<?php  if ($security["limit_admin"] == "Y") echo ' checked'; ?>
 			>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><? echo GetMessage("CTRLR_GR_ED_PERM") ?></td>
+		<td class="adm-detail-valign-top"><?php  echo GetMessage("CTRLR_GR_ED_PERM") ?></td>
 		<td>
-			<?
+			<?php 
 			$arSecurityGroups = $arDefGroupOptions["security"]["groups"];
 			$arSecuritySubordGroups = $arDefGroupOptions["security"]["subord_groups"];
 			$arSecurityGroups["__Group_ID__"] = array();
@@ -667,7 +667,7 @@ echo $USER_FIELD_MANAGER->ShowScript();
 				<input type="hidden" id="begin_p">
 				<table class="internal">
 					<tr>
-						<td colspan="2"><label for="SECURITY_<?=$i?>_GROUP"><? echo GetMessage("CTRLR_GR_ED_GROUP") ?></label>:
+						<td colspan="2"><label for="SECURITY_<?=$i?>_GROUP"><?php  echo GetMessage("CTRLR_GR_ED_GROUP") ?></label>:
 							<input
 								type="text"
 								name="SECURITY[<?=$i?>][GROUP]"
@@ -678,10 +678,10 @@ echo $USER_FIELD_MANAGER->ShowScript();
 						</td>
 					</tr>
 					<tr>
-						<td align="center"><? echo GetMessage("CTRLR_GR_ED_MODULE") ?></td>
-						<td align="center"><? echo GetMessage("CTRLR_GR_ED_LEVEL") ?></td>
+						<td align="center"><?php  echo GetMessage("CTRLR_GR_ED_MODULE") ?></td>
+						<td align="center"><?php  echo GetMessage("CTRLR_GR_ED_LEVEL") ?></td>
 					</tr>
-					<?
+					<?php 
 					foreach ($arModuleRights as $module_id => $permissions):
 						$fieldName = 'SECURITY['.$i.'][RIGHTS]['.$module_id.']';
 						?>
@@ -695,46 +695,46 @@ echo $USER_FIELD_MANAGER->ShowScript();
 									name="<?=htmlspecialcharsbx($fieldName)?>"
 									id="<?=htmlspecialcharsbx('ACT_'.$fieldName)?>"
 									value="Y"
-									title="<? echo GetMessage("CTRLR_GR_ED_CHCKBOX") ?>"
+									title="<?php  echo GetMessage("CTRLR_GR_ED_CHCKBOX") ?>"
 									onclick="BX('<?=CUtil::JSEscape('E_'.$fieldName)?>').disabled=!this.checked;if(this.checked)BX('<?=CUtil::JSEscape('E_'.$fieldName)?>').focus();"
-									<? if (isset($arSecOptions[$module_id])) echo 'checked="checked"'; ?>
+									<?php  if (isset($arSecOptions[$module_id])) echo 'checked="checked"'; ?>
 								/>
 								<select
 									name="<?=htmlspecialcharsbx($fieldName)?>"
-									<? if ($module_id == 'main'): ?>onchange="BX('<?=CUtil::JSEscape('SUB_'.$fieldName)?>').style.display = (!__CheckTaskSubord(this.value)?'none':'inline');" <? endif ?>
+									<?php  if ($module_id == 'main'): ?>onchange="BX('<?=CUtil::JSEscape('SUB_'.$fieldName)?>').style.display = (!__CheckTaskSubord(this.value)?'none':'inline');" <?php  endif ?>
 									id="<?=htmlspecialcharsbx('E_'.$fieldName)?>"
 									title=""
-									<? if (!isset($arSecOptions[$module_id])) echo 'disabled="disabled"'; ?>
+									<?php  if (!isset($arSecOptions[$module_id])) echo 'disabled="disabled"'; ?>
 								>
 									<option value=""><?=GetMessage("CTRLR_GR_ED_LEVEL_DEF")?></option>
-									<? foreach ($permissions["reference_id"] as $j => $reference_id): ?>
-										<option value="<?=$reference_id?>" <?
+									<?php  foreach ($permissions["reference_id"] as $j => $reference_id): ?>
+										<option value="<?=$reference_id?>" <?php 
 										if ($arSecOptions[$module_id] == $reference_id)
 											echo "selected"; ?>><?=htmlspecialcharsEx($permissions["reference"][$j])?></option>
-									<? endforeach ?>
+									<?php  endforeach ?>
 								</select>
-								<? if ($module_id == 'main'): ?>
+								<?php  if ($module_id == 'main'): ?>
 									<br>
 									<textarea
 										name="SUB_SECURITY[<?=$i?>]"
-										title="<? echo GetMessage("CTRLR_GR_ED_SUBORD") ?>"
+										title="<?php  echo GetMessage("CTRLR_GR_ED_SUBORD") ?>"
 										rows="3"
 										cols="40"
 										id="<?=htmlspecialcharsbx('SUB_'.$fieldName)?>"
-										<? if (!in_array($arSecOptions[$module_id], $arMainSubordinateTask)): ?> style="display:none;"<? endif ?>
+										<?php  if (!in_array($arSecOptions[$module_id], $arMainSubordinateTask)): ?> style="display:none;"<?php  endif ?>
 									><?=htmlspecialcharsbx($arSecuritySubordGroups[$group_id])?></textarea>
-								<? endif ?>
+								<?php  endif ?>
 							</td>
 						</tr>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 				</table>
-			<? endforeach; ?>
-			<a href="javascript:__NewSecGroup('')" id="security_add_link"><? echo GetMessage("CTRLR_GR_ED_GROUP_MORE") ?></a>
+			<?php  endforeach; ?>
+			<a href="javascript:__NewSecGroup('')" id="security_add_link"><?php  echo GetMessage("CTRLR_GR_ED_GROUP_MORE") ?></a>
 			<input type="hidden" name="SECURITY_COUNT" id="SECURITY_COUNT" value="<?=$i?>">
 		</td>
 	</tr>
-	<? $tabControl->BeginNextTab(); ?>
-	<?
+	<?php  $tabControl->BeginNextTab(); ?>
+	<?php 
 	$COUNTER_UPDATE_PERIOD = intval($arGroupFields['COUNTER_UPDATE_PERIOD']);
 	if ($COUNTER_UPDATE_PERIOD % (60 * 24 * 30) == 0)
 	{
@@ -762,75 +762,75 @@ echo $USER_FIELD_MANAGER->ShowScript();
 	}
 	?>
 	<tr>
-		<td width="40%"><label for="COUNTER_UPDATE_PERIOD"><? echo GetMessage("CTRL_GR_ED_COUNTERS_REF") ?></label></td>
+		<td width="40%"><label for="COUNTER_UPDATE_PERIOD"><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_REF") ?></label></td>
 		<td width="60%">
-			<input type="text" name="COUNTER_UPDATE_PERIOD" id="COUNTER_UPDATE_PERIOD" size="5" value="<? echo $COUNTER_UPDATE_PERIOD ?>">
+			<input type="text" name="COUNTER_UPDATE_PERIOD" id="COUNTER_UPDATE_PERIOD" size="5" value="<?php  echo $COUNTER_UPDATE_PERIOD ?>">
 			<select name="COUNTER_UPDATE_PERIOD_TYPE" title="">
-				<option value="M"<? if ($COUNTER_UPDATE_PERIOD_TYPE == "M") echo ' selected' ?>><? echo GetMessage("CTRL_GR_ED_COUNTERS_REF_MI") ?></option>
-				<option value="H"<? if ($COUNTER_UPDATE_PERIOD_TYPE == "H") echo ' selected' ?>><? echo GetMessage("CTRL_GR_ED_COUNTERS_REF_HO") ?></option>
-				<option value="D"<? if ($COUNTER_UPDATE_PERIOD_TYPE == "D") echo ' selected' ?>><? echo GetMessage("CTRL_GR_ED_COUNTERS_REF_DA") ?></option>
-				<option value="W"<? if ($COUNTER_UPDATE_PERIOD_TYPE == "W") echo ' selected' ?>><? echo GetMessage("CTRL_GR_ED_COUNTERS_REF_WE") ?></option>
-				<option value="N"<? if ($COUNTER_UPDATE_PERIOD_TYPE == "N") echo ' selected' ?>><? echo GetMessage("CTRL_GR_ED_COUNTERS_REF_MO") ?></option>
+				<option value="M"<?php  if ($COUNTER_UPDATE_PERIOD_TYPE == "M") echo ' selected' ?>><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_REF_MI") ?></option>
+				<option value="H"<?php  if ($COUNTER_UPDATE_PERIOD_TYPE == "H") echo ' selected' ?>><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_REF_HO") ?></option>
+				<option value="D"<?php  if ($COUNTER_UPDATE_PERIOD_TYPE == "D") echo ' selected' ?>><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_REF_DA") ?></option>
+				<option value="W"<?php  if ($COUNTER_UPDATE_PERIOD_TYPE == "W") echo ' selected' ?>><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_REF_WE") ?></option>
+				<option value="N"<?php  if ($COUNTER_UPDATE_PERIOD_TYPE == "N") echo ' selected' ?>><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_REF_MO") ?></option>
 			</select>
 		</td>
 	</tr>
 
 	<tr class="heading">
-		<td colspan="2"><? echo GetMessage("CTRL_GR_ED_COUNTERS_TITLE") ?></td>
+		<td colspan="2"><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_TITLE") ?></td>
 	</tr>
 
 	<tr>
-		<td><label for="COUNTER_FREE_SPACE"><? echo GetMessage("CTRL_GR_ED_COUNTERS_FREE") ?></label></td>
+		<td><label for="COUNTER_FREE_SPACE"><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_FREE") ?></label></td>
 		<td>
 			<input
 				type="checkbox"
 				id="COUNTER_FREE_SPACE"
 				name="CHECK_COUNTER_FREE_SPACE"
 				value="Y"
-				<? if ($arGroupFields['CHECK_COUNTER_FREE_SPACE'] == "Y") echo ' checked' ?>
+				<?php  if ($arGroupFields['CHECK_COUNTER_FREE_SPACE'] == "Y") echo ' checked' ?>
 			>
 		</td>
 	</tr>
 
 	<tr>
-		<td><label for="COUNTER_SITES"><? echo GetMessage("CTRL_GR_ED_COUNTERS_SITES") ?></label></td>
+		<td><label for="COUNTER_SITES"><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_SITES") ?></label></td>
 		<td>
 			<input
 				type="checkbox"
 				id="COUNTER_SITES"
 				name="CHECK_COUNTER_SITES"
 				value="Y"
-				<? if ($arGroupFields['CHECK_COUNTER_SITES'] == "Y") echo ' checked' ?>
+				<?php  if ($arGroupFields['CHECK_COUNTER_SITES'] == "Y") echo ' checked' ?>
 			>
 		</td>
 	</tr>
 
 	<tr>
-		<td><label for="COUNTER_USERS"><? echo GetMessage("CTRL_GR_ED_COUNTERS_USERS") ?></label></td>
+		<td><label for="COUNTER_USERS"><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_USERS") ?></label></td>
 		<td>
 			<input
 				type="checkbox"
 				id="COUNTER_USERS"
 				name="CHECK_COUNTER_USERS"
 				value="Y"
-				<? if ($arGroupFields['CHECK_COUNTER_USERS'] == "Y") echo ' checked' ?>
+				<?php  if ($arGroupFields['CHECK_COUNTER_USERS'] == "Y") echo ' checked' ?>
 			>
 		</td>
 	</tr>
 
 	<tr>
-		<td><label for="COUNTER_LAST_AUTH"><? echo GetMessage("CTRL_GR_ED_COUNTERS_LAST_AU") ?></label></td>
+		<td><label for="COUNTER_LAST_AUTH"><?php  echo GetMessage("CTRL_GR_ED_COUNTERS_LAST_AU") ?></label></td>
 		<td>
 			<input
 				type="checkbox"
 				id="COUNTER_LAST_AUTH"
 				name="CHECK_COUNTER_LAST_AUTH"
 				value="Y"
-				<? if ($arGroupFields['CHECK_COUNTER_LAST_AUTH'] == "Y") echo ' checked' ?>
+				<?php  if ($arGroupFields['CHECK_COUNTER_LAST_AUTH'] == "Y") echo ' checked' ?>
 			>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$arGroupCounters = array();
 	if ($bVarsFromForm)
 	{
@@ -860,23 +860,23 @@ echo $USER_FIELD_MANAGER->ShowScript();
 		?>
 		<tr>
 			<td>
-				<label for="COUNTER_<? echo $arCounter["ID"] ?>"><? echo htmlspecialcharsEx($arCounter["NAME"]) ?>
+				<label for="COUNTER_<?php  echo $arCounter["ID"] ?>"><?php  echo htmlspecialcharsEx($arCounter["NAME"]) ?>
 					:</label></td>
 			<td>
 				<input
 					type="checkbox"
-					id="COUNTER_<? echo $arCounter["ID"] ?>"
+					id="COUNTER_<?php  echo $arCounter["ID"] ?>"
 					name="CONTROLLER_COUNTER_ID[]"
-					value="<? echo $arCounter["ID"] ?>"
-					<? if (array_key_exists($arCounter["ID"], $arGroupCounters)) echo ' checked' ?>
+					value="<?php  echo $arCounter["ID"] ?>"
+					<?php  if (array_key_exists($arCounter["ID"], $arGroupCounters)) echo ' checked' ?>
 				>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 
-	<?
+	<?php 
 	foreach ($arThirdSettings as $obOption):
 		/** @var IControllerGroupOption $obOption */
 		$tabControl->BeginNextTab();
@@ -889,7 +889,7 @@ echo $USER_FIELD_MANAGER->ShowScript();
 				<tr>
 					<td colspan="2" align="center"><?=htmlspecialcharsEx($arOptionParams)?>:</td>
 				</tr>
-				<?
+				<?php 
 			else:
 				$OptionValue = $arGroupOptions[$obOption->id][$id];
 				?>
@@ -899,13 +899,13 @@ echo $USER_FIELD_MANAGER->ShowScript();
 							:</label></td>
 					<td width="60%"><?=CControllerGroupSettings::GenerateInput($id, $arOptionParams, $OptionValue, $obOption->id)?></td>
 				</tr>
-			<? endif; ?>
-		<? endforeach; ?>
-	<? endforeach; ?>
+			<?php  endif; ?>
+		<?php  endforeach; ?>
+	<?php  endforeach; ?>
 
-	<? $tabControl->BeginNextTab(); ?>
+	<?php  $tabControl->BeginNextTab(); ?>
 	<tr>
-		<td><? echo GetMessage("CTRLR_GR_ED_PHP_INST") ?></td>
+		<td><?php  echo GetMessage("CTRLR_GR_ED_PHP_INST") ?></td>
 	</tr>
 	<tr>
 		<td>
@@ -915,11 +915,11 @@ echo $USER_FIELD_MANAGER->ShowScript();
 				name="INSTALL_PHP"
 				id="INSTALL_PHP"
 				title=""
-			><? echo htmlspecialcharsbx($arGroupFields['INSTALL_PHP']) ?></textarea>
+			><?php  echo htmlspecialcharsbx($arGroupFields['INSTALL_PHP']) ?></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("CTRLR_GR_ED_PHP_UNINST") ?></td>
+		<td><?php  echo GetMessage("CTRLR_GR_ED_PHP_UNINST") ?></td>
 	</tr>
 	<tr>
 		<td>
@@ -929,10 +929,10 @@ echo $USER_FIELD_MANAGER->ShowScript();
 				name="UNINSTALL_PHP"
 				id="UNINSTALL_PHP"
 				title=""
-			><? echo htmlspecialcharsbx($arGroupFields['UNINSTALL_PHP']) ?></textarea>
+			><?php  echo htmlspecialcharsbx($arGroupFields['UNINSTALL_PHP']) ?></textarea>
 		</td>
 	</tr>
-	<?
+	<?php 
 	if (
 		(count($USER_FIELD_MANAGER->GetUserFields($ENTITY_ID)) > 0) ||
 		($USER_FIELD_MANAGER->GetRights($ENTITY_ID) >= "W")
@@ -958,14 +958,14 @@ echo $USER_FIELD_MANAGER->ShowScript();
 	$tabControl->EndTab();
 	?>
 
-	<? $tabControl->Buttons(array(
+	<?php  $tabControl->Buttons(array(
 		"back_url" => "controller_group_admin.php?lang=".LANGUAGE_ID,
 		"disabled" => !$USER->CanDoOperation("controller_group_manage"),
 	)); ?>
-	<? $tabControl->End(); ?>
+	<?php  $tabControl->End(); ?>
 	<input type="hidden" value="Y" name="apply">
 </form>
-<?
+<?php 
 if (COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y" && CModule::IncludeModule('fileman'))
 {
 	CCodeEditor::Show(array(
@@ -980,6 +980,6 @@ if (COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y" && CModul
 	));
 }
 ?>
-<? $tabControl->ShowWarnings("form1", $message); ?>
+<?php  $tabControl->ShowWarnings("form1", $message); ?>
 
-<? require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>

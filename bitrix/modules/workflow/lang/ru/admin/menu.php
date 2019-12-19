@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLOW_MENU_MAIN'] = "Документооборот";
 $MESS ['FLOW_MENU_DOCUMENTS'] = "Документы";
 $MESS ['FLOW_MENU_DOCUMENTS_ALT'] = "Документы, включенные в систему документооборота";

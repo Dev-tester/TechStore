@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEWO_NO_SITE_SELECT"] = "Интернет магазин не найден.";
 $MESS["NEWO_CUSTOM_FIELD"] = "Настроить";
 $MESS["NEWO_CUSTOM_FIELD_TITLE"] = "Настроить поля формы";

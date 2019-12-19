@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPRIA_DESCR_NAME'] = "Запрос дополнительной информации";
 $MESS ['BPRIA_DESCR_DESCR'] = "Запрос дополнительной информации";
 $MESS ['BPAA_DESCR_CM'] = "Комментарий";

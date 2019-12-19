@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -140,7 +140,7 @@ $context = new CAdminContextMenu($aContext);
 $context->Show();
 ?>
 
-<?
+<?php 
 if ($message)
 	echo $message->Show();
 
@@ -148,14 +148,14 @@ if ($message)
 
 <?php $tabControl->BeginEpilogContent();?>
 	<?=bitrix_sessid_post()?>
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="from" value="<?echo htmlspecialcharsbx($from)?>">
-	<input type="hidden" name="return_url" value="<?echo htmlspecialcharsbx($return_url)?>">
-	<input type="hidden" name="ID" value="<?echo $ID?>">
+	<input type="hidden" name="from" value="<?php echo htmlspecialcharsbx($from)?>">
+	<input type="hidden" name="return_url" value="<?php echo htmlspecialcharsbx($return_url)?>">
+	<input type="hidden" name="ID" value="<?php echo $ID?>">
 <?php $tabControl->EndEpilogContent();?>
-<?$tabControl->Begin();?>
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->Begin();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("USER_NAME", GetMessage("LEARNING_ADMIN_STUDENT"), false);?>
 <tr>
 	<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
@@ -168,7 +168,7 @@ if ($message)
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="checkbox" name="ANSWERED" value="Y"<?if($str_ANSWERED=="Y")echo " checked"?> onclick="OnChangeAnswered(this.checked)">
+		<input type="checkbox" name="ANSWERED" value="Y"<?php if($str_ANSWERED=="Y")echo " checked"?> onclick="OnChangeAnswered(this.checked)">
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("USER_NAME");?>
@@ -176,7 +176,7 @@ if ($message)
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="checkbox" name="CORRECT" value="Y"<?if($str_CORRECT=="Y")echo " checked"?> onclick="OnChangeAnswered(this.checked)">
+		<input type="checkbox" name="CORRECT" value="Y"<?php if($str_CORRECT=="Y")echo " checked"?> onclick="OnChangeAnswered(this.checked)">
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("CORRECT");?>
@@ -184,7 +184,7 @@ if ($message)
 <tr>
 	<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 	<td>
-		<input type="text" name="POINT" size="4" maxlength="255" value="<?echo $str_POINT?>">
+		<input type="text" name="POINT" size="4" maxlength="255" value="<?php echo $str_POINT?>">
 	</td>
 </tr>
 <?php $tabControl->EndCustomField("POINT");?>
@@ -213,11 +213,11 @@ if ($message)
 			?>
 				<tr>
 					<td>
-					<?if ($str_QUESTION_TYPE == "M"):?>
-						<input type="checkbox" name="RESPONSE[]" value="<?=$arAnswers["ID"]?>" <?if(in_array($arAnswers["ID"],$arR)) echo "checked"?>>
-					<?else:?>
-						<input type="radio" name="RESPONSE[]" value="<?=$arAnswers["ID"]?>" <?if(in_array($arAnswers["ID"],$arR)) echo "checked"?>>
-					<?endif?>
+					<?php if ($str_QUESTION_TYPE == "M"):?>
+						<input type="checkbox" name="RESPONSE[]" value="<?=$arAnswers["ID"]?>" <?php if(in_array($arAnswers["ID"],$arR)) echo "checked"?>>
+					<?php else:?>
+						<input type="radio" name="RESPONSE[]" value="<?=$arAnswers["ID"]?>" <?php if(in_array($arAnswers["ID"],$arR)) echo "checked"?>>
+					<?php endif?>
 					</td>
 					<td><?=$arAnswers["ANSWER"]?></td>
 				</tr>
@@ -228,7 +228,7 @@ if ($message)
 </tr>
 <?php $tabControl->EndCustomField("ANSWER");?>
 
-<?
+<?php 
 $tabControl->Buttons(Array("back_url" =>"learn_test_result_admin.php?lang=". LANG."&ATTEMPT_ID=".$ATTEMPT_ID.GetFilterParams("filter_", false)));
 $tabControl->arParams["FORM_ACTION"] = $APPLICATION->GetCurPage()."?lang=".LANG."&ATTEMPT_ID=".$ATTEMPT_ID.GetFilterParams("filter_");
 $tabControl->Show();?>
@@ -251,4 +251,4 @@ function OnChangeAnswered(val)
 OnChangeAnswered(<?=($str_ANSWERED=="Y"?"true":"false")?>);
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

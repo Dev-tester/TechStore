@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMMENT_IN_FACEBOOK"] = "Facebook comment";
 $MESS["IMCONNECTOR_CONTACT_NAME"] = "Full name: ";
 $MESS["IMCONNECTOR_CONTACT_PHONE"] = "Phone: ";

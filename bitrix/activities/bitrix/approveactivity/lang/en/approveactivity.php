@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAA_ACT_BUTTON1"] = "Accept";
 $MESS["BPAA_LOG_Y"] = "Approved";
 $MESS["BPAA_ACT_COMMENT"] = "Comments";

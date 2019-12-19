@@ -33,14 +33,14 @@ $readOnly = isset($arResult['READ_ONLY']) ? $arResult['READ_ONLY'] : false;
 
 ?>
 <table cellspacing="0" cellpadding="0" border="0" class="bx-crm-view-fieldset-content-table">
-<?foreach($arValues as $ID => &$arValue):
+<?php foreach($arValues as $ID => &$arValue):
 	$valueType = $arValue['VALUE_TYPE'];
 	$value = $arValue['VALUE'];
 	$fieldID = "FM.{$typeID}.{$valueType}.{$ID}";?>
 	<tr>
 		<td class="bx-field-name bx-padding"><?=htmlspecialcharsbx(CCrmFieldMulti::GetEntityName($typeID, strtoupper($valueType), true))?>:</td>
 		<td class="bx-field-value">
-			<?if($readOnly):
+			<?php if($readOnly):
 				echo '<div class="crm-fld-block-readonly">', CCrmFieldMulti::GetTemplate($typeID, $valueType, $value), '</div>';
 			else:
 				$templateType = '_INPUT_';
@@ -101,6 +101,6 @@ $readOnly = isset($arResult['READ_ONLY']) ? $arResult['READ_ONLY'] : false;
 			endif;?>
 		</td>
 	</tr>
-<?endforeach;
+<?php endforeach;
 unset($arValue)?>
 </table>

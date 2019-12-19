@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_TITLE"] = "Авторизация";
 $MESS["AUTH_TITLE_SEND_PASSWORD"] = "Запрос пароля";
 $MESS["AUTH_TITLE_CHANGE_PASSWORD"] = "Изменение пароля";

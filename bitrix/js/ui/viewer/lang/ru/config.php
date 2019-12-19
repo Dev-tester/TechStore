@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_UI_VIEWER_DEFAULT_ERROR_TITLE"] = "Произошла ошибка";
 $MESS["JS_UI_VIEWER_IMAGE_VIEW_FULL_SIZE"] = "Показать полностью";
 $MESS["JS_UI_VIEWER_ITEM_ACTION_DOWNLOAD"] = "Скачать";

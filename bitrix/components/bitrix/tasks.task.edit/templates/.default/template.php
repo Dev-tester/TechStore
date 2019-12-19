@@ -110,7 +110,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 			'<?php echo CUtil::JSEscape(GetMessage('TASKS_WARNING_RESPONSIBLE_NOT_IN_TASK_GROUP')); ?>'
 	});
 
-	<?
+	<?php 
 	if ($arResult["IS_IFRAME"])
 	{
 		?>
@@ -181,7 +181,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 					(function(iframePopup){
 						return function()
 						{
-							<?//seems it doesnt work?>
+							<?php //seems it doesnt work?>
 							BX.addCustomEvent(
 								iframePopup,
 								'onBeforeCloseByEscape',
@@ -540,20 +540,20 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 				<div class="webform-row task-options-row">
 					<div class="webform-field webform-field-checkbox-options task-options">
 
-						<?if(is_array($arResult['COPY_PARAMS'])):?>
-							<?if(intval($arResult['COPY_PARAMS']['ORIGIN_TASK'])):?>
+						<?php if(is_array($arResult['COPY_PARAMS'])):?>
+							<?php if(intval($arResult['COPY_PARAMS']['ORIGIN_TASK'])):?>
 								<input type="hidden" name="COPY_PARAMS[ORIGIN_TASK]" value="<?=intval($arResult['COPY_PARAMS']['ORIGIN_TASK'])?>" />
 								<div class="webform-field-checkbox-option">
 									<input type="checkbox" value="Y" id="copy-child-tasks" name="COPY_PARAMS[COPY_CHILD_TASKS]" class="webform-field-checkbox" <?php echo ($arResult['COPY_PARAMS']['COPY_CHILD_TASKS'] ? " checked" : "") ?> /><label for="copy-child-tasks"><?php echo GetMessage("TASKS_TASK_COPY_CHILD_TASKS") ?></label>
 								</div>
-							<?endif?>
-							<?if(intval($arResult['COPY_PARAMS']['ORIGIN_TEMPLATE'])):?>
+							<?php endif?>
+							<?php if(intval($arResult['COPY_PARAMS']['ORIGIN_TEMPLATE'])):?>
 								<input type="hidden" name="COPY_PARAMS[ORIGIN_TEMPLATE]" value="<?=intval($arResult['COPY_PARAMS']['ORIGIN_TEMPLATE'])?>" />
 								<div class="webform-field-checkbox-option" style="display: none">
 									<input type="checkbox" value="Y" id="copy-child-templates" name="COPY_PARAMS[COPY_CHILD_TEMPLATES]" class="webform-field-checkbox" <?php echo ($arResult['COPY_PARAMS']['COPY_CHILD_TEMPLATES'] ? " checked" : "") ?> /><label for="copy-child-templates"><?php echo GetMessage("TASKS_TASK_COPY_CHILD_TEMPLATES") ?></label>
 								</div>
-							<?endif?>
-						<?endif?>
+							<?php endif?>
+						<?php endif?>
 
 						<div class="webform-field-checkbox-option"><input type="checkbox" value="Y" id="allow-change-deadline" name="ALLOW_CHANGE_DEADLINE" class="webform-field-checkbox"<?php echo ($arData["ALLOW_CHANGE_DEADLINE"] != "N" ? " checked" : "") ?> /><label for="allow-change-deadline"><?php echo GetMessage("TASKS_TASK_ALLOW_CHANGE_DEADLINE") ?></label></div>
 						<?php
@@ -631,11 +631,11 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 					<div class="webform-field webform-field-textarea task-description-textarea">
 						<div class="webform-field-textarea-inner">
 
-							<?if(!CModule::IncludeModule("fileman")):?>
+							<?php if(!CModule::IncludeModule("fileman")):?>
 								<?=ShowError('Cannot include fileman module')?>
-							<?else:?>
+							<?php else:?>
 
-								<?
+								<?php 
 								// check if we use BBCODE
 								$bbCode = ($arData['DESCRIPTION_IN_BBCODE'] === 'Y');
 
@@ -708,7 +708,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 								$Editor->Show($res);
 								?>
 
-							<?endif?>
+							<?php endif?>
 						</div>
 					</div>
 				</div>
@@ -1069,7 +1069,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 
 													<div class="task-repeating-time">
 														<?=GetMessage("TASKS_TASK_REPEAT_TIME")?>
-														<?$APPLICATION->IncludeComponent('bitrix:main.clock', '', array(
+														<?php $APPLICATION->IncludeComponent('bitrix:main.clock', '', array(
 															'INPUT_NAME' => 'REPLICATE_TIME',
 															'INPUT_ID' => 'id',
 															'INIT_TIME' => (string) $arData["REPLICATE_TIME"] != '' ? $arData["REPLICATE_TIME"] : '05:00'

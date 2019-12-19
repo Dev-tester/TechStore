@@ -24,7 +24,7 @@ if ($detailUrl)
 }
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:landing.blocks.cmpfilter',
 	'',
 	array(
@@ -33,8 +33,8 @@ if ($detailUrl)
 	)
 );?>
 
-<?if ($classBlock->get('SHOW_CART') && $classBlock->get('FIRST_TIME')):?>
-	<?$APPLICATION->IncludeComponent(
+<?php if ($classBlock->get('SHOW_CART') && $classBlock->get('FIRST_TIME')):?>
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:sale.basket.basket.line',
 		'.default',
 		array(
@@ -60,10 +60,10 @@ if ($detailUrl)
 		),
 		false
 	);?>
-<?endif;?>
+<?php endif;?>
 
-<?if ($classBlock->get('DISPLAY_COMPARE') == 'Y' && $classBlock->get('FIRST_TIME')):?>
-	<?$APPLICATION->IncludeComponent(
+<?php if ($classBlock->get('DISPLAY_COMPARE') == 'Y' && $classBlock->get('FIRST_TIME')):?>
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:catalog.compare.list',
 		'',
 		array(
@@ -79,14 +79,14 @@ if ($detailUrl)
 		),
 		false
 	);?>
-<?endif;?>
+<?php endif;?>
 
 <section class="landing-block g-pt-20 g-pb-20">
 	<div class="container">
 		<div class="tab-content">
 			<div class="tab-pane fade show active">
 				<div class="landing-component">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:catalog.section',
 					'bootstrap_v4',
 					array(

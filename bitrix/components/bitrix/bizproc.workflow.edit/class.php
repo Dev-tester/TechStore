@@ -196,7 +196,7 @@ class BizprocWorkflowEditComponent extends \CBitrixComponent
 				{
 				?><!--SUCCESS--><script>
 					alert('<?=GetMessageJS("BIZPROC_USER_PARAMS_SAVE_ERROR")?>');
-				</script><?
+				</script><?php 
 				die();
 				}
 				CUserOptions::SetOption("~bizprocdesigner", "activity_settings", $d);
@@ -275,13 +275,13 @@ class BizprocWorkflowEditComponent extends \CBitrixComponent
 							}
 						}
 					})();
-				</script><?
+				</script><?php 
 				die();
 			}
 			?><!--SUCCESS--><script>
 				BPTemplateIsModified = false;
 				window.location = '<?=($_REQUEST["apply"]=="Y"? CUtil::JSEscape($applyUrl) : CUtil::JSEscape($saveUrl))?>';
-			</script><?
+			</script><?php 
 			die();
 		}
 
@@ -337,11 +337,11 @@ class BizprocWorkflowEditComponent extends \CBitrixComponent
 			}
 			?>
 			<script>
-				<?if (intval($r) <= 0):?>
+				<?php if (intval($r) <= 0):?>
 				alert('<?= GetMessageJS("BIZPROC_WFEDIT_IMPORT_ERROR").(strlen($errTmp) > 0 ? ": ".CUtil::JSEscape($errTmp) : "" ) ?>');
-				<?else:?>
-				<?$ID = $r;?>
-				<?endif;
+				<?php else:?>
+				<?php $ID = $r;?>
+				<?php endif;
 				$applyUrl = str_replace("#ID#", $ID, $this->arResult["EDIT_PAGE_TEMPLATE"]);
 				if ($backUrl)
 				{
@@ -350,7 +350,7 @@ class BizprocWorkflowEditComponent extends \CBitrixComponent
 				?>
 				window.location = '<?=CUtil::JSEscape($applyUrl)?>';
 			</script>
-			<?
+			<?php 
 			die();
 		}
 

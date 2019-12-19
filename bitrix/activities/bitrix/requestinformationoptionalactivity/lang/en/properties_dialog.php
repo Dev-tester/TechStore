@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRIA_PD_APPROVERS"] = "To be provided by employees";
 $MESS["BPRIA_PD_NAME"] = "Task name";
 $MESS["BPRIA_PD_DESCR"] = "Task description";

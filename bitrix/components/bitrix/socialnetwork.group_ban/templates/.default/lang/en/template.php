@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C7_ACT_SAVE'] = "Unban Users";
 $MESS ['SONET_C7_SUBTITLE'] = "Group Ban List";
 $MESS ['SONET_C7_NO_USERS'] = "No members.";

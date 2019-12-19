@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/js/main/utils.js");
 $arParams["RETURN"] = ($arParams["RETURN"] == "Y" ? "Y" : "N");
 if (!empty($arResult["data"])):
@@ -8,22 +8,22 @@ if (!empty($arResult["data"])):
 	oForum['_<?=$arResult["id"]?>'] = <?=CUtil::PhpToJSObject($arResult["data"])?>;
 //]]>
 </script>
-<?if (empty($arResult["head"])):?>
+<?php if (empty($arResult["head"])):?>
 	<div id="_<?=$arResult["id"]?>" onclick="if(typeof(window.fMenu)=='object'){fMenu.ShowMenu(this, oForum['_<?=$arResult["id"]?>'])}"  title="<?=GetMessage("FMI_SHOW")?>" class="icon-more"></div>
-<?else:?>
-<table cellpadding="0" cellspacing="0" border="0" class="forum-menu-item" onmouseover="this.className+=' forum-menu-item-over';" <?
-	?>onmouseout="this.className=this.className.replace(' forum-menu-item-over', '');" <?
-	?>onclick="if(typeof(window.fMenu)=='object'){fMenu.ShowMenu(this, oForum['_<?=$arResult["id"]?>'], document.getElementById('_<?=$arResult["id"]?>'))}" <?
+<?php else:?>
+<table cellpadding="0" cellspacing="0" border="0" class="forum-menu-item" onmouseover="this.className+=' forum-menu-item-over';" <?php 
+	?>onmouseout="this.className=this.className.replace(' forum-menu-item-over', '');" <?php 
+	?>onclick="if(typeof(window.fMenu)=='object'){fMenu.ShowMenu(this, oForum['_<?=$arResult["id"]?>'], document.getElementById('_<?=$arResult["id"]?>'))}" <?php 
 	?>title="<?=$arResult["head"]["CONTENT"]?>" id="_table_<?=$arResult["id"]?>"><tr>
-<?
+<?php 
 	if (!empty($arResult["head"]["ICON"])):?>
-	<td class="icon"><div class="<?=$arResult["head"]["ICON"]?>"></div></td><?
+	<td class="icon"><div class="<?=$arResult["head"]["ICON"]?>"></div></td><?php 
 	endif;?>
 	<td class="content"><?=$arResult["head"]["CONTENT"]?></td>
-	<td class="switcher"><div id="_<?=$arResult["id"]?>" class="icon-more" title="<?=GetMessage("FMI_SHOW")?>"></div></td><?
+	<td class="switcher"><div id="_<?=$arResult["id"]?>" class="icon-more" title="<?=GetMessage("FMI_SHOW")?>"></div></td><?php 
 ?>
 </tr></table>
-<?endif;
+<?php endif;
 
 if ($arParams["RETURN"] == "Y")
 	$this->__component->arParams["RETURN_DATA"] = array("id" => "_".$arResult["id"]);

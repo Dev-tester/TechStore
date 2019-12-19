@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['REST_MODULE_NAME'] = "REST API";
 $MESS['REST_MODULE_DESCRIPTION'] = "Программный интерфейс для внешних и внутренних приложений";
 $MESS['REST_INSTALL_TITLE'] = "Установка модуля \"REST API\"";

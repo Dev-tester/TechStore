@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_KANBAN_FIELD_OBSERVER"] = "Observers";
 $MESS["CRM_KANBAN_FIELD_OPPORTUNITY_WITH_CURRENCY"] = "Amount and currency";
 $MESS["CRM_KANBAN_FIELD_RECURRING"] = "Recurring deal";

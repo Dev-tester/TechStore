@@ -1,4 +1,4 @@
- <?
+ <?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
@@ -50,9 +50,9 @@ $taskData = $arParams["TASK"];
 
 		<span data-bx-id="task-view-b-time-elapsed"><?=\Bitrix\Tasks\UI::formatTimeAmount($taskData['TIME_ELAPSED']);?></span>
 
-		<?if ($taskData["TIME_ESTIMATE"] > 0):?>
+		<?php if ($taskData["TIME_ESTIMATE"] > 0):?>
 			/ <?=\Bitrix\Tasks\UI::formatTimeAmount($taskData["TIME_ESTIMATE"]);?>
-		<?endif?>
+		<?php endif?>
 		</span>
 		<span class="task-timeman-arrow"></span>
 	</span>
@@ -61,35 +61,35 @@ $taskData = $arParams["TASK"];
 
 		<span data-bx-id="task-view-b-button" data-action="START_TIMER" class="task-view-button timer-start ui-btn ui-btn-success">
 			<?=Loc::getMessage("TASKS_START_TASK_TIMER")?>
-		</span><?
+		</span><?php 
 
 		?><span data-bx-id="task-view-b-button" data-action="PAUSE_TIMER" class="task-view-button timer-pause ui-btn ui-btn-light-border">
 			<?=Loc::getMessage("TASKS_PAUSE_TASK_TIMER")?>
-		</span><?
+		</span><?php 
 
 		?><span data-bx-id="task-view-b-button" data-action="START" class="task-view-button start ui-btn ui-btn-success">
 			<?=Loc::getMessage("TASKS_START_TASK")?>
-		</span><?
+		</span><?php 
 
 		?><span data-bx-id="task-view-b-button" data-action="PAUSE" class="task-view-button pause ui-btn ui-btn-success">
 			<?=Loc::getMessage("TASKS_PAUSE_TASK")?>
-		</span><?
+		</span><?php 
 
 		?><span data-bx-id="task-view-b-button" data-action="COMPLETE"  class="task-view-button complete pause ui-btn ui-btn-success">
 			<?=Loc::getMessage("TASKS_CLOSE_TASK")?>
-		</span><?
+		</span><?php 
 
 		?><span data-bx-id="task-view-b-button" data-action="APPROVE"  class="task-view-button approve ui-btn ui-btn-success">
 			<?=Loc::getMessage("TASKS_APPROVE_TASK")?>
-		</span><?
+		</span><?php 
 
 		?><span data-bx-id="task-view-b-button" data-action="DISAPPROVE" class="task-view-button disapprove ui-btn ui-btn-danger">
 			<?=Loc::getMessage("TASKS_REDO_TASK")?>
-		</span><?
+		</span><?php 
 
 		?><span data-bx-id="task-view-b-open-menu" class="task-more-button ui-btn ui-btn-light-border ui-btn-dropdown">
 			<?=Loc::getMessage("TASKS_MORE")?>
-		</span><?
+		</span><?php 
 
 		?><a href="<?=$arResult['EDIT_URL']?>" class="task-view-button edit ui-btn ui-btn-link" data-slider-ignore-autobinding="true">
 			<?=GetMessage("TASKS_EDIT_TASK")?>
@@ -111,4 +111,4 @@ $taskData = $arParams["TASK"];
 			TASKS_DELETE_SUCCESS: '<?=GetMessage('TASKS_DELETE_SUCCESS')?>'
 		});
 	</script>
-<?$helper->initializeExtension();?>
+<?php $helper->initializeExtension();?>

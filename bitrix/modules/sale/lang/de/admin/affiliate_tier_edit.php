@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SATE1_RATE1"] = "Affiliate-Tarif für Level 1:";
 $MESS["SATE1_RATE2"] = "Affiliate-Tarif für Level 2:";
 $MESS["SATE1_RATE3"] = "Affiliate-Tarif für Level 3:";

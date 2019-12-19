@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $GLOBALS["BLOG"] = Array();
@@ -1778,7 +1778,7 @@ class CAllBlog
 		if(strlen($blogUrl) <= 0)
 			return false;
 
-		$query = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+		$query = "<?php xml version=\"1.0\" encoding=\"UTF-8\"?>
 		<methodCall>
 			<methodName>weblogUpdates.ping</methodName>
 			<params>

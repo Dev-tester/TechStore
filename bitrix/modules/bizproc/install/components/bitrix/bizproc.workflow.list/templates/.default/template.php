@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!empty($arResult["ERROR_MESSAGE"])):
 	ShowError($arResult["ERROR_MESSAGE"]);
 endif;
@@ -11,17 +11,17 @@ if (empty($arResult["GRID_TEMPLATES"]))
 				'"'.$APPLICATION->GetCurPageParam("action=create_default&".bitrix_sessid_get(), array("action", "sessid")).'"',
 				GetMessage("WD_EMPTY"))?>
 		</div>
-	<?
+	<?php 
 	else:
 	?>
 		<div class="wd-help-list selected"><?=GetMessage("WD_EMPTY_DEFAULT") ?>
 		</div>
-	<?
+	<?php 
 	endif;
 }
 else
 {
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.grid",
 	"",
 	array(
@@ -44,7 +44,7 @@ else
 		"AJAX_MODE" => "Y",
 	),
 	($this->__component->__parent ? $this->__component->__parent : $component)
-);?><?
+);?><?php 
 }
 /****************************************************************************/
 if (IsModuleInstalled("bizprocdesigner")):
@@ -54,6 +54,6 @@ if (IsModuleInstalled("bizprocdesigner")):
 	<?=GetMessage("BPATT_HELP1_TEXT")?><br />
 	<?=GetMessage("BPATT_HELP2_TEXT")?>
 </div>
-<?
+<?php 
 endif;
 ?>

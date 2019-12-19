@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $db_res = $arParams["OBJECT"]->_get_mixed_list(null, $arParams + array("SHOW_VERSION" => "Y"), $arResult["VARIABLES"]["ELEMENT_ID"]); 
 
 if (!($db_res && $arResult["ELEMENT"] = $db_res->GetNext()))
@@ -63,7 +63,7 @@ if ($arParams["SET_NAV_CHAIN"] != "N")
 		CComponentEngine::MakePathFromTemplate($arResult["URL_TEMPLATES"]["element_edit"], 
 			array("SECTION_ID" => $arResult["ELEMENT"]["IBLOCK_SECTION_ID"], "ELEMENT_ID" => $arResult["ELEMENT"]["ID"], "ACTION" => "EDIT"))*/);
 }
-?><?$APPLICATION->IncludeComponent("bitrix:bizproc.document.history", "", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:bizproc.document.history", "", Array(
 	"OBJECT" => $arParams["OBJECT"], 
 	"MODULE_ID" => MODULE_ID,
 	"ENTITY" => ENTITY,

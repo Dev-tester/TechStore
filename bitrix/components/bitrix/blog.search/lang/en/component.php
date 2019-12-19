@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MODULE_NOT_INSTALL'] = "Blog module is not installed.";
 $MESS ['SEARCH_MODULE_NOT_INSTALL'] = "Search module is not installed.";
 $MESS ['BLOG_MAIN_SEARCH_TITLE'] = "Blog Search";

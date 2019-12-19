@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -296,10 +296,10 @@ else
 	$lAdmin->DisplayList();
 	?>
 
-	<?echo BeginNote();?>
-	<?echo GetMessage("RATE_ORDER_NOTES")?><br>
-	<?echo EndNote();?>
-	<?
+	<?php echo BeginNote();?>
+	<?php echo GetMessage("RATE_ORDER_NOTES")?><br>
+	<?php echo EndNote();?>
+	<?php 
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

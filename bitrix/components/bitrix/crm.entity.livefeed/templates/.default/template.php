@@ -34,7 +34,7 @@ if($arResult['ENABLE_ACTIVITY_ADD'] || $arResult['SHOW_ACTIVITIES']):
 endif;
 
 ?><div class="crm-feed-wrap">
-<div class="crm-feed-right-side"><?
+<div class="crm-feed-right-side"><?php 
 if($arResult['SHOW_ACTIVITIES']):
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.livefeed.activity.list',
@@ -58,14 +58,14 @@ $APPLICATION->IncludeComponent(
 );
 ?></div>
 <div class="crm-feed">
-<div id="<?=$prefix?>menu" class="crm-feed-top-nav"><?
+<div id="<?=$prefix?>menu" class="crm-feed-top-nav"><?php 
 if($arResult['ENABLE_ACTIVITY_ADD']):
 	?><span id="<?=$prefix?>add_message" class="crm-feed-top-nav-item"><?=htmlspecialcharsbx(GetMessage('CRM_ENTITY_LF_MENU_BTN_MESSAGE'))?></span>
 	<span id="<?=$prefix?>add_task" class="crm-feed-top-nav-item"><?=htmlspecialcharsbx(GetMessage('CRM_ENTITY_LF_MENU_BTN_TASK'))?></span>
 	<span id="<?=$prefix?>add_meeting" class="crm-feed-top-nav-item"><?=htmlspecialcharsbx(GetMessage('CRM_ENTITY_LF_MENU_BTN_MEETING'))?></span>
 	<span id="<?=$prefix?>add_call" class="crm-feed-top-nav-item"><?=htmlspecialcharsbx(GetMessage('CRM_ENTITY_LF_MENU_BTN_CALL'))?></span>
 	<span id="<?=$prefix?>add_email" class="crm-feed-top-nav-item"><?=htmlspecialcharsbx(GetMessage('CRM_ENTITY_LF_MENU_BTN_EMAIL'))?></span>
-	<?
+	<?php 
 endif;
 
 if($arResult['ENABLE_FILTER']):
@@ -93,7 +93,7 @@ if($arResult['ENABLE_FILTER']):
 		array('HIDE_ICONS' => 'Y')
 	);
 endif;
-?></div><?
+?></div><?php 
 if($arResult['ENABLE_MESSAGE_ADD']):
 	$APPLICATION->IncludeComponent('bitrix:crm.socialnetwork.log_event.edit',
 			'',
@@ -160,7 +160,7 @@ $APPLICATION->IncludeComponent(
 	null,
 	array('HIDE_ICONS' => 'Y')
 );
-?></div></div><?
+?></div></div><?php 
 if($arResult['ENABLE_ACTIVITY_ADD']):
 ?><script type="text/javascript">
 	BX.ready(
@@ -180,5 +180,5 @@ if($arResult['ENABLE_ACTIVITY_ADD']):
 			);
 		}
 	);
-</script><?
+</script><?php 
 endif;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_ADMIN_GROUP_DESC"] = "Full access.";
 $MESS["MAIN_ADMIN_GROUP_NAME"] = "Administrators";
 $MESS["MAIN_DEFAULT_LANGUAGE_FORMAT_CHARSET"] = "iso-8859-1";

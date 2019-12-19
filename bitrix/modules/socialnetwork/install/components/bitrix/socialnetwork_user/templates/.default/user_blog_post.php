@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -6,7 +6,7 @@
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 
-?><div class="feed-blog-post-list feed-blog-post-detail"><?
+?><div class="feed-blog-post-list feed-blog-post-detail"><?php 
 
 $pageId = "user_blog";
 include("util_menu.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_LOG_ADD_POST"] = "Написать сообщение";
 $MESS["MOBILE_LOG_GROUP_FILES"] = "Файлы группы";
 $MESS["MB_TASKS_AT_SOCNET_LOG_CPT_MENU_ITEM_LIST"] = "Список задач в группе";

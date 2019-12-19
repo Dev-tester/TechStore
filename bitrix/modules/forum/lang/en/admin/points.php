@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_P_POINTS"] = "Points";
 $MESS["FORUM_P_ERROR_DEL"] = "Error deleting a score";
 $MESS["FORUM_P_RANKS"] = "Scores";

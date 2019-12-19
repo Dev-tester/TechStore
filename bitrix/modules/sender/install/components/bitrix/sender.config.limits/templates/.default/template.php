@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -25,12 +25,12 @@ $containerId = 'sender-start-container';
 </script>
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="sender-config-limits-wrap">
 
-	<?foreach ($arResult['LIST'] as $item):?>
+	<?php foreach ($arResult['LIST'] as $item):?>
 		<div class="sender-config-limits-box">
 			<h4 class="sender-config-limits-title">
 				<?=htmlspecialcharsbx($item['NAME'])?>
 
-				<?if ($item['HELP_URI']):?>
+				<?php if ($item['HELP_URI']):?>
 					<span class="sender-config-limits-info">
 						<?=(htmlspecialcharsbx($item['HELP_CAPTION']) ?:
 								Loc::getMessage('SENDER_LIMIT_HELP', array(
@@ -39,21 +39,21 @@ $containerId = 'sender-start-container';
 							))
 						)?>
 					</span>
-				<?endif;?>
+				<?php endif;?>
 			</h4>
-			<?foreach ($item['LIMITS'] as $limit):?>
+			<?php foreach ($item['LIMITS'] as $limit):?>
 
 				<div class="sender-config-limits-block">
-					<?if ($limit['CAPTION']):?>
+					<?php if ($limit['CAPTION']):?>
 					<div class="sender-config-limits-subtitle">
 						<?=htmlspecialcharsbx($limit['CAPTION'])?>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 
-					<?if ($limit['TEXT_VIEW']):?>
+					<?php if ($limit['TEXT_VIEW']):?>
 						<span class="sender-config-limits-info-number"><?=htmlspecialcharsbx($limit['LIMIT'])?></span>
 						<span class="sender-config-limits-info-name"><?=htmlspecialcharsbx($limit['UNIT_NAME'])?></span>
-					<?else:?>
+					<?php else:?>
 
 						<div class="sender-config-limits-head" style="margin-top: 5px;">
 							<span class="sender-config-limits-head-left">
@@ -64,9 +64,9 @@ $containerId = 'sender-start-container';
 							</span>
 						</div>
 						<div
-							<?if ($limit['PERCENTAGE']):?>
+							<?php if ($limit['PERCENTAGE']):?>
 								data-role="percentage-context"
-							<?endif;?>
+							<?php endif;?>
 							data-name="<?=htmlspecialcharsbx($limit['NAME'])?>"
 							class="sender-config-limits-main"
 						>
@@ -83,7 +83,7 @@ $containerId = 'sender-start-container';
 									class="sender-config-limits-progress-bar"
 									style="width: <?=$limit['CURRENT_PERCENTAGE']?>%"
 								></div>
-								<?if ($limit['PERCENTAGE']):?>
+								<?php if ($limit['PERCENTAGE']):?>
 									<div
 										data-role="percentage-view"
 										class="sender-config-limits-progress-slider"
@@ -104,15 +104,15 @@ $containerId = 'sender-start-container';
 													value="<?=htmlspecialcharsbx($limit['PERCENTAGE'])?>"
 												>%
 											</div>
-											<?if ($arParams['CAN_EDIT']):?>
+											<?php if ($arParams['CAN_EDIT']):?>
 												<span data-role="percentage-edit" class="sender-config-limits-progress-button">
 													<span class="sender-config-limits-progress-button-item"></span>
 												</span>
 												<div class="sender-config-limits-progress-triangle"></div>
-											<?endif;?>
+											<?php endif;?>
 										</div>
 									</div>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 
 							<div class="sender-config-limits-bottom">
@@ -125,20 +125,20 @@ $containerId = 'sender-start-container';
 										<?=htmlspecialcharsbx($limit['LIMIT'])?>
 									</span>
 
-									<?if ($limit['SETUP_URI']):?>
+									<?php if ($limit['SETUP_URI']):?>
 										<a href="<?=htmlspecialcharsbx($limit['SETUP_URI'])?>" class="sender-config-limits-setup-link">
 											<?=htmlspecialcharsbx($limit['SETUP_CAPTION'] ?: Loc::getMessage('SENDER_LIMIT_SETUP'))?>
 										</a>
-									<?endif;?>
+									<?php endif;?>
 								</div>
 							</div>
 
 						</div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
-	<?endforeach;?>
+	<?php endforeach;?>
 
 </div>

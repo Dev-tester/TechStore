@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SET_NAVIGATION'] = "Показывать навигацию";
 $MESS ['F_URL_TEMPLATES'] = "Управление адресами страниц";
 $MESS ['F_INDEX_TEMPLATE'] = "Страница списка форумов";

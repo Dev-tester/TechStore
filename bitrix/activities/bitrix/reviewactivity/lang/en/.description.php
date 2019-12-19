@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAR_DESCR_NAME"] = "Read element";
 $MESS["BPAR_DESCR_DESCR"] = "Read the element and post comments";
 $MESS["BPAR_DESCR_RC"] = "Persons Read";

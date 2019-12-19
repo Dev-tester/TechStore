@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -18,7 +18,7 @@ $containerId = 'bx-sender-segment-edit';
 ?>
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="bx-sender-segment-edit-wrapper">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:sender.ui.panel.title", "", array('LIST' => array(
 		array('type' => 'buttons', 'list' => array(
 			array('type' => 'feedback')
@@ -45,20 +45,20 @@ $containerId = 'bx-sender-segment-edit';
 			<div class="bx-sender-value">
 
 				<div class="sender-group-address-counter">
-					<?
+					<?php 
 					if(count($arResult['CONNECTOR']['AVAILABLE']) > 0):
 						?>
 						<a data-bx-button="" class="ui-btn ui-btn-primary ui-btn-dropdown"><?=Loc::getMessage('SENDER_SEGMENT_EDIT_TMPL_BTN_ADD')?></a>
-						<?
+						<?php 
 					endif;
 					?>
 
 					<span class="sender-mailing-sprite sender-group-address-counter-img"></span>
 					<span class="sender-box-list-item-caption-additional-less"><?=Loc::getMessage('SENDER_SEGMENT_EDIT_TMPL_SELECTED')?>:</span>
-					<span data-bx-counter="" style="display: none;"><?
+					<span data-bx-counter="" style="display: none;"><?php 
 						echo intval($arResult['CONNECTOR']['EXISTED_ADDRESS_COUNT'])
-					?></span><?
-					?><span class="sender-box-list-item-caption-additional-less" style="<?=($arParams['DATA_TYPE_ID'] ? 'display: none;' : '')?>"><?
+					?></span><?php 
+					?><span class="sender-box-list-item-caption-additional-less" style="<?=($arParams['DATA_TYPE_ID'] ? 'display: none;' : '')?>"><?php 
 						?><span class=""></span>
 						<span data-bx-count-info=""></span>
 					</span>
@@ -71,7 +71,7 @@ $containerId = 'bx-sender-segment-edit';
 
 
 		<script type="text/template" id="connector-template-filter">
-			<?
+			<?php 
 			ob_start();
 			?><div data-bx-item="%CONNECTOR_NUM%"
 				data-code="%CONNECTOR_MODULE_ID%_%CONNECTOR_CODE%"
@@ -104,24 +104,24 @@ $containerId = 'bx-sender-segment-edit';
 							</svg>
 						</span>
 					</span>
-					<?if($arParams['CAN_VIEW_CONN_DATA']):?>
+					<?php if($arParams['CAN_VIEW_CONN_DATA']):?>
 					<span data-bx-item-result-view=""
 						class="ui-btn ui-btn-xs ui-btn-secondary ui-btn-no-caps"
 						style="float: right; display: none;"
 					>
 						<?=Loc::getMessage('SENDER_SEGMENT_EDIT_TMPL_VIEW')?>
 					</span>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 				<input data-bx-item-filter="" type="hidden" name="CONNECTOR_SETTING[%CONNECTOR_MODULE_ID%][%CONNECTOR_CODE%][%CONNECTOR_NUM%]" value="%CONNECTOR_FILTER%">
 			</div>
-			<?
+			<?php 
 			$connectorFilterTemplate = ob_get_clean();
 			echo $connectorFilterTemplate;
 			?>
 		</script>
 		<script type="text/template" id="connector-template">
-			<?
+			<?php 
 			ob_start();
 			?><div data-bx-item="%CONNECTOR_NUM%" data-code="%CONNECTOR_MODULE_ID%_%CONNECTOR_CODE%" class="sender-box-connector sender-box-list-item-hidden">
 				<div class="sender-box-name">
@@ -149,14 +149,14 @@ $containerId = 'bx-sender-segment-edit';
 							</svg>
 						</span>
 					</span>
-					<?if($arParams['CAN_VIEW_CONN_DATA']):?>
+					<?php if($arParams['CAN_VIEW_CONN_DATA']):?>
 						<span data-bx-item-result-view=""
 							class="ui-btn ui-btn-xs ui-btn-secondary ui-btn-no-caps"
 							style="float: right; display: none;"
 						>
 						<?=Loc::getMessage('SENDER_SEGMENT_EDIT_TMPL_VIEW')?>
 					</span>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 				<div class="sender-box-list-item-block connector_form_container">
 					<div class="sender-box-list-item-block-item">%CONNECTOR_FORM%</div>
@@ -167,7 +167,7 @@ $containerId = 'bx-sender-segment-edit';
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 			$connectorTemplate = ob_get_clean();
 			echo $connectorTemplate;
 			?>
@@ -175,7 +175,7 @@ $containerId = 'bx-sender-segment-edit';
 
 		<div class="sender-box-list">
 			<div data-bx-list="" >
-				<?
+				<?php 
 				foreach($arResult['CONNECTOR']['EXISTED'] as $existedConnector)
 				{
 					if ($existedConnector['ID'] == 'sender_contact_list')
@@ -209,7 +209,7 @@ $containerId = 'bx-sender-segment-edit';
 		<div class="sender-box-list">
 			<div class="sender-box-name"><?=Loc::getMessage('SENDER_SEGMENT_EDIT_TMPL_LIST1')?></div>
 			<div class="sender-flex-control">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent('bitrix:sender.ui.tile.selector', '', array(
 					'ID' => 'sender-segment-contacts',
 					'LIST' => $arResult['CONTACTS']['TILES'],
@@ -233,7 +233,7 @@ $containerId = 'bx-sender-segment-edit';
 		</div>
 
 
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:sender.ui.button.panel",
 			"",

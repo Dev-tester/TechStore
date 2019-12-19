@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIG_SMS_TITLE"] = "Simple and robust SMS notification";
 $MESS["CRM_CONFIG_SMS_TITLE_2"] = "Powered by TWILIO.COM";
 $MESS["CRM_CONFIG_SMS_FEATURES_TITLE"] = "Explore possibilities of SMS marketing";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPATL_SUCCESS"] = "Assignment is completed.";
 $MESS["BPAT_COMMENT"] = "Comments";
 $MESS["BPATL_DOC_HISTORY"] = "Document Change History";

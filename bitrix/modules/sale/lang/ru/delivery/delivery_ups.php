@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DH_UPS_NAME'] = "UPS";
 $MESS ['SALE_DH_UPS_DESCRIPTION'] = "международная доставка";
 $MESS ['SALE_DH_UPS_EXPRESS_TITLE'] = "UPS Express";

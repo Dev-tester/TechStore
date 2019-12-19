@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_IVR_EDIT_CANCEL"] = "Cancel";
 $MESS["VOX_IVR_EDIT_CHANGE"] = "Change";
 $MESS["VOX_IVR_EDIT_ENCLOSED_MENU"] = "Nested menu for button #DIGIT#";

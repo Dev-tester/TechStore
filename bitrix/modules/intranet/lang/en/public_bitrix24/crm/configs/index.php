@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Settings";
 $MESS["STATUS"] = "Selection lists";
 $MESS["PERMS"] = "Access permissions";

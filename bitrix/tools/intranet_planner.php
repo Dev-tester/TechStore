@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/intranet_planner.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/intranet_planner.php");?>

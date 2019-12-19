@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_CHANGE_STATUS_NO_PERMISSIONS"] = "Insufficient permissions to change task status";
 $MESS["TASKS_CHANGE_STATUS_PENDING"] = "Pending";
 $MESS["TASKS_CHANGE_STATUS_IN_PROGRESS"] = "In progress";

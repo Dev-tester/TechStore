@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASKET_ENTITY_BASKET"] = "Warenkorb";
 $MESS["SALE_BASKET_ENTITY_ID"] = "Eintrags-ID";
 $MESS["SALE_BASKET_ENTITY_FUSER_ID"] = "Besucher-ID";

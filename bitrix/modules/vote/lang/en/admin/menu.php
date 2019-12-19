@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_MENU_MAIN"] = "Polls and Surveys";
 $MESS["VOTE_MENU_VOTE"] = "Poll list";
 $MESS["VOTE_MENU_VOTE_ALT"] = "Manage site visitor polls";

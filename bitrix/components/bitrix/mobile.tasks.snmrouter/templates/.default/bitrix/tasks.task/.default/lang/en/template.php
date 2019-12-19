@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_BASE_SETTINGS"] = "Main task parameters";
 $MESS["MB_TASKS_BASE_SETTINGS_TITLE"] = "task name";
 $MESS["MB_TASKS_BASE_SETTINGS_TITLE_PLACEHOLDER"] = "Name";

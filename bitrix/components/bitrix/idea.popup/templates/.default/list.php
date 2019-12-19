@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arCategoryList = CIdeaManagment::getInstance()->Idea()->GetCategoryList();
 $arRootCategory = array(array("CODE" => "SYS_ALL", "NAME" => GetMessage("IDEA_POPUP_CATEGORY_ALL"), "IS_CATEGOTY" => "N"));
 foreach($arCategoryList as $key => $arCategory)
@@ -9,23 +9,23 @@ foreach($arCategoryList as $key => $arCategory)
 $arRootCategory = array_slice($arRootCategory, 0, $arParams["CATEGORIES_CNT"]);
 ?>
 <div id="idea-list-container">
-	<div style="margin-right: 8px; padding-top:18px;"><?
-		?><input id="idea-field-common-show-add-form" class="idea-field-common" <?
-			?>onclick="BX.Idea.add();" <?
+	<div style="margin-right: 8px; padding-top:18px;"><?php 
+		?><input id="idea-field-common-show-add-form" class="idea-field-common" <?php 
+			?>onclick="BX.Idea.add();" <?php 
 			?>type="text" readonly="true" placeholder="<?=GetMessage("IDEA_INPUT_TITLE_IDEA")?>"></div>
 	<div style="padding-top: 20px;"></div>
 	<div class="status-box-l">
 		<div class="status-box-r">
 			<div class="status-box-m">
-				<?$i=0; foreach($arRootCategory as $arCategory):?>
-				<div class="status-item-categoty status-item<?if($i++==0):?>-selected<?endif;?>" onclick="BX.Idea.set(this)" id="idea-category-list-<?=ToLower($arCategory["CODE"])?>">
+				<?php $i=0; foreach($arRootCategory as $arCategory):?>
+				<div class="status-item-categoty status-item<?php if($i++==0):?>-selected<?php endif;?>" onclick="BX.Idea.set(this)" id="idea-category-list-<?=ToLower($arCategory["CODE"])?>">
 					<div>
 						<div>
 							<a><?=$arCategory["NAME"]?></a>
 						</div>
 					</div>
 				</div>
-				<?endforeach;?>
+				<?php endforeach;?>
 				<div class="status-item status-item-more">
 					<div>
 						<div>
@@ -38,16 +38,16 @@ $arRootCategory = array_slice($arRootCategory, 0, $arParams["CATEGORIES_CNT"]);
 		</div>
 	</div>
 	<div id="idea-category-list-box">
-		<?$i = 0; foreach($arRootCategory as $arCategory):?>
-			<div class="idea-category-list" id="idea-category-list-<?=ToLower($arCategory["CODE"])?>-content" <?if($i++>0):?>style="display:none;"<?endif;?>>
-				<?
+		<?php $i = 0; foreach($arRootCategory as $arCategory):?>
+			<div class="idea-category-list" id="idea-category-list-<?=ToLower($arCategory["CODE"])?>-content" <?php if($i++>0):?>style="display:none;"<?php endif;?>>
+				<?php 
 				$arFilter = array();
 				if($arCategory["IS_CATEGOTY"] != "N")
 					$arFilter = array(
 						"IDEA_PARENT_CATEGORY_CODE" => ToUpper($arCategory["CODE"])
 					);
 				?>
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 						"bitrix:idea.list",
 						"light",
 						Array(
@@ -71,6 +71,6 @@ $arRootCategory = array_slice($arRootCategory, 0, $arParams["CATEGORIES_CNT"]);
 				);
 				?>
 			</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 </div>

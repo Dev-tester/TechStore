@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arResult["VARIABLES"]["block_id"] = intval($arResult["VARIABLES"]["block_id"]);
 if ($arResult["VARIABLES"]["block_id"] <= 0)
 {

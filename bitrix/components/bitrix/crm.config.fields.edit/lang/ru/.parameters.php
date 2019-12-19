@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELS_EDIT_ENTITY_ID"] = "Тип поля";
 $MESS["CRM_FIELS_EDIT_FIELD_ID"] = "Дополнительное поле";
 $MESS["CRM_ENTITY_LIST_URL"] = "URL списка типов";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "messageservice");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin.php");
 
@@ -16,24 +16,24 @@ if ($isSlider)
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<?$APPLICATION->ShowHead(); ?>
+		<?php $APPLICATION->ShowHead(); ?>
 	</head>
 	<body>
-	<?
+	<?php 
 }
 
 ?>
 	<div style="background: white">
-		<?
+		<?php 
 		/** @var \CAllMain $APPLICATION */
 		$APPLICATION->IncludeComponent("bitrix:messageservice.config.sender.limits", "", []);
 		?>
 	</div>
-<?
+<?php 
 
 if ($isSlider)
 {
-	?></body></html><?
+	?></body></html><?php 
 }
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -62,7 +62,7 @@ if ($arResult['ERRORS'])
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		return;
 	}
 	elseif (isset($errors['SITE_IS_NOW_CREATING']))
@@ -84,7 +84,7 @@ if ($arResult['ERRORS'])
 				}, 3000);
 			});
 		</script>
-		<?
+		<?php 
 		return;
 	}
 	else
@@ -119,7 +119,7 @@ if ($arResult['ERRORS'])
 					}
 				});
 			</script>
-			<?
+			<?php 
 			break;
 		}
 		unset($errorCode, $errorMessage);
@@ -155,39 +155,39 @@ if (!$request->offsetExists('landing_mode')):
 	?>
 	<div class="landing-ui-panel landing-ui-panel-top">
 		<div class="landing-ui-panel-top-logo">
-		<?if ($arParams['PAGE_URL_URL_SITES']):?>
-			<a href="<?= $arParams['PAGE_URL_URL_SITES'];?>" data-slider-ignore-autobinding="true"><?
-				?><span class="landing-ui-panel-top-logo-text"><?= \htmlspecialcharsbx($b24Title);?></span><?
+		<?php if ($arParams['PAGE_URL_URL_SITES']):?>
+			<a href="<?= $arParams['PAGE_URL_URL_SITES'];?>" data-slider-ignore-autobinding="true"><?php 
+				?><span class="landing-ui-panel-top-logo-text"><?= \htmlspecialcharsbx($b24Title);?></span><?php 
 				if ($b24Logo != 'N'):
-					?><span class="landing-ui-panel-top-logo-color"><?= Loc::getMessage('LANDING_TPL_START_PAGE_LOGO_24');?></span><?
+					?><span class="landing-ui-panel-top-logo-color"><?= Loc::getMessage('LANDING_TPL_START_PAGE_LOGO_24');?></span><?php 
 				endif;?>
 			</a>
-		<?else:?>
-			<span class="landing-ui-panel-top-logo-text"><?= \htmlspecialcharsbx($b24Title);?></span><?
+		<?php else:?>
+			<span class="landing-ui-panel-top-logo-text"><?= \htmlspecialcharsbx($b24Title);?></span><?php 
 			if ($b24Logo != 'N'):
 				?><span class="landing-ui-panel-top-logo-color"><?= Loc::getMessage('LANDING_TPL_START_PAGE_LOGO_24');?></span>
-			<?endif;?>
-		<?endif;?>
+			<?php endif;?>
+		<?php endif;?>
 		</div>
 		<div class="landing-ui-panel-top-chain">
-			<?if ($arParams['PAGE_URL_URL_SITES']):?>
+			<?php if ($arParams['PAGE_URL_URL_SITES']):?>
 				<a href="<?= $arParams['PAGE_URL_URL_SITES'];?>" data-slider-ignore-autobinding="true" class="ui-btn ui-btn-xs ui-btn-light ui-btn-round landing-ui-panel-top-chain-link landing-ui-panel-top-chain-link-sites" title="<?= $startChain;?>">
 					<?= $startChain;?>
 				</a><strong class="landing-ui-panel-top-chain-link-separator"><span></span></strong>
-			<?endif;?>
-			<a href="<?= ($arResult['SITES_COUNT'] <= 1) ? $arParams['PAGE_URL_LANDINGS'] : '#';?>" <?
-				?>id="landing-navigation-site" <?
+			<?php endif;?>
+			<a href="<?= ($arResult['SITES_COUNT'] <= 1) ? $arParams['PAGE_URL_LANDINGS'] : '#';?>" <?php 
+				?>id="landing-navigation-site" <?php 
 				echo ($arResult['SITES_COUNT'] > 1) ? ' data-slider-ignore-autobinding="true"' : ''
-				?><?
-				?>class="ui-btn ui-btn-xs ui-btn-light ui-btn-round landing-ui-panel-top-chain-link landing-ui-panel-top-chain-link-site<?= (($arResult['SITES_COUNT'] <= 1) ? ' landing-ui-no-icon' : '');?>" <?
+				?><?php 
+				?>class="ui-btn ui-btn-xs ui-btn-light ui-btn-round landing-ui-panel-top-chain-link landing-ui-panel-top-chain-link-site<?= (($arResult['SITES_COUNT'] <= 1) ? ' landing-ui-no-icon' : '');?>" <?php 
 				?>title="<?= \htmlspecialcharsbx($site['TITLE']);?>">
 				<?= \htmlspecialcharsbx($site['TITLE']);?>
 			</a>
 			<strong class="landing-ui-panel-top-chain-link-separator"><span></span></strong>
-			<a href="<?= ($arResult['PAGES_COUNT'] <= 1) ? $arParams['PAGE_URL_LANDINGS'] : '#';?>" <?
-				?>id="landing-navigation-page" <?
+			<a href="<?= ($arResult['PAGES_COUNT'] <= 1) ? $arParams['PAGE_URL_LANDINGS'] : '#';?>" <?php 
+				?>id="landing-navigation-page" <?php 
 				echo ($arResult['PAGES_COUNT'] > 1) ? ' data-slider-ignore-autobinding="true"' : ''
-				?>class="ui-btn ui-btn-xs ui-btn-light ui-btn-round landing-ui-panel-top-chain-link landing-ui-panel-top-chain-link-page<?= (($arResult['PAGES_COUNT'] <= 1) ? ' landing-ui-no-icon' : '');?>" <?
+				?>class="ui-btn ui-btn-xs ui-btn-light ui-btn-round landing-ui-panel-top-chain-link landing-ui-panel-top-chain-link-page<?= (($arResult['PAGES_COUNT'] <= 1) ? ' landing-ui-no-icon' : '');?>" <?php 
 				?>title="<?= \htmlspecialcharsbx($arResult['LANDING']->getTitle());?>">
 				<?= \htmlspecialcharsbx($arResult['LANDING']->getTitle());?>
 			</a>
@@ -208,29 +208,29 @@ if (!$request->offsetExists('landing_mode')):
 			<span class="ui-btn ui-btn-xs ui-btn-light ui-btn-round landing-ui-panel-top-chain-link landing-ui-panel-top-menu-link-settings">
 				<?= Loc::getMessage('LANDING_TPL_SETTINGS_URL');?>
 			</span>
-			<a href="<?= $urls['preview']->getUri();?>" id="landing-urls-preview" <?
-				?>data-slider-ignore-autobinding="true" <?
-				?>class="ui-btn ui-btn-light-border landing-ui-panel-top-menu-link landing-btn-menu" <?
+			<a href="<?= $urls['preview']->getUri();?>" id="landing-urls-preview" <?php 
+				?>data-slider-ignore-autobinding="true" <?php 
+				?>class="ui-btn ui-btn-light-border landing-ui-panel-top-menu-link landing-btn-menu" <?php 
 				?>target="_blank">
 				<?= Loc::getMessage('LANDING_TPL_PREVIEW_URL');?>
 			</a>
 			<div class="ui-btn-split ui-btn-primary landing-btn-menu<?= !$arResult['CAN_PUBLIC_SITE'] ? ' ui-btn-disabled' : '';?>">
-				<a href="<?= ($arParams['TYPE'] == 'STORE') ? $urls['publicationAll']->getUri() : $urls['publication']->getUri();?>" <?
-					?>id="landing-publication" data-slider-ignore-autobinding="true" <?
+				<a href="<?= ($arParams['TYPE'] == 'STORE') ? $urls['publicationAll']->getUri() : $urls['publication']->getUri();?>" <?php 
+					?>id="landing-publication" data-slider-ignore-autobinding="true" <?php 
 					?>class="ui-btn-main" target="_blank">
 					<?= Loc::getMessage('LANDING_TPL_PUBLIC_URL');?>
 				</a>
 				<span id="landing-publication-submenu" class="ui-btn-extra"></span>
 			</div>
-			<?if ($helpUrl):?>
+			<?php if ($helpUrl):?>
 			<a href="<?= $helpUrl;?>" class="ui-btn ui-btn-light ui-btn-round landing-ui-panel-top-menu-link landing-ui-panel-top-menu-link-help" target="_blank">
 				<span class="landing-ui-panel-top-menu-link-help-icon">?</span>
 			</a>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 	</div>
 	<div class="landing-ui-view-container">
-<?endif;?>
+<?php endif;?>
 
 <script type="text/javascript">
 	var landingParams = <?= \CUtil::phpToJSObject($arParams);?>;
@@ -248,7 +248,7 @@ if (!$request->offsetExists('landing_mode')):
 	});
 </script>
 
-<?
+<?php 
 // editor frame
 if ($request->offsetExists('landing_mode'))
 {
@@ -272,7 +272,7 @@ if ($request->offsetExists('landing_mode'))
 			<?= \CUtil::phpToJSObject($arResult['TOP_PANEL_CONFIG']);?>
 		);
 	</script>
-	<?
+	<?php 
 
     if ($request->get('forceLoad') == 'true')
     {
@@ -283,7 +283,7 @@ if ($request->offsetExists('landing_mode'))
             BX.Landing.Main = function() {};
             BX.Landing.Main.createInstance = function() {};
         </script>
-    <?
+    <?php 
     }
 }
 // top panel
@@ -339,5 +339,5 @@ else
         </div>
 	</div>
 	</div>
-<?
+<?php 
 }

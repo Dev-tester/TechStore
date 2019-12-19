@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_MAP_LOC_COUNT"] = "Местоположений на сайте";
 $MESS["SALE_LOCATION_MAP_LOC_MAPPED"] = "Сопоставлено местоположений";
 $MESS["SALE_LOCATION_MAP_CLOSE"] = "Закрыть";

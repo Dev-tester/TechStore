@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPE_ID"] = "Conversations ID";
 $MESS["BPE_PATH_TO_BLOG"] = "Conversations page path template";
 $MESS["BPE_PATH_TO_POST"] = "Conversation page path template";

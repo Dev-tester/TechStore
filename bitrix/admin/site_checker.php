@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/site_checker.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/site_checker.php");?>

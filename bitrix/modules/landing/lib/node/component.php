@@ -63,7 +63,7 @@ class Component extends \Bitrix\Landing\Node
 					"\t" . 'array(' . PHP_EOL . "\t" . "\t" . \PHPParser::returnPHPStr2($component['DATA']['FUNCTION_PARAMS']) . PHP_EOL .
 					"\t" . ')' : '') . PHP_EOL .
 					');';
-				$componentCode = str_replace(array('<?', '?>'), array('< ?', '? >'), $componentCode);
+				$componentCode = str_replace(array('<?php ', '?>'), array('< ?', '? >'), $componentCode);
 				$content = substr($content, 0, $component['START']) . $componentCode . substr($content, $component['END']);
 				break;
 			}

@@ -1,4 +1,4 @@
-<?
+<?php 
 $aMenuLinks = Array(
 	Array(
 		"Услуги на межбанковском рынке", 

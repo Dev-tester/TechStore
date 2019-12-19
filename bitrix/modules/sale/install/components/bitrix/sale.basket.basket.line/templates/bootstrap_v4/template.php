@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /**
  * @global string $componentPath
  * @global string $templateName
@@ -21,7 +21,7 @@ else
 ?><script>
 var <?=$cartId?> = new BitrixSmallCart;
 </script>
-<div id="<?=$cartId?>" class="<?=$cartStyle?>"><?
+<div id="<?=$cartId?>" class="<?=$cartStyle?>"><?php 
 	/** @var \Bitrix\Main\Page\FrameBuffered $frame */
 	$frame = $this->createFrame($cartId, false)->begin();
 		require(realpath(dirname(__FILE__)).'/ajax_template.php');

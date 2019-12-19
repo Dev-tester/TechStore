@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_MEASURE_LIST"] = "Список единиц измерения";
 $MESS["CAT_MEASURE_CODE"] = "Код";
 $MESS["CAT_MEASURE_MEASURE_TITLE"] = "Наименование единицы измерения";

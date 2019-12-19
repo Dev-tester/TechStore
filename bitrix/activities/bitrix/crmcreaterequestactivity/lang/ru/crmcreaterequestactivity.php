@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CREATE_REQUEST_EMPTY_PROP"] = "Не заполнен обязательный параметр: #PROPERTY#";
 $MESS["CRM_CREATE_REQUEST_SUBJECT"] = "Тема";
 $MESS["CRM_CREATE_REQUEST_IS_IMPORTANT"] = "Важное дело";

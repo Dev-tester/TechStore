@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -15,7 +15,7 @@ if(isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
 	<!DOCTYPE html>
 	<html>
 <head>
-	<?$APPLICATION->ShowHead(); ?>
+	<?php $APPLICATION->ShowHead(); ?>
 	<script data-skip-moving="true">
 		// Prevent loading page without header and footer
 		if (window === window.top)
@@ -36,7 +36,7 @@ if(isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
 		</div>
 	</div>
 </div>
-<?}
+<?php }
 else
 {
 	$APPLICATION->SetTitle(\Bitrix\Main\Localization\Loc::getMessage('CRM_DOCUMENT_LIMIT_TITLE'));
@@ -52,15 +52,15 @@ else
 			</div>
 		</div>
 		<div class="document-limit-buttons">
-			<? \Bitrix\DocumentGenerator\Integration\Bitrix24Manager::showTariffRestrictionButtons(); ?>
+			<?php  \Bitrix\DocumentGenerator\Integration\Bitrix24Manager::showTariffRestrictionButtons(); ?>
 		</div>
 	</div>
 </div>
-<?
+<?php 
 if(isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
 {
 ?>
 </body>
-	</html><?
+	</html><?php 
 	\Bitrix\Main\Application::getInstance()->terminate();
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_OPTIONS_IPCHECK"] = "IP ban settings";
 $MESS["SEC_OPTIONS_IPCHECK_ALLOW_SELF_BLOCK"] = "Allow Proactive Protection to ban your computer by IP <br>(showing a warning message)";
 $MESS["SEC_OPTIONS_IPCHECK_DISABLE_FILE"] = "Path to IP block disable flag file (root-relative)";

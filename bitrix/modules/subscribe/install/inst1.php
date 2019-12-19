@@ -1,9 +1,9 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>" name="form1">
+<form action="<?php echo $APPLICATION->GetCurPage()?>" name="form1">
 <?=bitrix_sessid_post()?>
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
 	<input type="hidden" name="id" value="subscribe">
 	<input type="hidden" name="install" value="Y">
 	<input type="hidden" name="step" value="2">
@@ -19,7 +19,7 @@ function ChangeInstallPublic(val)
 <table cellpadding="3" cellspacing="0" border="0" width="0%">
 		<tr>
 			<td><input type="checkbox" name="install_auto_templates" id="install_auto_templates" value="Y" checked></td>
-			<td><p><label for="install_auto_templates"><?echo GetMessage("inst_templates")?></label></p></td>
+			<td><p><label for="install_auto_templates"><?php echo GetMessage("inst_templates")?></label></p></td>
 		</tr>
 		<tr>
 			<td><input type="checkbox" name="install_public" value="Y" id="id_install_public" OnClick="ChangeInstallPublic(this.checked)"></td>
@@ -47,5 +47,5 @@ function ChangeInstallPublic(val)
 	//-->
 	</script>
 <br>
-	<input type="submit" name="inst" value="<?echo GetMessage("MOD_INSTALL")?>">
+	<input type="submit" name="inst" value="<?php echo GetMessage("MOD_INSTALL")?>">
 </form>

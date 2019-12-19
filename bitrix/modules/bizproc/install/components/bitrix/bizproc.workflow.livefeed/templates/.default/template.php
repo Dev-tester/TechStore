@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 \Bitrix\Main\UI\Extension::load("ui.viewer");
 \Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/bizproc/tools.js');
@@ -21,12 +21,12 @@ $jsCallback = <<<SCRIPT
 	}
 SCRIPT;
 ?>
-<?if (!$arResult['noWrap']):?>
+<?php if (!$arResult['noWrap']):?>
 <div class="bp-livefeed-wrapper">
-<?endif;?>
+<?php endif;?>
 <div class="bp-post bp-lent bp-post-livefeed" id="<?=$cmpId?>_wf_livefeed">
 	<div id="<?=$cmpId?>_steps" class="bp-short-process-inner bp-opacity-animation bp-hidden">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:bizproc.workflow.faces",
 			"",
 			array(
@@ -48,10 +48,10 @@ SCRIPT;
 		<span id="<?=$cmpId?>_wf_status" class="bp-status bp-opacity-animation bp-hidden" style="display: none">
 			<span class="bp-status-inner"><span><?=htmlspecialcharsbx($arResult["WORKFLOW_STATE_INFO"]['STATE_TITLE'])?></span></span>
 		</span>
-		<?foreach ($arResult['TASKS']['RUNNING'] as $task):?>
+		<?php foreach ($arResult['TASKS']['RUNNING'] as $task):?>
 		<div id="<?=$cmpId?>_task_buttons_<?=$task['ID']?>" class="bp-btn-panel bp-opacity-animation bp-hidden" style="display: none">
 			<span class="bp-btn-panel-inner">
-			<? if ($task['IS_INLINE'] == 'Y'):
+			<?php  if ($task['IS_INLINE'] == 'Y'):
 				foreach ($task['BUTTONS'] as $control):
 					$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::No || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Cancel ? 'decline' : 'accept';
 					$props = CUtil::PhpToJSObject(array(
@@ -64,28 +64,28 @@ SCRIPT;
 				<span class="bp-button-icon"></span>
 				<span class="bp-button-text"><?=$control['TEXT']?></span>
 			</a>
-				<?endforeach;
+				<?php endforeach;
 			else:?>
 				<a href="#" class="bp-button bp-button bp-button-blue"
 					onclick="return BX.Bizproc.showTaskPopup(<?=$task['ID']?>, <?=$jsCallback?>, null, this, true)"><?=GetMessage("BPATL_BEGIN")?></a>
-			<?endif?>
+			<?php endif?>
 			</span>
 		</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
-	<?foreach ($arResult['TASKS']['RUNNING'] as $task):?>
+	<?php foreach ($arResult['TASKS']['RUNNING'] as $task):?>
 		<div id="<?=$cmpId?>_task_block_<?=$task['ID']?>" class="bp-task-block bp-opacity-animation bp-hidden" style="display: none">
 			<span class="bp-task-block-title"><?=GetMessage("BPATL_TASK_TITLE")?>: </span>
 			<?=$task['NAME']?>
-			<? if ($task['DESCRIPTION']):?>
+			<?php  if ($task['DESCRIPTION']):?>
 			<p>
 				<?=\CBPViewHelper::prepareTaskDescription($task['DESCRIPTION'])?>
 			</p>
-			<?endif?>
+			<?php endif?>
 			<p><a href="javascript:void(0);" onclick="return BX.Bizproc.showTaskPopup(<?=$task['ID']?>, <?=$jsCallback?>, null, this, true)"><?=GetMessage("BPATL_TASK_LINK_TITLE")?></a></p>
 		</div>
-	<?endforeach;?>
-	<?
+	<?php endforeach;?>
+	<?php 
 	$jsTasks = array('RUNNING' => array(), 'COMPLETED' => array());
 	foreach ($arResult['TASKS']['RUNNING'] as $task)
 	{
@@ -210,6 +210,6 @@ SCRIPT;
 		});
 	</script>
 </div>
-<?if (!$arResult['noWrap']):?>
+<?php if (!$arResult['noWrap']):?>
 	</div>
-<?endif;?>
+<?php endif;?>

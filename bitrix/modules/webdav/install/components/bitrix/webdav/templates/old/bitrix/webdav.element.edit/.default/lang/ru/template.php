@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACTIVE'] = "файл активен";
 $MESS ['WD_NAME'] = "Название";
 $MESS ['WD_TAGS'] = "Теги";

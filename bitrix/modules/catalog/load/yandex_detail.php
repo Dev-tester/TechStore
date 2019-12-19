@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CDatabase $DB */
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
@@ -405,7 +405,7 @@ top.BX.closeWait();
 top.BX.WindowManager.Get().Close();
 top.setDetailData('<?=CUtil::JSEscape(base64_encode(serialize($arXMLData)));?>');
 </script>
-<?
+<?php 
 			die();
 		}
 		else
@@ -428,26 +428,26 @@ top.setDetailData('<?=CUtil::JSEscape(base64_encode(serialize($arXMLData)));?>')
 
 		function __yand_show_selector($group, $key, $IBLOCK, $value = "")
 		{
-			?><select name="XML_DATA[<? echo htmlspecialcharsbx($group)?>][<? echo htmlspecialcharsbx($key)?>]">
-			<option value=""<? echo ($value == "" ? ' selected' : ''); ?>><?=GetMessage('YANDEX_SKIP_PROP')?></option>
-			<?
+			?><select name="XML_DATA[<?php  echo htmlspecialcharsbx($group)?>][<?php  echo htmlspecialcharsbx($key)?>]">
+			<option value=""<?php  echo ($value == "" ? ' selected' : ''); ?>><?=GetMessage('YANDEX_SKIP_PROP')?></option>
+			<?php 
 			if (!empty($IBLOCK['OFFERS_PROPERTY']))
 			{
-				?><option value=""><? echo GetMessage('YANDEX_PRODUCT_PROPS')?></option><?
+				?><option value=""><?php  echo GetMessage('YANDEX_PRODUCT_PROPS')?></option><?php 
 			}
 			foreach ($IBLOCK['PROPERTY'] as $key => $arProp)
 			{
-				?><option value="<?=$arProp['ID']?>"<? echo ($value == $arProp['ID'] ? ' selected' : ''); ?>>[<?=htmlspecialcharsbx($key)?>] <?=htmlspecialcharsbx($arProp['NAME'])?></option><?
+				?><option value="<?=$arProp['ID']?>"<?php  echo ($value == $arProp['ID'] ? ' selected' : ''); ?>>[<?=htmlspecialcharsbx($key)?>] <?=htmlspecialcharsbx($arProp['NAME'])?></option><?php 
 			}
 			if (!empty($IBLOCK['OFFERS_PROPERTY']))
 			{
-				?><option value=""><? echo GetMessage('YANDEX_OFFERS_PROPS')?></option><?
+				?><option value=""><?php  echo GetMessage('YANDEX_OFFERS_PROPS')?></option><?php 
 				foreach ($IBLOCK['OFFERS_PROPERTY'] as $key => $arProp)
 				{
-					?><option value="<?=$arProp['ID']?>"<? echo ($value == $arProp['ID'] ? ' selected' : ''); ?>>[<?=htmlspecialcharsbx($key)?>] <?=htmlspecialcharsbx($arProp['NAME'])?></option><?
+					?><option value="<?=$arProp['ID']?>"<?php  echo ($value == $arProp['ID'] ? ' selected' : ''); ?>>[<?=htmlspecialcharsbx($key)?>] <?=htmlspecialcharsbx($arProp['NAME'])?></option><?php 
 				}
 			}
-			?></select><?
+			?></select><?php 
 		}
 
 		function __addParamCode()
@@ -569,7 +569,7 @@ HTML form
 
 		?>
 		<script type="text/javascript">
-		var currentSelectedType = '<? echo $type; ?>';
+		var currentSelectedType = '<?php  echo $type; ?>';
 
 		function switchType(type)
 		{
@@ -582,9 +582,9 @@ HTML form
 			<input type="hidden" name="lang" value="<?=LANGUAGE_ID; ?>">
 			<input type="hidden" name="bxpublic" value="Y">
 			<input type="hidden" name="Update" value="Y" />
-			<input type="hidden" name="IBLOCK_ID" value="<? echo $intIBlockID; ?>" />
-			<? echo bitrix_sessid_post(); ?>
-<?
+			<input type="hidden" name="IBLOCK_ID" value="<?php  echo $intIBlockID; ?>" />
+			<?php  echo bitrix_sessid_post(); ?>
+<?php 
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 ?>
@@ -594,16 +594,16 @@ HTML form
 		<tr>
 			<td colspan="2" style="text-align: center;">
 				<select name="type" onchange="switchType(this[this.selectedIndex].value)">
-<?
+<?php 
 		foreach ($arTypesConfigKeys as $key)
 		{
 			if ('none' != $key)
 			{
-				?><option value="<?=$key?>"<? echo ($type == $key ? ' selected' : ''); ?>><?=$key?></option><?
+				?><option value="<?=$key?>"<?php  echo ($type == $key ? ' selected' : ''); ?>><?=$key?></option><?php 
 			}
 			else
 			{
-				?><option value="none" selected><?=GetMessage('YANDEX_TYPE_SIMPLE');?></option><?
+				?><option value="none" selected><?=GetMessage('YANDEX_TYPE_SIMPLE');?></option><?php 
 			}
 		}
 ?>
@@ -612,7 +612,7 @@ HTML form
 		</tr>
 		<tr>
 			<td colspan="2" style="text-align: center;">
-		<?echo BeginNote(), GetMessage('YANDEX_TYPE_NOTE'), EndNote();?>
+		<?php echo BeginNote(), GetMessage('YANDEX_TYPE_NOTE'), EndNote();?>
 			</td>
 		</tr>
 			<tr class="heading">
@@ -638,24 +638,24 @@ HTML form
 		</tr>
 		<tr>
 			<td colspan="2">
-<?
+<?php 
 		foreach ($arTypesConfig as $key => $arConfig):
 ?>
-				<div id="config_<?=htmlspecialcharsbx($key)?>" style="padding: 10px; display: <? echo ($type == $key ? 'block' : 'none'); ?>;">
+				<div id="config_<?=htmlspecialcharsbx($key)?>" style="padding: 10px; display: <?php  echo ($type == $key ? 'block' : 'none'); ?>;">
 					<table width="90%" class="inner" style="text-align: center;">
-<?
+<?php 
 			foreach ($arConfig as $prop):
 ?>
 						<tr>
 						<td align="right"><?=htmlspecialcharsbx(GetMessage('YANDEX_PROP_'.$prop))?>: </td>
-						<td style="white-space: nowrap;"><?__yand_show_selector($key, $prop, $arIBlock, (isset($arTypeValues[$key][$prop]) ? $arTypeValues[$key][$prop] : ''))?>&nbsp;<small>(<?=htmlspecialcharsbx($prop)?>)</small></td>
+						<td style="white-space: nowrap;"><?php __yand_show_selector($key, $prop, $arIBlock, (isset($arTypeValues[$key][$prop]) ? $arTypeValues[$key][$prop] : ''))?>&nbsp;<small>(<?=htmlspecialcharsbx($prop)?>)</small></td>
 						</tr>
-<?
+<?php 
 			endforeach;
 ?>
 					</table>
 				</div>
-<?
+<?php 
 		endforeach;
 ?>
 			</td>
@@ -669,11 +669,11 @@ HTML form
 				<table class="inner" id="yandex_params_tbl" style="text-align: center; margin: 0 auto;">
 					<thead>
 					<tr><td style="text-align: center;"> </td>
-					<td style="text-align: center;"><? echo GetMessage('YANDEX_PARAMS_TITLE'); ?></td>
+					<td style="text-align: center;"><?php  echo GetMessage('YANDEX_PARAMS_TITLE'); ?></td>
 					</tr>
 					</thead>
 					<tbody>
-						<?
+						<?php 
 						$intCount = 0;
 						foreach ($arAddParams as $arParamDetail)
 						{
@@ -688,8 +688,8 @@ HTML form
 						?>
 					</tbody>
 				</table>
-				<input type="hidden" name="PARAMS_COUNT" id="PARAMS_COUNT" value="<? echo $intCount; ?>">
-				<div style="width: 100%; text-align: center;"><input type="button" onclick="__addYP(); return false;" name="yandex_params_add" value="<? echo GetMessage('YANDEX_PROPS_ADDITIONAL_MORE'); ?>"></div>
+				<input type="hidden" name="PARAMS_COUNT" id="PARAMS_COUNT" value="<?php  echo $intCount; ?>">
+				<div style="width: 100%; text-align: center;"><input type="button" onclick="__addYP(); return false;" name="yandex_params_add" value="<?php  echo GetMessage('YANDEX_PROPS_ADDITIONAL_MORE'); ?>"></div>
 				</div>
 <script type="text/javascript">
 function changeVatExport()
@@ -711,7 +711,7 @@ BX.ready(function(){
 		setTimeout(function(){
 			window.oParamSet = {
 				pTypeTbl: BX("yandex_params_tbl"),
-				curCount: <? echo ($intCount); ?>,
+				curCount: <?php  echo ($intCount); ?>,
 				intCounter: BX("PARAMS_COUNT")
 			};
 		},50);
@@ -730,26 +730,26 @@ function __addYP()
 
 	oCell = newRow.insertCell(-1);
 	oCell.style.textAlign = 'center';
-	strContent = '<? echo CUtil::JSEscape(__addParamCode()); ?>';
+	strContent = '<?php  echo CUtil::JSEscape(__addParamCode()); ?>';
 	strContent = strContent.replace(/tmp_xxx/ig, id);
 	oCell.innerHTML = strContent;
 	oCell = newRow.insertCell(-1);
-	strContent = '<? echo CUtil::JSEscape(__addParamName($arIBlock, 'tmp_xxx', '')); ?>';
+	strContent = '<?php  echo CUtil::JSEscape(__addParamName($arIBlock, 'tmp_xxx', '')); ?>';
 	strContent = strContent.replace(/tmp_xxx/ig, id);
 	oCell.innerHTML = strContent;
 }
 </script>
 			</td>
 		</tr>
-<?
+<?php 
 		if ($boolOffers)
 		{
 ?>
 			<tr class="heading">
-				<td colspan="2"><? echo GetMessage('YANDEX_SKU_SETTINGS');?></td>
+				<td colspan="2"><?php  echo GetMessage('YANDEX_SKU_SETTINGS');?></td>
 			</tr>
 			<tr>
-			<td valign="top"><? echo GetMessage('YANDEX_OFFERS_SELECT') ?></td><td><?
+			<td valign="top"><?php  echo GetMessage('YANDEX_OFFERS_SELECT') ?></td><td><?php 
 			$arOffersSelect = array(
 				0 => '--- '.ToLower(GetMessage('YANDEX_OFFERS_SELECT')).' ---',
 				YANDEX_SKU_EXPORT_ALL => GetMessage('YANDEX_SKU_EXPORT_ALL_TITLE'),
@@ -759,25 +759,25 @@ function __addYP()
 			{
 				$arOffersSelect[YANDEX_SKU_EXPORT_PROP] = GetMessage('YANDEX_SKU_EXPORT_PROP_TITLE');
 			}
-			?><select name="SKU_EXPORT_COND" id="SKU_EXPORT_COND"><?
+			?><select name="SKU_EXPORT_COND" id="SKU_EXPORT_COND"><?php 
 			foreach ($arOffersSelect as $key => $value)
 			{
-				?><option value="<? echo htmlspecialcharsbx($key);?>" <? echo ($key == $arSKUExport['SKU_EXPORT_COND'] ? 'selected' : '');?>><? echo htmlspecialcharsEx($value); ?></option><?
+				?><option value="<?php  echo htmlspecialcharsbx($key);?>" <?php  echo ($key == $arSKUExport['SKU_EXPORT_COND'] ? 'selected' : '');?>><?php  echo htmlspecialcharsEx($value); ?></option><?php 
 			}
-			?></select><?
+			?></select><?php 
 			if (!empty($arSelectOfferProps))
 			{
-				?><div id="PROP_COND_CONT" style="display: <? echo (YANDEX_SKU_EXPORT_PROP == $arSKUExport['SKU_EXPORT_COND'] ? 'block' : 'none'); ?>;"><?
+				?><div id="PROP_COND_CONT" style="display: <?php  echo (YANDEX_SKU_EXPORT_PROP == $arSKUExport['SKU_EXPORT_COND'] ? 'block' : 'none'); ?>;"><?php 
 				?><table class="internal"><tbody>
 				<tr class="heading">
-					<td><? echo GetMessage('YANDEX_SKU_EXPORT_PROP_ID'); ?></td>
-					<td><? echo GetMessage('YANDEX_SKU_EXPORT_PROP_COND'); ?></td>
-					<td><? echo GetMessage('YANDEX_SKU_EXPORT_PROP_VALUE'); ?></td>
+					<td><?php  echo GetMessage('YANDEX_SKU_EXPORT_PROP_ID'); ?></td>
+					<td><?php  echo GetMessage('YANDEX_SKU_EXPORT_PROP_COND'); ?></td>
+					<td><?php  echo GetMessage('YANDEX_SKU_EXPORT_PROP_VALUE'); ?></td>
 				</tr>
 				<tr>
 					<td valign="top"><select name="SKU_PROP_COND" id="SKU_PROP_COND">
-					<option value="0" <? echo (empty($arSKUExport['SKU_PROP_COND']) ? 'selected' : ''); ?>><? echo GetMessage('YANDEX_SKU_EXPORT_PROP_EMPTY') ?></option>
-					<?
+					<option value="0" <?php  echo (empty($arSKUExport['SKU_PROP_COND']) ? 'selected' : ''); ?>><?php  echo GetMessage('YANDEX_SKU_EXPORT_PROP_EMPTY') ?></option>
+					<?php 
 					foreach ($arSelectOfferProps as $intPropID)
 					{
 						$strSelected = '';
@@ -785,28 +785,28 @@ function __addYP()
 						{
 							$strSelected = 'selected';
 						}
-						?><option value="<?=$intPropID; ?>" <? echo $strSelected; ?>><? echo htmlspecialcharsEx($arIBlock['OFFERS_PROPERTY'][$intPropID]['NAME']);?></option><?
+						?><option value="<?=$intPropID; ?>" <?php  echo $strSelected; ?>><?php  echo htmlspecialcharsEx($arIBlock['OFFERS_PROPERTY'][$intPropID]['NAME']);?></option><?php 
 					}
 					?></select></td>
-					<td valign="top"><select name="SKU_PROP_SELECT" id="SKU_PROP_SELECT"><option value="">--- <? echo ToLower(GetMessage('YANDEX_SKU_EXPORT_PROP_COND')); ?> ---</option><?
+					<td valign="top"><select name="SKU_PROP_SELECT" id="SKU_PROP_SELECT"><option value="">--- <?php  echo ToLower(GetMessage('YANDEX_SKU_EXPORT_PROP_COND')); ?> ---</option><?php 
 					foreach ($arCondSelectProp as $key => $value)
 					{
-						?><option value="<? echo htmlspecialcharsbx($key);?>" <? echo ($key == $arSKUExport['SKU_PROP_COND']['COND'] ? 'selected' : ''); ?>><? echo htmlspecialcharsEx($value); ?></option><?
+						?><option value="<?php  echo htmlspecialcharsbx($key);?>" <?php  echo ($key == $arSKUExport['SKU_PROP_COND']['COND'] ? 'selected' : ''); ?>><?php  echo htmlspecialcharsEx($value); ?></option><?php 
 					}
 					?></select></td>
-					<td><div id="SKU_PROP_VALUE_DV"><?
+					<td><div id="SKU_PROP_VALUE_DV"><?php 
 					foreach ($arSelectOfferProps as $intPropID)
 					{
 						$arProp = $arIBlock['OFFERS_PROPERTY'][$intPropID];
-						?><div id="SKU_PROP_VALUE_DV_<? echo $arProp['ID']?>" style="display: <? echo ($intPropID == $arSKUExport['SKU_PROP_COND']['PROP_ID'] ? 'block' : 'none'); ?>;"><?
+						?><div id="SKU_PROP_VALUE_DV_<?php  echo $arProp['ID']?>" style="display: <?php  echo ($intPropID == $arSKUExport['SKU_PROP_COND']['PROP_ID'] ? 'block' : 'none'); ?>;"><?php 
 						if (!empty($arProp['VALUES']))
 						{
-							?><select name="SKU_PROP_VALUE_<? echo $arProp['ID']?>[]" multiple><?
+							?><select name="SKU_PROP_VALUE_<?php  echo $arProp['ID']?>[]" multiple><?php 
 							foreach ($arProp['VALUES'] as $intValueID => $strValue)
 							{
-								?><option value="<? echo htmlspecialcharsbx($intValueID); ?>" <? echo (!empty($arSKUExport['SKU_PROP_COND']['VALUES']) && in_array($intValueID,$arSKUExport['SKU_PROP_COND']['VALUES']) ? 'selected' : ''); ?>><? echo htmlspecialcharsEx($strValue); ?></option><?
+								?><option value="<?php  echo htmlspecialcharsbx($intValueID); ?>" <?php  echo (!empty($arSKUExport['SKU_PROP_COND']['VALUES']) && in_array($intValueID,$arSKUExport['SKU_PROP_COND']['VALUES']) ? 'selected' : ''); ?>><?php  echo htmlspecialcharsEx($strValue); ?></option><?php 
 							}
-							?></select><?
+							?></select><?php 
 						}
 						else
 						{
@@ -814,32 +814,32 @@ function __addYP()
 							{
 								foreach ($arSKUExport['SKU_PROP_COND']['VALUES'] as $strValue)
 								{
-									?><input type="text" name="SKU_PROP_VALUE_<? echo $arProp['ID']?>[]" value="<? echo htmlspecialcharsbx($strValue);?>"><br><?
+									?><input type="text" name="SKU_PROP_VALUE_<?php  echo $arProp['ID']?>[]" value="<?php  echo htmlspecialcharsbx($strValue);?>"><br><?php 
 								}
 							}
-							?><input type="text" name="SKU_PROP_VALUE_<? echo $arProp['ID']?>[]" value=""><br>
-							<input type="text" name="SKU_PROP_VALUE_<? echo $arProp['ID']?>[]" value=""><br>
-							<input type="text" name="SKU_PROP_VALUE_<? echo $arProp['ID']?>[]" value=""><br>
-							<input type="text" name="SKU_PROP_VALUE_<? echo $arProp['ID']?>[]" value=""><br>
-							<input type="text" name="SKU_PROP_VALUE_<? echo $arProp['ID']?>[]" value=""><br>
-							<?
+							?><input type="text" name="SKU_PROP_VALUE_<?php  echo $arProp['ID']?>[]" value=""><br>
+							<input type="text" name="SKU_PROP_VALUE_<?php  echo $arProp['ID']?>[]" value=""><br>
+							<input type="text" name="SKU_PROP_VALUE_<?php  echo $arProp['ID']?>[]" value=""><br>
+							<input type="text" name="SKU_PROP_VALUE_<?php  echo $arProp['ID']?>[]" value=""><br>
+							<input type="text" name="SKU_PROP_VALUE_<?php  echo $arProp['ID']?>[]" value=""><br>
+							<?php 
 						}
-						?></div><?
+						?></div><?php 
 					}
 					?></div></td>
 				</tr>
-				</tbody></table><?
+				</tbody></table><?php 
 				?><script type="text/javascript">
 				var obExportConds = null,
 					obPropCondCont = null,
 					obSelectProps = null,
 					arPropLayers = [];
-				<?
+				<?php 
 				$intCount = 0;
 				foreach ($arSelectOfferProps as $intPropID)
 				{
-					?> arPropLayers[<? echo $intCount; ?>] = {'ID': <? echo $intPropID; ?>, 'OBJ': null};
-					<?
+					?> arPropLayers[<?php  echo $intCount; ?>] = {'ID': <?php  echo $intPropID; ?>, 'OBJ': null};
+					<?php 
 					$intCount++;
 				}
 				?>
@@ -860,7 +860,7 @@ function __addYP()
 					if (obExportConds && obPropCondCont)
 					{
 						var intTypeCond = obExportConds.options[obExportConds.selectedIndex].value;
-						BX.style(obPropCondCont, 'display', (intTypeCond == <? echo YANDEX_SKU_EXPORT_PROP; ?> ? 'block' : 'none'));
+						BX.style(obPropCondCont, 'display', (intTypeCond == <?php  echo YANDEX_SKU_EXPORT_PROP; ?> ? 'block' : 'none'));
 					}
 				}
 
@@ -880,12 +880,12 @@ function __addYP()
 						BX.bind(obExportConds, 'change', changePropCondCont);
 					}
 				});
-				</script><?
-				?></div><?
+				</script><?php 
+				?></div><?php 
 			}
 			?></td>
 			</tr>
-<?
+<?php 
 		}
 
 		$tabControl->BeginNextTab();
@@ -905,8 +905,8 @@ function __addYP()
 	<tr>
 		<td><?=GetMessage('YANDEX_PRICE_TYPE');?>: </td>
 		<td><br /><select name="PRICE">
-			<option value=""<? echo ($PRICE == "" || $PRICE == 0 ? ' selected' : '');?>><?=GetMessage('YANDEX_PRICE_TYPE_NONE');?></option>
-<?
+			<option value=""<?php  echo ($PRICE == "" || $PRICE == 0 ? ' selected' : '');?>><?=GetMessage('YANDEX_PRICE_TYPE_NONE');?></option>
+<?php 
 	if (!empty($arGroups))
 	{
 		$dbRes = CCatalogGroup::GetListEx(
@@ -919,7 +919,7 @@ function __addYP()
 		while ($arRes = $dbRes->Fetch())
 		{
 			?>
-			<option value="<?= $arRes['ID'] ?>"<? echo($PRICE == $arRes['ID'] ? ' selected' : ''); ?>><?= '[' . $arRes['ID'] . '] ' . htmlspecialcharsEx($arRes['NAME']); ?></option><?
+			<option value="<?= $arRes['ID'] ?>"<?php  echo($PRICE == $arRes['ID'] ? ' selected' : ''); ?>><?= '[' . $arRes['ID'] . '] ' . htmlspecialcharsEx($arRes['NAME']); ?></option><?php 
 		}
 	}
 ?>
@@ -931,7 +931,7 @@ function __addYP()
 
 	<tr>
 		<td colspan="2"><br />
-<?
+<?php 
 	$arCurrencyList = array();
 	$arCurrencyAllowed = array(
 		'RUR' => true,
@@ -963,15 +963,15 @@ function __addYP()
 	</tr>
 </thead>
 <tbody>
-<?
+<?php 
 	foreach ($arCurrencyList as $strCurrency => $strCurrencyName)
 	{
 ?>
 	<tr>
-		<td><input type="checkbox" name="CURRENCY[]" id="CURRENCY_<?=$strCurrency?>" value="<?=$strCurrency?>"<? echo (empty($CURRENCY) || isset($CURRENCY[$strCurrency]) ? ' checked="checked"' : ''); ?> /></td>
+		<td><input type="checkbox" name="CURRENCY[]" id="CURRENCY_<?=$strCurrency?>" value="<?=$strCurrency?>"<?php  echo (empty($CURRENCY) || isset($CURRENCY[$strCurrency]) ? ' checked="checked"' : ''); ?> /></td>
 		<td><label for="CURRENCY_<?=$strCurrency?>" class="text"><?=$strCurrencyName?></label></td>
 		<td><select name="CURRENCY_RATE[<?=$strCurrency?>]" onchange="BX('CURRENCY_PLUS_<?=$strCurrency?>').disabled = this[this.selectedIndex].value == 'SITE'">
-<?
+<?php 
 		$strRate = 'SITE';
 		if (isset($CURRENCY[$strCurrency]) && isset($CURRENCY[$strCurrency]['rate']))
 			$strRate = $CURRENCY[$strCurrency]['rate'];
@@ -980,19 +980,19 @@ function __addYP()
 		foreach ($arValues as $key => $title)
 		{
 ?>
-			<option value="<?=htmlspecialcharsbx($key)?>"<? echo ($strRate == $key ? ' selected' : ''); ?>>(<?=htmlspecialcharsEx($key)?>) <?=htmlspecialcharsEx($title)?></option>
-<?
+			<option value="<?=htmlspecialcharsbx($key)?>"<?php  echo ($strRate == $key ? ' selected' : ''); ?>>(<?=htmlspecialcharsEx($key)?>) <?=htmlspecialcharsEx($title)?></option>
+<?php 
 		}
 ?>
 		</select></td>
-		<?
+		<?php 
 		$strPlus = '';
 		if (isset($CURRENCY[$strCurrency]) && isset($CURRENCY[$strCurrency]['plus']))
 			$strPlus = $CURRENCY[$strCurrency]['plus'];
 		?>
-		<td>+<input type="text" size="3" id="CURRENCY_PLUS_<?=$strCurrency?>" name="CURRENCY_PLUS[<?=$strCurrency?>]"<? echo ($strRate == 'SITE' ? ' disabled="disabled"' : ''); ?> value="<? echo htmlspecialcharsbx($strPlus); ?>">%</td>
+		<td>+<input type="text" size="3" id="CURRENCY_PLUS_<?=$strCurrency?>" name="CURRENCY_PLUS[<?=$strCurrency?>]"<?php  echo ($strRate == 'SITE' ? ' disabled="disabled"' : ''); ?> value="<?php  echo htmlspecialcharsbx($strPlus); ?>">%</td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 </tbody>
@@ -1000,15 +1000,15 @@ function __addYP()
 
 		</td>
 	</tr>
-<?
+<?php 
 		$tabControl->BeginNextTab();
 ?>
 	<tr class="heading">
-		<td colspan="2"><? echo GetMessage('YANDEX_VAT_SETTINGS');?></td>
+		<td colspan="2"><?php  echo GetMessage('YANDEX_VAT_SETTINGS');?></td>
 	</tr>
 	<tr>
 		<td colspan="2" style="text-align: center;">
-			<?echo BeginNote(), GetMessage('YANDEX_VAT_ATTENTION'), EndNote();?>
+			<?php echo BeginNote(), GetMessage('YANDEX_VAT_ATTENTION'), EndNote();?>
 		</td>
 	</tr>
 	<tr>
@@ -1022,16 +1022,16 @@ function __addYP()
 		<td><?=GetMessage('YANDEX_BASE_VAT') ?></td>
 		<td><select name="BASE_VAT">
 				<option value=""<?=($vatExport['BASE_VAT'] === '' ? ' selected' : '');?>><?=GetMessage('YANDEX_BASE_VAT_ABSENT'); ?></option>
-				<?
+				<?php 
 				foreach ($vatRates as $value => $title)
 				{
-					?><option value="<?=htmlspecialcharsbx($value); ?>"<?=($vatExport['BASE_VAT'] === $value ? ' selected' : '');?>><?=htmlspecialcharsbx($title);?></option><?
+					?><option value="<?=htmlspecialcharsbx($value); ?>"<?=($vatExport['BASE_VAT'] === $value ? ' selected' : '');?>><?=htmlspecialcharsbx($title);?></option><?php 
 				}
 				unset($value, $title);
 				?>
 			</select></td>
 	</tr>
-		<?
+		<?php 
 		$tabControl->EndTab();
 		$tabControl->Buttons(array());
 		$tabControl->End();

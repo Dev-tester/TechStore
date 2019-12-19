@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTASK_TD_FIELD_ID"] = "ID задачи";
 $MESS["INTASK_TD_FIELD_TIMESTAMP_X"] = "Дата изменения задачи";
 $MESS["INTASK_TD_FIELD_MODIFIED"] = "Пользователь, изменивший задачу";

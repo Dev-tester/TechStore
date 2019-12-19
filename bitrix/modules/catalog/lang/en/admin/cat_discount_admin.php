@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_DELETE_DISCOUNT"] = "Error deleting discount no. #ID#";
 $MESS["ERROR_UPDATE_DISCOUNT"] = "Error updating discount no. #ID#";
 $MESS["DISCOUNT_TITLE"] = "Product discounts";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /**
@@ -37,14 +37,14 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 <script type="text/javascript">
-<?
+<?php 
 foreach ($arResult['ITEM']['TASKS'] as $task_id):
 ?>
 if (tasksMenuPopup[<?=$task_id?>])
 {
 	tasksMenuPopup[<?=$task_id?>].push({text:'<?=CUtil::JSEscape(GetMessage('MI_TASK_DETACH'))?>',title:'<?=CUtil::JSEscape(GetMessage('MI_TASK_DETACH_TITLE'))?>',className:"menu-popup-item-delete",onclick:function(e){detachTask(<?=$task_id?>); this.popupWindow.close();}});
 }
-<?
+<?php 
 endforeach;
 ?>
 </script>

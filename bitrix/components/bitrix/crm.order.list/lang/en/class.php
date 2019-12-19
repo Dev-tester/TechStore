@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_ACCOUNT_NUMBER"] = "Order number";
 $MESS["CRM_COLUMN_ACTIVITY"] = "Activities";
 $MESS["CRM_COLUMN_ACTIVITY_COUNTER_V2"] = "Activities";

@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("People");
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:socialnetwork.user_search", ".default", array(
 	"ITEMS_COUNT" => "32",
 	"DATE_TIME_FORMAT" => "F j, Y h:i a",
@@ -73,4 +73,4 @@ $APPLICATION->IncludeComponent("bitrix:socialnetwork.user_search", ".default", a
 	)
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

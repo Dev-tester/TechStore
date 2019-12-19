@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BN_P_IBLOCK_TYPE"] = "Type of information block";
 $MESS["BN_P_IBLOCK"] = "Information block";
 $MESS["BN_P_CACHE_FILTER"] = "Cache if the filter is active";

@@ -22,7 +22,7 @@ class Xml2Array
 		if($convertCharset && strtolower(SITE_CHARSET) != 'utf-8')
 			$xmlData = \Bitrix\Main\Text\Encoding::convertEncoding($xmlData, SITE_CHARSET, 'UTF-8');
 
-		if(preg_replace('/[[:^print:]]/', '', $xmlData) == "<?xml version='1.0' encoding='UTF-8'?>")
+		if(preg_replace('/[[:^print:]]/', '', $xmlData) == "<?php xml version='1.0' encoding='UTF-8'?>")
 			return array();
 			
 		//$xmlData = preg_replace('/[[:^print:]]/', '', $xmlData);

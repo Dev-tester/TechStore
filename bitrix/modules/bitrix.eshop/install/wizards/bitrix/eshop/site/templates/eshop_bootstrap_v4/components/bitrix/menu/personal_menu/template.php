@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "blue", SITE_ID);
@@ -19,9 +19,9 @@ if (empty($arResult))
 	return;
 ?>
 <nav class="list-group mb-3 sbx-<?=$theme?>">
-	<?foreach($arResult as $itemIdex => $arItem):?>
-		<?if ($arItem["DEPTH_LEVEL"] == "1"):?>
+	<?php foreach($arResult as $itemIdex => $arItem):?>
+		<?php if ($arItem["DEPTH_LEVEL"] == "1"):?>
 			<a class="list-group-item list-group-item-action<?=($arItem["SELECTED"]) ? " active" : "" ;?>" href="<?=htmlspecialcharsbx($arItem["LINK"])?>"><?=htmlspecialcharsbx($arItem["TEXT"])?></a>
-		<?endif?>
-	<?endforeach;?>
+		<?php endif?>
+	<?php endforeach;?>
 </nav>

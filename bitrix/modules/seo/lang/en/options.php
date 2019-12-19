@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_OPT_PROP_WINDOW_TITLE"] = "Browser window title property";
 $MESS["SEO_OPT_PROP_DESCRIPTION"] = "Web page description property";
 $MESS["SEO_OPT_PROP_KEYWORDS"] = "Web page keywords property";

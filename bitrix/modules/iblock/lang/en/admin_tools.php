@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_AT_NOT_SET"] = "(not set)";
 $MESS["IBLOCK_AT_PROP_ADD"] = "Add";
 $MESS["IBLOCK_AT_PROP_DESC"] = "Property value description";

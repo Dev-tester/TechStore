@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TITLE"] = "Сбор переводов";
 $MESS["TRANS_TITLE_TITLE"] = "Сбор переводов";
 $MESS["TRANS_DOWNLOAD"] = "Загрузка переводов";

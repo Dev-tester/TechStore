@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Global variables
  * @var array $arResult
@@ -31,7 +31,7 @@ use Bitrix\Main\Localization\Loc;
 
 ?>
 <div id="tel-stat-grid-container">
-<?
+<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.ui.grid",
 		"",

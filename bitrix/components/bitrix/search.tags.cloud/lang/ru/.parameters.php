@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_CHECK_DATES"] = "Искать только в активных по дате документах";
 $MESS["SEARCH_SORT"] = "Сортировка тегов";
 $MESS["SEARCH_NAME"] = "По имени";

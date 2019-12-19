@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$ElementID=$APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $ElementID=$APPLICATION->IncludeComponent(
 	"bitrix:catalog.element",
 	"",
 	Array(
@@ -38,9 +38,9 @@
 	),
 	$component
 );?>
-<?if($arParams["USE_REVIEW"]=="Y" && IsModuleInstalled("forum") && $ElementID):?>
+<?php if($arParams["USE_REVIEW"]=="Y" && IsModuleInstalled("forum") && $ElementID):?>
 <br />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:forum.topic.reviews",
 	"",
 	Array(
@@ -59,10 +59,10 @@
 	),
 	$component
 );?>
-<?endif?>
-<?if($arParams["USE_ALSO_BUY"] == "Y" && IsModuleInstalled("sale") && $ElementID):?>
+<?php endif?>
+<?php if($arParams["USE_ALSO_BUY"] == "Y" && IsModuleInstalled("sale") && $ElementID):?>
 
-<?$APPLICATION->IncludeComponent("bitrix:sale.recommended.products", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:sale.recommended.products", ".default", array(
 	"ID" => $ElementID,
 	"MIN_BUYES" => $arParams["ALSO_BUY_MIN_BUYES"],
 	"ELEMENT_COUNT" => $arParams["ALSO_BUY_ELEMENT_COUNT"],
@@ -83,4 +83,4 @@
 );
 
 ?>
-<?endif?>
+<?php endif?>

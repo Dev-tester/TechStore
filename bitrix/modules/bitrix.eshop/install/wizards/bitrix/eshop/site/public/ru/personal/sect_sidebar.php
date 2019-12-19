@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <div class="bx-sidebar-block">
-	<?$APPLICATION->IncludeComponent("bitrix:menu", "personal_menu", array(
+	<?php $APPLICATION->IncludeComponent("bitrix:menu", "personal_menu", array(
 		"ROOT_MENU_TYPE" => "personal",
 		"MAX_LEVEL" => "1",
 		"MENU_CACHE_TYPE" => "A",
@@ -14,7 +14,7 @@
 	);?>
 </div>
 <div class="bx-sidebar-block">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(
@@ -29,7 +29,7 @@
 </div>
 
 <div class="bx-sidebar-block hidden-xs">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(
@@ -44,7 +44,7 @@
 </div>
 
 <div class="bx-sidebar-block">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(

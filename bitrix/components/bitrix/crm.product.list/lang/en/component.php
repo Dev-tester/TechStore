@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_NOT_SELECTED"] = "(none)";
 $MESS['CRM_PRODUCT_LIST_FILTER_CHECKBOX_NOT_SELECTED'] = "Not selected";

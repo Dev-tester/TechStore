@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_EXTERNAL_LINK_LIST_LABEL_GRID_TOTAL"] = "Total";
 $MESS["DISK_EXTERNAL_LINK_LIST_DELETE_TITLE"] = "Confirm deletion";
 $MESS["DISK_EXTERNAL_LINK_LIST_DELETE_GROUP_CONFIRM"] = "Do you want to disable the selected public links?";

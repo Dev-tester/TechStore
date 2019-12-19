@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['REQUEST_DESCRIPTION_QUESTION'] = "Text";
 $MESS ['REQUEST_NAME_QUESTION'] = "Anfrage";
 $MESS ['REQUEST_TYPE_ANSWER1'] = "Kurierdienst";

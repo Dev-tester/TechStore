@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_ADM_DSC_HEADER_TITLE_ACTIVE_FROM"] = "Active from";
 $MESS["BX_SALE_ADM_DSC_HEADER_TITLE_ACTIVE_TO"] = "Active until";
 $MESS["LANG_FILTER_NAME"] = "Site";

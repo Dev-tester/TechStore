@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CACHE_TYPE_TIP'] = "<i>Automatisch</i>: Der Cache ist gültig gemäß Definition in den Cache-Einstellungen;<br /><i>Cache</i>: immer cachen für den Zeitraum, der im nächsten Feld definiert wird;<br /><i>Nicht cachen</i>: es wird kein Caching ausgeführt.";
 $MESS ['AJAX_OPTION_HISTORY_TIP'] = "\"Zurück\" und \"Vorwärts\" Browserfunktionen für AJAX-Übergänge erlauben.";
 $MESS ['SORT_ORDER1_TIP'] = "Aufsteigend oder absteigend.";

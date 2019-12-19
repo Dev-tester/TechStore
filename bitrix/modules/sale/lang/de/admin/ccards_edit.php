@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCE_EMPTY_PAY_SYS"] = "Das Feld \"Zahlungssystem\" wurde nicht ausgefüllt";
 $MESS["SCE_EMPTY_CARD_TYPE"] = "Das Feld \"Kreditkartentyp\" wurde nicht ausgefüllt";
 $MESS["SCE_EMPTY_CARD_NUM"] = "Das Feld \"Kreditkartennummer\" wurde nicht ausgefüllt";

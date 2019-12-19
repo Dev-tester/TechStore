@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/prolog.php");
 define("HELP_FILE","ticket_list.php");
@@ -596,7 +596,7 @@ $TICKET_DICTIONARY_ALL = CTicketDictionary::GetDropDownArray();
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 
@@ -737,7 +737,7 @@ function in_array(needle, haystack)
 }
 //-->
 </script>
-<?
+<?php 
 /***************************************************************************
 								SPLIT MESSAGE
 ****************************************************************************/
@@ -789,7 +789,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 <!-- <input type="hidden" name="set_default" value="Y"> -->
 <input type="hidden" name="ID" value=<?=$ID?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?
+<?php 
 	
 	$aTabs = array();
 	$aTabs[] = array("DIV" => "edit1", "TAB" => GetMessage("SUP_RECORD"), "ICON"=>"ticket_edit",
@@ -802,10 +802,10 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 	$tabControl->BeginNextTab();
 
 ?>
-	<?if ($can_select_site=="Y"):?>
+	<?php if ($can_select_site=="Y"):?>
 	<tr valign="middle">
 		<td align="right" width="20%" nowrap><?=GetMessage("SUP_SITE")?></td>
-		<td width="80%" nowrap><?echo SelectBoxFromArray("SITE_ID", array("reference" => $arrSiteRef, "reference_id" => $arrSiteID), htmlspecialcharsbx($TICKET_SITE), "", "onChange=\"OnSiteChange(this[this.selectedIndex].value)\" id=\"SITE_ID\"");?></td>
+		<td width="80%" nowrap><?php echo SelectBoxFromArray("SITE_ID", array("reference" => $arrSiteRef, "reference_id" => $arrSiteID), htmlspecialcharsbx($TICKET_SITE), "", "onChange=\"OnSiteChange(this[this.selectedIndex].value)\" id=\"SITE_ID\"");?></td>
 	</tr>
 	<script language="JavaScript">
 	<!--
@@ -816,7 +816,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 	var arMark = Array();
 	var arSource = Array();
 	var arDifficulty = Array();
-	<?
+	<?php 
 	if (is_array($arrSiteID))
 	{
 		$arrSiteID = array_unique($arrSiteID);
@@ -840,7 +840,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		{
 
 			?>
-	arSLA["<? echo $sid; ?>"]=Array(<?
+	arSLA["<?php  echo $sid; ?>"]=Array(<?php 
 			if(isset($arSiteSLA[$sid]))
 			{
 				$c0 = "";
@@ -852,10 +852,10 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 			}
 			?>);
 
-			<?
+			<?php 
 
 			/*?>
-				arSLA["<?=$sid?>"]=Array(<?
+				arSLA["<?=$sid?>"]=Array(<?php 
 			$rs = CTicketSLA::GetDropDown($sid);
 			$i=0;
 			while($ar=$rs->Fetch())
@@ -865,12 +865,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 				echo "Array('".addslashes(htmlspecialcharsbx($ar["REFERENCE_ID"]))."', '".addslashes(htmlspecialcharsbx($ar["REFERENCE"]))."')";
 			}
 			?>);
-			<?*/
+			<?php */
 
 			if ($can_select_status=="Y")
 			{
 				?>
-				arStatus["<?=$sid?>"]=Array(<?
+				arStatus["<?=$sid?>"]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -882,12 +882,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 						}
 					}
 					?>);
-				<?
+				<?php 
 			}
 			if ($can_select_difficulty=="Y")
 			{
 				?>
-				arDifficulty["<?=$sid?>"]=Array(<?
+				arDifficulty["<?=$sid?>"]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -899,12 +899,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 						}
 					}
 					?>);
-				<?
+				<?php 
 			}
 			if ($can_select_category=="Y")
 			{
 				?>
-				arCategory["<?=$sid?>"]=Array(<?
+				arCategory["<?=$sid?>"]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -916,12 +916,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 						}
 					}
 					?>);
-				<?
+				<?php 
 			}
 			if ($can_select_mark=="Y")
 			{
 				?>
-				arMark["<?=$sid?>"]=Array(<?
+				arMark["<?=$sid?>"]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -933,12 +933,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 						}
 					}
 					?>);
-				<?
+				<?php 
 			}
 			if ($can_select_criticality=="Y")
 			{
 				?>
-				arCriticality["<?=$sid?>"]=Array(<?
+				arCriticality["<?=$sid?>"]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -950,12 +950,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 						}
 					}
 					?>);
-				<?
+				<?php 
 			}
 			if ($can_select_message_owner=="Y" || $can_select_owner=="Y")
 			{
 				?>
-				arSource["<?=$sid?>"]=Array(<?
+				arSource["<?=$sid?>"]=Array(<?php 
 
 					echo "Array('NOT_REF', '< web >')";
 
@@ -967,7 +967,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 						}
 					}
 					?>);
-				<?
+				<?php 
 			}
 		}
 	}
@@ -980,53 +980,53 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		var arrValues = Array();
 		var arrInit = Array();
 
-		<?if ($can_select_sla=="Y") : ?>
+		<?php if ($can_select_sla=="Y") : ?>
 			arrList[arrList.length] = document.form1.SLA_ID;
 			arrValues[arrValues.length] = arSLA;
 			arrInit[arrInit.length] = parseInt('<?=$str_SLA_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_status=="Y") : ?>
+		<?php if ($can_select_status=="Y") : ?>
 			arrList[arrList.length] = document.form1.STATUS_ID;
 			arrValues[arrValues.length] = arStatus;
 			arrInit[arrInit.length] = parseInt('<?=$str_STATUS_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_difficulty=="Y") : ?>
+		<?php if ($can_select_difficulty=="Y") : ?>
 			arrList[arrList.length] = document.form1.DIFFICULTY_ID;
 			arrValues[arrValues.length] = arDifficulty;
 			arrInit[arrInit.length] = parseInt('<?=$str_DIFFICULTY_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_category=="Y") :?>
+		<?php if ($can_select_category=="Y") :?>
 			arrList[arrList.length] = document.form1.CATEGORY_ID;
 			arrValues[arrValues.length] = arCategory;
 			arrInit[arrInit.length] = parseInt('<?=$str_CATEGORY_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_mark=="Y") :?>
+		<?php if ($can_select_mark=="Y") :?>
 			arrList[arrList.length] = document.form1.MARK_ID;
 			arrValues[arrValues.length] = arMark;
 			arrInit[arrInit.length] = parseInt('<?=$str_MARK_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_criticality=="Y") :?>
+		<?php if ($can_select_criticality=="Y") :?>
 			arrList[arrList.length] = document.form1.CRITICALITY_ID;
 			arrValues[arrValues.length] = arCriticality;
 			arrInit[arrInit.length] = parseInt('<?=$str_CRITICALITY_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_owner=="Y") :?>
+		<?php if ($can_select_owner=="Y") :?>
 			arrList[arrList.length] = document.form1.SOURCE_ID;
 			arrValues[arrValues.length] = arSource;
 			arrInit[arrInit.length] = parseInt('<?=$str_SOURCE_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_message_owner=="Y") :?>
+		<?php if ($can_select_message_owner=="Y") :?>
 			arrList[arrList.length] = document.form1.MESSAGE_SOURCE_ID;
 			arrValues[arrValues.length] = arSource;
 			arrInit[arrInit.length] = parseInt('<?=$str_MESSAGE_SOURCE_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
 		for(i=0; i<arrList.length; i++)
 		{
@@ -1043,7 +1043,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 			if (parseInt(select_index)>0) arList.selectedIndex = parseInt(select_index);
 		}
 
-		<?if ($can_select_sla=="Y"):?>
+		<?php if ($can_select_sla=="Y"):?>
 		var obSLASelect, sla_id;
 		obSLASelect = document.form1.SLA_ID;
 		if(obSLASelect.selectedIndex >= 0)
@@ -1051,13 +1051,13 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 			sla_id = obSLASelect[obSLASelect.selectedIndex].value;
 			OnSLAChange(sla_id);
 		}
-		<?endif;?>
+		<?php endif;?>
 	}
 	//-->
 	</script>
-	<?endif;?>
+	<?php endif;?>
 
-	<?
+	<?php 
 	
 	$arAuthorFilter = $tmp = array();
 	if (intval($str_OWNER_USER_ID)>0)
@@ -1097,14 +1097,14 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 	</SCRIPT>
 	<tr>
 		<td align="right" width="20%" nowrap><?=GetMessage("SUP_AUTHOR")?></td>
-		<td width="80%" nowrap><?
+		<td width="80%" nowrap><?php 
 			//echo SelectBox("SOURCE_ID", CTicketDictionary::GetDropDown("SR", $TICKET_SITE), "< web >", $str_SOURCE_ID, "OnChange=SelectSource() class='typeselect'");
 
 			echo SelectBoxFromArray("SOURCE_ID", __GetDropDown("SR", $TICKET_DICTIONARY), $str_SOURCE_ID, "< web >", "OnChange=SelectSource() class='inputselect'");
 
 
 			?>&nbsp;<input type="text" size="20" name="OWNER_SID" id="OWNER_SID" value="<?=$str_OWNER_SID?>">
-			<?
+			<?php 
 			/*if (intval($str_OWNER_USER_ID)>0)
 			{
 				$owner_name = "[<a title=\"".GetMessage("SUP_USER_PROFILE")."\" href=\"/bitrix/admin/user_edit.php?lang=".LANGUAGE_ID."&ID=".$str_OWNER_USER_ID."\">".$str_OWNER_USER_ID."</a>] (".$str_OWNER_LOGIN.") ".$str_OWNER_NAME;
@@ -1116,7 +1116,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 			}
 			echo FindUserID("OWNER_USER_ID", $str_OWNER_USER_ID, $owner_name);
 			if ($ID>0):
-				?><br>[&nbsp;<a href="/bitrix/admin/ticket_list.php?set_filter=Y&lang=<?=LANGUAGE_ID?>&<?=implode("&",$arAuthorFilter)?>"><?=GetMessage("SUP_AUTHOR_TICKETS")?></a>&nbsp;]<?
+				?><br>[&nbsp;<a href="/bitrix/admin/ticket_list.php?set_filter=Y&lang=<?=LANGUAGE_ID?>&<?=implode("&",$arAuthorFilter)?>"><?=GetMessage("SUP_AUTHOR_TICKETS")?></a>&nbsp;]<?php 
 			endif;
 			?>
 		</td>
@@ -1126,10 +1126,10 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 	SelectSource();
 	//-->
 	</SCRIPT>
-	<?elseif ($ID>0) :?>
+	<?php elseif ($ID>0) :?>
 	<tr>
 		<td valign="top" align="right" width="20%" nowrap><?=GetMessage("SUP_AUTHOR")?></td>
-		<td width="80%" nowrap><?
+		<td width="80%" nowrap><?php 
 
 		echo (strlen($str_SOURCE_NAME)>0) ? "[".$str_SOURCE_NAME."]&nbsp;" : "[web]&nbsp;";
 
@@ -1149,7 +1149,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		{
 			if (intval($str_OWNER_USER_ID)>0)
 			{
-				/*?>[<a title="<?echo GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?echo LANG?>&ID=<?=$str_OWNER_USER_ID?>"><?echo $str_OWNER_USER_ID?></a>]  (<?=$str_OWNER_LOGIN?>) <?=$str_OWNER_NAME?> */
+				/*?>[<a title="<?php echo GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?php echo LANG?>&ID=<?=$str_OWNER_USER_ID?>"><?php echo $str_OWNER_USER_ID?></a>]  (<?=$str_OWNER_LOGIN?>) <?=$str_OWNER_NAME?> */
 				echo $arStrUsers["arUsers"][intval($str_OWNER_USER_ID)]["HTML_NAME"] . " " . $arrSUPPORT_TEAM[$str_OWNER_USER_ID];
 			}
 
@@ -1171,13 +1171,13 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 
 		?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-<? if ($ID>0): ?>
+<?php  if ($ID>0): ?>
 
 	<tr valign="middle">
 		<td align="right" width="20%"><?=GetMessage("SUP_CREATE")?></td>
-		<td align="left" width="80%"><?=$str_DATE_CREATE?>&nbsp;&nbsp;&nbsp;<?
+		<td align="left" width="80%"><?=$str_DATE_CREATE?>&nbsp;&nbsp;&nbsp;<?php 
 		if (strlen($str_CREATED_MODULE_NAME)<=0 || $str_CREATED_MODULE_NAME=="support")
 		{
 			$uid = intval($str_CREATED_USER_ID);
@@ -1189,7 +1189,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 			if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y")
 			{
 
-				/*?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$str_CREATED_USER_ID?>"><?echo $str_CREATED_USER_ID?></a>] (<?=$str_CREATED_LOGIN?>) <?=$str_CREATED_NAME?> <?=$arrSUPPORT_TEAM[$str_CREATED_USER_ID]?><?*/
+				/*?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$str_CREATED_USER_ID?>"><?php echo $str_CREATED_USER_ID?></a>] (<?=$str_CREATED_LOGIN?>) <?=$str_CREATED_NAME?> <?=$arrSUPPORT_TEAM[$str_CREATED_USER_ID]?><?php */
 
 				if ($uid <= 0 && intval($str_CREATED_GUEST_ID) > 0 && CModule::IncludeModule("statistic"))
 				{
@@ -1212,13 +1212,13 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		?></td>
 	</tr>
 
-	<?
+	<?php 
 	if ($str_DATE_CREATE!=$str_TIMESTAMP_X)
 	{
 	?>
 	<tr valign="middle">
 		<td align="right" width="20%"><?=GetMessage("SUP_TIMESTAMP")?></td>
-		<td align="left" width="80%"><?=$str_TIMESTAMP_X?>&nbsp;&nbsp;&nbsp;<?
+		<td align="left" width="80%"><?=$str_TIMESTAMP_X?>&nbsp;&nbsp;&nbsp;<?php 
 
 		if (strlen($str_MODIFIED_MODULE_NAME)<=0 || $str_MODIFIED_MODULE_NAME=="support")
 		{
@@ -1231,7 +1231,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 			if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y")
 			{
 
-				/*?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?echo $str_MODIFIED_USER_ID?>"><?=$str_MODIFIED_USER_ID?></a>] (<?=$str_MODIFIED_BY_LOGIN?>) <?=$str_MODIFIED_BY_NAME?> <?=$arrSUPPORT_TEAM[$str_MODIFIED_USER_ID]?><?*/
+				/*?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?php echo $str_MODIFIED_USER_ID?>"><?=$str_MODIFIED_USER_ID?></a>] (<?=$str_MODIFIED_BY_LOGIN?>) <?=$str_MODIFIED_BY_NAME?> <?=$arrSUPPORT_TEAM[$str_MODIFIED_USER_ID]?><?php */
 
 				if($uid <= 0 && intval($str_MODIFIED_GUEST_ID)>0 && CModule::IncludeModule("statistic"))
 				{
@@ -1254,7 +1254,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		}
 		?></td>
 	</tr>
-	<?
+	<?php 
 	}
 
 	if (strlen($str_DATE_CLOSE)>0)
@@ -1264,7 +1264,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		<td align="right"><?=GetMessage("SUP_CLOSE")?></td>
 		<td><?=$str_DATE_CLOSE?></td>
 	</tr>
-	<?
+	<?php 
 	}
 	elseif(strlen($str_AUTO_CLOSE_DAYS_LEFT)>0 && !empty($str_AUTO_CLOSE_DATE))
 	{
@@ -1273,18 +1273,18 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		<td align="right"><?=GetMessage("SUP_DATE_AUTO_CLOSE")?></td>
 		<td><?=$str_AUTO_CLOSE_DATE?>&nbsp;&nbsp;&nbsp;(<?=str_replace("#DAYS#", "<span class=\"supportrequired\">$str_AUTO_CLOSE_DAYS_LEFT</span>", GetMessage("SUP_LEFT"))?>)</td>
 	</tr>
-	<?
+	<?php 
 	}
 	?>
 
 
-<?if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y"){?>
+<?php if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y"){?>
 
-	<?if (intval($str_PROBLEM_TIME)>0){?>
+	<?php if (intval($str_PROBLEM_TIME)>0){?>
 		<tr valign="middle">
 		<td align="right"><?=GetMessage("SUP_PROBLEM_TIME")?>:</td>
 		<td>
-		<?
+		<?php 
 		$str = "";
 		$days = intval($str_PROBLEM_TIME/1440);
 		if ($days>0)
@@ -1305,60 +1305,60 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 		?>
 		</td>
 	</tr>
-	<?}?>
+	<?php }?>
 
 	<tr valign="middle">
 		<td align="right"><?=GetMessage("SUP_LAST_MESSAGE_DATE")?>:</td>
 		<td><?=$str_LAST_MESSAGE_DATE?></td>
 	</tr>
-<?}?>
+<?php }?>
 
-<? endif;?>
-	<?if ($ID>0 && IsModuleInstalled("sale")): 
+<?php  endif;?>
+	<?php if ($ID>0 && IsModuleInstalled("sale")): 
 		$saleModulePermissions = $APPLICATION->GetGroupRight("sale");
 		if ($saleModulePermissions > "D"):?>
 			<tr>
 				<td valign="top" align="right" width="20%" nowrap><?=GetMessage("SUP_SALE_ORDER")?></td>
 				<td width="80%" nowrap>[ <a href="/bitrix/admin/sale_order.php?lang=<?=LANGUAGE_ID?>&set_filter=Y&filter_user_id=<?=$str_CREATED_USER_ID?>" target="_blank"><?=GetMessage("SUP_SALE_ORDER_LIST")?></a> ]</td>
 			</tr>
-	<?  endif;
+	<?php   endif;
 	endif;?>
-	<?if($can_select_sla=="N" && strlen($str_SLA_NAME)>0){?>
+	<?php if($can_select_sla=="N" && strlen($str_SLA_NAME)>0){?>
 	<tr valign="middle">
 		<td align="right"><?=GetMessage("SUP_SLA")?>:</td>
 		<td><font title="<?=$str_SLA_DESCRIPTION?>"><?=$str_SLA_NAME?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if ($can_select_category=="N" && strlen($str_CATEGORY_NAME)>0){?>
+	<?php if ($can_select_category=="N" && strlen($str_CATEGORY_NAME)>0){?>
 	<tr valign="middle">
 		<td align="right"><?=GetMessage("SUP_CATEGORY")?></td>
 		<td><font title="<?=$str_CATEGORY_DESC?>"><?=$str_CATEGORY_NAME?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if($can_select_criticality=="N" && strlen($str_CRITICALITY_NAME)>0){?>
+	<?php if($can_select_criticality=="N" && strlen($str_CRITICALITY_NAME)>0){?>
 	<tr valign="middle">
 		<td align="right"><?=GetMessage("SUP_CRITICALITY")?></td>
 		<td><?=$str_CRITICALITY_NAME?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if ($can_select_difficulty=="N" && strlen($str_DIFFICULTY_NAME)>0){?>
+	<?php if ($can_select_difficulty=="N" && strlen($str_DIFFICULTY_NAME)>0){?>
 	<tr valign="middle">
 		<td align="right" nowrap><?=GetMessage("SUP_DIFFICULTY_COLNAME")?></td>
 		<td nowrap><font title="<?=$str_DIFFICULTY_DESC?>"><?=$str_DIFFICULTY_NAME?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if ($can_select_status=="N" && strlen($str_STATUS_NAME)>0){?>
+	<?php if ($can_select_status=="N" && strlen($str_STATUS_NAME)>0){?>
 	<tr valign="middle">
 		<td align="right" nowrap><?=GetMessage("SUP_STATUS")?></td>
 		<td nowrap><font title="<?=$str_STATUS_DESC?>"><?=$str_STATUS_NAME?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?
+	<?php 
 	if ($can_select_responsible=="N" && intval($str_RESPONSIBLE_USER_ID)>0) {
 		$uid = $str_RESPONSIBLE_USER_ID;
 		if ($uid>0 && !in_array($uid, array_keys($arrSUPPORT_TEAM)))
@@ -1368,42 +1368,42 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 	?>
 	<tr valign="middle">
 		<td align="right" nowrap><?=GetMessage("SUP_RESPONSIBLE")?></td>
-		<? /*<td nowrap><?echo "[".$str_RESPONSIBLE_USER_ID."] (".$str_RESPONSIBLE_LOGIN.") ".$str_RESPONSIBLE_NAME." ".$arrSUPPORT_TEAM[$str_RESPONSIBLE_USER_ID]?></td>*/ ?>
-		<td nowrap><?
+		<?php  /*<td nowrap><?php echo "[".$str_RESPONSIBLE_USER_ID."] (".$str_RESPONSIBLE_LOGIN.") ".$str_RESPONSIBLE_NAME." ".$arrSUPPORT_TEAM[$str_RESPONSIBLE_USER_ID]?></td>*/ ?>
+		<td nowrap><?php 
 			echo $arStrUsers["arUsers"][intval($str_RESPONSIBLE_USER_ID)]["HTML_NAME"] . " " . $arrSUPPORT_TEAM[$str_RESPONSIBLE_USER_ID];
 		?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if($can_select_mark=="N" && strlen($str_MARK_NAME)>0){?>
+	<?php if($can_select_mark=="N" && strlen($str_MARK_NAME)>0){?>
 	<tr valign="middle">
 		<td align="right" nowrap><?=GetMessage("SUP_MARK")?></td>
 		<td nowrap><font title="<?=htmlspecialcharsbx($str_MARK_DESC)?>"><?=htmlspecialcharsbx($str_MARK_NAME)?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if ($ID>0 && intval($str_OVERDUE_MESSAGES)>0 && ($bSupportTeam=="Y" || $bAdmin=="Y" || $bDemo=="Y")){?>
+	<?php if ($ID>0 && intval($str_OVERDUE_MESSAGES)>0 && ($bSupportTeam=="Y" || $bAdmin=="Y" || $bDemo=="Y")){?>
 	<tr valign="middle">
 		<td align="right"><?=GetMessage("SUP_OVERDUE_MESSAGES")?></td>
 		<td><?=$str_OVERDUE_MESSAGES?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if ($ID<=0){?>
+	<?php if ($ID<=0){?>
 	<tr class="adm-detail-required-field">
 		<td align="right"><?=GetMessage("SUP_TITLE")?></td>
 		<td><input type="text" name="TITLE" value="<?=$str_TITLE?>" size="80" maxlength="255"></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?if ($ID > 0 && strlen($str_COUPON) > 0){?>
+	<?php if ($ID > 0 && strlen($str_COUPON) > 0){?>
 	<tr valign="middle">
 		<td align="right"><?=GetMessage("SUP_COUPON")?></td>
 		<td><?=$str_COUPON?></td>
 	</tr>
-	<?}?>
+	<?php }?>
 
-	<?
+	<?php 
 	if ($ID>0) :
 
 	if ($bDemo=="Y") $CHECK_RIGHTS = "N"; else $CHECK_RIGHTS = "Y";
@@ -1414,18 +1414,18 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 	if (intval($messages)>0) :
 	?>
 
-	<?if ($ID>0){?>
+	<?php if ($ID>0){?>
 	<tr class="heading"><td colspan="2"><?=GetMessage("SUP_DISCUSSION")?></td></tr>
-	<?}?>
+	<?php }?>
 
 	<tr valign="top">
 		<td colspan="2">
 			<table border="0" cellspacing="0" cellpadding="0" width="100%">
 				<tr>
 					<td></td>
-					<td><?echo $mess->NavPrint(GetMessage("SUP_PAGES"))?></td>
+					<td><?php echo $mess->NavPrint(GetMessage("SUP_PAGES"))?></td>
 				</tr>
-				<?
+				<?php 
 				//while ($mess->NavNext(true, "f_", false))
 				$arRespUserIDs = array();
 				$arGuestIDs = array();
@@ -1473,22 +1473,22 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 					?>
 				<tr>
 					<td align="center" colspan="2" width="100%" style="padding:6px 3px;">
-						<table border="0" cellspacing="0" cellpadding="0" <? echo $table_class; ?> width="100%" >
+						<table border="0" cellspacing="0" cellpadding="0" <?php  echo $table_class; ?> width="100%" >
 							<tr>
-								<td style="<? echo $backcolor; ?>" width="100%">
+								<td style="<?php  echo $backcolor; ?>" width="100%">
 									<table border="0" width="100%" cellspacing="0" cellpadding="0" class="wd-ticket-message">
 
 										<tr>
-											<td style="padding:4px;text-align:left;<? echo $backcolor; ?>"><b>#&nbsp;<? echo intval($arM["C_NUMBER"]); ?></b>&nbsp;&nbsp;&nbsp;<? echo $arM["DATE_CREATE"]; ?></td>
-											<td align="right"  style="padding:4px;<?=$backcolor?>"><?
+											<td style="padding:4px;text-align:left;<?php  echo $backcolor; ?>"><b>#&nbsp;<?php  echo intval($arM["C_NUMBER"]); ?></b>&nbsp;&nbsp;&nbsp;<?php  echo $arM["DATE_CREATE"]; ?></td>
+											<td align="right"  style="padding:4px;<?=$backcolor?>"><?php 
 
 												$bSep = true;
 												//if($str_OWNER_USER_ID == $arM["OWNER_USER_ID"])
 												if($arM["IS_LOG"] != "Y")
 												{
 													?>
-													<a title="<? echo GetMessage("SUP_SPLIT_ALT"); ?>" href="<? echo $TICKET_EDIT_URL; ?>?lang=<? echo LANGUAGE_ID; ?>&TICKET_ID=<?=$ID?>&MESSAGE_ID=<? echo $arM["ID"]; ?>" onclick="return (confirm('<? echo AddSlashes(GetMessage("SUP_SPLIT_CONFIRM")); ?>') ? true : false)"><? echo GetMessage("SUP_SPLIT"); ?></a>
-													<?
+													<a title="<?php  echo GetMessage("SUP_SPLIT_ALT"); ?>" href="<?php  echo $TICKET_EDIT_URL; ?>?lang=<?php  echo LANGUAGE_ID; ?>&TICKET_ID=<?=$ID?>&MESSAGE_ID=<?php  echo $arM["ID"]; ?>" onclick="return (confirm('<?php  echo AddSlashes(GetMessage("SUP_SPLIT_CONFIRM")); ?>') ? true : false)"><?php  echo GetMessage("SUP_SPLIT"); ?></a>
+													<?php 
 													if($bSep)
 														echo " | ";
 												}
@@ -1535,7 +1535,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 												?></td>
 										</tr>
 										<tr>
-											<td  style="padding:4px;text-align:left;<? echo $backcolor; ?>"><?
+											<td  style="padding:4px;text-align:left;<?php  echo $backcolor; ?>"><?php 
 
 												if($arM["IS_LOG"] != "Y")
 												{
@@ -1579,24 +1579,24 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 													{
 														/*if($oUID > 0)
 														{
-															?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?echo LANG?>&ID=<?echo $arM["OWNER_USER_ID"]; ?>"><?echo $arM["OWNER_USER_ID"]; ?></a>] (<? echo $arM["OWNER_LOGIN"]; ?>) <? echo $arM["OWNER_USER_NAME"]; ?>
+															?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?php echo LANG?>&ID=<?php echo $arM["OWNER_USER_ID"]; ?>"><?php echo $arM["OWNER_USER_ID"]; ?></a>] (<?php  echo $arM["OWNER_LOGIN"]; ?>) <?php  echo $arM["OWNER_USER_NAME"]; ?>
 															<?=$arrSUPPORT_TEAM[$arM["OWNER_USER_ID"]]?>
-															<?
+															<?php 
 														}*/
 
 														if($oUID <= 0 && $oGID > 0 && CModule::IncludeModule("statistic"))
 														{
 															echo $arStrUsersM["arGuests"][$oGID]["HTML_NAME"];
 															?>
-															<? echo ($oUID > 0 ? $arrSUPPORT_TEAM[$oUID] : ""); ?>
-															<?
+															<?php  echo ($oUID > 0 ? $arrSUPPORT_TEAM[$oUID] : ""); ?>
+															<?php 
 															//echo " [<a title='".GetMessage("SUP_GUEST_ID")."'  href='/bitrix/admin/guest_list.php?lang=" . LANG . "&find_id=" . $arM["OWNER_GUEST_ID"] . "&find_id_exact_match=Y&set_filter=Y'>" . $arM["OWNER_GUEST_ID"] . "</a>]";
 														}
 														elseif($oUID > 0)
 														{
 															echo $arStrUsersM["arUsers"][$oUID]["HTML_NAME"]; ?>
-															<? echo $arrSUPPORT_TEAM[$oUID]; ?>
-															<?
+															<?php  echo $arrSUPPORT_TEAM[$oUID]; ?>
+															<?php 
 														}
 													}
 													else
@@ -1637,7 +1637,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 
 													if (strlen($arM["CREATED_MODULE_NAME"])<=0 || $arM["CREATED_MODULE_NAME"] == "support")
 													{
-														/*?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<? echo $arM["CREATED_USER_ID"]; ?>"><? echo $arM["CREATED_USER_ID"]; ?></a>] (<? echo $arM["CREATED_LOGIN"]; ?>) <? echo $arM["CREATED_USER_NAME"]; ?> <? echo $arrSUPPORT_TEAM[$arM["CREATED_USER_ID"]]; ?><?*/
+														/*?>[<a title="<?=GetMessage("SUP_USER_PROFILE")?>" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?php  echo $arM["CREATED_USER_ID"]; ?>"><?php  echo $arM["CREATED_USER_ID"]; ?></a>] (<?php  echo $arM["CREATED_LOGIN"]; ?>) <?php  echo $arM["CREATED_USER_NAME"]; ?> <?php  echo $arrSUPPORT_TEAM[$arM["CREATED_USER_ID"]]; ?><?php */
 
 														if ($cUID <= 0 && $cGID > 0 && CModule::IncludeModule("statistic"))
 														{
@@ -1659,12 +1659,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 												}
 												?></td>
 											<td align="right"  style="padding:4px;<?=$backcolor?>">&nbsp;
-												<?
+												<?php 
 												if (($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") && strlen($arM["IS_SPAM"])>0):
-													?>&nbsp;&nbsp;&nbsp;[<?=GetMessage("SUP_SPAM")?><?echo ($arM["IS_SPAM"]=="Y") ? "!" : "?"?>]<?
+													?>&nbsp;&nbsp;&nbsp;[<?=GetMessage("SUP_SPAM")?><?php echo ($arM["IS_SPAM"]=="Y") ? "!" : "?"?>]<?php 
 
 												elseif ($arM["IS_LOG"]=="Y") :
-													?>&nbsp;&nbsp;&nbsp;<span style="color:#939300">[<?=GetMessage("SUP_LOG")?>]</span><?
+													?>&nbsp;&nbsp;&nbsp;<span style="color:#939300">[<?=GetMessage("SUP_LOG")?>]</span><?php 
 												else:
 
 													if (intval($arM["TASK_TIME"])>0):
@@ -1690,12 +1690,12 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 
 													endif;
 
-													if ($arM["IS_HIDDEN"] == "Y"):?>&nbsp;&nbsp;&nbsp;<span style="color:#2F9567">[<?=GetMessage("SUP_HIDDEN")?>]</span><?endif?>
+													if ($arM["IS_HIDDEN"] == "Y"):?>&nbsp;&nbsp;&nbsp;<span style="color:#2F9567">[<?=GetMessage("SUP_HIDDEN")?>]</span><?php endif?>
 
-													<?endif;?></td>
+													<?php endif;?></td>
 										</tr>
 
-											<?
+											<?php 
 											if($arM["IS_LOG"] != "Y")
 											{
 												/*$arFiles = array();
@@ -1721,16 +1721,16 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 																<td <?=$headerbackcolor?> valign="top" style="width:0%;" nowrap>
 																	<img src="/bitrix/images/support/paperclip.gif" width="16" height="16" border="0" alt="">
 																</td>
-																<td <?=$headerbackcolor?> style="width:0%;text-align:left;" nowrap><?
+																<td <?=$headerbackcolor?> style="width:0%;text-align:left;" nowrap><?php 
 																	$aImg = array("gif", "png", "jpg", "jpeg", "bmp");
 																	foreach ($ALL_TICKET_FILES[$arM["ID"]] as $arFile)
 																	{
 																		if(in_array(strtolower(GetFileExtension($arFile["NAME"])), $aImg)):
-																			?><a title="<?=GetMessage("SUP_VIEW_ALT")?>" target="_blank" href="/bitrix/tools/ticket_show_file.php?hash=<?echo $arFile["HASH"]?>&lang=<?=LANGUAGE_ID?>"><?echo htmlspecialcharsbx($arFile["NAME"])?></a>
-																			<?else:?>
-																			<?echo htmlspecialcharsbx($arFile["NAME"])?>
-																			<?endif?>
-																		(<?
+																			?><a title="<?=GetMessage("SUP_VIEW_ALT")?>" target="_blank" href="/bitrix/tools/ticket_show_file.php?hash=<?php echo $arFile["HASH"]?>&lang=<?=LANGUAGE_ID?>"><?php echo htmlspecialcharsbx($arFile["NAME"])?></a>
+																			<?php else:?>
+																			<?php echo htmlspecialcharsbx($arFile["NAME"])?>
+																			<?php endif?>
+																		(<?php 
 																		/*$a = array("b", "kb", "mb", "gb");
 																		$pos = 0;
 																		$size = $arFile["FILE_SIZE"];
@@ -1741,21 +1741,21 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 																		}
 																		echo round($size,2)." ".$a[$pos];*/
 																		echo CFile::FormatSize($arFile["FILE_SIZE"]);
-																		?>)<br><?
+																		?>)<br><?php 
 																	}
 																	?></td>
-																<td <?=$headerbackcolor?> style="width:0%;" nowrap><?
+																<td <?=$headerbackcolor?> style="width:0%;" nowrap><?php 
 																	foreach ($ALL_TICKET_FILES[$arM["ID"]] as $arFile)
 																	{
 																		$alt = str_replace( "#FILE_NAME#", htmlspecialcharsbx($arFile["NAME"]), GetMessage( "SUP_DOWNLOAD_ALT" ) );
-																		?>&nbsp;[<a title="<?=$alt?>" href="/bitrix/tools/ticket_show_file.php?hash=<?echo $arFile["HASH"]?>&lang=<?=LANGUAGE_ID?>&action=download"><?echo GetMessage("SUP_DOWNLOAD")?></a>]<br><?
+																		?>&nbsp;[<a title="<?=$alt?>" href="/bitrix/tools/ticket_show_file.php?hash=<?php echo $arFile["HASH"]?>&lang=<?=LANGUAGE_ID?>&action=download"><?php echo GetMessage("SUP_DOWNLOAD")?></a>]<br><?php 
 																	}
 																	?></td>
 															</tr>
 														</table>
 													</td>
 												</tr>
-											<?
+											<?php 
 												}
 											}
 											?>
@@ -1764,7 +1764,7 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 											<td colspan="2" height="1" style="<?=$headerbackcolor?>"></td></tr>
 										<tr>
 
-											<td colspan="2" id="quotetd<? echo $arM["ID"]; ?>"  style="padding:8px;text-align:left;<? echo $headerbackcolor; ?>"><?
+											<td colspan="2" id="quotetd<?php  echo $arM["ID"]; ?>"  style="padding:8px;text-align:left;<?php  echo $headerbackcolor; ?>"><?php 
 												if($arM["IS_LOG"] == "Y")
 												{
 													echo "" . $arM["MESSAGE"] . "";
@@ -1815,28 +1815,28 @@ if (isset($_GET['TICKET_ID']) && isset($_GET['MESSAGE_ID']))
 						</table>
 					</td>
 				</tr>
-				<?
+				<?php 
 				}
 				?>
 				<tr>
 					<td></td>
-					<td><?echo $mess->NavPrint(GetMessage("SUP_PAGES"))?></td>
+					<td><?php echo $mess->NavPrint(GetMessage("SUP_PAGES"))?></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
-	<?endif;?>
-	<?endif;?>
+	<?php endif;?>
+	<?php endif;?>
 
-<?if (strlen($str_DATE_CLOSE)<=0):?>
+<?php if (strlen($str_DATE_CLOSE)<=0):?>
 
-	<?if ($ID>0):?>
+	<?php if ($ID>0):?>
 	<tr class="heading"><td id="edit_27" colspan="2"><?=GetMessage("SUP_ANSWER")?><a name="postform"></a></td></tr>
-	<?endif;?>
-<?endif;?>
+	<?php endif;?>
+<?php endif;?>
 
 
-<?if ($can_select_mode=="Y"):?>
+<?php if ($can_select_mode=="Y"):?>
 <script type="text/javascript">
 <!--
 var timeCounterID = null;
@@ -1896,13 +1896,13 @@ function OnModeClick(mode, btn1, btn2)
 
 	document.getElementById("MESSAGE").disabled = disabled;
 	document.getElementById("MESSAGE").style.backgroundColor = back_color;
-<?
+<?php 
 	if ( $ID>0 && ( $bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y" ))
 	{
 ?>
 	document.getElementById("SUPPORT_COMMENTS").disabled = disabled;
 	document.getElementById("SUPPORT_COMMENTS").style.backgroundColor = back_color;
-<?
+<?php 
 	}
 ?>
 
@@ -1930,40 +1930,40 @@ function OnModeClick(mode, btn1, btn2)
 	document.getElementById("AddFile").style.backgroundColor = back_color;
 
 
-	<?if ($can_select_category=="Y"):?>
+	<?php if ($can_select_category=="Y"):?>
 	document.getElementById("CATEGORY_ID").disabled = disabled;
 	document.getElementById("CATEGORY_ID").style.backgroundColor = back_color;
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_status=="Y"):?>
+	<?php if ($can_select_status=="Y"):?>
 	document.getElementById("STATUS_ID").disabled = disabled;
 	document.getElementById("STATUS_ID").style.backgroundColor = back_color;
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_difficulty=="Y"):?>
+	<?php if ($can_select_difficulty=="Y"):?>
 	document.getElementById("DIFFICULTY_ID").disabled = disabled;
 	document.getElementById("DIFFICULTY_ID").style.backgroundColor = back_color;
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_responsible=="Y"):?>
+	<?php if ($can_select_responsible=="Y"):?>
 	document.getElementById("RESPONSIBLE_USER_ID").disabled = disabled;
 	document.getElementById("RESPONSIBLE_USER_ID").style.backgroundColor = back_color;
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_criticality=="Y"):?>
+	<?php if ($can_select_criticality=="Y"):?>
 	document.getElementById("CRITICALITY_ID").disabled = disabled;
 	document.getElementById("CRITICALITY_ID").style.backgroundColor = back_color;
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_mark=="Y"):?>
+	<?php if ($can_select_mark=="Y"):?>
 	document.getElementById("MARK_ID").disabled = disabled;
 	document.getElementById("MARK_ID").style.backgroundColor = back_color;
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_sla=="Y"):?>
+	<?php if ($can_select_sla=="Y"):?>
 	document.getElementById("SLA_ID").disabled = disabled;
 	document.getElementById("SLA_ID").style.backgroundColor = back_color;
-	<?endif;?>
+	<?php endif;?>
 	
 	//document.getElementById("save").disabled = disabled;
 	//document.getElementById("apply").disabled = disabled;
@@ -1999,9 +1999,9 @@ function OnModeClick(mode, btn1, btn2)
 		<td align="right" valign="middle"><?=GetMessage("SUP_MODE")?></td>
 		<td><input OnClick="javascript:OnModeClick('edit', 'mode_edit', 'mode_view')" type="button" name="mode_edit" value="<?=GetMessage("SUP_ANSWER_MODE")?>" id="mode_edit">&nbsp;<input OnClick="javascript:OnModeClick('view', 'mode_view', 'mode_edit')" type="button" id="mode_view" name="mode_view" value="<?=GetMessage("SUP_VIEW_MODE")?>"></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 
-<?if ($can_select_message_owner=="Y"):?>
+<?php if ($can_select_message_owner=="Y"):?>
 
 	<script type="text/javascript">
 	<!--
@@ -2019,7 +2019,7 @@ function OnModeClick(mode, btn1, btn2)
 			color_backgroud = "";
 			color_checkbox = "";
 		}
-		<?if (strlen($str_DATE_CLOSE)<=0):?>
+		<?php if (strlen($str_DATE_CLOSE)<=0):?>
 		document.getElementById("MESSAGE_AUTHOR_SID").style.backgroundColor = color_backgroud;
 		document.getElementById("MESSAGE_SOURCE_ID").style.backgroundColor = color_backgroud;
 		document.getElementById("MESSAGE_AUTHOR_USER_ID").style.backgroundColor = color_backgroud;
@@ -2034,28 +2034,28 @@ function OnModeClick(mode, btn1, btn2)
 		{
 			document.getElementById("FILE_"+i).style.backgroundColor = color_backgroud;
 		}
-		<?endif;?>
-		<?if ($can_select_category=="Y"):?>
+		<?php endif;?>
+		<?php if ($can_select_category=="Y"):?>
 		document.getElementById("CATEGORY_ID").style.backgroundColor = color_backgroud;
-		<?endif;?>
-		<?if ($can_select_status=="Y"):?>
+		<?php endif;?>
+		<?php if ($can_select_status=="Y"):?>
 		document.getElementById("STATUS_ID").style.backgroundColor = color_backgroud;
-		<?endif;?>
-		<?if ($can_select_difficulty=="Y"):?>
+		<?php endif;?>
+		<?php if ($can_select_difficulty=="Y"):?>
 		document.getElementById("DIFFICULTY_ID").style.backgroundColor = color_backgroud;
-		<?endif;?>
-		<?if ($can_select_responsible=="Y"):?>
+		<?php endif;?>
+		<?php if ($can_select_responsible=="Y"):?>
 		document.getElementById("RESPONSIBLE_USER_ID").style.backgroundColor = color_backgroud;
-		<?endif;?>
-		<?if ($can_select_criticality=="Y"):?>
+		<?php endif;?>
+		<?php if ($can_select_criticality=="Y"):?>
 		document.getElementById("CRITICALITY_ID").style.backgroundColor = color_backgroud;
-		<?endif;?>
-		<?if ($can_select_mark=="Y"):?>
+		<?php endif;?>
+		<?php if ($can_select_mark=="Y"):?>
 		document.getElementById("MARK_ID").style.backgroundColor = color_backgroud;
-		<?endif;?>
-		<?if ($can_select_sla=="Y"):?>
+		<?php endif;?>
+		<?php if ($can_select_sla=="Y"):?>
 		document.getElementById("SLA_ID").style.backgroundColor = color_backgroud;
-		<?endif;?>
+		<?php endif;?>
 		objPrivate.style.backgroundColor = color_checkbox;
 
 	}
@@ -2064,23 +2064,23 @@ function OnModeClick(mode, btn1, btn2)
 
 	<tr valign="top">
 		<td align="right" id="edit_38"><?=GetMessage('SUP_TITLE')?></td>
-		<td valign="center" id="edit_39"><?echo InputType("input", "TITLE", $str_TITLE, '', false, "", "id=\"TITLE\"")?></td>
+		<td valign="center" id="edit_39"><?php echo InputType("input", "TITLE", $str_TITLE, '', false, "", "id=\"TITLE\"")?></td>
 	</tr>
 
 	<tr valign="top">
-		<td align="right" id="edit_1"><?
+		<td align="right" id="edit_1"><?php 
 		echo (strlen($str_DATE_CLOSE)<=0) ? GetMessage("SUP_HIDDEN_MESSAGE") : GetMessage("SUP_DO_NOT_NOTIFY_AUTHOR")?></td>
-		<td valign="center" id="edit_2"><?echo InputType("checkbox", "HIDDEN", "Y", $str_HIDDEN, false, "", "OnClick=\"HiddenClick()\" id=\"HIDDEN\"")?><br><?=GetMessage("SUP_HIDDEN_MESSAGE_ALT")?></td>
+		<td valign="center" id="edit_2"><?php echo InputType("checkbox", "HIDDEN", "Y", $str_HIDDEN, false, "", "OnClick=\"HiddenClick()\" id=\"HIDDEN\"")?><br><?=GetMessage("SUP_HIDDEN_MESSAGE_ALT")?></td>
 	</tr>
 
-	<?if(strlen($str_DATE_CLOSE)<=0): ?>
+	<?php if(strlen($str_DATE_CLOSE)<=0): ?>
 	<tr valign="top">
 		<td align="right" id="edit_28"><?=GetMessage("CHANGE_STATUS")?>:</td>
-		<td valign="center" id="edit_29"><?echo InputType("checkbox", "NOT_CHANGE_STATUS", "Y", $str_NOT_CHANGE_STATUS, false, "", "id=\"NOT_CHANGE_STATUS\"")?></td>
+		<td valign="center" id="edit_29"><?php echo InputType("checkbox", "NOT_CHANGE_STATUS", "Y", $str_NOT_CHANGE_STATUS, false, "", "id=\"NOT_CHANGE_STATUS\"")?></td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 
-	<?if (strlen($str_DATE_CLOSE)<=0):?>
+	<?php if (strlen($str_DATE_CLOSE)<=0):?>
 
 	<script type="text/javascript">
 	<!--
@@ -2102,7 +2102,7 @@ function OnModeClick(mode, btn1, btn2)
 
 	<tr valign="middle">
 		<td id="edit_3" align="right" width="20%" nowrap><?=GetMessage("SUP_SOURCE")." / ".GetMessage("SUP_FROM")?></td>
-		<td id="edit_4" width="80%" nowrap><?
+		<td id="edit_4" width="80%" nowrap><?php 
 			//echo SelectBox("MESSAGE_SOURCE_ID", CTicketDictionary::GetDropDown("SR", $TICKET_SITE), "< web >", $str_MESSAGE_SOURCE_ID, "OnChange=SelectMessageSource() id=\"MESSAGE_SOURCE_ID\"");
 
 			echo SelectBoxFromArray("MESSAGE_SOURCE_ID", __GetDropDown("SR", $TICKET_DICTIONARY), $str_MESSAGE_SOURCE_ID, "< web >", "OnChange=SelectMessageSource() id=\"MESSAGE_SOURCE_ID\"");
@@ -2122,13 +2122,13 @@ function OnModeClick(mode, btn1, btn2)
 	//-->
 	</SCRIPT>
 
-	<?endif;?>
+	<?php endif;?>
 
-<?endif;?>
+<?php endif;?>
 
-<?if (strlen($str_DATE_CLOSE)<=0):?>
+<?php if (strlen($str_DATE_CLOSE)<=0):?>
 
-	<?if (($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") && $ID>0) :?>
+	<?php if (($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") && $ID>0) :?>
 	<script type="text/javascript">
 	var answers= new Array();
 	function OnChangeFUA_ID()
@@ -2138,7 +2138,7 @@ function OnModeClick(mode, btn1, btn2)
 		if (value && value.length>0) document.form1.MESSAGE.value += value;
 
 	}
-	<?
+	<?php 
 	$z = CTicket::GetFUA($TICKET_SITE);
 	while ($zr=$z->Fetch()) :
 		$src = $zr["DESCR"];
@@ -2155,16 +2155,16 @@ function OnModeClick(mode, btn1, btn2)
 			);
 	?>
 	answers[<?=$zr["REFERENCE_ID"]?>]="<?=$src?>";
-	<?endwhile;?>
+	<?php endwhile;?>
 	</script>
 
 	<tr valign="middle">
 		<td id="edit_5" align="right"><?=GetMessage("SUP_FUA")?></td>
-		<td id="edit_6"><?
+		<td id="edit_6"><?php 
 			echo SelectBox("FUA_ID", CTicket::GetFUA($TICKET_SITE), GetMessage("SUP_NO"), "", "OnChange=\"OnChangeFUA_ID()\" id=\"FUA_ID\"");
 			?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<SCRIPT type="text/javascript">
 	<!--
@@ -2208,15 +2208,15 @@ function OnModeClick(mode, btn1, btn2)
 		
 	}
 
-	<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/admin/ticket_message_js.php");?>
+	<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/admin/ticket_message_js.php");?>
 
 	//-->
 	</SCRIPT>
 
 	<tr valign="top" class="adm-detail-required-field">
-		<?if ($ID<=0) :?>
+		<?php if ($ID<=0) :?>
 		<td align="right"><?=GetMessage("SUP_MESSAGE")?></td>
-		<?else:?>
+		<?php else:?>
 		<td align="right">
 			<table cellspacing=0 cellpadding=0 width="100%" border=0>
 				<tr>
@@ -2227,16 +2227,16 @@ function OnModeClick(mode, btn1, btn2)
 					<td colspan="2" width="100%" nowrap><iframe name="online_frame" id="online_frame" frameborder="0" style="width:100%; border:0; height:300px;" src="/bitrix/admin/ticket_online.php?TICKET_ID=<?=$ID?>&OWNER_USER_ID=<?=intval($str_OWNER_USER_ID)?>&lang=<?=LANGUAGE_ID?>&mode=<?=$default_mode?>&ONLINE_AUTO_REFRESH=<?=$ONLINE_AUTO_REFRESH?>"></iframe></td>
 				</tr>
 			</table></td>
-		<?endif;?>
+		<?php endif;?>
 		<td style="padding: 0px"><table cellspacing=0 cellpadding=0 border=0 width="100%">
 				<tr>
 					<td valign="bottom" id="edit_7" style="padding-bottom:3px;">
-					<input type="button" value="<?=GetMessage("SUP_B")?>" onClick="insert_tag('B', document.form1.MESSAGE)" style="font-weight:bold" name="B" id="B" title="<? echo GetMessage("SUP_B_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_B_T"); ?>">
-					<input type="button" value="<?=GetMessage("SUP_I")?>" onClick="insert_tag('I', document.form1.MESSAGE)" style="font-style:italic" name="I" id="I" title="<? echo GetMessage("SUP_I_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_I_T"); ?>">
-					<input type="button" value="<?=GetMessage("SUP_U")?>" onClick="insert_tag('U', document.form1.MESSAGE)" style="text-decoration:underline" name="U" id="U" title="<? echo GetMessage("SUP_U_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_U_T"); ?>">
-					<input type="button" value="<?=GetMessage("SUP_QUOTE").$hkInst->GetTitle("TICKET_EDIT_QUOTE_T")?>" onClick="insert_tag('QUOTE', document.form1.MESSAGE)" style="vertical-align: middle; width: 130px" name="QUOTE" id="QUOTE" title="<? echo GetMessage("SUP_QUOTE_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_QUOTE_T"); ?>">
-					<input type="button" value="<?=GetMessage("SUP_CODE").$hkInst->GetTitle("TICKET_EDIT_CODE_T")?>" onClick="insert_tag('CODE', document.form1.MESSAGE)" style="vertical-align: middle; width: 100px" name="CODE" id="CODE" title="<? echo GetMessage("SUP_CODE_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_CODE_T"); ?>">
-					<input type="button" value="<?=GetMessage("SUP_TRANSLIT").$hkInst->GetTitle("TICKET_EDIT_TRANSLIT_T")?>" onClick="translit(document.form1.MESSAGE)" style="vertical-align: middle; width: 135px" name="TRANSLIT" id="TRANSLIT" title="<? echo GetMessage("SUP_TRANSLIT_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_TRANSLIT_T");?>"></td>
+					<input type="button" value="<?=GetMessage("SUP_B")?>" onClick="insert_tag('B', document.form1.MESSAGE)" style="font-weight:bold" name="B" id="B" title="<?php  echo GetMessage("SUP_B_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_B_T"); ?>">
+					<input type="button" value="<?=GetMessage("SUP_I")?>" onClick="insert_tag('I', document.form1.MESSAGE)" style="font-style:italic" name="I" id="I" title="<?php  echo GetMessage("SUP_I_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_I_T"); ?>">
+					<input type="button" value="<?=GetMessage("SUP_U")?>" onClick="insert_tag('U', document.form1.MESSAGE)" style="text-decoration:underline" name="U" id="U" title="<?php  echo GetMessage("SUP_U_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_U_T"); ?>">
+					<input type="button" value="<?=GetMessage("SUP_QUOTE").$hkInst->GetTitle("TICKET_EDIT_QUOTE_T")?>" onClick="insert_tag('QUOTE', document.form1.MESSAGE)" style="vertical-align: middle; width: 130px" name="QUOTE" id="QUOTE" title="<?php  echo GetMessage("SUP_QUOTE_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_QUOTE_T"); ?>">
+					<input type="button" value="<?=GetMessage("SUP_CODE").$hkInst->GetTitle("TICKET_EDIT_CODE_T")?>" onClick="insert_tag('CODE', document.form1.MESSAGE)" style="vertical-align: middle; width: 100px" name="CODE" id="CODE" title="<?php  echo GetMessage("SUP_CODE_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_CODE_T"); ?>">
+					<input type="button" value="<?=GetMessage("SUP_TRANSLIT").$hkInst->GetTitle("TICKET_EDIT_TRANSLIT_T")?>" onClick="translit(document.form1.MESSAGE)" style="vertical-align: middle; width: 135px" name="TRANSLIT" id="TRANSLIT" title="<?php  echo GetMessage("SUP_TRANSLIT_ALT"); echo $hkInst->GetTitle("TICKET_EDIT_TRANSLIT_T");?>"></td>
 				</tr>
 				<tr>
 					<td><textarea name="MESSAGE" id="MESSAGE" style="width:100%;height:300px;"  wrap="virtual"><?=htmlspecialcharsbx($MESSAGE)?></textarea></td>
@@ -2265,7 +2265,7 @@ function OnModeClick(mode, btn1, btn2)
 	</script>
 
 	<tr valign="top">
-		<td align="right" id="edit_8"><?
+		<td align="right" id="edit_8"><?php 
 		$max_size = 0;
 		if ($bSupportTeam!="Y" && $bAdmin!="Y" && $bDemo!="Y")
 		{
@@ -2286,25 +2286,25 @@ function OnModeClick(mode, btn1, btn2)
 		
 			
 			<table cellspacing=0 cellpadding=0 border=0 id="files_table">
-				<?
+				<?php 
 				if (isset($arFiles))
 				{
 					foreach($arFiles as $arFile)
 					{
 					?>
 				<tr>
-					<td><?
-						?><a title="<?=GetMessage("SUP_VIEW_ALT")?>" target="_blank" href="/bitrix/tools/ticket_show_file.php?hash=<?echo $arFile["HASH"]?>&lang=<?=LANG?>"><?echo htmlspecialcharsbx($arFile["NAME"])?></a> (<?
+					<td><?php 
+						?><a title="<?=GetMessage("SUP_VIEW_ALT")?>" target="_blank" href="/bitrix/tools/ticket_show_file.php?hash=<?php echo $arFile["HASH"]?>&lang=<?=LANG?>"><?php echo htmlspecialcharsbx($arFile["NAME"])?></a> (<?php 
 						/*$a = array("b", "kb", "mb", "gb");
 						$pos = 0;
 						$size = $arFile["FILE_SIZE"];
 						while($size >= 1024) {$size /= 1024; $pos++;}
 						echo round($size,2)." ".$a[$pos];*/
 						echo CFile::FormatSize($arFile["FILE_SIZE"]);
-						?>)&nbsp;&nbsp;[&nbsp;<a href="/bitrix/tools/ticket_show_file.php?hash=<?echo $arFile["HASH"]?>&lang=<?=LANG?>&action=download"><?echo GetMessage("SUP_DOWNLOAD")?></a>&nbsp;]&nbsp;&nbsp;<input type="checkbox" name="ATTACH_FILE[]" value="<?=$arFile["ID"]?>" checked>
+						?>)&nbsp;&nbsp;[&nbsp;<a href="/bitrix/tools/ticket_show_file.php?hash=<?php echo $arFile["HASH"]?>&lang=<?=LANG?>&action=download"><?php echo GetMessage("SUP_DOWNLOAD")?></a>&nbsp;]&nbsp;&nbsp;<input type="checkbox" name="ATTACH_FILE[]" value="<?=$arFile["ID"]?>" checked>
 					</td>
 				</tr>
-					<?
+					<?php 
 					}
 				}
 				?>
@@ -2315,56 +2315,56 @@ function OnModeClick(mode, btn1, btn2)
 			</table>&nbsp;<input type="button" id="AddFile" value="<?=GetMessage("SUP_MORE")?>" OnClick="AddFileInput()"></td>
 	</tr>
 
-<?endif;?>
+<?php endif;?>
 
-	<?if ($can_select_status=="Y") :?>
+	<?php if ($can_select_status=="Y") :?>
 	<tr valign="middle">
 		<td id="edit_10" align="right" nowrap><?=GetMessage("SUP_STATUS")?></td>
-		<td id="edit_11" nowrap><?
+		<td id="edit_11" nowrap><?php 
 			//echo SelectBox("STATUS_ID", CTicketDictionary::GetDropDown("S", $TICKET_SITE), " ", $str_STATUS_ID," id=\"STATUS_ID\"");
 			echo SelectBoxFromArray("STATUS_ID", __GetDropDown("S", $TICKET_DICTIONARY), $str_STATUS_ID, " ", " id=\"STATUS_ID\"");
 
 			?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_difficulty=="Y") :?>
+	<?php if ($can_select_difficulty=="Y") :?>
 	<tr valign="middle">
 		<td id="edit_30" align="right" nowrap><?=GetMessage("SUP_DIFFICULTY")?></td>
-		<td id="edit_31" nowrap><?
+		<td id="edit_31" nowrap><?php 
 			//echo SelectBox("DIFFICULTY_ID", CTicketDictionary::GetDropDown("D", $TICKET_SITE), " ", $str_DIFFICULTY_ID," id=\"DIFFICULTY_ID\"");
 			echo SelectBoxFromArray("DIFFICULTY_ID", __GetDropDown("D", $TICKET_DICTIONARY), $str_DIFFICULTY_ID, " ", "  id=\"DIFFICULTY_ID\"");
 			?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_responsible=="Y") :?>
+	<?php if ($can_select_responsible=="Y") :?>
 	<script type="text/javascript">
 	<!--
 	var arCategory_RESP = Array();
-	<?
+	<?php 
 	if ($can_select_category=="Y") :
 		$rs = CTicketDictionary::GetDropDown("C");
 		while($ar = $rs->Fetch()):
 			if (intval($ar["RESPONSIBLE_USER_ID"])>0):
 			?>arCategory_RESP[<?=$ar["ID"]?>] = <?=$ar["RESPONSIBLE_USER_ID"]?>;
-			<?
+			<?php 
 			endif;
 		endwhile;
 	endif;
 	?>
 	//-->
 	</script>
-	<?if ($can_select_sla=="Y" && $can_select_site=="Y") :?>
+	<?php if ($can_select_sla=="Y" && $can_select_site=="Y") :?>
 	<script type="text/javascript">
 	<!--
 	var arSla_RESP = Array();
-	<?
+	<?php 
 		$rs = CTicketSLA::GetDropDown();
 		while($ar = $rs->Fetch()):
 			if (intval($ar["RESPONSIBLE_USER_ID"])>0):
 			?>arSla_RESP[<?=$ar["ID"]?>] = <?=$ar["RESPONSIBLE_USER_ID"]?>;
-			<?
+			<?php 
 			endif;
 		endwhile;
 	endif;
@@ -2372,7 +2372,7 @@ function OnModeClick(mode, btn1, btn2)
 	//-->
 	</script>
 
-	<?if ($can_select_responsible=="Y" || ($can_select_sla=="Y" && $can_select_site=="Y")) :?>
+	<?php if ($can_select_responsible=="Y" || ($can_select_sla=="Y" && $can_select_site=="Y")) :?>
 	<script type="text/javascript">
 	<!--
 	function SetResponsible(select_name)
@@ -2408,14 +2408,14 @@ function OnModeClick(mode, btn1, btn2)
 	}
 	//-->
 	</script>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr valign="middle">
 		<td id="edit_12" align="right" nowrap><?=GetMessage("SUP_RESPONSIBLE")?></td>
 		<td id="edit_13" nowrap>
 			<select id="RESPONSIBLE_USER_ID" name="RESPONSIBLE_USER_ID">";
 				<option value="NOT_REF"> </option>
-<?
+<?php 
 $dbTeam = CTicket::GetSupportTeamList();
 while ($arTeam = $dbTeam->Fetch())
 {
@@ -2434,50 +2434,50 @@ while ($arTeam = $dbTeam->Fetch())
 			</select>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_criticality=="Y") :?>
+	<?php if ($can_select_criticality=="Y") :?>
 	<tr valign="middle">
 		<td id="edit_14" align="right"><?=GetMessage("SUP_CRITICALITY")?></td>
-		<td id="edit_15"><?
+		<td id="edit_15"><?php 
 		
 			//if ($ID<=0 && strlen($strError)<=0) $str_CRITICALITY_ID = CTicketDictionary::GetDefault("K", $TICKET_SITE);
 			//echo SelectBox("CRITICALITY_ID", CTicketDictionary::GetDropDown("K", $TICKET_SITE, $TICKET_SLA), " ", $str_CRITICALITY_ID, " id=\"CRITICALITY_ID\"");
 			echo SelectBoxFromArray("CRITICALITY_ID", __GetDropDown("K", $TICKET_DICTIONARY), $str_CRITICALITY_ID, " ", " id=\"CRITICALITY_ID\"");
 			?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_mark=="Y") :?>
+	<?php if ($can_select_mark=="Y") :?>
 	<tr valign="middle">
 		<td id="edit_16" align="right" nowrap><?=GetMessage("SUP_MARK")?></td>
-		<td id="edit_17" nowrap><?
+		<td id="edit_17" nowrap><?php 
 			//echo SelectBox("MARK_ID", CTicketDictionary::GetDropDown("M", $TICKET_SITE, $TICKET_SLA), " ", $str_MARK_ID, " id=\"MARK_ID\"");
 			echo SelectBoxFromArray("MARK_ID", __GetDropDown("M", $TICKET_DICTIONARY), $str_MARK_ID, " ", " id=\"MARK_ID\"");
 			?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_category=="Y") :?>
+	<?php if ($can_select_category=="Y") :?>
 	<tr valign="middle">
 		<td id="edit_18" align="right"><?=GetMessage("SUP_CATEGORY")?></td>
-		<td id="edit_19"><?
+		<td id="edit_19"><?php 
 			//if ($ID<=0 && strlen($strError)<=0) $str_CATEGORY_ID = CTicketDictionary::GetDefault("C", $TICKET_SITE);
 			//echo SelectBox("CATEGORY_ID", CTicketDictionary::GetDropDown("C", $TICKET_SITE, $TICKET_SLA), " ", $str_CATEGORY_ID, " id =\"CATEGORY_ID\"");
 
 			echo SelectBoxFromArray("CATEGORY_ID", __GetDropDown("C", $TICKET_DICTIONARY), $str_CATEGORY_ID, " ", " id =\"CATEGORY_ID\"");
 
-			?><?if ($can_select_responsible=="Y"):?>&nbsp;&nbsp;<a title="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_CATEGORY_ALT")?>" id="icon_1" href="javascript:SetResponsible('CATEGORY_ID')"><img src="/bitrix/images/support/resp.gif" width="16" height="16" border="0" alt="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_CATEGORY_ALT")?>"></a><?endif;?></td>
+			?><?php if ($can_select_responsible=="Y"):?>&nbsp;&nbsp;<a title="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_CATEGORY_ALT")?>" id="icon_1" href="javascript:SetResponsible('CATEGORY_ID')"><img src="/bitrix/images/support/resp.gif" width="16" height="16" border="0" alt="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_CATEGORY_ALT")?>"></a><?php endif;?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($can_select_sla=="Y" && $can_select_site=="Y"):?>
+	<?php if ($can_select_sla=="Y" && $can_select_site=="Y"):?>
 	<tr valign="middle">
 		<td id="edit_20" align="right" width="20%" nowrap><?=GetMessage("SUP_SLA")?>:</td>
-		<td id="edit_21" width="80%" nowrap><?
+		<td id="edit_21" width="80%" nowrap><?php 
 			$rsSLA = CTicketSLA::GetDropDown($TICKET_SITE);
 			echo SelectBox("SLA_ID", $rsSLA, "", $TICKET_SLA, "onChange=\"OnSLAChange(this[this.selectedIndex].value)\" id=\"SLA_ID\"");
-			?><?if ($can_select_responsible=="Y"):?>&nbsp;&nbsp;<a id="icon_2" title="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_SLA_ALT")?>" href="javascript:SetResponsible('SLA_ID')"><img src="/bitrix/images/support/resp.gif" width="16" height="16" border="0" alt="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_SLA_ALT")?>"></a><?endif;?></td>
+			?><?php if ($can_select_responsible=="Y"):?>&nbsp;&nbsp;<a id="icon_2" title="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_SLA_ALT")?>" href="javascript:SetResponsible('SLA_ID')"><img src="/bitrix/images/support/resp.gif" width="16" height="16" border="0" alt="<?=GetMessage("SUP_RESPONSIBLE_SELECT_BY_SLA_ALT")?>"></a><?php endif;?></td>
 	</tr>
 
 	<script type="text/javascript">
@@ -2485,7 +2485,7 @@ while ($arTeam = $dbTeam->Fetch())
 	var arCriticality_SLA = Array();
 	var arCategory_SLA = Array();
 	var arMark_SLA = Array();
-	<?
+	<?php 
 	if (is_array($arrSlaID)):
 
 		foreach($arrSlaID as $sid):
@@ -2494,7 +2494,7 @@ while ($arTeam = $dbTeam->Fetch())
 
 			if ($can_select_category=="Y") :
 				?>
-				arCategory_SLA[<?=$sid?>]=Array(<?
+				arCategory_SLA[<?=$sid?>]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -2506,12 +2506,12 @@ while ($arTeam = $dbTeam->Fetch())
 						}
 					}
 					?>);
-				<?
+				<?php 
 			endif;
 
 			if ($can_select_mark=="Y") :
 				?>
-				arMark_SLA[<?=$sid?>]=Array(<?
+				arMark_SLA[<?=$sid?>]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -2523,12 +2523,12 @@ while ($arTeam = $dbTeam->Fetch())
 						}
 					}
 					?>);
-				<?
+				<?php 
 			endif;
 
 			if ($can_select_criticality=="Y") :
 				?>
-				arCriticality_SLA[<?=$sid?>]=Array(<?
+				arCriticality_SLA[<?=$sid?>]=Array(<?php 
 
 					echo "Array('NOT_REF', ' ')";
 
@@ -2540,7 +2540,7 @@ while ($arTeam = $dbTeam->Fetch())
 						}
 					}
 					?>);
-				<?
+				<?php 
 			endif;
 
 		endforeach;
@@ -2558,26 +2558,26 @@ while ($arTeam = $dbTeam->Fetch())
 		obSiteSelect = document.form1.SITE_ID;
 		site_id = obSiteSelect[obSiteSelect.selectedIndex].value;
 
-		<?if ($can_select_category=="Y") :?>
+		<?php if ($can_select_category=="Y") :?>
 			arrList[arrList.length] = document.form1.CATEGORY_ID;
 			arrValues[arrValues.length] = arCategory_SLA;
 			arrCheck[arrCheck.length] = arCategory[site_id];
 			arrInit[arrInit.length] = parseInt('<?=$str_CATEGORY_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_mark=="Y") :?>
+		<?php if ($can_select_mark=="Y") :?>
 			arrList[arrList.length] = document.form1.MARK_ID;
 			arrValues[arrValues.length] = arMark_SLA;
 			arrCheck[arrCheck.length] = arMark[site_id];
 			arrInit[arrInit.length] = parseInt('<?=$str_MARK_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($can_select_criticality=="Y") :?>
+		<?php if ($can_select_criticality=="Y") :?>
 			arrList[arrList.length] = document.form1.CRITICALITY_ID;
 			arrValues[arrValues.length] = arCriticality_SLA;
 			arrCheck[arrCheck.length] = arCriticality[site_id];
 			arrInit[arrInit.length] = parseInt('<?=$str_CRITICALITY_ID?>');
-		<?endif;?>
+		<?php endif;?>
 
 		for(i=0; i<arrList.length; i++)
 		{
@@ -2603,11 +2603,11 @@ while ($arTeam = $dbTeam->Fetch())
 	</script>
 
 
-	<?endif;?>
+	<?php endif;?>
 
-<?if ($ID>0):?>
+<?php if ($ID>0):?>
 
-	<?if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y"):?>
+	<?php if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y"):?>
 	<tr>
 		<td id="edit_32"><?=GetMessage("SUP_TASK_TIME")?></td>
 		<td id="edit_33"><input type="text" name="TASK_TIME" id="TASK_TIME" size="7" maxlength="10" value=""></td>
@@ -2615,19 +2615,19 @@ while ($arTeam = $dbTeam->Fetch())
 
 
 	<tr valign="middle">
-		<td id="edit_34" align="right" nowrap><?echo GetMessage("SUP_HOLD_ON")?>:</td>
-		<td id="edit_35" nowrap><?echo InputType("checkbox","HOLD_ON","Y",$str_HOLD_ON, false, "", "id=\"HOLD_ON\"")?></td>
+		<td id="edit_34" align="right" nowrap><?php echo GetMessage("SUP_HOLD_ON")?>:</td>
+		<td id="edit_35" nowrap><?php echo InputType("checkbox","HOLD_ON","Y",$str_HOLD_ON, false, "", "id=\"HOLD_ON\"")?></td>
 	</tr>
 
-	<?endif;?>
+	<?php endif;?>
 
 
 
 
-	<?if (($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") && strlen($str_DATE_CLOSE)<=0) :?>
+	<?php if (($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") && strlen($str_DATE_CLOSE)<=0) :?>
 	<tr valign="middle">
 		<td id="edit_22" align="right" nowrap><?=GetMessage("SUP_AUTO_CLOSE_TICKET")?></td>
-		<td id="edit_23" nowrap><?
+		<td id="edit_23" nowrap><?php 
 			$ref_id = array("-1", "0");
 			$ref = array(GetMessage("SUP_NOT_CHANGE"), GetMessage("SUP_SET_NULL"));
 			for ($i=1;$i<=90;$i++)
@@ -2639,9 +2639,9 @@ while ($arTeam = $dbTeam->Fetch())
 			echo SelectBoxFromArray("AUTO_CLOSE_DAYS", $arr, $str_AUTO_CLOSE_DAYS, "", " id=\"AUTO_CLOSE_DAYS\"");
 		?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if (strlen($str_DATE_CLOSE)<=0):?>
+	<?php if (strlen($str_DATE_CLOSE)<=0):?>
 
 	<script type="text/javascript">
 	<!--
@@ -2656,8 +2656,8 @@ while ($arTeam = $dbTeam->Fetch())
 	</SCRIPT>
 
 	<tr valign="middle">
-		<td id="edit_24" align="right" nowrap><?echo GetMessage("SUP_CLOSE_TICKET")?>:</td>
-		<td id="edit_25" nowrap><?echo InputType("checkbox","CLOSE","Y",$str_CLOSE, false, "", "OnClick=\"CloseClick()\" id=\"CLOSE\"")?></td>
+		<td id="edit_24" align="right" nowrap><?php echo GetMessage("SUP_CLOSE_TICKET")?>:</td>
+		<td id="edit_25" nowrap><?php echo InputType("checkbox","CLOSE","Y",$str_CLOSE, false, "", "OnClick=\"CloseClick()\" id=\"CLOSE\"")?></td>
 	</tr>
 	<script type="text/javascript">
 	<!--
@@ -2665,7 +2665,7 @@ while ($arTeam = $dbTeam->Fetch())
 	//-->
 	</SCRIPT>
 
-	<?else:?>
+	<?php else:?>
 
 	<script type="text/javascript">
 	<!--
@@ -2679,8 +2679,8 @@ while ($arTeam = $dbTeam->Fetch())
 	//-->
 	</SCRIPT>
 	<tr valign="middle">
-		<td align="right" nowrap><?echo GetMessage("SUP_OPEN_TICKET")?>:</td>
-		<td nowrap><?echo InputType("checkbox","OPEN","Y","",false,"","OnClick=\"OpenClick()\" id=\"OPEN\"")?></td>
+		<td align="right" nowrap><?php echo GetMessage("SUP_OPEN_TICKET")?>:</td>
+		<td nowrap><?php echo InputType("checkbox","OPEN","Y","",false,"","OnClick=\"OpenClick()\" id=\"OPEN\"")?></td>
 	</tr>
 	<script type="text/javascript">
 	<!--
@@ -2688,11 +2688,11 @@ while ($arTeam = $dbTeam->Fetch())
 	//-->
 	</SCRIPT>
 
-	<?endif;?>
+	<?php endif;?>
 
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 if ($ID <= 0/* && !($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y")*/)
 {
 	?>
@@ -2700,11 +2700,11 @@ if ($ID <= 0/* && !($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y")*/)
 		<td class="heading" id="edit_36"><?=GetMessage('SUP_COUPON')?></td>
 		<td valign="top" id="edit_37"><input type="text" name="COUPON" value="" size="80" maxlength="255"></td>
 	</tr>
-	<?
+	<?php 
 }
 ?>
 
-<?
+<?php 
 	//$tabControl->BeginNextTab();
 if( $bAdmin == "Y" || $bSupportTeam == "Y" || $bDemo == "Y" )
 {
@@ -2716,7 +2716,7 @@ if( $bAdmin == "Y" || $bSupportTeam == "Y" || $bDemo == "Y" )
 
 	function EnDisUserFields( mode )
 	{
-		<? 
+		<?php  
 			$arrUF = $USER_FIELD_MANAGER->GetUserFields( "SUPPORT", 0, LANGUAGE_ID );
 			echo "UFArr = Array('" . implode("','", array_keys( $arrUF ) ) . "');";
 		?>
@@ -2740,12 +2740,12 @@ if( $bAdmin == "Y" || $bSupportTeam == "Y" || $bDemo == "Y" )
 	EnDisUserFields( 'view' );
 
 	</script>
-	<?
+	<?php 
 	}
 }
 ?>
 
-<?
+<?php 
 if ( $ID>0 && ( $bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y" ))
 {
 	?>
@@ -2755,73 +2755,73 @@ if ( $ID>0 && ( $bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y" ))
 		<td>&nbsp;</td>
 		<td nowrap><textarea name="SUPPORT_COMMENTS" id="SUPPORT_COMMENTS" style="width:100%;height:100px;"  wrap="virtual"><?=$str_SUPPORT_COMMENTS?></textarea></td>
 	</tr>
-	<?
+	<?php 
 }
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(array("back_url"=>$TICKET_LIST_URL."?lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 
 
-<?if (($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") && $ID>0):?>
+<?php if (($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") && $ID>0):?>
 
-<?if ($can_select_mode && $default_mode=="view"):?>
-<?echo BeginNote();?>
+<?php if ($can_select_mode && $default_mode=="view"):?>
+<?php echo BeginNote();?>
 <?=GetMessage("SUP_MODE_LEGEND")?>
-<?echo EndNote();?>
-<?endif;?>
+<?php echo EndNote();?>
+<?php endif;?>
 
 <script language="javascript">
 
 HiddenClick();
 
-<?if ($can_select_mode=="Y"):?>
-<?if ($default_mode=="view"):?>
+<?php if ($can_select_mode=="Y"):?>
+<?php if ($default_mode=="view"):?>
 	OnModeClick('view', 'mode_view', 'mode_edit');
-<?else:?>
+<?php else:?>
 	OnModeClick('edit', 'mode_edit', 'mode_view');
-<?endif;?>
-<?endif;?>
+<?php endif;?>
+<?php endif;?>
 
 </script>
-<?endif;?>
+<?php endif;?>
 
 </form>
-<?/*$tabControl->ShowWarnings("form1", $message);*/?>
+<?php /*$tabControl->ShowWarnings("form1", $message);*/?>
 
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <table border="0" cellspacing="6" cellpadding="0">
 	<tr>
 		<td valign="center" colspan="2" nowrap><?=GetMessage("SUP_TICKET_STATUS")?>:</td>
 	</tr>
 	<tr>
 		<td valign="center" nowrap><div class="lamp-red"></div></td>
-		<td valign="center" nowrap><?echo ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") ? GetMessage("SUP_RED_ALT") : GetMessage("SUP_RED_ALT_2")?></td>
+		<td valign="center" nowrap><?php echo ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") ? GetMessage("SUP_RED_ALT") : GetMessage("SUP_RED_ALT_2")?></td>
 	</tr>
-	<?if ($bAdmin=="Y" || $bDemo=="Y") :?>
+	<?php if ($bAdmin=="Y" || $bDemo=="Y") :?>
 	<tr>
 		<td valign="center" nowrap><div class="lamp-yellow"></div></td>
-		<td valign="center" nowrap><?echo GetMessage("SUP_YELLOW_ALT")?></td>
+		<td valign="center" nowrap><?php echo GetMessage("SUP_YELLOW_ALT")?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td valign="center" nowrap><div class="lamp-green"></div></td>
-		<td valign="center" nowrap><?echo GetMessage("SUP_GREEN_ALT")?></td>
+		<td valign="center" nowrap><?php echo GetMessage("SUP_GREEN_ALT")?></td>
 	</tr>
-	<?if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") :?>
+	<?php if ($bAdmin=="Y" || $bDemo=="Y" || $bSupportTeam=="Y") :?>
 	<tr>
 		<td valign="center" nowrap><div class="lamp-green-s"></div></td>
-		<td valign="center" nowrap><?echo GetMessage("SUP_GREEN_S_ALT")?></td>
+		<td valign="center" nowrap><?php echo GetMessage("SUP_GREEN_S_ALT")?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td valign="center" nowrap><div class="lamp-grey"></div></td>
-		<td valign="center" nowrap><?echo GetMessage("SUP_GREY_ALT")?></td>
+		<td valign="center" nowrap><?php echo GetMessage("SUP_GREY_ALT")?></td>
 	</tr>
 </table>
-<?echo EndNote();?>
+<?php echo EndNote();?>
 
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

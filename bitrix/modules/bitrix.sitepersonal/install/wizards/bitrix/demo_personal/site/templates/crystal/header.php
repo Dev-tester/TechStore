@@ -1,20 +1,20 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <link rel="shortcut icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/favicon.ico" />
-<?$APPLICATION->ShowMeta("robots")?>
-<?$APPLICATION->ShowMeta("keywords")?>
-<?$APPLICATION->ShowMeta("description")?>
-<title><?$APPLICATION->ShowTitle()?></title>
-<?$APPLICATION->ShowHead();?>
-<?IncludeTemplateLangFile(__FILE__);?>
+<?php $APPLICATION->ShowMeta("robots")?>
+<?php $APPLICATION->ShowMeta("keywords")?>
+<?php $APPLICATION->ShowMeta("description")?>
+<title><?php $APPLICATION->ShowTitle()?></title>
+<?php $APPLICATION->ShowHead();?>
+<?php IncludeTemplateLangFile(__FILE__);?>
 <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/colors.css" />
 <link rel="stylesheet" type="text/css" href="<?=SITE_TEMPLATE_PATH?>/print.css" media="print" />
 </head>
 <body>	
-		<div id="panel"><?$APPLICATION->ShowPanel();?></div>
+		<div id="panel"><?php $APPLICATION->ShowPanel();?></div>
 		
 		<div id="page-wrapper">
 			<div id="page-gradient">
@@ -24,20 +24,20 @@
 						<div id="header-corners"></div>
 
 						<div id="header">
-								<h1 id="site-name"><?$APPLICATION->IncludeFile(
+								<h1 id="site-name"><?php $APPLICATION->IncludeFile(
 									SITE_TEMPLATE_PATH."/include_areas/site_name.php",
 									Array(),
 									Array("MODE"=>"html")
 								);?></h1>
-								<?if($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
+								<?php if($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
 								<a href="<?=SITE_DIR?>rss/" id="rss-link"><?=GetMessage("TMPL_RSS")?></a>
-								<?endif?>
+								<?php endif?>
 							</div>
 							
 						<div id="top-menu">
 								<div id="top-menu-left-indent"></div>
 								<div id="top-menu-right-indent"></div>
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									"bitrix:menu", 
 									"personal_tab", 
 									Array(
@@ -46,7 +46,7 @@
 										"USE_EXT"	=>	"N"
 									)
 								);?>
-								<?$APPLICATION->IncludeComponent("bitrix:search.form", "personal", Array(
+								<?php $APPLICATION->IncludeComponent("bitrix:search.form", "personal", Array(
 											"PAGE"	=>	SITE_DIR."search.php"
 											)
 									);?>
@@ -54,7 +54,7 @@
 							
 						<div id="content">
 							<div id="work-area">
-							<?if($APPLICATION->GetCurPage(true) != SITE_DIR."index.php")
+							<?php if($APPLICATION->GetCurPage(true) != SITE_DIR."index.php")
 							{
 								echo "<h1>";
 								$APPLICATION->ShowTitle(false);

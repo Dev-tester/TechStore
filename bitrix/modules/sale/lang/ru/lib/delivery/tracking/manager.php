@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DTM_STATUS_NAME_NO_INFORMATION"] = "Информация отсутствует";
 $MESS["SALE_DTM_STATUS_NAME_WAITING_SHIPMENT"] = "В пункте приёма";
 $MESS["SALE_DTM_STATUS_NAME_ON_THE_WAY"] = "В пути";

@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 IncludeTemplateLangFile(__FILE__);
 ?>
 		</td>
-		<?$arCurDir = explode("/", $APPLICATION->GetCurDir());?>
-		<?if(!array_search('forum', $arCurDir)):?>
+		<?php $arCurDir = explode("/", $APPLICATION->GetCurDir());?>
+		<?php if(!array_search('forum', $arCurDir)):?>
 		<td width="40%" class="page-right"><div class="page-right">
 			<div id="left-search">
-		<?$APPLICATION->IncludeComponent("bitrix:search.title", ".default", array(
+		<?php $APPLICATION->IncludeComponent("bitrix:search.title", ".default", array(
 			"NUM_CATEGORIES" => "3",
 			"TOP_COUNT" => "5",
 			"CHECK_DATES" => "N",
@@ -44,7 +44,7 @@ IncludeTemplateLangFile(__FILE__);
 			</div>
 			<div class="hr"></div>
 
-		<?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
+		<?php $APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
 			"AREA_FILE_SHOW" => "sect",
 			"AREA_FILE_SUFFIX" => "btop",
 			"AREA_FILE_RECURSIVE" => "Y",
@@ -52,8 +52,8 @@ IncludeTemplateLangFile(__FILE__);
 			),
 			false
 		);?>
-		<?$APPLICATION->ShowViewContent("sidebar")?>	
-		<?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
+		<?php $APPLICATION->ShowViewContent("sidebar")?>	
+		<?php $APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
 			"AREA_FILE_SHOW" => "sect",
 			"AREA_FILE_SUFFIX" => "rtop",
 			"AREA_FILE_RECURSIVE" => "Y",
@@ -61,7 +61,7 @@ IncludeTemplateLangFile(__FILE__);
 			),
 			false
 		);?>
-		<?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
+		<?php $APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
 			"AREA_FILE_SHOW" => "sect",
 			"AREA_FILE_SUFFIX" => "bbottom",
 			"AREA_FILE_RECURSIVE" => "Y",
@@ -69,7 +69,7 @@ IncludeTemplateLangFile(__FILE__);
 			),
 			false
 		);?>
-		<?$APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
+		<?php $APPLICATION->IncludeComponent("bitrix:main.include", ".default", array(
 			"AREA_FILE_SHOW" => "sect",
 			"AREA_FILE_SUFFIX" => "rbottom",
 			"AREA_FILE_RECURSIVE" => "N",
@@ -79,7 +79,7 @@ IncludeTemplateLangFile(__FILE__);
 		);?>
 		
 		</div></td>
-		<?endif;?>
+		<?php endif;?>
 		</tr>
 		</table>
 		
@@ -90,7 +90,7 @@ IncludeTemplateLangFile(__FILE__);
 </div>
 <div id="footer-wrapper">
 	<div class="bottom-menu-one">
-	<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_one", array(
+	<?php $APPLICATION->IncludeComponent("bitrix:menu", "bottom_one", array(
 	"ROOT_MENU_TYPE" => "bottom1",
 	"MENU_CACHE_TYPE" => "A",
 	"MENU_CACHE_TIME" => "36000000",
@@ -108,7 +108,7 @@ IncludeTemplateLangFile(__FILE__);
 	);?>
 	</div>
 	<div class="bottom-menu-two">
-	<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_one", array(
+	<?php $APPLICATION->IncludeComponent("bitrix:menu", "bottom_one", array(
 	"ROOT_MENU_TYPE" => "bottom2",
 	"MENU_CACHE_TYPE" => "A",
 	"MENU_CACHE_TIME" => "36000000",
@@ -125,7 +125,7 @@ IncludeTemplateLangFile(__FILE__);
 	false
 	);?>
 	</div>
-	<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
+	<?php $APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
 	"ROOT_MENU_TYPE" => "bottom",
 	"MENU_CACHE_TYPE" => "A",
 	"MENU_CACHE_TIME" => "36000000",
@@ -140,7 +140,7 @@ IncludeTemplateLangFile(__FILE__);
 	),
 	false
 );?>
-	<div class="copyright"><?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/copyright.php"), false);?><?=GetMessage("FOOTER_DISIGN")?></div>
+	<div class="copyright"><?php $APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/copyright.php"), false);?><?=GetMessage("FOOTER_DISIGN")?></div>
 </div>
 </body>
 </html>

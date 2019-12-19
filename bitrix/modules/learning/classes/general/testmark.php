@@ -1,4 +1,4 @@
-<?
+<?php 
 // 2012-04-13 Checked/modified for compatibility with new data model
 class CLTestMark
 {

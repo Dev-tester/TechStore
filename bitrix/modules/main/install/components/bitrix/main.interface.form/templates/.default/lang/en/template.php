@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_form_show_all"] = "Expand Tabs";
 $MESS["interface_form_save"] = "Save";
 $MESS["interface_form_save_title"] = "Save And Return";

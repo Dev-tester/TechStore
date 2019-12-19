@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELD_CX_MODE"] = "Mode ID";
 $MESS["CRM_FIELD_CX_ENTITY_ID"] = "Type ID";
 $MESS["CRM_FIELD_CX_FIELD_ID"] = "Field ID";

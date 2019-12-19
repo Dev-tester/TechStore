@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_TEL_TITLE"] = "Telephony";
 $MESS["B24C_TEL_DESCR1"] = "Use Internet telephony to grow your business and increase sales. Enable Bitrix24 telephony on your site and call your customers without extra maintenance charges.";
 $MESS["B24C_TEL_AUTO_FIX"] = "All calls will be recorded in Bitrix24.CRM";

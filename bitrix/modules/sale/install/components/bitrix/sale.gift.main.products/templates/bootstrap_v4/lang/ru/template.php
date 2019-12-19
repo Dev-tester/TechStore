@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SLB_TPL_TITLE_GIFT'] = "Выберите один из товаров, чтобы получить подарок";
 $MESS["CVP_TPL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
 $MESS["CVP_TPL_MESS_BTN_BUY"] = "Купить";

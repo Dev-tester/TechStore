@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CCodeEditor // CE
 {
@@ -70,7 +70,7 @@ class CCodeEditor // CE
 
 			});
 		</script>
-		<?
+		<?php 
 		return $id;
 	}
 

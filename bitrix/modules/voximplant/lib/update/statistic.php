@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Voximplant\Update;
 
 use Bitrix\Main\Update\Stepper;

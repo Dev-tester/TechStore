@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WAIT_ACTIVITY_RPD_OR"] = "или";
 $MESS["CRM_WAIT_ACTIVITY_RPD_OR_CLIENT_ACTIVITY"] = "любую активность клиента";
 $MESS["CRM_WAIT_ACTIVITY_DESCRIPTION_TYPE_AFTER"] = "Ждать #DURATION#";

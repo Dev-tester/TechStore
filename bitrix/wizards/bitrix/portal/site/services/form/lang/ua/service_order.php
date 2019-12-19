@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REQUEST_DESCRIPTION_QUESTION"] = "Текст заявки";
 $MESS["REQUEST_NAME_QUESTION"] = "Найменування заявки";
 $MESS["REQUEST_TYPE_ANSWER1"] = "Кур'єрська доставка";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEAL_STAGES_WON"] = "Currently Active";
 $MESS["DEAL_STAGES_LOSE"] = "Not Active";
 $MESS["CRM_DEAL_FUNNEL_TYPE_SELECTOR_TITLE"] = "Funnel type";

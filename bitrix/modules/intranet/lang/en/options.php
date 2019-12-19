@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HRXML_DESC_PERSONAL_ID_SCHEME_NAME"] = "HRXML, SchemeName value for private person ID";
 $MESS["HRXML_PERSONAL_ID_SCHEME_NAME"] = "PrivatePerson";
 $MESS["INTR_CHOOSE_IBTYPE"] = "--- choose inf. block type ---";

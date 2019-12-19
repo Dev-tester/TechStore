@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LDAP_FIELD_ACTIVE"] = "Active";
 $MESS["LDAP_FIELD_EMAIIL"] = "E-Mail Address";
 $MESS["LDAP_FIELD_NAME"] = "First Name";

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use \Bitrix\Calendar\Sync\GoogleApiSync;
 use \Bitrix\Calendar\Sync\GoogleApiPush;

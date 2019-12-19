@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOPGEN_NO_PERMS2ADD"]="У вас недостаточно прав для добавления новой группы свойств";
 $MESS["SOPGEN_NO_PROPS_GRP"]="Группа свойств ##ID# не найдена";
 $MESS["SOPGEN_ERROR_SAVING_PROPS_GRP"]="Ошибка сохранения группы свойств";

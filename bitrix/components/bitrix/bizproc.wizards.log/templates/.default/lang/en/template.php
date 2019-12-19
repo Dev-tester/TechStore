@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WLCT_NEW'] = "New Request";
 $MESS ['BPWC_WLCT_VARS'] = "Business Process Variables";
 $MESS ['BPWC_WLCT_BP'] = "Business Process";

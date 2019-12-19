@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SMILE_EDIT_RECORD'] = "Изменение смайла";
 $MESS ['SMILE_NEW_RECORD'] = "Добавление смайла";
 $MESS ['ERROR_EDIT_SMILE'] = "Ошибка изменения смайла";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_NS_DEFAULT"] = "Unrecognized notifications";
 $MESS["IM_NS_MAIN"] = "Ratings and Likes";
 $MESS["IM_NS_MAIN_RATING_VOTE"] = "\"I like it\" notification";

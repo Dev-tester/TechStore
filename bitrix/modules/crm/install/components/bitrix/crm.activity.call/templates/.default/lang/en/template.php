@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_CALL_DOWNLOAD_RECORD"] = "download call recording";
 $MESS["CRM_ACTIVITY_CALL_DURATION"] = "Duration";
 $MESS["CRM_ACTIVITY_CALL_VOTE"] = "Assessment";

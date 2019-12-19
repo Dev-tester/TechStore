@@ -602,9 +602,9 @@ class CSecurityFilter
 		?>
 	<html>
 	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=<?echo LANG_CHARSET?>" />
+		<meta http-equiv="Content-Type" content="text/html; charset=<?php echo LANG_CHARSET?>" />
 		<meta name="robots" content="none" />
-		<title><?echo getMessage("SECURITY_FILTER_FORM_TITLE")?></title>
+		<title><?php echo getMessage("SECURITY_FILTER_FORM_TITLE")?></title>
 		<link rel="stylesheet" type="text/css" href="/bitrix/themes/.default/adminstyles.css" />
 		<link rel="stylesheet" type="text/css" href="/bitrix/themes/.default/404.css" />
 	</head>
@@ -630,29 +630,29 @@ class CSecurityFilter
 						<table cellpadding="0" cellspacing="0">
 							<tr>
 								<td><div class="icon"></div></td>
-								<td><?echo getMessage("SECURITY_FILTER_FORM_SUB_TITLE")?></td>
+								<td><?php echo getMessage("SECURITY_FILTER_FORM_SUB_TITLE")?></td>
 							</tr>
 						</table>
 					</div>
 					<div class="description">
-						<?echo getMessage("SECURITY_FILTER_FORM_MESSAGE")?><br /><br />
+						<?php echo getMessage("SECURITY_FILTER_FORM_MESSAGE")?><br /><br />
 						<table cellpadding="0" cellspacing="0" witdh="100%">
 							<tr>
-								<td class="head" align="center"><?echo getMessage("SECURITY_FILTER_FORM_VARNAME")?></td>
-								<td class="head" align="center"><?echo getMessage("SECURITY_FILTER_FORM_VARDATA")?></td>
+								<td class="head" align="center"><?php echo getMessage("SECURITY_FILTER_FORM_VARNAME")?></td>
+								<td class="head" align="center"><?php echo getMessage("SECURITY_FILTER_FORM_VARDATA")?></td>
 							</tr>
-							<?foreach($this->getChangedVars() as $var_name => $str):?>
+							<?php foreach($this->getChangedVars() as $var_name => $str):?>
 							<tr valign="top">
-								<td><?echo htmlspecialcharsbx($var_name)?></td>
-								<td><?echo htmlspecialcharsbx($str)?></td>
+								<td><?php echo htmlspecialcharsbx($var_name)?></td>
+								<td><?php echo htmlspecialcharsbx($str)?></td>
 							</tr>
-							<?endforeach?>
+							<?php endforeach?>
 						</table><br />
-						<form method="POST" <?if(defined('POST_FORM_ACTION_URI')):?> action="<?echo POST_FORM_ACTION_URI?>" <?endif?>>
-							<?echo self::formatHiddenFields($originalPostVars);?>
-							<?echo bitrix_sessid_post();?>
-							<input type="submit" name='____SECFILTER_ACCEPT_JS' value="<?echo getMessage('SECURITY_FILTER_FORM_ACCEPT')?>" />
-							<input type="submit" name='____SECFILTER_CONVERT_JS' value="<?echo getMessage('SECURITY_FILTER_FORM_CONVERT')?>" />
+						<form method="POST" <?php if(defined('POST_FORM_ACTION_URI')):?> action="<?php echo POST_FORM_ACTION_URI?>" <?php endif?>>
+							<?php echo self::formatHiddenFields($originalPostVars);?>
+							<?php echo bitrix_sessid_post();?>
+							<input type="submit" name='____SECFILTER_ACCEPT_JS' value="<?php echo getMessage('SECURITY_FILTER_FORM_ACCEPT')?>" />
+							<input type="submit" name='____SECFILTER_CONVERT_JS' value="<?php echo getMessage('SECURITY_FILTER_FORM_CONVERT')?>" />
 						</form>
 					</div>
 				</td>
@@ -667,7 +667,7 @@ class CSecurityFilter
 	</div>
 	</body>
 	</html>
-	<?
+	<?php 
 	}
 
 	/**

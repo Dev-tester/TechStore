@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACTION'] = "Aktion";
 $MESS ['WD_SECTION_EDIT_URL'] = "Seite zum Bearbeiten des Katalogs";
 $MESS ['WD_SECTION_LIST_URL'] = "Seite mit dem Katalog";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TTTV_TEMPLATE_LCF'] = 'шаблон задачи';
 $MESS['TASKS_NOTIFY_TASK_DELETED'] = 'Шаблон успешно удален';
 $MESS["TASKS_TTV_CLOSE_SLIDER_CONFIRMATION_POPUP_HEADER"] = "Подтверждение";

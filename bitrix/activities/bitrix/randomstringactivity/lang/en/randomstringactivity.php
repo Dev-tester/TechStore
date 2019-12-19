@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRNDSA_SIZE_NAME"] = "String length";
 $MESS["BPRNDSA_ALPHABET_NAME"] = "Alphabet";
 $MESS["BPRNDSA_ALPHABET_NUM"] = "Numbers";

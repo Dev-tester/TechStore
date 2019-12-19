@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -30,7 +30,7 @@ $APPLICATION->SetTitle(Loc::getMessage("CRM_1C_START_TRACKER_NAME"));
 	<div class="b24-integration-container-logo">
 		<div class="b24-integration-video-block">
 			<div class="b24-integration-video">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					"bitrix:player",
 					".default",
 					array(
@@ -85,7 +85,7 @@ $APPLICATION->SetTitle(Loc::getMessage("CRM_1C_START_TRACKER_NAME"));
 <div id="b24-integration-active" class="b24-integration-container b24-integration-centering-text-block">
 	<div id="b24-integration-active-button" class="b24-integration-button b24-integration-button-blue"><?=Loc::getMessage("CRM_1C_START_TRACKER_DO_START")?></div>
 	<div id="b24-integration-inner-active" class="b24-integration-wrap b24-integration-left-text-block">
-	<?
+	<?php 
 		$sid = $APPLICATION->IncludeComponent(
 			'bitrix:app.layout',
 			'',

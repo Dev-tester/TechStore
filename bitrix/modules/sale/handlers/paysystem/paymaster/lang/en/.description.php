@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_PAYMASTER"] = "Payment via PayMaster (Russian payment system)";
 $MESS["SALE_HPS_PAYMASTER_NUMBER"] = "Your site ID";
 $MESS["SALE_HPS_PAYMASTER_TEST"] = "Test Mode";

@@ -1,18 +1,18 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 	//$APPLICATION->RestartBuffer();
 	?>
 	<script type="text/javascript">
-		<?if(strlen($arResult['ERROR_MSG']) > 0 ):?>
+		<?php if(strlen($arResult['ERROR_MSG']) > 0 ):?>
 			alert("<?=$arResult['ERROR_MSG']?>");
 			BX.closeWait();
-		<?else:?>
+		<?php else:?>
 			parent.crmImportLocations.onImportButClick();
 			//top.location.href = '<?=CUtil::JSEscape($arResult['BACK_URL'])?>';
-		<?endif;?>
-	</script><?
+		<?php endif;?>
+	</script><?php 
 	die();
 endif;
 

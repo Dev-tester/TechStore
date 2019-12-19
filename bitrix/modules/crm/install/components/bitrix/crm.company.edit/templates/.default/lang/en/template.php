@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Company";
 $MESS["CRM_TAB_1_TITLE"] = "Company properties";
 $MESS["CRM_TAB_2"] = "Log";

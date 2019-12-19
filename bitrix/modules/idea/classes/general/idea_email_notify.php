@@ -1,4 +1,4 @@
-<?
+<?php 
 //System, not for use
 use Bitrix\Main\Application;
 use Bitrix\Main\Entity\ExpressionField;

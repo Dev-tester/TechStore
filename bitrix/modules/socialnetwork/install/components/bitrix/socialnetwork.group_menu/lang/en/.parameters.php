@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_PATH_TO_GROUP'] = "Group Page Path Template";
 $MESS ['SONET_PATH_TO_GROUP_MODS'] = "Group Mederators Page Path Template";
 $MESS ['SONET_PATH_TO_GROUP_USERS'] = "Group Members Page Path Template";

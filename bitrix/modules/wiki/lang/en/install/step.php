@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_CREATE_NEW_IBLOCK"] = "Create information block";
 $MESS["WIKI_CREATE_NEW_SOCNET_IBLOCK"] = "Create information block for social network";
 $MESS["WIKI_CREATE_NEW_IBLOCK_NAME"] = "Information block name";

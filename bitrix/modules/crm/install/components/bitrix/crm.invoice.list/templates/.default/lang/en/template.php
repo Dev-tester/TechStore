@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ALL"] = "Total";
 $MESS["CRM_INVOICE_ASSIGN_TO"] = "Assign responsible person";
 $MESS["CRM_INVOICE_COPY"] = "Copy";

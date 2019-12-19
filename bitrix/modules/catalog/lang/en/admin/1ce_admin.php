@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_1CE_IBLOCK_ID"] = "Catalog information block";
 $MESS["CAT_1CE_IBLOCK_ID_EMPTY"] = "not selected";
 $MESS["CAT_1CE_GROUP_PERMISSIONS"] = "Allow export for";

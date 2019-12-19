@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GCM_EMPTY_BLOG_ID"] = "The comment blog is not specified";
 $MESS["BLG_GCM_ERROR_NO_BLOG"] = "Blog with ID '#ID#' cannot be found";
 $MESS["BLG_GCM_EMPTY_POST_ID"] = "The message to be commented is not specified";

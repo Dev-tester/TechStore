@@ -1,4 +1,4 @@
-<form action="<?echo $APPLICATION->GetCurPage()?>" name="form1">
+<form action="<?php echo $APPLICATION->GetCurPage()?>" name="form1">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 <input type="hidden" name="id" value="form">

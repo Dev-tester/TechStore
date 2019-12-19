@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HLBLOCK_ADMIN_ROWS_LIST"] = "Records";
 $MESS["HLBLOCK_ADMIN_FIELDS_LIST"] = "Fields";
 $MESS["HLBLOCK_ADMIN_ENTITY_TITLE"] = "Name";

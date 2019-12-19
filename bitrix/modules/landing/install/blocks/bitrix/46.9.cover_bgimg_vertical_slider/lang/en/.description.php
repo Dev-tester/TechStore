@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_46.9_NAME"] = "Vertical flippable cover on dimmed background images";
 $MESS["LANDING_BLOCK_46.9_NODES_LANDINGBLOCKNODECARD"] = "Slide";
 $MESS["LANDING_BLOCK_46.9_NODES_LANDINGBLOCKNODECARD_IMG"] = "Background image";

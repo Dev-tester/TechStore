@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (isset($_REQUEST['AJAX']))
 {
@@ -15,12 +15,12 @@ use Bitrix\Intranet\UStat\UStat;
 
 ?>
 
-<? if($arResult['INTERVAL'] == 'day'): ?>
+<?php  if($arResult['INTERVAL'] == 'day'): ?>
 <!-- jumping to custom day -->
 <style type="text/css">
 	#chartdiv image, svg g g path {cursor: pointer}
 </style>
-<? endif ?>
+<?php  endif ?>
 
 <script type="text/javascript">
 
@@ -33,17 +33,17 @@ for (i in chartData)
 	chartCursorData[chartData[i].date] = chartData[i].cursor_date;
 }
 
-<? if($arResult['INTERVAL'] == 'day'): ?>
+<?php  if($arResult['INTERVAL'] == 'day'): ?>
 // jumping to custom day
 function reloadIntranetUstatCustomDay(event)
 {
 	reloadIntranetUstat({PERIOD:'custom_day', CUSTOM_DAY: event.item.dataContext.custom_day});
 }
-<? endif ?>
+<?php  endif ?>
 
-<? if (!isset($_REQUEST['AJAX'])): ?>
+<?php  if (!isset($_REQUEST['AJAX'])): ?>
 AmCharts.ready(function () {
-<? endif ?>
+<?php  endif ?>
 
 	// SERIAL CHART
 	var chart = new AmCharts.AmSerialChart();
@@ -65,21 +65,21 @@ AmCharts.ready(function () {
 	categoryAxis.gridThickness = 1;
 	categoryAxis.color = '#666';
 
-	<? if ($arResult['INTERVAL'] == 'hour'): // 00:00-24:00, 25 hours in a row ?>
+	<?php  if ($arResult['INTERVAL'] == 'hour'): // 00:00-24:00, 25 hours in a row ?>
 	categoryAxis.autoGridCount = false;
 	categoryAxis.gridCount = 25;
-	<? endif ?>
+	<?php  endif ?>
 
 	var valueAxis = new AmCharts.ValueAxis();
 	valueAxis.stackType = "regular";
 	valueAxis.gridAlpha = 0;
 	valueAxis.axisAlpha = 0;
 
-	<? if ($arResult['INTERVAL'] == 'hour'): ?>
+	<?php  if ($arResult['INTERVAL'] == 'hour'): ?>
 	valueAxis.maximum = <?=$arResult['MAX_ACTIVITY']?>;
-	<? else: ?>
+	<?php  else: ?>
 	valueAxis.maximum = <?=$arResult['MAX_ACTIVITY']?>;
-	<? endif ?>
+	<?php  endif ?>
 
 	valueAxis.labelsEnabled = false;
 	valueAxis.autoGridCount = false;
@@ -100,7 +100,7 @@ AmCharts.ready(function () {
 
 	// GRAPHS
 	// column graph
-	<? if ($arParams['PERIOD'] !== 'today' && $arParams['PERIOD'] !== 'custom_day'): ?>
+	<?php  if ($arParams['PERIOD'] !== 'today' && $arParams['PERIOD'] !== 'custom_day'): ?>
 
 	var graph1 = new AmCharts.AmGraph();
 	graph1.type = "column";
@@ -113,7 +113,7 @@ AmCharts.ready(function () {
 	graph1.balloonText = '<?=GetMessageJS('INTRANET_USTAT_COMPANY_GRAPH_INVOLVEMENT')?>: [[value]]%';
 	chart.addGraph(graph1);
 
-	<? endif ?>
+	<?php  endif ?>
 
 	// line
 	var graph2 = new AmCharts.AmGraph();
@@ -144,21 +144,21 @@ AmCharts.ready(function () {
 	chartCursor.bulletsEnabled = false;
 	chart.addChartCursor(chartCursor);
 
-	<? if($arResult['INTERVAL'] == 'day'): ?>
+	<?php  if($arResult['INTERVAL'] == 'day'): ?>
 	// JUMP TO CUSTOM DAY
 	chart.addListener("clickGraphItem", reloadIntranetUstatCustomDay);
-	<? endif ?>
+	<?php  endif ?>
 
 
 	// WRITE
 	chart.write("chartdiv");
 
-<? if (!isset($_REQUEST['AJAX'])): ?>
+<?php  if (!isset($_REQUEST['AJAX'])): ?>
 });
-<? endif ?>
+<?php  endif ?>
 
 
-<? if (!isset($_REQUEST['AJAX'])): ?>
+<?php  if (!isset($_REQUEST['AJAX'])): ?>
 BX.ready(function() {
 		var body = BX('header').parentNode;
 		var bodyWrapper = BX.nextSibling(BX('header'));
@@ -167,7 +167,7 @@ BX.ready(function() {
 		pulse_loading.show();
 		pulse_loading.load_done();
 });
-<? endif ?>
+<?php  endif ?>
 
 function getIntranetUStatPeriodButtons()
 {
@@ -317,11 +317,11 @@ BX.ready(function(){
 	}
 
 	BX.bind(BX('pulse-close-top-btn'), 'click', function(event){
-		<? if($arResult['SECTION']==='TOTAL'): ?>
+		<?php  if($arResult['SECTION']==='TOTAL'): ?>
 		pulse_loading.close();
-		<? else: ?>
+		<?php  else: ?>
 		reloadIntranetUstat({SECTION: ''});
-		<? endif ?>
+		<?php  endif ?>
 
 		BX.PreventDefault(event);
 	});
@@ -503,10 +503,10 @@ BX.ready(function(){
 
 </script>
 
-<? if (!isset($_REQUEST['AJAX'])): ?>
+<?php  if (!isset($_REQUEST['AJAX'])): ?>
 <div class="pulse-top-wrap" id="intranet-activity-container">
 <div class="pulse-main-wrap" id='pulse-main-wrap'>
-<? endif ?>
+<?php  endif ?>
 
 
 	<div class="pulse-wrap">
@@ -515,26 +515,26 @@ BX.ready(function(){
 			<div class="pulse-header">
 				<div class="pulse-header-title">
 					<span class="pulse-header-title-text">
-						<? if (isset($arResult['SECTION_DATA'][$arResult['SECTION']])): ?>
+						<?php  if (isset($arResult['SECTION_DATA'][$arResult['SECTION']])): ?>
 							<?=htmlspecialcharsbx($arResult['SECTION_DATA'][$arResult['SECTION']]['title'])?>
-						<? else: ?>
+						<?php  else: ?>
 							<?=GetMessage('INTRANET_USTAT_COMPANY_GRAPH_TITLE')?>
-						<? endif ?>
+						<?php  endif ?>
 					</span>
 					<span class="pulse-header-title-info" id="pulse-company-general-help-icon"></span>
 				</div>
 				<div class="pulse-header-tabs-wrap">
 					<span class="pulse-header-tabs-label"><?=GetMessage('INTRANET_USTAT_PERIOD_TITLE')?></span>
 						<span class="pulse-header-tabs-block">
-							<? if($arParams['PERIOD'] == 'custom_day'): ?>
+							<?php  if($arParams['PERIOD'] == 'custom_day'): ?>
 								<span class="pulse-header-tab pulse-header-tab-active"
 									data-period-id="custom_day"><?=FormatDate('d M Y', strtotime($arParams['CUSTOM_DAY']))?></span>
-							<? endif ?>
+							<?php  endif ?>
 
-							<? foreach (array('today', 'week', 'month', 'year') as $period): ?>
+							<?php  foreach (array('today', 'week', 'month', 'year') as $period): ?>
 								<span class="pulse-header-tab <?=$arParams['PERIOD']===$period?'pulse-header-tab-active':''?>"
 									data-period-id="<?=$period?>"><?=GetMessage('INTRANET_USTAT_PERIOD_BUTTON_'.strtoupper($period))?></span>
-							<? endforeach ?>
+							<?php  endforeach ?>
 						</span>
 				</div>
 			</div>
@@ -549,7 +549,7 @@ BX.ready(function(){
 										</span>
 								<span class="pulse-info-toggle-text pulse-info-toggle-text-company" id="pulse-info-toggle-company"><?=GetMessage('INTRANET_USTAT_TOGGLE_COMPANY')?></span>
 							</div>
-							<div class="pulse-info-title"><?if (IsModuleInstalled("bitrix24")) echo htmlspecialcharsbx(COption::GetOptionString("bitrix24", "site_title", "")); else echo htmlspecialcharsbx(COption::GetOptionString("main", "site_name", ""));?></div>
+							<div class="pulse-info-title"><?php if (IsModuleInstalled("bitrix24")) echo htmlspecialcharsbx(COption::GetOptionString("bitrix24", "site_title", "")); else echo htmlspecialcharsbx(COption::GetOptionString("main", "site_name", ""));?></div>
 						</td>
 						<td class="pulse-info-cell pulse-info-cell-top pulse-info-rating-title-td" onclick="openIntranetUstatRating();">
 							<div class="pulse-info-rating-title">
@@ -558,52 +558,52 @@ BX.ready(function(){
 							</div>
 							<div class="pulse-info-rating-avatars"><!--
 
-								<? $i=0 ?>
+								<?php  $i=0 ?>
 
-								<? if ($arResult['USERS_RATING']['position'] > 5): // 3 users + ... + current user ?>
+								<?php  if ($arResult['USERS_RATING']['position'] > 5): // 3 users + ... + current user ?>
 
-									--><? foreach($arResult['USERS_RATING']['top'] as $userRating): ?><!--
-										<? ++$i ?>
+									--><?php  foreach($arResult['USERS_RATING']['top'] as $userRating): ?><!--
+										<?php  ++$i ?>
 
-										<? if ($i == 4): ?>
+										<?php  if ($i == 4): ?>
 											--><span class="pulse-info-rat-points"></span><!--
-										<? endif ?>
+										<?php  endif ?>
 
-										<? if ($i == 4 || $i == 5) continue ?>
+										<?php  if ($i == 4 || $i == 5) continue ?>
 
 										--><span title="<?=htmlspecialcharsbx($arResult['USERS_INFO'][$userRating['USER_ID']]['FULL_NAME'])."\n".GetMessage('INTRANET_USTAT_COMPANY_GRAPH_ACTIVITY').": ".$userRating['ACTIVITY']?>"
 											class="pulse-info-rat-avatar <?=$i==1?'pulse-info-rat-green':''?>
 												<?=($i>1 && $userRating['USER_ID'] == $USER->getId())?'pulse-info-rat-blue':''?> pulse-info-rat-avatar-<?=$i?>"
-											<? if(!empty($arResult['USERS_INFO'][$userRating['USER_ID']]['AVATAR_SRC'])): ?>
+											<?php  if(!empty($arResult['USERS_INFO'][$userRating['USER_ID']]['AVATAR_SRC'])): ?>
 												style="background: url('<?=$arResult['USERS_INFO'][$userRating['USER_ID']]['AVATAR_SRC']?>') no-repeat center center;"
-											<? endif ?>
-											><!--<? if($i==1): ?>
+											<?php  endif ?>
+											><!--<?php  if($i==1): ?>
 												--><span class="pulse-info-rat-counter">1</span><!--
-											<? elseif($userRating['USER_ID'] == $USER->getId()): ?>
+											<?php  elseif($userRating['USER_ID'] == $USER->getId()): ?>
 												--><span class="pulse-info-rat-counter"><?=$arResult['USERS_RATING']['position']?></span><!--
-											<? endif ?>
+											<?php  endif ?>
 										--></span><!--
 
-									--><? endforeach ?><!--
+									--><?php  endforeach ?><!--
 
-								<? else: // 5 users in a row ?>
+								<?php  else: // 5 users in a row ?>
 
-									--><? foreach($arResult['USERS_RATING']['top'] as $userRating): ?><!--
+									--><?php  foreach($arResult['USERS_RATING']['top'] as $userRating): ?><!--
 										--><span title="<?=htmlspecialcharsbx($arResult['USERS_INFO'][$userRating['USER_ID']]['FULL_NAME'])."\n".GetMessage('INTRANET_USTAT_COMPANY_GRAPH_ACTIVITY').": ".$userRating['ACTIVITY']?>"
 											class="pulse-info-rat-avatar <?=++$i==1?'pulse-info-rat-green':''?>
 												<?=($i>1 && $userRating['USER_ID'] == $USER->getId())?'pulse-info-rat-blue':''?> pulse-info-rat-avatar-<?=$i?>"
-											<? if(!empty($arResult['USERS_INFO'][$userRating['USER_ID']]['AVATAR_SRC'])): ?>
+											<?php  if(!empty($arResult['USERS_INFO'][$userRating['USER_ID']]['AVATAR_SRC'])): ?>
 												style="background: url('<?=$arResult['USERS_INFO'][$userRating['USER_ID']]['AVATAR_SRC']?>') no-repeat center center;"
-											<? endif ?>
-										><!--<? if($i==1): ?>
+											<?php  endif ?>
+										><!--<?php  if($i==1): ?>
 												--><span class="pulse-info-rat-counter">1</span><!--
-											<? elseif($userRating['USER_ID'] == $USER->getId()): ?>
+											<?php  elseif($userRating['USER_ID'] == $USER->getId()): ?>
 												--><span class="pulse-info-rat-counter"><?=$arResult['USERS_RATING']['position']?></span><!--
-											<? endif ?>
+											<?php  endif ?>
 										--></span><!--
-									--><? endforeach ?><!--
+									--><?php  endforeach ?><!--
 
-								--><? endif ?><!--
+								--><?php  endif ?><!--
 
 							--></div><!--
 						--></td>
@@ -613,29 +613,29 @@ BX.ready(function(){
 										<span class="pulse-info-index-info" id="pulse-company-activity-help-icon"></span>
 									</span>
 									<span class="pulse-info-index">
-										<? foreach (UStat::getFormattedNumber($arResult['SUM_ACTIVITY']) as $number): ?><!--
+										<?php  foreach (UStat::getFormattedNumber($arResult['SUM_ACTIVITY']) as $number): ?><!--
 											--><span class="pulse-num pulse-num-<?=$number['code']?>"><?=$number['char']?></span><!--
-										--><? endforeach; ?>
+										--><?php  endforeach; ?>
 									</span>
 						</td>
 						<td class="pulse-info-cell pulse-info-cell-center">
 									<span class="pulse-info-involve-text">
-										<? if (HasMessage('INTRANET_USTAT_COMPANY_INV_BAR_'.$arResult['SECTION'])): ?>
+										<?php  if (HasMessage('INTRANET_USTAT_COMPANY_INV_BAR_'.$arResult['SECTION'])): ?>
 											<?=GetMessage('INTRANET_USTAT_COMPANY_INV_BAR_'.$arResult['SECTION'])?>
-										<? else: ?>
+										<?php  else: ?>
 											<?=GetMessage('INTRANET_USTAT_COMPANY_INV_BAR_TOTAL')?>
-										<? endif ?>
+										<?php  endif ?>
 										<span class="pulse-info-index-info" id="pulse-company-involvement-help-icon"></span>
 									</span>
 									<span class="pulse-info-involve-block">
-										<? foreach (str_split($arResult['SUM_INVOLVEMENT']) as $digit): ?><!--
+										<?php  foreach (str_split($arResult['SUM_INVOLVEMENT']) as $digit): ?><!--
 											--><span class="pulse-num pulse-num-<?=$digit?>"><?=$digit?></span><!--
-										--><? endforeach; ?><!--
+										--><?php  endforeach; ?><!--
 
 										--><span class="pulse-num pulse-num-percent">%</span>
 										<span class="pulse-info-inv-bar-wrap">
 											<span class="pulse-info-inv-bar-shadow"></span>
-											<?
+											<?php 
 											if ($arResult['SUM_INVOLVEMENT'] > 65)
 												$progressColor = 'green';
 											elseif ($arResult['SUM_INVOLVEMENT'] > 15)
@@ -664,10 +664,10 @@ BX.ready(function(){
 		<div class="pulse-nav-block-wrap"><!--
 		--><div class="pulse-nav-block" id="intranet-activity-sections-container"><!--
 
-			<? $i = 0 ?>
-			--><? foreach($arResult['SECTION_DATA'] as $section => $sectionData): ?><!--
-				<? ++$i ?>
-				<?
+			<?php  $i = 0 ?>
+			--><?php  foreach($arResult['SECTION_DATA'] as $section => $sectionData): ?><!--
+				<?php  ++$i ?>
+				<?php 
 				if ($sectionData['involvement'] > 65)
 					$progressColor = 'green';
 				elseif ($sectionData['involvement'] > 15)
@@ -691,15 +691,15 @@ BX.ready(function(){
 							<strong><?=GetMessage('INTRANET_USTAT_COMPANY_SECTION_ACTIVITY')?></strong>
 						</div>
 						<div class="pulse-nav-item-index">
-							<? foreach (str_split($sectionData['activity']) as $digit): ?><!--
+							<?php  foreach (str_split($sectionData['activity']) as $digit): ?><!--
 								--><span class="pulse-num pulse-num-<?=$digit?>"><?=$digit?></span><!--
-							--><? endforeach; ?>
+							--><?php  endforeach; ?>
 						</div><!--
 					--></div><!--
 					--><div class="pulse-nav-item-corner"></div><!--
 					--><div class="pulse-nav-item-footer" <?=$arResult['ALLOW_TELL_ABOUT']?'':'style="display:none"'?>><?=GetMessage('INTRANET_USTAT_COMPANY_SECTION_TELL_ABOUT')?><span class="pulse-nav-item-footer-icon"></span></div><!--
 				--></div><!--
-			--><? endforeach; ?><!--
+			--><?php  endforeach; ?><!--
 
 		--></div><!--
 		--><!--<div class="pulse-nav-left-arrow"></div><div class="pulse-nav-right-arrow"></div>-->
@@ -710,13 +710,13 @@ BX.ready(function(){
 
 
 
-<? if (!isset($_REQUEST['AJAX'])): ?>
+<?php  if (!isset($_REQUEST['AJAX'])): ?>
 </div>
 <div class="pulse-loading-block" id="pulse-loading-curtain">
 	<div class="pulse-loading-frame"></div>
 </div>
 </div>
-<? endif ?>
+<?php  endif ?>
 
 <div class="pulse-cont-block" id="pulse-cont-rating" data-list="rating" style="display: none">
 
@@ -725,7 +725,7 @@ BX.ready(function(){
 
 </div>
 
-<? if (!isset($_REQUEST['AJAX'])): ?>
+<?php  if (!isset($_REQUEST['AJAX'])): ?>
 <script type="text/javascript">
 
 BX.bind(BX('pulse_open_btn'), 'click', function(){
@@ -896,11 +896,11 @@ var pulse_loading = {
 };
 
 </script>
-<? endif ?>
+<?php  endif ?>
 
 <!-- AJAX_EXECUTED_SUCCESSFULLY -->
 
-<?
+<?php 
 if (isset($_REQUEST['AJAX']))
 	die();
 ?>

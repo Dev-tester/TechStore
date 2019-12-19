@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_SAVE_ENTITY_ID_FIELD"] = "Идентификатор задания";
 $MESS["FILE_SAVE_ENTITY_TIMESTAMP_X_FIELD"] = "Время обновления задания";
 $MESS["FILE_SAVE_ENTITY_BUCKET_ID_FIELD"] = "Идентификатор хранилища";

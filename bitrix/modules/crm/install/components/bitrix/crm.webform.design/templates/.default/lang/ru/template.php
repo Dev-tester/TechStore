@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_EDIT_V2_THEME"] = "Тема";
 $MESS["CRM_WEBFORM_EDIT_V2_STYLE"] = "Стиль полей";
 $MESS["CRM_WEBFORM_EDIT_V2_MODE"] = "Оформление";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TYPE_SETTINGS"] = "Settings";
 $MESS["CRM_TYPE_CREATION_SCENARIO"] = "Deal creation mode";
 $MESS["CRM_TYPE_CREATION_SCENARIO_DESC"] = "Each new incoming inquiry will be saved as a new deal. A contact or a company will also be automatically created, depending on your preference. You can also select a pipeline for these new deals to be added to.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GSP_EMPTY_PATH"] = "Path to the blog is not specified";
 $MESS["BLG_GSP_EMPTY_TYPE"] = "Path type is not specified";
 $MESS["BLG_GSP_EMPTY_SITE_ID"] = "Site is not specified";

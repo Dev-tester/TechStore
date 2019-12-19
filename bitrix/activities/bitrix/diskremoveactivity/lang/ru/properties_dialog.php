@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDRMV_PD_SOURCE_ID'] = "Исходный объект";
 $MESS ['BPDRMV_PD_SOURCE_ID_DESCR'] = "Папка или файл Диска";
 $MESS ['BPDRMV_PD_LABEL_DISK_CHOOSE_FILE'] = "Выбрать файл";

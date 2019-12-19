@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -32,7 +32,7 @@ $containerId = 'bx-sender-campaign-edit';
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="sender-template-edit-wrap">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:sender.ui.panel.title", "", array('LIST' => array(
 		array('type' => 'buttons', 'list' => array(
 			array('type' => 'feedback')
@@ -61,13 +61,13 @@ $containerId = 'bx-sender-campaign-edit';
 			</div>
 			<div class="bx-sender-value">
 				<select name="SITE_ID" class="bx-sender-form-control bx-sender-message-editor-field-select">
-					<?foreach ($arResult['SITES'] as $site):?>
+					<?php foreach ($arResult['SITES'] as $site):?>
 						<option value="<?=htmlspecialcharsbx($site['ID'])?>"
 							<?=($site['SELECTED'] ? 'selected' : '')?>
 						>
 							<?=htmlspecialcharsbx($site['NAME'])?>
 						</option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</div>
 		</div>
@@ -101,7 +101,7 @@ $containerId = 'bx-sender-campaign-edit';
 			</div>
 		</div>
 
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:sender.ui.button.panel",
 			"",

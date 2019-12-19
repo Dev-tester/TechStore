@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->AddHeadScript("/bitrix/components/bitrix/webdav/templates/.default/script.js");
@@ -422,7 +422,7 @@ else
 		$arTabs[] = array("id" => "tab_workflow", "name" => GetMessage("IBEL_E_TAB_BIZPROC"), "title" => GetMessage("IBEL_E_TAB_BIZPROC"), "fields" => $arFields); 
 	}
 }
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.form",
 	"",
 	array(

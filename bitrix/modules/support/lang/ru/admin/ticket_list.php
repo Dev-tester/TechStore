@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_F_HOLD_ON"] = "Отложенное обращение";
 $MESS["SUP_LAST_MESSAGE_DATE_EX"] = "Срочность ответа";
 $MESS["SUP_LAST_MESSAGE_DATE"] = "Дата ответа";

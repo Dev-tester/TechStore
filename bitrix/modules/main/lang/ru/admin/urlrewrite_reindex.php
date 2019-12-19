@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MURL_REINDEX_TOTAL'] = "Обработано документов:";
 $MESS ['MURL_REINDEX_COMPLETE'] = "Пересоздание правил завершено.";
 $MESS ['MURL_REINDEX_TITLE'] = "Пересоздание правил обработки адресов";

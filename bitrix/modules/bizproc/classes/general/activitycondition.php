@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CBPActivityCondition
 {
 	public abstract function Evaluate(CBPActivity $ownerActivity);

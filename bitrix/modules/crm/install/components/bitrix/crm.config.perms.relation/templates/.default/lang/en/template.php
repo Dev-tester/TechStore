@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMS_RESTRICTION"] = "To assign your employees different CRM access permissions, upgrade to <a target=\"_blank\" href=\"https://www.bitrix24.com/prices/\">one of the commercial plans</a>.";
 $MESS["CRM_PERMS_TYPE_NONE"] = "Access denied.";
 $MESS["CRM_PERMS_PERM_ADD"] = "Add access permission";

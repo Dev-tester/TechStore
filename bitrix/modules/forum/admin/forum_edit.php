@@ -1,4 +1,4 @@
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /**
  * @global CMain $APPLICATION
  * @global array $aSortDirection
@@ -302,17 +302,17 @@ if ($message)
 	<input type="hidden" name="lang" value="<?=LANG?>">
 	<input type="hidden" name="ID" value="<?=$ID?>">
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 
 ?>
 	<tr>
-		<td width="40%"><?=GetMessage("ACTIVE")?><?
+		<td width="40%"><?=GetMessage("ACTIVE")?><?php 
 			if(IsModuleInstalled("search"))
 			{
-				?><span class="required"><sup>1</sup></span><?
+				?><span class="required"><sup>1</sup></span><?php 
 			}
 			?>:</td>
 		<td width="60%">
@@ -325,11 +325,11 @@ $tabControl->BeginNextTab();
 		<td>
 			<select name="FORUM_GROUP_ID" id="FORUM_GROUP_ID">
 				<option value="">(<?=GetMessage("FE_NOT_SET")?>)</option>
-				<?
+				<?php 
 				foreach ($arGroups as $res)
 				{
-					?><option value="<?=$res["ID"]?>" <?=($arForum["FORUM_GROUP_ID"] == $res["ID"] ? "selected='selected'" : "")?>><?
-						?><?=str_pad("", ($res["DEPTH_LEVEL"] - 1), ".")?><?=$res["NAME"]?></option><?
+					?><option value="<?=$res["ID"]?>" <?=($arForum["FORUM_GROUP_ID"] == $res["ID"] ? "selected='selected'" : "")?>><?php 
+						?><?=str_pad("", ($res["DEPTH_LEVEL"] - 1), ".")?><?=$res["NAME"]?></option><?php 
 				}
 				?>
 			</select>
@@ -357,33 +357,33 @@ $tabControl->BeginNextTab();
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("FE_SITES_PATHS")?><span class="required"><sup>1</sup></span><input type="hidden" name="SITES" /></td>
 	</tr>
-	<?
+	<?php 
 	foreach ($arSites as $key => $res)
 	{
 		?>
 		<tr class="adm-detail-required-field">
 			<td valign="top">
 				<label for="SITE_<?=$res["LID"]?>_"><?=$res["NAME"]?> [<?=$res["LID"]?>]</label>
-				<input type="checkbox" name="SITE[<?=$res["LID"]?>]" id="SITE_<?=$res["LID"]?>_" value="Y"<?if (array_key_exists($res["LID"], $arForum["SITES"]))echo " checked"?> OnClick="on_site_checkbox_click('<?=$res["LID"]?>', '<?=$res["DIR"]?>')">
+				<input type="checkbox" name="SITE[<?=$res["LID"]?>]" id="SITE_<?=$res["LID"]?>_" value="Y"<?php if (array_key_exists($res["LID"], $arForum["SITES"]))echo " checked"?> OnClick="on_site_checkbox_click('<?=$res["LID"]?>', '<?=$res["DIR"]?>')">
 			</td>
 			<td valign="top">
-				<textarea rows="2" cols="40" name="SITE_PATH[<?=$res["LID"]?>]" size="40"><?
-					?><?if (array_key_exists($res["LID"], $arForum["SITES"])) echo $arForum["SITES"][$res["LID"]]?><?
+				<textarea rows="2" cols="40" name="SITE_PATH[<?=$res["LID"]?>]" size="40"><?php 
+					?><?php if (array_key_exists($res["LID"], $arForum["SITES"])) echo $arForum["SITES"][$res["LID"]]?><?php 
 				?></textarea>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-<?
+<?php 
 if (IsModuleInstalled("search"))
 {
 ?>
@@ -394,7 +394,7 @@ if (IsModuleInstalled("search"))
 			<label for="INDEXATION"><?=GetMessage("INDEX_TITLE")?></label>
 		</td>
 	</tr>
-<?
+<?php 
 }
 ?>
 	<tr>
@@ -450,9 +450,9 @@ if (IsModuleInstalled("search"))
 		<td>
 			<select name="ALLOW_UPLOAD">
 				<option value="N" <?=(!in_array($arForum["ALLOW_UPLOAD"], array("Y", "F", "A")) ? "selected" : "")?>><?=GetMessage("FE_NOT")?></option>
-				<option value="Y" <?if ($arForum["ALLOW_UPLOAD"]=="Y") echo " selected"?>><?=GetMessage("FE_IMAGEY")?></option>
-				<option value="F" <?if ($arForum["ALLOW_UPLOAD"]=="F") echo " selected"?>><?=GetMessage("FE_FILEY")?></option>
-				<option value="A" <?if ($arForum["ALLOW_UPLOAD"]=="A") echo " selected"?>><?=GetMessage("FE_ANY_FILEY")?></option>
+				<option value="Y" <?php if ($arForum["ALLOW_UPLOAD"]=="Y") echo " selected"?>><?=GetMessage("FE_IMAGEY")?></option>
+				<option value="F" <?php if ($arForum["ALLOW_UPLOAD"]=="F") echo " selected"?>><?=GetMessage("FE_FILEY")?></option>
+				<option value="A" <?php if ($arForum["ALLOW_UPLOAD"]=="A") echo " selected"?>><?=GetMessage("FE_ANY_FILEY")?></option>
 			</select>
 		</td>
 	</tr>
@@ -481,7 +481,7 @@ if (IsModuleInstalled("search"))
 			<label for="USE_CAPTCHA"><?=GetMessage("FE_USE_CAPTCHA")?></label>
 		</td>
 	</tr>
-	<?
+	<?php 
 	if (CModule::IncludeModule("statistic"))
 	{
 	?>
@@ -500,7 +500,7 @@ if (IsModuleInstalled("search"))
 			<td>event3:</td>
 			<td><input type="text" name="EVENT3" maxlength="255" size="30" value="<?=$arForum["EVENT3"]?>"><br><?=GetMessage("FORUM_EVENT3")?></td>
 		</tr>
-	<?
+	<?php 
 	}
 	?>
 	<tr class="heading">
@@ -516,7 +516,7 @@ if (IsModuleInstalled("search"))
 	<tr>
 		<td><?=GetMessage("ALLOW_HTML")?>:</td>
 		<td>
-			<input type="checkbox" name="ALLOW_HTML" id="ALLOW_HTML" value="Y" <?=($arForum["ALLOW_HTML"]=="Y" ? "checked='checked'" : "")?> <?
+			<input type="checkbox" name="ALLOW_HTML" id="ALLOW_HTML" value="Y" <?=($arForum["ALLOW_HTML"]=="Y" ? "checked='checked'" : "")?> <?php 
 				?>onclick="document.getElementById('forum_allow_nl2br').style.display = (this.checked ? '' : 'none');" />
 			<label for="ALLOW_HTML"><?=GetMessage("ALLOW_HTML_TITLE")?></label>
 		</td>
@@ -599,15 +599,15 @@ if (IsModuleInstalled("search"))
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-<?
+<?php 
 
 	$arPerm = ($ID > 0 ? $arForum["GROUP_ID"] : array());
 	
@@ -621,25 +621,25 @@ $tabControl->BeginNextTab();
 			<td width="40%"><?=$res["NAME"]?>&nbsp;[<a  href="/bitrix/admin/group_edit.php?ID=<?=$res["ID"]?>&lang=<?=LANGUAGE_ID?>"><?=$res["ID"]?></a>]:</td>
 			<td width="60%">
 				<select name="GROUP[<?=$res["ID"]?>]">
-				<?
+				<?php 
 				foreach ($aForumPermissions["reference_id"] as $fi => $val)
 				{
-					?><option value="<?=$aForumPermissions["reference_id"][$fi]?>"<?if ($strSelected == $aForumPermissions["reference_id"][$fi]) echo " selected"?>><?
-						?><?=htmlspecialcharsbx($aForumPermissions["reference"][$fi])?></option><?
+					?><option value="<?=$aForumPermissions["reference_id"][$fi]?>"<?php if ($strSelected == $aForumPermissions["reference_id"][$fi]) echo " selected"?>><?php 
+						?><?=htmlspecialcharsbx($aForumPermissions["reference"][$fi])?></option><?php 
 				}
 				?>
 				</select>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 ?>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $editable = True;
 if ($ID > 0 && !CForumNew::CanUserUpdateForum($ID, $USER->GetUserGroupArray(), $USER->GetID()))
 {
@@ -658,7 +658,7 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 $tabControl->ShowWarnings("forum_edit", $message);
 ?>
@@ -680,17 +680,17 @@ function on_site_checkbox_click(lid, dir)
 </script>
 <?=BeginNote()?>
 <span class="required"><sup>1</sup></span> -
-<?
+<?php 
 if(IsModuleInstalled("search"))
 {
-	?><?=GetMessage("REQUIRE_REINDEX",array("#LINK#" => "/bitrix/admin/search_reindex.php"))?> <?
+	?><?=GetMessage("REQUIRE_REINDEX",array("#LINK#" => "/bitrix/admin/search_reindex.php"))?> <?php 
 }
 $res = CForumNew::PreparePath2Message(null);
 ?>
 <?=GetMessage("FE_SAMPLE_SITEPATH")?>: /forum/index.php?PAGE_NAME=message&FID=#FORUM_ID#&TID=#TOPIC_ID#&MID=#MESSAGE_ID#
 <br /><?=implode(', ', $res)?><br />
 <?=EndNote(); ?>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ERROR_ADD_ACTION'] = "Error adding the payment system services";
 $MESS['ERROR_ADD_PAY_SYS'] = "Error adding a payment system.";
 $MESS['ERROR_EDIT_ACTION'] = "Error updating the payment system services";

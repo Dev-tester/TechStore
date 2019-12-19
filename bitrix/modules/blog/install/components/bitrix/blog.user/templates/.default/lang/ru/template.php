@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['B_B_USER_ALIAS'] = "Псевдоним:";
 $MESS ['B_B_USER_ABOUT'] = "О себе:";
 $MESS ['B_B_USER_SITE'] = "Сайт:";

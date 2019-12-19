@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sms_template_id_title"] = "ID шаблона";
 $MESS["sms_template_event_name_title"] = "Название события";
 $MESS["sms_template_active_title"] = "Активен";

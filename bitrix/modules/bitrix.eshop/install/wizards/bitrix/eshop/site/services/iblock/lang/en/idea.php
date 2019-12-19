@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_CATEGORY_EDIT_FORM_TAB_TITLE"] = "Section";
 $MESS["IDEA_CATEGORY_EDIT_FORM_P_ACTIVE"] = "Section is active";
 $MESS["IDEA_CATEGORY_EDIT_FORM_P_NAME"] = "*Name";

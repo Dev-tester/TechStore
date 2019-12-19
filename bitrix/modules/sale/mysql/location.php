@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/location.php");
 
 use Bitrix\Sale\Location;

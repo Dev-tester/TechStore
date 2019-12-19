@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if ($APPLICATION->GetCurPage(true) == SITE_DIR."index.php"):?>
 <div class="mb-5">
-	<?$APPLICATION->IncludeComponent("bitrix:search.title", "bootstrap_v4", array(
+	<?php $APPLICATION->IncludeComponent("bitrix:search.title", "bootstrap_v4", array(
 			"NUM_CATEGORIES" => "1",
 			"TOP_COUNT" => "5",
 			"CHECK_DATES" => "N",
@@ -29,11 +29,11 @@
 		false
 	);?>
 </div>
-<?endif?>
+<?php endif?>
 
 <div class="mb-5">
 	<h3>Мы в соцсетях</h3>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(
@@ -48,7 +48,7 @@
 </div>
 
 <div class="mb-5 d-block d-sm-none">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(
@@ -63,7 +63,7 @@
 </div>
 
 <div class="mb-5">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(
@@ -78,7 +78,7 @@
 </div>
 
 <div class="mb-5">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(
@@ -93,7 +93,7 @@
 </div>
 
 <div class="mb-5">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
 		Array(

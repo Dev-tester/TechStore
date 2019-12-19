@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "User Groups";
 $MESS["SAVE_ERROR"] = "Error saving group #";
 $MESS["DELETE_ERROR"] = "Error deleting the group. It can be possibly bound to some other objects.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -21,27 +21,27 @@ $userHelper = $arResult['userHelper'];
 ?>
 <div class="<?= $arResult['isSlider'] ? 'timeman-report-slider' : ''; ?>">
 
-	<? if (defined('SITE_TEMPLATE_ID') && SITE_TEMPLATE_ID == 'bitrix24'): ?>
-		<? $this->SetViewTarget('inside_pagetitle'); ?>
+	<?php  if (defined('SITE_TEMPLATE_ID') && SITE_TEMPLATE_ID == 'bitrix24'): ?>
+		<?php  $this->SetViewTarget('inside_pagetitle'); ?>
 		<div class="timeman-report-nav">
-			<? if (isset($arResult['RECORD_PREV_HREF'])): ?>
+			<?php  if (isset($arResult['RECORD_PREV_HREF'])): ?>
 				<a href="#" class="timeman-report-nav-arrow timeman-report-nav-arrow-prev"
 						data-role="navigation-record"
 						data-url="<?= $arResult['RECORD_PREV_HREF']; ?>"
 				></a>
-			<? endif; ?>
+			<?php  endif; ?>
 			<span class="timeman-report-nav-current"><?= htmlspecialcharsbx($arResult['REPORT_FORMATTED_DATE']) ?></span>
-			<? if (isset($arResult['RECORD_NEXT_HREF'])): ?>
+			<?php  if (isset($arResult['RECORD_NEXT_HREF'])): ?>
 				<a href="#" class="timeman-report-nav-arrow timeman-report-nav-arrow-next"
 						data-role="navigation-record"
 						data-url="<?= $arResult['RECORD_NEXT_HREF']; ?>"
 				></a>
-			<? endif; ?>
+			<?php  endif; ?>
 		</div>
-		<? $this->EndViewTarget(); ?>
-	<? endif; ?>
+		<?php  $this->EndViewTarget(); ?>
+	<?php  endif; ?>
 	<div class="timeman-report-wrap">
-		<div class="timeman-report-inner"><?
+		<div class="timeman-report-inner"><?php 
 
 			require __DIR__ . '/users_header.php';
 
@@ -53,11 +53,11 @@ $userHelper = $arResult['userHelper'];
 				<div class="timeman-report-title">
 					<div class="timeman-report-title-text"><?= htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_WORKTIME')) ?></div>
 					<span class="timeman-report-title-info-icon" data-hint="<?php echo htmlspecialcharsbx($arResult['worktimeInfoHint']); ?>"></span>
-					<? if ($arResult['canUpdateWorktime']): ?>
+					<?php  if ($arResult['canUpdateWorktime']): ?>
 						<div class="timeman-report-title-change" data-role="edit-worktime-btn"><?= htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_EDIT')) ?></div>
-					<? endif; ?>
+					<?php  endif; ?>
 				</div>
-				<?
+				<?php 
 
 
 				require __DIR__ . '/record_form.php';
@@ -73,9 +73,9 @@ $userHelper = $arResult['userHelper'];
 					</div>
 				</div>
 				<div class="timeman-report-activity-block
-				<? if (empty($arResult['WORKTIME_REPORT']['EVENTS']) && empty($arResult['WORKTIME_REPORT']['TASKS'])): ?>
+				<?php  if (empty($arResult['WORKTIME_REPORT']['EVENTS']) && empty($arResult['WORKTIME_REPORT']['TASKS'])): ?>
 				    timeman-hide
-				<? endif; ?>">
+				<?php  endif; ?>">
 					<?php $maxToShow = 5; ?>
 					<?php $maxToHide = $maxToShow - 1; ?>
 					<div class="timeman-report-activity timeman-report-activity-tasks <?php echo empty($arResult['WORKTIME_REPORT']['TASKS']) ? 'timeman-hide' : ''; ?>">
@@ -85,11 +85,11 @@ $userHelper = $arResult['userHelper'];
 							</div>
 						</div>
 						<ol class="timeman-report-activity-list">
-							<? foreach ($arResult['WORKTIME_REPORT']['TASKS'] as $index => $task) : ?>
+							<?php  foreach ($arResult['WORKTIME_REPORT']['TASKS'] as $index => $task) : ?>
 								<li class="<?php echo $index > $maxToHide ? 'timeman-hide' : ''; ?>"
-									<? if ($index > $maxToHide): ?>
+									<?php  if ($index > $maxToHide): ?>
 										data-role="task-more"
-									<? endif; ?>
+									<?php  endif; ?>
 								>
 									<a href="<?php echo $task['URL']; ?>" class="timeman-report-activity-item"><?php
 										echo htmlspecialcharsbx($task['TITLE']);
@@ -98,9 +98,9 @@ $userHelper = $arResult['userHelper'];
 										echo htmlspecialcharsbx($task['TIME_FORMATTED']);
 										?></span></a>
 								</li>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 						</ol>
-						<? if (count($arResult['WORKTIME_REPORT']['TASKS']) > $maxToShow): ?>
+						<?php  if (count($arResult['WORKTIME_REPORT']['TASKS']) > $maxToShow): ?>
 							<span class="timeman-report-activity-more"
 									data-role="show-more"
 									data-show-id="task-more"><?php
@@ -109,7 +109,7 @@ $userHelper = $arResult['userHelper'];
 										'#COUNT#' => count($arResult['WORKTIME_REPORT']['TASKS']) - $maxToShow,
 									])
 								); ?></span>
-						<? endif; ?>
+						<?php  endif; ?>
 					</div>
 					<div class="timeman-report-activity <?php
 					echo empty($arResult['WORKTIME_REPORT']['EVENTS']) ? ' timeman-hide ' : ''; ?><?php
@@ -118,20 +118,20 @@ $userHelper = $arResult['userHelper'];
 							<div class="timeman-report-title-text"><?php echo htmlspecialcharsbx(Loc::getMessage('TM_RECORD_REPORT_EVENTS_TITLE')); ?></div>
 						</div>
 						<div class="timeman-report-activity-list">
-							<? foreach ($arResult['WORKTIME_REPORT']['EVENTS'] as $index => $event) : ?>
+							<?php  foreach ($arResult['WORKTIME_REPORT']['EVENTS'] as $index => $event) : ?>
 								<a href="<?php echo $event['URL']; ?>" target="_blank"
 										class="timeman-report-activity-item <?php echo $index > $maxToHide ? 'timeman-hide' : ''; ?>"
-									<? if ($index > $maxToHide): ?>
+									<?php  if ($index > $maxToHide): ?>
 										data-role="event-more"
-									<? endif; ?>>
+									<?php  endif; ?>>
 									<span class="timeman-report-activity-time"><?php
 										echo htmlspecialcharsbx($event['TIME_FROM']); ?> - <?php echo htmlspecialcharsbx($event['TIME_TO']);
 										?></span>
 									<?php echo htmlspecialcharsbx($event['NAME']); ?>
 								</a>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 						</div>
-						<? if (count($arResult['WORKTIME_REPORT']['EVENTS']) > $maxToShow): ?>
+						<?php  if (count($arResult['WORKTIME_REPORT']['EVENTS']) > $maxToShow): ?>
 							<span class="timeman-report-activity-more"
 									data-role="show-more"
 									data-show-id="event-more"><?php
@@ -140,7 +140,7 @@ $userHelper = $arResult['userHelper'];
 										'#COUNT#' => count($arResult['WORKTIME_REPORT']['EVENTS']) - $maxToShow,
 									])
 								); ?></span>
-						<? endif; ?>
+						<?php  endif; ?>
 					</div>
 				</div>
 				<div class="timeman-report-comment">
@@ -148,7 +148,7 @@ $userHelper = $arResult['userHelper'];
 						<div class="timeman-report-title-text"><?= htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_COMMENTS')); ?></div>
 					</div>
 					<div class="timeman-report-comment-inner">
-						<?
+						<?php 
 						if ($arResult['COMMENT_FORUM_ID'] >= 0)
 						{
 							$APPLICATION->IncludeComponent(
@@ -187,7 +187,7 @@ $userHelper = $arResult['userHelper'];
 						?>
 					</div>
 				</div>
-				<?
+				<?php 
 				if (!$arResult['IS_RECORD_APPROVED'])
 				{
 					$btnText = Loc::getMessage('TM_APPROVE_FORM_ACCEPT_LABEL');
@@ -203,13 +203,13 @@ $userHelper = $arResult['userHelper'];
 				?>
 				<div class="timeman-report-buttons">
 					<div class="timeman-report-buttons-inner">
-						<? if ($arResult['canUpdateWorktime']): ?>
+						<?php  if ($arResult['canUpdateWorktime']): ?>
 							<button class="ui-btn ui-btn-md <?= $btnClass ?>"
 									data-role="tm-record-btn-save"
 									data-action="<?php echo $btnAction; ?>"><?=
 								htmlspecialcharsbx($btnText)
 								?></button>
-						<? endif; ?>
+						<?php  endif; ?>
 						<button class="ui-btn ui-btn-md ui-btn-light" data-role="tm-record-btn-cancel"><?=
 							htmlspecialcharsbx(Loc::getMessage('TIMEMAN_BTN_CANCEL_TITLE'))
 							?></button>

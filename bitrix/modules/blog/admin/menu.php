@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 if($APPLICATION->GetGroupRight("blog") >= "R")

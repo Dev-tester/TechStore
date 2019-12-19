@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPSWFA_PD_DOCUMENT_ID'] = "ID документа";
 $MESS ['BPSWFA_PD_ENTITY'] = "Сущность";
 $MESS ['BPSWFA_PD_DOCUMENT_TYPE'] = "Тип документа";

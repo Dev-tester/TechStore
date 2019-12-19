@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_VIBER_API_KEY"] = "Ключ:";
 $MESS["IMCONNECTOR_COMPONENT_VIBER_LINK_CHAT_ONE_TO_ONE"] = "Ссылка на чат один на один";
 $MESS["IMCONNECTOR_COMPONENT_VIBER_SIMPLE_FORM_DESCRIPTION_1"] = "Вставьте из буфера обмена ключ Viber в поле ниже и нажмите кнопку \"Сохранить\"";

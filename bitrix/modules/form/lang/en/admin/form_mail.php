@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FILLING'] = "Web form filled";
 $MESS ['FORM_FILLING_S'] = "web form filled";
 $MESS ['FORM_GENERATING_FINISHED'] = "Mail template has been created.";

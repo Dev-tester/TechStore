@@ -58,7 +58,7 @@ if (empty($arResult['DEMO']) && !isset($arResult['ERRORS']['ACCESS_DENIED']))
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 }
@@ -88,7 +88,7 @@ Asset::getInstance()->addJS('/bitrix/components/bitrix/landing.sites/templates/.
 <div class="grid-tile-wrap" id="grid-tile-wrap">
 	<div class="grid-tile-inner" id="grid-tile-inner">
 
-<?
+<?php 
 foreach ($arResult['DEMO'] as $item):
 	// skip site group items
 	if (
@@ -130,27 +130,27 @@ foreach ($arResult['DEMO'] as $item):
 		$previewUrl = '';
 	}
 	?>
-	<?if ($item['AVAILABLE']):?>
-	<span data-href="<?= $previewUrl;?>" id="landing-demo-<?= \htmlspecialcharsbx($tpl);?>" <?
-		?>class="landing-template-pseudo-link landing-item landing-item-hover<?= $arResult['LIMIT_REACHED'] ? ' landing-item-payment' : '';?>" <?
-		?><?if (isset($item['EXTERNAL_URL']['width'])){?>data-slider-width="<?= (int)$item['EXTERNAL_URL']['width'];?>"<?}?>>
-	<?else:?>
+	<?php if ($item['AVAILABLE']):?>
+	<span data-href="<?= $previewUrl;?>" id="landing-demo-<?= \htmlspecialcharsbx($tpl);?>" <?php 
+		?>class="landing-template-pseudo-link landing-item landing-item-hover<?= $arResult['LIMIT_REACHED'] ? ' landing-item-payment' : '';?>" <?php 
+		?><?php if (isset($item['EXTERNAL_URL']['width'])){?>data-slider-width="<?= (int)$item['EXTERNAL_URL']['width'];?>"<?php }?>>
+	<?php else:?>
 	<span class="landing-item landing-item-hover landing-item-unactive">
-	<?endif;?>
+	<?php endif;?>
 		<span class="landing-item-inner">
 			<div class="landing-title">
 				<div class="landing-title-wrap">
 					<div class="landing-title-overflow"><?= \htmlspecialcharsbx($item['TITLE'])?></div>
 				</div>
 			</div>
-			<?if (trim($item['DESCRIPTION'])):?>
+			<?php if (trim($item['DESCRIPTION'])):?>
 				<span class="landing-item-cover landing-item-cover-short">
-					<?if ($item['PREVIEW']):?>
+					<?php if ($item['PREVIEW']):?>
 						<img class="landing-item-cover-img"
 							 src="<?= \htmlspecialcharsbx($item['PREVIEW'])?>"
 							 srcset="<?= \htmlspecialcharsbx($item['PREVIEW2X'] ? $item['PREVIEW2X'] : $item['PREVIEW'])?> 2x,
 									<?= \htmlspecialcharsbx($item['PREVIEW3X'] ? $item['PREVIEW3X'] : $item['PREVIEW'])?> 3x">
-					<?endif;?>
+					<?php endif;?>
 				</span>
 				<span class="landing-item-description">
 					<span class="landing-item-desc-inner">
@@ -162,30 +162,30 @@ foreach ($arResult['DEMO'] as $item):
 						<span class="landing-item-desc-open"></span>
 					</span>
 				</span>
-			<?else:?>
+			<?php else:?>
 				<span class="landing-item-cover">
-					<?if ($item['PREVIEW']):?>
+					<?php if ($item['PREVIEW']):?>
 						<img class="landing-item-cover-img"
 							 src="<?= \htmlspecialcharsbx($item['PREVIEW'])?>"
 							 srcset="<?= \htmlspecialcharsbx($item['PREVIEW2X'] ? $item['PREVIEW2X'] : $item['PREVIEW'])?> 2x,
 									<?= \htmlspecialcharsbx($item['PREVIEW3X'] ? $item['PREVIEW3X'] : $item['PREVIEW'])?> 3x">
-					<?endif;?>
+					<?php endif;?>
 				</span>
-			<?endif?>
+			<?php endif?>
 		</span>
-	<?if (!$item['AVAILABLE']):?>
+	<?php if (!$item['AVAILABLE']):?>
 	</span>
-	<?else:?>
+	<?php else:?>
 	</span>
-	<?endif;?>
-<?endforeach;?>
+	<?php endif;?>
+<?php endforeach;?>
 
 	</div>
 </div>
 
-<?if ($arResult['NAVIGATION']->getPageCount() > 1):?>
+<?php if ($arResult['NAVIGATION']->getPageCount() > 1):?>
 	<div class="<?= (defined('ADMIN_SECTION') && ADMIN_SECTION === true) ? '' : 'landing-navigation';?>">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:main.pagenavigation',
 			'',//grid
 			array(
@@ -197,7 +197,7 @@ foreach ($arResult['DEMO'] as $item):
 			false
 		);?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 <a class="landing-license-banner" href="javascript:void(0)" onclick="BX.SidePanel.Instance.open('<?= SITE_DIR;?>marketplace/?placement=site_templates');">
 	<div class="landing-license-banner-icon">
@@ -211,7 +211,7 @@ foreach ($arResult['DEMO'] as $item):
 <script type="text/javascript">
 	BX.ready(function ()
 	{
-		<?if ($arResult['LIMIT_REACHED']):?>
+		<?php if ($arResult['LIMIT_REACHED']):?>
 		if (typeof BX.Landing.PaymentAlert !== 'undefined')
 		{
 			BX.Landing.PaymentAlert({
@@ -223,13 +223,13 @@ foreach ($arResult['DEMO'] as $item):
 					?>'
 			});
 		}
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($select = $request->get('select')):?>
+		<?php if ($select = $request->get('select')):?>
 		BX.fireEvent(
 			BX('landing-demo-<?= \CUtil::JSEscape($select);?>'),
 			'click'
 		);
-		<?endif;?>
+		<?php endif;?>
 	})
 </script>

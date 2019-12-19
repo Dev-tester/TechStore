@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Link Directory");
 ?>
 <h4><a href="<?=SITE_DIR?>information/links/my/?edit=Y" >Add a Site</a> | <a href="<?=SITE_DIR?>information/links/my/" >My Sites</a></h4>
- <?$APPLICATION->IncludeComponent("bitrix:catalog.section", "board", array(
+ <?php $APPLICATION->IncludeComponent("bitrix:catalog.section", "board", array(
 	"IBLOCK_TYPE" => "services",
 	"IBLOCK_ID" => "#LINKS_IBLOCK_ID#",
 	"SECTION_ID" => "",
@@ -68,4 +68,4 @@ $APPLICATION->SetTitle("Link Directory");
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

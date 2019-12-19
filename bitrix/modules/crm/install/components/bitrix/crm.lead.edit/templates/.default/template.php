@@ -158,7 +158,7 @@ $APPLICATION->IncludeComponent(
 					);
 				}
 			}
-			<?if($arResult['DUPLICATE_CONTROL']['ENABLED']):?>
+			<?php if($arResult['DUPLICATE_CONTROL']['ENABLED']):?>
 			BX.CrmDuplicateSummaryPopup.messages =
 			{
 				title: "<?=GetMessageJS("CRM_LEAD_EDIT_DUP_CTRL_SHORT_SUMMARY_TITLE")?>"
@@ -231,11 +231,11 @@ $APPLICATION->IncludeComponent(
 					}
 				}
 			);
-			<?endif;?>
+			<?php endif;?>
 		}
 	);
 </script>
-<?if($arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIGS'])):?>
+<?php if($arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIGS'])):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -295,4 +295,4 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_INSTALL_MODULE_NAME"] = "Реклама, баннеры";
 $MESS["AD_INSTALL_MODULE_DESCRIPTION"] = "Модуль управления рекламой на сайте.";
 $MESS["AD_INSTALL_ADV"] = "Реклама на сайте";

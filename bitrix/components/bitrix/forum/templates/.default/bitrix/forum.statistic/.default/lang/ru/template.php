@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_TODAY_BIRTHDAY"] = "Сегодня отмечают день рождения";
 $MESS["F_USER_PROFILE"] = "Профиль пользователя";
 $MESS["F_NOW_TOPIC_READ"] = "Читают тему";

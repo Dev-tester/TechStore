@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_NOTIFY_TITLE_CHANGED"] = "Event \"#OLD_TITLE#\" you are attending has been renamed to \"#NEW_TITLE#\", event date: #ACTIVE_FROM#";
 $MESS["EC_NOTIFY_DATE_FROM_CHANGED"] = "Event \"#TITLE#\" you are attending has changed start time from \"#OLD_DATE_FROM#\" to \"#NEW_DATE_FROM#\"";
 $MESS["EC_NOTIFY_DATE_TO_CHANGED"] = "Event \"#TITLE#\" you are attending has changed end time from \"#OLD_DATE_TO#\" to \"#NEW_DATE_TO#\"";

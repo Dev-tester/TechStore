@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_PAGE_TITLE_EDIT_RECORD"] = "Support level (SLA) # #ID#";
 $MESS["SUP_PAGE_TITLE_NEW_RECORD"] = "New support level (SLA)";
 $MESS["SUP_NEW_RECORD"] = "New level";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_INTERNALS_SITE_ERROR_UNIQUE_HOST"] = "Site with this URL is already added.";
 $MESS["CRM_TRACKING_INTERNALS_SITE_TITLE_ADDRESS"] = "Site URL";
 ?>

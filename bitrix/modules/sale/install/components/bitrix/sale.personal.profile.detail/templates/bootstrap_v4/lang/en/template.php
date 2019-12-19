@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPPD_RECORDS_LIST"] = "To the list of profiles";
 $MESS["SALE_SAVE"] = "Save";
 $MESS["SALE_APPLY"] = "Apply";

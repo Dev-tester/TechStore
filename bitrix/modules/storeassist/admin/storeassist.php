@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2014 Bitrix             #
@@ -485,12 +485,12 @@ if ($orderPercent > 0)
 <div class="adm-s-thermometer-container">
 	<div class="adm-s-thermometer-title"><?=GetMessage("STOREAS_PROGRESS")?></div>
 	<div class="adm-s-thermometer-block">
-		<div class="adm-s-thermometer-block-status red <?if ($assistPersent <= 18):?>active<?endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_FIRST_SETTINGS")?></div></div>
-		<div class="adm-s-thermometer-block-status orange <?if ($assistPersent > 18 && $assistPersent <= 36):?>active<?endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_SECOND_SETTINGS")?></div></div>
-		<div class="adm-s-thermometer-block-status yellow <?if ($assistPersent > 36 && $assistPersent <= 54):?>active<?endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_THIRD_SETTINGS")?></div></div>
-		<div class="adm-s-thermometer-block-status green <?if ($assistPersent > 54 && $assistPersent <= 72):?>active<?endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_FORTH_SETTINGS")?></div></div>
-		<div class="adm-s-thermometer-block-status lightgreen <?if ($assistPersent > 72 && $assistPersent <= 90):?>active<?endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_FIFTH_SETTINGS")?></div></div>
-		<div class="adm-s-thermometer-block-status blue <?if ($assistPersent > 90):?>active<?endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_SIXTH_SETTINGS")?></div></div>
+		<div class="adm-s-thermometer-block-status red <?php if ($assistPersent <= 18):?>active<?php endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_FIRST_SETTINGS")?></div></div>
+		<div class="adm-s-thermometer-block-status orange <?php if ($assistPersent > 18 && $assistPersent <= 36):?>active<?php endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_SECOND_SETTINGS")?></div></div>
+		<div class="adm-s-thermometer-block-status yellow <?php if ($assistPersent > 36 && $assistPersent <= 54):?>active<?php endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_THIRD_SETTINGS")?></div></div>
+		<div class="adm-s-thermometer-block-status green <?php if ($assistPersent > 54 && $assistPersent <= 72):?>active<?php endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_FORTH_SETTINGS")?></div></div>
+		<div class="adm-s-thermometer-block-status lightgreen <?php if ($assistPersent > 72 && $assistPersent <= 90):?>active<?php endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_FIFTH_SETTINGS")?></div></div>
+		<div class="adm-s-thermometer-block-status blue <?php if ($assistPersent > 90):?>active<?php endif?>"><div class="adm-s-thermometer-point-desc"><?=GetMessage("STOREAS_SIXTH_SETTINGS")?></div></div>
 		<div class="adm-s-thermometer-track">
 			<div class="adm-s-thermometer-track-shadow">
 				<div class="adm-s-thermometer-point" style="left: <?=$assistPersent?>%;" data-role="percentRuleSlider">
@@ -502,7 +502,7 @@ if ($orderPercent > 0)
 	</div>
 </div>
 
-<?
+<?php 
 //get option of toggled sections
 $step_toggle = CUserOptions::GetOption("storeassist", "step_toggle", array());
 if (empty($step_toggle))
@@ -520,7 +520,7 @@ $numSteps = count($arAssistSteps);
 foreach($arAssistSteps as $stepCode => $arStep)
 {
 ?>
-	<div class="adm-s-setting-container <?=toLower($stepCode)?> <?=(isset($step_toggle[$stepCode]) && $step_toggle[$stepCode] == "N" ? "close" : "open")?> <?if ($i == $numSteps) echo "last"?>" data-role="step<?=$stepCode?>">
+	<div class="adm-s-setting-container <?=toLower($stepCode)?> <?=(isset($step_toggle[$stepCode]) && $step_toggle[$stepCode] == "N" ? "close" : "open")?> <?php if ($i == $numSteps) echo "last"?>" data-role="step<?=$stepCode?>">
 		<div class="adm-s-setting-title-container" onclick="BX.Storeassist.Admin.toggleStep('<?=CUtil::JSEscape($stepCode)?>')">
 			<div class="adm-s-setting-action"><span data-role="toggle<?=$stepCode?>"><?=GetMessage("STOREAS_".(isset($step_toggle[$stepCode]) && $step_toggle[$stepCode] == "N" ? "SHOW" : "HIDE"))?></span><span class="arrow"></span></div>
 			<div class="adm-s-setting-title-icon"></div>
@@ -538,12 +538,12 @@ foreach($arAssistSteps as $stepCode => $arStep)
 			<!--  -->
 
 			<div class="adm-s-setting-content-container-line"><span></span></div>
-			<?foreach($arStep["BLOCKS"] as $block => $arBlock):?>
-				<?if (!empty($arBlock["TYPE"]) && $arBlock["TYPE"] == "ONE"):?>
+			<?php foreach($arStep["BLOCKS"] as $block => $arBlock):?>
+				<?php if (!empty($arBlock["TYPE"]) && $arBlock["TYPE"] == "ONE"):?>
 				<div class="adm-s-setting-content-block">
 					<div class="posr">
-				<?endif?>
-				<div class="adm-s-setting-content-block <?if (!empty($arBlock["TYPE"])) echo ($arBlock["TYPE"] == "ONE" ? "one" : "one two");?>" id="<?=toLower($stepCode."_".$block)?>">
+				<?php endif?>
+				<div class="adm-s-setting-content-block <?php if (!empty($arBlock["TYPE"])) echo ($arBlock["TYPE"] == "ONE" ? "one" : "one two");?>" id="<?=toLower($stepCode."_".$block)?>">
 					<!-- BLOCK CONTENT container title -->
 					<div class="adm-s-setting-content-block-title-container">
 						<div class="adm-s-setting-content-block-line"></div>
@@ -567,12 +567,12 @@ foreach($arAssistSteps as $stepCode => $arStep)
 					<div class="adm-s-setting-content-block-body-container">
 						<!--<p><?=GetMessage("STOREAS_STEPS_".$stepCode."_".$block."_DESCR")?></p>-->
 						<ul class="adm-s-setting-tasklist">
-							<?foreach($arBlock["MAIN_ITEMS"] as $itemCode => $arItem):
+							<?php foreach($arBlock["MAIN_ITEMS"] as $itemCode => $arItem):
 								if (!$arItem["available"])
 									continue;
 							?>
-								<li class="adm-s-setting-task <?if (in_array($itemCode, $arStoreAssistOption)):?>complited<?endif?>">
-									<?
+								<li class="adm-s-setting-task <?php if (in_array($itemCode, $arStoreAssistOption)):?>complited<?php endif?>">
+									<?php 
 									switch ($itemCode)
 									{
 										case "support_developer":
@@ -584,7 +584,7 @@ foreach($arAssistSteps as $stepCode => $arStep)
 													<span><?=$message?></span>
 												</a>
 											</span>
-											<?
+											<?php 
 											break;
 										case "support_bitrix":
 										case "info_vk":
@@ -601,7 +601,7 @@ foreach($arAssistSteps as $stepCode => $arStep)
 													<span><?=GetMessage("STOREAS_ITEMS_".$itemCode)?></span>
 												</a>
 											</span>
-											<?
+											<?php 
 											break;
 										default:
 											if (isset($arItem["subItems"]))
@@ -610,39 +610,39 @@ foreach($arAssistSteps as $stepCode => $arStep)
 												<div title="<?=GetMessage("STOREAS_ITEMS_".$itemCode)?>">
 													<span class="adm-s-setting-task-item"><?=GetMessage("STOREAS_ITEMS_".$itemCode)?>
 
-												<?
+												<?php 
 												foreach ($arItem["subItems"] as $subCode => $subPath)
 												{
 													?>
 														<span class="adm-s-setting-task-sub-item">
 															<a href="<?=$subPath?>" title="<?=GetMessage("STOREAS_ITEMS_".$subCode)?>">- <?=GetMessage("STOREAS_ITEMS_".$subCode)?></a>
 														</span>
-													<?
+													<?php 
 												}
 												?>
 												</span></div>
-												<?
+												<?php 
 											}
 											else
 											{
 												?>
 												<span class="adm-s-setting-task-item"><a href="<?=$arItem["path"]?>" title="<?=GetMessage("STOREAS_ITEMS_".$itemCode)?>"><span><?=GetMessage("STOREAS_ITEMS_".$itemCode)?></span></a></span>
-												<?
+												<?php 
 											}
 									}
 									?>
 								</li>
-							<?endforeach?>
+							<?php endforeach?>
 
-							<?if (!empty($arBlock["ADDITIONAL_ITEMS"])):?>
+							<?php if (!empty($arBlock["ADDITIONAL_ITEMS"])):?>
 								<li class="adm-s-setting-task add "><span class="adm-s-setting-task-item"><?=GetMessage("STOREAS_ADDITIONAL_TASKS")?></span></li>
-							<?endif?>
+							<?php endif?>
 						</ul>
 						<div class="clb"></div>
 					</div>
 					<!--  -->
 				</div>
-				<?if (!empty($arBlock["TYPE"]) && $arBlock["TYPE"] == "TWO"):?>
+				<?php if (!empty($arBlock["TYPE"]) && $arBlock["TYPE"] == "TWO"):?>
 
 						<div class="clb"></div>
 
@@ -650,12 +650,12 @@ foreach($arAssistSteps as $stepCode => $arStep)
 						<div class="adm-s-setting-content-block-body-line-two-h-b"></div>
 					</div>
 				</div>
-				<?endif?>
-			<?endforeach?>
+				<?php endif?>
+			<?php endforeach?>
 
 		</div>
 	</div>
-<?
+<?php 
 	$i++;
 }
 ?>
@@ -665,6 +665,6 @@ foreach($arAssistSteps as $stepCode => $arStep)
 		BX.Storeassist.Admin.percentMoveInit(percentRuleSlider, '<?=CUtil::JSEscape($assistPersent)?>');
 	});
 </script>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

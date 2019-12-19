@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["SHOW"] = ($arGadgetParams["SHOW"]?$arGadgetParams["SHOW"]:"Y");
@@ -22,7 +22,7 @@ $arGadgetParams["MESSAGE_LENGTH"] = ($arGadgetParams["MESSAGE_LENGTH"]?$arGadget
 $arGadgetParams["SOCNET_GROUP_ID"] = ($arGadgetParams["SOCNET_GROUP_ID"]?$arGadgetParams["SOCNET_GROUP_ID"]:false);
 $arGadgetParams["GROUP_ID"] = ($arGadgetParams["GROUP_ID"]?$arGadgetParams["GROUP_ID"]:false);
 ?>
-<?if($arGadgetParams["SHOW"]):
+<?php if($arGadgetParams["SHOW"]):
 
 	$arP = Array(
 			"MESSAGE_COUNT" => $arGadgetParams["MESSAGE_COUNT"],
@@ -52,13 +52,13 @@ $arGadgetParams["GROUP_ID"] = ($arGadgetParams["GROUP_ID"]?$arGadgetParams["GROU
 		$arP["USER_ID"] = $arGadgetParams["USER_ID"];
 
 	if($arGadgetParams["SHOW_TITLE"] == "Y"):
-		?><h4><?= $arGadgetParams["TITLE"] ?></h4><?
+		?><h4><?= $arGadgetParams["TITLE"] ?></h4><?php 
 	endif;?>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:blog.new_posts",
 		$arGadgetParams["TEMPLATE_NAME"],
 		$arP,
 		false,
 		Array("HIDE_ICONS"=>"Y")
 	);?>
-<?endif;?>
+<?php endif;?>

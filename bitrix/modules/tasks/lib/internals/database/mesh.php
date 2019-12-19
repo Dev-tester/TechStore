@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * 
  * This class is for internal use only, not a part of public API.

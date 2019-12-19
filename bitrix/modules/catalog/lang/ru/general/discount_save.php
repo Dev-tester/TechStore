@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_CAT_DSC_SV_ERR_EMPTY_SITE"] = "Не указан сайт";
 $MESS["BT_MOD_CAT_DSC_SV_ERR_BAD_SITE"] = "Указан неверный сайт";
 $MESS["BT_MOD_CAT_DSC_SV_ERR_EMPTY_NAME"] = "Отсутствует название";

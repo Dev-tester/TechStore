@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_1C_START_FACE_CARD"] = "Face-карт";
 $MESS["CRM_1C_START_REALTIME"] = "Подключение 1С";
 $MESS["CRM_1C_START_REPORT"] = "Отчеты из 1С";

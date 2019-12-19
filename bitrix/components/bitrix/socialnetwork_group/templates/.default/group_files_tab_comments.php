@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 $arCurFileInfo = pathinfo(__FILE__);
 $langfile = trim(preg_replace("'[\\\\/]+'", "/", ($arCurFileInfo['dirname']."/lang/".LANGUAGE_ID."/".$arCurFileInfo['basename'])));
 __IncludeLang($langfile);
@@ -20,7 +20,7 @@ if(is_array($arInfo) && $arInfo["ELEMENT_ID"] && $arParams["FILES_USE_COMMENTS"]
 		if (! (isset($_REQUEST['AJAX_CALL']) || isset($_REQUEST['save_product_review'])) ) 
 			ob_start();
 
-    ?><a name="reviews"></a><?
+    ?><a name="reviews"></a><?php 
         $msgCount = $APPLICATION->IncludeComponent(
         "bitrix:forum.topic.reviews",
         ".default",
@@ -81,13 +81,13 @@ if(is_array($arInfo) && $arInfo["ELEMENT_ID"] && $arParams["FILES_USE_COMMENTS"]
 		BX.addCustomEvent('onForumCommentAJAXAction', wdUpdateCommentTabTitle);
 		BX.addCustomEvent('onForumCommentAJAXPost', wdUpdateCommentTabTitle);
 	</script>
-<?
+<?php 
 	if ($msgCount !== false) {
 		if ($msgCount < 2) 
 		{
 ?>
 		<script> BX(function() {setTimeout(function(){if (typeof replyForumFormOpen == 'function') {replyForumFormOpen();}}, 300);}); </script>
-<?
+<?php 
 		}
 	} else {
 		ShowError(GetMessage("WD_ACCESS_DENIED"));

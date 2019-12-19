@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/extranet/public/contacts/index.php");
 $APPLICATION->SetTitle(GetMessage("EXTRANET_CONTACTS_LIST"));
 ?>
-<?
+<?php 
 $componentParams = [
 	"LIST_URL" => "/extranet/contacts/",
 ];
@@ -19,4 +19,4 @@ $APPLICATION->IncludeComponent(
 	)
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

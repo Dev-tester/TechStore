@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_ADMIN_PANEL"] = "Online Store Control Panel";
 $MESS["MENU_CONFIGS"] = "Account Settings";
 $MESS["MENU_EVENT_LOG"] = "Event Log";

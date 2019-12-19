@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Blog");
-?><?$APPLICATION->IncludeComponent("bitrix:blog", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:blog", ".default", array(
 	"MESSAGE_COUNT" => "25",
 	"PERIOD_DAYS" => "30",
 	"MESSAGE_COUNT_MAIN" => "10",
@@ -91,4 +91,4 @@ $APPLICATION->SetTitle("Blog");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

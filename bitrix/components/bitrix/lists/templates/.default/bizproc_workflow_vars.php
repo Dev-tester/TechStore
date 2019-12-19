@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if($arParams["IBLOCK_TYPE_ID"] == COption::GetOptionString("lists", "livefeed_iblock_type_id"))
 {
@@ -27,7 +27,7 @@ if($isBitrix24Template)
 			<?=GetMessage("CT_BL_LIST_PROCESSES")?>
 		</a>
 	</div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();

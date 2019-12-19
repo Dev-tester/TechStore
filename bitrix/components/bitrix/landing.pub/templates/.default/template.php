@@ -58,12 +58,12 @@ $assets->addAsset(
 $assets->addAsset('landing_critical_grid', Assets\Location::LOCATION_BEFORE_ALL);
 ?>
 
-<?ob_start(); ?>
-<?if (!$enableHook || isset($hooksSite['COPYRIGHT']) && $hooksSite['COPYRIGHT']->enabled()):?>
+<?php ob_start(); ?>
+<?php if (!$enableHook || isset($hooksSite['COPYRIGHT']) && $hooksSite['COPYRIGHT']->enabled()):?>
 <div class="bitrix-footer">
-	<?if (Manager::isB24()):?>
+	<?php if (Manager::isB24()):?>
 		<span class="bitrix-footer-text">
-			<?
+			<?php 
 			$zone = Manager::getZone();
 			$fullCopy = in_array($zone, array('ru', 'by'))
 						? Loc::getMessage('LANDING_TPL_COPY_FULL')
@@ -101,18 +101,18 @@ $assets->addAsset('landing_critical_grid', Assets\Location::LOCATION_BEFORE_ALL)
 			}
 			?>
 		</span>
-		<?if (!$fullCopy):?>
+		<?php if (!$fullCopy):?>
 		<a class="bitrix-footer-link" target="_blank" href="<?= $this->getComponent()->getRefLink('create', false);?>">
 			<?= Loc::getMessage('LANDING_TPL_COPY_LINK');?>
 		</a>
-		<?endif;?>
-	<?else:?>
+		<?php endif;?>
+	<?php else:?>
 		<span class="bitrix-footer-text"><?= Loc::getMessage('LANDING_TPL_COPY_NAME_SMN_0');?></span>
 		<a href="https://www.1c-bitrix.ru/?<?= $arResult['ADV_CODE'];?>" target="_blank" class="bitrix-footer-link"><?= Loc::getMessage('LANDING_TPL_COPY_NAME_SMN_1');?></a>
-	<?endif;?>
+	<?php endif;?>
 </div>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $footer = ob_get_contents();
 ob_end_clean();
 Manager::setPageView('BeforeBodyClose', $footer);

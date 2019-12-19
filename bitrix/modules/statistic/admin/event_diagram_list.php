@@ -89,15 +89,15 @@ if (is_array($find_events) && count($find_events)>0):
 ?>
 <div class="graph">
 <table cellspacing="0" cellpadding="0" class="graph" border="0" align="center"><tr>
-<td valign="top" class="graph"><?
+<td valign="top" class="graph"><?php 
 	$diameter = COption::GetOptionString("statistic", "DIAGRAM_DIAMETER");
 	$s = "";
 	foreach ($find_events as $sid) $s .= "&find_events[]=".$sid;
-	?><img class="graph" src="<?echo htmlspecialcharsbx("event_diagram.php?rand=".urlencode(rand())."&lang=".urlencode(LANGUAGE_ID).$s."&find_date1=".urlencode($arFilter["DATE1_PERIOD"])."&find_date2=".urlencode($arFilter["DATE2_PERIOD"]))?>" width="<?=$diameter?>" height="<?=$diameter?>">
+	?><img class="graph" src="<?php echo htmlspecialcharsbx("event_diagram.php?rand=".urlencode(rand())."&lang=".urlencode(LANGUAGE_ID).$s."&find_date1=".urlencode($arFilter["DATE1_PERIOD"])."&find_date2=".urlencode($arFilter["DATE2_PERIOD"]))?>" width="<?=$diameter?>" height="<?=$diameter?>">
 </td>
 <td valign="center">
 	<table cellpadding="2" cellspacing="0" border="0" class="legend">
-		<?
+		<?php 
 		$i = 0;
 		foreach($arr as $key=>$sector):
 			$i++;
@@ -112,17 +112,17 @@ if (is_array($find_events) && count($find_events)>0):
 			<td valign="center" class="color">
 				<div style="background-color: <?="#".$color?>"></div>
 			</td>
-			<td align="right" class="number"><?echo sprintf("%01.2f", $procent)."%"?></td>
-			<td align="right" class="number">(<a title="<?echo GetMessage("STAT_VIEW_EVENT_LIST")?>" class="stat_link" href="<?echo htmlspecialcharsbx("event_list.php?lang=".urlencode(LANGUAGE_ID)."&find_event_id=".urlencode($id)."&find_date1=".urlencode($arFilter["DATE1_PERIOD"])."&find_date2=".urlencode($arFilter["DATE2_PERIOD"])."&set_filter=Y")?>"><?=$counter?></a>)</td>
-			<td>[<a class="stat_link" href="event_type_list.php?lang=<?=LANG?>&amp;find_id=<?=$id?>&amp;set_filter=Y"><?=$id?></a>] <a title="<?echo GetMessage("STAT_VIEW_GRAPH")?>" class="stat_link" href="event_graph_list.php?lang=<?=LANG?>&amp;find_events[]=<?=$id?>&amp;set_filter=Y"><?echo htmlspecialcharsbx($name)?></a></font></td>
+			<td align="right" class="number"><?php echo sprintf("%01.2f", $procent)."%"?></td>
+			<td align="right" class="number">(<a title="<?php echo GetMessage("STAT_VIEW_EVENT_LIST")?>" class="stat_link" href="<?php echo htmlspecialcharsbx("event_list.php?lang=".urlencode(LANGUAGE_ID)."&find_event_id=".urlencode($id)."&find_date1=".urlencode($arFilter["DATE1_PERIOD"])."&find_date2=".urlencode($arFilter["DATE2_PERIOD"])."&set_filter=Y")?>"><?=$counter?></a>)</td>
+			<td>[<a class="stat_link" href="event_type_list.php?lang=<?=LANG?>&amp;find_id=<?=$id?>&amp;set_filter=Y"><?=$id?></a>] <a title="<?php echo GetMessage("STAT_VIEW_GRAPH")?>" class="stat_link" href="event_graph_list.php?lang=<?=LANG?>&amp;find_events[]=<?=$id?>&amp;set_filter=Y"><?php echo htmlspecialcharsbx($name)?></a></font></td>
 			</tr>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</table>
 </td>
 </tr>
 </table>
 </div>
-<?endif;
+<?php endif;
 
 $lAdmin->EndCustomContent();
 
@@ -151,16 +151,16 @@ function deleteFilter()
 }
 </script>
 <form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
-	<td><?echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
+	<td><?php echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
 </tr>
 <tr valign="top">
-	<td><?echo GetMessage("STAT_F_EVENTS")?><br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_EVENTS")?><br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
+	<td><?php 
 	echo SelectBoxMFromArray("find_events[]",array("REFERENCE"=>$find_events_names, "REFERENCE_ID"=>$find_events), false, "", false, "11", 'id="find_events[]"');
 	?>
 	<script language="Javascript">
@@ -176,18 +176,18 @@ $oFilter->Begin();
 	<input type="button" OnClick="jsSelectUtils.deleteSelectedOptions('find_events[]');" value="<?=GetMessage("STAT_DELETE")?>">
 	</td>
 </tr>
-<?$oFilter->Buttons()?>
+<?php $oFilter->Buttons()?>
 <span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="set_filter" value="<?=GetMessage("STAT_F_FIND")?>" title="<?=GetMessage("STAT_F_FIND_TITLE")?>" onClick="return applyFilter();"></span>
 <span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="del_filter" value="<?=GetMessage("STAT_F_CLEAR")?>" title="<?=GetMessage("STAT_F_CLEAR_TITLE")?>" onClick="return deleteFilter();"></span>
-<?
+<?php 
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

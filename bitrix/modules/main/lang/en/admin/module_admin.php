@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Module Management";
 $MESS["MOD_SETUP"] = "Status";
 $MESS["MOD_ACTION"] = "Action";

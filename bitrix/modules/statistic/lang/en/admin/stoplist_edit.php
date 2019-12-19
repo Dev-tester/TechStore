@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_ERROR'] = "Error saving the record";
 $MESS ['STAT_PARAMS'] = "Settings";
 $MESS ['STAT_PARAMS_S'] = "Record settings";

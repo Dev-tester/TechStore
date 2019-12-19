@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBP_PARAMETERS_USE_DISCOUNT_ID"] = "Use existing deal";
 $MESS["SBP_PARAMETERS_DISCOUNT_ID"] = "Shopping cart rule";
 $MESS["SBP_PARAMETERS_COUPON_IS_LIMITED"] = "Limited-time offer";

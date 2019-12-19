@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLBE_SAVE_ERROR"] = "Error saving blog settings";
 $MESS["BLBE_UPDATING"] = "Blog settings";
 $MESS["BLBE_ADDING"] = "New blog";

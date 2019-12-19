@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_IMPORT_HEADERS_TITLE'] = 'Название';
 $MESS['TASKS_IMPORT_HEADERS_DESCRIPTION'] = 'Описание';
 $MESS['TASKS_IMPORT_HEADERS_PRIORITY'] = 'Это важная задача';

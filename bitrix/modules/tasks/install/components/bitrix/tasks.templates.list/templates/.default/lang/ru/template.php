@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TEMPLATES_TITLE'] = 'Шаблоны задач';
 $MESS['TASKS_TEMPLATE_REGULAR_NO'] = 'Нет';
 

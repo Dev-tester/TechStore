@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CLL2_NOT_SELECTED"] = "Not selected";
 $MESS["CRM_CLL2_EDIT_TITLE"] = "Open this location for editing";
 $MESS["CRM_CLL2_EDIT"] = "Edit location";

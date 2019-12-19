@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOXIMPLANT_SECURITY_ENTITY_CALL_RECORD"] = "Call recording";
 $MESS["VOXIMPLANT_SECURITY_ENTITY_USER"] = "User settings";
 $MESS["VOXIMPLANT_SECURITY_ENTITY_SETTINGS"] = "Telephony settings";

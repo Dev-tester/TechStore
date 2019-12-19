@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_CHART_ERR_49"] = "Invalid chart parameters";
 $MESS["TASKS_THIS_MONTH"] = "this month";
 $MESS["TASKS_PREVIOUS_MONTH"] = "last month";

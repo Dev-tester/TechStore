@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_EDITOR_END_CHECKING"] = "Finish";
 $MESS["CRM_TRACKING_EDITOR_FOUND_ITEMS"] = "Phone numbers - %phones%, emails - %emails%";
 $MESS["CRM_TRACKING_EDITOR_NOT_FOUND"] = "No entries have been found.";

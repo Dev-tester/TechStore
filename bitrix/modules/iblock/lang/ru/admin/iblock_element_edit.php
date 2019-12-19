@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ELEMENT_EDIT_TAGS_TIP"] = "(введите слова или словосочетания, разделяя их запятыми)";
 $MESS["IBLOCK_ELEMENT_EDIT_ELEMENTS"] = "Элементы";
 $MESS["IBLOCK_ELEMENT_EDIT_LINKED"] = "Связанные элементы:";

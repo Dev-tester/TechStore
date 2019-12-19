@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_YMH_ERROR_UNKNOWN_REQ_OBJ"] = "Неизвестный объект запроса";
 $MESS["SALE_YMH_ERROR_UNAUTH"] = "Неавторизованный запрос";
 $MESS["SALE_YMH_ERROR_BAD_STRUCTURE"] = "Неверная структура информации в запросе";

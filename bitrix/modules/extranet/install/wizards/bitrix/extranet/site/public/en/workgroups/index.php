@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Workgroups");
-?><?$APPLICATION->IncludeComponent("bitrix:socialnetwork_group", "", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:socialnetwork_group", "", array(
 	"ITEM_DETAIL_COUNT" => "32",
 	"ITEM_MAIN_COUNT" => "6",
 	"DATE_TIME_FORMAT" => "F j, Y h:i a",
@@ -127,4 +127,4 @@ $APPLICATION->SetTitle("Workgroups");
 	false
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

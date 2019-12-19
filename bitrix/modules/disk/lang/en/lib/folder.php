@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FOLDER_MODEL_ERROR_NON_UNIQUE_NAME"] = "The object name is not unique.";
 $MESS["DISK_FOLDER_MODEL_ERROR_COULD_NOT_DELETE_WITH_CODE"] = "Cannot delete folder with code #CODE#.";
 $MESS["DISK_FOLDER_MODEL_ERROR_COULD_NOT_SAVE_FILE"] = "Unable to save file.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EXPORT_NO_PERSON_TYPE_ID"] = "Die Kundengruppe wurde nicht angegeben";
 $MESS["SALE_EXPORT_ERROR_PERSON_TYPE_ID"] = "Die Kundengruppe wurde nicht gefunden.";
 $MESS["SALE_EXPORT_COM_INFORMATION"] = "KommerzInformation";

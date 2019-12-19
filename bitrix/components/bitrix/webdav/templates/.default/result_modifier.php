@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arResult["MENU_VARIABLES"] = array();
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/result_modifier.php")));
 __IncludeLang($file);
@@ -21,7 +21,7 @@ if (!phpVars.cookiePrefix)
 if (typeof oObjectWD != "object")
 	var oObjectWD = {};
 </script>
-<?
+<?php 
 endif;
 
 if ($this->__page == "section_edit_simple"): 

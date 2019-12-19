@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/search/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -60,17 +60,17 @@ switch($strControl)
 		?>
 		<select name="<?=$FIELD_NAME?>" id="<?=$FIELD_NAME?>" <?=$strAttributes?>>
 		<option value=""><?=GetMessage("customrank_edit_no")?></option>
-		<?foreach($arOptions as $key=>$value):?>
+		<?php foreach($arOptions as $key=>$value):?>
 			<option value="<?=htmlspecialcharsbx($key)?>"<?=$key==$PARAM1?" selected":""?>><?=htmlspecialcharsbx($value)?></option>
-		<?endforeach;?>
+		<?php endforeach;?>
 		</select>
-		<?
+		<?php 
 		break;
 	case "input":
-		?><input type="text" size="15" name="<?=$FIELD_NAME?>" id="<?=$FIELD_NAME?>" value="<?=htmlspecialcharsbx($PARAM2)?>"><?
+		?><input type="text" size="15" name="<?=$FIELD_NAME?>" id="<?=$FIELD_NAME?>" value="<?=htmlspecialcharsbx($PARAM2)?>"><?php 
 		break;
 	case "hidden":
-		?>&nbsp;<input type="hidden" name="<?=$FIELD_NAME?>" id="<?=$FIELD_NAME?>" value=""><?
+		?>&nbsp;<input type="hidden" name="<?=$FIELD_NAME?>" id="<?=$FIELD_NAME?>" value=""><?php 
 		break;
 }
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
@@ -200,7 +200,7 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($strError);?>
+<?php CAdminMessage::ShowMessage($strError);?>
 
 <script type="text/javascript">
 function ParamUpdate()
@@ -296,23 +296,23 @@ function BoxUpdateNew(step)
 
 <IFRAME name=hiddenframeX1 src="" width=0 height=0 style="width:0px; height:0px; border:0px;"></IFRAME>
 
-<form method="POST" Action="<?echo $APPLICATION->GetCurPage()?>" ENCTYPE="multipart/form-data" name="post_form" id="tbl_search">
-<?
+<form method="POST" Action="<?php echo $APPLICATION->GetCurPage()?>" ENCTYPE="multipart/form-data" name="post_form" id="tbl_search">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr>
 		<td width="40%"><?=GetMessage("customrank_edit_site")?></td>
-		<td width="60%"><?echo CLang::SelectBox("SITE_ID", $str_SITE_ID, "", "BoxUpdateNew('param1')", " id=\"SITE_ID\"");?></td>
+		<td width="60%"><?php echo CLang::SelectBox("SITE_ID", $str_SITE_ID, "", "BoxUpdateNew('param1')", " id=\"SITE_ID\"");?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("customrank_edit_module")?></td>
 		<td>
 		<select name="MODULE_ID" id="MODULE_ID" OnChange="BoxUpdateNew('param1')">
 		<option value="main"<?=$str_MODULE_ID=="main"?" selected":""?>><?=GetMessage("customrank_edit_files")?></option>
-		<?foreach(CSearchParameters::GetModulesList() as $module_id => $module_name):?>
-			<option value="<?echo $module_id?>"<?=$str_MODULE_ID==$module_id?" selected":""?>><?echo htmlspecialcharsbx($module_name)?></option>
-		<?endforeach;?>
+		<?php foreach(CSearchParameters::GetModulesList() as $module_id => $module_name):?>
+			<option value="<?php echo $module_id?>"<?=$str_MODULE_ID==$module_id?" selected":""?>><?php echo htmlspecialcharsbx($module_name)?></option>
+		<?php endforeach;?>
 		</select>
 		</td>
 	</tr>
@@ -320,35 +320,35 @@ $tabControl->BeginNextTab();
 		<td><span id="param1_label"><?=GetMessage("customrank_edit_param1")?></span></td>
 		<td>
 		<div id="param1_result_div">
-		<?if($str_MODULE_ID=="iblock" && CModule::IncludeModule("iblock")):?>
+		<?php if($str_MODULE_ID=="iblock" && CModule::IncludeModule("iblock")):?>
 			<select name="PARAM1" id="PARAM1" OnChange="BoxUpdateNew('param1')">
 			<option value=""><?=GetMessage("customrank_edit_no")?></option>
-			<?
+			<?php 
 			$rsType = CIBlockType::GetList(array("sort"=>"asc"), array("ACTIVE"=>"Y"));
 			while($arr=$rsType->GetNext())
 			{
 				if($ar=CIBlockType::GetByIDLang($arr["ID"], $lang)):?>
-				<option value="<?echo $arr["ID"]?>"<?=$arr["ID"]==$str_PARAM1?" selected":""?>><?echo "[".$arr["ID"]."] ".$ar["NAME"]?></option>
-				<?endif;
+				<option value="<?php echo $arr["ID"]?>"<?=$arr["ID"]==$str_PARAM1?" selected":""?>><?php echo "[".$arr["ID"]."] ".$ar["NAME"]?></option>
+				<?php endif;
 			}
 		?>
 			</select>
-		<?elseif($str_MODULE_ID=="forum" && CModule::IncludeModule("forum")):?>
+		<?php elseif($str_MODULE_ID=="forum" && CModule::IncludeModule("forum")):?>
 			<select name="PARAM1" id="PARAM1" OnChange="BoxUpdateNew('param1')">
 			<option value=""><?=GetMessage("customrank_edit_no")?></option>
-		<?
+		<?php 
 			$rsForum = CForumNew::GetList(array("sort"=>"asc"), array("LID"=>$str_SITE_ID));
 			while($arForum=$rsForum->Fetch())
 			{
 				$arForum["ID"]=intval($arForum["ID"]);
 			?>
 				<option value="<?=$arForum["ID"]?>"<?=$arForum["ID"]==$str_PARAM1?" selected":""?>><?="[".$arForum["ID"]."] ".htmlspecialcharsbx($arForum["NAME"])?></option>
-			<?}
+			<?php }
 		?>
 			</select>
-		<?else:?>
+		<?php else:?>
 			&nbsp;<input type="hidden" name="PARAM1" id="PARAM1" value="">
-		<?endif;?>
+		<?php endif;?>
 		</div>
 		</td>
 	</tr>
@@ -356,24 +356,24 @@ $tabControl->BeginNextTab();
 		<td><span id="param2_label"><?=GetMessage("customrank_edit_param2")?></span></font></td>
 		<td>
 		<div id="param2_result_div">
-		<?if($str_MODULE_ID=="iblock" && $str_PARAM1<>"" && CModule::IncludeModule("iblock")):?>
+		<?php if($str_MODULE_ID=="iblock" && $str_PARAM1<>"" && CModule::IncludeModule("iblock")):?>
 			<select name="PARAM2" id="PARAM2" OnChange="BoxUpdateNew('param1')">
 			<option value=""><?=GetMessage("customrank_edit_no")?></option>
-			<?
+			<?php 
 			$rsIBlock = CIBlock::GetList(array("SORT"=>"ASC"),array("TYPE"=>$str_PARAM1,"LID"=>$str_SITE_ID));
 			while($arIBlock=$rsIBlock->Fetch())
 			{
 				$arIBlock["ID"]=intval($arIBlock["ID"]);
 			?>
 				<option value="<?=$arIBlock["ID"]?>"<?=$arIBlock["ID"]==$str_PARAM2?" selected":""?>><?="[".$arIBlock["ID"]."] ".htmlspecialcharsbx($arIBlock["NAME"])?></option>
-			<?}
+			<?php }
 			?>
 			</select>
-		<?elseif($str_MODULE_ID=="forum" && CModule::IncludeModule("forum")):?>
+		<?php elseif($str_MODULE_ID=="forum" && CModule::IncludeModule("forum")):?>
 			<input name="PARAM2" id="PARAM2" value="<?=$str_PARAM2?>" size="15" type="text">
-		<?else:?>
+		<?php else:?>
 			&nbsp;<input type="hidden" name="PARAM2" id="PARAM2" value="">
-		<?endif;?>
+		<?php endif;?>
 		</select>
 		</div>
 		</td>
@@ -385,7 +385,7 @@ $tabControl->BeginNextTab();
 		<input name="ITEM_ID[KEY]" id="ITEM_ID[KEY]" value="<?=$str_ITEM_ID?>" size="10" type="text">
 		<input type="button" value="..." id="ITEM_ID_CHOOSE" onClick="jsUtils.OpenWindow('iblock_element_search.php?lang=<?=LANG?>&amp;IBLOCK_ID='+document.getElementById('PARAM2').value+'&amp;n=ITEM_ID&amp;k=KEY', 600, 500);">
 		&nbsp;<span id="sp_<?=md5("ITEM_ID")?>_<?="KEY"?>" class="tablebodytext">
-		<?
+		<?php 
 		if($str_MODULE_ID=="iblock" && $str_PARAM1!="" && $str_PARAM2!="" && $str_ITEM_ID!="")
 			echo CSearchCustomRank::__GetParam($lang, $str_SITE_ID, $str_MODULE_ID, $str_PARAM1, $str_PARAM2, $str_ITEM_ID);
 		?>
@@ -407,7 +407,7 @@ $tabControl->BeginNextTab();
 		</td>
 
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>($POST_RIGHT<"W"),
@@ -416,12 +416,12 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
+<?php echo bitrix_sessid_post();?>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?if($ID>0 && !$bCopy):?>
+<?php if($ID>0 && !$bCopy):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
@@ -429,4 +429,4 @@ $tabControl->End();
 <script type="text/javascript">
 	ParamUpdate();
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['AD_CONTRACT_DISABLE'] = "Attention! Contract restrictions are disabled in the module settings.";
 $MESS['AD_ERROR_FIXSHOW_HAVETOBE_SET'] = "Error! This option have to be enabled: \"Track banner impressions\"";
 $MESS['AD_ERROR_FORGOT_SID'] = "Error! You failed to enter symbolic identifier (ID).";

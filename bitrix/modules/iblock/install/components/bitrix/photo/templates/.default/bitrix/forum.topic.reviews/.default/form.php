@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix vars
  *
@@ -8,29 +8,29 @@
  * @var CUser $USER
  */
 $tabIndex = 1;
-?><? if ($arParams['SHOW_MINIMIZED'] == "Y")
+?><?php  if ($arParams['SHOW_MINIMIZED'] == "Y")
 {
 	?>
 	<div class="reviews-collapse reviews-minimized" style='position:relative; float:none;'>
 		<a class="reviews-collapse-link" id="sw<?=$arParams["FORM_ID"]?>" onclick="BX.onCustomEvent(BX('<?=$arParams["FORM_ID"]?>'), 'onTransverse')" href="javascript:void(0);"><?=$arParams['MINIMIZED_EXPAND_TEXT']?></a>
 	</div>
-	<?
+	<?php 
 }
 ?>
 
 <a name="review_anchor"></a>
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])):
 	$arResult["ERROR_MESSAGE"] = preg_replace(array("/<br(.*?)><br(.*?)>/is", "/<br(.*?)>$/is"), array("<br />", ""), $arResult["ERROR_MESSAGE"]);
 	?>
 	<div class="reviews-note-box reviews-note-error">
 		<div class="reviews-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "reviews-note-error");?></div>
 	</div>
-<?
+<?php 
 endif;
 ?>
 <div class="reviews-reply-form" <?=(($arParams['SHOW_MINIMIZED'] == "Y") ? 'style="display:none;"' : '' )?>>
-<form name="<?=$arParams["FORM_ID"] ?>" id="<?=$arParams["FORM_ID"]?>" action="<?=POST_FORM_ACTION_URI?>#postform"<?
+<form name="<?=$arParams["FORM_ID"] ?>" id="<?=$arParams["FORM_ID"]?>" action="<?=POST_FORM_ACTION_URI?>#postform"<?php 
 ?> method="POST" enctype="multipart/form-data" class="reviews-form">
 <script type="text/javascript">
 	BX.ready(function(){
@@ -44,7 +44,7 @@ endif;
 			ajaxPost : '<?=$arParams["AJAX_POST"]?>',
 			lheId : 'REVIEW_TEXT'
 		});
-		<? if ($arParams['SHOW_MINIMIZED'] == "Y")
+		<?php  if ($arParams['SHOW_MINIMIZED'] == "Y")
 		{
 		?>
 		BX.addCustomEvent(BX('<?=$arParams["FORM_ID"]?>'), 'onBeforeHide', function() {
@@ -61,7 +61,7 @@ endif;
 				BX.removeClass(BX.addClass(link.parentNode, "reviews-minimized"), "reviews-expanded");
 			}
 		});
-		<?
+		<?php 
 		}
 		?>
 	});
@@ -74,38 +74,38 @@ endif;
 	<input type="hidden" name="preview_comment" value="N" />
 	<input type="hidden" name="AJAX_POST" value="<?=$arParams["AJAX_POST"]?>" />
 	<?=bitrix_sessid_post()?>
-	<?
+	<?php 
 	if ($arParams['AUTOSAVE'])
 		$arParams['AUTOSAVE']->Init();
 	?>
 	<div style="position:relative; display: block; width:100%;">
-		<?
+		<?php 
 		/* GUEST PANEL */
 		if (!$arResult["IS_AUTHORIZED"]):
 			?>
 			<div class="reviews-reply-fields">
 				<div class="reviews-reply-field-user">
-					<div class="reviews-reply-field reviews-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?
+					<div class="reviews-reply-field reviews-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?php 
 							?><span class="reviews-required-field">*</span></label>
 						<span><input name="REVIEW_AUTHOR" id="REVIEW_AUTHOR<?=$arParams["form_index"]?>" size="30" type="text" value="<?=$arResult["REVIEW_AUTHOR"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-					<?
+					<?php 
 					if ($arResult["FORUM"]["ASK_GUEST_EMAIL"]=="Y"):
 						?>
 						<div class="reviews-reply-field-user-sep">&nbsp;</div>
 						<div class="reviews-reply-field reviews-reply-field-email"><label for="REVIEW_EMAIL<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_EMAIL")?></label>
 							<span><input type="text" name="REVIEW_EMAIL" id="REVIEW_EMAIL<?=$arParams["form_index"]?>" size="30" value="<?=$arResult["REVIEW_EMAIL"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-					<?
+					<?php 
 					endif;
 					?>
 					<div class="reviews-clear-float"></div>
 				</div>
 			</div>
-		<?
+		<?php 
 		endif;
 		?>
 		<div class="reviews-reply-header"><span><?=$arParams["MESSAGE_TITLE"]?></span><span class="reviews-required-field">*</span></div>
 		<div class="reviews-reply-field reviews-reply-field-text">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.post.form",
 				"",
@@ -140,7 +140,7 @@ endif;
 			);
 			?>
 		</div>
-		<?
+		<?php 
 
 		/* CAPTHCA */
 		if (strLen($arResult["CAPTCHA_CODE"]) > 0):
@@ -155,13 +155,13 @@ endif;
 					<img src="/bitrix/tools/captcha.php?captcha_code=<?=$arResult["CAPTCHA_CODE"]?>" alt="<?=GetMessage("F_CAPTCHA_TITLE")?>" />
 				</div>
 			</div>
-		<?
+		<?php 
 		endif;
 		/* ATTACH FILES */
 		if ($arResult["SHOW_PANEL_ATTACH_IMG"] == "Y"):
 			?>
 			<div class="reviews-reply-field reviews-reply-field-upload">
-				<?
+				<?php 
 				$iCount = 0;
 				if (!empty($arResult["REVIEW_FILES"])):
 					foreach ($arResult["REVIEW_FILES"] as $key => $val):
@@ -175,23 +175,23 @@ endif;
 								( <a href="/bitrix/components/bitrix/forum.interface/show_file.php?action=download&amp;fid=<?=$key?>"><?=GetMessage("F_DOWNLOAD")?></a> )
 							</label>
 						</div>
-					<?
+					<?php 
 					endforeach;
 				endif;
 				if ($iCount < $arParams["FILES_COUNT"]):
 					$sFileSize = CFile::FormatSize(intVal(COption::GetOptionString("forum", "file_max_size", 5242880)));
 					?>
 					<div class="reviews-upload-info" style="display:none;" id="upload_files_info_<?=$arParams["form_index"]?>">
-						<?
+						<?php 
 						if ($arParams["FORUM"]["ALLOW_UPLOAD"] == "F"):
 							?>
 							<span><?=str_replace("#EXTENSION#", $arParams["FORUM"]["ALLOW_UPLOAD_EXT"], GetMessage("F_FILE_EXTENSION"))?></span>
-						<?
+						<?php 
 						endif;
 						?>
 						<span><?=str_replace("#SIZE#", $sFileSize, GetMessage("F_FILE_SIZE"))?></span>
 					</div>
-					<?
+					<?php 
 
 					for ($ii = $iCount; $ii < $arParams["FILES_COUNT"]; $ii++):
 						?>
@@ -199,56 +199,56 @@ endif;
 						<div class="reviews-upload-file" style="display:none;" id="upload_files_<?=$ii?>_<?=$arParams["form_index"]?>">
 							<input name="FILE_NEW_<?=$ii?>" type="file" value="" size="30" />
 						</div>
-					<?
+					<?php 
 					endfor;
 					?>
 					<a class="forum-upload-file-attach" href="javascript:void(0);" onclick="AttachFile('<?=$iCount?>', '<?=($ii - $iCount)?>', '<?=$arParams["form_index"]?>', this); return false;">
 						<span><?=($arResult["FORUM"]["ALLOW_UPLOAD"]=="Y") ? GetMessage("F_LOAD_IMAGE") : GetMessage("F_LOAD_FILE") ?></span>
 					</a>
-				<?
+				<?php 
 				endif;
 				?>
 			</div>
-		<?
+		<?php 
 		endif;
 		?>
 		<div class="reviews-reply-field reviews-reply-field-settings">
-			<?
+			<?php 
 			/* SMILES */
 			if ($arResult["FORUM"]["ALLOW_SMILES"] == "Y"):
 				?>
 				<div class="reviews-reply-field-setting">
-					<input type="checkbox" name="REVIEW_USE_SMILES" id="REVIEW_USE_SMILES<?=$arParams["form_index"]?>" <?
-					?>value="Y" <?=($arResult["REVIEW_USE_SMILES"]=="Y") ? "checked=\"checked\"" : "";?> <?
-					?>tabindex="<?=$tabIndex++;?>" /><?
+					<input type="checkbox" name="REVIEW_USE_SMILES" id="REVIEW_USE_SMILES<?=$arParams["form_index"]?>" <?php 
+					?>value="Y" <?=($arResult["REVIEW_USE_SMILES"]=="Y") ? "checked=\"checked\"" : "";?> <?php 
+					?>tabindex="<?=$tabIndex++;?>" /><?php 
 					?>&nbsp;<label for="REVIEW_USE_SMILES<?=$arParams["form_index"]?>"><?=GetMessage("F_WANT_ALLOW_SMILES")?></label></div>
-			<?
+			<?php 
 			endif;
 			/* SUBSCRIBE */
 			if ($arResult["SHOW_SUBSCRIBE"] == "Y"):
 				?>
 				<div class="reviews-reply-field-setting">
-					<input type="checkbox" name="TOPIC_SUBSCRIBE" id="TOPIC_SUBSCRIBE<?=$arParams["form_index"]?>" value="Y" <?
-					?><?=($arResult["TOPIC_SUBSCRIBE"] == "Y")? "checked disabled " : "";?> tabindex="<?=$tabIndex++;?>" /><?
+					<input type="checkbox" name="TOPIC_SUBSCRIBE" id="TOPIC_SUBSCRIBE<?=$arParams["form_index"]?>" value="Y" <?php 
+					?><?=($arResult["TOPIC_SUBSCRIBE"] == "Y")? "checked disabled " : "";?> tabindex="<?=$tabIndex++;?>" /><?php 
 					?>&nbsp;<label for="TOPIC_SUBSCRIBE<?=$arParams["form_index"]?>"><?=GetMessage("F_WANT_SUBSCRIBE_TOPIC")?></label></div>
-			<?
+			<?php 
 			endif;
 			?>
 		</div>
-		<?
+		<?php 
 
 		?>
 		<div class="reviews-reply-buttons">
-			<input name="send_button" type="submit" value="<?=GetMessage("OPINIONS_SEND")?>" tabindex="<?=$tabIndex++;?>" <?
+			<input name="send_button" type="submit" value="<?=GetMessage("OPINIONS_SEND")?>" tabindex="<?=$tabIndex++;?>" <?php 
 			?>onclick="this.form.preview_comment.value = 'N';" />
-			<input name="view_button" type="submit" value="<?=GetMessage("OPINIONS_PREVIEW")?>" tabindex="<?=$tabIndex++;?>" <?
+			<input name="view_button" type="submit" value="<?=GetMessage("OPINIONS_PREVIEW")?>" tabindex="<?=$tabIndex++;?>" <?php 
 			?>onclick="this.form.preview_comment.value = 'VIEW';" />
 		</div>
 
 	</div>
 </form>
 </div>
-<?
+<?php 
 if ($arParams['AUTOSAVE'])
 	$arParams['AUTOSAVE']->LoadScript(array(
 		"formID" => CUtil::JSEscape($arParams["FORM_ID"]),

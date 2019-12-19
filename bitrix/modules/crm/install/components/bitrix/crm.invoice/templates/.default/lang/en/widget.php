@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_WGT_PAGE_TITLE"] = "Invoice analytical reports";
 $MESS["CRM_INVOICE_WGT_FUNNEL"] = "Invoice funnel";
 $MESS["CRM_INVOICE_WGT_SUM_INVOICE_IN_WORK"] = "Total amount of active invoices";

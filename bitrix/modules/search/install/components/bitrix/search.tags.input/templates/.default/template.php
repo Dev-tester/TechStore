@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -15,12 +15,12 @@ CJSCore::Init(array("ajax"));
 ?>
 <script>
 	BX.ready(function(){
-		var input = BX("<?echo $arResult["ID"]?>");
+		var input = BX("<?php echo $arResult["ID"]?>");
 		if (input)
-			new JsTc(input, '<?echo $arParams["ADDITIONAL_VALUES"]?>');
+			new JsTc(input, '<?php echo $arParams["ADDITIONAL_VALUES"]?>');
 	});
 </script>
-<?
+<?php 
 if ($arParams["SILENT"] == "Y")
 	return;
 ?><input

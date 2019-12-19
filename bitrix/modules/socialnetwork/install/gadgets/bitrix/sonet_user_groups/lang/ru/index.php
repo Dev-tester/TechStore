@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_SONET_USER_GROUPS_ALL_GROUPS'] = "Все группы";
 $MESS ['GD_SONET_USER_GROUPS_NO_GROUPS'] = "Нет групп";
 $MESS ['GD_SONET_USER_GROUPS_GR_UNAVAIL'] = "Список групп недоступен";

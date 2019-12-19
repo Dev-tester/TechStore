@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_INVOICE_EXPORT"] = "Счета - экспорт";
 $MESS["CRM_TAB_INVOICE_EXPORT_TITLE"] = "Настройка параметров экспорта счетов в \"1С:Предприятие\"";
 $MESS["CRM_TAB_INVOICE_PROF_COM"] = "Счета - профиль компании";

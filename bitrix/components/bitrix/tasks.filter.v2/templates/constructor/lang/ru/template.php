@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_OP_EQUAL"] = "равно";
 $MESS["TASKS_OP_NOT_EQUAL"] = "не равно";
 $MESS["TASKS_OP_SUBSTRING"] = "содержит";

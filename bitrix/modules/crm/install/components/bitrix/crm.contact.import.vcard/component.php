@@ -106,7 +106,7 @@ if(!function_exists('__CrmImportPrepareImportTab'))
 		<div id="crm_import_errata" class="crm_import_error"><a id="crm_import_entity_errata" href="#"><?=GetMessage('CRM_IMPORT_ERRATA')?></a></div>
 		<div id="crm_import_duplicate_file_wrapper" class="crm_import_duplicate_file"><a id="crm_import_duplicate_file_url" href="#"><?=GetMessage('CRM_IMPORT_DUPLICATE_URL')?></a></div>
 		<div id="crm_import_example" class="crm_import_example"></div>
-		<script type="text/javascript">crmImportAjax("<?=$arParams['PATH_TO_CONTACT_IMPORTVCARD_STEP']?>");</script><?
+		<script type="text/javascript">crmImportAjax("<?=$arParams['PATH_TO_CONTACT_IMPORTVCARD_STEP']?>");</script><?php 
 		$html = ob_get_contents();
 		ob_end_clean();
 		$arResult['FIELDS']['tab_3'][] = array(

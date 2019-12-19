@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,7 +16,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 	<script language="javascript">
@@ -46,9 +46,9 @@ else
 	//-->
 	</script>
 	<form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
-		<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+		<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 			<?=$arResult["NAV_STRING"]?><br /><br />
-		<?endif;?>
+		<?php endif;?>
 		<div class="sonet-cntnr-messages-input">
 		<table width="100%" class="sonet-user-profile-friends data-table">
 			<tr>
@@ -57,9 +57,9 @@ else
 				<th><?= GetMessage("SONET_C27_T_MESSAGE") ?></th>
 				<th><?= GetMessage("SONET_C27_T_ACTIONS") ?></th>
 			</tr>
-			<?$ind = 0;?>
-			<?if ($arResult["Events"]):?>
-				<?foreach ($arResult["Events"] as $event):?>
+			<?php $ind = 0;?>
+			<?php if ($arResult["Events"]):?>
+				<?php foreach ($arResult["Events"] as $event):?>
 					<tr>
 						<td valign="top" align="center"<?= (!$event["IS_READ"] ? " class=\"selected\"" : "") ?>>
 							<input type="checkbox" name="checked_<?= $ind ?>" value="Y">
@@ -67,7 +67,7 @@ else
 						</td>
 						<td valign="top"<?= (!$event["IS_READ"] ? " class=\"selected\"" : "") ?> nowrap>
 							<?= $event["USER_PERSONAL_PHOTO_IMG"]; ?><br>
-							<?
+							<?php 
 								
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -100,43 +100,43 @@ else
 						</td>
 						<td valign="top"<?= (!$event["IS_READ"] ? " class=\"selected\"" : "") ?>>
 							<?= $event["DATE_CREATE"]; ?><br>
-							<?if (StrLen($event["TITLE"]) > 0):?>
+							<?php if (StrLen($event["TITLE"]) > 0):?>
 								<b><?= $event["TITLE"]; ?></b><br><br>
-							<?endif;?>
+							<?php endif;?>
 							<?= $event["MESSAGE"]; ?>
 						</td>
 						<td valign="top"<?= (!$event["IS_READ"] ? " class=\"selected\"" : "") ?> nowrap>
 							<a href="<?= $event["ALL_USER_MESSAGES_LINK"] ?>"><?= GetMessage("SONET_C27_T_ALL_MSGS") ?></a><br><br>
-							<?if ($event["SHOW_ANSWER_LINK"]):?>
+							<?php if ($event["SHOW_ANSWER_LINK"]):?>
 								<a href="<?= $event["ANSWER_LINK"] ?>" onclick="window.open('<?= $event["ANSWER_LINK"] ?>', '', 'location=yes,status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false;"><?= GetMessage("SONET_C27_T_ANSWER") ?></a><br><br>
-							<?endif;?>
-							<?if (!$event["IS_READ"]):?>
+							<?php endif;?>
+							<?php if (!$event["IS_READ"]):?>
 								<a href="<?= $event["READ_LINK"] ?>"><?= GetMessage("SONET_C27_T_MARK_READ") ?></a><br><br>
-							<?endif;?>
+							<?php endif;?>
 							<a href="<?= $event["DELETE_LINK"] ?>"><?= GetMessage("SONET_C27_T_DELETE") ?></a><br><br>
-							<?if ($event["SHOW_BAN_LINK"]):?>
+							<?php if ($event["SHOW_BAN_LINK"]):?>
 								<a href="<?= $event["BAN_LINK"] ?>"><?= GetMessage("SONET_C27_T_BAN") ?></a>
-							<?endif;?>
+							<?php endif;?>
 						</td>
 					</tr>
-					<?$ind++;?>
-				<?endforeach;?>
-			<?else:?>
+					<?php $ind++;?>
+				<?php endforeach;?>
+			<?php else:?>
 				<tr>
 					<td colspan="4"><?= GetMessage("SONET_C27_T_EMPTY") ?></td>
 				</tr>
-			<?endif;?>
+			<?php endif;?>
 		</table>
 		</div>
-		<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+		<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 			<br /><?=$arResult["NAV_STRING"]?><br />
-		<?endif;?>
+		<?php endif;?>
 		<br />
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<?=bitrix_sessid_post()?>
 		<input type="submit" name="do_read" value="<?= GetMessage("SONET_C27_T_DO_READ") ?>">
 		<input type="submit" name="do_delete" value="<?= GetMessage("SONET_C27_T_DO_DELETE") ?>">
 	</form>
-	<?
+	<?php 
 }
 ?>

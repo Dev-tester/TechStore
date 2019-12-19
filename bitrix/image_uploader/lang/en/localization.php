@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['instructionsCommon'] = "<div class='iu-help'><b>To upload multiple files, you need to install special Bitrix software.</b> ";
 $MESS ['instructionsNotWinXPSP2'] = " Reload the page and click \"Yes\" in the installation dialog.";
 $MESS ['instructionsWinXPSP2'] = " Perform the following actions: <ol class='iu-help'><li>If you see a yellow warning bar at the top of the screen, right-click it and select \"Install ActiveX Control\" in the context menu; <img src='/bitrix/image_uploader/images/help/notification_en.png' height='103' /></li><li>After the page reloads, click \"Install\" in the dialog box. If this dialog appears again on the next page reload, click the button again.<img src='/bitrix/image_uploader/images/help/window_en.png' height='209' /></li></ul>";

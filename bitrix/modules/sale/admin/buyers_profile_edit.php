@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 Loader::includeModule('sale');
@@ -218,8 +218,8 @@ if (!empty($arErrors))
 
 $tabControl->BeginEpilogContent();
 echo bitrix_sessid_post();?>
-<input type="hidden" name="id" value="<?echo $ID?>">
-<?
+<input type="hidden" name="id" value="<?php echo $ID?>">
+<?php 
 $tabControl->EndEpilogContent();
 
 $urlForm = "";
@@ -302,13 +302,13 @@ if(!empty($arProfile) && !empty($arUser))
 		{
 			$tabControl->BeginCustomField("CODE_".$arProperties["ID"], $arProperties["NAME"], $shure);
 			?>
-			<tr<? ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
+			<tr<?php  ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
 				<td width="40%">
-					<?echo htmlspecialcharsbx($arProperties["NAME"]);?>:
+					<?php echo htmlspecialcharsbx($arProperties["NAME"]);?>:
 				</td>
 				<td width="60%">
-					<select name="<?echo "CODE_".$arProperties["ID"];?>">
-					<?
+					<select name="<?php echo "CODE_".$arProperties["ID"];?>">
+					<?php 
 					$dbVariants = CSaleOrderPropsVariant::GetList(
 						array("SORT" => "ASC"),
 						array("ORDER_PROPS_ID" => $arProperties["ID"]),
@@ -322,27 +322,27 @@ if(!empty($arProfile) && !empty($arUser))
 						if ($arVariants["VALUE"] == $fieldValue)
 							$selected .= " selected";
 					?>
-						<option <?echo $selected;?> value="<?echo htmlspecialcharsbx($arVariants["VALUE"]);?>"><?echo htmlspecialcharsbx($arVariants["NAME"]);?></option>
-					<?
+						<option <?php echo $selected;?> value="<?php echo htmlspecialcharsbx($arVariants["VALUE"]);?>"><?php echo htmlspecialcharsbx($arVariants["NAME"]);?></option>
+					<?php 
 					}
 					?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$tabControl->EndCustomField("CODE_".$arProperties["ID"]);
 		}
 		elseif ($arProperties["TYPE"] == "MULTISELECT")
 		{
 			$tabControl->BeginCustomField("CODE_".$arProperties["ID"], $arProperties["NAME"], $shure);
 			?>
-			<tr<? ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
+			<tr<?php  ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
 				<td width="40%">
-					<?echo htmlspecialcharsbx($arProperties["NAME"]);?>:
+					<?php echo htmlspecialcharsbx($arProperties["NAME"]);?>:
 				</td>
 				<td width="60%">
-					<select multiple size="5" name="<?echo "CODE_".$arProperties["ID"];?>[]">
-					<?
+					<select multiple size="5" name="<?php echo "CODE_".$arProperties["ID"];?>[]">
+					<?php 
 					if (is_array($fieldValue))
 					{
 						$arCurVal = $fieldValue;
@@ -375,14 +375,14 @@ if(!empty($arProfile) && !empty($arUser))
 							$selected .= " selected";
 						}
 					?>
-						<option <?echo $selected;?> value="<?echo htmlspecialcharsbx($arVariants["VALUE"]);?>"><?echo htmlspecialcharsbx($arVariants["NAME"]);?></option>
-					<?
+						<option <?php echo $selected;?> value="<?php echo htmlspecialcharsbx($arVariants["VALUE"]);?>"><?php echo htmlspecialcharsbx($arVariants["NAME"]);?></option>
+					<?php 
 					}
 					?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$tabControl->EndCustomField("CODE_".$arProperties["ID"]);
 		}
 
@@ -394,12 +394,12 @@ if(!empty($arProfile) && !empty($arUser))
 
 			$tabControl->BeginCustomField("CODE_".$arProperties["ID"], $arProperties["NAME"], $shure);
 			?>
-			<tr<? ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
+			<tr<?php  ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
 				<td width="40%">
-					<?echo htmlspecialcharsEx($arProperties["NAME"]);?>:
+					<?php echo htmlspecialcharsEx($arProperties["NAME"]);?>:
 				</td>
 				<td width="60%">
-			<?
+			<?php 
 			$dbVariants = CSaleOrderPropsVariant::GetList(
 					array("SORT" => "ASC"),
 					array("ORDER_PROPS_ID" => $arProperties["ID"]),
@@ -413,14 +413,14 @@ if(!empty($arProfile) && !empty($arUser))
 				if ($arVariants["VALUE"] == $fieldValue)
 					$selected .= " checked";
 			?>
-				<input <?echo $selected?> id="radio_<?echo $arVariants["ID"];?>" type="radio" name="CODE_<?echo $arProperties["ID"];?>" value="<?echo htmlspecialcharsbx($arVariants["VALUE"]);?>" />
-				<label for="radio_<?echo $arVariants["ID"];?>"><?echo htmlspecialcharsEx($arVariants["NAME"])?></label><br />
-			<?
+				<input <?php echo $selected?> id="radio_<?php echo $arVariants["ID"];?>" type="radio" name="CODE_<?php echo $arProperties["ID"];?>" value="<?php echo htmlspecialcharsbx($arVariants["VALUE"]);?>" />
+				<label for="radio_<?php echo $arVariants["ID"];?>"><?php echo htmlspecialcharsEx($arVariants["NAME"])?></label><br />
+			<?php 
 			}
 			?>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$tabControl->EndCustomField("CODE_".$arProperties["ID"]);
 		}
 		elseif ($arProperties["TYPE"] == "LOCATION")
@@ -446,12 +446,12 @@ if(!empty($arProfile) && !empty($arUser))
 
 			$tabControl->BeginCustomField("CODE_".$arProperties["ID"], $arProperties["NAME"], $shure);
 		?>
-			<tr<? ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
+			<tr<?php  ($shure) ? " class=\"adm-detail-required-field\"" : "" ?>>
 				<td width="40%" style="vertical-align: top;padding-top: 10px;">
-					<?echo htmlspecialcharsbx($arProperties["NAME"]);?>:
+					<?php echo htmlspecialcharsbx($arProperties["NAME"]);?>:
 				</td>
 				<td width="60%">
-					<?
+					<?php 
 					$locationId = "LOCATION_".$arProperties["ID"];
 					if ($arProperties["MULTIPLE"] === "Y")
 					{
@@ -481,7 +481,7 @@ if(!empty($arProfile) && !empty($arUser))
 					?>
 				</td>
 			</tr>
-		<?
+		<?php 
 			if (is_array($fieldValue) && !empty($fieldValue))
 			{
 				$fieldValue[] = "";
@@ -489,7 +489,7 @@ if(!empty($arProfile) && !empty($arUser))
 				{
 					?>
 					<tr><td width="40%"></td><td width="60%">
-						<?
+						<?php 
 							CSaleLocation::proxySaleAjaxLocationsComponent(
 								array(
 									"SITE_ID" => $LID,
@@ -512,7 +512,7 @@ if(!empty($arProfile) && !empty($arUser))
 							);
 						?>
 						</td></tr>
-					<?
+					<?php 
 				}
 			}
 			$tabControl->EndCustomField("CODE_".$arProperties["ID"]);

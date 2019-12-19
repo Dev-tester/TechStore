@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_WD_SETTINGS"] = "Рабочий день";
 $MESS["TM_WD_SETTINGS_TITLE"] = "Настройки рабочего времени по умолчанию";
 $MESS["TM_ACCESS"] = "Доступ";

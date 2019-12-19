@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ITSRM_NAME'] = "Menu";
 $MESS ['ITSRM_DESCRIPTION'] = "Shows the component menu.";
 $MESS ['INTR_GROUP_NAME'] = "Intranet Portal";

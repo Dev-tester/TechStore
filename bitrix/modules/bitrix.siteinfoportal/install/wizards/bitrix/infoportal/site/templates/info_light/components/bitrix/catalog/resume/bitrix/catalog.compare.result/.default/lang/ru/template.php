@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CATALOG_COMPARE_BUY'] = "Купить";
 $MESS ['CATALOG_NOT_AVAILABLE'] = "(нет на складе)";
 $MESS ['CATALOG_ONLY_DIFFERENT'] = "Только различающиеся";

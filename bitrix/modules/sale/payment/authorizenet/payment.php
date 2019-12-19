@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 include_once(GetLangFileName(dirname(__FILE__)."/", "/payment.php"));
 include(dirname(__FILE__)."/common.php");
 
@@ -170,13 +170,13 @@ if ($bCanProcess)
 
 if ($bSuccessProcess)
 {
-	?><div class="alert alert-success" role="alert"><?=GetMessage("AN_SUCC")?></div><?
+	?><div class="alert alert-success" role="alert"><?=GetMessage("AN_SUCC")?></div><?php 
 }
 else
 {
 	if (strlen($strErrorMessage)>0)
 	{
-		?><div class="alert alert-danger" role="alert"><?= $strErrorMessage ?></div><?
+		?><div class="alert alert-danger" role="alert"><?= $strErrorMessage ?></div><?php 
 	}
 	?>
 		<form action="" method="post">
@@ -191,17 +191,17 @@ else
 				<label for="ccardDate1" class="col-sm-6 col-form-label text-sm-right"><?=GetMessage("AN_CC_DATE")?></label>
 				<div class="col-auto">
 					<select name="ccard_date1" class="inputselect form-control" id="ccardDate1">
-						<?for ($i = 1; $i <= 12; $i++):?>
+						<?php for ($i = 1; $i <= 12; $i++):?>
 							<option value="<?= $i ?>"<?= (($i==$_REQUEST["ccard_date1"]) ? "selected" : "") ?>><?= $i ?></option>
-						<?endfor;?>
+						<?php endfor;?>
 					</select>
 				</div>
 				<div class="col-auto col-form-label">/</div>
 				<div class="col-auto">
 					<select name="ccard_date2" class="inputselect form-control">
-						<?for ($i = $year; $i <= $year+5; $i++):?>
+						<?php for ($i = $year; $i <= $year+5; $i++):?>
 							<option value="<?= $i ?>"<?= (($i==$_REQUEST["ccard_date2"]) ? "selected" : "") ?>><?= $i ?></option>
-						<?endfor;?>
+						<?php endfor;?>
 					</select>
 				</div>
 			</div>
@@ -223,6 +223,6 @@ else
 				</div>
 			</div>
 		</form>
-	<?
+	<?php 
 }
 ?>

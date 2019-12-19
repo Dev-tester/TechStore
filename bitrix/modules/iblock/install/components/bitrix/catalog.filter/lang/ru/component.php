@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_BCF_ALL'] = "(все)";
 $MESS ['CC_BCF_TILL'] = "по";
 $MESS ['CC_BCF_TOP_LEVEL'] = "Верхний уровень";

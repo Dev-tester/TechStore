@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Bizproc;
 
 use \Bitrix\Main\Loader;

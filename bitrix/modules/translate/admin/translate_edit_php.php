@@ -205,7 +205,7 @@ if($strError == "")
 
 ?>
 <p><?=$chain?></p>
-<?
+<?php 
 
 //endregion
 
@@ -219,14 +219,14 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 ?>
 <form name="form1" method="POST" action="<?=$APPLICATION->GetCurPage()?>?file=<?=htmlspecialcharsbx($file)?>&amp;lang=<?=LANGUAGE_ID?>">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 		<tr><td>
-			<textarea name="filesrc" rows="37" style="width:100%; overflow:auto;" wrap="OFF"><?echo htmlspecialcharsbx($filesrc)?></textarea>
+			<textarea name="filesrc" rows="37" style="width:100%; overflow:auto;" wrap="OFF"><?php echo htmlspecialcharsbx($filesrc)?></textarea>
 		</td></tr>
-<?
+<?php 
 
 $tabControl->Buttons(
 	array(
@@ -238,7 +238,7 @@ $tabControl->End();
 ?>
 
 </form>
-<?
+<?php 
 
 //endregion
 

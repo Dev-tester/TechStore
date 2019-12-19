@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_UI_BUTTON_PANEL_EXPORT"] = "Export data";
 $MESS["SENDER_UI_BUTTON_PANEL_ABUSES"] = "View newsletter abuse complaints";
 $MESS["SENDER_UI_BUTTON_PANEL_SAVE"] = "Save";

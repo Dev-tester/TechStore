@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_MAIL_TEMPLATE_NAME"] = "E-mail send action notification";
 $MESS["BIZPROC_MAIL_TEMPLATE_DESC"] = "#SENDER# - Message sender
 #RECEIVER# - Message recipient

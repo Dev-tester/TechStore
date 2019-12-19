@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CAllMeetingInstance
 {
 	const TYPE_AGENDA = 'A';

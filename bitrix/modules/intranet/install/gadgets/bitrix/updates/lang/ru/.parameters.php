@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_LOG_P_URL"] = "URL страницы со списком обновлений";
 $MESS["GD_LOG_P_ENTITY_TYPE"] = "Тип подписки";
 $MESS["GD_LOG_P_ENTITY_TYPE_VALUE_USER"] = "пользователи";

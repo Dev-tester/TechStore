@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -11,7 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-?><div class="catalog-sb-area"><?
+?><div class="catalog-sb-area"><?php 
 if ($arResult["FB_USE"])
 {
 	?> <div class="catalog-sb-item fb"><div id="fb-root"></div><script type="text/javascript">
@@ -23,11 +23,11 @@ if ($arResult["FB_USE"])
 			js.src = "//connect.facebook.net/<?=(strtolower(LANGUAGE_ID)."_".strtoupper(LANGUAGE_ID))?>/all.js#xfbml=1";
 			fjs.parentNode.insertBefore(js, fjs);
 		}(document, 'script', 'facebook-jssdk'));
-	</script><div class="fb-like" data-href="<?=$arResult["URL_TO_LIKE"]?>" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false" style="float:left;"></div></div><?
+	</script><div class="fb-like" data-href="<?=$arResult["URL_TO_LIKE"]?>" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false" style="float:left;"></div></div><?php 
 }
 if ($arResult["TW_USE"])
 {
-	?> <div class="catalog-sb-item tw"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="<?= LANGUAGE_ID ?>" data-url="<?= $arResult["URL_TO_LIKE"] ?>"<?
+	?> <div class="catalog-sb-item tw"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="<?= LANGUAGE_ID ?>" data-url="<?= $arResult["URL_TO_LIKE"] ?>"<?php 
 	if ($arResult["TITLE"] != '')
 		echo ' data-text="'.$arResult["TITLE"].'"';
 	if ($arResult["TW_VIA"] != '')
@@ -49,17 +49,17 @@ if ($arResult["TW_USE"])
 				fjs.parentNode.insertBefore(js, fjs);
 			}
 		}(document, 'script', 'twitter-wjs');
-	</script></div><?
+	</script></div><?php 
 }
 
 if ($arResult["VK_USE"])
 {
 	$APPLICATION->AddHeadString('<script type="text/javascript" src="https://vk.com/js/api/share.js?93" charset="windows-1251"></script>');
-	?> <div class="catalog-sb-item vk" id="vk-shared-button-<?$this->randString()?>"></div><script type="text/javascript">
+	?> <div class="catalog-sb-item vk" id="vk-shared-button-<?php $this->randString()?>"></div><script type="text/javascript">
 	(function() {
-		var div = document.getElementById("vk-shared-button-<?$this->randString()?>");
+		var div = document.getElementById("vk-shared-button-<?php $this->randString()?>");
 		var button = VK.Share.button({
-				url: "<?=$arResult["URL_TO_LIKE"]?>"<?
+				url: "<?=$arResult["URL_TO_LIKE"]?>"<?php 
 				if(strlen($arResult["TITLE"]) > 0 )
 					echo ','.PHP_EOL.'title: "'.$arResult["TITLE"].'"';
 
@@ -82,7 +82,7 @@ if ($arResult["VK_USE"])
 			});
 		}
 	})();
-</script><?
+</script><?php 
 }
 
 ?></div>

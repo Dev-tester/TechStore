@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_BACKUP_USAGE"] = "Space used: #USAGE# of #QUOTA#.";
 $MESS["BCL_BACKUP_FILE_NAME"] = "File name";
 $MESS["BCL_BACKUP_FILE_SIZE"] = "File size";

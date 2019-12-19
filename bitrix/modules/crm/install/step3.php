@@ -14,6 +14,6 @@ endif;
 
 ?>
 <form action='<?=$APPLICATION->GetCurPage()?>'>
-	<input type='hidden' name='lang' value='<?echo LANGUAGE_ID?>'>
-	<input type='submit' name='' value='<?echo GetMessage('MOD_BACK')?>'>
+	<input type='hidden' name='lang' value='<?php echo LANGUAGE_ID?>'>
+	<input type='submit' name='' value='<?php echo GetMessage('MOD_BACK')?>'>
 <form>

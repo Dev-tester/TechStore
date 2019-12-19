@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_COMPANY_CREATION_CANCELED'] = "Company has not been created because the operation was canceled by event handler: \"#NAME#\"";
 $MESS['CRM_COMPANY_EVENT_ADD'] = "Company added";
 $MESS['CRM_COMPANY_EVENT_UPDATE_ASSIGNED_BY'] = "Responsible person changed";

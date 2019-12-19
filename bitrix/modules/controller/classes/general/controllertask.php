@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager                        #
 # Copyright (c) 2002-2007 Bitrix             #

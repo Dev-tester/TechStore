@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 foreach ($arResult["BASKET"] as $product)
 {
@@ -8,13 +8,13 @@ foreach ($arResult["BASKET"] as $product)
 		<table class="order_detail_table">
 			<tr>
 				<td class="order_detail_table_td_img">
-					<?
+					<?php 
 					$productImg = getSaleProductImage($product);
 					if($productImg):?>
 						<img src="<?=$productImg["src"]?>" alt="<?=$product["INFO"]["NAME"]?>">
-					<?else:?>
+					<?php else:?>
 						<div class="no_foto"><?=GetMessage('SMPL_IMAGE_ABSENT');?></div>
-					<?endif;?>
+					<?php endif;?>
 				</td>
 				<td>
 					<table class="order_detail_table_td_table">
@@ -31,10 +31,10 @@ foreach ($arResult["BASKET"] as $product)
 								<td><?=$product["BALANCE"]?></td>
 								<td>
 											<span class="price"><?=$product["PRICE_STRING"]?></span>
-									<?if(isset($product["OLD_PRICE_STRING"])):?>
+									<?php if(isset($product["OLD_PRICE_STRING"])):?>
 										<br />	<span class="price_old"><?=$product["OLD_PRICE_STRING"]?></span>
 										<br />	<span class="price_sale"><?=GetMessage('SMPL_DISCOUNT');?>: <?=$product["DISCOUNT_STRING"]?></span>
-									<?endif;?>
+									<?php endif;?>
 								</td>
 							</tr>
 						</tbody>
@@ -42,11 +42,11 @@ foreach ($arResult["BASKET"] as $product)
 				</td>
 			</tr>
 		</table>
-	<?if (is_array($product["PROPS"]) && !empty($product["PROPS"])):?>
+	<?php if (is_array($product["PROPS"]) && !empty($product["PROPS"])):?>
 		<div class="order_detail_list_description_text">
 			<div class="order_detail_list_description_title"><?=GetMessage('SMPL_PROPERTIES');?>:</div>
 			<ul>
-				<?
+				<?php 
 						foreach($product["PROPS"] as $vv)
 							if(strlen($vv["VALUE"]) > 0)
 								echo "<li>".$vv["NAME"].": ".$vv["VALUE"]."</li>";
@@ -54,9 +54,9 @@ foreach ($arResult["BASKET"] as $product)
 			</ul>
 			<div class="clb"></div>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 </div>
-<?
+<?php 
 }
 
 function getSaleProductImage($product)

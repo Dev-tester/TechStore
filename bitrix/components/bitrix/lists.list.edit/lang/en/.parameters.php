@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CP_BLLE_IBLOCK_TYPE_ID'] = "Information Block Type";
 $MESS ['CP_BLLE_IBLOCK_ID'] = "Information Block";
 $MESS ['CP_BLLE_LISTS_URL'] = "List Main Page URL";

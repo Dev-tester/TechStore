@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_TITLE_ID'] = "New photos";
 $MESS ['P_TITLE_SHOWS'] = "Most viewed photos";
 $MESS ['P_TITLE_RATING'] = "Popular photos";

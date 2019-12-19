@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_SONET_LOG_DESCRIPTION"] = "description";
 $MESS["TASKS_SONET_LOG_RESPONSIBLE_ID"] = "Responsible person";
 $MESS["TASKS_SONET_LOG_LABEL_TITLE"] = "Task";

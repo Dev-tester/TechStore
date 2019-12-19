@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PROFILE_DATA_SAVED'] = "Изменения сохранены";
 $MESS ['NAME'] = "Имя";
 $MESS ['LAST_NAME'] = "Фамилия";

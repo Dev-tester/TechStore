@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Contacts";
 $MESS["ABOUT_INFO"] = "<p><b>E-mail Addresses:</b></p>
 

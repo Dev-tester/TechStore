@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_RATING_LIST'] = "Список рейтингов";
 $MESS ['RATING_NAME'] = "Название";
 $MESS ['RATING_CREATED'] = "Создан";

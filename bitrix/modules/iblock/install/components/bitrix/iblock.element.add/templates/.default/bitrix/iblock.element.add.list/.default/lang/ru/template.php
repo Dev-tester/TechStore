@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_ADD_LIST_TITLE'] = "Мои элементы";
 $MESS ['IBLOCK_ADD_LIST_EMPTY'] = "Вы не добавляли никаких элементов";
 $MESS ['IBLOCK_ADD_LIST_EDIT'] = "редактировать";

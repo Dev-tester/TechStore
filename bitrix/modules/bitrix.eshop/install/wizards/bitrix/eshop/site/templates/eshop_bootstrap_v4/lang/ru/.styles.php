@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STYLES_LETTER"] = "Буквица";
 $MESS["STYLES_BXE_QUOTE"] = "Обычная цитата";
 $MESS["STYLES_BLOCKQUOTE"] = "Цитируемый абзац";

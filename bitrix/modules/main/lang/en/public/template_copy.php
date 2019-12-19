@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["comp_prop_close"] = "Close window";
 $MESS["comp_prop_err_param"] = "Incorrect input parameters.";
 $MESS["comp_prop_err_file"] = "Not enough permissions to access script containing component call.";

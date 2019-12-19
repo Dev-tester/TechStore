@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_TITLE"] = "Non approved messages";
 $MESS["F_AUTHOR_PROFILE"] = "User profile";
 $MESS["F_NUM_MESS"] = "Posts:";

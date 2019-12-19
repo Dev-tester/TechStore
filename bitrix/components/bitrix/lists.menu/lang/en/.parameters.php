@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BLM_IBLOCK_TYPE_ID"] = "Information Block Type";
 $MESS["CP_BLM_IS_SEF"] = "Enable SEF mode compatibility";
 $MESS["CP_BLM_SEF_BASE_URL"] = "Folder for SEF (site-root-relative)";

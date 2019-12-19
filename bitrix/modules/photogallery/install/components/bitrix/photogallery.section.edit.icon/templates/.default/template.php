@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || strpos($this->__component->__parent->__name, "photogallery") === false):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/themes/gray/style.css');
@@ -18,17 +18,17 @@ if ($arParams["AJAX_CALL"] == "Y"):
 ?>
 
 <script src="/bitrix/components/bitrix/photogallery.section.edit.icon/templates/.default/script.js"></script>
-<?
+<?php 
 else:
 	CAjax::Init();
 endif;
 ?>
 
-<?if ($arResult["ERROR_MESSAGE"] != ""):?>
+<?php if ($arResult["ERROR_MESSAGE"] != ""):?>
 <script>
 window.oPhotoEditIconDialogError = "<?= CUtil::JSEscape($arResult["ERROR_MESSAGE"]); ?>";
 </script>
-<?
+<?php 
 if ($arParams["AJAX_CALL"] == "Y") {die();}
 endif;
 ?>
@@ -59,22 +59,22 @@ BX.ready(function(){
 
 <p>
 <span id="bxph_error_cont" style="display: none; color: red!important;">
-<?if (!empty($arResult["ERROR_MESSAGE"]))
+<?php if (!empty($arResult["ERROR_MESSAGE"]))
 	ShowError($arResult["ERROR_MESSAGE"]);
 ?>
 </span>
 <?=(count($arResult["ITEMS"]) <= 0 ? GetMessage("P_EMPTY_PHOTO") : GetMessage("P_SELECT_PHOTO"))?>
 </p>
 
-<?
+<?php 
 if (count($arResult["ITEMS"]) > 0):
 $_REQUEST["photos"] = (is_array($_REQUEST["photos"]) ? $_REQUEST["photos"] : array($_REQUEST["photos"]));
 ?>
 <div class="photo-edit-fields photo-edit-fields-section-icon">
 	<div id="photo-cover-images">
-	<!--#THUMBS_BEGIN#--> <?/* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
+	<!--#THUMBS_BEGIN#--> <?php /* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
 
-<?foreach ($arResult["ITEMS"]	as $key => $arItem):
+<?php foreach ($arResult["ITEMS"]	as $key => $arItem):
 	if (!is_array($arItem))
 		continue;
 
@@ -110,32 +110,32 @@ $_REQUEST["photos"] = (is_array($_REQUEST["photos"]) ? $_REQUEST["photos"] : arr
 	<div class="photo-edit-field photo-edit-field-image photo-photo" style="width:<?=$arParams["THUMBNAIL_SIZE"]?>px; height:<?=$arParams["THUMBNAIL_SIZE"]?>px; overflow:hidden; display:inline;">
 		<input type="checkbox" name="photos[]" id="photo_ch_<?=$arItem["ID"]?>" value="<?=$arItem["ID"]?>" <?= (in_array($arItem["ID"], $_REQUEST["photos"]) ? 'checked="checked"' : '')?> /><label for="photo_ch_<?= $arItem["ID"]?>"><img border="0" src="<?=$arItem["PICTURE"]["SRC"]?>" id="photo_img_<?=$arItem["ID"]?>" alt="<?=$sTitle?>" title="<?=$sTitle?>" style="margin-left:<?=$res["left"]?>px; margin-top: <?=$res["top"]?>px; position:static; width:<?=$res["width"]?>px; height:<?=$res["height"]?>px;" /></label>
 	</div>
-<?endforeach;?>
-	<!--#THUMBS_END#--> <?/* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
+<?php endforeach;?>
+	<!--#THUMBS_END#--> <?php /* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
 	</div><div class="empty-clear"></div>
 </div>
 
 <div id="photo-cover-navigation">
-	<!--#NAVI_BEGIN#--> <?/* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
-<?if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 1 && $arResult["NAV_RESULT"]->NavPageNomer > 1):?>
+	<!--#NAVI_BEGIN#--> <?php /* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
+<?php if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 1 && $arResult["NAV_RESULT"]->NavPageNomer > 1):?>
 	<a href="<?=$APPLICATION->GetCurPageParam(
 		"PAGEN_".$arResult["NAV_RESULT"]->NavNum."=".($arResult["NAV_RESULT"]->NavPageNomer - 1),
 		array("PAGEN_".$arResult["NAV_RESULT"]->NavNum, "AJAX_CALL"))?>" onclick="return get_more_covers(this);"><?=GetMessage("P_PHOTO_MORE")?></a>
-<?endif;?>
-	<!--#NAVI_END#--> <?/* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
+<?php endif;?>
+	<!--#NAVI_END#--> <?php /* DON'T REMOVE THIS COMMENT! Used to cut it off in AJAX mode*/?>
 </div>
-<?
+<?php 
 endif;
 
 ?>
 				</div>
 
-<? if ($arParams["AJAX_CALL"] != "Y"):?>
+<?php  if ($arParams["AJAX_CALL"] != "Y"):?>
 				<div style="margin:20px 0 0 !important;">
 					<input type="submit" name="name_submit" value="<?=GetMessage("P_SUBMIT");?>" />
 					<input type="submit" name="cancel" value="<?=GetMessage("P_CANCEL");?>" />
 				</div>
-<?endif;?>
+<?php endif;?>
 
 			</div>
 		</td>
@@ -143,7 +143,7 @@ endif;
 </table>
 </form>
 </div>
-<?
+<?php 
 
 if ($arParams["AJAX_CALL"] == "Y"):
 	die();
@@ -162,6 +162,6 @@ function CheckFormEditIcon()
 {
 	return true;
 }
-</script><?
+</script><?php 
 endif;
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_DELETE_SUCCESS"] = "Task has been deleted";
 $MESS["TASKS_STATUS_1"] = "New";
 $MESS["TASKS_STATUS_2"] = "Pending";

@@ -1,4 +1,4 @@
-<?
+<?php 
 include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/virtual_file.php");
 
 interface IBXVirtualIO

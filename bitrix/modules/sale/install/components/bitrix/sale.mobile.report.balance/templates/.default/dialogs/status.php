@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Status dialog
  */
@@ -11,7 +11,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 			<div class="order_status_title"><?=GetMessage('SMOD_STATUS');?></div>
 			<div class="order_status_infoblock">
 				<ul>
-					<?foreach ($arResult["STATUSES"] as $status):	?>
+					<?php foreach ($arResult["STATUSES"] as $status):	?>
 						<li>
 							<div id="r_container_<?=$status["ID"]?>" title="<?=$status["ID"]?>" class="order_status_li_container <?=($status['ID'] == $arResult["ORDER"]['STATUS_ID'] ? ' checked' : '')?>" onclick="onClickRadio(this);">
 								<table>
@@ -22,7 +22,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 								</table>
 							</div>
 						</li>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</ul>
 			</div>
 		</div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_COPY_PAGE_TITLE"] = "Copy deal";
 $MESS["CRM_DEAL_CREATION_PAGE_TITLE"] = "New deal";
 $MESS["CRM_DEAL_FIELD_ADD_OBSERVER"] = "Add observer";

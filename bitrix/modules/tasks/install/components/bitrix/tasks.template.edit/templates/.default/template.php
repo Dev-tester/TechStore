@@ -113,7 +113,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 							<td class="task-responsible-employee-layout-left">
 								<div class="webform-field-label"><label for="task-responsible-employee" id="task-responsible-employee-label"><?php if ($arData["MULTITASK"] == "Y"):?><?php echo GetMessage("TASKS_RESPONSIBLES")?><?php else:?><?php echo GetMessage("TASKS_RESPONSIBLE")?><?php endif?></label></div>
 
-								<div class="webform-field webform-field-combobox<?if($arResult['RESPONSIBLE_DISABLED']):?> webform-field-combobox-disabled<?endif?> task-responsible-employee" id="task-responsible-employee-block"<?php if ($arData["MULTITASK"] == "Y"):?> style="display:none;"<?php endif?>>
+								<div class="webform-field webform-field-combobox<?php if($arResult['RESPONSIBLE_DISABLED']):?> webform-field-combobox-disabled<?php endif?> task-responsible-employee" id="task-responsible-employee-block"<?php if ($arData["MULTITASK"] == "Y"):?> style="display:none;"<?php endif?>>
 									<div class="webform-field-combobox-inner">
 										<input 
 											type="text"
@@ -322,8 +322,8 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 								name="TASK_CONTROL" class="webform-field-checkbox"<?php echo ($arData["TASK_CONTROL"] == "Y" ? " checked" : "")?> /><label for="task-control"><?php echo GetMessage("TASKS_TASK_CONTROL")?></label></div>
 						<div style="display: none;" class="webform-field-checkbox-option<?php if (!$bSubordinate):?> webform-field-checkbox-option-disabled<?php endif?>"><input type="checkbox" value="Y" id="add-in-report" name="ADD_IN_REPORT" class="webform-field-checkbox"<?php echo ($bSubordinate && $arData["ADD_IN_REPORT"] != "N" ? " checked" : "")?><?php if (!$bSubordinate):?> disabled="disabled"<?php endif?> /><label for="add-in-report"><?php echo GetMessage("TASKS_TASK_ADD_IN_REPORT")?></label></div>
 
-						<?//this block is visible when: either you a bx24-admin, or the template is already a system template?>
-						<?if(($arResult['BX24_MODE'] && $arResult['USER_IS_ADMIN']) || (intval($arParams['TEMPLATE_ID']) && $arResult['DATA']['TPARAM_TYPE'] == CTaskTemplates::TYPE_FOR_NEW_USER)):?>
+						<?php //this block is visible when: either you a bx24-admin, or the template is already a system template?>
+						<?php if(($arResult['BX24_MODE'] && $arResult['USER_IS_ADMIN']) || (intval($arParams['TEMPLATE_ID']) && $arResult['DATA']['TPARAM_TYPE'] == CTaskTemplates::TYPE_FOR_NEW_USER)):?>
 							<div class="webform-field-checkbox-option<?=(intval($arParams["TEMPLATE_ID"]) ? ' webform-field-checkbox-option-disabled' : '')?>">
 								<input 
 									type="checkbox" 
@@ -334,12 +334,12 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 									<?=(intval($arParams["TEMPLATE_ID"]) ? 'disabled="disabled"' : '')?>
 								/><label for="task-user-create-checkbox"><?=GetMessage("TASKS_TEMPLATE_FOR_NEW_USER")?></label>
 
-								<?if(intval($arParams["TEMPLATE_ID"])):?>
-									<input type="hidden" name="TPARAM_TYPE" value="<?=intval($arResult['DATA']['TPARAM_TYPE'])?>" /> <?//instead of disabled checkbox?>
-								<?endif?>
+								<?php if(intval($arParams["TEMPLATE_ID"])):?>
+									<input type="hidden" name="TPARAM_TYPE" value="<?=intval($arResult['DATA']['TPARAM_TYPE'])?>" /> <?php //instead of disabled checkbox?>
+								<?php endif?>
 							</div>
 
-						<?endif?>
+						<?php endif?>
 
 					</div>
 				</div>
@@ -355,11 +355,11 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 					<div class="webform-field webform-field-textarea task-description-textarea">
 						<div class="webform-field-textarea-inner">
 
-							<?if(!CModule::IncludeModule("fileman")):?>
+							<?php if(!CModule::IncludeModule("fileman")):?>
 								<?=ShowError('Cannot include fileman module')?>
-							<?else:?>
+							<?php else:?>
 
-								<?
+								<?php 
 								// check if we use BBCODE
 								$bbCode = ($arData['DESCRIPTION_IN_BBCODE'] === 'Y');
 
@@ -432,7 +432,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 								$Editor->Show($res);
 								?>
 
-							<?endif?>
+							<?php endif?>
 							
 						</div>
 					</div>
@@ -461,13 +461,13 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 					?>
 				</div>
 
-				<?$diskUf = \Bitrix\Tasks\Integration\Disk\UserField::getMainSysUFCode();?>
+				<?php $diskUf = \Bitrix\Tasks\Integration\Disk\UserField::getMainSysUFCode();?>
 
-				<?if(\Bitrix\Tasks\Integration\Disk::isInstalled()):?>
+				<?php if(\Bitrix\Tasks\Integration\Disk::isInstalled()):?>
 
-					<?foreach($arResult["USER_FIELDS"] as $field):?>
-						<?if($field['FIELD_NAME'] == \Bitrix\Tasks\Integration\Disk\UserField::getMainSysUFCode()):?>
-							<?
+					<?php foreach($arResult["USER_FIELDS"] as $field):?>
+						<?php if($field['FIELD_NAME'] == \Bitrix\Tasks\Integration\Disk\UserField::getMainSysUFCode()):?>
+							<?php 
 							$APPLICATION->IncludeComponent(
 								'bitrix:system.field.edit',
 								$field["USER_TYPE"]["USER_TYPE_ID"],
@@ -478,10 +478,10 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 								), null, array("HIDE_ICONS" => "Y")
 							);
 							?>
-						<?endif?>
-					<?endforeach;?>
+						<?php endif?>
+					<?php endforeach;?>
 
-				<?else:?>
+				<?php else:?>
 
 					<div class="webform-row task-attachments-row">
 						<div class="webform-field webform-field-attachments">
@@ -502,7 +502,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 						</div>
 					</div>
 
-				<?endif?>
+				<?php endif?>
 
 				<?php if (sizeof($arResult["GROUPS"]) > 0): ?>
 					<?php
@@ -589,9 +589,9 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 									<table cellspacing="0" class="task-to-tasks-layout">
 										<tr class="task-template-relations">
 
-											<?// base template?>
+											<?php // base template?>
 											<td class="task-base-template">
-												<?
+												<?php 
 													$APPLICATION->IncludeComponent(
 														"bitrix:tasks.template.selector",
 														"",
@@ -611,17 +611,17 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 												?>
 												<a href="" id="task-base-template-link" class="webform-field-action-link"><?php echo GetMessage("TASKS_BASE_TEMPLATE")?></a>
 												<ol class="task-to-tasks-list task-to-tasks-list-single" id="task-base-template-list">
-													<?if(intval($arData["BASE_TEMPLATE_ID"]) && is_array($arData['BASE_TEMPLATE_DATA'])):?>
+													<?php if(intval($arData["BASE_TEMPLATE_ID"]) && is_array($arData['BASE_TEMPLATE_DATA'])):?>
 														<li class="task-to-tasks-item">
 															<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_TEMPLATES_TEMPLATE"], array("template_id" => $arData['BASE_TEMPLATE_DATA']["ID"], "action" => "view"))?>" target="_blank" class="task-to-tasks-item-name"><?=$arData['BASE_TEMPLATE_DATA']["TITLE"]?></a>
 															<span class="task-to-tasks-item-delete" onclick="onBaseTemplateRemove(<?=intval($arData['BASE_TEMPLATE_DATA']["ID"])?>, this)"></span>
 														</li>
-													<?endif?>
+													<?php endif?>
 												</ol>
 												<input type="hidden" name="BASE_TEMPLATE_ID" value="<?=$arData["BASE_TEMPLATE_ID"]?>" />
 											</td>
 
-											<?// previous tasks?>
+											<?php // previous tasks?>
 											<td class="task-previous-tasks">
 												<?php
 													$name = $APPLICATION->IncludeComponent(
@@ -658,7 +658,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 												<input type="hidden" name="PREV_TASKS_IDS" value="<?php echo is_array($arData["DEPENDS_ON"]) ?  implode(",", $arData["DEPENDS_ON"]) : ""?>" />
 											</td>
 
-											<?// parent task?>
+											<?php // parent task?>
 											<td class="task-supertask">
 												<?php
 													$name = $APPLICATION->IncludeComponent(
@@ -786,22 +786,22 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 													</table>
 												</div>
 
-												<?if(!intval($arData['ID'])):?>
-													<?$arData['REPLICATE_TIMEZONE_OFFSET'] = \Bitrix\Tasks\Util\User::getTimeZoneOffset();?>
-												<?endif?>
+												<?php if(!intval($arData['ID'])):?>
+													<?php $arData['REPLICATE_TIMEZONE_OFFSET'] = \Bitrix\Tasks\Util\User::getTimeZoneOffset();?>
+												<?php endif?>
 
-												<?if(array_key_exists('REPLICATE_TIMEZONE_OFFSET', $arData)):?>
+												<?php if(array_key_exists('REPLICATE_TIMEZONE_OFFSET', $arData)):?>
 													<input type="hidden" name="REPLICATE_TIMEZONE_OFFSET" value="<?=intval($arData['REPLICATE_TIMEZONE_OFFSET'])?>" />
-												<?endif?>
-												<?if(array_key_exists('REPLICATE_DAILY_MONTH_INTERVAL', $arData)):?>
+												<?php endif?>
+												<?php if(array_key_exists('REPLICATE_DAILY_MONTH_INTERVAL', $arData)):?>
 													<input type="hidden" name="REPLICATE_DAILY_MONTH_INTERVAL" value="<?=intval($arData['REPLICATE_DAILY_MONTH_INTERVAL'])?>" />
-												<?endif?>
-												<?if(array_key_exists('REPLICATE_REPEAT_TILL', $arData)):?>
+												<?php endif?>
+												<?php if(array_key_exists('REPLICATE_REPEAT_TILL', $arData)):?>
 													<input type="hidden" name="REPLICATE_REPEAT_TILL" value="<?=htmlspecialcharsbx($arData['REPLICATE_REPEAT_TILL'])?>" />
-												<?endif?>
-												<?if(array_key_exists('REPLICATE_TIMES', $arData)):?>
+												<?php endif?>
+												<?php if(array_key_exists('REPLICATE_TIMES', $arData)):?>
 													<input type="hidden" name="REPLICATE_TIMES" value="<?=intval($arData['REPLICATE_TIMES'])?>" />
-												<?endif?>
+												<?php endif?>
 
 												<div class="task-repeating-interval"><label for="task-repeating-interval-start-date"><?php echo GetMessage("TASKS_TASK_REPEAT_START")?></label><span class="webform-field webform-field-textbox webform-field-textbox-clearable<?php echo (!$arData["REPLICATE_START_DATE"] ? " webform-field-textbox-empty" : "")?> task-repeating-interval-start-date"><span class="webform-field-textbox-inner"><input type="text" id="task-repeating-interval-start-date" class="webform-field-textbox" name="REPLICATE_START_DATE" value="<?php echo CTasksTools::stripZeroTime($arData["REPLICATE_START_DATE"]); ?>" readonly="readonly" /><a class="webform-field-textbox-clear" href=""></a></span></span><label for="task-repeating-interval-end-date"><?php echo GetMessage("TASKS_TASK_REPEAT_END")?></label><span class="webform-field webform-field-textbox webform-field-textbox-clearable<?php echo (!$arData["REPLICATE_END_DATE"] ? " webform-field-textbox-empty" : "")?> task-repeating-interval-end-date"><span class="webform-field-textbox-inner"><input type="text" id="task-repeating-interval-end-date" class="webform-field-textbox" name="REPLICATE_END_DATE" value="<?php echo CTasksTools::stripZeroTime($arData["REPLICATE_END_DATE"]); ?>" readonly="readonly" /><a class="webform-field-textbox-clear" href=""></a></span></span></div>
 
@@ -825,7 +825,7 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 										                <input data-bx-id="timepicker-display" type="text" readonly="readonly" style="width:100px" />
 											            <input data-bx-id="timepicker-value" name="REPLICATE_TIME" type="hidden" value="<?=htmlspecialcharsbx($arData['REPLICATE_TIME'])?>" />
 										                <div class="task-main-clock-monkeyfix">
-											                <?$GLOBALS['APPLICATION']->IncludeComponent('bitrix:main.clock', '', array(
+											                <?php $GLOBALS['APPLICATION']->IncludeComponent('bitrix:main.clock', '', array(
 												                'INIT_TIME' => $arData['REPLICATE_TIME'] ? $arData['REPLICATE_TIME'] : '00:00',
 												                'INPUT_ID' => 'taskReplicationTimeFake'
 											                ));?>
@@ -843,23 +843,23 @@ $taskDescriptionEditorId = 'task'.intval($arResult['DATA']['ID']).'description';
 					</div>
 
 					<?php if (sizeof($arResult["USER_FIELDS"])): ?>
-						<?//todo: uf managing form here (as a component)?>
+						<?php //todo: uf managing form here (as a component)?>
 						<div class="webform-row task-additional-properties-row">
 							<table cellspacing="0" class="task-properties-layout">
-								<?$deprecatedUfs = array('file', 'vote', 'video', 'disk_version', 'string_formatted', 'url_preview');?>
-								<?foreach ($arResult["USER_FIELDS"] as $arUserField):?>
+								<?php $deprecatedUfs = array('file', 'vote', 'video', 'disk_version', 'string_formatted', 'url_preview');?>
+								<?php foreach ($arResult["USER_FIELDS"] as $arUserField):?>
 
-									<?if(
+									<?php if(
 										$arUserField['FIELD_NAME'] == \Bitrix\Tasks\Integration\Disk\UserField::getMainSysUFCode() ||
 										in_array($arUserField['USER_TYPE_ID'], $deprecatedUfs)
 									):?>
-										<?continue;?>
-									<?endif?>
+										<?php continue;?>
+									<?php endif?>
 
 									<tr>
 										<td class="task-property-name"><?php echo htmlspecialcharsbx($arUserField["EDIT_FORM_LABEL"]) ?>:</td>
 										<td class="task-property-value">
-											<?\Bitrix\Tasks\Util\UserField\UI::showEdit($arUserField);?>
+											<?php \Bitrix\Tasks\Util\UserField\UI::showEdit($arUserField);?>
 										</td>
 									</tr>
 								<?php endforeach ?>

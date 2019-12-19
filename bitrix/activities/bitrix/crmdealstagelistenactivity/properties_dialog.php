@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!CModule::IncludeModule("crm"))
@@ -14,7 +14,7 @@ if (!CModule::IncludeModule("crm"))
 	<td align="right" width="40%" valign="top"><?= GetMessage("BPCDSA_PD_STAGE") ?>:</td>
 	<td width="60%">
 		<select name="stage[]" multiple="multiple" style="min-height: 200px">
-			<?
+			<?php 
 			$selected = (array)$arCurrentValues["stage"];
 
 			foreach(\Bitrix\Crm\Category\DealCategory::getStageGroupInfos() as $group)
@@ -23,17 +23,17 @@ if (!CModule::IncludeModule("crm"))
 				$items = isset($group['items']) && is_array($group['items']) ? $group['items'] : array();
 				?>
 				<optgroup label="<?=htmlspecialcharsbx($name)?>">
-				<?
+				<?php 
 				foreach ($items as $stageId => $stageName)
 				{
 					$s = CCrmDeal::GetStageSemantics($stageId);
 					if ($s != 'process')
 						continue;
-					?><option value="<?= htmlspecialcharsbx($stageId) ?>"<?= (in_array($stageId, $selected)) ? " selected" : "" ?>><?= htmlspecialcharsbx($stageName) ?></option><?
+					?><option value="<?= htmlspecialcharsbx($stageId) ?>"<?= (in_array($stageId, $selected)) ? " selected" : "" ?>><?= htmlspecialcharsbx($stageName) ?></option><?php 
 				}
 				?>
 				</optgroup>
-				<?
+				<?php 
 			}
 			?>
 		</select>

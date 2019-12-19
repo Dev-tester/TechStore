@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -22,14 +22,14 @@ $getTileTemplate = function () use ($arParams)
 	?>
 	<span data-role="tile-item" data-bx-id="%id%" data-bx-data="%data%" class="sender-ui-tile-item" style="%style%">
 		<span data-role="tile-item-name">%name%</span>
-		<?if ($inputName):?>
+		<?php if ($inputName):?>
 			<input type="hidden" name="<?=$inputName?>" value="%id%">
-		<?endif;?>
-		<?if (!$arParams['READONLY']):?>
+		<?php endif;?>
+		<?php if (!$arParams['READONLY']):?>
 			<span data-role="remove" class="sender-ui-tile-item-remove"></span>
-		<?endif;?>
+		<?php endif;?>
 	</span>
-	<?
+	<?php 
 	return ob_get_clean();
 };
 
@@ -81,7 +81,7 @@ $containerId .= $arParams['ID'] ?: 'def';
 	</script>
 
 	<span data-role="tile-container" class="sender-ui-tile-selector">
-		<?
+		<?php 
 		foreach ($arResult['LIST'] as $tile):
 			$style = '';
 			if (isset($tile['bgcolor']) && $tile['bgcolor'])
@@ -112,23 +112,23 @@ $containerId .= $arParams['ID'] ?: 'def';
 		?>
 		<input data-role="tile-input" type="text" class="sender-ui-tile-input" autocomplete="off" style="display: none;">
 
-		<?if ($arParams['SHOW_BUTTON_SELECT'] && !$arParams['READONLY']):?>
+		<?php if ($arParams['SHOW_BUTTON_SELECT'] && !$arParams['READONLY']):?>
 			<span data-role="tile-select" class="sender-ui-tile-select">
-				<?if ($arParams['BUTTON_SELECT_CAPTION']):?>
+				<?php if ($arParams['BUTTON_SELECT_CAPTION']):?>
 					<?=htmlspecialcharsbx($arParams['BUTTON_SELECT_CAPTION'])?>
-				<?else:?>
+				<?php else:?>
 					<?=Loc::getMessage('SENDER_UI_TILE_SELECTOR_SELECT')?>
-				<?endif;?>
+				<?php endif;?>
 			</span>
-		<?endif;?>
+		<?php endif;?>
 	</span>
-	<?if ($arParams['SHOW_BUTTON_ADD'] && !$arParams['READONLY']):?>
+	<?php if ($arParams['SHOW_BUTTON_ADD'] && !$arParams['READONLY']):?>
 		<span data-role="tile-add" class="sender-ui-tile-add">
-			<?if ($arParams['BUTTON_ADD_CAPTION']):?>
+			<?php if ($arParams['BUTTON_ADD_CAPTION']):?>
 				<?=htmlspecialcharsbx($arParams['BUTTON_ADD_CAPTION'])?>
-			<?else:?>
+			<?php else:?>
 				<?=Loc::getMessage('SENDER_UI_TILE_SELECTOR_ADD')?>
-			<?endif;?>
+			<?php endif;?>
 		</span>
-	<?endif;?>
+	<?php endif;?>
 </span>

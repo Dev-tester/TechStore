@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_REINDEX_ACCESS_DENIED"] = "Access denied";
 $MESS["BX_CATALOG_REINDEX_ERRORS_INCORRECT_SESSION"] = "Session expired. Close the window, log in, and try again";
 $MESS["BX_CATALOG_REINDEX_REINDEX_ERRORS_MODULE_CATALOG_ABSENT"] = "Could not connect product catalog module";

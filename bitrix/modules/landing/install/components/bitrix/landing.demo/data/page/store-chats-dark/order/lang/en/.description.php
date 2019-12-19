@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_DEMO_STORE_CHATS_DARK-ORDER-DESC"] = "A full-featured checkout page.";
 $MESS["LANDING_DEMO_STORE_CHATS_DARK-ORDER-NAME"] = "Checkout";
 $MESS["LANDING_DEMO_STORE_CHATS_DARK-ORDER-RICH_DESC"] = "Thank you for your order!";

@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Темы");
 $GLOBALS["arrFilterTheme"] = array("ID" => "0");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:news",
 	"news_themes",
 	Array(
@@ -83,7 +83,7 @@ $GLOBALS["arrFilterTheme"] = array("ID" => "0");
 			"rss_section" => Array(),
 		)
 	)
-);?><?$APPLICATION->IncludeComponent("bitrix:news.list", "news", array(
+);?><?php $APPLICATION->IncludeComponent("bitrix:news.list", "news", array(
 	"IBLOCK_TYPE" => "news",
 	"IBLOCK_ID" => "#NEWS_IBLOCK_ID#",
 	"NEWS_COUNT" => "20",
@@ -137,4 +137,4 @@ $GLOBALS["arrFilterTheme"] = array("ID" => "0");
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

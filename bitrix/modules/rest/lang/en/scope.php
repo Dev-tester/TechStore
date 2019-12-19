@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['REST_SCOPE_BIZPROC'] = "Business Processes";
 $MESS['REST_SCOPE_CALENDAR'] = "Calendar";
 $MESS['REST_SCOPE_CALL'] = "Telephony (outbound calls)";

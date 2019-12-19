@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DELIVERY_REQ_VIEW_MAIN'] = "Основное";
 $MESS ['SALE_DELIVERY_REQ_VIEW_MAIN_T'] = "Основная информация по заявке";
 $MESS ['SALE_DELIVERY_REQ_VIEW_CONTENT'] = "Содержание";

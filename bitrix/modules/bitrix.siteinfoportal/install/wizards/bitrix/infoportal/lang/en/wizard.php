@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["wiz_structure_data"] = "Install Demo Data For Municipal InfoPortal";
 $MESS["wiz_restructure_data"] = "Reinstall Municipal InfoPortal's Demo Data";
 $MESS["WIZ_PORTAL_NAME"] = "Municipal InfoPortal Name";

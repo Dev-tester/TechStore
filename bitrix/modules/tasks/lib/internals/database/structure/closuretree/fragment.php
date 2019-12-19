@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Internals\DataBase\Structure\ClosureTree;
 
 //use Bitrix\Main\Localization\Loc;

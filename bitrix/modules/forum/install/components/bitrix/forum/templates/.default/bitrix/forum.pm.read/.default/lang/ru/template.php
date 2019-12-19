@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_POST_FULLY'] = "Заполнение ящика:";
 $MESS ['PM_ACT_REPLY'] = "Ответить";
 $MESS ['PM_ACT_EDIT'] = "Редактировать";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (empty($arResult["GALLERY"]) || !$this->__component->__parent)
 	return false;
@@ -17,23 +17,23 @@ if ($arParams["PERMISSION"] >= "U")
 	<div class="photo-controls photo-controls-buttons photo-controls-gallery">
 		<ul class="photo-controls">
 			<li class="photo-control photo-control-album-add">
-				<a onclick="EditAlbum('<?= CUtil::JSEscape(htmlspecialcharsbx($arResult["GALLERY"]["LINK"]["~NEW_ALBUM"]))?>'); return false;" <?
+				<a onclick="EditAlbum('<?= CUtil::JSEscape(htmlspecialcharsbx($arResult["GALLERY"]["LINK"]["~NEW_ALBUM"]))?>'); return false;" <?php 
 					?>rel="nofollow" href="<?=$arResult["GALLERY"]["LINK"]["NEW_ALBUM"]?>"><span><?=GetMessage("P_ADD_ALBUM")?></span></a>
 			</li>
-<??>
+<?php ?>
 			<li class="photo-control photo-control-last photo-control-album-upload">
 				<a target="_self" rel="nofollow" href="<?=$arResult["GALLERY"]["LINK"]["UPLOAD"]?>"><span><?=GetMessage("P_UPLOAD")?></span></a>
 			</li>
 		</ul>
 	</div>
 	</noindex>
-<?
+<?php 
 }
 ?>
 <div class="photo-item photo-gallery-item">
-	<div class="photo-gallery-avatar <?=(empty($arResult["GALLERY"]["PICTURE"]["SRC"])? "photo-gallery-avatar-empty" : "")?>" <?
+	<div class="photo-gallery-avatar <?=(empty($arResult["GALLERY"]["PICTURE"]["SRC"])? "photo-gallery-avatar-empty" : "")?>" <?php 
 		if (!empty($arResult["GALLERY"]["PICTURE"])):
-			?> style="background-image:url('<?=$arResult["GALLERY"]["PICTURE"]["SRC"]?>');"<?
+			?> style="background-image:url('<?=$arResult["GALLERY"]["PICTURE"]["SRC"]?>');"<?php 
 		endif;
 	?>></div>
 	<table cellpadding="0" cellspacing="0" border="0" class="photo-table">
@@ -41,24 +41,24 @@ if ($arParams["PERMISSION"] >= "U")
 			<td>
 				<div class="photo-gallery-name"><?=$arResult["GALLERY"]["NAME"]?></div>
 			</td>
-<?
+<?php 
 if ($arParams["PERMISSION"] >= "U")
 {
 ?>
 			<td>
 				<div class="photo-control">( <a target="_self" href="<?=$arResult["GALLERY"]["LINK"]["EDIT"]?>"><?=GetMessage("P_EDIT")?></a> )</div>
 			</td>
-<?
+<?php 
 }
 ?>
 		</tr>
 	</table>
-<?
+<?php 
 if (!empty($arResult["GALLERY"]["DESCRIPTION"]))
 {
 ?>
 		<div class="photo-gallery-description"><?=$arResult["GALLERY"]["DESCRIPTION"]?></div>
-<?
+<?php 
 }
 ?>
 	<div class="empty-clear"></div>

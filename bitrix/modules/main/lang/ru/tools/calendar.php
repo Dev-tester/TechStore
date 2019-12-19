@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['calend_title'] = "Календарь";
 $MESS ['calend_feb'] = "Февраль";
 $MESS ['calend_mar'] = "Март";

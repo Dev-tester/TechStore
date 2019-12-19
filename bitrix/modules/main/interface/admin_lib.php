@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -1106,8 +1106,8 @@ class CAdminMenu
 //			: ($level < 1 ? '<span class="adm-submenu-item-link-icon" id="default_menu_icon"></span>' : '');
 			: '';
 		$id = 'menu_item_'.RandString(10);
-		?><div class="adm-sub-submenu-block<?=$level > 0 ? ' adm-submenu-level-'.($level+1) : ''?><?=$bSectionActive && isset($aMenu["items"]) && is_array($aMenu["items"]) && count($aMenu['items']) > 0 ? ' adm-sub-submenu-open' : ''?><?=$aMenu["_active"] ? ' adm-submenu-item-active' : ''?>"><?
-		?><div class="adm-submenu-item-name<?=!$bSubmenu ? ' adm-submenu-no-children' : ''?>" id="<?=$id?>" data-type="submenu-item"<?=isset($aMenu['fav_id']) ? ' data-fav-id="'.intval($aMenu['fav_id']).'"' : ''?>><?
+		?><div class="adm-sub-submenu-block<?=$level > 0 ? ' adm-submenu-level-'.($level+1) : ''?><?=$bSectionActive && isset($aMenu["items"]) && is_array($aMenu["items"]) && count($aMenu['items']) > 0 ? ' adm-sub-submenu-open' : ''?><?=$aMenu["_active"] ? ' adm-submenu-item-active' : ''?>"><?php 
+		?><div class="adm-submenu-item-name<?=!$bSubmenu ? ' adm-submenu-no-children' : ''?>" id="<?=$id?>" data-type="submenu-item"<?=isset($aMenu['fav_id']) ? ' data-fav-id="'.intval($aMenu['fav_id']).'"' : ''?>><?php 
 		$onclick = '';
 		if ($bSubmenu)
 		{
@@ -1121,24 +1121,24 @@ class CAdminMenu
 			} //endif;
 		}
 
-		?><span class="adm-submenu-item-arrow"<?=$level > 0 ? ' style="width:'.$this->_get_menu_item_width($level).'px;"' : ''?><?=$onclick ? ' onclick="'.$onclick.'"' : ''?>><span class="adm-submenu-item-arrow-icon"></span></span><?
+		?><span class="adm-submenu-item-arrow"<?=$level > 0 ? ' style="width:'.$this->_get_menu_item_width($level).'px;"' : ''?><?=$onclick ? ' onclick="'.$onclick.'"' : ''?>><span class="adm-submenu-item-arrow-icon"></span></span><?php 
 
 		$menuText = htmlspecialcharsbx(htmlspecialcharsback($aMenu["text"]));
 		if(isset($aMenu["url"]) && $aMenu["url"] <> ""):
 			$menuUrl = htmlspecialcharsbx($aMenu["url"], ENT_COMPAT, false);
-			?><a class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px;"' : ''?> href="<?=$menuUrl?>"><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></a><?
+			?><a class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px;"' : ''?> href="<?=$menuUrl?>"><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></a><?php 
 		elseif ($bSubmenu):
 			if(isset($aMenu["dynamic"]) && $aMenu["dynamic"] == true && !$bSectionActive && (!$aMenu["items"] || count($aMenu["items"]) <= 0)):
-				?><a class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px;"' : ''?> href="javascript:void(0)" onclick="BX.adminMenu.toggleDynSection(<?=$this->_get_menu_item_width($level)?>, this.parentNode.parentNode, '<?=htmlspecialcharsbx(CUtil::JSEscape($aMenu["module_id"]))?>', '<?=htmlspecialcharsbx(CUtil::JSEscape($aMenu["items_id"]))?>', '<?=$level+1?>')"><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></a><?
+				?><a class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px;"' : ''?> href="javascript:void(0)" onclick="BX.adminMenu.toggleDynSection(<?=$this->_get_menu_item_width($level)?>, this.parentNode.parentNode, '<?=htmlspecialcharsbx(CUtil::JSEscape($aMenu["module_id"]))?>', '<?=htmlspecialcharsbx(CUtil::JSEscape($aMenu["items_id"]))?>', '<?=$level+1?>')"><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></a><?php 
 			elseif(!$aMenu["dynamic"] || !$bSectionActive || $aMenu['dynamic'] && $bSectionActive && isset($aMenu["items"]) && count($aMenu["items"]) > 0):
-				?><a class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px;"' : ''?> href="javascript:void(0)" onclick="BX.adminMenu.toggleSection(this.parentNode.parentNode, '<?=htmlspecialcharsbx(CUtil::JSEscape($aMenu["items_id"]))?>', '<?=$level+1?>')"><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></a><?
+				?><a class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px;"' : ''?> href="javascript:void(0)" onclick="BX.adminMenu.toggleSection(this.parentNode.parentNode, '<?=htmlspecialcharsbx(CUtil::JSEscape($aMenu["items_id"]))?>', '<?=$level+1?>')"><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></a><?php 
 			else:
-				?><span class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px"' : ''?>><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></span><?
+				?><span class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px"' : ''?>><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></span><?php 
 			endif;
 		else:
-			?><span class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px"' : ''?>><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></span><?
+			?><span class="adm-submenu-item-name-link<?=(isset($aMenu["readonly"]) && $aMenu["readonly"] == true? ' menutext-readonly':'')?>"<?=$level > 0 ? ' style="padding-left:'.$this->_get_menu_item_padding($level).'px"' : ''?>><?=$icon?><span class="adm-submenu-item-name-link-text"><?=$menuText?></span></span><?php 
 		endif;
-		?></div><?
+		?></div><?php 
 
 		if(($bSubmenu || (isset($aMenu["dynamic"]) && $aMenu["dynamic"] == true)) && is_array($aMenu["items"]))
 		{
@@ -1154,7 +1154,7 @@ class CAdminMenu
 		}
 		else
 			echo  "<div class=\"adm-sub-submenu-block-children\"></div>";
-?></div><?
+?></div><?php 
 		$url = str_replace("&amp;", "&", $aMenu['url']);
 
 		if (isset($aMenu["fav_id"]))
@@ -1720,14 +1720,14 @@ class CAdminContextMenu
 	{
 ?>
 <div class="adm-detail-toolbar"><span style="position:absolute;"></span>
-<?
+<?php 
 	}
 
 	function EndBar()
 	{
 ?>
 </div>
-<?
+<?php 
 	}
 
 	function BeginRightBar()
@@ -1739,14 +1739,14 @@ var right_bar = BX('<?=$id?>');
 BX.Fix(right_bar, {type: 'right', limit_node: BX.previousSibling(right_bar)});
 })</script>
 <div class="adm-detail-toolbar-right" id="<?=$id?>">
-<?
+<?php 
 	}
 
 	function EndRightBar()
 	{
 ?>
 </div>
-<?
+<?php 
 	}
 
 	function GetClassByID($icon_id)
@@ -1796,7 +1796,7 @@ BX.Fix(right_bar, {type: 'right', limit_node: BX.previousSibling(right_bar)});
 			$sClassName = $this->GetClassByID($item["ICON"]);
 ?>
 	<a href="javascript:void(0)" hidefocus="true" onclick="this.blur();<?=$sMenuUrl?> return false;" class="adm-btn<?=$sClassName != '' ? ' '.$sClassName : ''?> adm-btn-menu" title="<?=$item["TITLE"];?>"><?=$item["TEXT"]?></a>
-<?
+<?php 
 		}
 		else
 		{
@@ -1804,14 +1804,14 @@ BX.Fix(right_bar, {type: 'right', limit_node: BX.previousSibling(right_bar)});
 
 			if ($item['ICON'] == 'btn_list'/* || $item['ICON'] == 'btn_up'*/):
 ?>
-	<a <?if ($this->isPublicFrame):?>target="_top"<?endif;?> href="<?=($item["ONCLICK"] <> ''? 'javascript:void(0)' : $link)?>" <?=$item["LINK_PARAM"]?> class="adm-detail-toolbar-btn" title="<?=$item["TITLE"].$hkInst->GetTitle($item["ICON"])?>"<?=($item["ONCLICK"] <> ''? ' onclick="'.htmlspecialcharsbx($item["ONCLICK"]).'"':'')?><?=(!empty($item["ICON"])? ' id="'.$item["ICON"].'"':'')?>><span class="adm-detail-toolbar-btn-l"></span><span class="adm-detail-toolbar-btn-text"><?=$item["TEXT"]?></span><span class="adm-detail-toolbar-btn-r"></span></a>
-<?
+	<a <?php if ($this->isPublicFrame):?>target="_top"<?php endif;?> href="<?=($item["ONCLICK"] <> ''? 'javascript:void(0)' : $link)?>" <?=$item["LINK_PARAM"]?> class="adm-detail-toolbar-btn" title="<?=$item["TITLE"].$hkInst->GetTitle($item["ICON"])?>"<?=($item["ONCLICK"] <> ''? ' onclick="'.htmlspecialcharsbx($item["ONCLICK"]).'"':'')?><?=(!empty($item["ICON"])? ' id="'.$item["ICON"].'"':'')?>><span class="adm-detail-toolbar-btn-l"></span><span class="adm-detail-toolbar-btn-text"><?=$item["TEXT"]?></span><span class="adm-detail-toolbar-btn-r"></span></a>
+<?php 
 			else:
 				$sClassName = $this->GetClassByID($item["ICON"]);
 ?>
-	<a <?if ($this->isPublicFrame):?>target="_top"<?endif;?> href="<?=($item["ONCLICK"] <> ''? 'javascript:void(0)' : $link)?>" <?=$item["LINK_PARAM"]?> class="adm-btn<?=$sClassName != '' ? ' '.$sClassName : ''?>" title="<?=$item["TITLE"].$hkInst->GetTitle($item["ICON"])?>"<?=($item["ONCLICK"] <> ''? ' onclick="'.htmlspecialcharsbx($item["ONCLICK"]).'"' : '')?><?=(!empty($item["ICON"])? ' id="'.$item["ICON"].'"':'')?>><?=$item["TEXT"]?></a>
+	<a <?php if ($this->isPublicFrame):?>target="_top"<?php endif;?> href="<?=($item["ONCLICK"] <> ''? 'javascript:void(0)' : $link)?>" <?=$item["LINK_PARAM"]?> class="adm-btn<?=$sClassName != '' ? ' '.$sClassName : ''?>" title="<?=$item["TITLE"].$hkInst->GetTitle($item["ICON"])?>"<?=($item["ONCLICK"] <> ''? ' onclick="'.htmlspecialcharsbx($item["ONCLICK"]).'"' : '')?><?=(!empty($item["ICON"])? ' id="'.$item["ICON"].'"':'')?>><?=$item["TEXT"]?></a>
 
-<?
+<?php 
 			endif;
 
 			$arExecs = $hkInst->GetCodeByClassName($item["ICON"]);
@@ -1824,7 +1824,7 @@ BX.Fix(right_bar, {type: 'right', limit_node: BX.previousSibling(right_bar)});
 		$sMenuUrl = "BX.adminList.ShowMenu(this, ".htmlspecialcharsbx(CAdminPopup::PhpToJavaScript($this->additional_items)).");";
 ?>
 	<div class="adm-small-button adm-table-setting" title="<?=htmlspecialcharsbx(GetMessage('admin_lib_context_sett_title'))?>" onclick="this.blur();<?=$sMenuUrl?> return false;" ></div>
-<?
+<?php 
 	}
 }
 
@@ -1835,7 +1835,7 @@ class CAdminContextMenuList extends CAdminContextMenu
 	{
 ?>
 <div class="adm-list-table-top">
-<?
+<?php 
 	}
 
 	function GetClassByID($icon_id)
@@ -2365,7 +2365,7 @@ class CAdminChain
 
 ?>
 <div class="adm-navchain"<?=($this->id ? ' id="'.$this->id.'"':'').($this->bVisible == false? ' style="display:none;"' : '')?>>
-<?
+<?php 
 		$last_item = null;
 
 		$cnt = count($this->items)-1;
@@ -2422,12 +2422,12 @@ class CAdminChain
 		}
 ?>
 </div>
-<?
+<?php 
 		if ($chainScripts != '')
 		{
 ?>
 <script type="text/javascript"><?=$chainScripts?></script>
-<?
+<?php 
 		}
 
 		return $last_item;

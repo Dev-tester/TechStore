@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["nav_first"]="Первая";
 $MESS["nav_prev"]="Пред.";
 $MESS["nav_paged"]="По стр.";

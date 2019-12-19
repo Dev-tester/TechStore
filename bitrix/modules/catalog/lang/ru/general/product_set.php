@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_SET_ERR_ITEMS_IS_ABSENT"] = "Не указаны товары, входящие в комплект/набор";
 $MESS["BT_CAT_SET_ERR_PRODUCT_ID_IS_BAD"] = "Неверный ID товара, для которого создается комплект/набор";
 $MESS["BT_CAT_SET_ERR_TYPE_IS_BAD"] = "Неверный тип сущности";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C28_T_DO_DELETE'] = "Удалить";
 $MESS ['SONET_C28_T_SELECT_ALL'] = "Отметить все/Снять отметку у всех";
 $MESS ['SONET_C28_T_TO_USER'] = "Получатель";

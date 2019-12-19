@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ME_MODULE_NOT_INSTALLED"] = "Модуль планерок и собраний не установлен";
 $MESS["ME_MEETING_NOT_FOUND"] = "Собрание не найдено";
 $MESS["ME_MEETING_ACCESS_DENIED"] = "Доступ запрещен";

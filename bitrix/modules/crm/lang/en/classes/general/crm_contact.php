@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_CONTACT_CREATION_CANCELED'] = "Contact has not been created because the operation was canceled by event handler: \"#NAME#\"";
 $MESS['CRM_CONTACT_EVENT_ADD'] = "Contact created";
 $MESS['CRM_CONTACT_EVENT_UPDATE_ASSIGNED_BY'] = "Responsible person updated";

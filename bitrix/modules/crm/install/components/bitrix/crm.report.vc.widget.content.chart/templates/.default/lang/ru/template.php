@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CRM_REPORT_VC_W_C_CHART_STAGE_HINT_QUANTITY'] = "Процент показывает на сколько изменилось количество по отношению к предыдущему периоду.";
 $MESS ['CRM_REPORT_VC_W_C_CHART_STAGE_HINT_COST'] = "Процент показывает на сколько изменилась стоимость по отношению к предыдущему периоду.";
 $MESS ['CRM_REPORT_VC_W_C_CHART_STAGE_MOVE_TO_STAGE'] = "перешло на этап";

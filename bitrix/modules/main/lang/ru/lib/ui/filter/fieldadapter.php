@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_FILTER__YES"] = "Да";
 $MESS["MAIN_UI_FILTER__NO"] = "Нет";
 $MESS["MAIN_UI_FILTER__NONE"] = "Любая дата";

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CIEmployeeProperty
@@ -44,33 +44,33 @@ class CIEmployeeProperty
 
 		ob_start();
 		?>
-<input type="text" name="<?echo htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" id="<?echo $name_x?>" value="<?echo intval($value['VALUE']) > 0 ? intval($value['VALUE']) : ''?>" size="3" class="typeinput" />&nbsp;&nbsp;<?
+<input type="text" name="<?php echo htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" id="<?php echo $name_x?>" value="<?php echo intval($value['VALUE']) > 0 ? intval($value['VALUE']) : ''?>" size="3" class="typeinput" />&nbsp;&nbsp;<?php 
 		$APPLICATION->IncludeComponent('bitrix:intranet.user.search', '', array(
 			'INPUT_NAME' => $name_x,
 			'MULTIPLE' => 'N',
 			'SHOW_BUTTON' => 'Y',
-		), null, array('HIDE_ICONS' => 'Y'))?><IFRAME style="width:0; height:0; border: 0; display: none;" src="javascript:void(0)" name="hiddenframe<?echo htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" id="hiddenframe<?=$name_x?>"></IFRAME><span id="div_<?=$name_x?>"></span>
+		), null, array('HIDE_ICONS' => 'Y'))?><IFRAME style="width:0; height:0; border: 0; display: none;" src="javascript:void(0)" name="hiddenframe<?php echo htmlspecialcharsbx($strHTMLControlName["VALUE"])?>" id="hiddenframe<?=$name_x?>"></IFRAME><span id="div_<?=$name_x?>"></span>
 <script>
 var value_<?=$name_x?> = '';
 function Ch<?=$name_x?>()
 {
 	var DV_<?=$name_x?> = document.getElementById("div_<?=$name_x?>");
-	if (document.getElementById('<?echo $name_x?>'))
+	if (document.getElementById('<?php echo $name_x?>'))
 	{
 		var old_value = value_<?=$name_x?>;
-		value_<?=$name_x?>=parseInt(document.getElementById('<?echo $name_x?>').value);
+		value_<?=$name_x?>=parseInt(document.getElementById('<?php echo $name_x?>').value);
 		if (value_<?=$name_x?> > 0)
 		{
 			if (old_value != value_<?=$name_x?>)
 			{
-				DV_<?=$name_x?>.innerHTML = '<i><? echo CUtil::JSEscape(GetMessage("MAIN_WAIT"))?></i>';
-				if (value_<?=$name_x?> != <?echo intval($USER->GetID())?>)
+				DV_<?=$name_x?>.innerHTML = '<i><?php  echo CUtil::JSEscape(GetMessage("MAIN_WAIT"))?></i>';
+				if (value_<?=$name_x?> != <?php echo intval($USER->GetID())?>)
 				{
-					document.getElementById("hiddenframe<?=$name_x?>").src='<?=$selfFolderUrl; ?>get_user.php?ID=' + value_<?=$name_x?>+'&strName=<?=$name_x?>&lang=<? echo LANGUAGE_ID.(defined("ADMIN_SECTION") && ADMIN_SECTION===true?"&admin_section=Y":"")?>';
+					document.getElementById("hiddenframe<?=$name_x?>").src='<?=$selfFolderUrl; ?>get_user.php?ID=' + value_<?=$name_x?>+'&strName=<?=$name_x?>&lang=<?php  echo LANGUAGE_ID.(defined("ADMIN_SECTION") && ADMIN_SECTION===true?"&admin_section=Y":"")?>';
 				}
 				else
 				{
-					DV_<?=$name_x?>.innerHTML = '[<?=$titleUserId?>] (<?echo CUtil::JSEscape(htmlspecialcharsbx($USER->GetLogin()))?>) <? echo CUtil::JSEscape(htmlspecialcharsbx($USER->GetFirstName().' '.$USER->GetLastName()))?>';
+					DV_<?=$name_x?>.innerHTML = '[<?=$titleUserId?>] (<?php echo CUtil::JSEscape(htmlspecialcharsbx($USER->GetLogin()))?>) <?php  echo CUtil::JSEscape(htmlspecialcharsbx($USER->GetFirstName().' '.$USER->GetLastName()))?>';
 				}
 			}
 
@@ -85,7 +85,7 @@ function Ch<?=$name_x?>()
 Ch<?=$name_x?>();
 //-->
 </script>
-<?
+<?php 
 			$return = ob_get_contents();
 			ob_end_clean();
 		return  $return;
@@ -382,7 +382,7 @@ class CUserTypeEmployeeDisplay extends \Bitrix\Main\UserField\TypeBase
 })();
 </script>
 
-<?
+<?php 
 		$jsObject = 'BX.Intranet.UserFieldEmployee.instance(\''.\CUtil::JSEscape($selectorName).'\')';
 		$componentValue = array();
 		foreach($fieldValue as $userId)
@@ -638,32 +638,32 @@ class CIBlockPropertyEmployee extends CIEmployeeProperty
 		$controlID = "Single_" . RandString(6);
 		$controlName = $strHTMLControlName['VALUE'];
 		?>
-		<input type="text" id="<?echo $controlID?>" value="<?if($arUser) echo htmlspecialcharsbx($arUser['ID']);?>" name="<?echo $controlName?>" style="width:35px;font-size:14px;border:1px #c8c8c8 solid;">
-		<a href="javascript:void(0)" id="single-user-choice<?echo $controlID?>"><?=GetMessage("INTR_PROP_EMP_SU")?></a>
-		<span id="<?echo $controlID?>_name" style="margin-left:15px"><?=htmlspecialcharsex($UF_HeadName)?></span>
-		<span id="structure-department-head<?echo $controlID?>" class="structure-department-head" <?if ($UF_HeadName != ""):?>style="visibility:visible"<?endif;?> onclick='BX("<?echo $controlID?>").value = ""; BX("<?echo $controlID?>_name").innerHTML = ""; BX("structure-department-head<?echo $controlID?>").style.visibility="hidden";'></span><br>
-		<?CUtil::InitJSCore(array('popup'));?>
+		<input type="text" id="<?php echo $controlID?>" value="<?php if($arUser) echo htmlspecialcharsbx($arUser['ID']);?>" name="<?php echo $controlName?>" style="width:35px;font-size:14px;border:1px #c8c8c8 solid;">
+		<a href="javascript:void(0)" id="single-user-choice<?php echo $controlID?>"><?=GetMessage("INTR_PROP_EMP_SU")?></a>
+		<span id="<?php echo $controlID?>_name" style="margin-left:15px"><?=htmlspecialcharsex($UF_HeadName)?></span>
+		<span id="structure-department-head<?php echo $controlID?>" class="structure-department-head" <?php if ($UF_HeadName != ""):?>style="visibility:visible"<?php endif;?> onclick='BX("<?php echo $controlID?>").value = ""; BX("<?php echo $controlID?>_name").innerHTML = ""; BX("structure-department-head<?php echo $controlID?>").style.visibility="hidden";'></span><br>
+		<?php CUtil::InitJSCore(array('popup'));?>
 		<script type="text/javascript" src="/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/users.js"></script>
 		<script type="text/javascript">BX.loadCSS('/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/style.css');</script>
 		<script>// user_selector:
-		var multiPopup<?echo $controlID?>;
-		var singlePopup<?echo $controlID?>;
-		var taskIFramePopup<?echo $controlID?>;
+		var multiPopup<?php echo $controlID?>;
+		var singlePopup<?php echo $controlID?>;
+		var taskIFramePopup<?php echo $controlID?>;
 
-		function onSingleSelect<?echo $controlID?>(arUser)
+		function onSingleSelect<?php echo $controlID?>(arUser)
 		{
-			BX("<?echo $controlID?>").value = arUser.id;
-			BX("<?echo $controlID?>_name").innerHTML = BX.util.htmlspecialchars(arUser.name);
-			BX("structure-department-head<?echo $controlID?>").style.visibility="visible";
+			BX("<?php echo $controlID?>").value = arUser.id;
+			BX("<?php echo $controlID?>_name").innerHTML = BX.util.htmlspecialchars(arUser.name);
+			BX("structure-department-head<?php echo $controlID?>").style.visibility="visible";
 		}
 
-		function ShowSingleSelector<?echo $controlID?>(e)
+		function ShowSingleSelector<?php echo $controlID?>(e)
 		{
 			if(!e) e = window.event;
 
-			if (!singlePopup<?echo $controlID?>)
+			if (!singlePopup<?php echo $controlID?>)
 			{
-				singlePopup<?echo $controlID?> = new BX.PopupWindow("single-employee-popup-<?echo $controlID?>", this, {
+				singlePopup<?php echo $controlID?> = new BX.PopupWindow("single-employee-popup-<?php echo $controlID?>", this, {
 					offsetTop : 1,
 					autoHide : true,
 					content : BX("<?=CUtil::JSEscape($controlID)?>_selector_content"),
@@ -672,26 +672,26 @@ class CIBlockPropertyEmployee extends CIEmployeeProperty
 			}
 			else
 			{
-				singlePopup<?echo $controlID?>.setBindElement(this);
+				singlePopup<?php echo $controlID?>.setBindElement(this);
 			}
 
-			if (singlePopup<?echo $controlID?>.popupContainer.style.display != "block")
-				singlePopup<?echo $controlID?>.show();
+			if (singlePopup<?php echo $controlID?>.popupContainer.style.display != "block")
+				singlePopup<?php echo $controlID?>.show();
 
 			return BX.PreventDefault(e);
 		}
 
-		function Clear<?echo $controlID?>()
+		function Clear<?php echo $controlID?>()
 		{
 			O_<?=CUtil::JSEscape($controlID)?>.setSelected();
 		}
 
 		BX.ready(function() {
-			BX.bind(BX("single-user-choice<?echo $controlID?>"), "click", ShowSingleSelector<?echo $controlID?>);
-			BX.bind(BX("clear-user-choice"), "click", Clear<?echo $controlID?>);
+			BX.bind(BX("single-user-choice<?php echo $controlID?>"), "click", ShowSingleSelector<?php echo $controlID?>);
+			BX.bind(BX("clear-user-choice"), "click", Clear<?php echo $controlID?>);
 		});
 		</script>
-		<?$name = $APPLICATION->IncludeComponent(
+		<?php $name = $APPLICATION->IncludeComponent(
 			"bitrix:intranet.user.selector.new", ".default", array(
 				"MULTIPLE" => "N",
 				"NAME" => $controlID,
@@ -722,32 +722,32 @@ class CIBlockPropertyEmployee extends CIEmployeeProperty
 		$controlID = "Single_" . RandString(6);
 		$controlName = $strHTMLControlName['VALUE'];
 		?>
-		<input type="text" id="<?echo $controlID?>" value="<?if($arUser) echo htmlspecialcharsbx($arUser['ID']);?>" name="<?echo $controlName?>" style="width:35px;font-size:14px;border:1px #c8c8c8 solid;">
-		<a href="javascript:void(0)" id="single-user-choice<?echo $controlID?>"><?=GetMessage("INTR_PROP_EMP_SU")?></a>
-		<span id="<?echo $controlID?>_name" style="margin-left:15px"><?=htmlspecialcharsex($UF_HeadName)?></span>
-		<span id="structure-department-head<?echo $controlID?>" class="structure-department-head" <?if ($UF_HeadName != ""):?>style="visibility:visible"<?endif;?> onclick='BX("<?echo $controlID?>").value = ""; BX("<?echo $controlID?>_name").innerHTML = ""; BX("structure-department-head<?echo $controlID?>").style.visibility="hidden";'></span><br>
-		<?CUtil::InitJSCore(array('popup'));?>
+		<input type="text" id="<?php echo $controlID?>" value="<?php if($arUser) echo htmlspecialcharsbx($arUser['ID']);?>" name="<?php echo $controlName?>" style="width:35px;font-size:14px;border:1px #c8c8c8 solid;">
+		<a href="javascript:void(0)" id="single-user-choice<?php echo $controlID?>"><?=GetMessage("INTR_PROP_EMP_SU")?></a>
+		<span id="<?php echo $controlID?>_name" style="margin-left:15px"><?=htmlspecialcharsex($UF_HeadName)?></span>
+		<span id="structure-department-head<?php echo $controlID?>" class="structure-department-head" <?php if ($UF_HeadName != ""):?>style="visibility:visible"<?php endif;?> onclick='BX("<?php echo $controlID?>").value = ""; BX("<?php echo $controlID?>_name").innerHTML = ""; BX("structure-department-head<?php echo $controlID?>").style.visibility="hidden";'></span><br>
+		<?php CUtil::InitJSCore(array('popup'));?>
 		<script type="text/javascript" src="/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/users.js"></script>
 		<script type="text/javascript">BX.loadCSS('/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/style.css');</script>
 		<script>// user_selector:
-		var multiPopup<?echo $controlID?>;
-		var singlePopup<?echo $controlID?>;
-		var taskIFramePopup<?echo $controlID?>;
+		var multiPopup<?php echo $controlID?>;
+		var singlePopup<?php echo $controlID?>;
+		var taskIFramePopup<?php echo $controlID?>;
 
-		function onSingleSelect<?echo $controlID?>(arUser)
+		function onSingleSelect<?php echo $controlID?>(arUser)
 		{
-			BX("<?echo $controlID?>").value = arUser.id;
-			BX("<?echo $controlID?>_name").innerHTML = BX.util.htmlspecialchars(arUser.name);
-			BX("structure-department-head<?echo $controlID?>").style.visibility="visible";
+			BX("<?php echo $controlID?>").value = arUser.id;
+			BX("<?php echo $controlID?>_name").innerHTML = BX.util.htmlspecialchars(arUser.name);
+			BX("structure-department-head<?php echo $controlID?>").style.visibility="visible";
 		}
 
-		function ShowSingleSelector<?echo $controlID?>(e)
+		function ShowSingleSelector<?php echo $controlID?>(e)
 		{
 			if(!e) e = window.event;
 
-			if (!singlePopup<?echo $controlID?>)
+			if (!singlePopup<?php echo $controlID?>)
 			{
-				singlePopup<?echo $controlID?> = new BX.PopupWindow("single-employee-popup-<?echo $controlID?>", this, {
+				singlePopup<?php echo $controlID?> = new BX.PopupWindow("single-employee-popup-<?php echo $controlID?>", this, {
 					offsetTop : 1,
 					autoHide : true,
 					content : BX("<?=CUtil::JSEscape($controlID)?>_selector_content"),
@@ -756,26 +756,26 @@ class CIBlockPropertyEmployee extends CIEmployeeProperty
 			}
 			else
 			{
-				singlePopup<?echo $controlID?>.setBindElement(this);
+				singlePopup<?php echo $controlID?>.setBindElement(this);
 			}
 
-			if (singlePopup<?echo $controlID?>.popupContainer.style.display != "block")
-				singlePopup<?echo $controlID?>.show();
+			if (singlePopup<?php echo $controlID?>.popupContainer.style.display != "block")
+				singlePopup<?php echo $controlID?>.show();
 
 			return BX.PreventDefault(e);
 		}
 
-		function Clear<?echo $controlID?>()
+		function Clear<?php echo $controlID?>()
 		{
 			O_<?=CUtil::JSEscape($controlID)?>.setSelected();
 		}
 
 		BX.ready(function() {
-			BX.bind(BX("single-user-choice<?echo $controlID?>"), "click", ShowSingleSelector<?echo $controlID?>);
-			BX.bind(BX("clear-user-choice"), "click", Clear<?echo $controlID?>);
+			BX.bind(BX("single-user-choice<?php echo $controlID?>"), "click", ShowSingleSelector<?php echo $controlID?>);
+			BX.bind(BX("clear-user-choice"), "click", Clear<?php echo $controlID?>);
 		});
 		</script>
-		<?$name = $APPLICATION->IncludeComponent(
+		<?php $name = $APPLICATION->IncludeComponent(
 			"bitrix:intranet.user.selector.new", ".default", array(
 				"MULTIPLE" => "N",
 				"NAME" => $controlID,
@@ -816,20 +816,20 @@ class CIBlockPropertyEmployee extends CIEmployeeProperty
 		$controlID = "Multiple_" . RandString(6);
 		$controlName = $strHTMLControlName['VALUE'];
 		?>
-		<span id="<?echo $controlID?>_hids"><input type="hidden" name="<?echo $controlName?>[]"></span>
-		<div id="<?echo $controlID?>_res"></div>
-		<a href="javascript:void(0)" id="single-user-choice<?echo $controlID?>"><?=GetMessage("INTR_PROP_EMP_SU")?></a><br>
-		<?CUtil::InitJSCore(array('popup'));?>
+		<span id="<?php echo $controlID?>_hids"><input type="hidden" name="<?php echo $controlName?>[]"></span>
+		<div id="<?php echo $controlID?>_res"></div>
+		<a href="javascript:void(0)" id="single-user-choice<?php echo $controlID?>"><?=GetMessage("INTR_PROP_EMP_SU")?></a><br>
+		<?php CUtil::InitJSCore(array('popup'));?>
 		<script type="text/javascript" src="/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/users.js"></script>
 		<script type="text/javascript">BX.loadCSS('/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/style.css');</script>
 		<script>// user_selector:
-		var multiPopup<?echo $controlID?>;
-		var singlePopup<?echo $controlID?>;
-		var taskIFramePopup<?echo $controlID?>;
+		var multiPopup<?php echo $controlID?>;
+		var singlePopup<?php echo $controlID?>;
+		var taskIFramePopup<?php echo $controlID?>;
 
-		function onMultipleSelect<?echo $controlID?>(arUsers)
+		function onMultipleSelect<?php echo $controlID?>(arUsers)
 		{
-			var hiddens = BX.findChildren(BX('<?echo $controlID?>_hids'), {tagName : 'input'}, true);
+			var hiddens = BX.findChildren(BX('<?php echo $controlID?>_hids'), {tagName : 'input'}, true);
 			for(var i = 0; i < hiddens.length; i++)
 				hiddens[i].value = '';
 
@@ -848,16 +848,16 @@ class CIBlockPropertyEmployee extends CIEmployeeProperty
 					text += '['+arUser.id+'] ' + BX.util.htmlspecialchars(arUser.name)+'<br>';
 				}
 			}
-			BX("<?echo $controlID?>_res").innerHTML = text;
+			BX("<?php echo $controlID?>_res").innerHTML = text;
 		}
 
-		function ShowSingleSelector<?echo $controlID?>(e)
+		function ShowSingleSelector<?php echo $controlID?>(e)
 		{
 			if(!e) e = window.event;
 
-			if (!singlePopup<?echo $controlID?>)
+			if (!singlePopup<?php echo $controlID?>)
 			{
-				singlePopup<?echo $controlID?> = new BX.PopupWindow("single-employee-popup-<?echo $controlID?>", this, {
+				singlePopup<?php echo $controlID?> = new BX.PopupWindow("single-employee-popup-<?php echo $controlID?>", this, {
 					offsetTop : 1,
 					autoHide : true,
 					content : BX("<?=CUtil::JSEscape($controlID)?>_selector_content"),
@@ -866,26 +866,26 @@ class CIBlockPropertyEmployee extends CIEmployeeProperty
 			}
 			else
 			{
-				singlePopup<?echo $controlID?>.setBindElement(this);
+				singlePopup<?php echo $controlID?>.setBindElement(this);
 			}
 
-			if (singlePopup<?echo $controlID?>.popupContainer.style.display != "block")
-				singlePopup<?echo $controlID?>.show();
+			if (singlePopup<?php echo $controlID?>.popupContainer.style.display != "block")
+				singlePopup<?php echo $controlID?>.show();
 
 			return BX.PreventDefault(e);
 		}
 
-		function Clear<?echo $controlID?>()
+		function Clear<?php echo $controlID?>()
 		{
 			O_<?=CUtil::JSEscape($controlID)?>.setSelected();
 		}
 
 		BX.ready(function() {
-			BX.bind(BX("single-user-choice<?echo $controlID?>"), "click", ShowSingleSelector<?echo $controlID?>);
-			BX.bind(BX("clear-user-choice"), "click", Clear<?echo $controlID?>);
+			BX.bind(BX("single-user-choice<?php echo $controlID?>"), "click", ShowSingleSelector<?php echo $controlID?>);
+			BX.bind(BX("clear-user-choice"), "click", Clear<?php echo $controlID?>);
 		});
 		</script>
-		<?$name = $APPLICATION->IncludeComponent(
+		<?php $name = $APPLICATION->IncludeComponent(
 			"bitrix:intranet.user.selector.new", ".default", array(
 				"MULTIPLE" => "Y",
 				"NAME" => $controlID,

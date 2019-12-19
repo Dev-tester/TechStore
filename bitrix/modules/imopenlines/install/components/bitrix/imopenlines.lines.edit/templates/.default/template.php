@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 
@@ -32,14 +32,14 @@ $APPLICATION->SetTitle($arResult["PAGE_TITLE"]);
 		'IMOL_CONFIG_EDIT_POPUP_LIMITED_ACTIVE': '<?=GetMessageJS("IMOL_CONFIG_EDIT_POPUP_LIMITED_ACTIVE")?>'
 	});
 </script>
-<?
+<?php 
 if (!$arResult["IFRAME"])
 {
 	?>
 	<div class="imopenlines-page-menu-sidebar">
-		<?$APPLICATION->ShowViewContent("left-panel");?>
+		<?php $APPLICATION->ShowViewContent("left-panel");?>
 	</div>
-	<?
+	<?php 
 }
 
 $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
@@ -48,29 +48,29 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 	'RELOAD_PAGE_AFTER_SAVE' => true
 ));
 ?>
-<div id="imopenlines-field-container" <?if(!$arResult["IFRAME"]){?>class="imopenlines-page-field-container"<?}?>>
+<div id="imopenlines-field-container" <?php if(!$arResult["IFRAME"]){?>class="imopenlines-page-field-container"<?php }?>>
 	<form action="<?=$arResult['ACTION_URI']?>"
 		  method="POST"
 		  id="imol_config_edit_form"
-	<?if ($arResult["IFRAME"]):?>class="imopenlines-form-settings-wrap"<?endif;?>>
+	<?php if ($arResult["IFRAME"]):?>class="imopenlines-form-settings-wrap"<?php endif;?>>
 		<?=bitrix_sessid_post()?>
 		<input type="hidden" name="CONFIG_ID" id="imol_config_id" value="<?=$arResult["CONFIG"]["ID"]?>" />
 		<input type="hidden" name="form" value="imopenlines_edit_form" />
 		<input type="hidden" name="action" value="apply" id="imol_config_edit_form_action" />
 		<input type="hidden" name="PAGE" value="<?=$arResult["PAGE"]?>" id="imol_config_current_page">
-		<?
+		<?php 
 		foreach ($arResult["CONFIG_MENU"] as $key => $menuItem)
 		{
 			?>
-			<div data-imol-page="<?=$key?>" class="<?if($key == $arResult["PAGE"]){?>imopenlines-page-show<?}else{?>imopenlines-page-hide invisible<?}?>">
-				<?include $menuItem["PAGE"]; ?>
+			<div data-imol-page="<?=$key?>" class="<?php if($key == $arResult["PAGE"]){?>imopenlines-page-show<?php }else{?>imopenlines-page-hide invisible<?php }?>">
+				<?php include $menuItem["PAGE"]; ?>
 				<div data-imol-title="<?=$menuItem["NAME"]?>" class="invisible"></div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 
-		<?
+		<?php 
 		if ($arResult["CAN_EDIT"])
 		{
 			$APPLICATION->IncludeComponent(

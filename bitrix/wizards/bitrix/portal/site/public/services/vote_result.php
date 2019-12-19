@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/vote_result.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:voting.result",
 	"",
 	Array(
@@ -16,4 +16,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 <br />
  <a href="/services/votes.php"><?=GetMessage("SERVICES_LINK")?></a>
 <br />
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

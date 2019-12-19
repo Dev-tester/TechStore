@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (
 	$arReturnGroupMenu
 	&& array_key_exists("CURRENT_USER_PERMS", $arReturnGroupMenu)
@@ -21,7 +21,7 @@ if (
 		SGMSubscribeButtonTitleOn: '<?=GetMessageJS("SONET_SGM_T_NOTIFY_TITLE_ON")?>',
 		SGMSubscribeButtonTitleOff: '<?=GetMessageJS("SONET_SGM_T_NOTIFY_TITLE_OFF")?>'
 	});
-	</script><?
+	</script><?php 
 
 	CUtil::InitJSCore(array("ajax", "popup"));
 	$GLOBALS["APPLICATION"]->AddHeadScript("/bitrix/components/bitrix/socialnetwork.group_menu/templates/.default/script.js");
@@ -37,7 +37,7 @@ if (
 			#sidebar { position: relative; }
 			#sidebar .content-title { padding-right: 23px; }
 		</style>
-		<a id="group_menu_subscribe_button" class="profile-menu-notify-btn<?=($arReturnGroupMenu["IS_SUBSCRIBED"] ? " profile-menu-notify-btn-active" : "")?>" title="<?=GetMessage("SONET_SGM_T_NOTIFY_TITLE_".($arReturnGroupMenu["IS_SUBSCRIBED"] ? "ON" : "OFF"))?>" href="#" onclick="__SGMSetSubscribe(<?=$arResult["VARIABLES"]["group_id"]?>, event);" style="z-index: 100; position: absolute; top: <?=(strpos(SITE_TEMPLATE_ID, "stretchy") === 0 ? "60" : "93")?>px; right: 6px;"></a><?
+		<a id="group_menu_subscribe_button" class="profile-menu-notify-btn<?=($arReturnGroupMenu["IS_SUBSCRIBED"] ? " profile-menu-notify-btn-active" : "")?>" title="<?=GetMessage("SONET_SGM_T_NOTIFY_TITLE_".($arReturnGroupMenu["IS_SUBSCRIBED"] ? "ON" : "OFF"))?>" href="#" onclick="__SGMSetSubscribe(<?=$arResult["VARIABLES"]["group_id"]?>, event);" style="z-index: 100; position: absolute; top: <?=(strpos(SITE_TEMPLATE_ID, "stretchy") === 0 ? "60" : "93")?>px; right: 6px;"></a><?php 
 		$this->EndViewTarget();
 	}
 }

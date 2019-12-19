@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_BTN_START"] = "Начать";
 $MESS["LEARNING_BTN_CONTINUE"] = "Продолжить";
 $MESS["LEARNING_TEST_NAME"] = "Название теста";

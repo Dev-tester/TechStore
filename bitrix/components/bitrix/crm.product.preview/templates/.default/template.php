@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm-preview.css');

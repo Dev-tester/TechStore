@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEXC_ORDER_DATE"]="Дата заказа";
 $MESS["SEXC_PAY_DATE"]="Дата оплаты";
 $MESS["SEXC_YES"]="Да";

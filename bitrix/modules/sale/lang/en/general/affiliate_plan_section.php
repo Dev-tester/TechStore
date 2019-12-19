@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCGAPS1_NO_PLAN"] = "The plan ID is not specified";
 $MESS["SCGAPS1_NO_MODULE"] = "The module name is not specified";
 $MESS["SCGAPS1_NO_SECTION"] = "The group ID is not specified";

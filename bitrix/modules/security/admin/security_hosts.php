@@ -1,4 +1,4 @@
-<?
+<?php 
 define('ADMIN_MODULE_NAME', 'security');
 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_before.php');
@@ -117,11 +117,11 @@ if (!is_null($errorMessage))
 ?>
 
 <form method="POST" action="security_hosts.php?lang=<?=LANGUAGE_ID?><?=$returnUrlQuery?>" enctype="multipart/form-data" name="editform">
-<?echo bitrix_sessid_post();?>
-<?
+<?php echo bitrix_sessid_post();?>
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
@@ -159,11 +159,11 @@ $tabControl->BeginNextTab();
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><?=Loc::getMessage('SECURITY_HOSTS_NOTE')?>
-		<?echo EndNote();?>
+		<?php echo BeginNote();?><?=Loc::getMessage('SECURITY_HOSTS_NOTE')?>
+		<?php echo EndNote();?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		'back_url' => $request['return_url']? $request['return_url']: 'security_hosts.php?lang='.LANG,
@@ -171,10 +171,10 @@ $tabControl->Buttons(
 );
 ?>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');
 ?>

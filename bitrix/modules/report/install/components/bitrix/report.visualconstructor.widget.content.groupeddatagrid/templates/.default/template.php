@@ -10,7 +10,7 @@ $backgroundColor = $arResult['WIDGET_COLOR'];
 ?>
 <div class="report-widget-triple-data-with-progress" data-role="report-widget-triple-data-with-progress" style="display: block;">
 	<div class="report-widget-triple-data-with-progress-wrapper" data-role="report-widget-triple-data-with-progress-wrapper">
-		<? foreach ($calculateResult['items'] as $groupKey => $item): ?>
+		<?php  foreach ($calculateResult['items'] as $groupKey => $item): ?>
 			<div class="report-operator" data-role="report-operator">
 				<div class="report-operator-header" data-role="report-operator-header">
 					<div class="report-operator-user">
@@ -18,7 +18,7 @@ $backgroundColor = $arResult['WIDGET_COLOR'];
 						<div class="report-operator-user-name">
 							<span class="report-operator-user-name-link"><?= $calculateResult['config']['groupOptions'][$groupKey]['title'] ?></span>
 							<!--                        <span class="report-operator-user-name-position">-->
-							<? //=$groupKey//$calculateResult['config']['groupOptions'][$groupKey]['description']?><!--</span>-->
+							<?php  //=$groupKey//$calculateResult['config']['groupOptions'][$groupKey]['description']?><!--</span>-->
 						</div>
 					</div>
 					<div class="report-operator-wrapper">
@@ -73,7 +73,7 @@ $backgroundColor = $arResult['WIDGET_COLOR'];
 					</div>
 				</div>
 			</div>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</div>
 </div>
 <span class="reports-more-users <?=(count($calculateResult['items']) <= 4) ? 'reports-more-users-hidden': ''?>"   data-role="reports-more-users"><?=\Bitrix\Main\Localization\Loc::getMessage('REPORT_GROUPED_DATA_GRID_MORE_TITLE')?></span>

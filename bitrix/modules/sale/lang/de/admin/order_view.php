@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_OVIEW_TITLE"] = "Bestellung ID (#ID#), Nr. #NUM#, erstellt am #DATE#";
 $MESS["SALE_OVIEW_TO_LIST"] = "Liste der Bestellungen";
 $MESS["SALE_OVIEW_TO_LIST_TITLE"] = "Zur Liste der Bestellungen";

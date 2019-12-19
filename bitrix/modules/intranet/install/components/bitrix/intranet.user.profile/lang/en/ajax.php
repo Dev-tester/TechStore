@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_EMAIL_ERROR"] = "Incorrect email format";
 $MESS["INTRANET_USER_PROFILE_EMPTY_DEPARTMENT_ERROR"] = "Department is not selected";
 $MESS["INTRANET_USER_PROFILE_INTEGRATOR_COUNT_ERROR"] = "The maximum number of Bitrix24 partners exceeded";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["socserv_mailru_id"] = "Website ID:";
 $MESS["socserv_mailru_key"] = "Private Key:";
 $MESS["socserv_mailru_secret"] = "Secret Key:";

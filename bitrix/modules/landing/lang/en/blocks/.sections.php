@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LD_BLOCK_SECTION_ABOUT"] = "About";
 $MESS["LD_BLOCK_SECTION_BENEFITS"] = "Benefits";
 $MESS["LD_BLOCK_SECTION_COLUMNS"] = "Columns";

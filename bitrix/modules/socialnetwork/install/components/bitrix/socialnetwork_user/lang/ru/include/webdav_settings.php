@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_FILES"] = "Диск";
 $MESS["SONET_FILES_IS_NOT_ACTIVE"] = "Функционал 'Файлы' выключен";
 $MESS["SONET_WD_MODULE_IS_NOT_INSTALLED"] = "Модуль библиотеки документов не установлен.";

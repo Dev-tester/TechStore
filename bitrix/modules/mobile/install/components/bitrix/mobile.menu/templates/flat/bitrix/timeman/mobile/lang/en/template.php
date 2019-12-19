@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_STATUS_WORK"] = "Working";
 $MESS["TM_STATUS_COMPLETED"] = "Clocked out";
 $MESS["TM_STATUS_START"] = "Clock in";

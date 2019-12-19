@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR"] = "Error";
 $MESS["PRESET_APPLY_ERROR"] = "Could not apply menu settings";
 $MESS["PRESET_NAME_DEFAULT"] = "Default";

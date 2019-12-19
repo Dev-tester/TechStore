@@ -30,7 +30,7 @@ if ($arResult['FATAL'])
 		<td><?= Loc::getMessage('LANDING_TPL_COL_MODIFIED')?></td>
 		<td></td>
 	</tr>
-	<?foreach ($arResult['DOMAINS'] as $item):
+	<?php foreach ($arResult['DOMAINS'] as $item):
 		$urlEdit = str_replace('#domain_edit#', $item['ID'], $arParams['PAGE_URL_DOMAIN_EDIT']);
 		$uriDelete = new \Bitrix\Main\Web\Uri($urlEdit);
 		$uriDelete->addParams(array(
@@ -64,7 +64,7 @@ if ($arResult['FATAL'])
 			<a href="<?= $uriDelete->getUri()?>"><?= Loc::getMessage('LANDING_TPL_ACTION_DELETE')?></a>
 		</td>
 	</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 </table>
 
 <br/>

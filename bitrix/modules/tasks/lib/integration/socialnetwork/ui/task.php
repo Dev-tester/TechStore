@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Class implements all further interactions with "socialnetwork" module considering "task item" entity
  *

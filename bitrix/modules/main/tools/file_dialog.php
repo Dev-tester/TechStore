@@ -1,4 +1,4 @@
-<?
+<?php 
 //**************************** FILE DIALOG ACTIONS *************************************
 // File dialog PHP class - /bitrix/modules/main/classes/general/file_dialog.php
 // JS  /bitrix/js/main/file_dialog.js, /bitrix/js/main/file_dialog_engine.js

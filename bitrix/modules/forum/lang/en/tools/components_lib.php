@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_PAGER_SETTINGS'] = "Pager settings";
 $MESS ['FORUM_PAGER_TITLE'] = "Category name";
 $MESS ['FORUM_PAGER_SHOW_ALWAYS'] = "Always show the pager";

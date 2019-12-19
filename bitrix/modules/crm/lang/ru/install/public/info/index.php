@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PAGE_TITLE"] = "Справка";
 $MESS["CRM_PAGE_CONTENT"] = "<h3>Что такое CRM?</h3>
  

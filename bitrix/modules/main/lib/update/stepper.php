@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\Update;
 use \Bitrix\Main\Web\Json;
 use \Bitrix\Main\Config\Option;

@@ -1,4 +1,4 @@
-	<?
+	<?php 
 $module_id = "form";
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/".$module_id."/include.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/".$module_id."/options.php");
@@ -135,47 +135,47 @@ $aTabs = array(
 );
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 ?>
-<?
+<?php 
 $tabControl->Begin();
-?><form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>"><?=bitrix_sessid_post()?><?
+?><form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>"><?=bitrix_sessid_post()?><?php 
 $tabControl->BeginNextTab();
 ?>
-	<?
+	<?php 
 	if (is_array($arAllOptions)):
 		foreach($arAllOptions as $Option):
 			$val = COption::GetOptionString($module_id, $Option[0]);
 			$type = $Option[2];
 	?>
 	<tr>
-		<td valign="top" width="50%"><?	if($type[0]=="checkbox")
+		<td valign="top" width="50%"><?php 	if($type[0]=="checkbox")
 							echo "<label for=\"".htmlspecialcharsbx($Option[0])."\">".$Option[1]."</label>";
 						else
 							echo $Option[1];?>
 		</td>
-		<td valign="top" nowrap width="50%"><?
+		<td valign="top" nowrap width="50%"><?php 
 			if($type[0]=="checkbox"):
-				?><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>><?
+				?><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>><?php 
 			elseif($type[0]=="text"):
-				?><input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?
+				?><input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php 
 			elseif($type[0]=="textarea"):
-				?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+				?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 			endif;
 			?></td>
 	</tr>
-	<?
+	<?php 
 		endforeach;
 	endif;
 	?>
 	<tr>
 		<td valign="top"><?=GetMessage("FORM_DEFAULT_PERMISSION");?></td>
-		<td valign="top" nowrap><?
+		<td valign="top" nowrap><?php 
 			$arr = CForm::GetPermissionList("N");
 			$perm = COption::GetOptionString("form", "FORM_DEFAULT_PERMISSION");
 			echo SelectBoxFromArray("FORM_DEFAULT_PERMISSION", $arr, $perm);
 			?></td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
-<?
+<?php $tabControl->BeginNextTab();?>
+<?php 
 CJSCore::Init(array('popup', 'ajax'));
 
 $arCRMServers = array();
@@ -211,13 +211,13 @@ while ($arServer = $dbRes->Fetch())
 				</tr>
 			</thead>
 			<tbody>
-<?
+<?php 
 if (count($arCRMServers) <= 0):
 ?>
 				<tr>
 					<td colspan="4" align="center"><?=GetMessage('FORM_TAB_CRM_NOTE');?> <a href="javascript:void(0)" onclick="CRM(); return false;"><?=GetMessage('FORM_TAB_CRM_NOTE_LINK');?></a></td>
 				</tr>
-<?
+<?php 
 endif;
 ?>
 			</tbody>
@@ -460,7 +460,7 @@ function CRMCheck(ID)
 		}
 	});
 }
-<?
+<?php 
 if (count($arCRMServers) > 0):
 ?>
 BX.ready(function() {
@@ -471,24 +471,24 @@ BX.ready(function() {
 		onsuccess: CRMRedraw
 	});
 });
-<?
+<?php 
 endif;
 ?>
 </script>
-<?$tabControl->BeginNextTab();?>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
-<?$tabControl->Buttons();?>
+<?php $tabControl->BeginNextTab();?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?=LANGUAGE_ID?>&mid=<?echo urlencode($mid)?>&<?=bitrix_sessid_get()?>";
+	if(confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?=LANGUAGE_ID?>&mid=<?php echo urlencode($mid)?>&<?=bitrix_sessid_get()?>";
 }
 </script>
-<input <?if ($FORM_RIGHT<"W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("FORM_SAVE")?>">
+<input <?php if ($FORM_RIGHT<"W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("FORM_SAVE")?>">
 <input type="hidden" name="Update" value="Y">
 <input type="reset" name="reset" value="<?=GetMessage("FORM_RESET")?>">
-<input <?if ($FORM_RIGHT<"W") echo "disabled" ?> type="button" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input <?php if ($FORM_RIGHT<"W") echo "disabled" ?> type="button" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
-<?endif;?>
+<?php endif;?>

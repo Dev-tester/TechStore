@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -44,12 +44,12 @@ if($action == 'show_stickers' || $action == 'hide_stickers')
 	}
 	?>
 	<script>
-	<? if ($_REQUEST['b_inited'] == "N"):?>
+	<?php  if ($_REQUEST['b_inited'] == "N"):?>
 		window.__bxst_result.stickers = <?= CUtil::PhpToJSObject($Stickers)?>;
-	<?endif;?>
+	<?php endif;?>
 	window.__bxst_result.show = <?= (CSticker::GetBShowStickers() ? 'true' : 'false')?>;
 	</script>
-	<?
+	<?php 
 }
 elseif ($action == 'load_lhe') // Load light editor
 {
@@ -138,7 +138,7 @@ elseif($action == 'save_sticker')
 <script>
 window.__bxst_result['<?= intVal($_POST['reqid'])?>'] = <?= CUtil::PhpToJSObject(CSticker::GetById($ID))?>;
 </script>
-<?
+<?php 
 	}
 	else
 	{
@@ -165,7 +165,7 @@ elseif ($action == 'show_list')
 
 		if ($res !== true)
 		{
-			?><script>alert("<?= CUtil::JSEscape($res)?>");</script><?
+			?><script>alert("<?= CUtil::JSEscape($res)?>");</script><?php 
 		}
 	}
 
@@ -274,10 +274,10 @@ elseif ($action == 'show_list')
 	$bReadonly = !CSticker::CanDoOperation('sticker_edit');
 ?>
 
-<? if (!$bJustResult): /* Display whole dialog*/?>
+<?php  if (!$bJustResult): /* Display whole dialog*/?>
 <div class="bxst-list">
 	<div class="bxst-list-filter">
-		<div class="bxst-list-filter-hr"> </div> <?/* space in div - is special for IE without Doctype. Don't del it*/?>
+		<div class="bxst-list-filter-hr"> </div> <?php /* space in div - is special for IE without Doctype. Don't del it*/?>
 		<table class="bxst-list-filter-tbl">
 			<tr class="bxst-list-filter-titles">
 				<td><div><?= GetMessage('FMST_LIST_STICKERS')?></div></td>
@@ -309,12 +309,12 @@ elseif ($action == 'show_list')
 						<select id="bxstl_fil_page_sel"  style="width: 200px;">
 							<option value="<?= htmlspecialcharsbx($curPage)?>"> <?= GetMessage('FMST_LIST_CURRENT')?> </option>
 							<option value="all"> <?= GetMessage('FMST_LIST_ALL_PAGES')?> </option>
-							<? for ($i = 0, $l = count($arPages); $i < $l; $i++):
+							<?php  for ($i = 0, $l = count($arPages); $i < $l; $i++):
 								if ($arPages[$i]['PAGE_URL'] == $curPage)
 									continue;
 								?>
 								<option value="<?= str_replace('%20', ' ', $arPages[$i]['PAGE_URL'])?>" title="<?= htmlspecialcharsex($arPages[$i]['PAGE_TITLE']." - ".str_replace('%20', ' ', $arPages[$i]['PAGE_URL']))?>"><?= htmlspecialcharsex($arPages[$i]['PAGE_TITLE']." - ".str_replace('%20', ' ', $arPages[$i]['PAGE_URL']))?></option>
-							<?endfor;?>
+							<?php endfor;?>
 						</select>
 					</div>
 				</td>
@@ -322,23 +322,23 @@ elseif ($action == 'show_list')
 		</table>
 	</div>
 	<div class="bxst-list-items" id="bxstl_items_table_cnt">
-<?endif; /* if (!$bJustResult) */?>
+<?php endif; /* if (!$bJustResult) */?>
 
 		<table id="bxstl_items_table">
 			<tr class="bxst-list-header">
 				<td style="width: 4%;" class="bxst-id-cell"><div class="bxstl-h-div">#</div><div class="bxstl-sep"></div></td>
-				<td style="width: <?if ($bReadonly):?>31%<?else:?>27%<?endif;?>;"><div class="bxstl-h-div"><?= GetMessage('FMST_LIST_TEXT')?></div><div class="bxstl-sep"></div></td>
+				<td style="width: <?php if ($bReadonly):?>31%<?php else:?>27%<?php endif;?>;"><div class="bxstl-h-div"><?= GetMessage('FMST_LIST_TEXT')?></div><div class="bxstl-sep"></div></td>
 				<td style="width: 15%;"><div class="bxstl-h-div"><?= GetMessage('FMST_LIST_DATA')?></div><div class="bxstl-sep"></div></td>
 				<td style="width: 15%;"><div class="bxstl-h-div"><?= GetMessage('FMST_LIST_AUTOR')?></div><div class="bxstl-sep"></div></td>
 				<td style="width: 22%;"><div class="bxstl-h-div"><?= GetMessage('FMST_LIST_PAGE')?></div><div class="bxstl-sep"></div></td>
 				<td style="width: 8%;"><div class="bxstl-h-div"><?= GetMessage('FMST_LIST_COLOR')?></div><div class="bxstl-sep"></div></td>
-				<?if (!$bReadonly):?>
+				<?php if (!$bReadonly):?>
 				<td style="width: 4%;"><div class="bxstl-h-div"><input type="checkbox" onclick="window.oBXSticker.List.CheckAll(this.checked);"/></div></td>
-				<?endif;?>
+				<?php endif;?>
 			</tr>
-			<? if ($count > 0):?>
-			<? while($arRes = $dbStickers->Fetch()): ?>
-			<?
+			<?php  if ($count > 0):?>
+			<?php  while($arRes = $dbStickers->Fetch()): ?>
+			<?php 
 			$arRes['PAGE_URL'] = str_replace('%20', ' ', $arRes['PAGE_URL']);
 			$html = strip_tags($arRes['CONTENT']);
 			$colorClass = isset($colorSchemes[$arRes['COLOR']]) ? $colorSchemes[$arRes['COLOR']] : $colorSchemes[0];
@@ -348,41 +348,41 @@ elseif ($action == 'show_list')
 			if ($arRes['PAGE_URL'] == $curPage)
 				$curPageIds[] = $arRes['ID'];
 			?>
-			<tr class="bxst-list-item<? if ($arRes['CLOSED'] == "Y") {echo " bxst-list-item-closed";}?>">
+			<tr class="bxst-list-item<?php  if ($arRes['CLOSED'] == "Y") {echo " bxst-list-item-closed";}?>">
 				<td class="bxst-id-cell"><a href="<?= $url?>"><?= intVal($arRes['ID'])?></a></td>
 				<td><?= $html?></td>
 				<td><?= htmlspecialcharsex($date)?></td>
 				<td><nobr><?= htmlspecialcharsex(CSticker::GetUserName($arRes['CREATED_BY']))?></nobr></td>
-				<td class="bxst-list-it-link<? if ($bCompleted) {echo ' bxstl-completed';}?>">
-					<? if (strlen($arRes['PAGE_TITLE']) > 0):?>
+				<td class="bxst-list-it-link<?php  if ($bCompleted) {echo ' bxstl-completed';}?>">
+					<?php  if (strlen($arRes['PAGE_TITLE']) > 0):?>
 					<a href="<?= $url?>" title="<?= htmlspecialcharsex($arRes['PAGE_TITLE'])?>"><?= htmlspecialcharsex($arRes['PAGE_TITLE'])?></a>
-					<?endif;?>
+					<?php endif;?>
 					<a href="<?= $url?>" class="bxst-list-it-path" title="<?= htmlspecialcharsex($arRes['PAGE_URL'])?>"><?= htmlspecialcharsex($arRes['PAGE_URL'])?></a>
 					<div class="bxst-sprite bxstl-compl-icon" title="<?= GetMessage('FMST_COMPLETE_LABEL')?>"></div>
 				</td>
 				<td><div class="bxstl-color-ind <?= $colorClass?>" /></td>
-				<?if (!$bReadonly):?>
+				<?php if (!$bReadonly):?>
 				<td><input type="checkbox" name="bxstl_item" value="<?= intVal($arRes['ID'])?>" onclick="window.oBXSticker.List.EnableActionBut(this.checked ? true : 'check');" /></td>
-				<?endif;?>
+				<?php endif;?>
 			</tr>
-			<?endwhile;?>
-			<?else:?>
+			<?php endwhile;?>
+			<?php else:?>
 			<tr class="bxst-list-item"><td colSpan="7">
 				<div class="bxstl-no-stickers"><?= GetMessage("FMST_NO_STICKERS");?></div>
 			</td></tr>
-			<? endif; /* if ($count > 0) */ ?>
+			<?php  endif; /* if ($count > 0) */ ?>
 		</table>
-<? if (!$bJustResult): /* Display whole dialog*/?>
+<?php  if (!$bJustResult): /* Display whole dialog*/?>
 	</div>
 	<div class="bxst-list-footer">
 	<div class="bxst-list-navi"  id="bxstl_navi_cont">
-<?else: /* if (!$bJustResult) */?>
+<?php else: /* if (!$bJustResult) */?>
 	#BX_STICKER_SPLITER#
-<?endif; /* if (!$bJustResult) */?>
-		<? $dbStickers->NavPrint("", false, "", "/bitrix/modules/fileman/admin/fileman_stickers_nav.php"); ?>
-<? if (!$bJustResult): /* Display whole dialog*/?>
+<?php endif; /* if (!$bJustResult) */?>
+		<?php  $dbStickers->NavPrint("", false, "", "/bitrix/modules/fileman/admin/fileman_stickers_nav.php"); ?>
+<?php  if (!$bJustResult): /* Display whole dialog*/?>
 	</div>
-	<?if (!$bReadonly):?>
+	<?php if (!$bReadonly):?>
 	<div class="bxst-list-action" >
 		<select id="bxstl_action_sel">
 			<option value=""><?= GetMessage('FMST_LIST_SEL_ACTION')?></option>
@@ -392,7 +392,7 @@ elseif ($action == 'show_list')
 		</select>
 		<input id="bxstl_action_ok" type="button" value="OK" />
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	</div>
 </div>
 
@@ -401,15 +401,15 @@ elseif ($action == 'show_list')
 	if (window.oBXSticker)
 		window.oBXSticker.List.OnLoad(<?= $count?>);
 </script>
-<?else: /* if (!$bJustResult) */?>
+<?php else: /* if (!$bJustResult) */?>
 <script>
 	window.__bxst_result.cur_page_ids = <?= CUtil::PhpToJSObject($curPageIds)?>;
 	window.__bxst_result.list_rows_count = <?= $count?>;
 </script>
-<?endif; /* if (!$bJustResult) */?>
+<?php endif; /* if (!$bJustResult) */?>
 
 
-<?
+<?php 
 }
 
 

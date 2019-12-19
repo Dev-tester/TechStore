@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOCK_EDITOR_PLACE_DROP_ZONE"] = "Drag block here";
 $MESS["BLOCK_EDITOR_BLOCK_ACTION_MOVE"] = "Move";
 $MESS["BLOCK_EDITOR_BLOCK_ACTION_REMOVE"] = "Delete";

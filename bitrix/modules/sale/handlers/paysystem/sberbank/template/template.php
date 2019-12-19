@@ -1,4 +1,4 @@
-<?
+<?php 
 	use Bitrix\Main\Localization\Loc;
 	use Bitrix\Sale\Payment;
 	use Bitrix\Sale\PriceMaths;
@@ -7,7 +7,7 @@ Loc::loadMessages(__FILE__);
 	if (array_key_exists('PAYMENT_SHOULD_PAY', $params))
 		$params['PAYMENT_SHOULD_PAY'] = PriceMaths::roundPrecision($params['PAYMENT_SHOULD_PAY']);
 ?>
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
 <title><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_SBERBANK_RECEIPT')?></title>
@@ -97,7 +97,7 @@ body {font-size: 10pt;}
 		<table border="0" cellspacing="0" cellpadding="0" style="width:122mm; margin-top:3pt;">
 			<tr>
 				<td width="1%" nowrap><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_SBERBANK_PAYER_ADDRESS')?>&nbsp;&nbsp;</td>
-				<td width="100%" style="border-bottom:1pt solid #000000;"><?
+				<td width="100%" style="border-bottom:1pt solid #000000;"><?php 
 				
 					$sAddrFact = array();
 					if($params["BUYER_PERSON_ZIP"] != '')
@@ -130,7 +130,7 @@ body {font-size: 10pt;}
 		</table>
 		<table border="0" cellspacing="0" cellpadding="0" style="width:122mm; margin-top:3pt;">
 			<tr>
-				<td><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_SBERBANK_SHOULD_PAY')?>&nbsp;<?
+				<td><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_SBERBANK_SHOULD_PAY')?>&nbsp;<?php 
 				if (strpos($params["PAYMENT_SHOULD_PAY"], ".")!==false)
 					$a = explode(".", $params["PAYMENT_SHOULD_PAY"]);
 				else
@@ -241,7 +241,7 @@ body {font-size: 10pt;}
 		<table border="0" cellspacing="0" cellpadding="0" style="width:122mm; margin-top:3pt;">
 			<tr>
 				<td width="1%" nowrap><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_SBERBANK_PAYER_ADDRESS')?>&nbsp;&nbsp;</td>
-				<td width="100%" style="border-bottom:1pt solid #000000;"><?
+				<td width="100%" style="border-bottom:1pt solid #000000;"><?php 
 				
 					$sAddrFact = array();
 					if($params["BUYER_PERSON_ZIP"] != '')
@@ -274,7 +274,7 @@ body {font-size: 10pt;}
 		</table>
 		<table border="0" cellspacing="0" cellpadding="0" style="width:122mm; margin-top:3pt;">
 			<tr>
-				<td><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_SBERBANK_SHOULD_PAY')?>&nbsp;<?
+				<td><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_SBERBANK_SHOULD_PAY')?>&nbsp;<?php 
 				if(strpos($params["PAYMENT_SHOULD_PAY"], ".")!==false)
 					$a = explode(".", $params["PAYMENT_SHOULD_PAY"]);
 				else

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_PRODUCT_ID'] = "ID";
 $MESS ['SALE_NAME'] = "Product Name";
 $MESS ['SALE_COUNT'] = "Shopping Carts";

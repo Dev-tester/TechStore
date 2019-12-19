@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Sale\Delivery;
@@ -806,7 +806,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 	});
 
 </script>
-<?
+<?php 
 if(!empty($backUrlReq))
 	$link = $backUrlReq;
 elseif($isGroup)
@@ -901,15 +901,15 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 <input type="hidden" name="PARENT_ID" value="<?=(isset($fields["PARENT_ID"]) ? $fields["PARENT_ID"] : "0" )?>">
 <?=bitrix_sessid_post()?>
 
-<?if(is_array($fields)):?>
-	<?foreach($fields as $fieldName => $fieldValue): /* if fields don't show let's make them hidden */?>
-		<?if(!is_array($fieldValue) && strlen($fieldValue) > 0 && !array_key_exists($fieldName, $showFieldsList)):?>
+<?php if(is_array($fields)):?>
+	<?php foreach($fields as $fieldName => $fieldValue): /* if fields don't show let's make them hidden */?>
+		<?php if(!is_array($fieldValue) && strlen($fieldValue) > 0 && !array_key_exists($fieldName, $showFieldsList)):?>
 			<input type="hidden" name="<?=$fieldName?>" value="<?=$fieldValue?>">
-		<?endif;?>
-	<?endforeach;?>
-<?endif;?>
+		<?php endif;?>
+	<?php endforeach;?>
+<?php endif;?>
 
-<?
+<?php 
 $tabControl->Begin();
 /* General settings */
 $tabControl->BeginNextTab();
@@ -918,49 +918,49 @@ $tabControl->BeginNextTab();
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("NAME", $showFieldsList)):?>
+	<?php if(array_key_exists("NAME", $showFieldsList)):?>
 		<tr class="adm-detail-required-field">
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_NAME")?>:</td>
 			<td width="60%"><input id='adm-sale-delivery-name' type="text" name="NAME" value="<?=(isset($fields["NAME"]) ? htmlspecialcharsbx($fields["NAME"]) : "" )?>" size="40"></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("CLASS_NAME", $showFieldsList)):?>
+	<?php if(array_key_exists("CLASS_NAME", $showFieldsList)):?>
 		<tr class="adm-detail-required-field">
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_CLASS_NAME")?>:</td>
 			<td width="60%">
-				<?if(count($classNamesList) > 1 && (strlen($fields["CLASS_NAME"]) <= 0 )):?>
+				<?php if(count($classNamesList) > 1 && (strlen($fields["CLASS_NAME"]) <= 0 )):?>
 					<select name="CLASS_NAME" onchange="if(this.value == '') return; top.BX.showWait(); this.form.submit(); /*elements.apply.click();*/">
 						<option value=""></option>
-						<?foreach($classNamesList as $className):?>
+						<?php foreach($classNamesList as $className):?>
 							<option value="<?=$className?>" <?=(isset($fields["CLASS_NAME"]) && $className == $fields["CLASS_NAME"] ? " selected" : "" )?>><?=$className::getClassTitle()." [".$className."]"?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
-				<?else:?>
+				<?php else:?>
 					<?=class_exists($fields["CLASS_NAME"]) ? $fields["CLASS_NAME"]::getClassTitle() : $fields["CLASS_NAME"]?>
 					<input type="hidden" name="CLASS_NAME" value="<?=$fields["CLASS_NAME"]?>">
-				<?endif;?>
+				<?php endif;?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("ACTIVE", $showFieldsList)):?>
+	<?php if(array_key_exists("ACTIVE", $showFieldsList)):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_ACTIVE")?>:</td>
-			<td width="60%"><input type="checkbox" name="ACTIVE" value="Y" <?if ($fields["ACTIVE"]=="Y") echo "checked";?> onclick="BX.Sale.Delivery.createFlagFieldChanged('ACTIVE', this);"></td>
+			<td width="60%"><input type="checkbox" name="ACTIVE" value="Y" <?php if ($fields["ACTIVE"]=="Y") echo "checked";?> onclick="BX.Sale.Delivery.createFlagFieldChanged('ACTIVE', this);"></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("SORT", $showFieldsList)):?>
+	<?php if(array_key_exists("SORT", $showFieldsList)):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_SORT")?>:</td>
 			<td width="60%"><input type="text" name="SORT" value="<?=(isset($fields["SORT"]) ? $fields["SORT"] : "100" )?>" size="5"></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("DESCRIPTION", $showFieldsList)):?>
+	<?php if(array_key_exists("DESCRIPTION", $showFieldsList)):?>
 		<tr>
 			<td width="40%" class="adm-detail-valign-top"><?=Loc::getMessage("SALE_DSE_FORM_DESCRIPTION")?>:</td>
 			<td width="60%">
@@ -971,10 +971,10 @@ $tabControl->BeginNextTab();
 				<script language="JavaScript">BX.Sale.Delivery.setLHEClass('bxlhe_frame_hndl_dscr'); </script>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("PARENT_ID", $showFieldsList)):?>
-		<?if($parentService && get_class($parentService) != 'Bitrix\Sale\Delivery\Services\Group'):?>
+	<?php if(array_key_exists("PARENT_ID", $showFieldsList)):?>
+		<?php if($parentService && get_class($parentService) != 'Bitrix\Sale\Delivery\Services\Group'):?>
 			<tr>
 				<td width="40%">
 					<?=Loc::getMessage("SALE_DSE_FORM_PARENT_ID")?>
@@ -983,7 +983,7 @@ $tabControl->BeginNextTab();
 					<a href="?LANG=<?=LANGUAGE_ID?>&PARENT_ID=<?=$parentService->getParentId()?>&ID=<?=$parentService->getId()?>"><?=htmlspecialcharsbx($parentService->getName())?></a>
 				</td>
 			</tr>
-		<?else:?>
+		<?php else:?>
 			<tr>
 				<td width="40%">
 					<?=Loc::getMessage("SALE_DSE_FORM_GROUP_ID")?>
@@ -1000,17 +1000,17 @@ $tabControl->BeginNextTab();
 					<input type="hidden" name="GROUP_NAME" id="GROUP_NAME" value="">
 				</td>
 			</tr>
-		<?endif;?>
-	<?endif;?>
+		<?php endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("LOGOTIP", $showFieldsList)):?>
+	<?php if(array_key_exists("LOGOTIP", $showFieldsList)):?>
 		<tr>
 			<td width="40%" class="adm-detail-valign-top"><?=Loc::getMessage("SALE_DSE_FORM_LOGO")?>:</td>
 			<td width="60%">
 				<div><input type="file" name="LOGOTIP"><input type="hidden" name="LOGOTIP_FILE_ID" value="<?=$fields["LOGOTIP"]?>"></div>
-				<?if(isset($fields["LOGOTIP"]) && intval($fields["LOGOTIP"]) > 0):?>
+				<?php if(isset($fields["LOGOTIP"]) && intval($fields["LOGOTIP"]) > 0):?>
 					<br>
-					<?
+					<?php 
 						$arLogotip = CFile::GetFileArray($fields["LOGOTIP"]);
 						echo CFile::ShowImage($arLogotip, 150, 150, "border=0", "", false);
 					?>
@@ -1019,23 +1019,23 @@ $tabControl->BeginNextTab();
 						<input type="checkbox" name="LOGOTIP_del" value="Y" id="LOGOTIP_del" >
 						<label for="LOGOTIP_del"><?=Loc::getMessage("SALE_DSE_LOGOTIP_DEL");?></label>
 					</div>
-				<?endif;?>
+				<?php endif;?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("CURRENCY", $showFieldsList)):?>
+	<?php if(array_key_exists("CURRENCY", $showFieldsList)):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_CURRENCY")?>:</td>
 			<td width="60%">
 				<?=CCurrency::SelectBox("CURRENCY", $fields["CURRENCY"], "", true, "");?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("STORES", $showFieldsList)):?>
-		<?$stores = ExtraServices\Manager::getStoresFields($ID, false);?>
-		<?$storeClassName = ExtraServices\Manager::STORE_PICKUP_CLASS;?>
+	<?php if(array_key_exists("STORES", $showFieldsList)):?>
+		<?php $stores = ExtraServices\Manager::getStoresFields($ID, false);?>
+		<?php $storeClassName = ExtraServices\Manager::STORE_PICKUP_CLASS;?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_STORES_SHOW")?>:</td>
 			<td width="60%">
@@ -1050,82 +1050,82 @@ $tabControl->BeginNextTab();
 				<?=$storeClassName::getAdminParamsControl("STORES", $stores)?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(array_key_exists("ALLOW_EDIT_SHIPMENT", $showFieldsList)):?>
+	<?php if(array_key_exists("ALLOW_EDIT_SHIPMENT", $showFieldsList)):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_ALLOW_EDIT_SHIPMENT")?>:</td>
 			<td width="60%">
 				<input type="checkbox" name="ALLOW_EDIT_SHIPMENT" value="Y"<?=(isset($fields["ALLOW_EDIT_SHIPMENT"]) && $fields["ALLOW_EDIT_SHIPMENT"] == 'N' ? '' : " checked" )?>>
 			</td>
 		</tr>
-	<?endif;?>
-	<?if(array_key_exists("VAT_ID", $showFieldsList)):?>
+	<?php endif;?>
+	<?php if(array_key_exists("VAT_ID", $showFieldsList)):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage("SALE_DSE_FORM_VAT_ID")?>:</td>
 			<td width="60%">
 				<select name="VAT_ID">
-					<?foreach($vatList as $vatId => $vatName):?>
+					<?php foreach($vatList as $vatId => $vatName):?>
 						<option value="<?=$vatId?>" <?=(isset($fields["VAT_ID"]) && $vatId == $fields["VAT_ID"] ? " selected" : "" )?>><?=htmlspecialcharsbx($vatName)?></option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</td>
 		</tr>
-	<?endif;?>
-	<?if(array_key_exists("XML_ID", $showFieldsList)):?>
+	<?php endif;?>
+	<?php if(array_key_exists("XML_ID", $showFieldsList)):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage('SALE_DSE_XML_ID')?>:</td>
 			<td width="60%">
 				<input type="text" name="XML_ID" value="<?=(isset($fields["XML_ID"]) ? htmlspecialcharsbx($fields["XML_ID"]) : Services\Manager::generateXmlId() )?>" size="40">
 			</td>
 		</tr>
-	<?endif;?>
-	<?$hiddensConfigHtml = "";?>
-	<?if(is_array($serviceConfig) && !empty($serviceConfig)):?>
-		<?foreach($serviceConfig as $sectionKey => $configSection):?>
-			<?$tabControl->BeginNextTab();?>
-			<?if(isset($configSection["ITEMS"]) && is_array($configSection["ITEMS"]) && !empty($configSection["ITEMS"])):?>
-				<?foreach($configSection["ITEMS"] as $name => $params):?>
-					<?if($params["TYPE"] == "DELIVERY_SECTION"):?>
+	<?php endif;?>
+	<?php $hiddensConfigHtml = "";?>
+	<?php if(is_array($serviceConfig) && !empty($serviceConfig)):?>
+		<?php foreach($serviceConfig as $sectionKey => $configSection):?>
+			<?php $tabControl->BeginNextTab();?>
+			<?php if(isset($configSection["ITEMS"]) && is_array($configSection["ITEMS"]) && !empty($configSection["ITEMS"])):?>
+				<?php foreach($configSection["ITEMS"] as $name => $params):?>
+					<?php if($params["TYPE"] == "DELIVERY_SECTION"):?>
 						<tr class="heading">
 							<td colspan="2"><?=$params["NAME"]?></td>
 						</tr>
-					<?elseif(isset($params['HIDDEN']) && $params['HIDDEN'] == true):?>
-						<?$hiddensConfigHtml .= \Bitrix\Sale\Internals\Input\Manager::getEditHtml("CONFIG[".$sectionKey."][".$name."]", $params)?>
-					<?else:?>
+					<?php elseif(isset($params['HIDDEN']) && $params['HIDDEN'] == true):?>
+						<?php $hiddensConfigHtml .= \Bitrix\Sale\Internals\Input\Manager::getEditHtml("CONFIG[".$sectionKey."][".$name."]", $params)?>
+					<?php else:?>
 						<tr<?=(!empty($params['REQUIRED']) && $params['REQUIRED'] == true ? ' class= "adm-detail-required-field"' : '')?>>
 							<td width="40%" class="adm-detail-valign-top"><?=htmlspecialcharsbx($params["NAME"])?>:</td>
 							<td width="60%" class="adm-detail-valign-top">
 								<?=\Bitrix\Sale\Internals\Input\Manager::getEditHtml("CONFIG[".$sectionKey."][".$name."]", $params)?>
 							</td>
 						</tr>
-					<?endif;?>
-				<?endforeach;?>
-			<?endif;?>
-		<?endforeach;?>
-	<?endif;?>
+					<?php endif;?>
+				<?php endforeach;?>
+			<?php endif;?>
+		<?php endforeach;?>
+	<?php endif;?>
 
-	<?if($canHasProfiles):?>
-		<?$tabControl->BeginNextTab();?>
+	<?php if($canHasProfiles):?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
-				<?$lAdminSubServices->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
+				<?php $lAdminSubServices->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(strlen($restrictionsHtml) > 0):?>
-		<?$tabControl->BeginNextTab();?>
+	<?php if(strlen($restrictionsHtml) > 0):?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr><td id="sale-delivery-restriction-container"><?=$restrictionsHtml?></td></tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if($service && $showExtraServices && $ID > 0):?>
-		<?$tabControl->BeginNextTab();?>
+	<?php if($service && $showExtraServices && $ID > 0):?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr><td><?=$extraServicesHtml?></td></tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if($isTrackingTabShow):?>
-		<?$tabControl->BeginNextTab();
+	<?php if($isTrackingTabShow):?>
+		<?php $tabControl->BeginNextTab();
 			$tManager = Delivery\Tracking\Manager::getInstance();
 			$tracking = $tManager->getTrackingObjectByDeliveryId($ID);
 			$trackingParamsStructure = $tracking->getParamsStructure()
@@ -1135,24 +1135,24 @@ $tabControl->BeginNextTab();
 				<?=$tracking->getClassDescription()?>
 				<?=(empty($trackingParamsStructure) ? '<br>'.Loc::getMessage('SALE_DSE_TAB_TRACKING_PARAMS_EMPTY') : '')?>
 			</td></tr>
-			<?if(!empty($trackingParamsStructure)):?>
+			<?php if(!empty($trackingParamsStructure)):?>
 				<tr class="heading"><td colspan="2"><?=Loc::getMessage("SALE_DSE_TAB_TRACKING_PARAMS")?></td></tr>
-				<?foreach($trackingParamsStructure as $id => $params):?>
+				<?php foreach($trackingParamsStructure as $id => $params):?>
 					<tr>
 						<td width="40%"><?=$params["LABEL"]?>:</td>
 						<td width="60%">
 							<?=$tracking->getEditHtml($id,"TRACKING_PARAMS[".$id."]")?>
 						</td>
 					</tr>
-				<?endforeach;?>
-			<?endif;?>
-	<?endif;?>
+				<?php endforeach;?>
+			<?php endif;?>
+	<?php endif;?>
 
-	<?if($service && $ID > 0 && !empty($businessValueConsumers)):?>
-		<?$tabControl->BeginNextTab();?>
+	<?php if($service && $ID > 0 && !empty($businessValueConsumers)):?>
+		<?php $tabControl->BeginNextTab();?>
 			<tr>
 				<td colspan="2">
-					<?
+					<?php 
 						require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/sale/lib/helpers/admin/businessvalue.php');
 						$businessValueControl = new BusinessValueControl('DELIVERY_'.$service->getId());
 						$businessValueControl->renderMap(
@@ -1164,15 +1164,15 @@ $tabControl->BeginNextTab();
 					?>
 				</td>
 			</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if(is_array($additionalTabs) && !empty($additionalTabs) && $ID > 0):?>
-		<?foreach($additionalTabs as $addTab):?>
-			<?$tabControl->BeginNextTab();?>
-			<?if(!isset($addTab["CONTENT"])) throw new \Bitrix\Main\ArgumentNullException('additionalTabs["CONTENT"]');?>
+	<?php if(is_array($additionalTabs) && !empty($additionalTabs) && $ID > 0):?>
+		<?php foreach($additionalTabs as $addTab):?>
+			<?php $tabControl->BeginNextTab();?>
+			<?php if(!isset($addTab["CONTENT"])) throw new \Bitrix\Main\ArgumentNullException('additionalTabs["CONTENT"]');?>
 			<?=$addTab["CONTENT"]?>
-		<?endforeach;?>
-	<?endif;
+		<?php endforeach;?>
+	<?php endif;
 
 $tabControl->Buttons(array("disabled" => ($disableButtonsFlag || $saleModulePermissions < "W"),
 	"back_url" => !empty($backUrlReq) ? $backUrlReq : ($listUrl)));
@@ -1182,7 +1182,7 @@ $tabControl->End();
 <?=$hiddensConfigHtml?>
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 
 function wrapDescrLHE($inputName, $content = '', $divId = false)
 {

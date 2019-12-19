@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SE_CHAT_AUTOPLAY_TITLE"] = "Autoplay";
 $MESS["SE_CHAT_AUTOPLAY_VIDEO_TITLE"] = "Video";
 $MESS["SE_CHAT_BACKGROUND_COLOR_CREAMY"] = "Cream";

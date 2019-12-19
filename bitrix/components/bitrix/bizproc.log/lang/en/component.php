@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPABL_TITLE"] = "Business Process #ID#";
 $MESS["BPABL_INVALID_WF"] = "The business process is not found.";
 $MESS["BPABL_NO_PERMS"] = "You do not have permission to access this element business process.";

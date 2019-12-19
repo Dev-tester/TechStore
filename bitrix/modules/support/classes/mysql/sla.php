@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/classes/general/sla.php");
 
 class CTicketSLA extends CAllTicketSLA

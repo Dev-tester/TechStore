@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -122,7 +122,7 @@ if ($arParams["WORKFLOW"] == "workflow" && $arParams["PERMISSION"] >= "U")
 }
 	
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.form",
 	"",
 	array(
@@ -131,7 +131,7 @@ if ($arParams["WORKFLOW"] == "workflow" && $arParams["PERMISSION"] >= "U")
 		"DATA" => array()
 	),
 	($this->__component->__parent ? $this->__component->__parent : $component)
-);?><?
+);?><?php 
 
 if ($this->__component->__parent)
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BCI1_ABSENCE_IBLOCK_ID"] = "Absence Calendar Information Block ID";
 $MESS["CP_BCI1_CREATE"] = "Create if required";
 $MESS["CP_BCI1_CURRENT"] = "Current";

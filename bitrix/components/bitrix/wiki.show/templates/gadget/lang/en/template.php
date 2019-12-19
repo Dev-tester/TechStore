@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_VERSION_FROM"] = "Version Of";
 $MESS["WIKI_NEXT_VERSION"] = "Next";
 $MESS["WIKI_PREV_VERSION"] = "Previous";

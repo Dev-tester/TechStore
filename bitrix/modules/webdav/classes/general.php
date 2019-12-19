@@ -159,7 +159,7 @@ class CWebDavBase
 					}
 
 				CWebDavBase::SetStatus('207 Multi-Status');
-echo '<?xml version="1.0" encoding="utf-8" ?>
+echo '<?php xml version="1.0" encoding="utf-8" ?>
 <D:multistatus xmlns:D="DAV:" xmlns:Office="urn:schemas-microsoft-com:office:office" xmlns:Repl="http://schemas.microsoft.com/repl/" xmlns:Z="urn:schemas-microsoft-com:">
 <D:response>
 	<D:href>http://'.htmlspecialcharsbx($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'</D:href>
@@ -612,7 +612,7 @@ echo '<?xml version="1.0" encoding="utf-8" ?>
 
 		$this->SetStatus('207 Multi-Status');
 		header('Content-Type: text/xml; charset="utf-8"');
-		echo "<?xml version=\"1.0\" encoding=\"utf-8\"?".">\n";
+		echo "<?php xml version=\"1.0\" encoding=\"utf-8\"?".">\n";
 		echo "<D:multistatus xmlns:D=\"DAV:\" xmlns:Office=\"urn:schemas-microsoft-com:office:office\" xmlns:Repl=\"http://schemas.microsoft.com/repl/\" xmlns:Z=\"urn:schemas-microsoft-com:\">\n";
 
 		foreach ($files['files'] as $file)
@@ -1099,7 +1099,7 @@ echo '<?xml version="1.0" encoding="utf-8" ?>
 			$this->SetStatus("207 Multi-Status");
 			header('Content-Type: text/xml; charset="utf-8"');
 
-			echo "<?xml version=\"1.0\" encoding=\"utf-8\"?".">\n";
+			echo "<?php xml version=\"1.0\" encoding=\"utf-8\"?".">\n";
 			echo "<D:multistatus xmlns:D=\"DAV:\">\n";
 			echo " <D:response>\n";
 			echo "	<D:href>" . $APPLICATION->ConvertCharset($this->base_url . $options['path'], SITE_CHARSET, 'UTF-8'). "</D:href>\n";
@@ -1689,7 +1689,7 @@ echo '<?xml version="1.0" encoding="utf-8" ?>
 
 			self::set_header('Content-Type: text/xml; charset="utf-8"');
 			self::set_header("Lock-Token: <".$options['locktoken'].">");
-			$strOutput = "<?xml version=\"1.0\" encoding=\"utf-8\"?".">\n" .
+			$strOutput = "<?php xml version=\"1.0\" encoding=\"utf-8\"?".">\n" .
 				"<D:prop xmlns:D=\"DAV:\">\n" .
 				" <D:lockdiscovery>\n" .
 				"  <D:activelock>\n" .

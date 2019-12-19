@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PATH_TO_POST_TIP"] = "Specifies the path to the Wiki main page. For example: wiki.php?title=#wiki_name#.";
 $MESS["PATH_TO_POST_EDIT_TIP"] = "Specifies the path to the Wiki page editor. For example: wiki_edit.php?title=#wiki_name#";
 $MESS["PATH_TO_CATEGORIES_TIP"] = "Specifies the path to a page showing the categories available. For example: wiki_cats.php";

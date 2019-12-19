@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUPPORT_MAIL_DEF_REGISTERED'] = "Identify registered user by e-mail:";
 $MESS ['SUPPORT_MAIL_DEF_REGISTERED_Y'] = "yes, try to associate trouble ticket with the user";
 $MESS ['SUPPORT_MAIL_DEF_REGISTERED_N'] = "no, always create anonymous trouble tickets";

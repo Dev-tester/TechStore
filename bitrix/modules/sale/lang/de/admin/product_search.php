@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["prod_search_cancel"] = "Abbrechen";
 $MESS["SPS_ACT"] = "Aktiv";
 $MESS["SPS_ACTIVE"] = "Aktiv";

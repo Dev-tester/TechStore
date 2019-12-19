@@ -1,7 +1,7 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)	die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)	die();
 /*
 Usage example
-<?
+<?php 
 if(CModule::IncludeModule('bizproc')):
 	$APPLICATION->IncludeComponent(
 		"bitrix:bizproc.task.list",
@@ -43,7 +43,7 @@ if (!empty($arResult['COUNTERS_RUNNING']['lists']['BizprocDocument']) || !empty(
 					<span class="task-item-index"><?= $arResult['COUNTERS']['*'] < 100 ? $arResult['COUNTERS']['*'] : '99+' ?></span>
 				</span>
 			</a>
-			<? foreach ($arResult['COUNTERS'] as $module => $data):
+			<?php  foreach ($arResult['COUNTERS'] as $module => $data):
 				if (!isset($whiteList[$module]) || empty($data['*']))
 					continue;
 				?>
@@ -53,19 +53,19 @@ if (!empty($arResult['COUNTERS_RUNNING']['lists']['BizprocDocument']) || !empty(
 					<span class="task-item-index"><?= $arResult['COUNTERS'][$module]['*'] < 100 ? $arResult['COUNTERS'][$module]['*'] : '99+' ?></span>
 				</span>
 				</a>
-			<? endforeach;?>
+			<?php  endforeach;?>
 		</span>
-			<? if (!empty($arResult['COUNTERS_RUNNING']['lists']['BizprocDocument'])): ?>
+			<?php  if (!empty($arResult['COUNTERS_RUNNING']['lists']['BizprocDocument'])): ?>
 				<a class="task-item" href="<?= htmlspecialcharsbx($arParams["PATH_TO_MY_PROCESSES"]) ?>">
 					<span class="task-item-text"><?= GetMessage('BPTLWGT_MY_PROCESSES') ?></span>
 			<span class="task-item-index-wrap">
 				<span class="task-item-index"><?= $arResult['COUNTERS_RUNNING']['lists']['BizprocDocument'] < 100 ? $arResult['COUNTERS_RUNNING']['lists']['BizprocDocument'] : '99+' ?></span>
 			</span>
 				</a>
-			<? endif?>
+			<?php  endif?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 
 $frame->end();

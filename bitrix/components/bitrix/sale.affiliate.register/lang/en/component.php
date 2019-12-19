@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SPCR1_ON_LOGIN'] = "Error authorising a registered user: enter the login";
 $MESS ['SPCR1_ERR_REG'] = "Error authorising a registered user";
 $MESS ['SPCR1_NO_NAME'] = "Error registring a new user: enter your first name";

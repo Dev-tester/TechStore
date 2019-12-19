@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WS_OUTLOOK_APP_TITLE"] = "Сервисы Microsoft Outlook";
 $MESS["WS_OUTLOOK_APP_OPTIONS_CAPTION"] = "Соединить";
 $MESS["WS_OUTLOOK_APP_TITLE_OPTION"] = "Контакты, календари, задачи";

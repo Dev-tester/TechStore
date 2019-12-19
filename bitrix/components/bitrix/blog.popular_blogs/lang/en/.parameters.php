@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_DESCR_SORT_1'] = "Field for first sorting pass";
 $MESS ['BLOG_DESCR_SORT_2'] = "Field for second sorting pass";
 $MESS ['BLOG_DESCR_SORT_ORDER'] = "Direction for the first sorting pass";

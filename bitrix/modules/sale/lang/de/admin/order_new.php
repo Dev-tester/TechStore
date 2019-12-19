@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEWO_NO_SITE_SELECT"] = "E-Shop wurde nicht gefunden.";
 $MESS["NEWO_CUSTOM_FIELD"] = "Anpassen";
 $MESS["NEWO_CUSTOM_FIELD_TITLE"] = "Formularfelder anpassen";

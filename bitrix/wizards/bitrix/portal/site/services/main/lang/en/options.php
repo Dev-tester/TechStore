@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEFAULT_SITE_NAME"] = "Portal";
 $MESS["MAIN_OPT_MENU_SECT"] = "Section menu";
 $MESS["MAIN_OPT_MENU_MAIN"] = "Site menu";

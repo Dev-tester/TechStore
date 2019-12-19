@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_I_IBLOCK_TYPE_NAME'] = "Каталог авто";
 $MESS ['SONET_I_IBLOCK_NAME'] = "Каталог авто";
 $MESS ['SONET_I_USER_PROP_EFL'] = "Марка автомобиля";

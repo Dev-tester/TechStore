@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -636,49 +636,49 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("CTRL_MEMB_ADMIN_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="form1" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?">
-	<? $filter->Begin(); ?>
+<form name="form1" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?">
+	<?php  $filter->Begin(); ?>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_COLUMN_NAME")?>:</td>
 		<td nowrap>
-			<input type="text" name="find_name" value="<? echo htmlspecialcharsbx($adminFilter['find_name']) ?>" size="47">
+			<input type="text" name="find_name" value="<?php  echo htmlspecialcharsbx($adminFilter['find_name']) ?>" size="47">
 		</td>
 	</tr>
 
 	<tr>
 		<td nowrap>ID:</td>
 		<td nowrap>
-			<input type="text" name="find_id" value="<? echo htmlspecialcharsbx($adminFilter['ffind_id']) ?>" size="47">
+			<input type="text" name="find_id" value="<?php  echo htmlspecialcharsbx($adminFilter['ffind_id']) ?>" size="47">
 		</td>
 	</tr>
 
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_URL")?>:</td>
 		<td nowrap>
-			<input type="text" name="find_url" value="<? echo htmlspecialcharsbx($adminFilter['ffind_url']) ?>" size="47">
+			<input type="text" name="find_url" value="<?php  echo htmlspecialcharsbx($adminFilter['ffind_url']) ?>" size="47">
 		</td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_GROUP")?></td>
 		<td>
 			<select name="find_controller_group_id[]" multiple size="5">
-				<option value=""><? echo GetMessage("CTRL_MEMB_ADMIN_FILTER_ANY") ?></option>
-				<? foreach ($arGroups as $group_id => $group_name): ?>
-					<option value="<?=htmlspecialcharsbx($group_id)?>" <? if ($group_id == $adminFilter['ffind_controller_group_id'])
+				<option value=""><?php  echo GetMessage("CTRL_MEMB_ADMIN_FILTER_ANY") ?></option>
+				<?php  foreach ($arGroups as $group_id => $group_name): ?>
+					<option value="<?=htmlspecialcharsbx($group_id)?>" <?php  if ($group_id == $adminFilter['ffind_controller_group_id'])
 						echo 'selected="selected"' ?>><?=htmlspecialcharsEx($group_name)?></option>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_UNIQID")?>:</td>
 		<td nowrap>
-			<input type="text" name="find_member_id" value="<? echo htmlspecialcharsbx($adminFilter['ffind_member_id']) ?>" size="47">
+			<input type="text" name="find_member_id" value="<?php  echo htmlspecialcharsbx($adminFilter['ffind_member_id']) ?>" size="47">
 		</td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_ACTIVE")?>:</td>
-		<td nowrap><?
+		<td nowrap><?php 
 			$arr = array(
 				"reference" => Array(GetMessage("CTRL_MEMB_ADMIN_FILTER_ANY2"), GetMessage("MAIN_YES"), GetMessage("MAIN_NO")),
 				"reference_id" => array("", "Y", "N"),
@@ -689,7 +689,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_DISCONNECTED")?>:</td>
-		<td nowrap><?
+		<td nowrap><?php 
 			$arr = array(
 				"reference" => Array(GetMessage("CTRL_MEMB_ADMIN_FILTER_ANY2"), GetMessage("MAIN_YES"), GetMessage("MAIN_NO"), GetMessage("CTRL_MEMB_ADMIN_DISCON")),
 				"reference_id" => array("", "Y", "N", "I"),
@@ -700,34 +700,34 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_MODIFIED")?>:</td>
-		<td nowrap><? echo CalendarPeriod("find_timestamp_x_from", $adminFilter['ffind_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['ffind_timestamp_x_to'], "form1", "Y") ?></td>
+		<td nowrap><?php  echo CalendarPeriod("find_timestamp_x_from", $adminFilter['ffind_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['ffind_timestamp_x_to'], "form1", "Y") ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_CREATED")?>:</td>
-		<td nowrap><? echo CalendarPeriod("find_created_from", $adminFilter['ffind_created_from'], "find_created_to", $adminFilter['ffind_created_to'], "form1", "Y") ?></td>
+		<td nowrap><?php  echo CalendarPeriod("find_created_from", $adminFilter['ffind_created_from'], "find_created_to", $adminFilter['ffind_created_to'], "form1", "Y") ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_ACT_FROM")?>:</td>
-		<td nowrap><? echo CalendarPeriod("find_active_from_from", $adminFilter['ffind_active_from_from'], "find_active_from_to", $adminFilter['ffind_active_from_to'], "form1", "Y") ?></td>
+		<td nowrap><?php  echo CalendarPeriod("find_active_from_from", $adminFilter['ffind_active_from_from'], "find_active_from_to", $adminFilter['ffind_active_from_to'], "form1", "Y") ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_FILTER_ACT_TO")?>:</td>
-		<td nowrap><? echo CalendarPeriod("find_active_to_from", $adminFilter['ffind_active_to_from'], "find_active_to_to", $adminFilter['ffind_active_to_to'], "form1", "Y") ?></td>
+		<td nowrap><?php  echo CalendarPeriod("find_active_to_from", $adminFilter['ffind_active_to_from'], "find_active_to_to", $adminFilter['ffind_active_to_to'], "form1", "Y") ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_CONTACT_PERSON")?>:</td>
 		<td nowrap>
-			<input type="text" name="find_contact_person" value="<? echo htmlspecialcharsbx($adminFilter['ffind_contact_person']) ?>" size="47">
+			<input type="text" name="find_contact_person" value="<?php  echo htmlspecialcharsbx($adminFilter['ffind_contact_person']) ?>" size="47">
 		</td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_MEMB_ADMIN_EMAIL")?>:</td>
 		<td nowrap>
-			<input type="text" name="find_email" value="<? echo htmlspecialcharsbx($adminFilter['ffind_email']) ?>" size="47">
+			<input type="text" name="find_email" value="<?php  echo htmlspecialcharsbx($adminFilter['ffind_email']) ?>" size="47">
 		</td>
 	</tr>
 
-	<?
+	<?php 
 	$USER_FIELD_MANAGER->AdminListShowFilter($entity_id);
 	$filter->Buttons(array(
 		"table_id" => $sTableID,
@@ -738,6 +738,6 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 	?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ERROR_EMPTY_NAME"] = "The exception name is required.";
 $MESS["SUP_ERROR_EMPTY_OPEN_TIME"] = "The exception action is required.";
 $MESS["SUP_ERROR_EMPTY_DATE"] = "The exception date is required.";

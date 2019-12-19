@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USER_TYPE_INTEGER_DESCRIPTION'] = "Integer";
 $MESS ['USER_TYPE_INTEGER_SIZE'] = "Input field size";
 $MESS ['USER_TYPE_INTEGER_MIN_VALUE'] = "Minimum value (0 - no validation)";

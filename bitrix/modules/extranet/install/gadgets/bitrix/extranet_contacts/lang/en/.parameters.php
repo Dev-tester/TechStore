@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_CONTACTS_P_DETAIL_URL'] = "User Profile Path Template: ";
 $MESS ['GD_CONTACTS_P_MESSAGES_CHAT_URL'] = "Chat Page Path Template: ";
 $MESS ['GD_CONTACTS_P_WGU_COUNT'] = "Show Contacts from My Workgroups";

@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main;
 
@@ -104,7 +104,7 @@ if (isset($arResult['ITEM']))
 
 	<div class="product-item-container<?=(isset($arResult['SCALABLE']) && $arResult['SCALABLE'] === 'Y' ? ' product-item-scalable-card' : '')?>"
 		id="<?=$areaId?>" data-entity="item">
-		<?
+		<?php 
 		$documentRoot = Main\Application::getDocumentRoot();
 		$templatePath = strtolower($arResult['TYPE']).'/template.php';
 		$file = new Main\IO\File($documentRoot.$templateFolder.'/'.$templatePath);
@@ -292,6 +292,6 @@ if (isset($arResult['ITEM']))
 		  var <?=$obName?> = new JCCatalogItem(<?=CUtil::PhpToJSObject($jsParams, false, true)?>);
 		</script>
 	</div>
-	<?
+	<?php 
 	unset($item, $actualItem, $minOffer, $itemIds, $jsParams);
 }

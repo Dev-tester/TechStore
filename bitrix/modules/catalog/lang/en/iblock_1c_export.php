@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['C_ERROR_NO_DATAFILE'] = "The data file has been neither loaded nor selected. Unable to import.";
 $MESS ['C_ERROR_NO_IBLOCKTYPE'] = "Information block type not selected. Unable to import.";
 $MESS ['C_DATA_LOADING'] = "Data Import";

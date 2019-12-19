@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -41,7 +41,7 @@ endif;
 ?>
 <div class="forum-info-box forum-filter">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 	$APPLICATION->IncludeComponent("bitrix:forum.interface", "filter_simple", 
 		array(
 			"FORM_METHOD_GET" => 'Y',
@@ -88,13 +88,13 @@ endif;
 					"VALUE" => GetMessage("F_DO_SEARCH")))),
 			$component,
 			array(
-				"HIDE_ICONS" => "Y"));?><?
+				"HIDE_ICONS" => "Y"));?><?php 
 ?>
 	</div>
 </div>
 
 <br/>
-<?
+<?php 
 if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 ?><div class="forum-navigation-box forum-navigation-top">
 	<div class="forum-page-navigation">
@@ -102,7 +102,7 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 if ($_GET["show_help"] == "Y" || $arResult["ERROR_MESSAGE"] != "" || $arResult["EMPTY"] == "Y" || $arResult["SHOW_RESULT"] != "N"):
@@ -110,7 +110,7 @@ if ($_GET["show_help"] == "Y" || $arResult["ERROR_MESSAGE"] != "" || $arResult["
 <div class="forum-header-box">
 	<div class="forum-header-title"><span><?=GetMessage("F_TITLE")?></span></div>
 </div>
-<?
+<?php 
 endif;
 
 if ($_GET["show_help"] == "Y"):
@@ -122,18 +122,18 @@ if ($_GET["show_help"] == "Y"):
 	<?=GetMessage("F_SEARCH_DESCR")?>
 	</div>
 </div>
-<?
+<?php 
 elseif ($arResult["ERROR_MESSAGE"] != ""):
 ?>
 <div class="forum-info-box forum-search-help">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 		<?=GetMessage("F_PHRASE_ERROR_CORRECT")?><br />
@@ -141,7 +141,7 @@ endif;
 		<?=GetMessage("F_SEARCH_DESCR")?>
 	</div>
 </div>
-<?
+<?php 
 elseif ($arResult["EMPTY"] == "Y"):
 ?>
 <div class="forum-info-box forum-search-help">
@@ -149,57 +149,57 @@ elseif ($arResult["EMPTY"] == "Y"):
 		<?=ShowNote(GetMessage("F_EMPTY"), "forum-note")?>
 	</div>
 </div>
-<?
+<?php 
 elseif ($arResult["SHOW_RESULT"] != "N"):
 ?>
 <div class="forum-block-container forum-search-block-container">
 	<div class="forum-block-outer">
-		<div class="forum-block-inner"><?
+		<div class="forum-block-inner"><?php 
 	$iNumber = 0; $iCount = count($arResult["TOPICS"]);
 	foreach ($arResult["TOPICS"] as $res):
 	$iNumber++;
-			?><div class="forum-info-box <?
-				?><?=($iNumber%2 == 1 ? "forum-info-box-odd " : "forum-info-box-even ")?><?
-				?><?=($iNumber == 1 ? "forum-info-box-first " : "")?><?
+			?><div class="forum-info-box <?php 
+				?><?=($iNumber%2 == 1 ? "forum-info-box-odd " : "forum-info-box-even ")?><?php 
+				?><?=($iNumber == 1 ? "forum-info-box-first " : "")?><?php 
 				?><?=($iNumber == $iCount ? "forum-info-box-last" : "")?>">
 				<div class="forum-info-box-inner">
 					<noindex><a href="<?=$res["URL"]?>" class="forum-name" rel="nofollow"><?=$res["TITLE_FORMATED"]?></a></noindex>
 					<div class="forum-text"><?=$res["BODY_FORMATED"]?></div>
 
-<?
+<?php 
 		if (!empty($res["TAGS"])):
 ?>
-						<div class="forum-tags"><?=GetMessage("F_TAGS")?>: <?
+						<div class="forum-tags"><?=GetMessage("F_TAGS")?>: <?php 
 							$first = true;
 							foreach ($res["TAGS"] as $tags):
 								if (!$first)
 								{
-									?>, <?
+									?>, <?php 
 								}
-								?><a href="<?=$tags["URL"]?>"><?=$tags["TAG_NAME"]?></a><?
+								?><a href="<?=$tags["URL"]?>"><?=$tags["TAG_NAME"]?></a><?php 
 								$first = false;
 							endforeach;
 ?>
 						</div>
-<?
+<?php 
 		endif;
 ?>
 						<div class="forum-date"><?=GetMessage("F_CHANGE")?> <?=$res["DATE_CHANGE"]?></div>
-<?
+<?php 
 		if ($res["~URL"] != $res["SITE_URL"]):
 ?>
 						<?=str_replace(array("#MESSAGE_URL#", "#SITE_URL#"), 
 							array($res["URL"], $res["SITE_URL"]), GetMessage("F_DIFF_URLS"))?><br />
-<?
+<?php 
 		endif;
 ?>
 				</div>
-			</div><?
+			</div><?php 
 	endforeach;
 		?></div>
 	</div>
 </div>
-<?
+<?php 
 if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
 <div class="forum-navigation-box forum-navigation-bottom">
@@ -208,7 +208,7 @@ if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 endif;

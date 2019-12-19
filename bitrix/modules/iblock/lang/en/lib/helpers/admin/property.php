@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROPERTY_TYPE_STRING"] = "String";
 $MESS["PROPERTY_TYPE_NUMBER"] = "Number";
 $MESS["PROPERTY_TYPE_LIST"] = "List";

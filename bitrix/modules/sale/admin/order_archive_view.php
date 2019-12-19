@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var  CUser $USER
  * @var  CMain $APPLICATION
@@ -160,7 +160,7 @@ echo $customDraggableBlocks->getScripts();
 $blocks = $view->getTemplates();
 
 // navigation socket
-?><div id="sale-order-edit-block-fast-nav-socket"></div><?
+?><div id="sale-order-edit-block-fast-nav-socket"></div><?php 
 
 // yellow block with brief
 echo Admin\Blocks\OrderInfo::getView($saleOrder, $orderBasket);
@@ -193,8 +193,8 @@ foreach($customDraggableBlocks->getBlocksBrief() as $blockId => $blockParams)
 	<td>
 	<?=bitrix_sessid_post()?>
 	<div style="position: relative; vertical-align: top">
-		<?$tabControl->DraggableBlocksStart();?>
-		<?
+		<?php $tabControl->DraggableBlocksStart();?>
+		<?php 
 			foreach ($blocksOrder as $blockCode)
 			{
 				echo '<a id="'.$blockCode.'"  class="adm-sale-fastnav-anchor"></a>';
@@ -207,7 +207,7 @@ foreach($customDraggableBlocks->getBlocksBrief() as $blockId => $blockParams)
 </td>
 </tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
@@ -228,4 +228,4 @@ $tabControl->EndTab();
 	});
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

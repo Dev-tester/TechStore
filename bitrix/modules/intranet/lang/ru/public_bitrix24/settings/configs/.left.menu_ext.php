@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_CONFIGS"] = "Настройки портала";
 $MESS["MENU_ADMIN_PANEL"] = "Администрирование интернет-магазина";
 $MESS["MENU_MAIL_MANAGE"] = "Управление почтой";

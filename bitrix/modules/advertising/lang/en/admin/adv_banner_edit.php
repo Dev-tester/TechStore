@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ADV_BANNER_FILE'] = "File";
 $MESS['ADV_BANNER_FLASH'] = "Flash";
 $MESS['ADV_BANNER_HTML'] = "HTML code";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DAV_INSTALL_DESCRIPTION"] = "Object And Collection Access Module";
 $MESS["DAV_PERM_D"] = "access denied";
 $MESS["DAV_INSTALL_NAME"] = "DAV";

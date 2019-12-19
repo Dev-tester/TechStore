@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Disk module integration in a context of Rest
  */

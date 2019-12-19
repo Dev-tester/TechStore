@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_WIZARD_ADMIN_TITLE"] = "Список мастеров";
 $MESS["MAIN_WIZARD_ADMIN_NAME"] = "Название";
 $MESS["MAIN_WIZARD_ADMIN_DESC"] = "Описание";

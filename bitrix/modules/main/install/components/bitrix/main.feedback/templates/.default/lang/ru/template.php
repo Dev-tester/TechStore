@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MFT_NAME'] = "Ваше имя";
 $MESS ['MFT_EMAIL'] = "Ваш E-mail";
 $MESS ['MFT_MESSAGE'] = "Сообщение";

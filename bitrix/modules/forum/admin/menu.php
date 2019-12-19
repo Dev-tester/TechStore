@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 $Dict = array("W" => array(), "T" => array());
 function __forum_chapter_menu_gen()

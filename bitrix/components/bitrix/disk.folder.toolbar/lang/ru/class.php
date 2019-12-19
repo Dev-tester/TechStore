@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FOLDER_TOOLBAR_UPLOAD_FILE_TEXT"] = "Загрузить";
 $MESS["DISK_FOLDER_TOOLBAR_UPLOAD_FILE_TITLE"] = "Загрузить новые документы в текущую папку";
 $MESS["DISK_FOLDER_TOOLBAR_CREATE_DOC_TEXT"] = "Создать документ";

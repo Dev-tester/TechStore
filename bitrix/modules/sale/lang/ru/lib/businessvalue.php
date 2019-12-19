@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZVAL_PROVIDER_VALUE"] = "Значение";
 $MESS["BIZVAL_PROVIDER_USER"] = "Пользователь";
 $MESS["BIZVAL_PROVIDER_ORDER"] = "Заказ";

@@ -1,4 +1,4 @@
-<?	
+<?php 	
 //	ClearVars();
 	if(!check_bitrix_sessid() || !CModule::IncludeModule("iblock")) 
 		return;
@@ -176,7 +176,7 @@
 <script>
 window.location='/bitrix/admin/module_admin.php?step=3&lang=<?=LANGUAGE_ID."&id=photogallery&install=y&".bitrix_sessid_get()?>';
 </script>
-<?
+<?php 
 	}
 	
 ?>

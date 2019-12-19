@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <span id="rating-vote-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" class="rating-vote <?=($arResult['VOTE_AVAILABLE'] == 'N' ? 'rating-vote-disabled' : '')?>" title="<?=($arResult['VOTE_AVAILABLE'] == 'N'? htmlspecialcharsbx($arResult['ALLOW_VOTE']['ERROR_MSG']) : '')?>">
@@ -7,10 +7,10 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 </span>
 <script type="text/javascript">
 BX.ready(function(){
-<?if ($arResult['AJAX_MODE'] == 'Y'):?>
+<?php if ($arResult['AJAX_MODE'] == 'Y'):?>
 	BX.loadCSS('/bitrix/components/bitrix/rating.vote/templates/standart/style.css');
 	BX.loadScript('/bitrix/js/main/rating.js', function() {
-<?endif;?>
+<?php endif;?>
 	if (!window.Rating && top.Rating)
 		Rating = top.Rating;
 	Rating.Set(
@@ -23,8 +23,8 @@ BX.ready(function(){
 		'standart',
 		'<?=CUtil::JSEscape($arResult['PATH_TO_USER_PROFILE'])?>'
 	);
-<?if ($arResult['AJAX_MODE'] == 'Y'):?>
+<?php if ($arResult['AJAX_MODE'] == 'Y'):?>
 	});
-<?endif;?>
+<?php endif;?>
 });
 </script>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATEACT_BACK'] = "<< Back To States";
 $MESS ['STATEACT_ADD'] = "Add";
 $MESS ['STATEACT_MENU_COMMAND'] = "Command";

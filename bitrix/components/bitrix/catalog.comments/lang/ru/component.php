@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_CSC_ELEMENT_NOT_FOUND"] = "Элемент не найден";
 $MESS["IBLOCK_CSC_MODULE_NOT_INSTALLED"] = "Модуль \"Информационные блоки\" не установлен";
 $MESS["IBLOCK_CSC_MODULE_BLOG_NOT_INSTALLED"] = "Модуль \"Блоги\" не установлен";

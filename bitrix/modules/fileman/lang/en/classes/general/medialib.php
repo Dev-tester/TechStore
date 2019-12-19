@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ML_ACCESS_DENIED"] = "Access Denied";
 $MESS["ML_BAD_EVENT"] = "The event to invoke the Media Library window is not specified.";
 $MESS["ML_BAD_RETURN"] = "The parameters to obtain a selected item are incorrect or not specified.";

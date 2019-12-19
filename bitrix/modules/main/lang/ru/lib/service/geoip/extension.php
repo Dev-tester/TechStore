@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_SRV_GEOIP_EXT_TITLE"] = 'Расширение GeoIP';
 $MESS["MAIN_SRV_GEOIP_EXT_DESCRIPTION"] = "Расширение GeoIP позволяет найти местоположение по IP-адресу. С помощью GeoIP можно получить такую информацию как город, государство, страна, долгота и широта, а также можно узнать, интернет-провайдера и тип соединения.<br>
 	Информацию по установке и настройке можно узнать по адресу: <a href='http://php.net/manual/ru/book.geoip.php'>http://php.net/manual/ru/book.geoip.php</a>";

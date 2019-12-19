@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["debug_info_title"] = "SQL query statistics";
 $MESS["debug_info_close"] = "Close window";
 $MESS["debug_info_path"] = "Path to file:";

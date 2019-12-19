@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -415,14 +415,14 @@ HTML
 		ob_start();
 		?>
 		<div class="column" data-bx-editor-column="item">
-			<?for ($columnNumber = 1; $columnNumber < 5; $columnNumber++):?>
+			<?php for ($columnNumber = 1; $columnNumber < 5; $columnNumber++):?>
 			<span data-bx-editor-column-number="<?=$columnNumber?>"
 				style="display: none;">
 				<?=Loc::getMessage('BLOCK_EDITOR_TOOL_COLUMN')?> <?=$columnNumber?>
 			</span>
-			<?endfor;?>
+			<?php endfor;?>
 		</div>
-		<?
+		<?php 
 		if ($useLightTextEditor)
 		{
 			echo '<div style="color: #bfbfbf; font-size: 17px; padding: 0 0; position: relative;">';
@@ -536,10 +536,10 @@ HTML
 						<select class="preset">
 							<option value=""><?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_SELECT')?></option>
 							<option value="http://#SERVER_NAME#/"><?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_OURSITE')?></option>
-							<?if (self::isAvailableRussian()):?>
+							<?php if (self::isAvailableRussian()):?>
 								<option value="http://vk.com/"><?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_VK')?></option>
 								<option value="http://ok.ru/"><?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_OK')?></option>
-							<?endif;?>
+							<?php endif;?>
 							<option value="http://facebook.com/"><?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_FACEBOOK')?></option>
 							<option value="http://instagram.com/"><?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_INSTAGRAM')?></option>
 							<option value="http://twitter.com/"><?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_TWITTER')?></option>
@@ -560,7 +560,7 @@ HTML
 		</script>
 		<div class="container"></div>
 		<input class="add" type="button" value="<?=Loc::getMessage('BLOCK_EDITOR_TOOL_SOCIAL_CONTENT_BTN_ADD')?>">
-		<?
+		<?php 
 		$resultList[] = array(
 			'GROUP' => 'cont',
 			'ID' => 'social_content',

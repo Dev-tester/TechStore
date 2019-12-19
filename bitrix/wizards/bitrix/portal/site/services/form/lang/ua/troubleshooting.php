@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REQUEST_NAME_QUESTION"] = "Найменування заявки";
 $MESS["REQUEST_TYPE_ANSWER1"] = "Неполадки з обчислювальною технікою";
 $MESS["REQUEST_TYPE_ANSWER2"] = "Господарсько-технічні проблеми";

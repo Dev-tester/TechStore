@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
 /** @global CDatabase $DB */
@@ -366,8 +366,8 @@ $chain->AddItem(array(
 ));
 $chain->Show();
 ?>
-<form method="GET" name="find_section_form" action="<?echo $APPLICATION->GetCurPage()?>">
-<?
+<form method="GET" name="find_section_form" action="<?php echo $APPLICATION->GetCurPage()?>">
+<?php 
 $arFindFields = Array(
 	"iblock_id" => GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_IBLOCK_ID"),
 	"name" => GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_NAME"),
@@ -390,21 +390,21 @@ $oFilter->Begin();
 <script type="text/javascript">
 function SelEl(id, name)
 {
-	<?if($m):?>
-	window.opener.InS<?echo md5($n)?>(id, name);
-	<?else:?>
-	el = window.opener.document.getElementById('<?echo $n?>[<?echo $k?>]');
+	<?php if($m):?>
+	window.opener.InS<?php echo md5($n)?>(id, name);
+	<?php else:?>
+	el = window.opener.document.getElementById('<?php echo $n?>[<?php echo $k?>]');
 	if(!el)
-		el = window.opener.document.getElementById('<?echo $n?>');
+		el = window.opener.document.getElementById('<?php echo $n?>');
 	if(el)
 		el.value = id;
-	el = window.opener.document.getElementById('<?echo md5($n)?>_<?echo $k?>_link');
+	el = window.opener.document.getElementById('<?php echo md5($n)?>_<?php echo $k?>_link');
 	if(!el)
-		el = window.opener.document.getElementById('<?echo $n?>_link');
+		el = window.opener.document.getElementById('<?php echo $n?>_link');
 	if(el)
 		el.innerHTML = name;
 	window.close();
-	<?endif;?>
+	<?php endif;?>
 }
 
 function SelAll()
@@ -438,25 +438,25 @@ function SelAll()
 }
 </script>
 	<tr>
-		<td><b><? echo GetMessage('BX_MOD_CATALOG_ADMIN_CSS_HEAD_IBLOCK_ID'); ?></b></td>
-		<td><? echo GetIBlockDropDownListEx($IBLOCK_ID, 'find_iblock_type_id', 'find_iblock_id'); ?></td>
+		<td><b><?php  echo GetMessage('BX_MOD_CATALOG_ADMIN_CSS_HEAD_IBLOCK_ID'); ?></b></td>
+		<td><?php  echo GetIBlockDropDownListEx($IBLOCK_ID, 'find_iblock_type_id', 'find_iblock_id'); ?></td>
 	</tr>
 	<tr>
-		<td><b><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_NAME")?>:</b></td>
-		<td><input type="text" name="find_section_name" value="<?echo htmlspecialcharsEx($find_section_name)?>" size="47">&nbsp;<?=ShowFilterLogicHelp()?></td>
+		<td><b><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_NAME")?>:</b></td>
+		<td><input type="text" name="find_section_name" value="<?php echo htmlspecialcharsEx($find_section_name)?>" size="47">&nbsp;<?=ShowFilterLogicHelp()?></td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_ID")?>:</td>
-		<td><input type="text" name="find_section_id" size="47" value="<?echo htmlspecialcharsbx($find_section_id)?>"></td>
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_ID")?>:</td>
+		<td><input type="text" name="find_section_id" size="47" value="<?php echo htmlspecialcharsbx($find_section_id)?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_TIMESTAMP").":"?></td>
-		<td><?echo CalendarPeriod("find_section_timestamp_1", htmlspecialcharsbx($find_section_timestamp_1), "find_section_timestamp_2", htmlspecialcharsbx($find_section_timestamp_2), "find_section_form","Y")?></td>
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_TIMESTAMP").":"?></td>
+		<td><?php echo CalendarPeriod("find_section_timestamp_1", htmlspecialcharsbx($find_section_timestamp_1), "find_section_timestamp_2", htmlspecialcharsbx($find_section_timestamp_2), "find_section_form","Y")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_MODIFIED_BY")?>:</td>
-		<td><input type="text" name="find_section_modified_user_id" value="<?echo htmlspecialcharsEx($find_section_modified_by)?>" size="3">&nbsp;<?
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_MODIFIED_BY")?>:</td>
+		<td><input type="text" name="find_section_modified_user_id" value="<?php echo htmlspecialcharsEx($find_section_modified_by)?>" size="3">&nbsp;<?php 
 		$gr_res = CIBlock::GetGroupPermissions($IBLOCK_ID);
 		$res = Array(1);
 		foreach($gr_res as $gr=>$perm)
@@ -464,19 +464,19 @@ function SelAll()
 				$res[] = $gr;
 			$res = CUser::GetList($byx="NAME", $orderx="ASC", Array("GROUP_MULTI"=>$res));
 		?><select name="find_section_modified_by">
-		<option value=""><?echo GetMessage("IBLOCK_ALL")?></option><?
+		<option value=""><?php echo GetMessage("IBLOCK_ALL")?></option><?php 
 		while($arr = $res->Fetch())
 			echo "<option value='".$arr["ID"]."'".($find_section_modified_by==$arr["ID"]?" selected":"").">(".htmlspecialcharsEx($arr["LOGIN"].") ".$arr["NAME"]." ".$arr["LAST_NAME"])."</option>";
 		?></select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_DATE_CREATE").":"?></td>
-		<td><?echo CalendarPeriod("find_section_date_create_1", htmlspecialcharsEx($find_section_date_create_1), "find_section_date_create_2", htmlspecialcharsEx($find_section_date_create_2), "find_section_form")?></td>
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_DATE_CREATE").":"?></td>
+		<td><?php echo CalendarPeriod("find_section_date_create_1", htmlspecialcharsEx($find_section_date_create_1), "find_section_date_create_2", htmlspecialcharsEx($find_section_date_create_2), "find_section_form")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_CREATED_BY")?>:</td>
-		<td><input type="text" name="find_section_created_user_id" value="<?echo htmlspecialcharsEx($find_section_created_by)?>" size="3">&nbsp;<?
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_CREATED_BY")?>:</td>
+		<td><input type="text" name="find_section_created_user_id" value="<?php echo htmlspecialcharsEx($find_section_created_by)?>" size="3">&nbsp;<?php 
 		$gr_res = CIBlock::GetGroupPermissions($IBLOCK_ID);
 		$res = Array(1);
 		foreach($gr_res as $gr=>$perm)
@@ -484,38 +484,38 @@ function SelAll()
 				$res[] = $gr;
 		$res = CUser::GetList($byx="NAME", $orderx="ASC", Array("GROUP_MULTI"=>$res));
 		?><select name="find_section_created_by">
-		<option value=""><?echo GetMessage("IBLOCK_ALL")?></option><?
+		<option value=""><?php echo GetMessage("IBLOCK_ALL")?></option><?php 
 		while($arr = $res->Fetch())
 			echo "<option value='".$arr["ID"]."'".($find_section_created_by==$arr["ID"]?" selected":"").">(".htmlspecialcharsEx($arr["LOGIN"].") ".$arr["NAME"]." ".$arr["LAST_NAME"])."</option>";
 		?></select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_CODE")?>:</td>
-		<td><input type="text" name="find_section_code" size="47" value="<?echo htmlspecialcharsbx($find_section_code)?>"></td>
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_CODE")?>:</td>
+		<td><input type="text" name="find_section_code" size="47" value="<?php echo htmlspecialcharsbx($find_section_code)?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_XML_ID")?>:</td>
-		<td><input type="text" name="find_section_external_id" size="47" value="<?echo htmlspecialcharsbx($find_section_external_id)?>"></td>
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_XML_ID")?>:</td>
+		<td><input type="text" name="find_section_external_id" size="47" value="<?php echo htmlspecialcharsbx($find_section_external_id)?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("BX_MOD_CATALOG_ADMIN_CSS_HEAD_ACTIVE")?>:</td>
 		<td>
 			<select name="find_section_active" >
 				<option value=""><?=htmlspecialcharsEx(GetMessage('IBLOCK_ALL'))?></option>
-				<option value="Y"<?if($find_section_active=="Y")echo " selected"?>><?=htmlspecialcharsEx(GetMessage("IBLOCK_YES"))?></option>
-				<option value="N"<?if($find_section_active=="N")echo " selected"?>><?=htmlspecialcharsEx(GetMessage("IBLOCK_NO"))?></option>
+				<option value="Y"<?php if($find_section_active=="Y")echo " selected"?>><?=htmlspecialcharsEx(GetMessage("IBLOCK_YES"))?></option>
+				<option value="N"<?php if($find_section_active=="N")echo " selected"?>><?=htmlspecialcharsEx(GetMessage("IBLOCK_NO"))?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 if ($entity_id)
 	$USER_FIELD_MANAGER->AdminListShowFilter($entity_id);
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage().'?IBLOCK_ID='.$IBLOCK_ID, "form"=>"find_section_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

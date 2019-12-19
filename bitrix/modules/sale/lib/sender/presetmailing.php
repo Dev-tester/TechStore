@@ -1,4 +1,4 @@
-<?
+<?php 
 
 namespace Bitrix\Sale\Sender;
 
@@ -74,7 +74,7 @@ class PresetMailing
 		if(!is_numeric($perc))
 			$perc = 5;
 
-		return '<?EventMessageThemeCompiler::includeComponent(
+		return '<?php EventMessageThemeCompiler::includeComponent(
 			"bitrix:sale.discount.coupon.mail",
 			"",
 			Array(
@@ -90,7 +90,7 @@ class PresetMailing
 
 	protected static function getBasketCart()
 	{
-		return '<?EventMessageThemeCompiler::includeComponent(
+		return '<?php EventMessageThemeCompiler::includeComponent(
 			"bitrix:sale.basket.basket.small.mail",
 			"",
 			Array(

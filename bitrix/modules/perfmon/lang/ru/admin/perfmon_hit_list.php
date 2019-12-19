@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_HIT_TITLE"] = "Монитор производительности: хиты";
 $MESS["PERFMON_HIT_PAGE"] = "Хиты";
 $MESS["PERFMON_HIT_ID"] = "ID";

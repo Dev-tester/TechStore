@@ -1,4 +1,4 @@
-<?
+<?php 
 /**********************************************************************/
 /**    DO NOT MODIFY THIS FILE                                       **/
 /**    MODIFICATION OF THIS FILE WILL ENTAIL SITE FAILURE            **/
@@ -10,9 +10,9 @@ if ($FM_RIGHT=="D") $APPLICATION->AuthForm(GetMessage("ACCESS_DENIED"));
 ?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?echo LANG_CHARSET?>">
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo LANG_CHARSET?>">
 <style>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/interface/admin_styles.css");
 
 if (strlen($APPLICATION->GetAdditionalCSS())>0)
@@ -41,6 +41,6 @@ function DoEvent(str)
 
 </body>
 </html>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php")
 ?>

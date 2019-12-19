@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B_B_MS_LINK"] = "Ссылка";
 $MESS["BPC_MES_EDIT"] = "Редактировать";
 $MESS["BPC_MES_SHOW"] = "Показать";

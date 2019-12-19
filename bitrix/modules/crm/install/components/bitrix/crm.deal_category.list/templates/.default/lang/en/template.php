@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_CATEGORY_EDIT_TITLE"] = "Edit pipeline";
 $MESS["CRM_DEAL_CATEGORY_EDIT"] = "Edit";
 $MESS["CRM_DEAL_CATEGORY_STATUS_EDIT"] = "Edit stages";

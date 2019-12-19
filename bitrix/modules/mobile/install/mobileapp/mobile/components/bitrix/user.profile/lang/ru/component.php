@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NAME"] = "Имя";
 $MESS["LAST_NAME"] = "Фамилия";
 $MESS["SECOND_NAME"] = "Отчество";

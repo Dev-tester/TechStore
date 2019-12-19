@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_INSTALLED"] = "Installed apps";
 $MESS["RMP_APP_TIME_LIMIT_3"] = "3 months";
 $MESS["RMP_APP_TIME_LIMIT_6"] = "6 months";

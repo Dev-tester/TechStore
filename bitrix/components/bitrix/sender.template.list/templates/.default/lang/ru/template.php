@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_TEMPLATE_LIST_BTN_ADD"] = "Создать шаблон";
 $MESS["SENDER_TEMPLATE_LIST_BTN_EDIT"] = "Редактировать";
 $MESS["SENDER_TEMPLATE_LIST_BTN_EDIT_TITLE"] = "Редактировать";

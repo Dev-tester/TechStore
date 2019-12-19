@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -156,8 +156,8 @@ $APPLICATION->SetTitle(Loc::getMessage("CONTROLLER_AUTH_LOG_TITLE"));
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-	<form name="form1" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?">
-		<? $filter->Begin(); ?>
+	<form name="form1" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?">
+		<?php  $filter->Begin(); ?>
 		<tr>
 			<td nowrap><label for="find_user_id"><?=GetMessage("CONTROLLER_AUTH_LOG_USER_ID")?></label>:</td>
 			<td nowrap>
@@ -165,7 +165,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 					type="text"
 					name="find_user_id"
 					id="find_user_id"
-					value="<? echo htmlspecialcharsbx($adminFilter['find_user_id']) ?>"
+					value="<?php  echo htmlspecialcharsbx($adminFilter['find_user_id']) ?>"
 					size="47"
 				>
 			</td>
@@ -177,7 +177,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 					type="text"
 					name="find_from_controller_member"
 					id="find_from_controller_member"
-					value="<? echo htmlspecialcharsbx($adminFilter['find_from_controller_member']) ?>"
+					value="<?php  echo htmlspecialcharsbx($adminFilter['find_from_controller_member']) ?>"
 					size="47"
 				>
 			</td>
@@ -189,16 +189,16 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 					type="text"
 					name="find_to_controller_member"
 					id="find_to_controller_member"
-					value="<? echo htmlspecialcharsbx($adminFilter['find_to_controller_member']) ?>"
+					value="<?php  echo htmlspecialcharsbx($adminFilter['find_to_controller_member']) ?>"
 					size="47"
 				>
 			</td>
 		</tr>
 		<tr>
 			<td nowrap><?=GetMessage("CONTROLLER_AUTH_LOG_TIMESTAMP_X")?>:</td>
-			<td nowrap><? echo CalendarPeriod("find_timestamp_x_from", $adminFilter['find_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['find_timestamp_x_to'], "form1", "Y") ?></td>
+			<td nowrap><?php  echo CalendarPeriod("find_timestamp_x_from", $adminFilter['find_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['find_timestamp_x_to'], "form1", "Y") ?></td>
 		</tr>
-		<?
+		<?php 
 		$filter->Buttons(array(
 			"table_id" => $sTableID,
 			"url" => $APPLICATION->GetCurPage(),
@@ -208,7 +208,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 		?>
 
 	</form>
-<?
+<?php 
 
 $adminList->DisplayList();
 

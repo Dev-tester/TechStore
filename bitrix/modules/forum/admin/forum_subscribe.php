@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Subscribes
 **************************************!*****************************/
@@ -186,21 +186,21 @@ while ($arRes = $rsData->NavNext(true, "t_"))
 	);
 	?>
 	<form name="form1" method="get" action="<?=$APPLICATION->GetCurPage()?>?">
-	<?$oFilter->Begin();?>
+	<?php $oFilter->Begin();?>
 	<tr valign="center">
 		<td><b><?=GetMessage("FM_FLT_SEARCH")?>:</b></td>
 		<td nowrap>
 		<input type="text" size="25" name="Filter" value="<?=htmlspecialcharsbx($Filter)?>" title="<?=GetMessage("FM_FLT_SEARCH_TITLE")?>">
 		<select name="FilterType">
-			<option value="login"<?if($_REQUEST["find_type"]=="login") echo " selected"?>><?=GetMessage('FM_FLT_LOGIN')?></option>
-			<option value="email"<?if($_REQUEST["find_type"]=="email") echo " selected"?>><?=GetMessage('FM_FLT_EMAIL')?></option>
-			<option value="name"<?if($_REQUEST["find_type"]=="name") echo " selected"?>><?=GetMessage('FM_FLT_FIO')?></option>
+			<option value="login"<?php if($_REQUEST["find_type"]=="login") echo " selected"?>><?=GetMessage('FM_FLT_LOGIN')?></option>
+			<option value="email"<?php if($_REQUEST["find_type"]=="email") echo " selected"?>><?=GetMessage('FM_FLT_EMAIL')?></option>
+			<option value="name"<?php if($_REQUEST["find_type"]=="name") echo " selected"?>><?=GetMessage('FM_FLT_FIO')?></option>
 		</select>
 		</td>
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FM_FLT_START_DATE").":"?></td>
-		<td><?echo CalendarPeriod("DATE_FROM", $DATE_FROM, "DATE_TO", $DATE_TO, "form1","Y")?></td>
+		<td><?php echo CalendarPeriod("DATE_FROM", $DATE_FROM, "DATE_TO", $DATE_TO, "form1","Y")?></td>
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FM_FLT_FORUM")?>:</td>
@@ -210,18 +210,18 @@ while ($arRes = $rsData->NavNext(true, "t_"))
 		<td><?=GetMessage("FM_FLT_SUBSCR_TYPE")?>:</td>
 		<td>
 		<select name="SUBSCR_TYPE">
-			<option value=""<?if($SUBSCR_TYPE=="") echo " selected"?>><?=GetMessage('FM_SPACE')?></option>
-			<option value="new_topic_only"<?if($SUBSCR_TYPE=="new_topic_only") echo " selected"?>><?=GetMessage('FM_NEW_TOPIC_ONLY')?></option>
-			<option value="all_message"<?if($SUBSCR_TYPE=="all_message") echo " selected"?>><?=GetMessage('FM_ALL_MESSAGE')?></option>
-			<option value="typical"<?if($SUBSCR_TYPE=="typical") echo " selected"?>><?=GetMessage('FM_TYPICAL')?></option>
+			<option value=""<?php if($SUBSCR_TYPE=="") echo " selected"?>><?=GetMessage('FM_SPACE')?></option>
+			<option value="new_topic_only"<?php if($SUBSCR_TYPE=="new_topic_only") echo " selected"?>><?=GetMessage('FM_NEW_TOPIC_ONLY')?></option>
+			<option value="all_message"<?php if($SUBSCR_TYPE=="all_message") echo " selected"?>><?=GetMessage('FM_ALL_MESSAGE')?></option>
+			<option value="typical"<?php if($SUBSCR_TYPE=="typical") echo " selected"?>><?=GetMessage('FM_TYPICAL')?></option>
 		</select>
 		</td>
 	</tr>
 
-	<?
+	<?php 
 	$oFilter->Buttons(array("table_id" => $sTableID,"url" => $APPLICATION->GetCurPage(),"form" => "find_form"));
 	$oFilter->End();
-	?></form><?
+	?></form><?php 
 	$lAdmin->DisplayList();
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

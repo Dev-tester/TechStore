@@ -1,23 +1,23 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $this->SetViewTarget('pagetitle', 100);
 ?>
-<?
+<?php 
 if ($arResult['FROM_MEETING'] > 0):
 ?>
-	<a href="<?echo str_replace('#MEETING_ID#', $arResult['FROM_MEETING'], $arParams['MEETING_URL_TPL'])?>" class="webform-small-button webform-small-button-blue webform-small-button-back">
+	<a href="<?php echo str_replace('#MEETING_ID#', $arResult['FROM_MEETING'], $arParams['MEETING_URL_TPL'])?>" class="webform-small-button webform-small-button-blue webform-small-button-back">
 		<span class="webform-small-button-icon"></span>
 		<span class="webform-small-button-text"><?=GetMessage('ME_BACK')?></span>
 	</a>
-<?
+<?php 
 endif;
 ?>
 	<a href="<?=$arParams['LIST_URL']?>" class="webform-small-button webform-small-button-blue webform-small-button-back">
 		<span class="webform-small-button-icon"></span>
 		<span class="webform-small-button-text"><?=GetMessage('ME_LIST_TITLE')?></span>
 	</a>
-<?
+<?php 
 $this->EndViewTarget();
 ?>
 <form name="meeting_item_edit" method="POST" enctype="multipart/form-data" action="<?=POST_FORM_ACTION_URI?>">
@@ -31,33 +31,33 @@ $this->EndViewTarget();
 				<div class="webform-right-corner"></div>
 			</div>
 			<div class="webform-content meeting-detail-title-label"><?=GetMessage('MI_BLOCK_TITLE')?>
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 				<span id="item_edit_link" class="meeting-link meeting-edit-description"><?=GetMessage('MI_EDIT')?></span>
-<?
+<?php 
 endif;
 ?>
 			</div>
 		</div>
 		<div class="webform-round-corners webform-main-block webform-main-block-topless webform-main-block-bottomless">
 			<div class="webform-content" id="meeting_item_block">
-<?
+<?php 
 require($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/view.php');
 ?>
 			</div>
 		</div>
 	</div>
-<?
+<?php 
 foreach ($arResult['ITEM']['TASKS'] as $task_id):
 	$task_id = intval($task_id);
 ?>
 	<input type="hidden" id="meeting_task_<?=$task_id;?>" name="ITEM_TASKS[]" value="<?=$task_id?>" />
-<?
+<?php 
 endforeach;
 ?>
 </form>
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 <div class="item-edit-buttons" id="item_edit_buttons" style="display: none;">
@@ -66,11 +66,11 @@ if ($arResult['CAN_EDIT']):
 	</a>
 	<a href="javascript:void(0)" class="webform-small-button-link webform-button-link-cancel" onclick="resetItem(true); return false;"><?=GetMessage('MI_CANCEL')?></a>
 </div>
-<?
+<?php 
 endif;
 ?>
 
-<?
+<?php 
 $bSingle = count($arResult['ITEM']['INSTANCES']) <= 1;
 $bFirst = true;
 $bEdit = false;
@@ -79,7 +79,7 @@ foreach ($arResult['ITEM']['INSTANCES'] as $arInstance):
 ?>
 <div class="meeting-question-report-wrap">
 	<div class="meeting-ques-title"><?=GetMessage('MI_REPORTS')?></div>
-<?
+<?php 
 	endif;
 ?>
 	<div class="meeting-ques-info-wrap">
@@ -89,16 +89,16 @@ foreach ($arResult['ITEM']['INSTANCES'] as $arInstance):
 			<tbody>
 				<tr class="meeting-ques-info-top">
 					<td class="meeting-ques-left"><?=GetMessage('MI_REPORT_MEETING')?>:</td>
-					<td class="meeting-ques-right"><a href="<?echo str_replace('#MEETING_ID#', $arInstance['MEETING_ID'], $arParams['MEETING_URL_TPL'])?>"><?=htmlspecialcharsbx(GetMessage('MI_MEETING_TITLE', array('#ID#' => $arInstance['MEETING_ID'], '#TITLE#' => $arInstance['MEETING']['TITLE'])));?></a></td>
+					<td class="meeting-ques-right"><a href="<?php echo str_replace('#MEETING_ID#', $arInstance['MEETING_ID'], $arParams['MEETING_URL_TPL'])?>"><?=htmlspecialcharsbx(GetMessage('MI_MEETING_TITLE', array('#ID#' => $arInstance['MEETING_ID'], '#TITLE#' => $arInstance['MEETING']['TITLE'])));?></a></td>
 				</tr>
-<?
+<?php 
 if ($arInstance['MEETING']['DATE_START'] && MakeTimeStamp($arInstance['MEETING']['DATE_START'])>0):
 ?>
 				<tr class="meeting-ques-info-top">
 					<td class="meeting-ques-left"><?=GetMessage('MI_REPORT_DATE_START')?>:</td>
 					<td class="meeting-ques-right"><?=FormatDate($DB->DateFormatToPhp(FORMAT_DATE).((IsAmPmMode()) ? ' h:i a' : ' H:i'), MakeTimeStamp($arInstance['MEETING']['DATE_START']))?></td>
 				</tr>
-<?
+<?php 
 endif;
 ?>
 				<tr class="meeting-ques-info-top meeting-ques-info-top-last">
@@ -109,7 +109,7 @@ endif;
 				<tr class="meeting-ques-info-bottom meeting-ques-info-bottom-first">
 					<td class="meeting-ques-left"><?=count($arInstance['RESPONSIBLE']) > 1 ? GetMessage('MI_REPORT_RESPONSIBLES') : GetMessage('MI_REPORT_RESPONSIBLE')?>:</td>
 					<td class="meeting-ques-right">
-<?
+<?php 
 	if (count($arInstance['RESPONSIBLE']) > 0):
 		foreach ($arInstance['RESPONSIBLE'] as $USER_ID):
 			$APPLICATION->IncludeComponent('bitrix:main.user.link', '', array('ID' => $USER_ID, "NAME_TEMPLATE" => $arParams["NAME_TEMPLATE"]), null, array('HIDE_ICONS' => 'Y'));
@@ -120,14 +120,14 @@ endif;
 ?>
 					</td>
 				</tr>
-<?
+<?php 
 	if ($arInstance['DEADLINE'] && MakeTimeStamp($arInstance['DEADLINE'])>0):
 ?>
 				<tr class="meeting-ques-info-bottom">
 					<td class="meeting-ques-left"><?=GetMessage('MI_REPORT_DEADLINE')?>:</td>
 					<td class="meeting-ques-right"><?=FormatDateFromDB($arInstance['DEADLINE'])?></td>
 				</tr>
-<?
+<?php 
 	endif;
 
 	$arReport = count($arInstance['REPORTS']) > 0 ? $arInstance['REPORTS'][0] : array(
@@ -136,7 +136,7 @@ endif;
 		'REPORT' => '',
 	);
 ?>
-<?
+<?php 
 	if ($arInstance['B_EDIT']):
 		$bEdit = true;
 ?>
@@ -150,7 +150,7 @@ endif;
 							<div class="meeting-ques-content-bottom">
 								<div class="webform-field-label"><?=GetMessage('MI_REPORT')?></div>
 								<div id="meeting-new-add-description-form" class="meeting-new-add-description-form">
-<?
+<?php 
 		$APPLICATION->IncludeComponent('bitrix:fileman.light_editor', '', array(
 			'CONTENT' => $arReport['REPORT'],
 			'INPUT_NAME' => 'REPORT',
@@ -186,7 +186,7 @@ endif;
 						</form>
 					</td>
 				</tr>
-<?
+<?php 
 	else:
 ?>
 				<tr class="meeting-ques-info-bottom meeting-ques-info-bot-sep-wrap">
@@ -201,63 +201,63 @@ endif;
 					<td class="meeting-ques-left"><?=GetMessage('MI_REPORT')?>:</td>
 					<td class="meeting-ques-right">
 						<span class="meeting-ques-edit-item"><span><?=strlen($arReport['REPORT']) > 0 ? $arReport['REPORT'] : GetMessage('MI_REPORT_NO_REPORT')?></span>
-							<?/*<div class="meeting-ag-edit-edit"></div>*/?>
+							<?php /*<div class="meeting-ag-edit-edit"></div>*/?>
 						</span>
 					</td>
 				</tr>
-<?
+<?php 
 		if (count($arReport['FILES']) > 0):
 ?>
 				<tr class="meeting-ques-info-bottom meeting-ques-info-bot-last">
 					<td class="meeting-ques-left"><?=GetMessage('ME_FILES')?>:</td>
 					<td class="meeting-ques-right">
-<?
+<?php 
 			foreach ($arReport['FILES'] as $ix => $arFile):
 ?>
-				<div class="meeting-detail-file"><span class="meeting-detail-file-number"><?=$ix+1?>.</span><span class="meeting-detail-file-info"><?if($arFile['FILE_SRC']):?><a href="#message<?=$arFile['FILE_SRC']?>" class="meeting-detail-file-comment"></a><?endif?><a class="meeting-detail-file-link" href="<?=$arFile['DOWNLOAD_URL']?>"><?=$arFile['ORIGINAL_NAME']?></a><span class="meeting-detail-file-size">(<?=$arFile['FILE_SIZE_FORMATTED']?>)</span></span></div>
-<?
+				<div class="meeting-detail-file"><span class="meeting-detail-file-number"><?=$ix+1?>.</span><span class="meeting-detail-file-info"><?php if($arFile['FILE_SRC']):?><a href="#message<?=$arFile['FILE_SRC']?>" class="meeting-detail-file-comment"></a><?php endif?><a class="meeting-detail-file-link" href="<?=$arFile['DOWNLOAD_URL']?>"><?=$arFile['ORIGINAL_NAME']?></a><span class="meeting-detail-file-size">(<?=$arFile['FILE_SIZE_FORMATTED']?>)</span></span></div>
+<?php 
 			endforeach;
 ?>
 					</td>
 				</tr>
-<?
+<?php 
 		endif;
 	endif;
 ?>
 			</tbody>
 		</table>
-<?
+<?php 
 	if ($arInstance['B_EDIT']):
 		$bEdit = true;
 ?>
 		<div class="meeting-question-buttons"><a class="webform-small-button webform-small-button-accept" href="javascript:void(0)" onclick="saveReport(this, document.forms.meeting_item_edit_<?=$arInstance['ID']?>)"><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=GetMessage('MI_SAVE')?></span><span class="webform-small-button-right"></span></a></div>
-<?
+<?php 
 	endif;
 ?>
 	</div>
-<?
+<?php 
 	if ($bFirst):
 ?>
 </div>
 <div class="meeting-question-history-wrap">
-<?
+<?php 
 		if (!$bSingle):
 			$t = array(str_replace('#CNT#', count($arResult['ITEM']['INSTANCES'])-1, GetMessage('MI_HISTORY_SHOW')), GetMessage('MI_HISTORY_HIDE'))
 ?>
 	<span class="meeting-link meeting-quest-hist-hide" onclick="BX.toggle(BX('meeting_question_history')); this.innerHTML=BX.toggle(this.innerHTML, <?=CUtil::PhpToJsObject($t)?>);"><?=$t[0]?></span>
 	<div class="meeting-question-history" id="meeting_question_history" style="display:none;">
-<?
+<?php 
 		endif;
 	endif;
 	$bFirst = false;
 endforeach;
 ?>
 	</div>
-<?
+<?php 
 if (!$bSingle):
 ?>
 </div>
-<?
+<?php 
 endif;
 if ($bEdit):
 ?>
@@ -282,12 +282,12 @@ function saveReport(el, form)
 	}
 }
 </script>
-<?
+<?php 
 endif;
 if (CBXFeatures::IsFeatureEnabled('tasks') && IsModuleInstalled('tasks')):
 ?>
 <div id="task_selector" style="display: none;">
-<?
+<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:tasks.task.selector",
 		".default",
@@ -315,11 +315,11 @@ if (CBXFeatures::IsFeatureEnabled('tasks') && IsModuleInstalled('tasks')):
 	</div>
 </div>
 <div id="meeting_item_tasks" style="clear: both">
-<?
+<?php 
 	require($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/tasks.php');
 ?>
 </div>
-<?
+<?php 
 endif;
 ?>
 <div class="meeting-question-tasks-wrap">
@@ -328,12 +328,12 @@ endif;
 	</div>
 </div>
 <div id="meeting_item_comments" style="clear: both">
-<?
+<?php 
 require($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/comments.php');
 ?>
 </div>
 <script type="text/javascript">
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 function editItem()
@@ -371,7 +371,7 @@ function resetItem()
 	});
 	BX.hide(BX('item_edit_buttons', true));
 }
-<?
+<?php 
 endif;
 ?>
 function saveData(cb) {
@@ -480,13 +480,13 @@ function addTaskToMeeting(taskId, cb)
 }
 
 BX.addCustomEvent('onTaskListTaskDelete', detachTask);
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 BX.ready(function() {
 	BX('item_edit_link', true).onclick = editItem;
 });
-<?
+<?php 
 endif;
 ?>
 </script>

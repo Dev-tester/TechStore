@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SENDER_SMS_SENDER_TEMPLATE_SERVICE'] = "через сервис";
 $MESS ['SENDER_SMS_SENDER_TEMPLATE_FROM_NUMBER'] = "с номера";
 $MESS ['SENDER_SMS_SENDER_TEMPLATE_SETUP'] = "настроить";

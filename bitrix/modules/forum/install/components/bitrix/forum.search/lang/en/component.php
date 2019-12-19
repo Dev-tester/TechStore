@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "Search";
 $MESS ['F_NO_SEARCH_MODULE'] = "Search module is not installed.";
 $MESS ['F_NO_MODULE'] = "Forum module is not installed";

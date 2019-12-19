@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_ACCESS_DENIED"] = "Доступ запрещен";
 $MESS["EC_CALENDAR_CREATE_ERROR"] = "Ошибка создания календаря!";
 $MESS["EC_CAL_INCORRECT_ERROR"] = "Календарь некорректен!";

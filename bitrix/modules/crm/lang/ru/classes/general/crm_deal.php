@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMISSION_DENIED"] = "Доступ запрещен";
 $MESS["CRM_ERROR_FIELD_IS_MISSING"] = "Не введено значение обязательного поля \"%FIELD_NAME%\"";
 $MESS["CRM_ERROR_FIELD_INCORRECT"] = "Некорректно заполнено поле \"%FIELD_NAME%\"";

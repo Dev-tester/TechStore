@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_QPV_COMPANY_HEADER"] = "Company";
 $MESS["CRM_ENTITY_QPV_CONTACT_HEADER"] = "Contact";
 $MESS["CRM_ENTITY_QPV_RESET_MENU_ITEM"] = "Reset settings";

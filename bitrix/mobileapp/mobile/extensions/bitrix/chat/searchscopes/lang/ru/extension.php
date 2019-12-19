@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_CATEGORY_USER"] = "СОТРУДНИКИ";
 $MESS["SEARCH_CATEGORY_CHAT"] = "ЧАТЫ";
 $MESS["SEARCH_CATEGORY_DEPARTMENT_USER"] = "СОТРУДНИКИ";

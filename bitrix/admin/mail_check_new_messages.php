@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/mail/admin/mail_check_new_messages.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/mail/admin/mail_check_new_messages.php");?>

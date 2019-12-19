@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['UID_TIP'] = "ID пользователя";
 $MESS ['URL_TEMPLATES_READ_TIP'] = "Страница чтения темы";
 $MESS ['URL_TEMPLATES_MESSAGE_TIP'] = "Страница чтения сообщения";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FM_ML_ACCESS_TITLE'] = "Media Library Collection Access Permission";
 $MESS ['FM_ML_TAB_NAME'] = "Access Permission";
 $MESS ['FM_ML_TAB_TITLE'] = "Sets permission to access Media Library collections";

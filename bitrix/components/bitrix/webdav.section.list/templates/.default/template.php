@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -93,7 +93,7 @@ else
 			str_repeat(".", $res["DEPTH_LEVEL"]).$res["NAME"].'</option>'; 
 	}
 	$custom_html .= '</select>'; 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.grid",
 	"",
 	array(
@@ -112,24 +112,24 @@ else
 		"AJAX_MODE" => "N",
 	),
 	($this->__component->__parent ? $this->__component->__parent : $component)
-);?><?
+);?><?php 
 }
 
 if (!empty($arParams["SHOW_NOTE"])):
 ?>
 <br />
 <div class="wd-help-list selected" id="wd_list_note"><?=$arParams["~SHOW_NOTE"]?></div>
-<?
+<?php 
 endif;
 
 if ($arParams["WORKFLOW"] == "workflow" && $arParams["PERMISSION"] >= "U" && $arParams["SHOW_WORKFLOW"] != "N"):?>
 <br />
 <div class="wd-help-list selected">
-<?
+<?php 
 if ($arParams["PERMISSION"] >= "W" && CWorkflow::IsAdmin()):
-?><?=GetMessage("WD_WF_COMMENT1")?><br /><?
+?><?=GetMessage("WD_WF_COMMENT1")?><br /><?php 
 elseif (!in_array(2, $arResult["WF_STATUSES_PERMISSION"])):
-?><?=GetMessage("WD_WF_COMMENT2")?><br /><?
+?><?=GetMessage("WD_WF_COMMENT2")?><br /><?php 
 else:
 	foreach ($arResult["WF_STATUSES_PERMISSION"] as $key => $val):
 		if ($val == 2):
@@ -138,19 +138,19 @@ else:
 	endforeach;
 	
 	if (count($arr) == 1):
-	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION2"))?><br /><?
+	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION2"))?><br /><?php 
 	else:
-	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION3"))?><br /><?
+	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION3"))?><br /><?php 
 	endif;
 endif;
 
 if ($arParams["PERMISSION"] >= "W"):
-?><?=GetMessage("WD_WF_ATTENTION1")?><br /><?
+?><?=GetMessage("WD_WF_ATTENTION1")?><br /><?php 
 endif;
 ?>
 </div>
-<?endif;?>
-<?if ($arParams["PERMISSION"] >= "U"):?>
+<?php endif;?>
+<?php if ($arParams["PERMISSION"] >= "U"):?>
 <script>
 if (/*@cc_on ! @*/ false)
 {
@@ -166,6 +166,6 @@ if (/*@cc_on ! @*/ false)
 	} catch(e) { }
 }
 </script>
-<?
+<?php 
 endif;
 ?>

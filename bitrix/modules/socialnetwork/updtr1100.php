@@ -1,4 +1,4 @@
-<?
+<?php 
 if (CModule::IncludeModule("blog"))
 {
 	$arComments = array();

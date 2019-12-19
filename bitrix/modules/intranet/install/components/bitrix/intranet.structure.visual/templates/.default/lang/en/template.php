@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ISV_ADD_DEPARTMENT"] = "Add department";
 $MESS["ISV_B24_INVITE"] = "Invite users";
 $MESS["ISV_CHILDREN_COUNT_1"] = "#NUM# more department";

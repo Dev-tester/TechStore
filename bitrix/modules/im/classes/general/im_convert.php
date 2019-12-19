@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIMConvert
 {
 	public static $convertPerStep = 0;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ST_ADD_FUNNEL_BUTTON"] = "Add funnel";
 $MESS["CRM_ST_ADD_NEW_CATEGORY_BUTTON_LABEL"] = "Add sales funnel";
 $MESS["CRM_ST_CATEGORY_DRAG_BUTTON"] = "Drag to sort funnels";

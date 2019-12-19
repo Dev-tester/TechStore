@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_RESPONSIBLE_CHANGED"] = "< изменился ответственный >";
 $MESS["SUP_CATEGORY_CHANGED"] = "< изменилась категория >";
 $MESS["SUP_CRITICALITY_CHANGED"] = "< изменилась критичность >";

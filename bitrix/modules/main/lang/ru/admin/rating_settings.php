@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_RATING_SETTINGS"] = "Настройки рейтингов";
 $MESS["MAIN_RATING_SETTINGS_ALT"] = "Настройка веса голоса, системы расчетов и прав на голосование";
 $MESS["RATING_SETTINGS_TAB_MAIN"] = "Право на голосование";

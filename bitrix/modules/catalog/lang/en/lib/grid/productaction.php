@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_PRODUCT_ACTION_ERR_BAD_CATALOG"] = "The information block is not in catalog mode.";
 $MESS["BX_CATALOG_PRODUCT_ACTION_ERR_BAD_IBLOCK_ID"] = "Incorrect information block ID";
 $MESS["BX_CATALOG_PRODUCT_ACTION_ERR_CANNOT_MODIFY_SET"] = "A bundle's stock tracking parameters, weight and unit are provided automatically.";

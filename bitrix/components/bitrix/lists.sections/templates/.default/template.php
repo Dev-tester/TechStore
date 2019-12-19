@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -35,14 +35,14 @@ $arToolbar[] = array(
 
 ?>
 
-<form name="form_section_add" id="form_section_add" action="<?echo POST_FORM_ACTION_URI?>" method="POST" enctype="multipart/form-data">
+<form name="form_section_add" id="form_section_add" action="<?php echo POST_FORM_ACTION_URI?>" method="POST" enctype="multipart/form-data">
 	<?=bitrix_sessid_post();?>
 	<input type="hidden" id="new_section_name" name="new_section_name" value="">
 	<input type="hidden" id="old_section_id" name="old_section_id" value="">
 	<input type="hidden" id="form_section_action" name="form_section_action" value="">
 </form>
 
-<?
+<?php 
 if(count($arToolbar))
 {
 	$APPLICATION->IncludeComponent(

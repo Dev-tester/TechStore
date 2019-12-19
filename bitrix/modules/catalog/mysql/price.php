@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Config\Option;
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/general/price.php");
 

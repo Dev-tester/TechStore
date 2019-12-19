@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_EnvironmentTest_NAME"] = "Environment check";
 $MESS["SECURITY_SITE_CHECKER_SESSION_DIR"] = "Session file storage directory is accessible by all system users";
 $MESS["SECURITY_SITE_CHECKER_SESSION_DIR_DETAIL"] = "This vulnerability may be used to read or change session data running scripts on other virtual servers.";

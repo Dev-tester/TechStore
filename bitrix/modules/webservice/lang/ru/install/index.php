@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WEBS_MODULE_NAME'] = "Веб-сервисы";
 $MESS ['WEBS_MODULE_DESCRIPTION'] = "Модуль позволяющий организовать систему веб-сервисов и SOAP.";
 $MESS ['WEBS_INSTALL_TITLE'] = "Установка модуля веб-сервисов";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TOP_LOG_OFF"] = "Закончить сеанс (logout)";
 $MESS["TOP_ADMIN_ENTER"] = "Административный раздел";
 $MESS["button_settings"] = "Настройки текущего модуля";

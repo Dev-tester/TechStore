@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
 //region Action Panel
@@ -16,7 +16,7 @@ CJSCore::init(array('date'));
 $messageSuffix = (defined('ADMIN_SECTION') && ADMIN_SECTION === true) ? '_ADMIN' : '';
 ?>
 <div class="messageservice-view-progress messageservice-view-progress-show"><?=GetMessage('MESSAGESERVICE_CONFIG_SENDER_LIMIT_TIP'.$messageSuffix)?></div>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.ui.grid",
 	"",
@@ -59,10 +59,10 @@ $inTimeMessage = explode('#TIME#', GetMessage('MESSAGESERVICE_CONFIG_SENDER_RETR
 			<input type="radio" name="auto" data-role="retry-radio-1"> <?=htmlspecialcharsbx($inTimeMessage[0])?>
 				<input value="" class="messageservice-retry-input messageservice-retry-time" data-role="retry-time"> <?=htmlspecialcharsbx($inTimeMessage[1])?>, <?=GetMessage('MESSAGESERVICE_CONFIG_SENDER_RETRY_TZ')?>
 			<select class="messageservice-retry-input messageservice-retry-tz" data-role="retry-tz">
-				<?foreach ($arResult['TZ_LIST'] as $tzid => $name):?>
-					<option value="<?=htmlspecialcharsbx($tzid)?>" <?if ($tzid == $arResult['RETRY_TIME']['tz']):?> selected<?endif;?>>
+				<?php foreach ($arResult['TZ_LIST'] as $tzid => $name):?>
+					<option value="<?=htmlspecialcharsbx($tzid)?>" <?php if ($tzid == $arResult['RETRY_TIME']['tz']):?> selected<?php endif;?>>
 						<?=htmlspecialcharsbx($name)?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 			</label>
 		</p>

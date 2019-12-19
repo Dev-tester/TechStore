@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc,
 	Bitrix\Main\Page\Asset;
 
@@ -32,7 +32,7 @@ if (!empty($arResult["errorMessage"]))
 		<div id="pub-template-error" class="error-block" style="display: block;">
 			<div id="pub-template-error-title" class="error-block-title"><?=$arResult["errorMessage"]?></div>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -42,7 +42,7 @@ if (!empty($arResult["errorMessage"]))
 			<div id="pub-template-error" class="error-block" style="display: block;">
 				<div id="pub-template-error-title" class="error-block-title"><?=$errorMessage?></div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 }
@@ -53,7 +53,7 @@ else
 	?>
 	<div id="crm-invoice-payment-client-wrapper" class="crm-invoice-payment-client-wrapper <?=(!isset($arResult['PAY_SYSTEM_PAID_ARRAY']) && !array_key_exists('PAY_SYSTEM_TEMPLATE', $arResult))?"crm-invoice-payment-deliver":""?>">
 		<div class="crm-invoice-payment-client-template">
-			<?
+			<?php 
 			if ($arParams['IS_AJAX_PAY'] === 'Y')
 			{
 				echo $arResult['BILL_TEMPLATE'];
@@ -61,34 +61,34 @@ else
 			elseif (empty($arResult['PAY_SYSTEM_PAID_ARRAY']) && !array_key_exists('PAY_SYSTEM_TEMPLATE', $arResult))
 			{
 			?>
-				<?if ($arResult['USE_FRAME'] === 'Y'):?>
+				<?php if ($arResult['USE_FRAME'] === 'Y'):?>
 					<iframe id="crm-invoice-payment-template-frame" frameborder="0"></iframe>
-				<?else:?>
+				<?php else:?>
 					<div class="docs-preview-img" id="crm-document-image" style="width: 800px; min-height: 800px;"></div>
 				    <script>
 					    BX.ready(function () {
 						    var options = <?=\CUtil::PhpToJSObject($arResult['FILE_PARAMS']);?>;
 							options.imageContainer = BX('crm-document-image');
-							<?if (!isset($arResult['FILE_PARAMS']['imageUrl'])):?>
+							<?php if (!isset($arResult['FILE_PARAMS']['imageUrl'])):?>
 							    BX('crm-invoice-button-download').style='pointer-events: none; opacity: 0.5';
 								BX('crm-invoice-button-print').style='pointer-events: none; opacity: 0.5';
 								options.onReady = function () {
 									BX('crm-invoice-button-download').style='pointer-events: all; opacity: 1';
 									BX('crm-invoice-button-print').style='pointer-events: all; opacity: 1';
 								};
-						    <?endif;?>
+						    <?php endif;?>
 							var document = new BX.DocumentGenerator.DocumentPreview(options);
 						});
 					</script>
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent("bitrix:pull.request", "", [], false, ["HIDE_ICONS" => "Y"]);
 					?>
-				<?endif;?>
-			<?
+				<?php endif;?>
+			<?php 
 			}
 			?>
 		</div>
-		<?
+		<?php 
 		if ($arParams['IS_AJAX_PAY'] !== 'Y' && empty($arResult['PAY_SYSTEM_PAID_ARRAY']) && !array_key_exists('PAY_SYSTEM_TEMPLATE', $arResult))
 		{
 			?>
@@ -103,14 +103,14 @@ else
 					<div class="crm-invoice-payment-total-title"><?=Loc::getMessage('CIPC_TPL_SUM_PAYMENT')?></div>
 					<div class="crm-invoice-payment-total-sum"><?=$arResult['SUM']?></div>
 				</div>
-				<?
+				<?php 
 				if (!empty($arResult['PAYSYSTEMS_LIST']))
 				{
 					?>
 					<div class="crm-invoice-payment-system">
 						<div class="crm-invoice-payment-system-title"><?=Loc::getMessage('CIPC_TPL_PAY_FOR')?>:</div>
 						<div class="crm-invoice-payment-system-array crm-invoice-payment-client-pp-company-graf-container">
-							<?
+							<?php 
 							foreach ($arResult['PAYSYSTEMS_LIST'] as $key => $paySystem)
 							{
 								?>
@@ -126,7 +126,7 @@ else
 										<?=htmlspecialcharsbx($paySystem['NAME'])?>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							?>
 						</div>
@@ -135,7 +135,7 @@ else
 					<div>
 						<a class="crm-invoice-payment-system-return-list"><?=Loc::getMessage('CIPC_TPL_RETURN_LIST')?></a>
 					</div>
-					<?
+					<?php 
 				}
 				if (!empty($arResult['BANK_PROPERTIES']))
 				{
@@ -143,7 +143,7 @@ else
 					<div class="crm-invoice-payment-requisites">
 						<div class="crm-invoice-payment-requisites-title"><?=Loc::getMessage('CIPC_TPL_BANK_PROPS')?>:</div>
 						<table class="crm-invoice-payment-requisites-table">
-							<?
+							<?php 
 							foreach ($arResult['BANK_PROPERTIES'] as $keyName => $property)
 							{
 								if ($keyName === 'SELLER_COMPANY_NAME')
@@ -154,7 +154,7 @@ else
 											<?=htmlspecialcharsbx($property['VALUE'])?>
 										</td>
 									</tr>
-									<?
+									<?php 
 								}
 								elseif (!empty($property['VALUE']))
 								{
@@ -163,13 +163,13 @@ else
 										<td><?=htmlspecialcharsbx($property['NAME'])?></td>
 										<td><?=htmlspecialcharsbx($property['VALUE'])?></td>
 									</tr>
-									<?
+									<?php 
 								}
 							}
 							?>
 						</table>
 					</div>
-					<?
+					<?php 
 				}
 				$javascriptParams = array(
 					"url" => "/pub/payment.php",
@@ -185,7 +185,7 @@ else
 					var sc = new BX.crmInvoicePaymentClient(<?=$javascriptParams?>);
 				</script>
 			</div>
-			<?
+			<?php 
 			if (in_array(LANGUAGE_ID, array('ru', 'ua')))
 			{
 				$logoClass = 'crm-invoice-payment-copy-logo';
@@ -198,7 +198,7 @@ else
 			{
 				?>
 				<div class="crm-invoice-payment-copy">
-					<?
+					<?php 
 						if (
 							!\Bitrix\Crm\Settings\InvoiceSettings::allowDisableSign() ||
 							\Bitrix\Crm\Settings\InvoiceSettings::getCurrent()->getEnableSignFlag()
@@ -208,7 +208,7 @@ else
 						}
 					?>
 				</div>
-				<?
+				<?php 
 			}
 		}
 		if (isset($arResult['PAY_SYSTEM_PAID_ARRAY']))
@@ -251,10 +251,10 @@ else
 					</tr>
 				</table>
 			</div>
-			<?
+			<?php 
 		}
 		?>
-		<?if (array_key_exists('PAY_SYSTEM_TEMPLATE', $arResult)):?>
+		<?php if (array_key_exists('PAY_SYSTEM_TEMPLATE', $arResult)):?>
 			<div class="crm-invoice-payment-paid-table-wrapper">
 				<table class="crm-invoice-payment-paid-table">
 					<tr>
@@ -264,9 +264,9 @@ else
 					</tr>
 				</table>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
-	<?
+	<?php 
 }
 ?>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Catalog;
 
 IncludeModuleLangFile(__FILE__);

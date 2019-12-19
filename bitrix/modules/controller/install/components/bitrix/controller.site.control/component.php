@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var CBitrixComponent $this */
 /** @var array $arParams */
@@ -508,6 +508,6 @@ if(!$bDesignMode)
 else
 {
 	?>
-	<h4><?echo GetMessage("CC_BCSC_TITLE")?></h4>
-	<?
+	<h4><?php echo GetMessage("CC_BCSC_TITLE")?></h4>
+	<?php 
 }

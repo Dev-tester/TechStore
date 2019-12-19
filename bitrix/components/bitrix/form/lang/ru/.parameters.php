@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_FORM_PARAMS_ACTION_ALIAS'] = "Имя переменной действия";
 $MESS ['COMP_FORM_SEF_RESULT_VIEW_PAGE'] = "Страница просмотра результата";
 $MESS ['COMP_FORM_SEF_RESULT_NEW_PAGE'] = "Страница добавления результата";

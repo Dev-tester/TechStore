@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C241_T_SEARCH_TITLE'] = "Поиск пользователей";
 $MESS ['SONET_C241_T_SEARCH'] = "Искать";
 $MESS ['SONET_C241_T_SUBJECT'] = "В теме";

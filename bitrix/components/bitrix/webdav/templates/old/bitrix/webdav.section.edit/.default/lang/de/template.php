@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACTIVE_FOLDER'] = "Ordner aktiv";
 $MESS ['WD_APPLY'] = "Anwenden";
 $MESS ['WD_CANCEL'] = "Abbrechen";

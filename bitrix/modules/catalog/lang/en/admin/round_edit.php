@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRICE_ROUND_EDIT_TAB_NAME_COMMON"] = "Common parameters";
 $MESS["PRICE_ROUND_EDIT_TAB_TITLE_COMMON"] = "Rule common parameters";
 $MESS["PRICE_ROUND_EDIT_TITLE_ADD"] = "New rule";

@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	?>
 	<span class='errortext'><?= $arResult["FatalErrorMessage"] ?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?= $arResult["ErrorMessage"] ?></span><br /><br />
-		<?
+		<?php 
 	}
 	if ($arResult["AdminAccess"])
 	{
@@ -35,7 +35,7 @@ else
 	}
 	?>
 	<table cellpadding="2" border="0" cellspacing="2" width="100%">
-		<?
+		<?php 
 		$ind = -1;
 		foreach ($arResult["Blocks"] as $arBlock)
 		{
@@ -45,12 +45,12 @@ else
 			?>
 			<td>
 				<div class="bpcw-item-container">
-					<?
+					<?php 
 					if ($arResult["AdminAccess"])
 					{
 						?>
 						<div class="bpcw-item-menu-container" onmouseover="this.firstChild.style.display='block';" onmouseout="this.firstChild.style.display='none';" onclick="jsUtils.Redirect([], '<?= Cutil::JSEscape(htmlspecialcharsbx($arBlock["LIST_URL"])) ?>');"><div class="bpcw-item-menu" style="display:none;" onmouseout="this.style.display='none';"><a rel="nofollow" href="<?= htmlspecialcharsbx($arBlock["EDIT_URL"]) ?>" class="bpcw-item-menu-edit" onclick="jsUtils.PreventDefault(event); jsUtils.Redirect([], '<?= Cutil::JSEscape(htmlspecialcharsbx($arBlock["EDIT_URL"])) ?>'); return false;" title="<?= GetMessage("BPWC_WICT_EDIT") ?>"><span style="display:none">Edit</span></a><a rel="nofollow" href="javascript:if(confirm('<?= GetMessageJS("BPWC_WICT_DELETE_PROMT") ?>'))jsUtils.Redirect([], '<?= Cutil::JSEscape(htmlspecialcharsbx($arBlock["DELETE_URL"])) ?>')" class="bpcw-item-menu-delete" onclick="jsUtils.PreventDefault(event); if(confirm('<?= GetMessageJS("BPWC_WICT_DELETE_PROMT") ?>'))jsUtils.Redirect([], '<?= Cutil::JSEscape(htmlspecialcharsbx($arBlock["DELETE_URL"])) ?>'); return false;"  title="<?= GetMessage("BPWC_WICT_DELETE") ?>"><span style="display:none">Delete</span></a></div></div>
-						<?
+						<?php 
 					}
 					?>
 
@@ -59,26 +59,26 @@ else
 						<?= CFile::ShowImage($arBlock["PICTURE"], 150, 150, null, $arBlock["LIST_URL"]) ?>
 						</div>
 						<a href="<?= htmlspecialcharsbx($arBlock["LIST_URL"]) ?>"><b><?= $arBlock["NAME"] ?></b></a><br><br>
-						<?
+						<?php 
 						if (strlen($arBlock["START_URL"]) > 0)
 						{
-							?><a href="<?= htmlspecialcharsbx($arBlock["START_URL"]) ?>"><?= (strlen($arBlock["CreateTitle"]) > 0) ? $arBlock["CreateTitle"] : GetMessage("BPWC_WICT_CREATE") ?></a><?
+							?><a href="<?= htmlspecialcharsbx($arBlock["START_URL"]) ?>"><?= (strlen($arBlock["CreateTitle"]) > 0) ? $arBlock["CreateTitle"] : GetMessage("BPWC_WICT_CREATE") ?></a><?php 
 						}
 						?>
 					</div>
 				</div>
 				<br><br>
 			</td>
-			<?
+			<?php 
 			if ($ind % $arParams["COLUMNS_COUNT"] == $arParams["COLUMNS_COUNT"] - 1)
 				echo "</tr>";
 		}
 		if ($ind == -1)
 		{
-			?><tr><td><?= GetMessage("BPWC_WICT_EMPTY") ?></td></tr><?
+			?><tr><td><?= GetMessage("BPWC_WICT_EMPTY") ?></td></tr><?php 
 		}
 		?>
 	</table>
-	<?
+	<?php 
 }
 ?>

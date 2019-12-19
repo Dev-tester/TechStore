@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BOT_ENTITY_BOT_ID_FIELD"] = "Идентификатор пользователя бота";
 $MESS["BOT_ENTITY_BOT_TYPE_FIELD"] = "Тип бота";
 $MESS["BOT_ENTITY_MODULE_ID_FIELD"] = "Идентификатор модуля";

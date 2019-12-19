@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SHIPMENT_ACCOUNT_NUMBER_EXISTS"] = "Payment account with this number already exists.";
 $MESS["SALE_SHIPMENT_DELIVERY_SERVICE_EMPTY"] = "Delivery service is not specified";
 $MESS["SALE_SHIPMENT_EXIST_SHIPPED"] = "Partial shipment was already shipped. Cancel shipment";

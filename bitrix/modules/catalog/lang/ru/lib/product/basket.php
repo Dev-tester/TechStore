@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_PRODUCT_BASKET_ERR_SEARCHER"] = "Поисковая система не может быть покупателем";
 $MESS["BX_CATALOG_PRODUCT_BASKET_ERR_NO_PRODUCT"] = "Товар не найден";
 $MESS["BX_CATALOG_PRODUCT_BASKET_ERR_NO_SALE"] = "Не установлен модуль Интернет-магазина";

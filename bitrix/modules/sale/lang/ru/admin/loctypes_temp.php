@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['COUNTRY'] = 'Страна';
 $MESS['COUNTRY_DISTRICT'] = 'Округ';
 $MESS['REGION'] = 'Область';

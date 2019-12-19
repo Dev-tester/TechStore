@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PHASE_SEMANTICS_DEAL_GROUP_TITLE"] = "Стадии";
 $MESS["CRM_PHASE_SEMANTICS_DEAL_CAPTION"] = "Выберите стадии";
 $MESS["CRM_PHASE_SEMANTICS_DEAL_SELECTOR_TITLE"] = "Выберите стадию или категорию";

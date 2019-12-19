@@ -14,7 +14,7 @@ foreach ($map as $propertyKey => $property):?>
 		</span>
 		<?=$dialog->renderFieldControl($property)?>
 	</div>
-<?endforeach;?>
+<?php endforeach;?>
 <script>
 	BX.ready(function()
 	{

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MANAGERS"] = "Начальник";
 $MESS["SONET_SUBORDINATE"] = "Подчиненные";
 $MESS["SONET_GROUPS"] = "Группы";

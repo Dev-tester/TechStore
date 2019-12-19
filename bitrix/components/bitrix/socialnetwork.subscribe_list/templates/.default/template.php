@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 CAjax::Init();
 CUtil::InitJSCore(array("ajax", "tooltip"));
 
@@ -56,7 +56,7 @@ if (!function_exists("__GetVisibleJS"))
 		sonetSLNoSubscriptions: '<?=CUtil::JSEscape(GetMessage('SONET_C30_NO_SUBSCRIPTIONS'))?>',
 		sonetSLShowInList: '<?=CUtil::JSEscape(GetMessage('SONET_C30_SHOW_IN_LIST'))?>',
 		sonetSLDeleteSubscription: '<?=GetMessage('SONET_C30_DELETE_SUBSCRIPTION')?>',
-		sonetSLBUseVisible: '<?(!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true ? "Y" : "N")?>'
+		sonetSLBUseVisible: '<?php (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true ? "Y" : "N")?>'
 	});	
 	var SLVisibleCheckbox = null;
 	var arCheckboxVal = null;
@@ -67,7 +67,7 @@ if (!function_exists("__GetVisibleJS"))
 	var nodeTmp = null;
 	var arVisibleCheckbox = [];
 //-->
-</script><?
+</script><?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -76,7 +76,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -84,12 +84,12 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 	<div class="sonet-cntnr-subscribe-list">
 	<form name="bx_sl_form" method="POST" action="<?=POST_FORM_ACTION_URI?>">
-	<? 
+	<?php  
 	$bFirstBlock = true;
 	foreach ($arResult["arSocNetAllowedSubscribeEntityTypes"] as $entity_type):
 
@@ -105,7 +105,7 @@ else
 				<table width="100%">
 				<tr>
 					<td class="subscribe-list-header-left"><img src="/bitrix/images/1.gif" width="2" height="29"></td>
-					<td class="subscribe-list-header-center"><b><?
+					<td class="subscribe-list-header-center"><b><?php 
 					if (in_array($entity_type, array(SONET_SUBSCRIBE_ENTITY_USER, SONET_SUBSCRIBE_ENTITY_GROUP)))
 						echo GetMessage("SONET_C30_SUBHEADER_".$entity_type);
 					else
@@ -120,7 +120,7 @@ else
 				</td>
 			</tr>
 			</table>
-			<?
+			<?php 
 		}
 		?>
 		<table width="100%" class="subscribe-list-table">
@@ -171,7 +171,7 @@ else
 							}));
 				-->
 				</script>
-				<?
+				<?php 
 				if (
 					array_key_exists($entity_type, $arResult["EventsNew"])
 					&& is_array($arResult["EventsNew"][$entity_type])
@@ -183,19 +183,19 @@ else
 				
 				if ($bHasEntities)
 				{
-					?><a href="javascript:void(0)" onclick="sonet_sl_list_show('bx_sl_list_<?=$entity_type?>'); return false;"><div id="plus_bx_sl_list_<?=$entity_type?>" class="subscribe-list-selector subscribe-list-selector-plus"></div><?
+					?><a href="javascript:void(0)" onclick="sonet_sl_list_show('bx_sl_list_<?=$entity_type?>'); return false;"><div id="plus_bx_sl_list_<?=$entity_type?>" class="subscribe-list-selector subscribe-list-selector-plus"></div><?php 
 				}
 				?>
 				<b><?=$arResult["arSocNetAllowedSubscribeEntityTypesDesc"][$entity_type]["TITLE_LIST"]?></b>
-				<?
+				<?php 
 				if ($bHasEntities)
 				{
-					?></a><?
+					?></a><?php 
 				}
 				?>
 			</td>
 			<td valign="top" width="70%" class="subscribe-list-entity-td">
-				<?
+				<?php 
 				if (
 					array_key_exists($entity_type, $arResult["ENTITY_TYPES"])
 					&& count($arResult["ENTITY_TYPES"][$entity_type]) == 1
@@ -212,15 +212,15 @@ else
 				
 				if ($event_tmp == "all")
 				{
-					?><table width="100%"><?
+					?><table width="100%"><?php 
 				}
 				else
 				{
-					?><table width="100%" class="subscribe-list-feature"><?
+					?><table width="100%" class="subscribe-list-feature"><?php 
 				}
 				?>
 					<tbody>
-					<?
+					<?php 
 					if ($event_tmp != "all")
 					{
 						?>
@@ -229,7 +229,7 @@ else
 								<div class="subscribe-list-features-lt"><div class="subscribe-list-features-rt"></div></div>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					
 					if ($event_tmp == "all")
@@ -237,14 +237,14 @@ else
 						?>
 						<tr>
 							<td width="30%" valign="top">
-						<?
+						<?php 
 					}
 					else
 					{
 						?>
 						<tr class="subscribe-list-features">
 							<td width="30%" valign="top" class="subscribe-list-feature-name">
-						<?					
+						<?php 					
 					}
 
 							if ($event_tmp == "all")
@@ -252,12 +252,12 @@ else
 								?>
 							<a href="javascript:void(0)" onclick="sonet_sl_get('bx_sl_<?=$entity_type?>_all', '<?=$entity_type?>', 'all'); return false;"><div id="plus_bx_sl_<?=$entity_type?>_all" class="subscribe-list-selector subscribe-list-selector-plus"></div>
 							<?=GetMessage("SONET_C30_T_all")?></a>
-								<?
+								<?php 
 							}
 							?>
 						</td>
 						<td width="70%" valign="top" id="v_bx_sl_<?=$entity_type?>_all_<?=$event_tmp?>_td">
-							<?
+							<?php 
 							$arRes = __GetInheritedValue($arResult["EventsNew"], $entity_type, 0, false, false, $event_tmp, "TRANSPORT");
 							?>
 							<script language="JavaScript">
@@ -265,19 +265,19 @@ else
 							var q = {props: { 'arEvents': {} }};
 							q.props['arEvents']['<?=$event_tmp?>'] = {
 										'Transport': '<?=($arRes["TRANSPORT_IS_INHERITED"] ? 'I' : $arRes["TRANSPORT"])?>'
-										<?
+										<?php 
 										if ($arRes["TRANSPORT_IS_INHERITED"])
 										{
 											?>,
 											'TransportInheritedFrom': '<?=$arRes["TRANSPORT_INHERITED_FROM"]?>'
-											<?
+											<?php 
 										}
 										?>
 									};
 							-->
 							</script>							
 							<select name="t_bx_sl_<?=$entity_type?>_all_<?=$event_tmp?>" id="t_N_bx_sl_<?=$entity_type?>_all_<?=$event_tmp?>">
-							<?
+							<?php 
 							foreach($arResult["Transport"] as $key => $value):
 							
 								$optioni_id = false;
@@ -295,7 +295,7 @@ else
 									$selected = "";							
 								?>
 								<option value="<?=$key?>"<?=$selected?><?=($optioni_id ? ' id="'.$optioni_id.'"' : '')?>><?=$value?></option>
-								<?
+								<?php 
 							endforeach;
 							?>
 							</select>
@@ -306,24 +306,24 @@ else
 							</script>
 							<script language="JavaScript">
 							<!--
-							<?
+							<?php 
 							if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 							{
 								$arRes = __GetInheritedValue($arResult["EventsNew"], $entity_type, 0, false, false, $event_tmp, "VISIBLE");
 								?>
 								q.props['arEvents']['<?=$event_tmp?>']['Visible'] = '<?=($arRes["VISIBLE_IS_INHERITED"] ? 'I' : $arRes["VISIBLE"])?>';
-								<?
+								<?php 
 								if ($arRes["VISIBLE_IS_INHERITED"])
 								{
 									?>
 									q.props['arEvents']['<?=$event_tmp?>']['VisibleInheritedFrom'] = '<?=$arRes["VISIBLE_INHERITED_FROM"]?>';
-									<?
+									<?php 
 								}
 							}
 							?>
 							BX.adjust(SLTree.Tree['<?=$entity_type?>_N']['all']['<?=$tree_node_tmp?>'], q);
 							-->
-							</script><?
+							</script><?php 
 
 							if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 							{
@@ -351,11 +351,11 @@ else
 								arVisibleCheckbox['bx_sl_<?=$entity_type?>_all_<?=$event_tmp?>'] = SLVisibleCheckbox;
 								SLVisibleCheckbox.Show();
 								-->
-								</script><?
+								</script><?php 
 							}
 						?></td>
 					</tr>
-					<?
+					<?php 
 					if ($event_tmp != "all")
 					{
 						?>
@@ -367,27 +367,27 @@ else
 						<tr>
 							<td class="subscribe-list-feature-sep" colspan="2"></td>
 						</tr>
-						<?
+						<?php 
 					}					
 					?>
 					</tbody>
 				</table>
-				<?
+				<?php 
 				if ($event_tmp == "all")
 				{
 					?>
 					<div id="bx_sl_<?=$entity_type?>_all" style="display: none;">
 					<div id="bx_sl_<?=$entity_type?>_all_content"></div>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			</td>
 		</tr>
 		</table>
-		<?
+		<?php 
 		if (array_key_exists($entity_type, $arResult["EventsNew"])):
-		?><div id="bx_sl_list_<?=$entity_type?>" style="display: none;"><?
+		?><div id="bx_sl_list_<?=$entity_type?>" style="display: none;"><?php 
 		foreach ($arResult["EventsNew"][$entity_type] as $eventKey => $event):?>
 			<table width="100%" class="subscribe-list-table">
 			<tr id="bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_tr">
@@ -414,7 +414,7 @@ else
 								}));
 					-->
 					</script>				
-					<?
+					<?php 
 					$name = call_user_func(
 						array(
 							$arResult["arSocNetAllowedSubscribeEntityTypesDesc"][$event["ENTITY_TYPE"]]["CLASS_DESC_SHOW"],
@@ -428,19 +428,19 @@ else
 					?>
 				</td>
 				<td valign="top" width="70%" class="subscribe-list-entity-td">
-					<?
+					<?php 
 					if ($event_tmp == "all")
 					{
-						?><table width="100%"><?
+						?><table width="100%"><?php 
 					}
 					else
 					{
-						?><table width="100%" class="subscribe-list-feature"><?
+						?><table width="100%" class="subscribe-list-feature"><?php 
 					}
 					
 					?>
 					<tbody>
-						<?
+						<?php 
 						if ($event_tmp != "all")
 						{
 							?>
@@ -449,7 +449,7 @@ else
 									<div class="subscribe-list-features-lt"><div class="subscribe-list-features-rt"></div></div>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 						
 						if ($event_tmp == "all")
@@ -457,14 +457,14 @@ else
 							?>
 							<tr>
 								<td width="30%" valign="top">
-							<?
+							<?php 
 						}
 						else
 						{
 							?>
 							<tr class="subscribe-list-features">
 								<td width="30%" valign="top" class="subscribe-list-feature-name">
-							<?					
+							<?php 					
 						}
 					
 							if ($event_tmp == "all")
@@ -472,12 +472,12 @@ else
 								?>
 								<a href="javascript:void(0)" onclick="sonet_sl_get('bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>', '<?=$event["ENTITY_TYPE"]?>', '<?=$event["ENTITY_ID"]?>'); return false;"><div id="plus_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>" class="subscribe-list-selector subscribe-list-selector-plus"></div>
 								<?=GetMessage("SONET_C30_T_all")?></a>
-								<?
+								<?php 
 							}
 							?>
 							</td>
 							<td width="65%" valign="top" id="v_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_<?=$event_tmp?>_td">
-								<?
+								<?php 
 								$arRes = __GetInheritedValue($arResult["EventsNew"], $event["ENTITY_TYPE"], $event["ENTITY_ID"], false, false, $event_tmp, "TRANSPORT");
 								?>
 								<script language="JavaScript">
@@ -485,22 +485,22 @@ else
 								var q = {props: { 'arEvents': {} }};
 								q.props['arEvents']['<?=$event_tmp?>'] = {
 											'Transport': '<?=($arRes["TRANSPORT_IS_INHERITED"] ? 'I' : $arRes["TRANSPORT"])?>'
-											<?
+											<?php 
 											if ($arRes["TRANSPORT_IS_INHERITED"])
 											{
 												?>,
 												'TransportInheritedFrom': '<?=$arRes["TRANSPORT_INHERITED_FROM"]?>'
-												<?
+												<?php 
 											}
 											?>
 										};
 								-->
 								</script>
 								<select name="t_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_<?=$event_tmp?>" id="t_N_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_<?=$event_tmp?>">
-								<?
+								<?php 
 								if ($arRes["TRANSPORT_IS_INHERITED"])
 								{
-									?><option value="I" selected id="t_N_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?
+									?><option value="I" selected id="t_N_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?php 
 								}							
 
 								foreach($arResult["Transport"] as $key => $value):
@@ -510,7 +510,7 @@ else
 										$selected = "";
 									?>
 									<option value="<?=$key?>"<?=$selected?>><?=$value?></option>
-									<?
+									<?php 
 								endforeach;
 								?>
 								</select>
@@ -521,26 +521,26 @@ else
 								</script>
 								<script language="JavaScript">
 								<!--
-								<?
+								<?php 
 								if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 								{
 									$arRes = __GetInheritedValue($arResult["EventsNew"], $event["ENTITY_TYPE"], $event["ENTITY_ID"], false, false, $event_tmp, "VISIBLE");
 									?>
 
 									q.props['arEvents']['<?=$event_tmp?>']['Visible'] = '<?=($arRes["VISIBLE_IS_INHERITED"] ? 'I' : $arRes["VISIBLE"])?>';
-									<?
+									<?php 
 									if ($arRes["VISIBLE_IS_INHERITED"])
 									{
 										?>
 										q.props['arEvents']['<?=$event_tmp?>']['VisibleInheritedFrom'] = '<?=$arRes["VISIBLE_INHERITED_FROM"]?>';
-										<?
+										<?php 
 									}
 								}
 								?>
 								BX.adjust(SLTree.Tree['<?=$entity_type?>_N'][<?=$event["ENTITY_ID"]?>]['<?=$tree_node_tmp?>'], q);
 								-->
 								</script>
-								<?
+								<?php 
 								if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 								{
 									$arVisibleJS = __GetVisibleJS($arRes);
@@ -566,14 +566,14 @@ else
 									arVisibleCheckbox['bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_<?=$event_tmp?>'] = SLVisibleCheckbox;
 									SLVisibleCheckbox.Show();
 									-->
-									</script><?
+									</script><?php 
 								}
 							?></td>
 							<td width="5%">
 								<a title="<?=GetMessage("SONET_C30_DELETE_SUBSCRIPTION")?>" class="subscribe-list-del" href="javascript:void(0)" onclick="sonet_sl_del('bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_tr', '<?=$event["ENTITY_TYPE"]?>', '<?=$event["ENTITY_ID"]?>', 'all'); return false;"></a>
 							</td>
 						</tr>
-						<?
+						<?php 
 						if ($event_tmp != "all")
 						{
 							?>
@@ -585,26 +585,26 @@ else
 							<tr>
 								<td class="subscribe-list-feature-sep" colspan="3"></td>
 							</tr>
-							<?
+							<?php 
 						}
 						?>
 					</tbody>	
 					</table>
-					<?
+					<?php 
 					if ($event_tmp == "all")
 					{
 						?>
 						<div id="bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>" style="display: none;">
 							<div id="bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_content"></div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</td>
 			</tr>
 			</table>
-		<?endforeach;
-		?></div><?
+		<?php endforeach;
+		?></div><?php 
 		endif;
 		
 		/* my */
@@ -631,7 +631,7 @@ else
 			}));
 		-->
 		</script>	
-		<?
+		<?php 
 		if (
 			is_array($arResult["arSocNetAllowedSubscribeEntityTypesDesc"][$entity_type])
 			&& array_key_exists("HAS_MY", $arResult["arSocNetAllowedSubscribeEntityTypesDesc"][$entity_type]) 
@@ -641,7 +641,7 @@ else
 			<table width="100%" class="subscribe-list-table">
 			<tr>
 				<td valign="top" width="30%" class="subscribe-list-entity-td">
-					<?
+					<?php 
 					if (
 						array_key_exists($entity_type."_My", $arResult["EventsNew"])
 						&& is_array($arResult["EventsNew"][$entity_type."_My"])
@@ -653,14 +653,14 @@ else
 					
 					if ($bHasEntities)
 					{
-						?><a href="javascript:void(0)" onclick="sonet_sl_list_show('bx_sl_list_<?=$entity_type?>_my'); return false;"><div id="plus_bx_sl_list_<?=$entity_type?>_my" class="subscribe-list-selector subscribe-list-selector-plus"></div><?
+						?><a href="javascript:void(0)" onclick="sonet_sl_list_show('bx_sl_list_<?=$entity_type?>_my'); return false;"><div id="plus_bx_sl_list_<?=$entity_type?>_my" class="subscribe-list-selector subscribe-list-selector-plus"></div><?php 
 					}
 					?>
 					<b><?=$arResult["arSocNetAllowedSubscribeEntityTypesDesc"][$entity_type]["TITLE_LIST_MY"]?></b>
-					<?
+					<?php 
 					if ($bHasEntities)
 					{
-						?></a><?
+						?></a><?php 
 					}
 					?>					
 				</td>
@@ -672,7 +672,7 @@ else
 								<?=GetMessage("SONET_C30_T_all")?></a>
 							</td>
 							<td width="70%" valign="top" id="v_bx_sl_<?=$entity_type?>_allmy_all_td">
-								<?
+								<?php 
 								$arRes = __GetInheritedValue($arResult["EventsNew"], $entity_type, 0, false, true, "all", "TRANSPORT");
 								?>
 								<script language="JavaScript">
@@ -680,22 +680,22 @@ else
 								var q = {props: { 'arEvents': {} }};
 								q.props['arEvents']['all'] = {
 											'Transport': '<?=($arRes["TRANSPORT_IS_INHERITED"] ? 'I' : $arRes["TRANSPORT"])?>'
-											<?
+											<?php 
 											if ($arRes["TRANSPORT_IS_INHERITED"])
 											{
 												?>,
 												'TransportInheritedFrom': '<?=$arRes["TRANSPORT_INHERITED_FROM"]?>'
-												<?
+												<?php 
 											}
 											?>
 										};
 								-->
 								</script>
 								<select name="t_bx_sl_<?=$entity_type?>_allmy_all" id="t_N_bx_sl_<?=$entity_type?>_allmy_all">
-								<?
+								<?php 
 								if ($arRes["TRANSPORT_IS_INHERITED"])
 								{
-									?><option value="I" selected id="t_N_bx_sl_<?=$entity_type?>_allmy_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?
+									?><option value="I" selected id="t_N_bx_sl_<?=$entity_type?>_allmy_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?php 
 								}
 								
 								foreach($arResult["Transport"] as $key => $value):
@@ -705,7 +705,7 @@ else
 										$selected = "";								
 									?>
 									<option value="<?=$key?>"<?=$selected?>><?=$value?></option>
-									<?
+									<?php 
 								endforeach;
 								?>
 								</select>
@@ -716,25 +716,25 @@ else
 								</script>
 								<script language="JavaScript">
 								<!--
-								<?
+								<?php 
 								if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 								{
 									$arRes = __GetInheritedValue($arResult["EventsNew"], $entity_type, 0, false, true, "all", "VISIBLE");
 									?>
 									q.props['arEvents']['all']['Visible'] = '<?=($arRes["VISIBLE_IS_INHERITED"] ? 'I' : $arRes["VISIBLE"])?>';
-									<?
+									<?php 
 									if ($arRes["VISIBLE_IS_INHERITED"])
 									{
 										?>
 										q.props['arEvents']['all']['VisibleInheritedFrom'] = '<?=$arRes["VISIBLE_INHERITED_FROM"]?>';
-										<?
+										<?php 
 									}
 								}
 								?>
 								BX.adjust(SLTree.Tree['<?=$entity_type?>_N']['allmy']['all'], q);
 								-->
 								</script>
-								<?
+								<?php 
 								if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 								{
 									$arVisibleJS = __GetVisibleJS($arRes);
@@ -761,7 +761,7 @@ else
 									SLVisibleCheckbox.Show();
 									-->
 									</script>
-									<?
+									<?php 
 								}
 							?></td>
 						</tr>
@@ -772,9 +772,9 @@ else
 				</td>
 			</tr>
 			</table width="100%">
-			<?
+			<?php 
 			if (array_key_exists($entity_type."_My", $arResult["EventsNew"])):
-			?><div id="bx_sl_list_<?=$entity_type?>_my" style="display: none;"><?
+			?><div id="bx_sl_list_<?=$entity_type?>_my" style="display: none;"><?php 
 			foreach ($arResult["EventsNew"][$entity_type."_My"] as $eventKey => $event):?>
 				<table width="100%" class="subscribe-list-table">
 				<tr id="bx_sl_<?=$entity_type?>_<?=$event["ENTITY_ID"]?>_tr">
@@ -801,7 +801,7 @@ else
 									}));
 						-->
 						</script>								
-						<?
+						<?php 
 						$name = call_user_func(
 							array(
 								$arResult["arSocNetAllowedSubscribeEntityTypesDesc"][$event["ENTITY_TYPE"]]["CLASS_DESC_SHOW"],
@@ -822,7 +822,7 @@ else
 									<?=GetMessage("SONET_C30_T_all")?></a>
 								</td>
 								<td width="65%" valign="top" id="v_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_all_td">
-									<?
+									<?php 
 									$arRes = __GetInheritedValue($arResult["EventsNew"], $entity_type, $event["ENTITY_ID"], false, true, "all", "TRANSPORT");
 									?>
 									<script language="JavaScript">
@@ -830,22 +830,22 @@ else
 									var q = {props: { 'arEvents': {} }};
 									q.props['arEvents']['all'] = {
 												'Transport': '<?=($arRes["TRANSPORT_IS_INHERITED"] ? 'I' : $arRes["TRANSPORT"])?>'
-												<?
+												<?php 
 												if ($arRes["TRANSPORT_IS_INHERITED"])
 												{
 													?>,
 													'TransportInheritedFrom': '<?=$arRes["TRANSPORT_INHERITED_FROM"]?>'
-													<?
+													<?php 
 												}
 												?>
 											};
 									-->
 									</script>
 									<select name="t_bx_sl_<?=$entity_type?>_<?=$event["ENTITY_ID"]?>_all" id="t_N_bx_sl_<?=$entity_type?>_<?=$event["ENTITY_ID"]?>_all">
-									<?
+									<?php 
 									if ($arRes["TRANSPORT_IS_INHERITED"])
 									{
-										?><option value="I" selected id="t_N_bx_sl_<?=$entity_type?>_<?=$event["ENTITY_ID"]?>_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?
+										?><option value="I" selected id="t_N_bx_sl_<?=$entity_type?>_<?=$event["ENTITY_ID"]?>_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?php 
 									}
 
 									foreach($arResult["Transport"] as $key => $value):
@@ -855,7 +855,7 @@ else
 											$selected = "";								
 										?>
 										<option value="<?=$key?>"<?=$selected?>><?=$value?></option>
-										<?
+										<?php 
 									endforeach;
 									?>
 									</select>
@@ -866,25 +866,25 @@ else
 									</script>
 									<script language="JavaScript">
 									<!--
-									<?
+									<?php 
 									if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 									{
 										$arRes = __GetInheritedValue($arResult["EventsNew"], $entity_type, $event["ENTITY_ID"], false, true, "all", "VISIBLE");
 										?>
 										q.props['arEvents']['all']['Visible'] = '<?=($arRes["VISIBLE_IS_INHERITED"] ? 'I' : $arRes["VISIBLE"])?>';
-										<?
+										<?php 
 										if ($arRes["VISIBLE_IS_INHERITED"])
 										{
 											?>
 											q.props['arEvents']['all']['VisibleInheritedFrom'] = '<?=$arRes["VISIBLE_INHERITED_FROM"]?>';
-											<?
+											<?php 
 										}
 									}
 									?>
 									BX.adjust(SLTree.Tree['<?=$entity_type?>_N'][<?=$event["ENTITY_ID"]?>]['all'], q);
 									-->
 									</script>
-									<?
+									<?php 
 									if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 									{
 										$arVisibleJS = __GetVisibleJS($arRes);
@@ -911,7 +911,7 @@ else
 										SLVisibleCheckbox.Show();
 										-->
 										</script>
-										<?
+										<?php 
 									}
 								?></td>
 								<td width="5%">
@@ -925,12 +925,12 @@ else
 					</td>
 				</tr>
 				</table>
-			<?endforeach;
-			?></div><?
+			<?php endforeach;
+			?></div><?php 
 			endif;
 		endif;
 		?>
-		<?
+		<?php 
 		
 		/* created by */
 		
@@ -956,7 +956,7 @@ else
 			-->
 			</script>
 			<div id="bx_sl_list_<?=$entity_type?>_CB" style="display: none;">			
-			<?foreach ($arResult["EventsNew"][$entity_type."_CB"] as $eventKey => $event):?>
+			<?php foreach ($arResult["EventsNew"][$entity_type."_CB"] as $eventKey => $event):?>
 				<table width="100%" class="subscribe-list-table">
 				<tr id="bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_cb_tr">
 					<td valign="top" width="30%" class="subscribe-list-entity-td subscribe-list-entity-name">
@@ -982,7 +982,7 @@ else
 									}));
 						-->
 						</script>
-						<?
+						<?php 
 						$name = call_user_func(
 							array(
 								$arResult["arSocNetAllowedSubscribeEntityTypesDesc"][$event["ENTITY_TYPE"]]["CLASS_DESC_SHOW"],
@@ -1003,7 +1003,7 @@ else
 									<?=GetMessage("SONET_C30_T_all")?></a>
 								</td>
 								<td width="65%" valign="top" id="v_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_cb_td">
-									<?
+									<?php 
 									$arRes = __GetInheritedValue($arResult["EventsNew"], $event["ENTITY_TYPE"], $event["ENTITY_ID"], true, false, "all", "TRANSPORT");
 									?>
 									<script language="JavaScript">
@@ -1011,22 +1011,22 @@ else
 									var q = {props: { 'arEvents': {} }};
 									q.props['arEvents']['all'] = {
 												'Transport': '<?=($arRes["TRANSPORT_IS_INHERITED"] ? 'I' : $arRes["TRANSPORT"])?>'
-												<?
+												<?php 
 												if ($arRes["TRANSPORT_IS_INHERITED"])
 												{
 													?>,
 													'TransportInheritedFrom': '<?=$arRes["TRANSPORT_INHERITED_FROM"]?>'
-													<?
+													<?php 
 												}
 												?>
 											};
 									-->
 									</script>
 									<select name="t_cb_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_all" id="t_Y_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_all">
-									<?
+									<?php 
 									if ($arRes["TRANSPORT_IS_INHERITED"])
 									{
-										?><option value="I" selected id="t_Y_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?
+										?><option value="I" selected id="t_Y_bx_sl_<?=$event["ENTITY_TYPE"]?>_<?=$event["ENTITY_ID"]?>_all_optioni"><?=GetMessage("SONET_C30_T_INHERITED")." (".GetMessage("SONET_C30_T_TRANSPORT_".$arRes["TRANSPORT"]).")";?></option><?php 
 									}							
 
 									foreach($arResult["Transport"] as $key => $value):
@@ -1034,7 +1034,7 @@ else
 											$selected = " selected";
 										else
 											$selected = "";
-										?><option value="<?=$key?>"<?=$selected?>><?=$value?></option><?
+										?><option value="<?=$key?>"<?=$selected?>><?=$value?></option><?php 
 									endforeach;
 									?>
 									</select>
@@ -1045,25 +1045,25 @@ else
 									</script>									
 									<script language="JavaScript">
 									<!--
-									<?
+									<?php 
 									if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 									{
 										$arRes = __GetInheritedValue($arResult["EventsNew"], $event["ENTITY_TYPE"], $event["ENTITY_ID"], true, true, "all", "VISIBLE");
 										?>
 										q.props['arEvents']['all']['Visible'] = '<?=($arRes["VISIBLE_IS_INHERITED"] ? 'I' : $arRes["VISIBLE"])?>';
-										<?
+										<?php 
 										if ($arRes["VISIBLE_IS_INHERITED"])
 										{
 											?>
 											q.props['arEvents']['all']['VisibleInheritedFrom'] = '<?=$arRes["VISIBLE_INHERITED_FROM"]?>';
-											<?
+											<?php 
 										}
 									}
 									?>
 									BX.adjust(SLTree.Tree['<?=$entity_type?>_Y'][<?=$event["ENTITY_ID"]?>]['all'], q);
 									-->
 									</script>
-									<?
+									<?php 
 									if (!defined("DisableSonetLogVisibleSubscr") || DisableSonetLogVisibleSubscr !== true)
 									{
 										$arVisibleJS = __GetVisibleJS($arRes);
@@ -1090,7 +1090,7 @@ else
 										SLVisibleCheckbox.Show();
 										-->
 										</script>
-										<?
+										<?php 
 									}
 								?></td>
 								<td width="5%">
@@ -1104,9 +1104,9 @@ else
 					</td>
 				</tr>
 				</table>
-			<?endforeach;?>
+			<?php endforeach;?>
 			</div>			
-			<?
+			<?php 
 		endif;
 	endforeach;
 	?>
@@ -1114,6 +1114,6 @@ else
 	<?=bitrix_sessid_post()?>
 	</form>
 	</div>
-	<?
+	<?php 
 }
 ?>

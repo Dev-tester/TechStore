@@ -84,204 +84,204 @@ elseif ($_REQUEST["table_id"]=="" || $_REQUEST["table_id"]==$sTableID_tab1):
 <table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
 <tr class="heading">
 	<td width="30%">&nbsp;</td>
-	<td><?echo GetMessage("STAT_TODAY")?><br><?echo $now_date?></td>
-	<td><?echo GetMessage("STAT_YESTERDAY")?><br><?echo $yesterday_date?></td>
-	<td><?echo GetMessage("STAT_BEFORE_YESTERDAY")?><br><?echo $bef_yesterday_date?></td>
-	<?if ($is_filtered):?>
-		<td><?echo GetMessage("STAT_PERIOD")?><br><?echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
-	<?endif;?>
-	<td><?echo GetMessage("STAT_TOTAL_1")?></td>
+	<td><?php echo GetMessage("STAT_TODAY")?><br><?php echo $now_date?></td>
+	<td><?php echo GetMessage("STAT_YESTERDAY")?><br><?php echo $yesterday_date?></td>
+	<td><?php echo GetMessage("STAT_BEFORE_YESTERDAY")?><br><?php echo $bef_yesterday_date?></td>
+	<?php if ($is_filtered):?>
+		<td><?php echo GetMessage("STAT_PERIOD")?><br><?php echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?php echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
+	<?php endif;?>
+	<td><?php echo GetMessage("STAT_TOTAL_1")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_HITS")?></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("hit_list.php"
+	<td><?php echo GetMessage("STAT_HITS")?></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("hit_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TODAY_HITS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("hit_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["TODAY_HITS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("hit_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["YESTERDAY_HITS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("hit_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["YESTERDAY_HITS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("hit_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_date2", $bef_yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["B_YESTERDAY_HITS"])?></a></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><a href="<?echo hrefHtml("hit_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["B_YESTERDAY_HITS"])?></a></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><a href="<?php echo hrefHtml("hit_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_date1", $find_date1
 			,"find_date2", $find_date2
 			,"set_filter", "Y"
-		)?>"><?echo htmlspecialcharsEx($arComm["PERIOD_HITS"])?></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("hit_list.php"
+		)?>"><?php echo htmlspecialcharsEx($arComm["PERIOD_HITS"])?></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("hit_list.php"
 		,"lang", LANGUAGE_ID
 		,"del_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TOTAL_HITS"])?></a></td>
+	)?>"><?php echo htmlspecialcharsEx($arComm["TOTAL_HITS"])?></a></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_HOSTS")?></td>
-	<td class="bx-digit-cell"><?echo htmlspecialcharsEx($arComm["TODAY_HOSTS"])?></td>
-	<td class="bx-digit-cell"><?echo htmlspecialcharsEx($arComm["YESTERDAY_HOSTS"])?></td>
-	<td class="bx-digit-cell"><?echo htmlspecialcharsEx($arComm["B_YESTERDAY_HOSTS"])?></td>
-	<?if ($is_filtered):?>
+	<td><?php echo GetMessage("STAT_HOSTS")?></td>
+	<td class="bx-digit-cell"><?php echo htmlspecialcharsEx($arComm["TODAY_HOSTS"])?></td>
+	<td class="bx-digit-cell"><?php echo htmlspecialcharsEx($arComm["YESTERDAY_HOSTS"])?></td>
+	<td class="bx-digit-cell"><?php echo htmlspecialcharsEx($arComm["B_YESTERDAY_HOSTS"])?></td>
+	<?php if ($is_filtered):?>
 		<td class="bx-digit-cell">&nbsp;</td>
-	<?endif;?>
-	<td class="bx-digit-cell"><?echo htmlspecialcharsEx($arComm["TOTAL_HOSTS"])?></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><?php echo htmlspecialcharsEx($arComm["TOTAL_HOSTS"])?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_SESSIONS")?></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("session_list.php"
+	<td><?php echo GetMessage("STAT_SESSIONS")?></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TODAY_SESSIONS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("session_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["TODAY_SESSIONS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["YESTERDAY_SESSIONS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("session_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["YESTERDAY_SESSIONS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_date2", $bef_yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["B_YESTERDAY_SESSIONS"])?></a></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><a href="<?echo hrefHtml("session_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["B_YESTERDAY_SESSIONS"])?></a></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><a href="<?php echo hrefHtml("session_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_date1", $find_date1
 			,"find_date2", $find_date2
 			,"set_filter", "Y"
-		)?>"><?echo htmlspecialcharsEx($arComm["PERIOD_SESSIONS"])?></a></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("session_list.php"
+		)?>"><?php echo htmlspecialcharsEx($arComm["PERIOD_SESSIONS"])?></a></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"del_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TOTAL_SESSIONS"])?></a></td>
+	)?>"><?php echo htmlspecialcharsEx($arComm["TOTAL_SESSIONS"])?></a></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_C_EVENTS")?></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("event_list.php"
+	<td><?php echo GetMessage("STAT_C_EVENTS")?></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TODAY_EVENTS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("event_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["TODAY_EVENTS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["YESTERDAY_EVENTS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("event_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["YESTERDAY_EVENTS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_date2", $bef_yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["B_YESTERDAY_EVENTS"])?></a></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><a href="<?echo hrefHtml("event_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["B_YESTERDAY_EVENTS"])?></a></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><a href="<?php echo hrefHtml("event_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_date1", $find_date1
 			,"find_date2", $find_date2
 			,"set_filter", "Y"
-		)?>"><?echo htmlspecialcharsEx($arComm["PERIOD_EVENTS"])?></a></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("event_list.php"
+		)?>"><?php echo htmlspecialcharsEx($arComm["PERIOD_EVENTS"])?></a></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"del_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TOTAL_EVENTS"])?></a></td>
+	)?>"><?php echo htmlspecialcharsEx($arComm["TOTAL_EVENTS"])?></a></td>
 </tr>
-<?if ($site_filter!="Y"):?>
+<?php if ($site_filter!="Y"):?>
 <tr class="heading">
-	<td colspan="<?echo ($is_filtered? "6": "5")?>"><?echo GetMessage("STAT_GUESTS")?></td>
+	<td colspan="<?php echo ($is_filtered? "6": "5")?>"><?php echo GetMessage("STAT_GUESTS")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_TOTAL")?></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	<td><?php echo GetMessage("STAT_TOTAL")?></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_last_date1", $now_date
 		,"find_last_date2", $now_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TODAY_GUESTS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["TODAY_GUESTS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_period_date1", $yesterday_date
 		,"find_period_date2", $yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["YESTERDAY_GUESTS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["YESTERDAY_GUESTS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_period_date1", $bef_yesterday_date
 		,"find_period_date2", $bef_yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["B_YESTERDAY_GUESTS"])?></a></td>
-	<?if ($is_filtered):?>
+	)?>"><?php echo htmlspecialcharsEx($arComm["B_YESTERDAY_GUESTS"])?></a></td>
+	<?php if ($is_filtered):?>
 		<td class="bx-digit-cell">&nbsp;</td>
-	<?endif;?>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	<?php endif;?>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 		,"lang", LANGUAGE_ID
 		,"del_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TOTAL_GUESTS"])?></a></td>
+	)?>"><?php echo htmlspecialcharsEx($arComm["TOTAL_GUESTS"])?></a></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_NEW")?></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	<td><?php echo GetMessage("STAT_NEW")?></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_period_date1", $now_date
 		,"find_period_date2", $now_date
 		,"find_sess2", "1"
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["TODAY_NEW_GUESTS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["TODAY_NEW_GUESTS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_period_date1", $yesterday_date
 		,"find_period_date2", $yesterday_date
 		,"find_sess2", "1"
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["YESTERDAY_NEW_GUESTS"])?></a></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["YESTERDAY_NEW_GUESTS"])?></a></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_period_date1", $bef_yesterday_date
 		,"find_period_date2", $bef_yesterday_date
 		,"find_sess2", "1"
 		,"set_filter", "Y"
-	)?>"><?echo htmlspecialcharsEx($arComm["B_YESTERDAY_NEW_GUESTS"])?></a></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><a href="<?echo hrefHtml("guest_list.php"
+	)?>"><?php echo htmlspecialcharsEx($arComm["B_YESTERDAY_NEW_GUESTS"])?></a></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><a href="<?php echo hrefHtml("guest_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_period_date1", $find_date1
 			,"find_period_date2", $find_date2
 			,"find_sess2", "1"
 			,"set_filter", "Y"
-		)?>"><?echo htmlspecialcharsEx($arComm["PERIOD_NEW_GUESTS"])?></a></td>
-	<?endif;?>
+		)?>"><?php echo htmlspecialcharsEx($arComm["PERIOD_NEW_GUESTS"])?></a></td>
+	<?php endif;?>
 	<td class="bx-digit-cell">&nbsp;</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_ONLINE")?></td>
-	<td class="bx-digit-cell"><a href="<?echo hrefHtml("users_online.php"
+	<td><?php echo GetMessage("STAT_ONLINE")?></td>
+	<td class="bx-digit-cell"><a href="<?php echo hrefHtml("users_online.php"
 		,"lang", LANGUAGE_ID
-	)?>"><?echo $arComm["ONLINE_GUESTS"]?></a></td>
+	)?>"><?php echo $arComm["ONLINE_GUESTS"]?></a></td>
 	<td>&nbsp;</td>
 	<td>&nbsp;</td>
-	<?if ($is_filtered):?>
+	<?php if ($is_filtered):?>
 		<td>&nbsp;</td>
-	<?endif;?>
+	<?php endif;?>
 	<td>&nbsp;</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 </table>
-<?endif;
+<?php endif;
 $lAdmin_tab1->EndCustomContent();
 if ($_REQUEST["table_id"]=="" || $_REQUEST["table_id"]==$sTableID_tab1)
 	$lAdmin_tab1->CheckListMode();
@@ -301,44 +301,44 @@ elseif ($_REQUEST["table_id"] == $sTableID_tab2):
 ?>
 <table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
 <tr class="heading" valign="top">
-	<td><?echo GetMessage("STAT_ADV_NAME")?></td>
-	<td><a href="<?echo hrefHtml("session_list.php"
+	<td><?php echo GetMessage("STAT_ADV_NAME")?></td>
+	<td><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"find_adv_back", "N"
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TODAY")?></a><br><?echo $now_date?></td>
-	<td><a href="<?echo hrefHtml("session_list.php"
+	)?>"><?php echo GetMessage("STAT_TODAY")?></a><br><?php echo $now_date?></td>
+	<td><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"find_adv_back", "N"
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_YESTERDAY")?></a><br><?echo $yesterday_date?></td>
-	<td><a href="<?echo hrefHtml("session_list.php"
+	)?>"><?php echo GetMessage("STAT_YESTERDAY")?></a><br><?php echo $yesterday_date?></td>
+	<td><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_adv_back", "N"
 		,"find_date2", $bef_yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?echo $bef_yesterday_date?></td>
-	<?if ($is_filtered):?>
-		<td><a href="<?echo hrefHtml("session_list.php"
+	)?>"><?php echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?php echo $bef_yesterday_date?></td>
+	<?php if ($is_filtered):?>
+		<td><a href="<?php echo hrefHtml("session_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_date1", $find_date1
 			,"find_date2", $find_date2
 			,"find_adv_back", "N"
 			,"set_filter", "Y"
-		)?>"><?echo GetMessage("STAT_PERIOD")?></a><br><?echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
-	<?endif;?>
-	<td><a href="<?echo hrefHtml("session_list.php"
+		)?>"><?php echo GetMessage("STAT_PERIOD")?></a><br><?php echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?php echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
+	<?php endif;?>
+	<td><a href="<?php echo hrefHtml("session_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_adv_back", "N"
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TOTAL_1")?></a></td>
+	)?>"><?php echo GetMessage("STAT_TOTAL_1")?></a></td>
 </tr>
-<?
+<?php 
 $i = 0;
 $total_SESSIONS_TODAY = 0;
 $total_SESSIONS_YESTERDAY = 0;
@@ -357,15 +357,15 @@ while ($ar = $adv->Fetch())
 	{
 	?>
 	<tr valign="top">
-		<td>[<a href="<?echo hrefHtml("adv_list.php"
+		<td>[<a href="<?php echo hrefHtml("adv_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_id", $ar["ID"]
 			,"find_id_exact_match", "Y"
 			,"set_filter", "Y"
-		)?>"><?echo htmlspecialcharsEx($ar["ID"])?></a>]&nbsp;<?echo htmlspecialcharsEx($ar["REFERER1"])?>&nbsp;/&nbsp;<?echo htmlspecialcharsEx($ar["REFERER2"])?></td>
+		)?>"><?php echo htmlspecialcharsEx($ar["ID"])?></a>]&nbsp;<?php echo htmlspecialcharsEx($ar["REFERER1"])?>&nbsp;/&nbsp;<?php echo htmlspecialcharsEx($ar["REFERER2"])?></td>
 		<td class="bx-digit-cell">
-			<?if ($ar["SESSIONS_TODAY"] > 0):?>
-				<a href="<?echo hrefHtml("session_list.php"
+			<?php if ($ar["SESSIONS_TODAY"] > 0):?>
+				<a href="<?php echo hrefHtml("session_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $now_date
 					,"find_date2", $now_date
@@ -373,14 +373,14 @@ while ($ar = $adv->Fetch())
 					,"find_adv_id_exact_match", "Y"
 					,"find_adv_back", "N"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["SESSIONS_TODAY"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["SESSIONS_TODAY"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["SESSIONS_YESTERDAY"] > 0):?>
-				<a href="<?echo hrefHtml("session_list.php"
+			<?php if ($ar["SESSIONS_YESTERDAY"] > 0):?>
+				<a href="<?php echo hrefHtml("session_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $yesterday_date
 					,"find_date2", $yesterday_date
@@ -388,14 +388,14 @@ while ($ar = $adv->Fetch())
 					,"find_adv_id_exact_match", "Y"
 					,"find_adv_back", "N"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["SESSIONS_YESTERDAY"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["SESSIONS_YESTERDAY"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["SESSIONS_BEF_YESTERDAY"] > 0):?>
-				<a href="<?echo hrefHtml("session_list.php"
+			<?php if ($ar["SESSIONS_BEF_YESTERDAY"] > 0):?>
+				<a href="<?php echo hrefHtml("session_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $bef_yesterday_date
 					,"find_date2", $bef_yesterday_date
@@ -403,15 +403,15 @@ while ($ar = $adv->Fetch())
 					,"find_adv_id_exact_match", "Y"
 					,"find_adv_back", "N"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["SESSIONS_BEF_YESTERDAY"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["SESSIONS_BEF_YESTERDAY"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-		<?if ($is_filtered):?>
+		<?php if ($is_filtered):?>
 			<td class="bx-digit-cell">
-				<?if ($ar["SESSIONS_PERIOD"] > 0):?>
-					<a href="<?echo hrefHtml("session_list.php"
+				<?php if ($ar["SESSIONS_PERIOD"] > 0):?>
+					<a href="<?php echo hrefHtml("session_list.php"
 						,"lang", LANGUAGE_ID
 						,"find_date1", $find_date1
 						,"find_date2", $find_date2
@@ -419,42 +419,42 @@ while ($ar = $adv->Fetch())
 						,"find_adv_id_exact_match", "Y"
 						,"find_adv_back", "N"
 						,"set_filter", "Y"
-					)?>"><?echo htmlspecialcharsEx($ar["SESSIONS_PERIOD"])?></a>
-				<?else:?>
+					)?>"><?php echo htmlspecialcharsEx($ar["SESSIONS_PERIOD"])?></a>
+				<?php else:?>
 					&nbsp;
-				<?endif;?>
+				<?php endif;?>
 			</td>
-		<?endif;?>
+		<?php endif;?>
 		<td class="bx-digit-cell">
-			<?if ($ar["SESSIONS"] > 0):?>
-				<a href="<?echo hrefHtml("session_list.php"
+			<?php if ($ar["SESSIONS"] > 0):?>
+				<a href="<?php echo hrefHtml("session_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_adv_id", $ar["ID"]
 					,"find_adv_id_exact_match", "Y"
 					,"find_adv_back", "N"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["SESSIONS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["SESSIONS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	}
 }
 ?>
 <tr>
-	<td class="bx-digit-cell"><?echo GetMessage("STAT_TOTAL")?></td>
-	<td class="bx-digit-cell"><?echo ($total_SESSIONS_TODAY > 0? $total_SESSIONS_TODAY: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_SESSIONS_YESTERDAY > 0? $total_SESSIONS_YESTERDAY: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_SESSIONS_BEF_YESTERDAY > 0? $total_SESSIONS_BEF_YESTERDAY: '&nbsp;')?></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><?echo ($total_SESSIONS_PERIOD > 0? $total_SESSIONS_PERIOD: '&nbsp;')?></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><?echo ($total_SESSIONS > 0? $total_SESSIONS: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo GetMessage("STAT_TOTAL")?></td>
+	<td class="bx-digit-cell"><?php echo ($total_SESSIONS_TODAY > 0? $total_SESSIONS_TODAY: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_SESSIONS_YESTERDAY > 0? $total_SESSIONS_YESTERDAY: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_SESSIONS_BEF_YESTERDAY > 0? $total_SESSIONS_BEF_YESTERDAY: '&nbsp;')?></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><?php echo ($total_SESSIONS_PERIOD > 0? $total_SESSIONS_PERIOD: '&nbsp;')?></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><?php echo ($total_SESSIONS > 0? $total_SESSIONS: '&nbsp;')?></td>
 </tr>
 </table>
-<?
+<?php 
 endif;
 $lAdmin_tab2->EndCustomContent();
 if ($_REQUEST["table_id"] == $sTableID_tab2)
@@ -478,39 +478,39 @@ elseif ($_REQUEST["table_id"] == $sTableID_tab3):
 ?>
 <table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
 <tr class="heading" valign="top">
-	<td><?echo GetMessage("STAT_EVENT")?></td>
-	<td><a href="<?echo hrefHtml("event_list.php"
+	<td><?php echo GetMessage("STAT_EVENT")?></td>
+	<td><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TODAY")?></a><br><?echo $now_date?></td>
-	<td><a href="<?echo hrefHtml("event_list.php"
+	)?>"><?php echo GetMessage("STAT_TODAY")?></a><br><?php echo $now_date?></td>
+	<td><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_YESTERDAY")?></a><br><?echo $yesterday_date?></td>
-	<td><a href="<?echo hrefHtml("event_list.php"
+	)?>"><?php echo GetMessage("STAT_YESTERDAY")?></a><br><?php echo $yesterday_date?></td>
+	<td><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_date2", $bef_yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?echo $bef_yesterday_date?></td>
-<?if ($is_filtered):?>
-	<td><a href="<?echo hrefHtml("event_list.php"
+	)?>"><?php echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?php echo $bef_yesterday_date?></td>
+<?php if ($is_filtered):?>
+	<td><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $find_date1
 		,"find_date2", $find_date2
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_PERIOD")?></a><br><?echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
-<?endif;?>
-	<td><a href="<?echo hrefHtml("event_list.php"
+	)?>"><?php echo GetMessage("STAT_PERIOD")?></a><br><?php echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?php echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
+<?php endif;?>
+	<td><a href="<?php echo hrefHtml("event_list.php"
 		,"lang", LANGUAGE_ID
 		,"del_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TOTAL_1")?></a></td>
+	)?>"><?php echo GetMessage("STAT_TOTAL_1")?></a></td>
 </tr>
-<?
+<?php 
 $i = 0;
 $total_TODAY_COUNTER = 0;
 $total_YESTERDAY_COUNTER = 0;
@@ -530,104 +530,104 @@ while ($ar = $events->Fetch())
 	?>
 	<tr>
 		<td>
-			<?$dynamic_days = CStatEventType::DynamicDays($ar["ID"]);
+			<?php $dynamic_days = CStatEventType::DynamicDays($ar["ID"]);
 			if ($dynamic_days >= 2 && function_exists("ImageCreate")):?>
-				<a href="<?echo hrefHtml("event_graph_list.php"
+				<a href="<?php echo hrefHtml("event_graph_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_events[]", $ar["ID"]
 					,"set_filter", "Y"
-				)?>" title="<?echo GetMessage("STAT_EVENT_GRAPH")?>"><?echo htmlspecialcharsEx($ar["EVENT"])?></a>
-			<?else:
+				)?>" title="<?php echo GetMessage("STAT_EVENT_GRAPH")?>"><?php echo htmlspecialcharsEx($ar["EVENT"])?></a>
+			<?php else:
 				echo htmlspecialcharsEx($ar["EVENT"]);
 			endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["TODAY_COUNTER"] > 0):?>
-				<a href="<?echo hrefHtml("event_list.php"
+			<?php if ($ar["TODAY_COUNTER"] > 0):?>
+				<a href="<?php echo hrefHtml("event_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $now_date
 					,"find_date2", $now_date
 					,"find_event_id", $ar["ID"]
 					,"find_event_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TODAY_COUNTER"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TODAY_COUNTER"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["YESTERDAY_COUNTER"] > 0):?>
-				<a href="<?echo hrefHtml("event_list.php"
+			<?php if ($ar["YESTERDAY_COUNTER"] > 0):?>
+				<a href="<?php echo hrefHtml("event_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $yesterday_date
 					,"find_date2", $yesterday_date
 					,"find_event_id", $ar["ID"]
 					,"find_event_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["YESTERDAY_COUNTER"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["YESTERDAY_COUNTER"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["B_YESTERDAY_COUNTER"] > 0):?>
-				<a href="<?echo hrefHtml("event_list.php"
+			<?php if ($ar["B_YESTERDAY_COUNTER"] > 0):?>
+				<a href="<?php echo hrefHtml("event_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $bef_yesterday_date
 					,"find_date2", $bef_yesterday_date
 					,"find_event_id", $ar["ID"]
 					,"find_event_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["B_YESTERDAY_COUNTER"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["B_YESTERDAY_COUNTER"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?if ($is_filtered):?>
+	<?php if ($is_filtered):?>
 		<td class="bx-digit-cell">
-			<?if ($ar["PERIOD_COUNTER"] > 0):?>
-				<a href="<?echo hrefHtml("event_list.php"
+			<?php if ($ar["PERIOD_COUNTER"] > 0):?>
+				<a href="<?php echo hrefHtml("event_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $find_date1
 					,"find_date2", $find_date2
 					,"find_event_id", $ar["ID"]
 					,"find_event_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["PERIOD_COUNTER"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["PERIOD_COUNTER"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?endif;?>
+	<?php endif;?>
 		<td class="bx-digit-cell">
-			<?if ($ar["TOTAL_COUNTER"] > 0):?>
-				<a href="<?echo hrefHtml("event_list.php"
+			<?php if ($ar["TOTAL_COUNTER"] > 0):?>
+				<a href="<?php echo hrefHtml("event_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_event_id", $ar["ID"]
 					,"find_event_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TOTAL_COUNTER"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TOTAL_COUNTER"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	}
 }
 ?>
 <tr>
-	<td class="bx-digit-cell"><?echo GetMessage("STAT_TOTAL")?></td>
-	<td class="bx-digit-cell"><?echo ($total_TODAY_COUNTER > 0? $total_TODAY_COUNTER: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_YESTERDAY_COUNTER > 0? $total_YESTERDAY_COUNTER: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_B_YESTERDAY_COUNTER > 0? $total_B_YESTERDAY_COUNTER: '&nbsp;')?></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><?echo ($total_PERIOD_COUNTER > 0? $total_PERIOD_COUNTER: '&nbsp;')?></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><?echo ($total_TOTAL_COUNTER > 0? $total_TOTAL_COUNTER: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo GetMessage("STAT_TOTAL")?></td>
+	<td class="bx-digit-cell"><?php echo ($total_TODAY_COUNTER > 0? $total_TODAY_COUNTER: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_YESTERDAY_COUNTER > 0? $total_YESTERDAY_COUNTER: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_B_YESTERDAY_COUNTER > 0? $total_B_YESTERDAY_COUNTER: '&nbsp;')?></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><?php echo ($total_PERIOD_COUNTER > 0? $total_PERIOD_COUNTER: '&nbsp;')?></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><?php echo ($total_TOTAL_COUNTER > 0? $total_TOTAL_COUNTER: '&nbsp;')?></td>
 </tr>
 </table>
-<?
+<?php 
 endif;
 $lAdmin_tab3->EndCustomContent();
 if ($_REQUEST["table_id"]==$sTableID_tab3)
@@ -645,44 +645,44 @@ elseif ($_REQUEST["table_id"]==$sTableID_tab4):
 <table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
 
 <tr class="heading" valign="top">
-	<td><?echo GetMessage("STAT_SERVER")?></td>
-	<td><a href="<?echo hrefHtml("referer_list.php"
+	<td><?php echo GetMessage("STAT_SERVER")?></td>
+	<td><a href="<?php echo hrefHtml("referer_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"group_by", "none"
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TODAY")?></a><br><?echo $now_date?></td>
-	<td><a href="<?echo hrefHtml("referer_list.php"
+	)?>"><?php echo GetMessage("STAT_TODAY")?></a><br><?php echo $now_date?></td>
+	<td><a href="<?php echo hrefHtml("referer_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"group_by", "none"
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_YESTERDAY")?></a><br><?echo $yesterday_date?></td>
-	<td><a href="<?echo hrefHtml("referer_list.php"
+	)?>"><?php echo GetMessage("STAT_YESTERDAY")?></a><br><?php echo $yesterday_date?></td>
+	<td><a href="<?php echo hrefHtml("referer_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_date2", $bef_yesterday_date
 		,"group_by", "none"
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?echo $bef_yesterday_date?></td>
-<?if ($is_filtered):?>
-	<td><a href="<?echo hrefHtml("referer_list.php"
+	)?>"><?php echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?php echo $bef_yesterday_date?></td>
+<?php if ($is_filtered):?>
+	<td><a href="<?php echo hrefHtml("referer_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $find_date1
 		,"find_date2", $find_date2
 		,"group_by", "none"
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_PERIOD")?></a><br> <?echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
-<?endif;?>
-	<td><a href="<?echo hrefHtml("referer_list.php"
+	)?>"><?php echo GetMessage("STAT_PERIOD")?></a><br> <?php echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?php echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
+<?php endif;?>
+	<td><a href="<?php echo hrefHtml("referer_list.php"
 		,"lang", LANGUAGE_ID
 		,"group_by", "none"
 		,"del_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TOTAL_1")?></a></td>
+	)?>"><?php echo GetMessage("STAT_TOTAL_1")?></a></td>
 </tr>
-<?
+<?php 
 $i = 0;
 $total_TODAY_REFERERS = 0;
 $total_YESTERDAY_REFERERS = 0;
@@ -701,93 +701,93 @@ while ($ar = $referers->Fetch())
 	{
 	?>
 	<tr>
-		<td><a href="<?echo hrefHtml("referer_list.php"
+		<td><a href="<?php echo hrefHtml("referer_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_from_domain", '"'.$ar["SITE_NAME"].'"'
 			,"set_filter", "Y"
-		)?>"><?echo htmlspecialcharsEx($ar["SITE_NAME"])?></a></td>
+		)?>"><?php echo htmlspecialcharsEx($ar["SITE_NAME"])?></a></td>
 		<td class="bx-digit-cell">
-			<?if ($ar["TODAY_REFERERS"] > 0):?>
-				<a href="<?echo hrefHtml("referer_list.php"
+			<?php if ($ar["TODAY_REFERERS"] > 0):?>
+				<a href="<?php echo hrefHtml("referer_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $now_date
 					,"find_date2", $now_date
 					,"find_from", '"'.$ar["SITE_NAME"].'"'
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TODAY_REFERERS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TODAY_REFERERS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["YESTERDAY_REFERERS"] > 0):?>
-				<a href="<?echo hrefHtml("referer_list.php"
+			<?php if ($ar["YESTERDAY_REFERERS"] > 0):?>
+				<a href="<?php echo hrefHtml("referer_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $yesterday_date
 					,"find_date2", $yesterday_date
 					,"find_from", '"'.$ar["SITE_NAME"].'"'
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["YESTERDAY_REFERERS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["YESTERDAY_REFERERS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["B_YESTERDAY_REFERERS"] > 0):?>
-				<a href="<?echo hrefHtml("referer_list.php"
+			<?php if ($ar["B_YESTERDAY_REFERERS"] > 0):?>
+				<a href="<?php echo hrefHtml("referer_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $bef_yesterday_date
 					,"find_date2", $bef_yesterday_date
 					,"find_from", '"'.$ar["SITE_NAME"].'"'
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["B_YESTERDAY_REFERERS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["B_YESTERDAY_REFERERS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?if ($is_filtered):?>
+	<?php if ($is_filtered):?>
 		<td class="bx-digit-cell">
-			<?if ($ar["PERIOD_REFERERS"] > 0):?>
-				<a href="<?echo hrefHtml("referer_list.php"
+			<?php if ($ar["PERIOD_REFERERS"] > 0):?>
+				<a href="<?php echo hrefHtml("referer_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $find_date1
 					,"find_date2", $find_date2
 					,"find_from", '"'.$ar["SITE_NAME"].'"'
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["PERIOD_REFERERS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["PERIOD_REFERERS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?endif;?>
+	<?php endif;?>
 		<td class="bx-digit-cell">
-			<?if ($ar["TOTAL_REFERERS"] > 0):?>
-				<a href="<?echo hrefHtml("referer_list.php"
+			<?php if ($ar["TOTAL_REFERERS"] > 0):?>
+				<a href="<?php echo hrefHtml("referer_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_from", '"'.$ar["SITE_NAME"].'"'
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TOTAL_REFERERS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TOTAL_REFERERS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	}
 }
 ?>
 <tr>
-	<td class="bx-digit-cell"><?echo GetMessage("STAT_TOTAL")?></td>
-	<td class="bx-digit-cell"><?echo ($total_TODAY_REFERERS > 0? $total_TODAY_REFERERS: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_YESTERDAY_REFERERS > 0? $total_YESTERDAY_REFERERS: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_B_YESTERDAY_REFERERS > 0? $total_B_YESTERDAY_REFERERS: '&nbsp;')?></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><?echo ($total_PERIOD_REFERERS > 0? $total_PERIOD_REFERERS: '&nbsp;')?></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><?echo ($total_TOTAL_REFERERS > 0? $total_TOTAL_REFERERS: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo GetMessage("STAT_TOTAL")?></td>
+	<td class="bx-digit-cell"><?php echo ($total_TODAY_REFERERS > 0? $total_TODAY_REFERERS: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_YESTERDAY_REFERERS > 0? $total_YESTERDAY_REFERERS: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_B_YESTERDAY_REFERERS > 0? $total_B_YESTERDAY_REFERERS: '&nbsp;')?></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><?php echo ($total_PERIOD_REFERERS > 0? $total_PERIOD_REFERERS: '&nbsp;')?></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><?php echo ($total_TOTAL_REFERERS > 0? $total_TOTAL_REFERERS: '&nbsp;')?></td>
 </tr>
 </table>
-<?
+<?php 
 endif;
 $lAdmin_tab4->EndCustomContent();
 if ($_REQUEST["table_id"] == $sTableID_tab4)
@@ -804,49 +804,49 @@ elseif ($_REQUEST["table_id"] == $sTableID_tab5):
 ?>
 <table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
 <tr class="heading" valign="top">
-	<td><?echo GetMessage("STAT_PHRASE")?></td>
-	<td><a href="<?echo hrefHtml("phrase_list.php"
+	<td><?php echo GetMessage("STAT_PHRASE")?></td>
+	<td><a href="<?php echo hrefHtml("phrase_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"set_filter", "Y"
 		,"group_by", "none"
 		,"menu_item_id", "1"
-	)?>"><?echo GetMessage("STAT_TODAY")?></a><br><?echo $now_date?></td>
-	<td><a href="<?echo hrefHtml("phrase_list.php"
+	)?>"><?php echo GetMessage("STAT_TODAY")?></a><br><?php echo $now_date?></td>
+	<td><a href="<?php echo hrefHtml("phrase_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"set_filter", "Y"
 		,"group_by", "none"
 		,"menu_item_id", "1"
-	)?>"><?echo GetMessage("STAT_YESTERDAY")?></a><br><?echo $yesterday_date?></td>
-	<td><a href="<?echo hrefHtml("phrase_list.php"
+	)?>"><?php echo GetMessage("STAT_YESTERDAY")?></a><br><?php echo $yesterday_date?></td>
+	<td><a href="<?php echo hrefHtml("phrase_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_date2", $bef_yesterday_date
 		,"set_filter", "Y"
 		,"group_by", "none"
 		,"menu_item_id", "1"
-	)?>"><?echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?echo $bef_yesterday_date?></td>
-	<?if ($is_filtered):?>
-		<td><a href="<?echo hrefHtml("phrase_list.php"
+	)?>"><?php echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?php echo $bef_yesterday_date?></td>
+	<?php if ($is_filtered):?>
+		<td><a href="<?php echo hrefHtml("phrase_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_date1", $find_date1
 			,"find_date2", $find_date2
 			,"set_filter", "Y"
 			,"group_by", "none"
 			,"menu_item_id", "1"
-		)?>"><?echo GetMessage("STAT_PERIOD")?></a><br> <?echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
-	<?endif;?>
-	<td><a href="<?echo hrefHtml("phrase_list.php"
+		)?>"><?php echo GetMessage("STAT_PERIOD")?></a><br> <?php echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?php echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
+	<?php endif;?>
+	<td><a href="<?php echo hrefHtml("phrase_list.php"
 		,"lang", LANGUAGE_ID
 		,"del_filter", "Y"
 		,"group_by", "none"
 		,"menu_item_id", "1"
-	)?>"><?echo GetMessage("STAT_TOTAL_1")?></a></td>
+	)?>"><?php echo GetMessage("STAT_TOTAL_1")?></a></td>
 </tr>
-<?
+<?php 
 $i = 0;
 $total_TODAY_PHRASES = 0;
 $total_YESTERDAY_PHRASES = 0;
@@ -865,17 +865,17 @@ while ($ar = $phrases->Fetch())
 	{
 	?>
 	<tr>
-		<td><a href="<?echo hrefHtml("phrase_list.php"
+		<td><a href="<?php echo hrefHtml("phrase_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_phrase", '"'.$ar["PHRASE"].'"'
 			,"set_filter", "Y"
 			,"group_by", "none"
 			,"menu_item_id", "1"
 			,"find_phrase_exact_match", "Y"
-		)?>"><?echo htmlspecialcharsEx(TruncateText($ar["PHRASE"], 50))?></a>&nbsp;</td>
+		)?>"><?php echo htmlspecialcharsEx(TruncateText($ar["PHRASE"], 50))?></a>&nbsp;</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["TODAY_PHRASES"] > 0):?>
-				<a href="<?echo hrefHtml("phrase_list.php"
+			<?php if ($ar["TODAY_PHRASES"] > 0):?>
+				<a href="<?php echo hrefHtml("phrase_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $now_date
 					,"find_date2", $now_date
@@ -884,14 +884,14 @@ while ($ar = $phrases->Fetch())
 					,"group_by", "none"
 					,"menu_item_id", "1"
 					,"find_phrase_exact_match", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TODAY_PHRASES"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TODAY_PHRASES"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["YESTERDAY_PHRASES"] > 0):?>
-				<a href="<?echo hrefHtml("phrase_list.php"
+			<?php if ($ar["YESTERDAY_PHRASES"] > 0):?>
+				<a href="<?php echo hrefHtml("phrase_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $yesterday_date
 					,"find_date2", $yesterday_date
@@ -900,14 +900,14 @@ while ($ar = $phrases->Fetch())
 					,"group_by", "none"
 					,"menu_item_id", "1"
 					,"find_phrase_exact_match", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["YESTERDAY_PHRASES"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["YESTERDAY_PHRASES"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["B_YESTERDAY_PHRASES"] > 0):?>
-				<a href="<?echo hrefHtml("phrase_list.php"
+			<?php if ($ar["B_YESTERDAY_PHRASES"] > 0):?>
+				<a href="<?php echo hrefHtml("phrase_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $bef_yesterday_date
 					,"find_date2", $bef_yesterday_date
@@ -916,15 +916,15 @@ while ($ar = $phrases->Fetch())
 					,"group_by", "none"
 					,"menu_item_id", "1"
 					,"find_phrase_exact_match", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["B_YESTERDAY_PHRASES"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["B_YESTERDAY_PHRASES"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?if ($is_filtered):?>
+	<?php if ($is_filtered):?>
 		<td class="bx-digit-cell">
-			<?if ($ar["PERIOD_PHRASES"] > 0):?>
-				<a href="<?echo hrefHtml("phrase_list.php"
+			<?php if ($ar["PERIOD_PHRASES"] > 0):?>
+				<a href="<?php echo hrefHtml("phrase_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $find_date1
 					,"find_date2", $find_date2
@@ -933,43 +933,43 @@ while ($ar = $phrases->Fetch())
 					,"group_by", "none"
 					,"menu_item_id", "1"
 					,"find_phrase_exact_match", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["PERIOD_PHRASES"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["PERIOD_PHRASES"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?endif;?>
+	<?php endif;?>
 		<td class="bx-digit-cell">
-			<?if ($ar["TOTAL_PHRASES"] > 0):?>
-				<a href="<?echo hrefHtml("phrase_list.php"
+			<?php if ($ar["TOTAL_PHRASES"] > 0):?>
+				<a href="<?php echo hrefHtml("phrase_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_phrase", '"'.$ar["PHRASE"].'"'
 					,"set_filter", "Y"
 					,"group_by", "none"
 					,"menu_item_id", "1"
 					,"find_phrase_exact_match", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TOTAL_PHRASES"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TOTAL_PHRASES"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	}
 }
 ?>
 <tr>
-	<td class="bx-digit-cell"><?echo GetMessage("STAT_TOTAL")?></td>
-	<td class="bx-digit-cell"><?echo ($total_TODAY_PHRASES > 0? $total_TODAY_PHRASES: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_YESTERDAY_PHRASES > 0? $total_YESTERDAY_PHRASES: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_B_YESTERDAY_PHRASES > 0? $total_B_YESTERDAY_PHRASES: '&nbsp;')?></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><?echo ($total_PERIOD_PHRASES > 0? $total_PERIOD_PHRASES: '&nbsp;')?></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><?echo ($total_TOTAL_PHRASES > 0? $total_TOTAL_PHRASES: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo GetMessage("STAT_TOTAL")?></td>
+	<td class="bx-digit-cell"><?php echo ($total_TODAY_PHRASES > 0? $total_TODAY_PHRASES: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_YESTERDAY_PHRASES > 0? $total_YESTERDAY_PHRASES: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_B_YESTERDAY_PHRASES > 0? $total_B_YESTERDAY_PHRASES: '&nbsp;')?></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><?php echo ($total_PERIOD_PHRASES > 0? $total_PERIOD_PHRASES: '&nbsp;')?></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><?php echo ($total_TOTAL_PHRASES > 0? $total_TOTAL_PHRASES: '&nbsp;')?></td>
 </tr>
 </table>
-<?
+<?php 
 endif;
 $lAdmin_tab5->EndCustomContent();
 if ($_REQUEST["table_id"] == $sTableID_tab5)
@@ -993,40 +993,40 @@ elseif ($_REQUEST["table_id"] == $sTableID_tab6):
 ?>
 <table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
 <tr class="heading" valign="top">
-	<td><?echo GetMessage("STAT_SEARCHER")?></td>
-	<td><a href="<?echo hrefHtml("hit_searcher_list.php"
+	<td><?php echo GetMessage("STAT_SEARCHER")?></td>
+	<td><a href="<?php echo hrefHtml("hit_searcher_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $now_date
 		,"find_date2", $now_date
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TODAY")?></a><br><?echo $now_date?></td>
-	<td><a href="<?echo hrefHtml("hit_searcher_list.php"
+	)?>"><?php echo GetMessage("STAT_TODAY")?></a><br><?php echo $now_date?></td>
+	<td><a href="<?php echo hrefHtml("hit_searcher_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $yesterday_date
 		,"find_date2", $yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_YESTERDAY")?></a><br><?echo $yesterday_date?></td>
+	)?>"><?php echo GetMessage("STAT_YESTERDAY")?></a><br><?php echo $yesterday_date?></td>
 
-	<td><a href="<?echo hrefHtml("hit_searcher_list.php"
+	<td><a href="<?php echo hrefHtml("hit_searcher_list.php"
 		,"lang", LANGUAGE_ID
 		,"find_date1", $bef_yesterday_date
 		,"find_date2", $bef_yesterday_date
 		,"set_filter", "Y"
-	)?>"><?echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?echo $bef_yesterday_date?></td>
-	<?if ($is_filtered):?>
-		<td><a href="<?echo hrefHtml("hit_searcher_list.php"
+	)?>"><?php echo GetMessage("STAT_BEFORE_YESTERDAY")?></a><br><?php echo $bef_yesterday_date?></td>
+	<?php if ($is_filtered):?>
+		<td><a href="<?php echo hrefHtml("hit_searcher_list.php"
 			,"lang", LANGUAGE_ID
 			,"find_date1", $find_date1
 			,"find_date2", $find_date2
 			,"set_filter", "Y"
-		)?>"><?echo GetMessage("STAT_PERIOD")?></a><br> <?echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
-	<?endif;?>
-	<td><a href="<?echo hrefHtml("hit_searcher_list.php"
+		)?>"><?php echo GetMessage("STAT_PERIOD")?></a><br> <?php echo htmlspecialcharsEx($arFilter["DATE1"])?>&nbsp;- <?php echo htmlspecialcharsEx($arFilter["DATE2"])?></td>
+	<?php endif;?>
+	<td><a href="<?php echo hrefHtml("hit_searcher_list.php"
 		,"lang", LANGUAGE_ID
 		,"del_filter", "Y"
-	)?>"><?echo GetMessage("STAT_TOTAL_1")?></a></td>
+	)?>"><?php echo GetMessage("STAT_TOTAL_1")?></a></td>
 </tr>
-<?
+<?php 
 $i = 0;
 $total_TODAY_HITS = 0;
 $total_YESTERDAY_HITS = 0;
@@ -1046,104 +1046,104 @@ while ($ar = $searchers->Fetch())
 	?>
 	<tr>
 		<td>
-			<?$dynamic_days = CSearcher::DynamicDays($ar["ID"]);
+			<?php $dynamic_days = CSearcher::DynamicDays($ar["ID"]);
 			if ($dynamic_days>=2 && function_exists("ImageCreate")):?>
-				<a href="<?echo hrefHtml("searcher_graph_list.php"
+				<a href="<?php echo hrefHtml("searcher_graph_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_searchers[]", $ar["ID"]
 					,"set_filter", "Y"
-				)?>" title="<?echo GetMessage("STAT_SEARCHER_GRAPH")?>"><?echo htmlspecialcharsEx($ar["NAME"])?></a>
-			<?else:?>
-				<?echo htmlspecialcharsEx($ar["NAME"])?>
-			<?endif;?>
+				)?>" title="<?php echo GetMessage("STAT_SEARCHER_GRAPH")?>"><?php echo htmlspecialcharsEx($ar["NAME"])?></a>
+			<?php else:?>
+				<?php echo htmlspecialcharsEx($ar["NAME"])?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["TODAY_HITS"] > 0):?>
-				<a href="<?echo hrefHtml("hit_searcher_list.php"
+			<?php if ($ar["TODAY_HITS"] > 0):?>
+				<a href="<?php echo hrefHtml("hit_searcher_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $now_date
 					,"find_date2", $now_date
 					,"find_searcher_id", $ar["ID"]
 					,"find_searcher_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TODAY_HITS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TODAY_HITS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["YESTERDAY_HITS"] > 0):?>
-				<a href="<?echo hrefHtml("hit_searcher_list.php"
+			<?php if ($ar["YESTERDAY_HITS"] > 0):?>
+				<a href="<?php echo hrefHtml("hit_searcher_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $yesterday_date
 					,"find_date2", $yesterday_date
 					,"find_searcher_id", $ar["ID"]
 					,"find_searcher_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["YESTERDAY_HITS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["YESTERDAY_HITS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td class="bx-digit-cell">
-			<?if ($ar["B_YESTERDAY_HITS"] > 0):?>
-				<a href="<?echo hrefHtml("hit_searcher_list.php"
+			<?php if ($ar["B_YESTERDAY_HITS"] > 0):?>
+				<a href="<?php echo hrefHtml("hit_searcher_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $bef_yesterday_date
 					,"find_date2", $bef_yesterday_date
 					,"find_searcher_id", $ar["ID"]
 					,"find_searcher_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["B_YESTERDAY_HITS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["B_YESTERDAY_HITS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?if ($is_filtered):?>
+	<?php if ($is_filtered):?>
 		<td class="bx-digit-cell">
-			<?if ($ar["PERIOD_HITS"] > 0):?>
-				<a href="<?echo hrefHtml("hit_searcher_list.php"
+			<?php if ($ar["PERIOD_HITS"] > 0):?>
+				<a href="<?php echo hrefHtml("hit_searcher_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_date1", $find_date1
 					,"find_date2", $find_date2
 					,"find_searcher_id", $ar["ID"]
 					,"find_searcher_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["PERIOD_HITS"])?></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["PERIOD_HITS"])?></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
-	<?endif;?>
+	<?php endif;?>
 		<td class="bx-digit-cell">
-			<?if ($ar["TOTAL_HITS"] > 0):?>
-				<a href="<?echo hrefHtml("hit_searcher_list.php"
+			<?php if ($ar["TOTAL_HITS"] > 0):?>
+				<a href="<?php echo hrefHtml("hit_searcher_list.php"
 					,"lang", LANGUAGE_ID
 					,"find_searcher_id", $ar["ID"]
 					,"find_searcher_id_exact_match", "Y"
 					,"set_filter", "Y"
-				)?>"><?echo htmlspecialcharsEx($ar["TOTAL_HITS"])?></a></a>
-			<?else:?>
+				)?>"><?php echo htmlspecialcharsEx($ar["TOTAL_HITS"])?></a></a>
+			<?php else:?>
 				&nbsp;
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	}
 }
 ?>
 <tr>
-	<td class="bx-digit-cell"><?echo GetMessage("STAT_TOTAL")?></td>
-	<td class="bx-digit-cell"><?echo ($total_TODAY_HITS > 0? $total_TODAY_HITS: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_YESTERDAY_HITS > 0? $total_YESTERDAY_HITS: '&nbsp;')?></td>
-	<td class="bx-digit-cell"><?echo ($total_B_YESTERDAY_HITS > 0? $total_B_YESTERDAY_HITS: '&nbsp;')?></td>
-	<?if ($is_filtered):?>
-		<td class="bx-digit-cell"><?echo ($total_PERIOD_HITS > 0? $total_PERIOD_HITS: '&nbsp;')?></td>
-	<?endif;?>
-	<td class="bx-digit-cell"><?echo ($total_TOTAL_HITS > 0? $total_TOTAL_HITS: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo GetMessage("STAT_TOTAL")?></td>
+	<td class="bx-digit-cell"><?php echo ($total_TODAY_HITS > 0? $total_TODAY_HITS: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_YESTERDAY_HITS > 0? $total_YESTERDAY_HITS: '&nbsp;')?></td>
+	<td class="bx-digit-cell"><?php echo ($total_B_YESTERDAY_HITS > 0? $total_B_YESTERDAY_HITS: '&nbsp;')?></td>
+	<?php if ($is_filtered):?>
+		<td class="bx-digit-cell"><?php echo ($total_PERIOD_HITS > 0? $total_PERIOD_HITS: '&nbsp;')?></td>
+	<?php endif;?>
+	<td class="bx-digit-cell"><?php echo ($total_TOTAL_HITS > 0? $total_TOTAL_HITS: '&nbsp;')?></td>
 </tr>
 </table>
-<?
+<?php 
 endif;
 $lAdmin_tab6->EndCustomContent();
 if ($_REQUEST["table_id"] == $sTableID_tab6)
@@ -1229,7 +1229,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 $oFilter = new CAdminFilter($sFilterID, array());
 ?>
 
-<p><?echo GetMessage("STAT_SERVER_TIME")."&nbsp;&nbsp;".GetTime(time(),"FULL")?></p>
+<p><?php echo GetMessage("STAT_SERVER_TIME")."&nbsp;&nbsp;".GetTime(time(),"FULL")?></p>
 
 <script type="text/javascript">
 var currentTable = null;
@@ -1242,10 +1242,10 @@ function selectTabWithFilter(filter, table, url, force)
 		if (force || !cached[table.table_id])
 		{
 			if (url.indexOf('?')>=0)
-				url += '&lang=<?echo LANG?>&set_filter=Y'+filter.GetParameters();
+				url += '&lang=<?php echo LANG?>&set_filter=Y'+filter.GetParameters();
 			else
-				url += '?lang=<?echo LANG?>&set_filter=Y'+filter.GetParameters();
-			resultDiv.innerHTML='<?echo addslashes(GetMessage("STAT_LOADING_WAIT"))?>';
+				url += '?lang=<?php echo LANG?>&set_filter=Y'+filter.GetParameters();
+			resultDiv.innerHTML='<?php echo addslashes(GetMessage("STAT_LOADING_WAIT"))?>';
 
 			filter.OnSet(table.table_id, url);
 
@@ -1270,60 +1270,60 @@ function clearFilter(filter, url)
 }
 </script>
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?$oFilter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php $oFilter->Begin();?>
 <tr valign="center">
-	<td class="bx-digit-cell" width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td class="bx-digit-cell" width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_SERVER")?>:</td>
-	<td width="0%" nowrap><?echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("MAIN_ALL"));?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_SERVER")?>:</td>
+	<td width="0%" nowrap><?php echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("MAIN_ALL"));?></td>
 </tr>
-<?$oFilter->Buttons()?>
-<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="set_filter" value="<?echo GetMessage("STAT_F_FIND")?>" title="<?echo GetMessage("STAT_F_FIND_TITLE")?>" onClick="BX.adminPanel.showWait(this); applyFilter(<?echo $sFilterID?>, 'stat_list.php?lang=<?echo LANG?>'); return false;"></span>
-<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="del_filter" value="<?echo GetMessage("STAT_F_CLEAR")?>" title="<?echo GetMessage("STAT_F_CLEAR_TITLE")?>" onClick="BX.adminPanel.showWait(this); clearFilter(<?echo $sFilterID?>, 'stat_list.php?lang=<?echo LANG?>'); return false;"></span>
-<?
+<?php $oFilter->Buttons()?>
+<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="set_filter" value="<?php echo GetMessage("STAT_F_FIND")?>" title="<?php echo GetMessage("STAT_F_FIND_TITLE")?>" onClick="BX.adminPanel.showWait(this); applyFilter(<?php echo $sFilterID?>, 'stat_list.php?lang=<?php echo LANG?>'); return false;"></span>
+<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="del_filter" value="<?php echo GetMessage("STAT_F_CLEAR")?>" title="<?php echo GetMessage("STAT_F_CLEAR_TITLE")?>" onClick="BX.adminPanel.showWait(this); clearFilter(<?php echo $sFilterID?>, 'stat_list.php?lang=<?php echo LANG?>'); return false;"></span>
+<?php 
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if ($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 <div class="adm-detail-content-wrap">
 	<div class="adm-detail-content">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 $lAdmin_tab1->DisplayList();
 ?>
 
-<?$tabControl->BeginNextTab();?>
-<a href="/bitrix/admin/adv_list.php?lang=<?echo LANG?>"><?echo GetMessage("STAT_VIEW_ALL_CAPMPAIGNS")?></a><br><br>
-<?$lAdmin_tab2->DisplayList();?>
+<?php $tabControl->BeginNextTab();?>
+<a href="/bitrix/admin/adv_list.php?lang=<?php echo LANG?>"><?php echo GetMessage("STAT_VIEW_ALL_CAPMPAIGNS")?></a><br><br>
+<?php $lAdmin_tab2->DisplayList();?>
 
-<?$tabControl->BeginNextTab();?>
-<a href="/bitrix/admin/event_type_list.php?lang=<?echo LANG?>"><?echo GetMessage("STAT_VIEW_ALL_EVENTS")?></a><br><br>
-<?$lAdmin_tab3->DisplayList();?>
+<?php $tabControl->BeginNextTab();?>
+<a href="/bitrix/admin/event_type_list.php?lang=<?php echo LANG?>"><?php echo GetMessage("STAT_VIEW_ALL_EVENTS")?></a><br><br>
+<?php $lAdmin_tab3->DisplayList();?>
 
-<?$tabControl->BeginNextTab();?>
-<a href="/bitrix/admin/referer_list.php?lang=<?echo LANG?>&amp;group_by=none&amp;del_filter=Y"><?echo GetMessage("STAT_VIEW_ALL_REFERERS")?></a><br><br>
-<?$lAdmin_tab4->DisplayList();?>
+<?php $tabControl->BeginNextTab();?>
+<a href="/bitrix/admin/referer_list.php?lang=<?php echo LANG?>&amp;group_by=none&amp;del_filter=Y"><?php echo GetMessage("STAT_VIEW_ALL_REFERERS")?></a><br><br>
+<?php $lAdmin_tab4->DisplayList();?>
 
-<?$tabControl->BeginNextTab();?>
-<a href="/bitrix/admin/phrase_list.php?lang=<?echo LANG?>&amp;set_default=Y&amp;group_by=none&amp;menu_item_id=1"><?echo GetMessage("STAT_VIEW_ALL_PHRASES")?></a><br><br>
-<?$lAdmin_tab5->DisplayList();?>
+<?php $tabControl->BeginNextTab();?>
+<a href="/bitrix/admin/phrase_list.php?lang=<?php echo LANG?>&amp;set_default=Y&amp;group_by=none&amp;menu_item_id=1"><?php echo GetMessage("STAT_VIEW_ALL_PHRASES")?></a><br><br>
+<?php $lAdmin_tab5->DisplayList();?>
 
-<?$tabControl->BeginNextTab();?>
-<a href="/bitrix/admin/searcher_list.php?lang=<?echo LANG?>"><?echo GetMessage("STAT_VIEW_ALL_SEACHERS")?></a><br><br>
-<?$lAdmin_tab6->DisplayList();?>
+<?php $tabControl->BeginNextTab();?>
+<a href="/bitrix/admin/searcher_list.php?lang=<?php echo LANG?>"><?php echo GetMessage("STAT_VIEW_ALL_SEACHERS")?></a><br><br>
+<?php $lAdmin_tab6->DisplayList();?>
 
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 	</div>
 	<br />
 </div>
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

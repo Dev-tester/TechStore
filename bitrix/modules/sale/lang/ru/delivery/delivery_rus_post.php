@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ["SALE_DH_RP_NAME"] = "Почта России";
 $MESS ["SALE_DH_RP_GROUP_PRICE"] = "в группу";
 $MESS ["SALE_DH_RP_DESCRIPTION"] = "Доставка осуществляется ФГУП \"Почта России\"";

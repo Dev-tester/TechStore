@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_EDIT_TITLE"] = "Редактирование меню";
 $MESS["MENU_EDIT_TITLE_EDIT"] = "Редактирование пунктов меню";
 $MESS["MENU_EDIT_TITLE_ADD"] = "Добавление пунктов меню";

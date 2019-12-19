@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MIB_MAIN_BUTTONS_MORE"] = "More";
 $MESS["MIB_LICENSE_BUY_BUTTON"] = "Buy";
 $MESS["MIB_LICENSE_TRIAL_BUTTON"] = "Try for free";

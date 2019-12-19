@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -357,7 +357,7 @@ if ($_POST['access_check'])
 					<input type=hidden name=check_type value="<?=$check_type?>">
 					<input type=hidden name=break_point value="<?=htmlspecialcharsbx($sNextPath)?>">
 				</form>
-				<?
+				<?php 
 				CAdminMessage::ShowMessage(array(
 					'TYPE' => 'OK',
 					'HTML' => true,
@@ -369,14 +369,14 @@ if ($_POST['access_check'])
 				<script>
 				if (parent.document.getElementById('access_submit').disabled)
 					window.setTimeout("parent.ShowWaitWindow();document.getElementById('postform').submit()",500);
-				</script><?
+				</script><?php 
 			}
 			else
 			{
 				if ($check_type == 'full')
 					COption::SetOptionString('main', 'site_checker_access', 'Y');
 				CAdminMessage::ShowMessage(Array("TYPE"=>"OK", "MESSAGE"=>GetMessage("SC_FILES_OK")));
-				?><script>parent.access_check_start(0);</script><?
+				?><script>parent.access_check_start(0);</script><?php 
 			}
 		}
 		else
@@ -389,7 +389,7 @@ if ($_POST['access_check'])
 				'HTML' => true
 				)
 			);
-			?><script>parent.access_check_start(0);</script><?
+			?><script>parent.access_check_start(0);</script><?php 
 		}
 	}
 	else
@@ -446,7 +446,7 @@ elseif ($_REQUEST['read_log']) // after prolog to send correct charset
 	if (($s = CUtil::BinStrlen($str)) > ini_get('pcre.backtrack_limit'))
 		@ini_set('pcre.backtrack_limit', $s);
 
-	?><!DOCTYPE HTML><html><body style="color:#666"><h1 style="color:#000"><?=GetMessage("MAIN_SC_SYSTEST_LOG")?></h1><?
+	?><!DOCTYPE HTML><html><body style="color:#666"><h1 style="color:#000"><?=GetMessage("MAIN_SC_SYSTEST_LOG")?></h1><?php 
 	$str = preg_replace('#^[0-9]{4}-...-[0-9]{2} .*\):#m','<span style="color:#000">$0</span>', $str);
 	if (preg_match('#[a-z_0-9]+#', $a = $_REQUEST['anchor']))
 		$str = preg_replace('#^.+\('.$a.'\)#m','<a name="'.$a.'" style="background-color:#EE3">$0</a>', $str);
@@ -469,7 +469,7 @@ elseif ($fix_mode = intval($_REQUEST['fix_mode']))
 		var fix_mode = <?=$fix_mode?>;
 		BX.ajax.get('site_checker.php?fix_mode=' + fix_mode + '&test_start=Y&lang=<?=LANGUAGE_ID?>&charset=<?=LANG_CHARSET?>&<?=bitrix_sessid_get()?>&unique_id=<?=checker_get_unique_id()?>', fix_onload);
 	</script>
-	<?
+	<?php 
 	exit;
 }
 
@@ -650,7 +650,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 				if (ob = BX('express_status'))
 					ob.innerHTML = '';
 				document.getElementById('result').innerHTML = '<table id="result_table" width="100%" class="internal"></table>';
-				document.getElementById('status').innerHTML = '<?
+				document.getElementById('status').innerHTML = '<?php 
 					$oTest = new CSiteCheckerTest();
 					echo $oTest->strCurrentTestName;
 				?>';
@@ -733,17 +733,17 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 
 				if (strNextRequest)
 				{
-					<? if ($_GET['HTTP_HOST'])
+					<?php  if ($_GET['HTTP_HOST'])
 					{
 						?>
 						BX.ajax.get('site_checker.php?HTTP_HOST=<?=urlencode($_GET['HTTP_HOST'])?>&SERVER_PORT=<?=urlencode($_GET['SERVER_PORT'])?>&HTTPS=<?=urlencode($_GET['HTTPS'])?>&test_start=Y&lang=<?=LANGUAGE_ID?>&<?=bitrix_sessid_get()?>' + strNextRequest, test_onload);
-						<?
+						<?php 
 					}
 					else
 					{
 						?>
 						BX.ajax.get('site_checker.php?HTTP_HOST=' + window.location.hostname + '&SERVER_PORT=' + window.location.port + '&HTTPS=' + (window.location.protocol == 'https:' ? 'on' : '') + '&test_start=Y&lang=<?=LANGUAGE_ID?>&<?=bitrix_sessid_get()?>' + strNextRequest, test_onload);
-						<?
+						<?php 
 					}?>
 				}
 				else // Finish
@@ -928,7 +928,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		<?=$_REQUEST['start_test'] ? 'window.setTimeout(\'set_start(1)\', 500);' : ''?>
 	</script>
 
-<?
+<?php 
 $tabControl->Begin();
 
 if ($bIntranet)
@@ -943,7 +943,7 @@ $tabControl->BeginNextTab();
 	</td>
 	</tr>
 	<tr><td colspan="2" id="express_result"></td></tr>
-<?
+<?php 
 }
 
 // site_checker
@@ -977,18 +977,18 @@ $tabControl->BeginNextTab();
 
 	</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td colspan="2"><?echo GetMessage("SC_SUBTITLE_DISK_DESC");?></td>
+		<td colspan="2"><?php echo GetMessage("SC_SUBTITLE_DISK_DESC");?></td>
 	</tr>
 	<tr>
 		<td colspan="2">
 		<script>
 		var obHelp = new Object;
 		obHelp["notopic"] = "<?=CUtil::JSEscape(GetMessage('SC_HELP_NOTOPIC'))?>";
-		<?
+		<?php 
 		foreach(CSiteCheckerTest::GetTestList() as $test)
 		{
 			$help = GetMessage('SC_HELP_'.strtoupper($test));
@@ -1024,7 +1024,7 @@ $tabControl->BeginNextTab();
 				CloseWaitWindow();
 		}
 		</script>
-			<? // CAdminMessage::ShowMessage(Array("MESSAGE"=>GetMessage("SC_CHECK_FILES_ATTENTION"), "TYPE"=>"ERROR","DETAILS"=>GetMessage("SC_CHECK_FILES_WARNING")));	?>
+			<?php  // CAdminMessage::ShowMessage(Array("MESSAGE"=>GetMessage("SC_CHECK_FILES_ATTENTION"), "TYPE"=>"ERROR","DETAILS"=>GetMessage("SC_CHECK_FILES_WARNING")));	?>
 			<form method="POST" action="site_checker.php" target="access_frame" onsubmit="access_check_start(1)">
 			<input type=hidden name=access_check value=Y>
 			<input type=hidden name=lang value="<?=LANGUAGE_ID?>">
@@ -1032,9 +1032,9 @@ $tabControl->BeginNextTab();
 			<label><input type=radio name=check_type value=full checked> <?=GetMessage("SC_CHECK_FULL")?></label><br>
 			<label><input type=radio name=check_type value=upload> <?=GetMessage("SC_CHECK_UPLOAD")?></label><br>
 			<label><input type=radio name=check_type value=kernel> <?=GetMessage("SC_CHECK_KERNEL")?></label><br>
-			<? if ('/bitrix' != BX_PERSONAL_ROOT): ?>
+			<?php  if ('/bitrix' != BX_PERSONAL_ROOT): ?>
 				<label><input type=radio name=check_type value=cache> <?=GetMessage("SC_CHECK_FOLDER")?> <b><?=BX_PERSONAL_ROOT?></b></label><br>
-			<? endif; ?>
+			<?php  endif; ?>
 			<br>
 			<input type=submit value="<?=GetMessage("SC_CHECK_B")?>" id="access_submit">
 			<input type=button value="<?=GetMessage("SC_STOP_B")?>" disabled id="access_stop" onclick="access_check_start(0)">
@@ -1043,13 +1043,13 @@ $tabControl->BeginNextTab();
 			<iframe name="access_frame" style="width:1px;height:1px;visibility:hidden" onload="onFrameLoad(this)"></iframe>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 
 if(!isset($strTicketError))
 	$strTicketError = "";
 ?>
-<tr><td colspan="2"><?
+<tr><td colspan="2"><?php 
 	if(isset($ticket_sent))
 	{
 		if(!empty($aMsg))
@@ -1105,10 +1105,10 @@ if(!isset($strTicketError))
 			frm.submit();
 	}
 </script>
-<?
+<?php 
 		?>
 <form method="POST" action="<?=SUPPORT_PAGE?>" name="fticket" target="_blank">
-<?echo bitrix_sessid_post();?>
+<?php echo bitrix_sessid_post();?>
 <input type="hidden" name="send_ticket" value="Y">
 <input type="hidden" name="license_key" value="<?=(LICENSE_KEY == "DEMO"? "DEMO" : md5("BITRIX".LICENSE_KEY."LICENCE"))?>">
 <input type="hidden" name="test_file_contents" value="">
@@ -1124,7 +1124,7 @@ if(!isset($strTicketError))
 	<td valign="top"><label for="ticket_test"><?=GetMessage("SC_TIK_ADD_TEST")?></label></td>
 	<td valign="top"><input type="checkbox" id="ticket_test" name="ticket_test" value="Y" checked></td>
 </tr>
-<?if (strlen($_REQUEST["last_error_query"])>0):?>
+<?php if (strlen($_REQUEST["last_error_query"])>0):?>
 	<tr>
 		<td valign="top"><?=GetMessage("SC_TIK_LAST_ERROR")?></td>
 		<td valign="top">
@@ -1132,7 +1132,7 @@ if(!isset($strTicketError))
 			<input type="hidden" name="last_error_query" value="<?= htmlspecialcharsbx($_REQUEST["last_error_query"])?>">
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td></td>
 	<td>
@@ -1141,7 +1141,7 @@ if(!isset($strTicketError))
 </tr>
 <tr>
 	<td colspan=2>
-	<?
+	<?php 
 	echo BeginNote();
 	echo GetMessage("SC_SUPPORT_COMMENT").' <a href="'.SUPPORT_PAGE.'" target=_blank>'.SUPPORT_PAGE.'</a>';
 	echo EndNote();
@@ -1149,7 +1149,7 @@ if(!isset($strTicketError))
 	</td>
 </tr>
 </form>
-<?
+<?php 
 //$tabControl->Buttons();
 $tabControl->End();
 $tabControl->ShowWarnings("fticket", $message);

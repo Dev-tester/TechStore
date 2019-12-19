@@ -8,7 +8,7 @@ $taxMode = $arResult['TAX_MODE'];
 $stubID = $UID.'_stub';
 $qty = count($arResult['ITEMS']);
 ?>
-<?/*
+<?php /*
 <div id="<?=htmlspecialcharsbx($UID)?>" class="crm_wrapper">
 	<div class="crm_head_title tal m0" style="padding: 10px 5px 0;">
 		<?=htmlspecialcharsbx($arResult['TITLE'])?>
@@ -18,7 +18,7 @@ $qty = count($arResult['ITEMS']);
 	<div id="<?=htmlspecialcharsbx($stubID)?>" class="crm_contact_info tac"<?=$qty > 0 ? ' style="display:none;"' : ''?>>
 		<strong style="color: #9ca9b6;font-size: 15px;display: inline-block;margin: 30px 0;"><?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_NOTHING_FOUND'))?></strong>
 	</div>
-	<ul class="crm_company_list"<?=$qty === 0 ? ' style="display:none;"' : ''?>><?
+	<ul class="crm_company_list"<?=$qty === 0 ? ' style="display:none;"' : ''?>><?php 
 		$isVATEnabled = $taxMode === 'VAT';
 		foreach($arResult['ITEMS'] as &$item):
 			$productName = $item['PRODUCT_NAME'];
@@ -31,29 +31,29 @@ $qty = count($arResult['ITEMS']);
 				<div class="crm_company_company">
 					<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_PRICE'))?>:&nbsp;
 					<span class="fwb"><?=$item['FORMATTED_PRICE']?></span>
-					<?if($isVATEnabled):?>
+					<?php if($isVATEnabled):?>
 					<span class="fwb"> <?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_VAT', array('#VAT_RATE#' => $item['VAT_RATE'])))?></span>
-					<?endif;?>
+					<?php endif;?>
 					<br/>
 					<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_QTY'))?>:&nbsp;
 					<span class="fwb"><?=$item['QUANTITY']?></span>
 				</div>
 				<div class="clb"></div>
 			</li>
-		<?endforeach;?>
-		<?unset($item);?>
+		<?php endforeach;?>
+		<?php unset($item);?>
 	</ul>
 </div>*/?>
 
 <div id="mobile-crm-invoice-edit-product" data-role="mobile-crm-invoice-edit-products"> <!--Products' html is generated on javascript, object BX.Mobile.Crm.ProductEditor-->
 </div>
-<?if (!$arParams["RESTRICTED_MODE"]):?>
+<?php if (!$arParams["RESTRICTED_MODE"]):?>
 <a class="mobile-grid-button select-user" href="javascript:void(0)" onclick="BX.Mobile.Crm.loadPageBlank('<?=CUtil::JSEscape($arParams['PRODUCT_SELECTOR_URL_TEMPLATE'])?>')"><?=GetMessage("CRM_BUTTON_SELECT")?></a>
-<?endif?>
+<?php endif?>
 
-<?if(count($arResult['ITEMS']) > 0):?>
+<?php if(count($arResult['ITEMS']) > 0):?>
 	<div class="crm_block_container">
-		<?if($taxMode === 'VAT'):?>
+		<?php if($taxMode === 'VAT'):?>
 			<div class="crm_meeting_info" style="padding-bottom: 10px;">
 				<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_SUM_TOTAL_2'))?>:&nbsp;
 				<strong><?=$arResult['FORMATTED_SUM_BRUTTO']?></strong>
@@ -62,37 +62,37 @@ $qty = count($arResult['ITEMS']);
 				<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_VAT_INCLUDED_SUM'))?>:&nbsp;
 				<strong><?=$arResult['FORMATTED_VAT_SUM']?></strong>
 			</div>
-		<?elseif($taxMode === 'EXT'):?>
+		<?php elseif($taxMode === 'EXT'):?>
 			<div class="crm_meeting_info" style="padding-bottom: 10px;">
 				<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_SUM_TOTAL_2'))?>:&nbsp;
 				<strong><?=$arResult['FORMATTED_SUM_NETTO']?></strong>
 			</div>
-			<?foreach($arResult['TAX_LIST'] as &$taxInfo):?>
+			<?php foreach($arResult['TAX_LIST'] as &$taxInfo):?>
 				<div class="crm_meeting_info" style="padding-bottom: 10px;">
-					<?if($taxInfo['IS_IN_PRICE'] === 'Y'):?>
-						<?if($taxInfo['IS_PERCENT'] === 'Y'):?>
+					<?php if($taxInfo['IS_IN_PRICE'] === 'Y'):?>
+						<?php if($taxInfo['IS_PERCENT'] === 'Y'):?>
 							<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_VAT_INCLUDED_PERCENTS', array('#TAX_NAME#'=>$taxInfo['TAX_NAME'], '#TAX_RATE#'=>roundEx($taxInfo['VALUE'], $arResult['TAX_LIST_PERCENT_PRECISION']))))?>:&nbsp;
-						<?else:?>
+						<?php else:?>
 							<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_VAT_INCLUDED', array('#TAX_NAME#'=>$taxInfo['TAX_NAME'])))?>:&nbsp;
-						<?endif;?>
-					<?else:?>
-					<?endif;?>
+						<?php endif;?>
+					<?php else:?>
+					<?php endif;?>
 					<strong><?=$taxInfo['FORMATTED_SUM_BRUTTO']?></strong>
 				</div>
-			<?endforeach;?>
-			<?unset($taxInfo);?>
+			<?php endforeach;?>
+			<?php unset($taxInfo);?>
 			<div class="crm_meeting_info" style="padding-bottom: 10px;">
 				<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_SUM_TOTAL'))?>:&nbsp;
 				<strong><?=$arResult['FORMATTED_SUM']?></strong>
 			</div>
-		<?else:?>
+		<?php else:?>
 			<div class="crm_meeting_info" style="padding-bottom: 10px;">
 				<?=htmlspecialcharsbx(GetMessage('M_CRM_PRODUCT_ROW_LIST_SUM_TOTAL'))?>:&nbsp;
 				<strong><?=$arResult['FORMATTED_SUM']?></strong>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 <script type="text/javascript">
 	var productParams = {

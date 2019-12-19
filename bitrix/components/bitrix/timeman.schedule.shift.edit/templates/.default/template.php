@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -21,7 +21,7 @@ $shiftForm = $arResult['shiftForm'];
 $shiftFormName = htmlspecialcharsbx($shiftForm->getFormName());
 ?>
 
-<div class="timeman-schedule-form-wrap timeman-schedule-form-wrap-shift <? if ($arResult['isSlider']): ?>timeman-schedule-form-slider<? endif; ?>"
+<div class="timeman-schedule-form-wrap timeman-schedule-form-wrap-shift <?php  if ($arResult['isSlider']): ?>timeman-schedule-form-slider<?php  endif; ?>"
 		data-role="timeman-shift-edit-container">
 	<form action="" data-role="timeman-shift-edit-form">
 
@@ -90,7 +90,7 @@ $shiftFormName = htmlspecialcharsbx($shiftForm->getFormName());
 	</form>
 
 
-	<?
+	<?php 
 	global $APPLICATION;
 	ob_start();
 

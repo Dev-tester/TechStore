@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGO_EMPTY_SITE"] = "Не указан сайт заказа";
 $MESS["SKGO_EMPTY_PERS_TYPE"] = "Не указан тип плательщика";
 $MESS["SKGO_EMPTY_USER_ID"] = "Не указан код покупателя";

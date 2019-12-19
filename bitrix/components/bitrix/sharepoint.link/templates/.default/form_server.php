@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die(); 
 
 __IncludeLang($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/lang/'.LANGUAGE_ID.'/template.php');
@@ -206,8 +206,8 @@ wnd.SetButtons(SLnextButton);
 			</tr>
 		</tbody>
 	</table>
-<a href="javascript: void(0)" onclick="_SLtestParams(); return false;"><?echo GetMessage('SL_SETTINGS_SERVER_TEST');?></a>
-<?echo BeginNote(),GetMessage('SL_FORM_SERVER_NOTE_AUTH_BASIC'),EndNote();?>
+<a href="javascript: void(0)" onclick="_SLtestParams(); return false;"><?php echo GetMessage('SL_SETTINGS_SERVER_TEST');?></a>
+<?php echo BeginNote(),GetMessage('SL_FORM_SERVER_NOTE_AUTH_BASIC'),EndNote();?>
 </div>
 
 <div id="step2" style="display: none;"></div>

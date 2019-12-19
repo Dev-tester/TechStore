@@ -1,4 +1,4 @@
-<?
+<?php 
 // http://msdn.microsoft.com/en-us/library/aa580675(v=EXCHG.140).aspx
 
 class CDavExchangeClientResponce

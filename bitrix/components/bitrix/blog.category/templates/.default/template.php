@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["FATAL_ERROR_MESSAGE"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FATAL_ERROR_MESSAGE"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ERROR_MESSAGE"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 	<script>
@@ -54,7 +54,7 @@ else
 	<input type="hidden" name="BACK_URL" value="<?=$arResult["BACK_URL"]?>">
 
 	<table border=0 cellspacing=1 cellpadding=3 class="blog-category" width=300>
-	<?foreach($arResult["CATEGORY"] as $v)
+	<?php foreach($arResult["CATEGORY"] as $v)
 	{
 		if(IntVal($v["CNT"])<=0)
 			$v["CNT"] = 0;
@@ -66,7 +66,7 @@ else
 			<td><a href="javascript:category_edit(<?=$v["ID"]?>)" title="<?=GetMessage("BLOG_NAME_CHANGE")?>" class="blog-category-edit"></a></td>
 			<td><a href="javascript:category_del(<?=$v["ID"]?>)" title="<?=GetMessage("BLOG_GROUP_DELETE")?>" class="blog-category-delete"></a></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	<tr>
@@ -86,5 +86,5 @@ else
 	</tr>
 	</table>
 	</form>
-<?
+<?php 
 }

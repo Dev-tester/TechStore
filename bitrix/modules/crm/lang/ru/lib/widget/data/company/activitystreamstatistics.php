@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMPANY_ACTIVITY_STREAM_STAT_TOTAL"] = "Количество звонков (по потокам)";
 $MESS["CRM_COMPANY_ACTIVITY_STREAM_STAT_INCOMING_QTY"] = "Количество входящих звонков";
 $MESS["CRM_COMPANY_ACTIVITY_STREAM_STAT_OUTGOING_QTY"] = "Количество исходящих звонков";

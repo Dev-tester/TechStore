@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Localization\Loc;
 
@@ -20,12 +20,12 @@ function displayField($placeholder, array $field, $required = false)
 		$title = $placeholder;
 	}
 	?><div class="crm-document-edit-item">
-		<label class="crm-document-edit-label" for="field-<?=\CUtil::JSEscape($placeholder);?>"><?echo htmlspecialcharsbx($title)?></label><?
+		<label class="crm-document-edit-label" for="field-<?=\CUtil::JSEscape($placeholder);?>"><?php echo htmlspecialcharsbx($title)?></label><?php 
 	if(is_array($field['VALUE']))
 	{
 		?>
 			<select class="crm-document-edit-select" name="values[<?=htmlspecialcharsbx($placeholder);?>]" id="field-<?=\CUtil::JSEscape($placeholder);?>">
-				<?foreach($field['VALUE'] as $value)
+				<?php foreach($field['VALUE'] as $value)
 				{
 					$title = $value['TITLE'];
 					if(!$title)
@@ -33,45 +33,45 @@ function displayField($placeholder, array $field, $required = false)
 						$title = $value['VALUE'];
 					}
 					?>
-					<option value="<?=htmlspecialcharsbx($value['VALUE']);?>"<?if($value['SELECTED']){?> selected<?}?>><?=htmlspecialcharsbx($title);?></option>
-				<?}?>
+					<option value="<?=htmlspecialcharsbx($value['VALUE']);?>"<?php if($value['SELECTED']){?> selected<?php }?>><?=htmlspecialcharsbx($title);?></option>
+				<?php }?>
 			</select>
-		<?
+		<?php 
 	}
 	elseif($field['TYPE'] && $field['TYPE'] === \Bitrix\DocumentGenerator\DataProvider::FIELD_TYPE_TEXT)
 	{
 		?>
-		<textarea class="crm-document-edit-input crm-document-edit-input-textarea" name="values[<?=htmlspecialcharsbx($placeholder);?>]" id="field-<?=\CUtil::JSEscape($placeholder);?>"<?if($required){?> required<?}
+		<textarea class="crm-document-edit-input crm-document-edit-input-textarea" name="values[<?=htmlspecialcharsbx($placeholder);?>]" id="field-<?=\CUtil::JSEscape($placeholder);?>"<?php if($required){?> required<?php }
 		if(isset($field['DEFAULT']))
 		{
-			?> bx-default="<?=htmlspecialcharsbx($field['DEFAULT']);?>"<?
+			?> bx-default="<?=htmlspecialcharsbx($field['DEFAULT']);?>"<?php 
 		}
 		?>><?=htmlspecialcharsbx($field['VALUE']);?></textarea>
-		<?
+		<?php 
 	}
 	elseif($field['TYPE'] && $field['TYPE'] === \Bitrix\DocumentGenerator\DataProvider::FIELD_TYPE_DATE || $field['VALUE'] instanceof \Bitrix\DocumentGenerator\Value\DateTime)
 	{
 		?>
-		<input onclick="BX.calendar({node: this, field: this, bTime: true, bSetFocus: false, bUseSecond: true})" class="crm-document-edit-input crm-document-edit-date" name="values[<?=htmlspecialcharsbx($placeholder);?>]" value="<?=htmlspecialcharsbx($field['VALUE']);?>"<?if($required){?> required<?}?> id="field-<?=\CUtil::JSEscape($placeholder);?>"<?
+		<input onclick="BX.calendar({node: this, field: this, bTime: true, bSetFocus: false, bUseSecond: true})" class="crm-document-edit-input crm-document-edit-date" name="values[<?=htmlspecialcharsbx($placeholder);?>]" value="<?=htmlspecialcharsbx($field['VALUE']);?>"<?php if($required){?> required<?php }?> id="field-<?=\CUtil::JSEscape($placeholder);?>"<?php 
 		if(isset($field['DEFAULT']))
 		{
-			?> bx-default="<?=htmlspecialcharsbx($field['DEFAULT']);?>"<?
+			?> bx-default="<?=htmlspecialcharsbx($field['DEFAULT']);?>"<?php 
 		}
 		?>>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
-		<input class="crm-document-edit-input" name="values[<?=htmlspecialcharsbx($placeholder);?>]" value="<?=htmlspecialcharsbx($field['VALUE']);?>"<?if($required){?> required<?}?> id="field-<?=\CUtil::JSEscape($placeholder);?>"<?
+		<input class="crm-document-edit-input" name="values[<?=htmlspecialcharsbx($placeholder);?>]" value="<?=htmlspecialcharsbx($field['VALUE']);?>"<?php if($required){?> required<?php }?> id="field-<?=\CUtil::JSEscape($placeholder);?>"<?php 
 		if(isset($field['DEFAULT']))
 		{
-			?> bx-default="<?=htmlspecialcharsbx($field['DEFAULT']);?>"<?
+			?> bx-default="<?=htmlspecialcharsbx($field['DEFAULT']);?>"<?php 
 		}
 		?>>
-		<?
+		<?php 
 	}
-	?></div><?
+	?></div><?php 
 }
 
 function findStringPosition($string, $needle, $offset = 0)
@@ -108,9 +108,9 @@ function displayGroup(array &$allGroups, $name, $groups, array &$placeholders, a
 	$nameParts = explode('.', $name);
 	$title = $nameParts[count($nameParts) - 1];
 	?><div class="crm-document-edit-<?=$classSuffix;?>" id="crm-document-edit-group-<?=\CUtil::JSEscape($title);?>">
-	<h3 class="crm-document-edit-<?=$classSuffix;?>-title"><?=htmlspecialcharsbx($title);?></h3><?
+	<h3 class="crm-document-edit-<?=$classSuffix;?>-title"><?=htmlspecialcharsbx($title);?></h3><?php 
 	// first show selects
-	?><div class="crm-document-edit-fields"><?
+	?><div class="crm-document-edit-fields"><?php 
 	if(is_array($placeholders[$name]))
 	{
 		foreach($placeholders[$name] as $key => $placeholder)
@@ -131,7 +131,7 @@ function displayGroup(array &$allGroups, $name, $groups, array &$placeholders, a
 			unset($placeholders[$name][$key]);
 		}
 	}
-	?></div><?
+	?></div><?php 
 	if(is_array($groups))
 	{
 		foreach($groups as $group => $children)
@@ -143,7 +143,7 @@ function displayGroup(array &$allGroups, $name, $groups, array &$placeholders, a
 			}
 		}
 	}
-	?></div><?
+	?></div><?php 
 }
 
 if($arParams['IS_SLIDER'])
@@ -160,7 +160,7 @@ if($arParams['IS_SLIDER'])
 			window.location = "<?=CUtil::JSEscape((new \Bitrix\Main\Web\Uri(\Bitrix\Main\Application::getInstance()->getContext()->getRequest()->getRequestUri()))->deleteParams(['IFRAME', 'IFRAME_TYPE']));?>" + window.location.hash;
 		}
 	</script>
-	<?$APPLICATION->ShowHead(); ?>
+	<?php $APPLICATION->ShowHead(); ?>
 </head>
 <body class="docs-preview-slider-wrap">
 <div class="docs-preview-title">
@@ -173,35 +173,35 @@ if($arParams['IS_SLIDER'])
 		</div>
 	</div>
 </div>
-<?}?>
+<?php }?>
 <div class="crm-document-edit-wrap">
 	<div id="crm-document-edit-error"></div>
 	<div>
 		<form id="crm-document-edit-form" method="post" enctype="multipart/form-data">
 			<?=bitrix_sessid_post()?>
 			<input type="hidden" name="mode" value="change" />
-			<?if($arParams['DOCUMENT_ID'] > 0)
+			<?php if($arParams['DOCUMENT_ID'] > 0)
 			{?>
 				<input type="hidden" name="documentId" value="<?=intval($arParams['DOCUMENT_ID']);?>" />
-			<?}
+			<?php }
 			else
 			{?>
 				<input type="hidden" name="templateId" value="<?=intval($arParams['TEMPLATE_ID']);?>" />
 				<input type="hidden" name="value" value="<?=intval($arParams['VALUE']);?>" />
 				<input type="hidden" name="providerClassName" value="<?=htmlspecialcharsbx($arParams['PROVIDER']);?>" />
-			<?}
+			<?php }
 			if($arParams['IS_SLIDER'])
 			{
 				?><input type="hidden" name="IFRAME" value="Y" />
-				<input type="hidden" name="IFRAME_TYPE" value="SIDE_SLIDER" /><?
+				<input type="hidden" name="IFRAME_TYPE" value="SIDE_SLIDER" /><?php 
 			}
 			if($arParams['SITE_ID'])
 			{
-				?><input type="hidden" name="site_id" value="<?=htmlspecialcharsbx($arParams['SITE_ID']);?>" /><?
+				?><input type="hidden" name="site_id" value="<?=htmlspecialcharsbx($arParams['SITE_ID']);?>" /><?php 
 			}
 			?>
 			<div class="crm-document-edit-block">
-		<?
+		<?php 
 		$foundPlaceholders = [];
 		$groups = [
 			Loc::getMessage('CRM_DOCUMENT_VIEW_COMPONENT_EDIT_UNKNOWN_GROUP_NAME') => [],
@@ -255,10 +255,10 @@ if($arParams['IS_SLIDER'])
 		<?='BX.message('.\CUtil::PhpToJSObject(Loc::loadLanguageFile(__FILE__)).');'?>
 	});
 </script>
-<?
+<?php 
 if($arParams['IS_SLIDER'])
 {
 	?></body>
-	</html><?
+	</html><?php 
 	\Bitrix\Main\Application::getInstance()->terminate();
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Main\Localization\Loc;
@@ -218,8 +218,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
         }
     </script>
 
-    <form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-		<?
+    <form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+		<?php 
 		$oFilter = new CAdminFilter(
 			$tableId."_filter",
 			array(
@@ -234,19 +234,19 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		$oFilter->Begin();
 		?>
         <tr id="filter_exchange_log_id_row">
-            <td><?echo Loc::getMessage("LOG_REPORT_DIRECTION_ID")?>:</td>
+            <td><?php echo Loc::getMessage("LOG_REPORT_DIRECTION_ID")?>:</td>
             <td>
                 <select name="filter_direction_id" id="filter_direction_id" >
-                    <option <?($filter_direction_id==\Bitrix\Sale\Exchange\ManagerExport::getDirectionType()?'selected':'')?> value="<?=\Bitrix\Sale\Exchange\ManagerExport::getDirectionType()?>"><?echo Loc::getMessage("LOG_REPORT_DIRECTION_EXPORT")?></option>
-                    <option <?($filter_direction_id==\Bitrix\Sale\Exchange\ManagerImport::getDirectionType()?'selected':'')?> value="<?=\Bitrix\Sale\Exchange\ManagerImport::getDirectionType()?>"><?echo Loc::getMessage("LOG_REPORT_DIRECTION_IMPORT")?></option>
+                    <option <?php ($filter_direction_id==\Bitrix\Sale\Exchange\ManagerExport::getDirectionType()?'selected':'')?> value="<?=\Bitrix\Sale\Exchange\ManagerExport::getDirectionType()?>"><?php echo Loc::getMessage("LOG_REPORT_DIRECTION_EXPORT")?></option>
+                    <option <?php ($filter_direction_id==\Bitrix\Sale\Exchange\ManagerImport::getDirectionType()?'selected':'')?> value="<?=\Bitrix\Sale\Exchange\ManagerImport::getDirectionType()?>"><?php echo Loc::getMessage("LOG_REPORT_DIRECTION_IMPORT")?></option>
                 </select>
             </td>
         </tr>
         <tr>
-            <td><?echo Loc::getMessage("LOG_REPORT_TYPES")?>:</td>
+            <td><?php echo Loc::getMessage("LOG_REPORT_TYPES")?>:</td>
             <td>
                 <select name="filter_entity_type_id[]" id="filter_entity_type_id" multiple size="5">
-                    <?
+                    <?php 
 					$types = EntityType::getAllDescriptions();
 					foreach ($types as $typeId=>$name)
 					{
@@ -257,14 +257,14 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 							<?=is_array($filter_entity_type_id) && in_array($typeId, $filter_entity_type_id) ? "selected" : ""?>>
 							<?= htmlspecialcharsbx($name);?>
                         </option>
-						<?
+						<?php 
 					}
 					?>
                 </select>
             </td>
         </tr>
         <tr>
-            <td><?echo Loc::getMessage("LOG_REPORT_ENTITY_ID");?>:</td>
+            <td><?php echo Loc::getMessage("LOG_REPORT_ENTITY_ID");?>:</td>
             <td>
                 <script type="text/javascript">
                     function filter_entity_id_from_change()
@@ -275,14 +275,14 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
                         }
                     }
                 </script>
-				<?echo Loc::getMessage("LOG_REPORT_FROM");?>
-                <input type="text" name="filter_entity_id_from" onchange="filter_entity_id_from_change()" value="<?echo ((int)($filter_entity_id_from)>0)?(int)($filter_entity_id_from):""?>" size="10">
-				<?echo Loc::getMessage("LOG_REPORT_TO");?>
-                <input type="text" name="filter_entity_id_to" value="<?echo ((int)($filter_entity_id_to)>0)?(int)($filter_entity_id_to):""?>" size="10">
+				<?php echo Loc::getMessage("LOG_REPORT_FROM");?>
+                <input type="text" name="filter_entity_id_from" onchange="filter_entity_id_from_change()" value="<?php echo ((int)($filter_entity_id_from)>0)?(int)($filter_entity_id_from):""?>" size="10">
+				<?php echo Loc::getMessage("LOG_REPORT_TO");?>
+                <input type="text" name="filter_entity_id_to" value="<?php echo ((int)($filter_entity_id_to)>0)?(int)($filter_entity_id_to):""?>" size="10">
             </td>
         </tr>
         <tr>
-            <td><?echo Loc::getMessage("LOG_REPORT_PARENT_ENTITY_ID");?>:</td>
+            <td><?php echo Loc::getMessage("LOG_REPORT_PARENT_ENTITY_ID");?>:</td>
             <td>
                 <script type="text/javascript">
                     function filter_parent_id_from_change()
@@ -293,24 +293,24 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
                         }
                     }
                 </script>
-				<?echo Loc::getMessage("LOG_REPORT_FROM");?>
-                <input type="text" name="filter_parent_id_from" onchange="filter_parent_id_from_change()" value="<?echo ((int)($filter_parent_id_from)>0)?(int)($filter_parent_id_from):""?>" size="10">
-				<?echo Loc::getMessage("LOG_REPORT_TO");?>
-                <input type="text" name="filter_parent_id_to" value="<?echo ((int)($filter_parent_id_to)>0)?(int)($filter_parent_id_to):""?>" size="10">
+				<?php echo Loc::getMessage("LOG_REPORT_FROM");?>
+                <input type="text" name="filter_parent_id_from" onchange="filter_parent_id_from_change()" value="<?php echo ((int)($filter_parent_id_from)>0)?(int)($filter_parent_id_from):""?>" size="10">
+				<?php echo Loc::getMessage("LOG_REPORT_TO");?>
+                <input type="text" name="filter_parent_id_to" value="<?php echo ((int)($filter_parent_id_to)>0)?(int)($filter_parent_id_to):""?>" size="10">
             </td>
         </tr>
         <tr>
-            <td><?echo Loc::getMessage("LOG_REPORT_XML_ID");?>:</td>
+            <td><?php echo Loc::getMessage("LOG_REPORT_XML_ID");?>:</td>
             <td><input name="filter_xml_id" value="<?= htmlspecialcharsbx($filter_xml_id) ?>" size="40" type="text"></td>
         </tr>
         <tr>
-            <td><?echo Loc::getMessage("LOG_REPORT_DATE_INSERT");?>:</td>
+            <td><?php echo Loc::getMessage("LOG_REPORT_DATE_INSERT");?>:</td>
             <td>
 				<?=CalendarPeriod("filter_date_insert_from", htmlspecialcharsbx($filter_date_insert_from), "filter_date_insert_to", htmlspecialcharsbx($filter_date_insert_to), "find_form", "Y")?>
             </td>
         </tr>
 
-        <?
+        <?php 
 		$oFilter->Buttons(
 			array(
 				"table_id" => $tableId,
@@ -321,13 +321,13 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		$oFilter->End();
 		?>
     </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 <br>
-<?echo BeginNote();?>
-	<?echo Loc::getMessage("LOG_NOTES1")?><br>
-<?echo EndNote();?>
-<?
+<?php echo BeginNote();?>
+	<?php echo Loc::getMessage("LOG_NOTES1")?><br>
+<?php echo EndNote();?>
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

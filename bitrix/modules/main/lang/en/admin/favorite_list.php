@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_PROFILE"] = "User profile";
 $MESS["MAIN_WRONG_DATE_FROM"] = "Please provide the correct \"from\" date in the filter";
 $MESS["MAIN_WRONG_DATE_TILL"] = "Please provide the correct \"till\" date in the filter";

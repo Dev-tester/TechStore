@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAT_GOTO_DOC"] = "Открыть документ";
 $MESS["BPATL_SUCCESS"] = "Задание выполнено.";
 $MESS["BPAT_COMMENT"] = "Комментарий";

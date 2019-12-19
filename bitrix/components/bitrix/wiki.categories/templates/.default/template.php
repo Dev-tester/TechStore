@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 if(!empty($arResult['FATAL_MESSAGE'])):
 	?>
@@ -7,35 +7,35 @@ if(!empty($arResult['FATAL_MESSAGE'])):
 			<?=$arResult['FATAL_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 else:
 	?>
 	<div id="wiki-post">
 	<div id="wiki-post-content">
 	<form action="<?=POST_FORM_ACTION_URI?>" method="get">
-	<?
+	<?php 
 	if (!empty($arResult['CATEGORIES']) || isset($arResult['QUERY'])):
 		?>
 		<input type="text" name="q" value="<?=$arResult['QUERY']?>" size="40" />
 		&nbsp;<input type="submit" value="<?=GetMessage('SEARCH_GO')?>" />
 		</form>
-		<?
+		<?php 
 		if (empty($arResult['CATEGORIES'])):
 			ShowNote(GetMessage('SEARCH_CORRECT_AND_CONTINUE'));
 		else:
 		?>
 		<?=$arResult['DB_LIST']->NavPrint(GetMessage('NAV_TITLE'));?>
 		<br/>
-		<?
+		<?php 
 		foreach($arResult['CATEGORIES'] as $arCat)
 		{
 			?>
 			<a href="<?=$arCat['LINK']?>" title="<?=$arCat['TITLE']?>" class="<?=($arCat['IS_RED'] == 'Y' ? 'wiki_red' : '')?>"><?=$arCat['NAME']?></a> (<?=$arCat['CNT']?>)<br/>
-			<?
+			<?php 
 		}
 		?>
 		<?=$arResult['DB_LIST']->NavPrint(GetMessage('NAV_TITLE'));?>
-		<? endif;
+		<?php  endif;
 	else:
 		ShowNote(GetMessage('WIKI_NO_CATEGORIES'));
 	endif;
@@ -44,6 +44,6 @@ else:
 
 	</div>
 	</div>
-<?
+<?php 
 endif;
 ?>

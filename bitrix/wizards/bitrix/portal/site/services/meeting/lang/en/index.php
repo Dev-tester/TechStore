@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEETING_TITLE"] = "Intranet Portal Deployment";
 $MESS["MEETING_DESCRIPTION"] = "We'll have to hold a meeting to discuss the deployment of intranet portal in our company.";
 $MESS["MEETING_PLACE"] = "CEO's office";

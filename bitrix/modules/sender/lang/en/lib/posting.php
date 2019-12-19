@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_POSTING_PERSONALIZE_FIELD_EMAIL"] = "E-mail";
 $MESS["SENDER_POSTING_PERSONALIZE_FIELD_EMAIL_DESC"] = "Recipient's email address to which a message will be sent.";
 $MESS["SENDER_POSTING_PERSONALIZE_FIELD_NAME"] = "Name";

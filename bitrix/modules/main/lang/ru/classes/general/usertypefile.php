@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USER_TYPE_FILE_DESCRIPTION'] = "Файл";
 $MESS ['USER_TYPE_FILE_SIZE'] = "Размер поля ввода для отображения";
 $MESS ['USER_TYPE_FILE_EXTENSIONS'] = "Расширения";

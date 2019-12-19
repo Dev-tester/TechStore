@@ -142,16 +142,16 @@ if ($createdDate)
 		<?=getMessage('SEC_OTP_RECOVERY_LOGIN', array(
 			'#LOGIN#' => htmlspecialcharsbx($label)
 		))?>
-		<?if ($createdDate):?>
+		<?php if ($createdDate):?>
 			<br />
 			<?=getMessage('SEC_OTP_RECOVERY_CREATED', array(
 				'#DATE#' => htmlspecialcharsbx($createdDate)
 			))?>
-		<?endif?>
+		<?php endif?>
 	<ol>
-		<?foreach ($codes as $code):?>
+		<?php foreach ($codes as $code):?>
 			<li style="clear: both;"><?=htmlspecialcharsbx($code)?></li>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</ol>
 	<p>
 		<?=getMessage('SEC_OTP_RECOVERY_NOTE')?>

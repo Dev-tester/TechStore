@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MBOX_ADM_TITLE"] = "Mailboxes";
 $MESS["MAIL_MBOX_ADM_DELERR"] = "Error deleting a mailbox";
 $MESS["MAIL_MBOX_ADM_FILT_ACT"] = "Active";

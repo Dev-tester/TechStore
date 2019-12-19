@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Модуль IBLOCK не установлен.";
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["CATALOG_MODULE_NOT_INSTALLED"] = "Модуль CATALOG не установлен.";

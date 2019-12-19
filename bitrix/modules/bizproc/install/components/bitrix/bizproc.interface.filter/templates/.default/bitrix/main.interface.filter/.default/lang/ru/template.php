@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BP_INTERFACE_FILTER_CURRENT"] = "Фильтр";
 $MESS["BP_INTERFACE_FILTER_LIST_VALUE_NOT_SELECTED"] = "(нет)";
 $MESS["BP_INTERFACE_FILTER_SHOW_ALL"] = "Показать все условия";

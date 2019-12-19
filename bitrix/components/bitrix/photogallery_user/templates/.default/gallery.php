@@ -1,16 +1,16 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["MENU_VARIABLES"]) || empty($arResult["MENU_VARIABLES"]["ALL"]) || empty($arResult["MENU_VARIABLES"]["ALL"]["GALLERY"]))
 {
 ?>
 <div class="photo-note-box photo-note-error">
 	<div class="photo-note-box-text"><?=ShowError(GetMessage("P_ERROR5"))?></div>
 </div>
-<?
+<?php 
 return false;
 }
 ?>
 <div class="photo-page-gallery">
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section.list",
 	"",
 	Array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CP_BSSI_NAME'] = "Input field name";
 $MESS ['CP_BSSI_VALUE'] = "Input field value";
 $MESS ['CP_BSSI_INPUT_SIZE'] = "Input field size";

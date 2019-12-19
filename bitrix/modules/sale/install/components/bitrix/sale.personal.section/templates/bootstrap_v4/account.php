@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	
 if ($arParams['SHOW_ACCOUNT_PAGE'] !== 'Y')
@@ -48,7 +48,7 @@ if ($arParams['SHOW_ACCOUNT_PAY_COMPONENT'] !== 'N' && $USER->IsAuthorized())
 
 	<div class="row">
 		<div class="col">
-			<?
+			<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:sale.account.pay",
 					"bootstrap_v4",

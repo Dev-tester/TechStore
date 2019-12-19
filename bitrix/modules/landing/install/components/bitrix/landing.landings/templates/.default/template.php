@@ -76,7 +76,7 @@ if ($folderId)
 <div class="grid-tile-wrap landing-pages-wrap" id="grid-tile-wrap">
 	<div class="grid-tile-inner" id="grid-tile-inner">
 
-	<?if ($folderId):
+	<?php if ($folderId):
 		$curUrlWoFolder = new \Bitrix\Main\Web\Uri($arResult['CUR_URI']);
 		$curUrlWoFolder->deleteParams(array(
 			$arParams['ACTION_FOLDER']
@@ -90,9 +90,9 @@ if ($folderId)
 			</span>
 			</a>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if ($arResult['ACCESS_SITE']['EDIT'] == 'Y'):?>
+	<?php if ($arResult['ACCESS_SITE']['EDIT'] == 'Y'):?>
 	<div class="landing-item landing-item-add-new" style="display: <?=$arResult['IS_DELETED'] ? 'none' : 'block';?>;">
 		<span class="landing-item-inner" data-href="<?= $arParams['PAGE_URL_LANDING_ADD']?>">
 			<span class="landing-item-add-new-inner">
@@ -101,9 +101,9 @@ if ($folderId)
 			</span>
 		</span>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 
-<?foreach (array_values($arResult['LANDINGS']) as $i => $item):
+<?php foreach (array_values($arResult['LANDINGS']) as $i => $item):
 
 	if ($item['DELETE_FINISH'])//@tmp
 	{
@@ -129,9 +129,9 @@ if ($folderId)
 		));
 	}
 	?>
-	<?if ($uriFolder):?>
-		<div class="landing-item landing-item-folder<?
-			?><?= $item['ACTIVE'] != 'Y' || $item['DELETED'] != 'N' ? ' landing-item-unactive' : '';?><?
+	<?php if ($uriFolder):?>
+		<div class="landing-item landing-item-folder<?php 
+			?><?= $item['ACTIVE'] != 'Y' || $item['DELETED'] != 'N' ? ' landing-item-unactive' : '';?><?php 
 			?><?= $item['DELETED'] == 'Y' ? ' landing-item-deleted' : '';?>">
 			<div class="landing-title">
 				<div class="landing-title-wrap">
@@ -140,9 +140,9 @@ if ($folderId)
 			</div>
 			<div class="landing-item-cover">
 				<div class="landing-item-preview">
-					<?foreach ($item['FOLDER_PREVIEW'] as $picture):?>
+					<?php foreach ($item['FOLDER_PREVIEW'] as $picture):?>
 					<div class="landing-item-preview-item" style="background-image: url(<?= $picture;?>);"></div>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</div>
 				<div class="landing-item-folder-corner">
 					<div class="landing-item-folder-dropdown"
@@ -167,15 +167,15 @@ if ($folderId)
 					</div>
 				</div>
 			</div>
-			<?if ($item['DELETED'] == 'Y'):?>
+			<?php if ($item['DELETED'] == 'Y'):?>
 			<span class="landing-item-link"></span>
-			<?else:?>
+			<?php else:?>
 			<a href="<?= $uriFolder->getUri();?>" class="landing-item-link" target="_top"></a>
-			<?endif;?>
+			<?php endif;?>
 		</div>
-	<?else:?>
-		<div class="landing-item<?
-			?><?= $item['ACTIVE'] != 'Y' || $item['DELETED'] != 'N' ? ' landing-item-unactive' : '';?><?
+	<?php else:?>
+		<div class="landing-item<?php 
+			?><?= $item['ACTIVE'] != 'Y' || $item['DELETED'] != 'N' ? ' landing-item-unactive' : '';?><?php 
 			?><?= $item['DELETED'] == 'Y' ? ' landing-item-deleted' : '';?>">
 			<div class="landing-item-inner">
 				<div class="landing-title">
@@ -201,52 +201,52 @@ if ($folderId)
 						<span class="landing-title-btn-inner"><?= Loc::getMessage('LANDING_TPL_ACTIONS');?></span>
 					</div>
 					<div class="landing-title-wrap">
-						<?if ($item['IS_HOMEPAGE']):?>
+						<?php if ($item['IS_HOMEPAGE']):?>
 							<div class="landing-title-overflow landing-item-home-icon"><?= \htmlspecialcharsbx($item['TITLE']);?></div>
-						<?else:?>
+						<?php else:?>
 							<div class="landing-title-overflow"><?= \htmlspecialcharsbx($item['TITLE']);?></div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 				</div>
-				<span class="landing-item-cover" <?if ($item['PREVIEW']) {?> style="background-image: url(<?=
-					\htmlspecialcharsbx($item['PREVIEW'])?>);"<?}?>></span>
+				<span class="landing-item-cover" <?php if ($item['PREVIEW']) {?> style="background-image: url(<?=
+					\htmlspecialcharsbx($item['PREVIEW'])?>);"<?php }?>></span>
 			</div>
-			<?if ($item['DELETED'] == 'Y'):?>
+			<?php if ($item['DELETED'] == 'Y'):?>
 			<span class="landing-item-link"></span>
-			<?else:?>
+			<?php else:?>
 			<a href="<?= \htmlspecialcharsbx($urlView);?>" class="landing-item-link" target="_top"></a>
-			<?endif;?>
+			<?php endif;?>
 			<div class="landing-item-status-block">
 				<div class="landing-item-status-inner">
-					<?if ($item['DELETED'] == 'Y'):?>
+					<?php if ($item['DELETED'] == 'Y'):?>
 						<span class="landing-item-status landing-item-status-unpublished"><?= Loc::getMessage('LANDING_TPL_DELETED');?></span>
-					<?elseif ($item['ACTIVE'] != 'Y'):?>
+					<?php elseif ($item['ACTIVE'] != 'Y'):?>
 						<span class="landing-item-status landing-item-status-unpublished"><?= Loc::getMessage('LANDING_TPL_UNPUBLIC');?></span>
-					<?else:?>
+					<?php else:?>
 						<span class="landing-item-status landing-item-status-published"><?= Loc::getMessage('LANDING_TPL_PUBLIC');?></span>
-					<?endif;?>
-					<?if ($item['DELETED'] == 'Y'):?>
+					<?php endif;?>
+					<?php if ($item['DELETED'] == 'Y'):?>
 						<span class="landing-item-status landing-item-status-changed">
 							<?= Loc::getMessage('LANDING_TPL_TTL_DELETE');?>:
 							<?= $item['DATE_DELETED_DAYS'];?>
 							<?= Loc::getMessage('LANDING_TPL_TTL_DELETE_D');?>
 						</span>
-					<?elseif ($item['DATE_MODIFY_UNIX'] > $item['DATE_PUBLIC_UNIX']):?>
+					<?php elseif ($item['DATE_MODIFY_UNIX'] > $item['DATE_PUBLIC_UNIX']):?>
 						<span class="landing-item-status landing-item-status-changed"><?= Loc::getMessage('LANDING_TPL_MODIF');?></span>
-					<?endif;?>
+					<?php endif;?>
 
 				</div>
 			</div>
 		</div>
-	<?endif;?>
-<?endforeach;?>
+	<?php endif;?>
+<?php endforeach;?>
 
 	</div>
 </div>
 
-<?if ($arResult['NAVIGATION']->getPageCount() > 1):?>
+<?php if ($arResult['NAVIGATION']->getPageCount() > 1):?>
 	<div class="<?= (defined('ADMIN_SECTION') && ADMIN_SECTION === true) ? '' : 'landing-navigation';?>">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:main.pagenavigation',
 			'',//grid
 			array(
@@ -257,7 +257,7 @@ if ($folderId)
 			false
 		);?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 
 <script type="text/javascript">
@@ -336,7 +336,7 @@ if ($folderId)
 		var createFolderEl = BX('landing-create-folder');
 		var createElement = BX('landing-create-element');
 
-		<?if ($arResult['IS_DELETED']):?>
+		<?php if ($arResult['IS_DELETED']):?>
 		if (createFolderEl)
 		{
 			BX.addClass(createFolderEl, 'ui-btn-disabled');
@@ -345,7 +345,7 @@ if ($folderId)
 		{
 			BX.addClass(createElement, 'ui-btn-disabled');
 		}
-		<?else:?>
+		<?php else:?>
 		if (createFolderEl)
 		{
 			BX.removeClass(createFolderEl, 'ui-btn-disabled');
@@ -354,7 +354,7 @@ if ($folderId)
 		{
 			BX.removeClass(createElement, 'ui-btn-disabled');
 		}
-		<?endif;?>
+		<?php endif;?>
 	});
 
 
@@ -427,10 +427,10 @@ if ($folderId)
 							function() {
 								params.copyPage += '&additional[siteId]=';
 								params.copyPage += BX('landing-site-selector').value;
-								<?if ($folderId):?>
+								<?php if ($folderId):?>
 								params.copyPage += '&additional[folderId]=';
 								params.copyPage += <?= (int)$folderId;?>;
-								<?endif;?>
+								<?php endif;?>
 								top.window.location.href = params.copyPage;
 							},
 							function() {

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_SPGS_TPL_THEME_SITE"] = "Брать тему из настроек сайта (для решения bitrix.eshop)";
 $MESS["CP_SPGS_TPL_THEME_BLUE"] = "синяя (тема по умолчанию)";
 $MESS["CP_SPGS_TPL_THEME_GREEN"] = "зеленая";

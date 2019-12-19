@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADV_BS_EFFECT'] = "Эффект переключения слайдов";
 $MESS ['ADV_BS_EFFECT_SLIDE'] = "перематывание";
 $MESS ['ADV_BS_EFFECT_FADE'] = "угасание";

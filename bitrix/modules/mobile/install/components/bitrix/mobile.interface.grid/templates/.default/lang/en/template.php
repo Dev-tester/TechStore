@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_GRID_PULL_TEXT"] = "Pull down to refresh...";
 $MESS["M_GRID_DOWN_TEXT"] = "Release to refresh...";
 $MESS["M_GRID_LOAD_TEXT"] = "Updating...";

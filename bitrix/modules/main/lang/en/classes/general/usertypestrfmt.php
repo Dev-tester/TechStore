@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_STRINGFMT_REGEXP"] = "Validation regular expression";
 $MESS["USER_TYPE_STRINGFMT_SIZE"] = "Input field size";
 $MESS["USER_TYPE_STRINGFMT_ROWS"] = "Row count";

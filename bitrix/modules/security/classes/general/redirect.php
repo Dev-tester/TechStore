@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CSecurityRedirect
@@ -169,10 +169,10 @@ class CSecurityRedirect
 		?>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=<?echo $charset?>" />
-<?if ($timeout > 0):?>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $charset?>" />
+<?php if ($timeout > 0):?>
 <meta http-equiv="Refresh" content="<?=$timeout?>; URL=<?=htmlspecialcharsbx($url_e)?>">
-<?endif?>
+<?php endif?>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="stylesheet" type="text/css" href="/bitrix/themes/.default/adminstyles.css" />
 <link rel="stylesheet" type="text/css" href="/bitrix/themes/.default/404.css" />
@@ -209,7 +209,7 @@ class CSecurityRedirect
 </div>
 </body>
 </html>
-		<?
+		<?php 
 					die();
 				}
 				else

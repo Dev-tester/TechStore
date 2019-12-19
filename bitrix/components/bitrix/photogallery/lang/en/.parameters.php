@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE"] = "Type of information block";
 $MESS["IBLOCK_IBLOCK"] = "Information block";
 $MESS["T_IBLOCK_DESC_NEWS_PANEL"] = "Display panel buttons for this component";

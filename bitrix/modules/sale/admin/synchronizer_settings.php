@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * TODO: переделать на мастер.
  * Данная страница как врменное решение. Настройку должен выполнять мастер.
@@ -171,7 +171,7 @@ if(isConnected() === false)
     <div class="crm-admin-wrap">
         <?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_DESCRIPTION')?>
         <div class="crm-admin-set" id="id_new_crm_reg_form">
-            <form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1_do_create_link">
+            <form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1_do_create_link">
                 <div class="crm-admin-set-title"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_SETTINGS_TITLE')?></div>
                 <table class="crm-admin-set-content-table" cellspacing="0">
                     <tr>
@@ -198,7 +198,7 @@ if(isConnected() === false)
             </form>
         </div>
     </div>
-	<?
+	<?php 
 }
 else
 {
@@ -483,9 +483,9 @@ else
 	}
 
 	?>
-    <form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="sale_synchronizer_settings">
-		<?echo GetFilterHiddens("filter_");?>
-        <input type="hidden" name="lang" value="<?echo LANG ?>">
+    <form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="sale_synchronizer_settings">
+		<?php echo GetFilterHiddens("filter_");?>
+        <input type="hidden" name="lang" value="<?php echo LANG ?>">
         <input type="hidden" name="synchronizerIsSettings" value="Y">
 		<?=bitrix_sessid_post();
 
@@ -552,17 +552,17 @@ else
         <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_ACCESS_TOKEN')?></td><td align="left"><input name="CONFIG_REFRESH_TOKEN" type='text' size=80 value='<?=$instance->getRefreshToken()?>'/></td></tr>
 
         <tr class="heading"><td colspan="2" align="center"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_GENERAL_SETTINGS')?></td></tr>
-        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_SITE_DEFAULT')?></td><td align="left"><select name="DEFAULT_SITE_ID"><?foreach($arSites as $id=>$name):?><option <?=$instance->getDefaultSiteId()==$id?'selected':''?> value="<?=htmlspecialcharsbx($id)?>"><?=htmlspecialcharsbx($name)?></option><?endforeach;?></td></tr>
-        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_PS_DEFAULT')?></td><td align="left"><select name="DEFAULT_PAY_SYSTEM_ID"><?foreach($arPaySystemsWithoutInner as $id=>$name):?><option <?=$instance->getDefaultPaySystemId()==$id?'selected':''?> value="<?=htmlspecialcharsbx($id)?>"><?=htmlspecialcharsbx($name)?></option><?endforeach;?></td></tr>
-        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_DS_DEFAULT')?></td><td align="left"><select name="DEFAULT_DELIVERY_SYSTEM_ID"><?foreach($shipmentServices as $id=>$name):?><option <?=$instance->getDefaultDeliverySystemId()==$id?'selected':''?> value="<?=htmlspecialcharsbx($id)?>"><?=htmlspecialcharsbx($name)?></option><?endforeach;?></td></tr>
-        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_PT_DEFAULT')?></td><td align="left"><select name="DEFAULT_PERSON_TYPE"><option></option><?foreach($internal['PERSON_TYPE'] as $row):?><option <?=$instance->getDefaultPersonTypeId()==$row['ID']?'selected':''?> value="<?=$row['ID']?>"><?='['.$row['ID'].'] '.htmlspecialcharsbx($row['NAME'])?></option><?endforeach;?></td></tr>
-        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_ORDER_STATUS_DEFAULT')?></td><td align="left"><select name="DEFAULT_ORDER_STATUS"><option></option><?foreach($internal['ORDER_STATUSES'] as $row):?><option <?=$instance->getDefaultOrderStatusId()==$row['ID']?'selected':''?> value="<?=$row['ID']?>"><?='['.$row['ID'].'] '.htmlspecialcharsbx($row['NAME'])?></option><?endforeach;?></td></tr>
-        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_DELIVERY_STATUS_DEFAULT')?></td><td align="left"><select name="DEFAULT_DELIVERY_STATUS"><option></option><?foreach($internal['DELIVERY_STATUSES'] as $row):?><option <?=$instance->getDefaultDeliveryStatusId()==$row['ID']?'selected':''?> value="<?=$row['ID']?>"><?='['.$row['ID'].'] '.htmlspecialcharsbx($row['NAME'])?></option><?endforeach;?></td></tr>
-        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_CATALOGS')?></td><td align="left"><select name="" multiple size="5" disabled><?foreach($catalogList as $catalog){?><option selected><?='['.$catalog['IBLOCK_ID'].'] '.htmlspecialcharsbx($catalog['CATALOG_CATALOG_IBLOCK_IBLOCK_NAME'])?></option><?}?></select></td></tr>
+        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_SITE_DEFAULT')?></td><td align="left"><select name="DEFAULT_SITE_ID"><?php foreach($arSites as $id=>$name):?><option <?=$instance->getDefaultSiteId()==$id?'selected':''?> value="<?=htmlspecialcharsbx($id)?>"><?=htmlspecialcharsbx($name)?></option><?php endforeach;?></td></tr>
+        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_PS_DEFAULT')?></td><td align="left"><select name="DEFAULT_PAY_SYSTEM_ID"><?php foreach($arPaySystemsWithoutInner as $id=>$name):?><option <?=$instance->getDefaultPaySystemId()==$id?'selected':''?> value="<?=htmlspecialcharsbx($id)?>"><?=htmlspecialcharsbx($name)?></option><?php endforeach;?></td></tr>
+        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_DS_DEFAULT')?></td><td align="left"><select name="DEFAULT_DELIVERY_SYSTEM_ID"><?php foreach($shipmentServices as $id=>$name):?><option <?=$instance->getDefaultDeliverySystemId()==$id?'selected':''?> value="<?=htmlspecialcharsbx($id)?>"><?=htmlspecialcharsbx($name)?></option><?php endforeach;?></td></tr>
+        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_PT_DEFAULT')?></td><td align="left"><select name="DEFAULT_PERSON_TYPE"><option></option><?php foreach($internal['PERSON_TYPE'] as $row):?><option <?=$instance->getDefaultPersonTypeId()==$row['ID']?'selected':''?> value="<?=$row['ID']?>"><?='['.$row['ID'].'] '.htmlspecialcharsbx($row['NAME'])?></option><?php endforeach;?></td></tr>
+        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_ORDER_STATUS_DEFAULT')?></td><td align="left"><select name="DEFAULT_ORDER_STATUS"><option></option><?php foreach($internal['ORDER_STATUSES'] as $row):?><option <?=$instance->getDefaultOrderStatusId()==$row['ID']?'selected':''?> value="<?=$row['ID']?>"><?='['.$row['ID'].'] '.htmlspecialcharsbx($row['NAME'])?></option><?php endforeach;?></td></tr>
+        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_DELIVERY_STATUS_DEFAULT')?></td><td align="left"><select name="DEFAULT_DELIVERY_STATUS"><option></option><?php foreach($internal['DELIVERY_STATUSES'] as $row):?><option <?=$instance->getDefaultDeliveryStatusId()==$row['ID']?'selected':''?> value="<?=$row['ID']?>"><?='['.$row['ID'].'] '.htmlspecialcharsbx($row['NAME'])?></option><?php endforeach;?></td></tr>
+        <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_CATALOGS')?></td><td align="left"><select name="" multiple size="5" disabled><?php foreach($catalogList as $catalog){?><option selected><?='['.$catalog['IBLOCK_ID'].'] '.htmlspecialcharsbx($catalog['CATALOG_CATALOG_IBLOCK_IBLOCK_NAME'])?></option><?php }?></select></td></tr>
 
         <tr><td align="right" width="40%"><label for="use-"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_MARKED')?></td><td align="left"><input type="checkbox" <?=$instance->isMarked()?'checked':''?> name="IS_MARKED" value="Y"></td></tr>
 
-		<?if(empty($errorOAuth) && empty($errorConnection)):?>
+		<?php if(empty($errorOAuth) && empty($errorConnection)):?>
 
             <tr class="heading"><td colspan="2" align="center"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_TITLE')?></td></tr>
             <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_ACTIVE');?></label></td><td align="left"><?=$external['SYNCHRONIZER']['IS_ACTIVE']=='Y'?'<font color="green">'.\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_ACTIVE_Y').'</font>':'<font color="red">'.\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_ACTIVE_N').'</font>'?></td></tr>
@@ -572,21 +572,21 @@ else
             <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_PT_DEFAULT');?></label></td><td align="left"><?='['.$external['SYNCHRONIZER']['PERSON_TYPE']['ID'].'] '.htmlspecialcharsbx($external['SYNCHRONIZER']['PERSON_TYPE']['NAME']);?></td></tr>
             <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_ORDER_STATUS_DEFAULT');?></label></td><td align="left"><?='['.$external['SYNCHRONIZER']['ORDER_STATUS']['ID'].'] '.htmlspecialcharsbx($external['SYNCHRONIZER']['ORDER_STATUS']['NAME']);?></td></tr>
             <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_DELIVERY_STATUS_DEFAULT');?></label></td><td align="left"><?='['.$external['SYNCHRONIZER']['DELIVERY_STATUS']['ID'].'] '.htmlspecialcharsbx($external['SYNCHRONIZER']['DELIVERY_STATUS']['NAME']);?></td></tr>
-            <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_CATALOGS');?></label></td><td align="left"><select name="" multiple size="5" disabled><?foreach($external['SYNCHRONIZER']['CATALOGS'] as $tradeCatalog):?><option selected><?='['.$tradeCatalog['ID'].'] '.htmlspecialcharsbx($tradeCatalog['NAME'])?></option><?endforeach;?></select></td></tr>
+            <tr><td align="right" width="40%"><label for="use-"><span class="required">*</span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_EXTERNAL_SETTINGS_CATALOGS');?></label></td><td align="left"><select name="" multiple size="5" disabled><?php foreach($external['SYNCHRONIZER']['CATALOGS'] as $tradeCatalog):?><option selected><?='['.$tradeCatalog['ID'].'] '.htmlspecialcharsbx($tradeCatalog['NAME'])?></option><?php endforeach;?></select></td></tr>
 
-            <tr><td colspan="2" align="center"><?echo BeginNote('align="center"');?><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_NOTE')?><?echo EndNote();?></td></tr>
+            <tr><td colspan="2" align="center"><?php echo BeginNote('align="center"');?><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_NOTE')?><?php echo EndNote();?></td></tr>
 
             <tr class="heading"><td colspan="2" align="center"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_MATCHING_PT')?></td></tr>
-            <tr><?showSelect($internal['PERSON_TYPE'], $external['PERSON_TYPE'], 'PERSON_TYPE')?></tr>
+            <tr><?php showSelect($internal['PERSON_TYPE'], $external['PERSON_TYPE'], 'PERSON_TYPE')?></tr>
             <tr class="heading"><td colspan="2" align="center"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_MATCHING_PS')?></td></tr>
-            <tr><?showSelect($internal['PAY_SYSTEMS'], $external['PAY_SYSTEMS'], 'PAY_SYSTEMS')?></tr>
+            <tr><?php showSelect($internal['PAY_SYSTEMS'], $external['PAY_SYSTEMS'], 'PAY_SYSTEMS')?></tr>
             <tr class="heading"><td colspan="2" align="center"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_MATCHING_SD')?></td></tr>
-            <tr><?showSelect($internal['DELIVERY_SYSTEMS'], $external['DELIVERY_SYSTEMS'], 'DELIVERY_SYSTEMS')?></tr>
+            <tr><?php showSelect($internal['DELIVERY_SYSTEMS'], $external['DELIVERY_SYSTEMS'], 'DELIVERY_SYSTEMS')?></tr>
             <tr class="heading"><td colspan="2" align="center"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_MATCHING_P')?></td></tr>
-            <tr><td colspan="2" align="center"><?echo BeginNote('align="center"');?><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_NOTE1')?><?echo EndNote();?></td></tr>
+            <tr><td colspan="2" align="center"><?php echo BeginNote('align="center"');?><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_NOTE1')?><?php echo EndNote();?></td></tr>
 
             <tr><td colspan="2">
-					<?
+					<?php 
 					$aTabs2 = Array();
 
 					foreach($internal['PERSON_TYPE'] as $type)
@@ -606,14 +606,14 @@ else
 						$tabControl2->BeginNextTab();
 
 						?><table cellspacing="5" cellpadding="0" border="0" width="100%" align="center">
-						<?
+						<?php 
 						foreach($groupsList as $group)
 						{
 							if($group['PERSON_TYPE_ID'] == $type['ID'])
 							{
 								?><tr class="heading">
                                 <td colspan="2"><?=htmlspecialcharsbx($group['NAME'])?></td>
-                                </tr><?
+                                </tr><?php 
 							}
 
 							$propertiesPG = [];
@@ -627,7 +627,7 @@ else
 							}
 							showSelect($propertiesPG, $external['PROPERTIES'], 'PROPERTIES');
 						}
-						?></table><?
+						?></table><?php 
 					}
 					$tabControl2->End();
 					?>
@@ -635,7 +635,7 @@ else
                 </td></tr>
             <tr class="heading"><td colspan="2" align="center"><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_MATCHING1')?></td></tr>
             <tr><td colspan="2">
-					<?
+					<?php 
 					$aTabs1 = Array();
 
 					if(!isset($internal['ORDER_STATUSES']))
@@ -661,7 +661,7 @@ else
 					foreach($statusTypes as $type)
 					{
 						$tabControl1->BeginNextTab();
-						?><table cellspacing="5" cellpadding="0" border="0" width="100%" align="center"><?
+						?><table cellspacing="5" cellpadding="0" border="0" width="100%" align="center"><?php 
 
 						showSelect(
                                 array_filter($statuses, function($status) use ($type)
@@ -673,14 +673,14 @@ else
                                     return $status['TYPE'] == $type['ID'];
                                 }),
                                 ($type['ID']=='O'? 'ORDER_STATUSES':'DELIVERY_STATUSES'));
-						?></table><?
+						?></table><?php 
 					}
 					$tabControl1->End();
 					?>
                 </td></tr>
             <tr class="heading"><td colspan="2" align="center"><span class="required"></span><?=\Bitrix\Main\Localization\Loc::getMessage('SALE_SYNCHRONIZER_MATCHING2')?></td></tr>
-            <tr><?showSelect($internal['SITES'], $external['TRADE_PLATFORMS'], 'SITES')?></tr>
-		<?endif;
+            <tr><?php showSelect($internal['SITES'], $external['TRADE_PLATFORMS'], 'SITES')?></tr>
+		<?php endif;
 
 		$tabControl->EndTab();
 		$tabControl->End();
@@ -693,7 +693,7 @@ else
 		);
 		?>
     </form>
-	<?
+	<?php 
 }
 
 function showSelect($internal, $external, $name)
@@ -702,14 +702,14 @@ function showSelect($internal, $external, $name)
         <tr>
             <td align="right" width="40%"><label for="use-<?=$internalFields["ID"]?>">[<?=$internalFields['ID']?>] <?=htmlspecialcharsbx($internalFields['NAME'])?>:</label></td>
             <!--<td align="left">[<?=$internalFields['ID']?>] <?=htmlspecialcharsbx($internalFields['NAME'])?></td>-->
-            <td align="left"><select name="<?=htmlspecialcharsbx($name.'_'.$internalFields['ID'])?>"><option></option><?
+            <td align="left"><select name="<?=htmlspecialcharsbx($name.'_'.$internalFields['ID'])?>"><option></option><?php 
 					foreach($external as $externalFields)
 					{
-						?><option <?=$externalFields['XML_ID']<>''? 'value="'.htmlspecialcharsbx($externalFields['XML_ID']).'"':''?> <?=$externalFields['XML_ID']<>'' && $externalFields['XML_ID']==$internalFields['XML_ID'] ? 'selected':''?> >[<?=htmlspecialcharsbx($externalFields['ID'])?>] <?=htmlspecialcharsbx($externalFields['NAME'])?></option><?
+						?><option <?=$externalFields['XML_ID']<>''? 'value="'.htmlspecialcharsbx($externalFields['XML_ID']).'"':''?> <?=$externalFields['XML_ID']<>'' && $externalFields['XML_ID']==$internalFields['XML_ID'] ? 'selected':''?> >[<?=htmlspecialcharsbx($externalFields['ID'])?>] <?=htmlspecialcharsbx($externalFields['NAME'])?></option><?php 
 					}
 					?></select></td>
         </tr>
-	<?endforeach;
+	<?php endforeach;
 }
 
 function getInternalFields()
@@ -759,4 +759,4 @@ function isConnected()
 }
 
 ?>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

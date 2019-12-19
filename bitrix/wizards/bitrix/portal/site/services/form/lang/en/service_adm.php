@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_ADM_FORM_NAME"] = "Maintenance Department Request";
 $MESS["ADM_TROUBLESHOOTING_MENU_NAME"] = "Maintenance Department Request";
 $MESS["SERVICE_ADM_FORM_BUTTON"] = "Submit Order";

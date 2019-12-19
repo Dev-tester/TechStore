@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_FTS_AUTO_LEAD_SETTING_A"] = "автоматически создать новый лид";
 $MESS["FACEID_FTS_LEAD_SOURCE_SETTING"] = "Источник для нового лида";
 $MESS["FACEID_FTS_CONFIG_EDIT_SAVE"] = "Сохранить";

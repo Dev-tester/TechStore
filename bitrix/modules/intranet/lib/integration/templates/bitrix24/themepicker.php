@@ -1,4 +1,4 @@
-<?
+<?php 
 
 namespace Bitrix\Intranet\Integration\Templates\Bitrix24;
 

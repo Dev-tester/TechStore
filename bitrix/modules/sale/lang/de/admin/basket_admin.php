@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SB_TITLE"] = "Verlassene Warenkörbe";
 $MESS["SB_FUSER_ID"] = "Kunden-ID";
 $MESS["SB_USER_ID"] = "Nutzer-ID";

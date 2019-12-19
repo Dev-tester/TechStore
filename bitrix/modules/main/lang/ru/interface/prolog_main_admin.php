@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_PROLOG_ADMIN_LOGOUT"] = "Закончить сеанс";
 $MESS["MAIN_PROLOG_ADMIN_TITLE"] = "Административный раздел";
 $MESS["TRIAL_ATTENTION"] = "Внимание! Воспользуйтесь технологией <a href=\"/bitrix/admin/sysupdate.php\">SiteUpdate</a> для получения последних обновлений.<br>";

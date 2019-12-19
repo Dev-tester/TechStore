@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UPDATES_LICENSE_TITLE"] = "Bitrix24 License";
 $MESS["UPDATES_LICENSE_KEY"] = "License key";
 $MESS["UPDATES_LICENSE_SAVE"] = "Save";

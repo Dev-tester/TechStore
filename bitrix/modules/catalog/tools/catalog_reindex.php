@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 define('STOP_STATISTICS', true);
@@ -120,18 +120,18 @@ else
 	?><div id="catalog_reindex_error_div" style="margin:0; display: none;">
 	<div class="adm-info-message-wrap adm-info-message-red">
 		<div class="adm-info-message">
-			<div class="adm-info-message-title"><? echo Loc::getMessage('BX_CATALOG_REINDEX_ERRORS_TITLE'); ?></div>
+			<div class="adm-info-message-title"><?php  echo Loc::getMessage('BX_CATALOG_REINDEX_ERRORS_TITLE'); ?></div>
 			<div id="catalog_reindex_error_cont"></div>
 			<div class="adm-info-message-icon"></div>
 		</div>
 	</div>
 	</div>
-	<form name="catalog_reindex_form" action="<? echo $APPLICATION->GetCurPage(); ?>" method="GET"><?
+	<form name="catalog_reindex_form" action="<?php  echo $APPLICATION->GetCurPage(); ?>" method="GET"><?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?><tr>
-		<td width="40%"><? echo Loc::getMessage('BX_CATALOG_REINDEX_IBLOCK_ID'); ?></td>
-		<td width="60%"><?
+		<td width="40%"><?php  echo Loc::getMessage('BX_CATALOG_REINDEX_IBLOCK_ID'); ?></td>
+		<td width="60%"><?php 
 		$catalogList = array();
 		$catalogIterator = Catalog\CatalogIblockTable::getList(array(
 			'select' => array('IBLOCK_ID'),
@@ -159,19 +159,19 @@ else
 		?></td>
 	</tr>
 	<tr>
-		<td width="40%"><? echo Loc::getMessage('BX_CATALOG_REINDEX_MAX_EXECUTION_TIME')?></td>
-		<td width="60%"><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $oneStepTime; ?>"></td>
+		<td width="40%"><?php  echo Loc::getMessage('BX_CATALOG_REINDEX_MAX_EXECUTION_TIME')?></td>
+		<td width="60%"><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $oneStepTime; ?>"></td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->Buttons();
 	?>
-	<input type="button" id="catalog_reindex_start_button" value="<? echo Loc::getMessage('BX_CATALOG_REINDEX_UPDATE_BTN')?>">
-	<input type="button" id="catalog_reindex_stop_button" value="<? echo Loc::getMessage('BX_CATALOG_REINDEX_STOP_BTN')?>" disabled>
-	<?
+	<input type="button" id="catalog_reindex_start_button" value="<?php  echo Loc::getMessage('BX_CATALOG_REINDEX_UPDATE_BTN')?>">
+	<input type="button" id="catalog_reindex_stop_button" value="<?php  echo Loc::getMessage('BX_CATALOG_REINDEX_STOP_BTN')?>" disabled>
+	<?php 
 	$tabControl->End();
 	?></form>
 	<div id="reindexReport" style="display: none;"></div>
-	<?
+	<?php 
 	$jsParams = array(
 		'url' => $APPLICATION->GetCurPage(),
 		'options' => array(
@@ -197,8 +197,8 @@ else
 	);
 	?>
 	<script type="text/javascript">
-		var jsCatalogReindex = new BX.Catalog.CatalogReindex(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
+		var jsCatalogReindex = new BX.Catalog.CatalogReindex(<?php  echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
 	</script>
-	<?
+	<?php 
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');
 }

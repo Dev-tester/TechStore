@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Privacy Policy");
 ?>
@@ -49,4 +49,4 @@ times and every effort has been made to exclude this type of content from our we
  <p>Please visit our Terms and Conditions section governing the use of our website.</p>
  
  <p>The terms of this privacy policy may be changed at any time and such changes will be posted.</p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_43.5.COVER_WITH_FEEDBACK_CARDS_LANDINGBLOCKNODECARD"] = "Відгук";
 $MESS["LANDING_BLOCK_43.5.COVER_WITH_FEEDBACK_NAME"] = "Відгуки з посиланнями на клієнтів і перегортанням на затемненому фоновому зображенні";
 $MESS["LANDING_BLOCK_43.5.COVER_WITH_FEEDBACK_NODES_CARD"] = "Картка";

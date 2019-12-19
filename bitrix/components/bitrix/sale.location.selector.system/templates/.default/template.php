@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location;
 
@@ -14,34 +14,34 @@ if (!is_object($adminSidePanelHelper))
 }
 ?>
 
-<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+<?php if(!empty($arResult['ERRORS']['FATAL'])):?>
 
-	<?foreach($arResult['ERRORS']['FATAL'] as $error):?>
+	<?php foreach($arResult['ERRORS']['FATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
+	<?php endforeach?>
 
-<?else:?>
+<?php else:?>
 
-	<?CJSCore::Init();?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_widget.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_etc.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_autocomplete.js');?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_itemtree.js');?>
+	<?php CJSCore::Init();?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_widget.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_etc.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_autocomplete.js');?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_itemtree.js');?>
 
-	<?// to be able to launch this outside the admin section?>
-	<?$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/panel/main/adminstyles_fixed.css');?>
-	<?$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/panel/main/admin.css');?>
-	<?$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/panel/main/admin-public.css');?>
+	<?php // to be able to launch this outside the admin section?>
+	<?php $GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/panel/main/adminstyles_fixed.css');?>
+	<?php $GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/panel/main/admin.css');?>
+	<?php $GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/panel/main/admin-public.css');?>
 
 	<div id="slss-<?=intval($arResult['RANDOM_TAG'])?>">
 
-		<?if(!empty($arResult['ERRORS']['NONFATAL'])):?>
+		<?php if(!empty($arResult['ERRORS']['NONFATAL'])):?>
 
-			<?foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
+			<?php foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
 				<?=ShowError($error)?>
-			<?endforeach?>
+			<?php endforeach?>
 
-		<?endif?>
+		<?php endif?>
 
 		<div class="adm-location-popup-wrap" id="adm-location" style="height: 600px; min-width: 800px">
 			<div class="adm-loc-left-wrap">
@@ -62,9 +62,9 @@ if (!is_object($adminSidePanelHelper))
 								<td class="adm-loc-filter-select-cell" style="padding: 0 5px; width: 1%">
 									<select class="adm-loc-filter-select bx-ui-slss-type">
 										<option value="">-- <?=Loc::getMessage('SALE_SLSS_TYPE_NOT_SELECTED')?></option>
-										<?foreach($arResult['TYPES'] as $id => $type):?>
+										<?php foreach($arResult['TYPES'] as $id => $type):?>
 											<option value="<?=$id?>"><?=htmlspecialcharsbx($type['NAME'])?></option>
-										<?endforeach?>
+										<?php endforeach?>
 									</select>
 								</td>
 
@@ -84,8 +84,8 @@ if (!is_object($adminSidePanelHelper))
 								<tr>
 									<td class="adm-submenu-items-stretch-cell adm-submenu-groups bx-ui-slss-selector-groups">
 
-										<?if(is_array($arResult['GROUPS']) && !empty($arResult['GROUPS'])):?>
-											<?foreach($arResult['GROUPS'] as $group):?>
+										<?php if(is_array($arResult['GROUPS']) && !empty($arResult['GROUPS'])):?>
+											<?php foreach($arResult['GROUPS'] as $group):?>
 
 												<div class="adm-submenu-items-block">
 													<div class="adm-sub-submenu-block adm-sub-submenu-open">
@@ -93,7 +93,7 @@ if (!is_object($adminSidePanelHelper))
 														<div class="adm-submenu-item-name">
 															<span class="adm-submenu-item-arrow">
 
-																<?$r = rand(99, 999);?>
+																<?php $r = rand(99, 999);?>
 																<input type="checkbox" class="adm-designed-checkbox" value="<?=intval($group['ID'])?>" id="designed_checkbox_<?=$r?>">
 																<label class="adm-designed-checkbox-label" for="designed_checkbox_<?=$r?>"></label>
 
@@ -105,23 +105,23 @@ if (!is_object($adminSidePanelHelper))
 
 													</div>
 												</div>
-											<?endforeach?>
-										<?endif?>
+											<?php endforeach?>
+										<?php endif?>
 
 									</td>
 								</tr>
 							</table>
 
-							<?if(is_array($arResult['GROUPS']) && !empty($arResult['GROUPS'])):?>
-								<div class="adm-loc-menu-separate"></div> <?//todo: make it draggable ?>
-							<?endif?>
+							<?php if(is_array($arResult['GROUPS']) && !empty($arResult['GROUPS'])):?>
+								<div class="adm-loc-menu-separate"></div> <?php //todo: make it draggable ?>
+							<?php endif?>
 
 							<table class="adm-submenu-items-stretch">
 								<tr>
 									<td class="adm-submenu-items-stretch-cell adm-submenu-locations">
 										<div class="adm-submenu-items-block adm-submenu-items-block-tree bx-ui-slss-selector-locations-tree">
 
-											<?if(!empty($arResult['LOCATIONS'])):?>
+											<?php if(!empty($arResult['LOCATIONS'])):?>
 
 												<div class="adm-loc-i-tree-node bx-ui-item-tree-slss-node" data-node-id="0" data-is-parent="1" style="margin-left: 0px">
 													
@@ -132,7 +132,7 @@ if (!is_object($adminSidePanelHelper))
 
 													<div class="adm-loc-i-tree-panel bx-ui-item-tree-slss-children">
 
-														<?foreach($arResult['LOCATIONS'] as $location):?>
+														<?php foreach($arResult['LOCATIONS'] as $location):?>
 
 															<div class="adm-loc-i-tree-node bx-ui-item-tree-slss-node" data-node-id="<?=intval($location['ID'])?>" data-is-parent="<?=($location['IS_PARENT'] ? '1' : '0')?>">
 																<div class="adm-loc-i-selector-arrow<?=($location['IS_PARENT'] ? ' bx-ui-item-tree-slss-expander' : '')?>"></div>
@@ -151,20 +151,20 @@ if (!is_object($adminSidePanelHelper))
 																</div>
 															</div>
 
-														<?endforeach?>
+														<?php endforeach?>
 
 													</div>
 												</div>
 
-											<?else:?>
+											<?php else:?>
 												<div class="adm-loc-error">
-													<? $importUrl = $adminSidePanelHelper->editUrlToPublicPage((string) $arParams['PATH_TO_LOCATION_IMPORT'] != '' ? $arParams['PATH_TO_LOCATION_IMPORT'] : Location\Admin\Helper::getImportUrl());?>
+													<?php  $importUrl = $adminSidePanelHelper->editUrlToPublicPage((string) $arParams['PATH_TO_LOCATION_IMPORT'] != '' ? $arParams['PATH_TO_LOCATION_IMPORT'] : Location\Admin\Helper::getImportUrl());?>
 													<?=Loc::getMessage('SALE_SLSS_NO_LOCATIONS', array(
 														'#ANCHOR_IMPORT#' => '<a href="'.$importUrl.'" target="_blank">',
 														'#ANCHOR_END#' => '</a>'
 													))?>
 												</div>
-											<?endif?>
+											<?php endif?>
 
 											<script type="text/html" data-template-id="bx-ui-item-tree-slss-node">
 
@@ -196,7 +196,7 @@ if (!is_object($adminSidePanelHelper))
 								<thead>
 									<tr class="adm-list-table-header">
 										<td class="adm-list-table-cell adm-list-table-checkbox">
-											<?$r = rand(99, 999).rand(99, 999).rand(99, 999);?>
+											<?php $r = rand(99, 999).rand(99, 999).rand(99, 999);?>
 											<input type="checkbox" class="adm-designed-checkbox bx-ui-slss-choose-all" id="designed_checkbox_<?=$r?>">
 											<label class="adm-designed-checkbox-label" for="designed_checkbox_<?=$r?>"></label>
 										</td>
@@ -250,9 +250,9 @@ if (!is_object($adminSidePanelHelper))
 					<div class="adm-loc-title"><?=Loc::getMessage('SALE_SLSS_SELECTED_LOCATIONS')?></div>
 					<div class="adm-loc-filter">
 						<?=Loc::getMessage('SALE_SLSS_LOCATION_SELECTOR_LOC_TOTAL_SELECTED')?>: <span class="bx-ui-slss-selected-node-counter">0</span><br />
-						<?if($arResult['USE_GROUPS']):?>
+						<?php if($arResult['USE_GROUPS']):?>
 							<?=Loc::getMessage('SALE_SLSS_LOCATION_SELECTOR_GRP_TOTAL_SELECTED')?>: <span class="bx-ui-slss-selected-group-counter">0</span><br />
-						<?endif?>
+						<?php endif?>
 						<div class="adm-loc-selected-actions">
 							<a href="javascript:void(0)" class="bx-ui-slss-selected-act-clean"><?=Loc::getMessage('SALE_SLSS_LOCATION_SELECTOR_CLEAN_SELECTION')?></a>
 						</div>
@@ -264,7 +264,7 @@ if (!is_object($adminSidePanelHelper))
 								<thead>
 									<tr class="adm-list-table-header">
 										<td class="adm-list-table-cell adm-list-table-checkbox">
-											<?$r = rand(99, 999).rand(99, 999).rand(99, 999);?>
+											<?php $r = rand(99, 999).rand(99, 999).rand(99, 999);?>
 											<input type="checkbox" class="adm-designed-checkbox bx-ui-slss-choose-all-selected" id="designed_checkbox_<?=$r?>">
 											<label class="adm-designed-checkbox-label" for="designed_checkbox_<?=$r?>"></label>
 										</td>
@@ -326,7 +326,7 @@ if (!is_object($adminSidePanelHelper))
 
 	</div>
 
-	<?
+	<?php 
 	// todo: i dont like it, refactor later (may be with strong assistance of parse_url() and $_SERVER['REQUEST_URI'])
 	$urlComponents = array();
 	if(strlen($arParams['ENTITY_PRIMARY']))
@@ -342,15 +342,15 @@ if (!is_object($adminSidePanelHelper))
 		if (!window.BX && top.BX)
 			window.BX = top.BX;
 
-		<?if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
+		<?php if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
 			if(typeof window.BX.locationsDeferred == 'undefined') window.BX.locationsDeferred = {};
 			window.BX.locationsDeferred['<?=$arParams['JS_CONTROL_DEFERRED_INIT']?>'] = function(){
-		<?endif?>
+		<?php endif?>
 
-			<?if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
+			<?php if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
 				if(typeof window.BX.locationSelectors == 'undefined') window.BX.locationSelectors = {};
 				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] = 
-			<?endif?>
+			<?php endif?>
 
 				new BX.Sale.component.location.selector.system(<?=CUtil::PhpToJSObject(array(
 
@@ -400,10 +400,10 @@ if (!is_object($adminSidePanelHelper))
 
 				), false, false, true)?>);
 
-		<?if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
+		<?php if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
 			};
-		<?endif?>
+		<?php endif?>
 
 	</script>
 
-<?endif?>
+<?php endif?>

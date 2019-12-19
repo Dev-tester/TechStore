@@ -135,11 +135,11 @@ class ModuleInstallStep extends \CWizardStep
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$modulesName = array_keys($this->modules);
 		echo $this->ShowHiddenField("nextStep", $modulesName[0]);
 		echo $this->ShowHiddenField("nextStepStage", "");
-		?><iframe style="display:none;" id="iframe-post-form" name="iframe-post-form" src="javascript:''"></iframe><?
+		?><iframe style="display:none;" id="iframe-post-form" name="iframe-post-form" src="javascript:''"></iframe><?php 
 		list($firstModule, $stage) = $this->getFirstModule();
 
 		$formName = $wizard->GetFormName();
@@ -152,7 +152,7 @@ class ModuleInstallStep extends \CWizardStep
 			var ajaxWizardForm = new CAjaxWizardForm("<?=$formName?>", "iframe-post-form", "<?=$nextStepVarName?>");
 			ajaxWizardForm.Post("<?=$firstModule?>", "<?=$stage?>");
 		</script>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Information for New Employees";
 $MESS["SERVICES_INFO"] = "<img width='173' vspace='5' hspace='5' height='170' align='right' src='#SITE#images/en/new_sm.jpg' />New team members should take the <a href='#SITE#services/learning/'>New Employee Course</a> to get acquainted with the company.
 <br />

@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/seo/admin/seo_search_yandex_detail.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/seo/admin/seo_search_yandex_detail.php");?>

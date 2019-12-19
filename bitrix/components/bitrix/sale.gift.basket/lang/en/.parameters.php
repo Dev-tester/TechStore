@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CVP_PRICES"] = "Prices";
 $MESS["CVP_BASKET"] = "Items in shopping cart";
 $MESS["CVP_TYPE"] = "Information block type";

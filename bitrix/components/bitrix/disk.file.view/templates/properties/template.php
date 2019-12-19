@@ -59,7 +59,7 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 				<tr>
 					<td class="disk-detail-properties-table-value"><?= $arResult['FILE']['UPDATE_TIME'] ?></td>
 				</tr>
-				<? if($arResult['FILE']['IS_DELETED'])
+				<?php  if($arResult['FILE']['IS_DELETED'])
 				{
 					?>
 					<tr>
@@ -70,15 +70,15 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 							<?= $arResult['FILE']['DELETE_TIME'] ?>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 				?>
-				<? if(!empty($arResult['EXTERNAL_LINK']['ID'])): ?>
+				<?php  if(!empty($arResult['EXTERNAL_LINK']['ID'])): ?>
 				<tr>
 					<td class="disk-detail-properties-table-param"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_DOWNLOAD_COUNT_BY_EXT_LINK') ?>:</td>
 					<td class="disk-detail-properties-table-value"><?= $arResult['EXTERNAL_LINK']['DOWNLOAD_COUNT'] ?></td>
 				</tr>
-				<? endif; ?>
+				<?php  endif; ?>
 			</table>
 			<div class="disk-detail-properties-owner">
 				<div class="disk-detail-properties-owner-avatar" style="background-image: url(<?= $arResult['FILE']['CREATE_USER']['AVA'] ?>);"></div>
@@ -103,7 +103,7 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 	</div>
 	<?php } ?>
 
-	<? if(!$arResult['FILE']['IS_DELETED'])
+	<?php  if(!$arResult['FILE']['IS_DELETED'])
 	{
 		?>
 	<div class="disk-detail-properties-block">
@@ -115,11 +115,11 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 		</div>
 		<div class="disk-detail-properties-user-access-section disk-detail-sidebar-user-access-section"></div>
 	</div>
-		<?
+		<?php 
 	}
 	?>
 
-	<? if($arResult['SHOW_USER_FIELDS'])
+	<?php  if($arResult['SHOW_USER_FIELDS'])
 	{
 		?>
 	<div class="disk-detail-properties-block">
@@ -131,18 +131,18 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 		</div>
 		<?php include 'uf_sidebar.php'; ?>
 	</div>
-		<?
+		<?php 
 	}
 	?>
 
-	<? if(!empty($arResult['USE_IN_ENTITIES'])){?>
+	<?php  if(!empty($arResult['USE_IN_ENTITIES'])){?>
 	<div class="disk-detail-properties-block">
 		<div class="disk-detail-properties-section-title">
 			<div class="disk-detail-properties-section-title-text"><?= Loc::getMessage('DISK_FILE_VIEW_USAGE') ?></div>
 		</div>
-		<? foreach($arResult['ENTITIES'] as $entity){?>
+		<?php  foreach($arResult['ENTITIES'] as $entity){?>
 			<div class="disk-file-info-item-title">
-				<?
+				<?php 
 				if(!empty($entity['DETAIL_URL']))
 				{
 					echo "<a class=\"disk-file-info-item-link\" target='_blank' href=\"{$entity['DETAIL_URL']}\">" . htmlspecialcharsbx($entity['TITLE']) . "</a>";
@@ -156,22 +156,22 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 			<div class="disk-file-info-item-title"><?= htmlspecialcharsbx($entity['DESCRIPTION']) ?></div>
 			<div class="disk-file-info-users">
 				<div class="disk-file-info-users-title"><?= Loc::getMessage('DISK_FILE_VIEW_ENTITY_MEMBERS') ?></div>
-				<? foreach($entity['MEMBERS'] as $member){?>
+				<?php  foreach($entity['MEMBERS'] as $member){?>
 					<div class="disk-file-info-user">
 						<div class="disk-file-info-user-avatar" <?= (!empty($member['AVATAR_SRC'])? "style=\"background-image: url({$member['AVATAR_SRC']});\"" : '') ?>></div>
-						<? if(empty($member['LINK'])) {?>
+						<?php  if(empty($member['LINK'])) {?>
 							<div class="disk-file-info-user-name"><?= htmlspecialcharsbx($member['NAME']) ?></div>
-						<? } else { ?>
+						<?php  } else { ?>
 							<a class="disk-file-info-user-name" target="_top" href="<?= $member['LINK'] ?>"><?= htmlspecialcharsbx($member['NAME']) ?></a>
-						<? } ?>
+						<?php  } ?>
 					</div>
-				<? } ?>
+				<?php  } ?>
 			</div>
-		<? }?>
+		<?php  }?>
 	</div>
-	<? } ?>
+	<?php  } ?>
 </div>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:disk.file.upload',
 	'',
@@ -216,17 +216,17 @@ BX(function () {
 			externalLink: BX(document.querySelector('[data-entity="external-link-place"]'))
 		},
 		externalLinkInfo: {
-			<? if ($arResult['EXTERNAL_LINK']['ID']) { ?>
+			<?php  if ($arResult['EXTERNAL_LINK']['ID']) { ?>
 				id: <?= $arResult['EXTERNAL_LINK']['ID']?>,
 				objectId: <?= $arResult['EXTERNAL_LINK']['OBJECT_ID']?>,
 				link: '<?= $arResult['EXTERNAL_LINK']['LINK']?>',
 				hasPassword: <?= $arResult['EXTERNAL_LINK']['HAS_PASSWORD']? 'true' : 'false'?>,
 				hasDeathTime: <?= $arResult['EXTERNAL_LINK']['HAS_DEATH_TIME']? 'true' : 'false'?>,
 				deathTimeTimestamp: <?= $arResult['EXTERNAL_LINK']['DEATH_TIME_TIMESTAMP']?: 'null'?>,
-				<? if ($arResult['EXTERNAL_LINK']['DEATH_TIME']) { ?>
+				<?php  if ($arResult['EXTERNAL_LINK']['DEATH_TIME']) { ?>
 				deathTime: '<?= $arResult['EXTERNAL_LINK']['DEATH_TIME'] ?>'
-				<? } ?>
-			<? } ?>
+				<?php  } ?>
+			<?php  } ?>
 		},
 		uf: {
 			editButton: BX('bx-disk-link-edit-uf-values'),
@@ -241,7 +241,7 @@ BX(function () {
 
 BX.message(<?=Main\Web\Json::encode($messages)?>);
 </script>
-<?
+<?php 
 global $USER;
 if(
 	\Bitrix\Disk\Integration\Bitrix24Manager::isEnabled()
@@ -249,7 +249,7 @@ if(
 {
 	?>
 	<div id="bx-bitrix24-business-tools-info" style="display: none; width: 600px; margin: 9px;">
-		<? $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
+		<?php  $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
 	</div>
 
 	<script type="text/javascript">
@@ -258,7 +258,7 @@ if(
 	});
 	</script>
 
-<?
+<?php 
 }
 
 $APPLICATION->IncludeComponent(

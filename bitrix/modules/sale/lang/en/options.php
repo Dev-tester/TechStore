@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ARCHIVE_BLOCKED_ORDER_ACCEPT"] = "Allow archiving of locked orders";
 $MESS["BX_SALE_SETTINGS_OPTION_DISCOUNT_APPLY_MODE"] = "Cart rule behavior if other modules also have discounts";
 $MESS["BX_SALE_SETTINGS_OPTION_PERCENT_FROM_BASE_PRICE"] = "Use full product price to calculate percent based discount/markup";

@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 
 //http://jabber.bx/view.php?id=25340
 $arComponentVariables = array('message_id','group_id','wiki_name');

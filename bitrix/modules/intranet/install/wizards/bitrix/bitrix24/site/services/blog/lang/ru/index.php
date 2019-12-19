@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_DEMO_GROUP_SOCNET"] = "Группа для социальной сети";
 $MESS["BLG_NAME"] = "Блог пользователя";
 $MESS["BLOG_DEMO_CATEGORY_1"] = "Советы";

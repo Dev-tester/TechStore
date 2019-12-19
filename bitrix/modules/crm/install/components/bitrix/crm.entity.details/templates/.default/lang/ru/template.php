@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_ENT_DETAIL_MAIN_TAB'] = "Общие";
 $MESS['CRM_ENT_DETAIL_COPY_LEAD_URL'] = "Скопировать ссылку на лид в буфер обмена";
 $MESS['CRM_ENT_DETAIL_COPY_DEAL_URL'] = "Скопировать ссылку на сделку в буфер обмена";

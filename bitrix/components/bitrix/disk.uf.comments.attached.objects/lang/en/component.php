@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_UF_ATTACHED_ACTION_SAVE_TO_OWN_FILES"] = "Save to Bitrix24.Drive";
 $MESS["WDUF_PICKUP_ATTACHMENTS"] = "Select file on this computer";
 $MESS["WDUF_ATTACHED_TO_MESSAGE"] = "The file has been attached to the message.";

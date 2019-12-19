@@ -90,7 +90,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 ?>
 <a name="tb"></a>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -101,23 +101,23 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td><?echo GetMessage("STAT_F_SEARCHER_ID")?></td>
-	<td><?echo SelectBox("find_searcher_id", CSearcher::GetDropDownList(), "", htmlspecialcharsbx($find_searcher_id));?></td>
+	<td><?php echo GetMessage("STAT_F_SEARCHER_ID")?></td>
+	<td><?php echo SelectBox("find_searcher_id", CSearcher::GetDropDownList(), "", htmlspecialcharsbx($find_searcher_id));?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_SECTION_ENTITY_ID_FIELD"] = "Идентификатор раздела";
 $MESS["IBLOCK_SECTION_ENTITY_TIMESTAMP_X_FIELD"] = "Дата изменения";
 $MESS["IBLOCK_SECTION_ENTITY_MODIFIED_BY_FIELD"] = "Кем изменено";

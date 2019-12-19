@@ -1,4 +1,4 @@
-<?
+<?php 
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/classes/general/ratings.php");
 

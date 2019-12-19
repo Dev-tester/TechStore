@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_SETTINGS"] = "Данные";
 $MESS["INTR_SETTINGS_TITLE"] = "Источники данных для компонентов модуля";
 $MESS["INTR_SETTINGS_IMPORT"] = "Импорт";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["KGP_EMPTY_ID"] = "Product ID is not specified";
 $MESS["BT_MOD_CATALOG_PROD_ERR_PRODUCT_ID_ABSENT"] = "The product ID is missing or incorrect.";
 $MESS["BT_MOD_CATALOG_PROD_ERR_QUANTITY_ABSENT"] = "Product quantity is missing or incorrect.";

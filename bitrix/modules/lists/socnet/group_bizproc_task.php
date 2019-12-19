@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "group_group_lists";
 include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group/templates/.default/util_group_menu.php");
 include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group/templates/.default/util_group_profile.php");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:lists.element.navchain", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:lists.element.navchain", ".default", array(
 	"IBLOCK_TYPE_ID" => COption::GetOptionString("lists", "socnet_iblock_type_id"),
 	"SOCNET_GROUP_ID" => $arResult["VARIABLES"]["group_id"],
 	"ADD_NAVCHAIN_GROUP" => "Y",
@@ -24,7 +24,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group
 	),
 	$component
 );?>
-<?$APPLICATION->IncludeComponent("bitrix:bizproc.task", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:bizproc.task", ".default", array(
 	"DOCUMENT_URL" => str_replace(
 		array("#list_id#", "#section_id#", "#element_id#", "#group_id#"),
 		array($arResult["VARIABLES"]["list_id"], intval($arResult["VARIABLES"]["section_id"]), $arResult["VARIABLES"]["element_id"], $arResult["VARIABLES"]["group_id"]),

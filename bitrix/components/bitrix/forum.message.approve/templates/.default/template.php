@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 /************************ Default Params ***************************/
 $iIndex = rand();
 if ($_SERVER['REQUEST_METHOD'] == "POST"):
@@ -18,12 +18,12 @@ if (!empty($arResult["ERROR_MESSAGE"])):?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?endif;
+<?php endif;
 if (!empty($arResult["OK_MESSAGE"])):?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?endif;
+<?php endif;
 if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):?>
 <div class="forum-navigation-box forum-navigation-top">
 	<div class="forum-page-navigation">
@@ -31,23 +31,23 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):?>
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?endif;
+<?php endif;
 ?>
 <div class="forum-header-box">
 	<div class="forum-header-options">
-		<?if ($arParams["TID"] > 0):?><span class="forum-option-topic"><a href="<?=$arResult["read"]?>"><?=$arResult["TOPIC"]["TITLE"]?></a></span><?endif;?>
+		<?php if ($arParams["TID"] > 0):?><span class="forum-option-topic"><a href="<?=$arResult["read"]?>"><?=$arResult["TOPIC"]["TITLE"]?></a></span><?php endif;?>
 		<span class="forum-option-subscribe"><a href="<?=$arResult["list"]?>"><?=$arResult["FORUM"]["NAME"]?></a></span>
 	</div>
 	<div class="forum-header-title"><span><?=GetMessage("F_TITLE")?></span></div>
 </div>
-<?
+<?php 
 if (empty($arResult["MESSAGE_LIST"])):?>
 <div class="forum-info-box forum-posts-notapproved">
 	<div class="forum-info-box-inner">
 		<?=GetMessage("F_EMPTY_RESULT")?>
 	</div>
 </div>
-<?
+<?php 
 	return false;
 endif;
 ?>
@@ -59,10 +59,10 @@ endif;
 <div class="forum-block-container">
 	<div class="forum-block-outer">
 		<div class="forum-block-inner">
-<?
+<?php 
 foreach ($arResult["MESSAGE_LIST"] as $res)
 {
-	?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+	?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 		"bitrix:forum.message.template", "",
 		Array(
 			"MESSAGE" => array_merge($res, array("NEW_TOPIC" => "N", "CHECKED" => (in_array($res["ID"], $message) ? "Y" : "N"))),
@@ -81,7 +81,7 @@ foreach ($arResult["MESSAGE_LIST"] as $res)
 		),
 		$component->__parent,
 		array("HIDE_ICONS" => "Y")
-	);?><?
+	);?><?php 
 }
 ?>
 	<tfoot>
@@ -92,7 +92,7 @@ foreach ($arResult["MESSAGE_LIST"] as $res)
 						<select name="ACTION">
 							<option value=""><?=GetMessage("F_MANAGE_MESSAGES")?></option>
 							<option value="SHOW" <?=($action == "SHOW" ? " selected='selected' " : "")?>><?=GetMessage("F_SHOW_MESSAGES")?></option>
-							<?if ($arResult["USER"]["RIGHTS"]["EDIT"] == "Y"):?><option value="DEL" <?=($action == "DEL" ? " selected='selected' " : "")?>><?=GetMessage("F_DELETE_MESSAGES")?></option><?endif;?>
+							<?php if ($arResult["USER"]["RIGHTS"]["EDIT"] == "Y"):?><option value="DEL" <?=($action == "DEL" ? " selected='selected' " : "")?>><?=GetMessage("F_DELETE_MESSAGES")?></option><?php endif;?>
 						</select>&nbsp;<input type="submit" value="OK" />
 					</div>
 				</div>
@@ -104,14 +104,14 @@ foreach ($arResult["MESSAGE_LIST"] as $res)
 	</div>
 </div>
 </form>
-<?if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):?>
+<?php if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):?>
 <div class="forum-navigation-box forum-navigation-bottom">
 	<div class="forum-page-navigation">
 		<?=$arResult["NAV_STRING"]?>
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?endif;?>
+<?php endif;?>
 <script type="text/javascript">
 BX.message({no_data: '<?=GetMessageJS("JS_NO_MESSAGES")?>', no_action: '<?=GetMessageJS("JS_NO_ACTION")?>', cdms: '<?=GetMessageJS("F_DELETE_MESSAGES_CONFIRM")?>'});
 </script>

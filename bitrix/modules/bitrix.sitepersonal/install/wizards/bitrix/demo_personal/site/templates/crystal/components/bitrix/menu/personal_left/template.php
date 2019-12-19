@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (!empty($arResult)):?>
+<?php if (!empty($arResult)):?>
 	<ul id="user-menu">
-<?foreach($arResult as $arItem):?>
-	<?if ($arItem["PERMISSION"] > "D"):?>
-		<li<?if ($arItem["SELECTED"]):?> class="selected"<?endif?>>
+<?php foreach($arResult as $arItem):?>
+	<?php if ($arItem["PERMISSION"] > "D"):?>
+		<li<?php if ($arItem["SELECTED"]):?> class="selected"<?php endif?>>
 			<b class="r2"></b>
 			<b class="r1"></b>
 			<b class="r0"></b>
@@ -13,8 +13,8 @@
 			<b class="r1"></b>
 			<b class="r2"></b>
 		</li>
-	<?endif?>
-<?endforeach?>
+	<?php endif?>
+<?php endforeach?>
 
 	</ul>
-<?endif?>
+<?php endif?>

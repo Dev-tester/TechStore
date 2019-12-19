@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/event_list.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));?>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:event_list", ".default", array(
 	"USER_PATH" => "#SITE_ID#company/personal/user/#user_id#/",
 	"PAGE_NUM" => "10",
@@ -15,4 +15,4 @@ $APPLICATION->IncludeComponent("bitrix:event_list", ".default", array(
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

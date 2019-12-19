@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_CL"] = "Select Time";
 $MESS["JS_CORE_EMPTYTPL"] = "(empty template)";
 $MESS["JS_CORE_HINT_EVENTS"] = "Upcoming Event";

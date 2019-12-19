@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACCOUNT_CHANGE_NOTE"] = "Для изменения учетной записи требуется ввод основного пароля";
 $MESS["FIRST_NAME"] = "Имя";
 $MESS["LAST_NAME"] = "Фамилия";

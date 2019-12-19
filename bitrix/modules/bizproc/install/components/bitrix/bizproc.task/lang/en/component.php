@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAT_DELEGATE_CANCEL"] = "Cancel";
 $MESS["BPAT_DELEGATE_LABEL"] = "Delegate";
 $MESS["BPAT_DELEGATE_SELECT"] = "Select";

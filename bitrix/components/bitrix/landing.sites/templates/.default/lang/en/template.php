@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_ACTIONS"] = "actions";
 $MESS["LANDING_TPL_ACTION_ADD"] = "New Website";
 $MESS["LANDING_TPL_ACTION_ADDPAGE"] = "Create page";

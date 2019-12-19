@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_WEBNODE_LIST_TITLE"] = "Web Servers";
 $MESS["CLU_WEBNODE_LIST_FLAG"] = "Flag";
 $MESS["CLU_WEBNODE_NOCONNECTION"] = "disconnected";

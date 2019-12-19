@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_EVENTLOG_WRONG_TIMESTAMP_X_FROM"] = "Введите в фильтре правильную дату \"c\" записи в журнал.";
 $MESS["MAIN_EVENTLOG_WRONG_TIMESTAMP_X_TO"] = "Введите в фильтре правильную дату \"по\" записи в журнал.";
 $MESS["MAIN_EVENTLOG_ID"] = "ID";

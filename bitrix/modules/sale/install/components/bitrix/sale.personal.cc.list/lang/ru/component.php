@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_MODULE_NOT_INSTALL']="Модуль Интернет-магазин не установлен.";
 $MESS['SPCL_DEFAULT_TITLE']="Мои пластиковые карты";
 $MESS['SPCL_PAGES'] = "Карты";

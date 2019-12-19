@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Iblock\Component\ElementList;
 use \Bitrix\Main;
 use \Bitrix\Main\Localization\Loc;

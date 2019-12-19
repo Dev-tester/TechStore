@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ERROR_ACCESS_DENIED'] = "Zugriff verweigert.";
 $MESS ['W_IBLOCK_IS_NOT_INSTALLED'] = "Das Modul \"Informationsblöcke\" wurde nicht installiert.";
 $MESS ['WD_NEW'] = "Neuer Ordner";

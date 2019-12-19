@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBSEC_A_DELERR_REFERERS"] = "Возможно есть ссылающиеся объекты.";
 $MESS["IBSEC_A_DELERR"] = "Ошибка удаления записи #ID#:";
 $MESS["IBSEC_A_UPDERR"] = "Ошибка изменения записи:";

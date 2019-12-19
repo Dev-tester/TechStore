@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 
@@ -36,7 +36,7 @@ $data = $arParams['DATA'];
 				<?=($data['RECURRING_SWITCHER'] == 'Y' && $arResult['RESTRICTED_LICENCE'] !== 'Y') ? 'crm-recur-checkbox-checked' : ''?>
 				<?=($arResult['RESTRICTED_LICENCE'] == 'Y') ? 'crm-recur-checkbox-blocked' : ''?>"
 		></span>
-<?
+<?php 
 if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 {
 	?>
@@ -49,7 +49,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 		});
 	</script>
 
-	<?
+	<?php 
 		return;
 }
 ?>
@@ -59,13 +59,13 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 		<div id="bx-component-scope-<?=htmlspecialcharsbx($templateId)?>" class="crm-recur-options-repeat">
 			<div class="crm-recur-options-field">
 				<span class="crm-recur-option-fn"><?=Loc::getMessage('CRM_RECURRING_FILTER_REPEAT_TYPE')?></span>
-				<?
+				<?php 
 				if ($arResult["ENTITY_TYPE_ID"] == \CCrmOwnerType::Invoice)
 				{
 					/**Invoice recurring data filter*/
 					?>
 						<span id="period-type-selector" class="crm-recur-option-tab-container">
-							<?
+							<?php 
 							if (empty($data['PERIOD']))
 							{
 								$data['PERIOD'] = 1;
@@ -92,7 +92,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 								value="<?=(int)($data['PERIOD']) > 0 && (int)($data['PERIOD']) <= 4 ? (int)($data['PERIOD']) : 1?>" />
 					</div>
 					<div data-bx-id="replication-panel" class="crm-recur-replication-panel">
-						<?//daily?>
+						<?php //daily?>
 						<div id="panel-period-1" class="crm-recur-replication-params<?=((int)($data['PERIOD']) == 1 ? ' opacity-1' : ' nodisplay')?>">
 							<div class="crm-recur-options-field">
 								<span class="crm-recur-option-fn"><?=Loc::getMessage('CRM_RECURRING_FILTER_EACH_M')?></span>
@@ -113,7 +113,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 							</div>
 						</div>
 
-						<?//weekly?>
+						<?php //weekly?>
 						<div id="panel-period-2" class="crm-recur-replication-params<?=((int)($data['PERIOD']) == 2 ? ' opacity-1' : ' nodisplay')?>">
 							<div class="crm-recur-options-field">
 								<span class="crm-recur-option-fn"><?=Loc::getMessage('CRM_RECURRING_FILTER_EACH_F')?></span>
@@ -128,13 +128,13 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 							</div>
 							<div class="crm-recur-options-field">
 								<div class="crm-recur-options-day-container">
-									<?for($k = 1; $k <= 7; $k++):?>
+									<?php for($k = 1; $k <= 7; $k++):?>
 										<label class="crm-recur-options-day">
 											<input class="crm-recur-options-checkbox weekly-week-days crm-recur-invisible"
 												   type="checkbox"
 												   name="RECUR_PARAM[WEEKLY_WEEK_DAYS][]"
 												   value="<?=$k?>"
-												<?
+												<?php 
 													if (is_array($data['WEEKLY_WEEK_DAYS']) && in_array($k, $data['WEEKLY_WEEK_DAYS'])
 														|| ($k === 1 && empty($data['WEEKLY_WEEK_DAYS'])))
 													{
@@ -142,7 +142,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 													}
 												?>/>
 											<span class="crm-recur-custom-checkbox
-													<?
+													<?php 
 												if (is_array($data['WEEKLY_WEEK_DAYS']) && in_array($k, $data['WEEKLY_WEEK_DAYS'])
 													|| ($k === 1 && empty($data['WEEKLY_WEEK_DAYS'])))
 												{
@@ -151,19 +151,19 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 											?>"></span>
 											&nbsp;<?=Loc::getMessage('CRM_RECURRING_FILTER_WD_SH_'.$k)?>
 										</label>
-									<?endfor?>
+									<?php endfor?>
 								</div>
 							</div>
 						</div>
 
-						<?//monthly?>
+						<?php //monthly?>
 						<div id="panel-period-3" class="crm-recur-replication-params<?=((int)($data['PERIOD']) == 3 ? ' opacity-1' :  ' nodisplay')?>">
 							<div class="crm-recur-options-field">
 								<label for="monthly-type-1">
 									<input data-bx-id="replication-monthly-type"
 										   id="monthly-type-1"
 										   name="RECUR_PARAM[MONTHLY_TYPE]" value="1"
-										   <?if($data['MONTHLY_TYPE'] == 1 || empty($data['MONTHLY_TYPE'])):?>checked<?endif?> class="crm-recur-options-radio monthly-type crm-recur-invisible"
+										   <?php if($data['MONTHLY_TYPE'] == 1 || empty($data['MONTHLY_TYPE'])):?>checked<?php endif?> class="crm-recur-options-radio monthly-type crm-recur-invisible"
 										   type="radio">
 									<span class="crm-recur-custom-radio <?=($data['MONTHLY_TYPE'] == 1 || empty($data['MONTHLY_TYPE'])) ? 'crm-recur-radio-checked' : ''?>"></span>
 									<span class="crm-recur-field-label"><?=Loc::getMessage('CRM_RECURRING_FILTER_EACH_M')?></span>
@@ -199,7 +199,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 										   id="monthly-type-2"
 										   name="RECUR_PARAM[MONTHLY_TYPE]"
 										   value="2"
-										   <?if($data['MONTHLY_TYPE'] == 2):?>checked<?endif?> class="crm-recur-options-radio monthly-type crm-recur-invisible"
+										   <?php if($data['MONTHLY_TYPE'] == 2):?>checked<?php endif?> class="crm-recur-options-radio monthly-type crm-recur-invisible"
 										   type="radio">
 									<span class="crm-recur-custom-radio <?=($data['MONTHLY_TYPE'] == 2) ? 'crm-recur-radio-checked' : ''?>"></span>
 									<span class="crm-recur-field-label"><?=Loc::getMessage('CRM_RECURRING_FILTER_EACH_M')?></span>
@@ -208,16 +208,16 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 									<select id="monthly-week-day-num"
 											name="RECUR_PARAM[MONTHLY_WEEKDAY_NUM]"
 											class="crm-recur-options-inp">
-										<?for($i = 0; $i <= 4; $i++):?>
-											<option value="<?=$i?>" <?if($data['MONTHLY_WEEKDAY_NUM'] == $i):?>selected<?endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_NUMBER_'.$i.'_M')?></option>
-										<?endfor?>
+										<?php for($i = 0; $i <= 4; $i++):?>
+											<option value="<?=$i?>" <?php if($data['MONTHLY_WEEKDAY_NUM'] == $i):?>selected<?php endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_NUMBER_'.$i.'_M')?></option>
+										<?php endfor?>
 									</select>
 								</label>
 								<label class="crm-recur-options-inp-container crm-recur-options-inp-container-period">
 									<select id="monthly-week-day" name="RECUR_PARAM[MONTHLY_WEEK_DAY]" class="crm-recur-options-inp">
-										<?for($k = 1; $k <= 7; $k++):?>
-											<option value="<?=$k?>" <?if($data['MONTHLY_WEEK_DAY'] == $k):?>selected<?endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_WD_'.$k)?></option>
-										<?endfor?>
+										<?php for($k = 1; $k <= 7; $k++):?>
+											<option value="<?=$k?>" <?php if($data['MONTHLY_WEEK_DAY'] == $k):?>selected<?php endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_WD_'.$k)?></option>
+										<?php endfor?>
 									</select>
 								</label>
 								<label class="crm-recur-field-label" for="replication-monthly-type-2"><?=Loc::getMessage('CRM_RECURRING_FILTER_EACH_M_ALT')?></label>
@@ -231,13 +231,13 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 							</div>
 						</div>
 
-						<?//yearly?>
+						<?php //yearly?>
 						<div id="panel-period-4" class="crm-recur-replication-params<?=((int)($data['PERIOD']) == 4 ? ' opacity-1' : ' nodisplay')?>">
 							<div class="crm-recur-options-field">
 								<label for="yearly-type-1">
 									<input id="yearly-type-1"
 										   name="RECUR_PARAM[YEARLY_TYPE]"
-										   value="1" <?if($data['YEARLY_TYPE'] == 1 || empty($data['YEARLY_TYPE'] )):?>checked<?endif?>
+										   value="1" <?php if($data['YEARLY_TYPE'] == 1 || empty($data['YEARLY_TYPE'] )):?>checked<?php endif?>
 										   class="crm-recur-options-radio yearly-type crm-recur-invisible"
 										   type="radio">
 									<span class="crm-recur-custom-radio <?=($data['YEARLY_TYPE'] == 1 || empty($data['YEARLY_TYPE'])) ? 'crm-recur-radio-checked' : ''?>"></span>
@@ -262,9 +262,9 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 									<select id="yearly-month-1"
 											name="RECUR_PARAM[YEARLY_MONTH_NUM_1]"
 											class="crm-recur-options-inp">
-										<?for($i = 1; $i <= 12; $i++):?>
-											<option value="<?=$i?>" <?if($data['YEARLY_MONTH_NUM_1'] == $i):?>selected<?endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_MONTH_'.$i)?></option>
-										<?endfor?>
+										<?php for($i = 1; $i <= 12; $i++):?>
+											<option value="<?=$i?>" <?php if($data['YEARLY_MONTH_NUM_1'] == $i):?>selected<?php endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_MONTH_'.$i)?></option>
+										<?php endfor?>
 									</select>
 								</label>
 							</div>
@@ -272,7 +272,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 								<label for="yearly-type-2">
 									<input id="yearly-type-2"
 										   name="RECUR_PARAM[YEARLY_TYPE]"
-										   value="2" <?if($data['YEARLY_TYPE'] == 2):?>checked<?endif?>
+										   value="2" <?php if($data['YEARLY_TYPE'] == 2):?>checked<?php endif?>
 										   class="crm-recur-options-radio yearly-type crm-recur-invisible"
 										   type="radio">
 									<span class="crm-recur-custom-radio <?=($data['YEARLY_TYPE'] == 2) ? 'crm-recur-radio-checked' : ''?>"></span>
@@ -282,31 +282,31 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 									<select id="yearly-week-day-num"
 											name="RECUR_PARAM[YEARLY_WEEK_DAY_NUM]"
 											class="crm-recur-options-inp">
-										<?for($i = 0; $i <= 4; $i++):?>
-											<option value="<?=$i?>" <?if($data['YEARLY_WEEK_DAY_NUM'] == $i):?>selected<?endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_NUMBER_'.$i.'_M')?></option>
-										<?endfor?>
+										<?php for($i = 0; $i <= 4; $i++):?>
+											<option value="<?=$i?>" <?php if($data['YEARLY_WEEK_DAY_NUM'] == $i):?>selected<?php endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_NUMBER_'.$i.'_M')?></option>
+										<?php endfor?>
 									</select>
 								</label>
 								<label class="crm-recur-options-inp-container crm-recur-options-inp-container-period">
 									<select id="yearly-week-day" name="RECUR_PARAM[YEARLY_WEEK_DAY]" class="crm-recur-options-inp">
-										<?for($k = 1; $k <= 7; $k++):?>
-											<option value="<?=$k?>" <?if($data['YEARLY_WEEK_DAY'] == $k):?>selected<?endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_WD_'.$k)?></option>
-										<?endfor?>
+										<?php for($k = 1; $k <= 7; $k++):?>
+											<option value="<?=$k?>" <?php if($data['YEARLY_WEEK_DAY'] == $k):?>selected<?php endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_WD_'.$k)?></option>
+										<?php endfor?>
 
 									</select>
 								</label>
 								<label class="crm-recur-field-label" for="replication-yearly-type-2"><?=Loc::getMessage('CRM_RECURRING_FILTER_MONTH_ALT')?></label>
 								<label class="crm-recur-options-inp-container crm-recur-options-inp-container-period">
 									<select id="yearly-month-2" name="RECUR_PARAM[YEARLY_MONTH_NUM_2]" class="crm-recur-options-inp">
-										<?for($i = 1; $i <= 12; $i++):?>
-											<option value="<?=$i?>" <?if($data['YEARLY_MONTH_NUM_2'] == $i):?>selected<?endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_MONTH_'.$i)?></option>
-										<?endfor?>
+										<?php for($i = 1; $i <= 12; $i++):?>
+											<option value="<?=$i?>" <?php if($data['YEARLY_MONTH_NUM_2'] == $i):?>selected<?php endif?>><?=Loc::getMessage('CRM_RECURRING_FILTER_MONTH_'.$i)?></option>
+										<?php endfor?>
 									</select>
 								</label>
 							</div>
 						</div>
 					</div>
-					<?
+					<?php 
 						/**Beginning block*/
 					?>
 					<div class="crm-recur-options-field">
@@ -322,7 +322,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 							</label>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				elseif ($arResult["ENTITY_TYPE_ID"] == \CCrmOwnerType::Deal)
 				{
@@ -332,7 +332,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 							<label>
 								<input id="crm-recur-deal-every"
 									   name="RECUR_PARAM[EXECUTION_TYPE]" value="<?=Manager::MULTIPLY_EXECUTION?>"
-									   <?if($data['EXECUTION_TYPE'] == Manager::MULTIPLY_EXECUTION || empty($data['MONTHLY_TYPE'])):?>checked<?endif?> class="crm-recur-options-radio selected-deal-type crm-recur-invisible"
+									   <?php if($data['EXECUTION_TYPE'] == Manager::MULTIPLY_EXECUTION || empty($data['MONTHLY_TYPE'])):?>checked<?php endif?> class="crm-recur-options-radio selected-deal-type crm-recur-invisible"
 									   type="radio">
 								<span class="crm-recur-custom-radio <?=($data['EXECUTION_TYPE'] == Manager::MULTIPLY_EXECUTION || empty($data['EXECUTION_TYPE'])) ? 'crm-recur-radio-checked' : ''?>"></span>
 								<span class="crm-recur-option-fn"><?=Loc::getMessage('CRM_RECURRING_FILTER_DO_REPEAT')?></span>
@@ -366,7 +366,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 							<label>
 								<input id="crm-recur-deal-before"
 									   name="RECUR_PARAM[EXECUTION_TYPE]" value="<?=Manager::SINGLE_EXECUTION?>"
-									   <?if($data['EXECUTION_TYPE'] == Manager::SINGLE_EXECUTION):?>checked<?endif?> class="crm-recur-options-radio selected-deal-type crm-recur-invisible"
+									   <?php if($data['EXECUTION_TYPE'] == Manager::SINGLE_EXECUTION):?>checked<?php endif?> class="crm-recur-options-radio selected-deal-type crm-recur-invisible"
 									   type="radio">
 								<span class="crm-recur-custom-radio <?=($data['EXECUTION_TYPE'] == Manager::SINGLE_EXECUTION) ? 'crm-recur-radio-checked' : ''?>"></span>
 								<span class="crm-recur-option-fn"><?=Loc::getMessage('CRM_RECURRING_FILTER_DEAL_CREATE_BY')?></span>
@@ -408,7 +408,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 							</label>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			<div id="crm-recur-end-block"  class="crm-recur-options-field crm-recur-options-field-nol">
@@ -458,7 +458,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 					<span class="crm-recur-option-fn"><label class="crm-recur-field-label"><?=Loc::getMessage('CRM_RECURRING_FILTER_REPEATS')?></label></span>
 				</div>
 			</div>
-			<?
+			<?php 
 			if ($arResult["ENTITY_TYPE_ID"] == \CCrmOwnerType::Deal && is_array($arResult["DEAL_CATEGORISES"]))
 			{
 				?>
@@ -467,19 +467,19 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 						<label for="" class="crm-recur-field-label crm-recur-field-label-br"><?=Loc::getMessage("CRM_RECURRING_FILTER_{$arParams['ENTITY_TYPE']}_CATEGORISES")?>:</label>
 						<label class="crm-recur-options-inp-container">
 							<select id="yearly-week-day" name="ENTITY_CATEGORY_ID" class="crm-recur-options-inp">
-								<?
+								<?php 
 								foreach($arResult["DEAL_CATEGORISES"] as $id => $name)
 								{
 									?>
-									<option value="<?=$id?>" <?if($data['CATEGORY_ID'] == $id):?>selected<?endif?>><?=htmlspecialcharsbx($name)?></option>
-									<?
+									<option value="<?=$id?>" <?php if($data['CATEGORY_ID'] == $id):?>selected<?php endif?>><?=htmlspecialcharsbx($name)?></option>
+									<?php 
 								}
 								?>
 							</select>
 						</label>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			if ($arResult["ENTITY_TYPE_ID"] == \CCrmOwnerType::Invoice)
 			{
@@ -561,7 +561,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 					</a>
 					<div class="crm-recur-template-field">
 						<span><?=Loc::getMessage('CRM_RECURRING_EMAIL_TEMPLATE')?></span>:
-						<?
+						<?php 
 							if ((int)($data['EMAIL_TEMPLATE_ID']) > 0)
 							{
 								$selectedTemplate = $data['EMAIL_TEMPLATE_ID'];
@@ -581,12 +581,12 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 									class="crm-recur-options-inp"
 								<?=empty($arResult['EMAIL_TEMPLATES']) ? "disabled" : ""?>
 							>
-								<?
+								<?php 
 									foreach ($arResult['EMAIL_TEMPLATES'] as $id => $title)
 									{
 										?>
-										<option value="<?=$id?>" <?if ($selectedTemplate == $id ):?>selected<?endif?>><?=htmlspecialcharsbx($title)?></option>
-										<?
+										<option value="<?=$id?>" <?php if ($selectedTemplate == $id ):?>selected<?php endif?>><?=htmlspecialcharsbx($title)?></option>
+										<?php 
 									}
 								?>
 							</select>
@@ -594,7 +594,7 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 						<p class="crm-recur-options-client-email-list" id="crm-recur-create-mail-template-link"><?=Loc::getMessage('CRM_RECURRING_CREATE_NEW')?></p>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			if (LANGUAGE_ID == 'ru')
 			{
@@ -607,18 +607,18 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 						<span id="next-data-hint"><?=$arResult['NEXT_EXECUTION_HINT']?></span>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{
 				?>
 				<div id="next-data-hint" class="crm-recur-options-field-fn crm-recur-options-field-ok">
 				</div>
-				<?
+				<?php 
 			}
 			?>
 		</div>
-		<?
+		<?php 
 		if ((int)($arParams['ID']) <= 0 || ((int)($arParams['ID']) && $arParams['IS_RECURRING'] !== 'Y'))
 		{
 			?>
@@ -629,13 +629,13 @@ if ($arResult['RESTRICTED_LICENCE'] == 'Y')
 						: 'CRM_RECURRING_TEMPLATE_WILL_BE_CREATED'
 				);?>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</div>
 </div>
 
-<?
+<?php 
 $jsData = array(
 	"EMAILS" => $arResult['EMAIL_LIST'], 
 	"CONTEXT" => $data['CONTEXT'], 

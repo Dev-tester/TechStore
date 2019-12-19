@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_OPTION_YANDEX_MAP_API_KEY"] = "Yandex.Maps API key";
 $MESS["FILEMAN_OPTION_YANDEX_MAP_API_KEY_NOTE"] = "How to get the key: #A#";
 $MESS["FILEMAN_OPTION_DEF_EDITOR"] = "Default page editor:";

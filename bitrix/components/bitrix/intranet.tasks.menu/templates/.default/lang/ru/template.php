@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTMT_BACK2LIST_DESCR'] = "Вернуться в список задач";
 $MESS ['INTMT_BACK2LIST'] = "Список задач";
 $MESS ['INTMT_EDIT_TASK_DESCR'] = "Изменить текущую задачу";

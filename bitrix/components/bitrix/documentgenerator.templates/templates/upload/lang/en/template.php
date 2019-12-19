@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_TEMPLATE_ADD_WITH_STAMPS"] = "With signatures and stamp";
 $MESS["DOCGEN_TEMPLATE_ADD_UPLOAD_NEW"] = "Upload new";
 $MESS["DOCGEN_TEMPLATE_ADD_FILE"] = "Upload template file";

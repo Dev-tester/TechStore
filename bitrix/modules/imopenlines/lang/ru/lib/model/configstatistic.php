@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_STATISTIC_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["CONFIG_STATISTIC_ENTITY_CONFIG_ID_FIELD"] = "Идентификатор настройки";
 $MESS["CONFIG_STATISTIC_ENTITY_SESSION_FIELD"] = "Количество сессий";

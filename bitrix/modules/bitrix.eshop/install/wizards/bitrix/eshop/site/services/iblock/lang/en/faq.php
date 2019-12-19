@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_FAQ_1"] = "Question";
 $MESS["WZD_OPTION_FAQ_2"] = "Publish Question";
 $MESS["WZD_OPTION_FAQ_3"] = "List Sort Index";

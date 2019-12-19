@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REGISTER_AUTOMATED_AUTH"] = "Automatically authorize users";
 $MESS["REGISTER_FIELD_AUTO_TIME_ZONE"] = "Time Zone";
 $MESS["REGISTER_FIELD_EMAIL"] = "E-mail";

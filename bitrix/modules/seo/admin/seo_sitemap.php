@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_admin_before.php");
 
 define('ADMIN_MODULE_NAME', 'seo');
@@ -212,7 +212,7 @@ BX.finishSitemap = function()
 <div id="sitemap_run" style="display: none;">
 	<div id="sitemap_progress"><?=SitemapRuntime::showProgress(Loc::getMessage('SEO_SITEMAP_RUN_INIT'), Loc::getMessage('SEO_SITEMAP_RUN_TITLE'), 0)?></div>
 </div>
-<?
+<?php 
 if(isset($_REQUEST['run']) && check_bitrix_sessid())
 {
 	$ID = intval($_REQUEST['run']);
@@ -223,10 +223,10 @@ if(isset($_REQUEST['run']) && check_bitrix_sessid())
 	generateSitemap(<?=$ID?>);
 }));
 </script>
-<?
+<?php 
 	}
 }
 ?>
-<?
+<?php 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

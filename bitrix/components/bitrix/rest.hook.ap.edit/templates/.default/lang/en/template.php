@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REST_HAPE_SUCCESS"] = "The changes have been saved.";
 $MESS["REST_HAPE_HTTPS_WARNING"] = "Attention! This technology should never be used without HTTPS.";
 $MESS["REST_HAPE_HTTPS_ERROR"] = "Attention! This technology can only be used with HTTPS.";

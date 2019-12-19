@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 
@@ -10,7 +10,7 @@ Loc::loadMessages(__FILE__);
 			<div class="connector-icon ui-icon ui-icon-service-vk-order"><i></i></div>
 		</div>
 		<div class="imconnector-field-box">
-			<?
+			<?php 
 			if ($arResult["DATA_STATUS"]["get_order_messages"] == 'Y')
 			{
 				?>
@@ -20,7 +20,7 @@ Loc::loadMessages(__FILE__);
 				<div class="imconnector-field-box-content">
 					<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_CHANGE_ANY_TIME')?>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -31,15 +31,15 @@ Loc::loadMessages(__FILE__);
 				<div class="imconnector-field-box-content">
 					<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_ORDERS_CONNECTION_INFO')?>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 	</div>
 </div>
-<?include "messages.php";?>
+<?php include "messages.php";?>
 <div class="imconnector-field-container">
-	<?
+	<?php 
 	if ($arResult["STATUS"])
 	{
 		if ($arResult["DATA_STATUS"]["get_order_messages"] == 'Y')
@@ -47,7 +47,7 @@ Loc::loadMessages(__FILE__);
 			?>
 			<div class="imconnector-field-section">
 				<div class="imconnector-field-main-title imconnector-field-main-title-no-border">
-					<?
+					<?php 
 					if ($arResult["FORM"]["GROUP"]["TYPE"] == "event")
 						echo Loc::getMessage("IMCONNECTOR_COMPONENT_VKGROUP_CONNECTED_PUBLIC_EVENT");
 					elseif ($arResult["FORM"]["GROUP"]["TYPE"] == "page")
@@ -78,7 +78,7 @@ Loc::loadMessages(__FILE__);
 					</form>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -98,7 +98,7 @@ Loc::loadMessages(__FILE__);
 									<?= htmlspecialcharsbx($arResult["FORM"]["GROUP"]["NAME"]) ?>
 								</a>
 								<div class="imconnector-field-box-subtitle">
-									<?
+									<?php 
 									if ($arResult["FORM"]["GROUP"]["TYPE"] == "event")
 										echo Loc::getMessage("IMCONNECTOR_COMPONENT_VKGROUP_CONNECTED_PUBLIC_EVENT");
 									elseif ($arResult["FORM"]["GROUP"]["TYPE"] == "page")
@@ -123,7 +123,7 @@ Loc::loadMessages(__FILE__);
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	else
@@ -146,7 +146,7 @@ Loc::loadMessages(__FILE__);
 				</button>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 </div>

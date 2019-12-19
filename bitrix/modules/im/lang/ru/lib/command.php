@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMAND_IM_CATEGORY"] = "Чат и звонки";
 $MESS["COMMAND_DEF_ME_TITLE"] = "Текст будет выделен курсивом";
 $MESS["COMMAND_DEF_ME_PARAMS"] = "текст";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_CONNECTOR_ERROR_STATUS"] = "В процессе работы вашего бота произошла ошибка. Вам необходимо проверить указанные данные и протестировать бота повторно.";
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_NAME"] = "Имя";
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_CODE"] = "Код";

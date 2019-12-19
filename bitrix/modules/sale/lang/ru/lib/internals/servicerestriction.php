@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_RSTR_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["SERVICE_RSTR_ENTITY_SERVICE_ID_FIELD"] = "Идентификатор сервиса";
 $MESS["SERVICE_RSTR_ENTITY_SORT_FIELD"] = "Сортировка";

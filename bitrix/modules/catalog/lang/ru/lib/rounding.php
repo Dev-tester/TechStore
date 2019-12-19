@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ROUNDING_ENTITY_ID_FIELD"] = "Идентификатор правила округления";
 $MESS["ROUNDING_ENTITY_CURRENCY_FIELD"] = "Валюта";
 $MESS["ROUNDING_ENTITY_PRICE_FIELD"] = "Минимальная цена";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /**
@@ -30,22 +30,22 @@ foreach($_REQUEST as $key => $value)
 }
 
 if ($arResult["IS_SIDE_PANEL"]): ?>
-	<? LocalRedirect($arResult["REDIRECT_URL"])?>
-<? else: ?>
-	<? if ($arResult["INTERNAL_PAGE"]): ?>
-		<?
+	<?php  LocalRedirect($arResult["REDIRECT_URL"])?>
+<?php  else: ?>
+	<?php  if ($arResult["INTERNAL_PAGE"]): ?>
+		<?php 
 			$titleClass = $APPLICATION->getPageProperty("TitleClass", false);
 			$APPLICATION->setPageProperty("TitleClass", trim(sprintf("%s %s", $titleClass, "pagetitle-wrap-hide")));
 		?>
 		<iframe id="internal-page-iframe" src="<?=$arResult["FRAME_URL"]?>" frameborder="0" class="internal-page-iframe">
 		</iframe>
-	<? else: ?>
-		<? define("INTERNAL_ADMIN_PAGE", "Y"); ?>
-		<? $bodyClass = $APPLICATION->getPageProperty("BodyClass", false); ?>
-		<? $APPLICATION->setPageProperty("BodyClass", trim(sprintf("%s %s", $bodyClass, "pagetitle-toolbar-field-view"))); ?>
-		<? require_once($_SERVER['DOCUMENT_ROOT'].$arResult["PAGE_PATH"]); ?>
-	<? endif; ?>
-<? endif; ?>
+	<?php  else: ?>
+		<?php  define("INTERNAL_ADMIN_PAGE", "Y"); ?>
+		<?php  $bodyClass = $APPLICATION->getPageProperty("BodyClass", false); ?>
+		<?php  $APPLICATION->setPageProperty("BodyClass", trim(sprintf("%s %s", $bodyClass, "pagetitle-toolbar-field-view"))); ?>
+		<?php  require_once($_SERVER['DOCUMENT_ROOT'].$arResult["PAGE_PATH"]); ?>
+	<?php  endif; ?>
+<?php  endif; ?>
 
 <script>
 	BX.ready(function() {
@@ -54,7 +54,7 @@ if ($arResult["IS_SIDE_PANEL"]): ?>
 			pageParams: '<?=CUtil::JSEscape($arResult["PAGE_PARAMS"])?>'
 		});
 
-		<? if ($arResult["INTERNAL_PAGE"]): ?>
+		<?php  if ($arResult["INTERNAL_PAGE"]): ?>
 			var iframe = BX("internal-page-iframe");
 			BX.bindOnce(iframe, "load", function() {
 				iframe.style.height = iframe.contentDocument.body.scrollHeight + "px";
@@ -65,6 +65,6 @@ if ($arResult["IS_SIDE_PANEL"]): ?>
 					}
 				});
 			});
-		<? endif; ?>
+		<?php  endif; ?>
 	});
 </script>

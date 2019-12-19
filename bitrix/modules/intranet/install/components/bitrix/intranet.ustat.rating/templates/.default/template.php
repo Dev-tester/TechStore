@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (isset($_REQUEST['AJAX']))
 {
@@ -10,13 +10,13 @@ $topActivity = $arParams['OFFSET'] ? (int) $arParams['TOP_ACTIVITY'] : $arResult
 
 ?>
 
-<? foreach ($arResult['DATA'] as $data): ?>
+<?php  foreach ($arResult['DATA'] as $data): ?>
 
 	<div class="pulse-popup-user-block <?=$USER->getId() == $data['USER_ID']?'pulse-popup-i-am-user':''?>">
 		<span class="pulse-popup-user-avatar" data-userid="<?=$data['USER_ID']?>"
-			<? if(!empty($arResult['USERS_INFO'][$data['USER_ID']]['AVATAR_SRC'])): ?>
+			<?php  if(!empty($arResult['USERS_INFO'][$data['USER_ID']]['AVATAR_SRC'])): ?>
 				style="background: url('<?=$arResult['USERS_INFO'][$data['USER_ID']]['AVATAR_SRC']?>') no-repeat center center;"
-			<?endif?>
+			<?php endif?>
 			>
 			<span class="pulse-popup-user-avatar-flag <?=$data['IS_INVOLVED']?'pulse-user-online':''?>"></span>
 		</span>
@@ -28,13 +28,13 @@ $topActivity = $arParams['OFFSET'] ? (int) $arParams['TOP_ACTIVITY'] : $arResult
 			<div class="pulse-popup-bar-wrap">
 			<span class="pulse-popup-bar">
 				<span class="pulse-popup-bar-inner" style="width: <?=$topActivity ? round($data['ACTIVITY']/$topActivity*100) : 0 ?>%;"></span>
-				<span class="pulse-popup-bar-caption"><?if(!$arParams['SECTION']):?><?=$data['SERVICES_COUNT'].' '.getNumberEnding($data['SERVICES_COUNT'], array(
+				<span class="pulse-popup-bar-caption"><?php if(!$arParams['SECTION']):?><?=$data['SERVICES_COUNT'].' '.getNumberEnding($data['SERVICES_COUNT'], array(
 						GetMessage('INTRANET_USTAT_RATING_SERVICE_COUNT_1'),
 						GetMessage('INTRANET_USTAT_RATING_SERVICE_COUNT_2'),
 						GetMessage('INTRANET_USTAT_RATING_SERVICE_COUNT_5')
-					))?><?endif?></span>
+					))?><?php endif?></span>
 			</span>
-				<?
+				<?php 
 					$activity = '';
 					$formattedAcitivty = \Bitrix\Intranet\UStat\UStat::getFormattedNumber($data['ACTIVITY']);
 
@@ -48,11 +48,11 @@ $topActivity = $arParams['OFFSET'] ? (int) $arParams['TOP_ACTIVITY'] : $arResult
 		</div>
 	</div>
 
-<? endforeach ?>
+<?php  endforeach ?>
 
-<? if (!$arParams['OFFSET']): ?>
+<?php  if (!$arParams['OFFSET']): ?>
 	<div id="pulse-popup-max-score" style="display: none"><?=$topActivity?></div>
-<? endif ?>
+<?php  endif ?>
 
 <script type="text/javascript">
 	var ustatUsers = BX.findChildren(BX('intranet-activity-container'), {className:'pulse-popup-user-name-text'}, true);
@@ -75,4 +75,4 @@ $topActivity = $arParams['OFFSET'] ? (int) $arParams['TOP_ACTIVITY'] : $arResult
 
 </script>
 
-<? die ?>
+<?php  die ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_RUSSIANPOST_NAME"] = "Russian Post";
 $MESS["SALE_DH_RUSSIANPOST_DESCRIPTION"] = "Mail delivery";
 $MESS["SALE_DH_RUSSIANPOST_GROUND_TITLE"] = "land mail";

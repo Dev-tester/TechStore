@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_TRASHCAN_ERROR_COULD_NOT_FIND_OBJECT"] = 'Не удалось найти объект.';
 $MESS["DISK_TRASHCAN_NAME"] = "Корзина";
 $MESS["DISK_TRASHCAN_COLUMN_ID"] = "ID";

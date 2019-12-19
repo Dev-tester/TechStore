@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Forum");
-?><?$APPLICATION->IncludeComponent("bitrix:forum", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:forum", ".default", array(
 	"THEME" => COption::GetOptionString("main","wizard_".SITE_TEMPLATE_ID."_forum_theme_id","gray", SITE_ID),
 	"SHOW_TAGS" => "Y",
 	"SHOW_AUTH_FORM" => "Y",
@@ -85,4 +85,4 @@ $APPLICATION->SetTitle("Forum");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

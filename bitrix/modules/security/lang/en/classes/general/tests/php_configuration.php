@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_PhpConfigurationTest_NAME"] = "PHP settings check";
 $MESS["SECURITY_SITE_CHECKER_PHP_ENTROPY"] = "No additional entropy source for session ID is defined";
 $MESS["SECURITY_SITE_CHECKER_PHP_ENTROPY_RECOMMENDATION"] = "Add the following line to the PHP settings:<br>session.entropy_file = /dev/urandom<br>session.entropy_length = 128";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUserTypeManager $USER_FIELD_MANAGER */
 use Bitrix\Main,
 	Bitrix\Main\Loader,

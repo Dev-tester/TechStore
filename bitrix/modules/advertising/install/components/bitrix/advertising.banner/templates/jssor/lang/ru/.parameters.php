@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_JSSOR_CYCLING"] = "Автоматическая смена слайда";
 $MESS["ADV_JSSOR_PAUSE"] = "Останавливать при наведении";
 $MESS["ADV_JSSOR_BS_HIDE_FOR_TABLETS"] = "Скрывать область с баннером на планшетах";

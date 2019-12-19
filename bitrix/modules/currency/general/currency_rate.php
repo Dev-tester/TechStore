@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Currency;
 
 IncludeModuleLangFile(__FILE__);

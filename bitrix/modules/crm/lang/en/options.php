@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OPTIONS_EMAIL_FROM"] = "\"From\" e-mail address";
 $MESS["CRM_OPTIONS_PATH_TO_ACTIVITY_CUSTOM_TYPE_LIST"] = "Activity types path template";
 $MESS["CRM_OPTIONS_PATH_TO_ACTIVITY_EDIT"] = "Template for path to activity edit form. ";

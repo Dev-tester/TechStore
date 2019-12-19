@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This stands for related (previous) tasks, not for Gantt links or smth else
  *

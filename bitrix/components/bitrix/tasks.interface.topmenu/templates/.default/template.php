@@ -16,7 +16,7 @@ if($_REQUEST['IFRAME'] && $_REQUEST['IFRAME']==='Y') {
             margin-top: 18px;
         }
     </style>
-    <?
+    <?php 
 }
 
 $menuId = intval($arParams["GROUP_ID"]) ? "tasks_panel_menu_group" : "tasks_panel_menu";
@@ -26,7 +26,7 @@ if((int)$arParams["GROUP_ID"] == 0 && $arParams['USER_ID'] == $arParams['LOGGED_
 	?>
 
 	<div class="" id="<?=$arResult['HELPER']->getScopeId()?>">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.interface.buttons',
 		'',
@@ -38,7 +38,7 @@ if((int)$arParams["GROUP_ID"] == 0 && $arParams['USER_ID'] == $arParams['LOGGED_
 		$component,
 		array('HIDE_ICONS' => true)
 	);
-	?></div><?
+	?></div><?php 
 }
 
 if(SITE_TEMPLATE_ID === "bitrix24")

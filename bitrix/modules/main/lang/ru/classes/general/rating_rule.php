@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['RR_GENERAL_ERR_NAME'] = "Поле &quot;Наименование&quot; не может быть пустым.";
 $MESS ['RR_GENERAL_ERR_ACTIVE'] = "Ошибка в указании флага &quot;Активность&quot;";
 $MESS ['RR_GENERAL_ERR_ENTITY_TYPE_ID'] = "Указанный оцениваемый объект не существует.";

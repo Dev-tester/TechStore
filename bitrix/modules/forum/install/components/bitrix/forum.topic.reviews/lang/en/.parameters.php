@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_MESSAGES_PER_PAGE"] = "Number of messages per page";
 $MESS["F_FORUM_ID"] = "Forum ID ";
 $MESS["F_IBLOCK_TYPE"] = "Type of information block";

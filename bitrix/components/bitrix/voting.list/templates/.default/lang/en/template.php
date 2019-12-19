@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_VOTING'] = "Vote";
 $MESS ['VOTE_RESULTS'] = "Results";
 $MESS ['VOTE_VOTES'] = "Votes";

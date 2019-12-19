@@ -1,4 +1,4 @@
-<?
+<?php 
 #require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/interface/admin_lib.php");
@@ -130,7 +130,7 @@ $popupWindow->StartContent();
 ?>
 <div class="webdav_iblock_settings_loader"></div>
 <div class="webdav_iblock_settings">
-<?
+<?php 
 	$arIBlockForm = $arIBlock; 
 	if ($bVarsFromForm)
 	{
@@ -156,19 +156,19 @@ $popupWindow->StartContent();
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="Update" value="Y" />
 <input type="hidden" name="IBLOCK_ID" value="<?=$iblock_id?>" />
-<?if (!empty($_REQUEST["back_url"])): ?>
+<?php if (!empty($_REQUEST["back_url"])): ?>
 <input type="hidden" name="back_url" value="<?=htmlspecialcharsbx($_REQUEST["back_url"])?>" />
-<?endif;
+<?php endif;
 ?>
 <table cellpadding="0" cellspacing="0" border="0" class="edit-table" id="edit2_edit_table" width="100%">
-<?
+<?php 
 	if ($bWorkflow || $bBizproc)
 	{
 ?>
 	<tr class="section">
 		<td colspan="2" align="center"><b><?=GetMessage("WD_TAB1_TITLE")?></b></td>
 	</tr>
-<?
+<?php 
 
 		if ($bWorkflow && $bBizproc):
 ?>
@@ -178,11 +178,11 @@ $popupWindow->StartContent();
 			<select name="WF_TYPE">
 				<option value="N"><?=GetMessage("IB_E_WF_TYPE_NONE")?></option>
 				<option value="WF" <?=($arIBlockForm["WORKFLOW"] == "Y" ? 'selected="selected"' : "")?>><?=GetMessage("IB_E_WF_TYPE_WORKFLOW")?></option>
-				<option value="BP" <?=($arIBlockForm["BIZPROC"] == "Y" ? 'selected="selected"' : "")?>><?echo GetMessage("IB_E_WF_TYPE_BIZPROC")?></option>
+				<option value="BP" <?=($arIBlockForm["BIZPROC"] == "Y" ? 'selected="selected"' : "")?>><?php echo GetMessage("IB_E_WF_TYPE_BIZPROC")?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 		elseif ($bWorkflow && !$bBizproc):
 ?>
 	<tr>
@@ -191,7 +191,7 @@ $popupWindow->StartContent();
 			<input type="checkbox" id="WF_TYPE" name="WF_TYPE_WF" value="WF" <?=($arIBlockForm["WORKFLOW"] == "Y" ? 'checked="checked"' : "")?> />
 		</td>
 	</tr>
-<?
+<?php 
 		elseif ($bBizproc && !$bWorkflow):
 ?>
 	<tr>
@@ -200,15 +200,15 @@ $popupWindow->StartContent();
 			<input type="checkbox" id="WF_TYPE" name="WF_TYPE_BP" value="BP" <?=($arIBlockForm["BIZPROC"] == "Y" ? 'checked="checked"' : "")?> />
 		</td>
 	</tr>
-<?
+<?php 
 		endif; 
 	}
 ?>
-<? if ($USER->IsAdmin()) { ?>
+<?php  if ($USER->IsAdmin()) { ?>
 	<tr class="section">
 		<td colspan="2" align="center"><b><?=GetMessage("WD_TAB15_TITLE")?></b></td>
 	</tr>
-<?
+<?php 
 	$UF_ENTITY = $ob->GetUfEntity();
 	$arUserField = $ob->GetUfFields();
 
@@ -234,7 +234,7 @@ $popupWindow->StartContent();
 			<i><?=htmlspecialcharsbx($type);?></i>
 		</td>
 	</tr>
-<?
+<?php 
 	}
 ?>
 	<tr>
@@ -242,7 +242,7 @@ $popupWindow->StartContent();
 			<a href="/bitrix/admin/userfield_edit.php?ENTITY_ID=<?=htmlspecialcharsbx($UF_ENTITY)?>&back_url=<?=htmlspecialcharsbx($backUrl)?>"><?=GetMessage("IB_WDUF_ADD")?></a>
 		</td>
 	</tr>
-<? } ?>
+<?php  } ?>
 	<tr class="section">
 		<td colspan="2" align="center"><b><?=GetMessage("WD_TAB2_TITLE")?></b></td>
 	</tr>
@@ -250,12 +250,12 @@ $popupWindow->StartContent();
 		<td width="50%" align="right" valign="top"><?=GetMessage("IB_E_RIGHTS")?></td>
 		<td width="50%">
 			<input type="checkbox" id="IB_E_RIGHTS" name="IB_E_RIGHTS" value="Y" <?=($ob->e_rights ? 'checked="checked"' : "")?> /><br />
-			<?if ($ob->e_rights) {?>
+			<?php if ($ob->e_rights) {?>
 				<div style="background-color: rgb(253, 255, 201); border: 1px solid rgb(237, 239, 185); font-size: 0.95em; padding:5px 15px; margin: 10px 0 0;"> <?=GetMessage("IB_E_PERMISSIONS_WARN");?> </div>
-			<?}?>
+			<?php }?>
 		</td>
 	</tr>
-<?
+<?php 
 	if ($ob->e_rights)
 	{
 		$APPLICATION->IncludeComponent("bitrix:webdav.iblock.rights", ".default", Array(
@@ -277,7 +277,7 @@ $popupWindow->StartContent();
 ?>	<tr class="section">
 		<td colspan="2" align="center"><b><?=GetMessage("WD_TAB3_TITLE")?></b></td>
 	</tr>
-<?
+<?php 
 	$arResult["GROUPS"] = array(); 
 	$db_res = CGroup::GetList($by="sort", $order="asc", Array("ID"=>"~2"));
 	if ($db_res && $res = $db_res->Fetch())
@@ -325,7 +325,7 @@ $popupWindow->StartContent();
 		<td width="50%" align="right"><?=GetMessage("IB_E_EVERYONE")?>:</td>
 		<td width="50%"><?=$arData["GROUP2"]?></td>
 	</tr>
-<?
+<?php 
 
 $artmp = array("" => GetMessage("IB_E_DEFAULT_ACCESS")) + $arResult["PERMISSIONS_TITLE"]; 
 $arResult["GROUPS_TITLE"] = array(); 
@@ -346,7 +346,7 @@ foreach ($arResult["GROUPS"] as $key => $val)
 		<td align="right"><?=htmlspecialcharsbx($val["NAME"])?>:</td>
 		<td><div class="wd-rights-delete" onclick="__obj.dropgroup(this);"></div><?=$arData["GROUP".$key]?></td>
 	</tr>
-<?	
+<?php 	
 	}
 }
 ?>
@@ -354,7 +354,7 @@ foreach ($arResult["GROUPS"] as $key => $val)
 		<td colspan="2" align="center"><a href="#" onclick="if (window['__obj'] != null){__obj.addgroup();} return false;"><?=GetMessage("WD_ADD_GROUP")?></a></td>
 	</tr>
 </table>
-<?
+<?php 
 } // original permissions
 ?>
 
@@ -430,8 +430,8 @@ BX.bind(BX('IB_E_RIGHTS'), "click", wdChangeRightsMode);
 <input type="hidden" name="save" value="Y" />
 </div>
 </div>
-<?
+<?php 
 $popupWindow->EndContent();
 $popupWindow->ShowStandardButtons();
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

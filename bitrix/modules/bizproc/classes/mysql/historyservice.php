@@ -1,4 +1,4 @@
-<?
+<?php 
 include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/classes/general/historyservice.php");
 
 class CBPHistoryService

@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/structure.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/structure.php");?>

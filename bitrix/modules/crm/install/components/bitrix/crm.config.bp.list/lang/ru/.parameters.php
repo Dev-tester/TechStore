@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BP_ENTITY_ID"] = "Тип шаблона";
 $MESS["CRM_ENTITY_LIST_URL"] = "URL списка типов";
 $MESS["CRM_BP_LIST_URL"] = "URL списка шаблонов";

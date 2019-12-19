@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS ['PATH_TO_POST_TIP'] = "Указывается путь к главной странице Wiki. Например: wiki.php?title=#wiki_name#.";
 $MESS ['PATH_TO_POST_EDIT_TIP'] = "Указывается путь к странице редактирования Wiki страницы. Например: wiki_edit.php?title=#wiki_name#";

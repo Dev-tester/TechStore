@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_MAIL_LINK_EDITOR_TITLE"] = "utm parameters";
 $MESS["SENDER_MAIL_LINK_EDITOR_ACCEPT"] = "Apply";
 $MESS["SENDER_MAIL_LINK_EDITOR_CANCEL"] = "Cancel";

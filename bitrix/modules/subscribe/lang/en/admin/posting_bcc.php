@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['post_title'] = "Newsletter recipients";
 $MESS ['post_total'] = "Total addresses:";
 $MESS ['POST_STATUS_ID'] = "Status";

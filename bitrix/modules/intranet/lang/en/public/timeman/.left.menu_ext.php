@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TOP_MENU_ABSENCE"] = "Absence Chart";
 $MESS["TOP_MENU_MEETING"] = "Meetings and Briefings";
 $MESS["TOP_MENU_SETTINGS_PERMISSIONS"] = "Access Permissions";

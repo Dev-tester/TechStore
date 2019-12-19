@@ -152,7 +152,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 			e.preventDefault();
 			delete addedFields[fieldId]
 		}
-<?
+<?php 
 		foreach ($arCurrentValues as $fieldKey => $documentFieldValue)
 		{
 			if (!array_key_exists($fieldKey, $arDocumentFields))
@@ -168,21 +168,21 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 						$dialog->getDocumentType()
 				);
 			}
-			?>BWFVCAddCondition('<?= CUtil::JSEscape($fieldKey) ?>', <?= CUtil::PhpToJSObject($documentFieldValue) ?>);<?
+			?>BWFVCAddCondition('<?= CUtil::JSEscape($fieldKey) ?>', <?= CUtil::PhpToJSObject($documentFieldValue) ?>);<?php 
 		}
 		if (count($arCurrentValues) <= 0)
 		{
 			$fieldIds = array_keys($arDocumentFields);
-			?>BWFVCAddCondition("<?=CUtil::JSEscape($fieldIds[0])?>", "");<?
+			?>BWFVCAddCondition("<?=CUtil::JSEscape($fieldIds[0])?>", "");<?php 
 		}
 ?>});
 </script>
 <div id="bwfvc_addrow_table"></div>
-<?if ($canSetModifiedBy):?>
+<?php if ($canSetModifiedBy):?>
 	<div class="bizproc-automation-popup-settings">
 	<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-autocomplete">
 		<?=GetMessage('BIZPROC_AUTOMATION_SFA_MODIFIED_BY')?>:
 	</span>
 		<?=$dialog->renderFieldControl(['Type' => 'user', 'FieldName' => 'modified_by'], $modifiedBy)?>
 	</div>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_PROPERTY_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["IBLOCK_PROPERTY_ENTITY_TIMESTAMP_X_FIELD"] = "Дата изменения";
 $MESS["IBLOCK_PROPERTY_ENTITY_IBLOCK_ID_FIELD"] = "Идентификатор инфоблока";

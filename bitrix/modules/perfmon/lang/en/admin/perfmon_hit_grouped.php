@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_HIT_TITLE2"] = "Performance monitor: pages";
 $MESS["PERFMON_HIT_PAGE2"] = "Pages";
 $MESS["PERFMON_HIT_SERVER_NAME"] = "Server name";

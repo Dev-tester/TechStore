@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Iblock\PropertyTable;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -204,18 +204,18 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 	$editor = new CEditorPopupControl();
 	?>
 		<tr colspan="2"><td style="text-align: center;">
-			<?
+			<?php 
 			?>
 			<table class="internal" id="table_SECTION_PROPERTY">
 			<tr class="heading">
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_NAME");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_TYPE");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_SMART_FILTER");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_TYPE");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_EXPANDED");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_FILTER_HINT");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION");?></td></tr>
-			<?
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_NAME");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_TYPE");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_SMART_FILTER");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_TYPE");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_EXPANDED");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_FILTER_HINT");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION");?></td></tr>
+			<?php 
 			if(CIBlockRights::UserHasRightTo($IBLOCK_ID, $IBLOCK_ID, "iblock_edit"))
 				$arShadow = $arHidden = array(
 					-1 => GetMessage("CAT_CEDIT_PROP_SELECT_CHOOSE"),
@@ -245,14 +245,14 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 				}
 				$fileProperty = $arProp['PROPERTY_TYPE'] == PropertyTable::TYPE_FILE;
 			?>
-			<tr id="tr_SECTION_PROPERTY_<?echo $arProp["ID"]?>" <?if(!is_array($arLink)) echo 'style="display:none"';?>>
+			<tr id="tr_SECTION_PROPERTY_<?php echo $arProp["ID"]?>" <?php if(!is_array($arLink)) echo 'style="display:none"';?>>
 				<td style="text-align: left;">
-					<?if(!is_array($arLink) || $arLink["INHERITED"] == "N"):?>
-					<input type="hidden" name="SECTION_PROPERTY[<?echo $arProp["ID"]?>][SHOW]" id="hidden_SECTION_PROPERTY_<?echo $arProp["ID"]?>" value="<?echo is_array($arLink)? "Y": "N";?>">
-					<?endif?>
-					<?echo htmlspecialcharsbx($arProp["NAME"])?>
+					<?php if(!is_array($arLink) || $arLink["INHERITED"] == "N"):?>
+					<input type="hidden" name="SECTION_PROPERTY[<?php echo $arProp["ID"]?>][SHOW]" id="hidden_SECTION_PROPERTY_<?php echo $arProp["ID"]?>" value="<?php echo is_array($arLink)? "Y": "N";?>">
+					<?php endif?>
+					<?php echo htmlspecialcharsbx($arProp["NAME"])?>
 				</td>
-				<td style="text-align: left;"><?
+				<td style="text-align: left;"><?php 
 					if($arProp['PROPERTY_TYPE'] == "S" && !$arProp['USER_TYPE'])
 						echo GetMessage("IBLOCK_PROP_S");
 					elseif($arProp['PROPERTY_TYPE'] == "N" && !$arProp['USER_TYPE'])
@@ -270,11 +270,11 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 					else
 						echo GetMessage("IBLOCK_PROP_S");
 				?></td>
-				<td style="text-align:center"><?
+				<td style="text-align:center"><?php 
 					echo '<input type="checkbox" value="Y" '.((is_array($arLink) && $arLink["INHERITED"] == "Y") || $fileProperty ? 'disabled="disabled"': '').' name="SECTION_PROPERTY['.$arProp['ID'].'][SMART_FILTER]" '.($arLink["SMART_FILTER"] == "Y"? 'checked="checked"': '').'>';
 				?></td>
 				<td style="text-align: left;">
-					<?
+					<?php 
 					$displayTypes = CIBlockSectionPropertyLink::getDisplayTypes($arProp["PROPERTY_TYPE"], $arProp["USER_TYPE"]);
 					if ($displayTypes)
 					{
@@ -289,11 +289,11 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 					}
 					?>
 				</td>
-				<td style="text-align:center"><?
+				<td style="text-align:center"><?php 
 					echo '<input type="checkbox" value="Y" '.((is_array($arLink) && $arLink["INHERITED"] == "Y") || $fileProperty ? 'disabled="disabled"': '').' name="SECTION_PROPERTY['.$arProp['ID'].'][DISPLAY_EXPANDED]" '.($arLink["DISPLAY_EXPANDED"] == "Y"? 'checked="checked"': '').'>';
 				?></td>
 				<td>
-				<?
+				<?php 
 					if ($fileProperty)
 					{
 						echo '&nbsp;';
@@ -311,40 +311,40 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 						echo '&nbsp;';
 					}
 				?></td>
-				<td style="text-align: left;"><?
+				<td style="text-align: left;"><?php 
 					if(!is_array($arLink) || $arLink["INHERITED"] == "N")
 						echo '<a class="bx-action-href" href="javascript:deleteSectionProperty('.$arProp['ID'].', \'select_SECTION_PROPERTY\', \'shadow_SECTION_PROPERTY\', \'table_SECTION_PROPERTY\')">'.GetMessage("CAT_CEDIT_PROP_TABLE_ACTION_HIDE").'</a>';
 					else
 						echo '&nbsp;';
 				?></td>
 			</tr>
-			<?endwhile?>
-			<tr <?echo ($rows == 0)? '': 'style="display:none"';?>>
+			<?php endwhile?>
+			<tr <?php echo ($rows == 0)? '': 'style="display:none"';?>>
 				<td style="text-align: center;" colspan="4">
-					<?echo GetMessage("CAT_CEDIT_PROP_TABLE_EMPTY")?>
+					<?php echo GetMessage("CAT_CEDIT_PROP_TABLE_EMPTY")?>
 				</td>
 			</tr>
 			</table>
 			<br>
 			<select id="shadow_SECTION_PROPERTY" style="display:none">
-			<?
+			<?php 
 			foreach($arShadow as $key => $value)
 			{
-				?><option value="<?=htmlspecialcharsbx($key); ?>"><?=htmlspecialcharsbx($value);?></option><?
+				?><option value="<?=htmlspecialcharsbx($key); ?>"><?=htmlspecialcharsbx($value);?></option><?php 
 			}
 			?>
 			</select>
 			<select id="select_SECTION_PROPERTY">
-			<?
+			<?php 
 			foreach($arHidden as $key => $value)
 			{
-				?><option value="<?=htmlspecialcharsbx($key); ?>"><?=htmlspecialcharsbx($value); ?></option><?
+				?><option value="<?=htmlspecialcharsbx($key); ?>"><?=htmlspecialcharsbx($value); ?></option><?php 
 			}
 			?>
 			</select>
-			<input type="button" value="<?echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION_ADD")?>" onclick="addSectionProperty(<?echo $arIBlock["ID"];?>, 'select_SECTION_PROPERTY', 'shadow_SECTION_PROPERTY', 'table_SECTION_PROPERTY')">
+			<input type="button" value="<?php echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION_ADD")?>" onclick="addSectionProperty(<?php echo $arIBlock["ID"];?>, 'select_SECTION_PROPERTY', 'shadow_SECTION_PROPERTY', 'table_SECTION_PROPERTY')">
 			<script>
-			<?echo CIBlockSectionPropertyLink::getDisplayTypesJsFunction();?>
+			<?php echo CIBlockSectionPropertyLink::getDisplayTypesJsFunction();?>
 			var target_id = '';
 			var target_select_id = '';
 			var target_shadow_id = '';
@@ -374,7 +374,7 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 					target_select_id = select_id;
 					target_shadow_id = shadow_id;
 					(new BX.CAdminDialog({
-						'content_url' : '<?=$selfFolderUrl?>iblock_edit_property.php?lang=<?echo LANGUAGE_ID?>&IBLOCK_ID='+iblock_id+'&ID=n0&bxpublic=Y&from_module=iblock&return_url=section_edit',
+						'content_url' : '<?=$selfFolderUrl?>iblock_edit_property.php?lang=<?php echo LANGUAGE_ID?>&IBLOCK_ID='+iblock_id+'&ID=n0&bxpublic=Y&from_module=iblock&return_url=section_edit',
 						'width' : 700,
 						'height' : 400,
 						'buttons': [BX.CAdminDialog.btnSave, BX.CAdminDialog.btnCancel]
@@ -452,9 +452,9 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 					row.cells[4].style.textAlign = 'center';
 					row.cells[4].align = 'center';
 					row.cells[4].innerHTML = '<input type="checkbox" value="Y" name="SECTION_PROPERTY['+id+'][DISPLAY_EXPANDED]">';
-					row.cells[5].innerHTML = '<?echo CUtil::JSEscape($editor->getControlHtml('SECTION_PROPERTY[#ID#][FILTER_HINT]', '', 255))?>'.replace('#ID#', id);
+					row.cells[5].innerHTML = '<?php echo CUtil::JSEscape($editor->getControlHtml('SECTION_PROPERTY[#ID#][FILTER_HINT]', '', 255))?>'.replace('#ID#', id);
 					row.cells[6].align = 'left';
-					row.cells[6].innerHTML = '<a href="javascript:deleteSectionProperty('+id+', \''+target_select_id+'\', \''+target_shadow_id+'\', \''+target_id+'\')"><?echo GetMessageJS("CAT_CEDIT_PROP_TABLE_ACTION_HIDE")?></a>';
+					row.cells[6].innerHTML = '<a href="javascript:deleteSectionProperty('+id+', \''+target_select_id+'\', \''+target_shadow_id+'\', \''+target_id+'\')"><?php echo GetMessageJS("CAT_CEDIT_PROP_TABLE_ACTION_HIDE")?></a>';
 					var shadow = BX(target_shadow_id);
 					if(shadow)
 						jsSelectUtils.addNewOption(shadow, id, name);
@@ -481,7 +481,7 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 			}
 			</script>
 		</td></tr>
-		<?
+		<?php 
 		$arCatalog = false;
 		if (CModule::IncludeModule("catalog"))
 			$arCatalog = CCatalogSku::GetInfoByProductIBlock($IBLOCK_ID);
@@ -491,19 +491,19 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 			$arPropLinks = CIBlockSectionPropertyLink::GetArray($arCatalog["IBLOCK_ID"], 0);
 		?>
 		<tr colspan="2" class="heading">
-			<td style="text-align: center;"><?echo GetMessage("CAT_CEDIT_PROP_SKU_SECTION");?></td>
+			<td style="text-align: center;"><?php echo GetMessage("CAT_CEDIT_PROP_SKU_SECTION");?></td>
 		</tr>
 		<tr colspan="2"><td style="text-align: center;">
 			<table class="internal" id="table_SKU_SECTION_PROPERTY">
 			<tr class="heading">
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_NAME");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_TYPE");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_SMART_FILTER");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_TYPE");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_EXPANDED");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_FILTER_HINT");?></td>
-				<td><?echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION");?></td></tr>
-			<?
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_NAME");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_TYPE");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_SMART_FILTER");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_TYPE");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_DISPLAY_EXPANDED");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_FILTER_HINT");?></td>
+				<td><?php echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION");?></td></tr>
+			<?php 
 			if(CIBlockRights::UserHasRightTo($arCatalog["IBLOCK_ID"], $arCatalog["IBLOCK_ID"], "iblock_edit"))
 				$arShadow = $arHidden = array(
 					-1 => GetMessage("CAT_CEDIT_PROP_SELECT_CHOOSE"),
@@ -543,14 +543,14 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 				}
 				$fileProperty = $arProp['PROPERTY_TYPE'] == PropertyTable::TYPE_FILE;
 			?>
-			<tr id="tr_SECTION_PROPERTY_<?echo $arProp["ID"]?>" <?if(!is_array($arLink)) echo 'style="display:none"';?>>
+			<tr id="tr_SECTION_PROPERTY_<?php echo $arProp["ID"]?>" <?php if(!is_array($arLink)) echo 'style="display:none"';?>>
 				<td style="text-align: left;">
-					<?if(!is_array($arLink) || $arLink["INHERITED"] == "N"):?>
-					<input type="hidden" name="SECTION_PROPERTY[<?echo $arProp["ID"]?>][SHOW]" id="hidden_SECTION_PROPERTY_<?echo $arProp["ID"]?>" value="<?echo is_array($arLink)? "Y": "N";?>">
-					<?endif?>
-					<?echo htmlspecialcharsbx($arProp["NAME"])?>
+					<?php if(!is_array($arLink) || $arLink["INHERITED"] == "N"):?>
+					<input type="hidden" name="SECTION_PROPERTY[<?php echo $arProp["ID"]?>][SHOW]" id="hidden_SECTION_PROPERTY_<?php echo $arProp["ID"]?>" value="<?php echo is_array($arLink)? "Y": "N";?>">
+					<?php endif?>
+					<?php echo htmlspecialcharsbx($arProp["NAME"])?>
 				</td>
-				<td style="text-align: left;"><?
+				<td style="text-align: left;"><?php 
 					if($arProp['PROPERTY_TYPE'] == "S" && !$arProp['USER_TYPE'])
 						echo GetMessage("IBLOCK_PROP_S");
 					elseif($arProp['PROPERTY_TYPE'] == "N" && !$arProp['USER_TYPE'])
@@ -568,11 +568,11 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 					else
 						echo GetMessage("IBLOCK_PROP_S");
 				?></td>
-				<td style="text-align:center"><?
+				<td style="text-align:center"><?php 
 					echo '<input type="checkbox" value="Y" '.((is_array($arLink) && $arLink["INHERITED"] == "Y") || $fileProperty ? 'disabled="disabled"': '').' name="SECTION_PROPERTY['.$arProp['ID'].'][SMART_FILTER]" '.($arLink["SMART_FILTER"] == "Y"? 'checked="checked"': '').'>';
 				?></td>
 				<td style="text-align: left;">
-					<?
+					<?php 
 					$displayTypes = CIBlockSectionPropertyLink::getDisplayTypes($arProp["PROPERTY_TYPE"], $arProp["USER_TYPE"]);
 					if ($displayTypes)
 					{
@@ -587,11 +587,11 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 					}
 					?>
 				</td>
-				<td style="text-align:center"><?
+				<td style="text-align:center"><?php 
 					echo '<input type="checkbox" value="Y" '.((is_array($arLink) && $arLink["INHERITED"] == "Y") || $fileProperty ? 'disabled="disabled"': '').' name="SECTION_PROPERTY['.$arProp['ID'].'][DISPLAY_EXPANDED]" '.($arLink["DISPLAY_EXPANDED"] == "Y"? 'checked="checked"': '').'>';
 				?></td>
 				<td>
-				<?
+				<?php 
 					if ($fileProperty)
 					{
 						echo '&nbsp;';
@@ -609,43 +609,43 @@ $tabControl->BeginCustomField("SECTION_PROPERTY", GetMessage("CAT_CEDIT_SECTION_
 						echo '&nbsp;';
 					}
 				?></td>
-				<td style="text-align: left;"><?
+				<td style="text-align: left;"><?php 
 					if(!is_array($arLink) || $arLink["INHERITED"] == "N")
 						echo '<a class="bx-action-href" href="javascript:deleteSectionProperty('.$arProp['ID'].', \'select_SKU_SECTION_PROPERTY\', \'shadow_SKU_SECTION_PROPERTY\', \'table_SKU_SECTION_PROPERTY\')">'.GetMessage("CAT_CEDIT_PROP_TABLE_ACTION_HIDE").'</a>';
 					else
 						echo '&nbsp;';
 				?></td>
 			</tr>
-			<?endwhile?>
-			<tr <?echo ($rows == 0)? '': 'style="display:none"';?>>
+			<?php endwhile?>
+			<tr <?php echo ($rows == 0)? '': 'style="display:none"';?>>
 				<td style="text-align: center;" colspan="4">
-					<?echo GetMessage("CAT_CEDIT_PROP_TABLE_EMPTY")?>
+					<?php echo GetMessage("CAT_CEDIT_PROP_TABLE_EMPTY")?>
 				</td>
 			</tr>
 			</table>
 			<br>
 			<select id="shadow_SKU_SECTION_PROPERTY" style="display:none">
-			<?
+			<?php 
 			foreach($arShadow as $key => $value)
 			{
-				?><option value="<?= htmlspecialcharsbx($key); ?>"><?= htmlspecialcharsbx($value); ?></option><?
+				?><option value="<?= htmlspecialcharsbx($key); ?>"><?= htmlspecialcharsbx($value); ?></option><?php 
 			}
 			?>
 			</select>
 			<select id="select_SKU_SECTION_PROPERTY">
-			<?
+			<?php 
 			foreach($arHidden as $key => $value)
 			{
-				?><option value="<?= htmlspecialcharsbx($key); ?>"><?= htmlspecialcharsbx($value); ?></option><?
+				?><option value="<?= htmlspecialcharsbx($key); ?>"><?= htmlspecialcharsbx($value); ?></option><?php 
 			}
 			?>
 			</select>
-			<input type="button" value="<?echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION_ADD")?>" onclick="addSectionProperty(<?echo $arCatalog["IBLOCK_ID"];?>, 'select_SKU_SECTION_PROPERTY', 'shadow_SKU_SECTION_PROPERTY', 'table_SKU_SECTION_PROPERTY')">
+			<input type="button" value="<?php echo GetMessage("CAT_CEDIT_PROP_TABLE_ACTION_ADD")?>" onclick="addSectionProperty(<?php echo $arCatalog["IBLOCK_ID"];?>, 'select_SKU_SECTION_PROPERTY', 'shadow_SKU_SECTION_PROPERTY', 'table_SKU_SECTION_PROPERTY')">
 		</td></tr>
-			<?
+			<?php 
 		}
 		?>
-	<?
+	<?php 
 $tabControl->EndCustomField("SECTION_PROPERTY", '');
 $tabControl->Buttons(array("ajaxMode" => false, "disabled" => false));
 $tabControl->Show();

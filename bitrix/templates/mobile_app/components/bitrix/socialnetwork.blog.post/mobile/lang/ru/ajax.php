@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MOBILE_AJAX_POST_ID_ERROR"] = "Не передан ID поста";
 $MESS["BLOG_MOBILE_AJAX_BLOG_MODULE_ERROR"] = "Не установлен модуль блогов";
 $MESS["BLOG_MOBILE_AJAX_SONET_MODULE_ERROR"] = "Не установлен модуль социальной сети";

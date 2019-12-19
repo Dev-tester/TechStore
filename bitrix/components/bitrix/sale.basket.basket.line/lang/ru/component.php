@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_MODULE_NOT_INSTALL'] = "Модуль Интернет-магазин не установлен.";
 $MESS ['CURRENCY_MODULE_NOT_INSTALLED'] = "Модуль Валют не установлен.";
 $MESS ['TSB1_BASKET_TEXT'] = "В вашей корзине <b>#NUM#</b> товар#END#"; // compatibility!

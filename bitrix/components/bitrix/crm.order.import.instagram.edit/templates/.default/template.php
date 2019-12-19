@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -41,7 +41,7 @@ if (!$arResult['ACTIVE_STATUS'] || !$arResult['STATUS'])
 			<?=Loc::getMessage('CRM_OIIE_IMPORT_FEEDBACK');?>
 		</a>
 	</div>
-	<?
+	<?php 
 }
 
 $this->endViewTarget();
@@ -65,7 +65,7 @@ if (!empty($arResult['SHOW_ACTUAL_PAGE']) && $arParams['IFRAME'])
 			topSlider.getWindow().document.location.href = '<?=CUtil::JSEscape($arParams['PATH_TO_CONNECTOR_INSTAGRAM_VIEW_FULL'])?>';
 		}
 	</script>
-	<?
+	<?php 
 	die();
 }
 ?>
@@ -76,7 +76,7 @@ if (!empty($arResult['SHOW_ACTUAL_PAGE']) && $arParams['IFRAME'])
 </form>
 
 <div class="crm-order-instagram-edit">
-	<?
+	<?php 
 	$pagePath = \Bitrix\Main\Application::getDocumentRoot().$templateFolder.'/pages/';
 
 	if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'] && $arResult['STATUS'])
@@ -104,20 +104,20 @@ if (!empty($arResult['SHOW_ACTUAL_PAGE']) && $arParams['IFRAME'])
 							<?=Loc::getMessage('CRM_OIIE_FACEBOOK_CONNECTED')?>
 						</div>
 						<div class="crm-order-instagram-edit-disconnect">
-							<? if (empty($arResult['FORM']['USER']['INFO']['URL'])): ?>
+							<?php  if (empty($arResult['FORM']['USER']['INFO']['URL'])): ?>
 							<span class="crm-order-instagram-edit-user">
-							<? else: ?>
+							<?php  else: ?>
 							<a href="<?=$arResult['FORM']['USER']['INFO']['URL']?>"
 									target="_blank"
 									class="crm-order-instagram-edit-user">
-							<? endif; ?>
+							<?php  endif; ?>
 								<span class="crm-order-instagram-edit-user-img"<?=$logo?>></span>
 								<span class="crm-order-instagram-edit-user-name"><?=$arResult['FORM']['USER']['INFO']['NAME']?></span>
-							<? if (empty($arResult['FORM']['USER']['INFO']['URL'])): ?>
+							<?php  if (empty($arResult['FORM']['USER']['INFO']['URL'])): ?>
 							</span>
-							<? else: ?>
+							<?php  else: ?>
 							</a>
-							<? endif; ?>
+							<?php  endif; ?>
 							<button class="ui-btn ui-btn-sm ui-btn-light-border"
 									onclick="popupShowDisconnectImport(<?=CUtil::PhpToJSObject($arResult["CONNECTOR"])?>)">
 								<?=Loc::getMessage('CRM_OIIE_SETTINGS_DISABLE')?>
@@ -126,8 +126,8 @@ if (!empty($arResult['SHOW_ACTUAL_PAGE']) && $arParams['IFRAME'])
 					</div>
 				</div>
 			</div>
-			<? include $pagePath.'messages.php'; ?>
-			<?
+			<?php  include $pagePath.'messages.php'; ?>
+			<?php 
 			// case user haven't got any groups
 			if (empty($arResult['FORM']['PAGES']))
 			{
@@ -156,7 +156,7 @@ if (!empty($arResult['SHOW_ACTUAL_PAGE']) && $arParams['IFRAME'])
 						</button>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -186,7 +186,7 @@ if (!empty($arResult['SHOW_ACTUAL_PAGE']) && $arParams['IFRAME'])
 				}
 			);
 
-			<?
+			<?php 
 			if (!empty($arResult['NOTIFICATIONS']))
 			{
 				foreach ($arResult['NOTIFICATIONS'] as $notification)
@@ -197,7 +197,7 @@ if (!empty($arResult['SHOW_ACTUAL_PAGE']) && $arParams['IFRAME'])
 						category: 'InstagramStore::general',
 						width: 'auto'
 					});
-					<?
+					<?php 
 				}
 
 				$component::markSessionNotificationsRead();

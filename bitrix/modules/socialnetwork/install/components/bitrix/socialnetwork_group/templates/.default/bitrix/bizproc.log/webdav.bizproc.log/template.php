@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (array_key_exists("COMPONENT_VERSION", $arParams) && $arParams["COMPONENT_VERSION"] == 2)
 {
@@ -44,40 +44,40 @@ else
 		<div class="bizproc-item-title bizproc-workflow-state-template-name">
 			<?=$arResult["arWorkflowState"]["TEMPLATE_NAME"] ?>
 		</div>
-		<?
+		<?php 
 	if (!empty($arResult["arWorkflowState"]["STATE_MODIFIED"])):
 		?>
 		<div class="bizproc-item-date bizproc-workflow-state-modified">
 			<label><?= GetMessage("BPABL_STATE_MODIFIED")?>:</label>
 			<?=$arResult["arWorkflowState"]["STATE_MODIFIED"]?>
 		</div>
-		<?
+		<?php 
 	endif;
 	if (!empty($arResult["arWorkflowState"]["TEMPLATE_DESCRIPTION"])):
 		?>
 		<div class="bizproc-item-description bizproc-workflow-state-template-description">
 			<?=$arResult["arWorkflowState"]["TEMPLATE_DESCRIPTION"]?>
 		</div>
-		<?
+		<?php 
 	endif;
 	if (strlen($arResult["arWorkflowState"]["STATE_NAME"]) > 0):
 	?>
 		<div class="bizproc-item-text bizproc-workflow-state-name">
 			<label><?=GetMessage("BPABL_STATE_NAME")?>:</label>
-			<?
+			<?php 
 			if (strlen($arResult["arWorkflowState"]["STATE_TITLE"]) > 0)
 				echo $arResult["arWorkflowState"]["STATE_TITLE"]." (".$arResult["arWorkflowState"]["STATE_NAME"].")";
 			else
 				echo $arResult["arWorkflowState"]["STATE_NAME"];
 			?>
 		</div>
-	<?
+	<?php 
 	endif;
 	?>
 		<div class="bizproc-item-text bizproc-workflow-state-log">
 			<label><?= GetMessage("BPABL_LOG")?>:</label>
 			<div class="bizproc-workflow-state-log-data">
-	<?
+	<?php 
 				$current_level = -1;
 				foreach ($arResult["arWorkflowTrack"] as $track)
 				{
@@ -152,11 +152,11 @@ else
 					if ($current_level < $track["LEVEL"]):
 	?>
 					<ul class="bizproc-list bizproc-workflow-state-log-data">
-	<?
+	<?php 
 					elseif ($current_level > $track["LEVEL"]):
 	?>
 					</ul>
-	<?
+	<?php 
 					endif;
 					$arPattern = array("#ACTIVITY#", "#STATUS#", "#RESULT#", "#NOTE#");
 					$arReplace = array($name, $status, $result, $note);
@@ -172,12 +172,12 @@ else
 							$arPattern,
 							$arReplace,
 							$strMessageTemplate)?></li>
-	<?
+	<?php 
 				}
 				?>
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

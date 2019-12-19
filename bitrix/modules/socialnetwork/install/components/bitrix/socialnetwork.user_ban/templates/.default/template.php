@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,13 +16,13 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 
 	?><form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
+	<?php endif;?>
 	<div class="sonet-cntnr-user-ban">
 	<table width="100%" class="sonet-user-profile-friends data-table">
 		<tr>
@@ -30,14 +30,14 @@ else
 		</tr>
 		<tr>
 			<td>
-				<?
+				<?php 
 				if ($arResult["Ban"] && $arResult["Ban"]["List"])
 				{
 					?>
 					<table width="100%" border="0" class="sonet-user-profile-friend-box">
 					<tr>
 						<td align="left" valign="top">						
-					<?
+					<?php 
 					$ind = 0;
 					$ind_row = 0;
 					
@@ -53,17 +53,17 @@ else
 							$ind_row = 0;
 						}
 
-						?><div class="user-div"><?
+						?><div class="user-div"><?php 
 
 						if ($ban["CAN_DELETE_BAN"])
 						{
 							?><table cellspacing="0" cellpadding="0" border="0" class="sonet-user-profile-friend-user">
 							<tr>
-								<td align="right" class="checkbox-cell"><?
+								<td align="right" class="checkbox-cell"><?php 
 								echo "<input type=\"checkbox\" name=\"checked_".$ind."\" value=\"Y\">";
 								echo "<input type=\"hidden\" name=\"id_".$ind."\" value=\"".$ban["ID"]."\">";
 								?></td>
-								<td><?
+								<td><?php 
 						}
 
 
@@ -99,18 +99,18 @@ else
 						{
 							?></td>
 							</tr>
-							</table><?
+							</table><?php 
 						}
 
 						$ind++;
 						$ind_row++;						
-						?></div><?
+						?></div><?php 
 					}
 					?>
 						</td>
 					</tr>
 					</table>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -121,13 +121,13 @@ else
 		</tr>
 	</table>
 	</div>
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<br><?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
+	<?php endif;?>
 	<br />
 	<input type="hidden" name="max_count" value="<?= $ind ?>">
 	<?=bitrix_sessid_post()?>
 	<input type="submit" name="delete" value="<?= GetMessage("SONET_C32_T_DELETE") ?>">		
-	</form><?
+	</form><?php 
 }
 ?>

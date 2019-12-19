@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_QUANTITY"] = "Quantity";
 $MESS["CATALOG_QUANTITY_FROM_TO"] = "from #FROM# to #TO#";
 $MESS["CATALOG_QUANTITY_FROM"] = "#FROM# and more";

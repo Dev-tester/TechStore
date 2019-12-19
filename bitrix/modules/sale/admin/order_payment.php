@@ -517,7 +517,7 @@ $APPLICATION->SetTitle(GetMessage("PAYMENT_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 <form name="find_form" method="GET" action="<?=$curPage?>?">
-<?
+<?php 
 $filter = array(
 	"filter_order_id" => GetMessage("PAYMENT_ORDER_ID"),
 	"filter_order_paid" => GetMessage("PAYMENT_ORDER_PAID"),
@@ -573,12 +573,12 @@ $oFilter->Begin();
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("PAYMENT_ORDER_PAID")?>:</td>
+	<td><?php echo GetMessage("PAYMENT_ORDER_PAID")?>:</td>
 	<td>
 		<select name="filter_order_paid">
 			<option value="NOT_REF">(<?=GetMessage("PAYMENT_ORDER_PAID_ALL");?>)</option>
-			<option value="Y"<?if ($filter_order_paid=="Y") echo " selected"?>><?=GetMessage("PAYMENT_ORDER_PAID_YES");?></option>
-			<option value="N"<?if ($filter_order_paid=="N") echo " selected"?>><?=GetMessage("PAYMENT_ORDER_PAID_NO");?></option>
+			<option value="Y"<?php if ($filter_order_paid=="Y") echo " selected"?>><?=GetMessage("PAYMENT_ORDER_PAID_YES");?></option>
+			<option value="N"<?php if ($filter_order_paid=="N") echo " selected"?>><?=GetMessage("PAYMENT_ORDER_PAID_NO");?></option>
 		</select>
 	</td>
 </tr>
@@ -588,7 +588,7 @@ $oFilter->Begin();
 		<?=CalendarPeriod("filter_date_paid_from", htmlspecialcharsbx($filter_date_paid_from), "filter_date_paid_to", htmlspecialcharsbx($filter_date_paid_to), "find_form", "Y")?>
 	</td>
 </tr>
-<?
+<?php 
 	$res = CSite::GetList($bySite="sort", $orderSite="asc");
 	$siteInfo = array();
 	while ($site = $res->Fetch())
@@ -604,14 +604,14 @@ $oFilter->Begin();
 	<td>
 		<select name="filter_site_id">
 			<option value="NOT_REF">(<?=GetMessage("PAYMENT_ORDER_PAID_ALL");?>)</option>
-			<?
+			<?php 
 			foreach ($siteInfo as $id => $siteName)
 				echo '<option value="'.$id.'">'.htmlspecialcharsbx($siteName).'</option>';
 			?>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 	$params = array(
 		'select' => array('ID', 'NAME'),
 		'filter' => array('ACTIVE' => 'Y'),
@@ -625,7 +625,7 @@ $oFilter->Begin();
 	<td>
 		<select multiple name="filter_pay_system_id[]">
 			<option value="NOT_REF">(<?=GetMessage("PAYMENT_ORDER_PAID_ALL");?>)</option>
-			<?
+			<?php 
 			$ptRes = \Bitrix\Sale\Internals\PersonTypeTable::getList(array(
 				'order' => array("SORT"=>"ASC", "NAME"=>"ASC")
 			));
@@ -653,13 +653,13 @@ $oFilter->Begin();
 					if ($psPt)
 						$personTypeString = ' ('.join(', ', $psPt).')';
 				}
-				?><option title="<?echo htmlspecialcharsbx($paySystem["NAME"].$personTypeString);?>" value="<?echo htmlspecialcharsbx($paySystem["ID"])?>"<?if(is_array($filter_pay_system_id) && in_array($paySystem["ID"], $filter_pay_system_id)) echo " selected"?>>[<?echo htmlspecialcharsbx($paySystem["ID"]) ?>] <?echo htmlspecialcharsbx($paySystem["NAME"].$personTypeString);?></option><?
+				?><option title="<?php echo htmlspecialcharsbx($paySystem["NAME"].$personTypeString);?>" value="<?php echo htmlspecialcharsbx($paySystem["ID"])?>"<?php if(is_array($filter_pay_system_id) && in_array($paySystem["ID"], $filter_pay_system_id)) echo " selected"?>>[<?php echo htmlspecialcharsbx($paySystem["ID"]) ?>] <?php echo htmlspecialcharsbx($paySystem["NAME"].$personTypeString);?></option><?php 
 			endforeach;
 			?>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 	$params = array(
 		'select' => array('ID', 'NAME')
 	);
@@ -675,17 +675,17 @@ $oFilter->Begin();
 <tr>
 	<td><?=GetMessage("PAYMENT_PRICE");?>:</td>
 	<td>
-		<?echo GetMessage("PAYMENT_PRICE_FROM");?>
+		<?php echo GetMessage("PAYMENT_PRICE_FROM");?>
 		<input type="text" name="filter_sum_from" value="<?=($filter_sum_from!=0) ? htmlspecialcharsbx($filter_sum_from) : '';?>" size="3">
 
-		<?echo GetMessage("PAYMENT_PRICE_TO");?>
+		<?php echo GetMessage("PAYMENT_PRICE_TO");?>
 		<input type="text" name="filter_sum_to" value="<?=($filter_sum_to!=0) ? htmlspecialcharsbx($filter_sum_to) : '';?>" size="3">
 	</td>
 </tr>
 <tr>
 	<td><?=GetMessage("PAYMENT_CURRENCY");?>:</td>
 	<td>
-		<?echo CCurrency::SelectBox("filter_currency", htmlspecialcharsbx($filter_currency), GetMessage("PAYMENT_CURRENCY_ALL"), false, "", ""); ?>
+		<?php echo CCurrency::SelectBox("filter_currency", htmlspecialcharsbx($filter_currency), GetMessage("PAYMENT_CURRENCY_ALL"), false, "", ""); ?>
 	</td>
 </tr>
 <tr>
@@ -695,25 +695,25 @@ $oFilter->Begin();
 	</td>
 </tr>
 <tr>
-	<td><?echo \Bitrix\Main\Localization\Loc::getMessage("SALE_PAYMENT_F_USER_ID");?>:</td>
+	<td><?php echo \Bitrix\Main\Localization\Loc::getMessage("SALE_PAYMENT_F_USER_ID");?>:</td>
 	<td>
-		<?echo FindUserID("filter_user_id", $filter_user_id, "", "find_form");?>
+		<?php echo FindUserID("filter_user_id", $filter_user_id, "", "find_form");?>
 	</td>
 </tr>
 <tr>
-	<td><?echo \Bitrix\Main\Localization\Loc::getMessage("SALE_PAYMENT_F_USER_LOGIN");?>:</td>
+	<td><?php echo \Bitrix\Main\Localization\Loc::getMessage("SALE_PAYMENT_F_USER_LOGIN");?>:</td>
 	<td>
-		<input type="text" name="filter_user_login" value="<?echo htmlspecialcharsbx($filter_user_login)?>" size="40">
+		<input type="text" name="filter_user_login" value="<?php echo htmlspecialcharsbx($filter_user_login)?>" size="40">
 	</td>
 </tr>
 <tr>
-	<td><?echo \Bitrix\Main\Localization\Loc::getMessage("SALE_PAYMENT_F_USER_EMAIL");?>:</td>
+	<td><?php echo \Bitrix\Main\Localization\Loc::getMessage("SALE_PAYMENT_F_USER_EMAIL");?>:</td>
 	<td>
-		<input type="text" name="filter_user_email" value="<?echo htmlspecialcharsbx($filter_user_email)?>" size="40">
+		<input type="text" name="filter_user_email" value="<?php echo htmlspecialcharsbx($filter_user_email)?>" size="40">
 	</td>
 </tr>
 
-<?
+<?php 
 
 $oFilter->Buttons(
 	array(
@@ -726,7 +726,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

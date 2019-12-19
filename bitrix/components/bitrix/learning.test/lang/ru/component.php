@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MODULE_NOT_FOUND"] = "Модуль обучения не установлен.";
 $MESS["LEARNING_TEST_DENIED"] = "Тест не найден или доступ к нему запрещен.";
 $MESS["LEARNING_NO_AUTHORIZE"] = "Для просмотра этой страницы вы должны быть авторизованы.";

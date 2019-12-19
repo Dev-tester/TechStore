@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FM_MOVE_TOPIC'] = "Moving topic";
 $MESS ['FM_LEAVE_LINK'] = "Keep links to the moved topics in the old forum";
 $MESS ['F_IN'] = "to forum";

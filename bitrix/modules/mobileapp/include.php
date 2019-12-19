@@ -1,4 +1,4 @@
-<?
+<?php 
 // delete from updates
 //include("module_updater.php");
 

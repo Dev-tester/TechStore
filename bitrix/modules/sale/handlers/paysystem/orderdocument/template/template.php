@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<?$APPLICATION->ShowHeadStrings();?>
-		<?$APPLICATION->ShowHeadScripts();?>
+		<?php $APPLICATION->ShowHeadStrings();?>
+		<?php $APPLICATION->ShowHeadScripts();?>
 	</head>
 	<body>
 		<?php
@@ -49,10 +49,10 @@
 					var preview = new BX.DocumentGenerator.DocumentPreview(options);
 				});
 			</script>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent("bitrix:pull.request", "", [], false, ["HIDE_ICONS" => "Y"]);
 			?>
-		<?
+		<?php 
 		}
 		?>
 	</body>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CVP_PRICES"] = "Цены";
 $MESS["CVP_SORT_ASC"] = "по возрастанию";
 $MESS["CVP_SORT_DESC"] = "по убыванию";

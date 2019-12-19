@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_MA_EMPTY_MESSAGE"] = "The 'Message Text' parameter is missing.";
 $MESS["IMOL_MA_MESSAGE"] = "Message text";
 $MESS["IMOL_MA_IS_SYSTEM"] = "Hidden message (whisper mode)";

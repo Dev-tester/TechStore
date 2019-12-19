@@ -29,27 +29,27 @@ Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/activity.js');
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/interface_grid.js');
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/autorun_proc.js');
 Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/js/crm/css/autorun_proc.css');
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT'])
 {
-	?><div id="rebuildOrderSearchWrapper"></div><?
+	?><div id="rebuildOrderSearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_BUILD_TIMELINE'])
 {
-	?><div id="buildOrderTimelineWrapper"></div><?
+	?><div id="buildOrderTimelineWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING'])
 {
-	?><div id="refreshOrderAccountingWrapper"></div><?
+	?><div id="refreshOrderAccountingWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_ORDER_SHIPMENT_ATTRS'])
 {
 	?><div id="rebuildOrderAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_ORDER_SHIPMENT_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildOrderAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 }
-?></div><?
+?></div><?php 
 echo CCrmViewHelper::RenderOrderShipmentStatusSettings();
 $isInternal = $arResult['INTERNAL'];
 $callListUpdateMode = $arResult['CALL_LIST_UPDATE_MODE'];
@@ -299,7 +299,7 @@ if ($arResult['IS_AJAX_CALL'])
 					BX.CrmOrderStatusManager.statusInfoValues = <?= CUtil::PhpToJSObject($GLOBALS['OnCrmCrmOrderShipmentListAfterAjaxHandlerParams']['arOrderStatusInfoValues']) ?>;
 				}
 			});
-		</script><?
+		</script><?php 
 
 		return '';
 	}
@@ -392,7 +392,7 @@ if (!$arResult['IS_AJAX_CALL'])
 			}
 		});
 	</script>
-	<?
+	<?php 
 }
 if ($isInternal && (int)$arParams['INTERNAL_FILTER']['ORDER_ID'] > 0)
 {
@@ -416,5 +416,5 @@ if ($isInternal && (int)$arParams['INTERNAL_FILTER']['ORDER_ID'] > 0)
 			}
 		);
 	</script>
-	<?
+	<?php 
 }

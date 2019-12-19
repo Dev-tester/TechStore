@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_CATALOG_DENIED"] = "Доступ закрыт";
 $MESS["TASK_NAME_CATALOG_VIEW"] = "Просмотр товаров";
 $MESS["TASK_NAME_CATALOG_READ"] = "Чтение";

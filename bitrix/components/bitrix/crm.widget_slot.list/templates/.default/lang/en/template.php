@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WGT_SLST_LRP_DLG_BTN_START"] = "Run";
 $MESS["CRM_WGT_SLST_LRP_DLG_BTN_STOP"] = "Stop";
 $MESS["CRM_WGT_SLST_LRP_DLG_BTN_CLOSE"] = "Close";

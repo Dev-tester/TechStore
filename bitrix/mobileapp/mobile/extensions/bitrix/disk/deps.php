@@ -1,4 +1,4 @@
-<? return [
+<?php  return [
 	"rest",
 	"helpers/holder",
 	"user/list",

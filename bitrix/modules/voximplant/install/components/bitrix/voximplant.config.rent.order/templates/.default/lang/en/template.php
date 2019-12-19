@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CONFIG_RENT_BUY_CONFIGURE"] = "Configure Number";
 $MESS["VI_CONFIG_RENT_FORM_BTN"] = "Apply for Phone Number";
 $MESS["VI_CONFIG_RENT_FORM_TITLE_KZ"] = "Please provide your details and contact information to apply for a phone number:";

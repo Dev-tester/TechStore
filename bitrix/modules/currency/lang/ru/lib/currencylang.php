@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_LANG_ENTITY_CURRENCY_FIELD"] = "Валюта";
 $MESS["CURRENCY_LANG_ENTITY_LID_FIELD"] = "Язык";
 $MESS["CURRENCY_LANG_ENTITY_FORMAT_STRING_FIELD"] = "Строка формата для вывода валюты";

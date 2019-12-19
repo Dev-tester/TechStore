@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Search");
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:search.page", "icons", array(
+<?php $APPLICATION->IncludeComponent("bitrix:search.page", "icons", array(
 	"RESTART" => "N",
 	"CHECK_DATES" => "N",
 	"USE_TITLE_RANK" => "N",
@@ -40,4 +40,4 @@ $APPLICATION->SetTitle("Search");
 	false
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

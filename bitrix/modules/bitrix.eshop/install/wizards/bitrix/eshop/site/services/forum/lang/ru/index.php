@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMENTS_GROUP_NAME"] = "Форумы для комментариев";
 $MESS["COMMENTS_GROUP_DESCRIPTION"] = "";
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_REPORT_REPORTS"] = "Reports";
 $MESS["TASKS_REPORT_TASKS"] = "Tasks";
 $MESS["TASKS_REPORT_TEMPLATES"] = "Templates";

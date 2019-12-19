@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_FORM_33.10"] = "Form with text on the left on a light background";
 $MESS["LANDING_BLOCK_FORM_33.10_NODE_CONTACT"] = "Contact";
 $MESS["LANDING_BLOCK_FORM_33.10_NODE_TITLE"] = "Title";

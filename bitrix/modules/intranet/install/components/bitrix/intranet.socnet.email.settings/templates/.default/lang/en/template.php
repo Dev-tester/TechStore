@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_SOCNET_EMAIL_SETTINGS_COPY"] = "Copy address";
 $MESS["INTRANET_SOCNET_EMAIL_SETTINGS_COPY_SUCCESS"] = "Address has been copied to the Clipboard";
 $MESS["INTRANET_SOCNET_EMAIL_SETTINGS_DESC"] = "Copy an address and forward to it your emails to create tasks and Activity Stream posts";

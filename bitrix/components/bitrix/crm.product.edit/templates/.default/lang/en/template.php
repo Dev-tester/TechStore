@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Product";
 $MESS["CRM_TAB_1_TITLE"] = "Product properties";
 $MESS["CRM_PRODUCT_PROP_ADD_BUTTON"] = "Add";

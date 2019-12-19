@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADDITIONAL_PROPS"] = "Extra product properties buttons";
 $MESS["ADDITIONAL_PROPS_DEFAULT"] = "Additional properties";
 $MESS["ALLOW_NEW_PROFILE"] = "Allow multiple customer profiles";

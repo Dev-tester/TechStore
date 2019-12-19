@@ -14,10 +14,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 		<div class="landing-html-lock-text-block">
 			<div class="landing-html-lock-text"><?= $arParams['~MESSAGE'];?></div>
 		</div>
-		<?if ($arParams['~BUTTON'] && $arParams['~LINK']):?>
+		<?php if ($arParams['~BUTTON'] && $arParams['~LINK']):?>
 			<a href="<?= $arParams['~LINK'];?>" target="_top" class="ui-btn ui-btn-md ui-btn-primary landing-required-link landing-ui-button">
 				<?= $arParams['~BUTTON'];?>
 			</a>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>

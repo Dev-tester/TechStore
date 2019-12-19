@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TAB_NAME_COMMON"] = "Общие параметры";
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TAB_TITLE_COMMON"] = "Общие параметры купона";
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TAB_TITLE_MULTI_COMMON"] = "Общие параметры купонов";

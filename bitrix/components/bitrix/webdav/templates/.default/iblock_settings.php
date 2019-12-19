@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/iblock_settings.php")));
 __IncludeLang($file);
 $iblock_id = intval($_REQUEST["IBLOCK_ID"]); 
@@ -71,7 +71,7 @@ $popupWindow->EndDescription();
 $popupWindow->StartContent();
 ?>
 
-<?
+<?php 
 	$arIBlockForm = $arIBlock; 
 	if ($bVarsFromForm)
 	{
@@ -87,19 +87,19 @@ $popupWindow->StartContent();
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="Update" value="Y" />
 <input type="hidden" name="IBLOCK_ID" value="<?=$iblock_id?>" />
-<?if (!empty($_REQUEST["back_url"])): ?>
+<?php if (!empty($_REQUEST["back_url"])): ?>
 <input type="hidden" name="back_url" value="<?=htmlspecialchars($_REQUEST["back_url"])?>" />
-<?endif;
+<?php endif;
 ?>
 <table cellpadding="0" cellspacing="0" border="0" class="edit-table" id="edit2_edit_table" width="100%">
-<?
+<?php 
 	if ($bWorkflow || $bBizproc)
 	{
 ?>
 	<tr class="section">
 		<td colspan="2" align="center"><b><?=GetMessage("WD_TAB1_TITLE")?></b></td>
 	</tr>
-<?
+<?php 
 
 		if ($bWorkflow && $bBizproc):
 ?>
@@ -109,11 +109,11 @@ $popupWindow->StartContent();
 			<select name="WF_TYPE">
 				<option value="N"><?=GetMessage("IB_E_WF_TYPE_NONE")?></option>
 				<option value="WF" <?=($arIBlockForm["WORKFLOW"] == "Y" ? 'selected="selected"' : "")?>><?=GetMessage("IB_E_WF_TYPE_WORKFLOW")?></option>
-				<option value="BP" <?=($arIBlockForm["BIZPROC"] == "Y" ? 'selected="selected"' : "")?>><?echo GetMessage("IB_E_WF_TYPE_BIZPROC")?></option>
+				<option value="BP" <?=($arIBlockForm["BIZPROC"] == "Y" ? 'selected="selected"' : "")?>><?php echo GetMessage("IB_E_WF_TYPE_BIZPROC")?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 		elseif ($bWorkflow && !$bBizproc):
 ?>
 	<tr>
@@ -123,7 +123,7 @@ $popupWindow->StartContent();
 			<label for="WF_TYPE"><?=GetMessage("IB_E_WF_TYPE_LABEL")?></label>
 		</td>
 	</tr>
-<?
+<?php 
 		elseif ($bBizproc && !$bWorkflow):
 ?>
 	<tr>
@@ -133,7 +133,7 @@ $popupWindow->StartContent();
 			<label for="WF_TYPE"><?=GetMessage("IB_E_WF_TYPE_LABEL")?></label>
 		</td>
 	</tr>
-<?
+<?php 
 		endif; 
 	}
 	
@@ -183,27 +183,27 @@ $popupWindow->StartContent();
 	<tr class="section">
 		<td colspan="2" align="center"><b><?=GetMessage("WD_TAB2_TITLE")?></b></td>
 	</tr>
-<?
+<?php 
 /*
 ?>	<tr class="heading">
 		<td colspan="2"><?=GetMessage("IB_E_DEFAULT_ACCESS_TITLE")?></td>
 	</tr>
-<?
+<?php 
 */
 ?>
 	<tr>
 		<td width="50%" align="right"><?=GetMessage("IB_E_EVERYONE")?>:</td>
 		<td width="50%"><?=$arData["GROUP2"]?></td>
 	</tr>
-<?
+<?php 
 /*
 ?>	<tr class="heading">
 		<td colspan="2"><?=GetMessage("IB_E_GROUP_ACCESS_TITLE")?></td>
 	</tr>
-<?
+<?php 
 */
 ?>
-<?
+<?php 
 
 $artmp = array("" => GetMessage("IB_E_DEFAULT_ACCESS")) + $arResult["PERMISSIONS_TITLE"]; 
 $arResult["GROUPS_TITLE"] = array(); 
@@ -224,7 +224,7 @@ foreach ($arResult["GROUPS"] as $key => $val)
 		<td align="right"><?=$val["NAME"]?>:</td>
 		<td><div class="wd-rights-delete" onclick="__obj.dropgroup(this);"></div><?=$arData["GROUP".$key]?></td>
 	</tr>
-<?	
+<?php 	
 	}
 }
 ?>
@@ -287,8 +287,8 @@ function __wd_create_rights(groups, perms)
 __obj = new __wd_create_rights(<?=CUtil::PhpToJSObject($arResult["GROUPS_TITLE"])?>, <?=CUtil::PhpToJSObject($arResult["PERMISSIONS_TITLE"])?>); 
 </script>
 <input type="hidden" name="save" value="Y" />
-<?
+<?php 
 $popupWindow->EndContent();
 $popupWindow->ShowStandardButtons();
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

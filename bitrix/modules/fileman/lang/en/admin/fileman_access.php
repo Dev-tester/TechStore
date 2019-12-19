@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_ACCESS_TITLE'] = "Access Rights";
 
 $MESS ['FM_FOLDER_ACCESS_DENIED'] = "Deny";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_URL_TIP'] = "Поле содержит код, в котором передается идентификатор блога.";
 $MESS ['PATH_TO_TRACKBACK_TIP'] = "Указывается полный путь к странице trackback'а сообщения. Например: /blog/blog_p_track_get.php?page=trackback&blog=#blog#&post_id=#post_id#.";
 $MESS ['BLOG_VAR_TIP'] = "Указывается имя переменной, которой передается ID блога.";

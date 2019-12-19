@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_COUPON_ENTITY_ID_FIELD"] = "Gutschein-ID";
 $MESS["DISCOUNT_COUPON_ENTITY_DISCOUNT_ID_FIELD"] = "Regel des Gutscheinwarenkorbs";
 $MESS["DISCOUNT_COUPON_ENTITY_ACTIVE_FIELD"] = "Aktiv";

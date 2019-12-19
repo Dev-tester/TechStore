@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_BLOG_BLOG_MORE"] = "Read more...";
 $MESS["BLOG_BLOG_BLOG_NO_AVAIBLE_MES"] = "No ideas in this category.";
 $MESS["BLOG_MES_DELETE_POST_CONFIRM"] = "Are you sure you want to delete the post?";

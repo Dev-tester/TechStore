@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SAL_CHOOSE_COUNTRY'] = '(выберите страну)';
 $MESS ['SAL_CHOOSE_REGION'] = '(выберите регион)';
 $MESS ['SAL_CHOOSE_CITY'] = '(выберите город)';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_COLUMN_ACCOUNT_NUMBER'] = 'Номер счета';
 $MESS['CRM_COLUMN_DATE_CHARGE'] = 'Дата выполнения операции';
 $MESS['CRM_COLUMN_PRICE'] = 'Сумма';

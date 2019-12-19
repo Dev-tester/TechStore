@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEMO_ADV_MAIN_TYPE"] = "Главный баннер";
 $MESS["DEMO_ADV_PARALLAX_TYPE"] = "Дополнительный баннер";
 $MESS["CONTRACT_DESC"] = "Все баннеры интернет-магазина";

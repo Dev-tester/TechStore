@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_BUTTON_SEND"] = "Send";
 $MESS["BLOG_BUTTON_PUBLISH"] = "Publish";
 $MESS["BLOG_BUTTON_CANCEL"] = "Cancel";

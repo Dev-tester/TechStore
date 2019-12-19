@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,7 +16,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 	<script language="JavaScript">
@@ -45,17 +45,17 @@ else
 
 	<form method="POST" name="log_filter">
 	<select name="flt_event_id" onChange="javascript:document.log_filter.submit()">
-		<?
+		<?php 
 		foreach ($arResult["Features"] as $featureID)
 		{
 			$featureName = GetMessage(toUpper("SONET_ACTIVITY_T_".$featureID));
-			?><option value="<?=$featureID?>" <?=($featureID == $_REQUEST["flt_event_id"] ? "selected" : "")?>><?=$featureName?></option><?
+			?><option value="<?=$featureID?>" <?=($featureID == $_REQUEST["flt_event_id"] ? "selected" : "")?>><?=$featureName?></option><?php 
 		}
 		?>
 	</select>
 	</form>
 	<br><br>
-	<?
+	<?php 
 	
 	if ($arResult["Events"] && is_array($arResult["Events"]) && count($arResult["Events"]) > 0)
 	{
@@ -64,17 +64,17 @@ else
 		{
 			?>
 			<h4><?= $date ?></h4>
-			<?
+			<?php 
 			$bFirst = true;
 			foreach ($arEvents as $arEvent)
 			{
 				if (!$bFirst)
 				{
-					?><div class="sonet-profile-line"></div><?
+					?><div class="sonet-profile-line"></div><?php 
 				}
 				?>
 				<span class="sonet-log-date"><?=$arEvent["LOG_TIME_FORMAT"]?></span><br />
-				<?
+				<?php 
 				if ($arEvent["ENTITY_TYPE"] == SONET_ENTITY_GROUP)
 					echo Str_Replace("#NAME#", "<a href=\"".$arEvent["ENTITY_PATH"]."\">".$arEvent["ENTITY_NAME"]."</a>", GetMessage("SONET_ACTIVITY_T_GROUP_TITLE"));
 				else
@@ -110,7 +110,7 @@ else
 				}
 				?>:
 				<?= $arEvent["TITLE_FORMAT"] ?>
-				<?if (StrLen($arEvent["MESSAGE_FORMAT"]) > 0):?>
+				<?php if (StrLen($arEvent["MESSAGE_FORMAT"]) > 0):?>
 					<div id="sonet_message_<?= $ind ?>" class="sonet-log-message" style="display:none;">
 						<br />
 						<?= $arEvent["MESSAGE_FORMAT"]; ?><br />
@@ -120,14 +120,14 @@ else
 						<br />
 						<a href="javascript:SoNetSwitchBody(<?= $ind ?>, true)"><?= GetMessage("SONET_ACTIVITY_T_SWITCH2") ?></a>
 					</div>
-				<?endif;?>
-				<?
+				<?php endif;?>
+				<?php 
 				$bFirst = false;
 				$ind++;
 			}
 			?>
 			<br /><br />
-			<?
+			<?php 
 		}
 	}
 	else

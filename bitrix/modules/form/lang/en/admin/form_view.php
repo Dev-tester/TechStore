@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORM_LIST'] = "Form list";
 $MESS ['FORM_NOT_FOUND'] = "Incorrect form ID";
 $MESS ['FORM_PAGE_TITLE'] = "Form view template # #ID#";

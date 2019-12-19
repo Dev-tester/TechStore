@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BND_DISPLAY_DATE"] = "Выводить дату элемента";
 $MESS["TP_BND_DISPLAY_NAME"] = "Выводить название элемента";
 $MESS["TP_BND_DISPLAY_PICTURE"] = "Выводить изображение для анонса";

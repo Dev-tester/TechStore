@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -25,7 +25,7 @@ $APPLICATION->SetTitle(Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_RESULT_PAG
 		])?></span>
 	</div>
 </div>
-<?
+<?php 
 if (!empty($arResult['HISTORIC_DATA']))
 {
 	?>
@@ -37,7 +37,7 @@ if (!empty($arResult['HISTORIC_DATA']))
 				<div class="intranet-stresslevel-instruction-graph-col-param">50</div>
 				<div class="intranet-stresslevel-instruction-graph-col-param">0</div>
 			</div>
-			<?
+			<?php 
 			foreach($arResult['HISTORIC_DATA'] as $measure)
 			{
 				?>
@@ -48,11 +48,11 @@ if (!empty($arResult['HISTORIC_DATA']))
 						<div class="intranet-stresslevel-instruction-graph-col-value"><?=intval($measure['value'])?></div>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

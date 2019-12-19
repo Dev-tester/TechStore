@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_VOLUME_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["CRM_VOLUME_ERROR_ACCESS_DENIED"] = "Недостаточно прав";
 $MESS["CRM_VOLUME_ERROR_WRONG_ACTION"] = "Произошла ошибка. Действие отменено.";

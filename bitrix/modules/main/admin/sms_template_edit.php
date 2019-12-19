@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global CUser $USER
  * @global CMain $APPLICATION
@@ -184,21 +184,21 @@ function PutString(str)
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 <input type="hidden" name="ID" value="<?= $ID?>">
-<?if($COPY_ID > 0):?><input type="hidden" name="COPY_ID" value="<?= $COPY_ID?>"><?endif?>
-<?
+<?php if($COPY_ID > 0):?><input type="hidden" name="COPY_ID" value="<?= $COPY_ID?>"><?php endif?>
+<?php 
 $tabControl->Begin();
 
 $tabControl->BeginNextTab();
 ?>
-<?if($ID > 0):?>
+<?php if($ID > 0):?>
 	<tr>
 		<td><?= $fields["ID"]->getTitle()?>:</td>
 		<td><?= $ID?></td>
 	</tr>
-<?endif?>
+<?php endif?>
 	<tr class="adm-detail-required-field">
 		<td><?= $fields["EVENT_NAME"]->getTitle()?>:</td>
-		<td><?
+		<td><?php 
 			$eventTypes = array();
 			$eventTypesDb = EventTypeTable::getList(array(
 				'filter' => array(
@@ -215,28 +215,28 @@ $tabControl->BeginNextTab();
 			if($ID > 0 && $COPY_ID <= 0):
 			?>
 				<input type="hidden" name="EVENT_NAME" value="<?= HtmlFilter::encode($template->getEventName())?>">
-				<?
+				<?php 
 					$type = $eventTypes[$template->getEventName()];
 					echo HtmlFilter::encode($type["NAME"]." [".$type["EVENT_NAME"]."]");
 				?>
-			<?else:?>
+			<?php else:?>
 				<select name="EVENT_NAME" onchange="window.location='sms_template_edit.php?lang=<?=LANGUAGE_ID?>&EVENT_NAME='+this[this.selectedIndex].value">
-				<?foreach($eventTypes as $type):?>
-					<option value="<?= HtmlFilter::encode($type["EVENT_NAME"])?>"<?if($type["EVENT_NAME"] == $template->getEventName()) echo " selected";?>>
+				<?php foreach($eventTypes as $type):?>
+					<option value="<?= HtmlFilter::encode($type["EVENT_NAME"])?>"<?php if($type["EVENT_NAME"] == $template->getEventName()) echo " selected";?>>
 						<?= HtmlFilter::encode($type["NAME"]." [".$type["EVENT_NAME"]."]")?>
 					</option>
-				<?endforeach;?>
+				<?php endforeach;?>
 				</select>
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
 	<tr>
 		<td><label for="active"><?= $fields["ACTIVE"]->getTitle()?>:</label></td>
-		<td><input type="checkbox" name="ACTIVE" id="active" value="Y"<?if($template->getActive()) echo " checked"?>></td>
+		<td><input type="checkbox" name="ACTIVE" id="active" value="Y"<?php if($template->getActive()) echo " checked"?>></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td class="adm-detail-valign-top"><?echo Loc::getMessage("sms_template_edit_sites")?></td>
-		<td><?
+		<td class="adm-detail-valign-top"><?php echo Loc::getMessage("sms_template_edit_sites")?></td>
+		<td><?php 
 			$sites = $template->getSites();
 			echo CLang::SelectBoxMulti("LID", ($sites? $sites->getLidList() : []));
 			?></td>
@@ -245,23 +245,23 @@ $tabControl->BeginNextTab();
 		<td><?= $fields["LANGUAGE_ID"]->getTitle()?>:</td>
 		<td>
 			<select name="LANGUAGE_ID">
-				<option value=""><?echo Loc::getMessage("sms_template_edit_not_set")?></option>
-				<?
+				<option value=""><?php echo Loc::getMessage("sms_template_edit_not_set")?></option>
+				<?php 
 				$languages = Main\Localization\LanguageTable::getList(array(
 					"filter" => array("=ACTIVE" => "Y"),
 					"order" => array("SORT" => "ASC", "NAME" => "ASC")
 				));
 				?>
-				<? while($language = $languages->fetch()): ?>
-					<option value="<?=$language["LID"]?>"<? if($template->getLanguageId() == $language["LID"]) echo " selected" ?>>
+				<?php  while($language = $languages->fetch()): ?>
+					<option value="<?=$language["LID"]?>"<?php  if($template->getLanguageId() == $language["LID"]) echo " selected" ?>>
 						<?= HtmlFilter::encode($language["NAME"])?>
 					</option>
-				<? endwhile ?>
+				<?php  endwhile ?>
 			</select>
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo Loc::getMessage("sms_template_edit_mess")?></td>
+		<td colspan="2"><?php echo Loc::getMessage("sms_template_edit_mess")?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td><?= $fields["SENDER"]->getTitle()?>:</td>
@@ -275,7 +275,7 @@ $tabControl->BeginNextTab();
 		<td class="adm-detail-valign-top"><?= $fields["MESSAGE"]->getTitle()?>:</td>
 		<td><textarea name="MESSAGE" cols="40" rows="7" onfocus="window.bxCurrentControl=this"><?=HtmlFilter::encode($template->getMessage())?></textarea></td>
 	</tr>
-<?
+<?php 
 	$defaultFields =
 		"#DEFAULT_SENDER# - ".Loc::getMessage("sms_template_edit_field_senser")."
 		#SITE_NAME# - ".Loc::getMessage("sms_template_edit_field_site")."
@@ -293,14 +293,14 @@ $tabControl->BeginNextTab();
 	$allFields = preg_replace("/(#.+?#)/", '<a title="'.Loc::getMessage("sms_template_edit_insert").'" href="javascript:PutString(\'\\1\')">\\1</a>', $allFields);
 ?>
 	<tr>
-		<td align="left" colspan="2"><b><?echo Loc::getMessage("sms_template_edit_fields")?></b><br><br>
+		<td align="left" colspan="2"><b><?php echo Loc::getMessage("sms_template_edit_fields")?></b><br><br>
 			<?= nl2br($allFields);?></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(array("disabled"=>!$isAdmin, "back_url"=>"sms_template_admin.php?lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

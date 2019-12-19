@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -18,7 +18,7 @@ $arResult["PATH_TO_FOLDER_LIST"] = CComponentEngine::MakePathFromTemplate($arRes
 $arResult["PATH_TO_DISK_TASK"] = CComponentEngine::MakePathFromTemplate($arResult['PATH_TO_GROUP_DISK_TASK'], array('group_id' => $arResult['VARIABLES']['group_id']));
 ?>
 <div class="bx-disk-bizproc-section">
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:bizproc.task.list", "", Array(
 	"USER_ID" => "", 
 	"WORKFLOW_ID" => "", 

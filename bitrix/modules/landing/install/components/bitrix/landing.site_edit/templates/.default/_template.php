@@ -11,7 +11,7 @@ Loc::loadMessages(__FILE__);
 
 if ($arResult['ERRORS'])
 {
-	?><div class="landing-message-label error"><?= implode("\n", $arResult['ERRORS'])?></div><?
+	?><div class="landing-message-label error"><?= implode("\n", $arResult['ERRORS'])?></div><?php 
 }
 
 if ($arResult['FATAL'])
@@ -56,31 +56,31 @@ $domains = $arResult['DOMAINS'];
 				<div class="landing-options-item landing-options-item-destination">
 					<span class="landing-options-item-param"><?= $row['CODE']['TITLE']?></span>
 					<div class="landing-options-item-inner">
-						<?if (\Bitrix\Main\Loader::includeModule('bitrix24')):?>
+						<?php if (\Bitrix\Main\Loader::includeModule('bitrix24')):?>
 						<input type="hidden" name="fields[CODE]" value="<?= $row['CODE']['CURRENT']?>" >
-						<input type="text" name="fields[DOMAIN_ID]" <?
-							?>value="<?= isset($domains[$row['DOMAIN_ID']['CURRENT']]['DOMAIN']) ? $domains[$row['DOMAIN_ID']['CURRENT']]['DOMAIN'] : $row['DOMAIN_ID']['CURRENT']?>" <?
+						<input type="text" name="fields[DOMAIN_ID]" <?php 
+							?>value="<?= isset($domains[$row['DOMAIN_ID']['CURRENT']]['DOMAIN']) ? $domains[$row['DOMAIN_ID']['CURRENT']]['DOMAIN'] : $row['DOMAIN_ID']['CURRENT']?>" <?php 
 							?>class="landing-options-input landing-options-input-small">
-						<?else:?>
+						<?php else:?>
 						<select name="fields[DOMAIN_ID]" class="landing-options-input">
-							<?foreach ($arResult['DOMAINS'] as $item):?>
-							<option value="<?= $item['ID']?>"<?if ($item['ID'] == $row['DOMAIN_ID']['CURRENT']){?> selected="selected"<?}?>>
+							<?php foreach ($arResult['DOMAINS'] as $item):?>
+							<option value="<?= $item['ID']?>"<?php if ($item['ID'] == $row['DOMAIN_ID']['CURRENT']){?> selected="selected"<?php }?>>
 								<?= \htmlspecialcharsbx($item['DOMAIN'])?>
 							</option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 						<input type="text" name="fields[CODE]" value="<?= $row['CODE']['CURRENT']?>" class="landing-options-input landing-options-input-small">
-						<?endif;?>
+						<?php endif;?>
 					</div>
 				</div>
 				<div class="landing-options-item landing-options-item-destination">
 					<span class="landing-options-item-param"><?= $row['ACTIVE']['TITLE']?></span>
 					<div class="landing-options-item-inner">
 						<div style="display: none;">
-							<input type="checkbox" name="fields[ACTIVE]" id="action-public-checkbox" value="Y"<?if ($row['ACTIVE']['CURRENT'] == 'Y') {?> checked="checked"<?}?>>
+							<input type="checkbox" name="fields[ACTIVE]" id="action-public-checkbox" value="Y"<?php if ($row['ACTIVE']['CURRENT'] == 'Y') {?> checked="checked"<?php }?>>
 						</div>
-						<span class="landing-options-public-status landing-options-public-status-<?= $row['ACTIVE']['CURRENT'] == 'Y' ? 'active' : 'unactive'?>" <?
-							?>id="action-public-status" <?
+						<span class="landing-options-public-status landing-options-public-status-<?= $row['ACTIVE']['CURRENT'] == 'Y' ? 'active' : 'unactive'?>" <?php 
+							?>id="action-public-status" <?php 
 							?>data-retitle="<?= Loc::getMessage('LANDING_TPL_PUBLIC_MESS_' . ($row['ACTIVE']['CURRENT'] == 'Y' ? 'N' : 'Y'))?>">
 							<?= Loc::getMessage('LANDING_TPL_PUBLIC_MESS_' . $row['ACTIVE']['CURRENT'])?>
 						</span>
@@ -89,7 +89,7 @@ $domains = $arResult['DOMAINS'];
 						</button>
 					</div>
 				</div>
-				<?$template->showHookBlock('B24BUTTON');?>
+				<?php $template->showHookBlock('B24BUTTON');?>
 			</div>
 		</div>
 	</div>
@@ -115,31 +115,31 @@ $domains = $arResult['DOMAINS'];
 		<div class="landing-options-item-destination-wrap">
 			<div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('YACOUNTER');?>
-					<?$template->showHookBlock('GACOUNTER');?>
+					<?php $template->showHookBlock('YACOUNTER');?>
+					<?php $template->showHookBlock('GACOUNTER');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('BACKGROUND', array('group' => true));?>
+					<?php $template->showHookBlock('BACKGROUND', array('group' => true));?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('PADDING');?>
+					<?php $template->showHookBlock('PADDING');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('GMAP');?>
+					<?php $template->showHookBlock('GMAP');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?if (!empty($arResult['LANDINGS'])):?>
+					<?php if (!empty($arResult['LANDINGS'])):?>
 					<div class="landing-options-item landing-options-item-destination">
 						<span class="landing-options-item-param"><?= Loc::getMessage('LANDING_TPL_PAGE_SELECT')?></span>
 						<div class="landing-options-item-inner">
 							<span class="landing-option-fn"><?= $row['LANDING_ID_INDEX']['TITLE']?></span>
 							<select name="fields[LANDING_ID_INDEX]" class="landing-options-input">
 								<option></option>
-								<?foreach ($arResult['LANDINGS'] as $item):?>
-								<option value="<?= $item['ID']?>"<?if ($item['ID'] == $row['LANDING_ID_INDEX']['CURRENT']){?> selected="selected"<?}?>>
+								<?php foreach ($arResult['LANDINGS'] as $item):?>
+								<option value="<?= $item['ID']?>"<?php if ($item['ID'] == $row['LANDING_ID_INDEX']['CURRENT']){?> selected="selected"<?php }?>>
 									<?= \htmlspecialcharsbx($item['TITLE'])?>
 								</option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 						</div>
 					</div>
@@ -149,15 +149,15 @@ $domains = $arResult['DOMAINS'];
 							<span class="landing-option-fn"><?= $row['LANDING_ID_404']['TITLE']?></span>
 							<select name="fields[LANDING_ID_404]" class="landing-options-input">
 								<option></option>
-								<?foreach ($arResult['LANDINGS'] as $item):?>
-								<option value="<?= $item['ID']?>"<?if ($item['ID'] == $row['LANDING_ID_404']['CURRENT']){?> selected="selected"<?}?>>
+								<?php foreach ($arResult['LANDINGS'] as $item):?>
+								<option value="<?= $item['ID']?>"<?php if ($item['ID'] == $row['LANDING_ID_404']['CURRENT']){?> selected="selected"<?php }?>>
 									<?= \htmlspecialcharsbx($item['TITLE'])?>
 								</option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 						</div>
 					</div>
-					<?else:?>
+					<?php else:?>
 					<div class="landing-options-item landing-options-item-destination">
 						<span class="landing-options-item-param"><?= Loc::getMessage('LANDING_TPL_PAGE_SELECT')?></span>
 						<div class="landing-options-item-inner">
@@ -166,26 +166,26 @@ $domains = $arResult['DOMAINS'];
 							</span>
 						</div>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('METAROBOTS');?>
+					<?php $template->showHookBlock('METAROBOTS');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('THEME');?>
+					<?php $template->showHookBlock('THEME');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('UP');?>
+					<?php $template->showHookBlock('UP');?>
 				</div>
-				<?if (isset($hooks['HEADBLOCK']) || isset($hooks['CUSTOMCSS'])):?>
+				<?php if (isset($hooks['HEADBLOCK']) || isset($hooks['CUSTOMCSS'])):?>
 					<div class="landing-options-item landing-options-item-destination">
 						<span class="landing-options-item-param"><?= Loc::getMessage('LANDING_TPL_FIELD_HTMLCSS')?></span>
 						<div class="landing-options-item-inner">
-							<?$template->showHookBlock('HEADBLOCK', array('wrapper' => false));?>
-							<?$template->showHookBlock('CUSTOMCSS', array('wrapper' => false));?>
+							<?php $template->showHookBlock('HEADBLOCK', array('wrapper' => false));?>
+							<?php $template->showHookBlock('CUSTOMCSS', array('wrapper' => false));?>
 						</div>
 					</div>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CH_TRACKER_WGT_DEMO_TITLE"] = "This is a demo view. Hide it to analyze your data.";
 $MESS["CRM_CH_TRACKER_WGT_ACTIVITY_DYNAMIC"] = "Communication overview";
 $MESS["CRM_CH_TRACKER_WGT_COMMUNICATION_DYNAMIC"] = "Communication load ";

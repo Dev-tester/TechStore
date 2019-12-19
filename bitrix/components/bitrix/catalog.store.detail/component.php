@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @var CBitrixComponent $this */
 /** @var array $arParams */
 /** @var array $arResult */

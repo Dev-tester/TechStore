@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADMIN_NOTE_QUESTION'] = "Anwtort";
 $MESS ['ADM_TROUBLESHOOTING_MENU_NAME'] = "Anfrage an den Hausmeister";
 $MESS ['COMMENT_QUESTION'] = "Kommentar";

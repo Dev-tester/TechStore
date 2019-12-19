@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Sale\Handlers\Delivery\Additional\DeliveryRequests\RusPost\Requests;
 
 use Bitrix\Main\Web\HttpClient;

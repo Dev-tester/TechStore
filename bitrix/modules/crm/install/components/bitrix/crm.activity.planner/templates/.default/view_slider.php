@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arResult */
 /** @var array $arParams */
@@ -25,7 +25,7 @@ $APPLICATION->restartBuffer();
 
 ?><!DOCTYPE html>
 	<html>
-	<head><? $APPLICATION->showHead(); ?></head>
+	<head><?php  $APPLICATION->showHead(); ?></head>
 	<body style="background: #eef2f4 !important; ">
 
 	<div class="crm-activity-planner-slider-wrap" data-activity-id="<?=(int)$activity['ID']?>" data-role="options" data-options="<?=htmlspecialcharsbx($optionsJson)?>">
@@ -34,10 +34,10 @@ $APPLICATION->restartBuffer();
 				<div class="crm-activity-planner-slider-header-title"><?=htmlspecialcharsbx($activity['SUBJECT'] ? $activity['SUBJECT'] : $provider::getTypeName($activity['PROVIDER_TYPE_ID'], $activity['DIRECTION']))?></div>
 				<div class="crm-activity-planner-slider-header-control-block">
 					<div class="crm-activity-planner-slider-header-control-item">
-						<input class="crm-activity-planner-slider-header-control-checkbox" type="checkbox" id="<?=($inputId = uniqid('inp_')) ?>" data-role="field-completed" <? if ($activity['COMPLETED'] == 'Y'): ?> checked<? endif ?>>
+						<input class="crm-activity-planner-slider-header-control-checkbox" type="checkbox" id="<?=($inputId = uniqid('inp_')) ?>" data-role="field-completed" <?php  if ($activity['COMPLETED'] == 'Y'): ?> checked<?php  endif ?>>
 						<label class="crm-activity-planner-slider-header-control-text crm-activity-planner-slider-header-control-label" for="<?=$inputId ?>"><?=getMessage('CRM_ACTIVITY_PLANNER_COMPLETED_SLIDER') ?></label>
 					</div>
-					<div class="crm-activity-planner-slider-header-control-item crm-activity-planner-slider-header-control-important crm-activity-planner-slider-header-control-select crm-activity-planner-slider-header-icon-flame<? if ($options['important']): ?>-active<? endif ?>" data-role="field-important">
+					<div class="crm-activity-planner-slider-header-control-item crm-activity-planner-slider-header-control-important crm-activity-planner-slider-header-control-select crm-activity-planner-slider-header-icon-flame<?php  if ($options['important']): ?>-active<?php  endif ?>" data-role="field-important">
 						<div class="crm-activity-planner-slider-header-control-text"><?=getMessage('CRM_ACTIVITY_PLANNER_IMPORTANT_SLIDER') ?></div>
 						<div class="crm-activity-planner-slider-header-control-icon"></div>
 					</div>
@@ -51,7 +51,7 @@ $APPLICATION->restartBuffer();
 				<div class="crm-task-list-mail-additionally-info">
 					<div class="crm-task-list-mail-additionally-info-title"><?=getMessage('CRM_ACTIVITY_PLANNER_ADDITIONAL2') ?></div>
 					<table class="crm-task-list-mail-table-block">
-						<? if (!empty($arResult['RESPONSIBLE_NAME'])): ?>
+						<?php  if (!empty($arResult['RESPONSIBLE_NAME'])): ?>
 							<tr class="crm-task-list-mail-table-row">
 								<td class="crm-task-list-mail-table-item">
 									<div class="crm-task-list-mail-additionally-info-name"><?=getMessage('CRM_ACTIVITY_PLANNER_RESPONSIBLE_USER') ?>:</div>
@@ -64,10 +64,10 @@ $APPLICATION->restartBuffer();
 									</div>
 								</td>
 							</tr>
-						<? endif ?>
-						<? if ($arResult['DOC_BINDINGS'] || \CCrmActivityType::Email == $activity['TYPE_ID'] && \CCrmOwnerType::Lead != $activity['OWNER_TYPE_ID']): ?>
+						<?php  endif ?>
+						<?php  if ($arResult['DOC_BINDINGS'] || \CCrmActivityType::Email == $activity['TYPE_ID'] && \CCrmOwnerType::Lead != $activity['OWNER_TYPE_ID']): ?>
 							<tr class="crm-task-list-mail-table-row">
-								<? if (\CCrmActivityType::Email == $activity['TYPE_ID'] && \CCrmOwnerType::Lead != $activity['OWNER_TYPE_ID']): ?>
+								<?php  if (\CCrmActivityType::Email == $activity['TYPE_ID'] && \CCrmOwnerType::Lead != $activity['OWNER_TYPE_ID']): ?>
 									<td class="crm-task-list-mail-table-item">
 										<div class="crm-task-list-mail-additionally-info-name"><?=getMessage('CRM_ACTIVITY_PLANNER_VIEW_DEAL') ?>:</div>
 									</td>
@@ -80,54 +80,54 @@ $APPLICATION->restartBuffer();
 											<a href="javascript:void(0)" class="feed-add-destination-link" id="crm_act_planner_view_docs_tag"><?=getMessage('CRM_ACT_EMAIL_REPLY_SET_DOCS') ?></a>
 										</div>
 									</td>
-								<? else: ?>
+								<?php  else: ?>
 									<td class="crm-task-list-mail-table-item">
 										<div class="crm-task-list-mail-additionally-info-name"><?=getMessage('CRM_ACTIVITY_PLANNER_VIEW_DOCUMENTS') ?>:</div>
 									</td>
 									<td class="crm-task-list-mail-table-item">
 										<div class="crm-task-list-mail-additionally-info-content">
-											<? $k = count($arResult['DOC_BINDINGS']); ?>
-											<? foreach ($arResult['DOC_BINDINGS'] as $item): ?>
+											<?php  $k = count($arResult['DOC_BINDINGS']); ?>
+											<?php  foreach ($arResult['DOC_BINDINGS'] as $item): ?>
 											<a class="crm-task-list-mail-additionally-info-text-bold"
-												<? if (!$arResult['IS_SLIDER_ENABLED'] || $item['OWNER_TYPE_ID'] != \CCrmOwnerType::Deal): ?>
+												<?php  if (!$arResult['IS_SLIDER_ENABLED'] || $item['OWNER_TYPE_ID'] != \CCrmOwnerType::Deal): ?>
 													target="_top"
-												<? endif ?>
-												<? if ($item['DOC_URL']): ?> href="<?=htmlspecialcharsbx($item['DOC_URL']) ?>"<? endif ?>>
-												<?=htmlspecialcharsbx($item['DOC_NAME']) ?> - <?=htmlspecialcharsbx($item['CAPTION']) ?></a><? if (--$k > 0): ?>, <? endif ?>
-											<? endforeach ?>
+												<?php  endif ?>
+												<?php  if ($item['DOC_URL']): ?> href="<?=htmlspecialcharsbx($item['DOC_URL']) ?>"<?php  endif ?>>
+												<?=htmlspecialcharsbx($item['DOC_NAME']) ?> - <?=htmlspecialcharsbx($item['CAPTION']) ?></a><?php  if (--$k > 0): ?>, <?php  endif ?>
+											<?php  endforeach ?>
 										</div>
 									</td>
-								<? endif ?>
+								<?php  endif ?>
 							</tr>
-						<? endif ?>
+						<?php  endif ?>
 					</table>
 				</div>
 			</div>
-			<? if ((int)$activity['TYPE_ID'] === \CCrmActivityType::Email):?>
+			<?php  if ((int)$activity['TYPE_ID'] === \CCrmActivityType::Email):?>
 				<?=$provider::renderView($activity)?>
-			<? else:?>
+			<?php  else:?>
 				<div class="crm-task-list-header-description">
 					<span class="crm-task-list-header-description-item"><?=GetMessage('CRM_ACTIVITY_PLANNER_VIEW_DATE_AND_TIME')?>:</span>
-					<span class="crm-task-list-header-description-date"><?=CCrmComponentHelper::TrimDateTimeString($activity['START_TIME'])?><?if ($activity['END_TIME'] && $activity['START_TIME'] != $activity['END_TIME']):?> - <?=CCrmComponentHelper::TrimDateTimeString($activity['END_TIME'])?><?endif?></span>
+					<span class="crm-task-list-header-description-date"><?=CCrmComponentHelper::TrimDateTimeString($activity['START_TIME'])?><?php if ($activity['END_TIME'] && $activity['START_TIME'] != $activity['END_TIME']):?> - <?=CCrmComponentHelper::TrimDateTimeString($activity['END_TIME'])?><?php endif?></span>
 				</div>
 				<div class="crm-task-list-inner">
 					<?=$provider::renderView($activity)?>
 				</div><!--crm-task-list-inner-->
-				<?if (!empty($arResult['COMMUNICATIONS'])):?>
+				<?php if (!empty($arResult['COMMUNICATIONS'])):?>
 					<div class="crm-task-list-person">
 						<div class="crm-task-list-person-item"><?=GetMessage('CRM_ACTIVITY_PLANNER_RECEIVER')?>:</div>
 						<div class="crm-task-list-person-container">
 							<div class="crm-task-list-person-slides" data-role="com-slider-slides">
-								<?foreach($arResult['COMMUNICATIONS'] as $index => $communication):?>
+								<?php foreach($arResult['COMMUNICATIONS'] as $index => $communication):?>
 									<div class="crm-task-list-person-inner">
-										<span class="crm-task-list-person-user-image" <?if ($communication['IMAGE_URL']):?> style="background: url('<?=htmlspecialcharsbx($communication['IMAGE_URL'])?>')"<?endif;?>></span>
+										<span class="crm-task-list-person-user-image" <?php if ($communication['IMAGE_URL']):?> style="background: url('<?=htmlspecialcharsbx($communication['IMAGE_URL'])?>')"<?php endif;?>></span>
 										<span class="crm-task-list-person-user-info">
-						<?if ($communication['VIEW_URL']):?>
+						<?php if ($communication['VIEW_URL']):?>
 							<a href="<?=htmlspecialcharsbx($communication['VIEW_URL'])?>" target="<?=!$arResult['IS_SLIDER_ENABLED'] ? '_top' : ''?>" class="crm-task-list-person-info-name"><?=htmlspecialcharsbx($communication['TITLE'])?></a>
-						<?endif;?>
+						<?php endif;?>
 						<div class="crm-task-list-person-info-description"><?=htmlspecialcharsbx($communication['DESCRIPTION'])?></div>
 						<div class="crm-task-list-person-info-contacts">
-							<?if (!empty($communication['FM']['PHONE'])):
+							<?php if (!empty($communication['FM']['PHONE'])):
 								foreach ($communication['FM']['PHONE'] as $fm):
 									if (empty($fm['VALUE']))
 									{
@@ -138,7 +138,7 @@ $APPLICATION->restartBuffer();
 									?>
 									<div class="crm-task-list-person-info-phone-block">
 										<span class="crm-task-list-person-info-phone"><?=GetMessage('CRM_ACTIVITY_PLANNER_TEL')?>:</span>
-											<? $link = \CCrmCallToUrl::PrepareLinkAttributes($fm['VALUE'], array(
+											<?php  $link = \CCrmCallToUrl::PrepareLinkAttributes($fm['VALUE'], array(
 												'ENTITY_TYPE' => $entityType,
 												'ENTITY_ID' => $entityID,
 												'SRC_ACTIVITY_ID' => $activity['ID']
@@ -151,11 +151,11 @@ $APPLICATION->restartBuffer();
 											</a>
 										</span>
 									</div>
-									<?
+									<?php 
 									break;//get only first number yet.
 								endforeach;
 							endif?>
-							<?if (!empty($communication['FM']['EMAIL'])):
+							<?php if (!empty($communication['FM']['EMAIL'])):
 								foreach ($communication['FM']['EMAIL'] as $fm):
 									if (empty($fm['VALUE']))
 									{
@@ -170,14 +170,14 @@ $APPLICATION->restartBuffer();
 										</a>
 									</span>
 								</div>
-								<?
+								<?php 
 									break;//get only first email yet.
 								endforeach;
 							endif?>
 						</div>
 					</span>
 									</div><!--crm-task-list-person-inner-->
-								<?endforeach?>
+								<?php endforeach?>
 							</div><!--crm-task-list-person-slides-->
 							<div class="crm-task-list-person-slide">
 								<span class="crm-task-list-person-slide-left" data-role="com-slider-left"></span>
@@ -186,43 +186,43 @@ $APPLICATION->restartBuffer();
 							</div>
 						</div><!--crm-task-list-person-container-->
 					</div><!--crm-task-list-person-->
-				<?endif?>
-				<?if (!empty($arResult['FILES_LIST'])):?>
+				<?php endif?>
+				<?php if (!empty($arResult['FILES_LIST'])):?>
 					<div class="crm-task-list-receiver">
 						<div class="crm-task-list-receiver-item"><?=GetMessage('CRM_ACTIVITY_PLANNER_FILES')?>:</div><!--crm-task-list-receiver-name-->
 						<div class="crm-task-list-options-item-open-inner">
 							<div class="bx-crm-dialog-view-activity-files">
-								<?foreach ($arResult['FILES_LIST'] as $index => $file):?>
+								<?php foreach ($arResult['FILES_LIST'] as $index => $file):?>
 									<div class="bx-crm-dialog-view-activity-file">
 										<span class="bx-crm-dialog-view-activity-file-num"><?=($index + 1)?></span>
 										<a class="bx-crm-dialog-view-activity-file-text" target="_blank" href="<?=htmlspecialcharsbx($file['viewURL'])?>"><?=htmlspecialcharsbx($file['fileName'])?></a>
 									</div>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</div>
 						</div>
 					</div><!--crm-task-list-receiver-->
-				<?endif?>
+				<?php endif?>
 				<div class="crm-activity-planner-section-control-active" style="height: 35px; ">
 					<div class="crm-activity-planner-section crm-activity-planner-section-control">
-						<?if ($provider::isTypeEditable($activity['PROVIDER_TYPE_ID'], $activity['DIRECTION'])):?>
+						<?php if ($provider::isTypeEditable($activity['PROVIDER_TYPE_ID'], $activity['DIRECTION'])):?>
 						<button class="webform-small-button webform-small-button-accept" data-role="button-edit">
 							<span class="webform-small-button-text"><?=GetMessage('CRM_ACTIVITY_PLANNER_EDIT')?></span>
 						</button>
-						<?endif;?>
+						<?php endif;?>
 						<a href="#" class="webform-button-link" data-role="button-close"><?=GetMessage('CRM_ACTIVITY_PLANNER_SLIDER_CLOSE')?></a>
 						<div class="crm-activity-planner-section-control-error-block" style="height: 0;">
 							<div class="crm-activity-planner-section-control-error-text"></div>
 						</div>
 					</div>
 				</div>
-			<?endif?>
+			<?php endif?>
 		</div><!--crm-task-list-container-->
 	</div><!--crm-task-list-wrapper-->
 
 	<script type="text/javascript">
 		BX.ready(function() {
 
-			<? if (\CCrmActivityType::Email == $activity['TYPE_ID'] && \CCrmOwnerType::Lead != $activity['OWNER_TYPE_ID']):
+			<?php  if (\CCrmActivityType::Email == $activity['TYPE_ID'] && \CCrmOwnerType::Lead != $activity['OWNER_TYPE_ID']):
 
 			$socNetLogDestTypes = array(
 				\CCrmOwnerType::DealName    => 'deals',
@@ -413,7 +413,7 @@ $APPLICATION->restartBuffer();
 				BX.PreventDefault(e);
 			});
 
-			<? endif ?>
+			<?php  endif ?>
 
 		});
 	</script>

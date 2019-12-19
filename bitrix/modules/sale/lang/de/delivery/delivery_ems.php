@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_EMS_NAME"] = "EMS russische Post ";
 $MESS["SALE_DH_EMS_DESCRIPTION"] = "Express-Lieferung ";
 $MESS["SALE_DH_EMS_DESCRIPTION_INNER"] = "Handler der Versandart \"EMS Russische Post\". Lieferung nur von Russland aus. Funktioniert auf der Basis  <a href=\"http://www.emspost.ru/corp_clients/dogovor_docements/api.php\" target=\"_blank\">öffentliche API der Versandart</a>.<br />Es muss die Adresse des E-Shops eingestellt werden in <a href=\"/bitrix/admin/settings.php?mid=sale&lang=ru\">Moduleinstellungen</a>.";

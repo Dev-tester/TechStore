@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 IncludeModuleLangFile(__FILE__);
 
@@ -22,12 +22,12 @@ div.bx-debug-content-table td {padding-right:4px !important; padding-bottom:4px 
 div.bx-debug-content-table td.number {padding-right:4px !important; padding-bottom:4px !important; text-align:right !important; white-space:nowrap !important}
 div.bx-debug-content-top {padding:12px; position:relative; top:0px; left:0px; height:120px; overflow:auto; border-bottom:1px solid #D0D0D0;}
 </style>
-<?
+<?php 
 if($bShowTime || $bShowStat || $bShowCacheStat)
 {
 ?>
 <div class="bx-component-debug bx-debug-summary">
-<?
+<?php 
 }
 
 $bShowExtTime = $bShowTime && !defined("ADMIN_SECTION") && $bShowStat;
@@ -259,24 +259,24 @@ if ($bShowStat || $bShowCacheStat) //2
 			}
 			BX_DEBUG_INFO_CACHE = new BX.CDebugDialog();
 		</script>
-		<?
+		<?php 
 		$obJSPopup = new CJSPopupOnPage('', array());
 		$obJSPopup->jsPopup = 'BX_DEBUG_INFO_CACHE';
 		$obJSPopup->StartDescription('bx-debug-window');
 		?>
-		<p><?echo GetMessage("debug_info_cache_size")?> <?=CFile::FormatSize(\Bitrix\Main\Diag\CacheTracker::getCacheStatBytes(), 0)?></p>
-		<?
+		<p><?php echo GetMessage("debug_info_cache_size")?> <?=CFile::FormatSize(\Bitrix\Main\Diag\CacheTracker::getCacheStatBytes(), 0)?></p>
+		<?php 
 		$obJSPopup->StartContent(array('buffer' => true));
 		?>
 		<div class="bx-debug-content bx-debug-content-table">
 			<table id="cacheDebug" cellpadding="2" cellspacing="0" border="0">
 				<tr class="heading-sort">
 					<td onclick="sortTable('cacheDebug', 0)">&darr;&nbsp;</td>
-					<td onclick="sortTable('cacheDebug', 1)"><?echo GetMessage("debug_info_cache_table_func");?></td>
-					<td onclick="sortTable('cacheDebug', 2, true)"><?echo GetMessage("debug_info_cache_table_size");?></td>
-					<td onclick="sortTable('cacheDebug', 3)"><?echo GetMessage("debug_info_cache_file_path");?></td>
+					<td onclick="sortTable('cacheDebug', 1)"><?php echo GetMessage("debug_info_cache_table_func");?></td>
+					<td onclick="sortTable('cacheDebug', 2, true)"><?php echo GetMessage("debug_info_cache_table_size");?></td>
+					<td onclick="sortTable('cacheDebug', 3)"><?php echo GetMessage("debug_info_cache_file_path");?></td>
 				</tr>
-				<?
+				<?php 
 				foreach($arCacheDebug as $j => $cacheDebug)
 				{
 					if (substr($cacheDebug["path"], 0, $DOCUMENT_ROOT_LEN) === $_SERVER["DOCUMENT_ROOT"])
@@ -285,29 +285,29 @@ if ($bShowStat || $bShowCacheStat) //2
 						$path = '&nbsp;';
 				?>
 				<tr class="cache-row">
-					<td class="number"><?echo $j+1?></td>
-					<td><a href="javascript:BX_DEBUG_INFO_CACHE.ShowDetails('BX_DEBUG_INFO_CACHE_m_<?=$j?>')"><?echo $cacheDebug["callee_func"]?></a></td>
-					<td class="number" sort="<?echo $cacheDebug["cache_size"]?>"><?=CFile::FormatSize($cacheDebug["cache_size"], 0)?></td>
+					<td class="number"><?php echo $j+1?></td>
+					<td><a href="javascript:BX_DEBUG_INFO_CACHE.ShowDetails('BX_DEBUG_INFO_CACHE_m_<?=$j?>')"><?php echo $cacheDebug["callee_func"]?></a></td>
+					<td class="number" sort="<?php echo $cacheDebug["cache_size"]?>"><?=CFile::FormatSize($cacheDebug["cache_size"], 0)?></td>
 					<td><?=$path?></td>
 				</tr>
-				<?
+				<?php 
 				}
 				?>
 			</table>
 		</div>#DIVIDER#<div class="bx-debug-content bx-debug-content-details">
-			<?
+			<?php 
 				foreach($arCacheDebug as $j => $cacheDebug)
 				{
 					?><div id="BX_DEBUG_INFO_CACHE_m_<?=$j?>" style="display:none">
-					<b><?echo GetMessage("debug_info_query_from")?></b>
-					<?
+					<b><?php echo GetMessage("debug_info_query_from")?></b>
+					<?php 
 					$k=1;
 					foreach($cacheDebug["TRACE"] as $n => $tr)
 					{
 						?>
 						<br /><br />
-						<b>(<?echo ($n + 1)?>)</b>
-						<?
+						<b>(<?php echo ($n + 1)?>)</b>
+						<?php 
 						echo $tr["file"].":".$tr["line"]."<br /><nobr>".htmlspecialcharsbx($tr["func"]);
 						if($n == 0)
 							echo "(...)</nobr>";
@@ -315,11 +315,11 @@ if ($bShowStat || $bShowCacheStat) //2
 							echo "</nobr>(".htmlspecialcharsbx(print_r($tr["args"], true)).")";
 					} //$back_trace
 					?></div>
-					<?
+					<?php 
 				}; // $arQueries
 				?>
 			</div>
-			<?
+			<?php 
 		$obJSPopup->StartButtons();
 		$obJSPopup->ShowStandardButtons(array('close'));
 	}
@@ -340,27 +340,27 @@ if ($bShowStat || $bShowCacheStat) //2
 			}
 			BX_DEBUG_INFO_CACHE = new BX.CDebugDialog();
 		</script>
-<?
+<?php 
 	foreach($APPLICATION->arIncludeDebug as $i=>$arIncludeDebug)
 	{
 		?>
 		<script type="text/javascript">
 			BX_DEBUG_INFO_<?=$i?> = new BX.CDebugDialog();
 		</script>
-		<?
+		<?php 
 		$obJSPopup = new CJSPopupOnPage('', array());
 		$obJSPopup->jsPopup = 'BX_DEBUG_INFO_'.$i;
 		$obJSPopup->StartDescription('bx-core-debug-info');
 		?>
-		<p><?echo GetMessage("debug_info_path")?> <?=$arIncludeDebug["PATH"]?></p>
-		<p><?echo GetMessage("debug_info_time")?> <?=$arIncludeDebug["TIME"]?> <?echo GetMessage("debug_info_sec")?></p>
-		<p><?echo GetMessage("debug_info_queries")?> <?=$arIncludeDebug["QUERY_COUNT"]?>, <?echo GetMessage("debug_info_time1")?> <?=$arIncludeDebug["QUERY_TIME"]?> <?echo GetMessage("debug_info_sec")?><?if($arIncludeDebug["TIME"] > 0):?> (<?=round($arIncludeDebug["QUERY_TIME"]/$arIncludeDebug["TIME"]*100, 2)?>%)<?endif?></p>
-		<p><?echo GetMessage("debug_info_search")?>: <input type="text" style="height:16px" onkeydown="filterTable(this, 'queryDebug<?echo $i?>', 1)" onpaste="filterTable(this, 'queryDebug<?echo $i?>', 1)" oninput="filterTable(this, 'queryDebug<?echo $i?>', 1)"></p>
-		<?
+		<p><?php echo GetMessage("debug_info_path")?> <?=$arIncludeDebug["PATH"]?></p>
+		<p><?php echo GetMessage("debug_info_time")?> <?=$arIncludeDebug["TIME"]?> <?php echo GetMessage("debug_info_sec")?></p>
+		<p><?php echo GetMessage("debug_info_queries")?> <?=$arIncludeDebug["QUERY_COUNT"]?>, <?php echo GetMessage("debug_info_time1")?> <?=$arIncludeDebug["QUERY_TIME"]?> <?php echo GetMessage("debug_info_sec")?><?php if($arIncludeDebug["TIME"] > 0):?> (<?=round($arIncludeDebug["QUERY_TIME"]/$arIncludeDebug["TIME"]*100, 2)?>%)<?php endif?></p>
+		<p><?php echo GetMessage("debug_info_search")?>: <input type="text" style="height:16px" onkeydown="filterTable(this, 'queryDebug<?php echo $i?>', 1)" onpaste="filterTable(this, 'queryDebug<?php echo $i?>', 1)" oninput="filterTable(this, 'queryDebug<?php echo $i?>', 1)"></p>
+		<?php 
 		$obJSPopup->StartContent(array('buffer' => true));
 		if (!empty($arIncludeDebug["QUERIES"]))
 		{
-			?><div class="bx-debug-content bx-debug-content-table"><?
+			?><div class="bx-debug-content bx-debug-content-table"><?php 
 				$arQueries = array();
 				foreach($arIncludeDebug["QUERIES"] as $j=>$arQueryDebug)
 				{
@@ -371,32 +371,32 @@ if ($bShowStat || $bShowCacheStat) //2
 						"TRACE"=>$arQueryDebug["TRACE"]
 					);
 				}
-				?><table id="queryDebug<?echo $i?>" cellpadding="0" cellspacing="0" border="0"><?
+				?><table id="queryDebug<?php echo $i?>" cellpadding="0" cellspacing="0" border="0"><?php 
 					$j = 1;
 					foreach($arQueries as $strSql=>$query)
 					{
 						?><tr>
-							<td class="number" valign="top"><?echo $j?></td>
-							<td><a href="javascript:BX_DEBUG_INFO_<?=$i?>.ShowDetails('BX_DEBUG_INFO_<?=$i."_".$j?>')"><?echo htmlspecialcharsbx(substr($strSql, 0, 100))."..."?></a>&nbsp;(<?echo $query["COUNT"]?>) </td>
-							<td class="number" valign="top"><?
+							<td class="number" valign="top"><?php echo $j?></td>
+							<td><a href="javascript:BX_DEBUG_INFO_<?=$i?>.ShowDetails('BX_DEBUG_INFO_<?=$i."_".$j?>')"><?php echo htmlspecialcharsbx(substr($strSql, 0, 100))."..."?></a>&nbsp;(<?php echo $query["COUNT"]?>) </td>
+							<td class="number" valign="top"><?php 
 								$t = 0.0;
 								foreach($query["CALLS"] as $call)
 									$t += $call["TIME"];
 								echo number_format($t/$query["COUNT"], 5);
 							?></td>
-						</tr><?
+						</tr><?php 
 						$j++;
 					} //$arQueries
 				?></table>
 			</div>#DIVIDER#<div class="bx-debug-content bx-debug-content-details">
-			<?
+			<?php 
 				$j = 1;
 				foreach($arQueries as $strSql=>$query)
 				{
 					?><div id="BX_DEBUG_INFO_<?=$i."_".$j?>" style="display:none">
-					<b><?echo GetMessage("debug_info_query")?> <?echo $j?>:</b>
+					<b><?php echo GetMessage("debug_info_query")?> <?php echo $j?>:</b>
 					<br /><br />
-					<?
+					<?php 
 					$strSql = preg_replace("/[\\n\\r\\t\\s ]+/", " ", $strSql);
 					$strSql = preg_replace("/^ +/", "", $strSql);
 					$strSql = preg_replace("/ (INNER JOIN|OUTER JOIN|LEFT JOIN|SET|LIMIT) /i", "\n\\1 ", $strSql);
@@ -411,8 +411,8 @@ if ($bShowStat || $bShowCacheStat) //2
 						);
 					?>
 					<br /><br />
-					<b><?echo GetMessage("debug_info_query_from")?></b>
-					<?
+					<b><?php echo GetMessage("debug_info_query_from")?></b>
+					<?php 
 					$k=1;
 					foreach($query["CALLS"] as $call)
 					{
@@ -424,8 +424,8 @@ if ($bShowStat || $bShowCacheStat) //2
 							{
 								?>
 								<br /><br />
-								<b>(<?echo $k.".".($n+1)?>)</b>
-								<?
+								<b>(<?php echo $k.".".($n+1)?>)</b>
+								<?php 
 								echo $tr["file"].":".$tr["line"]."<br /><nobr>".htmlspecialcharsbx($tr["class"].$tr["type"].$tr["function"]);
 								if($n == 0)
 									echo "(...)</nobr>";
@@ -439,22 +439,22 @@ if ($bShowStat || $bShowCacheStat) //2
 						{
 							?>
 							<br /><br />
-							<b>(<?echo $k?>)</b> <?echo GetMessage("debug_info_query_from_unknown")?>
-							<?
+							<b>(<?php echo $k?>)</b> <?php echo GetMessage("debug_info_query_from_unknown")?>
+							<?php 
 						} //is_array($back_trace)
 						?>
 						<br /><br />
-						<?echo GetMessage("debug_info_query_time")?> <?echo round($call["TIME"], 5)?> <?echo GetMessage("debug_info_sec")?>
-						<?
+						<?php echo GetMessage("debug_info_query_time")?> <?php echo round($call["TIME"], 5)?> <?php echo GetMessage("debug_info_sec")?>
+						<?php 
 						$k++;
 					} //$query["CALLS"]
 					?></div>
-					<?
+					<?php 
 					$j++;
 				}; // $arQueries
 				?>
 			</div>
-			<?
+			<?php 
 		} //if(count($arIncludeDebug["QUERIES"])>0)
 		$obJSPopup->StartButtons();
 		$obJSPopup->ShowStandardButtons(array('close'));
@@ -464,13 +464,13 @@ if ($bShowStat || $bShowCacheStat) //2
 		<script type="text/javascript">
 			BX_DEBUG_INFO_CACHE_<?=$i?> = new BX.CDebugDialog();
 		</script>
-		<?
+		<?php 
 		$obJSPopup = new CJSPopupOnPage('', array());
 		$obJSPopup->jsPopup = 'BX_DEBUG_INFO_CACHE_'.$i;
 		$obJSPopup->StartDescription('bx-core-debug-info');
 		?>
-		<p><?echo GetMessage("debug_info_cache_size")?> <?=CFile::FormatSize($arIncludeDebug["CACHE_SIZE"], 0)?></p>
-		<?
+		<p><?php echo GetMessage("debug_info_cache_size")?> <?=CFile::FormatSize($arIncludeDebug["CACHE_SIZE"], 0)?></p>
+		<?php 
 		$obJSPopup->StartContent(array('buffer' => true));
 		if($arIncludeDebug["CACHE"] && !empty($arIncludeDebug["CACHE"]))
 		{
@@ -479,11 +479,11 @@ if ($bShowStat || $bShowCacheStat) //2
 				<table id="cacheDebug<?=$i?>" cellpadding="2" cellspacing="0" border="0">
 					<tr class="heading-sort">
 						<td onclick="sortTable('cacheDebug<?=$i?>', 0)">&darr;&nbsp;</td>
-						<td onclick="sortTable('cacheDebug<?=$i?>', 1)"><?echo GetMessage("debug_info_cache_table_func");?></td>
-						<td onclick="sortTable('cacheDebug<?=$i?>', 2, true)"><?echo GetMessage("debug_info_cache_table_size");?></td>
-						<td onclick="sortTable('cacheDebug', 3)"><?echo GetMessage("debug_info_cache_file_path");?></td>
+						<td onclick="sortTable('cacheDebug<?=$i?>', 1)"><?php echo GetMessage("debug_info_cache_table_func");?></td>
+						<td onclick="sortTable('cacheDebug<?=$i?>', 2, true)"><?php echo GetMessage("debug_info_cache_table_size");?></td>
+						<td onclick="sortTable('cacheDebug', 3)"><?php echo GetMessage("debug_info_cache_file_path");?></td>
 					</tr>
-					<?
+					<?php 
 					foreach($arIncludeDebug["CACHE"] as $j => $cacheDebug)
 					{
 						if (substr($cacheDebug["path"], 0, $DOCUMENT_ROOT_LEN) === $_SERVER["DOCUMENT_ROOT"])
@@ -492,29 +492,29 @@ if ($bShowStat || $bShowCacheStat) //2
 							$path = '&nbsp;';
 					?>
 					<tr class="cache-row">
-						<td class="number"><?echo $j+1?></td>
-						<td><a href="javascript:BX_DEBUG_INFO_CACHE_<?=$i?>.ShowDetails('BX_DEBUG_INFO_CACHE_<?=$i."_".$j?>')"><?echo $cacheDebug["callee_func"]?></a></td>
-						<td class="number" sort="<?echo $cacheDebug["cache_size"]?>"><?=CFile::FormatSize($cacheDebug["cache_size"], 0)?></td>
+						<td class="number"><?php echo $j+1?></td>
+						<td><a href="javascript:BX_DEBUG_INFO_CACHE_<?=$i?>.ShowDetails('BX_DEBUG_INFO_CACHE_<?=$i."_".$j?>')"><?php echo $cacheDebug["callee_func"]?></a></td>
+						<td class="number" sort="<?php echo $cacheDebug["cache_size"]?>"><?=CFile::FormatSize($cacheDebug["cache_size"], 0)?></td>
 						<td><?=$path?></td>
 					</tr>
-					<?
+					<?php 
 					}
 					?>
 				</table>
 			</div>#DIVIDER#<div class="bx-debug-content bx-debug-content-details">
-			<?
+			<?php 
 				foreach($arIncludeDebug["CACHE"] as $j => $cacheDebug)
 				{
 					?><div id="BX_DEBUG_INFO_CACHE_<?=$i?>_<?=$j?>" style="display:none">
-					<b><?echo GetMessage("debug_info_query_from")?></b>
-					<?
+					<b><?php echo GetMessage("debug_info_query_from")?></b>
+					<?php 
 					$k=1;
 					foreach($cacheDebug["TRACE"] as $n => $tr)
 					{
 						?>
 						<br /><br />
-						<b>(<?echo ($n + 1)?>)</b>
-						<?
+						<b>(<?php echo ($n + 1)?>)</b>
+						<?php 
 						echo $tr["file"].":".$tr["line"]."<br /><nobr>".htmlspecialcharsbx($tr["func"]);
 						if($n == 0)
 							echo "(...)</nobr>";
@@ -522,11 +522,11 @@ if ($bShowStat || $bShowCacheStat) //2
 							echo "</nobr>(".htmlspecialcharsbx(print_r($tr["args"], true)).")";
 					} //$back_trace
 					?></div>
-					<?
+					<?php 
 				}; // $arQueries
 				?>
 			</div>
-			<?
+			<?php 
 		} //if($arIncludeDebug["CACHE"])
 		$obJSPopup->StartButtons();
 		$obJSPopup->ShowStandardButtons(array('close'));
@@ -542,18 +542,18 @@ if($bShowExtTime)
 var jsDebugTimeWindow = new BX.CDebugDialog();
 </script>
 <div id="BX_DEBUG_TIME" class="bx-debug-window" style="z-index:99; width:660px !important;">
-<?
+<?php 
 	$obJSPopup->StartDescription('bx-core-debug-info');
 ?>
-	<p><?echo GetMessage("debug_info_page")?> <?=$APPLICATION->GetCurPage()?></p>
-	<p><?echo GetMessage("debug_info_comps_cache")?> <?if(COption::GetOptionString("main", "component_cache_on", "Y")=="Y") echo GetMessage("debug_info_comps_cache_on"); else echo "<a href=\"/bitrix/admin/cache.php\"><font class=\"errortext\">".GetMessage("debug_info_comps_cache_off")."</font></a>";?>.</p>
-	<p><?
+	<p><?php echo GetMessage("debug_info_page")?> <?=$APPLICATION->GetCurPage()?></p>
+	<p><?php echo GetMessage("debug_info_comps_cache")?> <?php if(COption::GetOptionString("main", "component_cache_on", "Y")=="Y") echo GetMessage("debug_info_comps_cache_on"); else echo "<a href=\"/bitrix/admin/cache.php\"><font class=\"errortext\">".GetMessage("debug_info_comps_cache_off")."</font></a>";?>.</p>
+	<p><?php 
 	if(\Bitrix\Main\Data\Cache::getShowCacheStat())
 		echo GetMessage("debug_info_cache_size")." ",CFile::FormatSize(\Bitrix\Main\Diag\CacheTracker::getCacheStatBytes(), 0);
 	else
 		echo "&nbsp;";
 	?></p>
-<?
+<?php 
 	$obJSPopup->StartContent(array('buffer' => true));
 ?>
 	<div id="BX_DEBUG_TIME_1">
@@ -564,241 +564,241 @@ var jsDebugTimeWindow = new BX.CDebugDialog();
 		<td>&nbsp;</td>
 		<td>&nbsp;</td>
 		<td class="number" nowrap>
-			<span><?echo GetMessage("debug_info_page_exec")?></span>
+			<span><?php echo GetMessage("debug_info_page_exec")?></span>
 		</td>
 		<td class="number" nowrap>
-			<span><?echo GetMessage("debug_info_sec")?></span>
+			<span><?php echo GetMessage("debug_info_sec")?></span>
 		</td>
-		<?if($bShowComps):?>
+		<?php if($bShowComps):?>
 			<td class="number" nowrap>
-				<span><?echo GetMessage("debug_info_comps_exec")?></span>
+				<span><?php echo GetMessage("debug_info_comps_exec")?></span>
 			</td>
 			<td class="number" nowrap>
-				<span><?echo GetMessage("debug_info_sec")?></span>
+				<span><?php echo GetMessage("debug_info_sec")?></span>
 			</td>
-		<?endif;?>
-		<?if($bShowStat):?>
+		<?php endif;?>
+		<?php if($bShowStat):?>
 			<td class="number" nowrap>
-				<span><?echo GetMessage("debug_info_queries_exec")?></span>
+				<span><?php echo GetMessage("debug_info_queries_exec")?></span>
 			</td>
 			<td class="number" nowrap>
-				<span><?echo GetMessage("debug_info_sec")?></span>
+				<span><?php echo GetMessage("debug_info_sec")?></span>
 			</td>
-		<?endif;?>
+		<?php endif;?>
 		<td class="heading">&nbsp;</td>
 	</tr>
 	<tr class="heading heading-bottom">
 		<td>&nbsp;</td>
 		<td>
-			<?if($bShowComps):?>
-				<a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_1')"><?echo GetMessage("debug_info_whole_page")?></a>
-			<?else:?>
-				<b><?echo GetMessage("debug_info_whole_page")?></b>
-			<?endif?>
+			<?php if($bShowComps):?>
+				<a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_1')"><?php echo GetMessage("debug_info_whole_page")?></a>
+			<?php else:?>
+				<b><?php echo GetMessage("debug_info_whole_page")?></b>
+			<?php endif?>
 		</td>
 		<td class="number" nowrap>
-			<b><?echo number_format($PAGE/$PAGE*100, 2),"%"?></b>
+			<b><?php echo number_format($PAGE/$PAGE*100, 2),"%"?></b>
 		</td>
 		<td class="number" nowrap>
-			<b><?echo number_format($PAGE, 4)?></b>
+			<b><?php echo number_format($PAGE, 4)?></b>
 		</td>
-		<?if($bShowComps):?>
+		<?php if($bShowComps):?>
 			<td class="number" nowrap>
-				<b><?echo intval($arAreas["PAGE"]["TRACE"]["COMPONENT_COUNT"])?></b>
+				<b><?php echo intval($arAreas["PAGE"]["TRACE"]["COMPONENT_COUNT"])?></b>
 			</td>
 			<td class="number" nowrap>
-				<b><?echo number_format($arAreas["PAGE"]["TRACE"]["COMPONENT_TIME"], 4)?></b>
+				<b><?php echo number_format($arAreas["PAGE"]["TRACE"]["COMPONENT_TIME"], 4)?></b>
 			</td>
-		<?endif;?>
-		<?if($bShowStat):?>
+		<?php endif;?>
+		<?php if($bShowStat):?>
 			<td class="number" nowrap>
-				<b><?echo $arAreas["PAGE"]["TRACE"]["QUERY_COUNT"]+$arAreas["PAGE"]["TRACE"]["COMP_QUERY_COUNT"]?></b>
+				<b><?php echo $arAreas["PAGE"]["TRACE"]["QUERY_COUNT"]+$arAreas["PAGE"]["TRACE"]["COMP_QUERY_COUNT"]?></b>
 			</td>
 			<td class="number" nowrap>
-				<b><?echo number_format($arAreas["PAGE"]["TRACE"]["QUERY_TIME"]+$arAreas["PAGE"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b>
+				<b><?php echo number_format($arAreas["PAGE"]["TRACE"]["QUERY_TIME"]+$arAreas["PAGE"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b>
 			</td>
-		<?endif;?>
+		<?php endif;?>
 		<td class="heading">&nbsp;</td>
 	</tr>
 	<tr valign="top">
 		<td>&nbsp;</td>
 		<td>
-			<?if($bShowComps):?>
-				<p><a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_2')"><?echo GetMessage("debug_info_prolog")?></a></p>
+			<?php if($bShowComps):?>
+				<p><a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_2')"><?php echo GetMessage("debug_info_prolog")?></a></p>
 				<p>
-					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_3')"><?echo GetMessage("debug_info_prolog_before")?></a><br>
-					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_4')"><?echo GetMessage("debug_info_agents")?></a><br>
-					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_5')"><?echo GetMessage("debug_info_prolog_after")?></a><br>
+					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_3')"><?php echo GetMessage("debug_info_prolog_before")?></a><br>
+					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_4')"><?php echo GetMessage("debug_info_agents")?></a><br>
+					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_5')"><?php echo GetMessage("debug_info_prolog_after")?></a><br>
 				</p>
-			<?else:?>
-				<p><b><?echo GetMessage("debug_info_prolog")?></b></p>
+			<?php else:?>
+				<p><b><?php echo GetMessage("debug_info_prolog")?></b></p>
 				<p>
-					&nbsp;&nbsp;<?echo GetMessage("debug_info_prolog_before")?><br>
-					&nbsp;&nbsp;<?echo GetMessage("debug_info_agents")?><br>
-					&nbsp;&nbsp;<?echo GetMessage("debug_info_prolog_after")?><br>
+					&nbsp;&nbsp;<?php echo GetMessage("debug_info_prolog_before")?><br>
+					&nbsp;&nbsp;<?php echo GetMessage("debug_info_agents")?><br>
+					&nbsp;&nbsp;<?php echo GetMessage("debug_info_prolog_after")?><br>
 				</p>
-			<?endif?>
+			<?php endif?>
 		</td>
 		<td class="number" nowrap>
-			<p><b><?echo number_format($PROLOG/$PAGE*100, 2),"%"?></b></p>
+			<p><b><?php echo number_format($PROLOG/$PAGE*100, 2),"%"?></b></p>
 			<p>
-				<?echo number_format($PROLOG_BEFORE/$PAGE*100, 2),"%"?><br>
-				<?echo number_format($AGENTS/$PAGE*100, 2),"%"?><br>
-				<?echo number_format($PROLOG_AFTER/$PAGE*100, 2),"%"?><br>
+				<?php echo number_format($PROLOG_BEFORE/$PAGE*100, 2),"%"?><br>
+				<?php echo number_format($AGENTS/$PAGE*100, 2),"%"?><br>
+				<?php echo number_format($PROLOG_AFTER/$PAGE*100, 2),"%"?><br>
 			</p>
 		</td>
 		<td class="number" nowrap>
-			<p><b><?echo number_format($PROLOG, 4)?></b></p>
+			<p><b><?php echo number_format($PROLOG, 4)?></b></p>
 			<p>
-				<?echo number_format($PROLOG_BEFORE, 4)?><br>
-				<?echo number_format($AGENTS, 4)?><br>
-				<?echo number_format($PROLOG_AFTER, 4)?><br>
+				<?php echo number_format($PROLOG_BEFORE, 4)?><br>
+				<?php echo number_format($AGENTS, 4)?><br>
+				<?php echo number_format($PROLOG_AFTER, 4)?><br>
 			</p>
 		</td>
-		<?if($bShowComps):?>
+		<?php if($bShowComps):?>
 			<td class="number" nowrap>
-				<p><b><?echo intval($arAreas["PROLOG"]["TRACE"]["COMPONENT_COUNT"])?></b></p>
+				<p><b><?php echo intval($arAreas["PROLOG"]["TRACE"]["COMPONENT_COUNT"])?></b></p>
 				<p>
-					<?echo intval($arAreas["PROLOG_BEFORE"]["TRACE"]["COMPONENT_COUNT"])?><br>
-					<?echo intval($arAreas["AGENTS"]["TRACE"]["COMPONENT_COUNT"])?><br>
-					<?echo intval($arAreas["PROLOG_AFTER"]["TRACE"]["COMPONENT_COUNT"])?><br>
+					<?php echo intval($arAreas["PROLOG_BEFORE"]["TRACE"]["COMPONENT_COUNT"])?><br>
+					<?php echo intval($arAreas["AGENTS"]["TRACE"]["COMPONENT_COUNT"])?><br>
+					<?php echo intval($arAreas["PROLOG_AFTER"]["TRACE"]["COMPONENT_COUNT"])?><br>
 				</p>
 			</td>
 			<td class="number" nowrap>
-				<p><b><?echo number_format($arAreas["PROLOG"]["TRACE"]["COMPONENT_TIME"], 4)?></b></p>
+				<p><b><?php echo number_format($arAreas["PROLOG"]["TRACE"]["COMPONENT_TIME"], 4)?></b></p>
 				<p>
-					<?echo number_format($arAreas["PROLOG_BEFORE"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
-					<?echo number_format($arAreas["AGENTS"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
-					<?echo number_format($arAreas["PROLOG_AFTER"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["PROLOG_BEFORE"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["AGENTS"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["PROLOG_AFTER"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
 				</p>
 			</td>
-		<?endif;?>
-		<?if($bShowStat):?>
+		<?php endif;?>
+		<?php if($bShowStat):?>
 			<td class="number" nowrap>
-				<p><b><?echo $arAreas["PROLOG"]["TRACE"]["QUERY_COUNT"]+$arAreas["PROLOG"]["TRACE"]["COMP_QUERY_COUNT"]?></b></p>
+				<p><b><?php echo $arAreas["PROLOG"]["TRACE"]["QUERY_COUNT"]+$arAreas["PROLOG"]["TRACE"]["COMP_QUERY_COUNT"]?></b></p>
 				<p>
-					<?echo $arAreas["PROLOG_BEFORE"]["TRACE"]["QUERY_COUNT"]+$arAreas["PROLOG_BEFORE"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
-					<?echo $arAreas["AGENTS"]["TRACE"]["QUERY_COUNT"]+$arAreas["AGENTS"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
-					<?echo $arAreas["PROLOG_AFTER"]["TRACE"]["QUERY_COUNT"]+$arAreas["PROLOG_AFTER"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
+					<?php echo $arAreas["PROLOG_BEFORE"]["TRACE"]["QUERY_COUNT"]+$arAreas["PROLOG_BEFORE"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
+					<?php echo $arAreas["AGENTS"]["TRACE"]["QUERY_COUNT"]+$arAreas["AGENTS"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
+					<?php echo $arAreas["PROLOG_AFTER"]["TRACE"]["QUERY_COUNT"]+$arAreas["PROLOG_AFTER"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
 				</p>
 			</td>
 			<td class="number" nowrap>
-				<p><b><?echo number_format($arAreas["PROLOG"]["TRACE"]["QUERY_TIME"]+$arAreas["PROLOG"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b></p>
+				<p><b><?php echo number_format($arAreas["PROLOG"]["TRACE"]["QUERY_TIME"]+$arAreas["PROLOG"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b></p>
 				<p>
-					<?echo number_format($arAreas["PROLOG_BEFORE"]["TRACE"]["QUERY_TIME"]+$arAreas["PROLOG_BEFORE"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
-					<?echo number_format($arAreas["AGENTS"]["TRACE"]["QUERY_TIME"]+$arAreas["AGENTS"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
-					<?echo number_format($arAreas["PROLOG_AFTER"]["TRACE"]["QUERY_TIME"]+$arAreas["PROLOG_AFTER"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["PROLOG_BEFORE"]["TRACE"]["QUERY_TIME"]+$arAreas["PROLOG_BEFORE"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["AGENTS"]["TRACE"]["QUERY_TIME"]+$arAreas["AGENTS"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["PROLOG_AFTER"]["TRACE"]["QUERY_TIME"]+$arAreas["PROLOG_AFTER"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
 				</p>
 			</td>
-		<?endif;?>
+		<?php endif;?>
 		<td>&nbsp;</td>
 	</tr>
 	<tr valign="top">
 		<td>&nbsp;</td>
 		<td>
-			<?if($bShowComps):?>
-				<p><a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_6')"><?echo GetMessage("debug_info_work_area")?></a></p>
-			<?else:?>
-				<p><b><?echo GetMessage("debug_info_work_area")?></b></p>
-			<?endif?>
+			<?php if($bShowComps):?>
+				<p><a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_6')"><?php echo GetMessage("debug_info_work_area")?></a></p>
+			<?php else:?>
+				<p><b><?php echo GetMessage("debug_info_work_area")?></b></p>
+			<?php endif?>
 		</td>
 		<td class="number" nowrap>
-			<p><b><?echo number_format($WORK_AREA/$PAGE*100, 2),"%"?></b></p>
+			<p><b><?php echo number_format($WORK_AREA/$PAGE*100, 2),"%"?></b></p>
 		</td>
 		<td class="number" nowrap>
-			<p><b><?echo number_format($WORK_AREA, 4)?></b></p>
+			<p><b><?php echo number_format($WORK_AREA, 4)?></b></p>
 		</td>
-		<?if($bShowComps):?>
+		<?php if($bShowComps):?>
 			<td class="number" nowrap>
-				<b><?echo intval($arAreas["WORK_AREA"]["TRACE"]["COMPONENT_COUNT"])?></b>
+				<b><?php echo intval($arAreas["WORK_AREA"]["TRACE"]["COMPONENT_COUNT"])?></b>
 			</td>
 			<td class="number" nowrap>
-				<b><?echo number_format($arAreas["WORK_AREA"]["TRACE"]["COMPONENT_TIME"], 4)?></b>
+				<b><?php echo number_format($arAreas["WORK_AREA"]["TRACE"]["COMPONENT_TIME"], 4)?></b>
 			</td>
-		<?endif;?>
-		<?if($bShowStat):?>
+		<?php endif;?>
+		<?php if($bShowStat):?>
 			<td class="number" nowrap>
-				<p><b><?echo $arAreas["WORK_AREA"]["TRACE"]["QUERY_COUNT"]+$arAreas["WORK_AREA"]["TRACE"]["COMP_QUERY_COUNT"]?></b></p>
+				<p><b><?php echo $arAreas["WORK_AREA"]["TRACE"]["QUERY_COUNT"]+$arAreas["WORK_AREA"]["TRACE"]["COMP_QUERY_COUNT"]?></b></p>
 			</td>
 			<td class="number" nowrap>
-				<p><b><?echo number_format($arAreas["WORK_AREA"]["TRACE"]["QUERY_TIME"]+$arAreas["WORK_AREA"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b></p>
+				<p><b><?php echo number_format($arAreas["WORK_AREA"]["TRACE"]["QUERY_TIME"]+$arAreas["WORK_AREA"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b></p>
 			</td>
-		<?endif;?>
+		<?php endif;?>
 		<td>&nbsp;</td>
 	</tr>
 	<tr valign="top">
 		<td>&nbsp;</td>
 		<td>
-			<?if($bShowComps):?>
-				<p><a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_7')"><?echo GetMessage("debug_info_epilog")?></a></p>
+			<?php if($bShowComps):?>
+				<p><a style="font-weight:bold !important" href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_7')"><?php echo GetMessage("debug_info_epilog")?></a></p>
 				<p>
-					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_8')"><?echo GetMessage("debug_info_epilog_before")?></a><br>
-					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_9')"><?echo GetMessage("debug_info_epilog_after")?></a><br>
+					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_8')"><?php echo GetMessage("debug_info_epilog_before")?></a><br>
+					&nbsp;&nbsp;<a href="javascript:jsDebugTimeWindow.ShowDetails('BX_DEBUG_TIME_1_9')"><?php echo GetMessage("debug_info_epilog_after")?></a><br>
 				</p>
-			<?else:?>
-				<p><b><?echo GetMessage("debug_info_epilog")?></b></p>
+			<?php else:?>
+				<p><b><?php echo GetMessage("debug_info_epilog")?></b></p>
 				<p>
-					&nbsp;&nbsp;<?echo GetMessage("debug_info_epilog_before")?><br>
-					&nbsp;&nbsp;<?echo GetMessage("debug_info_epilog_after")?><br>
+					&nbsp;&nbsp;<?php echo GetMessage("debug_info_epilog_before")?><br>
+					&nbsp;&nbsp;<?php echo GetMessage("debug_info_epilog_after")?><br>
 				</p>
-			<?endif?>
+			<?php endif?>
 		</td>
 		<td class="number" nowrap>
-			<p><b><?echo number_format($EPILOG/$PAGE*100, 2),"%"?></b></p>
+			<p><b><?php echo number_format($EPILOG/$PAGE*100, 2),"%"?></b></p>
 			<p>
-				<?echo number_format($EPILOG_BEFORE/$PAGE*100, 2),"%"?><br>
-				<?echo number_format($EPILOG_AFTER/$PAGE*100, 2),"%"?><br>
+				<?php echo number_format($EPILOG_BEFORE/$PAGE*100, 2),"%"?><br>
+				<?php echo number_format($EPILOG_AFTER/$PAGE*100, 2),"%"?><br>
 			</p>
 		</td>
 		<td class="number" nowrap>
-			<p><b><?echo number_format($EPILOG, 4)?></b></p>
+			<p><b><?php echo number_format($EPILOG, 4)?></b></p>
 			<p>
-				<?echo number_format($EPILOG_BEFORE, 4)?><br>
-				<?echo number_format($EPILOG_AFTER, 4)?><br>
+				<?php echo number_format($EPILOG_BEFORE, 4)?><br>
+				<?php echo number_format($EPILOG_AFTER, 4)?><br>
 			</p>
 		</td>
-		<?if($bShowComps):?>
+		<?php if($bShowComps):?>
 			<td class="number" nowrap>
-				<p><b><?echo intval($arAreas["EPILOG"]["TRACE"]["COMPONENT_COUNT"])?></b></p>
+				<p><b><?php echo intval($arAreas["EPILOG"]["TRACE"]["COMPONENT_COUNT"])?></b></p>
 				<p>
-					<?echo intval($arAreas["EPILOG_BEFORE"]["TRACE"]["COMPONENT_COUNT"])?><br>
-					<?echo intval($arAreas["EPILOG_AFTER"]["TRACE"]["COMPONENT_COUNT"])?><br>
+					<?php echo intval($arAreas["EPILOG_BEFORE"]["TRACE"]["COMPONENT_COUNT"])?><br>
+					<?php echo intval($arAreas["EPILOG_AFTER"]["TRACE"]["COMPONENT_COUNT"])?><br>
 				</p>
 			</td>
 			<td class="number" nowrap>
-				<p><b><?echo number_format($arAreas["EPILOG"]["TRACE"]["COMPONENT_TIME"], 4)?></b></p>
+				<p><b><?php echo number_format($arAreas["EPILOG"]["TRACE"]["COMPONENT_TIME"], 4)?></b></p>
 				<p>
-					<?echo number_format($arAreas["EPILOG_BEFORE"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
-					<?echo number_format($arAreas["EPILOG_AFTER"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["EPILOG_BEFORE"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["EPILOG_AFTER"]["TRACE"]["COMPONENT_TIME"], 4)?><br>
 				</p>
 			</td>
-		<?endif;?>
-		<?if($bShowStat):?>
+		<?php endif;?>
+		<?php if($bShowStat):?>
 			<td class="number" nowrap>
-				<p><b><?echo $arAreas["EPILOG"]["TRACE"]["QUERY_COUNT"]+$arAreas["EPILOG"]["TRACE"]["COMP_QUERY_COUNT"]?></b></p>
+				<p><b><?php echo $arAreas["EPILOG"]["TRACE"]["QUERY_COUNT"]+$arAreas["EPILOG"]["TRACE"]["COMP_QUERY_COUNT"]?></b></p>
 				<p>
-					<?echo $arAreas["EPILOG_BEFORE"]["TRACE"]["QUERY_COUNT"]+$arAreas["EPILOG_BEFORE"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
-					<?echo $arAreas["EPILOG_AFTER"]["TRACE"]["QUERY_COUNT"]+$arAreas["EPILOG_AFTER"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
+					<?php echo $arAreas["EPILOG_BEFORE"]["TRACE"]["QUERY_COUNT"]+$arAreas["EPILOG_BEFORE"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
+					<?php echo $arAreas["EPILOG_AFTER"]["TRACE"]["QUERY_COUNT"]+$arAreas["EPILOG_AFTER"]["TRACE"]["COMP_QUERY_COUNT"]?><br>
 				</p>
 			</td>
 			<td class="number" nowrap>
-				<p><b><?echo number_format($arAreas["EPILOG"]["TRACE"]["QUERY_TIME"]+$arAreas["EPILOG"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b></p>
+				<p><b><?php echo number_format($arAreas["EPILOG"]["TRACE"]["QUERY_TIME"]+$arAreas["EPILOG"]["TRACE"]["COMP_QUERY_TIME"], 4)?></b></p>
 				<p>
-					<?echo number_format($arAreas["EPILOG_BEFORE"]["TRACE"]["QUERY_TIME"]+$arAreas["EPILOG_BEFORE"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
-					<?echo number_format($arAreas["EPILOG_AFTER"]["TRACE"]["QUERY_TIME"]+$arAreas["EPILOG_AFTER"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["EPILOG_BEFORE"]["TRACE"]["QUERY_TIME"]+$arAreas["EPILOG_BEFORE"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
+					<?php echo number_format($arAreas["EPILOG_AFTER"]["TRACE"]["QUERY_TIME"]+$arAreas["EPILOG_AFTER"]["TRACE"]["COMP_QUERY_TIME"], 4)?><br>
 				</p>
 			</td>
-		<?endif;?>
+		<?php endif;?>
 		<td>&nbsp;</td>
 	</tr>
 </table>
 
 		</div>
-	</div>#DIVIDER#<?if($bShowComps):?><div class="bx-debug-content bx-debug-content-table">
-			<?foreach($arAreas as $id => $arArea):?>
-			<div id="BX_DEBUG_TIME_1_<?echo $arArea["NUM"]?>" style="display:none">
+	</div>#DIVIDER#<?php if($bShowComps):?><div class="bx-debug-content bx-debug-content-table">
+			<?php foreach($arAreas as $id => $arArea):?>
+			<div id="BX_DEBUG_TIME_1_<?php echo $arArea["NUM"]?>" style="display:none">
 				<table cellpadding="0" cellspacing="0" border="0" width="100%">
-				<?
+				<?php 
 				$tim = 0;
 				foreach($APPLICATION->arIncludeDebug as $i=>$arIncludeDebug)
 				{
@@ -812,35 +812,35 @@ var jsDebugTimeWindow = new BX.CDebugDialog();
 					<tr>
 						<td class="number" valign="top">0</td>
 						<td>
-						<?if($bShowStat):?>
-							<a title="<?echo GetMessage("debug_info_query_title")?>" href="javascript:BX_DEBUG_INFO_<?echo $arArea["IND"]?>.Show(); BX_DEBUG_INFO_<?echo $arArea['IND']?>.ShowDetails('BX_DEBUG_INFO_<?echo $arArea['IND']?>_1');"><?echo GetMessage("debug_info_raw_code")?></a>
-						<?else:?>
-							<?echo GetMessage("debug_info_raw_code")?>
-						<?endif?>
+						<?php if($bShowStat):?>
+							<a title="<?php echo GetMessage("debug_info_query_title")?>" href="javascript:BX_DEBUG_INFO_<?php echo $arArea["IND"]?>.Show(); BX_DEBUG_INFO_<?php echo $arArea['IND']?>.ShowDetails('BX_DEBUG_INFO_<?php echo $arArea['IND']?>_1');"><?php echo GetMessage("debug_info_raw_code")?></a>
+						<?php else:?>
+							<?php echo GetMessage("debug_info_raw_code")?>
+						<?php endif?>
 						</td>
 						<td>&nbsp;</td>
-						<td class="number">&nbsp;<?
+						<td class="number">&nbsp;<?php 
 							if($arArea["TRACE"]["CACHE_SIZE"])
 								echo CFile::FormatSize($arArea["TRACE"]["CACHE_SIZE"],0);
 						?></td>
-						<td class="number"><?if($arArea["TIME"] > 0):?><?echo number_format((1-$tim/$arArea["TIME"])*100, 2)?>%<?endif?></td>
-						<td class="number"><?echo number_format($arArea["TIME"] - $tim, 4)?> <?echo GetMessage("debug_info_sec")?></td>
-						<td class="number"><?echo intval($arArea["TRACE"]["QUERY_COUNT"])?> <?echo GetMessage("debug_info_query_short")?></td>
-						<td class="number"><?echo number_format($arArea["TRACE"]["QUERY_TIME"], 4)?> <?echo GetMessage("debug_info_sec")?></td>
+						<td class="number"><?php if($arArea["TIME"] > 0):?><?php echo number_format((1-$tim/$arArea["TIME"])*100, 2)?>%<?php endif?></td>
+						<td class="number"><?php echo number_format($arArea["TIME"] - $tim, 4)?> <?php echo GetMessage("debug_info_sec")?></td>
+						<td class="number"><?php echo intval($arArea["TRACE"]["QUERY_COUNT"])?> <?php echo GetMessage("debug_info_query_short")?></td>
+						<td class="number"><?php echo number_format($arArea["TRACE"]["QUERY_TIME"], 4)?> <?php echo GetMessage("debug_info_sec")?></td>
 					</tr>
-				<?$j=1;$k=1;foreach($APPLICATION->arIncludeDebug as $i=>$arIncludeDebug):?>
-					<?if(isset($arIncludeDebug["REL_PATH"]) && in_array($arIncludeDebug["BX_STATE"], $arArea["FLT"])):?>
+				<?php $j=1;$k=1;foreach($APPLICATION->arIncludeDebug as $i=>$arIncludeDebug):?>
+					<?php if(isset($arIncludeDebug["REL_PATH"]) && in_array($arIncludeDebug["BX_STATE"], $arArea["FLT"])):?>
 					<tr>
-						<td class="number" valign="top"><?echo $k?></td>
+						<td class="number" valign="top"><?php echo $k?></td>
 						<td>
-						<?if($arIncludeDebug["LEVEL"] > 0) echo str_repeat("&nbsp;&nbsp;", $arIncludeDebug["LEVEL"]);?>
-						<?if($bShowStat):?>
-							<a title="<?echo GetMessage("debug_info_query_title")?>" href="javascript:BX_DEBUG_INFO_<?echo $i?>.Show(); BX_DEBUG_INFO_<?echo $i?>.ShowDetails('BX_DEBUG_INFO_<?echo $i?>_1');"><?echo htmlspecialcharsbx($arIncludeDebug["REL_PATH"])?></a>
-						<?else:?>
-							<?echo htmlspecialcharsbx($arIncludeDebug["REL_PATH"])?>
-						<?endif?>
+						<?php if($arIncludeDebug["LEVEL"] > 0) echo str_repeat("&nbsp;&nbsp;", $arIncludeDebug["LEVEL"]);?>
+						<?php if($bShowStat):?>
+							<a title="<?php echo GetMessage("debug_info_query_title")?>" href="javascript:BX_DEBUG_INFO_<?php echo $i?>.Show(); BX_DEBUG_INFO_<?php echo $i?>.ShowDetails('BX_DEBUG_INFO_<?php echo $i?>_1');"><?php echo htmlspecialcharsbx($arIncludeDebug["REL_PATH"])?></a>
+						<?php else:?>
+							<?php echo htmlspecialcharsbx($arIncludeDebug["REL_PATH"])?>
+						<?php endif?>
 						</td>
-						<td>&nbsp;<?
+						<td>&nbsp;<?php 
 							switch($arIncludeDebug["CACHE_TYPE"])
 							{
 								case "N": echo GetMessage("debug_info_cache_off"); break;
@@ -848,28 +848,28 @@ var jsDebugTimeWindow = new BX.CDebugDialog();
 								default: echo GetMessage("debug_info_cache_auto"); break;
 							}
 						?></td>
-						<td class="number" nowrap>&nbsp;<?
+						<td class="number" nowrap>&nbsp;<?php 
 							if($arIncludeDebug["CACHE_SIZE"])
 								echo CFile::FormatSize($arIncludeDebug["CACHE_SIZE"],0);
 						?></td>
-						<td class="number" nowrap><?if($arArea["TIME"] > 0):?><?echo number_format($arIncludeDebug["TIME"]/$arArea["TIME"]*100, 2)?>%<?endif?></td>
-						<td class="number" nowrap><?echo number_format($arIncludeDebug["TIME"], 4)?> <?echo GetMessage("debug_info_sec")?></td>
-						<td class="number" nowrap><?echo intval($arIncludeDebug["QUERY_COUNT"])?> <?echo GetMessage("debug_info_query_short")?></td>
-						<td class="number" nowrap><?echo number_format($arIncludeDebug["QUERY_TIME"], 4)?> <?echo GetMessage("debug_info_sec")?></td>
+						<td class="number" nowrap><?php if($arArea["TIME"] > 0):?><?php echo number_format($arIncludeDebug["TIME"]/$arArea["TIME"]*100, 2)?>%<?php endif?></td>
+						<td class="number" nowrap><?php echo number_format($arIncludeDebug["TIME"], 4)?> <?php echo GetMessage("debug_info_sec")?></td>
+						<td class="number" nowrap><?php echo intval($arIncludeDebug["QUERY_COUNT"])?> <?php echo GetMessage("debug_info_query_short")?></td>
+						<td class="number" nowrap><?php echo number_format($arIncludeDebug["QUERY_TIME"], 4)?> <?php echo GetMessage("debug_info_sec")?></td>
 					</tr>
-					<?$k++;endif;?>
-				<?$j++;endforeach;?>
+					<?php $k++;endif;?>
+				<?php $j++;endforeach;?>
 				</table>
 			</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
-		<?endif;?>
-<?
+		<?php endif;?>
+<?php 
 	$obJSPopup->StartButtons();
 	$obJSPopup->ShowStandardButtons(array('close'));
 ?>
 </div>
-<?
+<?php 
 	if(
 		$_GET["show_sql_stat"] === "Y"
 		&& $_GET["show_page_exec_time"] === "Y"

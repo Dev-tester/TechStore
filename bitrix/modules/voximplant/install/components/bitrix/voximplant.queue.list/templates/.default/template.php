@@ -15,12 +15,12 @@ if($isBitrix24Template)
 			<span class="webform-small-button-left"></span>
 			<span class="webform-small-button-icon"></span>
 			<span class="webform-small-button-text"><?=GetMessage('VOX_QUEUE_LIST_ADD')?></span>
-			<? if(!$arResult["CAN_CREATE_GROUP"]): ?>
+			<?php  if(!$arResult["CAN_CREATE_GROUP"]): ?>
 				<span class="webform-small-button-right voximplant-queue-lock-icon"></span>
-			<? endif ?>
+			<?php  endif ?>
 		</span>
 	</div>
-<?
+<?php 
 
 if($isBitrix24Template)
 {

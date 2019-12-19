@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CJSCore::RegisterExt('voximplant_config_sip', array(
@@ -14,13 +14,13 @@ if($isBitrix24Template)
 }
 ?>
 <div class="pagetitle-container pagetitle-align-right-container">
-	<? if($arResult["SIP_TYPE"] === CVoxImplantSip::TYPE_CLOUD): ?>
+	<?php  if($arResult["SIP_TYPE"] === CVoxImplantSip::TYPE_CLOUD): ?>
 		<button id="add-connection" class="ui-btn ui-btn-md ui-btn-primary ui-btn-icon-add"><?= GetMessage("VI_CONFIG_SIP_CONNECT_CLOUD") ?></button>
-	<? else: ?>
+	<?php  else: ?>
 		<button id="add-connection" class="ui-btn ui-btn-md ui-btn-primary ui-btn-icon-add"><?= GetMessage("VI_CONFIG_SIP_CONNECT_OFFICE") ?></button>
-	<? endif ?>
+	<?php  endif ?>
 </div>
-<?
+<?php 
 
 if($isBitrix24Template)
 {
@@ -35,23 +35,23 @@ if($isBitrix24Template)
 				<?=GetMessage('VI_CONFIG_SIP_CONNECT_INFO_P1');?><br>
 				<?=GetMessage('VI_CONFIG_SIP_CONNECT_INFO_P2');?><br>
 
-				<?if ($arResult['SIP_ENABLE']):?>
+				<?php if ($arResult['SIP_ENABLE']):?>
 					<br>
 					<?=GetMessage('VI_SIP_PAID_BEFORE', Array('#DATE#' => '<b>'.$arResult['DATE_END'].'</b>'))?><br><br>
-					<?if (!empty($arResult['LINK_TO_BUY'])):?>
+					<?php if (!empty($arResult['LINK_TO_BUY'])):?>
 
 						<a class="ui-btn ui-btn-primary" href="<?=$arResult["LINK_TO_BUY"]?>" target="_blank"><?=GetMessage('VI_SIP_BUTTON')?></a>
-					<?endif;?>
-				<?else:?>
+					<?php endif;?>
+				<?php else:?>
 					<?=GetMessage('VI_CONFIG_SIP_INFO_2');?><br><br>
-					<?if (!empty($arResult['LINK_TO_BUY'])):?>
+					<?php if (!empty($arResult['LINK_TO_BUY'])):?>
 						<?=GetMessage('VI_CONFIG_SIP_CONNECT_INFO_P3');?><br><br>
 
 						<?=GetMessage('VI_SIP_PAID_FREE', Array('#COUNT#' => '<b>'.$arResult['TEST_MINUTES'].'</b>'))?>
 						<br>
-					<?else:?>
+					<?php else:?>
 						<div><?=GetMessage('VI_CONFIG_SIP_CONNECT_DISABLE');?></div><br>
-					<?endif;?>
+					<?php endif;?>
 					<div class="ui-alert ui-alert-warning">
 						<span class="ui-alert-message">
 							<?=GetMessage('VI_CONFIG_SIP_CONNECT_NOTICE_2');?>
@@ -65,7 +65,7 @@ if($isBitrix24Template)
 						</span>
 					</div>
 
-				<?endif;?>
+				<?php endif;?>
 			</div>
 			<div id="phone-config-sip-wrap"></div>
 			<div class="tel-set-item-group-margin"></div>

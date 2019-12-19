@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
@@ -14,9 +14,9 @@ endif;
 	<td><input type="text" name="q" size="20" value="<?=$arResult["q"]?>"></td>
 	<td>
 		<select name="where">
-		<?foreach($arResult["WHERE"] as $k => $v)
+		<?php foreach($arResult["WHERE"] as $k => $v)
 		{
-			?><option value="<?=$k?>"<?=$k==$arResult["where"]?" selected":""?>><?=$v?></option><?
+			?><option value="<?=$k?>"<?=$k==$arResult["where"]?" selected":""?>><?=$v?></option><?php 
 		}
 		?>
 		</select>
@@ -24,12 +24,12 @@ endif;
 	<td><input type="submit" value="&nbsp;&nbsp;OK&nbsp;&nbsp;"></td>
 	</tr>
 </table>
-<?if($arResult["how"]=="d"):?>
+<?php if($arResult["how"]=="d"):?>
 	<input type="hidden" name="how" value="d">
-<?endif;?>
+<?php endif;?>
 </form>
 
-<?
+<?php 
 if(strlen($arResult["ERROR_MESSAGE"])<=0)
 {
 	foreach($arResult["SEARCH_RESULT"] as $v)
@@ -39,29 +39,29 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 			<div class="blog-mainpage-item">
 
 
-			<div class="blog-mainpage-title"><a href="<?echo $v["URL"]?>"><?echo $v["TITLE_FORMATED"]; ?></a></div>
-			<?if(strlen($v["BODY_FORMATED"]) > 0)
+			<div class="blog-mainpage-title"><a href="<?php echo $v["URL"]?>"><?php echo $v["TITLE_FORMATED"]; ?></a></div>
+			<?php if(strlen($v["BODY_FORMATED"]) > 0)
 			{
 				?>
 				<div class="blog-mainpage-content">
 					<?=$v["BODY_FORMATED"]?>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 			
-			<?if(strlen($v["AuthorName"])>0 && strlen($v["BLOG_URL"])>0)
+			<?php if(strlen($v["AuthorName"])>0 && strlen($v["BLOG_URL"])>0)
 			{
 				?>
 				<div class="blog-author">
-					<?if($arParams["SEO_USER"] == "Y"):?>
+					<?php if($arParams["SEO_USER"] == "Y"):?>
 						<noindex>
 						<a class="blog-author-icon" href="<?=$v["USER_URL"]?>" rel="nofollow"></a>
 						</noindex>
-					<?else:?>
+					<?php else:?>
 						<a class="blog-author-icon" href="<?=$v["USER_URL"]?>"></a>
-					<?endif;?>
-					<?
+					<?php endif;?>
+					<?php 
 					if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($v["BLOG_URL"]) > 0 || strlen($v["USER_URL"]) > 0) && array_key_exists("ALIAS", $v["BlogUser"]) && strlen($v["BlogUser"]["ALIAS"]) > 0)
 						$arTmpUser = array(
 							"NAME" => "",
@@ -79,7 +79,7 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 							"NAME_LIST_FORMATTED" => "",
 						);	
 					?>
-					<?
+					<?php 
 					$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 						'',
 						array(
@@ -111,7 +111,7 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 					);
 					?>					
 				</div>
-				<?
+				<?php 
 			}
 			?>
 			
@@ -120,18 +120,18 @@ if(strlen($arResult["ERROR_MESSAGE"])<=0)
 			<div class="blog-clear-float"></div>
 			</div>
 			<div class="blog-line"></div>
-		<?
+		<?php 
 	}
 	if(strlen($arResult["NAV_STRING"]) > 0):
-		?><p><?=$arResult["NAV_STRING"]?></p><?
+		?><p><?=$arResult["NAV_STRING"]?></p><?php 
 	endif;
 		
 	if(strlen($arResult["ORDER_LINK"])>0)
 	{
 		if($arResult["how"]=="d"):
-			?><p><a href="<?=$arResult["ORDER_LINK"]?>"><?=GetMessage("BLOG_MAIN_SEARCH_SORT_RELEVATION")?></a>&nbsp;|&nbsp;<b><?=GetMessage("BLOG_MAIN_SEARCH_SORTED_DATE")?></b></p><?
+			?><p><a href="<?=$arResult["ORDER_LINK"]?>"><?=GetMessage("BLOG_MAIN_SEARCH_SORT_RELEVATION")?></a>&nbsp;|&nbsp;<b><?=GetMessage("BLOG_MAIN_SEARCH_SORTED_DATE")?></b></p><?php 
 		else:
-			?><p><b><?=GetMessage("BLOG_MAIN_SEARCH_SORTED_RELEVATION")?></b>&nbsp;|&nbsp;<a href="<?=$arResult["ORDER_LINK"]?>"><?=GetMessage("BLOG_MAIN_SEARCH_SORT_DATE")?></a></p><?
+			?><p><b><?=GetMessage("BLOG_MAIN_SEARCH_SORTED_RELEVATION")?></b>&nbsp;|&nbsp;<a href="<?=$arResult["ORDER_LINK"]?>"><?=GetMessage("BLOG_MAIN_SEARCH_SORT_DATE")?></a></p><?php 
 		endif;
 	}
 }

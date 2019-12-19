@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOPC_TPL_BILL"] = "Invoice";
 $MESS["SOPC_TPL_NUMBER_SIGN"] = "#";
 $MESS["SOPC_TPL_FROM_DATE"] = "of";

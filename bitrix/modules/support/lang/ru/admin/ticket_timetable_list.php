@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_NAME"] = "Название";
 $MESS["SUP_DESCRIPTION"] = "Описание";
 $MESS["SUP_GROUP_NAV"] = "Расписания";

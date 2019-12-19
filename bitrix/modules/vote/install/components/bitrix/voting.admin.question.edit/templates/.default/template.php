@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Localization\Loc;
 $gridSnippet = new Bitrix\Main\Grid\Panel\Snippet();
@@ -218,14 +218,14 @@ $arQuestion = $arResult["QUESTION"];
 		<input type="hidden" name="ACTION" value="UPDATE" />
 		<input type="hidden" name="gridInstanceId" value="<?=htmlspecialcharsbx($arParams["ANSWER_PARAMS"]["INSTANCE_ID"])?>" />
 		<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-		<?
+		<?php 
 
 		//region VoteParams
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		if(\COption::GetOptionString("vote", "USE_HTML_EDIT") == "Y" && CModule::IncludeModule("fileman")):?>
 			<tr>
-				<td align="center" colspan="2"><?
+				<td align="center" colspan="2"><?php 
 					CFileMan::AddHTMLEditorFrame("QUESTION",
 						htmlspecialcharsbx($arQuestion["QUESTION"]),
 						"QUESTION_TYPE",
@@ -236,19 +236,19 @@ $arQuestion = $arResult["QUESTION"];
 							'placeholder' => 'Question text inside'));
 					?></td>
 			</tr>
-		<?else:?>
+		<?php else:?>
 			<tr>
 				<td align="center" colspan="2"><?=InputType("radio","QUESTION_TYPE","text",$arQuestion["QUESTION_TYPE"],false)?>Text &nbsp;/&nbsp;<?=InputType("radio","QUESTION_TYPE","html",$arQuestion["QUESTION_TYPE"],false)?>HTML</td>
 			</tr>
 			<tr>
 				<td align="center" colspan="2"><textarea name="QUESTION" style="width:100%" rows="23"><?=$arQuestion["QUESTION"]?></textarea></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 		<tr>
 			<td width="30%"><?=GetMessage("VOTE_IMAGE")?></td>
-			<td><?=CFile::InputFile("IMAGE_ID", 20, $arQuestion["IMAGE_ID"]);?><?
+			<td><?=CFile::InputFile("IMAGE_ID", 20, $arQuestion["IMAGE_ID"]);?><?php 
 				if (is_array($arQuestion["IMAGE"])):
-					?><br /><?=CFile::ShowImage($arQuestion["IMAGE"], 200, 200, "border=0", "", true)?><?
+					?><br /><?=CFile::ShowImage($arQuestion["IMAGE"], 200, 200, "border=0", "", true)?><?php 
 				endif;?>
 			</td>
 		</tr>
@@ -263,7 +263,7 @@ $arQuestion = $arResult["QUESTION"];
 			<td> </td>
 			<td><?=InputType("checkbox", "REQUIRED", "Y", $arQuestion["REQUIRED"], false)?> <label for="REQUIRED"><?=Loc::getMessage("VOTE_REQUIRED")?></label></td>
 		</tr>
-		<?
+		<?php 
 		/************** Answers Tab ****************************************/
 		$tabControl->BeginNextTab();
 		?>
@@ -272,14 +272,14 @@ $arQuestion = $arResult["QUESTION"];
 			<td>[<a href="vote_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$vote["ID"]?>" title="<?=GetMessage("VOTE_CONF")?>"><?=$vote["ID"]?></a>]&nbsp;
 				<?=htmlspecialcharsbx($vote["TITLE"])?></td>
 		</tr>
-		<?if (strlen($arQuestion["TIMESTAMP_X"]) > 0):?>
+		<?php if (strlen($arQuestion["TIMESTAMP_X"]) > 0):?>
 			<tr><td><?=GetMessage("VOTE_TIMESTAMP")?></td>
 				<td><?=$arQuestion["TIMESTAMP_X"]?></td>
 			</tr>
 			<tr><td><?=GetMessage("VOTE_COUNTER_QUESTION")?></td>
 				<td><?=$arQuestion["COUNTER"]?></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 		<tr>
 			<td><?=GetMessage("VOTE_ACTIVE")?></td>
 			<td><?=InputType("checkbox", "ACTIVE", "Y", $arQuestion["ACTIVE"], false)?> <label for="ACTIVE"><?= Loc::getMessage("VOTE_ACTIVE_LABEL") ?></label></td>
@@ -293,17 +293,17 @@ $arQuestion = $arResult["QUESTION"];
 		</tr>
 		<tr>
 			<td><?=GetMessage("VOTE_DIAGRAM_TYPE")?>:</td>
-			<td><?echo SelectBoxFromArray("DIAGRAM_TYPE", GetVoteDiagramList(), $arQuestion["DIAGRAM_TYPE"]);?></td>
+			<td><?php echo SelectBoxFromArray("DIAGRAM_TYPE", GetVoteDiagramList(), $arQuestion["DIAGRAM_TYPE"]);?></td>
 		</tr>
-		<?
+		<?php 
 		$tabControl->EndTab();
 		//endregion
-		?></form><?
+		?></form><?php 
 		//region Answers1
 		?>
 		<div id="answer_grid_container" style="padding:12px 18px 12px 12px;">
 			<div class="adm-detail-title"><?=Loc::getMessage("VOTE_ANSWERS")?></div>
-			<?$APPLICATION->includeComponent(
+			<?php $APPLICATION->includeComponent(
 				"bitrix:main.ui.grid",
 				"",
 				array(
@@ -452,7 +452,7 @@ $arQuestion = $arResult["QUESTION"];
 			?>
 			<button id="add_regular_type_answer" class="ui-btn ui-btn-primary ui-btn-icon-add" onclick="BX.Vote.addAnswer('<?=htmlspecialcharsbx($gridInstanceID)?>'); return false;">+</button>
 			<button id="add_text_type_answer" class="ui-btn ui-btn-primary ui-btn-light-border" onclick="BX.Vote.addTextAnswer('<?=htmlspecialcharsbx($gridInstanceID)?>'); return false;"><?= Loc::getMessage("VOTE_GRID_BUTTON_ADD_TEXT") ?></button>
-		</div><?
+		</div><?php 
 		//endregion
 		$tabControl->Buttons(
 			array(
@@ -486,7 +486,7 @@ BX.ready(function() {
 		});
 });
 </script>
-<?
+<?php 
 $tabControl->ShowWarnings("form1", $message);
 $sDocTitle = ($arResult["QUESTION_ID"] > 0 ? str_replace("#ID#", $arResult["QUESTION_ID"], GetMessage("VOTE_EDIT_RECORD")) : GetMessage("VOTE_NEW_RECORD"));
 $APPLICATION->SetTitle($sDocTitle);

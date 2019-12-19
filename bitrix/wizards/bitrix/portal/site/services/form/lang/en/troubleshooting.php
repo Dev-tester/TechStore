@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TROUBLESHOOTING_FORM_NAME"] = "Repair and Maintenance";
 $MESS["TROUBLESHOOTING_FORM_BUTTON"] = "Submit Order";
 

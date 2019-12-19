@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DB;
 
 use Bitrix\Main\Localization\Loc;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CPSL_TPL_MESS_BTN_DETAIL"] = "Details";
 $MESS["CPSL_ADD_TO_BASKET_OK"] = "Added to your shopping cart";
 $MESS["CPSL_CATALOG_TITLE_ERROR"] = "Error";

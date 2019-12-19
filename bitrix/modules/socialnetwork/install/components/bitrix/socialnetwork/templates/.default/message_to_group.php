@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 
@@ -7,10 +7,10 @@ if (!IsModuleInstalled("im")):
 	$APPLICATION->RestartBuffer();
 	?><html>
 	<head>
-	<?$APPLICATION->ShowHead();?>
-	<title><?$APPLICATION->ShowTitle()?></title>
+	<?php $APPLICATION->ShowHead();?>
+	<title><?php $APPLICATION->ShowTitle()?></title>
 	</head>
-	<body class="socnet-chat"><?
+	<body class="socnet-chat"><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.messages_chat", 
 		"", 
@@ -32,7 +32,7 @@ if (!IsModuleInstalled("im")):
 		$component 
 	);
 	?></body>
-	</html><?
+	</html><?php 
 	die();
 
 endif;

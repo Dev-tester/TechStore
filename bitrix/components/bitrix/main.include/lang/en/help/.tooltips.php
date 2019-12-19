@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AREA_FILE_SHOW_TIP'] = "Specifies the include area scope:<br /><b>page</b> - the include area will be added to the current page only;<br /><b>section</b> - the include area is section wide.";
 $MESS ['AREA_FILE_SUFFIX_TIP'] = "Specifies the file name suffix that will be appended to all new include areas. All pages with this suffix will be treated as include areas.";
 $MESS ['EDIT_MODE_TIP'] = "The selected editing mode will be used when a user opens an include area for editing from the public section.";

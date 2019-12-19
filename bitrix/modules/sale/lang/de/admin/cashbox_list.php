@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ACCESS_DENIED"] = "Zugriff verweigert.";
 $MESS["SALE_CASHBOX_TITLE"] = "Cash-Register";
 $MESS["SALE_F_ACTIVE"] = "Aktiv";

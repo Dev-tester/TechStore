@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 $FM_RIGHT = $APPLICATION->GetGroupRight("fileman");
@@ -54,7 +54,7 @@ if($bUploaded):
 	?><script>
 	window.top.opener.SetUrl('<?=AddSlashes(htmlspecialcharsex($path."/".$file_name))?>') ;
 	window.close();
-	</script><?
+	</script><?php 
 else:
     ShowError($strWarning);
 ?>
@@ -109,7 +109,7 @@ function filelist_OnFileSelect(strPath)
 	hiddenimg.src=strPath;
 }
 
-<?if ($WF_CONVERT=="Y"):?>
+<?php if ($WF_CONVERT=="Y"):?>
 function WF_OnFileSelect(strPath, strTemp)
 {
 	var src;
@@ -120,7 +120,7 @@ function WF_OnFileSelect(strPath, strTemp)
 	imageupload.bSelect.disabled=false;
 	hiddenimg.src=src;
 }
-<?endif;?>
+<?php endif;?>
 
 
 function SelectImage(fname)
@@ -156,7 +156,7 @@ function ShowSize(obj)
 }
 //-->
 </script>
-<?echo "<title".">".GetMessage("FILEMAN_IMAGE_LOADING")."</title>";?>
+<?php echo "<title".">".GetMessage("FILEMAN_IMAGE_LOADING")."</title>";?>
 <img id=hiddenimg style="visibility:hidden; position: absolute; left:-1000; top: -1000px;" onerror="badimg = true;" onload="ShowSize(this)">
 <form target="_self" action="fileman_fck_browser.php" method="post" enctype="multipart/form-data" name="imageupload">
 <input type="hidden" name="logical" value="<?=htmlspecialcharsex($logical)?>">
@@ -165,9 +165,9 @@ function ShowSize(obj)
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <td width="0%">
-<iframe name="filelist" src="fileman_file_list.php?path=<?echo urlencode(isset($lopendir) ? $lopendir : $path)?>&site=<?=urlencode($site)?>&lang=<?echo LANG?>&type=<?=urlencode($type)?>" width="450" height="250"></iframe>
+<iframe name="filelist" src="fileman_file_list.php?path=<?php echo urlencode(isset($lopendir) ? $lopendir : $path)?>&site=<?=urlencode($site)?>&lang=<?php echo LANG?>&type=<?=urlencode($type)?>" width="450" height="250"></iframe>
 </td>
-<?if($type=="image"):?>
+<?php if($type=="image"):?>
 <td width="2%">&nbsp;</td>
 <td valign="top" width="98%" align="center">
 	<font class="tableheadtext"><?=GetMessage('FILEMAN_PREVIEW')."<br>"?><hr size="1">
@@ -188,10 +188,10 @@ function ShowSize(obj)
 	</table>
 	</font>
 </td>
-<?endif?>
+<?php endif?>
 </tr>
 </table>
-<?
+<?php 
 if ($WF_CONVERT=="Y" && intval($DOCUMENT_ID) > 0 && CModule::IncludeModule("workflow")):
 	$doc_files = CWorkflow::GetFileList(intval($DOCUMENT_ID));
 	$doc_files->NavStart();
@@ -215,7 +215,7 @@ if ($WF_CONVERT=="Y" && intval($DOCUMENT_ID) > 0 && CModule::IncludeModule("work
 								<td class="tablehead" align="center"><font class="tableheadtext"><?=GetMessage("FILEMAN_FILE_LOADED")?></font></td>
 								<td class="tablehead" align="center" width="50%"><font class="tableheadtext"><?=GetMessage("FILEMAN_UPLOADED_BY")?></font></td>
 							</tr>
-							<?
+							<?php 
 							while ($zr=$doc_files->GetNext()) :
 								$ftype = GetFileType($zr["FILENAME"]);
 								if ($ftype=="IMAGE") :
@@ -225,9 +225,9 @@ if ($WF_CONVERT=="Y" && intval($DOCUMENT_ID) > 0 && CModule::IncludeModule("work
 								<td class="tablebody"><font class="tablebodytext"><a onclick="WF_OnFileSelect('<?= AddSlashes(htmlspecialcharsex($zr["FILENAME"]))?>'); return false;" href="javascript:void(0)" ><?= htmlspecialcharsex($zr["FILENAME"])?></a></font></td>
 								<td class="tablebody" align="right"><font class="tablebodytext"><?=$zr["FILESIZE"]?></font></td>
 								<td class="tablebody" align="center" nowrap><font class="tablebodytext"><?=$zr["TIMESTAMP_X"]?></font></td>
-								<td class="tablebody"><font class="tablebodytext">[<a target="_blank" class="tablebodylink" href="user_edit.php?ID=<?echo $zr["MODIFIED_BY"]?>&lang=<?=LANG?>"><?echo $zr["MODIFIED_BY"]?></a>]&nbsp;<?echo $zr["USER_NAME"]?></font></td>
+								<td class="tablebody"><font class="tablebodytext">[<a target="_blank" class="tablebodylink" href="user_edit.php?ID=<?php echo $zr["MODIFIED_BY"]?>&lang=<?=LANG?>"><?php echo $zr["MODIFIED_BY"]?></a>]&nbsp;<?php echo $zr["USER_NAME"]?></font></td>
 							</tr>
-							<?
+							<?php 
 								endif;
 							endwhile;
 							?>
@@ -238,7 +238,7 @@ if ($WF_CONVERT=="Y" && intval($DOCUMENT_ID) > 0 && CModule::IncludeModule("work
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 	endif;
 endif;
 ?>
@@ -278,9 +278,9 @@ endif;
 	</tr>
 </table>
 </form>
-<?endif;?>
+<?php endif;?>
 </body>
 </html>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php")
 ?>

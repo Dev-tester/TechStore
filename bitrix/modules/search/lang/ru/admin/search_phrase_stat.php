@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_PHS_TITLE"] = "Статистика поисковых фраз";
 $MESS["SEARCH_PHS_ID"] = "ID";
 $MESS["SEARCH_PHS_DATE"] = "Дата";

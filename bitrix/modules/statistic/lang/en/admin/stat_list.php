@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_SERVER_TIME'] = "Server time:";
 $MESS ['STAT_GUESTS'] = "Visitors";
 $MESS ['STAT_C_EVENTS'] = "Events";

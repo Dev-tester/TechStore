@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LFP_CLASS_SCHEME_ERR_URI_HOST"] = "Для данного типа подключения необходимо указать сервер";
 $MESS["LFP_CLASS_SCHEME_ERR_TYPE"] = "Тип схемы является обязательным полем.";
 $MESS["LFP_CLASS_SCHEME_ERR_ENTITY_TYPE"] = "Тип сущности является обязательным полем.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RESUME_FORM_NAME"] = "Ваше резюме";
 $MESS["RESUME_MENU_NAME"] = "Резюме";
 $MESS["RESUME_ORDER_FORM_BUTTON"] = "Отправить заявку";

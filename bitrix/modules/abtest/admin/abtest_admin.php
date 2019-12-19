@@ -318,7 +318,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 	</tr></table>
 </div><br>
 
-<?
+<?php 
 
 $lAdmin->displayList();
 

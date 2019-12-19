@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_DESCRIPTION"] = "Description:";
 $MESS["STAT_NAME"] = "Name:";
 $MESS["STAT_VIEW_EVENT_LIST"] = "Go to the event list";

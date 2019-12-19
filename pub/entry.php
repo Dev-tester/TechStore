@@ -69,6 +69,6 @@ BX.ready(function()
 </script>
 
 
-<?
+<?php 
 
 require $_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php';

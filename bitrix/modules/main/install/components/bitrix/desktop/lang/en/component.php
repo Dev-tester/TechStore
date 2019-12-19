@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CMDESKTOP_AUTH_ERR"] = "Authorization error";
 $MESS["CMDESKTOP_GROUP_PERSONAL"] = "Personal";
 $MESS["CMDESKTOP_GROUP_PERSONAL_DESCR"] = "Gadgets for most used personal tools";

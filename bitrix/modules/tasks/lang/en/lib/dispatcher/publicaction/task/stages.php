@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAGES_ERROR_ACCESS_DENIED_GROUP_TASK"] = "You cannot view tasks in this group";
 $MESS["STAGES_ERROR_ACCESS_DENIED_STAGES"] = "You cannot manage stages";
 $MESS["STAGES_ERROR_ACCESS_DENIED_MOVE"] = "You cannot move this task";

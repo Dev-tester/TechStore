@@ -20,15 +20,15 @@ use Bitrix\Main\Localization\Loc;
 		<div class="voximplant-control-row">
 			<div class="voximplant-control-subtitle"><?= Loc::getMessage("VOX_CLOSING_DOCS_PERIOD") ?></div>
 			<select name="PERIOD" class="voximplant-control-select">
-				<? foreach ($arResult["PERIODS"] as $date): ?>
-					<?
+				<?php  foreach ($arResult["PERIODS"] as $date): ?>
+					<?php 
 						$month = $date->format("m");
 						$year = $date->format("Y");
 					?>
 					<option value="<?=$year . "-" . $month?>">
 						<?= Loc::getMessage("VOX_CLOSING_DOCS_MONTH_" . $month) . " " . $year?>
 					</option>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</select>
 		</div>
 		<div class="voximplant-control-row">

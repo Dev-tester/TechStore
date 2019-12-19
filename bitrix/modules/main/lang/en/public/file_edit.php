@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PUBLIC_EDIT_TITLE"] = "Edit Page";
 $MESS["PUBLIC_EDIT_TITLE_COMP"] = "Edit Include Area";
 $MESS["PUBLIC_EDIT_DESCRIPTION"] = "edited file:";

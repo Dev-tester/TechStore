@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCGAP1_AFF_EXISTS"] = "An die Umsatzplanung Nr. #ID# sind Affiliate gebunden";
 $MESS["SCGAP1_ERROR_FUNC"] = "Beim Ausführen der Funktion ist ein Fehler aufgetreten";
 $MESS["SCGAP1_NO_NAME"] = "Die Bezeichnung der Umsatzplanung wurde nicht angegeben";

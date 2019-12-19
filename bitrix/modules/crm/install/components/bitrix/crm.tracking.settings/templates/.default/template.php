@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -21,7 +21,7 @@ $containerId = 'crm-tracking-channel-pool';
 
 <div class="crm-analytics-source-block crm-analytics-source-block-desc">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:ui.feedback.form',
 		'',
@@ -76,7 +76,7 @@ $containerId = 'crm-tracking-channel-pool';
 			</div>
 		</div>
 
-		<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+		<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 			'BUTTONS' => ['save', 'cancel' => $arParams['PATH_TO_LIST']]
 		]);?>
 	</form>

@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Add News");
-?><?$APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", array(
 	"NAV_ON_PAGE" => "10",
 	"USE_CAPTCHA" => "N",
 	"USER_MESSAGE_ADD" => "Your news item has been added. After screening by our moderator, it will be published on the site.",
@@ -56,4 +56,4 @@ $APPLICATION->SetTitle("Add News");
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,6 +1,6 @@
 <html>
 <head>
-<?$APPLICATION->ShowHead()?>
+<?php $APPLICATION->ShowHead()?>
 </head>
 <body>
 

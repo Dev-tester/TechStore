@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RECYCLE_BIN_CONTACT_ENTITY_NAME"] = "Контакт";
 $MESS["CRM_RECYCLE_BIN_CONTACT_RESTORED"] = "Контакт успешно восстановлен.";
 $MESS["CRM_RECYCLE_BIN_CONTACT_REMOVED"] = "Контакт успешно удалён.";

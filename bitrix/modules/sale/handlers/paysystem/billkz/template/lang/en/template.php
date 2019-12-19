@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILLKZ_TITLE"] = "Invoice";
 $MESS["SALE_HPS_BILLKZ_BIN"] = "BIN";
 $MESS["SALE_HPS_BILLKZ_IIN"] = "TIN";

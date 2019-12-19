@@ -1,12 +1,12 @@
-						<?
+						<?php 
 						if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 						IncludeTemplateLangFile(__FILE__);
 						?>
 					</div>
 				</div>
-				<?if ($GLOBALS["bRightColumnVisible"]) { ?>
+				<?php if ($GLOBALS["bRightColumnVisible"]) { ?>
 					<div id="sidebar" class="right-column"> 
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:main.include",
 							"sidebar",
 							Array(
@@ -17,7 +17,7 @@
 								"EDIT_TEMPLATE" => "page_inc.php" 
 								)
 						);?>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:main.include",
 							"sidebar",
 							Array(
@@ -28,22 +28,22 @@
 								"EDIT_TEMPLATE" => "sect_inc.php" 
 							)
 						);?>
-						<?$APPLICATION->ShowViewContent("sidebar")?>
+						<?php $APPLICATION->ShowViewContent("sidebar")?>
 					 </div>
-				 <?} ?>
+				 <?php } ?>
 			</div>
 			<div id="space-for-footer"></div>
 		</div>
 		<div id="footer">
 			<div id="copyright">
-				<?$APPLICATION->IncludeFile(
+				<?php $APPLICATION->IncludeFile(
 					$APPLICATION->GetTemplatePath(SITE_DIR."include/copyright.php"),
 					Array(),
 					Array("MODE"=>"html")
 				);?>
 			</div>
 			<div class="footer-links">	
-			<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom", Array(
+			<?php $APPLICATION->IncludeComponent("bitrix:menu", "bottom", Array(
 				"ROOT_MENU_TYPE"	=>	"bottom",
 				"MAX_LEVEL"	=>	"1",
 				"MENU_CACHE_TYPE" => "A",

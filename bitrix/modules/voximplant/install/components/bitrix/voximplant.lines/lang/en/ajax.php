@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_LINES_ERROR_EMPTY_NAME"] = "Enter number pool name";
 $MESS["VOX_LINES_ERROR_GROUP_NOT_FOUND"] = "Number pool was not found";
 $MESS["VOX_LINES_ERROR_NAME_EXISTS"] = "A number pool or SIP connection with this name already exists";

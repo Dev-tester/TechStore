@@ -31,7 +31,7 @@ $APPLICATION->IncludeComponent(
 
 ?>
 <h2 class="mp_title_section"><?=\Bitrix\Main\Localization\Loc::getMessage('REST_RH_LIST_EVENT_SECTION')?></h2>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:rest.hook.event.list',
 	'',
@@ -43,7 +43,7 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 <h2 class="mp_title_section"><?=\Bitrix\Main\Localization\Loc::getMessage('REST_RH_LIST_AP_SECTION')?></h2>
-<?
+<?php 
 
 $APPLICATION->IncludeComponent(
 	'bitrix:rest.hook.ap.list',

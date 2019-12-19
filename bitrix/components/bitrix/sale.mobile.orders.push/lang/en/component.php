@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOP_ACCESS_DENIED"] = "Access denied";
 $MESS["SMOP_MA_NOT_INSTALLED"] = "The Mobile Builder module is not installed.";
 $MESS["SMOP_SALE_NOT_INSTALLED"] = "The e-Store module is not installed.";

@@ -125,7 +125,7 @@ class ActivationKeyStep extends \CWizardStep
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -145,7 +145,7 @@ class ActivationKeyStep extends \CWizardStep
 			?>
 			<input type="hidden" name="<?=$this->GetWizard()->nextStepHiddenID?>" value="<?=$this->GetNextStepID()?>">
 			<input type="hidden" name="<?=$this->GetWizard()->nextButtonID?>" value="<?=$this->GetNextCaption()?>">
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

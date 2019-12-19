@@ -1,4 +1,4 @@
-<?
+<?php 
 class CBXPunycode
 {
 	const PREFIX = 'xn--';

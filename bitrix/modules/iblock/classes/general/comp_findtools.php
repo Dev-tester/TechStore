@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIBlockFindTools
 {
 	public static function GetElementID($element_id, $element_code, $section_id, $section_code, $arFilter)

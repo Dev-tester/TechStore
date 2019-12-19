@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADM_UPD_ERROR"] = "Ошибка изменения записи:";
 $MESS["IBLOCK_ADM_HEADER_EL"] = "Элементов";
 $MESS["IBLOCK_ADM_HEADER_SECT"] = "Разделов";

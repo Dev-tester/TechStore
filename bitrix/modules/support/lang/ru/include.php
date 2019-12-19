@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_SAVE'] = "Сохранить";
 $MESS ['SUP_APPLY'] = "Применить";
 $MESS ['SUP_RESET'] = "Сбросить";

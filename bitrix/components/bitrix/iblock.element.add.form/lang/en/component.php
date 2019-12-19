@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADD_ERROR_REQUIRED"] = "The field '#PROPERTY_NAME#' is required!";
 $MESS["IBLOCK_ADD_ELEMENT_NOT_FOUND"] = "Element was not found";
 $MESS["IBLOCK_ADD_ACCESS_DENIED"] = "Access denied";

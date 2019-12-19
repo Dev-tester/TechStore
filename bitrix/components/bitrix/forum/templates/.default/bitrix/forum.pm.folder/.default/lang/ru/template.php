@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_POST_FULLY'] = "Заполнение ящика:";
 $MESS ['F_FOLDER'] = "Папка";
 $MESS ['F_MESSAGES'] = "Сообщения";

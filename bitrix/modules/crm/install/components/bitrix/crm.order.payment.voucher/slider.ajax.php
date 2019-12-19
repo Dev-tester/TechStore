@@ -1,4 +1,4 @@
-<?
+<?php 
 $siteID = isset($_REQUEST['site']) ? substr(preg_replace('/[^a-z0-9_]/i', '', $_REQUEST['site']), 0, 2) : '';
 if($siteID !== '')
 {
@@ -28,7 +28,7 @@ $APPLICATION->RestartBuffer();
 			window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
+	<?php $APPLICATION->ShowHead();?>
 	<style>.task-iframe-popup,
 		.task-iframe-popup.task-form-page,
 		.task-iframe-popup.task-detail-page{
@@ -36,24 +36,24 @@ $APPLICATION->RestartBuffer();
 			padding: 0 15px 21px 21px;
 		}</style>
 </head>
-<body class="crm-iframe-popup crm-detail-page template-<?=SITE_TEMPLATE_ID?> crm-iframe-popup-no-scroll crm-order-payment-voucher-wrapper <? $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
+<body class="crm-iframe-popup crm-detail-page template-<?=SITE_TEMPLATE_ID?> crm-iframe-popup-no-scroll crm-order-payment-voucher-wrapper <?php  $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
 
 <div class="crm-iframe-header">
 	<div class="pagetitle-wrap">
 		<div class="pagetitle-inner-container">
-			<div class="pagetitle-menu" id="pagetitle-menu"><?
+			<div class="pagetitle-menu" id="pagetitle-menu"><?php 
 					$APPLICATION->ShowViewContent("pagetitle");
 					$APPLICATION->ShowViewContent("inside_pagetitle");
 				?></div>
 			<div class="pagetitle">
-			<span id="pagetitle" class="pagetitle-item"><?$APPLICATION->ShowTitle()?></span>
+			<span id="pagetitle" class="pagetitle-item"><?php $APPLICATION->ShowTitle()?></span>
 		</div>
 	</div>
 </div>
 
 <div class="crm-iframe-workarea" id="crm-content-outer">
-	<div class="crm-iframe-sidebar"><?$APPLICATION->ShowViewContent("sidebar"); ?></div>
-	<div class="crm-iframe-content"><?
+	<div class="crm-iframe-sidebar"><?php $APPLICATION->ShowViewContent("sidebar"); ?></div>
+	<div class="crm-iframe-content"><?php 
 
 if (!\Bitrix\Main\Loader::includeModule('crm'))
 {
@@ -109,7 +109,7 @@ else
 ?></div>
 </div>
 </body>
-</html><?
+</html><?php 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');
 die();
 ?>

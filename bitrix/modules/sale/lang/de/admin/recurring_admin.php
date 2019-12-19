@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SRA_ERROR_DELETE"] = "Beim Löschen der Verlängerung Nr. #ID# ist ein Fehler aufgetreten";
 $MESS["SRA_NO_PERMS2DELETE"] = "Sie haben nicht genügend Rechte, um die Verlängerung zu löschen";
 $MESS["SRA_ERROR_UPDATE"] = "Beim Aktualisieren der Verlängerung ist ein Fehler aufgetreten";

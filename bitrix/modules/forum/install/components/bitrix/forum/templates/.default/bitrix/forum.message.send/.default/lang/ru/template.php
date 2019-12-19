@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE_ICQ'] = "Сообщение icq для пользователя ";
 $MESS ['F_TITLE_MAIL'] = "Письмо e-mail для пользователя ";
 $MESS ['F_NAME'] = "Ваше имя";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SHOW_SEARCH_TAGS_CLOUD"] = "Show tag cloud on group page";
 $MESS["SONET_USER_VAR"] = "User ID Variable";
 $MESS["SONET_GROUP_VAR"] = "Group ID Variable";

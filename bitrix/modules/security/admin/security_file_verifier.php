@@ -1,4 +1,4 @@
-<?
+<?php 
 @set_time_limit(10000);
 ini_set("track_errors", "1");
 ignore_user_abort(true);
@@ -1610,7 +1610,7 @@ $tabControl = new CAdminTabControl("tabControl", $arTabs, false, true);
 //-->
 </script>
 <form method="post" enctype="multipart/form-data" action="<?=$APPLICATION->GetCurPage()?>" name="check_file_form">
-<?
+<?php 
 
 if ($okMessage)
 {
@@ -1639,14 +1639,14 @@ if ($tabStep == 1):
 		?>
 		<tr class="adm-detail-required-field">
 			<td class="adm-detail-valign-top" width="30%" style="padding-top:16px;"><?= GetMessage("MFC1_F_PWD") ?>:<br></td>
-			<td width="70%"><input type="password" name="crc_password" style="width:80%;"><?echo BeginNote().GetMessage("MFCW_INT_PASS_SUBSCR").EndNote();?></td>
+			<td width="70%"><input type="password" name="crc_password" style="width:80%;"><?php echo BeginNote().GetMessage("MFCW_INT_PASS_SUBSCR").EndNote();?></td>
 		</tr>
-		<?
+		<?php 
 	elseif ($canSign):
 		?>
 		<tr class="adm-detail-required-field">
 			<td class="adm-detail-valign-top" width="30%" style="padding-top:16px;"><?= GetMessage("MFC1_F_PWD") ?>:<br></td>
-			<td width="70%"><input type="password" name="crc_password" style="width:80%;"><?echo BeginNote().GetMessage("MFCW_INT_PASS_NOTSUBSCR").EndNote();?></td>
+			<td width="70%"><input type="password" name="crc_password" style="width:80%;"><?php echo BeginNote().GetMessage("MFCW_INT_PASS_NOTSUBSCR").EndNote();?></td>
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td><?= GetMessage("MFC1_F_PWD_CONF") ?>:</td>
@@ -1654,9 +1654,9 @@ if ($tabStep == 1):
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td class="adm-detail-valign-top" style="padding-top:16px;"><?= GetMessage("MFC1_F_KEY") ?>:</td>
-			<td><input type="text" name="crc_key" style="width:80%;" value=""><?echo BeginNote().GetMessage("MFCW_INT_KEY_HINT_NOT_SUBSCR").EndNote();?></td>
+			<td><input type="text" name="crc_key" style="width:80%;" value=""><?php echo BeginNote().GetMessage("MFCW_INT_KEY_HINT_NOT_SUBSCR").EndNote();?></td>
 		</tr>
-		<?
+		<?php 
 	endif;
 endif;
 $tabControl->EndTab();
@@ -1667,16 +1667,16 @@ if ($tabStep == 2):
 	<tr class="adm-detail-required-field">
 		<td class="adm-detail-valign-top" width="30%"><?= GetMessage("MFC1_F_ACT") ?>:<br></td>
 		<td width="70%">
-			<?if($canVerify):?>
+			<?php if($canVerify):?>
 			<input type="radio" name="action" value="verify" id="action_verify" checked><label for="action_verify"><?= GetMessage("MFC1_F_ACT_VERIFY") ?></label><br />
-			<?endif?>
-			<?if($canCollect):?>
+			<?php endif?>
+			<?php if($canCollect):?>
 			<input type="radio" name="action" value="collect" id="action_collect"><label for="action_collect"><?= GetMessage("MFC1_F_ACT_COLLECT") ?></label>
-			<?endif?>
+			<?php endif?>
 		</td>
 	</tr>
 
-<?
+<?php 
 endif;
 $tabControl->EndTab();
 
@@ -1722,7 +1722,7 @@ if ($tabStep > 2 && $_REQUEST["action"] == "verify" && $canVerify)
 						<td align="center"><b><?= GetMessage("MFC1_FT_EXTS") ?></b></td>
 						<td align="center"><b><?= GetMessage("MFC1_FT_ACTS") ?></b></td>
 					</tr>
-					<?
+					<?php 
 					$f = true;
 					$arFiles = CFileChecker::GetList();
 					if (count($arFiles) > 0)
@@ -1738,14 +1738,14 @@ if ($tabStep > 2 && $_REQUEST["action"] == "verify" && $canVerify)
 							}
 						//-->
 						</script>
-						<?
+						<?php 
 						foreach ($arFiles as $arFile)
 						{
 							?>
 							<tr onclick="CFTrClick('<?= $arFile["TIMESTAMP_X"] ?>')" id="cf_tr_select_dfile_<?= $arFile["TIMESTAMP_X"] ?>">
 								<td style="text-align: center;"><input type="radio" name="cf_select_dfile" id="cf_select_dfile_<?= $arFile["TIMESTAMP_X"] ?>"<?= $f ? " checked" : "" ?> value="<?= $arFile["TIMESTAMP_X"] ?>"></td>
 								<td style="text-align: center;"><?= date(CDatabase::DateFormatToPHP(FORMAT_DATETIME), $arFile["TIMESTAMP_X"]) ?></td>
-								<td style="text-align: center;"><?
+								<td style="text-align: center;"><?php 
 								if (($arFile["REGION"] & BX_FILE_CHECKER_REGION_KERNEL) != 0)
 									echo GetMessage("MFC1_R_KERNEL")." ( /bitrix/modules )<br />";
 								if (($arFile["REGION"] & BX_FILE_CHECKER_REGION_ROOT) != 0)
@@ -1758,7 +1758,7 @@ if ($tabStep > 2 && $_REQUEST["action"] == "verify" && $canVerify)
 								<td style="text-align: center;"><?= implode(", ", $arFile["EXTENTIONS"]) ?></td>
 								<td style="text-align: center;"><a href="javascript:CFDeleteLog('<?= $arFile["TIMESTAMP_X"] ?>')"><?= GetMessage("MFC1_ACT_DODELETE") ?></a></td>
 							</tr>
-							<?
+							<?php 
 							$f = false;
 						}
 					}
@@ -1768,7 +1768,7 @@ if ($tabStep > 2 && $_REQUEST["action"] == "verify" && $canVerify)
 						<tr>
 							<td colspan="5"><?= GetMessage("MFC1_F_NO_FILES") ?></td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 				</table>
@@ -1785,7 +1785,7 @@ if ($tabStep > 2 && $_REQUEST["action"] == "verify" && $canVerify)
 			</td>
 		</tr>
 		<input type="hidden" name="action" value="<?= htmlspecialcharsbx($_REQUEST["action"]) ?>">
-		<?
+		<?php 
 	endif;
 	$tabControl->EndTab();
 }
@@ -1796,18 +1796,18 @@ if ($tabStep == 3 && $_REQUEST["action"] == "collect" && $canCollect):
 	<tr class="adm-detail-required-field">
 		<td class="adm-detail-valign-top" width="30%"><?= GetMessage("MFC1_F_COLLECT_REGION") ?>:<br></td>
 		<td width="70%">
-			<input type="checkbox" name="checker_region_kernel" id="id_checker_region_kernel" <?if(COption::GetOptionString("security", "checker_region_kernel")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_kernel"><?= GetMessage("MFC1_R_KERNEL") ?> ( /bitrix/modules )</label><br />
-			<input type="checkbox" name="checker_region_root" id="id_checker_region_root" <?if(COption::GetOptionString("security", "checker_region_root")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_root"><?= GetMessage("MFC1_R_SYSTEM") ?> ( /bitrix )</label><br />
-			<?if (BX_PERSONAL_ROOT != BX_ROOT):?>
-				<input type="checkbox" name="checker_region_personal_root" id="id_checker_region_personal_root" <?if(COption::GetOptionString("security", "checker_region_personal_root")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_personal_root"><?= GetMessage("MFC1_R_PSYSTEM") ?> ( <?= BX_PERSONAL_ROOT ?> )</label><br />
-			<?endif;?>
-			<input type="checkbox" name="checker_region_public" id="id_checker_region_public" <?if(COption::GetOptionString("security", "checker_region_public")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_public"><?= GetMessage("MFC1_R_PUBLIC") ?></label><br />
+			<input type="checkbox" name="checker_region_kernel" id="id_checker_region_kernel" <?php if(COption::GetOptionString("security", "checker_region_kernel")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_kernel"><?= GetMessage("MFC1_R_KERNEL") ?> ( /bitrix/modules )</label><br />
+			<input type="checkbox" name="checker_region_root" id="id_checker_region_root" <?php if(COption::GetOptionString("security", "checker_region_root")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_root"><?= GetMessage("MFC1_R_SYSTEM") ?> ( /bitrix )</label><br />
+			<?php if (BX_PERSONAL_ROOT != BX_ROOT):?>
+				<input type="checkbox" name="checker_region_personal_root" id="id_checker_region_personal_root" <?php if(COption::GetOptionString("security", "checker_region_personal_root")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_personal_root"><?= GetMessage("MFC1_R_PSYSTEM") ?> ( <?= BX_PERSONAL_ROOT ?> )</label><br />
+			<?php endif;?>
+			<input type="checkbox" name="checker_region_public" id="id_checker_region_public" <?php if(COption::GetOptionString("security", "checker_region_public")=="Y") echo "checked";?> value="Y"><label for="id_checker_region_public"><?= GetMessage("MFC1_R_PUBLIC") ?></label><br />
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td width="30%"><?= GetMessage("MFC1_F_EXTS") ?>:<br></td>
 		<td width="70%">
-			<input type="text" name="checker_exts" value="<?echo htmlspecialcharsbx(COption::GetOptionString("security", "checker_exts"));?>">
+			<input type="text" name="checker_exts" value="<?php echo htmlspecialcharsbx(COption::GetOptionString("security", "checker_exts"));?>">
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
@@ -1819,12 +1819,12 @@ if ($tabStep == 3 && $_REQUEST["action"] == "collect" && $canCollect):
 	<tr>
 		<td width="30%"><?= GetMessage("MFC1_F_C_STEP") ?>:<br></td>
 		<td width="70%">
-			<input type="text" name="checker_time" value="<?echo COption::GetOptionInt("security", "checker_time");?>">
+			<input type="text" name="checker_time" value="<?php echo COption::GetOptionInt("security", "checker_time");?>">
 		</td>
 	</tr>
 	<input type="hidden" name="action" value="<?= htmlspecialcharsbx($_REQUEST["action"]) ?>">
 
-<?elseif ($tabStep == 4 && $_REQUEST["action"] == "verify" && $canVerify):?>
+<?php elseif ($tabStep == 4 && $_REQUEST["action"] == "verify" && $canVerify):?>
 
 	<tr class="adm-detail-required-field">
 		<td width="30%"><?= GetMessage("MFC1_F_DEC_PWD") ?>:<br></td>
@@ -1841,7 +1841,7 @@ if ($tabStep == 3 && $_REQUEST["action"] == "collect" && $canCollect):
 	<input type="hidden" name="action" value="<?= htmlspecialcharsbx($_REQUEST["action"]) ?>">
 	<input type="hidden" name="cf_select_dfile" value="<?= htmlspecialcharsbx($_REQUEST["cf_select_dfile"]) ?>">
 
-<?
+<?php 
 endif;
 $tabControl->EndTab();
 $tabControl->BeginNextTab();
@@ -1880,11 +1880,11 @@ if(
 
 			updRand++;
 			var data = null;
-			<?if ($_REQUEST["action"] == "verify"):?>
+			<?php if ($_REQUEST["action"] == "verify"):?>
 				data = "fcajax=vf&df=<?= intval($_REQUEST["cf_select_dfile"]) ?>&pwd=<?= urlencode($_REQUEST['checker_pwd']) ?>&tm=<?= intval($_REQUEST['checker_time']) ?>&<?= bitrix_sessid_get() ?>&ts=" + ts + "&completed=" + completed + "&startpoint=" + startPoint + "&updRand=" + updRand;
-			<?elseif ($_REQUEST["action"] == "collect"):?>
+			<?php elseif ($_REQUEST["action"] == "collect"):?>
 				data = "fcajax=cl&region=<?= intval($region) ?>&exts=<?= urlencode($_REQUEST['checker_exts']) ?>&pwd=<?= urlencode($_REQUEST['checker_pwd']) ?>&tm=<?= intval($_REQUEST['checker_time']) ?>&<?= bitrix_sessid_get() ?>&ts=" + ts + "&completed=" + completed + "&startpoint=" + startPoint + "&updRand=" + updRand;
-			<?endif;?>
+			<?php endif;?>
 			BX.ajax.post("/bitrix/admin/security_file_verifier.php", data, callback);
 		}
 
@@ -1901,15 +1901,15 @@ if(
 				__FCErrorClose();
 				__FCSuccessShow();
 
-				<?if ($_REQUEST["action"] == "verify"):?>
+				<?php if ($_REQUEST["action"] == "verify"):?>
 					__FCSuccessAdd("<b><?= GetMessage("MFC1_J_FINISH") ?></b><br /><br />");
 					__FCSuccessAdd(arData[1]);
 
-				<?elseif ($_REQUEST["action"] == "collect"):?>
+				<?php elseif ($_REQUEST["action"] == "collect"):?>
 					__FCSuccessAdd("<b><?= GetMessage("MFC1_J_FINISH") ?></b><br /><br />");
 					__FCSuccessAdd("<?= GetMessage("MFC1_J_NUM_FILES") ?>: " + globalCounter + ".<br />");
 					__FCSuccessAdd("<?= GetMessage("MFC1_J_DWL_PROMT1") ?> <a href='/bitrix/admin/security_file_verifier.php?fcdld=Y&ts=" + arData[1] + "&<?= bitrix_sessid_get() ?>'><?= GetMessage("MFC1_J_DWL_PROMT2") ?></a>.");
-				<?endif;?>
+				<?php endif;?>
 
 				CloseWaitWindow();
 			}
@@ -2049,7 +2049,7 @@ if(
 	//-->
 	</script>
 
-<?
+<?php 
 endif;
 $tabControl->EndTab();
 $tabControl->Buttons();
@@ -2059,67 +2059,67 @@ $tabControl->Buttons();
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>" />
 <?=bitrix_sessid_post()?>
 
-<?if ($tabStep > 1):?>
+<?php if ($tabStep > 1):?>
 	<input type="submit" name="backToStart" value="&lt;&lt; <?= GetMessage("MFC1_B_FIRST") ?>">
-<?endif?>
+<?php endif?>
 
-<?if(
+<?php if(
 	($tabStep < 3 && $canSign)
 	|| ($tabStep < 4 && $_REQUEST["action"] == "collect" && $canCollect)
 	|| ($tabStep < 5 && $_REQUEST["action"] == "verify" && $canVerify)
 ):?>
 	<input type="submit" value="<?= GetMessage("MFC1_B_NEXT") ?> &gt;&gt;" name="nextButton">
-<?endif?>
+<?php endif?>
 
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
 
 <script type="text/javascript">
 <!--
-<?if ($tabStep == 1):?>
+<?php if ($tabStep == 1):?>
 	tabControl.SelectTab("tabSign");
 	tabControl.DisableTab("tabSelect");
-<?elseif ($tabStep == 2):?>
+<?php elseif ($tabStep == 2):?>
 	tabControl.SelectTab("tabSelect");
 	tabControl.DisableTab("tabSign");
-<?elseif ($tabStep == 3):?>
+<?php elseif ($tabStep == 3):?>
 	tabControl.DisableTab("tabSign");
 	tabControl.DisableTab("tabSelect");
-	<?if ($_REQUEST["action"] == "collect"):?>
+	<?php if ($_REQUEST["action"] == "collect"):?>
 		tabControl.SelectTab("tabCollect");
 		tabControl.DisableTab("tabCollectResult");
-	<?elseif ($_REQUEST["action"] == "verify"):?>
+	<?php elseif ($_REQUEST["action"] == "verify"):?>
 		tabControl.SelectTab("tabFile");
 		tabControl.DisableTab("tabVerify");
 		tabControl.DisableTab("tabVerifyResult");
-	<?endif;?>
-<?elseif ($tabStep == 4):?>
+	<?php endif;?>
+<?php elseif ($tabStep == 4):?>
 	tabControl.DisableTab("tabSign");
 	tabControl.DisableTab("tabSelect");
-	<?if ($_REQUEST["action"] == "collect"):?>
+	<?php if ($_REQUEST["action"] == "collect"):?>
 		tabControl.SelectTab("tabCollectResult");
 		tabControl.DisableTab("tabCollect");
-	<?elseif ($_REQUEST["action"] == "verify"):?>
+	<?php elseif ($_REQUEST["action"] == "verify"):?>
 		tabControl.DisableTab("tabFile");
 		tabControl.DisableTab("tabVerifyResult");
 		tabControl.SelectTab("tabVerify");
-	<?endif;?>
-<?elseif ($tabStep == 5):?>
+	<?php endif;?>
+<?php elseif ($tabStep == 5):?>
 	tabControl.DisableTab("tabSign");
 	tabControl.DisableTab("tabSelect");
-	<?if ($_REQUEST["action"] == "collect"):?>
+	<?php if ($_REQUEST["action"] == "collect"):?>
 		tabControl.DisableTab("tabCollectResult");
 		tabControl.DisableTab("tabCollect");
-	<?elseif ($_REQUEST["action"] == "verify"):?>
+	<?php elseif ($_REQUEST["action"] == "verify"):?>
 		tabControl.DisableTab("tabFile");
 		tabControl.SelectTab("tabVerifyResult");
 		tabControl.DisableTab("tabVerify");
-	<?endif;?>
-<?endif;?>
+	<?php endif;?>
+<?php endif;?>
 //-->
 </script>
 
-<?
+<?php 
 $legend = "";
 if ($tabStep == 1)
 	$legend = $isSubscribed? GetMessage("MFCW_LEGEND_SUBSCR_1"): GetMessage("MFCW_LEGEND_NOTSUBSCR_1");
@@ -2136,4 +2136,4 @@ if (strlen($legend) > 0)
 	echo BeginNote().$legend.EndNote();
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

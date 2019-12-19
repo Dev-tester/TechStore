@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 CUtil::InitJSCore(array("amcharts", "amcharts_funnel", "amcharts_serial"));
 Bitrix\Main\Page\Asset::getInstance()->addCss("/bitrix/js/crm/css/crm.css");
@@ -29,13 +29,13 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 <div id="crm-container" class="crm-container">
 <div class="crm-transaction-stage">
 
-	<? if ($settings["TYPE"] == "SEPARATED"): ?>
+	<?php  if ($settings["TYPE"] == "SEPARATED"): ?>
 
 	<div id="content_<?=$settingsId?>" class="crm-status-content">
 
 		<!-- Initial stage -->
 		<div class="transaction-stage transaction-initial-stage">
-			<?
+			<?php 
 				$iconClass = "";
 				$blockClass = "";
 				$colorValue = $initialFields[$settingsId]["COLOR"] ? $initialFields[$settingsId]["COLOR"] : "#ACE9FB";
@@ -52,13 +52,13 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 			     style="<?=htmlspecialcharsbx($style)?>">
 				<div id="phase-panel" data-class="transaction-stage-phase-panel" class="<?=$blockClass?>
 				    transaction-stage-phase-panel">
-					<?if($initialFields[$settingsId]["SYSTEM"] == "Y" &&
+					<?php if($initialFields[$settingsId]["SYSTEM"] == "Y" &&
 						!empty($initialFields[$settingsId]["NAME_INIT"])):?>
 						<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$initialFields[$settingsId]["ID"]?>',
 							'<?=htmlspecialcharsbx($initialFields[$settingsId]["NAME_INIT"])?>')" class="
 						transaction-stage-phase-panel-button transaction-stage-phase-panel-button-refresh" title="
 						<?=GetMessage("CRM_STATUS_LIST_RECOVERY_NAME")?>"></div>
-					<?endif?>
+					<?php endif?>
 					<div class="transaction-stage-phase-panel-button"
 					     title="<?=GetMessage("CRM_STATUS_EDIT_COLOR")?>"
 					     onclick="BX['<?=$jsClass?>'].correctionColorPicker(event, '<?=$initialFields[$settingsId]["ID"]?>')">
@@ -101,7 +101,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 		<!-- Extra stage -->
 		<div id="extra-storage-<?=$settingsId?>" class="transaction-stage droppable">
 			<div class="transaction-stage-title"><?=GetMessage("CRM_STATUS_TITLE_EXTRA_".$settingsId)?></div>
-			<? foreach($extraFields[$settingsId] as $field):
+			<?php  foreach($extraFields[$settingsId] as $field):
 				$blockClass = "";
 				$iconClass = "";
 				$colorValue = $field["COLOR"] ? $field["COLOR"] : "#ACE9FB";
@@ -113,13 +113,13 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 				     data-sort="<?=$field["SORT"]?>" ondblclick="BX['<?=$jsClass?>'].editField('<?=$field["ID"]?>');">
 					<div id="phase-panel" data-class="transaction-stage-phase-panel"
 					     class="<?=$blockClass?> transaction-stage-phase-panel">
-						<?if(!empty($field["NAME_INIT"])):?>
+						<?php if(!empty($field["NAME_INIT"])):?>
 							<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$field["ID"]?>',
 									'<?=htmlspecialcharsbx($field["NAME_INIT"])?>')"
 							     title="<?=GetMessage("CRM_STATUS_LIST_RECOVERY_NAME")?>"
 							     class="transaction-stage-phase-panel-button
 						transaction-stage-phase-panel-button-refresh"></div>
-						<?endif?>
+						<?php endif?>
 						<div class="transaction-stage-phase-panel-button"
 						     title="<?=GetMessage("CRM_STATUS_EDIT_COLOR")?>"
 						     onclick="BX['<?=$jsClass?>'].correctionColorPicker(event, '<?=$field["ID"]?>')">
@@ -160,7 +160,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 					       id="stage-status-id-<?=$field["ID"]?>" data-status-id="1"
 					       value="<?=htmlspecialcharsbx($field["STATUS_ID"])?>">
 				</div>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 			<a href="javascript:void(0)" onclick="BX['<?=$jsClass?>'].addField(this);"
 			   class="transaction-stage-addphase draghandle" data-space="main">+
 				<span><?=isset($semanticInfo["ADD_CAPTION"]) ? $semanticInfo["ADD_CAPTION"] : GetMessage("CRM_STATUS_ADD")?></span>
@@ -178,7 +178,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 			</div>
 			<div class="transaction-stage-final-column">
 
-				<?
+				<?php 
 				$blockClass = "";
 				$iconClass = "";
 				$colorValue = $finalFields[$settingsId]["SUCCESSFUL"]["COLOR"] ?
@@ -195,7 +195,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 					     style="<?=htmlspecialcharsbx($style)?>" data-success="1">
 						<div id="phase-panel" data-class="transaction-stage-phase-panel"
 						     class="<?=$blockClass?> transaction-stage-phase-panel">
-							<?if($finalFields[$settingsId]["SUCCESSFUL"]["SYSTEM"] == "Y" &&
+							<?php if($finalFields[$settingsId]["SUCCESSFUL"]["SYSTEM"] == "Y" &&
 								!empty($finalFields[$settingsId]["SUCCESSFUL"]["NAME_INIT"])):?>
 								<div onclick="BX['<?=$jsClass?>'].recoveryName(
 										'<?=$finalFields[$settingsId]["SUCCESSFUL"]["ID"]?>',
@@ -203,7 +203,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 								     title="<?=GetMessage("CRM_STATUS_LIST_RECOVERY_NAME")?>"
 								     class="transaction-stage-phase-panel-button
 									transaction-stage-phase-panel-button-refresh"></div>
-							<?endif?>
+							<?php endif?>
 							<div class="transaction-stage-phase-panel-button" title="
 								<?=GetMessage("CRM_STATUS_EDIT_COLOR")?>" onclick="
 									BX['<?=$jsClass?>'].correctionColorPicker(event,
@@ -247,7 +247,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 			</div>
 			<div class="transaction-stage-final-column">
 
-				<?
+				<?php 
 				$blockClass = "";
 				$iconClass = "";
 				$colorValue = $finalFields[$settingsId]["UNSUCCESSFUL"]["COLOR"] ?
@@ -264,14 +264,14 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 					     style="<?=htmlspecialcharsbx($style)?>" data-success="0">
 						<div id="phase-panel" data-class="transaction-stage-phase-panel"
 						     class="<?=$blockClass?> transaction-stage-phase-panel">
-							<?if($finalFields[$settingsId]["UNSUCCESSFUL"]["SYSTEM"] == "Y" &&
+							<?php if($finalFields[$settingsId]["UNSUCCESSFUL"]["SYSTEM"] == "Y" &&
 								!empty($finalFields[$settingsId]["UNSUCCESSFUL"]["NAME_INIT"])):?>
 								<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$finalFields[$settingsId]["UNSUCCESSFUL"]["ID"]?>',
 										'<?=htmlspecialcharsbx($finalFields[$settingsId]["UNSUCCESSFUL"]["NAME_INIT"])?>')"
 								     title="<?=GetMessage("CRM_STATUS_LIST_RECOVERY_NAME")?>"
 								     class="transaction-stage-phase-panel-button
 									transaction-stage-phase-panel-button-refresh"></div>
-							<?endif?>
+							<?php endif?>
 							<div class="transaction-stage-phase-panel-button" title="
 								<?=GetMessage("CRM_STATUS_EDIT_COLOR")?>" onclick="
 									BX['<?=$jsClass?>'].correctionColorPicker(event,
@@ -309,9 +309,9 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 						       id="stage-status-id-<?=$finalFields[$settingsId]["UNSUCCESSFUL"]["ID"]?>" data-status-id="1"
 						       value="<?=htmlspecialcharsbx($finalFields[$settingsId]["UNSUCCESSFUL"]["STATUS_ID"])?>">
 					</div>
-					<? foreach($extraFinalFields[$settingsId] as $field): ?>
+					<?php  foreach($extraFinalFields[$settingsId] as $field): ?>
 
-						<?
+						<?php 
 						$blockClass = "";
 						$iconClass = "";
 						$colorValue = $field["COLOR"] ? $field["COLOR"] : "#FFBEBD";
@@ -326,13 +326,13 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 						     style="<?=htmlspecialcharsbx($style)?>">
 							<div id="phase-panel" data-class="transaction-stage-phase-panel"
 							     class="<?=$blockClass?> transaction-stage-phase-panel">
-								<?if(!empty($field["NAME_INIT"])):?>
+								<?php if(!empty($field["NAME_INIT"])):?>
 									<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$field["ID"]?>',
 											'<?=htmlspecialcharsbx($field["NAME_INIT"])?>')"
 									     title="<?=GetMessage("CRM_STATUS_LIST_RECOVERY_NAME")?>"
 									     class="transaction-stage-phase-panel-button
 										transaction-stage-phase-panel-button-refresh"></div>
-								<?endif?>
+								<?php endif?>
 								<div class="transaction-stage-phase-panel-button"
 								     title="<?=GetMessage("CRM_STATUS_EDIT_COLOR")?>"
 								     onclick="BX['<?=$jsClass?>'].correctionColorPicker(event, '<?=$field["ID"]?>')">
@@ -374,7 +374,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 							       id="stage-status-id-<?=$field["ID"]?>" data-status-id="1"
 							       value="<?=htmlspecialcharsbx($field["STATUS_ID"])?>">
 						</div>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 					<a href="javascript:void(0)" onclick="BX['<?=$jsClass?>'].addField(this);"
 					   data-space="final" class="transaction-stage-addphase draghandle">+
 						<span><?=isset($semanticInfo["ADD_CAPTION"]) ? $semanticInfo["ADD_CAPTION"] : GetMessage("CRM_STATUS_ADD")?></span>
@@ -422,11 +422,11 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 									    style="background:<?=(isset($initialFields["COLOR"])) ?
 											htmlspecialcharsbx($initialFields["COLOR"]) : "#ACE9FB"?>">&nbsp;</td>
 
-									<?foreach($extraFields[$settingsId] as $field):?>
+									<?php foreach($extraFields[$settingsId] as $field):?>
 										<td data-scale-type="main"
 										    style="background:<?= (isset($field["COLOR"])) ?
 												htmlspecialcharsbx($field["COLOR"]) : "#ACE9FB"?>">&nbsp;</td>
-									<?endforeach;?>
+									<?php endforeach;?>
 									<td id="previously-scale-final-cell-<?=$settingsId?>">
 										<span class="stage-name"><?=GetMessage("CRM_STATUS_FINAL_TITLE")?></span>
 									</td>
@@ -437,11 +437,11 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 										<?=$initialFields["NUMBER"]?>
 									</span>
 									</td>
-									<?foreach($extraFields[$settingsId] as $field):?>
+									<?php foreach($extraFields[$settingsId] as $field):?>
 										<td data-scale-type="main">
 											<span class="stage-name"><?=$field["NUMBER"]?></span>
 										</td>
-									<?endforeach;?>
+									<?php endforeach;?>
 									<td id="previously-scale-number-final-cell-<?=$settingsId?>">
 										<span class="stage-name">&nbsp;</span>
 									</td>
@@ -460,10 +460,10 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 								<tr id="previously-scale-final-un-success-<?=$settingsId?>">
 									<td style="background:<?=(isset($finalFields[$settingsId]["UNSUCCESSFUL"]["COLOR"])) ?
 										htmlspecialcharsbx($finalFields[$settingsId]["UNSUCCESSFUL"]["COLOR"]) : "#FFBEBD"?>">&nbsp;</td>
-									<?foreach($extraFinalFields[$settingsId] as $field):?>
+									<?php foreach($extraFinalFields[$settingsId] as $field):?>
 										<td style="background:<?= (isset($field["COLOR"])) ?
 											htmlspecialcharsbx($field["COLOR"]) : "#FFBEBD"?>">&nbsp;</td>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</tr>
 								<tr id="previously-scale-number-final-un-success-<?=$settingsId?>">
 									<td>
@@ -471,9 +471,9 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 										<?=$finalFields[$settingsId]["UNSUCCESSFUL"]["NUMBER"]?>
 									</span>
 									</td>
-									<?foreach($extraFinalFields[$settingsId] as $field):?>
+									<?php foreach($extraFinalFields[$settingsId] as $field):?>
 										<td><span class="stage-name"><?=$field["NUMBER"]?></span></td>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</tr>
 							</table>
 						</td>
@@ -507,32 +507,32 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 		</div>
 	</div>
 
-	<? else : ?>
+	<?php  else : ?>
 
 	<div id="content_<?=$settingsId?>" class="crm-status-content">
 		<div id="extra-storage-<?=$settingsId?>" class="transaction-stage droppable">
-			<? $number = 1; ?>
-			<? foreach($settings["DATA"][$settingsId] as $field): ?>
-				<? $field["NUMBER"] = $number; ?>
+			<?php  $number = 1; ?>
+			<?php  foreach($settings["DATA"][$settingsId] as $field): ?>
+				<?php  $field["NUMBER"] = $number; ?>
 				<div class="transaction-stage-phase draghandle" data-calculate="1" data-success="1"
 				     style="background: #d3eef9"
 				     id="field-phase-<?=$field["ID"]?>" data-space="<?=$field["ID"]?>" data-sort="<?=$field["SORT"]?>"
 				     ondblclick="BX['<?=$jsClass?>'].editField('<?=$field["ID"]?>');">
 
-					<? if($field["SYSTEM"] == "Y"): ?>
+					<?php  if($field["SYSTEM"] == "Y"): ?>
 						<div class="transaction-stage-phase-panel">
-							<?if(!empty($field["NAME_INIT"])):?>
+							<?php if(!empty($field["NAME_INIT"])):?>
 								<div onclick="BX['<?=$jsClass?>'].recoveryName('<?=$field["ID"]?>',
 										'<?=htmlspecialcharsbx($field["NAME_INIT"])?>')"
 								     title="<?=GetMessage("CRM_STATUS_LIST_RECOVERY_NAME")?>"
 								     class="transaction-stage-phase-panel-button
 												transaction-stage-phase-panel-button-refresh"></div>
-							<?endif?>
+							<?php endif?>
 						</div>
 						<span class="transaction-stage-phase-icon transaction-stage-phase-icon-move draggable">
 									<span class="transaction-stage-phase-icon-burger"></span>
 								</span>
-					<? else: ?>
+					<?php  else: ?>
 						<div class="transaction-stage-phase-panel">
 							<div onclick="BX['<?=$jsClass?>'].openPopupBeforeDeleteField('<?=$field["ID"]?>')"
 							     title="<?=GetMessage("CRM_STATUS_DELETE_FIELD")?>"
@@ -542,7 +542,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 						<span class="transaction-stage-phase-icon transaction-stage-phase-icon-move draggable">
 									<span class="transaction-stage-phase-icon-burger"></span>
 								</span>
-					<? endif; ?>
+					<?php  endif; ?>
 
 					<span class="transaction-stage-phase-title">
 						<span id="field-title-inner-<?=$field["ID"]?>" class="transaction-stage-phase-title-inner">
@@ -567,8 +567,8 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 					       id="stage-status-id-<?=$field["ID"]?>" data-status-id="1"
 					       value="<?=htmlspecialcharsbx($field["STATUS_ID"])?>">
 				</div>
-				<? $number++ ?>
-			<? endforeach; ?>
+				<?php  $number++ ?>
+			<?php  endforeach; ?>
 			<a href="javascript:void(0)" onclick="BX['<?=$jsClass?>'].addField(this);"
 			   class="transaction-stage-addphase draghandle" data-space="main">+
 				<span><?=GetMessage("CRM_STATUS_ADD")?></span>
@@ -576,15 +576,15 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 		</div>
 	</div>
 
-	<? endif; ?>
+	<?php  endif; ?>
 
 	<!-- Footer buttons -->
 	<div id="crm-configs-footer" class="webform-buttons webform-buttons-fixed">
-		<span class="crm-fixedbtn <?if($pageSettings["BLOCK_FIXED"]):?>crm-fixedbtn-pin<?endif?>" onclick="
+		<span class="crm-fixedbtn <?php if($pageSettings["BLOCK_FIXED"]):?>crm-fixedbtn-pin<?php endif?>" onclick="
 			BX['<?=$jsClass?>'].fixFooter(this);" title="<?=$pageSettings["TITLE_FOOTER_PIN"]?>"></span>
 		<input type="submit" value="<?=GetMessage("CRM_STATUS_BUTTONS_SAVE");?>" class="
 			webform-small-button webform-small-button-accept">
-		<? $cancelOnclick = ($isSidePanel ? "BX['".$jsClass."'].statusReset();" : "BX['".$jsClass."'].statusReset();"); ?>
+		<?php  $cancelOnclick = ($isSidePanel ? "BX['".$jsClass."'].statusReset();" : "BX['".$jsClass."'].statusReset();"); ?>
 		<input type="button" value="<?=GetMessage("CRM_STATUS_BUTTONS_CANCEL");?>" class="
 			webform-small-button webform-small-button-cancel" onclick="<?=$cancelOnclick?>">
 	</div>
@@ -610,9 +610,9 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 			CRM_STATUS_FOOTER_PIN_ON: "<?= GetMessageJS("CRM_STATUS_FOOTER_PIN_ON") ?>",
 			CRM_STATUS_FOOTER_PIN_OFF: "<?= GetMessageJS("CRM_STATUS_FOOTER_PIN_OFF") ?>"
 		});
-		<?if (isset($semanticInfo["DEFAULT_NAME"])):?>
+		<?php if (isset($semanticInfo["DEFAULT_NAME"])):?>
 			BX.message({ CRM_STATUS_NEW_<?=$settingsId?>: "<?=CUtil::JSEscape($semanticInfo["DEFAULT_NAME"])?>" });
-		<?endif;?>
+		<?php endif;?>
 
 		BX['<?=$jsClass?>'] = new BX.CrmSaleSettings({
 			randomString: "<?= $pageSettings["RAND_STRING"] ?>",
@@ -667,7 +667,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 			BX['<?=$jsClass?>'].paintElement(color, objColorPicker);
 		}
 	</script>
-	<? $APPLICATION->includeComponent(
+	<?php  $APPLICATION->includeComponent(
 		"bitrix:main.colorpicker",
 		"",
 		array(
@@ -677,7 +677,7 @@ $unSuccessFields = $settings["SORTED_FIELDS"]["UNSUCCESS_FIELDS"];
 	); ?>
 </div>
 
-<?
+<?php 
 function getColorText($color, &$iconClass, &$blockClass)
 {
 	$r = ord(pack("H*", substr($color, 1, 2)));

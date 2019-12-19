@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/disk/tools/uf.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/disk/tools/uf.php");?>

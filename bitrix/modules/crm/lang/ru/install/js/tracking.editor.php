@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_EDITOR_NOT_FOUND"] = "Ничего не найдено";
 $MESS["CRM_TRACKING_EDITOR_FOUND_ITEMS"] = "Номера - %phones%, email - %emails%";
 $MESS["CRM_TRACKING_EDITOR_SOURCES_NOT_CONFIGURED"] = "Источники не настроены";

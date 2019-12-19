@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if(IsModuleInstalled("search") && $arParams["SHOW_TAGS"] == "Y")
 {
 	$arFilter = is_array($arParams["FID"]) ? $arParams["FID"] : array();
@@ -12,7 +12,7 @@ if(IsModuleInstalled("search") && $arParams["SHOW_TAGS"] == "Y")
 
 ?>
 <div class="tags-cloud">
-<?
+<?php 
 	$APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default", 
 		Array(
 		"SEARCH" => $_REQUEST["q"],
@@ -40,7 +40,7 @@ if(IsModuleInstalled("search") && $arParams["SHOW_TAGS"] == "Y")
 		), $component);
 ?>
 </div>
-<?
+<?php 
 }
 $APPLICATION->IncludeComponent(
 	"bitrix:forum.search",

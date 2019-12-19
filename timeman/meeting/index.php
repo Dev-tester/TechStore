@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/timeman/meeting/index.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));?>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:meetings", ".default", array(
 	"RESERVE_MEETING_IBLOCK_TYPE" => "events",
 	"RESERVE_MEETING_IBLOCK_ID" => "14",
@@ -22,4 +22,4 @@ $APPLICATION->IncludeComponent("bitrix:meetings", ".default", array(
 );
 
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

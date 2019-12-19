@@ -1,8 +1,8 @@
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php"); ?>
 	<script type="text/javascript">
 		app.enableSliderMenu(true);
 	</script>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:mobileapp.menu',
 	'mobile',
@@ -12,4 +12,4 @@ $APPLICATION->IncludeComponent(
 ?>
 
 
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

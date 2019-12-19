@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STE_EMPTY_USER"] = "The field \"User\" is empty";
 $MESS["STE_EMPTY_CURRENCY"] = "The field \"Currency\" is empty";
 $MESS["STE_EMPTY_SUM"] = "The field \"Amount\" is empty";

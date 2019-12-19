@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_TYPE_FILE_IMAGE"] = "Images";
 $MESS["DISK_TYPE_FILE_VIDEO"] = "Video";
 $MESS["DISK_TYPE_FILE_DOCUMENT"] = "Documents";

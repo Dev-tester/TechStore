@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SLS_SALE_MODULE_NOT_INSTALL"] = "The e-Store module is not installed.";
 $MESS["SALE_SLS_LOCATION"] = "Location";
 $MESS["SALE_SLS_BAD_QUERY"] = "Search query is invalid";

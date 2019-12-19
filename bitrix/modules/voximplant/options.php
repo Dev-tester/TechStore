@@ -61,7 +61,7 @@ if(strlen($_POST['Update'])>0 && check_bitrix_sessid())
 	}
 }
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 <?php echo bitrix_sessid_post()?>
 <?php
 $tabControl->Begin();
@@ -70,7 +70,7 @@ if ($errorMessage):?>
 <tr>
 	<td colspan="2" align="center"><b style="color:red"><?=$errorMessage?></b></td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td width="40%"><?=GetMessage("VI_ACCOUNT_NAME")?>:</td>
 	<td width="60%"><b><?=str_replace('.bitrixphone.com', '', $accountName)?></b></td>
@@ -87,10 +87,10 @@ if ($errorMessage):?>
 	<td width="40%"><?=GetMessage("VI_ACCOUNT_DEBUG")?>:</td>
 	<td width="60%"><input type="checkbox" name="DEBUG_MODE" value="Y" <?=(COption::GetOptionInt("voximplant", "debug")? 'checked':'')?> /></td>
 </tr>
-<?if(!IsModuleInstalled('bitrix24')):?>
-<?$tabControl->Buttons();?>
-<input type="submit" name="Update" value="<?echo GetMessage('MAIN_SAVE')?>">
-<input type="reset" name="reset" value="<?echo GetMessage('MAIN_RESET')?>">
-<?endif;?>
-<?$tabControl->End();?>
+<?php if(!IsModuleInstalled('bitrix24')):?>
+<?php $tabControl->Buttons();?>
+<input type="submit" name="Update" value="<?php echo GetMessage('MAIN_SAVE')?>">
+<input type="reset" name="reset" value="<?php echo GetMessage('MAIN_RESET')?>">
+<?php endif;?>
+<?php $tabControl->End();?>
 </form>

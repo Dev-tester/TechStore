@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_VK_ERROR__NOTIFY_CRITICAL"] = "Экспорт ВКонтакте \"#T1\" завершён с ошибкой";
 $MESS["SALE_VK_ERROR__NOTIFY_EXPORT_ID"] = "Профиль экспорта";
 $MESS["SALE_VK_ERROR__NOTIFY_LINK"] = "#A1#Пройдите по ссылке#A2#, чтобы увидеть подробности.";

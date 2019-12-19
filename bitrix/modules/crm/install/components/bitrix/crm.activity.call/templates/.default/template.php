@@ -2,10 +2,10 @@
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 ?>
 <div class="crm-task-list-call">
-	<?foreach($arResult['RECORDS'] as $k => $record):?>
+	<?php foreach($arResult['RECORDS'] as $k => $record):?>
 		<div class="crm-task-list-call-walkman">
 			<span class="crm-task-list-call-walkman-item" style="height: 30px; overflow: hidden;">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:player",
 					"audio",
@@ -63,14 +63,14 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 				</a>
 			</span>
 		</div>
-	<?endforeach?>
+	<?php endforeach?>
 	<div class="crm-task-list-call-info">
-		<?if($arResult['CALL']):?>
+		<?php if($arResult['CALL']):?>
 			<div class="crm-task-list-call-info-container">
 				<span class="crm-task-list-call-info-name"><?=GetMessage('CRM_ACTIVITY_CALL_TYPE')?>:</span>
 				<span class="crm-task-list-call-info-item"><?=htmlspecialcharsbx($arResult['CALL']['CALL_TYPE_TEXT'])?></span>
 			</div>
-			<?if($arResult['CALL']['CALL_FAILED_CODE'] == '200'):?>
+			<?php if($arResult['CALL']['CALL_FAILED_CODE'] == '200'):?>
 				<div class="crm-task-list-call-info-container">
 					<span class="crm-task-list-call-info-name">
 						<?=GetMessage('CRM_ACTIVITY_CALL_DURATION')?>:
@@ -79,7 +79,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 						<?=htmlspecialcharsbx($arResult['CALL']['CALL_DURATION_TEXT'])?>
 					</span>
 				</div>
-				<?if($arResult['CALL']['CALL_VOTE'] > 0):?>
+				<?php if($arResult['CALL']['CALL_VOTE'] > 0):?>
 					<div class="crm-task-list-call-info-container">
 						<span class="crm-task-list-call-info-name">
 							<?=GetMessage('CRM_ACTIVITY_CALL_VOTE')?>:
@@ -88,8 +88,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 							<?=htmlspecialcharsbx($arResult['CALL']['CALL_VOTE'])?>
 						</span>
 					</div>
-				<?endif?>
-			<?else:?>
+				<?php endif?>
+			<?php else:?>
 				<div class="crm-task-list-call-info-container">
 						<span class="crm-task-list-call-info-name">
 							<?=GetMessage('CRM_ACTIVITY_CALL_FAILED')?>:
@@ -98,8 +98,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 							<?=htmlspecialcharsbx($arResult['CALL']['CALL_FAILED_REASON'])?>
 						</span>
 				</div>
-			<?endif?>
-		<?endif?>
+			<?php endif?>
+		<?php endif?>
 		<div class="crm-task-list-call-info-container">
 			<span class="crm-task-list-call-info-name">
 				<?=GetMessage('CRM_ACTIVITY_CALL_DESCRIPTION')?>:
@@ -108,7 +108,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 		<div class="crm-task-list-call-info-container">
 			<?=$arResult['ACTIVITY']['DESCRIPTION_HTML']?>
 		</div>
-		<? if($arResult['CALL']['COMMENT'] != ''): ?>
+		<?php  if($arResult['CALL']['COMMENT'] != ''): ?>
 			<div class="crm-task-list-call-info-container">
 				<span class="crm-task-list-call-info-name">
 					<?=GetMessage('CRM_ACTIVITY_CALL_COMMENT')?>:
@@ -117,6 +117,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 			<div class="crm-task-list-call-info-container">
 				<?=htmlspecialcharsbx($arResult['CALL']['COMMENT'])?>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 	</div>
 </div>

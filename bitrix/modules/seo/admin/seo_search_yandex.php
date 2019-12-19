@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_admin_before.php");
 
 define('ADMIN_MODULE_NAME', 'seo');
@@ -256,7 +256,7 @@ function setAjaxStatus(text)
 	BX('ajax_status').innerHTML = text;
 }
 </script>
-<?
+<?php 
 
 // if(strlen($engine->getInterface()->getError()) > 0)
 // {
@@ -291,7 +291,7 @@ function makeAuth()
 </div>
 <div id="auth_code" style="display: none;">
 	<form name="auth_code_form" action="<?=Converter::getHtmlConverter()->encode($APPLICATION->getCurPageParam("", array("CODE", "oauth")))?>" method="POST"><?=bitrix_sessid_post();?><?=Loc::getMessage('SEO_AUTH_CODE')?>: <input type="text" name="CODE" style="width: 200px" /> <input type="submit" name="send_code" value="<?=Loc::getMessage('SEO_AUTH_CODE_SUBMIT')?>"></form></div>
-<?
+<?php 
 if(!$bNeedAuth)
 {
 	if(is_array($currentUser))
@@ -304,15 +304,15 @@ if(!$bNeedAuth)
 		<div style="clear: both;"></div>
 	</div>
 </div>
-<?
+<?php 
 	}
 ?>
 <script type="text/javascript">updateInfo();</script>
-<?
+<?php 
 }
 ?>
 <?=EndNote();?>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

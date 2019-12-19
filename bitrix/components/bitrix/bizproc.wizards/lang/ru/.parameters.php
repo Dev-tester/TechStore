@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WP_PERMS'] = "Доступ";
 $MESS ['BPWC_WP_SEF_INDEX'] = "Список блоков";
 $MESS ['BPWC_WP_SEF_NEW'] = "Новый блок";

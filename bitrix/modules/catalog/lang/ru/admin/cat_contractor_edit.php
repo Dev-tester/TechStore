@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTRACTOR_TITLE_UPDATE"] = "Редактирование поставщика #ID#";
 $MESS["CONTRACTOR_TITLE_ADD"] = "Новый поставщик";
 $MESS["CONTRACTOR_LIST"] = "Список поставщиков";

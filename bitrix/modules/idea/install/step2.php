@@ -1,4 +1,4 @@
-<?IncludeModuleLangFile(__FILE__);
+<?php IncludeModuleLangFile(__FILE__);
 if(!check_bitrix_sessid()) 
 		return;
 

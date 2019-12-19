@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main,
 	Bitrix\Currency,
 	Bitrix\Catalog;
@@ -620,61 +620,61 @@ $oFilter = new CAdminFilter(
 	)
 );
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
-	<td><? echo "ID" ?>:</td>
+	<td><?php  echo "ID" ?>:</td>
 	<td>
-		<input type="text" name="find_id_from" size="10" value="<?echo htmlspecialcharsbx($find_id_from)?>">
+		<input type="text" name="find_id_from" size="10" value="<?php echo htmlspecialcharsbx($find_id_from)?>">
 			...
-		<input type="text" name="find_id_to" size="10" value="<?echo htmlspecialcharsbx($find_id_to)?>">
+		<input type="text" name="find_id_to" size="10" value="<?php echo htmlspecialcharsbx($find_id_to)?>">
 	</td>
 </tr>
 <tr>
-	<td><? echo GetMessage("BT_CAT_DISC_SAVE_ADM_TITLE_SITE_ID"); ?>:</td>
-	<td><?
+	<td><?php  echo GetMessage("BT_CAT_DISC_SAVE_ADM_TITLE_SITE_ID"); ?>:</td>
+	<td><?php 
 		$siteSize = count($siteList);
 		if ($siteSize > 10)
 			$siteSize = 10;
 		elseif ($siteSize < 3)
 			$siteSize = 3;
-		?><select name="find_site_id[]" multiple size="<?=$siteSize; ?>"><?
+		?><select name="find_site_id[]" multiple size="<?=$siteSize; ?>"><?php 
 		foreach ($siteList as $row)
 		{
-			?><option value="<?=$row['LID']; ?>"<?=(in_array($row['LID'], $filterSite) ? ' selected' : ''); ?>>[<?=$row['LID']; ?>]&nbsp;<?=htmlspecialcharsEx($row['NAME']); ?></option><?
+			?><option value="<?=$row['LID']; ?>"<?=(in_array($row['LID'], $filterSite) ? ' selected' : ''); ?>>[<?=$row['LID']; ?>]&nbsp;<?=htmlspecialcharsEx($row['NAME']); ?></option><?php 
 		}
 		unset($row);
 		?></select>
 	</td>
 </tr>
 <tr>
-	<td><? echo GetMessage("BT_CAT_DISC_SAVE_ADM_TITLE_NAME2")?>:</td>
-	<td><input type="text" size="30" name="find_name" value="<? echo htmlspecialcharsbx($find_name); ?>"></td>
+	<td><?php  echo GetMessage("BT_CAT_DISC_SAVE_ADM_TITLE_NAME2")?>:</td>
+	<td><input type="text" size="30" name="find_name" value="<?php  echo htmlspecialcharsbx($find_name); ?>"></td>
 </tr>
 <tr>
-	<td><? echo GetMessage('BT_CAT_DISC_SAVE_ADM_TITLE_ACTIVE2') ?>:</td>
+	<td><?php  echo GetMessage('BT_CAT_DISC_SAVE_ADM_TITLE_ACTIVE2') ?>:</td>
 	<td><select name="find_active">
-		<option value=""><? echo htmlspecialcharsEx(GetMessage('BT_CAT_DISC_SAVE_ADM_MESS_ACTIVE_ANY'))?></option>
-		<option value="Y"<?if($find_active=="Y")echo " selected"?>><? echo htmlspecialcharsEx(GetMessage("BT_CAT_DISC_SAVE_ADM_MESS_ACTIVE_YES"))?></option>
-		<option value="N"<?if($find_active=="N")echo " selected"?>><? echo htmlspecialcharsEx(GetMessage("BT_CAT_DISC_SAVE_ADM_MESS_ACTIVE_NO"))?></option>
+		<option value=""><?php  echo htmlspecialcharsEx(GetMessage('BT_CAT_DISC_SAVE_ADM_MESS_ACTIVE_ANY'))?></option>
+		<option value="Y"<?php if($find_active=="Y")echo " selected"?>><?php  echo htmlspecialcharsEx(GetMessage("BT_CAT_DISC_SAVE_ADM_MESS_ACTIVE_YES"))?></option>
+		<option value="N"<?php if($find_active=="N")echo " selected"?>><?php  echo htmlspecialcharsEx(GetMessage("BT_CAT_DISC_SAVE_ADM_MESS_ACTIVE_NO"))?></option>
 		</select>
 	</td>
 </tr>
 <tr>
-	<td><? echo htmlspecialcharsEx(GetMessage('BT_CAT_DISC_SAVE_ADM_TITLE_CURRENCY')); ?>:</td>
-	<td><select name="find_currency"><option value="" <? echo ($find_currency == '' ? 'selected' : ''); ?>><? echo htmlspecialcharsEx(GetMessage('BT_CAT_DISC_SAVE_ADM_MESS_CURRENCY_ANY')); ?></option>
-	<?
+	<td><?php  echo htmlspecialcharsEx(GetMessage('BT_CAT_DISC_SAVE_ADM_TITLE_CURRENCY')); ?>:</td>
+	<td><select name="find_currency"><option value="" <?php  echo ($find_currency == '' ? 'selected' : ''); ?>><?php  echo htmlspecialcharsEx(GetMessage('BT_CAT_DISC_SAVE_ADM_MESS_CURRENCY_ANY')); ?></option>
+	<?php 
 	foreach ($arCurrencyList as $strCurrencyID => $strCurrencyName)
 	{
-		?><option value="<? echo htmlspecialcharsbx($strCurrencyID); ?>" <? echo ($strCurrencyID == $find_currency ? 'selected' : ''); ?>><? echo htmlspecialcharsEx($strCurrencyName); ?></option><?
+		?><option value="<?php  echo htmlspecialcharsbx($strCurrencyID); ?>" <?php  echo ($strCurrencyID == $find_currency ? 'selected' : ''); ?>><?php  echo htmlspecialcharsEx($strCurrencyName); ?></option><?php 
 	}
 	?>
 	</select></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"find_form"));
 $oFilter->End();
-?></form><?
+?></form><?php 
 
 $lAdmin->DisplayList();
 

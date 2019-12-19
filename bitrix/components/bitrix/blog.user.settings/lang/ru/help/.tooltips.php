@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_USER_TIP'] = "Указывается путь к странице профиля пользователя. Например: blog_user.php?page=user&user_id=#user_id#.";
 $MESS ['PATH_TO_USER_SETTINGS_EDIT_TIP'] = "Указывается путь к странице редактирования настроек пользователя. Например: blog_u_set_edit.php?page=user_settings_edit&blog=#blog#&user_id=#user_id#.";
 $MESS ['BLOG_VAR_TIP'] = "Указывается имя переменной, которой передается ID блога.";

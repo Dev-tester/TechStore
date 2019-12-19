@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_GO"] = "Search";
 $MESS["SEARCH_ERROR"] = "There is an error in the search request:";
 $MESS["SEARCH_CORRECT_AND_CONTINUE"] = "Your search produced no results. Correct your request and try again.";

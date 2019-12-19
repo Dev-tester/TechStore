@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager Forum                  #
 # Copyright (c) 2002-2009 Bitrix             #
@@ -241,7 +241,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 <a name="tb"></a>
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -258,44 +258,44 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td><b><?echo GetMessage("VOTE_F_USER")?></b></td>
-	<td><input type="text" name="find_user" size="47" value="<?echo htmlspecialcharsbx($find_user)?>"><?=InputType("checkbox", "find_user_exact_match", "Y", $find_user_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><b><?php echo GetMessage("VOTE_F_USER")?></b></td>
+	<td><input type="text" name="find_user" size="47" value="<?php echo htmlspecialcharsbx($find_user)?>"><?=InputType("checkbox", "find_user_exact_match", "Y", $find_user_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>ID:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_DATE_START").":"?></td>
-	<td nowrap><?echo CalendarPeriod("find_date_start_1", htmlspecialcharsbx($find_date_start_1), "find_date_start_2", htmlspecialcharsbx($find_date_start_2), "form1","Y")?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_DATE_START").":"?></td>
+	<td nowrap><?php echo CalendarPeriod("find_date_start_1", htmlspecialcharsbx($find_date_start_1), "find_date_start_2", htmlspecialcharsbx($find_date_start_2), "form1","Y")?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_DATE_END").":"?></td>
-	<td nowrap><?echo CalendarPeriod("find_date_end_1", htmlspecialcharsbx($find_date_end_1), "find_date_end_2", htmlspecialcharsbx($find_date_end_2), "form1","Y")?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_DATE_END").":"?></td>
+	<td nowrap><?php echo CalendarPeriod("find_date_end_1", htmlspecialcharsbx($find_date_end_1), "find_date_end_2", htmlspecialcharsbx($find_date_end_2), "form1","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("VOTE_F_GUEST_ID")?></td>
-	<td><input type="text" name="find_guest" size="47" value="<?echo htmlspecialcharsbx($find_guest)?>"><?=InputType("checkbox", "find_guest_exact_match", "Y", $find_guest_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("VOTE_F_GUEST_ID")?></td>
+	<td><input type="text" name="find_guest" size="47" value="<?php echo htmlspecialcharsbx($find_guest)?>"><?=InputType("checkbox", "find_guest_exact_match", "Y", $find_guest_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("VOTE_F_IP")?></td>
-	<td><input type="text" name="find_ip" size="47" value="<?echo htmlspecialcharsbx($find_ip)?>"><?=InputType("checkbox", "find_ip_exact_match", "Y", $find_ip_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_ip" size="47" value="<?php echo htmlspecialcharsbx($find_ip)?>"><?=InputType("checkbox", "find_ip_exact_match", "Y", $find_ip_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_COUNTER")?></td>
-	<td nowrap><input type="text" name="find_counter_1" value="<?=htmlspecialcharsbx($find_counter_1)?>" size="10"><?echo "&nbsp;".GetMessage("VOTE_TILL")."&nbsp;"?><input type="text" name="find_counter_2" value="<?=htmlspecialcharsbx($find_counter_2)?>" size="10"></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_COUNTER")?></td>
+	<td nowrap><input type="text" name="find_counter_1" value="<?=htmlspecialcharsbx($find_counter_1)?>" size="10"><?php echo "&nbsp;".GetMessage("VOTE_TILL")."&nbsp;"?><input type="text" name="find_counter_2" value="<?=htmlspecialcharsbx($find_counter_2)?>" size="10"></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_VOTE")?></td>
-	<td nowrap><input type="text" name="find_vote" size="47" value="<?echo htmlspecialcharsbx($find_vote)?>"><?=InputType("checkbox", "find_vote_exact_match", "Y", $find_vote_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?echo SelectBox("find_vote_id", CVote::GetDropDownList(), GetMessage("VOTE_ALL"), htmlspecialcharsbx($find_vote_id));?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_VOTE")?></td>
+	<td nowrap><input type="text" name="find_vote" size="47" value="<?php echo htmlspecialcharsbx($find_vote)?>"><?=InputType("checkbox", "find_vote_exact_match", "Y", $find_vote_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?php echo SelectBox("find_vote_id", CVote::GetDropDownList(), GetMessage("VOTE_ALL"), htmlspecialcharsbx($find_vote_id));?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));
 $oFilter->End();
 #############################################################
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

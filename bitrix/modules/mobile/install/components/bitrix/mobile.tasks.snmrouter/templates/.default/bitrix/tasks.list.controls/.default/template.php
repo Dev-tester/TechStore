@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var array $arParams
  * @var array $arResult
@@ -16,14 +16,14 @@ $frame->setUseAppCache();
 \Bitrix\Main\Data\AppCacheManifest::getInstance()->addAdditionalParam("version", "v1.3");
 \Bitrix\Main\Data\AppCacheManifest::getInstance()->addAdditionalParam("LanguageId", LANGUAGE_ID);
 \Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/tasks/logic.js');
-?><?=CJSCore::Init(array("mobile_fastclick"), true);?><?
-?><div id="bx-task"><?
+?><?=CJSCore::Init(array("mobile_fastclick"), true);?><?php 
+?><div id="bx-task"><?php 
 $counters = array();
 if (is_array($arResult['ITEMS']))
 {
 	$APPLICATION->SetPageProperty('BodyClass', 'tasks-list-controls');
 	?><div id="tasks-all-items" class="mobile-task-list">
-		<div class="mobile-task-list-title"><?=GetMessage("MB_TASKS_CONTROLS_TITLE")?></div><?
+		<div class="mobile-task-list-title"><?=GetMessage("MB_TASKS_CONTROLS_TITLE")?></div><?php 
 
 			// special presets
 		foreach($arResult['ITEMS'] as $item)
@@ -39,12 +39,12 @@ if (is_array($arResult['ITEMS']))
 			}
 			?>
 			<div class="mobile-grid-field" data-bx-id="taskgroups-group" data-group-id="<?=htmlspecialcharsbx($item["CODE"])?>">
-				<div class="mobile-grid-field-counter-total<?if(!(intval($item['COUNTER']['TOTAL']['VALUE']) > 0)):?> hidden<?endif?>" data-bx-id="taskgroups-counter" data-counter-id="TOTAL">
-					<?if(intval($item['COUNTER']['TOTAL']['VALUE']) > 0):?><?=intval($item['COUNTER']['TOTAL']['VALUE'])?><?endif?>
+				<div class="mobile-grid-field-counter-total<?php if(!(intval($item['COUNTER']['TOTAL']['VALUE']) > 0)):?> hidden<?php endif?>" data-bx-id="taskgroups-counter" data-counter-id="TOTAL">
+					<?php if(intval($item['COUNTER']['TOTAL']['VALUE']) > 0):?><?=intval($item['COUNTER']['TOTAL']['VALUE'])?><?php endif?>
 				</div>
 				<div class="mobile-grid-field-item-icon mobile-grid-field-item-icon-<?=$class?>"></div>
 				<div data-bx-id="taskgroups-group-url" data-url="<?=htmlspecialcharsbx($item['URL'])?>" class="mobile-grid-field-item"><?=htmlspecialcharsbx($item['TITLE'])?></div>
-				<?
+				<?php 
 				$counters[$item["CODE"]] = $item["COUNTER"];
 				$res = array();
 				foreach ($item["COUNTER"] as $key => $val)
@@ -98,15 +98,15 @@ HTML;
 				}
 				if (count($res) > 0)
 				{
-					?><div class="mobile-grid-field-sub-container"><?=implode("", $res)?></div><?
+					?><div class="mobile-grid-field-sub-container"><?=implode("", $res)?></div><?php 
 				}
 				?>
 			</div>
-			<?
+			<?php 
 		}
 	?>
 	</div>
-	<?
+	<?php 
 	$frame->startDynamicWithID("mobile-tasks-roles");
 	?>
 </div>
@@ -123,6 +123,6 @@ BX.ready(function(){
 	))?>);
 });
 </script>
-	<?
+	<?php 
 	$frame->finishDynamicWithID("mobile-tasks-roles", $stub = "", $containerId = null, $useBrowserStorage = true);
 }

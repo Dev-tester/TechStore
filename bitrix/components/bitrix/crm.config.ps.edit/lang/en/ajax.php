@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PS_PS_MODE_TITLE"] = "Payment system type";
 $MESS["CRM_PS_PS_MODE_DOCUMENT_TITLE"] = "Document template";
 $MESS["CRM_PS_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";

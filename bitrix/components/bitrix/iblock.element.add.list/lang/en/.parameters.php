@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACCESS"] = "Access parameters";
 $MESS["IBLOCK_SEF_EDIT"] = "editing";
 $MESS["IBLOCK_TYPE"] = "Information Block type";

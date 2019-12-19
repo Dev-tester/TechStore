@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DATE'] = "Date";
 $MESS ['SALE_COUNT'] = "Total";
 $MESS ['SALE_PAYED'] = "Paid";

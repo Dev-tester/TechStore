@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_FORGOT_NAME'] = "Вы забыли ввести поле \"Наименование\"";
 $MESS ['STAT_EDIT_RECORD'] = "Параметры поисковика # #ID#";
 $MESS ['STAT_NEW_RECORD'] = "Новый поисковик";

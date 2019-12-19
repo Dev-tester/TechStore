@@ -111,7 +111,7 @@ class ModuleStep extends \CWizardStep
 			<div class="adm-crm-site-master-paragraph-wrapper">
 				<div class="adm-crm-site-master-paragraph"><?=Loc::getMessage("SALE_CSM_WIZARD_MODULESTEP_CHECK_SUCCESS")?></div>
 			</div>
-			<?
+			<?php 
 			$content = ob_get_contents();
 			ob_end_clean();
 
@@ -141,7 +141,7 @@ class ModuleStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->prevButtonID?>">
 				<?=$this->GetPrevCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		if ($this->GetNextStepID() !== null)
 		{
@@ -150,7 +150,7 @@ class ModuleStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();
@@ -267,7 +267,7 @@ class ModuleStep extends \CWizardStep
 			</div>
 			<div class="adm-crm-site-master-paragraph"><?=Loc::getMessage("SALE_CSM_WIZARD_MODULESTEP_NOTES2")?></div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 

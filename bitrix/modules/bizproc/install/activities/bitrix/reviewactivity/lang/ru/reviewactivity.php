@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPAR_ACT_COMMENT'] = "Комментарий";
 $MESS ['BPAR_ACT_INFO'] = "Ознакомлено #PERCENT#% (#REVIEWED# из #TOTAL#)";
 $MESS ['BPAR_ACT_BUTTON2'] = "Ознакомлен";

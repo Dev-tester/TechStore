@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_ORANGE_DATA_TITLE"] = "Orange Data";
 
 $MESS["SALE_CASHBOX_ORANGE_DATA_SETTINGS_VAT"] = "Настройки ставок НДС";

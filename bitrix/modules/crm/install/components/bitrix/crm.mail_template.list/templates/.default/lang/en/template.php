@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MAIL_TEMPLATE_EDIT_TITLE"] = "Edit this e-mail template";
 $MESS["CRM_MAIL_TEMPLATE_EDIT"] = "Edit e-mail template";
 $MESS["CRM_MAIL_TEMPLATE_DELETE_TITLE"] = "Delete this e-mail template";

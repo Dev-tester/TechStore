@@ -23,7 +23,7 @@ $docType = $dialog->getMap()['DocumentType'];
 </div>
 
 <div id="ulda_lists_document_fields" style="padding-top: 15px">
-	<?
+	<?php 
 	$fields = $dialog->getCurrentValue('fields');
 	$baseTypes = \Bitrix\Bizproc\FieldType::getBaseTypesMap();
 	foreach ($fields as $fieldKey => $fieldValue):
@@ -39,7 +39,7 @@ $docType = $dialog->getMap()['DocumentType'];
 			<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 				<?=htmlspecialcharsbx($property["Name"])?>:
 			</span>
-			<?
+			<?php 
 			echo $documentService->GetFieldInputControl(
 				$listsDocumentType,
 				$property,
@@ -53,7 +53,7 @@ $docType = $dialog->getMap()['DocumentType'];
 				<?=GetMessage('BPULDA_PD_DELETE')?>
 			</a>
 		</div>
-	<?endforeach;?>
+	<?php endforeach;?>
 </div>
 <script>
 	BX.ready(function()

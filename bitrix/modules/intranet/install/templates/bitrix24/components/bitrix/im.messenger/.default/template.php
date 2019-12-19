@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (defined('BX_IM_FULLSCREEN'))
@@ -13,25 +13,25 @@ $this->SetViewTarget("im-fullscreen");
 		<tr>
 			<td class="bx-im-fullscreen-popup-td bx-im-fullscreen-popup-td1">
 				<div class="bx-im-fullscreen-popup-logo">
-					<?if (IsModuleInstalled("bitrix24")):?>
-						<span><?
+					<?php if (IsModuleInstalled("bitrix24")):?>
+						<span><?php 
 							$clientLogo = COption::GetOptionInt("bitrix24", "client_logo", "");?>
-							<?if ($clientLogo):?>
-								<img src="<?if ($clientLogo) echo CFile::GetPath($clientLogo)?>"/>
-							<?else:?>
-								<?=htmlspecialcharsbx(COption::GetOptionString("bitrix24", "site_title", ""))?> <?if(COption::GetOptionString("bitrix24", "logo24show", "Y") !=="N"):?>24<?endif?>
-							<?endif?>
+							<?php if ($clientLogo):?>
+								<img src="<?php if ($clientLogo) echo CFile::GetPath($clientLogo)?>"/>
+							<?php else:?>
+								<?=htmlspecialcharsbx(COption::GetOptionString("bitrix24", "site_title", ""))?> <?php if(COption::GetOptionString("bitrix24", "logo24show", "Y") !=="N"):?>24<?php endif?>
+							<?php endif?>
 						</span>
-					<?else:
+					<?php else:
 						$logoID = COption::GetOptionString("main", "wizard_site_logo", "", SITE_ID);
 						?><span>
-							<?if ($logoID):
+							<?php if ($logoID):
 								$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_name.php"), false);?>
-							<?else:?>
+							<?php else:?>
 								<?=htmlspecialcharsbx(COption::GetOptionString("main", "site_name", ""));?> 24
-							<?endif?>
+							<?php endif?>
 						</span>
-					<?endif?>
+					<?php endif?>
 				</div>
 				<div class="bx-im-fullscreen-popup-back"><a href="/" onclick="bxFullscreenClose(); return false;" class="bx-im-fullscreen-popup-back-link"><?=GetMessage('IM_FULLSCREEN_BACK')?></a></div>
 			</td>
@@ -84,8 +84,8 @@ $this->SetViewTarget("im-fullscreen");
 		</tr>
 	</table>
 </div>
-<?$this->EndViewTarget()?>
-<?
+<?php $this->EndViewTarget()?>
+<?php 
 $this->SetViewTarget("im", 100);
 ?>
 <div class="bx-im-bar <?=($arResult['OL_OPERATOR']?"bx-im-bar-with-ol":"")?>" id="bx-im-bar">
@@ -100,12 +100,12 @@ $this->SetViewTarget("im", 100);
 		<div class="bx-im-informer-icon" title="<?=GetMessage('IM_MESSENGER_OPEN_NOTIFY');?>"></div>
 		<div class="bx-im-informer-num"></div>
 	</div>
-	<?if ($arResult['OL_OPERATOR']):?>
+	<?php if ($arResult['OL_OPERATOR']):?>
 	<div id="bx-im-bar-ol" class="bx-im-informer bx-im-informer-ol bx-im-border-b">
 		<div class="bx-im-informer-ol-icon" title="<?=GetMessage('IM_MESSENGER_OPEN_OL');?>"></div>
 		<div class="bx-im-informer-num"></div>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div id="bx-im-bar-search" class="bx-im-search bx-im-border-b" title="<?=GetMessage('IM_MESSENGER_OPEN_SEARCH');?>">
 		<div class="bx-im-informer-num"></div>
 	</div>
@@ -113,11 +113,11 @@ $this->SetViewTarget("im", 100);
 		<div class="bx-im-scroll-wrap" id="bx-im-external-recent-list"></div>
 	</div>
 	<div class="bx-im-bottom-block" id="bx-im-bottom-block">
-		<?if($arResult['PHONE_ENABLED']):?>
+		<?php if($arResult['PHONE_ENABLED']):?>
 		<div id="bx-im-btn-call" class="bx-im-btn-wrap bx-im-btn-call" title="<?=GetMessage('IM_MESSENGER_OPEN_CALL2');?>">
 			<div class="bx-im-btn"></div>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 
 	<svg width="0" height="0" style="display: block">
@@ -132,9 +132,9 @@ $this->SetViewTarget("im", 100);
 <script>
 	BX.Intranet.Bitrix24.ImBar.redraw();
 </script>
-<?$this->EndViewTarget()?>
+<?php $this->EndViewTarget()?>
 
-<?$frame = $this->createFrame("im")->begin("");
+<?php $frame = $this->createFrame("im")->begin("");
 	$arResult['EXTERNAL_RECENT_LIST'] = "bx-im-external-recent-list";
 ?>
 
@@ -144,4 +144,4 @@ $this->SetViewTarget("im", 100);
 	});
 	<?=CIMMessenger::GetTemplateJS([], $arResult)?>
 </script>
-<?$frame->end()?>
+<?php $frame->end()?>

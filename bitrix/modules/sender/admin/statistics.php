@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "sender");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -110,12 +110,12 @@ $showLastPostingHtml = function (array $chain)
 			<?=htmlspecialcharsbx($chain['NAME'])?>
 		</a>
 	</div>
-	<?
+	<?php 
 }
 ?>
 
 <script id="sender-stat-template-last-posting" type="text/html">
-	<?$showLastPostingHtml(array(
+	<?php $showLastPostingHtml(array(
 		'DATE_SENT_FORMATTED' => '%DATE_SENT_FORMATTED%',
 		'MAILING_ID' => '%MAILING_ID%',
 		'MAILING_NAME' => '%MAILING_NAME%',
@@ -256,9 +256,9 @@ $showLastPostingHtml = function (array $chain)
 				</div>
 				<div data-bx-view-data="" class="bx-sender-releases">
 					<div data-bx-view-data-postings="" class="bx-sender-last-releases">
-						<?foreach($arResult['DATA']['chainList'] as $chain):?>
-							<?$showLastPostingHtml($chain)?>
-						<?endforeach;?>
+						<?php foreach($arResult['DATA']['chainList'] as $chain):?>
+							<?php $showLastPostingHtml($chain)?>
+						<?php endforeach;?>
 					</div>
 					<div class="bx-sender-new-releases">
 						<a href="/bitrix/admin/sender_letters.php?edit=&ID=0&code=mail&lang=<?=LANGUAGE_ID?>"
@@ -274,7 +274,7 @@ $showLastPostingHtml = function (array $chain)
 
 		<div class="bx-sender-block-left-padding">
 			<div data-bx-block="CountersDynamic">
-				<?
+				<?php 
 				foreach ($arResult['COUNTERS_DYNAMIC_NAMES'] as $name):
 					$name = htmlspecialcharsbx($name);
 					?>
@@ -296,7 +296,7 @@ $showLastPostingHtml = function (array $chain)
 							<div class="bx-sender-block-view-text-item"><?=Loc::getMessage('SENDER_STATS_NO_DATA')?></div>
 						</div>
 					</div>
-					<?
+					<?php 
 				endforeach;
 				?>
 			</div>
@@ -304,7 +304,7 @@ $showLastPostingHtml = function (array $chain)
 
 	</div>
 </div>
-<?
+<?php 
 endif;
 $lAdmin->EndCustomContent();
 $lAdmin->CheckListMode();

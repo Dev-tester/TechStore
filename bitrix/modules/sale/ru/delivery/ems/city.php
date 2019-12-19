@@ -1,4 +1,4 @@
-<?
+<?php 
 $arEMSCityList = array();
 $arEMSCityList['АБАКАН'] = 'city--abakan';
 $arEMSCityList['АНАДЫРЬ'] = 'city--anadyr';

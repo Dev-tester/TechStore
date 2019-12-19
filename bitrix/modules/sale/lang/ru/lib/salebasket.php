@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_BASKET_ENTITY_BASKET'] = 'Корзина';
 $MESS['SALE_BASKET_ENTITY_ID'] = 'ID записи';
 $MESS['SALE_BASKET_ENTITY_FUSER_ID'] = 'ID посетителя';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HK_TITLE"] = "Customize keyboard shortcuts";
 $MESS["HK_UPDATE_ERROR"] = "Error saving the record.";
 $MESS["HK_DELETION_ERROR"] = "Error deleting the record.";

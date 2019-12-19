@@ -1,6 +1,6 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?CUtil::InitJSCore();?>
-<?if (!empty($arResult["ITEMS"])):?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php CUtil::InitJSCore();?>
+<?php if (!empty($arResult["ITEMS"])):?>
 
 <div class="learn-course-tree">
 	<ul>
@@ -19,8 +19,8 @@
 		if ($arItem["TYPE"] == "CH"):
 			$bracketLevel++;
 			?>
-			<li class="tree-item tree-item-chapter <?if($arItem["CHAPTER_OPEN"] === false):?> tree-item-closed<?endif?>">
-				<div class="tree-item-wrapper<?if($arItem["SELECTED"] === true):?> tree-item-selected<?endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover')">
+			<li class="tree-item tree-item-chapter <?php if($arItem["CHAPTER_OPEN"] === false):?> tree-item-closed<?php endif?>">
+				<div class="tree-item-wrapper<?php if($arItem["SELECTED"] === true):?> tree-item-selected<?php endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover')">
 					<b class="r0"></b>
 					<div class="tree-item-text">
 						<div class="chapter" onclick="JMenu.OpenChapter(this,'<?=$arItem["ID"]?>')"></div>
@@ -29,9 +29,9 @@
 					<b class="r0"></b>
 				</div>
 				<ul>
-		<?elseif($arItem["TYPE"] == "LE"):?>
+		<?php elseif($arItem["TYPE"] == "LE"):?>
 			<li class="tree-item tree-lesson">
-				<div class="tree-item-wrapper<?if($arItem["SELECTED"]):?> tree-item-selected<?endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover'); BX.PreventDefault(event);">
+				<div class="tree-item-wrapper<?php if($arItem["SELECTED"]):?> tree-item-selected<?php endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover'); BX.PreventDefault(event);">
 					<b class="r0"></b>
 					<div class="tree-item-text">
 						<div class="lesson" onclick="window.location=BX.findNextSibling(this, { className : 'tree-item-link'}).href"></div>
@@ -40,9 +40,9 @@
 					<b class="r0"></b>
 				</div>
 			</li>
-		<?elseif($arItem["TYPE"] == "CD"):?>
+		<?php elseif($arItem["TYPE"] == "CD"):?>
 			<li class="tree-item tree-item-course">
-				<div class="tree-item-wrapper<?if($arItem["SELECTED"]):?> tree-item-selected<?endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover'); BX.PreventDefault(event);">
+				<div class="tree-item-wrapper<?php if($arItem["SELECTED"]):?> tree-item-selected<?php endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover'); BX.PreventDefault(event);">
 					<b class="r0"></b>
 					<div class="tree-item-text">
 						<div class="course-detail"></div>
@@ -51,9 +51,9 @@
 					<b class="r0"></b>
 				</div>
 			</li>
-		<?elseif($arItem["TYPE"] == "TL"):?>
+		<?php elseif($arItem["TYPE"] == "TL"):?>
 			<li class="tree-item tree-item-tests">
-				<div class="tree-item-wrapper<?if($arItem["SELECTED"]):?> tree-item-selected<?endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover'); BX.PreventDefault(event);">
+				<div class="tree-item-wrapper<?php if($arItem["SELECTED"]):?> tree-item-selected<?php endif?>" onmouseover="BX.addClass(this, 'tree-item-hover'); BX.PreventDefault(event);" onmouseout="BX.removeClass(this, 'tree-item-hover'); BX.PreventDefault(event);">
 					<b class="r0"></b>
 					<div class="tree-item-text">
 						<div class="test-list"></div>
@@ -62,9 +62,9 @@
 					<b class="r0"></b>
 				</div>
 			</li>
-		<?endif?>
+		<?php endif?>
 
-	<?endforeach?>
+	<?php endforeach?>
 
 	</ul>
 </div>
@@ -73,4 +73,4 @@
 	var JMenu = new JCMenu('<?=(array_key_exists("LEARN_MENU_".$arParams["COURSE_ID"],$_COOKIE ) ? CUtil::JSEscape($_COOKIE["LEARN_MENU_".$arParams["COURSE_ID"]]) :"")?>', '<?=$arParams["COURSE_ID"]?>');
 </script>
 
-<?endif?>
+<?php endif?>

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <div class="catalog-section">
-<?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "tree", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "tree", Array(
 	"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
 	"SECTION_ID"	=>	"0",
@@ -30,23 +30,23 @@ $this->setFrameMode(true);
 );?>
 </div>
 <div class="catalog-section">
-<?if($arParams["DISPLAY_TOP_PAGER"]):?>
+<?php if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
-<?endif;?>
+<?php endif;?>
 <table cellpadding="8" cellspacing="8" border="0" width="100%">
-		<?foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-		<?
+		<?php foreach($arResult["ITEMS"] as $cell=>$arElement):?>
+		<?php 
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
 		?>
-		<?if($cell%$arParams["LINE_ELEMENT_COUNT"] == 0):?>
+		<?php if($cell%$arParams["LINE_ELEMENT_COUNT"] == 0):?>
 		<tr>
-		<?endif;?>
+		<?php endif;?>
 
 		<td valign="top" width="<?=round(100/$arParams["LINE_ELEMENT_COUNT"])?>%" style="border:1px solid #CCCCCC" id="<?=$this->GetEditAreaId($arElement['ID']);?>">
 			<table cellpadding="0" cellspacing="2" border="0">
 				<tr>
-					<?if(is_array($arElement["PREVIEW_PICTURE"])):?>
+					<?php if(is_array($arElement["PREVIEW_PICTURE"])):?>
 						<td valign="top">
 						<a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><img
 								border="0"
@@ -57,7 +57,7 @@ $this->setFrameMode(true);
 								title="<?=$arElement["PREVIEW_PICTURE"]["TITLE"]?>"
 								/></a><br />
 						</td>
-					<?elseif(is_array($arElement["DETAIL_PICTURE"])):?>
+					<?php elseif(is_array($arElement["DETAIL_PICTURE"])):?>
 						<td valign="top">
 						<a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><img
 								border="0"
@@ -68,9 +68,9 @@ $this->setFrameMode(true);
 								title="<?=$arElement["DETAIL_PICTURE"]["TITLE"]?>"
 								/></a><br />
 						</td>
-					<?endif?>
+					<?php endif?>
 					<td valign="top"><a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><b><?=$arElement["NAME"]?></b></a><br /><br />
-						<?
+						<?php 
 						$pub_date = '';
 						if ($arElement["ACTIVE_FROM"])
 							$pub_date = FormatDate($GLOBALS['DB']->DateFormatToPhp(CSite::GetDateFormat('FULL')), MakeTimeStamp($arElement["ACTIVE_FROM"]));
@@ -80,7 +80,7 @@ $this->setFrameMode(true);
 						if ($pub_date)
 							echo '<b>'.GetMessage('PUB_DATE').'</b>&nbsp;'.$pub_date.'<br />';
 						?>
-						<?foreach($arElement["DISPLAY_PROPERTIES"] as $pid=>$arProperty):
+						<?php foreach($arElement["DISPLAY_PROPERTIES"] as $pid=>$arProperty):
 							echo '<b>'.$arProperty["NAME"].':</b>&nbsp;';
 
 							if(is_array($arProperty["DISPLAY_VALUE"]))
@@ -88,38 +88,38 @@ $this->setFrameMode(true);
 							else
 								echo $arProperty["DISPLAY_VALUE"];
 							?><br />
-						<?endforeach?>
+						<?php endforeach?>
 						<br />
 						<?=$arElement["PREVIEW_TEXT"]?>
 					</td>
 				</tr>
 			</table>
 
-			<?foreach($arElement["PRICES"] as $code=>$arPrice):?>
-				<?if($arPrice["CAN_ACCESS"]):?>
+			<?php foreach($arElement["PRICES"] as $code=>$arPrice):?>
+				<?php if($arPrice["CAN_ACCESS"]):?>
 					<p><?=$arResult["PRICES"][$code]["TITLE"];?>:&nbsp;&nbsp;
-					<?if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
+					<?php if($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]):?>
 						<s><?=$arPrice["PRINT_VALUE"]?></s> <span class="catalog-price"><?=$arPrice["PRINT_DISCOUNT_VALUE"]?></span>
-					<?else:?><span class="catalog-price"><?=$arPrice["PRINT_VALUE"]?></span><?endif;?>
+					<?php else:?><span class="catalog-price"><?=$arPrice["PRINT_VALUE"]?></span><?php endif;?>
 					</p>
-				<?endif;?>
-			<?endforeach;?>
-			<?if(is_array($arElement["PRICE_MATRIX"])):?>
+				<?php endif;?>
+			<?php endforeach;?>
+			<?php if(is_array($arElement["PRICE_MATRIX"])):?>
 				<table cellpadding="0" cellspacing="0" border="0" width="100%" class="data-table">
 				<thead>
 				<tr>
-					<?if(count($arElement["PRICE_MATRIX"]["ROWS"]) >= 1 && ($arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_FROM"] > 0 || $arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_TO"] > 0)):?>
+					<?php if(count($arElement["PRICE_MATRIX"]["ROWS"]) >= 1 && ($arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_FROM"] > 0 || $arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_TO"] > 0)):?>
 						<td valign="top" nowrap><?= GetMessage("CATALOG_QUANTITY") ?></td>
-					<?endif?>
-					<?foreach($arElement["PRICE_MATRIX"]["COLS"] as $typeID => $arType):?>
+					<?php endif?>
+					<?php foreach($arElement["PRICE_MATRIX"]["COLS"] as $typeID => $arType):?>
 						<td valign="top" nowrap><?= $arType["NAME_LANG"] ?></td>
-					<?endforeach?>
+					<?php endforeach?>
 				</tr>
 				</thead>
-				<?foreach ($arElement["PRICE_MATRIX"]["ROWS"] as $ind => $arQuantity):?>
+				<?php foreach ($arElement["PRICE_MATRIX"]["ROWS"] as $ind => $arQuantity):?>
 				<tr>
-					<?if(count($arElement["PRICE_MATRIX"]["ROWS"]) > 1 || count($arElement["PRICE_MATRIX"]["ROWS"]) == 1 && ($arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_FROM"] > 0 || $arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_TO"] > 0)):?>
-						<th nowrap><?
+					<?php if(count($arElement["PRICE_MATRIX"]["ROWS"]) > 1 || count($arElement["PRICE_MATRIX"]["ROWS"]) == 1 && ($arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_FROM"] > 0 || $arElement["PRICE_MATRIX"]["ROWS"][0]["QUANTITY_TO"] > 0)):?>
+						<th nowrap><?php 
 							if (IntVal($arQuantity["QUANTITY_FROM"]) > 0 && IntVal($arQuantity["QUANTITY_TO"]) > 0)
 								echo str_replace("#FROM#", $arQuantity["QUANTITY_FROM"], str_replace("#TO#", $arQuantity["QUANTITY_TO"], GetMessage("CATALOG_QUANTITY_FROM_TO")));
 							elseif (IntVal($arQuantity["QUANTITY_FROM"]) > 0)
@@ -127,98 +127,98 @@ $this->setFrameMode(true);
 							elseif (IntVal($arQuantity["QUANTITY_TO"]) > 0)
 								echo str_replace("#TO#", $arQuantity["QUANTITY_TO"], GetMessage("CATALOG_QUANTITY_TO"));
 						?></th>
-					<?endif?>
-					<?foreach($arElement["PRICE_MATRIX"]["COLS"] as $typeID => $arType):?>
-						<td><?
+					<?php endif?>
+					<?php foreach($arElement["PRICE_MATRIX"]["COLS"] as $typeID => $arType):?>
+						<td><?php 
 							if($arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["DISCOUNT_PRICE"] < $arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["PRICE"]):?>
 								<s><?=FormatCurrency($arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["PRICE"], $arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["CURRENCY"])?></s><span class="catalog-price"><?=FormatCurrency($arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["DISCOUNT_PRICE"], $arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["CURRENCY"]);?></span>
-							<?else:?>
+							<?php else:?>
 								<span class="catalog-price"><?=FormatCurrency($arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["PRICE"], $arElement["PRICE_MATRIX"]["MATRIX"][$typeID][$ind]["CURRENCY"]);?></span>
-							<?endif?>&nbsp;
+							<?php endif?>&nbsp;
 						</td>
-					<?endforeach?>
+					<?php endforeach?>
 				</tr>
-				<?endforeach?>
+				<?php endforeach?>
 				</table><br />
-			<?endif?>
-			<?if($arParams["DISPLAY_COMPARE"]):?>
+			<?php endif?>
+			<?php if($arParams["DISPLAY_COMPARE"]):?>
 				<noindex>
-				<a href="<?echo $arElement["COMPARE_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_COMPARE")?></a>&nbsp;
+				<a href="<?php echo $arElement["COMPARE_URL"]?>" rel="nofollow"><?php echo GetMessage("CATALOG_COMPARE")?></a>&nbsp;
 				</noindex>
-			<?endif?>
-			<?if($arElement["CAN_BUY"]):?>
-				<?if($arParams["USE_PRODUCT_QUANTITY"] || count($arElement["PRODUCT_PROPERTIES"])):?>
+			<?php endif?>
+			<?php if($arElement["CAN_BUY"]):?>
+				<?php if($arParams["USE_PRODUCT_QUANTITY"] || count($arElement["PRODUCT_PROPERTIES"])):?>
 					<form action="<?=POST_FORM_ACTION_URI?>" method="post" enctype="multipart/form-data">
 					<table border="0" cellspacing="0" cellpadding="2">
-					<?if($arParams["USE_PRODUCT_QUANTITY"]):?>
+					<?php if($arParams["USE_PRODUCT_QUANTITY"]):?>
 						<tr valign="top">
-							<td><?echo GetMessage("CT_BCS_QUANTITY")?>:</td>
+							<td><?php echo GetMessage("CT_BCS_QUANTITY")?>:</td>
 							<td>
-								<input type="text" name="<?echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" size="5">
+								<input type="text" name="<?php echo $arParams["PRODUCT_QUANTITY_VARIABLE"]?>" value="1" size="5">
 							</td>
 						</tr>
-					<?endif;?>
-					<?foreach($arElement["PRODUCT_PROPERTIES"] as $pid => $product_property):?>
+					<?php endif;?>
+					<?php foreach($arElement["PRODUCT_PROPERTIES"] as $pid => $product_property):?>
 						<tr valign="top">
-							<td><?echo $arElement["PROPERTIES"][$pid]["NAME"]?>:</td>
+							<td><?php echo $arElement["PROPERTIES"][$pid]["NAME"]?>:</td>
 							<td>
-							<?if(
+							<?php if(
 								$arElement["PROPERTIES"][$pid]["PROPERTY_TYPE"] == "L"
 								&& $arElement["PROPERTIES"][$pid]["LIST_TYPE"] == "C"
 							):?>
-								<?foreach($product_property["VALUES"] as $k => $v):?>
-									<label><input type="radio" name="<?echo $arParams["PRODUCT_PROPS_VARIABLE"]?>[<?echo $pid?>]" value="<?echo $k?>" <?if($k == $product_property["SELECTED"]) echo '"checked"'?>><?echo $v?></label><br>
-								<?endforeach;?>
-							<?else:?>
-								<select name="<?echo $arParams["PRODUCT_PROPS_VARIABLE"]?>[<?echo $pid?>]">
-									<?foreach($product_property["VALUES"] as $k => $v):?>
-										<option value="<?echo $k?>" <?if($k == $product_property["SELECTED"]) echo '"selected"'?>><?echo $v?></option>
-									<?endforeach;?>
+								<?php foreach($product_property["VALUES"] as $k => $v):?>
+									<label><input type="radio" name="<?php echo $arParams["PRODUCT_PROPS_VARIABLE"]?>[<?php echo $pid?>]" value="<?php echo $k?>" <?php if($k == $product_property["SELECTED"]) echo '"checked"'?>><?php echo $v?></label><br>
+								<?php endforeach;?>
+							<?php else:?>
+								<select name="<?php echo $arParams["PRODUCT_PROPS_VARIABLE"]?>[<?php echo $pid?>]">
+									<?php foreach($product_property["VALUES"] as $k => $v):?>
+										<option value="<?php echo $k?>" <?php if($k == $product_property["SELECTED"]) echo '"selected"'?>><?php echo $v?></option>
+									<?php endforeach;?>
 								</select>
-							<?endif;?>
+							<?php endif;?>
 							</td>
 						</tr>
-					<?endforeach;?>
+					<?php endforeach;?>
 					</table>
-					<input type="hidden" name="<?echo $arParams["ACTION_VARIABLE"]?>" value="BUY">
-					<input type="hidden" name="<?echo $arParams["PRODUCT_ID_VARIABLE"]?>" value="<?echo $arElement["ID"]?>">
-					<input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."BUY"?>" value="<?echo GetMessage("CATALOG_BUY")?>">
-					<input type="submit" name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>" value="<?echo GetMessage("CATALOG_ADD")?>">
+					<input type="hidden" name="<?php echo $arParams["ACTION_VARIABLE"]?>" value="BUY">
+					<input type="hidden" name="<?php echo $arParams["PRODUCT_ID_VARIABLE"]?>" value="<?php echo $arElement["ID"]?>">
+					<input type="submit" name="<?php echo $arParams["ACTION_VARIABLE"]."BUY"?>" value="<?php echo GetMessage("CATALOG_BUY")?>">
+					<input type="submit" name="<?php echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>" value="<?php echo GetMessage("CATALOG_ADD")?>">
 					</form>
-				<?else:?>
+				<?php else:?>
 					<noindex>
-					<a href="<?echo $arElement["BUY_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_BUY")?></a>&nbsp;<a href="<?echo $arElement["ADD_URL"]?>" rel="nofollow"><?echo GetMessage("CATALOG_ADD")?></a>
+					<a href="<?php echo $arElement["BUY_URL"]?>" rel="nofollow"><?php echo GetMessage("CATALOG_BUY")?></a>&nbsp;<a href="<?php echo $arElement["ADD_URL"]?>" rel="nofollow"><?php echo GetMessage("CATALOG_ADD")?></a>
 					</noindex>
-				<?endif?>
-			<?elseif((count($arResult["PRICES"]) > 0) || is_array($arElement["PRICE_MATRIX"])):?>
+				<?php endif?>
+			<?php elseif((count($arResult["PRICES"]) > 0) || is_array($arElement["PRICE_MATRIX"])):?>
 				<?=GetMessage("CATALOG_NOT_AVAILABLE")?>
-				<?$APPLICATION->IncludeComponent("bitrix:sale.notice.product", ".default", array(
+				<?php $APPLICATION->IncludeComponent("bitrix:sale.notice.product", ".default", array(
 							"NOTIFY_ID" => $arElement['ID'],
 							"NOTIFY_URL" => htmlspecialcharsback($arElement["SUBSCRIBE_URL"]),
 							"NOTIFY_USE_CAPTHA" => "N"
 							),
 							$component
 						);?>
-			<?endif?>
+			<?php endif?>
 			&nbsp;
 		</td>
 
-		<?$cell++;
+		<?php $cell++;
 		if($cell%$arParams["LINE_ELEMENT_COUNT"] == 0):?>
 			</tr>
-		<?endif?>
+		<?php endif?>
 
-		<?endforeach; // foreach($arResult["ITEMS"] as $arElement):?>
+		<?php endforeach; // foreach($arResult["ITEMS"] as $arElement):?>
 
-		<?if($cell%$arParams["LINE_ELEMENT_COUNT"] != 0):?>
-			<?while(($cell++)%$arParams["LINE_ELEMENT_COUNT"] != 0):?>
+		<?php if($cell%$arParams["LINE_ELEMENT_COUNT"] != 0):?>
+			<?php while(($cell++)%$arParams["LINE_ELEMENT_COUNT"] != 0):?>
 				<td>&nbsp;</td>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</tr>
-		<?endif?>
+		<?php endif?>
 
 </table>
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+<?php if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<br /><?=$arResult["NAV_STRING"]?>
-<?endif;?>
+<?php endif;?>
 </div>

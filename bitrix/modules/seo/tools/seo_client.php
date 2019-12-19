@@ -50,7 +50,7 @@ if(CModule::IncludeModule("socialservices") && CSocServAuthManager::CheckUniqueK
 	}
 	window.close();
 </script>
-<?
+<?php 
 	}
 }
 

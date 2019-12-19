@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_INCLUDE_AREA_EDIT_page"] = "Edit page include area";
 $MESS["MAIN_INCLUDE_AREA_EDIT_sect"] = "Edit section include area";
 $MESS["MAIN_INCLUDE_AREA_EDIT_file"] = "Edit include area file";

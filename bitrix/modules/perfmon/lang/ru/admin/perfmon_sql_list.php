@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_SQL_TITLE"] = "Монитор производительности: запросы";
 $MESS["PERFMON_SQL_PAGE"] = "Запросы";
 $MESS["PERFMON_SQL_FIND"] = "Найти";

@@ -35,7 +35,7 @@ if(!Bitrix\Crm\Integration\Bitrix24Manager::isAccessEnabled(CCrmOwnerType::Invoi
 }
 else
 {
-	?><div class="bx-crm-view"><?
+	?><div class="bx-crm-view"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.invoice.menu',
 		'',
@@ -54,7 +54,7 @@ else
 		),
 		$component
 	);
-	?><div class="bx-crm-view-form"><?
+	?><div class="bx-crm-view-form"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.invoice.show',
 		'',
@@ -80,7 +80,7 @@ else
 		),
 		$component
 	);
-	?></div><?
-	?></div><?
+	?></div><?php 
+	?></div><?php 
 }
 ?>

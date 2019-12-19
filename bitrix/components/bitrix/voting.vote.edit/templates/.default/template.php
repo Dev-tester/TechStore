@@ -1,13 +1,13 @@
-<?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 $controlName = $arParams["~INPUT_NAME"];
 $controller = "BX('votes-".$arResult["CONTROL_UID"]."')";
 \Bitrix\Main\UI\Extension::load("ui.forms");
 $pr = $controlName."_DATA";
 $arVote = reset($arResult["VOTES"]);
 $uid = $this->randString(6);
-?><input type="hidden" name="<?=$controlName?>" value="<?=$arVote["ID"]?>" /><?
-?><input type="hidden" name="<?=$controlName?>_DATA[ID]" value="<?=$arVote["ID"]?>" /><?
-?><input type="hidden" name="<?=$controlName?>_DATA[URL]" value="<?=$arVote["URL"]?>" /><?
+?><input type="hidden" name="<?=$controlName?>" value="<?=$arVote["ID"]?>" /><?php 
+?><input type="hidden" name="<?=$controlName?>_DATA[ID]" value="<?=$arVote["ID"]?>" /><?php 
+?><input type="hidden" name="<?=$controlName?>_DATA[URL]" value="<?=$arVote["URL"]?>" /><?php 
 $m = array(
 	"VVE_QUESTION" => GetMessage("VVE_QUESTION"),
 	"VVE_QUESTION_DEL" => GetMessage("VVE_QUESTION_DEL"),
@@ -58,13 +58,13 @@ $sAnswer = preg_replace(array("/\t+/", "/\n/"), array(""), $sAnswer);
 $sAnswerEmpty = preg_replace(array("/\<\!\-\-A\_ID\-\-\>(.+?)\<\!\-\-\/A\_ID\-\-\>/"), array(""), $sAnswer);
 $sAnswer = preg_replace(array("/\<\!\-\-A\_ID\-\-\>/", "/\<\!\-\-\/A\_ID\-\-\>/"), array(""), $sAnswer);
 ?>
-<div class="feed-add-vote-wrap" id="votes-<?=$arResult["CONTROL_UID"]?>"><?
+<div class="feed-add-vote-wrap" id="votes-<?=$arResult["CONTROL_UID"]?>"><?php 
 	if ($arParams["SHOW_TITLE"] == "Y"):?>
-		<div class="vote-header"><input type="text" name="<?=$pr?>[TITLE]" value="<?=$arVote["TITLE"]?>" /></div><?
+		<div class="vote-header"><input type="text" name="<?=$pr?>[TITLE]" value="<?=$arVote["TITLE"]?>" /></div><?php 
 	endif;?>
 	<div class="vote-fields">
-		<?if ($arParams["SHOW_DATE"] == "Y"):?>
-		<div class="vote-field"><label><?=GetMessage("VVE_DATE")?></label><?
+		<?php if ($arParams["SHOW_DATE"] == "Y"):?>
+		<div class="vote-field"><label><?=GetMessage("VVE_DATE")?></label><?php 
 			$GLOBALS["APPLICATION"]->IncludeComponent(
 				"bitrix:main.calendar",
 				"",
@@ -78,8 +78,8 @@ $sAnswer = preg_replace(array("/\<\!\-\-A\_ID\-\-\>/", "/\<\!\-\-\/A\_ID\-\-\>/"
 				array("HIDE_ICONS"=>true)
 			);?>
 		</div>
-		<?endif; ?>
-		<ol class="vote-questions" data-bx-role="question-list"><?
+		<?php endif; ?>
+		<ol class="vote-questions" data-bx-role="question-list"><?php 
 	if (empty($arVote["QUESTIONS"]))
 	{
 		?><?=str_replace(
@@ -94,7 +94,7 @@ $sAnswer = preg_replace(array("/\<\!\-\-A\_ID\-\-\>/", "/\<\!\-\-\/A\_ID\-\-\>/"
 					array(1, "", 2, "0"),
 					$sAnswerEmpty),
 				0),
-			$sQuestionEmpty);?><?
+			$sQuestionEmpty);?><?php 
 	}
 	else
 	{
@@ -116,24 +116,24 @@ $sAnswer = preg_replace(array("/\<\!\-\-A\_ID\-\-\>/", "/\<\!\-\-\/A\_ID\-\-\>/"
 				array("#Q_C_SORT#", "#Q_VALUE#", "#Q_ID#", "#Q_MULTY#", "#ANSWERS#", "#Q#"),
 				array($arQuestion["C_SORT"], $arQuestion["QUESTION"], $arQuestion["ID"], ($arQuestion["MULTI"] == "Y" ? "checked" : ""), implode("", $arAnswers), $qq),
 			$arQuestion["ID"] > 0 ? $sQuestion : $sQuestionEmpty
-			);?><?
+			);?><?php 
 			$qq++;
 		}
 	}
 		?></ol>
 		<a class="vote-new-question-link" data-bx-action="addq" href="javascript:void(0);"><?=GetMessage("VVE_QUESTION_ADD")?></a>
 	</div>
-	<input id="checkbox_<?=$uid?>_switcher" class="adm-designed-checkbox <?/*For core_admin_interface.js*/?> vote-additional-block-checkbox" type="checkbox" style="" />
+	<input id="checkbox_<?=$uid?>_switcher" class="adm-designed-checkbox <?php /*For core_admin_interface.js*/?> vote-additional-block-checkbox" type="checkbox" style="" />
 	<div class="vote-additional-block">
 		<div class="vote-additional-block-inner">
 			<div class="ui-form-block">
 				<label for="<?=$controlName?>_1" class="ui-ctl-label-text"><?=\Bitrix\Vote\Vote\Anonymity::getTitle()?></label>
 				<div class="ui-ctl ui-ctl-after-icon ui-ctl-dropdown">
 					<div class="ui-ctl-after ui-ctl-icon-angle"></div>
-					<select id="<?=$controlName?>_1" class="ui-ctl-element" name="<?=$pr?>[ANONYMITY]"><?
+					<select id="<?=$controlName?>_1" class="ui-ctl-element" name="<?=$pr?>[ANONYMITY]"><?php 
 						foreach(\Bitrix\Vote\Vote\Anonymity::getTitledList() as $key => $val)
 						{
-							?><option value="<?=htmlspecialcharsbx($key)?>"<?=($key == $arVote["ANONYMITY"] ? " selected" : "")?>><?=htmlspecialcharsbx($val)?></option><?
+							?><option value="<?=htmlspecialcharsbx($key)?>"<?=($key == $arVote["ANONYMITY"] ? " selected" : "")?>><?=htmlspecialcharsbx($val)?></option><?php 
 						}
 						?></select>
 				</div>

@@ -12,38 +12,38 @@ use Bitrix\B24Connector\Connection;
 CJSCore::Init(array('clipboard'));
 ?>
 
-<?if(Connection::isExist()):?>
-	<?if(!empty($arResult['ITEMS'])):?>
+<?php if(Connection::isExist()):?>
+	<?php if(!empty($arResult['ITEMS'])):?>
 		<div class="intranet-button-list-wrapper">
 			<div id="crm_web_form_list_container">
 
-				<?if(!empty($arParams['FILTER'])):?>
+				<?php if(!empty($arParams['FILTER'])):?>
 					<div class="intranet-button-list-header-container">
 						<h3 class="intranet-button-list-header"><?=Loc::getMessage("B24C_BL_WIDGETS")?></h3>
 					</div><!--intranet-button-list-header-container-->
-				<?endif;?>
+				<?php endif;?>
 
 				<!--intranet-button-list-createform-container-->
-				<?foreach($arResult['ITEMS_BY_IS_SYSTEM'] as $isSystem => $system):?>
+				<?php foreach($arResult['ITEMS_BY_IS_SYSTEM'] as $isSystem => $system):?>
 
-					<?if(empty($arParams['FILTER'])):?>
+					<?php if(empty($arParams['FILTER'])):?>
 						<div class="intranet-button-list-header-container">
 							<h3 class="intranet-button-list-header"><?=$system['NAME']?></h3>
 						</div><!--intranet-button-list-header-container-->
-					<?endif;?>
+					<?php endif;?>
 
-					<?foreach($system['ITEMS'] as $item):?>
+					<?php foreach($system['ITEMS'] as $item):?>
 						<div class="intranet-button-list-widget-row"
 							data-bx-crm-webform-item="<?=intval($item['ID'])?>"
 							data-bx-crm-webform-item-is-system="<?=$isSystem?>"
 						>
 							<div class="intranet-button-list-buttons-container">
-						<?/*
+						<?php /*
 								<div class="intranet-button-list-buttons">
 									<span class="intranet-button-list-hamburger" data-bx-crm-webform-item-settings=""></span>
-									<?if($arResult['PERM_CAN_EDIT']):?>
+									<?php if($arResult['PERM_CAN_EDIT']):?>
 										<span class="intranet-button-list-close" data-bx-crm-webform-item-delete="" title="<?=Loc::getMessage('B24C_BL_LIST_ACTIONS_REMOVE')?>"></span>
-									<?endif;?>
+									<?php endif;?>
 								</div><!--intranet-button-list-buttons-->
 						*/?>
 							</div><!--intranet-button-list-button-container-->
@@ -62,43 +62,43 @@ CJSCore::Init(array('clipboard'));
 										<div class="intranet-button-list-widget-content-amt">
 											<div class="intranet-button-list-widget-content-inner">
 												<div class="intranet-button-list-widget-content-inner-block" title="<?=htmlspecialcharsbx($arResult['TYPE_LIST']['openline'])?>">
-													<?if($item['ITEMS']['openline']):?>
+													<?php if($item['ITEMS']['openline']):?>
 														<div class="intranet-button-list-widget-content-inner-item intranet-button-list-widget-active">
 															<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-openlines"></div>
 															<div class="intranet-button-list-widget-content-inner-item-text"><?=htmlspecialcharsbx($item['ITEMS']['openline']['NAME'])?></div>
 														</div><!--intranet-button-list-widget-content-inner-item-->
-													<?else:?>
+													<?php else:?>
 														<div class="intranet-button-list-widget-content-inner-item">
 															<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-openlines"></div>
 															<div class="intranet-button-list-widget-content-inner-item-text"><?=Loc::getMessage("B24C_BL_NOT_CHOSEN")?></div>
 														</div><!--intranet-button-list-widget-content-inner-item-->
-													<?endif;?>
+													<?php endif;?>
 												</div><!--intranet-button-list-widget-content-inner-item-->
 												<div class="intranet-button-list-widget-content-inner-block" title="<?=htmlspecialcharsbx($arResult['TYPE_LIST']['crmform'])?>">
-													<?if($item['ITEMS']['crmform']):?>
+													<?php if($item['ITEMS']['crmform']):?>
 														<div class="intranet-button-list-widget-content-inner-item intranet-button-list-widget-active">
 															<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-webform"></div>
 															<div class="intranet-button-list-widget-content-inner-item-text"><?=htmlspecialcharsbx($item['ITEMS']['crmform']['NAME'])?></div>
 														</div><!--intranet-button-list-widget-content-inner-item-->
-													<?else:?>
+													<?php else:?>
 														<div class="intranet-button-list-widget-content-inner-item">
 															<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-webform"></div>
 															<div class="intranet-button-list-widget-content-inner-item-text"><?=Loc::getMessage("B24C_BL_NOT_CHOSEN")?></div>
 														</div><!--intranet-button-list-widget-content-inner-item-->
-													<?endif;?>
+													<?php endif;?>
 												</div><!--intranet-button-list-widget-content-inner-item-->
 												<div class="intranet-button-list-widget-content-inner-block" title="<?=htmlspecialcharsbx($arResult['TYPE_LIST']['callback'])?>">
-													<?if($item['ITEMS']['callback']):?>
+													<?php if($item['ITEMS']['callback']):?>
 														<div class="intranet-button-list-widget-content-inner-item intranet-button-list-widget-active">
 															<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-call"></div>
 															<div class="intranet-button-list-widget-content-inner-item-text"><?=htmlspecialcharsbx($item['ITEMS']['callback']['NAME'])?></div>
 														</div><!--intranet-button-list-widget-content-inner-item-->
-													<?else:?>
+													<?php else:?>
 														<div class="intranet-button-list-widget-content-inner-item">
 															<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-call"></div>
 															<div class="intranet-button-list-widget-content-inner-item-text"><?=Loc::getMessage("B24C_BL_NOT_CHOSEN")?></div>
 														</div><!--intranet-button-list-widget-content-inner-item-->
-													<?endif;?>
+													<?php endif;?>
 												</div><!--intranet-button-list-widget-content-inner-item-->
 											</div><!--intranet-button-list-widget-content-inner-->
 										</div>
@@ -147,7 +147,7 @@ CJSCore::Init(array('clipboard'));
 									</div><!--intranet-button-list-activate-container-->
 									<span class="intranet-button-list-activate-user-wrapper" data-bx-crm-webform-item-active-date="" <?=(intval($item['LOCAL_ADD_BY']) <= 0 ? ' style="display:none"' : '')?>>
 										<span class="intranet-button-list-activate-user-container user-container-on">
-											<?
+											<?php 
 											if($item['ACTIVE_CHANGE_BY_DISPLAY']['ICON'])
 											{
 												$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($item['ACTIVE_CHANGE_BY_DISPLAY']['ICON']) .'\');';
@@ -165,14 +165,14 @@ CJSCore::Init(array('clipboard'));
 													<?=htmlspecialcharsbx($item['ACTIVE_CHANGE_BY_DISPLAY']['NAME'])?>
 												</a>
 												<div class="intranet-button-list-activate-comments">
-													<?if($item['ACTIVE_CHANGE_DATE_DISPLAY']):?>
+													<?php if($item['ACTIVE_CHANGE_DATE_DISPLAY']):?>
 														<?=($item['ACTIVE'] == 'Y' ? Loc::getMessage('B24C_BL_LIST_ITEM_ACTIVE_ACTIVATED') : Loc::getMessage('B24C_BL_LIST_ITEM_ACTIVE_DEACTIVATED'))?> <?=Loc::getMessage('B24C_BL_LIST_ITEM_ACTIVE_ACT_ON')?>  <?=$item['ACTIVE_CHANGE_DATE_DISPLAY']?>
-													<?endif;?>
+													<?php endif;?>
 												</div>
 											</span>
 										</span>
 										<span class="intranet-button-list-activate-user-container user-container-off">
-											<?
+											<?php 
 											if($item['ACTIVE_CHANGE_BY_NOW_DISPLAY']['ICON'])
 											{
 												$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($item['ACTIVE_CHANGE_BY_NOW_DISPLAY']['ICON']) .'\');';
@@ -201,8 +201,8 @@ CJSCore::Init(array('clipboard'));
 							</div><!--intranet-button-list-widget-container intranet-button-list-widget-right-->
 						</div><!--intranet-button-list-widget-row-->
 
-					<?endforeach;?>
-				<?endforeach;?>
+					<?php endforeach;?>
+				<?php endforeach;?>
 			</div><!--intranet-button-list-wrapper-->
 		</div>
 
@@ -228,15 +228,15 @@ CJSCore::Init(array('clipboard'));
 			});
 		</script>
 
-	<?elseif(!empty($arResult['EMPTY_BUTTON']['URL']) && !empty($arResult['EMPTY_BUTTON']['TITLE'])): //empty($arResult['ITEMS']?>
+	<?php elseif(!empty($arResult['EMPTY_BUTTON']['URL']) && !empty($arResult['EMPTY_BUTTON']['TITLE'])): //empty($arResult['ITEMS']?>
 		<div class="connector-create">
 			<?='<a href="'.$arResult['EMPTY_BUTTON']['URL'].'" class="connector-btn-blue">'.$arResult['EMPTY_BUTTON']['TITLE'].'</a>'?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
-<?else: //(!Connection::isExist())?>
+<?php else: //(!Connection::isExist())?>
 	<div class="connector-create">
 		<?=Connection::getButtonHtml()?>&nbsp;&nbsp;
 		<?='<a href="https://www.bitrix24.'.$arResult['B24_LANG'].'/" class="connector-button-green">'.Loc::getMessage('B24C_BL_CREATE_B24').'</a>'?>
 	</div>
-<?endif?>
+<?php endif?>

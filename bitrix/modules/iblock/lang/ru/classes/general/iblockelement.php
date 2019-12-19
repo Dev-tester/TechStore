@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_BAD_ACTIVE_FROM"] = "Неверный формат даты начала активности.";
 $MESS["IBLOCK_BAD_ACTIVE_TO"] = "Неверный формат даты завершения активности.";
 $MESS["IBLOCK_BAD_FIELD"] = "Обязательное поле \"#FIELD_NAME#\" не заполнено.";

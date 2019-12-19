@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_MENU_COMPANY"] = "Company Today";
 $MESS["ABOUT_MENU_TOPS"] = "Management";
 $MESS["ABOUT_MENU_MISSION"] = "Mission and Strategy";

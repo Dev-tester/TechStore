@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBEL_BIZPROC_TASKS"] = "Business Process Tasks";
 $MESS["IBEL_BIZPROC_CANCEL"] = "Cancel";
 $MESS["IBEL_BIZPROC_STATE"] = "Current Status";

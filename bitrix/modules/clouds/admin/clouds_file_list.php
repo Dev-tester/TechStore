@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "clouds");
 
 /*.require_module 'standard';.*/
@@ -181,16 +181,16 @@ if($USER->CanDoOperation("clouds_upload") && is_array($arID))
 					{
 						$moveResult = CCloudStorage::FILE_PARTLY_UPLOADED;
 						?><script>
-							readFileChunk(0, <?echo $PHPchunkSize-1?>);
-						</script><?
+							readFileChunk(0, <?php echo $PHPchunkSize-1?>);
+						</script><?php 
 					}
 					elseif(filesize($absPath) < $fileSize)
 					{
 						$bytes = filesize($absPath);
 						$moveResult = CCloudStorage::FILE_PARTLY_UPLOADED;
 						?><script>
-							readFileChunk(<?echo $bytes?>, <?echo min($fileSize-1, $bytes+$PHPchunkSize-1)?>);
-						</script><?
+							readFileChunk(<?php echo $bytes?>, <?php echo min($fileSize-1, $bytes+$PHPchunkSize-1)?>);
+						</script><?php 
 					}
 					else
 					{
@@ -226,8 +226,8 @@ if($USER->CanDoOperation("clouds_upload") && is_array($arID))
 						{
 							$moveResult = CCloudStorage::FILE_PARTLY_UPLOADED;
 							?><script>
-								readFileChunk(0, <?echo $PHPchunkSize-1?>);
-							</script><?
+								readFileChunk(0, <?php echo $PHPchunkSize-1?>);
+							</script><?php 
 						}
 						else
 							$strError = GetMessage("CLO_STORAGE_FILE_UNKNOWN_ERROR", array("#CODE#" => "e01"));
@@ -255,8 +255,8 @@ if($USER->CanDoOperation("clouds_upload") && is_array($arID))
 							{
 								$moveResult = CCloudStorage::FILE_PARTLY_UPLOADED;
 								?><script>
-									readFileChunk(<?echo $pos?>, <?echo $pos + $PHPchunkSize-1?>);
-								</script><?
+									readFileChunk(<?php echo $pos?>, <?php echo $pos + $PHPchunkSize-1?>);
+								</script><?php 
 							}
 							elseif(
 								filesize($absPath) < $obUpload->getPartSize()
@@ -266,8 +266,8 @@ if($USER->CanDoOperation("clouds_upload") && is_array($arID))
 								$bytes = $pos + filesize($absPath);
 								$moveResult = CCloudStorage::FILE_PARTLY_UPLOADED;
 								?><script>
-									readFileChunk(<?echo $bytes?>, <?echo min($fileSize-1, $bytes+$PHPchunkSize-1)?>);
-								</script><?
+									readFileChunk(<?php echo $bytes?>, <?php echo min($fileSize-1, $bytes+$PHPchunkSize-1)?>);
+								</script><?php 
 							}
 							else
 							{
@@ -288,8 +288,8 @@ if($USER->CanDoOperation("clouds_upload") && is_array($arID))
 								else
 								{
 									?><script>
-										readFileChunk(<?echo $obUpload->getPos()?>, <?echo min($fileSize-1, $obUpload->getPos()+$PHPchunkSize-1)?>);
-									</script><?
+										readFileChunk(<?php echo $obUpload->getPos()?>, <?php echo min($fileSize-1, $obUpload->getPos()+$PHPchunkSize-1)?>);
+									</script><?php 
 									@unlink($absPath);
 								}
 							}
@@ -343,8 +343,8 @@ if($USER->CanDoOperation("clouds_upload") && is_array($arID))
 					"TYPE"=>"OK",
 				));
 				?><script>
-					<?=$sTableID?>.GetAdminList('<?echo CUtil::JSEscape($APPLICATION->GetCurPage().'?lang='.urlencode(LANGUAGE_ID).'&bucket='.urlencode($obBucket->ID).'&path='.urlencode($path))?>');
-				</script><?
+					<?=$sTableID?>.GetAdminList('<?php echo CUtil::JSEscape($APPLICATION->GetCurPage().'?lang='.urlencode(LANGUAGE_ID).'&bucket='.urlencode($obBucket->ID).'&path='.urlencode($path))?>');
+				</script><?php 
 			}
 
 			require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
@@ -868,8 +868,8 @@ $aTabs = array(
 $tabControl = new CAdminTabControl("tabControl", $aTabs, true, true);
 ?>
 
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -883,7 +883,7 @@ $oFilter->Begin();
 		<input type="text" name="find_name" value="<?= htmlspecialcharsbx($find_name)?>" size="35">
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array(
 	"table_id"=>$sTableID,
 	"url"=>"/bitrix/admin/clouds_file_list.php?lang=".urlencode(LANGUAGE_ID).'&bucket='.urlencode($obBucket->ID).'&path='.urlencode($path),
@@ -926,11 +926,11 @@ function get_upload_url(additional_args)
 	var result = 'clouds_file_list.php?'
 		+ 'action=chunk_upload'
 		+ '&ID=Fnew'
-		+ '&lang=<?echo urlencode(LANGUAGE_ID)?>'
-		+ '&path=<?echo urlencode($path)?>'
+		+ '&lang=<?php echo urlencode(LANGUAGE_ID)?>'
+		+ '&path=<?php echo urlencode($path)?>'
 		+ '&path_to_upload=' + BX.util.urlencode(BX('path_to_upload').value)
-		+ '&<?echo bitrix_sessid_get()?>'
-		+ '&bucket=<?echo CUtil::JSEscape($obBucket->ID)?>'
+		+ '&<?php echo bitrix_sessid_get()?>'
+		+ '&bucket=<?php echo CUtil::JSEscape($obBucket->ID)?>'
 	;
 	if(additional_args)
 	{
@@ -1052,26 +1052,26 @@ function readFileChunk(opt_startByte, opt_stopByte)
 </script>
 <div id="upload_form" style="display:none;height:200px;">
 <div id="upload_progress"></div>
-<form method="POST" action="<?echo htmlspecialcharsbx($APPLICATION->GetCurPageParam())?>"  enctype="multipart/form-data" name="editform" id="editform">
-<?
+<form method="POST" action="<?php echo htmlspecialcharsbx($APPLICATION->GetCurPageParam())?>"  enctype="multipart/form-data" name="editform" id="editform">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-<tr><td width="40%"><?echo GetMessage("CLO_STORAGE_FILE_PATH_INPUT")?>:</td><td width="60%"><input type="text" id="path_to_upload" name="path_to_upload" size="45" value="<?echo htmlspecialcharsbx($path)?>"></td></tr>
-<tr><td><?echo GetMessage("CLO_STORAGE_FILE_UPLOAD_INPUT")?>:</td><td><input type="file" id="upload" name="upload"></td></tr>
-<?$tabControl->Buttons(false);?>
+<tr><td width="40%"><?php echo GetMessage("CLO_STORAGE_FILE_PATH_INPUT")?>:</td><td width="60%"><input type="text" id="path_to_upload" name="path_to_upload" size="45" value="<?php echo htmlspecialcharsbx($path)?>"></td></tr>
+<tr><td><?php echo GetMessage("CLO_STORAGE_FILE_UPLOAD_INPUT")?>:</td><td><input type="file" id="upload" name="upload"></td></tr>
+<?php $tabControl->Buttons(false);?>
 <input type="hidden" name="action" value="upload">
 <input type="hidden" name="ID" value="Fnew">
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-<input type="button" id="start_upload_button" onclick="start_upload();" value="<?echo GetMessage("CLO_STORAGE_FILE_UPLOAD_BTN")?>" class="adm-btn-save">
-<input type="button" value="<?echo GetMessage("CLO_STORAGE_FILE_CANCEL_BTN")?>" onclick="hide_upload_form()">
-<?
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+<input type="button" id="start_upload_button" onclick="start_upload();" value="<?php echo GetMessage("CLO_STORAGE_FILE_UPLOAD_BTN")?>" class="adm-btn-save">
+<input type="button" value="<?php echo GetMessage("CLO_STORAGE_FILE_CANCEL_BTN")?>" onclick="hide_upload_form()">
+<?php 
 $tabControl->End();
 ?>
 </form>
 </div>
-<?
+<?php 
 
 endif;
 

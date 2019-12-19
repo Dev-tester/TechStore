@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTROLLER_ERROR_DELETE_STATUS"] = "Error deleting status. [#ID#]";
 $MESS["CONTROLLER_ERROR_DELETE_STATUS_TYPE_LOCKED"] = "Cannot delete status. [#ID#]";
 $MESS["CONTROLLER_ERROR_STATUS_GROUPS_TASK_ID_EMPTY"] = "Access permission descriptor array is empty";

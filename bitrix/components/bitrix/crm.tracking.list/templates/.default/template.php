@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Web\Json;
@@ -72,7 +72,7 @@ $channelTileManagerId = 'crm-analytics-channels';
 		});
 	</script>
 	<div class="crm-analytics-list-title"><?=Loc::getMessage('CRM_TRACKING_LIST_SOURCES')?></div>
-	<?$APPLICATION->IncludeComponent("bitrix:ui.tile.list", "", [
+	<?php $APPLICATION->IncludeComponent("bitrix:ui.tile.list", "", [
 		'ID' => $sourceTileManagerId,
 		'SHOW_BUTTON_ADD' => true,
 		'LIST' => $arResult['SOURCES'],
@@ -83,7 +83,7 @@ $channelTileManagerId = 'crm-analytics-channels';
 	<br>
 
 	<div class="crm-analytics-list-title"><?=Loc::getMessage('CRM_TRACKING_LIST_CHANNELS')?></div>
-	<?$APPLICATION->IncludeComponent("bitrix:ui.tile.list", "", [
+	<?php $APPLICATION->IncludeComponent("bitrix:ui.tile.list", "", [
 		'ID' => $channelTileManagerId,
 		'LIST' => $arResult['CHANNELS'],
 	]);?>

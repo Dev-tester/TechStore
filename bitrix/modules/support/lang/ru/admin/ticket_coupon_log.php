@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_CL_PAGES'] = "Записи";
 $MESS ['SUP_CL_FLT_COUPON'] = "Купон";
 $MESS ['SUP_CL_FLT_COUPON_ID'] = "ID купона";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_EDIT_RECORD"] = "Изменение галереи";
 $MESS["SMILE_NEW_RECORD"] = "Добавление галереи";
 $MESS["ERROR_EDIT_SMILE"] = "Ошибка изменения галереи";

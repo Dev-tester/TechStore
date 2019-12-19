@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Disk\Driver;
 use Bitrix\Disk\File;
 use Bitrix\Disk\Folder;

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CUserTypeInteger extends \Bitrix\Main\UserField\TypeBase

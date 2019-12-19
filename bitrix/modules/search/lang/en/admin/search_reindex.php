@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_REINDEX_REINDEX_CHANGED"] = "Re-index modified content only";
 $MESS["SEARCH_REINDEX_REINDEX_BUTTON"] = "Re-index site";
 $MESS["SEARCH_REINDEX_TOTAL"] = "Indexed documents:";

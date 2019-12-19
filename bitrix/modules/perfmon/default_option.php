@@ -1,4 +1,4 @@
-<?
+<?php 
 $perfmon_default_option = array(
 	"max_graph_width" => 1024,
 	"max_graph_height" => 768,

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPGUIA_DESCR_DESCR"] = "Employee information";
 $MESS["BPGUIA_DESCR_NAME"] = "Employee information";
 $MESS["BPGUIA_IS_ABSENT"] = "Out of office (as per absence schedule)";

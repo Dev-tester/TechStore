@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This class allow to manage the sale order's statuses from crm module
  */

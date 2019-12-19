@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_OPTIONS_MASK_INC"] = "Include file types:";
 $MESS["SEARCH_OPTIONS_MASK_EXC"] = "Exclude files and folders:";
 $MESS["SEARCH_OPTIONS_USE_STEMMING"] = "Enable morphology";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_BLOG_TIP'] = "Указывается путь к главной странице конкретного блога. Например: blog_blog.php?page=blog&blog=#blog#.";
 $MESS ['PATH_TO_BLOG_INDEX_TIP'] = "Указывается путь к главной странице. Например: blog.php.";
 $MESS ['PATH_TO_DRAFT_TIP'] = "Указывается путь к странице с недописанными сообщениями блога. Например: blog_b_draft.php?page=draft&blog=#blog#.";

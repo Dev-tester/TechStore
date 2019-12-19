@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPABS_MESSAGE_SUCCESS'] = "Бизнес-процесс по шаблону '#TEMPLATE#' успешно запущен";
 $MESS ['BPABS_ADD'] = "Добавить";
 $MESS ['BPABS_BACK'] = "Вернуться";

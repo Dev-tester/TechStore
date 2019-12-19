@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_WFS_TITLE"] = "Параметры шаблона";
 $MESS["BIZPROC_WFS_PROP_STRING"] = "Строка";
 $MESS["BIZPROC_WFS_PROP_TEXT"] = "Многострочный текст";

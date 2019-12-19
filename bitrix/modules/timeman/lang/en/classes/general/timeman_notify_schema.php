@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_NS_REPORT"] = "New entry in working time report";
 $MESS["TIMEMAN_NS_REPORT_COMMENT"] = "Working time report comment";
 $MESS["TIMEMAN_NS_REPORT_APPROVE"] = "Working time report update approved";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\TradingPlatform\YMarket;
 
 use Bitrix\Catalog;

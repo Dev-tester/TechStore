@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"]) || !is_array($arResult["ELEMENTS_LIST"])):
 	return true;
 endif;
@@ -27,18 +27,18 @@ if ($arParams["SQUARE"] == "Y")
 if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 	<div class="photo-error"><?=ShowError($arResult["ERROR_MESSAGE"])?></div>
-<?
+<?php 
 endif;
 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 	<div class="photo-navigation photo-navigation-top"><?=$arResult["NAV_STRING"]?></div>
-<?
+<?php 
 endif;
 
 ?>
 <div class="photo-photos">
-<?
+<?php 
 
 foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 	if (!is_array($arItem))
@@ -51,30 +51,30 @@ if ($arParams["SQUARE"] == "Y"):
 ?>
 <div class="photo-ascetic" style="width:<?=$div_size?>px; height:<?=$div_size?>px; overflow:hidden;">
 	<a href="<?=$arItem["URL"]?>" class="photo-simple" style="display:block; overflow:hidden;">
-		<img src="<?=$arItem["PICTURE"]["SRC"]?>" width="<?=$arItem["PICTURE"]["WIDTH"]?>" height="<?=$arItem["PICTURE"]["HEIGHT"]?>" <?
-			?>border="0" alt="<?=$sTitle?>" title="<?=$sTitle?>" <?
+		<img src="<?=$arItem["PICTURE"]["SRC"]?>" width="<?=$arItem["PICTURE"]["WIDTH"]?>" height="<?=$arItem["PICTURE"]["HEIGHT"]?>" <?php 
+			?>border="0" alt="<?=$sTitle?>" title="<?=$sTitle?>" <?php 
 			?>style="margin-left: <?=$margin_left?>px; margin-top: <?=$margin_top?>px; position:static;"/>
 	</a>
 </div>
-<?
+<?php 
 else:
 ?>
 <div class="photo-ascetic" style="width:<?=($arParams["THUMBS_SIZE"] + 10)?>px; height:<?=($arParams["THUMBS_SIZE"] + 10)?>px;">
-	<a href="<?=$arItem["URL"]?>" class="photo-simple"><?
+	<a href="<?=$arItem["URL"]?>" class="photo-simple"><?php 
 		?><?=CFile::ShowImage($arItem["PICTURE"], $arParams["THUMBS_SIZE"], $arParams["THUMBS_SIZE"],
-		"border=\"0\" vspace=\"0\" hspace=\"0\" alt=\"".$sTitle."\" title=\"".$sTitle."\"");?><?
+		"border=\"0\" vspace=\"0\" hspace=\"0\" alt=\"".$sTitle."\" title=\"".$sTitle."\"");?><?php 
 	?></a>
-</div><?
+</div><?php 
 endif;
 
 endforeach;
 ?>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 	<div class="photo-navigation photo-navigation-bottom"><?=$arResult["NAV_STRING"]?></div>
-<?
+<?php 
 endif;
 ?>

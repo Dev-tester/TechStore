@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_WRONG_TIMESTAMP_FROM"] = "Enter correct modification date \"from\" in filter";
 $MESS["SALE_WRONG_TIMESTAMP_TILL"] = "Enter correct modification date \"till\" in filter ";
 $MESS["SALE_FROM_TILL_TIMESTAMP"] = "Modification date \"till\" must be greater than \"from\" in filter ";

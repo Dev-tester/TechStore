@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="row">
 	<div class="col-12">
-		<?if (IsModuleInstalled("advertising")):?>
+		<?php if (IsModuleInstalled("advertising")):?>
 			<div class="mb-3">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					"bitrix:advertising.banner",
 					"parallax",
 					array(
@@ -41,10 +41,10 @@
 					false
 				);?>
 			</div>
-		<?endif?>
+		<?php endif?>
 
 		<h2>Новости</h2>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:news.list",
 			"bootstrap_v4",
 			array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arComponentProps = CComponentUtil::GetComponentProps("bitrix:photogallery.detail.list.ex", $arCurrentValues);

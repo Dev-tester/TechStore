@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Intranet\Controller;
 
 use Bitrix\Main\Error;

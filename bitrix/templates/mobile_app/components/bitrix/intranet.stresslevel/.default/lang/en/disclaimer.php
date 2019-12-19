@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_DISCLAIMER_ATTENTION"] = "Attention!";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_DISCLAIMER_RU_TEXT"] = "
 #P#The &laquo;Stress Level&raquo; gamification service (hereinafter referred to as the Service) is provided by Welltory Inc. under the provisions, envisaged by the #A_TERMS_BEGIN#Agreement#A_TERMS_END#.

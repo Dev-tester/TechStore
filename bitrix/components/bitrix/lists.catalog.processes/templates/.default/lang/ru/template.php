@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_LCP_TEMPLATE_DESCRIPTION_PAGE"] = "Выберите процессы для установки";
 $MESS["LISTS_LCP_TEMPLATE_TITLE_SYSTEM_PROCESSES"] = "Системные процессы";
 $MESS["LISTS_LCP_TEMPLATE_TITLE_USER_PROCESSES"] = "Пользовательские процессы";

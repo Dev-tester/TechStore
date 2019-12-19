@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SALE_TITLE"] = "QIWI";
 $MESS["SALE_DESCRIPTION"] = "Для работы необходимо, чтобы в настройках магазина в <a href=\"https://ishop.qiwi.ru\" target=\"_blank\">личном кабинете</a> были включены HTTP и SOAP протоколы.<br />

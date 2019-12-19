@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -9,7 +9,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 /********************************************************************
 				Input params
@@ -22,7 +22,7 @@ $arParams["SHOW_VOTE"] = ($arParams["SHOW_VOTE"] == "Y" && IsModuleInstalled("vo
 ********************************************************************/
 
 if ($arResult["VIEW"] == "Y"):
-?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 	"bitrix:forum.message.template",
 	".preview",
 	Array(
@@ -34,12 +34,12 @@ if ($arResult["VIEW"] == "Y"):
 	),
 	$component->__parent,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 elseif ($arResult["SHOW_MESSAGE_FOR_AJAX"] == "Y"):
 	ob_end_clean();
 	ob_start();
 	$GLOBALS["bShowImageScriptPopup"] = true;
-	?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+	?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 		"bitrix:forum.message.template",
 		".preview",
 		Array(
@@ -51,7 +51,7 @@ elseif ($arResult["SHOW_MESSAGE_FOR_AJAX"] == "Y"):
 		),
 		$component->__parent,
 		array("HIDE_ICONS" => "Y")
-	);?><?
+	);?><?php 
 	if(!function_exists("__ConvertData"))
 	{
 		function __ConvertData(&$item, $key)
@@ -73,7 +73,7 @@ elseif ($arResult["SHOW_MESSAGE_FOR_AJAX"] == "Y"):
 	if ($_REQUEST["CONVERT_DATA"] == "Y")
 		array_walk($res, "__ConvertData");
 $GLOBALS["APPLICATION"]->RestartBuffer();
-?><?=CUtil::PhpToJSObject($res)?><?
+?><?=CUtil::PhpToJSObject($res)?><?php 
 die();
 endif;
 ?>

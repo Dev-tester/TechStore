@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_DETAIL_ATTR_GR_TYPE_GENERAL"] = "All stages and funnels";
 $MESS["CRM_DEAL_DETAIL_ATTR_GR_TYPE_PIPELINE"] = "In progress + won";
 $MESS["CRM_DEAL_DETAIL_ATTR_GR_TYPE_JUNK"] = "Lost";

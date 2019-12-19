@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCGAPS1_BAD_FUNC"] = "Beim Ausführen der Funktion ist ein Fehler aufgetreten";
 $MESS["SCGAPS1_NO_RECORD"] = "Der Eintrag Nr. #ID# wurde nicht gefunden";
 $MESS["SCGAPS1_NO_SECTION"] = "Die Gruppen ID wurde nicht angegeben";

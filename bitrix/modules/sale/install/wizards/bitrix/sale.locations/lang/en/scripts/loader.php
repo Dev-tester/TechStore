@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['WSL_LOADER_ERROR_FILES'] = 'Error: invalid file names!';
 $MESS['WSL_LOADER_ERROR_ACCESS_DENIED'] = 'Error: access denied!';
 $MESS['WSL_LOADER_LOADING'] = 'Loading files...';

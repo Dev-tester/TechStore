@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use \Bitrix\Main\Localization\Loc;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/clock.php");
@@ -19,7 +19,7 @@ if (empty($event))
 	<div class="ui-alert ui-alert-danger ui-alert-icon-danger ui-alert-text-center">
 		<span class="ui-alert-message"><?= Loc::getMessage('EC_VIEW_SLIDER_EVENT_NOT_FOUND')?></span>
 	</div>
-	<?
+	<?php 
 	return;
 }
 
@@ -162,11 +162,11 @@ $arParams['UF'] = $UF;
 		<div class="calendar-slider-sidebar">
 			<div id="<?= $id?>_time_wrap" class="calendar-slider-sidebar-head" <?= $timezoneHint ? 'title="'.$timezoneHint.'"' : ''?>>
 				<div id="<?= $id?>_time_inner_wrap" class="calendar-slider-sidebar-head-title"><?= $fromToHtml?>
-					<?if ($timezoneHint):?>
+					<?php if ($timezoneHint):?>
 					<div class="calendar-slider-sidebar-head-timezone" title="<?= $timezoneHint?>">
 						<div class="calendar-slider-sidebar-head-timezone-icon"></div>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 			</div>
 			<div id="<?= $id?>_sidebar_inner" class="calendar-slider-sidebar-inner">
@@ -174,11 +174,11 @@ $arParams['UF'] = $UF;
 					<div class="calendar-slider-sidebar-layout-top calendar-slider-sidebar-user-top calendar-slider-sidebar-border-bottom">
 						<div class="calendar-slider-sidebar-left-side">
 							<div class="calendar-slider-sidebar-name">
-								<?if ($event['IS_MEETING']):?>
+								<?php if ($event['IS_MEETING']):?>
 									<?= Loc::getMessage('EC_VIEW_ATTENDEES_TITLE')?>
-								<?else:?>
+								<?php else:?>
 									<?= Loc::getMessage('EC_VIEW_HOST')?>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 						</div>
 						<div class="calendar-slider-sidebar-right-side" id="<?= $id?>_add_link" style="display: none;">
@@ -189,7 +189,7 @@ $arParams['UF'] = $UF;
 					</div>
 					<div class="calendar-slider-sidebar-layout-main">
 						<div class="calendar-slider-sidebar-user-block">
-						<?if ($event['IS_MEETING']):?>
+						<?php if ($event['IS_MEETING']):?>
 								<div class="calendar-slider-sidebar-user-container">
 									<div class="calendar-slider-sidebar-user-block-avatar">
 										<a href="<?= $meetingHost['URL']?>">
@@ -199,8 +199,8 @@ $arParams['UF'] = $UF;
 										</a>
 									</div>
 								</div>
-								<?for($i = 0, $l = count($attendees['y']); $i < $l; $i++):?>
-									<?
+								<?php for($i = 0, $l = count($attendees['y']); $i < $l; $i++):?>
+									<?php 
 									$att = $attendees['y'][$i];
 									if ($i > 10)
 										break;
@@ -217,17 +217,17 @@ $arParams['UF'] = $UF;
 											</a>
 										</div>
 									</div>
-								<?endfor;?>
+								<?php endfor;?>
 
-								<? if ($meetingCreator):?>
+								<?php  if ($meetingCreator):?>
 								<div class="calendar-slider-sidebar-row calendar-slider-sidebar-border-bottom">
 									<div class="calendar-slider-sidebar-string-name"><?= Loc::getMessage('EC_VIEW_CREATED_BY')?>:</div>
 									<div class="calendar-slider-sidebar-string-value">
 										<a href="<?= $meetingCreator['URL']?>" class="calendar-slider-sidebar-user-info-name"><?= htmlspecialcharsbx($meetingCreator['DISPLAY_NAME'])?></a>
 									</div>
 								</div>
-								<? endif;?>
-						<?else:?>
+								<?php  endif;?>
+						<?php else:?>
 							<div class="calendar-slider-sidebar-user-container calendar-slider-sidebar-user-card">
 								<div class="calendar-slider-sidebar-user-block-avatar">
 									<a href="<?= $meetingHost['URL']?>">
@@ -237,15 +237,15 @@ $arParams['UF'] = $UF;
 								</div>
 								<div class="calendar-slider-sidebar-user-info">
 									<a href="<?= $meetingHost['URL']?>" class="calendar-slider-sidebar-user-info-name"><?= htmlspecialcharsbx($meetingHost['DISPLAY_NAME'])?></a>
-									<?if ($meetingHost['WORK_POSITION']):?>
+									<?php if ($meetingHost['WORK_POSITION']):?>
 										<div class="calendar-slider-sidebar-user-info-status"><?= htmlspecialcharsbx($meetingHost['WORK_POSITION'])?></div>
-									<?endif;?>
+									<?php endif;?>
 								</div>
 							</div>
-						<?endif;?>
+						<?php endif;?>
 						</div>
 
-						<?if ($event['IS_MEETING']):?>
+						<?php if ($event['IS_MEETING']):?>
 						<div class="calendar-slider-sidebar-user-social calendar-slider-sidebar-border-bottom">
 							<div class="calendar-slider-sidebar-user-social-left">
 								<div id="<?= $id?>_attendees_y" class="calendar-slider-sidebar-user-social-item">
@@ -284,11 +284,11 @@ $arParams['UF'] = $UF;
 								</div>
 							</div>
 						</div>
-						<?endif; /*if ($event['IS_MEETING'])*/?>
+						<?php endif; /*if ($event['IS_MEETING'])*/?>
 					</div>
 				</div>
 
-				<?if (is_array($event['REMIND']) && count($event['REMIND']) > 0):?>
+				<?php if (is_array($event['REMIND']) && count($event['REMIND']) > 0):?>
 				<div class="calendar-slider-sidebar-layout-main calendar-slider-sidebar-border-bottom calendar-slider-sidebar-remind">
 					<div class="calendar-slider-sidebar-row">
 						<div class="calendar-slider-sidebar-string-name"><?= Loc::getMessage('EC_VIEW_REMINDERS')?>:</div>
@@ -296,21 +296,21 @@ $arParams['UF'] = $UF;
 							<span class="calendar-slider-sidebar-remind-link-name"><?= Loc::getMessage('EC_VIEW_REMINDER_ADD')?></span>
 						</span>
 					</div>
-					<?foreach($event['REMIND'] as $remind):?>
+					<?php foreach($event['REMIND'] as $remind):?>
 						<div class="calendar-slider-sidebar-remind-warning">
 							<span class="calendar-slider-sidebar-remind-warning-name"><?= $remind['text']?></span>
 							<div class="calendar-close-button"></div>
 						</div>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 
-				<?if ($event['RRULE']):?>
+				<?php if ($event['RRULE']):?>
 				<div class="calendar-slider-sidebar-row calendar-slider-sidebar-border-bottom">
 					<div class="calendar-slider-sidebar-string-name"><?= Loc::getMessage('EC_T_REPEAT')?>:</div>
 					<div class="calendar-slider-sidebar-string-value"><?= CCalendarEvent::GetRRULEDescription($event, true)?></div>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 			<div class="calendar-slider-sidebar-copy" style="display: none;">
 				<span class="calendar-slider-sidebar-copy-link"><?= Loc::getMessage('EC_VIEW_SLIDER_COPY_LINK')?></span>
@@ -320,11 +320,11 @@ $arParams['UF'] = $UF;
 			<div class="calendar-slider-detail calendar-slider-detail-panel">
 				<div class="calendar-slider-detail-info">
 					<div class="calendar-slider-detail-header">
-						<?if ($event['IMPORTANCE'] == 'high'):?>
+						<?php if ($event['IMPORTANCE'] == 'high'):?>
 						<div id="calendar-slider-detail-important-button" class="calendar-slider-info-panel-important mutable">
 							<span class="if-not-no"><?= Loc::getMessage('EC_VIEW_SLIDER_IMPORTANT_EVENT')?></span>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 						<div class="calendar-slider-detail-subtitle-status" style="visibility: hidden">
 							#calendar-slider-detail-subtitle-status#
 							<span class="calendar-slider-detail-status-below-name"></span>
@@ -332,15 +332,15 @@ $arParams['UF'] = $UF;
 					</div>
 
 					<div class="calendar-slider-detail-content">
-						<?if (!empty($event['~DESCRIPTION'])):?>
+						<?php if (!empty($event['~DESCRIPTION'])):?>
 						<div id="calendar-slider-detail-description" class="calendar-slider-detail-description">
 							<?= htmlspecialcharsback($event['~DESCRIPTION'])?>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 
-						<?if ($event['UF_WEBDAV_CAL_EVENT']):?>
+						<?php if ($event['UF_WEBDAV_CAL_EVENT']):?>
 							<div class="calendar-slider-detail-files" id="<?=$id?>_<?=$event['ID']?>_files_wrap">
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									"bitrix:system.field.view",
 									$event['UF_WEBDAV_CAL_EVENT']["USER_TYPE"]["USER_TYPE_ID"],
 									array("arUserField" => $event['UF_WEBDAV_CAL_EVENT']),
@@ -348,13 +348,13 @@ $arParams['UF'] = $UF;
 									array("HIDE_ICONS"=>"Y")
 								);?>
 							</div>
-						<?endif;?>
+						<?php endif;?>
 
 						<!--region planner-->
 						<div class="calendar-slider-detail-timeline hidden" id="<?=$id?>_view_planner_wrap">
-							<? if (count($codes) > 0):?>
+							<?php  if (count($codes) > 0):?>
 							<div class="calendar-view-planner-wrap">
-								<?
+								<?php 
 								$fromTs = CCalendar::Timestamp($event['DATE_FROM']);
 								$toTs = CCalendar::Timestamp($event['DATE_TO']);
 								if ($event['DT_SKIP_TIME'] !== "Y")
@@ -427,17 +427,17 @@ $arParams['UF'] = $UF;
 									)
 								);?>
 							</div>
-							<? endif;?>
+							<?php  endif;?>
 						</div>
 						<!--endregion-->
 
 						<div class="calendar-slider-detail-option">
-							<?if ($event['UF_CRM_CAL_EVENT']):?>
+							<?php if ($event['UF_CRM_CAL_EVENT']):?>
 							<div class="calendar-slider-detail-option-block">
 								<div class="calendar-slider-detail-option-name"><?= Loc::getMessage('EC_CRM_TITLE')?>:</div>
 
 								<div class="calendar-slider-detail-option-value calendar-slider-detail-option-crm">
-									<?$APPLICATION->IncludeComponent(
+									<?php $APPLICATION->IncludeComponent(
 										"bitrix:system.field.view",
 										$event['UF_CRM_CAL_EVENT']["USER_TYPE"]["USER_TYPE_ID"],
 										array("arUserField" => $event['UF_CRM_CAL_EVENT']),
@@ -446,34 +446,34 @@ $arParams['UF'] = $UF;
 									);?>
 								</div>
 							</div>
-							<?endif;?>
+							<?php endif;?>
 
-							<?if ($event['ACCESSIBILITY'] != '' && $arParams['bIntranet']):?>
+							<?php if ($event['ACCESSIBILITY'] != '' && $arParams['bIntranet']):?>
 								<div class="calendar-slider-detail-option-block">
 									<div class="calendar-slider-detail-option-name"><?= Loc::getMessage('EC_ACCESSIBILITY_TITLE')?>:</div>
 									<div class="calendar-slider-detail-option-value"><?= Loc::getMessage("EC_ACCESSIBILITY_".strtoupper($event['ACCESSIBILITY']))?></div>
 								</div>
-							<?endif;?>
-							<?if ($arParams['sectionName'] != ''):?>
+							<?php endif;?>
+							<?php if ($arParams['sectionName'] != ''):?>
 								<div class="calendar-slider-detail-option-block">
 									<div class="calendar-slider-detail-option-name"><?= Loc::getMessage('EC_VIEW_SECTION')?>:</div>
 									<div class="calendar-slider-detail-option-value"><?= $arParams['sectionName']?></div>
 								</div>
-							<?endif;?>
-							<?if ($event['PRIVATE_EVENT'] && $arParams['bIntranet']):?>
+							<?php endif;?>
+							<?php if ($event['PRIVATE_EVENT'] && $arParams['bIntranet']):?>
 								<div class="calendar-slider-detail-option-block">
 									<div class="calendar-slider-detail-option-name"><?=Loc::getMessage('EC_EDDIV_SPECIAL_NOTES')?>:</div>
 									<div class="calendar-slider-detail-option-value"><?=Loc::getMessage('EC_PRIVATE_EVENT')?></div>
 								</div>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 
-						<?if (!empty($location)):?>
+						<?php if (!empty($location)):?>
 						<div class="calendar-slider-detail-place">
 							<div class="calendar-slider-detail-place-title"><?= Loc::getMessage('EC_VIEW_SLIDER_LOCATION')?></div>
 							<div class="calendar-slider-detail-place-name"><?= htmlspecialcharsbx($location)?></div>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 
 					<div class="calendar-slider-detail-buttons">
@@ -488,11 +488,11 @@ $arParams['UF'] = $UF;
 					</div>
 				</div>
 			</div>
-			<?if ($viewComments): ?>
+			<?php if ($viewComments): ?>
 			<div class="calendar-slider-comments">
 				<div class="calendar-slider-comments-title"><?= Loc::getMessage('EC_VIEW_SLIDER_COMMENTS')?></div>
 				<div class="calendar-slider-comments-main"  id="<?=$id?>comments-cont" style="opacity: 1;">
-					<?
+					<?php 
 					if ($userId == $event['CREATED_BY'] && ($event['PARENT_ID'] == $event['ID'] || !$event['PARENT_ID']))
 						$permission = "Y";
 					else
@@ -524,7 +524,7 @@ $arParams['UF'] = $UF;
 					?>
 				</div>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SGCS_T_ACTIONS_BUTTON"] = "Действия";
 $MESS["SONET_SGCS_T_SESSION_WRONG"] = "Ваша сессия истекла, пожалуйста, повторите действие.";
 $MESS["SONET_SGCS_T_NOT_ATHORIZED"] = "Вы не авторизованы.";

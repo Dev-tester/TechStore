@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_LINE_ELEMENT_COUNT"] = "Количество элементов, выводимых в одной строке";
 $MESS["LINE_ELEMENT_COUNT_TIP"] = "Количество элементов, выводимых в строке может быть от 1 до 5";
 $MESS["CATALOG_RECOMMENDED_PRODUCTS_TPL_THEME_BLUE"] = "синяя (тема по умолчанию)";

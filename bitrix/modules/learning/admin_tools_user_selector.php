@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 
@@ -192,11 +192,11 @@ class Learning_CIBlockPropertyUserID
 							v.readOnly = false;
 							document.getElementById('FindUser<?=$name_x?>').disabled = false;
 						}">
-					<option value="none"<?if($select=="none")echo " selected"?>><?=GetMessage("LEARNING_USER_SELECTOR_NONE")?></option>
-					<option value="CU"<?if($select=="CU")echo " selected"?>><?=GetMessage("LEARNING_USER_SELECTOR_CURRENT")?></option>
-					<option value="SU"<?if($select=="SU")echo " selected"?>><?=GetMessage("LEARNING_USER_SELECTOR_OTHER")?></option>
+					<option value="none"<?php if($select=="none")echo " selected"?>><?=GetMessage("LEARNING_USER_SELECTOR_NONE")?></option>
+					<option value="CU"<?php if($select=="CU")echo " selected"?>><?=GetMessage("LEARNING_USER_SELECTOR_CURRENT")?></option>
+					<option value="SU"<?php if($select=="SU")echo " selected"?>><?=GetMessage("LEARNING_USER_SELECTOR_OTHER")?></option>
 				</select>&nbsp;
-				<?echo Learning_FindUserIDNew($strHTMLControlName["VALUE"], $value["VALUE"], $res, $strHTMLControlName["FORM_NAME"], $select);
+				<?php echo Learning_FindUserIDNew($strHTMLControlName["VALUE"], $value["VALUE"], $res, $strHTMLControlName["FORM_NAME"], $select);
 			$return = ob_get_contents();
 			ob_end_clean();
 		return  $return;

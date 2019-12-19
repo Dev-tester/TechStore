@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($arParams['MEETING_ID'] > 0 && $arParams['FORUM_ID'] > 0)
 {
 ?>
 <span class="meeting-new-agenda-title"><?=GetMessage("ME_COMMENTS")?></span>
 <div style="clear: both;">
-<?
+<?php 
 	$APPLICATION->IncludeComponent("bitrix:forum.comments", ".default", array(
 		"FORUM_ID" => $arParams['FORUM_ID'],
 		"ENTITY_TYPE" => MEETING_COMMENTS_ENTITY_TYPE,

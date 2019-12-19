@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Динамика индексации сайта поисковиком";
 $MESS ['STAT_F_SEARCHER_ID'] = "Поисковик:";
 $MESS ['STAT_F_PERIOD'] = "Период";

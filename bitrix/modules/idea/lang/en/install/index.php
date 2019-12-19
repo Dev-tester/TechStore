@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_MODULE_NAME"] = "Idea manager";
 $MESS["IDEA_MODULE_DESCRIPTION"] = "Idea manager";
 $MESS["IDEA_UF_CATEGORY_CODE_DESCRIPTION"] = "Category";

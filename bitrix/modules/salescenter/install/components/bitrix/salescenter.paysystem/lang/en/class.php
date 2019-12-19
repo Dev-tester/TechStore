@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SP_MENU_ITEM_CASHBOX"] = "FZ-54";
 $MESS["SP_MENU_ITEM_PARAMS"] = "Parameters";
 $MESS["SP_MENU_ITEM_RESTRICTION"] = "Restrictions";

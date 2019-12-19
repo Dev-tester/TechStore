@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_KB"] = "KB";
 $MESS["WD_MB"] = "MB";
 $MESS["WD_B"] = "byte";

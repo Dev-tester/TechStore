@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_MOD_CATALOG_ADMIN_CIS_BAD_IBLOCK_TYPE_ID"] = "Invalid information block type";
 $MESS["BX_MOD_CATALOG_ADMIN_CIS_TITLE"] = "Select information block";
 $MESS["BX_MOD_CATALOG_ADMIN_CIS_HEAD_ID"] = "ID";

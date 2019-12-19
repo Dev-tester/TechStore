@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILLLA_DATE_INSERT"] = "Girada el";
 $MESS["SALE_HPS_BILLLA_DATE_PAY_BEFORE"] = "Para pagarse el";
 $MESS["SALE_HPS_BILLLA_DELIVERY"] = "Envío";

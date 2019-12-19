@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,15 +12,15 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>	
-	<?if ($arResult["CurrentUserPerms"]["UserCanModerateGroup"]):?>
+	<?php if ($arResult["CurrentUserPerms"]["UserCanModerateGroup"]):?>
 		<form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
-	<?endif;?>
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
+	<?php endif;?>
 	<div class="sonet-cntnr-group-ban">
 	<table width="100%" class="sonet-user-profile-friends data-table">
 		<tr>
@@ -28,14 +28,14 @@ else
 		</tr>
 		<tr>
 			<td>
-				<?
+				<?php 
 				if ($arResult["Users"] && $arResult["Users"]["List"])
 				{
 					?>
 					<table width="100%" border="0" class="sonet-user-profile-friend-box">
 					<tr>
 						<td align="left" valign="top">							
-					<?
+					<?php 
 					$ind = 0;
 					$ind_row = 0;
 					
@@ -51,7 +51,7 @@ else
 							$ind_row = 0;
 						}
 						
-						?><div class="user-div"><?						
+						?><div class="user-div"><?php 						
 						
 						if ($arResult["CurrentUserPerms"]["UserCanModerateGroup"])
 						{
@@ -59,12 +59,12 @@ else
 							<table cellspacing="0" cellpadding="0" border="0" class="sonet-user-profile-friend-user">
 							<tr>
 								<td align="right" class="checkbox-cell">
-								<?
+								<?php 
 								echo "<input type=\"checkbox\" name=\"checked_".$ind."\" value=\"Y\">";
 								echo "<input type=\"hidden\" name=\"id_".$ind."\" value=\"".$friend["ID"]."\">";								?>
 								</td>
 								<td>
-							<?
+							<?php 
 						}
 
 						$APPLICATION->IncludeComponent("bitrix:main.user.link",
@@ -100,18 +100,18 @@ else
 								</td>
 							</tr>
 							</table>
-							<?
+							<?php 
 						}						
 						
 						$ind++;
 						$ind_row++;						
-						?></div><?
+						?></div><?php 
 					}
 					?>
 						</td>
 					</tr>					
 					</table>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -119,23 +119,23 @@ else
 				}
 				?>
 
-				<?if ($arResult["CurrentUserPerms"]["UserCanModerateGroup"]):?>
+				<?php if ($arResult["CurrentUserPerms"]["UserCanModerateGroup"]):?>
 					<a href="<?= $arResult["Urls"]["GroupUsers"] ?>"><?= GetMessage("SONET_C7_ACT_IN_BAN") ?></a>
-				<?endif;?>
+				<?php endif;?>
 			</td>
 		</tr>
 	</table>
 	</div>
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<br><?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
-	<?if ($arResult["CurrentUserPerms"]["UserCanModerateGroup"]):?>
+	<?php endif;?>
+	<?php if ($arResult["CurrentUserPerms"]["UserCanModerateGroup"]):?>
 		<br />
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<?=bitrix_sessid_post()?>
 		<input type="submit" name="save" value="<?= GetMessage("SONET_C7_ACT_SAVE") ?>">
 		</form>
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 }
 ?>

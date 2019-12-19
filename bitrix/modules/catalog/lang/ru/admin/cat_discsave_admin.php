@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_DISC_SAVE_ADM_ERR_UPDATE_ERR"] = "Ошибка при обновлении накопительной программы: #ERR#";
 $MESS["BT_CAT_DISC_SAVE_ADM_ERR_UPDATE_UNKNOWN"] = "Неизвестная ошибка при обновлении накопительной программы";
 $MESS["BT_CAT_DISC_SAVE_ADM_ERR_UPDATE_ABSENT"] = "Накопительной программы с таким ID не существует";

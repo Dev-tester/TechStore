@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_KANBAN_STATUS_NEW"] = "Новая";
 $MESS["TASKS_KANBAN_STATUS_PAUSE"] = "На паузе";
 $MESS["TASKS_KANBAN_STATUS_PROGRESS"] = "В работе";

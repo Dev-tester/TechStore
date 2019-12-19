@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <?php
 /** @var $webdav CWebDavIblock */
 /** @var $APPLICATION CMain */
@@ -23,8 +23,8 @@ $webdav = $arResult['webdav'];
 				<span class="feed-con-file-name-wrap">
 					<span class="feed-com-file-name"><a class="feed-com-file-name-text" href="#" onclick="if(wdufCurrentIdDocument){BX.fireEvent(BX(wdufCurrentIdDocument), 'click');}return false;"><?= $webdav->arParams['file_name'] ?></a><span class="feed-com-file-size"><?= CFile::FormatSize(intval($webdav->arParams["file_size"])) ?></span></span>
 				</span>
-				<? if(!empty($arResult['editService'])){ ?>
-				<?
+				<?php  if(!empty($arResult['editService'])){ ?>
+				<?php 
 					$onlineUsers = array();
 					foreach ($arResult['editUsers'] as $user)
 					{
@@ -49,14 +49,14 @@ $webdav = $arResult['webdav'];
 						GetMessage('WD_ELEMENT_HISTORY_AND_EDITOR_COUNT_5_20', array('#COUNT#' => $notShownCount))
 					);
 				?>
-					<span class="feed-con-file-revision-history"><span class="feed-con-file-rev-hist-status"><?= GetMessage('WD_ELEMENT_HISTORY_ONLINE_SERVICE_EDIT', array('#SERVICE#' => '<span class="status-' . ($arResult['editService'] == CWebDavLogOnlineEditBase::GOOGLE_SERVICE_NAME? 'google': 'sky-drive') . '"></span>')) ?> <?= $showOnlineUsers ?><? if($notShownCount > 0){ ?><span class="feed-com-editing-more" onclick="historyShowMoreEditUsers(this)"><?= $countLangMessage ?></span><span id="hidden-feed-com-editing-more" style="display: none;">, <?= $notShowOnlineUsers ?></span><? } ?></span>
-				<? } ?>
+					<span class="feed-con-file-revision-history"><span class="feed-con-file-rev-hist-status"><?= GetMessage('WD_ELEMENT_HISTORY_ONLINE_SERVICE_EDIT', array('#SERVICE#' => '<span class="status-' . ($arResult['editService'] == CWebDavLogOnlineEditBase::GOOGLE_SERVICE_NAME? 'google': 'sky-drive') . '"></span>')) ?> <?= $showOnlineUsers ?><?php  if($notShownCount > 0){ ?><span class="feed-com-editing-more" onclick="historyShowMoreEditUsers(this)"><?= $countLangMessage ?></span><span id="hidden-feed-com-editing-more" style="display: none;">, <?= $notShowOnlineUsers ?></span><?php  } ?></span>
+				<?php  } ?>
 				</span>
 			</div>
 		</div>
 		<div class="feed-file-hist-description">
 
-			<?
+			<?php 
 				ob_start();
 				$APPLICATION->IncludeComponent("bitrix:main.user.link",
 					'',
@@ -98,7 +98,7 @@ $webdav = $arResult['webdav'];
 	<div id="feed-file-history-list" class="feed-file-history-list">
 		<div class="feed-file-history-list-title"><?= GetMessage('WD_ELEMENT_HISTORY_LIST_TITLE') ?></div>
 
-		<?
+		<?php 
 			$detailPage = $historyPage = '';
 			$i = 0;
 			foreach ($arResult['history'] as $document)
@@ -134,19 +134,19 @@ $webdav = $arResult['webdav'];
 		?>
 		<div class="feed-file-history-list-item">
 			<span class="feed-file-history-list-num"><?= $i ?>.</span>
-			<a target="_blank" href="<?=htmlspecialcharsbx($document['URL_DOWNLOAD'])?>"<?
-				?> id="hist-wdif-doc-<?=$document['ID']?>"<?
-				?> class="feed-file-history-list-link" <?
-				?> data-bx-viewer="iframe"<?
-				?> data-bx-title="<?=htmlspecialcharsbx($webdav->arParams['file_name'])?>"<?
-				?> data-bx-src="<?=$detailPage . '?showInViewer=1&v=' . $document['ID']?>"<?
-				?> data-bx-download="<?=htmlspecialcharsbx($document['URL_DOWNLOAD'])?>"<?
+			<a target="_blank" href="<?=htmlspecialcharsbx($document['URL_DOWNLOAD'])?>"<?php 
+				?> id="hist-wdif-doc-<?=$document['ID']?>"<?php 
+				?> class="feed-file-history-list-link" <?php 
+				?> data-bx-viewer="iframe"<?php 
+				?> data-bx-title="<?=htmlspecialcharsbx($webdav->arParams['file_name'])?>"<?php 
+				?> data-bx-src="<?=$detailPage . '?showInViewer=1&v=' . $document['ID']?>"<?php 
+				?> data-bx-download="<?=htmlspecialcharsbx($document['URL_DOWNLOAD'])?>"<?php 
 			?>><?= $dateFormat ?></a>
 			<span class="feed-com-file-size"><?= $document['FILE_SIZE'] ?></span><span class="feed-file-history-list-text">
 				&nbsp;&nbsp;&ndash;&nbsp;
 				<?= $userLink ?></span>
 		</div>
-		<?
+		<?php 
 			}
 			unset($document);
 			if($arResult['count_history_items'] > $i)
@@ -161,7 +161,7 @@ $webdav = $arResult['webdav'];
 				
 				?>
 				<div class="feed-com-files-more"><a href="<?= $historyPage ?>" class="feed-com-files-more-link"><?= $countLangMessage ?></a></div>
-				<?
+				<?php 
 			}
 		?>
 	</div>

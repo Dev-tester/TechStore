@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SLS_EDIT"] = "Edit";
 $MESS["SALE_SLS_ERROR_OCCURED"] = "There was an error";
 $MESS["SALE_SLS_NOTHING_FOUND"] = "Location was not found";

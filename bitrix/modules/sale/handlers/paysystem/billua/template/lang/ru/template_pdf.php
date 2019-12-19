@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILLUA"] = "Рахунок";
 $MESS["SALE_HPS_BILLUA_TITLE"] = " №#PAYMENT_NUMBER# від #PAYMENT_DATE#";
 $MESS["SALE_HPS_BILLUA_SELLER"] = "Постачальник";

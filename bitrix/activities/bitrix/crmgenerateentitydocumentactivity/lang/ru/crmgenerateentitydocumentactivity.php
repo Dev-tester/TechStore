@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_GEDA_EMPTY_TEMPLATE_ID'] = "Не указан шаблон документа";
 $MESS['CRM_GEDA_NAME_TEMPLATE_ID'] = "Шаблон";
 $MESS['CRM_GEDA_NAME_USE_SUBSCRIPTION'] = "Ожидать конвертации PDF файла";

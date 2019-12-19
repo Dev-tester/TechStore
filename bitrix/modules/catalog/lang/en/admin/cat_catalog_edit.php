@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_CEDIT_IBLOCK_MODULE_IS_MISSING"] = "Error using the Information Block module.";
 $MESS["CAT_CEDIT_CATALOG_MODULE_IS_MISSING"] = "Error using the Commercial Catalog module.";
 $MESS["CAT_CEDIT_BAD_IBLOCK"] = "Information block was not found or access denied.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_WS_SALE_LF_TITLE"] = "Статистика по заказам";
 $MESS["BX_WS_SALE_STATUS_1_CREATED"] = "Создан";
 $MESS["BX_WS_SALE_STATUS_1_PAID"] = "Оплачен";

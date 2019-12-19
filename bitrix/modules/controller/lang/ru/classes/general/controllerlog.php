@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_LOG_TYPE_REMOTE_COMMAND"] = "Удаленное выполнение команды";
 $MESS["CTRLR_LOG_TYPE_SET_SETTINGS"] = "Установка настроек на сайт клиента";
 $MESS["CTRLR_LOG_TYPE_SITE_UPDATE"] = "Установка обновления";

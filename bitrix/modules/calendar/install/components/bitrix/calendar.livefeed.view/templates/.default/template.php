@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $id = $arResult['ID'];
 $event = $arResult['EVENT'];
 ?>
@@ -18,7 +18,7 @@ $event = $arResult['EVENT'];
 			<tr>
 				<td class="feed-calendar-view-text-cell-l"><?= GetMessage('ECLFV_EVENT_START')?>:</td>
 				<td class="feed-calendar-view-text-cell-r"><span id="feed-event-view-from-<?= $id?>"></span>
-				<?
+				<?php 
 				if (
 					$event['DT_SKIP_TIME'] != 'Y' &&
 					(intVal($event['~USER_OFFSET_FROM']) != 0 ||
@@ -37,14 +37,14 @@ $event = $arResult['EVENT'];
 					}
 					?>
 					<span id="feed-event-tz-hint-<?= $id?>" data-bx-hint="<?= $timezoneHint?>" class="bx-cal-view-timezon-icon feed-event-view-timezon-icon"></span>
-				<?
+				<?php 
 				}
 				?>
 				</td>
 			</tr>
 
-			<?if (isset($event['RRULE']) && $event['RRULE'] !== ''):?>
-			<?
+			<?php if (isset($event['RRULE']) && $event['RRULE'] !== ''):?>
+			<?php 
 			$repeatHTML = '';
 			$RRULE = CCalendarEvent::ParseRRULE($event['RRULE']);
 			switch ($RRULE['FREQ'])
@@ -93,21 +93,21 @@ $event = $arResult['EVENT'];
 				<td class="feed-calendar-view-text-cell-l"><?=GetMessage('EC_T_REPEAT')?>:</td>
 				<td class="feed-calendar-view-text-cell-r"><?= $repeatHTML?></td>
 			</tr>
-			<?endif;/*if ($event['RRULE'] !== '')*/?>
+			<?php endif;/*if ($event['RRULE'] !== '')*/?>
 
 
-			<?if (!empty($event['LOCATION'])):?>
+			<?php if (!empty($event['LOCATION'])):?>
 			<tr>
 				<td class="feed-calendar-view-text-cell-l"><?= GetMessage('ECLFV_EVENT_LOCATION')?>:</td>
 				<td class="feed-calendar-view-text-cell-r"><?= htmlspecialcharsex($event['LOCATION'])?></td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 
-			<tr id="feed-event-accepted-row-<?= $id?>" style="<?if (count($event['ACCEPTED_ATTENDEES']) == 0){echo "display:none;";}?>">
+			<tr id="feed-event-accepted-row-<?= $id?>" style="<?php if (count($event['ACCEPTED_ATTENDEES']) == 0){echo "display:none;";}?>">
 				<td class="feed-calendar-view-text-cell-l"><?= GetMessage('ECLFV_EVENT_ATTENDEES')?>:</td>
 				<td class="feed-calendar-view-text-cell-r">
-					<? if (count($event['ACCEPTED_ATTENDEES']) > 0):?>
-					<?
+					<?php  if (count($event['ACCEPTED_ATTENDEES']) > 0):?>
+					<?php 
 					$cnt = 0;
 					$bShowAll = count($event['ACCEPTED_ATTENDEES']) <= $arParams['ATTENDEES_SHOWN_COUNT_MAX'];
 					$popupContent = '';
@@ -126,32 +126,32 @@ $event = $arResult['EVENT'];
 						}
 						else // Display avatar
 						{
-							?><a title="<?= htmlspecialcharsbx($attendee['DISPLAY_NAME'])?>" href="<?= $attendee['URL']?>" target="_blank" class="bxcal-att-popup-img"><?
-								?><span class="bxcal-att-popup-avatar"><?
+							?><a title="<?= htmlspecialcharsbx($attendee['DISPLAY_NAME'])?>" href="<?= $attendee['URL']?>" target="_blank" class="bxcal-att-popup-img"><?php 
+								?><span class="bxcal-att-popup-avatar"><?php 
 									if ($attendee['AVATAR'])
 									{
-										?><img src="<?= $attendee['AVATAR']?>" width="<?= $arParams['AVATAR_SIZE']?>" height="<?= $arParams['AVATAR_SIZE']?>" class="bxcal-att-popup-img-not-empty" /><?
+										?><img src="<?= $attendee['AVATAR']?>" width="<?= $arParams['AVATAR_SIZE']?>" height="<?= $arParams['AVATAR_SIZE']?>" class="bxcal-att-popup-img-not-empty" /><?php 
 									}
-								?></span><?
-							?></a><?
+								?></span><?php 
+							?></a><?php 
 						}
 					}?>
 
-					<?if (!$bShowAll):?>
+					<?php if (!$bShowAll):?>
 						<span id="feed-event-more-att-link-y-<?= $id?>" class="bxcal-more-attendees"><?= CCalendar::GetMoreAttendeesMessage(count($event['ACCEPTED_ATTENDEES']) - $arParams['ATTENDEES_SHOWN_COUNT'])?></span>
 						<div id="feed-event-more-attendees-y-<?= $id?>" class="bxcal-more-attendees-popup" style="display: none;">
 							<?= $popupContent?>
 						</div>
-					<?endif;?>
-					<?endif; /*if (count($event['ACCEPTED_ATTENDEES']) > 0)*/?>
+					<?php endif;?>
+					<?php endif; /*if (count($event['ACCEPTED_ATTENDEES']) > 0)*/?>
 				</td>
 			</tr>
 
-			<tr id="feed-event-declined-row-<?= $id?>" style="<? if (count($event['DECLINED_ATTENDEES']) == 0){echo "display:none;";}?>">
+			<tr id="feed-event-declined-row-<?= $id?>" style="<?php  if (count($event['DECLINED_ATTENDEES']) == 0){echo "display:none;";}?>">
 				<td class="feed-calendar-view-text-cell-l"><?= GetMessage('ECLFV_EVENT_ATTENDEES_DES')?>:</td>
 				<td class="feed-calendar-view-text-cell-r">
-					<? if (count($event['DECLINED_ATTENDEES']) > 0):?>
-						<?
+					<?php  if (count($event['DECLINED_ATTENDEES']) > 0):?>
+						<?php 
 						$cnt = 0;
 						$bShowAll = count($event['DECLINED_ATTENDEES']) <= $arParams['ATTENDEES_SHOWN_COUNT_MAX'];
 						$popupContent = '';
@@ -170,35 +170,35 @@ $event = $arResult['EVENT'];
 							}
 							else // Display avatar
 							{
-								?><a title="<?= htmlspecialcharsbx($attendee['DISPLAY_NAME'])?>" href="<?= $attendee['URL']?>" target="_blank" class="bxcal-att-popup-img"><?
-									?><span class="bxcal-att-popup-avatar"><?
+								?><a title="<?= htmlspecialcharsbx($attendee['DISPLAY_NAME'])?>" href="<?= $attendee['URL']?>" target="_blank" class="bxcal-att-popup-img"><?php 
+									?><span class="bxcal-att-popup-avatar"><?php 
 										if($attendee['AVATAR'])
 										{
-											?><img src="<?= $attendee['AVATAR']?>" width="<?= $arParams['AVATAR_SIZE']?>" height="<?= $arParams['AVATAR_SIZE']?>" class="bxcal-att-popup-img-not-empty" /><?
+											?><img src="<?= $attendee['AVATAR']?>" width="<?= $arParams['AVATAR_SIZE']?>" height="<?= $arParams['AVATAR_SIZE']?>" class="bxcal-att-popup-img-not-empty" /><?php 
 										}
-									?></span><?
-								?></a><?
+									?></span><?php 
+								?></a><?php 
 							}
 						}?>
 
-						<?if (!$bShowAll):?>
+						<?php if (!$bShowAll):?>
 							<span id="feed-event-more-att-link-n-<?= $id?>" class="bxcal-more-attendees"><?= CCalendar::GetMoreAttendeesMessage(count($event['DECLINED_ATTENDEES']) - $arParams['ATTENDEES_SHOWN_COUNT'])?></span>
 							<div id="feed-event-more-attendees-n-<?= $id?>" class="bxcal-more-attendees-popup" style="display: none;">
 								<?= $popupContent?>
 							</div>
-						<?endif;?>
-					<?endif;/*if (count($event['DECLINED_ATTENDEES']) > 0)*/?>
+						<?php endif;?>
+					<?php endif;/*if (count($event['DECLINED_ATTENDEES']) > 0)*/?>
 				</td>
 			</tr>
 		</table>
 	</div>
 
-	<?if ($event['DESCRIPTION'] != ""):?>
+	<?php if ($event['DESCRIPTION'] != ""):?>
 	<div class="feed-calendar-view-description">
 		<div class="feed-cal-view-desc-title"><?= GetMessage('ECLFV_DESCRIPTION')?>:</div>
 		<?= $event['~DESCRIPTION']?>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 </div>
 
 <script>
@@ -225,11 +225,11 @@ $event = $arResult['EVENT'];
 	);
 </script>
 
-<?/* Don't delete or change html comments below. It used to display results */?>
+<?php /* Don't delete or change html comments below. It used to display results */?>
 <!--#BX_FEED_EVENT_FOOTER_MESSAGE#-->
-<?if ($arResult['UF_WEBDAV_CAL_EVENT']):?>
+<?php if ($arResult['UF_WEBDAV_CAL_EVENT']):?>
 <div id="bx-feed-cal-view-files-<?=$id?>" class="feed-cal-view-uf-block">
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:system.field.view",
 	$arResult['UF_WEBDAV_CAL_EVENT']["USER_TYPE"]["USER_TYPE_ID"],
 	array("arUserField" => $arResult['UF_WEBDAV_CAL_EVENT']),
@@ -238,13 +238,13 @@ $event = $arResult['EVENT'];
 );
 ?>
 </div>
-<?endif;?>
+<?php endif;?>
 
-<?if ($arResult['UF_CRM_CAL_EVENT']):?>
+<?php if ($arResult['UF_CRM_CAL_EVENT']):?>
 <div class="feed-cal-view-uf-block">
 	<div class="feed-cal-view-uf-block-title"><?= GetMessage('ECLFV_CRM')?>:</div>
 	<div>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:system.field.view",
 		$arResult['UF_CRM_CAL_EVENT']["USER_TYPE"]["USER_TYPE_ID"],
 		array("arUserField" => $arResult['UF_CRM_CAL_EVENT']),
@@ -254,7 +254,7 @@ $event = $arResult['EVENT'];
 	?>
 	</div>
 </div>
-<?endif;?>
+<?php endif;?>
 
 <div id="feed-event-invite-controls-<?= $id?>" class="feed-cal-view-inv-controls">
 	<div class="feed-calendar-view-invite-cont">

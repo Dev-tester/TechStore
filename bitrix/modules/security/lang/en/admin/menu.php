@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_MENU_ITEM"] = "Proactive Protection";
 $MESS["SEC_MENU_TITLE"] = "Configure proactive protection";
 $MESS["SEC_MENU_PANEL_ITEM"] = "Security Panel";

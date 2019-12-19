@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Руководство";
 $MESS["ABOUT_TOP1_IMG"] = "#SITE#images/ru/company/about/management/bandurin.jpg";
 $MESS["ABOUT_TOP2_IMG"] = "#SITE#images/ru/company/about/management/pankrashev.jpg";

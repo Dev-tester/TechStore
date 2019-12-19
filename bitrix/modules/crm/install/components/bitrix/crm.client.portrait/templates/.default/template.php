@@ -28,21 +28,21 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 	<div class="pagetitle-wrap">
 		<div class="pagetitle-inner-container">
 			<div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;">
-				<?
+				<?php 
 				$APPLICATION->ShowViewContent("inside_pagetitle");
 				?>
 			</div>
 		</div>
 	</div>
-<?endif?>
+<?php endif?>
 	<div class="crm-portriat">
 		<div class="crm-portrait-title"><?=$arResult['PAGE_TITLE']?></div>
-		<? $APPLICATION->ShowViewContent('widget_panel_head'); ?>
+		<?php  $APPLICATION->ShowViewContent('widget_panel_head'); ?>
 		<div class="crm-portrait-title-block">
 			<div class="crm-portrait-title-small"><?=$arResult['LOAD_TITLE']?></div>
-			<?if (count($loadbars) > 0):?>
+			<?php if (count($loadbars) > 0):?>
 			<div class="crm-portrait-direction" data-role="loadbarmenu-menu"><?=GetMessage('CRM_CLIENT_PORTRAIT_LOAD_SHOW_DEAL_CATEGORIES')?></div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 		<div class="crm-portrait-item crm-portrait-item-show">
 			<div class="crm-portrait-item-wrapper">
@@ -50,7 +50,7 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 					data-role="loadbar-primary"
 					data-loaddata="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($primaryBar['data']))?>"
 					data-context="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($primaryBar['context']))?>"
-					<?if ($arResult['CAN_WRITE_CONFIG']):?> style="margin-right: 40px;"<?endif;?>>
+					<?php if ($arResult['CAN_WRITE_CONFIG']):?> style="margin-right: 40px;"<?php endif;?>>
 					<div class="crm-portrait-load-item-blue" data-role="level-1" title="<?=GetMessage('CRM_CLIENT_PORTRAIT_LOAD_ITEM_IDEAL')?>">
 						<div class="crm-portrait-load-item-text"><span class="crm-portriat-load-tem-text-inner"><?=GetMessage('CRM_CLIENT_PORTRAIT_LOAD_ITEM_IDEAL')?></span></div>
 					</div>
@@ -75,22 +75,22 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 					<div class="crm-portrait-load-bar" data-role="current">
 						<div class="crm-portrait-load-baloon" data-role="current-text"></div>
 					</div>
-					<?if ($arResult['CAN_WRITE_CONFIG']):?>
+					<?php if ($arResult['CAN_WRITE_CONFIG']):?>
 					<div class="crm-widget-settings crm-portrait-settings" data-role="config-btn"></div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 			</div>
 		</div>
-		<?if (count($loadbars) > 0):?>
+		<?php if (count($loadbars) > 0):?>
 		<div class="crm-portrait-item" data-role="loadbarmenu-container">
-			<?foreach ($loadbars as $bar):
+			<?php foreach ($loadbars as $bar):
 			?><div class="crm-portrait-item-wrapper">
 				<div class="crm-portrait-item-title"><?=htmlspecialcharsbx($bar['name'])?></div>
 				<div class="crm-portrait-load"
 					data-role="loadbar"
 					data-loaddata="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($bar['data']))?>"
 					data-context="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($bar['context']))?>"
-					<?if ($arResult['CAN_WRITE_CONFIG']):?> style="margin-right: 40px;"<?endif;?>>
+					<?php if ($arResult['CAN_WRITE_CONFIG']):?> style="margin-right: 40px;"<?php endif;?>>
 					<div class="crm-portrait-load-item-blue" data-role="level-1" title="<?=GetMessage('CRM_CLIENT_PORTRAIT_LOAD_ITEM_IDEAL')?>">
 						<div class="crm-portrait-load-item-text"><span class="crm-portriat-load-tem-text-inner"><?=GetMessage('CRM_CLIENT_PORTRAIT_LOAD_ITEM_IDEAL')?></span></div>
 					</div>
@@ -115,84 +115,84 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 					<div class="crm-portrait-load-bar" data-role="current">
 						<div class="crm-portrait-load-baloon" data-role="current-text"></div>
 					</div>
-					<?if ($arResult['CAN_WRITE_CONFIG']):?>
+					<?php if ($arResult['CAN_WRITE_CONFIG']):?>
 						<div class="crm-widget-settings crm-portrait-settings" data-role="config-btn"></div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 			</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 		<div class="crm-portriat-wrapper">
 			<div class="crm-portrait-user">
-				<div class="crm-portrait-user-avatar"<?if ($arResult['ELEMENT_PHOTO_SRC']):?> style="background-image: url('<?=htmlspecialcharsbx($arResult['ELEMENT_PHOTO_SRC'])?>');"<?endif?>></div>
+				<div class="crm-portrait-user-avatar"<?php if ($arResult['ELEMENT_PHOTO_SRC']):?> style="background-image: url('<?=htmlspecialcharsbx($arResult['ELEMENT_PHOTO_SRC'])?>');"<?php endif?>></div>
 				<div class="crm-portrait-user-info">
-					<?if ($arResult['IS_COMPANY']):?>
+					<?php if ($arResult['IS_COMPANY']):?>
 					<div class="crm-portrait-user-name"><?=htmlspecialcharsbx($element['TITLE'])?></div>
-					<?else:?>
+					<?php else:?>
 					<div class="crm-portrait-user-name"><?=htmlspecialcharsbx($element['FULL_NAME'])?></div>
-					<?endif?>
+					<?php endif?>
 					<table class="crm-portrait-user-table">
 						<col class="crm-portrait-user-table-col-1">
 						<col class="crm-portrait-user-table-col-2">
-						<?if ($arResult['IS_COMPANY']):?>
-							<?if (!empty($element['FM']['EMAIL'])):?>
+						<?php if ($arResult['IS_COMPANY']):?>
+							<?php if (!empty($element['FM']['EMAIL'])):?>
 								<tr>
 									<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_EMAIL')?>:</td>
 									<td class="crm-portrait-user-table-dark"><?=\CCrmViewHelper::PrepareFormMultiField($element, 'EMAIL')?></td>
 								</tr>
-							<?endif?>
-							<?if (!empty($element['FM']['PHONE'])):?>
+							<?php endif?>
+							<?php if (!empty($element['FM']['PHONE'])):?>
 								<tr>
 									<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_PHONE')?>:</td>
 									<td class="crm-portrait-user-table-dark"><?=\CCrmViewHelper::PrepareFormMultiField($element, 'PHONE')?></td>
 								</tr>
-							<?endif?>
-							<?if (!empty($element['FM']['WEB'])):?>
+							<?php endif?>
+							<?php if (!empty($element['FM']['WEB'])):?>
 								<tr>
 									<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_WEB')?>:</td>
 									<td class="crm-portrait-user-table-dark"><?=\CCrmViewHelper::PrepareFormMultiField($element, 'WEB')?></td>
 								</tr>
-							<?endif?>
-							<?if (!empty($element['COMPANY_TYPE_TITLE'])):?>
+							<?php endif?>
+							<?php if (!empty($element['COMPANY_TYPE_TITLE'])):?>
 								<tr>
 									<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_COMPANY_TYPE')?>:</td>
 									<td class="crm-portrait-user-table-dark"><?=htmlspecialcharsbx($element['COMPANY_TYPE_TITLE'])?></td>
 								</tr>
-							<?endif?>
-							<?if (!empty($element['INDUSTRY_TITLE'])):?>
+							<?php endif?>
+							<?php if (!empty($element['INDUSTRY_TITLE'])):?>
 								<tr>
 									<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_INDUSTRY')?>:</td>
 									<td class="crm-portrait-user-table-dark"><?=htmlspecialcharsbx($element['INDUSTRY_TITLE'])?></td>
 								</tr>
-							<?endif?>
-						<?else:?>
-							<?if (!empty($element['FM']['EMAIL'])):?>
+							<?php endif?>
+						<?php else:?>
+							<?php if (!empty($element['FM']['EMAIL'])):?>
 								<tr>
 									<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_EMAIL')?>:</td>
 									<td class="crm-portrait-user-table-dark"><?=\CCrmViewHelper::PrepareFormMultiField($element, 'EMAIL')?></td>
 								</tr>
-							<?endif?>
-							<?if (!empty($element['FM']['PHONE'])):?>
+							<?php endif?>
+							<?php if (!empty($element['FM']['PHONE'])):?>
 								<tr>
 									<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_PHONE')?>:</td>
 									<td class="crm-portrait-user-table-dark"><?=\CCrmViewHelper::PrepareFormMultiField($element, 'PHONE')?></td>
 								</tr>
-							<?endif?>
-							<?if (!empty($element['POST'])):?>
+							<?php endif?>
+							<?php if (!empty($element['POST'])):?>
 							<tr>
 								<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_POST')?>:</td>
 								<td class="crm-portrait-user-table-dark"><?=htmlspecialcharsbx($element['POST'])?></td>
 							</tr>
-							<?endif?>
-							<?if (!empty($element['COMPANY_TITLE'])):?>
+							<?php endif?>
+							<?php if (!empty($element['COMPANY_TITLE'])):?>
 							<tr>
 								<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_COMPANY')?>:</td>
 								<td class="crm-portrait-user-table-dark"><?=htmlspecialcharsbx($element['COMPANY_TITLE'])?></td>
 							</tr>
-							<?endif?>
-						<?endif?>
-						<?if (!empty($element['ASSIGNED_BY_URL'])):?>
+							<?php endif?>
+						<?php endif?>
+						<?php if (!empty($element['ASSIGNED_BY_URL'])):?>
 						<tr>
 							<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_RESPONSIBLE')?>:</td>
 							<td class="crm-portrait-user-table-dark">
@@ -201,9 +201,9 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 								</a>
 							</td>
 						</tr>
-						<?endif?>
+						<?php endif?>
 					</table>
-					<?if ($comments):?>
+					<?php if ($comments):?>
 					<table class="crm-portrait-user-table crm-portrait-user-table-intro">
 						<tr>
 							<td class="crm-portrait-user-table-light"><?=GetMessage('CRM_CLIENT_PORTRAIT_INFO_COMMENTS')?>:</td>
@@ -216,7 +216,7 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 							</td>
 						</tr>
 					</table>
-					<?endif?>
+					<?php endif?>
 				</div>
 			</div>
 			<div class="cem-widget-round-statistic">
@@ -316,7 +316,7 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 
 	<div class="crm-widget-panel-paddings">
 		<div class="bx-crm-view" data-role="crm-portrait-widgets">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:crm.widget_panel',
 				'',
 				array(
@@ -378,7 +378,7 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 			if (barMenuNode && barMenuContainerNode)
 				(new BX.Crm.ClientPortrait.LoadbarMenu(barMenuNode, barMenuContainerNode)).init();
 		}
-		<?if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y'):?>
+		<?php if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y'):?>
 		// crutch for Widget Panel
 		if(BX.CrmWidgetPanel && BX.CrmWidgetPanel.current)
 		{
@@ -418,6 +418,6 @@ if (isset($arParams['IS_FRAME']) && $arParams['IS_FRAME'] === 'Y' && empty($arPa
 				});
 			}
 		}
-		<?endif;?>
+		<?php endif;?>
 	});
 </script>

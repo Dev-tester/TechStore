@@ -27,7 +27,7 @@ if (!$arResult['SLIDER'])
 ?>
 
 <div class="pagetitle-container pagetitle-flexible-space">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.ui.filter',
 		'',
@@ -44,14 +44,14 @@ if (!$arResult['SLIDER'])
 	?>
 </div>
 
-<?
+<?php 
 if (!$arResult['SLIDER'])
 {
 	$this->endViewTarget();
 }
 ?>
 <div class="rest-mp-installed" id="mp-installed-block">
-	<?
+	<?php 
 	if ($arResult["AJAX_MODE"])
 	{
 		$APPLICATION->RestartBuffer();
@@ -74,14 +74,14 @@ if (!$arResult['SLIDER'])
 			$itemName = $app["NAME"] ? $app["NAME"] : $app["MENU_NAME"];
 			?>
 			<div class="rest-mp-installed-item">
-				<?//additional info
+				<?php //additional info
 				if ($app["ACTIVE"] == "N" && $app["PUBLIC"] == "N")
 				{
 					?>
 					<div class="ui-alert ui-alert-xs ui-alert-warning">
 						<span class="ui-alert-message"><?=GetMessage("MARKETPLACE_APP_INSTALL_PARTNER")?></span>
 					</div>
-					<?
+					<?php 
 				}
 				elseif ($app["ACTIVE"] == "Y" && is_array($app['APP_STATUS']) && $app['APP_STATUS']['PAYMENT_NOTIFY'] == 'Y')
 				{
@@ -95,33 +95,33 @@ if (!$arResult['SLIDER'])
 							<?=GetMessage('PAYMENT_MESSAGE'.$app['APP_STATUS']['MESSAGE_SUFFIX'], $app['APP_STATUS']['MESSAGE_REPLACE']);?>
 						</span>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 
-				<div class="rest-mp-installed-item-img" style="background-size: cover; <?if ($app["ICON"]):?>background-image: url('<?=$app["ICON"]?>')<?endif;?>"></div>
+				<div class="rest-mp-installed-item-img" style="background-size: cover; <?php if ($app["ICON"]):?>background-image: url('<?=$app["ICON"]?>')<?php endif;?>"></div>
 
 				<div class="rest-mp-installed-item-content">
 					<div class="rest-mp-installed-item-content-title"><a href="<?=$appUrl;?>"><?=htmlspecialcharsbx($itemName)?></a></div>
 					<div class="rest-mp-installed-item-content-developer">
-						<?if (strlen($app["PARTNER_URL"]) > 0):?>
+						<?php if (strlen($app["PARTNER_URL"]) > 0):?>
 							<a href="<?=htmlspecialcharsbx($app["PARTNER_URL"])?>" target="_blank"><?=htmlspecialcharsbx($app["PARTNER_NAME"])?></a>
-						<?else:?>
+						<?php else:?>
 							<?=htmlspecialcharsbx($app["PARTNER_NAME"])?>
-						<?endif?>
+						<?php endif?>
 					</div>
 				</div>
 
 				<div class="rest-mp-installed-item-param">
 
-						<?
+						<?php 
 						if ($app["PUBLIC"] == "Y" && is_array($app["PRICE"]) && !empty($app["PRICE"]) && $app["CAN_INSTALL"])
 						{
 						?>
 							<div class="rest-mp-installed-item-param-content">
-							<?foreach ($app['BUY'] as $key => $price):?>
+							<?php foreach ($app['BUY'] as $key => $price):?>
 								<div class="rest-mp-installed-item-param-content-item">
-									<input name="rest-mp-installed-price-<?=$app["CODE"]?>" type="radio" <?if ($key == 0):?>checked="checked"<?endif?> class="rest-mp-installed-item-param-checkbox" id="rest-mp-installed-price-<?=$app["CODE"]."-".$key?>">
+									<input name="rest-mp-installed-price-<?=$app["CODE"]?>" type="radio" <?php if ($key == 0):?>checked="checked"<?php endif?> class="rest-mp-installed-item-param-checkbox" id="rest-mp-installed-price-<?=$app["CODE"]."-".$key?>">
 									<label for="rest-mp-installed-price-<?=$app["CODE"]."-".$key?>" class="rest-mp-installed-item-param-label"><?=$price["TEXT"]?></label>
 								</div>
 								<script>
@@ -134,24 +134,24 @@ if (!$arResult['SLIDER'])
 										}, {link: "<?=$price["LINK"]?>"}));
 									});
 								</script>
-							<?endforeach;?>
+							<?php endforeach;?>
 							</div>
-						<?
+						<?php 
 						}
 						?>
 
 						<div class="rest-mp-installed-item-param-buttons">
-							<?
+							<?php 
 							if ($app["PUBLIC"] == "Y" && $app["CAN_INSTALL"]) //available in catalog
 							{
 								?>
-								<?if (is_array($app["PRICE"]) && !empty($app["PRICE"])):?>
+								<?php if (is_array($app["PRICE"]) && !empty($app["PRICE"])):?>
 									<a class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" id="rest-mp-installed-buy-<?=$app["CODE"]?>" href="<?=$app['BUY'][0]["LINK"]?>">
 										<?=($app["STATUS"] == "P" && $app["DATE_FINISH"]) ? GetMessage("MARKETPLACE_APP_PROLONG") : GetMessage("MARKETPLACE_APP_BUY")?>
 									</a>
-								<?endif;?>
+								<?php endif;?>
 
-								<?
+								<?php 
 								if ($app["ACTIVE"] == "N")
 								{
 									if (is_array($app["PRICE"]) && !empty($app["PRICE"]) && $app["PUBLIC"] == "Y")
@@ -159,22 +159,22 @@ if (!$arResult['SLIDER'])
 										if ($app["STATUS"] == "P")
 										{
 											?>
-											<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?echo CUtil::PhpToJSObject($arParamsApp) ?>);">
+											<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?php echo CUtil::PhpToJSObject($arParamsApp) ?>);">
 												<?=GetMessage("MARKETPLACE_INSTALL_BUTTON")?>
 											</button>
-											<?
+											<?php 
 										}
 										else
 										{
 											if ($app["DEMO"] == "D"):?>
-												<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?echo CUtil::PhpToJSObject($arParamsApp) ?>);">
+												<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?php echo CUtil::PhpToJSObject($arParamsApp) ?>);">
 													<?=GetMessage("MARKETPLACE_APP_DEMO")?>
 												</button>
-											<? elseif ($app["DEMO"] == "T" && ($app["IS_TRIALED"] == "N" || MakeTimeStamp($app["DATE_FINISH"]) > time())):?>
-												<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?echo CUtil::PhpToJSObject($arParamsApp) ?>);">
+											<?php  elseif ($app["DEMO"] == "T" && ($app["IS_TRIALED"] == "N" || MakeTimeStamp($app["DATE_FINISH"]) > time())):?>
+												<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?php echo CUtil::PhpToJSObject($arParamsApp) ?>);">
 													<?=GetMessage("MARKETPLACE_APP_TRIAL")?>
 												</button>
-											<?endif;
+											<?php endif;
 										}
 									}
 									else
@@ -183,7 +183,7 @@ if (!$arResult['SLIDER'])
 										<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?=CUtil::PhpToJSObject($arParamsApp)?>);">
 											<?=GetMessage("MARKETPLACE_INSTALL_BUTTON")?>
 										</button>
-										<?
+										<?php 
 									}
 								}
 								elseif (isset($app["UPDATES_AVAILABLE"]) && $app["UPDATES_AVAILABLE"] == "Y")
@@ -192,12 +192,12 @@ if (!$arResult['SLIDER'])
 									<button class="ui-btn ui-btn-sm ui-btn-primary ui-btn-round" onclick="BX.rest.Marketplace.install(<?=CUtil::PhpToJSObject($arParamsApp) ?>);">
 										<?=GetMessage("MARKETPLACE_UPDATE_BUTTON")?>
 									</button>
-									<?
+									<?php 
 								}
 							}
 							?>
 
-							<?if ($app["ACTIVE"] == "Y" && $arResult['ADMIN']):?>
+							<?php if ($app["ACTIVE"] == "Y" && $arResult['ADMIN']):?>
 								<button class="ui-btn ui-btn-sm ui-btn-light-border ui-btn-round" onclick="BX.rest.Marketplace.uninstallConfirm('<?=CUtil::JSEscape($app["CODE"])?>')">
 									<?=GetMessage("MARKETPLACE_DELETE_BUTTON")?>
 								</button>
@@ -206,19 +206,19 @@ if (!$arResult['SLIDER'])
 										onclick="BX.rest.Marketplace.setRights('<?=CUtil::JSEscape($app["ID"])?>');">
 									<?=GetMessage("MARKETPLACE_RIGHTS")?>
 								</button>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 				</div>
 
 			</div>
-		<?
+		<?php 
 		}//--foreach
 		?>
 
 		<script>
 			BX.rest.Marketplace.bindPageAnchors({allowChangeHistory: true});
 		</script>
-	<?
+	<?php 
 	}
 	else
 	{
@@ -226,7 +226,7 @@ if (!$arResult['SLIDER'])
 	}
 	?>
 
-	<?
+	<?php 
 	if ($arResult["AJAX_MODE"])
 	{
 		CMain::FinalActions();
@@ -235,7 +235,7 @@ if (!$arResult['SLIDER'])
 	?>
 </div>
 
-<?
+<?php 
 $jsParams = array(
 	"ajaxPath" => POST_FORM_ACTION_URI,
 	"filterId" => isset($arResult["FILTER"]["FILTER_ID"]) ? $arResult["FILTER"]["FILTER_ID"] : ""

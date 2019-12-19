@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
 * CSalePaySystemTarif
 *	Abstract class for counting the pay system service's price etc.

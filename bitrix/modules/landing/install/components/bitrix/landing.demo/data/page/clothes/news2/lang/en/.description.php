@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NOTTRANSLATE--LANDING_DEMO_STORE_CLOTHES-NEWS2--TEXT_1"] = "Lorem ipsum";
 $MESS["NOTTRANSLATE--LANDING_DEMO_STORE_CLOTHES-NEWS2--TEXT_2"] = "Dolor sit amet, consectetur adipiscing elit";
 $MESS["NOTTRANSLATE--LANDING_DEMO_STORE_CLOTHES-NEWS2--TEXT_3"] = "Sed do eiusmod tempor incididunt ut labore";

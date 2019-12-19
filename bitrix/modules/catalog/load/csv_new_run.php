@@ -1,4 +1,4 @@
-<?
+<?php 
 //<title>CSV Export (new)</title>
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */

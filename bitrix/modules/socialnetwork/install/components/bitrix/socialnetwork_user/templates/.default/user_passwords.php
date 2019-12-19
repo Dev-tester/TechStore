@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "user";
 include("util_menu.php");
 
@@ -44,7 +44,7 @@ else
 			<span class="bx-apps-icon iOS"></span> <a href="https://itunes.apple.com/<?=\Bitrix\Main\Localization\Loc::getDefaultLang(LANGUAGE_ID)?>/app/bitrix24/id561683423?l=ru&ls=1&mt=8">iOS</a>
 			<span class="bx-apps-icon android"></span> <a href="https://play.google.com/store/apps/details?id=com.bitrix24.android">android</a>
 		</div>
-		<?
+		<?php 
 	}
 }
 ?>

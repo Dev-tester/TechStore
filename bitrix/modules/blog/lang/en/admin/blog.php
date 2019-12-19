@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLB_DELETE_ERROR"] = "Error deleting blog";
 $MESS["BLB_GROUP_NAV"] = "Blogs";
 $MESS["BLB_NAME"] = "Name";

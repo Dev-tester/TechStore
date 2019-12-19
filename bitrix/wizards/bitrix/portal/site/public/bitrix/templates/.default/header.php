@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Localization\Loc::loadLanguageFile(__FILE__);
 ?>
 <html>
@@ -14,14 +14,14 @@
 
 <?=$APPLICATION->ShowPanel()?>
 
-<?if($USER->IsAdmin()):?>
+<?php if($USER->IsAdmin()):?>
 
 <div style="border:red solid 1px">
 	<form action="/bitrix/admin/site_edit.php" method="GET">
 		<input type="hidden" name="LID" value="<?=SITE_ID?>" />
-		<p><font style="color:red"><?echo GetMessage("DEF_TEMPLATE_NF")?> </font></p>
-		<input type="submit" name="set_template" value="<?echo GetMessage("DEF_TEMPLATE_NF_SET")?>" />
+		<p><font style="color:red"><?php echo GetMessage("DEF_TEMPLATE_NF")?> </font></p>
+		<input type="submit" name="set_template" value="<?php echo GetMessage("DEF_TEMPLATE_NF_SET")?>" />
 	</form>
 </div>
 
-<?endif?>
+<?php endif?>

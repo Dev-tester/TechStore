@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUBSCRIBE_TRANSPORT_NONE"] = "Don't Notify";
 $MESS["SUBSCRIBE_TRANSPORT_MAIL"] = "E-mail Notification";
 $MESS["SUBSCRIBE_TRANSPORT_XMPP"] = "Instant Message";

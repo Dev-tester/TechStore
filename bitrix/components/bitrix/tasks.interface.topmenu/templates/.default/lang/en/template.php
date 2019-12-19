@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_PANEL_TAB_REPORTBOARD"] = "Report Board";
 $MESS["TASKS_PANEL_TAB_EMPLOYEE_PLAN"] = "Involvement";
 $MESS["TASKS_PANEL_TAB_PROJECTS"] = "Projects";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $nameUTF = array(
 	'__SYMBOL' => 'я',
 	"CommerceInfo" => "КоммерческаяИнформация",

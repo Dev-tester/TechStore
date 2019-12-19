@@ -450,7 +450,7 @@ $tabControl->Begin();
 	<input type="hidden" name="start_collect" value="Y">
 	<input type="hidden" name="tabControl_active_tab" value="upload">
 	<?=bitrix_sessid_post()?>
-	<?
+	<?php 
 
 	$tabControl->BeginNextTab();
 
@@ -459,7 +459,7 @@ $tabControl->Begin();
 		<td width="40%"><?= Loc::getMessage("TR_SELECT_LANGUAGE")?>:</td>
 		<td width="60%">
 			<select name="language_id">
-				<?
+				<?php 
 				$iterator = Main\Localization\LanguageTable::getList([
 					'select' => ['ID', 'NAME'],
 					'filter' => [
@@ -470,7 +470,7 @@ $tabControl->Begin();
 				]);
 				while ($row = $iterator->fetch())
 				{
-					?><option value="<?= $row['ID'] ?>"<?=($row['ID'] == $languageId ? ' selected' : ''); ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?
+					?><option value="<?= $row['ID'] ?>"<?=($row['ID'] == $languageId ? ' selected' : ''); ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?php 
 				}
 				?>
 			</select>
@@ -481,7 +481,7 @@ $tabControl->Begin();
 		<td><?= Loc::getMessage("TR_COLLECT_DATE")?>:</td>
 		<td><input type="text" name="lang_date" size="10" maxlength="8" value="<?= htmlspecialcharsbx($langDate) ?>"></td>
 	</tr>
-	<?
+	<?php 
 	if (!$isUtfMode && !$useTranslationRepository)
 	{
 		?>
@@ -489,24 +489,24 @@ $tabControl->Begin();
 			<td><?= Loc::getMessage("TR_CONVERT_UTF8")?>:</td>
 			<td><input type="checkbox" name="convert_encoding" value="Y" <?= ($convertEncoding ? 'checked="checked"' : '') ?>></td>
 		</tr>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
 		<tr>
-			<td><?echo Loc::getMessage("TR_CONVERT_NATIONAL")?>:</td>
+			<td><?php echo Loc::getMessage("TR_CONVERT_NATIONAL")?>:</td>
 			<td><input type="checkbox" name="convert_encoding" value="Y" <?= ($convertEncoding ? 'checked="checked"' : '') ?> onClick="EncodeClicked()"></td>
 		</tr>
 		<tr>
-			<td width="40%"><?echo Loc::getMessage("TR_CONVERT_ENCODING")?>:</td>
+			<td width="40%"><?php echo Loc::getMessage("TR_CONVERT_ENCODING")?>:</td>
 			<td width="60%">
 			<select name="encoding">
-				<?
+				<?php 
 				foreach ($allowedEncodings as $enc)
 				{
 					$encTitle = Translate\Translation::getEncodingName($enc);
-					?><option value="<?= htmlspecialcharsbx($enc); ?>"<?if ($enc == $encoding) echo " selected";?>><?= $encTitle ?></option><?
+					?><option value="<?= htmlspecialcharsbx($enc); ?>"<?php if ($enc == $encoding) echo " selected";?>><?= $encTitle ?></option><?php 
 				}
 				?>
 			</select>
@@ -521,20 +521,20 @@ $tabControl->Begin();
 			</script>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	<tr>
 		<td><?= Loc::getMessage("TR_PACK_FILES")?>:</td>
 		<td><input type="checkbox" name="pack_files" value="Y" <?= ($packFiles ?  'checked="checked"' : '') ?>></td>
 	</tr>
-	<?
+	<?php 
 
 $tabControl->EndTab();
 
 ?>
 </form>
-<?
+<?php 
 
 //endregion
 
@@ -546,7 +546,7 @@ $tabControl->EndTab();
 	<input type="hidden" name="start_download" value="Y">
 	<input type="hidden" name="tabControl_active_tab" value="download">
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 
 $tabControl->BeginNextTab();
 
@@ -559,7 +559,7 @@ $tabControl->BeginNextTab();
 		<td width="40%"><?=Loc::getMessage("TR_SELECT_LANGUAGE")?> <?=Loc::getMessage("TR_SELECT_LANGUAGE_DESCRIPTION")?>:</td>
 		<td width="60%">
 			<select name="language_id">
-				<?
+				<?php 
 				$iterator = Main\Localization\LanguageTable::getList([
 					'select' => ['ID', 'NAME'],
 					'filter' => [
@@ -570,13 +570,13 @@ $tabControl->BeginNextTab();
 				]);
 				while ($row = $iterator->fetch())
 				{
-					?><option value="<?= $row['ID'] ?>"<?=($row['ID'] == $languageId ? ' selected' : ''); ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?
+					?><option value="<?= $row['ID'] ?>"<?=($row['ID'] == $languageId ? ' selected' : ''); ?>><?= $row['NAME'] ?> (<?= $row['ID'] ?>)</option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 
 	if (!$isUtfMode && !$useTranslationRepository)
 	{
@@ -585,7 +585,7 @@ $tabControl->BeginNextTab();
 			<td><?= Loc::getMessage("TR_CONVERT_FROM_UTF8")?>:</td>
 			<td><input type="checkbox" name="localize_encoding" value="Y" <?=($convertEncoding ? 'checked="checked"' : ''); ?>></td>
 		</tr>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -597,24 +597,24 @@ $tabControl->BeginNextTab();
 		<tr id="tr_encoding" style="display: <?=($convertEncoding ? 'table-row' : 'none'); ?>;">
 			<td width="40%"><?= Loc::getMessage("TR_CONVERT_ENCODING")?>:</td>
 			<td width="60%">
-				<select name="encoding"><?
+				<select name="encoding"><?php 
 					foreach ($allowedEncodings as $enc)
 					{
 						$encTitle = Translate\Translation::getEncodingName($enc);
 
-						?><option value="<?=htmlspecialcharsbx($enc); ?>"<?if ($enc == $encoding) echo " selected";?>><?= $encTitle ?></option><?
+						?><option value="<?=htmlspecialcharsbx($enc); ?>"<?php if ($enc == $encoding) echo " selected";?>><?= $encTitle ?></option><?php 
 					}
 				?></select>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 
 $tabControl->EndTab();
 
 ?>
 </form>
-<?
+<?php 
 
 //endregion
 
@@ -622,7 +622,7 @@ $tabControl->EndTab();
 $tabControl->Buttons();
 ?>
 <input type="submit" id="tr_submit" class="adm-btn-green" value="<?= ($request->get('tabControl_active_tab') === 'download' ? Loc::getMessage("TR_DOWNLOAD_LANGUAGE") : Loc::getMessage("TR_COLLECT_LANGUAGE"))?>">
-<?
+<?php 
 $tabControl->End();
 ?>
 <script type="text/javascript">
@@ -657,4 +657,4 @@ BX.ready(function(){
 	btnConvert = null;
 });
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
@@ -38,7 +38,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<?= bitrix_sessid_post(); ?>
 </form>
 
-<?
+<?php 
 if ($arResult['STATUS'])
 {
 	if (empty($arResult['PAGE']))
@@ -66,8 +66,8 @@ if ($arResult['STATUS'])
 				</div>
 			</div>
 		</div>
-		<? include 'messages.php' ?>
-		<?
+		<?php  include 'messages.php' ?>
+		<?php 
 	}
 	else
 	{
@@ -93,7 +93,7 @@ if ($arResult['STATUS'])
 				</div>
 			</div>
 		</div>
-		<? include 'messages.php' ?>
+		<?php  include 'messages.php' ?>
 		<div class="imconnector-field-container">
 			<div class="imconnector-field-section">
 				<div class="imconnector-field-main-title">
@@ -106,7 +106,7 @@ if ($arResult['STATUS'])
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 }
 else
@@ -137,6 +137,6 @@ else
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 include_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/socialnetwork.menu/include.php');
@@ -341,7 +341,7 @@ if(!$errorMessage && $USER->IsAuthorized() && $arResult["PERMISSION"] > "R")
 			$APPLICATION->RestartBuffer();
 			?><script type="text/javascript">
 				top.BX.reload();
-			</script><?
+			</script><?php 
 			die();
 		}
 		else
@@ -389,7 +389,7 @@ if(!$errorMessage && $USER->IsAuthorized() && $arResult["PERMISSION"] > "R")
 			$APPLICATION->RestartBuffer();
 			?><script type="text/javascript">
 				top.BX.reload();
-			</script><?
+			</script><?php 
 			die();
 		}
 		else
@@ -565,7 +565,7 @@ if(!$errorMessage && $_REQUEST['menu_ajax'] == $arParams["ID"])
 					}
 				]);
 				</script>
-				<?
+				<?php 
 				break;
 				
 			case 'update_position':

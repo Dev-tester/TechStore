@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_UI_TUTOR_TITLE"] = "Наставник";
 $MESS["JS_UI_TUTOR_BTN_BEGIN"] = "Начать";
 $MESS["JS_UI_TUTOR_BTN_START"] = "Приступить";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_EVENTLOG_USER_AUTHORIZE"] = "Успешный вход";
 $MESS["MAIN_EVENTLOG_USER_LOGIN"] = "Ошибки входа";
 $MESS["MAIN_EVENTLOG_USER_LOGINBYHASH_FAILED"] = "Ошибка входа при сохраненной авторизации";

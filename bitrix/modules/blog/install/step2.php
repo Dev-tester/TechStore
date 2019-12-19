@@ -1,5 +1,5 @@
-<?if(!check_bitrix_sessid()) return;?>
-<?
+<?php if(!check_bitrix_sessid()) return;?>
+<?php 
 global $errors;
 
 if(strlen($errors)<=0):
@@ -36,7 +36,7 @@ if ($public_installed) :
 		<td align="center"><p><b><?=GetMessage("MOD_DEMO_SITE")?></b></p></td>
 		<td align="center"><p><b><?=GetMessage("MOD_DEMO_LINK")?></b></p></td>
 	</tr>
-	<?
+	<?php 
 	foreach($arSite as $fSite)
 	{
 		global ${"install_public_".$fSite["SITE_ID"]};
@@ -49,17 +49,17 @@ if ($public_installed) :
 			?>
 			<tr>
 				<td width="0%"><p>[<?=$fSite["SITE_ID"]?>] <?=$fSite["NAME"]?></p></td>
-				<td width="0%"><p><a href="<?if(strlen($fSite["SERVER_NAME"])>0) echo "http://".$fSite["SERVER_NAME"];?><?=$fSite["DIR"].${"public_path_".$fSite["SITE_ID"]}?>/"><?=$fSite["DIR"].${"public_path_".$fSite["SITE_ID"]}?>/</a></p></td>
+				<td width="0%"><p><a href="<?php if(strlen($fSite["SERVER_NAME"])>0) echo "http://".$fSite["SERVER_NAME"];?><?=$fSite["DIR"].${"public_path_".$fSite["SITE_ID"]}?>/"><?=$fSite["DIR"].${"public_path_".$fSite["SITE_ID"]}?>/</a></p></td>
 			</tr>
-			<?
+			<?php 
 		}
 	}
 	?>
 </table>
-<?
+<?php 
 endif;
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">	
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">	
 <form>

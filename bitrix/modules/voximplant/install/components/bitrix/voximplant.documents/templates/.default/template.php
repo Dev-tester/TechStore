@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Global variables
  * @var array $arResult
@@ -12,18 +12,18 @@ CJSCore::Init(["voximplant.common", "ui.alerts", "ui.buttons"]);
     <div class="tel-set-item">
         <div class="bx-vi-docs-body"><?=GetMessage('VI_DOCS_BODY_2');?></div>
 
-		<? $previousCountry = '' ?>
-        <?foreach ($arResult['DOCUMENTS'] as $key => $verification):?>
-			<? if ($verification['COUNTRY_CODE'] != $previousCountry): ?>
+		<?php  $previousCountry = '' ?>
+        <?php foreach ($arResult['DOCUMENTS'] as $key => $verification):?>
+			<?php  if ($verification['COUNTRY_CODE'] != $previousCountry): ?>
 				<div class="tel-set-item-select-wrap">
 					<div class="voximplant-title-dark"><?= htmlspecialcharsbx($verification['COUNTRY']) ?></div>
 				</div>
-			<? endif ?>
-			<? if($verification['COUNTRY_CODE'] !== 'RU'): ?>
+			<?php  endif ?>
+			<?php  if($verification['COUNTRY_CODE'] !== 'RU'): ?>
 				<div class="voximplant-doc-label"><?= htmlspecialcharsbx($verification['ADDRESS']) ?></div>
-			<? endif ?>
+			<?php  endif ?>
             <div class="bx-vi-docs-box">
-				<?
+				<?php 
 					switch ($verification['STATUS'])
 					{
 						case 'VERIFIED':
@@ -36,14 +36,14 @@ CJSCore::Init(["voximplant.common", "ui.alerts", "ui.buttons"]);
 							$alertClass = "ui-alert-warning";
 					}
 				?>
-				<?if($verification['UNVERIFIED_HOLD_UNTIL']):?>
+				<?php if($verification['UNVERIFIED_HOLD_UNTIL']):?>
 					<div class="ui-alert">
 						<span class="ui-alert-message">
 							<?=GetMessage('VI_DOCS_UNTIL_DATE', Array('#DATE#' => '<b>'.$verification['UNVERIFIED_HOLD_UNTIL'].'</b>'));?><br><br>
 							<?=GetMessage('VI_DOCS_UNTIL_DATE_NOTICE');?>
 						</span>
 					</div>
-				<? endif ?>
+				<?php  endif ?>
 				<div id="vi_docs_table_btn_<?=$key?>" class="ui-alert voximplant-status-panel <?=$alertClass?> <?=($verification['STATUS'] !== 'VERIFIED' ? 'voximplant-status-panel-btn-active' : '')?>">
 					<span class="ui-alert-message voximplant-status-panel-badge"><?=($verification['STATUS'] == 'ERROR' ? GetMessage('VI_DOCS_SERVICE_ERROR') : $verification['STATUS_NAME']);?></span>
 					<br>
@@ -59,16 +59,16 @@ CJSCore::Init(["voximplant.common", "ui.alerts", "ui.buttons"]);
 						<tr>
 							<td class="tel-phones-list-th" ><?=GetMessage('VI_DOCS_TABLE_UPLOAD');?></td>
 							<td class="tel-phones-list-th"><?=GetMessage('VI_DOCS_TABLE_STATUS');?></td>
-							<? if($verification["COUNTRY_CODE"] === "RU"):?>
+							<?php  if($verification["COUNTRY_CODE"] === "RU"):?>
 								<td class="tel-phones-list-th"><?=GetMessage('VI_DOCS_TABLE_TYPE');?></td>
-							<? else: ?>
+							<?php  else: ?>
 								<td class="tel-phones-list-th"><?=GetMessage('VI_DOCS_TABLE_OWNER');?></td>
-							<? endif ?>
+							<?php  endif ?>
 							<td class="tel-phones-list-th"><?=GetMessage('VI_DOCS_TABLE_COMMENT');?></td>
 						</tr>
-						<?if (is_array($verification['DOCUMENTS'])): ?>
-							<?foreach ($verification['DOCUMENTS'] as $document):?>
-								<?
+						<?php if (is_array($verification['DOCUMENTS'])): ?>
+							<?php foreach ($verification['DOCUMENTS'] as $document):?>
+								<?php 
 								$tdColor = 'red';
 								if ($document['DOCUMENT_STATUS'] == 'ACCEPTED' || $document['DOCUMENT_STATUS'] == 'VERIFIED')
 									$tdColor = 'VERIFIED';
@@ -82,22 +82,22 @@ CJSCore::Init(["voximplant.common", "ui.alerts", "ui.buttons"]);
 									<td class="tel-phones-list-td">
 										<span class="voximplant-status-panel-badge"><?=$document['DOCUMENT_STATUS_NAME']?></span>
 									</td>
-									<? if($verification["COUNTRY_CODE"] === "RU"):?>
+									<?php  if($verification["COUNTRY_CODE"] === "RU"):?>
 										<td class="tel-phones-list-td" style="white-space: nowrap;"><?=$document['IS_INDIVIDUAL_NAME']?></td>
-									<? else: ?>
+									<?php  else: ?>
 										<td class="tel-phones-list-td" style="white-space: nowrap;"><?=htmlspecialcharsbx($document['OWNER'])?></td>
-									<? endif ?>
+									<?php  endif ?>
 									<td class="tel-phones-list-td"><?=(strlen($document['REVIEWER_COMMENT'])>0? $document['REVIEWER_COMMENT']: '-')?></td>
 								</tr>
-							<?endforeach;?>
-						<?endif;?>
+							<?php endforeach;?>
+						<?php endif;?>
 						<tr>
 							<td colspan="4" class="tel-phones-list-td-footer">
-								<?if($verification['COUNTRY_CODE']==='RU'):?>
+								<?php if($verification['COUNTRY_CODE']==='RU'):?>
 									<a id="vi_docs_upload_btn_<?=$verification['COUNTRY_CODE']?>" href="#docs" class="ui-btn ui-btn-primary">
 										<?=($verification['STATUS'] == 'REQUIRED'? GetMessage('VI_DOCS_UPLOAD_BTN'): GetMessage('VI_DOCS_UPDATE_BTN'))?>
 									</a>
-								<?endif?>
+								<?php endif?>
 							</td>
 						</tr>
 					</table>
@@ -124,7 +124,7 @@ CJSCore::Init(["voximplant.common", "ui.alerts", "ui.buttons"]);
 
             </div>
             <div class="tel-set-divider"></div>
-			<?if(isset($verification['UPLOAD_IFRAME_URL'])):?>
+			<?php if(isset($verification['UPLOAD_IFRAME_URL'])):?>
 				<div id="vi_docs_upload_form_<?=$verification['COUNTRY_CODE']?>" class="tel-set-block-wrap tel-set-block-wrap-2" <?=($verification['SHOW_UPLOAD_IFRAME'] ? '' : 'style="display: none;"')?>>
 					<div class="tel-set-block tel-set-block-active">
 						<div style="display: block;" class="tel-set-block-inner-wrap" id="tel-set-first">
@@ -137,12 +137,12 @@ CJSCore::Init(["voximplant.common", "ui.alerts", "ui.buttons"]);
 						</div>
 					</div>
 				</div>
-				<?if($verification['SHOW_UPLOAD_IFRAME']):?>
+				<?php if($verification['SHOW_UPLOAD_IFRAME']):?>
 					<script>
 						BX.scrollToNode("vi_docs_upload_form_<?=$verification['COUNTRY_CODE']?>");
 					</script>
-				<?endif?>
-			<?endif?>
+				<?php endif?>
+			<?php endif?>
             <script type="text/javascript">
                 BX.bind(BX('vi_docs_upload_btn_<?=$verification['COUNTRY_CODE']?>'), 'click', function(e)
                 {
@@ -164,8 +164,8 @@ CJSCore::Init(["voximplant.common", "ui.alerts", "ui.buttons"]);
                     BX.PreventDefault(e);
                 });
             </script>
-			<? $previousCountry = $verification['COUNTRY_CODE'] ?>
-        <?endforeach;?>
+			<?php  $previousCountry = $verification['COUNTRY_CODE'] ?>
+        <?php endforeach;?>
     </div>
 </div>
 

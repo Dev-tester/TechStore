@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль crm не установлен.";
 $MESS["CRM_CHANNEL_1C_CAPTION"] = "1С-трекер";
 $MESS["CRM_CHANNEL_1C_LEGEND"] = "Выгружайте в CRM всю историю продаж и клиентов. Свяжите офлайн-продажи с онлайн-CRM.";

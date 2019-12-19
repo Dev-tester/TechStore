@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_CLIENT_CONFIG_ACCESS"] = "Mailbox access";
 $MESS["MAIL_CLIENT_CONFIG_ACCESS_ADD"] = "Add";
 $MESS["MAIL_CLIENT_CONFIG_ACCESS_HINT"] = "Give other employees permission to process emails in this mailbox.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REST_SCOPE_LISTS"] = "Списки";
 $MESS["REST_SCOPE_BIZPROC"] = "Бизнес-процессы";
 $MESS["REST_SCOPE_CRM"] = "CRM";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GROUP_TITLE"] = "Группы форума";
 $MESS["GROUP_NAV"] = "Группы";
 $MESS["GROUP_ID"] = "Код";

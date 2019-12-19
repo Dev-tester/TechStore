@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_PULL"] = "Потяните, чтобы обновить";
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_DOWN"] = "Отпустите, чтобы обновить";
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_LOADING"] = "Обновление данных...";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arResult['HELPER'] = $helper = require(dirname(__FILE__).'/helper.php');

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <form action="<?=$arResult["FORM_ACTION"]?>">
 <div class="rounded-box">
 	<b class="r1 top"></b>

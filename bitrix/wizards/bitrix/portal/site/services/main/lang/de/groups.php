@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADMIN_SECTION_GROUP_DESC'] = "User dieser Gruppe dьrfen mit dem administrativen Panel arbeiten.";
 $MESS ['ADMIN_SECTION_GROUP_NAME'] = "User des administrativen Bereichs";
 $MESS ['CREATE_GROUPS_GROUP_DESC'] = "User dieser Gruppe dьrfen neue Projektgruppen anlegen.";

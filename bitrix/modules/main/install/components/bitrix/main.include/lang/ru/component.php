@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_INCLUDE_AREA_EDIT_page"] = "Редактировать включаемую область текущей страницы";
 $MESS["MAIN_INCLUDE_AREA_EDIT_sect"] = "Редактировать включаемую область раздела";
 $MESS["MAIN_INCLUDE_AREA_EDIT_file"] = "Редактировать файл включаемой области";

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 Bitrix\Main\Loader::registerAutoLoadClasses('sale', array(

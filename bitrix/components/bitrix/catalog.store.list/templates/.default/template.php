@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -17,26 +17,26 @@ $gpsN = '';
 $gpsS = '';
 ?>
 <div class="catalog-detail-properties">
-	<?if(is_array($arResult["STORES"]) && !empty($arResult["STORES"])):
+	<?php if(is_array($arResult["STORES"]) && !empty($arResult["STORES"])):
 	foreach($arResult["STORES"] as $pid=>$arProperty):?>
 	<div class="catalog-detail-property">
-		<p class="catalog-detail-properties-title"><a href="<?=$arProperty["URL"]?>"><?=$arProperty["TITLE"]?></a></p><?
+		<p class="catalog-detail-properties-title"><a href="<?=$arProperty["URL"]?>"><?=$arProperty["TITLE"]?></a></p><?php 
 		if (!empty($arProperty['DETAIL_IMG']))
 		{
-			?><img class="catalog-detail-image" src="<?=$arProperty['DETAIL_IMG']['SRC']; ?>"><?
+			?><img class="catalog-detail-image" src="<?=$arProperty['DETAIL_IMG']['SRC']; ?>"><?php 
 		}
 		if ($arProperty["DESCRIPTION"] != '')
 		{
-			?><p><?=$arProperty["DESCRIPTION"]; ?></p><?
+			?><p><?=$arProperty["DESCRIPTION"]; ?></p><?php 
 		}
 		if(isset($arProperty["PHONE"])):?>
 		<span>&nbsp;&nbsp;<?=GetMessage('S_PHONE')?></span>
 		<span><?=$arProperty["PHONE"]?></span>
-		<?endif;
+		<?php endif;
 		if(isset($arProperty["SCHEDULE"])):?>
 		<span>&nbsp;&nbsp;<?=GetMessage('S_SCHEDULE')?></span>
 		<span><?=$arProperty["SCHEDULE"]?></span>
-		<?endif;
+		<?php endif;
 		if($arProperty["GPS_S"]!=0 && $arProperty["GPS_N"]!=0)
 		{
 			$gpsN=substr(doubleval($arProperty["GPS_N"]),0,15);
@@ -46,10 +46,10 @@ $gpsS = '';
 		?>
 	</div>
 		<br>
-	<?endforeach;
+	<?php endforeach;
 	endif;?>
 </div><br><br>
-<?
+<?php 
 if ($arResult['VIEW_MAP'])
 {
 	if($arResult["MAP"]==0)

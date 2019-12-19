@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "Модуль блогов не установлен.";
 $MESS["SONET_MODULE_NOT_INSTALL"] = "Модуль социальной сети не установлен.";
 $MESS["B_B_PC_CAPTCHA_ERROR"] = "Неверно указан код защиты от автоматических сообщений.";

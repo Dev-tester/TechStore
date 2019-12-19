@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <?php
 if ($arResult['DELAYED'])
@@ -8,18 +8,18 @@ if ($arResult['DELAYED'])
 }
 ?>
 
-<?if (!empty($arResult["LESSON"])):?>
+<?php if (!empty($arResult["LESSON"])):?>
 
-	<?if ($arResult["LESSON"]["DETAIL_TEXT_TYPE"] == "file"):?>
+	<?php if ($arResult["LESSON"]["DETAIL_TEXT_TYPE"] == "file"):?>
 		<iframe width="100%" height="95%" src="<?php echo $arResult["LESSON"]["LAUNCH"]?>" frameborder="0"></iframe>
-	<?else:?>
-		<?if($arResult["LESSON"]["SELF_TEST_EXISTS"]):?>
+	<?php else:?>
+		<?php if($arResult["LESSON"]["SELF_TEST_EXISTS"]):?>
 			<a href="<?=$arResult["LESSON"]["SELF_TEST_URL"]?>" title="<?=GetMessage("LEARNING_PASS_SELF_TEST")?>">
-				<div title="<?echo GetMessage("LEARNING_PASS_SELF_TEST")?>" class="learn-self-test-icon float-right"></div>
+				<div title="<?php echo GetMessage("LEARNING_PASS_SELF_TEST")?>" class="learn-self-test-icon float-right"></div>
 			</a>
-		<?endif?>
+		<?php endif?>
 
-		<?if($arResult["LESSON"]["DETAIL_PICTURE_ARRAY"] !== false):?>
+		<?php if($arResult["LESSON"]["DETAIL_PICTURE_ARRAY"] !== false):?>
 			<div>
 			<?=ShowImage(
 				$arResult["LESSON"]["DETAIL_PICTURE_ARRAY"],
@@ -30,17 +30,17 @@ if ($arResult['DELAYED'])
 				"",
 				true);?>
 			</div>
-		<?endif?>
+		<?php endif?>
 
 		<?=$arResult["LESSON"]["DETAIL_TEXT"]?>
 
-		<?
+		<?php 
 		$arParams["SHOW_RATING"] = $arResult["COURSE"]["RATING"];
 		CRatingsComponentsMain::GetShowRating($arParams);
 		if($arParams["SHOW_RATING"] == 'Y'):
 		?>
 		<div class="learn-rating">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:rating.vote", $arResult["COURSE"]["RATING_TYPE"],
 			Array(
@@ -53,10 +53,10 @@ if ($arResult['DELAYED'])
 			array("HIDE_ICONS" => "Y")
 		);?>
 		</div>
-		<?endif?>
-		<?if($arResult["LESSON"]["SELF_TEST_EXISTS"]):?>
+		<?php endif?>
+		<?php if($arResult["LESSON"]["SELF_TEST_EXISTS"]):?>
 			<div class="float-clear"></div>
-			<br /><div title="<?echo GetMessage("LEARNING_PASS_SELF_TEST")?>" class="learn-self-test-icon float-left"></div>&nbsp;<a href="<?=$arResult["LESSON"]["SELF_TEST_URL"]?>"><?=GetMessage("LEARNING_PASS_SELF_TEST")?></a><br />
-		<?endif?>
-	<?endif?>
-<?endif?>
+			<br /><div title="<?php echo GetMessage("LEARNING_PASS_SELF_TEST")?>" class="learn-self-test-icon float-left"></div>&nbsp;<a href="<?=$arResult["LESSON"]["SELF_TEST_URL"]?>"><?=GetMessage("LEARNING_PASS_SELF_TEST")?></a><br />
+		<?php endif?>
+	<?php endif?>
+<?php endif?>

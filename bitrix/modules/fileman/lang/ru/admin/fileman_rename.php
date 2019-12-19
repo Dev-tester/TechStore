@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_RENAME_TITLE2"] = "Переименование файла";
 $MESS["FILEMAN_RENAME_SAVE"] = "Переименовать";
 $MESS["FILEMAN_RENAME_RESET"] = "Сбросить";

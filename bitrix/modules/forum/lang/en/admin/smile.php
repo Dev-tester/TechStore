@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_TITLE"] = "Forum smileys";
 $MESS["SMILE_DEL_CONF"] = "Are you sure you want to delete this smiley?";
 $MESS["SMILE_NAV"] = "Smileys";

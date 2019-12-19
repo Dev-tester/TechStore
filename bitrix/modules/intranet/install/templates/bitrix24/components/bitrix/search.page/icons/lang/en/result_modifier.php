@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS ["TP_BSP_RM_NAME_TEMPLATE"] = "#NOBR##NAME# #LAST_NAME##/NOBR#";
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLOW_DOCUMENT_LIST'] = "List of documents";
 $MESS ['FLOW_RECORD_NOT_FOUND'] = "Incorrect record ID, or record could not be found";
 $MESS ['FLOW_PAGE_TITLE'] = "Record # #ID#";

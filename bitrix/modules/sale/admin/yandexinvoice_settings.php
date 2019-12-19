@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use \Bitrix\Main\Localization\Loc;
@@ -170,7 +170,7 @@ $tabRControl = new \CAdminTabControl("tabRControl", $personTypeTabs);
 $showButton = false;
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => Loc::getMessage("SPSN_2FLIST"),
@@ -182,23 +182,23 @@ $aMenu = array(
 $contextMenu = new CAdminContextMenu($aMenu);
 $contextMenu->Show();
 ?>
-<?$tabRControl->Begin();?>
-<?
+<?php $tabRControl->Begin();?>
+<?php 
 $actionUrl = $APPLICATION->GetCurPage()."?pay_system_id=".$id."&lang=".LANGUAGE_ID;
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" enctype="multipart/form-data" action="<?=$actionUrl?>" id="<?=$personTypeId?>_form-upload">
 	<?=bitrix_sessid_post();?>
-	<?foreach($personTypeTabs as $tab) :?>
-	<?
+	<?php foreach($personTypeTabs as $tab) :?>
+	<?php 
 		$personTypeId = $tab["PERSON_TYPE"];
 		$shopId = \Bitrix\Sale\BusinessValue::get('YANDEX_INVOICE_SHOP_ID', 'PAYSYSTEM_'.$id, $personTypeId);
 
 		$tabRControl->BeginNextTab();
 	?>
 		<input type="hidden" name="settings[<?=$personTypeId;?>][PERSON_TYPE_ID]" value="<?=$personTypeId;?>">
-		<?if ($shopId):?>
-			<?
+		<?php if ($shopId):?>
+			<?php 
 			$showButton = true;
 
 			$dbRes = \Bitrix\Sale\Internals\YandexSettingsTable::getById($shopId);
@@ -208,14 +208,14 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 			<tr class="heading">
 				<td colspan="2"><?=Loc::getMessage('SALE_YANDEX_INVOICE_SETTINGS_SUBTITLE');?></td>
 			</tr>
-			<?if ($yandexSettings):?>
+			<?php if ($yandexSettings):?>
 				<tr>
 					<td width="50%" class="adm-detail-content-cell-l"><?=Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_PUB_KEY")?>:</td>
 					<td width="50%" class="adm-detail-content-cell-r">
 						<a href="<?=$APPLICATION->GetCurPage();?>?pay_system_id=<?=$id?>&person_type_id=<?=$personTypeId;?>&download=Y"><?=Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_DOWNLOAD");?></a>
 					</td>
 				</tr>
-				<?if ($yandexSettings['PUB_KEY']):?>
+				<?php if ($yandexSettings['PUB_KEY']):?>
 					<tr>
 						<td width="50%" class="adm-detail-content-cell-l"><?=Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_PUB_KEY_YA")?>:</td>
 						<td width="50%" class="adm-detail-content-cell-r">
@@ -223,14 +223,14 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 							<input type="checkbox" name="settings[<?=$personTypeId;?>][SETTINGS_CLEAR]"> <?=Loc::getMessage('SALE_YANDEX_INVOICE_SETTINGS_DEL');?>
 						</td>
 					</tr>
-				<?else:?>
+				<?php else:?>
 					<tr>
 						<td width="50%" class="adm-detail-content-cell-l"><?=Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_PUB_KEY_YA")?>:</td>
 						<td width="50%" class="adm-detail-content-cell-r">
 							<input type="file" name="YANDEX_PUB_KEY_<?=$personTypeId;?>">
 						</td>
 					</tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr class="heading">
 					<td colspan="2"><?=Loc::getMessage('SALE_YANDEX_INVOICE_SETTINGS_RESET_TITLE');?></td>
 				</tr>
@@ -240,7 +240,7 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 						<input type="checkbox" name="settings[<?=$personTypeId;?>][SETTINGS_CLEAR_ALL]">
 					</td>
 				</tr>
-			<?else:?>
+			<?php else:?>
 				<tr>
 					<td width="50%" class="adm-detail-content-cell-l"><?=Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_PKEY")?>:</td>
 
@@ -248,27 +248,27 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 						<a href="<?=$APPLICATION->GetCurPage();?>?pay_system_id=<?=$id?>&person_type_id=<?=$personTypeId;?>&generate=Y"><?=Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_PKEY_GENERATE");?></a>
 					</td>
 				</tr>
-			<?endif;?>
-		<?else:?>
+			<?php endif;?>
+		<?php else:?>
 			<tr>
 				<td colspan="2">
-					<?
+					<?php 
 						CAdminMessage::ShowMessage(array("DETAILS" => Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_ERROR_SHOP_ID"), "TYPE"=>"ERROR", "HTML"=>true));
 					?>
 				</td>
 			</tr>
-		<?endif;?>
-		<?$tabRControl->EndTab();?>
+		<?php endif;?>
+		<?php $tabRControl->EndTab();?>
 
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 
-	<?if ($showButton):?>
-		<?$tabRControl->Buttons();?>
+	<?php if ($showButton):?>
+		<?php $tabRControl->Buttons();?>
 		<input type="submit" name="Save" value="<?=Loc::getMessage("SALE_YANDEX_INVOICE_SETTINGS_SAVE")?>">
 		<input type="hidden" name="Save" value="Y">
-	<?endif;?>
+	<?php endif;?>
 </form>
 
-<?$tabRControl->End();
+<?php $tabRControl->End();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

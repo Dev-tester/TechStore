@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Integration\Socialnetwork\Livefeed;
 
 use \Bitrix\Socialnetwork\Livefeed\Provider;

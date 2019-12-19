@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
@@ -34,7 +34,7 @@ $APPLICATION->AddHeadScript('/bitrix/templates/bitrix24/components/bitrix/social
 </script>
 
 <div class="socialnetwork-group-title-buttons">
-	<? if (in_array($arResult["CurrentUserPerms"]["UserRole"], array(SONET_ROLES_OWNER, SONET_ROLES_MODERATOR, SONET_ROLES_USER))):
+	<?php  if (in_array($arResult["CurrentUserPerms"]["UserRole"], array(SONET_ROLES_OWNER, SONET_ROLES_MODERATOR, SONET_ROLES_USER))):
 		if ($arResult["bChatActive"])
 		{
 			?>
@@ -51,7 +51,7 @@ $APPLICATION->AddHeadScript('/bitrix/templates/bitrix24/components/bitrix/social
 			>
 				<span class="webform-small-button-icon"></span>
 			</span>
-			<?
+			<?php 
 		}
 		?>
 		<span
@@ -67,5 +67,5 @@ $APPLICATION->AddHeadScript('/bitrix/templates/bitrix24/components/bitrix/social
 		>
 			<span class="webform-small-button-icon"></span>
 		</span>
-	<? endif ?>
+	<?php  endif ?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TITLE"] = "Перевод языковых файлов";
 $MESS["TRANS_FILE_NAME"] = "Имя файла/папки";
 $MESS["TRANS_BACK"] = "Вернуться";

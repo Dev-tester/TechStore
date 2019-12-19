@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main,
 	Bitrix\Main\Loader,
 	Bitrix\Catalog;
@@ -195,7 +195,7 @@ else
 	BX.ready(function(){
 		gdSaleProductsTabControl_<?=$arGadgetParams["RND_STRING"]?> = new gdTabControl('bx_gd_tabset_sale_products_<?=$arGadgetParams["RND_STRING"]?>');
 	});
-</script><?
+</script><?php 
 
 $aTabs = array(
 	array(
@@ -216,7 +216,7 @@ $aTabs = array(
 
 $tabControl = new CAdminViewTabControl("salePrdTabControl_".$arGadgetParams["RND_STRING"], $aTabs);
 
-?><div class="bx-gadgets-tabs-wrap" id="bx_gd_tabset_sale_products_<?=$arGadgetParams["RND_STRING"]?>"><?
+?><div class="bx-gadgets-tabs-wrap" id="bx_gd_tabset_sale_products_<?=$arGadgetParams["RND_STRING"]?>"><?php 
 
 	$tabControl->Begin();
 	$tabsCount = count($aTabs);
@@ -224,10 +224,10 @@ $tabControl = new CAdminViewTabControl("salePrdTabControl_".$arGadgetParams["RND
 		$tabControl->BeginNextTab();
 	$tabControl->End();
 
-	?><div class="bx-gadgets-tabs-cont"><?
+	?><div class="bx-gadgets-tabs-cont"><?php 
 		for($i = 0; $i < $tabsCount; $i++)
 		{
-			?><div id="<?=$aTabs[$i]["DIV"]?>_content" style="display: <?=($i==0 ? "block" : "none")?>;" class="bx-gadgets-tab-container"><?
+			?><div id="<?=$aTabs[$i]["DIV"]?>_content" style="display: <?=($i==0 ? "block" : "none")?>;" class="bx-gadgets-tab-container"><?php 
 				if ($i == 0)
 				{
 					if (!empty($arResult["SEL"]))
@@ -239,7 +239,7 @@ $tabControl = new CAdminViewTabControl("salePrdTabControl_".$arGadgetParams["RND
 									<th><?=GetMessage("GD_PRD_QUANTITY")?></th>
 									<th><?=GetMessage("GD_PRD_AV_PRICE")?></th>
 									<th><?=GetMessage("GD_PRD_SUM")?></th>
-								</tr><?
+								</tr><?php 
 								foreach($arResult["SEL"] as $val)
 								{
 									?><tr>
@@ -247,14 +247,14 @@ $tabControl = new CAdminViewTabControl("salePrdTabControl_".$arGadgetParams["RND
 										<td align="right"><?=IntVal($val["QUANTITY"])?></td>
 										<td align="right" nowrap><?=CCurrencyLang::CurrencyFormat(DoubleVal($val["AVG_PRICE"]), $val["CURRENCY"], true)?></td>
 										<td align="right" nowrap><?=CCurrencyLang::CurrencyFormat(DoubleVal($val["PRICE"]), $val["CURRENCY"], true)?></td>
-									</tr><?
+									</tr><?php 
 								}
 							?></tbody>
-						</table><?
+						</table><?php 
 					}
 					else
 					{
-						?><div align="center" class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t"><?=GetMessage("GD_PRD_NO_DATA")?></div><?
+						?><div align="center" class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t"><?=GetMessage("GD_PRD_NO_DATA")?></div><?php 
 					}
 				}
 				elseif ($i == 1)
@@ -267,24 +267,24 @@ $tabControl = new CAdminViewTabControl("salePrdTabControl_".$arGadgetParams["RND
 									<th><?=GetMessage("GD_PRD_NAME")?></th>
 									<th><?=GetMessage("GD_PRD_VIEWED")?></th>
 									<th><?=GetMessage("GD_PRD_PRICE")?></th>
-								</tr><?
+								</tr><?php 
 								foreach($arResult["VIEWED"] as $val)
 								{
 									?><tr>
 										<td><?=htmlspecialcharsEx($val["NAME"])?></td>
 										<td align="right"><?=IntVal($val["VIEW_COUNT"])?></td>
 										<td align="right" nowrap><?=(DoubleVal($val["PRICE"]) > 0 ? CCurrencyLang::CurrencyFormat(DoubleVal($val["PRICE"]), $val["CURRENCY"], true) : "")?></td>
-									</tr><?
+									</tr><?php 
 								}
 							?></tbody>
-						</table><?
+						</table><?php 
 					}
 					else
 					{
-						?><div align="center" class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t"><?=GetMessage("GD_PRD_NO_DATA")?></div><?
+						?><div align="center" class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t"><?=GetMessage("GD_PRD_NO_DATA")?></div><?php 
 					}
 				}
-			?></div><?
+			?></div><?php 
 		}
 	?></div>
 </div>

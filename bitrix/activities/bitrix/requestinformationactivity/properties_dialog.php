@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
@@ -481,12 +481,12 @@ setTimeout(BPRIAStart, 0);
 						<option value="h"<?= ($arCurrentValues["timeout_duration_type"] == "h") ? " selected" : "" ?>><?= GetMessage("BPSFA_PD_TIME_H") ?></option>
 						<option value="d"<?= ($arCurrentValues["timeout_duration_type"] == "d") ? " selected" : "" ?>><?= GetMessage("BPSFA_PD_TIME_D") ?></option>
 					</select>
-					<?
+					<?php 
 					$delayMinLimit = CBPSchedulerService::getDelayMinLimit();
 					if ($delayMinLimit):
 						?>
 						<p style="color: red;">* <?= GetMessage("BPSFA_PD_TIMEOUT_LIMIT") ?>: <?=CBPHelper::FormatTimePeriod($delayMinLimit)?></p>
-						<?
+						<?php 
 					endif;
 					?>
 				</td>
@@ -504,9 +504,9 @@ setTimeout(BPRIAStart, 0);
 				<td align="right" class="adm-detail-content-cell-l"><?= GetMessage("BPSFA_PD_DELEGATION_TYPE") ?>:</td>
 				<td>
 					<select name="delegation_type">
-						<?foreach (CBPTaskDelegationType::getSelectList() as $key => $label):?>
+						<?php foreach (CBPTaskDelegationType::getSelectList() as $key => $label):?>
 							<option value="<?=htmlspecialcharsbx($key)?>>"<?= $arCurrentValues["delegation_type"] == $key ? " selected" : "" ?>><?=htmlspecialcharsbx($label)?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
@@ -563,10 +563,10 @@ setTimeout(BPRIAStart, 0);
 			<td align="right" width="40%" class="adm-detail-content-cell-l"><span class="adm-required-field"><?= GetMessage("BPSFA_PD_F_TYPE") ?>:</span></td>
 			<td width="60%" class="adm-detail-content-cell-r">
 				<select name="fri_type" id="id_fri_type" onchange="BPRIASwitchTypeControl(this.options[this.selectedIndex].value)">
-					<?
+					<?php 
 					foreach ($arFieldTypes as $k => $v)
 					{
-						?><option value="<?= $k ?>"><?= $v["Name"] ?></option><?
+						?><option value="<?= $k ?>"><?= $v["Name"] ?></option><?php 
 					}
 					?>
 				</select>

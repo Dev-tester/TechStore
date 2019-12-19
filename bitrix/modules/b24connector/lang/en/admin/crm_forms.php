@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_CRMF_TITLE"] = "CRM Forms";
 $MESS["B24C_CRMF_DESCR1"] = "CRM forms is an essential business tool which will help increase sales, get more clients, update current client profiles and save the research results to CRM.";
 $MESS["B24C_CRMF_TYPES"] = "There are three types of CRM forms:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 $GLOBALS["BLOG_GROUP"] = Array();
 

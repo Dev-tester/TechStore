@@ -80,16 +80,16 @@ class Type extends TypeBase
 			if($mode === 'edit'):
 ?>
 <div style="display: none;" id="uf_rest_value_<?=$arUserField['FIELD_NAME']?>">
-<?
+<?php 
 				foreach($value as $res):
 ?>
 	<input type="hidden" name="<?=$fieldName?>" value="<?=HtmlFilter::encode($res)?>" />
-<?
+<?php 
 				endforeach;
 			endif;
 ?>
 </div>
-<?
+<?php 
 			$placementSid = $APPLICATION->includeComponent(
 				'bitrix:app.layout',
 				'',
@@ -125,7 +125,7 @@ class Type extends TypeBase
 			value: <?=\CUtil::phpToJsObject($arUserField['VALUE'])?>,
 			callback: function(value)
 			{
-<?
+<?php 
 			if($mode === 'edit'):
 ?>
 				if(!BX.type.isArray(value))
@@ -146,7 +146,7 @@ class Type extends TypeBase
 				{
 					BX.fireEvent(input, 'change');
 				}
-<?
+<?php 
 			endif;
 ?>
 			}
@@ -155,7 +155,7 @@ class Type extends TypeBase
 	})();
 </script>
 
-<?
+<?php 
 			$html = ob_get_clean();
 		}
 

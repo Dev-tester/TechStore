@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="filter-box filter-people">
 	<form action="<?= $arResult["Urls"]["UserSearch"] ?>" class="bx-selector-form filter-form" name="bx_users_filter_adv_form">
 		<input type="hidden" name="current_view" value="<?=htmlspecialcharsbx($arResult['CURRENT_VIEW'])?>" />
@@ -7,10 +7,10 @@
 			<label for="filter-name"><?= GetMessage("SONET_C241_T_FIO") ?>:</label>
 			<input id="filter-name" name="FLT_FIO" class="filter-textbox" value="<?= htmlspecialcharsex($_REQUEST["fltx_fio"]) ?>"/>
 		</div>
-		<?foreach ($arResult["UserFieldsSearchAdv"] as $userFieldName => $userFieldDescr):?>
+		<?php foreach ($arResult["UserFieldsSearchAdv"] as $userFieldName => $userFieldDescr):?>
 			<div class="filter-item">
 				<label for="filter-<?= $userFieldName; ?>"><?= $userFieldDescr["TITLE"] ?>:</label>
-				<?
+				<?php 
 				if (StrToLower(SubStr($userFieldDescr["NAME"], 0, 5)) == "fltx_")
 				{
 					$keyTmp = StrToUpper(SubStr($userFieldDescr["NAME"], 5));
@@ -22,12 +22,12 @@
 				elseif ($userFieldDescr["TYPE"] == "select"):
 					?><select name="<?= $userFieldDescr["NAME"] ?>" id="filter-<?= $userFieldName; ?>" class="filter-select">
 						<option value=""></option>
-						<?foreach ($userFieldDescr["VALUES"] as $keyTmp => $valTmp):?>
+						<?php foreach ($userFieldDescr["VALUES"] as $keyTmp => $valTmp):?>
 							<option value="<?= $keyTmp ?>"<?= (($keyTmp == $userFieldDescr["VALUE"]) ? " selected" : "") ?>><?= $valTmp ?></option>
-						<?endforeach;?>
-					</select><?
+						<?php endforeach;?>
+					</select><?php 
 				elseif ($userFieldDescr["TYPE"] == "string"):
-					?><input type="text" id="filter-<?= $userFieldName; ?>" class="filter-textbox" name="<?= $userFieldDescr["NAME"] ?>" value="<?= $userFieldDescr["VALUE"] ?>" /><?
+					?><input type="text" id="filter-<?= $userFieldName; ?>" class="filter-textbox" name="<?= $userFieldDescr["NAME"] ?>" value="<?= $userFieldDescr["VALUE"] ?>" /><?php 
 				elseif ($userFieldDescr["TYPE"] == "calendar"):
 					echo "<nobr>";
 					$APPLICATION->IncludeComponent(
@@ -47,11 +47,11 @@
 				endif;
 				?>
 			</div>
-		<?endforeach;?>
-		<?foreach ($arResult["UserPropertiesSearchAdv"] as $userFieldName => $userFieldDescr):?>
+		<?php endforeach;?>
+		<?php foreach ($arResult["UserPropertiesSearchAdv"] as $userFieldName => $userFieldDescr):?>
 			<div class="filter-item">
 				<label for="filter-<?= $userFieldName; ?>"><?= $userFieldDescr["EDIT_FORM_LABEL"] ?>:</label>
-				<?
+				<?php 
 				if (StrToLower(SubStr($userFieldDescr["FIELD_NAME"], 0, 5)) == "fltx_")
 				{
 					$keyTmp = StrToUpper(SubStr($userFieldDescr["FIELD_NAME"], 5));
@@ -91,11 +91,11 @@
 				}
 				?>
 			</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 		
 		<div class="filter-button">
-			<input type="submit" name="set_filter" value="<?echo GetMessage('SONET_C241_T_DO_SEARCH')?>" class="filter-submit" />
-			<input type="reset" name="del_filter" value="<?echo GetMessage('SONET_C241_T_DO_CANCEL')?>" class="filter-submit filter-inline" onclick="window.location='<?= $arResult["Urls"]["UserSearch"] ?>'" />
+			<input type="submit" name="set_filter" value="<?php echo GetMessage('SONET_C241_T_DO_SEARCH')?>" class="filter-submit" />
+			<input type="reset" name="del_filter" value="<?php echo GetMessage('SONET_C241_T_DO_CANCEL')?>" class="filter-submit filter-inline" onclick="window.location='<?= $arResult["Urls"]["UserSearch"] ?>'" />
 		</div>
 	</form>
 </div>

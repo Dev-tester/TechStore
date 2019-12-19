@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!CModule::IncludeModule('bizproc') || !CBPRuntime::isFeatureEnabled())
 {
@@ -25,7 +25,7 @@ if($isBitrix24Template)
 		<?=GetMessage("CT_BL_TOOLBAR_RETURN_LIST_ELEMENT")?>
 	</a>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();

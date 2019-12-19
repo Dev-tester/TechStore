@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ISS_TPL_SIMPLE_FILTER_DEPARTMENT'] = "Department";
 $MESS['ISS_TPL_SIMPLE_FILTER_FIO'] = "Name";
 $MESS['ISS_TPL_FILTER_SUBMIT'] = "Search";

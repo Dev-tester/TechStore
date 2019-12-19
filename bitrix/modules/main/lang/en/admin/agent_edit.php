@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AGENT_EDIT_PAGE_TITLE"] = "Agent ##ID#";
 $MESS["MAIN_AGENT_NEW_PAGE_TITLE"] = "New Agent";
 $MESS["MAIN_AGENT_TAB"] = "Agent";

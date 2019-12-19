@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_MESSAGE_TEMPLATE'] = "Topic Read page";
 $MESS ['F_LIST_TEMPLATE'] = "Topics List page";
 $MESS ['F_READ_TEMPLATE'] = "Topic Read page";

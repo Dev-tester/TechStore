@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_SALE_DSC_FORMAT_NAME"] = "#VALUE# discount for order total #FROM# #TO#";
 $MESS["BT_MOD_SALE_DSC_FORMAT_SHORT_NAME"] = "#VALUE# discount";
 $MESS["BT_MOD_SALE_DSC_FORMAT_NAME_FROM"] = "from #VALUE#";

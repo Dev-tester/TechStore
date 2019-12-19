@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"",
@@ -27,7 +27,7 @@ $APPLICATION->IncludeComponent(
 <table width="100%"> 
     <tr>
 		<td valign="top" width="85%">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 					"bitrix:blog.blog", 
 					"", 
@@ -68,7 +68,7 @@ $APPLICATION->IncludeComponent(
 			?>
 		</td>
 		<td valign="top" width="15%" align="center">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 					"bitrix:blog.info",
 					"",
@@ -90,7 +90,7 @@ $APPLICATION->IncludeComponent(
 				);
 			?>
 			<br />
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 					"bitrix:blog.calendar",
 					"",
@@ -108,7 +108,7 @@ $APPLICATION->IncludeComponent(
 					$component 
 				);
 			?><br /><br />
-			<div align="center"><?
+			<div align="center"><?php 
 			$APPLICATION->IncludeComponent(
 					"bitrix:blog.rss.link",
 					"vertical",

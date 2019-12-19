@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_B24_SEARCH_LIMIT_RESTRICTION_COMPANY_TITLE"] = "Company limit (#LIMIT#) reached";
 $MESS["CRM_B24_SEARCH_LIMIT_RESTRICTION_CONTACT_TITLE"] = "Contact limit (#LIMIT#) reached";
 $MESS["CRM_B24_SEARCH_LIMIT_RESTRICTION_DEAL_TITLE"] = "Deal limit (#LIMIT#) reached";

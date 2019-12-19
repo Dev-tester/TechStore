@@ -1,4 +1,4 @@
-<?
+<?php 
 if(defined('BX24_HOST_NAME'))
 	$serverUri = 'https://' . BX24_HOST_NAME;
 else

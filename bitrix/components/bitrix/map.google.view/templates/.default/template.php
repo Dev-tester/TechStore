@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $this->setFrameMode(true);
@@ -31,30 +31,30 @@ else
 	?>
 	<div class="bx-yandex-view-layout">
 		<div class="bx-yandex-view-map">
-	<?
+	<?php 
 
 	$APPLICATION->IncludeComponent('bitrix:map.google.system', '.default', $arTransParams, false, array('HIDE_ICONS' => 'Y'));
 	?>
 		</div>
 	</div>
-	<?if (is_array($arResult['POSITION']['PLACEMARKS']) && ($cnt = count($arResult['POSITION']['PLACEMARKS']))):?>
+	<?php if (is_array($arResult['POSITION']['PLACEMARKS']) && ($cnt = count($arResult['POSITION']['PLACEMARKS']))):?>
 	<script type="text/javascript">
 
-	function BX_SetPlacemarks_<?echo $arParams['MAP_ID']?>()
+	function BX_SetPlacemarks_<?php echo $arParams['MAP_ID']?>()
 	{
-	<?
+	<?php 
 		for($i = 0; $i < $cnt; $i++):
 	?>
-		BX_GMapAddPlacemark(<?echo CUtil::PhpToJsObject($arResult['POSITION']['PLACEMARKS'][$i])?>, '<?echo $arParams['MAP_ID']?>');
-	<?
+		BX_GMapAddPlacemark(<?php echo CUtil::PhpToJsObject($arResult['POSITION']['PLACEMARKS'][$i])?>, '<?php echo $arParams['MAP_ID']?>');
+	<?php 
 		endfor;
 	?>
 	}
 
-	function BXShowMap_<?echo $arParams['MAP_ID']?>() {
+	function BXShowMap_<?php echo $arParams['MAP_ID']?>() {
 		if(typeof window["BXWaitForMap_view"] == 'function')
 		{
-			BXWaitForMap_view('<?echo $arParams['MAP_ID']?>');
+			BXWaitForMap_view('<?php echo $arParams['MAP_ID']?>');
 		}
 		else
 		{
@@ -76,7 +76,7 @@ else
 
 					if(typeof window["BXWaitForMap_view"] == 'function')
 					{
-						BXWaitForMap_view("<?echo $arParams['MAP_ID']?>");
+						BXWaitForMap_view("<?php echo $arParams['MAP_ID']?>");
 						clearInterval(gmWaitIntervalId);
 					}
 				}, 300
@@ -84,9 +84,9 @@ else
 		}
 	}
 
-	BX.ready(BXShowMap_<?echo $arParams['MAP_ID']?>);
+	BX.ready(BXShowMap_<?php echo $arParams['MAP_ID']?>);
 	</script>
-	<?endif;
+	<?php endif;
 
 }
 ?>

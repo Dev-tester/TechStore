@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ANALYTICS_COMPANY_LIMIT_SOLUTION_MASK"] = "To circumvent the restriction, delete the companies you no longer need or upgrade to one of the major plans";
 $MESS["CRM_ANALYTICS_COMPANY_LIMIT_SOLUTION_MASK_DELETE"] = "Please delete the companies you no longer need to remove restriction.<br> <a href=\"#MORE_INFO_LINK#\">Details</a>";
 $MESS["CRM_ANALYTICS_CONTACT_LIMIT_SOLUTION_MASK"] = "To circumvent the restriction, delete the contacts you no longer need or upgrade to one of the major plans.";

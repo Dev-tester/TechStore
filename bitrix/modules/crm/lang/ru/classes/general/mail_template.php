@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MAIL_TEMPLATE_SCOPE_PERSONAL"] = "только мне";
 $MESS["CRM_MAIL_TEMPLATE_SCOPE_COMMON"] = "всем";
 $MESS["CRM_MAIL_TEMPLATE_FIELD_OWNER_ID"] = "Владелец";

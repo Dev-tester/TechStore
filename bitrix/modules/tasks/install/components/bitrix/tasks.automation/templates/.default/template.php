@@ -27,7 +27,7 @@ global $APPLICATION;
 \CUtil::initJSCore('tasks_integration_socialnetwork');
 ?>
 <div class="tasks-automation">
-	<? $APPLICATION->IncludeComponent('bitrix:bizproc.automation', '', [
+	<?php  $APPLICATION->IncludeComponent('bitrix:bizproc.automation', '', [
 			'DOCUMENT_TYPE' => ['tasks', \Bitrix\Tasks\Integration\Bizproc\Document\Task::class, $arResult['DOCUMENT_TYPE']],
 			'DOCUMENT_ID' => $arResult['TASK_ID'] ?: null,
 			'TITLE_VIEW' => $titleView,

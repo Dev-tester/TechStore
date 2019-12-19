@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAP_CLOSE_LINK"] = "Close";
 $MESS["MENU_ADD_BUTTON"] = "Add";
 $MESS["MENU_ADD_ITEM_TO_ALL"] = "Add menu item for all employees";

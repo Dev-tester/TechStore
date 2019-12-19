@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "user_photo";
 include("util_menu.php");
 include("util_profile.php");
@@ -14,7 +14,7 @@ if ($arParams["FATAL_ERROR"] == "Y"):
 endif;
 
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.user",
 	"",
 	Array(
@@ -52,7 +52,7 @@ endif;
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><div class="social-photo-section-br">&nbsp;</div><?
+?><div class="social-photo-section-br">&nbsp;</div><?php 
 
 $result = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section",
@@ -91,7 +91,7 @@ $result = $APPLICATION->IncludeComponent(
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 // DETAIL LIST
 if ($result && intVal($result["ELEMENTS_CNT"]) > 0)
 {
@@ -109,7 +109,7 @@ if ($result && intVal($result["ELEMENTS_CNT"]) > 0)
 
 	// DETAIL LIST
 	?><div class="photo-info-box photo-info-box-photo-list">
-		<div class="photo-info-box-inner"><?
+		<div class="photo-info-box-inner"><?php 
 		$result2 = $APPLICATION->IncludeComponent(
 			"bitrix:photogallery.detail.list.ex",
 			"",
@@ -190,14 +190,14 @@ if ($result && intVal($result["ELEMENTS_CNT"]) > 0)
 			array("HIDE_ICONS" => "Y")
 		);
 		?></div>
-	</div><?
+	</div><?php 
 	if (empty($result2)):
 		?>
 		<style>
 		div.photo-page-section div.photo-info-box-photo-list {
 			display: none;}
 		</style>
-		<?
+		<?php 
 	endif;
 }
 // SECTIONS LIST
@@ -209,7 +209,7 @@ if (intVal($result["SECTIONS_CNT"]) > 0)
 				<div class="photo-header-inner">
 					<?=GetMessage("P_ALBUMS")?>
 				</div>
-			</div><?
+			</div><?php 
 			$result2 = $APPLICATION->IncludeComponent(
 			"bitrix:photogallery.section.list",
 			"",
@@ -266,7 +266,7 @@ if (intVal($result["SECTIONS_CNT"]) > 0)
 			array("HIDE_ICONS" => "Y")
 		);
 		?></div>
-	</div><?
+	</div><?php 
 	if (empty($result2["SECTIONS"]))
 	{
 	?>
@@ -274,7 +274,7 @@ if (intVal($result["SECTIONS_CNT"]) > 0)
 	div.photo-page-section div.photo-info-box-section-list {
 		display: none;}
 	</style>
-	<?
+	<?php 
 	}
 }
 ?>

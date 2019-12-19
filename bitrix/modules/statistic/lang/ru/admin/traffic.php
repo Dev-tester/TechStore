@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_PAGE_TITLE'] = "Посещаемость";
 $MESS ['STAT_TRAFFIC_DATE_TABLE_TITLE'] = "Таблица посещаемости по датам";
 $MESS ['STAT_TRAFFIC_HOUR_TABLE_TITLE'] = "Таблица посещаемости по часам";

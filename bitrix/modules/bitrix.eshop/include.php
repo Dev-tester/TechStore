@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 use Bitrix\Main\Application;
 use Bitrix\Main\Web\Uri;

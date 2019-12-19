@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_SAVE_DOCUMENT_TITLE"] = "Выберите папку для сохранения документа";
 $MESS["WD_SELECT_DOCUMENT_TITLE"] = "Выберите один или несколько документов";
 $MESS["WD_MY_DOCUMENTS"] = "Мой диск";

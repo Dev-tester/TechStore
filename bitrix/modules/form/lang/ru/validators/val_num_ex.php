@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_VAL_NUM_EX_DESCRIPTION'] = "Число в пределах";
 $MESS['FORM_VALIDATOR_VAL_NUM_EX_SETTINGS_NUMBER_FROM'] = "Нижний порог числа";
 $MESS['FORM_VALIDATOR_VAL_NUM_EX_SETTINGS_NUMBER_TO'] = "Верхний порог числа";

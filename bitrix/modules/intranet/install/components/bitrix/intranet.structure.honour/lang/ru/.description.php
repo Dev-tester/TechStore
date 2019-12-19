@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_GROUP_NAME'] = 'Корпоративный портал';
 $MESS ['INTR_ISH_COMPONENT_NAME'] = 'Доска почета';
 $MESS ['INTR_ISH_COMPONENT_DESCR'] = 'Список почетных сотрудников компании';

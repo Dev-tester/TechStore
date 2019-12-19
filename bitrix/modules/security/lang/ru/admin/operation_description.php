@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['OP_NAME_SECURITY_EDIT_USER_OTP'] = "Управление одноразовыми паролями";
 $MESS ['OP_NAME_SECURITY_FILTER_BYPASS'] = "Обход проактивного фильтра";
 $MESS ['OP_NAME_SECURITY_MODULE_SETTINGS_READ'] = "Просмотр настроек модуля";

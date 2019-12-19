@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_PRD_P_SITE_ID"] = "Сайт";
 $MESS["GD_PRD_P_SITE_ID_ALL"] = "Все";
 $MESS["GD_PRD_P_WEEK"] = "Неделя";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NO_AGENT_CHECK", true);
 define("DisableEventsCheck", true);
 
@@ -17,7 +17,7 @@ if (CPGalleryInterface::CheckSign($_REQUEST['sigh'], $_REQUEST["checkParams"]))
 	if (!window.BX && top.BX)
 		BX = top.BX;
 	</script>
-	<?
+	<?php 
 
 	CUtil::JSPostUnEscape();
 	$arParams = array_merge($_REQUEST["checkParams"], $_REQUEST["reqParams"]);
@@ -28,7 +28,7 @@ if (CPGalleryInterface::CheckSign($_REQUEST['sigh'], $_REQUEST["checkParams"]))
 		if ($arParams["DISPLAY_AS_RATING"] == "rating_main")
 		{
 			// Don't delete <!--BX_PHOTO_RATING-->, <!--BX_PHOTO_RATING_END--> comments - they are used in js to catch html content
-			?><!--BX_PHOTO_RATING--><?
+			?><!--BX_PHOTO_RATING--><?php 
 			$arParams["RATING_MAIN_TYPE"] = COption::GetOptionString("main", "rating_vote_template", COption::GetOptionString("main", "rating_vote_type", "standart") == "like"? "like": "standart");
 			if ($arParams["RATING_MAIN_TYPE"] == "like_graphic")
 				$arParams["RATING_MAIN_TYPE"] = "like";
@@ -47,7 +47,7 @@ if (CPGalleryInterface::CheckSign($_REQUEST['sigh'], $_REQUEST["checkParams"]))
 				null,
 				array("HIDE_ICONS" => "Y")
 			);
-			?><!--BX_PHOTO_RATING_END--><?
+			?><!--BX_PHOTO_RATING_END--><?php 
 		}
 		else
 		{

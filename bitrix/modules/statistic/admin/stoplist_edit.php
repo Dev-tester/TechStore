@@ -152,92 +152,92 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);?>
 
 <form name="form1" method="POST" action="<?=$APPLICATION->GetCurPage()?>?ID=<?=$ID?>">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="ID" value=<?echo $ID?>>
+<input type="hidden" name="ID" value=<?php echo $ID?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-	<? if (strlen($str_TIMESTAMP_X)>0) : ?>
+	<?php  if (strlen($str_TIMESTAMP_X)>0) : ?>
 	<tr valign="center">
-		<td width="40%" align="right"><?echo GetMessage("STAT_TIMESTAMP")?></td>
-		<td width="60%"><?echo $str_TIMESTAMP_X?></td>
+		<td width="40%" align="right"><?php echo GetMessage("STAT_TIMESTAMP")?></td>
+		<td width="60%"><?php echo $str_TIMESTAMP_X?></td>
 	</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr valign="top" class="heading">
-		<td colspan="2"><?=GetMessage("STAT_ACTIVITY")?><?
+		<td colspan="2"><?=GetMessage("STAT_ACTIVITY")?><?php 
 			if (strlen($str_LAMP)>0) :
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 				if ($str_LAMP=="green") echo "<font class=\"stat_pointed\">(".GetMessage("STAT_GREEN_LAMP").")</span>";
 				else echo "<span class=\"stat_attention\">(".GetMessage("STAT_RED_LAMP").")</span>";
-				?><?
+				?><?php 
 			endif;
 			?></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_ACTIVE")?></td>
-		<td><?echo InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false) ?></td>
+		<td align="right"><?php echo GetMessage("STAT_ACTIVE")?></td>
+		<td><?php echo InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false) ?></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_START_DATE").":"?></td>
-		<td><?echo CalendarDate("DATE_START", $str_DATE_START, "form1", "19")?></td>
+		<td align="right"><?php echo GetMessage("STAT_START_DATE").":"?></td>
+		<td><?php echo CalendarDate("DATE_START", $str_DATE_START, "form1", "19")?></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_END_DATE").":"?></td>
-		<td><?echo CalendarDate("DATE_END", $str_DATE_END, "form1", "19")?></td>
+		<td align="right"><?php echo GetMessage("STAT_END_DATE").":"?></td>
+		<td><?php echo CalendarDate("DATE_END", $str_DATE_END, "form1", "19")?></td>
 	</tr>
 	<tr valign="top" class="heading">
 		<td colspan="2"><?=GetMessage("STAT_CONDITIONS")?></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_SITE")?>:</td>
-		<td><?echo CSite::SelectBox("SITE_ID", $str_SITE_ID, GetMessage("MAIN_ALL"))?></td>
+		<td align="right"><?php echo GetMessage("STAT_SITE")?>:</td>
+		<td><?php echo CSite::SelectBox("SITE_ID", $str_SITE_ID, GetMessage("MAIN_ALL"))?></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_MASK")?></td>
-		<td><input  type="text" name="MASK_1" size="3" maxlength="3" value="<?echo $str_MASK_1?>">&nbsp;<input  type="text" name="MASK_2" size="3" maxlength="3" value="<?echo $str_MASK_2?>">&nbsp;<input  type="text" name="MASK_3" size="3" maxlength="3" value="<?echo $str_MASK_3?>">&nbsp;<input  type="text" name="MASK_4" size="3" maxlength="3" value="<?echo $str_MASK_4?>"></td>
+		<td align="right"><?php echo GetMessage("STAT_MASK")?></td>
+		<td><input  type="text" name="MASK_1" size="3" maxlength="3" value="<?php echo $str_MASK_1?>">&nbsp;<input  type="text" name="MASK_2" size="3" maxlength="3" value="<?php echo $str_MASK_2?>">&nbsp;<input  type="text" name="MASK_3" size="3" maxlength="3" value="<?php echo $str_MASK_3?>">&nbsp;<input  type="text" name="MASK_4" size="3" maxlength="3" value="<?php echo $str_MASK_4?>"></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_IP")?></td>
-		<td><input  type="text" name="IP_1" size="3" maxlength="3" value="<?echo $str_IP_1?>">&nbsp;<input  type="text" name="IP_2" size="3" maxlength="3" value="<?echo $str_IP_2?>">&nbsp;<input  type="text" name="IP_3" size="3" maxlength="3" value="<?echo $str_IP_3?>">&nbsp;<input  type="text" name="IP_4" size="3" maxlength="3" value="<?echo $str_IP_4?>"></td>
+		<td align="right"><?php echo GetMessage("STAT_IP")?></td>
+		<td><input  type="text" name="IP_1" size="3" maxlength="3" value="<?php echo $str_IP_1?>">&nbsp;<input  type="text" name="IP_2" size="3" maxlength="3" value="<?php echo $str_IP_2?>">&nbsp;<input  type="text" name="IP_3" size="3" maxlength="3" value="<?php echo $str_IP_3?>">&nbsp;<input  type="text" name="IP_4" size="3" maxlength="3" value="<?php echo $str_IP_4?>"></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_USER_AGENT")?></td>
-		<td><input type="text" name="USER_AGENT" size="50" maxlength="255" value="<?echo $str_USER_AGENT?>">&nbsp;<?echo GetMessage("STAT_EMPTY")?>&nbsp;<?echo InputType("checkbox","USER_AGENT_IS_NULL","Y",$str_USER_AGENT_IS_NULL,false) ?></td>
+		<td align="right"><?php echo GetMessage("STAT_USER_AGENT")?></td>
+		<td><input type="text" name="USER_AGENT" size="50" maxlength="255" value="<?php echo $str_USER_AGENT?>">&nbsp;<?php echo GetMessage("STAT_EMPTY")?>&nbsp;<?php echo InputType("checkbox","USER_AGENT_IS_NULL","Y",$str_USER_AGENT_IS_NULL,false) ?></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_URL_FROM")?></td>
-		<td><input type="text" name="URL_FROM" size="60" maxlength="255" value="<?echo $str_URL_FROM?>"></td>
+		<td align="right"><?php echo GetMessage("STAT_URL_FROM")?></td>
+		<td><input type="text" name="URL_FROM" size="60" maxlength="255" value="<?php echo $str_URL_FROM?>"></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_URL_TO")?></td>
-		<td><input type="text" name="URL_TO" size="60" maxlength="255" value="<?echo $str_URL_TO?>"></td>
+		<td align="right"><?php echo GetMessage("STAT_URL_TO")?></td>
+		<td><input type="text" name="URL_TO" size="60" maxlength="255" value="<?php echo $str_URL_TO?>"></td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_REDIRECT")?></td>
-		<td><input type="text" name="URL_REDIRECT" size="60" maxlength="255" value="<?echo $str_URL_REDIRECT?>"></td>
-	</tr>
-	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_MESSAGE")?></td>
-		<td><textarea name="MESSAGE" rows="5" cols="45"><?echo $str_MESSAGE?></textarea></td>
+		<td align="right"><?php echo GetMessage("STAT_REDIRECT")?></td>
+		<td><input type="text" name="URL_REDIRECT" size="60" maxlength="255" value="<?php echo $str_URL_REDIRECT?>"></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_MESSAGE_LID")?></td>
-		<td><?echo CLanguage::SelectBox("MESSAGE_LID", $str_MESSAGE_LID);?></td>
+		<td align="right"><?php echo GetMessage("STAT_MESSAGE")?></td>
+		<td><textarea name="MESSAGE" rows="5" cols="45"><?php echo $str_MESSAGE?></textarea></td>
 	</tr>
 	<tr valign="top">
-		<td align="right"><?echo GetMessage("STAT_SAVE_STATISTIC")?></td>
-		<td><?echo InputType("checkbox","SAVE_STATISTIC","Y",$str_SAVE_STATISTIC,false) ?></td>
+		<td align="right"><?php echo GetMessage("STAT_MESSAGE_LID")?></td>
+		<td><?php echo CLanguage::SelectBox("MESSAGE_LID", $str_MESSAGE_LID);?></td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
+	<tr valign="top">
+		<td align="right"><?php echo GetMessage("STAT_SAVE_STATISTIC")?></td>
+		<td><?php echo InputType("checkbox","SAVE_STATISTIC","Y",$str_SAVE_STATISTIC,false) ?></td>
+	</tr>
+<?php $tabControl->BeginNextTab();?>
 	<tr valign="top">
 		<td colspan="2" align="center"><textarea style="width:100%" name="COMMENTS" rows="5" wrap="VIRTUAL"><?=$str_COMMENTS?></textarea></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(Array("disabled" =>$STAT_RIGHT<"W" ,"back_url" =>"/bitrix/admin/stoplist_list.php?lang=".LANG."&set_filter=Y"));
 $tabControl->End();
 ?>
 </form>
-<?$tabControl->ShowWarnings("form1", $message);?>
-<? require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php $tabControl->ShowWarnings("form1", $message);?>
+<?php  require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

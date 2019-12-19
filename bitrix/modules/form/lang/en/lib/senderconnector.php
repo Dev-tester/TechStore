@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_form_name"] = "Web Forms";
 $MESS["sender_connector_form_required_settings"] = "This feature needs to be configured";
 $MESS["sender_connector_form_select"] = "(select a form)";

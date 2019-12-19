@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/include.php");
@@ -172,8 +172,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 
 
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -192,15 +192,15 @@ $oFilter->Begin();
 
 ?>
 	<tr>
-		<td><?echo GetMessage("SUP_FILTER_NAME")?>:</td>
-		<td><input type="text" name="filter_name" value="<?echo htmlspecialcharsbx($filter_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("SUP_FILTER_NAME")?>:</td>
+		<td><input type="text" name="filter_name" value="<?php echo htmlspecialcharsbx($filter_name)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SUP_FILTER_OPEN_TIME")?>:</td>
+		<td><?php echo GetMessage("SUP_FILTER_OPEN_TIME")?>:</td>
 		<td>
 		<select id="filter_open_time" name="filter_open_time">
 		<option value=""></option>';
-		<?
+		<?php 
 		$arr = CSupportHolidays::GetOpenTimeArray();
 		foreach($arr as $v => $n)
 		{
@@ -224,9 +224,9 @@ $oFilter->Begin();
 	</tr>
 	
 	<tr>
-		<td><?echo GetMessage("SUP_FILTER_SLA")?>:</td>
+		<td><?php echo GetMessage("SUP_FILTER_SLA")?>:</td>
 		<td>
-		<?
+		<?php 
 			$arSort = array();
 			$ar = CTicketSLA::GetList($arSort, array(), $is_filtered);
 			$slaI = 0;
@@ -241,7 +241,7 @@ $oFilter->Begin();
 		</td>
 	</tr>
 	
-<?
+<?php 
 $USER_FIELD_MANAGER->AdminListShowFilter("SUPPORT");
 
 $oFilter->Buttons(
@@ -254,7 +254,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

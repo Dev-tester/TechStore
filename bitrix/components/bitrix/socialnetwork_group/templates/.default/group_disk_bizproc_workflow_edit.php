@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
 use Bitrix\Main\Localization\Loc;
@@ -22,7 +22,7 @@ $arResult["PATH_TO_DISK_BIZPROC_WORKFLOW_ADMIN"] = CComponentEngine::MakePathFro
 $arResult["PATH_TO_DISK_BIZPROC_WORKFLOW_EDIT_TOOLBAR"] = CComponentEngine::MakePathFromTemplate($arResult["PATH_TO_DISK_BIZPROC_WORKFLOW_EDIT"], array("ID" => 0));
 ?>
 <div class="bx-disk-bizproc-section">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:disk.bizproc.edit",
 	"",

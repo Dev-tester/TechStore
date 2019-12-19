@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_CPV_SECTION_ID"] = "ID раздела";
 $MESS["CP_CPV_SECTION_CODE"] = "Код раздела";
 $MESS["CP_CPV_IBLOCK_MODE"] = "Показывать товары из";

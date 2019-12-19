@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_ADDR_FRMT_EU"] = "Europe";
 $MESS["CRM_ENTITY_ADDR_FRMT_UK"] = "United Kingdom";
 $MESS["CRM_ENTITY_ADDR_FRMT_USA"] = "USA";

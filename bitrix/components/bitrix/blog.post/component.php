@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Page\Asset;
 use Bitrix\Main\Application;
 

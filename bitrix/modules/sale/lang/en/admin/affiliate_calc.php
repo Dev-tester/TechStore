@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAC_ACTION_CALC_PAY"] = "Reserve and pay by transferring to the user internal account";
 $MESS["SAC_ACTION_CALC_MARK"] = "Reserve and mark as paid";
 $MESS["SAC_ACTION_CALC"] = "Reserve only";

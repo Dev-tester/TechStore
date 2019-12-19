@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SECTION_TITLE"] = "Location groups";
 $MESS["SALE_F_FILTER"] = "Filter";
 $MESS["SALE_F_LOCATION"] = "Location";

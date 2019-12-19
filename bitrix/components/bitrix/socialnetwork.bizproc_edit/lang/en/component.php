@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MODULE_NOT_INSTALL"] = "The Social Network module is not installed.";
 $MESS["SONET_BIZPROC_TITLE"] = "Business Processes";
 $MESS["BPAT_TITLE"] = "Performing task  ##ID#.";

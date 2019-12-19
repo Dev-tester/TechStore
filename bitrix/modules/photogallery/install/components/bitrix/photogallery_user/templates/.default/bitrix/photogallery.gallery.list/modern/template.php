@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["GALLERIES"])):
 	return false;
 endif;
@@ -21,11 +21,11 @@ if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATI
 <div class="photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>
 <ul class="photo-items-list photo-galleries-list-modern">
-<?
+<?php 
 
 foreach($arResult["GALLERIES"] as $res):
 	if (empty($res["ALBUMS"]))
@@ -37,18 +37,18 @@ foreach($arResult["GALLERIES"] as $res):
 				<a href="<?=$res["LINK"]["VIEW"]?>"><?=$res["NAME"]?></a> 
 			</div>
 <ul class="photo-items-list photo-album-thumbs-list">
-<?
+<?php 
 	$iCount = 0;
 	foreach ($res["ALBUMS"] as $res2)
 	{
 		$iCount++; 
 ?>
 	<li class="photo-item photo-album-item photo-album-<?=($res2["ACTIVE"] != "Y" ? "nonactive" : "active")?> <?=(
-		!empty($res2["PASSWORD"]) ? " photo-album-password " : "")?><?
-		?><?=($iCount == 1 ? " photo-item-first" : "")?><?
-		?><?=($iCount == count($res["ALBUMS"]) ? " photo-item-last" : "")?><?
-		?>" id="photo_album_info_<?=$res2["ID"]?>" <?
-		?> title="<?=trim("&laquo;".$res2["~NAME"]."&raquo;  ".(!empty($res2["DATE"]) ? " ".$res2["DATE"]." " : ""))?>" <?
+		!empty($res2["PASSWORD"]) ? " photo-album-password " : "")?><?php 
+		?><?=($iCount == 1 ? " photo-item-first" : "")?><?php 
+		?><?=($iCount == count($res["ALBUMS"]) ? " photo-item-last" : "")?><?php 
+		?>" id="photo_album_info_<?=$res2["ID"]?>" <?php 
+		?> title="<?=trim("&laquo;".$res2["~NAME"]."&raquo;  ".(!empty($res2["DATE"]) ? " ".$res2["DATE"]." " : ""))?>" <?php 
 			
 		?>>
 		<div class="photo-item-cover-block-outside">
@@ -56,11 +56,11 @@ foreach($arResult["GALLERIES"] as $res):
 				<div class="photo-item-cover-block-outer">
 					<div class="photo-item-cover-block-inner">
 						<div class="photo-item-cover-block-inside">
-							<a href="<?=$res2["URL"]["VIEW"]?>" class="photo-item-cover-link"><?
-								?><div class="photo-item-cover photo-album-thumbs-avatar <?=(empty($res2["PICTURE"]["SRC"])? "photo-album-avatar-empty" : "")?>" <?
-									?> id="photo_album_cover_<?=$res2["ID"]?>" <?
+							<a href="<?=$res2["URL"]["VIEW"]?>" class="photo-item-cover-link"><?php 
+								?><div class="photo-item-cover photo-album-thumbs-avatar <?=(empty($res2["PICTURE"]["SRC"])? "photo-album-avatar-empty" : "")?>" <?php 
+									?> id="photo_album_cover_<?=$res2["ID"]?>" <?php 
 									if (!empty($res2["PICTURE"]["SRC"])):
-										?>style="background-image:url('<?=$res2["PICTURE"]["SRC"]?>'); "<?
+										?>style="background-image:url('<?=$res2["PICTURE"]["SRC"]?>'); "<?php 
 									endif;
 									?>>
 								</div>
@@ -71,7 +71,7 @@ foreach($arResult["GALLERIES"] as $res):
 			</div>
 		</div>
 	</li>
-<?
+<?php 
 	}
 ?>
 </ul>
@@ -81,17 +81,17 @@ foreach($arResult["GALLERIES"] as $res):
 			</div>
 		</div>
 	</li>
-<?
+<?php 
 endforeach;
 ?></ul>
 <div class="empty-clear"></div>
-<?
+<?php 
 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?>
 <div class="photo-navigation-bottom">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 ?>

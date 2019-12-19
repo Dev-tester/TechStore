@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_DOC_INSUFFICIENTLY_AMOUNT"] = "Insufficient stock of #PRODUCT# at warehouse #STORE#.";
 $MESS["CAT_DOC_WRONG_TYPE"] = "Incorrect document type.";
 $MESS["CAT_DOC_WRONG_STATUS"] = "Cannot delete a document for which a transaction was created.";

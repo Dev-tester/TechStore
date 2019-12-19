@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['DESC_ORDER'] = "Descending";
 $MESS ['ASC_ORDER'] = "Ascending";
 $MESS ['FILTER_ERROR_LOGIC'] = "The combination of the filter and database settings does not allow \"OR\" logic with filter fields (automatically replaced with \"AND\")";

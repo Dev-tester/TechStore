@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -18,7 +18,7 @@ if($isCanceled):?>
 
 	<div class="lists-view-message"><?=Loc::getMessage('LISTS_EDIT_EVENT_CANCELED')?></div>
 
-<?else:
+<?php else:
 	$elementInfo = isset($event['PARAMS']['elementInfo']) && is_array($event['PARAMS']['elementInfo']) ?
 		$event['PARAMS']['elementInfo'] : array(); ?>
 
@@ -30,7 +30,7 @@ if($isCanceled):?>
 		))?>
 	</div>
 	
-<? endif; ?>
+<?php  endif; ?>
 
 <script type="text/javascript">
 	BX.ready(

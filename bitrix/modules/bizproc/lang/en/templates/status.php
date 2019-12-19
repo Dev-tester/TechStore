@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPT_ST_SEQ'] = "Activity sequence";
 $MESS ['BPT_ST_CMD_APP'] = "Approval";
 $MESS ['BPT_ST_APPROVE_NAME'] = "Approve Document \"{=Document:NAME}\"";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SENDER_SECURITY_AGREEMENT_ERROR'] = 'Вам необходимо принять условия соглашения по использованию.';
 $MESS["SENDER_SECURITY_AGREEMENT_HTML_RICH"] = "<div class=\"tracker-agreement-popup-content\">		
 	CRM-маркетинг — это набор инструментов, которые помогут вам получить больше продаж от вашей   базы   потенциальных   клиентов,   

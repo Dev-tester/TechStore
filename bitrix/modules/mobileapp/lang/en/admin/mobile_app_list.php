@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILEAPP_ADD_APP"] = "Add application";
 $MESS["MOBILEAPP_EDIT_APP"] = "Edit";
 $MESS["MOBILEAPP_REMOVE_APP"] = "Delete";

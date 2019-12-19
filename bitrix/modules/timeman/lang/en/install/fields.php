@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_FIELD_UF_TIMEMAN"] = "Working Time Management";
 $MESS["TM_FIELD_UF_TIMEMAN_Y"] = "enable";
 $MESS["TM_FIELD_UF_TIMEMAN_N"] = "disable";

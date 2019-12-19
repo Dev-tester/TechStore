@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (strlen($arParams["START_VALUE"]) > 0)
@@ -15,7 +15,7 @@ else
 		echo ShowNote($arResult["RESULT"]["TEXT"]);
 	elseif ($arResult["RESULT"]["RESULT"] == "OK")
 	{
-		?><input type="text" name="<?=$arParams["INPUT_NAME"]?>" value="<?=roundEx($arResult["RESULT"]["VALUE"], SALE_VALUE_PRECISION)?>" <?echo $arParams['INPUT_DISABLED'] == 'Y' ? 'disabled="disabled"' : ''?> <?=$arParams["INPUT_ADDITIONAL"]?> /><?
+		?><input type="text" name="<?=$arParams["INPUT_NAME"]?>" value="<?=roundEx($arResult["RESULT"]["VALUE"], SALE_VALUE_PRECISION)?>" <?php echo $arParams['INPUT_DISABLED'] == 'Y' ? 'disabled="disabled"' : ''?> <?=$arParams["INPUT_ADDITIONAL"]?> /><?php 
 	}
 }
 ?>

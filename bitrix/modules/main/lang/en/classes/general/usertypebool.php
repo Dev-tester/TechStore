@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_BOOL_DESCRIPTION"] = "True/False";
 $MESS["USER_TYPE_BOOL_DISPLAY"] = "Control";
 $MESS["USER_TYPE_BOOL_CHECKBOX"] = "Checkbox";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (!CModule::IncludeModule("photogallery"))
 	return ShowError(GetMessage("P_MODULE_IS_NOT_INSTALLED"));
@@ -498,7 +498,7 @@ elseif($_REQUEST["save_edit"] == "Y" || $_REQUEST["edit"] == "Y")
 		if ($arParams["AJAX_CALL"] == "Y")
 		{
 			$APPLICATION->RestartBuffer();
-			?><?=CUtil::PhpToJSObject($arResultFields);?><?
+			?><?=CUtil::PhpToJSObject($arResultFields);?><?php 
 			die();
 		}
 		else
@@ -720,7 +720,7 @@ if ($oPhoto)
 
 	if ($ajaxAction == 'load_items')
 	{
-		?><script>window.bx_load_items_res = <?= CUtil::PhpToJSObject($arResult["PHOTOS_JS"])?>;</script><?
+		?><script>window.bx_load_items_res = <?= CUtil::PhpToJSObject($arResult["PHOTOS_JS"])?>;</script><?php 
 		die();
 	}
 }

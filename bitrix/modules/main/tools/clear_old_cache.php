@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("NOT_CHECK_PERMISSIONS", true);
 set_time_limit(1800);

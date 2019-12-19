@@ -1,4 +1,4 @@
-<?
+<?php 
 	if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	if (!isset($arParams["WSDESCR"]))
 	{
@@ -78,7 +78,7 @@
 	</p>
 </span>
 
-<?
+<?php 
 if (in_array("TestComponent", get_class_methods($wsClass)) or
 	in_array("testcomponent", get_class_methods($wsClass)))
 {
@@ -98,7 +98,7 @@ if (in_array("TestComponent", get_class_methods($wsClass)) or
 ?>
 
 <span>
-<?
+<?php 
 	if (!is_object($arParams["WSDESCR"]) or
 		!is_array($arParams["WSDESCR"]->classes))
 	{

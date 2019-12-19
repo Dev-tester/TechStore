@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $APPLICATION->AddHeadScript("/bitrix/js/main/admin_tools.js");
 ?>
-<div class="content-edit-form-notice-successfully" id="backupSuccessBlock" <?if (!isset($_GET['success'])):?>style="display:none"<?endif?>>
+<div class="content-edit-form-notice-successfully" id="backupSuccessBlock" <?php if (!isset($_GET['success'])):?>style="display:none"<?php endif?>>
 	<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=GetMessage('BACKUP_SUCCESS')?></span>
 </div>
-<?
+<?php 
 if (isset($_REQUEST["action_button_backup_grid"]) && $_REQUEST["action_button_backup_grid"] == "delete")
 {
 	$APPLICATION->RestartBuffer();
@@ -94,7 +94,7 @@ if (isset($_REQUEST["action_button_backup_grid"]) && $_REQUEST["action_button_ba
 	<span id="cancelButton" class="webform-button" style="display: none;" onclick="BX.Intranet.Backup.stopBackup(this);"><?=GetMessage("BACKUP_STOP_BUTTON")?></span>
 </div>
 
-<?
+<?php 
 $successUrl = $APPLICATION->GetCurPageParam("success=Y");
 $currentUrl = $APPLICATION->GetCurPage();
 

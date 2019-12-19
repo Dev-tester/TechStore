@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Loader;
 use Bitrix\Crm\SiteButton\Internals\ButtonTable;

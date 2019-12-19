@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_INTEGRATION_CRM_RC_MESSAGE_NAME_LEAD"] = "Повторные лиды";
 $MESS["SENDER_INTEGRATION_CRM_RC_MESSAGE_NAME_DEAL"] = "Повторные сделки";
 $MESS["SENDER_INTEGRATION_CRM_RC_MESSAGE_CONFIG_COMMENT"] = "Задание для менеджера";

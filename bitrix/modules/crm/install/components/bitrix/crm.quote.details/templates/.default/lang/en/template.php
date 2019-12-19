@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_DETAIL_HISTORY_STUB"] = "You are now creating a quote...";
 $MESS["CRM_QUOTE_CONV_ACCESS_DENIED"] = "You need deal and invoice create permission to proceed.";
 $MESS["CRM_QUOTE_CONV_GENERAL_ERROR"] = "Generic error.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Lists\Security;
 
 interface RightEntity

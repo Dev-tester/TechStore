@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Mobile\Tab;
 
 use Bitrix\Mobile\Context;

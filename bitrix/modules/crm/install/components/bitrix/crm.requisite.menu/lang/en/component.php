@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REQUISITE_ADD"] = "Add details";
 $MESS["REQUISITE_ADD_TITLE"] = "Add details";
 $MESS["REQUISITE_COPY"] = "Copy";

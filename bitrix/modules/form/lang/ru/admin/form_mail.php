@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FILLING'] = "Заполнена web-форма";
 $MESS ['FORM_FILLING_S'] = "заполнена web-форма";
 $MESS ['FORM_GENERATING_FINISHED'] = "Генерация почтовых шаблонов завершена.";

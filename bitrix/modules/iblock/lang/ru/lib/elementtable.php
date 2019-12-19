@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ELEMENT_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["ELEMENT_ENTITY_TIMESTAMP_X_FIELD"] = "Дата изменения";
 $MESS["ELEMENT_ENTITY_MODIFIED_BY_FIELD"] = "Кто изменил";

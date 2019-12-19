@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_INSTALL_NAME'] = "Blog";
 $MESS ['BLOG_INSTALL_DESCRIPTION'] = "With this module, you can set up, host and keep web logs on your site.";
 $MESS ['BLOG_INSTALL_TITLE'] = "Blog module installation";

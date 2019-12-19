@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_OL_TITLE"] = "Open Channels";
 $MESS["B24C_OL_DESCR1"] = "Today people use digital communications like social services and messengers because they are fast, convenient, private and free. This is what customers expect when they want to contact you.";
 $MESS["B24C_OL_DESCR21"] = "Bitrix24 Open Channels consolidate multiple communications:";

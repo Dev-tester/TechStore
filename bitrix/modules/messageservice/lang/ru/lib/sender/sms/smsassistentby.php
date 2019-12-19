@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGESERVICE_SENDER_SMS_SMSASTBY_NAME"] = "SMS-ассистент";
 $MESS["MESSAGESERVICE_SENDER_SMS_SMSASTBY_CAN_USE_ERROR"] = "Провайдер компании SMS-ассистент не настроен";
 $MESS["MESSAGESERVICE_SENDER_SMS_SMSASTBY_ERROR_1"] = "Недостаточно средств";

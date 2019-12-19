@@ -1,6 +1,6 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
@@ -12,14 +12,14 @@ if(!empty($arResult['ERROR']))
 }
 ?>
 
-<?$data = $arResult['DATA']['TASK'];?>
-<?$sender = $arResult['DATA']['MEMBERS']['SENDER'];?>
-<?$receiver = $arResult['DATA']['MEMBERS']['RECEIVER'];?>
-<?$path = $arResult['AUX_DATA']["ENTITY_URL"];?>
+<?php $data = $arResult['DATA']['TASK'];?>
+<?php $sender = $arResult['DATA']['MEMBERS']['SENDER'];?>
+<?php $receiver = $arResult['DATA']['MEMBERS']['RECEIVER'];?>
+<?php $path = $arResult['AUX_DATA']["ENTITY_URL"];?>
 
 <table cellpadding="0" cellspacing="0" border="0" align="left" style="border-collapse: collapse;mso-table-lspace: 0pt;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;width: 100%;max-width: 600px;">
 
-	<?//header?>
+	<?php //header?>
 	<tr>
 		<td align="left" valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 3px 15px 8px 0;text-align: left;">
 			<table cellpadding="0" cellspacing="0" border="0" align="left" style="border-collapse: collapse;mso-table-lspace: 0pt;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;font-size: 14px;width: 100%;">
@@ -46,7 +46,7 @@ if(!empty($arResult['ERROR']))
 						<img src="<?=$arResult['TEMPLATE_FOLDER']?>/img/icon.png" alt="">
 					</td>
 					<td style="color: #55606f;font-size: 14px;">
-						<?$action = Loc::getMessage('TASKS_'.$arParams['ENTITY_ACTION'].'_'.$arParams['ENTITY'].'_'.$sender['PERSONAL_GENDER']);?>
+						<?php $action = Loc::getMessage('TASKS_'.$arParams['ENTITY_ACTION'].'_'.$arParams['ENTITY'].'_'.$sender['PERSONAL_GENDER']);?>
 						<?=($action != '' ? $action : Loc::getMessage('TASKS_TASK'))?>: <span style="color: #0067a3;font-size: 14px;line-height: 16px;"><?=htmlspecialcharsbx($data['TITLE'])?></span>
 					</td>
 				</tr>
@@ -54,103 +54,103 @@ if(!empty($arResult['ERROR']))
 		</td>
 	</tr>
 
-	<?//body?>
+	<?php //body?>
 
-	<?//task add?>
-	<?if($arParams['ENTITY'] == 'TASK'):?>
+	<?php //task add?>
+	<?php if($arParams['ENTITY'] == 'TASK'):?>
 		<tr>
 			<td valign="top" style="background: #fffae3; border-collapse: collapse;border-spacing: 0;color: #000000;font-size: 14px;vertical-align: top;padding: 18px 15px 10px;">
 
-				<?if($arParams['ENTITY_ACTION'] == 'ADD'):?>
+				<?php if($arParams['ENTITY_ACTION'] == 'ADD'):?>
 
 					<b style="font-size:14px;"><?=htmlspecialcharsbx($data['TITLE'])?></b>
 					<br />
 					<br />
-					<?if((string) $data['DEADLINE'] != ''):?>
+					<?php if((string) $data['DEADLINE'] != ''):?>
 						<div style="color:#4c4b44;font-size:13px;">
 							<?=Loc::getMessage('TASKS_FIELD_DEADLINE')?>: <b style="font-weight:normal;color:#000;margin-right:10px"><?=htmlspecialcharsbx($data['DEADLINE'])?></b>
 						</div>
 						<br />
-					<?endif?>
-					<?if((string) $data['START_DATE_PLAN'] != ''):?>
+					<?php endif?>
+					<?php if((string) $data['START_DATE_PLAN'] != ''):?>
 						<div style="color:#4c4b44;font-size:13px;">
 							<?=Loc::getMessage('TASKS_FIELD_START_DATE_PLAN')?>: <b style="font-weight:normal;color:#000;margin-right:10px"><?=htmlspecialcharsbx($data['START_DATE_PLAN'])?></b>
 						</div>
 						<br />
-					<?endif?>
-					<?if((string) $data['END_DATE_PLAN'] != ''):?>
+					<?php endif?>
+					<?php if((string) $data['END_DATE_PLAN'] != ''):?>
 						<div style="color:#4c4b44;font-size:13px;">
 							<?=Loc::getMessage('TASKS_FIELD_END_DATE_PLAN')?>: <b style="font-weight:normal;color:#000;margin-right:10px"><?=htmlspecialcharsbx($data['END_DATE_PLAN'])?></b>
 						</div>
 						<br />
-					<?endif?>
-					<?if($data['PRIORITY'] == CTasks::PRIORITY_HIGH):?>
+					<?php endif?>
+					<?php if($data['PRIORITY'] == CTasks::PRIORITY_HIGH):?>
 						<div style="color:#4c4b44;font-size:13px;">
 							<?=Loc::getMessage('TASKS_FIELD_PRIORITY')?>: <b style="font-weight:normal;color:red;margin-right:10px"><?=Loc::getMessage('TASKS_IMPORTANT')?></b>
 						</div>
 						<br />
-					<?endif?>
-					<?if($data['STATUS'] == CTasks::METASTATE_EXPIRED):?>
+					<?php endif?>
+					<?php if($data['STATUS'] == CTasks::METASTATE_EXPIRED):?>
 						<div style="border-radius:2px;font-size:13px;display: inline-block;background: #fcbe9e;padding:10px 15px;color:#000;"><?=Loc::getMessage('TASKS_EXPIRED')?></div>
-					<?else:?>
-						<div style="border-radius:2px;font-size:13px;display: inline-block;background: #<?if($data["REAL_STATUS"] == CTasks::STATE_DEFERRED):?>fee178<?else:?>e3f1b8<?endif?>;padding:10px 15px;color:#000;"><?=Loc::getMessage("TASKS_STATUS_".$data["REAL_STATUS"])?><?if((string) $data["STATUS_CHANGED_DATE"] != ''):?><?if($arResult['S_NEEDED']):?> <?=Loc::getMessage('TASKS_SIDEBAR_START_DATE')?><?endif?> <b><?=htmlspecialcharsbx($data["STATUS_CHANGED_DATE"])?></b><?endif?></div>
-					<?endif?>
+					<?php else:?>
+						<div style="border-radius:2px;font-size:13px;display: inline-block;background: #<?php if($data["REAL_STATUS"] == CTasks::STATE_DEFERRED):?>fee178<?php else:?>e3f1b8<?php endif?>;padding:10px 15px;color:#000;"><?=Loc::getMessage("TASKS_STATUS_".$data["REAL_STATUS"])?><?php if((string) $data["STATUS_CHANGED_DATE"] != ''):?><?php if($arResult['S_NEEDED']):?> <?=Loc::getMessage('TASKS_SIDEBAR_START_DATE')?><?php endif?> <b><?=htmlspecialcharsbx($data["STATUS_CHANGED_DATE"])?></b><?php endif?></div>
+					<?php endif?>
 					<br />
 					<br />
-					<?if((string) $data['DESCRIPTION'] != ''):?>
+					<?php if((string) $data['DESCRIPTION'] != ''):?>
 						<b><?=Loc::getMessage('TASKS_FIELD_DESCRIPTION')?>:</b>
 						<p>
 							<?=$data['DESCRIPTION']?>
 						</p>
-					<?endif?>
-					<?if(!empty($data['SE_CHECKLIST'])):?>
+					<?php endif?>
+					<?php if(!empty($data['SE_CHECKLIST'])):?>
 						<b><?=Loc::getMessage('TASKS_CHECKLIST')?>:</b>
 						<p style="font-size:14px;">
 
-							<?$i = 1;?>
-							<?foreach($data['SE_CHECKLIST'] as $item):?>
-								<?if(\Bitrix\Tasks\UI\Task\CheckList::checkIsSeparatorValue($item['TITLE'])):?>
+							<?php $i = 1;?>
+							<?php foreach($data['SE_CHECKLIST'] as $item):?>
+								<?php if(\Bitrix\Tasks\UI\Task\CheckList::checkIsSeparatorValue($item['TITLE'])):?>
 									<hr style="height: 1px;border: none;background:#d9d5c1">
-								<?else:?>
+								<?php else:?>
 									- <?=$item['TITLE_HTML']?> <br />
-								<?endif?>
-								<?$i++;?>
+								<?php endif?>
+								<?php $i++;?>
 
-								<?if($i > $arResult['CHECKLIST_LIMIT']):?>
-									<?break;?>
-								<?endif?>
+								<?php if($i > $arResult['CHECKLIST_LIMIT']):?>
+									<?php break;?>
+								<?php endif?>
 
-							<?endforeach?>
+							<?php endforeach?>
 						</p>
-						<?if($arResult['CHECKLIST_MORE']):?>
+						<?php if($arResult['CHECKLIST_MORE']):?>
 							<a href="<?=$path?>" style="border-bottom: 1px dashed #969999;text-decoration:none; color:#969999; font-size:11px;"><?=Loc::getMessage('TASKS_MORE')?> <?=intval($arResult['CHECKLIST_MORE'])?></a>
-						<?endif?>
+						<?php endif?>
 						<br />
 						<br />
 						<br />
-					<?endif?>
+					<?php endif?>
 
-					<?if(!empty($arResult['DATA']['ATTACHMENT'])):?>
+					<?php if(!empty($arResult['DATA']['ATTACHMENT'])):?>
 						<b><?=Loc::getMessage('TASKS_FILES')?>:</b>
 						<p style="font-size:14px;">
-						<?foreach($arResult['DATA']['ATTACHMENT'] as $file):?>
+						<?php foreach($arResult['DATA']['ATTACHMENT'] as $file):?>
 							<a href="<?=$file['URL']?>" target="_blank" style="color: #146cc5;font-size:12px;"><?=htmlspecialcharsbx($file['NAME'])?></a><br />
-						<?endforeach?>
+						<?php endforeach?>
 						<p>
-					<?endif?>
+					<?php endif?>
 
-				<?else:?>
+				<?php else:?>
 
-					<?//task update?>
+					<?php //task update?>
 					<div>
 
-						<?foreach($arResult['AUX_DATA']['CHANGES'] as $key => $change):?>
-							<?$title = Loc::getMessage('TASKS_FIELD_'.$key);?>
-							<?if($title == ''):?>
-								<?continue;?>
-							<?endif?>
+						<?php foreach($arResult['AUX_DATA']['CHANGES'] as $key => $change):?>
+							<?php $title = Loc::getMessage('TASKS_FIELD_'.$key);?>
+							<?php if($title == ''):?>
+								<?php continue;?>
+							<?php endif?>
 
-							<?
+							<?php 
 							$value = false;
 
 							switch ($key)
@@ -230,16 +230,16 @@ if(!empty($arResult['ERROR']))
 
 							<div style="padding-bottom: 1px;line-height:20px;vertical-align:top;font-size:14px;color:#aa966a;"><?=$title?>: </div>
 							<div style="padding-bottom:10px;line-height:20px;vertical-align:top;font-size:14px;color:#000;"><?=($value === false ? Loc::getMessage('TASKS_FIELD_NO_VALUE') : $value)?></div>
-						<?endforeach?>
+						<?php endforeach?>
 
 					</div>
 
-				<?endif?>
+				<?php endif?>
 			</td>
 		</tr>
 
-	<?elseif($arParams['ENTITY'] == 'COMMENT'):?>
-		<?
+	<?php elseif($arParams['ENTITY'] == 'COMMENT'):?>
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:forum.comments",
 			"mail",
@@ -255,9 +255,9 @@ if(!empty($arResult['ERROR']))
 			false
 		);
 		?>
-	<?endif?>
+	<?php endif?>
 
-	<?//footer?>
+	<?php //footer?>
 	<tr>
 		<td valign="top" align="center" style="border-collapse: collapse;border-spacing: 0;border-top: 1px solid #edeef0;padding: 33px 0 20px;">
 			<table cellspacing="0" cellpadding="0" border="0" align="center" style="border-collapse: collapse;mso-table-lspace: 0pt;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">

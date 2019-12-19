@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_D_DESCRIPTION"] = "Date";
 $MESS["USER_TYPE_D_DEFAULT_VALUE"] = "Default value";
 $MESS["USER_TYPE_D_NONE"] = "no";

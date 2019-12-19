@@ -34,7 +34,7 @@ if(!Bitrix\Crm\Integration\Bitrix24Manager::isAccessEnabled(CCrmOwnerType::Quote
 }
 else
 {
-	?><div class="bx-crm-view"><?
+	?><div class="bx-crm-view"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.quote.menu',
 		'',
@@ -49,7 +49,7 @@ else
 		),
 		$component
 	);
-	?><div class="bx-crm-view-form"><?
+	?><div class="bx-crm-view-form"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.quote.show',
 		'',
@@ -75,7 +75,7 @@ else
 		),
 		$component
 	);
-	?></div><?
-	?></div><?
+	?></div><?php 
+	?></div><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CAMPAIGN_COMP_TITLE"] = "Триггерные рассылки";
 $MESS["SENDER_CAMPAIGN_COMP_UI_COLUMN_DATE_INSERT"] = "Дата создания";
 $MESS["SENDER_CAMPAIGN_COMP_UI_COLUMN_NAME"] = "Название";

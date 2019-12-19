@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EDITOR_CANCEL"] = "Cancel";
 $MESS["CRM_EDITOR_FIELD_CLIENT"] = "Client";
 $MESS["CRM_EDITOR_FIELD_OPPORTUNITY_WITH_CURRENCY"] = "Amount and currency";

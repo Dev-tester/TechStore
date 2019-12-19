@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_WEBNODE_EDIT_TAB"] = "Web Server";
 $MESS["CLU_WEBNODE_EDIT_TAB_TITLE"] = "Edit Web Server Parameters";
 $MESS["CLU_WEBNODE_EDIT_EDIT_TITLE"] = "Web Server Parameters";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BPULDA_WRONG_TYPE'] = "Тип параметра '#PARAM#' не определен.";
 $MESS['BPULDA_FIELD_REQUIED'] = "Поле '#FIELD#' обязательно для заполнения.";
 $MESS['BPULDA_ERROR_DT'] = "Некорректный тип документа.";

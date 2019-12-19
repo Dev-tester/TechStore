@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INTEGRATION_SMS_PROVIDER_SMSRU_NAME"] = "Компания SMS.RU";
 $MESS["CRM_INTEGRATION_SMS_PROVIDER_SMSRU_CAN_USE_ERROR"] = "Провайдер компании SMS.RU не настроен";
 $MESS["CRM_INTEGRATION_SMS_PROVIDER_SMSRU_ERROR_201"] = "Не хватает средств на лицевом счету";

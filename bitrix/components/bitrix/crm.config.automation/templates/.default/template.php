@@ -1,4 +1,4 @@
-<? if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 /** @var array $arResult */
 
@@ -34,7 +34,7 @@ if (empty($arParams['DISABLE_TOP_MENU']) || $arParams['DISABLE_TOP_MENU'] != 'Y'
 	);
 }
 ?>
-<?if (!$arResult['HIDE_HELP']):?>
+<?php if (!$arResult['HIDE_HELP']):?>
 <div class="crm-config-automation-desc-container" data-role="help-container">
 	<div class="crm-config-automation-desc-head">
 		<div class="crm-config-automation-desc-title">
@@ -65,15 +65,15 @@ if (empty($arParams['DISABLE_TOP_MENU']) || $arParams['DISABLE_TOP_MENU'] != 'Y'
 		</div>
 	</div><!--crm-config-automation-desc-main-->
 </div><!--crm-config-automation-desc-container-->
-<?endif;?>
-<?if ($arResult['CATEGORIES'] && count($arResult['CATEGORIES']) > 1):?>
+<?php endif;?>
+<?php if ($arResult['CATEGORIES'] && count($arResult['CATEGORIES']) > 1):?>
 	<div class="crm-config-automation-button-container">
 		<div class="ui-btn ui-btn-dropdown ui-btn-light-border" data-role="category-selector" data-categories="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult['CATEGORIES']))?>">
 			<?=htmlspecialcharsbx($arResult['CATEGORY_NAME'])?>
 		</div>
 	</div><!--pagetitle-container-->
-<?endif?>
-<?$APPLICATION->IncludeComponent(
+<?php endif?>
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:crm.automation',
 	'',
 	array(

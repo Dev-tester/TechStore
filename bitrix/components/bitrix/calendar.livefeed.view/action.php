@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NO_KEEP_STATISTIC", true);
 define("BX_STATISTIC_BUFFER_USED", false);
 define("NO_LANG_FILES", true);
@@ -117,7 +117,7 @@ if (!empty($event_feed_action) && check_bitrix_sessid())
 				<script>
 					window.ViewEventManager.requestResult = <?=CUtil::PhpToJSObject($result)?>;
 				</script>
-				<?
+				<?php 
 			}
 			echo '#EVENT_FEED_RESULT_OK#';
 		}

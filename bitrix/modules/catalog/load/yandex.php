@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Currency;
 
 global $APPLICATION;
@@ -56,12 +56,12 @@ if (!function_exists("yandex_text2xml"))
 
 $usedProtocol = (CMain::IsHTTPS() ? 'https://' : 'http://');
 
-$strAll = '<?if (!isset($_GET["referer1"]) || strlen($_GET["referer1"])<=0) $_GET["referer1"] = "yandext"?>';
-$strAll .= '<? $strReferer1 = htmlspecialchars($_GET["referer1"]); ?>';
-$strAll .= '<?if (!isset($_GET["referer2"]) || strlen($_GET["referer2"])<=0) $_GET["referer2"] = "";?>';
-$strAll .= '<? $strReferer2 = htmlspecialchars($_GET["referer2"]); ?>';
-$strAll .= '<? header("Content-Type: text/xml; charset=windows-1251");?>';
-$strAll.= '<?echo "<?xml version=\"1.0\" encoding=\"windows-1251\"?>"?>';
+$strAll = '<?php if (!isset($_GET["referer1"]) || strlen($_GET["referer1"])<=0) $_GET["referer1"] = "yandext"?>';
+$strAll .= '<?php  $strReferer1 = htmlspecialchars($_GET["referer1"]); ?>';
+$strAll .= '<?php if (!isset($_GET["referer2"]) || strlen($_GET["referer2"])<=0) $_GET["referer2"] = "";?>';
+$strAll .= '<?php  $strReferer2 = htmlspecialchars($_GET["referer2"]); ?>';
+$strAll .= '<?php  header("Content-Type: text/xml; charset=windows-1251");?>';
+$strAll.= '<?php echo "<?php xml version=\"1.0\" encoding=\"windows-1251\"?>"?>';
 $strAll.= "\n<!DOCTYPE yml_catalog SYSTEM \"shops.dtd\">\n";
 $strAll.= "<yml_catalog date=\"".date("Y-m-d H:i")."\">\n";
 $strAll.= "<shop>\n";
@@ -241,7 +241,7 @@ while ($arCatalog_list = $db_catalog_list->Fetch())
 		}
 
 		$strTmpOff.= "<offer id=\"".$arAcc["ID"]."\"".$str_AVAILABLE.">\n";
-		$strTmpOff.= "<url>".$usedProtocol.$arAcc['SERVER_NAME'].htmlspecialcharsbx($arAcc["~DETAIL_PAGE_URL"]).(strstr($arAcc['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?echo \$strReferer1; ?>&amp;r2=<?echo \$strReferer2; ?></url>\n";
+		$strTmpOff.= "<url>".$usedProtocol.$arAcc['SERVER_NAME'].htmlspecialcharsbx($arAcc["~DETAIL_PAGE_URL"]).(strstr($arAcc['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?php echo \$strReferer1; ?>&amp;r2=<?php echo \$strReferer2; ?></url>\n";
 
 		$strTmpOff.= "<price>".$minPrice."</price>\n";
 		$strTmpOff.= "<currencyId>".$minPriceCurrency."</currencyId>\n";

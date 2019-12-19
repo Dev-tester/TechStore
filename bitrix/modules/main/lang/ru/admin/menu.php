@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_MENU_PHP"] = "Командная PHP-строка";
 $MESS["MAIN_MENU_PHP_ALT"] = "Выполнение произвольных команд PHP на сервере";
 $MESS["MAIN_MENU_MANAG"] = "Пользователи";

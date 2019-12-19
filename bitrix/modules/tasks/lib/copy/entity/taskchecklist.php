@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Copy\Entity;
 
 use Bitrix\Main\Localization\Loc;

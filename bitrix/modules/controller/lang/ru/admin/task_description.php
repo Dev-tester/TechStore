@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_CONTROLLER_DENY"] = "Нет доступа";
 $MESS["TASK_DESC_CONTROLLER_DENY"] = "Доступ к модулю контроллера запрещен";
 $MESS["TASK_NAME_CONTROLLER_AUTH"] = "Авторизация";

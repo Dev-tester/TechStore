@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSeoKeywords
 { 
 	function GetList($arOrder, $arFilter)

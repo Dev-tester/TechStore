@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_TITLE_TIMESTAMP"] = "Geändert";
 $MESS["WD_TITLE_ACTIVE"] = "Veröffentlicht";
 $MESS["WD_TITLE_SORT"] = "Sortierung";

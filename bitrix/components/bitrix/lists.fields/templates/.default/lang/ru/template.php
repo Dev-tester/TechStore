@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLF_TOOLBAR_LIST_EDIT"] = "Настройка списка";
 $MESS["CT_BLF_TOOLBAR_LIST_TITLE"] = "Вернуться к настройке списка";
 $MESS["CT_BLF_TOOLBAR_ADD"] = "Добавить поле";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TITLE_PROJECTS_OVERVIEW'] = 'Проекты';
 $MESS['TASKS_PROJECTS_OVERVIEW_HEADS_0'] = 'Руководитель';
 $MESS['TASKS_PROJECTS_OVERVIEW_HEADS_1'] = 'Руководители';

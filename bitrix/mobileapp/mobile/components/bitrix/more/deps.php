@@ -1,4 +1,4 @@
-<?
+<?php 
 return [
 	"utils",
 	"helpers/component",

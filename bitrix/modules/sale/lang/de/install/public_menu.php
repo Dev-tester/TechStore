@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_INSTALL_MENU_ORDER"] = "Bestellungen";
 $MESS["SALE_INSTALL_MENU_SALE_PROFILES"] = "Kundenprofile";
 $MESS["SALE_INSTALL_MENU_SALE_ACCOUNT"] = "Nutzerkonto";

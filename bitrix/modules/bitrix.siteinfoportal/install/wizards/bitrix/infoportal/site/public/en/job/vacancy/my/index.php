@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Post a Vacancy");
-?><?$APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", array(
 	"NAV_ON_PAGE" => "10",
 	"USE_CAPTCHA" => "Y",
 	"USER_MESSAGE_ADD" => "You vacancy has been added",
@@ -60,4 +60,4 @@ $APPLICATION->SetTitle("Post a Vacancy");
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

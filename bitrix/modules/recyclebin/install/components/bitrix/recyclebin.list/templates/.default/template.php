@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -16,7 +16,7 @@ $APPLICATION->SetPageProperty(
 $isBitrix24Template = SITE_TEMPLATE_ID === "bitrix24";
 ?>
 
-<?
+<?php 
 if ($isBitrix24Template)
 {
 	$this->SetViewTarget('inside_pagetitle');
@@ -26,10 +26,10 @@ if ($isBitrix24Template)
 
 if (!$isBitrix24Template): ?>
 <div class="recyclebin-interface-filter-container">
-	<? endif ?>
+	<?php  endif ?>
 
 	<div class="pagetitle-container pagetitle-flexible-space">
-		<? $APPLICATION->IncludeComponent(
+		<?php  $APPLICATION->IncludeComponent(
 			"bitrix:main.ui.filter",
 			"",
 			array(
@@ -48,9 +48,9 @@ if (!$isBitrix24Template): ?>
 		); ?>
 	</div>
 
-	<? if (!$isBitrix24Template): ?>
+	<?php  if (!$isBitrix24Template): ?>
 </div>
-<? endif ?>
+<?php  endif ?>
 <?php
 //endregion
 
@@ -60,7 +60,7 @@ if ($isBitrix24Template)
 }
 ?>
 
-<?
+<?php 
 if(\CModule::IncludeModule('bitrix24'))
 {
 	$APPLICATION->IncludeComponent(
@@ -172,7 +172,7 @@ if (!empty($selectors))
 if (!empty($selectors))
 {
 	?>
-	<script type="text/javascript"><?
+	<script type="text/javascript"><?php 
 		foreach ($selectors as $groupSelector)
 		{
 		$selectorID = $groupSelector['ID'];
@@ -190,9 +190,9 @@ if (!empty($selectors))
 					}
 				);
 			}
-		);<?
+		);<?php 
 		}
-		?></script><?
+		?></script><?php 
 }
 ?>
 

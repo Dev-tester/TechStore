@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ABSC_PARAM_CALENDAR_IBLOCK_TYPE'] = "Тип инфоблока с календарями сотрудников";
 $MESS ['INTR_ABSC_PARAM_CALENDAR_IBLOCK_ID'] = "Инфоблок с календарями сотрудников";
 $MESS ['INTR_ISIA_PARAM_DETAIL_URL'] = "Страница детального просмотра";

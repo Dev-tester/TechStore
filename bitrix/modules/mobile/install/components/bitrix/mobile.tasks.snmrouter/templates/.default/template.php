@@ -110,7 +110,7 @@ if (CModule::IncludeModule('pull'))
 
 <script>
 	ReadyDevice(function(){
-		<?//__MBTasks__mobile_tasks_view_init() assumed to be initialized already?>
+		<?php //__MBTasks__mobile_tasks_view_init() assumed to be initialized already?>
 
 		window.I_3_MOBILE_TASKS_SNM_INIT_B = true;
 		__MBTasks__mobile_tasks_snmrouter_init();

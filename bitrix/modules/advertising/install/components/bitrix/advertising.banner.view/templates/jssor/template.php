@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /**
  * @var CBitrixComponent $component
@@ -51,73 +51,73 @@ $showLink = $arParams['PROPS']['LINK_URL'] != '' && !isset($arParams['PREVIEW'])
 ?>
 
 <div>
-<? if ($arParams['CASUAL_PROPERTIES']['TYPE'] == 'template'): ?>
-	<? if (isset($arParams['FILES']['IMG']['SRC'])): ?>
-		<? if ($showLink): ?>
+<?php  if ($arParams['CASUAL_PROPERTIES']['TYPE'] == 'template'): ?>
+	<?php  if (isset($arParams['FILES']['IMG']['SRC'])): ?>
+		<?php  if ($showLink): ?>
 			<a u="image" href="<?=$arParams['PROPS']['LINK_URL']?>" target="<?=$arParams['PROPS']['LINK_TARGET']?>" title="<?=$arParams['PROPS']['LINK_TITLE']?>">
 				<img src="<?=$arParams['FILES']['IMG']['SRC']?>" alt="<?=$arParams['FILES']['IMG']['DESCRIPTION']?>" title="<?=$arParams['FILES']['IMG']['DESCRIPTION']?>" />
 			</a>
-		<? else: ?>
+		<?php  else: ?>
 			<img u="image" src="<?=$arParams['FILES']['IMG']['SRC']?>"  alt="<?=$arParams['FILES']['IMG']['DESCRIPTION']?>" title="<?=$arParams['FILES']['IMG']['DESCRIPTION']?>" />
-		<? endif ?>
-	<? endif ?>
-	<? if ($arParams['EXT_MODE'] == 'N'): ?>
-		<? if ($arParams['PROPS']['OVERLAY'] == 'Y'): ?>
+		<?php  endif ?>
+	<?php  endif ?>
+	<?php  if ($arParams['EXT_MODE'] == 'N'): ?>
+		<?php  if ($arParams['PROPS']['OVERLAY'] == 'Y'): ?>
 			<div class="bx-advertisingbanner-pattern" style="background:rgba(<?=$arParams['PROPS']['OVERLAY_COLOR']?>)"></div>
-		<? endif ?>
-		<? if ($arParams['PROPS']['HEADING_SHOW'] == 'Y' || $arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y' || $arParams['PROPS']['BUTTON'] == 'Y'): ?>
+		<?php  endif ?>
+		<?php  if ($arParams['PROPS']['HEADING_SHOW'] == 'Y' || $arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y' || $arParams['PROPS']['BUTTON'] == 'Y'): ?>
 			<div class="bx-slider-preset-<?=$arParams['PROPS']['PRESET']?>">
-				<div class="bx-advertisingbanner-content" u="caption" t="<?=$arParams['PROPS']['ANIMATION_EFFECT']?>" d="<?=$arParams['PROPS']['ANIMATION_DELAY']?>" <? if ($arParams['PROPS']['PRESET']==2 || $arParams['PROPS']['PRESET']==3){echo 'style="background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');"';}?>>
-				<? if ($arParams['PROPS']['HEADING_SHOW'] == 'Y'): ?>
-					<? if ($showLink): ?>
+				<div class="bx-advertisingbanner-content" u="caption" t="<?=$arParams['PROPS']['ANIMATION_EFFECT']?>" d="<?=$arParams['PROPS']['ANIMATION_DELAY']?>" <?php  if ($arParams['PROPS']['PRESET']==2 || $arParams['PROPS']['PRESET']==3){echo 'style="background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');"';}?>>
+				<?php  if ($arParams['PROPS']['HEADING_SHOW'] == 'Y'): ?>
+					<?php  if ($showLink): ?>
 						<a href="<?=$arParams['PROPS']['LINK_URL']?>" target="<?=$arParams['PROPS']['LINK_TARGET']?>" title="<?=$arParams['PROPS']['LINK_TITLE']?>">
-							<div id="text<?=$rnd?>" class="bx-advertisingbanner-text-title" style="font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<? if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>">
+							<div id="text<?=$rnd?>" class="bx-advertisingbanner-text-title" style="font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<?php  if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>">
 								<?=$headingText?>
 							</div>
 						</a>
-					<? else: ?>
-						<div id="text<?=$rnd?>" class="bx-advertisingbanner-text-title" style="font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<? if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>">
+					<?php  else: ?>
+						<div id="text<?=$rnd?>" class="bx-advertisingbanner-text-title" style="font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<?php  if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>">
 							<?=$headingText?>
 						</div>
-					<? endif ?>
-				<? endif ?>
-				<? if ($arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y'): ?>
-					<? if ($showLink): ?>
+					<?php  endif ?>
+				<?php  endif ?>
+				<?php  if ($arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y'): ?>
+					<?php  if ($showLink): ?>
 						<a href="<?=$arParams['PROPS']['LINK_URL']?>" target="<?=$arParams['PROPS']['LINK_TARGET']?>" title="<?=$arParams['PROPS']['LINK_TITLE']?>">
 							<div id="announce<?=$rnd?>" class="bx-advertisingbanner-text-block" style="font-size:<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_COLOR']?>;background:rgba(<?=$arParams['PROPS']['ANNOUNCEMENT_BG_COLOR']?>);">
 								<?=$announcementText?>
 							</div>
 						</a>
-					<? else: ?>
+					<?php  else: ?>
 						<div id="announce<?=$rnd?>" class="bx-advertisingbanner-text-block" style="font-size:<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_COLOR']?>;background:rgba(<?=$arParams['PROPS']['ANNOUNCEMENT_BG_COLOR']?>);">
 							<?=$announcementText?>
 						</div>
-					<? endif ?>
-				<? endif ?>
-				<? if ($arParams['PROPS']['BUTTON'] == 'Y'): ?>
-					<? if (isset($arParams['PREVIEW'])): ?>
+					<?php  endif ?>
+				<?php  endif ?>
+				<?php  if ($arParams['PROPS']['BUTTON'] == 'Y'): ?>
+					<?php  if (isset($arParams['PREVIEW'])): ?>
 						<button  class="bx-advertisingbanner-btn" style="background-color: rgb(<?=$arParams['PROPS']['BUTTON_BG_COLOR']?>);color:#<?=$arParams['PROPS']['BUTTON_FONT_COLOR']?>;border: 0;"><?=$arParams['PROPS']['BUTTON_TEXT']?></button>
-					<? else: ?>
+					<?php  else: ?>
 						<a class="bx-advertisingbanner-btn" href="<?=$arParams['PROPS']['BUTTON_LINK_URL']?>" title="<?=$arParams['PROPS']['BUTTON_LINK_TITLE']?>" target="<?=$arParams['PROPS']['BUTTON_LINK_TARGET']?>" style="background-color: rgb(<?=$arParams['PROPS']['BUTTON_BG_COLOR']?>);color:#<?=$arParams['PROPS']['BUTTON_FONT_COLOR']?>">
 							<?=$arParams['PROPS']['BUTTON_TEXT']?>
 						</a>
-					<? endif ?>
-				<? endif ?>
+					<?php  endif ?>
+				<?php  endif ?>
 				</div>
 			</div>
-		<? endif ?>
-	<? elseif ($arParams['EXT_MODE'] == 'Y'): ?>
+		<?php  endif ?>
+	<?php  elseif ($arParams['EXT_MODE'] == 'Y'): ?>
 		<?=$headingText?>
-	<? endif ?>
-<? else: ?>
-	<? if (isset($arParams['FILES']['CASUAL_IMG']['SRC'])): ?>
-		<? if ($showLink): ?>
+	<?php  endif ?>
+<?php  else: ?>
+	<?php  if (isset($arParams['FILES']['CASUAL_IMG']['SRC'])): ?>
+		<?php  if ($showLink): ?>
 			<a u="image" href="<?=$arParams['CASUAL_PROPERTIES']['URL']?>" target="<?=$arParams['CASUAL_PROPERTIES']['URL_TARGET']?>" title="<?=$arParams['CASUAL_PROPERTIES']['ALT']?>">
 				<img src="<?=$arParams['FILES']['CASUAL_IMG']['SRC']?>" />
 			</a>
-		<? else: ?>
+		<?php  else: ?>
 			<img u="image" src="<?=$arParams['FILES']['CASUAL_IMG']['SRC']?>">
-		<? endif ?>
-	<? endif ?>
-<? endif ?>
+		<?php  endif ?>
+	<?php  endif ?>
+<?php  endif ?>
 </div>

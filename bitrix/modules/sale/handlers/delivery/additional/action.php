@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Sale\Handlers\Delivery\Additional;
 
 use Bitrix\Main\Config\Option;

@@ -68,20 +68,20 @@ $tabControl = new CAdminTabControl('tabControl', array(
 $tabControl->Begin();
 
 ?>
-<form method="post" action="<?=$APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?echo LANGUAGE_ID?>">
+<form method="post" action="<?=$APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?php echo LANGUAGE_ID?>">
 	<?=bitrix_sessid_post()?>
 
-	<?$tabControl->BeginNextTab()?>
+	<?php $tabControl->BeginNextTab()?>
 
 	<tr>
 		<td width="40%"><?=Loc::getMessage('CONVERSION_CURRENCY')?>:</td>
 		<td width="60%">
 			<select name="CURRENCY">
-				<?
+				<?php 
 
 				foreach ($currencies as $key => $name)
 				{
-					?><option value="<?=$key?>"<?=$key == $currency ? ' selected' : ''?>><?=htmlspecialcharsex($name)?></option><?
+					?><option value="<?=$key?>"<?=$key == $currency ? ' selected' : ''?>><?=htmlspecialcharsex($name)?></option><?php 
 				}
 
 				?>
@@ -89,20 +89,20 @@ $tabControl->Begin();
 		</td>
 	</tr>
 
-	<?$tabControl->BeginNextTab()?>
+	<?php $tabControl->BeginNextTab()?>
 
 	<tr>
 		<td width="40%"><strong><?=Loc::getMessage('CONVERSION_TAB_MODULES_MODULE_NAME')?></strong></td>
 		<td width="60%"><strong><?=Loc::getMessage('CONVERSION_TAB_MODULES_ACTIVE')?></strong></td>
 	</tr>
-	<?
+	<?php 
 
 	foreach ($modules as $name => $config)
 	{
 		?>
 		<tr>
 			<td width="40%">
-				<?
+				<?php 
 
 				$title = $name;
 				if ($info = \CModule::createModuleObject($name))
@@ -119,20 +119,20 @@ $tabControl->Begin();
 				<input type="checkbox" name="MODULE[<?=$name?>][ACTIVE]" value="1"<?=$config['ACTIVE'] ? ' checked' : ''?>>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 
 	?>
 
-	<?$tabControl->Buttons()?>
+	<?php $tabControl->Buttons()?>
 
-	<input type="submit" name="Update" <? if ($MOD_RIGHT < 'W') echo 'disabled'; ?> value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
-	<input type="submit" name="Apply" <? if ($MOD_RIGHT < 'W') echo 'disabled'; ?> value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<input type="submit" name="Update" <?php  if ($MOD_RIGHT < 'W') echo 'disabled'; ?> value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
+	<input type="submit" name="Apply" <?php  if ($MOD_RIGHT < 'W') echo 'disabled'; ?> value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" <? if ($MOD_RIGHT < 'W') echo 'disabled'; ?> title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" <?php  if ($MOD_RIGHT < 'W') echo 'disabled'; ?> title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 
-	<?$tabControl->End()?>
+	<?php $tabControl->End()?>
 </form>

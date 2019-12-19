@@ -223,26 +223,26 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		<div class="adm-c-bigdata-activate-content">
 			<ul class="adm-c-bigdata-activate-content-task-list">
 
-				<? $available = \Bitrix\Main\Analytics\Catalog::isOn(); ?>
+				<?php  $available = \Bitrix\Main\Analytics\Catalog::isOn(); ?>
 				<li <?=$available?'class="good"':''?>>
 					<?=GetMessage('BIGDATA_ENABLED')?>
-					<? if (!$available): ?>
+					<?php  if (!$available): ?>
 						<div class="adm-c-bigdata-activate-content-task-list-warning"><span><?=GetMessage('BIGDATA_DISABLED')?></span></div>
-					<? endif; ?>
+					<?php  endif; ?>
 				</li>
 
-				<? $installed = (time()-Bitrix\Main\Config\Option::get('main', 'rcm_component_usage', 0)<3600*24);?>
+				<?php  $installed = (time()-Bitrix\Main\Config\Option::get('main', 'rcm_component_usage', 0)<3600*24);?>
 				<li <?=$installed?'class="good"':''?>>
 					<?=GetMessage('BIGDATA_INSTALLED')?>
-					<? if (!$installed): ?>
+					<?php  if (!$installed): ?>
 						<div class="adm-c-bigdata-activate-content-task-list-warning"><span><?=GetMessage('BIGDATA_UNINSTALLED')?></span></div>
-					<? endif; ?>
+					<?php  endif; ?>
 				</li>
 
 				<li <?=($available && $installed)?'class="good"':''?>><?=GetMessage('BIGDATA_OBSERVE')?></li>
 			</ul>
 
-			<?
+			<?php 
 				$goUrl = '';
 
 				if ($available && $installed)

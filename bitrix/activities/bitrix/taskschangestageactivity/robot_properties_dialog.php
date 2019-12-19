@@ -9,10 +9,10 @@ $selected = $dialog->getCurrentValue($stage['FieldName']);
 <div class="bizproc-automation-popup-settings">
 	<span class="bizproc-automation-popup-settings-title"><?=htmlspecialcharsbx($stage['Name'])?>: </span>
 	<select class="bizproc-automation-popup-settings-dropdown" name="<?=htmlspecialcharsbx($stage['FieldName'])?>">
-		<?foreach ($stage['Options'] as $value => $optionLabel):?>
+		<?php foreach ($stage['Options'] as $value => $optionLabel):?>
 			<option value="<?=htmlspecialcharsbx($value)?>"
 				<?=($value == $selected) ? ' selected' : ''?>
 			><?=htmlspecialcharsbx($optionLabel)?></option>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</select>
 </div>

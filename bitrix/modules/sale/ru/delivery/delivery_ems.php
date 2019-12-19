@@ -1,4 +1,4 @@
-<?
+<?php 
 /*********************************************************************************
 Delivery services for EMS Russian Post Service (http://www.emspost.ru/)
 It uses on-line api. Delivery only from Russia.

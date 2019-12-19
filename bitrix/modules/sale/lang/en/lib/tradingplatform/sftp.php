@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRADING_PLATFORM_SFTP_ERROR_CONNECT"] = "Cannot establish SSH connection with \"#HOST#\":\"#PORT#";
 $MESS["TRADING_PLATFORM_SFTP_ERROR_SSH2_EXT"] = "PHP SSH2 extension is not installed";
 $MESS["TRADING_PLATFORM_SFTP_ERROR_FINGERPRINT"] = "Invalid #HOST# fingerprint! The host fingerprint may have changed either legally or as a result of a \"Man-in-the-middle\" attack. Current host fingerprint:\"#FINGERPRINT1#\", expected: \"#FINGERPRINT2#\".";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Here stored actions defenitions
  *

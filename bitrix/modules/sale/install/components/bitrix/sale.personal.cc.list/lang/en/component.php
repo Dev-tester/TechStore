@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_MODULE_NOT_INSTALL'] = "e-Store module is not installed";
 $MESS['SPCL_DEFAULT_TITLE']="My credit cards";
 $MESS['SPCL_PAGES'] = "Cards";

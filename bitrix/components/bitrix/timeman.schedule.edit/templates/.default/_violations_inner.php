@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -102,7 +102,7 @@ $showContainer = $violationForm->showViolationContainer();
 									htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_START_TIME_TITLE'))
 									?></span>
 								<span>
-									<span class="timeman-schedule-form-violation-detail-text"><?
+									<span class="timeman-schedule-form-violation-detail-text"><?php 
 										?><span class="timeman-schedule-form-worktime-input-value-text"
 												data-role="relative-start-from-link"
 												data-input-selector-role="relative-start-from-input"
@@ -110,10 +110,10 @@ $showContainer = $violationForm->showViolationContainer();
 										<input name="<?= $violationFormName . "[relativeStartFromFormatted]" ?>"
 												data-role="relative-start-from-input"
 												type="hidden"
-												value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeStartFrom()) ?>"><?
+												value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeStartFrom()) ?>"><?php 
 										?></span>
 										<span class="timeman-schedule-form-violation-detail-text-separator">-</span>
-										<span class="timeman-schedule-form-violation-detail-text"><?
+										<span class="timeman-schedule-form-violation-detail-text"><?php 
 											?><span class="timeman-schedule-form-worktime-input-value-text"
 													data-role="relative-start-to-link"
 													data-input-selector-role="relative-start-to-input"
@@ -122,7 +122,7 @@ $showContainer = $violationForm->showViolationContainer();
 											<input name="<?= $violationFormName . "[relativeStartToFormatted]" ?>"
 													data-role="relative-start-to-input"
 													type="hidden"
-													value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeStartTo()) ?>"><?
+													value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeStartTo()) ?>"><?php 
 											?></span>
 									</span>
 							</div>
@@ -130,8 +130,8 @@ $showContainer = $violationForm->showViolationContainer();
 								<span class="timeman-schedule-form-violation-detail-title"><?=
 									htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_END_TIME_TITLE'))
 									?></span>
-								<span><?
-									?><span class="timeman-schedule-form-violation-detail-text"><?
+								<span><?php 
+									?><span class="timeman-schedule-form-violation-detail-text"><?php 
 										?><span class="timeman-schedule-form-worktime-input-value-text"
 												data-role="relative-end-from-link"
 												data-input-selector-role="relative-end-from-input"
@@ -140,10 +140,10 @@ $showContainer = $violationForm->showViolationContainer();
 										<input name="<?= $violationFormName . "[relativeEndFromFormatted]" ?>"
 												data-role="relative-end-from-input"
 												type="hidden"
-												value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeEndFrom()) ?>"><?
+												value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeEndFrom()) ?>"><?php 
 										?></span>
 									<span class="timeman-schedule-form-violation-detail-text-separator">-</span>
-										<span class="timeman-schedule-form-violation-detail-text"><?
+										<span class="timeman-schedule-form-violation-detail-text"><?php 
 											?><span class="timeman-schedule-form-worktime-input-value-text"
 													data-role="relative-end-to-link"
 													data-input-selector-role="relative-end-to-input"
@@ -151,7 +151,7 @@ $showContainer = $violationForm->showViolationContainer();
 											<input name="<?= $violationFormName . "[relativeEndToFormatted]" ?>"
 													data-role="relative-end-to-input"
 													type="hidden"
-													value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeEndTo()) ?>"><?
+													value="<?= htmlspecialcharsbx($violationForm->getFormattedRelativeEndTo()) ?>"><?php 
 											?></span>
 									</span>
 							</div>
@@ -200,7 +200,7 @@ $showContainer = $violationForm->showViolationContainer();
 					<div class="timeman-schedule-form-settings-name-block">
 						<span class="timeman-schedule-form-settings-name"><?= htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_NOTIFICATION_TO_TITLE')); ?></span>
 					</div>
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:main.user.selector",
 						"",
@@ -248,7 +248,7 @@ $showContainer = $violationForm->showViolationContainer();
 					<div class="timeman-schedule-form-settings-name-block">
 						<span class="timeman-schedule-form-settings-name"><?= htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_NOTIFICATION_TO_TITLE')); ?></span>
 					</div>
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:main.user.selector",
 						"",
@@ -299,7 +299,7 @@ $showContainer = $violationForm->showViolationContainer();
 					<div class="timeman-schedule-form-settings-name-block">
 						<span class="timeman-schedule-form-settings-name"><?= htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_NOTIFICATION_TO_TITLE')); ?></span>
 					</div>
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:main.user.selector",
 						"",
@@ -346,7 +346,7 @@ $showContainer = $violationForm->showViolationContainer();
 									htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_NOTIFICATION_TO_TITLE'))
 									?></span>
 					</div>
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:main.user.selector",
 						"",
@@ -397,7 +397,7 @@ $showContainer = $violationForm->showViolationContainer();
 					<div class="timeman-schedule-form-settings-name-block">
 						<span class="timeman-schedule-form-settings-name"><?= htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_NOTIFICATION_TO_TITLE')); ?></span>
 					</div>
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:main.user.selector",
 						"",
@@ -433,7 +433,7 @@ $showContainer = $violationForm->showViolationContainer();
 									htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_VIOLATION_NOTIFICATION_TO_TITLE'))
 									?></span>
 					</div>
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:main.user.selector",
 						"",
@@ -453,7 +453,7 @@ $showContainer = $violationForm->showViolationContainer();
 		</div>
 	</div>
 </div>
-<?
+<?php 
 
 
 // popup content
@@ -461,7 +461,7 @@ $showContainer = $violationForm->showViolationContainer();
 
 ?>
 <div class="bx-tm-popup-edit-clock-wnd  timeman-pick-time-hide-clock">
-	<?
+	<?php 
 	global $APPLICATION;
 	ob_start();
 	$APPLICATION->IncludeComponent(

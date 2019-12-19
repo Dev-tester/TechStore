@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ADDITIONAL_FIELDS"] = "Прочее";
 $MESS["CRM_FIELD_CONVERT_CONTACT"] = "Конвертировать в контакт";
 $MESS["CRM_FIELD_CONVERT_CONTACT_LIST"] = "Выбрать из списка";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CREATE_REQUEST_EMPTY_PROP"] = "The required parameter is empty: #PROPERTY#";
 $MESS["CRM_CREATE_REQUEST_SUBJECT"] = "Subject";
 $MESS["CRM_CREATE_REQUEST_IS_IMPORTANT"] = "Important";

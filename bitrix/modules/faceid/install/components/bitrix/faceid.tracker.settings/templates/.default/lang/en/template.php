@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_FTS_AUTO_LEAD_SETTING_A"] = "auto create new lead";
 $MESS["FACEID_FTS_LEAD_SOURCE_SETTING"] = "New lead source";
 $MESS["FACEID_FTS_CONFIG_EDIT_SAVE"] = "Save";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_RECORDS_LIST"] = "Поисковые фразы";
 $MESS["STAT_F_SEARCH_SYSTEM"] = "Поисковая система:";
 $MESS["STAT_F_ID"] = "ID:";

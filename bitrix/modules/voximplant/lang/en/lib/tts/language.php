@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_TTS_VOICE_AU_ENGLISH_FEMALE"] = "Australian English (female)";
 $MESS["VI_TTS_VOICE_BR_PORTUGUESE_FEMALE"] = "Brazilian Portuguese (female)";
 $MESS["VI_TTS_VOICE_CA_ENGLISH_FEMALE"] = "Canadian English (female)";

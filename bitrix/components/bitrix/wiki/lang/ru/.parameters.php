@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_REVIEW_SETTINGS"] = "Настройки обсуждения";
 $MESS["F_FORUM_ID"] = "ID форума для отзывов";
 $MESS["F_USE_CAPTCHA"] = "Использовать CAPTCHA";

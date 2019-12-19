@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -28,7 +28,7 @@ $containerId = 'bx-sender-campaign-edit';
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="sender-template-edit-wrap">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:sender.ui.panel.title", "", array('LIST' => array(
 		array('type' => 'buttons', 'list' => array(
 
@@ -45,13 +45,13 @@ $containerId = 'bx-sender-campaign-edit';
 			</div>
 			<div class="bx-sender-value">
 				<select name="TYPE_ID" class="bx-sender-form-control bx-sender-message-editor-field-select">
-					<?foreach ($arResult['TYPES'] as $site):?>
+					<?php foreach ($arResult['TYPES'] as $site):?>
 						<option value="<?=htmlspecialcharsbx($site['ID'])?>"
 							<?=($site['SELECTED'] ? 'selected' : '')?>
 						>
 							<?=htmlspecialcharsbx($site['NAME'])?>
 						</option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</div>
 		</div>
@@ -80,13 +80,13 @@ $containerId = 'bx-sender-campaign-edit';
 			</div>
 		</div>
 
-		<?if ($arParams['SHOW_SETS']):?>
+		<?php if ($arParams['SHOW_SETS']):?>
 			<div class="bx-sender-letter-field">
 				<div class="bx-sender-caption">
 					<?=Loc::getMessage('SENDER_CONTACT_EDIT_TMPL_FIELD_SET')?>:
 				</div>
 				<div class="bx-sender-value">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:sender.contact.set.selector",
 						"",
@@ -103,15 +103,15 @@ $containerId = 'bx-sender-campaign-edit';
 					?>
 				</div>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($arParams['SHOW_CAMPAIGNS']):?>
+		<?php if ($arParams['SHOW_CAMPAIGNS']):?>
 			<div class="bx-sender-letter-field">
 				<div class="bx-sender-caption">
 					<?=Loc::getMessage('SENDER_CONTACT_EDIT_TMPL_FIELD_SUB')?>:
 				</div>
 				<div class="bx-sender-value">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:sender.campaign.selector",
 						"",
@@ -128,15 +128,15 @@ $containerId = 'bx-sender-campaign-edit';
 					?>
 				</div>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($arParams['SHOW_CAMPAIGNS']):?>
+		<?php if ($arParams['SHOW_CAMPAIGNS']):?>
 			<div class="bx-sender-letter-field">
 				<div class="bx-sender-caption">
 					<?=Loc::getMessage('SENDER_CONTACT_EDIT_TMPL_FIELD_UNSUB')?>:
 				</div>
 				<div class="bx-sender-value">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:sender.campaign.selector",
 						"",
@@ -153,10 +153,10 @@ $containerId = 'bx-sender-campaign-edit';
 					?>
 				</div>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
 
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:sender.ui.button.panel",
 			"",

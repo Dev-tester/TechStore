@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->AddHeadScript("/bitrix/components/bitrix/webdav/templates/.default/script.js");
@@ -487,7 +487,7 @@ if (($arParams["MERGE_VIEW"] == "Y") && ($this->__component->__parent))
 	//$this->__component->__parent->arResult["TABS"][] = array("id" => "tab_edit", "name" => GetMessage("WD_DOCUMENT"), "title" => GetMessage("WD_DOCUMENT_ALT"), "fields" => $arTabs[0]);
 } else {
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.form",
 	"",
@@ -567,10 +567,10 @@ BX(function() {
 			BX('collapse_link').parentNode.parentNode.style.display = 'none';
 		});
 	}
-<?
+<?php 
 if (strtoupper($arParams["ACTION"]) == 'PULL' || (strpos($_SERVER['REQUEST_URI'], 'element_active_tab=tab_main') !== false)): ?>
 	//window.open("<?=CUtil::JSEscape($arResult["ELEMENT"]["URL"]["DOWNLOAD"])?>");
 	window.location.href="<?=CUtil::JSEscape($arResult["ELEMENT"]["URL"]["DOWNLOAD"])?>";
-<?endif;?>
+<?php endif;?>
 });
 </script>

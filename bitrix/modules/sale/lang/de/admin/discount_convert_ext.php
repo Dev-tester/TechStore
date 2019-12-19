@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_RIGHTS"] = "Nicht genügend Rechte.";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_SALE_ABSENT"] = "Das Modul \"Onlineshop\" kann nicht angeschlossen werden.";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_CATALOG_ABSENT"] = "Das Modul Kommerzieller Katalog kann nicht benutzt werden.";

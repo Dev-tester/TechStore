@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_BUY_RENEW"] = "Please #LINK1#renew your license#LINK2#";
 $MESS["LANDING_TPL_PREVIEW_URL"] = "Preview";
 $MESS["LANDING_TPL_PUBLIC_URL"] = "Publish";

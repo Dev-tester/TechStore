@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 use Bitrix\Main;
@@ -5620,7 +5620,7 @@ class CCrmLiveFeedComponent
 									);
 								}
 								</script>
-								<?
+								<?php 
 								$strResult .= ob_get_contents();
 								ob_end_clean();
 							}

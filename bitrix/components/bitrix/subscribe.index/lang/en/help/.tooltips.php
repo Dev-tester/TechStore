@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SHOW_COUNT_TIP"] = "Specifies to show the number of subscribers in the public section.";
 $MESS["SHOW_HIDDEN_TIP"] = "Specifies to display all active rubrics in the subscription editor.";
 $MESS["PAGE_TIP"] = "Specifies the subscription editor path (the default is: <b>#SITE_DIR#about/subscr_edit.php</b>)";

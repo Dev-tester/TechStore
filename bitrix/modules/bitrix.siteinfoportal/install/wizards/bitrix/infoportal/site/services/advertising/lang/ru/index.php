@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEMO_ADV_TOP_TYPE"] = "Верхний баннер";
 $MESS["DEMO_ADV_LEFT1_TYPE"] = "Верхний левый банер";
 $MESS["DEMO_ADV_LEFT2_TYPE"] = "Нижний левый банер";

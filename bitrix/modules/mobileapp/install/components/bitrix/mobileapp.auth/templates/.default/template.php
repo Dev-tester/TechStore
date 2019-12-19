@@ -1,5 +1,5 @@
-<?if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
-<?
+<?php if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php 
 $APPLICATION->AddHeadString("
 <script type=\"text/javascript\">
 		document.addEventListener('DOMContentLoaded', function() {

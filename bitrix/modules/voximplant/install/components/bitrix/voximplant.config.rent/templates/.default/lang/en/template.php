@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CONFIG_ADDRESS_VERIFICATION_REQUIRED_2"] = "Please note that a valid postal address is required for the location you are about to rent a phone number for. Failing to provide a valid address may potentially result in phone number disconnection.";
 $MESS["VI_CONFIG_CANCEL_BTN"] = "Cancel";
 $MESS["VI_CONFIG_RENT_ADD"] = "Rent another number";

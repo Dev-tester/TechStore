@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "sender");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -21,14 +21,14 @@ if($REQUEST_METHOD == "POST" && $POST_RIGHT=="W" && check_bitrix_sessid())
 	if($do_not_run == 'Y' || CounterCalculation::update())
 	{
 		$messageProgress = GetMessage("sender_convert_status_run");
-		?><script>started = true; MoveProgress();</script><?
+		?><script>started = true; MoveProgress();</script><?php 
 	}
 	else
 	{
 		CAdminNotify::DeleteByTag('sender_counters_16');
 
 		$messageProgress = GetMessage("sender_convert_status_done");
-		?><script>EndConvert();</script><?
+		?><script>EndConvert();</script><?php 
 	}
 
 	$completedPercents = CounterCalculation::getCompletedPercent();
@@ -95,7 +95,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		data['max_execution_time'] = document.getElementById('max_execution_time').value;
 		data['do_not_run'] = started ? 'N' : 'Y';
 
-		var url = '/bitrix/admin/sender_convert.php?lang=<?echo LANGUAGE_ID?>&<?echo bitrix_sessid_get()?>';
+		var url = '/bitrix/admin/sender_convert.php?lang=<?php echo LANGUAGE_ID?>&<?php echo bitrix_sessid_get()?>';
 		ShowWaitWindow();
 
 		BX.ajax.post(
@@ -114,14 +114,14 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 	}
 </script>
 <div id="progress_message"></div>
-<form method="POST" Action="<?echo $APPLICATION->GetCurPage()?>" name="post_form">
-<?
+<form method="POST" Action="<?php echo $APPLICATION->GetCurPage()?>" name="post_form">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-	<?
+	<?php 
 	$max_execution_time = intval(COption::GetOptionString("sender", "interval", 10));
 	if($max_execution_time <= 0)
 	{
@@ -131,19 +131,19 @@ $tabControl->BeginNextTab();
 	<tr>
 		<td width="40%"><?=GetMessage("sender_convert_form_time_name")?></td>
 		<td>
-			<input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $max_execution_time;?>">
+			<input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $max_execution_time;?>">
 			<?=GetMessage("sender_convert_form_time_desc")?>
 		</td>
 	</tr>
 
-	<?echo bitrix_sessid_post();?>
-<?
+	<?php echo bitrix_sessid_post();?>
+<?php 
 $tabControl->Buttons();
 ?>
 	<input type="button" id="start_button" value="<?=GetMessage("sender_convert_form_button_start")?>" onclick="StartConvert();">
 	<input type="button" id="stop_button" value="<?=GetMessage("sender_convert_form_button_stop")?>" onclick="StopConvert();" disabled>
-<?
+<?php 
 $tabControl->End();
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

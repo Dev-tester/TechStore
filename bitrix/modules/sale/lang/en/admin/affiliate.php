@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAA_ERROR_UPDATE"] = "Error updaing the affiliate";
 $MESS["SAA_ERROR_DELETE"] = "Error deleting the affiliate";
 $MESS["SAA_ERROR_ACTIVATE"] = "Error changing the affiliate active status";

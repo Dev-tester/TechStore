@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 // Light Visual BB Editor
 CModule::IncludeModule("fileman");
 if(!function_exists('CustomizeLHEForBlogComments')):
@@ -142,7 +142,7 @@ if(!function_exists('CustomizeLHEForBlogComments')):
 					oBlogComLHE.SaveContent();
 			};
 			</script>
-			<?
+			<?php 
 	}
 
 	AddEventHandler("fileman", "OnIncludeLightEditorScript", "CustomizeLHEForBlogComments");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_ACCESS_DENIED'] = "You do not have enough permissions to view the form.";
 $MESS ['FORM_ACCESS_DENIED_FOR_FORM'] = "You do not have enough permissions to view the form.";
 $MESS ['FORM_ACCESS_DENIED_FOR_FORM_RESULTS'] = "You do not have enough permissions to view this result.";

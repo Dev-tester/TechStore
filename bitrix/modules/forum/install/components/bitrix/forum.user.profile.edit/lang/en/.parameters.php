@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL_TEMPLATES'] = "URLs processing";
 $MESS ['F_PROFILE_VIEW_TEMPLATE'] = "Profile View Page";
 $MESS ['F_DEFAULT_UID'] = "User ID";

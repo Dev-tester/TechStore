@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!$USER->IsAdmin())
 	return;
 
@@ -144,26 +144,26 @@ $arHints = array();
 reset($arAllModuleOptions);
 $tabControl->Begin();
 ?>
-<form method="post" name="tm_opt_form" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?echo LANGUAGE_ID?>">
-<? echo bitrix_sessid_post();?>
-<?
+<form method="post" name="tm_opt_form" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?php echo LANGUAGE_ID?>">
+<?php  echo bitrix_sessid_post();?>
+<?php 
 list($key, $arOptions) = each($arAllModuleOptions);
 $tabControl->BeginNextTab();
 foreach ($arOptions as $opt => $arOptDef):
 ?>
 	<tr>
 		<td valign="top" width="50%"><?=($hint_title = GetMessage('TM_OPT_'.$opt))?>:
-<?
+<?php 
 	if ($hint = GetMessage('TM_OPT_HINT_'.$opt)):
 		$hint_id = 'hint_'.$opt;
 		$arHints[] = array($hint_id, $hint_title, $hint);
 ?>
 			<span id="<?=htmlspecialcharsbx($hint_id)?>"></span>
-<?
+<?php 
 	endif;
 ?>
 		</td>
-		<td valign="top" width="50%"><?
+		<td valign="top" width="50%"><?php 
 	switch($arOptDef[3])
 	{
 		case 'clock':
@@ -175,34 +175,34 @@ foreach ($arOptions as $opt => $arOptDef):
 		case 'checkbox':
 ?>
 		<input type="checkbox" name="<?=htmlspecialcharsbx($opt)?>" value="Y" <?=($arOptDef[0] == 'Y' ? ' checked="checked"' : '')?> />
-<?
+<?php 
 		break;
 		case 'select':
 ?>
 		<select name="<?=htmlspecialcharsbx($opt)?>">
-<?
+<?php 
 			foreach ($arOptDef[4] as $v => $t):
 ?>
 			<option value="<?=htmlspecialcharsbx($v)?>"<?=$v==$arOptDef[0]?' selected="selected"':''?>><?=htmlspecialcharsex($t)?></option>
-<?
+<?php 
 			endforeach;
 ?>
 		</select>
-<?
+<?php 
 		break;
 		default:
 ?>
 		<input type="text" name="<?=htmlspecialcharsbx($opt)?>" value="<?=htmlspecialcharsbx($arOptDef[0])?>" />
-<?
+<?php 
 		break;
 	}
 ?>
 		</td>
 	</tr>
-<?
+<?php 
 endforeach;
 ?>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
 <tr class="heading">
 	<td colspan="2"><?=GetMessage('TM_ACCESS_SUBORDINATE')?></td>
@@ -220,7 +220,7 @@ endforeach;
 		</tr>
 		<tr>
 			<td align="right"><?=GetMessage('TM_ACCESS_S_E')?>:</td>
-<?
+<?php 
 $s = 'selected="selected" ';
 $v = $SUBORDINATE_ACCESS["READ"]["EMPLOYEE"];
 ?>
@@ -232,7 +232,7 @@ $v = $SUBORDINATE_ACCESS["READ"]["EMPLOYEE"];
 		</tr>
 		<tr>
 			<td align="right"><?=GetMessage('TM_ACCESS_S_H')?>:</td>
-<?$v = $SUBORDINATE_ACCESS["READ"]["HEAD"];?>
+<?php $v = $SUBORDINATE_ACCESS["READ"]["HEAD"];?>
 			<td><select name="SUBORDINATE_ACCESS[READ][HEAD]">
 				<option <?=$v==0 ? $s : ''?>value="0"><?=GetMessage('TM_ACCESS_S_READ_H_0')?></option>
 				<option <?=$v==1 ? $s : ''?>value="1"><?=GetMessage('TM_ACCESS_S_READ_H_1')?></option>
@@ -244,7 +244,7 @@ $v = $SUBORDINATE_ACCESS["READ"]["EMPLOYEE"];
 <tr>
 	<td valign="top">
 		<?=GetMessage('TM_ACCESS_SUBORDINATE_WRITE')?>:
-<?
+<?php 
 $arHints[] = array('SUBORDINATE_WRITE', GetMessage('TM_ACCESS_SUBORDINATE_WRITE'), GetMessage('TM_ACCESS_SUBORDINATE_WRITE_HINT'));
 ?>
 		<span id="SUBORDINATE_WRITE"></span>
@@ -256,7 +256,7 @@ $arHints[] = array('SUBORDINATE_WRITE', GetMessage('TM_ACCESS_SUBORDINATE_WRITE'
 		</tr>
 		<tr>
 			<td align="right"><?=GetMessage('TM_ACCESS_S_H')?>:</td>
-<?$v = $SUBORDINATE_ACCESS["WRITE"]["HEAD"];?>
+<?php $v = $SUBORDINATE_ACCESS["WRITE"]["HEAD"];?>
 			<td><select name="SUBORDINATE_ACCESS[WRITE][HEAD]">
 				<option <?=$v==0 ? $s : ''?>value="0"><?=GetMessage('TM_ACCESS_S_WRITE_H_0')?></option>
 				<option <?=$v==1 ? $s : ''?>value="1"><?=GetMessage('TM_ACCESS_S_WRITE_H_1')?></option>
@@ -264,9 +264,9 @@ $arHints[] = array('SUBORDINATE_WRITE', GetMessage('TM_ACCESS_SUBORDINATE_WRITE'
 		</tr>
 	</table></td>
 </tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 <tr>
-<?
+<?php 
 $forum_id = $arAllModuleOptions["edit_wr"]["report_forum_id"][0];
 $page_path = $arAllModuleOptions["edit_wr"]["WORK_REPORT_PATH"][0];
 $timeman_page_path = $arAllModuleOptions["edit_wr"]["TIMEMAN_REPORT_PATH"][0];
@@ -277,12 +277,12 @@ if (CModule::IncludeModule("forum"))
 ?>
 	<td valign="top" width="50%"><?=GetMessage("WR_FORUM_COMMENT_ID")?>:</td><td valign="top" width="50%"><select name="report_forum_id">
 	<option value=""><?=GetMessage("WR_WORK_FORUM_NONE");?></option>
-	<?
+	<?php 
 	while ($ar_Forum = $db_Forum->Fetch()):?>
 		<option value="<?=$ar_Forum["ID"];?>" <?=(($forum_id==$ar_Forum["ID"])?"selected":"");?> ><?=\Bitrix\Main\Text\HtmlFilter::encode($ar_Forum["NAME"]);?></option>
-	<?endwhile;?>
+	<?php endwhile;?>
 	</select></td>
-	<?
+	<?php 
 }
 ?>
 </tr>
@@ -291,31 +291,31 @@ if (CModule::IncludeModule("forum"))
 </tr><tr>
 	<td valign="top" width="50%"><?=GetMessage("TM_OPT_TIMEMAN_REPORT_PATH")?>:</td><td valign="top" width="50%"><input name="TIMEMAN_REPORT_PATH" value="<?=htmlspecialcharsbx($timeman_page_path);?>"></td>
 </tr>
-<?
+<?php 
 if (count($arHints) > 0):
 ?>
 <script type="text/javascript">
 BX.ready(function() {
-<?
+<?php 
 	foreach ($arHints as $hint):
 ?>
 	BX.hint_replace(BX('<?=CUtil::JSEscape($hint[0])?>'), '<?=CUtil::JSEscape($hint[1])?>', '<?=CUtil::JSEscape($hint[2])?>');
-<?
+<?php 
 	endforeach;
 ?>
 });
 </script>
-<?
+<?php 
 endif;
 ?>
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 	<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" />
 	<input type="hidden" name="Update" value="Y" />
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_APPLY")?>" />
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("TM_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("TM_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -230,9 +230,9 @@ window.ForumVoteChannelClick = function(el)
 			}
 		}
 
-		$s = '<?
+		$s = '<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-?><?$APPLICATION->IncludeComponent("bitrix:forum", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:forum", ".default", array(
 	"THEME" => "'.EscapePHPString($theme).'",
 	"SHOW_TAGS" => "Y",
 	"SHOW_AUTH_FORM" => "Y",
@@ -322,7 +322,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
 		return $s;
 	}
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_TAB_SETTINGS"] = "Настройки";
 $MESS["VI_TAB_TITLE_SETTINGS_2"] = "Параметры подключения";
 $MESS["VI_ACCOUNT_ERROR_PUBLIC"] = "Вы указали не корректный публичный адрес";

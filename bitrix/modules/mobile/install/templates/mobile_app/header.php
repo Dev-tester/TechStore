@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -40,11 +40,11 @@ $APPLICATION->IncludeComponent("bitrix:mobile.data", "", Array(
 	"CHAT_PAGE" => SITE_DIR . "mobile/im/right.php?version=" . $moduleVersion
 ), false, Array("HIDE_ICONS" => "Y"));
 ?><!DOCTYPE html>
-<html<?$APPLICATION->ShowProperty("manifest"); ?> class="<?= $platform; ?>">
+<html<?php $APPLICATION->ShowProperty("manifest"); ?> class="<?= $platform; ?>">
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=<?= SITE_CHARSET ?>"/>
 	<meta name="format-detection" content="telephone=no">
-	<?
+	<?php 
 	//commented for the Project Quality Control test
 	//$APPLICATION->ShowHead();
 
@@ -69,13 +69,13 @@ $APPLICATION->IncludeComponent("bitrix:mobile.data", "", Array(
 	$APPLICATION->AddBufferContent(array(&$APPLICATION, "GetCSS"), true, true, AssetShowTargetType::TEMPLATE_PAGE);
 	CJSCore::Init(array('ajax', 'mobile_tools'));
 	?>
-	<title><?$APPLICATION->ShowTitle()?></title>
+	<title><?php $APPLICATION->ShowTitle()?></title>
 </head>
-<body class="<?$APPLICATION->ShowProperty("BodyClass"); ?>"><?
+<body class="<?php $APPLICATION->ShowProperty("BodyClass"); ?>"><?php 
 ?>
 <script>
 	BX.message({
 		MobileSiteDir: '<?=CUtil::JSEscape(htmlspecialcharsbx(SITE_DIR))?>'
 	});
-</script><?
+</script><?php 
 ?>

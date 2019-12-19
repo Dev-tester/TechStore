@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_DETAIL_HISTORY_STUB"] = "Прямо сейчас вы создаёте сделку...";
 $MESS["CRM_DEAL_CONV_ACCESS_DENIED"] = "Для выполнения операции необходимы разрешения на создание контактов, компаний и сделок.";
 $MESS["CRM_DEAL_CONV_GENERAL_ERROR"] = "Общая ошибка конвертации.";

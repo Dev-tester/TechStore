@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <script>
-var currentFilter = '<?echo CUtil::JSEscape($arResult["CURRENT_FILTER"])?>';
+var currentFilter = '<?php echo CUtil::JSEscape($arResult["CURRENT_FILTER"])?>';
 var arFilters = ['simple', 'adv'];
 function BXSetFilter(currentFilterNew)
 {
@@ -27,13 +27,13 @@ function BXSetFilter(currentFilterNew)
 }
 </script>
 <ul class="bx-users-selector">
-	<li id="bx_users_selector_tab_simple"<?echo $arResult["CURRENT_FILTER"] == 'adv' ? '' : ' class="bx-selected"'?> onclick="BXSetFilter('simple')"><?echo GetMessage('SONET_C241_T_TPL_FILTER_SIMPLE')?></li>
-	<li id="bx_users_selector_tab_adv"<?echo $arResult["CURRENT_FILTER"] == 'adv' ? ' class="bx-selected"' : ''?> onclick="BXSetFilter('adv')"><?echo GetMessage('SONET_C241_T_TPL_FILTER_ADV')?></li>
+	<li id="bx_users_selector_tab_simple"<?php echo $arResult["CURRENT_FILTER"] == 'adv' ? '' : ' class="bx-selected"'?> onclick="BXSetFilter('simple')"><?php echo GetMessage('SONET_C241_T_TPL_FILTER_SIMPLE')?></li>
+	<li id="bx_users_selector_tab_adv"<?php echo $arResult["CURRENT_FILTER"] == 'adv' ? ' class="bx-selected"' : ''?> onclick="BXSetFilter('adv')"><?php echo GetMessage('SONET_C241_T_TPL_FILTER_ADV')?></li>
 </ul>
 
 <div class="bx-users-selector-filter" id="bx_users_filter_simple"<?= $arResult["CURRENT_FILTER"] == 'adv' ? ' style="display: none;"' : ''?>>
 	<form action="<?= $arResult["Urls"]["UserSearch"] ?>" class="bx-selector-form filter-form" name="bx_users_filter_simple_form">
-		<?
+		<?php 
 		foreach ($arResult["Params"]["UserSearch"] as $key => $value)
 			echo "<input type=\"hidden\" name=\"".$key."\" value=\"".$value."\" />";
 		?>
@@ -47,21 +47,21 @@ function BXSetFilter(currentFilterNew)
 						<input type="text" name="FLT_FIO" value="<?= htmlspecialcharsex($_REQUEST["FLT_FIO"]) ?>" />
 					</td>
 				</tr>
-				<?foreach ($arResult["UserFieldsSearchSimple"] as $userFieldName => $userFieldDescr):?>
+				<?php foreach ($arResult["UserFieldsSearchSimple"] as $userFieldName => $userFieldDescr):?>
 					<tr>
 						<td class="bx-filter-caption"><?= $userFieldDescr["TITLE"] ?>:</td>
-						<td><?
+						<td><?php 
 						if ($userFieldDescr["TYPE"] == "exact"):
 							echo $userFieldDescr["STRING"];
 						elseif ($userFieldDescr["TYPE"] == "select"):
 							?><select name="<?= $userFieldDescr["NAME"] ?>">
 								<option value=""></option>
-								<?foreach ($userFieldDescr["VALUES"] as $keyTmp => $valTmp):?>
+								<?php foreach ($userFieldDescr["VALUES"] as $keyTmp => $valTmp):?>
 									<option value="<?= $keyTmp ?>"<?= (($keyTmp == $userFieldDescr["VALUE"]) ? " selected" : "") ?>><?= $valTmp ?></option>
-								<?endforeach;?>
-							</select><?
+								<?php endforeach;?>
+							</select><?php 
 						elseif ($userFieldDescr["TYPE"] == "string"):
-							?><input type="text" name="<?= $userFieldDescr["NAME"] ?>" value="<?= $userFieldDescr["VALUE"] ?>" /><?
+							?><input type="text" name="<?= $userFieldDescr["NAME"] ?>" value="<?= $userFieldDescr["VALUE"] ?>" /><?php 
 						elseif ($userFieldDescr["TYPE"] == "calendar"):
 							echo "<nobr>";
 							$APPLICATION->IncludeComponent(
@@ -81,11 +81,11 @@ function BXSetFilter(currentFilterNew)
 						endif;
 						?></td>
 					</tr>
-				<?endforeach;?>
-				<?foreach ($arResult["UserPropertiesSearchSimple"] as $userFieldName => $userFieldDescr):?>
+				<?php endforeach;?>
+				<?php foreach ($arResult["UserPropertiesSearchSimple"] as $userFieldName => $userFieldDescr):?>
 					<tr>
 						<td class="bx-filter-caption"><?= $userFieldDescr["EDIT_FORM_LABEL"] ?>:</td>
-						<td><?
+						<td><?php 
 						$APPLICATION->IncludeComponent(
 							'bitrix:system.field.edit', 
 							$userFieldDescr['USER_TYPE_ID'], 
@@ -99,13 +99,13 @@ function BXSetFilter(currentFilterNew)
 						);
 						?></td>
 					</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="2">
-						<input type="submit" name="set_filter" value="<?echo GetMessage('SONET_C241_T_DO_SEARCH')?>" class="bx-submit-btn" /> 
-						<input type="reset" name="del_filter" value="<?echo GetMessage('SONET_C241_T_DO_CANCEL')?>" class="bx-reset-btn" onclick="window.location='<?= $arResult["Urls"]["UserSearch"] ?>'" />
+						<input type="submit" name="set_filter" value="<?php echo GetMessage('SONET_C241_T_DO_SEARCH')?>" class="bx-submit-btn" /> 
+						<input type="reset" name="del_filter" value="<?php echo GetMessage('SONET_C241_T_DO_CANCEL')?>" class="bx-reset-btn" onclick="window.location='<?= $arResult["Urls"]["UserSearch"] ?>'" />
 					</td>
 				</tr>
 			</tfoot>
@@ -125,21 +125,21 @@ function BXSetFilter(currentFilterNew)
 						<input type="text" name="FLT_FIO" value="<?= htmlspecialcharsex($_REQUEST["FLT_FIO"]) ?>" />
 					</td>
 				</tr>
-				<?foreach ($arResult["UserFieldsSearchAdv"] as $userFieldName => $userFieldDescr):?>
+				<?php foreach ($arResult["UserFieldsSearchAdv"] as $userFieldName => $userFieldDescr):?>
 					<tr>
 						<td class="bx-filter-caption"><?= $userFieldDescr["TITLE"] ?>:</td>
-						<td><?
+						<td><?php 
 						if ($userFieldDescr["TYPE"] == "exact"):
 							echo $userFieldDescr["STRING"];
 						elseif ($userFieldDescr["TYPE"] == "select"):
 							?><select name="<?= $userFieldDescr["NAME"] ?>">
 								<option value=""></option>
-								<?foreach ($userFieldDescr["VALUES"] as $keyTmp => $valTmp):?>
+								<?php foreach ($userFieldDescr["VALUES"] as $keyTmp => $valTmp):?>
 									<option value="<?= $keyTmp ?>"<?= (($keyTmp == $userFieldDescr["VALUE"]) ? " selected" : "") ?>><?= $valTmp ?></option>
-								<?endforeach;?>
-							</select><?
+								<?php endforeach;?>
+							</select><?php 
 						elseif ($userFieldDescr["TYPE"] == "string"):
-							?><input type="text" name="<?= $userFieldDescr["NAME"] ?>" value="<?= $userFieldDescr["VALUE"] ?>" /><?
+							?><input type="text" name="<?= $userFieldDescr["NAME"] ?>" value="<?= $userFieldDescr["VALUE"] ?>" /><?php 
 						elseif ($userFieldDescr["TYPE"] == "calendar"):
 							echo "<nobr>";
 							$APPLICATION->IncludeComponent(
@@ -159,11 +159,11 @@ function BXSetFilter(currentFilterNew)
 						endif;
 						?></td>
 					</tr>
-				<?endforeach;?>
-				<?foreach ($arResult["UserPropertiesSearchAdv"] as $userFieldName => $userFieldDescr):?>
+				<?php endforeach;?>
+				<?php foreach ($arResult["UserPropertiesSearchAdv"] as $userFieldName => $userFieldDescr):?>
 					<tr>
 						<td class="bx-filter-caption"><?= $userFieldDescr["EDIT_FORM_LABEL"] ?>:</td>
-						<td><?
+						<td><?php 
 						$APPLICATION->IncludeComponent(
 							'bitrix:system.field.edit', 
 							$userFieldDescr['USER_TYPE_ID'], 
@@ -177,13 +177,13 @@ function BXSetFilter(currentFilterNew)
 						);
 						?></td>
 					</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="2">
-						<input type="submit" name="set_filter" value="<?echo GetMessage('SONET_C241_T_DO_SEARCH')?>" class="bx-submit-btn" /> 
-						<input type="reset" name="del_filter" value="<?echo GetMessage('SONET_C241_T_DO_CANCEL')?>" class="bx-reset-btn" onclick="window.location='<?= $arResult["Urls"]["UserSearch"] ?>'"/>
+						<input type="submit" name="set_filter" value="<?php echo GetMessage('SONET_C241_T_DO_SEARCH')?>" class="bx-submit-btn" /> 
+						<input type="reset" name="del_filter" value="<?php echo GetMessage('SONET_C241_T_DO_CANCEL')?>" class="bx-reset-btn" onclick="window.location='<?= $arResult["Urls"]["UserSearch"] ?>'"/>
 					</td>
 				</tr>
 			</tfoot>
@@ -194,17 +194,17 @@ function BXSetFilter(currentFilterNew)
 <noindex>
 <br><br>
 <?= GetMessage("SONET_C241_T_SHOW_LIKE") ?>&nbsp;
-<?if ($arResult['CURRENT_VIEW'] != "list"):?><a href="<?= $arResult["Urls"]["ViewList"]; ?>" rel="nofollow"><?endif;?><?= GetMessage("SONET_C241_T_LIST") ?><?if ($arResult['CURRENT_VIEW'] != "list"):?></a><?endif;?>,&nbsp;
-<?if ($arResult['CURRENT_VIEW'] != "bigicon"):?><a href="<?= $arResult["Urls"]["ViewBigIcon"]; ?>" rel="nofollow"><?endif;?><?= GetMessage("SONET_C241_T_BIGICON") ?><?if ($arResult['CURRENT_VIEW'] != "bigicon"):?></a><?endif;?>,&nbsp;
-<?if ($arResult['CURRENT_VIEW'] != "icon"):?><a href="<?= $arResult["Urls"]["ViewIcon"]; ?>" rel="nofollow"><?endif;?><?= GetMessage("SONET_C241_T_ICON") ?><?if ($arResult['CURRENT_VIEW'] != "icon"):?></a><?endif;?>
+<?php if ($arResult['CURRENT_VIEW'] != "list"):?><a href="<?= $arResult["Urls"]["ViewList"]; ?>" rel="nofollow"><?php endif;?><?= GetMessage("SONET_C241_T_LIST") ?><?php if ($arResult['CURRENT_VIEW'] != "list"):?></a><?php endif;?>,&nbsp;
+<?php if ($arResult['CURRENT_VIEW'] != "bigicon"):?><a href="<?= $arResult["Urls"]["ViewBigIcon"]; ?>" rel="nofollow"><?php endif;?><?= GetMessage("SONET_C241_T_BIGICON") ?><?php if ($arResult['CURRENT_VIEW'] != "bigicon"):?></a><?php endif;?>,&nbsp;
+<?php if ($arResult['CURRENT_VIEW'] != "icon"):?><a href="<?= $arResult["Urls"]["ViewIcon"]; ?>" rel="nofollow"><?php endif;?><?= GetMessage("SONET_C241_T_ICON") ?><?php if ($arResult['CURRENT_VIEW'] != "icon"):?></a><?php endif;?>
 <br><br>
 </noindex>
 
-<?if (strlen($arResult["ERROR_MESSAGE"]) <= 0):?>
-	<?if (count($arResult["SEARCH_RESULT"]) > 0):?>
+<?php if (strlen($arResult["ERROR_MESSAGE"]) <= 0):?>
+	<?php if (count($arResult["SEARCH_RESULT"]) > 0):?>
 		<br />
-		<?if ($arResult['CURRENT_VIEW'] == "list"):?>
-			<?foreach ($arResult["SEARCH_RESULT"] as $v):?>
+		<?php if ($arResult['CURRENT_VIEW'] == "list"):?>
+			<?php foreach ($arResult["SEARCH_RESULT"] as $v):?>
 				<div class="sonet-cntnr-user-search">
 				<table width="100%" class="sonet-user-profile-friends data-table">
 					<tr>
@@ -214,7 +214,7 @@ function BXSetFilter(currentFilterNew)
 						<td valign="top" width="50%">
 							<div class="bx-user-text">
 							<div class="bx-user-name">
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
 								array(
@@ -243,20 +243,20 @@ function BXSetFilter(currentFilterNew)
 							?>
 							</div>
 							<div class="bx-user-properties">
-								<?if ($v["UserFieldsMain"]["SHOW"] == "Y"):?>
-									<?foreach ($v["UserFieldsMain"]["DATA"] as $fieldName => $arUserField):?>
-										<?if (StrLen($arUserField["VALUE"]) > 0):?>
+								<?php if ($v["UserFieldsMain"]["SHOW"] == "Y"):?>
+									<?php foreach ($v["UserFieldsMain"]["DATA"] as $fieldName => $arUserField):?>
+										<?php if (StrLen($arUserField["VALUE"]) > 0):?>
 											<?= $arUserField["NAME"] ?>:
 											<?= $arUserField["VALUE"] ?>
 											<br />
-										<?endif;?>
-									<?endforeach;?>
-								<?endif;?>
-								<?if ($v["UserPropertiesMain"]["SHOW"] == "Y"):?>
-									<?foreach ($v["UserPropertiesMain"]["DATA"] as $fieldName => $arUserField):?>
-										<?if ((is_array($arUserField["VALUE"]) && count($arUserField["VALUE"]) > 0) || (!is_array($arUserField["VALUE"]) && StrLen($arUserField["VALUE"]) > 0)):?>
+										<?php endif;?>
+									<?php endforeach;?>
+								<?php endif;?>
+								<?php if ($v["UserPropertiesMain"]["SHOW"] == "Y"):?>
+									<?php foreach ($v["UserPropertiesMain"]["DATA"] as $fieldName => $arUserField):?>
+										<?php if ((is_array($arUserField["VALUE"]) && count($arUserField["VALUE"]) > 0) || (!is_array($arUserField["VALUE"]) && StrLen($arUserField["VALUE"]) > 0)):?>
 											<?=$arUserField["EDIT_FORM_LABEL"]?>:
-											<?
+											<?php 
 											if ($arUserField["FIELD_NAME"] == "UF_DEPARTMENT")
 												$arUserField["SETTINGS"]["SECTION_URL"] = $arParams["PATH_TO_CONPANY_DEPARTMENT"];
 											$APPLICATION->IncludeComponent(
@@ -268,47 +268,47 @@ function BXSetFilter(currentFilterNew)
 											);
 											?>
 											<br />
-										<?endif;?>
-									<?endforeach;?>
-								<?endif;?>
-								<?if (
+										<?php endif;?>
+									<?php endforeach;?>
+								<?php endif;?>
+								<?php if (
 									$arParams["SHOW_RATING"] == 'Y' 
 									&& array_key_exists("RATING", $arResult) 
 									&& array_key_exists("NAME", $arResult["RATING"]) 
 									&& array_key_exists("RATING_".$arParams["RATING_ID"], $v)
 								):?>
 									<?= htmlspecialcharsbx($arResult["RATING"]["NAME"]) ?>: <span title="<?=CUtil::JSEscape(htmlspecialcharsbx($arResult["RATING"]["NAME"]))?>: <?=$v["RATING_".$arParams["RATING_ID"]]?>"><?=round($v["RATING_".$arParams["RATING_ID"]])?></span><br>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 						</td>
 						<td width="30%" valign="top">
-							<?if ($GLOBALS["USER"]->IsAuthorized()):?>
+							<?php if ($GLOBALS["USER"]->IsAuthorized()):?>
 								<div class="bx-user-controls">
-								<?if ($v["CAN_ADD2FRIENDS"]):?>
+								<?php if ($v["CAN_ADD2FRIENDS"]):?>
 									<div class="bx-user-control">
 										<ul>
 											<li class="bx-icon bx-icon-addfriend"><a href="<?= $v["ADD_TO_FRIENDS_LINK"] ?>"><?= GetMessage("SONET_C241_T_ADD_FR") ?></a></li>
 										</ul>
 									</div>
-								<?endif;?>
-								<?if ($v["CAN_MESSAGE"]):?>
+								<?php endif;?>
+								<?php if ($v["CAN_MESSAGE"]):?>
 									<div class="bx-user-control">
 										<ul>
 											<li class="bx-icon bx-icon-message"><a href="<?= $v["MESSAGE_LINK"] ?>" onclick="if (typeof(BX) != 'undefined' && BX.IM) { BXIM.openMessenger(<?=$v["ID"]?>); return false; } else { window.open('<?= $v["MESSAGE_LINK"] ?>', '', 'location=yes,status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><nobr><?= GetMessage("SONET_C241_T_WRITE") ?></nobr></a></li>
 										</ul>
 									</div>
-								<?endif;?>
-							<?endif;?>
+								<?php endif;?>
+							<?php endif;?>
 							</div>
 						</td>
 					</tr>
 				</table>
 				</div>				
-			<?endforeach;?>
-		<?elseif ($arResult['CURRENT_VIEW'] == "bigicon"):?>
+			<?php endforeach;?>
+		<?php elseif ($arResult['CURRENT_VIEW'] == "bigicon"):?>
 			<div class="sonet-cntnr-user-search2">
 			<table width="100%" border="0" class="sonet-user-profile-friend-box">
-			<?
+			<?php 
 			$ind = 0;
 			foreach ($arResult["SEARCH_RESULT"] as $v)
 			{
@@ -356,10 +356,10 @@ function BXSetFilter(currentFilterNew)
 			?>
 			</table>
 			</div>
-		<?elseif ($arResult['CURRENT_VIEW'] == "icon"):?>
+		<?php elseif ($arResult['CURRENT_VIEW'] == "icon"):?>
 			<div class="sonet-cntnr-user-search3">
 			<table width="100%" border="0" class="sonet-user-profile-friend-box">
-			<?
+			<?php 
 			$ind = 0;
 			foreach ($arResult["SEARCH_RESULT"] as $v)
 			{
@@ -407,19 +407,19 @@ function BXSetFilter(currentFilterNew)
 			?>
 			</table>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if (strlen($arResult["NAV_STRING"]) > 0):?>
+		<?php if (strlen($arResult["NAV_STRING"]) > 0):?>
 			<p><?=$arResult["NAV_STRING"]?></p>
-		<?endif;?>
+		<?php endif;?>
 	
-	<?else:?>
-		<?if (!$arResult["ShowResults"]):?>
+	<?php else:?>
+		<?php if (!$arResult["ShowResults"]):?>
 			<?= GetMessage("SONET_C241_T_NOT_FILTERED") ?>
-		<?else:?>
+		<?php else:?>
 			<?= GetMessage("SONET_C241_T_NOT_FOUND") ?>
-		<?endif;?>
-	<?endif;?>
-<?else:?>
+		<?php endif;?>
+	<?php endif;?>
+<?php else:?>
 	<?= ShowError($arResult["ERROR_MESSAGE"]); ?>
-<?endif;?>
+<?php endif;?>

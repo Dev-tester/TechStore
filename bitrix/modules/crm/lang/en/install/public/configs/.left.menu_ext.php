@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMS"] = "Access permissions";
 $MESS["CRM_CURRENCIES"] = "Currencies";
 $MESS["CRM_GUIDES"] = "Selection lists";

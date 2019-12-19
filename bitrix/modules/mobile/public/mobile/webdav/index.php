@@ -1,7 +1,7 @@
-<?require($_SERVER['DOCUMENT_ROOT'] . '/mobile/headers.php');
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/mobile/headers.php');
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:mobile.webdav.file.list",
 	".default",
 	Array(
@@ -12,4 +12,4 @@ require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
 	false
 );
 ?>
-<?require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php');?>

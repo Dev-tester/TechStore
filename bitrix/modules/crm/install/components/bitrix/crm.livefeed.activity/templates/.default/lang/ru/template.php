@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["C_T_CRM_LFA_DESCRIPTION"] = "Описание события";
 $MESS["C_T_CRM_LFA_RECORDS"] = "Записи";
 $MESS["C_T_CRM_LFA_COMPLETED"] = "(выполнено)";

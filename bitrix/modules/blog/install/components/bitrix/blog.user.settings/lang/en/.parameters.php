@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BUS_PATH_TO_USER'] = "User page path template";
 $MESS ['BUS_PATH_TO_USER_SETTINGS_EDIT'] = "Template of a user settings editing page path";
 $MESS ['BUS_BLOG_VAR'] = "Blog identifier variable";

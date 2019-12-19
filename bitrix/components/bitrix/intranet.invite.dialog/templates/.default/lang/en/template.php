@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_INVITE_DIALOG_ACCESS_DENIED"] = "Access denied. You cannot invite new users.";
 $MESS["BX24_INVITE_DIALOG_ACTION_ADD"] = "Add";
 $MESS["BX24_INVITE_DIALOG_ACTION_INVITE"] = "Invite";

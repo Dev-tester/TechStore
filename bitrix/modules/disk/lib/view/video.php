@@ -414,14 +414,14 @@ class Video extends Base
 	 */
 	protected function renderForDesktop($params, $autostart, $sizeType)
 	{
-		?><div class="disk-player-container<?if($sizeType == 'adjust')
+		?><div class="disk-player-container<?php if($sizeType == 'adjust')
 		{
-			?> player-adjust<?
+			?> player-adjust<?php 
 		}
-		?>"<?
+		?>"<?php 
 		if($sizeType == 'fluid')
 		{
-			?> style="width: <?=$params['WIDTH'];?>px; height: <?=$params['HEIGHT'];?>px;"<?
+			?> style="width: <?=$params['WIDTH'];?>px; height: <?=$params['HEIGHT'];?>px;"<?php 
 		}
 		?>>
 			<div class="main-ui-loader">
@@ -429,7 +429,7 @@ class Video extends Base
 					<circle class="main-ui-loader-svg-circle" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"/>
 				</svg>
 			</div>
-		<?
+		<?php 
 		global $APPLICATION;
 		Extension::load(['disk.video']);
 		$APPLICATION->IncludeComponent(
@@ -444,7 +444,7 @@ class Video extends Base
 			'HIDE_ERRORS' => 'Y',
 		)
 		));
-		?></div><?
+		?></div><?php 
 	}
 
 	/**

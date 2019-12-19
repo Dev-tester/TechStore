@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_CURRENCY"] = "Base currency";
 $MESS["CONVERSION_TAB_MODULES_NAME"] = "Modules";
 $MESS["CONVERSION_TAB_MODULES_DESC"] = "Module settings";

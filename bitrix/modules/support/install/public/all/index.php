@@ -1,6 +1,6 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:support.ticket",
 	"",
 	Array(
@@ -12,4 +12,4 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 			"ID" => "ID"
 		)
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

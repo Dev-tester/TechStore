@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 // if ($arParams["PERMISSION"] >= "U") // 
 // {
 	// $url = CComponentEngine::MakePathFromTemplate($arResult["URL_TEMPLATES"]["section_edit"], array("SECTION_ID" => intval($arResult["VARIABLES"]["SECTION_ID"]), "ACTION" => "new"));

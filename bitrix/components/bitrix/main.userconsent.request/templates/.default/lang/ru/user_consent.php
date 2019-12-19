@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_REQUEST_TITLE"] = "Согласие пользователя";
 $MESS["MAIN_USER_CONSENT_REQUEST_BTN_ACCEPT"] = "Принимаю";
 $MESS["MAIN_USER_CONSENT_REQUEST_BTN_REJECT"] = "Не принимаю";

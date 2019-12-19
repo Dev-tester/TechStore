@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_DB_NOT_SUPPORTED"] = "Модуль поддерживает работу только с СУБД MySQL";
 $MESS["IM_MODULE_NAME"] = "Веб-мессенджер";
 $MESS["IM_MODULE_DESCRIPTION"] = "Модуль мгновенных сообщений и уведомлений.";

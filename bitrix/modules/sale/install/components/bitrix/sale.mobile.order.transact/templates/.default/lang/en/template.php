@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOT_ORDER_N"] = "Order #";
 $MESS["SMOT_ORDER_FROM"] = "from";
 $MESS["SMOT_ORDER"] = "Order";

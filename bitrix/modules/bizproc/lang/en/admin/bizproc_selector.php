@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_AS_TITLE"] = "Insert Value";
 $MESS["BIZPROC_AS_TITLE_TOOLBAR"] = "Insert Value";
 $MESS["BIZPROC_SEL_CANCEL"] = "Cancel";

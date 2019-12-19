@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
-?><?
+?><?php 
 $pageId = "group_group_lists";
 include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group/templates/.default/util_group_menu.php");
 include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group/templates/.default/util_group_profile.php");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:lists.element.navchain", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:lists.element.navchain", ".default", array(
 	"IBLOCK_TYPE_ID" => COption::GetOptionString("lists", "socnet_iblock_type_id"),
 	"SOCNET_GROUP_ID" => $arResult["VARIABLES"]["group_id"],
 	"PATH_TO_GROUP" => $arResult["PATH_TO_GROUP"],
@@ -21,7 +21,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group
 	"ADD_NAVCHAIN_ELEMENT" => "N",
 	),
 	$component
-);?><?$APPLICATION->IncludeComponent(
+);?><?php $APPLICATION->IncludeComponent(
 		"bitrix:main.interface.toolbar",
 		"",
 		array(
@@ -60,7 +60,7 @@ include($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork_group
 			),
 		),
 		$component, array("HIDE_ICONS" => "Y")
-);?><?$APPLICATION->IncludeComponent("bitrix:bizproc.workflow.list", ".default", Array(
+);?><?php $APPLICATION->IncludeComponent("bitrix:bizproc.workflow.list", ".default", Array(
 	"MODULE_ID" => "lists",
 	"ENTITY" => 'Bitrix\Lists\BizprocDocumentLists',
 	"DOCUMENT_ID" => "iblock_".$arResult["VARIABLES"]["list_id"],

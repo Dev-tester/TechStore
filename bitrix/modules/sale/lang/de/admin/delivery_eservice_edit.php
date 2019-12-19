@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ESDE_TAB_GENERAL"] = "Extra Service";
 $MESS["SALE_ESDE_TAB_GENERAL_TITLE"] = "Eigenschaften des extra Services bearbeiten";
 $MESS["SALE_ESDE_PAGE_TITLE"] = "Extra Service bearbeiten";

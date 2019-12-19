@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->RestartBuffer();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/template.php")));
@@ -12,7 +12,7 @@ $popupWindow->ShowTitlebar(str_replace("#NAME#", $arResult["SECTION"]["NAME"],
 /*$popupWindow->StartDescription($sTheme);
 ?><p><?=str_replace("#NAME#", $arResult["SECTION"]["NAME"], 
 	($arParams["ACTION"] == "EDIT" ? GetMessage("WD_EDIT_SECTION") : (
-		$arParams["ACTION"] == "ADD" ? GetMessage("WD_ADD_SECTION") : GetMessage("WD_DROP_SECTION"))))?></p><?
+		$arParams["ACTION"] == "ADD" ? GetMessage("WD_ADD_SECTION") : GetMessage("WD_DROP_SECTION"))))?></p><?php 
 $popupWindow->EndDescription();
 */
 if (!empty($arResult["ERROR_MESSAGE"]))
@@ -28,12 +28,12 @@ $popupWindow->StartContent();
 <input type="hidden" name="ACTIVE" value="Y" />
 <input type="hidden" name="popupWindow" value="Y" />
 
-<?
+<?php 
 
 if ($arParams["ACTION"] == "DROP"):
 ?>
 	<?=str_replace("#NAME#", $arResult["SECTION"]["NAME"], GetMessage("WD_DROP_CONFIRM"))?>
-<?
+<?php 
 else:
 ?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -46,10 +46,10 @@ else:
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 endif;
 
 $popupWindow->EndContent();
 $popupWindow->ShowStandardButtons();
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

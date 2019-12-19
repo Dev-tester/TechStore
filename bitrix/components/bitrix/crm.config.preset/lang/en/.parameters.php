@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRESET_MODE"] = "Mode";
 $MESS["CRM_PRESET_ENTITY_TYPE_ID"] = "Type ID";
 $MESS["CRM_PRESET_ID"] = "Template ID";

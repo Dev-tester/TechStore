@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPVDX_ADD"] = "Add";
 $MESS["BPVDX_CALENDAR"] = "Calendar";
 $MESS["BPVDX_DATETIME"] = "Date/Time";

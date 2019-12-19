@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/votes.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 ?><p><?=GetMessage("SERVICES_INFO")?></p>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:voting.list",
 	"",
 	Array(
@@ -12,4 +12,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 		"VOTE_FORM_TEMPLATE" => "vote_new.php?VOTE_ID=#VOTE_ID#", 
 		"VOTE_RESULT_TEMPLATE" => "vote_result.php?VOTE_ID=#VOTE_ID#" 
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

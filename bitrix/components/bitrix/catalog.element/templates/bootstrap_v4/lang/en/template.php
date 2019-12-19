@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_QUANTITY"] = "Quantity";
 $MESS["CT_BCE_QUANTITY"] = "Quantity";
 $MESS["CT_BCE_CATALOG_BUY"] = "Buy";

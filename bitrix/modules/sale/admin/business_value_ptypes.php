@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_before.php');
 
 $readOnly = $APPLICATION->GetGroupRight('sale') < 'W';
@@ -146,7 +146,7 @@ if ($adminSidePanelHelper->isSidePanel())
 				<div class="adm-detail-title"><?=Loc::getMessage('BIZVAL_PAGE_PTYPES')?></div>
 				<table border="0" cellspacing="0" cellpadding="0" width="100%" class="adm-detail-content-table edit-table">
 					<tbody>
-					<?
+					<?php 
 
 					foreach ($allPersonTypes as $personTypeId => $personType)
 					{
@@ -157,7 +157,7 @@ if ($adminSidePanelHelper->isSidePanel())
 						?>
 						<tr>
 							<td class="adm-detail-content-cell-l" width="40%">
-								<?
+								<?php 
 
 								echo htmlspecialcharsbx($personType['TITLE']);
 
@@ -170,7 +170,7 @@ if ($adminSidePanelHelper->isSidePanel())
 								?>
 							</td>
 							<td class="adm-detail-content-cell-r">
-								<?
+								<?php 
 
 								echo Input\Manager::getEditHtml("PERSONS_DOMAINS[$personTypeId]", $personDomainInput, $allPersonTypes[$personTypeId]['DOMAIN']);
 
@@ -180,7 +180,7 @@ if ($adminSidePanelHelper->isSidePanel())
 								?>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 
 					?>
@@ -191,7 +191,7 @@ if ($adminSidePanelHelper->isSidePanel())
 
 		<div class="adm-detail-content-btns-wrap">
 			<div class="adm-detail-content-btns">
-				<?
+				<?php 
 				echo '<input'.($aParams["disabled"] === true? " disabled":"")
 					.' type="submit" name="apply" value="'.GetMessage("admin_lib_edit_apply").'" title="'
 					.GetMessage("admin_lib_edit_apply_title").'" class="adm-btn-save" />';
@@ -201,6 +201,6 @@ if ($adminSidePanelHelper->isSidePanel())
 		</div>
 
 	</form>
-<?
+<?php 
 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

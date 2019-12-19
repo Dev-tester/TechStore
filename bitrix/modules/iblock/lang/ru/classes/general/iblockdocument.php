@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBD_FIELD_ID"] = "ID элемента";
 $MESS["IBD_FIELD_TIMESTAMP_X"] = "Дата изменения элемента";
 $MESS["IBD_FIELD_MODYFIED"] = "Кем изменен";

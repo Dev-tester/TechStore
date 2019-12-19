@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($_REQUEST["save_upload"] != "Y" || $_SERVER['REQUEST_METHOD'] != "POST"):
 	return true;
 endif;
@@ -194,7 +194,7 @@ if ($_REQUEST["FORMAT_ANSWER"] != "return" && $_REQUEST["AJAX_CALL"] == "Y")
 	$APPLICATION->RestartBuffer();
 	if ($_REQUEST["CONVERT"] == "Y")
 		array_walk($uploader, '__Escape');
-	?><?=CUtil::PhpToJSObject($uploader);?><?
+	?><?=CUtil::PhpToJSObject($uploader);?><?php 
 	die();
 }
 $arError = $arError + $arFileError; 

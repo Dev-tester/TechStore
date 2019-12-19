@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SHIPMENT_ITEM_ERR_QUANTITY_EMPTY"] = "Die Menge von #BASKET_ITEM_NAME# kann nicht null oder kleiner als null sein";
 $MESS["SALE_SHIPMENT_ITEM_BARCODE_MORE_ITEM_QUANTITY"] = "Es gibt mehr Strichcodes als Produkte";
 $MESS["SALE_SHIPMENT_ITEM_SHIPMENT_ALREADY_SHIPPED_CANNOT_EDIT"] = "Auslieferung erfolgte bereits. Änderungen sind nicht möglich.";

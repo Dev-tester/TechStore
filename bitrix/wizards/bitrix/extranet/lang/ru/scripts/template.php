@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WIZARD_TITLE'] = "Настройка сайта экстранета для продукта<br>&laquo;1С-Битрикс24&raquo;";
 $MESS ['COPYRIGHT'] = "&copy; 2002 &laquo;Битрикс&raquo;, 2007-#CURRENT_YEAR# &laquo;1С-Битрикс&raquo;";
 $MESS ['SUPPORT'] = "<a href=\"http://www.1c-bitrix.ru/?referer1=extranet&referer2=install\" target=\"_blank\">www.1c-bitrix.ru</a> | <a href=\"http://www.1c-bitrix.ru/support/?referer1=extranet&referer2=install\" target=\"_blank\">Техподдержка</a>";

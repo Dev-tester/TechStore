@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_VK_TITLE"] = "Обмен товаров с ВКонтакте - список профилей";
 
 $MESS["SALE_VK_TABLE__ID"] = "ID";

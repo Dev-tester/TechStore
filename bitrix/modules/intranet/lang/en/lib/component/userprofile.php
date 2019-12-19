@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_ACCESS_DENIED"] = "Access denied";
 $MESS["INTRANET_USER_PROFILE_NOTHING_TO_SAVE"] = "There's no data to save";
 ?>

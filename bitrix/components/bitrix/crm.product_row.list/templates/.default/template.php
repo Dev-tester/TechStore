@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /** @var \CBitrixComponent $component */
 
@@ -387,7 +387,7 @@ foreach($arResult['PRODUCT_PROPS'] as $propID => $arProp)
 				if ($key > 0 && array_key_exists($key, $items))
 					$arValues[] = $items[$key].' ['.$key.']';
 		}
-		?><input type="hidden" name="<?echo $propID?>[]" value=""><? //This will emulate empty input
+		?><input type="hidden" name="<?php echo $propID?>[]" value=""><?php  //This will emulate empty input
 		$control_id = $APPLICATION->IncludeComponent(
 			'bitrix:main.lookup.input',
 			'elements',
@@ -422,7 +422,7 @@ foreach($arResult['PRODUCT_PROPS'] as $propID => $arProp)
 				'SOCNET_GROUP_ID' => '',
 			), $component, array('HIDE_ICONS' => 'Y')
 		);
-		?><a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()"><?echo GetMessage('CRM_PRODUCT_PROP_CHOOSE_ELEMENT')?></a><?
+		?><a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()"><?php echo GetMessage('CRM_PRODUCT_PROP_CHOOSE_ELEMENT')?></a><?php 
 
 		$html = ob_get_contents();
 		ob_end_clean();
@@ -511,24 +511,24 @@ if (is_array($visibleFields) && count($visibleFields) > 0
 	unset($fields, $fieldsIndex, $index, $field, $orderedFields, $fieldName);
 }
 ?>
-<div id="<?=$containerID?>" class="crm-items-list-wrap<?=$additionalClasses?>" data-tabs="<?=$dataTabs?>"><?
+<div id="<?=$containerID?>" class="crm-items-list-wrap<?=$additionalClasses?>" data-tabs="<?=$dataTabs?>"><?php 
 $choiceProductBtnID = $arResult['PREFIX'].'_select_product_button';
 $addProductBtnID = $arResult['PREFIX'].'_add_product_button';
 $modeBtnID = $arResult['PREFIX'].'_edit_rows_button';
 $addRowBtnID = $arResult['PREFIX'].'_add_row_button';
 //$buttonContainerID = $arResult['PREFIX'].'_product_button_container';
-?>  <div class="crm-items-table-top-bar"><span id="crm-l-space" class="<?= $arResult['ALLOW_TAX'] ? 'crm-items-table-bar-l' : 'crm-items-table-bar-l-wtax' ?>"><span id="<?=$choiceProductBtnID?>" class="webform-small-button"<?= ($arResult['INVOICE_MODE']) ? ' style="display: none;"' : '' ?>><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=htmlspecialcharsbx(GetMessage('CRM_FF_CHOISE_3'))?></span><span class="webform-small-button-right"></span></span><?
+?>  <div class="crm-items-table-top-bar"><span id="crm-l-space" class="<?= $arResult['ALLOW_TAX'] ? 'crm-items-table-bar-l' : 'crm-items-table-bar-l-wtax' ?>"><span id="<?=$choiceProductBtnID?>" class="webform-small-button"<?= ($arResult['INVOICE_MODE']) ? ' style="display: none;"' : '' ?>><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=htmlspecialcharsbx(GetMessage('CRM_FF_CHOISE_3'))?></span><span class="webform-small-button-right"></span></span><?php 
 	if ($bCanAddProduct):
-		?><span id="<?=$addProductBtnID?>" class="webform-small-button"<?= ($arResult['INVOICE_MODE']) ? ' style="display: none;"' : '' ?>><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=htmlspecialcharsbx(GetMessage('CRM_FF_ADD_CUSTOM_1'))?></span><span class="webform-small-button-right"></span></span><?
+		?><span id="<?=$addProductBtnID?>" class="webform-small-button"<?= ($arResult['INVOICE_MODE']) ? ' style="display: none;"' : '' ?>><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?=htmlspecialcharsbx(GetMessage('CRM_FF_ADD_CUSTOM_1'))?></span><span class="webform-small-button-right"></span></span><?php 
 	endif;
-?></span><span class="crm-items-table-tab crm-items-table-sale" id="crm-top-sale-tab" style="<?= $nProductRows === 0 ? 'display: none;' : '' ?>"><span class="crm-items-table-tab-inner"><input class="crm-items-checkbox" id="crm-top-sale-checkbox" type="checkbox"<?= $arResult['ENABLE_DISCOUNT'] ? ' checked="checked"' : '' ?>/><label class="crm-items-label" for="crm-top-sale-checkbox"><?=GetMessage('CRM_PRODUCT_SHOW_DISCOUNT')?></label></span></span><span class="crm-items-table-tab-spacer" id="crm-top-spacer" style="<?= $nProductRows === 0 ? 'display: none;' : '' ?>"></span><?
+?></span><span class="crm-items-table-tab crm-items-table-sale" id="crm-top-sale-tab" style="<?= $nProductRows === 0 ? 'display: none;' : '' ?>"><span class="crm-items-table-tab-inner"><input class="crm-items-checkbox" id="crm-top-sale-checkbox" type="checkbox"<?= $arResult['ENABLE_DISCOUNT'] ? ' checked="checked"' : '' ?>/><label class="crm-items-label" for="crm-top-sale-checkbox"><?=GetMessage('CRM_PRODUCT_SHOW_DISCOUNT')?></label></span></span><span class="crm-items-table-tab-spacer" id="crm-top-spacer" style="<?= $nProductRows === 0 ? 'display: none;' : '' ?>"></span><?php 
 if($arResult['ALLOW_TAX']):
-	?><span class="crm-items-table-tab crm-items-table-tax" id="crm-top-tax-tab" style="<?= $nProductRows === 0 ? 'display: none;' : '' ?>"><span class="crm-items-table-tab-inner"><input class="crm-items-checkbox" id="crm-top-tax-checkbox"  type="checkbox"<?= $arResult['ENABLE_TAX'] ? ' checked="checked"' : '' ?>/><label class="crm-items-label" for="crm-top-tax-checkbox"><?=GetMessage('CRM_PRODUCT_SHOW_TAX')?></label></span></span><?
+	?><span class="crm-items-table-tab crm-items-table-tax" id="crm-top-tax-tab" style="<?= $nProductRows === 0 ? 'display: none;' : '' ?>"><span class="crm-items-table-tab-inner"><input class="crm-items-checkbox" id="crm-top-tax-checkbox"  type="checkbox"<?= $arResult['ENABLE_TAX'] ? ' checked="checked"' : '' ?>/><label class="crm-items-label" for="crm-top-tax-checkbox"><?=GetMessage('CRM_PRODUCT_SHOW_TAX')?></label></span></span><?php 
 endif;
 if($arResult['ENABLE_MODE_CHANGE']):
-	?><span class="crm-items-table-bar-r"><span id="<?=$modeBtnID?>" class="webform-small-button"<?= ($bInitEditable || $nProductRows === 0 || $arResult['INVOICE_MODE']) ? ' style="display: none;"' : '' ?>><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?= htmlspecialcharsbx(GetMessage($bInitEditable ? 'CRM_PRODUCT_ROW_BTN_EDIT_F' : 'CRM_PRODUCT_ROW_BTN_EDIT') )?></span><span class="webform-small-button-right"></span></span></span><?
+	?><span class="crm-items-table-bar-r"><span id="<?=$modeBtnID?>" class="webform-small-button"<?= ($bInitEditable || $nProductRows === 0 || $arResult['INVOICE_MODE']) ? ' style="display: none;"' : '' ?>><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?= htmlspecialcharsbx(GetMessage($bInitEditable ? 'CRM_PRODUCT_ROW_BTN_EDIT_F' : 'CRM_PRODUCT_ROW_BTN_EDIT') )?></span><span class="webform-small-button-right"></span></span></span><?php 
 endif;
-?>  </div><?
+?>  </div><?php 
 $productContainerID = $arResult['PREFIX'].'_product_table';
 $priceTitleId = $arResult['PREFIX'].'_price_title';
 $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
@@ -542,18 +542,18 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 				<td class="crm-item-cell crm-item-unit"><span class="crm-item-cell-text"><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_ROW_COL_TTL_MEASURE'))?></span></td>
 				<td class="crm-item-cell crm-item-sale"><span class="crm-item-cell-text"><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_ROW_COL_TTL_DISCOUNT_RATE'))?></span></td>
 				<td class="crm-item-cell crm-item-sum-sale"><span class="crm-item-cell-text"><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_ROW_COL_TTL_DISCOUNT'))?></span></td>
-				<?if($arResult['ALLOW_TAX']):?>
+				<?php if($arResult['ALLOW_TAX']):?>
 				<td class="crm-item-cell crm-item-spacer"></td>
 				<td class="crm-item-cell crm-item-tax"><span class="crm-item-cell-text"><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_ROW_COL_TTL_TAX'))?></span></td>
 				<td class="crm-item-cell crm-item-tax-included"><span class="crm-item-cell-text"><?=GetMessage('CRM_PRODUCT_ROW_COL_TTL_TAX_INCLUDED')?></span></td>
 				<td class="crm-item-cell crm-item-tax-sum"><span class="crm-item-cell-text"><?=GetMessage('CRM_PRODUCT_ROW_COL_TTL_TAX_SUM')?></span></td>
-				<?endif;?>
+				<?php endif;?>
 				<td class="crm-item-cell crm-item-total"><span class="crm-item-cell-text"><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_ROW_COL_TTL_SUM'))?></span></td>
 				<td class="crm-item-cell crm-item-move"><span class="crm-item-cell-text"></span></td>
 			</tr>
 		</thead>
 		<tbody>
-		<?
+		<?php 
 		$defaultMeasure = \Bitrix\Crm\Measure::getDefaultMeasure();
 		$defaultTax = CCrmTax::GetDefaultVatRateInfo();
 		$measures = \Bitrix\Crm\Measure::getMeasures(100);
@@ -771,7 +771,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 							<span class="crm-item-move-btn"></span><span id="<?= ($rowID.'_NUM') ?>" class="crm-item-num"><?=($i+1).'.'?></span>
 						</span>
 						<span class="crm-item-inp-wrap">
-							<input id="<?=$rowID.'_PRODUCT_NAME'?>" class="crm-item-name-inp" type="text" value="<?=$htmlValues['PRODUCT_NAME']?>" autocomplete="off"/><span class="crm-item-inp-btn<? echo ($productID > 0) ? ' crm-item-inp-arrow' : ($bCanAddProduct ? ' crm-item-inp-plus' : ''); ?>"></span>
+							<input id="<?=$rowID.'_PRODUCT_NAME'?>" class="crm-item-name-inp" type="text" value="<?=$htmlValues['PRODUCT_NAME']?>" autocomplete="off"/><span class="crm-item-inp-btn<?php  echo ($productID > 0) ? ' crm-item-inp-arrow' : ($bCanAddProduct ? ' crm-item-inp-plus' : ''); ?>"></span>
 						</span>
 					</span>
 					<span class="crm-item-cell-view"<?= ($bInitEditable && empty($fixedProductName)) ? ' style="display: none;"' : '' ?>>
@@ -819,11 +819,11 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 				</td>
 				<td class="crm-item-cell crm-item-sale">
 					<span class="crm-item-cell-text"<?= $bInitEditable ? '' : ' style="display: none;"' ?>>
-						<input id="<?=$rowID.'_DISCOUNT'?>" type="text" class="crm-item-table-inp" value="<?=$htmlValues['DISCOUNT']?>"/><span class="crm-item-sale-text-wrap"><?
+						<input id="<?=$rowID.'_DISCOUNT'?>" type="text" class="crm-item-table-inp" value="<?=$htmlValues['DISCOUNT']?>"/><span class="crm-item-sale-text-wrap"><?php 
 								if ($arResult['INVOICE_MODE']) :
-							?><span class="crm-item-sale-text"><?=$htmlValues['DISCOUNT_TYPE_TEXT']?></span><?
+							?><span class="crm-item-sale-text"><?=$htmlValues['DISCOUNT_TYPE_TEXT']?></span><?php 
 								else :
-							?><a href="#" class="crm-item-sale-text"><?=$htmlValues['DISCOUNT_TYPE_TEXT']?></a><?
+							?><a href="#" class="crm-item-sale-text"><?=$htmlValues['DISCOUNT_TYPE_TEXT']?></a><?php 
 								endif;
 							?></span>
 					</span>
@@ -839,7 +839,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 						<div id="<?=$rowID.'_DISCOUNT_SUBTOTAL_v'?>" class="crm-item-table-txt"><?=$htmlValues['DISCOUNT_SUBTOTAL']?></div>
 					</span>
 				</td>
-				<?if($arResult['ALLOW_TAX']):?>
+				<?php if($arResult['ALLOW_TAX']):?>
 				<td class="crm-item-cell crm-item-spacer"></td>
 				<td class="crm-item-cell crm-item-tax">
 					<span class="crm-item-cell-text"<?= $bInitEditable ? '' : ' style="display: none;"' ?>>
@@ -875,7 +875,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 						<div id="<?=$rowID.'_TAX_SUM_v'?>" class="crm-item-table-txt">0.0</div>
 					</span>
 				</td>
-				<?endif;?>
+				<?php endif;?>
 				<td class="crm-item-cell crm-item-total">
 					<span class="crm-item-cell-text"<?= $bInitEditable ? '' : ' style="display: none;"' ?>>
 						<input id="<?=$rowID.'_SUM'?>" type="text" value="<?=$htmlValues['SUM']?>" class="crm-item-table-inp"/>
@@ -886,12 +886,12 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 				</td>
 				<td class="crm-item-cell crm-item-move"><span class="crm-item-del"<?= $bInitEditable ?  '' : ' style="display: none;"' ?>></span></td>
 			</tr>
-		<?}?>
+		<?php }?>
 		</tbody>
 	</table>
-	<?
+	<?php 
 	if ($enableCustomProducts):
-	?><div class="crm-items-add-row-wrap"><a id="<?=$addRowBtnID?>" class="crm-items-add-row" href="#"<?= $readOnly ? ' style="display: none;"' : '' ?>><?=GetMessage('CRM_PRODUCT_ROW_ADD_ROW')?></a></div><?
+	?><div class="crm-items-add-row-wrap"><a id="<?=$addRowBtnID?>" class="crm-items-add-row" href="#"<?= $readOnly ? ' style="display: none;"' : '' ?>><?=GetMessage('CRM_PRODUCT_ROW_ADD_ROW')?></a></div><?php 
 	endif;    // if ($enableCustomProducts):
 	?>
 	<!-- example row -->
@@ -962,11 +962,11 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 			</td>
 			<td class="crm-item-cell crm-item-sale">
 					<span class="crm-item-cell-text">
-						<input id="<?= ($rowIdPrefix.'#N#_DISCOUNT') ?>" type="text" class="crm-item-table-inp" value="0"/><span class="crm-item-sale-text-wrap"><?
+						<input id="<?= ($rowIdPrefix.'#N#_DISCOUNT') ?>" type="text" class="crm-item-table-inp" value="0"/><span class="crm-item-sale-text-wrap"><?php 
 							if ($arResult['INVOICE_MODE']) :
-								?><span class="crm-item-sale-text">%</span><?
+								?><span class="crm-item-sale-text">%</span><?php 
 							else :
-								?><a href="#" class="crm-item-sale-text">%</a><?
+								?><a href="#" class="crm-item-sale-text">%</a><?php 
 							endif;
 							?></span>
 					</span>
@@ -982,7 +982,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 						<div id="<?= ($rowIdPrefix.'#N#_DISCOUNT_SUBTOTAL_v') ?>" class="crm-item-table-txt">0.00</div>
 					</span>
 			</td>
-			<?if($arResult['ALLOW_TAX']):?>
+			<?php if($arResult['ALLOW_TAX']):?>
 				<td class="crm-item-cell crm-item-spacer"></td>
 				<td class="crm-item-cell crm-item-tax">
 					<span class="crm-item-cell-text">
@@ -1027,7 +1027,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 						<div id="<?= ($rowIdPrefix.'#N#_TAX_SUM_v') ?>" class="crm-item-table-txt">0.00</div>
 					</span>
 				</td>
-			<?endif;?>
+			<?php endif;?>
 			<td class="crm-item-cell crm-item-total">
 					<span class="crm-item-cell-text">
 						<input id="<?= ($rowIdPrefix.'#N#_SUM') ?>" type="text" value="0.00" class="crm-item-table-inp"/>
@@ -1039,7 +1039,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 			<td class="crm-item-cell crm-item-move"><span class="crm-item-del"<?= $bInitEditable ?  '' : ' style="display: none;"' ?>></span></td>
 		</tr>
 		</tbody>
-	</table><?
+	</table><?php 
 	$bShowDiscount = $arResult['ENABLE_DISCOUNT'];
 	$bShowTax = (!$arResult['HIDE_ALL_TAXES'] && ($arResult['ALLOW_LD_TAX'] || ($arResult['ALLOW_TAX'] && $arResult['ENABLE_TAX'])));
 	$bDiscountExists = false;
@@ -1050,30 +1050,30 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 			<table><tbody>
 				<tr class="crm-view-table-total-value"<?= $bShowDiscount ? '' : ' style="display: none;"' ?>>
 					<td><nobr><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_TOTAL_BEFORE_DISCOUNT'))?>:</nobr></td>
-					<td><?$productEditorCfg['TOTAL_BEFORE_DISCOUNT_ID'] = $arResult['PREFIX'].'_total_before_discount';?>
+					<td><?php $productEditorCfg['TOTAL_BEFORE_DISCOUNT_ID'] = $arResult['PREFIX'].'_total_before_discount';?>
 						<strong id="<?=htmlspecialcharsbx($productEditorCfg['TOTAL_BEFORE_DISCOUNT_ID'])?>" class="crm-view-table-total-value"><?=CCrmCurrency::MoneyToString($arResult['TOTAL_BEFORE_DISCOUNT'], $arResult['CURRENCY_ID'])?></strong>
 					</td>
 				</tr>
 				<tr class="crm-view-table-total-value"<?= $bShowDiscount ? '' : ' style="display: none;"' ?>>
 					<td><nobr><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_TOTAL_DISCOUNT'))?>:</nobr></td>
-					<td><?
+					<td><?php 
 						$productEditorCfg['TOTAL_DISCOUNT_ID'] = $arResult['PREFIX'].'_total_discount';
 						if (round(doubleval($arResult['TOTAL_DISCOUNT']), 2) !== 0.0)
 							$bDiscountExists = true;
 						?>
 						<strong id="<?=htmlspecialcharsbx($productEditorCfg['TOTAL_DISCOUNT_ID'])?>" class="crm-view-table-total-value"><?=CCrmCurrency::MoneyToString($arResult['TOTAL_DISCOUNT'], $arResult['CURRENCY_ID'])?></strong>
 					</td>
-				</tr><?
+				</tr><?php 
 				$productEditorTaxList = array();
 				if ($arResult['ALLOW_TAX'] || $arResult['ALLOW_LD_TAX']):
 				?>
 				<tr class="crm-view-table-total-value"<?= $bShowTax ? '' : ' style="display: none;"' ?>>
 					<td><nobr><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_TOTAL_BEFORE_TAX'))?>:</nobr></td>
-					<td><?$productEditorCfg['TOTAL_BEFORE_TAX_ID'] = $arResult['PREFIX'].'_total_before_tax';?>
+					<td><?php $productEditorCfg['TOTAL_BEFORE_TAX_ID'] = $arResult['PREFIX'].'_total_before_tax';?>
 						<strong id="<?=htmlspecialcharsbx($productEditorCfg['TOTAL_BEFORE_TAX_ID'])?>" class="crm-view-table-total-value"><?=CCrmCurrency::MoneyToString($arResult['TOTAL_BEFORE_TAX'], $arResult['CURRENCY_ID'])?></strong>
 					</td>
 				</tr>
-				<?
+				<?php 
 				endif;
 				if($arResult['ALLOW_TAX']):
 					$productEditorTaxList[] = array(
@@ -1088,7 +1088,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 					<td>
 						<strong id="<?=htmlspecialcharsbx($productEditorCfg['taxValueID'])?>" class="crm-view-table-total-value"><?=CCrmCurrency::MoneyToString($arResult['TOTAL_TAX'], $arResult['CURRENCY_ID'])?></strong>
 					</td>
-				</tr><?
+				</tr><?php 
 				elseif ($arResult['ALLOW_LD_TAX']):
 					$taxList = isset($arResult['TAX_LIST']) ? $arResult['TAX_LIST'] : array();
 					if (!is_array($arResult['TAX_LIST']) || count($arResult['TAX_LIST']) === 0)
@@ -1124,7 +1124,7 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 					<td>
 						<strong <?php echo ($i === 0) ? 'id="'.htmlspecialcharsbx($productEditorCfg['taxValueID']).'" ' : ''; ?>class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($taxInfo['VALUE_MONEY'], $arResult['CURRENCY_ID']) ?></strong>
 					</td>
-				</tr><?
+				</tr><?php 
 					$i++;
 					endforeach;
 					$productEditorCfg['LDTaxes'] = $productEditorTaxList;
@@ -1134,11 +1134,11 @@ $jsEventsManagerId = 'PageEventsManager_'.$arResult['COMPONENT_ID'];
 				<tr class="crm-view-table-total-value">
 					<td><nobr><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_SUM_TOTAL'))?>:</nobr></td>
 					<td>
-						<?$productEditorCfg['SUM_TOTAL_ID'] = $arResult['PREFIX'].'_sum_total';?>
+						<?php $productEditorCfg['SUM_TOTAL_ID'] = $arResult['PREFIX'].'_sum_total';?>
 						<strong id="<?=htmlspecialcharsbx($productEditorCfg['SUM_TOTAL_ID'])?>" class="crm-view-table-total-value"><?=CCrmCurrency::MoneyToString($arResult['TOTAL_SUM'], $arResult['CURRENCY_ID'])?></strong>
 					</td>
 				</tr>
-				<?
+				<?php 
 				$productEditorCfg['_discountExistsInit'] = $bDiscountExists;
 				$productEditorCfg['_taxExistsInit'] = $bTaxExists;
 				?>

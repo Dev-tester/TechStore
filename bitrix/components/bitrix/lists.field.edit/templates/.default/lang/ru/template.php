@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLFE_TOOLBAR_FIELDS"] = "Поля списка";
 $MESS["CT_BLFE_TOOLBAR_FIELDS_TITLE"] = "Настроить поля списка";
 $MESS["CT_BLFE_TOOLBAR_DELETE"] = "Удалить поле";

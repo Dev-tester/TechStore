@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Socialnetwork\Integration;
 use Bitrix\Main\Localization\Loc;

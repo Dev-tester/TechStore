@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_SALE_ACT_IBLOCK_CONTROLGROUP_LABEL"] = "Поля и характеристики товара в инфоблоке";
 $MESS["BT_MOD_SALE_ACT_CATALOG_PRICE_TYPE_LABEL"] = "Тип цен";
 $MESS["BT_MOD_SALE_ACT_CATALOG_PRICE_TYPE_PREFIX"] = "Тип цен товара в каталоге";

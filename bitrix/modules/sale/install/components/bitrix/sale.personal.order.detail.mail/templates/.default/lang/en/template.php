@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOD_ACCOUNT"] = "Account";
 $MESS["SPOD_ACCOUNT_DATA"] = "Your account information";
 $MESS["SPOD_ALREADY_PAID"] = "already paid";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -11,12 +11,12 @@ if (!empty($arResult['ERRORS']))
 			<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 				<div class="alert alert-danger"><?=$arResult['ERRORS'][$component::E_NOT_AUTHORIZED]?></div>
 			</div>
-			<? $authListGetParams = array(); ?>
+			<?php  $authListGetParams = array(); ?>
 			<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-				<?$APPLICATION->AuthForm('', false, false, 'N', false);?>
+				<?php $APPLICATION->AuthForm('', false, false, 'N', false);?>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 
 	return;
@@ -29,7 +29,7 @@ if (!empty($arResult['ERRORS']))
 	</div>
 </div>
 
-<?
+<?php 
 if(strlen($arResult["ID"])>0)
 {
 	ShowError($arResult["ERROR_MESSAGE"]);
@@ -57,7 +57,7 @@ if(strlen($arResult["ID"])>0)
 				</div>
 			</div>
 
-			<?
+			<?php 
 			foreach($arResult["ORDER_PROPS"] as $block)
 			{
 				if (!empty($block["PROPS"]))
@@ -68,7 +68,7 @@ if(strlen($arResult["ID"])>0)
 							<h4><?= $block["NAME"]?></h4>
 						</div>
 					</div>
-					<?
+					<?php 
 					foreach($block["PROPS"] as $property)
 					{
 						$key = (int)$property["ID"];
@@ -76,25 +76,25 @@ if(strlen($arResult["ID"])>0)
 						$currentValue = $arResult["ORDER_PROPS_VALUES"][$name];
 						$alignTop = ($property["TYPE"] === "LOCATION" && $arParams['USE_AJAX_LOCATIONS'] === 'Y') ? "vertical-align-top" : "";
 						?>
-							<?
+							<?php 
 							if ($property["TYPE"] == "CHECKBOX")
 							{
 								?>
 								<div class="form-check row mb-2">
 									<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 										<?= $property["NAME"]?>:
-										<? if ($property["REQUIED"] == "Y")
+										<?php  if ($property["REQUIED"] == "Y")
 										{
-											?><span class="req">*</span><?
+											?><span class="req">*</span><?php 
 										}
 										?>
 									</label>
 									<div class="col-sm-9">
 										<input class="form-check-input" id="sppd-property-<?=$key?>" type="checkbox" name="<?=$name?>" value="Y"
-										<?if ($currentValue == "Y" || !isset($currentValue) && $property["DEFAULT_VALUE"] == "Y") echo " checked";?>/>
+										<?php if ($currentValue == "Y" || !isset($currentValue) && $property["DEFAULT_VALUE"] == "Y") echo " checked";?>/>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "TEXT")
 							{
@@ -102,14 +102,14 @@ if(strlen($arResult["ID"])>0)
 								<div class="form-group row mb-2">
 									<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 										<?= $property["NAME"]?>:
-										<? if ($property["REQUIED"] == "Y")
+										<?php  if ($property["REQUIED"] == "Y")
 										{
-											?><span class="req">*</span><?
+											?><span class="req">*</span><?php 
 										}
 										?>
 									</label>
 									<div class="col-sm-9">
-										<?
+										<?php 
 										if ($property["MULTIPLE"] === 'Y')
 										{
 											if (empty($currentValue) || !is_array($currentValue))
@@ -118,22 +118,22 @@ if(strlen($arResult["ID"])>0)
 											{
 												?>
 												<input class="form-control mb-1" type="text" name="<?=$name?>[]" maxlength="50" id="sppd-property-<?=$key?>" value="<?=$elementValue?>"/>
-												<?
+												<?php 
 											}
 											?>
 											<span class="btn btn-primary" data-add-type=<?=$property["TYPE"]?> data-add-name="<?=$name?>[]"><?=Loc::getMessage('SPPD_ADD')?></span>
-											<?
+											<?php 
 										}
 										else
 										{
 											?>
 											<input class="form-control mb-1" type="text" name="<?=$name?>" maxlength="50" id="sppd-property-<?=$key?>" value="<?=$currentValue?>"/>
-											<?
+											<?php 
 										}
 										?>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "SELECT")
 							{
@@ -141,28 +141,28 @@ if(strlen($arResult["ID"])>0)
 								<div class="form-group row mb-2">
 									<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 										<?= $property["NAME"]?>:
-										<? if ($property["REQUIED"] == "Y")
+										<?php  if ($property["REQUIED"] == "Y")
 										{
-											?><span class="req">*</span><?
+											?><span class="req">*</span><?php 
 										}
 										?>
 									</label>
 									<div class="col-sm-9">
-										<select class="form-control mb-1" name="<?=$name?>" id="sppd-property-<?=$key?>" size="<?echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:1; ?>">
-											<?
+										<select class="form-control mb-1" name="<?=$name?>" id="sppd-property-<?=$key?>" size="<?php echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:1; ?>">
+											<?php 
 											foreach ($property["VALUES"] as $value)
 											{
 												?>
-												<option value="<?= $value["VALUE"]?>" <?if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"]==$property["DEFAULT_VALUE"]) echo " selected"?>>
+												<option value="<?= $value["VALUE"]?>" <?php if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"]==$property["DEFAULT_VALUE"]) echo " selected"?>>
 													<?= $value["NAME"]?>
 												</option>
-												<?
+												<?php 
 											}
 											?>
 										</select>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "MULTISELECT")
 							{
@@ -170,15 +170,15 @@ if(strlen($arResult["ID"])>0)
 								<div class="form-group row mb-2">
 									<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 										<?= $property["NAME"]?>:
-										<? if ($property["REQUIED"] == "Y")
+										<?php  if ($property["REQUIED"] == "Y")
 										{
-											?><span class="req">*</span><?
+											?><span class="req">*</span><?php 
 										}
 										?>
 									</label>
 									<div class="col-sm-9">
-										<select class="form-control mb-1" id="sppd-property-<?=$key?>" multiple name="<?=$name?>[]" size="<?echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:5; ?>">
-											<?
+										<select class="form-control mb-1" id="sppd-property-<?=$key?>" multiple name="<?=$name?>[]" size="<?php echo (intval($property["SIZE1"])>0)?$property["SIZE1"]:5; ?>">
+											<?php 
 											$arCurVal = array();
 											$arCurVal = explode(",", $currentValue);
 											for ($i = 0, $cnt = count($arCurVal); $i < $cnt; $i++)
@@ -189,16 +189,16 @@ if(strlen($arResult["ID"])>0)
 											foreach($property["VALUES"] as $value)
 											{
 												?>
-												<option value="<?= $value["VALUE"]?>"<?if (in_array($value["VALUE"], $arCurVal) || !isset($currentValue) && in_array($value["VALUE"], $arDefVal)) echo" selected"?>>
+												<option value="<?= $value["VALUE"]?>"<?php if (in_array($value["VALUE"], $arCurVal) || !isset($currentValue) && in_array($value["VALUE"], $arDefVal)) echo" selected"?>>
 													<?= $value["NAME"]?>
 												</option>
-												<?
+												<?php 
 											}
 											?>
 										</select>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "TEXTAREA")
 							{
@@ -206,9 +206,9 @@ if(strlen($arResult["ID"])>0)
 								<div class="form-group row mb-2">
 									<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 										<?= $property["NAME"]?>:
-										<? if ($property["REQUIED"] == "Y")
+										<?php  if ($property["REQUIED"] == "Y")
 										{
-											?><span class="req">*</span><?
+											?><span class="req">*</span><?php 
 										}
 										?>
 									</label>
@@ -216,13 +216,13 @@ if(strlen($arResult["ID"])>0)
 										<textarea
 											class="form-control mb-1"
 											id="sppd-property-<?=$key?>"
-											rows="<?echo ((int)($property["SIZE2"])>0)?$property["SIZE2"]:4; ?>"
-											cols="<?echo ((int)($property["SIZE1"])>0)?$property["SIZE1"]:40; ?>"
+											rows="<?php echo ((int)($property["SIZE2"])>0)?$property["SIZE2"]:4; ?>"
+											cols="<?php echo ((int)($property["SIZE1"])>0)?$property["SIZE1"]:40; ?>"
 											name="<?=$name?>"><?= (isset($currentValue)) ? $currentValue : $property["DEFAULT_VALUE"];?>
 										</textarea>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "LOCATION")
 							{
@@ -230,14 +230,14 @@ if(strlen($arResult["ID"])>0)
 								<div class="form-group row mb-2">
 									<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 										<?= $property["NAME"]?>:
-										<? if ($property["REQUIED"] == "Y")
+										<?php  if ($property["REQUIED"] == "Y")
 										{
-											?><span class="req">*</span><?
+											?><span class="req">*</span><?php 
 										}
 										?>
 									</label>
 									<div class="col-sm-9">
-										<?
+										<?php 
 											$locationTemplate = ($arParams['USE_AJAX_LOCATIONS'] !== 'Y') ? "popup" : "";
 											$locationClassName = 'location-block-wrapper';
 											if ($arParams['USE_AJAX_LOCATIONS'] === 'Y')
@@ -272,7 +272,7 @@ if(strlen($arResult["ID"])>0)
 													  data-add-type="<?=$property["TYPE"]?>"
 													  data-add-name="<?=$name?>"
 													  data-add-last-key="<?=$code?>"
-													  data-add-template="<?=$locationTemplate?>"><?=Loc::getMessage('SPPD_ADD')?></span><?
+													  data-add-template="<?=$locationTemplate?>"><?=Loc::getMessage('SPPD_ADD')?></span><?php 
 										}
 										else
 										{
@@ -296,7 +296,7 @@ if(strlen($arResult["ID"])>0)
 										?>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							elseif ($property["TYPE"] == "RADIO")
 							{
@@ -306,19 +306,19 @@ if(strlen($arResult["ID"])>0)
 									<div class="form-check row mb-2">
 										<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 											<?= $property["NAME"]?>:
-											<? if ($property["REQUIED"] == "Y")
+											<?php  if ($property["REQUIED"] == "Y")
 											{
-												?><span class="req">*</span><?
+												?><span class="req">*</span><?php 
 											}
 											?>
 										</label>
 										<div class="col-sm-9">
 											<input type="radio" id="sppd-property-<?=$key?>" name="<?=$name?>" value="<?= $value["VALUE"]?>"
-												<?if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"] == $property["DEFAULT_VALUE"]) echo " checked"?>>
+												<?php if ($value["VALUE"] == $currentValue || !isset($currentValue) && $value["VALUE"] == $property["DEFAULT_VALUE"]) echo " checked"?>>
 											<?= $value["NAME"]?>
 										</div>
 									</div>
-									<?
+									<?php 
 								}
 							}
 							elseif ($property["TYPE"] == "FILE")
@@ -329,12 +329,12 @@ if(strlen($arResult["ID"])>0)
 								{
 									?>
 									<input type="hidden" name="<?=$name?>_del" class="profile-property-input-delete-file">
-									<?
+									<?php 
 									foreach ($profileFiles as $file)
 									{
 										?>
 										<div class="sale-personal-profile-detail-form-file">
-											<?
+											<?php 
 											$fileId = $file['ID'];
 											if (CFile::IsImage($file['FILE_NAME']))
 											{
@@ -342,7 +342,7 @@ if(strlen($arResult["ID"])>0)
 												<div class="sale-personal-profile-detail-prop-img">
 													<?=CFile::ShowImage($fileId, 150, 150, "border=0", "", true)?>
 												</div>
-												<?
+												<?php 
 											}
 											else
 											{
@@ -350,22 +350,22 @@ if(strlen($arResult["ID"])>0)
 												<a download="<?=$file["ORIGINAL_NAME"]?>" href="<?=CFile::GetFileSRC($file)?>">
 													<?=Loc::getMessage('SPPD_DOWNLOAD_FILE', array("#FILE_NAME#" => $file["ORIGINAL_NAME"]))?>
 												</a>
-												<?
+												<?php 
 											}
 											?>
 											<input type="checkbox" value="<?=$fileId?>" class="profile-property-check-file" id="profile-property-check-file-<?=$fileId?>">
 											<label for="profile-property-check-file-<?=$fileId?>"><?=Loc::getMessage('SPPD_DELETE_FILE')?></label>
 										</div>
-										<?
+										<?php 
 									}
 								}
 								?>
 								<div class="form-group row mb-2">
 									<label class="col-sm-3 text-right col-form-label <?=$alignTop?>" for="sppd-property-<?=$key?>">
 										<?= $property["NAME"]?>:
-										<? if ($property["REQUIED"] == "Y")
+										<?php  if ($property["REQUIED"] == "Y")
 										{
-											?><span class="req">*</span><?
+											?><span class="req">*</span><?php 
 										}
 										?>
 									</label>
@@ -380,30 +380,30 @@ if(strlen($arResult["ID"])>0)
 										<span class="sale-personal-profile-detail-load-file-cancel sale-personal-profile-hide"></span>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							if (strlen($property["DESCRIPTION"]) > 0)
 							{
 								?>
 								<br /><small><?= $property["DESCRIPTION"] ?></small>
-								<?
+								<?php 
 							}
 							?>
-						<?
+						<?php 
 					}
 				}
 			}
 			?>
 			<div class="row mb-3 mt-5">
 				<div class="col">
-					<input type="submit" class="btn btn-primary btn-md" name="save" value="<?echo GetMessage("SALE_SAVE") ?>">
+					<input type="submit" class="btn btn-primary btn-md" name="save" value="<?php echo GetMessage("SALE_SAVE") ?>">
 					<input type="submit" class="btn btn-primary btn-md"  name="apply" value="<?=GetMessage("SALE_APPLY")?>">
-					<input type="submit" class="btn btn-link btn-md"  name="reset" value="<?echo GetMessage("SALE_RESET")?>">
+					<input type="submit" class="btn btn-link btn-md"  name="reset" value="<?php echo GetMessage("SALE_RESET")?>">
 				</div>
 			</div>
 		</form>
 	</div>
-	<?
+	<?php 
 	$javascriptParams = array(
 		"ajaxUrl" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
 	);
@@ -416,7 +416,7 @@ if(strlen($arResult["ID"])>0)
 		});
 		BX.Sale.PersonalProfileComponent.PersonalProfileDetail.init(<?=$javascriptParams?>);
 	</script>
-	<?
+	<?php 
 }
 else
 {

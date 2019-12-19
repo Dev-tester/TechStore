@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_LINES_ADD_NUMBER_GROUP"] = "Create number pool";
 $MESS["VOX_LINES_BUNDLE_WILL_BE_DELETED"] = "The bundle will be disconnected within 24 hours.";
 $MESS["VOX_LINES_BUTTON_CANCEL"] = "Cancel";

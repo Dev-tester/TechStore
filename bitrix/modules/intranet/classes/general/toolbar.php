@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIntranetToolbar
 {
 	var $arButtons = array();

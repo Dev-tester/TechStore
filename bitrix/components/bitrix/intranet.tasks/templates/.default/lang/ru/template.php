@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTST_CLOSE'] = "Закрыть";
 $MESS ['INTST_FOLDER_NAME'] = "Название папки";
 $MESS ['INTST_DELETE'] = "Удалить";

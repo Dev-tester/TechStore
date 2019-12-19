@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_MESSAGE_ICON"] = "иконка";
 $MESS["IM_MESSAGE_SMILE"] = "смайл";
 $MESS["IM_MESSAGE_EMOJI"] = "эмоджи";

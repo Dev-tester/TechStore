@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?><?php 
 CHTTP::SetStatus("503 Service Unavailable");
 ?>
 <html>
@@ -9,4 +9,4 @@ CHTTP::SetStatus("503 Service Unavailable");
 <h1>Service Temporarily Unavailable</h1>
 You have made too many requests per second.
 </body></html>
-<?die();?>
+<?php die();?>

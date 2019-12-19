@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/interface/admin_lib.php");
@@ -535,7 +535,7 @@ echo '<table class="adm-list-table" id="'.$this->table_id.'">
 ?>
 <div class="adm-list-table-footer" id="<?=$this->table_id?>_footer<?=$this->bEditMode || count($this->arUpdateErrorIDs)>0 ? '_edit' : ''?>">
 	<input type="hidden" name="action_button" id="<?=$this->table_id.'_action_button'; ?>" value="" />
-<?
+<?php 
 
 		if($this->bEditMode || count($this->arUpdateErrorIDs)>0)
 		{
@@ -607,7 +607,7 @@ echo '<table class="adm-list-table" id="'.$this->table_id.'">
 <?=$list?>
 		</select>
 	</span>
-<?
+<?php 
 				if (strlen($html) > 0)
 					echo $html;
 
@@ -616,7 +616,7 @@ echo '<table class="adm-list-table" id="'.$this->table_id.'">
 			endif;
 ?>
 	<span class="adm-table-counter" id="<?=$this->table_id?>_selected_count"><?=GetMessage('admin_lib_checked')?>: <span>0</span></span>
-<?
+<?php 
 		}
 		echo '</div>';
 	}
@@ -868,24 +868,24 @@ class CAdminSubListRow extends CAdminListRow
 
 ?>
 <tr class="adm-list-table-row<?=(isset($this->aFeatures["footer"]) && $this->aFeatures["footer"] == true? ' footer':'')?><?=$this->bEditMode?' adm-table-row-active' : ''?>"<?=($sMenuItems <> "" ? ' oncontextmenu="return '.$sMenuItems.';"':'');?><?=($sDefAction <> ""? ' ondblclick="'.$sDefAction.'"'.(!empty($sDefTitle)? ' title="'.GetMessage("admin_lib_list_double_click").' '.$sDefTitle.'"':''):'')?>>
-<?
+<?php 
 
 		if(count($this->pList->arActions)>0 || $this->pList->bCanBeEdited):
 			$check_id = RandString(5);
 ?>
 	<td class="adm-list-table-cell adm-list-table-checkbox adm-list-table-checkbox-hover<?=$this->bReadOnly? ' adm-list-table-checkbox-disabled':''?>"><input type="checkbox" class="adm-checkbox adm-designed-checkbox" name="SUB_ID[]" id="<?=$this->table_id."_".$this->id."_".$check_id;?>" value="<?=$this->id?>" autocomplete="off" title="<?=GetMessage("admin_lib_list_check")?>"<?=$this->bReadOnly? ' disabled="disabled"':''?><?=$this->bEditMode ? ' checked="checked" disabled="disabled"' : ''?> /><label class="adm-designed-checkbox-label adm-checkbox" for="<?=$this->table_id."_".$this->id."_".$check_id;?>"></label></td>
-<?
+<?php 
 		endif;
 
 		if($this->pList->bShowActions):
 			if(!empty($this->aActions)):
 ?>
 	<td class="adm-list-table-cell adm-list-table-popup-block" onclick="BX.adminSubList.ShowMenu(this.firstChild, this.parentNode.oncontextmenu(), this.parentNode);"><div class="adm-list-table-popup" title="<?=GetMessage("admin_lib_list_actions_title")?>"></div></td>
-<?
+<?php 
 			else:
 ?>
 	<td class="adm-list-table-cell"></td>
-<?
+<?php 
 			endif;
 		endif;
 
@@ -1022,7 +1022,7 @@ class CAdminSubListRow extends CAdminListRow
 		}
 ?>
 </tr>
-<?
+<?php 
 	}
 
 	function AddFieldNames($strFieldName,$strFieldType = 'HIDDEN')

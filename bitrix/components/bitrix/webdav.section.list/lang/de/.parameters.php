@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_TITLE_ACTIVE'] = "Akt.";
 $MESS ['W_TITLE_ACTFROM'] = "Aktiv von";
 $MESS ['W_TITLE_ACTTO'] = "Aktiv bis";

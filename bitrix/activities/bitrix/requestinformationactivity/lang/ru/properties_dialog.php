@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRIA_PD_APPROVERS"] = "Заполняют сотрудники";
 $MESS["BPRIA_PD_TYPE"] = "Тип утверждения";
 $MESS["BPRIA_PD_TYPE_ALL"] = "Все сотрудники";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -170,10 +170,10 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($strNotice);?>
-<?CAdminMessage::ShowMessage($strWarning);?>
+<?php CAdminMessage::ShowMessage($strNotice);?>
+<?php CAdminMessage::ShowMessage($strWarning);?>
 
-<?
+<?php 
 if(strlen($strWarning)<=0):
 	$sectionname = "";
 	$arDirProperties = false;
@@ -191,17 +191,17 @@ if(strlen($strWarning)<=0):
 
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="fnew_folder">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="fnew_folder">
 <input type="hidden" name="logical" value="<?=htmlspecialcharsbx($logical)?>">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="save" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<input type="hidden" name="site" value="<?echo $site?>">
-<input type="hidden" name="back_url" value="<?echo htmlspecialcharsbx($back_url);?>">
-<input type="hidden" name="path" value="<?echo htmlspecialcharsbx($path)?>">
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<input type="hidden" name="site" value="<?php echo $site?>">
+<input type="hidden" name="back_url" value="<?php echo htmlspecialcharsbx($back_url);?>">
+<input type="hidden" name="path" value="<?php echo htmlspecialcharsbx($path)?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(array("DIV" => "edit1", "TAB" => GetMessage("FILEMAN_TAB"), "ICON" => "fileman", "TITLE" => GetMessage("FILEMAN_TAB_ALT")));
 if ($USER->CanDoFileOperation('fm_edit_permission',$arPath))
 	$aTabs[] = array("DIV" => "edit2", "TAB" => GetMessage("FILEMAN_ACCESS"), "ICON" => "fileman", "TITLE" => GetMessage("FILEMAN_FOLDER_ACCESS"));
@@ -209,26 +209,26 @@ if ($USER->CanDoFileOperation('fm_edit_permission',$arPath))
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 	<tr>
 		<td width="40%">
-			<?echo GetMessage("FILEMAN_FOLDER_SECTION_NAME")?>
+			<?php echo GetMessage("FILEMAN_FOLDER_SECTION_NAME")?>
 		</td>
 		<td width="60%">
-			<input type="text" name="sectionname" value="<?echo htmlspecialcharsbx($f_SECTIONNAME)?>" size="50" maxlength="255">
+			<input type="text" name="sectionname" value="<?php echo htmlspecialcharsbx($f_SECTIONNAME)?>" size="50" maxlength="255">
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("FILEMAN_FOLDER_FILEPROPS")?></td>
+		<td colspan="2"><?php echo GetMessage("FILEMAN_FOLDER_FILEPROPS")?></td>
 	</tr>
 	<tr>
 		<td align="center" colspan="2">
 			<table border="0" cellspacing="1" cellpadding="3" class="internal">
 				<tr class="heading">
-					<td align="center"><?echo GetMessage("FILEMAN_FOLDER_PROPSCODE")?></td>
-					<td align="center"><?echo GetMessage("FILEMAN_FOLDER_PROPSVAL")?></td>
+					<td align="center"><?php echo GetMessage("FILEMAN_FOLDER_PROPSCODE")?></td>
+					<td align="center"><?php echo GetMessage("FILEMAN_FOLDER_PROPSVAL")?></td>
 				</tr>
-				<?
+				<?php 
 				$arPropTypes = CFileMan::GetPropstypes($site);
 
 				if(is_array($arDirProperties))
@@ -253,19 +253,19 @@ $tabControl->Begin();
 						?>
 						<tr>
 							<td>
-								<?if($bPredefinedProperty):?>
-									<input type="hidden" name="CODE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE);?>">
-									<input type="text" name="CODE_NAME_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE_NAME);?>" size="30" readonly style='background-color:#F1F1F1;'>
-									<!--<?echo $f_CODE_NAME;?>-->
-								<?else:?>
-									<input type="text" name="CODE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE);?>" size="30">
-								<?endif;?>
+								<?php if($bPredefinedProperty):?>
+									<input type="hidden" name="CODE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE);?>">
+									<input type="text" name="CODE_NAME_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE_NAME);?>" size="30" readonly style='background-color:#F1F1F1;'>
+									<!--<?php echo $f_CODE_NAME;?>-->
+								<?php else:?>
+									<input type="text" name="CODE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE);?>" size="30">
+								<?php endif;?>
 							</td>
 							<td>
-								<input type="text" name="VALUE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_VALUE);?>" size="60">
+								<input type="text" name="VALUE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_VALUE);?>" size="60">
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 				}
 
@@ -292,22 +292,22 @@ $tabControl->Begin();
 						?>
 						<tr>
 							<td>
-								<?if($bPredefinedProperty):?>
-									<input type="hidden" name="CODE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE);?>">
-									<input type="text" name="CODE_NAME_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE_NAME);?>" size="30" readonly style='background-color:#F1F1F1;'>
-									<!--<?echo $f_CODE_NAME;?>-->
-								<?else:?>
-									<input type="text" name="CODE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE);?>" size="30">
-								<?endif;?>
+								<?php if($bPredefinedProperty):?>
+									<input type="hidden" name="CODE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE);?>">
+									<input type="text" name="CODE_NAME_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE_NAME);?>" size="30" readonly style='background-color:#F1F1F1;'>
+									<!--<?php echo $f_CODE_NAME;?>-->
+								<?php else:?>
+									<input type="text" name="CODE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE);?>" size="30">
+								<?php endif;?>
 							</td>
-							<td><input type="text" name="VALUE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_VALUE);?>" size="60"><?
+							<td><input type="text" name="VALUE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_VALUE);?>" size="60"><?php 
 								if($APPLICATION->GetDirProperty($f_CODE, Array($site, $path)) && strlen($f_VALUE)<=0)
 								{
-									?><br><small><b><?echo GetMessage("FILEMAN_FOLDER_CURVAL")?></b> <?echo htmlspecialcharsbx($APPLICATION->GetDirProperty($f_CODE, Array($site, $path)));?></small><?
+									?><br><small><b><?php echo GetMessage("FILEMAN_FOLDER_CURVAL")?></b> <?php echo htmlspecialcharsbx($APPLICATION->GetDirProperty($f_CODE, Array($site, $path)));?></small><?php 
 								}
 								?></td>
 						</tr>
-						<?
+						<?php 
 					}
 				}
 				if(count($arPropTypes)>0 && is_array($arPropTypes))
@@ -322,17 +322,17 @@ $tabControl->Begin();
 						?>
 						<tr>
 							<td>
-								<input type="hidden" name="CODE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE);?>">
-								<input type="text" name="CODE_NAME_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_CODE_NAME);?>" size="30" readonly style='background-color:#F1F1F1;'>
+								<input type="hidden" name="CODE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE);?>">
+								<input type="text" name="CODE_NAME_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_CODE_NAME);?>" size="30" readonly style='background-color:#F1F1F1;'>
 							</td>
-							<td><input type="text" name="VALUE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_VALUE);?>" size="60"><?
+							<td><input type="text" name="VALUE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_VALUE);?>" size="60"><?php 
 								if($APPLICATION->GetDirProperty($f_CODE, Array($site, $path)))
 								{
-									?><br><small><b><?echo GetMessage("FILEMAN_FOLDER_CURVAL")?></b> <?echo htmlspecialcharsbx($APPLICATION->GetDirProperty($f_CODE, Array($site, $path)));?></small><?
+									?><br><small><b><?php echo GetMessage("FILEMAN_FOLDER_CURVAL")?></b> <?php echo htmlspecialcharsbx($APPLICATION->GetDirProperty($f_CODE, Array($site, $path)));?></small><?php 
 								}
 								?></td>
 						</tr>
-						<?
+						<?php 
 					}
 				}
 
@@ -343,41 +343,41 @@ $tabControl->Begin();
 					?>
 					<tr>
 						<td>
-							<input type="text" name="CODE_<?echo $ind;?>" value="" size="30">
+							<input type="text" name="CODE_<?php echo $ind;?>" value="" size="30">
 						</td>
 						<td>
-							<input type="text" name="VALUE_<?echo $ind;?>" value="" size="60">
+							<input type="text" name="VALUE_<?php echo $ind;?>" value="" size="60">
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 				?>
 				<tr>
 					<td colspan="2">
-						<input type="hidden" name="numpropsvals" value="<?echo $ind+1; ?>">
-						<input type="submit" name="propeditmore" value="<?echo GetMessage("FILEMAN_FOLDER_PROPSMORE")?>">
+						<input type="hidden" name="numpropsvals" value="<?php echo $ind+1; ?>">
+						<input type="submit" name="propeditmore" value="<?php echo GetMessage("FILEMAN_FOLDER_PROPSMORE")?>">
 					</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
-<?if($USER->CanDoFileOperation('fm_edit_permission',$arPath)):?>
-	<?$tabControl->BeginNextTab();?>
+<?php if($USER->CanDoFileOperation('fm_edit_permission',$arPath)):?>
+	<?php $tabControl->BeginNextTab();?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("FILEMAN_FOLDER_ACCESS")?>:</td>
+		<td colspan="2"><?php echo GetMessage("FILEMAN_FOLDER_ACCESS")?>:</td>
 	</tr>
 	<tr>
 		<td align="center" colspan="2">
 			<table border="0" cellspacing="1" cellpadding="2" width="100%" class="internal">
 				<tr class="heading">
 					<td valign="middle" align="center" nowrap>
-						<?echo GetMessage("FILEMAN_FOLDER_ACCESS_GROUP")?>
+						<?php echo GetMessage("FILEMAN_FOLDER_ACCESS_GROUP")?>
 					</td>
 					<td valign="top" align="center" nowrap>
-						<?echo GetMessage("FILEMAN_FOLDER_ACCESS_LEVEL")?>
+						<?php echo GetMessage("FILEMAN_FOLDER_ACCESS_LEVEL")?>
 					</td>
 				</tr>
-				<?
+				<?php 
 				$arPermTypes = Array();
 
 				$res = CTask::GetList(Array('LETTER' => 'asc'), Array('MODULE_ID' => 'main','BINDING' => 'file'));
@@ -461,10 +461,10 @@ $tabControl->Begin();
 				?>
 				<tr>
 					<td>
-						[<a href="/bitrix/admin/group_edit.php?ID=<?=$g_ID?>&lang=<?=LANGUAGE_ID?>"><?=$g_ID?></a>]&nbsp;<?echo $g_NAME?>:
+						[<a href="/bitrix/admin/group_edit.php?ID=<?=$g_ID?>&lang=<?=LANGUAGE_ID?>"><?=$g_ID?></a>]&nbsp;<?php echo $g_NAME?>:
 					</td>
 					<td>
-						<?
+						<?php 
 						// Inherit access level
 						if ($inh_taskId == 'NOT_REF')
 						{
@@ -478,40 +478,40 @@ $tabControl->Begin();
 						else
 							$pr_taskId = $inh_taskId;
 						?>
-						<select name="g_<?echo $g_ID?>" class="typeselect">
-						<?
+						<select name="g_<?php echo $g_ID?>" class="typeselect">
+						<?php 
 						foreach ($arPermTypes as $id => $ar):?>
-							<option value="<?=$id?>"<?if($id == $taskId)echo" selected";?>>
-							<?echo htmlspecialcharsbx($ar['title'])?>
-							<?if($id=="NOT_REF")
+							<option value="<?=$id?>"<?php if($id == $taskId)echo" selected";?>>
+							<?php echo htmlspecialcharsbx($ar['title'])?>
+							<?php if($id=="NOT_REF")
 								echo "[".$arPermTypes[$pr_taskId]['title']."]";?>
 							</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
-				<?endwhile;?>
+				<?php endwhile;?>
 				<tr>
 					<td>
-						<?echo GetMessage("FILEMAN_FOLDER_ACCESS_FOR_INHERIT")?>:
+						<?php echo GetMessage("FILEMAN_FOLDER_ACCESS_FOR_INHERIT")?>:
 					</td>
 					<td>
 						<select name="g_ALL">
-						<?
+						<?php 
 						foreach ($arPermTypes as $id => $ar):
 						?>
-							<option value="<?=$id?>"<?if($id == $inh_taskId) echo" selected";?>>
-							<?echo htmlspecialcharsbx($ar['title'])?>
+							<option value="<?=$id?>"<?php if($id == $inh_taskId) echo" selected";?>>
+							<?php echo htmlspecialcharsbx($ar['title'])?>
 							</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
 			</table></td>
 	</tr>
-<?endif; //if($USER->CanDoFileOperation('fm_edit_permission',$arPath)):?>
+<?php endif; //if($USER->CanDoFileOperation('fm_edit_permission',$arPath)):?>
 
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(
 	array(
@@ -523,5 +523,5 @@ $tabControl->End();
 ?>
 </form>
 
-<?endif?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php endif?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

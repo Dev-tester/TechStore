@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_CRM_LINE_TYPE_TELEGRAMBOT"] = "Telegram";
 $MESS["IMOL_CRM_LINE_TYPE_FACEBOOK"] = "Facebook";
 $MESS["IMOL_CRM_LINE_TYPE_VKGROUP"] = "ВКонтакте";

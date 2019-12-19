@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_EDIT_RECORD'] = "Изменение смайлика N#ID#";
 $MESS ['SONET_NEW_RECORD'] = "Новый смайлик";
 $MESS ['SONET_RECORDS_LIST'] = "В список смайликов";

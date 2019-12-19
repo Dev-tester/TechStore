@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_SALE_COND_CMP_ORDER_CONTROLGROUP_LABEL"] = "Параметры заказа";
 $MESS["BT_MOD_SALE_COND_CMP_SALE_PERSON_TYPE_LABEL"] = "Тип плательщика";
 $MESS["BT_MOD_SALE_COND_CMP_SALE_PERSON_TYPE_PREFIX"] = "поле Тип плательщика";

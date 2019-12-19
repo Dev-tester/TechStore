@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SETTINGS_ATTR_WINDOW"] = "Attribution window";
 $MESS["CRM_TRACKING_SETTINGS_ATTR_WINDOW_DAYS"] = "days";
 $MESS["CRM_TRACKING_SETTINGS_ATTR_WINDOW_OFFLINE"] = "Use attribution window for leads and deals";

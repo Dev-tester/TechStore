@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROFILE_USER_TASKS"] = "User tasks";
 $MESS["PROFILE_USER_FILES"] = "User files";
 $MESS["PROFILE_USER_MESSAGES"] = "User messages";

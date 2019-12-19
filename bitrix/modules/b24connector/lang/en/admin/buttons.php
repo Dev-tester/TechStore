@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_BUTT_TITLE"] = "Widgets";
 $MESS["B24C_BL_OL_U"] = "This widget unifies all possible digital customer communication channels in your Bitrix24.";
 $MESS["B24C_BL_ALL_C"] = "All means of communication in one widget.";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,16 +12,16 @@
 /** @var CBitrixComponent $component */
 ?>
 <div class="subscribe-form"  id="subscribe-form">
-<?
+<?php 
 $frame = $this->createFrame("subscribe-form", false)->begin();
 ?>
 	<form action="<?=$arResult["FORM_ACTION"]?>">
 
-	<?foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
+	<?php foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
 		<label for="sf_RUB_ID_<?=$itemValue["ID"]?>">
-			<input type="checkbox" name="sf_RUB_ID[]" id="sf_RUB_ID_<?=$itemValue["ID"]?>" value="<?=$itemValue["ID"]?>"<?if($itemValue["CHECKED"]) echo " checked"?> /> <?=$itemValue["NAME"]?>
+			<input type="checkbox" name="sf_RUB_ID[]" id="sf_RUB_ID_<?=$itemValue["ID"]?>" value="<?=$itemValue["ID"]?>"<?php if($itemValue["CHECKED"]) echo " checked"?> /> <?=$itemValue["NAME"]?>
 		</label><br />
-	<?endforeach;?>
+	<?php endforeach;?>
 
 		<table border="0" cellspacing="0" cellpadding="2" align="center">
 			<tr>
@@ -32,16 +32,16 @@ $frame = $this->createFrame("subscribe-form", false)->begin();
 			</tr>
 		</table>
 	</form>
-<?
+<?php 
 $frame->beginStub();
 ?>
 	<form action="<?=$arResult["FORM_ACTION"]?>">
 
-		<?foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
+		<?php foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
 			<label for="sf_RUB_ID_<?=$itemValue["ID"]?>">
 				<input type="checkbox" name="sf_RUB_ID[]" id="sf_RUB_ID_<?=$itemValue["ID"]?>" value="<?=$itemValue["ID"]?>" /> <?=$itemValue["NAME"]?>
 			</label><br />
-		<?endforeach;?>
+		<?php endforeach;?>
 
 		<table border="0" cellspacing="0" cellpadding="2" align="center">
 			<tr>
@@ -52,7 +52,7 @@ $frame->beginStub();
 			</tr>
 		</table>
 	</form>
-<?
+<?php 
 $frame->end();
 ?>
 </div>

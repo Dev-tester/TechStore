@@ -1,4 +1,4 @@
-<?
+<?php 
 define("MODULE_ID", "disk");
 if($_REQUEST['entity']=="Bitrix\\Disk\\BizProcDocument")
 {

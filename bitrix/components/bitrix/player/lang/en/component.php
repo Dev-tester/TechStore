@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INCORRECT_FILE"] = "Invalid file.";
 $MESS["INCORRECT_PLAYLIST"] = "Specified playlist is not found";
 $MESS["ABOUT_TEXT"] = "Bitrix Media Player";

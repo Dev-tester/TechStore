@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_ALLOW_TIME_TRACKING_N'] = "No";
 $MESS['TASKS_ALLOW_TIME_TRACKING_Y'] = "Yes";
 $MESS['TASKS_FILTER_ACTIVE'] = "Was active";

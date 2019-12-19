@@ -727,7 +727,7 @@ class ResourceBooking extends \Bitrix\Main\UserField\TypeBase
 					.showEditLayout();
 			})();
 		</script>
-		<?
+		<?php 
 
 		$html = ob_get_clean();
 
@@ -844,7 +844,7 @@ class ResourceBooking extends \Bitrix\Main\UserField\TypeBase
 								class="crm-entity-widget-content-block-inner"><?= \CCalendar::getFromToHtml($fromTs, $toTs, $skipTime, $toTs - $fromTs) ?></div>
 						</div>
 
-						<? if(!empty($value['SERVICE_NAME'])): ?>
+						<?php  if(!empty($value['SERVICE_NAME'])): ?>
 							<div class="crm-entity-widget-content-block crm-entity-widget-content-block-field-select">
 								<div class="crm-entity-widget-content-block-title">
 									<span
@@ -853,24 +853,24 @@ class ResourceBooking extends \Bitrix\Main\UserField\TypeBase
 								<div
 									class="crm-entity-widget-content-block-inner"><?= HtmlFilter::encode($value['SERVICE_NAME']) ?></div>
 							</div>
-						<?endif; ?>
+						<?php endif; ?>
 
-						<? if(count($users) > 0): ?>
+						<?php  if(count($users) > 0): ?>
 							<div class="crm-entity-widget-content-block crm-entity-widget-content-block-field-select">
 								<div class="crm-entity-widget-content-block-title">
 									<span
 										class="crm-entity-widget-content-block-title-text"><?= Loc::getMessage("USER_TYPE_RESOURCE_USERS_CONTROL_DEFAULT_NAME") ?></span>
 								</div>
-								<? foreach($users as $user): ?>
+								<?php  foreach($users as $user): ?>
 									<div class="crm-widget-employee-container">
 										<a class="crm-widget-employee-avatar-container" href="<?= $user['URL'] ?>" target="_blank" style="background-image: url('<?= \CCalendar::getUserAvatarSrc($user) ?>'); background-size: 30px;"></a>
 										<span class="crm-widget-employee-info"><a class="crm-widget-employee-name" href="<?= $user['URL']?>" target="_blank"><?= HtmlFilter::encode(\CCalendar::getUserName($user))?></a><span class="crm-widget-employee-position"></span></span>
 									</div>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</div>
-						<?endif; ?>
+						<?php endif; ?>
 
-						<? if(count($resourceNames) > 0): ?>
+						<?php  if(count($resourceNames) > 0): ?>
 							<div class="crm-entity-widget-content-block crm-entity-widget-content-block-field-select">
 								<div class="crm-entity-widget-content-block-title">
 									<span
@@ -878,10 +878,10 @@ class ResourceBooking extends \Bitrix\Main\UserField\TypeBase
 								</div>
 								<div class="crm-entity-widget-content-block-inner"><?= implode(', ', $resourceNames) ?></div>
 							</div>
-						<?endif; ?>
+						<?php endif; ?>
 					</div>
 				</div>
-				<?
+				<?php 
 				$html = ob_get_clean();
 			}
 

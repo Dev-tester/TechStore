@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOD_COMMON_DISCOUNT"] = "You save";
 $MESS["SOD_COMMON_SUM"] = "Total";
 $MESS["SOD_DELIVERY"] = "Delivery";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_STATUS_D"] = "Canceled";
 $MESS["CRM_ORDER_SHIPMENT_STATUS_DD"] = "Canceled";
 $MESS["CRM_ORDER_STATUS_N"] = "Order accepted, waiting for payment";

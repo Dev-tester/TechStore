@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IB_SE_L_ADD_NEW_ELEMENT"] = "Добавить новое предложение";
 $MESS["IB_SE_L_ADD_NEW_ELEMENT_DESCR"] = "Добавить новое торговое предложение для товара";
 $MESS["IB_SE_L_EDIT_ELEMENT"] = "Редактировать предложение";

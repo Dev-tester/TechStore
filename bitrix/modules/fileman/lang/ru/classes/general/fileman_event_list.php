@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOG_TYPE_PAGE_EDIT"] = "Изменение страниц";
 $MESS["LOG_TYPE_MENU_EDIT"] = "Изменение меню";
 $MESS["LOG_TYPE_PAGE_ADD"] = "Добавление страниц";

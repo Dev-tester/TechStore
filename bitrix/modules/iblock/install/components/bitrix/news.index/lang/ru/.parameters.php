@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_IBLOCK_URL'] = "URL, ведущий на страницу с содержимым раздела";
 $MESS ['IBLOCK_DETAIL_URL'] = "URL, ведущий на страницу с содержимым элемента раздела";
 $MESS ['T_IBLOCK_DESC_ASC'] = "По возрастанию";

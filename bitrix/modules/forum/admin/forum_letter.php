@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Profanity dictionary.
 ********************************************************************/
@@ -121,11 +121,11 @@
 	$oFilter = new CAdminFilter($sTableID."filter_dictionary_letter", array());
 	?><form name="form1" method="get" action="<?=$APPLICATION->GetCurPage()?>">
 	<input type="hidden" name="DICTIONARY_ID" value="<?=$DICTIONARY_ID?>">
-	<?$oFilter->Begin();?>
+	<?php $oFilter->Begin();?>
 	<tr valign="center">
 		<td><b><?=GetMessage("MAIN_FIND")?>:</b></td>
 		<td><input type="text" name="find" size="47" value="<?=htmlspecialcharsbx($find)?>">
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("FLT_LETTER"),
@@ -139,7 +139,7 @@
 		echo SelectBoxFromArray("find_type", $arr, $find_type, "", "");
 		?>
 		</td>	
-	</tr><?
+	</tr><?php 
 	$oFilter->Buttons(
 		array(
 			"table_id" => $sTableID,
@@ -148,7 +148,7 @@
 		)
 	);
 	$oFilter->End();
-	?></form><?
+	?></form><?php 
 	$lAdmin->DisplayList();
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_OPERATOR_USER_NAME"] = "Agent";
 $MESS["IMOL_OPERATOR_ERROR_IM_LOAD"] = "Error initializing Instant Messenger module.";
 $MESS["IMOL_OPERATOR_ERROR_PULL_LOAD"] = "Error initializing Push & Pull module.";

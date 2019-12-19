@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_TITLE"] = "Галерея";
 $MESS["P_PHOTO_LAST"] = "Новые фотографии";
 $MESS["P_RATING_PHOTO"] = "Популярные фотографии";

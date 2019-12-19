@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['PROFILE_DEFAULT_TITLE'] = "User profile";
 $MESS['USER_DONT_KNOW'] = "(unknown)";
 $MESS['main_profile_decode_err'] = "Password decryption error (#ERRCODE#).";

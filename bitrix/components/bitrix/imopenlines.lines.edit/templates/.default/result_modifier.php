@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 
@@ -13,7 +13,7 @@ if (!function_exists('getImolDestInputElement'))
 		<span data-id="%data_id%" class="%dest_input_container_class%">
 			<span class="bx-destination-text">%user_name_default%</span>
 		</span>
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 }
@@ -39,29 +39,29 @@ if (!function_exists('getImolUserDataInputElement'))
 						   placeholder="<?=Loc::getMessage("IMOL_CONFIG_QUEUE_USER_NAME_PLACEHOLDER")?>"
 						   value="%user_name%"
 						   name="USER_NAME"
-						   <?if (!$canEdit) { ?>disabled="disabled"<? } ?>>
+						   <?php if (!$canEdit) { ?>disabled="disabled"<?php  } ?>>
 					<input class="imopenlines-form-settings-user-input"
 						   type="text"
 						   placeholder="<?=Loc::getMessage("IMOL_CONFIG_QUEUE_USER_WORK_POSITION_PLACEHOLDER")?>"
 						   name="USER_WORK_POSITION"
 						   value="%user_work_position%"
-						   <?if (!$canEdit) { ?>disabled="disabled"<? } ?>>
+						   <?php if (!$canEdit) { ?>disabled="disabled"<?php  } ?>>
 					<input class="imopenlines-form-settings-user-input"
 						   type="hidden"
 						   name="USER_AVATAR"
 						   id="input-avatar-user-%data_id%"
 						   value="%user_avatar%"
-						   <?if (!$canEdit) { ?>disabled="disabled"<? } ?>>
+						   <?php if (!$canEdit) { ?>disabled="disabled"<?php  } ?>>
 					<input class="imopenlines-form-settings-user-input"
 						   type="hidden"
 						   name="USER_AVATAR_ID"
 						   id="input-avatar-file-id-user-%data_id%"
 						   value="%user_avatar_file_id%"
-						   <?if (!$canEdit) { ?>disabled="disabled"<? } ?>>
+						   <?php if (!$canEdit) { ?>disabled="disabled"<?php  } ?>>
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 }
@@ -83,22 +83,22 @@ if (!function_exists('getImolDefaultUserDataInputElement'))
 					   placeholder="<?=Loc::getMessage("IMOL_CONFIG_QUEUE_USER_NAME_PLACEHOLDER")?>"
 					   value="%user_name%"
 					   name="CONFIG[DEFAULT_OPERATOR_DATA][NAME]"
-					   <?if (!$canEdit) { ?>disabled="disabled"<? } ?>>
+					   <?php if (!$canEdit) { ?>disabled="disabled"<?php  } ?>>
 				<input class="imopenlines-form-settings-user-input"
 					   type="hidden"
 					   name="CONFIG[DEFAULT_OPERATOR_DATA][AVATAR]"
 					   id="input-avatar-user-default-user"
 					   value="%user_avatar%"
-					   <?if (!$canEdit) { ?>disabled="disabled"<? } ?>>
+					   <?php if (!$canEdit) { ?>disabled="disabled"<?php  } ?>>
 				<input class="imopenlines-form-settings-user-input"
 					   type="hidden"
 					   name="CONFIG[DEFAULT_OPERATOR_DATA][AVATAR_ID]"
 					   id="input-avatar-file-id-user-default-user"
 					   value="%user_avatar_file_id%"
-					   <?if (!$canEdit) { ?>disabled="disabled"<? } ?>>
+					   <?php if (!$canEdit) { ?>disabled="disabled"<?php  } ?>>
 			</div>
 		</div>
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 }
@@ -114,7 +114,7 @@ if (!function_exists('getImolUserDataAvatarTemplate'))
 			<span data-view="" style="background-image: url(%path%)" class="imopenlines-user-photo-upload-item"></span>
 			<span class="imopenlines-user-photo-upload-item-selected"></span>
 		</span>
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 }

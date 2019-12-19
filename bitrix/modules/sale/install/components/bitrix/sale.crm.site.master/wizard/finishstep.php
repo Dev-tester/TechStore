@@ -92,7 +92,7 @@ class FinishStep extends \FinishStep
 		<div class="adm-crm-site-master-finish-description">
 			<?=Loc::getMessage("SALE_CSM_WIZARD_FINISHSTEP_DESCR2")?>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -114,7 +114,7 @@ class FinishStep extends \FinishStep
 		<a href="<?=$this->component->getPathToOrderList()?>" class="ui-btn ui-btn-primary">
 			<?=Loc::getMessage("SALE_CSM_WIZARD_FINISHSTEP_ORDER_LINK")?>
 		</a>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 

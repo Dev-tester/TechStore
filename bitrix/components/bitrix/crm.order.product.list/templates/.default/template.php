@@ -443,7 +443,7 @@ if (!$isSetItems)
 	]);
 }
 
-?><div><?
+?><div><?php 
 
 $productCreateLink = CHTTP::urlAddParams('/bitrix/components/bitrix/crm.order.product.details/slider.ajax.php?'.bitrix_sessid_get(),
 	array(
@@ -496,7 +496,7 @@ if (!$isReadOnly)
 ?>
 
 <div class="crm-order-product-list-wrapper" id="crm-product-list-container">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.interface.grid',
 	'titleflex',
@@ -680,7 +680,7 @@ if(is_array($arResult['COUPONS_LIST']))
 
 			var setBindings = function()
 			{
-				<?if(count($basketCodes) > 0):?>
+				<?php if(count($basketCodes) > 0):?>
 					var basketCodes = <?=CUtil::PhpToJSObject($basketCodes)?>;
 
 					if(basketCodes.length)
@@ -724,7 +724,7 @@ if(is_array($arResult['COUPONS_LIST']))
 							})(i)
 						}
 					}
-				<?endif;?>
+				<?php endif;?>
 			};
 
 			if(window['ConnectedEntityController'])
@@ -740,7 +740,7 @@ if(is_array($arResult['COUPONS_LIST']))
 
 </script>
 
-<?
+<?php 
 if (!$arParams["INTERNAL_RELOAD"])
 {
 	?>
@@ -818,7 +818,7 @@ if (!$arParams["INTERNAL_RELOAD"])
 			}
 		});
 	</script>
-	<?
+	<?php 
 }
 //endregion
 //region SUMMARY
@@ -935,4 +935,4 @@ if(is_array($arResult['DISCOUNTS_LIST']['DISCOUNT_LIST']))
 </div>
 </div>
 </div>
-<?//endregion?>
+<?php //endregion?>

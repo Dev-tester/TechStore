@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("About Us");
 ?><img height="268" width="400" src="#SITE_DIR#upload/company.jpg" /> 
@@ -11,4 +11,4 @@ $APPLICATION->SetTitle("About Us");
 <p>Purchasing furniture is a very important decision for everyone. Please take your time. </p>
  
 <p>We look forward to serving you... </p>
- <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

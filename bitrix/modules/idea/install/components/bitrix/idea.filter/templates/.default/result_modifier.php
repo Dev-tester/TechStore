@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 __IncludeLang(dirname(__FILE__)."/lang/".LANGUAGE_ID."/result_modifier.php");
 
 $arUrlParams = array();

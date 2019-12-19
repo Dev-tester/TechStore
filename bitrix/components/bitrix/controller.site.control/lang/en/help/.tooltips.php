@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SITE_URL_TIP'] = "Site URL";
 $MESS ['COMMAND_TIP'] = "Command";
 $MESS ['ACTION_TIP'] = "Action";

@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/company/lists/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:lists", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:lists", ".default", array(
 	"IBLOCK_TYPE_ID" => "lists",
 	"SEF_MODE" => "Y",
 	"SEF_FOLDER" => "/company/lists/",
@@ -30,4 +30,4 @@ $APPLICATION->SetTitle(GetMessage("TITLE"));
 	false
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

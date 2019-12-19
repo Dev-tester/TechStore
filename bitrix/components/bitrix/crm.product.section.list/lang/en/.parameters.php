@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SECTION_COUNT"] = "Default sections per page";
 $MESS["CRM_CATALOG_ID"] = "Commercial Catalog";
 $MESS["CRM_PARENT_SECTION_ID"] = "Section";

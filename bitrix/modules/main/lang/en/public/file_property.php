@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PAGE_PROP_ACCESS_DENIED'] = "Edit access to page is denied.";
 $MESS ['PAGE_PROP_FILE_NOT_FOUND'] = "Specified file does not exist.";
 $MESS ['PAGE_PROP_WINDOW_TITLE'] = "Page properties";

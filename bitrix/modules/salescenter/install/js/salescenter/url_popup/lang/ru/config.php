@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_ACTION_ADD_CUSTOM_INPUT"] = "Ссылка на страницу";
 $MESS["SALESCENTER_ACTION_ADD_CUSTOM_INPUT_PLACEHOLDER"] = "Введите URL страницы, например: bitrix24.ru";
 $MESS["SALESCENTER_ACTION_ADD_CUSTOM_NAME"] = "Название страницы";

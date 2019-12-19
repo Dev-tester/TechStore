@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_RIGHTS"] = "Недостаточно прав";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_SALE_ABSENT"] = "Не удалось подключить модуль Интернет-магазина";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_CATALOG_ABSENT"] = "Не удалось подключить модуль торгового каталога";

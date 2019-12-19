@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/webservice/tools/stssync.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/webservice/tools/stssync.php");?>

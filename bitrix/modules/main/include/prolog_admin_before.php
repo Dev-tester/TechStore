@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once(dirname(__FILE__)."/../bx_root.php");
 
 define("START_EXEC_PROLOG_BEFORE_1", microtime());

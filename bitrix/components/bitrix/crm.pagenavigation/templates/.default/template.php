@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /**
@@ -7,7 +7,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
  */
 $url = $arParams['URL'];
 ?><div class="modern-page-navigation">
-	<span class="modern-page-title"><?=GetMessage("pages")?></span><?
+	<span class="modern-page-title"><?=GetMessage("pages")?></span><?php 
 
 	$pageNum = isset($arParams['PAGE_NUM']) ? $arParams['PAGE_NUM'] : 1;
 	$enableNextPage = isset($arParams['ENABLE_NEXT_PAGE']) ? $arParams['ENABLE_NEXT_PAGE'] : false;
@@ -15,21 +15,21 @@ $url = $arParams['URL'];
 	if($pageNum > 1):
 		$firstNavPage = ($pageNum <= 11 ? 1 : ($pageNum - 10));
 		if($firstNavPage !== 1):
-			?><a class="modern-page-previous" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => 1)))?>"><?=GetMessage("nav_first")?></a><?
+			?><a class="modern-page-previous" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => 1)))?>"><?=GetMessage("nav_first")?></a><?php 
 		endif;
-		?><a class="modern-page-previous" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $pageNum - 1)))?>"><?=GetMessage("nav_prev")?></a><?
+		?><a class="modern-page-previous" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $pageNum - 1)))?>"><?=GetMessage("nav_prev")?></a><?php 
 		for($i = $firstNavPage; $i < $pageNum; $i++):
 			if($i === $firstNavPage):
-				?><a class="modern-page-first" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $i)))?>"><?=$i?></a><?
+				?><a class="modern-page-first" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $i)))?>"><?=$i?></a><?php 
 			else:
-				?><a href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $i)))?>"><?=$i?></a><?
+				?><a href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $i)))?>"><?=$i?></a><?php 
 			endif;
 		endfor;
 	endif;
-	?><span class="<?=$pageNum === 1 ? "modern-page-first modern-page-current" : "modern-page-current" ?>"><?=$pageNum?></span><?
+	?><span class="<?=$pageNum === 1 ? "modern-page-first modern-page-current" : "modern-page-current" ?>"><?=$pageNum?></span><?php 
 	if($enableNextPage):
-		?><a class="modern-page-next" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $pageNum + 1)))?>"><?=GetMessage("nav_next")?></a><?
-		?><a class="modern-page-last" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => -1)))?>"><?=GetMessage("nav_last")?></a><?
+		?><a class="modern-page-next" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => $pageNum + 1)))?>"><?=GetMessage("nav_next")?></a><?php 
+		?><a class="modern-page-last" href="<?=htmlspecialcharsbx(CCrmUrlUtil::AddUrlParams($url, array('page' => -1)))?>"><?=GetMessage("nav_last")?></a><?php 
 	endif;
 
 ?></div><?

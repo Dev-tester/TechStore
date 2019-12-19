@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CP_BLEN_IBLOCK_TYPE_ID'] = "Тип инфоблока";
 $MESS ['CP_BLEN_IBLOCK_ID'] = "Инфоблок";
 $MESS ['CP_BLEN_SECTION_ID'] = "Раздел";

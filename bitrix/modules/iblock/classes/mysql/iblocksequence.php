@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIBlockSequence
 {
 	var $iblock_id = 0;

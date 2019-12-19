@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -81,8 +81,8 @@ if ($arResult["LIMITS_ENABLED"])
 <div class="main-ui-filter-search <?=$filterSearchClass?>" id="<?=$arParams["FILTER_ID"]?>_search_container">
 	<input
 			type="text"
-			tabindex="1" <?
-			if($arParams["CONFIG"]["AUTOFOCUS"]):?>autofocus=""<?endif;
+			tabindex="1" <?php 
+			if($arParams["CONFIG"]["AUTOFOCUS"]):?>autofocus=""<?php endif;
 			?>value="<?=$filterValue?>"
 			name="FIND"
 			placeholder="<?=Loc::getMessage($placeholder)?>"
@@ -95,7 +95,7 @@ if ($arResult["LIMITS_ENABLED"])
 	</div>
 </div>
 
-<?
+<?php 
 $frame = $this->createFrame()->begin(false);
 
 $filterWrapperClass = "main-ui-filter-theme-".strtolower($arResult["THEME"]);
@@ -118,11 +118,11 @@ if ($arResult["LIMITS_ENABLED"])
 					<h5 class="main-ui-filter-sidebar-title-item"><?=Loc::getMessage("MAIN_UI_FILTER__FILTER")?></h5>
 				</div><!--main-ui-filter-sidebar-->
 				<div class="main-ui-filter-sidebar-item-container">
-					<? if (is_array($arResult["PRESETS"])) : ?>
-						<? foreach ($arResult["PRESETS"] as $key => $preset) : ?>
-							<div class="main-ui-filter-sidebar-item<?=$preset["ID"] === $arResult["CURRENT_PRESET"]["ID"] ? " main-ui-filter-current-item" : ""?><?
-							?><?=$preset["ID"] === "default_filter" || $preset["ID"] === "tmp_filter" ? " main-ui-hide" : ""?><?
-							?><?=$preset["IS_PINNED"] && $arParams["CONFIG"]["DEFAULT_PRESET"] ? " main-ui-item-pin" : ""?>" data-id="<?=$preset["ID"]?>"<?
+					<?php  if (is_array($arResult["PRESETS"])) : ?>
+						<?php  foreach ($arResult["PRESETS"] as $key => $preset) : ?>
+							<div class="main-ui-filter-sidebar-item<?=$preset["ID"] === $arResult["CURRENT_PRESET"]["ID"] ? " main-ui-filter-current-item" : ""?><?php 
+							?><?=$preset["ID"] === "default_filter" || $preset["ID"] === "tmp_filter" ? " main-ui-hide" : ""?><?php 
+							?><?=$preset["IS_PINNED"] && $arParams["CONFIG"]["DEFAULT_PRESET"] ? " main-ui-item-pin" : ""?>" data-id="<?=$preset["ID"]?>"<?php 
 							?><?=$preset["IS_PINNED"] && $arParams["CONFIG"]["DEFAULT_PRESET"] ? " title=\"".Loc::getMessage("MAIN_UI_FILTER__IS_SET_AS_DEFAULT_PRESET")."\"" : " "?>>
 								<span class="main-ui-item-icon main-ui-filter-icon-grab" title="<?=Loc::getMessage("MAIN_UI_FILTER__DRAG_TITLE")?>"></span>
 								<span class="main-ui-filter-sidebar-item-text-container">
@@ -130,15 +130,15 @@ if ($arResult["LIMITS_ENABLED"])
 									<input type="text" placeholder="<?=Loc::getMessage("MAIN_UI_FILTER__FILTER_NAME_PLACEHOLDER")?>" value="<?=\Bitrix\Main\Text\HtmlFilter::encode(htmlspecialcharsback($preset["TITLE"]))?>" class="main-ui-filter-sidebar-item-input">
 									<span class="main-ui-item-icon main-ui-filter-icon-pin" title="<?=Loc::getMessage("MAIN_UI_FILTER__IS_SET_AS_DEFAULT_PRESET")?>"></span>
 								</span>
-								<? if ($arParams["CONFIG"]["DEFAULT_PRESET"]) : ?>
+								<?php  if ($arParams["CONFIG"]["DEFAULT_PRESET"]) : ?>
 									<span class="main-ui-item-icon main-ui-filter-icon-pin" title="<?=Loc::getMessage("MAIN_UI_FILTER__IS_SET_AS_DEFAULT_PRESET")?>"></span>
-								<? endif; ?>
+								<?php  endif; ?>
 								<span class="main-ui-item-icon main-ui-filter-icon-edit" title="<?=Loc::getMessage("MAIN_UI_FILTER__EDIT_PRESET_TITLE")?>"></span>
 								<span class="main-ui-item-icon main-ui-delete" title="<?=Loc::getMessage("MAIN_UI_FILTER__REMOVE_PRESET")?>"></span>
 								<div class="main-ui-filter-edit-mask"></div>
 							</div>
-						<? endforeach; ?>
-					<? endif; ?>
+						<?php  endforeach; ?>
+					<?php  endif; ?>
 					<div class="main-ui-filter-sidebar-item main-ui-filter-new-filter">
 						<div class="main-ui-filter-edit-mask"></div>
 						<input class="main-ui-filter-sidebar-edit-control" type="text" placeholder="<?=Loc::getMessage("MAIN_UI_FILTER__FILTER_NAME_PLACEHOLDER")?>">
@@ -146,19 +146,19 @@ if ($arResult["LIMITS_ENABLED"])
 				</div><!--main-ui-filter-sidebar-item-container-->
 			</div><!--main-ui-filter-sidebar-->
 			<div class="main-ui-filter-field-container">
-				<? if ($arResult["LIMITS_ENABLED"]): ?>
+				<?php  if ($arResult["LIMITS_ENABLED"]): ?>
 				<div class="main-ui-filter-field-limits">
 					<div class="main-ui-filter-field-limits-title"><?=$arResult["LIMITS"]["TITLE"]?></div>
 					<div class="main-ui-filter-field-limits-description">
 						<?=$arResult["LIMITS"]["DESCRIPTION"]?>
 					</div>
 					<div class="ui-btn-container ui-btn-container-center main-ui-filter-field-limits-button-box">
-					<? foreach ($arResult["LIMITS"]["BUTTONS"] as $button): ?>
+					<?php  foreach ($arResult["LIMITS"]["BUTTONS"] as $button): ?>
 						<?=$button?>
-					<? endforeach ?>
+					<?php  endforeach ?>
 					</div>
 				</div>
-				<? endif ?>
+				<?php  endif ?>
 				<div class="main-ui-filter-field-container-list">
 
 				</div>
@@ -169,7 +169,7 @@ if ($arResult["LIMITS_ENABLED"])
 				</div><!--main-ui-filter-field-add-->
 			</div><!--main-ui-filter-field-container-->
 			<div class="main-ui-filter-bottom-controls">
-				<? if ($USER->IsAuthorized()) : ?>
+				<?php  if ($USER->IsAuthorized()) : ?>
 					<div class="main-ui-filter-add-container">
 						<span class="main-ui-filter-add-item"><?=Loc::getMessage("MAIN_UI_FILTER__ADD_FILTER")?></span>
 						<span class="main-ui-filter-add-edit" title="<?=Loc::getMessage("MAIN_UI_FILTER__FILTER_SETTINGS_TITLE")?>"></span>
@@ -177,7 +177,7 @@ if ($arResult["LIMITS_ENABLED"])
 							<span class="main-ui-filter-field-button-item"><?=Loc::getMessage("MAIN_UI_FILTER__RESET_LINK")?></span>
 						</span>
 					</div><!--main-ui-filter-add-container-->
-				<? endif; ?>
+				<?php  endif; ?>
 
 				<div class="main-ui-filter-field-preset-button-container">
 					<div class="main-ui-filter-field-button-inner">
@@ -189,12 +189,12 @@ if ($arResult["LIMITS_ENABLED"])
 				</div>
 				<div class="main-ui-filter-field-button-container">
 					<div class="main-ui-filter-field-button-inner">
-						<? if ($USER->CanDoOperation("edit_other_settings")) : ?>
+						<?php  if ($USER->CanDoOperation("edit_other_settings")) : ?>
 							<label class="main-ui-filter-field-button main-ui-filter-save-for-all" for="save-for-all">
 								<input id="save-for-all" class="main-ui-filter-field-button-checkbox" type="checkbox">
 								<span class="main-ui-filter-field-button-item"><?=Loc::getMessage("MAIN_UI_FILTER__CONFIRM_APPLY_FOR_ALL_CHECKBOX")?></span>
 							</label>
-						<? endif; ?>
+						<?php  endif; ?>
 						<span class="ui-btn ui-btn-success main-ui-filter-field-button main-ui-filter-save">
 							<?=Loc::getMessage("MAIN_UI_FILTER__BUTTON_SAVE")?></span>
 						<span class="ui-btn ui-btn-light-border main-ui-filter-field-button main-ui-filter-cancel">
@@ -206,7 +206,7 @@ if ($arResult["LIMITS_ENABLED"])
 	</div><!--main-ui-filter-wrapper-->
 </script>
 
-<?
+<?php 
     $frame->end();
 ?>
 
@@ -223,7 +223,7 @@ if ($arResult["LIMITS_ENABLED"])
 		)
 	);
 </script>
-<?
+<?php 
 	if (!empty($arResult["TARGET_VIEW_ID"]))
 	{
 		$this->EndViewTarget();

@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,7 +16,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
@@ -27,18 +27,18 @@ else
 		</td>
 		<td valign="top" width="65%">
 			<h4><?=$arResult["User"]["NAME_FORMATTED"]?></h4>
-			<?if ($arResult["IS_ONLINE"]):?>
+			<?php if ($arResult["IS_ONLINE"]):?>
 				<span class="sonet_online"><?= GetMessage("SONET_C31_T_ONLINE") ?></span><br /><br />
-			<?endif;?>
-			<?if ($arResult["CanViewProfile"]):?>
+			<?php endif;?>
+			<?php if ($arResult["CanViewProfile"]):?>
 				<a href="<?= $arResult["Urls"]["User"] ?>"><?= GetMessage("SONET_C31_T_PROFILE") ?></a><br><br>
-			<?endif;?>
-			<?if ($arResult["CanMessage"]):?>
+			<?php endif;?>
+			<?php if ($arResult["CanMessage"]):?>
 				<a href="<?= $arResult["Urls"]["Chat"] ?>" onclick="if (typeof(BX) != 'undefined' && BX.IM) { BXIM.openMessenger(<?=$arUser['ID']?>); return false; } else { window.open('<?= $arResult["Urls"]["Chat"] ?>', '', 'location=yes,status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><?= GetMessage("SONET_C31_T_WRITE_MESSAGE") ?></a><br><br>
-			<?endif;?>
-			<?if ($arResult["ShowBanLink"]):?>
+			<?php endif;?>
+			<?php if ($arResult["ShowBanLink"]):?>
 				<a href="<?= $arResult["Urls"]["BanLink"] ?>"><?= GetMessage("SONET_C31_T_BAN") ?></a>
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
 	</table>
@@ -72,9 +72,9 @@ else
 
 	<form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
 	<input type="hidden" name="do_delete_all_flag" value="">
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
+	<?php endif;?>
 	<div class="sonet-cntnr-messages-users-messages">
 	<table width="100%" class="sonet-user-profile-friends data-table">
 		<tr>
@@ -82,9 +82,9 @@ else
 			<th width="100%"><?= GetMessage("SONET_C31_T_MESSAGE") ?></th>
 			<th width="0%"><?= GetMessage("SONET_C31_T_ACTION") ?></th>
 		</tr>
-		<?$ind = 0;?>
-		<?if ($arResult["Events"]):?>
-			<?foreach ($arResult["Events"] as $event):?>
+		<?php $ind = 0;?>
+		<?php if ($arResult["Events"]):?>
+			<?php foreach ($arResult["Events"] as $event):?>
 				<tr>
 					<td valign="top" align="center"<?= (!$event["IS_READ"] ? " class=\"selected\"" : "") ?> width="0%">
 						<input type="checkbox" name="checked_<?= $ind ?>" value="Y">
@@ -96,25 +96,25 @@ else
 						<i><?= $event["DATE_CREATE_FORMAT"]; ?></i><br>
 					</td>
 					<td valign="top"<?= (!$event["IS_READ"] ? " class=\"selected\"" : "") ?> width="0%" nowrap>
-						<?if (!$event["IS_READ"]):?>
+						<?php if (!$event["IS_READ"]):?>
 							<a href="<?= $event["READ_LINK"] ?>"><?= GetMessage("SONET_C31_T_ACT_READ") ?></a><br><br>
-						<?endif;?>
+						<?php endif;?>
 						<a href="<?= $event["DELETE_LINK"] ?>"><?= GetMessage("SONET_C31_T_ACT_DEL") ?></a><br><br>
 					</td>
 				</tr>
-				<?$ind++;?>
-			<?endforeach;?>
-		<?else:?>
+				<?php $ind++;?>
+			<?php endforeach;?>
+		<?php else:?>
 			<tr>
 				<td colspan="4"><?= GetMessage("SONET_C31_T_EMPTY") ?></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 	</table>
 	</div>	
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?>
 		<br /><br />
-	<?endif;?>
+	<?php endif;?>
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<?=bitrix_sessid_post()?>
 		<table width="100%" cellspacing="0" cellpadding="0" border="0">
@@ -129,6 +129,6 @@ else
 		</tr>
 		</table>		
 	</form>
-	<?
+	<?php 
 }
 ?>

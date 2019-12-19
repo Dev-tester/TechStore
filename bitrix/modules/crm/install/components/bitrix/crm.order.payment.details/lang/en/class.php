@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_ORDER_PAYMENT_BLOCK_CHECK_TITLE"] = "Receipts";
 $MESS["CRM_ORDER_PAYMENT_BLOCK_MAIN_TITLE"] = "Payment";

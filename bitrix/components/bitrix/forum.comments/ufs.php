@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 class CCommentUFs
 {
 	var $component = null;
@@ -124,14 +124,14 @@ class CCommentUFs
 			{
 				$v["VALUE"] = (!empty($_REQUEST[$k]) ? $_REQUEST[$k] : $v["VALUE"]);
 
-				?><dt><?=$v["EDIT_FORM_LABEL"]?></dt><dd><?
+				?><dt><?=$v["EDIT_FORM_LABEL"]?></dt><dd><?php 
 					$GLOBALS["APPLICATION"]->IncludeComponent(
 					"bitrix:system.field.edit",
 					$v["USER_TYPE"]["USER_TYPE_ID"],
 					array("arUserField" => $v, "bVarsFromForm" => true),
 					null,
 					array("HIDE_ICONS" => "Y")
-				);?></dd><?
+				);?></dd><?php 
 			}
 		}
 		$res = ob_get_clean();

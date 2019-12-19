@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_STATUS_N"] = "Order accepted, waiting for payment";
 $MESS["SALE_STATUS_N_DESCR"] = "Order accepted but still pending (for example it was created a moment ago or awaiting payment)";
 $MESS["SALE_STATUS_P"] = "Paid, preparing for shipment";

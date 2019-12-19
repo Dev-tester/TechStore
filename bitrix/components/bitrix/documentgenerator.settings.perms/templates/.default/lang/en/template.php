@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_SETTINGS_PERMS_ADD"] = "Add";
 $MESS["DOCGEN_SETTINGS_PERMS_ADD_ACCESS"] = "Add access permission";
 $MESS["DOCGEN_SETTINGS_PERMS_DELETE"] = "Delete";

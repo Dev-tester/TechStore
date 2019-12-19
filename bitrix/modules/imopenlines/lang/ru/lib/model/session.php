@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SESSION_ENTITY_ID_FIELD"] = "ID";
 $MESS["SESSION_ENTITY_MODE_FIELD"] = "Направление диалога";
 $MESS["SESSION_ENTITY_SOURCE_FIELD"] = "Источник диалога";

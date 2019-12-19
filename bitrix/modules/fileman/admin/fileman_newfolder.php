@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!$USER->CanDoOperation('fileman_admin_folders'))
@@ -111,7 +111,7 @@ else
 								serialize($res_log)
 							);
 						}
-						$APPLICATION->SaveFileContent($DOC_ROOT.$pathto."/.section.php", "<?\n\$sSectionName=\"".CFileMan::EscapePHPString($sectionname)."\";\n?>");
+						$APPLICATION->SaveFileContent($DOC_ROOT.$pathto."/.section.php", "<?php \n\$sSectionName=\"".CFileMan::EscapePHPString($sectionname)."\";\n?>");
 					}
 					if ($e = $APPLICATION->GetException())
 						$strNotice = $e->msg;
@@ -178,16 +178,16 @@ $aMenu = array(
 $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
-<?CAdminMessage::ShowMessage($strNotice);?>
-<?CAdminMessage::ShowMessage($strWarning);?>
+<?php CAdminMessage::ShowMessage($strNotice);?>
+<?php CAdminMessage::ShowMessage($strWarning);?>
 
-<?
+<?php 
 if ($USER->CanDoFileOperation('fm_create_new_folder',$arPath))
 {
 	?>
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="fnew_folder">
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="fnew_folder">
 	<input type="hidden" name="logical" value="<?=htmlspecialcharsex($logical)?>">
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="site" value="<?= htmlspecialcharsex($site) ?>">
 	<input type="hidden" name="path" value="<?= htmlspecialcharsex($path) ?>">
 	<input type="hidden" name="save" value="Y">
@@ -195,11 +195,11 @@ if ($USER->CanDoFileOperation('fm_create_new_folder',$arPath))
 	<input type="hidden" name="lang" value="<?=LANG ?>">
 	<input type="hidden" name="ID" value="<?= htmlspecialcharsex($ID)?>">
 	<input type="hidden"  id="bxfm_linked" name="bxfm_linked" value="Y" />
-	<?if($gotonewpage=="Y"):?><input type="hidden" name="gotonewpage" value="Y"><?endif?>
-	<?if($backnewurl=="Y"):?><input type="hidden" name="backnewurl" value="Y"><?endif?>
+	<?php if($gotonewpage=="Y"):?><input type="hidden" name="gotonewpage" value="Y"><?php endif?>
+	<?php if($backnewurl=="Y"):?><input type="hidden" name="backnewurl" value="Y"><?php endif?>
 	<?=bitrix_sessid_post()?>
 
-	<?
+	<?php 
 	$aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("FILEMAN_TAB1"), "ICON" => "fileman", "TITLE" => GetMessage("FILEMAN_TAB1_ALT")),
 	);
@@ -229,50 +229,50 @@ if ($USER->CanDoFileOperation('fm_create_new_folder',$arPath))
 		<td width="60%"><input id="bxfm_foldername" type="text" name="foldername" value="<?=htmlspecialcharsex($foldername)?>" size="30" maxlength="255"></td>
 	</tr>
 
-	<?if($USER->CanDoFileOperation('fm_add_to_menu',$arPath) && $USER->CanDoOperation('fileman_add_element_to_menu') ):?>
+	<?php if($USER->CanDoFileOperation('fm_add_to_menu',$arPath) && $USER->CanDoOperation('fileman_add_element_to_menu') ):?>
 
 	<tr>
 		<td><?=GetMessage("FILEMAN_NEWFOLDER_ADDMENU")?></td>
-		<td><input type="checkbox" name="mkmenu" value="Y"<?if($mkmenu=="Y")echo " checked"?> onclick="document.fnew_folder.menuname.disabled=!this.checked;document.fnew_folder.menutype.disabled=!this.checked;if(this.checked && document.fnew_folder.sectionname.value.length!='' && document.fnew_folder.menuname.value=='') document.fnew_folder.menuname.value=document.fnew_folder.sectionname.value;fx1.disabled=!this.checked;fx2.disabled=!this.checked;"></td>
+		<td><input type="checkbox" name="mkmenu" value="Y"<?php if($mkmenu=="Y")echo " checked"?> onclick="document.fnew_folder.menuname.disabled=!this.checked;document.fnew_folder.menutype.disabled=!this.checked;if(this.checked && document.fnew_folder.sectionname.value.length!='' && document.fnew_folder.menuname.value=='') document.fnew_folder.menuname.value=document.fnew_folder.sectionname.value;fx1.disabled=!this.checked;fx2.disabled=!this.checked;"></td>
 	</tr>
-	<tr id="fx1"<?if($mkmenu!="Y")echo " disabled"?>>
+	<tr id="fx1"<?php if($mkmenu!="Y")echo " disabled"?>>
 		<td><?=GetMessage("FILEMAN_NEWFOLDER_MENU")?></td>
 		<td>
-			<select name="menutype" <?if($mkmenu!="Y")echo " disabled"?>>
-				<?for($i = 0, $l = count($arMenuTypes); $i < $l; $i++):?>
-				<option value="<?echo htmlspecialcharsex($arMenuTypes[$i][0])?>" <?if($menutype==$arMenuTypes[$i][0])echo " selected"?>><?echo htmlspecialcharsex("[".$arMenuTypes[$i][0]."] ".$arMenuTypes[$i][1])?></option>
-				<?endfor;?>
+			<select name="menutype" <?php if($mkmenu!="Y")echo " disabled"?>>
+				<?php for($i = 0, $l = count($arMenuTypes); $i < $l; $i++):?>
+				<option value="<?php echo htmlspecialcharsex($arMenuTypes[$i][0])?>" <?php if($menutype==$arMenuTypes[$i][0])echo " selected"?>><?php echo htmlspecialcharsex("[".$arMenuTypes[$i][0]."] ".$arMenuTypes[$i][1])?></option>
+				<?php endfor;?>
 			</select>
 		</td>
 	</tr>
-	<tr id="fx2"<?if($mkmenu!="Y")echo " disabled"?>>
+	<tr id="fx2"<?php if($mkmenu!="Y")echo " disabled"?>>
 		<td><?=GetMessage("FILEMAN_NEWFOLDER_MENUITEM")?></td>
-		<td><input type="text" name="menuname" value="<?echo htmlspecialcharsex($menuname)?>"<?if($mkmenu!="Y")echo " disabled"?>></td>
+		<td><input type="text" name="menuname" value="<?php echo htmlspecialcharsex($menuname)?>"<?php if($mkmenu!="Y")echo " disabled"?>></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if($USER->CanDoFileOperation('fm_create_new_file',$arPath) && $USER->CanDoOperation('fileman_admin_files')):?>
+	<?php if($USER->CanDoFileOperation('fm_create_new_file',$arPath) && $USER->CanDoOperation('fileman_admin_files')):?>
 
 	<tr>
 		<td><?=GetMessage("FILEMAN_NEWFOLDER_MAKE_INDEX")?></td>
-		<td><input type="checkbox" name="mkindex" value="Y"<?if($mkindex=="Y")echo " checked"?> onclick="document.fnew_folder.toedit.disabled=!this.checked;document.fnew_folder.template.disabled=!this.checked;ff1.disabled=!this.checked;ff2.disabled=!this.checked;"></td>
+		<td><input type="checkbox" name="mkindex" value="Y"<?php if($mkindex=="Y")echo " checked"?> onclick="document.fnew_folder.toedit.disabled=!this.checked;document.fnew_folder.template.disabled=!this.checked;ff1.disabled=!this.checked;ff2.disabled=!this.checked;"></td>
 	</tr>
 	<tr id="ff1">
 		<td><?=GetMessage("FILEMAN_NEWFOLDER_INDEX_TEMPLATE")?></td>
 		<td>
-		<select name="template" <?if($mkindex!="Y")echo " disabled"?>>
-			<?for($i = 0, $l = count($arTemplates); $i < $l; $i++):?>
-			<option value="<?echo htmlspecialcharsex($arTemplates[$i]["file"])?>"<?if($template==$arTemplates[$i]["file"])echo " selected"?>><?echo htmlspecialcharsex($arTemplates[$i]["name"])?></option>
-			<?endfor;?>
+		<select name="template" <?php if($mkindex!="Y")echo " disabled"?>>
+			<?php for($i = 0, $l = count($arTemplates); $i < $l; $i++):?>
+			<option value="<?php echo htmlspecialcharsex($arTemplates[$i]["file"])?>"<?php if($template==$arTemplates[$i]["file"])echo " selected"?>><?php echo htmlspecialcharsex($arTemplates[$i]["name"])?></option>
+			<?php endfor;?>
 		</select>
 		</td>
 	</tr>
 	<tr id="ff2">
 		<td><?=GetMessage("FILEMAN_NEWFOLDER_INDEX_EDIT")?></td>
-		<td><input type="checkbox" name="toedit" value="Y"<?if($toedit=="Y")echo " checked"?><?if($mkindex!="Y")echo " disabled"?>></td>
+		<td><input type="checkbox" name="toedit" value="Y"<?php if($toedit=="Y")echo " checked"?><?php if($mkindex!="Y")echo " disabled"?>></td>
 	</tr>
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 	$tabControl->EndTab();
 	$tabControl->Buttons(
 		array(
@@ -296,7 +296,7 @@ if ($USER->CanDoFileOperation('fm_create_new_folder',$arPath))
 	}
 	?>
 	</form>
-	<?
+	<?php 
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

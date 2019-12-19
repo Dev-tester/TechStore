@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_SS_EVENT_SEND"] = "Сохранить";
 $MESS["JS_CORE_SS_EVENT_CANCEL"] = "Отменить";
 $MESS["JS_CORE_SS_EVENT_SETUP"] = "настроить";

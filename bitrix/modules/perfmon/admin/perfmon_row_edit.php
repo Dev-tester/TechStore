@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -105,7 +105,7 @@ function var_import_r($tokens, &$pos, &$result)
 
 function var_import($str)
 {
-	$tokens = token_get_all("<? ".trim($str));
+	$tokens = token_get_all("<?php  ".trim($str));
 	$pos = 2;
 	$result = null;
 	var_import_r($tokens, $pos, $result);
@@ -427,7 +427,7 @@ if ($strError)
 			if (textArea && markHidden)
 			{
 				var action = (button.value == 'unserialize' ? 'unserialize' : 'serialize');
-				var url = 'perfmon_row_edit.php?lang=<?echo LANGUAGE_ID?>&<?echo bitrix_sessid_get()?>&action=' + action;
+				var url = 'perfmon_row_edit.php?lang=<?php echo LANGUAGE_ID?>&<?php echo bitrix_sessid_get()?>&action=' + action;
 				BX.showWait();
 				BX.ajax.post(
 					url,
@@ -459,8 +459,8 @@ if ($strError)
 			AdjustHeight();
 		});
 	</script>
-	<form method="POST" action="<? echo $APPLICATION->GetCurPageParam() ?>" enctype="multipart/form-data" name="editform" id="editform">
-	<?
+	<form method="POST" action="<?php  echo $APPLICATION->GetCurPageParam() ?>" enctype="multipart/form-data" name="editform" id="editform">
+	<?php 
 	$tabControl->Begin();
 
 	$tabControl->BeginNextTab();
@@ -503,41 +503,41 @@ if ($strError)
 	foreach ($arFields as $Field => $arField)
 	{
 		$trClass = $arField["nullable"]? "": "adm-detail-required-field";
-		?><tr class="<?echo $trClass?>"><?
+		?><tr class="<?php echo $trClass?>"><?php 
 	
 		if (in_array($Field, $arIndexColumns))
 		{
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-			<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
-			<td width="60%"><? echo htmlspecialcharsex($value); ?></td>
-		<?
+			<td width="40%"><?php  echo htmlspecialcharsbx($Field) ?>:</td>
+			<td width="60%"><?php  echo htmlspecialcharsex($value); ?></td>
+		<?php 
 		}
 		elseif ($arField["type"] === "datetime")
 		{
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord["FULL_".$Field];
 			?>
-			<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
-			<td width="60%"><? echo CAdminCalendar::CalendarDate($Field, $value, 20, true) ?>
-		<?
+			<td width="40%"><?php  echo htmlspecialcharsbx($Field) ?>:</td>
+			<td width="60%"><?php  echo CAdminCalendar::CalendarDate($Field, $value, 20, true) ?>
+		<?php 
 		}
 		elseif ($arField["type"] === "date")
 		{
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord["SHORT_".$Field];
 			?>
-			<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
-			<td width="60%"><? echo CAdminCalendar::CalendarDate($Field, $value, 10, false) ?>
-		<?
+			<td width="40%"><?php  echo htmlspecialcharsbx($Field) ?>:</td>
+			<td width="60%"><?php  echo CAdminCalendar::CalendarDate($Field, $value, 10, false) ?>
+		<?php 
 		}
 		elseif (isset($arField["SELECT"]))
 		{
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
-				<td width="60%"><?
+				<td width="40%"><?php  echo htmlspecialcharsbx($Field) ?>:</td>
+				<td width="60%"><?php 
 					echo SelectBoxFromArray($Field, $arField["SELECT"], $value, $arField["nullable"]? "(null)": "");
 					?></td>
-		<?
+		<?php 
 		}
 		elseif (
 			$arField["type"] === "string"
@@ -550,22 +550,22 @@ if ($strError)
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
 				<td width="40%"><label
-						for="<? echo htmlspecialcharsbx($Field) ?>"
-						><? echo htmlspecialcharsbx($Field) ?></label>:
+						for="<?php  echo htmlspecialcharsbx($Field) ?>"
+						><?php  echo htmlspecialcharsbx($Field) ?></label>:
 				</td>
 				<td width="60%"><input
 						type="hidden"
-						name="<? echo htmlspecialcharsbx($Field) ?>"
+						name="<?php  echo htmlspecialcharsbx($Field) ?>"
 						value="N"
 						><input
 						type="checkbox"
-						name="<? echo htmlspecialcharsbx($Field) ?>"
-						id="<? echo htmlspecialcharsbx($Field) ?>"
+						name="<?php  echo htmlspecialcharsbx($Field) ?>"
+						id="<?php  echo htmlspecialcharsbx($Field) ?>"
 						value="Y"
-						<? if ($value === "Y")
+						<?php  if ($value === "Y")
 							echo 'checked="checked"' ?>
 						></td>
-		<?
+		<?php 
 		}
 		elseif (
 			$arField["type"] === "string"
@@ -575,15 +575,15 @@ if ($strError)
 		{
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
+				<td width="40%"><?php  echo htmlspecialcharsbx($Field) ?>:</td>
 				<td width="60%"><input
 						type="text"
-						maxsize="<? echo $arField["length"] ?>"
-						size="<? echo min($arField["length"], 35) ?>"
-						name="<? echo htmlspecialcharsbx($Field) ?>"
-						value="<? echo htmlspecialcharsbx($value) ?>"
+						maxsize="<?php  echo $arField["length"] ?>"
+						size="<?php  echo min($arField["length"], 35) ?>"
+						name="<?php  echo htmlspecialcharsbx($Field) ?>"
+						value="<?php  echo htmlspecialcharsbx($value) ?>"
 						></td>
-		<?
+		<?php 
 		}
 		elseif (
 			$arField["type"] === "string"
@@ -592,28 +592,28 @@ if ($strError)
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
 				<td width="40%" class="adm-detail-valign-top"
-					style="padding-top:14px"><? echo htmlspecialcharsbx($Field) ?>:
+					style="padding-top:14px"><?php  echo htmlspecialcharsbx($Field) ?>:
 				</td>
 				<td width="60%"><textarea
 						style="width:100%"
 						rows="1"
-						name="<? echo htmlspecialcharsbx($Field) ?>"
-						id="<? echo htmlspecialcharsbx($Field) ?>"
-						><? echo htmlspecialcharsex($value) ?></textarea>
+						name="<?php  echo htmlspecialcharsbx($Field) ?>"
+						id="<?php  echo htmlspecialcharsbx($Field) ?>"
+						><?php  echo htmlspecialcharsex($value) ?></textarea>
 					<input
 						type="hidden"
 						value=""
-						name="<? echo htmlspecialcharsbx("mark_".$Field."_") ?>"
-						id="<? echo htmlspecialcharsbx("mark_".$Field."_") ?>"
+						name="<?php  echo htmlspecialcharsbx("mark_".$Field."_") ?>"
+						id="<?php  echo htmlspecialcharsbx("mark_".$Field."_") ?>"
 						>
-					<?if ($hasTokenizer):?>
+					<?php if ($hasTokenizer):?>
 					<input
 						type="button"
 						value="unserialize"
-						onclick="<? echo htmlspecialcharsbx("editAsSerialize(this, '".CUtil::JSEscape($Field)."', 'mark_".CUtil::JSEscape($Field)."_');") ?>"/>
-					<?endif;?>
+						onclick="<?php  echo htmlspecialcharsbx("editAsSerialize(this, '".CUtil::JSEscape($Field)."', 'mark_".CUtil::JSEscape($Field)."_');") ?>"/>
+					<?php endif;?>
 				</td>
-		<?
+		<?php 
 		}
 		elseif (
 			$arField["type"] === "int"
@@ -622,31 +622,31 @@ if ($strError)
 		{
 			$value = $bVarsFromForm? $_REQUEST[$Field]: $arRecord[$Field];
 			?>
-				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
+				<td width="40%"><?php  echo htmlspecialcharsbx($Field) ?>:</td>
 				<td width="60%"><input
 						type="text"
 						maxsize="20"
 						size="15"
-						name="<? echo htmlspecialcharsbx($Field) ?>"
-						value="<? echo htmlspecialcharsbx($value) ?>"
+						name="<?php  echo htmlspecialcharsbx($Field) ?>"
+						value="<?php  echo htmlspecialcharsbx($value) ?>"
 						></td>
-		<?
+		<?php 
 		}
 		else
 		{
 			?>
-				<td width="40%"><? echo htmlspecialcharsbx($Field) ?>:</td>
+				<td width="40%"><?php  echo htmlspecialcharsbx($Field) ?>:</td>
 				<td width="60%">UNSUPPORTED DATA TYPE</td>
-			<?
+			<?php 
 		}
-		?></tr><?
+		?></tr><?php 
 	}
 	$tabControl->BeginNextTab();
 	?>
 	<tr>
 		<td width="40%"><label
 				for="clear_managed_cache"
-				><? echo GetMessage("PERFMON_ROW_CACHE_CLEAR") ?></label>:
+				><?php  echo GetMessage("PERFMON_ROW_CACHE_CLEAR") ?></label>:
 		</td>
 		<td width="60%"><input
 				type="checkbox"
@@ -655,12 +655,12 @@ if ($strError)
 				value="Y"
 				></td>
 	</tr>
-	<?
+	<?php 
 	?>
-	<? echo bitrix_sessid_post(); ?>
-	<input type="hidden" name="lang" value="<? echo LANGUAGE_ID ?>">
+	<?php  echo bitrix_sessid_post(); ?>
+	<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID ?>">
 	<input type="hidden" name="delete" id="delete" value="">
-	<?
+	<?php 
 	$tabControl->Buttons(
 		array(
 			"disabled" => !$isAdmin,
@@ -671,6 +671,6 @@ if ($strError)
 	?>
 	</form>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

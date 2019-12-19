@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Main\Localization\Loc;
@@ -180,14 +180,14 @@ if($bSaved)
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 
 ?>
-	<?foreach(array("PRODUCT", "INVENTORY", "ORDER") as $feedType): //"IMAGE",?>
-		<?$smallFeedType = strtolower($feedType);?>
+	<?php foreach(array("PRODUCT", "INVENTORY", "ORDER") as $feedType): //"IMAGE",?>
+		<?php $smallFeedType = strtolower($feedType);?>
 		<tr class="heading"><td colspan="2"><?=Loc::getMessage("SALE_EBAY_FEED_".$feedType)?></td></tr>
 		<tr>
 			<td width="40%"><span><?=Loc::getMessage("SALE_EBAY_FEED_INTERVAL")?>:</span></td>
@@ -205,7 +205,7 @@ $tabControl->BeginNextTab();
 		<tr>
 			<td><?=Loc::getMessage("SALE_EBAY_FEED_LAST_EXCAHGE_RES")?>:</td>
 			<td >
-				<?
+				<?php 
 					$feedResMess = "";
 					$feedResErrDescr = "";
 
@@ -273,20 +273,20 @@ $tabControl->BeginNextTab();
 
 			</td>
 		</tr>
-		<?if(strlen($feedResErrDescr) > 0):?>
+		<?php if(strlen($feedResErrDescr) > 0):?>
 			<tr>
 				<td><span><?=Loc::getMessage("SALE_EBAY_RES_MESSAGES")?>:</span></td>
 				<td>
 					<?=$feedResErrDescr?>
 				</td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 		<tr>
 			<td><span>&nbsp;</span></td>
 			<td><input type="button" value="<?=Loc::getMessage("SALE_EBAY_FEED_EXCAHGE_NOW")?>" onclick="BX.Sale.EbayAdmin.startFeed('<?=$feedType?>','<?=$SITE_ID?>');"></td>
 		</tr>
-	<?endforeach;?>
-	<?
+	<?php endforeach;?>
+	<?php 
 	$tabControl->BeginNextTab();
 	?>
 	<tr class="heading"><td colspan="2"><?=Loc::getMessage("SALE_EBAY_META_CATEGORIES")?></td></tr>
@@ -311,7 +311,7 @@ $tabControl->BeginNextTab();
 		<td width="40%">&nbsp;</td>
 		<td width="60%"><input type="button" value="<?=Loc::getMessage("SALE_EBAY_REFRESH_DATA");?>" onclick="BX.Sale.EbayAdmin.refreshCategoriesPropsData('<?=CUtil::JSEscape($SITE_ID)?>');"></td>
 	</tr>
-	<?
+	<?php 
 
 $tabControl->Buttons(array(
 	"btnSave" => true,
@@ -329,6 +329,6 @@ $tabControl->End();
 		"SALE_EBAY_EXCHANGE_ERROR": "<?=\CUtil::JSEscape(Loc::getMessage("SALE_EBAY_EXCHANGE_ERROR"))?>"
 	});
 </script>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 

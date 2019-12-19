@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_APP_PUSH_TITLE"] = "Configure notifications";
 $MESS["MOBILE_APP_PUSH_BACK"] = "Back";
 $MESS["MOBILE_APP_PUSH_SAVE"] = "Save";

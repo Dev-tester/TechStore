@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPWC_WLCT_NEW"] = "New connection";
 $MESS["BPWC_WLCT_TOTAL"] = "Total";
 $MESS["CRM_EXT_SALE_CLIST_RESULT"] = "Shop synchronization result:";

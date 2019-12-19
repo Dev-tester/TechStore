@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_HANDL_AUT_NAME"] = "Automatisierter Lieferservice";
 $MESS["SALE_DLVR_HANDL_AUT_DESCRIPTION"] = "Automatisierter Lieferservice zur Sicherstellung der Kompatibilität mit alten Lieferservices.";
 $MESS["SALE_DLVR_HANDL_AUT_HANDLER_SETTINGS"] = "Handler-Einstellungen";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLLE_TOOLBAR_LIST_TITLE"] = "Просмотр и правка элементов списка";
 $MESS["CT_BLLE_TOOLBAR_FIELDS"] = "Поля списка";
 $MESS["CT_BLLE_TOOLBAR_FIELDS_TITLE"] = "Настроить поля списка";

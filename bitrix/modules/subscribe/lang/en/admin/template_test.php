@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["rub_list"] = "Category list";
 $MESS["rubric_mnu_add"] = "Add a new category";
 $MESS["rubric_mnu_edit"] = "Modify the category";

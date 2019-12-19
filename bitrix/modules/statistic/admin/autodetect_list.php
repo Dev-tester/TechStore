@@ -253,7 +253,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 ?>
 <a name="tb"></a>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -265,32 +265,32 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td nowrap><b><?echo GetMessage("STAT_F_USER_AGENT")?></b></td>
-	<td><input type="text" name="find_user_agent" size="28" value="<?echo htmlspecialcharsbx($find_user_agent)?>"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><b><?php echo GetMessage("STAT_F_USER_AGENT")?></b></td>
+	<td><input type="text" name="find_user_agent" size="28" value="<?php echo htmlspecialcharsbx($find_user_agent)?>"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>
-		<?echo GetMessage("STAT_F_LAST_DAY")?></td>
+		<?php echo GetMessage("STAT_F_LAST_DAY")?></td>
 	<td>
-		<?
+		<?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_last", $arr, htmlspecialcharsbx($find_last), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
 	<td>
-		<?echo GetMessage("STAT_F_COUNTER")?></td>
+		<?php echo GetMessage("STAT_F_COUNTER")?></td>
 	<td>
-		<input type="text" name="find_counter1" size="10" value="<?echo htmlspecialcharsbx($find_counter1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_counter2" size="10" value="<?echo htmlspecialcharsbx($find_counter2)?>"></td>
+		<input type="text" name="find_counter1" size="10" value="<?php echo htmlspecialcharsbx($find_counter1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_counter2" size="10" value="<?php echo htmlspecialcharsbx($find_counter2)?>"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

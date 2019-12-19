@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
-<?
+<?php 
 if(strlen($arResult["FATAL_ERROR"])>0)
 {
 	?>
@@ -14,7 +14,7 @@ if(strlen($arResult["FATAL_ERROR"])>0)
 			<ul><?=$arResult["FATAL_ERROR"]?></ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -26,7 +26,7 @@ else
 				<ul><?=$arResult["ERROR_MESSAGE"]?></ul>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 
 	?>
@@ -38,15 +38,15 @@ else
 		</tr>
 		<tr>
 			<th><?=GetMessage("B_B_USE_U_GROUPS")?></th>
-			<td><?
+			<td><?php 
 					if(!empty($arResult["Groups"]))
 					{
 					foreach($arResult["Groups"] as $arBlogGroups)
 					{
 						?>
-						<input type="checkbox" id="add2groups_<?= $arBlogGroups["ID"] ?>" name="add2groups[]" value="<?= $arBlogGroups["ID"] ?>"<?if (in_array($arBlogGroups["ID"], $arResult["arUserGroups"])) echo " checked";?>>
+						<input type="checkbox" id="add2groups_<?= $arBlogGroups["ID"] ?>" name="add2groups[]" value="<?= $arBlogGroups["ID"] ?>"<?php if (in_array($arBlogGroups["ID"], $arResult["arUserGroups"])) echo " checked";?>>
 						<label for="add2groups_<?= $arBlogGroups["ID"] ?>"><?=$arBlogGroups["NAME"]?></label><br />
-						<?
+						<?php 
 					}
 					}
 					?>
@@ -60,6 +60,6 @@ else
 		<?=bitrix_sessid_post()?>
 	</div>
 	</form>
-	<?
+	<?php 
 }
 ?>

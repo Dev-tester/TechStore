@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PP_USER_CONDITION_SUBORDINATE_NAME"] = "Company structure";
 $MESS["PP_USER_CONDITION_SUBORDINATE_TEXT"] = "Calculate extra votes for user's authority based on the company structure.";
 $MESS["PP_USER_CONDITION_SUBORDINATE_T0"] = "Maximum votes for supervisor";

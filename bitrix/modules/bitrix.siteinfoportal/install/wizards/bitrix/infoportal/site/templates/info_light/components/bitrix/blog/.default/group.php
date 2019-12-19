@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <div class="body-blog">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"",
@@ -81,11 +81,11 @@ $APPLICATION->IncludeComponent(
 
 ?>
 </div>
-<?
+<?php 
 $this->SetViewTarget("sidebar", 100);
 ?>	
 <div class="blog-sidebar">
-		<?
+		<?php 
 		if(IsModuleInstalled("search"))
 		{
 			$APPLICATION->IncludeComponent(
@@ -110,6 +110,6 @@ $this->SetViewTarget("sidebar", 100);
 		?>
 	
 </div>
-<?
+<?php 
 $this->EndViewTarget();
 ?>

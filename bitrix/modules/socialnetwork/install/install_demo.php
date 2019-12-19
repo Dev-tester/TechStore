@@ -1,4 +1,4 @@
-<?
+<?php 
 $installSiteID = Trim($installSiteID);
 $installPath = Trim(Trim(Trim($installPath), "\\/"));
 $install404 = ($install404 ? true : false);

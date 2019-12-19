@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_ROLE_ACTION"] = "Action";
 $MESS["IMOL_ROLE_CANCEL"] = "Cancel";
 $MESS["IMOL_ROLE_ENTITY"] = "Entity";

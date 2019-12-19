@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($arParams["SHOW_WEBDAV"] == "Y")
 {
 	$url_help = $arResult["URL_TEMPLATES"]["help"];
@@ -7,7 +7,7 @@ if ($arParams["SHOW_WEBDAV"] == "Y")
 	include_once($file);
 }
 if($this->__page == "section" && $arParams["SHOW_TAGS"] == "Y" && (intVal($arResult["VARIABLES"]["SECTION_ID"]) <= 0) && IsModuleInstalled("search")):
-?><?$APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default", Array(
 		"SEARCH" => $arResult["REQUEST"]["~QUERY"],
 		"TAGS" => $arResult["REQUEST"]["~TAGS"],
 		
@@ -31,7 +31,7 @@ if($this->__page == "section" && $arParams["SHOW_TAGS"] == "Y" && (intVal($arRes
 		), 
 		$component,
 		array("HIDE_ICONS" => "Y"));
-	?><div class="empty-clear"></div><?
+	?><div class="empty-clear"></div><?php 
 endif;
 $page_name = str_replace("DISK_", "", strtoupper($this->__component->__page_webdav_template));
 /*if ($page_name == "WEBDAV_TASK"):
@@ -69,7 +69,7 @@ if ($page_name == "SECTIONS" && $arResult["VARIABLES"]["PERMISSION"] >= "X")
 	}
 }
 
-?><?$result = $APPLICATION->IncludeComponent("bitrix:webdav.menu", "", Array(
+?><?php $result = $APPLICATION->IncludeComponent("bitrix:webdav.menu", "", Array(
 	"OBJECT" => $arParams["OBJECT"], 
 	"SECTION_ID"	=>	$arResult["VARIABLES"]["SECTION_ID"],
 	"ELEMENT_ID"	=>	$arResult["VARIABLES"]["ELEMENT_ID"],

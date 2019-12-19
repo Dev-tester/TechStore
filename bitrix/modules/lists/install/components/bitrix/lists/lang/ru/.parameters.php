@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BL_IBLOCK_TYPE_ID"] = "Тип инфоблока";
 $MESS["CP_BL_LIST_ID"] = "Идентификатор списка";
 $MESS["CP_BL_FIELD_ID"] = "Идентификатор поля";

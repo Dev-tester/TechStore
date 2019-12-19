@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_MA_EMPTY_MESSAGE"] = "Свойство 'Текст сообщения' не указано.";
 $MESS["IMOL_MA_MESSAGE"] = "Текст сообщения";
 $MESS["IMOL_MA_IS_SYSTEM"] = "Скрытое сообщение";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UI_MESSAGE_BOX_CANCEL_CAPTION"] = "Скасувати";
 $MESS["UI_MESSAGE_BOX_NO_CAPTION"] = "Ні";
 $MESS["UI_MESSAGE_BOX_OK_CAPTION"] = "ОК";

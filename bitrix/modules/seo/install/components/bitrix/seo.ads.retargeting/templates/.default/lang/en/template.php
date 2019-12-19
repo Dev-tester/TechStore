@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ADS_RTG_ADD_AUDIENCE"] = "Create audience";
 $MESS["CRM_ADS_RTG_ADD_CLIENT_BTN"] = "Add account";
 $MESS["CRM_ADS_RTG_APPLY"] = "Run";

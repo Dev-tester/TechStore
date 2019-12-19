@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /**
@@ -43,12 +43,12 @@ if(count($arResult["CONTACTS"]) > 0)
 		}
 	</script>
 	<div>
-<?
+<?php 
 	foreach($arResult["CONTACTS"] as $contact):
 ?>
 		<div class="mycontants_card b_4">
 			<div onclick="networkConnect(this, <?=$contact["ID"]?>, <?=Converter::getHtmlConverter()->encode(\CUtil::PhpToJSObject($contact["CONNECT"]))?>)" class="mycontants_card_container">
-				<div class="mycontants_card_avatar" <?if($contact["CONTACT_PHOTO"] != ''):?>style="background-image: url('<?= Converter::getHtmlConverter()->encode($contact["CONTACT_PHOTO"])?>');"<?endif;?>></div>
+				<div class="mycontants_card_avatar" <?php if($contact["CONTACT_PHOTO"] != ''):?>style="background-image: url('<?= Converter::getHtmlConverter()->encode($contact["CONTACT_PHOTO"])?>');"<?php endif;?>></div>
 				<div class="mycontants_card_name">
 					<a href="javascript:void(0)"><?=Converter::getHtmlConverter()->encode($contact["NAME_FORMATTED"])?></a>
 				</div>
@@ -56,12 +56,12 @@ if(count($arResult["CONTACTS"]) > 0)
 				<div style="clear: both;"></div>
 			</div>
 		</div>
-<?
+<?php 
 	endforeach;
 ?>
 	</div>
 	<div style="clear: both"></div>
-<?
+<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.pagenavigation",
 		"",

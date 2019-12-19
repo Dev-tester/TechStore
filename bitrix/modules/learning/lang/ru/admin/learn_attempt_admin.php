@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TITLE'] = "Список попыток";
 $MESS ['LEARNING_ADMIN_RESULTS'] = "Попытки";
 $MESS ['LEARNING_ADMIN_MENU_RESULTS'] = "Результаты";

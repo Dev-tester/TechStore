@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_INSTALL_DESCRIPTION"] = "A module to create	 manage and run business processes.";
 $MESS["BIZPROC_PERM_D"] = "access denied";
 $MESS["BIZPROC_INSTALL_NAME"] = "Business Processes";

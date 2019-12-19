@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_MODULE_IMCONNECTOR_NOT_INSTALLED"] = "The External Messenger Connectors Module is not installed";
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_MODULE_IMOPENLINES_NOT_INSTALLED"] = "The Open Channels Module is not active";
 $MESS["IMCONNECTOR_COMPONENT_NETWORK_NO_ACTIVE_CONNECTOR"] = "This connector is not active";

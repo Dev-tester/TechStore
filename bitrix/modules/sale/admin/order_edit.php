@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var  CUser $USER
  * @var  CMain $APPLICATION
@@ -509,25 +509,25 @@ echo $orderBasket->getScripts($defTails);
 echo $customDraggableBlocks->getScripts();
 
 // navigation socket
-?><div id="sale-order-edit-block-fast-nav-socket"></div><?
+?><div id="sale-order-edit-block-fast-nav-socket"></div><?php 
 
 // yellow block with brief
 echo Blocks\OrderInfo::getView($order, $orderBasket);
 
 // Problem block
-?><div id="sale-adm-order-problem-block"><?
+?><div id="sale-adm-order-problem-block"><?php 
 	if($order->getField("MARKED") == "Y")
 	{
 		echo Blocks\OrderMarker::getView($order->getId());
 	}
-	?></div><?
+	?></div><?php 
 
 $aTabs = array(
 	array("DIV" => "tab_order", "TAB" => Loc::getMessage("SALE_TAB_ORDER"), "SHOW_WRAP" => "N", "IS_DRAGGABLE" => "Y"),
 	array("DIV" => "tab_analysis", "TAB" => Loc::getMessage("SALE_TAB_ANALYSIS"), "TITLE" => Loc::getMessage("SALE_TAB_ANALYSIS"))
 );
 
-?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&ID=".$ID?>" name="sale_order_edit_form" id="sale_order_edit_form" enctype="multipart/form-data"><?
+?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&ID=".$ID?>" name="sale_order_edit_form" id="sale_order_edit_form" enctype="multipart/form-data"><?php 
 
 $tabControl = new CAdminTabControlDrag($formId, $aTabs, $moduleId, false, true);
 $tabControl->AddTabs($customTabber);
@@ -566,8 +566,8 @@ $tabControl->BeginNextTab();
 	<input type="hidden" name="BASKET_PREFIX" value="<?=$basketPrefix?>">
 	<?=bitrix_sessid_post()?>
 	<div style="position: relative; vertical-align: top">
-		<?$tabControl->DraggableBlocksStart();?>
-		<?
+		<?php $tabControl->DraggableBlocksStart();?>
+		<?php 
 		foreach ($blocksOrder as $blockCode)
 		{
 			$tabControl->DraggableBlockBegin($fastNavItems[$blockCode], $blockCode);
@@ -634,7 +634,7 @@ $tabControl->BeginNextTab();
 	</div>
 </td></tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 //--TAB order
 
@@ -643,16 +643,16 @@ $tabControl->BeginNextTab();
 ?>
 <tr>
 	<td>
-		<?if($defTails):?>
+		<?php if($defTails):?>
 			<div style="position:relative; vertical-align:top" id="sale-adm-order-analysis-content">
 				<img src="/bitrix/images/sale/admin-loader.gif"/>
 			</div>
-		<?else:?>
+		<?php else:?>
 			<?=Blocks\OrderAnalysis::getView($order, $orderBasket);?>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->EndTab();
 //-- TAB analysis
 
@@ -673,7 +673,7 @@ $tabControl->End();
 
 <div style="display: none;"><?=OrderEdit::getFastNavigationHtml($fastNavItems, $formId, 'tab_order');?></div>
 
-<?if(!$result->isSuccess() || $isNeedFieldsRestore):?>
+<?php if(!$result->isSuccess() || $isNeedFieldsRestore):?>
 	<script type="text/javascript">
 		BX.ready( function(){
 			BX.Sale.Admin.OrderEditPage.restoreFormData(
@@ -685,7 +685,7 @@ $tabControl->End();
 			BX.Sale.Admin.OrderEditPage.enableFormButtons('sale_order_edit_form');
 		});
 	</script>
-<?else:?>
+<?php else:?>
 	<script type="text/javascript">
 		BX.ready( function(){
 			BX.Sale.Admin.OrderAjaxer.sendRequest(
@@ -705,6 +705,6 @@ $tabControl->End();
 			);
 		});
 	</script>
-<?endif;
+<?php endif;
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_VAL_INN_DESCRIPTION'] = "TIN validation (Russia)";
 $MESS['FORM_VALIDATOR_VAL_INN_SETTINGS_TYPE'] = "Type of identification number";
 $MESS['FORM_VALIDATOR_VAL_INN_SETTINGS_TYPE_JUR'] = "legal entity";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPE_BLOG_URL"] = "Blog URL";
 $MESS["BPE_ID"] = "Message ID";
 $MESS["BPE_PATH_TO_BLOG"] = "Blog page path template";

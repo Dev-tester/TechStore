@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CForumDBTools
 {
@@ -42,7 +42,7 @@ class CForumDBTools
 			</div>
 			<?=htmlspecialcharsbx($message)?>
 		</div>
-<?
+<?php 
 	}
 
 	static function ShowMessage($message, $error = false)
@@ -52,7 +52,7 @@ class CForumDBTools
 		<div style='background-color:<?=$background?>; border: 1px solid #ff8888; padding: 10px; margin: 5px 0; font-size:80%;'>
 			<?=htmlspecialcharsbx($message)?>
 		</div>
-<?
+<?php 
 	}
 
 	static function Alter($arParams)

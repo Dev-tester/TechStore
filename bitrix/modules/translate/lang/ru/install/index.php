@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TRANS_MODULE_NAME'] = "Перевод";
 $MESS ['TRANS_MODULE_DESCRIPTION'] = "Модуль перевода языковых файлов.";
 $MESS ['TRANS_INIT_FOLDERS'] = "Начальные каталоги (через запятую)";

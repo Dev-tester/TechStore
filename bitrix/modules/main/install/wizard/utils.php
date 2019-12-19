@@ -800,7 +800,7 @@ class BXInstallServices
 			return;
 		if($extension == "xml")
 		{
-			if(substr($fileContent, 0, 5) === "<?xml" && strpos(substr($fileContent, 0, 100), "encoding") === false)
+			if(substr($fileContent, 0, 5) === "<?php xml" && strpos(substr($fileContent, 0, 100), "encoding") === false)
 			{
 				$fileContent = mb_convert_encoding($fileContent, "utf-8", $charsetFrom);
 				file_put_contents($filePath, $fileContent);

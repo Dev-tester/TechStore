@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <tr>
@@ -39,9 +39,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPCRU_PD_MAX_LEVEL") ?>:</span></td>
 	<td width="60%">
 		<select name="max_level">
-			<?for ($i = 1; $i < 11; $i++):?>
+			<?php for ($i = 1; $i < 11; $i++):?>
 			<option value="<?= $i ?>"<?= ($arCurrentValues['max_level'] == $i) ? " selected" : "" ?>><?= ($i == 1) ? GetMessage("BPCRU_PD_MAX_LEVEL_1") : $i ?></option>
-			<?endfor;?>
+			<?php endfor;?>
 		</select>
 	</td>
 </tr>

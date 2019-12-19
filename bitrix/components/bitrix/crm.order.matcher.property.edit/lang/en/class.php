@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIG_ORDER_TITLE_CREATE"] = "Create Order Property";
 $MESS["CRM_CONFIG_ORDER_TITLE_EDIT"] = "Edit Order Property";
 $MESS["CRM_INVALID_PERSON_TYPE_ID"] = "Payer type is invalid";

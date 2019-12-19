@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TAX_TITLE"] = "Taxes";
 $MESS["ERROR_DEL_TAX"] = "Error deleting the tax";
 $MESS["SALE_ADD_TAX"] = "Add";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /**
  * Bitrix vars
@@ -24,7 +24,7 @@ $LHE = new CLightHTMLEditor();
 <div id="meeting-detail-description" class="meeting-detail-description">
 	<span class="meeting-ques-form-label"><?=GetMessage('MI_EDIT_DESCRIPTION')?></span>
 	<div class="meeting-detail-description-form">
-<?
+<?php 
 $LHE->Show(array(
 	'id' => "",
 	'content' => $arResult['ITEM']['DESCRIPTION'],
@@ -53,7 +53,7 @@ $LHE->Show(array(
 ?>
 	</div>
 	<div id="meeting-detail-files" class="meeting-detail-files meeting-detail-files-edit">
-<?
+<?php 
 $APPLICATION->IncludeComponent('bitrix:main.file.input', '', array(
 		'INPUT_NAME' => 'ITEM_FILES',
 		'INPUT_NAME_UNSAVED' => 'ITEM_FILES_TMP',

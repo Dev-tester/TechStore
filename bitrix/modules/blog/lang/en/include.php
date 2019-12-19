@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLI_P_D'] = "Deny";
 $MESS ['BLI_P_I'] = "Read";
 $MESS ['BLI_P_P'] = "Write";

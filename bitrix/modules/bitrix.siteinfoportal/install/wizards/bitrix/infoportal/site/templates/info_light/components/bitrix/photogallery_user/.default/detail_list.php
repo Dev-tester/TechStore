@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -131,23 +131,23 @@ elseif ($arResult["ORDER_BY"] == "comments")
 <noindex>
 <div class="photo-controls photo-controls-mainpage">
 	<ul class="photo-controls">
-<?
+<?php 
 $counter = 1;
 foreach ($arSort as $key => $val):
 ?>
-		<li class="photo-control <?=$key?> <?=($counter == 1 ? "photo-control-first" : "")?> <?=($counter == count($arRes) ? "photo-control-last" : "")?> <?
+		<li class="photo-control <?=$key?> <?=($counter == 1 ? "photo-control-first" : "")?> <?=($counter == count($arRes) ? "photo-control-last" : "")?> <?php 
 			?><?=($arResult["ORDER_BY"] == $key ? " photo-control-active " : "")?>">
-			<a href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=".$key, array("order", "mode"))?>" <?
+			<a href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=".$key, array("order", "mode"))?>" <?php 
 			?>rel="nofollow" title="<?=$val["description"]?>"><span><?=$val["title"]?></span></a>
 		</li>
-<?
+<?php 
 	$counter++;
 endforeach;
 ?>
 	</ul>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 if ($arParams["PERMISSION"] >= "U")
 {
 	CModule::IncludeModule("iblock");
@@ -196,26 +196,26 @@ if ($arParams["PERMISSION"] >= "U")
 	<div class="photo-note-box photo-note-moderate">
 		<div class="photo-note-box-text">
 			<ul class="photo-list">
-<?
+<?php 
 		if ($bNeedPublic)
 		{
 ?>
 				<li><?=GetMessage("P_NOT_PULIC_PHOTO_2")?>: <a href="<?=$GLOBALS['APPLICATION']->GetCurPageParam(
 					"&mode=public", array("order", "mode"))?>"><?=$bNeedPublic?></a>.</li>
-<?
+<?php 
 		}
 		if ($bNeedModerate)
 		{
 ?>
 				<li><?=GetMessage("P_NOT_ACTIVE_PHOTO_2")?>: <a href="<?=$GLOBALS['APPLICATION']->GetCurPageParam(
 					"&mode=active", array("order", "mode"))?>"><?=$bNeedModerate?></a>.</li>
-<?
+<?php 
 		}
 ?>
 			</ul>
 		</div>
 	</div>
-<?
+<?php 
 	}
 }
 ?>
@@ -228,7 +228,7 @@ if ($arParams["PERMISSION"] >= "U")
 		<div class="photo-filter-fields">
 			<div class="photo-filter-field photo-calendar-field">
 				<label for="photo_from"><?=GetMessage("P_SELECT_PHOTO_FROM_PERIOD")?></label>
-					<?$APPLICATION->IncludeComponent("bitrix:main.calendar", ".default",
+					<?php $APPLICATION->IncludeComponent("bitrix:main.calendar", ".default",
 						Array(
 							"SHOW_INPUT"	=>	"Y",
 							"INPUT_NAME"	=>	"photo_from",
@@ -251,7 +251,7 @@ if ($arParams["PERMISSION"] >= "U")
 		</div>
 	</form>
 </div>
-<?
+<?php 
 $arFields = Array(
 	"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -381,7 +381,7 @@ if (($arParams["PERMISSION"] >= "U" && ($arResult["MODE"] == "public" || $arResu
 	}
 	*/
 ?>
-<? /*
+<?php  /*
 <script type="text/javascript">
 function act(action, form)
 {
@@ -405,17 +405,17 @@ function act(action, form)
 }
 else
 {
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 		"bitrix:photogallery.detail.list.ex",
 		"",
 		$arFields,
 		$component,
 		array("HIDE_ICONS" => "Y")
-	);?><?
+	);?><?php 
 }
 ?>
 </div>
-<?
+<?php 
 /********************************************************************
 				Standart
 ********************************************************************/

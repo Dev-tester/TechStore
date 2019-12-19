@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 IncludeAJAX();
 /********************************************************************
 				Input params
@@ -52,15 +52,15 @@ if (typeof oPhotoTabs["<?=$iObjectID?>"] != "object" || oPhotoTabs["<?=$iObjectI
 	<tr class="header"><td class="header">
 			<table class="photo-tabs-header" cellpadding="0" cellspacing="0" border="0">
 				<tr>
-<?
+<?php 
 foreach ($arResult["DATA"]["HEADER"] as $res):
 	if ($res["HREF"] == "Y"):
-				?><td class="href"><noindex><a rel="nofollow" href="<?=$res["LINK"]?>"><?=$res["TITLE"]?></a></noindex></td><?
+				?><td class="href"><noindex><a rel="nofollow" href="<?=$res["LINK"]?>"><?=$res["TITLE"]?></a></noindex></td><?php 
 	else:
 ?>
-				<td class="<?=($res["ACTIVE"] == "Y" ? "" : "no-")?>active" onclick="if(oPhotoTabs['<?=$iObjectID?>']){oPhotoTabs['<?=$iObjectID?>'].SelectTab('<?=$res["ID"]?>');<?
+				<td class="<?=($res["ACTIVE"] == "Y" ? "" : "no-")?>active" onclick="if(oPhotoTabs['<?=$iObjectID?>']){oPhotoTabs['<?=$iObjectID?>'].SelectTab('<?=$res["ID"]?>');<?php 
 					if ($res["AJAX_USE"] == "Y"):
-						?>oPhotoTabs['<?=$iObjectID?>'].SendAjax('<?=CUtil::JSEscape($res["LINK"])?>', '<?=$res["ID"]?>');<?
+						?>oPhotoTabs['<?=$iObjectID?>'].SendAjax('<?=CUtil::JSEscape($res["LINK"])?>', '<?=$res["ID"]?>');<?php 
 					endif;
 				?>}" id="header_<?=$iObjectID?>_<?=$res["ID"]?>">
 					<table cellpadding="0" cellspacing="0" border="0" width="100%" class="tab-header">
@@ -72,17 +72,17 @@ foreach ($arResult["DATA"]["HEADER"] as $res):
 						<tr class="middle">
 							<td class="left"><div class="empty"></div></td>
 							<td class="center"><div class="title">
-							<?if (!empty($res["LINK"])):?>
+							<?php if (!empty($res["LINK"])):?>
 							<noindex><a rel="nofollow" href="<?=$res["LINK"]?>" onclick="return false;">
 							<?=$res["TITLE"]?></a></noindex>
-							<?else:?>
+							<?php else:?>
 							<?=$res["TITLE"]?>
-							<?endif;?></div></td>
+							<?php endif;?></div></td>
 							<td class="right"><div class="empty"></div></td>
 						</tr>
 					</table>
 				</td>
-<?
+<?php 
 	endif;
 endforeach;
 ?>
@@ -98,21 +98,21 @@ endforeach;
 				</tr>
 				<tr class="middle">
 					<td class="left"><div class="empty"></div></td>
-					<td class="body-text"><?
+					<td class="body-text"><?php 
 foreach ($arResult["DATA"]["BODY"] as $res):
 ?>
 				<div class="photo-body-text" <?=($res["ACTIVE"] == "Y" ? "" : "style=\"display:none;\"")?> id="body_<?=$iObjectID?>_<?=$res["ID"]?>">
-					<?
+					<?php 
 					if (empty($res["TEXT"]) && $res["AJAX_USE"] == "Y"):
-						?><div class="photo-body-text-ajax"><div id="photo_waitwindow" class="waitwindow"><?=GetMessage("P_LOADING")?></div></div><?
+						?><div class="photo-body-text-ajax"><div id="photo_waitwindow" class="waitwindow"><?=GetMessage("P_LOADING")?></div></div><?php 
 					else:
-						?><?=$res["TEXT"]?><?
+						?><?=$res["TEXT"]?><?php 
 					endif;
 					?>
 				</div>
-<?
+<?php 
 	if (!empty($res["LINK"]) && $res["AJAX_USE"] == "Y"):
-		?><div class="photo-body-link"><noindex><a rel="nofollow" href="<?=$res["LINK"]?>" id="text_a_<?=$iObjectID?>_<?=$res["ID"]?>"><?=GetMessage("P_GO_TO_PAGE")?></a></noindex></div><?
+		?><div class="photo-body-link"><noindex><a rel="nofollow" href="<?=$res["LINK"]?>" id="text_a_<?=$iObjectID?>_<?=$res["ID"]?>"><?=GetMessage("P_GO_TO_PAGE")?></a></noindex></div><?php 
 	endif;
 
 endforeach;

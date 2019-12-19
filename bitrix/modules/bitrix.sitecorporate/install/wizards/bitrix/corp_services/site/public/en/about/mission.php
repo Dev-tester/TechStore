@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Mission and Purpose");
 ?>
@@ -7,4 +7,4 @@ $APPLICATION->SetTitle("Mission and Purpose");
 	    <h2>Purposes</h2> 
 	    <p>Our goal - to provide each client with the full range of modern banking products and services using the latest achievements and innovations in financial technology. Our aim is to be the service leaders of our industry.</p> 
 	     
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

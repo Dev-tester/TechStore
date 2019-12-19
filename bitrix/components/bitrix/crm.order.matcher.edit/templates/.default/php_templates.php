@@ -28,7 +28,7 @@ class CrmOrderPropsFormEditTemplate
 				</div>
 			</div><!--pinable-block crm-orderform-edit-task-options-item crm-orderform-edit-task-options-item-se-project-->
 		</div><!--crm-orderform-edit-task-edit-block-place-->
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 
@@ -230,7 +230,7 @@ class CrmOrderPropsFormEditTemplate
 		<div class="crm-orderform-element-separator">
 			<span class="crm-orderform-element-separator-item"></span>
 		</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 		$result['SETTINGS'] = null;
 		$result['HIDE_CAPTION'] = true;
@@ -244,7 +244,7 @@ class CrmOrderPropsFormEditTemplate
 		ob_start();
 		?>
 		<div class="crm-orderform-element-br">&lt;br&gt;</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 		$result['SETTINGS'] = null;
 		$result['HIDE_CAPTION'] = true;
@@ -263,7 +263,7 @@ class CrmOrderPropsFormEditTemplate
 		ob_start();
 		?>
 		<input type="text" name="FIELD[%name%][VALUE]" value="%value%" placeholder="%placeholder%" class="crm-orderform-edit-left-inner-field-input">
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -323,7 +323,7 @@ class CrmOrderPropsFormEditTemplate
 		<div data-bx-order-form-field-display-cont="">
 			%items%
 		</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -362,7 +362,7 @@ class CrmOrderPropsFormEditTemplate
 		<input id="%code%_id" name="FIELD[%name%][VALUE]" value="%value%" type="text" class="crm-orderform-edit-left-inner-field-input">
 		<input type="button" value="<?=Loc::getMessage('CRM_ORDERFORM_EDIT_CHOOSE_DATE')?>"
 				onclick="BX.calendar({node:this, field:'%code%_id', form:'', bTime:'%show_time%', bHideTime:false});">
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -370,7 +370,7 @@ class CrmOrderPropsFormEditTemplate
 		echo self::getFieldSettingsCommonRequisites();
 		?>
 		<input name="FIELD[%name%][TIME]" type="hidden" value="%time%">
-		<?
+		<?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -382,13 +382,13 @@ class CrmOrderPropsFormEditTemplate
 		ob_start();
 		?>
 		<input type="text" class="crm-orderform-edit-left-inner-field-input">
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
 		echo self::getFieldSettingsCommon();
 		echo self::getFieldSettingsCommonRequisites();
-		?><?
+		?><?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -410,7 +410,7 @@ class CrmOrderPropsFormEditTemplate
 				<span data-bx-order-form-lbl-btn-apply="" class="crm-orderform-edit-field-accept" title="<?=Loc::getMessage('CRM_ORDERFORM_EDIT_INLINE_EDIT_APPLY')?>"></span>
 			</span>
 		</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 		$result['SETTINGS'] = '';
 		$result['HIDE_CAPTION'] = true;
@@ -426,7 +426,7 @@ class CrmOrderPropsFormEditTemplate
 		<select name="FIELD[%name%][VALUE][]" data-bx-order-form-field-display-cont="" class="crm-orderform-edit-left-inner-field-select" %show_multiple%>
 			%items%
 		</select>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -436,7 +436,7 @@ class CrmOrderPropsFormEditTemplate
 			<div class="crm-orderform-edit-popup-name"><?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_LIST_ENUM')?></div>
 			<div data-bx-crm-orderform-field-settings-items="">%settings_items%</div>
 		</label>
-		<?
+		<?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -449,7 +449,7 @@ class CrmOrderPropsFormEditTemplate
 		ob_start();
 		?>
 		<div data-bx-order-form-field-display-cont="">%items%</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -460,7 +460,7 @@ class CrmOrderPropsFormEditTemplate
 			<div class="crm-orderform-edit-popup-name"><?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_LIST_ENUM')?></div>
 			<div data-bx-crm-orderform-field-settings-items="">%settings_items%</div>
 		</label>
-		<?
+		<?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -472,7 +472,7 @@ class CrmOrderPropsFormEditTemplate
 		ob_start();
 		?>
 		<div data-bx-order-form-field-display-cont="">%items%</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -482,7 +482,7 @@ class CrmOrderPropsFormEditTemplate
 			<div class="crm-orderform-edit-popup-name"><?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_LIST_ENUM')?></div>
 			<div data-bx-crm-orderform-field-settings-items="">%settings_items%</div>
 		</label>
-		<?
+		<?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -499,7 +499,7 @@ class CrmOrderPropsFormEditTemplate
 		{
 			?>
 			<div data-bx-order-form-field-display-cont="">%items%</div>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -516,7 +516,7 @@ class CrmOrderPropsFormEditTemplate
 					</span>
 				</label>
 			</span>
-			<?
+			<?php 
 		}
 
 		$result['DISPLAY_PART'] = ob_get_clean();
@@ -577,12 +577,12 @@ class CrmOrderPropsFormEditTemplate
 		<div id="%name_id%" class="crm-orderform-edit-left-inner-field" data-crm-orderform-edit-field-container>
 			<div class="crm-orderform-edit-left-inner-field-block">
 				<div class="crm-orderform-edit-left-inner-field-container">
-					<?if ($hideCaption !== true): ?>
+					<?php if ($hideCaption !== true): ?>
 						<label data-bx-order-form-lbl-caption="%caption%" for="" class="crm-orderform-edit-left-inner-field-label"
 								title="<?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_SETTINGS_IN_CRM')?>: %entity_field_caption% (%entity_caption%)"
 						>%caption%<span class="crm-orderform-linked" data-crm-orderform-name-link="%name_id%" %show_match_anchor%></span>
 						</label>
-					<? endif; ?>
+					<?php  endif; ?>
 					<div class="crm-orderform-edit-left-inner-field-wrap">
 						<span data-bx-order-form-btn-move="" class="crm-orderform-edit-field-option"
 								title="<?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_FIELD_MOVE')?>">
@@ -609,7 +609,7 @@ class CrmOrderPropsFormEditTemplate
 				<input data-bx-order-form-field-type="" type="hidden" name="FIELD[%name%][TYPE]" value="%type%">
 			</div>
 		</div>
-		<?
+		<?php 
 		$template = ob_get_clean();
 
 		return str_replace(
@@ -710,7 +710,7 @@ class CrmOrderPropsFormEditTemplate
 			<option value=""><?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_ITEMS_DEFAULT')?></option>
 			%items%
 		</select>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -730,7 +730,7 @@ class CrmOrderPropsFormEditTemplate
 				<?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_PRODUCT_ADD_ROW')?>
 			</span>
 		</div>
-		<?
+		<?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -825,9 +825,9 @@ function GetCrmOrderPropsFormFieldRelationTemplate($params)
 			<span class="crm-orderform-edit-task-options-rule-select-item rule-select-item-to"><?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_DEP_THEN')?>:</span>
 
 			<select name="<?=$namePrefix?>[DO_ACTION]" id="<?=$idPrefix?>_DO_ACTION" class="crm-orderform-edit-task-options-rule-select">
-				<? foreach($actionList as $action): ?>
+				<?php  foreach($actionList as $action): ?>
 					<option value="<?=htmlspecialcharsbx($action['VALUE'])?>" <?=($action['SELECTED'] ? 'selected' : '')?>><?=htmlspecialcharsbx($action['CAPTION'])?></option>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 			</select>
 
 			<span class="crm-orderform-edit-task-options-rule-select-item rule-select-item-equally-line">&ndash;</span>
@@ -842,7 +842,7 @@ function GetCrmOrderPropsFormFieldRelationTemplate($params)
 			<?=Loc::getMessage('CRM_ORDERFORM_EDIT_TMPL_DEP_ELSE_SHOW', array('%name%' => '<span></span>'))?>
 		</span>
 	</div><!--crm-orderform-edit-task-edit-deal-stage-->
-	<?
+	<?php 
 }
 
 function GetCrmOrderPropsFormPresetFieldTemplate($params)
@@ -865,7 +865,7 @@ function GetCrmOrderPropsFormPresetFieldTemplate($params)
 			<span class="crm-orderform-context-help" data-text="<?=htmlspecialcharsbx(nl2br(Loc::getMessage("CRM_ORDERFORM_EDIT_TMPL_PRESET_MACROS_HINT")))?>">?</span>
 		</div>
 	</div><!--crm-orderform-edit-task-edit-deal-stage-->
-	<?
+	<?php 
 }
 
 function crmOrderPropsFormDrawFieldsTree($tree)
@@ -883,7 +883,7 @@ function crmOrderPropsFormDrawFieldsTree($tree)
 			</div>
 
 			<ul class="crm-orderform-edit-right-inner-list">
-				<?
+				<?php 
 				foreach ($entityFields['FIELDS'] as $field)
 				{
 					if ($field['type'] === 'tree' && !empty($field['tree']))
@@ -896,7 +896,7 @@ function crmOrderPropsFormDrawFieldsTree($tree)
 						<li class="crm-orderform-edit-right-inner-list-item-empty">
 							<?=htmlspecialcharsbx($field['caption'])?>
 						</li>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -906,12 +906,12 @@ function crmOrderPropsFormDrawFieldsTree($tree)
 								data-bx-crm-wf-selector-preset-field="<?=htmlspecialcharsbx($field['preset_id'])?>">
 							<?=htmlspecialcharsbx($field['caption'])?>
 						</li>
-						<?
+						<?php 
 					}
 				}
 				?>
 			</ul>
 		</span>
-		<?
+		<?php 
 	}
 }

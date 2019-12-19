@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_LOCK_STATUS_GREEN"] = " - available for editing";
 $MESS["LISTS_LOCK_STATUS_HINT_RED"] = "#ELEMENT#\" is now being edited by #USER_NAME#\"";
 $MESS["LISTS_LOCK_STATUS_HINT_YELLOW"] = "Item \"#ELEMENT#\" was locked because you started editing it.

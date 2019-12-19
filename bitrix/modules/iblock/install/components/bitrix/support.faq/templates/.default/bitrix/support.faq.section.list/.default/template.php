@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,12 +12,12 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?//display sections?>
+<?php //display sections?>
 <table cellspacing="0" cellpadding="0" class="data-table" width="100%"> 	
 	<tr> 		
 		<td class="border-gray-body">
-		<?foreach ($arResult['SECTIONS'] as $val):?>
-		<?if($arParams["SECTION_ID"]==$val["ID"]) $SELECTED_ITEM = $val?>
+		<?php foreach ($arResult['SECTIONS'] as $val):?>
+		<?php if($arParams["SECTION_ID"]==$val["ID"]) $SELECTED_ITEM = $val?>
 			<nobr>
 				<div style="padding: 2px 2px 2px <?=17*$val['REAL_DEPTH'].'px'?>;">
 					<div class="<?=($arParams["SECTION_ID"]==$val["ID"])?'':'un'?>selected-arrow-faq"></div>
@@ -25,10 +25,10 @@ $this->setFrameMode(true);
 					<br clear="all">
 				</div>
 			</nobr>
-		<?endforeach;?>
+		<?php endforeach;?>
 		</td>
 	</tr>
 </table>
-<?if(isset($SELECTED_ITEM)):?>
+<?php if(isset($SELECTED_ITEM)):?>
 <h2><?=$SELECTED_ITEM["NAME"]?></h2>
-<?endif;?>
+<?php endif;?>

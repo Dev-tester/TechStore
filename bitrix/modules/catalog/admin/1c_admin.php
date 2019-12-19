@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 use Bitrix\Main,
@@ -166,95 +166,95 @@ if ($USER->CanDoOperation('catalog_read')) :
 			$strOptionName = htmlspecialcharsbx("catalog_".$Option[0]);
 			?>
 		<tr>
-			<td <? echo ('textarea' == $type[0] || 'mlist' == $type[0] ? 'valign="top"' : ''); ?> width="40%"><?	if($type[0]=="checkbox")
+			<td <?php  echo ('textarea' == $type[0] || 'mlist' == $type[0] ? 'valign="top"' : ''); ?> width="40%"><?php 	if($type[0]=="checkbox")
 							echo '<label for="'.$strOptionName.'">'.$Option[1].'</label>';
 						else
 							echo $Option[1];?>:</td>
 			<td width="60%">
-					<?if($type[0]=="checkbox"):?>
-						<input type="hidden" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>_N" value="N">
-						<input type="checkbox" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>" value="Y"<?if($val=="Y")echo" checked";?> onclick="Check(this.id);">
-					<?elseif($type[0]=="text"):?>
-						<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>">
-					<?elseif($type[0]=="textarea"):?>
-						<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>"><?echo htmlspecialcharsbx($val)?></textarea>
-					<?elseif($type[0]=="list"):?>
-						<select name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>">
-						<?foreach($type[1] as $key=>$value):?>
-							<option value="<?echo htmlspecialcharsbx($key)?>" <?if($val==$key) echo "selected"?>><?echo htmlspecialcharsbx($value)?></option>
-						<?endforeach?>
+					<?php if($type[0]=="checkbox"):?>
+						<input type="hidden" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>_N" value="N">
+						<input type="checkbox" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>" value="Y"<?php if($val=="Y")echo" checked";?> onclick="Check(this.id);">
+					<?php elseif($type[0]=="text"):?>
+						<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>">
+					<?php elseif($type[0]=="textarea"):?>
+						<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+					<?php elseif($type[0]=="list"):?>
+						<select name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>">
+						<?php foreach($type[1] as $key=>$value):?>
+							<option value="<?php echo htmlspecialcharsbx($key)?>" <?php if($val==$key) echo "selected"?>><?php echo htmlspecialcharsbx($value)?></option>
+						<?php endforeach?>
 						</select>
-					<?elseif($type[0]=="mlist"):
+					<?php elseif($type[0]=="mlist"):
 						$val = explode(",", $val)?>
-						<select multiple name="<?echo $strOptionName; ?>[]" size="<?echo $type[1]?>" id="<?echo $strOptionName; ?>">
-						<?foreach($type[2] as $key=>$value):?>
-							<option value="<?echo htmlspecialcharsbx($key)?>" <?if(in_array($key, $val)) echo "selected"?>><?echo htmlspecialcharsbx($value)?></option>
-						<?endforeach?>
+						<select multiple name="<?php echo $strOptionName; ?>[]" size="<?php echo $type[1]?>" id="<?php echo $strOptionName; ?>">
+						<?php foreach($type[2] as $key=>$value):?>
+							<option value="<?php echo htmlspecialcharsbx($key)?>" <?php if(in_array($key, $val)) echo "selected"?>><?php echo htmlspecialcharsbx($value)?></option>
+						<?php endforeach?>
 						</select>
-					<?endif?>
+					<?php endif?>
 			</td>
 		</tr>
-		<?
+		<?php 
 		}
 		?>
 		<tr class="heading">
 			<td id="td_extended_options" colspan="2">
-				<?if ($showExtOptions):?>
-					<?echo Loc::getMessage("CAT_1C_EXTENDED_SETTINGS")?>
-				<?else:?>
-					<a class="bx-action-href" href="javascript:showExtOptions()"><?echo Loc::getMessage("CAT_1C_EXTENDED_SETTINGS")?></a>
-				<?endif;?>
+				<?php if ($showExtOptions):?>
+					<?php echo Loc::getMessage("CAT_1C_EXTENDED_SETTINGS")?>
+				<?php else:?>
+					<a class="bx-action-href" href="javascript:showExtOptions()"><?php echo Loc::getMessage("CAT_1C_EXTENDED_SETTINGS")?></a>
+				<?php endif;?>
 			</td>
 		</tr>
-		<?
+		<?php 
 		foreach($arExtOptions as $Option)
 		{
 			$val = (string)Main\Config\Option::get('catalog', $Option[0], $Option[2]);
 			$type = $Option[3];
 			$strOptionName = htmlspecialcharsbx("catalog_".$Option[0]);
 			?>
-		<tr id="tr_<?echo htmlspecialcharsbx($Option[0])?>" <?if (!$showExtOptions) echo 'style="display:none"'?>>
-			<td <? echo ('textarea' == $type[0] || 'mlist' == $type[0] ? 'valign="top"' : ''); ?> width="40%"><?	if($type[0]=="checkbox")
+		<tr id="tr_<?php echo htmlspecialcharsbx($Option[0])?>" <?php if (!$showExtOptions) echo 'style="display:none"'?>>
+			<td <?php  echo ('textarea' == $type[0] || 'mlist' == $type[0] ? 'valign="top"' : ''); ?> width="40%"><?php 	if($type[0]=="checkbox")
 							echo '<label for="'.$strOptionName.'">'.$Option[1].'</label>';
 						else
 							echo $Option[1];?>:</td>
 			<td width="60%">
-					<?if($type[0]=="checkbox"):?>
-						<input type="hidden" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>_N" value="N">
-						<input type="checkbox" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>" value="Y"<?if($val=="Y")echo" checked";?> onclick="Check(this.id);">
-					<?elseif($type[0]=="text"):?>
-						<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>">
-					<?elseif($type[0]=="textarea"):?>
-						<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>"><?echo htmlspecialcharsbx($val)?></textarea>
-					<?elseif($type[0]=="list"):?>
-						<select name="<?echo $strOptionName; ?>" id="<?echo $strOptionName; ?>">
-						<?foreach($type[1] as $key=>$value):?>
-							<option value="<?echo htmlspecialcharsbx($key)?>" <?if($val==$key) echo "selected"?>><?echo htmlspecialcharsbx($value)?></option>
-						<?endforeach?>
+					<?php if($type[0]=="checkbox"):?>
+						<input type="hidden" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>_N" value="N">
+						<input type="checkbox" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>" value="Y"<?php if($val=="Y")echo" checked";?> onclick="Check(this.id);">
+					<?php elseif($type[0]=="text"):?>
+						<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>">
+					<?php elseif($type[0]=="textarea"):?>
+						<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+					<?php elseif($type[0]=="list"):?>
+						<select name="<?php echo $strOptionName; ?>" id="<?php echo $strOptionName; ?>">
+						<?php foreach($type[1] as $key=>$value):?>
+							<option value="<?php echo htmlspecialcharsbx($key)?>" <?php if($val==$key) echo "selected"?>><?php echo htmlspecialcharsbx($value)?></option>
+						<?php endforeach?>
 						</select>
-					<?elseif($type[0]=="mlist"):
+					<?php elseif($type[0]=="mlist"):
 						$val = explode(",", $val)?>
-						<select multiple name="<?echo $strOptionName; ?>[]" size="<?echo $type[1]?>" id="<?echo $strOptionName; ?>">
-						<?foreach($type[2] as $key=>$value):?>
-							<option value="<?echo htmlspecialcharsbx($key)?>" <?if(in_array($key, $val)) echo "selected"?>><?echo htmlspecialcharsbx($value)?></option>
-						<?endforeach?>
+						<select multiple name="<?php echo $strOptionName; ?>[]" size="<?php echo $type[1]?>" id="<?php echo $strOptionName; ?>">
+						<?php foreach($type[2] as $key=>$value):?>
+							<option value="<?php echo htmlspecialcharsbx($key)?>" <?php if(in_array($key, $val)) echo "selected"?>><?php echo htmlspecialcharsbx($value)?></option>
+						<?php endforeach?>
 						</select>
-					<?endif?>
+					<?php endif?>
 			</td>
 		</tr>
-		<?
+		<?php 
 		}
 		if (!$USER->CanDoOperation('edit_php'))
 		{
-			?><tr><td colspan="2"><?
+			?><tr><td colspan="2"><?php 
 				echo BeginNote();
 				echo GetMessage('CAT_1C_SETTINGS_SAVE_DENIED');
 				echo EndNote();
-			?></td></tr><?
+			?></td></tr><?php 
 		}
 		?>
 	<script type="text/javascript">
-	var controls = <?echo CUtil::PhpToJSObject($arOptionsDeps)?>;
+	var controls = <?php echo CUtil::PhpToJSObject($arOptionsDeps)?>;
 	function Check(checkbox)
 	{
 		var i, mainCheckbox;
@@ -273,31 +273,31 @@ if ($USER->CanDoOperation('catalog_read')) :
 			}
 		}
 	}
-	var bExtOptions = <?echo $showExtOptions? 'true': 'false'?>;
+	var bExtOptions = <?php echo $showExtOptions? 'true': 'false'?>;
 	function showExtOptions()
 	{
 		if (bExtOptions)
 		{
-		<?foreach($arExtOptions as $Option):?>
-			BX('<?echo CUtil::JSEscape('tr_'.$Option[0])?>').style.display = 'none';
-		<?endforeach;?>
+		<?php foreach($arExtOptions as $Option):?>
+			BX('<?php echo CUtil::JSEscape('tr_'.$Option[0])?>').style.display = 'none';
+		<?php endforeach;?>
 		}
 		else
 		{
-		<?foreach($arExtOptions as $Option):?>
-			BX('<?echo CUtil::JSEscape('tr_'.$Option[0])?>').style.display = 'table-row';
-		<?endforeach;?>
+		<?php foreach($arExtOptions as $Option):?>
+			BX('<?php echo CUtil::JSEscape('tr_'.$Option[0])?>').style.display = 'table-row';
+		<?php endforeach;?>
 		}
 		bExtOptions = !bExtOptions;
 		BX.onCustomEvent('onAdminTabsChange');
 	}
 	BX.ready(function(){
-		<?foreach($arOptionsDeps as $key => $value):?>
-			Check('<?echo CUtil::JSEscape($key)?>');
-		<?endforeach;?>
+		<?php foreach($arOptionsDeps as $key => $value):?>
+			Check('<?php echo CUtil::JSEscape($key)?>');
+		<?php endforeach;?>
 	});
 	</script>
-		<?
+		<?php 
 
 	else:
 		CAdminMessage::ShowMessage(Loc::getMessage("CAT_NO_IBLOCK_MOD"));

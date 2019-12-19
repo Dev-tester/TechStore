@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_IB_HONOUR_NAME"] = "Marketing Initiative";
 $MESS["W_IB_HONOUR_PREV"] = "Marketing Initiative October 2009 winner";
 $MESS["W_IB_HONOUR1"] = "Professional Manager";

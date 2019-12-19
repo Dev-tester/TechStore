@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?if(strlen($arResult["NAV_STRING"]) > 0):?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(strlen($arResult["NAV_STRING"]) > 0):?>
 	<p><?=$arResult["NAV_STRING"]?></p>
-<?endif?>
+<?php endif?>
 <table class="sale_personal_subscr_list data-table">
 	<tr>
 		<th>ID<br /><?= SortingEx("ID") ?></th>
@@ -14,10 +14,10 @@
 		<th align="center"><?= GetMessage("STPSL_LAST_SUCCESS") ?><br /><?= SortingEx("SUCCESS_PAYMENT") ?></th>
 		<th align="center"><?= GetMessage("STPSL_ACTIONS") ?></th>
 	</tr>
-	<?foreach($arResult["RECURRING"] as $val):?>
+	<?php foreach($arResult["RECURRING"] as $val):?>
 		<tr>
 			<td align="center"><b><?= $val["ID"]?></b></td>
-			<td><?
+			<td><?php 
 				if (strlen($val["PRODUCT_URL"]) > 0)
 					echo "<a href=\"".$val["PRODUCT_URL"]."\">";
 				if (strlen($val["PRODUCT_NAME"]) > 0)
@@ -33,17 +33,17 @@
 			<td><?=$val["PRIOR_DATE"]; ?></td>
 			<td><?=$val["NEXT_DATE"]; ?></td>
 			<td><?=(($val["SUCCESS_PAYMENT"] == "Y") ? GetMessage("STPSL_YES") : GetMessage("STPSL_NO")); ?></td>
-			<td><?
+			<td><?php 
 				if ($val["CANCELED"] != "Y")
 				{
 					?>
 					<a title="<?= GetMessage("STPSL_CANCEL") ?>" href="<?=$val["URL_TO_CANCEL"]?>"><?= GetMessage("STPSL_CANCEL1") ?></a>
-					<?
+					<?php 
 				}
 				?></td>
 		</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 </table>
-<?if(strlen($arResult["NAV_STRING"]) > 0):?>
+<?php if(strlen($arResult["NAV_STRING"]) > 0):?>
 	<p><?=$arResult["NAV_STRING"]?></p>
-<?endif?>
+<?php endif?>

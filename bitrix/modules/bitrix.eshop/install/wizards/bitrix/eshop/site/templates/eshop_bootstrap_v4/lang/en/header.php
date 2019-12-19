@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FOOTER_COMPANY_ABOUT"] = "About Us";
 $MESS["FOOTER_COMPANY_PHONE"] = "Contact Us";
 $MESS["FOOTER_UP_BUTTON"] = "Up";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_ADM_EXP_NO_IBLOCK'] = "No information block has been selected. Cannot export.";
 $MESS ['IBLOCK_ADM_EXP_NO_FORMAT'] = "Please set the data file format and properties.";
 $MESS ['IBLOCK_ADM_EXP_NO_DELIMITER'] = "Please set the field delimiter.";

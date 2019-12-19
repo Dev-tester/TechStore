@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_INDEX_TEMPLATE"] = "Страница списка форумов";
 $MESS["F_READ_TEMPLATE"] = "Страница чтения темы";
 $MESS["F_URL_TEMPLATES"] = "Управление адресами страниц";

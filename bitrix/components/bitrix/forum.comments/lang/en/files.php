@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_LOAD_FILE"] = "Load file";
 $MESS["F_LOAD_IMAGE"] = "Load image";
 $MESS["F_FILE_SIZE"] = "file size should not exceed #SIZE#";

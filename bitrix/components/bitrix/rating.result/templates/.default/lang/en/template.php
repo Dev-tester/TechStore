@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RATING_COMPONENT_PROGRESS"] = "edit: ";
 $MESS["RATING_COMPONENT_CURRENT_POSITION"] = "Currently Rated";
 $MESS["RATING_COMPONENT_PREVIOUS_POSITION"] = "Previously Rated: ";

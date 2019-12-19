@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_CALENDAR_NEW_TASK"] = "New task";
 $MESS["TASKS_CALENDAR_NOTIFY_CHANGE_DEADLINE"] = "Task deadline changed to #date#";
 $MESS["TASKS_CLOSE_PAGE_CONFIRM"] = "The changes you have made may be lost.";

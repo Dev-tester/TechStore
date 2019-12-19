@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SITE_TEMPLATE_THEME_NAME"] = "Grey";
 $MESS["SITE_TEMPLATE_THEME_DESCRIPTION"] = "Grey color theme";
 ?>

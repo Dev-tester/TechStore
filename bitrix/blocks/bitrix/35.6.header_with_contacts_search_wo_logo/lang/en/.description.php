@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_35_6_HEADER--NAME_NEW"] = "Header with contact details and a search bar";
 $MESS["LANDING_BLOCK_35_6_HEADER--NODES_CARD"] = "Contact";
 $MESS["LANDING_BLOCK_35_6_HEADER--NODES_LOGO"] = "Logo";

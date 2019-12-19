@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_JS_INF_POPUPS_SWITCH_ON_BDISK_TITLE"] = "Using Documents";
 $MESS["DISK_JS_INF_POPUPS_SWITCH_ON_BDISK_DESCR"] = "#A#Connect Bitrix24.Drive#A_END# to handle documents more easily on your computer";
 $MESS["DISK_JS_INF_POPUPS_SERVICE_LOCAL_INSTALL_DESKTOP"] = "To handle documents more efficiently on your computer and enjoy better user experience, install the desktop app and connect Bitrix24.Drive.";

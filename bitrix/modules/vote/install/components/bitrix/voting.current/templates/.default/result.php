@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($arParams["SHOW_RESULTS"] == "Y")
 {
 	$this->IncludeLangFile("result.php");
 }
 ?><div id="<?=$id?>_result">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:voting.result",
 		".default",
 		Array(
@@ -19,12 +19,12 @@ if ($arParams["SHOW_RESULTS"] == "Y")
 		($this->__component->__parent ? $this->__component->__parent : $component),
 		array("HIDE_ICONS" => "Y")
 	);?>
-	<?if ($arParams["SHOW_RESULTS"] = "Y" && $arParams["CAN_VOTE"] == "Y"):?>
+	<?php if ($arParams["SHOW_RESULTS"] = "Y" && $arParams["CAN_VOTE"] == "Y"):?>
 		<div class="vote-form-box-buttons vote-vote-footer">
-			<span class="vote-form-box-button vote-form-box-button-single"><?
-				?><a name="show_form" href="<?=$APPLICATION->GetCurPageParam("", array("VOTE_ID","VOTING_OK","VOTE_SUCCESSFULL", "view_result"))?>" <?
+			<span class="vote-form-box-button vote-form-box-button-single"><?php 
+				?><a name="show_form" href="<?=$APPLICATION->GetCurPageParam("", array("VOTE_ID","VOTING_OK","VOTE_SUCCESSFULL", "view_result"))?>" <?php 
 					?>><?=GetMessage("VOTE_BACK")?></a>
 			</span>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 </div>

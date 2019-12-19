@@ -11,11 +11,11 @@ $service = $arParams['SERVICES'][$arParams['MAILBOX']['SERVICE_ID']];
 		<table class="post-dialog-title">
 			<tr>
 				<td class="post-dialog-title-text align-center">
-					<? if ($service['icon']): ?>
+					<?php  if ($service['icon']): ?>
 						<img src="<?=$service['icon']; ?>" alt="<?=$service['name']; ?>">
-					<? else: ?>
+					<?php  else: ?>
 						<span class="post-dialog-success-cell"><?=(strpos($arParams['MAILBOX']['LOGIN'], '@') === false ? $service['name'] : $arParams['MAILBOX']['LOGIN']); ?></span>
-					<? endif ?>
+					<?php  endif ?>
 				</td>
 				<td class="post-dialog-title-img"></td>
 			</tr>

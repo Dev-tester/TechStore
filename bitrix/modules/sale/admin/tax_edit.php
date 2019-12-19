@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $selfFolderUrl = $adminPage->getSelfFolderUrl();
@@ -88,7 +88,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("STEN_2FLIST"),
@@ -124,20 +124,20 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($strError);?>
+<?php CAdminMessage::ShowMessage($strError);?>
 
-<?
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="fform">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("STEN_TAB_TAX"), "ICON" => "sale", "TITLE" => GetMessage("STEN_TAB_TAX_DESCR"))
 	);
@@ -146,49 +146,49 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID>0):?>
+	<?php if ($ID>0):?>
 		<tr>
-			<td width="40%"><?echo GetMessage("TAX_ID")?>:</td>
-			<td width="60%"><b><?echo $ID ?></b></td>
+			<td width="40%"><?php echo GetMessage("TAX_ID")?>:</td>
+			<td width="60%"><b><?php echo $ID ?></b></td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("TAX_TIMESTAMP")?>:</td>
-			<td><b><?echo $str_TIMESTAMP_X ?></b></td>
+			<td><?php echo GetMessage("TAX_TIMESTAMP")?>:</td>
+			<td><b><?php echo $str_TIMESTAMP_X ?></b></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr>
-		<td width="40%"><?echo GetMessage("TAX_LID")?>:</td>
-		<td width="60%"><?echo CLang::SelectBox("LID", $str_LID, "")?></td>
+		<td width="40%"><?php echo GetMessage("TAX_LID")?>:</td>
+		<td width="60%"><?php echo CLang::SelectBox("LID", $str_LID, "")?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("TAX_NAME")?>:</td>
+		<td><?php echo GetMessage("TAX_NAME")?>:</td>
 		<td>
-			<input type="text" name="NAME" value="<?echo $str_NAME ?>" size="50" maxlength="250">
+			<input type="text" name="NAME" value="<?php echo $str_NAME ?>" size="50" maxlength="250">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("TAX_FCODE")?>:</td>
+		<td><?php echo GetMessage("TAX_FCODE")?>:</td>
 		<td>
-			<input type="text" name="CODE" value="<?echo $str_CODE?>" size="25" maxlength="50">
+			<input type="text" name="CODE" value="<?php echo $str_CODE?>" size="25" maxlength="50">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("TAX_DESCRIPTION")?>:</td>
+		<td><?php echo GetMessage("TAX_DESCRIPTION")?>:</td>
 		<td>
-			<input type="text" name="DESCRIPTION" value="<?echo $str_DESCRIPTION ?>" size="50" maxlength="250">
+			<input type="text" name="DESCRIPTION" value="<?php echo $str_DESCRIPTION ?>" size="50" maxlength="250">
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "W"), "back_url" => $listUrl));
 $tabControl->End();
 ?>
 
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

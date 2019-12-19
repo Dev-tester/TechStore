@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_IP_EDIT_TAB"] = "Правило";
 $MESS["SEC_IP_EDIT_TAB_TITLE"] = "Редактирование правила блокировки IP";
 $MESS["SEC_IP_EDIT_SAVE_ERROR"] = "Ошибка сохранения правила";

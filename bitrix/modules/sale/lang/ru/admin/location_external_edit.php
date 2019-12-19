@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Доступ к модулю запрещён";
 $MESS["SALE_LOCATION_E_ITEM_EDIT"] = "Редактирование сервиса: #ITEM_NAME#";
 $MESS["SALE_LOCATION_E_ITEM_NEW"] = "Внешний сервис: добавление";

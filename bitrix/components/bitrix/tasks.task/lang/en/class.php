@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_REST_BUTTON_TITLE"] = "Applications";
 $MESS["TASKS_TT_TASKS_MODULE_NOT_INSTALLED"] = "The Tasks module is not installed.";
 $MESS["TASKS_TT_SOCIALNETWORK_MODULE_NOT_INSTALLED"] = "The Social Network module is not installed.";

@@ -1,8 +1,8 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!is_array($arResult["MENU_VARIABLES"])):
 	return false;
 endif;
-?><?$APPLICATION->IncludeComponent("bitrix:bizproc.task", "", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:bizproc.task", "", Array(
 	"MODULE_ID" => $arResult["VARIABLES"]["MODULE_ID"], 
 	"ENTITY" => $arResult["VARIABLES"]["ENTITY"], 
 	"DOCUMENT_TYPE" => $arResult["VARIABLES"]["DOCUMENT_TYPE"], 

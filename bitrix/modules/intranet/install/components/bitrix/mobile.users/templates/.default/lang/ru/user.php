@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BM_TO_USER_LIST"] = "Вернуться в список";
 $MESS["BM_WRITE"] = "Написать";
 $MESS["BM_DEPARTMENT"] = "Подразделение";

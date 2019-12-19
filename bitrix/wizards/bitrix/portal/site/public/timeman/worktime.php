@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Localization\Loc;
 
@@ -11,7 +11,7 @@ if (\Bitrix\Main\Loader::includeModule("bitrix24"))
 {
 	$licenseType = CBitrix24::getLicenseType();
 }
-?><?
+?><?php 
 
 if (IsModuleInstalled("timeman"))
 {
@@ -41,9 +41,9 @@ elseif (!(!IsModuleInstalled("timeman") && in_array($licenseType, ["company", "e
 	<div style="text-align: center;"><img src="images/<?= $lang ?>/timeman.png"/></div>
 	<p><?= Loc::getMessage("TARIFF_RESTRICTION_TEXT2") ?></p>
 	<br/>
-	<div style="text-align: center;"><?
+	<div style="text-align: center;"><?php 
 		CBitrix24::showTariffRestrictionButtons("timeman") ?></div>
-	<?
+	<?php 
 }
 ?>
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

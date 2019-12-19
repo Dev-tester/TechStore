@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MENU_LEARNING"] = "e-Learning";
 $MESS["LEARNING_MENU_COURSES"] = "Courses";
 $MESS["LEARNING_MENU_COURSES_ALT"] = "Courses list";

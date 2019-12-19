@@ -1,8 +1,8 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("");
 $arResult['SLIDER'] = \CRestUtil::isSlider();
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:rest.marketplace", 
 	".default", 
 	array(
@@ -21,4 +21,4 @@ $arResult['SLIDER'] = \CRestUtil::isSlider();
 		)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

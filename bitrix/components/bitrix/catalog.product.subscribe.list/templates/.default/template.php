@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -13,7 +13,7 @@ $randomString = $this->randString();
 
 $APPLICATION->setTitle(Loc::getMessage('CPSL_SUBSCRIBE_TITLE_NEW'));
 if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
-	<?
+	<?php 
 	$contactTypeCount = count($arResult['CONTACT_TYPES']);
 	$authStyle = 'display: block;';
 	$identificationStyle = 'display: none;';
@@ -28,14 +28,14 @@ if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
 		<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 			<div class="alert alert-danger"><?=Loc::getMessage('CPSL_SUBSCRIBE_PAGE_TITLE_AUTHORIZE')?></div>
 		</div>
-		<? $authListGetParams = array(); ?>
+		<?php  $authListGetParams = array(); ?>
 		<div class="col-md-8 col-sm-7" id="catalog-subscriber-auth-form" style="<?=$authStyle?>">
-			<?$APPLICATION->authForm('', false, false, 'N', false);?>
+			<?php $APPLICATION->authForm('', false, false, 'N', false);?>
 			<hr class="bxe-light">
 		</div>
 	</div>
 
-	<?$APPLICATION->setTitle(Loc::getMessage('CPSL_TITLE_PAGE_WHEN_ACCESSING'));?>
+	<?php $APPLICATION->setTitle(Loc::getMessage('CPSL_TITLE_PAGE_WHEN_ACCESSING'));?>
 
 
 	<div class="row" id="catalog-subscriber-identification-form" style="<?=$identificationStyle?>">
@@ -48,19 +48,19 @@ if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
 					<form method="post">
 						<?=bitrix_sessid_post()?>
 						<input type="hidden" name="siteId" value="<?=SITE_ID?>">
-						<?if($contactTypeCount > 1):?>
+						<?php if($contactTypeCount > 1):?>
 							<div class="form-group">
 								<label for="contactType"><?=Loc::getMessage('CPSL_CONTACT_TYPE_SELECTION')?></label>
 								<select id="contactType" class="form-control" name="contactType">
-									<?foreach($arResult['CONTACT_TYPES'] as $contactTypeData):?>
+									<?php foreach($arResult['CONTACT_TYPES'] as $contactTypeData):?>
 										<option value="<?=intval($contactTypeData['ID'])?>">
 											<?=htmlspecialcharsbx($contactTypeData['NAME'])?></option>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</select>
 							</div>
-						<?endif;?>
+						<?php endif;?>
 						<div class="form-group">
-							<?
+							<?php 
 								$contactLable = Loc::getMessage('CPSL_CONTACT_TYPE_NAME');
 								$contactTypeId = 0;
 								if($contactTypeCount == 1)
@@ -73,9 +73,9 @@ if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
 							<label for="contactInputOut"><?=htmlspecialcharsbx($contactLable)?></label>
 							<input type="text" class="form-control" name="userContact" id="contactInputOut">
 							<input type="hidden" name="subscriberIdentification" value="Y">
-							<?if($contactTypeId):?>
+							<?php if($contactTypeId):?>
 								<input type="hidden" name="contactType" value="<?=$contactTypeId?>">
-							<?endif;?>
+							<?php endif;?>
 						</div>
 						<button type="submit" class="btn btn-default"><?=Loc::getMessage('CPSL_BUTTON_SUBMIT_CODE')?></button>
 					</form>
@@ -126,7 +126,7 @@ if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
 			}
 		});
 	</script>
-<?endif;
+<?php endif;
 
 ?>
 <script type="text/javascript">
@@ -147,7 +147,7 @@ if(!$arResult['USER_ID'] && !isset($arParams['GUEST_ACCESS'])):?>
 		CPSL_STATUS_ERROR: '<?=GetMessageJS('CPSL_STATUS_ERROR') ?>'
 	});
 </script>
-<?
+<?php 
 
 if(!empty($_GET['result']) && !empty($_GET['message']))
 {
@@ -165,7 +165,7 @@ if(!empty($_GET['result']) && !empty($_GET['message']))
 	<script type="text/javascript">
 		var <?='jaClass_'.$randomString;?> = new JCCatalogProductSubscribeList(<?=CUtil::PhpToJSObject($arJSParams, false, true);?>);
 	</script>
-	<?
+	<?php 
 }
 
 if (!empty($arResult['ITEMS']))
@@ -250,7 +250,7 @@ if (!empty($arResult['ITEMS']))
 	<div class="bx_item_list_you_looked_horizontal col<?=$arParams['LINE_ELEMENT_COUNT'];?>">
 	<div class="bx_item_list_section">
 	<div class="bx_item_list_slide active">
-	<? foreach ($arResult['ITEMS'] as $key => $arItem)
+	<?php  foreach ($arResult['ITEMS'] as $key => $arItem)
 	{
 		$strMainID = $this->GetEditAreaId($arItem['ID']);
 
@@ -296,11 +296,11 @@ if (!empty($arResult['ITEMS']))
 <!--		</div>-->
 	<div class="bx_catalog_item_container <?=$showImgClass;?>">
 	<a id="<?=$arItemIDs['PICT'];?>" href="<?=$arItem['DETAIL_PAGE_URL'];?>" class=
-		"bx_catalog_item_images"<? if ($arParams['SHOW_IMAGE'] == "Y")
+		"bx_catalog_item_images"<?php  if ($arParams['SHOW_IMAGE'] == "Y")
 		{
 			?> style="background-image: url('<?=($arParams['SHOW_IMAGE'] == "Y"
-			? $arItem['PREVIEW_PICTURE']['SRC'] : "");?>')"<?
-		} ?> title="<?=$strTitle;?>"><?
+			? $arItem['PREVIEW_PICTURE']['SRC'] : "");?>')"<?php 
+		} ?> title="<?=$strTitle;?>"><?php 
 		if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
 		{
 			?>
@@ -308,26 +308,26 @@ if (!empty($arResult['ITEMS']))
 				"display:<?=(0 < $arItem['MIN_PRICE']['DISCOUNT_DIFF_PERCENT'] ? '' : 'none');?>;">
 				-<?=$arItem['MIN_PRICE']['DISCOUNT_DIFF_PERCENT'];?>%
 			</div>
-		<?
+		<?php 
 		}
 		if ($arItem['LABEL'])
 		{
 			?><div class="bx_stick average left top" title="<?=$arItem['LABEL_VALUE'];?>">
-			<?=$arItem['LABEL_VALUE'];?></div><?
+			<?=$arItem['LABEL_VALUE'];?></div><?php 
 		}
 		?>
-	</a><?
+	</a><?php 
 	if ($arItem['SECOND_PICT'])
 	{
 		?><a id="<?=$arItemIDs['SECOND_PICT'];?>" href="<?=$arItem['DETAIL_PAGE_URL'];?>" class=
-			"bx_catalog_item_images_double"<? if ($arParams['SHOW_IMAGE'] == "Y")
+			"bx_catalog_item_images_double"<?php  if ($arParams['SHOW_IMAGE'] == "Y")
 	{
 		?> style="background-image: url('<?=(
 			!empty($arItem['PREVIEW_PICTURE_SECOND'])
 			? $arItem['PREVIEW_PICTURE_SECOND']['SRC']
 			: $arItem['PREVIEW_PICTURE']['SRC']
-		);?>')"<?
-	} ?> title="<?=$strTitle;?>"><?
+		);?>')"<?php 
+	} ?> title="<?=$strTitle;?>"><?php 
 		if ('Y' == $arParams['SHOW_DISCOUNT_PERCENT'])
 		{
 			?>
@@ -335,29 +335,29 @@ if (!empty($arResult['ITEMS']))
 				"display:<?=(0 < $arItem['MIN_PRICE']['DISCOUNT_DIFF_PERCENT'] ? '' : 'none');?>;">
 				-<?=$arItem['MIN_PRICE']['DISCOUNT_DIFF_PERCENT'];?>%
 			</div>
-		<?
+		<?php 
 		}
 		if ($arItem['LABEL'])
 		{
 			?><div class="bx_stick average left top" title="<?=$arItem['LABEL_VALUE'];?>">
-			<?=$arItem['LABEL_VALUE'];?></div><?
+			<?=$arItem['LABEL_VALUE'];?></div><?php 
 		}
 		?>
-		</a><?
+		</a><?php 
 	}
 	?>
-	<? if ($arParams['SHOW_NAME'] == "Y")
+	<?php  if ($arParams['SHOW_NAME'] == "Y")
 	{
 		?>
 		<div class="bx_catalog_item_title">
 			<a href="<?=$arItem['DETAIL_PAGE_URL'];?>" title="<?=$arItem['NAME'];?>"><?=$arItem['NAME'];?></a>
 		</div>
-	<?
+	<?php 
 	}?>
 	<div class="bx_catalog_item_price">
 		<div id="<?=$arItemIDs['PRICE'];?>" class="bx_price"></div>
 	</div>
-	<?if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) // Simple Product
+	<?php if (!isset($arItem['OFFERS']) || empty($arItem['OFFERS'])) // Simple Product
 	{
 		?>
 		<div class="bx_catalog_item_controls">
@@ -371,33 +371,33 @@ if (!empty($arResult['ITEMS']))
 					<?=GetMessage('CPSL_TPL_MESS_BTN_UNSUBSCRIBE');?>
 				</a>
 			</div>
-			<div style="clear: both;"></div><?
+			<div style="clear: both;"></div><?php 
 
-			?></div><?
+			?></div><?php 
 	if (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']))
 	{
 	?>
 		<div class="bx_catalog_item_articul">
-			<?
+			<?php 
 			foreach ($arItem['DISPLAY_PROPERTIES'] as $arOneProp)
 			{
-				?><br><?=$arOneProp['NAME'];?> <strong><?
+				?><br><?=$arOneProp['NAME'];?> <strong><?php 
 				echo(
 				is_array($arOneProp['DISPLAY_VALUE'])
 					? implode('/', $arOneProp['DISPLAY_VALUE'])
 					: $arOneProp['DISPLAY_VALUE']
-				);?></strong><?
+				);?></strong><?php 
 			}
 			?>
 		</div>
-	<?
+	<?php 
 	}
 	$emptyProductProperties = empty($arItem['PRODUCT_PROPERTIES']);
 	if ('Y' == $arParams['ADD_PROPERTIES_TO_BASKET'] && !$emptyProductProperties)
 	{
 	?>
 		<div id="<?=$arItemIDs['BASKET_PROP_DIV'];?>" style="display: none;">
-			<?
+			<?php 
 			if (!empty($arItem['PRODUCT_PROPERTIES_FILL']))
 			{
 				foreach ($arItem['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo)
@@ -405,7 +405,7 @@ if (!empty($arResult['ITEMS']))
 					?>
 					<input type="hidden" name="<?=$arParams['PRODUCT_PROPS_VARIABLE'];?>[<?=$propID;?>]" value=
 						"<?=htmlspecialcharsbx($propInfo['ID']);?>">
-					<?
+					<?php 
 					if (isset($arItem['PRODUCT_PROPERTIES'][$propID]))
 						unset($arItem['PRODUCT_PROPERTIES'][$propID]);
 				}
@@ -417,14 +417,14 @@ if (!empty($arResult['ITEMS']))
 
 				?>
 				<table>
-					<?
+					<?php 
 					foreach ($arItem['PRODUCT_PROPERTIES'] as $propID => $propInfo)
 					{
 						?>
 						<tr>
 							<td><?=$arItem['PROPERTIES'][$propID]['NAME'];?></td>
 							<td>
-								<?
+								<?php 
 								if (
 									'L' == $arItem['PROPERTIES'][$propID]['PROPERTY_TYPE']
 									&& 'C' == $arItem['PROPERTIES'][$propID]['LIST_TYPE']
@@ -437,32 +437,32 @@ if (!empty($arResult['ITEMS']))
 											"<?=$arParams['PRODUCT_PROPS_VARIABLE'];?>[<?=$propID;?>]" value=
 											"<?=$valueID;?>" <?=($valueID == $propInfo['SELECTED'] ?
 												'"checked"' : '');?>><?=$value;?>
-										</label><br><?
+										</label><br><?php 
 									}
 								}
 								else
 								{
-									?><select name="<?=$arParams['PRODUCT_PROPS_VARIABLE'];?>[<?=$propID;?>]"><?
+									?><select name="<?=$arParams['PRODUCT_PROPS_VARIABLE'];?>[<?=$propID;?>]"><?php 
 									foreach ($propInfo['VALUES'] as $valueID => $value)
 									{
 										?>
 										<option value="<?=$valueID;?>" <?=($valueID == $propInfo['SELECTED']
-											? '"selected"' : '');?>><?=$value;?></option><?
+											? '"selected"' : '');?>><?=$value;?></option><?php 
 									}
-									?></select><?
+									?></select><?php 
 								}
 								?>
 							</td>
 						</tr>
-					<?
+					<?php 
 					}
 					?>
 				</table>
-			<?
+			<?php 
 			}
 			?>
 		</div>
-	<?
+	<?php 
 	}
 	$arJSParams = array(
 		'PRODUCT_TYPE' => $arItem['CATALOG_TYPE'],
@@ -507,7 +507,7 @@ if (!empty($arResult['ITEMS']))
 		<script type="text/javascript">
 			var <?=$strObName;?> = new JCCatalogProductSubscribeList(
 				<?=CUtil::PhpToJSObject($arJSParams, false, true);?>);
-		</script><?
+		</script><?php 
 	}
 	else // Wth Sku
 	{
@@ -527,42 +527,42 @@ if (!empty($arResult['ITEMS']))
 		</div>
 
 		<div class="bx_catalog_item_controls touch">
-			<a class="bx_bt_button_type_2 bx_medium" href="<?=$arItem['DETAIL_PAGE_URL'];?>"><?
+			<a class="bx_bt_button_type_2 bx_medium" href="<?=$arItem['DETAIL_PAGE_URL'];?>"><?php 
 				echo('' != $arParams['MESS_BTN_DETAIL'] 
 					? $arParams['MESS_BTN_DETAIL'] : GetMessage('CPSL_TPL_MESS_BTN_DETAIL'));
 				?></a>
 		</div>
-	<?
+	<?php 
 	$boolShowOfferProps = !!$arItem['OFFERS_PROPS_DISPLAY'];
 	$boolShowProductProps = (isset($arItem['DISPLAY_PROPERTIES']) && !empty($arItem['DISPLAY_PROPERTIES']));
 	if ($boolShowProductProps || $boolShowOfferProps)
 	{
 	?>
 		<div class="bx_catalog_item_articul">
-			<?
+			<?php 
 			if ($boolShowProductProps)
 			{
 				foreach ($arItem['DISPLAY_PROPERTIES'] as $arOneProp)
 				{
-					?><br><?=$arOneProp['NAME'];?><strong> <?
+					?><br><?=$arOneProp['NAME'];?><strong> <?php 
 					echo(
 					is_array($arOneProp['DISPLAY_VALUE'])
 						? implode(' / ', $arOneProp['DISPLAY_VALUE'])
 						: $arOneProp['DISPLAY_VALUE']
-					);?></strong><?
+					);?></strong><?php 
 				}
 			}
 
 			?>
 			<span id="<?=$arItemIDs['DISPLAY_PROP_DIV'];?>" style="display: none;"></span>
 		</div>
-	<?
+	<?php 
 	}
 
 	if (!empty($arItem['OFFERS']) && isset($skuTemplate[$arItem['ID']]))
 	{
 		$arSkuProps = array();?>
-		<div class="bx_catalog_item_scu" id="<?= $arItemIDs['PROP_DIV']; ?>"><?
+		<div class="bx_catalog_item_scu" id="<?= $arItemIDs['PROP_DIV']; ?>"><?php 
 			foreach ($skuTemplate[$arItem['ID']] as $propId => $propTemplate)
 			{
 				$valueCount = count($propTemplate['ITEMS']);
@@ -598,7 +598,7 @@ if (!empty($arResult['ITEMS']))
 			}?>
 		</div>
 
-	<?
+	<?php 
 	if($arItem['OFFERS_PROPS_DISPLAY'])
 	{
 		foreach($arItem['JS_OFFERS'] as $keyOffer => $arJSOffer)
@@ -668,17 +668,17 @@ if (!empty($arResult['ITEMS']))
 			var <?=$strObName;?> = new JCCatalogProductSubscribeList(
 				<?=CUtil::PhpToJSObject($arJSParams, false, true);?>);
 		</script>
-	<?
+	<?php 
 	}
 	}
-	?></div></div><?
+	?></div></div><?php 
 	}
 	?>
 	<div style="clear: both;"></div>
 	</div>
 	</div>
 	</div>
-<?
+<?php 
 }
 else
 {

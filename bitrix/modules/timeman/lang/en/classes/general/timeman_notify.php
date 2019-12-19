@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMENT_AUTHOR"] = "Created by: ";
 $MESS["COMMENT_TEXT"] = "Comment text:";
 $MESS["TIMEMAN_ENTRY_IM_ADD"] = "has changed workday parameters for #period#";

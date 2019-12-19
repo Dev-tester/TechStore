@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_PAGE_TITLE'] = "Site traffic";
 $MESS ['STAT_TRAFFIC_DATE_TABLE_TITLE'] = "Site traffic table by dates";
 $MESS ['STAT_TRAFFIC_HOUR_TABLE_TITLE'] = "Site traffic table by hours";

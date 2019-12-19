@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_PAY_SYS'] = "Способ оплаты: ";
 $MESS ['P_DELIVERY'] = "Способ доставки: ";
 $MESS ['STPOL_CUR_ORDERS'] = "Посмотреть текущие заказы";

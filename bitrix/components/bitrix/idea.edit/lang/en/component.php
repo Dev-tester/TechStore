@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B_B_MES_NO_BLOG"] = "Blog was not found.";
 $MESS["BLOG_POST_EDIT"] = "Edit idea \"#IDEA_TITLE#\"";
 $MESS["BLOG_ERR_NO_RIGHTS"] = "Please authorize to add an idea.";

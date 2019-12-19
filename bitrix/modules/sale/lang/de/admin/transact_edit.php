@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STE_EMPTY_CURRENCY"] = "Das Feld \"Währung\" wurde nicht ausgefüllt";
 $MESS["STE_EMPTY_SUM"] = "Das Feld \"Summe\" wurde nicht ausgefüllt";
 $MESS["STE_EMPTY_DATE"] = "Das Feld \"Transaktionsdatum\" wurde nicht ausgefüllt";

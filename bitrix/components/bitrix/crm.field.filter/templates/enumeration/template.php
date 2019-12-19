@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $bWasSelect = false;
 $sFieldName = $arParams["arUserField"]["FIELD_NAME"];
@@ -12,7 +12,7 @@ if($listLength <= 0)
 
 if($arParams["arUserField"]["SETTINGS"]["DISPLAY"]!="CHECKBOX"):
 	?><select name="<?=$sFieldName?>"<?=$listLength > 1 ? ' size="'.$listLength.'"' : ''?><?=$bMultilple ? ' multiple="multiple"' : ''?>>
-	<option value=""><?=GetMessage("MAIN_NO")?></option><?
+	<option value=""><?=GetMessage("MAIN_NO")?></option><?php 
 endif;
 
 foreach ($arParams["arUserField"]["USER_TYPE"]["FIELDS"] as $key => $val)
@@ -26,17 +26,17 @@ foreach ($arParams["arUserField"]["USER_TYPE"]["FIELDS"] as $key => $val)
 
 	if($arParams["arUserField"]["SETTINGS"]["DISPLAY"]=="CHECKBOX")
 	{
-		?><?if($arParams["arUserField"]["MULTIPLE"]=="Y"):?>
+		?><?php if($arParams["arUserField"]["MULTIPLE"]=="Y"):?>
 			<label><input type="checkbox" value="<?=$key?>" name="<?=$sFieldName?>"<?=($bSelected? " checked" : "")?>><?=$val?></label><br />
-		<?else:?>		
+		<?php else:?>		
 			<label><input type="radio" value="<?=$key?>" name="<?=$sFieldName?>"<?=($bSelected? " checked" : "")?>><?=$val?></label><br />
-		<?endif;?><?
+		<?php endif;?><?php 
 	}
 	else
 	{
-		?><option value="<?=$key?>"<?=$bSelected ? " selected" : ""?>><?=$val?></option><?
+		?><option value="<?=$key?>"<?=$bSelected ? " selected" : ""?>><?=$val?></option><?php 
 	}
 }
 if($arParams["arUserField"]["SETTINGS"]["DISPLAY"]!="CHECKBOX"):
-?></select><?
+?></select><?php 
 endif;?>

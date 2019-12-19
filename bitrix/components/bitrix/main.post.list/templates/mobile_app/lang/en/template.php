@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPC_MES_EDIT"] = "Edit";
 $MESS["BPC_MES_SHOW"] = "Show";
 $MESS["BPC_MES_HIDE"] = "Hide";

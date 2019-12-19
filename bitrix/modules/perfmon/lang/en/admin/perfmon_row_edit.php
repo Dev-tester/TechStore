@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_ROW_EDIT_MODULE_ERROR"] = "Error connecting to Performance module.";
 $MESS["PERFMON_ROW_EDIT_TABLE_ERROR"] = "The table specified (#TABLE_NAME#) does not exist.";
 $MESS["PERFMON_ROW_EDIT_PK_ERROR"] = "These key values are insufficient for unambiguous record identification.";

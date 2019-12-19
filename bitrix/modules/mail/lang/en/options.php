@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EMAIL_OPT_DAYS"] = "days";
 $MESS["EMAIL_OPT_HR"] = "h";
 $MESS["EMAIL_OPT_MIN"] = "m";

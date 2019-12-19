@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_LIVECHAT_TITLE"] = "Открытая линия";
 $MESS["BX_LIVECHAT_USER"] = "консультант";
 $MESS["BX_LIVECHAT_ONLINE_LINE_1"] = "Мы онлайн";

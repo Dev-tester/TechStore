@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ML_COL_NAME_0'] = "User Photos";
 $MESS['ML_COL_NAME_1'] = "Miscellaneous";
 $MESS['ML_COL_NAME_2'] = "Traveling";

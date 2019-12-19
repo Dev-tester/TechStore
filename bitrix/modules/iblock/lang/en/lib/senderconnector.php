@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_iblock_name"] = "Information blocks";
 $MESS["sender_connector_iblock_required_settings"] = "This feature needs to be configured";
 $MESS["sender_connector_iblock_select"] = "(select information block)";

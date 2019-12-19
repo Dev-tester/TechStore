@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE_ICQ'] = "Сообщение icq";
 $MESS ['F_TITLE_MAIL'] = "Письмо e-mail";
 $MESS ['F_NO_MODULE'] = "Модуль форума не установлен.";

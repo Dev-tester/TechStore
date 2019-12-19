@@ -18,15 +18,15 @@ class Checkbox extends \Bitrix\Landing\Field
 				: $this->code);
 		?>
 		<input type="hidden" name="<?= $name?>" value="N" />
-		<input type="checkbox" <?
-		?><?= isset($params['additional']) ? $params['additional'] . ' ' : ''?><?
-		?><?= isset($params['id']) ? 'id="' . \htmlspecialcharsbx($params['id']) . '" ' : ''?><?
-		?>class="<?= isset($params['class']) ? \htmlspecialcharsbx($params['class']) : ''?>" <?
-		?>data-code="<?= \htmlspecialcharsbx($this->code)?>" <?
-		?>name="<?= $name?>" <?
-		?>value="Y"<?if ($this->value == 'Y'){?> checked="checked"<?}?> <?
+		<input type="checkbox" <?php 
+		?><?= isset($params['additional']) ? $params['additional'] . ' ' : ''?><?php 
+		?><?= isset($params['id']) ? 'id="' . \htmlspecialcharsbx($params['id']) . '" ' : ''?><?php 
+		?>class="<?= isset($params['class']) ? \htmlspecialcharsbx($params['class']) : ''?>" <?php 
+		?>data-code="<?= \htmlspecialcharsbx($this->code)?>" <?php 
+		?>name="<?= $name?>" <?php 
+		?>value="Y"<?php if ($this->value == 'Y'){?> checked="checked"<?php }?> <?php 
 		?> />
-		<?
+		<?php 
 	}
 
 	/**

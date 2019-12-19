@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["TASKS_INTEGRATION_EXTRANET_ROOT"] = "Extranet";
 ?>

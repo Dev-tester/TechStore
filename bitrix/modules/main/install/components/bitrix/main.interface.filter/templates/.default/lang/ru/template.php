@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_used"] = "Используется поиск - показаны только найденные записи";
 $MESS["interface_grid_not_used"] = "Поиск не используется - показаны все записи";
 $MESS["interface_grid_search"] = "Поиск";

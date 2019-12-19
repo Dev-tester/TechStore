@@ -1,15 +1,15 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use \Bitrix\Bitrix24\Feature;
 ?>
-<?CJSCore::Init(array("access"));?>
+<?php CJSCore::Init(array("access"));?>
 
-<?if(isset($_GET['success'])): ?>
+<?php if(isset($_GET['success'])): ?>
 	<div class="content-edit-form-notice-successfully">
 		<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=GetMessage('CONFIG_SAVE_SUCCESSFULLY')?></span>
 	</div>
-<?endif;?>
-<div class="content-edit-form-notice-error" <?if (!$arResult["ERROR"]):?>style="display: none;"<?endif?> id="config_error_block">
+<?php endif;?>
+<div class="content-edit-form-notice-error" <?php if (!$arResult["ERROR"]):?>style="display: none;"<?php endif?> id="config_error_block">
 	<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=$arResult["ERROR"]?></span>
 </div>
 
@@ -24,13 +24,13 @@ use \Bitrix\Bitrix24\Feature;
 			</td>
 		</tr>
 
-		<?if ($arResult["IS_BITRIX24"]):?>
+		<?php if ($arResult["IS_BITRIX24"]):?>
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_COMPANY_NAME')?></td>
 			<td class="content-edit-form-field-input"><input type="text" name="logo_name" value="<?=htmlspecialcharsbx(COption::GetOptionString("main", "site_name", ""));?>"  class="content-edit-form-field-input-text"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-		<?endif?>
+		<?php endif?>
 
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_COMPANY_TITLE_NAME')?></td>
@@ -51,15 +51,15 @@ use \Bitrix\Bitrix24\Feature;
 		</tr>
 		-->
 
-		<?if ($arResult["IS_BITRIX24"]):?>
+		<?php if ($arResult["IS_BITRIX24"]):?>
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_EMAIL_FROM')?></td>
 			<td class="content-edit-form-field-input"><input type="text" name="email_from" value="<?=htmlspecialcharsbx(COption::GetOptionString("main", "email_from", ""));?>"  class="content-edit-form-field-input-text"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-		<?endif?>
+		<?php endif?>
 
-		<?if (
+		<?php if (
 			$arResult["IS_BITRIX24"] && \Bitrix\Bitrix24\Feature::isFeatureEnabled("remove_logo24")
 			|| !$arResult["IS_BITRIX24"]
 		):
@@ -67,19 +67,19 @@ use \Bitrix\Bitrix24\Feature;
 		?>
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="logo24"><?=GetMessage('CONFIG_LOGO_24')?></label></td>
-			<td class="content-edit-form-field-input"><input type="checkbox" id="logo24" name="logo24" <?if ($logo24show == "" || $logo24show == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" id="logo24" name="logo24" <?php if ($logo24show == "" || $logo24show == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-		<?endif?>
+		<?php endif?>
 
 
 		<tr data-field-id="congig_date">
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_DATE_FORMAT')?></td>
 			<td class="content-edit-form-field-input">
 				<select name="date_format">
-					<?foreach($arResult["DATE_FORMATS"] as $format):?>
-					<option value="<?=$format?>" <?if ($format == $arResult["CUR_DATE_FORMAT"]) echo "selected"?>><?=$format?></option>
-					<?endforeach?>
+					<?php foreach($arResult["DATE_FORMATS"] as $format):?>
+					<option value="<?=$format?>" <?php if ($format == $arResult["CUR_DATE_FORMAT"]) echo "selected"?>><?=$format?></option>
+					<?php endforeach?>
 				</select>
 			</td>
 			<td class="content-edit-form-field-error"></td>
@@ -88,10 +88,10 @@ use \Bitrix\Bitrix24\Feature;
 		<tr data-field-id="config_time">
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_TIME_FORMAT')?></td>
 			<td class="content-edit-form-field-input">
-				<input type="radio" id="12_format" name="time_format" value="H:MI:SS T" <?if ($arResult["CUR_TIME_FORMAT"] == "H:MI:SS TT" || $arResult["CUR_TIME_FORMAT"] == "H:MI TT" || $arResult["CUR_TIME_FORMAT"] == "H:MI:SS T" || $arResult["CUR_TIME_FORMAT"] == "H:MI T") echo "checked"?>>
+				<input type="radio" id="12_format" name="time_format" value="H:MI:SS T" <?php if ($arResult["CUR_TIME_FORMAT"] == "H:MI:SS TT" || $arResult["CUR_TIME_FORMAT"] == "H:MI TT" || $arResult["CUR_TIME_FORMAT"] == "H:MI:SS T" || $arResult["CUR_TIME_FORMAT"] == "H:MI T") echo "checked"?>>
 				<label for="12_format"><?=GetMessage("CONFIG_TIME_FORMAT_12")?></label>
 				<br/>
-				<input type="radio" id="24_format" name="time_format" value="HH:MI:SS" <?if ($arResult["CUR_TIME_FORMAT"] == "HH:MI:SS") echo "checked"?>>
+				<input type="radio" id="24_format" name="time_format" value="HH:MI:SS" <?php if ($arResult["CUR_TIME_FORMAT"] == "HH:MI:SS") echo "checked"?>>
 				<label for="24_format"><?=GetMessage("CONFIG_TIME_FORMAT_24")?></label>
 			</td>
 			<td class="content-edit-form-field-error"></td>
@@ -101,7 +101,7 @@ use \Bitrix\Bitrix24\Feature;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_NAME_FORMAT')?></td>
 			<td class="content-edit-form-field-input">
 				<select name="" onchange="if(this.value != 'other'){this.form.FORMAT_NAME.value = this.value;this.form.FORMAT_NAME.style.display='none';} else {this.form.FORMAT_NAME.style.display='block';}">
-					<?
+					<?php 
 					$formatExists = false;
 					foreach ($arResult["NAME_FORMATS"] as $template => $value)
 					{
@@ -111,7 +111,7 @@ use \Bitrix\Bitrix24\Feature;
 						echo '<option value="'.$template.'"'.($template == $arResult["CUR_NAME_FORMAT"] ? ' selected' : '').'>'.htmlspecialcharsex($value).'</option>'."\n";
 					}
 					?>
-					<option value="other" <?=($formatExists ? '' : "selected")?>><?echo GetMessage("CONFIG_CULTURE_OTHER")?></option>
+					<option value="other" <?=($formatExists ? '' : "selected")?>><?php echo GetMessage("CONFIG_CULTURE_OTHER")?></option>
 				</select>
 
 				<input type="text" style="margin-top: 10px;<?=($formatExists ? 'display:none' : '')?>" name="FORMAT_NAME"  value="<?=htmlspecialcharsbx($arResult["CUR_NAME_FORMAT"])?>" class="content-edit-form-field-input-text" />
@@ -123,7 +123,7 @@ use \Bitrix\Bitrix24\Feature;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_WEEK_START')?></td>
 			<td class="content-edit-form-field-input">
 				<select name="WEEK_START">
-					<?
+					<?php 
 					for ($i = 0; $i < 7; $i++)
 					{
 						echo '<option value="'.$i.'"'.($i == $arResult["WEEK_START"] ? ' selected="selected"' : '').'>'.GetMessage('DAY_OF_WEEK_' .$i).'</option>';
@@ -138,15 +138,15 @@ use \Bitrix\Bitrix24\Feature;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_WORK_TIME')?></td>
 			<td class="content-edit-form-field-input">
 				<select name="work_time_start">
-					<?foreach($arResult["WORKTIME_LIST"] as $key => $val):?>
-						<option value="<?= $key?>" <? if ($arResult["CALENDAT_SET"]['work_time_start'] == $key) echo ' selected="selected" ';?>><?= $val?></option>
-					<?endforeach;?>
+					<?php foreach($arResult["WORKTIME_LIST"] as $key => $val):?>
+						<option value="<?= $key?>" <?php  if ($arResult["CALENDAT_SET"]['work_time_start'] == $key) echo ' selected="selected" ';?>><?= $val?></option>
+					<?php endforeach;?>
 				</select>
 				-
 				<select name="work_time_end">
-					<?foreach($arResult["WORKTIME_LIST"] as $key => $val):?>
-						<option value="<?= $key?>" <? if ($arResult["CALENDAT_SET"]['work_time_end'] == $key) echo ' selected="selected" ';?>><?= $val?></option>
-					<?endforeach;?>
+					<?php foreach($arResult["WORKTIME_LIST"] as $key => $val):?>
+						<option value="<?= $key?>" <?php  if ($arResult["CALENDAT_SET"]['work_time_end'] == $key) echo ' selected="selected" ';?>><?= $val?></option>
+					<?php endforeach;?>
 				</select>
 			</td>
 			<td class="content-edit-form-field-error"></td>
@@ -155,9 +155,9 @@ use \Bitrix\Bitrix24\Feature;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_WEEK_HOLIDAYS')?></td>
 			<td class="content-edit-form-field-input">
 				<select size="7" multiple=true id="cal_week_holidays" name="week_holidays[]">
-					<?foreach($arResult["WEEK_DAYS"] as $day):?>
-						<option value="<?= $day?>" <?if (in_array($day, $arResult["CALENDAT_SET"]['week_holidays']))echo ' selected="selected"';?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
-					<?endforeach;?>
+					<?php foreach($arResult["WEEK_DAYS"] as $day):?>
+						<option value="<?= $day?>" <?php if (in_array($day, $arResult["CALENDAT_SET"]['week_holidays']))echo ' selected="selected"';?>><?= GetMessage('CAL_OPTION_FIRSTDAY_'.$day)?></option>
+					<?php endforeach;?>
 				</select>
 			</td>
 			<td class="content-edit-form-field-error"></td>
@@ -173,37 +173,37 @@ use \Bitrix\Bitrix24\Feature;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_PHONE_NUMBER_DEFAULT_COUNTRY')?></td>
 			<td class="content-edit-form-field-input">
 				<select name="phone_number_default_country">
-					<?foreach($arResult["COUNTRIES"] as $key => $val):?>
-						<option value="<?= $key?>" <? if ($arResult["PHONE_NUMBER_DEFAULT_COUNTRY"] == $key) echo ' selected="selected" ';?>><?= $val?></option>
-					<?endforeach;?>
+					<?php foreach($arResult["COUNTRIES"] as $key => $val):?>
+						<option value="<?= $key?>" <?php  if ($arResult["PHONE_NUMBER_DEFAULT_COUNTRY"] == $key) echo ' selected="selected" ';?>><?= $val?></option>
+					<?php endforeach;?>
 				</select>
 			</td>
 		</tr>
 
-		<?if ($arResult["IS_BITRIX24"]):?>
+		<?php if ($arResult["IS_BITRIX24"]):?>
 	<!-- Organization type-->
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_ORGANIZATION')?></td>
 			<td class="content-edit-form-field-input">
-				<input type="radio" id="organisation" name="organization" value="" <?if ($arResult["ORGANIZATION_TYPE"] == "") echo "checked"?>>
+				<input type="radio" id="organisation" name="organization" value="" <?php if ($arResult["ORGANIZATION_TYPE"] == "") echo "checked"?>>
 				<label for="organization"><?=GetMessage("CONFIG_ORGANIZATION_DEF")?></label>
 				<br/>
-				<input type="radio" id="organization_public" name="organization" value="public_organization" <?if ($arResult["ORGANIZATION_TYPE"] == "public_organization") echo "checked"?>>
+				<input type="radio" id="organization_public" name="organization" value="public_organization" <?php if ($arResult["ORGANIZATION_TYPE"] == "public_organization") echo "checked"?>>
 				<label for="organization_public"><?=GetMessage("CONFIG_ORGANIZATION_PUBLIC")?></label>
-				<?if (in_array(LANGUAGE_ID, array("ru", "ua"))):?>
+				<?php if (in_array(LANGUAGE_ID, array("ru", "ua"))):?>
 					<br/>
-					<input type="radio" id="organization_gov" name="organization" value="gov_organization" <?if ($arResult["ORGANIZATION_TYPE"] == "gov_organization") echo "checked"?>>
+					<input type="radio" id="organization_gov" name="organization" value="gov_organization" <?php if ($arResult["ORGANIZATION_TYPE"] == "gov_organization") echo "checked"?>>
 					<label for="organization_gov"><?=GetMessage("CONFIG_ORGANIZATION_GOV")?></label>
-				<?endif?>
+				<?php endif?>
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-		<?endif?>
+		<?php endif?>
 
 	<!-- show fired employees -->
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="show_fired_employees"><?=GetMessage('CONFIG_SHOW_FIRED_EMPLOYEES')?></label></td>
-			<td class="content-edit-form-field-input"><input type="checkbox" name="show_fired_employees" id="show_fired_employees" <?if (COption::GetOptionString("bitrix24", "show_fired_employees", "Y") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" name="show_fired_employees" id="show_fired_employees" <?php if (COption::GetOptionString("bitrix24", "show_fired_employees", "Y") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
@@ -212,48 +212,48 @@ use \Bitrix\Bitrix24\Feature;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_DISK_VIEWER_SERVICE')?></td>
 			<td class="content-edit-form-field-input">
 				<select name="default_viewer_service">
-					<?foreach($arResult["DISK_VIEWER_SERVICE"] as $code => $name):?>
-						<option value="<?=$code?>" <?if ($code == $arResult["DISK_VIEWER_SERVICE_DEFAULT"]) echo "selected"?>><?=$name?></option>
-					<?endforeach?>
+					<?php foreach($arResult["DISK_VIEWER_SERVICE"] as $code => $name):?>
+						<option value="<?=$code?>" <?php if ($code == $arResult["DISK_VIEWER_SERVICE_DEFAULT"]) echo "selected"?>><?=$name?></option>
+					<?php endforeach?>
 				</select>
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
-		<?if ($arResult["IS_DISK_CONVERTED"]):?>
+		<?php if ($arResult["IS_DISK_CONVERTED"]):?>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="disk_allow_edit_object_in_uf"><?=GetMessage('CONFIG_DISK_ALLOW_EDIT_OBJECT_IN_UF')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="disk_allow_edit_object_in_uf" id="disk_allow_edit_object_in_uf" <?if (COption::GetOptionString("disk", "disk_allow_edit_object_in_uf", "Y") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="disk_allow_edit_object_in_uf" id="disk_allow_edit_object_in_uf" <?php if (COption::GetOptionString("disk", "disk_allow_edit_object_in_uf", "Y") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="disk_allow_autoconnect_shared_objects"><?=GetMessage('CONFIG_WEBDAV_ALLOW_AUTOCONNECT_SHARE_GROUP_FOLDER')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="disk_allow_autoconnect_shared_objects" id="disk_allow_autoconnect_shared_objects" <?if (COption::GetOptionString("disk", "disk_allow_autoconnect_shared_objects", "N") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="disk_allow_autoconnect_shared_objects" id="disk_allow_autoconnect_shared_objects" <?php if (COption::GetOptionString("disk", "disk_allow_autoconnect_shared_objects", "N") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-		<?else:?>
+		<?php else:?>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="webdav_global"><?=GetMessage('CONFIG_WEBDAV_SERVICES_GLOBAL')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="webdav_global" id="webdav_global" <?if (COption::GetOptionString("webdav", "webdav_allow_ext_doc_services_global", "N") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="webdav_global" id="webdav_global" <?php if (COption::GetOptionString("webdav", "webdav_allow_ext_doc_services_global", "N") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="webdav_local"><?=GetMessage('CONFIG_WEBDAV_SERVICES_LOCAL')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="webdav_local" id="webdav_local" <?if (COption::GetOptionString("webdav", "webdav_allow_ext_doc_services_local", "N") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="webdav_local" id="webdav_local" <?php if (COption::GetOptionString("webdav", "webdav_allow_ext_doc_services_local", "N") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="webdav_autoconnect_share_group_folder"><?=GetMessage('CONFIG_WEBDAV_ALLOW_AUTOCONNECT_SHARE_GROUP_FOLDER')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="webdav_autoconnect_share_group_folder" id="webdav_autoconnect_share_group_folder" <?if (COption::GetOptionString("webdav", "webdav_allow_autoconnect_share_group_folder", "Y") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="webdav_autoconnect_share_group_folder" id="webdav_autoconnect_share_group_folder" <?php if (COption::GetOptionString("webdav", "webdav_allow_autoconnect_share_group_folder", "Y") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-		<?endif?>
+		<?php endif?>
 
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">
 				<label for="disk_version_limit_per_file"><?=GetMessage('CONFIG_DISK_VERSION_LIMIT_PER_FILE')?></label>
-				<?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_version_limit_per_file")):?>
-					<?
+				<?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_version_limit_per_file")):?>
+					<?php 
 					CBitrix24::initLicenseInfoPopupJS("disk_version_limit_per_file");
 					?>
 					<img src="<?=$this->GetFolder();?>/images/lock.png" data-role="config-disk-version-limit-per-file" style="position: relative;bottom: -1px; margin-left: 5px;"/>
@@ -269,14 +269,14 @@ use \Bitrix\Bitrix24\Feature;
 							}
 						});
 					</script>
-				<?endif?>
+				<?php endif?>
 
 			</td>
 			<td class="content-edit-form-field-input">
-				<select name="disk_version_limit_per_file" <?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_version_limit_per_file")) echo "disabled";?>>
-					<?foreach($arResult["DISK_LIMIT_PER_FILE"] as $code => $name):?>
-						<option value="<?=$code?>" <?if ($code == $arResult["DISK_LIMIT_PER_FILE_SELECTED"]) echo "selected"?>><?=$name?></option>
-					<?endforeach?>
+				<select name="disk_version_limit_per_file" <?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_version_limit_per_file")) echo "disabled";?>>
+					<?php foreach($arResult["DISK_LIMIT_PER_FILE"] as $code => $name):?>
+						<option value="<?=$code?>" <?php if ($code == $arResult["DISK_LIMIT_PER_FILE_SELECTED"]) echo "selected"?>><?=$name?></option>
+					<?php endforeach?>
 				</select>
 			</td>
 			<td class="content-edit-form-field-error"></td>
@@ -285,8 +285,8 @@ use \Bitrix\Bitrix24\Feature;
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">
 				<label for="disk_allow_use_external_link"><?=GetMessage('CONFIG_DISK_ALLOW_USE_EXTERNAL_LINK')?></label>
-				<?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_switch_external_link")):?>
-					<?
+				<?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_switch_external_link")):?>
+					<?php 
 					CBitrix24::initLicenseInfoPopupJS("disk_switch_external_link");
 					?>
 					<img src="<?=$this->GetFolder();?>/images/lock.png" data-role="config-lock-disk-external-link" style="position: relative;bottom: -1px; margin-left: 5px;"/>
@@ -302,19 +302,19 @@ use \Bitrix\Bitrix24\Feature;
 							}
 						});
 					</script>
-				<?endif?>
+				<?php endif?>
 			</td>
 			<td class="content-edit-form-field-input">
 				<input type="checkbox"
-					<?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_switch_external_link")) echo "disabled";?>
+					<?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_switch_external_link")) echo "disabled";?>
 					id="disk_allow_use_external_link"
 					name="disk_allow_use_external_link"
-					<?if (
+					<?php if (
 						COption::GetOptionString("disk", "disk_allow_use_external_link", "Y") == "Y"
 						&& (!$arResult["IS_BITRIX24"] || $arResult["IS_BITRIX24"] && Feature::isFeatureEnabled("disk_manual_external_link"))
 					):?>
 						checked
-					<?endif?>
+					<?php endif?>
 					class="content-edit-form-field-input-selector"
 				/>
 			</td>
@@ -324,8 +324,8 @@ use \Bitrix\Bitrix24\Feature;
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">
 				<label for="disk_object_lock_enabled"><?=GetMessage('CONFIG_DISK_OBJECT_LOCK_ENABLED')?></label>
-				<?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_object_lock_enabled")):?>
-					<?
+				<?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_object_lock_enabled")):?>
+					<?php 
 					CBitrix24::initLicenseInfoPopupJS("disk_object_lock_enabled");
 					?>
 					<img src="<?=$this->GetFolder();?>/images/lock.png" data-role="config-lock-disk-object-lock" style="position: relative;bottom: -1px; margin-left: 5px;"/>
@@ -341,10 +341,10 @@ use \Bitrix\Bitrix24\Feature;
 							}
 						});
 					</script>
-				<?endif?>
+				<?php endif?>
 			</td>
 			<td class="content-edit-form-field-input">
-				<input type="checkbox" <?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_object_lock_enabled")) echo "disabled";?> id="disk_object_lock_enabled" name="disk_object_lock_enabled" <?if (COption::GetOptionString("disk", "disk_object_lock_enabled", "N") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/>
+				<input type="checkbox" <?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_object_lock_enabled")) echo "disabled";?> id="disk_object_lock_enabled" name="disk_object_lock_enabled" <?php if (COption::GetOptionString("disk", "disk_object_lock_enabled", "N") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/>
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
@@ -352,8 +352,8 @@ use \Bitrix\Bitrix24\Feature;
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">
 				<label for="disk_allow_use_extended_fulltext"><?=GetMessage('CONFIG_DISK_ALLOW_USE_EXTENDED_FULLTEXT')?></label>
-				<?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_allow_use_extended_fulltext")):?>
-					<?
+				<?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_allow_use_extended_fulltext")):?>
+					<?php 
 					CBitrix24::initLicenseInfoPopupJS("disk_allow_use_extended_fulltext");
 					?>
 					<img src="<?=$this->GetFolder();?>/images/lock.png" data-role="config-lock-disk-allow-use-extended-fulltext" style="position: relative;bottom: -1px; margin-left: 5px;"/>
@@ -369,23 +369,23 @@ use \Bitrix\Bitrix24\Feature;
 							}
 						});
 					</script>
-				<?endif?>
+				<?php endif?>
 			</td>
 			<td class="content-edit-form-field-input">
 				<input
 					type="checkbox"
-					<?if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_allow_use_extended_fulltext")) echo "disabled";?>
+					<?php if ($arResult["IS_BITRIX24"] && !Feature::isFeatureEnabled("disk_allow_use_extended_fulltext")) echo "disabled";?>
 					id="disk_allow_use_extended_fulltext"
 					name="disk_allow_use_extended_fulltext"
-					<?if (COption::GetOptionString("disk", "disk_allow_use_extended_fulltext", "N") == "Y"):?>checked<?endif?>
+					<?php if (COption::GetOptionString("disk", "disk_allow_use_extended_fulltext", "N") == "Y"):?>checked<?php endif?>
 					class="content-edit-form-field-input-selector"
-					<?if (
+					<?php if (
 						$arResult["IS_BITRIX24"]
 						&& Feature::isFeatureEnabled("disk_allow_use_extended_fulltext")
 						&& COption::GetOptionString("disk", "disk_allow_use_extended_fulltext", "N") != "Y"
 					):?>
 					onclick="BX.Bitrix24.Configs.Functions.showDiskExtendedFullTextInfo(event, this);"
-					<?endif?>
+					<?php endif?>
 				/>
 			</td>
 			<td class="content-edit-form-field-error"></td>
@@ -394,7 +394,7 @@ use \Bitrix\Bitrix24\Feature;
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="allow_livefeed_toall"><?=GetMessage('CONFIG_ALLOW_TOALL')?></label></td>
 			<td class="content-edit-form-field-input">
-				<input type="checkbox" id="allow_livefeed_toall" name="allow_livefeed_toall" <?if (COption::GetOptionString("socialnetwork", "allow_livefeed_toall", "Y") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/>
+				<input type="checkbox" id="allow_livefeed_toall" name="allow_livefeed_toall" <?php if (COption::GetOptionString("socialnetwork", "allow_livefeed_toall", "Y") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/>
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
@@ -403,7 +403,7 @@ use \Bitrix\Bitrix24\Feature;
 		<tr id="RIGHTS_all" style="display: <?=(COption::GetOptionString("socialnetwork", "allow_livefeed_toall", "Y") == "Y" ? "table-row" : "none")?>;">
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">&nbsp;</td>
 			<td class="content-edit-form-field-input">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:main.user.selector",
 					"",
@@ -431,26 +431,26 @@ use \Bitrix\Bitrix24\Feature;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">
 				<label for="default_livefeed_toall"><?=GetMessage('CONFIG_DEFAULT_TOALL')?></label>
 			</td>
-			<td class="content-edit-form-field-input"><input type="checkbox" id="default_livefeed_toall" name="default_livefeed_toall" <?if (COption::GetOptionString("socialnetwork", "default_livefeed_toall", "Y") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" id="default_livefeed_toall" name="default_livefeed_toall" <?php if (COption::GetOptionString("socialnetwork", "default_livefeed_toall", "Y") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
 	<!-- im general chat right-->
-		<?
+		<?php 
 			$imAllow = COption::GetOptionString("im", "allow_send_to_general_chat_all");
 
 		?>
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="allow_general_chat_toall"><?=GetMessage('CONFIG_IM_CHAT_RIGHTS')?></label></td>
 			<td class="content-edit-form-field-input">
-				<input type="checkbox" id="allow_general_chat_toall" name="allow_general_chat_toall" <?if ($imAllow == "Y" || $imAllow == "N" && !empty($arResult['arChatToAllRights'])):?>checked<?endif?> class="content-edit-form-field-input-selector"/>
+				<input type="checkbox" id="allow_general_chat_toall" name="allow_general_chat_toall" <?php if ($imAllow == "Y" || $imAllow == "N" && !empty($arResult['arChatToAllRights'])):?>checked<?php endif?> class="content-edit-form-field-input-selector"/>
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 		<tr id="chat_rights_all" style="display: <?=($imAllow == "Y" || $imAllow == "N" && !empty($arResult['arChatToAllRights']) ? "table-row" : "none")?>;">
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">&nbsp;</td>
 			<td class="content-edit-form-field-input">
-				<?
+				<?php 
 
 				$APPLICATION->IncludeComponent(
 					"bitrix:main.user.selector",
@@ -478,21 +478,21 @@ use \Bitrix\Bitrix24\Feature;
 
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="general_chat_message_join"><?=GetMessage('CONFIG_IM_GENERSL_CHAT_MESSAGE_JOIN')?></label></td>
-			<td class="content-edit-form-field-input"><input type="checkbox" name="general_chat_message_join" id="general_chat_message_join" <?if (COption::GetOptionString("im", "general_chat_message_join")):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" name="general_chat_message_join" id="general_chat_message_join" <?php if (COption::GetOptionString("im", "general_chat_message_join")):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="general_chat_message_leave"><?=GetMessage('CONFIG_IM_GENERSL_CHAT_MESSAGE_LEAVE')?></label></td>
-			<td class="content-edit-form-field-input"><input type="checkbox" name="general_chat_message_leave" id="general_chat_message_leave" <?if (COption::GetOptionString("im", "general_chat_message_leave")):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" name="general_chat_message_leave" id="general_chat_message_leave" <?php if (COption::GetOptionString("im", "general_chat_message_leave")):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="url_preview_enable"><?=GetMessage('CONFIG_URL_PREVIEW_ENABLE')?></label></td>
-			<td class="content-edit-form-field-input"><input type="checkbox" name="url_preview_enable" id="url_preview_enable" <?if (COption::GetOptionString("main", "url_preview_enable", "N") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" name="url_preview_enable" id="url_preview_enable" <?php if (COption::GetOptionString("main", "url_preview_enable", "N") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-<?
+<?php 
 $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 ?>
 		<tr>
@@ -506,9 +506,9 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 		if($arResult['MP_ALLOW_USER_INSTALL_EXTENDED'])
 		{
 ?>
-		<tr id="mp_user_install" <?if(!$mpUserAllowInstall) echo ' style="display: none;"'?> >
+		<tr id="mp_user_install" <?php if(!$mpUserAllowInstall) echo ' style="display: none;"'?> >
 			<td class="content-edit-form-field-name content-edit-form-field-name-left">&nbsp;</td>
-			<td class="content-edit-form-field-input"><?
+			<td class="content-edit-form-field-input"><?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:main.user.selector",
 					"",
@@ -532,7 +532,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 			</td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-<?
+<?php 
 		}
 
 		if ($arResult["IS_BITRIX24"])
@@ -540,36 +540,36 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 		?>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="configs_allow_register"><?=GetMessage('CONFIG_ALLOW_SELF_REGISTER')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="allow_register" id="configs_allow_register" <?if ($arResult["ALLOW_SELF_REGISTER"] == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="allow_register" id="configs_allow_register" <?php if ($arResult["ALLOW_SELF_REGISTER"] == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="configs_allow_invite_users"><?=GetMessage('CONFIG_ALLOW_INVITE_USERS')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="allow_invite_users" value="Y" id="configs_allow_invite_users" <?if ($arResult["ALLOW_INVITE_USERS"] == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="allow_invite_users" value="Y" id="configs_allow_invite_users" <?php if ($arResult["ALLOW_INVITE_USERS"] == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="configs_allow_new_user_lf"><?=GetMessage('CONFIG_ALLOW_NEW_USER_LF')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="allow_new_user_lf" value="Y" id="configs_allow_new_user_lf" <?if ($arResult["ALLOW_NEW_USER_LF"] == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="allow_new_user_lf" value="Y" id="configs_allow_new_user_lf" <?php if ($arResult["ALLOW_NEW_USER_LF"] == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-			<?
+			<?php 
 			if (in_array($arResult["LICENSE_PREFIX"], array("ru", "ua", "kz", "by")))
 			{
 			?>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left">
 					<label for="network_avaiable"><?=GetMessage('CONFIG_NETWORK_AVAILABLE')?></label>
-					<?
+					<?php 
 					$disabled = $arResult['ALLOW_NETWORK_CHANGE'] !== 'Y';
 					if ($arResult["IS_BITRIX24"] && !$arResult['CREATOR_CONFIRMED']):
 						?>
 					<img src="<?=$this->GetFolder();?>/images/lock.png"
 						 style="position: relative;bottom: -1px; margin-left: 5px;"
 						 onmouseover="BX.hint(this, '<?=htmlspecialcharsbx(CUtil::JSEscape(GetMessage('CONFIG_NETWORK_AVAILABLE_NOT_CONFIRMED')))?>')"/>
-					<?
+					<?php 
 					elseif ($arResult['ALLOW_NETWORK_CHANGE'] === 'N'):
 					CBitrix24::initLicenseInfoPopupJS("network_available");
 					?>
@@ -587,30 +587,30 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 								}
 							});
 						</script>
-					<?
+					<?php 
 					endif; ?>
 				</td>
 				<td class="content-edit-form-field-input">
 					<input type="checkbox"
-						<?if ($disabled) echo "disabled"; ?>
+						<?php if ($disabled) echo "disabled"; ?>
 						name="network_avaiable" value="Y" id="network_avaiable"
-						<?if ($arResult["NETWORK_AVAILABLE"] == "Y"): ?>checked<?endif?>
+						<?php if ($arResult["NETWORK_AVAILABLE"] == "Y"): ?>checked<?php endif?>
 						class="content-edit-form-field-input-selector"
 					/>
 				</td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-		<?
+		<?php 
 			}
 		}
 		?>
 
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="show_year_for_female"><?=GetMessage('CONFIG_SHOW_YEAR_FOR_FEMALE')?></label></td>
-			<td class="content-edit-form-field-input"><input type="checkbox" name="show_year_for_female" value="N" id="show_year_for_female" <?if ($arResult["SHOW_YEAR_FOR_FEMALE"] == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" name="show_year_for_female" value="N" id="show_year_for_female" <?php if ($arResult["SHOW_YEAR_FOR_FEMALE"] == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
-		<?
+		<?php 
 
 		if (
 			!$arResult["IS_BITRIX24"]
@@ -620,15 +620,15 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 			?>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><label for="stresslevel_available"><?=GetMessage('CONFIG_STRESSLEVEL_AVAILABLE')?></label></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="stresslevel_available" value="Y" id="stresslevel_available" <?if ($arResult["STRESSLEVEL_AVAILABLE"] == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"/></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="stresslevel_available" value="Y" id="stresslevel_available" <?php if ($arResult["STRESSLEVEL_AVAILABLE"] == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"/></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 
 	<!-- GDPR for Europe-->
-		<?
+		<?php 
 		if ($arResult["IS_BITRIX24"])
 		{
 		?>
@@ -643,19 +643,19 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left">
 					<?=GetMessage('CONFIG_GDRP_LABEL1')?>
-					<?if ($arResult["LICENSE_PREFIX"] == "ru"):?>
+					<?php if ($arResult["LICENSE_PREFIX"] == "ru"):?>
 						<?=GetMessage("CONFIG_GDRP_LABEL11")?>
-					<?endif?>
+					<?php endif?>
 				</td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="gdpr_email_info" <?if (COption::GetOptionString("bitrix24", "gdpr_email_info", "Y") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="gdpr_email_info" <?php if (COption::GetOptionString("bitrix24", "gdpr_email_info", "Y") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 			<tr>
 				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_GDRP_LABEL2')?></td>
-				<td class="content-edit-form-field-input"><input type="checkbox" name="gdpr_email_training" <?if (COption::GetOptionString("bitrix24", "gdpr_email_training", "Y") == "Y"):?>checked<?endif?> class="content-edit-form-field-input-selector"></td>
+				<td class="content-edit-form-field-input"><input type="checkbox" name="gdpr_email_training" <?php if (COption::GetOptionString("bitrix24", "gdpr_email_training", "Y") == "Y"):?>checked<?php endif?> class="content-edit-form-field-input-selector"></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-			<?
+			<?php 
 			if (!in_array($arResult["LICENSE_PREFIX"], array("ru", "ua", "kz", "by")))
 			{
 			?>
@@ -665,37 +665,37 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 							type="checkbox"
 							name="gdpr_data_processing"
 							onchange="BX.Bitrix24.Configs.Functions.onGdprChange(this);"
-							<?if (COption::GetOptionString("bitrix24", "gdpr_data_processing", "") == "Y"):?>checked<?endif?>
+							<?php if (COption::GetOptionString("bitrix24", "gdpr_data_processing", "") == "Y"):?>checked<?php endif?>
 							class="content-edit-form-field-input-selector">
 					</td>
 					<td class="content-edit-form-field-error"></td>
 				</tr>
 
-				<?
+				<?php 
 				$isGdprDataShown = COption::GetOptionString("bitrix24", "gdpr_data_processing", "") == "Y";
 				?>
-				<tr data-role="gdpr-data" <?if (!$isGdprDataShown):?>style="visibility:collapse"<?endif?>>
+				<tr data-role="gdpr-data" <?php if (!$isGdprDataShown):?>style="visibility:collapse"<?php endif?>>
 					<td class="content-edit-form-field-name content-edit-form-field-name-left" colspan="3"><?=GetMessage('CONFIG_GDRP_TITLE2')?></td>
 				</tr>
-				<tr data-role="gdpr-data" <?if (!$isGdprDataShown):?>style="visibility:collapse"<?endif?>>
+				<tr data-role="gdpr-data" <?php if (!$isGdprDataShown):?>style="visibility:collapse"<?php endif?>>
 					<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_GDRP_LABEL4')?></td>
 					<td class="content-edit-form-field-input"><input type="text" name="gdpr_legal_name" value="<?=htmlspecialcharsbx(isset($_POST["gdpr_legal_name"]) ? $_POST["gdpr_legal_name"] : COption::GetOptionString("bitrix24", "gdpr_legal_name", ""))?>" class="content-edit-form-field-input-text" size="60"></td>
 					<td class="content-edit-form-field-error"></td>
 				</tr>
-				<tr data-role="gdpr-data" <?if (!$isGdprDataShown):?>style="visibility:collapse"<?endif?>>
+				<tr data-role="gdpr-data" <?php if (!$isGdprDataShown):?>style="visibility:collapse"<?php endif?>>
 					<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_GDRP_LABEL5')?></td>
 					<td class="content-edit-form-field-input"><input type="text" name="gdpr_contact_name" value="<?=htmlspecialcharsbx(isset($_POST["gdpr_contact_name"]) ? $_POST["gdpr_contact_name"] : COption::GetOptionString("bitrix24", "gdpr_contact_name", ""))?>" class="content-edit-form-field-input-text" size="60"></td>
 					<td class="content-edit-form-field-error"></td>
 				</tr>
-				<tr data-role="gdpr-data" <?if (!$isGdprDataShown):?>style="visibility:collapse"<?endif?>>
+				<tr data-role="gdpr-data" <?php if (!$isGdprDataShown):?>style="visibility:collapse"<?php endif?>>
 					<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_GDRP_LABEL6')?></td>
 					<td class="content-edit-form-field-input"><input type="text" name="gdpr_title" value="<?=htmlspecialcharsbx(isset($_POST["gdpr_title"]) ? $_POST["gdpr_title"] : COption::GetOptionString("bitrix24", "gdpr_title", ""))?>" class="content-edit-form-field-input-text" size="60"></td>
 					<td class="content-edit-form-field-error"></td>
 				</tr>
-				<tr data-role="gdpr-data" <?if (!$isGdprDataShown):?>style="visibility:collapse"<?endif?>>
+				<tr data-role="gdpr-data" <?php if (!$isGdprDataShown):?>style="visibility:collapse"<?php endif?>>
 					<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_GDRP_LABEL7')?></td>
 					<td class="content-edit-form-field-input">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:main.calendar",
 							"",
 							array(
@@ -711,13 +711,13 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 					</td>
 					<td class="content-edit-form-field-error"></td>
 				</tr>
-				<tr data-role="gdpr-data" <?if (!$isGdprDataShown):?>style="visibility:collapse"<?endif?>>
+				<tr data-role="gdpr-data" <?php if (!$isGdprDataShown):?>style="visibility:collapse"<?php endif?>>
 					<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_GDRP_LABEL8')?></td>
 					<td class="content-edit-form-field-input"><input type="text" name="gdpr_notification_email" value="<?=htmlspecialcharsbx(isset($_POST["gdpr_notification_email"]) ? $_POST["gdpr_notification_email"] : COption::GetOptionString("bitrix24", "gdpr_notification_email", ""))?>" class="content-edit-form-field-input-text" size="60"></td>
 					<td class="content-edit-form-field-error"></td>
 				</tr>
 
-				<?\CJSCore::init("sidepanel");?>
+				<?php \CJSCore::init("sidepanel");?>
 				<tr>
 					<td colspan="3">
 						<div class="config_notify_message" style="margin: 10px 20px 10px 20px">
@@ -728,7 +728,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 						</div>
 					</td>
 				</tr>
-		<?
+		<?php 
 			}
 		}
 		?>
@@ -742,16 +742,16 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 		</tr>
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_OTP_SECURITY2')?></td>
-			<td class="content-edit-form-field-input"><input type="checkbox" <?if (!$arResult["SECURITY_IS_USER_OTP_ACTIVE"] && !$arResult["SECURITY_OTP"]):?> onclick="BX.Bitrix24.Configs.Functions.adminOtpIsRequiredInfo(this);return false;"<?endif?> onchange="BX.Bitrix24.Configs.Functions.otpSwitchOffInfo(this);" name="security_otp"  class="content-edit-form-field-input-selector" <?if ($arResult["SECURITY_OTP"]):?>checked<?endif?>/></td>
+			<td class="content-edit-form-field-input"><input type="checkbox" <?php if (!$arResult["SECURITY_IS_USER_OTP_ACTIVE"] && !$arResult["SECURITY_OTP"]):?> onclick="BX.Bitrix24.Configs.Functions.adminOtpIsRequiredInfo(this);return false;"<?php endif?> onchange="BX.Bitrix24.Configs.Functions.otpSwitchOffInfo(this);" name="security_otp"  class="content-edit-form-field-input-selector" <?php if ($arResult["SECURITY_OTP"]):?>checked<?php endif?>/></td>
 			<td class="content-edit-form-field-error"></td>
 		</tr>
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('CONFIG_OTP_SECURITY_DAYS')?></td>
 			<td class="content-edit-form-field-input">
 				<select id="security_otp_days" name="security_otp_days">
-					<?for($i=5; $i<=10; $i++):?>
-						<option value="<?=$i?>" <?if ($arResult["SECURITY_OTP_DAYS"] == $i) echo 'selected="selected"';?>><?=FormatDate("ddiff", time()-60*60*24*$i)?></option>
-					<?endfor;?>
+					<?php for($i=5; $i<=10; $i++):?>
+						<option value="<?=$i?>" <?php if ($arResult["SECURITY_OTP_DAYS"] == $i) echo 'selected="selected"';?>><?=FormatDate("ddiff", time()-60*60*24*$i)?></option>
+					<?php endfor;?>
 				</select>
 			</td>
 			<td class="content-edit-form-field-error"></td>
@@ -770,7 +770,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 			</td>
 		</tr>
 
-	<?
+	<?php 
 	if ($arResult["IS_BITRIX24"])
 	{
 	?>
@@ -784,28 +784,28 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"></td>
 			<td class="content-edit-form-field-input" colspan="2">
 
-				<input type="checkbox" name="feature_crm" id="feature_crm" <?if (IsModuleInstalled("crm")) echo "checked"?>/>
+				<input type="checkbox" name="feature_crm" id="feature_crm" <?php if (IsModuleInstalled("crm")) echo "checked"?>/>
 				<label for="feature_crm"><?=GetMessage("CONFIG_FEATURES_CRM")?></label><br/>
 
-				<input type="checkbox" name="feature_extranet" id="feature_extranet" <?if (IsModuleInstalled("extranet")) echo "checked"?>/>
+				<input type="checkbox" name="feature_extranet" id="feature_extranet" <?php if (IsModuleInstalled("extranet")) echo "checked"?>/>
 				<label for="feature_extranet"><?=GetMessage("CONFIG_FEATURES_EXTRANET")?></label><br/>
 
-				<?if (Feature::isFeatureEnabled("timeman")):?>
-					<input type="checkbox" name="feature_timeman" id="feature_timeman" <?if (IsModuleInstalled("timeman")) echo "checked"?>/>
+				<?php if (Feature::isFeatureEnabled("timeman")):?>
+					<input type="checkbox" name="feature_timeman" id="feature_timeman" <?php if (IsModuleInstalled("timeman")) echo "checked"?>/>
 					<label for="feature_timeman"><?=GetMessage("CONFIG_FEATURES_TIMEMAN")?></label><br/>
-				<?endif?>
-				<?if (Feature::isFeatureEnabled("meeting")):?>
-					<input type="checkbox" name="feature_meeting" id="feature_meeting" <?if (IsModuleInstalled("meeting")) echo "checked"?>/>
+				<?php endif?>
+				<?php if (Feature::isFeatureEnabled("meeting")):?>
+					<input type="checkbox" name="feature_meeting" id="feature_meeting" <?php if (IsModuleInstalled("meeting")) echo "checked"?>/>
 					<label for="feature_meeting"><?=GetMessage("CONFIG_FEATURES_MEETING")?></label><br/>
-				<?endif?>
-				<?if (Feature::isFeatureEnabled("lists")):?>
-					<input type="checkbox" name="feature_lists" id="feature_lists" <?if (IsModuleInstalled("lists")) echo "checked"?>/>
+				<?php endif?>
+				<?php if (Feature::isFeatureEnabled("lists")):?>
+					<input type="checkbox" name="feature_lists" id="feature_lists" <?php if (IsModuleInstalled("lists")) echo "checked"?>/>
 					<label for="feature_lists"><?=GetMessage("CONFIG_FEATURES_LISTS")?></label><br/>
-				<?endif?>
+				<?php endif?>
 			</td>
 		</tr>
 	<!--ip -->
-		<?
+		<?php 
 		if (Feature::isFeatureEnabled("ip_access_rights"))
 		{
 			$arCurIpRights = $arResult["IP_RIGHTS"];
@@ -819,7 +819,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 					<div class="content-edit-form-header-wrap content-edit-form-header-wrap-blue"><?=GetMessage('CONFIG_IP_TITLE')?></div>
 				</td>
 			</tr>
-			<?
+			<?php 
 			foreach($arCurIpRights as $right => $arIps)
 			{
 			?>
@@ -828,19 +828,19 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 						<?=(!empty($arNames[$right]["provider"]) ? $arNames[$right]["provider"].": " : "").$arNames[$right]["name"]?>
 					</td>
 					<td class="content-edit-form-field-input" colspan="2">
-						<?foreach($arIps as $ip):?>
+						<?php foreach($arIps as $ip):?>
 							<div>
 								<input name="ip_access_rights_<?=$right?>[]" value="<?=$ip?>" size="30"/>
 								<a href="javascript:void(0);" onclick="B24ConfigsIpObj.DeleteIpAccessRow(this);" class="access-delete" title="<?=GetMessage("CONFIG_TOALL_DEL")?>"></a>
 							</div>
-						<?endforeach?>
+						<?php endforeach?>
 						<div>
 							<input name="ip_access_rights_<?=$right?>[]" size="30" onclick="B24ConfigsIpObj.addInputForIp(this)"/>
 							<a href="javascript:void(0);" onclick="B24ConfigsIpObj.DeleteIpAccessRow(this);" class="access-delete" title="<?=GetMessage("CONFIG_TOALL_DEL")?>"></a>
 						</div>
 					</td>
 				</tr>
-			<?
+			<?php 
 			}
 			?>
 			<tr id="ip_add_right_button">
@@ -849,10 +849,10 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 					<a href="javascript:void(0)" class="bx-action-href" onclick="B24ConfigsIpObj.ShowIpAccessPopup(B24ConfigsIpObj.arCurIpRights);"><?=GetMessage("CONFIG_TOALL_RIGHTS_ADD")?></a>
 				</td>
 			</tr>
-		<?
+		<?php 
 		}
 		?>
-		<?if (LANGUAGE_ID == "ru"):?>
+		<?php if (LANGUAGE_ID == "ru"):?>
 		<!-- marketplace -->
 		<tr>
 			<td class="content-edit-form-header " colspan="3" >
@@ -865,8 +865,8 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 				<a href="/marketplace/category/migration/"><?=GetMessage("CONFIG_MARKETPLACE_MORE")?></a>
 			</td>
 		</tr>
-		<?endif?>
-	<?
+		<?php endif?>
+	<?php 
 	}
 
 
@@ -891,7 +891,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 				</div>
 			</td>
 		</tr>
-	<?
+	<?php 
 	}
 
 	if($arResult['SHOW_GOOGLE_API_KEY_FIELD'])
@@ -909,7 +909,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 				<input class="content-edit-form-field-input-text" name="google_api_key" value="<?=\Bitrix\Main\Text\HtmlFilter::encode($arResult['GOOGLE_API_KEY'])?>">
 			</td>
 		</tr>
-<?
+<?php 
 		if(strlen($arResult['GOOGLE_API_KEY_HOST']) > 0 && strlen($arResult['GOOGLE_API_KEY']) > 0):
 ?>
 			<tr>
@@ -921,7 +921,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 					</div>
 				</td>
 			</tr>
-<?
+<?php 
 		else:
 ?>
 			<tr>
@@ -931,7 +931,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 					</div>
 				</td>
 			</tr>
-<?
+<?php 
 		endif;
 	}
 	?>
@@ -950,7 +950,7 @@ $mpUserAllowInstall = count($arResult['MP_ALLOW_USER_INSTALL']) > 0;
 </table>
 <br/><br/><br/><br/>
 <!-- logo -->
-<?
+<?php 
 if ($arResult["IS_BITRIX24"] && Feature::isFeatureEnabled("set_logo") || !$arResult["IS_BITRIX24"])
 {
 	$clientLogoID = COption::GetOptionInt("bitrix24", "client_logo", "");
@@ -983,11 +983,11 @@ if ($arResult["IS_BITRIX24"] && Feature::isFeatureEnabled("set_logo") || !$arRes
 					<br/><br/>
 					<div id="configWaitLogo" style="display:none;"><img src="<?=$this->GetFolder();?>/images/wait.gif"/></div>
 
-					<div id="configBlockLogo" class="config-webform-logo-img" <?if (!$clientLogoID):?>style="display:none"<?endif?>>
-						<img id="configImgLogo" src="<?if ($clientLogoID) echo CFile::GetPath($clientLogoID)?>" />
+					<div id="configBlockLogo" class="config-webform-logo-img" <?php if (!$clientLogoID):?>style="display:none"<?php endif?>>
+						<img id="configImgLogo" src="<?php if ($clientLogoID) echo CFile::GetPath($clientLogoID)?>" />
 					</div>
 
-					<a href="javascript:void(0)" id="configDeleteLogo" class="config_logo_delete_link"  <?if (!$clientLogoID):?>style="display:none"<?endif?>>
+					<a href="javascript:void(0)" id="configDeleteLogo" class="config_logo_delete_link"  <?php if (!$clientLogoID):?>style="display:none"<?php endif?>>
 						<?=GetMessage("CONFIG_ADD_LOGO_DELETE")?>
 					</a>
 				</div>
@@ -1011,11 +1011,11 @@ if ($arResult["IS_BITRIX24"] && Feature::isFeatureEnabled("set_logo") || !$arRes
 					<br/><br/>
 					<div id="configWaitLogoretina" style="display:none;"><img src="<?=$this->GetFolder();?>/images/wait.gif"/></div>
 
-					<div id="configBlockLogoretina" class="config-webform-logo-img" <?if (!$clientLogoRetinaID):?>style="display:none"<?endif?>>
-						<img id="configImgLogoretina" src="<?if ($clientLogoRetinaID) echo CFile::GetPath($clientLogoRetinaID)?>" />
+					<div id="configBlockLogoretina" class="config-webform-logo-img" <?php if (!$clientLogoRetinaID):?>style="display:none"<?php endif?>>
+						<img id="configImgLogoretina" src="<?php if ($clientLogoRetinaID) echo CFile::GetPath($clientLogoRetinaID)?>" />
 					</div>
 
-					<a href="javascript:void(0)" id="configDeleteLogoretina" class="config_logo_retina_delete_link"  <?if (!$clientLogoRetinaID):?>style="display:none"<?endif?>>
+					<a href="javascript:void(0)" id="configDeleteLogoretina" class="config_logo_retina_delete_link"  <?php if (!$clientLogoRetinaID):?>style="display:none"<?php endif?>>
 						<?=GetMessage("CONFIG_ADD_LOGO_DELETE")?>
 					</a>
 				</div>
@@ -1023,11 +1023,11 @@ if ($arResult["IS_BITRIX24"] && Feature::isFeatureEnabled("set_logo") || !$arRes
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 }
 ?>
 
-<?
+<?php 
 if (isset($_GET["otp"]))
 {
 ?>
@@ -1079,7 +1079,7 @@ if (isset($_GET["otp"]))
 			popup.show();
 		});
 	</script>
-<?
+<?php 
 }
 ?>
 
@@ -1098,13 +1098,13 @@ if (isset($_GET["otp"]))
 		BX.Bitrix24.Configs.Functions.init();
 	});
 
-	<?if ($arResult["IS_BITRIX24"] && Feature::isFeatureEnabled("ip_access_rights")):?>
+	<?php if ($arResult["IS_BITRIX24"] && Feature::isFeatureEnabled("ip_access_rights")):?>
 	var B24ConfigsIpObj = new BX.Bitrix24.Configs.IpSettingsClass(<?=CUtil::PhpToJSObject(array_keys($arCurIpRights))?>);
-	<?endif?>
-	<?if ($arResult['SHOW_RENAME_POPUP']):?>
+	<?php endif?>
+	<?php if ($arResult['SHOW_RENAME_POPUP']):?>
 		BX.ready(function(){
 			if (typeof BX.Bitrix24.renamePortal != 'undefined')
 				BX.Bitrix24.renamePortal();
 		});
-	<?endif?>
+	<?php endif?>
 </script>

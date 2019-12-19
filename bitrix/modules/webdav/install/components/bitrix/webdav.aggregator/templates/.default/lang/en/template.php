@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_AG_MSGTITLE"] = "To connect the library as a network drive:";
 $MESS["WD_AG_HELP1"] = "Run <i>Windows Explorer</i>.";
 $MESS["WD_AG_HELP2"] = "Select &laquo;Tools&laquo; -> &laquo;Map Network Drive...&raquo; in the Explorer menu.";

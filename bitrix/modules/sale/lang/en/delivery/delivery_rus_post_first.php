@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_RPF_WRP_LESS_100"] = " ";
 $MESS["SALE_DH_RPF_WRP_MORE_100"] = " ";
 $MESS["SALE_DH_RPF_SMPL_NTF"] = " ";

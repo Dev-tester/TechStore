@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!CModule::IncludeModule("webdav")):
     ShowError(GetMessage("WD_WD_MODULE_IS_NOT_INSTALLED"));
     return 0;
@@ -615,7 +615,7 @@ if ($mode == 'user')
 }
 ?>
 
-<?
+<?php 
 $ob = new CWebDavVirtual($folderTree, '/', $arParams);
 $arResult['OBJECT'] = $ob;
 $arResult['STRUCTURE'] = $folderTree;

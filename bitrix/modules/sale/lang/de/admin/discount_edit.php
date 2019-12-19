@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SDEN_SITE"] = "Website";
 $MESS["SDEN_ACTIVE"] = "Aktivität";
 $MESS["SDEN_PERIOD"] = "Dauer der Aktivität";

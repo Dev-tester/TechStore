@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_FD_LAST_MENU_ITEM'] = "(последний пункт)";
 $MESS ['MAIN_FD_TITLE'] = "Заголовок страницы:";
 $MESS ['MAIN_FD_ADD_2_MENU'] = "Добавить в меню:";

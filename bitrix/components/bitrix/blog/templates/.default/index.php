@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="body-blog">
 <div class="blog-mainpage">
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"",
 	Array(
@@ -25,7 +25,7 @@
 		),
 	$component
 );?>
-	<?if($USER->IsAuthorized() && CBlog::CanUserCreateBlog($USER->GetID()))
+	<?php if($USER->IsAuthorized() && CBlog::CanUserCreateBlog($USER->GetID()))
 	{
 		if(!CBlog::GetByOwnerID($USER->GetID(), $arParams["GROUP_ID"]))
 		{
@@ -33,7 +33,7 @@
 		<div class="blog-mainpage-create-blog">
 		<a href="<?=$arResult["PATH_TO_NEW_BLOG"]?>" class="blog-author-icon"></a>&nbsp;<a href="<?=$arResult["PATH_TO_NEW_BLOG"]?>"><?=GetMessage("BLOG_CREATE_BLOG")?></a>
 		</div>
-			<?
+			<?php 
 		}
 	}
 
@@ -100,7 +100,7 @@ function BXBlogTabShow(id, type)
 	<div class="blog-clear-float"></div>
 	<div class="blog-tab-content">
 	<div id="new-posts-content" style="display:block;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.new_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -132,7 +132,7 @@ function BXBlogTabShow(id, type)
 		?>
 	</div>
 	<div id="commented-posts-content" style="display:none;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.commented_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -165,7 +165,7 @@ function BXBlogTabShow(id, type)
 		?>
 	</div>
 	<div id="popular-posts-content" style="display:none;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.popular_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -197,7 +197,7 @@ function BXBlogTabShow(id, type)
 		);
 		?>
 	</div>
-	<?
+	<?php 
 	if(strlen($arResult["PATH_TO_HISTORY"]) <= 0)
 		$arResult["PATH_TO_HISTORY"] = htmlspecialcharsbx($APPLICATION->GetCurPage()."?".$arResult["ALIASES"]["page"]."=history");
 	?>
@@ -206,7 +206,7 @@ function BXBlogTabShow(id, type)
 	</noindex>
 	</div>
 	
-<?if(empty($arParams["GROUP_ID"]) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) > 1))
+<?php if(empty($arParams["GROUP_ID"]) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) > 1))
 {
 	?>
 	<div class="blog-tab-container">
@@ -217,7 +217,7 @@ function BXBlogTabShow(id, type)
 		</div>	
 	</div>
 		<div class="blog-tab-content">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 					"bitrix:blog.groups", 
 					"", 
@@ -235,12 +235,12 @@ function BXBlogTabShow(id, type)
 				);
 			?>
 		</div>
-	<?
+	<?php 
 }
 ?>
 </div>
 <div class="blog-mainpage-side-right">
-<?
+<?php 
 if(IsModuleInstalled("search")):
 ?>
 <div class="blog-tab-container">
@@ -252,7 +252,7 @@ if(IsModuleInstalled("search")):
 </div>
 	<div class="blog-tab-content">
 		<div class="blog-mainpage-search-cloud">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:search.tags.cloud",
 			"",
@@ -283,7 +283,7 @@ if(IsModuleInstalled("search")):
 		?>
 		</div>
 	</div>
-<?endif?>
+<?php endif?>
 <div class="blog-tab-container">
 	<div class="blog-tab-left"></div>
 	<div class="blog-tab-right"></div>
@@ -292,7 +292,7 @@ if(IsModuleInstalled("search")):
 	</div>	
 </div>
 	<div class="blog-tab-content">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.new_comments", ".default", Array(
 	"COMMENT_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 	"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -340,7 +340,7 @@ if(IsModuleInstalled("search")):
 </div>
 	<div class="blog-tab-content">
 	<div id="new-blogs-content" style="display:none;">
-	<?
+	<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.new_blogs", 
 				"", 
@@ -367,7 +367,7 @@ if(IsModuleInstalled("search")):
 		?>
 	</div>
 	<div id="popular-blogs-content" style="display:block;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.popular_blogs", 
 				"", 
@@ -394,7 +394,7 @@ if(IsModuleInstalled("search")):
 			);
 		?>
 	</div>
-	<?
+	<?php 
 	//if((!is_array($arParams["GROUP_ID"]) && IntVal($arParams["GROUP_ID"]) > 0) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) == 1))
 	//{
 		if(strlen($arResult["PATH_TO_GROUP"]) <= 0)
@@ -402,13 +402,13 @@ if(IsModuleInstalled("search")):
 		?>
 		
 		<div style="text-align:right;"><a href="<?=CComponentEngine::MakePathFromTemplate($arResult["PATH_TO_GROUP"], array("group_id" => "all"))?>"><?=GetMessage("BC_ALL_BLOGS")?></a></div>
-		<?
+		<?php 
 	//}
 	?>
 
 	</div>
 	<div class="blog-rss-subscribe">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 			"bitrix:blog.rss.link",
 			"mainpage",
@@ -432,7 +432,7 @@ if(IsModuleInstalled("search")):
 </div>
 <div class="blog-clear-float"></div>
 
-<?
+<?php 
 if($arResult["SET_TITLE"]=="Y")
 	$APPLICATION->SetTitle(GetMessage("BLOG_TITLE"));
 ?>

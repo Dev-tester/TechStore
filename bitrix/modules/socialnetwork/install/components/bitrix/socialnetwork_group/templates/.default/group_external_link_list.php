@@ -16,7 +16,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 $storage = \Bitrix\Disk\Driver::getInstance()->getStorageByGroupId($arResult['VARIABLES']['group_id']);
 $arResult['VARIABLES']['STORAGE'] = $storage;
 ?>
-<?
+<?php 
 $pageId = "group_files";
 include("util_group_menu.php");
 include("util_group_profile.php");

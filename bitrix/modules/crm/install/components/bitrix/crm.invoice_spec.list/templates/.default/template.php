@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
 $APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/crm-entity-show.css");
@@ -58,7 +58,7 @@ $taxValue = isset($arResult['TAX_VALUE_WT']) ? $arResult['TAX_VALUE_WT'] : 0.00;
 	$productCreateBtnID = $arResult['PREFIX'].'_product_create_btn';
 	$buttonContainerID = $arResult['PREFIX'].'_product_button_container';
 	?>
-	<?if(!$readOnly):?>
+	<?php if(!$readOnly):?>
 	<ul id="<?=$buttonContainerID?>" class="crm-view-actions">
 		<li id="<?=$productAddBtnID?>">
 			<i></i><span><?=GetMessage('CRM_FF_CHOOSE')?></span>
@@ -69,8 +69,8 @@ $taxValue = isset($arResult['TAX_VALUE_WT']) ? $arResult['TAX_VALUE_WT'] : 0.00;
 		</li>
 		<?php endif; ?>
 	</ul>
-	<?endif;?>
-	<? $productContainerID = $arResult['PREFIX'].'_product_table';  ?>
+	<?php endif;?>
+	<?php  $productContainerID = $arResult['PREFIX'].'_product_table';  ?>
 	<table id="<?= $productContainerID ?>" class="crm-view-table <?= $arResult['CONTAINER_CLASS'] ?>" style="<?= count($arResult['PRODUCT_ROWS']) == 0 ? 'display:none;' : '' ?>">
 		<thead>
 			<tr>
@@ -87,7 +87,7 @@ $taxValue = isset($arResult['TAX_VALUE_WT']) ? $arResult['TAX_VALUE_WT'] : 0.00;
 			</tr>
 		</thead>
 		<tbody>
-		<?
+		<?php 
 		$productEditorCfg = array(
 			'ownerType' => $arResult['OWNER_TYPE'],
 			'ownerID' => $arResult['OWNER_ID'],
@@ -140,12 +140,12 @@ $taxValue = isset($arResult['TAX_VALUE_WT']) ? $arResult['TAX_VALUE_WT'] : 0.00;
 
 			<tr id="<?=$rowID?>"<?=$rowClass !== '' ? ' class="'.htmlspecialcharsbx($rowClass).'"' : ''?>>
 				<td>
-				<?if(!$readOnly):?>
+				<?php if(!$readOnly):?>
 					<span class="crm-view-table-column-delete"></span>
-				<?endif;?>
+				<?php endif;?>
 				</td>
 				<td class="crm-product-column-name">
-					<?
+					<?php 
 					$productName = htmlspecialcharsbx($row['PRODUCT_NAME']);
 					if ($row['PRODUCT_NAME'] == "OrderDelivery")
 						$productName = htmlspecialcharsbx(GetMessage("CRM_PRODUCT_ROW_DELIVERY"));
@@ -184,12 +184,12 @@ $taxValue = isset($arResult['TAX_VALUE_WT']) ? $arResult['TAX_VALUE_WT'] : 0.00;
 					<!--</span>-->
 				</td>
 				<td class="crm-view-table-column-edit">
-				<?if(!$readOnly):?>
+				<?php if(!$readOnly):?>
 					<span class="crm-product-action-edit"></span>
-				<?endif;?>
+				<?php endif;?>
 				</td>
 			</tr>
-		<?}?>
+		<?php }?>
 		</tbody>
 	</table>
 
@@ -257,14 +257,14 @@ $taxValue = isset($arResult['TAX_VALUE_WT']) ? $arResult['TAX_VALUE_WT'] : 0.00;
 				?>
 				<tr>
 					<td><nobr><?= htmlspecialcharsbx(GetMessage(($bVatMode) ? 'CRM_PRODUCT_SUM_TOTAL_WV' : 'CRM_PRODUCT_SUM_TOTAL_WT')) ?>:</nobr></td>
-					<td><? $productEditorCfg['TAX_VALUE_WT_ID'] = $arResult['PREFIX'].'_tax_value_wt';  ?>
+					<td><?php  $productEditorCfg['TAX_VALUE_WT_ID'] = $arResult['PREFIX'].'_tax_value_wt';  ?>
 						<strong id="<?= htmlspecialcharsbx($productEditorCfg['TAX_VALUE_WT_ID']) ?>" class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($taxValueWT, $arResult['CURRENCY_ID']) ?></strong>
 					</td>
 				</tr>
 				<tr>
 					<td><nobr><?= htmlspecialcharsbx(GetMessage('CRM_PRODUCT_SUM_TOTAL')) ?>:</nobr></td>
 					<td>
-						<? $productEditorCfg['SUM_TOTAL_ID'] = $arResult['PREFIX'].'_sum_total';  ?>
+						<?php  $productEditorCfg['SUM_TOTAL_ID'] = $arResult['PREFIX'].'_sum_total';  ?>
 						<nobr><strong id="<?= htmlspecialcharsbx($productEditorCfg['SUM_TOTAL_ID']) ?>" class="crm-view-table-total-value"><?= CCrmCurrency::MoneyToString($arResult['SUM_TOTAL'], $arResult['CURRENCY_ID']) ?></strong></nobr>
 						<input type="hidden" name="<?= htmlspecialcharsbx($arResult['PRODUCT_DATA_FIELD_NAME']) ?>" value="" />
 					</td>
@@ -1598,7 +1598,7 @@ BX.CrmProductEditorErrors =
 	"INVALID_REQUEST_ERROR": "<?= CUtil::JSEscape(GetMessage('CRM_INVALID_REQUEST_ERROR'))?>"
 };
 
-<?if(!$readOnly):?>
+<?php if(!$readOnly):?>
 var crmInvoiceSpecListProductEditor = null;
 BX.ready(
 	function()
@@ -1613,7 +1613,7 @@ BX.ready(
 			BX('<?= CUtil::JSEscape($productAddBtnID) ?>'),
 			'<?= CUtil::JSEscape($productAddBtnID) ?>',
 			'',
-			<?echo CUtil::PhpToJsObject(CCrmProductHelper::PreparePopupItems($arResult['CURRENCY_ID']));?>,
+			<?php echo CUtil::PhpToJsObject(CCrmProductHelper::PreparePopupItems($arResult['CURRENCY_ID']));?>,
 			false,
 			false,
 			['product'],
@@ -1639,7 +1639,7 @@ BX.ready(
 		}
 	}
 );
-<?endif;?>
+<?php endif;?>
 
 <?php if ($bCanAddProduct && isset($arResult['INVOICE_PRODUCT_CREATE_DLG_SETTINGS'])) : ?>
 BX.ready(function () {

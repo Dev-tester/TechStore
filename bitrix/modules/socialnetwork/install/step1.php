@@ -18,7 +18,7 @@
 	}
 	//-->
 	</script>
-	<?
+	<?php 
 	$arSites= Array();
 	$arSiteTabs = array();
 
@@ -46,7 +46,7 @@
 		</tr>
 	</table>
 	<br/>
-	<?
+	<?php 
 	$arSiteTabControl->Begin();
 
 	foreach ($arSites as $arSite)
@@ -73,16 +73,16 @@
 				<td><input type="checkbox" name="public_rewrite_<?=$siteIdValue?>" id="public_rewrite_<?=$siteIdValue?>" value="Y"></td>
 			</tr>
 		</table>
-		<?
+		<?php 
 	}
 	$arSiteTabControl->End();
 	?>
 
 	<script language="JavaScript">
 	<!--
-	<?foreach($arSites as $arSite):?>
+	<?php foreach($arSites as $arSite):?>
 		ChangeInstallPublic(false, '<?=CUtil::JSEscape($arSite["SITE_ID"]);?>');
-	<?endforeach;?>
+	<?php endforeach;?>
 	//-->
 	</script>
 	<br>

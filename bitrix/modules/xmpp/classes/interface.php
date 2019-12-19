@@ -1,4 +1,4 @@
-<?
+<?php 
 interface IXMPPFactoryHandler
 {
 	public function ReceiveMessage($senderJId, array $arMessage, CXMPPClient $senderClient);

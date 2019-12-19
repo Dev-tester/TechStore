@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIZARD_TITLE"] = "Налаштування продукту <br> «Бітрікс: Корпоративний портал»";
 $MESS["COPYRIGHT"] = "&copy; «Бітрікс», #CURRENT_YEAR#";
 $MESS["SUPPORT"] = "<a href=\"http://www.1c-bitrix.ua/?referer1=bsm&referer2=install\" target=\"_blank\">www.1c-bitrix.ua</a> | <a href=\"http://www.1c-bitrix.ua/support/?referer1=bsm&referer2=install \"target =\"_blank\">Техпідтримка</a>";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JC_CORE_TREE_SELECT_CONTROL"] = "Выберите условие";
 $MESS["JC_CORE_TREE_ADD_CONTROL"] = "Добавить условие";
 $MESS["JC_CORE_TREE_DELETE_CONTROL"] = "Удалить условие";

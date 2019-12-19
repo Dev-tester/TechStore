@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["IBLOCK_ENTITY_TIMESTAMP_X_FIELD"] = "Дата изменения";
 $MESS["IBLOCK_ENTITY_IBLOCK_TYPE_ID_FIELD"] = "Тип информационного блока";

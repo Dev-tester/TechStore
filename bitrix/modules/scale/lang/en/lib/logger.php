@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCALE_ACTION_EVENT_LOG_TYPE_ACTION"] = "Action";
 $MESS["SCALE_ACTION_EVENT_LOG_TYPE_ACTION_STARTED"] = "Scaling: action started.";
 $MESS["SCALE_ACTION_EVENT_LOG_TYPE_ACTION_ERROR"] = "Scaling: action, error.";

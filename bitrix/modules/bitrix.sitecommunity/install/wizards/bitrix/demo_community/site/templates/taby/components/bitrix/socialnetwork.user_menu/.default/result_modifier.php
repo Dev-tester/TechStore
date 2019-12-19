@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 
 if ($this->__component->__parent && $this->__component->__parent->arParams && array_key_exists("NAME_TEMPLATE", $this->__component->__parent->arParams))
 	$arParams["NAME_TEMPLATE"] = $this->__component->__parent->arParams["NAME_TEMPLATE"];

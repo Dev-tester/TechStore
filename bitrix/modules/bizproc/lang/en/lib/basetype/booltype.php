@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDT_BOOL_YES"] = "Yes";
 $MESS["BPDT_BOOL_NO"] = "No";
 $MESS["BPDT_BOOL_NOT_SET"] = "Not installed";

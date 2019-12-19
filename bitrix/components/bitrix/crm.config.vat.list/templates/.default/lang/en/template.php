@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_VAT_SHOW_TITLE"] = "View this tax";
 $MESS["CRM_VAT_SHOW"] = "View tax";
 $MESS["CRM_VAT_EDIT_TITLE"] = "Open this tax for editing";

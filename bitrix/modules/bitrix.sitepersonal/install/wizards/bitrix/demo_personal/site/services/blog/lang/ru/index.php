@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_DEMO_GROUP"] = "Основная группа";
 $MESS["BLOG_DEMO_GROUP_UTIL"] = "Служебная группа";
 $MESS["BLG_NAME"] = "Блог пользователя";

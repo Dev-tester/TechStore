@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_MENU_ITEM"] = "Web Cluster";
 $MESS["CLU_MENU_TITLE"] = "Manage Web Cluster";
 $MESS["CLU_MENU_DBNODE_ITEM"] = "Database Sharding";

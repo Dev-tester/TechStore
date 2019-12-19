@@ -198,7 +198,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 
 <a name="tb"></a>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -214,47 +214,47 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td nowrap><b><?echo GetMessage("STAT_F_SEARCH_PHRASE")?></b></td>
-	<td><input type="text" name="find_phrase" size="47" value="<?echo htmlspecialcharsbx($find_phrase)?>"><?=ShowExactMatchCheckbox("find_phrase")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><b><?php echo GetMessage("STAT_F_SEARCH_PHRASE")?></b></td>
+	<td><input type="text" name="find_phrase" size="47" value="<?php echo htmlspecialcharsbx($find_phrase)?>"><?=ShowExactMatchCheckbox("find_phrase")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ID")?></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ID")?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign=top>
-	<td nowrap><?echo GetMessage("STAT_F_SEARCH_SYSTEM")?></td>
-	<td><?
+	<td nowrap><?php echo GetMessage("STAT_F_SEARCH_SYSTEM")?></td>
+	<td><?php 
 		$z = CSearcher::GetDropDownList();
 		echo SelectBox("find_searcher_id",$z,GetMessage("MAIN_ALL"), htmlspecialcharsbx($find_searcher_id));
 		?><br>
-		ID: <input type="text" name="find_searcher_id_str" size="20" value="<?echo htmlspecialcharsbx($find_searcher_id_str)?>"> <?=GetMessage("STAT_NAME")?>: <input type="text" name="find_searcher" size="40" value="<?echo htmlspecialcharsbx($find_searcher)?>"><?=ShowExactMatchCheckbox("find_searcher")?> <?=ShowFilterLogicHelp()?>
+		ID: <input type="text" name="find_searcher_id_str" size="20" value="<?php echo htmlspecialcharsbx($find_searcher_id_str)?>"> <?=GetMessage("STAT_NAME")?>: <input type="text" name="find_searcher" size="40" value="<?php echo htmlspecialcharsbx($find_searcher)?>"><?=ShowExactMatchCheckbox("find_searcher")?> <?=ShowFilterLogicHelp()?>
 	</td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_DATE").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_DATE").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("STAT_F_PAGE_TO")?></td>
-	<td><?
+	<td nowrap><?php echo GetMessage("STAT_F_PAGE_TO")?></td>
+	<td><?php 
 		echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_to_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_to_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_to" size="33" value="<?echo htmlspecialcharsbx($find_to)?>"><?=ShowExactMatchCheckbox("find_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_to" size="33" value="<?php echo htmlspecialcharsbx($find_to)?>"><?=ShowExactMatchCheckbox("find_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("STAT_F_REFERER")?></td>
-	<td><input type="text" name="find_referer_id" size="47" value="<?echo htmlspecialcharsbx($find_referer_id)?>"><?=ShowExactMatchCheckbox("find_referer_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("STAT_F_REFERER")?></td>
+	<td><input type="text" name="find_referer_id" size="47" value="<?php echo htmlspecialcharsbx($find_referer_id)?>"><?=ShowExactMatchCheckbox("find_referer_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("STAT_F_SESSION")?></td>
-	<td><input type="text" name="find_session_id" size="47" value="<?echo htmlspecialcharsbx($find_session_id)?>"><?=ShowExactMatchCheckbox("find_session_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("STAT_F_SESSION")?></td>
+	<td><input type="text" name="find_session_id" size="47" value="<?php echo htmlspecialcharsbx($find_session_id)?>"><?=ShowExactMatchCheckbox("find_session_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <input type="hidden" name="group_by" value="<?=$find_group?>">
-<?if(intval($menu_item_id)>0):?>
+<?php if(intval($menu_item_id)>0):?>
 <input type="hidden" name="menu_item_id" value="<?=intval($menu_item_id)?>">
-<?endif?>
-<?
+<?php endif?>
+<?php 
 ShowLogicRadioBtn();
 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
@@ -262,10 +262,10 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_AGGREGATOR_DESCRIPTION"] = "The links to all document libraries an employee has access to: private documents; other users' personal documents; the Documents pages; documents of extranet and intranet groups.";
 $MESS["DISK_AGGREGATOR_NETWORK_DRIVE"] = "To get access to all available Bitrix24 libraries and handle them as folders and files, connect this page as a network drive.";
 $MESS["DISK_AGGREGATOR_ND"] = "Map Network Drive";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_SCRIPT_BTN_COPY"] = "copy";
 $MESS["CRM_WEBFORM_SCRIPT_BTN_EDIT"] = "configure";
 $MESS["CRM_WEBFORM_SCRIPT_COPY_ONE_LINE"] = "one line";

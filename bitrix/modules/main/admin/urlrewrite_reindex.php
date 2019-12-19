@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/prolog.php");
 define("HELP_FILE", "settings/urlrewrite_reindex.php");
@@ -40,7 +40,7 @@ if(strlen($Reindex)>0 && check_bitrix_sessid())
 		));
 	?>
 		<input type="hidden" id="NS" name="NS" value="<?=htmlspecialcharsbx(serialize($res))?>">
-	<?else:
+	<?php else:
 		CAdminMessage::ShowMessage(array(
 			"MESSAGE"=>GetMessage("MURL_REINDEX_COMPLETE"),
 			"DETAILS"=>GetMessage("MURL_REINDEX_TOTAL")." <b>".$res."</b>",
@@ -49,7 +49,7 @@ if(strlen($Reindex)>0 && check_bitrix_sessid())
 		));
 	?>
 		<input type="hidden" id="NSTOP" name="NSTOP" value="Y">
-	<?endif;
+	<?php endif;
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
 }
 else
@@ -90,7 +90,7 @@ function DoNext()
 	}
 	if(newNS!=savedNS)
 	{
-		queryString='lang=<?echo htmlspecialcharsbx(LANG)?>';
+		queryString='lang=<?php echo htmlspecialcharsbx(LANG)?>';
 		if(savedNS!='start!')
 		{
 			queryString+='&Next=Y';
@@ -105,7 +105,7 @@ function DoNext()
 			queryString+='&stepped=Y';
 		queryString+='&max_execution_time='+document.getElementById('max_execution_time').value;
 		queryString+='&Reindex=Y';
-		queryString+='&<?echo bitrix_sessid_get()?>';
+		queryString+='&<?php echo bitrix_sessid_get()?>';
 		savedNS=newNS;
 		//alert(queryString);
 		CHttpRequest.Action = function(result)
@@ -145,40 +145,40 @@ function EndReindex()
 
 <div id="reindex_result_div" style="margin:0px"></div>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo htmlspecialcharsbx(LANG)?>" name="fs1">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo htmlspecialcharsbx(LANG)?>" name="fs1">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr>
 		<td width="40%"><?=GetMessage("MURL_REINDEX_SITE")?></td>
-		<td width="60%"><?echo CLang::SelectBox("LID", $str_LID, GetMessage("MURL_REINDEX_ALL"), "");?></td>
+		<td width="60%"><?php echo CLang::SelectBox("LID", $str_LID, GetMessage("MURL_REINDEX_ALL"), "");?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MURL_REINDEX_MAX_SIZE")?></td>
-		<td><input type="text" name="max_file_size" id="max_file_size" size="10" value="<?echo COption::GetOptionString("main", "urlrewrite_max_file_size");?>"><?echo GetMessage("MURL_REINDEX_MAX_SIZE_kb")?></td>
+		<td><?php echo GetMessage("MURL_REINDEX_MAX_SIZE")?></td>
+		<td><input type="text" name="max_file_size" id="max_file_size" size="10" value="<?php echo COption::GetOptionString("main", "urlrewrite_max_file_size");?>"><?php echo GetMessage("MURL_REINDEX_MAX_SIZE_kb")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MURL_REINDEX_STEPPED")?></td>
-		<td><input type="checkbox" name="stepped" id="stepped" value="Y" OnClick="trs.disabled=!this.checked;document.fs1.max_execution_time.disabled=!this.checked;" <?if($stepped=="Y") echo " checked"?>></td>
+		<td><?php echo GetMessage("MURL_REINDEX_STEPPED")?></td>
+		<td><input type="checkbox" name="stepped" id="stepped" value="Y" OnClick="trs.disabled=!this.checked;document.fs1.max_execution_time.disabled=!this.checked;" <?php if($stepped=="Y") echo " checked"?>></td>
 	</tr>
-	<tr id="trs" <?if($stepped!="Y") echo " disabled"?>>
-		<td><?echo GetMessage("MURL_REINDEX_STEP")?></td>
-		<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo htmlspecialcharsbx($max_execution_time);?>"  <?if($stepped!="Y") echo " disabled"?>> <?echo GetMessage("MURL_REINDEX_STEP_sec")?></td>
+	<tr id="trs" <?php if($stepped!="Y") echo " disabled"?>>
+		<td><?php echo GetMessage("MURL_REINDEX_STEP")?></td>
+		<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo htmlspecialcharsbx($max_execution_time);?>"  <?php if($stepped!="Y") echo " disabled"?>> <?php echo GetMessage("MURL_REINDEX_STEP_sec")?></td>
 	</tr>
 
-<?
+<?php 
 $tabControl->Buttons();
 ?>
-	<input type="button" id="start_button" value="<?echo GetMessage("MURL_REINDEX_REINDEX_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
+	<input type="button" id="start_button" value="<?php echo GetMessage("MURL_REINDEX_REINDEX_BUTTON")?>" OnClick="StartReindex();" class="adm-btn-save">
 	<input type="button" id="stop_button" value="<?=GetMessage("MURL_REINDEX_STOP")?>" OnClick="StopReindex();" disabled>
 	<input type="button" id="continue_button" value="<?=GetMessage("MURL_REINDEX_CONTINUE")?>" OnClick="ContinueReindex();" disabled>
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }
 ?>

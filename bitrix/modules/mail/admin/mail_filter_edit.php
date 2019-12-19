@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -201,139 +201,139 @@ if ($message)
 
 $tabControl->Begin();
 ?>
-<form name="form1" method="POST" action="<?echo $APPLICATION->GetCurPage()?>">
+<form name="form1" method="POST" action="<?php echo $APPLICATION->GetCurPage()?>">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<input type="hidden" name="ID" value="<?echo $ID?>">
-<?echo GetFilterHiddens("find_");?>
-<?$tabControl->BeginNextTab();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<input type="hidden" name="ID" value="<?php echo $ID?>">
+<?php echo GetFilterHiddens("find_");?>
+<?php $tabControl->BeginNextTab();?>
 
-	<?if($ID>0):?>
+	<?php if($ID>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_ID")?></td>
-		<td><?echo $str_ID?></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_ID")?></td>
+		<td><?php echo $str_ID?></td>
 	</tr>
-	<?endif?>
-	<?if(strlen($str_TIMESTAMP_X)>0):?>
+	<?php endif?>
+	<?php if(strlen($str_TIMESTAMP_X)>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_DATECH")?></td>
-		<td><?echo $str_TIMESTAMP_X?></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_DATECH")?></td>
+		<td><?php echo $str_TIMESTAMP_X?></td>
 	</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr>
-		<td width="40%"><?echo GetMessage("MAIL_FLT_EDT_MBOX")?> </td>
+		<td width="40%"><?php echo GetMessage("MAIL_FLT_EDT_MBOX")?> </td>
 		<td width="60%">
-		<?$mb = CMailBox::GetList(Array("NAME"=>"ASC", "ID"=>"ASC"), array('USER_ID' => 0)); ?>
+		<?php $mb = CMailBox::GetList(Array("NAME"=>"ASC", "ID"=>"ASC"), array('USER_ID' => 0)); ?>
 		<select name="MAILBOX_ID">
-		<?
+		<?php 
 			ClearVars("mb_");
 			while($mb->ExtractFields("mb_")):
-				?><option value="<?echo $mb_ID?>"<?if($str_MAILBOX_ID==$mb_ID)echo " selected"?>><?echo $mb_NAME?> [<?echo $mb_ID?>]</option><?
+				?><option value="<?php echo $mb_ID?>"<?php if($str_MAILBOX_ID==$mb_ID)echo " selected"?>><?php echo $mb_NAME?> [<?php echo $mb_ID?>]</option><?php 
 			endwhile;
 		?>
 		</select>
 		
-		<a href="mail_mailbox_edit.php?lang=<?=LANG?>" title="<?echo GetMessage("MAIL_FLT_EDT_MBOX_NEW")?>"><?echo GetMessage("MAIL_FLT_EDT_MBOX_NEW_LINK")?></a>
+		<a href="mail_mailbox_edit.php?lang=<?=LANG?>" title="<?php echo GetMessage("MAIL_FLT_EDT_MBOX_NEW")?>"><?php echo GetMessage("MAIL_FLT_EDT_MBOX_NEW_LINK")?></a>
 		
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_ACT")?></td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_ACT")?></td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("MAIL_FLT_EDT_NAME")?></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_NAME")?></td>
 		<td><input type="text" name="NAME" size="53" maxlength="255" value="<?=$str_NAME?>"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_FLT_EDT_DESC")?></td>
-		<td><textarea name="DESCRIPTION" cols="40" rows="5"><?echo $str_DESCRIPTION?></textarea>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_FLT_EDT_DESC")?></td>
+		<td><textarea name="DESCRIPTION" cols="40" rows="5"><?php echo $str_DESCRIPTION?></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_SORT")?></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_SORT")?></td>
 		<td><input type="text" name="SORT" size="4" maxlength="5" value="<?=$str_SORT?>"></td>
 	</tr>
 
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_FLT_EDT_WHEN")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_FLT_EDT_WHEN")?></td>
 		<td>
 			<div class="adm-list">
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" name="WHEN_MAIL_RECEIVED" value="Y" id="WHEN_MAIL_RECEIVED"<?if($str_WHEN_MAIL_RECEIVED=="Y")echo " checked"?>></div>
-					<div class="adm-list-label"><label for="WHEN_MAIL_RECEIVED"><?echo GetMessage("MAIL_FLT_EDT_WHEN_RETR")?></label></div>
+					<div class="adm-list-control"><input type="checkbox" name="WHEN_MAIL_RECEIVED" value="Y" id="WHEN_MAIL_RECEIVED"<?php if($str_WHEN_MAIL_RECEIVED=="Y")echo " checked"?>></div>
+					<div class="adm-list-label"><label for="WHEN_MAIL_RECEIVED"><?php echo GetMessage("MAIL_FLT_EDT_WHEN_RETR")?></label></div>
 				</div>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" name="WHEN_MANUALLY_RUN" value="Y" id="WHEN_MANUALLY_RUN"<?if($str_WHEN_MANUALLY_RUN=="Y")echo " checked"?>></div>
-					<div class="adm-list-label"><label for="WHEN_MANUALLY_RUN"><?echo GetMessage("MAIL_FLT_EDT_WHEN_MANUAL")?></label></div>
+					<div class="adm-list-control"><input type="checkbox" name="WHEN_MANUALLY_RUN" value="Y" id="WHEN_MANUALLY_RUN"<?php if($str_WHEN_MANUALLY_RUN=="Y")echo " checked"?>></div>
+					<div class="adm-list-label"><label for="WHEN_MANUALLY_RUN"><?php echo GetMessage("MAIL_FLT_EDT_WHEN_MANUAL")?></label></div>
 				</div>
 			</div>
 		</td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 	<tr>
 		<td align="center" colspan="2">
-		<?echo GetMessage("MAIL_FLT_EDT_CONDITIONS_DESC")?></td>
+		<?php echo GetMessage("MAIL_FLT_EDT_CONDITIONS_DESC")?></td>
 	</tr>
-	<?foreach($ar_CONDITIONS as $key=>$COND):?>
+	<?php foreach($ar_CONDITIONS as $key=>$COND):?>
 	<tr>
 		<td class="adm-detail-valign-top">
-		<?//if(intval($key)>0)echo intval($key).".";else echo GetMessage("MAIL_FLT_EDT_NEW_COND"); ?>
+		<?php //if(intval($key)>0)echo intval($key).".";else echo GetMessage("MAIL_FLT_EDT_NEW_COND"); ?>
 		<select name="CONDITIONS[<?=htmlspecialcharsbx($key)?>][TYPE]" style="width:120px">
-			<option value=""><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE")?></option>
-			<option value="SENDER"<?if($COND["TYPE"]=="SENDER")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE_SENDER")?></option>
-			<option value="RECIPIENT"<?if($COND["TYPE"]=="RECIPIENT")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE_RECIPIENT")?></option>
-			<option value="SUBJECT"<?if($COND["TYPE"]=="SUBJECT")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE_SUBJECT")?></option>
-			<option value="BODY"<?if($COND["TYPE"]=="BODY")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE_BODY")?></option>
-			<option value="HEADER"<?if($COND["TYPE"]=="HEADER")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE_HEADER")?></option>
-			<option value="ALL"<?if($COND["TYPE"]=="ALL")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE_ALL")?></option>
-			<option value="ATTACHMENT"<?if($COND["TYPE"]=="ATTACHMENT")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_TYPE_ATTACH")?></option>
+			<option value=""><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE")?></option>
+			<option value="SENDER"<?php if($COND["TYPE"]=="SENDER")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE_SENDER")?></option>
+			<option value="RECIPIENT"<?php if($COND["TYPE"]=="RECIPIENT")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE_RECIPIENT")?></option>
+			<option value="SUBJECT"<?php if($COND["TYPE"]=="SUBJECT")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE_SUBJECT")?></option>
+			<option value="BODY"<?php if($COND["TYPE"]=="BODY")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE_BODY")?></option>
+			<option value="HEADER"<?php if($COND["TYPE"]=="HEADER")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE_HEADER")?></option>
+			<option value="ALL"<?php if($COND["TYPE"]=="ALL")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE_ALL")?></option>
+			<option value="ATTACHMENT"<?php if($COND["TYPE"]=="ATTACHMENT")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_TYPE_ATTACH")?></option>
 		</select>
 
 		<select name="CONDITIONS[<?=htmlspecialcharsbx($key)?>][COMPARE_TYPE]" style="width:120px">
-			<option value="CONTAIN"<?if($COND["COMPARE_TYPE"]!="EQUAL" && $COND["COMPARE_TYPE"]!="NOT_CONTAIN" && $COND["COMPARE_TYPE"]!="NOT_EQUAL")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_CONTAIN")?></option>
-			<option value="NOT_CONTAIN"<?if($COND["COMPARE_TYPE"]=="NOT_CONTAIN")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_NOTCONTAIN")?></option>
-			<option value="EQUAL"<?if($COND["COMPARE_TYPE"]=="EQUAL")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_EQUAL")?></option>
-			<option value="NOT_EQUAL"<?if($COND["COMPARE_TYPE"]=="NOT_EQUAL")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_NOTEQUAL")?></option>
-			<option value="REGEXP"<?if($COND["COMPARE_TYPE"]=="REGEXP")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_REGEXP")?></option>
+			<option value="CONTAIN"<?php if($COND["COMPARE_TYPE"]!="EQUAL" && $COND["COMPARE_TYPE"]!="NOT_CONTAIN" && $COND["COMPARE_TYPE"]!="NOT_EQUAL")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_CONTAIN")?></option>
+			<option value="NOT_CONTAIN"<?php if($COND["COMPARE_TYPE"]=="NOT_CONTAIN")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_NOTCONTAIN")?></option>
+			<option value="EQUAL"<?php if($COND["COMPARE_TYPE"]=="EQUAL")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_EQUAL")?></option>
+			<option value="NOT_EQUAL"<?php if($COND["COMPARE_TYPE"]=="NOT_EQUAL")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_NOTEQUAL")?></option>
+			<option value="REGEXP"<?php if($COND["COMPARE_TYPE"]=="REGEXP")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_REGEXP")?></option>
 		</select>
 		</td>
 		<td class="adm-detail-valign-top">
-			<textarea name="CONDITIONS[<?=htmlspecialcharsbx($key)?>][STRINGS]" style="width:70%" rows="3"><?echo htmlspecialcharsbx($COND["STRINGS"])?></textarea><br>
+			<textarea name="CONDITIONS[<?=htmlspecialcharsbx($key)?>][STRINGS]" style="width:70%" rows="3"><?php echo htmlspecialcharsbx($COND["STRINGS"])?></textarea><br>
 		</td>
 	</tr>
-	<?endforeach?>
+	<?php endforeach?>
 	<tr>
-		<td width="40%"><?echo GetMessage("MAIL_FLT_EDT_COND_SPAM")?></td>
+		<td width="40%"><?php echo GetMessage("MAIL_FLT_EDT_COND_SPAM")?></td>
 		<td width="60%">
 		<select name="SPAM_RATING_TYPE">
-			<option value="&lt;"><?echo GetMessage("MAIL_FLT_EDT_COND_LESS")?></option>
-			<option value="&gt;"<?if($str_SPAM_RATING_TYPE=="&gt;")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_GREATER")?></option>
+			<option value="&lt;"><?php echo GetMessage("MAIL_FLT_EDT_COND_LESS")?></option>
+			<option value="&gt;"<?php if($str_SPAM_RATING_TYPE=="&gt;")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_GREATER")?></option>
 		</select>
 		<input type="text" name="SPAM_RATING" size="4" maxlength="5" value="<?=$str_SPAM_RATING?>">%</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_COND_SIZE")?></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_COND_SIZE")?></td>
 		<td>
 		<select name="MESSAGE_SIZE_TYPE">
-			<option value="&lt;"><?echo GetMessage("MAIL_FLT_EDT_COND_LESS")?></option>
-			<option value="&gt;"<?if($str_MESSAGE_SIZE_TYPE=="&gt;")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_GREATER")?></option>
+			<option value="&lt;"><?php echo GetMessage("MAIL_FLT_EDT_COND_LESS")?></option>
+			<option value="&gt;"<?php if($str_MESSAGE_SIZE_TYPE=="&gt;")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_GREATER")?></option>
 		</select>
 		<input type="text" name="MESSAGE_SIZE" size="10" maxlength="18" value="<?=$str_MESSAGE_SIZE?>"><select name="MESSAGE_SIZE_UNIT">
-			<option value="b"><?echo GetMessage("MAIL_FLT_EDT_COND_SIZE_B")?></option>
-			<option value="k"<?if($str_MESSAGE_SIZE_UNIT=="k")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_SIZE_KB")?></option>
-			<option value="m"<?if($str_MESSAGE_SIZE_UNIT=="m")echo" selected"?>><?echo GetMessage("MAIL_FLT_EDT_COND_SIZE_MB")?></option>
+			<option value="b"><?php echo GetMessage("MAIL_FLT_EDT_COND_SIZE_B")?></option>
+			<option value="k"<?php if($str_MESSAGE_SIZE_UNIT=="k")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_SIZE_KB")?></option>
+			<option value="m"<?php if($str_MESSAGE_SIZE_UNIT=="m")echo" selected"?>><?php echo GetMessage("MAIL_FLT_EDT_COND_SIZE_MB")?></option>
 		</select>
 		</td>
 	</tr>
-<?if($USER->IsAdmin()):?>
+<?php if($USER->IsAdmin()):?>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_FLT_EDT_COND_PHP")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_FLT_EDT_COND_PHP")?></td>
 		<td><textarea style="width:70%" rows="5" wrap="off" name="PHP_CONDITION"><?=$str_PHP_CONDITION?></textarea></td>
 	</tr>
-<?endif?>
-	<?
+<?php endif?>
+	<?php 
 	if($arModFilter && strlen($arModFilter["ACTION_INTERFACE"])>0):
 
 		$arACTION_VARS = explode("&", $ACTION_VARS);
@@ -354,59 +354,59 @@ $tabControl->Begin();
 	?>
 
 		<tr class="heading">
-			<td align="center" colspan="2"><b><?echo GetMessage("MAIL_FLT_EDT_SETTINGS")?></b><br>
+			<td align="center" colspan="2"><b><?php echo GetMessage("MAIL_FLT_EDT_SETTINGS")?></b><br>
 			<input type="hidden" name="filter_type" value="<?=htmlspecialcharsbx($filter_type);?>">
 			<?=htmlspecialcharsbx($arModFilter["NAME"])?></td>
 		</tr>
 
-		<?include($arModFilter["ACTION_INTERFACE"]);?>
-	<?endif?>
+		<?php include($arModFilter["ACTION_INTERFACE"]);?>
+	<?php endif?>
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
 
 	<tr>
-		<td width="40%"><?echo GetMessage("MAIL_FLT_EDT_ACT_STATUS")?></td>
+		<td width="40%"><?php echo GetMessage("MAIL_FLT_EDT_ACT_STATUS")?></td>
 		<td width="60%">
 			<select name="ACTION_READ">
-				<option value=""><?echo GetMessage("MAIL_FLT_EDT_ACT_NC")?></option>
-				<option value="Y"<?if($str_ACTION_READ=="Y")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_ACT_STATUS_READ")?></option>
-				<option value="N"<?if($str_ACTION_READ=="N")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_ACT_STATUS_NOTREAD")?></option>
+				<option value=""><?php echo GetMessage("MAIL_FLT_EDT_ACT_NC")?></option>
+				<option value="Y"<?php if($str_ACTION_READ=="Y")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_ACT_STATUS_READ")?></option>
+				<option value="N"<?php if($str_ACTION_READ=="N")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_ACT_STATUS_NOTREAD")?></option>
 			</select>
 		</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_ACT_MARK")?></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_ACT_MARK")?></td>
 		<td>
 			<select name="ACTION_SPAM">
-				<option value=""><?echo GetMessage("MAIL_FLT_EDT_ACT_NC")?></option>
-				<option value="Y"<?if($str_ACTION_SPAM=="Y")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_ACT_MARK_SPAM")?></option>
-				<option value="N"<?if($str_ACTION_SPAM=="N")echo " selected"?>><?echo GetMessage("MAIL_FLT_EDT_ACT_MARK_NOTSPAM")?></option>
+				<option value=""><?php echo GetMessage("MAIL_FLT_EDT_ACT_NC")?></option>
+				<option value="Y"<?php if($str_ACTION_SPAM=="Y")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_ACT_MARK_SPAM")?></option>
+				<option value="N"<?php if($str_ACTION_SPAM=="N")echo " selected"?>><?php echo GetMessage("MAIL_FLT_EDT_ACT_MARK_NOTSPAM")?></option>
 			</select>
 		</td>
 	</tr>
 
-<?if($USER->IsAdmin()):?>
+<?php if($USER->IsAdmin()):?>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_FLT_EDT_ACT_PHP")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_FLT_EDT_ACT_PHP")?></td>
 		<td><textarea cols="40" rows="8" name="ACTION_PHP" wrap="off"><?=$str_ACTION_PHP?></textarea></td>
 	</tr>
-<?endif?>
+<?php endif?>
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_ACT_DELETE")?></td>
-		<td><input type="checkbox" name="ACTION_DELETE_MESSAGE" value="Y"<?if($str_ACTION_DELETE_MESSAGE=="Y")echo " checked"?>></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_ACT_DELETE")?></td>
+		<td><input type="checkbox" name="ACTION_DELETE_MESSAGE" value="Y"<?php if($str_ACTION_DELETE_MESSAGE=="Y")echo " checked"?>></td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("MAIL_FLT_EDT_ACT_CANCEL")?></td>
-		<td><input type="checkbox" name="ACTION_STOP_EXEC" value="Y"<?if($str_ACTION_STOP_EXEC=="Y")echo " checked"?>></td>
+		<td><?php echo GetMessage("MAIL_FLT_EDT_ACT_CANCEL")?></td>
+		<td><input type="checkbox" name="ACTION_STOP_EXEC" value="Y"<?php if($str_ACTION_STOP_EXEC=="Y")echo " checked"?>></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(Array("disabled"=>$MOD_RIGHT<"W", "back_url" =>"/bitrix/admin/mail_filter_admin.php?lang=".LANG));
 $tabControl->End();
 ?>
 
 </form>
-<?$tabControl->ShowWarnings("form1", $message);?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php $tabControl->ShowWarnings("form1", $message);?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

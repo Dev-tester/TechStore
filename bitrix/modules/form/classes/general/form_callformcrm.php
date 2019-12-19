@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CAllFormCrm
 {
 	const LINK_AUTO = 'A';

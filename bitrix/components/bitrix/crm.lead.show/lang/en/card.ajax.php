@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_NAME"] = "First Name";
 $MESS["CRM_COLUMN_LAST_NAME"] = "Last Name";
 $MESS["CRM_COLUMN_SECOND_NAME"] = "Middle Name";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MFP_CAPTCHA'] = "Use CAPTCHA for Unauthorized Visitors";
 $MESS ['MFP_OK_MESSAGE'] = "Text To Show Upon Sending";
 $MESS ['MFP_OK_TEXT'] = "Thank you. Your message is now being processed.";

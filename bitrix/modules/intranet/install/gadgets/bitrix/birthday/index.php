@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["NUM_USERS"] = intval($arGadgetParams["NUM_USERS"]);
@@ -6,7 +6,7 @@ $arGadgetParams["NUM_USERS"] = ($arGadgetParams["NUM_USERS"]>0 && $arGadgetParam
 
 $arGadgetParams["LIST_URL"] = ($arGadgetParams["LIST_URL"]?$arGadgetParams["LIST_URL"]:"/company/birthdays.php");
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:intranet.structure.birthday.nearest",
 	"include_area",
 	Array(
@@ -34,8 +34,8 @@ $arGadgetParams["LIST_URL"] = ($arGadgetParams["LIST_URL"]?$arGadgetParams["LIST
 	false,
 	Array("HIDE_ICONS"=>"Y")
 );?>
-<?if(strlen($arGadgetParams["LIST_URL"])>0):?>
+<?php if(strlen($arGadgetParams["LIST_URL"])>0):?>
 <br />
-<a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?echo GetMessage("GD_BIRTHDAY_LINK")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
+<a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?php echo GetMessage("GD_BIRTHDAY_LINK")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
 <br />
-<?endif?>
+<?php endif?>

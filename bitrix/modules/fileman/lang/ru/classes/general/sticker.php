@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FMST_TYPE_PUBLIC"] = "общий";
 $MESS["FMST_TYPE_PERSONAL"] = "личный";
 $MESS["FMST_TYPE_PERSONAL_TITLE"] = "Только вы можете видеть этот стикер. Нажмите, чтобы изменить.";

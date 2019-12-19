@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!$USER->CanDoOperation('edit_other_settings'))
 	$APPLICATION->AuthForm(GetMessage("ACCESS_DENIED"));
 
@@ -235,22 +235,22 @@ window.networkRegister = (function(){
 	}
 })();
 
-<?
+<?php 
 if(isset($_REQUEST['register_network'])):
 ?>
 BX.ready(function(){networkRegister()});
-<?
+<?php 
 endif;
 ?>
 </script>
 
-<form method="post" name="socserv_settings" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=urlencode(LANGUAGE_ID)?>">
-<?
+<form method="post" name="socserv_settings" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=urlencode(LANGUAGE_ID)?>">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 <tr><td colspan="2">
-<?
+<?php 
 $aSiteTabs = array(array("DIV" => "opt_common", "TAB" => GetMessage("socserv_sett_common"), 'TITLE' => GetMessage("socserv_sett_common_title"), 'ONSELECT'=>"document.forms['socserv_settings'].siteTabControl_active_tab.value='opt_common'"));
 foreach($arSites as $arSite)
 	$aSiteTabs[] = array("DIV" => "opt_site_".$arSite["ID"], "TAB" => '['.$arSite["ID"].'] '.htmlspecialcharsbx($arSite["NAME"]), 'TITLE' => GetMessage("socserv_sett_site").' ['.$arSite["ID"].'] '.htmlspecialcharsbx($arSite["NAME"]), 'ONSELECT'=>"document.forms['socserv_settings'].siteTabControl_active_tab.value='opt_site_".$arSite["ID"]."'");
@@ -267,45 +267,45 @@ foreach($arSiteList as $site):
 	$twitHashInput = "<input type=\"text\" name=\"twitter_search_hash".$suffix."\" id=\"twitter_search_hash".$suffix."\" size=15 value=\"".htmlspecialcharsbx($hash)."\">";
 	$siteTabControl->BeginNextTab();
 ?>
-<?if($site <> ''):?>
+<?php if($site <> ''):?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="edit-table">
 	<tr>
-		<td width="50%" class="field-name"><label for="use_on_sites<?=$suffix?>"><?echo GetMessage("socserv_sett_site_apply")?></td>
+		<td width="50%" class="field-name"><label for="use_on_sites<?=$suffix?>"><?php echo GetMessage("socserv_sett_site_apply")?></td>
 		<td width="50%" style="padding-left:7px;">
 			<input type="hidden" name="use_on_sites[<?=htmlspecialcharsbx($site)?>]" value="N">
-			<input type="checkbox" name="use_on_sites[<?=htmlspecialcharsbx($site)?>]" value="Y"<?if($arUseOnSites[$site] == "Y") echo ' checked'?> id="use_on_sites<?=$suffix?>" onclick="BX('site_settings<?=$suffix?>').style.display=(this.checked? '':'none');">
+			<input type="checkbox" name="use_on_sites[<?=htmlspecialcharsbx($site)?>]" value="Y"<?php if($arUseOnSites[$site] == "Y") echo ' checked'?> id="use_on_sites<?=$suffix?>" onclick="BX('site_settings<?=$suffix?>').style.display=(this.checked? '':'none');">
 		</td>
 	</tr>
 </table>
-<?endif?>
-<table cellpadding="0" cellspacing="0" border="0" class="edit-table" width="100%" id="site_settings<?=$suffix?>"<?if($site <> '' && $arUseOnSites[$site] <> "Y") echo ' style="display:none"';?>>
-	<?if($site == ''):?>
-	<?if(IsModuleInstalled("timeman")):?>
+<?php endif?>
+<table cellpadding="0" cellspacing="0" border="0" class="edit-table" width="100%" id="site_settings<?=$suffix?>"<?php if($site <> '' && $arUseOnSites[$site] <> "Y") echo ' style="display:none"';?>>
+	<?php if($site == ''):?>
+	<?php if(IsModuleInstalled("timeman")):?>
 		<tr>
 			<td> <?=GetMessage("soc_serv_send_activity");?> </td><td>
 				<input type="checkbox" name="allow_send_user_activity" id="allow_send_user_activity" value="Y"
-					<?if(COption::GetOptionString("socialservices", "allow_send_user_activity", "N") == 'Y') echo " checked"; elseif(COption::GetOptionString("socialservices", "allow_send_user_activity", false) === false)  echo " checked";?>>
+					<?php if(COption::GetOptionString("socialservices", "allow_send_user_activity", "N") == 'Y') echo " checked"; elseif(COption::GetOptionString("socialservices", "allow_send_user_activity", false) === false)  echo " checked";?>>
 
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td> <?=str_replace("#hash#", $twitHashInput, GetMessage("socserv_twit_to_buzz"))?> </td><td>
 			<input type="checkbox" name="get_message_from_twitter" id="get_message_from_twitter" value="Y"
-				<?if(COption::GetOptionString("socialservices", "get_message_from_twitter", "N") == 'Y') echo " checked"; elseif(COption::GetOptionString("socialservices", "get_message_from_twitter", false) === false)  echo " checked";?>>
+				<?php if(COption::GetOptionString("socialservices", "get_message_from_twitter", "N") == 'Y') echo " checked"; elseif(COption::GetOptionString("socialservices", "get_message_from_twitter", false) === false)  echo " checked";?>>
 
 		</td>
 	</tr>
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("soc_serv_opt_list_title")?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr valign="top">
 
-		<td width="50%" class="field-name"><?echo GetMessage("soc_serv_opt_list")?></td>
+		<td width="50%" class="field-name"><?php echo GetMessage("soc_serv_opt_list")?></td>
 		<td width="50%">
 			<table cellpadding="0" style="width:45%;" cellspacing="3" border="0" width="" class="padding-0">
-<?
+<?php 
 	$arServices = $oAuthManager->GetAuthServices($suffix);
 	foreach($arServices as $id=>$service):
 ?>
@@ -315,22 +315,22 @@ foreach($arSiteList as $site):
 						<input type="checkbox" name="AUTH_SERVICES<?=$suffix?>[<?=htmlspecialcharsbx($id)?>]"
 							id="AUTH_SERVICES<?=$suffix?><?=htmlspecialcharsbx($id)?>"
 							value="Y"
-							<?if($service["__active"] == true) echo " checked"?>
-							<?if($service["DISABLED"] == true) echo " disabled"?>>
+							<?php if($service["__active"] == true) echo " checked"?>
+							<?php if($service["DISABLED"] == true) echo " disabled"?>>
 					</td>
 					<td><div class="bx-ss-icon <?=htmlspecialcharsbx($service["ICON"])?>"></div></td>
 					<td><label for="AUTH_SERVICES<?=$suffix?><?=htmlspecialcharsbx($id)?>"><?=htmlspecialcharsbx($service["NAME"])?></label></td>
 					<td>&nbsp;</td>
-					<td><a href="javascript:void(0)" onclick="MoveRowUp(this)"><img src="/bitrix/images/socialservices/up.gif" width="16" height="16" alt="<?echo GetMessage("soc_serv_opt_up")?>" border="0"></a></td>
-					<td><a href="javascript:void(0)" onclick="MoveRowDown(this)"><img src="/bitrix/images/socialservices/down.gif" width="16" height="16" alt="<?echo GetMessage("soc_serv_opt_down")?>" border="0"></a></td>
+					<td><a href="javascript:void(0)" onclick="MoveRowUp(this)"><img src="/bitrix/images/socialservices/up.gif" width="16" height="16" alt="<?php echo GetMessage("soc_serv_opt_up")?>" border="0"></a></td>
+					<td><a href="javascript:void(0)" onclick="MoveRowDown(this)"><img src="/bitrix/images/socialservices/down.gif" width="16" height="16" alt="<?php echo GetMessage("soc_serv_opt_down")?>" border="0"></a></td>
 				</tr>
-<?
+<?php 
 	endforeach;
 ?>
 			</table>
 		</td>
 	</tr>
-<?
+<?php 
 	foreach($arOptions as $option)
 	{
 		if(!is_array($option))
@@ -346,7 +346,7 @@ foreach($arSiteList as $site):
 	}
 ?>
 </table>
-<?
+<?php 
 endforeach; //foreach($arSiteList as $site)
 
 $tabControl->BeginNextTab();
@@ -364,76 +364,76 @@ while($zr = $z->Fetch())
 }
 ?>
 	<tr>
-		<td><?echo GetMessage("SOC_OPT_MAIN_REG")?>: </td>
+		<td><?php echo GetMessage("SOC_OPT_MAIN_REG")?>: </td>
 		<td>
-<?
+<?php 
 if (COption::GetOptionString("main", "new_user_registration", "N") == "Y"):
 ?>
-			<span style="color: green;"><?echo GetMessage("SOC_OPT_MAIN_REG_Y")?></span>
-<?
+			<span style="color: green;"><?php echo GetMessage("SOC_OPT_MAIN_REG_Y")?></span>
+<?php 
 else:
 ?>
-			<span style="color: red;"><?echo GetMessage("SOC_OPT_MAIN_REG_N")?></span>
-<?
+			<span style="color: red;"><?php echo GetMessage("SOC_OPT_MAIN_REG_N")?></span>
+<?php 
 endif;
 ?>
 		</td>
 	</tr>
 	<tr>
-		<td><label for="allow_registration"><?echo GetMessage("SOC_OPT_SOC_REG")?>: </label></td>
+		<td><label for="allow_registration"><?php echo GetMessage("SOC_OPT_SOC_REG")?>: </label></td>
 		<td>
 			<input type="hidden" name="allow_registration" value="N" />
 			<input type="checkbox" name="allow_registration" id="allow_registration" value="Y"<?=$allowAuthorization ? ' checked="checked"' : ''?> />
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("SOC_OPT_MAIN_DENY_AUTH")?>: </td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("SOC_OPT_MAIN_DENY_AUTH")?>: </td>
 		<td>
 			<select name="group_deny_auth[]" size="5" multiple="multiple">
-<?
+<?php 
 foreach($groups as $groupId => $groupTitle)
 {
 ?>
 				<option value="<?=$groupId?>"<?=in_array($groupId,
 					$groupDenyAuth)?' selected="selected"' : ''?>><?=Converter::getHtmlConverter()->encode($groupTitle)?></option>
-<?
+<?php 
 }
 ?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("SOC_OPT_MAIN_DENY_SPLIT")?>: </td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("SOC_OPT_MAIN_DENY_SPLIT")?>: </td>
 		<td>
 			<select name="group_deny_split[]" size="5" multiple="multiple">
-<?
+<?php 
 foreach($groups as $groupId => $groupTitle)
 {
 ?>
 				<option value="<?=$groupId?>"<?=in_array($groupId,
 					$groupDenySplit)?' selected="selected"' : ''?>><?=Converter::getHtmlConverter()->encode($groupTitle)?></option>
-<?
+<?php 
 }
 ?>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $siteTabControl->End();
 ?>
 </td></tr>
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 	<input type="hidden" name="siteTabControl_active_tab" value="<?=htmlspecialcharsbx($_REQUEST["siteTabControl_active_tab"])?>">
-<?if($_REQUEST["back_url_settings"] <> ''):?>
+<?php if($_REQUEST["back_url_settings"] <> ''):?>
 	<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>">
-<?endif?>
+<?php endif?>
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-<?if($_REQUEST["back_url_settings"] <> ''):?>
-	<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+<?php if($_REQUEST["back_url_settings"] <> ''):?>
+	<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 	<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>

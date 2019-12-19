@@ -1,4 +1,4 @@
-<?
+<?php 
 $GLOBALS["UF_GALLERY_SIZE"] = array(); 
 if (!is_array($GLOBALS["PHOTOGALLERY_VARS"]))
 {

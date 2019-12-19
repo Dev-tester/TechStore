@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_HLP_FLAG_CANCELED"] = "Markierung der Stornierung";
 $MESS["SALE_EBAY_HLP_FLAG_DELIVERY"] = "Markierung der Auslieferung";
 $MESS["SALE_EBAY_HLP_FLAG_PAYED"] = "Markierung der Bezahlung";

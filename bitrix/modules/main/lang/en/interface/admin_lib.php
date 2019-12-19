@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JSPOPUP_CANCEL_CAPTION"] = "Cancel";
 $MESS["JSPOPUP_CANCEL_TITLE"] = "Cancel changes";
 $MESS["JSPOPUP_CLOSE_CAPTION"] = "Close";

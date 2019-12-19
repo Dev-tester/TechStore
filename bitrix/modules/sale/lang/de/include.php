@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SI_ITEMS_ORD"] = "Artikel";
 $MESS["SI_ITEMS"] = "Artikel";
 $MESS["SI_SUM_PAID1"] = "Bereits bezahlt";

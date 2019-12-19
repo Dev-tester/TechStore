@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"]))
 	return true;
 
@@ -11,13 +11,13 @@ $arParams["ID"] = md5(serialize(array("default", $arParams["FILTER"], $arParams[
 ********************************************************************/
 
 if (!empty($arResult["ERROR_MESSAGE"])):
-	?><div class="photo-error"><?=ShowError($arResult["ERROR_MESSAGE"])?></div><?
+	?><div class="photo-error"><?=ShowError($arResult["ERROR_MESSAGE"])?></div><?php 
 endif;
 
 if ($arParams["LIVEFEED_EVENT_ID"] == "photo")
 {
 	$albumToken = randString(6);
-	?><div class="post-item-attached-img-wrap" id="album_wrap_<?=$albumToken?>"><?
+	?><div class="post-item-attached-img-wrap" id="album_wrap_<?=$albumToken?>"><?php 
 	$jsIds = "";
 
 	foreach ($arResult["ELEMENTS_LIST"] as $key => $arItem)
@@ -25,7 +25,7 @@ if ($arParams["LIVEFEED_EVENT_ID"] == "photo")
 		$id = "photo-attached-".$arItem["~PREVIEW_PICTURE"];
 		$jsIds .= $jsIds !== "" ? ', "'.$id.'"' : '"'.$id.'"';
 		$arItem["TITLE"] = trim(htmlspecialcharsEx($arItem["~PREVIEW_TEXT"]), " -");
-		?><div class="post-item-attached-img-block"><?
+		?><div class="post-item-attached-img-block"><?php 
 			?><img 
 				class="post-item-attached-img" 
 				id="<?=$id?>" 
@@ -36,8 +36,8 @@ if ($arParams["LIVEFEED_EVENT_ID"] == "photo")
 				data-bx-image="<?=$arItem["BIG_PICTURE"]["SRC"]?>"
 				data-bx-section-image="<?=$arResult["SECTION_ELEMENTS_SRC"][$arItem["PROPERTIES"]["REAL_PICTURE"]["VALUE"]]["SRC"]?>"
 				data-bx-section-preview="<?=$arResult["SECTION_ELEMENTS_SRC"][$arItem["PROPERTIES"]["REAL_PICTURE"]["VALUE"]]["PREVIEW_SRC"]?>"
-			/><?
-		?></div><?
+			/><?php 
+		?></div><?php 
 	}
 	?><script>
 	if (app.enableInVersion(6))
@@ -48,7 +48,7 @@ if ($arParams["LIVEFEED_EVENT_ID"] == "photo")
 				arPhotos = [],
 				currentImage = false,
 				currentPreview = false;
-			<?
+			<?php 
 			foreach ($arResult["SECTION_ELEMENTS_SRC"] as $photo)
 			{
 				$photoSrc = $photo['SRC'];
@@ -59,7 +59,7 @@ if ($arParams["LIVEFEED_EVENT_ID"] == "photo")
 						preview: '<?=$previewSrc?>',
 						description: ''
 					};
-				<?
+				<?php 
 			}
 			?>
 			var oParams = {
@@ -92,12 +92,12 @@ if ($arParams["LIVEFEED_EVENT_ID"] == "photo")
 			return BX.PreventDefault(e);
 		});
 	}
-	</script><?
-	?></div><script>BitrixMobile.LazyLoad.registerImages([<?=$jsIds?>]);</script><?
+	</script><?php 
+	?></div><script>BitrixMobile.LazyLoad.registerImages([<?=$jsIds?>]);</script><?php 
 }
 else
 {
-	?><div id="gallery_wrap"><?
+	?><div id="gallery_wrap"><?php 
 	$jsIds = "";
 	foreach ($arResult["ELEMENTS_LIST"] as $key => $arItem)
 	{
@@ -115,9 +115,9 @@ else
 			title="<?= $arItem["TITLE"]?>"
 			data-bx-section-image="<?=$arResult["SECTION_ELEMENTS_SRC"][$arItem["PROPERTIES"]["REAL_PICTURE"]["VALUE"]]["SRC"]?>"
 			data-bx-section-preview="<?=$arResult["SECTION_ELEMENTS_SRC"][$arItem["PROPERTIES"]["REAL_PICTURE"]["VALUE"]]["PREVIEW_SRC"]?>"
-			data-bx-image="<?=$arItem["BIG_PICTURE"]["SRC"]?>" /><?
+			data-bx-image="<?=$arItem["BIG_PICTURE"]["SRC"]?>" /><?php 
 	};
-	?></div><?
+	?></div><?php 
 	?><script>
 	if (app.enableInVersion(6))
 	{
@@ -127,7 +127,7 @@ else
 				arPhotos = [],
 				currentImage = false,
 				currentPreview = false;
-			<?
+			<?php 
 			foreach ($arResult["ELEMENTS_LIST"] as $photo)
 			{
 				$sectionPhoto = $arResult["SECTION_ELEMENTS_SRC"][$photo["PROPERTIES"]["REAL_PICTURE"]["VALUE"]];
@@ -140,7 +140,7 @@ else
 					preview: '<?=$sectionPreviewSrc?>',
 					description: ''
 				};
-				<?
+				<?php 
 			}
 			?>
 			var oParams = {
@@ -173,8 +173,8 @@ else
 			return BX.PreventDefault(e);
 		});
 	}
-	</script><?
+	</script><?php 
 
-	?><script>BitrixMobile.LazyLoad.registerImages([<?=$jsIds?>]);</script><?
+	?><script>BitrixMobile.LazyLoad.registerImages([<?=$jsIds?>]);</script><?php 
 }
 ?>

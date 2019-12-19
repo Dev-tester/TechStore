@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 ?>
@@ -8,7 +8,7 @@ use Bitrix\Main\Localization\Loc;
 		<img src="" alt="">
 	</div>
 	<div class="bx-sbb-empty-cart-text"><?=Loc::getMessage("SBB_EMPTY_BASKET_TITLE")?></div>
-	<?
+	<?php 
 	if (!empty($arParams['EMPTY_BASKET_HINT_PATH']))
 	{
 		?>
@@ -21,7 +21,7 @@ use Bitrix\Main\Localization\Loc;
 				]
 			)?>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 </div>

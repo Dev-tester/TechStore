@@ -1,6 +1,6 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="voting-form-box">
-	<?$APPLICATION->IncludeComponent("bitrix:voting.result", ".default",
+	<?php $APPLICATION->IncludeComponent("bitrix:voting.result", ".default",
 	Array(
 		"VOTE_ID" => $arResult["VOTE_ID"],
 		"CACHE_TIME" => $arParams["CACHE_TIME"],
@@ -10,13 +10,13 @@
 		"CAN_VOTE" => $arParams["CAN_VOTE"]),
 	($this->__component->__parent ? $this->__component->__parent : $component),
 	array("HIDE_ICONS" => "Y"));?>
-	<?if ($arParams["SHOW_RESULTS"] == "Y" && $arParams["CAN_VOTE"] == "Y"):?>
+	<?php if ($arParams["SHOW_RESULTS"] == "Y" && $arParams["CAN_VOTE"] == "Y"):?>
 	<div class="vote-form-box-buttons vote-vote-footer">
 		<span class="vote-form-box-button vote-form-box-button-single">
-			<a name="show_form" <?
-				?>href="<?=$APPLICATION->GetCurPageParam("", array("VOTE_ID","VOTING_OK","VOTE_SUCCESSFULL", "view_result"))?>" <?
+			<a name="show_form" <?php 
+				?>href="<?=$APPLICATION->GetCurPageParam("", array("VOTE_ID","VOTING_OK","VOTE_SUCCESSFULL", "view_result"))?>" <?php 
 				?>><?=GetMessage("VOTE_BACK")?></a>
 		</span>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 </div>

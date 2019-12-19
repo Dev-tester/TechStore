@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_GRP_ERR_NAME"] = "Поле название не может быть пустым.";
 $MESS["CTRLR_GRP_SET_MAIN_NAME"] = "Главный модуль";
 $MESS["CTRLR_GRP_SET_MAIN_OPT_CACHE"] = "Автокеширование компонентов";

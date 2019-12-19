@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_TEMPLATE_LIST_COMP_TITLE"] = "Мои почтовые шаблоны";
 $MESS["SENDER_TEMPLATE_LIST_COMP_UI_COLUMN_DATE_INSERT"] = "Дата";
 $MESS["SENDER_TEMPLATE_LIST_COMP_UI_COLUMN_DATE_USE"] = "Дата использования";

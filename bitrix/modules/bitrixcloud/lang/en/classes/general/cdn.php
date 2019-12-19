@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_CDN_NOTIFY"] = "Web Accelerator (CDN) has been disabled attempting to update the configuration. Use the <a href=\"#HREF#\">settings form</a> to enable it back.";
 $MESS["BCL_CDN_AI_SETT"] = "Configure CDN";
 $MESS["BCL_CDN_AI_TITLE"] = "CDN Web Accelerator";

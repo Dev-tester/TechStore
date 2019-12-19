@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TMS_START_INDEX_PHOTOS"] = "Photo indexing";
 $MESS["FACEID_TMS_START_NAME"] = "Bitrix24.Time";
 $MESS["FACEID_TMS_START_WELCOME"] = "Start your day with a smile! ";

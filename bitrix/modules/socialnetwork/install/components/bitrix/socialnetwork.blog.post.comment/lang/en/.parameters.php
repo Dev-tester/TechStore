@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPC_PATH_TO_BLOG"] = "Conversations page path template";
 $MESS["BPC_PATH_TO_USER"] = "User profile path template";
 $MESS["BPC_PATH_TO_SMILE"] = "Smileys folder path (relative to the site root)";

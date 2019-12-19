@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_IP_LIST_TITLE'] = "Стоп-лист";
 $MESS ['SEC_IP_LIST_UPDATE_ERROR'] = "Ошибка изменения записи стоп-листа";
 $MESS ['SEC_IP_LIST_DELETE_ERROR'] = "Ошибка удаления записи стоп-листа";

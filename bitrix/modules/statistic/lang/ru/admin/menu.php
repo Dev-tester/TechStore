@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STATM_STATISTIC"] = "Сводная статистика";
 $MESS["STATM_STATISTIC_ALT"] = "Сводная статистика сайта";
 $MESS["STATM_TRAFFIC"] = "Посещаемость";

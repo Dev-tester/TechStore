@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MD_COMPONENT_TASKS_LIST"] = "Tasks";
 $MESS["TASKS_ROLE_VIEW_ALL"] = "All tasks";
 $MESS["TASKS_ROLE_RESPONSIBLE"] = "Ongoing";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CVAT_TITLE_UPDATE"] = "Tax rate editing";
 $MESS["CVAT_TITLE_ADD"] = "New tax rate";
 $MESS["CVAT_LIST"] = "List";

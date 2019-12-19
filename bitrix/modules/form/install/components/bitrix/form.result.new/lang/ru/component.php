@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_REQUIRED_FIELDS'] = "Поля, обязательные для заполнения";
 $MESS ['FORM_APPLY'] = "Применить";
 $MESS ['FORM_ADD'] = "Добавить";

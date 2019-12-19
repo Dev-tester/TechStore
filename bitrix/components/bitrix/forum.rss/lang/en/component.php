@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NO_MODULE'] = "Forum module is not installed";
 $MESS ['F_EMPTY_TYPE'] = "The type of RSS is not specified";
 $MESS ['FILE_DOWNLOAD'] = "Download file";

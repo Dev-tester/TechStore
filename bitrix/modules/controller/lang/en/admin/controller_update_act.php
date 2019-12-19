@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUPA_AERR_NAME"] = "Please enter the name of the company that owns the key";
 $MESS["SUPA_AERR_EMAIL"] = "Please enter the contact e-mail";
 $MESS["SUPA_AERR_EMAIL1"] = "Please check the e-mail address correctness";

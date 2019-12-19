@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -27,7 +27,7 @@ $hint = $hint ?: Loc::getMessage('SENDER_MESSAGE_TESTER_TMPL_TEST_HINT');
 				<div data-hint="<?=htmlspecialcharsbx($hint)?>"></div>
 			</div>
 
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent('bitrix:sender.ui.tile.selector', '', array(
 				'ID' => $arParams['ID'],
 				'LIST' => $arResult['DEFAULT_RECIPIENTS'],

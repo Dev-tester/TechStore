@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JC_CORE_TREE_SELECT_CONTROL"] = "Select condition";
 $MESS["JC_CORE_TREE_ADD_CONTROL"] = "Add condition";
 $MESS["JC_CORE_TREE_DELETE_CONTROL"] = "Delete condition";

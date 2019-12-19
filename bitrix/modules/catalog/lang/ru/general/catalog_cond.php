@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_COND_LOGIC_EQ_LABEL"] = "равно";
 $MESS["BT_COND_LOGIC_NOT_EQ_LABEL"] = "не равно";
 $MESS["BT_COND_LOGIC_GR_LABEL"] = "больше";

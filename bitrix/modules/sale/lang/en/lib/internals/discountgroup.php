@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_GROUP_ENTITY_ID_FIELD"] = "ID";
 $MESS["DISCOUNT_GROUP_ENTITY_DISCOUNT_ID_FIELD"] = "Shopping cart rule ID";
 $MESS["DISCOUNT_GROUP_ENTITY_ACTIVE_FIELD"] = "Shopping cart rule active";

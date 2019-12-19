@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_FILE_FIELD_ID"] = "Field";
 $MESS["CRM_PRODUCT_FILE_FILE_ID"] = "File";
 $MESS["CRM_PRODUCT_FILE_CATALOG_ID"] = "Catalog";

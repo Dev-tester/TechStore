@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_GALLEY_BY_USER"] = "Автор:";
 $MESS["P_UPLOAD"] = "Загрузить фотографии";
 $MESS["P_UPLOAD_TITLE"] = "Загрузить фотографии";

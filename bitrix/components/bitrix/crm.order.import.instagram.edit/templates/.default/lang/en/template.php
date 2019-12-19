@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OIIE_DEL_REFERENCE"] = "Disable";
 $MESS["CRM_OIIE_AUTHORIZATION"] = "Authentication";
 $MESS["CRM_OIIE_LOG_IN_UNDER_AN_ADMINISTRATOR_ACCOUNT_PAGE"] = "Only a business account can be connected to Bitrix24 online store. Log in using Facebook page admin profile that is linked to a required Instagram business account.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_MON_MOB_MENU_TITLE"] = "Bitrix Cloud Service";
 $MESS["BCL_MON_MOB_MENU_IPAGE"] = "Cloud Inspector";
 $MESS["BCL_MON_MOB_TEST_LICENSE"] = "Bitrix license will expire on";

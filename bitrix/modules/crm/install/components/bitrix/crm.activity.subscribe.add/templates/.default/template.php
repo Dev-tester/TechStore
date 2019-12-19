@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'):
@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 	top.location.href = '<?=CUtil::JSEscape($arResult['EVENT_PAGE'])?>';
 	top.BX.WindowManager.Get().Close();
 	</script>
-	<?
+	<?php 
 	die();
 endif;
 
@@ -19,7 +19,7 @@ if(strlen($arResult['ERROR_MESSAGE'])>0):
 			<?=$arResult['ERROR_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 	return;
 endif;
 ?>
@@ -29,13 +29,13 @@ endif;
 <input type="hidden" name="FORM_ENTITY_TYPE" value="<?=$arResult['FORM_ENTITY_TYPE']?>"/>
 <input type="hidden" name="FORM_ENTITY_ID" value="<?=$arResult['FORM_ENTITY_ID']?>"/>
 <input type="hidden" name="ENTITY_TYPE" value="<?=$arResult['ENTITY_TYPE']?>"/>
-<?
+<?php 
 if (is_array($arResult['ENTITY_ID'])):
 	foreach($arResult['ENTITY_ID'] as $iEntitiID):
-	?><input type="hidden" name="ENTITY_ID[]" value="<?=$iEntitiID?>"/><?
+	?><input type="hidden" name="ENTITY_ID[]" value="<?=$iEntitiID?>"/><?php 
 	endforeach;
 else:
-	?><input type="hidden" name="ENTITY_ID" value="<?=$arResult['ENTITY_ID']?>"/><?
+	?><input type="hidden" name="ENTITY_ID" value="<?=$arResult['ENTITY_ID']?>"/><?php 
 endif;
 ?>
 <input type="hidden" name="EVENT_PAGE" value="" id="EVENT_PAGE" />
@@ -49,25 +49,25 @@ endif;
 		<input type="text" value="<?=htmlspecialcharsbx($arResult['EMAIL_FROM'])?>" name=FROM id="FROM" style="width:350px"  />
 	</td>
 </tr>
-<? if (!empty($arResult['EMAIL_LIST']) || !empty($arResult['EMAIL'])) :?>
+<?php  if (!empty($arResult['EMAIL_LIST']) || !empty($arResult['EMAIL'])) :?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<span class="required">*</span><?=GetMessage('CRM_SUBSCRIBE_TO')?>:
 	</td>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
-		<?
+		<?php 
 		if (!empty($arResult['EMAIL'])):
 			echo SelectBoxFromArray('TO', $arResult['EMAIL']);
 		else:
 		?>
 		<a href="javascript:void(0)" onclick="crm_show_to(this)"><?=GetMessage("CRM_SUBSCRIBE_TO_SHOW")?></a>
 		<textarea cols="95" rows="3" name="TO" id="TO" style="display: none"><?=$arResult['EMAIL_LIST']?></textarea>
-		<?
+		<?php 
 		endif;
 		?>
 	</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr class="bx-after-heading">
 	<td class="bx-field-value bx-padding" style="width: 96px">
 		<span class="required">*</span><?=GetMessage('CRM_SUBSCRIBE_TITLE')?>:
@@ -78,7 +78,7 @@ endif;
 </tr>
 <tr>
 	<td id="subscribe_comments" class="bx-field-value bx-padding event-desc" colspan="2">
-	<?
+	<?php 
 $ar = array(
 	'width' => '100%',
 	'height' => '250px',

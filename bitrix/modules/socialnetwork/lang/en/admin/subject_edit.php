@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONETE_ERROR_SAVING'] = "Error saving the topic.";
 $MESS ['SONETE_UPDATING'] = "Edit topic parameters";
 $MESS ['SONETE_ADDING'] = "Create a new topic";

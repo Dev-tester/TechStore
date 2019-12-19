@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arResult["AUTHOR"]["AVATAR_URL"] = (
 	isset($arResult["AUTHOR"]["PERSONAL_PHOTO_resized"])
 	&& isset($arResult["AUTHOR"]["PERSONAL_PHOTO_resized"]["src"])

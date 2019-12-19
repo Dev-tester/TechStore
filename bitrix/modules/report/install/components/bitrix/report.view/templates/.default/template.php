@@ -44,7 +44,7 @@ function reportViewShowTopButtons(&$component, &$arParams, &$arResult)
 				'click',
 				function ()
 				{
-					var isStExport = <? echo $isStExport ? 'true' : 'false'; ?>;
+					var isStExport = <?php  echo $isStExport ? 'true' : 'false'; ?>;
 					BX.PopupMenu.show(
 						element.getAttribute('data-role'),
 						element,
@@ -65,13 +65,13 @@ function reportViewShowTopButtons(&$component, &$arParams, &$arResult)
 								href: '<?=CUtil::JSEscape(CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_REPORT_CONSTRUCT"], array("report_id" => $arParams['REPORT_ID'], 'action' => 'copy')));?>',
 								className: 'reports-title-copy-icon'
 							}
-							<? if ($arResult['MARK_DEFAULT'] <= 0 && $arResult['AUTHOR']) : ?>
+							<?php  if ($arResult['MARK_DEFAULT'] <= 0 && $arResult['AUTHOR']) : ?>
 							,{
 								text: '<?=GetMessage('REPORT_EDIT')?>',
 								href: '<?=CUtil::JSEscape(CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_REPORT_CONSTRUCT"], array("report_id" => $arParams['REPORT_ID'], 'action' => 'edit')));?>',
 								className: 'reports-title-edit-icon'
 							}
-							<? endif; ?>
+							<?php  endif; ?>
 						],
 						{
 							offsetLeft: 20,
@@ -854,7 +854,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 				BX.bind(chartLink, "click", reportChartShowHide);
 			}
 		});
-		<? if ($chartErrorCode === 0): ?>
+		<?php  if ($chartErrorCode === 0): ?>
 		function drawChart()
 		{
 			var amChartData = <?=CUtil::PhpToJSObject($amChartData)?>;
@@ -1036,21 +1036,21 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 			chart.write("report-chart-container");
 		}
 
-		<? if (\Bitrix\Main\Page\Frame::isAjaxRequest()):?>
+		<?php  if (\Bitrix\Main\Page\Frame::isAjaxRequest()):?>
 		drawChart();
-		<? else: ?>
+		<?php  else: ?>
 		AmCharts.ready(drawChart);
-		<? endif ?>
+		<?php  endif ?>
 
-		<? endif; // if ($chartErrorCode === 0) ?>
+		<?php  endif; // if ($chartErrorCode === 0) ?>
 	</script>
 	<?php endif; // if ($arParams['USE_CHART'] && $arResult['settings']['chart']['display']): ?>
-	<div class="report-table-wrap<? echo ($arResult['allowHorizontalScroll'] ? ' main-grid-fade' : ''); ?>"><?
-		if ($arResult['allowHorizontalScroll']) : ?><?
-			?><div class="main-grid-fade-shadow-left"></div><?
-			?><div class="main-grid-fade-shadow-right"></div><?
-			?><div class="main-grid-ear main-grid-ear-left"></div><?
-			?><div class="main-grid-ear main-grid-ear-right"></div><?
+	<div class="report-table-wrap<?php  echo ($arResult['allowHorizontalScroll'] ? ' main-grid-fade' : ''); ?>"><?php 
+		if ($arResult['allowHorizontalScroll']) : ?><?php 
+			?><div class="main-grid-fade-shadow-left"></div><?php 
+			?><div class="main-grid-fade-shadow-right"></div><?php 
+			?><div class="main-grid-ear main-grid-ear-left"></div><?php 
+			?><div class="main-grid-ear main-grid-ear-right"></div><?php 
 		endif; ?>
 		<div class="main-grid-container">
 		<div class="reports-list-left-corner"></div>
@@ -1059,8 +1059,8 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 			<thead>
 			<!-- head -->
 			<tr>
-				<? $i = 0; foreach($arResult['viewColumns'] as $colId => $col): ?>
-					<?
+				<?php  $i = 0; foreach($arResult['viewColumns'] as $colId => $col): ?>
+					<?php 
 						$i++;
 
 						if ($i == 1)
@@ -1099,20 +1099,20 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 
 					?>
 					<th class="<?=$th_class?>" colId="<?=$colId?>" defaultSort="<?=$defaultSort?>">
-						<div class="reports-head-cell"><?if($defaultSort):
-							?><span class="reports-table-arrow"></span><?
+						<div class="reports-head-cell"><?php if($defaultSort):
+							?><span class="reports-table-arrow"></span><?php 
 						endif?><span class="reports-head-cell-title"><?=htmlspecialcharsbx($col['humanTitle'])?></span></div>
 					</th>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 			</tr>
 			</thead>
 			<tbody>
 			<!-- data -->
-			<? $rowNum = 0; ?>
-			<? foreach ($arResult['data'] as $row): ?>
+			<?php  $rowNum = 0; ?>
+			<?php  foreach ($arResult['data'] as $row): ?>
 				<tr class="reports-list-item">
-					<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-						<?
+					<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+						<?php 
 							$i++;
 							if ($i == 1)
 							{
@@ -1203,10 +1203,10 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 							}
 						?>
 						<td class="<?=$td_class?>"><?=$finalValue?></td>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 				</tr>
-			<? $rowNum++; ?>
-			<? endforeach; ?>
+			<?php  $rowNum++; ?>
+			<?php  endforeach; ?>
 
 			<tr>
 				<td colspan="<?=count($arResult['viewColumns'])?>" class="reports-pretotal-column">
@@ -1217,8 +1217,8 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 			</tr>
 
 			<tr>
-				<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-					<?
+				<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+					<?php 
 						$i++;
 						if ($i == 1)
 						{
@@ -1234,12 +1234,12 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 						}
 					?>
 					<td class="<?=$td_class?> reports-total-column" sstyle="background-color: #F0F0F0;"><?=htmlspecialcharsbx($col['humanTitle'])?></td>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 			</tr>
 
 			<tr>
-				<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-					<?
+				<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+					<?php 
 						$i++;
 						if ($i == 1)
 						{
@@ -1262,7 +1262,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 						}
 					?>
 				<td class="<?=$td_class?>"><?=array_key_exists('TOTAL_'.$col['resultName'], $arResult['total']) ? $arResult['total']['TOTAL_'.$col['resultName']] : '&mdash;'?></td>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 			</tr>
 			</tbody>
 		</table>
@@ -1425,7 +1425,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 			<?=$APPLICATION->GetViewContent("report_view_prefilter")?>
 
 			<!-- period -->
-			<div class="filter-field<? echo $isPeriodHidden ? ' filter-field-hidden' : ''; ?>">
+			<div class="filter-field<?php  echo $isPeriodHidden ? ' filter-field-hidden' : ''; ?>">
 				<label for="task-interval-filter" class="filter-field-title"><?=GetMessage('REPORT_PERIOD')?></label>
 				<select class="filter-dropdown" style="margin-bottom: 0;" onchange="OnTaskIntervalChange(this)" id="task-interval-filter" name="F_DATE_TYPE">
 					<?php foreach ($arPeriodTypes as $key => $type): ?>
@@ -1472,7 +1472,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 
 					function OnTaskIntervalChange(select)
 					{
-						var isPeriodHidden = <? echo ($isPeriodHidden ? 'true' : 'false'); ?>;
+						var isPeriodHidden = <?php  echo ($isPeriodHidden ? 'true' : 'false'); ?>;
 						var periodSelect = BX('task-interval-filter');
 						var hide = isPeriodHidden && periodSelect && periodSelect === select;
 						select.parentNode.className = "filter-field" +
@@ -1543,7 +1543,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 			<div id="report-filter-chfilter">
 
 			<!-- insert changeable filters -->
-			<?
+			<?php 
 				// prepare info
 				$info = array();
 
@@ -1925,7 +1925,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 			}
 
 			</script>
-			<?
+			<?php 
 			foreach ($arResult['changeableFilters'] as $chFilter)
 			{
 				/** @var \Bitrix\Main\Entity\ReferenceField[] $chFilter */
@@ -1975,7 +1975,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 	<i class="r0"></i><i class="r1"></i><i class="r2"></i>
 </div>
 
-<? if (strlen($arResult['report']['DESCRIPTION'])): ?>
+<?php  if (strlen($arResult['report']['DESCRIPTION'])): ?>
 	<div class="sidebar-block">
 		<b class="r2"></b><b class="r1"></b><b class="r0"></b>
 		<div class="sidebar-block-inner">
@@ -1985,7 +1985,7 @@ function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperC
 			</div>
 		</div>
 	</div>
-<? endif; ?>
+<?php  endif; ?>
 
 <?php
 

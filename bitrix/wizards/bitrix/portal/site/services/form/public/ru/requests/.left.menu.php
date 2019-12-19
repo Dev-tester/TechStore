@@ -1,4 +1,4 @@
-<?
+<?php 
 $aMenuLinks = Array(
 	Array(
 		"Отправить заявку", 

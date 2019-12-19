@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ESDL_ACCESS_DENIED"] = "Access denied";
 $MESS["SALE_RDL_LIST"] = "Restrictions";
 $MESS["SALE_RDL_COL_ID"] = "ID";

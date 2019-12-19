@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SITE_TIP'] = "Specifies the URL of a site whose news items are to be exported. The default value is www.bitrixsoft.com.";
 $MESS ['PORT_TIP'] = "The TCP port that is used to transmit the RSS feed. Usually 80.";
 $MESS ['PATH_TIP'] = "The path to an RSS generator script on the site. For example: <b>/bitrix/rss.php</b>";

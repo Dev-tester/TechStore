@@ -4,7 +4,7 @@
 if (!\Bitrix\Crm\Settings\LeadSettings::isEnabled())
 {
 	CCrmComponentHelper::RegisterScriptLink('/bitrix/js/crm/common.js');
-	?><script><?=\Bitrix\Crm\Settings\LeadSettings::showCrmTypePopup();?></script><?
+	?><script><?=\Bitrix\Crm\Settings\LeadSettings::showCrmTypePopup();?></script><?php 
 }
 
 // js/css

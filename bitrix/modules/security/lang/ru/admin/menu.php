@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_MENU_ITEM'] = "Проактивная защита";
 $MESS ['SEC_MENU_TITLE'] = "Управление проактивной защитой";
 $MESS ['SEC_MENU_PANEL_ITEM'] = "Панель безопасности";

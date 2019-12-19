@@ -1,4 +1,4 @@
-<?
+<?php 
 /**********************************************************************
 Delivery services for CPCR delivery service (http://www.cpcr.ru/)
 It uses on-line calculator. Calculation only to Russia.
@@ -366,7 +366,7 @@ class CDeliveryCPCR
 			CDeliveryCPCR::__Write2Log($error_number.": ".$error_text);
 			CDeliveryCPCR::__Write2Log($data);
 
-			if (strpos($data, "<?xml") === false)
+			if (strpos($data, "<?php xml") === false)
 			{
 				return array(
 					"RESULT" => "ERROR",

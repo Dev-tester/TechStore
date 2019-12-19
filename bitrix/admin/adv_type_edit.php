@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/advertising/admin/adv_type_edit.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/advertising/admin/adv_type_edit.php");?>

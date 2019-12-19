@@ -138,7 +138,7 @@ class OrderAnalysis
 				</tr>
 				</thead>
 				<tbody>
-					<?foreach ($items as $item):
+					<?php foreach ($items as $item):
 						$properties = '<table style="margin: auto; width: 50%;">';
 						if (is_array($item['SKU_PROPS']))
 						{
@@ -172,7 +172,7 @@ class OrderAnalysis
 							<td class="tac" style="text-align: right !important;;"><?=$shippedQuantity.' '.htmlspecialcharsEx($item['MEASURE_TEXT'])?></td>
 							<td class="tac" style="text-align: right !important;;"><?=($quantity - $shippedQuantity).' '.htmlspecialcharsEx($item['MEASURE_TEXT'])?></td>
 						</tr>
-					<?endforeach?>
+					<?php endforeach?>
 					<tr><td colspan="8" style="padding: 16px; background: #f7fafa; text-align: right;" class="fwb"><?=Loc::getMessage('SALE_OANALYSIS_ITEMS_QUANTITY').': '.count($items)?></td></tr>
 				</tbody>
 			</table>
@@ -190,24 +190,24 @@ class OrderAnalysis
 									)?>
 								</a>
 							</div>
-							<?self::renderBottomBlocks($order->getField('DATE_INSERT'), $order->getField('RESPONSIBLE_ID'))?>
+							<?php self::renderBottomBlocks($order->getField('DATE_INSERT'), $order->getField('RESPONSIBLE_ID'))?>
 						</div>
 						<div class="clb"></div>
 					</div>
-					<?foreach ($documents as $document): $isPayment = $document instanceof Payment; $documentId = $document->getId()?>
+					<?php foreach ($documents as $document): $isPayment = $document instanceof Payment; $documentId = $document->getId()?>
 						<div class="adm-bus-orderdocs-threelist-block-children<?=$selectPayment === $isPayment && $selectId == $documentId ? ' adm-bus-orderdocs-threelist-block-children-open' : ''?>">
 							<div class="adm-bus-orderdocs-threelist-block-img adm-bus-orderdocs-threelist-block-img-doc_<?=$isPayment ? 'payment' : 'shipping'?>"></div>
 							<div class="adm-bus-orderdocs-threelist-block-content">
 								<div class="adm-bus-orderdocs-threelist-block-title">
-									<?if ($isPayment):
+									<?php if ($isPayment):
 										$isAllowCompany = $documentAllowList['PAYMENT'][$documentId];
 										?>
-										<?if ($document->isPaid()):?>
+										<?php if ($document->isPaid()):?>
 											<span class="adm-bus-orderdocs-docstatus adm-bus-orderdocs-docstatus-paid"><?=Loc::getMessage('SALE_OANALYSIS_PAYMENT_PAID')?></span>
-										<?elseif ($document->isReturn()):?>
+										<?php elseif ($document->isReturn()):?>
 											<span class="adm-bus-orderdocs-docstatus"><?=Loc::getMessage('SALE_OANALYSIS_PAYMENT_RETURN')?></span>
-										<?endif?>
-											<? if ($isAllowCompany): ?>
+										<?php endif?>
+											<?php  if ($isAllowCompany): ?>
 											<a href="/bitrix/admin/sale_order_payment_edit.php?order_id=<?=$orderId?>&payment_id=<?=$documentId?>" class="adm-bus-orderdocs-threelist-block-title-link">
 											<?=Loc::getMessage('SALE_OANALYSIS_PAYMENT_TITLE', array(
 												'#SYSTEM_NAME#' => htmlspecialcharsbx($document->getField('PAY_SYSTEM_NAME')),
@@ -215,20 +215,20 @@ class OrderAnalysis
 												'#SUM#'         => SaleFormatCurrency($document->getField('SUM'), $document->getField('CURRENCY')),
 											))?>
 											</a>
-											<?else:?>
+											<?php else:?>
 												<?= Loc::getMessage('SALE_OANALYSIS_HIDDEN');?>
-											<? endif; ?>
-									<?else:/* shipment*/
+											<?php  endif; ?>
+									<?php else:/* shipment*/
 										$isAllowCompany = $documentAllowList['SHIPMENT'][$documentId];
 									?>
-										<?if ($document->isShipped()):?>
+										<?php if ($document->isShipped()):?>
 											<span class="adm-bus-orderdocs-docstatus adm-bus-orderdocs-docstatus-shippingallowed"><?=Loc::getMessage('SALE_OANALYSIS_SHIPMENT_SHIPPED')?></span>
-										<?elseif ($document->isCanceled()):?>
+										<?php elseif ($document->isCanceled()):?>
 											<span class="adm-bus-orderdocs-docstatus adm-bus-orderdocs-docstatus-canceled"><?=Loc::getMessage('SALE_OANALYSIS_SHIPMENT_CANCELED')?></span>
-										<?elseif ($document->isAllowDelivery()):?>
+										<?php elseif ($document->isAllowDelivery()):?>
 											<span class="adm-bus-orderdocs-docstatus adm-bus-orderdocs-docstatus-shippingallowed"><?=Loc::getMessage('SALE_OANALYSIS_SHIPMENT_ALLOWED')?></span>
-										<?endif?>
-										<? if ($isAllowCompany): ?>
+										<?php endif?>
+										<?php  if ($isAllowCompany): ?>
 										<a href="/bitrix/admin/sale_order_shipment_edit.php?order_id=<?=$orderId?>&shipment_id=<?=$documentId?>"
 										   class="adm-bus-orderdocs-threelist-block-title-link<?=$document->isCanceled() ? 'adm-bus-orderdocs-threelist-block-title-link-canceled' : ''?>">
 											<?=Loc::getMessage('SALE_OANALYSIS_SHIPMENT_TITLE', array(
@@ -236,23 +236,23 @@ class OrderAnalysis
 												'#ORDER_ID#'    => $orderId,
 											))?>
 										</a>
-										<?else:?>
+										<?php else:?>
 											<?= Loc::getMessage('SALE_OANALYSIS_HIDDEN');?>
-										<? endif; ?>
-									<?endif?>
+										<?php  endif; ?>
+									<?php endif?>
 								</div>
-								<?self::renderBottomBlocks($document->getField($isPayment ? 'DATE_BILL' : 'DATE_INSERT'), $document->getField('RESPONSIBLE_ID'))?>
+								<?php self::renderBottomBlocks($document->getField($isPayment ? 'DATE_BILL' : 'DATE_INSERT'), $document->getField('RESPONSIBLE_ID'))?>
 							</div>
 							<div class="clb"></div>
 						</div>
-						<?if(!$isPayment):?>
-							<?self::printDeliveryRequestBlock($document->getId());?>
-						<?endif;?>
-					<?endforeach?>
+						<?php if(!$isPayment):?>
+							<?php self::printDeliveryRequestBlock($document->getId());?>
+						<?php endif;?>
+					<?php endforeach?>
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 
 		$result = ob_get_contents();
 		ob_end_clean();
@@ -290,7 +290,7 @@ class OrderAnalysis
 					</div>
 					<div class="clb"></div>
 				</div>
-			<?
+			<?php 
 		}
 	}
 
@@ -312,14 +312,14 @@ class OrderAnalysis
 		<div class="adm-bus-orderdocs-threelist-block-date-block">
 			<?=Loc::getMessage('SALE_OANALYSIS_CREATED_AT')?>: <span class="adm-bus-orderdocs-threelist-block-date"><?=$creationDate?></span>
 		</div>
-		<?if ($userName) :?>
+		<?php if ($userName) :?>
 			<div class="adm-bus-orderdocs-threelist-block-responsible-block">
 				<?=Loc::getMessage('SALE_OANALYSIS_RESPONSIBLE')?>:
 				<a class="adm-bus-orderdocs-threelist-block-responsible-name"
 				   href="/bitrix/admin/user_edit.php?ID=<?=$userId?>"><?=htmlspecialcharsbx($userName)?></a>
 			</div>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 	}
 }
 

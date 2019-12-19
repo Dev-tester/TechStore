@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOS_PRODUCT_NAME"] = "Наименование товара";
 $MESS["SMOS_PRODUCT_AMOUNT"] = "Остаток (шт)";
 $MESS["SMOS_PRODUCT_QUANTITY"] = "Списать (шт)";

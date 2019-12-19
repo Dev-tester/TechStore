@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
 
@@ -24,35 +24,35 @@ use \Bitrix\Main\Localization\Loc;
 ?>
 
 <div class="product-item">
-	<? if ($itemHasDetailUrl): ?>
+	<?php  if ($itemHasDetailUrl): ?>
 	<a class="product-item-image-wrapper" href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>"
 			data-entity="image-wrapper">
-	<? else: ?>
+	<?php  else: ?>
 	<span class="product-item-image-wrapper" data-entity="image-wrapper">
-	<? endif; ?>
+	<?php  endif; ?>
 		<span class="product-item-image-slider-slide-container slide" id="<?=$itemIds['PICT_SLIDER']?>"
 			<?=($showSlider ? '' : 'style="display: none;"')?>
 			data-slider-interval="<?=$arParams['SLIDER_INTERVAL']?>" data-slider-wrap="true">
-			<?
+			<?php 
 			if ($showSlider)
 			{
 				foreach ($morePhoto as $key => $photo)
 				{
 					?>
 					<span class="product-item-image-slide item <?=($key == 0 ? 'active' : '')?>" style="background-image: url('<?=$photo['SRC']?>');"></span>
-					<?
+					<?php 
 				}
 			}
 			?>
 		</span>
 		<span class="product-item-image-original" id="<?=$itemIds['PICT']?>" style="background-image: url('<?=$item['PREVIEW_PICTURE']['SRC']?>'); <?=($showSlider ? 'display: none;' : '')?>"></span>
-		<?
+		<?php 
 		if ($item['SECOND_PICT'])
 		{
 			$bgImage = !empty($item['PREVIEW_PICTURE_SECOND']) ? $item['PREVIEW_PICTURE_SECOND']['SRC'] : $item['PREVIEW_PICTURE']['SRC'];
 			?>
 			<span class="product-item-image-alternative" id="<?=$itemIds['SECOND_PICT']?>" style="background-image: url('<?=$bgImage?>'); <?=($showSlider ? 'display: none;' : '')?>"></span>
-			<?
+			<?php 
 		}
 
 		if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y')
@@ -62,14 +62,14 @@ use \Bitrix\Main\Localization\Loc;
 				<?=($price['PERCENT'] > 0 ? '' : 'style="display: none;"')?>>
 				<span><?=-$price['PERCENT']?>%</span>
 			</div>
-			<?
+			<?php 
 		}
 
 		if ($item['LABEL'])
 		{
 			?>
 			<div class="product-item-label-text <?=$labelPositionClass?>" id="<?=$itemIds['STICKER_ID']?>">
-				<?
+				<?php 
 				if (!empty($item['LABEL_ARRAY_VALUE']))
 				{
 					foreach ($item['LABEL_ARRAY_VALUE'] as $code => $value)
@@ -78,53 +78,53 @@ use \Bitrix\Main\Localization\Loc;
 						<div<?=(!isset($item['LABEL_PROP_MOBILE'][$code]) ? ' class="hidden-xs"' : '')?>>
 							<span title="<?=$value?>"><?=$value?></span>
 						</div>
-						<?
+						<?php 
 					}
 				}
 				?>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 		<span class="product-item-image-slider-control-container" id="<?=$itemIds['PICT_SLIDER']?>_indicator"
 			<?=($showSlider ? '' : 'style="display: none;"')?>>
-			<?
+			<?php 
 			if ($showSlider)
 			{
 				foreach ($morePhoto as $key => $photo)
 				{
 					?>
 					<span class="product-item-image-slider-control<?=($key == 0 ? ' active' : '')?>" data-go-to="<?=$key?>"></span>
-					<?
+					<?php 
 				}
 			}
 			?>
 		</span>
-		<?
+		<?php 
 		if ($arParams['SLIDER_PROGRESS'] === 'Y')
 		{
 			?>
 			<span class="product-item-image-slider-progress-bar-container">
 				<span class="product-item-image-slider-progress-bar" id="<?=$itemIds['PICT_SLIDER']?>_progress_bar" style="width: 0;"></span>
 			</span>
-			<?
+			<?php 
 		}
 		?>
-	<? if ($itemHasDetailUrl): ?>
+	<?php  if ($itemHasDetailUrl): ?>
 	</a>
-	<? else: ?>
+	<?php  else: ?>
 	</span>
-	<? endif; ?>
+	<?php  endif; ?>
 	<h3 class="product-item-title">
-		<? if ($itemHasDetailUrl): ?>
+		<?php  if ($itemHasDetailUrl): ?>
 		<a href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$productTitle?>">
-		<? endif; ?>
+		<?php  endif; ?>
 		<?=$productTitle?>
-		<? if ($itemHasDetailUrl): ?>
+		<?php  if ($itemHasDetailUrl): ?>
 		</a>
-		<? endif; ?>
+		<?php  endif; ?>
 	</h3>
-	<?
+	<?php 
 	if (!empty($arParams['PRODUCT_BLOCKS_ORDER']))
 	{
 		foreach ($arParams['PRODUCT_BLOCKS_ORDER'] as $blockName)
@@ -133,7 +133,7 @@ use \Bitrix\Main\Localization\Loc;
 			{
 				case 'price': ?>
 					<div class="product-item-info-container product-item-price-container" data-entity="price-block">
-						<?
+						<?php 
 						if ($arParams['SHOW_OLD_PRICE'] === 'Y')
 						{
 							?>
@@ -141,11 +141,11 @@ use \Bitrix\Main\Localization\Loc;
 								<?=($price['RATIO_PRICE'] >= $price['RATIO_BASE_PRICE'] ? 'style="display: none;"' : '')?>>
 								<?=$price['PRINT_RATIO_BASE_PRICE']?>
 							</span>&nbsp;
-							<?
+							<?php 
 						}
 						?>
 						<span class="product-item-price-current" id="<?=$itemIds['PRICE']?>">
-							<?
+							<?php 
 							if (!empty($price))
 							{
 								if ($arParams['PRODUCT_DISPLAY_MODE'] === 'N' && $haveOffers)
@@ -167,7 +167,7 @@ use \Bitrix\Main\Localization\Loc;
 							?>
 						</span>
 					</div>
-					<?
+					<?php 
 					break;
 
 				case 'quantityLimit':
@@ -187,7 +187,7 @@ use \Bitrix\Main\Localization\Loc;
 										<span class="product-item-quantity text-dark" data-entity="quantity-limit-value"></span>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 						}
 						else
@@ -204,7 +204,7 @@ use \Bitrix\Main\Localization\Loc;
 									<div class="product-item-info-container-title text-muted">
 										<?=$arParams['MESS_SHOW_MAX_QUANTITY']?>:
 										<span class="product-item-quantity text-dark" data-entity="quantity-limit-value">
-												<?
+												<?php 
 												if ($arParams['SHOW_MAX_QUANTITY'] === 'M')
 												{
 													if ((float)$actualItem['CATALOG_QUANTITY'] / $measureRatio >= $arParams['RELATIVE_QUANTITY_FACTOR'])
@@ -224,7 +224,7 @@ use \Bitrix\Main\Localization\Loc;
 											</span>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 						}
 					}
@@ -254,7 +254,7 @@ use \Bitrix\Main\Localization\Loc;
 									</div>
 								</div>
 							</div>
-							<?
+							<?php 
 						}
 					}
 					elseif ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
@@ -277,7 +277,7 @@ use \Bitrix\Main\Localization\Loc;
 									</div>
 								</div>
 							</div>
-							<?
+							<?php 
 						}
 					}
 
@@ -286,7 +286,7 @@ use \Bitrix\Main\Localization\Loc;
 				case 'buttons':
 					?>
 					<div class="product-item-info-container product-item-hidden" data-entity="buttons-block">
-						<?
+						<?php 
 						if (!$haveOffers)
 						{
 							if ($actualItem['CAN_BUY'])
@@ -298,13 +298,13 @@ use \Bitrix\Main\Localization\Loc;
 										<?=($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET'])?>
 									</button>
 								</div>
-								<?
+								<?php 
 							}
 							else
 							{
 								?>
 								<div class="product-item-button-container">
-									<?
+									<?php 
 									if ($showSubscribe)
 									{
 										$APPLICATION->IncludeComponent(
@@ -327,7 +327,7 @@ use \Bitrix\Main\Localization\Loc;
 										<?=$arParams['MESS_NOT_AVAILABLE']?>
 									</button>
 								</div>
-								<?
+								<?php 
 							}
 						}
 						else
@@ -336,7 +336,7 @@ use \Bitrix\Main\Localization\Loc;
 							{
 								?>
 								<div class="product-item-button-container">
-									<?
+									<?php 
 									if ($showSubscribe)
 									{
 										$APPLICATION->IncludeComponent(
@@ -366,7 +366,7 @@ use \Bitrix\Main\Localization\Loc;
 										</button>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							else
 							{
@@ -376,12 +376,12 @@ use \Bitrix\Main\Localization\Loc;
 										<?=$arParams['MESS_BTN_DETAIL']?>
 									</button>
 								</div>
-								<?
+								<?php 
 							}
 						}
 						?>
 					</div>
-					<?
+					<?php 
 					break;
 
 				case 'props':
@@ -392,7 +392,7 @@ use \Bitrix\Main\Localization\Loc;
 							?>
 							<div class="product-item-info-container product-item-hidden" data-entity="props-block">
 								<dl class="product-item-properties">
-									<?
+									<?php 
 									foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
 									{
 										?>
@@ -404,19 +404,19 @@ use \Bitrix\Main\Localization\Loc;
 												? implode(' / ', $displayProperty['DISPLAY_VALUE'])
 												: $displayProperty['DISPLAY_VALUE'])?>
 										</dd>
-										<?
+										<?php 
 									}
 									?>
 								</dl>
 							</div>
-							<?
+							<?php 
 						}
 
 						if ($arParams['ADD_PROPERTIES_TO_BASKET'] === 'Y' && !empty($item['PRODUCT_PROPERTIES']))
 						{
 							?>
 							<div id="<?=$itemIds['BASKET_PROP_DIV']?>" style="display: none;">
-								<?
+								<?php 
 								if (!empty($item['PRODUCT_PROPERTIES_FILL']))
 								{
 									foreach ($item['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo)
@@ -424,7 +424,7 @@ use \Bitrix\Main\Localization\Loc;
 										?>
 										<input type="hidden" name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]"
 											value="<?=htmlspecialcharsbx($propInfo['ID'])?>">
-										<?
+										<?php 
 										unset($item['PRODUCT_PROPERTIES'][$propID]);
 									}
 								}
@@ -433,14 +433,14 @@ use \Bitrix\Main\Localization\Loc;
 								{
 									?>
 									<table>
-										<?
+										<?php 
 										foreach ($item['PRODUCT_PROPERTIES'] as $propID => $propInfo)
 										{
 											?>
 											<tr>
 												<td><?=$item['PROPERTIES'][$propID]['NAME']?></td>
 												<td>
-													<?
+													<?php 
 													if (
 														$item['PROPERTIES'][$propID]['PROPERTY_TYPE'] === 'L'
 														&& $item['PROPERTIES'][$propID]['LIST_TYPE'] === 'C'
@@ -450,20 +450,20 @@ use \Bitrix\Main\Localization\Loc;
 														{
 															?>
 															<label>
-																<? $checked = $valueID === $propInfo['SELECTED'] ? 'checked' : ''; ?>
+																<?php  $checked = $valueID === $propInfo['SELECTED'] ? 'checked' : ''; ?>
 																<input type="radio" name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]"
 																	value="<?=$valueID?>" <?=$checked?>>
 																<?=$value?>
 															</label>
 															<br />
-															<?
+															<?php 
 														}
 													}
 													else
 													{
 														?>
 														<select name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]">
-															<?
+															<?php 
 															foreach ($propInfo['VALUES'] as $valueID => $value)
 															{
 																$selected = $valueID === $propInfo['SELECTED'] ? 'selected' : '';
@@ -471,24 +471,24 @@ use \Bitrix\Main\Localization\Loc;
 																<option value="<?=$valueID?>" <?=$selected?>>
 																	<?=$value?>
 																</option>
-																<?
+																<?php 
 															}
 															?>
 														</select>
-														<?
+														<?php 
 													}
 													?>
 												</td>
 											</tr>
-											<?
+											<?php 
 										}
 										?>
 									</table>
-									<?
+									<?php 
 								}
 								?>
 							</div>
-							<?
+							<?php 
 						}
 					}
 					else
@@ -501,7 +501,7 @@ use \Bitrix\Main\Localization\Loc;
 							?>
 							<div class="product-item-info-container product-item-hidden" data-entity="props-block">
 								<dl class="product-item-properties">
-									<?
+									<?php 
 									if ($showProductProps)
 									{
 										foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
@@ -515,7 +515,7 @@ use \Bitrix\Main\Localization\Loc;
 													? implode(' / ', $displayProperty['DISPLAY_VALUE'])
 													: $displayProperty['DISPLAY_VALUE'])?>
 											</dd>
-											<?
+											<?php 
 										}
 									}
 
@@ -523,12 +523,12 @@ use \Bitrix\Main\Localization\Loc;
 									{
 										?>
 										<span id="<?=$itemIds['DISPLAY_PROP_DIV']?>" style="display: none;"></span>
-										<?
+										<?php 
 									}
 									?>
 								</dl>
 							</div>
-							<?
+							<?php 
 						}
 					}
 
@@ -539,7 +539,7 @@ use \Bitrix\Main\Localization\Loc;
 					{
 						?>
 						<div class="product-item-info-container product-item-hidden" id="<?=$itemIds['PROP_DIV']?>">
-							<?
+							<?php 
 							foreach ($arParams['SKU_PROPS'] as $skuProperty)
 							{
 								$propertyId = $skuProperty['ID'];
@@ -553,7 +553,7 @@ use \Bitrix\Main\Localization\Loc;
 										<div class="product-item-scu-block">
 											<div class="product-item-scu-list">
 												<ul class="product-item-scu-item-list">
-													<?
+													<?php 
 													foreach ($skuProperty['VALUES'] as $value)
 													{
 														if (!isset($item['SKU_TREE_VALUES'][$propertyId][$value['ID']]))
@@ -569,7 +569,7 @@ use \Bitrix\Main\Localization\Loc;
 																	<div class="product-item-scu-item-color" title="<?=$value['NAME']?>" style="background-image: url('<?=$value['PICT']['SRC']?>');"></div>
 																</div>
 															</li>
-															<?
+															<?php 
 														}
 														else
 														{
@@ -580,7 +580,7 @@ use \Bitrix\Main\Localization\Loc;
 																	<div class="product-item-scu-item-text"><?=$value['NAME']?></div>
 																</div>
 															</li>
-															<?
+															<?php 
 														}
 													}
 													?>
@@ -589,11 +589,11 @@ use \Bitrix\Main\Localization\Loc;
 										</div>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							?>
 						</div>
-						<?
+						<?php 
 						foreach ($arParams['SKU_PROPS'] as $skuProperty)
 						{
 							if (!isset($item['OFFERS_PROP'][$skuProperty['CODE']]))
@@ -654,7 +654,7 @@ use \Bitrix\Main\Localization\Loc;
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 </div>

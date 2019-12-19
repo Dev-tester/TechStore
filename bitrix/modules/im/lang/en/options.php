@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_OPTIONS_CALL_SERVER_ENABLED"] = "Use Voximplant SFU server for video calls (requires valid license)";
 $MESS["IM_OPTIONS_TURN_SERVER_SELF_2"] = "Use own TURN server for video calls";
 $MESS["IM_COLOR_ENABLE"] = "Enable color themes for chats and users";

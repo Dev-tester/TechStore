@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEQWF_MARKETPLACE_ADD"] = "Add More...";
 $MESS["SEQWF_END"] = "End";
 $MESS["SEQWF_BEG"] = "Start";

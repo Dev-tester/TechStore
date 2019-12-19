@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_DEF_SLA_NAME'] = "default";
 $MESS ['SUP_DEF_BUGS'] = "Bugs";
 $MESS ['SUP_DEF_ORDER_PAYMENT'] = "Order payment";

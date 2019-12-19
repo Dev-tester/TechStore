@@ -147,7 +147,7 @@ $context->Show();
 
 ?>
 <p><?=$chain?></p>
-<?
+<?php 
 
 $_corrupt = false;
 $_strMess = '';

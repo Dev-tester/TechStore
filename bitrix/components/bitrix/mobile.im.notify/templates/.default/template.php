@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->AddHeadString('<script type="text/javascript" src="'.CUtil::GetAdditionalFileURL(SITE_TEMPLATE_PATH."/im_mobile.js").'"></script>');
 $APPLICATION->AddHeadString('<link href="'.CUtil::GetAdditionalFileURL(BX_PERSONAL_ROOT.'/js/im/css/common.css').'" type="text/css" rel="stylesheet" />');
@@ -6,9 +6,9 @@ $APPLICATION->AddHeadString('<link href="'.CUtil::GetAdditionalFileURL(BX_PERSON
 CJSCore::Init("fx");
 if(empty($arResult['NOTIFY'])):?>
 	<div class="notif-block-empty"><?=GetMessage('NM_EMPTY');?></div>
-<?else:?>
+<?php else:?>
 	<div class="notif-block-wrap" id="notif-block-wrap">
-		<?
+		<?php 
 		$jsIds = "";
 		$maxId = 0;
 		$newFlag = false;
@@ -38,7 +38,7 @@ if(empty($arResult['NOTIFY'])):?>
 			if ($data['read'] == 'N' && !$newFlag || $data['read'] == 'Y' && $newFlag):
 				$newFlag = $newFlag? false: true;
 				if (!$firstNewFlag):
-					?><div class="notif-new"></div><?
+					?><div class="notif-new"></div><?php 
 				endif;
 			endif;
 			$firstNewFlag = false;
@@ -69,16 +69,16 @@ if(empty($arResult['NOTIFY'])):?>
 					<div class="notif-inner" id="inner<?=$data['id']?>" data-fold="fold<?=$data['id']?>">
 						<div class="notif-text"><?=$data['text']?></div>
 
-						<?if(isset($data['params'])):?>
+						<?php if(isset($data['params'])):?>
 							<?=getNotifyParamsHtml($data['params'])?>
-						<?endif;?>
-						<?if(isset($data['buttons'])):?>
+						<?php endif;?>
+						<?php if(isset($data['buttons'])):?>
 							<div class="notif-buttons">
-								<?foreach ($data['buttons'] as $button):?>
+								<?php foreach ($data['buttons'] as $button):?>
 									<div data-notifyId="<?=$data['id']?>"  data-notifyValue="<?=$button['VALUE']?>" class="notif-button notif-button-<?=$button['TYPE']?>" onclick="_confirmRequest(this)"><?=$button['TITLE']?></div>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 					<div class="notif-options">
 						<div class="notif-time"><?=$data['date']?></div>
@@ -86,7 +86,7 @@ if(empty($arResult['NOTIFY'])):?>
 					</div>
 				</div>
 			</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 	<script type="text/javascript">
 		BX.ImLegacy.notifyLastId = <?=$maxId?>;
@@ -118,7 +118,7 @@ if(empty($arResult['NOTIFY'])):?>
 			})
 		}
 	</script>
-<?endif;?>
+<?php endif;?>
 	<script type="text/javascript">
 		document.body.style.overflow = "hidden";
 		document.body.style.overflowY = "scroll";
@@ -350,7 +350,7 @@ if(empty($arResult['NOTIFY'])):?>
 			app.titleAction("setParams", {text: "<?=GetMessage("NM_TITLE_2")?>", useProgress: true});
 		});
 	</script>
-<?
+<?php 
 function getNotifyParamsHtml($params)
 {
 	$result = '';

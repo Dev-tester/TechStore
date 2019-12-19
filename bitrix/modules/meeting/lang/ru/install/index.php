@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['MEETING_MODULE_NAME'] = "Планерки и собрания";
 $MESS['MEETING_MODULE_DESCRIPTION'] = "Модуль для организации и проведения планерок и собраний.";
 $MESS['MEETING_INSTALL_TITLE'] = "Установка модуля \"Планерки и собрания\"";

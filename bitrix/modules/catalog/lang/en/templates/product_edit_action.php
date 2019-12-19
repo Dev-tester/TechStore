@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_EMPTY_BASE_PRICE"] = "The &quot;Base price&quot; field is required";
 $MESS["ERROR_EMPTY_BASE_CURRENCY"] = "The &quot;Base price currency&quot; field is required";
 $MESS["ERROR_DELETE_PRICE"] = "Error when deleting the price";

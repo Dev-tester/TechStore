@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATUS_DONE'] = "Fertig";
 $MESS ['STATUS_MESSAGE'] = "Hallo #RS_USER_NAME#,
 

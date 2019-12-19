@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_RATING_RULE_EDIT_RECORD"] = "Edit Processing Rule # #ID#";
 $MESS["MAIN_RATING_RULE_NEW_RECORD"] = "New Processing Rule";
 $MESS["RATING_RULE_LIST"] = "Rules";

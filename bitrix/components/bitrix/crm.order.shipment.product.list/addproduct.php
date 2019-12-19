@@ -67,10 +67,10 @@ foreach($shipmentItemCollection as $shipmentItem)
 			window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
+	<?php $APPLICATION->ShowHead();?>
 </head>
 <body
-	class="crm-iframe-popup crm-detail-page template-<?=SITE_TEMPLATE_ID?> crm-iframe-popup-no-scroll crm-order-payment-voucher-wrapper <? $APPLICATION->ShowProperty('BodyClass'); ?>"
+	class="crm-iframe-popup crm-detail-page template-<?=SITE_TEMPLATE_ID?> crm-iframe-popup-no-scroll crm-order-payment-voucher-wrapper <?php  $APPLICATION->ShowProperty('BodyClass'); ?>"
 	style="padding: 0 15px"
 	onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');"
 	onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');"
@@ -79,19 +79,19 @@ foreach($shipmentItemCollection as $shipmentItem)
 <div class="crm-iframe-header">
 	<div class="pagetitle-wrap">
 		<div class="pagetitle-inner-container">
-			<div class="pagetitle-menu" id="pagetitle-menu"><?
+			<div class="pagetitle-menu" id="pagetitle-menu"><?php 
 				$APPLICATION->ShowViewContent("pagetitle");
 				$APPLICATION->ShowViewContent("inside_pagetitle");
 				?></div>
 			<div class="pagetitle">
-				<span id="pagetitle" class="pagetitle-item"><?$APPLICATION->ShowTitle()?></span>
+				<span id="pagetitle" class="pagetitle-item"><?php $APPLICATION->ShowTitle()?></span>
 			</div>
 		</div>
 	</div>
 
 	<div class="crm-iframe-workarea" id="crm-content-outer">
-		<div class="crm-iframe-sidebar"><?$APPLICATION->ShowViewContent("sidebar"); ?></div>
-		<div class="crm-iframe-content"><?
+		<div class="crm-iframe-sidebar"><?php $APPLICATION->ShowViewContent("sidebar"); ?></div>
+		<div class="crm-iframe-content"><?php 
 
 $componentData = isset($_REQUEST['PARAMS']) && is_array($_REQUEST['PARAMS']) ? $_REQUEST['PARAMS'] : array();
 $componentParams = isset($componentData['params']) && is_array($componentData['params']) ? $componentData['params'] : array();
@@ -130,6 +130,6 @@ $APPLICATION->IncludeComponent('bitrix:crm.order.shipment.product.list',
 	?></div>
 	</div>
 </body>
-</html><?
+</html><?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');
 die();

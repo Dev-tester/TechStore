@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_DEL_REFERENCE"] = "Удалить привязку";
 $MESS["IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_AUTHORIZATION"] = "Авторизация";
 $MESS["IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_INDEX_DESCRIPTION"] = "Подключите публичную страницу Facebook вашей компании к открытой линии и управляйте комментариями к записям на стене, к фотографиям, видео, не уходя из Битрикс24. Для подключения необходимо создать публичную страницу Facebook или подключить уже существующую, где вы являетесь администратором. ";

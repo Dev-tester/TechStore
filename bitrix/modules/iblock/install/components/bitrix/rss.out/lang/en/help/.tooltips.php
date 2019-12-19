@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE_TIP'] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type.";
 $MESS ['IBLOCK_ID_TIP'] = "Select one of information blocks of the chosen type. If you select <b>(other)-&gt;</b>, specify the information block ID in the field beside.";
 $MESS ['SECTION_ID_TIP'] = "Specifies the ID or the symbolic code of a section whose contents will be exported to RSS.";

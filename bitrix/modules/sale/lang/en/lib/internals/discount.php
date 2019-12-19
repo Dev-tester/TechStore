@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_ENTITY_ID_FIELD"] = "Shopping cart rule ID";
 $MESS["DISCOUNT_ENTITY_XML_ID_FIELD"] = "Shopping cart rule external ID";
 $MESS["DISCOUNT_ENTITY_LID_FIELD"] = "Website ID";

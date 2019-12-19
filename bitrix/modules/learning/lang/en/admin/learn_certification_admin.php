@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_ADMIN_TITLE"] = "Certification";
 $MESS["LEARNING_ADMIN_RESULTS"] = "Certificates";
 $MESS["LEARNING_ERROR"] = "Error saving the certificate";

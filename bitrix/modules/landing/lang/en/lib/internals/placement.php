@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_FIELD_APP_ID"] = "Application ID";
 $MESS["LANDING_TABLE_FIELD_PLACEMENT"] = "Embedding area ID";
 $MESS["LANDING_TABLE_FIELD_PLACEMENT_HANDLER"] = "Embedding area handler";

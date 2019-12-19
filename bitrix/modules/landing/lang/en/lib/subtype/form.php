@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_FORM_CONFIG"] = "Manage CRM forms";
 $MESS["LANDING_BLOCK_WEBFORM"] = "CRM form";
 $MESS["LANDING_BLOCK_WEBFORM_SHOW_HEADER"] = "Form title";

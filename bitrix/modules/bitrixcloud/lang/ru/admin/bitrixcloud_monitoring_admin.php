@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BCL_MONITORING_TITLE'] = "Инспектор сайтов";
 $MESS ['BCL_MONITORING_DOMAIN'] = "Домен";
 $MESS ['BCL_MONITORING_LICENSE'] = "Лицензия истекает через:";

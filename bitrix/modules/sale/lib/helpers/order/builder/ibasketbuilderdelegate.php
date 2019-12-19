@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Helpers\Order\Builder;
 
 interface IBasketBuilderDelegate

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["V_USER_TYPE_DESCRIPTION"] = "Poll";
 $MESS["V_NEW_CHANNEL"] = "New poll group";
 $MESS["V_CHANNEL_ID_COLON"] = "Poll group:";

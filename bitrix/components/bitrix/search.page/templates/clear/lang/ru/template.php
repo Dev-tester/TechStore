@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BSP_ALL"] = "(везде)";
 $MESS["CT_BSP_GO"] = "Найти";
 $MESS["CT_BSP_ITEM_TAGS"] = "Теги";

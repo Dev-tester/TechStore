@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_ACCESS_DENIED"] = "Access denied.";
 $MESS["CRM_FILTER_FIELD_NOT_FOUND"] = "Cannot find field.";

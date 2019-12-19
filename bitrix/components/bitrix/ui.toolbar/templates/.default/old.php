@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\ModuleManager;
 
@@ -13,7 +13,7 @@ $this->setFrameMode(true);
 
 <div class="pagetitle-wrap <?=$APPLICATION->getProperty("TitleClass")?>">
 	<div class="pagetitle-inner-container">
-		<div class="pagetitle-menu pagetitle-container pagetitle-last-item-in-a-row" id="pagetitle-menu"><?
+		<div class="pagetitle-menu pagetitle-container pagetitle-last-item-in-a-row" id="pagetitle-menu"><?php 
 			echo $GLOBALS["INTRANET_TOOLBAR"]->__display();
 			echo $APPLICATION->getViewContent("pagetitle");
 		?></div>

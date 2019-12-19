@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['LANDING_TABLE_FIELD_ACTIVE'] = "Active";
 $MESS['LANDING_TABLE_FIELD_APP_CODE'] = "Application ID";
 $MESS['LANDING_TABLE_FIELD_CREATED_BY_ID'] = "Created by user ID";

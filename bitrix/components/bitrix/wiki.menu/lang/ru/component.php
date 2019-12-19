@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_ACCESS_DENIED"] = "Доступ запрещен.";
 $MESS["WIKI_MODULE_NOT_INSTALLED"] = "Модуль wiki не установлен.";
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Модуль iblock не установлен.";

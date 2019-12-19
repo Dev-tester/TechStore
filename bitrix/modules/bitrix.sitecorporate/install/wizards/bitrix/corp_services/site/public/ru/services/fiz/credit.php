@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Потребительский кредит");
 ?>
@@ -36,4 +36,4 @@ $APPLICATION->SetTitle("Потребительский кредит");
 	</ul> 
 	<p>Телефон горячей линии: <b>8 800 2002 808</b> ( Звонок по России бесплатный)</p> 		
  
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

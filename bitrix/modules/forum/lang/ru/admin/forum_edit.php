@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTIVE"] = "Активность";
 $MESS["ACTIVE_TITLE"] = "активен";
 $MESS["INDEX"] = "Индексация";

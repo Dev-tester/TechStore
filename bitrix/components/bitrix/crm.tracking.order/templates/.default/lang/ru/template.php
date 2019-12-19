@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_ORDER_CONNECT"] = "Подключите канал";
 $MESS["CRM_TRACKING_ORDER_CONNECTED"] = "Канал подключен!";
 $MESS["CRM_TRACKING_ORDER_DESC"] = "Вы получаете данные о заказах интернет-магазина в сделках CRM? Для этих сделок можно отслеживать рекламные источники и пути клиентов!";

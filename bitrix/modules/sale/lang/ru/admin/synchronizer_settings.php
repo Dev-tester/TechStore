@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SYNCHRONIZER_TITLE"] = "Настройка обмена заказами с Битрикс24";
 $MESS["SALE_SYNCHRONIZER_ACCESS_TOKEN_PROVIDED_HAS_EXPIRED"] = "Время ключа истекло. Получите новый код в приложении Б24";
 $MESS["SALE_SYNCHRONIZER_ACCESS_TOKEN_PROVIDED_IS_INVALID"] = "Не валидный код доступа. Получите новый код в приложении Б24";

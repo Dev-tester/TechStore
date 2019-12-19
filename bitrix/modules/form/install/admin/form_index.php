@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/form/admin/form_index.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/form/admin/form_index.php");?>

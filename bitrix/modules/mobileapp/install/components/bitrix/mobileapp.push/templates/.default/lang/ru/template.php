@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_APP_PUSH_TITLE"] = "Настройка уведомлений";
 $MESS["MOBILE_APP_PUSH_BACK"] = "Назад";
 $MESS["MOBILE_APP_PUSH_SAVE"] = "Сохранить";

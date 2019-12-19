@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SCSP_DTITLE"]="Наличный расчет";

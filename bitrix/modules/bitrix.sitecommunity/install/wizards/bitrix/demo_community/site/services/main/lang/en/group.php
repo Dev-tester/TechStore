@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REGISTERED_USERS"] = "Registered users";
 $MESS["COMMUNITY_WIZARD_ADMINISTRATOR"] = "Club Administration";
 $MESS["COMMUNITY_WIZARD_ADMINISTRATOR_DESCR"] = "Group members can manage all community resources";

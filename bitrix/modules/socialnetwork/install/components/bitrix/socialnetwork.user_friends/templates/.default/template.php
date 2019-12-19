@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,20 +12,20 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>	
-	<?if ($arResult["CanViewLog"]):?>
+	<?php if ($arResult["CanViewLog"]):?>
 		<a href="<?= $arResult["Urls"]["LogUsers"] ?>"><?= GetMessage("SONET_C33_T_UPDATES") ?></a><br /><br />
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 	if ($arResult["CurrentUserPerms"]["IsCurrentUser"]):
-		?><form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data"><?
+		?><form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data"><?php 
 	endif;
 	?>
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
+	<?php endif;?>
 	<div class="sonet-cntnr-user-friends">
 	<table width="100%" class="sonet-user-profile-friends data-table">
 		<tr>
@@ -33,7 +33,7 @@ else
 		</tr>
 		<tr>
 			<td>
-				<?
+				<?php 
 				if ($arResult["CurrentUserPerms"]["Operations"]["viewprofile"] && $arResult["CurrentUserPerms"]["Operations"]["viewfriends"])
 				{
 					if ($arResult["Friends"] && $arResult["Friends"]["List"])
@@ -42,7 +42,7 @@ else
 						<table width="100%" border="0" class="sonet-user-profile-friend-box">
 						<tr>
 							<td align="left" valign="top">								
-						<?
+						<?php 
 						$ind = 0;
 						$ind_row = 0;
 					
@@ -58,17 +58,17 @@ else
 								$ind_row = 0;
 							}
 
-							?><div class="user-div"><?
+							?><div class="user-div"><?php 
 							
 							if ($arResult["CurrentUserPerms"]["IsCurrentUser"])
 							{
 								?><table cellspacing="0" cellpadding="0" border="0" class="sonet-user-profile-friend-user">
 								<tr>
-									<td align="right" class="checkbox-cell"><?
+									<td align="right" class="checkbox-cell"><?php 
 									echo "<input type=\"checkbox\" name=\"checked_".$ind."\" value=\"Y\">";
 									echo "<input type=\"hidden\" name=\"id_".$ind."\" value=\"".$friend["USER_ID"]."\">";
 									?></td>
-									<td><?
+									<td><?php 
 							}
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
@@ -100,28 +100,28 @@ else
 
 							if (StrLen($friend["REQUEST_GROUP_LINK"]) > 0 || $friend["CAN_ADD2FRIENDS"] || $friend["CAN_DELETE_FRIEND"])							
 							{
-								?><div class="desc-div"><?
+								?><div class="desc-div"><?php 
 								if (StrLen($friend["REQUEST_GROUP_LINK"]) > 0)
 									echo "<br><a href=\"".$friend["REQUEST_GROUP_LINK"]."\" class=\"action-link\"><b>".GetMessage("SONET_C33_T_INVITE")."</b></a>";
-								?></div><?
+								?></div><?php 
 							}
 							
 							if ($arResult["CurrentUserPerms"]["IsCurrentUser"])
 							{
 									?></td>
 								</tr>
-								</table><?
+								</table><?php 
 							}
 							
 							$ind++;
 							$ind_row++;						
-							?></div><?
+							?></div><?php 
 						}
 						?>
 							</td>
 						</tr>
 						</table>
-						<?
+						<?php 
 					}
 					else
 						echo GetMessage("SONET_C33_T_NO_FRIENDS");
@@ -129,23 +129,23 @@ else
 				else
 					echo GetMessage("SONET_C33_T_FR_UNAVAIL");
 				?>
-				<?if ($arResult["CurrentUserPerms"]["IsCurrentUser"]):?>
+				<?php if ($arResult["CurrentUserPerms"]["IsCurrentUser"]):?>
 					<a href="<?= $arResult["Urls"]["Search"] ?>"><?= (StrLen($friend["REQUEST_GROUP_LINK"]) > 0) ? GetMessage("SONET_C33_T_ADD_FRIEND1") : GetMessage("SONET_C33_T_ADD_FRIEND") ?></a>
-				<?endif;?>
+				<?php endif;?>
 			</td>
 		</tr>
 	</table>
 	</div>
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<br><?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 	if ($arResult["CurrentUserPerms"]["IsCurrentUser"]):
 		?><br />
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<?=bitrix_sessid_post()?>
 		<input type="submit" name="delete" value="<?= GetMessage("SONET_C33_T_DELETE") ?>">		
-		</form><?
+		</form><?php 
 	endif;	
 }
 ?>

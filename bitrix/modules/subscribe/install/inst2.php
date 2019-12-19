@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!check_bitrix_sessid()) return;
 IncludeModuleLangFile(__FILE__);
 
@@ -20,7 +20,7 @@ if(strlen($_REQUEST["public_dir"])>0) :
 		<td align="center"><b><?=GetMessage("MOD_DEMO_SITE")?></b></td>
 		<td align="center"><b><?=GetMessage("MOD_DEMO_LINK")?></b></td>
 	</tr>
-	<?
+	<?php 
 	$sites = CSite::GetList($by, $order, Array("ACTIVE"=>"Y"));
 	while($site = $sites->Fetch())
 	{
@@ -29,15 +29,15 @@ if(strlen($_REQUEST["public_dir"])>0) :
 			<td>[<?=htmlspecialcharsEx($site["ID"])?>] <?=htmlspecialcharsEx($site["NAME"])?></td>
 			<td><a href="<?=htmlspecialcharsBx((strlen($site["SERVER_NAME"])>0? "http://".$site["SERVER_NAME"]: "").$site["DIR"].$public_dir."/index.php")?>"><?=htmlspecialcharsEx($site["DIR"].$public_dir."/index.php")?></a></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 </table>
 <br>
-<?
+<?php 
 endif;
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">
 <form>

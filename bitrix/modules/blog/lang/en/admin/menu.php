@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MENU_SMILES"] = "Smileys";
 $MESS["BLOG_MENU_SMILES_ALT"] = "Edit smileys and icons";
 $MESS["BLG_AM_BLOGS_ALT"] = "Blog management";

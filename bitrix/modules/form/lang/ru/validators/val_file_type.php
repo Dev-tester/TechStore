@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_FILE_TYPE_DESCRIPTION'] = "Тип файла";
 $MESS['FORM_VALIDATOR_FILE_TYPE_SETTINGS_EXT'] = "Тип файла (по расширению)";
 $MESS['FORM_VALIDATOR_FILE_TYPE_SETTINGS_TYPE_EXT_NONE'] = "не проверять";

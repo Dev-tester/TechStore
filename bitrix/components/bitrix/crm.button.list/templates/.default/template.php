@@ -15,7 +15,7 @@ CJSCore::Init(array('clipboard'));
 
 <div class="intranet-button-list-wrapper">
 
-	<?if(!$arResult['HIDE_DESC']):?>
+	<?php if(!$arResult['HIDE_DESC']):?>
 	<div id="CRM_LIST_DESC_CONT" class="intranet-button-list-info">
 		<h2 class="intranet-button-list-info-title"><?=Loc::getMessage('CRM_BUTTON_LIST_INFO_TITLE')?></h2>
 		<div class="intranet-button-list-info-visual">
@@ -48,17 +48,17 @@ CJSCore::Init(array('clipboard'));
 
 		<span id="CRM_LIST_DESC_BTN_HIDE" class="intranet-button-list-info-btn-hide" title="<?=Loc::getMessage('CRM_BUTTON_LIST_HIDE_DESC')?>"></span>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<div id="crm_web_form_list_container">
-<?foreach($arResult['ITEMS_BY_IS_SYSTEM'] as $isSystem => $system):?>
+<?php foreach($arResult['ITEMS_BY_IS_SYSTEM'] as $isSystem => $system):?>
 	<div class="intranet-button-list-header-container">
 		<h3 data-bx-list-head="" class="intranet-button-list-header">
 			<?=htmlspecialcharsbx($system['NAME'])?>
 		</h3>
 	</div>
 	<div data-bx-list-items="">
-<?foreach($system['ITEMS'] as $item):
+<?php foreach($system['ITEMS'] as $item):
 	$isSystem = $item['IS_SYSTEM'];
 	?>
 	<div class="intranet-button-list-widget-row"
@@ -68,9 +68,9 @@ CJSCore::Init(array('clipboard'));
 		<div class="intranet-button-list-buttons-container">
 			<div class="intranet-button-list-buttons">
 				<span class="intranet-button-list-hamburger" data-bx-crm-webform-item-settings=""></span>
-				<?if($arResult['PERM_CAN_EDIT'] && $isSystem != 'Y'):?>
+				<?php if($arResult['PERM_CAN_EDIT'] && $isSystem != 'Y'):?>
 					<span class="intranet-button-list-close" data-bx-crm-webform-item-delete="" title="<?=Loc::getMessage('CRM_BUTTON_LIST_ACTIONS_REMOVE')?>"></span>
-				<?endif;?>
+				<?php endif;?>
 			</div><!--intranet-button-list-buttons-->
 		</div><!--intranet-button-list-button-container-->
 		<div class="intranet-button-list-widget-container intranet-button-list-widget-left">
@@ -88,43 +88,43 @@ CJSCore::Init(array('clipboard'));
 					<div class="intranet-button-list-widget-content-amt">
 						<div class="intranet-button-list-widget-content-inner">
 							<div class="intranet-button-list-widget-content-inner-block" title="<?=htmlspecialcharsbx($arResult['TYPE_LIST']['openline'])?>">
-								<?if($item['ITEMS']['openline']):?>
+								<?php if($item['ITEMS']['openline']):?>
 									<div class="intranet-button-list-widget-content-inner-item intranet-button-list-widget-active">
 										<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-openlines"></div>
 										<div class="intranet-button-list-widget-content-inner-item-text"><?=htmlspecialcharsbx($item['ITEMS']['openline']['NAME'])?></div>
 									</div><!--intranet-button-list-widget-content-inner-item-->
-								<?else:?>
+								<?php else:?>
 									<div class="intranet-button-list-widget-content-inner-item">
 										<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-openlines"></div>
 										<div class="intranet-button-list-widget-content-inner-item-text"><?=Loc::getMessage('CRM_BUTTON_LIST_NOT_SELECTED')?></div>
 									</div><!--intranet-button-list-widget-content-inner-item-->
-								<?endif;?>
+								<?php endif;?>
 							</div><!--intranet-button-list-widget-content-inner-item-->
 							<div class="intranet-button-list-widget-content-inner-block" title="<?=htmlspecialcharsbx($arResult['TYPE_LIST']['crmform'])?>">
-								<?if($item['ITEMS']['crmform']):?>
+								<?php if($item['ITEMS']['crmform']):?>
 									<div class="intranet-button-list-widget-content-inner-item intranet-button-list-widget-active">
 										<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-webform"></div>
 										<div class="intranet-button-list-widget-content-inner-item-text"><?=htmlspecialcharsbx($item['ITEMS']['crmform']['NAME'])?></div>
 									</div><!--intranet-button-list-widget-content-inner-item-->
-								<?else:?>
+								<?php else:?>
 									<div class="intranet-button-list-widget-content-inner-item">
 										<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-webform"></div>
 										<div class="intranet-button-list-widget-content-inner-item-text"><?=Loc::getMessage('CRM_BUTTON_LIST_NOT_SELECTED')?></div>
 									</div><!--intranet-button-list-widget-content-inner-item-->
-								<?endif;?>
+								<?php endif;?>
 							</div><!--intranet-button-list-widget-content-inner-item-->
 							<div class="intranet-button-list-widget-content-inner-block" title="<?=htmlspecialcharsbx($arResult['TYPE_LIST']['callback'])?>">
-								<?if($item['ITEMS']['callback']):?>
+								<?php if($item['ITEMS']['callback']):?>
 									<div class="intranet-button-list-widget-content-inner-item intranet-button-list-widget-active">
 										<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-call"></div>
 										<div class="intranet-button-list-widget-content-inner-item-text"><?=htmlspecialcharsbx($item['ITEMS']['callback']['NAME'])?></div>
 									</div><!--intranet-button-list-widget-content-inner-item-->
-								<?else:?>
+								<?php else:?>
 									<div class="intranet-button-list-widget-content-inner-item">
 										<div class="intranet-button-list-widget-content-inner-item-image intranet-button-list-call"></div>
 										<div class="intranet-button-list-widget-content-inner-item-text"><?=Loc::getMessage('CRM_BUTTON_LIST_NOT_SELECTED')?></div>
 									</div><!--intranet-button-list-widget-content-inner-item-->
-								<?endif;?>
+								<?php endif;?>
 							</div><!--intranet-button-list-widget-content-inner-item-->
 						</div><!--intranet-button-list-widget-content-inner-->
 					</div>
@@ -148,7 +148,7 @@ CJSCore::Init(array('clipboard'));
 								<?=$item['DATE_CREATE_DISPLAY_DATE']?> <?=Loc::getMessage('CRM_BUTTON_LIST_ITEM_ACTIVE_ACT_ON')?> <?=$item['DATE_CREATE_DISPLAY_TIME']?>:
 							</span>
 							<span class="intranet-button-list-date">
-								<?
+								<?php 
 								if($item['ACTIVE_CHANGE_BY_DISPLAY']['ICON'])
 								{
 									$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($item['ACTIVE_CHANGE_BY_DISPLAY']['ICON']) .'\');';
@@ -174,7 +174,7 @@ CJSCore::Init(array('clipboard'));
 								<span class="intranet-button-list-activate-comments-deact"><?=Loc::getMessage('CRM_BUTTON_LIST_ITEM_ACTIVE_OFF_NOW')?>:</span>
 							</span>
 							<span class="intranet-button-list-text">
-								<?
+								<?php 
 								if($item['ACTIVE_CHANGE_BY_NOW_DISPLAY']['ICON'])
 								{
 									$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($item['ACTIVE_CHANGE_BY_NOW_DISPLAY']['ICON']) .'\');';
@@ -217,34 +217,34 @@ CJSCore::Init(array('clipboard'));
 					<?=Loc::getMessage('CRM_BUTTON_LIST_ITEM_BTN_GET_SCRIPT')?>
 				</span>
 				<a data-bx-slider-opener="" data-bx-edit-link="" href="<?=htmlspecialcharsbx($item['PATH_TO_BUTTON_EDIT'])?>" class="webform-small-button webform-small-button-transparent intranet-button-list-button-settings">
-					<?if(!$arResult['PERM_CAN_EDIT']):?>
+					<?php if(!$arResult['PERM_CAN_EDIT']):?>
 						<?=Loc::getMessage('CRM_BUTTON_LIST_ACTIONS_VIEW')?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('CRM_BUTTON_LIST_ACTIONS_EDIT')?>
-					<?endif;?>
+					<?php endif;?>
 				</a>
 				<span data-bx-crm-webform-item-active-btn=""
 					data-bx-text-on="<?=Loc::getMessage('CRM_BUTTON_LIST_ITEM_ACTIVE_BTN_ON')?>"
 					data-bx-text-off="<?=Loc::getMessage('CRM_BUTTON_LIST_ITEM_ACTIVE_BTN_OFF')?>"
 					class="webform-small-button <?=($item['ACTIVE'] <> 'Y' ? 'webform-small-button-accept' : 'webform-small-button-transparent')?> intranet-button-list-button-settings"
 				>
-					<?if($item['ACTIVE'] == 'Y'):?>
+					<?php if($item['ACTIVE'] == 'Y'):?>
 						<?=Loc::getMessage('CRM_BUTTON_LIST_ITEM_ACTIVE_BTN_OFF')?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('CRM_BUTTON_LIST_ITEM_ACTIVE_BTN_ON')?>
-					<?endif;?>
+					<?php endif;?>
 				</span>
 			</div><!--intranet-button-list-button-settings-container-->
 
 		</div><!--intranet-button-list-widget-container intranet-button-list-widget-right-->
 	</div><!--intranet-button-list-widget-row-->
 
-<?endforeach;?>
+<?php endforeach;?>
 	</div>
-<?endforeach;?>
+<?php endforeach;?>
 </div><!--intranet-button-list-wrapper-->
 
-	<?if($arResult['SHOW_PLUGINS']):?>
+	<?php if($arResult['SHOW_PLUGINS']):?>
 	<div class="intranet-button-list-header-container">
 		<h3 class="intranet-button-list-header"><?=Loc::getMessage('CRM_BUTTON_LIST_PLUGIN_TITLE')?></h3>
 	</div><!--intranet-button-list-header-container-->
@@ -267,7 +267,7 @@ CJSCore::Init(array('clipboard'));
 			</span>
 		</div>
 	</div><!--intranet-button-list-widget-plugin-container-->
-	<?endif;?>
+	<?php endif;?>
 
 </div>
 
@@ -300,7 +300,7 @@ CJSCore::Init(array('clipboard'));
 	});
 </script>
 
-<?
+<?php 
 	if ($arResult['PERM_CAN_EDIT'])
 	{
 		$this->SetViewTarget("pagetitle", 10);
@@ -308,7 +308,7 @@ CJSCore::Init(array('clipboard'));
 			<a id="CRM_BUTTON_LIST_ADD" href="<?=htmlspecialcharsbx($arResult['PATH_TO_BUTTON_NEW'])?>" class="ui-btn ui-btn-primary">
 				<?=Loc::getMessage('CRM_BUTTON_LIST_ADD_CAPTION')?>
 			</a>
-		<?
+		<?php 
 		$this->EndViewTarget();
 	}
 ?>

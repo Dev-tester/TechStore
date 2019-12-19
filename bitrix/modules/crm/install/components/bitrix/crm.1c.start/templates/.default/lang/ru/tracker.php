@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_1C_START_TRACKER_NAME"] = "1C-трекер";
 $MESS["CRM_1C_START_TRACKER_ADV_TITLE"] = "Обогащайте свою CRM данными";
 $MESS["CRM_1C_START_TRACKER_ADV_1"] = "Простое подключение";

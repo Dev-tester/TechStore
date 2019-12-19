@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLOW_MODULE_NAME'] = "Workflow";
 $MESS ['FLOW_MODULE_DESCRIPTION'] = "Module to organize and process the site documents.";
 $MESS ['FLOW_INSTALL_TITLE'] = "Workflow module installation";

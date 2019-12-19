@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['B_SALE_STATUS_ID'] = 'Код статуса';
 $MESS['B_SALE_STATUS_TYPE'] = 'Тип статуса';
 $MESS['B_SALE_STATUS_SORT'] = 'Сортировка';

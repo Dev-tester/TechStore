@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['REGISTER_PAGE_TIP'] = "The path name of an affiliate registration page. The default registration page is register.php.";
 $MESS ['SHOP_NAME_TIP'] = "Specifies the site name that will be added to the affiliate's instruction.";
 $MESS ['SHOP_URL_TIP'] = "Specifies the URL of a site on which the affiliateship is established.";

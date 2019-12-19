@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_EMPTY_BASE_PRICE"] = "Заполните поле \"Базовая цена\"";
 $MESS["ERROR_EMPTY_BASE_CURRENCY"] = "Заполните поле \"Валюта базовой цены\"";
 $MESS["ERROR_DELETE_PRICE"] = "Ошибка удаления цены";

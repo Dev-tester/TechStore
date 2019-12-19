@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
@@ -16,15 +16,15 @@ CJSCore::Init([
 $melodiesToLoad = [];
 ?>
 
-<?
+<?php 
 if (!$arResult["IFRAME"])
 {
 	?>
 	<div class="voximplant-page-menu-sidebar">
-		<?
+		<?php 
 		$APPLICATION->ShowViewContent("left-panel"); ?>
 	</div>
-	<?
+	<?php 
 }
 
 $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
@@ -34,11 +34,11 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 ?>
 
 <div id="vi-editor-root" class="voximplant-config-root">
-	<?if($arResult["ERROR"] != ""):?>
+	<?php if($arResult["ERROR"] != ""):?>
 		<div class="ui-alert ui-alert-danger">
 			<span class="ui-alert-message"><?=$arResult["ERROR"]?></span>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<form id="config_edit_form" method="POST">
 		<?= bitrix_sessid_post() ?>
@@ -71,7 +71,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<input type="password" name="SIP[PASSWORD]" value="<?=htmlspecialcharsbx($arResult['SIP_CONFIG']['PASSWORD'])?>" class="voximplant-control-input">
 							<div class="voximplant-control-description"><?= Loc::getMessage("VI_CONFIG_SIP_T_PASS_HINT") ?></div>
 						</div>
-						<? if($arResult["SIP_CONFIG"]['TYPE'] == CVoxImplantSip::TYPE_CLOUD): ?>
+						<?php  if($arResult["SIP_CONFIG"]['TYPE'] == CVoxImplantSip::TYPE_CLOUD): ?>
 							<div class="voximplant-control-row">
 								<div class="voximplant-control-subtitle"><?=GetMessage('VI_CONFIG_SIP_T_AUTH_USER')?></div>
 								<input type="text" name="SIP[AUTH_USER]" value="<?=htmlspecialcharsbx($arResult['SIP_CONFIG']['AUTH_USER'])?>" class="voximplant-control-input">
@@ -82,13 +82,13 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 								<input type="text" name="SIP[OUTBOUND_PROXY]" value="<?=htmlspecialcharsbx($arResult['SIP_CONFIG']['OUTBOUND_PROXY'])?>" class="voximplant-control-input">
 								<div class="voximplant-control-description"><?= Loc::getMessage("VI_CONFIG_SIP_C_NUMBER_HINT") ?></div>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 				</div>
 				<div class="voximplant-container-column">
 					<div class="voximplant-title-dark"><?=GetMessage("VI_CONFIG_SIP_IN_TITLE")?></div>
 					<div class="voximplant-number-settings-wrap">
-						<? if($arResult["SIP_CONFIG"]["TYPE"] == CVoxImplantSip::TYPE_CLOUD): ?>
+						<?php  if($arResult["SIP_CONFIG"]["TYPE"] == CVoxImplantSip::TYPE_CLOUD): ?>
 							<p><?= GetMessage("VI_CONFIG_SIP_C_IN") ?></p>
 							<div class="voximplant-control-row">
 								<input id="sip-need-update" name="SIP[NEED_UPDATE]" value="N" type="hidden">
@@ -96,7 +96,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 								<div id="sip-status"></div>
 								<div id="sip-status-text"></div>
 							</div>
-						<? else: ?>
+						<?php  else: ?>
 							<p><?= GetMessage("VI_CONFIG_SIP_IN") ?></p>
 							<div class="voximplant-control-row">
 								<div class="voximplant-control-subtitle"><?=GetMessage('VI_CONFIG_SIP_T_INC_SERVER')?></div>
@@ -110,7 +110,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 								<div class="voximplant-control-subtitle"><?=GetMessage('VI_CONFIG_SIP_T_INC_PASS')?></div>
 								<input readonly type="text" value="<?=htmlspecialcharsbx($arResult['SIP_CONFIG']['INCOMING_PASSWORD'])?>" class="voximplant-control-input">
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 						<p>
 							<?=GetMessage('VI_CONFIG_SIP_CONFIG_INFO', Array('#LINK_START#' => '<a href="'.$arResult['LINK_TO_DOC'].'" target="_blank">', '#LINK_END#' => '</a>'));?>
 						</p>
@@ -126,23 +126,23 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 				</div>
 				<div class="voximplant-number-settings-wrap">
 
-					<? if($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_SIP): ?>
+					<?php  if($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_SIP): ?>
 						<div class="voximplant-number-settings-row">
 							<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
-								<input id="sip_to" name="USE_SIP_TO" type="checkbox" value="Y" class="voximplant-number-settings-checkbox" <? if ($arResult["ITEM"]["USE_SIP_TO"] == "Y") { ?>checked<? } ?>>
+								<input id="sip_to" name="USE_SIP_TO" type="checkbox" value="Y" class="voximplant-number-settings-checkbox" <?php  if ($arResult["ITEM"]["USE_SIP_TO"] == "Y") { ?>checked<?php  } ?>>
 								<label for="sip_to" class="voximplant-number-settings-label"><?=GetMessage("VI_CONFIG_EDIT_SIP_HEADER_PROCESSING")?></label>
 							</div>
 							<div class="voximplant-number-settings-inner">
 								<div class="voximplant-number-settings-text"><?=GetMessage("VI_CONFIG_EDIT_SIP_HEADER_PROCESSING_TIP")?></div>
 							</div>
 						</div>
-					<? endif ?>
-					<? if($arResult["ITEM"]["PORTAL_MODE"] !== CVoxImplantConfig::MODE_LINK): ?>
+					<?php  endif ?>
+					<?php  if($arResult["ITEM"]["PORTAL_MODE"] !== CVoxImplantConfig::MODE_LINK): ?>
 						<div id="voximplant-hint" class="voximplant-number-settings-row">
 							<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 								<input id="play-welcome-melody" name="MELODY_WELCOME_ENABLE" type="checkbox"
 									   class="voximplant-number-settings-checkbox" data-role="welcome-melody"
-									   <? if ($arResult["ITEM"]["MELODY_WELCOME_ENABLE"] == "Y") { ?>checked<? } ?> value="Y"
+									   <?php  if ($arResult["ITEM"]["MELODY_WELCOME_ENABLE"] == "Y") { ?>checked<?php  } ?> value="Y"
 								>
 								<label for="play-welcome-melody" class="voximplant-number-settings-label">
 									<?= Loc::getMessage("VI_CONFIG_EDIT_PLAY_WELCOME_MELODY") ?>
@@ -153,7 +153,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 								<div class="voximplant-number-settings-choice">
 									<input id="direct-code" name="DIRECT_CODE" type="checkbox"
 										   class="voximplant-number-settings-checkbox"
-										   <? if ($arResult["ITEM"]["DIRECT_CODE"] == "Y") { ?>checked<? } ?> value="Y">
+										   <?php  if ($arResult["ITEM"]["DIRECT_CODE"] == "Y") { ?>checked<?php  } ?> value="Y">
 									<label for="direct-code"
 										   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_EXT_NUM_PROCESSING") ?></label>
 								</div>
@@ -170,23 +170,23 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 								</div>
 							</div>
 						</div>
-					<? endif ?>
-					<? if($arResult["ITEM"]["PORTAL_MODE"] !== CVoxImplantConfig::MODE_LINK): ?>
+					<?php  endif ?>
+					<?php  if($arResult["ITEM"]["PORTAL_MODE"] !== CVoxImplantConfig::MODE_LINK): ?>
 						<div class="voximplant-number-settings-row">
 							<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 								<input id="vi-set-ivr" name="IVR" type="checkbox" data-role="enable-ivr"
 									   data-locked="<?= (\Bitrix\Voximplant\Ivr\Ivr::isEnabled() ? "N" : "Y") ?>"
 									   data-license-popup="main"
 									   class="voximplant-number-settings-checkbox"
-									   <? if ($arResult["ITEM"]["IVR"] == "Y") { ?>checked<? } ?> value="Y">
+									   <?php  if ($arResult["ITEM"]["IVR"] == "Y") { ?>checked<?php  } ?> value="Y">
 								<label for="vi-set-ivr" class="voximplant-number-settings-label"><?= Loc::getMessage("TELEPHONY_USE_IVR_2") ?></label>
-								<? if (!\Bitrix\Voximplant\Ivr\Ivr::isEnabled()): ?>
+								<?php  if (!\Bitrix\Voximplant\Ivr\Ivr::isEnabled()): ?>
 									<div class="tel-lock-holder-select"
 										 title="<?= GetMessage("VI_CONFIG_LOCK_ALT") ?>">
 										<div onclick="BX.Voximplant.showLicensePopup('main')"
 											 class="tel-lock <?= (CVoxImplantAccount::IsDemo() ? 'tel-lock-demo' : '') ?>"></div>
 									</div>
-								<? endif ?>
+								<?php  endif ?>
 							</div>
 							<div class="voximplant-number-settings-inner tel-set-height-animated" data-role="ivr-settings"
 								 data-height="80px" style="max-height: <?= $arResult["ITEM"]["IVR"] == "Y" ? "80px" : "0" ?>">
@@ -196,23 +196,23 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 										<select name="IVR_ID" class="voximplant-control-select" data-role="select-ivr">
 											<option value="new"><?= GetMessage('VI_CONFIG_CREATE_IVR') ?></option>
 											<option disabled>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</option>
-											<? foreach ($arResult["IVR_MENUS"] as $ivr): ?>
+											<?php  foreach ($arResult["IVR_MENUS"] as $ivr): ?>
 												<option value="<?= htmlspecialcharsbx($ivr["ID"]) ?>"<?= ($ivr["ID"] == $arResult["ITEM"]["IVR_ID"] ? " selected" : "") ?>><?= htmlspecialcharsbx($ivr["NAME"]) ?></option>
-											<? endforeach; ?>
+											<?php  endforeach; ?>
 										</select>
 										<span id="vi-group-show-ivr" class="voximplant-link" data-role="show-ivr-config"><?= Loc::getMessage("VI_CONFIG_IVR_SETTINGS") ?></span>
 									</div>
 								</div>
 							</div>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 
-					<? if (IsModuleInstalled('crm')): ?>
+					<?php  if (IsModuleInstalled('crm')): ?>
 						<div class="voximplant-number-settings-row">
 							<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 								<input id="vi_crm_forward" type="checkbox" data-role="enable-crm-forward"
 									   class="voximplant-number-settings-checkbox" name="CRM_FORWARD"
-									   <? if ($arResult["ITEM"]["CRM_FORWARD"] == "Y") { ?>checked<? } ?> value="Y">
+									   <?php  if ($arResult["ITEM"]["CRM_FORWARD"] == "Y") { ?>checked<?php  } ?> value="Y">
 								<label for="vi_crm_forward"
 									   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_CRM_FORWARD_2") ?></label>
 							</div>
@@ -223,14 +223,14 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 									<select class="voximplant-control-select" name="CRM_RULE">
 										<option value="<?= CVoxImplantIncoming::RULE_QUEUE ?>"<?= (CVoxImplantIncoming::RULE_QUEUE == $arResult["ITEM"]["CRM_RULE"] ? " selected" : "") ?>><?= Loc::getMessage("VI_CONFIG_EDIT_DEALING_WITH_OMITTED_CALL_1") ?></option>
 										<option value="<?= CVoxImplantIncoming::RULE_PSTN ?>"<?= (CVoxImplantIncoming::RULE_PSTN == $arResult["ITEM"]["CRM_RULE"] ? " selected" : "") ?>><?= Loc::getMessage("VI_CONFIG_EDIT_DEALING_WITH_OMITTED_CALL_3_3") ?></option>
-										<? if ($arResult['SHOW_RULE_VOICEMAIL']): ?>
+										<?php  if ($arResult['SHOW_RULE_VOICEMAIL']): ?>
 											<option value="<?= CVoxImplantIncoming::RULE_VOICEMAIL ?>"<?= (CVoxImplantIncoming::RULE_VOICEMAIL == $arResult["ITEM"]["CRM_RULE"] ? " selected" : "") ?>><?= Loc::getMessage("VI_CONFIG_EDIT_DEALING_WITH_OMITTED_CALL_2_1") ?></option>
-										<? endif ?>
+										<?php  endif ?>
 									</select>
 								</div>
 							</div>
 						</div>
-					<? endif; ?>
+					<?php  endif; ?>
 
 					<div class="voximplant-number-settings-row">
 						<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
@@ -244,9 +244,9 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 											data-role="select-group">
 										<option value="new"><?= GetMessage('VI_CONFIG_CREATE_GROUP') ?></option>
 										<option disabled>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</option>
-										<? foreach ($arResult["QUEUES"] as $queue): ?>
+										<?php  foreach ($arResult["QUEUES"] as $queue): ?>
 											<option value="<?= htmlspecialcharsbx($queue["ID"]) ?>"<?= ($queue["ID"] == $arResult["ITEM"]["QUEUE_ID"] ? " selected" : "") ?>><?= htmlspecialcharsbx($queue["NAME"]) ?></option>
-										<? endforeach; ?>
+										<?php  endforeach; ?>
 									</select>
 									<span id="vi-group-show-config" class="voximplant-link"
 										  data-role="show-group-config">
@@ -256,7 +256,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							</div>
 							<div class="voximplant-number-settings-choice">
 								<input id="vi_timeman" type="checkbox" class="voximplant-number-settings-checkbox"
-									   name="TIMEMAN" <? if ($arResult["ITEM"]["TIMEMAN"] == "Y") { ?>checked<? } ?>
+									   name="TIMEMAN" <?php  if ($arResult["ITEM"]["TIMEMAN"] == "Y") { ?>checked<?php  } ?>
 									   value="Y">
 								<label for="vi_timeman"
 									   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_TIMEMAN_SUPPORT") ?></label>
@@ -274,7 +274,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 					<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 						<input id="DETECT_LINE_NUMBER" name="SIP[DETECT_LINE_NUMBER]" type="checkbox" data-role="enable-sip-detect-line-number"
 							   value="Y"
-							   <? if ($arResult["SIP_CONFIG"]["DETECT_LINE_NUMBER"] === "Y"): ?>checked="checked"<? endif ?>
+							   <?php  if ($arResult["SIP_CONFIG"]["DETECT_LINE_NUMBER"] === "Y"): ?>checked="checked"<?php  endif ?>
 							   class="voximplant-number-settings-checkbox">
 						<label for="DETECT_LINE_NUMBER" class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_SIP_DETECT_INCOMING_NUMBER") ?></label>
 					</div>
@@ -290,7 +290,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 
 						<div class="voximplant-control-row">
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_SIP_CONNECTION_NUMBERS") ?></div>
-							<?
+							<?php 
 							$GLOBALS["APPLICATION"]->includeComponent(
 								"bitrix:ui.tile.selector",
 								"",
@@ -312,7 +312,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 			</div>
 		</div>
 
-		<? if (IsModuleInstalled('crm')): ?>
+		<?php  if (IsModuleInstalled('crm')): ?>
 			<div class="voximplant-config-page" data-role="page" data-page="crm">
 				<div class="voximplant-container">
 					<div class="voximplant-title-dark"><?= Loc::getMessage("VOX_CONFIG_EDIT_CRM_INTEGRATION") ?></div>
@@ -324,9 +324,9 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 									<div class="voximplant-control-select-flexible">
 										<select id="vi_crm_create" name="CRM_CREATE" class="voximplant-control-select"
 												data-role="crm-create">
-											<? foreach (array("1" => CVoxImplantConfig::CRM_CREATE_NONE, "2" => CVoxImplantConfig::CRM_CREATE_LEAD) as $ii => $k): ?>
+											<?php  foreach (array("1" => CVoxImplantConfig::CRM_CREATE_NONE, "2" => CVoxImplantConfig::CRM_CREATE_LEAD) as $ii => $k): ?>
 												<option value="<?= $k ?>"<?= ($k == $arResult["ITEM"]["CRM_CREATE"] ? " selected" : "") ?>><?= GetMessage("VI_CONFIG_EDIT_CRM_CREATE_".$ii) ?></option>
-											<? endforeach; ?>
+											<?php  endforeach; ?>
 										</select>
 										<span class="voximplant-link"
 											  data-role="show-crm-exception-list"><?= Loc::getMessage("VI_CONFIG_CONFIGURE_CRM_EXCEPTIONS_LIST") ?></span>
@@ -345,18 +345,18 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 									<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_CRM_SOURCE_NEW") ?></div>
 									<select id="vi_crm_source_select" name="CRM_SOURCE"
 											class="voximplant-control-select" data-role="crm-source-select">
-										<? foreach ($arResult['CRM_SOURCES'] as $ii => $k): ?>
+										<?php  foreach ($arResult['CRM_SOURCES'] as $ii => $k): ?>
 											<option value="<?= $ii ?>"<?= ($ii == $arResult["ITEM"]["CRM_SOURCE"] ? " selected" : "") ?>><?= htmlspecialcharsbx($k) ?></option>
-										<? endforeach; ?>
+										<?php  endforeach; ?>
 									</select>
-									<? if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
+									<?php  if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
 										<div class="tel-lock-holder-select"
 											 title="<?= GetMessage("VI_CONFIG_LOCK_ALT") ?>">
 											<div onclick="BX.Voximplant.showLicensePopup('main')"
 												 class="tel-lock <?= (CVoxImplantAccount::IsDemo() ? 'tel-lock-demo' : '') ?>"></div>
 										</div>
-									<? endif; ?>
-									<? if (!CVoxImplantAccount::IsPro()): ?>
+									<?php  endif; ?>
+									<?php  if (!CVoxImplantAccount::IsPro()): ?>
 										<script type="text/javascript">
 											viCrmSource = BX('vi_crm_source_select').options.selectedIndex;
 											BX.bind(BX('vi_crm_source_select'), 'change', function (e)
@@ -365,12 +365,12 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 												this.selectedIndex = viCrmSource;
 											});
 										</script>
-									<? endif; ?>
+									<?php  endif; ?>
 								</div>
 								<div class="voximplant-number-settings-choice">
 									<input id="crm-transfer-change" name="CRM_TRANSFER_CHANGE" type="checkbox"
 										   class="voximplant-number-settings-checkbox"
-										   <? if ($arResult["ITEM"]["CRM_TRANSFER_CHANGE"] == "Y") { ?>checked<? } ?>
+										   <?php  if ($arResult["ITEM"]["CRM_TRANSFER_CHANGE"] == "Y") { ?>checked<?php  } ?>
 										   value="Y" data-role="crm-transfer-change">
 									<label for="crm-transfer-change" class="voximplant-number-settings-label">
 										<?= Loc::getMessage("VI_CONFIG_EDIT_CRM_TRANSFER_CHANGE") ?>
@@ -381,7 +381,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 					</div>
 				</div>
 			</div>
-		<? endif; ?>
+		<?php  endif; ?>
 
 		<div class="voximplant-config-page" data-role="page" data-page="recording">
 			<div class="voximplant-container">
@@ -394,11 +394,11 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 						<label for="vi-recording"
 							   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_RECORD") ?></label>
 
-						<?if ($arResult['RECORD_LIMIT']['ENABLE']):?>
+						<?php if ($arResult['RECORD_LIMIT']['ENABLE']):?>
 							<div class="tel-lock-holder-title" title="<?=GetMessage("VI_CONFIG_LOCK_RECORD_ALT", Array("#LIMIT#" => $arResult['RECORD_LIMIT']['LIMIT'], '#REMAINING#' => $arResult['RECORD_LIMIT']['REMAINING']))?>"><div onclick="BX.Voximplant.showLicensePopup('main')"  class="tel-lock tel-lock-half <?=(CVoxImplantAccount::IsDemo()? 'tel-lock-demo': '')?>"></div></div>
-						<?elseif (!$arResult['RECORD_LIMIT']['ENABLE'] && $arResult['RECORD_LIMIT']['DEMO']):?>
+						<?php elseif (!$arResult['RECORD_LIMIT']['ENABLE'] && $arResult['RECORD_LIMIT']['DEMO']):?>
 							<div class="tel-lock-holder-title" title="<?=GetMessage("VI_CONFIG_LOCK_ALT")?>"><div onclick="BX.Voximplant.showLicensePopup('main')"  class="tel-lock tel-lock-demo"></div></div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 					<div class="voximplant-number-settings-inner tel-set-height-animated" data-role="recording-settings"
 						 data-height="370px" style="max-height: <?= $arResult["ITEM"]["RECORDING"] == "Y" ? "370px" : "0"?>">
@@ -408,7 +408,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 						</div>
 						<div class="voximplant-number-settings-choice">
 							<input id="vi_recording_notice" type="checkbox" name="RECORDING_NOTICE"
-								   <? if ($arResult["ITEM"]["RECORDING_NOTICE"] == "Y") { ?>checked<? } ?> value="Y"
+								   <?php  if ($arResult["ITEM"]["RECORDING_NOTICE"] == "Y") { ?>checked<?php  } ?> value="Y"
 								   class="voximplant-number-settings-checkbox">
 							<label for="vi_recording_notice"
 								   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_RECORD_NOTICE") ?></label>
@@ -416,17 +416,17 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 						<div class="voximplant-number-settings-choice">
 							<input id="vi_transcribe" type="checkbox" name="TRANSCRIBE" value="Y"
 								   class="voximplant-number-settings-checkbox"
-								   <? if ($arResult["ITEM"]["TRANSCRIBE"] == "Y") { ?>checked<? } ?>
-								   <? if (!\Bitrix\Voximplant\Transcript::isEnabled()) { ?>disabled<? } ?>>
+								   <?php  if ($arResult["ITEM"]["TRANSCRIBE"] == "Y") { ?>checked<?php  } ?>
+								   <?php  if (!\Bitrix\Voximplant\Transcript::isEnabled()) { ?>disabled<?php  } ?>>
 							<label for="vi_transcribe"
 								   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_TRANSCRIBE") ?></label>
-							<? if (!\Bitrix\Voximplant\Transcript::isEnabled() || \Bitrix\Voximplant\Transcript::isDemo()): ?>
+							<?php  if (!\Bitrix\Voximplant\Transcript::isEnabled() || \Bitrix\Voximplant\Transcript::isDemo()): ?>
 								<div class="tel-lock-holder-select"
 									 title="<?= Loc::getMessage("VI_CONFIG_LOCK_ALT") ?>">
 									<div onclick="BX.Voximplant.showLicensePopup('main')"
 										 class="tel-lock <?= (\Bitrix\Voximplant\Transcript::isDemo() ? 'tel-lock-demo' : '') ?>"></div>
 								</div>
-							<? endif; ?>
+							<?php  endif; ?>
 						</div>
 						<div class="voximplant-number-settings-inner">
 							<div class="voximplant-number-settings-text"><?= Loc::getMessage("VI_CONFIG_TRANSCRIPTION_HINT", array("#URL#" => CVoxImplantMain::getPricesUrl())) ?></div>
@@ -434,9 +434,9 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 						<div class="voximplant-control-row">
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_TRANSCRIBE_LANGUAGE") ?></div>
 							<select name="TRANSCRIBE_LANG" class="voximplant-control-select">
-								<? foreach ($arResult['TRANSCRIBE_LANGUAGES'] as $languageId => $languageName): ?>
+								<?php  foreach ($arResult['TRANSCRIBE_LANGUAGES'] as $languageId => $languageName): ?>
 									<option value="<?= htmlspecialcharsbx($languageId) ?>" <?= ($arResult["ITEM"]["TRANSCRIBE_LANG"] == $languageId ? "selected" : "") ?>><?= htmlspecialcharsbx($languageName) ?></option>
-								<? endforeach ?>
+								<?php  endforeach ?>
 							</select>
 						</div>
 					</div>
@@ -445,22 +445,22 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 				<div id="voximplant-hint2" class="voximplant-number-settings-row">
 					<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 						<input id="vi_vote" name="VOTE" type="checkbox"
-							   <? if ($arResult["ITEM"]["VOTE"] == "Y") { ?>checked<? } ?> value="Y"
+							   <?php  if ($arResult["ITEM"]["VOTE"] == "Y") { ?>checked<?php  } ?> value="Y"
 							   class="voximplant-number-settings-checkbox">
 						<label for="vi_vote" class="voximplant-number-settings-label">
 							<?= Loc::getMessage("VI_CONFIG_VOTE") ?>
 						</label>
-						<? if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
+						<?php  if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()): ?>
 							<div class="tel-lock-holder-title" title="<?= GetMessage("VI_CONFIG_LOCK_ALT") ?>">
 								<div onclick="BX.Voximplant.showLicensePopup('main')"
 									 class="tel-lock <?= (CVoxImplantAccount::IsDemo() ? 'tel-lock-demo' : '') ?>"></div>
 							</div>
-						<? endif; ?>
+						<?php  endif; ?>
 					</div>
 					<div class="voximplant-number-settings-inner">
 						<div class="voximplant-number-settings-text"><?= Loc::getMessage("VI_CONFIG_VOTE_TIP") ?></div>
 					</div>
-					<? if (!CVoxImplantAccount::IsPro()): ?>
+					<?php  if (!CVoxImplantAccount::IsPro()): ?>
 						<script type="text/javascript">
 							BX.bind(BX('vi_vote'), 'change', function (e)
 							{
@@ -468,7 +468,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 								BX.Voximplant.showLicensePopup('main');
 							});
 						</script>
-					<? endif; ?>
+					<?php  endif; ?>
 				</div>
 			</div>
 		</div>
@@ -480,7 +480,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 					<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 						<input id="WORKTIME_ENABLE" name="WORKTIME_ENABLE" type="checkbox" data-role="enable-worktime"
 							   value="Y"
-							   <? if ($arResult["ITEM"]["WORKTIME_ENABLE"] === "Y"): ?>checked="checked"<? endif ?>
+							   <?php  if ($arResult["ITEM"]["WORKTIME_ENABLE"] === "Y"): ?>checked="checked"<?php  endif ?>
 							   class="voximplant-number-settings-checkbox">
 						<label for="WORKTIME_ENABLE"
 							   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_WORKTIME_ENABLE") ?></label>
@@ -490,39 +490,39 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 						<div class="voximplant-control-row">
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_WORKTIME_TIMEZONE") ?></div>
 							<select name="WORKTIME_TIMEZONE" class="voximplant-control-select">
-								<? if (is_array($arResult["TIME_ZONE_LIST"]) && !empty($arResult["TIME_ZONE_LIST"])): ?>
-									<? foreach ($arResult["TIME_ZONE_LIST"] as $tz => $tz_name): ?>
+								<?php  if (is_array($arResult["TIME_ZONE_LIST"]) && !empty($arResult["TIME_ZONE_LIST"])): ?>
+									<?php  foreach ($arResult["TIME_ZONE_LIST"] as $tz => $tz_name): ?>
 										<option value="<?= htmlspecialcharsbx($tz) ?>"<?= ($arResult["ITEM"]["WORKTIME_TIMEZONE"] == $tz ? ' selected="selected"' : '') ?>><?= htmlspecialcharsbx($tz_name) ?></option>
-									<? endforeach ?>
-								<? endif ?>
+									<?php  endforeach ?>
+								<?php  endif ?>
 							</select>
 						</div>
 						<div class="voximplant-control-row">
-							<? if (!empty($arResult["WORKTIME_LIST_FROM"]) && !empty($arResult["WORKTIME_LIST_TO"])): ?>
+							<?php  if (!empty($arResult["WORKTIME_LIST_FROM"]) && !empty($arResult["WORKTIME_LIST_TO"])): ?>
 								<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_WORKTIME_TIME") ?></div>
 								<div class="voximplant-control-select-flexible voximplant-control-date">
 									<select name="WORKTIME_FROM" class="voximplant-control-select">
-										<? foreach ($arResult["WORKTIME_LIST_FROM"] as $key => $val): ?>
-											<option value="<?= $key ?>" <? if ($arResult["ITEM"]["WORKTIME_FROM"] == $key) echo ' selected="selected" '; ?>><?= $val ?></option>
-										<? endforeach; ?>
+										<?php  foreach ($arResult["WORKTIME_LIST_FROM"] as $key => $val): ?>
+											<option value="<?= $key ?>" <?php  if ($arResult["ITEM"]["WORKTIME_FROM"] == $key) echo ' selected="selected" '; ?>><?= $val ?></option>
+										<?php  endforeach; ?>
 									</select>
 									<div class="voximplant-control-divide"></div>
 									<select name="WORKTIME_TO" class="voximplant-control-select">
-										<? foreach ($arResult["WORKTIME_LIST_TO"] as $key => $val): ?>
-											<option value="<?= $key ?>" <? if ($arResult["ITEM"]["WORKTIME_TO"] == $key) echo ' selected="selected" '; ?>><?= $val ?></option>
-										<? endforeach; ?>
+										<?php  foreach ($arResult["WORKTIME_LIST_TO"] as $key => $val): ?>
+											<option value="<?= $key ?>" <?php  if ($arResult["ITEM"]["WORKTIME_TO"] == $key) echo ' selected="selected" '; ?>><?= $val ?></option>
+										<?php  endforeach; ?>
 									</select>
 								</div>
-							<? endif; ?>
+							<?php  endif; ?>
 						</div>
 						<div class="voximplant-control-row">
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_WORKTIME_DAYOFF") ?></div>
 							<select name="WORKTIME_DAYOFF[]"
 									class="voximplant-control-select voximplant-control-select-multiple" multiple
 									size="7">
-								<? foreach ($arResult["WEEK_DAYS"] as $day): ?>
+								<?php  foreach ($arResult["WEEK_DAYS"] as $day): ?>
 									<option value="<?= $day ?>" <?= (is_array($arResult["ITEM"]["WORKTIME_DAYOFF"]) && in_array($day, $arResult["ITEM"]["WORKTIME_DAYOFF"]) ? ' selected="selected"' : '') ?>><?= GetMessage('VI_CONFIG_WEEK_'.$day) ?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</div>
 						<div class="voximplant-control-row">
@@ -539,24 +539,24 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_WORKTIME_DAYOFF_RULE") ?></div>
 							<select id="WORKTIME_DAYOFF_RULE" name="WORKTIME_DAYOFF_RULE"
 									class="voximplant-control-select">
-								<? if ($arResult['SHOW_RULE_VOICEMAIL']): ?>
+								<?php  if ($arResult['SHOW_RULE_VOICEMAIL']): ?>
 									<option value="<?= CVoxImplantIncoming::RULE_VOICEMAIL ?>"<?= (CVoxImplantIncoming::RULE_VOICEMAIL == $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"] ? " selected" : "") ?>><?= GetMessage("VI_CONFIG_EDIT_NO_ANSWER_ACTION_2") ?></option>
-								<? endif ?>
+								<?php  endif ?>
 								<option value="<?= CVoxImplantIncoming::RULE_PSTN_SPECIFIC ?>"<?= (CVoxImplantIncoming::RULE_PSTN_SPECIFIC == $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"] ? " selected" : "") ?>><?= GetMessage("VI_CONFIG_EDIT_NO_ANSWER_ACTION_5") ?></option>
 								<option value="<?= CVoxImplantIncoming::RULE_HUNGUP ?>"<?= (CVoxImplantIncoming::RULE_HUNGUP == $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"] ? " selected" : "") ?>><?= GetMessage("VI_CONFIG_EDIT_NO_ANSWER_ACTION_4") ?></option>
 							</select>
 						</div>
 
 						<div id="vi_dayoff_number" class="voximplant-control-row"
-							 <? if (CVoxImplantIncoming::RULE_PSTN_SPECIFIC != $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"]): ?>style="display: none"<? endif ?>>
+							 <?php  if (CVoxImplantIncoming::RULE_PSTN_SPECIFIC != $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"]): ?>style="display: none"<?php  endif ?>>
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_WORKTIME_DAYOFF_NUMBER") ?></div>
 							<input name="WORKTIME_DAYOFF_NUMBER" type="text"
 								   value="<?= htmlspecialcharsbx($arResult["ITEM"]["WORKTIME_DAYOFF_NUMBER"]) ?>"
 								   class="voximplant-control-input">
 						</div>
 
-						<? if ($arResult['SHOW_MELODIES']): ?>
-							<?
+						<?php  if ($arResult['SHOW_MELODIES']): ?>
+							<?php 
 							$dayOffMelody = array(
 								"MELODY" => (array_key_exists("~WORKTIME_DAYOFF_MELODY", $arResult["ITEM"]) ? $arResult["ITEM"]["~WORKTIME_DAYOFF_MELODY"]["SRC"] : str_replace("#LANG_ID#", $arResult["ITEM"]["MELODY_LANG"], $arResult["DEFAULT_MELODIES"]["MELODY_VOICEMAIL"])),
 								"MELODY_ID" => $arResult["ITEM"]["WORKTIME_DAYOFF_MELODY"],
@@ -573,7 +573,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<div class="voximplant-control-row">
 								<div class="voximplant-audio-player-box">
 									<div class="voximplant-audio-player">
-										<? $APPLICATION->IncludeComponent(
+										<?php  $APPLICATION->IncludeComponent(
 											"bitrix:player",
 											"audio",
 											array(
@@ -605,7 +605,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 										); ?>
 									</div>
 									<div class="voximplant-audio-player-control">
-										<? $APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
+										<?php  $APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
 											array(
 												'INPUT_CAPTION' => GetMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE"),
 												'INPUT_NAME' => $dayOffMelody["INPUT_NAME"],
@@ -625,13 +625,13 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 											<span class="voximplant-link"><?= Loc::getMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE") ?></span>
 											<span id="<?= $id ?>notice" class="voximplant-control-description"><?= Loc::getMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE_TIP") ?></span>
 										</div>
-										<span id="<?=$id?>default" class="voximplant-melody" <?if ($dayOffMelody["MELODY_ID"] <= 0) { ?> style="display:none;" <? } ?>>
+										<span id="<?=$id?>default" class="voximplant-melody" <?php if ($dayOffMelody["MELODY_ID"] <= 0) { ?> style="display:none;" <?php  } ?>>
 											<span class="voximplant-link"><?=GetMessage("VI_CONFIG_EDIT_SET_DEFAULT_TUNE")?></span>
 										</span>
 									</div>
 								</div>
 							</div>
-						<? endif; ?>
+						<?php  endif; ?>
 
 					</div>
 				</div>
@@ -670,23 +670,23 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							   class="voximplant-number-settings-checkbox" value="Y"
 							   type="checkbox"
 							   name="CAN_BE_SELECTED"
-							   <? if ($arResult["ITEM"]["CAN_BE_SELECTED"] === "Y"): ?>checked="checked"<? endif ?>
+							   <?php  if ($arResult["ITEM"]["CAN_BE_SELECTED"] === "Y"): ?>checked="checked"<?php  endif ?>
 								data-role="number-selection"
 							   data-locked="<?= (\Bitrix\Voximplant\Limits::canSelectLine() ? "N" : "Y") ?>"
 							   data-license-popup="line-selection"
 						/>
 						<label for="vi_can_be_selected"
 							   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_ALLOW_TO_SELECT_NUMBER_FOR_OUTGOING_CALL") ?></label>
-						<? if (!\Bitrix\Voximplant\Limits::canSelectLine() || CVoxImplantAccount::IsDemo()): ?>
+						<?php  if (!\Bitrix\Voximplant\Limits::canSelectLine() || CVoxImplantAccount::IsDemo()): ?>
 							<div class="tel-lock-holder-select" title="<?= GetMessage("VI_CONFIG_LOCK_ALT") ?>">
 								<div onclick="BX.Voximplant.showLicensePopup('line-selection')"
 									 class="tel-lock <?= (CVoxImplantAccount::IsDemo() ? 'tel-lock-demo' : '') ?>"></div>
 							</div>
-						<? endif; ?>
+						<?php  endif; ?>
 					</div>
 					<div class="voximplant-number-settings-inner tel-set-height-animated"
 						 data-role="number-selection-settings" data-height="250px" style="max-height: <?=$arResult["ITEM"]["CAN_BE_SELECTED"] == "Y" ? "250px" : "0"?>">
-						<? if ($arResult["ITEM"]["PORTAL_MODE"] != CVoxImplantConfig::MODE_GROUP): ?>
+						<?php  if ($arResult["ITEM"]["PORTAL_MODE"] != CVoxImplantConfig::MODE_GROUP): ?>
 							<div id="voximplant-hint3" class="voximplant-control-row">
 								<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_LINE_PREFIX") ?></div>
 								<div class="voximplant-control-select-flexible">
@@ -697,11 +697,11 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 									<span data-hint="<?= Loc::getMessage("VI_CONFIG_LINE_PREFIX_HINT") ?>"></span>
 								</div>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 						<div class="voximplant-control-row">
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_LINE_ALLOWED_USERS") ?></div>
 							<div>
-								<?
+								<?php 
 								$APPLICATION->IncludeComponent('bitrix:main.user.selector', '', [
 									"ID" => "voximplant-line-access",
 									"LIST" => $arResult["ITEM"]["LINE_ACCESS"],
@@ -719,7 +719,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 				<div class="voximplant-number-settings-row">
 					<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 						<input id="vi_callback_redial" name="CALLBACK_REDIAL" type="checkbox" value="Y"
-							   <? if ($arResult["ITEM"]["CALLBACK_REDIAL"] === "Y"): ?>checked="checked"<? endif ?>
+							   <?php  if ($arResult["ITEM"]["CALLBACK_REDIAL"] === "Y"): ?>checked="checked"<?php  endif ?>
 							   class="voximplant-number-settings-checkbox" data-role="callback-redial">
 						<label for="vi_callback_redial"
 							   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_CALLBACK_REDIAL") ?></label>
@@ -730,17 +730,17 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<div class="voximplant-control-row">
 								<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_CALLBACK_REDIAL_ATTEMPTS") ?></div>
 								<select name="CALLBACK_REDIAL_ATTEMPTS" class="voximplant-control-select">
-									<? foreach (array(1, 2, 3, 4, 5) as $k): ?>
+									<?php  foreach (array(1, 2, 3, 4, 5) as $k): ?>
 										<option value="<?= $k ?>"<?= ($k == $arResult["ITEM"]["CALLBACK_REDIAL_ATTEMPTS"] ? " selected" : "") ?>><?= $k ?></option>
-									<? endforeach; ?>
+									<?php  endforeach; ?>
 								</select>
 							</div>
 							<div class="voximplant-control-row">
 								<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_CALLBACK_REDIAL_PERIOD") ?></div>
 								<select name="CALLBACK_REDIAL_PERIOD" class="voximplant-control-select">
-									<? foreach (array(60, 120, 180) as $k): ?>
+									<?php  foreach (array(60, 120, 180) as $k): ?>
 										<option value="<?= $k ?>"<?= ($k == $arResult["ITEM"]["CALLBACK_REDIAL_PERIOD"] ? " selected" : "") ?>><?= $k ?> <?= GetMessage('VI_CONFIG_CALLBACK_REDIAL_PERIOD_SECONDS') ?></option>
-									<? endforeach; ?>
+									<?php  endforeach; ?>
 								</select>
 							</div>
 						</div>
@@ -767,18 +767,18 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 						<div class="voximplant-control-row">
 							<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_BACKUP_LINE") ?></div>
 							<select name="BACKUP_LINE" class="voximplant-control-select">
-								<? foreach ($arResult['BACKUP_LINES'] as $k => $v): ?>
+								<?php  foreach ($arResult['BACKUP_LINES'] as $k => $v): ?>
 									<option value="<?= $k ?>" <?= ($arResult["ITEM"]["BACKUP_LINE"] == $k ? "selected" : "") ?>><?= $v ?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</div>
 					</div>
 				</div>
-				<? if ($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_SIP): ?>
+				<?php  if ($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_SIP): ?>
 					<div class="voximplant-number-settings-row">
 						<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 							<input id="FORWARD_LINE_ENABLED" name="FORWARD_LINE_ENABLED" type="checkbox" value="Y"
-								   <? if ($arResult["ITEM"]["FORWARD_LINE"] !== CVoxImplantConfig::FORWARD_LINE_DEFAULT): ?>checked="checked"<? endif ?>
+								   <?php  if ($arResult["ITEM"]["FORWARD_LINE"] !== CVoxImplantConfig::FORWARD_LINE_DEFAULT): ?>checked="checked"<?php  endif ?>
 								   class="voximplant-number-settings-checkbox">
 							<label for="FORWARD_LINE_ENABLED"
 								   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_EDIT_FORWARD_NUMBER") ?></label>
@@ -788,19 +788,19 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<div class="voximplant-control-row">
 								<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_FORWARD_TITLE") ?></div>
 								<select name="FORWARD_LINE" class="voximplant-control-select">
-									<? foreach ($arResult['FORWARD_LINES'] as $k => $v): ?>
-										<option value="<?= $k ?>" <? if ($arResult["ITEM"]["FORWARD_LINE"] == $k): ?> selected <? endif; ?>><?= $v ?></option>
-									<? endforeach; ?>
+									<?php  foreach ($arResult['FORWARD_LINES'] as $k => $v): ?>
+										<option value="<?= $k ?>" <?php  if ($arResult["ITEM"]["FORWARD_LINE"] == $k): ?> selected <?php  endif; ?>><?= $v ?></option>
+									<?php  endforeach; ?>
 								</select>
 							</div>
 						</div>
 					</div>
-				<? endif ?>
-				<? if ($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_RENT || $arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_GROUP): ?>
+				<?php  endif ?>
+				<?php  if ($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_RENT || $arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_GROUP): ?>
 					<div class="voximplant-number-settings-row">
 						<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 							<input id="redirect-with-client-number" name="REDIRECT_WITH_CLIENT_NUMBER" type="checkbox"
-								   <? if ($arResult["ITEM"]["REDIRECT_WITH_CLIENT_NUMBER"] == "Y") { ?>checked<? } ?>
+								   <?php  if ($arResult["ITEM"]["REDIRECT_WITH_CLIENT_NUMBER"] == "Y") { ?>checked<?php  } ?>
 								   value="Y" class="voximplant-number-settings-checkbox">
 							<label for="redirect-with-client-number"
 								   class="voximplant-number-settings-label"><?= Loc::getMessage("VI_CONFIG_REDIRECT_WITH_CLIENT_NUMBER") ?></label>
@@ -809,7 +809,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<div class="voximplant-number-settings-text"><?= Loc::getMessage("VI_CONFIG_REDIRECT_WITH_CLIENT_NUMBER_TIP") ?></div>
 						</div>
 					</div>
-				<? endif; ?>
+				<?php  endif; ?>
 			</div>
 		</div>
 
@@ -820,13 +820,13 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 					<div class="voximplant-control-row">
 						<div class="voximplant-control-subtitle"><?= Loc::getMessage("VI_CONFIG_EDIT_TUNES_LANGUAGE2") ?></div>
 						<select class="voximplant-control-select" name="MELODY_LANG">
-							<?foreach (CVoxImplantConfig::GetMelodyLanguages() as $k):?>
+							<?php foreach (CVoxImplantConfig::GetMelodyLanguages() as $k):?>
 								<option value="<?=$k?>"<?=($k == $arResult["ITEM"]["MELODY_LANG"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_TUNES_LANGUAGE_".$k)?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
-					<? foreach ($arResult["MELODIES"] as $id => $melody): ?>
-						<? $melodiesToLoad[$id] = $melody; ?>
+					<?php  foreach ($arResult["MELODIES"] as $id => $melody): ?>
+						<?php  $melodiesToLoad[$id] = $melody; ?>
 						<div class="voximplant-melody-container" data-role="melody-container-<?=$id?>">
 							<div class="voximplant-number-settings-choice voximplant-number-settings-bold-text">
 								<span class="voximplant-number-settings-label"><?= htmlspecialcharsbx($melody["TITLE"])?></span>
@@ -835,7 +835,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<div class="voximplant-control-row">
 								<div class="voximplant-audio-player-box">
 									<div class="voximplant-audio-player">
-										<? $APPLICATION->IncludeComponent(
+										<?php  $APPLICATION->IncludeComponent(
 											"bitrix:player",
 											"audio",
 											array(
@@ -868,7 +868,7 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 									</div>
 
 									<div class="voximplant-audio-player-control">
-										<? $APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
+										<?php  $APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
 											array(
 												'INPUT_CAPTION' => GetMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE"),
 												'INPUT_NAME' => $melody["INPUT_NAME"],
@@ -888,14 +888,14 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 											<span class="voximplant-link"><?= Loc::getMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE") ?></span>
 											<span id="<?= $id ?>notice" class="voximplant-control-description"><?= Loc::getMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE_TIP") ?></span>
 										</div>
-										<span id="<?=$id?>default" class="voximplant-melody" <?if ($melody["MELODY_ID"] <= 0) { ?> style="display:none;" <? } ?>>
+										<span id="<?=$id?>default" class="voximplant-melody" <?php if ($melody["MELODY_ID"] <= 0) { ?> style="display:none;" <?php  } ?>>
 										<span class="voximplant-link"><?=GetMessage("VI_CONFIG_EDIT_SET_DEFAULT_TUNE")?></span>
 									</span>
 									</div>
 								</div>
 							</div>
 						</div>
-					<? endforeach; ?>
+					<?php  endforeach; ?>
 
 					<div class="ui-btn ui-btn-sm ui-btn-light-border voximplant-audio-player-btn" data-role="more-tunes">
 						<?= Loc::getMessage("VI_CONFIG_MORE_TONES")?>
@@ -914,8 +914,8 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 			<div class="voximplant-container">
 				<div class="voximplant-title-dark"><?= Loc::getMessage("VOX_CONFIG_NUMBER_DISCONNECTION") ?></div>
 				<div class="voximplant-number-settings-row">
-					<? if($arResult["ITEM"]["PORTAL_MODE"] == CVoxImplantConfig::MODE_RENT): ?>
-						<? if($arResult["NUMBER"]["TO_DELETE"] == "Y"): ?>
+					<?php  if($arResult["ITEM"]["PORTAL_MODE"] == CVoxImplantConfig::MODE_RENT): ?>
+						<?php  if($arResult["NUMBER"]["TO_DELETE"] == "Y"): ?>
 							<div class="voximplant-number-settings-text">
 								<?= Loc::getMessage("VOX_CONFIG_NUMBER_SET_TO_DELETE", [
 									"#DATE#" => $arResult["NUMBER"]["DATE_DELETE"] ? $arResult["NUMBER"]["DATE_DELETE"]->toString() : "aa"
@@ -924,23 +924,23 @@ $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrappermenu", "", array(
 							<span class="ui-btn ui-btn-primary" data-role="cancel-number-delete" data-number="<?= htmlspecialcharsbx($arResult["NUMBER"]["NUMBER"]) ?>">
 								<?= Loc::getMessage("VOX_CONFIG_CANCEL_DELETE_NUMBER") ?>
 							</span>
-						<? else: ?>
+						<?php  else: ?>
 							<div class="voximplant-number-settings-text"><?= Loc::getMessage("VOX_CONFIG_NO_PAYBACK") ?></div>
 							<span class="ui-btn ui-btn-danger" data-role="delete-number" data-number="<?= htmlspecialcharsbx($arResult["NUMBER"]["NUMBER"])?>">
 								<?= Loc::getMessage("VOX_CONFIG_DELETE_NUMBER") ?>
 							</span>
-						<? endif ?>
-					<? elseif($arResult["ITEM"]["PORTAL_MODE"] == CVoxImplantConfig::MODE_LINK): ?>
+						<?php  endif ?>
+					<?php  elseif($arResult["ITEM"]["PORTAL_MODE"] == CVoxImplantConfig::MODE_LINK): ?>
 						<span class="ui-btn ui-btn-danger" data-role="delete-caller-id" data-number="<?= htmlspecialcharsbx($arResult["CALLER_ID"]["NUMBER"]) ?>">
 							<?= Loc::getMessage("VOX_CONFIG_DELETE_NUMBER") ?>
 						</span>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 			</div>
 		</div>
 
 		<div data-role="button-panel">
-			<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+			<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 				'BUTTONS' => [
 					'save',
 					'cancel' => '/telephony/'

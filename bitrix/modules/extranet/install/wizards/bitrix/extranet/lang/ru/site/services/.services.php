@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_MAIN_SETTINGS"] = "Настройки сайта экстранета";
 $MESS["SERVICE_VOTE"] = "Голосование";
 $MESS["SERVICE_FORUM"] = "Форум";

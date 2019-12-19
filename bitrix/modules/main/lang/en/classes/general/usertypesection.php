@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_IBSEC_DESCRIPTION"] = "Link to information block sections";
 $MESS["USER_TYPE_IBSEC_DISPLAY"] = "Information block";
 $MESS["USER_TYPE_IBSEC_CHECKBOX"] = "Checkboxes";

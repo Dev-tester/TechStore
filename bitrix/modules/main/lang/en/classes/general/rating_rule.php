@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RR_GENERAL_ERR_NAME"] = "The &quot;Name&quot; field must not be empty.";
 $MESS["RR_GENERAL_ERR_ACTIVE"] = "Error specifying the &quot;Active&quot; option.";
 $MESS["RR_GENERAL_ERR_ENTITY_TYPE_ID"] = "The object specified does not exist.";

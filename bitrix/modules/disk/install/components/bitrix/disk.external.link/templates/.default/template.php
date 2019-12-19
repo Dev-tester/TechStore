@@ -35,18 +35,18 @@ switch(strtolower($langId))
 	<meta charset="<?= LANG_CHARSET ?>">
 	<title><?= Loc::getMessage('DISK_EXT_LINK_TITLE') ?></title>
 
-	<? if(!$arResult['PROTECTED_BY_PASSWORD']){ ?>
+	<?php  if(!$arResult['PROTECTED_BY_PASSWORD']){ ?>
 		<meta content="<?= $arResult['FILE']['VIEW_URL'] ?>" property="og:url"/>
 		<meta content="<?= $arResult['SITE_NAME'] ?>" property="og:site_name"/>
 		<meta content="<?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?>" property="og:title"/>
 		<meta content="website" property="og:type"/>
 		<meta content="<?= $component->getMessage('DISK_EXT_LINK_OPEN_GRAPH_MADE_BY_B24') ?>" property="og:description"/>
-		<? if($arResult['FILE']['IS_IMAGE'] && $arResult['FILE']['IMAGE_DIMENSIONS']){ ?>
+		<?php  if($arResult['FILE']['IS_IMAGE'] && $arResult['FILE']['IMAGE_DIMENSIONS']){ ?>
 			<meta content="<?= $arResult['FILE']['ABSOLUTE_SHOW_FILE_URL'] ?>" property="og:image"/>
 			<meta content="<?= $arResult['FILE']['IMAGE_DIMENSIONS']['WIDTH'] ?>" property="og:image:width"/>
 			<meta content="<?= $arResult['FILE']['IMAGE_DIMENSIONS']['HEIGHT'] ?>" property="og:image:height"/>
-		<? } ?>
-	<? }
+		<?php  } ?>
+	<?php  }
 	$APPLICATION->ShowCSS();
 	$APPLICATION->ShowHeadStrings();
 	$APPLICATION->ShowHeadScripts();
@@ -66,18 +66,18 @@ switch(strtolower($langId))
 				<?= $component->getMessage('DISK_EXT_LINK_B24') ?>
 			</div>
 		</div>
-<? if(!($arResult['PROTECTED_BY_PASSWORD']) || $arResult['VALID_PASSWORD']){ ?>
+<?php  if(!($arResult['PROTECTED_BY_PASSWORD']) || $arResult['VALID_PASSWORD']){ ?>
 		<div class="bx-shared-body">
 			<table class="bx-shared-body-container">
 				<tr>
 					<td class="bx-shared-body-previewblock">
-					<? if($arResult['FILE']['PREVIEW']) { ?>
+					<?php  if($arResult['FILE']['PREVIEW']) { ?>
 						<iframe src="<?= $arResult['FILE']['PREVIEW']['VIEW_URL'] ?>" frameborder="0" style="height: 520px;width: 720px;"></iframe>
-					<? } elseif($arResult['FILE']['IS_IMAGE']) { ?>
+					<?php  } elseif($arResult['FILE']['IS_IMAGE']) { ?>
 						<div class="bx-shared-preview-images">
 							<a href="<?= $arResult['FILE']['SHOW_FILE_URL'] ?>" target="_blank"><img src="<?= $arResult['FILE']['SHOW_PREVIEW_URL'] ?>" alt="<?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?>" title="<?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?>"></a>
 						</div>
-					<? } elseif($arResult['FILE']['VIEWER']) {
+					<?php  } elseif($arResult['FILE']['VIEWER']) {
 						echo $arResult['FILE']['VIEWER'];
 					  } else { ?>
 						<div class="bx-file-icon-container-big <?= $arResult['FILE']['ICON_CLASS'] ?>">
@@ -88,7 +88,7 @@ switch(strtolower($langId))
 							</div>
 							<div class="bx-file-icon-label"></div>
 						</div>
-					<?  } ?>
+					<?php   } ?>
 					</td>
 					<td class="bx-shared-body-fileinfoblock">
 						<h1 class="bx-shared-body-filename"><?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?></h1>
@@ -124,9 +124,9 @@ switch(strtolower($langId))
 				</tr>
 			</table>
 		</div>
-<? } elseif($arResult['PROTECTED_BY_PASSWORD']){ ?>
-	<? $this->getComponent()->includeComponentTemplate('protected_by_password'); ?>
-<? } ?>
+<?php  } elseif($arResult['PROTECTED_BY_PASSWORD']){ ?>
+	<?php  $this->getComponent()->includeComponentTemplate('protected_by_password'); ?>
+<?php  } ?>
 
 		<?php if(isModuleInstalled('bitrix24') && \Bitrix\Main\Loader::includeModule('intranet')) { ?>
 			<div class="banner_b24" style="">

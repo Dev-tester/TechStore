@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TSBS_READY"] = "Items in your Shopping Cart:";
 $MESS["TSBS_PRICE"] = "Price:";
 $MESS["TSBS_QUANTITY"] = "Quantity:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This class contains ui helper for task entity
  *

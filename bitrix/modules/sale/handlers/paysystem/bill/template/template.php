@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -20,7 +20,7 @@ Loc::loadMessages(__FILE__);
 </style>
 </head>
 
-<?
+<?php 
 
 if ($_REQUEST['BLANK'] == 'Y')
 	$blank = true;
@@ -73,16 +73,16 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 ?>
 
-<body style="margin: 0pt; padding: 0pt; background: <?=$background; ?>"<? if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<? } ?>>
+<body style="margin: 0pt; padding: 0pt; background: <?=$background; ?>"<?php  if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<?php  } ?>>
 
 <div style="margin: 0pt; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>">
 
-<?if ($params['BILL_HEADER_SHOW'] == 'Y'):?>
+<?php if ($params['BILL_HEADER_SHOW'] == 'Y'):?>
 	<table class="header">
 		<tr>
-			<? if ($params["BILL_PATH_TO_LOGO"]) { ?>
+			<?php  if ($params["BILL_PATH_TO_LOGO"]) { ?>
 			<td style="padding-right: 5pt; padding-bottom: 5pt; ">
-				<? $imgParams = CFile::_GetImgParams($params['BILL_PATH_TO_LOGO']);
+				<?php  $imgParams = CFile::_GetImgParams($params['BILL_PATH_TO_LOGO']);
 					$dpi = intval($params['BILL_LOGO_DPI']) ?: 96;
 					$imgWidth = $imgParams['WIDTH'] * 96 / $dpi;
 					if ($imgWidth > $pageWidth)
@@ -90,25 +90,25 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 				?>
 				<img src="<?=$imgParams['SRC']; ?>" width="<?=$imgWidth; ?>" />
 			</td>
-			<? } ?>
+			<?php  } ?>
 			<td>
-				<b><?=htmlspecialcharsbx($params["SELLER_COMPANY_NAME"]); ?></b><br><?
+				<b><?=htmlspecialcharsbx($params["SELLER_COMPANY_NAME"]); ?></b><br><?php 
 				if ($params["SELLER_COMPANY_ADDRESS"]) {
 					$sellerAddr = $params["SELLER_COMPANY_ADDRESS"];
 					if (is_array($sellerAddr))
 						$sellerAddr = implode(', ', $sellerAddr);
 					else
 						$sellerAddr = str_replace(array("\r\n", "\n", "\r"), ', ', strval($sellerAddr));
-					?><b><?=htmlspecialcharsbx($sellerAddr);?></b><br><?
+					?><b><?=htmlspecialcharsbx($sellerAddr);?></b><br><?php 
 				} ?>
-				<? if ($params["SELLER_COMPANY_PHONE"]) { ?>
+				<?php  if ($params["SELLER_COMPANY_PHONE"]) { ?>
 				<b><?=Loc::getMessage('SALE_HPS_BILL_SELLER_COMPANY_PHONE', array('#PHONE#' => htmlspecialcharsbx($params["SELLER_COMPANY_PHONE"])));?></b><br>
-				<? } ?>
+				<?php  } ?>
 			</td>
 		</tr>
 	</table>
 
-	<?
+	<?php 
 	if ($params["SELLER_COMPANY_BANK_NAME"])
 	{
 		$sellerBankCity = '';
@@ -147,18 +147,18 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		</colgroup>
 		<tr>
 			<td>
-				<? if ($params["SELLER_COMPANY_INN"]) { ?>
+				<?php  if ($params["SELLER_COMPANY_INN"]) { ?>
 				<?=Loc::getMessage('SALE_HPS_BILL_INN', array('#INN#' => htmlspecialcharsbx($params["SELLER_COMPANY_INN"])));?>
-				<? } else { ?>
+				<?php  } else { ?>
 				&nbsp;
-				<? } ?>
+				<?php  } ?>
 			</td>
 			<td>
-				<? if ($params["SELLER_COMPANY_KPP"]) { ?>
+				<?php  if ($params["SELLER_COMPANY_KPP"]) { ?>
 				<?=Loc::getMessage('SALE_HPS_BILL_KPP', array('#KPP#' => htmlspecialcharsbx($params["SELLER_COMPANY_KPP"])));?>
-				<? } else { ?>
+				<?php  } else { ?>
 				&nbsp;
-				<? } ?>
+				<?php  } ?>
 			</td>
 			<td rowspan="2">
 				<br>
@@ -192,7 +192,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 			</td>
 		</tr>
 	</table>
-<?endif;?>
+<?php endif;?>
 <br>
 <br>
 
@@ -202,7 +202,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		<col width="0">
 		<col width="50%">
 	</colgroup>
-<?if ($params['BILL_HEADER']):?>
+<?php if ($params['BILL_HEADER']):?>
 	<tr>
 		<td></td>
 		<td style="font-size: 2em; font-weight: bold; text-align: center">
@@ -212,15 +212,15 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		</td>
 		<td></td>
 	</tr>
-<?endif;?>
-<? if ($params["BILL_ORDER_SUBJECT"]) { ?>
+<?php endif;?>
+<?php  if ($params["BILL_ORDER_SUBJECT"]) { ?>
 	<tr>
 		<td></td>
 		<td><?=htmlspecialcharsbx($params["BILL_ORDER_SUBJECT"]); ?></td>
 		<td></td>
 	</tr>
-<? } ?>
-<? if ($params["PAYMENT_DATE_PAY_BEFORE"]) { ?>
+<?php  } ?>
+<?php  if ($params["PAYMENT_DATE_PAY_BEFORE"]) { ?>
 	<tr>
 		<td></td>
 		<td>
@@ -228,11 +228,11 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		</td>
 		<td></td>
 	</tr>
-<? } ?>
+<?php  } ?>
 </table>
 
 <br>
-<?
+<?php 
 
 if ($params['BILL_PAYER_SHOW'] == 'Y'):
 	if ($params["BUYER_PERSON_COMPANY_NAME"]) {
@@ -261,7 +261,7 @@ endif;
 <br>
 <br>
 
-<?
+<?php 
 $arCurFormat = CCurrencyLang::GetCurrencyFormat($params['CURRENCY']);
 $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 
@@ -495,11 +495,11 @@ if ($params['BILL_TOTAL_SHOW'] == 'Y')
 ?>
 <table class="it" width="100%">
 	<tr>
-	<?foreach ($arCols as $columnId => $col):?>
+	<?php foreach ($arCols as $columnId => $col):?>
 		<td><?=$col['NAME'];?></td>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</tr>
-<?
+<?php 
 
 $rowsCnt = count($cells);
 for ($n = 1; $n <= $rowsCnt; $n++):
@@ -507,29 +507,29 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 	$accumulated = 0;
 ?>
 	<tr valign="top">
-	<?foreach ($arCols as $columnId => $col):?>
-		<?
+	<?php foreach ($arCols as $columnId => $col):?>
+		<?php 
 			if (!is_null($cells[$n][$columnId]))
 			{
 				if ($columnId === 'NUMBER')
 				{?>
 					<td align="center"><?=$cells[$n][$columnId];?></td>
-				<?}
+				<?php }
 				elseif ($columnId === 'NAME')
 				{
 				?>
 					<td align="<?=($n > $cntBasketItem) ? 'right' : 'left';?>"
-						style="word-break: break-word; word-wrap: break-word; <? if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <? } ?>"
-						<? if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<? $accumulated = 0; } ?>>
+						style="word-break: break-word; word-wrap: break-word; <?php  if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <?php  } ?>"
+						<?php  if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0; } ?>>
 						<?=$cells[$n][$columnId]; ?>
-						<? if (isset($props[$n]) && is_array($props[$n])) { ?>
-						<? foreach ($props[$n] as $property) { ?>
+						<?php  if (isset($props[$n]) && is_array($props[$n])) { ?>
+						<?php  foreach ($props[$n] as $property) { ?>
 						<br>
 						<small><?=$property; ?></small>
-						<? } ?>
-						<? } ?>
+						<?php  } ?>
+						<?php  } ?>
 					</td>
-				<?}
+				<?php }
 				else
 				{
 					if (!is_null($cells[$n][$columnId]))
@@ -537,17 +537,17 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 						if ($columnId != 'VAT_RATE' || $vat > 0 || is_null($cells[$n][$columnId]) || $n > $cntBasketItem)
 						{ ?>
 							<td align="right"
-								<? if ($accumulated) { ?>
+								<?php  if ($accumulated) { ?>
 								style="border-width: 0pt 1pt 0pt 0pt"
 								colspan="<?=(($columnId == 'VAT_RATE' && $vat <= 0) ? $accumulated : $accumulated+1); ?>"
-								<? $accumulated = 0; } ?>>
-								<?if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
+								<?php  $accumulated = 0; } ?>>
+								<?php if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
 									<nobr><?=$cells[$n][$columnId];?></nobr>
-								<?else:?>
+								<?php else:?>
 									<?=$cells[$n][$columnId]; ?>
-								<?endif;?>
+								<?php endif;?>
 							</td>
-						<? }
+						<?php  }
 					}
 					else
 					{
@@ -560,14 +560,14 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 				$accumulated++;
 			}
 		?>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</tr>
 
-<?endfor;?>
+<?php endfor;?>
 </table>
 <br>
 
-<?if ($params['BILL_TOTAL_SHOW'] == 'Y'):?>
+<?php if ($params['BILL_TOTAL_SHOW'] == 'Y'):?>
 	<?=Loc::getMessage(
 			'SALE_HPS_BILL_BASKET_TOTAL',
 			array(
@@ -578,7 +578,7 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 	<br>
 
 	<b>
-	<?
+	<?php 
 
 	if (in_array($params['CURRENCY'], array("RUR", "RUB")))
 	{
@@ -595,79 +595,79 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 
 	?>
 	</b>
-<?endif;?>
+<?php endif;?>
 <br>
 <br>
 
-<? if ($params["BILL_COMMENT1"] || $params["BILL_COMMENT2"]) { ?>
+<?php  if ($params["BILL_COMMENT1"] || $params["BILL_COMMENT2"]) { ?>
 <b><?=Loc::getMessage('SALE_HPS_BILL_COND_COMM')?></b>
 <br>
-	<? if ($params["BILL_COMMENT1"]) { ?>
+	<?php  if ($params["BILL_COMMENT1"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILL_COMMENT1"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-	<? if ($params["BILL_COMMENT2"]) { ?>
+	<?php  } ?>
+	<?php  if ($params["BILL_COMMENT2"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILL_COMMENT2"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
 <br>
 <br>
 
-<?if ($params['BILL_SIGN_SHOW'] == 'Y'):?>
-	<? if (!$blank) { ?>
+<?php if ($params['BILL_SIGN_SHOW'] == 'Y'):?>
+	<?php  if (!$blank) { ?>
 	<div style="position: relative; "><?=CFile::ShowImage(
 			$params["BILL_PATH_TO_STAMP"],
 		160, 160,
 		'style="position: absolute; left: 40pt; "'
 	); ?></div>
-	<? } ?>
+	<?php  } ?>
 
 	<div style="position: relative">
 		<table class="sign">
-			<? if ($params["SELLER_COMPANY_DIRECTOR_POSITION"]) { ?>
+			<?php  if ($params["SELLER_COMPANY_DIRECTOR_POSITION"]) { ?>
 			<tr>
 				<td style="width: 150pt; "><?=htmlspecialcharsbx($params["SELLER_COMPANY_DIRECTOR_POSITION"]); ?></td>
 				<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
-					<? if (!$blank) { ?>
+					<?php  if (!$blank) { ?>
 					<?=CFile::ShowImage($params["SELLER_COMPANY_DIR_SIGN"], 200, 50); ?>
-					<? } ?>
+					<?php  } ?>
 				</td>
 				<td>
-					<? if ($params["SELLER_COMPANY_DIRECTOR_NAME"]) { ?>
+					<?php  if ($params["SELLER_COMPANY_DIRECTOR_NAME"]) { ?>
 					(<?=htmlspecialcharsbx($params["SELLER_COMPANY_DIRECTOR_NAME"]); ?>)
-					<? } ?>
+					<?php  } ?>
 				</td>
 			</tr>
 			<tr><td colspan="3">&nbsp;</td></tr>
-			<? } ?>
-			<? if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]) { ?>
+			<?php  } ?>
+			<?php  if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]) { ?>
 			<tr>
 				<td style="width: 150pt; "><?=htmlspecialcharsbx($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]); ?></td>
 				<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
-					<? if (!$blank) { ?>
+					<?php  if (!$blank) { ?>
 					<?=CFile::ShowImage($params["SELLER_COMPANY_ACC_SIGN"], 200, 50); ?>
-					<? } ?>
+					<?php  } ?>
 				</td>
 				<td>
-					<? if ($params["SELLER_COMPANY_ACCOUNTANT_NAME"]) { ?>
+					<?php  if ($params["SELLER_COMPANY_ACCOUNTANT_NAME"]) { ?>
 					(<?=htmlspecialcharsbx($params["SELLER_COMPANY_ACCOUNTANT_NAME"]); ?>)
-					<? } ?>
+					<?php  } ?>
 				</td>
 			</tr>
-			<? } ?>
+			<?php  } ?>
 		</table>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 </div>
 

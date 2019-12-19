@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -57,7 +57,7 @@ $containerId = 'sender-letter-time';
 					)
 				)
 			))?>);
-			<?if ($arResult['USER_ERRORS']):
+			<?php if ($arResult['USER_ERRORS']):
 				/** @var \Bitrix\Main\Error $userError */
 				$userError = $arResult['USER_ERRORS'][0];
 				$url = str_replace('#id#', $arParams['ID'], $arParams['PATH_TO_EDIT']);
@@ -78,14 +78,14 @@ $containerId = 'sender-letter-time';
 						form.submit();
 				},
 				function() {});
-			<?endif;?>
+			<?php endif;?>
 		});
 	</script>
 	<form method="post" data-role="letter-time-form" action="<?=htmlspecialcharsbx($arResult['SUBMIT_FORM_URL'])?>">
 		<?=bitrix_sessid_post()?>
 
 		<div class="sender-letter-time-title">
-			<?
+			<?php 
 			echo $getMessageLocal(
 				'SENDER_LETTER_TIME_TMPL_TITLE_' . (!$arResult['CAN_CHANGE'] ? 'EXISTS' : 'NEW'),
 				array(
@@ -118,21 +118,21 @@ $containerId = 'sender-letter-time';
 		<input data-role="time-reiterate-days-of-month" type="hidden" name="DAYS_OF_MONTH" value="<?=htmlspecialcharsbx($arResult['DAYS_OF_MONTH'])?>">
 		<input data-role="time-reiterate-months-of-year" type="hidden" name="MONTHS_OF_YEAR" value="<?=htmlspecialcharsbx($arResult['MONTHS_OF_YEAR'])?>">
 
-		<?if (!empty($arResult['LIMITATION'])):?>
+		<?php if (!empty($arResult['LIMITATION'])):?>
 			<div class="sender-letter-info">
 				<?=htmlspecialcharsbx($arResult['LIMITATION']['TEXT'])?>
-				<?if ($arResult['LIMITATION']['SETUP_URI']):?>
+				<?php if ($arResult['LIMITATION']['SETUP_URI']):?>
 					<a href="<?=htmlspecialcharsbx($arResult['LIMITATION']['SETUP_URI'])?>">
 						<div class="sender-hint">
 							<div class="sender-hint-icon"></div>
 						</div>
 					</a>
-				<?endif;?>
+				<?php endif;?>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
 
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:sender.ui.button.panel",
 			"",
@@ -151,17 +151,17 @@ $containerId = 'sender-letter-time';
 			<div class="sender-letter-time-popup-time-box">
 				<div class="sender-letter-time-popup-time-name"><?=Loc::getMessage('SENDER_LETTER_TIME_TMPL_WEEK_DAYS_TIME')?>:</div>
 				<select data-role="reiterate-times-of-day" class="sender-letter-time-popup-time-input sender-letter-time-popup-time-select">
-					<?foreach ($arResult['TIME_LIST'] as $time):
+					<?php foreach ($arResult['TIME_LIST'] as $time):
 						$time = htmlspecialcharsbx($time);
 						?>
 						<option value="<?=$time?>" <?=($time === '09:00' ? 'selected' : '')?>><?=$time?></option>
-					<?endforeach?>
+					<?php endforeach?>
 				</select>
 			</div>
 
 			<div class="sender-letter-time-popup-date-box">
 				<div class="sender-letter-time-popup-date">
-					<?
+					<?php 
 					$weekDays = [
 						['id' => '1', 'name' => Loc::getMessage('SENDER_LETTER_TIME_TMPL_SCHEDULE_DAY_MON'), 'selected' => true],
 						['id' => '2', 'name' => Loc::getMessage('SENDER_LETTER_TIME_TMPL_SCHEDULE_DAY_TUE'), 'selected' => true],
@@ -183,7 +183,7 @@ $containerId = 'sender-letter-time';
 						>
 							<?=$dayName?>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
@@ -199,11 +199,11 @@ $containerId = 'sender-letter-time';
 						<div class="sender-letter-time-schedule-addit-section">
 							<div class="sender-letter-time-schedule-addit-caption"><?=Loc::getMessage('SENDER_LETTER_TIME_TMPL_SCHEDULE_DAY')?>:</div>
 							<div>
-								<?
+								<?php 
 								$rowCount = 8;
 								for ($row = 0; $row < 4; $row++)
 								{
-									?><div class="sender-letter-time-popup-date"><?
+									?><div class="sender-letter-time-popup-date"><?php 
 									for ($dayNum = 1; $dayNum <= $rowCount; $dayNum++)
 									{
 										$num = $dayNum + $row * $rowCount;
@@ -216,9 +216,9 @@ $containerId = 'sender-letter-time';
 											data-role="reiterate-days-of-month"
 											data-value="<?=$num?>"
 										><?=$num?></div>
-										<?
+										<?php 
 									}
-									?></div><?
+									?></div><?php 
 								}
 								?>
 							</div>
@@ -227,12 +227,12 @@ $containerId = 'sender-letter-time';
 						<div class="sender-letter-time-schedule-addit-section">
 							<div class="sender-letter-time-schedule-addit-caption"><?=Loc::getMessage('SENDER_LETTER_TIME_TMPL_SCHEDULE_MONTH')?>:</div>
 							<div>
-							<?
+							<?php 
 							$rowCount = 6;
 							$date = \Bitrix\Main\Type\DateTime::createFromTimestamp(mktime(0,0,0,1,1,2049));
 							for ($row = 0; $row < 2; $row++)
 							{
-								?><div class="sender-letter-time-popup-date"><?
+								?><div class="sender-letter-time-popup-date"><?php 
 								for ($monNum = 1; $monNum <= $rowCount; $monNum++)
 								{
 									$num = $monNum + $row * $rowCount;
@@ -243,9 +243,9 @@ $containerId = 'sender-letter-time';
 										data-role="reiterate-months-of-year"
 										data-value="<?=$num?>"
 									><?=$name?></div>
-									<?
+									<?php 
 								}
-								?></div><?
+								?></div><?php 
 							}
 							?>
 							</div>

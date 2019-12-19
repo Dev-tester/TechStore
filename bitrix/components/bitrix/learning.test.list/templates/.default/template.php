@@ -1,59 +1,59 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?ShowError($arResult["ERROR_MESSAGE"]);?>
+<?php ShowError($arResult["ERROR_MESSAGE"]);?>
 
-<?if ($arResult["TESTS_COUNT"] > 0):?>
+<?php if ($arResult["TESTS_COUNT"] > 0):?>
 
-	<?foreach ($arResult["TESTS"] as $arTest):?>
+	<?php foreach ($arResult["TESTS"] as $arTest):?>
 
 		<?=GetMessage("LEARNING_TEST_NAME")?>: <?=$arTest["NAME"];?><br />
-		<?if (strlen($arTest["DESCRIPTION"]) > 0):?>
+		<?php if (strlen($arTest["DESCRIPTION"]) > 0):?>
 			<?=$arTest["DESCRIPTION"]?><br />
-		<?endif?>
+		<?php endif?>
 
-		<?if ($arTest["ATTEMPT_LIMIT"] > 0):?>
+		<?php if ($arTest["ATTEMPT_LIMIT"] > 0):?>
 			<?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>: <?=$arTest["ATTEMPT_LIMIT"]?>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>: <?=GetMessage("LEARNING_TEST_ATTEMPT_UNLIMITED")?>
-		<?endif?>
+		<?php endif?>
 		<br />
 
-		<?if ($arTest["TIME_LIMIT"] > 0):?>
+		<?php if ($arTest["TIME_LIMIT"] > 0):?>
 			<?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>: <?=$arTest["TIME_LIMIT"]?> <?=GetMessage("LEARNING_TEST_TIME_LIMIT_MIN")?>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>: <?=GetMessage("LEARNING_TEST_TIME_LIMIT_UNLIMITED")?>
-		<?endif?>
+		<?php endif?>
 		<br />
 
 		<?=GetMessage("LEARNING_PASSAGE_TYPE")?>:
-		<?if ($arTest["PASSAGE_TYPE"] == 2):?>
+		<?php if ($arTest["PASSAGE_TYPE"] == 2):?>
 			<?=GetMessage("LEARNING_PASSAGE_FOLLOW_EDIT")?>
-		<?elseif ($arTest["PASSAGE_TYPE"] == 1):?>
+		<?php elseif ($arTest["PASSAGE_TYPE"] == 1):?>
 			<?=GetMessage("LEARNING_PASSAGE_FOLLOW_NO_EDIT")?>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("LEARNING_PASSAGE_NO_FOLLOW_NO_EDIT")?>
-		<?endif?>
+		<?php endif?>
 		<br />
 
-		<?if ($arTest["PREVIOUS_TEST_ID"] > 0 && $arTest["PREVIOUS_TEST_SCORE"] > 0 && $arTest["PREVIOUS_TEST_LINK"]):?>
+		<?php if ($arTest["PREVIOUS_TEST_ID"] > 0 && $arTest["PREVIOUS_TEST_SCORE"] > 0 && $arTest["PREVIOUS_TEST_LINK"]):?>
 			<?=str_replace(array("#TEST_LINK#", "#TEST_SCORE#"), array('"'.$arTest["PREVIOUS_TEST_LINK"].'"', $arTest["PREVIOUS_TEST_SCORE"]), GetMessage("LEARNING_PREV_TEST_REQUIRED"))?>
 			<br />
-		<?endif?>
+		<?php endif?>
 
 		<br />
 		<form action="<?=$arTest["TEST_DETAIL_URL"]?>" method="post">
 			<input type="hidden" name="COURSE_ID" value="<?=$arTest["COURSE_ID"]?>" />
 			<input type="hidden" name="ID" value="<?=$arTest["ID"]?>" />
-			<?if ($arTest["ATTEMPT"] === false):?>
+			<?php if ($arTest["ATTEMPT"] === false):?>
 				<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_START")?>"<?php echo isset($arTest["PREVIOUS_NOT_COMPLETE"]) ? " disabled=\"1\"" : ""?> />
-			<?else:?>
+			<?php else:?>
 				<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_CONTINUE")?>"<?php echo isset($arTest["PREVIOUS_NOT_COMPLETE"]) ? " disabled=\"1\"" : ""?> />
-			<?endif?>
+			<?php endif?>
 		</form>
 		<div class="test-list-hr"></div>
 
-	<?endforeach?>
+	<?php endforeach?>
 
 	<?=$arResult["NAV_STRING"];?>
 
-<?endif?>
+<?php endif?>

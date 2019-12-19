@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEARCH_FONT_MAX'] = "Максимальный размер шрифта (px)";
 $MESS ['SEARCH_FONT_MIN'] = "Минимальный размер шрифта (px)";
 $MESS ['SEARCH_COLOR_OLD'] = "Цвет раннего тега (пример: \"FEFEFE\")";

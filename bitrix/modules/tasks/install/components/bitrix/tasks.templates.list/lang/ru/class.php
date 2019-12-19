@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TEMPLATE_ID'] = "ID";
 $MESS['TASKS_TEMPLATE_TITLE'] = "Название";
 

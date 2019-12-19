@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arParams["PATH_TO_SONET_PROFILE"] = (isset($arParams["PATH_TO_SONET_PROFILE"]) ? $arParams["PATH_TO_SONET_PROFILE"] : SITE_DIR."company/personal/user/#user_id#/");
 $arParams["PATH_TO_SONET_PROFILE_EDIT"] = (isset($arParams["PATH_TO_SONET_PROFILE_EDIT"]) ? $arParams["PATH_TO_SONET_PROFILE_EDIT"] : SITE_DIR."company/personal/user/#user_id#/edit/");

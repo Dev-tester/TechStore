@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CURRENCY_SHOW_TITLE"] = "View this currency";
 $MESS["CRM_CURRENCY_SHOW"] = "View currency";
 $MESS["CRM_CURRENCY_EDIT_TITLE"] = "Edit this currency";

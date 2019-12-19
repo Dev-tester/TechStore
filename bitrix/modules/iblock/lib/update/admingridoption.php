@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Iblock\Update;
 
 use Bitrix\Main\Update\AdminGridOption as BaseAdminGridOption;

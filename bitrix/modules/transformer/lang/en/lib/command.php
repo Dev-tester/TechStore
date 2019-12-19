@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANSFORMER_COMMAND_ERROR_BANNED"] = "Error: commands from your Bitrix24 are not allowed";
 $MESS["TRANSFORMER_COMMAND_ERROR_CALLBACK"] = "Error processing conversion result";
 $MESS["TRANSFORMER_COMMAND_ERROR_COMMAND_ERROR"] = "Server error: incorrect command parameters";

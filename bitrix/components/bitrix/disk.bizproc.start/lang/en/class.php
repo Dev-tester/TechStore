@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPABS_EMPTY_DOC_ID"] = "No document ID specified for which the business process is to be created.";
 $MESS["BPABS_TITLE"] = "Run Business Process";
 $MESS["BPABS_EMPTY_DOC_TYPE"] = "The document type is required.";

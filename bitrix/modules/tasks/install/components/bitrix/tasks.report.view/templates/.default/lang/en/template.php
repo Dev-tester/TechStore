@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_REPORT_MY_TASKS_ONLY"] = "My tasks";
 $MESS["TASKS_REPORT_MY_DEPTS_TASKS_ONLY"] = "Subordinates' tasks";
 $MESS["TASKS_REPORT_MY_GROUPS_TASKS_ONLY"] = "Group tasks";

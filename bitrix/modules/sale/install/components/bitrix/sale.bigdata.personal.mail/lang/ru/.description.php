@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_CATALOG_SERVICES_MAIN_SECTION"] = "Магазин";
 $MESS["CP_CATALOG_SERVICES_PARENT_SECTION"] = "Информация о товарах";
 $MESS["SBP_PERSONAL_SECTION_TEMPLATE_NAME"] = "Персональные рекомендации";

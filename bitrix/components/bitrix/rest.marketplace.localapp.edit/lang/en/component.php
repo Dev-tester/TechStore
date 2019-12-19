@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_LOCAL_NOT_FOUND"] = "Application was not found.";
 $MESS["MARKETPLACE_LOCAL_ADD_TITLE"] = "Add application";
 $MESS["MARKETPLACE_LOCAL_EDIT_TITLE"] = "Edit application";

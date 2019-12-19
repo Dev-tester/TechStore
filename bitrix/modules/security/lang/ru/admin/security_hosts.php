@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_HOSTS_TITLE"] = "Хосты/домены";
 $MESS["SECURITY_HOSTS_MAIN_TAB"] = "Параметры";
 $MESS["SECURITY_HOSTS_MAIN_TAB_TITLE"] = "Настройки ограничения";

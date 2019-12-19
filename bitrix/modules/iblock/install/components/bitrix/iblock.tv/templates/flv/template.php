@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -19,9 +19,9 @@ if (isset($arResult['SELECTED_ELEMENT']) && isset($arResult['SELECTED_ELEMENT'][
 ?>
 	<div id="bx_tv_block_<?=$arResult['PREFIX']?>" style="width: <?=$arParams['WIDTH']?>px;">
 		<div id="tv_playerjsPublicTVCollector.tv[<?=$arResult['PREFIX']?>]" class="player_player" style="width: <?=$arParams['WIDTH']?>px; height: <?=$arParams['HEIGHT'] + $arResult['CORRECTION']['FLV']?>px;">
-		<?if ($arResult['FIRST_FLV_ITEM']):?>
+		<?php if ($arResult['FIRST_FLV_ITEM']):?>
 		<div id="bitrix_tv_flv_cont_<?= $arResult["PREFIX"]?>" style="display: none;">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:player",
 			"",
 			Array(
@@ -68,11 +68,11 @@ if (isset($arResult['SELECTED_ELEMENT']) && isset($arResult['SELECTED_ELEMENT'][
 			Array("HIDE_ICONS" => "Y")
 		);?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($arResult['FIRST_WMV_ITEM']):?>
+		<?php if ($arResult['FIRST_WMV_ITEM']):?>
 		<div id="bitrix_tv_wmv_cont_<?= $arResult["PREFIX"]?>" style="display: none">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:player",
 			"",
 			Array(
@@ -118,13 +118,13 @@ if (isset($arResult['SELECTED_ELEMENT']) && isset($arResult['SELECTED_ELEMENT'][
 			Array("HIDE_ICONS" => "Y")
 		);?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 		</div>
-	<?if(!$arResult['NO_PLAY_LIST']):?>
+	<?php if(!$arResult['NO_PLAY_LIST']):?>
 		<div id="tv_list_<?=$arResult['PREFIX']?>" class="player_tree_list" style="width: <?=$arParams['WIDTH']-2?>px;"></div>
-	<?endif;?>
+	<?php endif;?>
 	</div>
-	<?//build tree and call player?>
+	<?php //build tree and call player?>
 <script>
 	<?=$arResult['LIST']?>
 
@@ -298,8 +298,8 @@ if (isset($arResult['SELECTED_ELEMENT']) && isset($arResult['SELECTED_ELEMENT'][
 		jsPublicTVCollector.add[<?=$arResult['PREFIX']?>].SelectListItem();
 	}
 
-	<?if($arParams['STAT_EVENT'] || $arParams['SHOW_COUNTER_EVENT']):?>
+	<?php if($arParams['STAT_EVENT'] || $arParams['SHOW_COUNTER_EVENT']):?>
 		jsPublicTVCollector.tv[<?=$arResult['PREFIX']?>].GatherStatistics = true;
-	<?endif;?>
+	<?php endif;?>
 </script>
 <br clear="all"/>

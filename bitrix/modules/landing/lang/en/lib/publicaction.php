@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_ACCESS_DENIED"] = "The landing page service is currently available to administrators only.";
 $MESS["LANDING_ACCESS_DENIED2"] = "Insufficient permission.";
 $MESS["LANDING_METHOD_NOT_FOUND"] = "Method was not found";

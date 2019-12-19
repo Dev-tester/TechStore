@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_SITE_FORM_NAME"] = "Организация рабочего места";
 $MESS["WORK_SITE_MENU_NAME"] = "Организация рабочего места";
 $MESS["SERVICE_SITE_FORM_BUTTON"] = "Отправить заявку";

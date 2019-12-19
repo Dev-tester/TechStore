@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Доступ к модулю запрещён";
 $MESS["SALE_LOCATION_E_ITEM_EDIT"] = "Местоположения для сайта: #ITEM_NAME#";
 $MESS["SALE_LOCATION_E_CANNOT_UPDATE_ITEM"] = "Ошибка обновления списка местоположений";

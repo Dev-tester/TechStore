@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/prolog.php");
 
@@ -174,7 +174,7 @@ elseif (isset($_REQUEST['get']))
 <div id="seo_original_text_form_form">
 <form name="seo_original_text_form" style="padding:0;margin: 0;">
 	<b><?=Loc::getMessage('SEO_YANDEX_DOMAIN')?>: </b><select name="domain">
-<?
+<?php 
 				foreach($arDomains as $domain)
 				{
 					$domainView = \CBXPunycode::ToUnicode($domain['DOMAIN'], $errors=null);
@@ -184,14 +184,14 @@ elseif (isset($_REQUEST['get']))
 
 					?>
 		<option value="<?=$domainEnc?>"><?=$domainViewEnc?></option>
-<?
+<?php 
 				}
 ?>
 	</select><br /><br />
 	<textarea style="width: 700px; height: 450px;" name="original_text"></textarea>
 </form>
 </div><div id="seo_original_text_form_ok" style="display: none;">
-<?
+<?php 
 	CAdminMessage::ShowMessage(
 		array(
 			"MESSAGE" => Loc::getMessage('SEO_YANDEX_ORIGINAL_TEXT_OK'),
@@ -204,7 +204,7 @@ elseif (isset($_REQUEST['get']))
 	);
 ?>
 </div>
-<?
+<?php 
 			}
 		break;
 	}

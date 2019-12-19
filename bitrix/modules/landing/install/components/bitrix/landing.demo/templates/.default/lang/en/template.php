@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_ACTION_ADD"] = "New";
 $MESS["LANDING_TPL_ACTION_SELECT"] = "Select";
 $MESS["LANDING_TPL_ACTION_VIEW"] = "Edit";

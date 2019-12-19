@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 global $APPLICATION;
 $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
@@ -93,9 +93,9 @@ $APPLICATION->IncludeComponent(
 
 <script type="text/javascript">
 
-<?if(!CCrmLocations::isLocationsCreated()):?>
+<?php if(!CCrmLocations::isLocationsCreated()):?>
 	crmShowSetLocationsDialog();
-<?endif;?>
+<?php endif;?>
 
 	function crm_tax_delete_grid(title, message, btnTitle, path)
 	{

@@ -18,7 +18,7 @@ if ($arResult['ERRORS'])
 	<div class="landing-message-label error">
 		<?= implode("\n", $arResult['ERRORS'])?>
 	</div>
-	<?
+	<?php 
 }
 
 if ($arResult['FATAL'])
@@ -73,10 +73,10 @@ $template = new Template($arResult);
 					<span class="landing-options-item-param"><?= $row['ACTIVE']['TITLE']?></span>
 					<div class="landing-options-item-inner">
 						<div style="display: none;">
-							<input type="checkbox" name="fields[ACTIVE]" id="action-public-checkbox" value="Y"<?if ($row['ACTIVE']['CURRENT'] == 'Y') {?> checked="checked"<?}?>>
+							<input type="checkbox" name="fields[ACTIVE]" id="action-public-checkbox" value="Y"<?php if ($row['ACTIVE']['CURRENT'] == 'Y') {?> checked="checked"<?php }?>>
 						</div>
-						<span class="landing-options-public-status landing-options-public-status-<?= $row['ACTIVE']['CURRENT'] == 'Y' ? 'active' : 'unactive'?>" <?
-							?>id="action-public-status" <?
+						<span class="landing-options-public-status landing-options-public-status-<?= $row['ACTIVE']['CURRENT'] == 'Y' ? 'active' : 'unactive'?>" <?php 
+							?>id="action-public-status" <?php 
 							?>data-retitle="<?= Loc::getMessage('LANDING_TPL_PUBLIC_MESS_' . ($row['ACTIVE']['CURRENT'] == 'Y' ? 'N' : 'Y'))?>">
 							<?= Loc::getMessage('LANDING_TPL_PUBLIC_MESS_' . $row['ACTIVE']['CURRENT'])?>
 						</span>
@@ -85,7 +85,7 @@ $template = new Template($arResult);
 						</button>
 					</div>
 				</div>
-				<?
+				<?php 
 				$template->showHookBlock('B24BUTTON', array(
 					'desription_hook' => function()
 					{
@@ -105,7 +105,7 @@ $template = new Template($arResult);
 						}
 						if ($settingsLink)
 						{
-							?>&nbsp;&nbsp;<a href="<?= $settingsLink?>" target="_blank"><?= Loc::getMessage('LANDING_TPL_SETTINGS_LINK')?></a><?
+							?>&nbsp;&nbsp;<a href="<?= $settingsLink?>" target="_blank"><?= Loc::getMessage('LANDING_TPL_SETTINGS_LINK')?></a><?php 
 						}
 					}
 				));
@@ -135,21 +135,21 @@ $template = new Template($arResult);
 		<div class="landing-options-item-destination-wrap">
 			<div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('YACOUNTER');?>
-					<?$template->showHookBlock('GACOUNTER');?>
+					<?php $template->showHookBlock('YACOUNTER');?>
+					<?php $template->showHookBlock('GACOUNTER');?>
 				</div>
-				<?if (isset($hooks['BACKGROUND'])):?>
+				<?php if (isset($hooks['BACKGROUND'])):?>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('BACKGROUND', array('group' => true));?>
+					<?php $template->showHookBlock('BACKGROUND', array('group' => true));?>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('PADDING');?>
+					<?php $template->showHookBlock('PADDING');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('GMAP');?>
+					<?php $template->showHookBlock('GMAP');?>
 				</div>
-				<?
+				<?php 
 				$code = 'METAOG';
 				if ($row['ID']['CURRENT'] && isset($hooks[$code])):?>
 				<div class="landing-options-item landing-options-item-destination">
@@ -168,10 +168,10 @@ $template = new Template($arResult);
 									});
 								</script>
 								<div class="landing-social-title" id="landing-hook-metaog-title">
-									<?//= \htmlspecialcharsbx($meta['og:title'])?>
+									<?php //= \htmlspecialcharsbx($meta['og:title'])?>
 								</div>
 								<div class="landing-social-text" id="landing-hook-metaog-description">
-									<?//= \htmlspecialcharsbx($meta['og:description'])?>
+									<?php //= \htmlspecialcharsbx($meta['og:description'])?>
 								</div>
 							</div>
 						</div>
@@ -179,34 +179,34 @@ $template = new Template($arResult);
 							<?= Loc::getMessage('LANDING_TPL_ACTION_CHANGE');?>
 						</a>
 						<div id="landing-hook-metaog" style="display: none;">
-							<?$template->showHookBlock('METAOG', array('wrapper' => false));?>
+							<?php $template->showHookBlock('METAOG', array('wrapper' => false));?>
 						</div>
 					</div>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('METAROBOTS');?>
+					<?php $template->showHookBlock('METAROBOTS');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('THEME');?>
+					<?php $template->showHookBlock('THEME');?>
 				</div>
 				<div class="landing-options-item-destination-group">
-					<?$template->showHookBlock('UP');?>
+					<?php $template->showHookBlock('UP');?>
 				</div>
-				<?if (isset($hooks['HEADBLOCK']) || isset($hooks['CUSTOMCSS'])):?>
+				<?php if (isset($hooks['HEADBLOCK']) || isset($hooks['CUSTOMCSS'])):?>
 					<div class="landing-options-item landing-options-item-destination">
 						<span class="landing-options-item-param"><?= Loc::getMessage('LANDING_TPL_FIELD_HTMLCSS')?></span>
 						<div class="landing-options-item-inner">
-							<?$template->showHookBlock('HEADBLOCK', array('wrapper' => false));?>
-							<?$template->showHookBlock('CUSTOMCSS', array('wrapper' => false));?>
+							<?php $template->showHookBlock('HEADBLOCK', array('wrapper' => false));?>
+							<?php $template->showHookBlock('CUSTOMCSS', array('wrapper' => false));?>
 						</div>
 					</div>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</div>
 	</div>
 
-	<div class="<?if ($_REQUEST['IFRAME'] == 'Y'){?>landing-edit-footer-fixed <?}//tmp?>pinable-block">
+	<div class="<?php if ($_REQUEST['IFRAME'] == 'Y'){?>landing-edit-footer-fixed <?php }//tmp?>pinable-block">
 		<div class="landing-form-footer-container">
 			<button class="webform-small-button webform-small-button-accept">
 				<span class="webform-small-button-text">
@@ -219,9 +219,9 @@ $template = new Template($arResult);
 		</div>
 	</div>
 
-		<?/*$code = 'METAMAIN';?>
-		<?if (isset($hooks[$code])):?>
-			<?foreach ($hooks[$code]->getPageFields() as $field):?>
+		<?php /*$code = 'METAMAIN';?>
+		<?php if (isset($hooks[$code])):?>
+			<?php foreach ($hooks[$code]->getPageFields() as $field):?>
 			<tr>
 				<td><?= $field->getLabel()?>:</td>
 				<td>
@@ -231,7 +231,7 @@ $template = new Template($arResult);
 					))?>
 				</td>
 			</tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 			<tr>
 				<td></td>
 				<td>
@@ -241,5 +241,5 @@ $template = new Template($arResult);
 					</div>
 				</td>
 			</tr>
-		<?endif;*/?>
+		<?php endif;*/?>
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CSDRPT_SHIPMENTS_AMOUNT"] = "Количество отгрузок";
 $MESS["SALE_CSDRPT_WEIGHT"] = "Общий вес отгрузок";
 $MESS["SALE_CSDRPT_DELIVERY_REQUEST_CREATED"] = "Cоздана транспортная заявка № \"#REQUEST_ID#\"";

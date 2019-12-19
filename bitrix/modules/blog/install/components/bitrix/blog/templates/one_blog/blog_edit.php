@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <div class="body-blog">
-<?
+<?php 
 if($arParams["DO_NOT_SHOW_MENU"] != "Y")
 {
 	$APPLICATION->IncludeComponent(
@@ -31,7 +31,7 @@ if($arParams["DO_NOT_SHOW_MENU"] != "Y")
 	);
 }
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"blog_settings",
@@ -58,7 +58,7 @@ $APPLICATION->IncludeComponent(
 	$component
 );
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 		"bitrix:blog.blog.edit", 
 		"", 

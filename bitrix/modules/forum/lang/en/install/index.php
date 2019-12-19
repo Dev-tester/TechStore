@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_MODULE_NAME'] = "Forum";
 $MESS ['FORUM_MODULE_DESCRIPTION'] = "Forum module";
 

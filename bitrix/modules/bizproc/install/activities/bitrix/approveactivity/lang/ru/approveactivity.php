@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPAA_ACT_BUTTON1'] = "Утвердить документ";
 $MESS ['BPAA_LOG_Y'] = "Утвержден";
 $MESS ['BPAA_ACT_COMMENT'] = "Комментарий";

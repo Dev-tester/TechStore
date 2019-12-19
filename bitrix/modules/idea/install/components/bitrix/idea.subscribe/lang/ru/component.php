@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "Модуль блогов не установлен.";
 $MESS["IDEA_POST_UNSUBSCRIBE"] = "Отписаться";
 $MESS["IDEA_SUBSCRIBE_ALL_SUBSCRIBED"] = "Подписка на все новые идеи и комментарии к ним";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_ERROR_EMPTY_CHECK_TYPE"] = "Kassenzetteltyp ist nicht angegeben";
 $MESS["SALE_CASHBOX_ERROR_CHECK"] = "Kassenzetteltyp ist nicht korrekt";
 $MESS["SALE_CASHBOX_ERROR_CHECK_PRINT"] = "Error printing receipt ##CHECK_ID#";

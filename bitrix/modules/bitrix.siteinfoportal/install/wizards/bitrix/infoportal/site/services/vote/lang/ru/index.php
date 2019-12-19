@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTING_INSTALL_II_VOTE"] = "Опрос";
 $MESS["VOTING_INSTALL_MENU_ITEM"] = "Опросы";
 $MESS["VOTING_INSTALL_CHANNEL_ANKETA"] = "Анкетирование";

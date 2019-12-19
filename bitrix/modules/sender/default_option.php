@@ -1,4 +1,4 @@
-<?
+<?php 
 $sender_default_option = array(
 	"interval"=>"20",
 	"auto_method"=>"agent",

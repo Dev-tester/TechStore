@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_MORE_APPS"] = "Show more apps";
 $MESS["MARKETPLACE_TITLE_NEW"] = "New";
 $MESS["MARKETPLACE_TITLE_BEST"] = "Top";

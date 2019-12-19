@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_EXTERNAL_LINK_LIST_LABEL_GRID_TOTAL"] = "Всего";
 $MESS["DISK_EXTERNAL_LINK_LIST_DELETE_TITLE"] = "Подтверждение удаления";
 $MESS["DISK_EXTERNAL_LINK_LIST_DELETE_GROUP_CONFIRM"] = "Вы хотите отключить отмеченные публичные ссылки?";

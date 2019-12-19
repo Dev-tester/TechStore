@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use \Sale\Handlers\Delivery\Additional\RusPost\Reliability\Service;
 use \Bitrix\Main\Localization\Loc;

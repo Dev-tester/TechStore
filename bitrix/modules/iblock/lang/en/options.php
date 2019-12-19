@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_COMBINED_LIST_MODE"] = "Use Explorer-like view for sections and elements";
 $MESS["IBLOCK_CUSTOM_FORM_USE_PROPERTY_ID"] = "Use property ID's as keys in the property value array passed to the form";
 $MESS["IBLOCK_DETAIL_IMAGE_SIZE"] = "Preview image size in edit view:";

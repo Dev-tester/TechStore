@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_TITLE"] = "Emoticon galleries";
 $MESS["SMILE_DEL_CONF"] = "Are you sure you want to delete the gallery? This will also delete emoticon packs the gallery includes.";
 $MESS["SMILE_NAV"] = "Galleries";

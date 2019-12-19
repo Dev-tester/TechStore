@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMPANY_STEXPORT_OPTION_EXPORT_ALL_FIELDS"] = "Export all company fields";
 $MESS["COMPANY_STEXPORT_FINAL_ACTION_CLEAR"] = "Delete export file";
 $MESS["DOCUMENT_BUTTON_TEXT"] = "Document";

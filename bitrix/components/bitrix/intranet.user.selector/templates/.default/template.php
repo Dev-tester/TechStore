@@ -1,9 +1,9 @@
-<?if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $control_id = $arParams['CONTROL_ID'];
 ?>
 <div class="bx-ius-layout">
-<?
+<?php 
 $APPLICATION->IncludeComponent('bitrix:main.lookup.input', 'users', array(
 	'CONTROL_ID' => $control_id,
 	
@@ -25,7 +25,7 @@ $APPLICATION->IncludeComponent('bitrix:main.lookup.input', 'users', array(
 ), $component, array('HIDE_ICONS' => 'Y'));
 ?>
 <br />
-<?
+<?php 
 if ($arParams['EXTERNAL'] == 'I' && intval($arParams["SOCNET_GROUP_ID"]) <= 0):
 
 	$name = $APPLICATION->IncludeComponent(
@@ -42,8 +42,8 @@ if ($arParams['EXTERNAL'] == 'I' && intval($arParams["SOCNET_GROUP_ID"]) <= 0):
 		array('HIDE_ICONS' => 'Y')
 	);
 ?>
-	<a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()" class="bx-ius-structure-link"><?echo GetMessage('IUS_STRUCT_BUTTON')?></a>
-<?
+	<a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()" class="bx-ius-structure-link"><?php echo GetMessage('IUS_STRUCT_BUTTON')?></a>
+<?php 
 endif;
 ?>
 </div>

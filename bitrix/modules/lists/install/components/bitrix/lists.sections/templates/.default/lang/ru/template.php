@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CT_BLS_TOOLBAR_UP'] = "Вверх";
 $MESS ['CT_BLS_TOOLBAR_UP_TITLE'] = "Перейти в родительский раздел";
 $MESS ['CT_BLS_TOOLBAR_ADD_SECTION_TITLE'] = "Добавить новый раздел в текущий раздел списка";

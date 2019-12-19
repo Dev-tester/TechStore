@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_LIST_COMP_TITLE"] = "Соглашения";
 $MESS["MAIN_USER_CONSENT_LIST_COMP_Y"] = "Да";
 $MESS["MAIN_USER_CONSENT_LIST_COMP_N"] = "Нет";

@@ -1,4 +1,4 @@
-<?
+<?php 
 // v.091
 
 require_once(dirname(__FILE__)."/../include/prolog_admin_before.php");
@@ -168,7 +168,7 @@ $oFilter = new CAdminFilter(
 ?>
 <form name="form1" method="POST" action="<?=$APPLICATION->GetCurPage()?>">
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?$oFilter->Begin();?>
+<?php $oFilter->Begin();?>
 <tr>
 	<td><?=GetMessage("HK_NAME").":"?></td>
 	<td><input type="text" name="find_name" size="40" value="<?= htmlspecialcharsbx($find_name)?>"><?=ShowFilterLogicHelp()?></td>
@@ -189,17 +189,17 @@ $oFilter = new CAdminFilter(
 	<td><?=GetMessage("HK_FLT_IS_CUSTOM").":"?></td>
 	<td>
 		<select name="find_is_custom">
-			<option value=""><?echo GetMessage("MAIN_ALL")?></option>
-			<option value="1"<?if($find_is_custom == "1") echo " selected"?>><?=GetMessage("HK_FLT_TRUE")?></option>
-			<option value="0"<?if($find_is_custom == "0") echo " selected"?>><?=GetMessage("HK_FLT_FALSE")?></option>
+			<option value=""><?php echo GetMessage("MAIN_ALL")?></option>
+			<option value="1"<?php if($find_is_custom == "1") echo " selected"?>><?=GetMessage("HK_FLT_TRUE")?></option>
+			<option value="0"<?php if($find_is_custom == "0") echo " selected"?>><?=GetMessage("HK_FLT_FALSE")?></option>
 		</select>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"form1"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 
 $lAdmin->DisplayList();
 

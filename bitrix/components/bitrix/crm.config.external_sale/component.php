@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!CModule::IncludeModule("crm"))
 {
@@ -55,7 +55,7 @@ if ($_REQUEST["auth"]=="Y" && $USER->IsAuthorized())
 <script type="text/javascript">
 	var extSaleGetRemoteFormLocal1 = {"TITLE":"<?= GetMessage("CRM_EXT_SALE_DEJ_TITLE1") ?>"};
 </script>
-<?
+<?php 
 $APPLICATION->AddHeadScript($this->GetPath().'/wizard.js');
 
 ob_start();

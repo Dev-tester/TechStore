@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 <table cellspacing="0" cellpadding="0" border="0" width="100%" class="data-table">
 <tr>
 	<td colspan="5" align="center">
-		<?if(is_array($arResult["PICTURE"])):?>
+		<?php if(is_array($arResult["PICTURE"])):?>
 			<img
 				border="0"
 				src="<?=$arResult["PICTURE"]["SRC"]?>"
@@ -25,51 +25,51 @@ $this->setFrameMode(true);
 				alt="<?=$arResult["PICTURE"]["ALT"]?>"
 				title="<?=$arResult["PICTURE"]["TITLE"]?>"
 				/><br />
-		<?endif?>
+		<?php endif?>
 	</td>
 </tr>
-<?if(count($arParams["FIELD_CODE"])>0 || count($arResult["DISPLAY_PROPERTIES"])>0):?>
+<?php if(count($arParams["FIELD_CODE"])>0 || count($arResult["DISPLAY_PROPERTIES"])>0):?>
 <tr>
 	<th colspan="5">
-		<?foreach($arParams["FIELD_CODE"] as $code):
+		<?php foreach($arParams["FIELD_CODE"] as $code):
 			if ('PREVIEW_PICTURE' == $code || 'DETAIL_PICTURE' == $code)
 			{
-				?><?=GetMessage("IBLOCK_FIELD_".$code)?>&nbsp;:&nbsp;<?
+				?><?=GetMessage("IBLOCK_FIELD_".$code)?>&nbsp;:&nbsp;<?php 
 				if (!empty($arResult[$code]) && is_array($arResult[$code]))
 				{
-					?><img border="0" src="<?=$arResult[$code]["SRC"]?>" width="<?=$arResult[$code]["WIDTH"]?>" height="<?=$arResult[$code]["HEIGHT"]?>"><?
+					?><img border="0" src="<?=$arResult[$code]["SRC"]?>" width="<?=$arResult[$code]["WIDTH"]?>" height="<?=$arResult[$code]["HEIGHT"]?>"><?php 
 				}
 			}
 			else
 			{
-				?><?=GetMessage("IBLOCK_FIELD_".$code)?>&nbsp;:&nbsp;<?=$arResult[$code]?><?
+				?><?=GetMessage("IBLOCK_FIELD_".$code)?>&nbsp;:&nbsp;<?=$arResult[$code]?><?php 
 			}
 			?><br />
-		<?endforeach?>
-		<?foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-			<?=$arProperty["NAME"]?>:&nbsp;<?
+		<?php endforeach?>
+		<?php foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+			<?=$arProperty["NAME"]?>:&nbsp;<?php 
 			if(is_array($arProperty["DISPLAY_VALUE"]))
 				echo implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
 			else
 				echo $arProperty["DISPLAY_VALUE"];?><br />
-		<?endforeach?>
+		<?php endforeach?>
 	</th>
 </tr>
-<?endif?>
-<?if($arResult["DETAIL_TEXT"] || $arResult["PREVIEW_TEXT"]):?>
+<?php endif?>
+<?php if($arResult["DETAIL_TEXT"] || $arResult["PREVIEW_TEXT"]):?>
 <tr>
 	<td colspan="5" valign="center" align="left">
-		<?if($arResult["DETAIL_TEXT"]):?>
+		<?php if($arResult["DETAIL_TEXT"]):?>
 			<?=$arResult["DETAIL_TEXT"]?>
-		<?elseif($arResult["PREVIEW_TEXT"]):?>
+		<?php elseif($arResult["PREVIEW_TEXT"]):?>
 			<?=$arResult["PREVIEW_TEXT"]?>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 </tr>
-<?endif?>
+<?php endif?>
 <tr>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["PREV"][1])):?>
+		<?php if(is_array($arResult["PREV"][1])):?>
 			<a href="<?=$arResult["PREV"][1]["DETAIL_PAGE_URL"]?>"><img
 					border="0"
 					src="<?=$arResult["PREV"][1]["PICTURE"]["SRC"]?>"
@@ -78,12 +78,12 @@ $this->setFrameMode(true);
 					alt="<?=$arResult["PREV"][1]["PICTURE"]["ALT"]?>"
 					title="<?=$arResult["PREV"][1]["PICTURE"]["TITLE"]?>"
 					/></a><br /><a href="<?=$arResult["PREV"][1]["DETAIL_PAGE_URL"]?>"><?=$arResult["PREV"][1]["NAME"]?></a>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("NO_PHOTO")?>
-		<?endif?>
+		<?php endif?>
 	</td>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["PREV"][0])):?>
+		<?php if(is_array($arResult["PREV"][0])):?>
 			<a href="<?=$arResult["PREV"][0]["DETAIL_PAGE_URL"]?>"><img
 					border="0"
 					src="<?=$arResult["PREV"][0]["PICTURE"]["SRC"]?>"
@@ -92,9 +92,9 @@ $this->setFrameMode(true);
 					alt="<?=$arResult["PREV"][0]["PICTURE"]["ALT"]?>"
 					title="<?=$arResult["PREV"][0]["PICTURE"]["TITLE"]?>"
 					/></a><br /><a href="<?=$arResult["PREV"][0]["DETAIL_PAGE_URL"]?>"><?=$arResult["PREV"][0]["NAME"]?></a>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("NO_PHOTO")?>
-		<?endif?>
+		<?php endif?>
 	</td>
 	<td align="center" width="20%">
 		<img
@@ -108,7 +108,7 @@ $this->setFrameMode(true);
 		<?=$arResult["NAME"]?>
 	</td>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["NEXT"][0])):?>
+		<?php if(is_array($arResult["NEXT"][0])):?>
 			<a href="<?=$arResult["NEXT"][0]["DETAIL_PAGE_URL"]?>"><img
 					border="0"
 					src="<?=$arResult["NEXT"][0]["PICTURE"]["SRC"]?>"
@@ -117,12 +117,12 @@ $this->setFrameMode(true);
 					alt="<?=$arResult["NEXT"][0]["PICTURE"]["ALT"]?>"
 					title="<?=$arResult["NEXT"][0]["PICTURE"]["TITLE"]?>"
 					/></a><br /><a href="<?=$arResult["NEXT"][0]["DETAIL_PAGE_URL"]?>"><?=$arResult["NEXT"][0]["NAME"]?></a>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("NO_PHOTO")?>
-		<?endif?>
+		<?php endif?>
 	</td>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["NEXT"][1])):?>
+		<?php if(is_array($arResult["NEXT"][1])):?>
 			<a href="<?=$arResult["NEXT"][1]["DETAIL_PAGE_URL"]?>"><img
 					border="0"
 					src="<?=$arResult["NEXT"][1]["PICTURE"]["SRC"]?>"
@@ -131,42 +131,42 @@ $this->setFrameMode(true);
 					alt="<?=$arResult["NEXT"][1]["PICTURE"]["ALT"]?>"
 					title="<?=$arResult["NEXT"][1]["PICTURE"]["TITLE"]?>"
 					/></a><br /><a href="<?=$arResult["NEXT"][1]["DETAIL_PAGE_URL"]?>"><?=$arResult["NEXT"][1]["NAME"]?></a>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("NO_PHOTO")?>
-		<?endif?>
+		<?php endif?>
 	</td>
 </tr>
 <tr>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["PREV"][1])):?>
+		<?php if(is_array($arResult["PREV"][1])):?>
 			<a href="<?=$arResult["PREV"][1]["DETAIL_PAGE_URL"]?>">&lt;&lt;</a>
-		<?else:?>
+		<?php else:?>
 			&nbsp;
-		<?endif?>
+		<?php endif?>
 	</td>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["PREV"][0])):?>
+		<?php if(is_array($arResult["PREV"][0])):?>
 			<a href="<?=$arResult["PREV"][0]["DETAIL_PAGE_URL"]?>">&lt;</a>
-		<?else:?>
+		<?php else:?>
 			&nbsp;
-		<?endif?>
+		<?php endif?>
 	</td>
 	<td align="center" width="20%">
 		<?=GetMessage("NO_OF_COUNT",array("#NO#"=>$arResult["CURRENT"]["NO"],"#TOTAL#"=>$arResult["CURRENT"]["COUNT"]))?>
 	</td>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["NEXT"][0])):?>
+		<?php if(is_array($arResult["NEXT"][0])):?>
 			<a href="<?=$arResult["NEXT"][0]["DETAIL_PAGE_URL"]?>">&gt;</a>
-		<?else:?>
+		<?php else:?>
 			&nbsp;
-		<?endif?>
+		<?php endif?>
 	</td>
 	<td align="center" width="20%">
-		<?if(is_array($arResult["NEXT"][1])):?>
+		<?php if(is_array($arResult["NEXT"][1])):?>
 			<a href="<?=$arResult["NEXT"][1]["DETAIL_PAGE_URL"]?>">&gt;&gt;</a>
-		<?else:?>
+		<?php else:?>
 			&nbsp;
-		<?endif?>
+		<?php endif?>
 	</td>
 </tr>
 </table>

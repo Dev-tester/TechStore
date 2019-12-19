@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SPOD_DESC_YES'] = "Да";
 $MESS ['SPOD_DESC_NO'] = "Нет";
 $MESS ['SPOD_PATH_TO_LIST'] = "Страница со списком заказов";

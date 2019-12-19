@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Как купить");
 ?>
@@ -49,4 +49,4 @@ $APPLICATION->SetTitle("Как купить");
 		Вы можете оплатить заказ в любом отделении Сбербанка. За услугу по переводу денег с вас возьмут от 3 до 7% от стоимости заказа, в зависимости от региона. Перечисление денег займет порядка 10 дней.</li>
 	</ul>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_STORE_INDEX_TITLE"] = "List of warehouse locations";
 $MESS["TITLE"] = "Name";
 $MESS["ADDRESS"] = "Address";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BH_PATH_TO_BLOG'] = "Template of the blog home page path";
 $MESS ['BH_PATH_TO_POST_EDIT'] = "Template of the message edit page path";
 $MESS ['BH_PATH_TO_BLOG_INDEX'] = "Template of the home page path";

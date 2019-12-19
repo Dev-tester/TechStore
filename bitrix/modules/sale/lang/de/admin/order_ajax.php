@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_OA_SHIPMENT_STATUS_ERROR"] = "Fehler";
 $MESS["SALE_OA_ERROR_HAPPENED"] = "Bei Verarbeitung der Bestellung ist in Fehler aufgetreten";
 $MESS["SALE_OA_ERROR_DELIVERY_SERVICE"] = "Einschränkungen treffen beim Lieferservice nicht zu";

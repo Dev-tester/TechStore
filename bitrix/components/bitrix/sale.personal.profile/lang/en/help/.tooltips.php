@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEF_MODE_TIP'] = "Checking this option enables the SEF mode and the URL configuration fields.";
 $MESS ['PER_PAGE_TIP'] = "Specifies the number of profiles per page.";
 $MESS ['SET_TITLE_TIP'] = "Sets the page title to \"Profiles\".";

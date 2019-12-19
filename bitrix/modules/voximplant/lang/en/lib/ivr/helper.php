@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IVR_LICENSE_POPUP_FOOTER_2"] = "Voice menu (IVR) is available only in selected commercial plans.";
 $MESS["IVR_LICENSE_POPUP_HEADER_2"] = "Available only in commercial plans.";
 $MESS["IVR_LICENSE_POPUP_ITEM_1"] = "Nested menus";

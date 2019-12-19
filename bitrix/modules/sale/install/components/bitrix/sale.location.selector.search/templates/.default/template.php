@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location;
 
@@ -13,34 +13,34 @@ if ($arParams["UI_FILTER"])
 
 ?>
 
-<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+<?php if(!empty($arResult['ERRORS']['FATAL'])):?>
 
-	<?foreach($arResult['ERRORS']['FATAL'] as $error):?>
-		<?ShowError($error)?>
-	<?endforeach?>
+	<?php foreach($arResult['ERRORS']['FATAL'] as $error):?>
+		<?php ShowError($error)?>
+	<?php endforeach?>
 
-<?else:?>
+<?php else:?>
 
-	<?CJSCore::Init();?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_widget.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_etc.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_autocomplete.js');?>
+	<?php CJSCore::Init();?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_widget.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_etc.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_autocomplete.js');?>
 
-	<div id="sls-<?=$arResult['RANDOM_TAG']?>" class="bx-sls <?if(strlen($arResult['MODE_CLASSES'])):?> <?=$arResult['MODE_CLASSES']?><?endif?>">
+	<div id="sls-<?=$arResult['RANDOM_TAG']?>" class="bx-sls <?php if(strlen($arResult['MODE_CLASSES'])):?> <?=$arResult['MODE_CLASSES']?><?php endif?>">
 
-		<?if(is_array($arResult['DEFAULT_LOCATIONS']) && !empty($arResult['DEFAULT_LOCATIONS'])):?>
+		<?php if(is_array($arResult['DEFAULT_LOCATIONS']) && !empty($arResult['DEFAULT_LOCATIONS'])):?>
 
 			<div class="bx-ui-sls-quick-locations quick-locations">
 
-				<?foreach($arResult['DEFAULT_LOCATIONS'] as $lid => $loc):?>
+				<?php foreach($arResult['DEFAULT_LOCATIONS'] as $lid => $loc):?>
 					<a href="javascript:void(0)" data-id="<?=intval($loc['ID'])?>" class="quick-location-tag"><?=htmlspecialcharsbx($loc['NAME'])?></a>
-				<?endforeach?>
+				<?php endforeach?>
 
 			</div>
 
-		<?endif?>
+		<?php endif?>
 
-		<? $dropDownBlock = $arParams["UI_FILTER"] ? "dropdown-block-ui" : "dropdown-block"; ?>
+		<?php  $dropDownBlock = $arParams["UI_FILTER"] ? "dropdown-block-ui" : "dropdown-block"; ?>
 		<div class="<?=$dropDownBlock?> bx-ui-sls-input-block">
 
 			<span class="dropdown-icon"></span>
@@ -63,22 +63,22 @@ if ($arParams["UI_FILTER"])
 		<script type="text/html" data-template-id="bx-ui-sls-dropdown-item">
 			<div class="dropdown-item bx-ui-sls-variant">
 				<span class="dropdown-item-text">{{display_wrapped}}</span>
-				<?if($arResult['ADMIN_MODE']):?>
+				<?php if($arResult['ADMIN_MODE']):?>
 					[{{id}}]
-				<?endif?>
+				<?php endif?>
 			</div>
 		</script>
 
 		<div class="bx-ui-sls-error-message">
-			<?if(!$arParams['SUPPRESS_ERRORS']):?>
-				<?if(!empty($arResult['ERRORS']['NONFATAL'])):?>
+			<?php if(!$arParams['SUPPRESS_ERRORS']):?>
+				<?php if(!empty($arResult['ERRORS']['NONFATAL'])):?>
 
-					<?foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
-						<?ShowError($error)?>
-					<?endforeach?>
+					<?php foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
+						<?php ShowError($error)?>
+					<?php endforeach?>
 
-				<?endif?>
-			<?endif?>
+				<?php endif?>
+			<?php endif?>
 		</div>
 
 	</div>
@@ -88,15 +88,15 @@ if ($arParams["UI_FILTER"])
 		if (!window.BX && top.BX)
 			window.BX = top.BX;
 
-		<?if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
+		<?php if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
 			if(typeof window.BX.locationsDeferred == 'undefined') window.BX.locationsDeferred = {};
 			window.BX.locationsDeferred['<?=$arParams['JS_CONTROL_DEFERRED_INIT']?>'] = function(){
-		<?endif?>
+		<?php endif?>
 
-			<?if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
+			<?php if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
 				if(typeof window.BX.locationSelectors == 'undefined') window.BX.locationSelectors = {};
 				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] = 
-			<?endif?>
+			<?php endif?>
 
 			new BX.Sale.component.location.selector.search(<?=CUtil::PhpToJSObject(array(
 
@@ -136,10 +136,10 @@ if ($arParams["UI_FILTER"])
 
 			), false, false, true)?>);
 
-		<?if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
+		<?php if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
 			};
-		<?endif?>
+		<?php endif?>
 
 	</script>
 
-<?endif?>
+<?php endif?>

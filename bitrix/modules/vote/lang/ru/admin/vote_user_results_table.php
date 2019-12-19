@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_CHANNEL'] = "Группа:";
 $MESS ['VOTE_VOTE'] = "Опрос:";
 $MESS ['VOTE_PAGE_TITLE'] = "Голосование # #ID#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAVE_ERROR"] = "An error occurred while saving an object.";
 $MESS["DELETE_ERROR"] = "An error occurred while deleting an object.";
 $MESS["VOTE_TIMESTAMP_X"] = "Modified";

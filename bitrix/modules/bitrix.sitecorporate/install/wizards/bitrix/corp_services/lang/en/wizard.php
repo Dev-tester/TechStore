@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["wiz_structure_data"] = "Install Corporate Website Demo Data";
 $MESS["wiz_restructure_data"] = "Reinstall Corporate Website Demo Data";
 $MESS["WIZ_COMPANY_LOGO"] = "Logo (recommended size: 190 x 25)";

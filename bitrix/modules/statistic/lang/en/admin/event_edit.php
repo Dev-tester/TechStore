@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_TITLE"] = "Event loading";
 $MESS["STAT_CHARGEBACK"] = "Chargeback";
 $MESS["STAT_EVENT_TYPE"] = "Event type<br>ID";

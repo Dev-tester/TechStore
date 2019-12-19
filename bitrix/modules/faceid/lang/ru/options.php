@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TAB_SETTINGS"] = "Настройки";
 $MESS["FACEID_TAB_SETTINGS_BUY"] = "Баланс и списания";
 $MESS["FACEID_TAB_TITLE_SETTINGS_2"] = "Параметры подключения";

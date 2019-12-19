@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -95,7 +95,7 @@ class EditorMail
 				$html = str_replace($php[2], $surrogate, $html);
 			}
 
-			$html = str_replace(['<?', '?>'], ['< ?', '? >'], $html);
+			$html = str_replace(['<?php ', '?>'], ['< ?', '? >'], $html);
 		}
 
 		return $html;

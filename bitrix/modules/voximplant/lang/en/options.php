@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_TAB_SETTINGS"] = "Settings";
 $MESS["VI_TAB_TITLE_SETTINGS_2"] = "Connection parameters";
 $MESS["VI_ACCOUNT_ERROR_PUBLIC"] = "You have entered an invalid public address.";

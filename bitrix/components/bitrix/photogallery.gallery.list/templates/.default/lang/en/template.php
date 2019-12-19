@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_UPLOAD'] = "Upload Photos";
 $MESS ['P_GALLERY_CREATE'] = "Create gallery";
 $MESS ['P_GALLERY_EDIT'] = "Edit gallery settings";

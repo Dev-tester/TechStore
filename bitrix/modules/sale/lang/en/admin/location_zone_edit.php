@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Access to module was denied";
 $MESS["SALE_LOCATION_E_ITEM_EDIT"] = "Locations for site: #ITEM_NAME#";
 $MESS["SALE_LOCATION_E_CANNOT_UPDATE_ITEM"] = "Error updating location types";

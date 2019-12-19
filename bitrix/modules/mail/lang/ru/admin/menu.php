@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIL_MENU_MAIL'] = "Почта";
 $MESS ['MAIL_MENU_MSG'] = "Письма";
 $MESS ['MAIL_MENU_MSG_ALT'] = "Просмотр почтовых сообщений";

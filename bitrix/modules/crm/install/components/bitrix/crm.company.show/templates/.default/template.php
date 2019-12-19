@@ -234,7 +234,7 @@ $APPLICATION->IncludeComponent(
 	});
 </script>
 
-<?
+<?php 
 
 
 if($arResult['ENABLE_INSTANT_EDIT']):?>
@@ -259,7 +259,7 @@ if($arResult['ENABLE_INSTANT_EDIT']):?>
 						}
 				);
 
-				<?if(isset($arResult['ENABLE_BIZPROC_LAZY_LOADING']) && $arResult['ENABLE_BIZPROC_LAZY_LOADING'] === true):?>
+				<?php if(isset($arResult['ENABLE_BIZPROC_LAZY_LOADING']) && $arResult['ENABLE_BIZPROC_LAZY_LOADING'] === true):?>
 				var bpContainerId = "<?=$arResult['BIZPROC_CONTAINER_ID']?>";
 				if(BX(bpContainerId))
 				{
@@ -275,13 +275,13 @@ if($arResult['ENABLE_INSTANT_EDIT']):?>
 						}
 					);
 				}
-				<?endif;?>
+				<?php endif;?>
 			}
 	);
 </script>
-<?endif;?>
+<?php endif;?>
 
-<?if(isset($arResult['ENABLE_LIVE_FEED_LAZY_LOAD']) && $arResult['ENABLE_LIVE_FEED_LAZY_LOAD'] === true):?>
+<?php if(isset($arResult['ENABLE_LIVE_FEED_LAZY_LOAD']) && $arResult['ENABLE_LIVE_FEED_LAZY_LOAD'] === true):?>
 <script type="text/javascript">
 	(function()
 	{
@@ -334,4 +334,4 @@ if($arResult['ENABLE_INSTANT_EDIT']):?>
 		);
 	})();
 </script>
-<?endif;?>
+<?php endif;?>

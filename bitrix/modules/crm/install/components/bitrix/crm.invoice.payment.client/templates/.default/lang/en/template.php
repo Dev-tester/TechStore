@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CIPC_TPL_BUTTON_LOAD"] = "Download";
 $MESS["CIPC_TPL_BUTTON_PRINT"] = "Print";
 $MESS["CIPC_TPL_PAY_SYSTEM_BLOCK_HEADER"] = "Show payment systems";

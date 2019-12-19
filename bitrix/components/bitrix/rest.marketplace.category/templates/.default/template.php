@@ -35,7 +35,7 @@ if ($arParams['SHOW_FILTER'] == "Y")
 	?>
 
 	<div class="pagetitle-container pagetitle-flexible-space">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:main.ui.filter',
 			'',
@@ -53,7 +53,7 @@ if ($arParams['SHOW_FILTER'] == "Y")
 		?>
 	</div>
 
-	<?
+	<?php 
 	if (!$arResult['SLIDER'])
 	{
 		$this->endViewTarget();
@@ -70,7 +70,7 @@ if ($arParams['SHOW_FILTER'] == "Y")
 </script>
 
 <div id="mp-category-block">
-	<?
+	<?php 
 	if ($arResult["AJAX_MODE"])
 	{
 		$APPLICATION->RestartBuffer();
@@ -79,14 +79,14 @@ if ($arParams['SHOW_FILTER'] == "Y")
 	if (is_array($arResult["ITEMS"]))
 	{
 	?>
-		<div class="mp<? if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y"): ?> mp-slider<? endif; ?>">
+		<div class="mp<?php  if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y"): ?> mp-slider<?php  endif; ?>">
 			<div class="mp-container">
 				<div class="mp-container" id="mp-elements-block"></div>
-				<?if ($arResult["CURRENT_PAGE"] < $arResult["PAGE_COUNT"]):?>
+				<?php if ($arResult["CURRENT_PAGE"] < $arResult["PAGE_COUNT"]):?>
 				<div class="mp-container-more">
 					<span class="ui-btn ui-btn-light-border mp-btn-more" id="mp-more-button"><?=GetMessage("MARKETPLACE_MORE_APPS")?></span>
 				</div>
-				<?endif?>
+				<?php endif?>
 			</div>
 		</div>
 
@@ -106,7 +106,7 @@ if ($arParams['SHOW_FILTER'] == "Y")
 				gridTile.draw();
 			});
 		</script>
-	<?
+	<?php 
 	}
 	elseif (
 		is_array($arResult["NEW_ITEMS_PAID"]) || is_array($arResult["NEW_ITEMS_FREE"])
@@ -114,43 +114,43 @@ if ($arParams['SHOW_FILTER'] == "Y")
 	)
 	{
 	?>
-		<div class="mp<? if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y"): ?> mp-slider<? endif; ?>">
+		<div class="mp<?php  if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y"): ?> mp-slider<?php  endif; ?>">
 			<div class="mp-title"><?=GetMessage("MARKETPLACE_TITLE_NEW")?></div>
 
-			<?if (is_array($arResult["NEW_ITEMS_PAID"]) && !empty($arResult["NEW_ITEMS_PAID"])):?>
+			<?php if (is_array($arResult["NEW_ITEMS_PAID"]) && !empty($arResult["NEW_ITEMS_PAID"])):?>
 			<div class="mp-container">
 				<div class="mp-title"><?=GetMessage("MARKETPLACE_PRICE_PAID")?></div>
 				<div class="mp-container" id="mp-new-block-paid"></div>
 			</div>
-			<?endif?>
+			<?php endif?>
 
-			<?if (is_array($arResult["NEW_ITEMS_FREE"]) && !empty($arResult["NEW_ITEMS_FREE"])):?>
+			<?php if (is_array($arResult["NEW_ITEMS_FREE"]) && !empty($arResult["NEW_ITEMS_FREE"])):?>
 			<div class="mp-container">
 				<div class="mp-title"><?=GetMessage("MARKETPLACE_PRICE_FREE")?></div>
 				<div class="mp-container" id="mp-new-block-free"></div>
 			</div>
-			<?endif?>
+			<?php endif?>
 
 			<div class="mp-title"><?=GetMessage("MARKETPLACE_TITLE_BEST")?></div>
 
-			<?if (is_array($arResult["TOP_ITEMS_PAID"]) && !empty($arResult["TOP_ITEMS_PAID"])):?>
+			<?php if (is_array($arResult["TOP_ITEMS_PAID"]) && !empty($arResult["TOP_ITEMS_PAID"])):?>
 			<div class="mp-container">
 				<div class="mp-title"><?=GetMessage("MARKETPLACE_PRICE_PAID")?></div>
 				<div class="mp-container" id="mp-top-block-paid"></div>
 			</div>
-			<?endif?>
+			<?php endif?>
 
-			<?if (is_array($arResult["TOP_ITEMS_FREE"]) && !empty($arResult["TOP_ITEMS_FREE"])):?>
+			<?php if (is_array($arResult["TOP_ITEMS_FREE"]) && !empty($arResult["TOP_ITEMS_FREE"])):?>
 			<div class="mp-container">
 				<div class="mp-title"><?=GetMessage("MARKETPLACE_PRICE_FREE")?></div>
 				<div class="mp-container" id="mp-top-block-free"></div>
 			</div>
-			<?endif?>
+			<?php endif?>
 		</div>
 
 		<script>
 			BX.ready(function () {
-				<?if (is_array($arResult["NEW_ITEMS_PAID"]) && !empty($arResult["NEW_ITEMS_PAID"])):?>
+				<?php if (is_array($arResult["NEW_ITEMS_PAID"]) && !empty($arResult["NEW_ITEMS_PAID"])):?>
 					var gridTileNew = new BX.TileGrid.Grid(
 						{
 							id: 'mp_category_new_paid',
@@ -162,9 +162,9 @@ if ($arParams['SHOW_FILTER'] == "Y")
 						}
 					);
 					gridTileNew.draw();
-				<?endif?>
+				<?php endif?>
 
-				<?if (is_array($arResult["NEW_ITEMS_FREE"]) && !empty($arResult["NEW_ITEMS_FREE"])):?>
+				<?php if (is_array($arResult["NEW_ITEMS_FREE"]) && !empty($arResult["NEW_ITEMS_FREE"])):?>
 					var gridTileNew = new BX.TileGrid.Grid(
 						{
 							id: 'mp_category_new_free',
@@ -176,9 +176,9 @@ if ($arParams['SHOW_FILTER'] == "Y")
 						}
 					);
 					gridTileNew.draw();
-				<?endif?>
+				<?php endif?>
 
-				<?if (is_array($arResult["TOP_ITEMS_PAID"]) && !empty($arResult["TOP_ITEMS_PAID"])):?>
+				<?php if (is_array($arResult["TOP_ITEMS_PAID"]) && !empty($arResult["TOP_ITEMS_PAID"])):?>
 					var gridTileTop = new BX.TileGrid.Grid(
 						{
 							id: 'mp_category_top_paid',
@@ -190,9 +190,9 @@ if ($arParams['SHOW_FILTER'] == "Y")
 						}
 					);
 					gridTileTop.draw();
-				<?endif?>
+				<?php endif?>
 
-				<?if (is_array($arResult["TOP_ITEMS_FREE"]) && !empty($arResult["TOP_ITEMS_FREE"])):?>
+				<?php if (is_array($arResult["TOP_ITEMS_FREE"]) && !empty($arResult["TOP_ITEMS_FREE"])):?>
 					var gridTileTop = new BX.TileGrid.Grid(
 						{
 							id: 'mp_category_top_free',
@@ -204,10 +204,10 @@ if ($arParams['SHOW_FILTER'] == "Y")
 						}
 					);
 					gridTileTop.draw();
-				<?endif?>
+				<?php endif?>
 			});
 		</script>
-	<?
+	<?php 
 	}
 	else
 	{
@@ -226,7 +226,7 @@ if ($arParams['SHOW_FILTER'] == "Y")
 			BX.Rest.Markeplace.Category.init(<?=CUtil::PhpToJSObject($jsParams)?>);
 		});
 	</script>
-	<?
+	<?php 
 	if ($arResult["AJAX_MODE"])
 	{
 		CMain::FinalActions();
@@ -236,21 +236,21 @@ if ($arParams['SHOW_FILTER'] == "Y")
 </div>
 
 <script>
-	<?if ($arParams['SHOW_FILTER'] == "Y"):?>
+	<?php if ($arParams['SHOW_FILTER'] == "Y"):?>
 		BX.ready(function () {
 			BX.Rest.Markeplace.Category.initEvents();
 		});
-	<?endif?>
+	<?php endif?>
 
 	(function(){
 		BX.rest.Marketplace.bindPageAnchors({allowChangeHistory: <?=$arParams['IFRAME'] ? 'false' : 'true'?>});
-		<?if($arParams['IFRAME']):?>
+		<?php if($arParams['IFRAME']):?>
 			var installCallback = function()
 			{
 				top.BX.removeCustomEvent(top, 'Rest:AppLayout:ApplicationInstall', installCallback);
 				location.reload();
 			};
 			top.BX.addCustomEvent(top, 'Rest:AppLayout:ApplicationInstall', installCallback);
-		<?endif;?>
+		<?php endif;?>
 	})();
 </script>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_DHL_USA_NAME"] = "DHL (USA)";
 $MESS["SALE_DH_DHL_USA_DESCRIPTION"] = "DHL (USA)";
 $MESS["SALE_DH_DHL_USA_DESCRIPTION_INNER"] = "Versandart-Handler <a href=\"http://www.dhl-usa.com\" target=\"_blank\">DHL (USA)</a>. Funktioniert auf der Basis des Online-Rechners. Lieferungsaufträge aus den USA in die ganze Welt. Für die Arbeit muss in den Einstellungen des Moduls \"E-Shop\" der PLZ-Code definiert werden.";

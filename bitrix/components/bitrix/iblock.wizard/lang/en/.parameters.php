@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WZ_PROPERTY_VALUES'] = "Multiple property containing drop-down list values";
 $MESS ['WZ_INCLUDE_INTO_CHAIN'] = "Add wizard steps to breadcrumb navigation";
 $MESS ['WZ_TICKET_EDIT'] = "Page with request edit form";

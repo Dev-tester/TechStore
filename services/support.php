@@ -1,11 +1,11 @@
-<?
+<?php 
 define("NEED_AUTH",true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Техническая поддержка");
 ?><p>Для просмотра созданных обращений в IT-службу и дальнейшего обсуждения вопросов воспользуйтесь ссылкой "Мои обращения". Создание новой заявки выполняется по шагам с помощью специальной формы внизу.</p>
 
 
-<p><?$APPLICATION->IncludeComponent("bitrix:support.wizard", ".default", Array(
+<p><?php $APPLICATION->IncludeComponent("bitrix:support.wizard", ".default", Array(
 	"IBLOCK_TYPE"	=>	"services",
 	"IBLOCK_ID"	=>	"13",
 	"PROPERTY_FIELD_TYPE"	=>	"type",
@@ -28,4 +28,4 @@ $APPLICATION->SetTitle("Техническая поддержка");
 	)
 	)
 );?></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

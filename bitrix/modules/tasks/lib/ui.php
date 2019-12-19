@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Namespace contains functions\classes for UI render purposes
  */

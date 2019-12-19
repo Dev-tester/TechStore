@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_ACCESS_DENIED"] = "Zugriff verweigert.";
 $MESS["WD_VERSIONS"] = "Versionenliste";
 $MESS["WD_VERSIONS_ALT"] = "In die Versionenliste des Dokumenten wechseln";

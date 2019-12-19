@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $product_price = number_format(CSalePaySystemAction::GetParamValue("SHOULD_PAY"), 2, '.', '');
 
 ?>
@@ -23,44 +23,44 @@ $product_price = number_format(CSalePaySystemAction::GetParamValue("SHOULD_PAY")
 <input type="hidden" name="country" value="<?=CSalePaySystemAction::GetParamValue("COUNTRY")?>">
 <input type="hidden" name="phone" value="<?=CSalePaySystemAction::GetParamValue("PHONE")?>"> 
 <input type="hidden" name="email" value="<?=CSalePaySystemAction::GetParamValue("EMAIL")?>">
-<?
+<?php 
 if(strlen(CSalePaySystemAction::GetParamValue("ORDER_UNIQ")) > 0)
 {
 	?>
 	<input type="hidden" name="order_id" value="<?=CSalePaySystemAction::GetParamValue("ORDER_ID");?>">
 	<input type="hidden" name="sign" value="<?=md5(CSalePaySystemAction::GetParamValue("PRODUCT_ID")."-".$product_price."-".CSalePaySystemAction::GetParamValue("ORDER_ID")."-".CSalePaySystemAction::GetParamValue("SHARED"))?>">
-	<?
+	<?php 
 }
 else
 {
 	?>
 	<input type="hidden" name="sign" value="<?=md5(CSalePaySystemAction::GetParamValue("PRODUCT_ID")."-".$product_price."-".CSalePaySystemAction::GetParamValue("SHARED"))?>">
-	<?
+	<?php 
 }
 
 if(strlen(CSalePaySystemAction::GetParamValue("YANDEX_FORWARD")) > 0)
 {
 	?>
 	<input type="hidden" name="payment_type_group_id" value="16">
-	<?
+	<?php 
 }
 elseif(strlen(CSalePaySystemAction::GetParamValue("WEBMONEY_FORWARD")) > 0)
 {
 	?>
 	<input type="hidden" name="payment_type_group_id" value="15">
-	<?
+	<?php 
 }
 elseif(strlen(CSalePaySystemAction::GetParamValue("QIWI_FORWARD")) > 0)
 {
 	?>
 	<input type="hidden" name="payment_type_group_id" value="21">
-	<?
+	<?php 
 }
 else
 {
 	?>
 	<input type="hidden" name="payment_type_group_id" value="1">
-	<?
+	<?php 
 }
 ?>
 <input type="submit" value="<?=CSalePaySystemAction::GetParamValue("PAY_BUTTON")?>" class="btn btn-primary">

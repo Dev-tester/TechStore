@@ -101,7 +101,7 @@ class PersonTypeStep extends \CWizardStep
 				"#PERSON_TYPE_LINK#" => "/bitrix/admin/sale_person_type.php?lang=".LANGUAGE_ID
 			])?>
 		</div>
-		<?
+		<?php 
 		$contents = ob_get_contents();
 		ob_end_clean();
 
@@ -123,7 +123,7 @@ class PersonTypeStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->prevButtonID?>">
 				<?=$this->GetPrevCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		if ($this->GetNextStepID() !== null)
 		{
@@ -132,7 +132,7 @@ class PersonTypeStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

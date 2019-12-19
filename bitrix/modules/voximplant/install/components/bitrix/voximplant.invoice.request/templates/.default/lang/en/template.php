@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_CLOSING_DOCS_CANCEL"] = "Cancel";
 $MESS["VOX_CLOSING_DOCS_EMAIL"] = "Contact email address:";
 $MESS["VOX_CLOSING_DOCS_MONTH_01"] = "January";

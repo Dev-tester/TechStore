@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BOT_MESSAGE_FROM"] = "#BOT_NAME# Chat Bot";
 $MESS["BOT_DEFAULT_WORK_POSITION"] = "Chat bot";
 $MESS["BOT_MESSAGE_INSTALL_SYSTEM"] = "Chat bot was added to your Bitrix24 account";

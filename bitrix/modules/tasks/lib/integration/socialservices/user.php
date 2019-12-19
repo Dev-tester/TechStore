@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Class implements all further interactions with "socialservices" module
  *

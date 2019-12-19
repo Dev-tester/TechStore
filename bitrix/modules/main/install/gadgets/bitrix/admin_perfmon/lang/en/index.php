@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_PERFMON"] = "Performance<br>Monitor";
 $MESS["GD_PERFMON_NO_RES"] = "No performance test was conducted. #STARTLINK#Test Performance Now#ENDLINK#.";
 $MESS["GD_PERFMON_CUR"] = "Current<br>value";

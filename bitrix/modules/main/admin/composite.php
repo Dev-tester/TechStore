@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Composite;
 use Bitrix\Main\Composite\Helper;
 use Bitrix\Main\Composite\Internals\AutomaticArea;
@@ -265,11 +265,11 @@ $APPLICATION->SetTitle(GetMessage("MAIN_COMPOSITE_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<? if (defined("FIRST_EDITION") && FIRST_EDITION=="Y"): ?>
+<?php  if (defined("FIRST_EDITION") && FIRST_EDITION=="Y"): ?>
 	<?=BeginNote()?>
 	<?=GetMessage("MAIN_COMPOSITE_FIRST_SITE_RESTRICTION")?>
 	<?=EndNote()?>
-<? endif ?>
+<?php  endif ?>
 
 <script>
 	function onTabSelected(tabId)
@@ -286,9 +286,9 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 	}
 </script>
 
-<form method="POST" name="composite_form" action="<?echo $APPLICATION->GetCurPage()?>">
+<form method="POST" name="composite_form" action="<?php echo $APPLICATION->GetCurPage()?>">
 
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab(array(
 	"showTitle" => false,
@@ -304,13 +304,13 @@ $tabControl->BeginNextTab(array(
 					<span class="adm-composite-subtitle"><?=GetMessage("MAIN_COMPOSITE_AUTO_COMPOSITE_SUBTITLE")?></span>
 					<span class="adm-composite-title"><?=GetMessage("MAIN_COMPOSITE_AUTO_COMPOSITE_TITLE")?></span>
 				</h2>
-				<? if (LANGUAGE_ID === "ru" || LANGUAGE_ID === "ua"):?>
+				<?php  if (LANGUAGE_ID === "ru" || LANGUAGE_ID === "ua"):?>
 					<div class="adm-composite-video-container">
 						<div class="adm-composite-video-block">
 							<iframe class="adm-composite-video" src="https://www.youtube.com/embed/jo4A4Wqlksc" frameborder="0" allowfullscreen></iframe>
 						</div>
 					</div>
-				<? endif ?>
+				<?php  endif ?>
 				<div class="adm-composite-title-description"><?=GetMessage("MAIN_COMPOSITE_AUTO_COMPOSITE_TITLE_DESC")?></div>
 				<div class="adm-composite-blocks-content">
 					<div class="adm-composite-blocks-content-part1"><?=GetMessage("MAIN_COMPOSITE_AUTO_COMPOSITE_FEATURE1")?></div>
@@ -339,7 +339,7 @@ $tabControl->BeginNextTab(array(
 				</table>
 			</div>
 
-			<? if ($autoCompositeMode):?>
+			<?php  if ($autoCompositeMode):?>
 				<div class="adm-composite-content adm-composite-status-block">
 					<div class="adm-composite-status">
 						<span class="adm-composite-on-icon"></span> <?=GetMessage("MAIN_COMPOSITE_AUTO_ON")?>
@@ -350,20 +350,20 @@ $tabControl->BeginNextTab(array(
 					<input type="submit" class="adm-btn" name="autocomposite_mode_button"
 						   title="<?=GetMessage("MAIN_COMPOSITE_AUTO_BUTTON_OFF")?>"
 						   value="<?=GetMessage("MAIN_COMPOSITE_AUTO_BUTTON_OFF")?>"
-						   <? if (!$isAdmin || (defined("FIRST_EDITION") && FIRST_EDITION == "Y")) echo " disabled" ?>
+						   <?php  if (!$isAdmin || (defined("FIRST_EDITION") && FIRST_EDITION == "Y")) echo " disabled" ?>
 					>
 					<input type="hidden" name="auto_composite" value="N">
 				</div>
-			<? else: ?>
+			<?php  else: ?>
 				<div class="adm-composite-content adm-composite-status-block">
 					<input type="submit" class="adm-btn-green" name="autocomposite_mode_button"
 						   title="<?=GetMessage("MAIN_COMPOSITE_AUTO_BUTTON_ON")?>"
 						   value="<?=GetMessage("MAIN_COMPOSITE_AUTO_BUTTON_ON")?>"
-						   <? if (!$isAdmin || $compositeMode) echo " disabled" ?>
+						   <?php  if (!$isAdmin || $compositeMode) echo " disabled" ?>
 					>
 					<input type="hidden" name="auto_composite" value="Y">
 				</div>
-			<? endif ?>
+			<?php  endif ?>
 
 			<div class="adm-composite-content adm-composite-activate adm-composite-toparrow">
 				<div class="adm-composite-activate-title"><?=GetMessage("MAIN_COMPOSITE_AUTO_COMPOSITE_CHECKLIST_TITLE")?></div>
@@ -379,7 +379,7 @@ $tabControl->BeginNextTab(array(
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab(array(
 	"showTitle" => false,
 	"className" => "adm-detail-content-without-bg"
@@ -419,7 +419,7 @@ $tabControl->BeginNextTab(array(
 				</div>
 			</div>
 
-			<? if ($compositeMode):?>
+			<?php  if ($compositeMode):?>
 				<div class="adm-composite-content adm-composite-status-block">
 					<div class="adm-composite-status">
 						<span class="adm-composite-on-icon"></span> <?=GetMessage("MAIN_COMPOSITE_ON")?>
@@ -430,36 +430,36 @@ $tabControl->BeginNextTab(array(
 					<input type="submit" class="adm-btn" name="composite_mode_button"
 						   title="<?=GetMessage("MAIN_COMPOSITE_BUTTON_OFF")?>"
 						   value="<?=GetMessage("MAIN_COMPOSITE_BUTTON_OFF")?>"
-						<? if (!$isAdmin || (defined("FIRST_EDITION") && FIRST_EDITION == "Y")) echo " disabled" ?>
+						<?php  if (!$isAdmin || (defined("FIRST_EDITION") && FIRST_EDITION == "Y")) echo " disabled" ?>
 					>
 					<input type="hidden" name="composite" value="N">
 				</div>
-			<? else: ?>
+			<?php  else: ?>
 				<div class="adm-composite-content adm-composite-status-block">
 					<input type="submit" class="adm-btn-green" name="composite_mode_button"
 						   title="<?=GetMessage("MAIN_COMPOSITE_BUTTON_ON")?>"
 						   value="<?=GetMessage("MAIN_COMPOSITE_BUTTON_ON")?>"
-						<? if (!$isAdmin || $autoCompositeMode) echo " disabled" ?>
+						<?php  if (!$isAdmin || $autoCompositeMode) echo " disabled" ?>
 					>
 					<input type="hidden" name="composite" value="Y">
 				</div>
-			<? endif ?>
+			<?php  endif ?>
 
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr class="heading">
 	<td colspan="2"><?=GetMessage("MAIN_COMPOSITE_VOTING_TITLE");?></td>
 </tr>
 
-<?
+<?php 
 $frameMode = isset($compositeOptions["FRAME_MODE"]) && $compositeOptions["FRAME_MODE"] === "Y";
 
 ?>
-<tr class="adm-detail-valign-top<?if ($autoCompositeMode):?> adm-composite-label-disabled<?endif?>"
+<tr class="adm-detail-valign-top<?php if ($autoCompositeMode):?> adm-composite-label-disabled<?php endif?>"
 	id="composite_frame_mode_row"
 >
 	<td width="40%"><?=GetMessage("MAIN_COMPOSITE_FRAME_MODE")?>:</td>
@@ -473,7 +473,7 @@ $frameMode = isset($compositeOptions["FRAME_MODE"]) && $compositeOptions["FRAME_
 						name="composite_frame_mode"
 						value="Y"
 						onclick="onFrameModeChanged(true)"
-						<?if ($frameMode):?>checked<?endif?>
+						<?php if ($frameMode):?>checked<?php endif?>
 					>
 
 				</div>
@@ -490,8 +490,8 @@ $frameMode = isset($compositeOptions["FRAME_MODE"]) && $compositeOptions["FRAME_
 						value="N"
 						style="opacity: 1"
 						onclick="onFrameModeChanged(false)"
-						<?if (!$frameMode):?>checked<?endif?>
-						<?if ($autoCompositeMode):?>disabled<?endif?>
+						<?php if (!$frameMode):?>checked<?php endif?>
+						<?php if ($autoCompositeMode):?>disabled<?php endif?>
 					>
 				</div>
 				<div class="adm-list-label">
@@ -508,16 +508,16 @@ $frameMode = isset($compositeOptions["FRAME_MODE"]) && $compositeOptions["FRAME_
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 $frameType = "STATIC";
 if (isset($compositeOptions["FRAME_TYPE"]) && in_array($compositeOptions["FRAME_TYPE"], AutomaticArea::getFrameTypes()))
 {
 	$frameType = $compositeOptions["FRAME_TYPE"];
 }
 ?>
-<tr class="adm-detail-valign-top<? if ($autoCompositeMode):?> adm-composite-label-disabled<?endif?>"
+<tr class="adm-detail-valign-top<?php  if ($autoCompositeMode):?> adm-composite-label-disabled<?php endif?>"
 	id="composite_frame_type_row"
-	<? if (!$frameMode):?>style="display: none"<?endif?>
+	<?php  if (!$frameMode):?>style="display: none"<?php endif?>
 >
 	<td width="40%"><?=GetMessage("MAIN_COMPOSITE_FRAME_TYPE")?>:</td>
 	<td width="60%">
@@ -529,11 +529,11 @@ if (isset($compositeOptions["FRAME_TYPE"]) && in_array($compositeOptions["FRAME_
 						id="composite_frame_type_dynamic_with_stub"
 						name="composite_frame_type"
 						value="DYNAMIC_WITH_STUB"
-						<? if ($frameType === "DYNAMIC_WITH_STUB"):?>checked<?endif?>
+						<?php  if ($frameType === "DYNAMIC_WITH_STUB"):?>checked<?php endif?>
 					>
 				</div>
 				<div class="adm-list-label">
-					<label for="composite_frame_type_dynamic_with_stub"><?
+					<label for="composite_frame_type_dynamic_with_stub"><?php 
 						echo GetMessage("MAIN_COMPOSITE_FRAME_TYPE_DYNAMIC_WITH_STUB")
 					?></label>
 				</div>
@@ -546,8 +546,8 @@ if (isset($compositeOptions["FRAME_TYPE"]) && in_array($compositeOptions["FRAME_
 						name="composite_frame_type"
 						value="STATIC"
 						style="opacity: 1"
-						<? if ($frameType === "STATIC"):?>checked<?endif?>
-						<? if ($autoCompositeMode):?>disabled<?endif?>
+						<?php  if ($frameType === "STATIC"):?>checked<?php endif?>
+						<?php  if ($autoCompositeMode):?>disabled<?php endif?>
 					>
 				</div>
 				<div class="adm-list-label">
@@ -572,7 +572,7 @@ if (isset($compositeOptions["FRAME_TYPE"]) && in_array($compositeOptions["FRAME_
 	<td colspan="2"><?=GetMessage("MAIN_COMPOSITE_CACHE_REWRITING")?></td>
 </tr>
 
-<?
+<?php 
 $autoUpdate = isset($compositeOptions["AUTO_UPDATE"]) && $compositeOptions["AUTO_UPDATE"] === "N" ? false : true;
 $defaultAutoUpdateTTL = $autoUpdate ? 0 : 600;
 $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($compositeOptions["AUTO_UPDATE_TTL"]) : $defaultAutoUpdateTTL;
@@ -581,7 +581,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 	<td width="40%"><?=GetMessage("MAIN_COMPOSITE_CACHE_REWRITING")?>:</td>
 	<td width="60%">
 		<div class="adm-list adm-list-radio">
-			<?
+			<?php 
 			$isTTLMode = $autoUpdate && $autoUpdateTTL > 0;
 			?>
 			<div class="adm-list-item">
@@ -592,7 +592,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 						name="composite_cache_mode"
 						value="standard_ttl"
 						onclick="onCacheModeChanged('standard_ttl')"
-						<?if ($isTTLMode):?>checked<?endif?>
+						<?php if ($isTTLMode):?>checked<?php endif?>
 					>
 
 				</div>
@@ -604,7 +604,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 						</div>
 					</label>
 
-					<div class="adm-composite-cache-ttl<?if (!$isTTLMode):?> adm-composite-label-disabled<?endif?>">
+					<div class="adm-composite-cache-ttl<?php if (!$isTTLMode):?> adm-composite-label-disabled<?php endif?>">
 						<?=GetMessage("MAIN_COMPOSITE_CACHE_MODE_TTL")?>:
 						<input
 							id="composite_standard_ttl"
@@ -612,7 +612,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 							type="text"
 							size="8"
 							value="<?=($isTTLMode ? $autoUpdateTTL : 120)?>"
-							<?if (!$isTTLMode):?>disabled<?endif?>
+							<?php if (!$isTTLMode):?>disabled<?php endif?>
 						>
 						<?=GetMessage("MAIN_COMPOSITE_CACHE_MODE_TTL_UNIT_SEC")?>
 					</div>
@@ -626,7 +626,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 						name="composite_cache_mode"
 						value="standard"
 						onclick="onCacheModeChanged('standard')"
-						<?if ($autoUpdate && $autoUpdateTTL <= 0):?>checked<?endif?>
+						<?php if ($autoUpdate && $autoUpdateTTL <= 0):?>checked<?php endif?>
 					>
 				</div>
 				<div class="adm-list-label">
@@ -638,7 +638,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 					</label>
 				</div>
 			</div>
-			<?
+			<?php 
 			$isNoUpdateMode = !$autoUpdate;
 			?>
 			<div class="adm-list-item">
@@ -649,12 +649,12 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 						name="composite_cache_mode"
 						value="no_update"
 						onclick="onCacheModeChanged('no_update')"
-						<?if ($isNoUpdateMode):?>checked<?endif?>
-						<?if ($autoCompositeMode):?>disabled<?endif?>
+						<?php if ($isNoUpdateMode):?>checked<?php endif?>
+						<?php if ($autoCompositeMode):?>disabled<?php endif?>
 					>
 
 				</div>
-				<div class="adm-list-label<?if ($autoCompositeMode):?> adm-composite-label-disabled<?endif?>"
+				<div class="adm-list-label<?php if ($autoCompositeMode):?> adm-composite-label-disabled<?php endif?>"
 					 id="composite_cache_mode_no_update_option">
 					<label for="composite_cache_mode_no_update_ttl">
 						<?=GetMessage("MAIN_COMPOSITE_CACHE_MODE_NO_UPDATE")?>
@@ -662,7 +662,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 							<?=GetMessage("MAIN_COMPOSITE_CACHE_MODE_NO_UPDATE_DESC")?>
 						</div>
 					</label>
-					<div class="adm-composite-cache-ttl<?if (!$isNoUpdateMode):?> adm-composite-label-disabled<?endif?>">
+					<div class="adm-composite-cache-ttl<?php if (!$isNoUpdateMode):?> adm-composite-label-disabled<?php endif?>">
 						<?=GetMessage("MAIN_COMPOSITE_CACHE_MODE_NO_UPDATE_TTL")?>:
 						<input
 							id="composite_no_update_ttl"
@@ -670,7 +670,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 							type="text"
 							size="8"
 							value="<?=($isNoUpdateMode ? $autoUpdateTTL : 600)?>"
-							<?if (!$isNoUpdateMode):?>disabled<?endif?>
+							<?php if (!$isNoUpdateMode):?>disabled<?php endif?>
 						>
 						<?=GetMessage("MAIN_COMPOSITE_CACHE_MODE_TTL_UNIT_SEC")?>
 					</div>
@@ -718,7 +718,7 @@ $autoUpdateTTL = isset($compositeOptions["AUTO_UPDATE_TTL"]) ? intval($composite
 <tr class="heading">
 	<td colspan="2"><?=GetMessage("MAIN_COMPOSITE_OPT")?></td>
 </tr>
-<?
+<?php 
 if (!is_array($compositeOptions["DOMAINS"]) || count($compositeOptions["DOMAINS"]) < 1)
 {
 	$compositeOptions["DOMAINS"] = array(Helper::getHttpHost());
@@ -727,26 +727,26 @@ if (!is_array($compositeOptions["DOMAINS"]) || count($compositeOptions["DOMAINS"
 <tr class="adm-detail-valign-top">
 	<td width="40%" class="adm-required-field"><?=GetMessage("MAIN_COMPOSITE_DOMAINS")?>:</td>
 	<td width="60%">
-		<textarea name="composite_domains" rows="5" style="width:100%"><?echo htmlspecialcharsEx(implode("\n", $compositeOptions["DOMAINS"]))?></textarea><br>
+		<textarea name="composite_domains" rows="5" style="width:100%"><?php echo htmlspecialcharsEx(implode("\n", $compositeOptions["DOMAINS"]))?></textarea><br>
 	</td>
 </tr>
 <tr class="adm-detail-valign-top">
 	<td width="40%"><?=GetMessage("MAIN_COMPOSITE_INC_MASK")?>:</td>
 	<td width="60%">
-		<textarea name="composite_include_mask" rows="5" style="width:100%"><?echo htmlspecialcharsEx($compositeOptions["INCLUDE_MASK"])?></textarea>
+		<textarea name="composite_include_mask" rows="5" style="width:100%"><?php echo htmlspecialcharsEx($compositeOptions["INCLUDE_MASK"])?></textarea>
 	</td>
 </tr>
 <tr class="adm-detail-valign-top">
-	<td><?echo GetMessage("MAIN_COMPOSITE_EXC_MASK");?>:</td>
+	<td><?php echo GetMessage("MAIN_COMPOSITE_EXC_MASK");?>:</td>
 	<td>
-		<textarea name="composite_exclude_mask" rows="5" style="width:100%"><?echo htmlspecialcharsEx($compositeOptions["EXCLUDE_MASK"])?></textarea>
+		<textarea name="composite_exclude_mask" rows="5" style="width:100%"><?php echo htmlspecialcharsEx($compositeOptions["EXCLUDE_MASK"])?></textarea>
 	</td>
 </tr>
 
 <tr class="adm-detail-valign-top">
 	<td><?=GetMessage("MAIN_COMPOSITE_IGNORED_PARAMETERS")?>:</td>
 	<td>
-		<textarea name="composite_ignored_parameters" rows="5" style="width:100%"><?echo htmlspecialcharsEx($compositeOptions["IGNORED_PARAMETERS"])?></textarea>
+		<textarea name="composite_ignored_parameters" rows="5" style="width:100%"><?php echo htmlspecialcharsEx($compositeOptions["IGNORED_PARAMETERS"])?></textarea>
 	</td>
 </tr>
 
@@ -755,17 +755,17 @@ if (!is_array($compositeOptions["DOMAINS"]) || count($compositeOptions["DOMAINS"
 	<td>
 		<input type="hidden" name="composite_no_parameters" value="N">
 		<input type="checkbox" name="composite_no_parameters" onclick="onParamsCheckboxClick(this.checked)"
-			   id="composite_no_parameters" value="Y" <? if ($compositeOptions["NO_PARAMETERS"] === "Y")
+			   id="composite_no_parameters" value="Y" <?php  if ($compositeOptions["NO_PARAMETERS"] === "Y")
 			echo 'checked="checked"' ?>>
 	</td>
 </tr>
 
 <tr>
-	<td><?echo GetMessage("MAIN_COMPOSITE_ONLY_PARAMETERS");?>:</td>
+	<td><?php echo GetMessage("MAIN_COMPOSITE_ONLY_PARAMETERS");?>:</td>
 	<td>
 		<input type="text" size="45" style="width:100%" name="composite_only_parameters" id="composite_only_parameters"
-			   value="<? echo htmlspecialcharsbx($compositeOptions["ONLY_PARAMETERS"]) ?>"
-				<?if ($compositeOptions["NO_PARAMETERS"] !== "Y"):?>disabled<?endif?>
+			   value="<?php  echo htmlspecialcharsbx($compositeOptions["ONLY_PARAMETERS"]) ?>"
+				<?php if ($compositeOptions["NO_PARAMETERS"] !== "Y"):?>disabled<?php endif?>
 		>
 	</td>
 </tr>
@@ -773,7 +773,7 @@ if (!is_array($compositeOptions["DOMAINS"]) || count($compositeOptions["DOMAINS"
 <tr class="adm-detail-valign-top">
 	<td><?=GetMessage("MAIN_COMPOSITE_EXCLUDE_BY_PARAMS")?>:</td>
 	<td>
-		<textarea name="composite_exclude_params" rows="5" style="width:100%"><?
+		<textarea name="composite_exclude_params" rows="5" style="width:100%"><?php 
 			echo htmlspecialcharsEx($compositeOptions["EXCLUDE_PARAMS"])
 		?></textarea>
 	</td>
@@ -782,7 +782,7 @@ if (!is_array($compositeOptions["DOMAINS"]) || count($compositeOptions["DOMAINS"
 <tr class="heading">
 	<td colspan="2"><?=GetMessage("MAIN_COMPOSITE_STORAGE_TITLE")?></td>
 </tr>
-<?
+<?php 
 $storages = array(
 	"files" => array(
 		"name" => GetMessage("MAIN_COMPOSITE_STORAGE_FILES")
@@ -818,7 +818,7 @@ if (!isset($compositeOptions["MEMCACHED_PORT"]))
 }
 ?>
 <tr>
-	<td><?echo GetMessage("MAIN_COMPOSITE_STORAGE");?>:</td>
+	<td><?php echo GetMessage("MAIN_COMPOSITE_STORAGE");?>:</td>
 	<td>
 		<script type="text/javascript">
 			function onStorageSelect(select)
@@ -864,7 +864,7 @@ if (!isset($compositeOptions["MEMCACHED_PORT"]))
 			}
 		</script>
 		<select name="composite_storage" id="composite_storage" style="width:300px;" onchange="onStorageSelect(this)">
-			<?
+			<?php 
 			foreach ($storages as $storageId => $storage):
 				$disabled = "";
 				$nameDesc = "";
@@ -882,25 +882,25 @@ if (!isset($compositeOptions["MEMCACHED_PORT"]))
 
 				?>
 				<option value="<?=htmlspecialcharsbx($storageId)?>"<?=$selected?><?=$disabled?>><?=htmlspecialcharsbx($storage["name"])?><?=$nameDesc?></option>
-			<?endforeach?>
+			<?php endforeach?>
 		</select>
 	</td>
 </tr>
-<tr id="composite_memcached_host_row" <?if ($compositeOptions["STORAGE"] !== "memcached") echo 'style="display:none"'?>>
+<tr id="composite_memcached_host_row" <?php if ($compositeOptions["STORAGE"] !== "memcached") echo 'style="display:none"'?>>
 	<td class="adm-required-field"><?=GetMessage("MAIN_COMPOSITE_MEMCACHED_HOST")?>:</td>
 	<td>
-		<input type="text" size="45" style="width:300px" name="composite_memcached_host" value="<?echo htmlspecialcharsbx($compositeOptions["MEMCACHED_HOST"])?>">
+		<input type="text" size="45" style="width:300px" name="composite_memcached_host" value="<?php echo htmlspecialcharsbx($compositeOptions["MEMCACHED_HOST"])?>">
 	</td>
 </tr>
 
-<tr id="composite_memcached_port_row" <?if ($compositeOptions["STORAGE"] !== "memcached") echo 'style="display:none"'?>>
+<tr id="composite_memcached_port_row" <?php if ($compositeOptions["STORAGE"] !== "memcached") echo 'style="display:none"'?>>
 	<td class="adm-required-field"><?=GetMessage("MAIN_COMPOSITE_MEMCACHED_PORT")?>:</td>
 	<td>
-		<input type="text" size="45" style="width:50px" name="composite_memcached_port" value="<?echo htmlspecialcharsbx($compositeOptions["MEMCACHED_PORT"])?>">
+		<input type="text" size="45" style="width:50px" name="composite_memcached_port" value="<?php echo htmlspecialcharsbx($compositeOptions["MEMCACHED_PORT"])?>">
 
 	</td>
 </tr>
-<tr id="composite_memcached_hint_row" <?if ($compositeOptions["STORAGE"] !== "memcached") echo 'style="display:none"'?>>
+<tr id="composite_memcached_hint_row" <?php if ($compositeOptions["STORAGE"] !== "memcached") echo 'style="display:none"'?>>
 	<td class="adm-required-field"></td>
 	<td>
 		<script type="text/javascript">
@@ -937,7 +937,7 @@ if (!isset($compositeOptions["MEMCACHED_PORT"]))
 		<?=GetMessage("MAIN_COMPOSITE_HOST_HINT");?>
 	</td>
 </tr>
-<tr id="composite_cluster_hint_row" <?if ($compositeOptions["STORAGE"] !== "memcached_cluster") echo 'style="display:none"'?>>
+<tr id="composite_cluster_hint_row" <?php if ($compositeOptions["STORAGE"] !== "memcached_cluster") echo 'style="display:none"'?>>
 	<td class="adm-required-field"></td>
 	<td><?=GetMessage("MAIN_COMPOSITE_CLUSTER_HINT", array(
 			"#A_START#" => "<a href=\"/bitrix/admin/cluster_memcache_list.php?lang=".LANGUAGE_ID."&group_id=".(defined("BX_CLUSTER_GROUP") ? BX_CLUSTER_GROUP : 1)."\">",
@@ -945,21 +945,21 @@ if (!isset($compositeOptions["MEMCACHED_PORT"]))
 		));?></td>
 </tr>
 
-<tr id="composite_quota_row" <?if ($compositeOptions["STORAGE"] !== "files") echo 'style="display:none"'?>>
+<tr id="composite_quota_row" <?php if ($compositeOptions["STORAGE"] !== "files") echo 'style="display:none"'?>>
 	<td><?=GetMessage("MAIN_COMPOSITE_QUOTA")?>:</td>
 	<td>
-		<input type="text" size="8" name="composite_quota" value="<?echo intval($compositeOptions["FILE_QUOTA"])?>">
+		<input type="text" size="8" name="composite_quota" value="<?php echo intval($compositeOptions["FILE_QUOTA"])?>">
 	</td>
 </tr>
-<?
+<?php 
 if(Helper::isOn())
 {
 	$cacheSize = Helper::getCacheFileSize();?>
-	<tr id="composite_quota_size_row" <?if ($compositeOptions["STORAGE"] !== "files") echo 'style="display:none"'?>>
+	<tr id="composite_quota_size_row" <?php if ($compositeOptions["STORAGE"] !== "files") echo 'style="display:none"'?>>
 		<td><?=GetMessage("MAIN_COMPOSITE_STAT_FILE_SIZE")?></td>
 		<td><?=CFile::FormatSize($cacheSize)?></td>
 	</tr>
-	<?
+	<?php 
 }
 ?>
 <tr>
@@ -968,7 +968,7 @@ if(Helper::isOn())
 		<a href="/bitrix/admin/cache.php?lang=<?=LANGUAGE_ID?>&cachetype=html&tabControl_active_tab=fedit2"><?=GetMessage("MAIN_COMPOSITE_CLEAR_CACHE")?></a>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 $arUsedGroups = array();
 $groups = $compositeOptions["GROUPS"];
@@ -987,7 +987,7 @@ while ($arGroup = $rsGroups->Fetch())
 		<option value=""><?=GetMessage("MAIN_COMPOSITE_ANONYMOUS_GROUP")?></option>
 	</select><br><br>
 
-<?
+<?php 
 if(is_array($groups))
 {
 	foreach($groups as $group)
@@ -996,33 +996,33 @@ if(is_array($groups))
 
 			<select style="width: 400px" name="group[]">
 				<option value=""><?=GetMessage("MAIN_NO")?></option>
-				<?
+				<?php 
 				foreach ($arGROUPS as $arGroup)
 				{
 					?>
 					<option
-						value="<? echo htmlspecialcharsbx($arGroup["ID"]) ?>"
-						<? echo $group == $arGroup["ID"] ? 'selected="selected"' : '' ?>
-						><? echo htmlspecialcharsEx($arGroup["NAME"] . " [" . $arGroup["ID"] . "]") ?></option>
-				<?
+						value="<?php  echo htmlspecialcharsbx($arGroup["ID"]) ?>"
+						<?php  echo $group == $arGroup["ID"] ? 'selected="selected"' : '' ?>
+						><?php  echo htmlspecialcharsEx($arGroup["NAME"] . " [" . $arGroup["ID"] . "]") ?></option>
+				<?php 
 				}
 				?>
 			</select><br><br>
-	<?
+	<?php 
 	}
 }
 ?>
 	<div id="groups-select" style="display: none;">
 		<select style="width: 400px" name="group[]">
 			<option value=""><?=GetMessage("MAIN_COMPOSITE_SELECT_GROUP") ?></option>
-			<?
+			<?php 
 			foreach ($arGROUPS as $arGroup)
 			{
 				?>
 				<option
-					value="<? echo htmlspecialcharsbx($arGroup["ID"]) ?>"
-					><? echo htmlspecialcharsEx($arGroup["NAME"] . " [" . $arGroup["ID"] . "]") ?></option>
-			<?
+					value="<?php  echo htmlspecialcharsbx($arGroup["ID"]) ?>"
+					><?php  echo htmlspecialcharsEx($arGroup["NAME"] . " [" . $arGroup["ID"] . "]") ?></option>
+			<?php 
 			}
 			?>
 		</select><br><br>
@@ -1039,11 +1039,11 @@ if(is_array($groups))
 			}
 		</script>
 	</div>
-	<?
+	<?php 
 $tabControl->BeginNextTab();?>
 
 
-<?
+<?php 
 $showBanner = Composite\Engine::isBannerEnabled();
 ?>
 <tr>
@@ -1055,7 +1055,7 @@ $showBanner = Composite\Engine::isBannerEnabled();
 						type="checkbox"
 						value="Y"
 						id="composite_show_banner_checkbox"
-						<?if ($showBanner):?>checked<?endif?>
+						<?php if ($showBanner):?>checked<?php endif?>
 						onclick="onShowBannerClick(this)"
 					>
 					<input
@@ -1080,13 +1080,13 @@ $showBanner = Composite\Engine::isBannerEnabled();
 		</script>
 	</td>
 </tr>
-<tr id="composite_button_disclaimer_row" <?if (!$showBanner):?>style="display: none"<?endif?>>
+<tr id="composite_button_disclaimer_row" <?php if (!$showBanner):?>style="display: none"<?php endif?>>
 	<td colspan="2">
 		<?=BeginNote()?><?=GetMessage("MAIN_COMPOSITE_BANNER_DISCLAIMER")?><?=EndNote()?>
 	</td>
 </tr>
 
-<tr class="adm-detail-valign-top" id="composite_button_row" <?if (!$showBanner):?>style="display: none"<?endif?>>
+<tr class="adm-detail-valign-top" id="composite_button_row" <?php if (!$showBanner):?>style="display: none"<?php endif?>>
 	<td><?=GetMessage("MAIN_COMPOSITE_BANNER_SELECT_STYLE")?>:</td>
 	<td>
 		<div class="adm-composite-btn-wrap">
@@ -1289,7 +1289,7 @@ $showBanner = Composite\Engine::isBannerEnabled();
 </tr>
 
 
-<? if (LANGUAGE_ID === "ru" || LANGUAGE_ID === "ua"):
+<?php  if (LANGUAGE_ID === "ru" || LANGUAGE_ID === "ua"):
 	$tabControl->BeginNextTab();
 ?>
 
@@ -1300,9 +1300,9 @@ $showBanner = Composite\Engine::isBannerEnabled();
 </tr>
 
 
-<? endif ?>
+<?php  endif ?>
 
-<?
+<?php 
 $tabControl->Buttons(array(
 	"disabled" => !$isAdmin,
 	"btnSave" => false,
@@ -1315,13 +1315,13 @@ $hideButton = in_array($tabControl->GetSelectedTab(), array("autocomposite", "co
 
 ?>
 	<input type="submit" id="composite_save_button" name="composite_save_opt" class="adm-btn-save"
-		   <? if ($hideButton): ?>style="visibility: hidden"<? endif ?>
-		   value="<? echo GetMessage("MAIN_COMPOSITE_SAVE"); ?>"<? if (!$isAdmin) echo " disabled" ?>>
-<?
+		   <?php  if ($hideButton): ?>style="visibility: hidden"<?php  endif ?>
+		   value="<?php  echo GetMessage("MAIN_COMPOSITE_SAVE"); ?>"<?php  if (!$isAdmin) echo " disabled" ?>>
+<?php 
 $tabControl->End();
 ?>
-<?echo bitrix_sessid_post()?>
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
+<?php echo bitrix_sessid_post()?>
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

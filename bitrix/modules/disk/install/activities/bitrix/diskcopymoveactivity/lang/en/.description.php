@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDCM_DESCR_DESCR2"] = "Copy/Move on Drive";
 $MESS["BPDCM_DESCR_NAME2"] = "Copy/Move on Drive";
 $MESS["BPDCM_DESCR_OBJECT_ID"] = "Drive object ID's";

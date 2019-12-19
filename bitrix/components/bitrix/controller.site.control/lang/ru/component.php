@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_BCSC_ERROR_MODULE'] = "Модуль контроллера не установлен.";
 $MESS ['CC_BCSC_UPDATE_ERROR'] = "Ошибка изменения сайта #ID#: #MESSAGE#";
 $MESS ['CC_BCSC_DELETE_ERROR'] = "Ошибка удаления сайта #ID#.";

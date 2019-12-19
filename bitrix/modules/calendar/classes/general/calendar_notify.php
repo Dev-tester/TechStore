@@ -1,4 +1,4 @@
-<?
+<?php 
 /** var CMain $APPLICATION */
 IncludeModuleLangFile(__FILE__);
 

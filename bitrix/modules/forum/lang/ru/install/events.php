@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NEW_MESSAGE_ON_FORUM'] = "Новое сообщение на форуме";
 $MESS ['F_FORUM_ID'] = "ID форума";
 $MESS ['F_FORUM_NAME'] = "Название форума";

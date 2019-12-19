@@ -284,19 +284,19 @@ if($context!="tab")
 $lAdmin->BeginPrologContent();?>
 
 
-<?if (is_array($arrPages) && count($arrPages)>0):?>
+<?php if (is_array($arrPages) && count($arrPages)>0):?>
 <div class="graph">
 <table cellpadding="0" cellspacing="0" border="0" class="graph" align="center">
 	<tr>
 		<td>
-		<?$diameter = COption::GetOptionString("statistic", "DIAGRAM_DIAMETER");?>
+		<?php $diameter = COption::GetOptionString("statistic", "DIAGRAM_DIAMETER");?>
 
-		<img class="graph" src="<?echo htmlspecialcharsbx("visit_section_diagram.php?lang=".LANG."
+		<img class="graph" src="<?php echo htmlspecialcharsbx("visit_section_diagram.php?lang=".LANG."
 &find_section=".urlencode($find_section)."&find_date1=".urlencode($find_date1)."&find_date2=".urlencode($find_date2)."&find_show=".urlencode($find_show)."&find_site_id=".urlencode($find_site_id)."&find_page_404=".urlencode($find_page_404)."&find_adv_data_type=".urlencode($find_adv_data_type)."&find_section_exact_match=".urlencode($find_section_exact_match).$s.GetFilterParams("find_")."&by=".urlencode($by)."&order=".urlencode($order))?>" width="<?=$diameter?>" height="<?=$diameter?>">
 		</td>
 		<td>
 		<table border="0" cellspacing="2" cellpadding="0" class="legend">
-			<?
+			<?php 
 			$i = 1;
 			$max_width = 100;
 			$max_relation = ($max_counter*100)/$max_width;
@@ -337,10 +337,10 @@ $lAdmin->BeginPrologContent();?>
 					</td>
 					<td class="number"><?=$q?>%</td>
 					<td><?=$str?></td>
-					<td class="number"><a href="<?echo htmlspecialcharsbx("hit_list.php?lang=".LANG."&find_url=".urlencode($arVal["URL"]."%")."&find_url_exact_match=Y&set_filter=Y")?>"><?echo $arVal["COUNTER"]?></a></td>
+					<td class="number"><a href="<?php echo htmlspecialcharsbx("hit_list.php?lang=".LANG."&find_url=".urlencode($arVal["URL"]."%")."&find_url_exact_match=Y&set_filter=Y")?>"><?php echo $arVal["COUNTER"]?></a></td>
 			</tr>
-			<?$i++;endforeach;?>
-			<?if ($total==11):?>
+			<?php $i++;endforeach;?>
+			<?php if ($total==11):?>
 			<tr>
 					<td valign="center" class="color">
 						<div style="background-color: <?="#".GetNextRGB($color, $total)?>"></div>
@@ -349,19 +349,19 @@ $lAdmin->BeginPrologContent();?>
 					<td><?=GetMessage("STAT_OTHER")?></td>
 					<td class="number"><?=($sum_counter-$top_sum)?></td>
 			</tr>
-			<?endif?>
+			<?php endif?>
 		</table>
 		</td>
 	</tr>
 </table>
 </div>
-<?else:?>
-	<?//CAdminMessage::ShowMessage(GetMessage("STAT_NO_DATA"))?>
-<?endif?>
+<?php else:?>
+	<?php //CAdminMessage::ShowMessage(GetMessage("STAT_NO_DATA"))?>
+<?php endif?>
 
 <h2><?=$diagram_title?></h2>
 
-<?
+<?php 
 $lAdmin->EndPrologContent();
 
 $lAdmin->CheckListMode();
@@ -381,37 +381,37 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_SECTIONS")?>:</td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_SECTIONS")?>:</td>
+	<td width="0%" nowrap><?php 
 		echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_page_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_page_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_section" size="37" value="<?echo htmlspecialcharsbx($find_section)?>"><?=ShowExactMatchCheckbox("find_section")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_section" size="37" value="<?php echo htmlspecialcharsbx($find_section)?>"><?=ShowExactMatchCheckbox("find_section")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php 
 		echo GetMessage("STAT_F_VIEW")?>:</td>
-	<td width="100%" nowrap><?
+	<td width="100%" nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_F_VIEW_SECTIONS"), GetMessage("STAT_F_VIEW_FILES")), "reference_id"=>array("D","F"));
 		echo SelectBoxFromArray("find_show", $arr, htmlspecialcharsbx($find_show), GetMessage("MAIN_ALL"));
 		?>
 		</td>
 </tr>
-<?
+<?php 
 
 if (is_array($arrADV)):
 ?>
 <tr valign="top">
-	<td width="0%" nowrap valign="top"><?
+	<td width="0%" nowrap valign="top"><?php 
 		echo GetMessage("STAT_F_ADV")?>:<br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
-	<td width="100%" nowrap><?
+	<td width="100%" nowrap><?php 
 		echo SelectBoxMFromArray("find_adv[]",array("REFERENCE"=>$find_adv_names, "REFERENCE_ID"=>$find_adv), $find_adv,"",false,"5", "style=\"width:300px;\"");
 		?>
 	<script language="Javascript">
@@ -428,10 +428,10 @@ if (is_array($arrADV)):
 
 		</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr valign="top">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_ADV_DATA_TYPE")?>:</td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_ADV_DATA_TYPE")?>:</td>
+	<td width="0%" nowrap><?php 
 		$arr = array(
 		"reference"=>array(
 			GetMessage("STAT_ADV_SUMMA"),
@@ -443,21 +443,21 @@ if (is_array($arrADV)):
 		?></td>
 </tr>
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
-<?
+<?php 
 if ($message)
 	echo $message->Show();
 ?>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <table border="0" width="100%" cellspacing="1" cellpadding="3">
 	<tr>
-		<td nowrap><?echo GetMessage("STAT_ATTENTION")?>&nbsp;!<br><?echo GetMessage("STAT_ATTENTION_GOTO")?></td>
+		<td nowrap><?php echo GetMessage("STAT_ATTENTION")?>&nbsp;!<br><?php echo GetMessage("STAT_ATTENTION_GOTO")?></td>
 	</tr>
 </table>
-<?echo EndNote();?>
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php echo EndNote();?>
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

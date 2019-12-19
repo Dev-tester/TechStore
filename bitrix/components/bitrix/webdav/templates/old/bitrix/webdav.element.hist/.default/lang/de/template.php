@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACTIONS'] = "Aktionen";
 $MESS ['WD_ARCHIVE'] = "Archiv:";
 $MESS ['WD_DELETE_CONFIRM'] = "Wollen Sie den Eintrag aus dem Archiv unwiderruflich löschen?";

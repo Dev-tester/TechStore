@@ -8,43 +8,43 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 <input type="hidden" value="<?=htmlspecialcharsbx($arResult['ENTITY']['VK_PROFILE'])?>" data-role="crm-card-vk-profile">
 
-<?if ($arResult['SIMPLE']):?>
+<?php if ($arResult['SIMPLE']):?>
 	<div class="crm-card-show-main">
 		<div class="crm-card-show-user">
-			<? if(isset($arResult['ENTITY']['PHOTO_URL'])): ?>
+			<?php  if(isset($arResult['ENTITY']['PHOTO_URL'])): ?>
 				<div class="crm-card-show-user-item" style="background-image: url(<?=$arResult['ENTITY']['PHOTO_URL']?>)"></div>
-			<?else: ?>
+			<?php else: ?>
 				<div class="crm-card-show-user-item"></div>
-			<?endif?>
+			<?php endif?>
 		</div><!--crm-card-show-user-->
 		<div class="crm-card-show-user-name">
 			<div class="crm-card-show-user-name-item">
-				<? if($arResult['ENTITY']['SHOW_URL']): ?>
+				<?php  if($arResult['ENTITY']['SHOW_URL']): ?>
 					<a class="crm-card-show-user-name-link" href="<?=htmlspecialcharsbx($arResult['ENTITY']['SHOW_URL'])?>" target="_blank" data-use-slider="<?= ($arResult['SLIDER_ENABLED'] ? 'Y' : 'N')?>">
 						<?=htmlspecialcharsbx($arResult['ENTITY']['FORMATTED_NAME'])?>
 					</a>
-				<? else: ?>
+				<?php  else: ?>
 					<span class="crm-card-show-user-name-link">
 						<?=htmlspecialcharsbx($arResult['ENTITY']['FORMATTED_NAME'])?>
 					</span>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
-			<?if($arResult['ENTITY']['POST']):?>
+			<?php if($arResult['ENTITY']['POST']):?>
 				<div class="crm-card-show-user-name-desc"><?=htmlspecialcharsbx($arResult['ENTITY']['POST'])?></div>
-			<?endif?>
-			<?if($arResult['ENTITY']['COMPANY_TITLE']):?>
+			<?php endif?>
+			<?php if($arResult['ENTITY']['COMPANY_TITLE']):?>
 				<div class="crm-card-show-user-name-desc"><?=htmlspecialcharsbx($arResult['ENTITY']['COMPANY_TITLE'])?></div>
-			<?endif?>
+			<?php endif?>
 		</div><!--crm-card-show-user-name-->
-		<? if($arResult['ENTITY']['RESPONSIBLE']): ?>
+		<?php  if($arResult['ENTITY']['RESPONSIBLE']): ?>
 			<div class="crm-card-show-user-responsible">
 				<div class="crm-card-show-user-responsible-title"><?= GetMessage('CRM_CARD_RESPONSIBLE')?>:</div>
 				<div class="crm-card-show-user-responsible-user">
-					<? if($arResult['ENTITY']['RESPONSIBLE']['PHOTO'] != ''): ?>
+					<?php  if($arResult['ENTITY']['RESPONSIBLE']['PHOTO'] != ''): ?>
 						<div class="crm-card-show-user-responsible-user-icon" style="background-image: url(<?=$arResult['ENTITY']['RESPONSIBLE']['PHOTO']?>)"></div>
-					<? else: ?>
+					<?php  else: ?>
 						<div class="crm-card-show-user-responsible-user-icon"></div>
-					<? endif ?>
+					<?php  endif ?>
 					<div class="crm-card-show-user-responsible-user-info">
 						<a class="crm-card-show-user-responsible-user-name" href="<?=$arResult['ENTITY']['RESPONSIBLE']['PROFILE_PATH']?>" target="_blank">
 							<?= htmlspecialcharsbx($arResult['ENTITY']['RESPONSIBLE']['NAME'])?>
@@ -55,21 +55,21 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 					</div>
 				</div>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 		<div class="crm-card-show-user-settings">
 			<div class="crm-card-show-user-settings-item"></div>
 		</div><!--crm-card-show-user-settings-->
 	</div><!--crm-card-show-main-->
-<?else:?>
+<?php else:?>
 	<div id="crm-card-detail-container" class="crm-card-show-detail crm-card-custom-scroll">
 		<div class="crm-card-show-detail-header">
 			<div class="crm-card-show-detail-header-user">
 				<div id="crm-card-user-photo" class="crm-card-show-detail-header-user-image">
-					<? if(isset($arResult['ENTITY']['PHOTO_URL'])): ?>
+					<?php  if(isset($arResult['ENTITY']['PHOTO_URL'])): ?>
 						<div class="crm-card-show-detail-header-user-image-item" style="background-image: url(<?=$arResult['ENTITY']['PHOTO_URL']?>)"></div>
-					<? else: ?>
+					<?php  else: ?>
 						<div class="crm-card-show-detail-header-user-image-item"></div>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 				<div class="crm-card-show-detail-header-user-info">
 					<a href="<?=htmlspecialcharsbx($arResult['ENTITY']['SHOW_URL'])?>" target="_blank" data-use-slider="<?= ($arResult['SLIDER_ENABLED'] ? 'Y' : 'N')?>">
@@ -77,22 +77,22 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 							<?=htmlspecialcharsbx($arResult['ENTITY']['FORMATTED_NAME'])?>
 						</div>
 					</a>
-					<?if($arResult['ENTITY']['POST']):?>
+					<?php if($arResult['ENTITY']['POST']):?>
 						<div class="crm-card-show-detail-header-user-item"><?=htmlspecialcharsbx($arResult['ENTITY']['POST'])?></div>
-					<?endif?>
-					<?if($arResult['ENTITY']['COMPANY_TITLE']):?>
+					<?php endif?>
+					<?php if($arResult['ENTITY']['COMPANY_TITLE']):?>
 						<div class="crm-card-show-detail-header-user-item"><?=htmlspecialcharsbx($arResult['ENTITY']['COMPANY_TITLE'])?></div>
-					<?endif?>
+					<?php endif?>
 				</div>
 			</div><!--crm-card-show-detail-header-user-->
 			<div class="crm-card-show-detail-header-user-status">
-				<div class="crm-card-show-detail-header-user-status-item"><?/*=GetMessage('CRM_CARD_CONSTANT_CLIENT')*/?></div>
+				<div class="crm-card-show-detail-header-user-status-item"><?php /*=GetMessage('CRM_CARD_CONSTANT_CLIENT')*/?></div>
 			</div><!--crm-card-show-detail-header-user-status-->
 		</div><!--crm-card-show-detail-header-->
 		<div class="crm-card-show-detail-info">
 			<div class="crm-card-show-detail-info-inner">
 				<div id="crm-card-extended-info" class="crm-card-show-detail-info-content">
-					<? if(is_array($arResult['ENTITY']['ACTIVITIES']) && count($arResult['ENTITY']['ACTIVITIES']) > 0): ?>
+					<?php  if(is_array($arResult['ENTITY']['ACTIVITIES']) && count($arResult['ENTITY']['ACTIVITIES']) > 0): ?>
 						<div class="crm-card-show-detail-info-wrap">
 							<div class="crm-card-show-detail-info-title crm-card-show-title-main">
 								<div class="crm-card-show-detail-info-title-item">
@@ -101,7 +101,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 									</a>
 								</div>
 							</div>
-							<? foreach ($arResult['ENTITY']['ACTIVITIES'] as $activity): ?>
+							<?php  foreach ($arResult['ENTITY']['ACTIVITIES'] as $activity): ?>
 								<div class="crm-card-show-detail-info-block">
 									<div class="crm-card-show-detail-info-name">
 										<div class="crm-card-show-detail-info-name-item">
@@ -114,18 +114,18 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 										<div class="crm-card-show-detail-info-desc-item"><?=htmlspecialcharsbx($activity['DEADLINE'])?></div>
 									</div>
 								</div><!--crm-card-show-detail-info-block-->
-							<? endforeach ?>
+							<?php  endforeach ?>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 
-					<? if(is_array($arResult['ENTITY']['DEALS']) && count($arResult['ENTITY']['DEALS']) > 0): ?>
+					<?php  if(is_array($arResult['ENTITY']['DEALS']) && count($arResult['ENTITY']['DEALS']) > 0): ?>
 						<div class="crm-card-show-detail-info-wrap">
 							<div class="crm-card-show-detail-info-title crm-card-show-title-main">
 								<div class="crm-card-show-detail-info-title-item">
 									<a href="<?=htmlspecialcharsbx($arResult['ENTITY']['DEAL_LIST_URL'])?>" target="_blank"><?=GetMessage('CRM_CARD_DEALS')?></a>
 								</div>
 							</div>
-							<? foreach ($arResult['ENTITY']['DEALS'] as $deal): ?>
+							<?php  foreach ($arResult['ENTITY']['DEALS'] as $deal): ?>
 								<div class="crm-card-show-detail-info-main-inner">
 									<div class="crm-card-show-detail-info-main-content">
 										<div class="crm-card-show-detail-info-block">
@@ -151,11 +151,11 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 											)) ?>
 									</div><!--crm-card-show-detail-info-main-status-->
 								</div><!--crm-card-show-detail-info-main-inner-->
-							<? endforeach ?>
+							<?php  endforeach ?>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 
-					<? if(is_array($arResult['ENTITY']['INVOICES']) && count($arResult['ENTITY']['INVOICES']) > 0): ?>
+					<?php  if(is_array($arResult['ENTITY']['INVOICES']) && count($arResult['ENTITY']['INVOICES']) > 0): ?>
 						<div class="crm-card-show-detail-info-wrap">
 							<div class="crm-card-show-detail-info-title crm-card-show-title-main">
 								<div class="crm-card-show-detail-info-title-item">
@@ -164,7 +164,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 									</a>
 								</div>
 							</div>
-							<? foreach ($arResult['ENTITY']['INVOICES'] as $invoice): ?>
+							<?php  foreach ($arResult['ENTITY']['INVOICES'] as $invoice): ?>
 								<div class="crm-card-show-detail-info-main-inner">
 									<div class="crm-card-show-detail-info-main-content">
 										<div class="crm-card-show-detail-info-block">
@@ -189,20 +189,20 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 											)) ?>
 									</div><!--crm-card-show-detail-info-main-status-->
 								</div><!--crm-card-show-detail-info-main-inner-->
-							<? endforeach ?>
+							<?php  endforeach ?>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 
-					<? if($arResult['ENTITY']['RESPONSIBLE']): ?>
+					<?php  if($arResult['ENTITY']['RESPONSIBLE']): ?>
 						<div class="crm-card-show-detail-info-wrap">
 							<div class="crm-card-show-user-responsible crm-card-show-user-responsible-detail-info">
 								<div class="crm-card-show-user-responsible-title"><?= GetMessage('CRM_CARD_RESPONSIBLE')?>:</div>
 								<div class="crm-card-show-user-responsible-user">
-									<? if($arResult['ENTITY']['RESPONSIBLE']['PHOTO'] != ''): ?>
+									<?php  if($arResult['ENTITY']['RESPONSIBLE']['PHOTO'] != ''): ?>
 										<div class="crm-card-show-user-responsible-user-icon" style="background-image: url(<?=$arResult['ENTITY']['RESPONSIBLE']['PHOTO']?>)"></div>
-									<? else: ?>
+									<?php  else: ?>
 										<div class="crm-card-show-user-responsible-user-icon"></div>
-									<? endif ?>
+									<?php  endif ?>
 									<div class="crm-card-show-user-responsible-user-info">
 										<a class="crm-card-show-user-responsible-user-name" href="<?=$arResult['ENTITY']['RESPONSIBLE']['PROFILE_PATH']?>" target="_blank">
 											<?= htmlspecialcharsbx($arResult['ENTITY']['RESPONSIBLE']['NAME'])?>
@@ -214,7 +214,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 								</div>
 							</div>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 
 				</div><!--crm-card-show-detail-info-content-->
 			</div><!--crm-card-show-detail-info-inner-->
@@ -238,6 +238,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 			}
 		})
 	</script>
-<?endif?>
+<?php endif?>
 
 

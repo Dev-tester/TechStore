@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2014 Bitrix             #
@@ -34,12 +34,12 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		<br/>
 		<a href="/bitrix/admin/storeassist.php?lang=<?=LANGUAGE_ID?>" class="adm-detail-toolbar-btn"><span class="adm-detail-toolbar-btn-l"></span><span class="adm-detail-toolbar-btn-text"><?=GetMessage("STOREAS_WIZARD")?></span><span class="adm-detail-toolbar-btn-r"></span></a>
 		&nbsp;
-		<?if ($docUrl):?>
+		<?php if ($docUrl):?>
 			<span class="adm-btn" onclick="BX.Storeassist.Admin.showDocumentation('<?=CUtil::JSEscape($docUrl)?>')"><?=GetMessage("STOREAS_DOC")?></span>
-		<?endif?>
+		<?php endif?>
 		<br/><br/>
 	</div>
 </div>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

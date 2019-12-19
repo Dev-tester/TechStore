@@ -1,16 +1,16 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="content-form forgot-form">
 <div class="fields">
-<?
+<?php 
 ShowMessage($arParams["~AUTH_RESULT"]);
 ?>
 <form name="bform" method="post" target="_top" action="<?=$arResult["AUTH_URL"]?>">
-<?
+<?php 
 if (strlen($arResult["BACKURL"]) > 0)
 {
 ?>
 	<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
-<?
+<?php 
 }
 ?>
 	<input type="hidden" name="AUTH_FORM" value="Y">

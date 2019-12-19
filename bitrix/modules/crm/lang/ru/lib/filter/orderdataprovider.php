@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_FILTER_ALL"] = "(все)";
 $MESS["CRM_ORDER_FILTER_ACCOUNT_NUMBER"] = "Номер";
 $MESS["CRM_ORDER_FILTER_ORDER_TOPIC"] = "Тема заказа";

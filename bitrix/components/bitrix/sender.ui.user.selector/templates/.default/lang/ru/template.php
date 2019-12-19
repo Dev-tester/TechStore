@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SENDER_UI_TILE_SELECTOR_SELECT'] = "выбрать";
 $MESS ['SENDER_UI_TILE_SELECTOR_ADD'] = "создать";
 ?>

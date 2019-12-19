@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
@@ -20,24 +20,24 @@ else
 	<tr>
 		<td colspan="2"><?=$arResult['MEETING']['DESCRIPTION'] ?></td>
 	</tr>
-	<?if (StrLen($arResult["MEETING"]["UF_FLOOR"]) > 0):?>
+	<?php if (StrLen($arResult["MEETING"]["UF_FLOOR"]) > 0):?>
 	<tr>
 		<td width="10%"><?= GetMessage("INTASK_C25T_FLOOR") ?>:</td>
 		<td width="90%"><?= $arResult["MEETING"]["UF_FLOOR"] ?></td>
 	</tr>
-	<?endif;?>
-	<?if (StrLen($arResult["MEETING"]["UF_PLACE"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["MEETING"]["UF_PLACE"]) > 0):?>
 	<tr>
 		<td><?= GetMessage("INTASK_C25T_PLACE") ?>:</td>
 		<td><?= $arResult["MEETING"]["UF_PLACE"] ?></td>
 	</tr>
-	<?endif;?>
-	<?if (StrLen($arResult["MEETING"]["UF_PHONE"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["MEETING"]["UF_PHONE"]) > 0):?>
 	<tr>
 		<td><?= GetMessage("INTASK_C25T_PHONE") ?>:</td>
 		<td><?= $arResult["MEETING"]["UF_PHONE"] ?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	</table>
 	<br>
 
@@ -47,7 +47,7 @@ else
 		<form method="GET" action="<?= $arResult["MEETING_URI"] ?>" name="meeting_date_select">
 		<input type="hidden" name="<?= $arParams["PAGE_VAR"] ?>" value="meeting">
 		<input type="hidden" name="<?= $arParams["MEETING_VAR"] ?>" value="<?= $arResult["MEETING"]["ID"] ?>">
-		<td align="center"><?
+		<td align="center"><?php 
 			$GLOBALS["APPLICATION"]->IncludeComponent(
 				'bitrix:main.calendar',
 				'',
@@ -73,33 +73,33 @@ else
 		<thead>
 			<tr class="intask-row">
 				<th class="intask-cell" align="center" width="0%">&nbsp;</th>
-				<?
+				<?php 
 				$ar = array(GetMessage("INTASK_C25T_D1"), GetMessage("INTASK_C25T_D2"), GetMessage("INTASK_C25T_D3"), GetMessage("INTASK_C25T_D4"), GetMessage("INTASK_C25T_D5"), GetMessage("INTASK_C25T_D6"), GetMessage("INTASK_C25T_D7"));
 				?>
-				<?for ($i = 0; $i < 7; $i++):?>
-					<?
+				<?php for ($i = 0; $i < 7; $i++):?>
+					<?php 
 					if (In_Array($i, $arParams["WEEK_HOLIDAYS"]))
 						continue;
 					?>
 					<th class="intask-cell" align="center" width="<?= IntVal(100 / (7 - Count($arParams["WEEK_HOLIDAYS"]))) ?>%"><?= $ar[$i] ?></th>
-				<?endfor;?>
+				<?php endfor;?>
 			</tr>
 			<tr class="intask-row">
 				<th align="center" class="intask-cell"><?= GetMessage("INTASK_C25T_TIME") ?></th>
-				<?for ($i = 0; $i < 7; $i++):?>
-					<?
+				<?php for ($i = 0; $i < 7; $i++):?>
+					<?php 
 					if (In_Array($i, $arParams["WEEK_HOLIDAYS"]))
 						continue;
 					?>
 					<th align="center" class="intask-cell"><?= FormatDate($GLOBALS["DB"]->DateFormatToPHP(FORMAT_DATE), MkTime(0, 0, 0, $arResult["WEEK_START_ARRAY"]["m"], $arResult["WEEK_START_ARRAY"]["d"] + $i, $arResult["WEEK_START_ARRAY"]["Y"])) ?></th>
-				<?endfor;?>
+				<?php endfor;?>
 			</tr>
 		</thead>
 		<tbody>
-			<?for ($i = $arResult["LIMITS"]["FROM"]; $i < $arResult["LIMITS"]["TO"]; $i++):?>
+			<?php for ($i = $arResult["LIMITS"]["FROM"]; $i < $arResult["LIMITS"]["TO"]; $i++):?>
 				<tr class="intask-row">
 					<td class="intask-cell selected" nowrap><?= __RM_MkT($i) ?></td>
-					<?
+					<?php 
 					for ($j = 1; $j <= 7; $j++)
 					{
 						if (In_Array($j - 1, $arParams["WEEK_HOLIDAYS"]))
@@ -124,7 +124,7 @@ else
 									(<?= $arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["DATE_ACTIVE_FROM_TIME"] ?> -
 									<?= $arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["DATE_ACTIVE_TO_TIME"] ?>)<br />
 									<?= GetMessage("INTASK_C25T_RESERVED_BY") ?>:
-									<?
+									<?php 
 									$APPLICATION->IncludeComponent("bitrix:main.user.link",
 										'',
 										array(
@@ -150,32 +150,32 @@ else
 									);
 									?>
 									<br />
-									<?if (StrLen($arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["EDIT_ITEM_URI"]) > 0):?>
+									<?php if (StrLen($arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["EDIT_ITEM_URI"]) > 0):?>
 										<br /><a href="<?= $arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["EDIT_ITEM_URI"] ?>"><?= GetMessage("INTASK_C25T_EDIT") ?></a>
-									<?endif;?>
-									<?if (StrLen($arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["CLEAR_URI"]) > 0):?>
+									<?php endif;?>
+									<?php if (StrLen($arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["CLEAR_URI"]) > 0):?>
 										<br /><a onclick="if(confirm('<?= GetMessage("INTASK_C25T_CLEAR_CONF") ?>'))window.location='<?= $arResult["ITEMS"][$arResult["ITEMS_MATRIX"][$j][$i]]["CLEAR_URI"] ?>';" href="javascript:void(0)"><?= GetMessage("INTASK_C25T_CLEAR") ?></a>
-									<?endif;?>
-								</td><?
+									<?php endif;?>
+								</td><?php 
 							}
 						}
 						else
 						{
-							?><td class="intask-cell notreserved<?=$currentDay ? ' current' : ''?>" title="<?= GetMessage("INTASK_C25T_DBL_CLICK") ?>" ondblclick="window.location='<?= CUtil::addslashes($arResult["CellClickUri"]) ?>start_date=<?= Date($GLOBALS["DB"]->DateFormatToPHP(FORMAT_DATE), MkTime(0, 0, 0, $arResult["WEEK_START_ARRAY"]["m"], $arResult["WEEK_START_ARRAY"]["d"] + $j - 1, $arResult["WEEK_START_ARRAY"]["Y"])) ?>&amp;start_time=<?
+							?><td class="intask-cell notreserved<?=$currentDay ? ' current' : ''?>" title="<?= GetMessage("INTASK_C25T_DBL_CLICK") ?>" ondblclick="window.location='<?= CUtil::addslashes($arResult["CellClickUri"]) ?>start_date=<?= Date($GLOBALS["DB"]->DateFormatToPHP(FORMAT_DATE), MkTime(0, 0, 0, $arResult["WEEK_START_ARRAY"]["m"], $arResult["WEEK_START_ARRAY"]["d"] + $j - 1, $arResult["WEEK_START_ARRAY"]["Y"])) ?>&amp;start_time=<?php 
 							$h1 = IntVal($i / 2);
 							if ($h1 < 10)
 								$h1 = "0".$h1;
 							$i1 = ($i % 2 != 0 ? "30" : "00");
 							echo $h1.":".$i1;
-							?>'">&nbsp;</td><?
+							?>'">&nbsp;</td><?php 
 						}
 					}
 					?>
 				</tr>
-			<?endfor;?>
+			<?php endfor;?>
 		</tbody>
 	</table>
 	<br />
-	<?
+	<?php 
 }
 ?>

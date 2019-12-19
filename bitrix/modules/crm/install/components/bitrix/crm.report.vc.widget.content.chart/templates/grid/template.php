@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -21,7 +21,7 @@ Extension::load("ui.hint");
 $containerId = 'crm-analytics-report-view-chart-grid' . ($arParams['IS_TRAFFIC'] ? '-traffic' : '');
 ?>
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-report-chart-grid-wrapper">
-	<?
+	<?php 
 	foreach ($arResult['GRID']['ROWS'] as $index => $row)
 	{
 		if (is_array($row['SOURCE_CODE']))

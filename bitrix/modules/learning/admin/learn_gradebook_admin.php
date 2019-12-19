@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -244,8 +244,8 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 	$APPLICATION->AuthForm(GetMessage("ACCESS_DENIED"), false);
 ?>
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
+<?php $filter->Begin();?>
 
 	<tr>
 		<td><b><?=GetMessage("LEARNING_ADMIN_STUDENT")?>:</b></td>
@@ -279,18 +279,18 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 
 	<tr>
 		<td>ID:</td>
-		<td><input type="text" name="filter_id" value="<?echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
+		<td><input type="text" name="filter_id" value="<?php echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
 	</tr>
 
 	<tr>
 		<td><?=GetMessage("LEARNING_ADMIN_TEST")?>:</td>
 		<td>
 			<select name="filter_test_id">
-				<option value=""><?echo GetMessage("LEARNING_ALL")?></option>
-			<?
+				<option value=""><?php echo GetMessage("LEARNING_ALL")?></option>
+			<?php 
 			$l = CTest::GetList(Array(), Array());
 			while($l->ExtractFields("l_")):
-				?><option value="<?echo $l_ID?>"<?if($filter_test_id==$l_ID)echo " selected"?>><?echo $l_NAME?></option><?
+				?><option value="<?php echo $l_ID?>"<?php if($filter_test_id==$l_ID)echo " selected"?>><?php echo $l_NAME?></option><?php 
 			endwhile;
 			?>
 			</select>
@@ -300,7 +300,7 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 	<tr>
 		<td><?=GetMessage("LEARNING_ADMIN_APPROVED")?>:</td>
 		<td>
-			<?
+			<?php 
 			$arr = array("reference"=>array(GetMessage("LEARNING_YES"), GetMessage("LEARNING_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("filter_completed", $arr, htmlspecialcharsex($filter_completed), GetMessage('LEARNING_ALL'));
 			?>
@@ -308,17 +308,17 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_ADMIN_RESULT")?>:</td>
+		<td><?php echo GetMessage("LEARNING_ADMIN_RESULT")?>:</td>
 		<td nowrap>
-			<input type="text" name="filter_result_from" size="10" value="<?echo htmlspecialcharsex($filter_result_from)?>">
+			<input type="text" name="filter_result_from" size="10" value="<?php echo htmlspecialcharsex($filter_result_from)?>">
 			...
-			<input type="text" name="filter_result_to" size="10" value="<?echo htmlspecialcharsex($filter_result_to)?>">
+			<input type="text" name="filter_result_to" size="10" value="<?php echo htmlspecialcharsex($filter_result_to)?>">
 		</td>
 	</tr>
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

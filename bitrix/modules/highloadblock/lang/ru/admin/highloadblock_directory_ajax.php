@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HIBLOCK_PROP_DIRECTORY_XML_ID"] = "Внешний код";
 $MESS["HIBLOCK_PROP_DIRECTORY_NAME"] = "Название";
 $MESS["HIBLOCK_PROP_DIRECTORY_SORT"] = "Сортировка";

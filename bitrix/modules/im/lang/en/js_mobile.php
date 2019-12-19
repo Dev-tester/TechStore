@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_PULLDOWN_RL_1"] = "Pull to reload";
 $MESS["IM_PULLDOWN_RL_2"] = "Release to reload";
 $MESS["IM_PULLDOWN_RL_3"] = "Loading...";

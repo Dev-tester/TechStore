@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_ABSENCE"] = "График отсутствий";
 $MESS["MENU_TIMEMAN"] = "Рабочее время";
 $MESS["MENU_WORK_REPORT"] = "Рабочие отчеты";

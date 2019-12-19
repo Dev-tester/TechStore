@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_ORDER_CHECK_ID"] = "ID";
 $MESS["CRM_COLUMN_ORDER_CHECK_CASHBOX_ID"] = "Название кассы";
 $MESS["CRM_COLUMN_ORDER_CHECK_TYPE"] = "Тип чека";

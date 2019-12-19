@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 
 switch ($arResult["ACTION"])
@@ -39,7 +39,7 @@ switch ($arResult["ACTION"])
 			</div>
 		</div>
 
-		<?
+		<?php 
 		if($arResult["SHOW_UPPER_BUTTONS"] === true)
 		{
 			$arTSParams = array(
@@ -72,7 +72,7 @@ switch ($arResult["ACTION"])
 				}
 			</script>
 
-			<?
+			<?php 
 		}
 		?>
 	<div id="detail_info_body_<?=$arResult['ORDER']['ID']?>">
@@ -94,34 +94,34 @@ switch ($arResult["ACTION"])
 		cancelCancel: "<?=GetMessage('SMOD_CANCEL_CANCEL')?>"
 	};
 
-	<?if(!empty($arResult['MENU_ITEMS'])):?>
+	<?php if(!empty($arResult['MENU_ITEMS'])):?>
 		orderDetail.detailMenuItems = {items: []};
 
-		<?if(in_array("STATUS_CHANGE", $arResult['MENU_ITEMS'])):?>
+		<?php if(in_array("STATUS_CHANGE", $arResult['MENU_ITEMS'])):?>
 			orderDetail.detailMenuItems.items.push({
 				name: "<?=GetMessage('SMOD_CHANGE_STATUS');?>",
 				action: function() {orderDetail.dialogShow("status"); },
 				icon: 'edit'
 			});
-		<?endif;?>
+		<?php endif;?>
 
-		<?if(in_array("DELIVERY", $arResult['MENU_ITEMS'])):?>
+		<?php if(in_array("DELIVERY", $arResult['MENU_ITEMS'])):?>
 			orderDetail.detailMenuItems.items.push({
 				name: "<?=GetMessage('SMOD_ALLOW_DELIVERY');?>",
 				action: function() {orderDetail.dialogShow("delivery"); },
 				icon: 'edit'
 			});
-		<?endif;?>
+		<?php endif;?>
 
-		<?if(in_array("PAYMENT", $arResult['MENU_ITEMS'])):?>
+		<?php if(in_array("PAYMENT", $arResult['MENU_ITEMS'])):?>
 			orderDetail.detailMenuItems.items.push({
 				name: "<?=GetMessage('SMOD_PAY_FOR_ORDER');?>",
 				action: function() {orderDetail.dialogShow("payment"); },
 				icon: 'edit'
 			});
-		<?endif;?>
+		<?php endif;?>
 
-		<?if(in_array("DEDUCTION", $arResult['MENU_ITEMS'])):?>
+		<?php if(in_array("DEDUCTION", $arResult['MENU_ITEMS'])):?>
 			orderDetail.detailMenuItems.items.push({
 				name: "<?=($arResult["ORDER"]["DEDUCTED"] == 'N' ? GetMessage('SMOD_DEDUCT') : GetMessage('SMOD_DEDUCT_UNDO'))?>",
 				action: function() {
@@ -131,9 +131,9 @@ switch ($arResult["ACTION"])
 				},
 				icon: 'edit'
 			});
-		<?endif;?>
+		<?php endif;?>
 
-		<?if(in_array("ORDER_CANCEL", $arResult['MENU_ITEMS'])):?>
+		<?php if(in_array("ORDER_CANCEL", $arResult['MENU_ITEMS'])):?>
 			orderDetail.detailMenuItems.items.push({
 				name: "<?=($arResult['ORDER']['CANCELED'] == 'N' ? GetMessage('SMOD_CANCEL') : GetMessage('SMOD_CANCEL_CANCEL'))?>",
 				action: function() { orderDetail.dialogShow("cancel"); },
@@ -145,11 +145,11 @@ switch ($arResult["ACTION"])
 															orderDetail.onItemCancelChange(params);
 													});
 
-		<?endif;?>
+		<?php endif;?>
 
 		orderDetail.menuShow();
 
-	<?endif;?>
+	<?php endif;?>
 
 	BX.addCustomEvent('onAfterOrderChange', function (params){
 												if(params.id == <?=$arResult["ORDER"]["ID"]?>)

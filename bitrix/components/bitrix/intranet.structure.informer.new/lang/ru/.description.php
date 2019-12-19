@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_GROUP_NAME'] = 'Корпоративный портал';
 $MESS ['INTR_ISIN_COMPONENT_NAME'] = 'Новые сотрудники';
 $MESS ['INTR_ISIN_COMPONENT_DESCR'] = 'Информер со списком новых сотрудников';

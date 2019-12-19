@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_TELEPHONY_HISTORY"] = "Call log";
 $MESS["SONET_UM_ABSENT"] = "(out of office)";
 $MESS["SONET_UM_BIRTHDAY"] = "Today is a user's birthday";

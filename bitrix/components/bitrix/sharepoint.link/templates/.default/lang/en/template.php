@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SL_SETTINGS_STEP_TITLE"] = "Settings";
 $MESS["SL_FORM_SERVER_STEP_TITLE"] = "Step 1 of 3: Microsoft SharePoint Access Parameters";
 $MESS["SL_FORM_LISTS_STEP_TITLE"] = "Step 2 of 3: Select A List";

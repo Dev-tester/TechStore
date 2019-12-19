@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_FILTER_TITLE'] = "Proactive Filter";
 $MESS ['SEC_FILTER_MAIN_TAB'] = "Proactive Filter";
 $MESS ['SEC_FILTER_MAIN_TAB_TITLE'] = "Enable or disable proactive filter";

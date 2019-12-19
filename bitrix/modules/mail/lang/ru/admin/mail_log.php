@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_LOG_TITLE"] = "Журнал обработки почты";
 $MESS["MAIL_LOG_FILT_MBOX"] = "Почтовый ящик";
 $MESS["MAIL_LOG_FILT_ANY"] = "(любой)";

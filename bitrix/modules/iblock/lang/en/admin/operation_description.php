@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_IBLOCK_ADMIN_DISPLAY"] = "Show information block in Control Panel";
 $MESS["OP_NAME_IBLOCK_EDIT"] = "Edit information block parameters";
 $MESS["OP_NAME_IBLOCK_DELETE"] = "Delete information block";

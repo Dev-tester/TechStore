@@ -115,7 +115,7 @@ $arResult["GRID"]["ROWS"] = $rows;
 
 ?>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.ui.grid",
 	"",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ACTION"] = "Aktionen";
 $MESS["SALE_ACTIVE"] = "Aktiv";
 $MESS["SALE_F_ACTIVE"] = "Aktiv";

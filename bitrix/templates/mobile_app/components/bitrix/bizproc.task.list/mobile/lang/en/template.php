@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPATL_CURRENT_TASKS"] = "Current Assignments";
 $MESS["BPATL_DESCRIPTION"] = "Description";
 $MESS["BPATL_DOCUMENT"] = "Document";

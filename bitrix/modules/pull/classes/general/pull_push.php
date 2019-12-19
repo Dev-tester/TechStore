@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 require_once('pushservices/services_descriptions.php');
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ITEM_BUTTON_TEXT"] = "Go";
 $MESS["CLOSE_BUTTON_TEXT"] = "Hide";
 ?>

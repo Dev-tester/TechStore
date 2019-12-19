@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTDT_SHOW'] = "Показать";
 $MESS ['INTDT_ALL_TASKS'] = "все задачи";
 $MESS ['INTDT_ASSIGNED_TASKS'] = "назначенные мне задачи";

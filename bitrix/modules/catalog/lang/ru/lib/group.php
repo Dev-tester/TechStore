@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GROUP_ENTITY_ID_FIELD"] = "Идентификатор типа цен";
 $MESS["GROUP_ENTITY_NAME_FIELD"] = "Код";
 $MESS["GROUP_ENTITY_BASE_FIELD"] = "Базовый тип";

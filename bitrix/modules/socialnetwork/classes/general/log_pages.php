@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSocNetLogPages
 {
 	function GetList($arOrder = array(), $arFilter = array(), $arGroupBy = false, $arNavStartParams = false, $arSelectFields = array())

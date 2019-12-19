@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -15,10 +15,10 @@ if (isset($templateData["ERROR"]))
 			<div class="task-detail-error-icon"></div><br />
 			<div class="task-detail-error-text"><?=htmlspecialcharsbx($templateData["ERROR"]["MESSAGE"])?></div>
 		</div>
-	</div><?
+	</div><?php 
 	return;
 }
-?><?=CJSCore::Init(array('tasks_util_query'), true);?><?
+?><?=CJSCore::Init(array('tasks_util_query'), true);?><?php 
 $APPLICATION->SetPageProperty('BodyClass', 'task-card-page');
 \Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/log_mobile.js');
 \Bitrix\Main\Page\Asset::getInstance()->addJs($templateFolder.'/../.default/script.js');
@@ -68,13 +68,13 @@ $url = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER_TASKS_EDI
 ?>
 <form name="<?=$arResult["FORM_ID"]?>" id="<?=$arResult["FORM_ID"]?>" action="<?=$url?>" method="POST">
 	<?=bitrix_sessid_post();?>
-	<?if (isset($arResult['FORM_GUID'])): ?><input type="hidden" name="FORM_GUID" value="<?=htmlspecialcharsbx($arResult['FORM_GUID']); ?>"><? endif ;?>
+	<?php if (isset($arResult['FORM_GUID'])): ?><input type="hidden" name="FORM_GUID" value="<?=htmlspecialcharsbx($arResult['FORM_GUID']); ?>"><?php  endif ;?>
 	<input type="hidden" name="_JS_STEPPER_SUPPORTED" value="Y">
 	<input type="hidden" name="DESCRIPTION_IN_BBCODE" value="<?=$task['DESCRIPTION_IN_BBCODE']; ?>" />
 	<input type="hidden" name="back_url" value="<?=$url."&".http_build_query(array("save" => "Y", "sessid" => bitrix_sessid())) ?>" />
-	<?if ($can["EDIT"]) : ?><input type="hidden" name="data[SE_AUDITOR][]" value="" /><input type="hidden" name="data[PRIORITY]" value="<?=$task["PRIORITY"]?>" /><? endif; ?>
-	<div style="display: none;"><input type="text" name="AJAX_POST" value="Y" /></div><?//hack to not submit form?>
-<?
+	<?php if ($can["EDIT"]) : ?><input type="hidden" name="data[SE_AUDITOR][]" value="" /><input type="hidden" name="data[PRIORITY]" value="<?=$task["PRIORITY"]?>" /><?php  endif; ?>
+	<div style="display: none;"><input type="text" name="AJAX_POST" value="Y" /></div><?php //hack to not submit form?>
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.interface.form',
 	'mobile',
@@ -329,7 +329,7 @@ $APPLICATION->IncludeComponent(
 	$component,
 	array('HIDE_ICONS' => 'Y')
 );
-?></form><?
+?></form><?php 
 $task_html = ob_get_clean();
 ob_start();
 global $APPLICATION;
@@ -361,24 +361,24 @@ $component->arResult["HTML"] = array(
 );
 ?>
 <div class="task-comments-block" id="task-block"><?=$task_html?>
-<?
+<?php 
 $voteId = "TASK".'_'.$task["ID"].'-'.(time()+rand(0, 1000));
 $emotion = (!empty($arResult["RATING"][$arResult["Post"]["ID"]]["USER_REACTION"]) ? strtoupper($arResult["RATING"][$arResult["Post"]["ID"]]["USER_REACTION"]) : 'LIKE');
 
-?><div id="post_inform_wrap_two" class="post-item-inform-wrap"><?
-		?><span class="post-item-informers bx-ilike-block" id="rating_block_<?=$task["ID"]?>" data-counter="<?=intval($arResult["TEMPLATE_DATA"]["RATING"]["TOTAL_VOTES"])?>"><?
-			?><span data-rating-vote-id="<?=htmlspecialcharsbx($voteId)?>" id="bx-ilike-button-<?=htmlspecialcharsbx($voteId)?>" class="post-item-informer-like feed-inform-ilike"><?
-				?><span class="bx-ilike-left-wrap<?=(isset($arResult["TEMPLATE_DATA"]["RATING"]["USER_HAS_VOTED"]) && $arResult["TEMPLATE_DATA"]["RATING"]["USER_HAS_VOTED"] == "Y" ? ' bx-you-like-button' : '')?>"><span class="bx-ilike-text"><?=\CRatingsComponentsMain::getRatingLikeMessage($emotion)?></span></span><?
-			?></span><?
-		?></span><?
-		?><div class="post-item-informers post-item-inform-comments" onclick="BX.onCustomEvent(window, 'OnUCUserReply', ['TASK_<?=$task['ID']?>']);"><?
-			?><div class="post-item-inform-left"><?=GetMessage("MB_TASKS_TASK_COMMENT")?></div><?
-		?></div><?
+?><div id="post_inform_wrap_two" class="post-item-inform-wrap"><?php 
+		?><span class="post-item-informers bx-ilike-block" id="rating_block_<?=$task["ID"]?>" data-counter="<?=intval($arResult["TEMPLATE_DATA"]["RATING"]["TOTAL_VOTES"])?>"><?php 
+			?><span data-rating-vote-id="<?=htmlspecialcharsbx($voteId)?>" id="bx-ilike-button-<?=htmlspecialcharsbx($voteId)?>" class="post-item-informer-like feed-inform-ilike"><?php 
+				?><span class="bx-ilike-left-wrap<?=(isset($arResult["TEMPLATE_DATA"]["RATING"]["USER_HAS_VOTED"]) && $arResult["TEMPLATE_DATA"]["RATING"]["USER_HAS_VOTED"] == "Y" ? ' bx-you-like-button' : '')?>"><span class="bx-ilike-text"><?=\CRatingsComponentsMain::getRatingLikeMessage($emotion)?></span></span><?php 
+			?></span><?php 
+		?></span><?php 
+		?><div class="post-item-informers post-item-inform-comments" onclick="BX.onCustomEvent(window, 'OnUCUserReply', ['TASK_<?=$task['ID']?>']);"><?php 
+			?><div class="post-item-inform-left"><?=GetMessage("MB_TASKS_TASK_COMMENT")?></div><?php 
+		?></div><?php 
 ?></div>
 </div>
-<div class="post-item-inform-wrap-tree" id="rating-footer-wrap"><?
-	?><div class="feed-post-emoji-top-panel-outer"><?
-		?><div id="feed-post-emoji-top-panel-container-<?=htmlspecialcharsbx($voteId)?>" class="feed-post-emoji-top-panel-box <?=(intval($arResult["TEMPLATE_DATA"]["RATING"]["TOTAL_POSITIVE_VOTES"]) > 0 ? 'feed-post-emoji-top-panel-container-active' : '')?>"><?
+<div class="post-item-inform-wrap-tree" id="rating-footer-wrap"><?php 
+	?><div class="feed-post-emoji-top-panel-outer"><?php 
+		?><div id="feed-post-emoji-top-panel-container-<?=htmlspecialcharsbx($voteId)?>" class="feed-post-emoji-top-panel-box <?=(intval($arResult["TEMPLATE_DATA"]["RATING"]["TOTAL_POSITIVE_VOTES"]) > 0 ? 'feed-post-emoji-top-panel-container-active' : '')?>"><?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:rating.vote",
 				"like_react",
@@ -402,8 +402,8 @@ $emotion = (!empty($arResult["RATING"][$arResult["Post"]["ID"]]["USER_REACTION"]
 				$component->__parent,
 				array("HIDE_ICONS" => "Y")
 			);
-		?></div><?
-	?></div><?
+		?></div><?php 
+	?></div><?php 
 ?></div>
 <div class="task-comments-block" id="task-comments-block"><?=$task_comments_html?></div>
 <script type="text/javascript">

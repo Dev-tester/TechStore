@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_PAYMENT_CREATION"] = "Payment created";
 $MESS["CRM_PAYMENT_BASE_CAPTION_BASED_ON_ORDER"] = "Added based on order";
 $MESS["CRM_PAYMENT_CREATION_MESSAGE"] = "##ACCOUNT_NUMBER# from #DATE_BILL#";

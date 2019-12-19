@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_MENU_PUBLIC'] = "Публичный раздел";
 $MESS ['MAIN_MENU_PUBLIC_ALT'] = "Перейти в публичный раздел";
 $MESS ['admin_index'] = "Рабочий стол";

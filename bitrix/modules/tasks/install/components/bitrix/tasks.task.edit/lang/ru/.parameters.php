@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASKS_PARAM_VARIABLE_ALIASES'] = "Псевдонимы переменных";
 $MESS ['TASKS_PARAM_USER_ID'] = "Код пользователя";
 $MESS ['TASKS_PARAM_GROUP_ID'] = "Код группы";

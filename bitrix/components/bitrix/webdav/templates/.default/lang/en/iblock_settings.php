@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IB_E_ACCESS_D'] = "Deny";
 $MESS ['IB_E_ACCESS_R'] = "Read";
 $MESS ['IB_E_ACCESS_U'] = "Workflow";

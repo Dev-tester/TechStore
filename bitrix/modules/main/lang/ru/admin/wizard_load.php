@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_WIZARD_IMPORT_ERROR'] = "Ошибка импорта мастера";
 $MESS ['MAIN_WIZARD_LOAD_ERROR_LOAD'] = "Выберите файл для загрузки";
 $MESS ['MAIN_WIZARD_LOAD_ERROR_ID'] = "Введите идентификатор мастера";

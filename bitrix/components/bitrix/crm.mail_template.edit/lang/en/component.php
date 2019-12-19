@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_PERMISSION_DENIED"] = "Access denied";
 $MESS["CRM_MAIL_TEMPLATE_NOT_FOUND"] = "E-mail template was not found.";

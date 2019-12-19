@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_PB_ACCESS_DENIED"] = "Open Channels";
 $MESS["B24C_PB_MODULE_SS_NOT_INSTALLED"] = "Attention! The Social Network module is not installed. You have to #A1#install it#A2# to enable integration.";
 $MESS["B24C_PB_MODULE_B24C_NOT_INSTALLED"] = "The Bitrix24 Connector module is not installed.";

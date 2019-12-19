@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_ROBOXCHANGE_TITLE"] = "RoboKassa";
 $MESS["SALE_HPS_ROBOXCHANGE_PAYMENT_ID"] = "Номер оплаты";
 $MESS["SALE_HPS_ROBOXCHANGE_SHOULD_PAY"] = "Сумма оплаты";

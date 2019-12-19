@@ -1,8 +1,8 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?
+<?php 
 if (!array_key_exists("condition_type", $arCurrentValues)
 	|| strlen($arCurrentValues["condition_type"]) <= 0
 	|| !array_key_exists($arCurrentValues["condition_type"], $arActivities))
@@ -15,21 +15,21 @@ if (!array_key_exists("condition_type", $arCurrentValues)
 		<td align="right" width="40%"><?= GetMessage("BPWA_PD_TYPE") ?>:</td>
 		<td width="60%">
 			<select name="condition_type" onchange="BWFIBAChangeType(this.options[this.selectedIndex].value)">
-				<?
+				<?php 
 				foreach ($arActivities as $key => $value)
 				{
-					?><option value="<?= $key ?>"<?= ($arCurrentValues["condition_type"] == $key) ? " selected" : "" ?>><?= $value["NAME"] ?></option><?
+					?><option value="<?= $key ?>"<?= ($arCurrentValues["condition_type"] == $key) ? " selected" : "" ?>><?= $value["NAME"] ?></option><?php 
 				}
 				?>
 			</select>
 			<script language="JavaScript">
 			function BWFIBAChangeType(newType)
 			{
-				<?
+				<?php 
 				foreach ($arActivities as $key => $value)
 				{
 					?>document.getElementById('id_bwfiba_type_<?= $key ?>').style.display = "none";
-					<?
+					<?php 
 				}
 				?>
 				document.getElementById('id_bwfiba_type_' + newType).style.display = "";
@@ -39,11 +39,11 @@ if (!array_key_exists("condition_type", $arCurrentValues)
 	</tr>
 </tbody>
 
-<?
+<?php 
 foreach ($arActivities as $key => $value)
 {
-	?><tbody id="id_bwfiba_type_<?= $key ?>" style="display:<?= ($arCurrentValues["condition_type"] == $key) ? "" : "none" ?>"><?
+	?><tbody id="id_bwfiba_type_<?= $key ?>" style="display:<?= ($arCurrentValues["condition_type"] == $key) ? "" : "none" ?>"><?php 
 	echo $arActivities[$key]["PROPERTIES_DIALOG"];
-	?></tbody><?
+	?></tbody><?php 
 }
 ?>

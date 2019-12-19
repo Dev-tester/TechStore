@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\UI\Toolbar;
 
@@ -25,13 +25,13 @@ $filterButtons = $toolbar->renderAfterFilterButtons();
 ?>
 
 <div id="<?=$arResult["CONTAINER_ID"]?>" class="ui-toolbar">
-	<? if (strlen($filter)): ?>
+	<?php  if (strlen($filter)): ?>
 		<div class="ui-toolbar-filter-box"><?=$filter?><?=$filterButtons?></div>
-	<? endif; ?>
+	<?php  endif; ?>
 
-	<? if (strlen($rightButtons)):?>
+	<?php  if (strlen($rightButtons)):?>
 		<div class="ui-toolbar-btn-box"><?=$rightButtons?></div>
-	<?endif;?>
+	<?php endif;?>
 </div>
 
 <script>

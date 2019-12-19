@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_CONTROL"] = "Валюты";
 $MESS["CURRENCY"] = "Список валют";
 $MESS["CURRENCY_ALT"] = "Управление валютами";

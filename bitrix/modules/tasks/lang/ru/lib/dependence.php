@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEPENDENCE_ENTITY_TASK_ID_FIELD"] = "Задача";
 $MESS["DEPENDENCE_ENTITY_DEPENDS_ON_ID_FIELD"] = "Базовая задача";
 $MESS["DEPENDENCE_ENTITY_TYPE_FIELD"] = "Тип связи";

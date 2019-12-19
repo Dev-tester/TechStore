@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_AT_NOT_SET"] = "(не установлено)";
 $MESS["IBLOCK_AT_PROP_ADD"] = "Добавить";
 $MESS["IBLOCK_AT_PROP_DESC"] = "Описание значения свойства";

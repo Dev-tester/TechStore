@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_LIST_UP"] = "Up";
 $MESS["CRM_STATUS_LIST_DOWN"] = "Down";
 $MESS["CRM_STATUS_LIST_DELETE"] = "Delete";

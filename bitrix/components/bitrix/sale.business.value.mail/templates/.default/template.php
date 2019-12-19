@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,10 +12,10 @@
 /** @var CBitrixComponent $component */
 //$this->setFrameMode(true);
 ?>
-<?foreach($arResult["ITEMS"] as $item):
+<?php foreach($arResult["ITEMS"] as $item):
 	if($arParams["DISPLAY_EMPTY"] != "Y" && !$item['VALUE']) continue;
 ?>
-<?if($arParams["DISPLAY_NAME"]!="N"):?><?=htmlspecialcharsbx($item['NAME'])?>: <?endif;?>
+<?php if($arParams["DISPLAY_NAME"]!="N"):?><?=htmlspecialcharsbx($item['NAME'])?>: <?php endif;?>
 <?=htmlspecialcharsbx($item['VALUE'])?><br />
 
-<?endforeach;?>
+<?php endforeach;?>

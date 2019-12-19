@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SGM_T_SESSION_WRONG"] = "Ваша сессия истекла, пожалуйста, повторите действие.";
 $MESS["SONET_SGM_T_NOT_ATHORIZED"] = "Вы не авторизованы.";
 $MESS["SONET_SGM_T_MODULE_NOT_INSTALLED"] = "Модуль социальной сети не установлен.";

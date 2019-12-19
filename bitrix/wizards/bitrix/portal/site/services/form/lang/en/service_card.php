@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_CARD_FORM_NAME"] = "Order Business Cards";
 $MESS["BUSINESS_CARD_MENU_NAME"] = "Order Business Cards";
 $MESS["SERVICE_CARD_FORM_BUTTON"] = "Submit Order";

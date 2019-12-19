@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\IO\Path;
 use Bitrix\Main\Localization\Loc;
 
@@ -26,7 +26,7 @@ if (toUpper(SITE_CHARSET) != "UTF8")
 	var dataPath = "<?=$this->GetFolder();?>";
 	var BXMmessage = <?=json_encode($messages)?>;
 </script>
-<?
+<?php 
 
 if ($arResult["page_path"])
 {

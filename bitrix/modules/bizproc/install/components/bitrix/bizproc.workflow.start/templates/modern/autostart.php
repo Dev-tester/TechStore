@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 CModule::IncludeModule('socialnetwork');
 CUtil::InitJSCore(array('socnetlogdest'));
 \Bitrix\Main\Localization\Loc::loadMessages(__DIR__.DIRECTORY_SEPARATOR.'script.js.php');
 ?>
 <div class="bizproc-page-workflow-start">
-	<?
+	<?php 
 	if (!empty($arResult["ERROR_MESSAGE"])):
 		ShowError($arResult["ERROR_MESSAGE"]);
 	endif;
@@ -17,16 +17,16 @@ CUtil::InitJSCore(array('socnetlogdest'));
 		<input type="hidden" name="site" value="<?= SITE_ID ?>">
 		<input type="hidden" name="document_type" value="<?= htmlspecialcharsbx($arParams["DOCUMENT_TYPE"][2]) ?>">
 		<input type="hidden" name="auto_execute_type" value="<?= htmlspecialcharsbx($arResult["EXEC_TYPE"]) ?>">
-		<?foreach ($arResult['TEMPLATES'] as $template):?>
+		<?php foreach ($arResult['TEMPLATES'] as $template):?>
 		<fieldset class="bizproc-item bizproc-workflow-template bizproc-workflow-template-parameters">
 			<legend class="bizproc-item-legend bizproc-workflow-template-title">
 				<?= htmlspecialcharsbx($template["NAME"])?>
 			</legend>
-			<?if($template["DESCRIPTION"]!=''):?>
+			<?php if($template["DESCRIPTION"]!=''):?>
 				<div class="bizproc-item-description bizproc-workflow-template-description">
 					<?= htmlspecialcharsbx($template["DESCRIPTION"]) ?>
 				</div>
-			<?endif;
+			<?php endif;
 			if (!empty($template["PARAMETERS"]))
 			{
 				foreach ($template["PARAMETERS"] as $parameterKey => $arParameter)
@@ -34,11 +34,11 @@ CUtil::InitJSCore(array('socnetlogdest'));
 					?>
 					<div class="bizproc-modern-type-control-container">
 						<span class="bizproc-modern-type-control-container-title bizproc-modern-type-control-container-title-top"
-							<? if ($arParameter["Description"]):?> title="<?=htmlspecialcharsbx($arParameter["Description"])?>"<?endif;?>>
+							<?php  if ($arParameter["Description"]):?> title="<?=htmlspecialcharsbx($arParameter["Description"])?>"<?php endif;?>>
 							<?=htmlspecialcharsbx($arParameter['Name'])?><?=($arParameter["Required"] ? "<span class=\"required\">*</span> " : "")?>:
 						</span>
 						<div class="bizproc-modern-type-control-wrapper">
-						<?
+						<?php 
 								echo $documentService->GetFieldInputControl(
 									$arParams["DOCUMENT_TYPE"],
 									$arParameter,
@@ -53,12 +53,12 @@ CUtil::InitJSCore(array('socnetlogdest'));
 						?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 			}
 			?>
 		</fieldset>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</form>
 </div>
 <script>

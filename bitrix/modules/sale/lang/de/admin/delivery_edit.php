@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_ACTIVE"] = "Aktiv";
 $MESS["SALE_APPLY"] = "Anwenden";
 $MESS["ERROR_EDIT_DELIVERY"] = "Beim Ändern der Versandart ist ein Fehler aufgetreten";

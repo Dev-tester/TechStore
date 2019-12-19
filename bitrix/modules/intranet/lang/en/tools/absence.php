@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_ABSENCE_IBLOCK_MODULE"] = "The Information Blocks module is not installed.";
 $MESS["INTR_ADD_TITLE"] = "Add entry";
 $MESS["INTR_EDIT_TITLE"] = "Edit absence entry";

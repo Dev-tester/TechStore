@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_DISC_SAVE_ADM_ERR_UPDATE_ERR"] = "Error updating progressive discount: #ERR#";
 $MESS["BT_CAT_DISC_SAVE_ADM_ERR_UPDATE_UNKNOWN"] = "Unknown error while updating progressive discount.";
 $MESS["BT_CAT_DISC_SAVE_ADM_ERR_UPDATE_ABSENT"] = "No progressive discount with this ID exists.";

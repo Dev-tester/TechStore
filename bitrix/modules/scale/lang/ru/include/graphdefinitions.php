@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SCALE_GDEF_CATEGORY_DISC'] = "Диски";
 $MESS ['SCALE_GDEF_CATEGORY_NET'] = "Сеть";
 $MESS ['SCALE_GDEF_CATEGORY_PROCESSES'] = "Процессы";

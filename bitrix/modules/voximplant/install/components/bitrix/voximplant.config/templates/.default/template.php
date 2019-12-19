@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 CJSCore::Init(["voximplant.common"]);
 
@@ -10,7 +10,7 @@ CJSCore::Init(["voximplant.common"]);
 	</div>
 	<table class="tel-block-table" id="tel-block-table">
 		<tr class="tel-block-top">
-			<?if(!$arResult['REST_ONLY']):?>
+			<?php if(!$arResult['REST_ONLY']):?>
 				<td class="tel-block tel-block-rent-num <?=($arResult['MODE_RENT']? 'tel-block-active': '')?>"  data-block="tel-set-first">
 					<div class="tel-block-title">
 						<span class="tel-block-title-icon"></span>
@@ -27,7 +27,7 @@ CJSCore::Init(["voximplant.common"]);
 					</div>
 				</td>
 				<td class="tel-block-space"></td>
-			<?endif;?>
+			<?php endif;?>
 			<td class="tel-block tel-block-connect-atc <?=($arResult['MODE_SIP']? 'tel-block-active': '')?>" data-block="tel-set-second">
 				<div class="tel-block-title">
 					<span class="tel-block-title-icon"></span>
@@ -43,7 +43,7 @@ CJSCore::Init(["voximplant.common"]);
 				</div>
 			</td>
 			<td class="tel-block-space"></td>
-			<?if(!in_array($arResult['LANG'], ['ua', 'kz']) && !$arResult['REST_ONLY']):?>
+			<?php if(!in_array($arResult['LANG'], ['ua', 'kz']) && !$arResult['REST_ONLY']):?>
 			<td class="tel-block tel-block-own-num <?=($arResult['MODE_LINK']? 'tel-block-active': '')?>"  data-block="tel-set-third">
 				<div class="tel-block-title">
 					<span class="tel-block-title-icon"></span>
@@ -60,68 +60,68 @@ CJSCore::Init(["voximplant.common"]);
 				</div>
 			</td>
 
-			<?endif;?>
+			<?php endif;?>
 		</tr>
 		<tr class="tel-block-bottom">
-			<?if(!$arResult['REST_ONLY']):?>
+			<?php if(!$arResult['REST_ONLY']):?>
 				<td class="tel-block"  data-block="tel-set-first">
 					<div class="tel-block-footer">
 						<span class="tel-block-btn" id="tel-set-first-btn"><?=GetMessage($arResult['MODE_RENT']? 'VI_CONFIG_SET_ACTIVE': 'VI_CONFIG_SET')?></span>
 					</div>
 				</td>
 				<td class="tel-block-space"></td>
-			<?endif;?>
+			<?php endif;?>
 			<td class="tel-block <?=($arResult['MODE_SIP']? 'tel-block-active': '')?>" data-block="tel-set-second">
 				<div class="tel-block-footer">
 					<span class="tel-block-btn" id="tel-set-second-btn"><?=GetMessage($arResult['MODE_SIP']? 'VI_CONFIG_SET_ACTIVE': 'VI_CONFIG_SET')?></span>
 				</div>
 			</td>
 			<td class="tel-block-space"></td>
-			<?if(!in_array($arResult['LANG'], ['ua', 'kz']) && !$arResult['REST_ONLY']):?>
+			<?php if(!in_array($arResult['LANG'], ['ua', 'kz']) && !$arResult['REST_ONLY']):?>
 			<td class="tel-block <?=($arResult['MODE_LINK']? 'tel-block-active': '')?>"  data-block="tel-set-third">
 				<div class="tel-block-footer">
 					<span class="tel-block-btn" id="tel-set-third-btn"><?=GetMessage($arResult['MODE_LINK']? 'VI_CONFIG_SET_ACTIVE': 'VI_CONFIG_SET')?></span>
 				</div>
 			</td>
-			<?endif;?>
+			<?php endif;?>
 		</tr>
 	</table>
 	<div class="tel-set-block-wrap-config" id="tel-set-block-wrap">
 		<div class="tel-set-block tel-set-block-active" id="tel-set-block">
-			<?if(!$arResult['REST_ONLY']):?>
+			<?php if(!$arResult['REST_ONLY']):?>
 				<div id="tel-set-first" class="tel-set-block-inner-wrap-config">
 					<div class="tel-set-inner">
-						<?if(in_array($arResult['LANG'], ['ua', 'kz'])):?>
-							<?$APPLICATION->IncludeComponent("bitrix:voximplant.config.rent.order", "", array());?>
-						<?else:?>
-							<?$APPLICATION->IncludeComponent("bitrix:voximplant.config.rent", "", array());?>
-						<?endif;?>
+						<?php if(in_array($arResult['LANG'], ['ua', 'kz'])):?>
+							<?php $APPLICATION->IncludeComponent("bitrix:voximplant.config.rent.order", "", array());?>
+						<?php else:?>
+							<?php $APPLICATION->IncludeComponent("bitrix:voximplant.config.rent", "", array());?>
+						<?php endif;?>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 			<div id="tel-set-second" class="tel-set-block-inner-wrap-config" <?=($arResult['MODE_SIP']? 'style="display: block;"': '')?>>
 				<div class="tel-set-inner">
-					<?$APPLICATION->IncludeComponent("bitrix:voximplant.config.sip", "", array());?>
+					<?php $APPLICATION->IncludeComponent("bitrix:voximplant.config.sip", "", array());?>
 				</div>
 			</div>
-			<?if(!in_array($arResult['LANG'], ['ua', 'kz']) && !$arResult['REST_ONLY']):?>
+			<?php if(!in_array($arResult['LANG'], ['ua', 'kz']) && !$arResult['REST_ONLY']):?>
 				<div id="tel-set-third" class="tel-set-block-inner-wrap-config" <?=($arResult['MODE_LINK']? 'style="display: block;"': '')?>>
 					<div class="tel-set-inner">
-						<?$APPLICATION->IncludeComponent("bitrix:voximplant.config.link", "", array());?>
+						<?php $APPLICATION->IncludeComponent("bitrix:voximplant.config.link", "", array());?>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 
 			<div id="tel-set-corner" class="tel-set-corner"></div>
 		</div>
 	</div>
 
-	<?if (\Bitrix\Main\ModuleManager::isModuleInstalled("rest")):
+	<?php if (\Bitrix\Main\ModuleManager::isModuleInstalled("rest")):
 		$arParams["MARKETPLACE_DETAIL_URL_TPL"] = isset($arParams["MARKETPLACE_DETAIL_URL_TPL"]) ? $arParams["MARKETPLACE_DETAIL_URL_TPL"] : SITE_DIR."marketplace/detail/#app#/";
 		$arParams["CATEGORY_URL_TPL"] = isset($arParams["CATEGORY_URL_TPL"]) ? $arParams["MARKETPLACE_DETAIL_URL_TPL"] : SITE_DIR."marketplace/category/#category#/";
 	?>
 	<div id="tel-set-first-partners" <?=($arResult['MODE_RENT']? 'style="display: block;"': '')?>>
-		<?
+		<?php 
 		$tag = array("telephony", "partners");
 		if (\Bitrix\Main\Loader::includeModule("bitrix24"))
 		{
@@ -137,7 +137,7 @@ CJSCore::Init(["voximplant.common"]);
 		));
 		?>
 	</div>
-	<?endif?>
+	<?php endif?>
 </div>
 
 <div class="tel-set-phone-numbers">
@@ -298,35 +298,35 @@ CJSCore::Init(["voximplant.common"]);
 	BX.bind(BX('tel-block-table'), 'mouseout', setPost.show);
 	BX.bind(BX('tel-block-table'), 'click', setPost.show);
 
-	<?
+	<?php 
 		if ($arResult['MODE_ACTIVE'] == 'SIP' || $arResult['MODE_ACTIVE'] == '' && $arResult['MODE_SIP'])
 		{?>
 			var blockID = 'tel-set-second';
 			var btn = BX('tel-set-second-btn');
-		<?}
+		<?php }
 		else if ($arResult['MODE_ACTIVE'] == 'RENT')
 		{?>
 			var blockID = 'tel-set-first';
 			var btn = BX('tel-set-first-btn');
-		<?}
+		<?php }
 		else if ($arResult['MODE_ACTIVE'] == 'LINK' || $arResult['MODE_ACTIVE'] == '' && $arResult['MODE_LINK'])
 		{?>
 			var blockID = 'tel-set-third';
 			var btn = BX('tel-set-third-btn');
-		<?}
+		<?php }
 		else if ($arResult['MODE_ACTIVE'] == '')
 		{?>
 			var blockID = 'tel-set-first';
 			var btn = BX('tel-set-first-btn');
-		<?}
+		<?php }
 	?>
 
-	<?if (!empty($arResult['MODE_ACTIVE'])):?>
+	<?php if (!empty($arResult['MODE_ACTIVE'])):?>
 		BX.ready(function () {
 			BX("tel-set-block-wrap").style.height = 'auto';
 			BX("tel-set-corner").style.display = "block";
 			setPost.anim(blockID, btn);
 		});
-	<?endif?>
+	<?php endif?>
 
 </script>

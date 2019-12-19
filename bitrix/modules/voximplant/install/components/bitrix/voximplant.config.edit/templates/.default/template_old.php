@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /**
@@ -21,44 +21,44 @@ $melodiesToLoad = array();
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="action" value="save" />
 <input type="hidden" name="ID" value="<?=$arResult["ITEM"]["ID"]?>">
-<?
+<?php 
 if ($arResult['IFRAME'])
 {
-	?><input type="hidden" name="IFRAME" value="Y" /><?
+	?><input type="hidden" name="IFRAME" value="Y" /><?php 
 }
 ?>
 
-<?if ($_GET['NEW'] == 'Y'):?>
+<?php if ($_GET['NEW'] == 'Y'):?>
 	<div class="tel-set-main-new-phone">
-	<?if ($arResult["ITEM"]["PHONE_VERIFIED"] == 'Y'):?>
+	<?php if ($arResult["ITEM"]["PHONE_VERIFIED"] == 'Y'):?>
 		<?=GetMessage('VI_CONFIG_NEW_RENT')?>
-	<?else:?>
+	<?php else:?>
 		<?=GetMessage('VI_CONFIG_NEW_RESERVE')?>
-	<?endif;?>
+	<?php endif;?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
-<?if ($arResult["ITEM"]["PHONE_VERIFIED"] == 'N'):?>
-	<?if ($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_RENT):?>
+<?php if ($arResult["ITEM"]["PHONE_VERIFIED"] == 'N'):?>
+	<?php if ($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_RENT):?>
 		<div class="tel-set-main-notice tel-phones-list-notice">
 			<?=GetMessage('VI_CONFIG_RESERVE_NOTICE', Array('#LINK_START#' => '<a href="'.CVoxImplantMain::GetPublicFolder().'configs.php" target="_blank">', '#LINK_END#' => '</a>'))?>
 		</div>
-	<?endif;?>
-<?endif;?>
+	<?php endif;?>
+<?php endif;?>
 
 <div class="tel-set-main-wrap" id="tel-set-main-wrap">
 	<div class="tel-set-top-title"><?=htmlspecialcharsbx($arResult["ITEM"]["PHONE_NAME_FORMATTED"])?></div>
 	<div class="tel-set-inner-wrap">
 		<div class="tel-set-cont-block">
-			<?if(strlen($arResult["ERROR"])>0):?>
+			<?php if(strlen($arResult["ERROR"])>0):?>
 				<div class="tel-set-cont-error"><?=$arResult['ERROR']?></div>
-			<?endif;?>
-			<?if($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_LINK):?>
+			<?php endif;?>
+			<?php if($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_LINK):?>
 				<div id="backphone-placeholder" style="padding-bottom: 20px"></div>
 				<div class="tel-set-main-notice tel-phones-list-notice"><?= GetMessage('VI_CONFIG_LINK_CALLS_WARNING')?></div>
-			<?endif?>
-			<?if(!empty($arResult["SIP_CONFIG"])):?>
-				<?if($arResult["SIP_CONFIG"]['TYPE'] == CVoxImplantSip::TYPE_CLOUD):?>
+			<?php endif?>
+			<?php if(!empty($arResult["SIP_CONFIG"])):?>
+				<?php if($arResult["SIP_CONFIG"]['TYPE'] == CVoxImplantSip::TYPE_CLOUD):?>
 					<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_SIP_CLOUD_TITLE")?></div>
 					<div class="tel-set-sip-blocks">
 						<div class="tel-set-sip-block">
@@ -132,7 +132,7 @@ if ($arResult['IFRAME'])
 							</div>
 						</div>
 					</div>
-				<?else:?>
+				<?php else:?>
 					<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_SIP_OFFICE_TITLE")?></div>
 					<div class="tel-set-sip-blocks">
 						<div class="tel-set-sip-block">
@@ -189,14 +189,14 @@ if ($arResult['IFRAME'])
 							</div>
 						</div>
 					</div>
-				<?endif;?>
-			<?endif;?>
+				<?php endif;?>
+			<?php endif;?>
 			<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_EDIT_ROUTE_INCOMING")?></div>
-			<? if($arResult["ITEM"]["PORTAL_MODE"] == CVoxImplantConfig::MODE_SIP): ?>
+			<?php  if($arResult["ITEM"]["PORTAL_MODE"] == CVoxImplantConfig::MODE_SIP): ?>
 				<div class="tel-set-item">
 					<div class="tel-set-item-num">
 						<input type="hidden" value="N" name="USE_SIP_TO">
-						<input type="checkbox" class="tel-set-checkbox" <? if ($arResult["ITEM"]["USE_SIP_TO"] == "Y") { ?>checked<? } ?> value="Y" name="USE_SIP_TO" id="id<?=(++$i)?>">
+						<input type="checkbox" class="tel-set-checkbox" <?php  if ($arResult["ITEM"]["USE_SIP_TO"] == "Y") { ?>checked<?php  } ?> value="Y" name="USE_SIP_TO" id="id<?=(++$i)?>">
 						<span class="tel-set-item-num-text"><?=$i?>.</span>
 					</div>
 					<div class="tel-set-item-cont-block">
@@ -204,12 +204,12 @@ if ($arResult['IFRAME'])
 						<span class="tel-set-cont-item-title-description" style="margin-top: -12px;"><?= GetMessage("VI_CONFIG_EDIT_SIP_HEADER_PROCESSING_TIP")?></span>
 					</div>
 				</div>
-			<? endif ?>
-			<? if($arResult["SHOW_DIRECT_CODE"]): ?>
+			<?php  endif ?>
+			<?php  if($arResult["SHOW_DIRECT_CODE"]): ?>
 				<div class="tel-set-item">
 					<div class="tel-set-item-num">
 						<input type="hidden" value="N" name="DIRECT_CODE">
-						<input type="checkbox" class="tel-set-checkbox" <? if ($arResult["ITEM"]["DIRECT_CODE"] == "Y") { ?>checked<? } ?> value="Y" name="DIRECT_CODE" id="id<?=(++$i)?>">
+						<input type="checkbox" class="tel-set-checkbox" <?php  if ($arResult["ITEM"]["DIRECT_CODE"] == "Y") { ?>checked<?php  } ?> value="Y" name="DIRECT_CODE" id="id<?=(++$i)?>">
 						<span class="tel-set-item-num-text"><?=$i?>.</span>
 					</div>
 					<div class="tel-set-item-cont-block">
@@ -228,13 +228,13 @@ if ($arResult['IFRAME'])
 						</div>
 					</div>
 				</div>
-			<? endif ?>
+			<?php  endif ?>
 
-			<?if($arResult['SHOW_IVR']):?>
+			<?php if($arResult['SHOW_IVR']):?>
 				<div class="tel-set-item">
 					<div class="tel-set-item-num tel-set-item-num-with-select">
 						<input type="hidden" value="N" name="IVR">
-						<input id="vi-set-ivr" type="checkbox" class="tel-set-checkbox" <? if ($arResult["ITEM"]["IVR"] == "Y") { ?>checked<? } ?> value="Y" name="IVR" id="id<?=(++$i)?>">
+						<input id="vi-set-ivr" type="checkbox" class="tel-set-checkbox" <?php  if ($arResult["ITEM"]["IVR"] == "Y") { ?>checked<?php  } ?> value="Y" name="IVR" id="id<?=(++$i)?>">
 						<span class="tel-set-item-num-text"><?=$i?>.</span>
 					</div>
 					<div class="tel-set-item-cont-block">
@@ -242,13 +242,13 @@ if ($arResult['IFRAME'])
 						<select name="IVR_ID" class="tel-set-inp tel-set-item-select" data-role="select-ivr" >
 							<option value="new"><?=GetMessage('VI_CONFIG_CREATE_IVR')?></option>
 							<option disabled>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</option>
-							<? foreach ($arResult["IVR_MENUS"] as $ivr): ?>
+							<?php  foreach ($arResult["IVR_MENUS"] as $ivr): ?>
 								<option value="<?=htmlspecialcharsbx($ivr["ID"])?>"<?=($ivr["ID"] == $arResult["ITEM"]["IVR_ID"] ? " selected" : "")?>><?=htmlspecialcharsbx($ivr["NAME"])?></option>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 						</select>
-						<? if(\Bitrix\Voximplant\Ivr\Ivr::isEnabled()): ?>
+						<?php  if(\Bitrix\Voximplant\Ivr\Ivr::isEnabled()): ?>
 							<span id="vi-group-show-ivr" class="tel-set-group-show-config" data-role="show-ivr-config"><?=GetMessage('VI_CONFIG_IVR_SETTINGS')?></span>
-						<? else: ?>
+						<?php  else: ?>
 							<div class="tel-lock-holder-select" title="<?=GetMessage("VI_CONFIG_LOCK_ALT")?>">
 								<div onclick="BX.Voximplant.showLicensePopup('main')" class="tel-lock <?=(CVoxImplantAccount::IsDemo()? 'tel-lock-demo': '')?>"></div>
 							</div>
@@ -260,17 +260,17 @@ if ($arResult['IFRAME'])
 									BX.Voximplant.showLicensePopup('main');
 								});
 							</script>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 				</div>
-			<?endif?>
+			<?php endif?>
 
 
-			<?if(IsModuleInstalled('crm')):?>
+			<?php if(IsModuleInstalled('crm')):?>
 			<div class="tel-set-item">
 				<div class="tel-set-item-num">
 					<input name="CRM" type="hidden" value="N" />
-					<input type="checkbox" id="id<?=(++$i)?>" name="CRM" <? if ($arResult["ITEM"]["CRM"] == "Y") { ?>checked<? } ?> value="Y" class="tel-set-checkbox"/>
+					<input type="checkbox" id="id<?=(++$i)?>" name="CRM" <?php  if ($arResult["ITEM"]["CRM"] == "Y") { ?>checked<?php  } ?> value="Y" class="tel-set-checkbox"/>
 					<span class="tel-set-item-num-text"><?=$i?>.</span>
 				</div>
 				<div class="tel-set-item-cont-block">
@@ -279,7 +279,7 @@ if ($arResult['IFRAME'])
 					</label>
 					<div class="tel-set-item-cont">
 						<div class="tel-set-item-select-block">
-							<input id="vi_crm_forward" type="checkbox" name="CRM_FORWARD" <?if($arResult["ITEM"]["CRM_FORWARD"] == "Y") { ?>checked<? }?> value="Y" class="tel-set-checkbox"/>
+							<input id="vi_crm_forward" type="checkbox" name="CRM_FORWARD" <?php if($arResult["ITEM"]["CRM_FORWARD"] == "Y") { ?>checked<?php  }?> value="Y" class="tel-set-checkbox"/>
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_CRM_FORWARD")?></div>
 						</div>
 						<div id="vi_crm_rule" class="tel-set-item-select-block tel-set-item-crm-rule" style="<?=($arResult["ITEM"]["CRM_FORWARD"] == "Y"? 'height: 40px': '')?>">
@@ -287,17 +287,17 @@ if ($arResult['IFRAME'])
 							<select class="tel-set-inp tel-set-item-select" name="CRM_RULE">
 								<option value="<?=CVoxImplantIncoming::RULE_QUEUE?>"<?=(CVoxImplantIncoming::RULE_QUEUE == $arResult["ITEM"]["CRM_RULE"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_DEALING_WITH_OMITTED_CALL_1")?></option>
 								<option value="<?=CVoxImplantIncoming::RULE_PSTN?>"<?=(CVoxImplantIncoming::RULE_PSTN == $arResult["ITEM"]["CRM_RULE"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_DEALING_WITH_OMITTED_CALL_3_3")?></option>
-								<?if($arResult['SHOW_RULE_VOICEMAIL']):?>
+								<?php if($arResult['SHOW_RULE_VOICEMAIL']):?>
 									<option value="<?=CVoxImplantIncoming::RULE_VOICEMAIL?>"<?=(CVoxImplantIncoming::RULE_VOICEMAIL == $arResult["ITEM"]["CRM_RULE"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_DEALING_WITH_OMITTED_CALL_2_1")?></option>
-								<?endif?>
+								<?php endif?>
 							</select>
 						</div>
 						<div class="tel-set-item-select-block" style="background-color: #fff; padding-top: 10px;">
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_CRM_CREATE")?></div>
 							<select class="tel-set-inp tel-set-item-select" name="CRM_CREATE" id="vi_crm_create">
-								<?foreach (array("1" => CVoxImplantConfig::CRM_CREATE_NONE, "2" => CVoxImplantConfig::CRM_CREATE_LEAD) as $ii => $k):?>
+								<?php foreach (array("1" => CVoxImplantConfig::CRM_CREATE_NONE, "2" => CVoxImplantConfig::CRM_CREATE_LEAD) as $ii => $k):?>
 									<option value="<?=$k?>"<?=($k == $arResult["ITEM"]["CRM_CREATE"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_CRM_CREATE_".$ii)?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 							<span class="tel-set-group-show-config" data-role="show-crm-exception-list"><?=GetMessage("VI_CONFIG_CONFIGURE_CRM_EXCEPTIONS_LIST")?></span>
 						</div>
@@ -325,16 +325,16 @@ if ($arResult['IFRAME'])
 							<div class="tel-set-item-select-block">
 								<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_CRM_SOURCE")?></div>
 								<select class="tel-set-inp tel-set-item-select" name="CRM_SOURCE" id="vi_crm_source_select">
-									<?foreach ($arResult['CRM_SOURCES'] as $ii => $k):?>
+									<?php foreach ($arResult['CRM_SOURCES'] as $ii => $k):?>
 										<option value="<?=$ii?>"<?=($ii == $arResult["ITEM"]["CRM_SOURCE"] ? " selected" : "")?>><?=htmlspecialcharsbx($k)?></option>
-									<?endforeach;?>
+									<?php endforeach;?>
 								</select>
-								<?if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()):?>
+								<?php if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()):?>
 									<div class="tel-lock-holder-select" title="<?=GetMessage("VI_CONFIG_LOCK_ALT")?>"><div onclick="BX.Voximplant.showLicensePopup('main')" class="tel-lock <?=(CVoxImplantAccount::IsDemo()? 'tel-lock-demo': '')?>"></div></div>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 						</div>
-						<?if (!CVoxImplantAccount::IsPro()):?>
+						<?php if (!CVoxImplantAccount::IsPro()):?>
 						<script type="text/javascript">
 							viCrmSource = BX('vi_crm_source_select').options.selectedIndex;
 							BX.bind(BX('vi_crm_source_select'), 'change', function(e){
@@ -342,15 +342,15 @@ if ($arResult['IFRAME'])
 								this.selectedIndex = viCrmSource;
 							});
 						</script>
-						<?endif;?>
+						<?php endif;?>
 						<div class="tel-set-item-select-block">
-							<input type="checkbox" name="CRM_TRANSFER_CHANGE" <?if($arResult["ITEM"]["CRM_TRANSFER_CHANGE"] == "Y") { ?>checked<? }?> value="Y" class="tel-set-checkbox"/>
+							<input type="checkbox" name="CRM_TRANSFER_CHANGE" <?php if($arResult["ITEM"]["CRM_TRANSFER_CHANGE"] == "Y") { ?>checked<?php  }?> value="Y" class="tel-set-checkbox"/>
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_CRM_TRANSFER_CHANGE")?></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 
 			<div class="tel-set-item">
 				<div class="tel-set-item-num tel-set-item-num-with-select">
@@ -361,24 +361,24 @@ if ($arResult['IFRAME'])
 						<select id="vi-group-id-select" class="tel-set-inp tel-set-item-select" name="QUEUE_ID" data-role="select-group">
 							<option value="new"><?=GetMessage('VI_CONFIG_CREATE_GROUP')?></option>
 							<option disabled>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</option>
-							<? foreach ($arResult["QUEUES"] as $queue): ?>
+							<?php  foreach ($arResult["QUEUES"] as $queue): ?>
 								<option value="<?=htmlspecialcharsbx($queue["ID"])?>"<?=($queue["ID"] == $arResult["ITEM"]["QUEUE_ID"] ? " selected" : "")?>><?=htmlspecialcharsbx($queue["NAME"])?></option>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 						</select>
 						<span id="vi-group-show-config" class="tel-set-group-show-config" data-role="show-group-config"><?=GetMessage('VI_CONFIG_GROUP_SETTINGS')?></span>
 					</div>
 					<div class="tel-set-item-select-block">
-						<input id="vi_timeman" type="checkbox" name="TIMEMAN" <?if($arResult["ITEM"]["TIMEMAN"] == "Y") { ?>checked<? }?> value="Y" class="tel-set-checkbox"/>
+						<input id="vi_timeman" type="checkbox" name="TIMEMAN" <?php if($arResult["ITEM"]["TIMEMAN"] == "Y") { ?>checked<?php  }?> value="Y" class="tel-set-checkbox"/>
 						<label for="vi_timeman" class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_TIMEMAN_SUPPORT")?></label>
 					</div>
-					<?if (!IsModuleInstalled("timeman")):?>
+					<?php if (!IsModuleInstalled("timeman")):?>
 						<script type="text/javascript">
 							BX.bind(BX('vi_timeman'), 'change', function(e){
 								BX('vi_timeman').checked = false;
 								alert('<?=GetMessage(IsModuleInstalled("bitrix24")? "VI_CONFIG_EDIT_TIMEMAN_SUPPORT_B24": "VI_CONFIG_EDIT_TIMEMAN_SUPPORT_CP")?>');
 							});
 						</script>
-					<?endif;?>
+					<?php endif;?>
 					<div id="vi-group-settings-placeholder-wrapper" class="tel-set-height-animated" style="max-height: 0;">
 						<div id="vi-group-settings-placeholder"></div>
 					</div>
@@ -394,11 +394,11 @@ if ($arResult['IFRAME'])
 					<label for="vi-recording" class="tel-set-cont-item-title">
 						<?=GetMessage("VI_CONFIG_EDIT_RECORD")?>
 					</label>
-					<?if ($arResult['RECORD_LIMIT']['ENABLE']):?>
+					<?php if ($arResult['RECORD_LIMIT']['ENABLE']):?>
 						<div class="tel-lock-holder-title" title="<?=GetMessage("VI_CONFIG_LOCK_RECORD_ALT", Array("#LIMIT#" => $arResult['RECORD_LIMIT']['LIMIT'], '#REMAINING#' => $arResult['RECORD_LIMIT']['REMAINING']))?>"><div onclick="BX.Voximplant.showLicensePopup('main')"  class="tel-lock tel-lock-half <?=(CVoxImplantAccount::IsDemo()? 'tel-lock-demo': '')?>"></div></div>
-					<?elseif (!$arResult['RECORD_LIMIT']['ENABLE'] && $arResult['RECORD_LIMIT']['DEMO']):?>
+					<?php elseif (!$arResult['RECORD_LIMIT']['ENABLE'] && $arResult['RECORD_LIMIT']['DEMO']):?>
 						<div class="tel-lock-holder-title" title="<?=GetMessage("VI_CONFIG_LOCK_ALT")?>"><div onclick="BX.Voximplant.showLicensePopup('main')"  class="tel-lock tel-lock-demo"></div></div>
-					<?endif;?>
+					<?php endif;?>
 					<span class="tel-set-cont-item-title-description" style="margin-top: -12px; margin-bottom: 12px"><?=GetMessage("VI_CONFIG_EDIT_RECORD_TIP")?></span>
 					<div class="tel-set-item-cont">
 						<div class="tel-set-item-alert">
@@ -406,39 +406,39 @@ if ($arResult['IFRAME'])
 						</div>
 					</div>
 					<div id="vi-recording-details" class="tel-set-height-animated" style="<?=($arResult["ITEM"]["RECORDING"] == "Y" ? 'max-height: 160px' : 'max-height: 0')?>">
-						<input id="vi_recording_notice" type="checkbox" name="RECORDING_NOTICE" <?if($arResult["ITEM"]["RECORDING_NOTICE"] == "Y") { ?>checked<? }?> value="Y" class="tel-set-checkbox"/>
+						<input id="vi_recording_notice" type="checkbox" name="RECORDING_NOTICE" <?php if($arResult["ITEM"]["RECORDING_NOTICE"] == "Y") { ?>checked<?php  }?> value="Y" class="tel-set-checkbox"/>
 						<label class="tel-set-cont-item-title" for="vi_recording_notice" style="display: inline-block; font-weight: normal;"><div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_RECORD_NOTICE")?></div></label><br>
 						<input id="vi_transcribe"
 							   type="checkbox"
 							   name="TRANSCRIBE"
 							   value="Y"
 							   class="tel-set-checkbox"
-							   <?if($arResult["ITEM"]["TRANSCRIBE"] == "Y") { ?>checked<? }?>
-							   <?if(!\Bitrix\Voximplant\Transcript::isEnabled()) { ?>disabled<? }?>
+							   <?php if($arResult["ITEM"]["TRANSCRIBE"] == "Y") { ?>checked<?php  }?>
+							   <?php if(!\Bitrix\Voximplant\Transcript::isEnabled()) { ?>disabled<?php  }?>
 						/>
 						<label class="tel-set-cont-item-title" for="vi_transcribe" style="display: inline-block; font-weight: normal;"><div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_TRANSCRIBE")?></div></label>
 
-						<?if (!\Bitrix\Voximplant\Transcript::isEnabled() || \Bitrix\Voximplant\Transcript::isDemo()):?>
+						<?php if (!\Bitrix\Voximplant\Transcript::isEnabled() || \Bitrix\Voximplant\Transcript::isDemo()):?>
 							<div class="tel-lock-holder-select" title="<?=GetMessage("VI_CONFIG_LOCK_ALT")?>"><div onclick="BX.Voximplant.showLicensePopup('main')" class="tel-lock <?=(\Bitrix\Voximplant\Transcript::isDemo()? 'tel-lock-demo': '')?>"></div></div>
-						<?endif;?>
+						<?php endif;?>
 
 						<div class="tel-set-cont-item-title-description" style="margin: -12px 0 12px 23px"><?=GetMessage("VI_CONFIG_TRANSCRIPTION_HINT", array("#URL#" => CVoxImplantMain::getPricesUrl()))?></div>
 						<div id="vi_transcribe_lang" class="tel-set-item-select-block tel-set-item-crm-rule" style="<?=($arResult["ITEM"]["TRANSCRIBE"] == "Y"? 'height: 40px': '')?>">
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_TRANSCRIBE_LANGUAGE")?></div>
 							<select class="tel-set-inp tel-set-item-select" name="TRANSCRIBE_LANG">
-								<? foreach ($arResult['TRANSCRIBE_LANGUAGES'] as $languageId => $languageName): ?>
+								<?php  foreach ($arResult['TRANSCRIBE_LANGUAGES'] as $languageId => $languageName): ?>
 									<option value="<?= htmlspecialcharsbx($languageId)?>" <?=($arResult["ITEM"]["TRANSCRIBE_LANG"] == $languageId ? "selected" : "")?>><?=htmlspecialcharsbx($languageName)?></option>
-								<? endforeach ?>
+								<?php  endforeach ?>
 							</select>
 						</div>
 					</div>
 				</div>
 			</div>
-			<?if($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_RENT):?>
+			<?php if($arResult["ITEM"]["PORTAL_MODE"] === CVoxImplantConfig::MODE_RENT):?>
 				<div class="tel-set-item">
 					<div class="tel-set-item-num">
 						<input name="REDIRECT_WITH_CLIENT_NUMBER" type="hidden" value="N" />
-						<input type="checkbox" name="REDIRECT_WITH_CLIENT_NUMBER" <?if($arResult["ITEM"]["REDIRECT_WITH_CLIENT_NUMBER"] == "Y") { ?>checked<? }?> value="Y" class="tel-set-checkbox"/>
+						<input type="checkbox" name="REDIRECT_WITH_CLIENT_NUMBER" <?php if($arResult["ITEM"]["REDIRECT_WITH_CLIENT_NUMBER"] == "Y") { ?>checked<?php  }?> value="Y" class="tel-set-checkbox"/>
 						<span class="tel-set-item-num-text"><?=(++$i)?>.</span>
 					</div>
 					<div class="tel-set-item-cont-block">
@@ -448,30 +448,30 @@ if ($arResult['IFRAME'])
 						<span class="tel-set-cont-item-title-description" style="margin-top: -12px;"><?=GetMessage("VI_CONFIG_REDIRECT_WITH_CLIENT_NUMBER_TIP")?></span>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 			<div class="tel-set-item">
 				<div class="tel-set-item-num">
 					<input name="VOTE" type="hidden" value="N" />
-					<input type="checkbox" id="vi_vote" name="VOTE" <?if($arResult["ITEM"]["VOTE"] == "Y") { ?>checked<? }?> value="Y" class="tel-set-checkbox"/>
+					<input type="checkbox" id="vi_vote" name="VOTE" <?php if($arResult["ITEM"]["VOTE"] == "Y") { ?>checked<?php  }?> value="Y" class="tel-set-checkbox"/>
 					<span class="tel-set-item-num-text"><?=(++$i)?>.</span>
 				</div>
 				<div class="tel-set-item-cont-block">
 					<label for="vi_vote" class="tel-set-cont-item-title">
 						<?=GetMessage("VI_CONFIG_VOTE")?>
 					</label>
-					<?if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()):?>
+					<?php if (!CVoxImplantAccount::IsPro() || CVoxImplantAccount::IsDemo()):?>
 						<div class="tel-lock-holder-title" title="<?=GetMessage("VI_CONFIG_LOCK_ALT")?>"><div onclick="BX.Voximplant.showLicensePopup('main')"  class="tel-lock <?=(CVoxImplantAccount::IsDemo()? 'tel-lock-demo': '')?>"></div></div>
-					<?endif;?>
+					<?php endif;?>
 					<span class="tel-set-cont-item-title-description" style="margin-top: -12px;"><?=GetMessage("VI_CONFIG_VOTE_TIP")?></span>
 				</div>
-				<?if (!CVoxImplantAccount::IsPro()):?>
+				<?php if (!CVoxImplantAccount::IsPro()):?>
 					<script type="text/javascript">
 						BX.bind(BX('vi_vote'), 'change', function(e){
 							BX('vi_vote').checked = false;
 							BX.Voximplant.showLicensePopup('main');
 						});
 					</script>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</div>
 		<!-- backup number -->
@@ -496,9 +496,9 @@ if ($arResult['IFRAME'])
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_BACKUP_LINE")?></div>
 							&nbsp;&mdash;&nbsp;
 							<select name="BACKUP_LINE" class="tel-set-inp tel-set-item-select">
-								<?foreach ($arResult['BACKUP_LINES'] as $k => $v):?>
+								<?php foreach ($arResult['BACKUP_LINES'] as $k => $v):?>
 									<option value="<?= $k ?>" <?= ($arResult["ITEM"]["BACKUP_LINE"] == $k ? "selected" : "")?>><?= $v ?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 						</div>
 					</div>
@@ -511,7 +511,7 @@ if ($arResult['IFRAME'])
 			<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_CALLBACK_SETTINGS")?></div>
 			<div class="tel-set-item">
 				<div class="tel-set-item-num">
-					&nbsp;<input type="checkbox" name="CALLBACK_REDIAL" id="vi_callback_redial" class="tel-set-checkbox" value="Y" <?if ($arResult["ITEM"]["CALLBACK_REDIAL"] === "Y"):?>checked="checked"<?endif?>/>
+					&nbsp;<input type="checkbox" name="CALLBACK_REDIAL" id="vi_callback_redial" class="tel-set-checkbox" value="Y" <?php if ($arResult["ITEM"]["CALLBACK_REDIAL"] === "Y"):?>checked="checked"<?php endif?>/>
 				</div>
 				<div class="tel-set-item-cont-block">
 					<label for="vi_callback_redial" class="tel-set-cont-item-title"><?=GetMessage("VI_CONFIG_CALLBACK_REDIAL")?></label>
@@ -519,17 +519,17 @@ if ($arResult['IFRAME'])
 						<div class="tel-set-item-select-block">
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_CALLBACK_REDIAL_ATTEMPTS")?> &nbsp;&mdash;&nbsp;</div>
 							<select class="tel-set-inp" name="CALLBACK_REDIAL_ATTEMPTS" style="width: auto;">
-								<?foreach (array(1, 2, 3, 4, 5) as $k):?>
+								<?php foreach (array(1, 2, 3, 4, 5) as $k):?>
 									<option value="<?=$k?>"<?=($k == $arResult["ITEM"]["CALLBACK_REDIAL_ATTEMPTS"] ? " selected" : "")?>><?=$k?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 						</div>
 						<div class="tel-set-item-select-block">
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_CALLBACK_REDIAL_PERIOD")?> &nbsp;&mdash;&nbsp;</div>
 							<select class="tel-set-inp" name="CALLBACK_REDIAL_PERIOD" style="width: auto;">
-								<?foreach (array(60, 120, 180) as $k):?>
+								<?php foreach (array(60, 120, 180) as $k):?>
 									<option value="<?=$k?>"<?=($k == $arResult["ITEM"]["CALLBACK_REDIAL_PERIOD"] ? " selected" : "")?>><?=$k?> <?=GetMessage('VI_CONFIG_CALLBACK_REDIAL_PERIOD_SECONDS')?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 						</div>
 					</div>
@@ -542,11 +542,11 @@ if ($arResult['IFRAME'])
 			<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_EDIT_WORKTIME")?></div>
 			<div class="tel-set-item">
 				<div class="tel-set-item-num">
-					&nbsp;<input type="checkbox" name="WORKTIME_ENABLE" id="WORKTIME_ENABLE" class="tel-set-checkbox" value="Y" <?if ($arResult["ITEM"]["WORKTIME_ENABLE"] === "Y"):?>checked="checked"<?endif?>/>
+					&nbsp;<input type="checkbox" name="WORKTIME_ENABLE" id="WORKTIME_ENABLE" class="tel-set-checkbox" value="Y" <?php if ($arResult["ITEM"]["WORKTIME_ENABLE"] === "Y"):?>checked="checked"<?php endif?>/>
 				</div>
 				<div class="tel-set-item-cont-block">
 					<label for="WORKTIME_ENABLE" class="tel-set-cont-item-title"><?=GetMessage("VI_CONFIG_EDIT_WORKTIME_ENABLE")?></label>
-					<div class="tel-set-item-cont tel-set-item-crm-rule" id="vi_worktime" <?if ($arResult["ITEM"]["WORKTIME_ENABLE"] == "Y"):?>style="height: auto"<?endif?>>
+					<div class="tel-set-item-cont tel-set-item-crm-rule" id="vi_worktime" <?php if ($arResult["ITEM"]["WORKTIME_ENABLE"] == "Y"):?>style="height: auto"<?php endif?>>
 						<table>
 							<tr>
 								<td>
@@ -555,15 +555,15 @@ if ($arResult['IFRAME'])
 								<td>&nbsp; &mdash; &nbsp;</td>
 								<td>
 									<select name="WORKTIME_TIMEZONE" class="tel-set-inp tel-set-item-select">
-										<?if (is_array($arResult["TIME_ZONE_LIST"]) && !empty($arResult["TIME_ZONE_LIST"])):?>
-											<?foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
+										<?php if (is_array($arResult["TIME_ZONE_LIST"]) && !empty($arResult["TIME_ZONE_LIST"])):?>
+											<?php foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
 												<option value="<?=htmlspecialcharsbx($tz)?>"<?=($arResult["ITEM"]["WORKTIME_TIMEZONE"] == $tz? ' selected="selected"' : '')?>><?=htmlspecialcharsbx($tz_name)?></option>
-											<?endforeach?>
-										<?endif?>
+											<?php endforeach?>
+										<?php endif?>
 									</select>
 								</td>
 							</tr>
-							<?if (!empty($arResult["WORKTIME_LIST_FROM"]) && !empty($arResult["WORKTIME_LIST_TO"])):?>
+							<?php if (!empty($arResult["WORKTIME_LIST_FROM"]) && !empty($arResult["WORKTIME_LIST_TO"])):?>
 							<tr>
 								<td>
 									<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_WORKTIME_TIME")?></div>
@@ -571,19 +571,19 @@ if ($arResult['IFRAME'])
 								<td>&nbsp; &mdash; &nbsp;</td>
 								<td>
 									<select name="WORKTIME_FROM" class="tel-set-inp tel-set-item-select" style="min-width: 70px">
-										<?foreach($arResult["WORKTIME_LIST_FROM"] as $key => $val):?>
-											<option value="<?= $key?>" <?if ($arResult["ITEM"]["WORKTIME_FROM"] == $key) echo ' selected="selected" ';?>><?= $val?></option>
-										<?endforeach;?>
+										<?php foreach($arResult["WORKTIME_LIST_FROM"] as $key => $val):?>
+											<option value="<?= $key?>" <?php if ($arResult["ITEM"]["WORKTIME_FROM"] == $key) echo ' selected="selected" ';?>><?= $val?></option>
+										<?php endforeach;?>
 									</select>
 									&nbsp; &mdash; &nbsp;
 									<select name="WORKTIME_TO" class="tel-set-inp tel-set-item-select" style="min-width: 70px">
-										<?foreach($arResult["WORKTIME_LIST_TO"] as $key => $val):?>
-											<option value="<?= $key?>" <?if ($arResult["ITEM"]["WORKTIME_TO"] == $key) echo ' selected="selected" ';?>><?= $val?></option>
-										<?endforeach;?>
+										<?php foreach($arResult["WORKTIME_LIST_TO"] as $key => $val):?>
+											<option value="<?= $key?>" <?php if ($arResult["ITEM"]["WORKTIME_TO"] == $key) echo ' selected="selected" ';?>><?= $val?></option>
+										<?php endforeach;?>
 									</select>
 								</td>
 							</tr>
-							<?endif?>
+							<?php endif?>
 
 							<tr>
 								<td>
@@ -592,9 +592,9 @@ if ($arResult['IFRAME'])
 								<td>&nbsp; &mdash; &nbsp;</td>
 								<td>
 									<select size="7" multiple name="WORKTIME_DAYOFF[]" class="tel-set-inp tel-set-item-select-multiple ">
-										<?foreach($arResult["WEEK_DAYS"] as $day):?>
+										<?php foreach($arResult["WEEK_DAYS"] as $day):?>
 											<option value="<?=$day?>" <?=(is_array($arResult["ITEM"]["WORKTIME_DAYOFF"]) && in_array($day, $arResult["ITEM"]["WORKTIME_DAYOFF"]) ? ' selected="selected"' : '')?>><?= GetMessage('VI_CONFIG_WEEK_'.$day)?></option>
-										<?endforeach;?>
+										<?php endforeach;?>
 									</select>
 								</td>
 							</tr>
@@ -617,16 +617,16 @@ if ($arResult['IFRAME'])
 								<td>&nbsp; &mdash; &nbsp;</td>
 								<td>
 									<select name="WORKTIME_DAYOFF_RULE" id="WORKTIME_DAYOFF_RULE" class="tel-set-inp tel-set-item-select">
-										<?if($arResult['SHOW_RULE_VOICEMAIL']):?>
+										<?php if($arResult['SHOW_RULE_VOICEMAIL']):?>
 											<option value="<?=CVoxImplantIncoming::RULE_VOICEMAIL?>"<?=(CVoxImplantIncoming::RULE_VOICEMAIL == $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_NO_ANSWER_ACTION_2")?></option>
-										<?endif?>
+										<?php endif?>
 										<option value="<?=CVoxImplantIncoming::RULE_PSTN_SPECIFIC?>"<?=(CVoxImplantIncoming::RULE_PSTN_SPECIFIC == $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_NO_ANSWER_ACTION_5")?></option>
 										<option value="<?=CVoxImplantIncoming::RULE_HUNGUP?>"<?=(CVoxImplantIncoming::RULE_HUNGUP == $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_NO_ANSWER_ACTION_4")?></option>
 									</select>
 								</td>
 							</tr>
 
-							<tr id="vi_dayoff_number" <?if (CVoxImplantIncoming::RULE_PSTN_SPECIFIC != $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"]):?>style="display: none"<?endif?>>
+							<tr id="vi_dayoff_number" <?php if (CVoxImplantIncoming::RULE_PSTN_SPECIFIC != $arResult["ITEM"]["WORKTIME_DAYOFF_RULE"]):?>style="display: none"<?php endif?>>
 								<td>
 									<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_WORKTIME_DAYOFF_NUMBER")?></div>
 								</td>
@@ -636,7 +636,7 @@ if ($arResult['IFRAME'])
 								</td>
 							</tr>
 
-							<?
+							<?php 
 							$dayOffMelody = array(
 								"MELODY" => (array_key_exists("~WORKTIME_DAYOFF_MELODY", $arResult["ITEM"]) ? $arResult["ITEM"]["~WORKTIME_DAYOFF_MELODY"]["SRC"] : str_replace("#LANG_ID#", $arResult["ITEM"]["MELODY_LANG"], $defaultM["MELODY_VOICEMAIL"])),
 								"MELODY_ID" => $arResult["ITEM"]["WORKTIME_DAYOFF_MELODY"],
@@ -645,7 +645,7 @@ if ($arResult['IFRAME'])
 							);
 							$id = "voximplant_dayoff";
 							?>
-							<?if($arResult['SHOW_MELODIES']):?>
+							<?php if($arResult['SHOW_MELODIES']):?>
 							<tr>
 								<td colspan="3">
 									<div id="vi-dayoff-melody" class="tel-set-item-cont tel-dayoff-melody <?=$arResult["ITEM"]["WORKTIME_DAYOFF_RULE"] == CVoxImplantIncoming::RULE_VOICEMAIL ? 'tel-dayoff-melody-visible' : ''?>">
@@ -653,7 +653,7 @@ if ($arResult['IFRAME'])
 										<div class="tel-set-item-text"><?=GetMessage("VI_CONFIG_EDIT_WORKTIME_DAYOFF_MELODY_TEXT")?></div>
 										<div class="tel-set-melody-block">
 											<span class="tel-set-player-wrap">
-												<?$APPLICATION->IncludeComponent(
+												<?php $APPLICATION->IncludeComponent(
 													"bitrix:player",
 													"",
 													Array(
@@ -695,7 +695,7 @@ if ($arResult['IFRAME'])
 												);?>
 											</span>
 											<span class="tel-set-file-wrap">
-												<?$APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
+												<?php $APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
 													array(
 														'INPUT_CAPTION' => GetMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE"),
 														'INPUT_NAME' => $dayOffMelody["INPUT_NAME"],
@@ -719,7 +719,7 @@ if ($arResult['IFRAME'])
 														<?=GetMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE_TIP")?>
 													</span>
 												</span>
-												<span class="tel-set-melody-item" id="<?=$id?>default" <?if ($dayOffMelody["MELODY_ID"] <= 0) { ?> style="display:none;" <? } ?>>
+												<span class="tel-set-melody-item" id="<?=$id?>default" <?php if ($dayOffMelody["MELODY_ID"] <= 0) { ?> style="display:none;" <?php  } ?>>
 													<span class="tel-set-item-melody-link"><?=GetMessage("VI_CONFIG_EDIT_SET_DEFAULT_TUNE")?></span>
 												</span>
 											</span>
@@ -727,13 +727,13 @@ if ($arResult['IFRAME'])
 									</div>
 								</td>
 							</tr>
-							<?endif?>
+							<?php endif?>
 						</table>
 					</div>
 				</div>
 			</div>
 		</div>
-		<? $melodiesToLoad[$id] = $dayOffMelody; ?>
+		<?php  $melodiesToLoad[$id] = $dayOffMelody; ?>
 		<script>
 			BX.ready(function(){
 				BX.bind(BX('WORKTIME_ENABLE'), 'change', function(e){
@@ -772,19 +772,19 @@ if ($arResult['IFRAME'])
 		</script>
 		<!-- //work time-->
 
-		<?if(!empty($arResult["SIP_CONFIG"]) && !empty($arResult['FORWARD_LINES'])):?>
+		<?php if(!empty($arResult["SIP_CONFIG"]) && !empty($arResult['FORWARD_LINES'])):?>
 		<div class="tel-set-cont-block">
 			<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_EDIT_FORWARD_TITLE")?></div>
 			<div class="tel-set-item">
 				<div class="tel-set-item-num">
-					&nbsp;<input type="checkbox" name="FORWARD_LINE_ENABLED" id="FORWARD_LINE_ENABLED" class="tel-set-checkbox" value="Y" <?if ($arResult["ITEM"]["FORWARD_LINE"] !== CVoxImplantConfig::FORWARD_LINE_DEFAULT):?>checked="checked"<?endif?>/>
+					&nbsp;<input type="checkbox" name="FORWARD_LINE_ENABLED" id="FORWARD_LINE_ENABLED" class="tel-set-checkbox" value="Y" <?php if ($arResult["ITEM"]["FORWARD_LINE"] !== CVoxImplantConfig::FORWARD_LINE_DEFAULT):?>checked="checked"<?php endif?>/>
 				</div>
 				<div class="tel-set-item-cont-block">
 					<label for="FORWARD_LINE_ENABLED" class="tel-set-cont-item-title">
 						<?=GetMessage("VI_CONFIG_EDIT_FORWARD_NUMBER")?>
 						<span class="tel-set-cont-item-title-description"><?=GetMessage("VI_CONFIG_EDIT_FORWARD_NUMBER_TIP")?></span>
 					</label>
-					<div class="tel-set-item-cont tel-set-item-crm-rule" id="vi_forward_number-box" <?if ($arResult["ITEM"]["FORWARD_LINE"] !== CVoxImplantConfig::FORWARD_LINE_DEFAULT):?>style="height: auto"<?endif?>>
+					<div class="tel-set-item-cont tel-set-item-crm-rule" id="vi_forward_number-box" <?php if ($arResult["ITEM"]["FORWARD_LINE"] !== CVoxImplantConfig::FORWARD_LINE_DEFAULT):?>style="height: auto"<?php endif?>>
 						<table>
 							<tr>
 								<td>
@@ -793,9 +793,9 @@ if ($arResult['IFRAME'])
 								<td>&nbsp; &mdash; &nbsp;</td>
 								<td>
 									<select name="FORWARD_LINE" class="tel-set-inp tel-set-item-select">
-										<?foreach ($arResult['FORWARD_LINES'] as $k => $v):?>
-										<option value="<?=$k?>" <? if ($arResult["ITEM"]["FORWARD_LINE"] == $k): ?> selected <? endif; ?>><?=$v?></option>
-										<?endforeach;?>
+										<?php foreach ($arResult['FORWARD_LINES'] as $k => $v):?>
+										<option value="<?=$k?>" <?php  if ($arResult["ITEM"]["FORWARD_LINE"] == $k): ?> selected <?php  endif; ?>><?=$v?></option>
+										<?php endforeach;?>
 									</select>
 								</td>
 							</tr>
@@ -820,7 +820,7 @@ if ($arResult['IFRAME'])
 				});
 			});
 		</script>
-		<?endif;?>
+		<?php endif;?>
 		<div class="tel-set-cont-block">
 			<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_NUMBER_USAGE_FOR_OUTGOING_CALL")?></div>
 			<div class="tel-set-item">
@@ -829,17 +829,17 @@ if ($arResult['IFRAME'])
 						   class="tel-set-checkbox" value="Y"
 						   type="checkbox"
 						   name="CAN_BE_SELECTED"
-						   <?if ($arResult["ITEM"]["CAN_BE_SELECTED"] === "Y"):?>checked="checked"<?endif?>
+						   <?php if ($arResult["ITEM"]["CAN_BE_SELECTED"] === "Y"):?>checked="checked"<?php endif?>
 						   data-locked="<?=(\Bitrix\Voximplant\Limits::canSelectLine() ? "N" : "Y")?>"
 					/>
 				</div>
 				<div class="tel-set-item-cont-block">
 					<label for="vi_can_be_selected" class="tel-set-cont-item-title"><?=GetMessage("VI_CONFIG_ALLOW_TO_SELECT_NUMBER_FOR_OUTGOING_CALL")?></label>
-					<?if (!\Bitrix\Voximplant\Limits::canSelectLine() || CVoxImplantAccount::IsDemo()):?>
+					<?php if (!\Bitrix\Voximplant\Limits::canSelectLine() || CVoxImplantAccount::IsDemo()):?>
 						<div class="tel-lock-holder-select" title="<?=GetMessage("VI_CONFIG_LOCK_ALT")?>">
 							<div onclick="BX.Voximplant.showLicensePopup('line-selection')" class="tel-lock <?=(CVoxImplantAccount::IsDemo()? 'tel-lock-demo': '')?>"></div>
 						</div>
-					<?endif;?>
+					<?php endif;?>
 					<div id="vi_number_selection_option" class="tel-set-height-animated" style="max-height: <?= ($arResult["ITEM"]["CAN_BE_SELECTED"] === "Y" ? '250px' : '0')?>">
 						<div class="tel-set-item-select-block">
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_LINE_PREFIX")?></div>
@@ -863,7 +863,7 @@ if ($arResult['IFRAME'])
 		</div>
 
 		<!-- melody -->
-		<?if($arResult['SHOW_MELODIES']):?>
+		<?php if($arResult['SHOW_MELODIES']):?>
 		<div class="tel-set-cont-block">
 			<div class="tel-set-cont-title"><?=GetMessage("VI_CONFIG_EDIT_TUNES")?></div>
 			<div class="tel-set-item">
@@ -873,15 +873,15 @@ if ($arResult['IFRAME'])
 						<div class="tel-set-item-select-block">
 							<div class="tel-set-item-select-text"><?=GetMessage("VI_CONFIG_EDIT_TUNES_LANGUAGE")?></div>
 							<select class="tel-set-inp tel-set-item-select" name="MELODY_LANG">
-								<?foreach (CVoxImplantConfig::GetMelodyLanguages() as $k):?>
+								<?php foreach (CVoxImplantConfig::GetMelodyLanguages() as $k):?>
 									<option value="<?=$k?>"<?=($k == $arResult["ITEM"]["MELODY_LANG"] ? " selected" : "")?>><?=GetMessage("VI_CONFIG_EDIT_TUNES_LANGUAGE_".$k)?></option>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</select>
 						</div>
 					</div>
 				</div>
 			</div>
-<?
+<?php 
 $melodies = array(
 	array(
 		array(
@@ -955,23 +955,23 @@ $melodies = array(
 );
 
 foreach ($melodies as $ii => $group):?>
-	<?if ($ii == 0):?>
+	<?php if ($ii == 0):?>
 	<div class="tel-melody-group tel-melody-group-<?=$ii?>">
-	<?else:?>
+	<?php else:?>
 	<div class="tel-melody-group-open"><span class="ui-btn ui-btn-light-border" onclick="viShowMelodyGroup(this)"><?=GetMessage('VI_CONFIG_MORE_TONES')?></span></div>
 	<div class="tel-melody-group tel-melody-group-hide tel-melody-group-<?=$ii?>">
-	<?endif?>
-<?
+	<?php endif?>
+<?php 
 	foreach ($group as $i => $melody):
 	$id = 'voximplant'.$ii.$i;
 	CHTTP::URN2URI($APPLICATION->GetCurPageParam("mfi_mode=down&fileID=".$fileID."&cid=".$cid."&".bitrix_sessid_get(), array("mfi_mode", "fileID", "cid")))
 ?>
 			<div class="tel-set-item tel-set-item-border">
 				<div class="tel-set-item-num">
-					<?if (array_key_exists("CHECKBOX", $melody)):?>
+					<?php if (array_key_exists("CHECKBOX", $melody)):?>
 					<input name="<?=$melody["CHECKBOX"]?>" type="hidden" value="N" />
-					<input type="checkbox" id="checkbox<?=$melody["CHECKBOX"]?>" name="<?=$melody["CHECKBOX"]?>" class="tel-set-checkbox" value="Y" <? if ($arResult["ITEM"][$melody["CHECKBOX"]] == "Y"): ?> checked <? endif; ?> style="margin-top: 3px;" />
-					<?endif;?>
+					<input type="checkbox" id="checkbox<?=$melody["CHECKBOX"]?>" name="<?=$melody["CHECKBOX"]?>" class="tel-set-checkbox" value="Y" <?php  if ($arResult["ITEM"][$melody["CHECKBOX"]] == "Y"): ?> checked <?php  endif; ?> style="margin-top: 3px;" />
+					<?php endif;?>
 				</div>
 				<div class="tel-set-item-cont-block">
 					<label class="tel-set-cont-item-title" for="checkbox<?=$melody["CHECKBOX"]?>"><?=$melody["TITLE"]?></label>
@@ -979,7 +979,7 @@ foreach ($melodies as $ii => $group):?>
 						<div class="tel-set-item-text"><?=$melody["TIP"]?></div>
 						<div class="tel-set-melody-block">
 							<span class="tel-set-player-wrap">
-								<?
+								<?php 
 
 								$APPLICATION->IncludeComponent(
 									"bitrix:player",
@@ -1023,7 +1023,7 @@ foreach ($melodies as $ii => $group):?>
 								);?>
 							</span>
 							<span class="tel-set-file-wrap">
-								<?$APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
+								<?php $APPLICATION->IncludeComponent('bitrix:main.file.input', '.default',
 									array(
 										'INPUT_NAME' => $melody["INPUT_NAME"],
 										'INPUT_VALUE' => array($melody["MELODY_ID"]),
@@ -1040,9 +1040,9 @@ foreach ($melodies as $ii => $group):?>
 								);?>
 								<span class="tel-set-melody-item" id="<?=$id?>span">
 									<span class="tel-set-item-melody-link tel-set-item-melody-link-active"><?=GetMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE")?></span>
-									<span class="tel-set-melody-description" id="<?=$id?>notice" <?if ($melody["MELODY_ID"] > 0) { ?> style="display:none;" <? } ?>><?=GetMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE_TIP")?></span>
+									<span class="tel-set-melody-description" id="<?=$id?>notice" <?php if ($melody["MELODY_ID"] > 0) { ?> style="display:none;" <?php  } ?>><?=GetMessage("VI_CONFIG_EDIT_DOWNLOAD_TUNE_TIP")?></span>
 								</span>
-								<span class="tel-set-melody-item" id="<?=$id?>default" <?if ($melody["MELODY_ID"] <= 0) { ?> style="display:none;" <? } ?>>
+								<span class="tel-set-melody-item" id="<?=$id?>default" <?php if ($melody["MELODY_ID"] <= 0) { ?> style="display:none;" <?php  } ?>>
 									<span class="tel-set-item-melody-link"><?=GetMessage("VI_CONFIG_EDIT_SET_DEFAULT_TUNE")?></span>
 								</span>
 							</span>
@@ -1057,10 +1057,10 @@ foreach ($melodies as $ii => $group):?>
 				BX.remove(button.parentNode);
 			}
 			</script>
-		<? $melodiesToLoad[$id] = $melody; ?>
-	<?endforeach;?>
+		<?php  $melodiesToLoad[$id] = $melody; ?>
+	<?php endforeach;?>
 </div>
-<?endforeach;?>
+<?php endforeach;?>
 			<div class="tel-set-item tel-set-item-border">
 				<div class="tel-set-item-cont-block">
 					<div class="tel-set-item-alert">
@@ -1070,7 +1070,7 @@ foreach ($melodies as $ii => $group):?>
 			</div>
 		</div>
 <!-- //melody -->
-		<?endif;?>
+		<?php endif;?>
 		<div class="tel-set-footer-btn">
 			<span class="ui-btn ui-btn-success" data-role="config-edit-submit"><?=GetMessage("VI_CONFIG_EDIT_SAVE")?></span>
 			<a href="<?=CVoxImplantMain::GetPublicFolder()?>lines.php?MODE=<?=$arResult["ITEM"]["PORTAL_MODE"] ?><?=$arResult['IFRAME'] ? '&IFRAME=Y' : ''?>"
@@ -1131,10 +1131,10 @@ foreach ($melodies as $ii => $group):?>
 		})
 	});
 
-	<?if($arResult["SIP_CONFIG"]['TYPE'] == CVoxImplantSip::TYPE_CLOUD):?>
+	<?php if($arResult["SIP_CONFIG"]['TYPE'] == CVoxImplantSip::TYPE_CLOUD):?>
 		new BX.Voximplant.Sip(<?=(int)$arResult['SIP_CONFIG']['REG_ID']?>);
-	<?endif?>
-	<?if($arResult['ITEM']['PORTAL_MODE'] == CVoxImplantConfig::MODE_LINK):?>
+	<?php endif?>
+	<?php if($arResult['ITEM']['PORTAL_MODE'] == CVoxImplantConfig::MODE_LINK):?>
 		BX.ready(function(){
 			BX.ViCallerId.init({
 				'placeholder': BX('backphone-placeholder'),
@@ -1144,5 +1144,5 @@ foreach ($melodies as $ii => $group):?>
 				'verifiedUntil': "<?=$arResult['CALLER_ID']['VERIFIED_UNTIL']?>"
 			});
 		});
-	<?endif?>
+	<?php endif?>
 </script>

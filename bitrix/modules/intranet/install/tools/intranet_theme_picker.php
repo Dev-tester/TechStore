@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/theme_picker.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/tools/theme_picker.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MESSAGE_COUNT_TIP'] = "The number of blog posts whose data will be exported in the required format.";
 $MESS ['PATH_TO_POST_TIP'] = "The path to a blog post details page. Example: <nobr>/blog/blog_post.php?page=post&blog=#blog#&post_id=#post_id#.</nobr>";
 $MESS ['PATH_TO_USER_TIP'] = "The path to a user profile page. Example: <nobr>: /blog/blog_user.php?page=user&user_id=#user_id#.</nobr>";

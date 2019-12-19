@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DATE'] = "Дата";
 $MESS ['SALE_COUNT'] = "Общее количество";
 $MESS ['SALE_PAYED_PROC'] = "Оплаченных (%)";

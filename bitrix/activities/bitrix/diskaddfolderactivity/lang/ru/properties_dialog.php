@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDAF_PD_ENTITY"] = "Где создать";
 $MESS["BPDAF_PD_ENTITY_TYPE_USER"] = "Диск пользователя";
 $MESS["BPDAF_PD_ENTITY_TYPE_SG"] = "Диск группы соц.сети";

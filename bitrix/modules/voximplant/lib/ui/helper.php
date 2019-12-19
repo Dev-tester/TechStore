@@ -69,7 +69,7 @@ class Helper
 						};
 					BX.CrmEntityType.setCaptions(<?=\CUtil::PhpToJSObject(\CCrmOwnerType::GetJavascriptDescriptions())?>);
 				}
-			);<?
+			);<?php 
 			foreach($entitySelectors as $entitySelector)
 			{
 				$selectorID = $entitySelector['ID'];
@@ -90,9 +90,9 @@ class Helper
 						}
 					);
 				}
-			);<?
+			);<?php 
 			}
-			?></script><?
+			?></script><?php 
 		}
 		//endregion
 		//region User Selectors
@@ -115,7 +115,7 @@ class Helper
 				null,
 				array('HIDE_ICONS' => 'Y')
 			);
-			?><script type="text/javascript"><?
+			?><script type="text/javascript"><?php 
 
 
 		foreach($userSelectors as $userSelector)
@@ -133,9 +133,9 @@ class Helper
 						}
 					);
 				}
-			);<?
+			);<?php 
 			}
-			?></script><?
+			?></script><?php 
 		}
 	}
 

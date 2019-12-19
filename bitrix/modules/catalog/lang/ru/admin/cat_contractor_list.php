@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTRACTOR_PAGE_TITLE"] = "Список поставщиков";
 $MESS["CONTRACTOR_ADD_NEW"] = "Добавить поставщика";
 $MESS["CONTRACTOR_ADD_NEW_ALT"] = "Добавить нового поставщика";

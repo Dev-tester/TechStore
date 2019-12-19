@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_SECTION_ADD'] = "Создать папку";
 $MESS ['WD_SECTION_ADD_ALT'] = "Создать вложенную папку";
 $MESS ['WD_ELEMENT_ADD'] = "Создать";

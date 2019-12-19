@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_TRANSCRIPT_RESUME'] = "Резюме";
 $MESS ['LEARNING_TRANSCRIPT_CERTIFIFCATIONS'] = "Сертификаты";
 $MESS ['LEARNING_TRANSCRIPT_NO_DATA'] = "Нет сертификатов";

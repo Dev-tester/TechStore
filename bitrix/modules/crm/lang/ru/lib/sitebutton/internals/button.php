@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BUTTON_LOCATION_TOP_LEFT"] = "Сверху слева";
 $MESS["CRM_BUTTON_LOCATION_TOP_MIDDLE"] = "Сверху по центру";
 $MESS["CRM_BUTTON_LOCATION_TOP_RIGHT"] = "Сверху справа";

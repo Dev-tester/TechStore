@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SAPP_PATH_TO_BASKET'] = "Путь к корзине";
 $MESS ['SAPP_PATH_TO_PAYMENT'] = "Путь к странице оплат";
 $MESS ['SAPP_REFRESHED_COMPONENT_MODE'] = "Включить обновленную версию компонента";

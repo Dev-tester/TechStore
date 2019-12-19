@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CMDESKTOP_PARAMS_ID'] = "Идентификатор";
 $MESS ['CMDESKTOP_PARAMS_CAN_EDIT'] = "Разрешить настраивать рабочий стол всем авторизованным пользователям";
 $MESS ['CMDESKTOP_PARAMS_COLUMNS'] = "Количество столбцов";

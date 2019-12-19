@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\UI\Uploader;
 use Bitrix\Main\AccessDeniedException;
 use Bitrix\Main\ArgumentOutOfRangeException;
@@ -299,7 +299,7 @@ class Uploader
 		if (!$directoryExists)
 		{
 			$access = \CBXVirtualIo::GetInstance()->GetFile($directory->GetPath()."/.access.php");
-			$content = '<?$PERM["'.$directory->GetName().'"]["*"]="X";?>';
+			$content = '<?php $PERM["'.$directory->GetName().'"]["*"]="X";?>';
 
 			if (!$access->IsExists() || strpos($access->GetContents(), $content) === false)
 			{

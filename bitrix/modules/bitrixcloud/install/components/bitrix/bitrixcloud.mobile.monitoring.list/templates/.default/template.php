@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $itemsCount = count($arResult["ITEMS"]);
 $converter = CBXPunycode::GetConverter();
@@ -33,23 +33,23 @@ else
 		<div class="status <?=$statusClass?>">
 			<div class="<?=$iconStyle?><?=($itemsCount > 2 ? " imgtoleft" : "")?>"></div>
 			<p<?=($itemsCount > 2 ? " style=\"text-align: left;padding-top:6px;\"" : "")?>>
-				<?if($arResult["HAVE_PROBLEM"] == true && isset($arResult["LOST_SUMM"])):?>
+				<?php if($arResult["HAVE_PROBLEM"] == true && isset($arResult["LOST_SUMM"])):?>
 					<?=$arResult["COUNT_INTERVAL"]?><br>
 					<strong <?=($itemsCount > 2 ? "style = \"font-size: 30px;text-align: left;color: #33290e;\"" : "")?>>
 						<?=$arResult["LOST_SUMM"]?>
 					</strong>
-				<?else:?>
+				<?php else:?>
 					<?=GetMessage("BCLMMSL_MONITORING_NO_PROBS")?>
-				<?endif;?>
+				<?php endif;?>
 			</p>
 		</div>
 
 		<div class="sitelist <?=$siteListClass?>">
 			<ul>
-				<?foreach ($arResult["ITEMS"] as $domainName => $params):?>
-					<?if($arResult["HAVE_PROBLEM"]):?>
-						<?foreach ($params as $paramId => $state):?>
-							<?if(isset($state["PROBLEM"]) && $state["PROBLEM"] == true):?>
+				<?php foreach ($arResult["ITEMS"] as $domainName => $params):?>
+					<?php if($arResult["HAVE_PROBLEM"]):?>
+						<?php foreach ($params as $paramId => $state):?>
+							<?php if(isset($state["PROBLEM"]) && $state["PROBLEM"] == true):?>
 								<li class="sitestatus bad domain">
 									<a href="<?=$params["DETAIL_LINK"]?>">
 										<?=$converter->Decode($domainName)?>
@@ -63,12 +63,12 @@ else
 										</span>
 									</a>
 								</li>
-							<?endif;?>
-						<?endforeach;?>
-					<?else:?>
+							<?php endif;?>
+						<?php endforeach;?>
+					<?php else:?>
 						<li class="sitestatus good"><a href="<?=$params["DETAIL_LINK"]?>"><?=$converter->Decode($domainName)?></a></li>
-					<?endif;?>
-				<?endforeach;?>
+					<?php endif;?>
+				<?php endforeach;?>
 			</ul>
 		</div>
 

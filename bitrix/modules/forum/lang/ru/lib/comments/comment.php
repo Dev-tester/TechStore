@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_CM_ERR_EMPTY_TEXT"] = "Не указан текст комментария.";
 $MESS["FORUM_CM_ERR_EMPTY_AUTHORS_NAME"] = "Не указано имя автора.";
 $MESS["FORUM_CM_ERR_COMMENT_IS_LOST1"] = "Комментарий для редактирования не найден.";

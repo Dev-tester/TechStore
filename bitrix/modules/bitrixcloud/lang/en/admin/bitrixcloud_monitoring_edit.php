@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_MONITORING_DOMAIN"] = "Domain";
 $MESS["BCL_MONITORING_EMAIL"] = "Send alerts to e-mail";
 $MESS["BCL_MONITORING_ADD_BTN"] = "Add";

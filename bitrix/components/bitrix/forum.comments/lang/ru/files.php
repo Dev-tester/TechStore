@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_ATTACH_FILES"] = "Прикрепленные файлы";
 $MESS ['F_DOWNLOAD'] = "Скачать";
 $MESS ['F_FILE_EXTENSION'] = "Разрешенные расширения файлов: #EXTENSION#.";

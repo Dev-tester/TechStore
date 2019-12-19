@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_SECURITY_EDIT_USER_OTP"] = "Manage One-Time Passwords";
 $MESS["OP_NAME_SECURITY_FILTER_BYPASS"] = "Bypass Proactive Filter";
 $MESS["OP_NAME_SECURITY_MODULE_SETTINGS_READ"] = "View Module Settings";

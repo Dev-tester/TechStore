@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_ENTITY_ID_MISSING"] = "The entity is not defined.";
 $MESS["USER_TYPE_ENTITY_ID_TOO_LONG1"] = "The entity identifier is too long (exceeds 50 symbols).";
 $MESS["USER_TYPE_ENTITY_ID_INVALID"] = "The entity identifier contains invalid symbols. Valid symbols are: A-Z, 0-9 and _.";

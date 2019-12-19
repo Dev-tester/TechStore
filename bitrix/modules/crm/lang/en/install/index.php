@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_UNINS_MODULE_SALE"] = "The CRM module requires the \"Online Store\" module to be installed.<br />Please install the module before proceeding.";
 $MESS["CRM_INSTALL_NAME"] = "CRM";
 $MESS["CRM_TOP_LINKS_ITEM_NAME"] = "CRM";

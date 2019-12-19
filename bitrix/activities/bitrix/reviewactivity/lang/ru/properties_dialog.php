@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAR_PD_REVIEWERS"] = "Ознакомить пользователей";
 $MESS["BPAR_PD_DESCR"] = "Описание задания";
 $MESS["BPAR_PD_NAME"] = "Название задания";

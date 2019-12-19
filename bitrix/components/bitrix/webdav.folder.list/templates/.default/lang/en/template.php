@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_TITLE_TIMESTAMP'] = "Modif.";
 $MESS ['WD_TITLE_NAME'] = "Name";
 $MESS ['WD_TITLE_FILE_SIZE'] = "Size";

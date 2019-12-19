@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTION_VARIABLE_TIP"] = "Specifies the name of a variable that contains the action identifier: processOrder, showOrder etc. Default value: <i>action</i>.";
 $MESS["ALLOW_APPEND_ORDER_TIP"] = "If a user with the specified e-mail already exists, the new order will be attached to the existing account.
 If the option is unchecked, the user already exists error will pop up.";

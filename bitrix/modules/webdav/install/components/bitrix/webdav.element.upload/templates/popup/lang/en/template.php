@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_DROP_CONFIRM"] = "Are you sure you want to delete the folder #NAME# irreversibly?";
 $MESS["WD_NAME"] = "Name";
 $MESS["WD_DROP_SECTION"] = "Delete Folder #NAME#";

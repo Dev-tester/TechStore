@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SM_AUTH_ERR"] = "Authorization error";
 $MESS["SONET_SM_ENTITY_ID_EMPTY"] = "The entity ID is missing.";
 $MESS["SONET_SM_ENTITY_ID_INCORRECT"] = "The entity ID is incorrect.";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 // TODO: Get rid of this code and put it to the detail_list component
 if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_REQUEST["from_detail_list"]))
@@ -168,7 +168,7 @@ div.photo-body-text-ajax{
 	text-align:center;}
 </style>
 
-<?
+<?php 
 	$arResult["MENU_VARIABLES"] = $this->__component->__photogallery_values;
 	if (!is_array($arResult["MENU_VARIABLES"]))
 	{

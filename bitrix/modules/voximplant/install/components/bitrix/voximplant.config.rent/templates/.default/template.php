@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CJSCore::RegisterExt('voximplant_config_rent', array(
@@ -15,11 +15,11 @@ if($isBitrix24Template)
 }
 ?>
 <div class="pagetitle-container pagetitle-align-right-container">
-	<? if($arResult['RENT_PACKET_SIZE'] > 1): ?>
+	<?php  if($arResult['RENT_PACKET_SIZE'] > 1): ?>
 		<a class="ui-btn ui-btn-default" onclick="top.BX.Helper.show('redirect=detail&code=9079921');"><?=GetMessage("VI_CONFIG_RENT_PACKET_DETAILS")?></a>
-	<? endif ?>
+	<?php  endif ?>
 </div>
-<?
+<?php 
 
 if($isBitrix24Template)
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DOCUMENT_ROOT, $MESS;
 
 IncludeModuleLangFile(__FILE__);

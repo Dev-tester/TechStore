@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ALL"] = "Всего";
 $MESS["CRM_CALENDAR_SHOW_TITLE"] = "Просмотреть звонок/встречу";
 $MESS["CRM_CALENDAR_SHOW"] = "Просмотреть звонок/встречу";

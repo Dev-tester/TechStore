@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_VK_PROFILE_ID_FIELD"] = "ID";
 $MESS["TP_VK_PROFILE_DESCRIPTION_FIELD"] = "Название";
 $MESS["TP_VK_PROFILE_PLATFORM_ID_FIELD"] = "ID торговой платформы";

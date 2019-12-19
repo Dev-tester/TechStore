@@ -23,17 +23,17 @@ $this->addExternalJs($this->GetFolder() . '/template.js');
 			window.location = "<?=\CUtil::JSEscape($APPLICATION->GetCurPageParam('', ['IFRAME'])); ?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
-	<title><?$APPLICATION->ShowTitle()?></title>
-	<?if ($arParams['EDITABLE_TITLE_SELECTOR']):?>
+	<?php $APPLICATION->ShowHead();?>
+	<title><?php $APPLICATION->ShowTitle()?></title>
+	<?php if ($arParams['EDITABLE_TITLE_SELECTOR']):?>
 		<style>
 			<?=$arParams['EDITABLE_TITLE_SELECTOR']?> {
 				display: none;
 			}
 		</style>
-	<?endif;?>
+	<?php endif;?>
 
-	<?
+	<?php 
 	if ($arResult["SHOW_BITRIX24_THEME"] == "Y")
 	{
 		$themePicker = new ThemePicker(SITE_TEMPLATE_ID, false, $arParams["POPUP_COMPONENT_BITRIX24_THEME_FOR_USER_ID"]);
@@ -42,7 +42,7 @@ $this->addExternalJs($this->GetFolder() . '/template.js');
 	?>
 </head>
 
-<?
+<?php 
 $bodyClass = "ui-page-slider-wrapper";
 if (!$arParams['PLAIN_VIEW'])
 {
@@ -60,46 +60,46 @@ else
 	$bodyClass .= " ui-page-slider-wrapper-default-theme";
 }
 ?>
-<body class="<?=$bodyClass?> <?$APPLICATION->ShowProperty('BodyClass');?>">
-<?
+<body class="<?=$bodyClass?> <?php $APPLICATION->ShowProperty('BodyClass');?>">
+<?php 
 if ($arResult["SHOW_BITRIX24_THEME"] == "Y")
 {
 	$themePicker->showBodyAssets();
 }
 ?>
-	<div id="left-panel"><? $APPLICATION->ShowViewContent("left-panel"); ?></div>
-	<div class="pagetitle-above"><?$APPLICATION->ShowViewContent("above_pagetitle")?></div>
-	<? if(!isset($arParams['USE_UI_TOOLBAR']) || $arParams['USE_UI_TOOLBAR'] !== 'Y')
+	<div id="left-panel"><?php  $APPLICATION->ShowViewContent("left-panel"); ?></div>
+	<div class="pagetitle-above"><?php $APPLICATION->ShowViewContent("above_pagetitle")?></div>
+	<?php  if(!isset($arParams['USE_UI_TOOLBAR']) || $arParams['USE_UI_TOOLBAR'] !== 'Y')
 	{
 	?>
 		<div class="pagetitle-wrap" style="<?=($arParams['PLAIN_VIEW'] ? 'display: none;' : '')?>">
 			<div class="pagetitle-inner-container">
 				<div class="pagetitle-menu pagetitle-last-item-in-a-row" id="pagetitle-menu">
-					<? $APPLICATION->ShowViewContent("pagetitle"); ?>
+					<?php  $APPLICATION->ShowViewContent("pagetitle"); ?>
 				</div>
 				<div class="pagetitle">
-					<span id="pagetitle" class="pagetitle-item"><? $APPLICATION->ShowTitle(); ?></span>
+					<span id="pagetitle" class="pagetitle-item"><?php  $APPLICATION->ShowTitle(); ?></span>
 					<span id="pagetitle_edit" class="pagetitle-edit-button" style="display: none;"></span>
 					<input id="pagetitle_input" type="text" class="pagetitle-item" style="display: none;">
 				</div>
 
-				<? $APPLICATION->ShowViewContent("inside_pagetitle"); ?>
+				<?php  $APPLICATION->ShowViewContent("inside_pagetitle"); ?>
 			</div>
 		</div>
-	<?
+	<?php 
 	}
 	else
 	{
 		$APPLICATION->IncludeComponent("bitrix:ui.toolbar", '', []);
 	}
 	?>
-	<div class="pagetitle-below"><?$APPLICATION->ShowViewContent("below_pagetitle")?></div>
+	<div class="pagetitle-below"><?php $APPLICATION->ShowViewContent("below_pagetitle")?></div>
 
 	<div id="ui-page-slider-workarea">
-		<div id="sidebar"><? $APPLICATION->ShowViewContent("sidebar"); ?></div>
+		<div id="sidebar"><?php  $APPLICATION->ShowViewContent("sidebar"); ?></div>
 		<div id="workarea-content">
 			<div class="<?=($arParams['USE_PADDING'] ? 'ui-page-slider-workarea-content-padding' : '')?>">
-				<?
+				<?php 
 				include ('content.php');
 
 				if (!empty($arParams['BUTTONS']))

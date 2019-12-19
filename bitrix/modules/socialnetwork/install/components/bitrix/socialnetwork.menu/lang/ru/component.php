@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SM_AUTH_ERR"] = "Ошибка авторизации";
 $MESS["SONET_SM_ENTITY_ID_EMPTY"] = "Не задан ID сущности";
 $MESS["SONET_SM_ENTITY_ID_INCORRECT"] = "Задан некорректный ID сущности";

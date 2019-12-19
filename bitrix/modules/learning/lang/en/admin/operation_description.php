@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_LESSON_READ"] = "View lesson";
 $MESS["OP_NAME_LESSON_CREATE"] = "Create new lessons";
 $MESS["OP_NAME_LESSON_WRITE"] = "Edit lesson";

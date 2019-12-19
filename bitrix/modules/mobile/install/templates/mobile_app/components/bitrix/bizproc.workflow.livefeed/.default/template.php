@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $jsTasks = array();
 foreach ($arResult['TASKS']['RUNNING'] as $task)
 {
@@ -17,13 +17,13 @@ foreach ($arResult['TASKS']['RUNNING'] as $task)
 }
 ?>
 
-<?if (!$arResult['noWrap']):?>
+<?php if (!$arResult['noWrap']):?>
 <div class="bp-livefeed-wrapper">
-<?endif;?>
+<?php endif;?>
 <div class="pb-popup-mobile" data-role="mobile-log-bp-wf" data-rendered="" data-tasks="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($jsTasks))?>" data-workflow-id="<?=htmlspecialcharsbx($arParams["WORKFLOW_ID"])?>">
 	<div class="bp-post bp-lent">
 		<div class="bp-short-process-inner">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:bizproc.workflow.faces",
 				"",
 				array(
@@ -45,10 +45,10 @@ foreach ($arResult['TASKS']['RUNNING'] as $task)
 		<span class="wf_status bp-status" style="display: none">
 			<span class="bp-status-inner"><span><?=$arResult["WORKFLOW_STATE_INFO"]['STATE_TITLE']?></span></span>
 		</span>
-			<?foreach ($arResult['TASKS']['RUNNING'] as $task):?>
+			<?php foreach ($arResult['TASKS']['RUNNING'] as $task):?>
 				<div class="bp-btn-panel task_buttons_<?=$task['ID']?>" style="display: none">
 			<span class="bp-btn-panel-inner">
-			<? if ($task['IS_INLINE'] == 'Y'):
+			<?php  if ($task['IS_INLINE'] == 'Y'):
 				foreach ($task['BUTTONS'] as $control):
 					$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Yes || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Ok ? 'accept' : 'decline';
 					$props = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode(array(
@@ -61,27 +61,27 @@ foreach ($arResult['TASKS']['RUNNING'] as $task)
 						<span class="bp-button-icon"></span>
 						<span class="bp-button-text"><?=$control['TEXT']?></span>
 					</a>
-				<?endforeach;
+				<?php endforeach;
 			else:?>
 				<a href="/mobile/bp/detail.php?task_id=<?=$task['ID']?>" onclick="return BX.BizProcMobile.openTaskPage(<?=(int)$task['ID']?>)" class="webform-small-button bp-small-button webform-small-button-blue">
 					<span class="bp-button-text"><?=GetMessage("BPATL_BEGIN")?></span>
 				</a>
-			<?endif?>
+			<?php endif?>
 			</span>
 				</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 
-		<?foreach ($arResult['TASKS']['RUNNING'] as $task):?>
+		<?php foreach ($arResult['TASKS']['RUNNING'] as $task):?>
 			<div class="bp-task-block task_block_<?=$task['ID']?>" style="display: none">
 				<span class="bp-task-block-title"><?=GetMessage("BPATL_TASK_TITLE")?>: </span>
 				<?=$task['NAME']?>
-				<? if ($task['DESCRIPTION']):?>
+				<?php  if ($task['DESCRIPTION']):?>
 					<br/>
 						<?=nl2br($task['DESCRIPTION'])?>
-				<?endif?>
+				<?php endif?>
 			</div>
-		<?endforeach;?>
-<?if (!$arResult['noWrap']):?>
+		<?php endforeach;?>
+<?php if (!$arResult['noWrap']):?>
 		<script>
 			BX.ready(function() {
 				BX.BizProcMobile.renderLogMessages(document);
@@ -91,9 +91,9 @@ foreach ($arResult['TASKS']['RUNNING'] as $task)
 				});
 			});
 		</script>
-<?endif;?>
+<?php endif;?>
 	</div>
 </div>
-<?if (!$arResult['noWrap']):?>
+<?php if (!$arResult['noWrap']):?>
 	</div>
-<?endif;?>
+<?php endif;?>

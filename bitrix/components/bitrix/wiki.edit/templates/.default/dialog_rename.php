@@ -1,8 +1,8 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
 <table width="100%" height="100%">
 	<tr>
 		<td align="center" valign="middle">
-			<?
+			<?php 
 			if(strlen($arResult['ERROR_MESSAGE'])<=0)
 			{
 				$sCatName = '';
@@ -17,7 +17,7 @@
 					<table>
 						<tr>
 							<td><?=GetMessage('WIKI_DIALOG_RENAME_PAGE_NAME').": "?></td>
-							<td><input type="text" name="NEW_NAME" value="<? echo ($sCatName ? $sCatName : $arResult['ELEMENT']['NAME_LOCALIZE'])?>"></td>
+							<td><input type="text" name="NEW_NAME" value="<?php  echo ($sCatName ? $sCatName : $arResult['ELEMENT']['NAME_LOCALIZE'])?>"></td>
 						</tr>
 				</form>
 				<script type="text/javascript">
@@ -38,7 +38,7 @@
 					BX.WindowManager.Get().SetButtons(_BTN);
 					BX.WindowManager.Get().adjustSizeEx();
 				</script>
-			<?
+			<?php 
 			}
 			else
 			{
@@ -66,7 +66,7 @@
 					BX.WindowManager.Get().ClearButtons();
 					BX.WindowManager.Get().SetButtons(_BTN);
 				</script>
-				<?
+				<?php 
 			}
 			?>
 		</td>

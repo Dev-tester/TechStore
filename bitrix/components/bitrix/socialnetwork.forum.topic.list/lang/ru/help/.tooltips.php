@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FID_TIP'] = "ID форума";
 $MESS ['USE_DESC_PAGE_TIP'] = "Использовать обратную постраничку";
 $MESS ['URL_TEMPLATES_INDEX_TIP'] = "Страница списка форумов";

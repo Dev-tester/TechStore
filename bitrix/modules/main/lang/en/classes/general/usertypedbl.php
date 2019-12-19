@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USER_TYPE_DOUBLE_DESCRIPTION'] = "Number";
 $MESS ['USER_TYPE_DOUBLE_SIZE'] = "Input field size";
 $MESS ['USER_TYPE_DOUBLE_MIN_VALUE'] = "Minimum value (0 - no validation)";

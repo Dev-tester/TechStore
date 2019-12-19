@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACCESS"] = "Параметры доступа";
 $MESS["IBLOCK_SEF_EDIT"] = "редактирование";
 $MESS["IBLOCK_TYPE"] = "Тип инфоблока";

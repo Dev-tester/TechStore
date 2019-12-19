@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This class could be changed (removed, renamed, relocated) in any time, so do not use it in public code
  *

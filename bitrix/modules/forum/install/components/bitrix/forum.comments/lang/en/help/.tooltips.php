@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_ID_TIP"] = "Discussion Forum ID";
 $MESS["IBLOCK_TYPE_TIP"] = "Information Block Type (only for verification)";
 $MESS["IBLOCK_ID_TIP"] = "Information Block ID";

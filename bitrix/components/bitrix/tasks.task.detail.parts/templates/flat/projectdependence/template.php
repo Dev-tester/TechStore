@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); 
 
 use Bitrix\Main\Localization\Loc;
@@ -67,14 +67,14 @@ Bitrix24\UI::initLicensePopup('');
 			</script>
 		</tbody>
 	</table>
-	<span class="task-dashed-link <?if($arResult['TEMPLATE_DATA']['RESTRICTED']):?>tasks-btn-restricted<?endif?>">
+	<span class="task-dashed-link <?php if($arResult['TEMPLATE_DATA']['RESTRICTED']):?>tasks-btn-restricted<?php endif?>">
 		<span data-bx-id="projdep-item-set-open-form" class="task-dashed-link-inner"><?=Loc::getMessage('TASKS_TTDP_TEMPLATE_PROJDEP_ADD')?></span>
 	</span>
 
-	<?$ctrlId = md5($templateId);?>
+	<?php $ctrlId = md5($templateId);?>
 
 	<div data-bx-id="projdep-item-set-picker-content" class="hidden-soft">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:tasks.task.selector", ".default", array(
 				"MULTIPLE" => "N",
 				"NAME" => $ctrlId,
@@ -88,7 +88,7 @@ Bitrix24\UI::initLicensePopup('');
 		);?>
 	</div>
 
-	<?// in case of all items removed, the field should be sent anyway?>
+	<?php // in case of all items removed, the field should be sent anyway?>
 	<input type="hidden" name="<?=$prefix?>[]" value="">
 
 </div>

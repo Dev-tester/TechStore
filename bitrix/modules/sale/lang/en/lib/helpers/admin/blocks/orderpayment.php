@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAYMENT_CASHBOX_CHECK_ADD_WINDOW_TITLE"] = "Add new receipt";
 $MESS["SALE_ORDER_PAYMENT"] = "Payment";
 $MESS["SALE_ORDER_PAYMENT_ADD_COMPANY"] = "No active companies. <a href=\"#URL#\" target=\"_blank\">Add one</a>";

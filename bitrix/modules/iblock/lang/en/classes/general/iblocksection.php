@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_BAD_BLOCK_SECTION_ID_PARENT"] = "Section block code does not match that of the parent section!";
 $MESS["IBLOCK_BAD_SECTION"] = "Section name is not specified.";
 $MESS["IBLOCK_BAD_SECTION_ID"] = "No section with this ID (#ID#) exists.";

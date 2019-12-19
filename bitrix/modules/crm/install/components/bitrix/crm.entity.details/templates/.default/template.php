@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
@@ -30,7 +30,7 @@ array_unshift(
 $containerId = "{$guid}_container";
 $tabMenuContainerId = "{$guid}_tabs_menu";
 $tabContainerId = "{$guid}_tabs";
-?><div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-entity-wrap"><?
+?><div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-entity-wrap"><?php 
 
 	if($arResult['ENABLE_PROGRESS_BAR'])
 	{
@@ -61,7 +61,7 @@ $tabContainerId = "{$guid}_tabs";
 	}
 
 	?><div class="<?=$tabContainerClassName?>">
-		<ul id="<?=htmlspecialcharsbx($tabMenuContainerId)?>" class="crm-entity-section-tabs-container"><?
+		<ul id="<?=htmlspecialcharsbx($tabMenuContainerId)?>" class="crm-entity-section-tabs-container"><?php 
 		foreach($tabs as $tab)
 		{
 			$classNames = array('crm-entity-section-tab');
@@ -75,18 +75,18 @@ $tabContainerId = "{$guid}_tabs";
 			}
 			?><li data-tab-id="<?=htmlspecialcharsbx($tab['id'])?>" class="<?=implode(' ', $classNames)?>">
 				<a class="crm-entity-section-tab-link" href="#"><?=htmlspecialcharsbx($tab['name'])?></a>
-			</li><?
+			</li><?php 
 		}
 
 		if($arResult['REST_USE'])
 		{
 			?><li class="crm-entity-section-tab">
 				<a href="#" class="crm-entity-section-tab-link" onclick="BX.rest.Marketplace.open(<?=\CUtil::PhpToJSObject($arResult['REST_PLACEMENT_CONFIG'])?>);" class="crm-entity-section-tab-link"><?=\Bitrix\Main\Localization\Loc::getMessage('CRM_ENT_DETAIL_REST_BUTTON')?></a>
-			</li><?
+			</li><?php 
 		}
-		?></ul><?
-	?></div><?
-	?><div id="<?=htmlspecialcharsbx($tabContainerId)?>" style="position: relative;"><?
+		?></ul><?php 
+	?></div><?php 
+	?><div id="<?=htmlspecialcharsbx($tabContainerId)?>" style="position: relative;"><?php 
 	foreach($tabs as $tab)
 	{
 		$tabID = $tab['id'];
@@ -99,16 +99,16 @@ $tabContainerId = "{$guid}_tabs";
 		}
 		if($tabID !== 'main')
 		{
-			?><div data-tab-id="<?=htmlspecialcharsbx($tabID)?>" class="<?=$className?>" <?=$styleString?>><?
+			?><div data-tab-id="<?=htmlspecialcharsbx($tabID)?>" class="<?=$className?>" <?=$styleString?>><?php 
 				if(isset($tab['html']))
 				{
 					echo $tab['html'];
 				}
-			?></div><?
+			?></div><?php 
 			continue;
 		}
 		?><div data-tab-id="<?=htmlspecialcharsbx($tabID)?>" class="<?=$className?>" <?=$styleString?>>
-			<div class="crm-entity-card-container"><?
+			<div class="crm-entity-card-container"><?php 
 				$APPLICATION->IncludeComponent(
 					'bitrix:crm.entity.editor',
 					'',
@@ -125,7 +125,7 @@ $tabContainerId = "{$guid}_tabs";
 					)
 				);
 			?></div>
-			<div class="crm-entity-stream-container"><?
+			<div class="crm-entity-stream-container"><?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:crm.timeline",
 					'',
@@ -145,12 +145,12 @@ $tabContainerId = "{$guid}_tabs";
 
 			?></div>
 			<div style="clear: both;"></div>
-			<?$APPLICATION->IncludeComponent('bitrix:crm.tracking.entity.details', '', []);?>
-		</div><?
+			<?php $APPLICATION->IncludeComponent('bitrix:crm.tracking.entity.details', '', []);?>
+		</div><?php 
 	}
-	?></div><?
+	?></div><?php 
 
-?></div><?
+?></div><?php 
 
 /*
 * CRM_ENT_DETAIL_COPY_LEAD_URL

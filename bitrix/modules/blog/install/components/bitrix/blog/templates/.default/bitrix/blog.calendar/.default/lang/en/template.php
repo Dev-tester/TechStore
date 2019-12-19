@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_BLOG_CLNDR_P_M'] = "Previous month";
 $MESS ['BLOG_BLOG_CLNDR_N_M'] = "Next month";
 $MESS ['BLOG_BLOG_CLNDR_D_1'] = "M";

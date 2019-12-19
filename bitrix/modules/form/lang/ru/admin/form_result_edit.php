@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_RESULT_LIST"] = "Список результатов формы # #FORM_ID#";
 $MESS["FORM_RESULT_NOT_FOUND"] = "Результат не найден";
 $MESS['FORM_NOT_FOUND'] = "Веб форма не найдена";

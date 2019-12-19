@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTL_VARIABLE_ALIASES"] = "Variable Aliases";
 $MESS["INTL_IBLOCK_TYPE"] = "Information Block Type";
 $MESS["INTL_IBLOCK"] = "Information Block";

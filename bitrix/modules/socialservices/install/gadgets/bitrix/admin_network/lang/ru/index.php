@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_NETWORK_TITLE"] = "Единая авторизация";
 $MESS["GD_NETWORK_CONNECT"] = "Подключить";
 $MESS["GD_NETWORK_CONNECTED"] = "Подключено";

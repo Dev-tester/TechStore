@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_UPS_DESCRIPTION_INNER"] = "Berechnung der Versandkosten für UPS. Die Berechnung wird mit Hilfe der csv Dateien, die von UPS zur Verfügung gestellt werden, durchgeführt. Sie können diese Dateien für ein beliebiges Land von der <a href=\"http://www.ups.com\" target=\"_blank\">UPS Seite</a> herunterladen. Geben Sie den Dateipfad in den Handler-Einstellungen ein. Desweiteren müssen Sie die Adresse des Onlineshops in den <a href=\"/bitrix/admin/settings.php?mid=sale&lang=de\">Moduleinstellungen</a> eingeben.<br />Dieser Handler ist nur für den Versand ins Ausland vorgesehen.";
 $MESS["SALE_DH_UPS_CONFIG_export_csv"] = "CSV-Datei mit Versandtarifen";
 $MESS["SALE_DH_UPS_CONFIG_zones_csv"] = "CSV-Datei mit Versandzonen";

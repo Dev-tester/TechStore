@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -9,7 +9,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 /********************************************************************
 				Input params
@@ -23,7 +23,7 @@ $arParams["ATTACH_SIZE"] = $arParams["IMAGE_SIZE"];
 				/Input params
 ********************************************************************/
 if ($arResult["VIEW"] == "Y"):
-	?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+	?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 	"bitrix:forum.message.template",
 	".preview",
 	Array(
@@ -35,7 +35,7 @@ if ($arResult["VIEW"] == "Y"):
 	),
 	$component->__parent,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 elseif ($arResult["SHOW_MESSAGE_FOR_AJAX"] == "Y"):
 
 	ob_end_clean();
@@ -43,16 +43,16 @@ elseif ($arResult["SHOW_MESSAGE_FOR_AJAX"] == "Y"):
 	$GLOBALS["bShowImageScriptPopup"] = true;
 ?>
 <div class="forum-post-text" id="message_text_<?=$arResult["MESSAGE"]["ID"]?>"><?=$arResult["MESSAGE"]["POST_MESSAGE_TEXT"]?></div>
-<?
+<?php 
 if (!empty($arResult["MESSAGE"]["FILES"])):
 ?>
 	<div class="forum-post-attachments">
 		<label><?=GetMessage("F_ATTACH_FILES")?></label>
-<?
+<?php 
 	foreach ($arResult["MESSAGE"]["FILES"] as $arFile): 
 ?>
-		<div class="forum-post-attachment"><?
-		?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+		<div class="forum-post-attachment"><?php 
+		?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 			"bitrix:forum.interface", "show_file",
 			Array(
 				"FILE" => $arFile,
@@ -66,25 +66,25 @@ if (!empty($arResult["MESSAGE"]["FILES"])):
 			null,
 			array("HIDE_ICONS" => "Y"));
 		?></div>
-<?
+<?php 
 	endforeach;
 ?>
 	</div>
-<?
+<?php 
 endif;
 
 if (!empty($arResult["MESSAGE"]["EDITOR_NAME"])):
 ?><div class="forum-post-lastedit">
 	<span class="forum-post-lastedit"><?=GetMessage("F_EDIT_HEAD")?>
-		<span class="forum-post-lastedit-user"><?
+		<span class="forum-post-lastedit-user"><?php 
 	if (!empty($arResult["MESSAGE"]["EDITOR_LINK"])):
-		?><a href="<?=$arResult["MESSAGE"]["EDITOR_LINK"]?>"><?=$arResult["MESSAGE"]["EDITOR_NAME"]?></a><?
+		?><a href="<?=$arResult["MESSAGE"]["EDITOR_LINK"]?>"><?=$arResult["MESSAGE"]["EDITOR_NAME"]?></a><?php 
 	else:
-		?><?=$arResult["MESSAGE"]["EDITOR_NAME"]?><?
+		?><?=$arResult["MESSAGE"]["EDITOR_NAME"]?><?php 
 	endif;
 	?></span> - <span class="forum-post-lastedit-date"><?=$arResult["MESSAGE"]["EDIT_DATE"]?></span>
 	<span class="forum-post-lastedit-reason">(<span><?=$arResult["MESSAGE"]["EDIT_REASON"]?></span>)</span></span>
-</div><?
+</div><?php 
 endif;
 	
 	if(!function_exists("__ConverData"))
@@ -112,7 +112,7 @@ endif;
 		array_walk($res, "__ConverData");
 		
 	$GLOBALS["APPLICATION"]->RestartBuffer();
-	?><?=CUtil::PhpToJSObject($res)?><?
+	?><?=CUtil::PhpToJSObject($res)?><?php 
 	die();
 
 endif;

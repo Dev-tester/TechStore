@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_INVITE_TITLE_INVITE"] = "Пригласите коллег";
 $MESS["BX24_INVITE_TITLE_ADD"] = "Добавить сотрудника";
 $MESS["BX24_INVITE_BUTTON"] = "Пригласить";

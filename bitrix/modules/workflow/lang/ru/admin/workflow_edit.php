@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLOW_FORGOT_FILENAME"] = "Вы забыли ввести \"Полное имя файла\"";
 $MESS["FLOW_DOCUMENT_LOCKED"] = "Документ временно заблокирован пользователем # #ID# (#DATE#)";
 $MESS["FLOW_EDIT_RECORD"] = "Редактирование документа";

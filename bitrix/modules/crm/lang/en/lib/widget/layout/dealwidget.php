@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_WGT_DEAL_IN_WORK"] = "Deals in progress";
 $MESS["CRM_DEAL_WGT_DEMO_CONTENT"] = "If you don't have any deals, add your <a href=\"#URL#\" class=\"#CLASS_NAME#\">first deal</a> right now!";
 $MESS["CRM_DEAL_WGT_DEMO_TITLE"] = "This is a demo dashboard, you can hide demo data and use your deal data.";

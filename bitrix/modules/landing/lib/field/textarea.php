@@ -14,18 +14,18 @@ class Textarea extends \Bitrix\Landing\Field\Text
 	public function viewForm(array $params = array())
 	{
 		?>
-		<textarea <?
-		?><?= isset($params['additional']) ? $params['additional'] . ' ' : ''?><?
-		?><?= isset($params['id']) ? 'id="' . \htmlspecialcharsbx($params['id']) . '" ' : ''?><?
-		?><?= $this->maxlength > 0 ? 'maxlength="'. $this->maxlength . '" ' : ''?><?
-		?><?= $this->placeholder != '' ? 'placeholder="'. $this->placeholder . '" ' : ''?><?
-		?>class="<?= isset($params['class']) ? \htmlspecialcharsbx($params['class']) : ''?>" <?
-		?>data-code="<?= \htmlspecialcharsbx($this->code)?>" <?
+		<textarea <?php 
+		?><?= isset($params['additional']) ? $params['additional'] . ' ' : ''?><?php 
+		?><?= isset($params['id']) ? 'id="' . \htmlspecialcharsbx($params['id']) . '" ' : ''?><?php 
+		?><?= $this->maxlength > 0 ? 'maxlength="'. $this->maxlength . '" ' : ''?><?php 
+		?><?= $this->placeholder != '' ? 'placeholder="'. $this->placeholder . '" ' : ''?><?php 
+		?>class="<?= isset($params['class']) ? \htmlspecialcharsbx($params['class']) : ''?>" <?php 
+		?>data-code="<?= \htmlspecialcharsbx($this->code)?>" <?php 
 		?>name="<?= \htmlspecialcharsbx(isset($params['name_format'])
 				? str_replace('#field_code#', $this->code, $params['name_format'])
-				: $this->code)?>" <?
+				: $this->code)?>" <?php 
 		?> ><?= \htmlspecialcharsbx($this->value)?></textarea>
-		<?
+		<?php 
 	}
 
 	/**

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -8,7 +8,7 @@ Loc::loadMessages(__FILE__);
 ?>
 <p><?=Loc::getMessage('SALE_HPS_ALFABANK_PAYMENT');?></p>
 
-<?
+<?php 
 $post = array();
 foreach ($_POST as $key => $value)
 {
@@ -38,10 +38,10 @@ foreach ($_POST as $key => $value)
 ?>
 <div class="paysystem-yandex mb-4" id="paysystem-alfabankb2b">
 	<form id="paysystem-alfabankb2b-form" action="" method="post">
-	<?bitrix_sessid_post()?>
-	<?foreach ($post as $key => $value):?>
+	<?php bitrix_sessid_post()?>
+	<?php foreach ($post as $key => $value):?>
 		<input type="hidden" name="<?=$key;?>" value="<?=$value;?>">
-	<?endforeach;?>
+	<?php endforeach;?>
 
 	<input type="hidden" name="payment_id" value="<?=$params['PAYMENT_ID']?>">
 	<input type="hidden" name="accountNumber" value="<?=$params['ACCOUNT_NUMBER']?>">

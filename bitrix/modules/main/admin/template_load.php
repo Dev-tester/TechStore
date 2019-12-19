@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -157,21 +157,21 @@ function NewFileName(ob)
 }
 //-->
 </script>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="bform2" enctype="multipart/form-data">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="bform2" enctype="multipart/form-data">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-<?
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+<?php 
 $tabControl->Begin();
 
 $tabControl->BeginNextTab();
 ?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("MAIN_TEMPLATE_LOAD_FILE")?></td>
+		<td width="40%"><?php echo GetMessage("MAIN_TEMPLATE_LOAD_FILE")?></td>
 		<td width="60%"><input type="file" size="35" name="tpath_file" onChange="NewFileName(this)"></td>
 	</tr>
 	<tr>
 		<td></td>
-		<td><?
+		<td><?php 
 echo BeginNote();
 if(defined("BX_UTF"))
 	echo GetMessage("MAIN_TEMPLATE_LOAD_WARN_UTF");
@@ -181,25 +181,25 @@ echo EndNote();
 ?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_TEMPLATE_LOAD_ID")?></td>
-		<td><input type="text" name="ID" Id="ID" size="20" maxlength="255" value="<? echo $str_ID?>"></td>
+		<td><?php echo GetMessage("MAIN_TEMPLATE_LOAD_ID")?></td>
+		<td><input type="text" name="ID" Id="ID" size="20" maxlength="255" value="<?php  echo $str_ID?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_TEMPLATE_LOAD_SITE_ID")?></td>
+		<td><?php echo GetMessage("MAIN_TEMPLATE_LOAD_SITE_ID")?></td>
 		<td><?=CSite::SelectBox("SITE_ID", $str_SITE_ID, GetMessage("MAIN_TEMPLATE_LOAD_SITE_ID_N"))?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("MAIN_TEMPLATE_LOAD_GOTO_EDIT")?></td>
+		<td><?php echo GetMessage("MAIN_TEMPLATE_LOAD_GOTO_EDIT")?></td>
 		<td><input type="checkbox" name="goto_edit" value="Y"></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons();
 ?>
 	<input type="hidden" name="action" value="import">
-	<input <?if(!$isAdmin) echo "disabled" ?> type="submit" name="import" value="<?echo GetMessage("MAIN_TEMPLATE_LOAD_SUBMIT")?>" class="adm-btn-save">
-<?
+	<input <?php if(!$isAdmin) echo "disabled" ?> type="submit" name="import" value="<?php echo GetMessage("MAIN_TEMPLATE_LOAD_SUBMIT")?>" class="adm-btn-save">
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

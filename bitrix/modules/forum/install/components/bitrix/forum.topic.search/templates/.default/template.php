@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -32,7 +32,7 @@ if ($arParams["AJAX_CALL"] == "Y"):
 			"TOPIC_ID" => $arResult["TID"],
 			"TOPIC_TITLE" => '&laquo;<a href="'.$arResult["TOPIC"]["LINK"].'">'.htmlspecialcharsbx($arResult["TOPIC"]["~TITLE"]).
 				'</a>&raquo; ( '.GetMessage("FMM_ON_FORUM").': <a href="'.$arResult["FORUM"]["LINK"].'">'.$arResult["FORUM"]["NAME"].'</a>)'));
-		?><?
+		?><?php 
 		
 	}
 	elseif (!empty($arResult["TOPIC"]))
@@ -41,7 +41,7 @@ if ($arParams["AJAX_CALL"] == "Y"):
 			"TOPIC_ID" => $arResult["TID"],
 			"TOPIC_TITLE" => '&laquo;<a href="'.$arResult["TOPIC"]["LINK"].'">'.htmlspecialcharsbx($arResult["TOPIC"]["~TITLE"]).
 				'</a>&raquo; ( '.GetMessage("FMM_ON_FORUM").': <a href="'.$arResult["FORUM"]["LINK"].'">'.$arResult["FORUM"]["NAME"].'</a>)'));
-		?><?
+		?><?php 
 	}
 	die();
 endif;
@@ -50,31 +50,31 @@ endif;
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?=SITE_CHARSET?>" />
-	<?$APPLICATION->ShowHead()?>
+	<?php $APPLICATION->ShowHead()?>
 	<style type=text/css>
 		body{background-color:white;}
 	</style>
 	<title><?=GetMessage("FMM_SEARCH_TITLE")?></title>
 </head>
 <body class="forum-popup-body">
-<?if ($arResult["SELF_CLOSE"] == "Y"):
-?><script type="text/javascript"><?
+<?php if ($arResult["SELF_CLOSE"] == "Y"):
+?><script type="text/javascript"><?php 
 	if (!empty($arResult["TOPIC"])):
 	?>
 		opener.document.MESSAGES['newTID'].value = '<?=$arResult["TID"]?>';
 		opener.document.getElementById('TOPIC_INFO').innerHTML = '<?=CUtil::JSEscape('&laquo;<a href="'.$arResult["TOPIC"]["LINK"].'">'.htmlspecialcharsbx($arResult["TOPIC"]["~TITLE"]).
 			'</a>&raquo; ( '.GetMessage("FMM_ON_FORUM").': <a href="'.$arResult["FORUM"]["LINK"].'">'.$arResult["FORUM"]["NAME"].'</a>)')?>';
-<?
+<?php 
 	endif;
 ?>
 	self.close();
 </script>
-<?else:
+<?php else:
 
 ?>
 <div class="forum-info-box forum-filter">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 	$APPLICATION->IncludeComponent("bitrix:forum.interface", "filter_simple",
 		array(
 			"FORM_METHOD_GET" => 'Y',
@@ -113,11 +113,11 @@ endif;
 					"VALUE" => GetMessage("FMM_SEARCH_GO")))),
 			$component,
 			array(
-				"HIDE_ICONS" => "Y"));?><?
+				"HIDE_ICONS" => "Y"));?><?php 
 ?>
 	</div>
 </div>
-<?
+<?php 
 	if ($arResult["SHOW_RESULT"] == "Y"):
 if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
@@ -127,13 +127,13 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 <div class="forum-header-box">
 	<div class="forum-header-title"><span><?=GetMessage("FMM_SEARCH_TITLE")?></span></div>
 </div>
-<?
+<?php 
 $iStartNumber = (($arResult["NAV_RESULT"]->NavPageNomer-1)*$arResult["NAV_RESULT"]->NavPageSize);
 $iStartNumber = ($iStartNumber > 0 ? $iStartNumber : 1);
 
@@ -141,25 +141,25 @@ $iStartNumber = ($iStartNumber > 0 ? $iStartNumber : 1);
 <div class="forum-info-box forum-topics">
 	<div class="forum-info-box-inner">
 	<ol start="<?=$iStartNumber?>">
-<?
+<?php 
 foreach ($arResult["TOPIC"] as $res):
 ?>
 	<li>
 		<a class='tableheadtext' href="<?=$res["topic_id_search"]?>"><?=$res["TITLE"]?></a>
-<?
+<?php 
 	if (strLen(trim($res["DESCRIPTION"])) > 0)
 	{
-		?>, <?=$res["DESCRIPTION"]?><?
+		?>, <?=$res["DESCRIPTION"]?><?php 
 	}
 ?>
 	</li>
-<?
+<?php 
 endforeach;
 ?>
 	</ol>
 	</div>
 </div>
-<?
+<?php 
 if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
 <div class="forum-navigation-box forum-navigation-bottom">
@@ -168,7 +168,7 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 	endif;
@@ -176,6 +176,6 @@ endif;
 ?>
 </body>
 </html>
-<?
+<?php 
 die();
 ?>

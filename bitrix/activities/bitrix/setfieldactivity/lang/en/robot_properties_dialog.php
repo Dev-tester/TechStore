@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_AUTOMATION_SFA_CLONE"] = "add";
 $MESS["BIZPROC_AUTOMATION_SFA_MODIFIED_BY"] = "Change on behalf of";
 $MESS["BIZPROC_AUTOMATION_SFA_DELETE"] = "Delete";

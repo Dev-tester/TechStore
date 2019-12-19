@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager 6                      #
 # Copyright (c) 2002-2007 Bitrix             #
@@ -80,8 +80,8 @@ $APPLICATION->SetTitle(GetMessage("MAIN_1C_TITLE"));
 require_once ($DOCUMENT_ROOT.BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
 
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>">
+<?php 
 $tabControl->Begin();
 
 foreach($aSTabs as $arTab)
@@ -96,27 +96,27 @@ foreach($aSTabs as $arTab)
 $tabControl->Buttons();?>
 	<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" class="adm-btn-save">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
 
-<?
+<?php 
 $bNote = false;
 foreach($aSTabs as $arTab)
 	if($arTab["NOTE"])
 		$bNote = true;
 if($bNote):
 	echo BeginNote();
-	?><table class="message"><tr><td valign="center"><div class="icon-error"></div></td><td><?
+	?><table class="message"><tr><td valign="center"><div class="icon-error"></div></td><td><?php 
 	foreach($aSTabs as $arTab)
 	{
 		if($arTab["NOTE"]):
-			?><?echo $arTab["NOTE"]?><br><?
+			?><?php echo $arTab["NOTE"]?><br><?php 
 		endif;
 	}
-	?></tr></table><?
+	?></tr></table><?php 
 	echo EndNote();
 endif?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

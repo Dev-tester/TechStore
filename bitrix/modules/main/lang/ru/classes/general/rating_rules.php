@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PP_USER_CONDITION_RATING_NAME"] = "Значение рейтинга";
 $MESS["PP_USER_CONDITION_RATING_DESC"] = "Это условие связано со значением рейтинга пользователя.";
 $MESS["PP_USER_CONDITION_RATING_RATING_ID"] = "Рейтинг";

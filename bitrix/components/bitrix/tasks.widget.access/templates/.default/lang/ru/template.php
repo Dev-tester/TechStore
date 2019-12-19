@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TWR_TEMPLATE_USER'] = 'Пользователь';
 $MESS['TASKS_TWR_TEMPLATE_ACCESS_LEVEL'] = 'Уровень доступа';
 $MESS['TASKS_TWR_TEMPLATE_ACCESS_LEVEL_10'] = 'Чтение';

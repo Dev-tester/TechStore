@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SEARCH'] = "Поиск";
 $MESS ['F_USERS'] = "Пользователи";
 $MESS ['F_PROFILE'] = "Профиль";

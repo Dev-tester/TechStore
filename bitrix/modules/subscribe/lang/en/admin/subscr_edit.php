@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["subscr_title_edit"] = "Edit address #";
 $MESS["subscr_title_add"] = "Add address";
 $MESS["subscr_list"] = "Address list";

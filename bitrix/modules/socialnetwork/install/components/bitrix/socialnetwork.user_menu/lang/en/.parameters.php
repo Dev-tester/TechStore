@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_PATH_TO_USER'] = "User Profile Path Template";
 $MESS ['SONET_PATH_TO_USER_EDIT'] = "User Profile Page Path Template";
 $MESS ['SONET_PATH_TO_USER_FRIENDS'] = "User Friends Page Path Template";

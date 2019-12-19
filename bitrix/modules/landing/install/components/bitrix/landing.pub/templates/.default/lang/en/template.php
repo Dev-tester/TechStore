@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_COPY_FULL"] = "Powered by #LOGO# &mdash; Free websites and CRM.";
 $MESS["LANDING_TPL_COPY_FULL2"] = "Powered by <linklogo>#LOGO#</linklogo> &mdash; <linksite>Free websites</linksite> and <linkcrm>CRM</linkcrm>. <linkcreate>Create your site</linkcreate>";
 $MESS["LANDING_TPL_COPY_LINK"] = "Create Your Site";

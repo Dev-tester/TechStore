@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_BASE_CREATE_NOT_SUPPORT"] = "This delivery service handler does not support transportation orders.";
 $MESS["SALE_DLVR_REQ_BASE_ACTIONS_NOT_SUPPORT"] = "This delivery service handler does not support executing transportation orders commands.";
 $MESS["SALE_DLVR_REQ_BASE_SHIPMENT_ACTIONS_NOT_SUPPORT"] = "This delivery service handler does not support commands to actually ship a transportation order.";

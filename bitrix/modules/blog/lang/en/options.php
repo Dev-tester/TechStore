@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLO_AVATAR_MAX_SIZE"] = "Maximum avatar file size (bytes):";
 $MESS["BLO_IMAGE_MAX_SIZE"] = "Maximum file size (bytes):";
 $MESS["BLO_AVATAR_MAX_WIDTH"] = "Maximum avatar width (pixels)";

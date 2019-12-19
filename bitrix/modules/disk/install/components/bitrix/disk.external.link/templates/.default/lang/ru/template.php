@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_EXT_LINK_TITLE"] = "Скачать файл";
 $MESS["DISK_EXT_LINK_B24"] = "Битрикс<span>24</span>";
 $MESS["DISK_EXT_LINK_FILE_SIZE"] = "Размер";

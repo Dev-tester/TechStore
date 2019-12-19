@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /**
@@ -81,11 +81,11 @@ function jsCalendarInsertDate(value)
 					<span class="tm-filter-item">
 						<input type="checkbox" name="additional" id="additional" onclick="window.BXTMREPORT.toggleAdditions(this.checked); window.BXTMREPORT.setFilterHashParam('additional',this.checked?'1':'0');"  /><label for="additional"><?=GetMessage('TMR_ADDITONAL')?></label>
 					</span>
-<?
+<?php 
 if (count($arResult['arAccessUsers']['READ']) > 1 || $arResult['arAccessUsers']['READ'][0] == '*'):
 ?>
 					<span class="tm-filter-item inactive">
-<?
+<?php 
 	function __tmr_replace($str)
 	{
 		$str = preg_replace(
@@ -112,7 +112,7 @@ if (count($arResult['arAccessUsers']['READ']) > 1 || $arResult['arAccessUsers'][
 					<span class="tm-settings-item" id="TMBUTTON" onclick="BXTMREPORT.InitSettingMode(this);">
 						<span class="tm-settings-l"></span><span class="tm-settings-c"><span class="tm-settings-icon"></span><?=GetMessage("TM_SETTINGS")?></span><span class="tm-settings-r"></span>
 					</span>
-<?
+<?php 
 endif;
 ?>
 
@@ -132,8 +132,8 @@ endif;
 	DEPARTMENTS: 'tm_report_conrol_departments',
 	FILTER: 'REPORT_FILTER',
 	DATESELECTOR: 'bx_tm_report_dateselector',
-	MONTHS: [<?for($i=1;$i<13;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_MONTH_'.$i)),"'";}?>],
-	DAYS: [<?for($i=1;$i<8;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_DAY_'.$i)),"'";}?>],
+	MONTHS: [<?php for($i=1;$i<13;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_MONTH_'.$i)),"'";}?>],
+	DAYS: [<?php for($i=1;$i<8;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_DAY_'.$i)),"'";}?>],
 	LANG: <?=CUtil::PhpToJsObject($arMess)?>,
 	SITE_ID: '<?=SITE_ID?>'
 })</script>

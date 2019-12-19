@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_DETAILED_TITLE"] = "Детальная конверсия";
 $MESS["CONVERSION_DETAILED_HEAD_TITLE"] = "Название";
 $MESS["CONVERSION_DETAILED_HEAD_CONVERSION"] = "Конверсия";

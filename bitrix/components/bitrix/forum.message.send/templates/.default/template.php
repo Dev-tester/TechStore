@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -25,7 +25,7 @@ if (!empty($arResult["OK_MESSAGE"])):
 <div class="forum-note-box forum-note">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note");;?></div>
 </div>
-<?
+<?php 
 
 endif;
 
@@ -37,13 +37,13 @@ endif;
 </div>
 
 <div class="forum-reply-form">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 <form action="<?=POST_FORM_ACTION_URI?>" method="post" name="REPLIER" class="forum-form">
@@ -56,40 +56,40 @@ endif;
 	<div class="forum-reply-fields">
 		<div class="forum-reply-field forum-reply-field-title">
 			<label for="SUBJECT<?=$arParams["form_index"]?>"><?=GetMessage("F_TOPIC")?><span class="forum-required-field">*</span></label>
-			<input name="SUBJECT" id="SUBJECT<?=$arParams["form_index"]?>" type="text" value="<?=$arResult["MailSubject"]?>" <?
+			<input name="SUBJECT" id="SUBJECT<?=$arParams["form_index"]?>" type="text" value="<?=$arResult["MailSubject"]?>" <?php 
 				?>tabindex="<?=$tabIndex++;?>" size="70" maxlength="50" />
 		</div>
-<?
+<?php 
 if ($arResult["IsAuthorized"] != "Y" || empty($arResult["AuthorContacts"])):
 ?>
 		<div class="forum-reply-field-user">
-<?
+<?php 
 	if ($arResult["IsAuthorized"] != "Y"):
 ?>
-			<div class="forum-reply-field forum-reply-field-author"><label for="NAME<?=$arParams["form_index"]?>"><?=GetMessage("F_NAME")?><?
+			<div class="forum-reply-field forum-reply-field-author"><label for="NAME<?=$arParams["form_index"]?>"><?=GetMessage("F_NAME")?><?php 
 				?><span class="forum-required-field">*</span></label>
 				<span>
 					<input type="text" name="NAME" id="NAME<?=$arParams["form_index"]?>" value="<?=$arResult["AuthorName"]?>" size="30" tabindex="<?=$tabIndex++;?>" />
 				</span>
 			</div>
-<?		
+<?php 		
 	endif;
 	if (empty($arResult["AuthorContacts"])):
 ?>
 			<div class="forum-reply-field-user-sep">&nbsp;</div>
-			<div class="forum-reply-field forum-reply-field-email"><label for="EMAIL<?=$arParams["form_index"]?>"><?
-				?><?=($arParams["TYPE"] == "ICQ" ? GetMessage("F_ICQ") : GetMessage("F_EMAIL"))?><?
+			<div class="forum-reply-field forum-reply-field-email"><label for="EMAIL<?=$arParams["form_index"]?>"><?php 
+				?><?=($arParams["TYPE"] == "ICQ" ? GetMessage("F_ICQ") : GetMessage("F_EMAIL"))?><?php 
 				?><span class="forum-required-field">*</span></label>
 				<span>
 					<input type="text" name="EMAIL" id="EMAIL<?=$arParams["form_index"]?>"  tabindex="<?=$tabIndex++;?>"value="<?=$arResult["AuthorMail"]?>" size="30" />
 				</span>
 			</div>
-<?
+<?php 
 	endif;
 ?>
 			<div class="forum-clear-float"></div>
 		</div>
-<?
+<?php 
 endif;
 ?>
 	</div>
@@ -98,7 +98,7 @@ endif;
 		<div class="forum-reply-field forum-reply-field-text">
 			<textarea name="MESSAGE" cols="55" rows="14" tabindex="<?=$tabIndex++;?>"><?=$arResult["MailMessage"]?></textarea>
 		</div>
-<?
+<?php 
 if (!empty($arResult["CAPTCHA_CODE"])):
 ?>
 		<div class="forum-reply-field forum-reply-field-captcha">
@@ -111,7 +111,7 @@ if (!empty($arResult["CAPTCHA_CODE"])):
 				<img src="/bitrix/tools/captcha.php?captcha_code=<?=$arResult["CAPTCHA_CODE"]?>" alt="<?=GetMessage("F_CAPTCHA_TITLE")?>" />
 			</div>
 		</div>
-<?
+<?php 
 endif;
 ?>
 		<div class="forum-reply-buttons">

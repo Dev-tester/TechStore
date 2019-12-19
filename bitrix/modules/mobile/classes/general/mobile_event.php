@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Config\Option;
 use Bitrix\Mobile\Tab\Manager;

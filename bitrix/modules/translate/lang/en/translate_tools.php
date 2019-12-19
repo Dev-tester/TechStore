@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BX_TRANSLATE_IMPORT_ERR_BAD_FILEPATH'] = "Incorrect path #FILE#";
 $MESS['BX_TRANSLATE_IMPORT_ERR_DESTINATION_FIELD_ABSENT'] = "\"file\" field is missing";
 $MESS['BX_TRANSLATE_IMPORT_ERR_DESTINATION_FILEPATH_ABSENT'] = "\"file\" value is not specified";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!defined('ADMIN_THEME_ID'))
 {
@@ -194,7 +194,7 @@ if($_GET['ajax_call'] == 'Y')
 }
 ?>
 <script>window.structOptions = <?=CUtil::PhpToJSObject($arOptions)?>;</script>
-<?
+<?php 
 if($_GET['ajax_call'] == 'Y')
 {
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
@@ -326,9 +326,9 @@ window.structShowDirMenu = function(el, dirsonly, arPerm, id)
 	var path = el.getAttribute('__bx_path');
 	var items = [
 		{'ICONCLASS': 'panel-folder-props', 'TEXT': '<?=CUtil::JSEscape(GetMessage("pub_struct_folder_select"))?>', 'ONCLICK': 'structFolderSelect(\''+id+'\')', 'TITLE': '<?=CUtil::JSEscape(GetMessage("pub_struct_folder_select_title"))?>', 'DISABLED':false}
-<? if ($arParams["OBJECT"]->CheckWebRights("COPY")): // TODO: check e_rights !!! ?>
+<?php  if ($arParams["OBJECT"]->CheckWebRights("COPY")): // TODO: check e_rights !!! ?>
 		,{'ICONCLASS': 'panel-folder-props', 'TEXT': '<?=CUtil::JSEscape(GetMessage("pub_struct_folder_create"))?>', 'ONCLICK': 'structFolderCreate(\''+el.id+'\', \''+id+'\')', 'TITLE': '<?=CUtil::JSEscape(GetMessage("pub_struct_folder_create_title"))?>', 'DISABLED':false}
-<? endif; ?>
+<?php  endif; ?>
 	];
 	window.structShowMenu(el, items, dirsonly);
 }
@@ -458,13 +458,13 @@ window.structSubmit = function()
 
 </script>
 
-<?
+<?php 
 $obJSPopup->ShowTitlebar();
 $obJSPopup->StartDescription('bx-structure');
 ?>
-<p><b><?echo GetMessage(($action == "COPY" ? "pub_struct_desc_copy" : "pub_struct_desc_move"), array('#NAME#' => htmlspecialcharsbx(urldecode($_REQUEST["NAME"]))))?></b></p>
+<p><b><?php echo GetMessage(($action == "COPY" ? "pub_struct_desc_copy" : "pub_struct_desc_move"), array('#NAME#' => htmlspecialcharsbx(urldecode($_REQUEST["NAME"]))))?></b></p>
 <br style="clear:both;" />
-<?
+<?php 
 $obJSPopup->StartContent();
 if (!empty($arResult["ERROR_MESSAGE"]))
 {
@@ -475,7 +475,7 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 }
 ?>
 <div id="structure_content">
-<?
+<?php 
 	//display first level tree
 	$arRoot = __struct_get_file_info($ob, $DOC_ROOT, "/");
 	echo __struct_show_files($ob, array($arRoot), $DOC_ROOT, "", $_GET["path"], true);
@@ -494,7 +494,7 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 <input type="hidden" name="action_button_WebDAV<?=$arParams["IBLOCK_ID"]?>" />
 <input type="hidden" name="IBLOCK_SECTION_ID" value="<?=htmlspecialcharsbx($_REQUEST["IBLOCK_SECTION_ID"])?>" id="wd_copy_iblock_section_id" />
 <input type="hidden" name="overwrite" value="0" id="wd_copy_overwrite" />
-<?
+<?php 
 $obJSPopup->ShowStandardButtons(array("close"));
 
 
@@ -515,9 +515,9 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 		'wd_service_edit_doc_default': '<?= CUtil::JSEscape(CWebDavTools::getServiceEditDocForCurrentUser()) ?>'
 	});
 </script>
-<?
+<?php 
 	} 
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 ?>

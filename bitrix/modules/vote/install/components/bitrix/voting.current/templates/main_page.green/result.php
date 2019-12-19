@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:voting.result", "main_page", 
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:voting.result", "main_page", 
 	Array(
 		"VOTE_ID" => $arResult["VOTE_ID"],
 		"CACHE_TIME" => $arParams["CACHE_TIME"],

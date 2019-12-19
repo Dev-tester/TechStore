@@ -1,4 +1,4 @@
-<?
+<?php 
 /** Bitrix Framework
  * @global CUser $USER
  * @global CMain $APPLICATION

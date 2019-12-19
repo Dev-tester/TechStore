@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["SENDER_INTEGRATION_MAIL_TRANSPORT_NAME"] = "Email sender";
 ?>

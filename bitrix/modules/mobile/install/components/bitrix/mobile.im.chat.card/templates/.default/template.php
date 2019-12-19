@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->AddHeadString('<script type="text/javascript" src="'.CUtil::GetAdditionalFileURL(SITE_TEMPLATE_PATH."/im_mobile.js").'"></script>');
 
@@ -20,14 +20,14 @@ else
 		</div>
 	</div>
 	<div class="chat-profile-users-list-block">
-		<?if ($_GET['actions'] == 'Y'):?>
+		<?php if ($_GET['actions'] == 'Y'):?>
 		<div class="chat-profile-actions">
 			<span id="chat-write" class="chat-profile-action chat-profile-action-write"><span><?=GetMessage('GO_TO_CHAT')?></span></span>
 		</div>
-		<?endif?>
+		<?php endif?>
 		<div class="chat-profile-users-list-title"><?=GetMessage('USERS')?>:</div>
 		<div class="chat-profile-users-list" id="chat-profile-users-list" >
-			<?
+			<?php 
 			$jsIds = "";
 			foreach ($arResult['USERS'] as $user):
 				if (!$user['bot'] && !$user['active'])
@@ -35,7 +35,7 @@ else
 				$avatarId = "chat-avatar-".$user['id'];
 				$jsIds .= $jsIds !== "" ? ', "'.$avatarId.'"' : '"'.$avatarId.'"';
 				?><a id="chat-profile-user-<?=$user['id']?>" class="chat-profile-user" href="#" onclick="app.loadPageBlank({url: '<?=SITE_DIR?>mobile/users/?user_id=<?=$user['id']?>', bx24ModernStyle: true}); return false;"><span class="ml-avatar"><span class="ml-avatar-sub" style="background-size:cover" id="<?=$avatarId?>" data-src="<?=$user['avatar']?>"></span></span><span class="chat-profile-user-name"><?=$user['name']?></span></a>
-			<?endforeach;?>
+			<?php endforeach;?>
 			<script type="text/javascript">
 				BitrixMobile.LazyLoad.registerImages([<?=$jsIds?>]);
 			</script>

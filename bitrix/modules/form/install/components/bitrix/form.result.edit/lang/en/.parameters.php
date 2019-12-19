@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMP_FORM_GROUP_PARAMS"] = "Component parameters";
 $MESS["COMP_FORM_SEF_RESULT_EDIT_PAGE"] = "URL template of the Edit page";
 $MESS["FORM_COMP_VALUE_YES"] = "Yes";

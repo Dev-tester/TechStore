@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -129,9 +129,9 @@ $APPLICATION->SetTitle(GetMessage("FILEMAN_FILE_UPLOAD_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<?CAdminMessage::ShowMessage($strWarning);?>
+<?php CAdminMessage::ShowMessage($strWarning);?>
 
-<?if(strlen($strWarning) <= 0 || $bCan):?>
+<?php if(strlen($strWarning) <= 0 || $bCan):?>
 	<script>
 	function NewFileName(ob)
 	{
@@ -164,13 +164,13 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		BX.adminPanel.modifyFormElements(BX("bx-upload-tbl"));
 	}
 	</script>
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage()."?".$addUrl."&site=".$site."&path=".UrlEncode($path);?>" name="ffilemanupload" enctype="multipart/form-data">
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage()."?".$addUrl."&site=".$site."&path=".UrlEncode($path);?>" name="ffilemanupload" enctype="multipart/form-data">
 	<input type="hidden" name="logical" value="<?=htmlspecialcharsbx($logical)?>">
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="save" value="Y">
 	<?=bitrix_sessid_post()?>
 
-	<?
+	<?php 
 	$aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage('FILEMAN_UPL_TAB'), "ICON" => "fileman", "TITLE" => GetMessage('FILEMAN_UPL_TAB_ALT')),
 	);
@@ -190,18 +190,18 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 					<?= GetMessage("FILEMAN_FILEUPLOAD_FILE")?>
 				</td class="adm-detail-content-cell-r">
 			</tr>
-		<?for($i=1; $i<=5; $i++):?>
+		<?php for($i=1; $i<=5; $i++):?>
 			<tr>
 			<td class="adm-detail-content-cell-l">
-				<input type="text" name="filename_<?echo $i?>" size="30" maxlength="255" value="">
+				<input type="text" name="filename_<?php echo $i?>" size="30" maxlength="255" value="">
 			</td>
 			<td class="adm-detail-content-cell-r">
-				<input type="file" name="file_<?echo $i?>" size="30" maxlength="255" value="" onChange="NewFileName(this)">
+				<input type="file" name="file_<?php echo $i?>" size="30" maxlength="255" value="" onChange="NewFileName(this)">
 			</td>
 			</tr>
-		<?endfor?>
+		<?php endfor?>
 	</table></td></tr>
-	<?$tabControl->EndTab();
+	<?php $tabControl->EndTab();
 	$tabControl->Buttons(
 		array(
 			"disabled" => false,
@@ -211,5 +211,5 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 	$tabControl->End();
 	?>
 	</form>
-<?endif;?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php endif;?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

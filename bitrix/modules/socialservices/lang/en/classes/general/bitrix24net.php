@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["socserv_b24net_id"] = "Portal ID:";
 $MESS["socserv_b24net_secret"] = "Portal secret code:";
 $MESS["socserv_b24net_note"] = "Use your Bitrix24 account to log in.";

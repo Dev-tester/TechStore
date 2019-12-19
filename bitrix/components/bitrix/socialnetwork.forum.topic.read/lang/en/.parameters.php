@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_URL_TEMPLATES"] = "URLs processing";
 $MESS["F_MESSAGES_PER_PAGE"] = "Number of messages per page";
 $MESS["F_DEFAULT_TID"] = "Topic ID";

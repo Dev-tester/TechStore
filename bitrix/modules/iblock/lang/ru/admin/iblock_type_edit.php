@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBTYPE_E_TAB1'] = "Основное";
 $MESS ['IBTYPE_E_TAB1_T'] = "Настройки типа";
 $MESS ['IBTYPE_E_TAB2'] = "Дополнительно";

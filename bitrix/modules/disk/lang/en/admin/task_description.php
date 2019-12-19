@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_DISK_READ"] = "Read";
 $MESS["TASK_NAME_DISK_ADD"] = "Add";
 $MESS["TASK_NAME_DISK_EDIT"] = "Edit";

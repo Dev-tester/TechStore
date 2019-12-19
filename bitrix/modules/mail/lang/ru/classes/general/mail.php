@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS ['MAIL_CL_ERR_CHECK_MAIL'] = "Ошибка при получении почты с ящика";
 $MESS ['MAIL_CL_ERR_NAME'] = "Не заполнено поле";

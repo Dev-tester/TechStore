@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
@@ -71,40 +71,40 @@ if ($USER->CanDoOperation('catalog_read')):
 			$type = $Option[3];
 		?>
 		<tr>
-			<td <? echo ('textarea' == $type[0] || 'mlist' == $type[0] ? 'valign="top"' : ''); ?> width="40%"><?	if($type[0]=="checkbox")
+			<td <?php  echo ('textarea' == $type[0] || 'mlist' == $type[0] ? 'valign="top"' : ''); ?> width="40%"><?php 	if($type[0]=="checkbox")
 							echo "<label for=\"".htmlspecialcharsbx($Option[0])."\">".$Option[1]."</label>";
 						else
 							echo $Option[1];?>:</td>
 			<td width="60%">
-					<?if($type[0]=="checkbox"):?>
-						<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?> onclick="Check(this.id);">
-					<?elseif($type[0]=="text"):?>
-						<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>">
-					<?elseif($type[0]=="textarea"):?>
-						<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-					<?elseif($type[0]=="list"):?>
-						<select name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>">
-						<?foreach($type[1] as $key=>$value):?>
-							<option value="<?echo htmlspecialcharsbx($key)?>" <?if($val==$key) echo "selected"?>><?echo htmlspecialcharsbx($value)?></option>
-						<?endforeach?>
+					<?php if($type[0]=="checkbox"):?>
+						<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?> onclick="Check(this.id);">
+					<?php elseif($type[0]=="text"):?>
+						<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>">
+					<?php elseif($type[0]=="textarea"):?>
+						<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+					<?php elseif($type[0]=="list"):?>
+						<select name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>">
+						<?php foreach($type[1] as $key=>$value):?>
+							<option value="<?php echo htmlspecialcharsbx($key)?>" <?php if($val==$key) echo "selected"?>><?php echo htmlspecialcharsbx($value)?></option>
+						<?php endforeach?>
 						</select>
-					<?elseif($type[0]=="mlist"):
+					<?php elseif($type[0]=="mlist"):
 						$val = explode(",", $val)?>
-						<select multiple name="<?echo htmlspecialcharsbx($Option[0])?>[]" size="<?echo $type[1]?>" id="<?echo htmlspecialcharsbx($Option[0])?>">
-						<?foreach($type[2] as $key=>$value):?>
-							<option value="<?echo htmlspecialcharsbx($key)?>" <?if(in_array($key, $val)) echo "selected"?>><?echo htmlspecialcharsbx($value)?></option>
-						<?endforeach?>
+						<select multiple name="<?php echo htmlspecialcharsbx($Option[0])?>[]" size="<?php echo $type[1]?>" id="<?php echo htmlspecialcharsbx($Option[0])?>">
+						<?php foreach($type[2] as $key=>$value):?>
+							<option value="<?php echo htmlspecialcharsbx($key)?>" <?php if(in_array($key, $val)) echo "selected"?>><?php echo htmlspecialcharsbx($value)?></option>
+						<?php endforeach?>
 						</select>
-					<?endif?>
+					<?php endif?>
 			</td>
 		</tr>
-		<?endforeach;
+		<?php endforeach;
 		if (!$USER->CanDoOperation('edit_php')):
-			?><tr><td colspan="2"><?
+			?><tr><td colspan="2"><?php 
 				echo BeginNote();
 				echo GetMessage('CAT_1CE_SETTINGS_SAVE_DENIED');
 				echo EndNote();
-			?></td></tr><?
+			?></td></tr><?php 
 		endif;
 	else:
 		CAdminMessage::ShowMessage(GetMessage("CAT_NO_IBLOCK_MOD"));

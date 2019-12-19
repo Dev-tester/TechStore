@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Quote";
 $MESS["CRM_TAB_1_TITLE"] = "Quote properties";
 $MESS["CRM_QUOTE_SHOW_TITLE"] = "Quote ##QUOTE_NUMBER# from #BEGINDATE#";

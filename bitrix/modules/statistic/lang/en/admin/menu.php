@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STATM_STATISTIC"] = "Statistics summary";
 $MESS["STATM_STATISTIC_ALT"] = "Summary overview of site statistics";
 $MESS["STATM_TRAFFIC"] = "Site traffic";

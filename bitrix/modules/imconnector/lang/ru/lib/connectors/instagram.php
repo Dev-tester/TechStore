@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONNECTORS_INSTAGRAM_NEW_CONNECTOR_NOTIFY_MESSAGE"] = "Внимание! Instagram обновил свое API. 
 Вам необходимо подключить свой аккаунт Instagram заново, используя новый канал контакт-центра [URL=#CONNECTOR_URL#]\"Instagram для бизнеса\"[/URL]. 
 

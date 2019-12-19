@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/openlines/statistics.php");
@@ -7,6 +7,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_afte
 $APPLICATION->SetTitle(GetMessage("OL_PAGE_STATISTICS_DETAIL_TITLE_NEW"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:imopenlines.statistics.detail", "", array("LIMIT" => "30"));?>
+<?php $APPLICATION->IncludeComponent("bitrix:imopenlines.statistics.detail", "", array("LIMIT" => "30"));?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

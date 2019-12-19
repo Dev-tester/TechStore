@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Фотогалереи");
-?><?$APPLICATION->IncludeComponent("bitrix:photogallery_user", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:photogallery_user", ".default", array(
 	"SECTION_PAGE_ELEMENTS" => "15",
 	"ELEMENTS_PAGE_ELEMENTS" => "50",
 	"PAGE_NAVIGATION_TEMPLATE" => "",
@@ -76,4 +76,4 @@ $APPLICATION->SetTitle("Фотогалереи");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

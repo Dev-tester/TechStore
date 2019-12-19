@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SEGMENT_SELECTOR_RECIPIENT_COUNT_EXACT_HINT1"] = "This value specifies an exact number of recipients.
 <br>It does not include:
 <br> - duplicates; 

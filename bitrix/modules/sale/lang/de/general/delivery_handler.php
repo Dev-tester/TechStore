@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_ERROR_WRONG_HANDLER_FILE"] = "Falsche Handler-Datei";
 $MESS["SALE_DH_ERROR_HANDLER_NOT_INSTALLED"] = "Die Versandart wurde nicht festgelegt";
 $MESS["SALE_DH_CF_ERROR_P_RESTRICTIONS_WEIGHT"] = "Gewichtseinschränkungen";

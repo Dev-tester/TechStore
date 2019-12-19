@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!function_exists("_GetAnswerArray"))
 {
 	function _GetAnswerArray($QuestionID, $FieldType, &$arAnswers)

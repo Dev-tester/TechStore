@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NO_MODULE'] = "Forum module is not installed";
 $MESS ['F_ERROR_FORUM_NOT_EXISTS'] = "The forum is not found.";
 $MESS ['F_NO_FPERMS'] = "Enter your login and password to access this forum";

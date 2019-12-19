@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ADMIN_TAB1"] = "Расписание";
 $MESS["SUP_ADMIN_TAB2"] = "Часы";
 $MESS["SUP_ADMIN_TITLE"] = "Расписания";

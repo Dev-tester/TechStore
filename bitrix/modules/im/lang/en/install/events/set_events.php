@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_NEW_NOTIFY_NAME"] = "New notification";
 $MESS["IM_NEW_NOTIFY_DESC"] = "#MESSAGE_ID# - message ID
 #USER_ID# - user ID

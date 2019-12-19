@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FM_ENTITY_PHONE_MOBILE"] = "Мобильный телефон";
 $MESS["CRM_FM_ENTITY_PHONE_MOBILE_SHORT"] = "Мобильный";
 $MESS["CRM_FM_ENTITY_PHONE_MOBILE_ABBR"] = "Моб.";

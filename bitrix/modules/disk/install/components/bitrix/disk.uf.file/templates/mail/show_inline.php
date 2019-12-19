@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 $this->IncludeLangFile("show.php");
 /** @var array $arParams */
 /** @var array $arResult */
@@ -22,14 +22,14 @@ foreach ($arResult['FILES'] as $id => $file)
 {
 	if (array_key_exists("IMAGE", $file))
 	{
-		?><img id="<?=$id?>" src="<?=$file["INLINE"]["src"]?>" <?
-		?> width="<?=$file["INLINE"]["width"]?>"<?
-		?> height="<?=$file["INLINE"]["height"]?>"<?
-		?> alt="<?=htmlspecialcharsbx($file["NAME"])?>"<?
-		?> /><?
+		?><img id="<?=$id?>" src="<?=$file["INLINE"]["src"]?>" <?php 
+		?> width="<?=$file["INLINE"]["width"]?>"<?php 
+		?> height="<?=$file["INLINE"]["height"]?>"<?php 
+		?> alt="<?=htmlspecialcharsbx($file["NAME"])?>"<?php 
+		?> /><?php 
 	}
 	else
 	{
-		?><a href="<?=$file["VIEW_URL"]?>" style="color: #146cc5;"><?=$file["NAME"]?> (<?=$file["SIZE"]?>)</a><?
+		?><a href="<?=$file["VIEW_URL"]?>" style="color: #146cc5;"><?=$file["NAME"]?> (<?=$file["SIZE"]?>)</a><?php 
 	}
 }

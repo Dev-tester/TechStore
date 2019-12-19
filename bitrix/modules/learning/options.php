@@ -131,8 +131,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST" && strlen($Update)>0 && $LEARNING_RIGHT ==
 }
 ?>
 
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?echo LANG?>">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?php echo LANG?>">
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("LEARNING_TAB_SET"), "ICON" => "learning_settings", "TITLE" => GetMessage("LEARNING_TAB_SET_ALT")),
 	array("DIV" => "edit2", "TAB" => GetMessage("LEARNING_TAB_RIGHTS"), "ICON" => "learning_settings", "TITLE" => GetMessage("LEARNING_TAB_RIGHTS_ALT")),
@@ -141,31 +141,31 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-	<?
+	<?php 
 	for($i=0; $i<count($arAllOptions); $i++):
 		$Option = $arAllOptions[$i];
 		$val = COption::GetOptionString("learning", $Option[0], $Option[2]);
 		$type = $Option[3];
 	?>
 		<tr>
-			<td width="40%"><?echo $Option[1]?><?php if($type[0]!="checkbox") echo ':'; ?></td>
+			<td width="40%"><?php echo $Option[1]?><?php if($type[0]!="checkbox") echo ':'; ?></td>
 			<td width="60%">
-					<?if($type[0]=="checkbox"):?>
-						<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-					<?elseif($type[0]=="text"):?>
-						<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>">
-					<?elseif($type[0]=="textarea"):?>
-						<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-					<?endif?>
+					<?php if($type[0]=="checkbox"):?>
+						<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+					<?php elseif($type[0]=="text"):?>
+						<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>">
+					<?php elseif($type[0]=="textarea"):?>
+						<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+					<?php endif?>
 
 			</td>
 		</tr>
-	<?endfor;?>
+	<?php endfor;?>
 
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("LEARNING_SITE_PATH")?></td>
 	</tr>
-	<?
+	<?php 
 	$arPaths = array();
 	$dbPaths = CSitePath::GetList();
 	while ($arPath = $dbPaths->Fetch())
@@ -180,17 +180,17 @@ $tabControl->BeginNextTab();
 		</tr>
 		<tr>
 			<td align="right"><?=GetMessage("LEARNING_SITE_PATH_SITE_COURSE")?>:</td>
-			<td><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["C"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_C"></td>
+			<td><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["C"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_C"></td>
 		</tr>
 		<tr>
 			<td align="right"><?=GetMessage("LEARNING_SITE_PATH_SITE_CHAPTER")?>:</td>
-			<td><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["H"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_H"></td>
+			<td><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["H"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_H"></td>
 		</tr>
 		<tr>
 			<td align="right"><?=GetMessage("LEARNING_SITE_PATH_SITE_LESSON")?>:</td>
-			<td><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["L"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_L"></td>
+			<td><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["L"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_L"></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	<tr>
@@ -225,21 +225,21 @@ if (CLearnAccess::IsLoggedUserCanAccessModuleSettings())
 
 ?>
 
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)?>&<?=bitrix_sessid_get()?>";
+	if(confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)?>&<?=bitrix_sessid_get()?>";
 }
 </script>
 <div align="left">
 	<input type="hidden" name="Update" value="Y">
-	<input type="submit" <?if ($LEARNING_RIGHT<"W") echo "disabled" ?> name="Update" value="<?echo GetMessage("MAIN_SAVE")?>">
-	<input type="reset" <?if ($LEARNING_RIGHT<"W") echo "disabled" ?> name="reset" value="<?echo GetMessage("MAIN_RESET")?>">
-	<input type="button" <?if ($LEARNING_RIGHT<"W") echo "disabled" ?>  type="button" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<input type="submit" <?php if ($LEARNING_RIGHT<"W") echo "disabled" ?> name="Update" value="<?php echo GetMessage("MAIN_SAVE")?>">
+	<input type="reset" <?php if ($LEARNING_RIGHT<"W") echo "disabled" ?> name="reset" value="<?php echo GetMessage("MAIN_RESET")?>">
+	<input type="button" <?php if ($LEARNING_RIGHT<"W") echo "disabled" ?>  type="button" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 </div>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 <?=bitrix_sessid_post();?>
 </form>
 

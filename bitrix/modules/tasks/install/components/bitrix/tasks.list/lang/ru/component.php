@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_MODULE_NOT_AVAILABLE_IN_THIS_EDITION"] = "Модуль управления задачами не доступен в данной редакции продукта.";
 $MESS["TASKS_MODULE_NOT_FOUND"] = "Модуль управления задачами не установлен.";
 $MESS["SOCNET_MODULE_NOT_INSTALLED"] = "Модуль \"Социальная сеть\" не установлен";

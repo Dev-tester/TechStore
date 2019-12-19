@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BC_POST_VAR"] = "Variable for idea post ID";
 $MESS["BC_USER_VAR"] = "Variable for idea user ID";
 $MESS["BC_PAGE_VAR"] = "Page variable name";

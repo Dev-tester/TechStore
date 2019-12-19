@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMENTS_EXTRANET_GROUP_NAME"] = "Comments: Extranet";
 $MESS["HIDDEN_EXTRANET_GROUP_NAME"] = "Hidden Forums: Extranet";
 $MESS["USERS_AND_GROUPS_EXTRANET_FORUM_NAME"] = "User And Group Forums: Extranet";

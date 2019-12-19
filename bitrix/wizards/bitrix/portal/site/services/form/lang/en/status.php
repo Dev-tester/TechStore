@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STATUS_NEW"] = "New";
 $MESS["STATUS_RECEIVED"] = "Received";
 $MESS["STATUS_DONE"] = "Completed";

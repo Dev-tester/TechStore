@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_TID_IS_LINK"] = "A link topic can be deleted only.";
 $MESS["F_GROUPS"] = "groups";
 $MESS["F_USERS"] = "user";

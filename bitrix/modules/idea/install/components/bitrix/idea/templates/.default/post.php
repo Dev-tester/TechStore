@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 //get array of official answers
 $arBlogPostOfficial = array();
 $arFilter = array(
@@ -24,8 +24,8 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 ?>
 
 <div class="idea-managment-content">
-	<?if(!empty($arResult["ACTIONS"])):?>
-	<?$APPLICATION->IncludeComponent(
+	<?php if(!empty($arResult["ACTIONS"])):?>
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.interface.toolbar",
 		"",
 		array(
@@ -33,10 +33,10 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 		),
 		$component
 	);?>
-	<?endif;?>
-	<?//Side bar tools?>
-	<?$this->SetViewTarget("sidebar", 100)?>
-		<?$APPLICATION->IncludeComponent(
+	<?php endif;?>
+	<?php //Side bar tools?>
+	<?php $this->SetViewTarget("sidebar", 100)?>
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.category.list",
 				"",
 				Array(
@@ -47,7 +47,7 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 				$component
 		);
 		?>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.statistic",
 				"",
 				Array(
@@ -58,7 +58,7 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 				$component
 		);
 		?>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.tags",
 				"",
 				Array(
@@ -70,10 +70,10 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 				$component
 		);
 		?>
-	<?$this->EndViewTarget();?>
-	<?//Work Field?>
-	<?$this->SetViewTarget("idea_body", 100)?>
-		<?$APPLICATION->IncludeComponent(
+	<?php $this->EndViewTarget();?>
+	<?php //Work Field?>
+	<?php $this->SetViewTarget("idea_body", 100)?>
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.detail",
 				"",
 				Array(
@@ -114,8 +114,8 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 				),
 				$component
 		);?>
-		<?if($arParams["DISABLE_RSS"] != "Y"):?>
-			<?$APPLICATION->IncludeComponent(
+		<?php if($arParams["DISABLE_RSS"] != "Y"):?>
+			<?php $APPLICATION->IncludeComponent(
 					"bitrix:blog.rss.link",
 					"group",
 					Array(
@@ -135,14 +135,14 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 					),
 					$component
 			);?>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 		if(isset($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]) && is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]) && !empty($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 		$arNonOfficial = array(
 			"!ID" => $arBlogPostOfficial[CIdeaManagment::UFAnswerIdField],
 		);
 		?>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 				"bitrix:idea.comment.list",
 				".default",
 				Array(
@@ -188,15 +188,15 @@ if(!is_array($arBlogPostOfficial[CIdeaManagment::UFAnswerIdField]))
 				$component
 		);
 		?>
-	<?$this->EndViewTarget();?>
-	<?if($arResult["IS_CORPORTAL"] != "Y"):?>
+	<?php $this->EndViewTarget();?>
+	<?php if($arResult["IS_CORPORTAL"] != "Y"):?>
 		<div class="idea-managment-content-left">
-			<?$APPLICATION->ShowViewContent("sidebar")?>
+			<?php $APPLICATION->ShowViewContent("sidebar")?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="idea-managment-content-right">
-		<?$APPLICATION->ShowViewContent("idea_filter")?>
-		<?$APPLICATION->ShowViewContent("idea_body")?>
+		<?php $APPLICATION->ShowViewContent("idea_filter")?>
+		<?php $APPLICATION->ShowViewContent("idea_body")?>
 	</div>
 	<div style="clear:both;"></div>
 </div>

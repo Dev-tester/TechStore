@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_PRESET_DETAIL_DESCRIPTION_TITLE"] = "Описание скидки";
 $MESS["SALE_DISCOUNT_PRESET_DETAIL_NEXT_STEP"] = "Следующий шаг";
 $MESS["SALE_DISCOUNT_PRESET_DETAIL_PREV_STEP"] = "Предыдущий шаг";

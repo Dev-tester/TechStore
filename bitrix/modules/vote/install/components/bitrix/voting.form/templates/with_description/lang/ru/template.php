@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_DROPDOWN_SET'] = "выберите значение";
 $MESS ['VOTE_START_DATE'] = "Начало";
 $MESS ['VOTE_END_DATE'] = "Окончание";

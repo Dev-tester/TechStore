@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "Модуль блогов не установлен.";
 $MESS["IDEA_CATEGORY_IBLOCK_NOT_CHOSEN"] = "Не выбран инфоблок с категориями идей.";
 $MESS["IDEA_CATEGORY_NOT_EXISTS"] = "Запрашиваемая категория идей не найдена.";

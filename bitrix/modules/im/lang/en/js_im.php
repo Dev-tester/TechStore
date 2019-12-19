@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_ANSWERS_MENU"] = "Open canned replies list";
 $MESS["IM_BC"] = "Instant Messenger";
 $MESS["IM_CALL_ACCESS_GRANTED"] = "Access granted.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_IMAGE_SIZE_DESCRIPTION'] = "Размер изображения";
 $MESS['FORM_VALIDATOR_IMAGE_SIZE_SETTINGS_WIDTH_FROM'] = "Минимальная ширина";
 $MESS['FORM_VALIDATOR_IMAGE_SIZE_SETTINGS_WIDTH_TO'] = "Максимальная ширина";

@@ -272,7 +272,7 @@ class Address extends \Bitrix\Main\UserField\TypeBase
 		});
 	})();
 </script>
-<?
+<?php 
 			$html = ob_get_clean();
 		}
 		else

@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/timeman/meeting/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));?>
-<?
+<?php 
 $licenseType = "";
 if (\Bitrix\Main\Loader::includeModule("bitrix24"))
 {
@@ -37,8 +37,8 @@ elseif (!(!IsModuleInstalled("meeting") && in_array($licenseType, array("company
 	<div style="text-align: center;"><img src="images/<?=$lang?>/meeting.png"/></div>
 	<p><?=GetMessage("TARIFF_RESTRICTION_TEXT2")?></p>
 	<br/>
-	<div style="text-align: center;"><?CBitrix24::showTariffRestrictionButtons("meeting")?></div>
-	<?
+	<div style="text-align: center;"><?php CBitrix24::showTariffRestrictionButtons("meeting")?></div>
+	<?php 
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

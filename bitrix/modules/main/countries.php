@@ -1,4 +1,4 @@
-<?
+<?php 
 //country IDs are from lang/tools.php as stored in the b_user.personal_country
 //country codes are from ISO 3166-1, http://www.iso.org/iso/country_codes/
 static $arCounries = array(

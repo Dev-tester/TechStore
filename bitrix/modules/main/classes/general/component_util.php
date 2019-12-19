@@ -911,7 +911,7 @@ class CComponentUtil
 				if(!file_exists($lang_filename))
 				{
 					$handle=fopen($lang_filename, "w");
-					fwrite($handle, "<?\n?>");
+					fwrite($handle, "<?php \n?>");
 					fclose($handle);
 				}
 				$handle=fopen($lang_filename, "r");

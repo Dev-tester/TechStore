@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arParams['ID'] = preg_replace('/[^a-zA-Z_0-9]*/', '', $arParams['ID']);

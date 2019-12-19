@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_PRESET_TEMPLATE_DEFAULT_PHONE"] = "1 800 000-00-00";
 $MESS["SENDER_PRESET_TEMPLATE_DEFAULT_COMPANY"] = "*Company name*";
 $MESS["SENDER_PRESET_TEMPLATE_HOT_INC_PROFITS_DESC"] = "Increase average LTV amount and the number of deals.";

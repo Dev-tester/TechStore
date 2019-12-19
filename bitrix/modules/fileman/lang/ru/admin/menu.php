@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FM_STATIC_CONTROL'] = "Управление";
 $MESS ['FM_STATIC_CONTROL_ALT'] = "Управление файлами и папками, меню, правами доступа";
 $MESS ['FM_MENU_TITLE'] = "Структура сайта";

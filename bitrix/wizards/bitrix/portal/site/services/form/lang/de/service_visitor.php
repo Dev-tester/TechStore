@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADMIN_NOTE_QUESTION'] = "Antwort";
 $MESS ['COMMENT_QUESTION'] = "Kommentar";
 $MESS ['SERVICE_VISITOR_FORM_BUTTON'] = "Senden";

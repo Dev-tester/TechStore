@@ -124,37 +124,37 @@ $arFilterDropDown = array(
 
 $oFilter = new CAdminFilter($sTableID."_filter",$arFilterDropDown);
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
-	<td><?echo GetMessage("STAT_F_EVENT_ID")?></td>
+	<td><?php echo GetMessage("STAT_F_EVENT_ID")?></td>
 	<td>
-	<input name="find_event_id" id="find_event_id" value="<?echo htmlspecialcharsbx($find_event_id)?>">
+	<input name="find_event_id" id="find_event_id" value="<?php echo htmlspecialcharsbx($find_event_id)?>">
 	<input type="button" OnClick="selectEventType('find_form','find_event_id')" value="<?=GetMessage("STAT_CHOOSE_BTN");?>">
 	<script type="text/javascript">
 	function selectEventType(form, field)
 	{
-		jsUtils.OpenWindow('event_multiselect.php?target_control=text&lang=<?echo LANGUAGE_ID?>&form='+form+'&field='+field, 600, 600);
+		jsUtils.OpenWindow('event_multiselect.php?target_control=text&lang=<?php echo LANGUAGE_ID?>&form='+form+'&field='+field, 600, 600);
 	}
 	</script>
 	</td>
 </tr>
 <tr valign="center">
-	<td><?echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
+	<td><?php echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

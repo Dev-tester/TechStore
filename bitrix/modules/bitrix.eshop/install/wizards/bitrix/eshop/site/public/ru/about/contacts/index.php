@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Задайте вопрос");
 ?>
 
@@ -14,7 +14,7 @@ $APPLICATION->SetTitle("Задайте вопрос");
 	</div>
 	<h2>Задать вопрос</h2>
 
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.feedback",
 		"bootstrap_v4",
 		Array(
@@ -26,4 +26,4 @@ $APPLICATION->SetTitle("Задайте вопрос");
 		)
 	);?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>

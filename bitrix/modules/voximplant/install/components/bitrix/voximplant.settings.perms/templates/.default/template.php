@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var array $arResult
  * @var CMain $APPLICATION
@@ -12,7 +12,7 @@ CUtil::InitJSCore(Array('voximplant.common', 'access', 'sidepanel'));
 <div id="vi-permissions-edit">
 <form method="POST">
 	<input type="hidden" id="act" value="save" name="act">
-	<?echo bitrix_sessid_post()?>
+	<?php echo bitrix_sessid_post()?>
 	<table class="table-blue-wrapper">
 		<tr>
 			<td>
@@ -23,24 +23,24 @@ CUtil::InitJSCore(Array('voximplant.common', 'access', 'sidepanel'));
 						<td class="table-blue-td-title"><?=GetMessage('VOXIMPLANT_PERM_ROLE')?></td>
 						<td class="table-blue-td-title"></td>
 					</tr>
-					<?foreach ($arResult['ROLE_ACCESS_CODES'] as $roleAccessCode):?>
+					<?php foreach ($arResult['ROLE_ACCESS_CODES'] as $roleAccessCode):?>
 						<tr data-access-code="<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>" data-role-id="<?=htmlspecialcharsbx($roleAccessCode['ROLE_ID'])?>">
 							<td class="table-blue-td-name"><?=htmlspecialcharsbx($roleAccessCode['ACCESS_PROVIDER'])?></td>
 							<td class="table-blue-td-param"><?=htmlspecialcharsbx($roleAccessCode['ACCESS_NAME'])?></td>
 							<td class="table-blue-td-select">
 									<select class="bx-vi-js-select-role table-blue-select" name="PERMS[<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>]" data-access-code="<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>">
-										<?foreach ($arResult['ROLES'] as $role):?>
+										<?php foreach ($arResult['ROLES'] as $role):?>
 											<option title="<?=htmlspecialcharsbx($role['NAME'])?>" value="<?=htmlspecialcharsbx($role['ID'])?>" <?=($role['ID'] == $roleAccessCode['ROLE_ID'] ? 'selected' : '')?>>
 												<?=htmlspecialcharsbx($role['NAME'])?>
 											</option>
-										<?endforeach;?>
+										<?php endforeach;?>
 									</select>
 							</td>
 							<td class="table-blue-td-action">
 								<span class="bx-vi-js-delete-access table-blue-delete" data-access-code="<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>"></span>
 							</td>
 						</tr>
-					<?endforeach;?>
+					<?php endforeach;?>
 					<tr class="bx-vi-js-access-table-last-row">
 						<td colspan="4" class="table-blue-td-link">
 								<a class="bx-vi-js-add-access table-blue-link" href="javascript:void(0);"><?=GetMessage('VOXIMPLANT_PERM_ADD_ACCESS_CODE')?></a>
@@ -53,19 +53,19 @@ CUtil::InitJSCore(Array('voximplant.common', 'access', 'sidepanel'));
 					<tr>
 						<td colspan="2" class="table-blue-td-title"><?=GetMessage('VOXIMPLANT_PERM_ROLE_LIST')?>:</td>
 					</tr>
-					<?foreach ($arResult['ROLES'] as $role):?>
+					<?php foreach ($arResult['ROLES'] as $role):?>
 						<tr data-role-id="<?=htmlspecialcharsbx($role['ID'])?>">
 							<td class="table-blue-td-name">
 								<?=htmlspecialcharsbx($role['NAME'])?>
 							</td>
 							<td class="table-blue-td-action">
 								<a class="table-blue-edit" title="<?=GetMessage('VOXIMPLANT_PERM_EDIT')?>" href="<?=$role['EDIT_URL']?>" onclick="BX.SidePanel.Instance.open('<?=$role['EDIT_URL']?>', {cacheable: false}); return false;"></a>
-								<?if($arResult['CAN_EDIT']):?>
+								<?php if($arResult['CAN_EDIT']):?>
 									<span class="table-blue-delete bx-vi-js-delete-role" title="<?=GetMessage('VOXIMPLANT_PERM_DELETE')?>" data-role-id="<?=htmlspecialcharsbx($role['ID'])?>"></span>
-								<?endif?>
+								<?php endif?>
 							</td>
 						</tr>
-					<?endforeach;?>
+					<?php endforeach;?>
 					<tr>
 						<td colspan="2" class="table-blue-td-link">
 							<a href="<?=$arResult['ADD_URL']?>" class="table-blue-link" onclick="BX.SidePanel.Instance.open('<?=$arResult['ADD_URL']?>', {cacheable: false}); return false;">
@@ -77,7 +77,7 @@ CUtil::InitJSCore(Array('voximplant.common', 'access', 'sidepanel'));
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 
 	$buttons = [];
 
@@ -120,11 +120,11 @@ CUtil::InitJSCore(Array('voximplant.common', 'access', 'sidepanel'));
 	<td class="table-blue-td-param">#NAME#</td>
 	<td class="table-blue-td-select">
 		<select class="bx-vi-js-select-role table-blue-select" name="PERMS[#ACCESS_CODE#]" data-access-code="#ACCESS_CODE#">
-			<?foreach ($arResult['ROLES'] as $role):?>
+			<?php foreach ($arResult['ROLES'] as $role):?>
 				<option title="<?=htmlspecialcharsbx($role['NAME'])?>" value="<?=htmlspecialcharsbx($role['ID'])?>">
 					<?=htmlspecialcharsbx($role['NAME'])?>
 				</option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 	<td class="table-blue-td-action">
@@ -143,7 +143,7 @@ CUtil::InitJSCore(Array('voximplant.common', 'access', 'sidepanel'));
 	});
 </script>
 
-<?
+<?php 
 if(!$arResult['CAN_EDIT'])
 {
 	CBitrix24::initLicenseInfoPopupJS();
@@ -158,6 +158,6 @@ if(!$arResult['CAN_EDIT'])
 			viOpenTrialPopup('permissions');
 		});
 	</script>
-	<?
+	<?php 
 }
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GP_EMPTY_TITLE"] = "Не указан заголовок сообщения";
 $MESS["BLG_GP_EMPTY_DETAIL_TEXT"] = "Не указан текст сообщения";
 $MESS["BLG_GP_EMPTY_BLOG_ID"] = "Не указан блог сообщения";

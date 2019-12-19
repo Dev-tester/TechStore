@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global CUser $USER
  * @global CMain $APPLICATION
@@ -100,16 +100,16 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value=<?=$id?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-<?if($id > 0):?>
+<?php if($id > 0):?>
 	<tr>
 		<td width="40%"><?=Loc::getMessage('GEOIP_EDIT_F_ID')?>:</td>
 		<td width="60%"><?=$id?></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 	<tr>
 		<td><?=Loc::getMessage('GEOIP_EDIT_F_TITLE')?>:</td>
 		<td><?=$handler->getTitle()?></td>
@@ -197,17 +197,17 @@ $tabControl->BeginNextTab();
 
 
 
-<?$tabControl->BeginNextTab();?>
-	<?$adminConfigHtml = GeoIp\Manager::getHandlerAdminConfigHtml($handler);?>
+<?php $tabControl->BeginNextTab();?>
+	<?php $adminConfigHtml = GeoIp\Manager::getHandlerAdminConfigHtml($handler);?>
 
-	<?if(!empty($adminConfigHtml)):?>
+	<?php if(!empty($adminConfigHtml)):?>
 		<?=$adminConfigHtml?>
-	<?else:?>
+	<?php else:?>
 		<tr>
 			<td colspan="2"><?=Loc::getMessage('GEOIP_EDIT_SPECIFIC_ABSENT')?>:</td>
 		</tr>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 $tabControl->Buttons(array(
 	"back_url" => "geoip_handlers_list.php?lang=".LANG,
 ));
@@ -215,5 +215,5 @@ $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

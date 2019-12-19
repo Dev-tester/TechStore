@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SITE_ITEM_DEMO_PHONE"] = "Введите номер";
 $MESS["CRM_TRACKING_SITE_ITEM_DEMO_EMAIL"] = "Введите email";
 $MESS["CRM_TRACKING_SITE_BTN_ADD"] = "Добавить";

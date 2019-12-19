@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/webdav/admin/webdav_convertor.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/webdav/admin/webdav_convertor.php");?>

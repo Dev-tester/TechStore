@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CUR_INSTALL_USD_FORMAT_STRING"] = "\$#";
 $MESS["CUR_INSTALL_USD_FULL_NAME"] = "Доллар США";
 $MESS["CUR_INSTALL_USD_DEC_POINT"] = ".";

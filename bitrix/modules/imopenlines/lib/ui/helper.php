@@ -64,7 +64,7 @@ class Helper
 						};
 					BX.CrmEntityType.setCaptions(<?=\CUtil::PhpToJSObject(\CCrmOwnerType::GetJavascriptDescriptions())?>);
 				}
-			);<?
+			);<?php 
 			foreach($entitySelectors as $entitySelector)
 			{
 				$selectorID = $entitySelector['ID'];
@@ -85,9 +85,9 @@ class Helper
 						}
 					);
 				}
-			);<?
+			);<?php 
 			}
-			?></script><?
+			?></script><?php 
 		}
 		//endregion
 	}

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE_TIP"] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type.";
 $MESS["IBLOCK_ID_TIP"] = "Specify here the information block that will store the photos. Alternatively, you can select <b>(other)-></b> and specify the information block ID in the field beside.";
 $MESS["SECTION_ID_TIP"] = "This field contains an expression that evaluates to the section (album) ID.";

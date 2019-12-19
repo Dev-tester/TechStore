@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLTR_TITLE"] = "Transliteration dictionary";
 $MESS["FLTR_EDIT"] = "Edit record ##";
 $MESS["FLTR_NEW"] = "New record";

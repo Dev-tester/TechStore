@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_EDIT_RECORD"] = "Параметры типа события # #ID#";
 $MESS["STAT_NEW_RECORD"] = "Новый тип события";
 $MESS["STAT_RECORDS_LIST"] = "Типы событий";

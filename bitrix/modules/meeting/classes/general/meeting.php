@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CAllMeeting
 {
 	const STATE_PREPARE = 'P';

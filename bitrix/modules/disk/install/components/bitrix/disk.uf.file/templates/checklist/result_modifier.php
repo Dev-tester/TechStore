@@ -1,4 +1,4 @@
-<? use Bitrix\Disk\Security\ParameterSigner;
+<?php  use Bitrix\Disk\Security\ParameterSigner;
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {

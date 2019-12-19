@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -23,7 +23,7 @@ $APPLICATION->SetTitle(Loc::getMessage("SLLS_TEMPLATE_PAGE_TITLE"));
 			urlToGroupCreate: '<?=\CUtil::jsEscape($arResult["URL_GROUP_CREATE"])?>'
 		});
 	});
-</script><?
+</script><?php 
 
 \Bitrix\Main\Loader::includeModule('ui');
 \Bitrix\Main\UI\Extension::load("ui.buttons");
@@ -69,7 +69,7 @@ if (
 		<div class="landing-livefeed-selector-content-control">
 			<a class="ui-btn ui-btn-md ui-btn-primary ui-btn-icon-add" id="slls_group_create"><?=Loc::getMessage("SLLS_TEMPLATE_CREATE_GROUP")?></a>
 		</div>
-	</div><?
+	</div><?php 
 }
 else
 {

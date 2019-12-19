@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 define('STOP_STATISTICS', true);
 define('NO_AGENT_CHECK', true);
@@ -110,26 +110,26 @@ else
 	<div id="discount_reindex_error_div" style="margin:0; display: none;">
 		<div class="adm-info-message-wrap adm-info-message-red">
 			<div class="adm-info-message">
-				<div class="adm-info-message-title"><? echo Loc::getMessage('SALE_DISCOUNT_REINDEX_ERRORS_TITLE'); ?></div>
+				<div class="adm-info-message-title"><?php  echo Loc::getMessage('SALE_DISCOUNT_REINDEX_ERRORS_TITLE'); ?></div>
 				<div id="discount_reindex_error_cont"></div>
 				<div class="adm-info-message-icon"></div>
 			</div>
 		</div>
 	</div>
-	<form name="discount_reindex_form" action="<? echo $APPLICATION->GetCurPage(); ?>" method="GET"><?
+	<form name="discount_reindex_form" action="<?php  echo $APPLICATION->GetCurPage(); ?>" method="GET"><?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?><tr>
-	<td width="40%"><? echo Loc::getMessage('SALE_DISCOUNT_REINDEX_MAX_EXECUTION_TIME')?></td>
-	<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $oneStepTime; ?>"></td>
-	</tr><?
+	<td width="40%"><?php  echo Loc::getMessage('SALE_DISCOUNT_REINDEX_MAX_EXECUTION_TIME')?></td>
+	<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $oneStepTime; ?>"></td>
+	</tr><?php 
 	$tabControl->Buttons();
 	?>
-	<input type="button" id="start_button" value="<? echo Loc::getMessage('SALE_DISCOUNT_REINDEX_UPDATE_BTN')?>"<? echo ($discountCounter > 0 ? '' : ' disabled'); ?>>
-	<input type="button" id="stop_button" value="<? echo Loc::getMessage('SALE_DISCOUNT_REINDEX_STOP_BTN')?>" disabled>
-	<?
+	<input type="button" id="start_button" value="<?php  echo Loc::getMessage('SALE_DISCOUNT_REINDEX_UPDATE_BTN')?>"<?php  echo ($discountCounter > 0 ? '' : ' disabled'); ?>>
+	<input type="button" id="stop_button" value="<?php  echo Loc::getMessage('SALE_DISCOUNT_REINDEX_STOP_BTN')?>" disabled>
+	<?php 
 	$tabControl->End();
-	?></form><?
+	?></form><?php 
 
 	$jsParams = array(
 		'url' => $APPLICATION->GetCurPage(),
@@ -153,8 +153,8 @@ else
 	);
 ?>
 <script type="text/javascript">
-	var jsStepOperations = new BX.Catalog.StepOperations(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
+	var jsStepOperations = new BX.Catalog.StepOperations(<?php  echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
 </script>
-<?
+<?php 
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_IBLOCK_ADMIN_DISPLAY"] = "Показ инфоблока в административном разделе";
 $MESS["OP_NAME_IBLOCK_EDIT"] = "Изменение параметров инфоблока";
 $MESS["OP_NAME_IBLOCK_DELETE"] = "Удаление инфоблока";

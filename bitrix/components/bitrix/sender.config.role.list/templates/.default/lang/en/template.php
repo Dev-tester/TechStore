@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONFIG_ROLE_LIST_ROLE"] = "Role";
 $MESS["SENDER_CONFIG_ROLE_LIST_ADD_ACCESS_CODE"] = "Add access permission";
 $MESS["SENDER_CONFIG_ROLE_LIST_ROLE_LIST"] = "Roles";

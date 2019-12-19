@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_LIST_BTN_ADD"] = "Створити розсилку";
 $MESS["SENDER_LETTER_LIST_BTN_COPY"] = "Копіювати";
 $MESS["SENDER_LETTER_LIST_BTN_COPY_TITLE"] = "Копіювати";

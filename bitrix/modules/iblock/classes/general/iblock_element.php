@@ -1,4 +1,4 @@
-<?
+<?php 
 class _CIBElement
 {
 	var $fields;

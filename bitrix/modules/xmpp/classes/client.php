@@ -1,4 +1,4 @@
-<?
+<?php 
 class CXMPPClient
 {
 	private $xmppId;
@@ -215,7 +215,7 @@ class CXMPPClient
 		if (strlen($buffer) <= 0)
 			return false;
 
-		if (strtolower(substr($buffer, 0, 5)) == '<?xml')
+		if (strtolower(substr($buffer, 0, 5)) == '<?php xml')
 			$buffer = trim(substr($buffer, strpos($buffer, ">") + 1));
 		if (strtolower(substr($buffer, 0, 14)) == '<stream:stream')
 		{

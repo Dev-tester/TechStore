@@ -18,9 +18,9 @@ $counterId = HtmlFilter::encode("{$guid}_counter");
 <div id="<?= $containerId; ?>" class="crm-interface-toolbar-button-container">
 	<button id="<?= $buttonId; ?>" class="ui-btn ui-btn-themes ui-btn-light-border<?= count($arResult['ITEMS']) > 0 ? ' ui-btn-dropdown' : ''?>">
 		<?= $arResult['CATEGORY_NAME'] ? $arResult['CATEGORY_NAME'] : $arResult['ITEMS'][0]['NAME']; ?>
-		<? if ($arResult['CATEGORY_COUNTER'] > 0) : ?>
+		<?php  if ($arResult['CATEGORY_COUNTER'] > 0) : ?>
 			<i id="<?= $counterId; ?>" class="ui-btn-counter"><?= $arResult['CATEGORY_COUNTER']; ?></i>
-		<? endif; ?>
+		<?php  endif; ?>
 	</button>
 </div>
 

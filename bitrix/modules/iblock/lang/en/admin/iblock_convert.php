@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBCONV_TITLE"] = "Information Block property convertor";
 $MESS["IBCONV_PERMISSION"] = "Not enough permissions.";
 $MESS["IBCONV_WRONG_CONVERSION"] = "Illegal conversion.";

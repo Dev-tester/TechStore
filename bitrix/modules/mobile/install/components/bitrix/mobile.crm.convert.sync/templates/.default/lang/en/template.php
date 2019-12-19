@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_CONVERT_SYNC_TITLE"] = "Create using source";
 $MESS["M_CRM_CONVERT_SYNC_PULL_TEXT"] = "Pull down to refresh...";
 $MESS["M_CRM_CONVERT_SYNC_DOWN_TEXT"] = "Release to refresh...";

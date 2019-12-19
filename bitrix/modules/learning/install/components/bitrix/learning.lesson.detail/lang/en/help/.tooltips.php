@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COURSE_ID_TIP"] = "Select here one of the existing courses. If you select <b><i>(other)</i></b>, you will have to specify the course ID in the field beside.";
 $MESS["LESSON_ID_TIP"] = "The expression that evaluates to the lesson ID.";
 $MESS["SELF_TEST_TEMPLATE_TIP"] = "The path to a self-check test page.";

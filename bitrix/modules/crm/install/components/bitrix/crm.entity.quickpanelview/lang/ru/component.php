@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль crm не установлен.";
 $MESS["CRM_ENTITY_QPV_ENTITY_TYPE_NAME_NOT_DEFINED"] = "Не задан тип сущности";
 $MESS["CRM_ENTITY_QPV_ENTITY_TYPE_NAME_NOT_SUPPORTED"] = "Заданный тип сущности не поддерживается";

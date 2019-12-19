@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_ADMIN_GROUPS_ACTIVE"] = "Active";
 $MESS["LEARNING_ADMIN_GROUPS_TITLE"] = "Name";
 $MESS["LEARNING_ADMIN_GROUPS_CODE"] = "Symbolic name";

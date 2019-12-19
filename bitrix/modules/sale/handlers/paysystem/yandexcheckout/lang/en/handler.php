@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_YANDEX_CHECKOUT_ALFABANK"] = "AlfaClick";
 $MESS["SALE_HPS_YANDEX_CHECKOUT_BANK_CARDS"] = "Credit card";
 $MESS["SALE_HPS_YANDEX_CHECKOUT_CASH"] = "Cash-in terminal";

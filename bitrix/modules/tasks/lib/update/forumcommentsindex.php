@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Update;
 use \Bitrix\Main\Update\Stepper;
 use \Bitrix\Main\Localization\Loc;

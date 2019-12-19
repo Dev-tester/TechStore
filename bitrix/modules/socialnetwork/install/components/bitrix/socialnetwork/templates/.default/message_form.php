@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!IsModuleInstalled("im")):
-	?><?
+	?><?php 
 	/*
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.user_menu",
@@ -22,7 +22,7 @@ if (!IsModuleInstalled("im")):
 		$component
 	);
 	*/
-	?><?
+	?><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.message_form", 
 		"", 
@@ -42,6 +42,6 @@ if (!IsModuleInstalled("im")):
 		),
 		$component 
 	);
-	?><?
+	?><?php 
 endif;
 ?>

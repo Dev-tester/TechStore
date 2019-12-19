@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_WFEDIT_MENU_PARAMS_TITLE"] = "Template parameters; variables; autorun";
 $MESS["BIZPROC_WFEDIT_MENU_PARAMS"] = "Template Parameters";
 $MESS["BIZPROC_WFEDIT_MENU_LIST"] = "Templates";

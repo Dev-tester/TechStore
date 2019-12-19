@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_STATUS_1"] = "Новая";
 $MESS["TASKS_STATUS_2"] = "Ждет выполнения";
 $MESS["TASKS_STATUS_3"] = "Выполняется";

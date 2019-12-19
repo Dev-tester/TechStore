@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMPL_AMOUNT"] = "Кол-во";
 $MESS["SMPL_BALANCE"] = "Ост.";
 $MESS["SMPL_PRICE"] = "Цена";

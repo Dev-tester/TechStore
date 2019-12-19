@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -16,18 +16,18 @@
 ?>
 <div class="forum-info-box forum-menu-box">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 if ($GLOBALS["USER"]->IsAuthorized())
 {
 ?>
-	<span class="forum-menu-item forum-menu-item-first forum-menu-newtopics"><?
+	<span class="forum-menu-item forum-menu-item-first forum-menu-newtopics"><?php 
 		?><a href="<?=$arResult["URL_TEMPLATES"]["ACTIVE"]?>" title="<?=GetMessage("F_NEW_TOPIC_TITLE")?>"><span><?=GetMessage("F_NEW_TOPIC")?></span></a>&nbsp;</span>
 	<span class="forum-menu-item forum-menu-profile"><a href="<?=$arResult["URL_TEMPLATES"]["PROFILE"]?>"><span><?=GetMessage("F_PROFILE")?></span></a>&nbsp;</span>
-<?
+<?php 
 if ($arParams["SHOW_SUBSCRIBE_LINK"] == "Y"):
 ?>
 		<span class="forum-menu-item forum-menu-subscribes"><a href="<?=$arResult["URL_TEMPLATES"]["SUBSCRIBES"]?>"><span><?=GetMessage("F_SUBSCRIBES")?></span></a>&nbsp;</span>
-<?
+<?php 
 endif;
 	if (intval(COption::GetOptionString("forum", "UsePMVersion", "2")) > 0)
 	{
@@ -58,55 +58,55 @@ endif;
 		}
 		?>
 		<span class="forum-menu-item forum-menu-messages"><a href="<?=$arResult["URL_TEMPLATES"]["MESSAGES"]?>"><span><?=GetMessage("F_MESSAGES")?><?=$pm?></span></a>&nbsp;</span>
-		<?
+		<?php 
 	}
 }
 if (IsModuleInstalled("search")):
 ?>
-		<span class="forum-menu-item <?
-			?><?=($GLOBALS["USER"]->IsAuthorized() ? "" : "forum-menu-item-first")?><?
+		<span class="forum-menu-item <?php 
+			?><?=($GLOBALS["USER"]->IsAuthorized() ? "" : "forum-menu-item-first")?><?php 
 			?> forum-menu-search"><noindex><a href="<?=$arResult["URL_TEMPLATES"]["SEARCH"]?>" rel="nofollow"><span><?=GetMessage("F_SEARCH")?></span></a></noindex>&nbsp;</span>
-<?	
+<?php 	
 endif;
 ?>
-<? if ($arParams['SHOW_FORUM_USERS'] === 'Y')
+<?php  if ($arParams['SHOW_FORUM_USERS'] === 'Y')
 { ?>
-		<span class="forum-menu-item <?
-			?><?=($GLOBALS["USER"]->IsAuthorized() || IsModuleInstalled("search") ? "" : "forum-menu-item-first")?><?
+		<span class="forum-menu-item <?php 
+			?><?=($GLOBALS["USER"]->IsAuthorized() || IsModuleInstalled("search") ? "" : "forum-menu-item-first")?><?php 
 			?> forum-menu-users"><a href="<?=$arResult["URL_TEMPLATES"]["USERS"]?>"><span><?=GetMessage("F_USERS")?></span></a>&nbsp;</span>
-<?
+<?php 
 }
 ?>
-		<span class="forum-menu-item <?
-			?><?=($arParams["SHOW_AUTH_FORM"] == "Y" ? "" : "forum-menu-item-last")?><?
+		<span class="forum-menu-item <?php 
+			?><?=($arParams["SHOW_AUTH_FORM"] == "Y" ? "" : "forum-menu-item-last")?><?php 
 			?> forum-menu-rules"><a href="<?=$arResult["URL_TEMPLATES"]["RULES"]?>"><span><?=GetMessage("F_RULES")?></span></a>&nbsp;</span>
-<?
+<?php 
 if ($arParams["SHOW_AUTH_FORM"] == "Y"):
 ?>
 		<span class="forum-menu-item forum-menu-item-last forum-menu-authorize">
 
-<?
+<?php 
 	if ($USER->isAuthorized())
 	{
-	?><a href="<?
+	?><a href="<?php 
 		?><?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("logout=yes",
-		array("login", "logout", "register", "forgot_password", "change_password", BX_AJAX_PARAM_ID, "forum_auth")))?><?
+		array("login", "logout", "register", "forgot_password", "change_password", BX_AJAX_PARAM_ID, "forum_auth")))?><?php 
 		?>" rel="nofollow"><span><?=GetMessage("AUTH_LOGOUT_BUTTON")?></span></a>
-		<?
+		<?php 
 	}
 	else
 	{
-		?><a href="<?
+		?><a href="<?php 
 			?><?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("login=yes",
-			array("login", "logout", "register", "forgot_password", "change_password", BX_AJAX_PARAM_ID, "forum_auth")))?><?
+			array("login", "logout", "register", "forgot_password", "change_password", BX_AJAX_PARAM_ID, "forum_auth")))?><?php 
 			?>" rel="nofollow"><span><?=GetMessage("AUTH_LOGIN_BUTTON")?></span></a>
-			<?
+			<?php 
 	}
 endif;
 ?>
 	</div>
 </div>
-<?
+<?php 
 if ($arParams["SHOW_NAVIGATION"] != "N" && $arParams["SET_NAVIGATION"] != "N" && ($arResult["PAGE_NAME"] != "index" || $arResult["GID"] > 0)):
 // text from main
 	if($GLOBALS["APPLICATION"]->GetProperty("NOT_SHOW_NAV_CHAIN")=="Y")

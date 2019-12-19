@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["opt_encoding"] = "Possible e-mail message encoding:";
 $MESS["opt_delete"] = "Number of days to keep unconfirmed subscriptions (0 - never delete):";
 $MESS["MAIN_RESTORE_DEFAULTS"] = "Restore defaults";

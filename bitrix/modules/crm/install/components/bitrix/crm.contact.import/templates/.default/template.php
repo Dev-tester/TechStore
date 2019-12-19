@@ -140,7 +140,7 @@ if(!empty($arUserSearchFields)):
 ?><script type="text/javascript">
 	BX.ready(
 		function()
-		{<?
+		{<?php 
 			foreach($arUserSearchFields as &$arField):
 				$arUserData = array();
 				if(isset($arField['USER'])):
@@ -156,12 +156,12 @@ if(!empty($arUserSearchFields)):
 				document.getElementsByName('<?=$arField['INPUT_NAME']?>')[0],
 				'<?=$arField['NAME']?>',
 				<?= CUtil::PhpToJSObject($arUserData)?>
-			);<?
+			);<?php 
 			endforeach;
 			unset($arField);
 		?>}
 	);
-</script><?
+</script><?php 
 endif;
 CJSCore::Init(array('crm_import_csv'));?>
 
@@ -192,7 +192,7 @@ CJSCore::Init(array('crm_import_csv'));?>
 
 			BX.bind(BX('next'), 'click', function()
 			{
-				<? if (isset($arResult['ENCODING_SELECTOR_ID']))
+				<?php  if (isset($arResult['ENCODING_SELECTOR_ID']))
 				{?>
 					if (BX('<?= $arResult['ENCODING_SELECTOR_ID']?>').value === '_')
 					{
@@ -209,11 +209,11 @@ CJSCore::Init(array('crm_import_csv'));?>
 					{
 						BX.submit(BX('form_<?= $arResult['FORM_ID']?>'), 'next');
 					}
-				<?}
+				<?php }
 				else
 				{?>
 					BX.submit(BX('form_<?= $arResult['FORM_ID']?>'), 'next');
-				<?}?>
+				<?php }?>
 			});
 
 			BX.Crm.ContactImportSampleLink.create(
@@ -226,8 +226,8 @@ CJSCore::Init(array('crm_import_csv'));?>
 		}
 	);
 </script>
-<?
+<?php 
 $crmEmail = strtolower(COption::GetOptionString('crm', 'mail', ''));
 if ($crmEmail != ''):?>
 <div class="crm_notice_message"><?=GetMessage('CRM_IMPORT_SNS', Array('%EMAIL%' => $crmEmail, '%ARROW%' => '<span class="crm_notice_arrow"></span>'));?></div>
-<?endif;?>
+<?php endif;?>

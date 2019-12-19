@@ -20,11 +20,11 @@ $id = $field->getId();
 			<div class="report-widget-selected-view-wrapper"></div>
 		</div>
 		<div class="report-widget-view-select-variants">
-			<? foreach ($availableViewList as $view): ?>
+			<?php  foreach ($availableViewList as $view): ?>
 				<div data-type="view-miniature-box" data-view-key="<?= $view['key'] ?>" class="report-widget-view-miniature-container <?= $fieldValue == $view['key'] ? 'report-widget-view-miniature-container-active' : '' ?>">
 					<img src="<?= $view['logoUrl'] ?>" title="<?= $view['label'] ?>"/>
 				</div>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</div>
 		<input type="hidden" id="<?= $id ?>" name="<?= $fieldName ?>" value="<?= $fieldValue ?>" data-role="preview-view-type-key">
 	</div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\DocumentGenerator\Integration\Bitrix24Manager;
 
@@ -24,16 +24,16 @@ if($arResult['IS_SLIDER'])
 			window.location = "<?=CUtil::JSEscape((new \Bitrix\Main\Web\Uri(\Bitrix\Main\Application::getInstance()->getContext()->getRequest()->getRequestUri()))->deleteParams(['IFRAME', 'IFRAME_TYPE']));?>" + window.location.hash;
 		}
 	</script>
-	<?$APPLICATION->ShowHead(); ?>
+	<?php $APPLICATION->ShowHead(); ?>
 </head>
 <body>
 <div class="docs-template-wrap-slider">
-<?}
+<?php }
 else
 {
 	$APPLICATION->SetTitle($arResult['TITLE']);?>
 <div class="docs-template-wrap">
-<?}
+<?php }
 if(!$arResult['ERROR'])
 {
 	if(!$arResult['TOP_VIEW_TARGET_ID'])
@@ -44,67 +44,67 @@ if(!$arResult['ERROR'])
 					<div class="pagetitle">
 						<span class="docs-template-pagetitle-item pagetitle-item" id="pagetitle"><?=$arResult['TITLE'];?></span>
 					</div>
-	<?}
+	<?php }
 	else
 	{
 		$this->SetViewTarget($arResult['TOP_VIEW_TARGET_ID']);
 	}?>
 					<div class="pagetitle-container pagetitle-flexible-space pagetitle-container-docs-template">
-						<? $APPLICATION->IncludeComponent(
+						<?php  $APPLICATION->IncludeComponent(
 							"bitrix:main.ui.filter",
 							"",
 							$arResult['FILTER']
 						); ?>
 					</div>
 					<div class="pagetitle-container pagetitle-align-right-container">
-						<?if(Bitrix24Manager::isEnabled())
+						<?php if(Bitrix24Manager::isEnabled())
 						{
 							?><button class="ui-btn ui-btn-md ui-btn-light-border" onclick="BX.DocumentGenerator.Feedback.open('<?=\CUtil::JSEscape($arParams['PROVIDER'])?>');"><?=\Bitrix\Main\Localization\Loc::getMessage('DOCGEN_TEMPLATE_LIST_FEEDBACK');?></button>
-							<?
+							<?php 
 						}?>
 						<button class="ui-btn ui-btn-md ui-btn-light-border ui-btn-icon-setting" id="docgen-templates-settings-button"></button>
 						<button class="ui-btn ui-btn-md ui-btn-primary ui-btn-primary-docs-template" onclick="BX.DocumentGenerator.TemplateList.edit();"><?=\Bitrix\Main\Localization\Loc::getMessage('DOCGEN_TEMPLATE_LIST_UPLOAD');?></button>
 					</div>
-	<?if(!$arResult['TOP_VIEW_TARGET_ID'])
+	<?php if(!$arResult['TOP_VIEW_TARGET_ID'])
 	{?>
 				</div>
 			</div>
 		</div>
-	<?}
+	<?php }
 	else
 	{
 		$this->EndViewTarget();
 	}
 }?>
 	<div class="docs-template-info-inner">
-		<div class="docs-template-info-message docs-template-error-message" id="docgen-templates-error-message"<?
+		<div class="docs-template-info-message docs-template-error-message" id="docgen-templates-error-message"<?php 
 		if($arResult['ERROR'])
 		{
 			?> style="display: block;"><?=htmlspecialcharsbx($arResult['ERROR']);
 		}
 		else
 		{
-			?>><?
+			?>><?php 
 		}?></div>
-		<?if(!$arResult['ERROR'])
+		<?php if(!$arResult['ERROR'])
 		{?>
 			<div class="docs-template-info-message"><?=\Bitrix\Main\Localization\Loc::getMessage('DOCGEN_TEMPLATE_LIST_MORE_INFO');?>
 				<a class="docs-template-info-link" onclick="BX.DocumentGenerator.TemplateList.openMoreLink(event);"><?=\Bitrix\Main\Localization\Loc::getMessage('DOCGEN_TEMPLATE_LIST_MORE');?></a>
 			</div>
-		<?}?>
+		<?php }?>
 	</div>
-	<?if(!$arResult['ERROR'])
+	<?php if(!$arResult['ERROR'])
 	{?>
 		<div class="docs-template-grid">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 			"bitrix:main.ui.grid",
 			"",
 			$arResult['GRID']
 			);?>
 		</div>
-		<?}?>
+		<?php }?>
 </div>
-<?if(!$arResult['ERROR'])
+<?php if(!$arResult['ERROR'])
 {?>
 <script>
 	BX.ready(function()
@@ -113,12 +113,12 @@ if(!$arResult['ERROR'])
 		<?='BX.message('.\CUtil::PhpToJSObject(\Bitrix\Main\Localization\Loc::loadLanguageFile(__FILE__)).');'?>
 	});
 </script>
-<?}?>
-<?
+<?php }?>
+<?php 
 if($arResult['IS_SLIDER'])
 {
 	?>
 </body>
-	</html><?
+	</html><?php 
 	\Bitrix\Main\Application::getInstance()->terminate();
 }

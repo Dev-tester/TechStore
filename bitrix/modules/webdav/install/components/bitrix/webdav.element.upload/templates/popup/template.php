@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->RestartBuffer();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/template.php")));
@@ -86,9 +86,9 @@ $popupWindow->StartContent();
 <input type="hidden" name="AJAX_CALL" value="Y" />
 <input type="hidden" name="SIMPLE_UPLOAD" value="Y" />
 <input type="hidden" name="MAX_FILE_SIZE" value="<?=htmlspecialcharsbx($arParams["UPLOAD_MAX_FILESIZE_BYTE"])?>" />
-<? if ($arParams['ELEMENT_ID'] != 0): ?>
+<?php  if ($arParams['ELEMENT_ID'] != 0): ?>
 <input type="hidden" name="overview" value="Y" />
-<? endif; ?>
+<?php  endif; ?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td style='vertical-align:middle;'>
@@ -103,7 +103,7 @@ $popupWindow->StartContent();
 			</p>
 		</td>
 	</tr>
-<? if (($arParams['ELEMENT_ID'] != 0) && ($arResult["ELEMENT"]["LOCK_STATUS"] == 'yellow')): ?>
+<?php  if (($arParams['ELEMENT_ID'] != 0) && ($arResult["ELEMENT"]["LOCK_STATUS"] == 'yellow')): ?>
 	<tr>
 		<td width="40%">
 			<?=GetMessage("WD_UPLOAD_UNLOCK")?>:
@@ -112,22 +112,22 @@ $popupWindow->StartContent();
 			<input type="checkbox" id="wd_upload_unlock" name="UploadUnlock" style="width:90%;" />
 		</td>
 	</tr>
-<? endif; ?>
+<?php  endif; ?>
 </table>
-<? if (($arParams['ELEMENT_ID'] == 0) && ($arParams["OBJECT"]->Type=='iblock')): ?>
+<?php  if (($arParams['ELEMENT_ID'] == 0) && ($arParams["OBJECT"]->Type=='iblock')): ?>
 <p><?=GetMessage('WD_UPLOAD_EXPAND_PROPS', array("#LINK#" => 'id="wd_upload_expand" onclick="WDUploadExpand(this);"'));?></p>
-<? endif; ?>
+<?php  endif; ?>
 <table id="wd_upload_props" style="display:none;" cellpadding="0" cellspacing="0" border="0" width="100%">
 	<tr>
 		<td width="40%">
 			<?=GetMessage("Title")?>:
 		</td>
 		<td width="60%">
-<?if ($arParams["OBJECT"]->Type=='iblock'):?>
+<?php if ($arParams["OBJECT"]->Type=='iblock'):?>
 			<input type="text" id="Title_1" name="Title_1" style="width:90%;" value="<?=(isset($arResult['ELEMENT']['NAME']) ? htmlspecialcharsbx($arResult['ELEMENT']['NAME']) : '')?>" />
-<?else:?>
+<?php else:?>
 			<input type="text" id="Title_1" name="Title_1" style="width:90%;" value="<?=(isset($arParams['SECTION_ID']) ? htmlspecialcharsbx($arParams['OBJECT']->arParams['base_name']) : '')?>" />
-<?endif;?>
+<?php endif;?>
 		</td>
 	</tr>
 	<tr>
@@ -135,7 +135,7 @@ $popupWindow->StartContent();
 			<?=GetMessage("Tags")?>:
 		</td>
 		<td width="60%">
-<?
+<?php 
 	if (IsModuleInstalled("search"))
 	{
 ?>
@@ -149,7 +149,7 @@ $popupWindow->StartContent();
 				}
 			}, 800); });
 		</script>
-<?
+<?php 
 		$arTagParams = array(
 			"VALUE" => (isset($arResult['ELEMENT']['TAGS']) ? $arResult['ELEMENT']['TAGS'] : ''), 
 			"NAME" => "Tag_1",
@@ -175,7 +175,7 @@ $popupWindow->StartContent();
 	{
 ?>
 		<input type="text" id="Tag_1" name="Tag_1" style="width:90%;" value="<?=(isset($arResult['ELEMENT']['TAGS']) ? $arResult['ELEMENT']['TAGS'] : '')?>" />
-<?
+<?php 
 	}
 ?>
 		</td>
@@ -185,7 +185,7 @@ $popupWindow->StartContent();
 			<?=GetMessage("Description")?>:
 		</td>
 		<td width="60%">
-<?
+<?php 
 		if(CModule::IncludeModule("fileman"))
 		{
 			$ar = array(
@@ -217,10 +217,10 @@ $popupWindow->StartContent();
 		</td>
 	</tr>
 </table>
-<? include trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/footer.php"))); ?>
-<? if (($arParams["OBJECT"]->Type == "iblock" && $arParams["ELEMENT_ID"] == 0) || ($arParams["OBJECT"]->Type == "folder" && $arParams["OBJECT"]->arParams['is_file'] == false)): ?>
+<?php  include trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/footer.php"))); ?>
+<?php  if (($arParams["OBJECT"]->Type == "iblock" && $arParams["ELEMENT_ID"] == 0) || ($arParams["OBJECT"]->Type == "folder" && $arParams["OBJECT"]->arParams['is_file'] == false)): ?>
 <p><?=GetMessage('WD_UPLOAD_EXTENDED', array("#LINK#" => htmlspecialcharsbx($APPLICATION->GetCurPage() . '?ncc=1')));?></p>
-<? endif; ?>
+<?php  endif; ?>
 <script>
 
 function WDUploadExpand(link)
@@ -275,4 +275,4 @@ BX(function() {
 	});
 });
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

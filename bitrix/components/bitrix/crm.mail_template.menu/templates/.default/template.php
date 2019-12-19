@@ -13,7 +13,7 @@ if ($arParams['TYPE'] == 'list')
 		$APPLICATION->setPageProperty('BodyClass', trim(sprintf('%s %s', $bodyClass, 'pagetitle-toolbar-field-view')));
 
 		$this->setViewTarget('inside_pagetitle');
-		?><div class="pagetitle-container pagetitle-flexible-space"></div><span class="pagetitle-container pagetitle-align-right-container"><?
+		?><div class="pagetitle-container pagetitle-flexible-space"></div><span class="pagetitle-container pagetitle-align-right-container"><?php 
 	}
 
 	foreach ($arResult['BUTTONS'] as $item)
@@ -28,7 +28,7 @@ if ($arParams['TYPE'] == 'list')
 					<?=htmlspecialcharsbx($item['TEXT']) ?>
 				</span>
 			</a>
-			<?
+			<?php 
 
 			break;
 		}
@@ -37,7 +37,7 @@ if ($arParams['TYPE'] == 'list')
 	if (SITE_TEMPLATE_ID == 'bitrix24')
 	{
 		$this->endViewTarget();
-		?></span><?
+		?></span><?php 
 	}
 
 	?>
@@ -59,7 +59,7 @@ if ($arParams['TYPE'] == 'list')
 		});
 
 	</script>
-	<?
+	<?php 
 }
 else
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_CHART_TYPE_LINE"] = "График";
 $MESS["REPORT_CHART_TYPE_BAR"] = "Гистограмма";
 $MESS["REPORT_CHART_TYPE_PIE"] = "Круговая";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -176,29 +176,29 @@ CAdminMessage::ShowMessage(array(
 		));
 ?>
 
-	<form method="POST" action="security_iprule_admin.php?lang=<?echo LANGUAGE_ID?><?echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>"  enctype="multipart/form-data" name="editform">
-<?
+	<form method="POST" action="security_iprule_admin.php?lang=<?php echo LANGUAGE_ID?><?php echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>"  enctype="multipart/form-data" name="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
 	<td colspan="2" align="left">
-		<?if($ID > 0 && $ACTIVE=="Y"):?>
-			<input type="submit" name="deactivate_iprule" value="<?echo GetMessage("SEC_IPRULE_ADMIN_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
-		<?else:?>
-			<input type="submit" name="activate_iprule" value="<?echo GetMessage("SEC_IPRULE_ADMIN_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
-		<?endif?>
+		<?php if($ID > 0 && $ACTIVE=="Y"):?>
+			<input type="submit" name="deactivate_iprule" value="<?php echo GetMessage("SEC_IPRULE_ADMIN_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
+		<?php else:?>
+			<input type="submit" name="activate_iprule" value="<?php echo GetMessage("SEC_IPRULE_ADMIN_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+		<?php endif?>
 	</td>
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><?echo GetMessage("SEC_IPRULE_ADMIN_NOTE", array("#IP#" => $_SERVER["REMOTE_ADDR"]))?>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?><?php echo GetMessage("SEC_IPRULE_ADMIN_NOTE", array("#IP#" => $_SERVER["REMOTE_ADDR"]))?>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
-<?
+<?php 
 $arExclIPs = array();
 if($bVarsFromForm)
 {
@@ -214,42 +214,42 @@ elseif($ID > 0)
 }
 ?>
 <tr>
-	<td class="adm-detail-valign-top" width="40%"><?echo GetMessage("SEC_IPRULE_ADMIN_EXCL_IPS")?>:<br><?echo GetMessage("SEC_IPRULE_ADMIN_EXCL_IPS_SAMPLE")?></td>
+	<td class="adm-detail-valign-top" width="40%"><?php echo GetMessage("SEC_IPRULE_ADMIN_EXCL_IPS")?>:<br><?php echo GetMessage("SEC_IPRULE_ADMIN_EXCL_IPS_SAMPLE")?></td>
 	<td width="60%">
 	<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbEXCL_IPS">
-		<?foreach($arExclIPs as $i => $ip):?>
+		<?php foreach($arExclIPs as $i => $ip):?>
 			<tr><td nowrap style="padding-bottom: 3px;">
-				<input type="text" size="45" name="EXCL_IPS[<?echo $i?>]" value="<?echo $ip?>">
+				<input type="text" size="45" name="EXCL_IPS[<?php echo $i?>]" value="<?php echo $ip?>">
 			</td></tr>
-		<?endforeach;?>
-		<?if(!$bVarsFromForm):?>
+		<?php endforeach;?>
+		<?php if(!$bVarsFromForm):?>
 			<tr class="security-addable-row"><td nowrap style="padding-bottom: 3px;">
 				<input type="text" size="45" name="EXCL_IPS[n0]" value="">
 			</td></tr>
-		<?endif;?>
+		<?php endif;?>
 			<tr><td>
-				<br><input type="button" id="add-button" value="<?echo GetMessage("SEC_IPRULE_ADMIN_ADD")?>">
+				<br><input type="button" id="add-button" value="<?php echo GetMessage("SEC_IPRULE_ADMIN_ADD")?>">
 			</td></tr>
 		</table>
 	</td>
 </tr>
-<?
+<?php 
 if (count($exclMasks) > 0)
 {
 ?>
 <tr>
-	<td class="adm-detail-valign-top" width="40%"><?echo GetMessage("SEC_IPRULE_ADMIN_EXCL_FILES_".(($ACTIVE == 'Y')?'ACTIVE':'INACTIVE'))?></td>
+	<td class="adm-detail-valign-top" width="40%"><?php echo GetMessage("SEC_IPRULE_ADMIN_EXCL_FILES_".(($ACTIVE == 'Y')?'ACTIVE':'INACTIVE'))?></td>
 	<td width="60%">
 		<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbEXCL_FILES">
-		<?foreach($exclMasks as $mask):?>
+		<?php foreach($exclMasks as $mask):?>
 			<tr><td nowrap>
-				<?echo htmlspecialcharsbx($mask)?>
+				<?php echo htmlspecialcharsbx($mask)?>
 			</td></tr>
-		<?endforeach;?>
+		<?php endforeach;?>
 		</table>
 	</td>
 </tr>
-<?
+<?php 
 }
 ?>
 <script id="security-interface-settings" type="application/json">
@@ -260,7 +260,7 @@ if (count($exclMasks) > 0)
 		}]
 	}
 </script>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -268,15 +268,15 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?if($bShowForce && (COption::GetOptionString("security", "ipcheck_allow_self_block")==="Y")):?>
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php if($bShowForce && (COption::GetOptionString("security", "ipcheck_allow_self_block")==="Y")):?>
 	<input type="hidden" name="USE_THE_FORCE_LUK" value="Y">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

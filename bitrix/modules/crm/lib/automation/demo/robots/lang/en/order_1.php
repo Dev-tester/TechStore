@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_AUTOMATION_DEMO_ORDER_1_EMAIL_TITLE"] = "Send message";
 $MESS["CRM_AUTOMATION_DEMO_ORDER_1_NEW_ORDER_TITLE"] = "{=Document:SHOP_TITLE}: New order #{=Document:ACCOUNT_NUMBER}";
 $MESS["CRM_AUTOMATION_DEMO_ORDER_1_NEW_ORDER_PAYMENT_TITLE"] = "{=Document:SHOP_TITLE}: Order payment reminder #{=Document:ACCOUNT_NUMBER}";

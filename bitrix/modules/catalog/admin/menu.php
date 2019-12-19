@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\ModuleManager,
 	Bitrix\Main\Loader,
 	Bitrix\Catalog;

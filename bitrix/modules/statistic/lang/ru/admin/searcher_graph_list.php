@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Графики индексации сайта";
 $MESS ['STAT_F_PERIOD'] = "Период";
 $MESS ['STAT_F_SEACHERS'] = "Поисковики:";

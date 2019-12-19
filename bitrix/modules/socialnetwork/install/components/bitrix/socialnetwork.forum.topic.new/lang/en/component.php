@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_FID_IS_LOST"] = "The social network forum was not found.";
 $MESS["F_FID_IS_EMPTY"] = "The social network forum is not specified.";
 $MESS["F_MID_IS_LOST_IN_FORUM"] = "The post was not found in the specified forum.";

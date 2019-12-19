@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["curr_rates_flt_date"] = "Дата:";
 $MESS["curr_rates_flt_btn"] = "Установить";
 $MESS["curr_rates_nav"] = "Курсы";

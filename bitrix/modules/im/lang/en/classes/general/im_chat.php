@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_CHAT_GENERAL_LEAVE_F"] = "#USER_NAME# was dismissed";
 $MESS["IM_ERROR_EMPTY_FROM_USER_ID"] = "The message sender is not specified.";
 $MESS["IM_ERROR_EMPTY_USER_ID_BY_PRIVACY"] = "These users deny being invited to chat";

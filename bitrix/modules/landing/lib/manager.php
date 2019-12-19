@@ -1421,7 +1421,7 @@ class Manager
 				$value = str_replace(
 					[
 						' bxstyle="',
-						'<?', '?>'
+						'<?php ', '?>'
 					],
 					[
 						' style="',

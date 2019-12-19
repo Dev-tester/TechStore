@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_ROW_EDIT_MODULE_ERROR"] = "Ошибка подключения модуля производительности.";
 $MESS["PERFMON_ROW_EDIT_TABLE_ERROR"] = "Указанная таблица (#TABLE_NAME#) не существует.";
 $MESS["PERFMON_ROW_EDIT_PK_ERROR"] = "Указанных значений ключа не достаточно для однозначной идентификации записи.";

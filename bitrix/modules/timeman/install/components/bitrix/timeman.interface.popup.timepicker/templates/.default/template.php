@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -14,16 +14,16 @@ CJSCore::Init(['ui', 'date']);
 ?>
 <div class="bx-tm-popup-edit-clock-wnd main-ui-hide"
 		data-role="<?= htmlspecialcharsbx($arResult['TIME_PICKER_CONTENT_ATTRIBUTE_DATA_ROLE']); ?>">
-	<? if ($arResult['SHOW_START_END_BLOCKS']): ?>
+	<?php  if ($arResult['SHOW_START_END_BLOCKS']): ?>
 		<div class="bx-tm-popup-edit-clock-wnd-clock">
-			<span class="bx-tm-clock-caption"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_POPUP_WORK_TIME_START_TITLE')); ?></span><?
+			<span class="bx-tm-clock-caption"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_POPUP_WORK_TIME_START_TITLE')); ?></span><?php 
 			?><span class="bx-tm-clock-caption"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_POPUP_WORK_TIME_END_TITLE')); ?></span>
 		</div>
 		<table class="tm-double-clock-table">
 			<tbody>
 			<tr>
 				<td class="tm-double-clock-table-row tm-double-clock-table-first">
-					<? CClock::Show([
+					<?php  CClock::Show([
 						'view' => 'inline',
 						'showIcon' => false,
 						'step' => $arResult['START_CLOCK_STEP'],
@@ -31,17 +31,17 @@ CJSCore::Init(['ui', 'date']);
 						'inputId' => $arResult['START_INPUT_ID'],
 						'initTime' => $arResult['START_INIT_TIME'],
 					]); ?>
-					<? if ($arResult['SHOW_START_DATE_PICKER']): ?>
+					<?php  if ($arResult['SHOW_START_DATE_PICKER']): ?>
 						<div class="bx-tm-popup-clock-wnd-custom-date-block">
 							<span class="bx-tm-popup-clock-wnd-custom-date-link bx-tm-popup-clock-wnd-custom-date-link-edit"
 									data-role="date-picker"
 									data-type="start"><?php echo Loc::getMessage('TIMEMAN_EDIT_CLOCK_SET_CUSTOM_DATE'); ?>
 							</span>
 						</div>
-					<? endif; ?>
+					<?php  endif; ?>
 				</td>
 				<td class="tm-double-clock-table-row tm-double-clock-table-second">
-					<? CClock::Show([
+					<?php  CClock::Show([
 						'view' => 'inline',
 						'showIcon' => false,
 						'step' => $arResult['END_CLOCK_STEP'],
@@ -49,14 +49,14 @@ CJSCore::Init(['ui', 'date']);
 						'inputId' => $arResult['END_INPUT_ID'],
 						'initTime' => $arResult['END_INIT_TIME'],
 					]); ?>
-					<? if ($arResult['SHOW_END_DATE_PICKER']): ?>
+					<?php  if ($arResult['SHOW_END_DATE_PICKER']): ?>
 						<div class="bx-tm-popup-clock-wnd-custom-date-block">
 							<span class="bx-tm-popup-clock-wnd-custom-date-link bx-tm-popup-clock-wnd-custom-date-link-edit"
 									data-role="date-picker"
 									data-type="end"><?php echo Loc::getMessage('TIMEMAN_EDIT_CLOCK_SET_CUSTOM_DATE'); ?>
 							</span>
 						</div>
-					<? endif; ?>
+					<?php  endif; ?>
 				</td>
 			</tr>
 			</tbody>
@@ -66,8 +66,8 @@ CJSCore::Init(['ui', 'date']);
 			<span class="bx-tm-report-field"
 					data-role="timeman-work-time-start-end-delta"></span>
 		</div>
-	<? endif; ?>
-	<? if ($arResult['SHOW_EDIT_BREAK_LENGTH']): ?>
+	<?php  endif; ?>
+	<?php  if ($arResult['SHOW_EDIT_BREAK_LENGTH']): ?>
 		<div class="bx-tm-popup-clock-wnd-report">
 			<div class="bx-tm-popup-clock-wnd-subtitle"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_EDIT_BREAK_LENGTH_TITLE')); ?></div>
 			<div class="bx-tm-edit-section">
@@ -77,11 +77,11 @@ CJSCore::Init(['ui', 'date']);
 						data-role="tm-time-picker-break-length">
 			</div>
 		</div>
-	<? endif; ?>
-	<? if ($arResult['BREAK_LENGTH_INPUT_ID'] !== null): ?>
+	<?php  endif; ?>
+	<?php  if ($arResult['BREAK_LENGTH_INPUT_ID'] !== null): ?>
 		<div class="bx-tm-popup-edit-clock-wnd main-ui-hide timeman-pick-time-hide-clock"
 				data-role="<?= htmlspecialcharsbx($arResult['BREAK_LENGTH_ATTRIBUTE_DATA_ROLE']); ?>">
-			<?
+			<?php 
 			CClock::Show([
 				'view' => 'inline',
 				'showIcon' => false,
@@ -90,13 +90,13 @@ CJSCore::Init(['ui', 'date']);
 				'initTime' => $arResult['BREAK_LENGTH_INIT_TIME'],
 			]); ?>
 		</div>
-	<? endif; ?>
-	<? if ($arResult['SHOW_EDIT_REASON']): ?>
+	<?php  endif; ?>
+	<?php  if ($arResult['SHOW_EDIT_REASON']): ?>
 		<div class="bx-tm-popup-clock-wnd-report">
 			<div class="bx-tm-popup-clock-wnd-subtitle"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_EDIT_REASON_TITLE')); ?></div>
 			<textarea name="<?= htmlspecialcharsbx($arResult['EDIT_REASON_ATTRIBUTE_NAME']); ?>" class="tm-timepicker-popup-reason-block"></textarea>
 		</div>
-	<? endif; ?>
+	<?php  endif; ?>
 
 </div>
 <script>

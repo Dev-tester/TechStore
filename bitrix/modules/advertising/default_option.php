@@ -1,4 +1,4 @@
-<?
+<?php 
 $advertising_default_option = array(
 	"USE_HTML_EDIT" => "Y",
 	"BANNER_DAYS" => 360,

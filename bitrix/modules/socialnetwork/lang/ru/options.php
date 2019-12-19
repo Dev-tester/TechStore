@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_FEATURE_FORUM"] = "форум";
 $MESS["SONET_FEATURE_BLOG"] = "сообщения";
 $MESS["SONET_FEATURE_MICROBLOG"] = "микроблоги";

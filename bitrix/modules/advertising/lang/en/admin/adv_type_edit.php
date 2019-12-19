@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AD_EDIT_TYPE'] = "Type \"#SID#\"";
 $MESS ['AD_NEW_TYPE'] = "New type";
 $MESS ['AD_BACK_TO_TYPE_LIST'] = "Type list";

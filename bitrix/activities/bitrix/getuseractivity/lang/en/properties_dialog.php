@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCRU_PD_SKIP_RESERVE"] = "Apply to backup users";
 $MESS["BPCRU_PD_USER2"] = "Backup users";
 $MESS["BPCRU_PD_TYPE"] = "Type";

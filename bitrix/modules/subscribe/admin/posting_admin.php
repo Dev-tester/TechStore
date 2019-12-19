@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/prolog.php");
@@ -44,8 +44,8 @@ if($_REQUEST["action"]=="js_send" && check_bitrix_sessid())
 						CAdminMessage::ShowMessage(array("MESSAGE"=>GetMessage("posting_cron_setup"), "TYPE"=>"OK"));
 					}
 					?><script>
-						<?=$sTableID?>.GetAdminList('<?echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>');
-					</script><?
+						<?=$sTableID?>.GetAdminList('<?php echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>');
+					</script><?php 
 				}
 				else
 				{
@@ -78,8 +78,8 @@ if($_REQUEST["action"]=="js_send" && check_bitrix_sessid())
 						),
 					));
 					?><script>
-						<?=$sTableID?>.GetAdminList('<?echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>', MoveProgress());
-					</script><?
+						<?=$sTableID?>.GetAdminList('<?php echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>', MoveProgress());
+					</script><?php 
 				}
 			}
 			else
@@ -128,7 +128,7 @@ if($_REQUEST["action"]=="js_send" && check_bitrix_sessid())
 					));
 					?><script>
 						MoveProgress();
-					</script><?
+					</script><?php 
 				}
 				else
 				{
@@ -156,8 +156,8 @@ if($_REQUEST["action"]=="js_send" && check_bitrix_sessid())
 				"PROGRESS_VALUE" => $nEmailsSent + $nEmailsError,
 			));
 			?><script>
-				<?=$sTableID?>.GetAdminList('<?echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>');
-			</script><?
+				<?=$sTableID?>.GetAdminList('<?php echo $APPLICATION->GetCurPage();?>?lang=<?=LANGUAGE_ID?>');
+			</script><?php 
 		}
 		else
 		{
@@ -498,15 +498,15 @@ $oFilter = new CAdminFilter(
 	)
 );
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
 	<td><b><?=GetMessage("POST_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("POST_FIND_TITLE")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("POST_FIND_TITLE")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("POST_F_SUBJECT"),
@@ -526,27 +526,27 @@ $oFilter->Begin();
 <tr>
 	<td><?=GetMessage("POST_F_ID")?>:</td>
 	<td>
-		<input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>">
+		<input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>">
 		&nbsp;<?=ShowFilterLogicHelp()?>
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_TIMESTAMP")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_timestamp_1", $find_timestamp_1, "find_timestamp_2", $find_timestamp_2, "find_form","Y")?></td>
+	<td><?php echo GetMessage("POST_F_TIMESTAMP")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_timestamp_1", $find_timestamp_1, "find_timestamp_2", $find_timestamp_2, "find_form","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_DATE_SENT")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date_sent_1", $find_date_sent_1, "find_date_sent_2", $find_date_sent_2, "find_form","Y")?></td>
+	<td><?php echo GetMessage("POST_F_DATE_SENT")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date_sent_1", $find_date_sent_1, "find_date_sent_2", $find_date_sent_2, "find_form","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_AUTO_SEND_TIME")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_auto_send_time_1", $find_auto_send_time_1, "find_auto_send_time_2", $find_auto_send_time_2, "find_form","Y")?></td>
+	<td><?php echo GetMessage("POST_F_AUTO_SEND_TIME")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_auto_send_time_1", $find_auto_send_time_1, "find_auto_send_time_2", $find_auto_send_time_2, "find_form","Y")?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("POST_F_STATUS")?>:</td>
 	<td>
-		<input type="text" name="find_status" size="47" value="<?echo htmlspecialcharsbx($find_status)?>">&nbsp;<?=ShowFilterLogicHelp()?><br>
-		<?
+		<input type="text" name="find_status" size="47" value="<?php echo htmlspecialcharsbx($find_status)?>">&nbsp;<?=ShowFilterLogicHelp()?><br>
+		<?php 
 		$arr = array(
 			"reference" => array(
 				"[S] ".GetMessage("POST_STATUS_SENT"),
@@ -568,21 +568,21 @@ $oFilter->Begin();
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_FROM")?>:</td>
-	<td><input type="text" name="find_from" size="47" value="<?echo htmlspecialcharsbx($find_from)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_FROM")?>:</td>
+	<td><input type="text" name="find_from" size="47" value="<?php echo htmlspecialcharsbx($find_from)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_TO")?>:</td>
-	<td><input type="text" name="find_to" size="47" value="<?echo htmlspecialcharsbx($find_to)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_TO")?>:</td>
+	<td><input type="text" name="find_to" size="47" value="<?php echo htmlspecialcharsbx($find_to)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_SUBJECT")?>:</td>
-	<td><input type="text" name="find_subject" size="47" value="<?echo htmlspecialcharsbx($find_subject)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_SUBJECT")?>:</td>
+	<td><input type="text" name="find_subject" size="47" value="<?php echo htmlspecialcharsbx($find_subject)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("POST_F_BODY_TYPE")?>:</td>
 	<td>
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("POST_TEXT"),
@@ -598,13 +598,13 @@ $oFilter->Begin();
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_BODY")?>:</td>
-	<td><input type="text" name="find_body" size="47" value="<?echo htmlspecialcharsbx($find_body)?>"><?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_BODY")?>:</td>
+	<td><input type="text" name="find_body" size="47" value="<?php echo htmlspecialcharsbx($find_body)?>"><?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("POST_F_RUBRIC")?>:</td>
 	<td>
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(),
 			"reference_id" => array(),
@@ -619,13 +619,13 @@ $oFilter->Begin();
 		?>
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 //******************************
 // Send message and show progress
 //******************************
@@ -653,7 +653,7 @@ if($_REQUEST['action']=="send"):
 			if(stop)
 				return;
 
-			var url = 'posting_admin.php?lang=<?echo LANGUAGE_ID?>&ID=<?echo $ID?>&<?echo bitrix_sessid_get()?>&action=js_send';
+			var url = 'posting_admin.php?lang=<?php echo LANGUAGE_ID?>&ID=<?php echo $ID?>&<?php echo bitrix_sessid_get()?>&action=js_send';
 			ShowWaitWindow();
 			BX.ajax.post(
 				url,
@@ -666,10 +666,10 @@ if($_REQUEST['action']=="send"):
 		}
 		setTimeout('MoveProgress()', 100);
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

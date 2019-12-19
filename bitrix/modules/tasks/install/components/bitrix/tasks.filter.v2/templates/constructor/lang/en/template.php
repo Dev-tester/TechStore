@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_OP_EQUAL"] = "equals";
 $MESS["TASKS_OP_NOT_EQUAL"] = "not equal";
 $MESS["TASKS_OP_SUBSTRING"] = "contains";

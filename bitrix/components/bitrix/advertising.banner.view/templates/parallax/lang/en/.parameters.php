@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_PARALL_PARAMETER_IMG"] = "Slide image";
 $MESS["ADV_PARALL_PARAMETER_NO"] = "(not set)";
 $MESS["ADV_PARALL_PARAMETER_LINK_URL"] = "Slide link";

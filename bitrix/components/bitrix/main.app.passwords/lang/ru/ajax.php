@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["main_app_passwords_ajax_error"] = "Произошла ошибка при обработке запроса.";
 $MESS["main_app_passwords_ajax_error_auth"] = "Вы должны быть авторизованы.";
 $MESS["main_app_passwords_ajax_error_sess"] = "Ваша сессия истекла.";

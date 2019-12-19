@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 include_once(GetLangFileName(dirname(__FILE__)."/", "/payment.php"));
 include(dirname(__FILE__)."/common.php");
 
@@ -174,15 +174,15 @@ else
 			</td>
 			<td class="tablebody" width="60%">
 				<select name="ccard_date1" class="inputselect">
-					<?for ($i = 1; $i <= 12; $i++):?>
+					<?php for ($i = 1; $i <= 12; $i++):?>
 						<option value="<?= $i ?>"<?= (($i==$_REQUEST["ccard_date1"]) ? "selected" : "") ?>><?= $i ?></option>
-					<?endfor;?>
+					<?php endfor;?>
 				</select>
 				/
 				<select name="ccard_date2" class="inputselect">
-					<?for ($i = 2005; $i <= 2010; $i++):?>
+					<?php for ($i = 2005; $i <= 2010; $i++):?>
 						<option value="<?= $i ?>"<?= (($i==$_REQUEST["ccard_date2"]) ? "selected" : "") ?>><?= $i ?></option>
-					<?endfor;?>
+					<?php endfor;?>
 				</select>
 			</td>
 		</tr>
@@ -197,6 +197,6 @@ else
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

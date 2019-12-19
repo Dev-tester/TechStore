@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_STATUS_ONLINE"] = "В сети";
 $MESS["IM_STATUS_MOBILE"] = "Мобильное приложение";
 $MESS["IM_STATUS_IDLE"] = "Нет на месте";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTIVE"] = "Active:";
 $MESS["ADD"] = "Add";
 $MESS["ALL_SITES"] = "All Sites: ";

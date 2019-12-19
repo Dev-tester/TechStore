@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var \Bitrix\Bizproc\Activity\PropertiesDialog $dialog */
 /** @var \CBPDocumentService $documentService */
 $docType = $dialog->getMap()['DocumentType'];
@@ -12,12 +12,12 @@ $docType = $dialog->getMap()['DocumentType'];
 	</td>
 </tr>
 <tbody id="lists_document_fields">
-<?foreach ($documentFields as $fieldKey => $fieldValue):?>
+<?php foreach ($documentFields as $fieldKey => $fieldValue):?>
 	<tr>
 		<td align="right" width="40%" class="adm-detail-content-cell-l">
-			<?if ($fieldValue["Required"]):?><span class="adm-required-field"><?endif;?>
+			<?php if ($fieldValue["Required"]):?><span class="adm-required-field"><?php endif;?>
 			<?=htmlspecialcharsbx($fieldValue["Name"])?>:
-			<?if ($fieldValue["Required"]):?></span><?endif;?>
+			<?php if ($fieldValue["Required"]):?></span><?php endif;?>
 		</td>
 		<td width="60%" class="adm-detail-content-cell-r"><?=$documentService->GetFieldInputControl(
 			$listsDocumentType,
@@ -28,7 +28,7 @@ $docType = $dialog->getMap()['DocumentType'];
 			)?>
 		</td>
 	</tr>
-<?endforeach;?>
+<?php endforeach;?>
 </tbody>
 
 <script>

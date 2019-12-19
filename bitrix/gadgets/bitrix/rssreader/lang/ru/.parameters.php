@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_RSS_READER_P_CACHE_TIME"] = "Время кеширования, сек (0-не кешировать)";
 $MESS["GD_RSS_READER_P_SHOW_DETAIL"] = "Показывать ссылку на подробную информацию";
 $MESS["GD_RSS_READER_P_RSSS"] = "Предустановленные RSS ленты (каждая с новой строки)";

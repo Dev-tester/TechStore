@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_DISC_SAVE_EDIT_TAB_NAME_MAIN"] = "Накопительная программа";
 $MESS["BT_CAT_DISC_SAVE_EDIT_TAB_TITLE_MAIN"] = "Основные параметры";
 $MESS["BT_CAT_DISC_SAVE_EDIT_TAB_NAME_RANGES"] = "Скидки накопительной программы";

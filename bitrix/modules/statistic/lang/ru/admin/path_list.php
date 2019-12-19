@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Пути по сайту";
 $MESS ['STAT_F_LAST_PAGE'] = "Последняя страница пути";
 $MESS ['STAT_F_PAGE'] = "Любая страница пути";

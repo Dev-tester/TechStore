@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -122,23 +122,23 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs, true, true);
 $tabControl->Begin();
 $tabControl->BeginNextTab();?>
 
-<?if(count($arFiles)>0):?>
+<?php if(count($arFiles)>0):?>
 <form action="fileman_rename.php?lang=<?=LANG?>&path=<?=UrlEncode($path)?>&site=<?=Urlencode($site)?>" method="POST">
 	<input type="hidden" name="logical" value="<?=htmlspecialcharsbx($logical)?>">
 	<?=bitrix_sessid_post()?>
 	<input type="hidden" name="save" value="Y">
-	<?foreach($arFiles as $ind => $file):?>
-	<input type="hidden" name="files[<?echo htmlspecialcharsbx($ind)?>]" value="<?echo htmlspecialcharsbx($file)?>">
-	<input type="text" class="typeinput" name="filename[<?echo htmlspecialcharsbx($ind)?>]" value="<?echo htmlspecialcharsbx($file)?>" size="30" maxlength="255">
-	<?endforeach?>
-<?else://if(count($arFiles)>0):?>
-	<font class="text"><?echo GetMessage("FILEMAN_RENAME_LIST_EMPTY")?></font>
-<?endif;//if(count($arFiles)>0):?>
-<?
+	<?php foreach($arFiles as $ind => $file):?>
+	<input type="hidden" name="files[<?php echo htmlspecialcharsbx($ind)?>]" value="<?php echo htmlspecialcharsbx($file)?>">
+	<input type="text" class="typeinput" name="filename[<?php echo htmlspecialcharsbx($ind)?>]" value="<?php echo htmlspecialcharsbx($file)?>" size="30" maxlength="255">
+	<?php endforeach?>
+<?php else://if(count($arFiles)>0):?>
+	<font class="text"><?php echo GetMessage("FILEMAN_RENAME_LIST_EMPTY")?></font>
+<?php endif;//if(count($arFiles)>0):?>
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons();?>
 <input type="submit" class="adm-btn-save" name="saveb" value="<?=GetMessage("admin_lib_edit_save")?>">&nbsp;<input class="button" type="reset" value="<?=GetMessage("admin_lib_edit_cancel")?>" onclick="javascript:window.location='/bitrix/admin/fileman_admin.php?<?=$addUrl?>&site=<?=UrlEncode($site)?>&path=<?=UrlEncode($path)?>'">
 </form>
-<?$tabControl->End();
+<?php $tabControl->End();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

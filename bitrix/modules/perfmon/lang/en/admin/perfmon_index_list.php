@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_INDEX_BANNED"] = "Status";
 $MESS["PERFMON_INDEX_TABLE_NAME"] = "Table";
 $MESS["PERFMON_INDEX_COLUMN_NAMES"] = "Columns";

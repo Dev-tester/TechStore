@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "изменение профиля";
 $MESS ['F_TITLE_TITLE'] = "Изменение профиля";
 $MESS ['FP_SEX_MALE'] = "Мужской";

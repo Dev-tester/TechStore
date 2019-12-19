@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_ENTITY_ID_FIELD"] = "ID";
 $MESS["CRM_INVOICE_ENTITY_DATE_INS_FIELD"] = "Дата создания";
 $MESS["CRM_INVOICE_ENTITY_DATE_INSERT_FIELD"] = "Дата создания";

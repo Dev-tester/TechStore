@@ -1,4 +1,4 @@
-<?
+<?php 
 if (file_exists($_SERVER["DOCUMENT_ROOT"].BX_PERSONAL_ROOT."/php_interface/geshi/geshi.php"))
 	require_once($_SERVER["DOCUMENT_ROOT"].BX_PERSONAL_ROOT."/php_interface/geshi/geshi.php");
 
@@ -284,27 +284,27 @@ class CAdminListPage
 		{
 			$this->filter = new CAdminFilter($this->sTableID."_filter", $listFilter);
 			?>
-			<form name="find_form" method="get" action="<? echo $APPLICATION->GetCurPage(); ?>">
-				<? $this->filter->Begin(); ?>
-				<? if (!empty($findFilter["reference"])): ?>
+			<form name="find_form" method="get" action="<?php  echo $APPLICATION->GetCurPage(); ?>">
+				<?php  $this->filter->Begin(); ?>
+				<?php  if (!empty($findFilter["reference"])): ?>
 					<tr>
 						<td><b><?=GetMessage("PERFMON_HIT_FIND")?>:</b></td>
 						<td><input
 							type="text" size="25" name="find"
-							value="<? echo htmlspecialcharsbx($find) ?>"><? echo SelectBoxFromArray("find_type", $findFilter, $find_type, "", ""); ?>
+							value="<?php  echo htmlspecialcharsbx($find) ?>"><?php  echo SelectBoxFromArray("find_type", $findFilter, $find_type, "", ""); ?>
 						</td>
 					</tr>
-				<? endif; ?>
-				<?
+				<?php  endif; ?>
+				<?php 
 				foreach ($this->columns as $column)
 				{
 					if (isset($column->info["filter"]))
 					{
 						?>
 						<tr>
-						<td><? echo $column->info["content"] ?></td>
-						<td><? echo $column->getFilterInput() ?></td>
-						</tr><?
+						<td><?php  echo $column->info["content"] ?></td>
+						<td><?php  echo $column->getFilterInput() ?></td>
+						</tr><?php 
 					}
 				}
 				$this->filter->Buttons(array(
@@ -315,7 +315,7 @@ class CAdminListPage
 				$this->filter->End();
 				?>
 			</form>
-		<?
+		<?php 
 		}
 	}
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C33_T_F_MY_PROJECT"] = "Мои проекты";
 $MESS["SONET_C33_T_F_MY"] = "Мои группы";
 $MESS["SONET_C36_T_F_ALL_PROJECT"] = "Все проекты";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_AG_MSGTITLE"] = "Um die Bibliothek als ein Netzlaufwerk zu verbinden:";
 $MESS["WD_AG_HELP1"] = "Öffnen Sie den <i>Windows Explorer</i>.";
 $MESS["WD_AG_HELP2"] = "Wählen Sie im Menü des <i>Explorers</i>den Punkt &laquo;Netzlaufwerk verbinden&raquo; aus.";

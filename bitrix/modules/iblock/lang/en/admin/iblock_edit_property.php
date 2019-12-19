@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_ADM_IEP_SECTION_TITLE_PROPERTY_FEATURES"] = "Property parameters";
 $MESS["BT_ADM_IEP_PROPERTY_NEW"] = "New property";
 $MESS["BT_ADM_IEP_PROPERTY_EDIT"] = "Edit property: \"#NAME#\"";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REQUISITE_CUSTOM_SAVE_BUTTON_TITLE"] = "Save and Return";
 $MESS["CRM_TAB_1_CONTACT"] = "Contact details";
 $MESS["CRM_TAB_1_COMPANY"] = "Company details";

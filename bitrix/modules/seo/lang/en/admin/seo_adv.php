@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_YANDEX_DIRECT_TITLE"] = "Manage Yandex.Direct Advertising Campaigns";
 $MESS["SEO_YANDEX_DIRECT_TITLE_ARCHIVE"] = "Yandex.Direct advertising campaign archive";
 $MESS["SEO_YANDEX_DIRECT_BANNER_TITLE"] = "Yandex.Direct advertisements: #ID# (##XML_ID#)";

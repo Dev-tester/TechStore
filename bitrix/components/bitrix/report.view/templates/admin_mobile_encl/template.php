@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!empty($arResult['ERROR']))
@@ -451,7 +451,7 @@ else // show result using a default mode
 
 ?>
 <div class="mobile-admin-report-ptitle"><?=GetMessage('REPORT_REPORT').": ".$arResult['report']['TITLE']?></div>
-<?
+<?php 
 
 echo $arReportResult['headerHtml'];
 

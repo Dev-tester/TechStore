@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILL_TO_MAIL_M"] = "E-mail address in caption";
 $MESS["MAIN_ADMIN_DEFAULT_LANG"] = "Control Panel default language:";
 $MESS["MAIN_AUDIT_OPTIONS"] = "Events in Log";

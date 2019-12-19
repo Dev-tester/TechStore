@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PM_TITLE"] = "&laquo;#SUBJECT#&raquo;";
 $MESS["PM_TITLE_NAV"] = "Private messages";
 $MESS["PM_ERR_NO_DATA"] = "No data.";

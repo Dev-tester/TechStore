@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -96,7 +96,7 @@ if (CModule::IncludeModule('im'))
 					});
 				}
 			},
-			<?if (IsModuleInstalled("bitrix24") && $USER->CanDoOperation('bitrix24_invite') && $arResult["User"]["ACTIVITY_STATUS"] == "invited") :?>
+			<?php if (IsModuleInstalled("bitrix24") && $USER->CanDoOperation('bitrix24_invite') && $arResult["User"]["ACTIVITY_STATUS"] == "invited") :?>
 			{
 				name: BX.message("REINVITE"),
 				icon: "adduser",
@@ -118,7 +118,7 @@ if (CModule::IncludeModule('im'))
 					);
 				}
 			}
-			<?endif?>
+			<?php endif?>
 		]
 	});
 	window.pageColor = '<?=$userColor?>';
@@ -128,7 +128,7 @@ if (CModule::IncludeModule('im'))
 	app.exec("setTopBarColors",{background: window.pageColor, titleText:"#ffffff", titleDetailText:"#f0f0f0"});
 </script>
 
-<div class="emp-profile" id="emp-profile" style="background-color: <?=$userColor?>; <?if ($arResult["USER_PERSONAL_PHOTO_SRC"]): ?>background-image: url('<?= $arResult["USER_PERSONAL_PHOTO_SRC"]["src"] ?>'); background-size: auto 100%; background-position: center;<? endif ?>">
+<div class="emp-profile" id="emp-profile" style="background-color: <?=$userColor?>; <?php if ($arResult["USER_PERSONAL_PHOTO_SRC"]): ?>background-image: url('<?= $arResult["USER_PERSONAL_PHOTO_SRC"]["src"] ?>'); background-size: auto 100%; background-position: center;<?php  endif ?>">
 	<div class="emp-profile-info">
 		<div class="emp-profile-name"><?=$arResult["USER_FULL_NAME"]?></div>
 		<div class="emp-profile-position"><?=$arUser["WORK_POSITION"]?></div>
@@ -139,7 +139,7 @@ if (CModule::IncludeModule('im'))
 </div>
 
 <div class="emp-info-block">
-	<div class="emp-info-title"><?= GetMessage("SONET_CONTACT_TITLE") ?></div><?
+	<div class="emp-info-title"><?= GetMessage("SONET_CONTACT_TITLE") ?></div><?php 
 
 	//Contact INFO
 	if (is_array($arResult["UserFieldsContact"]["DATA"]))
@@ -157,17 +157,17 @@ if (CModule::IncludeModule('im'))
 				)
 			)
 			{
-				?><span class="emp-info-cell"><?= $arUserField["NAME"] . ":" ?></span><span class="emp-info-cell"><?
+				?><span class="emp-info-cell"><?= $arUserField["NAME"] . ":" ?></span><span class="emp-info-cell"><?php 
 				switch ($field)
 				{
 					case "PERSONAL_MOBILE":
 					case "WORK_PHONE":
-						?><a href="javascript:" onclick="BX.MobileTools.phoneTo('<?=$arUser[$field]?>')"><?= $arUser[$field] ?></a><?
+						?><a href="javascript:" onclick="BX.MobileTools.phoneTo('<?=$arUser[$field]?>')"><?= $arUser[$field] ?></a><?php 
 						break;
 					default:
 						echo $arUserField["VALUE"];
 				}
-				?></span><?
+				?></span><?php 
 			}
 		}
 	}
@@ -188,7 +188,7 @@ if (CModule::IncludeModule('im'))
 			)
 			{
 				?><span class="emp-info-cell"><?= $arUserField["EDIT_FORM_LABEL"] . ":" ?></span><span
-				class="emp-info-cell"><?
+				class="emp-info-cell"><?php 
 				$value = htmlspecialcharsbx($arUserField["VALUE"]);
 				switch ($field)
 				{
@@ -199,7 +199,7 @@ if (CModule::IncludeModule('im'))
 						$isLink = preg_match('#^https?://\w#D', $href) > 0;
 						if ($isLink)
 						{
-							?><a href="<?= $href ?>"><?= $value ?></a><?
+							?><a href="<?= $href ?>"><?= $value ?></a><?php 
 						}
 						else
 						{
@@ -208,7 +208,7 @@ if (CModule::IncludeModule('im'))
 						break;
 					case "UF_TWITTER":
 						?>
-						<a href="http://twitter.com/<?= $value ?>"><?= $value ?></a><?
+						<a href="http://twitter.com/<?= $value ?>"><?= $value ?></a><?php 
 						break;
 					case "UF_SKYPE":
 						echo $value;
@@ -226,13 +226,13 @@ if (CModule::IncludeModule('im'))
 							array("HIDE_ICONS" => "Y")
 						);
 				}
-				?></span><?
+				?></span><?php 
 			}
 		}
 	}
 ?></div>
 <div class="emp-info-block">
-	<div class="emp-info-title"><?= GetMessage("SONET_COMMON_TITLE") ?></div><?
+	<div class="emp-info-title"><?= GetMessage("SONET_COMMON_TITLE") ?></div><?php 
 	//Common INFO
 	if (is_array($arResult["UserFieldsMain"]["DATA"]))
 	{
@@ -249,7 +249,7 @@ if (CModule::IncludeModule('im'))
 				)
 			)
 			{
-				?><span class="emp-info-cell"><?= $arUserField["NAME"] . ":" ?></span><span class="emp-info-cell"><?= $arUserField["VALUE"]; ?></span><?
+				?><span class="emp-info-cell"><?= $arUserField["NAME"] . ":" ?></span><span class="emp-info-cell"><?= $arUserField["VALUE"]; ?></span><?php 
 			}
 		}
 	}
@@ -269,7 +269,7 @@ if (CModule::IncludeModule('im'))
 				)
 			)
 			{
-				?><span class="emp-info-cell"><?= $arUserField["EDIT_FORM_LABEL"] . ":" ?></span><span class="emp-info-cell"><?
+				?><span class="emp-info-cell"><?= $arUserField["EDIT_FORM_LABEL"] . ":" ?></span><span class="emp-info-cell"><?php 
 				switch ($field)
 				{
 					case "UF_DEPARTMENT1":
@@ -285,7 +285,7 @@ if (CModule::IncludeModule('im'))
 							array("HIDE_ICONS" => "Y")
 						);
 				}
-				?></span><?
+				?></span><?php 
 			}
 		}
 	}
@@ -294,7 +294,7 @@ if (CModule::IncludeModule('im'))
 		&& count($arResult['MANAGERS']) > 0
 	)
 	{
-		?><span class="emp-info-cell"><?= GetMessage("SONET_MANAGERS") . ":" ?></span><span class="emp-info-cell"><?$bFirst = true;
+		?><span class="emp-info-cell"><?= GetMessage("SONET_MANAGERS") . ":" ?></span><span class="emp-info-cell"><?php $bFirst = true;
 		foreach ($arResult['MANAGERS'] as $id => $sub_user)
 		{
 			if (!$bFirst)
@@ -306,9 +306,9 @@ if (CModule::IncludeModule('im'))
 				$bFirst = false;
 			}
 			$name = CUser::FormatName($arParams['NAME_TEMPLATE'], $sub_user, true, false);
-			?><a class="user-profile-link" href="<?= CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"])) ?>"><?= $name ?></a><?
+			?><a class="user-profile-link" href="<?= CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"])) ?>"><?= $name ?></a><?php 
 		}
-		?></span><?
+		?></span><?php 
 	}
 
 	if (
@@ -317,7 +317,7 @@ if (CModule::IncludeModule('im'))
 	)
 	{
 		?><span class="emp-info-cell"><?= GetMessage("SONET_SUBORDINATE") . ":" ?></span><span
-		class="emp-info-cell"><?
+		class="emp-info-cell"><?php 
 		$bFirst = true;
 		foreach ($arResult['SUBORDINATE'] as $id => $sub_user)
 		{
@@ -330,16 +330,16 @@ if (CModule::IncludeModule('im'))
 				$bFirst = false;
 			}
 			$name = CUser::FormatName($arParams['NAME_TEMPLATE'], $sub_user, true, false);
-			?><a class="user-profile-link" href="<?= CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"])) ?>"><?= $name ?></a><?
+			?><a class="user-profile-link" href="<?= CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER'], array("user_id" => $sub_user["ID"])) ?>"><?= $name ?></a><?php 
 		}
-		?></span><?
+		?></span><?php 
 	}
 
 	if ($arResult["User"]["ACTIVITY_STATUS"] != "active")
 	{
-		?><span class="emp-info-cell"><?= GetMessage("SONET_ACTIVITY_STATUS") . ":" ?></span><span class="emp-info-cell"><?=GetMessage("SONET_USER_" . $arUser["ACTIVITY_STATUS"]) ?></span><?
+		?><span class="emp-info-cell"><?= GetMessage("SONET_ACTIVITY_STATUS") . ":" ?></span><span class="emp-info-cell"><?=GetMessage("SONET_USER_" . $arUser["ACTIVITY_STATUS"]) ?></span><?php 
 	}
-?></div><?
+?></div><?php 
 
 $additional = "";
 if (is_array($arResult["UserFieldsPersonal"]["DATA"]))
@@ -399,6 +399,6 @@ if (strlen($additional) > 0)
 	?><div class="emp-info-block">
 		<div class="emp-info-title"><?= GetMessage("SONET_ADDITIONAL_TITLE") ?></div>
 		<?= $additional ?>
-	</div><?
+	</div><?php 
 }
 ?>

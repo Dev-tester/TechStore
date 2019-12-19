@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CFT_MAIN"] = "На главную страницу";
 $MESS["CFT_SEARCH"] = "Поиск";
 $MESS["CFT_FEEDBACK"] = "Обратная связь";

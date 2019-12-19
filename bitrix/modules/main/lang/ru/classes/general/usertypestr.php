@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USER_TYPE_STRING_DESCRIPTION'] = "Строка";
 $MESS ['USER_TYPE_STRING_SIZE'] = "Размер поля ввода для отображения";
 $MESS ['USER_TYPE_STRING_ROWS'] = "Количество строчек поля ввода";

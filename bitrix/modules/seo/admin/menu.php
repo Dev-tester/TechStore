@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix vars
  * @global CMain $APPLICATION

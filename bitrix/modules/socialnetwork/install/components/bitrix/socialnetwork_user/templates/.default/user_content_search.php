@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $pageId = "user_content_search";
 include("util_menu.php");
@@ -22,7 +22,7 @@ if(
 	$GLOBALS["APPLICATION"]->SetTitle($arUserFields["NAME"].": ".$strFeatureTitle);
 }
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:search.page", "tags_icons_user", array(
+<?php $APPLICATION->IncludeComponent("bitrix:search.page", "tags_icons_user", array(
 	"RESTART" => $arParams["SEARCH_RESTART"],
 	"USE_LANGUAGE_GUESS" => $arParams["SEARCH_USE_LANGUAGE_GUESS"],
 	"CHECK_DATES" => "N",

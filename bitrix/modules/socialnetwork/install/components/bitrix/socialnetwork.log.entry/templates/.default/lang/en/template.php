@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SONET_C30_ALL_COMMENTS'] = "View all comments";
 $MESS['SONET_C30_ALL_COMMENTS_HIDE'] = "Hide full list";
 $MESS['SONET_C30_COMMENTS'] = "Comments";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS['CRM_PERMISSION_DENIED'] = 'Доступ запрещен';
 $MESS['CRM_MAIL_TEMPLATE_NOT_FOUND'] = "Почтовый шаблон не найден!";

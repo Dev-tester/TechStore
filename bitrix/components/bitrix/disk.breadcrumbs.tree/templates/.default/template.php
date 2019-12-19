@@ -27,16 +27,16 @@ $firstObject = array_shift($arResult['BREADCRUMBS']);
 				id: <?= $arResult['STORAGE']['ID'] ?>,
 				name: '<?= CUtil::JSEscape($arResult['STORAGE']['NAME']) ?>'
 			},
-			<? if($firstObject){ ?>
+			<?php  if($firstObject){ ?>
 			firstObject: {
 				id: <?= $firstObject['ID'] ?>,
 				name: '<?= CUtil::JSEscape($firstObject['NAME']) ?>'
 			},
-			<? } ?>
+			<?php  } ?>
 			containerId: "disk-breadcrumbs-tree-<?= $component->getComponentId() ?>"
 		});
 
-	<? foreach($arResult['BREADCRUMBS'] as $crumb)	{ ?>
+	<?php  foreach($arResult['BREADCRUMBS'] as $crumb)	{ ?>
 		BX.Disk['BreadcrumbsTreeClass_<?= $component->getComponentId() ?>'].buildTree(BX.Disk['BreadcrumbsTreeClass_<?= $component->getComponentId() ?>'].lastNode, {
 			status: 'success',
 			items: [{
@@ -44,7 +44,7 @@ $firstObject = array_shift($arResult['BREADCRUMBS']);
 				name: '<?= CUtil::JSEscape($crumb['NAME']) ?>'
 			}]
 		});
-	<? } ?>
+	<?php  } ?>
 	BX.Disk['BreadcrumbsTreeClass_<?= $component->getComponentId() ?>'].lazyLoadSubFolders(function(){
 		BX.show(BX("disk-breadcrumbs-tree-<?= $component->getComponentId() ?>"), 'block');
 	});

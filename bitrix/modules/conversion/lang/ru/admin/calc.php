@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_CALC_TITLE"] = "Модель окупаемости интернет-магазина";
 $MESS["CONVERSION_CALC_TITLE2"] = "Рентабельность магазина";
 $MESS["CONVERSION_CALC_INDICATORS"] = "Показатели рентабельности";

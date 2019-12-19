@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_ROLES_VIEW_TASK_CATEGORY_WO_DEADLINE_FOR_ME"] = "No deadline<br> (Assigned to me)";
 $MESS["MB_TASKS_PANEL_TAB_ALL"] = "All";
 $MESS["MB_TASKS_PANEL_TAB_PROJECTS"] = "Projects";

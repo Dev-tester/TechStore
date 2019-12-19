@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPATT_NO_MODULE_ID'] = "Не указан модуль.";
 $MESS ['BPABS_EMPTY_DOC_TYPE'] = "Не указан тип документа.";
 $MESS ['BPABS_EMPTY_ENTITY'] = "Не указана сущность, для которой запускается бизнес-процесс.";

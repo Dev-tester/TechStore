@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_IS_ADMIN_ERROR"] = "Only administrators have edit access.";
 $MESS["BIZPROC_SAVE_GCONST_ERROR"] = "Some of the global constants data exceed limit. The changes have not been saved.";
 $MESS["BIZPROC_WFS_ADD_PARAM"] = "Add Parameter";

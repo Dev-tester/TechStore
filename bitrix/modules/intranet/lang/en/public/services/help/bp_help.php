@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Business Processes";
 $MESS["SERVICES_INFO"] = "<div> Contents:
   <ul>

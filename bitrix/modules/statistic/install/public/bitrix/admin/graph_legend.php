@@ -1,1 +1,1 @@
-<? require ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/statistic/admin/graph_legend.php"); ?>
+<?php  require ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/statistic/admin/graph_legend.php"); ?>

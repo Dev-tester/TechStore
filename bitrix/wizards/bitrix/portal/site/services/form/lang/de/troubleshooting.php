@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['REQUEST_NAME_QUESTION'] = "Anfrage";
 $MESS ['REQUEST_TYPE_ANSWER1'] = "Probleme mit dem Computer";
 $MESS ['REQUEST_TYPE_ANSWER2'] = "Allgemeine Reparaturen";

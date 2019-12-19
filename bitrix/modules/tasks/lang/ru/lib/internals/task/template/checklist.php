@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS['TASKS_TASK_TEMPLATE_ENTITY_TEMPLATE_ID_FIELD'] = 'Идентификатор шаблона';
 $MESS['TASKS_TASK_TEMPLATE_ENTITY_TITLE_FIELD'] = 'Текст';

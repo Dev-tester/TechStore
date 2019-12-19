@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 global $APPLICATION;
 $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
@@ -123,9 +123,9 @@ $APPLICATION->IncludeComponent(
 	}
 </script>
 
-<?
+<?php 
 if ($arResult['VAT_MODE']) :
-	?><div><?
+	?><div><?php 
 	$formId = 'crm_form_product_row_tax_uniform';
 	$checkBoxId = 'crm_checkbox_product_row_tax_uniform';
 	$checkBoxName = $arResult['AJAX_PARAM_NAME'];
@@ -154,6 +154,6 @@ if ($arResult['VAT_MODE']) :
 			}
 		});
 	</script>
-	</div><?
+	</div><?php 
 endif;    // if ($arResult['VAT_MODE']) :
 ?>

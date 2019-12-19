@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MP_ADD_APP_TITLE"] = "Новое приложение";
 $MESS["MP_APP_NAME"] = "Название приложения";
 $MESS["MP_APP_MENU_NAME"] = "Название пункта меню";

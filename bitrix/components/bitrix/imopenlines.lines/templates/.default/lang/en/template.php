@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COL_COMPONENT_LIST_HIDE_DESC"] = "Hide description";
 $MESS["OL_COMPONENT_INDEX_PICTURE"] = "/images/index_en.png";
 $MESS["OL_COMPONENT_LIST_ACTIONS_EDIT"] = "Edit";

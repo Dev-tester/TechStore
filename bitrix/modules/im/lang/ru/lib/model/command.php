@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMAND_ENTITY_ID_FIELD"] = "Идентификатор команды";
 $MESS["COMMAND_ENTITY_BOT_ID_FIELD"] = "Идентификатор чат-бота";
 $MESS["COMMAND_ENTITY_COMMAND_FIELD"] = "Команда";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COLLISION_TYPE_ORDER_IS_PAYED"] = "Bestellung kann nicht bearbeitet werden, weil sie bezahlt ist.";
 $MESS["SALE_COLLISION_TYPE_ORDER_IS_SHIPPED"] = "Bestellung kann nicht bearbeitet werden, weil sie ausgeliefert ist.";
 $MESS["SALE_COLLISION_TYPE_ORDER_FINAL_STATUS"] = "Bestellung kann nicht bearbeitet werden, weil sie im Abschlussstatus ist.";

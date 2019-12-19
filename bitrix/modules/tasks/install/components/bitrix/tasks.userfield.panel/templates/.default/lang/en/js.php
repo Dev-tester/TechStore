@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TUFP_DRAG_N_DROP_OFF"] = "Disable field dragging";
 $MESS["TASKS_TUFP_DRAG_N_DROP_ON"] = "Enable field dragging";
 $MESS["TASKS_TUFP_FIELD_HIDE_CONFIRM"] = "Do you want to hide the field? You can show it again by clicking \"Show field\" at the form bottom.";

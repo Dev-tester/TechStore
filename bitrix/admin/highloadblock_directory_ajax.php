@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/highloadblock/admin/highloadblock_directory_ajax.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/highloadblock/admin/highloadblock_directory_ajax.php");?>

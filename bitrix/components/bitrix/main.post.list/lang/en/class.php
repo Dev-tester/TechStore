@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MPL_PHOTO"] = "Photo:";
 $MESS["MPL_FILES"] = "Files:";
 $MESS["MPL_LIKE"] = "Like";

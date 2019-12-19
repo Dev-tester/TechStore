@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ENTITY_SELECTOR_FILTER_FIELD_ACTIVE"] = "Active";
 $MESS["ENTITY_SELECTOR_FILTER_FIELD_CODE"] = "Mnemonic code";
 $MESS["ENTITY_SELECTOR_FILTER_FIELD_ID"] = "ID (first and last values):";

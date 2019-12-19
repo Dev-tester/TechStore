@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_MENU_MAIN'] = "Веб-формы";
 $MESS ['FORM_MENU_FORMS'] = "Настройка форм";
 $MESS ['FORM_MENU_FORMS_ALT'] = "Список доступных форм";

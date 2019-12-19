@@ -1,10 +1,10 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <tr>
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("SNBPA_PD_OWNER_ID") ?>:</span></td>
 	<td width="60%">
-		<?
+		<?php 
 		if ($user->isAdmin())
 		{
 			echo CBPDocument::ShowParameterField("user", 'owner_id', $arCurrentValues['owner_id'], Array('rows'=> 1));
@@ -39,13 +39,13 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<td width="60%">
 		<select name="post_site">
 			<option value="">(<?= GetMessage("SNBPA_PD_POST_SITE_OTHER") ?>)</option>
-			<?
+			<?php 
 			$b = $o = "";
 			$expression = CBPDocument::IsExpression($arCurrentValues["post_site"]) ? htmlspecialcharsbx($arCurrentValues["post_site"]) : '';
 			$dbSites = CSite::GetList($b, $o, Array("ACTIVE" => "Y"));
 			while ($site = $dbSites->GetNext())
 			{
-				?><option value="<?= $site["LID"] ?>"<?= ($site["LID"] == $arCurrentValues["post_site"]) ? " selected" : ""?>>[<?= $site["LID"] ?>] <?= $site["NAME"] ?></option><?
+				?><option value="<?= $site["LID"] ?>"<?= ($site["LID"] == $arCurrentValues["post_site"]) ? " selected" : ""?>>[<?= $site["LID"] ?>] <?= $site["NAME"] ?></option><?php 
 			}
 			?>
 		</select><br>

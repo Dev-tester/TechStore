@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOD_SUB_ORDER_TITLE"] = "Заказ №#ACCOUNT_NUMBER# от #DATE_ORDER_CREATE#";
 $MESS["SOD_PRODUCT_SUB_TITLE"] = "товар";
 $MESS["SOD_TPL_SUMOF"] = "на сумму";

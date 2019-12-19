@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAPE1_NO_SITE"] = "The plan site is not specified";
 $MESS["SAPE1_NO_NAME"] = "The plan name is not specified";
 $MESS["SAPE1_NO_RATE_CURRENCY"] = "The plan rate currency is not specified";

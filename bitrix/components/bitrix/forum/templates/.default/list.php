@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($_SERVER['REQUEST_METHOD'] == "GET" && $_GET["ACTION"] == "FORUM_SUBSCRIBE"):
 /********************************************************************
 				Input params
@@ -48,7 +48,7 @@ $res["URL"] = array(
 </form>
 	</div>
 </div>
-<?
+<?php 
 if ($arParams["SET_TITLE"] == "Y"):
 	$GLOBALS["APPLICATION"]->SetTitle(GetMessage("F_TITLE_SUBSCRIBE"));
 endif;
@@ -61,7 +61,7 @@ endif;
 	return false;
 endif;
 
-?><?$APPLICATION->IncludeComponent("bitrix:forum.topic.list", "", 
+?><?php $APPLICATION->IncludeComponent("bitrix:forum.topic.list", "", 
 	Array(
 		"FID"	=>	$arResult["FID"],
 		"USE_DESC_PAGE"	=>	$arParams["USE_DESC_PAGE_TOPIC"],
@@ -100,10 +100,10 @@ endif;
 		"SEO_USER" => $arParams["SEO_USER"]
 	), $component
 );?>
-<?
+<?php 
 if (in_array("USERS_ONLINE", $arParams["SHOW_STATISTIC_BLOCK"])):
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:forum.statistic", "", 
+<?php $APPLICATION->IncludeComponent("bitrix:forum.statistic", "", 
 	Array(
 		"FID"	=>	$arResult["FID"],
 		"TID"	=>	0,
@@ -120,7 +120,7 @@ if (in_array("USERS_ONLINE", $arParams["SHOW_STATISTIC_BLOCK"])):
 		"NAME_TEMPLATE" => $arParams["NAME_TEMPLATE"]
 	), $component
 );?>
-<?
+<?php 
 endif;
 @include_once(str_replace(array("\\", "//"), "/", dirname(__FILE__)."/footer.php"));
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDEREDIT_ORDER_PROBLEM"] = "Probleme mit Bestellung";
 $MESS["SALE_ORDEREDIT_NAVIGATION"] = "Schnelle Navigation";
 $MESS["SALE_ORDEREDIT_NAME_NULL"] = "Nicht definiert";

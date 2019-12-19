@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -26,7 +26,7 @@ $containerId = 'crm-tracking-site-b24';
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-analytics-source-block-wrap">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:ui.feedback.form',
 		'',
@@ -55,14 +55,14 @@ $containerId = 'crm-tracking-site-b24';
 		</div>
 
 		<div class="crm-analytics-source-block">
-			<?if (empty($arResult['SITES'])):?>
+			<?php if (empty($arResult['SITES'])):?>
 				<div class="crm-analytics-source-empty">
 					<div class="crm-analytics-source-empty-img"></div>
 					<span class="crm-analytics-source-empty-text">
 						<?=Loc::getMessage('CRM_TRACKING_SITE_B24_EMPTY_' . ($arParams['IS_SHOP'] ? 'STORES' : 'SITES'))?>
 					</span>
 				</div>
-			<?else:?>
+			<?php else:?>
 
 				<div class="crm-analytics-source-subject">
 					<span class="crm-analytics-source-subject-text">
@@ -71,7 +71,7 @@ $containerId = 'crm-tracking-site-b24';
 				</div>
 
 				<div class="crm-analytics-source-settings">
-				<?foreach ($arResult['SITES'] as $site):
+				<?php foreach ($arResult['SITES'] as $site):
 					$id = htmlspecialcharsbx('b24-site-' . $site['ID']);
 				?>
 
@@ -92,13 +92,13 @@ $containerId = 'crm-tracking-site-b24';
 							]))?>" class="ui-switcher"></span>
 						</div>
 					</div>
-				<?endforeach;?>
+				<?php endforeach;?>
 				</div>
 
-			<?endif;?>
+			<?php endif;?>
 		</div>
 
-		<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+		<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 			'BUTTONS' => empty($arResult['SITES']) ?
 				['close' => $arParams['PATH_TO_LIST']]
 				:

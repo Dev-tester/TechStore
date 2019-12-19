@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["nav_first"] = "First";
 $MESS["nav_prev"] = "Prev.";
 $MESS["nav_paged"] = "Paged";

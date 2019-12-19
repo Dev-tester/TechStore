@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDUV_DESCR_DESCR2'] = "Загрузить новую версию в Диск";
 $MESS ['BPDUV_DESCR_NAME2'] = "Загрузить новую версию в Диск";
 $MESS ['BPDUV_DESCR_OBJECT_ID'] = "ID новой версии";

@@ -25,7 +25,7 @@ Extension::load([
 \Bitrix\SalesCenter\Integration\Bitrix24Manager::getInstance()->addFeedbackButtonToToolbar();
 
 ?>
-<div class="mp<? if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y"): ?> mp-slider<? endif; ?>">
+<div class="mp<?php  if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y"): ?> mp-slider<?php  endif; ?>">
 	<div class="salescenter-container">
 		<div class="salescenter-container" id="salescenter-panel"></div>
 	</div>
@@ -43,7 +43,7 @@ Extension::load([
 		<div class="salescenter-block-title"><?=Loc::getMessage($arResult['cashboxTitleCode']);?></div>
 		<div class="salescenter-container" id="salescenter-cashbox"></div>
 	</div>
-	<?}?>
+	<?php }?>
 </div>
 
 <script>

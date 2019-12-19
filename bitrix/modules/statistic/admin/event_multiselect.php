@@ -189,7 +189,7 @@ function setTargetValue(id, field)
 //-->
 </script>
 
-<?
+<?php 
 $arFilterDropDown = array(
 	GetMessage('STAT_F_ID'),
 	"event1",
@@ -200,15 +200,15 @@ $arFilterDropDown = array(
 
 $oFilter = new CAdminFilter($sTableID."_filter",$arFilterDropDown);
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
 	<td><b><?=GetMessage("STAT_F_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_F_FIND_ENTER")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_F_FIND_ENTER")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				"event1",
@@ -226,31 +226,31 @@ $oFilter->Begin();
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ID")?></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ID")?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>event1</td>
-	<td><input type="text" name="find_event1" size="47" value="<?echo htmlspecialcharsbx($find_event1)?>"><?=ShowExactMatchCheckbox("find_event1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_event1" size="47" value="<?php echo htmlspecialcharsbx($find_event1)?>"><?=ShowExactMatchCheckbox("find_event1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>event2</td>
-	<td><input type="text" name="find_event2" size="47" value="<?echo htmlspecialcharsbx($find_event2)?>"><?=ShowExactMatchCheckbox("find_event2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_event2" size="47" value="<?php echo htmlspecialcharsbx($find_event2)?>"><?=ShowExactMatchCheckbox("find_event2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_NAME")?></td>
-	<td><input type="text" name="find_name" size="47" value="<?echo htmlspecialcharsbx($find_name)?>"><?=ShowExactMatchCheckbox("find_name")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_NAME")?></td>
+	<td><input type="text" name="find_name" size="47" value="<?php echo htmlspecialcharsbx($find_name)?>"><?=ShowExactMatchCheckbox("find_name")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_DESCRIPTION")?></td>
-	<td><input type="text" name="find_description" size="47" value="<?echo htmlspecialcharsbx($find_description)?>"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_DESCRIPTION")?></td>
+	<td><input type="text" name="find_description" size="47" value="<?php echo htmlspecialcharsbx($find_description)?>"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_filter_no_no_no_1"] = "(нет)";
 $MESS["interface_filter_today"] = "сегодня";
 $MESS["interface_filter_yesterday"] = "вчера";

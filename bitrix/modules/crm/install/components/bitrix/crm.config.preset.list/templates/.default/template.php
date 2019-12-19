@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -18,7 +18,7 @@ $presetUfieldsUrl = str_replace(
 );
 
 $errorsContainerId = $arResult['GRID_ID'].'_err_container';
-?><div class="ajax-mode-err-container" id="<?= $errorsContainerId ?>" style="display: none;"></div><?
+?><div class="ajax-mode-err-container" id="<?= $errorsContainerId ?>" style="display: none;"></div><?php 
 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.interface.toolbar',

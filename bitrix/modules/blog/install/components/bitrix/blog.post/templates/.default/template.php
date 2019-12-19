@@ -1,13 +1,13 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
-<?CUtil::InitJSCore(array("image"));?>
+<?php CUtil::InitJSCore(array("image"));?>
 <div class="blog-post-current">
-<?
+<?php 
 if(strlen($arResult["MESSAGE"])>0)
 {
 	?>
@@ -16,7 +16,7 @@ if(strlen($arResult["MESSAGE"])>0)
 			<?=$arResult["MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
@@ -26,7 +26,7 @@ if(strlen($arResult["ERROR_MESSAGE"])>0)
 			<?=$arResult["ERROR_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
@@ -36,7 +36,7 @@ if(strlen($arResult["FATAL_MESSAGE"])>0)
 			<?=$arResult["FATAL_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 elseif(strlen($arResult["NOTE_MESSAGE"])>0)
 {
@@ -46,7 +46,7 @@ elseif(strlen($arResult["NOTE_MESSAGE"])>0)
 			<?=$arResult["NOTE_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -70,9 +70,9 @@ else
 		<h2 class="blog-post-title"><span><?=$arResult["Post"]["TITLE"]?></span></h2>
 		<div class="blog-post-info-back blog-post-info-top">
 		<div class="blog-post-info">
-			<?if ($arParams["SHOW_RATING"] == "Y"):?>
+			<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 			<div class="blog-post-rating rating_vote_graphic">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:rating.vote", $arParams["RATING_TYPE"],
 				Array(
@@ -91,16 +91,16 @@ else
 				array("HIDE_ICONS" => "Y")
 			);?>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 			<div class="blog-author">
-			<?if($arParams["SEO_USER"] == "Y"):?>
+			<?php if($arParams["SEO_USER"] == "Y"):?>
 				<noindex>
 					<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>" rel="nofollow"></a>
 				</noindex>
-			<?else:?>
+			<?php else:?>
 				<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>"></a>
-			<?endif;?>
-			<?
+			<?php endif;?>
+			<?php 
 			if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && array_key_exists("ALIAS", $arResult["BlogUser"]) && strlen($arResult["BlogUser"]["ALIAS"]) > 0)
 				$arTmpUser = array(
 					"NAME" => "",
@@ -118,10 +118,10 @@ else
 						"NAME_LIST_FORMATTED" => "",
 					);
 			?>
-			<?if($arParams["SEO_USER"] == "Y"):?>
+			<?php if($arParams["SEO_USER"] == "Y"):?>
 				<noindex>
-			<?endif;?>
-			<?		
+			<?php endif;?>
+			<?php 		
 			$APPLICATION->IncludeComponent("bitrix:main.user.link",
 				'',
 				array(
@@ -152,9 +152,9 @@ else
 				array("HIDE_ICONS" => "Y")
 			);
 			?>
-			<?if($arParams["SEO_USER"] == "Y"):?>
+			<?php if($arParams["SEO_USER"] == "Y"):?>
 				</noindex>
-			<?endif;?>
+			<?php endif;?>
 			</div>
 			<div class="blog-post-date"><span class="blog-post-day"><?=$arResult["Post"]["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$arResult["Post"]["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$arResult["Post"]["DATE_PUBLISH_FORMATED"]?></span></div>
 		</div>
@@ -162,38 +162,38 @@ else
 		<div class="blog-post-content">
 			<div class="blog-post-avatar"><?=$arResult["BlogUser"]["AVATAR_img"]?></div>
 			<?=$arResult["Post"]["textFormated"]?>
-			<?if(!empty($arResult["images"]))
+			<?php if(!empty($arResult["images"]))
 			{
 				?>
 				<div class="feed-com-files">
 					<div class="feed-com-files-title"><?=GetMessage("BLOG_PHOTO")?></div>
 					<div class="feed-com-files-cont">
-						<?
+						<?php 
 						foreach($arResult["images"] as $val)
 						{
-							?><span class="feed-com-files-photo"><img src="<?=$val["small"]?>" alt="" border="0" data-bx-image="<?=$val["full"]?>"></span><?
+							?><span class="feed-com-files-photo"><img src="<?=$val["small"]?>" alt="" border="0" data-bx-image="<?=$val["full"]?>"></span><?php 
 						}
 						?>
 					</div>
 				</div>
-				<?
+				<?php 
 			}?>
-			<?if($arResult["POST_PROPERTIES"]["SHOW"] == "Y"):
+			<?php if($arResult["POST_PROPERTIES"]["SHOW"] == "Y"):
 				$eventHandlerID = false;
 				$eventHandlerID = AddEventHandler('main', 'system.field.view.file', Array('CBlogTools', 'blogUFfileShow'));
 				?>
 				<div>
-				<?foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):?>
-				<?if(!empty($arPostField["VALUE"])):?>
+				<?php foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):?>
+				<?php if(!empty($arPostField["VALUE"])):?>
 					<?=($FIELD_NAME=='UF_BLOG_POST_DOC' ? "" : "<b>".$arPostField["EDIT_FORM_LABEL"].":</b>&nbsp;")?>
-							<?$APPLICATION->IncludeComponent(
+							<?php $APPLICATION->IncludeComponent(
 								"bitrix:system.field.view", 
 								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?><br />
-				<?endif;?>
-				<?endforeach;?>
+				<?php endif;?>
+				<?php endforeach;?>
 				</div>
-				<?
+				<?php 
 				if ($eventHandlerID !== false && ( intval($eventHandlerID) > 0 ))
 					RemoveEventHandler('main', 'system.field.view.file', $eventHandlerID);
 			endif;?>
@@ -202,17 +202,17 @@ else
 				<div class="blog-post-info-bottom">
 				<div class="blog-post-info">
 					<div class="blog-author">
-					<?if($arParams["SEO_USER"] == "Y"):?>
+					<?php if($arParams["SEO_USER"] == "Y"):?>
 						<noindex>
 							<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>" rel="nofollow"></a>
 						</noindex>
-					<?else:?>
+					<?php else:?>
 						<a class="blog-author-icon" href="<?=$arResult["urlToAuthor"]?>"></a>
-					<?endif;?>
-					<?if($arParams["SEO_USER"] == "Y"):?>
+					<?php endif;?>
+					<?php if($arParams["SEO_USER"] == "Y"):?>
 						<noindex>
-					<?endif;?>
-					<?		
+					<?php endif;?>
+					<?php 		
 					$APPLICATION->IncludeComponent("bitrix:main.user.link",
 						'',
 						array(
@@ -243,18 +243,18 @@ else
 						array("HIDE_ICONS" => "Y")
 					);
 					?>
-					<?if($arParams["SEO_USER"] == "Y"):?>
+					<?php if($arParams["SEO_USER"] == "Y"):?>
 						</noindex>
-					<?endif;?>
+					<?php endif;?>
 					</div>
 					<div class="blog-post-date"><span class="blog-post-day"><?=$arResult["Post"]["DATE_PUBLISH_DATE"]?></span><span class="blog-post-time"><?=$arResult["Post"]["DATE_PUBLISH_TIME"]?></span><span class="blog-post-date-formated"><?=$arResult["Post"]["DATE_PUBLISH_FORMATED"]?></span></div>
 				</div>
 				</div>
-				<?
+				<?php 
 				if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
 				{
 					?><div class="blog-post-share">
-						<noindex><?
+						<noindex><?php 
 						$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 								"HANDLERS" => $arParams["SHARE_HANDLERS"],
 								"PAGE_URL" => htmlspecialcharsback($arResult["urlToPost"]),
@@ -269,26 +269,26 @@ else
 						);
 						?></noindex>
 					</div>
-					<?
+					<?php 
 				}?>
 				<div class="blog-post-meta-util">
 					<span class="blog-post-views-link"><a href=""><span class="blog-post-link-caption"><?=GetMessage("BLOG_BLOG_BLOG_VIEWS")?></span><span class="blog-post-link-counter"><?=IntVal($arResult["Post"]["VIEWS"])?></span></a></span>
-					<?if($arResult["Post"]["ENABLE_COMMENTS"] == "Y"):?>
+					<?php if($arResult["Post"]["ENABLE_COMMENTS"] == "Y"):?>
 						<span class="blog-post-comments-link"><a href=""><span class="blog-post-link-caption"><?=GetMessage("BLOG_BLOG_BLOG_COMMENTS")?></span><span class="blog-post-link-counter"><?=IntVal($arResult["Post"]["NUM_COMMENTS"])?></span></a></span>
-					<?endif;?>
-					<?if(strLen($arResult["urlToHide"])>0):?>
+					<?php endif;?>
+					<?php if(strLen($arResult["urlToHide"])>0):?>
 						<span class="blog-post-hide-link"><a href="javascript:if(confirm('<?=GetMessage("BLOG_MES_HIDE_POST_CONFIRM")?>')) window.location='<?=$arResult["urlToHide"]."&".bitrix_sessid_get()?>'"><span class="blog-post-link-caption"><?=GetMessage("BLOG_MES_HIDE")?></span></a></span>
-					<?endif;?>
-					<?if(strLen($arResult["urlToEdit"])>0):?>
+					<?php endif;?>
+					<?php if(strLen($arResult["urlToEdit"])>0):?>
 						<span class="blog-post-edit-link"><a href="<?=$arResult["urlToEdit"]?>"><span class="blog-post-link-caption"><?=GetMessage("BLOG_BLOG_BLOG_EDIT")?></span></a></span>
-					<?endif;?>
-					<?if(strLen($arResult["urlToDelete"])>0):?>
+					<?php endif;?>
+					<?php if(strLen($arResult["urlToDelete"])>0):?>
 						<span class="blog-post-delete-link"><a href="javascript:if(confirm('<?=GetMessage("BLOG_MES_DELETE_POST_CONFIRM")?>')) window.location='<?=$arResult["urlToDelete"]."&".bitrix_sessid_get()?>'"><span class="blog-post-link-caption"><?=GetMessage("BLOG_BLOG_BLOG_DELETE")?></span></a></span>
-					<?endif;?>
+					<?php endif;?>
 
-					<?if ($arParams["SHOW_RATING"] == "Y"):?>
+					<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 					<span class="rating_vote_text">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:rating.vote", $arParams["RATING_TYPE"],
 						Array(
@@ -307,33 +307,33 @@ else
 						array("HIDE_ICONS" => "Y")
 					);?>
 					</span>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 				
-				<?if(!empty($arResult["Category"]))
+				<?php if(!empty($arResult["Category"]))
 				{
 					?>
 					<div class="blog-post-tag">
 						<noindex>
 						<?=GetMessage("BLOG_BLOG_BLOG_CATEGORY")?>
-						<?
+						<?php 
 						$i=0;
 						foreach($arResult["Category"] as $v)
 						{
 							if($i!=0)
 								echo ",";
-							?> <a href="<?=$v["urlToCategory"]?>" rel="nofollow"><?=$v["NAME"]?></a><?
+							?> <a href="<?=$v["urlToCategory"]?>" rel="nofollow"><?=$v["NAME"]?></a><?php 
 							$i++;
 						}
 						?>
 						</noindex>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	else
 		echo GetMessage("BLOG_BLOG_BLOG_NO_AVAIBLE_MES");

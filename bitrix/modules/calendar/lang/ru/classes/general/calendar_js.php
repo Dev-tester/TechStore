@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_ADD"] = "Добавить";
 $MESS["EC_VIEW"] = "Открыть";
 $MESS["EC_ADD_EVENT"] = "Добавить событие";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBPSM_POST_ID"] = "Message ID";
 $MESS["SBPSM_URL"] = "Message URL";
 $MESS["SBPSM_EMAIL_TO"] = "Recipient Email address";

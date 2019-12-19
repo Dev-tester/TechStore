@@ -14,9 +14,9 @@ Loc::loadMessages(__FILE__);
 		<?= bitrix_sessid_post()?>
 		<select name="set_view_id" class="content-edit-form-field-input-select" style="width: 250px;" id="tasks-kanban-views-select">
 			<option value="0"><?= Loc::getMessage('TASKS_KANBAN_VIEWS_DIALOG_DEFAULT')?></option>
-			<?foreach ($arResult['VIEWS'] as $id => $view):?>
+			<?php foreach ($arResult['VIEWS'] as $id => $view):?>
 			<option value="<?= $id?>"><?= \htmlspecialcharsbx($view['NAME'])?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</form>
 </div>

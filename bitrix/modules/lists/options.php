@@ -1,4 +1,4 @@
-<?
+<?php 
 if($USER->IsAdmin() && CModule::IncludeModule('iblock') && CModule::IncludeModule('lists')):
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/options.php");
@@ -118,48 +118,48 @@ function addNewTableRow(tableID, regexp, rindex)
 	}
 }
 </script>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?=LANGUAGE_ID?>">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?=LANGUAGE_ID?>">
+<?php 
 $tabControl->BeginNextTab();
 	?>
 	<tr>
 		<td valign="top" colspan="2">
 		<table border="0" cellspacing="0" cellpadding="0" class="internal" align="center" id="tblRIGHTS">
 			<tr class="heading">
-				<td><?echo GetMessage("LISTS_OPTIONS_USER_GROUPS")?></td>
-				<td><?echo GetMessage("LISTS_OPTIONS_IBLOCK_TYPES")?></td>
+				<td><?php echo GetMessage("LISTS_OPTIONS_USER_GROUPS")?></td>
+				<td><?php echo GetMessage("LISTS_OPTIONS_IBLOCK_TYPES")?></td>
 			</tr>
-	<?
+	<?php 
 	$i = 0;
 	foreach(CLists::GetPermission() as $type_id => $groups):
 		if (in_array($type_id, $arIBTypes["REFERENCE_ID"])):
 			foreach($groups as $group):?>
 				<tr>
-					<td><?echo SelectBoxFromArray("group_right[n".$i."]", $arGroups, $group, GetMessage("LISTS_OPTIONS_CHOOSE_GROUP"))?></td>
-					<td><?echo SelectBoxFromArray("type_right[n".$i."]", $arIBTypes, $type_id, GetMessage("LISTS_OPTIONS_CHOOSE_TYPE"))?></td>
+					<td><?php echo SelectBoxFromArray("group_right[n".$i."]", $arGroups, $group, GetMessage("LISTS_OPTIONS_CHOOSE_GROUP"))?></td>
+					<td><?php echo SelectBoxFromArray("type_right[n".$i."]", $arIBTypes, $type_id, GetMessage("LISTS_OPTIONS_CHOOSE_TYPE"))?></td>
 				</tr>
-			<? $i++; endforeach;
+			<?php  $i++; endforeach;
 		endif;
 	endforeach;
 	if($i == 0)
 	{
 		?>
 			<tr>
-				<td><?echo SelectBoxFromArray("group_right[n".$i."]", $arGroups, $group, GetMessage("LISTS_OPTIONS_CHOOSE_GROUP"))?></td>
-				<td><?echo SelectBoxFromArray("type_right[n".$i."]", $arIBTypes, $type_id, GetMessage("LISTS_OPTIONS_CHOOSE_TYPE"))?></td>
+				<td><?php echo SelectBoxFromArray("group_right[n".$i."]", $arGroups, $group, GetMessage("LISTS_OPTIONS_CHOOSE_GROUP"))?></td>
+				<td><?php echo SelectBoxFromArray("type_right[n".$i."]", $arIBTypes, $type_id, GetMessage("LISTS_OPTIONS_CHOOSE_TYPE"))?></td>
 			</tr>
-		<?
+		<?php 
 	}
 	?>
 		<tr>
 			<td colspan="2" style="border:none">
-			<input type="button" value="<?echo GetMessage("LISTS_OPTIONS_ADD_RIGHT")?>" onClick="addNewTableRow('tblRIGHTS', /right\[(n)([0-9]*)\]/g, 2)">
+			<input type="button" value="<?php echo GetMessage("LISTS_OPTIONS_ADD_RIGHT")?>" onClick="addNewTableRow('tblRIGHTS', /right\[(n)([0-9]*)\]/g, 2)">
 			</td>
 		</tr>
 		</table>
 		</td>
 	</tr>
-	<?
+	<?php 
 if(IsModuleInstalled('socialnetwork'))
 {
 	$socnet_iblock_type_id = COption::GetOptionString("lists", "socnet_iblock_type_id");
@@ -167,14 +167,14 @@ if(IsModuleInstalled('socialnetwork'))
 	$tabControl->BeginNextTab();
 	?>
 	<tr>
-		<td width="30%"><?echo GetMessage("LISTS_OPTIONS_SOCNET_ENABLE")?>:</td>
-		<td width="70%"><input type="checkbox" name="socnet_enable" <?if($socnet_enable) echo "checked"?> value="Y"></td>
+		<td width="30%"><?php echo GetMessage("LISTS_OPTIONS_SOCNET_ENABLE")?>:</td>
+		<td width="70%"><input type="checkbox" name="socnet_enable" <?php if($socnet_enable) echo "checked"?> value="Y"></td>
 	</tr>
 	<tr>
-		<td width="30%"><?echo GetMessage("LISTS_OPTIONS_SOCNET_IBLOCK_TYPE")?>:</td>
-		<td width="70%"><?echo SelectBoxFromArray("socnet_iblock_type_id", $arIBTypes, $socnet_iblock_type_id, GetMessage("MAIN_NO"))?></td>
+		<td width="30%"><?php echo GetMessage("LISTS_OPTIONS_SOCNET_IBLOCK_TYPE")?>:</td>
+		<td width="70%"><?php echo SelectBoxFromArray("socnet_iblock_type_id", $arIBTypes, $socnet_iblock_type_id, GetMessage("MAIN_NO"))?></td>
 	</tr>
-	<?
+	<?php 
 }
 
 	$livefeed_iblock_type_id = COption::GetOptionString("lists", "livefeed_iblock_type_id");
@@ -182,26 +182,26 @@ if(IsModuleInstalled('socialnetwork'))
 	$tabControl->BeginNextTab();
 	?>
 		<tr>
-			<td width="30%"><?echo GetMessage("LISTS_OPTIONS_LIVE_FEED_IBLOCK_TYPE")?>:</td>
-			<td width="70%"><?echo SelectBoxFromArray("livefeed_iblock_type_id", $arIBTypes, $livefeed_iblock_type_id, GetMessage("MAIN_NO"))?></td>
+			<td width="30%"><?php echo GetMessage("LISTS_OPTIONS_LIVE_FEED_IBLOCK_TYPE")?>:</td>
+			<td width="70%"><?php echo SelectBoxFromArray("livefeed_iblock_type_id", $arIBTypes, $livefeed_iblock_type_id, GetMessage("MAIN_NO"))?></td>
 		</tr>
 		<tr>
-			<td width="30%"><?echo GetMessage("LISTS_OPTIONS_LIVE_FEED_SEF_FOLDER")?>:</td>
+			<td width="30%"><?php echo GetMessage("LISTS_OPTIONS_LIVE_FEED_SEF_FOLDER")?>:</td>
 			<td width="70%">
 				<input type="text" name="livefeed_url" id="livefeed_url" value="<?=htmlspecialcharsbx($livefeed_url); ?>">
 			</td>
 		</tr>
-	<?
+	<?php 
 
 $tabControl->Buttons();?>
 	<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
-<?endif;?>
+<?php endif;?>

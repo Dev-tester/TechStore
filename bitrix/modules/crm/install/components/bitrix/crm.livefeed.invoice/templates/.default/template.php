@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
@@ -8,7 +8,7 @@ if (!empty($arResult["FIELDS_FORMATTED"]))
 {
 	if ($arResult["FORMAT"] == "table")
 	{
-		?><table class="crm-feed-info-table"><?
+		?><table class="crm-feed-info-table"><?php 
 	}
 
 	foreach($arResult["FIELDS_FORMATTED"] as $value)
@@ -39,7 +39,7 @@ if (!empty($arResult["FIELDS_FORMATTED"]))
 
 	if ($arResult["FORMAT"] == "table")
 	{
-		?></table><?
+		?></table><?php 
 	}	
 }
 ?>

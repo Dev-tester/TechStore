@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Intranet;
 use Bitrix\Main\ModuleManager;
 
@@ -23,28 +23,28 @@ $siteTitle = htmlspecialcharsbx($siteTitle);
 $siteUrl = htmlspecialcharsbx(SITE_DIR);
 $logo24 = Intranet\Util::getLogo24()
 
-?><div class="menu-switcher"><?
-	?><span class="menu-switcher-lines"></span><?
-?></div><?
+?><div class="menu-switcher"><?php 
+	?><span class="menu-switcher-lines"></span><?php 
+?></div><?php 
 
-?><a href="<?=$siteUrl?>" title="<?=GetMessage("BITRIX24_LOGO_TOOLTIP")?>" class="logo"><?
+?><a href="<?=$siteUrl?>" title="<?=GetMessage("BITRIX24_LOGO_TOOLTIP")?>" class="logo"><?php 
 
 	if ($siteLogo["logo"]):
-		?><span class="logo-image-container"><?
+		?><span class="logo-image-container"><?php 
 			?><img
 				src="<?=CFile::getPath($siteLogo["logo"])?>"
-				<? if ($siteLogo["retina"]): ?>
+				<?php  if ($siteLogo["retina"]): ?>
 				srcset="<?=CFile::getPath($siteLogo["retina"])?> 2x"
-				<? endif ?>
-			/><?
-		?></span><?
+				<?php  endif ?>
+			/><?php 
+		?></span><?php 
 	else:
 		?><span class="logo-text-container">
-			<span class="logo-text"><?=$siteTitle?></span><?
+			<span class="logo-text"><?=$siteTitle?></span><?php 
 			if ($logo24):
-				?><span class="logo-color"><?=$logo24?></span><?
+				?><span class="logo-color"><?=$logo24?></span><?php 
 			endif
-		?></span><?
+		?></span><?php 
 	endif
 
 ?></a>

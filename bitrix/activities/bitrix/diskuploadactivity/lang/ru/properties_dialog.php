@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDUA_PD_ENTITY'] = "Куда загрузить";
 $MESS ['BPDUA_PD_ENTITY_TYPE_USER'] = "Диск пользователя";
 $MESS ['BPDUA_PD_ENTITY_TYPE_SG'] = "Диск группы соц.сети";

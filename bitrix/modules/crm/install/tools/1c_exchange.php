@@ -1,4 +1,4 @@
-<?
+<?php 
 define('BX_SESSION_ID_CHANGE', false);
 define('BX_SKIP_POST_UNQUOTE', true);
 define('NO_AGENT_CHECK', true);

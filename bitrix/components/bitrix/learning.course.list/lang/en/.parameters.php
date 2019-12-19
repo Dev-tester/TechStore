@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_DESC_ASC'] = "Ascending";
 $MESS ['LEARNING_DESC_DESC'] = "Descending";
 $MESS ['LEARNING_DESC_YES'] = "Yes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arResult['IS_CLOUD'] = \Bitrix\Main\ModuleManager::isModuleInstalled('bitrix24');

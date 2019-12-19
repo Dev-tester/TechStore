@@ -1,34 +1,34 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 global $APPLICATION;
 ?>
 
-<?if($arResult['DISPLAY_FILE_UPLOAD_RESPONCE']):?>
-	<?
+<?php if($arResult['DISPLAY_FILE_UPLOAD_RESPONCE']):?>
+	<?php 
 	$APPLICATION->RestartBuffer();
 	while (@ob_end_clean());
 	?>
 	<script>(window.BX||top.BX)['file-async-loader']['<?=$arResult['FILE_UPLOAD_ID']?>'].<?=(empty($arResult['ERRORS']['FATAL']) ? 'uploadSuccess' : 'uploadFail')?>();</script>
-	<?die();?>
-<?endif?>
+	<?php die();?>
+<?php endif?>
 
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
 ?>
 
-<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+<?php if(!empty($arResult['ERRORS']['FATAL'])):?>
 
-	<?CAdminMessage::ShowMessage(array('MESSAGE' => htmlspecialcharsbx(implode(', ', $arResult['ERRORS']['FATAL'])), 'type' => 'ERROR'))?>
+	<?php CAdminMessage::ShowMessage(array('MESSAGE' => htmlspecialcharsbx(implode(', ', $arResult['ERRORS']['FATAL'])), 'type' => 'ERROR'))?>
 
-<?else:?>
+<?php else:?>
 
-	<?if(!empty($arResult['ERRORS']['NONFATAL'])):?>
-		<?CAdminMessage::ShowMessage(array('MESSAGE' => htmlspecialcharsbx(implode(', ', $arResult['ERRORS']['NONFATAL'])), 'type' => 'ERROR'))?>
-	<?endif?>
+	<?php if(!empty($arResult['ERRORS']['NONFATAL'])):?>
+		<?php CAdminMessage::ShowMessage(array('MESSAGE' => htmlspecialcharsbx(implode(', ', $arResult['ERRORS']['NONFATAL'])), 'type' => 'ERROR'))?>
+	<?php endif?>
 
-	<?
+	<?php 
 	$aTabs = array(
 		array(
 			"DIV" => "tab_import",
@@ -69,11 +69,11 @@ Loc::loadMessages(__FILE__);
 		<?=BeginNote()?>
 			<?=Loc::getMessage('SALE_SLI_STAT_TITLE')?>:
 			<ul class="bx-ui-loc-i-stat-list">
-				<?foreach($arResult['STATISTICS'] as $code => $stat):?>
-					<?if(strlen($stat['NAME'])):?>
+				<?php foreach($arResult['STATISTICS'] as $code => $stat):?>
+					<?php if(strlen($stat['NAME'])):?>
 						<li><?=htmlspecialcharsbx($stat['NAME'])?>: <?=intval($stat['CNT'])?></li>
-					<?endif?>
-				<?endforeach?>
+					<?php endif?>
+				<?php endforeach?>
 				<script type="text/html" data-template-id="bx-ui-loc-i-stat-item">
 					<li>{{type}}: {{count}}</li>
 				</script>
@@ -85,7 +85,7 @@ Loc::loadMessages(__FILE__);
 		<?=EndNote();?>
 
 		<div class="bx-ui-loc-i-progressbar">
-			<?
+			<?php 
 			CAdminMessage::ShowMessage(array(
 				"TYPE" => "PROGRESS",
 				"DETAILS" => '#PROGRESS_BAR#'.
@@ -98,7 +98,7 @@ Loc::loadMessages(__FILE__);
 			?>
 		</div>
 
-		<?
+		<?php 
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		?>
@@ -137,7 +137,7 @@ Loc::loadMessages(__FILE__);
 					</div>
 
 					<?=BeginNote();?>
-					<?
+					<?php 
 					if ($adminSidePanelHelper->isPublicSidePanel())
 					{
 						$anchorExtServs = '';
@@ -162,7 +162,7 @@ Loc::loadMessages(__FILE__);
 				<td>
 					<div class="adm-loc-i-selector bx-ui-loc-i-location-set">
 
-						<?ob_start();?>
+						<?php ob_start();?>
 
 						<div class="adm-loc-i-tree-node bx-ui-item-tree-node">
 							<a href="javascript:void(0)" class="adm-loc-i-selector-arrow {{EXPANDER_CLASS}}"></a>
@@ -175,8 +175,8 @@ Loc::loadMessages(__FILE__);
 							</div>
 						</div>
 
-						<?$template = ob_get_contents();?>
-						<?ob_end_clean();?>
+						<?php $template = ob_get_contents();?>
+						<?php ob_end_clean();?>
 
 						<?=$component->renderLayOut(array(
 							'LAYOUT' => $arResult['LAYOUT'],
@@ -202,7 +202,7 @@ Loc::loadMessages(__FILE__);
 				</td>
 			</tr>
 
-			<?if(in_array(LANGUAGE_ID, array('ru', 'ua'))):?>
+			<?php if(in_array(LANGUAGE_ID, array('ru', 'ua'))):?>
 				<tr class="bx-ui-load-remote">
 					<td>
 						<label for="loc-i-additional-yamarket"><?=Loc::getMessage('SALE_SLI_EXTRA_EXTERNAL_YAMARKET')?></label>
@@ -211,9 +211,9 @@ Loc::loadMessages(__FILE__);
 						<input type="checkbox" value="YAMARKET" name="YAMARKET" id="loc-i-additional-yamarket" class="bx-ui-loc-i-additional" checked />
 					</td>
 				</tr>
-			<?endif?>
+			<?php endif?>
 
-			<?/*
+			<?php /*
 			<tr class="bx-ui-load-remote">
 				<td>
 					<label for="loc-i-additional-geocoords"><?=Loc::getMessage('SALE_SLI_EXTRA_GEOCOORDS')?></label>
@@ -235,9 +235,9 @@ Loc::loadMessages(__FILE__);
 				<td>
 					<select class="bx-ui-loc-i-option" name="DEPTH_LIMIT">
 						<option value="">- <?=Loc::getMessage('SALE_SLI_DONT_LIMIT_LOCATION_DEPTH')?></option>
-						<?foreach($arResult['TYPE_LEVELS'] as $id => $level):?>
+						<?php foreach($arResult['TYPE_LEVELS'] as $id => $level):?>
 							<option value="<?=intval($id)?>"<?=($level['DEFAULT'] ? ' selected' : '')?>><?=htmlspecialcharsbx($level['NAMES'])?></option>
-						<?endforeach?>
+						<?php endforeach?>
 					</select>
 				</td>
 			</tr>
@@ -259,7 +259,7 @@ Loc::loadMessages(__FILE__);
 				</td>
 			</tr>
 
-			<?if(in_array(LANGUAGE_ID, array('ru', 'ua', 'de'))):?>
+			<?php if(in_array(LANGUAGE_ID, array('ru', 'ua', 'de'))):?>
 				<tr class="bx-ui-load-remote">
 					<td>
 						<label for="loc-i-option-exclude-country-district"><?=Loc::getMessage('SALE_SLI_EXCLUDE_AREAS')?></label>
@@ -268,7 +268,7 @@ Loc::loadMessages(__FILE__);
 						<input type="checkbox" value="1" name="EXCLUDE_COUNTRY_DISTRICT" class="bx-ui-loc-i-option" id="loc-i-option-exclude-country-district" checked="checked" />
 					</td>
 				</tr>
-			<?endif?>
+			<?php endif?>
 
 			<tr>
 				<td>
@@ -297,7 +297,7 @@ Loc::loadMessages(__FILE__);
 				</td>
 			</tr>
 
-		<?
+		<?php 
 		$tabControl->BeginNextTab();
 		?>
 
@@ -313,12 +313,12 @@ Loc::loadMessages(__FILE__);
 				</td>
 			</tr>
 
-		<?
+		<?php 
 		$tabControl->EndTab();
 		$tabControl->Buttons();
 		?>
 			<input type="submit" class="adm-btn-save bx-ui-loc-i-button-start" value="<?=Loc::getMessage('SALE_SLI_START')?>">
-		<?
+		<?php 
 		$tabControl->End();
 		?>
 
@@ -371,4 +371,4 @@ Loc::loadMessages(__FILE__);
 		), false, false, true)?>);
 	</script>
 
-<?endif?>
+<?php endif?>

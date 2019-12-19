@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEAD_EXPORT_SUMMARY"] = "This will create a lead export file. Exporting a considerable amount of data may take some time.";
 $MESS["LEAD_EXPORT_OPTION_EXPORT_ALL_FIELDS"] = "Export all lead fields";
 $MESS["DOCUMENT_BUTTON_TEXT"] = "Document";

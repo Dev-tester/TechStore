@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -54,10 +54,10 @@
 if (!$GLOBALS['USER']->IsAuthorized()):
 ?>
 <div class="photo-controls">
-	<a href="<?=CComponentEngine::MakePathFromTemplate($arParams["INDEX_URL"], array())?>" title="<?=GetMessage("P_UP_TITLE")?>"  class="photo-action back-to-album" <?
+	<a href="<?=CComponentEngine::MakePathFromTemplate($arParams["INDEX_URL"], array())?>" title="<?=GetMessage("P_UP_TITLE")?>"  class="photo-action back-to-album" <?php 
 	?>><?=GetMessage("P_UP")?></a>
 </div>
-<?
+<?php 
 endif;
 ?>
 <div class="photo-controls photo-view only-on-main"><noindex>
@@ -67,23 +67,23 @@ endif;
 	<a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=shows", array("order"))?>"
 		title="<?=GetMessage("P_PHOTO_SORT_SHOWS_TITLE")?>" class="photo-view order-shows<?=
 		($arResult["ORDER_BY"] == "shows" ? " active" : "")?>"><?=GetMessage("P_PHOTO_SORT_SHOWS")?></a>
-<?
+<?php 
 if (in_array("rating", $arResult["ORDER"])):
 ?>	<a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=rating", array("order"))?>"
 		title="<?=GetMessage("P_PHOTO_SORT_RATING_TITLE")?>" class="photo-view order-rating<?=
-		($arResult["ORDER_BY"] == "rating" ? " active" : "")?>"><?=GetMessage("P_PHOTO_SORT_RATING")?></a><?
+		($arResult["ORDER_BY"] == "rating" ? " active" : "")?>"><?=GetMessage("P_PHOTO_SORT_RATING")?></a><?php 
 endif;
 if (in_array("comments", $arResult["ORDER"])):
 ?>	<a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=comments", array("order"))?>"
 		title="<?=GetMessage("P_PHOTO_SORT_COMMENTS_TITLE")?>" class="photo-view order-comments<?=
-		($arResult["ORDER_BY"] == "comments" ? " active" : "")?>"><?=GetMessage("P_PHOTO_SORT_COMMENTS")?></a><?
+		($arResult["ORDER_BY"] == "comments" ? " active" : "")?>"><?=GetMessage("P_PHOTO_SORT_COMMENTS")?></a><?php 
 endif;
 ?>
 	<div class="empty-clear"></div>
 </noindex></div>
 
 <div id="photo-filter">
-	<div id="photo-filter-switcher" class="<?=($arResult["SHOW_FILTER"] == "Y" ? "filter-opened" : "filter-closed")?>" <?
+	<div id="photo-filter-switcher" class="<?=($arResult["SHOW_FILTER"] == "Y" ? "filter-opened" : "filter-closed")?>" <?php 
 		?>onclick="if(this.className=='filter-opened'){this.className='filter-closed';document.getElementById('photo-filter-container').style.display='none';document.getElementById('photo-filter-switcher-href').innerHTML='<?=CUtil::JSEscape(GetMessage("P_OPEN_FILTER"))?>';}else{this.className='filter-opened';document.getElementById('photo-filter-container').style.display='block';document.getElementById('photo-filter-switcher-href').innerHTML='<?=CUtil::JSEscape(GetMessage("P_CLOSE_FILTER"))?>';}"><a href="javascript:void(0);" id="photo-filter-switcher-href"><?=
 		($arResult["SHOW_FILTER"] == "Y" ? GetMessage("P_CLOSE_FILTER") : GetMessage("P_OPEN_FILTER"))?></a></div>
 
@@ -94,7 +94,7 @@ endif;
 				<input type="hidden" name="order" value="<?=$arResult["ORDER_BY"]?>" />
 				<div class="photo-filter-field photo-filter-field-period">
 					<label for="photo_from"><?=GetMessage("P_SELECT_PHOTO_FROM_PERIOD")?></label>
-					<?$APPLICATION->IncludeComponent("bitrix:main.calendar", ".default",
+					<?php $APPLICATION->IncludeComponent("bitrix:main.calendar", ".default",
 						Array(
 							"SHOW_INPUT"	=>	"Y",
 							"INPUT_NAME"	=>	"photo_from",
@@ -110,15 +110,15 @@ endif;
 					($arResult["GROUP_BY_DATE_CREATE"] == "Y" ? " checked='checked'" : "")?> />
 					<label for="group_photo"><?=GetMessage("P_GROUP_BY_DATE_CREATE")?></label>
 				</div>
-				<?if ($arParams["PERMISSION"] >= "U"):?>
+				<?php if ($arParams["PERMISSION"] >= "U"):?>
 				<div class="photo-filter-field photo-filter-field-mode">
 					<fieldset>
 						<legend><?=GetMessage("P_SHOW_FILTER")?></legend>
-						<?if ($arParams["MODERATE"] == "Y"):?>
+						<?php if ($arParams["MODERATE"] == "Y"):?>
 						<label for="mode_public" title="<?=GetMessage("P_SHOW_ONLY_NOT_PUBLIC_TITLE".($arParams["SHOW_ONLY_PUBLIC"] == "Y" ? "1" : ""))?>">
 							<input type="radio" name="mode" value="public" id="mode_public" <?=($arResult["MODE"] == "public" ? " checked='checked'" : "")?> />
 							<?=GetMessage("P_SHOW_ONLY_NOT_PUBLIC")?></label>
-						<?endif;?>
+						<?php endif;?>
 						<label for="mode_active" title="<?=GetMessage("P_SHOW_ONLY_NOT_ACTIVE_TILTE")?>">
 							<input type="radio" name="mode" value="active" id="mode_active" <?=($arResult["MODE"] == "active" ? " checked='checked'" : "")?> />
 							<?=GetMessage("P_SHOW_ONLY_NOT_ACTIVE")?></label>
@@ -127,7 +127,7 @@ endif;
 							<?=GetMessage("P_SHOW_SIMPLE")?></label>
 					</fieldset>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 				<div class="photo-filter-field-buttons">
 					<input type="submit" name="photo_filter_submit" value="<?=GetMessage("P_FILTER_SHOW")?>" />
 					<input type="submit" name="photo_filter_reset" value="<?=GetMessage("P_FILTER_RESET")?>" />
@@ -139,7 +139,7 @@ endif;
 </div>
 
 <div id="detail_list_order">
-<?
+<?php 
 $arFilter = array();
 if ($arParams["PERMISSION"] >= "U" && $arResult["MODE"] == "public"):
 
@@ -180,16 +180,16 @@ elseif ($arResult["ORDER_BY"] == "comments")
 if ($arParams["PERMISSION"] >= "U" && ($arResult["MODE"] == "public" || $arResult["MODE"] == "active")):
 ?>
 <div id="photogallery_hidden_actions" class="photo-controls" style="display:none;">
-<?
+<?php 
 	if ($arResult["MODE"] == "public"):
 ?>
 	<a href="#moderate" onclick="return act('approve');" class="photo-action photo-moderate"><?=GetMessage("P_PUBLIC")?></a>
 	<a href="#moderate" onclick="return act('not_approve');" class="photo-action photo-moderate"><?=GetMessage("P_NOT_PUBLIC")?></a>
-<?
+<?php 
 	else:
 ?>
 	<a href="#moderate" onclick="return act('active');" class="photo-action photo-moderate"><?=GetMessage("P_SHOW")?></a>
-<?
+<?php 
 	endif;
 ?>
 	<a href="#moderate" onclick="return act('drop');" class="photo-action delete"><?=GetMessage("P_DELETE")?></a>
@@ -260,7 +260,7 @@ function act(action)
 	return false;
 }
 </script>
-<?
+<?php 
 endif;
 
 if ($_REQUEST["AJAX_CALL"] == "Y"):
@@ -268,7 +268,7 @@ if ($_REQUEST["AJAX_CALL"] == "Y"):
 endif;
 
 ob_start();
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.list",
 	($_REQUEST["AJAX_CALL"] == "Y" ? "ascetic" : $arParams["TEMPLATE_LIST"]),
 	Array(
@@ -336,29 +336,29 @@ ob_start();
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 $new = ob_get_clean();
 $new = trim($new);
 
 if (!empty($new)):
-	?><?=$new?><?
+	?><?=$new?><?php 
 endif;
 
 if ($_REQUEST["AJAX_CALL"] == "Y"):
 	if (empty($new)):
-		?><div class="no-photo-text"><?=GetMessage("P_NO_PHOTO");?></div><?
+		?><div class="no-photo-text"><?=GetMessage("P_NO_PHOTO");?></div><?php 
 	endif;
-	?><div class="all-elements"><noindex><a rel="nofollow" href="<?=($APPLICATION->GetCurPageParam("", array("AJAX_CALL")))?>"><?
+	?><div class="all-elements"><noindex><a rel="nofollow" href="<?=($APPLICATION->GetCurPageParam("", array("AJAX_CALL")))?>"><?php 
 		if ($arResult["ORDER_BY"] == "date_create"):
-			?><?=GetMessage("P_PHOTO_ORDER_BY_DATE_CREATE")?><?
+			?><?=GetMessage("P_PHOTO_ORDER_BY_DATE_CREATE")?><?php 
 		elseif ($arResult["ORDER_BY"] == "shows"):
-			?><?=GetMessage("P_PHOTO_ORDER_BY_SHOWS")?><?
+			?><?=GetMessage("P_PHOTO_ORDER_BY_SHOWS")?><?php 
 		elseif ($arResult["ORDER_BY"] == "rating"):
-			?><?=GetMessage("P_PHOTO_ORDER_BY_RATING")?><?
+			?><?=GetMessage("P_PHOTO_ORDER_BY_RATING")?><?php 
 		elseif ($arResult["ORDER_BY"] == "comments"):
-			?><?=GetMessage("P_PHOTO_ORDER_BY_COMMENTS")?><?
+			?><?=GetMessage("P_PHOTO_ORDER_BY_COMMENTS")?><?php 
 		endif;
-	?></a></noindex></div><?
+	?></a></noindex></div><?php 
 	die();
 endif;
 //GetMessage("P_SHOW_ONLY_NOT_PUBLIC_TITLE1");

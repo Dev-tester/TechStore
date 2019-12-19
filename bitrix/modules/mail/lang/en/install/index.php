@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MODULE_NAME"] = "Mail";
 $MESS["MAIL_MODULE_DESC"] = "The Mail module is aimed to receiving messages, filtering and performing specified actions. ";
 $MESS["MAIL_INSTALL_TITLE"] = "Mail module uninstallation";

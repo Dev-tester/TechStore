@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_EFFECTIVE_TITLE_FULL"] = "Эффективность";
 $MESS["TASKS_EFFECTIVE_TITLE_SHORT"] = "Эффективность";
 $MESS["TASKS_MORE_LINK_TEXT"] = "подробнее";

@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["CRM_REQUISITE_LIST_ROW_COUNT"] = "Total: #ROW_COUNT#";
 ?>

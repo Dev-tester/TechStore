@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_ACTIVITY_STATUS_STAT_TOTAL"] = "Number of requests";
 $MESS["CRM_ACTIVITY_ACTIVITY_STATUS_STAT_ANSWERED_QTY"] = "Number of answered requests";
 $MESS["CRM_ACTIVITY_ACTIVITY_STATUS_STAT_UNANSWERED_QTY"] = "Number of unanswered requests";

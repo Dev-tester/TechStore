@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_DISCOUNT_ERR_COUPON_TYPE_BAD"] = "Неверный тип купона #COUPON#";
 $MESS["SALE_ORDER_DISCOUNT_ERR_COUPON_ID_BAD"] = "Не указан ID купона для купона #COUPON#";
 $MESS["SALE_ORDER_DISCOUNT_NAME_TEMPLATE"] = "Правило корзины #ID#";

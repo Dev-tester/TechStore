@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SCALE_PANEL_TITLE'] = "Панель управления масштабированием";
 $MESS ['SCALE_PANEL_ACCESS_DENIED'] = "Доступ запрещен";
 $MESS ['SCALE_PANEL_MODULE_NOT_INSTALLED'] = "Ошибка подключения модуля \"Управление масштабированием\"";

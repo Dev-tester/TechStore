@@ -118,7 +118,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 ?>
 <a name="tb"></a>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -134,45 +134,45 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td nowrap><b><?echo GetMessage("STAT_F_SEARCH_SYSTEM")?></b></td>
-	<td><input type="text" name="find_searcher" size="67" value="<?echo htmlspecialcharsbx($find_searcher)?>"><?=ShowExactMatchCheckbox("find_searcher")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?echo SelectBox("find_searcher_id", CSearcher::GetDropDownList(), GetMessage("MAIN_ALL"), htmlspecialcharsbx($find_searcher_id));?></td>
+	<td nowrap><b><?php echo GetMessage("STAT_F_SEARCH_SYSTEM")?></b></td>
+	<td><input type="text" name="find_searcher" size="67" value="<?php echo htmlspecialcharsbx($find_searcher)?>"><?=ShowExactMatchCheckbox("find_searcher")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?php echo SelectBox("find_searcher_id", CSearcher::GetDropDownList(), GetMessage("MAIN_ALL"), htmlspecialcharsbx($find_searcher_id));?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ID")?></td>
-	<td><input type="text" name="find_id" size="67" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ID")?></td>
+	<td><input type="text" name="find_id" size="67" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_DATE").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_DATE").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_PAGE")?></td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_PAGE")?></td>
+	<td><?php 
 		echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_url_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_url_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_url" size="34" value="<?echo htmlspecialcharsbx($find_url)?>"><?=ShowExactMatchCheckbox("find_url")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_url" size="34" value="<?php echo htmlspecialcharsbx($find_url)?>"><?=ShowExactMatchCheckbox("find_url")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_USER_AGENT")?></td>
-	<td><input type="text" name="find_user_agent" size="67" value="<?echo htmlspecialcharsbx($find_user_agent)?>"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_USER_AGENT")?></td>
+	<td><input type="text" name="find_user_agent" size="67" value="<?php echo htmlspecialcharsbx($find_user_agent)?>"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_IP")?></td>
-	<td><input type="text" name="find_ip" size="67" value="<?echo htmlspecialcharsbx($find_ip)?>"><?=ShowExactMatchCheckbox("find_ip")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_IP")?></td>
+	<td><input type="text" name="find_ip" size="67" value="<?php echo htmlspecialcharsbx($find_ip)?>"><?=ShowExactMatchCheckbox("find_ip")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <?=ShowLogicRadioBtn()?>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
 $oFilter->End();
 #############################################################
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

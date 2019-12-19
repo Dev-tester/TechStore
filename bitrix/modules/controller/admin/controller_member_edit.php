@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -397,8 +397,8 @@ if ($message)
 
 if ($bUnregisterError):
 	?>
-	<input type="button" value="<? echo GetMessage("CTRLR_MEM_EDIT_MARK_DISCN") ?>" onclick="window.location='controller_member_edit.php?unregister=Y&anywhere=Y&ID=<?=$ID?>&lang=<?=LANG?>&<?=bitrix_sessid_get()?>'">
-	<?
+	<input type="button" value="<?php  echo GetMessage("CTRLR_MEM_EDIT_MARK_DISCN") ?>" onclick="window.location='controller_member_edit.php?unregister=Y&anywhere=Y&ID=<?=$ID?>&lang=<?=LANG?>&<?=bitrix_sessid_get()?>'">
+	<?php 
 endif;
 
 if ($_REQUEST['act'] == 'unregister' && $ID > 0):
@@ -414,152 +414,152 @@ if ($_REQUEST['act'] == 'unregister' && $ID > 0):
 			}
 		}
 	</script>
-<? endif ?>
+<?php  endif ?>
 
-<?
+<?php 
 if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 	echo $USER_FIELD_MANAGER->ShowScript();
 ?>
 
-<form method="POST" action="<? echo $APPLICATION->GetCurPage() ?>?lang=<?=LANG?><? echo $ID > 0? '&amp;ID='.$ID: '' ?><? echo $_REQUEST["reconnect_id"] > 0? '&amp;reconnect_id='.intval($_REQUEST["reconnect_id"]): '' ?>" name="form1" id="form1">
+<form method="POST" action="<?php  echo $APPLICATION->GetCurPage() ?>?lang=<?=LANG?><?php  echo $ID > 0? '&amp;ID='.$ID: '' ?><?php  echo $_REQUEST["reconnect_id"] > 0? '&amp;reconnect_id='.intval($_REQUEST["reconnect_id"]): '' ?>" name="form1" id="form1">
 	<?=bitrix_sessid_post()?>
-	<? echo GetFilterHiddens("find_"); ?>
+	<?php  echo GetFilterHiddens("find_"); ?>
 
-	<? if ($ID == 0 && (strlen($_REQUEST['SECRET_ID']) > 0 || $_REQUEST["reconnect_id"] > 0)): ?>
+	<?php  if ($ID == 0 && (strlen($_REQUEST['SECRET_ID']) > 0 || $_REQUEST["reconnect_id"] > 0)): ?>
 		<input type="hidden" name="SECRET_ID" value="<?=$str_SECRET_ID?>">
-	<? endif ?>
+	<?php  endif ?>
 
-	<? if ($ID == 0 && strlen($_REQUEST['TICKET_ID']) > 0): ?>
+	<?php  if ($ID == 0 && strlen($_REQUEST['TICKET_ID']) > 0): ?>
 		<input type="hidden" name="TICKET_ID" value="<?=htmlspecialcharsbx($_REQUEST["TICKET_ID"])?>">
-	<? endif ?>
-	<? if ($back_url != ''): ?>
+	<?php  endif ?>
+	<?php  if ($back_url != ''): ?>
 		<input type="hidden" name="back_url" value="<?=htmlspecialcharsbx($back_url)?>">
-	<? endif ?>
+	<?php  endif ?>
 
 	<input type="hidden" id="unregister" name="unregister" value="">
-	<?
+	<?php 
 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?>
-	<? if ($ID > 0): ?>
+	<?php  if ($ID > 0): ?>
 		<tr>
 			<td align="right" width="40%">ID:</td>
-			<td><? echo $str_ID ?></td>
+			<td><?php  echo $str_ID ?></td>
 		</tr>
-		<? if ($str_DISCONNECTED == 'Y'): ?>
+		<?php  if ($str_DISCONNECTED == 'Y'): ?>
 			<tr>
-				<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_DISCN") ?></td>
-				<td><font color="red"><b><? echo GetMessage("CTRLR_MEM_EDIT_DISCN_YES") ?></b></font>
+				<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_DISCN") ?></td>
+				<td><font color="red"><b><?php  echo GetMessage("CTRLR_MEM_EDIT_DISCN_YES") ?></b></font>
 				</td>
 			</tr>
-		<? endif ?>
-		<? if ($str_DISCONNECTED == 'I'): ?>
+		<?php  endif ?>
+		<?php  if ($str_DISCONNECTED == 'I'): ?>
 			<tr>
-				<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_DISCN") ?></td>
-				<td><? echo GetMessage("CTRLR_MEM_EDIT_DISCN_INIT") ?></td>
+				<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_DISCN") ?></td>
+				<td><?php  echo GetMessage("CTRLR_MEM_EDIT_DISCN_INIT") ?></td>
 			</tr>
-		<? endif ?>
-	<? endif ?>
-	<? if (strlen($str_DATE_CREATE) > 0): ?>
+		<?php  endif ?>
+	<?php  endif ?>
+	<?php  if (strlen($str_DATE_CREATE) > 0): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_CREATED") ?></td>
-			<td><? echo $str_DATE_CREATE, " ", $str_CREATED_BY_USER ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_CREATED") ?></td>
+			<td><?php  echo $str_DATE_CREATE, " ", $str_CREATED_BY_USER ?></td>
 		</tr>
-	<? endif; ?>
-	<? if (strlen($str_TIMESTAMP_X) > 0): ?>
+	<?php  endif; ?>
+	<?php  if (strlen($str_TIMESTAMP_X) > 0): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_MODIFIED") ?></td>
-			<td><? echo $str_TIMESTAMP_X, " ", $str_MODIFIED_BY_USER ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_MODIFIED") ?></td>
+			<td><?php  echo $str_TIMESTAMP_X, " ", $str_MODIFIED_BY_USER ?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr class="adm-detail-required-field">
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_NAME") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_NAME") ?></td>
 		<td><input type="text" name="NAME" size="53" maxlength="255" value="<?=$str_NAME?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_UID") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_UID") ?></td>
 		<td>
-			<input type="text" name="MEMBER_ID" size="53" maxlength="255" <? if ($ID > 0) echo "readonly"; ?> value="<?=$str_MEMBER_ID?>">
+			<input type="text" name="MEMBER_ID" size="53" maxlength="255" <?php  if ($ID > 0) echo "readonly"; ?> value="<?=$str_MEMBER_ID?>">
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_URL") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_URL") ?></td>
 		<td>
 			<select name="PROTOCOL">
 				<option value="http://">http://</option>
-				<option value="https://"<? if (strtolower(substr($str_URL, 0, 8)) == "https://") echo " selected" ?>>
+				<option value="https://"<?php  if (strtolower(substr($str_URL, 0, 8)) == "https://") echo " selected" ?>>
 					https://
 				</option>
 			</select>
-			<?
+			<?php 
 			if (strpos($str_URL, "://") > 0)
 				$str_URL = substr($str_URL, strpos($str_URL, "://") + 3);
 			?>
 			<input type="text" name="URL" size="42" maxlength="255" value="<?=$str_URL?>">
 		</td>
 	</tr>
-	<? if (COption::GetOptionString("controller", "show_hostname") == "Y"): ?>
+	<?php  if (COption::GetOptionString("controller", "show_hostname") == "Y"): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_HOSTNAME") ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_HOSTNAME") ?></td>
 			<td><input type="text" name="HOSTNAME" size=43 maxlength="255" value="<?=$str_HOSTNAME?>"></td>
 		</tr>
-	<? endif ?>
+	<?php  endif ?>
 	<tr class="adm-detail-required-field">
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_GROUP") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_GROUP") ?></td>
 		<td><select name="CONTROLLER_GROUP_ID">
-				<?
+				<?php 
 				$iTrialPeriod = 0;
 				$dbr_group = CControllerGroup::GetList(Array("SORT" => "ASC", "NAME" => "ASC", "ID" => "ASC"));
 				while ($ar_group = $dbr_group->GetNext()):
 					if ($str_CONTROLLER_GROUP_ID == $ar_group["ID"] && $ar_group["TRIAL_PERIOD"] > 0)
 						$iTrialPeriod = $ar_group["TRIAL_PERIOD"];
 					?>
-					<option value="<?=$ar_group["ID"]?>"<? if ($str_CONTROLLER_GROUP_ID == $ar_group["ID"]) echo " selected" ?>><?=$ar_group["NAME"]?></option>
-				<? endwhile; ?>
+					<option value="<?=$ar_group["ID"]?>"<?php  if ($str_CONTROLLER_GROUP_ID == $ar_group["ID"]) echo " selected" ?>><?=$ar_group["NAME"]?></option>
+				<?php  endwhile; ?>
 			</select>
 		</td>
 	</tr>
-	<? if ($sRegistrationMode == "password"): ?>
+	<?php  if ($sRegistrationMode == "password"): ?>
 		<tr class="adm-detail-required-field">
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_MEMB_LOGIN") ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_MEMB_LOGIN") ?></td>
 			<td>
 				<input type="text" name="ADMIN_LOGIN" size="53" maxlength="255" value="<?=htmlspecialcharsbx($ADMIN_LOGIN)?>">
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_MEMB_PASSW") ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_MEMB_PASSW") ?></td>
 			<td>
 				<input type="password" name="ADMIN_PASSWORD" size="53" maxlength="255" value="<?=htmlspecialcharsbx($ADMIN_PASSWORD)?>">
 			</td>
 		</tr>
-	<? endif ?>
-	<? if (ControllerIsSharedMode()): ?>
+	<?php  endif ?>
+	<?php  if (ControllerIsSharedMode()): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_SHARED_KERNEL") ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_SHARED_KERNEL") ?></td>
 			<td>
-				<input type="checkbox" name="SHARED_KERNEL" value="Y"<? if ($str_SHARED_KERNEL == "Y") echo " checked" ?>>
+				<input type="checkbox" name="SHARED_KERNEL" value="Y"<?php  if ($str_SHARED_KERNEL == "Y") echo " checked" ?>>
 			</td>
 		</tr>
-	<? endif ?>
+	<?php  endif ?>
 	<tr class="heading">
-		<td colspan="2"><? echo GetMessage("CTRLR_MEM_EDIT_AVAIL") ?></td>
+		<td colspan="2"><?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL") ?></td>
 	</tr>
 	<tr>
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_CUR") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_CUR") ?></td>
 		<td>
-			<? if ($str_SITE_ACTIVE == 'N'): ?>
-				<? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_CLOSED") ?>
-			<? else: ?>
-				<? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_OPENED") ?>
-			<? endif ?>
+			<?php  if ($str_SITE_ACTIVE == 'N'): ?>
+				<?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_CLOSED") ?>
+			<?php  else: ?>
+				<?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_OPENED") ?>
+			<?php  endif ?>
 		</td>
 	</tr>
-	<? if ($ID > 0 && $str_DISCONNECTED == "N" && $iTrialPeriod > 0 && $str_IN_GROUP_FROM != ''): ?>
+	<?php  if ($ID > 0 && $str_DISCONNECTED == "N" && $iTrialPeriod > 0 && $str_IN_GROUP_FROM != ''): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL") ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL") ?></td>
 			<td>
-				<?
+				<?php 
 				$tFrom = MakeTimeStamp($str_IN_GROUP_FROM, FORMAT_DATE);
 				$tTo = $tFrom + $iTrialPeriod * 24 * 60 * 60 - 1;
 				$iDays = (($tTo - time()) / 60 / 60 / 24);
@@ -567,55 +567,55 @@ if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 					$iDays = $iDays - 0.99999;
 				$iDays = intval($iDays);
 				?>
-				<? if ($iDays > 0): ?>
-					<? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_1") ?> <?=$iDays?><? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_1_D") ?>
-				<? elseif ($iDays == 0): ?>
-					<? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_2") ?>
-				<? else: ?>
-					<? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_3") ?> <?=(-$iDays)?><? echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_3_D") ?>
-				<? endif ?>
+				<?php  if ($iDays > 0): ?>
+					<?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_1") ?> <?=$iDays?><?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_1_D") ?>
+				<?php  elseif ($iDays == 0): ?>
+					<?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_2") ?>
+				<?php  else: ?>
+					<?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_3") ?> <?=(-$iDays)?><?php  echo GetMessage("CTRLR_MEM_EDIT_AVAIL_TRIAL_3_D") ?>
+				<?php  endif ?>
 				(<?=ConvertTimeStamp($tTo)?>)
 			</td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 
 	<tr>
 		<td align="right" width="40%">
-			<label for="ACTIVEX"><? echo GetMessage("CTRLR_MEM_EDIT_ACTIVE") ?></label></td>
+			<label for="ACTIVEX"><?php  echo GetMessage("CTRLR_MEM_EDIT_ACTIVE") ?></label></td>
 		<td>
 			<script>
 				function __ActiveOnClick(ob)
 				{
 					if (!ob.checked)
-						return confirm("<?echo GetMessage("CTRLR_MEM_EDIT_ACTIVE_CONFIRM")?>");
+						return confirm("<?php echo GetMessage("CTRLR_MEM_EDIT_ACTIVE_CONFIRM")?>");
 				}
 			</script>
-			<input type="checkbox" name="ACTIVE" id="ACTIVE" value="Y"<? if ($str_ACTIVE == "Y") echo " checked" ?> onclick="return __ActiveOnClick(this);">
+			<input type="checkbox" name="ACTIVE" id="ACTIVE" value="Y"<?php  if ($str_ACTIVE == "Y") echo " checked" ?> onclick="return __ActiveOnClick(this);">
 		</td>
 	</tr>
 	<tr>
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_ACTIVE_PERIOD") ?></td>
-		<td><? echo CalendarPeriod("DATE_ACTIVE_FROM", $str_DATE_ACTIVE_FROM, "DATE_ACTIVE_TO", $str_DATE_ACTIVE_TO, "form1") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_ACTIVE_PERIOD") ?></td>
+		<td><?php  echo CalendarPeriod("DATE_ACTIVE_FROM", $str_DATE_ACTIVE_FROM, "DATE_ACTIVE_TO", $str_DATE_ACTIVE_TO, "form1") ?></td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><? echo GetMessage("CTRLR_MEM_EDIT_ADD") ?></td>
+		<td colspan="2"><?php  echo GetMessage("CTRLR_MEM_EDIT_ADD") ?></td>
 	</tr>
 	<tr>
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_CONTACT_PERSON") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_CONTACT_PERSON") ?></td>
 		<td><input type="text" name="CONTACT_PERSON" size="53" maxlength="255" value="<?=$str_CONTACT_PERSON?>">
 		</td>
 	</tr>
 	<tr>
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_EMAIL") ?></td>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_EMAIL") ?></td>
 		<td><input type="text" name="EMAIL" size="53" maxlength="255" value="<?=$str_EMAIL?>"></td>
 	</tr>
 	<tr class="adm-detail-valign-top">
-		<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_DESCR") ?></td>
-		<td><textarea name="NOTES" cols="40" rows="5"><? echo $str_NOTES ?></textarea>
+		<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_DESCR") ?></td>
+		<td><textarea name="NOTES" cols="40" rows="5"><?php  echo $str_NOTES ?></textarea>
 		</td>
 	</tr>
-	<? if ($ID > 0): ?>
-		<? $tabControl->BeginNextTab(); ?>
+	<?php  if ($ID > 0): ?>
+		<?php  $tabControl->BeginNextTab(); ?>
 		<script>
 			function UpdateCounters()
 			{
@@ -651,57 +651,57 @@ if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 			}
 		</script>
 		<tr class="adm-detail-valign-top">
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_COUNTERS") ?></td>
-			<td><span id="COUNTERS_UPDATED"><? echo $str_COUNTERS_UPDATED ?></span>
-				<?if ($USER->CanDoOperation("controller_member_counters_update")):?>
-				[<a href="javascript:void(0)" onclick="UpdateCounters(); return false;"><? echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_REFRESH") ?></a>]
-				<?endif?>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_COUNTERS") ?></td>
+			<td><span id="COUNTERS_UPDATED"><?php  echo $str_COUNTERS_UPDATED ?></span>
+				<?php if ($USER->CanDoOperation("controller_member_counters_update")):?>
+				[<a href="javascript:void(0)" onclick="UpdateCounters(); return false;"><?php  echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_REFRESH") ?></a>]
+				<?php endif?>
 			</td>
 		</tr>
-	<?
+	<?php 
 	$mb = CControllerGroup::GetByID($str_CONTROLLER_GROUP_ID);
 	$arGroup = $mb->Fetch();
 	if ($arGroup["CHECK_COUNTER_FREE_SPACE"] == "Y"): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_FREE") ?></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_FREE") ?></td>
 			<td>
-				<span id="COUNTER_FREE_SPACE"><? echo $str_COUNTER_FREE_SPACE ?></span><? echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_FREE_Kb") ?>
+				<span id="COUNTER_FREE_SPACE"><?php  echo $str_COUNTER_FREE_SPACE ?></span><?php  echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_FREE_Kb") ?>
 			</td>
 		</tr>
-	<? endif; ?>
-	<? if ($arGroup["CHECK_COUNTER_SITES"] == "Y"): ?>
+	<?php  endif; ?>
+	<?php  if ($arGroup["CHECK_COUNTER_SITES"] == "Y"): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_SITES") ?></td>
-			<td><span id="COUNTER_SITES"><? echo $str_COUNTER_SITES ?></span></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_SITES") ?></td>
+			<td><span id="COUNTER_SITES"><?php  echo $str_COUNTER_SITES ?></span></td>
 		</tr>
-	<? endif; ?>
-	<? if ($arGroup["CHECK_COUNTER_USERS"] == "Y"): ?>
+	<?php  endif; ?>
+	<?php  if ($arGroup["CHECK_COUNTER_USERS"] == "Y"): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_USERS") ?></td>
-			<td><span id="COUNTER_USERS"><? echo $str_COUNTER_USERS ?></span></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_USERS") ?></td>
+			<td><span id="COUNTER_USERS"><?php  echo $str_COUNTER_USERS ?></span></td>
 		</tr>
-	<? endif; ?>
-	<? if ($arGroup["CHECK_COUNTER_LAST_AUTH"] == "Y"): ?>
+	<?php  endif; ?>
+	<?php  if ($arGroup["CHECK_COUNTER_LAST_AUTH"] == "Y"): ?>
 		<tr>
-			<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_LAST_AU") ?></td>
-			<td><span id="COUNTER_LAST_AUTH"><? echo $str_COUNTER_LAST_AUTH ?></span></td>
+			<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_COUNTERS_LAST_AU") ?></td>
+			<td><span id="COUNTER_LAST_AUTH"><?php  echo $str_COUNTER_LAST_AUTH ?></span></td>
 		</tr>
-	<? endif; ?>
-	<?
+	<?php  endif; ?>
+	<?php 
 	$rsCounters = CControllerCounter::GetMemberValues($ID);
 	while ($arCounter = $rsCounters->Fetch())
 	{
 	?>
 		<tr>
-			<td align="right" width="40%"><? echo htmlspecialcharsEx($arCounter["NAME"]) ?>:</td>
+			<td align="right" width="40%"><?php  echo htmlspecialcharsEx($arCounter["NAME"]) ?>:</td>
 			<td>
-				<span id="COUNTER_<? echo $arCounter["ID"] ?>"><? echo htmlspecialcharsEx($arCounter["DISPLAY_VALUE"]) ?></span>
+				<span id="COUNTER_<?php  echo $arCounter["ID"] ?>"><?php  echo htmlspecialcharsEx($arCounter["DISPLAY_VALUE"]) ?></span>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 		?>
-	<?endif;
+	<?php endif;
 
 	if (
 		(count($USER_FIELD_MANAGER->GetUserFields($ENTITY_ID)) > 0) ||
@@ -738,19 +738,19 @@ if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 			{
 				?>
 				<tr>
-					<td colspan="2"><a href="controller_goto.php?lang=<? LANGUAGE_ID ?>&amp;member=<? echo $ID ?>"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_GO") ?></a>
+					<td colspan="2"><a href="controller_goto.php?lang=<?php  LANGUAGE_ID ?>&amp;member=<?php  echo $ID ?>"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_GO") ?></a>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			if (array_key_exists("php", $currentUserAuthGrantScopes))
 			{
 				?>
 				<tr>
-					<td colspan="2"><a href="controller_run_command.php?lang=<? LANGUAGE_ID ?>&amp;member=<? echo $ID ?>"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_RUN_COMMAND") ?></a>
+					<td colspan="2"><a href="controller_run_command.php?lang=<?php  LANGUAGE_ID ?>&amp;member=<?php  echo $ID ?>"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_RUN_COMMAND") ?></a>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 		}
 
@@ -758,25 +758,25 @@ if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 		{
 			?>
 			<tr>
-				<td colspan="2"><a href="controller_auth_log.php?lang=<?LANGUAGE_ID?>&amp;find_to_controller_member=<?echo $ID?>&amp;set_filter=Y"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_LOG") ?></a></td>
+				<td colspan="2"><a href="controller_auth_log.php?lang=<?php LANGUAGE_ID?>&amp;find_to_controller_member=<?php echo $ID?>&amp;set_filter=Y"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_LOG") ?></a></td>
 			</tr>
 			<tr class="heading">
-				<td colspan="2"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_ADD") ?></td>
+				<td colspan="2"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_ADD") ?></td>
 			</tr>
 			<tr>
-				<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_GRANTEE") ?></td>
+				<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_GRANTEE") ?></td>
 				<td><select name="AUTH[GRANTEE_USER_ID]">
 						<option value=""><?=GetMessage("MAIN_NONE")?></option>
-						<?
+						<?php 
 						foreach (\Bitrix\Controller\AuthGrantTable::getGranteeUserList($USER->GetID()) as $userId => $userTitle):
 							?>
 							<option value="<?=$userId?>"><?=htmlspecialcharsEx($userTitle)?></option>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</select>
 				</td>
 			</tr>
 			<tr>
-				<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_SCOPE") ?></td>
+				<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_SCOPE") ?></td>
 				<td><select name="AUTH[SCOPE]">
 						<option value="user"><?=GetMessage("CTRLR_MEM_EDIT_AUTH_SCOPE_USER")?></option>
 						<option value="admin"><?=GetMessage("CTRLR_MEM_EDIT_AUTH_SCOPE_ADMIN")?></option>
@@ -785,14 +785,14 @@ if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 				</td>
 			</tr>
 			<tr>
-				<td align="right" width="40%"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_TIME_INTERVAL") ?></td>
+				<td align="right" width="40%"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_TIME_INTERVAL") ?></td>
 				<td>
-					<?
+					<?php 
 					echo CAdminCalendar::CalendarPeriod("AUTH[DATE_START]", "AUTH[DATE_END]", '', '', "Y", 10, true);
 					?>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$grantList = \Bitrix\Controller\AuthGrantTable::getList(array(
 				"select" => array(
 					"ID",
@@ -824,46 +824,46 @@ if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 			{
 				?>
 				<tr class="heading">
-					<td colspan="2"><? echo GetMessage("CTRLR_MEM_EDIT_AUTH_ACTIVE") ?></td>
+					<td colspan="2"><?php  echo GetMessage("CTRLR_MEM_EDIT_AUTH_ACTIVE") ?></td>
 				</tr>
 				<tr>
 					<td colspan="2" class="adm-detail-valign-top" align="center">
 						<table class="internal">
 							<tr class="heading">
-								<td><?echo GetMessage("CTRLR_MEM_EDIT_AUTH_TIMESTAMP_X")?></td>
-								<td><?echo GetMessage("CTRLR_MEM_EDIT_AUTH_GRANTED_BY")?></td>
-								<td><?echo GetMessage("CTRLR_MEM_EDIT_AUTH_GRANTEE")?></td>
-								<td><?echo GetMessage("CTRLR_MEM_EDIT_AUTH_SCOPE")?></td>
-								<td><?echo GetMessage("CTRLR_MEM_EDIT_AUTH_DATE_START")?></td>
-								<td><?echo GetMessage("CTRLR_MEM_EDIT_AUTH_DATE_END")?></td>
-								<td><?echo GetMessage("CTRLR_MEM_EDIT_AUTH_DELETE")?></td>
+								<td><?php echo GetMessage("CTRLR_MEM_EDIT_AUTH_TIMESTAMP_X")?></td>
+								<td><?php echo GetMessage("CTRLR_MEM_EDIT_AUTH_GRANTED_BY")?></td>
+								<td><?php echo GetMessage("CTRLR_MEM_EDIT_AUTH_GRANTEE")?></td>
+								<td><?php echo GetMessage("CTRLR_MEM_EDIT_AUTH_SCOPE")?></td>
+								<td><?php echo GetMessage("CTRLR_MEM_EDIT_AUTH_DATE_START")?></td>
+								<td><?php echo GetMessage("CTRLR_MEM_EDIT_AUTH_DATE_END")?></td>
+								<td><?php echo GetMessage("CTRLR_MEM_EDIT_AUTH_DELETE")?></td>
 								<td>&nbsp;</td>
 							</tr>
-					<?
+					<?php 
 					do
 					{
 						?>
 						<tr>
-							<td><?echo htmlspecialcharsEx($grant["TIMESTAMP_X"])?></td>
-							<td><a href="<?echo htmlspecialcharsbx('user_edit.php?lang='.LANGUAGE_ID.'&ID='.$grant['GRANTED_BY'])?>"><?echo htmlspecialcharsEx($grant["GRANTED_NAME"])?></a></td>
-							<?if ($grant['GRANTEE_USER_ID']):?>
-							<td><a href="<?echo htmlspecialcharsbx('user_edit.php?lang='.LANGUAGE_ID.'&ID='.$grant['GRANTEE_USER_ID'])?>"><?echo htmlspecialcharsEx($grant["GRANTEE_USER_NAME"])?></a></td>
-							<?else:?>
-							<td><a href="<?echo htmlspecialcharsbx('group_edit.php?lang='.LANGUAGE_ID.'&ID='.$grant['GRANTEE_GROUP_ID'])?>"><?echo htmlspecialcharsEx($grant["GRANTEE_GROUP_NAME"])?></a></td>
-							<?endif;?>
-							<td><?echo htmlspecialcharsEx($grant["SCOPE"])?></td>
-							<td><?echo htmlspecialcharsEx($grant["DATE_START"])?></td>
-							<td><?echo htmlspecialcharsEx($grant["DATE_END"])?></td>
-							<td align="center"><input type="checkbox" name="AUTH_DELETE[]" value="<?echo htmlspecialcharsbx($grant["ID"])?>"></td>
-							<td><?echo htmlspecialcharsEx($grant["NOTE"])?></td>
+							<td><?php echo htmlspecialcharsEx($grant["TIMESTAMP_X"])?></td>
+							<td><a href="<?php echo htmlspecialcharsbx('user_edit.php?lang='.LANGUAGE_ID.'&ID='.$grant['GRANTED_BY'])?>"><?php echo htmlspecialcharsEx($grant["GRANTED_NAME"])?></a></td>
+							<?php if ($grant['GRANTEE_USER_ID']):?>
+							<td><a href="<?php echo htmlspecialcharsbx('user_edit.php?lang='.LANGUAGE_ID.'&ID='.$grant['GRANTEE_USER_ID'])?>"><?php echo htmlspecialcharsEx($grant["GRANTEE_USER_NAME"])?></a></td>
+							<?php else:?>
+							<td><a href="<?php echo htmlspecialcharsbx('group_edit.php?lang='.LANGUAGE_ID.'&ID='.$grant['GRANTEE_GROUP_ID'])?>"><?php echo htmlspecialcharsEx($grant["GRANTEE_GROUP_NAME"])?></a></td>
+							<?php endif;?>
+							<td><?php echo htmlspecialcharsEx($grant["SCOPE"])?></td>
+							<td><?php echo htmlspecialcharsEx($grant["DATE_START"])?></td>
+							<td><?php echo htmlspecialcharsEx($grant["DATE_END"])?></td>
+							<td align="center"><input type="checkbox" name="AUTH_DELETE[]" value="<?php echo htmlspecialcharsbx($grant["ID"])?>"></td>
+							<td><?php echo htmlspecialcharsEx($grant["NOTE"])?></td>
 						</tr>
-						<?
+						<?php 
 					} while ($grant = $grantList->fetch());
 					?>
 						</table>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 		}
 	}
@@ -873,8 +873,8 @@ if (method_exists($USER_FIELD_MANAGER, 'showscript'))
 		"back_url" => ($back_url != ''? $back_url: "controller_member_admin.php?lang=".LANGUAGE_ID),
 		"disabled" => !($ID > 0 && $USER->CanDoOperation("controller_member_edit")) && !($ID <= 0 && $USER->CanDoOperation("controller_member_add")),
 	)); ?>
-	<? $tabControl->End(); ?>
+	<?php  $tabControl->End(); ?>
 	<input type="hidden" value="Y" name="apply">
 </form>
 
-<? require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 #########################################
 # Bitrix: SiteManager			#
@@ -279,7 +279,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 ?>
 <a name="tb"></a>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
@@ -296,17 +296,17 @@ $oFilter->Begin();
 ?>
 
 <tr>
-	<td><b><?echo GetMessage("FORM_F_NAME")?></b></td>
-	<td><input type="text" name="find_name" size="47" value="<?echo htmlspecialcharsbx($find_name)?>"><?=InputType("checkbox", "find_name_exact_match", "Y", $find_name_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><b><?php echo GetMessage("FORM_F_NAME")?></b></td>
+	<td><input type="text" name="find_name" size="47" value="<?php echo htmlspecialcharsbx($find_name)?>"><?=InputType("checkbox", "find_name_exact_match", "Y", $find_name_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
 <tr>
-	<td><?echo GetMessage("FORM_F_ID")?></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("FORM_F_ID")?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("FORM_F_SITE")?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
-	<td><?
+	<td><?php 
 	$ref = array();
 	$ref_id = array();
 	$rs = CSite::GetList(($v1="sort"), ($v2="asc"));
@@ -319,23 +319,23 @@ $oFilter->Begin();
 	?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("FORM_F_SID")?></td>
-	<td><input type="text" name="find_sid" size="47" value="<?echo htmlspecialcharsbx($find_sid)?>"><?=InputType("checkbox", "find_sid_exact_match", "Y", $find_sid_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("FORM_F_SID")?></td>
+	<td><input type="text" name="find_sid" size="47" value="<?php echo htmlspecialcharsbx($find_sid)?>"><?=InputType("checkbox", "find_sid_exact_match", "Y", $find_sid_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("FORM_F_DESCRIPTION")?></td>
-	<td><input type="text" name="find_description" size="47" value="<?echo htmlspecialcharsbx($find_description)?>"><?=InputType("checkbox", "find_description_exact_match", "Y", $find_description_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("FORM_F_DESCRIPTION")?></td>
+	<td><input type="text" name="find_description" size="47" value="<?php echo htmlspecialcharsbx($find_description)?>"><?=InputType("checkbox", "find_description_exact_match", "Y", $find_description_exact_match, false, "", "title='".GetMessage("FORM_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
 
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
 $oFilter->End();
 #############################################################
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

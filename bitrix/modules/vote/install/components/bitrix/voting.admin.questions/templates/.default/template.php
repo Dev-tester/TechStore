@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 use Bitrix\Main\Localization\Loc;
 \Bitrix\Main\UI\Extension::load(array("popup", "ajax", "ui.buttons", "ui.forms"));
 $gridSnippet = new Bitrix\Main\Grid\Panel\Snippet();
@@ -116,10 +116,10 @@ while($row = $data->fetch())
 ?>
 	<div class="adm-toolbar-panel-container">
 		<div class="adm-toolbar-panel-flexible-space">
-			<?
+			<?php 
 			if ($arParams["SHOW_FILTER"] === "Y")
 			{
-				?><?$APPLICATION->includeComponent(
+				?><?php $APPLICATION->includeComponent(
 					"bitrix:main.ui.filter",
 					"",
 					[
@@ -132,15 +132,15 @@ while($row = $data->fetch())
 					],
 					false,
 					["HIDE_ICONS" => true]
-				);?><?
+				);?><?php 
 			}
 			?>
 
 		</div>
 		<a class="ui-btn ui-btn-primary ui-btn-icon-add" href="/bitrix/admin/vote_question_edit.php?lang=<?=LANG?>&VOTE_ID=<?=$voteId?>"><?=GetMessage("VOTE_ADD_QUESTION")?></a>
 	</div>
-<?
-?><?$APPLICATION->includeComponent(
+<?php 
+?><?php $APPLICATION->includeComponent(
 	"bitrix:main.ui.grid",
 	"",
 	array(

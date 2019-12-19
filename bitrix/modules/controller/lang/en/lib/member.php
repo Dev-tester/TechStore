@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEMBER_ENTITY_ID_FIELD"] = "Site ID";
 $MESS["MEMBER_ENTITY_MEMBER_ID_FIELD"] = "Unique ID";
 $MESS["MEMBER_ENTITY_SECRET_ID_FIELD"] = "Shared secret ID";

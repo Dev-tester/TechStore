@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SYNCHRONIZER_ACCESS_TOKEN"] = "Zugriffstoken:";
 $MESS["SALE_SYNCHRONIZER_ACCESS_TOKEN_IS_EMPTY"] = "Zugriffsschlüssel ist erforderlich. Sie sollten ihn in der Bitrix24 App anfordern.";
 $MESS["SALE_SYNCHRONIZER_ACCESS_TOKEN_PROVIDED_HAS_EXPIRED"] = "Zugriffsschlüssel ist abgelaufen. Sie sollten einen neuen in der Bitrix24 App anfordern.";

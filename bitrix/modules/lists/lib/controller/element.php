@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Lists\Controller;
 
 use Bitrix\Lists\Entity\Element as ElementEntity;

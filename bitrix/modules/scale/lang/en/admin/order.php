@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCALE_ORDER_TITLE"] = "VPS Orders";
 $MESS["SCALE_ORDER_ACCESS_DENIED"] = "Access denied";
 $MESS["SCALE_ORDER_MODULE_NOT_INSTALLED"] = "Error including the \"Scalability\" module.";

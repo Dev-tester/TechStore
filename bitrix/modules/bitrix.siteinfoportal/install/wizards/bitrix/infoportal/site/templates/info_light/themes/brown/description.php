@@ -1,1 +1,1 @@
-<?$arTemplate = Array("NAME" => GetMessage("CPST_VIOLET"));?>
+<?php $arTemplate = Array("NAME" => GetMessage("CPST_VIOLET"));?>

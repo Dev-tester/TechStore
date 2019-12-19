@@ -103,22 +103,22 @@ else
 						<span class="landing-template-preview-notice"><?= Loc::getMessage('LANDING_PREVIEW_NOTICE'); ?></span>
                     </div>
 	
-					<?if ($siteGroup):?>
+					<?php if ($siteGroup):?>
 						<div class="landing-template-preview-header">
 							<?= Loc::getMessage('LANDING_TPL_HEADER_SITE_GROUP');?>
 						</div>
 						<div class="landing-template-preview-palette landing-template-preview-site-group"
 							 data-name="param">
-							<?foreach ($siteGroup as $i => $site):?>
+							<?php foreach ($siteGroup as $i => $site):?>
 								<div data-base-url="<?= $site['url'];?>"
 									 data-value="<?= $site['code'];?>"
 									 class="landing-template-preview-palette-item landing-template-preview-site-group-item <?= $i++ == 0 ? 'active' : '';?>"
 									 style="background-color: <?= $site['color']; ?>;"><span></span></div>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</div>
-					<?endif;?>
+					<?php endif;?>
 
-					<?if ($template['URL_PREVIEW']):?>
+					<?php if ($template['URL_PREVIEW']):?>
 						<div hidden class="landing-template-preview-base-url"
 							 data-base-url="<?= \htmlspecialcharsbx($template['URL_PREVIEW']);?>"></div>
 						<div class="landing-template-preview-settings">
@@ -126,7 +126,7 @@ else
 								<?= Loc::getMessage('LANDING_TPL_HEADER_COLOR');?>
 							</div>
 							<div class="landing-template-preview-palette landing-template-preview-themes" data-name="theme">
-								<?foreach ($colors as $code => $color):
+								<?php foreach ($colors as $code => $color):
 									if (!isset($color['base']) || $color['base'] !== true)
 									{
 										continue;
@@ -135,11 +135,11 @@ else
 									<div data-value="<?= $code;?>" data-theme="<?= $code;?>"
 										 class="landing-template-preview-palette-item landing-template-preview-themes-item <?= $themeCurr == $code ? 'active' : '';?>"
 										 style="background-color: <?= $color['color'];?>;"><span></span></div>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</div>
 	
-							<? // add USE SITE COLOR setting only for adding page in exist site?>
-							<? if ($arParams['SITE_ID']): ?>
+							<?php  // add USE SITE COLOR setting only for adding page in exist site?>
+							<?php  if ($arParams['SITE_ID']): ?>
 								<div class="landing-template-preview-sitecolor-container">
 									<div class="landing-template-preview-sitecolor" data-name="theme_use_site">
 										<div data-value="<?= $themeSite; ?>" data-theme="<?= $themeSite;?>"
@@ -152,24 +152,24 @@ else
 									</div>
 	
 								</div>
-							<? endif; ?>
+							<?php  endif; ?>
 						</div>
-					<? endif; ?>
+					<?php  endif; ?>
 	
 					
                 </div>
             </div>
         </div>
 
-        <div class="<?if ($request->get('IFRAME') == 'Y'){?>landing-edit-footer-fixed <?}?>pinable-block">
+        <div class="<?php if ($request->get('IFRAME') == 'Y'){?>landing-edit-footer-fixed <?php }?>pinable-block">
             <div class="landing-form-footer-container">
-			<?
+			<?php 
 			if (!empty($arResult['EXTERNAL_IMPORT']))
 			{
 				?>
 				<span class="ui-btn ui-btn-success landing-template-preview-create-by-import"
-						<?if (isset($arResult['EXTERNAL_IMPORT']['href'])){?>onclick="BX.SidePanel.Instance.open('<?=\CUtil::jsEscape($arResult['EXTERNAL_IMPORT']['href'])?>', {width: 1028})"<?}?>
-				   		<?if (isset($arResult['EXTERNAL_IMPORT']['onclick'])){?>onclick="<?=\CUtil::jsEscape($arResult['EXTERNAL_IMPORT']['onclick'])?>"<?}?>
+						<?php if (isset($arResult['EXTERNAL_IMPORT']['href'])){?>onclick="BX.SidePanel.Instance.open('<?=\CUtil::jsEscape($arResult['EXTERNAL_IMPORT']['href'])?>', {width: 1028})"<?php }?>
+				   		<?php if (isset($arResult['EXTERNAL_IMPORT']['onclick'])){?>onclick="<?=\CUtil::jsEscape($arResult['EXTERNAL_IMPORT']['onclick'])?>"<?php }?>
 				   		data-slider-ignore-autobinding="true"
 						title="<?=Loc::getMessage('LANDING_TPL_BUTTON_CREATE');?>">
 					<?=Loc::getMessage('LANDING_TPL_BUTTON_CREATE');?>
@@ -180,7 +180,7 @@ else
 					  	style="display: none;">
 					<?= Loc::getMessage('LANDING_TPL_BUTTON_CREATE'); ?>
 				</span>
-				<?
+				<?php 
 			}
 			elseif ($createStore)
 			{
@@ -190,7 +190,7 @@ else
 					  	data-slider-ignore-autobinding="true">
 					<?= Loc::getMessage('LANDING_TPL_BUTTON_CREATE'); ?>
 				</span>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -200,7 +200,7 @@ else
 				   		data-slider-ignore-autobinding="true">
 					<?= Loc::getMessage('LANDING_TPL_BUTTON_CREATE'); ?>
 				</a>
-				<?
+				<?php 
 			}
 			?>
 			<span class="ui-btn ui-btn-md ui-btn-link landing-template-preview-close">
@@ -211,7 +211,7 @@ else
     </div>
 </div>
 
-<?if ($template['URL_PREVIEW']):?>
+<?php if ($template['URL_PREVIEW']):?>
 <script type="text/javascript">
 	// Force init template preview layout
 	BX.Landing.TemplatePreviewInstance = BX.Landing.TemplatePreview.getInstance({
@@ -229,10 +229,10 @@ else
 		new BX.Landing.EditTitleForm(BX("landing-template-preview-description-text"), 0, true);
 	}
 
-	<?if (!$createStore):?>
+	<?php if (!$createStore):?>
 	BX.ready(function(){
 		new BX.Landing.SaveBtn(document.querySelector(".landing-template-preview-create"));
 	});
-	<?endif;?>
+	<?php endif;?>
 </script>
-<?endif;?>
+<?php endif;?>

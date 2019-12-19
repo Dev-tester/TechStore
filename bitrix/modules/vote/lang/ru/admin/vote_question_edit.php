@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_EDIT_RECORD"] = "Вопрос # #ID#";
 $MESS["VOTE_NEW_RECORD"] = "Новый вопрос";
 $MESS["VOTE_QUESTIONS_LIST"] = "Список вопросов";

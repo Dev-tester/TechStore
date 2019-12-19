@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["G_TICKETS_GREEN_ALT"] = "the last message is yours";
 $MESS["G_TICKETS_GREY_ALT"] = "the ticket is closed";
 $MESS["G_TICKETS_TIMESTAMP_X"] = "Last Modified";

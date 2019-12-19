@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_ORDERS_STATUS_1_CREATED"] = "Создан";
 $MESS["GD_ORDERS_STATUS_1_PAID"] = "Оплачен";
 $MESS["GD_ORDERS_STATUS_1_CANCELED"] = "Отменен";

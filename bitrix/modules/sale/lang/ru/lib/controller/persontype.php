@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CONTROLLER_ERROR_CODE_PERSON_TYPE_EXISTS'] = 'С указанным кодом тип плательщика уже существует. [#CODE#]';
 $MESS['CONTROLLER_ERROR_ADD_PERSON_TYPE'] = 'Ошибка создания типа плательщика';
 $MESS['CONTROLLER_ERROR_UPDATE_PERSON_TYPE'] = 'Ошибка обновления типа плательщика. [#ID#]';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAYMENT_CASHBOX_CHECK_ADD_WINDOW_TITLE"] = "Додавання нового чека";
 $MESS["SALE_ORDER_PAYMENT"] = "Оплата";
 $MESS["SALE_ORDER_PAYMENT_ADD_COMPANY"] = "Список активних компаній порожній. <a href=\"#URL#\" target=\"_blank\">Додати</a>";

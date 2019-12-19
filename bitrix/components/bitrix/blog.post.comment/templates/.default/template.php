@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
-<?CUtil::InitJSCore(array("image", "ajax"));?>
+<?php CUtil::InitJSCore(array("image", "ajax"));?>
 <script>
 BX.viewImageBind(
 	'blg-comment-<?=$arParams["ID"]?>',
@@ -17,7 +17,7 @@ BX.message({'BPC_ERROR_NO_TEXT':'<?=GetMessage("BPC_ERROR_NO_TEXT")?>'});
 </script>
 <div class="blog-comments" id="blg-comment-<?=$arParams["ID"]?>">
 <a name="comments"></a>
-<?
+<?php 
 if($arResult["is_ajax_post"] != "Y")
 {
 	include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/script.php");
@@ -31,7 +31,7 @@ else
 		top.arImages = [];
 	if(!top.arImagesId)
 		top.arImagesId = [];
-	<?
+	<?php 
 	if(!empty($arResult["Images"]))
 	{
 		foreach($arResult["Images"] as $aImg)
@@ -39,11 +39,11 @@ else
 			?>
 			top.arImages['<?=$aImg["ID"]?>'] = "<?=CUtil::JSEscape($aImg["SRC"])?>";
 			top.arImagesId['<?=$aImg["ID"]?>'] = '<?=$aImg["ID"]?>';
-			<?
+			<?php 
 		}
 	}
 	?>
-	</script><?
+	</script><?php 
 	if(strlen($arResult["COMMENT_ERROR"])>0)
 	{
 		?>
@@ -53,7 +53,7 @@ else
 				<?=$arResult["COMMENT_ERROR"]?>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 }
 
@@ -65,7 +65,7 @@ if(strlen($arResult["MESSAGE"])>0)
 			<?=$arResult["MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
@@ -75,7 +75,7 @@ if(strlen($arResult["ERROR_MESSAGE"])>0)
 			<?=$arResult["ERROR_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
@@ -85,7 +85,7 @@ if(strlen($arResult["FATAL_MESSAGE"])>0)
 			<?=$arResult["FATAL_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -104,7 +104,7 @@ else
 			<?=bitrix_sessid_post()?>
 
 			<div class="blog-comment-fields feed-comments-block">
-				<?
+				<?php 
 				if(empty($arResult["User"]))
 				{
 					?>
@@ -114,10 +114,10 @@ else
 						<div class="blog-comment-field blog-comment-field-email"><div class="blog-comment-field-text"><label for="">E-mail</label></div><span><input maxlength="255" size="30" tabindex="4" type="text" name="user_email" id="user_email" value="<?=htmlspecialcharsEx($_SESSION["blog_user_email"])?>"></span></div>
 						<div class="blog-clear-float"></div>
 					</div>
-					<?
+					<?php 
 				}
 				?>
-				<?if($arParams["NOT_USE_COMMENT_TITLE"] != "Y")
+				<?php if($arParams["NOT_USE_COMMENT_TITLE"] != "Y")
 				{
 					?>
 					<div class="blog-comment-field blog-comment-field-title">
@@ -127,7 +127,7 @@ else
 						<div class="blog-clear-float"></div>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 
 				echo '<input type="hidden" name="USE_NEW_EDITOR" value="Y">';
@@ -145,11 +145,11 @@ else
 							?>
 							<div
 							id="blog-comment-user-fields-<?= $FIELD_NAME ?>"><?= ($FIELD_NAME == CBlogComment::UF_NAME ? "" : $arPostField["EDIT_FORM_LABEL"] . ":") ?>
-							<? $APPLICATION->IncludeComponent(
+							<?php  $APPLICATION->IncludeComponent(
 							"bitrix:system.field.edit",
 							$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 							array("arUserField" => $arPostField), NULL, array("HIDE_ICONS" => "Y")); ?>
-							</div><?
+							</div><?php 
 						}
 					}
 					if ($eventHandlerID !== false && ( intval($eventHandlerID) > 0 ))
@@ -160,7 +160,7 @@ else
 				{
 					?>
 					<div id="nocommentreason" style="display:none;"><?=$arResult["NoCommentReason"]?></div>
-					<?
+					<?php 
 				}
 				if($arResult["use_captcha"]===true)
 				{
@@ -177,7 +177,7 @@ else
 							</div>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				
 				if ($arParams['USER_CONSENT'] == 'Y' && (empty($arResult["User"]) || !$arParams['USER_CONSENT_WAS_GIVEN']))
@@ -214,7 +214,7 @@ else
 		</div>
 		</div>
 
-		<?
+		<?php 
 	}
 
 	$prevTab = 0;
@@ -254,7 +254,7 @@ else
 			<a name="<?=$comment["ID"]?>"></a>
 			<div class="blog-comment" style="padding-left:<?=$paddingSize?>em;">
 			<div id="blg-comment-<?=$comment["ID"]?>">
-			<?
+			<?php 
 			if($comment["PUBLISH_STATUS"] == BLOG_PUBLISH_STATUS_PUBLISH || $comment["SHOW_SCREENNED"] == "Y" || $comment["ID"] == "preview")
 			{
 				$aditStyle = "";
@@ -274,15 +274,15 @@ else
 				<div class="blog-comment-cont<?=$aditStyle?>">
 				<div class="blog-comment-cont-white">
 				<div class="blog-comment-info">
-					<div class="blog-comment-avatar"><?
+					<div class="blog-comment-avatar"><?php 
 					if(strlen($comment["AVATAR_img"]) > 0)
 						echo $comment["AVATAR_img"];
 					else
 						echo '<img src="/bitrix/components/bitrix/blog/templates/.default/images/noavatar.gif" border="0">';
 						?></div>
-					<?if ($arParams["SHOW_RATING"] == "Y"):?>
+					<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 					<div class="blog-post-rating rating_vote_graphic">
-					<?
+					<?php 
 					$GLOBALS["APPLICATION"]->IncludeComponent(
 						"bitrix:rating.vote", $arParams["RATING_TYPE"],
 						Array(
@@ -301,8 +301,8 @@ else
 						array("HIDE_ICONS" => "Y")
 					);?>
 					</div>
-					<?endif;?>
-					<?
+					<?php endif;?>
+					<?php 
 					if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($comment["urlToBlog"]) > 0 || strlen($comment["urlToAuthor"]) > 0) && array_key_exists("ALIAS", $comment["BlogUser"]) && strlen($comment["BlogUser"]["ALIAS"]) > 0)
 						$arTmpUser = array(
 							"NAME" => "",
@@ -324,7 +324,7 @@ else
 					{
 						?>
 						<div class="blog-author">
-						<?
+						<?php 
 						
 						$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 							'',
@@ -357,15 +357,15 @@ else
 						);
 						?>
 						</div>
-						<?
+						<?php 
 					}
 					elseif(strlen($comment["urlToAuthor"])>0)
 					{
 						?><div class="blog-author">
-						<?if($arParams["SEO_USER"] == "Y"):?>
+						<?php if($arParams["SEO_USER"] == "Y"):?>
 							<noindex>
-						<?endif;?>
-						<?
+						<?php endif;?>
+						<?php 
 						$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 							'',
 							array(
@@ -395,24 +395,24 @@ else
 							array("HIDE_ICONS" => "Y")
 						);
 						?>
-						<?if($arParams["SEO_USER"] == "Y"):?>
+						<?php if($arParams["SEO_USER"] == "Y"):?>
 							</noindex>
-						<?endif;?>
+						<?php endif;?>
 						</div>
-						<?
+						<?php 
 					}
 					else
 					{
 						?>
 						<div class="blog-author"><?=$comment["AuthorName"]?></div>
-						<?
+						<?php 
 					}
 
 					if(strlen($comment["urlToDelete"])>0 && strlen($comment["AuthorEmail"])>0)
 					{
 						?>
 						(<a href="mailto:<?=$comment["AuthorEmail"]?>"><?=$comment["AuthorEmail"]?></a>)
-						<?
+						<?php 
 					}
 
 					?>
@@ -420,24 +420,24 @@ else
 				</div>
 				<div class="blog-clear-float"></div>
 				<div class="blog-comment-content">
-					<?if(strlen($comment["TitleFormated"])>0)
+					<?php if(strlen($comment["TitleFormated"])>0)
 					{
 						?>
 					<div class="blog-comment-content-title">
 						<b><?=$comment["TitleFormated"]?></b><br />
 					</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="blog-comment-content-text"><?=$comment["TextFormated"]?></div>
-					<?
+					<?php 
 					if(!empty($arParams["arImages"][$comment["ID"]]))
 					{
 						?>
 						<div class="feed-com-files">
 							<div class="feed-com-files-title"><?=GetMessage("BLOG_PHOTO")?></div>
 							<div class="feed-com-files-cont">
-								<?
+								<?php 
 								$arJSFiles = array();
 								foreach($arParams["arImages"][$comment["ID"]] as $imageId => $val)
 								{
@@ -453,21 +453,21 @@ else
 										"isImage" => (substr($val["CONTENT_TYPE"], 0, 6) == "image/"),
 										"del_url" => $val["DEL_URL"]
 									);
-									?><span id="wd-doc<?=$imageId?>" class="feed-com-files-photo"><img src="<?=$val["small"]?>" alt="" border="0" data-bx-image="<?=$val["full"]?>"></span><?
+									?><span id="wd-doc<?=$imageId?>" class="feed-com-files-photo"><img src="<?=$val["small"]?>" alt="" border="0" data-bx-image="<?=$val["full"]?>"></span><?php 
 								}
 								$arJSFiles = CUtil::PhpToJSObject($arJSFiles);
 								if(strlen($arJSFiles) > 0): ?>
 									<script>top.arImages=<?=$arJSFiles?></script>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					
 					if($comment["COMMENT_PROPERTIES"]["SHOW"] == "Y")
 					{
 						$eventHandlerID = AddEventHandler('main', 'system.field.view.file', Array('CBlogTools', 'blogUFfileShow'));
-						?><div><?
+						?><div><?php 
 						foreach ($comment["COMMENT_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField)
 						{
 							if(!empty($arPostField["VALUE"]))
@@ -478,19 +478,19 @@ else
 									array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));
 							}
 						}
-						?></div><?
+						?></div><?php 
 						if ($eventHandlerID !== false && ( intval($eventHandlerID) > 0 ))
 							RemoveEventHandler('main', 'system.field.view.file', $eventHandlerID);
 					}
 					?>
 					<div class="blog-comment-meta">
-					<?
+					<?php 
 					if($bCanUserComment===true)
 					{
 						?>
 						<span class="blog-comment-answer"><a href="javascript:void(0)" onclick="return replyCommentNew('<?=$comment["ID"]?>', '<?=$comment["POST_ID"]?>')"><?=GetMessage("B_B_MS_REPLY")?></a></span>
 						<span class="blog-vert-separator"></span>
-						<?
+						<?php 
 					}
 
 					if(IntVal($comment["PARENT_ID"])>0)
@@ -498,11 +498,11 @@ else
 						?>
 						<span class="blog-comment-parent"><a href="#<?=$comment["PARENT_ID"]?>"><?=GetMessage("B_B_MS_PARENT")?></a></span>
 						<span class="blog-vert-separator"></span>
-						<?
+						<?php 
 					}
 					?>
 					<span class="blog-comment-link"><a href="#<?=$comment["ID"]?>"><?=GetMessage("B_B_MS_LINK")?></a></span>
-					<?
+					<?php 
 					if($comment["CAN_EDIT"] == "Y")
 					{
 						?>
@@ -512,7 +512,7 @@ else
 						</script>
 						<span class="blog-vert-separator"></span>
 						<span class="blog-comment-edit"><a href="javascript:void(0)" onclick="return editCommentNew('<?=$comment["ID"]?>', '<?=$comment["POST_ID"]?>')"><?=GetMessage("BPC_MES_EDIT")?></a></span>
-						<?
+						<?php 
 					}
 					if(strlen($comment["urlToShow"])>0)
 					{
@@ -521,7 +521,7 @@ else
 						<span class="blog-comment-show">
 							<a href="javascript:void(0)" onclick="return hideShowComment('<?=$comment["urlToShow"]."&".bitrix_sessid_get()?>', '<?=$comment["ID"]?>');" title="<?=GetMessage("BPC_MES_SHOW")?>">
 							<?=GetMessage("BPC_MES_SHOW")?></a></span>
-						<?
+						<?php 
 					}
 					if(strlen($comment["urlToHide"])>0)
 					{
@@ -530,7 +530,7 @@ else
 						<span class="blog-comment-show">
 							<a href="javascript:void(0)" onclick="return hideShowComment('<?=$comment["urlToHide"]."&".bitrix_sessid_get()?>', '<?=$comment["ID"]?>');" title="<?=GetMessage("BPC_MES_HIDE")?>">
 							<?=GetMessage("BPC_MES_HIDE")?></a></span>
-						<?
+						<?php 
 					}
 					if(strlen($comment["urlToDelete"])>0)
 					{
@@ -539,21 +539,21 @@ else
 						<span class="blog-comment-delete">
 							<a href="javascript:void(0)" onclick="if(confirm('<?=GetMessage("BPC_MES_DELETE_POST_CONFIRM")?>')) deleteComment('<?=$comment["urlToDelete"]."&".bitrix_sessid_get()?>', '<?=$comment["ID"]?>');" title="<?=GetMessage("BPC_MES_DELETE")?>">
 							<?=GetMessage("BPC_MES_DELETE")?></a></span>
-						<?
+						<?php 
 					}
 					if(strlen($comment["urlToSpam"])>0)
 					{
 						?>
 						<span class="blog-vert-separator"></span>
 						<span class="blog-comment-delete blog-comment-spam"><a href="<?=$comment["urlToSpam"]?>" title="<?=GetMessage("BPC_MES_SPAM_TITLE")?>"><?=GetMessage("BPC_MES_SPAM")?></a></span>
-						<?
+						<?php 
 					}
 					if ($arParams["SHOW_RATING"] == "Y")
 					{
 						?>
 						<span class="rating_vote_text">
 						<span class="blog-vert-separator"></span>
-						<?$GLOBALS["APPLICATION"]->IncludeComponent(
+						<?php $GLOBALS["APPLICATION"]->IncludeComponent(
 							"bitrix:rating.vote", $arParams["RATING_TYPE"],
 							Array(
 								"ENTITY_TYPE_ID" => "BLOG_COMMENT",
@@ -571,7 +571,7 @@ else
 							array("HIDE_ICONS" => "Y")
 						);?>
 						</span>
-						<?
+						<?php 
 					}
 					?>
 					</div>
@@ -581,7 +581,7 @@ else
 				</div> <!--end blog-comment-info-->
 					<div class="blog-clear-float"></div>
 
-				<?
+				<?php 
 				if(strlen($errorComment) <= 0 && (strlen($_POST["preview"]) > 0 && $_POST["show_preview"] != "N") && (IntVal($_POST["parentId"]) > 0 || IntVal($_POST["edit_id"]) > 0)
 					&& ( (IntVal($_POST["parentId"])==$comment["ID"] && IntVal($_POST["edit_id"]) <= 0)
 						|| (IntVal($_POST["edit_id"]) > 0 && IntVal($_POST["edit_id"]) == $comment["ID"] && $comment["CAN_EDIT"] == "Y")))
@@ -605,7 +605,7 @@ else
 							<?=$errorComment?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 				</div>	<!--end blg-comment-ID-->
@@ -616,7 +616,7 @@ else
 <!--					placeholder for past editor					-->
 				<div id="record-<?=$arParams["ENTITY_XML_ID"]?>-<?=$comment["ID"]?>-placeholder" class="blog-comment-edit feed-com-add-block blog-post-edit" style="display:none;"></div>
 
-				<?
+				<?php 
 				if((strlen($errorComment) > 0 || strlen($_POST["preview"]) > 0)
 					&& (IntVal($_POST["parentId"])==$comment["ID"] || IntVal($_POST["edit_id"]) == $comment["ID"])
 					&& $bCanUserComment===true)
@@ -626,27 +626,27 @@ else
 					<script>
 					top.text<?=$comment["ID"]?> = text<?=$comment["ID"]?> = '<?=CUtil::JSEscape($_POST["comment"])?>';
 					top.title<?=$comment["ID"]?> = title<?=$comment["ID"]?> = '<?=CUtil::JSEscape($_POST["subject"])?>';
-					<?
+					<?php 
 					if(IntVal($_POST["edit_id"]) == $comment["ID"])
 					{
-						?>editCommentNew('<?=$comment["ID"]?>',<?=$arParams["ID"]?>);<?
+						?>editCommentNew('<?=$comment["ID"]?>',<?=$arParams["ID"]?>);<?php 
 					}
 					else
 					{
 //							todo: not showComment, use new function
-						?>showComment('<?=$comment["ID"]?>', 'Y', '<?=CUtil::JSEscape($_POST["user_name"])?>', '<?=CUtil::JSEscape($_POST["user_email"])?>', 'Y');<?
+						?>showComment('<?=$comment["ID"]?>', 'Y', '<?=CUtil::JSEscape($_POST["user_name"])?>', '<?=CUtil::JSEscape($_POST["user_email"])?>', 'Y');<?php 
 					}
 					?>
 					</script>
-					<?
+					<?php 
 				}
 			}
 			elseif($comment["SHOW_AS_HIDDEN"] == "Y") {?>
 				<b><?=GetMessage("BPC_HIDDEN_COMMENT")?></b>
 				</div> <!--end blg-comment-ID-->
-			<?}?>
+			<?php }?>
 			</div>
-			<?
+			<?php 
 		}
 	}
 
@@ -689,7 +689,7 @@ else
 		}
 	}
 	?>
-	<?
+	<?php 
 	if($arResult["is_ajax_post"] != "Y")
 	{
 		if($arResult["CanUserComment"])
@@ -700,7 +700,7 @@ else
 			?>
 			<div class="blog-add-comment"><a href="javascript:void(0)" onclick="return editCommentNew('0', <?=$arParams["ID"]?>)"><b><?=GetMessage("B_B_MS_ADD_COMMENT")?></b></a><br /></div>
 			<a name="0"></a>
-			<?
+			<?php 
 			if(strlen($arResult["COMMENT_ERROR"]) > 0 && strlen($_POST["parentId"]) < 2
 				&& IntVal($_POST["parentId"])==0 && IntVal($_POST["edit_id"]) <= 0)
 			{
@@ -708,7 +708,7 @@ else
 				<div class="blog-errors blog-note-box blog-note-error">
 					<div class="blog-error-text"><?=$arResult["COMMENT_ERROR"]?></div>
 				</div>
-				<?
+				<?php 
 			}
 		}
 
@@ -729,7 +729,7 @@ else
 				<div id="record-<?=$arParams["ENTITY_XML_ID"]?>-0-placeholder" class="blog-comment-edit feed-com-add-block blog-post-edit" style="display:none;"></div>
 
 			</div>
-			<?
+			<?php 
 			if((strlen($arResult["COMMENT_ERROR"])>0 || strlen($_POST["preview"]) > 0)
 				&& IntVal($_POST["parentId"]) == 0 && strlen($_POST["parentId"]) < 2 && IntVal($_POST["edit_id"]) <= 0)
 			{
@@ -740,7 +740,7 @@ else
 //					todo: need show comment?
 				showComment('0', 'Y', '<?=CUtil::JSEscape($_POST["user_name"])?>', '<?=CUtil::JSEscape($_POST["user_email"])?>', 'Y');
 				</script>
-				<?
+				<?php 
 			}
 		}
 	}
@@ -771,7 +771,7 @@ else
 						<?=$arResult["COMMENT_ERROR"]?>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 
@@ -785,7 +785,7 @@ else
 
 			</div><br />
 			
-			<?
+			<?php 
 			if((strlen($arResult["COMMENT_ERROR"])>0 || strlen($_POST["preview"]) > 0)
 				&& $_POST["parentId"] == "00" && strlen($_POST["parentId"]) > 1)
 			{
@@ -796,7 +796,7 @@ else
 //					todo: need show comment?
 				showComment('00', 'Y', '<?=CUtil::JSEscape($_POST["user_name"])?>', '<?=CUtil::JSEscape($_POST["user_email"])?>', "Y");
 				</script>
-				<?
+				<?php 
 			}
 		}
 		
@@ -808,14 +808,14 @@ else
 
 		if($arResult["CanUserComment"] && count($arResult["Comments"])>2)
 		{
-			?><div class="blog-add-comment"><a href="#comments" onclick="return editCommentNew('00', <?=$arParams["ID"]?>)"><b><?=GetMessage("B_B_MS_ADD_COMMENT")?></b></a><br /></div><a name="00"></a><?
+			?><div class="blog-add-comment"><a href="#comments" onclick="return editCommentNew('00', <?=$arParams["ID"]?>)"><b><?=GetMessage("B_B_MS_ADD_COMMENT")?></b></a><br /></div><a name="00"></a><?php 
 		}
 	}
 }
 ?>
 </div>
 
-<?
+<?php 
 //bind entity to new editor js object
 echo $component->bindPostToEditorForm($arParams["ENTITY_XML_ID"], null, $arParams);
 

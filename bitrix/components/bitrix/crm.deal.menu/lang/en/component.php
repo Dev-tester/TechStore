@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_CREATE_ON_BASIS"] = "Generate";
 $MESS["CRM_DEAL_SL_SUBSCRIBE"] = "Follow";
 $MESS["CRM_DEAL_SL_SUBSCRIBE_TITLE"] = "Follow this deal (the deal's events will be visible in your Activity Stream)";

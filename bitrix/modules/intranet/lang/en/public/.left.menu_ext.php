@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEFT_MENU_LIVE_FEED"] = "Activity Stream";
 $MESS["LEFT_MENU_IM_MESSENGER"] = "Chat and Calls";
 $MESS["LEFT_MENU_TASKS"] = "Tasks";

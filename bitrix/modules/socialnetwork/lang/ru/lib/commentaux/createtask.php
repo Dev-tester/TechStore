@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_COMMENTAUX_CREATETASK_POST_BLOG_POST"] = "Создана задача \"#TASK_NAME#\" на основании сообщения Живой ленты.";
 $MESS["SONET_COMMENTAUX_CREATETASK_POST_TASK"] = "Создана задача \"#TASK_NAME#\" на основании задачи.";
 $MESS["SONET_COMMENTAUX_CREATETASK_POST_CALENDAR_EVENT"] = "Создана задача \"#TASK_NAME#\" на основании события календаря.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TWRS_SGRID_FIELD_TITLE'] = 'Название';
 $MESS['TASKS_TWRS_SGRID_FIELD_DEADLINE'] = 'Срок';
 $MESS['TASKS_TWRS_SGRID_FIELD_RESPONSIBLE_ID'] = 'Ответственный';

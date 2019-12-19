@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_INSTALL_NAME"] = "Социальная сеть";
 $MESS["SONET_INSTALL_DESCRIPTION"] = "Модуль дает возможность создания социальной сети на сайте.";
 $MESS["SONET_INSTALL_TITLE"] = "Установка модуля социальной сети";

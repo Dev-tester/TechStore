@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUYER_TITLE"] = "Покупатели";
 $MESS["BUYER_PRLIST"] = "Покупатели";
 $MESS["BUYER_PROFILE"] = "Профайл пользователя";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_TEXTPARSER_SPOILER"] = "Spoiler";
 $MESS["MAIN_TEXTPARSER_HIDDEN_TEXT"] = "Hidden Text";
 ?>

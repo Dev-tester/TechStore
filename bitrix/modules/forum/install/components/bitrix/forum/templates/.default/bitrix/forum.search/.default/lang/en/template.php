@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "Search";
 $MESS ['F_KEYWORDS'] = "Search Keywords";
 $MESS ['F_FORUM'] = "Search Where";

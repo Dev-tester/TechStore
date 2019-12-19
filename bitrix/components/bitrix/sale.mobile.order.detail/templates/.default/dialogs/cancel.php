@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Order cancel dialog
  */
@@ -9,7 +9,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 		<div class="order_canceled_title">
 			<?=$arResult['ORDER']['CANCELED'] == 'N' ? GetMessage('SMOD_CANCEL') : GetMessage('SMOD_CANCEL_CANCEL');?>
 		</div>
-		<?if($arResult['ORDER']['CANCELED'] == 'N'):?>
+		<?php if($arResult['ORDER']['CANCELED'] == 'N'):?>
 			<div class="order_canceled_infoblock">
 				<div class="order_canceled_infoblock_title"><?=GetMessage('SMOD_CANCEL_REASON');?></div>
 				<div class="order_canceled_infoblock_textarea_container">
@@ -17,7 +17,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 				</div>
 				<span class="order_canceled_infoblock_desc"><?=GetMessage('SMOD_USER_ACCESSIBLE');?></span>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </form>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_FILTER_PERIOD"] = "Date range";
 $MESS["CONVERSION_FILTER_APPLY"] = "Apply";
 $MESS["CONVERSION_DESCRIPTION_TITLE"] = "Explanation";

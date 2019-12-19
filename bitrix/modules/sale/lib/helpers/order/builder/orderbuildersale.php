@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Helpers\Order\Builder;
 
 final class OrderBuilderSale extends OrderBuilder

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['IMBOT_PROPERTIESUA_BOT_NAME'] = 'Поиск организации';
 $MESS["IMBOT_PROPERTIESUA_BOT_COLOR"] = "AZURE";
 $MESS['IMBOT_PROPERTIESUA_BOT_EMAIL'] = 'support@bitrix24.ua';

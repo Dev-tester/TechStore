@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ISL_ADD_PHOTO"] = "Add photo";
 $MESS["ISL_ADMIN_NOTES"] = "Administrator notes";
 $MESS["ISL_AUTO_TIME_ZONE"] = "Auto Time Zone";

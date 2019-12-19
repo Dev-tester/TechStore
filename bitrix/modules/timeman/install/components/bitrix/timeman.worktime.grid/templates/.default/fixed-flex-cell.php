@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -14,20 +14,20 @@ if (empty($recordShiftplanData))
 $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN_RECORD_LINK']
 			  && $recordShiftplanData['WORKTIME_RECORD']['RECORD_LINK'];
 ?>
-<? if ($wrapInLink): ?>
-	<a class="<? if (!$recordShiftplanData['ABSENCE']): ?>timeman-grid-worktime<? endif; ?> timeman-grid-worktime-link"
+<?php  if ($wrapInLink): ?>
+	<a class="<?php  if (!$recordShiftplanData['ABSENCE']): ?>timeman-grid-worktime<?php  endif; ?> timeman-grid-worktime-link"
 	href="<?php echo $recordShiftplanData['WORKTIME_RECORD']['RECORD_LINK']; ?>"
 	data-id="<?php echo htmlspecialcharsbx($recordShiftplanData['WORKTIME_RECORD']['ID']) ?>"
 	data-role="worktime-record-cell"
 	data-individual-param="useIndividualViolationRules">
-<? endif; ?>
-<? if ($recordShiftplanData['WORKTIME_RECORD']['EXPIRED']): ?>
+<?php  endif; ?>
+<?php  if ($recordShiftplanData['WORKTIME_RECORD']['EXPIRED']): ?>
 	<div class="timeman-grid-worktime-inner timeman-grid-worktime timeman-grid-worktime-expired-text"
 			data-shift-block="true"><?=
 		htmlspecialcharsbx(Loc::getMessage('TM_WORKTIME_GRID_RECORD_EXPIRED_TITLE')); ?></div>
 
-<? else: ?>
-	<?
+<?php  else: ?>
+	<?php 
 	$recordShiftplanData['CSS_CLASSES'] = ['timeman-grid-worktime',];
 	if ($recordShiftplanData['DRAWING_DATE'] && $recordShiftplanData['DRAWING_DATE']->format('d.m.Y') === $arResult['nowDate'])
 	{
@@ -60,9 +60,9 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 		);
 	}
 	?>
-	<? if (empty($recordShiftplanData['WORKTIME_RECORD'])): ?>
+	<?php  if (empty($recordShiftplanData['WORKTIME_RECORD'])): ?>
 		<?php return; ?>
-	<? endif; ?>
+	<?php  endif; ?>
 
 	<div class="" data-shift-block="true">
 		<div class="timeman-grid-worktime-inner <?= $recordShiftplanData['CSS_CLASSES']; ?>">
@@ -80,8 +80,8 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 				</div>
 			</div>
 			<span class="timeman-grid-worktime-icon-container">
-			<? if (!empty($recordShiftplanData['WORKTIME_RECORD']['VIOLATIONS']) || $recordShiftplanData['WORKTIME_RECORD']['IS_APPROVED'] === false): ?>
-				<?
+			<?php  if (!empty($recordShiftplanData['WORKTIME_RECORD']['VIOLATIONS']) || $recordShiftplanData['WORKTIME_RECORD']['IS_APPROVED'] === false): ?>
+				<?php 
 				$cssClass = 'timeman-grid-worktime-icon-warning';
 				$text = Loc::getMessage('TM_WORKTIME_STATS_APPROVAL_REQUIRED');
 				if ($recordShiftplanData['WORKTIME_RECORD']['IS_APPROVED'] && !empty($recordShiftplanData['WORKTIME_RECORD']['VIOLATIONS']))
@@ -112,25 +112,25 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 					}
 				}
 				?>
-				<? if ($hintWarningPersonal): ?>
+				<?php  if ($hintWarningPersonal): ?>
 					<span class="timeman-grid-worktime-icon <?= $cssClass . ($arParams['GRID_OPTIONS']['SHOW_VIOLATIONS_PERSONAL'] ? '' : ' timeman-hide'); ?>"
 							data-hint-no-icon
 							data-role="violation-icon"
 							data-type="personal"
 							data-hint="<?= htmlspecialcharsbx($hintWarningPersonal); ?>">
 					</span>
-				<? endif; ?>
-				<? if ($hintWarningCommon): ?>
+				<?php  endif; ?>
+				<?php  if ($hintWarningCommon): ?>
 					<span class="timeman-grid-worktime-icon <?= $cssClass . ($arParams['GRID_OPTIONS']['SHOW_VIOLATIONS_COMMON'] ? '' : ' timeman-hide'); ?>"
 							data-hint-no-icon
 							data-role="violation-icon"
 							data-type="common"
 							data-hint="<?= htmlspecialcharsbx($hintWarningCommon); ?>">
 					</span>
-				<? endif; ?>
-			<? endif; ?>
+				<?php  endif; ?>
+			<?php  endif; ?>
 
-				<? if (!empty($recordShiftplanData['WORKTIME_RECORD']['WARNINGS'])):
+				<?php  if (!empty($recordShiftplanData['WORKTIME_RECORD']['WARNINGS'])):
 					$violationTitle = '<span class="tm-violation-hint-title">' . Loc::getMessage('TM_WORKTIME_STATS_WARNING_TEXT') . "</span><br>";
 					$hintViolationCommon = null;
 					$hintViolationPersonal = null;
@@ -154,26 +154,26 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 						}
 					}
 					?>
-					<? if ($hintViolationCommon): ?>
+					<?php  if ($hintViolationCommon): ?>
 					<span class="timeman-grid-worktime-icon timeman-grid-worktime-icon-notice <?php
 					echo ($arParams['GRID_OPTIONS']['SHOW_VIOLATIONS_COMMON'] ? '' : ' timeman-hide'); ?>"
 							data-type="common"
 							data-role="violation-icon"
 							data-hint-no-icon data-hint="<?= htmlspecialcharsbx($hintViolationCommon); ?>">
 					</span>
-				<? endif; ?>
-					<? if ($hintViolationPersonal): ?>
+				<?php  endif; ?>
+					<?php  if ($hintViolationPersonal): ?>
 					<span class="timeman-grid-worktime-icon timeman-grid-worktime-icon-notice <?php
 					echo ($arParams['GRID_OPTIONS']['SHOW_VIOLATIONS_PERSONAL'] ? '' : ' timeman-hide'); ?>"
 							data-type="personal"
 							data-role="violation-icon"
 							data-hint-no-icon data-hint="<?= htmlspecialcharsbx($hintViolationPersonal); ?>">
 					</span>
-				<? endif; ?>
+				<?php  endif; ?>
 
-				<? endif; ?>
+				<?php  endif; ?>
 		</span>
 		</div>
 	</div>
-<? endif; ?>
-<? if ($wrapInLink): ?></a><? endif; ?>
+<?php  endif; ?>
+<?php  if ($wrapInLink): ?></a><?php  endif; ?>

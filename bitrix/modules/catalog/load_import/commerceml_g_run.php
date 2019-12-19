@@ -1,4 +1,4 @@
-<?
+<?php 
 //<title>CommerceML MySql Fast - BETA VERS</title>
 set_time_limit(0);
 

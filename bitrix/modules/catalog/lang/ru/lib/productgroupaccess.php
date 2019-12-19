@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRODUCTGROUPACCESS_ENTITY_ID_FIELD"] = "Идентификатор записи";
 $MESS["PRODUCTGROUPACCESS_ENTITY_PRODUCT_ID_FIELD"] = "Идентификатор товара";
 $MESS["PRODUCTGROUPACCESS_ENTITY_GROUP_ID_FIELD"] = "Идентификатор группы пользователей";

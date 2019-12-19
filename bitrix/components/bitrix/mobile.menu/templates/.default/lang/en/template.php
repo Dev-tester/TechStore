@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_LIVE_FEED"] = "Activity Stream";
 $MESS["MB_MESSAGES"] = "Messages";
 $MESS["MB_COMPANY"] = "Employees";

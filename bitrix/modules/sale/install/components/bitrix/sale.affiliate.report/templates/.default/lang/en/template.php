@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPCAS1_FILTER"] = "Display period";
 $MESS["SPCAS1_PERIOD"] = "Period:";
 $MESS["SPCAS1_SET"] = "Set";

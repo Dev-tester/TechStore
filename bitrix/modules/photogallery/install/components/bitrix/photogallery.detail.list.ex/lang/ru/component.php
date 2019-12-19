@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Модуль информационных блоков не установлен.";
 $MESS["P_PHOTOS"] = "Фотографии";
 $MESS["P_LIST_PHOTO"] = "Список фотографий";

@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	ShowError($arResult["FatalErrorMessage"]);
@@ -33,7 +33,7 @@ else
 	<form name="bizprocform" method="post" action="<?= POST_FORM_ACTION_URI ?>" enctype="multipart/form-data">
 		<input type="hidden" name="back_url" value="<?= htmlspecialcharsbx($arResult["BackUrl"]) ?>">
 		<?=bitrix_sessid_post()?>
-		<?
+		<?php 
 		if ($arResult["Step"] == 1)
 		{
 			?>
@@ -57,7 +57,7 @@ else
 					<td valign="top" align="right"><?= GetMessage("BPWC_WNCT_ICON") ?>:</td>
 					<td valign="top">
 						<input type="file" name="bp_image">
-						<?
+						<?php 
 						if ($arResult["Data"]["Image"] > 0)
 						{
 							echo "<br/><br/>".CFile::ShowImage($arResult["Data"]["Image"], 150, 150, "border=0", false, true);
@@ -73,10 +73,10 @@ else
 					<td valign="top" align="right"><?= GetMessage("BPWC_WNCT_PERMS") ?>:</td>
 					<td valign="top">
 						<select name="bp_user_groups[]" multiple="multiple" size="5">
-						<?
+						<?php 
 						foreach ($arResult["AvailableUserGroups"] as $key => $value)
 						{
-							?><option value="<?= $key ?>"<?= (in_array($key, $arResult["Data"]["UserGroups"])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value)." [".$key."]" ?></option><?
+							?><option value="<?= $key ?>"<?= (in_array($key, $arResult["Data"]["UserGroups"])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value)." [".$key."]" ?></option><?php 
 						}
 						?>
 						</select>
@@ -86,10 +86,10 @@ else
 					<td valign="top" align="right"><?= GetMessage("BPWC_WNCT_VISIBLEFIELDS") ?>:</td>
 					<td valign="top">
 						<select name="bp_visiblefields[]" multiple="multiple" size="5">
-						<?
+						<?php 
 						foreach ($arResult["DocumentFields"] as $key => $value)
 						{
-							?><option value="<?= $key ?>"<?= (in_array($key, $arResult["Data"]["VisibleFields"])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"])." [".$key."]" ?></option><?
+							?><option value="<?= $key ?>"<?= (in_array($key, $arResult["Data"]["VisibleFields"])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"])." [".$key."]" ?></option><?php 
 						}
 						?>
 						</select>
@@ -99,12 +99,12 @@ else
 					<td valign="top" align="right"><?= GetMessage("BPWC_WNCT_FILTERABLEFIELDS") ?>:</td>
 					<td valign="top">
 						<select name="bp_filterablefields[]" multiple="multiple" size="5">
-						<?
+						<?php 
 						foreach ($arResult["DocumentFields"] as $key => $value)
 						{
 							if (empty($value['Filterable']))
 								continue;
-							?><option value="<?= $key ?>"<?= (in_array($key, $arResult["Data"]["FilterableFields"])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"])." [".$key."]" ?></option><?
+							?><option value="<?= $key ?>"<?= (in_array($key, $arResult["Data"]["FilterableFields"])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value["Name"])." [".$key."]" ?></option><?php 
 						}
 						?>
 						</select>
@@ -115,14 +115,14 @@ else
 					<td valign="top" align="right"><?=GetMessage("BPWC_WNCT_COMP_START_TPL")?>:</td>
 					<td valign="top"><select name="bp_start_tpl">
 						<option value=""><?= GetMessage('BPWC_WNCT_COMP_TPL_DEF') ?></option>
-						<?
+						<?php 
 						if (is_array($arResult["ComponentTemplates"]["Start"]))
 						{
 							foreach ($arResult["ComponentTemplates"]["Start"] as $v)
 							{
 								if ($v["NAME"] == ".default")
 									continue;
-								?><option value="<?= htmlspecialcharsbx($v["NAME"]) ?>"<?= ($arResult["Data"]["ComponentTemplates"]["Start"] == $v["NAME"]) ? " selected" : "" ?>><?= htmlspecialcharsbx(isset($v["TITLE"]) ? $v["TITLE"] : $v["NAME"]) ?></option><?
+								?><option value="<?= htmlspecialcharsbx($v["NAME"]) ?>"<?= ($arResult["Data"]["ComponentTemplates"]["Start"] == $v["NAME"]) ? " selected" : "" ?>><?= htmlspecialcharsbx(isset($v["TITLE"]) ? $v["TITLE"] : $v["NAME"]) ?></option><?php 
 							}
 						}
 						?>
@@ -132,14 +132,14 @@ else
 					<td valign="top" align="right"><?=GetMessage("BPWC_WNCT_COMP_LIST_TPL")?>:</td>
 					<td valign="top"><select name="bp_list_tpl">
 						<option value=""><?= GetMessage('BPWC_WNCT_COMP_TPL_DEF') ?></option>
-						<?
+						<?php 
 						if (is_array($arResult["ComponentTemplates"]["List"]))
 						{
 							foreach ($arResult["ComponentTemplates"]["List"] as $v)
 							{
 								if ($v["NAME"] == ".default")
 									continue;
-								?><option value="<?= htmlspecialcharsbx($v["NAME"]) ?>"<?= ($arResult["Data"]["ComponentTemplates"]["List"] == $v["NAME"]) ? " selected" : "" ?>><?= htmlspecialcharsbx(isset($v["TITLE"]) ? $v["TITLE"] : $v["NAME"]) ?></option><?
+								?><option value="<?= htmlspecialcharsbx($v["NAME"]) ?>"<?= ($arResult["Data"]["ComponentTemplates"]["List"] == $v["NAME"]) ? " selected" : "" ?>><?= htmlspecialcharsbx(isset($v["TITLE"]) ? $v["TITLE"] : $v["NAME"]) ?></option><?php 
 							}
 						}
 						?>
@@ -149,21 +149,21 @@ else
 					<td valign="top" align="right"><?=GetMessage("BPWC_WNCT_COMP_VIEW_TPL")?>:</td>
 					<td valign="top"><select name="bp_view_tpl">
 						<option value=""><?= GetMessage('BPWC_WNCT_COMP_TPL_DEF') ?></option>
-						<?
+						<?php 
 						if (is_array($arResult["ComponentTemplates"]["View"]))
 						{
 							foreach ($arResult["ComponentTemplates"]["View"] as $v)
 							{
 								if ($v["NAME"] == ".default")
 									continue;
-								?><option value="<?= htmlspecialcharsbx($v["NAME"]) ?>"<?= ($arResult["Data"]["ComponentTemplates"]["View"] == $v["NAME"]) ? " selected" : "" ?>><?= htmlspecialcharsbx(isset($v["TITLE"]) ? $v["TITLE"] : $v["NAME"]) ?></option><?
+								?><option value="<?= htmlspecialcharsbx($v["NAME"]) ?>"<?= ($arResult["Data"]["ComponentTemplates"]["View"] == $v["NAME"]) ? " selected" : "" ?>><?= htmlspecialcharsbx(isset($v["TITLE"]) ? $v["TITLE"] : $v["NAME"]) ?></option><?php 
 							}
 						}
 						?>
 					</select></td>
 				</tr>
 
-				<?
+				<?php 
 				if ($arParams["BLOCK_ID"] <= 0)
 				{
 					?>
@@ -171,28 +171,28 @@ else
 						<td valign="top" align="right"><?= GetMessage("BPWC_WNCT_TMPL") ?>:</td>
 						<td valign="top">
 							<select name="bp_template">
-							<?
+							<?php 
 							if (IsModuleInstalled("bizprocdesigner"))
 							{
 								?>
 								<option value=""><?= GetMessage("BPWC_WNCT_NEW_TMPL") ?></option>
 								<option value="-"<?= ("-" == $arResult["Data"]["Template"]) ? " selected" : "" ?>><?= GetMessage("BPWC_WNCT_NEW_TMPL1") ?></option>
-								<?
+								<?php 
 							}
 
 							foreach ($arResult["AvailableTemplates"] as $key => $value)
 							{
-								?><option value="<?= $key ?>"<?= ($key == $arResult["Data"]["Template"]) ? " selected" : "" ?>><?= htmlspecialcharsbx($value) ?></option><?
+								?><option value="<?= $key ?>"<?= ($key == $arResult["Data"]["Template"]) ? " selected" : "" ?>><?= htmlspecialcharsbx($value) ?></option><?php 
 							}
 							?>
 							</select>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 				?>
 			</table>
-			<?
+			<?php 
 		}
 		elseif ($arResult["Step"] == 2)
 		{
@@ -203,10 +203,10 @@ else
 			<input type="hidden" name="bp_sort" value="<?= intval($arResult["Data"]["Sort"]) ?>">
 			<input type="hidden" name="bp_image" value="<?= intval($arResult["Data"]["Image"]) ?>">
 			<input type="hidden" name="bp_element_add" value="<?= htmlspecialcharsbx($arResult["Data"]["ElementAdd"]) ?>">
-			<?
+			<?php 
 			foreach ($arResult["Data"]["UserGroups"] as $value)
 			{
-				?><input type="hidden" name="bp_user_groups[]" value="<?= htmlspecialcharsbx($value) ?>"><?
+				?><input type="hidden" name="bp_user_groups[]" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 			}
 			?>
 			<input type="hidden" name="bp_template" value="<?= htmlspecialcharsbx($arResult["Data"]["Template"]) ?>">
@@ -215,13 +215,13 @@ else
 				<tr>
 					<th colspan="2"><?= GetMessage("BPWC_WNCT_SUBTITLE2") ?></th>
 				</tr>
-			<?
+			<?php 
 			foreach ($arResult["TemplateParameters"] as $parameterKey => $arParameter)
 			{
 				?>
 				<tr>
-					<td align="right" width="40%" valign="top"><?= $arParameter["Required"] ? "<span style=\"color:red\">*</span> " : ""?><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
-					<td width="60%" valign="top"><?
+					<td align="right" width="40%" valign="top"><?= $arParameter["Required"] ? "<span style=\"color:red\">*</span> " : ""?><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?php if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
+					<td width="60%" valign="top"><?php 
 						echo $arResult["DocumentService"]->GetFieldInputControl(
 							array("bizproc", "CBPVirtualDocument", "type_0"),
 							$arParameter,
@@ -232,17 +232,17 @@ else
 						);
 					?></td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 			</table>
-			<?
+			<?php 
 		}
 		?>
 		<input type="hidden" name="bp_step" value="<?= intval($arResult["Step"]) + 1 ?>">
 		<input type="submit" name="doCreate" value="<?= $arParams["BLOCK_ID"] > 0 ? GetMessage("BPWC_WNCT_SAVE0") : (intval($arResult["Step"]) > 1 ? GetMessage("BPWC_WNCT_SAVE1") : GetMessage("BPWC_WNCT_SAVE2")) ?>">
 		<input type="submit" name="doCancel"  value="<?= GetMessage("BPWC_WNCT_CANCEL") ?>">
 	</form>
-	<?
+	<?php 
 }
 ?>

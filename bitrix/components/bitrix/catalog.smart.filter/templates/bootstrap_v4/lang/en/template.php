@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BCSF_FILTER_TITLE"] = "Select by:";
 $MESS["CT_BCSF_FILTER_FROM"] = "From";
 $MESS["CT_BCSF_FILTER_TO"] = "To";

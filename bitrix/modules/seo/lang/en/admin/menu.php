@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_MENU_MAIN"] = "Search Engine Optimization";
 $MESS["SEO_MENU_MAIN_TITLE"] = "Website SEO tools";
 $MESS["SEO_MENU_SEARCH_ENGINES"] = "Search engines";

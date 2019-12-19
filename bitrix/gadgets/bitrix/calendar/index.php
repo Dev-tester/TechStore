@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 $arGadgetParams["EVENTS_COUNT"] = intval($arGadgetParams["EVENTS_COUNT"]);
@@ -8,8 +8,8 @@ $arGadgetParams["DETAIL_URL"] = ($arGadgetParams["DETAIL_URL"] ? $arGadgetParams
 $calendar2 = COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && CModule::IncludeModule("calendar");
 ?>
 
-<?if($calendar2):?>
-<?$APPLICATION->IncludeComponent("bitrix:calendar.events.list", "", array(
+<?php if($calendar2):?>
+<?php $APPLICATION->IncludeComponent("bitrix:calendar.events.list", "", array(
 			"CALENDAR_TYPE" => 'user',
 			"B_CUR_USER_LIST" => "Y",
 			"DETAIL_URL" => $arGadgetParams["DETAIL_URL"],
@@ -21,8 +21,8 @@ $calendar2 = COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && C
 		false,
 		Array("HIDE_ICONS" => "Y")
 	);?>
-<?else:?>
-<?$APPLICATION->IncludeComponent("bitrix:intranet.event_calendar", ".default", array(
+<?php else:?>
+<?php $APPLICATION->IncludeComponent("bitrix:intranet.event_calendar", ".default", array(
 			"IBLOCK_TYPE" => $arGadgetParams["IBLOCK_TYPE"],
 			"IBLOCK_ID" => $arGadgetParams["IBLOCK_ID"],
 			"EVENT_LIST_MODE" => "Y",
@@ -38,10 +38,10 @@ $calendar2 = COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && C
 		false,
 		Array("HIDE_ICONS" => "Y")
 	);?>
-<?endif;?>
+<?php endif;?>
 
 <br/>
-<div align="right"><a href="<?=$arGadgetParams["CALENDAR_URL"]?>"><?echo GetMessage("GD_CALENDAR_ALL")?></a> <a
+<div align="right"><a href="<?=$arGadgetParams["CALENDAR_URL"]?>"><?php echo GetMessage("GD_CALENDAR_ALL")?></a> <a
 	href="<?=$arGadgetParams["CALENDAR_URL"]?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif"/></a>
 	<br/>
 </div>

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arUsers = array('O' => array(), 'K' => array(), 'M' => array(), 'R' => array());
 
 foreach ($arResult['MEETING']['USERS'] as $USER_ID => $USER_ROLE):
@@ -15,7 +15,7 @@ $this->SetViewTarget('pagetitle', 100);
 	<span class="webform-small-button-icon"></span>
 	<span class="webform-small-button-text"><?=GetMessage('ME_LIST_TITLE')?></span>
 </a>
-<?
+<?php 
 $this->EndViewTarget();
 ?>
 
@@ -118,11 +118,11 @@ BX.addCustomEvent('onMembersListChange', UpdateKeepersList);
 		<div class="webform-right-corner"></div>
 	</div>
 	<div class="webform-content meeting-detail-title-label"><?=GetMessage('ME_DESCR_TITLE')?>
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 		<a href="<?=$arParams['MEETING_EDIT_URL']?>" class="meeting-edit-description"><?=GetMessage('ME_EDIT_TITLE')?></a>
-<?
+<?php 
 endif;
 ?>
 	</div>
@@ -132,29 +132,29 @@ endif;
 		<div class="meeting-detail-title"><?=$arResult['MEETING']['TITLE']?></div>
 		<div class="meeting-detail-description"><?=$arResult['MEETING']['~DESCRIPTION']?></div>
 		<div class="meeting-detail-files">
-<?
+<?php 
 if (count($arResult['MEETING']['FILES']) > 0):
 ?>
 			<label class="meeting-detail-files-title"><?=GetMessage('ME_FILES')?>:</label>
 			<div class="meeting-detail-files-list">
-<?
+<?php 
 	foreach ($arResult['MEETING']['FILES'] as $ix => $arFile):
 ?>
-				<div class="meeting-detail-file"><span class="meeting-detail-file-number"><?=$ix+1?>.</span><span class="meeting-detail-file-info"><?if($arFile['FILE_SRC']):?><a href="#message<?=$arFile['FILE_SRC']?>" class="meeting-detail-file-comment"></a><?endif?><a class="meeting-detail-file-link" href="<?=$arFile['DOWNLOAD_URL']?>"><?=$arFile['ORIGINAL_NAME']?></a><span class="meeting-detail-file-size">(<?=$arFile['FILE_SIZE_FORMATTED']?>)</span></span></div>
-<?
+				<div class="meeting-detail-file"><span class="meeting-detail-file-number"><?=$ix+1?>.</span><span class="meeting-detail-file-info"><?php if($arFile['FILE_SRC']):?><a href="#message<?=$arFile['FILE_SRC']?>" class="meeting-detail-file-comment"></a><?php endif?><a class="meeting-detail-file-link" href="<?=$arFile['DOWNLOAD_URL']?>"><?=$arFile['ORIGINAL_NAME']?></a><span class="meeting-detail-file-size">(<?=$arFile['FILE_SIZE_FORMATTED']?>)</span></span></div>
+<?php 
 	endforeach;
 ?>
 			</div>
-<?endif;?>
+<?php endif;?>
 		</div>
 	</div>
 </div>
 
-<?
+<?php 
 $this->SetViewTarget('sidebar', 100);
 ?>
 <div class="meetings-content">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:intranet.user.selector.new", ".default", array(
 		"MULTIPLE" => "Y",
@@ -178,21 +178,21 @@ $APPLICATION->IncludeComponent(
 		<div class="meeting-detail-info-users">
 			<div class="meeting-detail-info-users-border"></div>
 			<div class="meeting-detail-info-users-inner">
-				<div class="meeting-detail-info-users-title"><span><?=GetMessage('ME_OWNER')?></span><?/*<a class="webform-field-action-link" href=""><?=GetMessage('ME_CHANGE')?></a>*/?></div>
+				<div class="meeting-detail-info-users-title"><span><?=GetMessage('ME_OWNER')?></span><?php /*<a class="webform-field-action-link" href=""><?=GetMessage('ME_CHANGE')?></a>*/?></div>
 				<div class="meeting-detail-info-users-list" id="meeting_users_O"></div>
 			</div>
 			<div class="meeting-detail-info-users-border"></div>
 		</div>
 		<table cellspacing="0" class="meeting-detail-info-layout">
 			<tbody>
-<?
+<?php 
 if (strlen($arResult['MEETING']['PLACE']) > 0):
 ?>
 				<tr>
 					<td class="meeting-detail-left-column" valign="top"><?=GetMessage('ME_PLACE')?>:</td>
 					<td class="meeting-detail-right-column"><?=$arResult['MEETING']['PLACE']?></td>
 				</tr>
-<?
+<?php 
 endif;
 if (strlen($arResult['MEETING']['DATE_START']) > 0 && MakeTimeStamp($arResult['MEETING']['DATE_START'])>0):
 ?>
@@ -200,21 +200,21 @@ if (strlen($arResult['MEETING']['DATE_START']) > 0 && MakeTimeStamp($arResult['M
 					<td class="meeting-detail-left-column"><?=GetMessage('ME_DATE_START')?>:</td>
 					<td class="meeting-detail-right-column"><?=FormatDate($DB->DateFormatToPhp(FORMAT_DATE).((IsAmPmMode()) ? ' h:i a' : ' H:i'), MakeTimeStamp($arResult['MEETING']['DATE_START']))?></td>
 				</tr>
-<?
+<?php 
 endif;
 ?>
 				<tr>
 					<td class="meeting-detail-left-column"><?=GetMessage('ME_CURRENT_STATE')?>:</td>
 					<td class="meeting-detail-right-column" id="meeting_state_text"><?=GetMessage('MEETING_STATE_'.$arResult['MEETING']['CURRENT_STATE'])?></td>
 				</tr>
-<?
+<?php 
 if (strlen($arResult['MEETING']['GROUP_NAME']) > 0):
 ?>
 				<tr>
 					<td class="meeting-detail-left-column" valign="top"><?=GetMessage('ME_GROUP')?>:</td>
 					<td class="meeting-detail-right-column"><a href="<?=$arResult['MEETING']['GROUP_URL']?>" class="meeting-detail-group-link"><?=$arResult['MEETING']['GROUP_NAME']?></a></td>
 				</tr>
-<?
+<?php 
 endif;
 ?>			</tbody></table>
 
@@ -222,11 +222,11 @@ endif;
 			<div class="meeting-detail-info-users-border"></div>
 			<div class="meeting-detail-info-users-inner">
 				<div class="meeting-detail-info-users-title"><span><?=GetMessage('ME_KEEPER')?></span>
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 				<a class="webform-field-action-link" href="javascript:void(0)" onclick="BXSelectKeepers(this)"><?=GetMessage('ME_CHANGE')?></a>
-<?
+<?php 
 endif;
 ?>
 				</div><div class="meeting-detail-info-users-list" id="meeting_users_K"></div>
@@ -238,18 +238,18 @@ endif;
 			<div class="meeting-detail-info-users-border"></div>
 			<div class="meeting-detail-info-users-inner">
 				<div class="meeting-detail-info-users-title"><span><?=GetMessage('ME_MEMBERS')?></span>
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 				<a class="webform-field-action-link" href="javascript:void(0)" onclick="BXSelectMembers(this)"><?=GetMessage('ME_CHANGE')?></a>
-<?
+<?php 
 endif;
 ?>
 				</div><div class="meeting-detail-info-users-list" id="meeting_users_M"></div>
 			</div>
 			<div class="meeting-detail-info-users-border"></div>
 		</div>
-<?
+<?php 
 if (count($arUsers['R']) > 0):
 ?>
 		<div class="meeting-detail-info-users meeting-refuse">
@@ -262,7 +262,7 @@ if (count($arUsers['R']) > 0):
 			</div>
 			<div class="meeting-detail-info-users-border"></div>
 		</div>
-<?
+<?php 
 endif;
 ?>
 	</div>
@@ -271,7 +271,7 @@ endif;
 	<i class="r2"></i>
 </div>
 </div>
-<?
+<?php 
 $this->EndViewTarget();
 ?>
 <span class="meeting-new-agenda-title"><?=GetMessage('ME_AGENDA')?></span>
@@ -279,14 +279,14 @@ $this->EndViewTarget();
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="MEETING_ID" value="<?=$arParams['MEETING_ID']?>" />
 <input type="hidden" name="edit" value="N" />
-<?
+<?php 
 require($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/agenda.php');
 ?>
 <input type="hidden" name="save_type" value="SUBMIT" />
 <input type="hidden" name="save" value="Y" />
 <span style="display: none" id="meeting_users_input"></span>
 </form>
-<?
+<?php 
 if ($arResult['CAN_EDIT']):
 ?>
 <script type="text/javascript">
@@ -311,7 +311,7 @@ BX.ready(function(){
 		<a onclick="meetingAction('<?=$arParams['MEETING_ID']?>', {state: '<?=CMeeting::STATE_PREPARE?>'})" href="javascript:void(0)" class="meeting-agenda-bot-link meeting-dash-link"><?=GetMessage('ME_PREPARE')?></a>
 	</div>
 </div>
-<?
+<?php 
 endif;
 
 require($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/comments.php');

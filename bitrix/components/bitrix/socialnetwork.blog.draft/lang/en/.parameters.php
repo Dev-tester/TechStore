@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BB_MESSAGE_COUNT"] = "Conversations per page";
 $MESS["BB_PATH_TO_BLOG"] = "Conversations page path template";
 $MESS["BB_PATH_TO_BLOG_CATEGORY"] = "Tag-filtered conversations page path template";

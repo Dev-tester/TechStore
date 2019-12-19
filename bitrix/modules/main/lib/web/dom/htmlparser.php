@@ -484,7 +484,7 @@ class HtmlParser extends Parser
 	*/
 	public function commentPHP($html)
 	{
-		$html = str_replace(array('<?', '?>'), array('<!--', '-->'),	$html);
+		$html = str_replace(array('<?php ', '?>'), array('<!--', '-->'),	$html);
 		return $html;
 	}
 

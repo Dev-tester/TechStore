@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $crmMode = (defined("BX_PUBLIC_MODE") && BX_PUBLIC_MODE && isset($_REQUEST["CRM_MANAGER_USER_ID"]));
@@ -67,17 +67,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && strlen($Print)>0 && check_bitrix_ses
 
 		?>
 		<script language="JavaScript">
-		<?
+		<?php 
 		$countReportId = count($REPORT_ID);
 		for ($i = 0; $i < $countReportId; $i++)
 		{
 			?>
-			window.open('/bitrix/admin/sale_print.php?PROPS_ENABLE=<?=$PROPS_ENABLE?>&doc=<?echo CUtil::JSEscape($REPORT_ID[$i]) ?>&ORDER_ID=<?echo $ID ?>&<?=$urlParams?>', '_blank');
-			<?
+			window.open('/bitrix/admin/sale_print.php?PROPS_ENABLE=<?=$PROPS_ENABLE?>&doc=<?php echo CUtil::JSEscape($REPORT_ID[$i]) ?>&ORDER_ID=<?php echo $ID ?>&<?=$urlParams?>', '_blank');
+			<?php 
 		}
 		?>
 		</script>
-		<?
+		<?php 
 	}
 	else
 		$errorMessage = GetMessage("SOP_ERROR_REPORT");
@@ -88,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && strlen($Print)>0 && check_bitrix_ses
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SOP_TO_LIST"),
@@ -125,13 +125,13 @@ else
 {
 	CAdminMessage::ShowMessage($errorMessage);
 	?>
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="order_print">
-	<?echo GetFilterHiddens("filter_");?>
-	<input type="hidden" name="lang" value="<?echo LANG ?>">
-	<input type="hidden" name="ID" value="<?echo $ID ?>">
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="order_print">
+	<?php echo GetFilterHiddens("filter_");?>
+	<input type="hidden" name="lang" value="<?php echo LANG ?>">
+	<input type="hidden" name="ID" value="<?php echo $ID ?>">
 	<?=bitrix_sessid_post()?>
 
-	<?
+	<?php 
 	$aTabs = array(
 			array("DIV" => "edit1", "TAB" => GetMessage("SOPN_TAB_PRINT"), "ICON" => "sale", "TITLE" => GetMessage("SOPN_TAB_PRINT_DESCR"))
 		);
@@ -140,22 +140,22 @@ else
 	$tabControl->Begin();
 	?>
 
-	<?
+	<?php 
 	$tabControl->BeginNextTab();
 	?>
 
 		<tr>
-			<td><?echo GetMessage("SALE_PR_ORDER_N")?>:</td>
-			<td><?echo $str_ACCOUNT_NUMBER ?></td>
+			<td><?php echo GetMessage("SALE_PR_ORDER_N")?>:</td>
+			<td><?php echo $str_ACCOUNT_NUMBER ?></td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("P_ORDER_DATE")?>:</td>
-			<td><?echo $str_DATE_INSERT_FORMAT ?></td>
+			<td><?php echo GetMessage("P_ORDER_DATE")?>:</td>
+			<td><?php echo $str_DATE_INSERT_FORMAT ?></td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("P_ORDER_LANG")?>:</td>
+			<td><?php echo GetMessage("P_ORDER_LANG")?>:</td>
 			<td>
-				<?
+				<?php 
 				echo "[".$str_LID."] ";
 				$db_lang = CLang::GetByID($str_LID);
 				if ($arLang = $db_lang->GetNext())
@@ -166,28 +166,28 @@ else
 			</td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("P_ORDER_STATUS")?>:</td>
+			<td><?php echo GetMessage("P_ORDER_STATUS")?>:</td>
 			<td>
-				<?$ar_status = CSaleStatus::GetByID($str_STATUS_ID);?>
-				[<?echo $ar_status["ID"] ?>] <?echo htmlspecialcharsbx($ar_status["NAME"]) ?>
+				<?php $ar_status = CSaleStatus::GetByID($str_STATUS_ID);?>
+				[<?php echo $ar_status["ID"] ?>] <?php echo htmlspecialcharsbx($ar_status["NAME"]) ?>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<?echo GetMessage("P_ORDER_CANCELED")?> / <?echo GetMessage("P_ORDER_PAYED") ?> / <?echo GetMessage("P_ORDER_ALLOW_DELIVERY") ?>:
+				<?php echo GetMessage("P_ORDER_CANCELED")?> / <?php echo GetMessage("P_ORDER_PAYED") ?> / <?php echo GetMessage("P_ORDER_ALLOW_DELIVERY") ?>:
 			</td>
 			<td>
-				<?
+				<?php 
 				echo (($str_CANCELED=="Y")?"<font color=\"#FF0000\"><b>":"");
 				echo (($str_CANCELED=="Y") ? GetMessage("SALE_YES") : GetMessage("SALE_NO") );
 				echo (($str_CANCELED=="Y")?"</b>":"");
 				?>
 				/
-				<?
+				<?php 
 				echo (($str_PAYED=="Y") ? GetMessage("SALE_YES") : GetMessage("SALE_NO") );
 				?>
 				/
-				<?
+				<?php 
 				echo (($str_ALLOW_DELIVERY=="Y") ? GetMessage("SALE_YES") : GetMessage("SALE_NO") );
 				?>
 
@@ -201,24 +201,24 @@ else
 			<td colspan="2">
 				<table border="0" cellspacing="1" cellpadding="3" width="100%" class="internal">
 					<tr class="heading">
-						<td><?echo GetMessage("SALE_PR_INCLUDE")?></td>
-						<td><?echo GetMessage("SALE_PR_NAME")?></td>
-						<td><?echo GetMessage("SALE_PR_QUANTITY")?></td>
-						<td><?echo GetMessage("SALE_PR_PRICE")?></td>
-						<td><?echo GetMessage("SALE_PR_SUM")?></td>
+						<td><?php echo GetMessage("SALE_PR_INCLUDE")?></td>
+						<td><?php echo GetMessage("SALE_PR_NAME")?></td>
+						<td><?php echo GetMessage("SALE_PR_QUANTITY")?></td>
+						<td><?php echo GetMessage("SALE_PR_PRICE")?></td>
+						<td><?php echo GetMessage("SALE_PR_SUM")?></td>
 					</tr>
-					<?
+					<?php 
 					$db_basket = CSaleBasket::GetList(array('ID' => 'ASC'), array("ORDER_ID"=>$ID));
 					while ($arBasket = $db_basket->GetNext())
 					{
 						?>
 						<tr>
 							<td valign="top" style="text-align:center;">
-								<input type="checkbox" checked name="BASKET_IDS[]" value="<?echo $arBasket["ID"] ?>">
+								<input type="checkbox" checked name="BASKET_IDS[]" value="<?php echo $arBasket["ID"] ?>">
 							</td>
 							<td valign="top">
-								<?echo $arBasket["NAME"];?>
-								<?
+								<?php echo $arBasket["NAME"];?>
+								<?php 
 								$dbBasketProps = CSaleBasket::GetPropsList(
 										array("SORT" => "ASC", "NAME" => "ASC"),
 										array("BASKET_ID" => $arBasket["ID"]),
@@ -237,7 +237,7 @@ else
 								?>
 							</td>
 							<td valign="top" style="text-align:right;">
-								<input type="text" size="3" name="QUANTITY_<?echo $arBasket["ID"] ?>" value="<?echo $arBasket["QUANTITY"];?>">
+								<input type="text" size="3" name="QUANTITY_<?php echo $arBasket["ID"] ?>" value="<?php echo $arBasket["QUANTITY"];?>">
 							</td>
 							<td valign="top" nowrap style="text-align:right;">
 								<?=number_format($arBasket["PRICE"], 2, ',', ' ')." ".$vatString?>
@@ -246,13 +246,13 @@ else
 								<?=number_format($arBasket["QUANTITY"]*$arBasket["PRICE"], 2, ',', ' ')." ".$vatString?>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 				</table>
 			</td>
 		</tr>
-		<?
+		<?php 
 		$arCurFormat = CCurrencyLang::GetCurrencyFormat($str_CURRENCY);
 		$vatString = trim(str_replace("#", '', $arCurFormat["FORMAT_STRING"]));
 
@@ -262,7 +262,7 @@ else
 			?>
 			<tr>
 				<td align="right" width="50%">
-					<?
+					<?php 
 					echo htmlspecialcharsbx($ar_tax_list["TAX_NAME"]);
 					if ($ar_tax_list["IS_IN_PRICE"]=="Y")
 						echo " (".(($ar_tax_list["IS_PERCENT"]=="Y")?"".DoubleVal($ar_tax_list["VALUE"])."%, ":"").GetMessage("SALE_TAX_INPRICE").")";
@@ -274,19 +274,19 @@ else
 					<?=number_format($ar_tax_list["VALUE_MONEY"], 2, ',', ' ')." ".$vatString?>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 		<tr>
 			<td align="right" width="50%">
-				<?echo GetMessage("SALE_F_DELIVERY")?>:
+				<?php echo GetMessage("SALE_F_DELIVERY")?>:
 			</td>
 			<td align="left" width="50%">
 				<?=number_format($str_PRICE_DELIVERY, 2, ',', ' ')." ".$vatString?>
 			</td>
 		</tr>
 		<tr>
-			<td align="right" width="50%"><?echo GetMessage("SALE_F_ITOG")?>:</td>
+			<td align="right" width="50%"><?php echo GetMessage("SALE_F_ITOG")?>:</td>
 			<td align="left" width="50%">
 				<?=number_format($str_PRICE, 2, ',', ' ')." ".$vatString?>
 			</td>
@@ -296,10 +296,10 @@ else
 		</tr>
 
 		<tr>
-			<td align="right" valign="top"><?echo GetMessage("SALE_PR_SHABLON")?>:</td>
+			<td align="right" valign="top"><?php echo GetMessage("SALE_PR_SHABLON")?>:</td>
 			<td>
 				<select size="5" multiple name="REPORT_ID[]">
-					<?
+					<?php 
 					$arSysLangs = array();
 					$db_lang = CLangAdmin::GetList(($b="sort"), ($o="asc"), array("ACTIVE" => "Y"));
 					while ($arLang = $db_lang->Fetch())
@@ -407,43 +407,43 @@ else
 					closedir($handle);
 
 					foreach ($arReports as $file => $title):?>
-						<option value="<?echo substr($file, 0, strlen($file)-4); ?>"><?=$title;?></option>
-					<?endforeach;?>
+						<option value="<?php echo substr($file, 0, strlen($file)-4); ?>"><?=$title;?></option>
+					<?php endforeach;?>
 				</select>
 			</td>
 		</tr>
 
-	<?
+	<?php 
 	$tabControl->EndTab();
 	?>
 
-	<?
+	<?php 
 	$tabControl->Buttons();
 	?>
-	<input type="hidden" name="Print" value="<?echo GetMessage("SALE_PRINT")?>">
-	<?
+	<input type="hidden" name="Print" value="<?php echo GetMessage("SALE_PRINT")?>">
+	<?php 
 	if (!$crmMode)
 	{
-		?><input type="submit" class="button" value="<?echo GetMessage("SALE_PRINT")?>"><?
+		?><input type="submit" class="button" value="<?php echo GetMessage("SALE_PRINT")?>"><?php 
 	}
 	?>
 
-	<?
+	<?php 
 	$tabControl->End();
 	?>
 
 	</form>
-	<?
+	<?php 
 }
 ?>
 <br>
-<?echo BeginNote();?>
-	<?echo GetMessage("SALE_PR_NOTE1")?><br><br>
-	<?echo GetMessage("SALE_PR_NOTE2")?><br><br>
-	<?echo GetMessage("SALE_PR_NOTE3")?><br><br>
-	<?echo GetMessage("SALE_PR_NOTE4")?><br><br>
-	<?echo GetMessage("SALE_PR_NOTE5")?>
-<?echo EndNote();?>
+<?php echo BeginNote();?>
+	<?php echo GetMessage("SALE_PR_NOTE1")?><br><br>
+	<?php echo GetMessage("SALE_PR_NOTE2")?><br><br>
+	<?php echo GetMessage("SALE_PR_NOTE3")?><br><br>
+	<?php echo GetMessage("SALE_PR_NOTE4")?><br><br>
+	<?php echo GetMessage("SALE_PR_NOTE5")?>
+<?php echo EndNote();?>
 
 
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

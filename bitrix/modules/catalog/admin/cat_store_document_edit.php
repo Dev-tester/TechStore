@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
 /** @global CDatabase $DB */
@@ -736,11 +736,11 @@ $actionUrl = $APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&DOCUMENT_TYPE=".h
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form enctype="multipart/form-data" method="POST" action="<?=$actionUrl?>" id="form_b_catalog_store_docs" name="form_b_catalog_store_docs" onsubmit="return checkBarcodeSearch();">
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID; ?>">
-	<input type="hidden" name="ID" value="<?echo $ID ?>">
-	<input type="hidden" name="DOCUMENT_TYPE" id="DOCUMENT_TYPE" value="<? echo htmlspecialcharsbx($docType);?>">
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID; ?>">
+	<input type="hidden" name="ID" value="<?php echo $ID ?>">
+	<input type="hidden" name="DOCUMENT_TYPE" id="DOCUMENT_TYPE" value="<?php  echo htmlspecialcharsbx($docType);?>">
 	<input type="hidden" name="productAdd" id="productAdd" value="N">
 	<input value="<?=$maxId?>" type="hidden" id="ROW_MAX_ID">
 	<?=bitrix_sessid_post()?>
@@ -749,7 +749,7 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 			<div class="adm-detail-content-item-block">
 				<table class="adm-detail-content-table edit-table" id="cat-doc-table">
 					<tbody>
-					<?if($ID > 0):?>
+					<?php if($ID > 0):?>
 						<tr>
 							<td width="40%" class="adm-detail-content-cell-l"><span class="cat-doc-status-left-<?=$str_STATUS?>"><?=GetMessage('CAT_DOC_STATUS')?>:</span></td>
 							<td width="60%" class="adm-detail-content-cell-r">
@@ -758,22 +758,22 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 								</span>
 							</td>
 						</tr>
-					<?endif;?>
+					<?php endif;?>
 					<tr class="adm-detail-required-field">
 						<td width="40%" class="adm-detail-content-cell-l"><?=GetMessage('CAT_DOC_DATE')?>:</td>
 						<td width="60%" class="adm-detail-content-cell-r">
-							<?if($bReadOnly):?>
+							<?php if($bReadOnly):?>
 								<?=$str_DATE_DOCUMENT?>
-							<?else:?>
+							<?php else:?>
 								<?= CalendarDate("DOC_DATE", (isset($str_DATE_DOCUMENT)) ? $str_DATE_DOCUMENT : date($DB->DateFormatToPHP(CSite::GetDateFormat("FULL")), time()), "form_catalog_document_form", "15", "class=\"typeinput\""); ?>
-							<?endif;?>
+							<?php endif;?>
 						</td>
 					</tr>
 					<tr class="adm-detail-required-field">
 						<td width="40%" class="adm-detail-content-cell-l"><?= GetMessage("CAT_DOC_SITE_ID") ?>:</td>
 						<td width="60%" class="adm-detail-content-cell-r">
 							<select id="SITE_ID" name="SITE_ID" <?=$isDisable?>>
-							<?foreach($arSitesShop as $key => $val)
+							<?php foreach($arSitesShop as $key => $val)
 							{
 								$selected = ($val['ID'] == $str_SITE_ID) ? 'selected' : '';
 								echo"<option ".$selected." value=".htmlspecialcharsbx($val['ID']).">".htmlspecialcharsbx($val["NAME"]." (".$val["ID"].")")."</option>";
@@ -782,13 +782,13 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 							</select>
 						</td>
 					</tr>
-					<?if(isset($requiredFields["CONTRACTOR"])):?>
+					<?php if(isset($requiredFields["CONTRACTOR"])):?>
 						<tr class="adm-detail-required-field">
 							<td width="40%" class="adm-detail-content-cell-l"><?= GetMessage("CAT_DOC_CONTRACTOR") ?>:</td>
 							<td width="60%" class="adm-detail-content-cell-r">
-								<?if(count($arContractors) > 0 && is_array($arContractors)):?>
+								<?php if(count($arContractors) > 0 && is_array($arContractors)):?>
 									<select style="max-width:300px"  name="CONTRACTOR_ID" <?=$isDisable?>>
-									<?foreach($arContractors as $key => $val)
+									<?php foreach($arContractors as $key => $val)
 									{
 										$selected = ($val['ID'] == $str_CONTRACTOR_ID) ? 'selected' : '';
 										$companyName = ($val["PERSON_TYPE"] == CONTRACTOR_INDIVIDUAL) ? htmlspecialcharsbx($val["PERSON_NAME"]) : htmlspecialcharsbx($val["COMPANY"]." (".$val["PERSON_NAME"].")");
@@ -796,28 +796,28 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 									}
 									?>
 									</select>
-								<?else:?>
-									<?
+								<?php else:?>
+									<?php 
 										$contractorEditUrl = $selfFolderUrl."cat_contractor_edit.php?lang=".LANGUAGE_ID;
 										$contractorEditUrl = $adminSidePanelHelper->editUrlToPublicPage($contractorEditUrl);
 									?>
 									<a target="_top" href="<?=$contractorEditUrl?>"><?=GetMessage("CAT_DOC_CONTRACTOR_ADD")?></a>
-								<?endif;?>
+								<?php endif;?>
 							</td>
 						</tr>
-					<?endif;?>
-					<?if(isset($requiredFields["CURRENCY"])):?>
+					<?php endif;?>
+					<?php if(isset($requiredFields["CURRENCY"])):?>
 						<tr class="adm-detail-required-field">
 							<td width="40%" class="adm-detail-content-cell-l"><?= GetMessage("CAT_DOC_CURRENCY") ?>:</td>
-							<td width="60%" class="adm-detail-content-cell-r"><? echo CCurrency::SelectBox("CAT_CURRENCY_STORE", $str_CURRENCY, "", true, "", "onChange=\"recalculateSum(0);\" id='CAT_CURRENCY_STORE'".$isDisable);?></td>
+							<td width="60%" class="adm-detail-content-cell-r"><?php  echo CCurrency::SelectBox("CAT_CURRENCY_STORE", $str_CURRENCY, "", true, "", "onChange=\"recalculateSum(0);\" id='CAT_CURRENCY_STORE'".$isDisable);?></td>
 						</tr>
-					<?endif;?>
+					<?php endif;?>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-<?
+<?php 
 
 $aTabs = array();
 
@@ -827,10 +827,10 @@ $tabControl->Begin();
 $lAdmin->DisplayList();
 ?>
 <div class="adm-detail-content-item-block">
-	<span style="vertical-align: top">	<?echo GetMessage("CAT_DOC_COMMENT") ?>: </span>
+	<span style="vertical-align: top">	<?php echo GetMessage("CAT_DOC_COMMENT") ?>: </span>
 	<textarea cols="120" rows="4" class="typearea" name="CAT_DOC_COMMENTARY" <?=$isDisable?> wrap="virtual"><?= $str_COMMENTARY ?></textarea>
 </div>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => $bReadOnly,
@@ -847,20 +847,20 @@ if ($adminSidePanelHelper->isSidePanelFrame())
 	{
 		?>
 		<span style="display:inline-block; width:20px; height: 22px;"></span>
-		<input type="button" class="adm-btn-save" name="save_and_conduct" value="<?echo GetMessage("CAT_DOC_ADD_CONDUCT") ?>">
-		<input type="button" class="adm-btn" name="save_document" value="<?echo GetMessage("CAT_DOC_SAVE") ?>">
-		<?
+		<input type="button" class="adm-btn-save" name="save_and_conduct" value="<?php echo GetMessage("CAT_DOC_ADD_CONDUCT") ?>">
+		<input type="button" class="adm-btn" name="save_document" value="<?php echo GetMessage("CAT_DOC_SAVE") ?>">
+		<?php 
 	}
 	elseif($isDocumentConduct)
 	{
 		?>
 		<span class="hor-spacer"></span>
-		<input type="button" class="adm-btn" name="cancellation" value="<?echo GetMessage("CAT_DOC_CANCELLATION") ?>">
-		<?
+		<input type="button" class="adm-btn" name="cancellation" value="<?php echo GetMessage("CAT_DOC_CANCELLATION") ?>">
+		<?php 
 	}
 	?>
-	<input type="button" class="adm-btn" name="dontsave" value="<?echo GetMessage("CAT_DOC_CANCEL") ?>">
-	<?
+	<input type="button" class="adm-btn" name="dontsave" value="<?php echo GetMessage("CAT_DOC_CANCEL") ?>">
+	<?php 
 }
 else
 {
@@ -868,32 +868,32 @@ else
 	{
 		?>
 		<span style="display:inline-block; width:20px; height: 22px;"></span>
-		<input type="submit" class="adm-btn-save" name="save_and_conduct" value="<?echo GetMessage("CAT_DOC_ADD_CONDUCT") ?>">
-		<input type="submit" class="adm-btn" name="save_document" value="<?echo GetMessage("CAT_DOC_SAVE") ?>">
-		<?
+		<input type="submit" class="adm-btn-save" name="save_and_conduct" value="<?php echo GetMessage("CAT_DOC_ADD_CONDUCT") ?>">
+		<input type="submit" class="adm-btn" name="save_document" value="<?php echo GetMessage("CAT_DOC_SAVE") ?>">
+		<?php 
 	}
 	elseif($isDocumentConduct)
 	{
 		?>
 		<span class="hor-spacer"></span>
 		<input type="hidden" name="cancellation" id="cancellation" value = "0">
-		<input type="button" class="adm-btn" onclick="if(confirm('<?=GetMessage("CAT_DOC_CANCELLATION_CONFIRM")?>')) {BX('cancellation').value = 1; BX('form_b_catalog_store_docs').submit();}" value="<?echo GetMessage("CAT_DOC_CANCELLATION") ?>">
-		<?
+		<input type="button" class="adm-btn" onclick="if(confirm('<?=GetMessage("CAT_DOC_CANCELLATION_CONFIRM")?>')) {BX('cancellation').value = 1; BX('form_b_catalog_store_docs').submit();}" value="<?php echo GetMessage("CAT_DOC_CANCELLATION") ?>">
+		<?php 
 	}
 	?>
-	<input type="submit" class="adm-btn" name="dontsave" id="dontsave" value="<?echo GetMessage("CAT_DOC_CANCEL") ?>">
-	<?
+	<input type="submit" class="adm-btn" name="dontsave" id="dontsave" value="<?php echo GetMessage("CAT_DOC_CANCEL") ?>">
+	<?php 
 }
 
 $tabControl->End();
 ?></form>
 <script type="text/javascript">
-BX.Currency.setCurrencies(<? echo CUtil::PhpToJSObject($currencyList, false, true, true); ?>);
+BX.Currency.setCurrencies(<?php  echo CUtil::PhpToJSObject($currencyList, false, true, true); ?>);
 if (typeof showTotalSum === 'undefined')
 {
 	function showTotalSum()
 	{
-		<?if(isset($requiredFields["TOTAL"])):?>
+		<?php if(isset($requiredFields["TOTAL"])):?>
 		if(BX('<?=$sTableID?>'))
 		{
 			if(BX('<?=$sTableID?>'+'_footer'))
@@ -936,7 +936,7 @@ if (typeof showTotalSum === 'undefined')
 				}
 			}
 		}
-		<?endif;?>
+		<?php endif;?>
 	}
 
 	function deleteRow(id)
@@ -1069,7 +1069,7 @@ if (typeof showTotalSum === 'undefined')
 
 	function productSearch(barcode)
 	{
-		var dateURL = '<?=bitrix_sessid_get()?>&BARCODE_AJAX=Y&BARCODE='+barcode+'&lang=<? echo LANGUAGE_ID; ?>';
+		var dateURL = '<?=bitrix_sessid_get()?>&BARCODE_AJAX=Y&BARCODE='+barcode+'&lang=<?php  echo LANGUAGE_ID; ?>';
 
 		BX.showWait();
 		BX.ajax.post('<?=$selfFolderUrl?>cat_store_product_search.php', dateURL, fSearchProductResult);
@@ -1288,7 +1288,7 @@ if (typeof showTotalSum === 'undefined')
 		}
 
 		formBarcodes.setButtons([
-			<?if(!$bReadOnly):?>
+			<?php if(!$bReadOnly):?>
 			new BX.PopupWindowButton({
 				text : "<?=GetMessage('CAT_DOC_SAVE')?>",
 				className : "",
@@ -1316,7 +1316,7 @@ if (typeof showTotalSum === 'undefined')
 					}
 				}
 			}),
-			<?else:?>
+			<?php else:?>
 			new BX.PopupWindowButton({
 				text : "<?=GetMessage('CAT_DOC_CANCEL')?>",
 				className : "",
@@ -1327,13 +1327,13 @@ if (typeof showTotalSum === 'undefined')
 					}
 				}
 			})
-			<?endif;?>
+			<?php endif;?>
 		]);
 
 		formBarcodes.show();
 		if(BX('BARCODE_INPUT_'+id))
 			BX('BARCODE_INPUT_'+id).focus();
-		<?if($bReadOnly):?>
+		<?php if($bReadOnly):?>
 		var addBarcodeButtons = document.querySelectorAll('.BARCODE_INPUT_button, .BARCODE_INPUT_GREY');
 		[].forEach.call(addBarcodeButtons, function disableButtons(item) {
 			item.disabled = true;
@@ -1342,12 +1342,12 @@ if (typeof showTotalSum === 'undefined')
 		[].forEach.call(addBarcodeDelBut, function hideElements(item) {
 			item.style.display = 'none';
 		});
-		<?endif;?>
+		<?php endif;?>
 	}
 
 	function recalculateSum(id)
 	{
-		<?if(isset($requiredFields["TOTAL"])):?>
+		<?php if(isset($requiredFields["TOTAL"])):?>
 		var amount = 0;
 		var price = 0;
 		if(BX('CAT_DOC_AMOUNT_'+id) && !isNaN(parseFloat(BX('CAT_DOC_AMOUNT_'+id).value)))
@@ -1375,7 +1375,7 @@ if (typeof showTotalSum === 'undefined')
 			showTotalSum();
 		if(BX("CAT_DOCUMENT_SUM"))
 			BX("CAT_DOCUMENT_SUM").value = totalSum;
-		<?endif;?>
+		<?php endif;?>
 		if(BX("BARCODE_INPUT_BUTTON_" + id) && BX("CAT_DOC_AMOUNT_HIDDEN_" + id) && BX('CAT_DOC_AMOUNT_'+id).value > BX("CAT_DOC_AMOUNT_HIDDEN_" + id).value)
 			BX("BARCODE_INPUT_BUTTON_" + id).disabled = false;
 		else if(BX("BARCODE_INPUT_BUTTON_" + id))
@@ -1393,7 +1393,7 @@ if (typeof showTotalSum === 'undefined')
 		return true;
 	}
 }
-<?
+<?php 
 $readyFunc = array();
 if (isset($requiredFields["TOTAL"]))
 {
@@ -1408,13 +1408,13 @@ if (!empty($readyFunc))
 {
 ?>
 	BX.ready(BX.defer(function(){
-	<? echo implode("\n", $readyFunc); ?>
+	<?php  echo implode("\n", $readyFunc); ?>
 	}));
-<?
+<?php 
 }
 unset($readyFunc);
 ?>
 </script>
-<?
+<?php 
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

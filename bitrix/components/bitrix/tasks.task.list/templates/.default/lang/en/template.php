@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIRM_APPLY_REMOVE_BUTTON_TEXT"] = "Delete";
 $MESS["TASKS_ACCEPT_TASK"] = "Accept Task";
 $MESS["TASKS_ADD_SUB_TASK"] = "Create subtask";

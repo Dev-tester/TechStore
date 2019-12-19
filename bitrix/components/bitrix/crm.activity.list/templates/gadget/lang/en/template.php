@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTION_TYPE_MEETING"] = "Meeting with a client";
 $MESS["CRM_ACTION_TYPE_CALL_OUTGOING"] = "Phone call to a client";
 $MESS["CRM_ACTION_TYPE_CALL_INCOMING"] = "Phone call from a client";

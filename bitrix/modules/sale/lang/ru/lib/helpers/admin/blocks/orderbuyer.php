@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_BUYER_FIND"] = "Найти покупателя";
 $MESS["SALE_ORDER_BUYER_START_TO_CREATE"] = "или начните заполнять поля для создания нового";
 $MESS["SALE_ORDER_BUYER"] = "Покупатель";

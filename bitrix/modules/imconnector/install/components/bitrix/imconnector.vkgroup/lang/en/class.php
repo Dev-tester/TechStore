@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_ORDER_OK_ADD_ENTITY"] = "You have successfully linked a group / public page / event";
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_MODULE_NOT_INSTALLED"] = "The \"External IM Connectors\" module is not installed.";
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_NO_ACTIVE_CONNECTOR"] = "This connector is inactive.";

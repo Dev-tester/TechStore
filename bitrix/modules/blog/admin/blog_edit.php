@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $blogModulePermissions = $APPLICATION->GetGroupRight("blog");
@@ -174,7 +174,7 @@ if ($bVarsFromForm)
 	$DB->InitTableVarsForEdit("b_blog", "", "str_");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("BLBE_2FLIST"),
@@ -204,160 +204,160 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($errorMessage);?>
+<?php CAdminMessage::ShowMessage($errorMessage);?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1" ENCTYPE="multipart/form-data">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1" ENCTYPE="multipart/form-data">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("BLBE_NAME")?>:</td>
+		<td width="40%"><?php echo GetMessage("BLBE_NAME")?>:</td>
 		<td width="60%">
 			<input type="text" name="NAME" size="50" value="<?= ($str_NAME) ?>">
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("BLBE_DESCRIPTION")?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("BLBE_DESCRIPTION")?>:</td>
 		<td>
 			<textarea name="DESCRIPTION" rows="5" cols="40"><?= ($str_DESCRIPTION) ?></textarea>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td valign="top"><?echo GetMessage("BLBE_URL")?>:<br><small><?echo GetMessage("BLBE_URL_HINT")?></small></td>
+		<td valign="top"><?php echo GetMessage("BLBE_URL")?>:<br><small><?php echo GetMessage("BLBE_URL_HINT")?></small></td>
 		<td valign="top">
 			<input type="text" name="URL" size="50" value="<?= ($str_URL) ?>">
 		</td>
 	</tr>
 	<tr>
-		<td><label for="ACTIVE"><?echo GetMessage("BLBE_ACTIVE")?>:</label></td>
+		<td><label for="ACTIVE"><?php echo GetMessage("BLBE_ACTIVE")?>:</label></td>
 		<td>
-			<input type="checkbox" name="ACTIVE" id="ACTIVE" value="Y"<?if ($str_ACTIVE == "Y") echo " checked";?>>
+			<input type="checkbox" name="ACTIVE" id="ACTIVE" value="Y"<?php if ($str_ACTIVE == "Y") echo " checked";?>>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("BLBE_OWNER_ID")?>:</td>
+		<td><?php echo GetMessage("BLBE_OWNER_ID")?>:</td>
 		<td>
-			<?echo FindUserID("OWNER_ID", IntVal($str_OWNER_ID));?>
+			<?php echo FindUserID("OWNER_ID", IntVal($str_OWNER_ID));?>
 		</td>
 	</tr>
 
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("BLBE_GROUP")?>:</td>
+		<td><?php echo GetMessage("BLBE_GROUP")?>:</td>
 		<td>
 			<select name="GROUP_ID" style="width:220px">
-				<?
+				<?php 
 				$dbBlogGroup = CBlogGroup::GetList(
 					array("NAME" => "ASC"),
 					array()
 				);
 				while ($arBlogGroup = $dbBlogGroup->Fetch())
 				{
-					?><option value="<?= $arBlogGroup["ID"] ?>"<?if (IntVal($str_GROUP_ID) == IntVal($arBlogGroup["ID"])) echo " selected";?>>[<?= htmlspecialcharsbx($arBlogGroup["SITE_ID"]) ?>] <?= htmlspecialcharsbx($arBlogGroup["NAME"]) ?></option><?
+					?><option value="<?= $arBlogGroup["ID"] ?>"<?php if (IntVal($str_GROUP_ID) == IntVal($arBlogGroup["ID"])) echo " selected";?>>[<?= htmlspecialcharsbx($arBlogGroup["SITE_ID"]) ?>] <?= htmlspecialcharsbx($arBlogGroup["NAME"]) ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><label for="ENABLE_COMMENTS"><?echo GetMessage("BLBE_ENABLE_COMMENTS")?>:</label></td>
+		<td><label for="ENABLE_COMMENTS"><?php echo GetMessage("BLBE_ENABLE_COMMENTS")?>:</label></td>
 		<td>
-			<input type="checkbox" name="ENABLE_COMMENTS" id="ENABLE_COMMENTS" value="Y"<?if ($str_ENABLE_COMMENTS == "Y") echo " checked";?>>
+			<input type="checkbox" name="ENABLE_COMMENTS" id="ENABLE_COMMENTS" value="Y"<?php if ($str_ENABLE_COMMENTS == "Y") echo " checked";?>>
 		</td>
 	</tr>
 	<tr>
-		<td><label for="ENABLE_IMG_VERIF"><?echo GetMessage("BLBE_ENABLE_IMG_VERIF")?>:</label></td>
+		<td><label for="ENABLE_IMG_VERIF"><?php echo GetMessage("BLBE_ENABLE_IMG_VERIF")?>:</label></td>
 		<td>
-			<input type="checkbox" name="ENABLE_IMG_VERIF" id="ENABLE_IMG_VERIF" value="Y"<?if ($str_ENABLE_IMG_VERIF == "Y") echo " checked";?>>
+			<input type="checkbox" name="ENABLE_IMG_VERIF" id="ENABLE_IMG_VERIF" value="Y"<?php if ($str_ENABLE_IMG_VERIF == "Y") echo " checked";?>>
 		</td>
 	</tr>
 	<tr>
-		<td><label for="ENABLE_RSS"><?echo GetMessage("BLBE_ENABLE_RSS")?>:</label></td>
+		<td><label for="ENABLE_RSS"><?php echo GetMessage("BLBE_ENABLE_RSS")?>:</label></td>
 		<td>
-			<input type="checkbox" name="ENABLE_RSS" id="ENABLE_RSS" value="Y"<?if ($str_ENABLE_RSS == "Y") echo " checked";?>>
+			<input type="checkbox" name="ENABLE_RSS" id="ENABLE_RSS" value="Y"<?php if ($str_ENABLE_RSS == "Y") echo " checked";?>>
 		</td>
 	</tr>
 	<tr>
-		<td><label for="EMAIL_NOTIFY"><?echo GetMessage("BLBE_EMAIL_NOTIFY")?>:</label></td>
+		<td><label for="EMAIL_NOTIFY"><?php echo GetMessage("BLBE_EMAIL_NOTIFY")?>:</label></td>
 		<td>
-			<input type="checkbox" name="EMAIL_NOTIFY" id="EMAIL_NOTIFY" value="Y"<?if ($str_EMAIL_NOTIFY == "Y") echo " checked";?>>
+			<input type="checkbox" name="EMAIL_NOTIFY" id="EMAIL_NOTIFY" value="Y"<?php if ($str_EMAIL_NOTIFY == "Y") echo " checked";?>>
 		</td>
 	</tr>
 	<tr>
-		<td><span class="required"><sup>1</sup></span><label for="SEARCH_INDEX"><?echo GetMessage("BLBE_SEARCH_INDEX")?>:</label></td>
+		<td><span class="required"><sup>1</sup></span><label for="SEARCH_INDEX"><?php echo GetMessage("BLBE_SEARCH_INDEX")?>:</label></td>
 		<td>
-			<input type="checkbox" name="SEARCH_INDEX" id="SEARCH_INDEX" value="Y"<?if ($str_SEARCH_INDEX == "Y") echo " checked";?>>
+			<input type="checkbox" name="SEARCH_INDEX" id="SEARCH_INDEX" value="Y"<?php if ($str_SEARCH_INDEX == "Y") echo " checked";?>>
 		</td>
 	</tr>
-	<?if(IsModuleInstalled("socialnetwork")):?>
+	<?php if(IsModuleInstalled("socialnetwork")):?>
 	<tr>
-		<td><label for="USE_SOCNET"><?echo GetMessage("BLBE_USE_SOCNET")?>:</label></td>
+		<td><label for="USE_SOCNET"><?php echo GetMessage("BLBE_USE_SOCNET")?>:</label></td>
 		<td>
-			<input type="checkbox" name="USE_SOCNET" id="USE_SOCNET" value="Y"<?if ($str_USE_SOCNET == "Y") echo " checked";?>>
+			<input type="checkbox" name="USE_SOCNET" id="USE_SOCNET" value="Y"<?php if ($str_USE_SOCNET == "Y") echo " checked";?>>
 		</td>
 	</tr>
 	
 <!--editor options-->
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("BLBE_EDITOR_SETTINGS")?>:</td>
+		<td colspan="2"><?php echo GetMessage("BLBE_EDITOR_SETTINGS")?>:</td>
 	</tr>
 		<tr>
-			<td><label for="EDITOR_USE_FONT"><?echo GetMessage("BLBE_EDITOR_USE_FONT")?>:</label></td>
+			<td><label for="EDITOR_USE_FONT"><?php echo GetMessage("BLBE_EDITOR_USE_FONT")?>:</label></td>
 			<td>
-				<input type="checkbox" name="EDITOR_USE_FONT" id="EDITOR_USE_FONT" value="Y"<?if ($str_EDITOR_USE_FONT == "Y") echo " checked";?>>
+				<input type="checkbox" name="EDITOR_USE_FONT" id="EDITOR_USE_FONT" value="Y"<?php if ($str_EDITOR_USE_FONT == "Y") echo " checked";?>>
 			</td>
 		</tr>
 		<tr>
-			<td><label for="EDITOR_USE_LINK"><?echo GetMessage("BLBE_EDITOR_USE_LINK")?>:</label></td>
+			<td><label for="EDITOR_USE_LINK"><?php echo GetMessage("BLBE_EDITOR_USE_LINK")?>:</label></td>
 			<td>
-				<input type="checkbox" name="EDITOR_USE_LINK" id="EDITOR_USE_LINK" value="Y"<?if ($str_EDITOR_USE_LINK == "Y") echo " checked";?>>
+				<input type="checkbox" name="EDITOR_USE_LINK" id="EDITOR_USE_LINK" value="Y"<?php if ($str_EDITOR_USE_LINK == "Y") echo " checked";?>>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?= ShowJSHint(GetMessage("BLBE_EDITOR_USE_FORMAT_HINT")) ?>
-				<label for="EDITOR_USE_FORMAT"><?echo GetMessage("BLBE_EDITOR_USE_FORMAT")?>:</label></td>
+				<label for="EDITOR_USE_FORMAT"><?php echo GetMessage("BLBE_EDITOR_USE_FORMAT")?>:</label></td>
 			<td>
-				<input type="checkbox" name="EDITOR_USE_FORMAT" id="EDITOR_USE_FORMAT" value="Y"<?if ($str_EDITOR_USE_FORMAT == "Y") echo " checked";?>>
+				<input type="checkbox" name="EDITOR_USE_FORMAT" id="EDITOR_USE_FORMAT" value="Y"<?php if ($str_EDITOR_USE_FORMAT == "Y") echo " checked";?>>
 			</td>
 		</tr>
 		<tr>
-			<td><label for="EDITOR_USE_IMAGE"><?echo GetMessage("BLBE_EDITOR_USE_IMAGE_AND_FILES")?>:</label></td>
+			<td><label for="EDITOR_USE_IMAGE"><?php echo GetMessage("BLBE_EDITOR_USE_IMAGE_AND_FILES")?>:</label></td>
 			<td>
-				<input type="checkbox" name="EDITOR_USE_IMAGE" id="EDITOR_USE_IMAGE" value="Y"<?if ($str_EDITOR_USE_IMAGE == "Y") echo " checked";?>>
+				<input type="checkbox" name="EDITOR_USE_IMAGE" id="EDITOR_USE_IMAGE" value="Y"<?php if ($str_EDITOR_USE_IMAGE == "Y") echo " checked";?>>
 			</td>
 		</tr>
 		<tr>
 			<td>
 				<?= ShowJSHint(GetMessage("BLBE_EDITOR_USE_VIDEO_HINT")) ?>
-				<label for="EDITOR_USE_VIDEO"><?echo GetMessage("BLBE_EDITOR_USE_VIDEO")?>:</label></td>
+				<label for="EDITOR_USE_VIDEO"><?php echo GetMessage("BLBE_EDITOR_USE_VIDEO")?>:</label></td>
 			<td>
-				<input type="checkbox" name="EDITOR_USE_VIDEO" id="EDITOR_USE_VIDEO" value="Y"<?if ($str_EDITOR_USE_VIDEO == "Y") echo " checked";?>>
+				<input type="checkbox" name="EDITOR_USE_VIDEO" id="EDITOR_USE_VIDEO" value="Y"<?php if ($str_EDITOR_USE_VIDEO == "Y") echo " checked";?>>
 			</td>
 		</tr>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("BLBE_P_POST")?>:</td>
+		<td colspan="2"><?php echo GetMessage("BLBE_P_POST")?>:</td>
 	</tr>
 
-	<?
+	<?php 
 	if ($ID > 0)
 	{
 		$arGroupPerms = array();
@@ -369,15 +369,15 @@ $tabControl->BeginNextTab();
 	}
 	?>
 	<tr>
-		<td width="40%"><?echo GetMessage("BLBE_P_ALL")?>:</td>
+		<td width="40%"><?php echo GetMessage("BLBE_P_ALL")?>:</td>
 		<td width="60%">
 			<select name="PERMS_P[1]">
-			<?
+			<?php 
 			foreach($GLOBALS["AR_BLOG_PERMS"] as $key => $val)
 			{
 				if (in_array($key, $GLOBALS["AR_BLOG_POST_PERMS"]))
 				{
-					?><option value="<?echo $key ?>"<?if ($bVarsFromForm && is_array($PERMS_P) && array_key_exists(1, $PERMS_P) && $PERMS_P[1] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(1, $arGroupPerms) && $arGroupPerms[1] == $key) echo " selected"?>><?echo htmlspecialcharsex($val) ?></option><?
+					?><option value="<?php echo $key ?>"<?php if ($bVarsFromForm && is_array($PERMS_P) && array_key_exists(1, $PERMS_P) && $PERMS_P[1] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(1, $arGroupPerms) && $arGroupPerms[1] == $key) echo " selected"?>><?php echo htmlspecialcharsex($val) ?></option><?php 
 				}
 			}
 			?>
@@ -385,22 +385,22 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLBE_P_AUTH")?>:</td>
+		<td><?php echo GetMessage("BLBE_P_AUTH")?>:</td>
 		<td>
 			<select name="PERMS_P[2]">
-			<?
+			<?php 
 			foreach($GLOBALS["AR_BLOG_PERMS"] as $key => $val)
 			{
 				if (in_array($key, $GLOBALS["AR_BLOG_POST_PERMS"]))
 				{
-					?><option value="<?echo $key ?>"<?if ($bVarsFromForm && is_array($PERMS_P) && array_key_exists(2, $PERMS_P)  && $PERMS_P[2] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(2, $arGroupPerms) && $arGroupPerms[2] == $key) echo " selected"?>><?echo htmlspecialcharsex($val) ?></option><?
+					?><option value="<?php echo $key ?>"<?php if ($bVarsFromForm && is_array($PERMS_P) && array_key_exists(2, $PERMS_P)  && $PERMS_P[2] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(2, $arGroupPerms) && $arGroupPerms[2] == $key) echo " selected"?>><?php echo htmlspecialcharsex($val) ?></option><?php 
 				}
 			}
 			?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 	if(IntVal($ID) > 0)
 	{
 		$dbGroups = CBlogUserGroup::GetList(array("NAME" => "ASC"), array("BLOG_ID" => $ID));
@@ -411,28 +411,28 @@ $tabControl->BeginNextTab();
 				<td><?= htmlspecialcharsbx($arGroup["NAME"]) ?>:</td>
 				<td>
 					<select name="PERMS_P[<?= IntVal($arGroup["ID"]) ?>]">
-					<?
+					<?php 
 					foreach($GLOBALS["AR_BLOG_PERMS"] as $key => $val)
 					{
 						if (in_array($key, $GLOBALS["AR_BLOG_POST_PERMS"]))
 						{
-							?><option value="<?echo $key ?>"<?if ($bVarsFromForm && is_array($PERMS_P) && is_array($PERMS_P) && array_key_exists($arGroup["ID"], $PERMS_P)  && $PERMS_P[$arGroup["ID"]] == $key || !$bVarsFromForm  && is_array($arGroupPerms) && array_key_exists($arGroup["ID"], $arGroupPerms) && $arGroupPerms[$arGroup["ID"]] == $key) echo " selected"?>><?echo htmlspecialcharsex($val) ?></option><?
+							?><option value="<?php echo $key ?>"<?php if ($bVarsFromForm && is_array($PERMS_P) && is_array($PERMS_P) && array_key_exists($arGroup["ID"], $PERMS_P)  && $PERMS_P[$arGroup["ID"]] == $key || !$bVarsFromForm  && is_array($arGroupPerms) && array_key_exists($arGroup["ID"], $arGroupPerms) && $arGroupPerms[$arGroup["ID"]] == $key) echo " selected"?>><?php echo htmlspecialcharsex($val) ?></option><?php 
 						}
 					}
 					?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 	}
 	?>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("BLBE_P_COMMENT")?>:</td>
+		<td colspan="2"><?php echo GetMessage("BLBE_P_COMMENT")?>:</td>
 	</tr>
 
-	<?
+	<?php 
 	if ($ID > 0)
 	{
 		$arGroupPerms = array();
@@ -444,15 +444,15 @@ $tabControl->BeginNextTab();
 	}
 	?>
 	<tr>
-		<td><?echo GetMessage("BLBE_P_ALL");?>:</td>
+		<td><?php echo GetMessage("BLBE_P_ALL");?>:</td>
 		<td>
 			<select name="PERMS_C[1]">
-			<?
+			<?php 
 			foreach($GLOBALS["AR_BLOG_PERMS"] as $key => $val)
 			{
 				if (in_array($key, $GLOBALS["AR_BLOG_COMMENT_PERMS"]))
 				{
-					?><option value="<?echo $key ?>"<?if ($bVarsFromForm && is_array($PERMS_C) && array_key_exists(1, $PERMS_C) && $PERMS_C[1] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(1, $arGroupPerms) && $arGroupPerms[1] == $key) echo " selected"?>><?echo htmlspecialcharsex($val) ?></option><?
+					?><option value="<?php echo $key ?>"<?php if ($bVarsFromForm && is_array($PERMS_C) && array_key_exists(1, $PERMS_C) && $PERMS_C[1] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(1, $arGroupPerms) && $arGroupPerms[1] == $key) echo " selected"?>><?php echo htmlspecialcharsex($val) ?></option><?php 
 				}
 			}
 			?>
@@ -460,22 +460,22 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BLBE_P_AUTH")?>:</td>
+		<td><?php echo GetMessage("BLBE_P_AUTH")?>:</td>
 		<td>
 			<select name="PERMS_C[2]">
-			<?
+			<?php 
 			foreach($GLOBALS["AR_BLOG_PERMS"] as $key => $val)
 			{
 				if (in_array($key, $GLOBALS["AR_BLOG_COMMENT_PERMS"]))
 				{
-					?><option value="<?echo $key ?>"<?if ($bVarsFromForm && is_array($PERMS_C) && array_key_exists(2, $PERMS_C)  && $PERMS_C[2] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(2, $arGroupPerms) && $arGroupPerms[2] == $key) echo " selected"?>><?echo htmlspecialcharsex($val) ?></option><?
+					?><option value="<?php echo $key ?>"<?php if ($bVarsFromForm && is_array($PERMS_C) && array_key_exists(2, $PERMS_C)  && $PERMS_C[2] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists(2, $arGroupPerms) && $arGroupPerms[2] == $key) echo " selected"?>><?php echo htmlspecialcharsex($val) ?></option><?php 
 				}
 			}
 			?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 	if(IntVal($ID) > 0)
 	{
 		$dbGroups = CBlogUserGroup::GetList(array("NAME" => "ASC"), array("BLOG_ID" => $ID));
@@ -486,29 +486,29 @@ $tabControl->BeginNextTab();
 				<td><?= htmlspecialcharsbx($arGroup["NAME"]) ?>:</td>
 				<td>
 					<select name="PERMS_C[<?= IntVal($arGroup["ID"]) ?>]">
-					<?
+					<?php 
 					foreach($GLOBALS["AR_BLOG_PERMS"] as $key => $val)
 					{
 						if (in_array($key, $GLOBALS["AR_BLOG_COMMENT_PERMS"]))
 						{
-							?><option value="<?echo $key ?>"<?if ($bVarsFromForm && is_array($PERMS_C) && array_key_exists($arGroup["ID"], $PERMS_C)  && $PERMS_C[$arGroup["ID"]] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists($arGroup["ID"], $arGroupPerms) && $arGroupPerms[$arGroup["ID"]] == $key) echo " selected"?>><?echo htmlspecialcharsex($val) ?></option><?
+							?><option value="<?php echo $key ?>"<?php if ($bVarsFromForm && is_array($PERMS_C) && array_key_exists($arGroup["ID"], $PERMS_C)  && $PERMS_C[$arGroup["ID"]] == $key || !$bVarsFromForm && is_array($arGroupPerms) && array_key_exists($arGroup["ID"], $arGroupPerms) && $arGroupPerms[$arGroup["ID"]] == $key) echo " selected"?>><?php echo htmlspecialcharsex($val) ?></option><?php 
 						}
 					}
 					?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 	}
 	?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 $USER_FIELD_MANAGER->EditFormShowTab("BLOG_BLOG", $bVarsFromForm, $ID);
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($blogModulePermissions < "W"),
@@ -517,14 +517,14 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
 
-<?echo BeginNote();?>
-<span class="required"><sup>1</sup></span> - <?echo GetMessage("BLBE_SEARCH_INDEX_HINT")?>
-<?echo EndNote(); ?>
+<?php echo BeginNote();?>
+<span class="required"><sup>1</sup></span> - <?php echo GetMessage("BLBE_SEARCH_INDEX_HINT")?>
+<?php echo EndNote(); ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

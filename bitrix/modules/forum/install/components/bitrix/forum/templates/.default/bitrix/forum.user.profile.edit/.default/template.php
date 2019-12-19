@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -12,14 +12,14 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 /*?>
 <div class="forum-header-box">
@@ -30,7 +30,7 @@ endif;
 	</div>
 	<div class="forum-header-title"><span><?=GetMessage("F_CHANGE_PROFILE")?></span></div>
 </div>
-<?*/
+<?php */
 ?>
 <form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data" class="forum-form">
 	<input type="hidden" name="PAGE_NAME" value="profile" />
@@ -38,7 +38,7 @@ endif;
 	<input type="hidden" name="UID" value="<?=$arParams["UID"]?>" />
 	<?=bitrix_sessid_post()?>
 	<input type="hidden" name="ACTION" value="EDIT" />
-<?
+<?php 
 
 $aTabs = array(
 	array("DIV" => "forum_1", "TAB" => GetMessage("F_REG_INFO"), "TITLE" => GetMessage("F_REG_INFO")), 
@@ -81,31 +81,31 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 		<th><?=GetMessage("F_PASSWORD_CONFIRM")?></th>
 		<td><input type="password" name="NEW_PASSWORD_CONFIRM" size="20" maxlength="50" value="<?=$arResult["NEW_PASSWORD_CONFIRM"]?>" autocomplete="off" /></td>
 	</tr>
-<?if($arResult["TIME_ZONE_ENABLED"] == true):?>
+<?php if($arResult["TIME_ZONE_ENABLED"] == true):?>
 	<tr class="header">
-		<th colspan="2"><b><?echo GetMessage("forum_profile_time_zones")?></b></th></tr>
+		<th colspan="2"><b><?php echo GetMessage("forum_profile_time_zones")?></b></th></tr>
 	<tr>
 	<tr>
-		<th><?echo GetMessage("forum_profile_time_zones_auto")?></th>
+		<th><?php echo GetMessage("forum_profile_time_zones_auto")?></th>
 		<td>
 			<select name="AUTO_TIME_ZONE" onchange="this.form.TIME_ZONE.disabled=(this.value != 'N')">
-				<option value=""><?echo GetMessage("forum_profile_time_zones_auto_def")?></option>
-				<option value="Y"<?=($arResult["str_AUTO_TIME_ZONE"] == "Y"? ' SELECTED="SELECTED"' : '')?>><?echo GetMessage("forum_profile_time_zones_auto_yes")?></option>
-				<option value="N"<?=($arResult["str_AUTO_TIME_ZONE"] == "N"? ' SELECTED="SELECTED"' : '')?>><?echo GetMessage("forum_profile_time_zones_auto_no")?></option>
+				<option value=""><?php echo GetMessage("forum_profile_time_zones_auto_def")?></option>
+				<option value="Y"<?=($arResult["str_AUTO_TIME_ZONE"] == "Y"? ' SELECTED="SELECTED"' : '')?>><?php echo GetMessage("forum_profile_time_zones_auto_yes")?></option>
+				<option value="N"<?=($arResult["str_AUTO_TIME_ZONE"] == "N"? ' SELECTED="SELECTED"' : '')?>><?php echo GetMessage("forum_profile_time_zones_auto_no")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<th><?echo GetMessage("forum_profile_time_zones_zones")?></th>
+		<th><?php echo GetMessage("forum_profile_time_zones_zones")?></th>
 		<td>
-			<select name="TIME_ZONE"<?if($arResult["str_AUTO_TIME_ZONE"] <> "N") echo ' disabled="disabled"'?>>
-<?foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
+			<select name="TIME_ZONE"<?php if($arResult["str_AUTO_TIME_ZONE"] <> "N") echo ' disabled="disabled"'?>>
+<?php foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
 				<option value="<?=htmlspecialcharsbx($tz)?>"<?=($arResult["str_TIME_ZONE"] == $tz? ' SELECTED="SELECTED"' : '')?>><?=htmlspecialcharsbx($tz_name)?></option>
-<?endforeach?>
+<?php endforeach?>
 			</select>
 		</td>
 	</tr>
-<?endif?>
+<?php endif?>
 	<tr><th colspan="2"><span class="starrequired">*</span> <?=GetMessage("F_REQUIED_FILEDS")?></th></tr>
 <?=$tabControl->BeginNextTab();?>
 	<tr>
@@ -125,17 +125,17 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 		<td>
 			<select name="PERSONAL_GENDER" id="PERSONAL_GENDER">
 			<option value=""><?=GetMessage("F_SEX_NONE")?></option>
-			<?if (is_array($arResult["arr_PERSONAL_GENDER"]["data"]) && !empty($arResult["arr_PERSONAL_GENDER"]["data"])):?>
-				<?foreach ($arResult["arr_PERSONAL_GENDER"]["data"] as $value => $option):?>
+			<?php if (is_array($arResult["arr_PERSONAL_GENDER"]["data"]) && !empty($arResult["arr_PERSONAL_GENDER"]["data"])):?>
+				<?php foreach ($arResult["arr_PERSONAL_GENDER"]["data"] as $value => $option):?>
 			<option value="<?=$value?>" <?=(($arResult["arr_PERSONAL_GENDER"]["active"] == $value) ? "selected" : "")?>><?=$option?></option>
-				<?endforeach?>
-			<?endif;?>
+				<?php endforeach?>
+			<?php endif;?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<th><?=GetMessage("F_BIRTHDATE")?> (<?=CLang::GetDateFormat("SHORT")?>):</th>
-		<td><?
+		<td><?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.calendar", 
 				"", 
@@ -151,13 +151,13 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 	<tr>
 		<th><?=GetMessage("F_PHOTO")?></th>
 		<td><input name="PERSONAL_PHOTO" size="30" type="file" />
-			<?if ($arResult["SHOW_DELETE_PERSONAL_PHOTO"] == "Y"):?>
+			<?php if ($arResult["SHOW_DELETE_PERSONAL_PHOTO"] == "Y"):?>
 			<br /><input type="checkbox" name="PERSONAL_PHOTO_del" value="Y" id="PERSONAL_PHOTO_del" />
 				<label for="PERSONAL_PHOTO_del"><?=GetMessage("FILE_DELETE")?></label>
 
 			<br/>
 				<?=$arResult["str_PERSONAL_PHOTO_IMG"]?>
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
 	<tr class="header">
@@ -167,11 +167,11 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 		<td>
 			<select name="PERSONAL_COUNTRY" id="PERSONAL_COUNTRY">
 			<option value=""><?=GetMessage("F_COUNTRY_NONE")?></option>
-			<?if (is_array($arResult["arr_PERSONAL_COUNTRY"]["data"]) && !empty($arResult["arr_PERSONAL_COUNTRY"]["data"])):?>
-				<?foreach ($arResult["arr_PERSONAL_COUNTRY"]["data"] as $value => $option):?>
+			<?php if (is_array($arResult["arr_PERSONAL_COUNTRY"]["data"]) && !empty($arResult["arr_PERSONAL_COUNTRY"]["data"])):?>
+				<?php foreach ($arResult["arr_PERSONAL_COUNTRY"]["data"] as $value => $option):?>
 			<option value="<?=$value?>" <?=(($arResult["arr_PERSONAL_COUNTRY"]["active"] == $value) ? "selected" : "")?>><?=$option?></option>
-				<?endforeach?>
-			<?endif;?>
+				<?php endforeach?>
+			<?php endif;?>
 			</select>
 		</td>
 	</tr>
@@ -212,11 +212,11 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 		<td>
 			<select name="WORK_COUNTRY" id="WORK_COUNTRY">
 			<option value=""><?=GetMessage("F_COUNTRY_NONE")?></option>
-			<?if (is_array($arResult["arr_WORK_COUNTRY"]["data"]) && !empty($arResult["arr_WORK_COUNTRY"]["data"])):?>
-				<?foreach ($arResult["arr_WORK_COUNTRY"]["data"] as $value => $option):?>
+			<?php if (is_array($arResult["arr_WORK_COUNTRY"]["data"]) && !empty($arResult["arr_WORK_COUNTRY"]["data"])):?>
+				<?php foreach ($arResult["arr_WORK_COUNTRY"]["data"] as $value => $option):?>
 			<option value="<?=$value?>" <?=(($arResult["arr_WORK_COUNTRY"]["active"] == $value) ? "selected" : "")?>><?=$option?></option>
-				<?endforeach?>
-			<?endif;?>
+				<?php endforeach?>
+			<?php endif;?>
 			</select>
 		</td>
 	</tr>
@@ -231,27 +231,27 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 <?=$tabControl->BeginNextTab();?>
 	<tr><th><?=GetMessage("F_SETTINGS")?></th>
 		<td>
-	<?if (CForumUser::IsAdmin()):?>
-		<input type="checkbox" name="FORUM_ALLOW_POST" id="FORUM_ALLOW_POST" value="Y" <?
+	<?php if (CForumUser::IsAdmin()):?>
+		<input type="checkbox" name="FORUM_ALLOW_POST" id="FORUM_ALLOW_POST" value="Y" <?php 
 			if ($arResult["str_FORUM_ALLOW_POST"] == "Y"):
-				?> checked="checked" <?
+				?> checked="checked" <?php 
 			endif;
 		?> /> <label for="FORUM_ALLOW_POST"><?=GetMessage("F_ALLOW_POST")?></label><br />
-	<?endif;?>
-		<input type="checkbox" name="FORUM_SHOW_NAME" id="FORUM_SHOW_NAME" value="Y" <?
+	<?php endif;?>
+		<input type="checkbox" name="FORUM_SHOW_NAME" id="FORUM_SHOW_NAME" value="Y" <?php 
 			if ($arResult["str_FORUM_SHOW_NAME"] == "Y"):
-					?> checked="checked" <?
+					?> checked="checked" <?php 
 			endif;
 		?> /> <label for="FORUM_SHOW_NAME"><?=GetMessage("F_SHOW_NAME")?></label><br />
-		<input type="checkbox" name="FORUM_HIDE_FROM_ONLINE" id="FORUM_HIDE_FROM_ONLINE" value="Y" <?
+		<input type="checkbox" name="FORUM_HIDE_FROM_ONLINE" id="FORUM_HIDE_FROM_ONLINE" value="Y" <?php 
 			if ($arResult["str_FORUM_HIDE_FROM_ONLINE"] == "Y"):
-				?> checked="checked" <?
+				?> checked="checked" <?php 
 			endif;
 		?> /> <label for="FORUM_HIDE_FROM_ONLINE"><?=GetMessage("F_HIDE_FROM_ONLINE")?></label><br />
-		<input type="checkbox" name="FORUM_SUBSC_GET_MY_MESSAGE" id="FORUM_SUBSC_GET_MY_MESSAGE" value="Y" <?
+		<input type="checkbox" name="FORUM_SUBSC_GET_MY_MESSAGE" id="FORUM_SUBSC_GET_MY_MESSAGE" value="Y" <?php 
 		if ($arResult["str_FORUM_SUBSC_GET_MY_MESSAGE"] == "Y")
 		{
-			?> checked="checked" <?
+			?> checked="checked" <?php 
 		} 
 		?> /> <label for="FORUM_SUBSC_GET_MY_MESSAGE"><?=GetMessage("F_SUBSC_GET_MY_MESSAGE")?></label>
 		</td>
@@ -268,41 +268,41 @@ $tabControl = new CForumTabControl("forum_user", $aTabs);
 		<th><?=GetMessage("F_SIGNATURE")?></th>
 		<td><textarea name="FORUM_SIGNATURE" rows="3" cols="35"><?=$arResult["str_FORUM_SIGNATURE"]?></textarea></td>
 	</tr>
-	<?if(COption::GetOptionString("forum", "show_avatar_photo", "N") == 'N'):?>
+	<?php if(COption::GetOptionString("forum", "show_avatar_photo", "N") == 'N'):?>
 	<tr>
 		<th><?=GetMessage("F_AVATAR")?></th>
 		<td>
 			<?=GetMessage("F_SIZE_AVATAR", array("#SIZE#" => CFile::FormatSize(COption::GetOptionString("forum", "file_max_size", 5242880))))?><br/>
 			<input name="FORUM_AVATAR" size="30" type="file" />
-			<?if ($arResult["SHOW_DELETE_FORUM_AVATAR"] == "Y"):?>
+			<?php if ($arResult["SHOW_DELETE_FORUM_AVATAR"] == "Y"):?>
 			<br/><input type="checkbox" name="FORUM_AVATAR_del" value="Y" id="FORUM_AVATAR_del" /> 
 				<label for="FORUM_AVATAR_del"><?=GetMessage("FILE_DELETE")?></label>
 			<br/>
 				<?=$arResult["str_FORUM_AVATAR_IMG"]?>
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?endif;?>
-<?// ********************* User properties ***************************************************?>
-<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+	<?php endif;?>
+<?php // ********************* User properties ***************************************************?>
+<?php if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
 	<?=$tabControl->BeginNextTab();?>
-	<?$first = true;?>
-	<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
+	<?php $first = true;?>
+	<?php foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
 	<tr><th>
-		<?if ($arUserField["MANDATORY"]=="Y"):?>
+		<?php if ($arUserField["MANDATORY"]=="Y"):?>
 			<span class="required">*</span>
-		<?endif;?>
+		<?php endif;?>
 		<?=$arUserField["EDIT_FORM_LABEL"]?>:</th>
 		<td>
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:system.field.edit", 
 				$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
 				array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y"));?>
 		</td>
 	</tr>
-	<?endforeach;?>
-<?endif;?>
-<?$tabControl->End();?>
+	<?php endforeach;?>
+<?php endif;?>
+<?php $tabControl->End();?>
 <div class="forum-clear-float"></div>
 <div class="forum-reply-buttons forum-user-edit-buttons">
 	<input type="submit" name="save" value="<?=GetMessage("F_SAVE")?>" id="save"/>&nbsp;

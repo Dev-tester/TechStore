@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -71,7 +71,7 @@ if ($arParams['HIDE_MENU'] != 'Y')
 	);
 } ?>
 
-<?
+<?php 
 if ($arParams['HIDE_FILTER'] != 'Y')
 {
 	if ($isBitrix24Template)
@@ -83,10 +83,10 @@ if ($arParams['HIDE_FILTER'] != 'Y')
 
 	if (!$isBitrix24Template): ?>
 		<div class="tasks-interface-filter-container">
-	<? endif ?>
+	<?php  endif ?>
 
 	<div class="pagetitle-container pagetitle-flexible-space">
-		<? $APPLICATION->IncludeComponent(
+		<?php  $APPLICATION->IncludeComponent(
 			"bitrix:main.ui.filter",
 			"",
 			array(
@@ -111,9 +111,9 @@ if ($arParams['HIDE_FILTER'] != 'Y')
 		</a>
 	</div>
 
-	<? if (!$isBitrix24Template): ?>
+	<?php  if (!$isBitrix24Template): ?>
 	</div>
-<? endif ?>
+<?php  endif ?>
 	<?php
 	//endregion
 
@@ -124,14 +124,14 @@ if ($arParams['HIDE_FILTER'] != 'Y')
 }
 ?>
 
-<? $helper->displayFatals(); ?>
-<? if (!$helper->checkHasFatals()): ?>
+<?php  $helper->displayFatals(); ?>
+<?php  if (!$helper->checkHasFatals()): ?>
 
 	<div id='<?=$helper->getScopeId()?>' class='tasks'>
 
-		<? $helper->displayWarnings(); ?>
+		<?php  $helper->displayWarnings(); ?>
 
-		<? // make dom node accessible in js controller like that: ?>
+		<?php  // make dom node accessible in js controller like that: ?>
 		<div class='js-id-grid'>
 			<?php
 			$APPLICATION->IncludeComponent(
@@ -237,7 +237,7 @@ if ($arParams['HIDE_FILTER'] != 'Y')
 		if (!empty($selectors))
 		{
 			?>
-			<script type="text/javascript"><?
+			<script type="text/javascript"><?php 
 				foreach ($selectors as $groupSelector)
 				{
 				$selectorID = $groupSelector['ID'];
@@ -255,14 +255,14 @@ if ($arParams['HIDE_FILTER'] != 'Y')
 							}
 						);
 					}
-				);<?
+				);<?php 
 				}
-				?></script><?
+				?></script><?php 
 		}
 	}
 	?>
 
-	<? $helper->initializeExtension(); ?>
+	<?php  $helper->initializeExtension(); ?>
 
 	<script>
 		var tasksListAjaxUrl = "/bitrix/components/bitrix/tasks.templates.list/ajax.php?SITE_ID=<?php echo SITE_ID?>";
@@ -289,5 +289,5 @@ if ($arParams['HIDE_FILTER'] != 'Y')
 			TASKS_TEMPLATE_LIST_GROUP_ACTION_REMOVE_CONFIRM: '<?php echo GetMessageJS('TASKS_TEMPLATE_LIST_GROUP_ACTION_REMOVE_CONFIRM'); ?>',
 		});
 	</script>
-<? endif ?>
+<?php  endif ?>
 

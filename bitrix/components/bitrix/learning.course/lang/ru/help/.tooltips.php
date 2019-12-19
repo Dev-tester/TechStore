@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEF_MODE_TIP"] = "Включить поддержку ЧПУ";
 $MESS["COURSE_ID_TIP"] = "Идентификатор курса";
 $MESS["CHECK_PERMISSIONS_TIP"] = "Проверять право доступа";

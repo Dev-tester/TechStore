@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 CJSCore::Init('file_dialog');
 ?>
@@ -6,33 +6,33 @@ CJSCore::Init('file_dialog');
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPDAF_PD_ENTITY") ?>:</span></td>
 	<td width="60%">
 		<select name="entity_type" onchange="BPDAF_changeEntityType(this.value);">
-			<option value="user" <?if ($arCurrentValues['entity_type'] == 'user') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_USER')?></option>
-			<? if (CModule::IncludeModule('socialnetwork')):?>
-			<option value="sg" <?if ($arCurrentValues['entity_type'] == 'sg') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_SG')?></option>
-			<?endif?>
-			<option value="common" <?if ($arCurrentValues['entity_type'] == 'common') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_COMMON')?></option>
-			<option value="folder" <?if ($arCurrentValues['entity_type'] == 'folder') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_FOLDER')?></option>
+			<option value="user" <?php if ($arCurrentValues['entity_type'] == 'user') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_USER')?></option>
+			<?php  if (CModule::IncludeModule('socialnetwork')):?>
+			<option value="sg" <?php if ($arCurrentValues['entity_type'] == 'sg') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_SG')?></option>
+			<?php endif?>
+			<option value="common" <?php if ($arCurrentValues['entity_type'] == 'common') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_COMMON')?></option>
+			<option value="folder" <?php if ($arCurrentValues['entity_type'] == 'folder') echo 'selected'?>><?=GetMessage('BPDAF_PD_ENTITY_TYPE_FOLDER')?></option>
 		</select>
 	</td>
 </tr>
-<tr id="id_entity_id_user" <?if ($arCurrentValues['entity_type'] != 'user') echo 'style="display: none"'?>>
+<tr id="id_entity_id_user" <?php if ($arCurrentValues['entity_type'] != 'user') echo 'style="display: none"'?>>
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPDAF_PD_ENTITY_ID_USER") ?>:</span></td>
 	<td width="60%">
-		<?
+		<?php 
 		$value = $arCurrentValues['entity_type'] == 'user' ? $arCurrentValues['entity_id'] : '';
 		echo \CBPDocument::ShowParameterField('user', 'entity_id_user', $value, array('rows' => 1, 'cols' => 29))?>
 	</td>
 </tr>
-<? if (CModule::IncludeModule('socialnetwork')):?>
-<tr id="id_entity_id_sg" <?if ($arCurrentValues['entity_type'] != 'sg') echo 'style="display: none"'?>>
+<?php  if (CModule::IncludeModule('socialnetwork')):?>
+<tr id="id_entity_id_sg" <?php if ($arCurrentValues['entity_type'] != 'sg') echo 'style="display: none"'?>>
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPDAF_PD_ENTITY_ID_SG") ?>:</span></td>
 	<td width="60%">
-		<?
+		<?php 
 		$value = $arCurrentValues['entity_type'] == 'sg'? $arCurrentValues['entity_id'] : '';
 		?>
 		<select name="entity_id_sg">
 			<option value=""><?= GetMessage("BPDAF_PD_LABEL_CHOOSE") ?></option>
-			<?
+			<?php 
 			$iterator = CSocNetGroup::GetList(
 					array('SITE_ID' => 'ASC', "NAME" => "ASC"),
 					array("ACTIVE" => "Y"),
@@ -43,25 +43,25 @@ CJSCore::Init('file_dialog');
 
 			while($row = $iterator->fetch()):
 				?>
-				<option value="<?=htmlspecialcharsbx($row['ID'])?>" <?if ($row['ID'] == $value) echo 'selected'?>>[<?=htmlspecialcharsbx($row['SITE_ID'])?>] <?=htmlspecialcharsbx($row['NAME'])?></option>
-				<?
+				<option value="<?=htmlspecialcharsbx($row['ID'])?>" <?php if ($row['ID'] == $value) echo 'selected'?>>[<?=htmlspecialcharsbx($row['SITE_ID'])?>] <?=htmlspecialcharsbx($row['NAME'])?></option>
+				<?php 
 			endwhile;
 			?>
 		</select>
-		<?
+		<?php 
 		echo \CBPDocument::ShowParameterField('int', 'entity_id_sg_x', CBPDocument::IsExpression($value) ? $value : '', array('size' => 30))?>
 	</td>
 </tr>
-<?endif?>
-<tr id="id_entity_id_common" <?if ($arCurrentValues['entity_type'] != 'common') echo 'style="display: none"'?>>
+<?php endif?>
+<tr id="id_entity_id_common" <?php if ($arCurrentValues['entity_type'] != 'common') echo 'style="display: none"'?>>
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPDAF_PD_ENTITY_ID_COMMON") ?>:</span></td>
 	<td width="60%">
-		<?
+		<?php 
 		$value = $arCurrentValues['entity_type'] == 'common'? $arCurrentValues['entity_id'] : '';
 		?>
 		<select name="entity_id_common">
 			<option value=""><?= GetMessage("BPDAF_PD_LABEL_CHOOSE") ?></option>
-			<?
+			<?php 
 			$iterator = \Bitrix\Disk\Storage::getList(array(
 				'select' => array('NAME', 'ENTITY_ID', 'SITE_ID'),
 				'filter' => array('=ENTITY_TYPE' => \Bitrix\Disk\ProxyType\Common::className()),
@@ -70,19 +70,19 @@ CJSCore::Init('file_dialog');
 
 			while($row = $iterator->fetch()):
 			?>
-			<option value="<?=htmlspecialcharsbx($row['ENTITY_ID'])?>" <?if ($row['ENTITY_ID'] == $value) echo 'selected'?>>[<?=htmlspecialcharsbx($row['SITE_ID'])?>] <?=htmlspecialcharsbx($row['NAME'])?></option>
-			<?
+			<option value="<?=htmlspecialcharsbx($row['ENTITY_ID'])?>" <?php if ($row['ENTITY_ID'] == $value) echo 'selected'?>>[<?=htmlspecialcharsbx($row['SITE_ID'])?>] <?=htmlspecialcharsbx($row['NAME'])?></option>
+			<?php 
 			endwhile;
 			?>
 		</select>
-		<?
+		<?php 
 		echo \CBPDocument::ShowParameterField('string', 'entity_id_common_x', CBPDocument::IsExpression($value) ? $value : '', array('size' => 30))?>
 	</td>
 </tr>
-<tr id="id_entity_id_folder" <?if ($arCurrentValues['entity_type'] != 'folder') echo 'style="display: none"'?>>
+<tr id="id_entity_id_folder" <?php if ($arCurrentValues['entity_type'] != 'folder') echo 'style="display: none"'?>>
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPDAF_PD_ENTITY_ID_FOLDER") ?>:</span></td>
 	<td width="60%">
-		<?
+		<?php 
 		$value = $arCurrentValues['entity_type'] == 'folder'? $arCurrentValues['entity_id'] : '';
 
 		$folderId = 0;
@@ -106,7 +106,7 @@ CJSCore::Init('file_dialog');
 			<br/>
 			<a href="#" onclick="return BPDAF_showDiskDialog()" style="color: black; text-decoration: none; border-bottom: 1px dotted"><?=GetMessage('BPDAF_PD_LABEL_DISK_CHOOSE')?></a>
 		</div>
-		<?
+		<?php 
 		echo \CBPDocument::ShowParameterField('int', 'entity_id_folder_x', CBPDocument::IsExpression($value) ? $value : '', array('size' => 30))
 		?>
 	</td>

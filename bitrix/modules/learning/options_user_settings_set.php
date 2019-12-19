@@ -1,4 +1,4 @@
-<?
+<?php 
 $learningWarningTmp = "";
 
 if (CModule::IncludeModule("learning")):

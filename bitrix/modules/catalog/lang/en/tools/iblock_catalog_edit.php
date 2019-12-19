@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CAT_IBLOCK_CATALOG_MESS_NOT_SELECT"] = "not selected";
 $MESS["BX_CATALOG_SETTINGS_ACCESS_DENIED"] = "Access denied";
 $MESS["BX_CAT_IBLOCK_CATALOG_IBLOCK_BAD_SESSION"] = "Your session has expired. Please close the dialog and log on to the system again.";

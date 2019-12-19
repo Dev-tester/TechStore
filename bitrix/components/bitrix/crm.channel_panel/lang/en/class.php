@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_CHANNEL_1C_CAPTION"] = "1C connector";
 $MESS["CRM_CHANNEL_1C_LEGEND"] = "Export all sales and clients history to CRM. Link offline sales to online CRM.";

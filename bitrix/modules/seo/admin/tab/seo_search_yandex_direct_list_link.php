@@ -48,7 +48,7 @@ if(count($bannerList) > 0)
 </style>
 <div id="adv_links_list" class="adv-links-list">
 	<b><?=Loc::getMessage('SEO_YANDEX_DIRECT_BANNER_LINKS')?></b>
-<?
+<?php 
 		foreach($arBanners as $campaignId => $campaignBanners)
 		{
 			if(isset($bannerList[$campaignId]))
@@ -57,7 +57,7 @@ if(count($bannerList) > 0)
 	<div class="adv-campaign-item">
 		<a href="/bitrix/admin/seo_search_yandex_direct_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$campaignId?>&back_url=<?=Converter::getHtmlConverter()->encode(urlencode($APPLICATION->GetCurPageParam('form_element_'.$iblockElementInfo["IBLOCK"]["ID"].'_active_tab=seo_adv_seo_adv', array('form_element_'.$iblockElementInfo["IBLOCK"]["ID"].'_active_tab'))))?>" class="adv-campaign-link"><?=Converter::getHtmlConverter()->encode($bannerList[$campaignId]['NAME']);?></a>
 		<div class="adv-campaign-list">
-<?
+<?php 
 				foreach($campaignBanners as $banner)
 				{
 ?>
@@ -68,16 +68,16 @@ if(count($bannerList) > 0)
 							'#NAME#' => $banner['BANNER_NAME'],
 						))?></a>&nbsp;<span class="yandex-delete" onclick="deleteLink('<?=$banner['BANNER_ID']?>', this)"></span>
 			</div>
-<?
+<?php 
 				}
 ?>
 	</div></div>
-<?
+<?php 
 			}
 		}
 ?>
 </div>
-<?
+<?php 
 
 	}
 }

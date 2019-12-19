@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_PROVIDER_SMS_INCOMING"] = "Inbound SMS message";
 $MESS["CRM_ACTIVITY_PROVIDER_SMS_OUTGOING"] = "Outbound SMS message";
 $MESS["CRM_ACTIVITY_PROVIDER_SMS_NAME"] = "SMS message";

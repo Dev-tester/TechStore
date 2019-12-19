@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SRA_ERROR_DELETE"] = "Error deleting renewal ##ID#";
 $MESS["SRA_NO_PERMS2DELETE"] = "You do not have enough permissions to delete the renewal";
 $MESS["SRA_ERROR_UPDATE"] = "Error updating renewal ##ID#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_M_SUPPORT"] = "Техподдержка";
 $MESS["SUP_M_TICKETS"] = "Обращения";
 $MESS["SUP_M_TICKETS_ALT"] = "Обращения посетителей к администрации сайта";

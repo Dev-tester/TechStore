@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_INIT_FOLDERS"] = "Initial folder:";
 $MESS["TRANS_SAVE"] = "Save";
 $MESS["TRANS_RESET"] = "Reset";

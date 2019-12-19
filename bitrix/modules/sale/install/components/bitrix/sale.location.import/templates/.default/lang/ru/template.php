@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SLI_TAB_IMPORT_TITLE"] = "Импорт местоположений";
 $MESS["SALE_SLI_TAB_CLEANUP_TITLE"] = "Очистить список местоположений";
 $MESS["SALE_SLI_PROC_NEUTRAL_ERROR"] = "Произошла ошибка импорта";

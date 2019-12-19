@@ -18,7 +18,7 @@ if($isBitrix24Template)
 		<span class="webform-small-button-right"></span>
 	</span>
 </div>
-<?
+<?php 
 
 if($isBitrix24Template)
 {

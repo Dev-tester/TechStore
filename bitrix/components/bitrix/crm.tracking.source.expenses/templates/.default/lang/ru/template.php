@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_EXPENSES_BTN_ADD"] = "Создать шаблон";
 $MESS["CRM_TRACKING_EXPENSES_BTN_EDIT"] = "Редактировать";
 $MESS["CRM_TRACKING_EXPENSES_BTN_EDIT_TITLE"] = "Редактировать";

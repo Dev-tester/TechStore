@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMPANY_VAR"] = "Company ID Variable Name";
 $MESS["CRM_SEF_PATH_TO_INDEX"] = "Index Page Path Template";
 $MESS["CRM_SEF_PATH_TO_LIST"] = "Companies Page Path Template";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Merchant Services");
 ?>
@@ -18,4 +18,4 @@ $APPLICATION->SetTitle("Merchant Services");
 			 <p>We are eager to help you solve your payment processing challenges.</p>													
 
  
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

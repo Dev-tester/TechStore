@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
@@ -36,13 +36,13 @@ $this->addExternalJs('/bitrix/components/bitrix/imconnector.settings/templates/.
 \Bitrix\ImConnector\Connector::initIconCss();
 ?>
 
-<?
+<?php 
 if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 {
 	if (!empty($arResult['ACTIVE_LINE']))
 	{
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			$arResult['COMPONENT'],
 			"",
@@ -58,7 +58,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 			)
 		); ?>
 		<?= $arResult['LANG_JS_SETTING']; ?>
-		<?
+		<?php 
 		$status = \Bitrix\ImConnector\Status::getInstance($arResult['ID'], $arResult['ACTIVE_LINE']['ID'])->isStatus();
 		\Bitrix\ImConnector\Status::cleanCache($arResult['ID'], $arResult['ACTIVE_LINE']['ID']);
 		if ($status || count($arResult['LIST_LINE']) > 1)
@@ -70,7 +70,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 						<?= Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CONFIGURE_CHANNEL') ?>
 					</div>
 
-					<?
+					<?php 
 					if ($arResult['SHOW_LIST_LINES'])
 					{
 						?>
@@ -79,7 +79,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 								<?= Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_OPEN_LINE') ?>
 							</div>
 							<div class="imconnector-field-control-box">
-								<?
+								<?php 
 								if (count($arResult['LIST_LINE']) > 0)
 								{
 									foreach ($arResult['LIST_LINE'] as &$line)
@@ -116,7 +116,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 									</script>
 									<div class="imconnector-field-control-input imconnector-field-control-select"
 										 id="imconnector-lines-list"><?=$arResult['ACTIVE_LINE']['NAME']?></div>
-									<?
+									<?php 
 									if (!empty($arResult['ACTIVE_LINE']['URL_EDIT']))
 									{
 										?>
@@ -126,7 +126,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 												class="ui-btn ui-btn-link imopenlines-settings-button">
 											<?= Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CONFIGURE') ?>
 										</button>
-										<?
+										<?php 
 									}
 								}
 								else
@@ -136,16 +136,16 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 											class="ui-btn ui-btn-link imopenlines-settings-button">
 										<?= Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CREATE_OPEN_LINE') ?>
 									</button>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 
-					<?
+					<?php 
 					if ($arResult['CAN_CHANGE_USERS'])
 					{
 						CUtil::InitJSCore(array("socnetlogdest"));
@@ -170,7 +170,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 								BX.OpenLinesConfigEdit.initDestination(BX('users_for_queue'), 'QUEUE', <?=CUtil::PhpToJSObject($arResult["QUEUE_DESTINATION"])?>);
 							});
 						</script>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -182,19 +182,19 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 									 data-hint="<?=Loc::getMessage("IMCONNECTOR_COMPONENT_CONNECTOR_QUEUE_DESCRIPTION")?>"></div>
 							</div>
 							<div class="imconnector-field-user">
-								<?
+								<?php 
 								foreach ($arResult["QUEUE_DESTINATION"]["SELECTED"]["USERS"] as $userId)
 								{
 									$user = $arResult["QUEUE_DESTINATION"]["USERS"]["U" . $userId];
 									?>
 									<div class="imconnector-field-user-item">
 										<div class="imconnector-field-user-icon"
-											 <?
+											 <?php 
 											 if ($user['avatar'] != '')
 											 {
 											 	?>
 												 style="background-image: url(<?= $user['avatar'] ?>)"
-											 	<?
+											 	<?php 
 											 }
 											 ?>>
 										</div>
@@ -204,16 +204,16 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 											<div class="imconnector-field-user-desc"><?= $user['desc'] ?></div>
 										</div>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 
-					<?
+					<?php 
 					if (\Bitrix\ImOpenlines\Security\Helper::isSettingsMenuEnabled())
 					{
 						?>
@@ -227,12 +227,12 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 								<?= Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CONFIGURE') ?>
 							</a>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
 			</div>
-			<?
+			<?php 
 			if (count($arResult['LIST_LINE']) > 0)
 			{
 				?>
@@ -245,7 +245,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 						IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_QUEUE: '<?= GetMessageJS('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_QUEUE')?>'
 					});
 				</script>
-				<?
+				<?php 
 			}
 
 		}
@@ -263,7 +263,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -275,7 +275,7 @@ if (empty($arResult['RELOAD']) && empty($arResult['URL_RELOAD']))
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 }
 elseif (!empty($arResult['URL_RELOAD']))
@@ -294,7 +294,7 @@ elseif (!empty($arResult['URL_RELOAD']))
 	</script>
 	</body>
 	</html>
-	<?
+	<?php 
 }
 else
 {
@@ -311,6 +311,6 @@ else
 	</script>
 	</body>
 	</html>
-	<?
+	<?php 
 }
 ?>

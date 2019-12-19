@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_SHOW_TAGS"] = "Показывать теги";
 $MESS["F_PAGE_NAVIGATION_TEMPLATE"] = "Название шаблона для вывода постраничной навигации";
 $MESS["F_THEMES"] = "Темы";

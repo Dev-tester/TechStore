@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["admin_authorize_error"] = "Authentication failure";
 $MESS["admin_forgot_password_error"] = "Error recovering password!";
 $MESS["admin_change_password_error"] = "Error changing password!";

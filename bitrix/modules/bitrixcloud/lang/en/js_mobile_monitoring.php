@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_MOBILE_MONITORING_SITE_DEL_ERROR"] = "Error deleting the website";
 $MESS["BCL_MOBILE_MONITORING_SITE_DELETING"] = "Delete";
 $MESS["BCL_MOBILE_MONITORING_SITE_SAVE_ERROR"] = "Error saving parameters";

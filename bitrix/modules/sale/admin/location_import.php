@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location\Admin\Helper;
@@ -48,7 +48,7 @@ if(!empty($absent) && !$adminSidePanelHelper->isPublicSidePanel())
 <?=(implode("\n", $absent));?>
 	</pre>
 
-	<?
+	<?php 
 }
 else
 {
@@ -64,4 +64,4 @@ else
 }
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

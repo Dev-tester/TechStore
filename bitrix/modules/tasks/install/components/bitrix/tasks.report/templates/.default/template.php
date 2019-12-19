@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\UI;
@@ -359,13 +359,13 @@ endif;
 <?php $this->EndViewTarget();?>
 
 
-<? $this->SetViewTarget("pagetitle", 100);?>
+<?php  $this->SetViewTarget("pagetitle", 100);?>
 <div class="task-title-buttons task-detail-title-buttons">
 	<span class="task-report-title-checkbox">
 		<input class="textbox" type="checkbox" id="task-title-checkbox" onclick="BX.toggleClass(BX('task-report-table'), 'task-report-table-full')" />
 		<label for="task-title-checkbox"><?= GetMessage("TASKS_REPORT_SHOW_ALL")?></label>
 	</span>
-	<? if ($arParams["BACK_TO_TASKS"] != "N"):?>
+	<?php  if ($arParams["BACK_TO_TASKS"] != "N"):?>
 		<span class="task-title-button-separator"></span>
 		<a href="<?= CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_TASKS"], array());?>">
 			<i class="task-title-button-back-icon"></i>
@@ -373,6 +373,6 @@ endif;
 		</a>
 	<?php endif?>
 </div>
-<? $this->EndViewTarget();?>
+<?php  $this->EndViewTarget();?>
 
 <script>tasksReportDefaultTemplateInit()</script>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $module_id = "security";
 CModule::IncludeModule($module_id);
 
@@ -110,59 +110,59 @@ if($message)
 $availableMessagePlaceholders = CSecurityEventMessageFormatter::getAvailableMessagePlaceholders();
 $availableUserInfoPlaceholders = CSecurityEventMessageFormatter::getAvailableUserInfoPlaceholders();
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=LANGUAGE_ID?>">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=LANGUAGE_ID?>">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 
 	foreach($arAllOptions as $arOption):
 	$type = $arOption[2];
 	$note = $arOption[3]?: null;?>
-	<?if($type[0] == "heading"):?>
+	<?php if($type[0] == "heading"):?>
 	<tr class="heading">
-		<td colspan="2"><b><?echo $arOption[1]?></b></td>
+		<td colspan="2"><b><?php echo $arOption[1]?></b></td>
 	</tr>
-	<?else:?>
-	<?$val = COption::GetOptionString($module_id, $arOption[0]);?>
+	<?php else:?>
+	<?php $val = COption::GetOptionString($module_id, $arOption[0]);?>
 	<tr>
 		<td width="40%">
 			<label for="<?=htmlspecialcharsbx($arOption[0])?>"><?=$arOption[1]?>
-			<? if($note !== null):?>
+			<?php  if($note !== null):?>
 				<span class="required"><sup><?=$note?></sup></span>
-			<?endif;?>
+			<?php endif;?>
 			:</label>
 
 		</td>
 		<td width="60%">
-			<?if($type[0] == "checkbox"):?>
-				<input type="checkbox" name="<?echo htmlspecialcharsbx($arOption[0])?>" id="<?echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-			<?elseif($type[0] == "text"):?>
-				<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($arOption[0])?>" id="<?echo htmlspecialcharsbx($arOption[0])?>">
-			<?elseif($type[0] == "textarea"):?>
-				<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($arOption[0])?>" id="<?echo htmlspecialcharsbx($arOption[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-			<?elseif($type[0] == "selectbox"):
+			<?php if($type[0] == "checkbox"):?>
+				<input type="checkbox" name="<?php echo htmlspecialcharsbx($arOption[0])?>" id="<?php echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+			<?php elseif($type[0] == "text"):?>
+				<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>" id="<?php echo htmlspecialcharsbx($arOption[0])?>">
+			<?php elseif($type[0] == "textarea"):?>
+				<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>" id="<?php echo htmlspecialcharsbx($arOption[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+			<?php elseif($type[0] == "selectbox"):
 				echo SelectBoxFromArray($arOption[0], $type[1], $val);
 			endif?>
 		</td>
 	</tr>
-	<?endif;?>
-	<?endforeach?>
+	<?php endif;?>
+	<?php endforeach?>
 	<tr>
 		<td colspan="2">
 			<?=BeginNote();?>
 			<p>
 				<span class="required"><sup>1</sup></span>
 				<?=GetMessage("SEC_OPTIONS_EVENT_MESSAGE_PLACEHOLDERS")?>:
-				<?foreach($availableMessagePlaceholders as $placeholder):?>
+				<?php foreach($availableMessagePlaceholders as $placeholder):?>
 				<div style="margin-left: 20px;"><?=$placeholder?> - <?=getMessage("SEC_OPTIONS_EVENT_MESSAGE_PLACEHOLDER_".str_replace("#", "", $placeholder))?></div>
-				<?endforeach?>
+				<?php endforeach?>
 			</p>
 			<p>
 				<span class="required"><sup>2</sup></span>
 				<?=GetMessage("SEC_OPTIONS_EVENT_USERINFO_PLACEHOLDERS")?>:
-				<?foreach($availableUserInfoPlaceholders as $placeholder):?>
+				<?php foreach($availableUserInfoPlaceholders as $placeholder):?>
 				<div style="margin-left: 20px;"><?=$placeholder?> - <?=getMessage("SEC_OPTIONS_EVENT_USERINFO_PLACEHOLDER_".str_replace("#", "", $placeholder))?></div>
-				<?endforeach?>
+				<?php endforeach?>
 			</p>
 			<p>
 				<span class="required"><sup>3</sup></span>
@@ -171,7 +171,7 @@ $tabControl->BeginNextTab();
 			<?=EndNote(); ?>
 		</td>
 	</tr>
-<?
+<?php 
 if ($USER->IsAdmin())
 {
 	$tabControl->BeginNextTab();
@@ -179,14 +179,14 @@ if ($USER->IsAdmin())
 }
 
 $tabControl->Buttons();?>
-	<input <?if(!$canWrite) echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>">
-	<input <?if(!$canWrite) echo "disabled" ?> type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if($_REQUEST["back_url_settings"] != "" ):?>
-		<input <?if(!$canWrite) echo "disabled" ?> type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<input <?php if(!$canWrite) echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>">
+	<input <?php if(!$canWrite) echo "disabled" ?> type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
+	<?php if($_REQUEST["back_url_settings"] != "" ):?>
+		<input <?php if(!$canWrite) echo "disabled" ?> type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input <?if(!$canWrite) echo "disabled" ?> type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input <?php if(!$canWrite) echo "disabled" ?> type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" onclick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 global $INTRANET_TOOLBAR;
@@ -70,40 +70,40 @@ if (!function_exists('intr_SelectorTplShowSection'))
 if (count($arResult['SECTIONS_CHAIN']) > 1):
 ?>
 <div class="bx-user-sections-chain">
-<?
+<?php 
 	foreach ($arResult['SECTIONS_CHAIN'] as $key => $arItem)
 	{
-		?><?=$key > 0 ? '&nbsp;|&nbsp;' : ''?><a href="<?=$arItem[2]?>"><?=htmlspecialcharsex($arItem[1])?></a><?
+		?><?=$key > 0 ? '&nbsp;|&nbsp;' : ''?><a href="<?=$arItem[2]?>"><?=htmlspecialcharsex($arItem[1])?></a><?php 
 	}
 ?>
 </div>
-<?
+<?php 
 endif;
 
 if (isset($arResult['TOP_SECTION']) && $arResult['TOP_SECTION'] > 0):
 ?>
 <div class="bx-user-section-alltop"><a href="<?=$arParams['LIST_URL']?>?set_filter_<?=$arParams['FILTER_NAME']?>=Y&<?=$arParams['FILTER_NAME']?>_UF_DEPARTMENT=<?=intval($arResult['SECTION_DATA']['ID']).GetFilterParams($arResult['FILTER_PARAMS'])?>"><?=htmlspecialcharsbx($arResult['SECTION_DATA']['NAME'])?></a></div>
-<?
+<?php 
 endif;
 
 if ($arParams['SHOW_SECTION_INFO'] == 'Y' && is_array($arResult['SECTION_DATA']) && ($arResult['SECTION_DATA']['DETAIL_PICTURE'] || $arResult['SECTION_DATA']['DESCRIPTION'])):
 ?>
 <div class="bx-user-section-info">
-<?
+<?php 
 	if ($arResult['SECTION_DATA']['DETAIL_PICTURE']):
 ?>
-	<div class="bx-user-section-picture"><?echo $arResult['SECTION_DATA']['DETAIL_PICTURE']?></div>
-<?
+	<div class="bx-user-section-picture"><?php echo $arResult['SECTION_DATA']['DETAIL_PICTURE']?></div>
+<?php 
 	endif;
 	if ($arResult['SECTION_DATA']['DESCRIPTION']):
 ?>
-	<div class="bx-user-section-text"><?echo ($arResult['SECTION_DATA']['DESCRIPTION_TYPE'] == 'text' ? htmlspecialcharsex($arResult['SECTION_DATA']['DESCRIPTION']) : $arResult['SECTION_DATA']['DESCRIPTION'])?></div>
-<?
+	<div class="bx-user-section-text"><?php echo ($arResult['SECTION_DATA']['DESCRIPTION_TYPE'] == 'text' ? htmlspecialcharsex($arResult['SECTION_DATA']['DESCRIPTION']) : $arResult['SECTION_DATA']['DESCRIPTION'])?></div>
+<?php 
 	endif;
 ?>
 <div class="bx-user-section-delimiter"></div>
 </div>
-<?
+<?php 
 endif;
 
 intr_SelectorTplShowSection(0, $arResult['SECTIONS'], $arParams, $arResult);

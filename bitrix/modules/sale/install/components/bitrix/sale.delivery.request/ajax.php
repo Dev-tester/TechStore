@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Sale\Delivery\Requests,
 	\Bitrix\Main\Localization\Loc,
 	\Bitrix\Sale\Delivery\Services;

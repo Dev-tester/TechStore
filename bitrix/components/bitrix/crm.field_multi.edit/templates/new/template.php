@@ -8,7 +8,7 @@ if(!function_exists('__CrmFieldMultiEditRenderItem'))
 		$itemID = isset($item['ID']) ? $item['ID'] : '';
 		$itemVal = isset($item['VALUE']) ? $item['VALUE'] : '';
 		?><div class="bx-crm-edit-fm-item">
-		<input type="text" class="bx-crm-edit-input" name="<?=htmlspecialcharsbx($mnemonic)?>[<?=htmlspecialcharsbx($typeID)?>][<?=htmlspecialcharsbx($itemID)?>][VALUE]" value="<?=htmlspecialcharsbx($itemVal)?>"><?
+		<input type="text" class="bx-crm-edit-input" name="<?=htmlspecialcharsbx($mnemonic)?>[<?=htmlspecialcharsbx($typeID)?>][<?=htmlspecialcharsbx($itemID)?>][VALUE]" value="<?=htmlspecialcharsbx($itemVal)?>"><?php 
 		echo SelectBoxFromArray(
 			CUtil::JSEscape($mnemonic).'['.htmlspecialcharsbx($typeID).']['.htmlspecialcharsbx($itemID).'][VALUE_TYPE]',
 			$referenceData,
@@ -17,14 +17,14 @@ if(!function_exists('__CrmFieldMultiEditRenderItem'))
 			"class='bx-crm-edit-input bx-crm-edit-input-small'"
 		);
 		?><div class="delete-action" onclick="BX.CrmFieldMultiEditor.items['<?=CUtil::addslashes($editorID)?>'].deleteItem('<?=CUtil::addslashes($itemID)?>');" title="<?=GetMessage('CRM_STATUS_LIST_DELETE')?>"></div>
-		</div><?
+		</div><?php 
 	}
 }
 
 global $APPLICATION;
 $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
 $editorID = isset($arResult['EDITOR_ID']) ? $arResult['EDITOR_ID'] : uniqid("{$arResult['FM_MNEMONIC']}_{$arResult['TYPE_ID']}_");
-?><div id="<?=htmlspecialcharsbx($editorID)?>" class="bx-crm-edit-fm-container"><?
+?><div id="<?=htmlspecialcharsbx($editorID)?>" class="bx-crm-edit-fm-container"><?php 
 $valuCount = count($arResult['VALUES']);
 if(!empty($arResult['VALUES'])):
 	foreach($arResult['VALUES'] as &$arValue):

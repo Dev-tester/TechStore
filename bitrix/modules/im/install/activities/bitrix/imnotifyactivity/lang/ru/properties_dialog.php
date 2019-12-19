@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPIMNA_PD_FROM'] = "Получатель уведомления";
 $MESS ['BPIMNA_PD_TO'] = "Отправитель уведомления";
 $MESS ['BPIMNA_PD_MESSAGE'] = "Текст уведомления для сайта";

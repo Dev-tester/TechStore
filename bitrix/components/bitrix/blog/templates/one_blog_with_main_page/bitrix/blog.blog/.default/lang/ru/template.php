@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_BLOG_BLOG_MORE'] = "Подробнее...";
 $MESS ['BLOG_BLOG_BLOG_CATEGORY'] = "Теги:";
 $MESS ['BLOG_BLOG_BLOG_PERMALINK'] = "Постоянный адрес";

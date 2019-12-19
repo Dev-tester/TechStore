@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANG_FILTER_NAME"] = "Сайт";
 $MESS["ERROR_UPDATE_REC"] = "Ошибка изменения записи ";
 $MESS["PERS_TYPE_ACTIVE"] = "Акт.";

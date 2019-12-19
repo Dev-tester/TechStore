@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_FILTER_ACTIVE_TIME_PERIOD"] = "Active period";
 $MESS["CRM_LEAD_FILTER_ACTIVITY_COUNTER"] = "Activities";
 $MESS["CRM_LEAD_FILTER_COMMUNICATION_TYPE"] = "Communication";

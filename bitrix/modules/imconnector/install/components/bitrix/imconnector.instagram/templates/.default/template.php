@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -37,7 +37,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<?=bitrix_sessid_post();?>
 </form>
 
-<?
+<?php 
 if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 {
 	if ($arResult['STATUS'])
@@ -68,7 +68,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
+		<?php include 'messages.php'?>
 		<div class="imconnector-field-container">
 			<div class="imconnector-field-section">
 				<div class="imconnector-field-main-title">
@@ -90,7 +90,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -120,8 +120,8 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
-		<?
+		<?php include 'messages.php'?>
+		<?php 
 	}
 }
 else
@@ -144,8 +144,8 @@ else
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
-		<?
+		<?php include 'messages.php'?>
+		<?php 
 		if ($arResult['ACTIVE_STATUS']) //case before auth to instagram
 		{
 			?>
@@ -159,7 +159,7 @@ else
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_INSTAGRAM_LOG_IN_UNDER_AN_ADMINISTRATOR_ACCOUNT_ENTITY')?>
 						</div>
 					</div>
-					<?
+					<?php 
 					if ($arResult['FORM']['USER']['URI'] != '')
 					{
 						?>
@@ -170,12 +170,12 @@ else
 								<?=Loc::getMessage('IMCONNECTOR_COMPONENT_INSTAGRAM_AUTHORIZE')?>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		else
 		{	//case before start connecting to instagram
@@ -205,7 +205,7 @@ else
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	else
@@ -223,12 +223,12 @@ else
 					<div class="imconnector-field-social-card">
 						<div class="imconnector-field-social-card-info">
 							<div class="imconnector-field-social-icon"
-								<?
+								<?php 
 								if($arResult['FORM']['USER']['INFO']['PICTURE']['URL'])
 								{
 									?>
 									style="background-image: url(<?=htmlspecialcharsbx($arResult['FORM']['USER']['INFO']['PICTURE']['URL'])?>)"
-									<?
+									<?php 
 								}
 								?>>
 							</div>
@@ -246,7 +246,7 @@ else
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
+		<?php include 'messages.php'?>
 		<div class="imconnector-field-container">
 			<div class="imconnector-field-section">
 				<div class="imconnector-field-box">
@@ -256,7 +256,7 @@ else
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 }
 ?>

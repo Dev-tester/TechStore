@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EVENT_TABLE_EMPTY"] = "- No data -";
 $MESS["CRM_EVENT_TABLE_FILES"] = "Files";
 $MESS["CRM_EVENT_DELETE"] = "Delete";

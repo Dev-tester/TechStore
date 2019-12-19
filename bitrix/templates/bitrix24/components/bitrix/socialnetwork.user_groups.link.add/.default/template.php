@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -32,7 +32,7 @@ $APPLICATION->IncludeComponent(
 
 $filterID = (!empty($arParams["FILTER_ID"]) ? $arParams["FILTER_ID"] : 'SONET_GROUP_LIST');
 
-?><div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;" id="<?=htmlspecialcharsbx($filterID)?>_filter_container"><?
+?><div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;" id="<?=htmlspecialcharsbx($filterID)?>_filter_container"><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.ui.filter',
 	'',
@@ -50,26 +50,26 @@ $APPLICATION->IncludeComponent(
 	),
 	$this->getComponent()
 );
-?></div><?
+?></div><?php 
 
 if ($arParams["ALLOW_CREATE_GROUP"] == "Y")
 {
-	?><a class="ui-btn ui-btn-primary ui-btn-icon-add" href="<?=htmlspecialcharsbx($arParams["HREF"])?>"><?
-		?><?=Loc::getMessage("SONET_C36_T_CREATE2")?></a><?
+	?><a class="ui-btn ui-btn-primary ui-btn-icon-add" href="<?=htmlspecialcharsbx($arParams["HREF"])?>"><?php 
+		?><?=Loc::getMessage("SONET_C36_T_CREATE2")?></a><?php 
 
 	?><script>
 		BX.ready(function()
 		{
-			<?
+			<?php 
 			if (isset($_GET["new"]))
 			{
 				?>
 				BX.SGCP.ShowForm("create", "<?=$popupName?>", {});
-				<?
+				<?php 
 			}
 			?>
-		});<?
-	?></script><?
+		});<?php 
+	?></script><?php 
 }
 
 ?><script>
@@ -81,7 +81,7 @@ if ($arParams["ALLOW_CREATE_GROUP"] == "Y")
 		sonetGroupFilter.init({
 			minSearchStringLength: <?=intval($arResult["ftMinTokenSize"])?>
 		});
-	});<?
-?></script><?
+	});<?php 
+?></script><?php 
 
 $this->EndViewTarget();

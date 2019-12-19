@@ -275,26 +275,26 @@ final class VoteUserType
 						$htmlControl["NAME"]."[CHANNEL_ID]",
 						$voteChannels,
 						$value)
-				)?><a style="margin-left: 1em;" href="" rel="/bitrix/admin/vote_channel_edit.php?ID=#id#" <?
+				)?><a style="margin-left: 1em;" href="" rel="/bitrix/admin/vote_channel_edit.php?ID=#id#" <?php 
 				?>onmousedown="this.href=this.rel.replace('#id#',this.previousSibling.value);"><?=Loc::getMessage("V_CHANNEL_ID_EDIT")?></a></td>
 		</tr>
-		<tbody id="channel_create" style="<?if ($value != "add"): ?>display:none;<? endif; ?>">
+		<tbody id="channel_create" style="<?php if ($value != "add"): ?>display:none;<?php  endif; ?>">
 		<tr class="adm-detail-required-field">
 			<td class="adm-detail-content-cell-l" width="40%"><?=Loc::getMessage("V_CHANNEL_ID_TITLE")?></td>
-			<td class="adm-detail-content-cell-r" width="60%"><input type="text" name="<?=$htmlControl["NAME"]?>[CHANNEL_TITLE]" <?
+			<td class="adm-detail-content-cell-r" width="60%"><input type="text" name="<?=$htmlControl["NAME"]?>[CHANNEL_TITLE]" <?php 
 				?>value="<?=htmlspecialcharsbx($entity["CHANNEL_TITLE"]);?>" /></td>
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td class="adm-detail-content-cell-l"><?=Loc::getMessage("V_CHANNEL_ID_SYMBOLIC_NAME")?></td>
-			<td class="adm-detail-content-cell-r"><input type="text" name="<?=$htmlControl["NAME"]?>[CHANNEL_SYMBOLIC_NAME]" <?
+			<td class="adm-detail-content-cell-r"><input type="text" name="<?=$htmlControl["NAME"]?>[CHANNEL_SYMBOLIC_NAME]" <?php 
 				?>value="<?=htmlspecialcharsbx($entity["CHANNEL_SYMBOLIC_NAME"]);?>" /></td>
 		</tr>
 		<tr>
 			<td class="adm-detail-content-cell-l">&nbsp;</td>
-			<td class="adm-detail-content-cell-r"><input type="checkbox" name="<?=$htmlControl["NAME"]?>[CHANNEL_USE_CAPTCHA]" <?
-				?>id="CHANNEL_USE_CAPTCHA" <?if ($entity["CHANNEL_USE_CAPTCHA"] == "Y"): ?> checked <? endif;
+			<td class="adm-detail-content-cell-r"><input type="checkbox" name="<?=$htmlControl["NAME"]?>[CHANNEL_USE_CAPTCHA]" <?php 
+				?>id="CHANNEL_USE_CAPTCHA" <?php if ($entity["CHANNEL_USE_CAPTCHA"] == "Y"): ?> checked <?php  endif;
 				?>value="Y" /> <label for="CHANNEL_USE_CAPTCHA"><?=Loc::getMessage("V_CHANNEL_ID_USE_CAPTCHA")?></label></td>
-		</tr><?
+		</tr><?php 
 		$dbRes = \CGroup::GetList($by = "sort", $order = "asc", Array("ADMIN" => "N"));
 		while ($group = $dbRes->getNext())
 		{
@@ -306,12 +306,12 @@ final class VoteUserType
 			<tr>
 			<td class="adm-detail-content-cell-l"><?=$group["NAME"].":"?></td>
 			<td class="adm-detail-content-cell-r"><?=SelectBoxFromArray("GROUP_ID[".$group["ID"]."]", $aVotePermissions, $value);?></td>
-			</tr><?
+			</tr><?php 
 		}
 
 		?>
 		</tbody>
-		<?
+		<?php 
 		if($varsFromForm)
 		{
 			$entity['UNIQUE'] = is_array($entity['UNIQUE']) ?
@@ -354,45 +354,45 @@ final class VoteUserType
 		</script>
 		<tr>
 			<td class="adm-detail-content-cell-l adm-detail-valign-top" width="40%"><?=Loc::getMessage("VOTE_NOTIFY")?></td>
-			<td class="adm-detail-content-cell-r" width="60%"><?
+			<td class="adm-detail-content-cell-r" width="60%"><?php 
 				$entity["NOTIFY"] = (
 				$entity["NOTIFY"] != "I" && $entity["NOTIFY"] != "Y" ?
 					"N" : $entity["NOTIFY"]);
 				if (IsModuleInstalled("im")): ?>
-					<?=InputType("radio", $htmlControl["NAME"]."[NOTIFY]", "I", $entity["NOTIFY"], false, Loc::getMessage("VOTE_NOTIFY_IM"))?><br /><?
+					<?=InputType("radio", $htmlControl["NAME"]."[NOTIFY]", "I", $entity["NOTIFY"], false, Loc::getMessage("VOTE_NOTIFY_IM"))?><br /><?php 
 				else:
 					$entity["NOTIFY"] = ($entity["NOTIFY"] == "I" ?
 						"N" : $entity["NOTIFY"]);
 				endif; ?>
 				<?=InputType("radio", $htmlControl["NAME"]."[NOTIFY]", "Y", $entity["NOTIFY"], false, Loc::getMessage("VOTE_NOTIFY_EMAIL"))?><br />
-				<?=InputType("radio", $htmlControl["NAME"]."[NOTIFY]", "N", $entity["NOTIFY"], false, Loc::getMessage("VOTE_NOTIFY_N"))?><?
+				<?=InputType("radio", $htmlControl["NAME"]."[NOTIFY]", "N", $entity["NOTIFY"], false, Loc::getMessage("VOTE_NOTIFY_N"))?><?php 
 				?></td>
 		</tr>
 		<tr>
 			<td class="adm-detail-content-cell-l adm-detail-valign-top"><?=Loc::getMessage("V_UNIQUE")?></td>
 			<td class="adm-detail-content-cell-r">
-				<? if (IsModuleInstalled('statistic')): ?>
+				<?php  if (IsModuleInstalled('statistic')): ?>
 					<input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_SESSION" value="1" <?=($uniqType & \Bitrix\Vote\Vote\EventLimits::BY_SESSION)?" checked":""?> />
 					<label for="UNIQUE_TYPE_SESSION"><?=Loc::getMessage("V_UNIQUE_SESSION")?></label><br />
-				<? endif; ?>
+				<?php  endif; ?>
 				<input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_COOKIE" value="2" <?=($uniqType & \Bitrix\Vote\Vote\EventLimits::BY_COOKIE)?" checked":""?> />
 				<label for="UNIQUE_TYPE_COOKIE"><?=Loc::getMessage("V_UNIQUE_COOKIE_ONLY")?></label><br />
-				<input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_IP" onclick="__utch()" value="<?=\Bitrix\Vote\Vote\EventLimits::BY_IP?>" <?
+				<input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_IP" onclick="__utch()" value="<?=\Bitrix\Vote\Vote\EventLimits::BY_IP?>" <?php 
 				?><?=($uniqType & \Bitrix\Vote\Vote\EventLimits::BY_IP) ? " checked":""?> />
 				<label for="UNIQUE_TYPE_IP"><?=Loc::getMessage("V_UNIQUE_IP_ONLY")?></label><br />
-				<input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_USER_ID" onclick="__utch();" value="<?=(\Bitrix\Vote\Vote\EventLimits::BY_USER_AUTH|\Bitrix\Vote\Vote\EventLimits::BY_USER_ID)?>" <?
+				<input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_USER_ID" onclick="__utch();" value="<?=(\Bitrix\Vote\Vote\EventLimits::BY_USER_AUTH|\Bitrix\Vote\Vote\EventLimits::BY_USER_ID)?>" <?php 
 				?><?=($uniqType & (\Bitrix\Vote\Vote\EventLimits::BY_USER_AUTH|\Bitrix\Vote\Vote\EventLimits::BY_USER_ID))?" checked":""?> />
 				<label for="UNIQUE_TYPE_USER_ID"><?=Loc::getMessage("V_UNIQUE_USER_ID_ONLY")?></label><br />
 			</td>
 		</tr>
 		<tr>
 			<td class="adm-detail-content-cell-l" width="40%">&nbsp;</td>
-			<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_USER_ID_NEW" value="16" <?
-				?><?=($uniqType & 16)?" checked ":""?><?
+			<td class="adm-detail-content-cell-r" width="60%"><input type="checkbox" name="<?=$htmlControl["NAME"]?>[UNIQUE][]" id="UNIQUE_TYPE_USER_ID_NEW" value="16" <?php 
+				?><?=($uniqType & 16)?" checked ":""?><?php 
 				?><?=($uniqType & 8)?"": " disabled"?> /> <label for="UNIQUE_TYPE_USER_ID_NEW"><?=Loc::getMessage("V_UNIQUE_USER_ID_NEW")?></label>
 			</td>
 		</tr>
-		<?
+		<?php 
 		if($varsFromForm)
 			$value = $entity["UNIQUE_IP_DELAY"];
 		else
@@ -423,7 +423,7 @@ final class VoteUserType
 
 			</td>
 		</tr>
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 

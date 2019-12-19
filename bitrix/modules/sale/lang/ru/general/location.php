@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CITY_MOSCOW'] = 			'Москва';
 $MESS['CITY_STPETERSBURG'] = 	'Санкт-Петербург';
 

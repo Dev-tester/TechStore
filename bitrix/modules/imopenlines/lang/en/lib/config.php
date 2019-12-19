@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_ADD_ERROR"] = "Error creating Open Channel";
 $MESS["IMOL_CONFIG_CLOSE_TEXT"] = "Thank you for contacting us! Please tell us how you like our service.";
 $MESS["IMOL_CONFIG_CLOSE_TEXT_2"] = "Thank you for doing business with us.";

@@ -35,7 +35,7 @@ if(!Bitrix\Crm\Integration\Bitrix24Manager::isAccessEnabled(CCrmOwnerType::Lead)
 }
 else
 {
-	?><div class="bx-crm-view"><?
+	?><div class="bx-crm-view"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.lead.menu',
 		'',
@@ -50,7 +50,7 @@ else
 		),
 		$component
 	);
-	?><div class="bx-crm-view-form"><?
+	?><div class="bx-crm-view-form"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.lead.show',
 		'',
@@ -72,8 +72,8 @@ else
 		),
 		$component
 	);
-	?></div><?
-	?></div><?
+	?></div><?php 
+	?></div><?php 
 }
 ?>
 

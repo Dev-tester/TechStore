@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MODULE_NOT_FOUND"] = "e-Learning module is not installed.";
 $MESS["LEARNING_TEST_DENIED"] = "Test not found or access denied.";
 $MESS["LEARNING_NO_AUTHORIZE"] = "Authorization required to view this page.";

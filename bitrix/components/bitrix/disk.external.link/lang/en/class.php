@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_EXTERNAL_LINK_ERROR_DISABLED_MODE"] = "Public links are disabled on this portal.";
 $MESS["DISK_EXTERNAL_OBJECT_COLUMN_NAME"] = "Name";
 $MESS["DISK_EXTERNAL_OBJECT_COLUMN_CREATE_TIME"] = "Created on";

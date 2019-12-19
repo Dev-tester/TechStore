@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NTR_MAIL_PAGE_TITLE"] = "Подключение почтового ящика";
 $MESS["INTR_MAIL_B24_PAGE_TITLE"] = "Битрикс24.Почта";
 $MESS["INTR_MAIL_DOMAIN_PAGE_TITLE"] = "Подключение почтового домена";

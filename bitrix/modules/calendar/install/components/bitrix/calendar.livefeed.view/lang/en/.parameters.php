@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_TYPE"] = "Calendar type";
 $MESS["EC_CALENDAR_SECTION"] = "Calendar section";
 $MESS["EC_CALENDAR_SECTION_ALL"] = "all sections";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_ERROR_NO_URL'] = "URL is not specified.";
 $MESS ['FORUM_ERROR_NO_TITLE'] = "The title is not specified.";
 $MESS ['FORUM_HELP_BOLD'] = "Bold (alt + b)";

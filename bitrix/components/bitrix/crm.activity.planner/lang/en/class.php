@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_ACTIVITY_PLANNER_NO_ACTIVITY"] = "Activity was not found.";
 $MESS["CRM_ACTIVITY_PLANNER_NO_UPDATE_PERMISSION"] = "Insufficient permission to edit activity data.";

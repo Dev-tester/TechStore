@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WS_OUTLOOK_APP_COMMENT"] = "Generated automatically";
 $MESS["WS_OUTLOOK_APP_DESC"] = "Get a password for Microsoft Outlook to set up synchronization of your calendars, contacts or tasks.";
 $MESS["WS_OUTLOOK_APP_OPTIONS_CAPTION"] = "Connect";

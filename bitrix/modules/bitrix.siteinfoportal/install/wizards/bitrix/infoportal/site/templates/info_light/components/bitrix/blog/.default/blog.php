@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="body-blog">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"",
@@ -27,12 +27,12 @@ $APPLICATION->IncludeComponent(
 	$component
 );
 ?>
-<?
+<?php 
 $this->SetViewTarget("sidebar", 100);
 ?>	
 <div class="blog-sidebar">
 	<div class="blog-sidebar-info">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.info",
 				"avatar",
@@ -54,7 +54,7 @@ $this->SetViewTarget("sidebar", 100);
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:blog.menu",
 			"settings",
@@ -82,7 +82,7 @@ $this->SetViewTarget("sidebar", 100);
 			$component
 		);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.info",
 				".default",
@@ -106,7 +106,7 @@ $this->SetViewTarget("sidebar", 100);
 		?>
 	</div>
 	<div class="blog-sidebar-calendar">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.calendar",
 				"",
@@ -127,7 +127,7 @@ $this->SetViewTarget("sidebar", 100);
 		?>
 	</div>
 	<div class="br"></div>
-		<?
+		<?php 
 		if(IsModuleInstalled("search"))
 		{
 			$arBlog = CBlog::GetByUrl($arResult["VARIABLES"]["blog"], $arParams["GROUP_ID"]);
@@ -138,7 +138,7 @@ $this->SetViewTarget("sidebar", 100);
 					<li class="blog-tags-cloud">
 						<h3 class="blog-sidebar-title"><?=GetMessage("BC_SEARCH_TAG")?></h3>
 						<div align="center">
-						<?
+						<?php 
 						$APPLICATION->IncludeComponent(
 							"bitrix:search.tags.cloud",
 							"",
@@ -170,11 +170,11 @@ $this->SetViewTarget("sidebar", 100);
 						</div>
 					</li>
 				</ul>
-				<?
+				<?php 
 			}
 		}
 		?>
-		<?
+		<?php 
 		if(IsModuleInstalled("search"))
 		{
 			$APPLICATION->IncludeComponent(
@@ -197,7 +197,7 @@ $this->SetViewTarget("sidebar", 100);
 
 		}
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.blog.favorite", 
 				"", 
@@ -232,7 +232,7 @@ $this->SetViewTarget("sidebar", 100);
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.rss.link",
 				"",
@@ -254,11 +254,11 @@ $this->SetViewTarget("sidebar", 100);
 		?>
 	
 	</div>
-<?
+<?php 
 $this->EndViewTarget();
 ?>
 	<div class="blog-posts">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:blog.blog", 
 			"", 

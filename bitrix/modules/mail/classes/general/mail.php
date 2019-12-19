@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Mail\Helper\MailContact;
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_MENU_OPENLINES_LINES"] = "Управление";
 $MESS["SERVICES_MENU_OPENLINES_STATS"] = "Статистика";
 ?>

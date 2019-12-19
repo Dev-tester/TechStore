@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -188,18 +188,18 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("CTRL_LOG_ADMIN_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="form1" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?">
-	<? $filter->Begin(); ?>
+<form name="form1" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?">
+	<?php  $filter->Begin(); ?>
 	<tr>
 		<td nowrap><label for="find_name"><?=GetMessage("CTRL_LOG_ADMIN_COLUMN_NAME")?></label>:</td>
 		<td nowrap>
 			<select name="find_name" id="find_name">
 				<option value=""></option>
-				<? foreach ($arLogNames as $name_id => $name_value): ?>
+				<?php  foreach ($arLogNames as $name_id => $name_value): ?>
 					<option value="<?=$name_id?>"><?=htmlspecialcharsEx($name_value)?></option>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 			</select>
-			<input type="text" name="find_name2" title="" value="<? echo htmlspecialcharsbx($adminFilter['find_name2']) ?>" size="15">
+			<input type="text" name="find_name2" title="" value="<?php  echo htmlspecialcharsbx($adminFilter['find_name2']) ?>" size="15">
 		</td>
 	</tr>
 
@@ -207,9 +207,9 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 		<td nowrap><label for="find_status"><?=GetMessage("CTRL_LOG_ADMIN_FILTER_STATUS")?></label>:</td>
 		<td nowrap>
 			<select name="find_status" id="find_status">
-				<option value=""><? echo GetMessage("CTRL_LOG_ADMIN_FILTER_ANY") ?></option>
-				<option value="Y"<? if ($find_status == "Y") echo ' selected' ?>><? echo GetMessage("CTRL_LOG_ADMIN_COLUMN_STATUS_OK") ?></option>
-				<option value="N"<? if ($find_status == "N") echo ' selected' ?>><? echo GetMessage("CTRL_LOG_ADMIN_COLUMN_STATUS_ERR") ?></option>
+				<option value=""><?php  echo GetMessage("CTRL_LOG_ADMIN_FILTER_ANY") ?></option>
+				<option value="Y"<?php  if ($find_status == "Y") echo ' selected' ?>><?php  echo GetMessage("CTRL_LOG_ADMIN_COLUMN_STATUS_OK") ?></option>
+				<option value="N"<?php  if ($find_status == "N") echo ' selected' ?>><?php  echo GetMessage("CTRL_LOG_ADMIN_COLUMN_STATUS_ERR") ?></option>
 			</select>
 		</td>
 	</tr>
@@ -220,7 +220,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 				type="text"
 				name="find_description"
 				id="find_description"
-				value="<? echo htmlspecialcharsbx($adminFilter['find_description']) ?>"
+				value="<?php  echo htmlspecialcharsbx($adminFilter['find_description']) ?>"
 				size="47"
 			>
 		</td>
@@ -233,7 +233,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 				type="text"
 				name="find_id"
 				id="find_id"
-				value="<? echo htmlspecialcharsbx($adminFilter['find_id']) ?>"
+				value="<?php  echo htmlspecialcharsbx($adminFilter['find_id']) ?>"
 				size="47"
 			>
 		</td>
@@ -246,7 +246,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 				type="text"
 				name="find_controller_member_name"
 				id="find_controller_member_name"
-				value="<? echo htmlspecialcharsbx($adminFilter['find_controller_member_name']) ?>"
+				value="<?php  echo htmlspecialcharsbx($adminFilter['find_controller_member_name']) ?>"
 				size="47"
 			>
 		</td>
@@ -259,7 +259,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 				type="text"
 				name="find_controller_member_id"
 				id="find_controller_member_id"
-				value="<? echo htmlspecialcharsbx($adminFilter['find_controller_member_id']) ?>"
+				value="<?php  echo htmlspecialcharsbx($adminFilter['find_controller_member_id']) ?>"
 				size="47"
 			>
 		</td>
@@ -272,7 +272,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 				type="text"
 				name="find_task_name"
 				id="find_task_name"
-				value="<? echo htmlspecialcharsbx($adminFilter['find_task_name']) ?>"
+				value="<?php  echo htmlspecialcharsbx($adminFilter['find_task_name']) ?>"
 				size="47"
 			>
 		</td>
@@ -285,7 +285,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 				type="text"
 				name="find_task_id"
 				id="find_task_id"
-				value="<? echo htmlspecialcharsbx($adminFilter['find_task_id']) ?>"
+				value="<?php  echo htmlspecialcharsbx($adminFilter['find_task_id']) ?>"
 				size="47"
 			>
 		</td>
@@ -293,15 +293,15 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 
 	<tr>
 		<td nowrap><?=GetMessage("CTRL_LOG_ADMIN_FILTER_CREATED")?>:</td>
-		<td nowrap><? echo CalendarPeriod("find_timestamp_x_from", $adminFilter['find_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['find_timestamp_x_to'], "form1", "Y") ?></td>
+		<td nowrap><?php  echo CalendarPeriod("find_timestamp_x_from", $adminFilter['find_timestamp_x_from'], "find_timestamp_x_to", $adminFilter['find_timestamp_x_to'], "form1", "Y") ?></td>
 	</tr>
 
-	<? $filter->Buttons(array("table_id" => $sTableID, "url" => $APPLICATION->GetCurPage(), "form" => "form1"));
+	<?php  $filter->Buttons(array("table_id" => $sTableID, "url" => $APPLICATION->GetCurPage(), "form" => "form1"));
 	$filter->End(); ?>
 
 </form>
 
-<? $lAdmin->DisplayList(); ?>
+<?php  $lAdmin->DisplayList(); ?>
 
 
-<? require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_WFEDIT_MENU_BACK"] = "Назад";
 $MESS["BIZPROC_WFEDIT_MENU_PARAMS_TITLE"] = "Параметры шаблона, переменные, автозапуск";
 $MESS["BIZPROC_WFEDIT_MENU_PARAMS"] = "Параметры шаблона";

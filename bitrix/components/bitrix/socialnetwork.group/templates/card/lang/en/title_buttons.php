@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SGCS_T_ACTIONS_BUTTON"] = "Actions";
 $MESS["SONET_SGCS_T_SESSION_WRONG"] = "Your session has expired. Please try again.";
 $MESS["SONET_SGCS_T_NOT_ATHORIZED"] = "You are not logged in.";

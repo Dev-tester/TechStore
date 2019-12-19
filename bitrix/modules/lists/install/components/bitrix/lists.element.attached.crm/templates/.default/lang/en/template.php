@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEACT_TITLE_ADD_ELEMENT_BUTTON"] = "Add item";
 $MESS["LEACT_DELETE_POPUP_TITLE"] = "Confirm Unlink";
 $MESS["LEACT_DELETE_POPUP_ACCEPT_BUTTON"] = "Unlink";

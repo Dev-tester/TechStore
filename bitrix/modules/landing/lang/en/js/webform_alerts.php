@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_WEBFORM_CONNECT_SUPPORT"] = "Please contact the Helpdesk";
 $MESS["LANDING_BLOCK_WEBFORM_ERROR"] = "Error creating form";
 $MESS["LANDING_BLOCK_WEBFORM_NO_FORM"] = "There are no active CRM forms";

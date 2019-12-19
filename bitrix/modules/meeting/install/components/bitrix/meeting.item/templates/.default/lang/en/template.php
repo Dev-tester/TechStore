@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ME_LIST_TITLE"] = "Back to meetings";
 $MESS["ME_FILES"] = "Files";
 $MESS["MI_BLOCK_TITLE"] = "Topic description";

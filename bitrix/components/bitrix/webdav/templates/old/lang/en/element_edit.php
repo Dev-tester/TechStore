@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_NAME'] = "Name";
 $MESS ['WD_FILE'] = "File";
 $MESS ['WD_SAVE'] = "Save";

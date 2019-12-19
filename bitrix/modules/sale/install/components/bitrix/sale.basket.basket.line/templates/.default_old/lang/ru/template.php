@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TSB1_YOUR_CART'] = "Ваша корзина";
 $MESS ['TSB1_CART'] = "Корзина";
 $MESS ['TSB1_TOTAL_PRICE'] = "На сумму";

@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/about/gallery/index.php");
 $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:photogallery", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:photogallery", ".default", Array(
 	"USE_LIGHT_VIEW"	=>	"Y",
 	"IBLOCK_TYPE"	=>	"photos",
 	"IBLOCK_ID"	=>	"15",
@@ -54,4 +54,4 @@ $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 	)
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

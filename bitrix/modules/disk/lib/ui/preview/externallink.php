@@ -1,4 +1,4 @@
-<?
+<?php 
 
 namespace Bitrix\Disk\Ui\Preview;
 

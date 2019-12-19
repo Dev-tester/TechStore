@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_FORGOT_REFERER'] = "Please enter referer1, referer2";
 $MESS ['STAT_WRONG_REFERER'] = "The provided referer1 and referer2 are already in use";
 $MESS ['STAT_EDIT_RECORD'] = "Advertising campaign # #ID#";

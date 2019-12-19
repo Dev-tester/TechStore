@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['disk_common_wizard_name'] = "Диск";
 $MESS ['disk_common_wizard_title'] = "Раздел с хранилищем документов (ЧПУ)";
 $MESS ['disk_common_wizard_settings'] = "Создание хранилища";

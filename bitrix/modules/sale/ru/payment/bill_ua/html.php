@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 if (!is_array($arOrder))
 	$arOrder = CSaleOrder::GetByID($ORDER_ID);
@@ -16,7 +16,7 @@ if (!is_array($arOrder))
 </style>
 </head>
 
-<?
+<?php 
 
 if ($_REQUEST['BLANK'] == 'Y')
 	$blank = true;
@@ -69,7 +69,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 ?>
 
-<body style="margin: 0pt; padding: 0pt;"<? if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<? } ?>>
+<body style="margin: 0pt; padding: 0pt;"<?php  if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<?php  } ?>>
 
 <div style="margin: 0pt; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>">
 
@@ -81,7 +81,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 <br>
 <br>
 
-<?
+<?php 
 
 $buyerPhone = CSalePaySystemAction::GetParamValue("BUYER_PHONE", false);
 $buyerFax = CSalePaySystemAction::GetParamValue("BUYER_FAX", false);
@@ -104,10 +104,10 @@ $buyerFax = CSalePaySystemAction::GetParamValue("BUYER_FAX", false);
 			ЄДРПОУ: <?=CSalePaySystemAction::GetParamValue("SELLER_EDRPOY", false); ?>,
 			ІПН: <?=CSalePaySystemAction::GetParamValue("SELLER_IPN", false); ?>,
 			№ свід. ПДВ: <?=CSalePaySystemAction::GetParamValue("SELLER_PDV", false); ?>
-			<? if (CSalePaySystemAction::GetParamValue("SELLER_SYS", false)) { ?>
+			<?php  if (CSalePaySystemAction::GetParamValue("SELLER_SYS", false)) { ?>
 			<br>
 			<?=CSalePaySystemAction::GetParamValue("SELLER_SYS", false); ?>
-			<? } ?>
+			<?php  } ?>
 		</td>
 	</tr>
 	<tr><td>&nbsp;</td><td>&nbsp;</td></tr>
@@ -115,27 +115,27 @@ $buyerFax = CSalePaySystemAction::GetParamValue("BUYER_FAX", false);
 		<td>Покупець:</td>
 		<td style="padding-left: 4pt; ">
 			<?=CSalePaySystemAction::GetParamValue("BUYER_NAME", false); ?>
-			<? if ($buyerPhone || $buyerFax) { ?>
+			<?php  if ($buyerPhone || $buyerFax) { ?>
 			<br>
-			<? if ($buyerPhone) { ?>тел.: <?=$buyerPhone; ?><? if ($buyerFax) { ?>, <? } ?><? } ?>
-			<? if ($buyerFax) { ?>факс: <?=$buyerFax; ?><? } ?>
-			<? } ?>
-			<? if (CSalePaySystemAction::GetParamValue("BUYER_ADDRESS", false)) { ?>
+			<?php  if ($buyerPhone) { ?>тел.: <?=$buyerPhone; ?><?php  if ($buyerFax) { ?>, <?php  } ?><?php  } ?>
+			<?php  if ($buyerFax) { ?>факс: <?=$buyerFax; ?><?php  } ?>
+			<?php  } ?>
+			<?php  if (CSalePaySystemAction::GetParamValue("BUYER_ADDRESS", false)) { ?>
 			<br>
 			Адреса: <?=CSalePaySystemAction::GetParamValue("BUYER_ADDRESS", false); ?>
-			<? } ?>
+			<?php  } ?>
 		</td>
 	</tr>
 </table>
 <br>
 
-<? if (CSalePaySystemAction::GetParamValue("BUYER_DOGOVOR", false)) { ?>
+<?php  if (CSalePaySystemAction::GetParamValue("BUYER_DOGOVOR", false)) { ?>
 Договір: <?=CSalePaySystemAction::GetParamValue("BUYER_DOGOVOR", false); ?>
 <br>
-<? } ?>
+<?php  } ?>
 <br>
 
-<?
+<?php 
 
 $dbBasket = CSaleBasket::GetList(
 	array("DATE_INSERT" => "ASC", "NAME" => "ASC"),
@@ -336,13 +336,13 @@ $currency = trim(str_replace('#', '', $arCurFormat['FORMAT_STRING']));
 		<td><nobr>Товар/Послуга</nobr></td>
 		<td><nobr>Кіл-сть</nobr></td>
 		<td><nobr>Од.</nobr></td>
-		<td><nobr><? if ($vat <= 0) { ?>Ціна без ПДВ<? } else { ?>Ціна з ПДВ<? } ?>, <?=$currency; ?></nobr></td>
-		<? if ($showVat) { ?>
+		<td><nobr><?php  if ($vat <= 0) { ?>Ціна без ПДВ<?php  } else { ?>Ціна з ПДВ<?php  } ?>, <?=$currency; ?></nobr></td>
+		<?php  if ($showVat) { ?>
 		<td><nobr>Ставка ПДВ</nobr></td>
-		<? } ?>
-		<td><nobr><? if ($vat <= 0) { ?>Сума без ПДВ<? } else { ?>Сума з ПДВ<? } ?>, <?=$currency; ?></nobr></td>
+		<?php  } ?>
+		<td><nobr><?php  if ($vat <= 0) { ?>Сума без ПДВ<?php  } else { ?>Сума з ПДВ<?php  } ?>, <?=$currency; ?></nobr></td>
 	</tr>
-<?
+<?php 
 
 $rowsCnt = count($arCells);
 for ($n = 1; $n <= $rowsCnt; $n++)
@@ -351,43 +351,43 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 ?>
 	<tr valign="top">
-		<? if (!is_null($arCells[$n][1])) { ?>
+		<?php  if (!is_null($arCells[$n][1])) { ?>
 		<td align="center"><?=$arCells[$n][1]; ?></td>
-		<? } else {
+		<?php  } else {
 			$accumulated++;
 		} ?>
-		<? if (!is_null($arCells[$n][2])) { ?>
+		<?php  if (!is_null($arCells[$n][2])) { ?>
 		<td align="left"
-			style="word-break: break-word; word-wrap: break-word; <? if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <? } ?>"
-			<? if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<? $accumulated = 0; } ?>>
+			style="word-break: break-word; word-wrap: break-word; <?php  if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <?php  } ?>"
+			<?php  if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0; } ?>>
 			<?=$arCells[$n][2]; ?>
-			<? if (isset($arProps[$n]) && is_array($arProps[$n])) { ?>
-			<? foreach ($arProps[$n] as $property) { ?>
+			<?php  if (isset($arProps[$n]) && is_array($arProps[$n])) { ?>
+			<?php  foreach ($arProps[$n] as $property) { ?>
 			<br>
 			<small><?=$property; ?></small>
-			<? } ?>
-			<? } ?>
+			<?php  } ?>
+			<?php  } ?>
 		</td>
-		<? } else {
+		<?php  } else {
 			$accumulated++;
 		} ?>
-		<? for ($i = 3; $i <= 7; $i++) { ?>
-			<? if (!is_null($arCells[$n][$i])) { ?>
-				<? if ($i != 6 || $showVat || is_null($arCells[$n][2])) { ?>
+		<?php  for ($i = 3; $i <= 7; $i++) { ?>
+			<?php  if (!is_null($arCells[$n][$i])) { ?>
+				<?php  if ($i != 6 || $showVat || is_null($arCells[$n][2])) { ?>
 				<td align="right"
-					<? if ($accumulated) { ?>
+					<?php  if ($accumulated) { ?>
 					style="border-width: 0pt 1pt 0pt 0pt"
 					colspan="<?=(($i == 6 && !$showVat) ? $accumulated : $accumulated+1); ?>"
-					<? $accumulated = 0; } ?>>
+					<?php  $accumulated = 0; } ?>>
 					<nobr><?=$arCells[$n][$i]; ?></nobr>
 				</td>
-				<? }
+				<?php  }
 			} else {
 				$accumulated++;
 			}
 		} ?>
 	</tr>
-<?
+<?php 
 
 }
 
@@ -412,49 +412,49 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 ); ?></b>
 <br>
 
-<? if ($vat > 0) { ?>
+<?php  if ($vat > 0) { ?>
 <b><?=sprintf(
 	"У т.ч. ПДВ: %s",
 	($arOrder["CURRENCY"] == "UAH")
 		? Number2Word_Rus($orderTax, "Y", $GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["CURRENCY"])
 		: SaleFormatCurrency($orderTax, $GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["CURRENCY"], false)
 ); ?></b>
-<? } else { ?>
+<?php  } else { ?>
 <b>Без ПДВ</b>
-<? } ?>
+<?php  } ?>
 <br>
 <br>
 
-<? if (CSalePaySystemAction::GetParamValue("COMMENT1", false) || CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
+<?php  if (CSalePaySystemAction::GetParamValue("COMMENT1", false) || CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
 <b>Умови та коментарі</b>
 <br>
-	<? if (CSalePaySystemAction::GetParamValue("COMMENT1", false)) { ?>
+	<?php  if (CSalePaySystemAction::GetParamValue("COMMENT1", false)) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback(CSalePaySystemAction::GetParamValue("COMMENT1", false))
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-	<? if (CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
+	<?php  } ?>
+	<?php  if (CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback(CSalePaySystemAction::GetParamValue("COMMENT2", false))
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
 <div style="border-bottom: 1pt solid #000000; width:100%; ">&nbsp;</div>
 
-<? if (!$blank) { ?>
+<?php  if (!$blank) { ?>
 <div style="position: relative; "><?=CFile::ShowImage(
 	CSalePaySystemAction::GetParamValue("PATH_TO_STAMP", false),
 	160, 160,
 	'style="position: absolute; left: 40pt; "'
 ); ?></div>
-<? } ?>
+<?php  } ?>
 
 <br>
 
@@ -463,9 +463,9 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 		<tr>
 			<td>Виписав(ла):&nbsp;</td>
 			<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
-				<? if (!$blank) { ?>
+				<?php  if (!$blank) { ?>
 				<?=CFile::ShowImage(CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN", false), 200, 50); ?>
-				<? } ?>
+				<?php  } ?>
 			</td>
 			<td style="width: 160pt; ">
 				<input
@@ -490,13 +490,13 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 <br>
 <br>
 
-<? if (CSalePaySystemAction::GetParamValue("DATE_PAY_BEFORE", false)) { ?>
+<?php  if (CSalePaySystemAction::GetParamValue("DATE_PAY_BEFORE", false)) { ?>
 <div style="text-align: right; "><b><?=sprintf(
 	"Рахунок дійсний до сплати до %s",
 	ConvertDateTime(CSalePaySystemAction::GetParamValue("DATE_PAY_BEFORE", false), FORMAT_DATE)
 		?: CSalePaySystemAction::GetParamValue("DATE_PAY_BEFORE", false)
 ); ?></b></div>
-<? } ?>
+<?php  } ?>
 
 </div>
 

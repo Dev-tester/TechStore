@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -14,7 +14,7 @@ if ($arResult["TEMPLATE_DATA"]["ERROR"])
 	echo $arResult["TEMPLATE_DATA"]["ERROR"]["MESSAGE"];
 	return;
 }
-?><?=CJSCore::Init(array('tasks_util_query'), true);?><?
+?><?=CJSCore::Init(array('tasks_util_query'), true);?><?php 
 \Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/log_mobile.js');
 \Bitrix\Main\Page\Asset::getInstance()->addJs($templateFolder.'/../.default/script.js');
 
@@ -34,7 +34,7 @@ $url = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER_TASKS_EDI
 ?>
 <form name="<?=$arResult["FORM_ID"]?>" id="<?=$arResult["FORM_ID"]?>" action="<?=$url?>" method="POST">
 	<?=bitrix_sessid_post();?>
-	<?if (isset($arResult['FORM_GUID'])): ?><input type="hidden" name="FORM_GUID" value="<?=htmlspecialcharsbx($arResult['FORM_GUID']); ?>"><? endif ;?>
+	<?php if (isset($arResult['FORM_GUID'])): ?><input type="hidden" name="FORM_GUID" value="<?=htmlspecialcharsbx($arResult['FORM_GUID']); ?>"><?php  endif ;?>
 	<input type="hidden" name="_JS_STEPPER_SUPPORTED" value="Y">
 	<input type="hidden" name="DESCRIPTION_IN_BBCODE" value="<?=$task['DESCRIPTION_IN_BBCODE']; ?>" />
 	<input type="hidden" name="back_url" value="<?=$url."&".http_build_query(array("save" => "Y", "sessid" => bitrix_sessid())) ?>" />
@@ -42,8 +42,8 @@ $url = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER_TASKS_EDI
 	<input type="hidden" name="data[ADD_TO_FAVORITE]" value="N" />
 	<input type="hidden" name="data[SE_AUDITOR][]" value="" />
 	<input type="hidden" name="data[SE_ACCOMPLICE][]" value="" />
-	<div style="display: none;"><input type="text" name="AJAX_POST" value="Y" /></div><?//hack to not submit form?>
-<?
+	<div style="display: none;"><input type="text" name="AJAX_POST" value="Y" /></div><?php //hack to not submit form?>
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.interface.form',
 	'mobile',
@@ -349,6 +349,6 @@ BX.ready(function(){
 	))?>);
 });
 </script>
-<?
+<?php 
 $body = ob_get_clean();
 ?><div id="<?=$arResult['FORM_ID']?>_errors"><?=implode("<br />", $arResult["TEMPLATE_DATA"]["ERRORS"])?></div><?=$body;

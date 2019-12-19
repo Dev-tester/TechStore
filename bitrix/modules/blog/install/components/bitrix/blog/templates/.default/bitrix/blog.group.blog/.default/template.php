@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
-<?
+<?php 
 if(strlen($arResult["FATAL_ERROR"])>0)
 {
 	?>
@@ -14,7 +14,7 @@ if(strlen($arResult["FATAL_ERROR"])>0)
 			<?=$arResult["FATAL_ERROR"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -27,18 +27,18 @@ else
 				?>
 			
 			<div class="blog-mainpage-item">
-			<?if(IntVal($arBlog["OWNER_ID"]) > 0)
+			<?php if(IntVal($arBlog["OWNER_ID"]) > 0)
 			{
 				?>
 				<div class="blog-author">
-				<?if($arParams["SEO_USER"] == "Y"):?>
+				<?php if($arParams["SEO_USER"] == "Y"):?>
 					<noindex>
 						<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>" rel="nofollow"></a>
 					</noindex>
-				<?else:?>
+				<?php else:?>
 					<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>"></a>
-				<?endif;?>
-				<?
+				<?php endif;?>
+				<?php 
 				if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($arBlog["urlToBlog"]) > 0 || strlen($arBlog["urlToAuthor"]) > 0) && array_key_exists("BLOG_USER_ALIAS", $arBlog) && strlen($arBlog["BLOG_USER_ALIAS"]) > 0)
 					$arTmpUser = array(
 						"NAME" => "",
@@ -56,7 +56,7 @@ else
 						"NAME_LIST_FORMATTED" => "",
 					);
 				?>
-				<?
+				<?php 
 				$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 					'',
 					array(
@@ -88,29 +88,29 @@ else
 				);
 				?>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 
-			<div class="blog-mainpage-title"><a href="<?=$arBlog["urlToBlog"]?>"><?echo $arBlog["NAME"]; ?></a></div>
-			<?if(strlen($arBlog["DESCRIPTION"]) > 0)
+			<div class="blog-mainpage-title"><a href="<?=$arBlog["urlToBlog"]?>"><?php echo $arBlog["NAME"]; ?></a></div>
+			<?php if(strlen($arBlog["DESCRIPTION"]) > 0)
 			{
 				?>
 				<div class="blog-mainpage-content">
 					<?=$arBlog["DESCRIPTION"]?>
 				</div>
-				<?
+				<?php 
 			}
 			?>
-			<?if(IntVal($arBlog["LAST_POST_ID"])>0):?>
+			<?php if(IntVal($arBlog["LAST_POST_ID"])>0):?>
 				<div class="blog-mainpage-meta"><?=GetMessage("B_B_GR_LAST_M")?> <a href="<?=$arBlog["urlToPost"]?>"><?=$arBlog["LAST_POST_DATE_FORMATED"]?></a></div>
-			<?endif;?>
+			<?php endif;?>
 
 			<div class="blog-clear-float"></div>
 			</div>
 			<div class="blog-line"></div>
 					
-				<?
+				<?php 
 			}
 		}
 		if(strlen($arResult["NAV_STRING"])>0)

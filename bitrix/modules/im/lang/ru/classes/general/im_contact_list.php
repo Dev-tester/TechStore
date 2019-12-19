@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_CL_GROUP_LAST"] = "Последние контакты";
 $MESS["IM_CL_GROUP_OTHER"] = "Вне структуры";
 $MESS["IM_CL_GROUP_OTHER_2"] = "Вне списка";

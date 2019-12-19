@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var array $arResult
  * @var array $arParams
@@ -19,7 +19,7 @@ if (!$arResult["ENABLE_EXPORT"])
 			B24.licenseInfoPopup.show(dialogId, "<?=CUtil::JSEscape($arResult["TRIAL_TEXT"]['TITLE'])?>", "<?=CUtil::JSEscape($arResult["TRIAL_TEXT"]['TEXT'])?>");
 		}
 	</script>
-	<?
+	<?php 
 }
 
 $isBitrix24Template = (SITE_TEMPLATE_ID == "bitrix24");
@@ -28,7 +28,7 @@ if($isBitrix24Template)
 	$bodyClass = $APPLICATION->GetPageProperty("BodyClass");
 	$APPLICATION->SetPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."pagetitle-toolbar-field-view");
 	$this->SetViewTarget("inside_pagetitle", 0);
-	?><div class="pagetitle-container pagetitle-flexible-space"><?
+	?><div class="pagetitle-container pagetitle-flexible-space"><?php 
 }
 
 $APPLICATION->IncludeComponent(
@@ -50,10 +50,10 @@ $APPLICATION->IncludeComponent(
 	<div class="pagetitle-container pagetitle-align-right-container">
 		<button id="vi-stat-export" class="ui-btn ui-btn-md ui-btn-themes ui-btn-light-border <?=($arResult['ENABLE_EXPORT'] ? '' : 'ui-btn-disabled')?>"><?=GetMessage("TEL_STAT_EXPORT_TO_EXCEL")?></button>
 	</div>
-<?
+<?php 
 if($isBitrix24Template)
 {
-	?></div><?
+	?></div><?php 
 	$this->EndViewTarget();
 
 	$isAdmin = CModule::IncludeModule('bitrix24') ? \CBitrix24::isPortalAdmin($USER->getId()) : $USER->IsAdmin();
@@ -62,7 +62,7 @@ if($isBitrix24Template)
 		echo Bitrix\Voximplant\Ui\Helper::getStatisticStepper();
 	}
 }
-?><div id="tel-stat-grid-container"><?
+?><div id="tel-stat-grid-container"><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.ui.grid",
 		"",
@@ -95,7 +95,7 @@ if($isBitrix24Template)
 		),
 		$component, array("HIDE_ICONS" => "Y")
 	);
-?></div><?
+?></div><?php 
 \Bitrix\Voximplant\Ui\Helper::renderCustomSelectors($arResult['FILTER_ID'], $arResult['FILTER']);
 ?>
 <script>

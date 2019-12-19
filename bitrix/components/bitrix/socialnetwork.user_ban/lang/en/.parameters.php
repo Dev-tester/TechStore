@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_SET_NAVCHAIN'] = "Set Breadcrumbs";
 $MESS ['SONET_ITEMS_COUNT'] = "Items in Lists";
 $MESS ['SONET_PATH_TO_USER'] = "User Profile Path Template";

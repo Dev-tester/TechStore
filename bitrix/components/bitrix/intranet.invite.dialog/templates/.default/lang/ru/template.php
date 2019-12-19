@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_INVITE_DIALOG_ACCESS_DENIED"] = "Доступ закрыт. Вы не можете приглашать новых пользователей.";
 $MESS["BX24_INVITE_DIALOG_IBLOCK_MODULE"] = "Модуль информационных блоков не установлен.";
 $MESS["BX24_INVITE_DIALOG_INTRANET_MODULE"] = "Модуль интранет не установлен.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_BFSD_TITLE'] = "Выбор файла";
 $MESS ['MAIN_BFSD_FILENAME'] = "Имя файла";
 $MESS ['MAIN_BFSD_FILETYPE'] = "Тип файлов";

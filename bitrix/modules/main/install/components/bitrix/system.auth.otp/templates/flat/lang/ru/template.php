@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_OTP_PLEASE_AUTH"] = "Пожалуйста, введите ваш одноразовый пароль";
 $MESS["AUTH_OTP_OTP"] = "Одноразовый пароль";
 $MESS["AUTH_OTP_AUTHORIZE"] = "Войти";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CL_TEST_TOTAL"] = "Total tests";
 $MESS["CL_TEST_CHECKED"] = "Passed";
 $MESS["CL_TEST_FAILED"] = "Failed";

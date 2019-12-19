@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_TEST"] = "Настройки";
 $MESS["LEARNING_TEST_TITLE"] = "Настройки теста";
 $MESS["LEARNING_DESC"] = "Описание";

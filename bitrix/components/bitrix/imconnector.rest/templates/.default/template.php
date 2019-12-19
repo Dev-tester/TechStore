@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
@@ -38,7 +38,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<?= bitrix_sessid_post(); ?>
 </form>
 
-<?
+<?php 
 if (empty($arResult['PAGE']))
 {
 	?>
@@ -48,7 +48,7 @@ if (empty($arResult['PAGE']))
 				<div class="connector-icon ui-icon ui-icon-service-<?=$iconCode?>"><i></i></div>
 			</div>
 			<div class="imconnector-field-box">
-				<?
+				<?php 
 				if ($arResult['STATUS']) //case when connection competed
 				{
 					?>
@@ -67,7 +67,7 @@ if (empty($arResult['PAGE']))
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 						</button>
 					</div>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -75,7 +75,7 @@ if (empty($arResult['PAGE']))
 					<div class="imconnector-field-main-subtitle">
 						<?=$arResult['NAME']?>
 					</div>
-					<?
+					<?php 
 					if ($arResult['ACTIVE_STATUS'])
 					{
 						?>
@@ -91,7 +91,7 @@ if (empty($arResult['PAGE']))
 								<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 							</button>
 						</div>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -109,14 +109,14 @@ if (empty($arResult['PAGE']))
 								<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_TO_CONNECT')?>
 							</button>
 						</form>
-						<?
+						<?php 
 					}
 				}
 				?>
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 	include 'messages.php';
 }
 else
@@ -128,7 +128,7 @@ else
 				<div class="connector-icon ui-icon ui-icon-service-<?=$iconCode?>"><i></i></div>
 			</div>
 			<div class="imconnector-field-box">
-				<?
+				<?php 
 				if ($arResult['STATUS'])
 				{
 					?>
@@ -144,7 +144,7 @@ else
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 						</button>
 					</div>
-					<?
+					<?php 
 				}
 				elseif($arResult['ERROR_STATUS'])
 				{
@@ -164,7 +164,7 @@ else
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 						</button>
 					</div>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -181,14 +181,14 @@ else
 							<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_DISABLE')?>
 						</button>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
-		<? include 'messages.php'?>
+		<?php  include 'messages.php'?>
 		<div class="imconnector-field-section imconnector-field-section-control">
-			<?
+			<?php 
 				$placementSid = $APPLICATION->includeComponent(
 					'bitrix:app.layout',
 					'',
@@ -204,6 +204,6 @@ else
 			?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

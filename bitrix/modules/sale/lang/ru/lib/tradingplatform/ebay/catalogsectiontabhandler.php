@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_EBAY_CSTH_CATEGORY'] = 'Категории и свойства';
 $MESS['SALE_EBAY_CSTH_POLICY_RETURN'] = 'Политика возврата';
 $MESS['SALE_EBAY_CSTH_POLICY_PAYMENT'] = 'Политика оплат';

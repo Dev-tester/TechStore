@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_WRONG_START_DATE_FROM"] = "Please enter the correct \"from\" date in the filter for the \"First poll\" field";
 $MESS["VOTE_WRONG_START_DATE_TILL"] = "Please enter the correct \"till\" date in the filter for the \"First poll\" field";
 $MESS["VOTE_WRONG_START_FROM_TILL"] = "The \"till\" date must be greater than the \"from\" date in the filter for the \"First poll\" field";

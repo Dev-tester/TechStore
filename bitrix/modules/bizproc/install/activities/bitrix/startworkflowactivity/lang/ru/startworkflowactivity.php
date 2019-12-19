@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPSWFA_ERROR_DOCUMENT_ID'] = "Не указан ID документа";
 $MESS ['BPSWFA_ERROR_TEMPLATE'] = "Не выбран шаблон";
 $MESS ['BPSWFA_TEMPLATE_PARAMETERS'] = "Параметры бизнес-процесса";

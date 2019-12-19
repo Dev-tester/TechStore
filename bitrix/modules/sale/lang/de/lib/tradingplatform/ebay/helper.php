@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_HLP_CHECK_ERROR_SSH2"] = "SSH2 ist nicht verfügbar.";
 $MESS["SALE_EBAY_HLP_CHECK_ERROR_SIMPLEXML"] = "SimpleXML ist nicht verfügbar.";
 $MESS["SALE_EBAY_HLP_EVNT_TYPE_ERROR"] = "Fehler bei E-bay";

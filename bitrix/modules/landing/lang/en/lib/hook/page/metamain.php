@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_METAMAIN_NAME"] = "Page meta tags";
 $MESS["LANDING_HOOK_METAMAIN_DESCRIPTION"] = "Provide meta tags for better crawling by search engines. The meta tags will be added automatically if none are specified.";
 $MESS["LANDING_HOOK_METAMAIN_USE"] = "Edit meta tags";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 
 $arParams['ROTATE_TIMER'] = intval($arParams['ROTATE_TIMER']);

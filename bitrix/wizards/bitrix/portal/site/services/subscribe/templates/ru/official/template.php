@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 global $SUBSCRIBE_TEMPLATE_RUBRIC;
 $SUBSCRIBE_TEMPLATE_RUBRIC=$arRubric;
@@ -11,7 +11,7 @@ h1 {font-family: Verdana, Arial, Helvetica, sans-serif; color:#346BA0; font-size
 </style>
 
 <P>Добрый день!</P>
-<P><?$SUBSCRIBE_TEMPLATE_RESULT = $APPLICATION->IncludeComponent(
+<P><?php $SUBSCRIBE_TEMPLATE_RESULT = $APPLICATION->IncludeComponent(
 	"bitrix:subscribe.news",
 	"",
 	Array(
@@ -22,7 +22,7 @@ h1 {font-family: Verdana, Arial, Helvetica, sans-serif; color:#346BA0; font-size
 		"SORT_ORDER" => "DESC"
 	)
 );?></P>
-<P>Всего хорошего</P><?
+<P>Всего хорошего</P><?php 
 if($SUBSCRIBE_TEMPLATE_RESULT)
 	return array(
 		"SUBJECT"=>$SUBSCRIBE_TEMPLATE_RUBRIC["NAME"],

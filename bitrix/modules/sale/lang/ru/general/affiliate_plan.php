@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCGAP1_NO_SITE"]="Не указан сайт плана";
 $MESS["SCGAP1_NO_NAME"]="Не указано название плана";
 $MESS["SCGAP1_ERROR_FUNC"]="Ошибка вызова функции";

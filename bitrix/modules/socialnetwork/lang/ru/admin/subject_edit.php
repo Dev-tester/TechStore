@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONETE_ERROR_SAVING'] = "Ошибка сохранения темы";
 $MESS ['SONETE_UPDATING'] = "Изменение параметров темы";
 $MESS ['SONETE_ADDING'] = "Создание новой темы";

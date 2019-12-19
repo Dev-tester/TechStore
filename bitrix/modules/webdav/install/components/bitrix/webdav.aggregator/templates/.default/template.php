@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?>
+<?php 
 $GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 if (isset($_REQUEST['AJAX']) || isset($_REQUEST['connect']))
 {
@@ -26,13 +26,13 @@ else
 ?>
 <table style="width:100%" cellpadding="0" cellspacing="0">
 <tr><td style="vertical-align:top;">
-<?
+<?php 
 		CUtil::InitJSCore(array('ajax'));
 		echo "<div id='wd_aggregator_tree'>\n";
 	}
 }
 ?>
-<?
+<?php 
 $curdepth = -1;
 foreach ($arResult['STRUCTURE'] as $node)
 {
@@ -68,7 +68,7 @@ foreach ($arResult['STRUCTURE'] as $node)
 while (0 <= $curdepth--) echo "</ul>\n";
 ?>
 
-<?
+<?php 
 if (!isset($_REQUEST['AJAX']))
 {
 
@@ -76,7 +76,7 @@ if (!isset($_REQUEST['AJAX']))
 $this->SetViewTarget("pagetitle", 100);
 ?>
 <div id='wd-aggregator-buttons'>
-<?
+<?php 
 if ($GLOBALS['USER']->IsAdmin())
 {
 	$sNewFolderPath = $APPLICATION->GetCurPage(false);
@@ -106,17 +106,17 @@ if ($GLOBALS['USER']->IsAdmin())
 		//'path'=>$APPLICATION->GetCurPage(false),
 		//'back_url'=>$APPLICATION->GetCurPage()
 		//))));
-?><a href="#" onclick="javascript:<?=$urlCreateLibrary?>" class="button-add"><span class="icon"></span><?=GetMessage('WD_AG_ADD_LIBRARY')?></a><?
+?><a href="#" onclick="javascript:<?=$urlCreateLibrary?>" class="button-add"><span class="icon"></span><?=GetMessage('WD_AG_ADD_LIBRARY')?></a><?php 
 }
 	$urlConnector = $APPLICATION->GetPopupLink(array('URL' => $APPLICATION->GetCurPageParam("connect=Y")));
 ?><a href="#" onclick="javascript:<?=$urlConnector?>" class="button-connect"><?=GetMessage('WD_AG_MAP_DRIVE')?></a></div>
-<?
+<?php 
 $this->EndViewTarget();
 ?>
 </div>
 
 </td>
-<?	$url = ($GLOBALS["APPLICATION"]->IsHTTPS() ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$arParams['SEF_FOLDER']; ?>
+<?php 	$url = ($GLOBALS["APPLICATION"]->IsHTTPS() ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST'].$arParams['SEF_FOLDER']; ?>
 <br />
 </tr>
 </table>
@@ -262,7 +262,7 @@ BX.ready(function() {
 	wd_dl_initTreeEvents(ul);
 });
 </script>
-<?
+<?php 
 } else {
 	die();
 }

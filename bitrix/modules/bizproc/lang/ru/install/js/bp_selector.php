@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_JS_BP_SELECTOR_PARAMETERS"] = "Параметры";
 $MESS["BIZPROC_JS_BP_SELECTOR_VARIABLES"] = "Переменные";
 $MESS["BIZPROC_JS_BP_SELECTOR_CONSTANTS"] = "Константы";

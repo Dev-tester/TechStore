@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Title");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:webservice.server",
 	"",
 	Array(
@@ -9,4 +9,4 @@ $APPLICATION->SetTitle("Title");
 		"WEBSERVICE_MODULE" => "webservice", 
 		"WEBSERVICE_CLASS" => "CGenericWSDLTestWS"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

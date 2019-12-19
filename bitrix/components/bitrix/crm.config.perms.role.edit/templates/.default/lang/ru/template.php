@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PERMS_PERM_ADD"] = "Разрешить изменять настройки";
 $MESS["CRM_PERMS_BUTTONS_SAVE"] = "Сохранить";
 $MESS["CRM_PERMS_BUTTONS_APPLY"] = "Применить";

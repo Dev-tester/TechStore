@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_COUNT_0"] = "Lead";
 $MESS["CRM_LEAD_COUNT_1"] = "Leads";
 $MESS["CRM_LEAD_COUNT_2"] = "Leads";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADV_NIVO_EFFECT'] = "Эффект переключения слайдов";
 $MESS ['ADV_NIVO_EFFECT_RANDOM'] = "случайный";
 $MESS ['ADV_NIVO_CYCLING'] = "Автоматическая смена слайда";

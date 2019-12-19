@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/company/vis_structure.php");
 $APPLICATION->SetTitle(GetMessage("TITLE2"));
@@ -13,4 +13,4 @@ $APPLICATION->IncludeComponent("bitrix:intranet.structure.visual", ".default", a
 	false
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

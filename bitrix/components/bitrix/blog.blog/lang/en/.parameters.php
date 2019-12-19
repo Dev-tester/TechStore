@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BB_MESSAGE_COUNT"] = "Messages per page";
 $MESS["BB_PATH_TO_BLOG"] = "Blog page path template";
 $MESS["BB_PATH_TO_BLOG_CATEGORY"] = "Blog page path template with the tag filter";

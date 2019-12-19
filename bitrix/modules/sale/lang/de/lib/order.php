@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_ENTITY_NOT_FOUND"] = "Bestellung wurde nicht gefunden";
 $MESS["SALE_ORDER_PAYMENT_CANCELLED_PAID"] = "Fehler beim Stornieren der Bezahlung";
 $MESS["SALE_ORDER_SHIPMENT_ORDER_CANCELED"] = "Temporäre Bestellung kann nicht ausgeliefert werden";

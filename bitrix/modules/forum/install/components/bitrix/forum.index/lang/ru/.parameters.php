@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_MESSAGE_TEMPLATE'] = "Страница чтения сообщения";
 $MESS ['F_FORUMS_TEMPLATE'] = "Страница просмотра форумов группы";
 $MESS ['F_LIST_TEMPLATE'] = "Страница списка тем";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "Blog module is not installed.";
 $MESS["B_B_MES_REQUEST_ALREADY"] = "Your request is already pending with the blog author";
 $MESS["B_B_MES_REQUEST_ADDED"] = "Your request has been taken for consideration by the blog author";

@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["CHRP_SHOULD_PAY"] = "Сумма к оплате";

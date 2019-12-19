@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\DB\SqlExpression;
 use Bitrix\Main\Entity\ReferenceField;
 use Bitrix\Main\Type\Collection;

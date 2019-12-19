@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_OVERDUE_PRESET_OVERALL_COUNT"] = "Number of overdue invoices";
 $MESS["CRM_INVOICE_OVERDUE_PRESET_OVERALL_SUM"] = "Total amount of overdue invoices";
 $MESS["CRM_INVOICE_OVERDUE_PRESET_OVERALL_COUNT_SHORT"] = "Number of invoices";

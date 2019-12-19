@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LDAP_OPTIONS_SAVE"] = "Save";
 $MESS["LDAP_OPTIONS_RESET"] = "Reset";
 $MESS["LDAP_OPTIONS_GROUP_LIMIT"] = "Maximum number of entries that can be returned on a single LDAP search operation:";

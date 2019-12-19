@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1_CONTACT"] = "Реквизиты";
 $MESS["CRM_TAB_1_COMPANY"] = "Реквизиты";
 $MESS["CRM_TAB_1_TITLE_CONTACT"] = "Информация о реквизитах";

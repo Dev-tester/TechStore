@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REST_FIELD_ID"] = "ID";
 $MESS["CRM_REST_FIELD_NAME"] = "Название";
 $MESS["CRM_REST_ACTIVITY_FIELD_COMMUNICATIONS"] = "Канал коммуникации";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_SONET_NOTIFY_TITLE"] = "Идеи";
 $MESS["IDEA_SONET_NOTIFY_TITLE_24"] = "Создал(а) идею";
 $MESS["IDEA_SONET_GROUP_SETTINGS"] = "Все изменения в идеях этой группы";

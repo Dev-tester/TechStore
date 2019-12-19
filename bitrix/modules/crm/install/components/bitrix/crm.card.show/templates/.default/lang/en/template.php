@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CARD_CONSTANT_CLIENT"] = "Frequent visitor";
 $MESS["CRM_CARD_ACTIVITIES"] = "Activities";
 $MESS["CRM_CARD_DEALS"] = "Deals";

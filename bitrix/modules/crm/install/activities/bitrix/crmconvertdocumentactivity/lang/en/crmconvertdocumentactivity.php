@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CVTDA_DISABLE_ACTIVITY_COMPLETION"] = "Don't close activity after conversion";
 $MESS["CRM_CVTDA_WIZARD_NOT_FOUND"] = "Cannot initialize the Convertion Wizard.";
 $MESS["CRM_CVTDA_ITEMS"] = "Create using source";

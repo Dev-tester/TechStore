@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 CUtil::InitJSCore(array('ajax'));
 CModule::IncludeModule("iblock");
@@ -120,42 +120,42 @@ foreach($arMessages as $strMessage)
 	CAdminMessage::ShowMessage(array("MESSAGE"=>$strMessage,"TYPE"=>"OK"));
 
 if(count($arErrors)==0):?>
-	<?if($STEP==0):?>
+	<?php if($STEP==0):?>
 		<p><span class="required"><?=GetMessage("IBCONV_ATTENTION")?></span> <?=GetMessage("IBCONV_WARNING_MESSAGE",array("#IBLOCK_NAME#"=>htmlspecialcharsbx($arIBlock["NAME"])))?>
 		<input type="button" name="START" value="<?=GetMessage("IBCONV_MOVE")?>" OnClick="DoNext(<?=$arIBlock["VERSION"]==2?21:12?>,1)">
-	<?elseif($STEP>=1 && $STEP<=5):?>
-		<?if($WAY==12):?>
+	<?php elseif($STEP>=1 && $STEP<=5):?>
+		<?php if($WAY==12):?>
 			<p><ul>
 			<li><?=$STEP==2?'<b>':''?><?=GetMessage("IBCONV_CREATE_TABLE")?><?=$STEP==2?'</b>':''?></li>
-			<?if(is_array($_SESSION["BX_IBLOCK_CONV"])):?>
+			<?php if(is_array($_SESSION["BX_IBLOCK_CONV"])):?>
 				<li><?=$STEP==3?'<b>':''?><?=GetMessage("IBCONV_PROGRESS",array("#DONE#"=>$_SESSION["BX_IBLOCK_CONV"]["DONE"],"#TODO#"=>$_SESSION["BX_IBLOCK_CONV"]["TODO"]))?><?=$STEP==3?'</b>':''?></li>
-			<?else:?>
+			<?php else:?>
 				<li><?=$STEP==3?'<b>':''?><?=GetMessage("IBCONV_INPROGRESS")?><?=$STEP==3?'</b>':''?></li>
-			<?endif;?>
+			<?php endif;?>
 			<li><?=$STEP==5?'<b>':''?><?=GetMessage("IBCONV_FINALIZE")?><?=$STEP==5?'</b>':''?></li>
 			</ul></p>
-		<?else:?>
+		<?php else:?>
 			<p><ul>
 			<li><?=$STEP==2?'<b>':''?><?=GetMessage("IBCONV_PREPARE")?><?=$STEP==2?'</b>':''?></li>
-			<?if(is_array($_SESSION["BX_IBLOCK_CONV"])):?>
+			<?php if(is_array($_SESSION["BX_IBLOCK_CONV"])):?>
 				<li><?=$STEP==3?'<b>':''?><?=GetMessage("IBCONV_PROGRESS",array("#DONE#"=>$_SESSION["BX_IBLOCK_CONV"]["DONE"],"#TODO#"=>$_SESSION["BX_IBLOCK_CONV"]["TODO"]))?><?=$STEP==3?'</b>':''?></li>
-			<?else:?>
+			<?php else:?>
 				<li><?=$STEP==3?'<b>':''?><?=GetMessage("IBCONV_INPROGRESS")?><?=$STEP==3?'</b>':''?></li>
-			<?endif;?>
+			<?php endif;?>
 			<li><?=$STEP==5?'<b>':''?><?=GetMessage("IBCONV_FINALIZE2")?><?=$STEP==5?'</b>':''?></li>
 			</ul></p>
-		<?endif?>
+		<?php endif?>
 		<script>setTimeout('DoNext(<?=$WAY?>,<?=$STEP?>)', 500);</script>
-	<?else:?>
+	<?php else:?>
 		<p><?=GetMessage("IBCONV_FINISHED")?></p>
-		<? if ($isSidePanel): ?>
+		<?php  if ($isSidePanel): ?>
 			<p onclick="top.BX.onCustomEvent('SidePanel:close');"><a href="javascript:void(0)"><?=GetMessage("IBCONV_FINISHED_HREF")?></a></p>
-		<? else: ?>
+		<?php  else: ?>
 			<p><a href="iblock_edit.php?ID=<?=$arIBlock["ID"]?>&amp;type=<?=$arIBlock["IBLOCK_TYPE_ID"]?>&amp;lang=<?=LANG?>&amp;admin=Y"><?=GetMessage("IBCONV_FINISHED_HREF")?></a></p>
-		<? endif; ?>
-	<?endif;?>
-<?endif;?>
-<?
+		<?php  endif; ?>
+	<?php endif;?>
+<?php endif;?>
+<?php 
 $lAdmin->EndCustomContent();
 if($STEP==0)
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
@@ -168,7 +168,7 @@ function DoNext(way, step){
 	queryString+='&IBLOCK_ID=<?=$IBLOCK_ID?>';
 	queryString+='&WAY='+way;
 	queryString+='&STEP='+step;
-	queryString+='&<?echo bitrix_sessid_get()?>';
+	queryString+='&<?php echo bitrix_sessid_get()?>';
 	queryString+=<?= ($isSidePanel) ? '"&IFRAME=Y"' : '""'; ?>;
 	BX.showWait();
 	BX.ajax.post('iblock_convert.php?'+queryString, null, function(result)
@@ -178,7 +178,7 @@ function DoNext(way, step){
 	});
 }
 </script>
-<?
+<?php 
 function FirstStep12($arIBlock)
 {
 	global $DB, $_SESSION, $arErrors, $arMessages, $INTERVAL;

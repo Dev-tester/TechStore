@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_FILTER_TITLE'] = "Проактивный фильтр";
 $MESS ['SEC_FILTER_MAIN_TAB'] = "Проактивный фильтр";
 $MESS ['SEC_FILTER_MAIN_TAB_TITLE'] = "Включение проактивного фильтра.";

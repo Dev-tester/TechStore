@@ -1,4 +1,4 @@
-<?
+<?php 
 $arUserProps = array(
 	"ID" => GetMessage("SONET_C241_ID"),
 	"LOGIN" => GetMessage("SONET_C241_LOGIN"),

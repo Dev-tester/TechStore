@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_ESDL_LIST'] = "Список дополнительных сервисов";
 $MESS ['SALE_ESDL_COL_ID'] = "Идентификатор";
 $MESS ['SALE_ESDL_COL_CODE'] = "Код";

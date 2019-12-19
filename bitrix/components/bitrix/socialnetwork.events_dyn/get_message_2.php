@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NO_KEEP_STATISTIC", true);
 define("NO_AGENT_STATISTIC", true);
 define("BX_STATISTIC_BUFFER_USED", false);

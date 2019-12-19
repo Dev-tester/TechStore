@@ -26,7 +26,7 @@ if(!function_exists('__CrmFieldMultiEditRenderItem'))
 			</div>
 			<del onclick="BX.CrmFieldMultiEditor.items['<?=CUtil::addslashes($editorID)?>'].deleteItem(this.parentNode);"></del>
 		</div>
-	<?
+	<?php 
 	}
 }
 
@@ -42,7 +42,7 @@ foreach($arResult['TYPE_BOX']["REFERENCE"] as $key=>$name)
 }
 ?>
 <div id="<?=htmlspecialcharsbx($editorID)?>">
-	<?
+	<?php 
 	$valuCount = count($arResult['VALUES']);
 	if(!empty($arResult['VALUES']))
 	{

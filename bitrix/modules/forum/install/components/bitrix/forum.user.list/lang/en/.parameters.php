@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL_TEMPLATES'] = "URLs processing";
 $MESS ['F_USERS_PER_PAGE'] = "Number of users per page";
 $MESS ['F_PROFILE_VIEW_TEMPLATE'] = "Profile page";

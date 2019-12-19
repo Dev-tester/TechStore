@@ -49,7 +49,7 @@ $APPLICATION->IncludeComponent(
 	$component
 );?>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.company.import', 
 	'', 

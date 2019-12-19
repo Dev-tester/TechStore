@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_CREATION_CANCELED"] = "Deal has not been created because the operation was canceled by event handler: \"#NAME#\"";
 $MESS["CRM_DEAL_DEFAULT_TITLE_TEMPLATE"] = "Deal #%NUMBER%";
 $MESS["CRM_DEAL_EVENT_ADD"] = "Deal added";

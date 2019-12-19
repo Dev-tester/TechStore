@@ -1,4 +1,4 @@
-<?
+<?php 
 class CVoxImplantHttp
 {
 	const TYPE_BITRIX24 = 'B24';

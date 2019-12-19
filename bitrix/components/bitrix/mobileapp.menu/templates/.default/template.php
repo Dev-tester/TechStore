@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $APPLICATION->SetPageProperty("BodyClass", "menu-page");
 $APPLICATION->AddHeadString("
@@ -108,7 +108,7 @@ html { -webkit-text-size-adjust:none; }
 	<div class="menu-section menu-section-groups">
 		<div class="menu-item menu-item-title"><?=$arResult['MENU_TITLE']?></div>
 	</div>
-<?
+<?php 
 
 $htmlMenu = "";
 $arPushParams = array();
@@ -177,7 +177,7 @@ echo $htmlMenu;
 	}, false);
 
 
-	<?if($arResult['LOGOUT_REQUEST_URL']):?>
+	<?php if($arResult['LOGOUT_REQUEST_URL']):?>
 		Menu.logOut =  function()
 			{
 				if(app.enableInVersion(2))
@@ -186,7 +186,7 @@ echo $htmlMenu;
 					return app.exec("showAuthForm");
 				}
 			}
-	<?endif;?>
+	<?php endif;?>
 
 	if(BX.PULL)
 	{
@@ -214,7 +214,7 @@ echo $htmlMenu;
 
 	BX.ready( function(){
 		Menu.getToken();
-		<?
+		<?php 
 		if(!empty($arPushParams)):?>
 
 			var lastPushParams = null;
@@ -235,7 +235,7 @@ echo $htmlMenu;
 					lastPushParams = null;
 				}
 			});
-		<?endif;?>
+		<?php endif;?>
 	});
 
 </script>

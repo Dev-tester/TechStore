@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_T_EDIT_TITLE_EDIT"] = "Edit template";
 $MESS["MAIN_T_EDIT_TITLE_NEW"] = "New template";
 $MESS["MAIN_T_EDIT_TEMPL_LIST"] = "Template list";

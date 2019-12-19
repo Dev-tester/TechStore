@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTL_OWNER_ID"] = "Owner ID";
 $MESS["INTL_PATH_TO_USER_PROFILE"] = "User profile path";
 $MESS["INTL_PATH_TO_GROUP_TASKS"] = "Group tasks path";

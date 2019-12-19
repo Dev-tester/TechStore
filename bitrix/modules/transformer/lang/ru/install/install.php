@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANSFORMER_MODULE_NAME"] = "Конвертер файлов";
 $MESS["TRANSFORMER_MODULE_DESCRIPTION"] = "Модуль выполняет отправку файлов на конвертацию";
 $MESS["TRANSFORMER_INSTALL_TITLE"] = "Установка модуля \"Конвертер файлов\"";

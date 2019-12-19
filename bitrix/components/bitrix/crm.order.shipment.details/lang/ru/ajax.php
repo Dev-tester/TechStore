@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SD_INSUFFICIENT_RIGHTS"] = "Недостаточно прав";
 $MESS["CRM_ORDER_SD_SHIPMENT_NOT_FOUND"] = "Отгрузка не найдена";
 $MESS["CRM_ORDER_SD_INSUFFICIENT_RIGHTS"] = "Недостаточно прав";

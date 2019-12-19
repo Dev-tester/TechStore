@@ -332,21 +332,21 @@ $lAdmin->CheckListMode();
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?ENTITY_ID=<?=$hlblock['ID']?>">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?ENTITY_ID=<?=$hlblock['ID']?>">
+<?php 
 	$filter->Begin();
 	?>
 	<tr>
 		<td>ID</td>
-		<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"></td>
+		<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"></td>
 	</tr>
-	<?
+	<?php 
 	$USER_FIELD_MANAGER->AdminListShowFilter($ufEntityId);
 	$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage().'?ENTITY_ID='.$hlblock['ID'], "form"=>"find_form"));
 	$filter->End();
 ?>
 </form>
-<?
+<?php 
 
 $lAdmin->DisplayList();
 

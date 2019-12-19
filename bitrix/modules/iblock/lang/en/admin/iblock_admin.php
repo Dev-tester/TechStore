@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADM_UPD_ERROR"] = "Error updating the record:";
 $MESS["IBLOCK_ADM_HEADER_EL"] = "Elements";
 $MESS["IBLOCK_ADM_HEADER_SECT"] = "Sections";

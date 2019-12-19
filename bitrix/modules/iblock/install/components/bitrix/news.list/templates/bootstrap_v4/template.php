@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -16,13 +16,13 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 ?>
 <div class="row news-list<?=$themeClass?>">
 	<div class="col">
-		<?if($arParams["DISPLAY_TOP_PAGER"]):?>
+		<?php if($arParams["DISPLAY_TOP_PAGER"]):?>
 			<?=$arResult["NAV_STRING"]?><br />
-		<?endif;?>
+		<?php endif;?>
 
 		<div class="row">
-			<?foreach($arResult["ITEMS"] as $arItem):?>
-				<?
+			<?php foreach($arResult["ITEMS"] as $arItem):?>
+				<?php 
 					$this->AddEditAction(
 						$arItem['ID'],
 						$arItem['EDIT_LINK'],
@@ -42,21 +42,21 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 				?>
 				<div class="news-list-item mb-2 col-sm" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 					<div class="card">
-						<?if($arParams["DISPLAY_PICTURE"]!="N"):?>
+						<?php if($arParams["DISPLAY_PICTURE"]!="N"):?>
 
-							<?
+							<?php 
 							if ($arItem["VIDEO"])
 							{
 								?>
 								<div class="news-list-item-embed-video embed-responsive embed-responsive-16by9">
 									<iframe
 										class="embed-responsive-item"
-										src="<?echo $arItem["VIDEO"]?>"
+										src="<?php echo $arItem["VIDEO"]?>"
 										frameborder="0"
 										allowfullscreen=""
 										></iframe>
 								</div>
-								<?
+								<?php 
 							}
 							else if ($arItem["SOUND_CLOUD"])
 							{
@@ -67,23 +67,23 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										width="100%"
 										scrolling="no"
 										frameborder="no"
-										src="https://w.soundcloud.com/player/?url=<?echo urlencode($arItem["SOUND_CLOUD"])?>&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"
+										src="https://w.soundcloud.com/player/?url=<?php echo urlencode($arItem["SOUND_CLOUD"])?>&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"
 										></iframe>
 								</div>
-								<?
+								<?php 
 							}
 							else if ($arItem["SLIDER"] && count($arItem["SLIDER"]) > 1)
 							{
 								?>
 								<div class="news-list-item-embed-slider">
-									<div class="news-list-slider-container" style="width: <?
+									<div class="news-list-slider-container" style="width: <?php 
 									echo count($arItem["SLIDER"]) * 100 ?>%;left: 0;">
-										<?
+										<?php 
 										foreach ($arItem["SLIDER"] as $file):?>
 											<div class="news-list-slider-slide">
 												<img src="<?= $file["SRC"] ?>" alt="<?= $file["DESCRIPTION"] ?>">
 											</div>
-										<?endforeach ?>
+										<?php endforeach ?>
 									</div>
 									<div class="news-list-slider-arrow-container-left">
 										<div class="news-list-slider-arrow"><i class="fa fa-angle-left"></i></div>
@@ -92,12 +92,12 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										<div class="news-list-slider-arrow"><i class="fa fa-angle-right"></i></div>
 									</div>
 									<ul class="news-list-slider-control">
-										<?
+										<?php 
 										foreach ($arItem["SLIDER"] as $i => $file):?>
-											<li rel="<?= ($i + 1) ?>" <?
+											<li rel="<?= ($i + 1) ?>" <?php 
 											if (!$i)
 												echo 'class="current"' ?>><span></span></li>
-										<?endforeach ?>
+										<?php endforeach ?>
 									</ul>
 								</div>
 								<script type="text/javascript">
@@ -110,13 +110,13 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 									});
 								});
 							</script>
-								<?
+								<?php 
 							}
 							else if ($arItem["SLIDER"])
 							{
 								?>
 								<div class="news-list-item-embed-img">
-									<? if (!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"]))
+									<?php  if (!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"]))
 									{
 										?>
 										<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">
@@ -129,7 +129,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 												title="<?= $arItem["SLIDER"][0]["TITLE"] ?>"
 											/>
 										</a>
-										<?
+										<?php 
 									}
 									else
 									{
@@ -142,11 +142,11 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 											alt="<?= $arItem["SLIDER"][0]["ALT"] ?>"
 											title="<?= $arItem["SLIDER"][0]["TITLE"] ?>"
 										/>
-										<?
+										<?php 
 									}
 									?>
 								</div>
-								<?
+								<?php 
 							}
 							else if (is_array($arItem["PREVIEW_PICTURE"]))
 							{
@@ -161,7 +161,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 											title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"
 										/>
 									</a>
-									<?
+									<?php 
 								}
 								else
 								{
@@ -172,37 +172,37 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										alt="<?= $arItem["PREVIEW_PICTURE"]["ALT"] ?>"
 										title="<?= $arItem["PREVIEW_PICTURE"]["TITLE"] ?>"
 									/>
-								<?
+								<?php 
 								}
 							}
 							?>
 
-						<?endif;?>
+						<?php endif;?>
 
 						<div class="card-body">
 
-							<?if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
+							<?php if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
 								<h4 class="card-title">
-									<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-										<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?></a>
-									<?else:?>
-										<?echo $arItem["NAME"]?>
-									<?endif;?>
+									<?php if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
+										<a href="<?php echo $arItem["DETAIL_PAGE_URL"]?>"><?php echo $arItem["NAME"]?></a>
+									<?php else:?>
+										<?php echo $arItem["NAME"]?>
+									<?php endif;?>
 								</h4>
-							<?endif;?>
+							<?php endif;?>
 
-							<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-								<p class="card-text"><?echo $arItem["PREVIEW_TEXT"];?></p>
-							<?endif;?>
+							<?php if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
+								<p class="card-text"><?php echo $arItem["PREVIEW_TEXT"];?></p>
+							<?php endif;?>
 
-							<?foreach($arItem["FIELDS"] as $code=>$value):?>
-								<?if($code == "SHOW_COUNTER"):?>
+							<?php foreach($arItem["FIELDS"] as $code=>$value):?>
+								<?php if($code == "SHOW_COUNTER"):?>
 									<div class="news-list-view news-list-post-params">
 										<span class="news-list-icon news-list-icon-eye"></span>
 										<span class="news-list-param"><?=GetMessage("IBLOCK_FIELD_".$code)?>: </span>
 										<span class="news-list-value"><?=intval($value);?></span>
 									</div>
-								<?elseif(
+								<?php elseif(
 									$value
 									&& (
 										$code == "SHOW_COUNTER_START"
@@ -214,7 +214,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										|| $code == "TIMESTAMP_X"
 									)
 								):?>
-									<?
+									<?php 
 									$value = CIBlockFormatProperties::DateFormat($arParams["ACTIVE_DATE_FORMAT"], MakeTimeStamp($value, CSite::GetDateFormat()));
 									?>
 									<div class="news-list-view news-list-post-params">
@@ -222,13 +222,13 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										<span class="news-list-param"><?=GetMessage("IBLOCK_FIELD_".$code)?>: </span>
 										<span class="news-list-value"><?=$value;?></span>
 									</div>
-								<?elseif($code == "TAGS" && $value):?>
+								<?php elseif($code == "TAGS" && $value):?>
 									<div class="news-list-view news-list-post-params">
 										<span class="news-list-icon news-list-icon-tag"></span>
 										<span class="news-list-param"><?=GetMessage("IBLOCK_FIELD_".$code)?>:</span>
 										<span class="news-list-value"><?=$value;?></span>
 									</div>
-								<?elseif(
+								<?php elseif(
 									$value
 									&& (
 										$code == "CREATED_USER_NAME"
@@ -240,48 +240,48 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										<span class="news-list-param"><?=GetMessage("IBLOCK_FIELD_".$code)?>:</span>
 										<span class="news-list-value"><?=$value;?></span>
 									</div>
-								<?elseif ($value != ""):?>
+								<?php elseif ($value != ""):?>
 									<div class="news-list-view news-list-post-params">
 										<span class="news-list-icon"></span>
 										<span class="news-list-param"><?=GetMessage("IBLOCK_FIELD_".$code)?>:</span>
 										<span class="news-list-value"><?=$value;?></span>
 									</div>
-								<?endif;?>
-							<?endforeach;?>
+								<?php endif;?>
+							<?php endforeach;?>
 
-							<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-								<?
+							<?php foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+								<?php 
 								if(is_array($arProperty["DISPLAY_VALUE"]))
 									$value = implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
 								else
 									$value = $arProperty["DISPLAY_VALUE"];
 								?>
-								<?if($arProperty["CODE"] == "FORUM_MESSAGE_CNT"):?>
+								<?php if($arProperty["CODE"] == "FORUM_MESSAGE_CNT"):?>
 									<div class="news-list-view news-list-post-params">
 										<span class="news-list-icon news-list-icon-comments"></span>
 										<span class="news-list-param"><?=$arProperty["NAME"]?>:<?=$value;?></span>
 										<span class="news-list-value"><?=$value;?></span>
 									</div>
-								<?elseif ($value != ""):?>
+								<?php elseif ($value != ""):?>
 									<div class="news-list-view news-list-post-params">
 										<span class="news-list-icon"></span>
 										<span class="news-list-param"><?=$arProperty["NAME"]?>:</span>
 										<span class="news-list-value"><?=$value;?></span>
 									</div>
-								<?endif;?>
-							<?endforeach;?>
+								<?php endif;?>
+							<?php endforeach;?>
 							<div class="d-flex justify-content-between">
 
-								<?if($arParams["DISPLAY_DATE"]!="N" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
+								<?php if($arParams["DISPLAY_DATE"]!="N" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
 									<div class="news-list-view news-list-post-params">
 										<span class="news-list-icon news-list-icon-calendar"></span>
-										<span class="news-list-param"><?echo $arItem["DISPLAY_ACTIVE_FROM"]?></span>
+										<span class="news-list-param"><?php echo $arItem["DISPLAY_ACTIVE_FROM"]?></span>
 									</div>
-								<?endif?>
+								<?php endif?>
 
-								<?if($arParams["USE_RATING"]=="Y"):?>
+								<?php if($arParams["USE_RATING"]=="Y"):?>
 									<div>
-										<?$APPLICATION->IncludeComponent(
+										<?php $APPLICATION->IncludeComponent(
 											"bitrix:iblock.vote",
 											"bootstrap_v4",
 											Array(
@@ -298,19 +298,19 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 											$component
 										);?>
 									</div>
-								<?endif?>
+								<?php endif?>
 							</div>
 							<div class="d-flex justify-content-between align-items-center">
-								<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
+								<?php if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
 									<div class="news-list-more">
-										<a class="btn btn-primary btn-sm" href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><?echo GetMessage("CT_BNL_GOTO_DETAIL")?></a>
+										<a class="btn btn-primary btn-sm" href="<?php echo $arItem["DETAIL_PAGE_URL"]?>"><?php echo GetMessage("CT_BNL_GOTO_DETAIL")?></a>
 									</div>
-								<?endif;?>
-								<? if ($arParams["USE_SHARE"] == "Y")
+								<?php endif;?>
+								<?php  if ($arParams["USE_SHARE"] == "Y")
 								{
 									?>
 									<div class="text-right">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent("bitrix:main.share", $arParams["SHARE_TEMPLATE"], array(
 											"HANDLERS" => $arParams["SHARE_HANDLERS"],
 											"PAGE_URL" => $arResult["~DETAIL_PAGE_URL"],
@@ -324,18 +324,18 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
 					</div>
 				</div>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</div>
 
-		<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+		<?php if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 			<?=$arResult["NAV_STRING"]?>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>

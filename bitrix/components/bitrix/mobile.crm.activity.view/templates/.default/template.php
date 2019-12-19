@@ -56,13 +56,13 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 	<div class="crm_head_title_pic">
 		<img src="<?=htmlspecialcharsbx($dataItem['VIEW_IMAGE_URL'])?>" />
 		<span><?=htmlspecialcharsbx($title)?></span>
-		<?if($typeID === CCrmActivityType::Call || $typeID === CCrmActivityType::Email):
+		<?php if($typeID === CCrmActivityType::Call || $typeID === CCrmActivityType::Email):
 			$msgID = '';
 			if($typeID === CCrmActivityType::Call)
 				$msgID = $direction === CCrmActivityDirection::Incoming ? 'M_CRM_ACTIVITY_VIEW_CALL_IN_LEGEND' : 'M_CRM_ACTIVITY_VIEW_CALL_OUT_LEGEND';
 			else
 				$msgID = $direction === CCrmActivityDirection::Incoming ? 'M_CRM_ACTIVITY_VIEW_EMAIL_IN_LEGEND' : 'M_CRM_ACTIVITY_VIEW_EMAIL_OUT_LEGEND';
-			?><span style="font-size: 13px;color: #87949b;"> <?=htmlspecialcharsbx(GetMessage($msgID))?></span><?
+			?><span style="font-size: 13px;color: #87949b;"> <?=htmlspecialcharsbx(GetMessage($msgID))?></span><?php 
 		endif;?>
 	</div>
 	<div class="crm_block_container">
@@ -74,7 +74,7 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 						<strong><?=htmlspecialcharsbx($dataItem['START_TIME'])?></strong>
 					</td>
 				</tr>
-				<?if($ownerTypeID === CCrmOwnerType::Deal && $ownerShowUrl !== ''):?>
+				<?php if($ownerTypeID === CCrmOwnerType::Deal && $ownerShowUrl !== ''):?>
 					<tr><td colspan="2"><hr/></td></tr>
 					<tr>
 						<td class="crm_vat"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_VIEW_DEAL_OWNER'))?>:</td>
@@ -82,8 +82,8 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 							<strong><?=htmlspecialcharsbx($ownerTitle)?></strong>
 						</td>
 					</tr>
-				<?endif;?>
-				<?if($typeID === CCrmActivityType::Email && $entity['CLIENT_SHOW_URL'] !== ''):?>
+				<?php endif;?>
+				<?php if($typeID === CCrmActivityType::Email && $entity['CLIENT_SHOW_URL'] !== ''):?>
 					<tr><td colspan="2"><hr/></td></tr>
 					<tr>
 						<td class="crm_vat"><?=
@@ -102,12 +102,12 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 							<span class="crm_card_name_small fwn"><?=htmlspecialcharsbx($entity['CLIENT_COMMUNICATION_VALUE'])?></span>
 						</td>
 					</tr>
-				<?endif;?>
+				<?php endif;?>
 			</tbody></table>
 			<br/>
 		</div>
 	</div>
-	<?if(($typeID === CCrmActivityType::Call || $typeID === CCrmActivityType::Meeting) && $entity['CLIENT_SHOW_URL'] !== ''):?>
+	<?php if(($typeID === CCrmActivityType::Call || $typeID === CCrmActivityType::Meeting) && $entity['CLIENT_SHOW_URL'] !== ''):?>
 		<div class="crm_block_container">
 			<div class="crm_card">
 				<div class="crm_card_image" onclick="BX.CrmMobileContext.redirect({ url:'<?=CUtil::JSEscape($entity['CLIENT_SHOW_URL'])?>' })">
@@ -117,7 +117,7 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 				<div class="crm_card_description"><?=htmlspecialcharsbx($entity['CLIENT_LEGEND'])?></div>
 				<div class="clb"></div>
 			</div>
-			<div class="crm_tac lisb"><?
+			<div class="crm_tac lisb"><?php 
 				$callto = isset($entity['CLIENT_CALLTO']) ? $entity['CLIENT_CALLTO'] : null;
 				$enableCallto = $callto && ($callto['URL'] !== '' || $callto['SCRIPT'] !== '');
 				$mailto = isset($entity['CLIENT_MAILTO']) ? $entity['CLIENT_MAILTO'] : null;
@@ -127,16 +127,16 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 			</div>
 			<div class="clb"></div>
 		</div>
-	<?endif;?>
-	<?if($entity['CLIENT_COMPANY_SHOW_URL'] !== ''):?>
+	<?php endif;?>
+	<?php if($entity['CLIENT_COMPANY_SHOW_URL'] !== ''):?>
 	<div class="crm_block_container company crm_arrow" onclick="BX.CrmMobileContext.redirect({ url: '<?=CUtil::JSEscape($entity['CLIENT_COMPANY_SHOW_URL'])?>' });">
 		<div class="crm_block-aqua-container">
 			<div class="crm_block_title"><?=htmlspecialcharsbx($entity['CLIENT_COMPANY_TITLE'] != '' ? $entity['CLIENT_COMPANY_TITLE'] : GetMessage('M_CRM_ACTIVITY_VIEW_NO_TITLE'))?></div>
 			<div class="clb"></div>
 		</div>
 	</div>
-	<?endif;?>
-	<?if($typeID === CCrmActivityType::Meeting && $location !== ''):?>
+	<?php endif;?>
+	<?php if($typeID === CCrmActivityType::Meeting && $location !== ''):?>
 	<div class="crm_block_container">
 		<div class="crm_contact_info">
 			<table><tbody>
@@ -147,7 +147,7 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 			</tbody></table>
 		</div>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="crm_block_container">
 		<div class="crm_contact_info">
 			<table><tbody>
@@ -157,69 +157,69 @@ if(!function_exists('__CrmActivityViewPrepareNameForJson'))
 				</tr>
 				<tr>
 					<td class="crm_vat"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_VIEW_RESPONSIBLE'))?>:</td>
-					<?if($entity['RESPONSIBLE_SHOW_URL'] !== ''):?>
+					<?php if($entity['RESPONSIBLE_SHOW_URL'] !== ''):?>
 						<td class="crm_arrow" onclick="BX.CrmMobileContext.redirect({ url: '<?=CUtil::JSEscape($entity['RESPONSIBLE_SHOW_URL'])?>' });">
 							<span class="crm_user_link"> <?=htmlspecialcharsbx($entity['RESPONSIBLE_FORMATTED_NAME'])?></span>
 						</td>
-					<?else:?>
+					<?php else:?>
 						<td>
 							<span class="crm_user_link"> <?=htmlspecialcharsbx($entity['RESPONSIBLE_FORMATTED_NAME'])?></span>
 						</td>
-					<?endif;?>
+					<?php endif;?>
 				</tr>
 			</tbody></table>
-			<?if($description !== ''):?>
+			<?php if($description !== ''):?>
 			<hr/>
 			<div class="crm_block_content">
 				<div class="crm_block_content_title"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_VIEW_DESCRIPTION'))?>:</div>
-				<p><span><?=$description?></span><?if($descriptionCut !== ''):?><a class="tdn" href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, { tagName: 'SPAN' }).style.display = ''; return false;"> <?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_VIEW_CUT'))?></a><span style="display:none;"><?=$descriptionCut?></span><?endif;?></p>
+				<p><span><?=$description?></span><?php if($descriptionCut !== ''):?><a class="tdn" href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, { tagName: 'SPAN' }).style.display = ''; return false;"> <?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_VIEW_CUT'))?></a><span style="display:none;"><?=$descriptionCut?></span><?php endif;?></p>
 			</div>
-			<?endif;?>
-			<?if($storageTypeID === \Bitrix\Crm\Integration\StorageType::Disk && !empty($diskFiles)):?>
+			<?php endif;?>
+			<?php if($storageTypeID === \Bitrix\Crm\Integration\StorageType::Disk && !empty($diskFiles)):?>
 				<hr/>
 				<div class="crm_files">
 					<ul>
-						<?foreach($diskFiles as $diskFileInfo):?>
+						<?php foreach($diskFiles as $diskFileInfo):?>
 						<li>
 							<a href="#" onclick="app.openDocument({ url: '<?=htmlspecialcharsbx(SITE_DIR."mobile/disk/{$diskFileInfo['ID']}/download/?filename=".__CrmActivityViewPrepareNameForJson($diskFileInfo['NAME']))?>' }); return false;">
 								<?=htmlspecialcharsbx($diskFileInfo['NAME'])?><span> (<?=htmlspecialcharsbx($diskFileInfo['SIZE'])?>)</span>
 							</a>
 						</li>
-					<?endforeach;?>
-					<?unset($elementInfo);?>
+					<?php endforeach;?>
+					<?php unset($elementInfo);?>
 					</ul>
 				</div>
-			<?elseif($storageTypeID === \Bitrix\Crm\Integration\StorageType::File && !empty($files)):?>
+			<?php elseif($storageTypeID === \Bitrix\Crm\Integration\StorageType::File && !empty($files)):?>
 				<hr/>
 				<div class="crm_files">
 					<ul>
-					<?foreach($files as $fileInfo):?>
+					<?php foreach($files as $fileInfo):?>
 						<li>
 							<a href="<?=htmlspecialcharsbx($fileInfo['fileURL'])?>">
 								<?=htmlspecialcharsbx($fileInfo['fileName'])?>
 								<span> (<?=htmlspecialcharsbx($fileInfo['fileSize'])?>)</span>
 							</a>
 						</li>
-					<?endforeach;?>
-					<?unset($fileInfo);?>
+					<?php endforeach;?>
+					<?php unset($fileInfo);?>
 					</ul>
 				</div>
-			<?elseif($storageTypeID === \Bitrix\Crm\Integration\StorageType::WebDav && !empty($webdavElements)):?>
+			<?php elseif($storageTypeID === \Bitrix\Crm\Integration\StorageType::WebDav && !empty($webdavElements)):?>
 				<hr/>
 				<div class="crm_files">
 					<ul>
-					<?foreach($webdavElements as $elementInfo):?>
+					<?php foreach($webdavElements as $elementInfo):?>
 						<li>
 							<a href="<?=htmlspecialcharsbx($elementInfo['VIEW_URL'])?>">
 								<?=htmlspecialcharsbx($elementInfo['NAME'])?>
 								<span> (<?=htmlspecialcharsbx($elementInfo['SIZE'])?>)</span>
 							</a>
 						</li>
-					<?endforeach;?>
-					<?unset($elementInfo);?>
+					<?php endforeach;?>
+					<?php unset($elementInfo);?>
 					</ul>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 	</div>
 </div>

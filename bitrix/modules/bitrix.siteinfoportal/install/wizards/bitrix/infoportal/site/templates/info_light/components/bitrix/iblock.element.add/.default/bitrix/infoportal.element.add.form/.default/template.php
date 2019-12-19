@@ -1,29 +1,29 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
-<?
+<?php 
 //echo "<pre>Template arParams: "; print_r($arParams); echo "</pre>";
 //echo "<pre>Template arResult: "; print_r($arResult); echo "</pre>";
 //exit();
 ?>
 
-<?if (count($arResult["ERRORS"])):?>
+<?php if (count($arResult["ERRORS"])):?>
 	<?=ShowError(implode("<br />", $arResult["ERRORS"]))?>
-<?endif?>
-<?if (strlen($arResult["MESSAGE"]) > 0):?>
+<?php endif?>
+<?php if (strlen($arResult["MESSAGE"]) > 0):?>
 	<?=ShowNote($arResult["MESSAGE"])?>
-<?endif?>
+<?php endif?>
 <form name="iblock_add" action="<?=POST_FORM_ACTION_URI?>" method="post" enctype="multipart/form-data">
 	<?=bitrix_sessid_post()?>
-	<?if ($arParams["MAX_FILE_SIZE"] > 0):?><input type="hidden" name="MAX_FILE_SIZE" value="<?=$arParams["MAX_FILE_SIZE"]?>" /><?endif?>
+	<?php if ($arParams["MAX_FILE_SIZE"] > 0):?><input type="hidden" name="MAX_FILE_SIZE" value="<?=$arParams["MAX_FILE_SIZE"]?>" /><?php endif?>
 
 	<div class="data-form">
-		<?if (is_array($arResult["PROPERTY_LIST"]) && count($arResult["PROPERTY_LIST"] > 0)):?>
-			<?foreach ($arResult["PROPERTY_LIST"] as $propertyID):?>
+		<?php if (is_array($arResult["PROPERTY_LIST"]) && count($arResult["PROPERTY_LIST"] > 0)):?>
+			<?php foreach ($arResult["PROPERTY_LIST"] as $propertyID):?>
 				<div class="data-form-line">
-					<div class="data-form-name"><?if (intval($propertyID) > 0):?><?=$arResult["PROPERTY_LIST_FULL"][$propertyID]["NAME"]?><?else:?><?=!empty($arParams["CUSTOM_TITLE_".$propertyID]) ? $arParams["CUSTOM_TITLE_".$propertyID] : GetMessage("IBLOCK_FIELD_".$propertyID)?><?endif?><?if(in_array($propertyID, $arResult["PROPERTY_REQUIRED"])):?><span class="starrequired">*</span><?endif?>:</div>
+					<div class="data-form-name"><?php if (intval($propertyID) > 0):?><?=$arResult["PROPERTY_LIST_FULL"][$propertyID]["NAME"]?><?php else:?><?=!empty($arParams["CUSTOM_TITLE_".$propertyID]) ? $arParams["CUSTOM_TITLE_".$propertyID] : GetMessage("IBLOCK_FIELD_".$propertyID)?><?php endif?><?php if(in_array($propertyID, $arResult["PROPERTY_REQUIRED"])):?><span class="starrequired">*</span><?php endif?>:</div>
 					<div class="data-form-input">
-						<?
+						<?php 
 						//echo "<pre>"; print_r($arResult["PROPERTY_LIST_FULL"]); echo "</pre>";
 						if (intval($propertyID) > 0)
 						{
@@ -94,7 +94,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 												"FORM_NAME"=>"iblock_add",
 											),
 										));
-								?><br /><?
+								?><br /><?php 
 								}
 							break;
 							case "TAGS":
@@ -148,7 +148,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 									}
 								?>
 						<textarea cols="<?=$arResult["PROPERTY_LIST_FULL"][$propertyID]["COL_COUNT"]?>" rows="<?=$arResult["PROPERTY_LIST_FULL"][$propertyID]["ROW_COUNT"]?>" name="PROPERTY[<?=$propertyID?>][<?=$i?>]"><?=$value?></textarea>
-								<?
+								<?php 
 								}
 							break;
 
@@ -170,8 +170,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 										$value = "";
 									}
 								?>
-								<input type="text" name="PROPERTY[<?=$propertyID?>][<?=$i?>]" size="25" value="<?=$value?>" id="input_<?=strtolower($propertyID)?>"/><?
-								if($arResult["PROPERTY_LIST_FULL"][$propertyID]["USER_TYPE"] == "DateTime"):?><?
+								<input type="text" name="PROPERTY[<?=$propertyID?>][<?=$i?>]" size="25" value="<?=$value?>" id="input_<?=strtolower($propertyID)?>"/><?php 
+								if($arResult["PROPERTY_LIST_FULL"][$propertyID]["USER_TYPE"] == "DateTime"):?><?php 
 									$APPLICATION->IncludeComponent(
 										'bitrix:main.calendar',
 										'',
@@ -183,9 +183,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 										null,
 										array('HIDE_ICONS' => 'Y')
 									);
-									?><?
+									?><?php 
 								endif
-								?><?
+								?><?php 
 								}
 							break;
 
@@ -196,19 +196,19 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 									?>
 						<input type="hidden" name="PROPERTY[<?=$propertyID?>][<?=$arResult["ELEMENT_PROPERTIES"][$propertyID][$i]["VALUE_ID"] ? $arResult["ELEMENT_PROPERTIES"][$propertyID][$i]["VALUE_ID"] : $i?>]" value="<?=$value?>" />
 						<input type="file" size="<?=$arResult["PROPERTY_LIST_FULL"][$propertyID]["COL_COUNT"]?>"  name="PROPERTY_FILE_<?=$propertyID?>_<?=$arResult["ELEMENT_PROPERTIES"][$propertyID][$i]["VALUE_ID"] ? $arResult["ELEMENT_PROPERTIES"][$propertyID][$i]["VALUE_ID"] : $i?>" /><br />
-									<?
+									<?php 
 
 									if (!empty($value) && is_array($arResult["ELEMENT_FILES"][$value]))
 									{
 										?>
 					<input type="checkbox" class="checkbox" name="DELETE_FILE[<?=$propertyID?>][<?=$arResult["ELEMENT_PROPERTIES"][$propertyID][$i]["VALUE_ID"] ? $arResult["ELEMENT_PROPERTIES"][$propertyID][$i]["VALUE_ID"] : $i?>]" id="file_delete_<?=$propertyID?>_<?=$i?>" value="Y" /><label for="file_delete_<?=$propertyID?>_<?=$i?>"><?=GetMessage("IBLOCK_FORM_FILE_DELETE")?></label><br />
-										<?
+										<?php 
 
 										if ($arResult["ELEMENT_FILES"][$value]["IS_IMAGE"])
 										{
 											?>
 					<img src="<?=$arResult["ELEMENT_FILES"][$value]["SRC"]?>" height="<?=$arResult["ELEMENT_FILES"][$value]["HEIGHT"]?>" width="<?=$arResult["ELEMENT_FILES"][$value]["WIDTH"]?>" border="0" /><br />
-											<?
+											<?php 
 										}
 										else
 										{
@@ -216,7 +216,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 					<?=GetMessage("IBLOCK_FORM_FILE_NAME")?>: <?=$arResult["ELEMENT_FILES"][$value]["ORIGINAL_NAME"]?><br />
 					<?=GetMessage("IBLOCK_FORM_FILE_SIZE")?>: <?=$arResult["ELEMENT_FILES"][$value]["FILE_SIZE"]?> b<br />
 					[<a href="<?=$arResult["ELEMENT_FILES"][$value]["SRC"]?>"><?=GetMessage("IBLOCK_FORM_FILE_DOWNLOAD")?></a>]<br />
-											<?
+											<?php 
 										}
 									}
 								}
@@ -255,7 +255,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 											?>
 							<input type="<?=$type?>" name="PROPERTY[<?=$propertyID?>]<?=$type == "checkbox" ? "[".$key."]" : ""?>" value="<?=$key?>" id="property_<?=$key?>"<?=$checked ? " checked=\"checked\"" : ""?> /><label for="property_<?=$key?>"><?=$arEnum["VALUE"]?></label><br />
-											<?
+											<?php 
 										}
 									break;
 
@@ -263,7 +263,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 									case "multiselect":
 									?>
 							<select name="PROPERTY[<?=$propertyID?>]<?=$type=="multiselect" ? "[]\" size=\"".$arResult["PROPERTY_LIST_FULL"][$propertyID]["ROW_COUNT"]."\" multiple=\"multiple" : ""?>">
-									<?
+									<?php 
 										if (intval($propertyID) > 0) $sKey = "ELEMENT_PROPERTIES";
 										else $sKey = "ELEMENT";
 
@@ -283,11 +283,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 											}
 											?>
 								<option value="<?=$key?>" <?=$checked ? " selected=\"selected\"" : ""?>><?=$arEnum["VALUE"]?></option>
-											<?
+											<?php 
 										}
 									?>
 							</select>
-									<?
+									<?php 
 									break;
 
 								endswitch;
@@ -295,8 +295,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 						endswitch;?>
 					</div>
 				</div>
-			<?endforeach;?>
-			<?if($arParams["USE_CAPTCHA"] == "Y" && $arParams["ID"] <= 0):?>
+			<?php endforeach;?>
+			<?php if($arParams["USE_CAPTCHA"] == "Y" && $arParams["ID"] <= 0):?>
 				<div class="data-form-line">
 					<div class="data-form-name"><?=GetMessage("IBLOCK_FORM_CAPTCHA_TITLE")?></div>
 					<div class="data-form-input">
@@ -308,16 +308,16 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 					<div class="data-form-name"><?=GetMessage("IBLOCK_FORM_CAPTCHA_PROMPT")?><span class="starrequired">*</span>:</div>
 					<div class="data-form-input"><input type="text" name="captcha_word" maxlength="50" value="" id="captcha_word"/></div>
 				</div>
-			<?endif?>
-		<?endif?>
+			<?php endif?>
+		<?php endif?>
 			<div class="data-form-line">
 				<div class="data-form-submit">
 					<input type="submit" name="iblock_submit" value="<?=GetMessage("IBLOCK_FORM_SUBMIT")?>" />
-					<?if (strlen($arParams["LIST_URL"]) > 0 && $arParams["ID"] > 0):?><input type="submit" name="iblock_apply" value="<?=GetMessage("IBLOCK_FORM_APPLY")?>" /><?endif?>
-					<?/*<input type="reset" value="<?=GetMessage("IBLOCK_FORM_RESET")?>" />*/?>
+					<?php if (strlen($arParams["LIST_URL"]) > 0 && $arParams["ID"] > 0):?><input type="submit" name="iblock_apply" value="<?=GetMessage("IBLOCK_FORM_APPLY")?>" /><?php endif?>
+					<?php /*<input type="reset" value="<?=GetMessage("IBLOCK_FORM_RESET")?>" />*/?>
 				</div>
 			</div>
 	</div>
 	<br />
-	<?if (strlen($arParams["LIST_URL"]) > 0):?><a href="<?=$arParams["LIST_URL"]?>"><?=GetMessage("IBLOCK_FORM_BACK")?></a><?endif?>
+	<?php if (strlen($arParams["LIST_URL"]) > 0):?><a href="<?=$arParams["LIST_URL"]?>"><?=GetMessage("IBLOCK_FORM_BACK")?></a><?php endif?>
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NO_MODULE'] = "Forum module is not installed";
 $MESS ['F_NO_NPERMS'] = "You do not have enough permissions to create new topic in this forum";
 $MESS ['F_NO_EPERMS'] = "You do not have enough permissions to modify this message";

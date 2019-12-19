@@ -1,4 +1,4 @@
-<?
+<?php 
 $className = "CXMPPReceiveIQ";
 $classVersion = 2;
 

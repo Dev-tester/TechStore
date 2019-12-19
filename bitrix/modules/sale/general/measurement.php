@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSaleMeasure
 {
 	function GetList($category = false)

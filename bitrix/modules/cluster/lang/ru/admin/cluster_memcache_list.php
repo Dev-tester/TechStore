@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_MEMCACHE_LIST_ADD"] = "Добавить";
 $MESS["CLU_MEMCACHE_LIST_ADD_TITLE"] = "Добавить подключение к memcached";
 $MESS["CLU_MEMCACHE_LIST_REFRESH"] = "Обновить";

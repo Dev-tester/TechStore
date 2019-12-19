@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Trade Services");
 ?>
@@ -12,4 +12,4 @@ $APPLICATION->SetTitle("Trade Services");
 	<li>Letter of Credit.</li> </ul> 								
 
  
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

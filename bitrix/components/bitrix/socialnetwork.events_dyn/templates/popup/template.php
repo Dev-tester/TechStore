@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\UI;
 
@@ -204,6 +204,6 @@ $ajax_page = $APPLICATION->GetCurPageParam("", array("bxajaxid", "logout"));
 </div>
 </div>
 <a href="<?= $arParams["PATH_TO_MESSAGES"] ?>" title="<?=GetMessage("SONET_C2_MESSAGES")?>"><?=GetMessage("SONET_C2_MESSAGES")?></a> 
-<? if (array_key_exists("ITEMS_TOTAL", $arResult) && intval($arResult["ITEMS_TOTAL"]) > 0):?>
+<?php  if (array_key_exists("ITEMS_TOTAL", $arResult) && intval($arResult["ITEMS_TOTAL"]) > 0):?>
 	(<?= $arResult["ITEMS_TOTAL"]?>)
-<? endif; ?>
+<?php  endif; ?>

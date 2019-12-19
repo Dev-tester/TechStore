@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 global $APPLICATION, $USER_FIELD_MANAGER;
 
 $id = $arParams['id'];
@@ -118,14 +118,14 @@ $arTabs = array(
 <div id="bxec_view_ed_<?=$id?>" class="bxec-popup">
 <div style="width: 700px; height: 1px;"></div>
 <div class="popup-window-tabs" id="<?=$id?>_viewev_tabs">
-	<?foreach($arTabs as $tab):?>
-		<span class="popup-window-tab<? if($tab['active']) echo ' popup-window-tab-selected';?>" title="<?= (isset($tab['title']) ? $tab['title'] : $tab['name'])?>" id="<?= $tab['id']?>" <?if($tab['show'] === false) echo'style="display:none;"';?>>
+	<?php foreach($arTabs as $tab):?>
+		<span class="popup-window-tab<?php  if($tab['active']) echo ' popup-window-tab-selected';?>" title="<?= (isset($tab['title']) ? $tab['title'] : $tab['name'])?>" id="<?= $tab['id']?>" <?php if($tab['show'] === false) echo'style="display:none;"';?>>
 			<?=$tab['name']?>
 		</span>
-	<?endforeach;?>
+	<?php endforeach;?>
 </div>
 <div class="popup-window-tabs-content">
-<?/* ####### TAB 0 : BASIC ####### */?>
+<?php /* ####### TAB 0 : BASIC ####### */?>
 <div id="<?=$id?>view-tab-0-cont" class="popup-window-tab-content popup-window-tab-content-selected">
 <div class="bx-cal-view-icon">
 	<div class="bx-cal-view-icon-day"><?= $event['FROM_WEEK_DAY']?></div>
@@ -142,7 +142,7 @@ $arTabs = array(
 			<td class="bx-cal-view-text-cell-r bx-cal-view-from-to">
 				<span><?= CCalendar::GetFromToHtml($fromTs, $toTs, $event['DT_SKIP_TIME'] == 'Y', $event['DT_LENGTH']);?>
 				</span>
-				<?
+				<?php 
 				if (
 					$event['DT_SKIP_TIME'] != 'Y' &&
 					(intVal($event['~USER_OFFSET_FROM']) !== 0 ||
@@ -162,38 +162,38 @@ $arTabs = array(
 					}
 					?>
 					<span id="bxec-view-tz-hint<?=$id?>" data-bx-hint="<?= $timezoneHint?>" class="bx-cal-view-timezon-icon"></span>
-					<?
+					<?php 
 				}
 				?>
 			</td>
 		</tr>
-		<?if ($event['RRULE'])
+		<?php if ($event['RRULE'])
 		{?>
 			<tr>
 				<td class="bx-cal-view-text-cell-l"><?=GetMessage('EC_T_REPEAT')?>:</td>
 				<td class="bx-cal-view-text-cell-r"><?= CCalendarEvent::GetRRULEDescription($event, true)?></td>
 			</tr>
-		<?} /* if ($event['RRULE']) */?>
-		<?if (!empty($event['LOCATION']))
+		<?php } /* if ($event['RRULE']) */?>
+		<?php if (!empty($event['LOCATION']))
 		{?>
 			<tr>
 				<td class="bx-cal-view-text-cell-l"><?= GetMessage('EC_LOCATION')?>:</td>
 				<td class="bx-cal-view-text-cell-r"><span class="bx-cal-location"><?= htmlspecialcharsEx(CCalendar::GetTextLocation($event['LOCATION']))?></span></td>
 			</tr>
-		<?} /* if (!empty($event['LOCATION'])) */?>
+		<?php } /* if (!empty($event['LOCATION'])) */?>
 	</table>
 </div>
 
-<?if (!empty($event['~DESCRIPTION'])):?>
+<?php if (!empty($event['~DESCRIPTION'])):?>
 	<div class="bx-cal-view-description">
 		<div class="feed-cal-view-desc-title"><?= GetMessage('EC_T_DESC')?>:</div>
 		<div class="bx-cal-view-desc-cont"><?= htmlspecialcharsback($event['~DESCRIPTION'])?></div>
 	</div>
-<?endif;?>
+<?php endif;?>
 
-<?if ($event['UF_WEBDAV_CAL_EVENT']):?>
+<?php if ($event['UF_WEBDAV_CAL_EVENT']):?>
 	<div class="bx-cal-view-files" id="bx-cal-view-files-<?=$id?><?=$event['ID']?>">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:system.field.view",
 			$event['UF_WEBDAV_CAL_EVENT']["USER_TYPE"]["USER_TYPE_ID"],
 			array("arUserField" => $event['UF_WEBDAV_CAL_EVENT']),
@@ -201,12 +201,12 @@ $arTabs = array(
 			array("HIDE_ICONS"=>"Y")
 		);?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
-<?if ($event['UF_CRM_CAL_EVENT']):?>
+<?php if ($event['UF_CRM_CAL_EVENT']):?>
 	<div class="bx-cal-view-crm">
 		<div class="bxec-crm-title"><?= htmlspecialcharsbx($event['UF_CRM_CAL_EVENT']["EDIT_FORM_LABEL"])?>:</div>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:system.field.view",
 			$event['UF_CRM_CAL_EVENT']["USER_TYPE"]["USER_TYPE_ID"],
 			array("arUserField" => $event['UF_CRM_CAL_EVENT']),
@@ -214,14 +214,14 @@ $arTabs = array(
 			array("HIDE_ICONS"=>"Y")
 		);?>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 <div id="<?=$id?>bxec_view_uf_group" class="bxec-popup-row" style="display: none;">
 	<div class="bxec-popup-row-title"><?= GetMessage('EC_EDEV_ADD_TAB')?></div>
 	<div id="<?=$id?>bxec_view_uf_cont"></div>
 </div>
 
-<?if($arParams['bSocNet'] && $event['IS_MEETING']):?>
+<?php if($arParams['bSocNet'] && $event['IS_MEETING']):?>
 	<div class="bx-cal-view-meeting-cnt">
 		<table>
 			<tr>
@@ -235,13 +235,13 @@ $arTabs = array(
 				<td class="bx-cal-view-att-cell-r" style="padding-top: 5px;">
 					<div class="bx-cal-view-title"><?= GetMessage('EC_EDEV_GUESTS')?></div>
 					<div class="bx-cal-att-dest-cont">
-						<?
+						<?php 
 						$arDest = CCalendar::GetFormatedDestination($event['ATTENDEES_CODES']);
 						$cnt = count($arDest);
 						for($i = 0; $i < $cnt; $i++ )
 						{
 							$dest = $arDest[$i];
-							?><span class="bx-cal-att-dest-block"><?= $dest['TITLE']?></span><?
+							?><span class="bx-cal-att-dest-block"><?= $dest['TITLE']?></span><?php 
 							if ($i < count($arDest) - 1)
 								echo ', ';
 						}
@@ -250,7 +250,7 @@ $arTabs = array(
 				</td>
 			</tr>
 
-			<?
+			<?php 
 			foreach($attendees as $k => $arAtt)
 			{
 				if (!$arAtt || empty($arAtt['users']))
@@ -260,7 +260,7 @@ $arTabs = array(
 					<td class="bx-cal-view-att-cell-l"><?= $arAtt['title']?>:</td>
 					<td class="bx-cal-view-att-cell-r">
 						<div class="bx-cal-view-att-cont" id="<?= $arAtt['id']?>">
-							<?
+							<?php 
 							$cnt = 0;
 							$bShowAll = count($arAtt['users']) <= $arAtt['countMax'];
 							foreach($arAtt['users'] as $att)
@@ -270,103 +270,103 @@ $arTabs = array(
 								{
 									?>
 									<a title="<?= htmlspecialcharsbx($att['DISPLAY_NAME'])?>" href="<?= $att['URL']?>" target="_blank" class="bxcal-att-popup-img bxcal-att-popup-img-hidden"><span class="bxcal-att-popup-avatar-outer"><span class="bxcal-att-popup-avatar"><img src="<?= $att['AVATAR_SRC']?>" width="<?= $arParams['AVATAR_SIZE']?>" height="<?= $arParams['AVATAR_SIZE']?>" /></span></span><span class="bxcal-att-name"><?= htmlspecialcharsbx($att['DISPLAY_NAME'])?></span></a>
-								<?
+								<?php 
 								}
 								else // Display attendee
 								{
 									?>
 									<a title="<?= htmlspecialcharsbx($att['DISPLAY_NAME'])?>" href="<?= $att['URL']?>" target="_blank" class="bxcal-att-popup-img"><span class="bxcal-att-popup-avatar-outer"><span class="bxcal-att-popup-avatar"><img src="<?= $att['AVATAR_SRC']?>" width="<?= $arParams['AVATAR_SIZE']?>" height="<?= $arParams['AVATAR_SIZE']?>" /></span></span><span class="bxcal-att-name"><?= htmlspecialcharsbx($att['DISPLAY_NAME'])?></span></a>
-								<?
+								<?php 
 								}
 							}
 							if (!$bShowAll)
 							{
 								?>
 								<span data-bx-more-users="<?= $arAtt['id']?>" class="bxcal-more-attendees"><?= CCalendar::GetMoreAttendeesMessage(count($arAtt['users']) - $arAtt['count'])?></span>
-							<?
+							<?php 
 							}?>
 						</div>
 					</td>
 				</tr>
-			<?}/*foreach($attendees as $arAtt)*/?>
+			<?php }/*foreach($attendees as $arAtt)*/?>
 
-			<?if (!empty($event['MEETING']['TEXT'])):?>
+			<?php if (!empty($event['MEETING']['TEXT'])):?>
 				<tr>
 					<td class="bx-cal-view-att-cell-l" style="padding-top: 3px;"><?=GetMessage('EC_MEETING_TEXT2')?>:</td>
 					<td class="bx-cal-view-att-cell-r"><pre><?= htmlspecialcharsEx($event['MEETING']['TEXT'])?></pre></td>
 				</tr>
-			<?endif; /*if (!empty($event['MEETING']['TEXT']))*/?>
+			<?php endif; /*if (!empty($event['MEETING']['TEXT']))*/?>
 		</table>
 
 		<div class="bxc-confirm-row">
-			<?if($curUserStatus == 'Q'): /* User still haven't take a decision*/?>
+			<?php if($curUserStatus == 'Q'): /* User still haven't take a decision*/?>
 				<div id="<?=$id?>status-conf-cnt2" class="bxc-conf-cnt">
 					<span data-bx-set-status="Y" class="popup-window-button popup-window-button-accept"><span class="popup-window-button-left"></span><span class="popup-window-button-text"><?= GetMessage('EC_ACCEPT_MEETING')?></span><span class="popup-window-button-right"></span></span>
 					<a data-bx-set-status="N" class="bxc-decline-link" href="javascript:void(0)" title="<?= GetMessage('EC_EDEV_CONF_N_TITLE')?>" id="<?=$id?>decline-link-2"><?= GetMessage('EC_EDEV_CONF_N')?></a>
 				</div>
-			<?elseif($curUserStatus == 'Y' || $curUserStatus == 'H'):/* User accepts inviting */?>
+			<?php elseif($curUserStatus == 'Y' || $curUserStatus == 'H'):/* User accepts inviting */?>
 				<div id="<?=$id?>status-conf-cnt1" class="bxc-conf-cnt">
 					<span><?= GetMessage('EC_ACCEPTED_STATUS')?></span>
 					<a data-bx-set-status="N" class="bxc-decline-link" href="javascript:void(0)" title="<?= GetMessage('EC_EDEV_CONF_N_TITLE')?>"><?= GetMessage('EC_EDEV_CONF_N')?></a>
 				</div>
-			<?elseif($curUserStatus == 'N'): /* User declines inviting*/ ?>
+			<?php elseif($curUserStatus == 'N'): /* User declines inviting*/ ?>
 				<div class="bxc-conf-cnt">
 					<span class="bxc-conf-label"><?= GetMessage('EC_DECLINE_INFO')?></span>. <a data-bx-set-status="Y" href="javascript:void(0)" title="<?= GetMessage('EC_ACCEPT_MEETING_2')?>"><?= GetMessage('EC_ACCEPT_MEETING')?></a>
 				</div>
-			<?elseif ($event['MEETING']['OPEN']): /* it's open meeting*/?>
+			<?php elseif ($event['MEETING']['OPEN']): /* it's open meeting*/?>
 				<div class="bxc-conf-cnt">
 					<span class="bxc-conf-label" title="<?= GetMessage('EC_OPEN_MEETING_TITLE')?>"><?= GetMessage('EC_OPEN_MEETING')?>:</span>
 					<span data-bx-set-status="Y" class="popup-window-button popup-window-button-accept" title="<?= GetMessage('EC_EDEV_CONF_Y_TITLE')?>"><span class="popup-window-button-left"></span><span class="popup-window-button-text"><?= GetMessage('EC_ACCEPT_MEETING')?></span><span class="popup-window-button-right"></span></span>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 	</div>
 
-<?endif; /*$event['IS_MEETING'])*/?>
+<?php endif; /*$event['IS_MEETING'])*/?>
 </div>
-<?/* ####### END TAB 0 ####### */?>
+<?php /* ####### END TAB 0 ####### */?>
 
-<?/* ####### TAB 1 : ADDITIONAL ####### */?>
+<?php /* ####### TAB 1 : ADDITIONAL ####### */?>
 <div id="<?=$id?>view-tab-1-cont" class="popup-window-tab-content">
 	<div class="bx-cal-view-text-additional">
 		<table>
-			<?if ($arParams['sectionName'] != ''):?>
+			<?php if ($arParams['sectionName'] != ''):?>
 				<tr>
 					<td class="bx-cal-view-text-cell-l"><?=GetMessage('EC_T_CALENDAR')?>:</td>
 					<td class="bx-cal-view-text-cell-r"><?= $arParams['sectionName']?></td>
 				</tr>
-			<?endif;?>
-			<?if ($event['IMPORTANCE'] != ''):?>
+			<?php endif;?>
+			<?php if ($event['IMPORTANCE'] != ''):?>
 				<tr>
 					<td class="bx-cal-view-text-cell-l"><?=GetMessage('EC_IMPORTANCE_TITLE')?>:</td>
 					<td class="bx-cal-view-text-cell-r"><?= GetMessage("EC_IMPORTANCE_".strtoupper($event['IMPORTANCE']))?></td>
 				</tr>
-			<?endif;?>
-			<?if ($event['ACCESSIBILITY'] != '' && $arParams['bIntranet']):?>
+			<?php endif;?>
+			<?php if ($event['ACCESSIBILITY'] != '' && $arParams['bIntranet']):?>
 				<tr>
 					<td class="bx-cal-view-text-cell-l"><?=GetMessage('EC_ACCESSIBILITY_TITLE')?>:</td>
 					<td class="bx-cal-view-text-cell-r"><?= GetMessage("EC_ACCESSIBILITY_".strtoupper($event['ACCESSIBILITY']))
 						?></td>
 				</tr>
-			<?endif;?>
-			<?if ($event['PRIVATE_EVENT'] && $arParams['bIntranet']):?>
+			<?php endif;?>
+			<?php if ($event['PRIVATE_EVENT'] && $arParams['bIntranet']):?>
 				<tr>
 					<td class="bx-cal-view-text-cell-l"><?=GetMessage('EC_EDDIV_SPECIAL_NOTES')?>:</td>
 					<td class="bx-cal-view-text-cell-r"><?=GetMessage('EC_PRIVATE_EVENT')?></td>
 				</tr>
-			<?endif;?>
+			<?php endif;?>
 		</table>
 	</div>
 </div>
-<?/* ####### END TAB 1 ####### */?>
+<?php /* ####### END TAB 1 ####### */?>
 </div>
 
-<?if ($viewComments && CModule::IncludeModule("forum")):?>
+<?php if ($viewComments && CModule::IncludeModule("forum")):?>
 	<div class="bxec-d-cont-comments-title">
 		<?= GetMessage('EC_COMMENTS')?>
 	</div>
 	<div class="bxec-d-cont bxec-d-cont-comments" id="<?=$id?>comments-cont" style="opacity: 0;">
-		<?
+		<?php 
 		if ($userId == $event['CREATED_BY'] && ($event['PARENT_ID'] == $event['ID'] || !$event['PARENT_ID']))
 			$permission = "Y";
 		else
@@ -397,5 +397,5 @@ $arTabs = array(
 		}
 		?>
 	</div>
-<?endif;?>
+<?php endif;?>
 </div>

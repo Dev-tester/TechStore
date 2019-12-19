@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_MESSENGER_OPEN_CALL2"] = "Совершить звонок";
 $MESS["IM_MESSENGER_OPEN_MESSENGER_CP"] = "Открыть Бизнес-чат";
 $MESS["IM_MESSENGER_OPEN_MESSENGER"] = "Открыть чат и звонки";

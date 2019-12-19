@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SRP_NEED_REQUIRED_MODULES"] = "This component requires the e-Store, Information Blocks and Commercial Catalog modules.";
 $MESS["SRP_SHOW"] = "Show bestseller by";
 $MESS["SRP_AMOUNT"] = "Sales amount";

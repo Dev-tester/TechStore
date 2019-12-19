@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C36_T_GROUPS"] = "Groups";
 $MESS["SONET_C36_T_INVITE"] = "Invite";
 $MESS["SONET_C36_T_NO_GROUPS"] = "No groups.";

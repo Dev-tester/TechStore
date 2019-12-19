@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_MENU_CATALOG_MARKETPLACE_CATALOG_TOOLS"] = "Install tools from Marketplace";
 $MESS["CAT_MENU_ROOT_TITLE"] = "Commercial catalog";
 $MESS["CAT_MENU_ROOT"] = "Product Catalog";

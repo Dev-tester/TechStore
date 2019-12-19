@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVRS_ADD_NAME"] = "Дополнительные службы доставки";
 $MESS["SALE_DLVRS_ADD_DESCRIPTION"] = "Набор дополнительных служб доставок";
 $MESS["SALE_DLVRS_ADD_SERVICE_TYPE"] = "Тип службы доставки";

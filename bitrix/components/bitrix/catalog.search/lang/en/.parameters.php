@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CHECK_DATES_TIP"] = "Specifies to search only the active (unexpired) documents.";
 $MESS["CP_BCSE_ELEMENT_SORT_FIELD"] = "Field to sort elements";
 $MESS["CP_BCSE_ELEMENT_SORT_FIELD2"] = "Second sort field";

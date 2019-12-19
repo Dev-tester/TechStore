@@ -55,18 +55,18 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 
 		<div class="disk-detail-file">
 			<div class="disk-detail-preview disk-detail-preview-with-border">
-				<? if($arResult['FILE']['IS_IMAGE']) { ?>
+				<?php  if($arResult['FILE']['IS_IMAGE']) { ?>
 					<div class="disk-detail-preview-image" data-role="disk-detail-preview-image">
 						<a class="disk-detail-preview-link" href="<?= $arResult['FILE']['SHOW_FILE_URL'] ?>" target="_blank"><img src="<?= $arResult['FILE']['SHOW_PREVIEW_URL'] ?>" alt="<?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?>" title="<?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?>"></a>
 					</div>
-				<?  } elseif($arResult['FILE']['SHOW_PREVIEW_IMAGE_URL']) { ?>
+				<?php   } elseif($arResult['FILE']['SHOW_PREVIEW_IMAGE_URL']) { ?>
 					<div class="bx-shared-preview-document-image <?= $arResult['FILE']['ICON_CLASS'] ?>" style="position: relative">
 						<img src="<?=$arResult['FILE']['SHOW_PREVIEW_IMAGE_URL'];?>" alt="<?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?>" title="<?= htmlspecialcharsbx($arResult['FILE']['NAME']) ?>">
 						<div class="bx-file-icon-label"></div>
 					</div>
-				<?  } elseif($arResult['FILE']['IS_VIDEO']) { ?>
+				<?php   } elseif($arResult['FILE']['IS_VIDEO']) { ?>
 					<?= $arResult['FILE']['VIEWER'] ?>
-				<?  } else { ?>
+				<?php   } else { ?>
 					<div class="bx-file-icon-container-big <?= $arResult['FILE']['ICON_CLASS'] ?>">
 						<div class="bx-file-icon-cover">
 							<div class="bx-file-icon-corner"></div>
@@ -74,11 +74,11 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 							<div class="bx-file-icon-images"></div>
 						</div>
 						<div class="bx-file-icon-label"></div>
-						<? if($arResult['FILE']['LOCK']['IS_LOCKED']){ ?>
+						<?php  if($arResult['FILE']['LOCK']['IS_LOCKED']){ ?>
 							<div id="lock-anchor-created-<?= $component->getComponentId() ?>" class="disk-locked-document-block-icon-big js-disk-locked-document-tooltip"></div>
-						<? } ?>
+						<?php  } ?>
 					</div>
-				<?  } ?>
+				<?php   } ?>
 			</div>
 
 			<script>
@@ -109,13 +109,13 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 						<td class="disk-detail-table-param"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_UPDATE_TIME') ?>:</td>
 						<td class="disk-detail-table-value"><?= $arResult['FILE']['UPDATE_TIME'] ?></td>
 					</tr>
-					<? if(!empty($arResult['EXTERNAL_LINK']['ID'])): ?>
+					<?php  if(!empty($arResult['EXTERNAL_LINK']['ID'])): ?>
 					<tr>
 						<td class="disk-detail-table-param"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_DOWNLOAD_COUNT_BY_EXT_LINK') ?>:</td>
 						<td class="disk-detail-table-value"><?= $arResult['EXTERNAL_LINK']['DOWNLOAD_COUNT'] ?></td>
 					</tr>
-					<? endif; ?>
-					<? if($arResult['FILE']['IS_DELETED'])
+					<?php  endif; ?>
+					<?php  if($arResult['FILE']['IS_DELETED'])
 					{
 						?>
 						<tr>
@@ -126,7 +126,7 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 								<?= $arResult['FILE']['DELETE_TIME'] ?>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 				</table>
@@ -142,13 +142,13 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 			</div>
 		</div>
 
-		<? if(!empty($arResult['USE_IN_ENTITIES'])){?>
+		<?php  if(!empty($arResult['USE_IN_ENTITIES'])){?>
 		<div class="disk-file-info">
 			<div class="disk-file-info-title"><?= Loc::getMessage('DISK_FILE_VIEW_USAGE') ?></div>
-			<? foreach($arResult['ENTITIES'] as $entity){?>
+			<?php  foreach($arResult['ENTITIES'] as $entity){?>
 				<div class="disk-file-info-item">
 					<div class="disk-file-info-item-title">
-					<?
+					<?php 
 						if(!empty($entity['DETAIL_URL']))
 						{
 							echo "<a class=\"disk-file-info-item-link\" target='_blank' href=\"{$entity['DETAIL_URL']}\">" . htmlspecialcharsbx($entity['TITLE']) . "</a>";
@@ -162,66 +162,66 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 					<div class="disk-file-info-item-title"><?= htmlspecialcharsbx($entity['DESCRIPTION']) ?></div>
 					<div class="disk-file-info-users">
 						<div class="disk-file-info-users-title"><?= Loc::getMessage('DISK_FILE_VIEW_ENTITY_MEMBERS') ?></div>
-						<? foreach($entity['MEMBERS'] as $member){?>
+						<?php  foreach($entity['MEMBERS'] as $member){?>
 						<div class="disk-file-info-user">
 							<div class="disk-file-info-user-avatar" <?= (!empty($member['AVATAR_SRC'])? "style=\"background-image: url({$member['AVATAR_SRC']});\"" : '') ?>></div>
-							<? if(empty($member['LINK'])) {?>
+							<?php  if(empty($member['LINK'])) {?>
 							<div class="disk-file-info-user-name"><?= htmlspecialcharsbx($member['NAME']) ?></div>
-							<? } else { ?>
+							<?php  } else { ?>
 							<a class="disk-file-info-user-name" target="_top" href="<?= $member['LINK'] ?>"><?= htmlspecialcharsbx($member['NAME']) ?></a>
-							<? } ?>
+							<?php  } ?>
 						</div>
-						<? } ?>
+						<?php  } ?>
 					</div>
 				</div>
-			<? }?>
+			<?php  }?>
 		</div>
-		<? } else { ?>
+		<?php  } else { ?>
 			<div class="disk-file-info">
 				<div class="disk-file-info-title"><?= Loc::getMessage('DISK_FILE_VIEW_USAGE') ?></div>
 				<div class="disk-file-info-item">
 					<span class="disk-file-info-item-not-used"><?= Loc::getMessage('DISK_FILE_VIEW_NOT_USED_1') ?></span>
 				</div>
 			</div>
-		<? } ?>
+		<?php  } ?>
 	</div>
 	<div class="disk-detail-sidebar">
 
 		<div class="disk-detail-sidebar-section">
 			<div class="disk-detail-sidebar-editor">
-				<? if ($arResult['FILE']['IS_DELETED'] && $arResult['CAN_RESTORE'])
+				<?php  if ($arResult['FILE']['IS_DELETED'] && $arResult['CAN_RESTORE'])
 				{
 					?>
 					<span class="disk-detail-sidebar-editor-item disk-detail-sidebar-editor-item-restore">
 						<?= Loc::getMessage('DISK_FILE_VIEW_FILE_RESTORE') ?>
 					</span>
-					<?
+					<?php 
 				}
 				?>
 				<span class="disk-detail-sidebar-editor-item disk-detail-sidebar-editor-item-show" id="bx-disk-filepage-filename" <?= $arResult['FILE']['VIEWER_ATTRIBUTES'] ?>><?= Loc::getMessage("DISK_FILE_VIEW_FILE_RUN_VIEWER") ?></span>
-				<? if (!$arResult['FILE']['IS_DELETED'] && !empty($arResult['CAN_UPDATE']) && (!$arResult['FILE']['LOCK']['IS_LOCKED'] || $arResult['FILE']['LOCK']['IS_LOCKED_BY_SELF']) && $arResult['FILE']['IS_EDITABLE'])
+				<?php  if (!$arResult['FILE']['IS_DELETED'] && !empty($arResult['CAN_UPDATE']) && (!$arResult['FILE']['LOCK']['IS_LOCKED'] || $arResult['FILE']['LOCK']['IS_LOCKED_BY_SELF']) && $arResult['FILE']['IS_EDITABLE'])
 				{
 					?><a class="disk-detail-sidebar-editor-item disk-detail-sidebar-editor-item-edit" href="#" onclick="top.BX.UI.Viewer.Instance.runActionByNode(BX('bx-disk-filepage-filename'), 'edit', {
 							modalWindow: BX.Disk.openBlankDocumentPopup()
-						});"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_EDIT') ?></a><?
+						});"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_EDIT') ?></a><?php 
 				}?>
 				<a class="disk-detail-sidebar-editor-item disk-detail-sidebar-editor-item-download" href="<?= $arResult['FILE']['DOWNLOAD_URL'] ?>"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_DOWNLOAD') ?></a>
-				<? if (!$arResult['FILE']['IS_DELETED'] && !empty($arResult['CAN_UPDATE']) && (!$arResult['FILE']['LOCK']['IS_LOCKED'] || $arResult['FILE']['LOCK']['IS_LOCKED_BY_SELF']))
+				<?php  if (!$arResult['FILE']['IS_DELETED'] && !empty($arResult['CAN_UPDATE']) && (!$arResult['FILE']['LOCK']['IS_LOCKED'] || $arResult['FILE']['LOCK']['IS_LOCKED_BY_SELF']))
 				{
 					?>
 					<a id="bx-disk-file-upload-btn" class="disk-detail-sidebar-editor-item disk-detail-sidebar-editor-item-update" href="javascript:void(0);">
 						<?= Loc::getMessage('DISK_FILE_VIEW_FILE_UPLOAD_VERSION') ?>
 					</a>
-					<?
+					<?php 
 				}
 				?>
-				<? if(!empty($arResult['CAN_DELETE']))
+				<?php  if(!empty($arResult['CAN_DELETE']))
 				{
 					?>
 					<div class="disk-detail-sidebar-editor-item disk-detail-sidebar-editor-item-remove">
 						<?= Loc::getMessage('DISK_FILE_VIEW_DELETE') ?>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 				<div class="disk-detail-sidebar-link-more js-disk-file-more-actions"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_MORE_ACTIONS') ?></div>
@@ -238,7 +238,7 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 		</div>
 		<?php } ?>
 
-		<? if(!$arResult['FILE']['IS_DELETED'])
+		<?php  if(!$arResult['FILE']['IS_DELETED'])
 		{
 			?>
 			<div class="disk-detail-sidebar-section">
@@ -250,10 +250,10 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 				</div>
 				<div class="disk-detail-sidebar-user-access-section"></div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
-		<? if($arResult['SHOW_USER_FIELDS'])
+		<?php  if($arResult['SHOW_USER_FIELDS'])
 		{
 			?>
 			<div class="disk-detail-sidebar-section">
@@ -265,20 +265,20 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 				</div>
 				<?php include 'uf_sidebar.php'; ?>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</div>
 </div>
 
-<? if($arParams['STATUS_BIZPROC']&&!empty($arResult['WORKFLOW_TEMPLATES'])) { ?>
+<?php  if($arParams['STATUS_BIZPROC']&&!empty($arResult['WORKFLOW_TEMPLATES'])) { ?>
 <div style="display:none;">
 	<form id="parametersFormBp">
 	<div id="divStartBizProc" class="bx-disk-form-bizproc-start-div">
 		<table class="bx-disk-form-bizproc-start-table">
 			<col class="bx-disk-col-table-left">
 			<col class="bx-disk-col-table-right">
-			<? if(!empty($arResult['WORKFLOW_TEMPLATES'])) {
+			<?php  if(!empty($arResult['WORKFLOW_TEMPLATES'])) {
 				if($arResult['BIZPROC_PARAMETERS']) {?>
 					<tr>
 						<td class="bx-disk-form-bizproc-start-td-title" colspan="2">
@@ -290,7 +290,7 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 
 						</td>
 					</tr>
-				<? }
+				<?php  }
 				foreach($arResult['WORKFLOW_TEMPLATES'] as $workflowTemplate)
 				{
 					if(!empty($workflowTemplate['PARAMETERS'])) { ?>
@@ -301,7 +301,7 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 								<input type="hidden" value="edit" name="autoExecute" />
 							</td>
 						</tr>
-						<?CBPDocument::StartWorkflowParametersShow($workflowTemplate['ID'], $workflowTemplate['PARAMETERS'], 'formAutoloadBizProc', false);
+						<?php CBPDocument::StartWorkflowParametersShow($workflowTemplate['ID'], $workflowTemplate['PARAMETERS'], 'formAutoloadBizProc', false);
 					}else { ?>
 						<tr>
 							<td class="bx-disk-form-bizproc-start-td-name-bizproc" colspan="2">
@@ -309,7 +309,7 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 								<input type="hidden" value="edit" name="autoExecute" />
 							</td>
 						</tr>
-					<? }
+					<?php  }
 				}
 			}
 			?>
@@ -317,8 +317,8 @@ foreach ($jsTemplates->getChildren() as $jsTemplate)
 	</div>
 	</form>
 </div>
-<? } ?>
-<?
+<?php  } ?>
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:disk.file.upload',
 	'',
@@ -362,17 +362,17 @@ BX(function () {
 			externalLink: BX(document.querySelector('[data-entity="external-link-place"]'))
 		},
 		externalLinkInfo: {
-			<? if ($arResult['EXTERNAL_LINK']['ID']) { ?>
+			<?php  if ($arResult['EXTERNAL_LINK']['ID']) { ?>
 				id: <?= $arResult['EXTERNAL_LINK']['ID']?>,
 				objectId: <?= $arResult['EXTERNAL_LINK']['OBJECT_ID']?>,
 				link: '<?= $arResult['EXTERNAL_LINK']['LINK']?>',
 				hasPassword: <?= $arResult['EXTERNAL_LINK']['HAS_PASSWORD']? 'true' : 'false'?>,
 				hasDeathTime: <?= $arResult['EXTERNAL_LINK']['HAS_DEATH_TIME']? 'true' : 'false'?>,
 				deathTimeTimestamp: <?= $arResult['EXTERNAL_LINK']['DEATH_TIME_TIMESTAMP']?: 'null'?>,
-				<? if ($arResult['EXTERNAL_LINK']['DEATH_TIME']) { ?>
+				<?php  if ($arResult['EXTERNAL_LINK']['DEATH_TIME']) { ?>
 				deathTime: '<?= $arResult['EXTERNAL_LINK']['DEATH_TIME'] ?>'
-				<? } ?>
-			<? } ?>
+				<?php  } ?>
+			<?php  } ?>
 		},
 		uf: {
 			editButton: BX('bx-disk-link-edit-uf-values'),
@@ -388,7 +388,7 @@ BX(function () {
 
 BX.message(<?=Main\Web\Json::encode($messages)?>);
 </script>
-<?
+<?php 
 global $USER;
 if(
 	\Bitrix\Disk\Integration\Bitrix24Manager::isEnabled()
@@ -396,7 +396,7 @@ if(
 {
 	?>
 	<div id="bx-bitrix24-business-tools-info" style="display: none; width: 600px; margin: 9px;">
-		<? $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
+		<?php  $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
 	</div>
 
 	<script type="text/javascript">
@@ -405,7 +405,7 @@ if(
 	});
 	</script>
 
-<?
+<?php 
 }
 
 $APPLICATION->IncludeComponent(

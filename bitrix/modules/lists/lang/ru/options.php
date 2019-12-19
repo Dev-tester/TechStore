@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LISTS_OPTIONS_TAB_PERMISSIONS'] = "Права доступа";
 $MESS ['LISTS_OPTIONS_TAB_TITLE_PERMISSIONS'] = "Укажите группы пользователей, которые могут управлять списками в определенных типах инфоблоков";
 $MESS ['LISTS_OPTIONS_CHOOSE_GROUP'] = "(выберите группу)";

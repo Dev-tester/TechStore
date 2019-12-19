@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -577,7 +577,7 @@ if(!is_set($_REQUEST, "mode"))
 	echo BeginNote('width="100%"');
 ?>
 <b><?=GetMessage("FORM_FORM_NAME")?></b> [<a title='<?=GetMessage("FORM_EDIT_FORM")?>' href='form_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$WEB_FORM_ID?>'><?=$WEB_FORM_ID?></a>]&nbsp;(<?=htmlspecialcharsbx($arForm["SID"])?>)&nbsp;<?=htmlspecialcharsbx($arForm["NAME"])?>
-<?
+<?php 
 	echo EndNote();
 }
 
@@ -591,7 +591,7 @@ else
 
 	?>
 	<form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-	<?
+	<?php 
 
 	if ($F_RIGHT >= 20)
 	{
@@ -647,69 +647,69 @@ else
 		<td><?=CForm::GetTextFilter("id")?></td>
 	</tr>
 	<tr>
-		<td width="0%" nowrap><?echo GetMessage("FORM_F_DATE_CREATE")." (".CSite::GetDateFormat("SHORT")."):"?></td>
+		<td width="0%" nowrap><?php echo GetMessage("FORM_F_DATE_CREATE")." (".CSite::GetDateFormat("SHORT")."):"?></td>
 		<td width="0%" nowrap><?=CForm::GetDateFilter("date_create", "form1", "Y", "class=\"typeselect\"", "class=\"inputtype\"")?></td>
 	</tr>
 	<tr>
-		<td width="0%" nowrap><?echo GetMessage("FORM_F_TIMESTAMP")." (".CSite::GetDateFormat("SHORT")."):"?></td>
+		<td width="0%" nowrap><?php echo GetMessage("FORM_F_TIMESTAMP")." (".CSite::GetDateFormat("SHORT")."):"?></td>
 		<td width="0%" nowrap><?=CForm::GetDateFilter("timestamp", "form1", "Y", "class=\"typeselect\"", "class=\"inputtype\"")?></td>
 	</tr>
-<?if ($F_RIGHT>=20):?>
+<?php if ($F_RIGHT>=20):?>
 	<tr>
 		<td>
-			<?echo GetMessage("FORM_F_REGISTERED")?></td>
+			<?php echo GetMessage("FORM_F_REGISTERED")?></td>
 		<td>
-			<?
+			<?php 
 			$arr = array("reference"=>array(GetMessage("FORM_YES"), GetMessage("FORM_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("find_registered", $arr, htmlspecialcharsbx($find_registered), GetMessage("FORM_ALL"));
 			?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("FORM_F_AUTH")?></td>
-		<td><?
+		<td><?php echo GetMessage("FORM_F_AUTH")?></td>
+		<td><?php 
 			$arr = array("reference"=>array(GetMessage("FORM_YES"), GetMessage("FORM_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("find_user_auth", $arr, htmlspecialcharsbx($find_user_auth), GetMessage("FORM_ALL"));
 			?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("FORM_F_USER")?></td>
+		<td><?php echo GetMessage("FORM_F_USER")?></td>
 		<td><?=CForm::GetTextFilter("user_id")?></td>
 	</tr>
 
-	<?if (CModule::IncludeModule("statistic")) :?>
+	<?php if (CModule::IncludeModule("statistic")) :?>
 	<tr>
-		<td><?echo GetMessage("FORM_F_GUEST")?></td>
+		<td><?php echo GetMessage("FORM_F_GUEST")?></td>
 		<td><?=CForm::GetTextFilter("guest_id")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("FORM_F_SESSION")?></td>
+		<td><?php echo GetMessage("FORM_F_SESSION")?></td>
 		<td><?=CForm::GetTextFilter("session_id")?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if (!$bSimple):?>
+	<?php if (!$bSimple):?>
 		<tr>
-			<td><?echo GetMessage("FORM_F_STATUS")?></td>
-			<td><?
+			<td><?php echo GetMessage("FORM_F_STATUS")?></td>
+			<td><?php 
 				echo SelectBox("find_status", CFormStatus::GetDropdown($WEB_FORM_ID, array("VIEW")), GetMessage("FORM_ALL"), htmlspecialcharsbx($find_status));
 				?></td>
 		</tr>
 		<tr>
 			<td>
-				<?echo GetMessage("FORM_F_STATUS_ID")?></td>
-			<td><?
+				<?php echo GetMessage("FORM_F_STATUS_ID")?></td>
+			<td><?php 
 				echo CForm::GetTextFilter("status_id");
 				?></td>
 		</tr>
-	<?endif;?>
-	<?if (is_array($arFormCrmLink)):?>
+	<?php endif;?>
+	<?php if (is_array($arFormCrmLink)):?>
 	<tr>
-		<td><?echo GetMessage("FORM_FL_SENT_TO_CRM")?></td>
+		<td><?php echo GetMessage("FORM_FL_SENT_TO_CRM")?></td>
 		<td><?=CForm::GetCrmFlagFilter("sent_to_crm")?></td>
 	</tr>
-	<?endif;?>
-<?endif;?>
-	<?
+	<?php endif;?>
+<?php endif;?>
+	<?php 
 	$arrFORM_FILTER = (is_array($arrFORM_FILTER)) ? $arrFORM_FILTER : array();
 
 	foreach ($arrFORM_FILTER as $arrFILTER)
@@ -732,7 +732,7 @@ else
 ?>
 	<tr>
 		<td width="40%">
-<?
+<?php 
 						if (strlen($arrF["FILTER_TITLE"])>0)
 							echo htmlspecialcharsbx($arrF["FILTER_TITLE"]);
 						elseif (strlen($arrF["TITLE"])>0)
@@ -745,7 +745,7 @@ else
 ?>
 		</td>
 		<td nowrap width="60%">
-<?
+<?php 
 					} //endif;
 
 					switch($arrF["FILTER_TYPE"])
@@ -794,12 +794,12 @@ else
 	} //endforeach;
 	?></td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&WEB_FORM_ID=$WEB_FORM_ID"));
 	$oFilter->End();
 	?>
 	</form>
-	<?
+	<?php 
 
 #############
 }
@@ -827,7 +827,7 @@ function sendToCrm(FORM_ID, RESULT_ID)
 	});
 }
 </script>
-<?
+<?php 
 endif;
 
 $lAdmin->DisplayList();
@@ -840,15 +840,15 @@ echo BeginNote();
 	<tr>
 		<td nowrap><sup>[...]</sup></td>
 		<td nowrap> - </td>
-		<td nowrap><?echo str_replace("#FORM_ID#",$WEB_FORM_ID,GetMessage("FORM_FILTER_ANSWER_TEXT"))?></td>
+		<td nowrap><?php echo str_replace("#FORM_ID#",$WEB_FORM_ID,GetMessage("FORM_FILTER_ANSWER_TEXT"))?></td>
 	</tr>
 	<tr>
 		<td nowrap><sup>(...)</sup></td>
 		<td nowrap> - </td>
-		<td nowrap><?echo str_replace("#FORM_ID#",$WEB_FORM_ID,GetMessage("FORM_FILTER_ANSWER_VALUE"))?></td>
+		<td nowrap><?php echo str_replace("#FORM_ID#",$WEB_FORM_ID,GetMessage("FORM_FILTER_ANSWER_VALUE"))?></td>
 	</tr>
 </table>
-<?
+<?php 
 echo EndNote();
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/socialservices/tools/socserv.ajax.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/socialservices/tools/socserv.ajax.php");?>

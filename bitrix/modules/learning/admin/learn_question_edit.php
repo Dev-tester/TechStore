@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -414,7 +414,7 @@ if ($message)
 
 ?>
 
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array(
 		"event" => "OpenFileBrowserWindMedia",
 		"arResultDest" => Array("FUNCTION_NAME" => "SetUrl"),
@@ -436,16 +436,16 @@ function CustomizeEditor()
 	<div class="bxed-dialog">
 		<table class="bx-image-dialog-tbl">
 			<tr>
-				<td class="bx-par-title"><?echo GetMessage("LEARNING_PATH_TO_FILE")?>:</td>
+				<td class="bx-par-title"><?php echo GetMessage("LEARNING_PATH_TO_FILE")?>:</td>
 				<td class="bx-par-val" colspan="3">
 					<input type="text" size="30" id="mediaPath" />
 					<input type="button" value="..." id="OpenFileBrowserWindMedia_button">
 				</td>
 			</tr>
 			<tr>
-				<td class="bx-par-title"><?echo GetMessage("LEARNING_WIDTH")?>:</td>
+				<td class="bx-par-title"><?php echo GetMessage("LEARNING_WIDTH")?>:</td>
 				<td width="80px"><input type="text" size="3" id="mediaWidth" /></td>
-				<td><?echo GetMessage("LEARNING_HEIGHT")?>:</td>
+				<td><?php echo GetMessage("LEARNING_HEIGHT")?>:</td>
 				<td class="bx-par-val"><input type="text" size="3" id="mediaHeight" /></td>
 			</tr>
 		</table>
@@ -622,7 +622,7 @@ function CustomizeEditor()
 	oBXEditorUtils.addUnParser(_mediaUnParser);
 
 	var pSaveButton = new BX.CWindowButton({
-		'title': '<?echo GetMessage("LEARNING_SAVE")?>',
+		'title': '<?php echo GetMessage("LEARNING_SAVE")?>',
 		'action': function() {
 			var path = BX('mediaPath').value;
 			var width = BX('mediaWidth').value;
@@ -653,7 +653,7 @@ function CustomizeEditor()
 		}
 	});
 	var pDialog = new BX.CDialog({
-			title : '<?echo GetMessage("LEARNING_VIDEO_AUDIO")?>',
+			title : '<?php echo GetMessage("LEARNING_VIDEO_AUDIO")?>',
 			content: '<?php echo CUtil::JSEscape(preg_replace("~>\s+<~", "><",  trim($dialogHTML)))?>',
 			height: 180,
 			width: 520,
@@ -665,7 +665,7 @@ function CustomizeEditor()
 		{
 			id : 'media',
 			src : '/bitrix/images/learning/icons/media.gif',
-			name : "<?echo GetMessage("LEARNING_VIDEO_AUDIO")?>",
+			name : "<?php echo GetMessage("LEARNING_VIDEO_AUDIO")?>",
 			handler : function () {
 				pDialog.Show();
 				pEditor = this.pMainObj;
@@ -712,49 +712,49 @@ function CustomizeEditor()
 
 <?php $tabControl->BeginEpilogContent();?>
 	<?=bitrix_sessid_post()?>
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="from" value="<?echo htmlspecialcharsbx($from)?>">
-	<input type="hidden" name="return_url" value="<?echo htmlspecialcharsbx($return_url)?>">
-	<input type="hidden" name="ID" value="<?echo $ID?>">
+	<input type="hidden" name="from" value="<?php echo htmlspecialcharsbx($from)?>">
+	<input type="hidden" name="return_url" value="<?php echo htmlspecialcharsbx($return_url)?>">
+	<input type="hidden" name="ID" value="<?php echo $ID?>">
 	<input type="hidden" name="LESSON_PATH" value="<?php echo htmlspecialcharsbx(urldecode($uriLessonPath)); ?>">
 <?php $tabControl->EndEpilogContent();?>
-<?$tabControl->Begin();?>
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->Begin();?>
+<?php $tabControl->BeginNextFormTab();?>
 <!-- ID -->
 <?php $tabControl->BeginCustomField("ID", "ID", false);?>
-	<?if($ID>0):?>
+	<?php if($ID>0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$str_ID?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("ID");?>
 <!-- Timestamp_X -->
 <?php $tabControl->BeginCustomField("TIMESTAMP_X", GetMessage("LEARNING_LAST_UPDATE"), false);?>
-	<?if($ID>0):?>
+	<?php if($ID>0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$str_TIMESTAMP_X?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("TIMESTAMP_X");?>
 <?php $tabControl->BeginCustomField("ACTIVE", GetMessage("LEARNING_ACTIVE"), false);?>
 <!-- Active -->
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>></td>
 	</tr>
 <?php $tabControl->EndCustomField("ACTIVE");?>
 <?php $tabControl->BeginCustomField("QUESTION_TYPE", GetMessage("LEARNING_QUESTION_TYPE"), false);?>
 	<tr>
-		<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td width="60%">
 			<select onchange="if(this[this.selectedIndex].value!='') window.location=this[this.selectedIndex].value;"<?php echo (defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1 ? "disabled=\"disabled\"" : "")?>>
-				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=S", array("QUESTION_TYPE","tabControl_active_tab"))?>" <?if($str_QUESTION_TYPE=="S") echo "selected"?>><?echo GetMessage("LEARNING_SINGLE_CHOICE")?></option>
-				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=M", array("QUESTION_TYPE", "tabControl_active_tab"))?>" <?if($str_QUESTION_TYPE=="M") echo "selected"?>><?echo GetMessage("LEARNING_MULTIPLE_CHOICE")?></option>
-				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=R", array("QUESTION_TYPE", "tabControl_active_tab"))?>" <?if($str_QUESTION_TYPE=="R") echo "selected"?>><?echo GetMessage("LEARNING_SORTING")?></option>
-				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=T", array("QUESTION_TYPE", "tabControl_active_tab"))?>" <?if($str_QUESTION_TYPE=="T") echo "selected"?>><?echo GetMessage("LEARNING_TEXT_ANSWER")?></option>
+				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=S", array("QUESTION_TYPE","tabControl_active_tab"))?>" <?php if($str_QUESTION_TYPE=="S") echo "selected"?>><?php echo GetMessage("LEARNING_SINGLE_CHOICE")?></option>
+				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=M", array("QUESTION_TYPE", "tabControl_active_tab"))?>" <?php if($str_QUESTION_TYPE=="M") echo "selected"?>><?php echo GetMessage("LEARNING_MULTIPLE_CHOICE")?></option>
+				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=R", array("QUESTION_TYPE", "tabControl_active_tab"))?>" <?php if($str_QUESTION_TYPE=="R") echo "selected"?>><?php echo GetMessage("LEARNING_SORTING")?></option>
+				<option value="<?=$APPLICATION->GetCurPageParam("QUESTION_TYPE=T", array("QUESTION_TYPE", "tabControl_active_tab"))?>" <?php if($str_QUESTION_TYPE=="T") echo "selected"?>><?php echo GetMessage("LEARNING_TEXT_ANSWER")?></option>
 			</select>
 			<input type="hidden" name="QUESTION_TYPE" value="<?=$str_QUESTION_TYPE?>">
 		</td>
@@ -762,7 +762,7 @@ function CustomizeEditor()
 <?php $tabControl->EndCustomField("QUESTION_TYPE");?>
 <?php $tabControl->BeginCustomField("LESSON_ID", GetMessage("LEARNING_LESSON"), false);?>
 	<tr class="adm-detail-required-field">
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td><?php
 			$rsLesson = CLearnLesson::GetByID($LESSON_ID);
 			$arLesson = $rsLesson->GetNext();
@@ -787,13 +787,13 @@ function CustomizeEditor()
 						'scrollbars=yes,resizable=yes,width=960,height=500,top='+Math.floor((screen.height - 560)/2-14)+',left='+Math.floor((screen.width - 960)/2-5));"
 					><?php echo GetMessage('LEARNING_CHANGE_ATTACHED_LESSON'); ?></a>)
 			</div>
-			<input id="attached_lesson_id" type="hidden" name="LESSON_ID" value="<?echo $LESSON_ID; ?>">
+			<input id="attached_lesson_id" type="hidden" name="LESSON_ID" value="<?php echo $LESSON_ID; ?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("LESSON_ID");?>
 <?php $tabControl->BeginCustomField("NAME", GetMessage("LEARNING_NAME"), false);?>
 	<tr class="adm-detail-required-field">
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td valign="top">
 			<textarea name="NAME" size="50" maxlength="255" style="width:440px"><?php echo $str_NAME; ?></textarea>
 		</td>
@@ -802,51 +802,51 @@ function CustomizeEditor()
 <?php $tabControl->BeginCustomField("SORT", GetMessage("LEARNING_SORT"), false);?>
 <!-- Sort -->
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="SORT" size="10" maxlength="10" value="<?echo $str_SORT?>">
+			<input type="text" name="SORT" size="10" maxlength="10" value="<?php echo $str_SORT?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("SORT");?>
 <?php $tabControl->BeginCustomField("POINT", GetMessage("LEARNING_POINT"), false);?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="POINT" size="7" maxlength="10" value="<?echo $str_POINT?>">
+			<input type="text" name="POINT" size="7" maxlength="10" value="<?php echo $str_POINT?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("POINT");?>
 <?php $tabControl->BeginCustomField("SELF", GetMessage("LEARNING_F_SELF"), false);?>
 	<?php if ($str_QUESTION_TYPE != "T"):?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="SELF" value="Y"<?if($str_SELF=="Y")echo " checked"?>>
+			<input type="checkbox" name="SELF" value="Y"<?php if($str_SELF=="Y")echo " checked"?>>
 		</td>
 	</tr>
 	<?php endif?>
 <?php $tabControl->EndCustomField("SELF");?>
 <?php $tabControl->BeginCustomField("CORRECT_REQUIRED", GetMessage("LEARNING_CORRECT_REQUIRED"), false);?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="CORRECT_REQUIRED" value="Y"<?if($str_CORRECT_REQUIRED=="Y")echo " checked"?>>
+			<input type="checkbox" name="CORRECT_REQUIRED" value="Y"<?php if($str_CORRECT_REQUIRED=="Y")echo " checked"?>>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("CORRECT_REQUIRED");?>
 <?php $tabControl->BeginCustomField("INCORRECT_MESSAGE", GetMessage("LEARNING_INCORRECT_MESSAGE"), false);?>
 	<?php if ($str_QUESTION_TYPE != "T"):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td>
-				<input type="text" name="INCORRECT_MESSAGE" size="50" maxlength="255" value="<?echo $str_INCORRECT_MESSAGE?>">
+				<input type="text" name="INCORRECT_MESSAGE" size="50" maxlength="255" value="<?php echo $str_INCORRECT_MESSAGE?>">
 			</td>
 		</tr>
 	<?php endif?>
 <?php $tabControl->EndCustomField("INCORRECT_MESSAGE");?>
 <?php $tabControl->BeginCustomField("COMMENT_TEXT", GetMessage("LEARNING_COMMENT"), false);?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td valign="top">
 			<textarea name="COMMENT_TEXT" size="50" style="width:440px"><?php echo $str_COMMENT_TEXT; ?></textarea>
 		</td>
@@ -855,19 +855,19 @@ function CustomizeEditor()
 <?php $tabControl->BeginCustomField("EMAIL_ANSWER", GetMessage("LEARNING_EMAIL_ANSWER"), false);?>
 	<?php if ($str_QUESTION_TYPE == "T"):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td>
-				<input type="checkbox" name="EMAIL_ANSWER" value="Y"<?if($str_EMAIL_ANSWER=="Y")echo " checked"?>>
+				<input type="checkbox" name="EMAIL_ANSWER" value="Y"<?php if($str_EMAIL_ANSWER=="Y")echo " checked"?>>
 			</td>
 		</tr>
 	<?php endif?>
 <?php $tabControl->EndCustomField("EMAIL_ANSWER");?>
 <?php $tabControl->BeginCustomField("FILE_ID", GetMessage("LEARNING_PICTURE"), false);?>
 	<tr>
-		<td valign="top"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td valign="top"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<?echo CFile::InputFile("FILE_ID", 20, $str_FILE_ID, false, 0, "IMAGE", "", 40);?><br>
-			<?
+			<?php echo CFile::InputFile("FILE_ID", 20, $str_FILE_ID, false, 0, "IMAGE", "", 40);?><br>
+			<?php 
 				if($str_FILE_ID)
 				{
 					echo CFile::ShowImage($str_FILE_ID, 200, 200, "border=0", "", true);
@@ -877,7 +877,7 @@ function CustomizeEditor()
 	</tr>
 <?php $tabControl->EndCustomField("FILE_ID");?>
 
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("ANSWERS", GetMessage("LEARNING_ANSWERS"), false);?>
 	<tr>
 		<td valign="top" colspan="2">
@@ -886,10 +886,10 @@ function CustomizeEditor()
 					<tbody id="answers-table-tbody">
 					<tr class="heading">
 						<td align="center" width="40">ID</td>
-						<?php if ($str_QUESTION_TYPE != "R"):?><td align="center" width="40"><?echo GetMessage("LEARNING_QUESTION_ADM_CORRECT")?></td><?php endif?>
-						<td align="center"><?echo GetMessage("LEARNING_ANSWER")?></td>
-						<td align="center" width="40"><?echo GetMessage("LEARNING_COURSE_ADM_SORT")?></td>
-						<td align="center" width="40"><?echo GetMessage("LEARNING_COURSE_ADM_DELETE")?></td>
+						<?php if ($str_QUESTION_TYPE != "R"):?><td align="center" width="40"><?php echo GetMessage("LEARNING_QUESTION_ADM_CORRECT")?></td><?php endif?>
+						<td align="center"><?php echo GetMessage("LEARNING_ANSWER")?></td>
+						<td align="center" width="40"><?php echo GetMessage("LEARNING_COURSE_ADM_SORT")?></td>
+						<td align="center" width="40"><?php echo GetMessage("LEARNING_COURSE_ADM_DELETE")?></td>
 					</tr>
 
 				<?php
@@ -954,14 +954,14 @@ function CustomizeEditor()
 				}
 				?>
 					<tr>
-						<td align="center" width="40" style="text-align:center;"><?echo ($str_ANSWER_ID>0? $str_ANSWER_ID:"")?></td>
+						<td align="center" width="40" style="text-align:center;"><?php echo ($str_ANSWER_ID>0? $str_ANSWER_ID:"")?></td>
 						<?php if ($str_QUESTION_TYPE != "R"):?>
 							<td align="center" width="40" style="text-align:center;">
-							<?if ($str_QUESTION_TYPE == "M"):?>
-								<input type="checkbox" name="ANSWER_<?=$str_ANSWER_ID?>_CORRECT" value="Y"<?if($str_ANSWER_CORRECT=="Y")echo " checked"?>>
-							<?else:?>
-								<input type="radio" name="ANSWER_CORRECT" value="<?=$str_ANSWER_ID?>"<?if($str_ANSWER_CORRECT=="Y" || $SINGLE_ID == $str_ANSWER_ID)echo " checked"?>>
-							<?endif?>
+							<?php if ($str_QUESTION_TYPE == "M"):?>
+								<input type="checkbox" name="ANSWER_<?=$str_ANSWER_ID?>_CORRECT" value="Y"<?php if($str_ANSWER_CORRECT=="Y")echo " checked"?>>
+							<?php else:?>
+								<input type="radio" name="ANSWER_CORRECT" value="<?=$str_ANSWER_ID?>"<?php if($str_ANSWER_CORRECT=="Y" || $SINGLE_ID == $str_ANSWER_ID)echo " checked"?>>
+							<?php endif?>
 							</td>
 						<?php endif?>
 						<td align="center" style="text-align:center;">
@@ -971,15 +971,15 @@ function CustomizeEditor()
 							<input type="text" size="3"  name="ANSWER_<?=$str_ANSWER_ID?>_SORT" value="<?=$str_ANSWER_SORT?>">
 						</td>
 						<td align="center" width="40" style="text-align:center;">
-							<?if(intval($str_ANSWER_ID)>0):?>
+							<?php if(intval($str_ANSWER_ID)>0):?>
 								<input type="checkbox" name="ANSWER_<?=$str_ANSWER_ID?>_DEL" value="Y">
-							<?else:?>
+							<?php else:?>
 								<a href="javascript:void(0);" onclick="BX.remove(this.parentNode.parentNode)"><img src="/bitrix/themes/.default/images/actions/delete_button.gif" border="0" width="20" height="20"/></a>
-							<?endif?>
+							<?php endif?>
 							<input type="hidden" name="ANSWER_HIDDEN_ID[]" value="<?=$str_ANSWER_ID?>">
 						</td>
 					</tr>
-				<?endwhile;?>
+				<?php endwhile;?>
 				</tbody>
 				</table>
 				<script type="text/javascript">
@@ -1078,12 +1078,12 @@ function CustomizeEditor()
 	</tr>
 <?php $tabControl->EndCustomField("ANSWERS");?>
 
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("DESCRIPTION", GetMessage("LEARNING_DESCRIPTION"), false);?>
-	<?if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
+	<?php if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
 	<tr>
 		<td colspan="2" align="center">
-			<?CFileMan::AddHTMLEditorFrame(
+			<?php CFileMan::AddHTMLEditorFrame(
 				"DESCRIPTION",
 				$str_DESCRIPTION,
 				"DESCRIPTION_TYPE",
@@ -1100,22 +1100,22 @@ function CustomizeEditor()
 			);?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
-		<td align="center"><?echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
+		<td align="center"><?php echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
 		<td>
-			<input type="radio" name="DESCRIPTION_TYPE" value="text"<?if($str_DESCRIPTION_TYPE!="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_TEXT")?>
-			<input type="radio" name="DESCRIPTION_TYPE" value="html"<?if($str_DESCRIPTION_TYPE=="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
+			<input type="radio" name="DESCRIPTION_TYPE" value="text"<?php if($str_DESCRIPTION_TYPE!="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_TEXT")?>
+			<input type="radio" name="DESCRIPTION_TYPE" value="html"<?php if($str_DESCRIPTION_TYPE=="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<textarea style="width:100%; height:250px;" name="DESCRIPTION" wrap="off"><?echo $str_DESCRIPTION?></textarea>
+			<textarea style="width:100%; height:250px;" name="DESCRIPTION" wrap="off"><?php echo $str_DESCRIPTION?></textarea>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 <?php $tabControl->EndCustomField("DESCRIPTION");?>
-<?
+<?php 
 $tabControl->BeginNextFormTab();
 $tabControl->BeginCustomField("UFS", '', false);
 $USER_FIELD_MANAGER->EditFormShowTab('LEARNING_QUESTIONS', $bVarsFromForm, $ID);
@@ -1132,7 +1132,7 @@ $tabControl->Buttons(
 );
 $tabControl->arParams["FORM_ACTION"] = $APPLICATION->GetCurPage()."?lang=" . LANG . '&LESSON_PATH=' . $uriLessonPath . GetFilterParams("filter_");
 $tabControl->Show();?>
-<?$tabControl->ShowWarnings($tabControl->GetName(), $message);?>
+<?php $tabControl->ShowWarnings($tabControl->GetName(), $message);?>
 
 <script type="text/javascript">
 

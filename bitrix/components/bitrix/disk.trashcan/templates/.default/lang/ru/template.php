@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_TRASHCAN_LABEL_GRID_TOTAL"] = "Всего";
 $MESS["DISK_TRASHCAN_TITLE_MODAL_MOVE_TO"] = "Переместить \"#NAME#\" в папку";
 $MESS["DISK_TRASHCAN_TITLE_MODAL_COPY_TO"] = "Скопировать \"#NAME#\" в папку";

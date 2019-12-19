@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Profanity dictionary.
 ********************************************************************/
@@ -194,13 +194,13 @@
 	);
 	?><form name="form1" method="get" action="<?=$APPLICATION->GetCurPage()?>?">
 	<input type="hidden" name="DICTIONARY_ID" value="<?=$DICTIONARY_ID?>">
-	<?$oFilter->Begin();?>
+	<?php $oFilter->Begin();?>
 	
 	<tr valign="center">
 		<td><b><?=GetMessage("MAIN_FIND")?>:</b></td>
 		<td>
 			<input type="text" size="47" name="find_pattern" value="<?=htmlspecialcharsbx($find_pattern)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("FLT_WORDS"),
@@ -221,13 +221,13 @@
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FLT_USE_IT")?>:</td>
-		<td><?echo SelectBoxFromArray("USE_IT", array("REFERENCE" => array("", GetMessage("FLT_ACT_USE_IT_Y"), GetMessage("FLT_ACT_USE_IT_N")), "REFERENCE_ID" => array("all", "Y", "N")), $USE_IT)?></td>
+		<td><?php echo SelectBoxFromArray("USE_IT", array("REFERENCE" => array("", GetMessage("FLT_ACT_USE_IT_Y"), GetMessage("FLT_ACT_USE_IT_N")), "REFERENCE_ID" => array("all", "Y", "N")), $USE_IT)?></td>
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FLT_PATTERN_CREATE")?>:</td>
-		<td><?echo SelectBoxFromArray("PATTERN_CREATE", array("REFERENCE" => array("", GetMessage("FLT_FLT_WORDS"), GetMessage("FLT_FLT_TRNSL"), GetMessage("FLT_FLT_PTTRN")), "REFERENCE_ID" => array("ALL", "WORDS", "TRNSL", "PTTRN")), $PATTERN_CREATE)?></td>
+		<td><?php echo SelectBoxFromArray("PATTERN_CREATE", array("REFERENCE" => array("", GetMessage("FLT_FLT_WORDS"), GetMessage("FLT_FLT_TRNSL"), GetMessage("FLT_FLT_PTTRN")), "REFERENCE_ID" => array("ALL", "WORDS", "TRNSL", "PTTRN")), $PATTERN_CREATE)?></td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(
 		array(
 			"table_id" => $sTableID,
@@ -237,7 +237,7 @@
 	);
 	
 	$oFilter->End();
-	?></form><?
+	?></form><?php 
 	$lAdmin->DisplayList();
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

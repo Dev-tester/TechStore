@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOP_TAB_ANALYSIS"] = "Dokumentverknüpfungen";
 $MESS["SOP_TAB_HISTORY"] = "Änderungshistory";
 $MESS["SOP_TAB_SHIPMENT"] = "Auslieferung";

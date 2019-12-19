@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TAB_NAME_COMMON"] = "Common parameters";
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TAB_TITLE_COMMON"] = "General preferences for coupon";
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TITLE_ADD"] = "Create Coupon";

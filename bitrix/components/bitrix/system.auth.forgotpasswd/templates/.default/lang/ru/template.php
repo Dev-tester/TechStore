@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_SEND"] = "Выслать";
 $MESS["AUTH_AUTH"] = "Авторизация";
 $MESS["system_auth_captcha"] = "Введите символы с картинки:";

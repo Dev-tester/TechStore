@@ -423,9 +423,9 @@ $lAdmin->CheckListMode();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $arFilterNames = array(
 	"find_id" => GetMessage("MAIN_EVENTLOG_ID"),
 	"find_timestamp_x" => GetMessage("MAIN_EVENTLOG_TIMESTAMP_X"),
@@ -447,48 +447,48 @@ $oFilter = new CAdminFilter($sTableID."_filter", $arFilterNames);
 $oFilter->Begin();
 ?>
 <tr>
-	<td><b><?echo GetMessage("MAIN_EVENTLOG_SEARCH")?>:</b></td>
+	<td><b><?php echo GetMessage("MAIN_EVENTLOG_SEARCH")?>:</b></td>
 	<td nowrap>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>">
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>">
 		<select name="find_type">
-			<option value="audit_type_id"<?if($find_type=="audit_type_id") echo " selected"?>><?echo GetMessage("MAIN_EVENTLOG_AUDIT_TYPE_ID")?></option>
-			<option value="user_id"<?if($find_type=="user_id") echo " selected"?>><?echo GetMessage("MAIN_EVENTLOG_USER_ID")?></option>
-			<option value="remote_addr"<?if($find_type=="remote_addr") echo " selected"?>><?echo GetMessage("MAIN_EVENTLOG_REMOTE_ADDR")?></option>
-			<option value="user_agent"<?if($find_type=="user_agent") echo " selected"?>><?echo GetMessage("MAIN_EVENTLOG_USER_AGENT")?></option>
+			<option value="audit_type_id"<?php if($find_type=="audit_type_id") echo " selected"?>><?php echo GetMessage("MAIN_EVENTLOG_AUDIT_TYPE_ID")?></option>
+			<option value="user_id"<?php if($find_type=="user_id") echo " selected"?>><?php echo GetMessage("MAIN_EVENTLOG_USER_ID")?></option>
+			<option value="remote_addr"<?php if($find_type=="remote_addr") echo " selected"?>><?php echo GetMessage("MAIN_EVENTLOG_REMOTE_ADDR")?></option>
+			<option value="user_agent"<?php if($find_type=="user_agent") echo " selected"?>><?php echo GetMessage("MAIN_EVENTLOG_USER_AGENT")?></option>
 		</select>
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_ID")?>:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_ID")?>:</td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_TIMESTAMP_X")?>:</td>
-	<td><?echo CAdminCalendar::CalendarPeriod("find_timestamp_x_1", "find_timestamp_x_2", $find_timestamp_x_1, $find_timestamp_x_2, false, 15, true)?></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_TIMESTAMP_X")?>:</td>
+	<td><?php echo CAdminCalendar::CalendarPeriod("find_timestamp_x_1", "find_timestamp_x_2", $find_timestamp_x_1, $find_timestamp_x_2, false, 15, true)?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_SEVERITY")?>:</td>
-	<td><?echo SelectBoxMFromArray("find_severity[]", array(
+	<td><?php echo GetMessage("MAIN_EVENTLOG_SEVERITY")?>:</td>
+	<td><?php echo SelectBoxMFromArray("find_severity[]", array(
 			"REFERENCE"    => array("SECURITY", "ERROR", "WARNING", "INFO", "DEBUG"),
 			"REFERENCE_ID" => array("SECURITY", "ERROR", "WARNING", "INFO", "DEBUG"),
 		), $find_severity, GetMessage("MAIN_ALL"))?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_AUDIT_TYPE_ID")?>:</td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_AUDIT_TYPE_ID")?>:</td>
 	<td>
-		<input type="text" name="find_audit_type_id" size="47" value="<?echo htmlspecialcharsbx($find_audit_type_id)?>">&nbsp;<?=ShowFilterLogicHelp()?><br>
-		<?echo SelectBoxMFromArray("find_audit_type[]", array("reference"=>array_values($arAuditTypes),"reference_id"=>array_keys($arAuditTypes)), $find_audit_type, GetMessage("MAIN_ALL"), "");?>
+		<input type="text" name="find_audit_type_id" size="47" value="<?php echo htmlspecialcharsbx($find_audit_type_id)?>">&nbsp;<?=ShowFilterLogicHelp()?><br>
+		<?php echo SelectBoxMFromArray("find_audit_type[]", array("reference"=>array_values($arAuditTypes),"reference_id"=>array_keys($arAuditTypes)), $find_audit_type, GetMessage("MAIN_ALL"), "");?>
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_MODULE_ID")?>:</td>
-	<td><input type="text" name="find_module_id" size="47" value="<?echo htmlspecialcharsbx($find_module_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_MODULE_ID")?>:</td>
+	<td><input type="text" name="find_module_id" size="47" value="<?php echo htmlspecialcharsbx($find_module_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_ITEM_ID")?>:</td>
-	<td><input type="text" name="find_item_id" size="47" value="<?echo htmlspecialcharsbx($find_item_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_ITEM_ID")?>:</td>
+	<td><input type="text" name="find_item_id" size="47" value="<?php echo htmlspecialcharsbx($find_item_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
-<?
+<?php 
 $arSiteDropdown = array("reference" => array(), "reference_id" => array());
 $v1 = "sort";
 $v2 = "asc";
@@ -500,37 +500,37 @@ while ($ar = $rs->Fetch())
 }
 ?>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_SITE_ID")?>:</td>
-	<td><?echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("MAIN_ALL"), "");?></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_SITE_ID")?>:</td>
+	<td><?php echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("MAIN_ALL"), "");?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_USER_ID")?>:</td>
-	<td><input type="text" name="find_user_id" size="47" value="<?echo htmlspecialcharsbx($find_user_id)?>"></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_USER_ID")?>:</td>
+	<td><input type="text" name="find_user_id" size="47" value="<?php echo htmlspecialcharsbx($find_user_id)?>"></td>
 </tr>
-<?if($bStatistic):?>
+<?php if($bStatistic):?>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_GUEST_ID")?>:</td>
-	<td><input type="text" name="find_guest_id" size="47" value="<?echo htmlspecialcharsbx($find_guest_id)?>"></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_GUEST_ID")?>:</td>
+	<td><input type="text" name="find_guest_id" size="47" value="<?php echo htmlspecialcharsbx($find_guest_id)?>"></td>
 </tr>
-<?endif?>
+<?php endif?>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_REMOTE_ADDR")?>:</td>
-	<td><input type="text" name="find_remote_addr" size="47" value="<?echo htmlspecialcharsbx($find_remote_addr)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
-</tr>
-<tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_USER_AGENT")?>:</td>
-	<td><input type="text" name="find_user_agent" size="47" value="<?echo htmlspecialcharsbx($find_user_agent)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_REMOTE_ADDR")?>:</td>
+	<td><input type="text" name="find_remote_addr" size="47" value="<?php echo htmlspecialcharsbx($find_remote_addr)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_EVENTLOG_REQUEST_URI")?>:</td>
-	<td><input type="text" name="find_request_uri" size="47" value="<?echo htmlspecialcharsbx($find_request_uri)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_USER_AGENT")?>:</td>
+	<td><input type="text" name="find_user_agent" size="47" value="<?php echo htmlspecialcharsbx($find_user_agent)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
-<?
+<tr>
+	<td><?php echo GetMessage("MAIN_EVENTLOG_REQUEST_URI")?>:</td>
+	<td><input type="text" name="find_request_uri" size="47" value="<?php echo htmlspecialcharsbx($find_request_uri)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+</tr>
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 
 $lAdmin->DisplayList();
 

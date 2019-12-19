@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CMDESKTOP_PARAMS_ID'] = "Personal Dashboard ID";
 $MESS ['CMDESKTOP_PARAMS_CAN_EDIT'] = "Allow all authorized users to manage their own Personal Dashboard";
 $MESS ['CMDESKTOP_PARAMS_COLUMNS'] = "Number of columns";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_NAME_CHANGE'] = "Изменить название тега";
 $MESS ['BLOG_GROUP_DELETE'] = "Удалить тег";
 $MESS ['BLOG_GROUP_ADD'] = "Добавить тег";

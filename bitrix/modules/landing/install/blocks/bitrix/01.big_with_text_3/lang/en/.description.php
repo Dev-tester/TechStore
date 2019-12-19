@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_CVR003._NAME"] = "Cover with one dimmed background image";
 $MESS["LANDING_BLOCK_CVR003._NODES_LANDINGBLOCKNODE_IMG"] = "Background image";
 $MESS["LANDING_BLOCK_CVR003._NODES_LANDINGBLOCKNODETITLE"] = "Title";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Iblock;
 
 global $IBLOCK_CACHE_PROPERTY;

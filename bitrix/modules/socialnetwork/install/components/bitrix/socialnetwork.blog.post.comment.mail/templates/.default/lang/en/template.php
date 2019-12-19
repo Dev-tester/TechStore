@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBPCM_TEMPLATE_FILES"] = "Files:";
 $MESS["SBPCM_TEMPLATE_AUTHOR_ACTION_M"] = "has added a new comment";
 $MESS["SBPCM_TEMPLATE_AUTHOR_ACTION_F"] = "has added a new comment";

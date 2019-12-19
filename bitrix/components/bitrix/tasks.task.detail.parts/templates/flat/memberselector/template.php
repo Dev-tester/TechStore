@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -12,20 +12,20 @@ $templateId = $arResult['TEMPLATE_DATA']['ID'];
 
     <span class="js-id-tdp-mem-sel-items">
 	    <script type="text/html" data-bx-id="tdp-mem-sel-item">
-		    <?ob_start();?>
+		    <?php ob_start();?>
 	            <span class="js-id-tdp-mem-sel-item task-form-field-item {{ITEM_SET_INVISIBLE}}" data-item-value="{{VALUE}}" data-bx-type="{{TYPE_SET}}">
 					<a class="task-form-field-item-text" href="{{URL}}" target="_blank" class="task-options-destination-text">
 						{{DISPLAY}}
 					</a>
 					<span class="js-id-tdp-mem-sel-item-delete task-form-field-item-delete" title="<?=Loc::getMessage('TASKS_COMMON_CANCEL_SELECT')?>"></span>
 
-		            <?// being usually embedded into a form, this control can produce some inputs ?>
-		            <?foreach($arParams['INPUT_TEMPLATE_SET'] as $field => $template):?>
+		            <?php // being usually embedded into a form, this control can produce some inputs ?>
+		            <?php foreach($arParams['INPUT_TEMPLATE_SET'] as $field => $template):?>
 			            <input type="hidden" name="<?=htmlspecialcharsbx($template)?>" value="{{<?=htmlspecialcharsbx($field)?>}}" />
-		            <?endforeach?>
+		            <?php endforeach?>
 
 				</span>
-		    <?$template = ob_get_clean();?>
+		    <?php $template = ob_get_clean();?>
 		    <?=$template?>
         </script>
 	</span>

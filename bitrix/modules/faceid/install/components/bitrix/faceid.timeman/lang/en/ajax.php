@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TRACKERWD_CMP_ERROR_ANON"] = "Authentication error";
 $MESS["FACEID_TRACKERWD_CMP_ERROR_TIMEMAN_ACCESS"] = "Access to employee working time editing was denied";
 $MESS["FACEID_TRACKERWD_CMP_ERROR_AGREEMENT"] = "The Face Tracker License Agreement was not accepted";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_LOG_TITLE'] = "Activity Stream";
 $MESS ['GD_LOG_MORE'] = "Activity Stream";
 $MESS ['GD_LOG_USER'] = "users";

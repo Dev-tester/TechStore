@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PAGE_TITLE"] = "Help";
 $MESS["CRM_PAGE_CONTENT"] = "<h3>CRM In A Nutshell</h3>
  

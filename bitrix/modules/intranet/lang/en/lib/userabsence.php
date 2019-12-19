@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_ABSENCE_STATUS_VACATION"] = "On leave";
 $MESS["INTR_USER_ABSENCE_TYPE_VACATION"] = "Annual leave";
 $MESS["INTR_USER_ABSENCE_TYPE_ASSIGNMENT"] = "Business trip";

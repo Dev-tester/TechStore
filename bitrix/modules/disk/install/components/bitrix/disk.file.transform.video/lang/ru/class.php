@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FILE_TRANSFORM_VIDEO_IN_PROCESS_TITLE"] = "Видео будет доступно после конвертации";
 $MESS["DISK_FILE_TRANSFORM_VIDEO_IN_PROCESS_DESC"] = "это займет некоторое время...";
 $MESS["DISK_FILE_TRANSFORM_VIDEO_NOT_STARTED_TITLE"] = "Это видео ещё не было сконвертировано";

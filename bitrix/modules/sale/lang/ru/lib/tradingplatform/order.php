@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRADING_PLATFORM_ORDER_ENTITY_ID_FIELD"] = "Идентификатор записи";
 $MESS["TRADING_PLATFORM_ORDER_ENTITY_ORDER_ID_FIELD"] = "Идентификатор заказа";
 $MESS["TRADING_PLATFORM_ORDER_ENTITY_TRADING_PLATFORM_ID_FIELD"] = "Идентификатор торговой платформы";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TITLE_PRODUCT"] = "Товар";
 $MESS["CRM_FIELD_SECTION"] = "Раздел";
 $MESS["CRM_FIELD_PRICE"] = "Цена";

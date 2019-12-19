@@ -1,19 +1,19 @@
-<?
+<?php 
 if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?$APPLICATION->AddHeadScript('/bitrix/components/bitrix/tasks.task.selector/templates/.default/tasks.js');?>
+<?php $APPLICATION->AddHeadScript('/bitrix/components/bitrix/tasks.task.selector/templates/.default/tasks.js');?>
 
-<?$jsObjectName = 'O_'.$arResult["NAME"];?>
+<?php $jsObjectName = 'O_'.$arResult["NAME"];?>
 
 <script type="text/javascript">
 	var <?=$jsObjectName?> = new TasksTask("<?php echo $arResult["NAME"]?>", <?php echo $arParams["MULTIPLE"] == "Y" ? "true" : "false"?>, true);
 	<?=$jsObjectName?>.ajaxUrl = '<?=$this->__component->GetPath()."/ajax.php?lang=".LANGUAGE_ID."&SITE_ID=".$arParams["SITE_ID"]?>';
 	<?=$jsObjectName?>.filter = <?=CUtil::PhpToJSObject($arParams["FILTER"])?>;
 
-	<?if(intval($arParams['TEMPLATE_ID'])):?>
+	<?php if(intval($arParams['TEMPLATE_ID'])):?>
 		<?=$jsObjectName?>.addAjaxParameter('TEMPLATE_ID', <?=intval($arParams['TEMPLATE_ID'])?>);
-	<?endif?>
+	<?php endif?>
 
 	<?php foreach($arResult["CURRENT_TEMPLATES"] as $task):?>
 		<?=$jsObjectName?>.arSelected[<?=$task["ID"]?>] = {id : <?=CUtil::JSEscape($task["ID"])?>, name : "<?=CUtil::JSEscape($task["TITLE"])?>", status : <?=CTasks::STATE_PENDING?>};

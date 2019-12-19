@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('IM_AJAX_INIT'))
 {
 	define("IM_AJAX_INIT", true);

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_UP_NAME"] = "Новая почта";
 $MESS["SALE_DH_UP_DESCR1"] = "Обработчик доставки \"Новая почта\"";
 $MESS["SALE_DH_UP_DESCR2"] = "Вес до 100 кг.";

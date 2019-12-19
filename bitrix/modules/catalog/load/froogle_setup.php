@@ -1,4 +1,4 @@
-<?
+<?php 
 //<title>Froogle</title>
 IncludeModuleLangFile($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/catalog/export_setup_templ.php');
 
@@ -105,8 +105,8 @@ if ($adminSidePanelHelper->isSidePanel())
 	$actionParams = "?IFRAME=Y&IFRAME_TYPE=SIDE_SLIDER";
 }
 ?>
-<form method="post" action="<? echo $APPLICATION->GetCurPage().$actionParams; ?>" name="froogle_setup_form" id="froogle_setup_form">
-<?
+<form method="post" action="<?php  echo $APPLICATION->GetCurPage().$actionParams; ?>" name="froogle_setup_form" id="froogle_setup_form">
+<?php 
 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("CAT_ADM_MISC_EXP_TAB1"), "ICON" => "store", "TITLE" => GetMessage("CAT_ADM_MISC_EXP_TAB1_TITLE")),
@@ -121,8 +121,8 @@ $tabControl->BeginNextTab();
 if ($STEP==1)
 {
 ?><tr>
-	<td width="40%"><? echo GetMessage('CET_SELECT_IBLOCK_EXT'); ?></td>
-	<td width="60%"><?
+	<td width="40%"><?php  echo GetMessage('CET_SELECT_IBLOCK_EXT'); ?></td>
+	<td width="60%"><?php 
 	$arIBlockIDs = array();
 	$rsCatalogs = CCatalog::GetList(
 		array(),
@@ -151,14 +151,14 @@ if ($STEP==1)
 	?>
 		<script type="text/javascript">
 		var TreeSelected = new Array();
-		<?
+		<?php 
 		$intCountSelected = 0;
 		if (isset($V) && !empty($V) && is_array($V))
 		{
 			foreach ($V as $oneKey)
 			{
-				?>TreeSelected[<? echo $intCountSelected ?>] = <? echo intval($oneKey); ?>;
-			<?
+				?>TreeSelected[<?php  echo $intCountSelected ?>] = <?php  echo intval($oneKey); ?>;
+			<?php 
 			$intCountSelected++;
 			}
 		}
@@ -172,7 +172,7 @@ if ($STEP==1)
 	</td>
 </tr>
 <tr>
-	<td width="40%" valign="top"><?echo GetMessage("CET_SELECT_GROUP");?></td>
+	<td width="40%" valign="top"><?php echo GetMessage("CET_SELECT_GROUP");?></td>
 	<td width="60%">
 		<div id="tree"></div>
 		<script type="text/javascript">
@@ -182,7 +182,7 @@ if ($STEP==1)
 		function buildNoMenu()
 		{
 			var buffer;
-			buffer  = '<?echo GetMessageJS("CET_FIRST_SELECT_IBLOCK");?>';
+			buffer  = '<?php echo GetMessageJS("CET_FIRST_SELECT_IBLOCK");?>';
 			BX('tree', true).innerHTML = buffer;
 			BX.closeWait();
 		}
@@ -195,7 +195,7 @@ if ($STEP==1)
 
 			buffer = '<table border="0" cellspacing="0" cellpadding="0">';
 			buffer += '<tr>';
-			buffer += '<td colspan="2" valign="top" align="left"><input type="checkbox" name="V[]" value="0" id="v0"'+(BX.util.in_array(0,TreeSelected) ? ' checked' : '')+'><label for="v0"><font class="text"><b><?echo CUtil::JSEscape(GetMessage("CET_ALL_GROUPS"));?></b></font></label></td>';
+			buffer += '<td colspan="2" valign="top" align="left"><input type="checkbox" name="V[]" value="0" id="v0"'+(BX.util.in_array(0,TreeSelected) ? ' checked' : '')+'><label for="v0"><font class="text"><b><?php echo CUtil::JSEscape(GetMessage("CET_ALL_GROUPS"));?></b></font></label></td>';
 			buffer += '</tr>';
 
 			for (i in Tree[0])
@@ -266,24 +266,24 @@ if ($STEP==1)
 			BX.adminPanel.modifyFormElements('froogle_setup_form');
 		}
 		</script>
-		<iframe src="/bitrix/tools/catalog_export/froogle_util.php?IBLOCK_ID=<?=intval($IBLOCK_ID)?>&<? echo bitrix_sessid_get(); ?>" id="ifr" name="ifr" style="display:none"></iframe>
+		<iframe src="/bitrix/tools/catalog_export/froogle_util.php?IBLOCK_ID=<?=intval($IBLOCK_ID)?>&<?php  echo bitrix_sessid_get(); ?>" id="ifr" name="ifr" style="display:none"></iframe>
 	</td>
 </tr>
 <tr>
-	<td width="40%"><?echo GetMessage("CET_SAVE_FILENAME");?></td>
-	<td width="60%"><b><? echo htmlspecialcharsex($strCatalogDefaultFolder); ?></b>
-		<input type="text" name="SETUP_FILE_NAME" value="<?echo htmlspecialcharsbx(strlen($SETUP_FILE_NAME)>0 ? str_replace($strCatalogDefaultFolder, '', $SETUP_FILE_NAME) : "froogle_".mt_rand(0, 999999).".txt"); ?>" size="50">
+	<td width="40%"><?php echo GetMessage("CET_SAVE_FILENAME");?></td>
+	<td width="60%"><b><?php  echo htmlspecialcharsex($strCatalogDefaultFolder); ?></b>
+		<input type="text" name="SETUP_FILE_NAME" value="<?php echo htmlspecialcharsbx(strlen($SETUP_FILE_NAME)>0 ? str_replace($strCatalogDefaultFolder, '', $SETUP_FILE_NAME) : "froogle_".mt_rand(0, 999999).".txt"); ?>" size="50">
 	</td>
 </tr>
-<?
+<?php 
 	if ($ACTION=="EXPORT_SETUP" || $ACTION == 'EXPORT_EDIT' || $ACTION == 'EXPORT_COPY')
 	{
 ?><tr>
-	<td width="40%"><?echo GetMessage("CET_PROFILE_NAME");?></td>
+	<td width="40%"><?php echo GetMessage("CET_PROFILE_NAME");?></td>
 	<td width="60%">
-		<input type="text" name="SETUP_PROFILE_NAME" value="<? echo (strlen($SETUP_PROFILE_NAME) > 0 ? htmlspecialcharsbx($SETUP_PROFILE_NAME) : ''); ?>" size="30">
+		<input type="text" name="SETUP_PROFILE_NAME" value="<?php  echo (strlen($SETUP_PROFILE_NAME) > 0 ? htmlspecialcharsbx($SETUP_PROFILE_NAME) : ''); ?>" size="30">
 	</td>
-</tr><?
+</tr><?php 
 	}
 }
 
@@ -300,30 +300,30 @@ $tabControl->EndTab();
 
 $tabControl->Buttons();
 
-?><? echo bitrix_sessid_post();?><?
+?><?php  echo bitrix_sessid_post();?><?php 
 if ($ACTION == 'EXPORT_EDIT' || $ACTION == 'EXPORT_COPY')
 {
-	?><input type="hidden" name="PROFILE_ID" value="<? echo intval($PROFILE_ID); ?>"><?
+	?><input type="hidden" name="PROFILE_ID" value="<?php  echo intval($PROFILE_ID); ?>"><?php 
 }
 
 if (2 > $STEP)
 {
-	?><input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-	<input type="hidden" name="ACT_FILE" value="<?echo htmlspecialcharsbx($_REQUEST["ACT_FILE"]) ?>">
-	<input type="hidden" name="ACTION" value="<?echo htmlspecialcharsbx($ACTION) ?>">
-	<input type="hidden" name="STEP" value="<?echo intval($STEP) + 1 ?>">
+	?><input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+	<input type="hidden" name="ACT_FILE" value="<?php echo htmlspecialcharsbx($_REQUEST["ACT_FILE"]) ?>">
+	<input type="hidden" name="ACTION" value="<?php echo htmlspecialcharsbx($ACTION) ?>">
+	<input type="hidden" name="STEP" value="<?php echo intval($STEP) + 1 ?>">
 	<input type="hidden" name="SETUP_FIELDS_LIST" value="V,IBLOCK_ID,SETUP_FILE_NAME">
-	<input type="submit" value="<?echo ($ACTION=="EXPORT")?GetMessage("CET_EXPORT"):GetMessage("CET_SAVE")?>"><?
+	<input type="submit" value="<?php echo ($ACTION=="EXPORT")?GetMessage("CET_EXPORT"):GetMessage("CET_SAVE")?>"><?php 
 }
 
 $tabControl->End();
 ?></form>
 <script type="text/javascript">
-<?if ($STEP < 2):?>
+<?php if ($STEP < 2):?>
 tabControl.SelectTab("edit1");
 tabControl.DisableTab("edit2");
-<?elseif ($STEP == 2):?>
+<?php elseif ($STEP == 2):?>
 tabControl.SelectTab("edit2");
 tabControl.DisableTab("edit1");
-<?endif;?>
+<?php endif;?>
 </script>

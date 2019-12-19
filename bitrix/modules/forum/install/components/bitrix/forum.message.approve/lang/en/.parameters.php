@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL_TEMPLATES'] = "URLs processing";
 $MESS ['F_INDEX_TEMPLATE'] = "Forums List page";
 $MESS ['F_READ_TEMPLATE'] = "Topic Read page";

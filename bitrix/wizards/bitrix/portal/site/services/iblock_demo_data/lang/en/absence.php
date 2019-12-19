@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_IB_ABSENCE_1_NAME"] = "Regular Leave";
 $MESS["W_IB_ABSENCE_1_PREV1"] = "Regular Leave for ";
 $MESS["W_IB_ABSENCE_1_PREV2"] = " year.";

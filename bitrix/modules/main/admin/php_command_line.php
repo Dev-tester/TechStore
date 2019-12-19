@@ -1,4 +1,4 @@
-<?
+<?php 
 /* This code captures parse errors*/
 register_shutdown_function('error_alert');
 
@@ -385,7 +385,7 @@ function compareMaps(map1, map2)
 
 </script>
 <div id="whole_form">
-<?
+<?php 
 if(
 	$_SERVER['REQUEST_METHOD'] == 'POST'
 	&& $_POST["ajax"] === "y"
@@ -395,11 +395,11 @@ if(
 	$APPLICATION->RestartBuffer();
 	?>
 	<script>window.editTab = null;</script>
-	<?
+	<?php 
 }
 ?>
-<form name="form1" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>" method="POST">
-<?
+<form name="form1" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>" method="POST">
+<?php 
 $editTab->Begin();
 for ($i = 1; $i <= $query_count - ($remove? 1: 0); $i++)
 {
@@ -413,8 +413,8 @@ for ($i = 1; $i <= $query_count - ($remove? 1: 0); $i++)
 	?>
 	<tr valign="top">
 		<td width="100%" colspan="2">
-			<textarea cols="60" name="query<?echo $i?>" id="query<?echo $i?>" rows="15" wrap="OFF" style="width:100%;"><?echo htmlspecialcharsbx($query); ?></textarea><br />
-			<?
+			<textarea cols="60" name="query<?php echo $i?>" id="query<?php echo $i?>" rows="15" wrap="OFF" style="width:100%;"><?php echo htmlspecialcharsbx($query); ?></textarea><br />
+			<?php 
 			if(COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y" && CModule::IncludeModule('fileman'))
 			{
 				CCodeEditor::Show(array(
@@ -426,21 +426,21 @@ for ($i = 1; $i <= $query_count - ($remove? 1: 0); $i++)
 			?>
 		</td>
 	</tr>
-<?
+<?php 
 }
 ?>
-<?$editTab->Buttons();
+<?php $editTab->Buttons();
 ?>
-<input<?if(!$isAdmin) echo " disabled"?> type="button" accesskey="x" name="execute" value="<?echo GetMessage("php_cmd_button")?>" onclick="return __FPHPSubmit();" class="adm-btn-save">
-<input type="button" value="<?echo GetMessage("php_cmd_button_clear")?>" onclick="this.form.reset(); __FPHPClear();">
+<input<?php if(!$isAdmin) echo " disabled"?> type="button" accesskey="x" name="execute" value="<?php echo GetMessage("php_cmd_button")?>" onclick="return __FPHPSubmit();" class="adm-btn-save">
+<input type="button" value="<?php echo GetMessage("php_cmd_button_clear")?>" onclick="this.form.reset(); __FPHPClear();">
 
 <input type="checkbox" value="Y" name="result_as_text" id="result_as_text">
 <label for="result_as_text"><?=GetMessage("php_cmd_text_result")?></label>
-<?
+<?php 
 $editTab->End();
 ?>
 </form>
-<?
+<?php 
 if(
 	$_SERVER['REQUEST_METHOD'] == 'POST'
 	&& $_POST["ajax"] === "y"
@@ -451,7 +451,7 @@ if(
 	{
 		CUserOptions::SetOption("php_command_line", "count", $query_count - 1);
 	}
-	?><script>adjustTabTitles();</script><?
+	?><script>adjustTabTitles();</script><?php 
 
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 }
@@ -460,7 +460,7 @@ else
 	?>
 	</div>
 	<div id="result_div"></div>
-	<?echo BeginNote(), GetMessage("php_cmd_note"), EndNote();?>
-	<?
+	<?php echo BeginNote(), GetMessage("php_cmd_note"), EndNote();?>
+	<?php 
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR"] = "Ошибка";
 $MESS["PRESET_APPLY_ERROR"] = "Не удалось применить настройки меню";
 $MESS["PRESET_TITLE"] = "Готовые настройки";

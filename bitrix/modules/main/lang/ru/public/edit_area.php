@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['main_incl_file_comp_param'] = "Редактировать параметры компонента";
 $MESS ['main_comp_button_menu_title'] = "Редактировать параметры компонента";
 $MESS ['main_comp_copy_templ'] = "Копировать шаблон компонента";

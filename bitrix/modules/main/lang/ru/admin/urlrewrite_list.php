@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MURL_USL'] = "Условие";
 $MESS ['MURL_COMPONENT'] = "Компонент";
 $MESS ['MURL_FILE'] = "Файл";

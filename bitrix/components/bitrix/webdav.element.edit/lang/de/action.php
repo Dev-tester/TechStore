@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ERROR_ELEMENT_ALREADY_EXISTS'] = "Datei mit dem gleichen Namen existiert bereits.";
 $MESS ['WD_ERROR_EMPTY_ELEMENT_NAME'] = "Der Dateiname wurde nicht angegeben.";
 $MESS ['WD_ERROR_BAD_ELEMENT_NAME'] = "Der Dateiname darf folgende Zeichen nicht beinhalten:  /\\:*?\"'<>|{}%&~";

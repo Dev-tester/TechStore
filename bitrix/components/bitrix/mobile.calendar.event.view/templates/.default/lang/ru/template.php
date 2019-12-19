@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_CALENDAR_EDIT_BUT"] = "Изменить";
 $MESS["MB_CALENDAR_ACCEPT_BUT"] = "Принять";
 $MESS["MB_CALENDAR_ACCEPT_BUT_2"] = "Принять участие";

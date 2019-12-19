@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_CAT_DSC_SV_ERR_EMPTY_SITE"] = "Website is not specified.";
 $MESS["BT_MOD_CAT_DSC_SV_ERR_BAD_SITE"] = "Invalid website specified.";
 $MESS["BT_MOD_CAT_DSC_SV_ERR_EMPTY_NAME"] = "The name is missing.";

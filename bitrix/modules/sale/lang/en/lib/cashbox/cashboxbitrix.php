@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_BITRIX_TITLE"] = "Bitrix Cash Register";
 $MESS["SALE_CASHBOX_BITRIX_ERR"] = "Error printing the receipt";
 $MESS["SALE_CASHBOX_BITRIX_ERR-3800"] = "no cash in cash register to complete refund";

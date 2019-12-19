@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_ACCESS_DENIED"] = "Access denied";
 $MESS["LANDING_BLOCK_BAD_ANCHOR"] = "Anchor should start with an alphabetical character (a-z) and can contain characters \"a-z\", \"0-9\", \"-\", \"_\", \".\" and \":\" only.";
 $MESS["LANDING_BLOCK_BR1"] = "Catalog";

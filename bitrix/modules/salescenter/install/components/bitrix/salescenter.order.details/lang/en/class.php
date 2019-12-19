@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOD_ACCESS_DENIED"] = "Access restricted";
 $MESS["SPOD_CATALOG_MODULE_NOT_INSTALL"] = "Please log in to view the order.";
 $MESS["SPOD_NO_ORDER"] = "Order was not found.";

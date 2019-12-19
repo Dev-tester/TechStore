@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -22,7 +22,7 @@ $arParams["SHOW_NAVIGATION"] = (is_array($arParams["SHOW_NAVIGATION"]) ? $arPara
 				/Input params
 ********************************************************************/
 if (!empty($arResult["NAV_STRING"]) && in_array("top", $arParams["SHOW_NAVIGATION"])):
-	?><div class="navigation navigation-top"><?=$arResult["NAV_STRING"]?></div><?
+	?><div class="navigation navigation-top"><?=$arResult["NAV_STRING"]?></div><?php 
 endif;
 ?><script type="text/javascript">
 //<![CDATA[
@@ -58,9 +58,9 @@ endif;
 			<th class="wd-cell"></th>
 			<th class="wd-cell">ID</th>
 			<th class="wd-cell"><?=GetMessage('WD_FILE_NAME')?></th>
-<?if ($arParams["SHOW_WORKFLOW"] != "N"):?>
+<?php if ($arParams["SHOW_WORKFLOW"] != "N"):?>
 			<th class="wd-cell"><?=GetMessage('WD_STATUS')?></th>
-<?endif;?>
+<?php endif;?>
 			<th class="wd-cell"><?=GetMessage('WD_COMMENTS')?></th>
 			<th class="wd-cell"><?=GetMessage('WD_MODIFIED_BY')?></th>
 			<th class="wd-cell"><?=GetMessage('WD_CHANGE_DATE')?></th>
@@ -72,14 +72,14 @@ endif;
 			<?=GetMessage("WD_CURRENT_VERSION")?>
 		</td>
 	</tr>
-<?
+<?php 
 $res = $arResult["ELEMENT"];
 $arActions = array();
 ?>
 	<tr class="wd-row">
 		<td class="wd-cell"></td>
 		<td class="wd-cell">
-<?
+<?php 
 	$arActions[] = array(
 		"ICONCLASS" => "element_view",
 		"TITLE" => GetMessage("WD_VIEW_ELEMENT"),
@@ -115,10 +115,10 @@ $arActions = array();
 			"ONCLICK" => "if(confirm('".CUtil::JSEscape(GetMessage("WD_DELETE_CONFIRM_FILE"))."')){jsUtils.Redirect([], '".CUtil::JSEscape($res["URL"]["~DELETE"])."')};");
 	}
 ?>
-<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?
-	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?
-	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?
-	?>onclick="ShowHideThisMenu(<?=$res["ID"]?>, document.getElementById('wd_<?=$res["ID"]?>'));" <?
+<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?php 
+	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?php 
+	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?php 
+	?>onclick="ShowHideThisMenu(<?=$res["ID"]?>, document.getElementById('wd_<?=$res["ID"]?>'));" <?php 
 	?>title="<?=GetMessage("WD_ACTIONS")?>" id="wd_table_<?=$res["ID"]?>"><tr>
 	<td>
 		<div class="controls controls-view show-action">
@@ -134,44 +134,44 @@ oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 			<td class="wd-cell"><?=$res["ID"]?></td>
 			<td class="wd-cell">
 				<a target="_blank" href="<?=$res['URL']['DOWNLOAD']?>"><?=$res['NAME']?></a></td>
-<?if ($arParams["SHOW_WORKFLOW"] != "N"):?>
+<?php if ($arParams["SHOW_WORKFLOW"] != "N"):?>
 			<td class="wd-cell">
 				[<?=$res["WF_STATUS_ID"]?>] <?=$res["WF_STATUS_TITLE"]?>
 			</td>
-<?endif;?>
+<?php endif;?>
 			<td class="wd-cell">
-<?
+<?php 
 		$maxLength = 10;
 		if (strLen($res["~WF_COMMENTS"]) <= $maxLength):
 ?>
 				<?=$res["WF_COMMENTS"]?>
-<?
+<?php 
 		else:
 			$text = htmlspecialcharsEx(substr($res["~WF_COMMENTS"], 0, 7))."...";
 ?>
 		<div class="popup" id="show_relative_<?=$res["ID"]?>">
-			<div class="hidden" id="show_description_<?=$res["ID"]?>" style="position:absolute;display:none;" <?
+			<div class="hidden" id="show_description_<?=$res["ID"]?>" style="position:absolute;display:none;" <?php 
 					?>onmouseout="this.style.display='none'; document.getElementById('show_relative_<?=$res["ID"]?>').style.position='';">
 				<?=$res["WF_COMMENTS"]?>
 			</div>
-			<div class="visible" onmouseover="document.getElementById('show_relative_<?=$res["ID"]?>').style.position='relative';<?
+			<div class="visible" onmouseover="document.getElementById('show_relative_<?=$res["ID"]?>').style.position='relative';<?php 
 				?>document.getElementById('show_description_<?=$res["ID"]?>').style.display='block';">
 				<?=$text?>
 			</div>
 		</div>
-<?
+<?php 
 		endif;
 		
 ?>
 			</td>
 			<td class="wd-cell">
-<?
+<?php 
 	$arUser = $arResult["USERS"][$res["MODIFIED_BY"]];
 	if (empty($arUser))
 	{
 ?>
 				<?=$res["USER_NAME"]?>
-<?
+<?php 
 	}
 	else
 	{
@@ -179,7 +179,7 @@ oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 			<div class="wd-user">
 				[<a href="<?=$arUser["URL"]?>"><?=$res["MODIFIED_BY"]?></a>] (<?=$arUser["LOGIN"].") ".$arUser["NAME"]." ".$arUser["LAST_NAME"]?>
 			</div>
-<?
+<?php 
 	}
 ?>
 			</td>
@@ -190,22 +190,22 @@ oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 			<?=GetMessage("WD_ARCHIVE")?>
 		</td>
 	</tr>
-<?
+<?php 
 
 $iCount = 0;
 foreach ($arResult['VERSIONS'] as $res):
 	$iCount++;
 ?>
-	<tr class="wd-row<?=($iCount%2 == 0 ? " selected" : "")?>"<?
-		?> onmouseover="this.className+=' over';" onmouseout="this.className=this.className.replace(' over', '')" <?
+	<tr class="wd-row<?=($iCount%2 == 0 ? " selected" : "")?>"<?php 
+		?> onmouseover="this.className+=' over';" onmouseout="this.className=this.className.replace(' over', '')" <?php 
 		?> onclick="if(oObjectWDRow['wd_<?=$res["ID"]?>']){checkthisrow('<?=$res["ID"]?>', this)}" >
 		<td class="wd-cell">
-			<input type="checkbox" name="HISTORY_ID[]" id="history_id_<?=$res["ID"]?>" value="<?=$res["ID"]?>" onclick="this.checked = (!this.checked)" <?
-			?><?=($res["SHOW"]["DELETE"] != "Y" ? "disabled='disabled'" : "")?><?
+			<input type="checkbox" name="HISTORY_ID[]" id="history_id_<?=$res["ID"]?>" value="<?=$res["ID"]?>" onclick="this.checked = (!this.checked)" <?php 
+			?><?=($res["SHOW"]["DELETE"] != "Y" ? "disabled='disabled'" : "")?><?php 
 			?> />
 		</td>
 		<td class="wd-cell">
-<?
+<?php 
 	$arActions = array();
 	$arActions[] = array(
 		"ICONCLASS" => "element_view",
@@ -234,10 +234,10 @@ foreach ($arResult['VERSIONS'] as $res):
 			"ONCLICK" => "if(confirm('".CUtil::JSEscape(GetMessage("WD_DELETE_CONFIRM"))."')){jsUtils.Redirect([], '".CUtil::JSEscape($res["URL"]["~DELETE"])."')};");
 	}
 ?>
-<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?
-	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?
-	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?
-	?>onclick="ShowHideThisMenu(<?=$res["ID"]?>, document.getElementById('wd_<?=$res["ID"]?>'));" <?
+<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?php 
+	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?php 
+	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?php 
+	?>onclick="ShowHideThisMenu(<?=$res["ID"]?>, document.getElementById('wd_<?=$res["ID"]?>'));" <?php 
 	?>title="<?=GetMessage("WD_ACTIONS")?>" id="wd_table_<?=$res["ID"]?>"><tr>
 	<td>
 		<div class="controls controls-view show-action">
@@ -253,46 +253,46 @@ oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 	<td class="wd-cell"><?=$res["ID"]?></td>
 	<td class="wd-cell">
 		<a target="_blank" href="<?=$res['URL']['DOWNLOAD']?>"><?=$res['NAME']?></a></td>
-<?if ($arParams["SHOW_WORKFLOW"] != "N"):?>
+<?php if ($arParams["SHOW_WORKFLOW"] != "N"):?>
 	<td class="wd-cell">
 		[<?=$res["WF_STATUS_ID"]?>] <?=$res["WF_STATUS_TITLE"]?>
 	</td>
-<?endif;?>
+<?php endif;?>
 	
 	<td class="wd-cell">
 			
-<?
+<?php 
 		$maxLength = 10;
 		if (strLen($res["~WF_COMMENTS"]) <= $maxLength):
 ?>
 				<?=$res["WF_COMMENTS"]?>
-<?
+<?php 
 		else:
 			$text = htmlspecialcharsEx(substr($res["~WF_COMMENTS"], 0, 7))."...";
 ?>
 		<div class="popup" id="show_relative_<?=$res["ID"]?>">
-			<div class="hidden" id="show_description_<?=$res["ID"]?>" style="position:absolute;display:none;" <?
+			<div class="hidden" id="show_description_<?=$res["ID"]?>" style="position:absolute;display:none;" <?php 
 					?>onmouseout="this.style.display='none'; document.getElementById('show_relative_<?=$res["ID"]?>').style.position='';">
 				<?=$res["WF_COMMENTS"]?>
 			</div>
-			<div class="visible" onmouseover="document.getElementById('show_relative_<?=$res["ID"]?>').style.position='relative';<?
+			<div class="visible" onmouseover="document.getElementById('show_relative_<?=$res["ID"]?>').style.position='relative';<?php 
 				?>document.getElementById('show_description_<?=$res["ID"]?>').style.display='block';">
 				<?=$text?>
 			</div>
 		</div>
-<?
+<?php 
 		endif;
 		
 ?>
 	</td>
 	<td class="wd-cell">
-<?
+<?php 
 	$arUser = $arResult["USERS"][$res["MODIFIED_BY"]];
 	if (empty($arUser))
 	{
 ?>
 		<?=$res["USER_NAME"]?>
-<?
+<?php 
 	}
 	else
 	{
@@ -300,18 +300,18 @@ oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 		<div class="wd-user">
 			[<a href="<?=$arUser["URL"]?>"><?=$res["MODIFIED_BY"]?></a>] (<?=$arUser["LOGIN"].") ".$arUser["NAME"]." ".$arUser["LAST_NAME"]?>
 		</div>
-<?
+<?php 
 	}
 ?>
 	</td>
 	<td class="wd-cell"><?=$res['TIMESTAMP_X']?></td>
 </tr>
-<?
+<?php 
 endforeach;
 ?>
 	</tbody>
 	<tfoot>
-<?
+<?php 
 if (!empty($arResult["NAV_STRING"]) && in_array("bottom", $arParams["SHOW_NAVIGATION"])):
 ?>
 		<tr class="wd-row">
@@ -319,10 +319,10 @@ if (!empty($arResult["NAV_STRING"]) && in_array("bottom", $arParams["SHOW_NAVIGA
 				<div class="navigation navigation-bottom"><?=$arResult["NAV_STRING"]?></div>
 			</td>
 		</tr>
-<?
+<?php 
 else:
 ?>
-<?
+<?php 
 endif;
 ?>
 		<tr class="wd-row">
@@ -333,9 +333,9 @@ endif;
 	</tfoot>
 </table>
 </form>
-<?
+<?php 
 if (!empty($arResult["NAV_STRING"]) && in_array("bottom", $arParams["SHOW_NAVIGATION"])):
-	?><?
+	?><?php 
 endif;
 
 ?>

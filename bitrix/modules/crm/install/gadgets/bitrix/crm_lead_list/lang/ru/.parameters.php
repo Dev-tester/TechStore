@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_CRM_LEAD_LIST_LEAD_COUNT"] = "Количество лидов на странице";
 $MESS["GD_CRM_ONLY_MY"] = "Только мои";
 $MESS["GD_CRM_SORT"] = "Сортировка";

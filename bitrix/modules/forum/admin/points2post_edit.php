@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $forumPermissions = $APPLICATION->GetGroupRight("forum");
@@ -59,7 +59,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("FPPN_2FLIST"),
@@ -89,13 +89,13 @@ $context->Show();
 if($message)
 	echo $message->Show();
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="forum_edit">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="forum_edit">
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("FPPN_TAB_POINT"), "ICON" => "forum", "TITLE" => GetMessage("FPPN_TAB_POINT_DESCR"))
 	);
@@ -104,16 +104,16 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID>0):?>
+	<?php if ($ID>0):?>
 	<tr>
 		<td width="40%">ID:</td>
-		<td width="60%"><?echo $ID ?></td>
+		<td width="60%"><?php echo $ID ?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr class="adm-detail-required-field">
 		<td width="40%">
@@ -130,7 +130,7 @@ $tabControl->BeginNextTab();
 			<input type="text" name="POINTS_PER_POST" value="<?=htmlspecialcharsbx($str_POINTS_PER_POST)?>" size="20" maxlength="19">
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(
 		array(
@@ -141,11 +141,11 @@ $tabControl->Buttons(
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 $tabControl->ShowWarnings("forum_edit", $message, array("POINTS2POST[MIN_NUM_POSTS]" => "MIN_NUM_POSTS"));
 
 echo BeginNote();?>
 	<?= GetMessage("FORUM_PPE_NOTES") ?>
-<?echo EndNote();?>
+<?php echo EndNote();?>
 
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

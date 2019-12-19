@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Iblock\Component;
 
 use \Bitrix\Iblock;

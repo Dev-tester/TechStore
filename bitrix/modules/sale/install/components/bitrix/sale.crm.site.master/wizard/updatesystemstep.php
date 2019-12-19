@@ -70,7 +70,7 @@ class UpdateSystemStep extends \CWizardStep
 			</div>
 			<div class="adm-crm-site-master-paragraph"><?=Loc::getMessage("SALE_CSM_WIZARD_UPDATESYSTEMSTEP_DESCR3")?></div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -149,7 +149,7 @@ class UpdateSystemStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

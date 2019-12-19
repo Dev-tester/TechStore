@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_PARAM_list"] = "Meetings page path template";
 $MESS["M_PARAM_meeting"] = "Meeting view page path template";
 $MESS["M_PARAM_meeting_edit"] = "Meeting edit page path template";

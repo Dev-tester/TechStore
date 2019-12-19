@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_1C_START_REALTIME_ADV_1'] = "Easy connectivity";
 $MESS['CRM_1C_START_REALTIME_ADV_2'] = "Simple to configure";
 $MESS['CRM_1C_START_REALTIME_ADV_3'] = "Real-time data exchange";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Imopenlines\Update;
 
 use Bitrix\ImOpenLines\Model\SessionTable;

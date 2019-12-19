@@ -1,9 +1,9 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/main/utils.js');
 CBPDocument::AddShowParameterInit($arParams["DOCUMENT_TYPE"][0], "only_users", $arParams["DOCUMENT_TYPE"][2], $arParams["DOCUMENT_TYPE"][1]);
 ?>
 <div class="bizproc-page-workflow-start">
-	<?
+	<?php 
 	if (!empty($arResult["ERROR_MESSAGE"])):
 		ShowError($arResult["ERROR_MESSAGE"]);
 	endif;
@@ -16,23 +16,23 @@ CBPDocument::AddShowParameterInit($arParams["DOCUMENT_TYPE"][0], "only_users", $
 		<input type="hidden" name="site" value="<?= SITE_ID ?>">
 		<input type="hidden" name="document_type" value="<?= htmlspecialcharsbx($arParams["DOCUMENT_TYPE"][2]) ?>">
 		<input type="hidden" name="auto_execute_type" value="<?= htmlspecialcharsbx($arResult["EXEC_TYPE"]) ?>">
-		<?foreach ($arResult['TEMPLATES'] as $template):?>
+		<?php foreach ($arResult['TEMPLATES'] as $template):?>
 		<fieldset class="bizproc-item bizproc-workflow-template bizproc-workflow-template-parameters">
 			<legend class="bizproc-item-legend bizproc-workflow-template-title">
 				<?= htmlspecialcharsbx($template["NAME"])?>
 			</legend>
-			<?if($template["DESCRIPTION"]!=''):?>
+			<?php if($template["DESCRIPTION"]!=''):?>
 				<div class="bizproc-item-description bizproc-workflow-template-description">
 					<?= htmlspecialcharsbx($template["DESCRIPTION"]) ?>
 				</div>
-			<?endif;
+			<?php endif;
 
 			if (!empty($template["PARAMETERS"]))
 			{
 				?>
 				<div class="bizproc-item-text">
 					<ul class="bizproc-list bizproc-workflow-template-params">
-						<?
+						<?php 
 						foreach ($template["PARAMETERS"] as $parameterKey => $arParameter)
 						{
 							?>
@@ -40,13 +40,13 @@ CBPDocument::AddShowParameterInit($arParams["DOCUMENT_TYPE"][0], "only_users", $
 								<div class="bizproc-field bizproc-field-<?=htmlspecialcharsbx($arParameter["Type"])?>">
 									<label class="bizproc-field-name">
 										<?=($arParameter["Required"] ? "<span class=\"required\">*</span> " : "")?>
-										<span class="bizproc-field-title"><?=htmlspecialcharsbx($arParameter["Name"])?></span><?
+										<span class="bizproc-field-title"><?=htmlspecialcharsbx($arParameter["Name"])?></span><?php 
 										if (strlen($arParameter["Description"]) > 0):
-											?><span class="bizproc-field-description"> (<?=htmlspecialcharsbx($arParameter["Description"])?>)</span><?
+											?><span class="bizproc-field-description"> (<?=htmlspecialcharsbx($arParameter["Description"])?>)</span><?php 
 										endif;
 										?>:
 									</label>
-									<span class="bizproc-field-value"><?
+									<span class="bizproc-field-value"><?php 
 										echo $documentService->GetFieldInputControl(
 											$arParams["DOCUMENT_TYPE"],
 											$arParameter,
@@ -58,15 +58,15 @@ CBPDocument::AddShowParameterInit($arParams["DOCUMENT_TYPE"][0], "only_users", $
 										?></span>
 								</div>
 							</li>
-							<?
+							<?php 
 						}
 						?>
 					</ul>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 		</fieldset>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</form>
 </div>

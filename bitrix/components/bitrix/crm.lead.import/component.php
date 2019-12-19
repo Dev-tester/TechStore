@@ -90,7 +90,7 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 			<div class="crm_import_require_fields">
 				<?=GetMessage('CRM_REQUIRE_FIELDS')?>: <b><?=implode('</b>, <b>', $arRequireFields)?></b>.
 			</div>
-			<?
+			<?php 
 			$sVal = ob_get_contents();
 			ob_end_clean();
 			$arResult['FIELDS']['tab_2'][] = array(
@@ -123,17 +123,17 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 		<div id="crm_import_example" class="crm_import_example">
 			<table cellspacing="0" cellpadding="0" class="crm_import_example_table">
 				<tr>
-					<?foreach ($arHeader as $key => $value):?>
+					<?php foreach ($arHeader as $key => $value):?>
 						<th><?=htmlspecialcharsbx($value)?></th>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</tr>
-				<?foreach ($arRows as $arRow):?>
+				<?php foreach ($arRows as $arRow):?>
 					<tr>
-					<?foreach ($arRow as $row):?>
+					<?php foreach ($arRow as $row):?>
 						<td><?=htmlspecialcharsbx($row)?></td>
-					<?endforeach;?>
+					<?php endforeach;?>
 					</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</table>
 		</div>
 		<script type="text/javascript">
@@ -143,7 +143,7 @@ if(!function_exists('__CrmImportPrepareFieldBindingTab'))
 			if (windowSizes.innerWidth > 1280)
 				BX('crm_import_example').style.width = '1065px';
 		</script>
-		<?
+		<?php 
 		$sVal = ob_get_contents();
 		ob_end_clean();
 		$arResult['FIELDS']['tab_2'][] = array(
@@ -1353,9 +1353,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid())
 					<table cellspacing="0" cellpadding="0" class="crm_import_example_table" id="crm_import_example_table">
 						<tbody id="crm_import_example_table_body">
 						<tr>
-							<?foreach ($_SESSION['CRM_IMPORT_FILE_HEADERS'] as $key => $value):?>
+							<?php foreach ($_SESSION['CRM_IMPORT_FILE_HEADERS'] as $key => $value):?>
 								<th><?=htmlspecialcharsbx($value)?></th>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</tr>
 						</tbody>
 					</table>
@@ -1369,7 +1369,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && check_bitrix_sessid())
 						BX('crm_import_example').style.width = '1065px';
 					crmImportAjax('<?=$APPLICATION->GetCurPage()?>');
 				</script>
-			<?
+			<?php 
 			$sVal = ob_get_contents();
 			ob_end_clean();
 			$arResult['FIELDS']['tab_4'][] = array(

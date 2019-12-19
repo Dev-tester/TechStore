@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_NUMBERS_TITLE_2"] = "Настройка номеров по-умолчанию";
 $MESS["VI_NUMBERS_CONFIG"] = "Настройка";
 $MESS["VI_NUMBERS_CONFIG_BACKPHONE"] = "Номер для исходящего звонка по-умолчанию";

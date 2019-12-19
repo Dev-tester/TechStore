@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALL_RECORD_ERROR"] = "You can listen to the recording in your web browser.";
 $MESS["IM_AN_ACCESS"] = "You cannot post new messages to this chat.";
 $MESS["IM_APPS_LIST"] = "Show available apps";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VOLUME_LIST_BACK"] = "К списку папок";
 $MESS["DISK_VOLUME_LIST_DISK_BACK"] = "К списку дисков";
 //$MESS["DISK_VOLUME_SIZE_FILE_HINT"] = "Размер файла, без учета версионных копий.";

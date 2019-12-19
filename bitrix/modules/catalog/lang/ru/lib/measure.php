@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEASURE_ENTITY_ID_FIELD"] = "ID записи";
 $MESS["MEASURE_ENTITY_CODE_FIELD"] = "Код";
 $MESS["MEASURE_ENTITY_MEASURE_TITLE_FIELD"] = "Наименование";

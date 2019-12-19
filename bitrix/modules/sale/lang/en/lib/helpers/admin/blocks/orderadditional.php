@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_ADDITIONAL_INFO_COMMENT"] = "Comment";
 $MESS["SALE_ORDER_ADDITIONAL_INFO_MANAGER_COMMENT"] = "Sales representative's comment";
 $MESS["SALE_ORDER_ADDITIONAL_INFO_CHANGE_BY"] = "Modified by";

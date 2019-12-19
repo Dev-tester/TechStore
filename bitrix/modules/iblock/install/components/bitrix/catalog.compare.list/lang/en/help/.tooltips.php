@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE_TIP'] = "Select one of existing information block types in the list and click <b>OK</b>. This will load information blocks of the selected type.";
 $MESS ['IBLOCK_ID_TIP'] = "Select one of information blocks of the chosen type. If you select <b>(other)-&gt;</b>, specify the information block ID in the field beside.";
 $MESS ['DETAIL_URL_TIP'] = "Specify here the path to an information block element details page.";

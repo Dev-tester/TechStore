@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPS_CHAIN_MAIN"] = "My account";
 $MESS["SPS_CHAIN_SUBSCRIBE"] = "User subscriptions";
 $MESS["SPS_TITLE_SUBSCRIBE"] = "My subscriptions";

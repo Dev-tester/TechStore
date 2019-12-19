@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /**
  * @var CMain $APPLICATION
  * @var array $arResult
@@ -30,7 +30,7 @@ else
 $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 if (empty($arResult["ITEMS"]) && $request->getQuery("F_SEARCH_ALT"))
 {
-	?><div class="mobile-grid-stub-text"><?=GetMessage("TASKS_EMPTY_LIST2")?></div><?
+	?><div class="mobile-grid-stub-text"><?=GetMessage("TASKS_EMPTY_LIST2")?></div><?php 
 }
 else if (empty($arResult["ITEMS"]))
 {
@@ -41,14 +41,14 @@ else if (empty($arResult["ITEMS"]))
 			<a href="#" class="webform-button webform-button-blue" onclick="BX.Mobile.Tasks.createWindow(); return false;"><?=GetMessage("TASKS_EMPTY_LIST1")?></a>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
 	$APPLICATION->SetPageProperty('BodyClass', 'task-list');
-	?><?=CJSCore::Init(array("tasks_util_query", "tasks_dayplan", "fx", "mobile_fastclick"), true);?><?
-	?><div id="bx-task-list"><?
-	?><?$APPLICATION->IncludeComponent(
+	?><?=CJSCore::Init(array("tasks_util_query", "tasks_dayplan", "fx", "mobile_fastclick"), true);?><?php 
+	?><div id="bx-task-list"><?php 
+	?><?php $APPLICATION->IncludeComponent(
 			"bitrix:mobile.interface.grid",
 			"",
 			array(
@@ -68,7 +68,7 @@ else
 			"AJAX_PAGE_PATH" => $APPLICATION->GetCurPageParam("", array("PAGEN_".$arResult["NAV_PARAMS"]["PAGEN"])),
 			"SHOW_SEARCH" => "Y"
 		)
-	);?></div><?
+	);?></div><?php 
 }
 ?>
 <script type="text/javascript">

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_CMEMBER_ERR1'] = "Ошибка авторизации на контроллере";
 $MESS ['MAIN_CMEMBER_AUTH_TYPE'] = "Авторизация на контроллере";
 $MESS ['MAIN_CMEMBER_ERR2'] = "Ошибка отправки сообщения контроллеру";

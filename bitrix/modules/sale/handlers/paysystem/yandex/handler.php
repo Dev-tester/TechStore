@@ -224,7 +224,7 @@ class YandexHandler
 		$dateISO = date("Y-m-d\TH:i:s").substr(date("O"), 0, 3).":".substr(date("O"), -2, 2);
 		header("Content-Type: text/xml");
 		header("Pragma: no-cache");
-		$text = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+		$text = "<?php xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 
 		if (strlen($data['HEAD']) > 0)
 		{

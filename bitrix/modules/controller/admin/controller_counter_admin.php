@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -206,27 +206,27 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("CTRL_CNT_ADMIN_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="form1" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?">
-	<? $filter->Begin(); ?>
+<form name="form1" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?">
+	<?php  $filter->Begin(); ?>
 	<tr>
 		<td nowrap><label for="find_controller_group_id"><?=GetMessage("CTRL_CNT_ADMIN_FILTER_GROUP")?></label></td>
 		<td>
 			<select name="find_controller_group_id" id="find_controller_group_id">
-				<option value=""><? echo GetMessage("CTRL_CNT_ADMIN_FILTER_ANY") ?></option>
-				<? foreach ($arGroups as $group_id => $group_name): ?>
-					<option value="<?=htmlspecialcharsbx($group_id)?>" <? if ($group_id == $adminFilter['find_controller_group_id']) echo "selected" ?>><?=htmlspecialcharsEx($group_name)?></option>
-				<? endforeach; ?>
+				<option value=""><?php  echo GetMessage("CTRL_CNT_ADMIN_FILTER_ANY") ?></option>
+				<?php  foreach ($arGroups as $group_id => $group_name): ?>
+					<option value="<?=htmlspecialcharsbx($group_id)?>" <?php  if ($group_id == $adminFilter['find_controller_group_id']) echo "selected" ?>><?=htmlspecialcharsEx($group_name)?></option>
+				<?php  endforeach; ?>
 			</select>
 		</td>
 	</tr>
 
-	<?
+	<?php 
 	$filter->Buttons(array("table_id" => $sTableID, "url" => $APPLICATION->GetCurPage(), "form" => "form1"));
 	$filter->End();
 	?>
 
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

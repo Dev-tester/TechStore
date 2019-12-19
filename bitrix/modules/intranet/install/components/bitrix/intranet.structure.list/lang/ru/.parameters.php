@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ISL_GROUP_FILTER'] = "Параметры фильтра";
 $MESS ['INTR_ISL_PARAM_DETAIL_URL'] = "Страница детального просмотра";
 $MESS ['INTR_ISL_PARAM_FILTER_NAME'] = "Имя фильтра";

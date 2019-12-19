@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EDIT_LANG_TITLE"] = "Edit language \"#ID#\"";
 $MESS["NEW_LANG_TITLE"] = "Add language";
 $MESS["RECORD_LIST"] = "Language list";

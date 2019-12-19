@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -267,7 +267,7 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 
-<?
+<?php 
 $jsData['ADD_CHECK_URL'] = $arResult['PATH_TO_ORDER_CHECK_ADD'];
 ?>
 <script type="text/javascript">

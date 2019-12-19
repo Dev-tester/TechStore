@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -16,18 +16,18 @@ if ($arResult["NEED_AUTH"] == "Y")
 }
 elseif (strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
 	CUtil::InitJSCore(array("popup"));
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 	if(strlen($arResult["InfoMessage"])>0)
 	{
-		?><span class='infotext'><?=$arResult["InfoMessage"]?></span><br /><?
+		?><span class='infotext'><?=$arResult["InfoMessage"]?></span><br /><?php 
 	}
 	?>
 	<script type="text/javascript">
@@ -36,7 +36,7 @@ else
 		BX.addCustomEvent(window, "onImConfirmNotify", BX.proxy(function(params){ __hideInvitationItem(params); }, this));
 	});
 	</script>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:main.user.link",
 		'',
 		array(
@@ -56,7 +56,7 @@ else
 	?>
 	<div class="invite-main-wrap">
 		<div class="invite-title"><?=GetMessage("SONET_URE_T_SUBTITLE_IN")?></div>
-		<form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data" id="form_requests"><?
+		<form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data" id="form_requests"><?php 
 		$noItems = true;
 		if ($arResult["RequestsIn"] && $arResult["RequestsIn"]["List"])
 		{
@@ -66,7 +66,7 @@ else
 				<td class="invite-list-header"><input type="checkbox" title="<?=GetMessage("SONET_URE_T_CHECK_ALL")?>" onclick="__URECheckedAll(this)"/></td>
 				<td class="invite-list-header" colspan="2"><?=GetMessage("SONET_URE_T_SENDER")?></td>
 				<td class="invite-list-header"><?=GetMessage("SONET_URE_T_MESSAGE_IN")?></td>
-			</tr><?
+			</tr><?php 
 			$ind = 0;
 			foreach ($arResult["RequestsIn"]["List"] as $arRequest)
 			{
@@ -81,39 +81,39 @@ else
 
 					<td class="invite-list-img">
 						<div class="invite-active-block">
-							<? if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
+							<?php  if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
 								<span class="invite-list-img-image" style="<?=(is_array($arRequest["USER_PERSONAL_PHOTO_IMG"]) && strlen($arRequest["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arRequest["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span>
-							<? else: ?>
+							<?php  else: ?>
 								<span class="invite-list-img-image" style="<?=(is_array($arRequest["GROUP_IMG"]) && strlen($arRequest["GROUP_IMG"]["src"]) > 0 ? "background: url('".$arRequest["GROUP_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span>
-							<? endif; ?>
+							<?php  endif; ?>
 						</div>
 					</td>
 
 					<td class="invite-list-name">
 						<div class="invite-active-block">
-						<? if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
-							<? if ($arRequest["SHOW_PROFILE_LINK"]): ?>
+						<?php  if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
+							<?php  if ($arRequest["SHOW_PROFILE_LINK"]): ?>
 								<a href="<?=htmlspecialcharsback($arRequest["USER_PROFILE_URL"])?>" class="invite-user-link" bx-tooltip-user-id="<?=$arRequest["USER_ID"]?>"><?=$arRequest["USER_NAME_FORMATTED"]?></a>
-							<? else: ?>
+							<?php  else: ?>
 								<span class="invite-user-link" bx-tooltip-user-id="<?=$arRequest["USER_ID"]?>"><?=$arRequest["USER_NAME_FORMATTED"]?></span>
-							<? endif; ?>
+							<?php  endif; ?>
 							</div>
-						<? else: ?>
+						<?php  else: ?>
 							<a href="<?=htmlspecialcharsback($arRequest["GROUP_URL"])?>" class="invite-user-link"><?=$arRequest["GROUP_NAME"]?></a>
-						<? endif; ?>
+						<?php  endif; ?>
 					</td>
 					<td class="invite-list-message"><div class="invite-active-block"><?=htmlspecialcharsback($arRequest["MESSAGE"])?><br /><i><?=$arRequest["DATE_CREATE"]?></i></div></td>
-				</tr><?
+				</tr><?php 
 
 				$ind++;
 			}
 			?></table>
 
-			<div class="invite-list-nav"><?
+			<div class="invite-list-nav"><?php 
 			if (StrLen($arResult["RequestsIn"]["NAV_STRING"]) > 0):
-				?><?=$arResult["RequestsIn"]["NAV_STRING"]?><br /><br /><?
+				?><?=$arResult["RequestsIn"]["NAV_STRING"]?><br /><br /><?php 
 			endif;
-			?></div><?
+			?></div><?php 
 		}
 		?>
 		<span class="sonet-group-requests-info <?=($noItems) ? '': 'sonet-group-requests-info-hidden'?>">
@@ -133,15 +133,15 @@ else
 		</div>
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<input type="hidden" name="type" value="in">
-		<input type="hidden" name="action" id="requests_action_in" value=""><?
-		?><?=bitrix_sessid_post()?><?
-		?></form><?
+		<input type="hidden" name="action" id="requests_action_in" value=""><?php 
+		?><?=bitrix_sessid_post()?><?php 
+		?></form><?php 
 	?>
 	</div>
 
 	<div class="invite-main-wrap invite-main-wrap-out">
 		<div class="invite-title"><?=GetMessage("SONET_URE_T_SUBTITLE_OUT")?></div>
-		<form method="post" name="form2" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data" id="form_requests_out"><?
+		<form method="post" name="form2" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data" id="form_requests_out"><?php 
 		if ($arResult["RequestsOut"] && $arResult["RequestsOut"]["List"])
 		{
 			?><table class="invite-list" cellspacing="0">
@@ -149,7 +149,7 @@ else
 				<td class="invite-list-header"><input type="checkbox" title="<?=GetMessage("SONET_URE_T_CHECK_ALL")?>" onclick="__URECheckedAll(this)"/></td>
 				<td class="invite-list-header" colspan="2"><?=GetMessage("SONET_URE_T_RECIPIENT")?></td>
 				<td class="invite-list-header"><?=GetMessage("SONET_URE_T_MESSAGE_OUT")?></td>
-			</tr><?
+			</tr><?php 
 			$ind = 0;
 			foreach ($arResult["RequestsOut"]["List"] as $arRequest)
 			{
@@ -163,59 +163,59 @@ else
 					</td>
 					<td class="invite-list-img">
 						<div class="invite-active-block">
-							<? if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
+							<?php  if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
 								<span class="invite-list-img-image" style="<?=(is_array($arRequest["USER_PERSONAL_PHOTO_IMG"]) && strlen($arRequest["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arRequest["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span>
-							<? else: ?>
+							<?php  else: ?>
 								<span class="invite-list-img-image" style="<?=(is_array($arRequest["GROUP_IMG"]) && strlen($arRequest["GROUP_IMG"]["src"]) > 0 ? "background: url('".$arRequest["GROUP_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span>
-							<? endif; ?>
+							<?php  endif; ?>
 						</div>
 					</td>
 					<td class="invite-list-name">
 						<div class="invite-active-block">
-						<? if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
-							<? if ($arRequest["SHOW_PROFILE_LINK"]): ?>
+						<?php  if ($arRequest["EVENT_TYPE"] == "INVITE_USER"): ?>
+							<?php  if ($arRequest["SHOW_PROFILE_LINK"]): ?>
 								<a href="<?=htmlspecialcharsback($arRequest["USER_PROFILE_URL"])?>" class="invite-user-link" bx-tooltip-user-id="<?=$arRequest["USER_ID"]?>"><?=$arRequest["USER_NAME_FORMATTED"]?></a>
-							<? else: ?>
+							<?php  else: ?>
 								<span class="invite-user-link" bx-tooltip-user-id="<?=$arRequest["USER_ID"]?>"><?=$arRequest["USER_NAME_FORMATTED"]?></span>
-							<? endif; ?>
+							<?php  endif; ?>
 							</div>
-						<? else: ?>
+						<?php  else: ?>
 							<a href="<?=htmlspecialcharsback($arRequest["GROUP_URL"])?>" class="invite-user-link"><?=$arRequest["GROUP_NAME"]?></a>
-						<? endif; ?>
+						<?php  endif; ?>
 					</td>
 					<td class="invite-list-message"><div class="invite-active-block"><?=htmlspecialcharsback($arRequest["MESSAGE"])?><br /><i><?=$arRequest["DATE_CREATE"]?></i></div></td>
-				</tr><?
+				</tr><?php 
 
 				$ind++;
 			}
 			?></table>
 
-			<div class="invite-list-nav"><?
+			<div class="invite-list-nav"><?php 
 			if (StrLen($arResult["RequestsOut"]["NAV_STRING"]) > 0):
-				?><?=$arResult["RequestsOut"]["NAV_STRING"]?><br /><br /><?
+				?><?=$arResult["RequestsOut"]["NAV_STRING"]?><br /><br /><?php 
 			endif;
-			?></div><?
+			?></div><?php 
 		}
 		else
 		{
-			?><span class="sonet-group-requests-info"><?=GetMessage("SONET_URE_T_NO_REQUESTS_OUT")?><br /><?=GetMessage("SONET_URE_T_NO_REQUESTS_OUT_DESCR")?></span><?
+			?><span class="sonet-group-requests-info"><?=GetMessage("SONET_URE_T_NO_REQUESTS_OUT")?><br /><?=GetMessage("SONET_URE_T_NO_REQUESTS_OUT_DESCR")?></span><?php 
 		}
 
-		?><div class="invite-buttons-block"><?
+		?><div class="invite-buttons-block"><?php 
 		if ($arResult["RequestsOut"] && $arResult["RequestsOut"]["List"])
 		{
-			?><a class="sonet-group-requests-smbutton" href="#" onclick="__URESubmitForm('out', 'reject');"><?
-				?><span class="sonet-group-requests-smbutton-left"></span><?
-				?><span class="sonet-group-requests-smbutton-text"><?=GetMessage("SONET_URE_T_REJECT_OUT")?></span><?
-				?><span class="sonet-group-requests-smbutton-right"></span><?
-			?></a><?
+			?><a class="sonet-group-requests-smbutton" href="#" onclick="__URESubmitForm('out', 'reject');"><?php 
+				?><span class="sonet-group-requests-smbutton-left"></span><?php 
+				?><span class="sonet-group-requests-smbutton-text"><?=GetMessage("SONET_URE_T_REJECT_OUT")?></span><?php 
+				?><span class="sonet-group-requests-smbutton-right"></span><?php 
+			?></a><?php 
 		}
 		?></div>
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<input type="hidden" name="type" value="out">
-		<input type="hidden" name="action" id="requests_action_out" value=""><?
-		?><?=bitrix_sessid_post()?><?
-		?></form></div><?
+		<input type="hidden" name="action" id="requests_action_out" value=""><?php 
+		?><?=bitrix_sessid_post()?><?php 
+		?></form></div><?php 
 }
 
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_SBB_EMPTY_BASKET_HINT_PATH"] = "Continue Shopping page";
 $MESS["EMPTY_BASKET_HINT_PATH_TIP"] = "The \"Continue Shopping\" link is shown if the shopping cart is empty.<br>The text will be hidden if the link is empty.";
 $MESS["CP_SBB_TPL_PROPERTIES_RECALCULATE_BASKET"] = "Shopping cart recalculation properties";

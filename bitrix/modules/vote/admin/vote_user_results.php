@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager Forum					#
 # Copyright (c) 2002-2009 Bitrix			#
@@ -29,7 +29,7 @@ if ($REQUEST_METHOD=="GET" && (strlen($save)>0 || $apply)&& $VOTE_RIGHT=="W" && 
 if (!($event=CVoteEvent::GetByID($EVENT_ID)))
 {
 	require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
-	?><a href="vote_user_list.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_USER_LIST")?></a><font class="navchain">&nbsp;&raquo&nbsp;</font><a href="vote_user_votes.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_RESULTS_LIST")?></a><?
+	?><a href="vote_user_list.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_USER_LIST")?></a><font class="navchain">&nbsp;&raquo&nbsp;</font><a href="vote_user_votes.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_RESULTS_LIST")?></a><?php 
 	echo ShowError(GetMessage("VOTE_RESULT_NOT_FOUND"));
 	require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 	die();
@@ -41,7 +41,7 @@ $z = $DB->Query("SELECT ID FROM b_vote WHERE ID='$VOTE_ID'", false, $err_mess.__
 if (!($zr=$z->Fetch())) 
 {
 	require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
-	?><a href="vote_user_list.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_USER_LIST")?></a><font class="navchain">&nbsp;&raquo&nbsp;</font><a href="vote_user_votes.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_RESULTS_LIST")?></a><?
+	?><a href="vote_user_list.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_USER_LIST")?></a><font class="navchain">&nbsp;&raquo&nbsp;</font><a href="vote_user_votes.php?lang=<?=LANGUAGE_ID?>" class="navchain"><?=GetMessage("VOTE_RESULTS_LIST")?></a><?php 
 	echo ShowError(GetMessage("VOTE_NOT_FOUND"));
 	require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 	die();
@@ -89,8 +89,8 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td  ><?=GetMessage("VOTE_VOTE")?></b></font></td>
-		<td ><?
-		?>[<a class="tablebodylink" href="vote_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$arVote["ID"]?>" class="tablebodytext"><?=$arVote["ID"]?></a>]&nbsp;<?
+		<td ><?php 
+		?>[<a class="tablebodylink" href="vote_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$arVote["ID"]?>" class="tablebodytext"><?=$arVote["ID"]?></a>]&nbsp;<?php 
 		if (strlen($arVote["TITLE"])>0) echo $arVote["TITLE"];
 		elseif ($arVote["DESCRIPTION_TYPE"]=="html")
 			echo TruncateText(strip_tags($arVote["~DESCRIPTION"]),200);
@@ -104,27 +104,27 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td  ><?=GetMessage("VOTE_GUEST")?></b></font></td>
-		<td ><? 
+		<td ><?php  
 			if ($str_AUTH_USER_ID>0) : 
-				?>[<a class="tablebodylink" title="<?=GetMessage("VOTE_EDIT_USER")?>" href="user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$str_AUTH_USER_ID?>"><?echo $str_AUTH_USER_ID?></a>] (<?=$str_LOGIN?>) <?=$str_AUTH_USER_NAME?> [<?
+				?>[<a class="tablebodylink" title="<?=GetMessage("VOTE_EDIT_USER")?>" href="user_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$str_AUTH_USER_ID?>"><?php echo $str_AUTH_USER_ID?></a>] (<?=$str_LOGIN?>) <?=$str_AUTH_USER_NAME?> [<?php 
 					if (CModule::IncludeModule("statistic")) : 
-						?><a class="tablebodylink" href="guest_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$str_STAT_GUEST_ID?>&set_filter=Y"><?=$str_STAT_GUEST_ID?></a><?
+						?><a class="tablebodylink" href="guest_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$str_STAT_GUEST_ID?>&set_filter=Y"><?=$str_STAT_GUEST_ID?></a><?php 
 					else : 
 						echo $str_STAT_GUEST_ID;
 					endif;
-				?>]</font><?
+				?>]</font><?php 
 			else :
-				?><?=GetMessage("VOTE_NOT_AUTHORIZED")?></font><?
+				?><?=GetMessage("VOTE_NOT_AUTHORIZED")?></font><?php 
 			endif;
 			?></td>
 	</tr>
 	<tr>
 		<td  ><?=GetMessage("VOTE_SESSION")?></b></font></td>
-		<td ><?
+		<td ><?php 
 			if (CModule::IncludeModule("statistic")) : 
-			?><a class="tablebodylink" href="session_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$str_STAT_SESSION_ID?>&set_filter=Y" ><?=$str_STAT_SESSION_ID?></a><?
+			?><a class="tablebodylink" href="session_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$str_STAT_SESSION_ID?>&set_filter=Y" ><?=$str_STAT_SESSION_ID?></a><?php 
 			else:
-			?><?=$str_STAT_SESSION_ID?></font><?
+			?><?=$str_STAT_SESSION_ID?></font><?php 
 			endif;
 			?></td>
 	</tr>
@@ -134,9 +134,9 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr> 
 		<td><?=GetMessage("VOTE_VALID")?></font></td>
-		<td nowrap><input type="checkbox" value="Y" name="valid" <?if ($str_VALID=="Y") echo "checked"?>></td>
+		<td nowrap><input type="checkbox" value="Y" name="valid" <?php if ($str_VALID=="Y") echo "checked"?>></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(array("disabled"=>($VOTE_RIGHT<"W"), "back_url"=>"vote_user_votes.php?lang=".LANGUAGE_ID));
@@ -145,44 +145,44 @@ $tabControl->End();
 </form>
 <table cellspacing=0 cellpadding=0 width="100%">
 	<tr>
-		<td width="100%"><?
+		<td width="100%"><?php 
 
 /********************************************************************
 				Header 
 ********************************************************************/
 
 		if (strlen($arVote["TITLE"])>0):
-		?><font class="h2"><b><?echo $arVote["TITLE"];?></b></font><br><img src="/bitrix/images/1.gif" width="1" height="6" border=0 alt=""><?
+		?><font class="h2"><b><?php echo $arVote["TITLE"];?></b></font><br><img src="/bitrix/images/1.gif" width="1" height="6" border=0 alt=""><?php 
 		endif;
-		?><font class="smalltext"><?
+		?><font class="smalltext"><?php 
 		if ($arVote["DATE_START"]):
-		?><br><?=GetMessage("VOTE_START_DATE")?>&nbsp;<?echo $arVote["DATE_START"]?><?
+		?><br><?=GetMessage("VOTE_START_DATE")?>&nbsp;<?php echo $arVote["DATE_START"]?><?php 
 		endif;
 		if ($arVote["DATE_END"] && $arVote["DATE_END"]!="31.12.2030 23:59:59"):
-		?><br><?=GetMessage("VOTE_END_DATE")?>&nbsp;<?echo $arVote["DATE_END"]?><?
+		?><br><?=GetMessage("VOTE_END_DATE")?>&nbsp;<?php echo $arVote["DATE_END"]?><?php 
 		endif;
 		if ($arVote["LAMP"]=="green") :
-		?><br><?=GetMessage("VOTE_VOTE_IS_ACTIVE")?><?
+		?><br><?=GetMessage("VOTE_VOTE_IS_ACTIVE")?><?php 
 		elseif ($arVote["LAMP"]=="red") :
-		?><br><?=GetMessage("VOTE_VOTE_IS_NOT_ACTIVE")?><?
+		?><br><?=GetMessage("VOTE_VOTE_IS_NOT_ACTIVE")?><?php 
 		endif;
-		?><br><?=GetMessage("VOTE_VOTES")?>&nbsp;<?=$arVote["COUNTER"]?><?
+		?><br><?=GetMessage("VOTE_VOTES")?>&nbsp;<?=$arVote["COUNTER"]?><?php 
 		?></p></font><font class="text">
-		<?if ($arVote["IMAGE_ID"]):?>
+		<?php if ($arVote["IMAGE_ID"]):?>
 		<table cellpadding="0" cellspacing="0" border="0" >
 			<tr>
-				<td><?echo ShowImage($arVote["IMAGE_ID"], 253, 300, "hspace='3' vspace='3' align='left' border='0'", "", true, GetMessage("VOTE_ENLARGE"));?></td>
+				<td><?php echo ShowImage($arVote["IMAGE_ID"], 253, 300, "hspace='3' vspace='3' align='left' border='0'", "", true, GetMessage("VOTE_ENLARGE"));?></td>
 				<td  width="0%"><img src="/images/1.gif" width="10" height="1"></td>
 			</tr>
 			<tr>
 				<td colspan=2><img src="/images/1.gif" width="1" height="10"></td>
 			</tr>
 		</table>
-		<? endif;
+		<?php  endif;
 		echo $arVote["DESCRIPTION"];
 		?></td>
 	<tr>
-		<td><?
+		<td><?php 
 
 /********************************************************************
 				Questions
@@ -191,7 +191,7 @@ $tabControl->End();
 		?>
 		<p>
 		<table cellspacing="0" cellpadding="10" class="tablebody" width="100%">
-			<?
+			<?php 
 			while (list($key,$arQuestion)=each($arQuestions)):
 				$QUESTION_ID = $arQuestion["ID"];
 
@@ -206,24 +206,24 @@ $tabControl->End();
 				<td>
 					<table cellspacing="0" cellpadding="3">
 						<tr>
-							<td valign="center" width="0%"><?echo ShowImage($arQuestion["IMAGE_ID"], 50, 50, "hspace='0' vspace='0' align='left' border='0'", "", true, GetMessage("VOTE_ENLARGE"));?></td>
+							<td valign="center" width="0%"><?php echo ShowImage($arQuestion["IMAGE_ID"], 50, 50, "hspace='0' vspace='0' align='left' border='0'", "", true, GetMessage("VOTE_ENLARGE"));?></td>
 							<td valign="center" width="100%"><font class="text"><b><?=$arQuestion["QUESTION"]?></b></font></td>
 						</tr>
-						<? 
+						<?php  
 						while (list($key,$arAnswer)=each($arAnswers[$QUESTION_ID])) : 
 						?>
 						<tr>
-							<td colspan=2><?
+							<td colspan=2><?php 
 							switch ($arAnswer["FIELD_TYPE"]) :
 								case 0:
 									$field_name = "vote_radio_".$QUESTION_ID;
 									$checked = (CVoteEvent::GetAnswer($EVENT_ID,$arAnswer["ID"])) ? "checked" : "";
-									?><input type="radio" name="<?=$field_name?>" value="<?=$arAnswer["ID"]?>" <?=$checked?>><font class="text">&nbsp;<?=$arAnswer["MESSAGE"]?></font><?
+									?><input type="radio" name="<?=$field_name?>" value="<?=$arAnswer["ID"]?>" <?=$checked?>><font class="text">&nbsp;<?=$arAnswer["MESSAGE"]?></font><?php 
 									break;
 								case 1:
 									$field_name = "vote_checkbox_".$QUESTION_ID;
 									$checked = (CVoteEvent::GetAnswer($EVENT_ID,$arAnswer["ID"])) ? "checked" : "";
-									?><input type="checkbox" name="<?=$field_name?>[]" value="<?=$arAnswer["ID"]?>" <?=$checked?>><font class="text">&nbsp;<?=$arAnswer["MESSAGE"]?></font><?
+									?><input type="checkbox" name="<?=$field_name?>[]" value="<?=$arAnswer["ID"]?>" <?=$checked?>><font class="text">&nbsp;<?=$arAnswer["MESSAGE"]?></font><?php 
 									break;
 								case 2:
 									if ($show_dropdown!="Y")
@@ -257,24 +257,24 @@ $tabControl->End();
 								case 4:
 									$field_name = "vote_field_".$arAnswer["ID"];
 									$value = CVoteEvent::GetAnswer($EVENT_ID,$arAnswer["ID"]);
-									?><?if (strlen(trim($arAnswer["MESSAGE"]))>0):?><font class="text"><?=$arAnswer["MESSAGE"]?></font><br><?endif?><input type="text" name="<?=$field_name?>" value="<?=htmlspecialcharsbx($value)?>" size="<?=$arAnswer["FIELD_WIDTH"]?>" <?=$arAnswer["FIELD_PARAM"]?>><?
+									?><?php if (strlen(trim($arAnswer["MESSAGE"]))>0):?><font class="text"><?=$arAnswer["MESSAGE"]?></font><br><?php endif?><input type="text" name="<?=$field_name?>" value="<?=htmlspecialcharsbx($value)?>" size="<?=$arAnswer["FIELD_WIDTH"]?>" <?=$arAnswer["FIELD_PARAM"]?>><?php 
 									break;
 								case 5:
 									$field_name = "vote_memo_".$arAnswer["ID"];
 									$text = CVoteEvent::GetAnswer($EVENT_ID,$arAnswer["ID"]);
-									?><font class="text"><?if (strlen(trim($arAnswer["MESSAGE"]))>0) echo $arAnswer["MESSAGE"]."<br>"?></font><textarea name="<?=$field_name?>" <?=$arAnswer["FIELD_PARAM"]?> cols="<?=$arAnswer["FIELD_WIDTH"]?>" rows="<?=$arAnswer["FIELD_HEIGHT"]?>"><?=htmlspecialcharsbx($text)?></textarea><?
+									?><font class="text"><?php if (strlen(trim($arAnswer["MESSAGE"]))>0) echo $arAnswer["MESSAGE"]."<br>"?></font><textarea name="<?=$field_name?>" <?=$arAnswer["FIELD_PARAM"]?> cols="<?=$arAnswer["FIELD_WIDTH"]?>" rows="<?=$arAnswer["FIELD_HEIGHT"]?>"><?=htmlspecialcharsbx($text)?></textarea><?php 
 									break;
 							endswitch;
 							?></td>
 						</tr>
-						<? endwhile; ?>
+						<?php  endwhile; ?>
 					</table>
 				</td>
 			</tr>
-			<?endwhile?>
+			<?php endwhile?>
 		</table></td>
 	</tr>
 </table>
-<?
+<?php 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

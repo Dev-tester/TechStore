@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL'] = "Адрес рисунка";
 $MESS ['F_WIDTH'] = "Ширина";
 $MESS ['F_HEIGHT'] = "Высота";

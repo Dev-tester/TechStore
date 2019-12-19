@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LRN_GSP_EMPTY_PATH'] = "Не указан путь к курсу";
 $MESS ['LRN_GSP_EMPTY_TYPE'] = "Не указан тип пути";
 $MESS ['LRN_GSP_EMPTY_SITE_ID'] = "Не указан сайт";

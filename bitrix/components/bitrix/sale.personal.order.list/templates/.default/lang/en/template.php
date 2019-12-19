@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOL_TPL_EMPTY_ORDER_LIST"] = "No current orders";
 $MESS["SPOL_TPL_EMPTY_HISTORY_ORDER_LIST"] = "Order history is empty";
 $MESS["SPOL_TPL_EMPTY_CANCELED_ORDER"] = "No canceled orders";

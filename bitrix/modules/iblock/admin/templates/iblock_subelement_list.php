@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CDatabase $DB */
 /** @global CMain $APPLICATION */
@@ -2702,20 +2702,20 @@ function ShowNewOffer(id)
 	var mxProductName = CheckProductName(id),
 		PostParams;
 	if (!mxProductName)
-		alert('<? echo CUtil::JSEscape(GetMessage('IB_SE_L_ENTER_PRODUCT_NAME')); ?>');
+		alert('<?php  echo CUtil::JSEscape(GetMessage('IB_SE_L_ENTER_PRODUCT_NAME')); ?>');
 	else
 	{
 		PostParams = {};
 		PostParams.bxpublic = 'Y';
-		<? if (!(defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))
+		<?php  if (!(defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))
 		{
-			?>PostParams.bxsku = 'Y';<?
+			?>PostParams.bxsku = 'Y';<?php 
 		}
 		?>
 		PostParams.PRODUCT_NAME = mxProductName;
 		PostParams.sessid = BX.bitrix_sessid();
 		(new BX.CAdminDialog({
-			'content_url': '<? echo CIBlock::GetAdminSubElementEditLink($intSubIBlockID, $intSubPropValue, 0, array('WF' => 'Y', 'TMP_ID' => $strSubTMP_ID), $sThisSectionUrl, ((defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))); ?>',
+			'content_url': '<?php  echo CIBlock::GetAdminSubElementEditLink($intSubIBlockID, $intSubPropValue, 0, array('WF' => 'Y', 'TMP_ID' => $strSubTMP_ID), $sThisSectionUrl, ((defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))); ?>',
 			'content_post': PostParams,
 			'draggable': true,
 			'resizable': true,
@@ -2729,20 +2729,20 @@ function ShowNewOfferExt(id)
 	var mxProductName = CheckProductName(id),
 		PostParams;
 	if (!mxProductName)
-		alert('<? echo CUtil::JSEscape(GetMessage('IB_SE_L_ENTER_PRODUCT_NAME')); ?>');
+		alert('<?php  echo CUtil::JSEscape(GetMessage('IB_SE_L_ENTER_PRODUCT_NAME')); ?>');
 	else
 	{
 		PostParams = {};
 		PostParams.bxpublic = 'Y';
-		<? if (!(defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))
+		<?php  if (!(defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))
 		{
-			?>PostParams.bxsku = 'Y';<?
+			?>PostParams.bxsku = 'Y';<?php 
 		}
 		?>
 		PostParams.PRODUCT_NAME = mxProductName;
 		PostParams.sessid = BX.bitrix_sessid();
 		(new BX.CAdminDialog({
-			'content_url': '<? echo CIBlock::GetAdminSubElementEditLink($intSubIBlockID, $intSubPropValue, 0, array('WF' => 'Y', 'TMP_ID' => $strSubTMP_ID, 'SUBPRODUCT_TYPE' => CCatalogAdminTools::TAB_GROUP), $sThisSectionUrl, defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1); ?>',
+			'content_url': '<?php  echo CIBlock::GetAdminSubElementEditLink($intSubIBlockID, $intSubPropValue, 0, array('WF' => 'Y', 'TMP_ID' => $strSubTMP_ID, 'SUBPRODUCT_TYPE' => CCatalogAdminTools::TAB_GROUP), $sThisSectionUrl, defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1); ?>',
 			'content_post': PostParams,
 			'draggable': true,
 			'resizable': true,
@@ -2756,7 +2756,7 @@ function ShowSkuGenerator(id)
 	var mxProductName = CheckProductName(id),
 		requriedFields = '',
 		PostParams = {};
-	<?
+	<?php 
 	$arIBlock = CIBlock::GetArrayByID($intSubIBlockID);
 	if (isset($arIBlock['FIELDS']) && is_array($arIBlock['FIELDS']))
 	{
@@ -2776,7 +2776,7 @@ function ShowSkuGenerator(id)
 					{
 					?>
 						requriedFields += '- <?=$arFieldValue["NAME"]?>\n';
-					<?
+					<?php 
 					}
 					break;
 			}
@@ -2785,24 +2785,24 @@ function ShowSkuGenerator(id)
 ?>
 	if(requriedFields !== '')
 	{
-		requriedFields = '<? echo CUtil::JSEscape(GetMessage('IB_SE_L_REQUIRED_FIELDS_FIND')); ?>:\n' + requriedFields;
+		requriedFields = '<?php  echo CUtil::JSEscape(GetMessage('IB_SE_L_REQUIRED_FIELDS_FIND')); ?>:\n' + requriedFields;
 		alert(requriedFields);
 	}
 	else if (!mxProductName)
-		alert('<? echo CUtil::JSEscape(GetMessage('IB_SE_L_ENTER_PRODUCT_NAME')); ?>');
+		alert('<?php  echo CUtil::JSEscape(GetMessage('IB_SE_L_ENTER_PRODUCT_NAME')); ?>');
 	else
 	{
 	PostParams.bxpublic = 'Y';
 	PostParams.PRODUCT_NAME = mxProductName;
-	<? if (!(defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))
+	<?php  if (!(defined('BX_PUBLIC_MODE') && BX_PUBLIC_MODE == 1))
 	{
-		?>PostParams.bxsku = 'Y';<?
+		?>PostParams.bxsku = 'Y';<?php 
 	}
 	?>
 	PostParams.sessid = BX.bitrix_sessid();
 
 	(new BX.CAdminDialog({
-		'content_url': '/bitrix/tools/catalog/iblock_subelement_generator.php?subIBlockId=<? echo $intSubIBlockID; ?>&subPropValue=<? echo $intSubPropValue; ?>&subTmpId=<? echo $strSubTMP_ID; ?>&iBlockId=<? echo $arSubCatalog['PRODUCT_IBLOCK_ID']; ?>',
+		'content_url': '/bitrix/tools/catalog/iblock_subelement_generator.php?subIBlockId=<?php  echo $intSubIBlockID; ?>&subPropValue=<?php  echo $intSubPropValue; ?>&subTmpId=<?php  echo $strSubTMP_ID; ?>&iBlockId=<?php  echo $arSubCatalog['PRODUCT_IBLOCK_ID']; ?>',
 		'content_post': PostParams,
 		'draggable': true,
 		'resizable': true,
@@ -2810,7 +2810,7 @@ function ShowSkuGenerator(id)
 		'width': screen.width / 2,
 		'buttons': [
 			{
-				title: '<? echo CUtil::JSEscape(GetMessage('IB_SE_L_GENERATE')); ?>',
+				title: '<?php  echo CUtil::JSEscape(GetMessage('IB_SE_L_GENERATE')); ?>',
 				id: 'savebtn',
 				name: 'savebtn',
 				className: 'adm-btn-save',
@@ -2824,7 +2824,7 @@ function ShowSkuGenerator(id)
 	})).Show();
 	}
 }
-</script><?
+</script><?php 
 	//We need javascript not in excel mode
 	if (($_REQUEST["mode"]=='list' || $_REQUEST["mode"]=='frame') && $boolSubCatalog && $boolSubCurrency)
 	{
@@ -2833,7 +2833,7 @@ function ShowSkuGenerator(id)
 		top.arSubExtra = [];
 		top.arSubCatalogGroups = [];
 		top.SubBaseIndex = <?=$basePriceTypeId;?>;
-		<?
+		<?php 
 		if (!empty($priceTypeIndex))
 		{
 			$i = 0;
@@ -2907,7 +2907,7 @@ function ShowSkuGenerator(id)
 			}
 		};
 	</script>
-	<?
+	<?php 
 	}
 
 	$aContext = array();
@@ -2968,10 +2968,10 @@ function ShowSkuGenerator(id)
 	if ($boolSubWorkFlow || $boolSubBizproc)
 	{
 		echo BeginNote();?>
-		<span class="adm-lamp adm-lamp-green"></span> - <?echo GetMessage("IBLOCK_GREEN_ALT")?><br>
-		<span class="adm-lamp adm-lamp-yellow"></span> - <?echo GetMessage("IBLOCK_YELLOW_ALT")?><br>
-		<span class="adm-lamp adm-lamp-red"></span> - <?echo GetMessage("IBLOCK_RED_ALT")?><br>
-		<?echo EndNote();
+		<span class="adm-lamp adm-lamp-green"></span> - <?php echo GetMessage("IBLOCK_GREEN_ALT")?><br>
+		<span class="adm-lamp adm-lamp-yellow"></span> - <?php echo GetMessage("IBLOCK_YELLOW_ALT")?><br>
+		<span class="adm-lamp adm-lamp-red"></span> - <?php echo GetMessage("IBLOCK_RED_ALT")?><br>
+		<?php echo EndNote();
 	}
 }
 else

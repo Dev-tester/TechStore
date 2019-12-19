@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_INSTALL_DESCRIPTION"] = "A module to create, edit and manage files and folders";
 $MESS["DISK_INSTALL_NAME"] = "Drive";
 $MESS["DISK_INSTALL_TITLE"] = "Module Installation";

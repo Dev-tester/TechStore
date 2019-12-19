@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -29,7 +29,7 @@ if ($action == 'sitetemplateparams')
 	<script>
 	window.bx_template_params = <?= CUtil::PhpToJSObject(CFileman::GetAllTemplateParams($templateID, $site))?>;
 	</script>
-	<?
+	<?php 
 }
 
 define("ADMIN_AJAX_MODE", true);

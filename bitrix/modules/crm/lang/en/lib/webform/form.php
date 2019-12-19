@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_FORM_ERROR_SCHEME"] = "Invalid document scheme.";
 $MESS["CRM_WEBFORM_FORM_BUTTON_CAPTION_DEFAULT"] = "Send";
 $MESS["CRM_WEBFORM_FORM_SCRIPT_BUTTON_TEXT"] = "Button name";

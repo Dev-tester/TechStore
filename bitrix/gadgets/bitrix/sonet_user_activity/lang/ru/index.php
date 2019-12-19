@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_ACTIVITY_TITLE"] = "Лог активности";
 $MESS["GD_ACTIVITY_MORE"] = "Живая лента автора";
 $MESS["GD_ACTIVITY_FORUM"] = "форумы/обсуждения";

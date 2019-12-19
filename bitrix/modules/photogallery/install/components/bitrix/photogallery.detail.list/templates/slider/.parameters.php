@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arTemplateParameters = array(
 	"SHOW_PAGE_NAVIGATION" => array(
 		"NAME" => GetMessage("P_SHOW_PAGE_NAVIGATION"),

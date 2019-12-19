@@ -52,10 +52,10 @@ $arJsParams = array(
 
 	BX.Mobile.Crm.Lead.Edit.init(<?=CUtil::PhpToJSObject($arJsParams)?>);
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	var menu = new BXMobileApp.UI.Menu({
 		items: [
-			<?if ($arResult["IS_EDIT_PERMITTED"]):?>
+			<?php if ($arResult["IS_EDIT_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_LEAD_MENU_EDIT")?>',
 				image: "/bitrix/js/mobile/images/edit.png",
@@ -66,8 +66,8 @@ $arJsParams = array(
 					});
 				}, this)
 			},
-			<?endif?>
-			<?if ($arResult["IS_DELETE_PERMITTED"]):?>
+			<?php endif?>
+			<?php if ($arResult["IS_DELETE_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_LEAD_MENU_DELETE")?>',
 				image: "/bitrix/js/mobile/images/del.png",
@@ -76,8 +76,8 @@ $arJsParams = array(
 					BX.Mobile.Crm.deleteItem('<?=$arResult["ELEMENT_ID"]?>', '<?=$ajaxPath?>', 'detail', 'onCrmLeadListUpdate');
 				}, this)
 			},
-			<?endif?>
-			<?if ($arResult["IS_EDIT_PERMITTED"]):?>
+			<?php endif?>
+			<?php if ($arResult["IS_EDIT_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_LEAD_MENU_CREATE_ON_BASE")?>',
 				image: "/bitrix/js/mobile/images/base.png",
@@ -107,7 +107,7 @@ $arJsParams = array(
 						window.leadConverter.showActionSheet();
 				}, this)
 			},
-			<?endif?>
+			<?php endif?>
 
 			{
 				name: '<?=GetMessageJS("M_CRM_LEAD_MENU_HISTORY")?>',
@@ -127,22 +127,22 @@ $arJsParams = array(
 			}
 		]
 	}, "crmMobileMenu");
-	<?endif?>
+	<?php endif?>
 
 	BXMobileApp.UI.Page.TopBar.title.setText('<?=$formTitle?>');
 	BXMobileApp.UI.Page.TopBar.title.show();
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	BXMobileApp.UI.Page.TopBar.title.setCallback(function (){
 		menu.show();
 	});
-	<?endif?>
+	<?php endif?>
 
 	BX.addCustomEvent("onCrmLeadDetailUpdate", function(){
 		BXMobileApp.UI.Page.reload();
 	});
 
-	<?if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE"):?>
+	<?php if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE"):?>
 	window.BXMobileApp.UI.Page.TopBar.updateButtons({
 		ok: {
 			type: "back_text",
@@ -154,5 +154,5 @@ $arJsParams = array(
 			position: "right"
 		}
 	});
-	<?endif?>
+	<?php endif?>
 </script>

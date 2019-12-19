@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новости компании");
 ?>
-<p><?$APPLICATION->IncludeComponent("bitrix:news", ".default", array(
+<p><?php $APPLICATION->IncludeComponent("bitrix:news", ".default", array(
 	"IBLOCK_TYPE" => "news",
 	"IBLOCK_ID" => "#NEWS_IBLOCK_ID#",
 	"NEWS_COUNT" => "20",
@@ -89,4 +89,4 @@ $APPLICATION->SetTitle("Новости компании");
 	),
 	false
 );?></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

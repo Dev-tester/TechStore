@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["socserv_controller_error"] = "К сожалению, произошла ошибка при авторизации на сервисе #SERVICE_NAME#.";
 $MESS["SC_ADD_ERROR"] = "Ваш профиль уже связан с указанным профилем социальной сети.";
 $MESS["SC_MESSAGE_FROM_TWITTER"] = "Сообщение из Twitter";

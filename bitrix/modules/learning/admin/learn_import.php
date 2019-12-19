@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -162,21 +162,21 @@ $aTabs = array(
 $tabControl = new CAdminTabControl("tabControl", $aTabs, false, true);
 ?>
 
-<form method="post" enctype="multipart/form-data" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo LANG ?>" name="form1">
-<input type="hidden" name="STEP" value="<?echo $STEP + 1;?>">
+<form method="post" enctype="multipart/form-data" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo LANG ?>" name="form1">
+<input type="hidden" name="STEP" value="<?php echo $STEP + 1;?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 if ($STEP == 1):
 ?>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LEARNING_DATA_FILE") ?>:</td>
+		<td><?php echo GetMessage("LEARNING_DATA_FILE") ?>:</td>
 		<td>
 			<input type="text" name="URL_DATA_FILE" size="30">
-			<input type="button" value="<?echo GetMessage("LEARNING_OPEN") ?>" OnClick="BtnClick()">
-			<?
+			<input type="button" value="<?php echo GetMessage("LEARNING_OPEN") ?>" OnClick="BtnClick()">
+			<?php 
 			CAdminFileDialog::ShowScript
 			(
 				Array(
@@ -197,47 +197,47 @@ if ($STEP == 1):
 	</tr>
 
 	<tr class="adm-detail-required-field">
-		<td class="adm-detail-valign-top"><?echo GetMessage("LEARNING_SITE_ID")?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("LEARNING_SITE_ID")?>:</td>
 		<td><?=CLang::SelectBoxMulti("SITE_ID", $SITE_ID);?></td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_IF_SCORM")?>:</td>
+		<td><?php echo GetMessage("LEARNING_IF_SCORM")?>:</td>
 		<td><input type="checkbox" name="SCORM"<?php echo (isset($SCORM) ? " checked" : "")?> /></td>
 	</tr>
-<?
+<?php 
 endif;
 $tabControl->EndTab();
 $tabControl->BeginNextTab();
 if ($STEP==2):
 ?>
 	<tr>
-		<td colspan="2"><b><?echo GetMessage("LEARNING_SUCCESS") ?></b></td>
+		<td colspan="2"><b><?php echo GetMessage("LEARNING_SUCCESS") ?></b></td>
 	</tr>
-<?
+<?php 
 endif;
 $tabControl->EndTab();
 $tabControl->Buttons();
 ?>
 
-<?if ($STEP > 1):?>
-	<input type="submit" name="backButton" value="&lt;&lt; <?echo GetMessage("LEARNING_BACK") ?>">
-<?else:?>
+<?php if ($STEP > 1):?>
+	<input type="submit" name="backButton" value="&lt;&lt; <?php echo GetMessage("LEARNING_BACK") ?>">
+<?php else:?>
 	<input type="submit" class="adm-btn-green" value="<?=GetMessage("LEARNING_NEXT_STEP_F")?> &gt;&gt;" name="submit_btn">
-<?endif?>
-<?$tabControl->End();?>
+<?php endif?>
+<?php $tabControl->End();?>
 </form>
 
 <script type="text/javascript">
 <!--
-<?if ($STEP == 1):?>
+<?php if ($STEP == 1):?>
 tabControl.SelectTab("edit1");
 tabControl.DisableTab("edit2");
-<?elseif ($STEP == 2):?>
+<?php elseif ($STEP == 2):?>
 tabControl.SelectTab("edit2");
 tabControl.DisableTab("edit1");
-<?endif;?>
+<?php endif;?>
 //-->
 </script>
 
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

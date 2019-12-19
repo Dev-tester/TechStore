@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_DISK_ACCESS_DENIED"] = "You don't have permission to view this user's files.";
 $MESS["USER_DISK_CONFIRM_NO"] = "No";
 $MESS["USER_DISK_CONFIRM_YES"] = "Yes";

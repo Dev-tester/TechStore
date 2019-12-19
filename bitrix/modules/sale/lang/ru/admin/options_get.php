@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SPSG_ACT_PROP'] = "Свойства обработчика";
 $MESS ['SPSG_TYPE'] = "Тип";
 $MESS ['SPSG_OTHER'] = "Другое значение";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EXTRANET_CONTACTS_LEFT_MENU_SEARCH"] = "Contact search";
 $MESS["EXTRANET_CONTACTS_LEFT_MENU_EMPLOYEES"] = "Employees";
 ?>

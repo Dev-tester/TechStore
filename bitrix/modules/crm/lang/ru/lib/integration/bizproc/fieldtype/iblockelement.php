@@ -1,1 +1,1 @@
-<?$MESS["CRM_BP_FIELDTYPE_UF_INFOBLOCK"] = "Инфоблок";
+<?php $MESS["CRM_BP_FIELDTYPE_UF_INFOBLOCK"] = "Инфоблок";

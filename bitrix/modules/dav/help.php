@@ -1,4 +1,4 @@
-<?
+<?php 
 $inDialog = (isset($_REQUEST["dialog"]) && (strtoupper($_REQUEST["dialog"]) == "Y"));
 
 if ($inDialog)

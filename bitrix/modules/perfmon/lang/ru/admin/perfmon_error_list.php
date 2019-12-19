@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PERFMON_ERR_TITLE'] = "Монитор производительности: журнал ошибок PHP";
 $MESS ['PERFMON_ERR_PAGE'] = "Ошибки";
 $MESS ['PERFMON_ERR_ID'] = "ID";

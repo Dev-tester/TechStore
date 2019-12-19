@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_CHECKLIST_PROGRESS_BAR_PROGRESS_TEXT"] = "выполнено: #completed# из #total#";
 $MESS["TASKS_CHECKLIST_NEW_ITEM_PLACEHOLDER"] = "Название пункта";
 $MESS["TASKS_CHECKLIST_GROUP_ACTIONS"] = "Групповые действия";

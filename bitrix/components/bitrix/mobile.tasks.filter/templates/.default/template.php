@@ -39,8 +39,8 @@ $frame->setUseAppCache();
 	<div class="task-title"><?=GetMessage('MB_TASKS_TASK_FILTER_TITLE')?></div>
 	<div class="task-filter-block" data-bx-id="filter-filters">
 
-		<?if(is_array($arResult['PRESETS_TREE'])):?>
-			<?foreach($arResult['PRESETS_TREE'] as $preset):?>
+		<?php if(is_array($arResult['PRESETS_TREE'])):?>
+			<?php foreach($arResult['PRESETS_TREE'] as $preset):?>
 
 				<div 
 					class="task-filter-row"
@@ -50,8 +50,8 @@ $frame->setUseAppCache();
 					<?=str_repeat('&nbsp;', intval($preset['DEPTH_LEVEL']) * 6)?><?=htmlspecialcharsbx($preset['Name'])?>
 				</div>
 
-			<?endforeach?>
-		<?endif?>
+			<?php endforeach?>
+		<?php endif?>
 
 		<script type="text/html" data-bx-template-id="filter-custom-preset">
 			<div 
@@ -75,7 +75,7 @@ $frame->setUseAppCache();
 	))?>);
 </script>
 
-<?
+<?php 
 $frame->startDynamicWithID("mobile-tasks-filter");
 ?>
 	<script>
@@ -86,5 +86,5 @@ $frame->startDynamicWithID("mobile-tasks-filter");
 			'customFilters' => $arResult['CUSTOM_PRESETS']
 		))?>);
 	</script>
-<?
+<?php 
 $frame->finishDynamicWithID("mobile-tasks-filter", $stub = "", $containerId = null, $useBrowserStorage = true);

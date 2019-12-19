@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/search/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -23,9 +23,9 @@ if(strlen($Rebuild)>0)
 	$res = $cCustomRank->NextUpdate();
 
 	if(is_array($res) && $res["TODO"]>0):
-		?><input type="hidden" name="NS" id="NS" value="<?=$NS?>"><?
+		?><input type="hidden" name="NS" id="NS" value="<?=$NS?>"><?php 
 	else:
-		?><input type="hidden" name="NS" id="NSTOP" value="<?=$NS?>"><?
+		?><input type="hidden" name="NS" id="NSTOP" value="<?=$NS?>"><?php 
 	endif;
 
 	if(!is_array($res))
@@ -350,7 +350,7 @@ function DoNext()
 	}
 	if(newNS!=savedNS)
 	{
-		queryString='lang='+encodeURIComponent('<?echo CUtil::JSEscape(LANG)?>');
+		queryString='lang='+encodeURIComponent('<?php echo CUtil::JSEscape(LANG)?>');
 		if(savedNS!='start!')
 		{
 			queryString+='&Next=Y';
@@ -446,13 +446,13 @@ function BoxUpdateNew(step, id)
 
 <h2><?=GetMessage("customrank_step1")?></h2>
 
-<form name="form1" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="form1" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("customrank_find")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("customrank_find_title")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("customrank_find_title")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("customrank_site"),
@@ -469,11 +469,11 @@ function BoxUpdateNew(step, id)
 </tr>
 <tr>
 	<td><?=GetMessage("customrank_id")?></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"></td>
 </tr>
 <tr>
 	<td><?=GetMessage("customrank_site")?></td>
-	<td><?echo CLang::SelectBox("find_site_id", $find_site_id, GetMessage("customrank_all"));?></td>
+	<td><?php echo CLang::SelectBox("find_site_id", $find_site_id, GetMessage("customrank_all"));?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("customrank_module")?></td>
@@ -481,34 +481,34 @@ function BoxUpdateNew(step, id)
 </tr>
 <tr>
 	<td><?=GetMessage("customrank_param1")?></td>
-	<td><input type="text" name="find_param1" size="47" value="<?echo htmlspecialcharsbx($find_param1)?>"></td>
+	<td><input type="text" name="find_param1" size="47" value="<?php echo htmlspecialcharsbx($find_param1)?>"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
 <h2><?=GetMessage("customrank_step2")?></h2>
 <div id="customrank_result_div"></div>
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 	<table><tr>
 	<td><img src="/bitrix/images/search/warning.gif">&nbsp;</td>
 	<td><font class="legendtext">
-<?echo htmlspecialcharsbx(GetMessage("customrank_save_note"))?>
+<?php echo htmlspecialcharsbx(GetMessage("customrank_save_note"))?>
 	</font></td>
 	</tr></table>
-<?echo EndNote();?>
+<?php echo EndNote();?>
 
 <p>
-<input type="button" id="start_button" value="<?echo GetMessage("customrank_update")?>" OnClick="StartRebuild();">
+<input type="button" id="start_button" value="<?php echo GetMessage("customrank_update")?>" OnClick="StartRebuild();">
 <input type="button" id="stop_button" value="<?=GetMessage("customrank_stop")?>" OnClick="StopRebuild();" disabled>
 <input type="button" id="continue_button" value="<?=GetMessage("customrank_continue")?>" OnClick="ContinueRebuild();" disabled>
 </p>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }
 ?>

@@ -1,16 +1,16 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
-<?
+<?php 
 $i = 0;
 if (!$arParams["AJAX_MODE"]):
 	?>
 	<div class="sidebar-buttons" id="bx_intranet_toolbar">
-	<?
+	<?php 
 else:
 	?>
 	<div class="sidebar-buttons" id="bx_intranet_toolbar_tmp" style="display: none;">
-	<?
+	<?php 
 endif;
 
 if (!empty($arParams['OBJECT']->arButtons) && is_array($arParams['OBJECT']->arButtons)) :
@@ -42,17 +42,17 @@ foreach ($arParams["OBJECT"]->arButtons as $arButton):
 			""
 	?>
 		<a
-			<?echo implode(' ', $arAttributes)?>
+			<?php echo implode(' ', $arAttributes)?>
 			class="webform-small-button bx24-top-toolbar-button<?=$className?>">
 			<span class="webform-small-button-icon"></span>
 			<span class="webform-small-button-text"><?=htmlspecialcharsbx($arButton['TEXT'])?></span>
 		</a>
-	<?
+	<?php 
 endforeach;
 endif;
 ?>
 </div>
-<?
+<?php 
 if ($arParams["AJAX_MODE"]):
 	?>
 	<script type="text/javascript">
@@ -73,6 +73,6 @@ if ($arParams["AJAX_MODE"]):
 		}
 	}, 200);
 	</script>
-	<?
+	<?php 
 endif;
 ?>

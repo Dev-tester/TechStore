@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C33_T_DELETE'] = "Удалить";
 $MESS ['SONET_C33_T_FRIENDS'] = "Друзья";
 $MESS ['SONET_C33_T_ONLINE'] = "Сейчас на сайте";

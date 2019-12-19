@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MODULE_NAME"] = "Обучение";
 $MESS["LEARNING_MODULE_DESC"] = "Модуль дистанционного обучения";
 $MESS["LEARNING_INSTALL_COPY_PUBLIC"] = "Копировать скрипты публичного раздела";

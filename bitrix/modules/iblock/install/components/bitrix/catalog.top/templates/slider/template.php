@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -21,9 +21,9 @@ $boolFirst = true;
 $strContWidth = 100*$itemsCount;
 $strItemWidth = 100/$itemsCount;
 ?>
-<div class="bx_slider_section" id="<? echo $strContID; ?>">
-	<div class="bx_slider_container" style="width:<? echo $strContWidth; ?>%;" id="bx_catalog_slider_cont_<?=$randID?>">
-<?foreach($arResult["ITEMS"] as $key => $arItem):
+<div class="bx_slider_section" id="<?php  echo $strContID; ?>">
+	<div class="bx_slider_container" style="width:<?php  echo $strContWidth; ?>%;" id="bx_catalog_slider_cont_<?=$randID?>">
+<?php foreach($arResult["ITEMS"] as $key => $arItem):
 	$strRowID = 'cat-top-'.$key.'_'.$randID;
 	$arRowIDs[] = $strRowID;
 	$strTitle = (
@@ -32,14 +32,14 @@ $strItemWidth = 100/$itemsCount;
 		: $arItem['NAME']
 	);
 	?>
-		<div id="<? echo $strRowID; ?>" class="bx_slider_block<?echo ($boolFirst ? ' active' : ''); ?>" style="width:<? echo $strItemWidth; ?>%;">
+		<div id="<?php  echo $strRowID; ?>" class="bx_slider_block<?php echo ($boolFirst ? ' active' : ''); ?>" style="width:<?php  echo $strItemWidth; ?>%;">
 			<div class="bx_slider_photo_container">
 				<div class="bx_slider_photo_background"></div>
 				<a
 					href="<?=$arItem["DETAIL_PAGE_URL"]?>"
 					class="bx_slider_photo_element"
 					style="background: #fff url('<?=$arItem["DETAIL_PICTURE"]["SRC"]?>') no-repeat center;"
-					title="<? echo $strTitle; ?>"
+					title="<?php  echo $strTitle; ?>"
 				>
 					<!--<div class="bx_stick_disc">-25%</div>
 					<div class="bx_stick new">New</div>-->
@@ -50,29 +50,29 @@ $strItemWidth = 100/$itemsCount;
 				<div class="bx_slider_content_description" style="padding-top: 10px;"><?=$arItem["PREVIEW_TEXT"] ? $arItem["PREVIEW_TEXT"] : $arItem["DETAILTEXT"]?></div>
 				<div class="bx_slider_price_container">
 					<div class="bx_slider_price_leftblock">
-					<?if(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])):?>
-						<div class="bx_slider_current_price bx_no_oldprice"><? echo GetMessage('CATALOG_FROM'); ?> <?=$arItem["PRINT_MIN_OFFER_PRICE"]?></div>
-					<?else:?>
-						<?
+					<?php if(is_array($arItem["OFFERS"]) && !empty($arItem["OFFERS"])):?>
+						<div class="bx_slider_current_price bx_no_oldprice"><?php  echo GetMessage('CATALOG_FROM'); ?> <?=$arItem["PRINT_MIN_OFFER_PRICE"]?></div>
+					<?php else:?>
+						<?php 
 						if (isset($arItem['MIN_PRICE']) && !empty($arItem['MIN_PRICE']))
 						{
 							if ($arItem['MIN_PRICE']["DISCOUNT_VALUE"] < $arItem['MIN_PRICE']["VALUE"]):?>
 								<div class="bx_slider_current_price"><?=$arItem['MIN_PRICE']["PRINT_DISCOUNT_VALUE"]?></div>
 								<div class="bx_slider_old_price"><?=$arItem['MIN_PRICE']["PRINT_VALUE"]?></div>
-							<?else:?>
+							<?php else:?>
 								<div class="bx_slider_current_price bx_no_oldprice"><?=$arItem['MIN_PRICE']["PRINT_VALUE"]?></div>
-							<?endif;
+							<?php endif;
 						}
 						else
 						{
 							foreach($arItem["PRICES"] as $priceCode=>$arPrices):?>
-							<?if ($arPrices["DISCOUNT_VALUE"] < $arPrices["VALUE"]):?>
+							<?php if ($arPrices["DISCOUNT_VALUE"] < $arPrices["VALUE"]):?>
 								<div class="bx_slider_current_price"><?=$arPrices["PRINT_DISCOUNT_VALUE"]?></div>
 								<div class="bx_slider_old_price"><?=$arPrices["PRINT_VALUE"]?></div>
-							<?else:?>
+							<?php else:?>
 								<div class="bx_slider_current_price bx_no_oldprice"><?=$arPrices["PRINT_VALUE"]?></div>
-							<?endif?>
-							<?endforeach;
+							<?php endif?>
+							<?php endforeach;
 						}
 					endif?>
 						<a href="<?=$arItem["DETAIL_PAGE_URL"]?>" class="bt_blue big shadow cart"><span></span><strong><?=GetMessage("CATALOG_MORE")?></strong></a>
@@ -81,12 +81,12 @@ $strItemWidth = 100/$itemsCount;
 				</div>
 			</div>
 		</div>
-<?
+<?php 
 	$boolFirst = false;
 endforeach;?>
 	</div>
 </div>
-<?
+<?php 
 if (1 < $itemsCount)
 {
 	$arJSParams = array(
@@ -113,8 +113,8 @@ if (1 < $itemsCount)
 	);
 ?>
 <script type="text/javascript">
-	var ob<? echo $strContID; ?> = new JCCatalogTopBannerList(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+	var ob<?php  echo $strContID; ?> = new JCCatalogTopBannerList(<?php  echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
 </script>
-<?
+<?php 
 }
 ?>

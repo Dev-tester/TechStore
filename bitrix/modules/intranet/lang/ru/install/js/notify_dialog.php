@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_NOTIFY_DIALOG_TITLE_WHO_NOTIFY"] = "Уведомить:";
 $MESS["INTRANET_NOTIFY_DIALOG_BUTTON_CLOSE"] = "Закрыть";
 $MESS["INTRANET_NOTIFY_DIALOG_NOTIFY_SUCCESS"] = "Уведомление отправлено";

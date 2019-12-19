@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_LOG_COMMENT_EMPTY"] = "Не указан текст сообщения";
 $MESS["SONET_LOG_COMMENT_NO_PERMISSIONS"] = "Нет прав на добавление комментария";
 $MESS["SONET_LOG_COMMENT_EDIT_NO_PERMISSIONS"] = "Нет прав на изменение комментария";

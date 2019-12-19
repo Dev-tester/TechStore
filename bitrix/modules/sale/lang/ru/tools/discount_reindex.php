@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_RIGHTS"] = "Недостаточно прав";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_INCORRECT_SESSION"] = "Ваша сессия истекла. Закройте диалоговое окно и авторизуйтесь заново, после чего повторите операцию.";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_SALE_ABSENT"] = "Не удалось подключить модуль Интернет-магазина";

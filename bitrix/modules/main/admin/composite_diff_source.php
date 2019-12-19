@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Composite\Debug\Model\LogTable;
 use Bitrix\Main\Composite\Internals\Model\PageTable;
 use Bitrix\Main\Composite\Page;
@@ -88,4 +88,4 @@ if (!$sourceContent)
 </body>
 </html>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_after.php");
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_after.php");

@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();?>
-<?if(!empty($arResult["ERROR_MESSAGE"]))
+<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!empty($arResult["ERROR_MESSAGE"]))
 {
 	foreach($arResult["ERROR_MESSAGE"] as $v)
 		ShowError($v);
 }
 if(strlen($arResult["OK_MESSAGE"]) > 0)
 {
-	?><div class="blog-note-box"><?=$arResult["OK_MESSAGE"]?></div><?
+	?><div class="blog-note-box"><?=$arResult["OK_MESSAGE"]?></div><?php 
 }
 ?>
 
@@ -40,7 +40,7 @@ if(strlen($arResult["OK_MESSAGE"]) > 0)
 			</div>
 		</div>
 
-		<?if($arParams["USE_CAPTCHA"] == "Y"):?>
+		<?php if($arParams["USE_CAPTCHA"] == "Y"):?>
 		<div class="field">
 			<label class="field-title"><?=GetMessage("MFT_CAPTCHA")?></label>
 			<div class="form-input">
@@ -50,7 +50,7 @@ if(strlen($arResult["OK_MESSAGE"]) > 0)
 				<input type="text" name="captcha_word" size="30" maxlength="50" value="">
 			</div>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 		<input type="submit" name="submit" value="<?=GetMessage("MFT_SUBMIT")?>">
 	</div>
 </form>

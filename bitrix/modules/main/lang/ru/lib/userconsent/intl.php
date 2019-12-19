@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_INTL_LANG_NAME_KZ"] = "Казахстан";
 $MESS["MAIN_USER_CONSENT_INTL_LANG_NAME_BY"] = "Беларусь";
 $MESS["MAIN_USER_CONSENT_INTL_HINT_FIELD_DEFAULT"] = "По умолчанию в текст будет подставлено следующее:";

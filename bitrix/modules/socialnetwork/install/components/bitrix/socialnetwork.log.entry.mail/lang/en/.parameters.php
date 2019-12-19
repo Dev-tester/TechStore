@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SLEM_COMMENT_ID"] = "Comment ID";
 $MESS["SLEM_LOG_ENTRY_ID"] = "Message ID";
 $MESS["SLEM_URL"] = "Message URL";

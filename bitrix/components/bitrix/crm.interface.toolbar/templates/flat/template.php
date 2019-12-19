@@ -58,13 +58,13 @@ $labelText = '';
 					</tbody>
 				</table>
 			</td>
-			<?
+			<?php 
 			if ($labelText != '')
 			{
 				?><td>
 					<div class="crm-toolbar-label1"><span
 							id="<?= htmlspecialcharsbx($toolbarId).'_label' ?>"><?= $labelText ?></span></div>
-				</td><?
+				</td><?php 
 			}
 			if(!empty($moreItems))
 			{
@@ -89,7 +89,7 @@ $labelText = '';
 						);
 					}
 				);
-			</script><?
+			</script><?php 
 			}
 			?>
 		</tr>

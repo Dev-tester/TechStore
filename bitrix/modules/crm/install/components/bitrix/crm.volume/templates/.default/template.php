@@ -57,7 +57,7 @@ if ($isBitrix24Template && !$arParams['IS_AJAX_REQUEST'] && $arResult['DATA_COLL
 
 	?>
 	<div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;">
-		<?
+		<?php 
 
 		$APPLICATION->IncludeComponent(
 			'bitrix:main.ui.filter',
@@ -80,7 +80,7 @@ if ($isBitrix24Template && !$arParams['IS_AJAX_REQUEST'] && $arResult['DATA_COLL
 
 		?>
 	</div>
-	<?
+	<?php 
 
 	$this->EndViewTarget();
 }
@@ -96,7 +96,7 @@ if ($isBitrix24Template)
 		<a href="<?= $component->getActionUrl(array('reload' => 'Y')); ?>" class="webform-small-button webform-small-button-blue crm-volume-reload-link">
 			<?= Loc::getMessage('CRM_VOLUME_MEASURE_DATA_REPEAT') ?>
 		</a>
-		<?
+		<?php 
 	}
 
 	$this->EndViewTarget();
@@ -110,9 +110,9 @@ if ($isBitrix24Template)
 
 
 ?>
-<div id="bx-crm-volume-main-block" class="crm-volume-wrap <? if ($arResult['QUEUE_RUNNING']): ?>crm-volume-running<? endif; ?>">
-	<div id="bx-crm-volume-stepper" class="crm-volume-stepper bx-ui-crm-volume-stepper" <? if ((isset($arResult['HAS_WORKER_IN_PROCESS']) && $arResult['HAS_WORKER_IN_PROCESS'] !== true) || $arResult["RELOAD"]): ?>style="display: none"<? endif; ?>>
-		<?
+<div id="bx-crm-volume-main-block" class="crm-volume-wrap <?php  if ($arResult['QUEUE_RUNNING']): ?>crm-volume-running<?php  endif; ?>">
+	<div id="bx-crm-volume-stepper" class="crm-volume-stepper bx-ui-crm-volume-stepper" <?php  if ((isset($arResult['HAS_WORKER_IN_PROCESS']) && $arResult['HAS_WORKER_IN_PROCESS'] !== true) || $arResult["RELOAD"]): ?>style="display: none"<?php  endif; ?>>
+		<?php 
 		if (isset($arResult['HAS_WORKER_IN_PROCESS']) && $arResult['HAS_WORKER_IN_PROCESS'] && $arResult["RELOAD"] !== true)
 		{
 			echo $arResult['PROCESS_BAR'];
@@ -124,13 +124,13 @@ if ($isBitrix24Template)
 		<span class="ui-btn-message"><?= Loc::getMessage('CRM_VOLUME_CLOSE_WARNING'); ?></span>
 	</div>
 
-	<div id="bx-crm-volume-reload-warning" class="crm-volume-info-control-panel ui-alert ui-alert-warning ui-alert-xs" <? if ($arResult["NEED_RELOAD"] === 0 || $arResult['QUEUE_RUNNING'] || !$arResult['DATA_COLLECTED']): ?>style="display: none" <? endif; ?>>
+	<div id="bx-crm-volume-reload-warning" class="crm-volume-info-control-panel ui-alert ui-alert-warning ui-alert-xs" <?php  if ($arResult["NEED_RELOAD"] === 0 || $arResult['QUEUE_RUNNING'] || !$arResult['DATA_COLLECTED']): ?>style="display: none" <?php  endif; ?>>
 		<span class="ui-btn-message">
-			<? if ($arResult["NEED_RELOAD"] === 2):?>
+			<?php  if ($arResult["NEED_RELOAD"] === 2):?>
 				<?= Loc::getMessage('CRM_VOLUME_NEED_RELOAD_COMMENT'); ?>
-			<? else:?>
+			<?php  else:?>
 				<?= Loc::getMessage('CRM_VOLUME_AGENT_FINISHED_COMMENT'); ?>
-			<? endif ?>
+			<?php  endif ?>
 
 		</span>
 		<a href="<?= $component->getActionUrl(array('reload' => 'Y')); ?>" class="crm-volume-info-control-panel-link crm-volume-reload-link">
@@ -139,7 +139,7 @@ if ($isBitrix24Template)
 	</div>
 
 	<div class="crm-volume-wrap">
-<?
+<?php 
 
 if(!$arResult['DATA_COLLECTED'] || $arResult['QUEUE_RUNNING'])
 {
@@ -182,7 +182,7 @@ if(!$arResult['DATA_COLLECTED'] || $arResult['QUEUE_RUNNING'])
 			</span>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -193,22 +193,22 @@ else
 			<div class="crm-volume-header-title"><?= Loc::getMessage("CRM_VOLUME_CLEARING") ?></div>
 
 			<div id="bx-crm-volume-total-size" class="crm-volume-header-amount-info">
-				<? if ($arResult['TOTALS']['TOTAL_SIZE'] > 0): ?>
+				<?php  if ($arResult['TOTALS']['TOTAL_SIZE'] > 0): ?>
 					<?= Loc::getMessage("CRM_VOLUME_TOTAL_USEAGE", array('#FILE_SIZE#' => $arResult['TOTALS']['TOTAL_SIZE_FORMAT'])) ?>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
 
-			<div id="bx-crm-volume-file-size" class="crm-volume-header-amount-info" <? if ($arResult['TOTALS']['FILE_SIZE'] == 0): ?>style="display:none"<? endif ?>>
-				<? if ($arResult['TOTALS']['FILE_SIZE'] > 0): ?>
+			<div id="bx-crm-volume-file-size" class="crm-volume-header-amount-info" <?php  if ($arResult['TOTALS']['FILE_SIZE'] == 0): ?>style="display:none"<?php  endif ?>>
+				<?php  if ($arResult['TOTALS']['FILE_SIZE'] > 0): ?>
 					<?= Loc::getMessage('CRM_VOLUME_TOTAL_FILES', array('#FILE_SIZE#' => $arResult['TOTALS']['FILE_SIZE_FORMAT'])); ?>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
 
-			<?/*
-			<div id="bx-crm-volume-total-disk-count" class="crm-volume-header-amount-info" <? if ($arResult['TOTALS']['ALLOW_DROP'] == 0): ?>style="display:none"<? endif ?>>
-				<? if ($arResult['TOTALS']['ALLOW_DROP'] > 0): ?>
+			<?php /*
+			<div id="bx-crm-volume-total-disk-count" class="crm-volume-header-amount-info" <?php  if ($arResult['TOTALS']['ALLOW_DROP'] == 0): ?>style="display:none"<?php  endif ?>>
+				<?php  if ($arResult['TOTALS']['ALLOW_DROP'] > 0): ?>
 					<?= Loc::getMessage("CRM_VOLUME_ALLOW_DROP", array('#FILE_SIZE#' => $arResult['TOTALS']['ALLOW_DROP_FORMAT'])) ?>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
 			*/
 			?>
@@ -218,7 +218,7 @@ else
 
 	<div id="bx-crm-volume-percent-diagram">
 		<div class="crm-volume-percent-diagram">
-			<?
+			<?php 
 			$legend = array();
 			foreach ($arResult['PERCENT_DATA'] as $inx => $row)
 			{
@@ -236,24 +236,24 @@ else
 				);
 				?>
 				<div data-indicator="<?= $row['id'] ?>" class="crm-volume-percent-part" style="flex:<?= $width ?>; background-color:<?= $color ?>;" title="<?= $title ?>"></div>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 
 		<div class="crm-volume-percent-legend">
-			<?
+			<?php 
 			$shown = 0;
 			foreach ($legend as $i => $row)
 			{
 				$isShown = ($row['width'] >= 2 && $i < 8);
 				if ($isShown) $shown ++;
 				?>
-				<div class="crm-volume-percent-legend-part" <?if(!$isShown):?>style="display:none"<?endif?>>
+				<div class="crm-volume-percent-legend-part" <?php if(!$isShown):?>style="display:none"<?php endif?>>
 					<span class="crm-volume-percent-legend-part-circle" data-indicator="<?= $row['id'] ?>" style="background-color:<?= $row['color'] ?>;"></span>
 					<span class="crm-volume-percent-legend-part-text" data-indicator="<?= $row['id'] ?>" title="<?= $row['alt'] ?>"><?= $row['name'] ?></span>
 				</div>
-				<?
+				<?php 
 			}
 			if (count($legend) > $shown)
 			{
@@ -261,40 +261,40 @@ else
 				<div id="bx-crm-volume-show-full-legend" class="crm-volume-percent-legend-part">
 					<span class="crm-volume-percent-legend-part-text">...</span>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 
 	</div>
-	<?
+	<?php 
 
 	if ($arParams['IS_AJAX_REQUEST'])
 	{
 		?>
 		<script type="text/javascript">
-			<? if ($arResult['TOTALS']['TOTAL_SIZE'] > 0): ?>
+			<?php  if ($arResult['TOTALS']['TOTAL_SIZE'] > 0): ?>
 			BX.Crm.measureManager.updateTotalSize({
 				size: <?= $arResult['TOTALS']['TOTAL_SIZE'] ?>,
 				format: '<?= Loc::getMessage("CRM_VOLUME_TOTAL_USEAGE", array('#FILE_SIZE#' => $arResult['TOTALS']['TOTAL_SIZE_FORMAT'])) ?>'
 			});
-			<? endif ?>
+			<?php  endif ?>
 
-			<? if ($arResult['TOTALS']['FILE_SIZE'] > 0): ?>
+			<?php  if ($arResult['TOTALS']['FILE_SIZE'] > 0): ?>
 			BX.Crm.measureManager.updateFileSize({
 				size: <?= $arResult['TOTALS']['FILE_SIZE'] ?>,
 				format: '<?= Loc::getMessage('CRM_VOLUME_TOTAL_FILES', array('#FILE_SIZE#' => $arResult['TOTALS']['FILE_SIZE_FORMAT'])); ?>'
 			});
-			<? endif ?>
+			<?php  endif ?>
 
 		</script>
-		<?
+		<?php 
 	}
 	?>
 
 
 	<div class="crm-volume-border"></div>
-	<?
+	<?php 
 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.ui.grid',
@@ -348,7 +348,7 @@ else
 ?>
 	</div>
 </div>
-<?
+<?php 
 
 
 
@@ -391,24 +391,24 @@ if (!$arParams['IS_AJAX_REQUEST'])
 				suppressStepperAlert: <?= (isset($arResult["WORKER_USES_CRONTAB"]) && $arResult["WORKER_USES_CRONTAB"] ? 'true' : 'false') ?>
 			});
 
-			<? foreach ($arResult['SCAN_ACTION_LIST'] as $item): ?>
+			<?php  foreach ($arResult['SCAN_ACTION_LIST'] as $item): ?>
 			BX.Crm.measureManager.addQueueItem(<?= \Bitrix\Main\Web\Json::encode((object)$item) ?>);
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 
-			<? if ($arResult['QUEUE_RUNNING']): ?>
-			<? if ($arResult['RUN_QUEUE'] === 'full'): ?>
+			<?php  if ($arResult['QUEUE_RUNNING']): ?>
+			<?php  if ($arResult['RUN_QUEUE'] === 'full'): ?>
 			BX.ready( function() {
 				BX.Crm.measureManager.progressBarShow(0);
 				BX.Crm.measureManager.runQueue(1);
 			});
-			<? elseif ($arResult['RUN_QUEUE'] === 'continue'): ?>
+			<?php  elseif ($arResult['RUN_QUEUE'] === 'continue'): ?>
 			BX.ready( function() {
 				var percent = Math.round(<?= $arResult['QUEUE_STEP']['queueStep'] ?> * 100 / <?= $arResult['QUEUE_STEP']['queueLength'] ?>);
 				BX.Crm.measureManager.progressBarShow(percent);
 				BX.Crm.measureManager.runQueue(<?= $arResult['QUEUE_STEP']['queueStep'] ?>, <?= \Bitrix\Main\Web\Json::encode($arResult['QUEUE_STEP']) ?>);
 			});
-			<? endif; ?>
-			<? endif; ?>
+			<?php  endif; ?>
+			<?php  endif; ?>
 
 
 
@@ -475,7 +475,7 @@ if (!$arParams['IS_AJAX_REQUEST'])
 
 		});
 	</script>
-	<?
+	<?php 
 
 
 }

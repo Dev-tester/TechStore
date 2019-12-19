@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_MODULE_NOT_INSTALLED_SALE"] = "The e-Store module is not installed.";
 $MESS["CIPC_EMPTY_PAY_SYSTEM"] = "No payment system selected";

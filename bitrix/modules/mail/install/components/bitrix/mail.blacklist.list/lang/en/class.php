@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_BLACKLIST_LIST_AJAX_DELETE_CONFIRM"] = "Are you sure you want to unblacklist the address?";
 $MESS["MAIL_BLACKLIST_LIST_COLUMN_EMAIL"] = "Email address";
 $MESS["MAIL_BLACKLIST_LIST_COLUMN_IS_FOR_ALL_USERS"] = "For all users";

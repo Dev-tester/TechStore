@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CAT_IBLOCK_CATALOG_MESS_NOT_SELECT"] = "не выбрано";
 $MESS["BX_CATALOG_SETTINGS_ACCESS_DENIED"] = "Доступ запрещен";
 $MESS["BX_CAT_IBLOCK_CATALOG_IBLOCK_BAD_SESSION"] = "Ваша сессия истекла. Необходимо закрыть диалоговое окно и заново авторизоваться.";

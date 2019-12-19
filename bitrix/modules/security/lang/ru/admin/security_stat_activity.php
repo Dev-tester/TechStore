@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_STATACT_TITLE'] = "Контроль активности";
 $MESS ['SEC_STATACT_MAIN_TAB'] = "Контроль активности";
 $MESS ['SEC_STATACT_MAIN_TAB_TITLE'] = "Включение контроля активности.";

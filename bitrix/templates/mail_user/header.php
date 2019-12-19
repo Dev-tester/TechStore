@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -20,7 +20,7 @@
 
 		/* End reset */
 	</style>
-<?
+<?php 
 /*
 This is commented to avoid Project Quality Control warning
 $APPLICATION->ShowHead();
@@ -30,10 +30,10 @@ $APPLICATION->ShowPanel();
 ?>
 </head>
 <body>
-<? if (\Bitrix\Main\Loader::includeModule('mail')) : ?>
+<?php  if (\Bitrix\Main\Loader::includeModule('mail')) : ?>
 <?=\Bitrix\Mail\Message::getQuoteStartMarker(true); ?>
-<? endif; ?>
-<?
+<?php  endif; ?>
+<?php 
 $protocol = \Bitrix\Main\Config\Option::get("main", "mail_link_protocol", 'https', $arParams["SITE_ID"]);
 $serverName = $protocol."://".$arParams["SERVER_NAME"];
 ?>
@@ -41,7 +41,7 @@ $serverName = $protocol."://".$arParams["SERVER_NAME"];
 	<tr>
 		<td style="min-width: 15px;border-collapse: collapse;border-spacing: 0;padding: 0;"></td>
 		<td align="left" valign="middle" style="border-collapse: collapse;border-spacing: 0;padding:0;background: url('<?=$serverName?>/bitrix/templates/mail_user/images/top-cloud.png') no-repeat center 36px;">
-			<div style="padding: 41px 0 24px;max-width: 732px;margin: 0 auto;"><?
+			<div style="padding: 41px 0 24px;max-width: 732px;margin: 0 auto;"><?php 
 				$str24 = '<span style="color: #c2d1d6;">24</span>';
 	
 				$companyName = (

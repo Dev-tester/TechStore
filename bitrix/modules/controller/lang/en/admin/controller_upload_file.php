@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_UPLOAD_FILTER_GROUP"] = "Group";
 $MESS["CTRLR_UPLOAD_FILTER_SITE"] = "Site";
 $MESS["CTRLR_UPLOAD_FILTER_SITE_ALL"] = "(all)";

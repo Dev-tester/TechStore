@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -23,33 +23,33 @@ $contentClass .= $arResult['MULTIPLE'] == 'Y' ? ' ies-content-multiple' : '';
 $contentClass .= $arResult['POPUP'] == 'Y' ? ' ies-content-hide' : '';
 ?>
 
-<?if($arResult['PANEL_SELECTED_VALUES'] == 'Y'):?>
+<?php if($arResult['PANEL_SELECTED_VALUES'] == 'Y'):?>
 <div id="<?=HtmlFilter::encode($selectorId)?>_panel_selected_values">
 	<div id="<?=HtmlFilter::encode($selectorId)?>_hidden_values"></div>
 	<div id="<?=HtmlFilter::encode($selectorId)?>_visible_values"></div>
 	<div id="<?=HtmlFilter::encode($selectorId)?>_panel_buttons">
-		<?if($arResult['POPUP'] == 'Y' && $arResult['ONLY_READ'] == "N"):?>
+		<?php if($arResult['POPUP'] == 'Y' && $arResult['ONLY_READ'] == "N"):?>
 			<span id="<?=HtmlFilter::encode($selectorId)?>_select_button" class="ies-content-select-button">
 			<?=Loc::getMessage('IEST_SELECT_ITEMS')?>
 		</span>
-		<?endif?>
+		<?php endif?>
 	</div>
 </div>
-<?endif?>
+<?php endif?>
 
 <div id="<?=HtmlFilter::encode($selectorId)?>" class="<?=$contentClass?>">
-	<?if($arResult['ACCESS_DENIED'] == 'Y'):?>
-		<? ShowError(Loc::getMessage('IEST_ERROR_ACCESS_DENIED')); ?>
-	<?else:?>
+	<?php if($arResult['ACCESS_DENIED'] == 'Y'):?>
+		<?php  ShowError(Loc::getMessage('IEST_ERROR_ACCESS_DENIED')); ?>
+	<?php else:?>
 	<table class="ies-content-layout" cellspacing="0">
 		<tr>
 			<td class="ies-content-left-column">
-				<?if(empty($arResult['SEARCH_INPUT_ID'])):?>
+				<?php if(empty($arResult['SEARCH_INPUT_ID'])):?>
 					<div class="ies-content-search">
 						<input name="<?=HtmlFilter::encode($selectorId)?>_search_input" autocomplete="off" id="<?=
 							HtmlFilter::encode($selectorId)?>_search_input" class="ies-content-search-textbox">
 					</div>
-				<?endif?>
+				<?php endif?>
 				<div class="ies-content-tabs">
 					<span class="ies-content-tab ies-content-tab-selected" id="<?=
 						HtmlFilter::encode($selectorId)?>_tab_last" onclick="
@@ -71,39 +71,39 @@ $contentClass .= $arResult['POPUP'] == 'Y' ? ' ies-content-hide' : '';
 						<table class="ies-content-tab-columns" cellspacing="0">
 						<tr>
 						<td>
-							<?foreach($arResult['LAST_ELEMENTS'] as $element):?>
-								<?
+							<?php foreach($arResult['LAST_ELEMENTS'] as $element):?>
+								<?php 
 									$selected = in_array($element["ID"], $arResult['CURRENT_ELEMENTS_ID']);
 									$class = ($selected ? ' ies-content-item-selected' : '')
 								?>
 								<div class="ies-content-item<?=$class?>" id="<?=HtmlFilter::encode($selectorId)
 									?>_last_elements_<?=intval($element['ID'])
 									?>" onclick="BX.Iblock['<?=$jsObject?>'].select(event);">
-								<?if($arResult['MULTIPLE'] == 'Y'):?>
+								<?php if($arResult['MULTIPLE'] == 'Y'):?>
 									<input type="checkbox" name="<?=HtmlFilter::encode($selectorId)?>[]" value="<?=
 									intval($element['ID'])?>"<?=$selected ? ' checked' : ''?> class="ies-hidden-input">
-								<?else:?>
+								<?php else:?>
 									<input type="radio" name="<?=HtmlFilter::encode($selectorId)?>" value="<?=
 									intval($element['ID'])?>"<?=$selected ? ' checked' : ''?> class="ies-hidden-input">
-								<?endif?>
+								<?php endif?>
 								<div class="ies-content-item-text"><?=HtmlFilter::encode($element['NAME'])?></div>
 								<div class="ies-content-item-icon"></div>
 								</div>
-							<?endforeach?>
-							<?foreach($arResult["CURRENT_ELEMENTS"] as $element):?>
-								<?
+							<?php endforeach?>
+							<?php foreach($arResult["CURRENT_ELEMENTS"] as $element):?>
+								<?php 
 									$selected = in_array($element["ID"], $arResult['CURRENT_ELEMENTS_ID']);
 								?>
-								<?if(!in_array($element, $arResult['LAST_ELEMENTS'])):?>
-									<?if($arResult['MULTIPLE'] == 'Y'):?>
+								<?php if(!in_array($element, $arResult['LAST_ELEMENTS'])):?>
+									<?php if($arResult['MULTIPLE'] == 'Y'):?>
 										<input type="checkbox" name="<?=HtmlFilter::encode($selectorId)?>[]" value="<?=
 										intval($element['ID'])?>"<?=$selected?' checked':''?> class="ies-hidden-input">
-									<?else:?>
+									<?php else:?>
 										<input type="radio" name="<?=HtmlFilter::encode($selectorId)?>" value="<?=
 										intval($element['ID'])?>"<?=$selected?' checked':''?> class="ies-hidden-input">
-									<?endif?>
-								<?endif?>
-							<?endforeach?>
+									<?php endif?>
+								<?php endif?>
+							<?php endforeach?>
 						</td>
 						</tr>
 						</table>
@@ -111,7 +111,7 @@ $contentClass .= $arResult['POPUP'] == 'Y' ? ' ies-content-hide' : '';
 					<div class="ies-content-tab-content" id="<?=HtmlFilter::encode($selectorId)?>_search"></div>
 				</div>
 			</td>
-			<?if($arResult['MULTIPLE'] == 'Y'):?>
+			<?php if($arResult['MULTIPLE'] == 'Y'):?>
 				<td class="ies-content-right-column" id="<?=HtmlFilter::encode($selectorId)?>_selected_elements">
 					<div class="ies-content-selected-title">
 						<?=Loc::getMessage('IEST_CURRENT_SELECTED_ITEMS')?>
@@ -119,7 +119,7 @@ $contentClass .= $arResult['POPUP'] == 'Y' ? ' ies-content-hide' : '';
 							count($arResult["CURRENT_ELEMENTS"])?></span>)
 					</div>
 					<div class="ies-content-selected-items">
-						<?foreach($arResult['CURRENT_ELEMENTS'] as $element):?>
+						<?php foreach($arResult['CURRENT_ELEMENTS'] as $element):?>
 							<div class="ies-content-selected-item" id="<?=
 								HtmlFilter::encode($selectorId)?>_element_selected_<?=intval($element['ID'])?>">
 								<div class="ies-content-selected-item-icon" id="<?=
@@ -130,13 +130,13 @@ $contentClass .= $arResult['POPUP'] == 'Y' ? ' ies-content-hide' : '';
 									<?=HtmlFilter::encode($element['NAME'])?>
 								</span>
 							</div>
-						<?endforeach?>
+						<?php endforeach?>
 					</div>
 				</td>
-			<?endif?>
+			<?php endif?>
 		</tr>
 	</table>
-	<?endif?>
+	<?php endif?>
 </div>
 
 <script type="text/javascript">

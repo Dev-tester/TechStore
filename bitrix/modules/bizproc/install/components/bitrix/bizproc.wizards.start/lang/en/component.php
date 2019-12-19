@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WRC_EMPTY_IBLOCK_TYPE'] = "The information block type is not specified.";
 $MESS ['BPWC_WRC_EMPTY_IBLOCK'] = "The information block ID is not specified.";
 $MESS ['BPWC_WRC_ACCESS_ERROR'] = "The session has expired. Please open the <a href='#URL#'>summary page</a> and try again.";

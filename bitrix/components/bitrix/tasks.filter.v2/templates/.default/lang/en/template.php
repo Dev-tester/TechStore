@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_FILTER"] = "Filter";
 $MESS["TASKS_FILTER_COMMON"] = "Normal";
 $MESS["TASKS_FILTER_EXTENDED"] = "Extended";

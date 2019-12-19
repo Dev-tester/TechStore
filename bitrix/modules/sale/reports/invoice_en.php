@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 /*
 Copy this file to /bitrix/admin/reports folder and change it as you wish
 
@@ -37,7 +37,7 @@ array(
 			<table border="0" width="100%" cellspacing="0" cellpadding="0">
 				<tr>
 					<td class="shopsTitle">
-						<?/* NOTE: You should change this text to actual one 
+						<?php /* NOTE: You should change this text to actual one 
 						after copying this file info /bitrix/admin/reports folder*/?>
 						<?=$arParams["COMPANY_NAME"]?><br>
 						<?=$arParams["CITY"].", ".$arParams["ADDRESS"];?><br>
@@ -66,7 +66,7 @@ array(
 							</tr>
 							<tr>
 								<td class="mainText">
-								<?
+								<?php 
 								if(strlen($arParams["BUYER_COMPANY_NAME"]) > 0)
 									echo $arParams["BUYER_COMPANY_NAME"];
 								else
@@ -85,7 +85,7 @@ array(
 								<td>&nbsp; </td>
 							</tr>
 							<tr>
-								<td class="mainText"><a href="mailto:<?echo $arOrderProps["F_EMAIL"];?>"><u><?echo $arOrderProps["F_EMAIL"];?></u></a></td>
+								<td class="mainText"><a href="mailto:<?php echo $arOrderProps["F_EMAIL"];?>"><u><?php echo $arOrderProps["F_EMAIL"];?></u></a></td>
 							</tr>
 						</table>
 					</td>
@@ -96,7 +96,7 @@ array(
 							</tr>
 							<tr>
 								<td class="mainText">
-									<?
+									<?php 
 								if(strlen($arParams["BUYER_COMPANY_NAME"]) > 0)
 									echo $arParams["BUYER_COMPANY_NAME"];
 								else
@@ -126,8 +126,8 @@ array(
 				<tr>
 					<td class="mainText"><b>Payment Method:</b></td>
 					<td class="mainText">
-						[<?echo $arOrder["PAY_SYSTEM_ID"];?>]
-						<?
+						[<?php echo $arOrder["PAY_SYSTEM_ID"];?>]
+						<?php 
 						$arPaySys = CSalePaySystem::GetByID($arOrder["PAY_SYSTEM_ID"]);
 						echo htmlspecialcharsbx($arPaySys["NAME"]);
 						?>
@@ -141,7 +141,7 @@ array(
 	</tr>
 	<tr>
 		<td>
-			<?
+			<?php 
 			$bUseVat = false;
 			$arBasketOrder = array();
 			for ($i = 0; $i < count($arBasketIDs); $i++)
@@ -189,7 +189,7 @@ array(
 						<td class="tableheadcol" align="right">Price (inc)</td>
 						<td class="tableheadcol" align="right">Total</td>
 					</tr>
-					<?
+					<?php 
 					$sum = 0.00;
 					$total_nds = 0;
 					$mi = 0;
@@ -225,26 +225,26 @@ array(
 						?>
 						<tr class="tablebodyrow">
 							<td class="tablebodycol" valign="top" align="right">
-								<?echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$mi]); ?>&nbsp;x
+								<?php echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$mi]); ?>&nbsp;x
 							</td>
 							<td class="tablebodycol" valign="top">
-								<?echo "[".$arBasket["PRODUCT_ID"]."] ".$arBasket["NAME"]; ?>
+								<?php echo "[".$arBasket["PRODUCT_ID"]."] ".$arBasket["NAME"]; ?>
 							</td>
 							<td class="tablebodycol" align="right" valign="top">
-								<b><?echo SaleFormatCurrency($item_price, $arOrder["CURRENCY"]);?></b>
+								<b><?php echo SaleFormatCurrency($item_price, $arOrder["CURRENCY"]);?></b>
 							</td>
 							<td class="tablebodycol" align="right" valign="top">
-								<?echo SaleFormatCurrency($nds_val, $arOrder["CURRENCY"]);?>
+								<?php echo SaleFormatCurrency($nds_val, $arOrder["CURRENCY"]);?>
 							</td>
 							<td class="tablebodycol" align="right" valign="top">
-								<b><?echo SaleFormatCurrency($nds_val+$item_price, $arOrder["CURRENCY"]);?></b>
+								<b><?php echo SaleFormatCurrency($nds_val+$item_price, $arOrder["CURRENCY"]);?></b>
 							</td>
 							<td class="tablebodycol" align="right" valign="top">
-								<b><?echo SaleFormatCurrency(($item_price+$nds_val)*$arQuantities[$mi], $arOrder["CURRENCY"]);
+								<b><?php echo SaleFormatCurrency(($item_price+$nds_val)*$arQuantities[$mi], $arOrder["CURRENCY"]);
 								$sum += ($item_price+$nds_val)*$arQuantities[$mi];?></b>
 							</td>
 						</tr>
-						<?
+						<?php 
 						$mi++;
 					}
 					//while ($db_basket->ExtractFields("b_"));
@@ -255,18 +255,18 @@ array(
 								<tr>
 									<td align="right" class="smallText">Sub-Total:</td>
 									<td align="right" class="smallText">
-										<?echo SaleFormatCurrency($sum, $arOrder["CURRENCY"]) ?>
+										<?php echo SaleFormatCurrency($sum, $arOrder["CURRENCY"]) ?>
 									</td>
 								</tr>
 
-								<?
+								<?php 
 								$db_tax_list = CSaleOrderTax::GetList(array("APPLY_ORDER"=>"ASC"), Array("ORDER_ID"=>$ORDER_ID));
 								while ($ar_tax_list = $db_tax_list->Fetch())
 								{
 									?>
 									<tr>
 										<td align="right" class="smallText">
-											<?
+											<?php 
 											if ($ar_tax_list["IS_IN_PRICE"]=="Y")
 											{
 												echo "Included ";
@@ -278,7 +278,7 @@ array(
 											}
 											?>:
 
-											<?
+											<?php 
 											$total_nds += $arOrder['DELIVERY_VAT_SUM'];
 											?>
 										</td>
@@ -286,25 +286,25 @@ array(
 											<?=SaleFormatCurrency($total_nds, $arOrder["CURRENCY"])?>
 										</td>
 									</tr>
-									<?
+									<?php 
 								}
 								?>
 
-								<?if (floatval($arOrder["DISCOUNT_VALUE"]) > 0):
+								<?php if (floatval($arOrder["DISCOUNT_VALUE"]) > 0):
 									$sum -= $arOrder["DISCOUNT_VALUE"];
 								?>
 									<tr>
 										<td align="right" class="smallText">Discount:</td>
 										<td align="right" class="smallText">
-											<?echo SaleFormatCurrency($arOrder["DISCOUNT_VALUE"], $arOrder["CURRENCY"]) ?>
+											<?php echo SaleFormatCurrency($arOrder["DISCOUNT_VALUE"], $arOrder["CURRENCY"]) ?>
 										</td>
 									</tr>
-								<?endif?>
+								<?php endif?>
 
-								<?if ($arOrder["DELIVERY_ID"]):?>
+								<?php if ($arOrder["DELIVERY_ID"]):?>
 									<tr>
 										<td align="right" class="smallText">
-											Delivery <?
+											Delivery <?php 
 											$deliveryId = \CSaleDelivery::getIdByCode($arOrder['DELIVERY_ID']);
 
 											if($deliveryId > 0)
@@ -317,21 +317,21 @@ array(
 											?>:
 										</td>
 										<td align="right" class="smallText">
-											<?echo SaleFormatCurrency($arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"]) ?>
+											<?php echo SaleFormatCurrency($arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"]) ?>
 										</td>
 									</tr>
-								<?endif;?>
+								<?php endif;?>
 								<tr>
 									<td align="right" class="smallText">Total:</td>
 									<td align="right" class="smallText">
-										<b><?echo SaleFormatCurrency($sum+$arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"]) ?></b>
+										<b><?php echo SaleFormatCurrency($sum+$arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"]) ?></b>
 									</td>
 								</tr>
 							</table>
 						</td>
 					</tr>
 				</table>
-				<?
+				<?php 
 			}
 			?>
 		</td>

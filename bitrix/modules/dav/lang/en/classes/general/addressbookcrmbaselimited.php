@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DAV_EXPORT_FILTER_RESPONSIBLE"] = "Personal";
 $MESS["DAV_EXPORT_FILTER_ALL"] = "All";
 ?>

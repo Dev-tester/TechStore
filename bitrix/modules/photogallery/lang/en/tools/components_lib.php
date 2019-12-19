@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_IBLOCK_ID_EMPTY"] = "The information block ID is missing.";
 $MESS["P_GALLERY_IS_BLOCKED"] = "The gallery is locked.";
 $MESS["P_ALBUM_IS_BLOCKED"] = "The album is locked.";

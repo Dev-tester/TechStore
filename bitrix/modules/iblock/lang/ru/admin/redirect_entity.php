@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_IBLOCK_REDIRECT_ENTITY_ENTITY_IBLOCK"] = "Инфоблок";
 $MESS["BX_IBLOCK_REDIRECT_ENTITY_ENTITY_ELEMENT"] = "Элемент инфоблока";
 $MESS["BX_IBLOCK_REDIRECT_ENTITY_TITLE"] = "Перейти к инфоблоку / элементу";

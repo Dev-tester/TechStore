@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SUBSCRIBE'] = "Subscribe";
 $MESS ['F_HEAD_TOPICS'] = "Topics";
 $MESS ['F_HEAD_POSTS'] = "Posts";

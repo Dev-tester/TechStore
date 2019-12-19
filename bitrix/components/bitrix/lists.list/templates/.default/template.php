@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arResult */
 /** @var array $arParams */
@@ -158,7 +158,7 @@ elseif(!IsModuleInstalled("intranet"))
 }
 ?>
 <div class="pagetitle-container pagetitle-flexible-space <?=$pagetitleFlexibleSpace?>">
-	<? $APPLICATION->IncludeComponent(
+	<?php  $APPLICATION->IncludeComponent(
 		"bitrix:main.ui.filter",
 		"",
 		array(
@@ -173,24 +173,24 @@ elseif(!IsModuleInstalled("intranet"))
 	); ?>
 </div>
 <div class="pagetitle-container pagetitle-align-right-container <?=$pagetitleAlignRightContainer?>">
-	<? if($arResult["SECTION_ID"]):?>
+	<?php  if($arResult["SECTION_ID"]):?>
 		<a href="<?=$arResult["LIST_PARENT_URL"]?>" class="ui-btn ui-btn-link ui-btn-themes lists-list-back">
 			<?=GetMessage("CT_BLL_SECTION_RETURN")?>
 		</a>
-	<?endif;?>
-	<? if($listAction):?>
+	<?php endif;?>
+	<?php  if($listAction):?>
 		<span id="lists-title-action" class="ui-btn ui-btn-light-border ui-btn-dropdown ui-btn-themes">
 			<?=Loc::getMessage("CT_BLL_TOOLBAR_ACTION")?>
 		</span>
-	<?endif;?>
-	<?if($arResult["CAN_ADD_ELEMENT"] || $arResult["CAN_EDIT_SECTIONS"]):?>
+	<?php endif;?>
+	<?php if($arResult["CAN_ADD_ELEMENT"] || $arResult["CAN_EDIT_SECTIONS"]):?>
 		<div class="ui-btn-split ui-btn-primary">
 			<a href="<?=$arResult["LIST_NEW_ELEMENT_URL"]?>" id="lists-title-action-add" class="ui-btn-main"><?=Loc::getMessage("CT_BLL_TOOLBAR_ADD")?></a>
 			<span id="lists-title-action-select-add" class="ui-btn-menu"></span>
 		</div>
-	<?endif?>
+	<?php endif?>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();
@@ -208,7 +208,7 @@ $dataForAjax = array(
 	"socnetGroupId" => $socnetGroupId
 );
 if($shouldStartRebuildSeachableContent):?>
-	<?
+	<?php 
 		$dataForAjax["totalItems"] = CLists::getNumberOfElements($arResult["IBLOCK_ID"]);
 	?>
 	<div id="rebuildSeachableContent"></div>
@@ -235,7 +235,7 @@ if($shouldStartRebuildSeachableContent):?>
 			manager.runAfter(100);
 		});
 	</script>
-<?endif;
+<?php endif;
 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.ui.grid",

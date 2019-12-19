@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LIMIT_NAME"] = "Restriction";
 $MESS["SENDER_LIMIT"] = "Limit";
 $MESS["SENDER_LIMIT_OF"] = "of";

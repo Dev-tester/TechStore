@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUYER_CUSTOM_FIELD"] = "Настроить";
 $MESS["BUYER_CUSTOM_FIELD_TITLE"] = "Настроить поля формы";
 $MESS["BUYER_NEW_ORDER"] = "Создать заказ";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["socserv_mailru2_name"] = "Mail.Ru";
 $MESS["socserv_mailru_openid_name"] = "Mail.Ru OpenID";
 $MESS["socserv_mailru_name"] = "Мой Мир";

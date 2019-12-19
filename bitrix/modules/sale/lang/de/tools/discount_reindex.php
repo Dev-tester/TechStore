@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_RIGHTS"] = "Nicht genügend Rechte.";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_INCORRECT_SESSION"] = "Ihre Sitzung ist abgelaufen. Sie sollten das Dialogfenster schließen, sich im System einloggen und erneut versuchen.";
 $MESS["SALE_DISCOUNT_REINDEX_ERRORS_MODULE_SALE_ABSENT"] = "Das Modul \"Onlineshop\" kann nicht angeschlossen werden.";

@@ -27,7 +27,7 @@ if(isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
 					var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
 				})(window,document,'https://landing.bitrix24.ru/bitrix/js/crm/form_loader.js','B24DocGenFeedback');
 			</script>
-			<?$APPLICATION->ShowHead(); ?>
+			<?php $APPLICATION->ShowHead(); ?>
 		</head>
 		<body class="document-limit-slider">
 			<div class="pagetitle-wrap">
@@ -38,7 +38,7 @@ if(isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
 				</div>
 			</div>
 			<div class="document-limit-container">
-<?}
+<?php }
 else
 {
 	$APPLICATION->SetTitle(\Bitrix\Main\Localization\Loc::getMessage('DOCGEN_FEEDBACK_TITLE'));
@@ -51,7 +51,7 @@ else
 			var h=d.getElementsByTagName('script')[0];h.parentNode.insertBefore(s,h);
 		})(window,document,'https://landing.bitrix24.ru/bitrix/js/crm/form_loader.js','B24DocGenFeedback');
 	</script>
-	<div class="document-limit-container"><?
+	<div class="document-limit-container"><?php 
 }
 ?>
 			<div class="document-limit-inner" id="document-feedback-form">
@@ -65,9 +65,9 @@ else
 				</script>
 			</div>
 		</div>
-<?if(isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
+<?php if(isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
 {?>
 		</body>
-	</html><?
+	</html><?php 
 	\Bitrix\Main\Application::getInstance()->terminate();
 }

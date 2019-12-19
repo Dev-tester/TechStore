@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -30,27 +30,27 @@ CJSCore::Init(['sidepanel', 'access']);
 									<td class="table-blue-td-title"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_ROLE_TITLE')?></td>
 									<td class="table-blue-td-title"></td>
 								</tr>
-								<?foreach($arResult['roleAccessCodes'] as $roleAccessCode)
+								<?php foreach($arResult['roleAccessCodes'] as $roleAccessCode)
 								{?>
 									<tr data-access-code="<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>" data-role-id="<?=htmlspecialcharsbx($roleAccessCode['ROLE_ID'])?>">
 										<td class="table-blue-td-name"><?=htmlspecialcharsbx($roleAccessCode['ACCESS_PROVIDER'])?></td>
 										<td class="table-blue-td-param"><?=htmlspecialcharsbx($roleAccessCode['ACCESS_NAME'])?></td>
 										<td class="table-blue-td-select">
 											<select class="docgen-select-role table-blue-select" name="PERMS[<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>]" data-access-code="<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>">
-												<? /** @var \Bitrix\DocumentGenerator\Model\Role $role */
+												<?php  /** @var \Bitrix\DocumentGenerator\Model\Role $role */
 												foreach($arResult['roles'] as $role)
 												{?>
 													<option title="<?=htmlspecialcharsbx($role->getName())?>" value="<?=intval($role->getId())?>" <?=($role->getId() == $roleAccessCode['ROLE_ID'] ? 'selected' : '')?> data-role-id="<?=intval($role->getId());?>">
 														<?=htmlspecialcharsbx($role->getName())?>
 													</option>
-												<?}?>
+												<?php }?>
 											</select>
 										</td>
 										<td class="table-blue-td-action">
 											<span class="docgen-delete-access table-blue-delete" data-access-code="<?=htmlspecialcharsbx($roleAccessCode['ACCESS_CODE'])?>"></span>
 										</td>
 									</tr>
-								<?}?>
+								<?php }?>
 								<tr class="docgen-access-table-last-row">
 									<td colspan="4" class="table-blue-td-link">
 										<a class="docgen-add-access table-blue-link" href="javascript:void(0);"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_ADD_ACCESS')?></a>
@@ -63,7 +63,7 @@ CJSCore::Init(['sidepanel', 'access']);
 								<tr>
 									<td colspan="2" class="table-blue-td-title"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_ROLE_LIST')?>:</td>
 								</tr>
-								<?
+								<?php 
 								foreach($arResult['roles'] as $role)
 								{
 									?>
@@ -76,7 +76,7 @@ CJSCore::Init(['sidepanel', 'access']);
 											<span class="table-blue-delete docgen-delete-role" title="<?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_DELETE')?>" data-role-id="<?=htmlspecialcharsbx($role->getId())?>"></span>
 										</td>
 									</tr>
-								<?}?>
+								<?php }?>
 								<tr class="docgen-roles-table-last-row">
 									<td colspan="2" class="docgen-edit-role table-blue-td-link">
 										<a href="<?=$this->__component->getEditRoleUrl()?>" class="table-blue-link"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_ADD')?></a>
@@ -88,9 +88,9 @@ CJSCore::Init(['sidepanel', 'access']);
 				</table>
 			</div>
 		</form>
-		<?if(!$arResult['isPermissionsFeatureEnabled'])
+		<?php if(!$arResult['isPermissionsFeatureEnabled'])
 		{
-			?><div class="dcogen-roles-feature"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_FEATURE_PANEL');?></div><?
+			?><div class="dcogen-roles-feature"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_FEATURE_PANEL');?></div><?php 
 		}
 		?>
 	</div>
@@ -102,7 +102,7 @@ CJSCore::Init(['sidepanel', 'access']);
 				DOCGEN_SETTINGS_PERMS_FEATURE_TEXT: '<?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_FEATURE_TEXT');?>',
 			});
 			BX.DocumentGenerator.Perms.init(BX('docs-perms'), {isPermissionsFeatureEnabled: <?=($arResult['isPermissionsFeatureEnabled'] ? 'true' : 'false');?>});
-			<?if(!$arResult['isPermissionsFeatureEnabled'])
+			<?php if(!$arResult['isPermissionsFeatureEnabled'])
 			{
 				CBitrix24::initLicenseInfoPopupJS('documentgenerator_permissions');
 			}?>
@@ -128,7 +128,7 @@ CJSCore::Init(['sidepanel', 'access']);
 			<span class="table-blue-delete docgen-delete-role" title="<?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_DELETE')?>" data-role-id="#ID#"></span>
 		</td>
 	</script>
-<?
+<?php 
 
 $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 	'BUTTONS' => [

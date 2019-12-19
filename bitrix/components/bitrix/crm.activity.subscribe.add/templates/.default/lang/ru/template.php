@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SUBSCRIBE_ADD_TITLE"] = "Отправить письмо";
 $MESS["CRM_SUBSCRIBE_ADD_BUTTON"] = "Отправить";
 $MESS["CRM_SUBSCRIBE_TITLE"] = "Тема";

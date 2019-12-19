@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_PHOTO_LOG_GUEST"] = "Guest";
 $MESS["SONET_PHOTOPHOTO_LOG_1"] = "#AUTHOR_NAME# added a new photo \"#TITLE#\".";
 $MESS["SONET_PHOTO_ADD_COMMENT_SOURCE_ERROR"] = "Failed to add a comment to an event source.";

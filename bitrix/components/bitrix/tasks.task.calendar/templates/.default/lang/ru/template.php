@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TITLE_GROUP_TASKS"] = "Задачи группы";
 $MESS["TASKS_TITLE"] = "Задачи";
 $MESS["TASKS_TITLE_MY"] = "Мои задачи";

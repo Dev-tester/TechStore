@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TAGS_BUTTON_OK"] = "OK";
 $MESS["TAGS_BUTTON_CANCEL"] = "Cancel";
 $MESS["TAGS_BUTTON_SAVE"] = "Save Changes";

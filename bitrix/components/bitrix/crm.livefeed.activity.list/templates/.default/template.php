@@ -8,7 +8,7 @@ $itemData = array();
 $wrapperID = "{$prefix}_activities";
 
 ?><div id="<?=htmlspecialcharsbx($wrapperID)?>" class="crm-right-block"<?=empty($items) ? ' style="display:none;"' : ''?>>
-	<div class="crm-right-block-title"><?=GetMessage('CRM_ENTITY_LF_ACTIVITY_LIST_TITLE')?></div><?
+	<div class="crm-right-block-title"><?=GetMessage('CRM_ENTITY_LF_ACTIVITY_LIST_TITLE')?></div><?php 
 	foreach($items as &$item):
 		$itemID = intval($item['~ID']);
 		$typeID = isset($item['~TYPE_ID']) ? intval($item['~TYPE_ID']) : CCrmActivityType::Undefined;
@@ -72,9 +72,9 @@ $wrapperID = "{$prefix}_activities";
 		?><div class="<?=$containerClassName?>" data-entity-id="<?=$itemID?>">
 			<div class="crm-right-block-item-row">
 				<span class="crm-right-block-item-icon"></span>
-				<a class="crm-right-block-item-title-text" href="#"><?=$subject?></a><?
+				<a class="crm-right-block-item-title-text" href="#"><?=$subject?></a><?php 
 				if(!$isReadOnly):
-				?><input type="checkbox" class="crm-right-block-checkbox" /><?
+				?><input type="checkbox" class="crm-right-block-checkbox" /><?php 
 				endif;
 			?></div>
 			<div class="crm-right-block-item-row">
@@ -84,7 +84,7 @@ $wrapperID = "{$prefix}_activities";
 			<div class="crm-right-block-item-row">
 				<span class="crm-right-block-item-label"><?=$bindingInfoHtml?></span>
 			</div>
-		</div><?
+		</div><?php 
 	endforeach;
 	unset($item);
 ?></div>

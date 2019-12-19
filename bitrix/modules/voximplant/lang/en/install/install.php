@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_MODULE_NAME_2"] = "Telephony";
 $MESS["VI_MODULE_DESCRIPTION_2"] = "Provides cloud based telephony support.";
 $MESS["VI_INSTALL_TITLE_2"] = "Telephony Module Installation";

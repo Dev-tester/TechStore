@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_ACCESS_TITLE'] = "Права на доступ продукта";
 
 $MESS ['FM_FOLDER_ACCESS_DENIED'] = "Запрещен";

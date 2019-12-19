@@ -1,6 +1,6 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Фото");
-?><?$APPLICATION->IncludeComponent("bitrix:photogallery_user", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:photogallery_user", ".default", array(
 	"IBLOCK_TYPE" => "photos",
 	"IBLOCK_ID" => "#IBLOCK_ID#",
 	"SECTION_PAGE_ELEMENTS" => "20",
@@ -92,4 +92,4 @@ $APPLICATION->SetTitle("Фото");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

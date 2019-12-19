@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_STATUS_ONLINE"] = "Online";
 $MESS["IM_STATUS_MOBILE"] = "Mobile application";
 $MESS["IM_STATUS_IDLE"] = "Idle";

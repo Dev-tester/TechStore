@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_NOT_INSTALLED"] = "Модуль \"Интернет магазин\" не установлен";
 $MESS["SALE_ACCESS_DENIED"] = "Доступ запрещен";
 $MESS["SALE_EBAY_TITLE"] = "Настройки \"Ebay\"";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TYPES_NO_ACCESS"] = "User access denied";
 $MESS["TYPES_FOLDER"] = "For file or folder";
 $MESS["TYPES_UGROUPS"] = "For user group";

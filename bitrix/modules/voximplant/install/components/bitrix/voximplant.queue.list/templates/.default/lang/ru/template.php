@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_QUEUE_LIST_SELECTED"] = "Всего групп";
 $MESS["VOX_QUEUE_LIST_ADD"] = "Добавить группу";
 $MESS["VOX_QUEUE_DELETE_ERROR"] = "Ошибка удаления группы";

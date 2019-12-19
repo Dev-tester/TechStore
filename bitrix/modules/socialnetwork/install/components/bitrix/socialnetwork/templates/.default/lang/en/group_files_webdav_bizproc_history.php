@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_ACCESS_DENIED"] = "Access denied.";
 $MESS["WD_VERSIONS"] = "Versions";
 $MESS["WD_VERSIONS_ALT"] = "Open document versions";

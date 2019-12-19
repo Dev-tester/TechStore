@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_ERROR'] = "Ошибка при сохранении записи";
 $MESS ['STAT_PARAMS'] = "Параметры";
 $MESS ['STAT_PARAMS_S'] = "Параметры записи";

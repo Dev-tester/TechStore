@@ -20,12 +20,12 @@ Loc::loadMessages(__DIR__ . '/template.php');
 
 if ($arResult['ERRORS'])
 {
-	?><div class="landing-message-label error"><?
+	?><div class="landing-message-label error"><?php 
 	foreach ($arResult['ERRORS'] as $error)
 	{
 		echo $error . '<br/>';
 	}
-	?></div><?
+	?></div><?php 
 }
 if ($arResult['FATAL'])
 {
@@ -79,9 +79,9 @@ else
 	<input type="hidden" name="fields[LANDING_ID_404]" value="<?= $row['LANDING_ID_404']['CURRENT'];?>" />
 	<input type="hidden" name="fields[LANDING_ID_INDEX]" value="<?= $row['LANDING_ID_INDEX']['CURRENT'];?>" />
 	<input type="hidden" name="fields[DOMAIN_ID]" value="<?= $domainName;?>" />
-	<?if (count($arResult['LANDINGS']) == 1):?>
+	<?php if (count($arResult['LANDINGS']) == 1):?>
 		<input name="fields[LANDING_ID_INDEX]" type="hidden" value="<?= array_pop(array_keys($arResult['LANDINGS']))?>" />
-	<?endif;?>
+	<?php endif;?>
 	<?= bitrix_sessid_post();?>
 	<input type="hidden" name="fields[TITLE]" value="<?= $row['TITLE']['CURRENT'];?>" />
 
@@ -89,7 +89,7 @@ else
 		<div class="landing-form-table-wrap landing-form-table-wrap-js ui-form-inner">
 			<div class="landing-form-table-inner landing-ui-panel-content-body-content">
 				<table class="ui-form-table landing-form-table">
-				<?if (isset($hooks['SETTINGS'])):
+				<?php if (isset($hooks['SETTINGS'])):
 					$pageFields = $hooks['SETTINGS']->getPageFields();
 					foreach (\Bitrix\Landing\Hook\Page\Settings::getCodes() as $header => $codes)
 					{
@@ -100,7 +100,7 @@ else
 								<td colspan="2">
 									<?=Loc::getMessage('LANDING_TPL_HOOK_SETT_HEADER_'.strtoupper($header));?></td>
 							</tr>
-							<?
+							<?php 
 						}
 						foreach ($codes as $code)
 						{
@@ -125,10 +125,10 @@ else
 									</td>
 									<td class="ui-form-right-cell">
 										<div class="landing-form-flex-box landing-form-select-wide">
-											<?if ($field->getCode() == 'SETTINGS_SECTION_ID'):?>
+											<?php if ($field->getCode() == 'SETTINGS_SECTION_ID'):?>
 												<div id="fieldSectionId" style="width: 100%;"></div>
-												<input type="hidden" id="fieldSectionIdReal" <?
-													?>name="fields[ADDITIONAL_FIELDS][SETTINGS_SECTION_ID]" <?
+												<input type="hidden" id="fieldSectionIdReal" <?php 
+													?>name="fields[ADDITIONAL_FIELDS][SETTINGS_SECTION_ID]" <?php 
 													?>value="<?= intval($field->getValue());?>">
 												<script type="text/javascript">
 													var fieldSection = new BX.Landing.UI.Field.LinkURL({
@@ -173,29 +173,29 @@ else
 														BX.fireEvent(BX("settings_iblock_id"), "change");
 													}
 												</script>
-											<?else:?>
-												<?
+											<?php else:?>
+												<?php 
 												$field->viewForm(array(
 													'id' => 'settings_' . strtolower($code),
 													'class' => $template->getCssByType($field->getType()) . $additionalCss,
 													'name_format' => 'fields[ADDITIONAL_FIELDS][#field_code#]'
 												 ));
 												?>
-												<?if ($field->getType() == 'checkbox'):?>
+												<?php if ($field->getType() == 'checkbox'):?>
 												<label for="settings_<?= strtolower($code);?>">
 													<?= $field->getLabel();?>
 												</label>
-												<?endif;?>
-											<?endif;?>
+												<?php endif;?>
+											<?php endif;?>
 										</div>
 									</td>
 								</tr>
-								<?
+								<?php 
 							}
 						}
 					}
 				endif;?>
-				<?if (isset($hooks['SETTINGS']) && isset($pageFields['SETTINGS_AGREEMENT_ID'])):
+				<?php if (isset($hooks['SETTINGS']) && isset($pageFields['SETTINGS_AGREEMENT_ID'])):
 					$agreementId = $pageFields['SETTINGS_AGREEMENT_ID']->getValue();
 					?>
 					<tr class="landing-form-title-catalog">
@@ -215,7 +215,7 @@ else
 										<?= Loc::getMessage('LANDING_TPL_HOOK_SETT_HEADER_USERCONSENT_USE');?>
 									</label>
 									<div class="landing-form-wrapper">
-										<?$APPLICATION->IncludeComponent(
+										<?php $APPLICATION->IncludeComponent(
 											'bitrix:landing.userconsent.selector',
 											'',
 											array(
@@ -228,18 +228,18 @@ else
 							</div>
 						</td>
 					</tr>
-				<?endif;?>
+				<?php endif;?>
 				</table>
 			</div>
 		</div>
 	</div>
 
-	<div class="<?if ($request->get('IFRAME') == 'Y'){?>landing-edit-footer-fixed <?}?>pinable-block">
+	<div class="<?php if ($request->get('IFRAME') == 'Y'){?>landing-edit-footer-fixed <?php }?>pinable-block">
 		<div class="landing-form-footer-container">
 			<button id="landing-save-btn" type="submit" class="ui-btn ui-btn-success"  name="submit"  value="<?= Loc::getMessage('LANDING_TPL_BUTTON_SAVE')?>" id="" title="<?= Loc::getMessage('LANDING_TPL_BUTTON_SAVE_AND_SHOW')?>" >
 				<?= Loc::getMessage('LANDING_TPL_BUTTON_' . ($arParams['SITE_ID'] ? 'SAVE' : 'ADD'));?>
 			</button>
-			<a class="ui-btn ui-btn-md ui-btn-link"<?if ($request->get('IFRAME') == 'Y'){?> id="action-close"<?}?> href="<?= $arParams['PAGE_URL_SITES']?>" title="<?= Loc::getMessage('LANDING_TPL_BUTTON_NOT_SAVE')?>">
+			<a class="ui-btn ui-btn-md ui-btn-link"<?php if ($request->get('IFRAME') == 'Y'){?> id="action-close"<?php }?> href="<?= $arParams['PAGE_URL_SITES']?>" title="<?= Loc::getMessage('LANDING_TPL_BUTTON_NOT_SAVE')?>">
 				<?= Loc::getMessage('LANDING_TPL_BUTTON_CANCEL')?>
 			</a>
 		</div>
@@ -253,10 +253,10 @@ else
 		new BX.Landing.SaveBtn(BX('landing-save-btn'));
 		var editComponent = new BX.Landing.EditComponent();
 		top.window['landingSettingsSaved'] = false;
-		<?if ($arParams['SUCCESS_SAVE']):?>
+		<?php if ($arParams['SUCCESS_SAVE']):?>
 		top.window['landingSettingsSaved'] = true;
 		top.BX.onCustomEvent('BX.Main.Filter:apply');
 		editComponent.actionClose();
-		<?endif;?>
+		<?php endif;?>
 	});
 </script>

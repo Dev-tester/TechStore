@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTASK_LIST_EMPTY'] = "No tasks assigned.";
 $MESS ['INTASK_TASKPRIORITY'] = "Priority";
 $MESS ['INTASK_TASKSTATUS'] = "Status";

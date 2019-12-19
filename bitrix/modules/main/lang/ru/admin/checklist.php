@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CL_TAB_TEST"] = "Тест";
 $MESS["CL_TITLE_CHECKLIST"] = "Монитор качества";
 $MESS["CL_TAB_DESC"] = "Рекомендации";

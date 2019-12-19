@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CUserTypeDouble extends \Bitrix\Main\UserField\TypeBase

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAYMENT_CASHBOX_CHECK_ADD_WINDOW_TITLE"] = "Neuen Kassenzettel hinzufügen";
 $MESS["SALE_ORDER_PAYMENT"] = "Bezahlung";
 $MESS["SALE_ORDER_PAYMENT_ADD_COMPANY"] = "Die Liste aktiver Unternehmen ist leer. <a href=\"#URL#\" target=\"_blank\">Hinzufügen</a>";

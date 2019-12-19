@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:sale.basket.basket",
 	"",
 	Array(
@@ -10,4 +10,4 @@ $APPLICATION->SetTitle("");
 		"COLUMNS_LIST" => Array("NAME","PRICE","TYPE","QUANTITY","DELETE","DELAY","WEIGHT"), 
 		"SET_TITLE" => "Y" 
 	)
-);?> <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?> <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

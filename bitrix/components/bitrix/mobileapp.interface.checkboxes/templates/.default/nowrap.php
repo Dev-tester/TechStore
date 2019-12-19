@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $APPLICATION->SetAdditionalCSS(CUtil::GetAdditionalFileURL('/bitrix/js/mobileapp/interface.css'));
 $idSalt = rand();
 $arIds = array();
 ?>
 
 <div id="<?=$arResult["DOM_CONTAINER_ID"]?>">
-	<?foreach ($arParams["ITEMS"] as $value => $params):
+	<?php foreach ($arParams["ITEMS"] as $value => $params):
 		$id = '';
 		$bChecked = false;
 		$name = '';
@@ -58,7 +58,7 @@ $arIds = array();
 				</div>
 			</li>
 		</ul>
-	<?endforeach;?>
+	<?php endforeach;?>
 </div>
 
 <script type="text/javascript">
@@ -72,14 +72,14 @@ $arIds = array();
 		ownIds: <?=CUtil::PhpToJsObject($arIds)?>
 	});
 
-	<?if(isset($arParams["JS_EVENT_TAKE_CHECKBOXES_VALUES"])):?>
+	<?php if(isset($arParams["JS_EVENT_TAKE_CHECKBOXES_VALUES"])):?>
 		BX.addCustomEvent('<?=$arParams["JS_EVENT_TAKE_CHECKBOXES_VALUES"]?>',
 							function (){ checkboxControl_<?=$arResult["DOM_CONTAINER_ID"]?>.getChecked();});
-	<?endif;?>
+	<?php endif;?>
 
-	<?foreach ($arIds as $idItem):?>
+	<?php foreach ($arIds as $idItem):?>
 		checkboxControl_<?=$arResult["DOM_CONTAINER_ID"]?>.makeFastButton("<?=$idItem?>");
-	<?endforeach;?>
+	<?php endforeach;?>
 
 	BX.addCustomEvent('onMappEditEltItemClick', function (params){
 

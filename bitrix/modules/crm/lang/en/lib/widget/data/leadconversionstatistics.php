@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_CONV_STAT_PRESET_OVERALL_COUNT"] = "Number of converted leads";
 $MESS["CRM_LEAD_CONV_STAT_PRESET_CONTACT_COUNT"] = "Number of contacts obtained from leads";
 $MESS["CRM_LEAD_CONV_STAT_PRESET_COMPANY_COUNT"] = "Number of companies obtained from leads";

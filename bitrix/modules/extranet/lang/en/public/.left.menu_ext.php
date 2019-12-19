@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EXTRANET_LEFT_MENU_LIVE_FEED"] = "Activity Stream";
 $MESS["EXTRANET_LEFT_MENU_TASKS"] = "Tasks";
 $MESS["EXTRANET_LEFT_MENU_CALENDAR"] = "Calendar";

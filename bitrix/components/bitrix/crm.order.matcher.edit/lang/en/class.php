@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EMPTY_PERSON_TYPE_LIST"] = "You have to create an appropriate payer type before editing the checkout form.";
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_MODULE_NOT_INSTALLED_SALE"] = "The e-Store module is not installed.";

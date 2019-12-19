@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DSC_CPN_ERR_CODE"] = "The coupon code is incorrect.";
 $MESS["DSC_CPN_ERR_DISC"] = "The coupon discount is not specified.";
 $MESS["DSC_TITLE_UPDATE"] = "Coupon #ID#";

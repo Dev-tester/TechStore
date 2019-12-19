@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_UPLOAD_ENTITY_ID_FIELD"] = "Идентификатор задания на загрузку";
 $MESS["FILE_UPLOAD_ENTITY_TIMESTAMP_X_FIELD"] = "Время создания задания";
 $MESS["FILE_UPLOAD_ENTITY_FILE_PATH_FIELD"] = "Путь к файлу";

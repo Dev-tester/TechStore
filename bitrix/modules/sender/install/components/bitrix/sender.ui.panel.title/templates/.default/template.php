@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -21,9 +21,9 @@ if (!$isBitrix24Template)
 	{
 		?>
 		<div class="pagetitle-inner-container">
-			<?$APPLICATION->ShowViewContent('inside_pagetitle')?>
+			<?php $APPLICATION->ShowViewContent('inside_pagetitle')?>
 		</div>
-		<?
+		<?php 
 	}
 }
 $this->SetViewTarget('inside_pagetitle');
@@ -40,7 +40,7 @@ foreach ($arParams['LIST'] as $item):
 		<div class="pagetitle-container pagetitle-flexible-space">
 			<?=$item['content']?>
 		</div>
-		<?
+		<?php 
 	elseif ($item['type'] === 'buttons'):
 
 		Extension::load("ui.buttons");
@@ -48,7 +48,7 @@ foreach ($arParams['LIST'] as $item):
 
 		?>
 		<div class="pagetitle-container pagetitle-align-right-container">
-		<?
+		<?php 
 
 		foreach ($item['list'] as $button):
 			if (empty($button))
@@ -71,7 +71,7 @@ foreach ($arParams['LIST'] as $item):
 				>
 					<?=htmlspecialcharsbx($button['caption'])?>
 				</div>
-			<?
+			<?php 
 			elseif ($button['type'] == 'settings'):
 				$button['id'] = $button['id'] ?: 'sender-ui-buttons-settings';
 				$button['class'] = $button['class'] ?: 'ui-btn-light-border ui-btn-icon-setting';
@@ -106,7 +106,7 @@ foreach ($arParams['LIST'] as $item):
 					class="ui-btn ui-btn-themes <?=htmlspecialcharsbx($button['class'])?>"
 					style="<?=($button['visible'] ? '' : 'display: none;')?>"
 				><?=htmlspecialcharsbx($button['caption'])?></span>
-			<?
+			<?php 
 			elseif ($button['type'] == 'add'):
 				$button['class'] = $button['class'] ?: 'ui-btn-primary ui-btn-icon-add';
 			?>
@@ -117,7 +117,7 @@ foreach ($arParams['LIST'] as $item):
 				>
 					<?=htmlspecialcharsbx($button['caption'])?>
 				</a>
-			<?
+			<?php 
 			elseif ($button['type'] == 'abuses'):
 				if (!Integration\Bitrix24\Service::isPortal())
 				{
@@ -143,12 +143,12 @@ foreach ($arParams['LIST'] as $item):
 					href="<?=htmlspecialcharsbx($button['href'])?>"
 					onclick="BX.Sender.Page.open('<?=CUtil::JSEscape(htmlspecialcharsbx($button['href']))?>'); return false;"
 					class="ui-btn ui-btn-themes <?=htmlspecialcharsbx($button['class'])?>"
-				><?
+				><?php 
 					if ($button['counter']):
-						?><i id="sender-abuse-counter" class="ui-btn-counter"><?=htmlspecialcharsbx($button['counter'])?></i><?
+						?><i id="sender-abuse-counter" class="ui-btn-counter"><?=htmlspecialcharsbx($button['counter'])?></i><?php 
 					endif;
 				?></a>
-			<?
+			<?php 
 			elseif ($button['type'] == 'feedback'):
 				if (!Integration\Bitrix24\Service::isCloud())
 				{
@@ -168,24 +168,24 @@ foreach ($arParams['LIST'] as $item):
 						))?>);
 					})
 				</script>
-			<?
+			<?php 
 			else:
 				$button['class'] = $button['class'] ?: 'ui-btn-light-border'
 			?>
 				<a id="<?=htmlspecialcharsbx($button['id'])?>"
-					<?if($button['href']):?>href="<?=htmlspecialcharsbx($button['href'])?>"<?endif;?>
-					<?if($button['href'] && !empty($button['sliding'])):?>onclick="BX.Sender.Page.open('<?=CUtil::JSEscape(htmlspecialcharsbx($button['href']))?>'); return false;"<?endif;?>
+					<?php if($button['href']):?>href="<?=htmlspecialcharsbx($button['href'])?>"<?php endif;?>
+					<?php if($button['href'] && !empty($button['sliding'])):?>onclick="BX.Sender.Page.open('<?=CUtil::JSEscape(htmlspecialcharsbx($button['href']))?>'); return false;"<?php endif;?>
 					class="ui-btn <?=htmlspecialcharsbx($button['class'])?>"
 					style="<?=($button['visible'] ? '' : 'display: none;')?>"
 				>
 					<?=htmlspecialcharsbx($button['caption'])?>
 				</a>
-			<?
+			<?php 
 			endif;
 		endforeach;
 		?>
 		</div>
-		<?
+		<?php 
 	endif;
 
 endforeach;

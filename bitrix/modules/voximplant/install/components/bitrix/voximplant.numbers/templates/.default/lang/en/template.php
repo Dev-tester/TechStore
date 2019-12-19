@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CONFIG_NOTICE_2"] = "Select the default outgoing call number here: #LINK#";
 $MESS["VI_CONFIG_PAGE_CONFIGS"] = "Telephony settings";
 $MESS["VI_NUMBERS_APPLY"] = "Apply";

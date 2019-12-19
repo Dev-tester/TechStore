@@ -7,14 +7,14 @@ foreach(GetModuleEvents('iblock', 'OnModuleUnInstall', true) as $arEvent)
 
 ?>
 
-<? if ($ex = $APPLICATION->GetException()) { ?>
+<?php  if ($ex = $APPLICATION->GetException()) { ?>
 	<form action="<?=$APPLICATION->GetCurPage(); ?>">
-		<? $message = new CAdminMessage(GetMessage('MOD_UNINST_IMPOSSIBLE'), $ex); ?>
+		<?php  $message = new CAdminMessage(GetMessage('MOD_UNINST_IMPOSSIBLE'), $ex); ?>
 		<?=$message->show(); ?>
 		<input type="hidden" name="lang" value="<?=LANG; ?>">
 		<input type="submit" name="inst" value="<?=GetMessage('MOD_UNINST_BACK'); ?>">
 	<form>
-<? } else { ?>
+<?php  } else { ?>
 	<form action="<?=$APPLICATION->GetCurPage(); ?>">
 		<?=bitrix_sessid_post(); ?>
 		<input type="hidden" name="lang" value="<?=LANG; ?>">
@@ -26,4 +26,4 @@ foreach(GetModuleEvents('iblock', 'OnModuleUnInstall', true) as $arEvent)
 		<p><input type="checkbox" name="savedata" id="savedata" value="Y" checked><label for="savedata"><?=GetMessage('MOD_UNINST_SAVE_TABLES'); ?></label></p>
 		<input type="submit" name="inst" value="<?=GetMessage('MOD_UNINST_DEL'); ?>">
 	</form>
-<? } ?>
+<?php  } ?>

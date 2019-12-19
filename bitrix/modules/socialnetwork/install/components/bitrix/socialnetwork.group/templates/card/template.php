@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -13,13 +13,13 @@ UI\Extension::load("socialnetwork.common");
 
 if(strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	?><script>
@@ -69,7 +69,7 @@ else
 			SGCSPathToUserProfile: '<?=CUtil::JSUrlEscape($arParams["PATH_TO_USER"])?>',
 			SGCSWaitTitle: '<?=GetMessageJS("SONET_C6_CARD_WAIT")?>'
 		});
-	</script><?
+	</script><?php 
 
 	$this->SetViewTarget("sonet-slider-pagetitle", 1000);
 	$bodyClass = $APPLICATION->GetPageProperty("BodyClass");
@@ -81,19 +81,19 @@ else
 	?><div class="socialnetwork-group-content" id="socialnetwork-group-card-box">
 		<div class="socialnetwork-group-box">
 			<h2 class="socialnetwork-group-title"><?=$arResult['Group']['NAME']?></h2>
-		</div><?
+		</div><?php 
 
 		if ($arResult['Group']['DESCRIPTION'] !== '')
 		{
 			?><div class="socialnetwork-group-box">
 				<div class="socialnetwork-group-desc"><?=$arResult['Group']['DESCRIPTION']?></div>
-			</div><?
+			</div><?php 
 		}
 
 		?><div class="socialnetwork-group-box">
 			<div class="socialnetwork-group-left"><?=Loc::getMessage('SONET_C6_CREATED')?></div>
 			<div class="socialnetwork-group-right"><?=FormatDateFromDB($arResult["Group"]["DATE_CREATE"], $arParams["DATE_TIME_FORMAT"], true)?></div>
-		</div><?
+		</div><?php 
 
 		if ($arResult['Group']['PROJECT'] == 'Y')
 		{
@@ -104,13 +104,13 @@ else
 			<div class="socialnetwork-group-box">
 				<div class="socialnetwork-group-left"><?=Loc::getMessage('SONET_C6_PROJECT_DATE_FINISH')?></div>
 				<div class="socialnetwork-group-right"><?=FormatDateFromDB($arResult["Group"]["PROJECT_DATE_FINISH"], $arParams["DATE_FORMAT"], true)?></div>
-			</div><?
+			</div><?php 
 		}
 
 		?><div class="socialnetwork-group-box">
 			<div class="socialnetwork-group-left"><?=Loc::getMessage($arResult['Group']['PROJECT'] == 'Y' ? 'SONET_C6_CARD_OWNER_PROJECT' : 'SONET_C6_CARD_OWNER')?></div>
 			<div class="socialnetwork-group-right">
-				<div class="socialnetwork-group-user-box"><?
+				<div class="socialnetwork-group-user-box"><?php 
 					$owner = $arResult["Owner"];
 
 					$backgroundStyle = (
@@ -127,7 +127,7 @@ else
 		<div class="socialnetwork-group-box">
 			<div class="socialnetwork-group-left"><?=Loc::getMessage($arResult['Group']['PROJECT'] == 'Y' ? 'SONET_C6_CARD_MOD_PROJECT' : 'SONET_C6_CARD_MOD')?> (<?=intval($arResult["Group"]["NUMBER_OF_MODERATORS"])?>)</div>
 			<div class="socialnetwork-group-right">
-				<div class="socialnetwork-group-user-box"><?
+				<div class="socialnetwork-group-user-box"><?php 
 					$counter = 0;
 					if (
 						is_array($arResult["Moderators"]["List"])
@@ -148,14 +148,14 @@ else
 									: ""
 							);
 
-							?><div bx-user-id="<?=intval($moderator['USER_ID'])?>" class="socialnetwork-group-user" title="<?=$moderator["NAME_FORMATTED"]?>" style="<?=$backgroundStyle?>"></div><?
+							?><div bx-user-id="<?=intval($moderator['USER_ID'])?>" class="socialnetwork-group-user" title="<?=$moderator["NAME_FORMATTED"]?>" style="<?=$backgroundStyle?>"></div><?php 
 							$counter++;
 						}
 					}
 
 					if ($counter >= $arParams['USER_LIMIT'])
 					{
-						?><div class="socialnetwork-group-user-more">+ <?=(count($arResult["Moderators"]["List"]) - $arParams['USER_LIMIT'])?></div><?
+						?><div class="socialnetwork-group-user-more">+ <?=(count($arResult["Moderators"]["List"]) - $arParams['USER_LIMIT'])?></div><?php 
 					}
 
 				?></div>
@@ -164,7 +164,7 @@ else
 		<div class="socialnetwork-group-box">
 			<div class="socialnetwork-group-left"><?=Loc::getMessage('SONET_C6_CARD_MEMBERS')?> (<?=intval($arResult["Group"]["NUMBER_OF_MEMBERS"])?>)</div>
 			<div class="socialnetwork-group-right">
-				<div class="socialnetwork-group-user-box"><?
+				<div class="socialnetwork-group-user-box"><?php 
 					$counter = 0;
 					if (
 						is_array($arResult["Members"]["List"])
@@ -185,19 +185,19 @@ else
 								: ""
 							);
 
-							?><div bx-user-id="<?=intval($member['USER_ID'])?>" class="socialnetwork-group-user" title="<?=$member["NAME_FORMATTED"]?>" style="<?=$backgroundStyle?>"></div><?
+							?><div bx-user-id="<?=intval($member['USER_ID'])?>" class="socialnetwork-group-user" title="<?=$member["NAME_FORMATTED"]?>" style="<?=$backgroundStyle?>"></div><?php 
 							$counter++;
 						}
 					}
 
 					if ($counter >= $arParams['USER_LIMIT'])
 					{
-						?><div class="socialnetwork-group-user-more">+ <?=(count($arResult["Members"]["List"]) - $arParams['USER_LIMIT'])?></div><?
+						?><div class="socialnetwork-group-user-more">+ <?=(count($arResult["Members"]["List"]) - $arParams['USER_LIMIT'])?></div><?php 
 					}
 
 				?></div>
 			</div>
-		</div><?
+		</div><?php 
 
 		if (
 			is_array($arResult['Subjects'])
@@ -207,7 +207,7 @@ else
 			?><div class="socialnetwork-group-box">
 				<div class="socialnetwork-group-left"><?=Loc::getMessage('SONET_C6_CARD_SUBJECT')?></div>
 				<div class="socialnetwork-group-right"><?=$arResult['Group']['SUBJECT_NAME']?></div>
-			</div><?
+			</div><?php 
 		}
 
 		if (
@@ -218,19 +218,19 @@ else
 			?><div class="socialnetwork-group-box">
 				<div class="socialnetwork-group-left"><?=Loc::getMessage('SONET_C6_TAGS')?></div>
 				<div class="socialnetwork-group-right">
-					<div class="socialnetwork-group-tag-box"><?
+					<div class="socialnetwork-group-tag-box"><?php 
 						foreach($arResult["Group"]["KEYWORDS_LIST"] as $keyword)
 						{
-							?><a bx-tag-value="<?=$keyword?>" href="<?=CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_GROUP_TAG"], array('tag' => $keyword));?>" class="socialnetwork-group-tag"><?=$keyword?></a><?
+							?><a bx-tag-value="<?=$keyword?>" href="<?=CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_GROUP_TAG"], array('tag' => $keyword));?>" class="socialnetwork-group-tag"><?=$keyword?></a><?php 
 						}
 					?></div>
 				</div>
-			</div><?
+			</div><?php 
 		}
 
 		?><div
 			class="socialnetwork-group-fav-switch<?=(!empty($arResult['FAVORITES']) ? " socialnetwork-group-fav-switch-active" : "")?>"
-			title="<?=Loc::getMessage("SONET_C6_CARD_FAVORITES_".(!empty($arResult['FAVORITES']) ? "Y" : "N"))?>"></div><?
-	?></div><?
+			title="<?=Loc::getMessage("SONET_C6_CARD_FAVORITES_".(!empty($arResult['FAVORITES']) ? "Y" : "N"))?>"></div><?php 
+	?></div><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/prolog.php");
@@ -257,11 +257,11 @@ elseif($posting->LAST_ERROR!="")
 	CAdminMessage::ShowMessage($posting->LAST_ERROR);
 ?>
 
-<form method="POST" Action="<?echo $APPLICATION->GetCurPage()?>"  ENCTYPE="multipart/form-data" name="post_form">
-<?
+<form method="POST" Action="<?php echo $APPLICATION->GetCurPage()?>"  ENCTYPE="multipart/form-data" name="post_form">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //Posting issue
 //********************
@@ -270,30 +270,30 @@ $tabControl->BeginNextTab();
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("post_info")?></td>
 	</tr>
-<?if($ID>0 && !$bCopy):?>
+<?php if($ID>0 && !$bCopy):?>
 	<tr>
-		<td><?echo GetMessage("post_date_upd")?></td>
-		<td><?echo $str_TIMESTAMP_X;?></td>
+		<td><?php echo GetMessage("post_date_upd")?></td>
+		<td><?php echo $str_TIMESTAMP_X;?></td>
 	</tr>
-	<?if(strlen($str_DATE_SENT)>0):?>
+	<?php if(strlen($str_DATE_SENT)>0):?>
 	<tr>
-		<td><?echo GetMessage("post_date_sent")?></td>
-		<td><?echo $str_DATE_SENT;?></td>
+		<td><?php echo GetMessage("post_date_sent")?></td>
+		<td><?php echo $str_DATE_SENT;?></td>
 	</tr>
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 	$arEmailStatuses = CPosting::GetEmailStatuses($ID);
 	if(array_key_exists("Y", $arEmailStatuses) || array_key_exists("E", $arEmailStatuses)):?>
 	<tr>
-		<td><?echo GetMessage("POST_TO")?></td>
-		<td>[&nbsp;<a class="tablebodylink" href="javascript:void(0)" OnClick="jsUtils.OpenWindow('posting_bcc.php?ID=<?echo $str_ID?>&lang=<?echo LANG?>&find_status_id=E&set_filter=Y', 600, 500);"><?echo GetMessage("POST_SHOW_LIST")?></a>&nbsp;]</td>
+		<td><?php echo GetMessage("POST_TO")?></td>
+		<td>[&nbsp;<a class="tablebodylink" href="javascript:void(0)" OnClick="jsUtils.OpenWindow('posting_bcc.php?ID=<?php echo $str_ID?>&lang=<?php echo LANG?>&find_status_id=E&set_filter=Y', 600, 500);"><?php echo GetMessage("POST_SHOW_LIST")?></a>&nbsp;]</td>
 	</tr>
-	<?endif;?>
-<?endif; //ID?>
+	<?php endif;?>
+<?php endif; //ID?>
 	<tr>
-		<td width="40%"><?echo GetMessage("post_stat")?></td>
+		<td width="40%"><?php echo GetMessage("post_stat")?></td>
 		<td width="60%">
-<?
+<?php 
 if($ID>0 && !$bCopy)
 {
 	if($str_STATUS=="D") echo GetMessage("POST_STATUS_DRAFT");
@@ -307,65 +307,65 @@ else
 ?>
 		</td>
 	</tr>
-<?if($ID>0 && !$bCopy && $str_STATUS!="D"):?>
+<?php if($ID>0 && !$bCopy && $str_STATUS!="D"):?>
 	<tr>
-		<td><?echo GetMessage("post_status_change")?></td>
+		<td><?php echo GetMessage("post_status_change")?></td>
 		<td>
 		<select class="typeselect" name="STATUS">
-			<option value=""><?echo GetMessage("post_status_not_change")?></option>
-			<?if($str_STATUS <> "D" && $str_STATUS <> "P"):?>
-			<option value="D"><?echo GetMessage("POST_STATUS_DRAFT")?></option>
-			<?endif;?>
-			<?if($str_STATUS == "P"):?>
-			<option value="W"><?echo GetMessage("POST_STATUS_WAIT")?></option>
-			<?endif;?>
+			<option value=""><?php echo GetMessage("post_status_not_change")?></option>
+			<?php if($str_STATUS <> "D" && $str_STATUS <> "P"):?>
+			<option value="D"><?php echo GetMessage("POST_STATUS_DRAFT")?></option>
+			<?php endif;?>
+			<?php if($str_STATUS == "P"):?>
+			<option value="W"><?php echo GetMessage("POST_STATUS_WAIT")?></option>
+			<?php endif;?>
 		</select>
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_fields")?></td>
+		<td colspan="2"><?php echo GetMessage("post_fields")?></td>
 	</tr>
 	<tr class="">
-		<td><?echo GetMessage("post_fields_from")?></td>
-		<td><input type="text" name="FROM_FIELD" value="<?echo $str_FROM_FIELD;?>" size="30" maxlength="255"></td>
+		<td><?php echo GetMessage("post_fields_from")?></td>
+		<td><input type="text" name="FROM_FIELD" value="<?php echo $str_FROM_FIELD;?>" size="30" maxlength="255"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("post_fields_to")?></td>
-		<td><input type="text" name="TO_FIELD" value="<?echo $str_TO_FIELD;?>" size="30" maxlength="255"></td>
+		<td><?php echo GetMessage("post_fields_to")?></td>
+		<td><input type="text" name="TO_FIELD" value="<?php echo $str_TO_FIELD;?>" size="30" maxlength="255"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("post_fields_subj")?></td>
-		<td><input type="text" name="SUBJECT" value="<?echo $str_SUBJECT;?>" size="30" maxlength="255"></td>
+		<td><?php echo GetMessage("post_fields_subj")?></td>
+		<td><input type="text" name="SUBJECT" value="<?php echo $str_SUBJECT;?>" size="30" maxlength="255"></td>
 	</tr>
 	<tr class="heading adm-detail-required-field">
-		<td colspan="2"><?echo GetMessage("post_fields_text")?><span class="required"><sup>1</sup></span></td>
+		<td colspan="2"><?php echo GetMessage("post_fields_text")?><span class="required"><sup>1</sup></span></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-		<?
+		<?php 
 		CFileMan::AddHTMLEditorFrame("BODY", $str_BODY, "BODY_TYPE", $str_BODY_TYPE, array('height' => '400', 'width' => '100%'), "N", 0, "", "", SITE_ID);
 		?>
 		</td>
 	</tr>
-<?
+<?php 
 //********************
 //Receipients
 //********************
 $tabControl->BeginNextTab();
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_subscr")?></td>
+		<td colspan="2"><?php echo GetMessage("post_subscr")?></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("post_rub")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("post_rub")?></td>
 		<td>
 			<div class="adm-list">
 				<div class="adm-list-item">
 					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_ALL" name="RUB_ID_ALL" value="Y" OnClick="CheckAll('RUB_ID', true)"></div>
-					<div class="adm-list-label"><label for="RUB_ID_ALL"><?echo GetMessage("MAIN_ALL")?></label></div>
+					<div class="adm-list-label"><label for="RUB_ID_ALL"><?php echo GetMessage("MAIN_ALL")?></label></div>
 				</div>
-			<?
+			<?php 
 			$aPostRub = array();
 			if($ID>0)
 			{
@@ -379,36 +379,36 @@ $tabControl->BeginNextTab();
 			while($ar = $rub->GetNext()):
 			?>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_<?echo $ar["ID"]?>" name="RUB_ID[]" value="<?echo $ar["ID"]?>"<?if(in_array($ar["ID"], ($bVarsFromForm? $RUB_ID:$aPostRub))) echo " checked"?> OnClick="CheckAll('RUB_ID')"></div>
-					<div class="adm-list-label"><label for="RUB_ID_<?echo $ar["ID"]?>"><?echo "[".$ar["LID"]."] ".$ar["NAME"]?></label></div>
+					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_<?php echo $ar["ID"]?>" name="RUB_ID[]" value="<?php echo $ar["ID"]?>"<?php if(in_array($ar["ID"], ($bVarsFromForm? $RUB_ID:$aPostRub))) echo " checked"?> OnClick="CheckAll('RUB_ID')"></div>
+					<div class="adm-list-label"><label for="RUB_ID_<?php echo $ar["ID"]?>"><?php echo "[".$ar["LID"]."] ".$ar["NAME"]?></label></div>
 				</div>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</div>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("post_format")?></td>
+		<td width="40%"><?php echo GetMessage("post_format")?></td>
 		<td width="60%">
 		<select class="typeselect" name="SUBSCR_FORMAT" id="SUBSCR_FORMAT">
-			<option value=""<?if($str_SUBSCR_FORMAT=="") echo" selected"?>><?echo GetMessage("post_format_any")?></option>
-			<option value="text"<?if($str_SUBSCR_FORMAT=="text") echo" selected"?>><?echo GetMessage("post_format_text")?></option>
-			<option value="html"<?if($str_SUBSCR_FORMAT=="html") echo" selected"?>>HTML</option>
+			<option value=""<?php if($str_SUBSCR_FORMAT=="") echo" selected"?>><?php echo GetMessage("post_format_any")?></option>
+			<option value="text"<?php if($str_SUBSCR_FORMAT=="text") echo" selected"?>><?php echo GetMessage("post_format_text")?></option>
+			<option value="html"<?php if($str_SUBSCR_FORMAT=="html") echo" selected"?>>HTML</option>
 		</select>
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_users")?></td>
+		<td colspan="2"><?php echo GetMessage("post_users")?></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("post_groups")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("post_groups")?></td>
 		<td>
 			<div class="adm-list">
 				<div class="adm-list-item">
 					<div class="adm-list-control"><input type="checkbox" id="GROUP_ID_ALL" name="GROUP_ID_ALL" value="Y" OnClick="CheckAll('GROUP_ID', true)"></div>
-					<div class="adm-list-label"><label for="GROUP_ID_ALL"><?echo GetMessage("MAIN_ALL")?></label></div>
+					<div class="adm-list-label"><label for="GROUP_ID_ALL"><?php echo GetMessage("MAIN_ALL")?></label></div>
 				</div>
 
-		<?
+		<?php 
 			$aPostGrp = array();
 			if($ID>0)
 			{
@@ -422,10 +422,10 @@ $tabControl->BeginNextTab();
 			while($ar = $group->GetNext()):
 			?>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" id="GROUP_ID_<?echo $ar["ID"]?>" name="GROUP_ID[]" value="<?echo $ar["ID"]?>"<?if(in_array($ar["ID"], ($bVarsFromForm? $GROUP_ID: $aPostGrp))) echo " checked"?> OnClick="CheckAll('GROUP_ID')"></div>
-					<div class="adm-list-label"><label for="GROUP_ID_<?echo $ar["ID"]?>"><?echo $ar["NAME"]?>&nbsp;[<a href="/bitrix/admin/group_edit.php?ID=<?echo $ar["ID"]?>&amp;lang=<?echo LANGUAGE_ID?>"><?echo $ar["ID"]?></a>]</label></div>
+					<div class="adm-list-control"><input type="checkbox" id="GROUP_ID_<?php echo $ar["ID"]?>" name="GROUP_ID[]" value="<?php echo $ar["ID"]?>"<?php if(in_array($ar["ID"], ($bVarsFromForm? $GROUP_ID: $aPostGrp))) echo " checked"?> OnClick="CheckAll('GROUP_ID')"></div>
+					<div class="adm-list-label"><label for="GROUP_ID_<?php echo $ar["ID"]?>"><?php echo $ar["NAME"]?>&nbsp;[<a href="/bitrix/admin/group_edit.php?ID=<?php echo $ar["ID"]?>&amp;lang=<?php echo LANGUAGE_ID?>"><?php echo $ar["ID"]?></a>]</label></div>
 				</div>
-			<?
+			<?php 
 				$n++;
 			endwhile;
 		?>
@@ -433,11 +433,11 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_filter_title")?></td>
+		<td colspan="2"><?php echo GetMessage("post_filter_title")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("post_filter")?></td>
-		<td><input type="text" name="EMAIL_FILTER" id="EMAIL_FILTER" value="<?echo $str_EMAIL_FILTER?>" size="30" maxlength="255"></td>
+		<td><?php echo GetMessage("post_filter")?></td>
+		<td><input type="text" name="EMAIL_FILTER" id="EMAIL_FILTER" value="<?php echo $str_EMAIL_FILTER?>" size="30" maxlength="255"></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
@@ -473,7 +473,7 @@ $tabControl->BeginNextTab();
 
 			strParam += ('&SUBSCR_FORMAT='+document.post_form.SUBSCR_FORMAT[document.post_form.SUBSCR_FORMAT.selectedIndex].value);
 
-			jsUtils.OpenWindow('posting_search.php?'+strParam+'&lang=<?echo LANG?>', 600, 500);
+			jsUtils.OpenWindow('posting_search.php?'+strParam+'&lang=<?php echo LANG?>', 600, 500);
 		}
 		function CheckAll(prefix, act)
 		{
@@ -510,21 +510,21 @@ $tabControl->BeginNextTab();
 		CheckAll('RUB_ID');
 		CheckAll('GROUP_ID');
 		//-->
-		</script>[ <a class="tablebodylink" title="<?echo GetMessage("post_list_title")?>" href="javascript:ShowEMails()"><?echo GetMessage("post_filter_list")?></a> ]</td>
+		</script>[ <a class="tablebodylink" title="<?php echo GetMessage("post_list_title")?>" href="javascript:ShowEMails()"><?php echo GetMessage("post_filter_list")?></a> ]</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_additional")?></td>
+		<td colspan="2"><?php echo GetMessage("post_additional")?></td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><textarea name="BCC_FIELD" cols="50" rows="7" style="width:100%"><?echo $str_BCC_FIELD?></textarea></td>
+		<td align="center" colspan="2"><textarea name="BCC_FIELD" cols="50" rows="7" style="width:100%"><?php echo $str_BCC_FIELD?></textarea></td>
 	</tr>
-<?
+<?php 
 //********************
 //Attachments
 //********************
 $tabControl->BeginNextTab();
 ?>
-<?
+<?php 
 if(COption::GetOptionString("subscribe", "attach_images")=="Y" && $str_BODY<>"" && $str_BODY_TYPE=="html"):
 	$tools = new CMailTools;
 	$tools->ReplaceImages($post_arr["BODY"]);
@@ -535,109 +535,109 @@ if(COption::GetOptionString("subscribe", "attach_images")=="Y" && $str_BODY<>"" 
 		<td width="60%">
 			<table border="0" cellspacing="0" cellpadding="0" class="internal">
 			<tr class="heading">
-				<td align="center"><?echo GetMessage("post_file")?></td>
-				<td align="center"><?echo GetMessage("post_size")?></td>
+				<td align="center"><?php echo GetMessage("post_file")?></td>
+				<td align="center"><?php echo GetMessage("post_size")?></td>
 			</tr>
-			<?
+			<?php 
 			foreach($tools->aMatches as $attachment):
 				if(CFile::GetImageSize($attachment["PATH"], true) === false)
 					continue;
 			?>
 			<tr>
-				<td><a href="<?echo $attachment["SRC"]?>" target=_blank><?echo $attachment["DEST"]?></a></td>
-				<td align="right"><?echo filesize($attachment["PATH"])?></td>
+				<td><a href="<?php echo $attachment["SRC"]?>" target=_blank><?php echo $attachment["DEST"]?></a></td>
+				<td align="right"><?php echo filesize($attachment["PATH"])?></td>
 			</tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 			</table>
 		</td>
 	</tr>
-<?
+<?php 
 	endif;
 endif;
 ?>
-	<?if($ID > 0 && ($rsFiles = CPosting::GetFileList($ID)) && ($arFile = $rsFiles->GetNext())):?>
+	<?php if($ID > 0 && ($rsFiles = CPosting::GetFileList($ID)) && ($arFile = $rsFiles->GetNext())):?>
 	<tr>
 		<td class="adm-detail-valign-top"><?=GetMessage("post_attachments_list")?>:</td>
 		<td>
 		<table border="0" cellpadding="0" cellspacing="0" class="internal">
 		<tr class="heading">
-			<td align="center"><?echo GetMessage("post_att_file")?></td>
-			<td align="center"><?echo GetMessage("post_size")?></td>
-			<td align="center"><?echo GetMessage("post_att_delete")?></td>
+			<td align="center"><?php echo GetMessage("post_att_file")?></td>
+			<td align="center"><?php echo GetMessage("post_size")?></td>
+			<td align="center"><?php echo GetMessage("post_att_delete")?></td>
 		</tr>
-<?
+<?php 
 		do
 		{
 ?>
 			<tr>
-				<td><a href="posting_attachment.php?POSTING_ID=<?echo $ID?>&amp;FILE_ID=<?echo $arFile["ID"]?>"><?echo $arFile["ORIGINAL_NAME"]?><a></td>
-				<td align="right"><?echo $arFile["FILE_SIZE"]?></td>
+				<td><a href="posting_attachment.php?POSTING_ID=<?php echo $ID?>&amp;FILE_ID=<?php echo $arFile["ID"]?>"><?php echo $arFile["ORIGINAL_NAME"]?><a></td>
+				<td align="right"><?php echo $arFile["FILE_SIZE"]?></td>
 				<td align="center">
-					<input type="checkbox" name="FILE_ID[<?echo $arFile["ID"]?>]" value="<?echo $arFile["ID"]?>">
-					<?if($bCopy):?>
-					<input type="hidden" name="FILES[<?echo $arFile["ID"]?>]" value="<?echo $arFile["ID"]?>">
-					<?endif?>
+					<input type="checkbox" name="FILE_ID[<?php echo $arFile["ID"]?>]" value="<?php echo $arFile["ID"]?>">
+					<?php if($bCopy):?>
+					<input type="hidden" name="FILES[<?php echo $arFile["ID"]?>]" value="<?php echo $arFile["ID"]?>">
+					<?php endif?>
 				</td>
 			</tr>
-<?
+<?php 
 		} while($arFile = $rsFiles->GetNext());
 ?>
 		</table></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td class="adm-detail-valign-top"><?=GetMessage("post_attachments_load")?>:</td>
 		<td>
 			<table border="0" cellpadding="0" cellspacing="0">
-			<tr><td><?echo CFile::InputFile("NEW_FILE[n0]", 40, 0)?><br><br></td></tr>
-			<tr><td><?echo CFile::InputFile("NEW_FILE[n1]", 40, 0)?><br><br></td></tr>
-			<tr><td><?echo CFile::InputFile("NEW_FILE[n2]", 40, 0)?><br><br></td></tr>
+			<tr><td><?php echo CFile::InputFile("NEW_FILE[n0]", 40, 0)?><br><br></td></tr>
+			<tr><td><?php echo CFile::InputFile("NEW_FILE[n1]", 40, 0)?><br><br></td></tr>
+			<tr><td><?php echo CFile::InputFile("NEW_FILE[n2]", 40, 0)?><br><br></td></tr>
 			</table>
 		</td>
 	</tr>
-<?
+<?php 
 //********************
 //Parameters
 //********************
 $tabControl->BeginNextTab();
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_params")?></td>
+		<td colspan="2"><?php echo GetMessage("post_params")?></td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("post_enc")?></td>
+		<td width="40%"><?php echo GetMessage("post_enc")?></td>
 		<td width="60%">
 		<select class="typeselect" name="CHARSET">
-		<?
+		<?php 
 		$aCharset = explode(",", COption::GetOptionString("subscribe", "posting_charset"));
 		foreach($aCharset as $strCharset):
-			?><option value="<?echo htmlspecialcharsbx($strCharset)?>"<?
+			?><option value="<?php echo htmlspecialcharsbx($strCharset)?>"<?php 
 			if($ID > 0 && ToLower($post_arr["CHARSET"]) == ToLower($strCharset)) echo " selected"
-			?>><?echo htmlspecialcharsex($strCharset)?></option><?
+			?>><?php echo htmlspecialcharsex($strCharset)?></option><?php 
 		endforeach;
 		?>
 		</select>
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_send_params")?></td>
+		<td colspan="2"><?php echo GetMessage("post_send_params")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("post_direct")?></td>
+		<td><?php echo GetMessage("post_direct")?></td>
 		<td>
-			<input type="checkbox" name="DIRECT_SEND" value="Y"<?if($str_DIRECT_SEND <> "N") echo " checked"?>>
+			<input type="checkbox" name="DIRECT_SEND" value="Y"<?php if($str_DIRECT_SEND <> "N") echo " checked"?>>
 		</td>
 	</tr>
-	<?if($str_STATUS=="D" || $str_STATUS=="W"):?>
+	<?php if($str_STATUS=="D" || $str_STATUS=="W"):?>
 	<tr>
-		<td><?echo GetMessage("post_send_flag")?></td>
+		<td><?php echo GetMessage("post_send_flag")?></td>
 		<td>
-			<input type="checkbox" name="AUTO_SEND_FLAG" value="Y"<?if($str_AUTO_SEND_FLAG == "Y") echo " checked"?> OnClick="EnableAutoSend()">
+			<input type="checkbox" name="AUTO_SEND_FLAG" value="Y"<?php if($str_AUTO_SEND_FLAG == "Y") echo " checked"?> OnClick="EnableAutoSend()">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("post_send_time"). ":"?><span class="required"><sup>2</sup></span></td>
-		<td><?echo CalendarDate("AUTO_SEND_TIME", $str_AUTO_SEND_TIME, "post_form", "20")?></td>
+		<td><?php echo GetMessage("post_send_time"). ":"?><span class="required"><sup>2</sup></span></td>
+		<td><?php echo CalendarDate("AUTO_SEND_TIME", $str_AUTO_SEND_TIME, "post_form", "20")?></td>
 	</tr>
 <script language="JavaScript">
 <!--
@@ -648,22 +648,22 @@ function EnableAutoSend()
 EnableAutoSend();
 //-->
 </script>
-	<?else:
+	<?php else:
 	$str_AUTO_SEND_FLAG = strlen($str_AUTO_SEND_TIME)? "Y": "N";
 	?>
 	<tr>
-		<td><?echo GetMessage("post_send_flag")?></td>
-		<td><? echo ($str_AUTO_SEND_FLAG == "Y"?GetMessage("post_yes"):GetMessage("post_no"))?></td>
+		<td><?php echo GetMessage("post_send_flag")?></td>
+		<td><?php  echo ($str_AUTO_SEND_FLAG == "Y"?GetMessage("post_yes"):GetMessage("post_no"))?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("post_send_time"). ":"?><span class="required"><sup>2</sup></span>
-		<input type="hidden" name="AUTO_SEND_FLAG" value="<?echo $str_AUTO_SEND_FLAG?>">
-		<input type="hidden" name="AUTO_SEND_TIME" value="<?echo $str_AUTO_SEND_TIME?>">
+		<td><?php echo GetMessage("post_send_time"). ":"?><span class="required"><sup>2</sup></span>
+		<input type="hidden" name="AUTO_SEND_FLAG" value="<?php echo $str_AUTO_SEND_FLAG?>">
+		<input type="hidden" name="AUTO_SEND_TIME" value="<?php echo $str_AUTO_SEND_TIME?>">
 		</td>
-		<td><?echo $str_AUTO_SEND_TIME?></td>
+		<td><?php echo $str_AUTO_SEND_TIME?></td>
 	</tr>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>($POST_RIGHT<"W"),
@@ -672,34 +672,34 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
+<?php echo bitrix_sessid_post();?>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?if($str_STATUS=="D"):?>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input <?if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" value="<?echo GetMessage("post_butt_send")?>" name="Send" title="<?echo GetMessage("post_hint_send")?>">
-<?elseif($str_STATUS=="W"):?>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input <?if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" value="<?echo GetMessage("post_continue")?>" name="Continue" title="<?echo GetMessage("post_continue_conf")?>">
-<?elseif($str_STATUS=="E"):?>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input <?if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" value="<?echo GetMessage("post_resend")?>" name="Resend" title="<?echo GetMessage("post_resend_conf")?>">
-<?endif?>
-<?if($ID > 0):?>
-	<?if($bCopy):?>
+<?php if($str_STATUS=="D"):?>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input <?php if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" value="<?php echo GetMessage("post_butt_send")?>" name="Send" title="<?php echo GetMessage("post_hint_send")?>">
+<?php elseif($str_STATUS=="W"):?>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input <?php if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" value="<?php echo GetMessage("post_continue")?>" name="Continue" title="<?php echo GetMessage("post_continue_conf")?>">
+<?php elseif($str_STATUS=="E"):?>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input <?php if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" value="<?php echo GetMessage("post_resend")?>" name="Resend" title="<?php echo GetMessage("post_resend_conf")?>">
+<?php endif?>
+<?php if($ID > 0):?>
+	<?php if($bCopy):?>
 		<input type="hidden" name="COPY_ID" value="<?=$ID?>">
-	<?else:?>
+	<?php else:?>
 		<input type="hidden" name="ID" value="<?=$ID?>">
-	<?endif?>
-<?endif;?>
-<?
+	<?php endif?>
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("post_form", $message);
 ?>
 
-<?echo BeginNote();?>
-<span class="required"><sup>1</sup></span><?echo GetMessage("post_note")?><br>
+<?php echo BeginNote();?>
+<span class="required"><sup>1</sup></span><?php echo GetMessage("post_note")?><br>
 <br>
-<span class="required"><sup>2</sup></span><?echo GetMessage("post_send_msg")?><br>
-<?echo EndNote();?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<span class="required"><sup>2</sup></span><?php echo GetMessage("post_send_msg")?><br>
+<?php echo EndNote();?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

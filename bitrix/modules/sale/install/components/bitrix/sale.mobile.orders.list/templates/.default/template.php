@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 CJSCore::Init('ajax');
@@ -161,9 +161,9 @@ if(isset($_REQUEST['filter_name']))
 		}
 	});
 
-	<?if(isset($_GET["on_open_push"])):?>
+	<?php if(isset($_GET["on_open_push"])):?>
 		BX.ready( function(){ app.onCustomEvent('onOpenPushReadyForParams', {head: 'sl'}); });
-	<?endif;?>
+	<?php endif;?>
 
 	BX.addCustomEvent('onOpenPushReadyToSendParams', function(params) {
 		app.onCustomEvent('onOpenPushReadyForParams', {head: 'sl'});

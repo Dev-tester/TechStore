@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_INVOICE_EDIT_SAVE_BTN"] = "Save";
 $MESS["M_CRM_INVOICE_EDIT_CONTINUE_BTN"] = "Continue";
 $MESS["M_CRM_INVOICE_EDIT_CANCEL_BTN"] = "Cancel";

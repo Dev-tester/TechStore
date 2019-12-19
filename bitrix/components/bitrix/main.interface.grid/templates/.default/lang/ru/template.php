@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_check_all"] = "Отметить все/снять отметку у всех";
 $MESS["interface_grid_actions"] = "Колонка действий";
 $MESS["interface_grid_sort"] = "Сортировка:";

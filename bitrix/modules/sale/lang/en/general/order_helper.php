@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEWO_ERR_STORE_QUANTITY_NOT_EQUAL_TOTAL_QUANTITY"] = "Delivery error: the stock of \"#PRODUCT_NAME#\" at warehouses does not match the product total.";
 $MESS["NEWO_ERR_STORE_WRONG_INFO"] = "Error in fulfilling order: invalid information about \"#PRODUCT_NAME#\" in warehouse.";
 $MESS["NEWO_ERR_STORE_NO_BARCODES"] = "Delivery error: no bar codes specified for \"#PRODUCT_NAME#\" at warehouse ##STORE_ID#.";

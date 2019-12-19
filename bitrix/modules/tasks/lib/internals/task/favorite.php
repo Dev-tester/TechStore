@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Internals\Task;
 
 use Bitrix\Main\HttpApplication;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_FILTER_FIELD_MONTH_1"] = "Январь";
 $MESS["MAIN_UI_FILTER_FIELD_MONTH_2"] = "Февраль";
 $MESS["MAIN_UI_FILTER_FIELD_MONTH_3"] = "Март";

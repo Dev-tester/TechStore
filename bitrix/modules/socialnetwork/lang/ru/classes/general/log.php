@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GL_EMPTY_ENTITY_TYPE"] = "Не указан тип сущности";
 $MESS["SONET_GL_ERROR_NO_ENTITY_TYPE"] = "Тип сущности не верен";
 $MESS["SONET_GL_EMPTY_ENTITY_ID"] = "Не указан код сущности";

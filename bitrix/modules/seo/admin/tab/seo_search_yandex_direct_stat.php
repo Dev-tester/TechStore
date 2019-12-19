@@ -25,7 +25,7 @@ foreach($bannerList as $bannerId => $banner)
 	if(!$bSingle):
 ?>
 <div id="yandex_direct_banner_<?=$bannerId?>">
-<?
+<?php 
 	endif;
 ?>
 
@@ -36,21 +36,21 @@ foreach($bannerList as $bannerId => $banner)
 	</tr>
 	<tr>
 		<td valign="top">
-<?
+<?php 
 	if(!$banner['DATE_START']):
 ?>
 		<div class="seo-adv-block seo-adv-block-gray seo-adv-block-no-title">
 			<div class="seo-adv-block-icon"></div>
 			<div class="seo-adv-block-text"><?=Loc::getMessage('SEO_YANDEX_STATS_NO_START_DATE')?> <a href="/bitrix/admin/seo_yandex_direct_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$banner["CAMPAIGN_ID"]?>"><?=Loc::getMessage('SEO_YANDEX_STATS_NO_START_DATE_SET')?></a></div>
 		</div>
-<?
+<?php 
 	elseif($banner['LOADING_NEEDED']):
 ?>
 		<div class="seo-adv-block seo-adv-block-gray seo-adv-block-no-title">
 			<div class="seo-adv-block-icon"></div>
 			<div class="seo-adv-block-text" id="yandex_banner_message_<?=$banner['ID']?>"><?=Loc::getMessage('SEO_YANDEX_STATS_NO_STATS')?> <a href="javascript:void(0)" onclick="loadBannerStats('<?=$banner['ID']?>', '<?=$banner['DATE_START']->toString()?>')" class="bx-action-href" hidefocus="true"><?=Loc::getMessage('SEO_YANDEX_STATS_NO_STATS_LOAD')?></a></div>
 		</div>
-<?
+<?php 
 	else:
 		$expences = 0;
 		$currency = '';
@@ -90,7 +90,7 @@ foreach($bannerList as $bannerId => $banner)
 				<div class="seo-adv-block-title"><?=$prefix?><?=\CCurrencyLang::CurrencyFormat($profit, CurrencyManager::getBaseCurrency(), true)?></div>
 				<div class="seo-adv-block-text"><?=Loc::getMessage('SEO_YANDEX_STATS_HINT_BOTH')?></div>
 			</div>
-<?
+<?php 
 			}
 			else
 			{
@@ -103,7 +103,7 @@ foreach($bannerList as $bannerId => $banner)
 				<div class="seo-adv-block-title"><?=$prefix?><?=\CCurrencyLang::CurrencyFormat($profit, CurrencyManager::getBaseCurrency(), true)?></div>
 				<div class="seo-adv-block-text"><?=Loc::getMessage('SEO_YANDEX_STATS_HINT_GROSS')?></div>
 			</div>
-<?
+<?php 
 				$color = $expences > 0 ? 'red' : 'gray';
 				$prefix = $expences > 0 ? '&ndash;&nbsp;' : '';
 				$text = CCurrencyLang::CurrencyFormat($expences, CurrencyManager::getBaseCurrency(), false);
@@ -125,7 +125,7 @@ foreach($bannerList as $bannerId => $banner)
 				<div class="seo-adv-block-title"><?=$prefix?><?=$text?></div>
 				<div class="seo-adv-block-text"><?=Loc::getMessage('SEO_YANDEX_STATS_HINT_EXPENCES')?></div>
 			</div>
-<?
+<?php 
 			}
 		}
 	endif;
@@ -133,7 +133,7 @@ foreach($bannerList as $bannerId => $banner)
 		</td>
 		<td valign="top">
 
-<?
+<?php 
 	$bannerInfo = $banner;
 	require("seo_search_yandex_direct_banner.php");
 ?>
@@ -141,20 +141,20 @@ foreach($bannerList as $bannerId => $banner)
 	</tr>
 	<tr>
 		<td valign="top" style="position: relative;">
-<?
+<?php 
 if($banner['SETTINGS']['StatusBannerModerate'] != Engine\YandexDirect::STATUS_NEW)
 {
 	if($banner['SETTINGS']['StatusShow'] == Engine\YandexDirect::BOOL_YES)
 	{
 ?>
 			<input type="button" value="<?=Loc::getMessage("SEO_BANNER_STOP")?>" onclick="stopBanner(<?=$campaign['ID']?>, <?=$banner['ID']?>)" id="yandex_direct_action_button_<?=$banner['ID']?>"><br /><br />
-<?
+<?php 
 	}
 	else
 	{
 ?>
 			<input type="button" value="<?=Loc::getMessage("SEO_BANNER_RESUME")?>" onclick="resumeBanner(<?=$campaign['ID']?>, <?=$banner['ID']?>)" id="yandex_direct_action_button_<?=$banner['ID']?>"><br /><br />
-<?
+<?php 
 	}
 }
 ?>
@@ -163,7 +163,7 @@ if($banner['SETTINGS']['StatusBannerModerate'] != Engine\YandexDirect::STATUS_NE
 			</div>
 		</td>
 		<td valign="top">
-<?
+<?php 
 	$activeCampaign = 'grey';
 	$activeCampaignTitle = $campaign['SETTINGS']['Status'];
 
@@ -255,10 +255,10 @@ if($banner['SETTINGS']['StatusBannerModerate'] != Engine\YandexDirect::STATUS_NE
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 	if(!$bSingle):
 ?>
 </div>
-<?
+<?php 
 	endif;
 }

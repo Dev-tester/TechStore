@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSecuritySession
 {
 	const GC_AGENT_NAME = "CSecuritySession::CleanUpAgent();";

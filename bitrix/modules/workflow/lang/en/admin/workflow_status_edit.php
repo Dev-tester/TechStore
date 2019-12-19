@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLOW_EDIT_RECORD'] = "Preferences for status ";
 $MESS ['FLOW_NEW_RECORD'] = "New status";
 $MESS ['FLOW_RECORDS_LIST'] = "List of statuses";

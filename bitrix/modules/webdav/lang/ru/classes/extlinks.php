@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_EXT_LINKS_DIALOG_TITLE"] = "Открыть общий доступ к файлу";
 $MESS["WD_EXT_LINKS_DIALOG_CLOSE_BUTTON"] = "Закрыть";
 $MESS["WD_EXT_LINKS_DIALOG_LOADING"] = "Загрузка...";

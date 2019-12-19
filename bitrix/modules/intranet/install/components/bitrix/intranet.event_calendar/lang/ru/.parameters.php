@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EC_GROUP_BASE_SETTINGS'] = "Основные настройки";
 $MESS ['EC_GROUP_SUPERPOSE'] = "Настройки избранных календарей";
 $MESS ['EC_GROUP_RESERVE_MEETING'] = "Настройки бронирования переговорных";

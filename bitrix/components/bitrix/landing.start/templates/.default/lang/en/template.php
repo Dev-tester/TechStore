@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_ROLES_UNAVAILABLE"] = "<p>Your current plan does not support extended permissions.</p>
 <p>With extended access permissions, you can assign employees to edit and/or publish content, and make the Sites area in the left menu available or unavailable to them.</p> 
 <p>Please upgrade to one of the <a href=\"/settings/license_all.php\" target=\"_blank\">selected commercial plans</a> to edit access permissions.</p>";

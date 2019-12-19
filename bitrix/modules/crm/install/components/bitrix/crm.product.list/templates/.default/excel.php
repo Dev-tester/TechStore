@@ -30,10 +30,10 @@ else
 
 	if (!$isStExport || $isStExportFirstPage)
 	{
-		?><meta http-equiv="Content-type" content="text/html;charset=<?echo LANG_CHARSET?>" />
+		?><meta http-equiv="Content-type" content="text/html;charset=<?php echo LANG_CHARSET?>" />
 		<table border="1">
 		<thead>
-			<tr><?
+			<tr><?php 
 			// Display headers
 			foreach($arResult['SELECTED_HEADERS'] as $headerId)
 			{
@@ -51,37 +51,37 @@ else
 										'CRM_PRODUCT_EXP_COLUMN_SECTION_ID',
 										['#LEVEL_NUM#' => $pathIndex]
 									);
-									?><th><?=htmlspecialcharsbx($columnTitle)?></th><?
+									?><th><?=htmlspecialcharsbx($columnTitle)?></th><?php 
 									unset($columnTitle);
 								}
 								unset($pathIndex);
 							}
 							break;
 						default:
-							?><th><?=$arHead['name']?></th><?
+							?><th><?=$arHead['name']?></th><?php 
 
 					}
 
 					switch ($headerId)
 					{
 						case 'PRICE':
-							?><th><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_EXP_COLUMN_CURRENCY_ID'))?></th><?
+							?><th><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_EXP_COLUMN_CURRENCY_ID'))?></th><?php 
 							break;
 						case 'DESCRIPTION':
-							?><th><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_EXP_COLUMN_DESCRIPTION_TYPE'))?></th><?
+							?><th><?=htmlspecialcharsbx(GetMessage('CRM_PRODUCT_EXP_COLUMN_DESCRIPTION_TYPE'))?></th><?php 
 							break;
 					}
 				}
 			}
 		?></tr>
 		</thead>
-		<tbody><?
+		<tbody><?php 
 	}
 
 	// Display data
 	foreach ($arResult['PRODUCTS'] as $productId => $arProduct)
 	{
-		?><tr><?
+		?><tr><?php 
 		$additionalRowsCount = 0;
 		$additionalRows = [];
 		$productIdIndex = $colIndex = 1;
@@ -161,7 +161,7 @@ else
 					default:
 						$value = htmlspecialcharsbx($value);
 				}
-				?><td><?=$value?></td><?
+				?><td><?=$value?></td><?php 
 				$colIndex++;
 				unset($propertyInfo, $propertyType);
 			}
@@ -175,7 +175,7 @@ else
 						{
 							$value = $arResult['MEASURE_LIST_ITEMS'][$arProduct[$headerId]];
 						}
-						?><td><?=htmlspecialcharsbx($value)?></td><?
+						?><td><?=htmlspecialcharsbx($value)?></td><?php 
 
 						$colIndex++;
 						break;
@@ -191,7 +191,7 @@ else
 								{
 									$value = $arProduct['SECTION_PATH'][$pathIndex]['NAME'];
 								}
-								?><td><?=htmlspecialcharsbx($value)?></td><?
+								?><td><?=htmlspecialcharsbx($value)?></td><?php 
 								$colIndex++;
 							}
 							unset($pathIndex);
@@ -208,13 +208,13 @@ else
 							}
 						}
 						unset($vatId);
-						?><td><?=htmlspecialcharsbx($value)?></td><?
+						?><td><?=htmlspecialcharsbx($value)?></td><?php 
 						$colIndex++;
 						break;
 					case 'VAT_INCLUDED':
 					case 'ACTIVE':
 						$value = $arProduct[$headerId] === 'Y' ? GetMessage('MAIN_YES') : GetMessage('MAIN_NO');
-						?><td><?=htmlspecialcharsbx($value)?></td><?
+						?><td><?=htmlspecialcharsbx($value)?></td><?php 
 						$colIndex++;
 						break;
 					case 'PREVIEW_PICTURE':
@@ -231,7 +231,7 @@ else
 							);
 							unset($productFile);
 						}
-						?><td><?=htmlspecialcharsbx(htmlspecialcharsbx($value))?></td><?
+						?><td><?=htmlspecialcharsbx(htmlspecialcharsbx($value))?></td><?php 
 						$colIndex++;
 						break;
 					default:
@@ -244,7 +244,7 @@ else
 							{
 								$value = strval($arProduct[$headerId]);
 							}
-							?><td><?=$value?></td><?
+							?><td><?=$value?></td><?php 
 							$colIndex++;
 						}
 				}
@@ -253,12 +253,12 @@ else
 				{
 					case 'PRICE':
 						$value = CCrmCurrency::GetCurrencyName($arProduct['CURRENCY_ID']);
-						?><td><?=htmlspecialcharsbx($value)?></td><?
+						?><td><?=htmlspecialcharsbx($value)?></td><?php 
 						$colIndex++;
 						break;
 					case 'DESCRIPTION':
 						$value = $arProduct['DESCRIPTION_TYPE'];
-						?><td><?=htmlspecialcharsbx($value)?></td><?
+						?><td><?=htmlspecialcharsbx($value)?></td><?php 
 						$colIndex++;
 						break;
 				}
@@ -271,16 +271,16 @@ else
 		{
 			foreach ($additionalRows as $row)
 			{
-				?></tr><tr><?
+				?></tr><tr><?php 
 				$prevColIndex = 1;
 				foreach ($row as $colIndex => $value)
 				{
 					$emptyColumns = $colIndex - $prevColIndex - 1;
 					for ($i = 0; $i < $emptyColumns; $i++)
 					{
-						?><td></td><?
+						?><td></td><?php 
 					}
-					?><td><?=$value?></td><?
+					?><td><?=$value?></td><?php 
 
 					$prevColIndex = $colIndex;
 				}
@@ -290,15 +290,15 @@ else
 					$emptyColumns = $columnsNumber - $colIndex;
 					for ($i = 0; $i < $emptyColumns; $i++)
 					{
-						?><td></td><?
+						?><td></td><?php 
 					}
 				}
 			}
 		}
-		?></tr><?
+		?></tr><?php 
 	}
 	if (!$isStExport || $isStExportLastPage)
 	{
-		?></tbody></table><?
+		?></tbody></table><?php 
 	}
 }

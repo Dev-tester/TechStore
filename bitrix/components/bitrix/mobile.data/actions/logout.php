@@ -1,4 +1,4 @@
-<?if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $data = Array(
 	"logout_status" => "success",

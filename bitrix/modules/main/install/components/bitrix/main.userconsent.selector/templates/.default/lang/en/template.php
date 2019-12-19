@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_SELECTOR_DEF_NOT_SELECTED"] = "(not selected)";
 $MESS["MAIN_USER_CONSENT_SELECTOR_BTN_EDIT"] = "Edit settings";
 $MESS["MAIN_USER_CONSENT_SELECTOR_BTN_CREATE"] = "Create new Consent";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BXU_AccessDenied"] = "Insufficient permissions for upload folder. Please contact your administrator.";
 $MESS["BXU_EmptyData"] = "Empty data";
 $MESS["BXU_FileIsBlockedByOtherProcess"] = "The file is locked by another process.";

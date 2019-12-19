@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_QUOTE_NOT_FOUND"] = "Quote was not found.";
 $MESS["CRM_QUOTE_CREATION_PAGE_TITLE"] = "Create Quote";

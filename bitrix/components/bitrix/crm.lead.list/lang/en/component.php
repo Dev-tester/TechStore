@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SET_STATUS_NOT_COMPLETED_TITLE"] = "Cannot move leads";
 $MESS["CRM_SET_STATUS_NOT_COMPLETED_TEXT"] = "Some of the leads cannot be moved to the selected status. Please complete the required fields and try again.";
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";

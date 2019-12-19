@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 /** @var CBitrixComponentTemplate $this */
@@ -7,7 +7,7 @@ $this->IncludeLangFile('template.php');
 ?>
 <html>
 <head>
-	<meta http-equiv="Content-type" content="text/html;charset=<?echo LANG_CHARSET?>" />
+	<meta http-equiv="Content-type" content="text/html;charset=<?php echo LANG_CHARSET?>" />
 <?php if ($arResult['groupingMode'] === true): // style for grouping mode ?>
 	<style type="text/css">
 		.reports-grouping-table {border-collapse: collapse;}
@@ -474,15 +474,15 @@ unset($arGroupingResult);
 <table border="1">
 	<thead>
 		<tr>
-			<? foreach($arResult['viewColumns'] as $colId => $col): ?>
+			<?php  foreach($arResult['viewColumns'] as $colId => $col): ?>
 				<th><?=htmlspecialcharsbx($col['humanTitle'])?></th>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</tr>
 	</thead>
 	<tbody>
-		<? foreach ($arResult['data'] as $row): ?>
+		<?php  foreach ($arResult['data'] as $row): ?>
 			<tr>
-				<? foreach($arResult['viewColumns'] as $col): ?>
+				<?php  foreach($arResult['viewColumns'] as $col): ?>
 				<?php
 					$td_class = '';
 					if ($arResult['settings']['red_neg_vals'] === true)
@@ -492,9 +492,9 @@ unset($arGroupingResult);
 					}
 				?>
 					<td<?=$td_class?>><?=$row[$col['resultName']]?></td>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 			</tr>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</tbody>
 </table>
 

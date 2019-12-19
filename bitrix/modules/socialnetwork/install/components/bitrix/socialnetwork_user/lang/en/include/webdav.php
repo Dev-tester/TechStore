@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_FILES"] = "Drive";
 $MESS["SONET_FILES_IS_NOT_ACTIVE"] = "The \"Drive\" feature is not enabled.";
 $MESS["SONET_WD_MODULE_IS_NOT_INSTALLED"] = "The Document Library module is not installed..";

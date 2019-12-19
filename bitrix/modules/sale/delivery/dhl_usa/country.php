@@ -1,4 +1,4 @@
-<?
+<?php 
 $arDHLUSACountryList = array(
 	"AFGHANISTAN" => "AF",
 	"ALBANIA" => "AL",

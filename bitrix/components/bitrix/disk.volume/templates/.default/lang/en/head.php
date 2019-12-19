@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VOLUME_ADMIN_MODE"] = "Admin mode";
 $MESS["DISK_VOLUME_ADMIN_MODE_COMMENT"] = "You are now in administrator mode. You can view and delete restricted data.";
 $MESS["DISK_VOLUME_ADMIN_MODE_EXIT"] = "Exit Admin mode";

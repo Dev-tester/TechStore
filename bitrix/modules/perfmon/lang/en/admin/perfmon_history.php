@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_HIST_TITLE"] = "Performance Score History";
 $MESS["PERFMON_HIST_ACCELERATOR_ENABLED"] = "Web Accelerator";
 $MESS["PERFMON_HIST_ID"] = "ID";

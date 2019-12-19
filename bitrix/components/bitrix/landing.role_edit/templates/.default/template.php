@@ -24,7 +24,7 @@ if ($arResult['EXTENDED'])
 			<?=Loc::getMessage('LANDING_TPL_BUTTON_MODE_TO_ROLE');?>
 		</button>
 	</form>
-	<?
+	<?php 
 	return;
 }
 
@@ -35,12 +35,12 @@ $row = $arResult['ROLE'];
 // show errors
 if ($arResult['ERRORS'])
 {
-	?><div class="landing-message-label error"><?
+	?><div class="landing-message-label error"><?php 
 	foreach ($arResult['ERRORS'] as $error)
 	{
 		echo $error . '<br/>';
 	}
-	?></div><?
+	?></div><?php 
 }
 if ($arResult['FATAL'])
 {
@@ -151,7 +151,7 @@ unset($site);
 			</th>
 			<th class="table-blue-td-title"></th>
 		</tr>
-		<?foreach ($arResult['ADDITIONAL'] as $code => $title):
+		<?php foreach ($arResult['ADDITIONAL'] as $code => $title):
 			$notChecked = ! (
 								!is_array($row['ADDITIONAL_RIGHTS']['CURRENT']) ||
 					   			in_array($code, $row['ADDITIONAL_RIGHTS']['CURRENT'])
@@ -173,8 +173,8 @@ unset($site);
 					</select>
 				</td>
 			</tr>
-		<?endforeach;?>
-		<?
+		<?php endforeach;?>
+		<?php 
 		echo $drawTr(
 			0,
 			$arResult['RIGHTS'][0],
@@ -195,10 +195,10 @@ unset($site);
 		</tbody>
 	</table>
 
-	<?if ($arResult['SITES']):?>
+	<?php if ($arResult['SITES']):?>
 	<div style="padding: 20px 0 20px 0;">
-		<span class="landing-role-add" <?
-			?>id="landing-role-add" <?
+		<span class="landing-role-add" <?php 
+			?>id="landing-role-add" <?php 
 			?>onclick="showSiteMenu(
 				this,
 				<?= \CUtil::phpToJSObject($arResult['SITES']);?>,
@@ -209,7 +209,7 @@ unset($site);
 			<?= Loc::getMessage('LANDING_TPL_ADD_FOR_SITE');?>
 		</span>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<div class="pinable-block">
 		<div class="landing-form-footer-container">

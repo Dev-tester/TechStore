@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var CBitrixComponent $this */
 /** @var array $arParams */
@@ -41,14 +41,14 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 {
 	?><div class="forum-note-box forum-note-error">
 		<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
-	</div><?
+	</div><?php 
 }
 
 if (!empty($arResult["OK_MESSAGE"]))
 {
 	?><div class="forum-note-box forum-note-success">
 		<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
-	</div><?
+	</div><?php 
 }
 
 $bShowedHeader = false;
@@ -56,9 +56,9 @@ if (!empty($arResult["MESSAGE_FIRST"]))
 {
 	$bShowedHeader = true;
 
-	?><!--MSG_START--><?
-	?><div><?
-		?><div class="forum-header-box"><?
+	?><!--MSG_START--><?php 
+	?><div><?php 
+		?><div class="forum-header-box"><?php 
 
 			if ($USER->IsAuthorized())
 			{
@@ -67,30 +67,30 @@ if (!empty($arResult["MESSAGE_FIRST"]))
 						<a href="#postform" onclick="return ShowFirstPost(this);"><?=(
 						$arUserSettings["first_post"] == "show" ? GetMessage("F_COLLAPSE") : GetMessage("F_SHOW"))?></a>
 					</span>
-				</div><?
+				</div><?php 
 			}
 
-			?><div class="forum-header-title"><span><?
+			?><div class="forum-header-title"><span><?php 
 				if ($arResult["TOPIC"]["STATE"] != "Y")
 				{
-					?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span> ]</span> <?
+					?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span> ]</span> <?php 
 				}
-				?><?=trim($arResult["TOPIC"]["TITLE"])?><?
+				?><?=trim($arResult["TOPIC"]["TITLE"])?><?php 
 				if (!empty($arResult["TOPIC"]["DESCRIPTION"]))
 				{
-					?>, <?=trim($arResult["TOPIC"]["DESCRIPTION"])?><?
+					?>, <?=trim($arResult["TOPIC"]["DESCRIPTION"])?><?php 
 				}
-			?></span></div><?
-		?></div><?
+			?></span></div><?php 
+		?></div><?php 
 
-		?><div class="forum-block-container forum-first-post"><?
-			?><div class="forum-block-outer" style="position:relative;width:100%;<?
+		?><div class="forum-block-container forum-first-post"><?php 
+			?><div class="forum-block-outer" style="position:relative;width:100%;<?php 
 				if($arUserSettings["first_post"] != "show")
 				{
-					?>display:none;<?
+					?>display:none;<?php 
 				}
 				?>">
-				<div class="forum-block-inner"><?
+				<div class="forum-block-inner"><?php 
 					__forum_default_template_show_message(
 						array($arResult["MESSAGE_FIRST"] + array("SHOW_CONTROL" => "N")),
 						$message,
@@ -100,9 +100,9 @@ if (!empty($arResult["MESSAGE_FIRST"]))
 					?><span class="forum-block-inner-end"></span>
 				</div>
 			</div>
-		</div><?
-	?></div><?
-	?><!--MSG_START_END--><?
+		</div><?php 
+	?></div><?php 
+	?><!--MSG_START_END--><?php 
 }
 
 if (
@@ -113,44 +113,44 @@ if (
 	?><div class="forum-navigation-box forum-navigation-top">
 		<div class="forum-page-navigation">
 			<?=$arResult["NAV_STRING"]?>
-		</div><?
+		</div><?php 
 
 		if ($arResult["USER"]["RIGHTS"]["ADD_MESSAGE"] == "Y")
 		{
 			?><div class="forum-new-post">
 				<a href="#postform" onclick="return fReplyForm();"><span><?=GetMessage("F_REPLY")?></span></a>
-			</div><?
+			</div><?php 
 		}
 		?><div class="forum-clear-float"></div>
-	</div><?
+	</div><?php 
 }
 
 ?><div class="forum-header-box">
 	<div class="forum-header-title">
-		<span><?
+		<span><?php 
 			if (!$bShowedHeader)
 			{
 				if ($arResult["TOPIC"]["STATE"] != "Y")
 				{
-					?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span> ]</span> <?
+					?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span> ]</span> <?php 
 				}
-				?><?=trim($arResult["TOPIC"]["TITLE"])?><?
+				?><?=trim($arResult["TOPIC"]["TITLE"])?><?php 
 				if (!empty($arResult["TOPIC"]["DESCRIPTION"]))
 				{
-					?>, <?=trim($arResult["TOPIC"]["DESCRIPTION"])?><?
+					?>, <?=trim($arResult["TOPIC"]["DESCRIPTION"])?><?php 
 				}
 			}
 			else
 			{
-				?><?=GetMessage("F_POSTS")?><?
+				?><?=GetMessage("F_POSTS")?><?php 
 			}
 		?></span>
 	</div>
 </div>
 <div class="forum-block-container" id="forum-block-container-<?=$arResult["TOPIC"]["ID"]?>">
 	<div class="forum-block-outer">
-		<!--FORUM_INNER--><?
-		?><div class="forum-block-inner"><?
+		<!--FORUM_INNER--><?php 
+		?><div class="forum-block-inner"><?php 
 		if (!empty($arResult["MESSAGE_LIST"]))
 		{
 			__forum_default_template_show_message($arResult["MESSAGE_LIST"], $message, $arResult, $arParams, $this);
@@ -158,7 +158,7 @@ if (
 			?><tfoot>
 				<tr>
 					<td colspan="5" class="forum-column-footer">
-						<div class="forum-footer-inner"><?
+						<div class="forum-footer-inner"><?php 
 							if ($arResult["USER"]["RIGHTS"]["MODERATE"] == "Y")
 							{
 								?><form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" onsubmit="return Validate(this)" name="MESSAGES_<?=$iIndex?>" id="MESSAGES_<?=$iIndex?>">
@@ -171,16 +171,16 @@ if (
 											<option value=""><?=GetMessage("F_MANAGE_MESSAGES")?></option>
 											<option value="HIDE"><?=GetMessage("F_HIDE_MESSAGES")?></option>
 											<option value="SHOW"><?=GetMessage("F_SHOW_MESSAGES")?></option>
-											<?
+											<?php 
 											if ($arResult["USER"]["RIGHTS"]["EDIT"] == "Y")
 											{
-												?><option value="DEL"><?=GetMessage("F_DELETE_MESSAGES")?></option><?
+												?><option value="DEL"><?=GetMessage("F_DELETE_MESSAGES")?></option><?php 
 											}
 											?>
 										</select>&nbsp;<input type="submit" value="OK" />
 									</div>
 								</form>
-								<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?
+								<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?php 
 									?>onsubmit="return Validate(this)" name="TOPIC_<?=$iIndex?>" id="TOPIC_<?=$iIndex?>">
 									<div class="forum-topic-moderate">
 									<?=bitrix_sessid_post()?>
@@ -190,41 +190,41 @@ if (
 
 									<select name="ACTION">
 										<option value=""><?=GetMessage("F_MANAGE_TOPIC")?></option>
-										<option value="<?=($arResult["TOPIC"]["APPROVED"] == "Y" ? "HIDE_TOPIC" : "SHOW_TOPIC")?>"><?
+										<option value="<?=($arResult["TOPIC"]["APPROVED"] == "Y" ? "HIDE_TOPIC" : "SHOW_TOPIC")?>"><?php 
 										?><?=($arResult["TOPIC"]["APPROVED"] == "Y" ? GetMessage("F_HIDE_TOPIC") : GetMessage("F_SHOW_TOPIC"))?></option>
-										<option value="<?=($arResult["TOPIC"]["SORT"] != 150 ? "SET_ORDINARY" : "SET_TOP")?>"><?
+										<option value="<?=($arResult["TOPIC"]["SORT"] != 150 ? "SET_ORDINARY" : "SET_TOP")?>"><?php 
 										?><?=($arResult["TOPIC"]["SORT"] != 150 ? GetMessage("F_UNPINN_TOPIC") : GetMessage("F_PINN_TOPIC"))?></option>
-										<option value="<?=($arResult["TOPIC"]["STATE"] == "Y" ? "STATE_N" : "STATE_Y")?>"><?
+										<option value="<?=($arResult["TOPIC"]["STATE"] == "Y" ? "STATE_N" : "STATE_Y")?>"><?php 
 										?><?=($arResult["TOPIC"]["STATE"] == "Y" ? GetMessage("F_CLOSE_TOPIC") : GetMessage("F_OPEN_TOPIC"))?></option>
-										<?
+										<?php 
 										if ($arResult["USER"]["RIGHTS"]["EDIT"] == "Y")
 										{
 											?>
 											<option value="EDIT_TOPIC"><?=GetMessage("F_EDIT_TOPIC")?></option>
 											<option value="DEL_TOPIC"><?=GetMessage("F_DELETE_TOPIC")?></option>
-											<?
+											<?php 
 										}
 										?>
 									</select>&nbsp;<input type="submit" value="OK" />
 									</div>
-								</form><?
+								</form><?php 
 							}
 							else
 							{
-								?>&nbsp;<?
+								?>&nbsp;<?php 
 							}
 						?></div>
 					</td>
 				</tr>
-			</tfoot><?
+			</tfoot><?php 
 			$lastMessage = end($arResult['MESSAGE_LIST']);
-			?></table><!--MSG_END_<?=$lastMessage['ID']?>--><?
+			?></table><!--MSG_END_<?=$lastMessage['ID']?>--><?php 
 		}
 		?></div>
 		<span class="forum-block-inner-end"></span>
 		<!--FORUM_INNER_END-->
 	</div>
-</div><?
+</div><?php 
 
 if (
 	$arResult["NAV_RESULT"]
@@ -234,30 +234,30 @@ if (
 	?><div class="forum-navigation-box forum-navigation-bottom">
 		<div class="forum-page-navigation">
 			<?=$arResult["NAV_STRING"]?>
-		</div><?
+		</div><?php 
 
 		if ($arResult["USER"]["RIGHTS"]["ADD_MESSAGE"] == "Y")
 		{
 			?><div class="forum-new-post">
 				<a href="#postform" onclick="return fReplyForm();"><span><?=GetMessage("F_REPLY")?></span></a>
-			</div><?
+			</div><?php 
 		}
 		?><div class="forum-clear-float"></div>
-	</div><?
+	</div><?php 
 }
 
 if (!empty($arResult["ERROR_MESSAGE"]))
 {
 	?><div class="forum-note-box forum-note-error">
 		<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
-	</div><?
+	</div><?php 
 }
 
 if (!empty($arResult["OK_MESSAGE"]))
 {
 	?><div class="forum-note-box forum-note-success">
 		<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
-	</div><?
+	</div><?php 
 }
 
 // View new posts
@@ -286,12 +286,12 @@ if ($arResult["VIEW"] == "Y")
 			function(node){ return BX.type.isElementNode(node) && (node.getAttribute('data-bx-viewer') || node.getAttribute('data-bx-image')); }
 		);
 	});
-	<?
+	<?php 
 	if (intVal($arParams["MID"]) > 0)
 	{
 		?>
 		location.hash = 'message<?=$arParams["MID"]?>';
-		<?
+		<?php 
 	}
 	?>
 	if (typeof oText != "object")
@@ -323,7 +323,7 @@ if ($arResult["VIEW"] == "Y")
 
 	oForum.page_number = <?=intval($arResult['PAGE_NUMBER']);?>;
 	oForum.topic_read_url = '<?=CUtil::JSUrlEscape($arResult['CURRENT_PAGE']);?>';
-	<?
+	<?php 
 	if (
 		$USER->isAuthorized()
 		&& $bShowedHeader
@@ -381,6 +381,6 @@ if ($arResult["VIEW"] == "Y")
 			);
 			return false;
 		}
-		<?
+		<?php 
 	}
 ?></script>

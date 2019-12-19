@@ -1,4 +1,4 @@
-<?
+<?php 
 
 if(!CModule::IncludeModule('iblock'))
 	return false;

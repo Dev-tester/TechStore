@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ORDER_PAYMENT_ADD"] = "Добавить оплату";
 $MESS["ORDER_PAYMENT_ADD_TITLE"] = "Добавить оплату";
 $MESS["ORDER_PAYMENT_DELETE"] = "Удалить оплату";

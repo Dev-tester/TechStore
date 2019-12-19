@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 
@@ -11,7 +11,7 @@ Loc::loadMessages(__FILE__);
 	<td width="40%"><?=Loc::getMessage('SALE_LOCATION_MAP_LOC_MAPPED')?>:</td>
 	<td width="60%"  id="b_sale_hndl_dlv_add_loc_ecount"><?=$arResult['SERVICE_LOCATIONS_COUNT']?></td>
 </tr>
-<?if(intval($arResult['SERVICE_LOCATIONS_COUNT']) > 0):?>
+<?php if(intval($arResult['SERVICE_LOCATIONS_COUNT']) > 0):?>
 	<tr>
 		<td width="40%"><?=Loc::getMessage('SALE_LOCATION_MAP_NEW')?></td>
 		<td>
@@ -24,14 +24,14 @@ Loc::loadMessages(__FILE__);
 			<input type="button" value="<?=Loc::getMessage('SALE_LOCATION_MAP_ALL_B')?>" onclick="BX.Sale.Location.Map.startLocationsCompare(true);">
 		</td>
 	</tr>
-<?else:?>
+<?php else:?>
 	<tr>
 		<td width="40%">&nbsp;</td>
 		<td>
 			<input type="button" value="<?=Loc::getMessage('SALE_DLV_SRV_SPSR_LOC_MAP')?>" onclick="BX.Sale.Location.Map.startLocationsCompare(false);">
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 
 <script type="text/javascript">
 

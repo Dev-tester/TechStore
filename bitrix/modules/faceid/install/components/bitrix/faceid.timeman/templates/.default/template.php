@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 /** @var CBitrixComponentTemplate $this */
@@ -252,7 +252,7 @@ foreach ($jsMessagesCodes as $code)
 </div><!--faceid-tracker-profile-search-->
 
 
-<? if (!$arResult['HAS_AGREEMENT']): ?>
+<?php  if (!$arResult['HAS_AGREEMENT']): ?>
 <div class="tracker-agreement-shadow">
 	<div class="tracker-agreement-popup">
 		<div class="tracker-agreement-popup-title">
@@ -282,4 +282,4 @@ foreach ($jsMessagesCodes as $code)
 		}
 	});
 </script>
-<? endif ?>
+<?php  endif ?>

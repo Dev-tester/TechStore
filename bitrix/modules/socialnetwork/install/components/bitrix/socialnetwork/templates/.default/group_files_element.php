@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", ".default", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", ".default", Array(
 	"OBJECT"	=>	$arParams["OBJECT"], 
 	"IBLOCK_TYPE"	=>	$arParams["FILES_GROUP_IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["FILES_GROUP_IBLOCK_ID"],
@@ -46,12 +46,12 @@
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><?
+?><?php 
 if ($arParams["FILES_USE_COMMENTS"]=="Y" && $arResult["GROUP"]["CLOSED"] != "Y" && 
 	is_array($arInfo) && $arInfo["ELEMENT_ID"] && ($arParams['WORKFLOW'] == "bizproc" && $arInfo["ELEMENT"]["BP_PUBLISHED"] == "Y" || 
 		$arParams['WORKFLOW'] != "bizproc" && $arInfo["ELEMENT"]["WF_STATUS_ID"] == 1) && IsModuleInstalled("forum")):?>
 <hr />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:forum.topic.reviews",
 	"",
 	Array(
@@ -85,6 +85,6 @@ if ($arParams["FILES_USE_COMMENTS"]=="Y" && $arResult["GROUP"]["CLOSED"] != "Y" 
 	$component,
 	array("HIDE_ICONS" => "Y")
 );?>
-<?
+<?php 
 endif
 ?>

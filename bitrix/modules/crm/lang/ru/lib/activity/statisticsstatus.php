@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_STAT_STATUS_ANSWERED"] = "Отвеченные";
 $MESS["CRM_ACTIVITY_STAT_STATUS_UNANSWERED"] = "Неотвеченные";
 $MESS["CRM_ACTIVITY_STAT_STATUS_UNDEFINED"] = "Не указан";

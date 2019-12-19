@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTST_CLOSE'] = "Close";
 $MESS ['INTST_FOLDER_NAME'] = "Folder Name";
 $MESS ['INTST_DELETE'] = "Delete";

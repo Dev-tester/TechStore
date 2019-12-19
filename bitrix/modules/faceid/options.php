@@ -63,7 +63,7 @@ if (!empty($faceidCloudResponse['status']['exists']))
 
 
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 <?php echo bitrix_sessid_post()?>
 <?php
 $tabControl->Begin();
@@ -72,12 +72,12 @@ if ($errorMessage):?>
 <tr>
 	<td colspan="2" align="center"><b style="color:red"><?=$errorMessage?></b></td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td width="40%"><?=GetMessage("FACEID_PUBLIC_URL")?>:</td>
 	<td width="60%"><input type="text" name="PUBLIC_URL" value="<?=htmlspecialcharsbx(\Bitrix\FaceId\Http::getServerAddress())?>" /></td>
 </tr>
-<?if (COption::GetOptionInt("faceid", "debug")):?>
+<?php if (COption::GetOptionInt("faceid", "debug")):?>
 <tr>
 	<td width="40%" valign="top"><?=GetMessage("FACEID_WAIT_RESPONSE")?>:</td>
 	<td width="60%">
@@ -85,23 +85,23 @@ if ($errorMessage):?>
 		<?=GetMessage("FACEID_WAIT_RESPONSE_DESC")?>
 	</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td width="40%"><?=GetMessage("FACEID_ACCOUNT_DEBUG")?>:</td>
 	<td width="60%"><input type="checkbox" name="DEBUG_MODE" value="Y" <?=(COption::GetOptionInt("faceid", "debug")? 'checked':'')?> /></td>
 </tr>
 
-<? $tabControl->BeginNextTab() ?>
+<?php  $tabControl->BeginNextTab() ?>
 
 <tr>
 	<td colspan="2" align="left">
 		<div class="adm-table-content-wrap">
-			<? if($isFaceidAvailable): ?>
-				<? if(empty($faceidBalance)): ?>
+			<?php  if($isFaceidAvailable): ?>
+				<?php  if(empty($faceidBalance)): ?>
 					<div class="adm-table-content-title-main"><?=Loc::getMessage("FACEID_ADM_STATS_BALANCE_0")?></div>
-				<? else: ?>
+				<?php  else: ?>
 					<div class="adm-table-content-title-main"><?=Loc::getMessage("FACEID_ADM_STATS_BALANCE", array('#COUNT#' => $faceidBalance, '#DATE#' => $faceidBalanceExpire))?></div>
-				<? endif ?>
+				<?php  endif ?>
 				<div class="adm-table-content-title"><?=Loc::getMessage("FACEID_ADM_STATS_USAGE", array('#COUNT#' => array_sum($faceidUsage)))?></div>
 				<div class="adm-table-content-container">
 					<div class="adm-table-content-cell">
@@ -118,15 +118,15 @@ if ($errorMessage):?>
 					</div>
 				</div>
 				<a href="https://www.1c-bitrix.ru/buy/intranet.php#tab-face-link" class="adm-table-link"><?=Loc::getMessage("FACEID_ADM_STATS_BY_1000")?></a>
-			<? else: ?>
+			<?php  else: ?>
 				<div class="adm-table-content-title-main"><?=Loc::getMessage("FACEID_ADM_STATS_BALANCE_EMPTY")?></div>
-			<? endif ?>
+			<?php  endif ?>
 		</div>
 	</td>
 </tr>
 
-<?$tabControl->Buttons();?>
-<input type="submit" name="Update" value="<?echo GetMessage('MAIN_SAVE')?>">
-<input type="reset" name="reset" value="<?echo GetMessage('MAIN_RESET')?>">
-<?$tabControl->End();?>
+<?php $tabControl->Buttons();?>
+<input type="submit" name="Update" value="<?php echo GetMessage('MAIN_SAVE')?>">
+<input type="reset" name="reset" value="<?php echo GetMessage('MAIN_RESET')?>">
+<?php $tabControl->End();?>
 </form>

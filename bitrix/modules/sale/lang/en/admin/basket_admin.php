@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SB_TITLE"] = "Abandoned shopping carts";
 $MESS["SB_FUSER_ID"] = "Customer ID";
 $MESS["SB_USER_ID"] = "User ID";

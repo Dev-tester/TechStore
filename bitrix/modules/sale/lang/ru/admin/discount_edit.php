@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SDEN_SITE"] = "Сайт";
 $MESS["SDEN_ACTIVE"] = "Активность";
 $MESS["SDEN_PERIOD"] = "Период активности";

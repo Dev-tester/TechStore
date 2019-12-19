@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MBOX_ADM_TITLE"] = "Почтовые ящики";
 $MESS["MAIL_MBOX_ADM_DELERR"] = "Ошибка удаления почтового ящика";
 $MESS["MAIL_MBOX_ADM_FILT_ACT"] = "Активность";

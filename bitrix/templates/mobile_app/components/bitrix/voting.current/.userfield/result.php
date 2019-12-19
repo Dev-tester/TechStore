@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix Framework
  * @package bitrix
@@ -14,7 +14,7 @@
  */
 
 $this->IncludeLangFile("result.php");
-?><div class="bx-vote-question-block"><?
+?><div class="bx-vote-question-block"><?php 
 $this->__component->params = $APPLICATION->IncludeComponent(
 	"bitrix:voting.result",
 	".default",
@@ -34,10 +34,10 @@ $this->__component->params = $APPLICATION->IncludeComponent(
 	($this->__component->__parent ?: $component),
 	array("HIDE_ICONS" => "Y")
 );
-?></div><?
+?></div><?php 
 if ($arParams["CAN_REVOTE"] == "Y" || $arParams["CAN_VOTE"] == "Y") {
-	?><a href="<?=(strlen($arParams["ACTION_PAGE"]) > 0 ? $arParams["ACTION_PAGE"] : $APPLICATION->GetCurPageParam("", array("VOTE_ID","VOTING_OK","VOTE_SUCCESSFULL", "view_form", "view_result")))?>" <?
-		?>id="vote-revote-<?=$arParams["UID"]?>" class="bx-vote-button bx-vote-button-vote" <?
-		?>><?=($arParams["CAN_REVOTE"] == "Y" ? GetMessage("VOTE_RESUBMIT_BUTTON") : GetMessage("VOTE_SUBMIT_BUTTON"))?></a><?
+	?><a href="<?=(strlen($arParams["ACTION_PAGE"]) > 0 ? $arParams["ACTION_PAGE"] : $APPLICATION->GetCurPageParam("", array("VOTE_ID","VOTING_OK","VOTE_SUCCESSFULL", "view_form", "view_result")))?>" <?php 
+		?>id="vote-revote-<?=$arParams["UID"]?>" class="bx-vote-button bx-vote-button-vote" <?php 
+		?>><?=($arParams["CAN_REVOTE"] == "Y" ? GetMessage("VOTE_RESUBMIT_BUTTON") : GetMessage("VOTE_SUBMIT_BUTTON"))?></a><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOXIMPLANT_ROLE_LABEL"] = "Role";
 $MESS["VOXIMPLANT_ROLE_SAVE"] = "Save";
 $MESS["VOXIMPLANT_ROLE_CANCEL"] = "Cancel";

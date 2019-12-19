@@ -1,4 +1,4 @@
-<?
+<?php 
 	if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	
 	if (!isset($arParams["WSDESCR"]))
@@ -119,7 +119,7 @@
 
 </table><br>
 
-<?
+<?php 
 	echo $methodDeclared;
 	echo $methodDescription;
 	echo "<br><b>".GetMessage("BX_WSTMPL_TEST")."</b><br>";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_NOTE_QUESTION"] = "Відповідь";
 $MESS["COMMENT_QUESTION"] = "Коментар";
 $MESS["SERVICE_VISITOR_FORM_BUTTON"] = "Надіслати заявку";

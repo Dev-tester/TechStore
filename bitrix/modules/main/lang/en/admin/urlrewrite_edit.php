@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MURL_NO_USL'] = "Condition is not specified";
 $MESS ['MURL_DUPL_CONDITION'] = "Record with the condition '#CONDITION#' already exists";
 $MESS ['MURL_EDIT'] = "Edit record";

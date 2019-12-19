@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_SECSEARCH_TITLE"] = "Section search";
 $MESS["IBLOCK_SECSEARCH_IBLOCK"] = "Information block";
 $MESS["IBLOCK_SECSEARCH_PARENT_ID"] = "Parent section";

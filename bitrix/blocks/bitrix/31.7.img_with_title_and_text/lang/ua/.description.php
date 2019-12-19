@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_31_7_CARD"] = "Картка";
 $MESS["LANDING_BLOCK_31_7_IMG"] = "Зображення";
 $MESS["LANDING_BLOCK_31_7_NAME"] = "Список сторінок із зображенням між заголовком і текстом";

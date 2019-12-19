@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_SONET_LOG_EXTRANET_SUFFIX"] = " (экстранет)";
 $MESS["TASKS_SONET_GL_TASKS2_NEW_TASK_MESSAGE"] = "Создана задача";
 $MESS["TASKS_SONET_GL_TASKS2_TASK_CHANGED_MESSAGE"] = "Задача изменена (#CHANGES#)";

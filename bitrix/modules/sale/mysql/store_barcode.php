@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/store_barcode.php");
 
 class CSaleStoreBarcode extends CAllSaleStoreBarcode

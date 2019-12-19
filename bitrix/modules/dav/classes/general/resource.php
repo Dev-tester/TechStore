@@ -1,4 +1,4 @@
-<?
+<?php 
 class CDavResource
 {
 	private $path = "";

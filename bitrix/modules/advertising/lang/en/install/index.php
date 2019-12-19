@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_INSTALL_MODULE_NAME"] = "Advertising and banners";
 $MESS["AD_INSTALL_MODULE_DESCRIPTION"] = "Advertising management module.";
 $MESS["AD_INSTALL_ADV"] = "Advertising on Site";

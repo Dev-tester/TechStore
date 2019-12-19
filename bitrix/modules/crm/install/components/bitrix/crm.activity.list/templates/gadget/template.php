@@ -237,7 +237,7 @@ unset($item);
 if(!empty($arResult['PATH_TO_FULL_VIEW'])):
 ?><div class="crm-gadget-activity-full-view">
 	<a href="<?= $arResult['PATH_TO_FULL_VIEW']?>"><?=htmlspecialcharsbx(GetMessage('CRM_ACTION_GO_TO_FULL_VIEW'))?></a>
-</div><?
+</div><?php 
 endif;
 
 $GLOBALS['APPLICATION']->IncludeComponent(

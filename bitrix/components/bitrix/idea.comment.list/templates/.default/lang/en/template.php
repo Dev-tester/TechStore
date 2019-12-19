@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B_B_MS_NAME"] = "First name";
 $MESS["B_B_MS_CAPTCHA_SYM"] = "CAPTCHA Code";
 $MESS["B_B_MS_SEND"] = "Send";

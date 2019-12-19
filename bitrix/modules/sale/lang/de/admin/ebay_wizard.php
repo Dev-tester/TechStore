@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_W_TITLE"] = "Assistent der Verbindung zu eBay";
 $MESS["SALE_EBAY_W_ERROR"] = "Fehler";
 $MESS["SALE_EBAY_W_SALE_NOT_INSTALLED"] = "Das Modul Onlineshop ist nicht installiert.";

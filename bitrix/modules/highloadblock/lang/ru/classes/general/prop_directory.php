@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HIBLOCK_PROP_DIRECTORY_DESCRIPTION"] = "Справочник";
 $MESS["HIBLOCK_PROP_DIRECTORY_SELECT_DIR"] = "Выберите справочник";
 $MESS["HIBLOCK_PROP_DIRECTORY_XML_ID"] = "Внешний код";

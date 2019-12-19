@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_ADMIN_NEW_FOLDER"] = "Новая папка";
 $MESS["FILEMAN_ADMIN_NEW_FILE"] = "Новый файл";
 $MESS["FILEMAN_ADMIN_FILE_UPLOAD"] = "Загрузить файл";

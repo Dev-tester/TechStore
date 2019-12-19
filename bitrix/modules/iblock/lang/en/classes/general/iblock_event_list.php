@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOG_IBLOCK_ITEM_ADD"] = "Added: #ITEM# #NAME#";
 $MESS["LOG_IBLOCK_ITEM_EDIT"] = "Modified: #ITEM# #NAME#";
 $MESS["LOG_IBLOCK_ITEM_DELETE"] = "Deleted: #ITEM# #NAME#";

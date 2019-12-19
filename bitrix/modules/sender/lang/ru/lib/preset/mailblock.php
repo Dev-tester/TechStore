@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TYPE_PRESET_MAILBLOCK_PERSONALISE"] = "Персонализация";
 $MESS["TYPE_PRESET_MAILBLOCK_BASE"] = "Базовые блоки";
 $MESS["TYPE_PRESET_MAILBLOCK_SOCIAL"] = "Социальные сети";

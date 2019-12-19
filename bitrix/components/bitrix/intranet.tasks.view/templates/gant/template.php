@@ -1,7 +1,7 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
-<?
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -10,7 +10,7 @@ elseif (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -18,13 +18,13 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?></p>
+	<?php endif;?></p>
 
 	<div class="bx-calendar-layout">
 	<table class="bx-calendar-main-table" cellSpacing="1">
@@ -33,7 +33,7 @@ else
 				<td class="bx-calendar-control" rowspan="2">
 					<table class="bx-calendar-control-table"><tr><td class="bx-calendar-control-text"><?= GetMessage("INTASK_T078_NAME") ?></td></tr></table>
 				</td>
-				<?
+				<?php 
 				$minDate = "";
 				$maxDate = "";
 				$nDates = 0;
@@ -88,7 +88,7 @@ else
 						<td class="bx-calendar-day" colspan="<?= $n-1 ?>">
 							<?= GetMessage('MONTH_'.$m) ?>
 						</td>
-						<?
+						<?php 
 						$m = $m1;
 						$y = $y1;
 						$n = 1;
@@ -100,7 +100,7 @@ else
 						<?= GetMessage('MONTH_'.$m) ?>
 					</td>
 				</tr><tr>
-				<?
+				<?php 
 				$i = $minDate;
 				while ($i <= $maxDate)
 				{
@@ -109,14 +109,14 @@ else
 					<td class="bx-calendar-day<?= (Date("w", $i) == 0 || Date("w", $i) == 6) ? " bx-calendar-holiday" : "" ?><?= (Date("d.m.Y", $i) == Date("d.m.Y")) ? " bx-calendar-today" : "" ?>">
 						<?= Date("d", $i) ?>
 					</td>
-					<?
+					<?php 
 					$i = MkTime(0, 0, 0, Date("m", $i), Date("d", $i) + 1, Date("Y", $i));
 				}
 				?>
 			</tr>
 		</thead>
 		<tbody>
-			<?
+			<?php 
 			if ($arResult["Tasks"])
 			{
 				foreach ($arResult["Tasks"] as $task)
@@ -138,7 +138,7 @@ else
 								<a href="<?= $task["VIEW_URL"] ?>"><?= $task["FIELDS"]["NAME"] ?></a>
 							</div>
 						</td>
-						<?
+						<?php 
 						$i = $minDate;
 						while ($i <= $maxDate)
 						{
@@ -146,12 +146,12 @@ else
 							<td class="bx-calendar-day<?= (Date("w", $i) == 0 || Date("w", $i) == 6) ? " bx-calendar-holiday" : "" ?><?= (Date("d.m.Y", $i) == Date("d.m.Y")) ? " bx-calendar-today" : "" ?>" title="<?= $task["PRINT_PERIOD"].GetMessage("INTASK_T078_RESP").": ".$task['FIELDS']['TASKASSIGNEDTO_PRINTABLE']."\n".$task["FIELDS"]["NAME"] ?>">
 								&nbsp;
 							</td>
-							<?
+							<?php 
 							$i = MkTime(0, 0, 0, Date("m", $i), Date("d", $i) + 1, Date("Y", $i));
 						}
 						?>
 					</tr>
-					<?
+					<?php 
 				}
 			}
 			?>
@@ -163,12 +163,12 @@ else
 	<!--
 	window.onload = function() 
 	{
-	<?
+	<?php 
 	if ($arResult["Tasks"])
 	{
 		?>
 		padding = 2;
-		<?
+		<?php 
 		foreach ($arResult["Tasks"] as $task)
 		{
 			//if (StrLen($task["FIELDS"]["DATE_ACTIVE_FROM"]) <= 0 && StrLen($task["FIELDS"]["DATE_ACTIVE_TO"]) <= 0)
@@ -241,7 +241,7 @@ else
 				obDiv2.innerHTML = "<?= $task['FIELDS']['TASKCOMPLETE_ORIGINAL'] ?>%";
 				obDiv2.title = "<?= $task['PRINT_PERIOD']?><?= GetMessage('INTASK_T078_RESP') ?>: <?= $task['FIELDS']['TASKASSIGNEDTO_PRINTABLE']?>\n<?=$task['FIELDS']['NAME'] ?>";
 			}
-			<?
+			<?php 
 		}
 	}
 	?>
@@ -249,10 +249,10 @@ else
 	//-->
 	</script>
 
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?>
 		<br /><br />
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 }
 ?>

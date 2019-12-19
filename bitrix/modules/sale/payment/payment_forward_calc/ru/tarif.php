@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SPFPCT_LESS_1K"] = "до 1 000 руб. включительно";
 $MESS["SPFPCT_LESS_5K"] = "свыше 1 000 до 5 000 руб. включительно";

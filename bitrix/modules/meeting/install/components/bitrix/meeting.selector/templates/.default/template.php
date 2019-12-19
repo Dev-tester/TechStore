@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (strlen($arParams['CALLBACK_NAME']) <= 0)
 	$arParams['CALLBACK_NAME'] = 'showMeetingSelector';
@@ -15,11 +15,11 @@ if (strlen($arParams['CALLBACK_NAME']) <= 0)
 					<div class="popup-window-hr popup-window-buttons-hr"><i></i></div>
 					<div class="finder-box-tabs-content" id="meeting_selector_list">
 						<div id="meeting_selector_last" style="display: block;">
-<?
+<?php 
 foreach ($arResult['MEETINGS'] as $arMeeting):
 ?>
 							<a class="finder-box-item finder-box-item-text" href="<?=htmlspecialcharsbx($arMeeting['URL'])?>"><span class="finder-box-item-date"><?=FormatDate($DB->DateFormatToPhp(FORMAT_DATE).((IsAmPmMode()) ? ' h:i a' : ' H:i'), MakeTimeStamp($arMeeting['DATE_START']))?></span> <?=$arMeeting['TITLE']?></a>
-<?
+<?php 
 endforeach;
 ?>
 						</div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_USER_FILE_PATH"] = "User Documents Page";
 $MESS["WD_GROUP_FILE_PATH"] = "Workgroup Documents Page";
 $MESS["WD_IBLOCK_TYPE"] = "Information Block Type";

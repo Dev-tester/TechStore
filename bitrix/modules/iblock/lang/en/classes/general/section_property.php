@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SP_DISPLAY_TYPE_A"] = "Number range with slider";
 $MESS["SP_DISPLAY_TYPE_B"] = "Number range";
 $MESS["SP_DISPLAY_TYPE_F"] = "Check boxes";

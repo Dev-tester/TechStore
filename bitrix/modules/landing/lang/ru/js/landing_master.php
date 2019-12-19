@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTION_BUTTON_CONTENT"] = "редактировать";
 $MESS["ACTION_BUTTON_REMOVE"] = "&nbsp;";
 $MESS["ACTION_BUTTON_INSERT_AFTER"] = "Вставить после";

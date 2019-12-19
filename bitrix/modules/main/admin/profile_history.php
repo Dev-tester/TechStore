@@ -211,9 +211,9 @@ $lAdmin->CheckListMode();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $arFilterNames = array(
 	"find_user_id" => Loc::getMessage("main_profile_history_filter_id"),
 	"find_event_type" => Loc::getMessage("main_profile_history_filter_event"),
@@ -228,44 +228,44 @@ $oFilter = new CAdminFilter($sTableID."_filter", $arFilterNames);
 $oFilter->Begin();
 ?>
 <tr>
-	<td><?echo $arFilterNames["find_user_id"]?>:</td>
-	<td><input type="text" name="find_user_id" size="47" value="<?echo htmlspecialcharsbx($find_user_id)?>"></td>
+	<td><?php echo $arFilterNames["find_user_id"]?>:</td>
+	<td><input type="text" name="find_user_id" size="47" value="<?php echo htmlspecialcharsbx($find_user_id)?>"></td>
 </tr>
 <tr>
-	<td><?echo $arFilterNames["find_event_type"]?>:</td>
+	<td><?php echo $arFilterNames["find_event_type"]?>:</td>
 	<td><select name="find_event_type">
-			<option value=""><?echo Loc::getMessage("main_profile_history_filter_all")?></option>
-			<?foreach($eventTypes as $value => $name):?>
-			<option value="<?=$value?>"<?if($find_event_type == $value) echo " selected"?>><?=$name?></option>
-			<?endforeach;?>
+			<option value=""><?php echo Loc::getMessage("main_profile_history_filter_all")?></option>
+			<?php foreach($eventTypes as $value => $name):?>
+			<option value="<?=$value?>"<?php if($find_event_type == $value) echo " selected"?>><?=$name?></option>
+			<?php endforeach;?>
 		</select></td>
 </tr>
 <tr>
-	<td><?echo $arFilterNames["find_date_insert"]?>:</td>
-	<td><?echo CAdminCalendar::CalendarPeriod("find_date_insert_1", "find_date_insert_2", $find_date_insert_1, $find_date_insert_2, false, 15, true)?></td>
+	<td><?php echo $arFilterNames["find_date_insert"]?>:</td>
+	<td><?php echo CAdminCalendar::CalendarPeriod("find_date_insert_1", "find_date_insert_2", $find_date_insert_1, $find_date_insert_2, false, 15, true)?></td>
 </tr>
 <tr>
-	<td><?echo $arFilterNames["find_remote_addr"]?>:</td>
-	<td><input type="text" name="find_remote_addr" size="47" value="<?echo htmlspecialcharsbx($find_remote_addr)?>"></td>
+	<td><?php echo $arFilterNames["find_remote_addr"]?>:</td>
+	<td><input type="text" name="find_remote_addr" size="47" value="<?php echo htmlspecialcharsbx($find_remote_addr)?>"></td>
 </tr>
 <tr>
-	<td><?echo $arFilterNames["find_user_agent"]?>:</td>
-	<td><input type="text" name="find_user_agent" size="47" value="<?echo htmlspecialcharsbx($find_user_agent)?>"></td>
+	<td><?php echo $arFilterNames["find_user_agent"]?>:</td>
+	<td><input type="text" name="find_user_agent" size="47" value="<?php echo htmlspecialcharsbx($find_user_agent)?>"></td>
 </tr>
 <tr>
-	<td><?echo $arFilterNames["find_request_uri"]?>:</td>
-	<td><input type="text" name="find_request_uri" size="47" value="<?echo htmlspecialcharsbx($find_request_uri)?>"></td>
+	<td><?php echo $arFilterNames["find_request_uri"]?>:</td>
+	<td><input type="text" name="find_request_uri" size="47" value="<?php echo htmlspecialcharsbx($find_request_uri)?>"></td>
 </tr>
 <tr>
-	<td><?echo $arFilterNames["find_field"]?>:</td>
-	<td><input type="text" name="find_field" size="47" value="<?echo htmlspecialcharsbx($find_field)?>"></td>
+	<td><?php echo $arFilterNames["find_field"]?>:</td>
+	<td><input type="text" name="find_field" size="47" value="<?php echo htmlspecialcharsbx($find_field)?>"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 
 $lAdmin->DisplayList();
 

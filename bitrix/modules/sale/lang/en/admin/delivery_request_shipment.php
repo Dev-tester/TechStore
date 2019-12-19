@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_REQ_DRS_WRONG_ID"] = "Invalid transportation order ID";
 $MESS["SALE_DELIVERY_REQ_DRS_WRONG_SHP_ID"] = "Invalid shipment ID";
 $MESS["SALE_DELIVERY_REQ_DRS_LIST"] = "Customer orders in transportation order";

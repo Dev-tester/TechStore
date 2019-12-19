@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_XML2_SUM_FORMAT"] = "ФорматСуммы";
 $MESS["IBLOCK_XML2_SUM_FORMAT_DELIM"] = "ЧРД";
 $MESS["IBLOCK_XML2_CATALOG_NAME"] = "1С Каталог";

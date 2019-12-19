@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_UI_HELPER_STAT_INDEX"] = "Add statistics to search index";
 $MESS["VI_UI_HELPER_ENTITY_SEL_BTN"] = "Select";
 $MESS["VI_UI_HELPER_ENTITY_SEL_SEARCH"] = "Search";

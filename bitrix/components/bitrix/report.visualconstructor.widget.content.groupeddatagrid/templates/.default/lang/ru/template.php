@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_GROUPED_DATA_GRID_MORE_TITLE"] = "Ещё";
 $MESS["REPORT_GROUPED_DATA_GRID_CLOSE_TITLE"] = "Скрыть";
 ?>

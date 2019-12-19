@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!CModule::IncludeModule("mobileapp"))
 	die();
 global $APPLICATION;
@@ -18,7 +18,7 @@ if (empty($arResult['DOCUMENT_ICON']))
 ?>
 <div class="pb-popup-mobile bp-task">
 	<div class="bp-post bp-lent">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"]))
 	ShowError($arResult["ERROR_MESSAGE"]);
 ?>
@@ -26,13 +26,13 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 		<img src="<?=htmlspecialcharsbx($arResult['DOCUMENT_ICON'])?>" width="36" border="0" />
 	</span>
 	<div class="post-text-title"><?=$arResult["TASK"]["NAME"]?></div>
-	<?if ($arResult["TASK"]["DOCUMENT_NAME"]):?>
+	<?php if ($arResult["TASK"]["DOCUMENT_NAME"]):?>
 	<span class="bp-title-desc">
 		<span class=""><?=$arResult["TASK"]["DOCUMENT_NAME"]?></span>
 	</span>
-	<?endif?>
+	<?php endif?>
 	<div class="bp-short-process-inner">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:bizproc.workflow.faces",
 			"",
 			array(
@@ -43,7 +43,7 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 		);
 		?>
 	</div>
-	<?
+	<?php 
 		if ($arResult['ReadOnly']):
 			echo '<span class="bp-status"></span>';
 		elseif ($arResult["ShowMode"] == "Success"):
@@ -62,7 +62,7 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 		elseif ($arResult["TASK"]['IS_INLINE'] == 'Y'):?>
 			<div class="bp-btn-panel">
 				<div class="">
-					<?
+					<?php 
 					foreach ($arResult['TaskControls']['BUTTONS'] as $control):
 						$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Yes || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Ok ? 'accept' : 'decline';
 						$props = CUtil::PhpToJSObject(array(
@@ -75,23 +75,23 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 							<span class="bp-button-icon"></span>
 							<span class="bp-button-text"><?=$control['TEXT']?></span>
 						</a>
-					<?
+					<?php 
 					endforeach;
 					?>
 				</div>
 			</div>
-			<?else: echo '<br/>';?>
-		<?endif?>
+			<?php else: echo '<br/>';?>
+		<?php endif?>
 
 
 	<div class="bp-task-block">
-		<?
+		<?php 
 		if (!empty($arResult["ERROR_MESSAGE"])):
 			ShowError($arResult["ERROR_MESSAGE"]);
 		endif;
 		?>
 		<span class="bp-task-block-title"><?=GetMessage("BPATL_TASK_TITLE")?>: </span>
-		<?
+		<?php 
 		if (strlen($arResult["TASK"]["DESCRIPTION"]) > 0):
 			echo nl2br($arResult["TASK"]["DESCRIPTION"]);
 		else:
@@ -103,13 +103,13 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 	<div style="margin: 7px 0">
 		<a href="javascript:void(0)" onclick="BXMobileApp.PageManager.loadPageBlank({'url':'<?=$arResult['TASK']['PARAMETERS']['DOCUMENT_URL']?>'});"><?=GetMessage("BPAT_GOTO_DOC")?></a>
 	</div>
-<?
+<?php 
 endif;
 
 
 		if ($arResult["SKIP_BP"] == "Y" && $arResult["ShowMode"] != "Success"):?>
 			<div class="bp-errortext"><?=GetMessage("MB_BP_SKIP")?></div>
-		<? elseif ($arResult["ShowMode"] != "Success" && $arResult["TASK"]['IS_INLINE'] != 'Y'):?>
+		<?php  elseif ($arResult["ShowMode"] != "Success" && $arResult["TASK"]['IS_INLINE'] != 'Y'):?>
 			<form method="post" name="task_form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data" onsubmit="return false;">
 				<?= bitrix_sessid_post() ?>
 				<input type="hidden" name="action" value="doTask" />
@@ -118,16 +118,16 @@ endif;
 				<input type="hidden" name="workflow_id" value="<?= htmlspecialcharsbx($arResult["TASK"]["WORKFLOW_ID"]) ?>" />
 				<input type="hidden" name="back_url" value="<?= htmlspecialcharsbx($arParams["REDIRECT_URL"]) ?>" />
 
-				<?if (!empty($arResult["TaskForm"])):?>
+				<?php if (!empty($arResult["TaskForm"])):?>
 				<div class="bizproc-detail-block">
 					<table class="bizproc-table-main bizproc-task-table" cellpadding="3" border="0">
 						<?= $arResult["TaskForm"]?>
 					</table>
 				</div>
-				<?endif?>
+				<?php endif?>
 				<div class="bizproc-item-buttons">
-					<?if (!empty($arResult['TaskControls']['BUTTONS'])):?>
-						<?
+					<?php if (!empty($arResult['TaskControls']['BUTTONS'])):?>
+						<?php 
 						foreach ($arResult['TaskControls']['BUTTONS'] as $control):
 							$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Yes || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Ok ? 'accept' : 'decline';
 							$props = CUtil::PhpToJSObject(array(
@@ -142,13 +142,13 @@ endif;
 								<span class="bp-button-icon"></span>
 								<span class="bp-button-text"><?=htmlspecialcharsbx($control['TEXT'])?></span>
 							</button>
-						<?
+						<?php 
 						endforeach;
 						?>
-					<?else: echo $arResult["TaskFormButtons"]; endif;?>
+					<?php else: echo $arResult["TaskFormButtons"]; endif;?>
 				</div>
 			</form>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>
 </div>

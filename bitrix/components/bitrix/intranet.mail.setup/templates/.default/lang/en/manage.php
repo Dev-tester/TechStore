@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_MAIL_MANAGE_ADD_MAILBOX"] = "Add mailbox";
 $MESS["INTR_MAIL_MANAGE_DOMAIN_ADD"] = "Attach domain";
 $MESS["INTR_MAIL_MANAGE_DOMAIN_EDIT"] = "Configure connection";

@@ -1,4 +1,4 @@
-<?
+<?php 
 // 2012-04-18 Checked/modified for compatibility with new data model
 class CCoursePackage
 {

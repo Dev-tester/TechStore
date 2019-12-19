@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BMNP_MESSAGE_COUNT"] = "Messages per page";
 $MESS["BMNP_MESSAGE_LENGTH"] = "Maximum message display length";
 $MESS["BMNP_PATH_TO_BLOG"] = "Blog page path template";

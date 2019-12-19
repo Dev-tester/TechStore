@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_ZIP_ERR_READ"] = "Cannot open the file \"#FILE_NAME#\".";
 $MESS["MAIN_ZIP_ERR_READ_TMP"] = "Cannot open temporary file \"#FILE_NAME#\" for writing.";
 $MESS["MAIN_ZIP_ERR_READ_MODE"] = "Cannot open the file \"#FILE_NAME#\" in mode \"#MODE#\".";

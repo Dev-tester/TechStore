@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!CModule::IncludeModule("webdav")):
 	ShowError(GetMessage("W_WEBDAV_IS_NOT_INSTALLED"));
 	return 0;
@@ -223,7 +223,7 @@ elseif (strToUpper($_REQUEST["edit_section"]) == "Y")
 		else 
 		{
 			$APPLICATION->RestartBuffer();
-			?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?
+			?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?php 
 			die();
 		}
 	}

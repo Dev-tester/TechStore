@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TITLE"] = "Help";
 $MESS["CRM_INFO"] = "<h3>What Is CRM?</h3>
 <p><b>Customer relationship management</b> (<b>CRM</b>) is a system aimed at

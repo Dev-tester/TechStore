@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_ERR_BAD_COUPONS_USED"] = "The coupons you added are invalid and cannot be used";
 $MESS["BX_SALE_DISCOUNT_APPLY_MODE_ADD_EXT"] = "apply even if other discounts are in effect";
 $MESS["BX_SALE_DISCOUNT_APPLY_MODE_LAST_EXT"] = "don't apply to products whose discount has the \"Don't apply further discounts\" option enabled";

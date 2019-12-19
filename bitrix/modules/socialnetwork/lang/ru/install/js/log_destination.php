@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LM_POPUP_TITLE"] = "Заголовок";
 $MESS["LM_POPUP_TAB_LAST"] = "Последние";
 $MESS["LM_POPUP_TAB_SG"] = "Мои группы";

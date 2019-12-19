@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -16,7 +16,7 @@ UI\Extension::load("socialnetwork.common");
 
 if(strlen($arResult["FatalError"]) > 0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
@@ -24,7 +24,7 @@ else
 
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class="errortext"><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class="errortext"><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	$APPLICATION->IncludeComponent("bitrix:main.user.link",
@@ -98,7 +98,7 @@ else
 				}
 			});
 		});
-	</script><?
+	</script><?php 
 
 	if ($arResult["CurrentUserPerms"]["UserCanInitiate"])
 	{
@@ -123,14 +123,14 @@ else
 		);
 	}
 
-	?><div class="socialnetwork-group-users-content"><?
+	?><div class="socialnetwork-group-users-content"><?php 
 
 		if (SITE_TEMPLATE_ID == "bitrix24")
 		{
 			echo \Bitrix\Main\Update\Stepper::getHtml(array('socialnetwork' => array("Bitrix\Socialnetwork\Update\WorkgroupDeptSync")), Loc::getMessage('SONET_GUE_T_STEPPER_TITLE'));
 		}
 
-		?><div id="sonet_group_users_error_block" class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger<?=(strlen($arResult["ErrorMessage"]) > 0 ? "" : " sonet-ui-form-error-block-invisible")?>"><?=$arResult["ErrorMessage"]?></div><?
+		?><div id="sonet_group_users_error_block" class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger<?=(strlen($arResult["ErrorMessage"]) > 0 ? "" : " sonet-ui-form-error-block-invisible")?>"><?=$arResult["ErrorMessage"]?></div><?php 
 
 		if (!empty($arResult["Owner"]))
 		{
@@ -139,15 +139,15 @@ else
 				&& $arResult["CurrentUserPerms"]["UserCanModifyGroup"]
 			);
 
-			?><div class="sonet-members-item"><?
-				?><span class="sonet-members-item-name"><?=GetMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_OWNER_SUBTITLE_PROJECT" : "SONET_GUE_T_OWNER_SUBTITLE")?></span><?
-				?><div class="sonet-members-separator"></div><?
+			?><div class="sonet-members-item"><?php 
+				?><span class="sonet-members-item-name"><?=GetMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_OWNER_SUBTITLE_PROJECT" : "SONET_GUE_T_OWNER_SUBTITLE")?></span><?php 
+				?><div class="sonet-members-separator"></div><?php 
 
 				if ($canChangeOwner)
 				{
-					?><div class="sonet-members-item-menu" id="sonet-members-actionlink-changeowner"><?
-						?><span class="sonet-members-item-menu-title" id="sonet-members-container-changeowner"><?=Loc::getMessage("SONET_GUE_T_ACTIONLINK_CHANGE")?></span><?
-					?></div><?
+					?><div class="sonet-members-item-menu" id="sonet-members-actionlink-changeowner"><?php 
+						?><span class="sonet-members-item-menu-title" id="sonet-members-container-changeowner"><?=Loc::getMessage("SONET_GUE_T_ACTIONLINK_CHANGE")?></span><?php 
+					?></div><?php 
 
 					$selectorID = 'changeowner';
 
@@ -204,10 +204,10 @@ else
 								{}
 							);
 						});
-					</script><?
+					</script><?php 
 				}
 
-				?><div class="sonet-members-member-block-shift"><?
+				?><div class="sonet-members-member-block-shift"><?php 
 
 					$arUserTmp = array(
 						"ID" => $arResult["Owner"]["USER_ID"],
@@ -217,36 +217,36 @@ else
 						"LOGIN" => htmlspecialcharsback($arResult["Owner"]["USER_LOGIN"])
 					);
 
-					?><span class="sonet-members-member-block" id="sonet-members-member-block-owner"><?
-						?><span class="sonet-members-member-img-wrap"><?
-							?><span class="sonet-members-member-img" style="<?=(is_array($arResult["Owner"]["USER_PERSONAL_PHOTO_IMG"]) && strlen($arResult["Owner"]["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arResult["Owner"]["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?
-						?></span><?
+					?><span class="sonet-members-member-block" id="sonet-members-member-block-owner"><?php 
+						?><span class="sonet-members-member-img-wrap"><?php 
+							?><span class="sonet-members-member-img" style="<?=(is_array($arResult["Owner"]["USER_PERSONAL_PHOTO_IMG"]) && strlen($arResult["Owner"]["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arResult["Owner"]["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?php 
+						?></span><?php 
 
-						?><span class="sonet-members-member-text"><?
-							?><span class="sonet-members-member-title<?=($arResult["Owner"]["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?
+						?><span class="sonet-members-member-text"><?php 
+							?><span class="sonet-members-member-title<?=($arResult["Owner"]["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?php 
 								if ($arResult["Owner"]["SHOW_PROFILE_LINK"])
 								{
-									?><a href="<?=htmlspecialcharsback($arResult["Owner"]["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arResult["Owner"]["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?
+									?><a href="<?=htmlspecialcharsback($arResult["Owner"]["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arResult["Owner"]["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?php 
 								}
 								else
 								{
-									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arResult["Owner"]["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?
+									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arResult["Owner"]["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?php 
 								}
-							?></span><?
+							?></span><?php 
 
 							if ($arResult["bIntranetInstalled"])
 							{
-								?><span class="sonet-members-member-description"><?=$arResult["Owner"]["USER_WORK_POSITION"]?><?
+								?><span class="sonet-members-member-description"><?=$arResult["Owner"]["USER_WORK_POSITION"]?><?php 
 									if ($arResult["Owner"]["USER_ACTIVE"] != "Y")
 									{
-										?><?=(strlen($arResult["Owner"]["USER_WORK_POSITION"]) > 0 ? ", " : "").Loc::getMessage("SONET_GUE_T_FIRED2".(in_array($arResult["Owner"]["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arResult["Owner"]["USER_PERSONAL_GENDER"] : ""))?><?
+										?><?=(strlen($arResult["Owner"]["USER_WORK_POSITION"]) > 0 ? ", " : "").Loc::getMessage("SONET_GUE_T_FIRED2".(in_array($arResult["Owner"]["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arResult["Owner"]["USER_PERSONAL_GENDER"] : ""))?><?php 
 									}
-								?></span><?
+								?></span><?php 
 							}
-						?></span><?
-					?></span><?
-				?></div><?
-			?></div><?
+						?></span><?php 
+					?></span><?php 
+				?></div><?php 
+			?></div><?php 
 		}
 
 		if (
@@ -254,18 +254,18 @@ else
 			&& is_array($arResult["Moderators"]["List"])
 		)
 		{
-			?><div class="sonet-members-item"><?
-				?><span class="sonet-members-item-name"><?=GetMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_MODS_SUBTITLE_PROJECT" : "SONET_GUE_T_MODS_SUBTITLE")?></span><?
-				?><div class="sonet-members-separator"></div><?
+			?><div class="sonet-members-item"><?php 
+				?><span class="sonet-members-item-name"><?=GetMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_MODS_SUBTITLE_PROJECT" : "SONET_GUE_T_MODS_SUBTITLE")?></span><?php 
+				?><div class="sonet-members-separator"></div><?php 
 
 				if (
 					$arResult["CurrentUserPerms"]
 					&& $arResult["CurrentUserPerms"]["UserCanModifyGroup"]
 				)
 				{
-					?><div class="sonet-members-item-menu" id="sonet-members-actionlink-addmoderator"><?
+					?><div class="sonet-members-item-menu" id="sonet-members-actionlink-addmoderator"><?php 
 						?><span class="sonet-members-item-menu-title" id="sonet-members-container-addmoderator">+&nbsp;<?=Loc::getMessage("SONET_GUE_T_ACTIONLINK_ADD")?></span>
-					</div><?
+					</div><?php 
 
 					$selectorID = 'addmoderator';
 
@@ -324,9 +324,9 @@ else
 								{}
 							);
 						});
-					</script><?
+					</script><?php 
 				}
-				?><div class="sonet-members-member-block-shift"><?
+				?><div class="sonet-members-member-block-shift"><?php 
 					foreach ($arResult["Moderators"]["List"] as $arMember)
 					{
 						$canExclude = (
@@ -344,55 +344,55 @@ else
 							"LOGIN" => htmlspecialcharsback($arMember["USER_LOGIN"])
 						);
 
-						?><span class="sonet-members-member-block" bx-action="removemod" id="sonet-members-member-block-mod-<?=intval($arMember["USER_ID"])?>"><?
+						?><span class="sonet-members-member-block" bx-action="removemod" id="sonet-members-member-block-mod-<?=intval($arMember["USER_ID"])?>"><?php 
 							if ($canExclude)
 							{
-								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?
+								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?php 
 							}
 
-							?><span class="sonet-members-member-img-wrap"><?
-								?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?
-							?></span><?
+							?><span class="sonet-members-member-img-wrap"><?php 
+								?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?php 
+							?></span><?php 
 
 							if ($canExclude)
 							{
-								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arMember["USER_ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_REMOVEMOD')?></span><?
+								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arMember["USER_ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_REMOVEMOD')?></span><?php 
 							}
 
-							?><span class="sonet-members-member-text"><?
-								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?
+							?><span class="sonet-members-member-text"><?php 
+								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?php 
 								if ($arMember["SHOW_PROFILE_LINK"])
 								{
-									?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?
+									?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?php 
 								}
 								else
 								{
-									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?
+									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?php 
 								}
-								?></span><?
+								?></span><?php 
 								if ($arResult["bIntranetInstalled"])
 								{
-									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?
+									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?php 
 									if ($arMember["USER_ACTIVE"] != "Y")
 									{
-										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?
+										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?php 
 									}
-									?></span><?
+									?></span><?php 
 								}
 								if ($arMember["IS_OWNER"])
 								{
-									?><span class="sonet-members-caption"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_OWNER_PROJECT" : "SONET_GUE_T_OWNER")?></span><?
+									?><span class="sonet-members-caption"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_OWNER_PROJECT" : "SONET_GUE_T_OWNER")?></span><?php 
 								}
-							?></span><?
-						?></span><?
+							?></span><?php 
+						?></span><?php 
 					}
-				?></div><?
+				?></div><?php 
 
 				if (StrLen($arResult["Moderators"]["NAV_STRING"]) > 0):
-					?><div class="sonet-members-nav"><?=$arResult["Moderators"]["NAV_STRING"]?></div><?
+					?><div class="sonet-members-nav"><?=$arResult["Moderators"]["NAV_STRING"]?></div><?php 
 				endif;
 
-			?></div><?
+			?></div><?php 
 		}
 
 		if (
@@ -405,10 +405,10 @@ else
 				&& $arResult["CurrentUserPerms"]["UserCanModerateGroup"]
 			);
 
-			?><div class="sonet-members-item"><?
-				?><span class="sonet-members-item-name"><?=GetMessage("SONET_GUE_T_BAN_SUBTITLE")?></span><?
-				?><div class="sonet-members-separator"></div><?
-				?><div class="sonet-members-member-block-shift"><?
+			?><div class="sonet-members-item"><?php 
+				?><span class="sonet-members-item-name"><?=GetMessage("SONET_GUE_T_BAN_SUBTITLE")?></span><?php 
+				?><div class="sonet-members-separator"></div><?php 
+				?><div class="sonet-members-member-block-shift"><?php 
 					foreach ($arResult["Ban"]["List"] as $arMember)
 					{
 						$arUserTmp = array(
@@ -419,48 +419,48 @@ else
 							"LOGIN" => htmlspecialcharsback($arMember["USER_LOGIN"])
 						);
 
-						?><span class="sonet-members-member-block" bx-action="unban"><?
+						?><span class="sonet-members-member-block" bx-action="unban"><?php 
 							if ($canUnban)
 							{
-								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?
+								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?php 
 							}
-							?><span class="sonet-members-member-img-wrap"><?
-								?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?
-							?></span><?
+							?><span class="sonet-members-member-img-wrap"><?php 
+								?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?php 
+							?></span><?php 
 							if ($canUnban)
 							{
-								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arMember["USER_ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_UNBAN')?></span><?
+								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arMember["USER_ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_UNBAN')?></span><?php 
 							}
-							?><span class="sonet-members-member-text"><?
-								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?
+							?><span class="sonet-members-member-text"><?php 
+								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?php 
 								if ($arMember["SHOW_PROFILE_LINK"])
 								{
-									?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?
+									?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?php 
 								}
 								else
 								{
-									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?
+									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?php 
 								}
-								?></span><?
+								?></span><?php 
 								if ($arResult["bIntranetInstalled"])
 								{
-									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?
+									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?php 
 									if ($arMember["USER_ACTIVE"] != "Y")
 									{
-										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?
+										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?php 
 									}
-									?></span><?
+									?></span><?php 
 								}
-							?></span><?
-						?></span><?
+							?></span><?php 
+						?></span><?php 
 					}
-				?></div><?
+				?></div><?php 
 
 				if (StrLen($arResult["Ban"]["NAV_STRING"]) > 0):
-					?><div class="sonet-members-nav"><?=$arResult["Ban"]["NAV_STRING"]?></div><?
+					?><div class="sonet-members-nav"><?=$arResult["Ban"]["NAV_STRING"]?></div><?php 
 				endif;
 
-			?></div><?
+			?></div><?php 
 		}
 
 		if (
@@ -473,47 +473,47 @@ else
 				&& $arResult["CurrentUserPerms"]["UserCanModifyGroup"]
 			);
 
-			?><div class="sonet-members-item"><?
-				?><span class="sonet-members-item-name"><?=GetMessage("SONET_GUE_T_DEPARTMENTS_SUBTITLE")?></span><?
-				?><div class="sonet-members-separator"></div><?
+			?><div class="sonet-members-item"><?php 
+				?><span class="sonet-members-item-name"><?=GetMessage("SONET_GUE_T_DEPARTMENTS_SUBTITLE")?></span><?php 
+				?><div class="sonet-members-separator"></div><?php 
 
 				if (
 					false &&
 					$canUnconnect
 				)
 				{
-					?><div class="sonet-members-item-menu" id="sonet-members-action-dept-add"><?
+					?><div class="sonet-members-item-menu" id="sonet-members-action-dept-add"><?php 
 						?><span class="sonet-members-item-menu-title">+&nbsp;<?=Loc::getMessage("SONET_GUE_T_ACTIONLINK_ADD")?></span>
-					</div><?
+					</div><?php 
 				}
 
-				?><div class="sonet-members-member-block-shift"><?
+				?><div class="sonet-members-member-block-shift"><?php 
 
 					foreach ($arResult["Departments"]["List"] as $arDepartment)
 					{
-						?><span class="sonet-members-member-block" bx-action="unconnect"><?
+						?><span class="sonet-members-member-block" bx-action="unconnect"><?php 
 
 							if ($canUnconnect)
 							{
-								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?
+								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?php 
 							}
 
-							?><span class="sonet-members-member-img-wrap"><span class="sonet-members-member-img"></span></span><?
+							?><span class="sonet-members-member-img-wrap"><span class="sonet-members-member-img"></span></span><?php 
 
 							if ($canUnconnect)
 							{
-								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arDepartment["ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_UNCONNECT')?></span><?
+								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arDepartment["ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_UNCONNECT')?></span><?php 
 							}
 
-							?><span class="sonet-members-member-text"><?
-								?><span class="sonet-members-member-title"><?
-									?><a href="<?=$arDepartment["URL"]?>" class="sonet-members-member-link" target="_top"><?=htmlspecialcharsEx($arDepartment["NAME"])?></a><?
-								?></span><?
-							?></span><?
-						?></span><?
+							?><span class="sonet-members-member-text"><?php 
+								?><span class="sonet-members-member-title"><?php 
+									?><a href="<?=$arDepartment["URL"]?>" class="sonet-members-member-link" target="_top"><?=htmlspecialcharsEx($arDepartment["NAME"])?></a><?php 
+								?></span><?php 
+							?></span><?php 
+						?></span><?php 
 					}
-				?></div><?
-			?></div><?
+				?></div><?php 
+			?></div><?php 
 		}
 
 		if (
@@ -521,9 +521,9 @@ else
 			&& is_array($arResult["Users"]["List"])
 		)
 		{
-			?><div class="sonet-members-item"><?
-				?><span class="sonet-members-item-name"><?=GetMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_USERS_SUBTITLE_PROJECT" : "SONET_GUE_T_USERS_SUBTITLE")?></span><?
-				?><div class="sonet-members-separator"></div><?
+			?><div class="sonet-members-item"><?php 
+				?><span class="sonet-members-item-name"><?=GetMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_USERS_SUBTITLE_PROJECT" : "SONET_GUE_T_USERS_SUBTITLE")?></span><?php 
+				?><div class="sonet-members-separator"></div><?php 
 
 				if (
 					$arResult["CurrentUserPerms"]
@@ -535,16 +535,16 @@ else
 					&& !empty($arResult["Urls"]["GroupEdit"])
 				)
 				{
-					?><div class="sonet-members-item-menu" id="sonet-members-action-user-invite"><?
+					?><div class="sonet-members-item-menu" id="sonet-members-action-user-invite"><?php 
 						?><a href="<?=
 							!empty($arResult["Urls"]["GroupInvite"])
 								? htmlspecialcharsbx($arResult["Urls"]["GroupInvite"])
 								: htmlspecialcharsback($arResult["Urls"]["GroupEdit"]).(strpos($arResult["Urls"]["GroupEdit"], "?") === false ? "?" : "&")."tab=invite"
 						?>" class="sonet-members-item-menu-title">+&nbsp;<?=Loc::getMessage("SONET_GUE_T_ACTIONLINK_INVITE")?></a>
-					</div><?
+					</div><?php 
 				}
 
-				?><div class="sonet-members-member-block-shift"><?
+				?><div class="sonet-members-member-block-shift"><?php 
 
 					foreach ($arResult["Users"]["List"] as $arMember)
 					{
@@ -563,56 +563,56 @@ else
 							"LOGIN" => htmlspecialcharsback($arMember["USER_LOGIN"])
 						);
 
-						?><span class="sonet-members-member-block" bx-action="exclude"><?
+						?><span class="sonet-members-member-block" bx-action="exclude"><?php 
 
 							if ($canExclude)
 							{
-								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?
+								?><span class="sonet-members-close"><span class="sonet-members-close-item"></span></span><?php 
 							}
 
-							?><span class="sonet-members-member-img-wrap"><?
-								?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?
-							?></span><?
+							?><span class="sonet-members-member-img-wrap"><?php 
+								?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?php 
+							?></span><?php 
 
 							if ($canExclude)
 							{
-								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arMember["USER_ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_EXCLUDE')?></span><?
+								?><span class="ui-btn ui-btn-sm ui-btn-danger sonet-members-member-button" bx-entity-id="<?=intval($arMember["USER_ID"])?>"><?=Loc::getMessage('SONET_GUE_T_BUTTON_EXCLUDE')?></span><?php 
 							}
 
-							?><span class="sonet-members-member-text"><?
-								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?
+							?><span class="sonet-members-member-text"><?php 
+								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?php 
 								if ($arMember["SHOW_PROFILE_LINK"])
 								{
-									?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?
+									?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?php 
 								}
 								else
 								{
-									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?
+									?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?php 
 								}
-								?></span><?
+								?></span><?php 
 								if ($arResult["bIntranetInstalled"])
 								{
-									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?
+									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?php 
 									if ($arMember["USER_ACTIVE"] != "Y")
 									{
-										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?
+										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?php 
 									}
-									?></span><?
+									?></span><?php 
 								}
 								if ($arMember["IS_OWNER"])
 								{
-									?><span class="sonet-members-caption"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_OWNER_PROJECT" : "SONET_GUE_T_OWNER")?></span><?
+									?><span class="sonet-members-caption"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_OWNER_PROJECT" : "SONET_GUE_T_OWNER")?></span><?php 
 								}
-							?></span><?
-						?></span><?
+							?></span><?php 
+						?></span><?php 
 					}
-				?></div><?
+				?></div><?php 
 
 				if (StrLen($arResult["Users"]["NAV_STRING"]) > 0):
-					?><div class="sonet-members-nav"><?=$arResult["Users"]["NAV_STRING"]?></div><?
+					?><div class="sonet-members-nav"><?=$arResult["Users"]["NAV_STRING"]?></div><?php 
 				endif;
 
-			?></div><?
+			?></div><?php 
 		}
 
 		if (
@@ -620,13 +620,13 @@ else
 			&& is_array($arResult["UsersAuto"]["List"])
 		)
 		{
-			?><div class="sonet-members-item"><?
-				?><span class="sonet-members-item-name"><?
-					?><?=Loc::getMessage("SONET_GUE_T_USERS_AUTO_SUBTITLE")?><?
-					?><span class="sonet-members-hint" id="sonet-members-auto-subtitle-hint" data-text="<?=htmlspecialcharsbx(Loc::getMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_USERS_AUTO_SUBTITLE_HINT_PROJECT" : "SONET_GUE_T_USERS_AUTO_SUBTITLE_HINT"))?>">?</span><?
-				?></span><?
-				?><div class="sonet-members-separator"></div><?
-				?><div class="sonet-members-member-block-shift"><?
+			?><div class="sonet-members-item"><?php 
+				?><span class="sonet-members-item-name"><?php 
+					?><?=Loc::getMessage("SONET_GUE_T_USERS_AUTO_SUBTITLE")?><?php 
+					?><span class="sonet-members-hint" id="sonet-members-auto-subtitle-hint" data-text="<?=htmlspecialcharsbx(Loc::getMessage($arResult["Group"]["PROJECT"] == 'Y' ? "SONET_GUE_T_USERS_AUTO_SUBTITLE_HINT_PROJECT" : "SONET_GUE_T_USERS_AUTO_SUBTITLE_HINT"))?>">?</span><?php 
+				?></span><?php 
+				?><div class="sonet-members-separator"></div><?php 
+				?><div class="sonet-members-member-block-shift"><?php 
 					foreach ($arResult["UsersAuto"]["List"] as $arMember)
 					{
 						$arUserTmp = array(
@@ -637,41 +637,41 @@ else
 							"LOGIN" => htmlspecialcharsback($arMember["USER_LOGIN"])
 						);
 
-						?><span class="sonet-members-member-block"><?
-							?><span class="sonet-members-member-img-wrap"><?
-							?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span></span><?
-							?><span class="sonet-members-member-text"><?
-								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?
+						?><span class="sonet-members-member-block"><?php 
+							?><span class="sonet-members-member-img-wrap"><?php 
+							?><span class="sonet-members-member-img" style="<?=(is_array($arMember["USER_PERSONAL_PHOTO_IMG"]) && strlen($arMember["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arMember["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span></span><?php 
+							?><span class="sonet-members-member-text"><?php 
+								?><span class="sonet-members-member-title<?=($arMember["USER_IS_EXTRANET"] == "Y" ? " sonet-members-member-title-extranet" : "")?>"><?php 
 									if ($arMember["SHOW_PROFILE_LINK"])
 									{
-										?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?
+										?><a href="<?=htmlspecialcharsback($arMember["USER_PROFILE_URL"])?>" class="sonet-members-member-link" target="_top" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?php 
 									}
 									else
 									{
-										?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?
+										?><span class="sonet-members-member-link" bx-tooltip-user-id="<?=$arMember["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?php 
 									}
-								?></span><?
+								?></span><?php 
 								if ($arResult["bIntranetInstalled"])
 								{
-									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?
+									?><span class="sonet-members-member-description"><?=$arMember["USER_WORK_POSITION"]?><?php 
 									if ($arMember["USER_ACTIVE"] != "Y")
 									{
-										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?
+										?><?=(strlen($arMember["USER_WORK_POSITION"]) > 0 ? ", " : "").GetMessage("SONET_GUE_T_FIRED2".(in_array($arMember["USER_PERSONAL_GENDER"], array("M", "F")) ? "_".$arMember["USER_PERSONAL_GENDER"] : ""))?><?php 
 									}
-									?></span><?
+									?></span><?php 
 								}
-							?></span><?
-						?></span><?
+							?></span><?php 
+						?></span><?php 
 					}
-				?></div><?
+				?></div><?php 
 
 				if (StrLen($arResult["UsersAuto"]["NAV_STRING"]) > 0):
-					?><div class="sonet-members-nav"><?=$arResult["UsersAuto"]["NAV_STRING"]?></div><?
+					?><div class="sonet-members-nav"><?=$arResult["UsersAuto"]["NAV_STRING"]?></div><?php 
 				endif;
 
-			?></div><?
+			?></div><?php 
 		}
 
-	?></div><? // socialnetwork-group-users-content
+	?></div><?php  // socialnetwork-group-users-content
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_MODULE_NAME"] = "Веб-кластер";
 $MESS["CLU_MODULE_DESCRIPTION"] = "Модуль поддержки веб-кластера.";
 $MESS["CLU_INSTALL_TITLE"] = "Установка модуля поддержки веб-кластера";

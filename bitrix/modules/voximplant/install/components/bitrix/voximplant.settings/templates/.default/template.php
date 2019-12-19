@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -27,15 +27,15 @@ foreach($arResult['INTERFACE_CHAT_OPTIONS'] as $action)
 			<div class="tel-set-item-select-wrap">
 				<div class="tel-set-item-select-label"><?=GetMessage("VI_NUMBERS_CONFIG_BACKPHONE")?></div>
 				<select class="tel-set-item-select" name="CURRENT_LINE" <?=(empty($arResult['LINES'])? 'class="tel-set-inp tel-set-inp-disabled" disabled="true"': 'class="tel-set-inp"')?>>
-					<?foreach ($arResult['LINES'] as $k => $v): ?>
-						<option value="<?=$k?>" <? if ($arResult['CURRENT_LINE'] == $k): ?> selected <? endif; ?>><?=$v?></option>
-					<?endforeach;?>
+					<?php foreach ($arResult['LINES'] as $k => $v): ?>
+						<option value="<?=$k?>" <?php  if ($arResult['CURRENT_LINE'] == $k): ?> selected <?php  endif; ?>><?=$v?></option>
+					<?php endforeach;?>
 				</select>
 			</div>
 		</div>
 	</div>
 
-	<? if(!$arResult['IS_REST_ONLY']): ?>
+	<?php  if(!$arResult['IS_REST_ONLY']): ?>
 		<div class="tel-set-container">
 			<div class="bx-edit-tab-title">
 				<div class="bx-form-title">
@@ -52,15 +52,15 @@ foreach($arResult['INTERFACE_CHAT_OPTIONS'] as $action)
 					<div class="tel-set-item-select-wrap">
 						<div class="tel-set-item-select-label"><?=GetMessage("VI_BACKUP_LINE_LABEL")?>:</div>
 						<select id="vi-backup-line" class="tel-set-item-select" name="BACKUP_LINE" class="tel-set-inp">
-							<?foreach ($arResult['LINES'] as $k => $v):?>
+							<?php foreach ($arResult['LINES'] as $k => $v):?>
 								<option value="<?= $k ?>" <?= ($arResult["BACKUP_LINE"] == $k ? "selected" : "")?>><?= $v ?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
 				</div>
 			</div>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 
 	<div class="tel-set-container">
 		<div class="bx-edit-tab-title">
@@ -72,15 +72,15 @@ foreach($arResult['INTERFACE_CHAT_OPTIONS'] as $action)
 			<div class="tel-set-item-select-wrap">
 				<div class="tel-set-item-select-label"><?=GetMessage("VI_INTERFACE_CHAT_TITLE")?></div>
 				<select name="INTERFACE_CHAT_ACTION" class="tel-set-item-select">
-					<?foreach ($arResult['INTERFACE_CHAT_OPTIONS_FINAL'] as $k => $v): ?>
-						<option value="<?=$k?>" <? if ($arResult['INTERFACE_CHAT_ACTION'] == $k): ?> selected <? endif; ?>><?=$v?></option>
-					<?endforeach;?>
+					<?php foreach ($arResult['INTERFACE_CHAT_OPTIONS_FINAL'] as $k => $v): ?>
+						<option value="<?=$k?>" <?php  if ($arResult['INTERFACE_CHAT_ACTION'] == $k): ?> selected <?php  endif; ?>><?=$v?></option>
+					<?php endforeach;?>
 				</select>
 			</div>
 		</div>
 	</div>
 
-	<? if($arResult['LEAD_ENABLED']): ?>
+	<?php  if($arResult['LEAD_ENABLED']): ?>
 		<div class="tel-set-container">
 			<div class="bx-edit-tab-title">
 				<div class="bx-form-title">
@@ -91,16 +91,16 @@ foreach($arResult['INTERFACE_CHAT_OPTIONS'] as $action)
 				<div class="tel-set-item-desc"><?=GetMessage("VI_CRM_INTEGRATION_WORKFLOW_EXECUTION_TITLE")?></div>
 				<div class="tel-set-item-select-wrap">
 					<select name="WORKFLOW_OPTION" class="tel-set-item-select">
-						<?foreach ($arResult['WORKFLOW_OPTIONS'] as $k => $v): ?>
-							<option value="<?=$k?>" <? if ($arResult['WORKFLOW_OPTION'] == $k): ?> selected <? endif; ?>><?=$v?></option>
-						<?endforeach;?>
+						<?php foreach ($arResult['WORKFLOW_OPTIONS'] as $k => $v): ?>
+							<option value="<?=$k?>" <?php  if ($arResult['WORKFLOW_OPTION'] == $k): ?> selected <?php  endif; ?>><?=$v?></option>
+						<?php endforeach;?>
 					</select>
 				</div>
 			</div>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 
-	<? if(!$arResult['IS_REST_ONLY']): ?>
+	<?php  if(!$arResult['IS_REST_ONLY']): ?>
 		<div class="tel-set-container">
 			<div class="bx-edit-tab-title">
 				<div class="bx-form-title">
@@ -121,9 +121,9 @@ foreach($arResult['INTERFACE_CHAT_OPTIONS'] as $action)
 				</div>
 			</div>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 
-	<? if ($arResult['SHOW_AUTOPAY']): ?>
+	<?php  if ($arResult['SHOW_AUTOPAY']): ?>
 		<div class="tel-set-container">
 			<div class="bx-edit-tab-title">
 				<div class="bx-form-title">
@@ -144,9 +144,9 @@ foreach($arResult['INTERFACE_CHAT_OPTIONS'] as $action)
 				</div>
 			</div>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 
-	<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+	<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 		'BUTTONS' => [
 			'save',
 			'cancel' => '/telephony/',

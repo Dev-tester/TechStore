@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_INVITE_DIALOG_CONF_PAGE_TITLE"] = "Confirm Registration";
 $MESS["BX24_INVITE_DIALOG_EMAIL"] = "Enter the e-mail addresses of persons you want to invite. Separate multiple entries with comma or space.";
 $MESS["BX24_INVITE_DIALOG_INVITE"] = "Invite";

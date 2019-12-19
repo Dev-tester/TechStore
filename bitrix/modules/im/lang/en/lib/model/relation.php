@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RELATION_ENTITY_UNREAD_ID_FIELD"] = "First unread message ID";
 $MESS["RELATION_ENTITY_ID_FIELD"] = "Unique ID";
 $MESS["RELATION_ENTITY_CHAT_ID_FIELD"] = "Chat ID";

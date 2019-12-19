@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_FOLDER_TITLE'] = "Свойства папки";
 $MESS ['FILEMAN_FOLDER_SECTION_NAME'] = "Заголовок:";
 $MESS ['FILEMAN_FOLDER_ACCESS'] = "Права доступа";

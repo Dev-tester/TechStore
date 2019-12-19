@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_PERMISSION_DENIED'] = "Access denied";
 $MESS['CRM_VOLUME_AGENT_STEPPER'] = "Cleanup in progress";
 $MESS['CRM_VOLUME_CANCEL'] = "Cancel";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SE_NOTIFY_TITLE"] = "Notifications";
 $MESS["SE_NOTIFY_DESC"] = "Push notifications and counter";
 $MESS["SE_NOTIFY_PUSH_TITLE"] = "Allow notifications";

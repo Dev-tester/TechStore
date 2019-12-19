@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_MONITORING_DOMAIN"] = "Domain";
 $MESS["BCL_MONITORING_LICENSE"] = "License will expire in:";
 $MESS["BCL_MONITORING_NO_DOMAINS_CONFIGURED"] = "There are no domains configured for at least one website.";

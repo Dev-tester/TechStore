@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COLLISION_TYPE_ORDER_IS_PAYED"] = "Заказ оплачен полностью. Изменения заказа не возможны.";
 $MESS["SALE_COLLISION_TYPE_ORDER_IS_SHIPPED"] = "Заказ отгружен полностью. Изменения заказа не возможны.";
 $MESS["SALE_COLLISION_TYPE_ORDER_FINAL_STATUS"] = "Заказ находится в финальном статусе. Изменения заказа невозможны.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_UPDATE_DISCOUNT_CPN"] = "Error updating parameters of the coupon #ID#";
 $MESS["ERROR_DELETE_DISCOUNT_CPN"] = "Error deleting the coupon #ID#";
 $MESS["DSC_NAV"] = "Coupons";

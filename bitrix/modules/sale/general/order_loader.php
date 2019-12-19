@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 use \Bitrix\Main\Type\RandomSequence;
 use \Bitrix\Sale;

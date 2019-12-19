@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOXIMPLANT_PERM_ROLE"] = "Role";
 $MESS["VOXIMPLANT_PERM_ADD_ACCESS_CODE"] = "Add access permission";
 $MESS["VOXIMPLANT_PERM_ROLE_LIST"] = "Roles";

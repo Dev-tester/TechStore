@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_SHARING_MODEL_AUTOCONNECT_NOTIFY"] = "Общая папка <b>\"#NAME#\"</b> подключена к вашему диску. #DISCONNECT_LINK#
 #DESCRIPTION#";
 $MESS["DISK_SHARING_MODEL_APPROVE_N"] = "Отключить";

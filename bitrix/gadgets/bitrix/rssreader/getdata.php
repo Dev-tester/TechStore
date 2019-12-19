@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("BX_SECURITY_SHOW_MESSAGE", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
@@ -40,10 +40,10 @@ if(
 }
 	
 ?>
-<?
+<?php 
 if($arGadgetParams["RSS_URL"]=="")
 {
-	?><div class="gdrsserror"><?=GetMessage("GD_RSS_READER_NEW_RSS")?></div><?
+	?><div class="gdrsserror"><?=GetMessage("GD_RSS_READER_NEW_RSS")?></div><?php 
 
 	$cache->EndDataCache();
 	return;
@@ -66,17 +66,17 @@ if($rss)
 			d.style.display = 'none';
 	}
 	</script>
-	<div class="gdrsstitle"><?
+	<div class="gdrsstitle"><?php 
 	if($arGadgetParams["SHOW_URL"]=="Y" && preg_match("'^(http://|https://|ftp://)'i", $rss->link))
 	{
-		?><a href="<?=htmlspecialcharsbx($rss->link)?>"><?=htmlspecialcharsEx($rss->title)?></a><?
+		?><a href="<?=htmlspecialcharsbx($rss->link)?>"><?=htmlspecialcharsEx($rss->title)?></a><?php 
 	}
 	else
 	{
-		?><?=htmlspecialcharsEx($rss->title)?><?
+		?><?=htmlspecialcharsEx($rss->title)?><?php 
 	}
 	?></div>
-	<div class="gdrssitems"><?
+	<div class="gdrssitems"><?php 
 	$cnt = 0;
 	
 	if ($arGadgetParams["IS_HTML"] == "Y")
@@ -103,15 +103,15 @@ if($rss)
 			<div class="gdrssitemtitle">&raquo; <a href="javascript:void(0)" onclick="ShowHide<?=htmlspecialcharsbx(CUtil::JSEscape($rnd))?>('z<?=$cnt.md5($item["TITLE"])?><?=htmlspecialcharsbx(CUtil::JSEscape($rnd))?>')"><?=htmlspecialcharsEx($item["TITLE"])?></a></div>
 			<div class="gdrssitemdetail" id="z<?=$cnt.md5($item["TITLE"])?><?=htmlspecialcharsbx(CUtil::JSEscape($rnd))?>" style="display:none">
 				<div class="gdrssitemdate"><?=htmlspecialcharsEx($item["PUBDATE"])?></div>
-				<div class="gdrssitemdesc"><?=$item["DESCRIPTION"]?> <?if($arGadgetParams["SHOW_URL"]=="Y" && preg_match("'^(http://|https://|ftp://)'i", $item["LINK"])):?><a href="<?=htmlspecialcharsbx($item["LINK"])?>"><?echo GetMessage("GD_RSS_READER_RSS_MORE")?></a><?endif?></div>
+				<div class="gdrssitemdesc"><?=$item["DESCRIPTION"]?> <?php if($arGadgetParams["SHOW_URL"]=="Y" && preg_match("'^(http://|https://|ftp://)'i", $item["LINK"])):?><a href="<?=htmlspecialcharsbx($item["LINK"])?>"><?php echo GetMessage("GD_RSS_READER_RSS_MORE")?></a><?php endif?></div>
 			</div>
-		</div><?
+		</div><?php 
 	}
-	?></div><?
+	?></div><?php 
 }
 else
 {
-	?><div class="gdrsserror"><?=GetMessage("GD_RSS_READER_RSS_ERROR")?></div><?
+	?><div class="gdrsserror"><?=GetMessage("GD_RSS_READER_RSS_ERROR")?></div><?php 
 }
 
 $cache->EndDataCache();

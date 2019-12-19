@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACCESS_DENIED"] = "Access denied";
 $MESS["SALE_REFUND_HANDLERS_TITLE"] = "Configure Returns";
 $MESS["SALE_REFUND_HANDLERS_LIST_EXTERNAL_ID"] = "Shop ID";

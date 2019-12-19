@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 use \Bitrix\Main\Localization\Loc;
 /**
@@ -27,7 +27,7 @@ $this->addExternalCss('/bitrix/components/bitrix/crm.entity.editor/templates/.de
 								</span>
 							</div>
 							<div class="crm-entity-widget-content">
-								<?
+								<?php 
 								foreach ($arResult['FIELDS'] as $field)
 								{
 									if (isset($arResult['GROUP'][$field['ID']]))
@@ -42,7 +42,7 @@ $this->addExternalCss('/bitrix/components/bitrix/crm.entity.editor/templates/.de
 												</span>
 											</div>
 											<div class="crm-entity-widget-content-block-inner">
-												<?
+												<?php 
 												if ($field['TYPE'] === 'checkbox')
 												{
 													$checked = $fieldValue === 'Y';
@@ -53,14 +53,14 @@ $this->addExternalCss('/bitrix/components/bitrix/crm.entity.editor/templates/.de
 														<input type="hidden" name="<?=$field['ID']?>" value="N">
 														<input type="checkbox" name="<?=$field['ID']?>" value="Y"
 																checked="<?=($checked ? 'checked' : '')?>">
-														<?
+														<?php 
 													}
 													else
 													{
 														?>
 														<input type="hidden" name="<?=$field['ID']?>"
 																value="<?=$fieldValue?>">
-														<?
+														<?php 
 														echo $checked
 															? Loc::getMessage('CRM_ORDER_BUYER_GROUP_EDIT_YES')
 															: Loc::getMessage('CRM_ORDER_BUYER_GROUP_EDIT_NO');
@@ -74,21 +74,21 @@ $this->addExternalCss('/bitrix/components/bitrix/crm.entity.editor/templates/.de
 														?>
 														<input type="text" class="crm-entity-widget-content-input"
 																name="<?=$field['ID']?>" value="<?=$fieldValue?>">
-														<?
+														<?php 
 													}
 													else
 													{
 														?>
 														<input type="hidden" name="<?=$field['ID']?>"
 																value="<?=$fieldValue?>">
-														<?
+														<?php 
 														echo $fieldValue;
 													}
 												}
 												?>
 											</div>
 										</div>
-										<?
+										<?php 
 									}
 								}
 								?>
@@ -117,7 +117,7 @@ $this->addExternalCss('/bitrix/components/bitrix/crm.entity.editor/templates/.de
 	</table>
 	<div class="crm-footer-container">
 		<div class="crm-entity-section-control">
-			<?
+			<?php 
 			if ($arResult['CAN_EDIT_GROUP'])
 			{
 				?>
@@ -127,7 +127,7 @@ $this->addExternalCss('/bitrix/components/bitrix/crm.entity.editor/templates/.de
 				<a id="CRM_ORDER_BUYER_GROUP_EDIT_CANCEL" class="ui-btn ui-btn-link">
 					<?=Loc::getMessage('CRM_ORDER_BUYER_GROUP_EDIT_BUTTON_CANCEL')?>
 				</a>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -135,13 +135,13 @@ $this->addExternalCss('/bitrix/components/bitrix/crm.entity.editor/templates/.de
 				<a id="CRM_ORDER_BUYER_GROUP_EDIT_BACK" class="ui-btn ui-btn-link">
 					<?=Loc::getMessage('CRM_ORDER_BUYER_GROUP_EDIT_BUTTON_BACK')?>
 				</a>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 	</div>
 </form>
-<?
+<?php 
 $signer = new \Bitrix\Main\Security\Sign\Signer;
 $signedParams = $signer->sign(base64_encode(serialize($arParams)), 'crm.order.buyer_group.edit');
 ?>

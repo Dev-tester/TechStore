@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 /** @var CBitrixComponentTemplate $this */
@@ -33,7 +33,7 @@ $jsHtml = \CJSCore::GetHTML(array('ls', 'ajax'));
     <title><?=Loc::getMessage("FACEID_1C_PUBLIC_TITLE")?></title>
 </head>
 
-<? if (empty($arResult['ERROR'])): ?>
+<?php  if (empty($arResult['ERROR'])): ?>
     <?=$jsHtml?>
 
     <script type="text/javascript">
@@ -49,7 +49,7 @@ $jsHtml = \CJSCore::GetHTML(array('ls', 'ajax'));
     </script>
 
     <script type="text/javascript" src="<?=$this->GetFolder()?>/script.js"></script>
-<? endif ?>
+<?php  endif ?>
 
 <link href="/bitrix/templates/bitrix24/interface.css" type="text/css"  rel="stylesheet">
 <link href="<?=$this->GetFolder()?>/style.css" type="text/css"  rel="stylesheet">
@@ -60,15 +60,15 @@ $jsHtml = \CJSCore::GetHTML(array('ls', 'ajax'));
 			<div class="faceid-error-message-text"></div>
 		</div>
 
-        <? if (!empty($arResult['ERROR'])): ?>
+        <?php  if (!empty($arResult['ERROR'])): ?>
             <div id="faceid-camera-error" class="faceid-tracker-error faceid-tracker-error-top-center" style="display:block;">
                 <?=$arResult['ERROR']?>
             </div>
-        <? else: ?>
+        <?php  else: ?>
             <div id="faceid-camera-error" class="faceid-tracker-error faceid-tracker-error-top-center"></div>
-        <? endif ?>
+        <?php  endif ?>
 
-        <? if (empty($arResult['ERROR'])): ?>
+        <?php  if (empty($arResult['ERROR'])): ?>
             <video id="faceid-video" class="faceid-tracker-sidebar-video"><?=Loc::getMessage('FACEID_TRACKER1C_CMP_JS_CAMERA_ERROR')?></video>
             <img id="faceid-sent-snapshot">
             <canvas id="faceid-sent-snapshot-canvas"></canvas>
@@ -84,11 +84,11 @@ $jsHtml = \CJSCore::GetHTML(array('ls', 'ajax'));
                     </div><!--faceid-tracker-sidebar-photo-settings-inner-container-->
                 </div>
             </div>
-        <? endif; ?>
+        <?php  endif; ?>
 
 	</div><!--faceid-tracker-sidebar-photo-->
 
-	<? if (empty($arResult['ERROR'])): ?>
+	<?php  if (empty($arResult['ERROR'])): ?>
         <div class="faceid-loader" id="faceid-1c-loader">
             <div class="faceid-loader-item">
                 <div class="faceid-loader-inner">
@@ -102,7 +102,7 @@ $jsHtml = \CJSCore::GetHTML(array('ls', 'ajax'));
             <span class="faceid-tracker-sidebar-photo-button-item" id="faceid-startbutton"></span>
             <div style="display: none;" class="webform-small-button-wait faceid-tracker-button-wait" id="faceid-startbutton-progress"></div>
         </div><!--faceid-tracker-sidebar-photo-button-->
-	<? endif; ?>
+	<?php  endif; ?>
 </div>
 <canvas id="faceid-canvas" style="display: none"></canvas>
 

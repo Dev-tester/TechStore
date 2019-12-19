@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $GLOBALS["SONET_FEATURES_CACHE"] = array();

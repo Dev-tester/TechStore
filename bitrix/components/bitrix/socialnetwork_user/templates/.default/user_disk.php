@@ -96,7 +96,7 @@ else
 				</td>
 			</tr>
 		</table>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:disk.file.upload',
 			'',
 			array(
@@ -110,7 +110,7 @@ else
 			array("HIDE_ICONS" => "Y")
 		);?>
 	</div>
-<?
+<?php 
 }
 ?>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VOLUME_START_TITLE"] = "Free Space";
 $MESS["DISK_VOLUME_START_COMMENT"] = "Bitrix24 will scan your documents and show a summary of files that can be deleted safely to free space.";
 $MESS["DISK_VOLUME_START_COMMENT_EXPERT"] = "You can activate Expert mode to analyze all files on your drive.";

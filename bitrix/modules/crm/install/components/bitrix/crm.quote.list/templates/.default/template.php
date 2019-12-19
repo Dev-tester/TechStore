@@ -30,16 +30,16 @@ Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/interface_grid.js')
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/autorun_proc.js');
 Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/js/crm/css/autorun_proc.css');
 
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):
-	?><div id="rebuildQuoteSearchWrapper"></div><?
+	?><div id="rebuildQuoteSearchWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_QUOTE_ATTRS']):
 	?><div id="rebuildQuoteAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_QUOTE_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildQuoteAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES']):
@@ -50,9 +50,9 @@ if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES']):
 			'SKIP_ID' => 'skipTransferPSRequisitesLink', 'SKIP_URL' => '#'
 		)
 	)?>
-	</div><?
+	</div><?php 
 endif;
-?></div><?
+?></div><?php 
 
 $isInternal = $arResult['INTERNAL'];
 $callListUpdateMode = $arResult['CALL_LIST_UPDATE_MODE'];
@@ -655,7 +655,7 @@ $APPLICATION->IncludeComponent(
 				};
 		}
 	);
-</script><?
+</script><?php 
 if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
 	<script type="text/javascript">
 		BX.ready(
@@ -698,8 +698,8 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -726,8 +726,8 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_QUOTE_ATTRS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_QUOTE_ATTRS']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -751,8 +751,8 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 		}
 	);
 </script>
-<?endif;?>
-<?if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -820,4 +820,4 @@ if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arRes
 			}
 		);
 	</script>
-<?endif;?>
+<?php endif;?>

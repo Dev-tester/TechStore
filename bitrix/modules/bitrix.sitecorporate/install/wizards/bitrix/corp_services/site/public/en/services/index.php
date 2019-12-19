@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Products & Services");
 ?>
@@ -20,4 +20,4 @@ Comprehensive banking services based on maximizing competitive advantages and op
     <li><a href="corp/merchant.php">Merchant Services</a></li> 
 </ul> 	
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

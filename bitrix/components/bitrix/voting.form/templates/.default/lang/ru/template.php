@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_DROPDOWN_SET'] = "выберите значение";
 $MESS ['VOTE_SUBMIT_BUTTON'] = "Голосовать";
 $MESS ['VOTE_RESET'] = "Сбросить";

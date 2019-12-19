@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMBOT_NETWORK_BOT_WORK_POSITION"] = "Открытая линия";
 $MESS["IMBOT_NETWORK_ERROR_BOT_NOT_FOUND"] = "Сообщение не отправлено![br]Отправка сообщений в данную открытую линию заблокирована.";
 $MESS["IMBOT_NETWORK_ERROR_NOT_FOUND"] = "Сообщение не отправлено![br]Открытая линия в данный момент не доступна.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["nav_of"] = "of";
 $MESS["nav_pages"] = "Pages:";
 $MESS["nav_all"] = "All";

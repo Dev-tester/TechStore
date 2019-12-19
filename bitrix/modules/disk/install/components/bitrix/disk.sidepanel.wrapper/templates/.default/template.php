@@ -18,27 +18,27 @@ CJSCore::Init(array('sidepanel'));
 			window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
-	<title><?$APPLICATION->ShowTitle()?></title>
+	<?php $APPLICATION->ShowHead();?>
+	<title><?php $APPLICATION->ShowTitle()?></title>
 </head>
-<body class="disk-slider-frame-popup template-<?= SITE_TEMPLATE_ID ?> <? $APPLICATION->ShowProperty('BodyClass'); ?>">
+<body class="disk-slider-frame-popup template-<?= SITE_TEMPLATE_ID ?> <?php  $APPLICATION->ShowProperty('BodyClass'); ?>">
 	<div class="disk-pagetitle-wrap">
 		<div class="disk-pagetitle-inner-container">
 			<div class="disk-pagetitle-menu" id="pagetitle-menu">
-				<? $APPLICATION->ShowViewContent("pagetitle"); ?>
+				<?php  $APPLICATION->ShowViewContent("pagetitle"); ?>
 			</div>
 			<div class="disk-pagetitle">
-				<span id="pagetitle"><? $APPLICATION->ShowTitle(); ?></span>
+				<span id="pagetitle"><?php  $APPLICATION->ShowTitle(); ?></span>
 			</div>
-			<?$APPLICATION->ShowViewContent("inside_pagetitle")?>
+			<?php $APPLICATION->ShowViewContent("inside_pagetitle")?>
 		</div>
 	</div>
 
 	<div id="disk-frame-popup-workarea">
-		<div id="sidebar"><? $APPLICATION->ShowViewContent("sidebar"); ?></div>
+		<div id="sidebar"><?php  $APPLICATION->ShowViewContent("sidebar"); ?></div>
 		<div id="workarea-content">
 			<div class="disk-workarea-content-paddings">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					$arParams['POPUP_COMPONENT_NAME'],
 					$arParams['POPUP_COMPONENT_TEMPLATE_NAME'],

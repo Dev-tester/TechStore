@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["abtest_entity_active_field"] = "Active";
 $MESS["abtest_entity_enabled_field"] = "Enabled";
 $MESS["abtest_entity_name_field"] = "Name";

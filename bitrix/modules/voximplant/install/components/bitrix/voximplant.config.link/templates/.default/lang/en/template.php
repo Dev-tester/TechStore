@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TELEPHONY_PUT_PHONE"] = "Enter company phone number";
 $MESS["TELEPHONY_EMPTY_PHONE"] = "No phone number provided";
 $MESS["TELEPHONY_CALLERID_NUMBER"] = "You have connected number #CALLER_ID#";

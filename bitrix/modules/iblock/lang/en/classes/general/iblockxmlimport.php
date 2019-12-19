@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_XML_IMPORT_ERR_BAD_STEP_ID"] = "Invalid import operation ID.";
 $MESS["IBLOCK_XML_IMPORT_ERR_PARAMETER_FILE_IS_EMPTY"] = "Import file not specified.";
 $MESS["IBLOCK_XML_IMPORT_MESS_IBLOCK_SECTIONS_IMPORT_COMPLETE"] = "Sections have been imported.";

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:webdav.folder.list", ".default", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:webdav.folder.list", ".default", Array(
 	"OBJECT" => $arParams["OBJECT"],
 	"PERMISSION" => $arParams["PERMISSION"],
 	"CHECK_CREATOR" => $arParams["CHECK_CREATOR"],

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CONTROLLER_MEMBER_REGISTER_NAME'] = "New controller member";
 $MESS ['CONTROLLER_MEMBER_REGISTER_DESC'] = "#ID# - the numeric controller member ID,
 #MEMBER_ID# - the global controller member ID,

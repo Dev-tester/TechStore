@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["disk_common_wizard_name"] = "Drive";
 $MESS["disk_common_wizard_title"] = "Section containing document storage (SEF)";
 $MESS["disk_common_wizard_settings"] = "Create storage";

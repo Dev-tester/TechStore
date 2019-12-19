@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_BASE_SERVICE_RESULT_ERROR_NEGATIVE_DURATION"] = "Working day duration cannot be negative";
 $MESS["TM_VIOLATION_WORKTIME_MANAGER_EARLY_END_FEMALE"] = "#USER_NAME# clocked out earlier than scheduled.";
 $MESS["TM_VIOLATION_WORKTIME_MANAGER_EARLY_END_MALE"] = "#USER_NAME# clocked out earlier than scheduled.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLACKLIST_TITLE"] = "Настройка черного списка";
 $MESS["BLACKLIST_SETTINGS_TITLE"] = "Настройка блокировки";
 $MESS["BLACKLIST_ERROR_TITLE"] = "Ошибка";

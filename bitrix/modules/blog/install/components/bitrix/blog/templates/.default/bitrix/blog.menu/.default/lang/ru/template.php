@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MENU_MY_BLOG'] = "Мой блог";
 $MESS ['BLOG_MENU_MY_BLOG_TITLE'] = "Перейти в свой блог";
 $MESS ['BLOG_MENU_PROFILE'] = "Мой профиль";

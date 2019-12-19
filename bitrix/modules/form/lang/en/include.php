@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_ADD"] = "Add";
 $MESS["FORM_TILL"] = "till";
 $MESS["FORM_F_ID"] = "ID:";

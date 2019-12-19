@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_REPORT_VIEW_TITLE"] = "View report";
 $MESS["SALE_REPORT_VIEW_ERROR"] = "Error building the report";
 $MESS["SALE_REPORT_VIEW_REPORT_TAB"] = "View report";

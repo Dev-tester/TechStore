@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_UF_FORUM_MESSAGE_CONNECTOR_MESSAGE01"] = "Сообщение форума";
 $MESS["DISK_UF_FORUM_MESSAGE_CONNECTOR_MESSAGE02"] = "Коммментарий";
 $MESS["DISK_UF_FORUM_MESSAGE_CONNECTOR_MESSAGE03"] = "Комментарий к задаче";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_08_5_CARD"] = "Spalte";
 $MESS["LANDING_BLOCK_08_5_DIVIDING_STRIP"] = "Trennzeichen";
 $MESS["LANDING_BLOCK_08_5_INFO"] = "Information";

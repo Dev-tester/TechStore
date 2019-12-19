@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_EMPTY_DEPARTMENT_ERROR"] = "Не выбрано подразделение";
 $MESS["INTRANET_USER_PROFILE_MOVE_TO_INTRANET_NOTIFY"] = "Вы были переведены из экстранета в интранет. Чтобы изменения вступили в силу, необходимо выйти из системы и снова войти.";
 $MESS["INTRANET_USER_PROFILE_MOVE_TO_INTRANET_SUCCESS"] = "Перевод был успешно завершен. Теперь сотрудник получит доступ к внутреннему содержимому вашего интранета";

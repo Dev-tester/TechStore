@@ -1,4 +1,4 @@
-<?$RIGHTS = $GLOBALS["APPLICATION"]->GetGroupRight("photogallery");
+<?php $RIGHTS = $GLOBALS["APPLICATION"]->GetGroupRight("photogallery");
 if ($RIGHTS > "D"):
 	IncludeModuleLangFile(__FILE__);
 	$arSights = array();
@@ -48,7 +48,7 @@ if ($RIGHTS > "D"):
 	//*****************************************************************************************************************
 ?><form method="POST" action="<?=$APPLICATION->GetCurPage()?>?mid=photogallery&lang=<?=LANGUAGE_ID?>" id="FORMACTION">
 <input type="hidden" name="back_url" value="<?=htmlspecialcharsbx($back_url)?>" />
-<?=bitrix_sessid_post()?><?
+<?=bitrix_sessid_post()?><?php 
 
 $aTabs = array(array("DIV" => "edit1", "TAB" => GetMessage("MAIN_TAB_SET"), "TITLE" => GetMessage("MAIN_TAB_TITLE_SET")));
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
@@ -56,7 +56,7 @@ $tabControl->Begin();
 $tabControl->BeginNextTab();
 
 ?>
-<tr valign="top"z><td width="50%"><?=GetMessage("P_FONT")?>:</td><td width="50%"><?
+<tr valign="top"z><td width="50%"><?=GetMessage("P_FONT")?>:</td><td width="50%"><?php 
 $arFiles = array();
 $path = str_replace(array("\\", "//"), "/", dirname(__FILE__)."/fonts/");
 CheckDirPath($path);
@@ -69,18 +69,18 @@ if ($handle)
 		if ($file == "." || $file == ".." || !is_file($path.$file))
 			continue;
 		$file_exist = true;
-		?><?=$file?><br/><?
+		?><?=$file?><br/><?php 
 	}
 }
 if (!$file_exist)
 {
-	?><?=GetMessage("P_FONT_IS_NOT_EXISTS")?><br /><?
+	?><?=GetMessage("P_FONT_IS_NOT_EXISTS")?><br /><?php 
 }
 ?>
 <a href="/bitrix/admin/fileman_file_upload.php?path=/bitrix/modules/photogallery/fonts/"><?=GetMessage("P_UPLOAD")?></a>
 </td></tr>
 
-<?/*
+<?php /*
 <tr class="heading"><td colspan="2"><?=GetMessage("P_PICTURES")?><sup>1</sup>:</td></tr>
 <tr><td align="center" colspan="2">
 	<table cellpadding="0" cellspacing="5">
@@ -90,7 +90,7 @@ if (!$file_exist)
 			<td><?=GetMessage("P_SIZE")?></td>
 			<td><?=GetMessage("P_QUALITY")?></td>
 			<td><?=GetMessage("P_DROP")?></td>
-		</tr><?
+		</tr><?php 
 
 foreach ($arSights as $key => $val):
 	$counter++;
@@ -100,7 +100,7 @@ foreach ($arSights as $key => $val):
 	<td style="text-align: center !important;"><input type="text" name="SIZE[<?=$counter?>]" value="<?=htmlspecialcharsbx($val["size"])?>" size="10" /></td>
 	<td style="text-align: center !important;"><input type="text" name="QUALITY[<?=$counter?>]" value="<?=htmlspecialcharsbx($val["quality"])?>" size="10" /></td>
 	<td style="text-align: center !important;"><input type="checkbox" name="DROP[<?=$counter?>]" value="Y" /></td>
-</tr><?
+</tr><?php 
 endforeach;
 for ($ii = 0; $ii < 5; $ii++):
 	$counter++;
@@ -110,10 +110,10 @@ for ($ii = 0; $ii < 5; $ii++):
 	<td style="text-align: center !important;"><input type="text" name="SIZE[<?=$counter?>]" value="" size="10" /></td>
 	<td style="text-align: center !important;"><input type="text" name="QUALITY[<?=$counter?>]" value="95" size="10" /></td>
 	<td style="text-align: center !important;"></td>
-</tr><?
+</tr><?php 
 endfor;
 ?>
-</table></td></tr><?*/
+</table></td></tr><?php */
 $tabControl->Buttons(
 	array(
 		"disabled"=>$RIGHTS<"W",
@@ -131,10 +131,10 @@ $tabControl->End();
 	Getmessage("P_FONTS_NOTE"))?>
 
 <?=EndNote();?>
-<?/*
+<?php /*
 <?=BeginNote();?>
 <sup>1</sup> <?=GetMessage("P_PICTURES_HELP")?><br />
 <sup>2</sup> <span class="required"><?=GetMessage("P_PICTURES_CODE_HELP")?></span><br />
 <?=EndNote();?>
 */?>
-<?endif;?>
+<?php endif;?>

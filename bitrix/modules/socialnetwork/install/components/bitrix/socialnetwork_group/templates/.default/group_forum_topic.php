@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 $pageId = "group_forum";
 include("util_group_menu.php");
 include("util_group_profile.php");
 ?>
-<?$arInfo = $APPLICATION->IncludeComponent("bitrix:socialnetwork.forum.topic.read", "", 
+<?php $arInfo = $APPLICATION->IncludeComponent("bitrix:socialnetwork.forum.topic.read", "", 
 	Array(
 		"FID"	=>	$arParams["FORUM_ID"],
 		"TID"	=>	$arResult["VARIABLES"]["topic_id"],
@@ -49,9 +49,9 @@ include("util_group_profile.php");
 	), 
 	$component,
 	array("HIDE_ICONS" => "Y"));
-?><?
+?><?php 
 if (!empty($arInfo) && $arInfo["PERMISSION"] > "E" && !$arInfo["HideArchiveLinks"]):
-?><div class='forum_post_form'><?$APPLICATION->IncludeComponent(
+?><div class='forum_post_form'><?php $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.forum.post_form", 
 	"", 
 	Array(
@@ -85,6 +85,6 @@ if (!empty($arInfo) && $arInfo["PERMISSION"] > "E" && !$arInfo["HideArchiveLinks
 		"SHOW_TAGS" => $arParams["SHOW_TAGS"]),
 	$component,
 	array("HIDE_ICONS" => "Y"));
-?></div><?
+?></div><?php 
 endif;
 ?>

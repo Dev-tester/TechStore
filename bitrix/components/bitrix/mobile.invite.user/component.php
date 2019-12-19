@@ -1,4 +1,4 @@
-<?if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!IsModuleInstalled("bitrix24") || !$USER->CanDoOperation('bitrix24_invite'))
 	die();
 

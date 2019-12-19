@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="row mb-3">
 	<div class="col">
 		<a href="<?=$arResult["URL_TO_LIST"]?>"><?=GetMessage("SALE_RECORDS_LIST")?></a>
@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col">
 		<div class="bx-order-cancel">
-			<?if(strlen($arResult["ERROR_MESSAGE"])<=0):?>
+			<?php if(strlen($arResult["ERROR_MESSAGE"])<=0):?>
 				<form method="post" action="<?=POST_FORM_ACTION_URI?>">
 					<input type="hidden" name="CANCEL" value="Y">
 					<?=bitrix_sessid_post()?>
@@ -30,9 +30,9 @@
 					<input type="submit" name="action" class="btn btn-danger" value="<?=GetMessage("SALE_CANCEL_ORDER_BTN") ?>">
 					<a href="<?=$arResult["URL_TO_LIST"]?>" class="btn btn-link"><?=GetMessage("SALE_RECORDS_LIST")?></a>
 				</form>
-			<?else:?>
+			<?php else:?>
 				<?=ShowError($arResult["ERROR_MESSAGE"]);?>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 	</div>
 </div>

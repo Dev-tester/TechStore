@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_VIEW_NAME"] = "Layout type";
 $MESS["LANDING_HOOK_VIEW_TYPE"] = "Type";
 $MESS["LANDING_HOOK_VIEW_TYPE_ALL"] = "Padding on all sides";

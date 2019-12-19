@@ -1,4 +1,4 @@
-<?
+<?php 
 
 /*
  * Deprecated
@@ -225,7 +225,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /********************  BODY  *****************************************/
 /*********************************************************************/
 ?>
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SDEN_2FLIST"),
@@ -254,45 +254,45 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?if(strlen($strError)>0)
+<?php if(strlen($strError)>0)
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>$strError, "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SDEN_ERROR"), "HTML"=>true));?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1" enctype="multipart/form-data">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1" enctype="multipart/form-data">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID; ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID; ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 	if ($ID>0):?>
 		<tr>
 			<td width="40%">ID:</td>
-			<td width="60%"><?echo $ID ?></td>
+			<td width="60%"><?php echo $ID ?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("F_NAME") ?>:</td>
-		<td width="60%"><input type="text" name="NAME" value="<?echo $str_NAME ?>" size="40"></td>
+		<td width="40%"><?php echo GetMessage("F_NAME") ?>:</td>
+		<td width="60%"><input type="text" name="NAME" value="<?php echo $str_NAME ?>" size="40"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("F_LANG") ?>:</td>
-		<td width="60%"><?echo CLang::SelectBox("LID", $str_LID, "")?></td>
+		<td width="40%"><?php echo GetMessage("F_LANG") ?>:</td>
+		<td width="60%"><?php echo CLang::SelectBox("LID", $str_LID, "")?></td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_PERIOD_FROM") ?>:</td>
+		<td width="40%"><?php echo GetMessage("F_PERIOD_FROM") ?>:</td>
 		<td width="60%">
-			<?echo GetMessage("SALE_FROM")?>
-			<input type="text" name="PERIOD_FROM" value="<?echo $str_PERIOD_FROM ?>" size="3">
-			<?echo GetMessage("SALE_TO")?>
-			<input type="text" name="PERIOD_TO" value="<?echo $str_PERIOD_TO ?>" size="3">
-			<?
+			<?php echo GetMessage("SALE_FROM")?>
+			<input type="text" name="PERIOD_FROM" value="<?php echo $str_PERIOD_FROM ?>" size="3">
+			<?php echo GetMessage("SALE_TO")?>
+			<input type="text" name="PERIOD_TO" value="<?php echo $str_PERIOD_TO ?>" size="3">
+			<?php 
 			$arPerType = array(
 				"D" => GetMessage("PER_DAY"),
 				"H" => GetMessage("PER_HOUR"),
@@ -300,59 +300,59 @@ $tabControl->BeginNextTab();
 				);
 			?>
 			<select name="PERIOD_TYPE">
-				<?foreach ($arPerType as $key => $value):?>
-					<option value="<?echo $key ?>" <?if ($key==$str_PERIOD_TYPE) echo "selected"?>><?echo $value ?></option>
-				<?endforeach;?>
+				<?php foreach ($arPerType as $key => $value):?>
+					<option value="<?php echo $key ?>" <?php if ($key==$str_PERIOD_TYPE) echo "selected"?>><?php echo $value ?></option>
+				<?php endforeach;?>
 			</select>
 
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_WEIGHT")?> (<?echo GetMessage('WEIGHT_G')?>):</td>
+		<td width="40%"><?php echo GetMessage("F_WEIGHT")?> (<?php echo GetMessage('WEIGHT_G')?>):</td>
 		<td width="60%">
-			<?echo GetMessage("SALE_FROM")?>
-			<input type="text" name="WEIGHT_FROM" value="<?echo $str_WEIGHT_FROM ?>" size="7">
-			<?echo GetMessage("SALE_TO")?>
-			<input type="text" name="WEIGHT_TO" value="<?echo $str_WEIGHT_TO ?>" size="7">
+			<?php echo GetMessage("SALE_FROM")?>
+			<input type="text" name="WEIGHT_FROM" value="<?php echo $str_WEIGHT_FROM ?>" size="7">
+			<?php echo GetMessage("SALE_TO")?>
+			<input type="text" name="WEIGHT_TO" value="<?php echo $str_WEIGHT_TO ?>" size="7">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_ORDER_PRICE")?>:</td>
+		<td width="40%"><?php echo GetMessage("F_ORDER_PRICE")?>:</td>
 		<td width="60%">
-			<?echo GetMessage("SALE_FROM")?>
-			<input type="text" name="ORDER_PRICE_FROM" value="<?echo $str_ORDER_PRICE_FROM ?>" size="10">
-			<?echo GetMessage("SALE_TO")?>
-			<input type="text" name="ORDER_PRICE_TO" value="<?echo $str_ORDER_PRICE_TO ?>" size="10">
-			<?echo CCurrency::SelectBox("ORDER_CURRENCY", $str_ORDER_CURRENCY, "", false, "", "")?>
+			<?php echo GetMessage("SALE_FROM")?>
+			<input type="text" name="ORDER_PRICE_FROM" value="<?php echo $str_ORDER_PRICE_FROM ?>" size="10">
+			<?php echo GetMessage("SALE_TO")?>
+			<input type="text" name="ORDER_PRICE_TO" value="<?php echo $str_ORDER_PRICE_TO ?>" size="10">
+			<?php echo CCurrency::SelectBox("ORDER_CURRENCY", $str_ORDER_CURRENCY, "", false, "", "")?>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_ACTIVE")?>:</td>
+		<td width="40%"><?php echo GetMessage("F_ACTIVE")?>:</td>
 		<td width="60%">
-			<input type="checkbox" name="ACTIVE" value="Y" <?if ($str_ACTIVE=="Y") echo "checked";?>>
+			<input type="checkbox" name="ACTIVE" value="Y" <?php if ($str_ACTIVE=="Y") echo "checked";?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_PRICE");?>:</td>
+		<td width="40%"><?php echo GetMessage("F_PRICE");?>:</td>
 		<td width="60%">
-			<input type="text" name="PRICE" value="<?echo $str_PRICE ?>" size="10">
-			<?echo CCurrency::SelectBox("CURRENCY", $str_CURRENCY, "", false, "", "")?>
+			<input type="text" name="PRICE" value="<?php echo $str_PRICE ?>" size="10">
+			<?php echo CCurrency::SelectBox("CURRENCY", $str_CURRENCY, "", false, "", "")?>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_SORT") ?>:</td>
+		<td width="40%"><?php echo GetMessage("F_SORT") ?>:</td>
 		<td width="60%">
-			<input type="text" name="SORT" value="<?echo $str_SORT ?>" size="40">
+			<input type="text" name="SORT" value="<?php echo $str_SORT ?>" size="40">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("F_DESCRIPTION");?>:</td>
+		<td width="40%" valign="top"><?php echo GetMessage("F_DESCRIPTION");?>:</td>
 		<td width="60%" valign="top">
-			<textarea rows="3" cols="40" name="DESCRIPTION"><?echo $str_DESCRIPTION;?></textarea>
+			<textarea rows="3" cols="40" name="DESCRIPTION"><?php echo $str_DESCRIPTION;?></textarea>
 		</td>
 	</tr>
 
-<?
+<?php 
 $arStoreList = array();
 if (CModule::IncludeModule('catalog'))
 {
@@ -378,31 +378,31 @@ if (!empty($arStoreList))
 		$arStore = unserialize($str_STORE);
 ?>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("SDEN_STORE");?>:</td>
+		<td width="40%" valign="top"><?php echo GetMessage("SDEN_STORE");?>:</td>
 		<td width="60%" valign="top">
 			<select name="STORE[]" size="5" multiple>
-			<?
+			<?php 
 			foreach ($arStoreList as $items):
 
 				$siteInfo = (strlen($items["SITE_ID"]) > 0) ? " [".$items["SITE_ID"]."]" : "";
 			?>
 				<option value="<?=$items["ID"]?>" <?=(in_array($items["ID"], $arStore)?"selected":"")?> ><?=htmlspecialcharsbx($items["TITLE"].$siteInfo)?></option>
-			<?
+			<?php 
 			endforeach
 			?>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 }
 ?>
 	<tr>
-		<td width="40%"><?echo GetMessage("SDEN_LOGOTIP");?>:</td>
+		<td width="40%"><?php echo GetMessage("SDEN_LOGOTIP");?>:</td>
 		<td width="60%">
 			<div><input type="file" name="LOGOTIP"></div>
-			<?if ($str_LOGOTIP > 0):?>
+			<?php if ($str_LOGOTIP > 0):?>
 				<br>
-				<?
+				<?php 
 				$arLogotip = CFile::GetFileArray($str_LOGOTIP);
 				echo CFile::ShowImage($arLogotip, 150, 150, "border=0", "", false);
 				?>
@@ -411,10 +411,10 @@ if (!empty($arStoreList))
 					<input type="checkbox" name="LOGOTIP_del" value="Y" id="LOGOTIP_del" >
 					<label for="LOGOTIP_del"><?=GetMessage("SPS_LOGOTIP_DEL");?></label>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 		</td>
 	</tr>
-	<?if($lpEnabled):?>
+	<?php if($lpEnabled):?>
 
 		<tr class="heading">
 			<td colspan="2">
@@ -425,7 +425,7 @@ if (!empty($arStoreList))
 		<tr class="adm-detail-required-field">
 			<td colspan="2">
 
-				<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.system", "", array(
+				<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.system", "", array(
 						"ENTITY_PRIMARY" => $ID,
 						"LINK_ENTITY_NAME" => CSaleDelivery::CONN_ENTITY_NAME,
 						"INPUT_NAME" => 'LOCATION',
@@ -440,15 +440,15 @@ if (!empty($arStoreList))
 			</td>
 		</tr>
 
-	<?else:?>
+	<?php else:?>
 		<tr class="adm-detail-required-field">
-			<td width="40%" valign="top"><?echo GetMessage("F_LOCATION1");?>:</td>
+			<td width="40%" valign="top"><?php echo GetMessage("F_LOCATION1");?>:</td>
 			<td width="60%" valign="top">
 
-				<?$db_vars = CSaleLocation::GetList(Array("COUNTRY_NAME_LANG"=>"ASC", "REGION_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array(), LANG);?>
+				<?php $db_vars = CSaleLocation::GetList(Array("COUNTRY_NAME_LANG"=>"ASC", "REGION_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array(), LANG);?>
 
 				<select name="LOCATION1[]" size="5" multiple>
-					<?
+					<?php 
 					$arLOCATION1 = array();
 					if ($bInitVars)
 					{
@@ -463,7 +463,7 @@ if (!empty($arStoreList))
 						}
 					}
 					?>
-					<?while ($vars = $db_vars->Fetch()):
+					<?php while ($vars = $db_vars->Fetch()):
 						$locationName = $vars["COUNTRY_NAME"];
 
 						if (strlen($vars["REGION_NAME"]) > 0)
@@ -479,19 +479,19 @@ if (!empty($arStoreList))
 							$locationName .= $vars["CITY_NAME"];
 						}
 					?>
-						<option value="<?echo $vars["ID"]?>"<?if (is_array($arLOCATION1) && in_array(IntVal($vars["ID"]), $arLOCATION1)) echo " selected"?>><?echo htmlspecialcharsbx($locationName)?></option>
-					<?endwhile;?>
+						<option value="<?php echo $vars["ID"]?>"<?php if (is_array($arLOCATION1) && in_array(IntVal($vars["ID"]), $arLOCATION1)) echo " selected"?>><?php echo htmlspecialcharsbx($locationName)?></option>
+					<?php endwhile;?>
 				</select>
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
-			<td width="40%" valign="top"><?echo GetMessage("F_LOCATION2");?>:</td>
+			<td width="40%" valign="top"><?php echo GetMessage("F_LOCATION2");?>:</td>
 			<td width="60%" valign="top">
 
-				<?$db_vars = CSaleLocationGroup::GetList(Array("NAME"=>"ASC"), array(), LANG);?>
+				<?php $db_vars = CSaleLocationGroup::GetList(Array("NAME"=>"ASC"), array(), LANG);?>
 
 				<select name="LOCATION2[]" size="5" multiple>
-					<?
+					<?php 
 					$arLOCATION2 = array();
 					if ($bInitVars)
 					{
@@ -506,16 +506,16 @@ if (!empty($arStoreList))
 						}
 					}
 					?>
-					<?while ($vars = $db_vars->Fetch()):?>
-						<option value="<?echo $vars["ID"]?>"<?if (is_array($arLOCATION2) && in_array(IntVal($vars["ID"]), $arLOCATION2)) echo " selected"?>><?echo htmlspecialcharsbx($vars["NAME"])?></option>
-					<?endwhile;?>
+					<?php while ($vars = $db_vars->Fetch()):?>
+						<option value="<?php echo $vars["ID"]?>"<?php if (is_array($arLOCATION2) && in_array(IntVal($vars["ID"]), $arLOCATION2)) echo " selected"?>><?php echo htmlspecialcharsbx($vars["NAME"])?></option>
+					<?php endwhile;?>
 				</select>
 			</td>
 		</tr>
 
-	<?endif?>
+	<?php endif?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
@@ -524,7 +524,7 @@ $tabControl->BeginNextTab();
 		</td>
 		<td width="60%">
 			<select multiple="multiple" size="5" name="PAY_SYSTEM[]">
-			<?
+			<?php 
 			$arPaySystemId = array();
 			$dbRes = CSaleDelivery::GetDelivery2PaySystem(array("DELIVERY_ID" => $ID));
 			while ($arRes = $dbRes->Fetch())
@@ -541,12 +541,12 @@ $tabControl->BeginNextTab();
 				$name = (strlen($arPayType["LID"]) > 0) ? htmlspecialcharsbx($arPayType["NAME"]). " (".$arPayType["LID"].")" : htmlspecialcharsbx($arPayType["NAME"]);
 			?>
 				<option value="<?=intval($arPayType["ID"]);?>" <?=(in_array($arPayType["ID"], $arPaySystemId) || empty($arPaySystemId) ? "selected":"")?>><?=$name?></option>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(
@@ -559,4 +559,4 @@ $tabControl->Buttons(
 $tabControl->End();
 ?>
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

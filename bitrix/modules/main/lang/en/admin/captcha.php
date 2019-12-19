@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_ADM_CAPTCHA_PARAM1"] = "Text transparency (percents, 0-100)";
 $MESS["MAIN_ADM_CAPTCHA_PARAM2"] = "Lowest background random color value";
 $MESS["MAIN_ADM_CAPTCHA_PARAM3"] = "Highest background random color value";

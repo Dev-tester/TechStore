@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOCSERV_FACEBOOK"] = "Ссылку на страницу в Facebook";
 $MESS["SOCSERV_VKONTAKTE"] = "Ссылку на страницу в Vkontakte";
 $MESS["SOCSERV_TWITTER"] = "Ссылку на страницу в Twitter";

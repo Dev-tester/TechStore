@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_DOCS_BODY"] = "For some countries, it is required by law that a telephony provider verifies your residential status in order to grant rented phone numbers.<br>You may be required to submit corresponding paperwork to be able to rent a phone number for the entire duration of the lease.";
 $MESS["VI_DOCS_BODY_2"] = "It is required by law in some countries that a telephone company must request legal documentation from you before you can use your rented numbers.<br>This is a requirement if you want to keep and use the numbers during the lease term. You will not be able to use the numbers until you upload the documentation required and have it approved.";
 $MESS["VI_DOCS_COUNTRY_RU"] = "Russia";

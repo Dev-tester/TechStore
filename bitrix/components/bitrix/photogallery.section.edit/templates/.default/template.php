@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 if (!$this->__component->__parent || strpos($this->__component->__parent->__name, "photogallery") === false)
 {
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
@@ -23,17 +23,17 @@ div.photo-album-thumbs-avatar{
 	width:<?=($arParams["ALBUM_PHOTO_THUMBS_WIDTH"] + 48)?>px;}
 </style>
 
-<?
+<?php 
 if ($arParams["AJAX_CALL"] == "Y")
 	$GLOBALS["APPLICATION"]->RestartBuffer();
 ?>
 <script>window.oPhotoEditAlbumDialogError = false;</script>
 
-<?if ($arResult["ERROR_MESSAGE"] != ""):?>
+<?php if ($arResult["ERROR_MESSAGE"] != ""):?>
 <script>
 window.oPhotoEditAlbumDialogError = "<?= CUtil::JSEscape($arResult["ERROR_MESSAGE"]); ?>";
 </script>
-<?
+<?php 
 if ($arParams["AJAX_CALL"] == "Y")
 	{die();}
 endif;
@@ -59,7 +59,7 @@ BX.ready(function(){
 		}
 	}
 
-	<?if ($arParams["AJAX_CALL"] == "Y"):?>
+	<?php if ($arParams["AJAX_CALL"] == "Y"):?>
 	if (BX('bxph_pass_row'))
 	{
 		BX('bxph_use_password').onclick = function()
@@ -74,7 +74,7 @@ BX.ready(function(){
 				oEditAlbumDialog.adjustSizeEx();
 		};
 	}
-	<?endif;?>
+	<?php endif;?>
 });
 </script>
 <div class="photo-window-edit" id="photo_section_edit_form">
@@ -85,12 +85,12 @@ BX.ready(function(){
 	<input type="hidden" name="IBLOCK_SECTION_ID" value="<?=$arResult["FORM"]["IBLOCK_SECTION_ID"]?>" />
 	<input type="hidden" name="multiple_action" value="N" />
 
-	<table class="photo-dialog-table" <? if ($arParams["AJAX_CALL"] != "Y") echo 'style="width: 600px;"'?>>
+	<table class="photo-dialog-table" <?php  if ($arParams["AJAX_CALL"] != "Y") echo 'style="width: 600px;"'?>>
 	<tr id="bxph_error_row" style="display: none;">
 		<td class="photo-dialog-warning" colSpan="2" style="color: red!important;"></td>
 	</tr>
-	<?if ($arParams["ACTION"] == "NEW"): /* * * * * * * * * * * * * simple create form for new album * * * * * * * * * * * * */?>
-	<? if ($arParams["ACTION"] != "CHANGE_ICON"):?>
+	<?php if ($arParams["ACTION"] == "NEW"): /* * * * * * * * * * * * * simple create form for new album * * * * * * * * * * * * */?>
+	<?php  if ($arParams["ACTION"] != "CHANGE_ICON"):?>
 	<tr>
 		<td class="photo-dialog-prop-title photo-dialog-req"><label for="bxph_name"><?=GetMessage("P_ALBUM_NAME")?>:</label></td>
 		<td class="photo-dialog-prop-param photo-inp-width">
@@ -100,7 +100,7 @@ BX.ready(function(){
 	<tr>
 		<td class="photo-dialog-prop-title"><label for="DATE_CREATE"><?=GetMessage("P_ALBUM_DATE")?>:</label></td>
 		<td class="photo-dialog-prop-param">
-		<?$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:system.field.edit",
+		<?php $GLOBALS["APPLICATION"]->IncludeComponent("bitrix:system.field.edit",
 				$arResult["FORM"]["~DATE"]["USER_TYPE"]["USER_TYPE_ID"],
 				array(
 					"bVarsFromForm" => $arResult["bVarsFromForm"],
@@ -117,7 +117,7 @@ BX.ready(function(){
 		<td class="photo-dialog-prop-param"><textarea id="bxph_description" name="DESCRIPTION"><?=$arResult["FORM"]["DESCRIPTION"]?></textarea></td>
 	</tr>
 
-	<? if (!empty($arResult["FORM"]["~PASSWORD"]["VALUE"])): /* pasword already exist - we can only drop it down*/?>
+	<?php  if (!empty($arResult["FORM"]["~PASSWORD"]["VALUE"])): /* pasword already exist - we can only drop it down*/?>
 	<tr>
 		<td class="photo-dialog-prop-title">
 		<input type="hidden" id="DROP_PASSWORD" name="DROP_PASSWORD" value="N" />
@@ -125,7 +125,7 @@ BX.ready(function(){
 		</td>
 		<td class="photo-dialog-prop-param"><label for="USE_PASSWORD"><?=GetMessage("P_SET_PASSWORD")?></label></td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
 		<td class="photo-dialog-prop-title"><input type="checkbox" id="bxph_use_password" name="USE_PASSWORD" value="Y"/></td>
 		<td class="photo-dialog-prop-param"><label for="bxph_use_password"><?=GetMessage("P_SET_PASSWORD")?></label></td>
@@ -134,11 +134,11 @@ BX.ready(function(){
 		<td class="photo-dialog-prop-title"></td>
 		<td class="photo-dialog-prop-param"><label for="bxph_photo_password"><?=GetMessage("P_PASSWORD")?>:</label>&nbsp;&nbsp;&nbsp;<input type="password" name="PASSWORD" id="bxph_photo_password" value="" disabled="disabled" /></td>
 	</tr>
-	<?endif;/* !empty($arResult["FORM"]["~PASSWORD"]["VALUE"]) */?>
-	<?endif; /* $arParams["ACTION"] != "CHANGE_ICON" */?>
+	<?php endif;/* !empty($arResult["FORM"]["~PASSWORD"]["VALUE"]) */?>
+	<?php endif; /* $arParams["ACTION"] != "CHANGE_ICON" */?>
 
 
-	<? if ($arParams["AJAX_CALL"] != "Y"):?>
+	<?php  if ($arParams["AJAX_CALL"] != "Y"):?>
 	<tr>
 		<td colSpan="2">
 			<br />
@@ -146,13 +146,13 @@ BX.ready(function(){
 			<input type="submit" name="cancel" value="<?=GetMessage("P_CANCEL");?>" />
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<? /* For edit album we use extended form with list of all photos*/
+	<?php  /* For edit album we use extended form with list of all photos*/
 	else: /* * * * * * * * * * * * * $arParams["ACTION"] != "NEW" * * * * * * * * * * * * */ ?>
 	<!-- Album properties -->
 
-	<?if ($arParams['AFTER_UPLOAD_MODE'] != "Y"):?>
+	<?php if ($arParams['AFTER_UPLOAD_MODE'] != "Y"):?>
 	<tr class="photo-album-edit-cont">
 		<td class="photo-al-edit-icon-sect photo-album-thumbs-list">
 			<div class="photo-album-edit-icon">
@@ -162,9 +162,9 @@ BX.ready(function(){
 							<div class="photo-item-cover-block-inner">
 								<div class="photo-item-cover-block-inside">
 									<div id="photo_album_cover_<?= intVal($arResult["SECTION"]['ID'])?>" class="photo-item-cover photo-album-thumbs-avatar <?= (empty($arResult["SECTION"]["PICTURE"]["SRC"])? "photo-album-avatar-empty" : "")?>"
-										<?if (!empty($arResult["SECTION"]["PICTURE"]["SRC"])):?>
+										<?php if (!empty($arResult["SECTION"]["PICTURE"]["SRC"])):?>
 											style="background-image: url('<?= $arResult["SECTION"]["PICTURE"]["SRC"]?>');"
-										<?endif;?>
+										<?php endif;?>
 									>
 									</div>
 								</div>
@@ -175,11 +175,11 @@ BX.ready(function(){
 
 			</div>
 			<div class="photo-ed-al-contols">
-			<? if ($arResult["SECTION"]["ELEMENTS_CNT"] > 0): ?>
+			<?php  if ($arResult["SECTION"]["ELEMENTS_CNT"] > 0): ?>
 			<noindex>
 				<a rel="nofollow" href="<?=$arResult["SECTION"]["EDIT_ICON_LINK"]?>" onclick="BX.PreventDefault(event); EditAlbum('<?= addslashes(CUtil::JSEscape($arResult["SECTION"]["EDIT_ICON_LINK"]))?>'); return false;"><span><?=GetMessage("P_SECTION_EDIT_ICON")?></span></a>
 				<br/>
-			<?endif;?>
+			<?php endif;?>
 				<a rel="nofollow" href="<?=$arResult["SECTION"]["DROP_LINK"]?>" onclick="return confirm('<?=CUtil::JSEscape(GetMessage('P_SECTION_DELETE_ASK'))?>');"><span><?=GetMessage("P_SECTION_DELETE")?></span></a>
 			</noindex>
 			</div>
@@ -197,7 +197,7 @@ BX.ready(function(){
 				<div class="photo-al-ed-add-cont">
 					<div style="float: left;">
 					<label for="DATE_CREATE"><?=GetMessage("P_ALBUM_DATE")?>:</label>
-					<?
+					<?php 
 					$arResult["FORM"]["~DATE"]['VALUE'] = FormatDateFromDB($arResult["FORM"]["~DATE"]['VALUE']);
 					$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:system.field.edit",
 							$arResult["FORM"]["~DATE"]["USER_TYPE"]["USER_TYPE_ID"],
@@ -214,7 +214,7 @@ BX.ready(function(){
 					<div class="empty-clear"></div>
 					<div id="bxph_use_password_cont" class="bxph-pass-cont">
 					<input type="hidden" id="DROP_PASSWORD" name="DROP_PASSWORD" value="N" />
-					<input class="photo-al-ed-use-pass" type="checkbox" id="bxph_use_password<?= $arResult["JSID"]?>" name="USE_PASSWORD" value="Y" <? if(!empty($arResult["FORM"]["~PASSWORD"]["VALUE"])){echo "checked";}?>>
+					<input class="photo-al-ed-use-pass" type="checkbox" id="bxph_use_password<?= $arResult["JSID"]?>" name="USE_PASSWORD" value="Y" <?php  if(!empty($arResult["FORM"]["~PASSWORD"]["VALUE"])){echo "checked";}?>>
 					<label for="bxph_use_password<?= $arResult["JSID"]?>" title="<?=GetMessage("P_SET_PASSWORD_TITLE")?>"><?=GetMessage("P_SET_PASSWORD")?><span class="bxph-colon">:</span></label>
 
 					<input class="bxph-pass-field" type="password" name="PASSWORD" id="bxph_photo_password" value="" title="<?=GetMessage("P_PASSWORD")?>"/>
@@ -232,13 +232,13 @@ BX.ready(function(){
 	</tr>
 
 	<!-- List of the photo-albums if they exists -->
-	<?if ($arResult["SECTION"]["SECTIONS_CNT"] > 0):?>
+	<?php if ($arResult["SECTION"]["SECTIONS_CNT"] > 0):?>
 	<tr class="photo-album-edit-heading"><td colSpan="2"><?= GetMessage("P_ALBUM_ALBUMS")?></td></tr>
 	<tr>
 		<td colSpan="2">
 			<ul class="photo-items-list photo-album-thumbs-list">
 
-			<?foreach($arResult["SECTIONS"] as $res):?>
+			<?php foreach($arResult["SECTIONS"] as $res):?>
 					<li class="photo-item photo-album-item photo-album-<?=($res["ACTIVE"] != "Y" ? "nonactive" : "active")?> <?= (!empty($res["PASSWORD"]) ? " photo-album-password " : "")?>" id="photo_album_info_<?=$res["ID"]?>">
 					<div class="photo-item-cover-block-outside">
 						<div class="photo-item-cover-block-container">
@@ -246,23 +246,23 @@ BX.ready(function(){
 								<div class="photo-item-cover-block-inner">
 									<div class="photo-item-cover-block-inside">
 										<div class="photo-item-cover photo-album-thumbs-avatar <?=(empty($res["DETAIL_PICTURE"]["SRC"])? "photo-album-avatar-empty" : "")?>"  id="photo_album_cover_<?=$res["ID"]?>"
-											<?if (!empty($res["DETAIL_PICTURE"]["SRC"])):?>
+											<?php if (!empty($res["DETAIL_PICTURE"]["SRC"])):?>
 												style="background-image:url('<?=$res["DETAIL_PICTURE"]["SRC"]?>');"
-											<?endif;
+											<?php endif;
 											if ($arParams["PERMISSION"] >= "W"):?>
 												onmouseover="BX.addClass(this,'photo-item-over');"
 												onmouseout="BX.removeClass(this, 'photo-item-over');"
-											<?else:?>
+											<?php else:?>
 												onclick="window.location='<?=CUtil::JSEscape(htmlspecialcharsbx($res["~LINK"]))?>';"
-											<?endif;?>>
-											<?if ($arParams["PERMISSION"] >= "W"):?>
+											<?php endif;?>>
+											<?php if ($arParams["PERMISSION"] >= "W"):?>
 											<div class="photo-album-menu" onclick="window.location='<?=CUtil::JSEscape(htmlspecialcharsbx($res["~LINK"]))?>'"><div class="photo-album-menu-substrate"></div>
 												<div class="photo-album-menu-controls">
 													<a rel="nofollow" href="<?=$res["EDIT_LINK"]?>" class="photo-control-edit photo-control-album-edit" title="<?=GetMessage("P_SECTION_EDIT_TITLE")?>"><span><?=GetMessage("P_SECTION_EDIT")?></span></a>
 													<a rel="nofollow" href="<?= $res["DROP_LINK"]?>" class="photo-control-drop photo-control-album-drop" onclick="BX.PreventDefault(event); if(confirm('<?=GetMessage('P_SECTION_DELETE_ASK')?>')) {DropAlbum(this.href);} return false;" title="<?=GetMessage("P_SECTION_DELETE_TITLE")?>"><span><?=GetMessage("P_SECTION_DELETE")?></span></a>
 												</div>
 											</div>
-											<?endif;?>
+											<?php endif;?>
 										</div>
 									</div>
 								</div>
@@ -285,34 +285,34 @@ BX.ready(function(){
 						</div>
 					</div>
 				</li>
-			<?endforeach;?>
+			<?php endforeach;?>
 			</ul>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?else: /*if ($arParams['AFTER_UPLOAD_MODE'] != "Y"):*/?>
+	<?php else: /*if ($arParams['AFTER_UPLOAD_MODE'] != "Y"):*/?>
 	<tr><td colSpan="2">
 		<a href="<?= $arResult["SECTION"]["~EDIT_LINK"]?>"><?= GetMessage("P_EDIT_WHOLE_ALBUM")?></a>
 	</td></tr>
-	<?endif; /*if ($arParams['AFTER_UPLOAD_MODE'] != "Y"):*/?>
+	<?php endif; /*if ($arParams['AFTER_UPLOAD_MODE'] != "Y"):*/?>
 
-	<? if (count($arResult["PHOTOS_JS"]) > 0):?>
+	<?php  if (count($arResult["PHOTOS_JS"]) > 0):?>
 	<!-- List of the photos with titles, descriptions, tags -->
 	<tr class="photo-album-edit-heading"><td colSpan="2"><?= ($arParams['AFTER_UPLOAD_MODE'] == "Y" ?  GetMessage("P_ALBUM_LOADED_PHOTOS") : GetMessage("P_ALBUM_PHOTOS"))?><span id="bxph_n_from_m<?= $arResult["JSID"]?>"></span></td></tr>
 
 	<tr class="photo-album-edit-cont">
 		<td colSpan="2">
 			<div id="bxph_elements_list<?= $arResult["JSID"]?>" class="photo-ed-al-items-list"></div>
-			<? if ($arResult["SHOW_MORE_PHOTOS"]):?>
+			<?php  if ($arResult["SHOW_MORE_PHOTOS"]):?>
 			<div  class="photo-ed-al-show-more">
 			<span id="more_photos<?= $arResult["JSID"]?>"><?= GetMessage("P_MORE_PHOTOS")?></span>
 			<div class="photo-wait"></div>
 			</div>
-			<?endif;?>
+			<?php endif;?>
 			<div style="display: none;">
-				<?if (IsModuleInstalled("search")):?>
-				<?$APPLICATION->IncludeComponent(
+				<?php if (IsModuleInstalled("search")):?>
+				<?php $APPLICATION->IncludeComponent(
 					"bitrix:search.tags.input",
 					"",
 					array(
@@ -322,9 +322,9 @@ BX.ready(function(){
 					null,
 					array("HIDE_ICONS" => "Y"));
 				?>
-				<?else:?>
+				<?php else:?>
 					<input type="text" name="PHOTOS_TAGS" value="" />
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</td>
 	</tr>
@@ -339,9 +339,9 @@ BX.ready(function(){
 				<span class="photo-ed-al-move-cnt">
 					<span id="bxph_multi_move<?= $arResult["JSID"]?>" class="photo-ed-al-gract-move"><?= strtolower(GetMessage("P_MOVE"))?></span>
 					<div id="bxph_multi_move_popup<?= $arResult["JSID"]?>" class="" style="display: none;">
-					<?foreach($arResult["SECTIONS_LIST"] as $sect):?>
+					<?php foreach($arResult["SECTIONS_LIST"] as $sect):?>
 						<a href="javascript: void(0);" id="bxph_sect<?= $sect['ID']?>" style="padding-left: <?= (6 + $sect['DEPTH'] * 20)?>px" title="<?= $sect['NAME']?>"><?= $sect['NAME']?></a>
-					<?endforeach;?>
+					<?php endforeach;?>
 					</div>
 				</span>
 				<input type="hidden" name="move_to" value="0" />
@@ -353,14 +353,14 @@ BX.ready(function(){
 			</div>
 		</td>
 	</tr>
-	<?endif; /* count($arResult["PHOTOS_JS"]) > 0 */?>
+	<?php endif; /* count($arResult["PHOTOS_JS"]) > 0 */?>
 
-	<?endif; /* $arParams["ACTION"] == "NEW" */?>
+	<?php endif; /* $arParams["ACTION"] == "NEW" */?>
 	</table>
 </form>
 </div>
 
-<?if ($arParams["ACTION"] != "NEW"):?>
+<?php if ($arParams["ACTION"] != "NEW"):?>
 <script>
 BX.ready(function(){
 	window.oBXPhotoList = new window.BXPhotoList({
@@ -392,10 +392,10 @@ BX.ready(function(){
 	});
 });
 </script>
-<?endif;?>
+<?php endif;?>
 
-<?if ($arParams["AJAX_CALL"] == "Y"):?>
-<?
+<?php if ($arParams["AJAX_CALL"] == "Y"):?>
+<?php 
 	$GLOBALS["APPLICATION"]->ShowHeadStrings();
 	$GLOBALS["APPLICATION"]->ShowHeadScripts();
 	die();

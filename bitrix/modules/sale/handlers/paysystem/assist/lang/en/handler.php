@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PS_DESCRIPTION_INPROCESS"] = "In progress";
 $MESS["SALE_PS_DESCRIPTION_DELAYED"] = "Pending payment confirmation";
 $MESS["SALE_PS_DESCRIPTION_APPROVED"] = "Paid";

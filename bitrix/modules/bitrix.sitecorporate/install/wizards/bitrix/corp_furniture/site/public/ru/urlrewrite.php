@@ -1,4 +1,4 @@
-<?
+<?php 
 $arUrlRewrite = array(
 	array(
 		"CONDITION"	=>	"#^/services/#",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CALL_LIST_LIMIT_ERROR"] = "Превышен лимит количества записей. Установите фильтр, так, чтобы отобрать не более #LIMIT# записей";
 $MESS["CRM_CALL_LIST_UPDATE"] = "Добавить к обзвону";
 $MESS["CRM_CALL_LIST_LICENSE_POPUP_HEADER"] = "Доступно, начиная с тарифа Проект+";

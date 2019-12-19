@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CVP_PRICES"] = "Цены";
 $MESS["CVP_BASKET"] = "Добавление в корзину";
 $MESS["CVP_TYPE"] = "Тип инфоблока";

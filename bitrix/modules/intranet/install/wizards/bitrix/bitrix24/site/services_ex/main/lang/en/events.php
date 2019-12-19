@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EXTRANET_NEW_MESSAGE_SUBJECT'] = "#SITE_NAME#: You have a new message";
 $MESS ['EXTRANET_NEW_MESSAGE_MESSAGE'] = "Greetings from #SITE_NAME#!
 ------------------------------------------

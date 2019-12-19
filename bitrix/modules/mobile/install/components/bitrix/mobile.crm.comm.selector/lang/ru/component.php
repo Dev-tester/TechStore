@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["CRM_PERMISSION_DENIED"] = "Доступ запрещен";
 $MESS["M_CRM_COMM_SELECTOR_OWNER_NOT_FOUND"] = "Владелец не найден";

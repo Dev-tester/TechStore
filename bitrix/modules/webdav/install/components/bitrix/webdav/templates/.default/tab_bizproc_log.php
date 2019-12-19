@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?><?php 
 $arCurFileInfo = pathinfo(__FILE__);
 $langfile = trim(preg_replace("'[\\\\/]+'", "/", ($arCurFileInfo['dirname']."/lang/".LANGUAGE_ID."/".$arCurFileInfo['basename'])));
 __IncludeLang($langfile);
@@ -41,7 +41,7 @@ $sBPListUrl = WDAddPageParams($sBPListUrl, array($arParams["FORM_ID"]."_active_t
 	</li>
 
 	
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:bizproc.document", "webdav.bizproc.document", Array(
 	"MODULE_ID" => MODULE_ID,
 	"ENTITY" => ENTITY,
@@ -61,7 +61,7 @@ array("HIDE_ICONS" => "Y")
 ?>
 	<li class="bizproc-list-item bizproc-list-item-first">
 	<br />
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:bizproc.log", "webdav.bizproc.log", Array(
 	"MODULE_ID" => MODULE_ID,
 	"ENTITY" => ENTITY,
@@ -81,7 +81,7 @@ $APPLICATION->IncludeComponent("bitrix:bizproc.log", "webdav.bizproc.log", Array
 ?>
 	</li>
 </ul>
-<?
+<?php 
 $this->__component->arResult['TABS'][] = 
 	array( "id" => $sTabName, 
 		"name" => GetMessage("IBLIST_BP"), 

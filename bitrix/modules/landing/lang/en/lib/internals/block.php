@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_FIELD_ACCESS"] = "Block access permissions";
 $MESS["LANDING_TABLE_FIELD_ACTIVE"] = "Active";
 $MESS["LANDING_TABLE_FIELD_ANCHOR"] = "Anchor";

@@ -4,7 +4,7 @@ use Bitrix\Disk\Internals\Grid\FolderListOptions;
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 ?>
 <div class="bx-disk-interface-filelist <?= $arResult['IS_RUNNING_FILTER']? 'disk-running-filter' : '' ?>">
-	<?
+	<?php 
 	$generateEmptyBlock = 'function() {
 			return BX.create("div", {
 				props: {

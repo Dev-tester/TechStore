@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 define("BP_EI_DIRECTION_EXPORT", 0);

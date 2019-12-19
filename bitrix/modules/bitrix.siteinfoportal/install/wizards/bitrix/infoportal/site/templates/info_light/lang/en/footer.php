@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HEADER_TITLE"] = "Municipal InfoPortal";
 $MESS["NEWS_TITLE"] = "News";
 $MESS["BLOG_TITLE"] = "Blogs";

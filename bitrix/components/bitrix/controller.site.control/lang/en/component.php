@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_BCSC_ERROR_MODULE'] = "The Controller module is not installed.";
 $MESS ['CC_BCSC_UPDATE_ERROR'] = "Error updating the site #ID#: #MESSAGE#";
 $MESS ['CC_BCSC_DELETE_ERROR'] = "Error deleting the site #ID#.";

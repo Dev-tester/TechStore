@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_AUTOMATION_DEMO_DEAL_1_NOTIFY_TITLE"] = "Notification";
 $MESS["CRM_AUTOMATION_DEMO_DEAL_1_1_MESSAGE"] = "New deal #URL_1#{=Document:TITLE}#URL_2# created 
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOC_BASKET_ADDED"] = "Product added";
 $MESS["SOC_BASKET_ADDED_INFO"] = "#QUANTITY# pcs. of #NAME# (##PRODUCT_ID#) has been added to your shopping cart.";
 $MESS["SOC_BASKET_ITEM_ADD_ERROR_INFO"] = "Error adding item to shopping cart: \"#ERROR#\"";

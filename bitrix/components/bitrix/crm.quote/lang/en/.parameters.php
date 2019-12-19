@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_VAR"] = "Quote ID variable name";
 $MESS["CRM_SEF_PATH_TO_INDEX"] = "Index page path template";
 $MESS["CRM_SEF_PATH_TO_LIST"] = "Quotes page path template";

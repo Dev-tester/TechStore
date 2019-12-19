@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['RECYCLEBIN_COLUMN_ENTITY_ID'] = "ID";
 $MESS['RECYCLEBIN_COLUMN_NAME'] = "Название";
 $MESS['RECYCLEBIN_COLUMN_TIMESTAMP'] = "Время удаления";

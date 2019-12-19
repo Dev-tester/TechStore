@@ -1,11 +1,11 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/about/resume.php");
 
 $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:form.result.new", "", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:form.result.new", "", Array(
 	"WEB_FORM_ID"	=>	"11",
 	"IGNORE_CUSTOM_TEMPLATE"	=>	"N",
 	"USE_EXTENDED_ERRORS"	=>	"N",
@@ -26,4 +26,4 @@ $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 );?>
 
 <p><a href="career.php"><?=GetMessage("ABOUT_INFO")?></a></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

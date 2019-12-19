@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LDAP_ADMIN_TITLE'] = "Active Directory / LDAP server settings";
 $MESS ['LDAP_ADMIN_DEL_ERR'] = "Error deleting the server settings.";
 $MESS ['LDAP_ADMIN_F_ACT'] = "Active";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SQL_PAGE_TITLE'] = "SQL Query";
 $MESS ['SQL_EXECUTE'] = "Execute query";
 $MESS ['SQL_CONFIRM_EXECUTE'] = "Are you sure you want to execute this SQL query to the database?";

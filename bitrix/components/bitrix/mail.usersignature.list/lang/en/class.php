@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_USERSIGNATURE_MODULE_ERROR"] = "The \"Mail\" module is not installed.";
 $MESS["MAIL_USERSIGNATURE_LIST_TITLE"] = "Signatures";
 $MESS["MAIL_USERSIGNATURE_LIST_SENDER"] = "Sender";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USTAT_COMPANY_INV_BAR_TOTAL"] = "Feature usage";
 $MESS["INTRANET_USTAT_COMPANY_INV_BAR_SOCNET"] = "Feature usage: Social Network";
 $MESS["INTRANET_USTAT_COMPANY_INV_BAR_LIKES"] = "Feature usage: Likes";

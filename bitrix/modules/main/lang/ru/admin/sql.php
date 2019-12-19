@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SQL_PAGE_TITLE'] = "SQL запрос";
 $MESS ['SQL_EXECUTE'] = "Выполнить запрос";
 $MESS ['SQL_CONFIRM_EXECUTE'] = "Вы уверены что хотите выполнить SQL запрос к базе?";

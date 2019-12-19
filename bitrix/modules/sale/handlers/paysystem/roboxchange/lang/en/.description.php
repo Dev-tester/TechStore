@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_ROBOXCHANGE_TITLE"] = "www.roboxchange.net";
 $MESS["SALE_HPS_ROBOXCHANGE_PAYMENT_ID"] = "Transaction ID";
 $MESS["SALE_HPS_ROBOXCHANGE_SHOULD_PAY"] = "Order amount";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REST_HEVE_SUCCESS"] = "The changes have been saved.";
 $MESS["REST_HEVE_EVENT_HANDLER"] = "Handler address";
 $MESS["REST_HEVE_EVENT_NAME"] = "Event type";

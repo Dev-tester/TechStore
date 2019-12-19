@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_REDIRECT_TITLE"] = "Redirect protection against phishing attacks";
 $MESS["SEC_REDIRECT_MAIN_TAB"] = "Redirect protection";
 $MESS["SEC_REDIRECT_MAIN_TAB_TITLE"] = "Enabling redirect protection against phishing attacks.";

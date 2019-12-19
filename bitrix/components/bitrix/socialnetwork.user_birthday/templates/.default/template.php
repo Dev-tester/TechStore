@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -12,21 +12,21 @@ UI\Extension::load("ui.tooltip");
 
 if(strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	if ($arResult["CurrentUserPerms"]["Operations"]["viewprofile"] && $arResult["CurrentUserPerms"]["Operations"]["viewfriends"])
 	{
 		if ($arResult["Users"] && $arResult["Users"]["List"])
 		{
-			?><div class="sonet-cntnr-user-birthday"><?
-				?><table width="100%" border="0" class="sonet-user-profile-friend-box"><?
+			?><div class="sonet-cntnr-user-birthday"><?php 
+				?><table width="100%" border="0" class="sonet-user-profile-friend-box"><?php 
 
 				if (!empty($arResult["Users"]["List"]))
 				{
@@ -52,8 +52,8 @@ else
 			
 				foreach ($arResult["Users"]["List"] as $friend)
 				{
-					?><tr><?
-						?><td align="left"><?
+					?><tr><?php 
+						?><td align="left"><?php 
 
 						$arTmpUser = array(
 							"ID" => $friend["USER_ID"],
@@ -65,43 +65,43 @@ else
 
 						$link = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER"], array("user_id" => $friend["USER_ID"], "USER_ID" => $friend["ID"], "ID" => $friend["ID"]));
 
-						?><table cellspacing="0" cellpadding="0" border="0" class="bx-user-info-anchor" bx-tooltip-user-id="<?=$friend["ID"]?>"><?
-						?><tr><?
-							?><td class="bx-user-info-anchor-cell"><?
-								?><div class="bx-user-info-thumbnail" align="center" valign="middle" style="width: 30px; height: 32px;"><?
-									?><?=$friend["PERSONAL_PHOTO_IMG"]?><?
-								?></div><?
-							?></td><?
-							?><td class="bx-user-info-anchor-cell" valign="top"><?
-								?><a class="bx-user-info-name" href="<?=$link?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $arTmpUser, ($arParams["SHOW_LOGIN"] != "N"))?></a><?
-							?></td><?
-						?></tr><?
-						?></table><?
+						?><table cellspacing="0" cellpadding="0" border="0" class="bx-user-info-anchor" bx-tooltip-user-id="<?=$friend["ID"]?>"><?php 
+						?><tr><?php 
+							?><td class="bx-user-info-anchor-cell"><?php 
+								?><div class="bx-user-info-thumbnail" align="center" valign="middle" style="width: 30px; height: 32px;"><?php 
+									?><?=$friend["PERSONAL_PHOTO_IMG"]?><?php 
+								?></div><?php 
+							?></td><?php 
+							?><td class="bx-user-info-anchor-cell" valign="top"><?php 
+								?><a class="bx-user-info-name" href="<?=$link?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $arTmpUser, ($arParams["SHOW_LOGIN"] != "N"))?></a><?php 
+							?></td><?php 
+						?></tr><?php 
+						?></table><?php 
 
-						?><div style="padding-top:5px;"><?
+						?><div style="padding-top:5px;"><?php 
 							if ($friend["NOW"])
 							{
-								?><b><?=$friend["BIRTHDAY"]?></b><?
+								?><b><?=$friend["BIRTHDAY"]?></b><?php 
 							}
 							else
 							{
-								?><?=$friend["BIRTHDAY"]?><?
+								?><?=$friend["BIRTHDAY"]?><?php 
 							}
-						?></div><?
-						?></td><?
-					?></tr><?
+						?></div><?php 
+						?></td><?php 
+					?></tr><?php 
 				}
-				?></table><?
-			?></div><?
+				?></table><?php 
+			?></div><?php 
 		}
 		else
 		{
-			?><?=GetMessage("SONET_C33_T_NO_FRIENDS")?><?
+			?><?=GetMessage("SONET_C33_T_NO_FRIENDS")?><?php 
 		}
 	}
 	else
 	{
-		?><?=GetMessage("SONET_C33_T_FR_UNAVAIL")?><?
+		?><?=GetMessage("SONET_C33_T_FR_UNAVAIL")?><?php 
 	}
 }
 ?>

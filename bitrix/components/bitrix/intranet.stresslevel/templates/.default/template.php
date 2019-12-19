@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -18,7 +18,7 @@ $APPLICATION->SetTitle(Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_PAGETITLE'
 			<div class="intranet-stresslevel-instruction-apps-item intranet-stresslevel-instruction-apps-item-android"><a href="<?=Loc::getMessage("INTRANET_STRESSLEVEL_TEMPLATE_STEP1_GOOGLE_URL")?>" target="_blank"><?=Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_STEP1_GOOGLE')?></a></div>
 			<div class="intranet-stresslevel-instruction-apps-item intranet-stresslevel-instruction-apps-item-ios"><a href="<?=Loc::getMessage("INTRANET_STRESSLEVEL_TEMPLATE_STEP1_APPLE_URL")?>" target="_blank"><?=Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_STEP1_APPLE')?></a></div>
 		</div>
-		<?
+		<?php 
 		if ($arResult['IS_CLOUD'])
 		{
 			?>
@@ -31,7 +31,7 @@ $APPLICATION->SetTitle(Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_PAGETITLE'
 					<span class="ui-btn ui-btn-primary" id="intranet-stresslevel-send-app-button"><?=Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_STEP1_SENDSMS_BUTTON')?></span>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</div>

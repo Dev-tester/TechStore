@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 							</div>
 						</div>
 					</div>
@@ -8,14 +8,14 @@
 				<div id="sidebar">
 					<div id="sidebar-inner">
 					
-						<div id="telephone"><nobr><?$APPLICATION->IncludeFile(
+						<div id="telephone"><nobr><?php $APPLICATION->IncludeFile(
 									SITE_DIR."include/phone.php",
 									Array(),
 									Array("MODE"=>"html")
 								);?></nobr></div>
 						
 						<div id="schedule"><div class="schedule">
-						<?$APPLICATION->IncludeFile(
+						<?php $APPLICATION->IncludeFile(
 									SITE_DIR."include/shedule.php",
 									Array(),
 									Array("MODE"=>"html")
@@ -29,7 +29,7 @@
 							<b class="r0"></b>
 						</div>
 
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:main.include",
 						".default",
 						Array(
@@ -39,7 +39,7 @@
 							"EDIT_MODE" => "html", 
 							"EDIT_TEMPLATE" => "page_inc.php" 
 							)
-					);?><?$APPLICATION->IncludeComponent(
+					);?><?php $APPLICATION->IncludeComponent(
 						"bitrix:main.include",
 						".default",
 						Array(
@@ -61,14 +61,14 @@
 		<div id="footer">
 		
 			<div id="copyright">
-			<?$APPLICATION->IncludeFile(
+			<?php $APPLICATION->IncludeFile(
 									SITE_DIR."include/copyright.php",
 									Array(),
 									Array("MODE"=>"html")
 								);?>
 			</div>
 			<div id="bottom-menu">			
-			<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
+			<?php $APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
 				"ROOT_MENU_TYPE" => "bottom",
 				"MENU_CACHE_TYPE" => "Y",
 				"MENU_CACHE_TIME" => "36000000",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_OTP_DESCR"] = "This software is protected by data encryption technology, and a pair of login and password for each user. However, there are tools a malicious person can employ to get into your computer and steal these data.
 <br /><br />
 We strongly suggest that you migrate to two-step authentication strategy.<br /><br />

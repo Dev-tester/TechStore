@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_F_LOGIC"] = "Logic between fields";
 $MESS["STAT_GUEST_ID"] = "Visitor ID";
 $MESS["STAT_EDIT_USER"] = "User profile";

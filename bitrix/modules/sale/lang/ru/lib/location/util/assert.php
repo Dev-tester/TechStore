@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_ASSERT_INTEGER_EXPECTED"] = "Аргумент#ARG_NAME#должен быть целым числом";
 $MESS["SALE_LOCATION_ASSERT_INTEGER_NOTNULL_EXPECTED"] = "Аргумент#ARG_NAME#должен быть положительным целым числом";
 $MESS["SALE_LOCATION_ASSERT_ARRAY_NOT_EMPTY_EXPECTED"] = "Аргумент#ARG_NAME#должен быть непустым массивом";

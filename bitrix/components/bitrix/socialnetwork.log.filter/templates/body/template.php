@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!is_array($arResult["PresetFilters"]) &&
 	!(array_key_exists("SHOW_SETTINGS_LINK", $arParams) && $arParams["SHOW_SETTINGS_LINK"] == "Y"))
@@ -35,7 +35,7 @@ if ($arResult["MODE"] == "AJAX")
 	?><div id="sonet-log-filter" class="sonet-log-filter-block">
 		<div class="filter-block-title sonet-log-filter-title"><?=GetMessage("SONET_C30_T_FILTER_TITLE")?></div>
 		<form method="GET" name="log_filter" target="_self" action="<?=$postFormUrl !== '' ? $postFormUrl: POST_FORM_ACTION_URI?>">
-		<input type="hidden" name="SEF_APPLICATION_CUR_PAGE_URL" value="<?=GetPagePath()?>"><?
+		<input type="hidden" name="SEF_APPLICATION_CUR_PAGE_URL" value="<?=GetPagePath()?>"><?php 
 		$userName = "";
 		if ($createdByID > 0)
 		{
@@ -53,7 +53,7 @@ if ($arResult["MODE"] == "AJAX")
 			</span>
 		</div>
 		<input type="hidden" name="flt_created_by_id" value="<?=$createdByID?>" id="filter_field_createdby_hidden">
-		<? $APPLICATION->IncludeComponent(
+		<?php  $APPLICATION->IncludeComponent(
 			"bitrix:intranet.user.selector.new", ".default", array(
 				"MULTIPLE" => "N",
 				"NAME" => "FILTER_CREATEDBY",
@@ -70,7 +70,7 @@ if ($arResult["MODE"] == "AJAX")
 		);
 
 		$bChecked = $enableComments;
-		?><div class="filter-field" id="flt_comments_cont" style="visibility: <?=(intval($arParams["CREATED_BY_ID"]) > 0 ? "visible" : "hidden")?>"><input type="checkbox" class="filter-checkbox" id="flt_comments" name="flt_comments" value="Y" <?=($bChecked ? "checked" : "")?>> <label for="flt_comments"><?=GetMessage("SONET_C30_T_FILTER_COMMENTS")?></label></div><?
+		?><div class="filter-field" id="flt_comments_cont" style="visibility: <?=(intval($arParams["CREATED_BY_ID"]) > 0 ? "visible" : "hidden")?>"><input type="checkbox" class="filter-checkbox" id="flt_comments" name="flt_comments" value="Y" <?=($bChecked ? "checked" : "")?>> <label for="flt_comments"><?=GetMessage("SONET_C30_T_FILTER_COMMENTS")?></label></div><?php 
 
 		if ($arParams["USE_SONET_GROUPS"] != "N")
 		{
@@ -84,7 +84,7 @@ if ($arResult["MODE"] == "AJAX")
 				</span>
 			</div>
 			<input type="hidden" name="flt_group_id" value="<?=$arResult["Group"]["ID"]?>" id="filter_field_group_hidden">
-			<? $APPLICATION->IncludeComponent(
+			<?php  $APPLICATION->IncludeComponent(
 				"bitrix:socialnetwork.group.selector",
 				".default",
 				array(
@@ -101,16 +101,16 @@ if ($arResult["MODE"] == "AJAX")
 
 		?><div class="filter-field filter-field-date-combobox">
 			<label for="flt-date-datesel" class="filter-field-title"><?=GetMessage("SONET_C30_T_FILTER_DATE");?></label>
-			<select name="flt_date_datesel" onchange="__logOnDateChange(this)" class="filter-dropdown" id="flt-date-datesel"><?
+			<select name="flt_date_datesel" onchange="__logOnDateChange(this)" class="filter-dropdown" id="flt-date-datesel"><?php 
 			foreach($arResult["DATE_FILTER"] as $k=>$v):
-				?><option value="<?=$k?>"<?if($dateType == $k) echo ' selected="selected"'?>><?=$v?></option><?
+				?><option value="<?=$k?>"<?php if($dateType == $k) echo ' selected="selected"'?>><?=$v?></option><?php 
 			endforeach;
 			?></select>
 		<span class="filter-field filter-day-interval" style="display:none" id="flt_date_day_span">
-			<input type="text" name="flt_date_days" value="<?=htmlspecialcharsbx($dateDays)?>" class="filter-date-days" size="2" /> <?echo GetMessage("SONET_C30_DATE_FILTER_DAYS")?>
+			<input type="text" name="flt_date_days" value="<?=htmlspecialcharsbx($dateDays)?>" class="filter-date-days" size="2" /> <?php echo GetMessage("SONET_C30_DATE_FILTER_DAYS")?>
 		</span>
 		<span class="filter-date-interval filter-date-interval-after filter-date-interval-before">
-			<span class="filter-field filter-date-interval-from" style="display:none" id="flt_date_from_span"><input type="text" name="flt_date_from" value="<?=htmlspecialcharsbx($dateFrom)?>" class="filter-date-interval-from" /><?
+			<span class="filter-field filter-date-interval-from" style="display:none" id="flt_date_from_span"><input type="text" name="flt_date_from" value="<?=htmlspecialcharsbx($dateFrom)?>" class="filter-date-interval-from" /><?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:main.calendar",
 					"",
@@ -122,7 +122,7 @@ if ($arResult["MODE"] == "AJAX")
 					),
 					$component,
 					array("HIDE_ICONS"	=> true)
-				);?></span><span class="filter-date-interval-hellip" style="display:none" id="flt_date_hellip_span">&hellip;</span><span class="filter-field filter-date-interval-to" style="display:none" id="flt_date_to_span"><input type="text" name="flt_date_to" value="<?=htmlspecialcharsbx($dateTo)?>" class="filter-date-interval-to" /><?
+				);?></span><span class="filter-date-interval-hellip" style="display:none" id="flt_date_hellip_span">&hellip;</span><span class="filter-field filter-date-interval-to" style="display:none" id="flt_date_to_span"><input type="text" name="flt_date_to" value="<?=htmlspecialcharsbx($dateTo)?>" class="filter-date-interval-to" /><?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:main.calendar",
 					"",
@@ -143,23 +143,23 @@ if ($arResult["MODE"] == "AJAX")
 			__logOnDateChange(document.forms['log_filter'].flt_date_datesel);
 		});
 		</script>
-		<?
+		<?php 
 		if ($arParams["SUBSCRIBE_ONLY"] == "Y"):
 			if (array_key_exists("flt_show_hidden", $_REQUEST) && $_REQUEST["flt_show_hidden"] == "Y")
 				$bChecked = true;
 			else
 				$bChecked = false;
 			?><div class="filter-field"><input type="checkbox" class="filter-checkbox" id="flt_show_hidden" name="flt_show_hidden" value="Y" <?=($bChecked ? "checked" : "")?>> <label for="flt_show_hidden"><?=GetMessage("SONET_C30_T_SHOW_HIDDEN")?></label></div>
-			<?
+			<?php 
 		endif;
 
-		?><div class="sonet-log-filter-submit"><?
-			?><span class="popup-window-button popup-window-button-create" onclick="document.forms['log_filter'].submit();"><span class="popup-window-button-left"></span><span class="popup-window-button-text"><?=GetMessage("SONET_C30_T_SUBMIT")?></span><span class="popup-window-button-right"></span></span><input type="hidden" name="log_filter_submit" value="Y"><?if ($isFiltered):?><a href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("preset_filter_id=".(array_key_exists("preset_filter_id", $_GET) && strlen($_GET["preset_filter_id"]) > 0 ? htmlspecialcharsbx($_GET["preset_filter_id"]) : "clearall"), array("flt_created_by_id","flt_group_id","flt_date_datesel","flt_date_days","flt_date_from","flt_date_to","flt_show_hidden","skip_subscribe","preset_filter_id","sessid","bxajaxid", "log_filter_submit", "FILTER_CREATEDBY","SONET_FILTER_MODE", "set_follow_type"), false)?>" class="popup-window-button popup-window-button-link popup-window-button-link-cancel"><span class="popup-window-button-link-text"><?=GetMessage("SONET_C30_T_RESET")?></span></a><?endif;
+		?><div class="sonet-log-filter-submit"><?php 
+			?><span class="popup-window-button popup-window-button-create" onclick="document.forms['log_filter'].submit();"><span class="popup-window-button-left"></span><span class="popup-window-button-text"><?=GetMessage("SONET_C30_T_SUBMIT")?></span><span class="popup-window-button-right"></span></span><input type="hidden" name="log_filter_submit" value="Y"><?php if ($isFiltered):?><a href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("preset_filter_id=".(array_key_exists("preset_filter_id", $_GET) && strlen($_GET["preset_filter_id"]) > 0 ? htmlspecialcharsbx($_GET["preset_filter_id"]) : "clearall"), array("flt_created_by_id","flt_group_id","flt_date_datesel","flt_date_days","flt_date_from","flt_date_to","flt_show_hidden","skip_subscribe","preset_filter_id","sessid","bxajaxid", "log_filter_submit", "FILTER_CREATEDBY","SONET_FILTER_MODE", "set_follow_type"), false)?>" class="popup-window-button popup-window-button-link popup-window-button-link-cancel"><span class="popup-window-button-link-text"><?=GetMessage("SONET_C30_T_RESET")?></span></a><?php endif;
 		?></div>
 		<input type="hidden" name="skip_subscribe" value="<?=(isset($_REQUEST["skip_subscribe"]) && $_REQUEST["skip_subscribe"] == "Y" ? "Y" : "N")?>">
 		<input type="hidden" name="preset_filter_id" value="<?=(array_key_exists("preset_filter_id", $_GET) ? htmlspecialcharsbx($_GET["preset_filter_id"]) : "")?>" />
 		</form>
-	</div><?
+	</div><?php 
 	die();	
 }
 else
@@ -170,7 +170,7 @@ else
 		{
 //			BX.addClass(bindElement, "lenta-sort-button-active");
 			BX.PopupMenu.show("lenta-sort-popup", bindElement, [
-				<?
+				<?php 
 				if (!isset($arParams["TOP_OUT"]) || $arParams["TOP_OUT"] != "Y")
 				{
 					$buttonNameTop = false;
@@ -197,11 +197,11 @@ else
 								className : (window.bRefreshed !== undefined && window.bRefreshed ? "lenta-sort-item" : "lenta-sort-item<?=($isActive ? " lenta-sort-item-selected" : "")?>"), 
 								href : "<?=CUtil::JSEscape($href)?>"
 							},
-							<?
+							<?php 
 						}
 						?>
 						{ delimiter : true },
-						<?
+						<?php 
 					}
 				}
 				?>,			
@@ -210,7 +210,7 @@ else
 					className : (window.bRefreshed !== undefined && window.bRefreshed ? "lenta-sort-item lenta-sort-item-selected" : "lenta-sort-item<?=(!$arResult["PresetFilterActive"] ? " lenta-sort-item-selected" : "")?>"), 
 					href : "<?=CUtil::JSEscape($GLOBALS["APPLICATION"]->GetCurPageParam("preset_filter_id=clearall", array_merge($arResult["PageParamsToClear"], array("preset_filter_id"))))?>" 
 				},
-				<?
+				<?php 
 				$buttonName = false;
 				if (is_array($arResult["PresetFilters"]))
 				{
@@ -225,7 +225,7 @@ else
 							text : "<?=$arPresetFilter["NAME"]?>", 
 							className : (window.bRefreshed !== undefined && window.bRefreshed ? "lenta-sort-item" : "lenta-sort-item<?=($arResult["PresetFilterActive"] == $preset_filter_id ? " lenta-sort-item-selected" : "")?>"), 
 							href : "<?=CUtil::JSEscape($href)?>"
-						},<?
+						},<?php 
 					}
 				}
 				?>
@@ -235,7 +235,7 @@ else
 					className : (window.bRefreshed !== undefined && window.bRefreshed ? "lenta-sort-item" : "lenta-sort-item<?=($isFiltered ? " lenta-sort-item-selected" : "")?>"), 
 					onclick: function() { this.popupWindow.close(); ShowFilterPopup(BX("lenta-sort-button")); } 
 				}
-				<?
+				<?php 
 				if ($arParams["SHOW_FOLLOW"] != "N")
 				{		
 					?>
@@ -245,7 +245,7 @@ else
 						className : "lenta-sort-item<?=($arResult["FOLLOW_TYPE"] == "N" ? " lenta-sort-item-selected" : "")?>", 
 						href : "<?=CUtil::JSEscape($GLOBALS["APPLICATION"]->GetCurPageParam("set_follow_type=".($arResult["FOLLOW_TYPE"] == "Y" ? "N" : "Y"), array("set_follow_type")))?>"  
 					}
-					<?
+					<?php 
 				}
 				?>
 			],
@@ -266,7 +266,7 @@ else
 			sonetLFAjaxPath: '<?=CUtil::JSEscape($arResult["AjaxURL"])?>',
 			sonetLFAllMessages: '<?=GetMessageJS("SONET_C30_PRESET_FILTER_ALL")?>'
 		});
-	</script><?
+	</script><?php 
 
 	$APPLICATION->AddHeadScript('/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/users.js');
 	$APPLICATION->AddHeadScript('/bitrix/components/bitrix/socialnetwork.group.selector/templates/.default/script.js');
@@ -274,8 +274,8 @@ else
 	$APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/style.css");
 	$APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/socialnetwork.group.selector/templates/.default/style.css");
 
-	?><span class="crm-feed-filter-block"><?
-		?><span class="crm-feed-filter-btn-split"><?
+	?><span class="crm-feed-filter-block"><?php 
+		?><span class="crm-feed-filter-btn-split"><?php 
 
 		if (isset($arParams["TOP_OUT"]) && $arParams["TOP_OUT"] == "Y")
 		{
@@ -305,26 +305,26 @@ else
 						$className = "crm-feed-filter-btn-split-c";
 					}
 					
-					?><a <?
-						?>href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("preset_filter_top_id=".$preset_filter_top_id, array_merge($arResult["PageParamsToClear"], array("preset_filter_top_id")))?>" <?
-						?>class="<?=$className?><?=($isActive ? " ".$className."-active" : "")?>" style="white-space:nowrap;"><?
-							?><?=$arPresetFilter["NAME"]?><?
-							?> <sup id="sonet_log_counter_preset"><?=((intval($arResult["LOG_COUNTER"]) > 0) ? $arResult["LOG_COUNTER"] : "")?></sup><?
-					?></a><?
+					?><a <?php 
+						?>href="<?=$GLOBALS["APPLICATION"]->GetCurPageParam("preset_filter_top_id=".$preset_filter_top_id, array_merge($arResult["PageParamsToClear"], array("preset_filter_top_id")))?>" <?php 
+						?>class="<?=$className?><?=($isActive ? " ".$className."-active" : "")?>" style="white-space:nowrap;"><?php 
+							?><?=$arPresetFilter["NAME"]?><?php 
+							?> <sup id="sonet_log_counter_preset"><?=((intval($arResult["LOG_COUNTER"]) > 0) ? $arResult["LOG_COUNTER"] : "")?></sup><?php 
+					?></a><?php 
 
 					$cnt++;
 				}
 			}
 		}
-		?></span><?
-		?><span class="crm-feed-filter-btn" id="lenta-sort-button" onclick="return showLentaMenuBody(this);"><?
-			?><?=$buttonName !== false ? $buttonName : ""?><?
-			?><?=($isFiltered ? ($buttonName ? " (".GetMessageJS("SONET_C30_T_FILTER_TITLE").")" : GetMessageJS("SONET_C30_T_FILTER_TITLE")) : "")?><?
+		?></span><?php 
+		?><span class="crm-feed-filter-btn" id="lenta-sort-button" onclick="return showLentaMenuBody(this);"><?php 
+			?><?=$buttonName !== false ? $buttonName : ""?><?php 
+			?><?=($isFiltered ? ($buttonName ? " (".GetMessageJS("SONET_C30_T_FILTER_TITLE").")" : GetMessageJS("SONET_C30_T_FILTER_TITLE")) : "")?><?php 
 	
-		?></span><?
+		?></span><?php 
 
 	
-	?></span><?
+	?></span><?php 
 	
 
 

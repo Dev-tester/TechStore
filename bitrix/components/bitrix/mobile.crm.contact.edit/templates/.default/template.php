@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 global $APPLICATION;
 CJSCore::Init(array('mobile_crm'));
@@ -54,10 +54,10 @@ if ($arResult['LEAD_ID'])
 
 	BX.Mobile.Crm.Contact.Edit.init(<?=CUtil::PhpToJSObject($arJsParams)?>);
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	var menu = new BXMobileApp.UI.Menu({
 		items: [
-			<?if ($arResult["IS_EDIT_PERMITTED"]):?>
+			<?php if ($arResult["IS_EDIT_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_CONTACT_MENU_EDIT")?>',
 				image: "/bitrix/js/mobile/images/edit.png",
@@ -68,8 +68,8 @@ if ($arResult['LEAD_ID'])
 					});
 				}, this)
 			},
-			<?endif?>
-			<?if ($arResult["IS_DELETE_PERMITTED"]):?>
+			<?php endif?>
+			<?php if ($arResult["IS_DELETE_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_CONTACT_MENU_DELETE")?>',
 				image: "/bitrix/js/mobile/images/del.png",
@@ -78,7 +78,7 @@ if ($arResult['LEAD_ID'])
 					BX.Mobile.Crm.deleteItem('<?=$arResult["ELEMENT_ID"]?>', '<?=$ajaxPath?>', 'detail', 'onCrmContactListUpdate');
 				}, this)
 			},
-			<?endif?>
+			<?php endif?>
 			{
 				name: '<?=GetMessageJS("M_CRM_CONTACT_MENU_HISTORY")?>',
 				image: "/bitrix/js/mobile/images/history.png",
@@ -105,18 +105,18 @@ if ($arResult['LEAD_ID'])
 			}
 		]
 	}, "crmMobileMenu");
-	<?endif?>
+	<?php endif?>
 
 	BXMobileApp.UI.Page.TopBar.title.setText('<?=$formTitle?>');
 	BXMobileApp.UI.Page.TopBar.title.show();
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	BXMobileApp.UI.Page.TopBar.title.setCallback(function (){
 		menu.show();
 	});
-	<?endif?>
+	<?php endif?>
 
-	<?if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE" || $arResult['MODE'] == "CONVERT"):?>
+	<?php if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE" || $arResult['MODE'] == "CONVERT"):?>
 	window.BXMobileApp.UI.Page.TopBar.updateButtons({
 		ok: {
 			type: "back_text",
@@ -128,10 +128,10 @@ if ($arResult['LEAD_ID'])
 			position: "right"
 		}
 	});
-	<?endif?>
+	<?php endif?>
 
 	//for convertaion
-	<?if (isset($arResult['CONVERSION_LEGEND']) && !empty($arResult['CONVERSION_LEGEND'])):?>
+	<?php if (isset($arResult['CONVERSION_LEGEND']) && !empty($arResult['CONVERSION_LEGEND'])):?>
 	app.alert({title: "<?=GetMessageJS("M_CRM_CONTACT_CONVERSION_NOTIFY")?>", text: "<?=CUtil::JSEscape($arResult['CONVERSION_LEGEND'])?>"});
-	<?endif?>
+	<?php endif?>
 </script>

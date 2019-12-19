@@ -1,4 +1,4 @@
-<?
+<?php 
 CModule::AddAutoloadClasses(
 	"rest",
 	array(

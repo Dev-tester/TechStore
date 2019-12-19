@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ADDED"] = "Tasks Added";
 $MESS["MOD_BACK"] = "Back To Modules";
 $MESS["TASKS_SETTINGS"] = "Settings";

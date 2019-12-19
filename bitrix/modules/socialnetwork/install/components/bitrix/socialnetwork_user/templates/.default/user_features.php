@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 $pageId = "";
 include("util_menu.php");
 ?>
-<?
+<?php 
 if (SITE_TEMPLATE_ID != "bitrix24"):
-	?><?
+	?><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.features", 
 		"", 
@@ -25,6 +25,6 @@ if (SITE_TEMPLATE_ID != "bitrix24"):
 		),
 		$component 
 	);
-	?><?
+	?><?php 
 endif;
 ?>

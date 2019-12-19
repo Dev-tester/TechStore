@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TITLE"] = "Редактирование PHP";
 $MESS["TRANS_TITLE_TITLE"] = "Редактирование PHP";
 $MESS["TRANS_FOLDERS_LIST"] = "Список папок";

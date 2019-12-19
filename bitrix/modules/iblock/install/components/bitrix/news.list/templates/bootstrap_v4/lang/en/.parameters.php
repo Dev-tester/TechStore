@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BND_DISPLAY_DATE"] = "Display element date";
 $MESS["TP_BND_DISPLAY_NAME"] = "Display element title";
 $MESS["TP_BND_DISPLAY_PICTURE"] = "Display element preview picture";

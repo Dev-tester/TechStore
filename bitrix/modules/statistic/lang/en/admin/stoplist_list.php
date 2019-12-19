@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_STOP_PAGES'] = "Record";
 $MESS ['STAT_F_LOGIC'] = "Logic between fields";
 $MESS ['STAT_GREEN_LAMP'] = "Record active";

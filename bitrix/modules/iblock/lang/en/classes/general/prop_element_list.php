@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_PROP_ELEMENT_LIST_SETTING_SIZE"] = "List Height";
 $MESS["IBLOCK_PROP_ELEMENT_LIST_SETTING_WIDTH"] = "Maximum Width (use \"0\" for unlimited width)";
 $MESS["IBLOCK_PROP_ELEMENT_LIST_NO_VALUE"] = "(not set)";

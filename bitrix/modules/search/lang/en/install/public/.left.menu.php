@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEARCH_INSTALL_PUBLIC_MENU_SEARCH'] = "Search";
 $MESS ['SEARCH_INSTALL_PUBLIC_MENU_MAP'] = "Site map";
 ?>

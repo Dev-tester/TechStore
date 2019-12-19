@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_TYPE_INVOICE"] = "Рахунок";
 $MESS["SALE_TYPE_INVOICE_SHIPMENT"] = "Відвантаження";
 $MESS["SALE_TYPE_INVOICE_PAYMENT_CASH"] = "Готівкова оплата";

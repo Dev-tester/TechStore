@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUBSCRIBE_CONFIRM_NAME'] = "Confirmation of subscription";
 $MESS ['SUBSCRIBE_CONFIRM_DESC'] = "#ID# - subscription ID
 #EMAIL# - subscription email

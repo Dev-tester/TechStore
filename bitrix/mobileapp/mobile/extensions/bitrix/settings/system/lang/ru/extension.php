@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SE_SYS_TITLE"] = "Другие настройки";
 $MESS["SE_SYS_ENERGY_BACKGROUND"] = "Работа приложения в фоне";
 $MESS["SE_SYS_LOW_PUSH_ACTIVITY"] = "Уменьшить частоту уведомлений";

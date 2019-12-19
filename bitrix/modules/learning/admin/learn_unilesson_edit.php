@@ -706,7 +706,7 @@ function toggleSource() {
 	}
 }
 </script>
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array
 	(
 		"event" => "OpenFileBrowserWindMedia",
@@ -731,16 +731,16 @@ function CustomizeEditor()
 	<div class="bxed-dialog">
 		<table class="bx-image-dialog-tbl">
 			<tr>
-				<td class="bx-par-title"><?echo GetMessage("LEARNING_PATH_TO_FILE")?>:</td>
+				<td class="bx-par-title"><?php echo GetMessage("LEARNING_PATH_TO_FILE")?>:</td>
 				<td class="bx-par-val" colspan="3">
 					<input type="text" size="30" id="mediaPath" />
 					<input type="button" value="..." id="OpenFileBrowserWindMedia_button">
 				</td>
 			</tr>
 			<tr>
-				<td class="bx-par-title"><?echo GetMessage("LEARNING_WIDTH")?>:</td>
+				<td class="bx-par-title"><?php echo GetMessage("LEARNING_WIDTH")?>:</td>
 				<td width="80px"><input type="text" size="3" id="mediaWidth" /></td>
-				<td><?echo GetMessage("LEARNING_HEIGHT")?>:</td>
+				<td><?php echo GetMessage("LEARNING_HEIGHT")?>:</td>
 				<td class="bx-par-val"><input type="text" size="3" id="mediaHeight" /></td>
 			</tr>
 		</table>
@@ -917,7 +917,7 @@ function CustomizeEditor()
 	oBXEditorUtils.addUnParser(_mediaUnParser);
 
 	var pSaveButton = new BX.CWindowButton({
-		'title': '<?echo GetMessage("LEARNING_SAVE")?>',
+		'title': '<?php echo GetMessage("LEARNING_SAVE")?>',
 		'action': function() {
 			var path = BX('mediaPath').value;
 			var width = BX('mediaWidth').value;
@@ -948,7 +948,7 @@ function CustomizeEditor()
 		}
 	});
 	var pDialog = new BX.CDialog({
-			title : '<?echo GetMessage("LEARNING_VIDEO_AUDIO")?>',
+			title : '<?php echo GetMessage("LEARNING_VIDEO_AUDIO")?>',
 			content: '<?php echo CUtil::JSEscape(preg_replace("~>\s+<~", "><",  trim($dialogHTML)))?>',
 			height: 180,
 			width: 520,
@@ -960,7 +960,7 @@ function CustomizeEditor()
 		{
 			id : 'media',
 			src : '/bitrix/images/learning/icons/media.gif',
-			name : "<?echo GetMessage("LEARNING_VIDEO_AUDIO")?>",
+			name : "<?php echo GetMessage("LEARNING_VIDEO_AUDIO")?>",
 			handler : function () {
 				pDialog.Show();
 				pEditor = this.pMainObj;
@@ -1009,10 +1009,10 @@ function CustomizeEditor()
 
 $tabControl->BeginEpilogContent();?>
 	<?=bitrix_sessid_post()?>
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="from" value="<?echo htmlspecialcharsbx($from)?>">
-	<input type="hidden" name="return_url" value="<?echo htmlspecialcharsbx($return_url)?>">
+	<input type="hidden" name="from" value="<?php echo htmlspecialcharsbx($from)?>">
+	<input type="hidden" name="return_url" value="<?php echo htmlspecialcharsbx($return_url)?>">
 	<input type="hidden" name="LESSON_ID" value="<?php echo $LESSON_ID; ?>">
 
 	<?php
@@ -1043,29 +1043,29 @@ $tabControl->BeginNextFormTab();
 ?>
 <!-- ID -->
 <?php $tabControl->BeginCustomField("LESSON_ID", "ID", false);?>
-	<?if($LESSON_ID > 0):?>
+	<?php if($LESSON_ID > 0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$str_LESSON_ID?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("LESSON_ID");?>
 
 <!-- Timestamp_X -->
 <?php $tabControl->BeginCustomField("TIMESTAMP_X", GetMessage("LEARNING_LAST_UPDATE"), false);?>
-	<?if($LESSON_ID > 0):?>
+	<?php if($LESSON_ID > 0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$str_TIMESTAMP_X?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("TIMESTAMP_X");?>
 
 <!-- Created by -->
 <?php $tabControl->BeginCustomField("CREATED_BY", GetMessage("LEARNING_AUTHOR"), false);?>
-	<?if($LESSON_ID > 0):?>
+	<?php if($LESSON_ID > 0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td>
 				<?php 
 				echo '[<a href="user_edit.php?ID=' . ($str_CREATED_BY + 0) 
@@ -1075,13 +1075,13 @@ $tabControl->BeginNextFormTab();
 				?>
 			</td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("CREATED_BY");?>
 
 <!-- Active -->
 <?php $tabControl->BeginCustomField("ACTIVE", GetMessage("LEARNING_ACTIVE"), false);?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td><?php
 			if ($bContentReadOnly)
 			{
@@ -1092,7 +1092,7 @@ $tabControl->BeginNextFormTab();
 			}
 			else
 			{
-				?><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>><?php
+				?><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>><?php
 			}
 			?>
 		</td>
@@ -1101,7 +1101,7 @@ $tabControl->BeginNextFormTab();
 
 $tabControl->BeginCustomField("NAME", GetMessage("LEARNING_NAME"), false);?>
 	<tr class="adm-detail-required-field">
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td valign="top">
 			<?php
 			if ($bContentReadOnly)
@@ -1109,7 +1109,7 @@ $tabControl->BeginCustomField("NAME", GetMessage("LEARNING_NAME"), false);?>
 			else
 			{
 				?>
-				<input type="text" name="NAME" size="50" maxlength="255" value="<?echo $str_NAME?>">
+				<input type="text" name="NAME" size="50" maxlength="255" value="<?php echo $str_NAME?>">
 				<?php
 			}
 			?>
@@ -1121,7 +1121,7 @@ $tabControl->EndCustomField("NAME", '<input type="hidden" id="NAME" name="NAME" 
 $tabControl->BeginCustomField('CODE', GetMessage('LEARNING_CODE'), false);?>
 <!-- CODE -->
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
 			<?php
 			if ($bContentReadOnly)
@@ -1140,7 +1140,7 @@ $tabControl->EndCustomField('CODE', '<input type="hidden" id="CODE" name="CODE" 
 
 $tabControl->BeginCustomField("KEYWORDS", GetMessage("LEARNING_KEYWORDS"), false);?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td valign="top">
 			<?php
 			if ($bContentReadOnly)
@@ -1148,7 +1148,7 @@ $tabControl->BeginCustomField("KEYWORDS", GetMessage("LEARNING_KEYWORDS"), false
 			else
 			{
 				?>
-				<input type="text" name="KEYWORDS" size="50" maxlength="255" value="<?echo $str_KEYWORDS?>">
+				<input type="text" name="KEYWORDS" size="50" maxlength="255" value="<?php echo $str_KEYWORDS?>">
 				<?php
 			}
 			?>
@@ -1168,7 +1168,7 @@ if (isset($g_learn_parentLessonId))
 		$tabControl->BeginCustomField("ZOMBIE_CONTEXT_PARENT_NAME", GetMessage("LEARNING_PARENT_CHAPTER_ID"), false);
 		?>
 			<tr>
-				<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+				<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 				<td><?php echo $arParentLessonData['NAME']; ?></td>
 			</tr>
 		<?php
@@ -1178,7 +1178,7 @@ if (isset($g_learn_parentLessonId))
 		?>
 		<!-- Sort -->
 			<tr>
-				<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+				<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 				<td>
 					<?php
 					if ($bContentReadOnly)
@@ -1217,7 +1217,7 @@ if ($topCourseLessonId !== false)
 		?>
 		<!-- PUBLISH_PROHIBITED -->
 			<tr>
-				<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+				<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 				<td>
 					<label>
 						<?php
@@ -1255,7 +1255,7 @@ if ($topCourseLessonId !== false)
 
 $tabControl->BeginNextFormTab();
 $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"), false);?>
-	<?if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
+	<?php if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
 	<tr>
 		<td colspan="2" align="center">
 			<?php
@@ -1308,12 +1308,12 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 			?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
-		<td align="center"><?echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
+		<td align="center"><?php echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
 		<td>
-			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="PREVIEW_TEXT_TYPE" value="text"<?if($str_PREVIEW_TEXT_TYPE!="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_TEXT")?> / 
-			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="PREVIEW_TEXT_TYPE" value="html"<?if($str_PREVIEW_TEXT_TYPE=="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
+			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="PREVIEW_TEXT_TYPE" value="text"<?php if($str_PREVIEW_TEXT_TYPE!="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_TEXT")?> / 
+			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="PREVIEW_TEXT_TYPE" value="html"<?php if($str_PREVIEW_TEXT_TYPE=="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
 		</td>
 	</tr>
 	<tr>
@@ -1337,13 +1337,13 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 			else
 			{
 				?>
-				<textarea style="width:100%; height:200px;" name="PREVIEW_TEXT" wrap="virtual"><?echo $str_PREVIEW_TEXT?></textarea>
+				<textarea style="width:100%; height:200px;" name="PREVIEW_TEXT" wrap="virtual"><?php echo $str_PREVIEW_TEXT?></textarea>
 				<?php
 			}
 			?>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 <?php $tabControl->EndCustomField("PREVIEW_TEXT",
 	'<input type="hidden" id="PREVIEW_TEXT" name="PREVIEW_TEXT" value="' . $str_PREVIEW_TEXT . '">'.
 	'<input type="hidden" id="PREVIEW_TEXT_TYPE" name="PREVIEW_TEXT_TYPE" value="' . $str_PREVIEW_TEXT_TYPE . '">'
@@ -1364,7 +1364,7 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 		else
 		{
 			?>
-			<td valign="top" style="width:50%;"><?echo $tabControl->GetCustomLabelHTML()?></td>
+			<td valign="top" style="width:50%;"><?php echo $tabControl->GetCustomLabelHTML()?></td>
 			<td>
 				<?php
 				if ( ! $bContentReadOnly )
@@ -1382,16 +1382,16 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 	</tr>
 <?php $tabControl->EndCustomField("PREVIEW_PICTURE");?>
 
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("DESCRIPTION", GetMessage("LEARNING_DESCRIPTION"), false);?>
 	<tr>
-		<td valign="top" width="50%" align="right"><?echo GetMessage("LEARNING_CONTENT_SOURCE")?>:</td>
+		<td valign="top" width="50%" align="right"><?php echo GetMessage("LEARNING_CONTENT_SOURCE")?>:</td>
 		<td valign="top" width="50%">
-			<label><input onClick="toggleSource()" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> type="radio" name="CONTENT_SOURCE" value="field"<?php echo $str_DETAIL_TEXT_TYPE!="file" ? " checked" : ""?>>&nbsp;<?echo GetMessage("LEARNING_CONTENT_SOURCE_FIELD")?></label><br />
-			<label><input onClick="toggleSource()" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> type="radio" name="CONTENT_SOURCE" value="file"<?php echo $str_DETAIL_TEXT_TYPE=="file" ? " checked" : ""?>>&nbsp;<?echo GetMessage("LEARNING_CONTENT_SOURCE_FILE")?> (pdf, html, text, jpg, png)</label>
+			<label><input onClick="toggleSource()" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> type="radio" name="CONTENT_SOURCE" value="field"<?php echo $str_DETAIL_TEXT_TYPE!="file" ? " checked" : ""?>>&nbsp;<?php echo GetMessage("LEARNING_CONTENT_SOURCE_FIELD")?></label><br />
+			<label><input onClick="toggleSource()" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> type="radio" name="CONTENT_SOURCE" value="file"<?php echo $str_DETAIL_TEXT_TYPE=="file" ? " checked" : ""?>>&nbsp;<?php echo GetMessage("LEARNING_CONTENT_SOURCE_FILE")?> (pdf, html, text, jpg, png)</label>
 		</td>
 	</tr>
-	<?if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):
+	<?php if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):
 	?>
 	<tr id="source_field[0]">
 		<td colspan="2" align="center">
@@ -1445,12 +1445,12 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 			?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr id="source_field[0]">
-		<td valign="top"><?echo GetMessage("LEARNING_DESC_TYPE")?></td>
+		<td valign="top"><?php echo GetMessage("LEARNING_DESC_TYPE")?></td>
 		<td valign="top">
-			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="DETAIL_TEXT_TYPE" value="text"<?if($str_DETAIL_TEXT_TYPE!="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_TEXT")?> / 
-			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="DETAIL_TEXT_TYPE" value="html"<?if($str_DETAIL_TEXT_TYPE=="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
+			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="DETAIL_TEXT_TYPE" value="text"<?php if($str_DETAIL_TEXT_TYPE!="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_TEXT")?> / 
+			<input type="radio" <?php if ($bContentReadOnly) echo ' disabled="disabled" '; ?> name="DETAIL_TEXT_TYPE" value="html"<?php if($str_DETAIL_TEXT_TYPE=="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
 		</td>
 	</tr>
 	<tr id="source_field[1]">
@@ -1474,15 +1474,15 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 			else
 			{
 				?>
-				<textarea style="width:100%; height:200px;" name="DETAIL_TEXT" wrap="virtual"><?echo $str_DETAIL_TEXT?></textarea>
+				<textarea style="width:100%; height:200px;" name="DETAIL_TEXT" wrap="virtual"><?php echo $str_DETAIL_TEXT?></textarea>
 				<?php
 			}
 			?>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr id="source_file">
-		<td valign="top" align="right"><?echo GetMessage("LEARNING_PATH_TO_FILE")?>:</td>
+		<td valign="top" align="right"><?php echo GetMessage("LEARNING_PATH_TO_FILE")?>:</td>
 		<td valign="top">
 			<?php
 			if ($bContentReadOnly)
@@ -1490,7 +1490,7 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 			else
 			{
 				?>
-				<input type="text" name="LAUNCH" size="50" maxlength="255" value="<?echo $str_LAUNCH?>">
+				<input type="text" name="LAUNCH" size="50" maxlength="255" value="<?php echo $str_LAUNCH?>">
 				<?php
 			}
 			?>
@@ -1518,7 +1518,7 @@ $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"
 		else
 		{
 			?>
-			<td valign="top" style="width:50%;"><?echo $tabControl->GetCustomLabelHTML()?></td>
+			<td valign="top" style="width:50%;"><?php echo $tabControl->GetCustomLabelHTML()?></td>
 			<td>
 				<?php
 				if ( ! $bContentReadOnly )

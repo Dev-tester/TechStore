@@ -17,7 +17,7 @@ if ($arResult['IS_SLIDER'])
 	<!DOCTYPE html>
 	<html>
 	<head>
-		<? $APPLICATION->ShowHead(); ?>
+		<?php  $APPLICATION->ShowHead(); ?>
 	</head>
 	<body>
 	<div class="main-num-edit-seq">
@@ -27,7 +27,7 @@ if ($arResult['IS_SLIDER'])
 			<span class="pagetitle-item "><?= Loc::getMessage('MAIN_NUMERATOR_EDIT_SEQUENCE_PAGE_TITLE'); ?></span>
 		</div>
 	</div>
-	</div><?
+	</div><?php 
 }
 else
 {
@@ -39,7 +39,7 @@ else
 	$this->EndViewTarget();
 	$APPLICATION->SetTitle(Loc::getMessage('MAIN_NUMERATOR_EDIT_SEQUENCE_PAGE_TITLE', ['#NUMERATOR_NAME#' => $arResult['NUMERATOR_NAME']]));
 }
-?><?
+?><?php 
 
 $arResult['GRID_DATA'] = [];
 
@@ -95,10 +95,10 @@ $APPLICATION->IncludeComponent(
 	$component
 );
 ?>
-<? if ($arResult['IS_SLIDER'])
+<?php  if ($arResult['IS_SLIDER'])
 {
 	?>
 	</div>
 	</body>
 	</html>
-<? } ?>
+<?php  } ?>

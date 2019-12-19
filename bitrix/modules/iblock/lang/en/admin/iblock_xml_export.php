@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_CML2_IBLOCK_ERROR"] = "Information block read error.";
 $MESS["IBLOCK_CML2_FILE_ERROR"] = "File open error.";
 $MESS["IBLOCK_CML2_SECTIONS"] = "Exporting catalog sections.";

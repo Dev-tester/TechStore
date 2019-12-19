@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_REGION_MSEL_PAGES'] = "Регионы";
 $MESS ['STAT_REGION_MSEL_COUNTRY_ID'] = "Код страны";
 $MESS ['STAT_REGION_MSEL_COUNTRY_SHORT_NAME'] = "Полное название страны";

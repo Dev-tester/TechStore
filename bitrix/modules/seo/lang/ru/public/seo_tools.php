@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEO_TOOL_TAB_local'] = "Слова для страницы";
 $MESS ['SEO_TOOL_TAB_section'] = "Слова для раздела";
 $MESS ['SEO_PAGE_STAT_TOTAL_LENGTH'] = "Размер (байт)";

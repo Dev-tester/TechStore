@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["soc_serv_opt_allow"] = "Allow Authorization Using External Services";
 $MESS["soc_serv_opt_list"] = "Available services:";
 $MESS["soc_serv_opt_list_title"] = "External services";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_INSTALL_NAME'] = "Блоги";
 $MESS ['BLOG_INSTALL_DESCRIPTION'] = "Модуль дает возможность ведения блогов на сайте.";
 $MESS ['BLOG_INSTALL_TITLE'] = "Установка модуля блогов";

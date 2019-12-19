@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAE_NO_SITE_PLAN"]="Не указан сайт плана";
 $MESS["SAE_NO_USER"]="Не указан пользователь";
 $MESS["SAE_NO_PLAN"]="Не указан план";

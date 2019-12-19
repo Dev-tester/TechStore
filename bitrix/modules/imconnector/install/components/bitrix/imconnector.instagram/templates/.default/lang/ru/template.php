@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_INSTAGRAM_INDEX_DESCRIPTION_NEW"] = "Подключите Instagram к Открытой линии чтобы принимать комментарии ваших клиентов, оставленные к вашим публикациям, в рабочем чате Битрикс24.";
 $MESS["IMCONNECTOR_COMPONENT_INSTAGRAM_USER"] = "Аккаунт";
 $MESS["IMCONNECTOR_COMPONENT_INSTAGRAM_LOG_IN_UNDER_AN_ADMINISTRATOR_ACCOUNT_ENTITY"] = "Авторизуйтесь под аккаунтом Instagram, чтобы принимать комментарии к вашим постам от ваших клиентов внутри Битрикс24:";

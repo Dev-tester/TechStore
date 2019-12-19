@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 
 CUtil::InitJSCore(array("ajax"));
@@ -110,4 +110,4 @@ if(!isset($arParams['HIDE_TOOLBAR']) || $arParams['HIDE_TOOLBAR'] <> 'Y')
 		}
 	});
 </script>
-<?
+<?php 

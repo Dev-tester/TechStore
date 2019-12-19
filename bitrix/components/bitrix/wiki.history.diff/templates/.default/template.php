@@ -1,15 +1,15 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
 
 <div id="wiki-post">
 
-<? if(!empty($arResult['FATAL_MESSAGE'])):
+<?php  if(!empty($arResult['FATAL_MESSAGE'])):
 	?>
 	<div class="wiki-errors wiki-note-box wiki-note-error">
 		<div class="wiki-error-text">
 			<?=$arResult['FATAL_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 else:
 	if ($arResult['SOCNET']) :
 		$APPLICATION->IncludeComponent('bitrix:main.user.link',
@@ -31,18 +31,18 @@ else:
 ?>
 	<div id="wiki-post-content">
 	<span> <?=GetMessage('WIKI_VERSION_FROM')?> <a href="<?=$arResult['VERSION_DIFF']['SHOW_LINK']?>"><?=$arResult['VERSION_DIFF']['MODIFIED']?></a>
-	<? if (!empty($arResult['VERSION_DIFF']['USER_LINK'])): ?>
+	<?php  if (!empty($arResult['VERSION_DIFF']['USER_LINK'])): ?>
 		<a href="<?=$arResult['VERSION_DIFF']['USER_LINK']?>" id="anchor_<?=$arResult['VERSION_DIFF']['ID']?>"><?=$arResult['VERSION_DIFF']['USER_LOGIN']?></a>
-	<? else: ?>
+	<?php  else: ?>
 		<?=$arResult['VERSION_DIFF']['USER_LOGIN']?>
-	<? endif; ?>
+	<?php  endif; ?>
 	<hr />
 	<span> <?=GetMessage('WIKI_DIFF_VERSION_FROM')?> <a href="<?=$arResult['VERSION_OLD']['SHOW_LINK']?>"><?=$arResult['VERSION_OLD']['MODIFIED']?></a>
-	<? if (!empty($arResult['VERSION_OLD']['USER_LINK'])): ?>
+	<?php  if (!empty($arResult['VERSION_OLD']['USER_LINK'])): ?>
 		<a href="<?=$arResult['VERSION_OLD']['USER_LINK']?>" id="anchor_<?=$arResult['VERSION_OLD']['ID']?>"><?=$arResult['VERSION_OLD']['USER_LOGIN']?></a>
-	<? else: ?>
+	<?php  else: ?>
 		<?=$arResult['VERSION_OLD']['USER_LOGIN']?>
-	<? endif; ?>
+	<?php  endif; ?>
 	(<a href="<?=$arResult['CANCEL_LINK']?>"><?=GetMessage('WIKI_RESTORE_TO_CURRENT')?></a>)
 	<hr />
 	<b><?=GetMessage('WIKI_DIFF_TITLE')?></b><br/>
@@ -51,11 +51,11 @@ else:
 	<b><?=GetMessage('WIKI_DIFF_TEXT')?></b><br/>
 	<?=$arResult['DIFF']?>
 	</div>
-	<? if ($arResult['SOCNET']) :?>
+	<?php  if ($arResult['SOCNET']) :?>
 	<script type="text/javascript">
 		BX.tooltip(<?=$arResult['VERSION_OLD']["USER_ID"]?>, "anchor_<?=$arResult['VERSION_OLD']['ID']?>", "<?=CUtil::JSEscape($arResult["AJAX_PAGE"])?>");
 		BX.tooltip(<?=$arResult['VERSION_DIFF']["USER_ID"]?>, "anchor_<?=$arResult['VERSION_DIFF']['ID']?>", "<?=CUtil::JSEscape($arResult["AJAX_PAGE"])?>");
 	</script>
-	<? endif;?>
-<? endif;?>
+	<?php  endif;?>
+<?php  endif;?>
 </div>

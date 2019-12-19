@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["authprov_group"] = "Отдел";
 $MESS["authprov_check_d"] = "Все сотрудники отдела";
 $MESS["authprov_check_dr"] = "Все сотрудники отдела с подотделами";

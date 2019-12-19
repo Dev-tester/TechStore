@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["YANDEX_DETAIL_TITLE"] = "Advanced Options";
 $MESS["YANDEX_ERR_NO_ACCESS_EXPORT"] = "You cannot access export management forms";
 $MESS["YANDEX_ERR_NO_IBLOCK_CHOSEN"] = "No information block has been selected.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALENDAR_INVITATION_NAME"] = "Invitation";
 $MESS["CALENDAR_INVITATION_DESC"] = "
 

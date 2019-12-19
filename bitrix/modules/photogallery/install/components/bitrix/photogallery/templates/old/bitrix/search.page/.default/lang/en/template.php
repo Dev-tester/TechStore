@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEARCH_GO'] = "Go";
 $MESS ['SEARCH_ERROR'] = "Error in search phrase:";
 $MESS ['SEARCH_CORRECT_AND_CONTINUE'] = "Please correct the search phrase and try again.";

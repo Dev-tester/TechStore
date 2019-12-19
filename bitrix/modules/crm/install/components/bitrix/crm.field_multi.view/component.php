@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 	$arResult['ENTITY_ID'] 	= $arParams['ENTITY_ID'];
 	$arResult['ELEMENT_ID'] = IntVal($arParams['ELEMENT_ID']);

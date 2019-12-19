@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (isset($messageservice_installer_errors) && is_array($messageservice_installer_errors) && (count($messageservice_installer_errors) > 0))
 {
@@ -12,7 +12,7 @@ else
 	echo CAdminMessage::ShowNote(GetMessage("MOD_UNINST_OK"));
 }
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">
 </form>

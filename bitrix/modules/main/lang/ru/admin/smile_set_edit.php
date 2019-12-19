@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_EDIT_RECORD"] = "Изменение набора";
 $MESS["SMILE_NEW_RECORD"] = "Добавление набора";
 $MESS["ERROR_EDIT_SMILE"] = "Ошибка изменения набора";

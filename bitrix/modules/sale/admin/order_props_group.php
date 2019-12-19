@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -225,8 +225,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("PROPS_TYPE_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array()
@@ -235,12 +235,12 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("PT_FILTER_NAME")?>:</td>
+		<td><?php echo GetMessage("PT_FILTER_NAME")?>:</td>
 		<td>
-			<?echo CSalePersonType::SelectBox("filter_person_type_id", $filter_person_type_id, "(".GetMessage("SALE_ALL").")", True, "", "")?>
+			<?php echo CSalePersonType::SelectBox("filter_person_type_id", $filter_person_type_id, "(".GetMessage("SALE_ALL").")", True, "", "")?>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -252,7 +252,7 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

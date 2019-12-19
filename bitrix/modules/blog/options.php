@@ -1,4 +1,4 @@
-<?
+<?php 
 $module_id = "blog";
 $BLOG_RIGHT = $APPLICATION->GetGroupRight($module_id);
 if ($BLOG_RIGHT>="R") :
@@ -140,9 +140,9 @@ $aTabs = array(
 	
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 ?>
-<?
+<?php 
 $tabControl->Begin();
-?><form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>"><?
+?><form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>"><?php 
 bitrix_sessid_post();
 $tabControl->BeginNextTab();
 
@@ -152,38 +152,38 @@ $tabControl->BeginNextTab();
 		$type = $Option[3];
 		?>
 		<tr>
-			<td valign="top" width="50%"><?
+			<td valign="top" width="50%"><?php 
 				if ($type[0]=="checkbox")
 					echo "<label for=\"".htmlspecialcharsbx($Option[0])."\">".$Option[1]."</label>";
 				else
 					echo $Option[1];
 			?></td>
 			<td valign="middle" width="50%">
-				<?if($type[0]=="checkbox"):?>
-					<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-				<?elseif($type[0]=="text"):?>
-					<input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>">
-				<?elseif($type[0]=="textarea"):?>
-					<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-				<?elseif($type[0]=="selectbox"):?>
-					<select name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>">
-						<?foreach($Option[4] as $v => $k)
+				<?php if($type[0]=="checkbox"):?>
+					<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+				<?php elseif($type[0]=="text"):?>
+					<input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>">
+				<?php elseif($type[0]=="textarea"):?>
+					<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+				<?php elseif($type[0]=="selectbox"):?>
+					<select name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>">
+						<?php foreach($Option[4] as $v => $k)
 						{
-							?><option value="<?=$v?>"<?if($val==$v)echo" selected";?>><?=$k?></option><?
+							?><option value="<?=$v?>"<?php if($val==$v)echo" selected";?>><?=$k?></option><?php 
 						}
 						?>
 					</select>
-				<?endif?>
+				<?php endif?>
 			</td>
 		</tr>
-	<?
+	<?php 
 	}
 	?>
-	<?$tabControl->BeginNextTab();?>
+	<?php $tabControl->BeginNextTab();?>
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("BLO_SITE_PATH2")?></td>
 	</tr>
-	<?
+	<?php 
 	$arPaths = array();
 	$dbPaths = CBlogSitePath::GetList();
 	while ($arPath = $dbPaths->Fetch())
@@ -201,28 +201,28 @@ $tabControl->BeginNextTab();
 				<table cellspacing="2" width="100%">
 				<tr>
 					<td align="right" width="50%"><?=GetMessage("BLO_SITE_PATH_SITE_BLOG")?>:</td>
-					<td width="50%"><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["B"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_B"></td>
+					<td width="50%"><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["B"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_B"></td>
 				</tr>
 				<tr>
 					<td align="right"><?=GetMessage("BLO_SITE_PATH_SITE_POST")?>:</td>
-					<td><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["P"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_P"></td>
+					<td><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["P"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_P"></td>
 				</tr>
 				<tr>
 					<td align="right"><?=GetMessage("BLO_SITE_PATH_SITE_USER")?>:</td>
-					<td><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["U"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_U"></td>
+					<td><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["U"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_U"></td>
 				</tr>
 				<tr>
 					<td align="right"><?=GetMessage("BLO_SITE_PATH_SITE_GROUP_BLOG")?>:</td>
-					<td><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["G"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_G"></td>
+					<td><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["G"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_G"></td>
 				</tr>
 				<tr>
 					<td align="right"><?=GetMessage("BLO_SITE_PATH_SITE_GROUP_POST")?>:</td>
-					<td><input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["H"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_H"></td>
+					<td><input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]]["H"])?>" name="SITE_PATH_<?= $arSite["LID"] ?>_H"></td>
 				</tr>
 				</table>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	<tr>
@@ -249,7 +249,7 @@ $tabControl->BeginNextTab();
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("BLO_SITE_PATH")?></td>
 	</tr>
-	<?
+	<?php 
 	$arPaths = array();
 	$dbPaths = CBlogSitePath::GetList();
 	while ($arPath = $dbPaths->Fetch())
@@ -266,29 +266,29 @@ $tabControl->BeginNextTab();
 			<td valign="top" width="50%">
 				<?= str_replace("#SITE#", $arSite["LID"], GetMessage("BLO_SITE_PATH_SITE")) ?>:</td>
 			<td valign="middle" width="50%">
-				<input type="text" size="40" value="<?echo htmlspecialcharsbx($arPaths[$arSite["LID"]])?>" name="SITE_PATH_<?= $arSite["LID"] ?>">
+				<input type="text" size="40" value="<?php echo htmlspecialcharsbx($arPaths[$arSite["LID"]])?>" name="SITE_PATH_<?= $arSite["LID"] ?>">
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
-	<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
-<?$tabControl->Buttons();?>
+	<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if (confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)."&".bitrix_sessid_get();?>";
+	if (confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)."&".bitrix_sessid_get();?>";
 }
 </script>
 
-<input type="submit" <?if ($BLOG_RIGHT<"W") echo "disabled" ?> name="Update" value="<?echo GetMessage("MAIN_SAVE")?>">
+<input type="submit" <?php if ($BLOG_RIGHT<"W") echo "disabled" ?> name="Update" value="<?php echo GetMessage("MAIN_SAVE")?>">
 <input type="hidden" name="Update" value="Y">
-<input type="reset" name="reset" value="<?echo GetMessage("MAIN_RESET")?>">
-<input type="button" <?if ($BLOG_RIGHT<"W") echo "disabled" ?> title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input type="reset" name="reset" value="<?php echo GetMessage("MAIN_RESET")?>">
+<input type="button" <?php if ($BLOG_RIGHT<"W") echo "disabled" ?> title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
-<?endif;?>
+<?php endif;?>

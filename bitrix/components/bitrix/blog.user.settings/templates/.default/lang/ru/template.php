@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['B_B_US_LIST_WANTED'] = "Список желающих стать друзьями";
 $MESS ['B_B_US_VISIT'] = "Посетитель";
 $MESS ['B_B_US_ACTIONS'] = "Действия";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Localization\Loc;
 use \Bitrix\Main\Web\Json;
 
@@ -56,7 +56,7 @@ class CCalendarSceleton
 				}
 				BX.onCustomEvent(window, "onBXEventCalendarInit");
 			})(window);
-		</script><?
+		</script><?php 
 
 		CUtil::InitJSCore(array('event_calendar'));
 
@@ -76,7 +76,7 @@ class CCalendarSceleton
 			<?= Json::encode($additionalParams)?>
 		);
 		</script>
-		<?
+		<?php 
 	}
 
 	public static function GetWeekDays()
@@ -124,12 +124,12 @@ class CCalendarSceleton
 		?>
 		<span style="display:none;">
 		<select id="<?= $id?>" class="bxec-task-select">
-			<?foreach ($arTasks as $taskId => $task):?>
+			<?php foreach ($arTasks as $taskId => $task):?>
 				<option value="<?=$taskId?>"><?= htmlspecialcharsex($task['title']);?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 		</span>
-		<?
+		<?php 
 	}
 
 	public static function GetUserfieldsEditHtml($eventId, $url = '')
@@ -146,11 +146,11 @@ class CCalendarSceleton
 <input name="event_id" type="hidden" value="" />
 <input name="reqId" type="hidden" value="" />
 <table cellspacing="0" class="bxc-prop-layout">
-	<?foreach ($USER_FIELDS as $arUserField):?>
+	<?php foreach ($USER_FIELDS as $arUserField):?>
 		<tr>
 			<td class="bxc-prop"><?= htmlspecialcharsbx($arUserField["EDIT_FORM_LABEL"])?>:</td>
 			<td class="bxc-prop">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					"bitrix:system.field.edit",
 					$arUserField["USER_TYPE"]["USER_TYPE_ID"],
 					array(
@@ -161,10 +161,10 @@ class CCalendarSceleton
 				);?>
 			</td>
 		</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 </table>
 </form>
-<?
+<?php 
 	}
 
 	public static function GetUserfieldsViewHtml($eventId)
@@ -183,14 +183,14 @@ class CCalendarSceleton
 			if (!$bFound)
 			{
 				$bFound = true;
-				?><table cellspacing="0" class="bxc-prop-layout"><?
+				?><table cellspacing="0" class="bxc-prop-layout"><?php 
 			}
 			?>
 
 			<tr>
 				<td class="bxc-prop-name"><?= htmlspecialcharsbx($arUserField["EDIT_FORM_LABEL"])?>:</td>
 				<td class="bxc-prop-value">
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:system.field.view",
 						$arUserField["USER_TYPE"]["USER_TYPE_ID"],
 						array("arUserField" => $arUserField),
@@ -199,12 +199,12 @@ class CCalendarSceleton
 					);?>
 				</td>
 			</tr>
-		<?
+		<?php 
 		}
 
 		if ($bFound)
 		{
-			?></table><?
+			?></table><?php 
 		}
 	}
 
@@ -224,9 +224,9 @@ class CCalendarSceleton
 			<a  id="<?=$id?>-<?=$key?>-text-color-inp" href="javascript:void('');" class="bxec-color-text-link"><?= Loc::getMessage('EC_TEXT_COLOR')?></a>
 		</div>
 		<div class="bxec-color-cont" id="<?=$id?>-<?=$key?>-color-cont">
-		<?foreach($colors as $i => $color):?><span class="bxec-color-it"><a id="<?=$id?>-<?=$key?>-color-<?=$i?>" style="background-color:<?= $color?>" href="javascript:void(0);"></a></span><?endforeach;?>
+		<?php foreach($colors as $i => $color):?><span class="bxec-color-it"><a id="<?=$id?>-<?=$key?>-color-<?=$i?>" style="background-color:<?= $color?>" href="javascript:void(0);"></a></span><?php endforeach;?>
 		</div>
-		<?
+		<?php 
 	}
 
 	public static function CheckBitrix24Limits($params)
@@ -235,9 +235,9 @@ class CCalendarSceleton
 		$result = !CCalendar::IsBitrix24() || CBitrix24BusinessTools::isToolAvailable(CCalendar::GetCurUserId(), "calendar");
 		if (!$result)
 		{
-			?><div id="<?=$params['id']?>-bitrix24-limit" class="bxec-b24-limit-wrap"><?
+			?><div id="<?=$params['id']?>-bitrix24-limit" class="bxec-b24-limit-wrap"><?php 
 			$APPLICATION->IncludeComponent("bitrix:bitrix24.business.tools.info", "", array("SHOW_TITLE" => "Y"));
-			?></div><?
+			?></div><?php 
 		}
 		return $result;
 	}

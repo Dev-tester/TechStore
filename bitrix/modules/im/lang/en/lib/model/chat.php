@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CHAT_ENTITY_ID_FIELD"] = "ID";
 $MESS["CHAT_ENTITY_TITLE_FIELD"] = "Chat title";
 $MESS["CHAT_ENTITY_AUTHOR_ID_FIELD"] = "Chat creator ID";

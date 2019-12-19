@@ -1,8 +1,8 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?
+<?php 
 if (strlen($arCurrentValues["mail_charset"]) <= 0)
 	$arCurrentValues["mail_charset"] = SITE_CHARSET;
 if (strlen($arCurrentValues["mail_message_type"]) <= 0)
@@ -68,13 +68,13 @@ $file = $map['File'];
 	<td width="60%">
 		<select name="mail_site">
 			<option value="">(<?= GetMessage("BPMA_PD_MAIL_SITE_OTHER") ?>)</option>
-			<?
+			<?php 
 			$bFound = false;
 			$dbSites = CSite::GetList(($b = ""), ($o = ""), Array("ACTIVE" => "Y"));
 			while ($site = $dbSites->GetNext())
 			{
 				$bFound = ($site["LID"] == $arCurrentValues["mail_site"]);
-				?><option value="<?= $site["LID"] ?>"<?= ($site["LID"] == $arCurrentValues["mail_site"]) ? " selected" : ""?>>[<?= $site["LID"] ?>] <?= $site["NAME"] ?></option><?
+				?><option value="<?= $site["LID"] ?>"<?= ($site["LID"] == $arCurrentValues["mail_site"]) ? " selected" : ""?>>[<?= $site["LID"] ?>] <?= $site["NAME"] ?></option><?php 
 			}
 			?>
 		</select><br>
@@ -85,20 +85,20 @@ $file = $map['File'];
 	<td align="right" width="40%"><?=htmlspecialcharsbx($fileType['Name'])?>:</td>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($fileType['FieldName'])?>" onchange="BPMA_changeFileType(this.value)">
-			<?
+			<?php 
 			$currentType = $dialog->getCurrentValue($fileType['FieldName']);
 			foreach ($fileType['Options'] as $key => $value):?>
 				<option value="<?=htmlspecialcharsbx($key)?>"<?= $currentType == $key ? " selected" : "" ?>>
 					<?=htmlspecialcharsbx($value)?>
 				</option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td align="right" width="40%"><?= GetMessage("BPMA_PD_FILE") ?>:</td>
 	<td width="60%">
-		<?
+		<?php 
 		$attachmentValues = array_values(array_filter((array)$dialog->getCurrentValue($file['FieldName'])));
 		$fileValues = $diskValues = array();
 
@@ -118,7 +118,7 @@ $file = $map['File'];
 		}
 		?>
 		<div id="BPMA-disk-control" style="<?=($currentType != 'disk')?'display:none':''?>">
-			<div id="BPMA-disk-control-items"><?
+			<div id="BPMA-disk-control-items"><?php 
 				foreach ($diskValues as $fileId)
 				{
 					$object = \Bitrix\Disk\File::loadById($fileId);
@@ -134,7 +134,7 @@ $file = $map['File'];
 			</span>
 							<a onclick="BX.cleanNode(this.parentNode, true); return false" style="color: red; text-decoration: none; border-bottom: 1px dotted">x</a>
 						</div>
-						<?
+						<?php 
 					}
 				}
 				?>
@@ -142,7 +142,7 @@ $file = $map['File'];
 			<a href="#" onclick="return BPDCM_showDiskFileDialog()" style="color: black; text-decoration: none; border-bottom: 1px dotted"><?=GetMessage('BPMA_PD_FILE_SELECT')?></a>
 		</div>
 		<div id="BPMA-file-control" style="<?=($currentType != 'file')?'display:none':''?>">
-			<?
+			<?php 
 			$file['Type'] = 'string';
 			$filedType = $dialog->getFieldTypeObject($file);
 			echo $filedType->renderControl(array(

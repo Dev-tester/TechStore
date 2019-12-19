@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TASK_TEMPLATE_SET_NAVCHAIN'] = 'Включить цепочку навигации';
 
 $MESS['TASKS_TASK_TEMPLATE_PATH_TO_USER_TASKS'] = 'Путь к задачам пользователя';

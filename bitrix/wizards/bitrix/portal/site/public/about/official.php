@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/about/official.php");
 $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:news.detail", "official", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:news.detail", "official", Array(
 	"IBLOCK_TYPE"	=>	"news",
 	"IBLOCK_ID"	=>	"#OFFICIAL_NEWS_IBLOCK_ID#",
 	"ELEMENT_ID"	=>	$_REQUEST["ID"],
@@ -40,4 +40,4 @@ $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 	"DISPLAY_PREVIEW_TEXT"	=>	"N"
 	)
 );?></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

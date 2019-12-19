@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/b24connector/admin/prolog_before.php");
 
@@ -64,13 +64,13 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 		</div>
 	</div>
 	<div class="connector-create">
-		<?if(Connection::isExist()):?>
+		<?php if(Connection::isExist()):?>
 			<a href=<?=Connection::getTelephonyConfigUrl()?> class="connector-btn-blue"><?=Loc::getMessage('B24C_TEL_GET_TELEPHONY')?></a>
-		<?else:?>
+		<?php else:?>
 			<?=Connection::getButtonHtml()?>&nbsp;&nbsp;
 			<?='<a href="https://www.bitrix24.'.$b24Lang.'/" class="connector-button-green">'.Loc::getMessage('B24C_TEL_CREATE_B24').'</a>'?>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

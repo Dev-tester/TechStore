@@ -30,9 +30,9 @@ $commActionTitle = GetMessage($typeID === 'EMAIL' ? 'M_CRM_COMM_ACTION_MAIL' : '
 <div class="crm_block_container" style="padding:9px 11px;">
 	<div style="crm_card_tel">
 		<div class="crm_card_image">
-			<?if($imageUrl !== ''):?>
+			<?php if($imageUrl !== ''):?>
 				<img width="55px" height="55px" src="<?=htmlspecialcharsbx($imageUrl)?>" />
-			<?endif;?>
+			<?php endif;?>
 		</div>
 		<div class="crm_card_name_tel">
 			<?=htmlspecialcharsbx($arResult['ENTITY_TITLE'])?>
@@ -42,22 +42,22 @@ $commActionTitle = GetMessage($typeID === 'EMAIL' ? 'M_CRM_COMM_ACTION_MAIL' : '
 		</div>
 		<div class="clb"></div>
 		<hr/>
-		<?$c = 0;?>
-		<?foreach($arResult['ITEMS'] as &$item):?>
-			<?if($c !== 0):?>
+		<?php $c = 0;?>
+		<?php foreach($arResult['ITEMS'] as &$item):?>
+			<?php if($c !== 0):?>
 				<hr/>
-			<?endif;?>
+			<?php endif;?>
 			<div class="crm_tel_block">
-				<?if($item['URL'] !== ''):?>
+				<?php if($item['URL'] !== ''):?>
 				<a href="<?=htmlspecialcharsbx($item['URL'])?>" class="crm_tel_call"><?=htmlspecialcharsbx($commActionTitle)?></a>
-				<?endif;?>
+				<?php endif;?>
 				<div class="crm_tel_value"><?=htmlspecialcharsbx($item['VALUE'])?></div>
 				<div class="crm_tel_desc"><?=isset($typeInfo[$item['VALUE_TYPE']]['SHORT']) ? htmlspecialcharsbx($typeInfo[$item['VALUE_TYPE']]['SHORT']) : ''?></div>
 				<div class="clb"></div>
 			</div>
-			<?$c++;?>
-		<?endforeach;?>
-		<?unset($item);?>
+			<?php $c++;?>
+		<?php endforeach;?>
+		<?php unset($item);?>
 	</div>
 	<div class="clb"></div>
 </div>

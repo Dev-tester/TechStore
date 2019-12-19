@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BCI1_CREATE"] = "Создать по необходимости";
 $MESS["CP_BCI1_CURRENT"] = "Текущий";
 $MESS["CP_BCI1_NONE"] = "ничего";

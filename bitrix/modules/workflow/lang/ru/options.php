@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLOW_SAVE'] = "Сохранить";
 $MESS ['FLOW_RESET'] = "Сбросить";
 $MESS ['FLOW_USE_HTML_EDIT'] = "Использовать HTML-редактор:";

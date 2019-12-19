@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 global $APPLICATION;
 
@@ -34,7 +34,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/crm.entity.editor/temp
 $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 ?>
 
-<? $padding = $arResult['IFRAME'] ? '0' : '0 15px 0 0';?>
+<?php  $padding = $arResult['IFRAME'] ? '0' : '0 15px 0 0';?>
 <style>
 	.workarea-content-paddings {
 		padding: <?= HtmlFilter::encode($padding);?> !important;
@@ -48,7 +48,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 	<input id="target_form_mode" name="target_form_mode" type="hidden" value="<?= HtmlFilter::encode($arResult['TARGET_FORM_MODE']);?>">
 
 	<button class="crm-form-mode-switcher" id="form_mode_switcher" name="form_mode_switcher" type="button"
-		<? if ($arResult['CURRENT_FORM_MODE'] == 'EDIT') echo "style=\"display: none\"";?>></button>
+		<?php  if ($arResult['CURRENT_FORM_MODE'] == 'EDIT') echo "style=\"display: none\"";?>></button>
 	<div id="form_wrapper">
 		<table id="add_form" name="adding_form" class="crm-table">
 			<tr>
@@ -73,7 +73,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 										<div class="crm-entity-widget-content-block-inner">
 											<div class="crm-entity-widget-content-block-select">
 												<select class="crm-entity-widget-content-select crm-select-hidden-arrow" id="add_classifier_currency_id" name="add_classifier_currency_id" size="8">
-													<? foreach ($arResult['CLASSIFIER'] as $key => $value)
+													<?php  foreach ($arResult['CLASSIFIER'] as $key => $value)
 														echo "<option value=".HtmlFilter::encode($key).">".HtmlFilter::encode($value[strtoupper(LANGUAGE_ID)]['FULL_NAME'])."</option>";?>
 												</select>
 											</div>
@@ -140,7 +140,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 										<div class="crm-entity-widget-content-block-inner">
 											<label class="crm-entity-widget-content-block-checkbox-label">
 												<input class="crm-entity-widget-content-checkbox" id="add_base_for_reports" name="add_base_for_reports" type="checkbox"
-													<? if ($arResult['LAST_VALUES']['ADD']['GENERAL']['BASE_FOR_REPORTS']) echo "checked";?>>
+													<?php  if ($arResult['LAST_VALUES']['ADD']['GENERAL']['BASE_FOR_REPORTS']) echo "checked";?>>
 												<span class="crm-entity-widget-content-block-checkbox-description"><?= Loc::getMessage('CRM_CURRENCY_CLASSIFIER_FIELD_BASE_FOR_REPORTS')?></span>
 											</label>
 										</div>
@@ -149,7 +149,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 										<div class="crm-entity-widget-content-block-inner">
 											<label class="crm-entity-widget-content-block-checkbox-label">
 												<input class="crm-entity-widget-content-checkbox" id="add_base_for_count" name="add_base_for_count" type="checkbox"
-													<? if ($arResult['LAST_VALUES']['ADD']['GENERAL']['BASE_FOR_COUNT']) echo "checked";?>>
+													<?php  if ($arResult['LAST_VALUES']['ADD']['GENERAL']['BASE_FOR_COUNT']) echo "checked";?>>
 												<span class="crm-entity-widget-content-block-checkbox-description"><?= Loc::getMessage('CRM_CURRENCY_CLASSIFIER_FIELD_BASE_FOR_COUNT')?></span>
 											</label>
 										</div>
@@ -161,7 +161,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 				</td>
 				<td class="crm-table-right-column">
 					<div class="crm-entity-stream-container" style="width: 100%; vertical-align: top;">
-						<? foreach ($arResult['LANGUAGES'] as $key => $value)
+						<?php  foreach ($arResult['LANGUAGES'] as $key => $value)
 						{
 							$upperKey = strtoupper($key);
 						?>
@@ -185,14 +185,14 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 											<label class="crm-entity-widget-content-block-checkbox-label">
 												<input class="crm-entity-widget-content-checkbox" id="add_hide_zero_<?= HtmlFilter::encode($key);?>"
 													   name="add_hide_zero_<?= HtmlFilter::encode($key);?>" type="checkbox"
-													<? if ($arResult['LAST_VALUES']['ADD'][$upperKey]['HIDE_ZERO'] == 'Y') echo "checked";?>>
+													<?php  if ($arResult['LAST_VALUES']['ADD'][$upperKey]['HIDE_ZERO'] == 'Y') echo "checked";?>>
 												<span class="crm-entity-widget-content-block-checkbox-description"><?= Loc::getMessage('CRM_CURRENCY_CLASSIFIER_FIELD_HIDE_ZERO')?></span>
 											</label>
 										</div>
 									</div>
 								</div>
 							</div>
-						<?}?>
+						<?php }?>
 					</div>
 				</td>
 			</tr>
@@ -215,7 +215,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 										<div class="crm-entity-widget-content-block-inner" id="edit_sym_code_container">
 											<input class="crm-entity-widget-content-input" id="edit_sym_code" name="edit_sym_code"
 												   value="<?= HtmlFilter::encode($arResult['LAST_VALUES']['EDIT']['GENERAL']['SYM_CODE']);?>"
-												<? if ($arResult['PRIMARY_FORM_MODE'] == 'EDIT') echo "readonly";?>>
+												<?php  if ($arResult['PRIMARY_FORM_MODE'] == 'EDIT') echo "readonly";?>>
 										</div>
 									</div>
 									<div class="crm-entity-widget-content-block crm-entity-widget-content-block-field-text">
@@ -265,7 +265,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 										<div class="crm-entity-widget-content-block-inner">
 											<label class="crm-entity-widget-content-block-checkbox-label">
 												<input class="crm-entity-widget-content-checkbox" id="edit_base_for_reports" name="edit_base_for_reports" type="checkbox"
-												<? if ($arResult['LAST_VALUES']['EDIT']['GENERAL']['BASE_FOR_REPORTS']) echo "checked";?>>
+												<?php  if ($arResult['LAST_VALUES']['EDIT']['GENERAL']['BASE_FOR_REPORTS']) echo "checked";?>>
 												<span class="crm-entity-widget-content-block-checkbox-description"><?= Loc::getMessage('CRM_CURRENCY_CLASSIFIER_FIELD_BASE_FOR_REPORTS')?></span>
 											</label>
 										</div>
@@ -274,7 +274,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 										<div class="crm-entity-widget-content-block-inner">
 											<label class="crm-entity-widget-content-block-checkbox-label">
 												<input class="crm-entity-widget-content-checkbox" id="edit_base_for_count" name="edit_base_for_count" type="checkbox"
-													<? if ($arResult['LAST_VALUES']['EDIT']['GENERAL']['BASE_FOR_COUNT']) echo "checked";?>>
+													<?php  if ($arResult['LAST_VALUES']['EDIT']['GENERAL']['BASE_FOR_COUNT']) echo "checked";?>>
 												<span class="crm-entity-widget-content-block-checkbox-description"><?= Loc::getMessage('CRM_CURRENCY_CLASSIFIER_FIELD_BASE_FOR_COUNT')?></span>
 											</label>
 										</div>
@@ -286,7 +286,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 				</td>
 				<td class="crm-table-right-column">
 					<div class="crm-entity-stream-container" style="width: 100%; vertical-align: top;">
-						<? foreach ($arResult['LANGUAGES'] as $key => $value)
+						<?php  foreach ($arResult['LANGUAGES'] as $key => $value)
 						{
 							$upperKey = strtoupper($key);
 						?>
@@ -315,7 +315,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 														<div class="crm-entity-widget-content-block-select">
 															<select class="crm-entity-widget-content-custom-select" id="edit_format_template_<?= HtmlFilter::encode($key);?>"
 																	name="edit_format_template_<?= HtmlFilter::encode($key);?>">
-																<? foreach ($arResult['FORMAT_TEMPLATES'] as $k => $template)
+																<?php  foreach ($arResult['FORMAT_TEMPLATES'] as $k => $template)
 																{
 																	$selected = ($arResult['LAST_VALUES']['EDIT'][$upperKey]['FORMAT_TEMPLATE'] == $k) ? ' selected' : '';
 																	echo "<option value=".HtmlFilter::encode($k.$selected).">".HtmlFilter::encode($template)."</option>";
@@ -342,7 +342,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 														<div class="crm-entity-widget-content-block-select">
 															<select class="crm-entity-widget-content-custom-select" id="edit_sign_position_<?= HtmlFilter::encode($key);?>"
 																	name="edit_sign_position_<?= HtmlFilter::encode($key);?>">
-																<? foreach ($arResult['SIGN_POSITIONS'] as $k => $pos)
+																<?php  foreach ($arResult['SIGN_POSITIONS'] as $k => $pos)
 																{
 																	$selected = ($arResult['LAST_VALUES']['EDIT'][$upperKey]['SIGN_POSITION'] == $k) ? ' selected' : '';
 																	echo "<option value=".HtmlFilter::encode($k.$selected).">".HtmlFilter::encode($pos)."</option>";
@@ -353,7 +353,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 												</div>
 											</td>
 										</tr>
-										<? $contentExpanded = ($arResult['LAST_VALUES']['EDIT'][$upperKey]['CONTENT_EXPANDED'] == 'Y') ? true : false;?>
+										<?php  $contentExpanded = ($arResult['LAST_VALUES']['EDIT'][$upperKey]['CONTENT_EXPANDED'] == 'Y') ? true : false;?>
 										<tr>
 											<td colspan="3">
 												<button class="crm-expand-button" style="display: block" id="expand_button_<?= HtmlFilter::encode($key);?>"
@@ -365,7 +365,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 									</table>
 									<input type="hidden" id="expandable_content_hidden_input_<?= HtmlFilter::encode($key);?>" name="expandable_content_hidden_input_<?= HtmlFilter::encode($key);?>"
 										   value="<?= HtmlFilter::encode($arResult['LAST_VALUES']['EDIT'][$upperKey]['CONTENT_EXPANDED']);?>">
-									<div class="crm-expandable-content<? if ($contentExpanded) echo " crm-expandable-content-active";?>"
+									<div class="crm-expandable-content<?php  if ($contentExpanded) echo " crm-expandable-content-active";?>"
 										 id="expandable_content_<?= HtmlFilter::encode($key);?>">
 										<div class="crm-entity-widget-content-block crm-entity-widget-content-block-field-text">
 											<div class="crm-entity-widget-content-block-title"><?= Loc::getMessage('CRM_CURRENCY_CLASSIFIER_FIELD_THOUSANDS_VARIANT')?></div>
@@ -376,7 +376,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 															<div class="crm-entity-widget-content-block-select">
 																<select class="crm-entity-widget-content-custom-select" id="edit_thousands_variant_<?= HtmlFilter::encode($key);?>"
 																		name="edit_thousands_variant_<?= HtmlFilter::encode($key);?>" style="white-space: nowrap !important;">
-																	<? foreach ($arResult['THOUSANDS_VARIANTS'] as $k => $var)
+																	<?php  foreach ($arResult['THOUSANDS_VARIANTS'] as $k => $var)
 																	{
 																		$selected = ($arResult['LAST_VALUES']['EDIT'][$upperKey]['THOUSANDS_VARIANT'] == $k) ? ' selected' : '';
 																		echo "<option value=".HtmlFilter::encode($k.$selected).">".HtmlFilter::encode($var)."</option>";
@@ -388,7 +388,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 															<input class="crm-entity-widget-content-input" id="edit_thousands_sep_<?= HtmlFilter::encode($key);?>"
 																   name="edit_thousands_sep_<?= HtmlFilter::encode($key);?>"
 																   value="<?= HtmlFilter::encode($arResult['LAST_VALUES']['EDIT'][$upperKey]['THOUSANDS_SEP']);?>"
-																   <? if ($arResult['LAST_VALUES']['EDIT'][$upperKey]['THOUSANDS_VARIANT'] !== 'OWN') echo "readonly";?>>
+																   <?php  if ($arResult['LAST_VALUES']['EDIT'][$upperKey]['THOUSANDS_VARIANT'] !== 'OWN') echo "readonly";?>>
 														</td>
 													</tr>
 													<tr>
@@ -422,7 +422,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 												<label class="crm-entity-widget-content-block-checkbox-label">
 													<input class="crm-entity-widget-content-checkbox" id="edit_hide_zero_<?= HtmlFilter::encode($key);?>"
 														   name="edit_hide_zero_<?= HtmlFilter::encode($key);?>" type="checkbox"
-														<? if ($arResult['LAST_VALUES']['EDIT'][$upperKey]['HIDE_ZERO'] == 'Y') echo "checked";?>>
+														<?php  if ($arResult['LAST_VALUES']['EDIT'][$upperKey]['HIDE_ZERO'] == 'Y') echo "checked";?>>
 													<span class="crm-entity-widget-content-block-checkbox-description"><?= Loc::getMessage('CRM_CURRENCY_CLASSIFIER_FIELD_HIDE_ZERO')?></span>
 												</label>
 											</div>
@@ -430,7 +430,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/js/crm/css/slider.css");
 									</div>
 								</div>
 							</div>
-						<?}?>
+						<?php }?>
 					</div>
 				</td>
 			</tr>

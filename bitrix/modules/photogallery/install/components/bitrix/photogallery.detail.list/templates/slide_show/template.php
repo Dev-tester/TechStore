@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"])):
 	ShowNote(GetMessage("P_ELEMENTS_LIST_IS_EMPTY"));
 	return false;
@@ -43,7 +43,7 @@ if ($arResult["NAV_RESULT"]->bNavStart)
 			elseif ($arResult["NAV_RESULT"]->NavPageNomer == 1)
 				$res["status"] = "start";
 		}
-		?><?=CUtil::PhpToJSObject($res)?><?
+		?><?=CUtil::PhpToJSObject($res)?><?php 
 		die();
 	}
 }
@@ -64,16 +64,16 @@ function SetBackGround(div)
 		document.body.style.backgroundColor = div.style.backgroundColor;
 }
 </script>
-<title><?
+<title><?php 
 if (!empty($arResult["SECTION"])):
-	?><?=$arResult["SECTION"]["NAME"]?><?
+	?><?=$arResult["SECTION"]["NAME"]?><?php 
 else:
-	?><?=GetMessage("P_TITLE")?><?
+	?><?=GetMessage("P_TITLE")?><?php 
 endif;
 ?></title>
 </head>
 <body class="photo-slide-show">
-<?
+<?php 
 $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/main/utils.js');
 ?>
 <div class="image-upload" id="image-upload"><?=GetMessage("P_LOADING")?></div>
@@ -118,22 +118,22 @@ $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/main/utils.js');
 				<td align="center" width="15%">
 					<table cellpadding="2" cellspacing="0" border="0" class="inner">
 						<tr>
-							<td><div class="photo-player-button" id="time_minus" onclick="if(player && player.params['period'] > 1){player.params['period']--;<?
+							<td><div class="photo-player-button" id="time_minus" onclick="if(player && player.params['period'] > 1){player.params['period']--;<?php 
 								?>BX('time_container').innerHTML = player.params['period'] + '';}"></div></td>
 							<td><div id="time_container">2</div></td>
 							<td><?=GetMessage("P_SEK")?></td>
-							<td><div class="photo-player-button" id="time_plus" onclick="if(player){player.params['period']++;<?
+							<td><div class="photo-player-button" id="time_plus" onclick="if(player){player.params['period']++;<?php 
 								?>BX('time_container').innerHTML = player.params['period'] + '';}"></div></td>
 						</tr>
 					</table></td>
-				<td width="10%" valign="top" align="right"><div id="stop" class="photo-player-button" <?
-					?> onclick="if(player){player.stop();<?
+				<td width="10%" valign="top" align="right"><div id="stop" class="photo-player-button" <?php 
+					?> onclick="if(player){player.stop();<?php 
 					if ($arParams["BACK_URL"] == ''):
-						?>jsUtils.Redirect([], window.SlideSlider.oSource.Data[window.SlideSlider.active]['url']);<?
+						?>jsUtils.Redirect([], window.SlideSlider.oSource.Data[window.SlideSlider.active]['url']);<?php 
 					endif;
-					?>} <?
+					?>} <?php 
 					if ($arParams["BACK_URL"] != ''):
-						?>jsUtils.Redirect([], '<?= CUtil::JSEscape(htmlspecialcharsbx($arParams["BACK_URL"]))?>');<?
+						?>jsUtils.Redirect([], '<?= CUtil::JSEscape(htmlspecialcharsbx($arParams["BACK_URL"]))?>');<?php 
 					endif;
 					?>"></div></td>
 			</tr>
@@ -320,9 +320,9 @@ function to_init(e)
 				period : 2,
 				status : 'paused'
 			};
-			<?if ($play):?>
+			<?php if ($play):?>
 			window.player.play();
-			<?endif;?>
+			<?php endif;?>
 		}
 		else
 		{
@@ -343,6 +343,6 @@ else
 	setTimeout(to_init, 100);
 </script>
 </body></html>
-<?
+<?php 
 die();
 ?>

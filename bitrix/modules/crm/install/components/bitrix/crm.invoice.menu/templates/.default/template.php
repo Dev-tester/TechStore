@@ -45,5 +45,5 @@ if (is_array($arResult['STEXPORT_PARAMS']))
 				);
 			}
 		);
-	</script><?
+	</script><?php 
 }

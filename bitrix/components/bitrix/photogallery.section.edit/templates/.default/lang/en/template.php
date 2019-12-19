@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_ALBUM_NAME"] = "Name";
 $MESS["P_ALBUM_DATE"] = "Date";
 $MESS["P_ALBUM_DESCRIPTION"] = "Description";

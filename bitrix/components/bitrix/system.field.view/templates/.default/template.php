@@ -1,8 +1,8 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $first = true;
 foreach ($arResult["VALUE"] as $res):
 	if (!$first):
-		?><span class="fields separator">/</span><?
+		?><span class="fields separator">/</span><?php 
 	else:
 		$first = false;	
 	endif;
@@ -10,5 +10,5 @@ foreach ($arResult["VALUE"] as $res):
 	if (StrLen($arParams['arUserField']['PROPERTY_VALUE_LINK']) > 0)
 		$res = '<a href="'.str_replace('#VALUE#', urlencode($res), $arParams['arUserField']['PROPERTY_VALUE_LINK']).'">'.$res.'</a>';
 
-?><span class="fields"><?=$res?></span><?
+?><span class="fields"><?=$res?></span><?php 
 endforeach;?>

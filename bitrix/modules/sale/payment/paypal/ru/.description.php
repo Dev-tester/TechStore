@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["PPL_NAME"] = "<a href=\"http://www.paypal.ru\" target=\"_blank\">http://www.paypal.ru</a><br />Обратите внимание, что платежи можно принимать только от Физических лиц.";

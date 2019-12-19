@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_PLEASE_AUTH"] = "Пожалуйста, авторизуйтесь:";
 $MESS["AUTH_LOGIN"] = "Логин";
 $MESS["AUTH_PASSWORD"] = "Пароль";

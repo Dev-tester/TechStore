@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/prolog.php");
 CModule::IncludeModule('catalog');
@@ -136,39 +136,39 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_adm
 ?><script type="text/javascript">
 function SelEl(id, name)
 {
-<?
+<?php 
 if ('' != $lookup)
 {
 	if ('' != $boolMultiSelect)
 	{
-		?>window.opener.<? echo $lookup; ?>.AddValue(id);<?
+		?>window.opener.<?php  echo $lookup; ?>.AddValue(id);<?php 
 	}
 	else
 	{
-		?>window.opener.<? echo $lookup; ?>.AddValue(id); window.close();<?
+		?>window.opener.<?php  echo $lookup; ?>.AddValue(id); window.close();<?php 
 	}
 }
 else
 {
 	if($boolMultiSelect)
 	{
-		?>window.opener.InS<? echo md5($n); ?>(id, name);<?
+		?>window.opener.InS<?php  echo md5($n); ?>(id, name);<?php 
 	}
 	else
 	{
-		?>el = window.opener.document.getElementById('<? echo $n?>[<? echo $k?>]');
+		?>el = window.opener.document.getElementById('<?php  echo $n?>[<?php  echo $k?>]');
 	if(!el)
-		el = window.opener.document.getElementById('<? echo $n?>');
+		el = window.opener.document.getElementById('<?php  echo $n?>');
 	if(el)
 	{
 		el.value = id;
 	}
-	el = window.opener.document.getElementById('<? echo md5($n)?>_<? echo $k?>_link');
+	el = window.opener.document.getElementById('<?php  echo md5($n)?>_<?php  echo $k?>_link');
 	if(!el)
-		el = window.opener.document.getElementById('<?echo $n?>_link');
+		el = window.opener.document.getElementById('<?php echo $n?>_link');
 	if(el)
 		el.innerHTML = name;
-	window.close();<?
+	window.close();<?php 
 	}
 }
 ?>
@@ -176,7 +176,7 @@ else
 
 function SelAll()
 {
-	var frm = document.getElementById('form_<? echo $sTableID?>');
+	var frm = document.getElementById('form_<?php  echo $sTableID?>');
 	if (frm)
 	{
 		var e = frm.elements['ID[]'];
@@ -203,7 +203,7 @@ function SelAll()
 		window.close();
 	}
 }
-</script><?
+</script><?php 
 
 $lAdmin->DisplayList();
 

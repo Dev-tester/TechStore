@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CP_BLFE_IBLOCK_TYPE_ID'] = "Information Block Type";
 $MESS ['CP_BLFE_IBLOCK_ID'] = "Information Block";
 $MESS ['CP_BLFE_FIELD_ID'] = "Field";

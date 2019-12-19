@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_APP_INSTALL_LICENSE_CHECKBOX"] = "I have read and agree with the <a href=\"https://www.1c-bitrix.ru/download/files/manuals/ru/oferta_fiz.html\" target=\"_blank\">License Agreement</a>";
 $MESS["BX24_APP_INSTALL_BITRIX24_MODULE"] = "The bitrix24 module is not installed.";
 $MESS["BX24_APP_INSTALL_RIGHTS"] = "The application requests permissions for:";

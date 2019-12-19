@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DH_SIMPLE_NAME'] = "Courier delivery";
 $MESS ['SALE_DH_SIMPLE_SIMPLE_TITLE'] = "delivery";
 $MESS ['SALE_DH_SIMPLE_SIMPLE_DESCRIPTION'] = "Within 3 days";

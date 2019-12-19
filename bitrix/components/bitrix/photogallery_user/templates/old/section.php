@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$result = $APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $result = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section",
 	"",
 	Array(
@@ -33,13 +33,13 @@
 		"DISPLAY_PANEL" => $arParams["DISPLAY_PANEL"]
 	),
 	$component
-);?><?
+);?><?php 
 
 // SECTIONS LIST
 if (!$result || intVal($result["ELEMENTS_CNT"]) <= 0):
 	return false;
 elseif (intVal($result["SECTIONS_CNT"]) > 0):
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section.list",
 	"",
 	Array(
@@ -81,7 +81,7 @@ elseif (intVal($result["SECTIONS_CNT"]) > 0):
 	),
 	$component
 );
-?><?
+?><?php 
 endif;
 if ($arParams["USE_RATING"] == "Y"):
 	$arParams["PROPERTY_CODE"][] = "PROPERTY_vote_count";
@@ -96,7 +96,7 @@ if ($arParams["USE_COMMENTS"] == "Y"):
 endif;
 
 // DETAIL LIST
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.list",
 	$arParams["TEMPLATE_LIST"],
 	Array(

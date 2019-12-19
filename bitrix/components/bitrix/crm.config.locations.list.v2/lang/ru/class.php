@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CLL2_CRM_MODULE_NOT_INSTALL"] = "Модуль CRM не установлен.";
 $MESS["CRM_CLL2_SALE_MODULE_NOT_INSTALL"] = "Модуль Sale не установлен.";
 $MESS["CRM_CLL2_PERMISSION_DENIED"] = "Доступ запрещен";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_CATALOG_READ"] = "Read module settings";
 $MESS["OP_NAME_CATALOG_SETTINGS"] = "Edit module settings";
 $MESS["OP_NAME_CATALOG_PRICE"] = "Manage product prices";

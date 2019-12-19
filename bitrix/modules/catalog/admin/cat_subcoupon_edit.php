@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CDatabase $DB */
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
@@ -132,7 +132,7 @@ if (!$bReadOnly && $_SERVER['REQUEST_METHOD']=="POST" && !empty($_POST['Update']
 			?><script type="text/javascript">
 			top.BX.closeWait(); top.BX.WindowManager.Get().AllowClose(); top.BX.WindowManager.Get().Close();
 			top.ReloadOffers();
-			</script><?
+			</script><?php 
 			die();
 		}
 	}
@@ -187,7 +187,7 @@ if (!$bReadOnly && $_SERVER['REQUEST_METHOD']=="POST" && !empty($_POST['Update']
 			?><script type="text/javascript">
 			top.BX.closeWait(); top.BX.WindowManager.Get().AllowClose(); top.BX.WindowManager.Get().Close();
 			top.ReloadOffers();
-			</script><?
+			</script><?php 
 			die();
 		}
 		else
@@ -202,7 +202,7 @@ else
 	{
 		?><script type="text/javascript">
 		top.BX.closeWait(); top.BX.WindowManager.Get().AllowClose(); top.BX.WindowManager.Get().Close();
-		</script><?
+		</script><?php 
 		die();
 	}
 }
@@ -272,12 +272,12 @@ if (!$boolMulti)
 	$tabControl->BeginEpilogContent();
 	echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-	<input type="hidden" name="ID" value="<?echo $ID ?>">
-	<? echo bitrix_sessid_post()?>
-	<input type="hidden" name="DISCOUNT_ID" value="<? echo $intDiscountID; ?>">
-	<input type="hidden" name="MULTI" value="<? echo ($boolMulti ? 'Y' : 'N');?>">
-	<input type="hidden" name="TMP_ID" value="<?echo htmlspecialcharsbx($strSubTMP_ID)?>"><?
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+	<input type="hidden" name="ID" value="<?php echo $ID ?>">
+	<?php  echo bitrix_sessid_post()?>
+	<input type="hidden" name="DISCOUNT_ID" value="<?php  echo $intDiscountID; ?>">
+	<input type="hidden" name="MULTI" value="<?php  echo ($boolMulti ? 'Y' : 'N');?>">
+	<input type="hidden" name="TMP_ID" value="<?php echo htmlspecialcharsbx($strSubTMP_ID)?>"><?php 
 	$tabControl->EndEpilogContent();
 	$tabControl->Begin(array(
 		"FORM_ACTION" => '/bitrix/admin/cat_subcoupon_edit.php?lang='.LANGUAGE_ID,
@@ -289,29 +289,29 @@ if (!$boolMulti)
 		$tabControl->AddCheckBoxField("ACTIVE", GetMessage("DSC_ACTIVE").":", false, "Y", $arCoupon['ACTIVE'] == "Y");
 		$tabControl->BeginCustomField('ONE_TIME', GetMessage('DSC_COUPON_TYPE').':', true);
 		?><tr id="tr_ONE_TIME" class="adm-detail-required-field">
-		<td width="40%" style="vertical-align: top;"><? echo $tabControl->GetCustomLabelHTML(); ?> <span class="required" style="vertical-align: super; font-size: smaller;">1</span></td>
+		<td width="40%" style="vertical-align: top;"><?php  echo $tabControl->GetCustomLabelHTML(); ?> <span class="required" style="vertical-align: super; font-size: smaller;">1</span></td>
 		<td width="60%" id="td_ONE_TIME_VALUE">
 			<select name="ONE_TIME" size="3">
-			<?
+			<?php 
 			foreach ($arTypeList as $typeID => $typeName)
 			{
-				?><option value="<? echo $typeID; ?>"<? echo ($typeID == $arCoupon['ONE_TIME'] ? ' selected' : ''); ?>><? echo $typeName; ?></option><?
+				?><option value="<?php  echo $typeID; ?>"<?php  echo ($typeID == $arCoupon['ONE_TIME'] ? ' selected' : ''); ?>><?php  echo $typeName; ?></option><?php 
 			}
 			?>
 			</select>
 		</td>
-		</tr><?
+		</tr><?php 
 		$tabControl->EndCustomField('ONE_TIME',
 			'<input type="hidden" name="ONE_TIME" value="'.htmlspecialcharsbx($arCoupon['ONE_TIME']).'">'
 		);
 		$tabControl->BeginCustomField('COUPON', GetMessage("DSC_CPN_CODE").':', true);
 		?><tr id="tr_COUPON" class="adm-detail-required-field">
-		<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
+		<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
 		<td width="60%" id="td_COUPON_VALUE">
-			<input type="text" id="COUPON" name="COUPON" size="32" maxlength="32" value="<? echo htmlspecialcharsbx($arCoupon['COUPON']); ?>" />&nbsp;
-			<input type="button" value="<? echo GetMessage("DSC_CPN_GEN") ?>" id="COUPON_GENERATE">
+			<input type="text" id="COUPON" name="COUPON" size="32" maxlength="32" value="<?php  echo htmlspecialcharsbx($arCoupon['COUPON']); ?>" />&nbsp;
+			<input type="button" value="<?php  echo GetMessage("DSC_CPN_GEN") ?>" id="COUPON_GENERATE">
 		</td>
-		</tr><?
+		</tr><?php 
 		$tabControl->EndCustomField('COUPON',
 			'<input type="hidden" name="COUPON" value="'.htmlspecialcharsbx($arCoupon['COUPON']).'">'
 		);
@@ -323,7 +323,7 @@ if (!$boolMulti)
 	$tabControl->Show();
 
 	echo BeginNote();
-	?><span class="required" style="vertical-align: super; font-size: smaller;">1</span> <? echo GetMessage('DSC_CPN_ONE_ORDER_NOTE');
+	?><span class="required" style="vertical-align: super; font-size: smaller;">1</span> <?php  echo GetMessage('DSC_CPN_ONE_ORDER_NOTE');
 	echo EndNote();
 	?><script type="text/javascript">
 	BX.ready(function(){
@@ -407,7 +407,7 @@ if (!$boolMulti)
 	{
 		BX.WindowManager.Get().adjustSizeEx();
 	}
-	</script><?
+	</script><?php 
 }
 else
 {
@@ -423,7 +423,7 @@ else
 	}
 	else
 	{
-		?><script type="text/javascript">top.BX.WindowManager.Get().hideNotify();</script><?
+		?><script type="text/javascript">top.BX.WindowManager.Get().hideNotify();</script><?php 
 	}
 
 	$tabControl->BeginPrologContent();
@@ -433,12 +433,12 @@ else
 	$tabControl->BeginEpilogContent();
 	echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
-	<input type="hidden" name="ID" value="<? echo $ID; ?>">
-	<? echo bitrix_sessid_post()?>
-	<input type="hidden" name="DISCOUNT_ID" value="<? echo $intDiscountID; ?>">
-	<input type="hidden" name="MULTI" value="<? echo ($boolMulti ? 'Y' : 'N');?>">
-	<input type="hidden" name="TMP_ID" value="<?echo htmlspecialcharsbx($strSubTMP_ID)?>"><?
+	<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
+	<input type="hidden" name="ID" value="<?php  echo $ID; ?>">
+	<?php  echo bitrix_sessid_post()?>
+	<input type="hidden" name="DISCOUNT_ID" value="<?php  echo $intDiscountID; ?>">
+	<input type="hidden" name="MULTI" value="<?php  echo ($boolMulti ? 'Y' : 'N');?>">
+	<input type="hidden" name="TMP_ID" value="<?php echo htmlspecialcharsbx($strSubTMP_ID)?>"><?php 
 	$tabControl->EndEpilogContent();
 	$tabControl->Begin(array(
 		"FORM_ACTION" => '/bitrix/admin/cat_subcoupon_edit.php?lang='.urlencode(LANGUAGE_ID),
@@ -447,18 +447,18 @@ else
 	$tabControl->BeginNextFormTab();
 	$tabControl->BeginCustomField('ONE_TIME', GetMessage('DSC_COUPON_TYPE').':', true);
 	?><tr id="tr_ONE_TIME" class="adm-detail-required-field">
-	<td width="40%" style="vertical-align: top;"><? echo $tabControl->GetCustomLabelHTML(); ?> <span class="required" style="vertical-align: super; font-size: smaller;">1</span></td>
+	<td width="40%" style="vertical-align: top;"><?php  echo $tabControl->GetCustomLabelHTML(); ?> <span class="required" style="vertical-align: super; font-size: smaller;">1</span></td>
 	<td width="60%" id="td_ONE_TIME_VALUE">
 		<select name="ONE_TIME" size="3">
-			<?
+			<?php 
 			foreach ($arTypeList as $typeID => $typeName)
 			{
-				?><option value="<? echo $typeID; ?>"<? echo ($typeID == $arCoupon['ONE_TIME'] ? ' selected' : ''); ?>><? echo $typeName; ?></option><?
+				?><option value="<?php  echo $typeID; ?>"<?php  echo ($typeID == $arCoupon['ONE_TIME'] ? ' selected' : ''); ?>><?php  echo $typeName; ?></option><?php 
 			}
 			?>
 		</select>
 	</td>
-	</tr><?
+	</tr><?php 
 	$tabControl->EndCustomField('ONE_TIME',
 		'<input type="hidden" name="ONE_TIME" value="'.htmlspecialcharsbx($arCoupon['ONE_TIME']).'">'
 	);
@@ -468,7 +468,7 @@ else
 	$tabControl->Show();
 
 	echo BeginNote();
-	?><span class="required" style="vertical-align: super; font-size: smaller;">1</span> <? echo GetMessage('DSC_CPN_ONE_ORDER_NOTE');
+	?><span class="required" style="vertical-align: super; font-size: smaller;">1</span> <?php  echo GetMessage('DSC_CPN_ONE_ORDER_NOTE');
 	echo EndNote();
 	?>
 	<script type="text/javascript">
@@ -480,6 +480,6 @@ else
 		{
 			BX.WindowManager.Get().adjustSizeEx();
 		}
-	</script><?
+	</script><?php 
 }?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

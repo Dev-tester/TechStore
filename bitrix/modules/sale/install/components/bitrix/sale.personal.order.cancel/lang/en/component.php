@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOC_ORDER_CANCELED"] = "Order ##ACCOUNT_NUMBER# has been canceled";
 $MESS["SALE_MODULE_NOT_INSTALL"] = "e-Store module is not installed";
 $MESS["SALE_ACCESS_DENIED"] = "You need to authorise to cancel the order";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_ENTITY_ID_FIELD"] = "Идентификатор правила корзины";
 $MESS["DISCOUNT_ENTITY_XML_ID_FIELD"] = "Внешний код правила корзины";
 $MESS["DISCOUNT_ENTITY_LID_FIELD"] = "Идентификатор сайта";

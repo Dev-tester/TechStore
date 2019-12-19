@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UP1_ID"] = "Код пользователя";
 $MESS["SONET_UP1_LOGIN"] = "Логин";
 $MESS["SONET_UP1_NAME"] = "Имя";

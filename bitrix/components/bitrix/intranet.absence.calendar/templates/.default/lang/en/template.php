@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_IAC_MAIN_TITLE"] = "Absence Calendar";
 $MESS["IAC_MONTH_1"] = "January";
 $MESS["IAC_MONTH_2"] = "February";

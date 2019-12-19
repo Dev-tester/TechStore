@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main,
 	Bitrix\Main\Loader,
@@ -314,31 +314,31 @@ $APPLICATION->SetTitle(GetMessage("CURRENCY_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 <form method="get" action="<?=$APPLICATION->GetCurPage()?>" name="find_form">
-<?$adminFilter->Begin();?>
+<?php $adminFilter->Begin();?>
 	<tr>
-		<td><?echo GetMessage("curr_rates_date1")?>:</td>
+		<td><?php echo GetMessage("curr_rates_date1")?>:</td>
 		<td>
-			<?echo CalendarPeriod("filter_period_from", $filter_period_from, "filter_period_to", $filter_period_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_period_from", $filter_period_from, "filter_period_to", $filter_period_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("curr_rates_curr1")?>:</td>
+		<td><?php echo GetMessage("curr_rates_curr1")?>:</td>
 		<td>
-			<?echo CCurrency::SelectBox("filter_currency", $filter_currency, GetMessage("curr_rates_all"), true, "", "") ?>
+			<?php echo CCurrency::SelectBox("filter_currency", $filter_currency, GetMessage("curr_rates_all"), true, "", "") ?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("BX_CURRENCY_RATE_BASE_CURRENCY"); ?>:</td>
+		<td><?php echo GetMessage("BX_CURRENCY_RATE_BASE_CURRENCY"); ?>:</td>
 		<td>
-			<?echo CCurrency::SelectBox("filter_base_currency", (isset($filter_base_currency) ? $filter_base_currency : ''), GetMessage("curr_rates_all"), true, "", "") ?>
+			<?php echo CCurrency::SelectBox("filter_base_currency", (isset($filter_base_currency) ? $filter_base_currency : ''), GetMessage("curr_rates_all"), true, "", "") ?>
 		</td>
 	</tr>
-<?$adminFilter->Buttons(array(
+<?php $adminFilter->Buttons(array(
 	"table_id" => $adminListTableID,
 	"url" => $APPLICATION->GetCurPage(),
 	"form"=>"find_form"
 ));
 $adminFilter->End();?>
 </form>
-<?$adminList->DisplayList();
+<?php $adminList->DisplayList();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -8,13 +8,13 @@
 
 if(strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	$APPLICATION->IncludeComponent(
@@ -214,13 +214,13 @@ else
 		$arDesktopParams["PARENT_COMPONENT_RESULT"] = $this->__component->__parent->arResult;
 	
 	?>
-	<div><?$APPLICATION->IncludeComponent(
+	<div><?php $APPLICATION->IncludeComponent(
 		"bitrix:desktop",
 		"",
 		$arDesktopParams,
 		false,
 		array("HIDE_ICONS" => "Y")
 	);?></div>	
-	<?
+	<?php 
 }
 ?>

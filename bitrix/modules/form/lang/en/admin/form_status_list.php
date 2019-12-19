@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORM_LIST'] = "Form list";
 $MESS ['FORM_NOT_FOUND'] = "Web form not found";
 $MESS ['FORM_ERROR'] = "Error! ";

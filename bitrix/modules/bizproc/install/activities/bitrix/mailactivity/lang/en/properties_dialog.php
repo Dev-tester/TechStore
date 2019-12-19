@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPMA_PD_CP"] = "Encoding";
 $MESS["BPMA_PD_BODY"] = "Message Text";
 $MESS["BPMA_PD_MESS_TYPE"] = "Message Type";

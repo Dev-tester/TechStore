@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var CMain $APPLICATION
  * @var array $arParams
@@ -14,7 +14,7 @@ if (false && $USER->CanDoOperation('bitrix24_config'))
 		<a href="/settings/business_tools.php" target="_blank" class="webform-small-button webform-small-button-blue"><?=GetMessage("TASK_RESTRICTED_ADMIN2")?></a>
 	</div>
 </div>
-<?
+<?php 
 }
 else
 {
@@ -58,5 +58,5 @@ BX.ready(function(){
 		return BX.PreventDefault(e);
 	});
 });
-</script><?
+</script><?php 
 }

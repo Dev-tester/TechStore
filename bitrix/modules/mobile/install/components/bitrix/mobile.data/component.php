@@ -1,4 +1,4 @@
-<? use Bitrix\Main\Context;
+<?php  use Bitrix\Main\Context;
 use Bitrix\Mobile\Auth;
 
 if (!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISC_CONVERT_IN_PROGRESS"] = "Конвертация...";
 $MESS["SALE_DISC_CONVERT_TOTAL"] = "Сконвертировано скидок: <b>#COUNT#</b> (#PERCENT#%, примерно #TIME#)";
 $MESS["SALE_DISC_CONVERT_TOTAL_MIN"] = "#MIN# минут";

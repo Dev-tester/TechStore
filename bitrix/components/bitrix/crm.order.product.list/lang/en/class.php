@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_PLC_DEFAULT_WEIGHT_UNIT"] = "kg";
 $MESS["CRM_ORDER_PLC_FAILED_TO_CREATE_OBJECT"] = "Cannot create order instance";
 $MESS["CRM_ORDER_PLC_PRODUCT"] = "Product";

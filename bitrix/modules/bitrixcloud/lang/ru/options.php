@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BCL_MONITORING_INTERVAL'] = "Интервал расчётов";
 $MESS ['BCL_MONITORING_INTERVAL_WEEK'] = "Неделя";
 $MESS ['BCL_MONITORING_INTERVAL_MONTH'] = "Месяц";

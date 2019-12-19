@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arThemes = array();
 $dir = trim(preg_replace("'[\\\\/]+'", "/", dirname(__FILE__)."/themes/"));
@@ -49,7 +49,7 @@ if($arParams["SHOW_NAVIGATION"] != "N" && (IntVal($arResult["VARIABLES"]["group_
 	<div class="blog-navigation-box">
 	<ul class="blog-navigation">
 	<li><a href="<?=$arResultTmp["PATH_TO_INDEX"]?>"><?=GetMessage("RESULT_BLOG")?></a></li>
-	<?
+	<?php 
 	if(is_array($arParams["GROUP_ID"]))
 	{
 		$tmp = Array();
@@ -96,7 +96,7 @@ if($arParams["SHOW_NAVIGATION"] != "N" && (IntVal($arResult["VARIABLES"]["group_
 				?>
 				<li><span class="blog-navigation-sep">&nbsp;&raquo;&nbsp;</span></li>
 				<li><a href="<?=$pathToGroup?>"><?=htmlspecialcharsEx($arGroup["NAME"])?></a></li>
-				<?
+				<?php 
 			}
 		}
 	}
@@ -121,12 +121,12 @@ if($arParams["SHOW_NAVIGATION"] != "N" && (IntVal($arResult["VARIABLES"]["group_
 					?>
 					<li><span class="blog-navigation-sep">&nbsp;&raquo;&nbsp;</span></li>
 					<li><a href="<?=$pathToBlog?>"><?=htmlspecialcharsEx($arBlog["NAME"])?></a></li>
-					<?
+					<?php 
 				}
 			}
 		}
 	}
-	?></ul></div><?
+	?></ul></div><?php 
 }
 
 if (!empty($arParams["THEME"])):

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MENU_TITLE'] = "Blog";
 $MESS ['BLOG_MENU_ADD_MESSAGE'] = "New message";
 $MESS ['BLOG_MENU_ADD_MESSAGE_TITLE'] = "Add a new message";

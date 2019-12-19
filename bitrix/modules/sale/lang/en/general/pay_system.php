@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGPS_EMPTY_NAME"] = "The payment system name is not specified";
 $MESS["SKGPS_EMPTY_CURRENCY"] = "The payment system currency is not specified";
 $MESS["SKGPS_NO_SITE"] = "Cannot find the site ##ID#";

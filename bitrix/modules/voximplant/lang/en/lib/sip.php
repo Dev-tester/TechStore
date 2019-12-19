@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SIP_CONFIG_ENTITY_ID_FIELD"] = "ID";
 $MESS["SIP_CONFIG_ENTITY_CONFIG_ID_FIELD"] = "Configuration ID";
 $MESS["SIP_CONFIG_ENTITY_SERVER_FIELD"] = "Server address";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
 /** @global CDatabase $DB */
@@ -431,8 +431,8 @@ $chain->AddItem(array(
 ));
 $chain->Show();
 ?>
-<form method="GET" name="find_section_form" action="<?echo $APPLICATION->GetCurPage()?>">
-<?
+<form method="GET" name="find_section_form" action="<?php echo $APPLICATION->GetCurPage()?>">
+<?php 
 $arFindFields = array();
 if (!$iblockFix)
 	$arFindFields['IBLOCK_ID'] = GetMessage('IBLOCK_SECSEARCH_IBLOCK');
@@ -479,44 +479,44 @@ function deleteFilter(el)
 function SelEl(id, name)
 {
 	var el;
-	<?
+	<?php 
 	if ('' != $lookup)
 	{
 		if ('' != $m)
 		{
-			?>window.opener.<? echo $lookup; ?>.AddValue(id);<?
+			?>window.opener.<?php  echo $lookup; ?>.AddValue(id);<?php 
 		}
 		else
 		{
 			?>
-			window.opener.<? echo $lookup; ?>.AddValue(id);
-			window.close();<?
+			window.opener.<?php  echo $lookup; ?>.AddValue(id);
+			window.close();<?php 
 		}
 	}
 	else
 	{
 		if($m)
 		{
-			?>window.opener.InS<?echo md5($n)?>(id, name);<?
+			?>window.opener.InS<?php echo md5($n)?>(id, name);<?php 
 		}
 		else
 		{
-			?>el = window.opener.document.getElementById('<?echo $n?>[<?echo $k?>]');
+			?>el = window.opener.document.getElementById('<?php echo $n?>[<?php echo $k?>]');
 		if(!el)
-			el = window.opener.document.getElementById('<?echo $n?>');
+			el = window.opener.document.getElementById('<?php echo $n?>');
 		if(el)
 			el.value = id;
-		el = window.opener.document.getElementById('sp_<?echo md5($n)?>_<?echo $k?>');
+		el = window.opener.document.getElementById('sp_<?php echo md5($n)?>_<?php echo $k?>');
 		if(!el)
-			el = window.opener.document.getElementById('sp_<?echo $n?>');
+			el = window.opener.document.getElementById('sp_<?php echo $n?>');
 		if (!el)
-			el = window.opener.document.getElementById('<?echo md5($n)?>_<?echo $k?>_link');
+			el = window.opener.document.getElementById('<?php echo md5($n)?>_<?php echo $k?>_link');
 		if(!el)
-			el = window.opener.document.getElementById('<?echo $n?>_link');
+			el = window.opener.document.getElementById('<?php echo $n?>_link');
 		if(el)
 			el.innerHTML = name;
 		window.close();
-		<?
+		<?php 
 		}
 	}
 	?>
@@ -524,7 +524,7 @@ function SelEl(id, name)
 
 function SelAll()
 {
-	var frm = BX('form_<?echo $sTableID?>'),
+	var frm = BX('form_<?php echo $sTableID?>'),
 		e,
 		v,
 		n,
@@ -557,7 +557,7 @@ function SelAll()
 
 function reloadFilter(el)
 {
-	var newUrl = '<? echo CUtil::JSEscape($reloadUrl); ?>',
+	var newUrl = '<?php  echo CUtil::JSEscape($reloadUrl); ?>',
 		iblockID = 0;
 
 	if (!el)
@@ -567,7 +567,7 @@ function reloadFilter(el)
 		iblockID = parseInt(el.value, 10);
 		if (isNaN(iblockID))
 			iblockID = 0;
-		if (iblockID > 0 && iblockID != <? echo $IBLOCK_ID; ?>)
+		if (iblockID > 0 && iblockID != <?php  echo $IBLOCK_ID; ?>)
 		{
 			blockedFilter = true;
 			newUrl += ('&IBLOCK_ID=' + iblockID) + ('&find_iblock_id=' + iblockID) + '&set_filter=y';
@@ -576,11 +576,11 @@ function reloadFilter(el)
 	}
 }
 
-</script><?
+</script><?php 
 if ($iblockFix)
 {
 	?><input type="hidden" name="IBLOCK_ID" value="<?=$IBLOCK_ID; ?>">
-	<input type="hidden" name="find_iblock_id" value="<?=$IBLOCK_ID; ?>"><?
+	<input type="hidden" name="find_iblock_id" value="<?=$IBLOCK_ID; ?>"><?php 
 }
 $oFilter->Begin();
 if (!$iblockFix)
@@ -591,8 +591,8 @@ if (!$iblockFix)
 	if ($hideIblockId > 0)
 		$iblockFilter['!ID'] = $hideIblockId;
 	?><tr>
-		<td><b><?echo GetMessage("IBLOCK_SECSEARCH_IBLOCK")?></b></td>
-		<td><?echo GetIBlockDropDownListEx(
+		<td><b><?php echo GetMessage("IBLOCK_SECSEARCH_IBLOCK")?></b></td>
+		<td><?php echo GetIBlockDropDownListEx(
 				$IBLOCK_ID,
 				"find_type",
 				"find_iblock_id",
@@ -601,44 +601,44 @@ if (!$iblockFix)
 				'reloadFilter(this)'
 			);?></td>
 	</tr>
-	<?
+	<?php 
 }
 if ($useParentFilter)
 {
 ?><tr>
-	<td><?echo GetMessage("IBLOCK_SECSEARCH_PARENT_ID")?>:</td>
+	<td><?php echo GetMessage("IBLOCK_SECSEARCH_PARENT_ID")?>:</td>
 	<td>
 		<select name="find_section_section" >
-			<option value=""><?echo GetMessage("IBLOCK_SECSEARCH_ALL_PARENTS")?></option>
-			<option value="0"<?if($find_section_section=="0")echo" selected"?>><?echo GetMessage("IBLOCK_SECSEARCH_ROOT_PARENT_ID")?></option>
-			<?
+			<option value=""><?php echo GetMessage("IBLOCK_SECSEARCH_ALL_PARENTS")?></option>
+			<option value="0"<?php if($find_section_section=="0")echo" selected"?>><?php echo GetMessage("IBLOCK_SECSEARCH_ROOT_PARENT_ID")?></option>
+			<?php 
 			$bsections = CIBlockSection::GetTreeList(array("IBLOCK_ID"=>$IBLOCK_ID), array("ID", "NAME", "DEPTH_LEVEL"));
 			while($arSection = $bsections->GetNext()):
-				?><option value="<?echo $arSection["ID"]?>"<?if($arSection["ID"]==$find_section_section)echo " selected"?>><?echo str_repeat("&nbsp;.&nbsp;", $arSection["DEPTH_LEVEL"])?><?echo $arSection["NAME"]?></option><?
+				?><option value="<?php echo $arSection["ID"]?>"<?php if($arSection["ID"]==$find_section_section)echo " selected"?>><?php echo str_repeat("&nbsp;.&nbsp;", $arSection["DEPTH_LEVEL"])?><?php echo $arSection["NAME"]?></option><?php 
 			endwhile;
 			?>
 		</select>
 	</td>
-	</tr><?
+	</tr><?php 
 }
 ?>
 	<tr>
-		<td><b><?echo GetMessage("IBLOCK_SECSEARCH_NAME")?>:</b></td>
-		<td><input type="text" name="find_section_name" value="<?echo htmlspecialcharsbx($find_section_name)?>" size="47">&nbsp;<?=ShowFilterLogicHelp()?></td>
+		<td><b><?php echo GetMessage("IBLOCK_SECSEARCH_NAME")?>:</b></td>
+		<td><input type="text" name="find_section_name" value="<?php echo htmlspecialcharsbx($find_section_name)?>" size="47">&nbsp;<?=ShowFilterLogicHelp()?></td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_ID")?>:</td>
-		<td><input type="text" name="find_section_id" size="47" value="<?echo htmlspecialcharsbx($find_section_id)?>"></td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_ID")?>:</td>
+		<td><input type="text" name="find_section_id" size="47" value="<?php echo htmlspecialcharsbx($find_section_id)?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_TIMESTAMP").":"?></td>
-		<td><?echo CalendarPeriod("find_section_timestamp_1", htmlspecialcharsbx($find_section_timestamp_1), "find_section_timestamp_2", htmlspecialcharsbx($find_section_timestamp_2), "find_section_form","Y")?></td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_TIMESTAMP").":"?></td>
+		<td><?php echo CalendarPeriod("find_section_timestamp_1", htmlspecialcharsbx($find_section_timestamp_1), "find_section_timestamp_2", htmlspecialcharsbx($find_section_timestamp_2), "find_section_form","Y")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_MODIFIED_BY")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_MODIFIED_BY")?>:</td>
 		<td>
-			<?echo FindUserID(
+			<?php echo FindUserID(
 				/*$tag_name=*/"find_section_modified_user_id",
 				/*$tag_value=*/$find_section_modified_by,
 				/*$user_name=*/"",
@@ -652,13 +652,13 @@ if ($useParentFilter)
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_DATE_CREATE").":"?></td>
-		<td><?echo CalendarPeriod("find_section_date_create_1", htmlspecialcharsbx($find_section_date_create_1), "find_section_date_create_2", htmlspecialcharsbx($find_section_date_create_2), "find_section_form")?></td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_DATE_CREATE").":"?></td>
+		<td><?php echo CalendarPeriod("find_section_date_create_1", htmlspecialcharsbx($find_section_date_create_1), "find_section_date_create_2", htmlspecialcharsbx($find_section_date_create_2), "find_section_form")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_CREATED_BY")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_CREATED_BY")?>:</td>
 		<td>
-			<?echo FindUserID(
+			<?php echo FindUserID(
 				/*$tag_name=*/"find_section_created_user_id",
 				/*$tag_value=*/$find_section_created_by,
 				/*$user_name=*/"",
@@ -672,34 +672,34 @@ if ($useParentFilter)
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_CODE")?>:</td>
-		<td><input type="text" name="find_section_code" size="47" value="<?echo htmlspecialcharsbx($find_section_code)?>"></td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_CODE")?>:</td>
+		<td><input type="text" name="find_section_code" size="47" value="<?php echo htmlspecialcharsbx($find_section_code)?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_XML_ID")?>:</td>
-		<td><input type="text" name="find_section_external_id" size="47" value="<?echo htmlspecialcharsbx($find_section_external_id)?>"></td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_XML_ID")?>:</td>
+		<td><input type="text" name="find_section_external_id" size="47" value="<?php echo htmlspecialcharsbx($find_section_external_id)?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_SECSEARCH_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_SECSEARCH_ACTIVE")?>:</td>
 		<td>
 			<select name="find_section_active" >
 				<option value=""><?=htmlspecialcharsbx(GetMessage('IBLOCK_ALL'))?></option>
-				<option value="Y"<?if($find_section_active=="Y")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_YES"))?></option>
-				<option value="N"<?if($find_section_active=="N")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_NO"))?></option>
+				<option value="Y"<?php if($find_section_active=="Y")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_YES"))?></option>
+				<option value="N"<?php if($find_section_active=="N")echo " selected"?>><?=htmlspecialcharsbx(GetMessage("IBLOCK_NO"))?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $USER_FIELD_MANAGER->AdminListShowFilter($entity_id);
 $oFilter->Buttons();
 ?>
-<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="set_filter" value="<? echo GetMessage("admin_lib_filter_set_butt"); ?>" title="<? echo GetMessage("admin_lib_filter_set_butt_title"); ?>" onclick="return applyFilter(this);"></span>
-<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="del_filter" value="<? echo GetMessage("admin_lib_filter_clear_butt"); ?>" title="<? echo GetMessage("admin_lib_filter_clear_butt_title"); ?>" onclick="return deleteFilter(this);"></span>
-<?
+<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="set_filter" value="<?php  echo GetMessage("admin_lib_filter_set_butt"); ?>" title="<?php  echo GetMessage("admin_lib_filter_set_butt_title"); ?>" onclick="return applyFilter(this);"></span>
+<span class="adm-btn-wrap"><input type="submit"  class="adm-btn" name="del_filter" value="<?php  echo GetMessage("admin_lib_filter_clear_butt"); ?>" title="<?php  echo GetMessage("admin_lib_filter_clear_butt_title"); ?>" onclick="return deleteFilter(this);"></span>
+<?php 
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

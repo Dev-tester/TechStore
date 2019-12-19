@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\MessageService;
 
 use \Bitrix\Main\Loader;

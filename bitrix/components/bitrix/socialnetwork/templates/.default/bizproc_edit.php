@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arParams["SET_NAV_CHAIN"] != "N")
 	$APPLICATION->AddChainItem(GetMessage("BP_TASK"), CComponentEngine::MakePathFromTemplate($arResult["PATH_TO_BIZPROC"], array()));
 
 if (!IsModuleInstalled("im")):
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 		"bitrix:socialnetwork.messages_menu",
 		"",
 		Array(
@@ -25,10 +25,10 @@ if (!IsModuleInstalled("im")):
 		),
 		$component
 	);
-	?><?
+	?><?php 
 endif;
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:bizproc.task", 
 	"", 
 	Array(

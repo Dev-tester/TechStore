@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BLOG_MODULE_NOT_INSTALL']="Модуль блогов не установлен.";
 $MESS ['BLOG_TOP_TITLE'] = "Редактирование блога &quot;#BLOG#&quot;";
 $MESS ['BLOG_NEW_BLOG'] = "Новый блог";

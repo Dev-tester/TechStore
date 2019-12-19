@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PATH_SAVE"] = "Сохранить";
 $MESS["PATH_RESET"] = "Сбросить";
 $MESS["FORUM_FROM_EMAIL"] = "E-Mail для поля From писем с форума";

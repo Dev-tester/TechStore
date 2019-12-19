@@ -90,7 +90,7 @@ if(!defined("YANDEX_DIRECT_BANNER_STYLES_INCLUDED"))
 		text-decoration: none !important;
 	}
 </style>
-<?
+<?php 
 }
 
 if(!is_array($bannerInfo))

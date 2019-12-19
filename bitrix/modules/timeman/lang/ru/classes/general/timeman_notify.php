@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_NOTIFY_TITLE"] = "Учет рабочего времени";
 $MESS["TIMEMAN_TITLE_FOR_MAIL"] = "Учет рабочего времени";
 $MESS["TIMEMAN_ENTRY_TITLE"] = "Рабочее время";

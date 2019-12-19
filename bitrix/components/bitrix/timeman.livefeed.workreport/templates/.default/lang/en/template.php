@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_FROM"] = "From";
 $MESS["REPORT_TO"] = "To";
 $MESS["REPORT_COMMENT_CONFIRM_W_MARK"] = "Report confirmed, marked #VALUE#";

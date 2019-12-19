@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_PAYMENT_NO_DELIVERY_SERVICE"] = "(Виберіть службу доставки)";
 $MESS["SALE_ORDER_SHIPMENT_ADD_COMPANY"] = "Список активних компаній порожній. <a href=\"#URL#\" target=\"_blank\">Додати</a>";
 $MESS["SALE_ORDER_SHIPMENT_ADD_SHIPMENT"] = "Додати відвантаження";

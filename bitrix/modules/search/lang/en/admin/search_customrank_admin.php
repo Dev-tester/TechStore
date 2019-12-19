@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["customrank_of"] = "of";
 $MESS["customrank_continue"] = "Continue";
 $MESS["customrank_site"] = "Site";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_CATEGORY_EDIT_FORM_TAB_TITLE"] = "Розділ";
 $MESS["IDEA_CATEGORY_EDIT_FORM_P_ACTIVE"] = "Розділ активний";
 $MESS["IDEA_CATEGORY_EDIT_FORM_P_NAME"] = "*Назва";

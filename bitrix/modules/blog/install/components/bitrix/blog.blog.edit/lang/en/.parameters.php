@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BBE_PATH_TO_BLOG'] = "Template of the blog page path";
 $MESS ['BBE_PATH_TO_BLOG_EDIT'] = "Template of the blog editing page path";
 

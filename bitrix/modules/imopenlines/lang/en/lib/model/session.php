@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SESSION_ENTITY_CATEGORY_ID_FIELD"] = "Category";
 $MESS["SESSION_ENTITY_CHAT_ID_FIELD"] = "Chat ID";
 $MESS["SESSION_ENTITY_CLOSED_FIELD"] = "Conversation closed";

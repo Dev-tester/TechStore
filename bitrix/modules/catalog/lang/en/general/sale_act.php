@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_SALE_ACT_IBLOCK_CONTROLGROUP_LABEL"] = "Product fields and properties in information block";
 $MESS["BT_MOD_SALE_ACT_CATALOG_PRICE_TYPE_LABEL"] = "Price type";
 $MESS["BT_MOD_SALE_ACT_CATALOG_PRICE_TYPE_PREFIX"] = "Product price type in catalog";

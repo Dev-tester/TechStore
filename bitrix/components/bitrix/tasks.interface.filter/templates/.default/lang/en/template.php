@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_BTN_ADD_TASK"] = "New task";
 $MESS["TASKS_BTN_ADD_TASK_BY_TEMPLATE"] = "New task using template";
 $MESS["TASKS_BTN_LIST_TASK_TEMPLATE"] = "All templates";

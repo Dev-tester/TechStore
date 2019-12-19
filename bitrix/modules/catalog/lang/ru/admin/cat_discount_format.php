@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_DISC_CONVERT_IN_PROGRESS"] = "Индексация...";
 $MESS["CAT_DISC_CONVERT_TOTAL"] = "Проиндексировано скидок: <b>#COUNT#</b> (#PERCENT#%, примерно #TIME#)";
 $MESS["CAT_DISC_CONVERT_TOTAL_MIN"] = "#MIN# минут";

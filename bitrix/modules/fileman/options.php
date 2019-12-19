@@ -1,4 +1,4 @@
-<?
+<?php 
 $module_id = "fileman";
 $dicsRelPath = '/bitrix/modules/fileman/dictionaries';
 $gzDicsRelPath = BX_PERSONAL_ROOT.'/tmp/dics';
@@ -492,17 +492,17 @@ if($USER->isAdmin())
 <script>
 	function SelectSite(id)
 	{
-		<?for($i = 0; $i < $siteCount; $i++):?>
+		<?php for($i = 0; $i < $siteCount; $i++):?>
 		BX('<?= htmlspecialcharsbx($siteList[$i]["ID"]);?>_Propery').style.display='none';
-		<?endfor;?>
+		<?php endfor;?>
 		BX(id+'_Propery').style.display='';
 	}
 
 	function hideSite()
 	{
-		<?for($i = 0; $i < $siteCount; $i++):?>
+		<?php for($i = 0; $i < $siteCount; $i++):?>
 		BX('<?= htmlspecialcharsbx($siteList[$i]["ID"]);?>_Propery').style.display='none';
-		<?endfor;?>
+		<?php endfor;?>
 	}
 
 	function showCustomSpellSettings(id)
@@ -520,27 +520,27 @@ if($USER->isAdmin())
 	}
 </script>
 
-<form method="POST" enctype="multipart/form-data" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="POST" enctype="multipart/form-data" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 <?=bitrix_sessid_post()?>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 <tr>
 	<td valign="top" width="40%"><?= GetMessage('FILEMAN_OPTION_DEF_EDITOR')?></td>
 	<td valign="top" width="60%">
 
 	<select name="default_edit">
 		<option value="text"><?= GetMessage('FILEMAN_OPTION_EDITOR_TEXT')?></option>
-		<option value="php"<?if(COption::GetOptionString($module_id, "default_edit", "text")=="php")echo " selected"?>><?= GetMessage('FILEMAN_OPTION_EDITOR_PHP')?></option>
-		<option value="html"<?if(COption::GetOptionString($module_id, "default_edit", "text")=="html")echo " selected"?>><?= GetMessage('FILEMAN_OPTION_EDITOR_HTML')?></option>
+		<option value="php"<?php if(COption::GetOptionString($module_id, "default_edit", "text")=="php")echo " selected"?>><?= GetMessage('FILEMAN_OPTION_EDITOR_PHP')?></option>
+		<option value="html"<?php if(COption::GetOptionString($module_id, "default_edit", "text")=="html")echo " selected"?>><?= GetMessage('FILEMAN_OPTION_EDITOR_HTML')?></option>
 	</select>
 	</td>
 </tr>
-	<? if (COption::GetOptionString('main', 'distributive6', 'N') != 'Y'):?>
+	<?php  if (COption::GetOptionString('main', 'distributive6', 'N') != 'Y'):?>
 	<tr>
 		<td valign="top"><label for="show_inc_icons"><?= GetMessage('FILEMAN_OPTION_MENU_SHOW_INC')?></label></td>
-		<td><input type="checkbox" name="show_inc_icons" id="show_inc_icons" size="5" value="Y" <?if(COption::GetOptionString($module_id, "show_inc_icons", "Y")=="Y")echo " checked"?>></td>
+		<td><input type="checkbox" name="show_inc_icons" id="show_inc_icons" size="5" value="Y" <?php if(COption::GetOptionString($module_id, "show_inc_icons", "Y")=="Y")echo " checked"?>></td>
 	</tr>
-	<?endif;?>
-	<? if ($USER->CanDoOperation('edit_php')):?>
+	<?php endif;?>
+	<?php  if ($USER->CanDoOperation('edit_php')):?>
 	<tr>
 		<td>
 			<?= GetMessage('FILEMAN_OPTION_SCRIPT_FILES')?>:
@@ -557,37 +557,37 @@ if($USER->isAdmin())
 			<textarea cols="30" rows="4" name="allowed_components"><?= htmlspecialcharsbx(COption::GetOptionString($module_id, "~allowed_components", ''));?></textarea>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 	<td valign="top" width="40%"><label for="hide_physical_struc"><?= GetMessage('FILEMAN_HIDE_PHYSICAL_STRUC')?>:</label></td>
 	<td valign="top" width="60%">
-	<input type="checkbox" name="hide_physical_struc" id="hide_physical_struc" <? if(COption::GetOptionString($module_id, "hide_physical_struc", false) == true) echo " checked";?>>
+	<input type="checkbox" name="hide_physical_struc" id="hide_physical_struc" <?php  if(COption::GetOptionString($module_id, "hide_physical_struc", false) == true) echo " checked";?>>
 	</td>
 	</tr>
 		<tr>
 		<td valign="top" width="40%"><label for="use_translit"><?= GetMessage('FILEMAN_USE_TRANSLITE')?>:</label></td>
 		<td valign="top" width="60%">
-		<input type="checkbox" name="use_translit" id="use_translit" <? if(COption::GetOptionString($module_id, "use_translit", true) == true) echo " checked";?>>
+		<input type="checkbox" name="use_translit" id="use_translit" <?php  if(COption::GetOptionString($module_id, "use_translit", true) == true) echo " checked";?>>
 		</td>
 	</tr>
 	</tr>
 		<tr>
 		<td valign="top" width="40%"><label for="use_translit_google"><?= GetMessage('FILEMAN_USE_TRANSLITE_EXTERNAL')?>:</label></td>
 		<td valign="top" width="60%">
-		<input type="checkbox" name="use_translit_google" id="use_translit_google" <? if(COption::GetOptionString($module_id, "use_translit_google", true) == true) echo " checked";?>>
+		<input type="checkbox" name="use_translit_google" id="use_translit_google" <?php  if(COption::GetOptionString($module_id, "use_translit_google", true) == true) echo " checked";?>>
 		</td>
 	</tr>
 	<tr>
 		<td class="adm-detail-valign-top"><label for="LOGS"><?=GetMessage("FILEMAN_EVENT_LOG")?>:</label></td>
 		<td>
-			<?$val = COption::GetOptionString("forum", "LOGS", "Q");?>
+			<?php $val = COption::GetOptionString("forum", "LOGS", "Q");?>
 			<div class="adm-list">
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" name="log_menu" id="log_menu" value="Y" <?if(COption::GetOptionString($module_id, "log_menu", "Y")=="Y")echo " checked"?>></div>
+					<div class="adm-list-control"><input type="checkbox" name="log_menu" id="log_menu" value="Y" <?php if(COption::GetOptionString($module_id, "log_menu", "Y")=="Y")echo " checked"?>></div>
 					<div class="adm-list-label"><label for="log_menu"><?=GetMessage("FILEMAN_EVENT_LOG_MENU")?></label></div>
 				</div>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" name="log_page" ID="log_page" value="Y" <?if(COption::GetOptionString($module_id, "log_page", "Y")=="Y")echo " checked"?>></div>
+					<div class="adm-list-control"><input type="checkbox" name="log_page" ID="log_page" value="Y" <?php if(COption::GetOptionString($module_id, "log_page", "Y")=="Y")echo " checked"?>></div>
 					<div class="adm-list-label"><label for="log_page"><?=GetMessage("FILEMAN_EVENT_LOG_PAGE")?></label></div>
 				</div>
 			</div>
@@ -598,7 +598,7 @@ if($USER->isAdmin())
 	<tr>
 		<td valign="top" width="40%"><label for="use_code_editor"><?= GetMessage('FILEMAN_OPTION_USE_CODE_EDITOR')?>:</label></td>
 		<td valign="top" width="60%">
-		<input type="checkbox" name="use_code_editor" id="use_code_editor" <? if(COption::GetOptionString($module_id, "use_code_editor", "Y") == "Y") echo " checked";?>>
+		<input type="checkbox" name="use_code_editor" id="use_code_editor" <?php  if(COption::GetOptionString($module_id, "use_code_editor", "Y") == "Y") echo " checked";?>>
 		</td>
 	</tr>
 	<tr>
@@ -641,20 +641,20 @@ if($USER->isAdmin())
 	</tr>
 	<tr>
 		<td><?= GetMessage('FILEMAN_OPTION_DIFFERENT_SET')?></td>
-		<td><input type="checkbox" name="dif_settings" id="dif_settings_id" onClick="if(this.checked) {BX('comPropery').style.display='none'; BX('site_select_id').disabled=false; SelectSite(BX('site_select_id').value);} else { BX('site_select_id').disabled=true; BX('comPropery').style.display=''; hideSite();}" <? if(COption::GetOptionString($module_id, "different_set", "N") == "Y") echo " checked";?>></td>
+		<td><input type="checkbox" name="dif_settings" id="dif_settings_id" onClick="if(this.checked) {BX('comPropery').style.display='none'; BX('site_select_id').disabled=false; SelectSite(BX('site_select_id').value);} else { BX('site_select_id').disabled=true; BX('comPropery').style.display=''; hideSite();}" <?php  if(COption::GetOptionString($module_id, "different_set", "N") == "Y") echo " checked";?>></td>
 	</tr>
 	<tr>
 		<td><?= GetMessage('FILEMAN_OPTION_FOR_SYTE')?></td>
 		<td>
-			<select name="site_select" id="site_select_id" onChange="SelectSite(this.value)" <? if(COption::GetOptionString($module_id, "different_set", "N") != "Y") echo " disabled"; ?>>
-			<?
+			<select name="site_select" id="site_select_id" onChange="SelectSite(this.value)" <?php  if(COption::GetOptionString($module_id, "different_set", "N") != "Y") echo " disabled"; ?>>
+			<?php 
 				for($i = 0; $i < $siteCount; $i++)
 					echo "<option value=\"".htmlspecialcharsbx($siteList[$i]["ID"])."\">".htmlspecialcharsbx($siteList[$i]["NAME"])."</option>";
 			?>
 			</select>
 		</td>
 	</tr>
-	<tr id="comPropery" <? if(COption::GetOptionString($module_id, "different_set", "N") == "Y") echo " style=\"display: none;\""; ?>>
+	<tr id="comPropery" <?php  if(COption::GetOptionString($module_id, "different_set", "N") == "Y") echo " style=\"display: none;\""; ?>>
 		<td colspan="2">
 		<table cellspacing="4"  cellpadding="0" width="100%">
 		<tr>
@@ -665,7 +665,7 @@ if($USER->isAdmin())
 				<td align="center" width="40%"><b><?= GetMessage("FILEMAN_OPTION_MENU_TYPE")?></b></td>
 				<td align="center" width="60%"><b><?= GetMessage("FILEMAN_OPTION_MENU_NAME")?></b></td>
 			</tr>
-			<?
+			<?php 
 			$armt = GetMenuTypes('', "left=".GetMessage("FILEMAN_OPTION_LEFT_MENU_NAME").",top=".GetMessage("FILEMAN_OPTION_TOP_MENU_NAME"));
 
 
@@ -674,38 +674,38 @@ if($USER->isAdmin())
 				if ($USER->CanDoOperation('fileman_edit_menu_types')):
 				?>
 					<tr>
-						<td style="padding: 2px;"><input type="text" name="menutypes_<?echo $i?>_type" value="<?= htmlspecialcharsbx($key)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
-						<td style="padding: 2px;"><input type="text" name="menutypes_<?echo $i?>_name" value="<?= htmlspecialcharsbx($title)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
+						<td style="padding: 2px;"><input type="text" name="menutypes_<?php echo $i?>_type" value="<?= htmlspecialcharsbx($key)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
+						<td style="padding: 2px;"><input type="text" name="menutypes_<?php echo $i?>_name" value="<?= htmlspecialcharsbx($title)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 					</tr>
-				<?else:?>
+				<?php else:?>
 				<tr>
 					<td style="padding-left: 5px">
 					<?= htmlspecialcharsbx($key)?>
-					<input type="hidden" name="menutypes_<?echo $i?>_type" value="<?echo htmlspecialcharsbx($key)?>">
+					<input type="hidden" name="menutypes_<?php echo $i?>_type" value="<?php echo htmlspecialcharsbx($key)?>">
 					</td>
 					<td  style="padding-left: 5px">
 					<?= htmlspecialcharsbx($title)?>
-					<input type="hidden" name="menutypes_<?echo $i?>_name" value="<?echo htmlspecialcharsbx($title)?>">
+					<input type="hidden" name="menutypes_<?php echo $i?>_name" value="<?php echo htmlspecialcharsbx($title)?>">
 					</td>
 				</tr>
-				<?
+				<?php 
 				endif;
 				$i++;
 			endforeach;
 			?>
-			<input type="hidden" name="menutypes_count" value="<?echo $i?>">
-			<?if ($USER->CanDoOperation('fileman_edit_menu_types')):?>
+			<input type="hidden" name="menutypes_count" value="<?php echo $i?>">
+			<?php if ($USER->CanDoOperation('fileman_edit_menu_types')):?>
 			<tr>
 				<td><input type="text" name="menutypes_new_type" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 				<td><input type="text" name="menutypes_new_name" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			</table>
 			</td>
 		</tr>
 		<tr>
 			<td class="adm-detail-content-cell-l"><?= GetMessage('FILEMAN_OPTION_MENU_PARAMS')?></td>
-			<td class="adm-detail-content-cell-r"><input type="text" name="num_menu_param" size="5" value="<?echo COption::GetOptionInt($module_id, "num_menu_param", 1, "")?>"></td>
+			<td class="adm-detail-content-cell-r"><input type="text" name="num_menu_param" size="5" value="<?php echo COption::GetOptionInt($module_id, "num_menu_param", 1, "")?>"></td>
 		</tr>
 		<tr>
 			<td valign="top" class="adm-detail-content-cell-l"><?= GetMessage('FILEMAN_OPTION_PROPS_TYPES')?></td>
@@ -715,7 +715,7 @@ if($USER->isAdmin())
 				<td align="center" width="40%"><b><?= GetMessage('FILEMAN_OPTION_PROPS_TYPE')?></b></td>
 				<td align="center" width="60%"><b><?= GetMessage('FILEMAN_OPTION_PROPS_NAME')?></b></td>
 			</tr>
-			<?
+			<?php 
 
 			$i = 0;
 			foreach (CFileMan::GetPropstypes('') as $key => $val)
@@ -725,11 +725,11 @@ if($USER->isAdmin())
 				<td><input type="text" name="propstypes_<?= $i?>_type" value="<?= htmlspecialcharsbx($key)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 				<td><input type="text" name="propstypes_<?= $i?>_name" value="<?= htmlspecialcharsbx($val)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 			</tr>
-			<?
+			<?php 
 				$i++;
 			}
 			?>
-			<input type="hidden" name="propstypes_count" value="<?echo $i+1;?>">
+			<input type="hidden" name="propstypes_count" value="<?php echo $i+1;?>">
 			<tr>
 				<td><input type="text" name="propstypes_new_type" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 				<td><input type="text" name="propstypes_new_name" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
@@ -743,11 +743,11 @@ if($USER->isAdmin())
 		</td>
 	</tr>
 	<input type="hidden" name="mSiteList" value="<?=htmlspecialcharsbx(serialize($siteList))?>">
-	<?
+	<?php 
 	for($j = 0; $j < $siteCount; $j++)
 	{
 	?>
-	<tr id="<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_Propery" style="<? if(((COption::GetOptionString($module_id, "different_set", "N") == "Y") && ($j != 0)) || (COption::GetOptionString($module_id, "different_set", "N") == "N")) echo "display: none;"?>">
+	<tr id="<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_Propery" style="<?php  if(((COption::GetOptionString($module_id, "different_set", "N") == "Y") && ($j != 0)) || (COption::GetOptionString($module_id, "different_set", "N") == "N")) echo "display: none;"?>">
 		<td colSpan="2">
 		<table cellspacing="4" cellpadding="0" width="100%">
 		<tr>
@@ -758,7 +758,7 @@ if($USER->isAdmin())
 				<td align="center" width="40%"><b><?= GetMessage('FILEMAN_OPTION_MENU_TYPE')?></b></td>
 				<td align="center" width="60%"><b><?= GetMessage('FILEMAN_OPTION_MENU_NAME')?></b></td>
 			</tr>
-			<?
+			<?php 
 			$armt = GetMenuTypes($siteList[$j]["ID"], "left=".GetMessage("FILEMAN_OPTION_LEFT_MENU_NAME").",top=".GetMessage("FILEMAN_OPTION_TOP_MENU_NAME"));
 
 			$i = 0;
@@ -769,29 +769,29 @@ if($USER->isAdmin())
 				<td><input type="text" name="menutypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?= $i?>_type" value="<?= htmlspecialcharsbx($key)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 				<td><input type="text" name="menutypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?= $i?>_name" value="<?= htmlspecialcharsbx($title)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 			</tr>
-				<?else:?>
+				<?php else:?>
 			<tr>
 				<td>
-				<?echo htmlspecialcharsbx($key)?>
+				<?php echo htmlspecialcharsbx($key)?>
 				<input type="hidden" name="menutypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?= $i?>_type" value="<?= htmlspecialcharsbx($key)?>">
 				</td>
 				<td>
-				<?echo htmlspecialcharsbx($title)?>
+				<?php echo htmlspecialcharsbx($title)?>
 				<input type="hidden" name="menutypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?= $i?>_name" value="<?= htmlspecialcharsbx($title)?>">
 				</td>
 			</tr>
-				<?
+				<?php 
 				endif;
 				$i++;
 			endforeach;
 			?>
 			<input type="hidden" name="menutypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_count" value="<?= $i?>">
-			<?if($USER->CanDoOperation('fileman_edit_menu_types')):?>
+			<?php if($USER->CanDoOperation('fileman_edit_menu_types')):?>
 			<tr>
 				<td><input type="text" name="menutypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_new_type" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 				<td><input type="text" name="menutypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_new_name" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			</table>
 			</td>
 		</tr>
@@ -807,19 +807,19 @@ if($USER->isAdmin())
 				<td align="center" width="40%"><b><?= GetMessage('FILEMAN_OPTION_PROPS_TYPE')?></b></td>
 				<td align="center" width="60%"><b><?= GetMessage('FILEMAN_OPTION_PROPS_NAME')?></b></td>
 			</tr>
-			<?
+			<?php 
 			$i = 0;
 			foreach (CFileMan::GetPropstypes($siteList[$j]["ID"]) as $key => $val)
 			{?>
 			<tr>
-				<td><input type="text" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?echo $i?>_type" value="<?= htmlspecialcharsbx($key)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
-				<td><input type="text" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?echo $i?>_name" value="<?= htmlspecialcharsbx($val)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
+				<td><input type="text" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?php echo $i?>_type" value="<?= htmlspecialcharsbx($key)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
+				<td><input type="text" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_<?php echo $i?>_name" value="<?= htmlspecialcharsbx($val)?>" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 			</tr>
-			<?
+			<?php 
 				$i++;
 			}
 			?>
-			<input type="hidden" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_count" value="<?echo $i+1?>">
+			<input type="hidden" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_count" value="<?php echo $i+1?>">
 			<tr>
 				<td><input type="text" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_new_type" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
 				<td><input type="text" name="propstypes_<?= htmlspecialcharsbx($siteList[$j]["ID"])?>_new_name" value="" style="width:100%; -moz-box-sizing: border-box; box-sizing: border-box;"></td>
@@ -831,7 +831,7 @@ if($USER->isAdmin())
 	</td>
 	</tr>
 
-	<? } ?>
+	<?php  } ?>
 	<tr class="heading">
 		<td colspan="2"><?= GetMessage("FILEMAN_SEARCH_TITLE")?></td>
 	</tr>
@@ -841,11 +841,11 @@ if($USER->isAdmin())
 	</tr>
 	<tr>
 		<td><label for="search_max_res_count"><?= GetMessage("FILEMAN_SEARCH_MAX_RES_CNT")?>:</label></td>
-		<?
+		<?php 
 		$val = COption::GetOptionString($module_id, "search_max_res_count", "");
 		$def_val = ' - '.GetMessage('FILEMAN_SEARCH_NO_LIMITS').' -';
 		?>
-		<td><input type="text" name="search_max_res_count" id="search_max_res_count" value="<? echo $val != "" ? $val : $def_val; ?>" <? if ($val == ""): ?>class="def-val"<?endif;?> onfocus="if (this.value == '<?= $def_val?>' || this.value == ''){this.value = ''; BX.removeClass(this, 'def-val');}" onblur="if (this.value == ''){this.value = '<?= $def_val?>'; BX.addClass(this, 'def-val');}" />
+		<td><input type="text" name="search_max_res_count" id="search_max_res_count" value="<?php  echo $val != "" ? $val : $def_val; ?>" <?php  if ($val == ""): ?>class="def-val"<?php endif;?> onfocus="if (this.value == '<?= $def_val?>' || this.value == ''){this.value = ''; BX.removeClass(this, 'def-val');}" onblur="if (this.value == ''){this.value = '<?= $def_val?>'; BX.addClass(this, 'def-val');}" />
 		</td>
 	</tr>
 	<tr>
@@ -865,30 +865,30 @@ if($USER->isAdmin())
 	</tr>
 	</tr>
 	<!--end of archive-->
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 <tr>
 	<td valign="top"><label for="use_editor_3"><?= GetMessage('FILEMAN_OPTION_USE_EDITOR_3')?></label></td>
-	<td><input type="checkbox" name="use_editor_3" id="use_editor_3" value="Y" <?if($useEditor3) echo " checked"?>></td>
+	<td><input type="checkbox" name="use_editor_3" id="use_editor_3" value="Y" <?php if($useEditor3) echo " checked"?>></td>
 </tr>
 
-<? if (!$useEditor3):?>
+<?php  if (!$useEditor3):?>
 <tr>
 	<td valign="top"><label for="show_untitled_styles"><?= GetMessage('FILEMAN_OPTION_USE_ONLY_DEFINED_STYLES')?></label></td>
-	<td><input type="checkbox" name="show_untitled_styles" id="show_untitled_styles" value="Y" <?if(COption::GetOptionString($module_id, "show_untitled_styles", "N")=="Y")echo " checked"?>></td>
+	<td><input type="checkbox" name="show_untitled_styles" id="show_untitled_styles" value="Y" <?php if(COption::GetOptionString($module_id, "show_untitled_styles", "N")=="Y")echo " checked"?>></td>
 </tr>
 <tr>
 	<td valign="top"><label for="render_styles_in_classlist"><?= GetMessage('FILEMAN_OPTION_RENDER_CLASSLIST_STYLE')?>:</label></td>
-	<td><input type="checkbox" name="render_styles_in_classlist" id="render_styles_in_classlist" value="Y" <?if(COption::GetOptionString($module_id, "render_styles_in_classlist", "N") == "Y") echo " checked"?>></td>
+	<td><input type="checkbox" name="render_styles_in_classlist" id="render_styles_in_classlist" value="Y" <?php if(COption::GetOptionString($module_id, "render_styles_in_classlist", "N") == "Y") echo " checked"?>></td>
 </tr>
 <tr>
 	<td valign="top"><label for="htmleditor_fullscreen"><?= GetMessage('FILEMAN_OPT_FULLSCREEN')?></label></td>
-	<td><input type="checkbox" name="htmleditor_fullscreen" id="htmleditor_fullscreen" value="Y" <?if(COption::GetOptionString($module_id, "htmleditor_fullscreen", "N")=="Y")echo " checked"?>></td>
+	<td><input type="checkbox" name="htmleditor_fullscreen" id="htmleditor_fullscreen" value="Y" <?php if(COption::GetOptionString($module_id, "htmleditor_fullscreen", "N")=="Y")echo " checked"?>></td>
 </tr>
 <tr>
 	<td valign="top"><label for="allow_render_components"><?= GetMessage('FILEMAN_OPT_ALLOW_RENDER_COMPONENTS')?>:</label></td>
-	<td><input type="checkbox" name="allow_render_components" id="allow_render_components" value="Y" <?if(COption::GetOptionString($module_id, "allow_render_components", "N") == "Y") echo " checked"?>></td>
+	<td><input type="checkbox" name="allow_render_components" id="allow_render_components" value="Y" <?php if(COption::GetOptionString($module_id, "allow_render_components", "N") == "Y") echo " checked"?>></td>
 </tr>
-<? endif; // $useEditor3?>
+<?php  endif; // $useEditor3?>
 	<tr>
 		<td valign="top"><label for="editor_body_id"><?= GetMessage('FILEMAN_OPTION_EDITOR_BODY_ID')?>:</label></td>
 		<td><input type="text" id="editor_body_id" name="editor_body_id" value="<?= COption::GetOptionString($module_id, "editor_body_id", "")?>" /></td>
@@ -898,11 +898,11 @@ if($USER->isAdmin())
 		<td><input type="text" id="editor_body_class" name="editor_body_class" value="<?= COption::GetOptionString($module_id, "editor_body_class", "")?>" /></td>
 	</tr>
 
-<? if (!$useEditor3):?>
+<?php  if (!$useEditor3):?>
 	<tr class="heading">
 		<td colspan="2"><?= GetMessage("FILEMAN_EDITOR_TOOLBAR_SETTINGS");?></td>
 	</tr>
-<?
+<?php 
 $arEdTypes = array(
 	array(
 		"code" => "filesrc_pub",
@@ -1010,9 +1010,9 @@ for ($i = 0, $l = count($arEdTypes); $i < $l; $i++)
 		<td width="50%"><label for='ed_toolbar_type'><?= GetMessage("FILEMAN_EDITOR_TYPE");?>:</td>
 		<td  valign="top">
 			<select name="ed_toolbar_type" id="ed_toolbar_type">
-				<?for ($i = 0, $l = count($arEdTypes); $i < $l; $i++):?>
+				<?php for ($i = 0, $l = count($arEdTypes); $i < $l; $i++):?>
 				<option value="<?= $arEdTypes[$i]["code"]?>"><?= $arEdTypes[$i]["title"]?></option>
-				<? endfor;?>
+				<?php  endfor;?>
 			</select>
 		</td>
 	</tr>
@@ -1042,7 +1042,7 @@ table.bxopt-tbl td.bxopt-but-title label{margin: 3px 2px; cursor: default;}
 			<div id="bxopt_but_div" class="bxopt-cont">
 			</div>
 
-<?
+<?php 
 // Get lang messages for editor for displaying buttons
 function _GtFMess()
 {
@@ -1402,29 +1402,29 @@ new BXButtonConfig();
 		</td>
 	</tr>
 
-<?endif; // $useEditor3?>
+<?php endif; // $useEditor3?>
 	<tr class="heading">
-		<td colspan="2"><? echo GetMessage("FILEMAN_EDITOR_CONVERT_SETTINGS");?></td>
+		<td colspan="2"><?php  echo GetMessage("FILEMAN_EDITOR_CONVERT_SETTINGS");?></td>
 	</tr>
 
-	<? if ($useEditor3):?>
+	<?php  if ($useEditor3):?>
 	<tr>
-		<td width="50%" valign="top"><label for='replace_new_lines'><?echo GetMessage("FILEMAN_REPLACE_NEW_LINES_WITH_BR");?>:</td>
+		<td width="50%" valign="top"><label for='replace_new_lines'><?php echo GetMessage("FILEMAN_REPLACE_NEW_LINES_WITH_BR");?>:</td>
 		<td  valign="top">
-			<input type="checkbox" name="replace_new_lines" id='replace_new_lines' value="Y" <? if (COption::GetOptionString($module_id, "replace_new_lines", 'Y') == 'Y') echo 'checked';?>>
+			<input type="checkbox" name="replace_new_lines" id='replace_new_lines' value="Y" <?php  if (COption::GetOptionString($module_id, "replace_new_lines", 'Y') == 'Y') echo 'checked';?>>
 		</td>
 	</tr>
-	<? else:?>
+	<?php  else:?>
 	<tr>
-		<td width="50%" valign="top"><label for='use_lca'><?echo GetMessage("FILEMAN_USE_LCA");?>:</td>
+		<td width="50%" valign="top"><label for='use_lca'><?php echo GetMessage("FILEMAN_USE_LCA");?>:</td>
 		<td  valign="top">
-			<input type="checkbox" name="use_lca" id='use_lca' value="Y" <? if (COption::GetOptionString($module_id, "use_lca", 'N') == 'Y') echo 'checked';?>>
+			<input type="checkbox" name="use_lca" id='use_lca' value="Y" <?php  if (COption::GetOptionString($module_id, "use_lca", 'N') == 'Y') echo 'checked';?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="50%" valign="top"><?echo GetMessage("FILEMAN_ENTITIES_GROUPS");?>:</td>
+		<td width="50%" valign="top"><?php echo GetMessage("FILEMAN_ENTITIES_GROUPS");?>:</td>
 		<td  valign="top">
-			<?
+			<?php 
 			$opt = COption::GetOptionString($module_id, "ar_entities", 'umlya,greek,other');
 			if ($opt == 'none')
 				$ar_entities = array();
@@ -1433,42 +1433,42 @@ new BXButtonConfig();
 			?>
 			<table border="0" style="width:100%">
 			<tr>
-				<td><input type="checkbox" name="ar_entities[]" id='ent_umlya' value="umlya" <? if(in_array('umlya',$ar_entities)) echo 'checked';?>></td>
-				<td><label for='ent_umlya'><?echo GetMessage("FILEMAN_ENTITIES_UMLYA");?></label></td>
+				<td><input type="checkbox" name="ar_entities[]" id='ent_umlya' value="umlya" <?php  if(in_array('umlya',$ar_entities)) echo 'checked';?>></td>
+				<td><label for='ent_umlya'><?php echo GetMessage("FILEMAN_ENTITIES_UMLYA");?></label></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="ar_entities[]" id="ent_greek" value="greek" <? if(in_array('greek',$ar_entities)) echo 'checked';?>></td>
-				<td><label for='ent_greek'><?echo GetMessage("FILEMAN_ENTITIES_GREEK");?></label></td>
+				<td><input type="checkbox" name="ar_entities[]" id="ent_greek" value="greek" <?php  if(in_array('greek',$ar_entities)) echo 'checked';?>></td>
+				<td><label for='ent_greek'><?php echo GetMessage("FILEMAN_ENTITIES_GREEK");?></label></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="ar_entities[]" value="other" id="ent_other" <? if(in_array('other',$ar_entities)) echo 'checked';?>></td>
-				<td><label for='ent_other'><?echo GetMessage("FILEMAN_ENTITIES_OTHER");?></label></td>
+				<td><input type="checkbox" name="ar_entities[]" value="other" id="ent_other" <?php  if(in_array('other',$ar_entities)) echo 'checked';?>></td>
+				<td><label for='ent_other'><?php echo GetMessage("FILEMAN_ENTITIES_OTHER");?></label></td>
 			</tr>
 			</table>
 		</td>
 	</tr>
-	<? endif; //$useEditor3 ?>
+	<?php  endif; //$useEditor3 ?>
 
-<? if ($useEditor3):?>
+<?php  if ($useEditor3):?>
 
 	<tr class="heading">
-		<td colspan="2"><? echo GetMessage("FILEMAN_OPTION_SPELL_SET");?></td>
+		<td colspan="2"><?php  echo GetMessage("FILEMAN_OPTION_SPELL_SET");?></td>
 	</tr>
 
-	<?
+	<?php 
 	if (function_exists('pspell_config_create')):
 		$use_pspell_checked = (COption::GetOptionString($module_id, "use_pspell", "Y")=="Y") ? "checked" : "";
 	?>
 	<tr>
-		<td valign="top"><label for="use_pspell"><?echo GetMessage("FILEMAN_OPTION_USE_PSPELL");?></label><br>
-						<a title="<?echo GetMessage("FILEMAN_OPTION_ADDISH_DICS_TITLE");?>" href="http://aspell.sourceforge.net/" target="blank"><?echo GetMessage("FILEMAN_OPTION_ADDISH_DICS");?></a><br>
+		<td valign="top"><label for="use_pspell"><?php echo GetMessage("FILEMAN_OPTION_USE_PSPELL");?></label><br>
+						<a title="<?php echo GetMessage("FILEMAN_OPTION_ADDISH_DICS_TITLE");?>" href="http://aspell.sourceforge.net/" target="blank"><?php echo GetMessage("FILEMAN_OPTION_ADDISH_DICS");?></a><br>
 		</td>
 		<td>
-			<input type="checkbox" name="use_pspell" id="use_pspell" value="Y" <?echo $use_pspell_checked;?>>
+			<input type="checkbox" name="use_pspell" id="use_pspell" value="Y" <?php echo $use_pspell_checked;?>>
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("FILEMAN_OPTION_USER_DIC_DIR");?></td>
+		<td><?php  echo GetMessage("FILEMAN_OPTION_USER_DIC_DIR");?></td>
 		<td>
 			<input type="text" name="user_dics_path" style="width: 100%" value="<?= htmlspecialcharsbx(COption::GetOptionString($module_id, "user_dics_path", "/bitrix/modules/fileman/u_dics"))?>">
 		</td>
@@ -1479,22 +1479,22 @@ new BXButtonConfig();
 			<input type="checkbox" name="use_separeted_dics" id="use_separeted_dics" value="Y" <?= (COption::GetOptionString($module_id, "use_separeted_dics", "Y")=="Y") ? "checked" : "";?>>
 		</td>
 	</tr>
-	<?else:
+	<?php else:
 			COption::SetOptionString($module_id, "use_pspell", "N");
 	?>
 	<tr>
-		<td valign="top"><?echo GetMessage("FILEMAN_OPTION_USE_PSPELL");?><br>
-			<a title="<?echo GetMessage("FILEMAN_OPTION_INSTALL_PSPELL_TITLE");?>" href="http://php.net/manual/en/ref.pspell.php" target="blank"><?echo GetMessage("FILEMAN_OPTION_INSTALL_PSPELL");?></a><br>
-			<a title="<?echo GetMessage("FILEMAN_OPTION_ADDISH_DICS_TITLE");?>" href="http://aspell.sourceforge.net/" target="blank"><?echo GetMessage("FILEMAN_OPTION_ADDISH_DICS");?></a><br>
+		<td valign="top"><?php echo GetMessage("FILEMAN_OPTION_USE_PSPELL");?><br>
+			<a title="<?php echo GetMessage("FILEMAN_OPTION_INSTALL_PSPELL_TITLE");?>" href="http://php.net/manual/en/ref.pspell.php" target="blank"><?php echo GetMessage("FILEMAN_OPTION_INSTALL_PSPELL");?></a><br>
+			<a title="<?php echo GetMessage("FILEMAN_OPTION_ADDISH_DICS_TITLE");?>" href="http://aspell.sourceforge.net/" target="blank"><?php echo GetMessage("FILEMAN_OPTION_ADDISH_DICS");?></a><br>
 		</td>
 		<td valign="top">
-			<?echo GetMessage("FILEMAN_OPTION_NOT_INSTALLED");?>
+			<?php echo GetMessage("FILEMAN_OPTION_NOT_INSTALLED");?>
 		</td>
 	</tr>
-	<?endif; // function_exists('pspell_config_create')?>
-<? endif; //$useEditor3?>
+	<?php endif; // function_exists('pspell_config_create')?>
+<?php  endif; //$useEditor3?>
 
-<?
+<?php 
 /* MEDIALIB TAB*/
 $tabControl->BeginNextTab();
 
@@ -1505,56 +1505,56 @@ function _MLGetTypeHTML($type = array())
 ?>
 <div class="bx-ml-type"  id="type_cont_<?= $type["id"]?>">
 <div class="bx-ml-type-label">
-	<?if ($type["b_new"]):?>
+	<?php if ($type["b_new"]):?>
 		<input type="hidden" name="<?= $name."[NEW]"?>" value="Y" />
-	<?endif;?>
+	<?php endif;?>
 
 	<input type="hidden" name="<?= $name."[SYS]"?>" value="<?= $type["system"] ? "Y" : "N"?>" />
 
-	<? if($type["system"]):?>
+	<?php  if($type["system"]):?>
 		<div><?= htmlspecialcharsex($type["name"])?></div>
-	<? else:?>
+	<?php  else:?>
 		<div id="type_name_<?= $type["id"]?>" class="bx-ml-editable"><?= htmlspecialcharsex($type["name"])?></div>
-	<?endif;?>
+	<?php endif;?>
 
-	<? if($type["code"] != "image" || !$type["system"]):?>
+	<?php  if($type["code"] != "image" || !$type["system"]):?>
 		<a  id="type_del_<?= $type["id"]?>" class="bx-ml-type-del" href="javascript:void(0);"><?= GetMessage("FILEMAN_OPTION_DELETE")?></a>
-	<?endif;?>
+	<?php endif;?>
 </div>
 
-<? if($type["code"] != "image" || !$type["system"]):?>
+<?php  if($type["code"] != "image" || !$type["system"]):?>
 	<div class="bx-ml-type-label-deleted">
 	<input id="type_empty_<?= $type["id"]?>" type="hidden"  value="<?= $type['empty'] ? 'Y' : 'N'?>" />
 	<input id="type_del_inp_<?= $type["id"]?>" type="hidden"  name="<?= $name."[DEL]"?>" value="N" />
 	<div id="type_del_name_<?= $type["id"]?>"><?= htmlspecialcharsex($type["name"])?></div>
 	<a  id="type_restore_<?= $type["id"]?>" class="bx-ml-type-restore" href="javascript:void(0);"><?= GetMessage("FILEMAN_ML_TYPE_RESTORE")?></a>
 </div>
-<?endif;?>
+<?php endif;?>
 
 <div class="bx-ml-type-params">
 	<table border="0" width="100%">
-		<tr<?if(!$type["system"]):?> class="adm-detail-required-field"<?endif;?>><td class="adm-detail-content-cell-l bx-ml-td-left" width="40%">
+		<tr<?php if(!$type["system"]):?> class="adm-detail-required-field"<?php endif;?>><td class="adm-detail-content-cell-l bx-ml-td-left" width="40%">
 			<label for="type_name_inp_<?= $type["id"]?>"><?= GetMessage('FILEMAN_OPTION_PROPS_NAME')?>:</label>
 		</td><td class="adm-detail-content-cell-r" width="60%">
-			<? if($type["system"]):?>
+			<?php  if($type["system"]):?>
 				<span class="bx-sys-value"><?= htmlspecialcharsex($type["name"])?></span>
 				<input type="hidden" id="type_name_inp_<?= $type["id"]?>" value="<?= htmlspecialcharsbx($type["name"])?>" />
 
-			<? else:?>
+			<?php  else:?>
 				<input type="text"  name="<?= $name."[NAME]"?>" id="type_name_inp_<?= htmlspecialcharsbx($type["id"])?>" value="<?= htmlspecialcharsbx($type["name"])?>" size="40" />
-			<?endif;?>
+			<?php endif;?>
 		</td></tr>
 
-		<tr<?if(!$type["system"]):?> class="adm-detail-content-cell-l adm-detail-required-field"<?endif;?>><td class="bx-ml-td-left" width="40%">
+		<tr<?php if(!$type["system"]):?> class="adm-detail-content-cell-l adm-detail-required-field"<?php endif;?>><td class="bx-ml-td-left" width="40%">
 			<input type="hidden" name="<?= $name."[CODE]"?>" value="<?= $type["code"]?>" />
-			<label for="type_code_inp_<?= htmlspecialcharsbx($type["id"])?>"><?= GetMessage('FILEMAN_ML_ADD_TYPE_CODE')?><? if(!$type["system"]):?><span class="required"><sup>1</sup></span><?endif;?>:</label>
+			<label for="type_code_inp_<?= htmlspecialcharsbx($type["id"])?>"><?= GetMessage('FILEMAN_ML_ADD_TYPE_CODE')?><?php  if(!$type["system"]):?><span class="required"><sup>1</sup></span><?php endif;?>:</label>
 		</td><td class="adm-detail-content-cell-r" width="60%">
-			<? if($type["system"]):?>
+			<?php  if($type["system"]):?>
 				<span class="bx-sys-value"><?= htmlspecialcharsex($type["code"])?></span>
 				<input type="hidden" name="<?= $name."[CODE]"?>" value="<?= htmlspecialcharsbx($type["code"])?>" />
-			<? else:?>
+			<?php  else:?>
 				<input type="text" name="<?= $name."[CODE]"?>" id="type_code_inp_<?= htmlspecialcharsbx($type["id"])?>" value="<?= htmlspecialcharsbx($type["code"])?>" size="40" />
-			<?endif;?>
+			<?php endif;?>
 		</td></tr>
 
 		<tr class="adm-detail-required-field"><td class="adm-detail-content-cell-l bx-ml-td-left" width="40%">
@@ -1565,17 +1565,17 @@ function _MLGetTypeHTML($type = array())
 		<tr><td class="adm-detail-content-cell-l bx-ml-td-left" width="40%">
 			<label for="type_desc_inp_<?= htmlspecialcharsbx($type["id"])?>"><?= GetMessage('FILEMAN_ML_ADD_TYPE_DESC')?>:</label>
 		</td><td class="adm-detail-content-cell-r" style="height: 50px;" width="60%">
-			<? if($type["system"]):?>
+			<?php  if($type["system"]):?>
 				<input name="<?= $name."[DESC]"?>" type="hidden" value="<?= htmlspecialcharsbx($type["desc"])?>" />
 				<span><?= htmlspecialcharsbx($type["desc"])?></span>
-			<? else:?>
+			<?php  else:?>
 				<textarea name="<?= $name."[DESC]"?>" id="type_desc_inp_<?= htmlspecialcharsbx($type["id"])?>" style="width: 260px;" rows="2" cols="30"><?= htmlspecialcharsbx($type["desc"])?></textarea>
-			<?endif;?>
+			<?php endif;?>
 		</td></tr>
 	</table>
 </div>
 </div>
-<?
+<?php 
 	$s = ob_get_contents();
 	ob_end_clean();
 	return $s;
@@ -1583,13 +1583,13 @@ function _MLGetTypeHTML($type = array())
 ?>
 
 	<tr>
-		<?
+		<?php 
 		$useML = (COption::GetOptionString($module_id, "use_medialib", "Y") == "Y");
 		$displ = $useML ? '' : 'style="display:none;"';
 		?>
 		<td width="40%">
 		<label for="use_medialib"><?= GetMessage("FILEMAN_OPTION_USE_MEDIALIB")?>:</label></td>
-		<td width="60%"><input type="checkbox" name="use_medialib" id="use_medialib" value="Y" <?if($useML) echo " checked";?> onclick="BX('edit5_edit_table').className = 'edit-table' + (this.checked ? '' : ' edit-table-ml-hidden');">
+		<td width="60%"><input type="checkbox" name="use_medialib" id="use_medialib" value="Y" <?php if($useML) echo " checked";?> onclick="BX('edit5_edit_table').className = 'edit-table' + (this.checked ? '' : ' edit-table-ml-hidden');">
 		<img src="/bitrix/images/1.gif" style="width: 110px; height: 1px;" />
 		</td>
 	</tr>
@@ -1607,10 +1607,10 @@ function _MLGetTypeHTML($type = array())
 	</tr>
 	<tr <?= $displ?> class="bx-ml-hidden-row">
 		<td><label for="medialib_use_default"><?= GetMessage("FILEMAN_MEDIA_USE_DEF")?>:</label></td>
-		<td><input type="checkbox" value="Y" <?if(COption::GetOptionString($module_id, "ml_use_default", true)) echo " checked";?> id="medialib_use_default" name="medialib_use_default"/></td>
+		<td><input type="checkbox" value="Y" <?php if(COption::GetOptionString($module_id, "ml_use_default", true)) echo " checked";?> id="medialib_use_default" name="medialib_use_default"/></td>
 	</tr>
 
-<?
+<?php 
 CMedialib::Init();
 $arMLTypes = CMedialib::GetTypes(array(), true);
 $maxCount = 0;
@@ -1621,15 +1621,15 @@ $maxCount = 0;
 	<tr <?= $displ?> class="bx-ml-hidden-row"><td colspan="2" align="center">
 
 		<table id="bxml_type_tbl">
-		<?for ($i = 0, $l = count($arMLTypes); $i < $l; $i++):?>
+		<?php for ($i = 0, $l = count($arMLTypes); $i < $l; $i++):?>
 			<tr><td>
 			<?= _MLGetTypeHTML($arMLTypes[$i]);?>
-			<?
+			<?php 
 			if ($maxCount <= $arMLTypes[$i]['id'])
 				$maxCount = $arMLTypes[$i]['id'] + 1;
 			?>
 			</td></tr>
-		<?endfor;?>
+		<?php endfor;?>
 			<tr><td align="right">
 				<input onclick="addType();" type="button" value="<?= GetMessage("FILEMAN_ML_ADD_TYPE")?> >>" title="<?= GetMessage("FILEMAN_ML_ADD_TYPE_TITLE")?>" />
 			</td></tr>
@@ -1648,9 +1648,9 @@ window.onload = function(){setTimeout(function()
 		curCount: <?= $maxCount?>
 	};
 
-	<?for ($i = 0, $l = count($arMLTypes); $i < $l; $i++):?>
+	<?php for ($i = 0, $l = count($arMLTypes); $i < $l; $i++):?>
 		InitEventForType('<?= $arMLTypes[$i]['id']?>');
-	<?endfor;?>
+	<?php endfor;?>
 },
 50);};
 
@@ -1746,9 +1746,9 @@ function InitEventForType(id)
 </script>
 	</td></tr>
 
-<?if ($USER->IsAdmin()):?>
-<?$tabControl->BeginNextTab();?>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights2.php");?>
+<?php if ($USER->IsAdmin()):?>
+<?php $tabControl->BeginNextTab();?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights2.php");?>
 
 	<tr class="heading">
 		<td colspan="2"><a name="limitaccess"></a><?= GetMessage('fileman_opt_restricted')?></td>
@@ -1756,7 +1756,7 @@ function InitEventForType(id)
 	<tr>
 		<td valign="top"><?= GetMessage('fileman_opt_restricted_rights')?></td>
 		<td>
-<?
+<?php 
 $arGroups = explode(",", COption::GetOptionString('fileman', 'default_edit_groups', ''));
 $gr = CGroup::GetList(($v1="sort"), ($v2="asc"), array("ACTIVE"=>"Y", "ADMIN"=>"N", "ANONYMOUS"=>"N"));
 $sOptions = '';
@@ -1769,27 +1769,27 @@ while($group = $gr->Fetch())
 	$sOptions .= '<option value="'.$group["ID"].'"'.($sel? " selected":"").'>'.htmlspecialcharsbx($group["NAME"])." [".$group["ID"]."]".'</option>'."\n";
 }
 ?>
-			<?if($sSel <> ''):?>
+			<?php if($sSel <> ''):?>
 				<?= GetMessage('fileman_opt_sel')?> <b><?=$sSel?></b><br><br>
-			<?endif?>
+			<?php endif?>
 			<select name="DEFAULT_EDIT_GROUPS[]" size="7" multiple>
-				<?echo $sOptions;?>
+				<?php echo $sOptions;?>
 			</select>
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 <script>
 	function RestoreDefaults()
 	{
 		if(confirm('<?= AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-			window.location = "<?= $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)?>&<?=bitrix_sessid_get()?>";
+			window.location = "<?= $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)?>&<?=bitrix_sessid_get()?>";
 	}
 </script>
-<input type="submit" class="adm-btn-save" <?if (!$USER->CanDoOperation('fileman_edit_all_settings')) echo "disabled" ?> name="Update" value="<?= GetMessage('FILEMAN_OPTION_SAVE')?>">
-<input type="reset" name="reset" onClick="BX('site_select_id').disabled=<? if(COption::GetOptionString($module_id, "different_set", "N") != "Y") echo "true"; else echo "false"; ?>; SelectSite('<?echo htmlspecialcharsbx($siteList[0]["ID"])?>');" value="<?= GetMessage('FILEMAN_OPTION_RESET')?>">
+<input type="submit" class="adm-btn-save" <?php if (!$USER->CanDoOperation('fileman_edit_all_settings')) echo "disabled" ?> name="Update" value="<?= GetMessage('FILEMAN_OPTION_SAVE')?>">
+<input type="reset" name="reset" onClick="BX('site_select_id').disabled=<?php  if(COption::GetOptionString($module_id, "different_set", "N") != "Y") echo "true"; else echo "false"; ?>; SelectSite('<?php echo htmlspecialcharsbx($siteList[0]["ID"])?>');" value="<?= GetMessage('FILEMAN_OPTION_RESET')?>">
 <input type="hidden" name="Update" value="Y">
-<input <?if (!$USER->CanDoOperation('fileman_edit_all_settings')) echo "disabled" ?> type="button" title="<?= GetMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?= GetMessage('MAIN_RESTORE_DEFAULTS')?>">
-<?$tabControl->End();?>
+<input <?php if (!$USER->CanDoOperation('fileman_edit_all_settings')) echo "disabled" ?> type="button" title="<?= GetMessage('MAIN_HINT_RESTORE_DEFAULTS')?>" OnClick="RestoreDefaults();" value="<?= GetMessage('MAIN_RESTORE_DEFAULTS')?>">
+<?php $tabControl->End();?>
 </form>

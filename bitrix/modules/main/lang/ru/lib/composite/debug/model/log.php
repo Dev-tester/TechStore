@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOG_ENTITY_HOST_FIELD"] = "Хост";
 $MESS["LOG_ENTITY_URI_FIELD"] = "Адрес страницы";
 $MESS["LOG_ENTITY_TITLE_FIELD"] = "Название страницы";

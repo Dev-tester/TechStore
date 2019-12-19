@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Intranet\Integration\Templates\Bitrix24\ThemePicker;
 use Bitrix\Main\Localization\Loc;
@@ -18,7 +18,7 @@ $isIndexPage = $APPLICATION->GetCurPage(true) == SITE_DIR."stream/index.php";
 								</td>
 							</tr>
 						</table>
-<?
+<?php 
 if ($isCompositeMode && !$isIndexPage)
 {
 	$dynamicArea = \Bitrix\Main\Page\FrameStatic::getCurrentDynamicArea();
@@ -35,48 +35,48 @@ if ($isCompositeMode && !$isIndexPage)
 					<td class="bx-layout-inner-center">
 						<div id="footer">
 							<span id="copyright">
-								<?if ($isBitrix24Cloud):?>
+								<?php if ($isBitrix24Cloud):?>
 									<a id="bitrix24-logo" target="_blank" class="bitrix24-logo-<?=(LANGUAGE_ID == "ua") ? LANGUAGE_ID : Loc::getDefaultLang(LANGUAGE_ID)?>" href="<?=GetMessage("BITRIX24_URL")?>"></a>
-									<?include($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH."/languages.php");?>
+									<?php include($_SERVER["DOCUMENT_ROOT"].SITE_TEMPLATE_PATH."/languages.php");?>
 									<span class="bx-lang-btn <?=LANGUAGE_ID?>" id="bx-lang-btn" onclick="B24.openLanguagePopup(this)">
 										<span class="bx-lang-btn-icon"><?=$b24Languages[LANGUAGE_ID]["NAME"]?></span>
 									</span>
-									<?
+									<?php 
 									$numLanguages = count($b24Languages);
 									$numRowItems = ceil($numLanguages/3);
 									?>
 									<div style="display: none" id="b24LangPopupContent">
 										<table>
-											<?for ($i=1; $i<=$numRowItems; $i++): ?>
+											<?php for ($i=1; $i<=$numRowItems; $i++): ?>
 											<tr>
-												<?for ($j=1; $j<=3; $j++): ?>
+												<?php for ($j=1; $j<=3; $j++): ?>
 													<td style="cursor: pointer; padding: 10px 12px; 5px 5px">
 														<span onclick="B24.changeLanguage('<?=key($b24Languages)?>');">
-															<?
+															<?php 
 															$lang = array_shift($b24Languages);
 															echo $lang["NAME"].($lang["IS_BETA"] ? ", beta" : "");
 															?>
 														</span>
 													</td>
-													<?
+													<?php 
 													if (empty($b24Languages))
 														break 2;
 													?>
-												<?endfor?>
+												<?php endfor?>
 											</tr>
-											<?endfor?>
+											<?php endfor?>
 										</table>
 									</div>
-								<?endif?>
+								<?php endif?>
 								<span class="bitrix24-copyright"><?=GetMessage("BITRIX24_COPYRIGHT2", array("#CURRENT_YEAR#" => date("Y")))?></span>
-								<?
+								<?php 
 								if (CModule::IncludeModule("bitrix24"))
 								{
 									$licensePrefix = CBitrix24::getLicensePrefix();
 									$licenseType = CBitrix24::getLicenseType();
 								}
 								?>
-								<?
+								<?php 
 								if ($isBitrix24Cloud && $partnerID = COption::GetOptionString("bitrix24", "partner_id", ""))
 								{
 									if ($partnerID != "9409443") //sber
@@ -88,8 +88,8 @@ if ($isCompositeMode && !$isIndexPage)
 											"BX24_LOADING"       => GetMessage("BX24_LOADING"),
 										);
 										?>
-										<a href="javascript:void(0)" onclick="showPartnerForm(<?echo CUtil::PhpToJSObject($arParamsPartner)?>); return false;" class="footer-discuss-link"><?=GetMessage("BITRIX24_PARTNER_CONNECT")?></a>
-										<?
+										<a href="javascript:void(0)" onclick="showPartnerForm(<?php echo CUtil::PhpToJSObject($arParamsPartner)?>); return false;" class="footer-discuss-link"><?=GetMessage("BITRIX24_PARTNER_CONNECT")?></a>
+										<?php 
 									}
 								}
 								elseif (
@@ -100,14 +100,14 @@ if ($isCompositeMode && !$isIndexPage)
 									$orderParams = \CBitrix24::getPartnerOrderFormParams();
 								?>
 									<a class="b24-web-form-popup-btn-57 footer-discuss-link" onclick="B24.showPartnerOrderForm(<?=CUtil::PhpToJSObject($orderParams)?>);"><?=GetMessage("BITRIX24_PARTNER_ORDER")?></a>
-								<?
+								<?php 
 								}
 								else
 								{
 								?>
 									<a href="javascript:void(0)" onclick="BX.Helper.show();"
 									   class="footer-discuss-link"><?=GetMessage("BITRIX24_MENU_CLOUDMAN")?></a>
-								<?
+								<?php 
 								}
 								?>
 
@@ -130,7 +130,7 @@ if ($isCompositeMode && !$isIndexPage)
 	</tr>
 </table>
 
-<?
+<?php 
 $APPLICATION->ShowBodyScripts();
 
 if (defined("BX24_HOST_NAME")):?>
@@ -148,7 +148,7 @@ var _ba = _ba || []; _ba.push(["aid", "1682f9867b9ef36eacf05e345db46f3c"]);
 	s.parentNode.insertBefore(ba, s);
 })(_baLoaded);
 </script>
-<?endif;
+<?php endif;
 
 //$APPLICATION->IncludeComponent("bitrix:pull.request", "", Array(), false, Array("HIDE_ICONS" => "Y"));
 $APPLICATION->IncludeComponent("bitrix:intranet.mail.check", "", array(), false, array("HIDE_ICONS" => "Y"));

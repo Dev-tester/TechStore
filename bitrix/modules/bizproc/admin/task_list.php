@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 \Bitrix\Main\Loader::includeModule('bizproc');
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/prolog.php");
@@ -250,9 +250,9 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("BPATL_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 
-<?
+<?php 
 $ar = array(
 	GetMessage("BPATL_F_MODIFIED"),
 	GetMessage("BPATL_F_NAME"),
@@ -289,25 +289,25 @@ $oFilter->Begin();
 ?>
 	<tr>
 		<td><?= GetMessage("BPATL_F_MODIFIED") ?>:</td>
-		<td><?echo CalendarPeriod("filter_modified_1", htmlspecialcharsbx($filter_modified_1), "filter_modified_2", htmlspecialcharsbx($filter_modified_2), "find_form", "Y")?></td>
+		<td><?php echo CalendarPeriod("filter_modified_1", htmlspecialcharsbx($filter_modified_1), "filter_modified_2", htmlspecialcharsbx($filter_modified_2), "find_form", "Y")?></td>
 	</tr>
 	<tr>
 		<td><?= GetMessage("BPATL_F_NAME") ?>:</td>
-		<td><input type="text" name="filter_name" value="<?echo htmlspecialcharsex($filter_name)?>" size="30">
+		<td><input type="text" name="filter_name" value="<?php echo htmlspecialcharsex($filter_name)?>" size="30">
 		</td>
 	</tr>
 	<tr>
 		<td><?= GetMessage("BPATL_DESCR") ?>:</td>
-		<td><input type="text" name="filter_descr" value="<?echo htmlspecialcharsex($filter_descr)?>" size="30">
+		<td><input type="text" name="filter_descr" value="<?php echo htmlspecialcharsex($filter_descr)?>" size="30">
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("BPATL_FILTER_STATUS")?>:</td>
 		<td>
 			<select name="filter_status" >
-				<option value="0"<?if($filter_status=="0")echo" selected"?>><?echo GetMessage("BPATL_FILTER_STATUS_RUNNING")?></option>
-				<option value="1"<?if($filter_status=="1")echo" selected"?>><?echo GetMessage("BPATL_FILTER_STATUS_COMPLETE")?></option>
-				<option value="2"<?if($filter_status=="2")echo" selected"?>><?echo GetMessage("BPATL_FILTER_STATUS_ALL")?></option>
+				<option value="0"<?php if($filter_status=="0")echo" selected"?>><?php echo GetMessage("BPATL_FILTER_STATUS_RUNNING")?></option>
+				<option value="1"<?php if($filter_status=="1")echo" selected"?>><?php echo GetMessage("BPATL_FILTER_STATUS_COMPLETE")?></option>
+				<option value="2"<?php if($filter_status=="2")echo" selected"?>><?php echo GetMessage("BPATL_FILTER_STATUS_ALL")?></option>
 			</select>
 		</td>
 	</tr>
@@ -315,8 +315,8 @@ $oFilter->Begin();
 		<td><?=GetMessage("BPATL_WORKFLOW_NAME")?>:</td>
 		<td>
 			<select name="filter_workflow_template_id">
-				<option value=""><?echo GetMessage("BPATL_FILTER_STATUS_ALL")?></option>
-				<?
+				<option value=""><?php echo GetMessage("BPATL_FILTER_STATUS_ALL")?></option>
+				<?php 
 				$dbResTmp = CBPTaskService::GetList(
 					array("WORKFLOW_TEMPLATE_NAME" => "ASC"),
 					array(),
@@ -326,17 +326,17 @@ $oFilter->Begin();
 				);
 				while ($arResTmp = $dbResTmp->GetNext()):?>
 					<option value="<?=$arResTmp["WORKFLOW_TEMPLATE_TEMPLATE_ID"]?>"><?=$arResTmp["WORKFLOW_TEMPLATE_NAME"]?></option>
-				<?endwhile;?>
+				<?php endwhile;?>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 if ($allowAdminAccess)
 {
 	?><tr>
 		<td><?= GetMessage("BPATL_USER_ID") ?>:</td>
-		<td><?echo FindUserID(
+		<td><?php echo FindUserID(
 				"filter_user_id",
 				$filter_user_id,
 				"",
@@ -348,10 +348,10 @@ if ($allowAdminAccess)
 				""
 			);?>
 		</td>
-	</tr><?
+	</tr><?php 
 }
 ?>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -363,10 +363,10 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

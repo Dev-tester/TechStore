@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_PAGETITLE"] = "Measure stress level";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_STEP1"] = "Install or open Bitrix24 mobile app";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_STEP1_APPLE"] = "App Store";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOB_PUSH_MES_ORDER_CHECK_ERROR"] = "Fehler beim Drucken des Kassenzettels ##CHECK_ID# für die Bestellung ##ACCOUNT_NUMBER#";
 $MESS["SMOB_ORDERS_MANAGEMENT"] = "Bestellungen verwalten";
 $MESS["SMOB_ORDERS_LIST"] = "Bestellungen";

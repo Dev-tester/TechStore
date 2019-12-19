@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_FILTER_ALL"] = "(all)";
 $MESS["CRM_QUOTE_FILTER_CONTACT_FULL_NAME"] = "Contact name";
 $MESS["CRM_QUOTE_FILTER_MYCOMPANY_TITLE"] = "Your company name";

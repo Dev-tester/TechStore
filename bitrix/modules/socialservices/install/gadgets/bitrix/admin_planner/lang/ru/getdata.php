@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_PLANNER_TASKS"] = "Задачи";
 $MESS["GD_PLANNER_TASKS_CREATOR"] = "Постановщик";
 $MESS["GD_PLANNER_EVENTS"] = "События";

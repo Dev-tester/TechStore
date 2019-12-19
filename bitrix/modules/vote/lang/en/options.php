@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_SAVE'] = "Save";
 $MESS ['VOTE_RESET'] = "Reset";
 $MESS ['VOTE_USE_HTML_EDIT'] = "Use HTML-editor";

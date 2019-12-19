@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/admin/fileman_editor_action.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/admin/fileman_editor_action.php");?>

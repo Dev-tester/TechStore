@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_SEC_REQUIRED"] = "Required";
 $MESS["SALE_EBAY_SEC_ADD_CATEGORY_VARS"] = "Add mapping";
 $MESS["SALE_EBAY_SEC_ADD_CATEGORY_PROP"] = "Create property";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BIZPROC_AS_TITLE'] = "Action Parameters";
 $MESS ['BIZPROC_AS_DESC'] = "Please configure the action parameters.";
 $MESS ['BIZPROC_AS_SEL_FIELD_BUTTON'] = "Select Fields";

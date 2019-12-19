@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_FILTER_NAME"] = "Имя";
 $MESS["MAIN_USER_FILTER_LAST_NAME"] = "Фамилия";
 $MESS["MAIN_USER_FILTER_SECOND_NAME"] = "Отчество";

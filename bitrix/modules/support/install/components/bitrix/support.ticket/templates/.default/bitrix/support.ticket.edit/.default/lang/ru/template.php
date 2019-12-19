@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_TICKET'] = "Обращение";
 $MESS ['SUP_MIN'] = "мин.";
 $MESS ['SUP_USERS_ONLINE'] = "За последние #TIME# обращение просматривали";

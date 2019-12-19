@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUYER_PE_ACCESS_DENIED"] = "Доступ запрещен.";
 $MESS["BUYER_PE_TAB_TITLE"] = "Профиль покупателя";
 $MESS["BUYER_PE_TAB_PROFILE"] = "Профиль";

@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
 
@@ -98,7 +98,7 @@ $containerName = 'catalog-top-container';
 ?>
 
 <div class="catalog-top bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>">
-	<?
+	<?php 
 	if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS']))
 	{
 		$areaIds = array();
@@ -112,19 +112,19 @@ $containerName = 'catalog-top-container';
 		}
 		?>
 		<!-- items-container -->
-		<?
+		<?php 
 		foreach ($arResult['ITEM_ROWS'] as $rowData)
 		{
 			$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
 			?>
 			<div class="row <?=$rowData['CLASS']?>" data-entity="items-row">
-				<?
+				<?php 
 				switch ($rowData['VARIANT'])
 				{
 					case 0:
 						?>
 						<div class="col product-item-small-card">
-							<?
+							<?php 
 							$item = reset($rowItems);
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.item',
@@ -147,7 +147,7 @@ $containerName = 'catalog-top-container';
 							);
 							?>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 1:
@@ -155,7 +155,7 @@ $containerName = 'catalog-top-container';
 						{
 							?>
 							<div class="col-6 product-item-big-card">
-								<?
+								<?php 
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.item',
 									'bootstrap_v4',
@@ -177,7 +177,7 @@ $containerName = 'catalog-top-container';
 								);
 								?>
 							</div>
-							<?
+							<?php 
 						}
 						break;
 
@@ -186,7 +186,7 @@ $containerName = 'catalog-top-container';
 						{
 							?>
 							<div class="col-sm-4 product-item-small-card">
-								<?
+								<?php 
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.item',
 									'bootstrap_v4',
@@ -208,7 +208,7 @@ $containerName = 'catalog-top-container';
 								);
 								?>
 							</div>
-							<?
+							<?php 
 						}
 						break;
 
@@ -217,7 +217,7 @@ $containerName = 'catalog-top-container';
 						{
 							?>
 							<div class="col-6 col-md-3 product-item-small-card">
-								<?
+								<?php 
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.item',
 									'bootstrap_v4',
@@ -239,7 +239,7 @@ $containerName = 'catalog-top-container';
 								);
 								?>
 							</div>
-							<?
+							<?php 
 						}
 						break;
 
@@ -247,7 +247,7 @@ $containerName = 'catalog-top-container';
 						$rowItemsCount = count($rowItems);
 						?>
 						<div class="col-sm-6 product-item-big-card">
-							<?
+							<?php 
 							$item = array_shift($rowItems);
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.item',
@@ -273,12 +273,12 @@ $containerName = 'catalog-top-container';
 						</div>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-6">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -300,12 +300,12 @@ $containerName = 'catalog-top-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 5:
@@ -313,12 +313,12 @@ $containerName = 'catalog-top-container';
 						?>
 						<div class="col-sm-6 col-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-6">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -340,13 +340,13 @@ $containerName = 'catalog-top-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
 						<div class="col-sm-6 product-item-big-card">
-							<?
+							<?php 
 							$item = end($rowItems);
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.item',
@@ -370,7 +370,7 @@ $containerName = 'catalog-top-container';
 							unset($item);
 							?>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 6:
@@ -378,7 +378,7 @@ $containerName = 'catalog-top-container';
 						{
 							?>
 							<div class="col-6 col-sm-4 col-md-4 col-lg-2 product-item-small-card">
-								<?
+								<?php 
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.item',
 									'bootstrap_v4',
@@ -400,7 +400,7 @@ $containerName = 'catalog-top-container';
 								);
 								?>
 							</div>
-							<?
+							<?php 
 						}
 						break;
 
@@ -408,7 +408,7 @@ $containerName = 'catalog-top-container';
 						$rowItemsCount = count($rowItems);
 						?>
 						<div class="col-sm-6 col-12 product-item-big-card">
-							<?
+							<?php 
 							$item = array_shift($rowItems);
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.item',
@@ -434,12 +434,12 @@ $containerName = 'catalog-top-container';
 						</div>
 						<div class="col-sm-6 col-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-6 col-md-4">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -461,12 +461,12 @@ $containerName = 'catalog-top-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 8:
@@ -474,12 +474,12 @@ $containerName = 'catalog-top-container';
 						?>
 						<div class="col-sm-6 col-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6 col-md-4">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -501,13 +501,13 @@ $containerName = 'catalog-top-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
 						<div class="col-sm-6 col-12 product-item-big-card">
-							<?
+							<?php 
 							$item = end($rowItems);
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.item',
@@ -531,7 +531,7 @@ $containerName = 'catalog-top-container';
 							unset($item);
 							?>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 9:
@@ -539,7 +539,7 @@ $containerName = 'catalog-top-container';
 						{
 							?>
 							<div class="col product-item-line-card">
-								<?
+								<?php 
 								$APPLICATION->IncludeComponent(
 									'bitrix:catalog.item',
 									'bootstrap_v4',
@@ -560,18 +560,18 @@ $containerName = 'catalog-top-container';
 								);
 								?>
 							</div>
-							<?
+							<?php 
 						}
 						break;
 				}
 				?>
 			</div>
-			<?
+			<?php 
 		}
 		unset($generalParams, $rowItems);
 		?>
 		<!-- items-container -->
-		<?
+		<?php 
 	}
 	else
 	{

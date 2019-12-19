@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TAB1'] = "Course";
 $MESS ['LEARNING_ADMIN_TAB1_EX'] = "Select course for export";
 $MESS ['LEARNING_ADMIN_TAB2'] = "Export settings";

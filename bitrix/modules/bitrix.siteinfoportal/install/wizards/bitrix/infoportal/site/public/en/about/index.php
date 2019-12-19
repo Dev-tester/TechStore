@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("About Us");
 ?>
@@ -16,4 +16,4 @@ From sports clubs, concerts and dining, we keep current information flowing in a
 We'd like to extend special thanks to the Centerville Oak Lodge, for conceiving and launching our portal back in 2003. </p>
 <p>To contact us fill out the feedback form or email <a href="mailto:CentervilleFeedBack@centervilleportal1.org">CentervilleFeedBack@centervilleportal1.org</a>.</p>
 <p>In you are interested in advertising with us, write to <a href="mailto:ads@centervilleportal1.org">ads@centervilleportal1.org</a>.</p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

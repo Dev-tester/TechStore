@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_PIXEL_FB_COUNTER"] = "Facebook";
 $MESS["LANDING_HOOK_PIXEL_FB_HELP"] = "Details";
 $MESS["LANDING_HOOK_PIXEL_FB_PLACEHOLDER2"] = "Enter pixel code";

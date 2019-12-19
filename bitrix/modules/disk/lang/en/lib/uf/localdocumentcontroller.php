@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_UF_LOCAL_DOC_CONTROLLER_ERROR_COULD_NOT_FIND_ATTACHED_OBJECT"] = "Cannot find the attached object.";
 $MESS["DISK_UF_LOCAL_DOC_CONTROLLER_ERROR_BAD_RIGHTS"] = "Insufficient permission to handle file.";
 $MESS["DISK_UF_LOCAL_DOC_CONTROLLER_UPLOAD_NEW_VERSION_IN_COMMENT_M"] = "uploaded a new file";

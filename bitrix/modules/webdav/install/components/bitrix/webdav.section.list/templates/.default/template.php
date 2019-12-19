@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS(BX_ROOT.'/components/bitrix/webdav/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->AddHeadScript(BX_ROOT.'/components/bitrix/webdav/templates/.default/script.js');
@@ -13,7 +13,7 @@ $isDiskNotInstall = $showUserBannerDisk = null;
 $isLibToCurrentUser = !empty($arParams['OBJECT']->attributes['user_id']) && $USER->getId() == $arParams['OBJECT']->attributes['user_id'];
 ?>
 
-<? if($isLibToCurrentUser && ($showUserBannerDisk = CWebDavTools::getShowOfferBannerForCurrentUser('disk')) && !CWebDavTools::isDesktopInstall()) {?>
+<?php  if($isLibToCurrentUser && ($showUserBannerDisk = CWebDavTools::getShowOfferBannerForCurrentUser('disk')) && !CWebDavTools::isDesktopInstall()) {?>
 <div>
 	<a style="text-decoration: none" id="wd-banner-disk-install-offer" onclick="WDDownloadDesktop();" href="javascript:void(0)" class="wd-banner_section">
 		<table class="wd-banner_table">
@@ -32,7 +32,7 @@ $isLibToCurrentUser = !empty($arParams['OBJECT']->attributes['user_id']) && $USE
 		<span class="wd-banner_close" onclick="WDCloseDiskBanner(this);"></span>
 	</a>
 </div>
-<? } elseif($isLibToCurrentUser && $showUserBannerDisk && CWebDavTools::enableInVersion(15) && !CWebDavTools::isDesktopDiskInstall()) {?>
+<?php  } elseif($isLibToCurrentUser && $showUserBannerDisk && CWebDavTools::enableInVersion(15) && !CWebDavTools::isDesktopDiskInstall()) {?>
 <div>
 	<a style="text-decoration: none" id="wd-banner-disk-install-offer" onclick="WDCloseDiskBanner();" href="bx://openDiskTab" class="wd-banner_section">
 		<table class="wd-banner_table">
@@ -51,8 +51,8 @@ $isLibToCurrentUser = !empty($arParams['OBJECT']->attributes['user_id']) && $USE
 		<span class="wd-banner_close" onclick="WDCloseDiskBanner(this); return false;"></span>
 	</a>
 </div>
-<? } ?>
-<?
+<?php  } ?>
+<?php 
 
 
 global $by, $order;
@@ -567,9 +567,9 @@ BX(function() { // 'undelete' group action button
 	}
 });
 </script>
-<?
+<?php 
 	}
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.grid",
 	"",
 	array(
@@ -591,24 +591,24 @@ BX(function() { // 'undelete' group action button
 		"AJAX_MODE" => "N",
 	),
 	($this->__component->__parent ? $this->__component->__parent : $component)
-);?><?
+);?><?php 
 }
 
 if (!empty($arParams["SHOW_NOTE"])):
 ?>
 <br />
 <div class="wd-help-list selected" id="wd_list_note"><?=$arParams["~SHOW_NOTE"]?></div>
-<?
+<?php 
 endif;
 
 if ($arParams["WORKFLOW"] == "workflow" && $arParams["PERMISSION"] >= "U" && $arParams["SHOW_WORKFLOW"] != "N"):?>
 <br />
 <div class="wd-help-list selected">
-<?
+<?php 
 if ($arParams["PERMISSION"] >= "W" && CWorkflow::IsAdmin()):
-?><?=GetMessage("WD_WF_COMMENT1")?><br /><?
+?><?=GetMessage("WD_WF_COMMENT1")?><br /><?php 
 elseif (!in_array(2, $arResult["WF_STATUSES_PERMISSION"])):
-?><?=GetMessage("WD_WF_COMMENT2")?><br /><?
+?><?=GetMessage("WD_WF_COMMENT2")?><br /><?php 
 else:
 	foreach ($arResult["WF_STATUSES_PERMISSION"] as $key => $val):
 		if ($val == 2):
@@ -617,19 +617,19 @@ else:
 	endforeach;
 
 	if (count($arr) == 1):
-	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION2"))?><br /><?
+	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION2"))?><br /><?php 
 	else:
-	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION3"))?><br /><?
+	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION3"))?><br /><?php 
 	endif;
 endif;
 
 if ($arParams["PERMISSION"] >= "W"):
-?><?=GetMessage("WD_WF_ATTENTION1")?><br /><?
+?><?=GetMessage("WD_WF_ATTENTION1")?><br /><?php 
 endif;
 ?>
 </div>
-<?endif;?>
-<?if ($arParams["PERMISSION"] >= "U"):?>
+<?php endif;?>
+<?php if ($arParams["PERMISSION"] >= "U"):?>
 <script>
 BX(function() {
 	var moffice = WDCheckOfficeEdit();
@@ -657,7 +657,7 @@ BX(function() {
 	}
 });
 </script>
-<?
+<?php 
 endif;
 ?>
 
@@ -743,13 +743,13 @@ var wdGlobalRunDisconnectDialog = false;
 			}
 		});
 
-		<? if($arResult['preview']): ?>
+		<?php  if($arResult['preview']): ?>
 			BX.viewElementBind(
 				'<?=$arParams["GRID_ID"]?>',
 				{showTitle: true},
 				{attr: 'data-bx-viewer'}
 			);
-		<? endif; ?>
+		<?php  endif; ?>
 
 		var hilight_row = window.location.href.match(/[#=]((doc|sec)([0-9]+))/);
 		if (hilight_row)
@@ -961,7 +961,7 @@ var wdGlobalRunDisconnectDialog = false;
 
 	function WDUploadDroppedFiles(files)
 	{
-<?
+<?php 
 $arUrlParams = array('use_light_view'=>'Y');
 if ($arResult['BP_PARAM_REQUIRED'] == 'Y')
 	$arUrlParams['bp_param_required'] = 'Y';
@@ -985,11 +985,11 @@ foreach ($arUrlParams as $urlParam => $urlValue)
 		dlg.Show();
 	}
 
-<?	if (isset($_REQUEST['file_upload'])) { ?>
+<?php 	if (isset($_REQUEST['file_upload'])) { ?>
 		BX(function() {
 			WDUploadDroppedFiles();
 		});
-<?	} ?>
+<?php 	} ?>
 
 	BX(function() {
 		var dropBoxNode = BX('<?=$arParams['GRID_ID']?>');

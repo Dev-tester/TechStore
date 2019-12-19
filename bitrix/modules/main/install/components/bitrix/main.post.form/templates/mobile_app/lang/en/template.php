@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MPF_SEND"] = "Send";
 $MESS["MPF_CANCEL"] = "Cancel";
 $MESS["MPF_PHOTO_CAMERA"] = "Take photo";

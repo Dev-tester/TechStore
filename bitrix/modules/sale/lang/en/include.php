@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_TYPE_CHECKBOX"] = "Checkbox";
 $MESS["SALE_TYPE_TEXT"] = "Text field";
 $MESS["SALE_TYPE_SELECT"] = "List box";

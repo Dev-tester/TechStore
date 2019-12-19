@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SHOP_MENU_BUYER_GROUP_TITLE"] = "Customer groups";
 $MESS["SHOP_MENU_ORDER_FORM_SETTINGS_TITLE"] = "Configure Checkout Form";
 $MESS["SHOP_MENU_ORDER_TITLE"] = "Orders";

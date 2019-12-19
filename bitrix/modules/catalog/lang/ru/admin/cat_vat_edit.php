@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CVAT_TITLE_UPDATE"] = "Редактирование ставки НДС";
 $MESS["CVAT_TITLE_ADD"] = "Новая ставка НДС";
 $MESS["CVAT_LIST"] = "Список";

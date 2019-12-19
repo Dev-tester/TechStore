@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -29,32 +29,32 @@ if (!empty($arParams["ERROR_MESSAGES"]))
 	<div class="bp-grid-errortext">
 		<p><?= implode('<br/>', $arParams["ERROR_MESSAGES"]) ?></p>
 	</div>
-	<?
+	<?php 
 }
 if($arParams["SHOW_FORM_TAG"]):?>
 <form name="form_<?=$arParams["GRID_ID"]?>" action="<?=POST_FORM_ACTION_URI?>" target="_self" method="POST">
 <?=bitrix_sessid_post();?>
-<?endif?>
+<?php endif?>
 <div class="bx-bizproc-interface-list">
-<table cellspacing="0" class="bx-bizproc-interface-grid<?if($arResult["OPTIONS"]["theme"] <> '') echo " bx-bizproc-interface-grid-theme-".$arResult["OPTIONS"]["theme"]?>" id="<?=$arParams["GRID_ID"]?>">
+<table cellspacing="0" class="bx-bizproc-interface-grid<?php if($arResult["OPTIONS"]["theme"] <> '') echo " bx-bizproc-interface-grid-theme-".$arResult["OPTIONS"]["theme"]?>" id="<?=$arParams["GRID_ID"]?>">
 	<thead>
 	<tr class="bx-grid-gutter" oncontextmenu="return bxGrid_<?=$arParams["GRID_ID"]?>.settingsMenu">
-<?if($arResult["ALLOW_EDIT"]):?>
+<?php if($arResult["ALLOW_EDIT"]):?>
 		<td><div class="empty"></div></td>
-<?endif?>
+<?php endif?>
 		<td><div class="empty"></div></td>
-<?foreach($arResult["HEADERS"] as $header):?>
+<?php foreach($arResult["HEADERS"] as $header):?>
 		<td<?=($header["sort_state"] <> ''? ' class="bx-bizproc-sorted"':'')?>><div class="empty"></div></td>
-<?endforeach?>
+<?php endforeach?>
 	</tr>
-	<tr class="bx-bizproc bx-bizproc-grid-head" oncontextmenu="return bxGrid_<?=$arParams["GRID_ID"]?>.settingsMenu"<?if($GLOBALS['USER']->IsAuthorized()):?> ondblclick="bxGrid_<?=$arParams["GRID_ID"]?>.EditCurrentView()"<?endif?>>
-<?if($arResult["ALLOW_EDIT"]):?>
-		<td class="bx-bizproc-checkbox-col" width="1%"><input type="checkbox" name="" id="<?=$arParams["GRID_ID"]?>_check_all" value="" title="<?echo GetMessage("interface_grid_check_all")?>" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.SelectAllRows(this);"></td>
-<?endif?>
+	<tr class="bx-bizproc bx-bizproc-grid-head" oncontextmenu="return bxGrid_<?=$arParams["GRID_ID"]?>.settingsMenu"<?php if($GLOBALS['USER']->IsAuthorized()):?> ondblclick="bxGrid_<?=$arParams["GRID_ID"]?>.EditCurrentView()"<?php endif?>>
+<?php if($arResult["ALLOW_EDIT"]):?>
+		<td class="bx-bizproc-checkbox-col" width="1%"><input type="checkbox" name="" id="<?=$arParams["GRID_ID"]?>_check_all" value="" title="<?php echo GetMessage("interface_grid_check_all")?>" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.SelectAllRows(this);"></td>
+<?php endif?>
 		<td class="bx-bizproc-actions-col" width="1%"><a href="javascript:void(0);"
 			onclick="bxGrid_<?=$arParams["GRID_ID"]?>.menu.ShowMenu(this, bxGrid_<?=$arParams["GRID_ID"]?>.settingsMenu, false, false, bxGrid_<?=$arParams["GRID_ID"]?>.SaveColumns);return false;"
-			title="<?echo GetMessage("interface_grid_settings")?>" class="bx-bizproc-action"><div class="empty"></div></a></td>
-<?
+			title="<?php echo GetMessage("interface_grid_settings")?>" class="bx-bizproc-action"><div class="empty"></div></a></td>
+<?php 
 $colspan = count($arResult["HEADERS"])+($arResult["ALLOW_EDIT"]? 2:1);
 foreach($arResult["HEADERS"] as $id=>$header):
 	$headerName = !isset($header['hideName']) || !$header['hideName'] ? $header["name"] : '&nbsp;';
@@ -92,18 +92,18 @@ if($header["sort"] <> ''):
 				</tr>
 			</table>
 		</td>
-<?else:?>
+<?php else:?>
 		<td oncontextmenu="return [{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_hide_col"))?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.HideColumn(\'<?=CUtil::JSEscape($id)?>\')', 'DISABLED':<?=($USER->IsAuthorized()? 'false':'true')?>}]"
 		<?=$headerWidth !== '' ? ' style="width:'.$headerWidth.';"' : ''?>>
 			<?=$headerName?>
 		</td>
-<?endif?>
-<?endforeach?>
+<?php endif?>
+<?php endforeach?>
 	</tr>
 	</thead>
 	<tbody>
 
-<?
+<?php 
 $jsActions = array();
 if(!empty($arParams["ROWS"])):
 
@@ -128,25 +128,25 @@ foreach($arParams["ROWS"] as $index=>$aRow):
 		}
 	}
 ?>
-	<tr class="bx-bizproc-table-body <?=isset($aRow["rowClass"]) ? $aRow["rowClass"] : ''?>" oncontextmenu="return bxGrid_<?=$arParams["GRID_ID"]?>.oActions[<?=$index?>]"<?if($sDefAction <> ''):?> ondblclick="<?=htmlspecialcharsbx($sDefAction)?>"<?endif?>>
-<?if($arResult["ALLOW_EDIT"]):?>
-	<?
+	<tr class="bx-bizproc-table-body <?=isset($aRow["rowClass"]) ? $aRow["rowClass"] : ''?>" oncontextmenu="return bxGrid_<?=$arParams["GRID_ID"]?>.oActions[<?=$index?>]"<?php if($sDefAction <> ''):?> ondblclick="<?=htmlspecialcharsbx($sDefAction)?>"<?php endif?>>
+<?php if($arResult["ALLOW_EDIT"]):?>
+	<?php 
 	if($aRow["editable"] !== false):
 		$data_id = ($aRow["id"] <> ''? $aRow["id"] : $aRow["data"]["ID"]);
 	?>
-		<td class="bx-bizproc-checkbox-col"><input type="checkbox" name="ID[]" id="ID_<?=$data_id?>" value="<?=$data_id?>" title="<?echo GetMessage("interface_grid_check")?>"></td>
-	<?else:?>
+		<td class="bx-bizproc-checkbox-col"><input type="checkbox" name="ID[]" id="ID_<?=$data_id?>" value="<?=$data_id?>" title="<?php echo GetMessage("interface_grid_check")?>"></td>
+	<?php else:?>
 		<td class="bx-bizproc-checkbox-col">&nbsp;</td>
-	<?endif?>
-<?endif?>
-	<?if(is_array($aRow["actions"]) && count($aRow["actions"]) > 0):?>
+	<?php endif?>
+<?php endif?>
+	<?php if(is_array($aRow["actions"]) && count($aRow["actions"]) > 0):?>
 		<td class="bx-bizproc-actions-col"><a href="javascript:void(0);"
 			onclick="bxGrid_<?=$arParams["GRID_ID"]?>.ShowActionMenu(this, <?=$index?>);"
-			title="<?echo GetMessage("interface_grid_act")?>" class="bx-bizproc-action"><div class="empty"></div></a></td>
-	<?else:?>
+			title="<?php echo GetMessage("interface_grid_act")?>" class="bx-bizproc-action"><div class="empty"></div></a></td>
+	<?php else:?>
 		<td>&nbsp;</td>
-	<?endif?>
-<?
+	<?php endif?>
+<?php 
 	$columnClasses = isset($aRow['columnClasses']) && is_array($aRow['columnClasses']) ? $aRow['columnClasses'] : null;
 	foreach($arResult["HEADERS"] as $id=>$header):
 	$columnClass = 	$header["sort_state"] !== '' ? 'bx-bizproc-sorted' : '';
@@ -159,12 +159,12 @@ foreach($arParams["ROWS"] as $index=>$aRow):
 		$columnClass .= $columnClasses[$id];
 	}
 
-	?><td<?=($columnClass !== '' ? ' class="'.$columnClass.'"' : '')?><?
+	?><td<?=($columnClass !== '' ? ' class="'.$columnClass.'"' : '')?><?php 
 if($header["align"] <> '')
 	echo ' align="'.$header["align"].'"';
 elseif($header["type"] == "checkbox")
 	echo ' align="center"';
-		?>><?
+		?>><?php 
 	if($header["type"] == "checkbox"
 		&& strlen($aRow["data"][$id]) > 0
 		&& ($aRow["data"][$id] == 'Y' || $aRow["data"][$id] == 'N')
@@ -178,32 +178,32 @@ elseif($header["type"] == "checkbox")
 		echo ($val <> ''? $val:'&nbsp;');
 	}
 		?></td>
-<?endforeach?>
+<?php endforeach?>
 	</tr>
-<?endforeach; // $arParams["ROWS"]?>
-<?
+<?php endforeach; // $arParams["ROWS"]?>
+<?php 
 else: //!empty($arParams["ROWS"])
 ?>
-	<tr><td class="bx-bizproc-not-result" colspan="<?=$colspan?>"><?echo GetMessage("interface_grid_no_data")?></td></tr>
-<?endif?>
+	<tr><td class="bx-bizproc-not-result" colspan="<?=$colspan?>"><?php echo GetMessage("interface_grid_no_data")?></td></tr>
+<?php endif?>
 	</tbody>
-<?if($arResult["ALLOW_EDIT"] || is_array($arParams["FOOTER"]) && count($arParams["FOOTER"]) > 0 || $arResult["NAV_STRING"] <> ''):?>
+<?php if($arResult["ALLOW_EDIT"] || is_array($arParams["FOOTER"]) && count($arParams["FOOTER"]) > 0 || $arResult["NAV_STRING"] <> ''):?>
 	<tfoot>
 	<tr class="bx-bizproc-grid-footer">
 		<td colspan="<?=$colspan?>">
 			<table cellpadding="0" cellspacing="0" border="0" class="bx-bizproc-table-footer bx-bizproc-grid-footer">
 				<tbody><tr>
-			<?if($arResult["ALLOW_EDIT"]):?>
-					<td><?echo GetMessage("interface_grid_checked")?> <span id="<?=$arParams["GRID_ID"]?>_selected_span">0</span></td>
-			<?endif?>
-			<?foreach($arParams["FOOTER"] as $footer):?>
-					<? if(!empty($footer['custom_html'])): ?>
+			<?php if($arResult["ALLOW_EDIT"]):?>
+					<td><?php echo GetMessage("interface_grid_checked")?> <span id="<?=$arParams["GRID_ID"]?>_selected_span">0</span></td>
+			<?php endif?>
+			<?php foreach($arParams["FOOTER"] as $footer):?>
+					<?php  if(!empty($footer['custom_html'])): ?>
 						<?= $footer['custom_html'] ?>
-					<?else:?>
+					<?php else:?>
 					<td><?=$footer["title"]?>: <span><?=$footer["value"]?></span></td>
-					<?endif?>
-			<?endforeach?>
-					<?
+					<?php endif?>
+			<?php endforeach?>
+					<?php 
 					// page size
 					$nPageSize = 20;
 					if (is_array($arResult['OPTIONS']['views'])
@@ -226,17 +226,17 @@ else: //!empty($arParams["ROWS"])
 					<td>
 						<span class="bx-pagination-text"><?= htmlspecialcharsbx(GetMessage("navigation_records").':') ?></span>
 						<select id="<?=$arParams["GRID_ID"].'_page_size_control'?>" class="bx24-dropdown bx-pagination-dropdown">
-							<?
+							<?php 
 							if ($nPageSize !== 0)
 							{
 								foreach($arPageSize as $val)
 								{
-									?><option value="<?=$val?>"<?= (($val == $nPageSize) ? ' selected="selected"' : '') ?><?= ($val === 0 ? ' disabled' : '') ?>><?= htmlspecialcharsbx($val !== 0 ? $val : GetMessage('navigation_records_all')) ?></option><?
+									?><option value="<?=$val?>"<?= (($val == $nPageSize) ? ' selected="selected"' : '') ?><?= ($val === 0 ? ' disabled' : '') ?>><?= htmlspecialcharsbx($val !== 0 ? $val : GetMessage('navigation_records_all')) ?></option><?php 
 								}
 							}
 							else
 							{
-								?><option value="0" selected="selected" disabled><?= htmlspecialcharsbx(GetMessage('navigation_records_all')) ?></option><?
+								?><option value="0" selected="selected" disabled><?= htmlspecialcharsbx(GetMessage('navigation_records_all')) ?></option><?php 
 							}
 							?>
 						</select>
@@ -247,74 +247,74 @@ else: //!empty($arParams["ROWS"])
 		</td>
 	</tr>
 	</tfoot>
-<?endif?>
+<?php endif?>
 </table>
 
-<?if($arResult["ALLOW_EDIT"]):?>
+<?php if($arResult["ALLOW_EDIT"]):?>
 <div class="bx-bizproc-footer-interface-toolbar-container bp-footer-interface-toolbar-container">
 <input type="hidden" name="action_button_<?=$arParams["GRID_ID"]?>" value="">
 <table cellpadding="0" cellspacing="0" border="0" class="">
 	<tr>
-<?
+<?php 
 $bNeedSep = false;
 if($arParams["ACTION_ALL_ROWS"]):
 	$bNeedSep = true;
 ?>
 		<td class="vam">
-			<input title="<?echo GetMessage("interface_grid_for_all")?>" type="checkbox" name="action_all_rows_<?=$arParams["GRID_ID"]?>" id="actallrows_<?=$arParams["GRID_ID"]?>" value="Y" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.ForAllClick(this);"<?if(empty($arParams["ROWS"])) echo ' disabled'?>>
+			<input title="<?php echo GetMessage("interface_grid_for_all")?>" type="checkbox" name="action_all_rows_<?=$arParams["GRID_ID"]?>" id="actallrows_<?=$arParams["GRID_ID"]?>" value="Y" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.ForAllClick(this);"<?php if(empty($arParams["ROWS"])) echo ' disabled'?>>
 		</td>
-		<td class="vam"><label title="<?echo GetMessage("interface_grid_for_all")?>" for="actallrows_<?=$arParams["GRID_ID"]?>"><?echo GetMessage("interface_grid_for_all_box")?></label></td>
-<?endif?>
-<?if($arResult["ALLOW_INLINE_EDIT"]):?>
-	<?if($bNeedSep):?>
+		<td class="vam"><label title="<?php echo GetMessage("interface_grid_for_all")?>" for="actallrows_<?=$arParams["GRID_ID"]?>"><?php echo GetMessage("interface_grid_for_all_box")?></label></td>
+<?php endif?>
+<?php if($arResult["ALLOW_INLINE_EDIT"]):?>
+	<?php if($bNeedSep):?>
 <!--		<td><div class="bx-bizproc-separator"></div></td>-->
-	<?endif;?>
-		<td class="vam"><a href="javascript:void(0);" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.ActionEdit(this);" title="<?echo GetMessage("interface_grid_edit_selected")?>" class="bx-bizproc-bd-icon-edit" id="edit_button_<?=$arParams["GRID_ID"]?>"></a></td>
-<?
+	<?php endif;?>
+		<td class="vam"><a href="javascript:void(0);" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.ActionEdit(this);" title="<?php echo GetMessage("interface_grid_edit_selected")?>" class="bx-bizproc-bd-icon-edit" id="edit_button_<?=$arParams["GRID_ID"]?>"></a></td>
+<?php 
 	$bNeedSep = true;
 endif;
 ?>
-<?if($arParams["ACTIONS"]["delete"] == true):?>
-	<?if($bNeedSep && !$arResult["ALLOW_INLINE_EDIT"]):?>
+<?php if($arParams["ACTIONS"]["delete"] == true):?>
+	<?php if($bNeedSep && !$arResult["ALLOW_INLINE_EDIT"]):?>
 		<td><div class="bx-bizproc-separator"></div></td>
-	<?endif?>
-		<td class="vam"><a href="javascript:void(0);" style="margin-top: 20px" onclick="var el; if(bxGrid_<?=$arParams["GRID_ID"]?>.IsActionEnabled() && confirm(((el=document.getElementById('actallrows_<?=$arParams["GRID_ID"]?>')) && el.checked? '<?=CUtil::JSEScape(GetMessage("interface_grid_delete"))?>':'<?=CUtil::JSEScape(GetMessage("interface_grid_delete_checked"))?>'))) bxGrid_<?=$arParams["GRID_ID"]?>.ActionDelete();" title="<?echo GetMessage("interface_grid_delete_title")?>" class="bx-bizproc-bd-icon-del" id="delete_button_<?=$arParams["GRID_ID"]?>"></a></td>
-<?
+	<?php endif?>
+		<td class="vam"><a href="javascript:void(0);" style="margin-top: 20px" onclick="var el; if(bxGrid_<?=$arParams["GRID_ID"]?>.IsActionEnabled() && confirm(((el=document.getElementById('actallrows_<?=$arParams["GRID_ID"]?>')) && el.checked? '<?=CUtil::JSEScape(GetMessage("interface_grid_delete"))?>':'<?=CUtil::JSEScape(GetMessage("interface_grid_delete_checked"))?>'))) bxGrid_<?=$arParams["GRID_ID"]?>.ActionDelete();" title="<?php echo GetMessage("interface_grid_delete_title")?>" class="bx-bizproc-bd-icon-del" id="delete_button_<?=$arParams["GRID_ID"]?>"></a></td>
+<?php 
 	$bNeedSep = true;
 endif;
 ?>
-<?
+<?php 
 $bShowApply = false;
 if(is_array($arParams["ACTIONS"]["list"]) && count($arParams["ACTIONS"]["list"]) > 0):
 	$bShowApply = true;
 ?>
-	<?
+	<?php 
 	if($bNeedSep):
 		$bNeedSep = false;
 	?>
 		<td><div class="bx-bizproc-separator"></div></td>
-	<?endif?>
+	<?php endif?>
 		<td>
 			<select name="" onchange="this.form.elements['action_button_<?=$arParams["GRID_ID"]?>'].value = this.value;">
 				<option value=""><?=GetMessage("interface_grid_actions_list")?></option>
-	<?foreach($arParams["ACTIONS"]["list"] as $key => $val):?>
+	<?php foreach($arParams["ACTIONS"]["list"] as $key => $val):?>
 				<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-	<?endforeach?>
+	<?php endforeach?>
 			</select>
 		</td>
-<?endif?>
-<?
+<?php endif?>
+<?php 
 if($arParams["~ACTIONS"]["custom_html"] <> ''):
 	$bShowApply = true;
 ?>
-	<?if($bNeedSep):?>
+	<?php if($bNeedSep):?>
 		<td><div class="bx-bizproc-separator"></div></td>
-	<?endif?>
+	<?php endif?>
 		<td class="vam" style="padding-left:2px;"><?=$arParams["~ACTIONS"]["custom_html"]?></td>
-<?endif?>
-<?if($bShowApply):?>
-		<td class="vam" style="padding-left:2px;"><input class="bx-bizproc-btn bx-bizproc-btn-medium bx-bizproc-btn-gray mb0" type="submit" name="apply" value="<?echo GetMessage("interface_grid_apply")?>" disabled></td>
-<?endif?>
+<?php endif?>
+<?php if($bShowApply):?>
+		<td class="vam" style="padding-left:2px;"><input class="bx-bizproc-btn bx-bizproc-btn-medium bx-bizproc-btn-gray mb0" type="submit" name="apply" value="<?php echo GetMessage("interface_grid_apply")?>" disabled></td>
+<?php endif?>
 <!--				</tr>-->
 <!--			</table>-->
 <!--		</td>-->
@@ -324,12 +324,12 @@ if($arParams["~ACTIONS"]["custom_html"] <> ''):
 </table>
 </div>
 </div>
-<?endif?>
-<?if($arParams["SHOW_FORM_TAG"]):?>
+<?php endif?>
+<?php if($arParams["SHOW_FORM_TAG"]):?>
 </form>
-<?endif?>
-<?if($arResult["EDIT_DATE"]):?>
-<?$APPLICATION->IncludeComponent(
+<?php endif?>
+<?php if($arResult["EDIT_DATE"]):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:main.calendar",
 	"",
 	array(
@@ -338,80 +338,80 @@ if($arParams["~ACTIONS"]["custom_html"] <> ''):
 	$component,
 	array("HIDE_ICONS"=>true)
 );?>
-<?endif;?>
+<?php endif;?>
 
-<?if($GLOBALS['USER']->IsAuthorized()):?>
+<?php if($GLOBALS['USER']->IsAuthorized()):?>
 <div style="display:none">
 
 <div id="view_settings_<?=$arParams["GRID_ID"]?>">
 <table width="100%">
 	<tr class="section">
-		<td colspan="2"><?echo GetMessage("interface_grid_view_sect")?></td>
+		<td colspan="2"><?php echo GetMessage("interface_grid_view_sect")?></td>
 	</tr>
 	<tr>
-		<td align="right" width="50%"><?echo GetMessage("interface_grid_view_name")?></td>
+		<td align="right" width="50%"><?php echo GetMessage("interface_grid_view_name")?></td>
 		<td><input type="text" name="view_name" value="" size="40" maxlength="255"></td>
 	</tr>
 	<tr class="section">
-		<td colspan="2"><?echo GetMessage("interface_grid_view_cols")?></td>
+		<td colspan="2"><?php echo GetMessage("interface_grid_view_cols")?></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
 			<table>
 				<tr>
 					<td style="background-image:none" nowrap>
-						<div style="margin-bottom:5px"><?echo GetMessage("interface_grid_view_av_cols")?></div>
+						<div style="margin-bottom:5px"><?php echo GetMessage("interface_grid_view_av_cols")?></div>
 						<select style="min-width:150px;" name="view_all_cols" multiple size="12" ondblclick="this.form.add_btn.onclick()" onchange="this.form.add_btn.disabled = (this.selectedIndex == -1)">
 						</select>
 					</td>
 					<td style="background-image:none">
-						<div style="margin-bottom:5px"><input type="button" name="add_btn" value="&gt;" title="<?echo GetMessage("interface_grid_view_add_col")?>" style="width:30px;" disabled onclick="jsSelectUtils.addSelectedOptions(this.form.view_all_cols, this.form.view_cols, false); jsSelectUtils.deleteSelectedOptions(this.form.view_all_cols); "></div>
-						<div style="margin-bottom:5px"><input type="button" name="del_btn" value="&lt;" title="<?echo GetMessage("interface_grid_view_del_col")?>" style="width:30px;" disabled onclick="jsSelectUtils.addSelectedOptions(this.form.view_cols, this.form.view_all_cols, false, true); jsSelectUtils.deleteSelectedOptions(this.form.view_cols);"></div>
+						<div style="margin-bottom:5px"><input type="button" name="add_btn" value="&gt;" title="<?php echo GetMessage("interface_grid_view_add_col")?>" style="width:30px;" disabled onclick="jsSelectUtils.addSelectedOptions(this.form.view_all_cols, this.form.view_cols, false); jsSelectUtils.deleteSelectedOptions(this.form.view_all_cols); "></div>
+						<div style="margin-bottom:5px"><input type="button" name="del_btn" value="&lt;" title="<?php echo GetMessage("interface_grid_view_del_col")?>" style="width:30px;" disabled onclick="jsSelectUtils.addSelectedOptions(this.form.view_cols, this.form.view_all_cols, false, true); jsSelectUtils.deleteSelectedOptions(this.form.view_cols);"></div>
 					</td>
 					<td style="background-image:none" nowrap>
-						<div style="margin-bottom:5px"><?echo GetMessage("interface_grid_view_sel_col")?></div>
+						<div style="margin-bottom:5px"><?php echo GetMessage("interface_grid_view_sel_col")?></div>
 						<select style="min-width:150px;" name="view_cols" multiple size="12" ondblclick="this.form.del_btn.onclick()" onchange="this.form.del_btn.disabled = this.form.up_btn.disabled = this.form.down_btn.disabled = (this.selectedIndex == -1)">
 						</select>
 					</td>
 					<td style="background-image:none">
-						<div style="margin-bottom:5px"><input type="button" name="up_btn" value="<?echo GetMessage("interface_grid_view_up")?>" title="<?echo GetMessage("interface_grid_view_up_title")?>" class="bx-grid-btn" style="width:60px;" disabled onclick="jsSelectUtils.moveOptionsUp(this.form.view_cols)"></div>
-						<div style="margin-bottom:5px"><input type="button" name="down_btn" value="<?echo GetMessage("interface_grid_view_down")?>" title="<?echo GetMessage("interface_grid_view_down_title")?>" class="bx-grid-btn" style="width:60px;" disabled onclick="jsSelectUtils.moveOptionsDown(this.form.view_cols)"></div>
+						<div style="margin-bottom:5px"><input type="button" name="up_btn" value="<?php echo GetMessage("interface_grid_view_up")?>" title="<?php echo GetMessage("interface_grid_view_up_title")?>" class="bx-grid-btn" style="width:60px;" disabled onclick="jsSelectUtils.moveOptionsUp(this.form.view_cols)"></div>
+						<div style="margin-bottom:5px"><input type="button" name="down_btn" value="<?php echo GetMessage("interface_grid_view_down")?>" title="<?php echo GetMessage("interface_grid_view_down_title")?>" class="bx-grid-btn" style="width:60px;" disabled onclick="jsSelectUtils.moveOptionsDown(this.form.view_cols)"></div>
 					</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 	<tr class="section">
-		<td colspan="2"><?echo GetMessage("interface_grid_view_sort_sect")?></td>
+		<td colspan="2"><?php echo GetMessage("interface_grid_view_sort_sect")?></td>
 	</tr>
 	<tr>
-		<td align="right"><?echo GetMessage("interface_grid_view_sort_name")?></td>
+		<td align="right"><?php echo GetMessage("interface_grid_view_sort_name")?></td>
 		<td><select name="view_sort_by">
 			<option value=""><?=GetMessage("interface_grid_default")?></option>
-<?
+<?php 
 foreach($arParams["HEADERS"] as $header):
 	$sort = isset($header["sort"]) ? $header["sort"] : "";
 	$enableDefaultSort = $sort !== "" && (!isset($header["enableDefaultSort"]) || $header["enableDefaultSort"]);
 	if($enableDefaultSort):
-		?><option value="<?=$sort?>"><?=$header["name"]?></option><?
+		?><option value="<?=$sort?>"><?=$header["name"]?></option><?php 
 	endif;
 endforeach;
 ?>
 		</select></td>
 	</tr>
 	<tr>
-		<td align="right"><?echo GetMessage("interface_grid_view_sort_order")?></td>
+		<td align="right"><?php echo GetMessage("interface_grid_view_sort_order")?></td>
 		<td><select name="view_sort_order">
 			<option value=""><?=GetMessage("interface_grid_default")?></option>
-			<option value="asc"><?echo GetMessage("interface_grid_view_sort_asc")?></option>
-			<option value="desc"><?echo GetMessage("interface_grid_view_sort_desc")?></option>
+			<option value="asc"><?php echo GetMessage("interface_grid_view_sort_asc")?></option>
+			<option value="desc"><?php echo GetMessage("interface_grid_view_sort_desc")?></option>
 		</select></td>
 	</tr>
 	<tr class="section">
-		<td colspan="2"><?echo GetMessage("interface_grid_view_nav_sect")?></td>
+		<td colspan="2"><?php echo GetMessage("interface_grid_view_nav_sect")?></td>
 	</tr>
 	<tr>
-		<td align="right" width="50%"><?echo GetMessage("interface_grid_view_nav_name")?></td>
+		<td align="right" width="50%"><?php echo GetMessage("interface_grid_view_nav_name")?></td>
 		<td><select name="view_page_size">
 			<option value="10">10</option>
 			<option value="20">20</option>
@@ -421,10 +421,10 @@ endforeach;
 		</select></td>
 	</tr>
 	<tr class="section">
-		<td colspan="2"><?echo GetMessage("interface_grid_saved_filter")?></td>
+		<td colspan="2"><?php echo GetMessage("interface_grid_saved_filter")?></td>
 	</tr>
 	<tr>
-		<td align="right"><?echo GetMessage("interface_grid_saved_filter_apply")?></td>
+		<td align="right"><?php echo GetMessage("interface_grid_saved_filter_apply")?></td>
 		<td><select name="view_filters">
 		</select></td>
 	</tr>
@@ -434,34 +434,34 @@ endforeach;
 <div id="views_list_<?=$arParams["GRID_ID"]?>">
 <div style="float:left; width:80%">
 <select name="views_list" size="17" style="width:100%; height:250px;" ondblclick="this.form.views_edit.onclick()">
-<?foreach($arResult["OPTIONS"]["views"] as $view_id=>$view):?>
-	<option value="<?=htmlspecialcharsbx($view_id)?>"<?if($view_id == $arResult["OPTIONS"]["current_view"]):?> selected<?endif?>><?=htmlspecialcharsbx(($view["name"] <> ''? $view["name"]:GetMessage("interface_grid_view_noname")))?></option>
-<?endforeach?>
+<?php foreach($arResult["OPTIONS"]["views"] as $view_id=>$view):?>
+	<option value="<?=htmlspecialcharsbx($view_id)?>"<?php if($view_id == $arResult["OPTIONS"]["current_view"]):?> selected<?php endif?>><?=htmlspecialcharsbx(($view["name"] <> ''? $view["name"]:GetMessage("interface_grid_view_noname")))?></option>
+<?php endforeach?>
 </select>
 </div>
 <div style="width:20%;float:left;">
 	<div style=margin-left:5px;>
-	<div style="margin-bottom:5px"><input type="button" name="views_add" value="<?echo GetMessage("interface_grid_view_add")?>" title="<?echo GetMessage("interface_grid_view_add_title")?>" style="width:100%;" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.AddView()"></div>
-	<div style="margin-bottom:5px"><input type="button" name="views_edit" value="<?echo GetMessage("interface_grid_view_edit")?>" title="<?echo GetMessage("interface_grid_view_edit_title")?>" style="width:100%;" onclick="if(this.form.views_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.EditView(this.form.views_list.value)"></div>
-	<div style="margin-bottom:5px"><input type="button" name="views_delete" value="<?echo GetMessage("interface_grid_view_del")?>" title="<?echo GetMessage("interface_grid_view_del_title")?>" style="width:100%;" onclick="if(this.form.views_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.DeleteView(this.form.views_list.value)"></div>
+	<div style="margin-bottom:5px"><input type="button" name="views_add" value="<?php echo GetMessage("interface_grid_view_add")?>" title="<?php echo GetMessage("interface_grid_view_add_title")?>" style="width:100%;" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.AddView()"></div>
+	<div style="margin-bottom:5px"><input type="button" name="views_edit" value="<?php echo GetMessage("interface_grid_view_edit")?>" title="<?php echo GetMessage("interface_grid_view_edit_title")?>" style="width:100%;" onclick="if(this.form.views_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.EditView(this.form.views_list.value)"></div>
+	<div style="margin-bottom:5px"><input type="button" name="views_delete" value="<?php echo GetMessage("interface_grid_view_del")?>" title="<?php echo GetMessage("interface_grid_view_del_title")?>" style="width:100%;" onclick="if(this.form.views_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.DeleteView(this.form.views_list.value)"></div>
 	</div>
 </div>
 </div>
 
-<?if(!empty($arParams["FILTER"])):?>
+<?php if(!empty($arParams["FILTER"])):?>
 <div id="filter_settings_<?=$arParams["GRID_ID"]?>">
 <table width="100%">
 	<tr class="section">
-		<td colspan="2"><?echo GetMessage("interface_grid_filter_name")?></td>
+		<td colspan="2"><?php echo GetMessage("interface_grid_filter_name")?></td>
 	</tr>
 	<tr>
-		<td align="right" width="40%"><?echo GetMessage("interface_grid_filter_name1")?></td>
+		<td align="right" width="40%"><?php echo GetMessage("interface_grid_filter_name1")?></td>
 		<td><input type="text" name="filter_name" value="" size="40" maxlength="255"></td>
 	</tr>
 	<tr class="section">
-		<td colspan="2"><?echo GetMessage("interface_grid_filter_fields")?></td>
+		<td colspan="2"><?php echo GetMessage("interface_grid_filter_fields")?></td>
 	</tr>
-<?
+<?php 
 foreach($arParams["FILTER"] as $field):
 	if($field["enable_settings"] === false)
 		continue;
@@ -469,7 +469,7 @@ foreach($arParams["FILTER"] as $field):
 	<tr>
 		<td align="right"><?=$field["name"]?>:</td>
 		<td>
-<?
+<?php 
 	//default attributes
 	if(!is_array($field["params"]))
 		$field["params"] = array();
@@ -501,26 +501,26 @@ foreach($arParams["FILTER"] as $field):
 ?>
 <input type="hidden" name="<?=$field["id"]?>" value="N">
 <input type="checkbox" name="<?=$field["id"]?>" value="Y"<?=$params?>>
-<?
+<?php 
 			break;
 		case 'list':
 ?>
 <select name="<?=$field["id"].(isset($field["params"]["multiple"])? '[]':'')?>"<?=$params?>>
-<?
+<?php 
 			if(is_array($field["items"])):
 				if(isset($field["params"]["multiple"])):
 ?>
-	<option value=""><?echo GetMessage("interface_grid_no_no_no_1")?></option>
-<?
+	<option value=""><?php echo GetMessage("interface_grid_no_no_no_1")?></option>
+<?php 
 				endif;
 				foreach($field["items"] as $k=>$v):
 ?>
 	<option value="<?=htmlspecialcharsbx($k)?>"><?=htmlspecialcharsbx($v)?></option>
-<?
+<?php 
 				endforeach;
 ?>
 </select>
-<?
+<?php 
 			endif;
 			break;
 		case 'date':
@@ -546,62 +546,62 @@ foreach($arParams["FILTER"] as $field):
 		case 'quick':
 ?>
 <input type="text" name="<?=$field["id"]?>" value=""<?=$params?>>
-<?
+<?php 
 			if(is_array($field["items"])):
 ?>
 <select name="<?=$field["id"]?>_list">
-<?foreach($field["items"] as $key=>$item):?>
+<?php foreach($field["items"] as $key=>$item):?>
 	<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($item)?></option>
-<?endforeach?>
+<?php endforeach?>
 </select>
-<?
+<?php 
 			endif;
 			break;
 		case 'number':
 ?>
 <input type="text" name="<?=$field["id"]?>_from" value=""<?=$params?>> ...
 <input type="text" name="<?=$field["id"]?>_to" value=""<?=$params?>>
-<?
+<?php 
 			break;
 		default:
 ?>
 <input type="text" name="<?=$field["id"]?>" value=""<?=$params?>>
-<?
+<?php 
 			break;
 	endswitch;
 ?>
 		</td>
 	</tr>
-<?endforeach?>
+<?php endforeach?>
 </table>
 </div>
 
 <div id="filters_list_<?=$arParams["GRID_ID"]?>">
 <div style="float:left; width:80%">
 <select name="filters_list" size="17" style="width:100%; height:250px;" ondblclick="if(this.value) this.form.filters_edit.onclick()">
-<?foreach($arResult["OPTIONS"]["filters"] as $filter_id=>$filter):?>
+<?php foreach($arResult["OPTIONS"]["filters"] as $filter_id=>$filter):?>
 	<option value="<?=htmlspecialcharsbx($filter_id)?>"><?=htmlspecialcharsbx(($filter["name"] <> ''? $filter["name"]:GetMessage("interface_grid_view_noname")))?></option>
-<?endforeach?>
+<?php endforeach?>
 </select>
 </div>
 <div style="width:20%;float:left;">
 	<div style=margin-left:5px;>
-	<div style="margin-bottom:5px"><input type="button" name="filters_add" value="<?echo GetMessage("interface_grid_view_add")?>" title="<?echo GetMessage("interface_grid_filter_add_title")?>" style="width:100%;" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.AddFilter()"></div>
-	<div style="margin-bottom:5px"><input type="button" name="filters_edit" value="<?echo GetMessage("interface_grid_view_edit")?>" title="<?echo GetMessage("interface_grid_filter_edit_title")?>" style="width:100%;" onclick="if(this.form.filters_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.EditFilter(this.form.filters_list.value)"></div>
-	<div style="margin-bottom:5px"><input type="button" name="filters_delete" value="<?echo GetMessage("interface_grid_view_del")?>" title="<?echo GetMessage("interface_grid_filter_del_title")?>" style="width:100%;" onclick="if(this.form.filters_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.DeleteFilter(this.form.filters_list.value)"></div>
+	<div style="margin-bottom:5px"><input type="button" name="filters_add" value="<?php echo GetMessage("interface_grid_view_add")?>" title="<?php echo GetMessage("interface_grid_filter_add_title")?>" style="width:100%;" onclick="bxGrid_<?=$arParams["GRID_ID"]?>.AddFilter()"></div>
+	<div style="margin-bottom:5px"><input type="button" name="filters_edit" value="<?php echo GetMessage("interface_grid_view_edit")?>" title="<?php echo GetMessage("interface_grid_filter_edit_title")?>" style="width:100%;" onclick="if(this.form.filters_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.EditFilter(this.form.filters_list.value)"></div>
+	<div style="margin-bottom:5px"><input type="button" name="filters_delete" value="<?php echo GetMessage("interface_grid_view_del")?>" title="<?php echo GetMessage("interface_grid_filter_del_title")?>" style="width:100%;" onclick="if(this.form.filters_list.value) bxGrid_<?=$arParams["GRID_ID"]?>.DeleteFilter(this.form.filters_list.value)"></div>
 	</div>
 </div>
 </div>
-<?
+<?php 
 endif //!empty($arParams["FILTER"])
 ?>
 
 </div>
-<?
+<?php 
 endif //$GLOBALS['USER']->IsAuthorized()
 ?>
 
-<?
+<?php 
 $variables = array(
 	"mess"=>array(
 		"calend_title"=>GetMessage("interface_grid_date"),
@@ -680,36 +680,36 @@ bxGrid_<?=$arParams["GRID_ID"]?>.menu = new PopupMenu('bxMenu_<?=$arParams["GRID
 bxGrid_<?=$arParams["GRID_ID"]?>.settingsMenu = [
 	{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_views_setup"))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_views_setup_title"))?>', 'DEFAULT':true, 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.EditCurrentView()', 'DISABLED':<?=($USER->IsAuthorized()? 'false':'true')?>, 'ICONCLASS':'grid-settings'},
 	{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_columns"))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_columns_title"))?>', 'MENU':[
-<?
+<?php 
 unset($colsEditMeta);
 foreach($arParams["HEADERS"] as $header):
 ?>
-		{'TEXT': '<?=CUtil::JSEscape($header["name"])?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_columns_showhide"))?>',<?if(array_key_exists($header["id"], $arResult["HEADERS"])):?>'ICONCLASS':'checked',<?endif?> 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.CheckColumn(\'<?=CUtil::JSEscape($header["id"])?>\', this)', 'AUTOHIDE':false},
-<?
+		{'TEXT': '<?=CUtil::JSEscape($header["name"])?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_columns_showhide"))?>',<?php if(array_key_exists($header["id"], $arResult["HEADERS"])):?>'ICONCLASS':'checked',<?php endif?> 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.CheckColumn(\'<?=CUtil::JSEscape($header["id"])?>\', this)', 'AUTOHIDE':false},
+<?php 
 endforeach;
 ?>
 		{'SEPARATOR': true},
 		{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_columns_apply"))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_columns_apply_title"))?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.ApplySaveColumns()'}
 	], 'DISABLED':<?=($USER->IsAuthorized()? 'false':'true')?>},
 	{'SEPARATOR': true},
-<?
+<?php 
 foreach($arResult["OPTIONS"]["views"] as $view_id=>$view):
 ?>
-	{'TEXT': '<?=htmlspecialcharsbx($view["name"]<>''? CUtil::JSEscape($view["name"]) : GetMessage("interface_grid_view_noname"))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_view_title"))?>'<?if($view_id == $arResult["OPTIONS"]["current_view"]):?>, 'ICONCLASS':'checked'<?endif?>, 'DISABLED':<?=($USER->IsAuthorized()? 'false':'true')?>, 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.SetView(\'<?=$view_id?>\')'},
-<?
+	{'TEXT': '<?=htmlspecialcharsbx($view["name"]<>''? CUtil::JSEscape($view["name"]) : GetMessage("interface_grid_view_noname"))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_view_title"))?>'<?php if($view_id == $arResult["OPTIONS"]["current_view"]):?>, 'ICONCLASS':'checked'<?php endif?>, 'DISABLED':<?=($USER->IsAuthorized()? 'false':'true')?>, 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.SetView(\'<?=$view_id?>\')'},
+<?php 
 endforeach;
 ?>
 	{'SEPARATOR': true},
 	{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_views"))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_views_mnu_title"))?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.ShowViews()', 'DISABLED':<?=($USER->IsAuthorized()? 'false':'true')?>, 'ICONCLASS':'grid-views'}
 ];
-<?
+<?php 
 $isAjaxRequest = isset($_REQUEST['bxajaxid']) || isset($_REQUEST['AJAX_CALL']);
 $ajaxInitEvent = isset($arParams['~AJAX_INIT_EVENT']) ? CUtil::JSEscape($arParams['~AJAX_INIT_EVENT']) : '';
 ?>
 BX.ready(
 		function()
 		{
-		<?if($isAjaxRequest && $ajaxInitEvent !== ''):?>
+		<?php if($isAjaxRequest && $ajaxInitEvent !== ''):?>
 			BX.addCustomEvent(
 					window,
 					'<?=$ajaxInitEvent?>',
@@ -719,28 +719,28 @@ BX.ready(
 						BX.removeCustomEvent(window, '<?=$ajaxInitEvent?>', this);
 					}
 			);
-			<?else:?>
+			<?php else:?>
 			bxGrid_<?=$arParams["GRID_ID"]?>.InitTable();
-			<?endif;?>
+			<?php endif;?>
 		}
 );
 
-<?if(!empty($arParams["FILTER"])):?>
+<?php if(!empty($arParams["FILTER"])):?>
 bxGrid_<?=$arParams["GRID_ID"]?>.oFilterRows = <?=CUtil::PhpToJsObject($arResult["FILTER_ROWS"])?>;
 bxGrid_<?=$arParams["GRID_ID"]?>.filterMenu = [
 	{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_flt_rows"))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_flt_rows_title"))?>', 'MENU':[
-<?foreach($arParams["FILTER"] as $field):?>
-		{'ID':'flt_<?=$arParams["GRID_ID"]?>_<?=$field["id"]?>', 'TEXT': '<?=CUtil::JSEscape($field["name"])?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.SwitchFilterRow(\'<?=CUtil::JSEscape($field["id"])?>\', this)', 'AUTOHIDE':false<?if($arResult["FILTER_ROWS"][$field["id"]]):?>, 'ICONCLASS':'checked'<?endif?>},
-<?endforeach?>
+<?php foreach($arParams["FILTER"] as $field):?>
+		{'ID':'flt_<?=$arParams["GRID_ID"]?>_<?=$field["id"]?>', 'TEXT': '<?=CUtil::JSEscape($field["name"])?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.SwitchFilterRow(\'<?=CUtil::JSEscape($field["id"])?>\', this)', 'AUTOHIDE':false<?php if($arResult["FILTER_ROWS"][$field["id"]]):?>, 'ICONCLASS':'checked'<?php endif?>},
+<?php endforeach?>
 		{'SEPARATOR': true},
 		{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_flt_show_all"))?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.SwitchFilterRows(true)'},
 		{'TEXT': '<?=CUtil::JSEscape(GetMessage("interface_grid_flt_hide_all"))?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.SwitchFilterRows(false)'}
 	]},
-<?if(is_array($arResult["OPTIONS"]["filters"]) && !empty($arResult["OPTIONS"]["filters"])):?>
+<?php if(is_array($arResult["OPTIONS"]["filters"]) && !empty($arResult["OPTIONS"]["filters"])):?>
 	{'SEPARATOR': true},
-<?foreach($arResult["OPTIONS"]["filters"] as $filter_id=>$filter):?>
+<?php foreach($arResult["OPTIONS"]["filters"] as $filter_id=>$filter):?>
 	{'ID': 'mnu_<?=$arParams["GRID_ID"]?>_<?=$filter_id?>', 'TEXT': '<?=htmlspecialcharsbx(CUtil::JSEscape($filter["name"]))?>', 'TITLE': '<?=CUtil::JSEscape(GetMessage("interface_grid_filter_apply"))?>', 'ONCLICK':'bxGrid_<?=$arParams["GRID_ID"]?>.ApplyFilter(\'<?=CUtil::JSEscape($filter_id)?>\')'},
-<?
+<?php 
 	endforeach;
 endif;
 ?>
@@ -750,7 +750,7 @@ endif;
 ];
 
 BX.ready(function(){bxGrid_<?=$arParams["GRID_ID"]?>.InitFilter()});
-<?endif?>
+<?php endif?>
 
 phpVars.messLoading = '<?=GetMessageJS("interface_grid_loading")?>';
 </script>

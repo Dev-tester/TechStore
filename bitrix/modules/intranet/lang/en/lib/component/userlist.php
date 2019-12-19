@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_LIST_STATUS_ABSENT"] = "Out of office";
 $MESS["INTRANET_USER_LIST_STATUS_ADMIN"] = "Administrator";
 $MESS["INTRANET_USER_LIST_STATUS_INTEGRATOR"] = "Bitrix24 partner";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILLFR_NUMBER"] = "#";
 $MESS["SALE_HPS_BILLFR_DATE_INSERT"] = "Date de délivrance";
 $MESS["SALE_HPS_BILLFR_DATE_PAY_BEFORE"] = "Échéance";

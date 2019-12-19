@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/desktop_app/headers.php");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
@@ -15,7 +15,7 @@ if (intval($USER->GetID()) <= 0 || \Bitrix\Im\User::getInstance()->isConnector()
 		BXDesktopSystem.Login({});
 	else
 		location.href = '/';
-</script><?
+</script><?php 
 	return true;
 }
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/im/install/public/desktop_app/index.php");
@@ -39,12 +39,12 @@ else
 	<script type="text/javascript">
 		if (typeof(BXDesktopSystem) != 'undefined')
 			BX.desktop.init();
-		<?if (!isset($_GET['BXD_MODE'])):?>
+		<?php if (!isset($_GET['BXD_MODE'])):?>
 		else
 			location.href = '/';
-		<?endif;?>
+		<?php endif;?>
 	</script>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:im.messenger", "", Array(
 		"CONTEXT" => "DESKTOP"
 	), false, Array("HIDE_ICONS" => "Y"));

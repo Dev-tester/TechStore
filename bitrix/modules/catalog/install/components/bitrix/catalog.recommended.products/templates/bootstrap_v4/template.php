@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /**
  * @global CMain $APPLICATION
@@ -24,7 +24,7 @@ if (!empty($arResult['RECOMMENDED_IDS']))
 		<h4 class="bx_item_list_title">
 			<?=($arParams['BLOCK_TITLE'] ? htmlspecialcharsbx($arParams['BLOCK_TITLE']) : GetMessage('CATALOG_RECOMMENDED_PRODUCTS_HREF_TITLE'))?>
 		</h4>
-		<?
+		<?php 
 	}
 
 	if (!empty($arParams['SHOW_PRODUCTS']))

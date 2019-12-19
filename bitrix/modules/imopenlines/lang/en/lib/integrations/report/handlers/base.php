@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_OPERATOR_DEMO_NAME_PREFIX_NEW"] = "Agent";
 $MESS["FILTER"] = "Filter by:";
 $MESS["FILTER_BY_OPEN_LINE"] = "Open channel:";

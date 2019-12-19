@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PS_USER_ID"] = "User ID";
 $MESS["CRM_PS_USER_LOGIN"] = "Login";
 $MESS["CRM_PS_USER_NAME"] = "First name";

@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -20,7 +20,7 @@ use Bitrix\Main\Localization\Loc;
 		var bxForm_<?=$arParams["FORM_ID"]?> = null;
 	</script>
 
-	<?if($arParams["SHOW_FORM_TAG"]):?>
+	<?php if($arParams["SHOW_FORM_TAG"]):?>
 		<form
 			name="form_<?=$arParams["FORM_ID"]?>" id="form_<?=$arParams["FORM_ID"]?>"
 			action="<?=POST_FORM_ACTION_URI?>" method="POST" enctype="multipart/form-data"
@@ -30,11 +30,11 @@ use Bitrix\Main\Localization\Loc;
 			type="hidden" id="<?=$arParams["FORM_ID"]?>_active_tab" name="<?=$arParams["FORM_ID"]?>_active_tab"
 			value="<?=htmlspecialcharsbx($arResult["SELECTED_TAB"])?>"
 		>
-	<? endif; ?>
+	<?php  endif; ?>
 
 	<div class="bx-lists-tabs-block">
-		<? foreach($arResult["TABS"] as $tab): ?>
-			<?
+		<?php  foreach($arResult["TABS"] as $tab): ?>
+			<?php 
 				$selected = ($tab["id"] == $arResult["SELECTED_TAB"]);
 				$callback = '';
 				if(strlen($tab['onselect_callback']))
@@ -47,23 +47,23 @@ use Bitrix\Main\Localization\Loc;
 			<span
 				title="<?=htmlspecialcharsbx($tab["title"])?>"
 				class="bx-lists-tab <?=($selected ? "bx-lists-tab-active":"")?>" id="tab_cont_<?=$tab["id"]?>"
-				onclick="<?if(strlen($callback)):?><?=$callback?>('<?=$tab["id"]?>');<?endif?>
+				onclick="<?php if(strlen($callback)):?><?=$callback?>('<?=$tab["id"]?>');<?php endif?>
 					bxForm_<?=$arParams["FORM_ID"]?>.SelectTab('<?=$tab["id"]?>');"
 			>
 				<?=htmlspecialcharsbx($tab["name"])?>
 			</span>
-		<? endforeach ?>
+		<?php  endforeach ?>
 	</div>
 
 	<div class="bx-lists-tab-contents">
-		<? foreach($arResult["TABS"] as $tab): ?>
-			<? $selected = ($tab["id"] == $arResult["SELECTED_TAB"]); ?>
+		<?php  foreach($arResult["TABS"] as $tab): ?>
+			<?php  $selected = ($tab["id"] == $arResult["SELECTED_TAB"]); ?>
 			<div
 				id="bx-lists-tab-content_<?=$tab["id"]?>"
 				class="bx-lists-tab-content <?=($selected ? "active":"")?>"
 			>
 				<table cellpadding="0" cellspacing="0" border="0" class="bx-lists-table-content <?=(isset($tab["class"]) ? $tab['class'] : '')?>" id="<?=$tab["id"]?>_edit_table">
-					<?
+					<?php 
 					$i = 0;
 					$cnt = count($tab["fields"]);
 					$prevType = '';
@@ -96,7 +96,7 @@ use Bitrix\Main\Localization\Loc;
 									uploaded.innerHTML = str;
 								}
 							</script>
-						<? endif;
+						<?php  endif;
 
 						$style = '';
 						if(isset($field["show"]))
@@ -120,12 +120,12 @@ use Bitrix\Main\Localization\Loc;
 						if(strlen($field['class']))
 							$className[] = $field['class'];
 						?>
-						<tr<?if(!empty($className)):?> class="<?=implode(' ', $className)?>"<?endif?><?if(!empty($style)):?> style="<?= $style ?>"<?endif?>>
-							<?
+						<tr<?php if(!empty($className)):?> class="<?=implode(' ', $className)?>"<?php endif?><?php if(!empty($style)):?> style="<?= $style ?>"<?php endif?>>
+							<?php 
 							if($field["type"] == 'section'):
 								?>
 								<td colspan="2" class="bx-heading"><?=htmlspecialcharsbx($field["name"])?></td>
-							<?
+							<?php 
 							else:
 								$val = (isset($field["value"])? $field["value"] : $arParams["~DATA"][$field["id"]]);
 								$valEncoded = htmlspecialcharsbx(htmlspecialcharsback($val));
@@ -162,12 +162,12 @@ use Bitrix\Main\Localization\Loc;
 									if($field["required"])
 										$bWasRequired = true;
 									?>
-									<td class="bx-field-name<?if($field["type"] <> 'label') echo' bx-padding'?>"<?if($field["title"] <> '') echo ' title="'.htmlspecialcharsEx($field["title"]).'"'?>><?=($field["required"]? '<span class="required">*</span>':'')?><?if(strlen($field["name"])):?><?=htmlspecialcharsEx($field["name"])?>:<?endif?></td>
-								<?
+									<td class="bx-field-name<?php if($field["type"] <> 'label') echo' bx-padding'?>"<?php if($field["title"] <> '') echo ' title="'.htmlspecialcharsEx($field["title"]).'"'?>><?=($field["required"]? '<span class="required">*</span>':'')?><?php if(strlen($field["name"])):?><?=htmlspecialcharsEx($field["name"])?>:<?php endif?></td>
+								<?php 
 								endif
 								?>
 								<td class=""<?=($field["colspan"]? ' colspan="2"':'')?>>
-									<?
+									<?php 
 									switch($field["type"]):
 										case 'label':
 										case 'custom':
@@ -177,12 +177,12 @@ use Bitrix\Main\Localization\Loc;
 											?>
 											<input type="hidden" name="<?=$field["id"]?>" value="N">
 											<input type="checkbox" name="<?=$field["id"]?>" value="Y"<?=($val == "Y"? ' checked':'')?><?=$params?>>
-											<?
+											<?php 
 											break;
 										case 'textarea':
 											?>
 											<textarea name="<?=$field["id"]?>"<?=$params?>><?=$valEncoded?></textarea>
-											<?
+											<?php 
 											break;
 										case 'list':
 
@@ -200,18 +200,18 @@ use Bitrix\Main\Localization\Loc;
 												<?= $spanOne ?>
 												<select name="<?=$field["id"]?>"<?=$params?>>
 
-													<? if(!is_array($val))
+													<?php  if(!is_array($val))
 														$val = array($val);
 
 													foreach($field["items"] as $k=>$v): ?>
 														<option value="<?=htmlspecialcharsbx($k)?>"<?=(in_array($k, $val)? ' selected':'')?>>
 															<?=htmlspecialcharsbx($v)?></option>
-													<? endforeach; ?>
+													<?php  endforeach; ?>
 
 												</select>
 												<?= $spanTwo ?>
 
-											<? endif;
+											<?php  endif;
 
 											break;
 										case 'file':
@@ -223,7 +223,7 @@ use Bitrix\Main\Localization\Loc;
 												</span>
 												<span class="fileformlabel bx-lists-input-file-name"></span>
 											</span>
-											<?
+											<?php 
 											break;
 										case 'date':
 											?>
@@ -232,43 +232,43 @@ use Bitrix\Main\Localization\Loc;
 											<span class="bx-lists-calendar-icon" onclick="BX.calendar({node:this, field:'<?= $field['id'] ?>', form: '',
 												bTime: true, bHideTime: false});" onmouseover="BX.addClass(this, 'calendar-icon-hover');"
 												  onmouseout="BX.removeClass(this, 'calendar-icon-hover');" border="0"></span>
-											<?
+											<?php 
 											break;
 										default:
 											?>
 											<input type="text" name="<?=$field["id"]?>" value="<?=$valEncoded?>"<?=$params?>>
-											<?
+											<?php 
 											break;
 									endswitch;
 									?>
 								</td>
-							<?endif?>
+							<?php endif?>
 						</tr>
-						<?
+						<?php 
 						$prevType = $field["type"];
 					endforeach;
 					?>
 				</table>
 			</div>
-		<? endforeach ?>
+		<?php  endforeach ?>
 	</div>
 
-	<? if(isset($arParams["BUTTONS"])): ?>
+	<?php  if(isset($arParams["BUTTONS"])): ?>
 		<div class="bx-lists-buttons-block">
-			<?if($arParams["~BUTTONS"]["standard_buttons"] !== false):?>
-				<?if($arParams["BUTTONS"]["back_url"] <> ''):?>
+			<?php if($arParams["~BUTTONS"]["standard_buttons"] !== false):?>
+				<?php if($arParams["BUTTONS"]["back_url"] <> ''):?>
 					<input
 						type="submit" name="save" value="<?= Loc::getMessage("interface_form_save")?>"
 						title="<?= Loc::getMessage("interface_form_save_title")?>"
 						class="webform-small-button webform-small-button-accept"
 					>
-				<?endif?>
+				<?php endif?>
 				<input
 					type="submit" name="apply" value="<?= Loc::getMessage("interface_form_apply")?>"
 					title="<?= Loc::getMessage("interface_form_apply_title")?>"
 					class="webform-small-button webform-small-button-cancel"
 				>
-				<?if($arParams["BUTTONS"]["back_url"] <> ''):?>
+				<?php if($arParams["BUTTONS"]["back_url"] <> ''):?>
 					<a
 						href="javascript:void(0)"
 						class="bx-lists-cancel-button"
@@ -277,15 +277,15 @@ use Bitrix\Main\Localization\Loc;
 					>
 						<?= Loc::getMessage("interface_form_cancel")?>
 					</a>
-				<?endif?>
-			<?endif?>
+				<?php endif?>
+			<?php endif?>
 			<?=$arParams["~BUTTONS"]["custom_html"]?>
 		</div>
-	<?endif?>
+	<?php endif?>
 
-	<?if($arParams["SHOW_FORM_TAG"]):?>
+	<?php if($arParams["SHOW_FORM_TAG"]):?>
 		</form>
-	<?endif?>
+	<?php endif?>
 
 	<script type="text/javascript">
 		var formSettingsDialog<?=$arParams["FORM_ID"]?>;

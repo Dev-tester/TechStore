@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
@@ -18,10 +18,10 @@ if (empty($arResult))
 ?>
 <nav class="bx-inclinksfooter-container">
 	<ul class="bx-inclinksfooter-list">
-		<?foreach($arResult as $itemIdex => $arItem):?>
-			<?if ($arItem["DEPTH_LEVEL"] == "1"):?>
+		<?php foreach($arResult as $itemIdex => $arItem):?>
+			<?php if ($arItem["DEPTH_LEVEL"] == "1"):?>
 				<li class="bx-inclinksfooter-item"><a href="<?=htmlspecialcharsbx($arItem["LINK"])?>"><?=htmlspecialcharsbx($arItem["TEXT"])?></a></li>
-			<?endif?>
-		<?endforeach;?>
+			<?php endif?>
+		<?php endforeach;?>
 	</ul>
 </nav>

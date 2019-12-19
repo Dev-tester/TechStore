@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['blog_ALIAS'] = "Nickname:";
 $MESS ['blog_DESCRIPTION'] = "Description:";
 $MESS ['blog_INTERESTS'] = "Interests:";

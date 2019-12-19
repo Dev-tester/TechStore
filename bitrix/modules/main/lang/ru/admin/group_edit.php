@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EDIT_GROUP_TITLE'] = "Редактирование группы # #ID#";
 $MESS ['EDIT_GROUP_TITLE_VIEW'] = "Просмотр группы # #ID#";
 $MESS ['NEW_GROUP_TITLE'] = "Добавление группы";

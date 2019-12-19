@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Объявление детально");
 ?>
 <h4><a href="/content/board/my/?edit=Y">Добавить объявление</a> | <a href="/content/board/my/">Мои объявления</a></h4>
 
-<?$APPLICATION->IncludeComponent("bitrix:catalog.element", "board", array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog.element", "board", array(
 	"IBLOCK_TYPE" => "services",
 	"IBLOCK_ID" => "45",
 	"ELEMENT_ID" => $_REQUEST["ELEMENT_ID"],
@@ -46,4 +46,4 @@ $APPLICATION->SetTitle("Объявление детально");
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

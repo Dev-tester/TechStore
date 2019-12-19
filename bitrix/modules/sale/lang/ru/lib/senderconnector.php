@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_buyer_name"] = "Магазин - Покупатели";
 $MESS["sender_connector_buyer_all"] = "Любое";
 $MESS["sender_connector_buyer_y"] = "Да";

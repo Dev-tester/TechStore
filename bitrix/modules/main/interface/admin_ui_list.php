@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Text\HtmlFilter;
 use Bitrix\Main\Grid\Editor\Types;
 use Bitrix\Main\Grid\Panel;
@@ -586,7 +586,7 @@ class CAdminUiList extends CAdminList
 			ob_start();
 			?>
 				<div class="pagetitle-container pagetitle-flexible-space">
-					<?
+					<?php 
 					$APPLICATION->includeComponent(
 						"bitrix:main.ui.filter",
 						"",
@@ -596,7 +596,7 @@ class CAdminUiList extends CAdminList
 					);
 					?>
 				</div>
-			<?
+			<?php 
 			$APPLICATION->AddViewContent("inside_pagetitle", ob_get_clean());
 		}
 		else
@@ -605,7 +605,7 @@ class CAdminUiList extends CAdminList
 			?>
 			<div class="adm-toolbar-panel-container">
 				<div class="adm-toolbar-panel-flexible-space">
-					<?
+					<?php 
 					$APPLICATION->includeComponent(
 						"bitrix:main.ui.filter",
 						"",
@@ -615,11 +615,11 @@ class CAdminUiList extends CAdminList
 					);
 					?>
 				</div>
-				<?
+				<?php 
 				$this->ShowContext();
 				?>
 			</div>
-			<?
+			<?php 
 		}
 
 		$this->createFilterSelectorHandlers($filterFields);
@@ -635,7 +635,7 @@ class CAdminUiList extends CAdminList
 				}
 			});
 		</script>
-		<?
+		<?php 
 	}
 
 	private function createFilterSelectorHandlers(array $filterFields = array())
@@ -680,7 +680,7 @@ class CAdminUiList extends CAdminList
 								}
 							}
 						</script>
-						<?
+						<?php 
 						break;
 					case "product":
 						?>
@@ -713,7 +713,7 @@ class CAdminUiList extends CAdminList
 								}
 							}
 						</script>
-						<?
+						<?php 
 						break;
 				}
 			}
@@ -1016,7 +1016,7 @@ class CAdminUiList extends CAdminList
 			}
 			BX.adminChain.addItems("<?=$this->table_id?>_navchain_div");
 		</script>
-		<?
+		<?php 
 	}
 
 	private function getTotalRowsCountHtml()
@@ -1026,7 +1026,7 @@ class CAdminUiList extends CAdminList
 			<div><?= GetMessage("admin_lib_list_all_title").": " ?>
 				<a id="<?=$this->table_id?>_show_total_count" href="#"><?= GetMessage("admin_lib_list_show_row_count_title")?></a>
 			</div>
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 
@@ -1845,15 +1845,15 @@ class CAdminUiContextMenu extends CAdminContextMenu
 
 		if ($this->isPublicMode): ob_start(); ?>
 		<div class="pagetitle-container pagetitle-align-right-container">
-		<? else: ?>
-		<? if (!$this->isShownFilterContext): ?>
+		<?php  else: ?>
+		<?php  if (!$this->isShownFilterContext): ?>
 			<div class="adm-toolbar-panel-container">
 				<div class="adm-toolbar-panel-flexible-space">
-					<? $this->showBaseButton(); ?>
+					<?php  $this->showBaseButton(); ?>
 				</div>
-		<? endif ?>
+		<?php  endif ?>
 		<div class="adm-toolbar-panel-align-right">
-		<? endif;
+		<?php  endif;
 
 		$this->showActionButton();
 
@@ -1864,9 +1864,9 @@ class CAdminUiContextMenu extends CAdminContextMenu
 
 		?>
 		</div>
-		<? if (!$this->isShownFilterContext && !$this->isPublicMode): ?>
+		<?php  if (!$this->isShownFilterContext && !$this->isPublicMode): ?>
 		</div>
-		<? endif;
+		<?php  endif;
 
 		if ($this->isPublicMode)
 		{
@@ -1893,7 +1893,7 @@ class CAdminUiContextMenu extends CAdminContextMenu
 			?>
 			<button class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting" onclick="
 				<?=$menuUrl?>"></button>
-			<?
+			<?php 
 		}
 	}
 
@@ -1918,41 +1918,41 @@ class CAdminUiContextMenu extends CAdminContextMenu
 					CAdminPopup::PhpToJavaScript($items)).");";
 			}
 			if (!empty($items)):?>
-				<? if (!empty($firstItem["ONCLICK"])): ?>
+				<?php  if (!empty($firstItem["ONCLICK"])): ?>
 					<div class="ui-btn-double ui-btn-primary">
 						<button onclick="<?=HtmlFilter::encode($firstItem["ONCLICK"])?>" class="ui-btn-main">
 							<?=HtmlFilter::encode($firstItem["TEXT"])?>
 						</button>
 						<button onclick="<?=$menuUrl?>" class="ui-btn-extra"></button>
 					</div>
-				<? else: ?>
-					<? if (isset($firstItem["DISABLE"])): ?>
+				<?php  else: ?>
+					<?php  if (isset($firstItem["DISABLE"])): ?>
 						<div class="ui-btn-double ui-btn-primary">
 							<button onclick="<?=$menuUrl?>" class="ui-btn-main">
 								<?=HtmlFilter::encode($firstItem["TEXT"])?>
 							</button>
 							<button onclick="<?=$menuUrl?>" class="ui-btn-extra"></button>
 						</div>
-					<? else: ?>
+					<?php  else: ?>
 						<div class="ui-btn-double ui-btn-primary">
 							<a href="<?=HtmlFilter::encode($firstItem["LINK"])?>" class="ui-btn-main">
 								<?=HtmlFilter::encode($firstItem["TEXT"])?>
 							</a>
 							<button onclick="<?=$menuUrl?>" class="ui-btn-extra"></button>
 						</div>
-					<? endif; ?>
-				<? endif; ?>
-			<? else:?>
-				<? if (!empty($firstItem["ONCLICK"])): ?>
+					<?php  endif; ?>
+				<?php  endif; ?>
+			<?php  else:?>
+				<?php  if (!empty($firstItem["ONCLICK"])): ?>
 					<button class="ui-btn ui-btn-primary" onclick="<?=HtmlFilter::encode($firstItem["ONCLICK"])?>">
 						<?=HtmlFilter::encode($firstItem["TEXT"])?>
 					</button>
-				<? else: ?>
+				<?php  else: ?>
 					<a class="ui-btn ui-btn-primary" href="<?=HtmlFilter::encode($firstItem["LINK"])?>">
 						<?=HtmlFilter::encode($firstItem["TEXT"])?>
 					</a>
-				<? endif; ?>
-			<?endif;
+				<?php  endif; ?>
+			<?php endif;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOG_TYPE_USERS"] = "Actions on users";
 $MESS["LOG_TYPE_NEW_USERS"] = "User registration";
 $MESS["LOG_TYPE_USER_DELETE"] = "Delete user";

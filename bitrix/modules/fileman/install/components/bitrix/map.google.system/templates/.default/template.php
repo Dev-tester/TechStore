@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $this->setFrameMode(true);
 $arAllMapOptions = array_merge($arResult['ALL_MAP_OPTIONS'], $arResult['ALL_MAP_CONTROLS']);
@@ -8,15 +8,15 @@ $arMapOptions = array_merge($arParams['OPTIONS'], $arParams['CONTROLS']);
 if (!window.GLOBAL_arMapObjects)
 	window.GLOBAL_arMapObjects = {};
 
-function init_<?echo $arParams['MAP_ID']?>()
+function init_<?php echo $arParams['MAP_ID']?>()
 {
 	if (!window.google || !window.google.maps)
 		return;
 
 	var opts = {
-		zoom: <?echo $arParams['INIT_MAP_SCALE']?>,
-		center: new google.maps.LatLng(<?echo $arParams['INIT_MAP_LAT']?>, <?echo $arParams['INIT_MAP_LON']?>),
-<?
+		zoom: <?php echo $arParams['INIT_MAP_SCALE']?>,
+		center: new google.maps.LatLng(<?php echo $arParams['INIT_MAP_LAT']?>, <?php echo $arParams['INIT_MAP_LON']?>),
+<?php 
 foreach ($arAllMapOptions as $option => $method)
 {
 
@@ -28,44 +28,44 @@ foreach ($arAllMapOptions as $option => $method)
 }
 ?>
 
-		mapTypeId: google.maps.MapTypeId.<?echo $arParams['INIT_MAP_TYPE']?>
+		mapTypeId: google.maps.MapTypeId.<?php echo $arParams['INIT_MAP_TYPE']?>
 
 	};
 
-	window.GLOBAL_arMapObjects['<?echo $arParams['MAP_ID']?>'] = new window.google.maps.Map(BX("BX_GMAP_<?echo $arParams['MAP_ID']?>"), opts);
+	window.GLOBAL_arMapObjects['<?php echo $arParams['MAP_ID']?>'] = new window.google.maps.Map(BX("BX_GMAP_<?php echo $arParams['MAP_ID']?>"), opts);
 
-<?
+<?php 
 if ($arParams['DEV_MODE'] == 'Y'):
 ?>
 	window.bGoogleMapScriptsLoaded = true;
-<?
+<?php 
 endif;
 ?>
 }
 
-<?
+<?php 
 if ($arParams['DEV_MODE'] == 'Y'):
 ?>
-function BXMapLoader_<?echo $arParams['MAP_ID']?>(MAP_KEY)
+function BXMapLoader_<?php echo $arParams['MAP_ID']?>(MAP_KEY)
 {
 	if (null == window.bGoogleMapScriptsLoaded)
 	{
 		if (window.google && window.google.maps)
 		{
 			window.bGoogleMapScriptsLoaded = true;
-			BX.ready(init_<?echo $arParams['MAP_ID']?>);
+			BX.ready(init_<?php echo $arParams['MAP_ID']?>);
 		}
 		else
 		{
 			if(window.bGoogleMapsScriptLoading)
 			{
-				window.bInt<?echo $arParams['MAP_ID']?> = setInterval(
+				window.bInt<?php echo $arParams['MAP_ID']?> = setInterval(
 					function()
 					{
 						if(window.bGoogleMapScriptsLoaded)
 						{
-							clearInterval(window.bInt<?echo $arParams['MAP_ID']?>);
-							init_<?echo $arParams['MAP_ID']?>();
+							clearInterval(window.bInt<?php echo $arParams['MAP_ID']?>);
+							init_<?php echo $arParams['MAP_ID']?>();
 						}
 						else
 							return;
@@ -78,37 +78,37 @@ function BXMapLoader_<?echo $arParams['MAP_ID']?>(MAP_KEY)
 
 			window.bGoogleMapsScriptLoading = true;
 
-			<?$scheme = (CMain::IsHTTPS() ? "https" : "http");?>
+			<?php $scheme = (CMain::IsHTTPS() ? "https" : "http");?>
 
 			BX.loadScript(
 				'<?=$scheme?>://www.google.com/jsapi?key=<?=$arParams['API_KEY']?>&rnd=' + Math.random(),
 				function ()
 				{
 					if (BX.browser.IsIE())
-						setTimeout("window.google.load('maps', <?= intval($arParams['GOOGLE_VERSION'])?>, {callback: init_<?echo $arParams['MAP_ID']?>, other_params: 'language=<?=LANGUAGE_ID?>&key=<?=$arParams['API_KEY']?>'})", 1000);
+						setTimeout("window.google.load('maps', <?= intval($arParams['GOOGLE_VERSION'])?>, {callback: init_<?php echo $arParams['MAP_ID']?>, other_params: 'language=<?=LANGUAGE_ID?>&key=<?=$arParams['API_KEY']?>'})", 1000);
 					else
-						google.load('maps', <?echo intval($arParams['GOOGLE_VERSION'])?>, {callback: init_<?echo $arParams['MAP_ID']?>, other_params: 'language=<?=LANGUAGE_ID?>&key=<?=$arParams['API_KEY']?>'});
+						google.load('maps', <?php echo intval($arParams['GOOGLE_VERSION'])?>, {callback: init_<?php echo $arParams['MAP_ID']?>, other_params: 'language=<?=LANGUAGE_ID?>&key=<?=$arParams['API_KEY']?>'});
 				}
 			);
 		}
 	}
 	else
 	{
-		init_<?echo $arParams['MAP_ID']?>();
+		init_<?php echo $arParams['MAP_ID']?>();
 	}
 }
-<?
+<?php 
 	if (!$arParams['WAIT_FOR_EVENT']):
 ?>
-BXMapLoader_<?echo $arParams['MAP_ID']?>('<?echo $arParams['KEY']?>');
-<?
+BXMapLoader_<?php echo $arParams['MAP_ID']?>('<?php echo $arParams['KEY']?>');
+<?php 
 	else:
 		echo CUtil::JSEscape($arParams['WAIT_FOR_EVENT']),' = BXMapLoader_',$arParams['MAP_ID'],';';
 	endif;
 else:
 ?>
-BX.ready(init_<?echo $arParams['MAP_ID']?>);
-<?
+BX.ready(init_<?php echo $arParams['MAP_ID']?>);
+<?php 
 endif;
 ?>
 
@@ -123,4 +123,4 @@ function BXMapGoogleAfterShow(mapId)
 }
 
 </script>
-<div id="BX_GMAP_<?echo $arParams['MAP_ID']?>" class="bx-google-map" style="height: <?echo $arParams['MAP_HEIGHT'];?>; width: <?echo $arParams['MAP_WIDTH']?>;"><?echo GetMessage('MYS_LOADING'.($arParams['WAIT_FOR_EVENT'] ? '_WAIT' : ''));?></div>
+<div id="BX_GMAP_<?php echo $arParams['MAP_ID']?>" class="bx-google-map" style="height: <?php echo $arParams['MAP_HEIGHT'];?>; width: <?php echo $arParams['MAP_WIDTH']?>;"><?php echo GetMessage('MYS_LOADING'.($arParams['WAIT_FOR_EVENT'] ? '_WAIT' : ''));?></div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FM_FLT_SEARCH_TITLE"] = "Введите строку для поиска";
 $MESS["FM_FLT_SEARCH"] = "Найти";
 $MESS["FM_FLT_LOGIN"] = "Логин";

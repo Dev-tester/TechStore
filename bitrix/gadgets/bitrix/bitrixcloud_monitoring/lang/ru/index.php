@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_BITRIXCLOUD_MONITOR"] = "Инспектор<br>сайтов";
 $MESS["GD_BITRIXCLOUD_MONITOR_BTN_OK"] = "Подробнее";
 $MESS["GD_BITRIXCLOUD_MONITOR_BTN_ALERT"] = "О проблеме";

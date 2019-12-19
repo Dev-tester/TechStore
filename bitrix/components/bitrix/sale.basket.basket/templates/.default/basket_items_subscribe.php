@@ -1,49 +1,49 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <b><?= GetMessage("SALE_NOTIFY_TITLE")?></b><br /><br />
 <table class="sale_basket_basket data-table">
 	<tr>
-		<?if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
-			<th align="center"><?echo GetMessage("SALE_NAME")?></th>
-		<?endif;?>
-		<?if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
-			<th align="center"><?echo GetMessage("SALE_PROPS")?></th>
-		<?endif;?>
-		<?if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
-			<th align="center"><?echo GetMessage("SALE_DELETE")?></th>
-		<?endif;?>
+		<?php if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
+			<th align="center"><?php echo GetMessage("SALE_NAME")?></th>
+		<?php endif;?>
+		<?php if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
+			<th align="center"><?php echo GetMessage("SALE_PROPS")?></th>
+		<?php endif;?>
+		<?php if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
+			<th align="center"><?php echo GetMessage("SALE_DELETE")?></th>
+		<?php endif;?>
 	</tr>
-	<?
+	<?php 
 	foreach($arResult["ITEMS"]["ProdSubscribe"] as $arBasketItems)
 	{
 		?>
 		<tr>
-			<?if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
-				<td><?
+			<?php if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
+				<td><?php 
 				if (strlen($arBasketItems["DETAIL_PAGE_URL"])>0):
-					?><a href="<?=$arBasketItems["DETAIL_PAGE_URL"] ?>"><?
+					?><a href="<?=$arBasketItems["DETAIL_PAGE_URL"] ?>"><?php 
 				endif;
-				?><b><?=$arBasketItems["NAME"]?></b><?
+				?><b><?=$arBasketItems["NAME"]?></b><?php 
 				if (strlen($arBasketItems["DETAIL_PAGE_URL"])>0):
-					?></a><?
+					?></a><?php 
 				endif;
 				?>
 				</td>
-			<?endif;?>
-			<?if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
+			<?php endif;?>
+			<?php if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
 				<td>
-				<?
+				<?php 
 				foreach($arBasketItems["PROPS"] as $val)
 				{
 					echo $val["NAME"].": ".$val["VALUE"]."<br />";
 				}
 				?>
 				</td>
-			<?endif;?>
-			<?if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
-				<td align="center"><input type="checkbox" name="DELETE_<?echo $arBasketItems["ID"] ?>" value="Y"></td>
-			<?endif;?>
+			<?php endif;?>
+			<?php if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
+				<td align="center"><input type="checkbox" name="DELETE_<?php echo $arBasketItems["ID"] ?>" value="Y"></td>
+			<?php endif;?>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 </table>

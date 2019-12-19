@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -63,7 +63,7 @@ $APPLICATION->SetTitle(GetMessage("FILEMAN_FILEDOWNLOAD")." \"".$arFile["name"].
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 <font class="text"><?=$arFile["name"]?></font><br><br>
-<?
+<?php 
 ShowError($strWarning);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

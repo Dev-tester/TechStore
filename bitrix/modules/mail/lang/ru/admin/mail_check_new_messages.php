@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIL_CHECK_TITLE'] = "Получение новой почты";
 $MESS ['MAIL_CHECK_CHECK'] = "Получить почту:";
 $MESS ['MAIL_CHECK_CHECK_ALL'] = "(все ящики)";

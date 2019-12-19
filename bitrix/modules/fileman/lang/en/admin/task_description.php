@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_FILEMAN_DENIED"] = "Access denied";
 $MESS["TASK_NAME_FILEMAN_ALLOWED_FOLDERS"] = "Edit files and folders";
 $MESS["TASK_NAME_FILEMAN_FULL_ACCESS"] = "Full access";

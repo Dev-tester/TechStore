@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STPC_TO_LIST"] = "Back to list";
 $MESS["STPC_TIMESTAMP"] = "Last modification date:";
 $MESS["STPC_ACTIV"] = "Active:";

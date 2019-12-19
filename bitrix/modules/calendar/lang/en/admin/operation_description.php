@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_CALENDAR_TYPE_VIEW"] = "View calendars and events of this type";
 $MESS["OP_NAME_CALENDAR_TYPE_ADD"] = "Add new events of this type";
 $MESS["OP_NAME_CALENDAR_TYPE_EDIT"] = "Edit events of this type";

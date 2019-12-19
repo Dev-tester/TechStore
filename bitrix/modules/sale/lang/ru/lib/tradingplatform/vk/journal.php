@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VK_JOURNAL_ALBUMS"] = "Подборки товаров";
 $MESS["VK_JOURNAL_PRODUCTS"] = "Товары";
 $MESS["VK_JOURNAL_NEVER"] = "Экспорт не запускался ни разу.";

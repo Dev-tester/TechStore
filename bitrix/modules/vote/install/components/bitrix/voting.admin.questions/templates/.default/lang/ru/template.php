@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_QUESTION_TYPE"] = "Тип текста (text, html)";
 $MESS["VOTE_IMAGE_ID"] = "Картинка";
 $MESS["VOTE_ADD_QUESTION"] = "Добавить вопрос";

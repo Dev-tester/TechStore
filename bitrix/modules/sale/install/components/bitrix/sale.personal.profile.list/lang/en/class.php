@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_MODULE_NOT_INSTALL'] = "e-Store module is not installed";
 $MESS ['SPPL_DEFAULT_TITLE'] = "Profiles";
 $MESS ['SPPL_PAGES'] = "Profiles";

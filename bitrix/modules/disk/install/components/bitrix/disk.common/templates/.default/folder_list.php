@@ -42,7 +42,7 @@ $folder = \Bitrix\Disk\Folder::loadById($arResult['VARIABLES']['FOLDER_ID']);
 					$component
 				);?>
 			</div>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:disk.file.upload',
 	'',
 	array(

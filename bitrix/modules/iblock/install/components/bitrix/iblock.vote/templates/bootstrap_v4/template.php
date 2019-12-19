@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -35,8 +35,8 @@ else
 }
 $voteContainerId = 'vote_'.$arResult["ID"];
 ?>
-<div class="bx-rating text-primary" id="<?echo $voteContainerId?>">
-	<?
+<div class="bx-rating text-primary" id="<?php echo $voteContainerId?>">
+	<?php 
 	$onclick = "JCFlatVote.do_vote(this, '".$voteContainerId."', ".$arResult["AJAX_PARAMS"].")";
 	foreach ($arResult["VOTE_NAMES"] as $i => $name)
 	{
@@ -48,17 +48,17 @@ $voteContainerId = 'vote_'.$arResult["ID"];
 		$itemContainerId = $voteContainerId.'_'.$i;
 		?><span
 			class="bx-rating-icon-container"
-			id="<?echo $itemContainerId?>"
-			title="<?echo $name?>"
-			<?if (!$arResult["VOTED"] && $arParams["READ_ONLY"]!=="Y"):?>
+			id="<?php echo $itemContainerId?>"
+			title="<?php echo $name?>"
+			<?php if (!$arResult["VOTED"] && $arParams["READ_ONLY"]!=="Y"):?>
 				onmouseover="JCFlatVote.trace_vote(this, true);"
 				onmouseout="JCFlatVote.trace_vote(this, false)"
-				onclick="<?echo htmlspecialcharsbx($onclick);?>"
-			<?endif;?>
-		><?echo $ratingIcon?></span><?
+				onclick="<?php echo htmlspecialcharsbx($onclick);?>"
+			<?php endif;?>
+		><?php echo $ratingIcon?></span><?php 
 	}
 	if ($arParams["SHOW_RATING"] == "Y"):?>
-		(<?echo $DISPLAY_VALUE?>)
-	<?endif;
+		(<?php echo $DISPLAY_VALUE?>)
+	<?php endif;
 ?>
 </div>

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
 use Bitrix\Main\Localization\Loc;
@@ -17,7 +17,7 @@ use Bitrix\Main\Localization\Loc;
 
 ?>
 <div class="bx-disk-bizproc-section">
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:disk.bizproc.list", ".default", Array(
 		"MODULE_ID"     => \Bitrix\Disk\Driver::INTERNAL_MODULE_ID,
 		"STORAGE_ID"   => $arParams["STORAGE"]->getId(),

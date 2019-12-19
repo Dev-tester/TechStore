@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OL_COMPONENT_MODULE_NOT_INSTALLED"] = "Модуль 'Коннекторы для внешних мессенджеров' не установлен";
 $MESS["OL_COMPONENT_ACCESS_DENIED"] = "У вас недостаточно прав для просмотра статистики";
 $MESS["OL_COMPONENT_TABLE_INPUT"] = "Входящий";

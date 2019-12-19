@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global int $ID - Edited user id
  * @global \CUser $USER

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_TITLE'] = "Blog name:";
 $MESS ['BLOG_DESCR'] = "Blog description:";
 $MESS ['BLOG_URL'] = "Pseudo name (Latin letters):";

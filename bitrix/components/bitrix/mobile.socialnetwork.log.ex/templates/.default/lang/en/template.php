@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_LOG_ADD_POST"] = "Add topic";
 $MESS["MOBILE_LOG_GROUP_FILES"] = "Workgroup files";
 $MESS["MB_TASKS_AT_SOCNET_LOG_CPT_MENU_ITEM_LIST"] = "Workgroup Tasks";

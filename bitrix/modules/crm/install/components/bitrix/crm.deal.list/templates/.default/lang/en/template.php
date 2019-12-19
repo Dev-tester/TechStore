@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ALL"] = "Total";
 $MESS["CRM_DEAL_ACTION_DELETE"] = "Delete";
 $MESS["CRM_DEAL_ACTION_MERGE"] = "Merge";

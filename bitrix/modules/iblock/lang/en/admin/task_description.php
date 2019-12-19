@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_IBLOCK_DENY"] = "Access denied";
 $MESS["TASK_DESC_IBLOCK_DENY"] = "Access to this information block is denied";
 $MESS["TASK_NAME_IBLOCK_READ"] = "Read";

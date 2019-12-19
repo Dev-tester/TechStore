@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -27,10 +27,10 @@ endif;
 		<tr><th><?=GetMessage("WD_FILE")?>:</th>
 			<td>
 				<div class="element-icon ic<?=substr($arResult["ELEMENT"]["EXTENTION"], 1)?>"></div>
-				<a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>" title="<?=GetMessage("WD_OPEN_FILE")?>" <?
+				<a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>" title="<?=GetMessage("WD_OPEN_FILE")?>" <?php 
 					if (in_array($arResult["ELEMENT"]["EXTENTION"], array(".doc", ".docx", ".xls", ".xlsx", ".rtf", ".ppt", ".pptx")))
 					{
-						?> onclick="return EditDocWithProgID('<?=CUtil::JSEscape($arResult["ELEMENT"]["URL"]["FILE"])?>')"<?
+						?> onclick="return EditDocWithProgID('<?=CUtil::JSEscape($arResult["ELEMENT"]["URL"]["FILE"])?>')"<?php 
 					}
 				?>><?=$arResult["ELEMENT"]["FULL_NAME"]?></a>
 				<span class="wd-item-controls element_view"><a href="<?=$arResult["ELEMENT"]["URL"]["VIEW"]?>" title="<?=GetMessage("WD_VIEW_FILE_TITLE")?>">
@@ -40,38 +40,38 @@ endif;
 		<tr>
 			<th><?=GetMessage("WD_FILE_CREATED")?>:</th>
 			<td><?=$arResult["ELEMENT"]["DATE_CREATE"]?>
-				<?$arUser = $arResult["USERS"][$arResult["ELEMENT"]["CREATED_BY"]];
+				<?php $arUser = $arResult["USERS"][$arResult["ELEMENT"]["CREATED_BY"]];
 				if (empty($arUser)):
-					?><span class="wd-user"><?=$arResult["ELEMENT"]["CREATED_BY"]?><?
+					?><span class="wd-user"><?=$arResult["ELEMENT"]["CREATED_BY"]?><?php 
 				else: 
-					?><a href="<?=$arUser["URL"]?>"><?=$arUser["NAME"]." ".$arUser["LAST_NAME"]?></a></span><?
+					?><a href="<?=$arUser["URL"]?>"><?=$arUser["NAME"]." ".$arUser["LAST_NAME"]?></a></span><?php 
 				endif;?>
 			</td>
 		</tr>
 		<tr>
 			<th><?=GetMessage("WD_FILE_MODIFIED")?>: </th>
 			<td><?=$arResult["ELEMENT"]["TIMESTAMP_X"]?> 
-				<?$arUser = $arResult["USERS"][$arResult["ELEMENT"]["MODIFIED_BY"]];
+				<?php $arUser = $arResult["USERS"][$arResult["ELEMENT"]["MODIFIED_BY"]];
 				if (empty($arUser)):
-					?><span class="wd-user"><?=$arResult["ELEMENT"]["MODIFIED_BY"]?><?
+					?><span class="wd-user"><?=$arResult["ELEMENT"]["MODIFIED_BY"]?><?php 
 				else: 
-					?><a href="<?=$arUser["URL"]?>"><?=$arUser["NAME"]." ".$arUser["LAST_NAME"]?></a></span><?
+					?><a href="<?=$arUser["URL"]?>"><?=$arUser["NAME"]." ".$arUser["LAST_NAME"]?></a></span><?php 
 				endif;?>
 			</td>
 		</tr>
 		<tr>
 			<th><?=GetMessage("WD_FILE_SIZE")?>: </th>
-			<td><?
+			<td><?php 
 				if ($arParams["USE_WORKFLOW"] != "Y"):
-					?><?=$arResult["ELEMENT"]["FILE_SIZE"]?> <?
-					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?
+					?><?=$arResult["ELEMENT"]["FILE_SIZE"]?> <?php 
+					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?php 
 				else:
-					?><?=GetMessage("WD_WF_CURRENT_VERSION")?> <?=$arResult["ELEMENT"]["FILE_SIZE"]?> <?
-					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?
+					?><?=GetMessage("WD_WF_CURRENT_VERSION")?> <?=$arResult["ELEMENT"]["FILE_SIZE"]?> <?php 
+					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?php 
 					
 					if (!empty($arResult["ELEMENT"]["ORIGINAL"])):
-					?><br /><?=GetMessage("WD_WF_ORIGINAL")?> <?=$arResult["ELEMENT"]["ORIGINAL"]["FILE_SIZE"]?> <?
-					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD_ORIGINAL"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?
+					?><br /><?=GetMessage("WD_WF_ORIGINAL")?> <?=$arResult["ELEMENT"]["ORIGINAL"]["FILE_SIZE"]?> <?php 
+					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD_ORIGINAL"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?php 
 					endif;
 				endif;
 ?>
@@ -87,7 +87,7 @@ endif;
 		<tr>
 			<th><?=GetMessage("WD_TAGS")?>:</th>
 			<td>
-<?
+<?php 
 	if (IsModuleInstalled("search")):
 		$APPLICATION->IncludeComponent(
 			"bitrix:search.tags.input", 
@@ -99,7 +99,7 @@ endif;
 			array(
 				"HIDE_ICONS" => "Y"));
 	elseif ($arParams["SHOW_TAGS"] == "Y"):
-		?><input type="text" class="text" name="TAGS" value="<?=$arResult["ELEMENT"]["TAGS"]?>" /><?
+		?><input type="text" class="text" name="TAGS" value="<?=$arResult["ELEMENT"]["TAGS"]?>" /><?php 
 	endif;
 ?>
 			</td>
@@ -124,48 +124,48 @@ endif;
 			<td>
 				<select name="IBLOCK_SECTION_ID" class="select">
 					<option value="0" <?=($arResult["ELEMENT"]["IBLOCK_SECTION_ID"] == 0 ? "selected" : "")?>><?=GetMessage("WD_CONTENT")?></option>
-	<?
+	<?php 
 	foreach ($arResult["SECTION_LIST"] as $res)
 	{
 	?>
 					<option value="<?=intVal($res["ID"])?>" <?=($arResult["ELEMENT"]["IBLOCK_SECTION_ID"] == $res["ID"] ? "selected=\"selected\" class=\"selected\" " : "")?>>
 						<?=str_repeat(".", $res["DEPTH_LEVEL"])?><?=($res["NAME"])?></option>
-	<?
+	<?php 
 	}
 	?>
 				</select>
 			</td>
 		</tr>
 	</tbody>
-<?
+<?php 
 if ($arParams["USE_WORKFLOW"] == "Y")
 {
 ?>
 	<tbody class="wowkflow">
 		<tr class="header"><th colspan="2"><?=GetMessage("WD_WF_PARAMS")?></th></tr>
-<?if ($arParams["SHOW_WORKFLOW"] != "N"):?>
+<?php if ($arParams["SHOW_WORKFLOW"] != "N"):?>
 		<tr>
 			<th><?=GetMessage("WD_FILE_STATUS")?>:</th>
 			<td>
 				<select name="WF_STATUS_ID">
-				<?foreach ($arResult["WF_STATUSES"] as $key => $val):?>
-					<option value="<?=$key?>"<?
+				<?php foreach ($arResult["WF_STATUSES"] as $key => $val):?>
+					<option value="<?=$key?>"<?php 
 					if ($key == $arResult["ELEMENT"]["WF_STATUS_ID"]):
-						?> selected="selected" <?
+						?> selected="selected" <?php 
 					endif;
-				?>><?=htmlspecialcharsEx($val)?></option><?
+				?>><?=htmlspecialcharsEx($val)?></option><?php 
 				endforeach;
 				?>
 				</select>
 			</td>
 		</tr>
-<?endif;?>
+<?php endif;?>
 		<tr>
 			<th><?=GetMessage("WD_FILE_COMMENTS")?>:</th>
 			<td><textarea name="WF_COMMENTS"><?=htmlspecialcharsEx($_REQUEST["WF_COMMENTS"])?></textarea></td>
 		</tr>
 	</tbody>
-<?
+<?php 
 }
 elseif ($arParams["USE_BIZPROC"] == "Y")
 {
@@ -180,7 +180,7 @@ elseif ($arParams["USE_BIZPROC"] == "Y")
 			<th><?=GetMessage("IBEL_E_PUBLISHED")?></th>
 			<td><?=($arResult["ELEMENT"]["BP_PUBLISHED"] == "Y" ? GetMessage("WD_Y") : GetMessage("WD_N"))?></td>
 		</tr>
-<?
+<?php 
 	CBPDocument::AddShowParameterInit("webdav", "only_users", $arParams["BIZPROC"]["DOCUMENT_TYPE"], $arParams["BIZPROC"]["ENTITY"]);
 	$arDocumentStates = CBPDocument::GetDocumentStates(
 		array("webdav", $arParams["BIZPROC"]["ENTITY"], $arParams["BIZPROC"]["DOCUMENT_TYPE"]),
@@ -222,20 +222,20 @@ ob_start();
 			?>
 			<tr>
 				<th><?=GetMessage("IBEL_BIZPROC_STATE")?></th>
-				<td><?=(strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"])?> <?
+				<td><?=(strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"])?> <?php 
 				if (strlen($arDocumentState["ID"]) > 0 && strlen($arDocumentState["WORKFLOW_STATUS"]) > 0):?>
 					[ <a href="<?=$APPLICATION->GetCurPageParam("edit=Y&stop_bizproc=".$arDocumentState["ID"]."&".bitrix_sessid_get(), 
 						array("stop_bizproc", "sessid", "edit"))?>"><?=GetMessage("IBEL_BIZPROC_STOP")?></a> ]
-				<?endif;
+				<?php endif;
 				if (strlen($arDocumentState["ID"]) > 0):?>
 					[ <a href="<?=CComponentEngine::MakePathFromTemplate($arParams["WEBDAV_BIZPROC_LOG_URL"], 
 						array(
 							"ID" => $arDocumentState["ID"], 
 							"SECTION_ID" => $arResult["ELEMENT"]["IBLOCK_SECTION_ID"], 
 							"ELEMENT_ID" => $arParams["ELEMENT_ID"]))?>"><?=GetMessage("WD_HISTORY")?></a> ]
-				<?endif;?>
+				<?php endif;?>
 				</td>
-			</tr><?
+			</tr><?php 
 			}
 			
 			if (strlen($arDocumentState["ID"]) <= 0)
@@ -257,17 +257,17 @@ ob_start();
 					<input type="hidden" name="bizproc_template_id_<?= $bizProcIndex ?>" value="<?= $arDocumentState["TEMPLATE_ID"] ?>" />
 					<select name="bizproc_event_<?= $bizProcIndex ?>">
 						<option value=""><?=GetMessage("IBEL_BIZPROC_RUN_CMD_NO")?></option>
-						<?
+						<?php 
 						foreach ($arEvents as $e)
 						{
-							?><option value="<?= htmlspecialchars($e["NAME"]) ?>"<?= ($_REQUEST["bizproc_event_".$bizProcIndex] == $e["NAME"]) ? " selected" : ""?>><?
-							?><?=htmlspecialchars($e["TITLE"]) ?></option><?
+							?><option value="<?= htmlspecialchars($e["NAME"]) ?>"<?= ($_REQUEST["bizproc_event_".$bizProcIndex] == $e["NAME"]) ? " selected" : ""?>><?php 
+							?><?=htmlspecialchars($e["TITLE"]) ?></option><?php 
 						}
 						?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 			}
 
 			if (strlen($arDocumentState["ID"]) > 0)
@@ -279,17 +279,17 @@ ob_start();
 					<tr>
 						<th><?=GetMessage("IBEL_BIZPROC_TASKS")?></th>
 						<td>
-							<?
+							<?php 
 							foreach ($arTasks as $arTask)
 							{
 								$url = CComponentEngine::MakePathFromTemplate($arParams["WEBDAV_TASK_URL"], array("ID" => $arTask["ID"]));
 								$url .= (strpos($url, "?") === false ? "?" : "&")."back_url=".urlencode($APPLICATION->GetCurPageParam("", array()));
-								?><a href="<?=$url?>" title="<?= htmlspecialchars($arTask["DESCRIPTION"]) ?>"><?= $arTask["NAME"] ?></a><br /><?
+								?><a href="<?=$url?>" title="<?= htmlspecialchars($arTask["DESCRIPTION"]) ?>"><?= $arTask["NAME"] ?></a><br /><?php 
 							}
 							?>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 			}
 $res = ob_get_contents();
@@ -301,14 +301,14 @@ ob_end_clean();
 			<th colspan="2"><?=$arDocumentState["TEMPLATE_NAME"]?></th>
 		</tr>
 		<?=$res?>
-<?
+<?php 
 			}
 		}
 	}
 	?>
 		<input type="hidden" name="bizproc_index" value="<?=$bizProcIndex?>" />
 	</tbody>
-	<?
+	<?php 
 }
 
 ?>

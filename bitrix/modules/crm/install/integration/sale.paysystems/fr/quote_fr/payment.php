@@ -1,4 +1,4 @@
-<?
+<?php 
 
 CCurrencyLang::disableUseHideZero();
 

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,11 +16,11 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
-	<?$APPLICATION->AddHeadScript('/bitrix/js/main/utils.js');?>
+	<?php $APPLICATION->AddHeadScript('/bitrix/js/main/utils.js');?>
 
 	<script type="text/javascript">
 	//<![CDATA[
@@ -29,25 +29,25 @@ else
 	//]]>
 	</script>
 
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?></p>
+	<?php endif;?></p>
 
 	<table cellpadding="0" cellspacing="0" border="0" width="100%" class="intask-main data-table">
 		<thead>
 		<tr class="intask-row">
 			<th class="intask-cell">&nbsp;</th>
-			<? if ($arResult["TasksPropsShow"]) { ?>
-			<?foreach ($arResult["TasksPropsShow"] as $field):?>
+			<?php  if ($arResult["TasksPropsShow"]) { ?>
+			<?php foreach ($arResult["TasksPropsShow"] as $field):?>
 			<th class="intask-cell"><?= $arResult["TaskFields"][$field]["NAME"] ?></th>
-			<?endforeach;?>
-			<? } else {?>
+			<?php endforeach;?>
+			<?php  } else {?>
 			<th class="intask-cell">&nbsp;</th>
-			<? } ?>
+			<?php  } ?>
 		</tr>
 		</thead>
 		<tbody>
-		<?if (StrLen($arResult["ParentSectionUrl"]) > 0):?>
+		<?php if (StrLen($arResult["ParentSectionUrl"]) > 0):?>
 			<tr class="intask-row-up" onmouseover="this.className+=' intask-row-over';" onmouseout="this.className=this.className.replace(' intask-row-over', '');" ondblclick="window.location='<?= $arResult["ParentSectionUrl"] ?>'" title="<?= GetMessage("INTDT_DC_UP") ?>">
 				<td class="intask-cell">&nbsp;</td>
 				<td class="intask-cell" colspan="<?= Count($arResult["TasksPropsShow"]) ?>">
@@ -55,10 +55,10 @@ else
 					<a href="<?= $arResult["ParentSectionUrl"] ?>"> . . </a>
 				</td>
 			</tr>
-		<?endif;?>
-		<?$iCount = 0;?>
-		<?if ($arResult["Sections"]):?>
-			<?foreach ($arResult["Sections"] as $section):?>
+		<?php endif;?>
+		<?php $iCount = 0;?>
+		<?php if ($arResult["Sections"]):?>
+			<?php foreach ($arResult["Sections"] as $section):?>
 				<tr class="intask-row<?=(($iCount % 2) == 0 ? " selected" : "")?>" onmouseover="this.className+=' intask-row-over';" onmouseout="this.className=this.className.replace(' intask-row-over', '');" ondblclick="window.location='<?= $section["FIELDS"]["ShowUrl"] ?>'" title="<?= GetMessage("INTDT_DC_FOLDER") ?>">
 					<td class="intask-cell" valign="top">
 						<script>
@@ -90,11 +90,11 @@ else
 						<a href="<?= $section["FIELDS"]["ShowUrl"] ?>"><?= $section["FIELDS"]["NAME"] ?></a>
 					</td>
 				</tr>
-				<?$iCount++;?>
-			<?endforeach;?>
-		<?endif;?>
-		<?if ($arResult["Tasks"]):?>
-			<?foreach ($arResult["Tasks"] as $task):?>
+				<?php $iCount++;?>
+			<?php endforeach;?>
+		<?php endif;?>
+		<?php if ($arResult["Tasks"]):?>
+			<?php foreach ($arResult["Tasks"] as $task):?>
 				<tr class="intask-row<?=(($iCount % 2) == 0 ? " selected" : "")?> task-<?= $task["TASK_STATUS"] ?> taskPriority-<?= $task["TASK_PRIORITY"] ?>" onmouseover="this.className+=' intask-row-over';" onmouseout="this.className=this.className.replace(' intask-row-over', '');" ondblclick="window.location='<?= $task["VIEW_URL"] ?>'" title="<?= $task["TASK_ALT"] ?>">
 					<td class="intask-cell" valign="top">
 						<script>
@@ -121,8 +121,8 @@ else
 								</div></td>
 						</tr></table>
 					</td>
-					<?foreach ($arResult["TasksPropsShow"] as $field):?>
-						<td class="intask-cell" valign="top"><?
+					<?php foreach ($arResult["TasksPropsShow"] as $field):?>
+						<td class="intask-cell" valign="top"><?php 
 							if ($field == "NAME")
 								echo "<a href=\"".$task["VIEW_URL"]."\">";
 							if (Is_Array($task["FIELDS"][$field."_PRINTABLE"]))
@@ -146,29 +146,29 @@ else
 								if (IntVal($task["COMMENTS"]) > 0)
 								{
 									$iComments = IntVal($task["COMMENTS"]);
-									?> <a href="<?= $task["VIEW_URL"] ?>" class="element-properties element-comments" title="<?=GetMessage("INT_TASK_COMMENTS").": ".$iComments?>"><?=$iComments?></a><?
+									?> <a href="<?= $task["VIEW_URL"] ?>" class="element-properties element-comments" title="<?=GetMessage("INT_TASK_COMMENTS").": ".$iComments?>"><?=$iComments?></a><?php 
 								}
 							}
 						?></td>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</tr>
-				<?$iCount++;?>
-			<?endforeach;?>
-		<?endif;?>
-		<?if (!$arResult["Sections"] && !$arResult["Tasks"]):?>
+				<?php $iCount++;?>
+			<?php endforeach;?>
+		<?php endif;?>
+		<?php if (!$arResult["Sections"] && !$arResult["Tasks"]):?>
 			<tr class="intask-row">
 				<td class="intask-cell" valign="top">&nbsp;</td>
 				<td class="intask-cell" valign="top" colspan="<?= Count($arResult["TasksPropsShow"])?>"><?= GetMessage("INTDT_NO_TASKS") ?></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 		</tbody>
 	</table>
 	<br />
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?>
 		<br /><br />
-	<?endif;?>
+	<?php endif;?>
 
-	<?
+	<?php 
 }
 ?>

@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Персональный раздел");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:sale.personal.section",
 	"bootstrap_v4",
 	Array(
@@ -58,4 +58,4 @@ $APPLICATION->SetTitle("Персональный раздел");
 		"USE_AJAX_LOCATIONS_PROFILE" => "N"
 	)
 );?><br>
-	<br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+	<br><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

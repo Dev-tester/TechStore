@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_STATUS_ONLINE"] = "Доступен";
 $MESS["IM_STATUS_OFFLINE"] = "Не в сети";
 $MESS["IM_STATUS_DND"] = "Занят";

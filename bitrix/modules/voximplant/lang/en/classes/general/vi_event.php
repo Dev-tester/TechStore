@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_WORK_PHONE"] = "The \"Work Phone\" field is incorrect.";
 $MESS["ERROR_PERSONAL_PHONE"] = "The \"Phone\" field is incorrect.";
 $MESS["ERROR_PERSONAL_MOBILE"] = "The \"Mobile\" field is incorrect.";

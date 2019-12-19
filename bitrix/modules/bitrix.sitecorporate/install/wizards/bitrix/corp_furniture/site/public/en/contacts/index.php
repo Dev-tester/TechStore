@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Contact Us");
 ?>
@@ -19,7 +19,7 @@ $APPLICATION->SetTitle("Contact Us");
 
 <h2>Visit our showroom at Castlemilk, Glasgow</h2>
 
-<p><?$APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", array(
+<p><?php $APPLICATION->IncludeComponent("bitrix:map.google.view", ".default", array(
 	"KEY" => "ABQIAAAAOSNukcWVjXaGbDo6npRDcxS1yLxjXbTnpHav15fICwCqFS-qhhSby0EyD6rK_qL4vuBSKpeCz5cOjw",
 	"INIT_MAP_TYPE" => "NORMAL",
 	"MAP_DATA" => "a:4:{s:10:\"google_lat\";d:55.88119494391713;s:10:\"google_lon\";d:-4.256536178588872;s:12:\"google_scale\";i:15;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:0:\"\";s:3:\"LON\";d:-4.256536178588872;s:3:\"LAT\";d:55.88119494391713;}}}",
@@ -41,4 +41,4 @@ $APPLICATION->SetTitle("Contact Us");
 	false
 );?></p>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

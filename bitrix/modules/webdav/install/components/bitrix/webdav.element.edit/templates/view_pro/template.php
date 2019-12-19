@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->AddHeadScript("/bitrix/components/bitrix/webdav/templates/.default/script.js");
@@ -650,7 +650,7 @@ if ($this->__component->__parent)
 		{
 ?><script>
 	BX(function() { oText['message01'] = "<?=CUtil::JSEscape(GetMessage("WD_DESTROY_FILE_CONFIRM"))?>"; });
-</script><?
+</script><?php 
 		}
 		if ($arResult["ELEMENT"]["SHOW"]["DELETE"] == "Y")
 			$arContextSubMenu["delete"] = array(
@@ -722,12 +722,12 @@ function WDCopyLinkDialog(url)
 	wdci.select();
 }
 
-<? if (strlen($status)>0) { ?>
+<?php  if (strlen($status)>0) { ?>
 BX(function() { WDSetHeader({'status': "<?=CUtil::JSEscape($status)?>"}); });
-<? } ?>
+<?php  } ?>
 
 
-<? if ($arResult["WRITEABLE"] == "Y") { ?>
+<?php  if ($arResult["WRITEABLE"] == "Y") { ?>
 
 var viewElements;
 var editElements;
@@ -997,19 +997,19 @@ BX(function() {
 	if (BX.findChild(viewRoot, {'class': 'element-status-red'}, true))
 	{
 		isRedLocked = true;
-<?
+<?php 
 	if ($arParams["PERMISSION"] > "W")
 	{
 ?>
 		mayUnlock = true;
-<?
+<?php 
 	}
 ?>
 	} else {
 		isRedLocked = false;
 	}
 
-<? // fix UF edit template ?>
+<?php  // fix UF edit template ?>
 
 	var arDivEdit = BX.findChildren(BX('tab_main_edit_table'), {'className': 'wd-ufedit'}, true);
 	if (!! arDivEdit
@@ -1045,7 +1045,7 @@ BX(function() {
 
 	var btn_edit_office = BX('wd_edit_office');
 
-<? if (in_array($arResult["ELEMENT"]["EXTENTION"], $arOfficeExtensions) && $arResult['ELEMENT']['bShowWebDav']) { ?>
+<?php  if (in_array($arResult["ELEMENT"]["EXTENTION"], $arOfficeExtensions) && $arResult['ELEMENT']['bShowWebDav']) { ?>
 	var moffice = WDCheckOfficeEdit();
 	if (moffice)
 	{
@@ -1059,9 +1059,9 @@ BX(function() {
 	} else {
 		BX.remove(btn_edit_office);
 	}
-<? } else { ?>
+<?php  } else { ?>
 	BX.remove(btn_edit_office);
-<? } ?>
+<?php  } ?>
 });
-<? } ?>
+<?php  } ?>
 </script>

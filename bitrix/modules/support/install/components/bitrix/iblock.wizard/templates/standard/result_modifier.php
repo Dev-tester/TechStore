@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $langfile = dirname(__FILE__)."/lang/".LANGUAGE_ID."/".basename(__FILE__);
 if (file_exists($langfile))
 	__IncludeLang($langfile);

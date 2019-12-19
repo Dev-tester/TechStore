@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALENDAR_FILTER_CREATED_BY"] = "Organizer";
 $MESS["CALENDAR_FILTER_ATTENDEES"] = "Attendees";
 $MESS["CALENDAR_FILTER_DATE"] = "Date";

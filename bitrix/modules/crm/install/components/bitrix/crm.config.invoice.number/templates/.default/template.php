@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <table class="bx-edit-table " cellspacing="0" cellpadding="0" border="0">
@@ -8,9 +8,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 		</td>
 		<td class="bx-field-value">
 			<select name="account_number_template" onChange="showAccountNumberAdditionalFields(this.selectedIndex)">
-				<?foreach($arResult['NUM_TEMPLATES'] as $template => $templateName):?>
+				<?php foreach($arResult['NUM_TEMPLATES'] as $template => $templateName):?>
 					<option value="<?=$template?>"<?=($arResult['ACC_NUM_TMPL'] == $template ? ' selected' : '')?>><?=$templateName?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -37,9 +37,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 		</td>
 		<td  class="bx-field-value">
 			<select name="account_number_random_length">
-				<?for($i = 5; $i < 11; $i++):?>
+				<?php for($i = 5; $i < 11; $i++):?>
 					<option value="<?=$i?>"<?=($arResult['ACC_NUM_DATA'] == $i) ? "selected" : "" ?>><?=$i?></option>
-				<?endfor;?>
+				<?php endfor;?>
 			</select>
 			<br/><br/>
 			<?=GetMessage("CRM_ACCOUNT_NUMBER_TEMPLATE_EXAMPLE")?>&nbsp;6B7R1, 8CB2A59X8X

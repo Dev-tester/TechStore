@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Rest\RestException;
 use \Bitrix\Rest\AccessException;
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_WRONG_FIRST_DATE_FROM"] = "Please enter a valid \"from\" date for the first event in the filter";
 $MESS["STAT_WRONG_FIRST_DATE_TILL"] = "Please enter a valid \"till\" date for the first event in the filter";
 $MESS["STAT_FROM_TILL_FIRST_DATE"] = "The \"till\" date of the first event must be greater than the \"from\" date of the first event in the filter";

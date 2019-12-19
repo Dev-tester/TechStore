@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["SHOW"] = ($arGadgetParams["SHOW"]?$arGadgetParams["SHOW"]:false);
@@ -66,15 +66,15 @@ if($arGadgetParams["SHOW"] == "Y"):
 		$arP["USER_ID"] = $arGadgetParams["USER_ID"];
 
 	if($arGadgetParams["SHOW_TITLE"] == "Y"):
-		?><h4><?= $arGadgetParams["TITLE"] ?></h4><?
+		?><h4><?= $arGadgetParams["TITLE"] ?></h4><?php 
 	endif;?>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:blog.new_posts",
 		$arGadgetParams["TEMPLATE_NAME"],
 		$arP,
 		false,
 		Array("HIDE_ICONS"=>"Y")
-	);?><?
+	);?><?php 
 else:
 	echo GetMessage('GD_SONET_BLOG_NOT_ALLOWED');
 endif;?>

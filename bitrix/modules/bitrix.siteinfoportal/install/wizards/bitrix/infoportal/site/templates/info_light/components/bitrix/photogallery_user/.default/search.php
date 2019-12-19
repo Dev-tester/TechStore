@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="photo-page-search">
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="photo-table">
 	<tr valign="top">
 		<td class="photo-td-left">
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:search.page",
 	"",
 	Array(
@@ -53,7 +53,7 @@
 ?>
 		</td>
 		<td class="photo-td-right">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:search.tags.cloud", 
 				"photogallery", 
 				Array(
@@ -85,7 +85,7 @@
 	</tr>
 </table>
 </div>
-<?
+<?php 
 /********************************************************************
 				Standart
 ********************************************************************/

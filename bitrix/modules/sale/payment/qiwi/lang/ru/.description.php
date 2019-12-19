@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS['SALE_QH_TITLE'] = "Qiwi Wallet";
 $MESS['SALE_QH_DESCRIPTION'] = "<div class='adm-info-message'>

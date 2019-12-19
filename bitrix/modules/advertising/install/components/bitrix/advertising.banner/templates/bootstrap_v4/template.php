@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (count($arResult['BANNERS']) > 0):?>
+<?php if (count($arResult['BANNERS']) > 0):?>
 
-<?
+<?php 
 //	$this->addExternalCss("/bitrix/css/main/bootstrap.css");
 //	$this->addExternalCss("/bitrix/css/main/font-awesome.css");
 //	$this->addExternalCss("/bitrix/themes/.default/banner.css");
@@ -25,35 +25,35 @@
 	$frame = $this->createFrame()->begin("");
 ?>
 
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	<div id='tPreview' style="display:none;margin:auto;">
-<?endif;?>
+<?php endif;?>
 
 <div id="carousel-<?=$arResult['ID']?>" class="carousel <?=$arParams['BS_EFFECT']?><?=$arParams['BS_HIDE_FOR_TABLETS']?><?=$arParams['BS_HIDE_FOR_PHONES']?>" data-interval="<?=$arParams['BS_INTERVAL']?>" data-wrap="<?=$arParams['BS_WRAP']?>" data-pause="<?=$arParams['BS_PAUSE']?>" data-keyboard="<?=$arParams['BS_KEYBOARD']?>" data-ride="carousel">
 
 	<!--region Indicators-->
-	<?if($arParams['BS_BULLET_NAV'] == 'Y' || $arParams['BS_PREVIEW'] == 'Y'):?>
+	<?php if($arParams['BS_BULLET_NAV'] == 'Y' || $arParams['BS_PREVIEW'] == 'Y'):?>
 		<ol class="carousel-indicators">
-		<?$i = 0;?>
-		<?while($i < count($arResult['BANNERS'])):?>
-			<li data-target="#carousel-<?=$arResult['ID']?>" data-slide-to="<?=$i?>" <?if($i==0) echo 'class="active"';$i++?>></li>
-		<?endwhile;?>
+		<?php $i = 0;?>
+		<?php while($i < count($arResult['BANNERS'])):?>
+			<li data-target="#carousel-<?=$arResult['ID']?>" data-slide-to="<?=$i?>" <?php if($i==0) echo 'class="active"';$i++?>></li>
+		<?php endwhile;?>
 		</ol>
-	<?endif;?>
+	<?php endif;?>
 	<!--endregion-->
 
 	<!--region Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
-		<?foreach($arResult["BANNERS"] as $k => $banner):?>
-			<div class="carousel-item <?if($k==0) echo 'active';?>">
+		<?php foreach($arResult["BANNERS"] as $k => $banner):?>
+			<div class="carousel-item <?php if($k==0) echo 'active';?>">
 				<?=$banner?>
 			</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 	<!--endregion-->
 
 	<!-- region Controls -->
-	<?if($arParams['BS_ARROW_NAV'] == 'Y' || $arParams['PREVIEW'] == 'Y'):?>
+	<?php if($arParams['BS_ARROW_NAV'] == 'Y' || $arParams['PREVIEW'] == 'Y'):?>
 		<a href="#carousel-<?=$arResult['ID']?>" class="carousel-control-prev" role="button" data-slide="prev">
 			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 			<span class="sr-only">Previous</span>
@@ -62,7 +62,7 @@
 			<span class="carousel-control-next-icon" aria-hidden="true"></span>
 			<span class="sr-only">Next</span>
 		</a>
-	<?endif;?>
+	<?php endif;?>
 	<!--endregion-->
 
 	<script>
@@ -135,7 +135,7 @@
 		}
 	</script>
 </div>
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	</div>
 	<script>
 		(function(){
@@ -158,8 +158,8 @@
 			BX('tPreview').style.display = '';
 		})();
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?$frame->end();?>
+<?php $frame->end();?>
 
-<?endif;?>
+<?php endif;?>

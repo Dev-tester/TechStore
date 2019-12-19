@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEF_MODE_TIP'] = "Checking this option enables the SEF mode and the URL configuration fields.";
 $MESS ['PER_PAGE_TIP'] = "Specifies the number of cards per page. Other cards will be available on the next pages.";
 $MESS ['SET_TITLE_TIP'] = "Check this option to set the page title to <b>My Credit Cards</b>.";

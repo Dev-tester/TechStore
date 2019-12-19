@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $UID = ($arResult["VARIABLES"]["user_id"] > 0 ? $arResult["VARIABLES"]["user_id"] : $GLOBALS["USER"]->GetID());
 foreach ($arDefaultUrlTemplates404 as $url => $value)
 {

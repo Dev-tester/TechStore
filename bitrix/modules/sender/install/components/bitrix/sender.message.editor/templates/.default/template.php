@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -65,7 +65,7 @@ $getHintHtml = function (array $option)
 		ob_start();
 		?>
 		<span data-tag="<?=$hintTags?>"></span>
-		<?
+		<?php 
 		$hint .= ob_get_clean();
 	}
 
@@ -75,7 +75,7 @@ $getHintHtml = function (array $option)
 		ob_start();
 		?>
 		<div data-hint="<?=$hintDesc?>"></div>
-		<?
+		<?php 
 		$hint .= ob_get_clean();
 	}
 
@@ -99,7 +99,7 @@ $fieldPrefix = 'CONFIGURATION_';
 </script>
 
 <div id="bx-sender-message-editor" class="bx-sender-message-editor">
-	<?
+	<?php 
 	$optionValueReplaces = array();
 	foreach ($arResult['LIST'] as $group)
 	{
@@ -131,15 +131,15 @@ $fieldPrefix = 'CONFIGURATION_';
 							<?=Loc::getMessage('SENDER_MESSAGE_EDITOR_ADDITIONAL')?>
 						</div>
 						<div class="sender-message-editor-more-list">
-							<?foreach ($group['options'] as $option):?>
+							<?php foreach ($group['options'] as $option):?>
 								<span class="sender-message-editor-more-list-item">
 									<?=htmlspecialcharsbx($option['name'])?>
 								</span>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</div>
 					</div>
 					<div data-role="more-fields" class="bx-sender-message-editor-more-fields" style="display: none;">
-			<?
+			<?php 
 		}
 
 		foreach ($group['options'] as $option)
@@ -212,7 +212,7 @@ $fieldPrefix = 'CONFIGURATION_';
 
 					?>
 					<div class="sender-message-editor-field-file-cloud">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						'bitrix:system.field.edit',
 						'disk_file',
@@ -238,7 +238,7 @@ $fieldPrefix = 'CONFIGURATION_';
 							});
 						</script>
 					</div>
-					<?
+					<?php 
 					$inputHtml = ob_get_clean();
 					*/
 
@@ -322,19 +322,19 @@ $fieldPrefix = 'CONFIGURATION_';
 			?>
 			<div data-bx-field="<?=$inputId?>" class="bx-sender-message-editor-field <?=$inputDisplay?>">
 				<div class="bx-sender-caption sender-message-title">
-					<?if (!$isCustomCaption):?>
+					<?php if (!$isCustomCaption):?>
 						<?=$inputCaption?>:
-					<?endif;?>
+					<?php endif;?>
 				</div>
 				<div data-role="editor-field" class="bx-sender-value">
 					<?=$inputHtml?>
 
-					<?if ($hint):?>
+					<?php if ($hint):?>
 						<?=$hint?>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 			</div>
-			<?
+			<?php 
 		}  //foreach ($group['options'] as $option)
 
 		if ($group['isAdditional'])
@@ -342,7 +342,7 @@ $fieldPrefix = 'CONFIGURATION_';
 			?>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 
 	}  //foreach ($arResult['LIST'] as $group)
@@ -350,7 +350,7 @@ $fieldPrefix = 'CONFIGURATION_';
 
 	?>
 	<div class="sender-message-editor-test-wrap">
-		<?
+		<?php 
 		if ($arResult['IS_SUPPORT_TESTING'])
 		{
 			$APPLICATION->IncludeComponent(

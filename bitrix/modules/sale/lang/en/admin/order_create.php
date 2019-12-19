@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ARCHIVE_ERROR_PRODUCT_NOT_FOUND"] = "Product ##ID# - #NAME# was not found in the catalog.";
 $MESS["SALE_OK_ACCESS_DENIED"] = "Access denied";
 $MESS["SALE_OK_ARCHIVE_LIST"] = "Order archive";

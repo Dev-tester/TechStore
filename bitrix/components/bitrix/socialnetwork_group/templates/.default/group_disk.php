@@ -53,7 +53,7 @@ include("util_group_profile.php");
 			</td>
 		</tr>
 	</table>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:disk.file.upload',
 	'',
 	array(

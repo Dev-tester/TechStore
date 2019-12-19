@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_AVATAR_EDITOR_TRY_AGAIN"] = "Попробовать снова";
 $MESS["JS_AVATAR_EDITOR_FILE"] = "Файл";
 $MESS["JS_AVATAR_EDITOR_PICK_UP_THE_FILE"] = "Загрузить с диска...";

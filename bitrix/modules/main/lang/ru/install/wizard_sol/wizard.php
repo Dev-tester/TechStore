@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEXT_BUTTON"] = "Далее";
 $MESS["PREVIOUS_BUTTON"] = "Назад";
 $MESS["SELECT_TEMPLATE_TITLE"] = "Выбор шаблона";

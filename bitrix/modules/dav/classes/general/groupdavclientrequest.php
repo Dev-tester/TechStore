@@ -1,4 +1,4 @@
-<?
+<?php 
 class CDavGroupdavClientRequest
 {
 	private $method = '';

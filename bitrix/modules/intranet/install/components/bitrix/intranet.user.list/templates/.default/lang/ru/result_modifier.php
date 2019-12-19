@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_LIST_ACTION_VIEW"] = "Открыть профиль";
 $MESS["INTRANET_USER_LIST_ACTION_VIEW_TITLE"] = "Перейти к просмотру профиля пользователя";
 $MESS["INTRANET_USER_LIST_ACTION_TASK"] = "Поставить задачу";

@@ -30,7 +30,7 @@ $editorContext = array(
 );
 ?>
 <div id="<?=htmlspecialcharsbx($wrapperId)?>">
-	<?
+	<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:crm.entity.editor',
 			'',
@@ -70,4 +70,4 @@ $editorContext = array(
 			});
 		}
 	);
-</script><?
+</script><?php 

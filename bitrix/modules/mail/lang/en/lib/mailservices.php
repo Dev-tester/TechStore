@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["mail_mailservice_entity_site_field"] = "Website";
 $MESS["mail_mailservice_entity_name_field"] = "Name";
 $MESS["mail_mailservice_entity_icon_field"] = "Logo";

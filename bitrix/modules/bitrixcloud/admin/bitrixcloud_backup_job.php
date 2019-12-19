@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "bitrixcloud");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 IncludeModuleLangFile(__FILE__);
@@ -175,15 +175,15 @@ try
 				return;
 			}
 		</script>
-		<div id="upload_form" <?if ($strError=="") echo 'style="display:none;height:200px;"'?>>
-			<form method="POST" action="<?echo htmlspecialcharsbx($APPLICATION->GetCurPageParam())?>"  enctype="multipart/form-data" name="editform" id="editform">
-				<?
+		<div id="upload_form" <?php if ($strError=="") echo 'style="display:none;height:200px;"'?>>
+			<form method="POST" action="<?php echo htmlspecialcharsbx($APPLICATION->GetCurPageParam())?>"  enctype="multipart/form-data" name="editform" id="editform">
+				<?php 
 				$tabControl->Begin();
 				$tabControl->BeginNextTab();
 				?>
 				<tr>
-					<td width="40%"><?echo GetMessage("BCL_BACKUP_JOB_URL")?>:</td>
-					<?
+					<td width="40%"><?php echo GetMessage("BCL_BACKUP_JOB_URL")?>:</td>
+					<?php 
 					if ($strError)
 					{
 						$URL = $_POST["URL"];
@@ -194,11 +194,11 @@ try
 						$URL .= COption::GetOptionString("main", "server_name");
 					}
 					?>
-					<td width="60%"><input type="text" name="URL" size="45" value="<?echo htmlspecialcharsbx($URL)?>"></td>
+					<td width="60%"><input type="text" name="URL" size="45" value="<?php echo htmlspecialcharsbx($URL)?>"></td>
 				</tr>
 				<tr>
-					<td><?echo GetMessage("BCL_BACKUP_JOB_TIME")?>:</td>
-					<?
+					<td><?php echo GetMessage("BCL_BACKUP_JOB_TIME")?>:</td>
+					<?php 
 					if ($strError)
 					{
 						$TIME = $_POST["TIME"];
@@ -208,16 +208,16 @@ try
 						$TIME = sprintf("%02d:%d0", mt_rand(1,5), mt_rand(0, 5));
 					}
 					?>
-					<td><input type="text" name="TIME" size="6" value="<?echo htmlspecialcharsbx($TIME)?>"></td>
+					<td><input type="text" name="TIME" size="6" value="<?php echo htmlspecialcharsbx($TIME)?>"></td>
 				</tr>
 				<tr>
-					<td class="adm-detail-valign-top"><?echo GetMessage("BCL_BACKUP_JOB_WEEK_DAYS")?>:</td>
+					<td class="adm-detail-valign-top"><?php echo GetMessage("BCL_BACKUP_JOB_WEEK_DAYS")?>:</td>
 					<td>
-						<?
+						<?php 
 						$rand = mt_rand(0, 7);
 						for($i = 0; $i < 7; $i++):
 						?>
-							<input type="checkbox" name="WEEK_DAYS[]" value="<?echo $i?>" id="dow_<?echo $i?>" <?
+							<input type="checkbox" name="WEEK_DAYS[]" value="<?php echo $i?>" id="dow_<?php echo $i?>" <?php 
 							if (
 								(
 									$strError == ""
@@ -232,23 +232,23 @@ try
 								echo 'checked="checked"';
 							}
 							?>>
-							<label for="dow_<?echo $i?>"><?echo GetMessage("DOW_".$i)?></label>
+							<label for="dow_<?php echo $i?>"><?php echo GetMessage("DOW_".$i)?></label>
 							<br>
-						<?endfor;?>
+						<?php endfor;?>
 					</td>
 				</tr>
-				<?$tabControl->Buttons();?>
+				<?php $tabControl->Buttons();?>
 				<input type="hidden" name="action" value="add_new">
-				<?echo bitrix_sessid_post();?>
-				<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-				<input type="submit" value="<?echo GetMessage("BCL_BACKUP_JOB_SAVE_BTN")?>" class="adm-btn-save">
-				<input type="button" value="<?echo GetMessage("BCL_BACKUP_JOB_CANCEL_BTN")?>" onclick="hide_upload_form()">
-				<?
+				<?php echo bitrix_sessid_post();?>
+				<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+				<input type="submit" value="<?php echo GetMessage("BCL_BACKUP_JOB_SAVE_BTN")?>" class="adm-btn-save">
+				<input type="button" value="<?php echo GetMessage("BCL_BACKUP_JOB_CANCEL_BTN")?>" onclick="hide_upload_form()">
+				<?php 
 				$tabControl->End();
 				?>
 			</form>
 		</div>
-	<?
+	<?php 
 		$lAdmin->EndPrologContent();
 	}
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WLCT_NEW'] = "Новая интеграция";
 $MESS ['BPWC_WLCT_TOTAL'] = "Всего";
 $MESS['CRM_EXT_SALE_CLIST_RESULT'] = 'Результат импорта с магазином:';

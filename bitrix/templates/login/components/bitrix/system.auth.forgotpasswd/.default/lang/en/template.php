@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_FORGOT_PASSWORD_1"] = "If you forgot your password, enter your e-mail address or login.<br>Your account information will be sent to you by email along with code to reset your password.";
 $MESS["AUTH_GET_CHECK_STRING"] = "Reset password";
 $MESS["AUTH_SEND"] = "Send";

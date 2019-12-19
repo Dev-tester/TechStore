@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DSC_TITLE_UPDATE"] = "Изменение параметров скидки с кодом #ID#";
 $MESS["DSC_TITLE_ADD"] = "Добавление новой скидки";
 $MESS["DSC_SITE"] = "Сайт";

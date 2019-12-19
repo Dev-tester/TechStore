@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEO_OPT_PROP_WINDOW_TITLE'] = "Заголовок окна браузера";
 $MESS ['SEO_OPT_PROP_DESCRIPTION'] = "Описание страницы";
 $MESS ['SEO_OPT_PROP_KEYWORDS'] = "Публичные ключевые слова страницы";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ISL_ID"] = "ID";
 $MESS["ISL_FULL_NAME"] = "Full Name";
 $MESS["ISL_NAME"] = "First Name";

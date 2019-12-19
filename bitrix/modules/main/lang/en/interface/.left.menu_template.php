@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['show_column'] = "Show menu bar";
 $MESS ['menu_tab'] = "M<br>e<br>n<br>u<br>";
 $MESS ['menu_show_all'] = "Show all menu sections";

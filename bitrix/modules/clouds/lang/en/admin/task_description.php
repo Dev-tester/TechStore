@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_CLOUDS_DENIED"] = "Access denied";
 $MESS["TASK_NAME_CLOUDS_BROWSE"] = "Select files";
 $MESS["TASK_NAME_CLOUDS_UPLOAD"] = "Move files";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CAdminMenu $adminMenu */
 use Bitrix\Main\Loader,
 	Bitrix\Main\Localization\Loc,

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LOC_EDIT_TITLE"] = "Open this location for editing";
 $MESS["CRM_LOC_EDIT"] = "Edit location";
 $MESS["CRM_LOC_DELETE_TITLE"] = "Delete this location";

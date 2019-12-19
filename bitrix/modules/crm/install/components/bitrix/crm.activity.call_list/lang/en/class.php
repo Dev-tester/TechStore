@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CALL_LIST_ENTITY_NAME"] = "First name";
 $MESS["CRM_CALL_LIST_ITEM_STATUS"] = "Status";
 $MESS["CRM_CALL_LIST_ITEM_CALL_RECORD"] = "Record";

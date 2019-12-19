@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_CHAT_EMPTY"] = "- The chat is empty -";
 $MESS["MOBILE_CHAT_ERROR_DESC"] = "Please try again later.";
 $MESS["MOBILE_CHAT_ERROR_TITLE"] = "Unfortunately, we cannot load the chat :(";

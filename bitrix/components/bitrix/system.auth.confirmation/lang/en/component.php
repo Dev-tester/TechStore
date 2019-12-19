@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_BSAC_MESSAGE_E01'] = "The user was not found.";
 $MESS ['CC_BSAC_MESSAGE_E02'] = "Authorization completed successfully.";
 $MESS ['CC_BSAC_MESSAGE_E03'] = "User registration has already been confirmed.";

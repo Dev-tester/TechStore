@@ -409,7 +409,7 @@ if(!function_exists('__BizprocInterfaceFilterRenderField'))
 
 $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 ?><form name="<?=htmlspecialcharsbx($formName)?>" action="" method="GET">
-	<?
+	<?php 
 	foreach($arResult["GET_VARS"] as $var=>$value):
 		if (in_array($var, array('grid_filter_id', 'apply_filter', 'save')))
 			continue;
@@ -419,32 +419,32 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 					continue;
 				?>
 				<input type="hidden" name="<?=htmlspecialcharsbx($var)?>[<?=htmlspecialcharsbx($k)?>]" value="<?=htmlspecialcharsbx($v)?>">
-			<?
+			<?php 
 			endforeach;
 		else:
 			?>
 			<input type="hidden" name="<?=htmlspecialcharsbx($var)?>" value="<?=htmlspecialcharsbx($value)?>">
-		<?
+		<?php 
 		endif;
 	endforeach;
 	if (!empty($_REQUEST["SEF_APPLICATION_CUR_PAGE_URL"])):?>
 	<input type="hidden" name="SEF_APPLICATION_CUR_PAGE_URL" value="<?=htmlspecialcharsbx($_REQUEST["SEF_APPLICATION_CUR_PAGE_URL"])?>">
-	<?endif?>
+	<?php endif?>
 	<div class="bp-main-wrap-flat"<?=$isHidden ? ' style="display:none;"' : ''?>>
 		<div id="<?=htmlspecialcharsbx($containerID)?>" class="bx-filter-wrap">
 			<div class="bx-filter-wrap<?=$isFilterApplied ? ' bx-current-filter' : ''?><?=$isFilterFolded ? ' bx-filter-folded' : ''?>">
 				<table class="bx-filter-main-table">
 					<tr>
 						<td class="bx-filter-main-table-cell">
-							<div class="bx-filter-tabs-block" id="filter-tabs"><?
+							<div class="bx-filter-tabs-block" id="filter-tabs"><?php 
 								$isActive = !$isFilterFolded
 									? (!$isFilterApplied || $currentFilterID === '')
 									: ($isFilterApplied && $currentFilterID === '');
-								?><span id="<?=htmlspecialcharsbx("{$tabPrefix}filter_default")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active' : ''?><?=$isFilterApplied && $currentFilterID === '' ? ' bx-current-filter-tab' : ''?>"><?= GetMessage('BP_INTERFACE_FILTER_CURRENT') ?></span><?
+								?><span id="<?=htmlspecialcharsbx("{$tabPrefix}filter_default")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active' : ''?><?=$isFilterApplied && $currentFilterID === '' ? ' bx-current-filter-tab' : ''?>"><?= GetMessage('BP_INTERFACE_FILTER_CURRENT') ?></span><?php 
 								foreach($savedItems as $itemID => &$item):
 									if(!in_array($itemID, $presetsDeleted, true)):
 										$isActive = $isFilterApplied && $currentFilterID === $itemID;
-										?><span id="<?=htmlspecialcharsbx("{$tabPrefix}{$itemID}")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active bx-current-filter-tab' : ''?>"><?= htmlspecialcharsbx($item['name'])?></span><?
+										?><span id="<?=htmlspecialcharsbx("{$tabPrefix}{$itemID}")?>" class="bx-filter-tab<?=$isActive ? ' bx-filter-tab-active bx-current-filter-tab' : ''?>"><?= htmlspecialcharsbx($item['name'])?></span><?php 
 									endif;
 								endforeach;
 								unset($item);
@@ -461,7 +461,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 							<div id="<?= $containerID ?>-block" class="bx-filter-content<?=$visibileFieldCount > 1 ? '' : ' bx-filter-content-first'?>"<?=$isFilterFolded ? ' style="height: 0;"' : ''?>>
 								<div id="<?= $containerID ?>-inner" class="bx-filter-content-inner">
 									<div class="bx-filter-content-table-wrap">
-										<table class="bx-filter-content-table"><?
+										<table class="bx-filter-content-table"><?php 
 										foreach($fields as &$field):
 											$fieldID = $field['id'];
 											$fieldContainerID = "{$fieldContainerPrefix}{$fieldID}";
@@ -471,7 +471,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 												<td class="bx-filter-item-left"><?=htmlspecialcharsbx(isset($field['name']) ? $field['name'] : $fieldID)?>:</td>
 												<td class="bx-filter-item-center">
 													<div class="bx-filter-alignment">
-														<div class=" bx-filter-box-sizing"><?
+														<div class=" bx-filter-box-sizing"><?php 
 															__BizprocInterfaceFilterRenderField(
 																$field,
 																$values,
@@ -494,7 +494,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 												<td class="delimiter" colspan="3">
 													<div class="empty"></div>
 												</td>
-											</tr><?
+											</tr><?php 
 										endforeach;
 										unset($field);
 										?></table>
@@ -519,7 +519,7 @@ $isHidden = isset($arParams['HIDE_FILTER']) ? $arParams['HIDE_FILTER'] : false;
 			</div>
 		</div>
 	</div>
-</form><?
+</form><?php 
 
 //Prepare default rows
 $filterRows = isset($arResult['OPTIONS']['filter_rows']) ? $arResult['OPTIONS']['filter_rows'] : '';

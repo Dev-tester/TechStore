@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $AuthorId = intval($arResult["VARIABLES"]["user_id"]);
 if($arUser = $USER->GetByID($AuthorId)->Fetch())
 {
 	$UName = CUser::FormatName($arParams["NAME_TEMPLATE"], $arUser, true);
 }
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 		"bitrix:idea.rss",
 		"",
 		Array(

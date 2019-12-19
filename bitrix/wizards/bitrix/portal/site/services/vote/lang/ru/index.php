@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_CHANNEL_COMPANY"] = "Опросы дня";
 $MESS["VOTE_DO_YOU_LIKE_PORTAL_NAME"] = "Нравится ли вам наш новый портал?";
 $MESS["VOTE_DO_YOU_LIKE_PORTAL_ANSWER1"] = "Да, очень полезная вещь";

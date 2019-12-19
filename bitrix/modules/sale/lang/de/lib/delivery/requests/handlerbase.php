@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_BASE_CREATE_NOT_SUPPORT"] = "Dieser Handler des Lieferservices unterstützt keine Transportbestellungen.";
 $MESS["SALE_DLVR_REQ_BASE_ACTIONS_NOT_SUPPORT"] = "Dieser Handler des Lieferservices unterstützt keine Ausführung der Befehle der Transportbestellungen.";
 $MESS["SALE_DLVR_REQ_BASE_SHIPMENT_ACTIONS_NOT_SUPPORT"] = "Dieser Handler des Lieferservices unterstützt keine Befehle zur Auslieferung der Transportbestellung.";

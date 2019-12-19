@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SLI_TAB_IMPORT_TITLE"] = "Import locations";
 $MESS["SALE_SLI_TAB_CLEANUP_TITLE"] = "Remove all locations";
 $MESS["SALE_SLI_PROC_NEUTRAL_ERROR"] = "There were import errors.";

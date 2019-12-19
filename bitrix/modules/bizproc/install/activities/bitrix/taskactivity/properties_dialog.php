@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
@@ -15,10 +15,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPTA1A_TASKOWNERID") ?>:</span></td>
 	<td width="60%">
 		<select name="task_owner_id" id="id_task_owner_id" style="width:400px">
-			<?
+			<?php 
 			foreach ($arGroups as $key => $value)
 			{
-				?><option value="<?= $key ?>"<?= $arCurrentValues["task_owner_id"] == $key ? " selected" : "" ?>><?= $value ?></option><?
+				?><option value="<?= $key ?>"<?= $arCurrentValues["task_owner_id"] == $key ? " selected" : "" ?>><?= $value ?></option><?php 
 			}
 			?>
 		</select>
@@ -70,10 +70,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<td align="right" width="40%"><?= GetMessage("BPTA1A_TASKPRIORITY") ?>:</td>
 	<td width="60%">
 		<select name="task_priority">
-			<?
+			<?php 
 			foreach ($arTaskPriority as $key => $value)
 			{
-				?><option value="<?= $key ?>"<?= $arCurrentValues["task_priority"] == $key ? " selected" : "" ?>><?= $value ?></option><?
+				?><option value="<?= $key ?>"<?= $arCurrentValues["task_priority"] == $key ? " selected" : "" ?>><?= $value ?></option><?php 
 			}
 			?>
 		</select>
@@ -86,7 +86,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 		<input type="button" value="..." onclick="BPAShowSelector('id_task_trackers', 'user');">
 	</td>
 </tr>
-<?
+<?php 
 if (count($arForums) > 0)
 {
 	?>
@@ -94,15 +94,15 @@ if (count($arForums) > 0)
 		<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPTA1A_TASKFORUM") ?>:</span></td>
 		<td width="60%">
 			<select name="task_forum_id" id="id_task_forum_id" style="width:400px">
-				<?
+				<?php 
 				foreach ($arForums as $key => $value)
 				{
-					?><option value="<?= $key ?>"<?= $arCurrentValues["task_forum_id"] == $key ? " selected" : "" ?>><?= $value ?></option><?
+					?><option value="<?= $key ?>"<?= $arCurrentValues["task_forum_id"] == $key ? " selected" : "" ?>><?= $value ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['XMPP_MENU_SERVER'] = "XMPP Server";
 $MESS ['XMPP_MENU_SERVER_TITLE'] = "XMPP Server";
 $MESS['XMPP_STANZA'] = "Query";

@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/advertising/admin/adv_graph.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/advertising/admin/adv_graph.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main\Loader;
 use Bitrix\Main\Type\DateTime;
@@ -93,28 +93,28 @@ if ($moduleAccessLevel >= 'R')
 
 	$tabControl->Begin();
 	?>
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo LANGUAGE_ID?>&mid=<?=$module_id?>" name="currency_settings">
-	<? echo bitrix_sessid_post();
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo LANGUAGE_ID?>&mid=<?=$module_id?>" name="currency_settings">
+	<?php  echo bitrix_sessid_post();
 
 	$tabControl->BeginNextTab();
 	?><tr>
-	<td width="40%"><? echo Loc::getMessage('BASE_CURRENCY'); ?></td>
-	<td width="60%"><select name="BASE_CURRENCY"><?
+	<td width="40%"><?php  echo Loc::getMessage('BASE_CURRENCY'); ?></td>
+	<td width="60%"><select name="BASE_CURRENCY"><?php 
 	$currencyList = Currency\CurrencyManager::getCurrencyList();
 	if (!empty($currencyList))
 	{
 		foreach ($currencyList as $currency => $title)
 		{
-			?><option value="<? echo $currency; ?>"<? echo ($currency == $baseCurrency ? ' selected' : ''); ?>><?
+			?><option value="<?php  echo $currency; ?>"<?php  echo ($currency == $baseCurrency ? ' selected' : ''); ?>><?php 
 				echo htmlspecialcharsex($title);
-			?></option><?
+			?></option><?php 
 		}
 		unset($title, $currency);
 	}
 	unset($currencyList);
 	?></select></td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->BeginNextTab();
 
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");
@@ -123,8 +123,8 @@ if ($moduleAccessLevel >= 'R')
 <script type="text/javascript">
 function RestoreDefaults()
 {
-	if (confirm('<? echo CUtil::JSEscape(Loc::getMessage("CUR_OPTIONS_BTN_HINT_RESTORE_DEFAULT_WARNING")); ?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?lang=<? echo LANGUAGE_ID; ?>&mid=<? echo $module_id; ?>&RestoreDefaults=Y&<?=bitrix_sessid_get()?>";
+	if (confirm('<?php  echo CUtil::JSEscape(Loc::getMessage("CUR_OPTIONS_BTN_HINT_RESTORE_DEFAULT_WARNING")); ?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?lang=<?php  echo LANGUAGE_ID; ?>&mid=<?php  echo $module_id; ?>&RestoreDefaults=Y&<?=bitrix_sessid_get()?>";
 }
 </script>
 	<input type="submit"<?=($moduleAccessLevel < 'W' ? ' disabled' : ''); ?> name="Update" value="<?=Loc::getMessage('CUR_OPTIONS_BTN_SAVE')?>" class="adm-btn-save" title="<?=Loc::getMessage('CUR_OPTIONS_BTN_SAVE_TITLE'); ?>">
@@ -132,22 +132,22 @@ function RestoreDefaults()
 	<input type="reset" name="reset" value="<?=Loc::getMessage('CUR_OPTIONS_BTN_RESET')?>" title="<?=Loc::getMessage('CUR_OPTIONS_BTN_RESET_TITLE'); ?>">
 	<input type="button"<?=($moduleAccessLevel < 'W' ? ' disabled' : ''); ?> title="<?=Loc::getMessage("CUR_OPTIONS_BTN_HINT_RESTORE_DEFAULT")?>" onclick="RestoreDefaults();" value="<?=Loc::getMessage('CUR_OPTIONS_BTN_RESTORE_DEFAULT'); ?>">
 	</form>
-	<?$tabControl->End();
+	<?php $tabControl->End();
 
-	?><h2><? echo Loc::getMessage('CURRENCY_PROCEDURES'); ?></h2><?
+	?><h2><?php  echo Loc::getMessage('CURRENCY_PROCEDURES'); ?></h2><?php 
 	$systemTabControl->Begin();
 	$systemTabControl->BeginNextTab();
-	?><form method="POST" action="<?echo $APPLICATION->GetCurPage();?>?lang=<?echo LANGUAGE_ID?>&mid=<?=$module_id?>" name="currency_procedures"><?
+	?><form method="POST" action="<?php echo $APPLICATION->GetCurPage();?>?lang=<?php echo LANGUAGE_ID?>&mid=<?=$module_id?>" name="currency_procedures"><?php 
 	echo bitrix_sessid_post();
 	?>
 	<input type="hidden" name="action" value="recalc">
-	<input type="submit" <?if ($moduleAccessLevel<"W" || $baseCurrency === '') echo "disabled" ?> name="recalc" value="<?echo Loc::getMessage('CUR_PROCEDURES_BTN_RECALC');?>">
+	<input type="submit" <?php if ($moduleAccessLevel<"W" || $baseCurrency === '') echo "disabled" ?> name="recalc" value="<?php echo Loc::getMessage('CUR_PROCEDURES_BTN_RECALC');?>">
 	<input type="hidden" name="procedures" value="Y">
-	</form><?
+	</form><?php 
 	$systemTabControl->BeginNextTab();
-	?><form method="POST" action="<?echo $APPLICATION->GetCurPage();?>?lang=<?echo LANGUAGE_ID?>&mid=<?=$module_id?>" name="currency_agents"><?
+	?><form method="POST" action="<?php echo $APPLICATION->GetCurPage();?>?lang=<?php echo LANGUAGE_ID?>&mid=<?=$module_id?>" name="currency_agents"><?php 
 	echo bitrix_sessid_post();
-	?><h4><? echo Loc::getMessage('CURRENCY_BASE_RATE_AGENT'); ?></h4><?
+	?><h4><?php  echo Loc::getMessage('CURRENCY_BASE_RATE_AGENT'); ?></h4><?php 
 	$currencyAgent = false;
 	$agentIterator = CAgent::GetList(
 		array(),
@@ -159,43 +159,43 @@ function RestoreDefaults()
 	{
 		$currencyAgent['LAST_EXEC'] = (string)$currencyAgent['LAST_EXEC'];
 		$currencyAgent['NEXT_EXEC'] = (string)$currencyAgent['NEXT_EXEC'];
-		?><b><? echo Loc::getMessage('CURRENCY_BASE_RATE_AGENT_ACTIVE'); ?>:</b>&nbsp;<?
+		?><b><?php  echo Loc::getMessage('CURRENCY_BASE_RATE_AGENT_ACTIVE'); ?>:</b>&nbsp;<?php 
 			echo ($currencyAgent['ACTIVE'] == 'Y' ? Loc::getMessage('CURRENCY_AGENTS_ACTIVE_YES') : Loc::getMessage('CURRENCY_AGENTS_ACTIVE_NO'));
-		?><br><?
+		?><br><?php 
 		if ($currencyAgent['LAST_EXEC'])
 		{
-			?><b><? echo Loc::getMessage('CURRENCY_AGENTS_LAST_EXEC'); ?>:</b>&nbsp;<? echo $currencyAgent['LAST_EXEC']; ?><br>
-			<? if ($currencyAgent['ACTIVE'] == 'Y')
+			?><b><?php  echo Loc::getMessage('CURRENCY_AGENTS_LAST_EXEC'); ?>:</b>&nbsp;<?php  echo $currencyAgent['LAST_EXEC']; ?><br>
+			<?php  if ($currencyAgent['ACTIVE'] == 'Y')
 			{
-				?><b><? echo Loc::getMessage('CURRENCY_AGENTS_NEXT_EXEC');?>:</b>&nbsp;<? echo $currencyAgent['NEXT_EXEC']; ?><br>
-			<?
+				?><b><?php  echo Loc::getMessage('CURRENCY_AGENTS_NEXT_EXEC');?>:</b>&nbsp;<?php  echo $currencyAgent['NEXT_EXEC']; ?><br>
+			<?php 
 			}
 		}
 		elseif ($currencyAgent['ACTIVE'] == 'Y')
 		{
-			?><b><? echo Loc::getMessage('CURRENCY_AGENTS_PLANNED_NEXT_EXEC') ?>:</b>&nbsp;<? echo $currencyAgent['NEXT_EXEC']; ?><br>
-			<?
+			?><b><?php  echo Loc::getMessage('CURRENCY_AGENTS_PLANNED_NEXT_EXEC') ?>:</b>&nbsp;<?php  echo $currencyAgent['NEXT_EXEC']; ?><br>
+			<?php 
 		}
 		if ($currencyAgent['ACTIVE'] != 'Y')
 		{
 			?><br><input type="hidden" name="action" value="activate">
-			<input type="submit" name="activate" value="<? echo Loc::getMessage('CURRENCY_AGENTS_ACTIVATE'); ?>"><?
+			<input type="submit" name="activate" value="<?php  echo Loc::getMessage('CURRENCY_AGENTS_ACTIVATE'); ?>"><?php 
 		}
 		else
 		{
 			?><br><input type="hidden" name="action" value="deactivate">
-			<input type="submit" name="deactivate" value="<? echo Loc::getMessage('CURRENCY_AGENTS_DEACTIVATE'); ?>"><?
+			<input type="submit" name="deactivate" value="<?php  echo Loc::getMessage('CURRENCY_AGENTS_DEACTIVATE'); ?>"><?php 
 		}
 	}
 	else
 	{
-		?><b><? echo Loc::getMessage('CURRENCY_BASE_RATE_AGENT_ABSENT'); ?></b><br><br>
+		?><b><?php  echo Loc::getMessage('CURRENCY_BASE_RATE_AGENT_ABSENT'); ?></b><br><br>
 		<input type="hidden" name="action" value="create">
-		<input type="submit" name="startagent" value="<? echo Loc::getMessage('CURRENCY_AGENTS_CREATE_AGENT'); ?>">
-		<?
+		<input type="submit" name="startagent" value="<?php  echo Loc::getMessage('CURRENCY_AGENTS_CREATE_AGENT'); ?>">
+		<?php 
 	}
 
 	?><input type="hidden" name="agents" value="Y">
-	</form><?
+	</form><?php 
 	$systemTabControl->End();
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/prolog.php");
@@ -105,57 +105,57 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?
+<?php 
 if($_REQUEST["mess"] == "ok" && $ID>0)
 	CAdminMessage::ShowMessage(array("MESSAGE"=>GetMessage("subs_saved"), "TYPE"=>"OK"));
 if($message)
 	echo $message->Show();
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="subscrform">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="subscrform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //Subscriber tab
 //********************
 $tabControl->BeginNextTab();
 ?>
-	<?if($ID > 0):?>
+	<?php if($ID > 0):?>
 		<tr>
-			<td><?echo GetMessage("subscr_date_add")?></td>
-			<td><?echo $str_DATE_INSERT;?></td>
+			<td><?php echo GetMessage("subscr_date_add")?></td>
+			<td><?php echo $str_DATE_INSERT;?></td>
 		</tr>
-		<?if($str_DATE_UPDATE <> ""):?>
+		<?php if($str_DATE_UPDATE <> ""):?>
 			<tr>
-				<td><?echo GetMessage("subscr_date_upd")?></td>
-				<td><?echo $str_DATE_UPDATE;?></td>
+				<td><?php echo GetMessage("subscr_date_upd")?></td>
+				<td><?php echo $str_DATE_UPDATE;?></td>
 			</tr>
-		<?endif?>
-	<?endif?>
+		<?php endif?>
+	<?php endif?>
 	<tr>
-		<td width="40%"><?echo GetMessage("subscr_conf")?></td>
-		<td width="60%"><input type="checkbox" name="CONFIRMED" value="Y"<?if($str_CONFIRMED == "Y") echo " checked"?>></td>
+		<td width="40%"><?php echo GetMessage("subscr_conf")?></td>
+		<td width="60%"><input type="checkbox" name="CONFIRMED" value="Y"<?php if($str_CONFIRMED == "Y") echo " checked"?>></td>
 	</tr>
-	<?if($ID>0):?>
+	<?php if($ID>0):?>
 		<tr>
-			<td><?echo GetMessage("subscr_conf_code")?></td>
-			<td><?echo $str_CONFIRM_CODE?></td>
+			<td><?php echo GetMessage("subscr_conf_code")?></td>
+			<td><?php echo $str_CONFIRM_CODE?></td>
 		</tr>
 		<tr>
-			<td><?echo GetMessage("subscr_date_conf")?></td>
-			<td><?echo $str_DATE_CONFIRM;?></td>
+			<td><?php echo GetMessage("subscr_date_conf")?></td>
+			<td><?php echo $str_DATE_CONFIRM;?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
-		<td><?echo GetMessage("subscr_anonym")?></td>
-		<td><input type="checkbox" name="ANONYMOUS" value="Y"<?if((integer)$str_USER_ID==0) echo " checked"?> onClick="document.subscrform.USER_ID.disabled=document.subscrform.FindUser.disabled=this.checked;"></td>
+		<td><?php echo GetMessage("subscr_anonym")?></td>
+		<td><input type="checkbox" name="ANONYMOUS" value="Y"<?php if((integer)$str_USER_ID==0) echo " checked"?> onClick="document.subscrform.USER_ID.disabled=document.subscrform.FindUser.disabled=this.checked;"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("subscr_user")?></td>
+		<td><?php echo GetMessage("subscr_user")?></td>
 		<td>
-		<?
+		<?php 
 		$sUser = "";
 		if($ID > 0 && $str_USER_ID > 0)
 		{
@@ -167,44 +167,44 @@ $tabControl->BeginNextTab();
 		echo FindUserID("USER_ID", ($str_USER_ID > 0? $str_USER_ID: ""), $sUser, "subscrform", "10", "", " ... ", "", "");
 
 		if((integer)$str_USER_ID==0):
-		?><script language="JavaScript">document.subscrform.USER_ID.disabled=document.subscrform.FindUser.disabled=true;</script><?
+		?><script language="JavaScript">document.subscrform.USER_ID.disabled=document.subscrform.FindUser.disabled=true;</script><?php 
 		endif;
 		?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("subscr_active")?></td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE == "Y") echo " checked"?>></td>
+		<td><?php echo GetMessage("subscr_active")?></td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE == "Y") echo " checked"?>></td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td>E-Mail:</td>
-		<td><input type="text" name="EMAIL" value="<?echo $str_EMAIL;?>" size="30" maxlength="255"></td>
+		<td><input type="text" name="EMAIL" value="<?php echo $str_EMAIL;?>" size="30" maxlength="255"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("subscr_send_conf")?></td>
-		<td><input type="checkbox" name="SEND_CONFIRM" value="Y"<?if($SEND_CONFIRM == "Y") echo " checked"?> onClick="document.subscrform.SITE_ID.disabled=!this.checked;"></td>
+		<td><?php echo GetMessage("subscr_send_conf")?></td>
+		<td><input type="checkbox" name="SEND_CONFIRM" value="Y"<?php if($SEND_CONFIRM == "Y") echo " checked"?> onClick="document.subscrform.SITE_ID.disabled=!this.checked;"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("subscr_templ")?></td>
-		<td><?echo CSite::SelectBox("SITE_ID", $SITE_ID);?></td>
+		<td><?php echo GetMessage("subscr_templ")?></td>
+		<td><?php echo CSite::SelectBox("SITE_ID", $SITE_ID);?></td>
 	</tr>
-<?if($SEND_CONFIRM <> "Y"):?>
+<?php if($SEND_CONFIRM <> "Y"):?>
 	<script language="JavaScript">document.subscrform.SITE_ID.disabled=true;</script>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 //********************
 //Subscribtions tab
 //********************
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td><?echo GetMessage("subscr_fmt")?></td>
-		<td><input type="radio" id="FORMAT_1" name="FORMAT" value="text"<?if($str_FORMAT == "text") echo " checked"?>><label for="FORMAT_1"><?echo GetMessage("subscr_fmt_text")?></label>&nbsp;/<input type="radio" id="FORMAT_2" name="FORMAT" value="html"<?if($str_FORMAT == "html") echo " checked"?>><label for="FORMAT_2">HTML</label></td>
+		<td><?php echo GetMessage("subscr_fmt")?></td>
+		<td><input type="radio" id="FORMAT_1" name="FORMAT" value="text"<?php if($str_FORMAT == "text") echo " checked"?>><label for="FORMAT_1"><?php echo GetMessage("subscr_fmt_text")?></label>&nbsp;/<input type="radio" id="FORMAT_2" name="FORMAT" value="html"<?php if($str_FORMAT == "html") echo " checked"?>><label for="FORMAT_2">HTML</label></td>
 	</tr>
 	<tr>
-		<td width="40%" class="adm-detail-valign-top"><?echo GetMessage("subscr_rub")?></td>
+		<td width="40%" class="adm-detail-valign-top"><?php echo GetMessage("subscr_rub")?></td>
 		<td width="60%">
 			<div class="adm-list">
-			<?
+			<?php 
 			if($bVarsFromForm)
 				$aSubscrRub = is_array($RUB_ID)? $RUB_ID: array();
 			else
@@ -213,14 +213,14 @@ $tabControl->BeginNextTab();
 			$rsRubrics = CRubric::GetList(array("LID"=>"ASC", "SORT"=>"ASC", "NAME"=>"ASC"), array("ACTIVE"=>"Y"));
 			while($arRubric = $rsRubrics->GetNext()):?>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_<?echo $arRubric["ID"]?>" name="RUB_ID[]" value="<?echo $arRubric["ID"]?>"<?if(in_array($arRubric["ID"], $aSubscrRub)) echo " checked"?>></div>
-					<div class="adm-list-label"><label for="RUB_ID_<?echo $arRubric["ID"]?>"><?echo "[".$arRubric["LID"]."] ".$arRubric["NAME"]?></label></div>
+					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_<?php echo $arRubric["ID"]?>" name="RUB_ID[]" value="<?php echo $arRubric["ID"]?>"<?php if(in_array($arRubric["ID"], $aSubscrRub)) echo " checked"?>></div>
+					<div class="adm-list-label"><label for="RUB_ID_<?php echo $arRubric["ID"]?>"><?php echo "[".$arRubric["LID"]."] ".$arRubric["NAME"]?></label></div>
 				</div>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</div>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>($POST_RIGHT<"W"),
@@ -229,20 +229,20 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?if($ID>0):?>
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php if($ID>0):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("subscrform", $message);
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

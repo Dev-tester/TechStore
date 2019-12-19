@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PORTAL_ADV_01_absence'] = "Abwesenheitslisten";
 $MESS ['PORTAL_ADV_03_outlook'] = "Synchronisation mit Outlook";
 $MESS ['PORTAL_ADV_05_xmpp'] = "XMPP Instant Messaging";

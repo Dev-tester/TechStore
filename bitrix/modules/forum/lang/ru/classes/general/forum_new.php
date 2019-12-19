@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_FORUM'] = "Форум";
 $MESS ['F_FORUM_TITLE'] = "Управление форумами";
 $MESS ['F_FORUMS_LIST'] = "Перейти в список форумов";

@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (count($arResult['BANNERS']) > 0):?>
+<?php if (count($arResult['BANNERS']) > 0):?>
 
-<?
+<?php 
 	$this->addExternalCss("/bitrix/themes/.default/banner.css");
 	$this->addExternalJS("/bitrix/components/bitrix/advertising.banner/templates/jssor/jssor.slider.min.js");
 	$arParams['WIDTH'] = intval($arResult['SIZE']['WIDTH']);
@@ -20,9 +20,9 @@
 	$frame = $this->createFrame()->begin("");
 ?>
 
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	<div id='tPreview' style="display:none;margin:auto"">
-<?endif;?>
+<?php endif;?>
 
 <style>
 	.jssorb21 {
@@ -131,7 +131,7 @@
 
 		var jssor_slider_<?=$arResult['ID']?> = new $JssorSlider$("slider_container_<?=$arResult['ID']?>", options);
 
-		<?if($arParams['SCALE'] == 'Y'):?>
+		<?php if($arParams['SCALE'] == 'Y'):?>
 		//responsive code begin
 		function ScaleSlider() {
 			var width = jssor_slider_<?=$arResult['ID']?>.$Elmt.parentNode.clientWidth;
@@ -145,7 +145,7 @@
 		$(window).bind("resize", ScaleSlider);
 		$(window).bind("orientationchange", ScaleSlider);
 		//responsive code end
-		<?endif;?>
+		<?php endif;?>
 	};
 </script>
 <div id="slider_container_<?=$arResult['ID']?>" style="position: relative; margin: 0 auto;
@@ -162,9 +162,9 @@
 	</div>
 	<div data-u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: <?=$arParams['WIDTH']?>px;
 		height: <?=$arParams['HEIGHT']?>px; overflow: hidden;">
-		<?foreach($arResult["BANNERS"] as $k => $banner):?>
+		<?php foreach($arResult["BANNERS"] as $k => $banner):?>
 			<?=$banner?>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 
 	<div data-u="navigator" class="jssorb21">
@@ -180,7 +180,7 @@
 	});
 </script>
 
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	</div>
 	<script>
 		(function(){
@@ -197,8 +197,8 @@
 			BX('tPreview').style.display = '';
 		})();
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?$frame->end();?>
+<?php $frame->end();?>
 
-<?endif;?>
+<?php endif;?>

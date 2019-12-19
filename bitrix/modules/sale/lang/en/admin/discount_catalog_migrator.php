@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_CATALOG_MIGRATOR_CONVERT_FAILED"] = "Error migrating discounts";
 $MESS["DISCOUNT_CATALOG_MIGRATOR_PROCESSED_SUMMARY"] = "Discounts migrated (cumulative):";
 $MESS["DISCOUNT_CATALOG_MIGRATOR_CONVERT_IN_PROGRESS"] = "Migration is still in progress";

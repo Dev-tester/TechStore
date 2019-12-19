@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ASSERT_INTEGER_EXPECTED"] = "The argument#ARG_NAME#must be an integer.";
 $MESS["TASKS_ASSERT_INTEGER_NOTNULL_EXPECTED"] = "The argument#ARG_NAME#must be a positive integer.";
 $MESS["TASKS_ASSERT_ARRAY_NOT_EMPTY_EXPECTED"] = "The argument#ARG_NAME#must be a non-empty array.";

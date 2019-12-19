@@ -1,6 +1,6 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 foreach ($arAllowableOperations as $operationKey => $operationValue)
 {
 	?>
@@ -10,6 +10,6 @@ foreach ($arAllowableOperations as $operationKey => $operationValue)
 			<?=CBPDocument::ShowParameterField("user", 'permission_'.$operationKey, $arCurrentValues["permission_".$operationKey], Array())?>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_S3_XML_PARSE_ERROR"] = "unrecognized service response (error ##errno#)";
 $MESS["CLO_STORAGE_S3_XML_ERROR"] = "service error: #errmsg#";
 $MESS["CLO_STORAGE_S3_EMPTY_ACCESS_KEY"] = "The access key is not specified.";

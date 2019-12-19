@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USERTYPE_NAV"] = "Properties";
 $MESS["USERTYPE_ENTITY_ID"] = "Entity";
 $MESS["USERTYPE_FIELD_NAME"] = "Field name";

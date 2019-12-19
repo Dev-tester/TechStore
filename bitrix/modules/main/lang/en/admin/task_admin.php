@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Access Levels";
 $MESS["SAVE_ERROR"] = "Error updating the access level #";
 $MESS["DELETE_ERROR"] = "Error deleting the access level. It may be bound to other objects.";

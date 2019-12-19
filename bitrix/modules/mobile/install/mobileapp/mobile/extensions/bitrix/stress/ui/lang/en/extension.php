@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STRESS_CANCEL_MEASURE_RESULT"] = "Cancel";
 $MESS["STRESS_DO_MEASURE_RIGHT_NOW"] = "Measure stress level now";
 $MESS["STRESS_HOW_IT_WORKS"] = "How does it work?";

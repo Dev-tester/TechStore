@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_CLOSE_BUTTON"] = "Close";
 $MESS["BX24_INVITE_BUTTON"] = "Invite";
 $MESS["BX24_INVITE_DIALOG_EMAIL_ERROR"] = "The e-mail addresses are incorrect:<br/>";

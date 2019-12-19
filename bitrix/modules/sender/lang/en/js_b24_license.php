@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_B24_LICENSE_MAILING_TITLE"] = "SMS marketing, messengers and robocalls";
 $MESS["SENDER_B24_LICENSE_RC_TITLE"] = "Sales Boost";
 $MESS["SENDER_B24_LICENSE_AD_TEXT1"] = "This feature is available on commercial plans only. Upgrade now and enjoy even more CRM marketing tools:

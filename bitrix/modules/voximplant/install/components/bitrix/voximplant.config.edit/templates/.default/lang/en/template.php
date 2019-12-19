@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LM_ADD1"] = "All employees";
 $MESS["LM_ADD2"] = "Add more";
 $MESS["TELEPHONY_ALREADY_CONNECT_RENT"] = "You have a rented number set up. Before completing this action, you must deactivate all rented numbers.";

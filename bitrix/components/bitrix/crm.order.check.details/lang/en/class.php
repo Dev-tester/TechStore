@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SECTION_MAIN"] = "Receipt details";
 $MESS["CRM_ORDER_SECTION_ADDITIONAL"] = "Payment details";
 $MESS["CRM_COLUMN_ORDER_CHECK_ID"] = "ID";

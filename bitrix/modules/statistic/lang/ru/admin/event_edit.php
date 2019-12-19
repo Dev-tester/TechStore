@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_TITLE"] = "Загрузка событий";
 $MESS["STAT_CHARGEBACK"] = "Возврат денег";
 $MESS["STAT_EVENT_TYPE"] = "ID типа<br>события";

@@ -21,7 +21,7 @@ if(!$storage)
 
 $arResult['VARIABLES']['STORAGE'] = $storage;
 ?>
-<?
+<?php 
 $pageId = "user_files";
 include("util_menu.php");
 include("util_profile.php");

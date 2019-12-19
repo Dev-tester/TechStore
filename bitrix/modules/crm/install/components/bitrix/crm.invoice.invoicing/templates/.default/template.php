@@ -38,7 +38,7 @@ $APPLICATION->IncludeComponent(
 							<div class="bx-invoicing-content-table-wrap">
 								<table class="bx-invoicing-content-table">
 									<tbody>
-									<? if (count($arResult['PAY_SYSTEM_LIST']) > 1):?>
+									<?php  if (count($arResult['PAY_SYSTEM_LIST']) > 1):?>
 										<tr class="bx-invoicing-item-row" >
 											<td class="bx-invoicing-item-left"><?=Loc::getMessage('CRM_FILTER_PAY_SYSTEM')?>:</td>
 											<td class="bx-invoicing-item-center">
@@ -46,16 +46,16 @@ $APPLICATION->IncludeComponent(
 													<div class=" bx-invoicing-box-sizing">
 														<span class="bx-select-wrap">
 															<select name="PAY_SYSTEM" id="PAY_SYSTEM" class="bx-select">
-																<?foreach ($arResult['PAY_SYSTEM_LIST'] as $id => $name):?>
+																<?php foreach ($arResult['PAY_SYSTEM_LIST'] as $id => $name):?>
 																	<option value="<?=$id;?>"><?=$name;?></option>
-																<?endforeach;?>
+																<?php endforeach;?>
 															</select>
 														</span>
 													</div>
 												</div>
 											</td>
 										</tr>
-									<?endif;?>
+									<?php endif;?>
 										<tr class="bx-invoicing-item-row" >
 											<td class="bx-invoicing-item-left"><?=Loc::getMessage('CRM_FILTER_DATE_PERIOD')?>:</td>
 											<td class="bx-invoicing-item-center">
@@ -75,9 +75,9 @@ $APPLICATION->IncludeComponent(
 													<div class=" bx-invoicing-box-sizing">
 														<span class="bx-select-wrap">
 															<select name="INVOICING_TYPE" id="INVOICING_TYPE" class="bx-select">
-																<?foreach ($arResult['INVOICING_TYPE'] as $id => $name):?>
+																<?php foreach ($arResult['INVOICING_TYPE'] as $id => $name):?>
 																	<option value="<?=$id;?>"><?=$name;?></option>
-																<?endforeach;?>
+																<?php endforeach;?>
 															</select>
 														</span>
 													</div>

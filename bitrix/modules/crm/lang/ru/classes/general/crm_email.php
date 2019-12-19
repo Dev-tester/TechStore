@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ADD_MESSAGE"] = "добавление события в CRM";
 $MESS["CRM_EMAIL_GET_EMAIL"] = "Письмо с почты";
 $MESS["CRM_EMAIL_SUBJECT"] = "Заголовок";

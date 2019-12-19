@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_IDETAIL_TABLE_TITLE"] = "Index Details";
 $MESS["PERFMON_IDETAIL_MENU_LIST"] = "Indexes";
 $MESS["PERFMON_IDETAIL_MENU_LIST_TITLE"] = "Back to index analysis";

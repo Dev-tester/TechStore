@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_TITLE_BASE"] = "Partner Module Update System";
 $MESS["SUP_CHECK_UPDATES"] = "Check Updates";
 $MESS["SUP_SETTINGS"] = "Edit Settings";

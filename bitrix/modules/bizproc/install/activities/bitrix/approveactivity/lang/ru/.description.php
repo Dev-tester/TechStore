@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPAA_DESCR_DESCR'] = "Утверждение документа";
 $MESS ['BPAA_DESCR_NAME'] = "Утверждение документа";
 $MESS ['BPAA_DESCR_VC'] = "Сколько проголосовало";

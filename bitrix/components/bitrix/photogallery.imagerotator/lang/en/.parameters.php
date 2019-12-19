@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE"] = "Information block type";
 $MESS["IBLOCK_IBLOCK"] = "Information block";
 $MESS["IBLOCK_SECTION_URL"] = "Album";

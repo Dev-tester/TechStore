@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_BG_NAME"] = "Page background";
 $MESS["LANDING_HOOK_BG_DESCRIPTION"] = "Change the current page's background. The site preference is used if no background is selected.";
 $MESS["LANDING_HOOK_BG_USE"] = "Custom page background";

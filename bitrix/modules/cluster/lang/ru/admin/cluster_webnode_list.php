@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_WEBNODE_LIST_TITLE"] = "Веб-сервера";
 $MESS["CLU_WEBNODE_LIST_ID"] = "ID";
 $MESS["CLU_WEBNODE_LIST_FLAG"] = "Состояние";

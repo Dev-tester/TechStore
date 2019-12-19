@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -37,14 +37,14 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 <div style="float:right;">
@@ -68,13 +68,13 @@ endif;
 			<thead>
 				<tr class="forum-row-first forum-row-odd">
 					<th class="forum-first-column" width="10%"><?=GetMessage("PM_FROM")?>:</th>
-					<td class="forum-last-column" width="90%"><?
+					<td class="forum-last-column" width="90%"><?php 
 						?><?=str_replace(array("#URL#", "#NAME#"), array($arResult["MESSAGE"]["AUTHOR_LINK"], $arResult["MESSAGE"]["AUTHOR_NAME"]), $arParams["USER_TMPL"])
 					?></td>
 				</tr>
 				<tr class="forum-row-even">
 					<th><?=GetMessage("PM_TO")?>:</th>
-					<td><?
+					<td><?php 
 						?><?=str_replace(array("#URL#", "#NAME#"), array($arResult["MESSAGE"]["RECIPIENT_LINK"], $arResult["MESSAGE"]["RECIPIENT_NAME"]), $arParams["USER_TMPL"])
 					?></td>
 				</tr>
@@ -87,7 +87,7 @@ endif;
 				<tr class="forum-last-first forum-row-even">
 					<td colspan="2" class="forum-pmessage-text">
 						<?=$arResult["MESSAGE"]["POST_MESSAGE"]?>
-<?
+<?php 
 		if (($arResult["MESSAGE"]["REQUEST_IS_READ"] == "Y") && ($arParams["version"]==2)):
 ?>
 		<div class="forum-pm-notification">
@@ -101,7 +101,7 @@ endif;
 				<input type="submit" class="forum-mess-button" value="<?=GetMessage("PM_SEND_NOTIF")?>" />
 			</form>
 		</div>
-<?
+<?php 
 		endif;
 ?>
 					</td>
@@ -113,19 +113,19 @@ endif;
 						<div class="forum-footer-inner">
 							<div class="forum-pmessage-navigation">
 								<span class="forum-footer-option forum-pmessage-prev forum-footer-option-first">
-								<?
+								<?php 
 							if (!empty($arResult["MESSAGE_PREV"])):
-									?><a href="<?=$arResult["MESSAGE_PREV"]["MESSAGE_LINK"]?>"><?=GetMessage("P_PREV")?></a><?
+									?><a href="<?=$arResult["MESSAGE_PREV"]["MESSAGE_LINK"]?>"><?=GetMessage("P_PREV")?></a><?php 
 							else :
-									?><?=GetMessage("P_PREV")?><?
+									?><?=GetMessage("P_PREV")?><?php 
 							endif;
 								?></span>
 								<span class="forum-pmessage-current"></span>
-								<span class="forum-footer-option forum-pmessage-next forum-footer-option-last"><?
+								<span class="forum-footer-option forum-pmessage-next forum-footer-option-last"><?php 
 							if (!empty($arResult["MESSAGE_NEXT"])):
-									?><a href="<?=$arResult["MESSAGE_NEXT"]["MESSAGE_LINK"]?>"><?=GetMessage("P_NEXT")?></a><?
+									?><a href="<?=$arResult["MESSAGE_NEXT"]["MESSAGE_LINK"]?>"><?=GetMessage("P_NEXT")?></a><?php 
 							else :
-									?><?=GetMessage("P_NEXT")?><?
+									?><?=GetMessage("P_NEXT")?><?php 
 							endif;
 								?></span>
 							</div>
@@ -137,15 +137,15 @@ endif;
 			<?=bitrix_sessid_post()?>
 			<select name="action">
 				<option value="reply" <?=($_REQUEST["action"] == "reply" ? " selected='selected'" : "")?>><?=GetMessage("PM_ACT_REPLY")?></option>
-<? if ($arParams['FID'] == 3): // sent ?>
+<?php  if ($arParams['FID'] == 3): // sent ?>
 				<option value="edit" <?=($_REQUEST["action"] == "edit" ? " selected='selected'" : "")?>><?=GetMessage("PM_ACT_EDIT")?></option>
-<? endif;?>
+<?php  endif;?>
 				<option value="delete" <?=($_REQUEST["action"] == "delete" ? " selected='selected'" : "")?>><?=GetMessage("PM_ACT_DELETE")?></option>
 			</select>
 			<input type="submit" value="OK" />
 		</form>							
 							</span>
-<?/*?>
+<?php /*?>
 							<span class="forum-footer-option forum-pmessage-copy">
 		<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST">
 			<input type="hidden" name="FID" value="<?=$arResult["FID"]?>" />
@@ -155,18 +155,18 @@ endif;
 			<?=bitrix_sessid_post()?>
 			<?=GetMessage("PM_ACT_COPY")?> <?=GetMessage("PM_IN")?>:
 			<select name="folder_id">
-			<?
+			<?php 
 			foreach ($arResult["FOLDERS"] as $res)
 			{
 				?><option value="<?=$res["ID"]?>" <?=(($_REQUEST["action"] == "copy" && $res["ID"] == $_REQUEST["folder_id"]) 
-					? " selected='selected'" : "")?>><?=$res["TITLE"]?></option><?
+					? " selected='selected'" : "")?>><?=$res["TITLE"]?></option><?php 
 			}
 			?>
 			</select>
 			<input type="submit" value="OK" />
 		</form>
 							</span>
-<?*/?>
+<?php */?>
 							<span class="forum-footer-option forum-pmessage-move forum-footer-option-last">
 		<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST">
 			<input type="hidden" name="FID" value="<?=$arResult["FID"]?>" />
@@ -176,11 +176,11 @@ endif;
 			<?=bitrix_sessid_post()?>
 			<span><?=GetMessage("PM_ACT_MOVE")?> <?=GetMessage("PM_IN")?>:&nbsp;</span>
 			<select name="folder_id">
-			<?
+			<?php 
 			foreach ($arResult["FOLDERS"] as $res)
 			{
 				?><option value="<?=$res["ID"]?>" <?=(($_REQUEST["action"] == "move" && $res["ID"] == $_REQUEST["folder_id"]) 
-					? " selected='selected'" : "")?>><?=$res["TITLE"]?></option><?
+					? " selected='selected'" : "")?>><?=$res["TITLE"]?></option><?php 
 			}
 			?></select>
 			<input type="submit" value="OK" />

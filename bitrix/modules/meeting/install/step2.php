@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!check_bitrix_sessid()) return;
 IncludeModuleLangFile(__FILE__);
 
@@ -14,11 +14,11 @@ else:
 	if ($_REQUEST['install_public']):
 ?>
 <p><a href="<?=htmlspecialcharsbx($GLOBALS['meeting_folder'])?>/"><?=GetMessage("MEETING_INSTALL_GO")?></a></p>
-<?
+<?php 
 	endif;
 endif;
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">
 <form>

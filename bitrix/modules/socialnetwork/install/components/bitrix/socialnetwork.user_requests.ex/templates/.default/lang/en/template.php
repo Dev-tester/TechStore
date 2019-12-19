@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_URE_T_DO_SAVE"] = "Approve membership";
 $MESS["SONET_URE_T_REJECT"] = "Decline";
 $MESS["SONET_URE_T_REJECT_OUT"] = "Cancel invitations";

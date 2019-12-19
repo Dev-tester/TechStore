@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_FILE_LOADING"] = "Loading";
 $MESS["WD_FILE_EXISTS"] = "A file with this name already exists. You can still use the current folder, in which case the existing version of the document will be saved in the history.";
 $MESS["WDUF_UPLOAD_DOCUMENT"] = "Upload documents";

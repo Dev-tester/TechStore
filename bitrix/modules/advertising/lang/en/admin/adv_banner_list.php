@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_PAGE_TITLE"] = "Banners";
 $MESS["AD_F_ID"] = "ID";
 $MESS["AD_F_LAMP"] = "Indicator";

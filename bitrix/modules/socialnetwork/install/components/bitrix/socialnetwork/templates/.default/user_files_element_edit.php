@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$APPLICATION->IncludeComponent("bitrix:webdav.element.edit", ".default", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $APPLICATION->IncludeComponent("bitrix:webdav.element.edit", ".default", Array(
 	"OBJECT" => $arParams["OBJECT"],
 	"IBLOCK_TYPE"	=>	$arParams["FILES_USER_IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["FILES_USER_IBLOCK_ID"],

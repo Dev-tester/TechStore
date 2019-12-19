@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDCM_PD_ENTITY"] = "To";
 $MESS["BPDCM_PD_ENTITY_TYPE_USER"] = "User Drive";
 $MESS["BPDCM_PD_ENTITY_TYPE_SG"] = "Social network group Drive";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CURRENCY_CLASSIFIER_MODULE_NOT_INSTALLED_CRM"] = "Модуль CRM не установлен.";
 $MESS["CRM_CURRENCY_CLASSIFIER_MODULE_NOT_INSTALLED_CURRENCY"] = "Модуль Валюты не установлен.";
 $MESS["CRM_CURRENCY_CLASSIFIER_CURRENCY_NOT_FOUND"] = "Валюта #currency# не найдена";

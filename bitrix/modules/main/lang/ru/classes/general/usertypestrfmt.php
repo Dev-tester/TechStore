@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_STRINGFMT_DESCRIPTION"] = "Шаблон";
 $MESS["USER_TYPE_STRINGFMT_PATTERN"] = "Шаблон вывода (#VALUE# - значение)";
 $MESS["USER_TYPE_STRINGFMT_REGEXP"] = "Регулярное выражение для проверки";

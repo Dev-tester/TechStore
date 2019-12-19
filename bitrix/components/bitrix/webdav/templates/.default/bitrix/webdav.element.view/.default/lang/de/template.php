@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_TAGS"] = "Tags";
 $MESS["WD_FILE_SIZE"] = "Größe";
 $MESS["WD_DESCRIPTION"] = "Beschreibung";

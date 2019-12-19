@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="board-section-list">
 <table><tr>
-<?
+<?php 
 $strTitle = "";
 
 if($arResult['SECTION']['DEPTH_LEVEL'] > 0 ){
@@ -12,7 +12,7 @@ if($arResult['SECTION']['DEPTH_LEVEL'] > 0 ){
 	}
 }
 ?>
-<?
+<?php 
 $CURRENT_DEPTH=$arResult["SECTION"]["DEPTH_LEVEL"]+1;
 
 $cell = 0;
@@ -27,7 +27,7 @@ foreach($arResult["SECTIONS"] as $arSection):
 		if($CURRENT_DEPTH == 1){
 			?>
 			<td width="<?=round(100/$arParams["TREE_LINE_ELEMENT_COUNT"])?>%" class="td<?=$cell?>"><div id="<?=$this->GetEditAreaId($arSection['ID']);?>"><?=$link?></div>
-			<?	
+			<?php 	
 		}
 		echo "<ul>";
 	}
@@ -37,7 +37,7 @@ foreach($arResult["SECTIONS"] as $arSection):
 				$cell++;
 				if($cell>=$arParams["TREE_LINE_ELEMENT_COUNT"]){
 					$cell = 0;
-				?></tr><tr><?	
+				?></tr><tr><?php 	
 			}
 		}
 		echo str_repeat("</ul>", $CURRENT_DEPTH - $arSection["DEPTH_LEVEL"]);
@@ -53,14 +53,14 @@ foreach($arResult["SECTIONS"] as $arSection):
 	else
 		$link = '<a href="'.$arSection["SECTION_PAGE_URL"].'">'.$arSection["NAME"].'</a><span>' . $count . '</span>';
 ?>
-	<?if($CURRENT_DEPTH == 1):?>
+	<?php if($CURRENT_DEPTH == 1):?>
 		
-	<?else:?>
+	<?php else:?>
 		<li id="<?=$this->GetEditAreaId($arSection['ID']);?>"><?=$link?></li>
-	<?endif;?>
+	<?php endif;?>
 	
-<?endforeach?>
-<?
+<?php endforeach?>
+<?php 
 	if($arResult['SECTION']['DEPTH_LEVEL'] > 0 ){
 		echo '</td></tr>';
 	}

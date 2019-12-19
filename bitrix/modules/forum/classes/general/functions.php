@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager Forum                  #
 # Copyright (c) 2002-2007 Bitrix             #
@@ -1826,7 +1826,7 @@ class CForumAutosave
 			BX.loadScript("<?=CUtil::GetAdditionalFileURL("/bitrix/js/forum/autosave.js")?>");
 		}
 		</script>
-<?
+<?php 
 		ob_end_flush();
 	}
 

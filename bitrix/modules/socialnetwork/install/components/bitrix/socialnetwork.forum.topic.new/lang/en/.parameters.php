@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL_TEMPLATES'] = "URLs processing";
 $MESS ['F_PROFILE_VIEW_TEMPLATE'] = "Profile page";
 $MESS ['F_DEFAULT_FID'] = "Forum ID";

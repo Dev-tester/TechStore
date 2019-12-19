@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_JS_STATUS_ACTION_SUCCESS"] = "Success";
 $MESS["LISTS_JS_STATUS_ACTION_ERROR"] = "That's an error.";
 $MESS["LISTS_ADD_STAFF"] = "Add employees";

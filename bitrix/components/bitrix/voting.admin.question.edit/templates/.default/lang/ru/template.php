@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_COPY"] = "Скопировать";
 $MESS["VOTE_QUESTION"] = "Вопрос";
 $MESS["VOTE_PROPERTIES"] = "Свойства";

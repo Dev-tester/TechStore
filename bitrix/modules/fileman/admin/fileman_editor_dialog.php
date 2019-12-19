@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -17,7 +17,7 @@ var iNoOnSelectionChange = 1;
 var iNoOnChange = 2;
 </script>
 
-<?if($name == "anchor"):?>
+<?php if($name == "anchor"):?>
 <script>
 var pElement = null;
 function OnLoad()
@@ -77,13 +77,13 @@ function OnSave()
 	pObj.pMainObj.OnChange("anchor");
 }
 </script>
-<?ob_start();?>
+<?php ob_start();?>
 <div style="padding: 5px;">
 <label for="anchor_value"><?= GetMessage("FILEMAN_ED_ANCHOR_NAME")?>&nbsp;</label><input type="text" size="25" value="" id="anchor_value" />
 </div>
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "editlink"):?>
+<?php elseif($name == "editlink"):?>
 <script>
 var pElement = null;
 var pImage = false;
@@ -460,7 +460,7 @@ function SetUrl(filename, path, site)
 }
 </script>
 
-<?ob_start();?>
+<?php ob_start();?>
 
 <table class="bx-link-dialog-tbl bx--t1 bx--t2 bx--t3 bx--t4" id="bx_link_dialog_tbl">
 	<tr class="bx-link-type">
@@ -486,7 +486,7 @@ function SetUrl(filename, path, site)
 		<td class="bx-par-title"><label for="bx_url_1"><?= GetMessage("FILEMAN_ED_LINK_DOC")?>:</label></td>
 		<td class="bx-par-val">
 			<input type="text" size="30" value="" id="bx_url_1" style="float: left;">
-			<?
+			<?php 
 			CMedialib::ShowBrowseButton(
 				array(
 					'value' => '...',
@@ -582,9 +582,9 @@ function SetUrl(filename, path, site)
 	</tr>
 </table>
 
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array
 	(
 		"event" => "OpenFileBrowserWindFile",
@@ -601,7 +601,7 @@ CAdminFileDialog::ShowScript(Array
 );
 ?>
 
-<?elseif($name == "image"):?>
+<?php elseif($name == "image"):?>
 <script>
 var pElement = null;
 function OnLoad(params)
@@ -821,7 +821,7 @@ function SetUrl(filename, path, site)
 }
 </script>
 
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array
 	(
 		"event" => "OpenFileBrowserWindImage",
@@ -838,13 +838,13 @@ CAdminFileDialog::ShowScript(Array
 );
 ?>
 
-<?ob_start();?>
+<?php ob_start();?>
 <table class="bx-image-dialog-tbl">
 	<tr>
 		<td class="bx-par-title"><label for="bx_src"><?= GetMessage("FILEMAN_ED_IMG_PATH")?></label></td>
 		<td class="bx-par-val">
 			<input type="text" size="25" value="" id="bx_src" style="float: left;" />
-			<?
+			<?php 
 			CMedialib::ShowBrowseButton(
 				array(
 					'value' => '...',
@@ -914,9 +914,9 @@ CAdminFileDialog::ShowScript(Array
 		</td>
 	</tr>
 </table>
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "table"):?>
+<?php elseif($name == "table"):?>
 <script>
 var pElement = null;
 function OnLoad()
@@ -1042,7 +1042,7 @@ function OnSave()
 }
 
 </script>
-<?ob_start();?>
+<?php ob_start();?>
 <table class="bx-dialog-table">
 	<tr>
 		<td align="right"><label for="rows"><?= GetMessage("FILEMAN_ED_TBL_R")?></label></td>
@@ -1087,9 +1087,9 @@ function OnSave()
 		<td colspan="4"><select id='bx_classname'><option value=""> - <?= GetMessage("FILEMAN_NO_VAL")?> -</option></select></td>
 	</tr>
 </table>
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "pasteastext"):?>
+<?php elseif($name == "pasteastext"):?>
 <script>
 function OnLoad()
 {
@@ -1105,7 +1105,7 @@ function OnSave()
 	pObj.pMainObj.PasteAsText(BX("BXInsertAsText").value);
 }
 </script>
-<?ob_start();?>
+<?php ob_start();?>
 <table style="width: 100%;">
 	<tr>
 		<td><?= GetMessage("FILEMAN_ED_FF")?> "<?= GetMessage("FILEMAN_ED_SAVE")?>":</td>
@@ -1114,9 +1114,9 @@ function OnSave()
 		<textarea id="BXInsertAsText" style="width:100%; height:200px;"></textarea>
 	</td></tr>
 </table>
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "pasteword"):?>
+<?php elseif($name == "pasteword"):?>
 <script>
 var pFrame = null;
 function OnLoad()
@@ -1229,7 +1229,7 @@ function OnSave()
 	});
 }
 </script>
-<?ob_start();?>
+<?php ob_start();?>
 <table class="bx-dialog-pasteword">
 	<tr id="bx_word_ff">
 		<td><?= GetMessage("FILEMAN_ED_FF")?> "<?= GetMessage("FILEMAN_ED_SAVE")?>":</td>
@@ -1254,9 +1254,9 @@ function OnSave()
 		</td>
 	</tr>
 </table>
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "pageprops"):?>
+<?php elseif($name == "pageprops"):?>
 
 <script>
 var finput = false;
@@ -1267,7 +1267,7 @@ function OnLoad()
 
 	BX('BX_dialog_title').value = BX('title').value;
 	BX("BX_more_prop_but").onclick = function(e) {AppendRow('', '');};
-	var tag_property = "<? if(CModule::IncludeModule("search")){echo htmlspecialcharsbx(COption::GetOptionString("search", "page_tag_property"));}?>";
+	var tag_property = "<?php  if(CModule::IncludeModule("search")){echo htmlspecialcharsbx(COption::GetOptionString("search", "page_tag_property"));}?>";
 
 	var i, code, val, name, cnt = parseInt(BX("maxind").value)+1;
 	for(i=0; i<cnt; i++)
@@ -1341,7 +1341,7 @@ function AppendTagPropertyRow(code, value, name)
 	c.className = "bx-par-val";
 	id = 'BX_dialog_VALUE_' + cnt;
 	name = 'BX_dialog_VALUE_' + cnt;
-	c.innerHTML =  '<input name="'+name+'" id="'+id+'" type="text" autocomplete="off" value="'+value+'" onfocus="window.oObject[this.id] = new JsTc(this, []);"  size="50"/><input type="checkbox" id="ck_'+id+'" name="ck_'+name+'" <? echo (CUserOptions::GetOption("search_tags", "order", "CNT") == "NAME" ? "checked": "");?> title="<?=GetMessage("SEARCH_TAGS_SORTING_TIP")?>">';
+	c.innerHTML =  '<input name="'+name+'" id="'+id+'" type="text" autocomplete="off" value="'+value+'" onfocus="window.oObject[this.id] = new JsTc(this, []);"  size="50"/><input type="checkbox" id="ck_'+id+'" name="ck_'+name+'" <?php  echo (CUserOptions::GetOption("search_tags", "order", "CNT") == "NAME" ? "checked": "");?> title="<?=GetMessage("SEARCH_TAGS_SORTING_TIP")?>">';
 
 	if(!finput)
 		finput = BX('BX_dialog_VALUE_' + cnt);
@@ -1375,7 +1375,7 @@ function OnSave()
 	return iNoOnSelectionChange;
 }
 </script>
-<?ob_start();?>
+<?php ob_start();?>
 <table id="pageprops_t1" class="bx-par-tbl">
 	<tr>
 		<td class="bx-par-title"><label for="BX_dialog_title"><b><?= GetMessage("FILEMAN_DIALOG_TITLE")?></b></label></td>
@@ -1388,9 +1388,9 @@ function OnSave()
 </table>
 <input type="hidden" value="-1" id="BX_dialog_maxind">
 
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "spellcheck"):?>
+<?php elseif($name == "spellcheck"):?>
 
 <script>
 var pElement = null;
@@ -1409,7 +1409,7 @@ function OnLoad()
 }
 
 </script>
-<?ob_start();?>
+<?php ob_start();?>
 <div>
 <div id="BX_dialog_waitWin" style="display: block; text-align: center; vertical-align: middle;">
 	<table border="0" width="100%" height="100%" style="vertical-align: middle">
@@ -1476,9 +1476,9 @@ function OnLoad()
 </table>
 </div>
 </div>
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "specialchar"):?>
+<?php elseif($name == "specialchar"):?>
 
 <script>
 function OnLoad()
@@ -1532,15 +1532,15 @@ function OnLoad()
 }
 </script>
 
-<?ob_start();?>
+<?php ob_start();?>
 <div style="height: 285px;">
 	<div id="charCont" class="bx-d-char-cont"></div>
 	<div id="charPrev" class="bx-d-prev-char"></div>
 	<div id="entityName" class="bx-d-ent-name">&nbsp;</div>
 </div>
-<?$dialogHTML = ob_get_contents(); ob_end_flush();?>
+<?php $dialogHTML = ob_get_contents(); ob_end_flush();?>
 
-<?elseif($name == "settings"):?>
+<?php elseif($name == "settings"):?>
 
 <script>
 function OnLoad()
@@ -1834,7 +1834,7 @@ function OnSave()
 }
 </script>
 
-<?
+<?php 
 	$arTabs = array();
 	if (!isset($_GET['light_mode']) || $_GET['light_mode'] != 'Y')
 		$arTabs[] = array("DIV" => "__bx_set_1_toolbar", "TAB" => GetMessage("FILEMAN_ED_TOOLBARS"), "ICON" => "", "TITLE" => GetMessage("FILEMAN_ED_TOOLBARS_SETTINGS"), "ONSELECT" => "window.oBXEditorDialog.adjustSizeEx();");
@@ -1847,14 +1847,14 @@ $tabControlDialog = new CAdmintabControl("tabControlDialog_opt", $arTabs, false,
 $tabControlDialog->Begin();
 $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->EndTab();?>
-<?$tabControlDialog->End();?>
+<?php $tabControlDialog->EndTab();?>
+<?php $tabControlDialog->End();?>
 
-<?elseif($name == "flash"):?>
+<?php elseif($name == "flash"):?>
 <script>
 // F L A S H
 function OnLoad()
@@ -2166,7 +2166,7 @@ function OnSave()
 }
 </script>
 
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array
 	(
 		"event" => "OpenFileBrowserWindFlash",
@@ -2189,16 +2189,16 @@ $tabControlDialog = new CAdminTabControl("tabControlDialog_flash", array(
 ), false, true);
 $tabControlDialog->Begin();?>
 
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->End();
+<?php $tabControlDialog->End();
 ?>
 
-<?elseif($name == "snippets"):?>
+<?php elseif($name == "snippets"):?>
 <script>
 function OnLoad()
 {
@@ -2640,7 +2640,7 @@ function editSnippet(title, code)
 }
 </script>
 
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array
 	(
 		"event" => "OpenFileDialog_thumb",
@@ -2665,11 +2665,11 @@ $tabControlDialog = new CAdmintabControl("tabControlDialog_sn", array(
 $tabControlDialog->Begin();
 $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <tr><td></td></tr>
-<?$tabControlDialog->End();?>
+<?php $tabControlDialog->End();?>
 
 <table id="__bx_temp_sn_base_params" class="add_snippet">
 	<tr>
@@ -2736,7 +2736,7 @@ $tabControlDialog->BeginNextTab();?>
 	</tr>
 </table>
 
-<?elseif($name == "edit_hbf"):?>
+<?php elseif($name == "edit_hbf"):?>
 <script>
 function OnLoad()
 {
@@ -2796,7 +2796,7 @@ function insertDefault_footer()
 	oTA.value = "</body>\n</html>";
 }
 </script>
-<?
+<?php 
 $aTabs_dialog = array(
 array("DIV" => "__bx_head", "TAB" => GetMessage("FILEMAN_ED_TOP_AREA"), "ICON" => "", "TITLE" => GetMessage("FILEMAN_ED_EDIT_HEAD"), "ONSELECT" => "window.oBXEditorDialog.adjustSizeEx();"),
 array("DIV" => "__bx_footer", "TAB" => GetMessage("FILEMAN_ED_BOTTOM_AREA"), "ICON" => "", "TITLE" => GetMessage("FILEMAN_ED_EDIT_FOOTER"), "ONSELECT" => "window.oBXEditorDialog.adjustSizeEx();")
@@ -2804,12 +2804,12 @@ array("DIV" => "__bx_footer", "TAB" => GetMessage("FILEMAN_ED_BOTTOM_AREA"), "IC
 $tabControlDialog = new CAdminTabControl("tabControlDialog_templ", $aTabs_dialog, false, true);
 
 $tabControlDialog->Begin();?>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <div id="__bx_head"></div>
-<?$tabControlDialog->BeginNextTab();?>
+<?php $tabControlDialog->BeginNextTab();?>
 <div id="__bx_footer"></div>
-<?$tabControlDialog->End();?>
-<?endif;?>
+<?php $tabControlDialog->End();?>
+<?php endif;?>
 
 <script>
 	if (!window.oBXEditorDialog.bUseTabControl)
@@ -2857,4 +2857,4 @@ $tabControlDialog->Begin();?>
 		]);
 	}
 </script>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>

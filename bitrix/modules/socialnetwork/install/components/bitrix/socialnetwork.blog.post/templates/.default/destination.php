@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponent $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -24,14 +24,14 @@ UI\Extension::load("ui.selector");
 		shareUrl : '/bitrix/urlrewrite.php?SEF_APPLICATION_CUR_PAGE_URL=<?=str_replace("%23", "#", urlencode($arParams["PATH_TO_POST"]))?>'
 	};
 
-</script><?
+</script><?php 
 
 $selectorId = randString(6);
 
 ?><div class="feed-add-post-destination-block feed-add-post-destination-block-post" id="destination-sharing" style="display:none;">
 	<form action="" name="blogShare" id="blogShare" method="POST" onsubmit="return false;" bx-selector-id="<?=htmlspecialcharsbx($selectorId)?>">
 	<div class="feed-add-post-destination-title"><?=GetMessage("MPF_DESTINATION")?></div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.user.selector",
 		"",

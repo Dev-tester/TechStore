@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUBSCRIBE_CONFIRM_NAME"] = "Confirm subscription";
 $MESS["SUBSCRIBE_CONFIRM_DESC"] = "#EMAIL# - subscription URL
 #DATE# - the date the address was added or updated

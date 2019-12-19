@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -18,13 +18,13 @@ Loc::loadMessages(__FILE__);
 $containerId = 'crm-tracking-entity-details-view';
 ?>
 <div id="<?=htmlspecialcharsbx($containerId)?>">
-	<?if (empty($arResult['TRACES'])):?>
+	<?php if (empty($arResult['TRACES'])):?>
 		<span style="opacity: 0.5;">
 			<?=Loc::getMessage('CRM_TRACKING_ENTITY_DETAILS_ORGANIC')?>
 		</span>
-	<?else:?>
+	<?php else:?>
 	<div id="crm-tracking-entity-details" class="crm-tracking-entity-details">
-		<?
+		<?php 
 		$traceCounter = 0;
 		foreach ($arResult['TRACES'] as $trace):
 			$traceCounter++;
@@ -33,7 +33,7 @@ $containerId = 'crm-tracking-entity-details-view';
 			data-role="trace"
 		>
 			<div data-role="trace/header" class="crm-tracking-entity-details-head">
-				<?if (false && $trace['SOURCE']):?>
+				<?php if (false && $trace['SOURCE']):?>
 					<div class="crm-tracking-entity-details-path-info">
 						<span class="crm-tracking-entity-details-path-icon <?=htmlspecialcharsbx($arResult['DATA']['SOURCE']['ICON_CLASS'])?>">
 							<i></i>
@@ -42,9 +42,9 @@ $containerId = 'crm-tracking-entity-details-view';
 							<?=htmlspecialcharsbx($trace['SOURCE']['NAME'])?>
 						</span>
 					</div>
-				<?endif;?>
+				<?php endif;?>
 
-				<?
+				<?php 
 				$APPLICATION->includeComponent(
 					'bitrix:crm.tracking.entity.path',
 					'',
@@ -59,9 +59,9 @@ $containerId = 'crm-tracking-entity-details-view';
 
 				<div class="crm-tracking-entity-details-toggler">
 					<div class="crm-tracking-entity-details-overlay"></div>
-					<?if($traceCounter <= 1):?>
+					<?php if($traceCounter <= 1):?>
 						<div data-role="trace/edit" class="crm-tracking-entity-details-edit"></div>
-					<?endif;?>
+					<?php endif;?>
 					<div data-role="trace/view" class="crm-tracking-entity-details-show"
 						data-caption-show="<?=Loc::getMessage('CRM_TRACKING_ENTITY_DETAILS_SHOW')?>"
 						data-caption-hide="<?=Loc::getMessage('CRM_TRACKING_ENTITY_DETAILS_HIDE')?>"
@@ -69,7 +69,7 @@ $containerId = 'crm-tracking-entity-details-view';
 				</div>
 			</div>
 
-			<?if ($trace['SITE'] && $trace['PAGES']):?>
+			<?php if ($trace['SITE'] && $trace['PAGES']):?>
 				<div data-role="trace/details" class="crm-tracking-entity-details-body">
 					<div class="crm-tracking-entity-details-path-header"></div>
 					<div class="crm-tracking-entity-details-path-site">
@@ -95,7 +95,7 @@ $containerId = 'crm-tracking-entity-details-view';
 
 					<div class="crm-tracking-entity-details-popup-list">
 						<br>
-						<?foreach ($trace['PAGES'] as $page):?>
+						<?php foreach ($trace['PAGES'] as $page):?>
 							<div class="crm-tracking-entity-details-popup-item">
 								<span class="crm-tracking-entity-details-popup-time">
 									<?=htmlspecialcharsbx($page['DATE_INSERT'])?>
@@ -106,15 +106,15 @@ $containerId = 'crm-tracking-entity-details-view';
 									<?=htmlspecialcharsbx($page['TITLE'] ?: Loc::getMessage('CRM_TRACKING_ENTITY_DETAILS_NO_TITLE'))?>
 								</a>
 							</div>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 
 		</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<script>
 		BX.ready(function () {
 			let stopPropagation = true;

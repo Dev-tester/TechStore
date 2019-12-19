@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -14,19 +14,19 @@ if($arResult['TOP_VIEW_TARGET_ID'])
 	$this->SetViewTarget($arResult['TOP_VIEW_TARGET_ID']);
 }
 ?>
-				<? $APPLICATION->IncludeComponent(
+				<?php  $APPLICATION->IncludeComponent(
 					"bitrix:main.ui.filter",
 					"",
 					$arResult['FILTER']
 				); ?>
-<?
+<?php 
 if($arResult['TOP_VIEW_TARGET_ID'])
 {
 	$this->EndViewTarget();
 }
 ?>
 	<div class="docs-template-grid">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:main.ui.grid",
 			"",
 			$arResult['GRID']

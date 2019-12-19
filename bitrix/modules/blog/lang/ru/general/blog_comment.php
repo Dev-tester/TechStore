@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GCM_EMPTY_BLOG_ID"] = "Не указан блог комментария";
 $MESS["BLG_GCM_ERROR_NO_BLOG"] = "Блог с кодом &quot;#ID#&quot; не найден";
 $MESS["BLG_GCM_EMPTY_POST_ID"] = "Не указано комментируемое сообщение";

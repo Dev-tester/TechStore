@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_ABOUT_LEARNING_ANSWER1"] = "так";
 $MESS["VOTE_ABOUT_LEARNING_ANSWER2"] = "немає бажання";
 $MESS["VOTE_ABOUT_LEARNING_ANSWER3"] = "немає можливості";

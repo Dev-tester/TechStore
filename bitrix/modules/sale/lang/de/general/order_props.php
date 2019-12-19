@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGOP_EMPTY_PROP_TYPE"] = "Der Feldtyp wurde nicht angegeben";
 $MESS["SKGOP_WRONG_PROP_TYPE"] = "Der Feldtyp ist falsch";
 $MESS["SKGOP_EMPTY_PROP_NAME"] = "Die Bezeichnung des Feldes wurde nicht angegeben";

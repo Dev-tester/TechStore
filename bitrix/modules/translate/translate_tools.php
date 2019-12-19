@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Translate;
 use Bitrix\Main\Localization\Loc;
@@ -1008,7 +1008,7 @@ class CTranslateUtils
 								@mkdir(dirname($langDirTo."/".$lang.$fileNameTo), 0777, true);
 							}
 							$MESS[$newCode] = $message;
-							$s = "<?\n";
+							$s = "<?php \n";
 							foreach($MESS as $c => $m)
 							{
 								$s .= "\$MESS[\"".EscapePHPString($c)."\"] = \"".EscapePHPString($m)."\";\n";
@@ -1112,7 +1112,7 @@ class CTranslateUtils
 							}
 						}
 
-						$s = "<?\n";
+						$s = "<?php \n";
 						foreach($MESS as $c => $m)
 						{
 							$s .= "\$MESS[\"".EscapePHPString($c)."\"] = \"".EscapePHPString($m)."\";\n";
@@ -1424,7 +1424,7 @@ function saveTranslationFile($langFileName, $phrases, &$errorCollection)
 
 		if (strlen($content) > 0)
 		{
-			if ($file->putContents('<?'. $content. "\n?". '>') === false)
+			if ($file->putContents('<?php '. $content. "\n?". '>') === false)
 			{
 				$errorCollection[] = Loc::getMessage('TR_TOOLS_ERROR_WRITE_FILE', array('%FILE%' => $langFileName));
 			}

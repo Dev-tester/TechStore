@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_PRD_TAB_1"] = "Most purchased";
 $MESS["GD_PRD_TAB_2"] = "Most viewed";
 $MESS["GD_PRD_NAME"] = "Product";

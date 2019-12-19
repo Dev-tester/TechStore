@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZ_COUPON"] = "Coupon";
 $MESS["WZ_MESS_TITLE"] = "Ticket title";
 $MESS["WZ_MESS_PREVIEW"] = "Applicable only to coupon-aided tickets";

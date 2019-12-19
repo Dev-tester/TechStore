@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <?php
 /** @var CAllMain $APPLICATION */
 ?>
@@ -7,7 +7,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<?php echo CJSCore::GetHTML(array('ajax', 'viewer')); ?>
-		<?//$APPLICATION->ShowHead();?>
+		<?php //$APPLICATION->ShowHead();?>
 		<style>
 		</style>
 	</head>

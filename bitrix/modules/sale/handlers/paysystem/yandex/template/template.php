@@ -1,4 +1,4 @@
-<?
+<?php 
 	use Bitrix\Main\Localization\Loc;
 \Bitrix\Main\Page\Asset::getInstance()->addCss("/bitrix/themes/.default/sale.css");
 	Loc::loadMessages(__FILE__);

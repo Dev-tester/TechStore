@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
 if (empty($arParams["PICTURES"]))
 	return true;
@@ -34,13 +34,13 @@ endforeach;
 			<div class="bx-mixer" id="bx_mixer_size">
 				<div class="bx-mixer-top">
 					<div class="bx-mixer-top-inner">
-						<div class="bx-mixer-scales"><?
+						<div class="bx-mixer-scales"><?php 
 						$count = count($arRes) - 1;
 						$width = round(100/$count, 2);
 						for ($ii = 1; $ii <= $count; $ii++)
 						{
-							?><div class="bx-mixer-scale <?=($ii == 1 ? "bx-mixer-scale-first" : ($ii == $count ? "bx-mixer-scale-last" : ""))?>" <?
-								?> style="width:<?=$width?>%;"></div><?
+							?><div class="bx-mixer-scale <?=($ii == 1 ? "bx-mixer-scale-first" : ($ii == $count ? "bx-mixer-scale-last" : ""))?>" <?php 
+								?> style="width:<?=$width?>%;"></div><?php 
 						}
 						?>
 						</div>
@@ -48,7 +48,7 @@ endforeach;
 				</div>
 				<div class="bx-mixer-bottom">
 					<div class="bx-mixer-minus"><div id="bx_speed_mixers_minus"><span></span></div></div>
-					<div class="bx-mixer-ruler"><div id="bx_speed_mixers_ruler"><?
+					<div class="bx-mixer-ruler"><div id="bx_speed_mixers_ruler"><?php 
 							?><a id="bx_speed_mixers_cursor" href="#"><span></span></a></div></div>
 					<div class="bx-mixer-plus"><div id="bx_speed_mixers_plus"><span></span></div></div>
 				</div>

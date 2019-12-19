@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/prolog.php");
 
@@ -1258,19 +1258,19 @@ if(!$bBadBlock)
 
 	?>
 	<script type="text/javascript">
-	<?if(!empty($arSku))
+	<?php if(!empty($arSku))
 	{
 		foreach($arSku as $k => $v)
 		{
 			?>
 			if(BX('sku-<?=$v?>'))
 				BX.hide(BX('sku-<?=$v?>').parentNode.parentNode);
-			<?
+			<?php 
 		}
 	}
 	?>
 	</script>
-	<?
+	<?php 
 	$lAdmin->EndEpilogContent();
 }
 else
@@ -1375,7 +1375,7 @@ function checkParameters(f)
 <tr>
 <td valign="top" align="left" width="240">
 	<div style="overflow-x: auto;max-width:220px;">
-	<?
+	<?php 
 /*
 * @param $arCatalog
 * @param $urlCurrent
@@ -1433,25 +1433,25 @@ foreach($arCatalog as $submenu)
 	</div>
 </td>
 <td valign="top" align="left" style="border-left: 1px solid rgb(164, 185, 204);padding-left:15px;">
-	<form name="find_form" method="GET" onsubmit="checkParameters(this); return false;" action="<?echo $APPLICATION->GetCurPage()?>?" accept-charset="<? echo LANG_CHARSET; ?>">
-		<input type="hidden" name="__BX_CRM_QUERY_STRING_PREFIX" value="<?echo $APPLICATION->GetCurPage() ?>?">
-		<input type="hidden" name="field_name" value="<?echo htmlspecialcharsbx($field_name)?>">
-		<input type="hidden" name="field_name_name" value="<?echo htmlspecialcharsbx($field_name_name)?>">
-		<input type="hidden" name="field_name_url" value="<?echo htmlspecialcharsbx($field_name_url)?>">
-		<input type="hidden" name="alt_name" value="<?echo htmlspecialcharsbx($alt_name)?>">
-		<input type="hidden" name="form_name" value="<?echo htmlspecialcharsbx($form_name)?>">
-		<input type="hidden" name="func_name" value="<?echo htmlspecialcharsbx($func_name)?>">
-		<input type="hidden" name="index" value="<?echo htmlspecialcharsbx($index)?>">
-		<input type="hidden" name="BUYER_ID" value="<?echo htmlspecialcharsbx($buyerId)?>">
-		<input type="hidden" name="QUANTITY" value="<?echo htmlspecialcharsbx($QUANTITY)?>">
-		<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-		<input type="hidden" id="LID" name="LID" value="<?echo htmlspecialcharsbx($lid)?>">
-		<input type="hidden" id="caller" name="caller" value="<?echo htmlspecialcharsbx($caller)?>">
-		<input type="hidden" name="subscribe" value="<? echo ($boolSubscribe ? 'Y' : 'N'); ?>">
-<?
+	<form name="find_form" method="GET" onsubmit="checkParameters(this); return false;" action="<?php echo $APPLICATION->GetCurPage()?>?" accept-charset="<?php  echo LANG_CHARSET; ?>">
+		<input type="hidden" name="__BX_CRM_QUERY_STRING_PREFIX" value="<?php echo $APPLICATION->GetCurPage() ?>?">
+		<input type="hidden" name="field_name" value="<?php echo htmlspecialcharsbx($field_name)?>">
+		<input type="hidden" name="field_name_name" value="<?php echo htmlspecialcharsbx($field_name_name)?>">
+		<input type="hidden" name="field_name_url" value="<?php echo htmlspecialcharsbx($field_name_url)?>">
+		<input type="hidden" name="alt_name" value="<?php echo htmlspecialcharsbx($alt_name)?>">
+		<input type="hidden" name="form_name" value="<?php echo htmlspecialcharsbx($form_name)?>">
+		<input type="hidden" name="func_name" value="<?php echo htmlspecialcharsbx($func_name)?>">
+		<input type="hidden" name="index" value="<?php echo htmlspecialcharsbx($index)?>">
+		<input type="hidden" name="BUYER_ID" value="<?php echo htmlspecialcharsbx($buyerId)?>">
+		<input type="hidden" name="QUANTITY" value="<?php echo htmlspecialcharsbx($QUANTITY)?>">
+		<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+		<input type="hidden" id="LID" name="LID" value="<?php echo htmlspecialcharsbx($lid)?>">
+		<input type="hidden" id="caller" name="caller" value="<?php echo htmlspecialcharsbx($caller)?>">
+		<input type="hidden" name="subscribe" value="<?php  echo ($boolSubscribe ? 'Y' : 'N'); ?>">
+<?php 
 	if ($orderForm)
 	{
-		?><input type="hidden" name="from" value="order"><?
+		?><input type="hidden" name="from" value="order"><?php 
 	}
 	$arFindFields = array(
 		"find_iblock_id" => GetMessage("SPS_CATALOG"),
@@ -1493,7 +1493,7 @@ foreach($arCatalog as $submenu)
 	<td><?= GetMessage("SPS_CATALOG") ?>:</td>
 	<td>
 		<select name="IBLOCK_ID" onchange="BX('LID').value = BX('LID_'+this.value).value">
-		<?
+		<?php 
 	$strShowOffersIBlock = COption::GetOptionString('catalog', 'product_form_show_offers_iblock');
 	$catalogID = $arLid = array();
 	$arCatalogFilter = array();
@@ -1531,15 +1531,15 @@ foreach($arCatalog as $submenu)
 	while($db_iblocks->ExtractFields("str_iblock_"))
 	{
 	$arLid[$str_iblock_ID] = $str_iblock_LID;
-	?><option value="<?=$str_iblock_ID?>"<?if($iblockId==$str_iblock_ID)echo " selected"?>><?=$str_iblock_NAME?> [<?=$str_iblock_LID?>] (<?=$str_iblock_ID?>)</option><?
+	?><option value="<?=$str_iblock_ID?>"<?php if($iblockId==$str_iblock_ID)echo " selected"?>><?=$str_iblock_NAME?> [<?=$str_iblock_LID?>] (<?=$str_iblock_ID?>)</option><?php 
 	}
 ?>
 	</select>
 	<div id="filter_lid_span">
-	<?
+	<?php 
 	foreach($arLid as $iblock => $lidId)
 	{
-		?><input type="hidden" id="LID_<?=$iblock?>" name="LID_<?=$iblock?>" value="<?echo $lidId?>"><?
+		?><input type="hidden" id="LID_<?=$iblock?>" name="LID_<?=$iblock?>" value="<?php echo $lidId?>"><?php 
 	}
 ?>
 	</div>
@@ -1548,29 +1548,29 @@ foreach($arCatalog as $submenu)
 <tr>
 	<td>ID (<?= GetMessage("SPS_ID_FROM_TO") ?>):</td>
 	<td>
-		<input type="text" name="filter_id_start" size="10" value="<?echo htmlspecialcharsex($_REQUEST['filter_id_start'])?>">
+		<input type="text" name="filter_id_start" size="10" value="<?php echo htmlspecialcharsex($_REQUEST['filter_id_start'])?>">
 		...
-		<input type="text" name="filter_id_end" size="10" value="<?echo htmlspecialcharsex($_REQUEST['filter_id_end'])?>">
+		<input type="text" name="filter_id_end" size="10" value="<?php echo htmlspecialcharsex($_REQUEST['filter_id_end'])?>">
 	</td>
 </tr>
 <tr>
 	<td nowrap><?= GetMessage("SPS_XML_ID") ?>:</td>
 	<td nowrap>
-		<input type="text" name="filter_xml_id" size="50" value="<?echo htmlspecialcharsex(${"filter_xml_id"})?>">
+		<input type="text" name="filter_xml_id" size="50" value="<?php echo htmlspecialcharsex(${"filter_xml_id"})?>">
 	</td>
 </tr>
 
 <tr>
 	<td nowrap><?= GetMessage("SPS_CODE") ?>:</td>
 	<td nowrap>
-		<input type="text" name="filter_code" size="50" value="<?echo htmlspecialcharsex(${"filter_code"})?>">
+		<input type="text" name="filter_code" size="50" value="<?php echo htmlspecialcharsex(${"filter_code"})?>">
 	</td>
 </tr>
 <tr>
 	<td nowrap><?= GetMessage("SPS_TIMESTAMP") ?>:</td>
-	<td nowrap><? echo CalendarPeriod("filter_timestamp_from", htmlspecialcharsex($_REQUEST['filter_timestamp_from']), "filter_timestamp_to", htmlspecialcharsex($_REQUEST['filter_timestamp_to']), "form1")?></td>
+	<td nowrap><?php  echo CalendarPeriod("filter_timestamp_from", htmlspecialcharsex($_REQUEST['filter_timestamp_from']), "filter_timestamp_to", htmlspecialcharsex($_REQUEST['filter_timestamp_to']), "form1")?></td>
 </tr>
-<?
+<?php 
 	if (!$orderForm)
 	{
 ?>
@@ -1579,62 +1579,62 @@ foreach($arCatalog as $submenu)
 	<td nowrap>
 		<select name="filter_active">
 			<option value=""><?=htmlspecialcharsex("(".GetMessage("SPS_ANY").")")?></option>
-			<option value="Y"<?if($_REQUEST['filter_active']=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_YES"))?></option>
-			<option value="N"<?if($_REQUEST['filter_active']=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_NO"))?></option>
+			<option value="Y"<?php if($_REQUEST['filter_active']=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_YES"))?></option>
+			<option value="N"<?php if($_REQUEST['filter_active']=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_NO"))?></option>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 	}
 ?>
 				<tr>
 					<td nowrap><?= GetMessage("SPS_NAME") ?>:</td>
 					<td nowrap>
-						<input type="text" name="filter_product_name" value="<?echo htmlspecialcharsex($_REQUEST['filter_product_name'])?>" size="30">
+						<input type="text" name="filter_product_name" value="<?php echo htmlspecialcharsex($_REQUEST['filter_product_name'])?>" size="30">
 					</td>
 				</tr>
 				<tr>
 					<td nowrap><?= GetMessage("SPS_DESCR") ?>:</td>
 					<td nowrap>
-						<input type="text" name="filter_intext" size="50" value="<?echo htmlspecialcharsex(${"filter_intext"})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+						<input type="text" name="filter_intext" size="50" value="<?php echo htmlspecialcharsex(${"filter_intext"})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
 					</td>
 				</tr>
 
-			<?if(!empty($arProps)):
+			<?php if(!empty($arProps)):
 				foreach($arProps as $arProp):
 				?>
 				<tr>
 					<td><?=$arProp["NAME"]?>:</td>
 					<td>
-						<?if(array_key_exists("GetAdminFilterHTML", $arProp["PROPERTY_USER_TYPE"])):
+						<?php if(array_key_exists("GetAdminFilterHTML", $arProp["PROPERTY_USER_TYPE"])):
 							echo "<script type='text/javascript'>var arClearHiddenFields = [];</script>";
 							echo call_user_func_array($arProp["PROPERTY_USER_TYPE"]["GetAdminFilterHTML"], array(
 								$arProp,
 								array("VALUE" => "filter_el_property_".$arProp["ID"]),
 							));
 						elseif($arProp["PROPERTY_TYPE"] == 'S'):?>
-							<input type="text" name="filter_el_property_<?=$arProp["ID"]?>" value="<?echo htmlspecialcharsex(${"filter_el_property_".$arProp["ID"]})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
-						<?elseif($arProp["PROPERTY_TYPE"] == 'N' || $arProp["PROPERTY_TYPE"] == 'E'):?>
-							<input type="text" name="filter_el_property_<?=$arProp["ID"]?>" value="<?echo htmlspecialcharsex(${"filter_el_property_".$arProp["ID"]})?>" size="30">
-						<?elseif($arProp["PROPERTY_TYPE"] == 'L'):?>
+							<input type="text" name="filter_el_property_<?=$arProp["ID"]?>" value="<?php echo htmlspecialcharsex(${"filter_el_property_".$arProp["ID"]})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+						<?php elseif($arProp["PROPERTY_TYPE"] == 'N' || $arProp["PROPERTY_TYPE"] == 'E'):?>
+							<input type="text" name="filter_el_property_<?=$arProp["ID"]?>" value="<?php echo htmlspecialcharsex(${"filter_el_property_".$arProp["ID"]})?>" size="30">
+						<?php elseif($arProp["PROPERTY_TYPE"] == 'L'):?>
 							<select name="filter_el_property_<?=$arProp["ID"]?>">
-								<option value=""><?echo GetMessage("SPS_VALUE_ANY")?></option>
-								<option value="NOT_REF"><?echo GetMessage("SPS_A_PROP_NOT_SET")?></option><?
+								<option value=""><?php echo GetMessage("SPS_VALUE_ANY")?></option>
+								<option value="NOT_REF"><?php echo GetMessage("SPS_A_PROP_NOT_SET")?></option><?php 
 								$dbrPEnum = CIBlockPropertyEnum::GetList(Array("SORT" => "ASC", "NAME" => "ASC"), Array("PROPERTY_ID" => $arProp["ID"]));
 								while($arPEnum = $dbrPEnum->GetNext()):
 								?>
-									<option value="<?=$arPEnum["ID"]?>"<?if(${"filter_el_property_".$arProp["ID"]} == $arPEnum["ID"])echo " selected"?>><?=$arPEnum["VALUE"]?></option>
-								<?
+									<option value="<?=$arPEnum["ID"]?>"<?php if(${"filter_el_property_".$arProp["ID"]} == $arPEnum["ID"])echo " selected"?>><?=$arPEnum["VALUE"]?></option>
+								<?php 
 								endwhile;
 						?></select>
-						<?
+						<?php 
 						elseif($arProp["PROPERTY_TYPE"] == 'G'):
 							echo _ShowGroupPropertyFieldList('filter_el_property_'.$arProp["ID"], $arProp, ${'filter_el_property_'.$arProp["ID"]});
 						endif;
 						?>
 					</td>
 				</tr>
-				<?endforeach;
+				<?php endforeach;
 			endif;
 
 			if(!empty($arSKUProps)):
@@ -1644,50 +1644,50 @@ foreach($arCatalog as $submenu)
 					{
 						?>
 						<tr>
-							<td><? echo ('' != $strSKUName ? $strSKUName.' - ' : ''); ?><? echo $arProp["NAME"]?>:</td>
+							<td><?php  echo ('' != $strSKUName ? $strSKUName.' - ' : ''); ?><?php  echo $arProp["NAME"]?>:</td>
 							<td>
-								<?if(array_key_exists("GetAdminFilterHTML", $arProp["PROPERTY_USER_TYPE"])):
+								<?php if(array_key_exists("GetAdminFilterHTML", $arProp["PROPERTY_USER_TYPE"])):
 									echo "<script type='text/javascript'>var arClearHiddenFields = [];</script>";
 									echo call_user_func_array($arProp["PROPERTY_USER_TYPE"]["GetAdminFilterHTML"], array(
 										$arProp,
 										array("VALUE" => "find_sub_el_property_".$arProp["ID"]),
 									));
 								elseif($arProp["PROPERTY_TYPE"] == 'S'):?>
-									<input type="text" name="filter_sub_el_property_<?=$arProp["ID"]?>" value="<?echo htmlspecialcharsex(${"filter_sub_el_property_".$arProp["ID"]})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
-								<?elseif($arProp["PROPERTY_TYPE"] == 'N' || $arProp["PROPERTY_TYPE"] == 'E'):?>
-									<input type="text" name="filter_sub_el_property_<?=$arProp["ID"]?>" value="<?echo htmlspecialcharsex(${"filter_sub_el_property_".$arProp["ID"]})?>" size="30">
-								<?elseif($arProp["PROPERTY_TYPE"] == 'L'):?>
+									<input type="text" name="filter_sub_el_property_<?=$arProp["ID"]?>" value="<?php echo htmlspecialcharsex(${"filter_sub_el_property_".$arProp["ID"]})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+								<?php elseif($arProp["PROPERTY_TYPE"] == 'N' || $arProp["PROPERTY_TYPE"] == 'E'):?>
+									<input type="text" name="filter_sub_el_property_<?=$arProp["ID"]?>" value="<?php echo htmlspecialcharsex(${"filter_sub_el_property_".$arProp["ID"]})?>" size="30">
+								<?php elseif($arProp["PROPERTY_TYPE"] == 'L'):?>
 									<select name="filter_sub_el_property_<?=$arProp["ID"]?>">
-										<option value=""><?echo GetMessage("SPS_VALUE_ANY")?></option>
-										<option value="NOT_REF"><?echo GetMessage("SPS_A_PROP_NOT_SET")?></option><?
+										<option value=""><?php echo GetMessage("SPS_VALUE_ANY")?></option>
+										<option value="NOT_REF"><?php echo GetMessage("SPS_A_PROP_NOT_SET")?></option><?php 
 										$dbrPEnum = CIBlockPropertyEnum::GetList(Array("SORT" => "ASC", "NAME" => "ASC"), Array("PROPERTY_ID" => $arProp["ID"]));
 										while($arPEnum = $dbrPEnum->GetNext()):
 										?>
-											<option value="<?=$arPEnum["ID"]?>"<?if(${"filter_sub_el_property_".$arProp["ID"]} == $arPEnum["ID"])echo " selected"?>><?=$arPEnum["VALUE"]?></option>
-										<?
+											<option value="<?=$arPEnum["ID"]?>"<?php if(${"filter_sub_el_property_".$arProp["ID"]} == $arPEnum["ID"])echo " selected"?>><?=$arPEnum["VALUE"]?></option>
+										<?php 
 										endwhile;
 								?></select>
-								<?
+								<?php 
 								elseif($arProp["PROPERTY_TYPE"] == 'G'):
 									echo _ShowGroupPropertyFieldList('filter_sub_el_property_'.$arProp["ID"], $arProp, ${'filter_sub_el_property_'.$arProp["ID"]});
 								endif;
 								?>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 				}
 			endif;
 
 			$oFilter->Buttons();
 			?>
-			<input type="submit" name="set_filter" value="<?echo GetMessage("prod_search_find")?>" title="<?echo GetMessage("prod_search_find_title")?>">
-			<input type="submit" name="del_filter" value="<?echo GetMessage("prod_search_cancel")?>" title="<?echo GetMessage("prod_search_cancel_title")?>">
-			<?
+			<input type="submit" name="set_filter" value="<?php echo GetMessage("prod_search_find")?>" title="<?php echo GetMessage("prod_search_find_title")?>">
+			<input type="submit" name="del_filter" value="<?php echo GetMessage("prod_search_cancel")?>" title="<?php echo GetMessage("prod_search_cancel_title")?>">
+			<?php 
 			$oFilter->End();
 			?>
 		</form>
-		<?
+		<?php 
 		$lAdmin->DisplayList();
 		if(isset($_REQUEST["set_filter"]) && $_REQUEST["set_filter"] === 'Y')
 		{
@@ -1702,4 +1702,4 @@ foreach($arCatalog as $submenu)
 	</td>
 </tr>
 </table>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");?>

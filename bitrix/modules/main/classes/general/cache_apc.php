@@ -1,4 +1,4 @@
-<?
+<?php 
 class CPHPCacheAPC implements ICacheBackend
 {
 	var $sid = "";

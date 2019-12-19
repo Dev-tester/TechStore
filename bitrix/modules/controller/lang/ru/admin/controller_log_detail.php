@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CTRL_LOG_DETAIL_TITLE'] = "Просмотр записи журнала";
 $MESS ['CTRL_LOG_DETAIL_NOT_FOUND'] = "Указанная запись не найдена.";
 $MESS ['CTRL_LOG_DETAIL_ID'] = "ID";

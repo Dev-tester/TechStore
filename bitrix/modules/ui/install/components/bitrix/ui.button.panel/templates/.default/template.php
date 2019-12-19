@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\UI\Extension;
@@ -47,7 +47,7 @@ $containerId = $arParams['ID'];
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="ui-button-panel-wrapper ui-pinner ui-pinner-bottom <?=($arParams['FRAME'] ? 'ui-pinner-full-width' : '')?>">
 	<div class="ui-button-panel <?=htmlspecialcharsbx($alignClass)?>">
-		<?foreach ($arResult['LIST'] as $item)
+		<?php foreach ($arResult['LIST'] as $item)
 		{
 			$item['CLASS_NAME'] = '';
 			if ($item['TYPE'] === UiButtonPanel::TYPE_SAVE)
@@ -82,9 +82,9 @@ $containerId = $arParams['ID'];
 						name="<?=htmlspecialcharsbx($item['NAME'])?>"
 						value="<?=htmlspecialcharsbx($item['VALUE'])?>"
 						class="ui-btn <?=htmlspecialcharsbx($item['CLASS_NAME'])?>"
-						<?if(!empty($item['ONCLICK'])):?>onclick="<?=htmlspecialcharsbx($item['ONCLICK'])?>"<?endif?>
+						<?php if(!empty($item['ONCLICK'])):?>onclick="<?=htmlspecialcharsbx($item['ONCLICK'])?>"<?php endif?>
 					><?=htmlspecialcharsbx($item['CAPTION'])?></button>
-					<?
+					<?php 
 					break;
 
 				case UiButtonPanel::TYPE_CLOSE:
@@ -94,17 +94,17 @@ $containerId = $arParams['ID'];
 						id="<?=htmlspecialcharsbx($item['ID'])?>"
 						name="<?=htmlspecialcharsbx($item['NAME'])?>"
 						class="ui-btn <?=htmlspecialcharsbx($item['CLASS_NAME'])?>"
-						<?if(!empty($item['LINK'])):?>href="<?=htmlspecialcharsbx(\CUtil::JSEscape($item['LINK']))?>"<?endif?>
-						<?if(!empty($item['ONCLICK'])):?>onclick="<?=htmlspecialcharsbx($item['ONCLICK'])?>"<?endif?>
+						<?php if(!empty($item['LINK'])):?>href="<?=htmlspecialcharsbx(\CUtil::JSEscape($item['LINK']))?>"<?php endif?>
+						<?php if(!empty($item['ONCLICK'])):?>onclick="<?=htmlspecialcharsbx($item['ONCLICK'])?>"<?php endif?>
 					><?=htmlspecialcharsbx($item['CAPTION'])?></a>
-					<?
+					<?php 
 					break;
 
 				case UiButtonPanel::TYPE_REMOVE:
 				case UiButtonPanel::TYPE_CHECKBOX:
 					?>
 					<div class="ui-button-panel-block-right">
-					<?
+					<?php 
 					if ($item['TYPE'] == UiButtonPanel::TYPE_REMOVE)
 					{
 						?>
@@ -112,9 +112,9 @@ $containerId = $arParams['ID'];
 							id="<?= htmlspecialcharsbx($item['ID']) ?>"
 							name="<?= htmlspecialcharsbx($item['NAME']) ?>"
 							value="Y"
-							<?if (!empty($item['ONCLICK'])): ?>onclick="<?= htmlspecialcharsbx($item['ONCLICK']) ?>"<?endif ?>
+							<?php if (!empty($item['ONCLICK'])): ?>onclick="<?= htmlspecialcharsbx($item['ONCLICK']) ?>"<?php endif ?>
 						><?= htmlspecialcharsbx($item['CAPTION']) ?></button>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -126,23 +126,23 @@ $containerId = $arParams['ID'];
 									type="checkbox"
 									name="<?= htmlspecialcharsbx($item['NAME']) ?>"
 									value="Y"
-									<?
-									if (!empty($item['ONCLICK'])): ?>onclick="<?= htmlspecialcharsbx($item['ONCLICK']) ?>"<?
+									<?php 
+									if (!empty($item['ONCLICK'])): ?>onclick="<?= htmlspecialcharsbx($item['ONCLICK']) ?>"<?php 
 								endif ?>
 									<?= ($item['CHECKED'] ? 'checked' : '') ?>
 								>
 								<?= htmlspecialcharsbx($item['CAPTION']) ?>
 							</label>
-							<?
+							<?php 
 							if (!empty($item['HINT'])):?>
 								<span data-hint="<?= htmlspecialcharsbx($item['HINT']) ?>"></span>
-							<?endif; ?>
+							<?php endif; ?>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					</div>
-					<?
+					<?php 
 					break;
 
 				case UiButtonPanel::TYPE_CUSTOM:

@@ -32,30 +32,30 @@ Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/js/crm/css/autorun_proc.c
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/batch_deletion.js');
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/dialog.js');
 
-?><div id="batchDeletionWrapper"></div><?
+?><div id="batchDeletionWrapper"></div><?php 
 
 if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):
 	?><div id="rebuildCompanyDupIndexMsg" class="crm-view-message">
 		<?=GetMessage('CRM_COMPANY_REBUILD_DUP_INDEX', array('#ID#' => 'rebuildCompanyDupIndexLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):
-	?><div id="rebuildCompanySearchWrapper"></div><?
+	?><div id="rebuildCompanySearchWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_BUILD_TIMELINE']):
-	?><div id="buildCompanyTimelineWrapper"></div><?
+	?><div id="buildCompanyTimelineWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_BUILD_DUPLICATE_INDEX']):
-	?><div id="buildCompanyDuplicateIndexWrapper"></div><?
+	?><div id="buildCompanyDuplicateIndexWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_COMPANY_ATTRS']):
 	?><div id="rebuildCompanyAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_COMPANY_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildCompanyAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_TRANSFER_REQUISITES']):
@@ -66,7 +66,7 @@ if($arResult['NEED_FOR_TRANSFER_REQUISITES']):
 				'SKIP_ID' => 'skipTransferRequisitesLink', 'SKIP_URL' => '#'
 			)
 		)?>
-	</div><?
+	</div><?php 
 endif;
 
 $isInternal = $arResult['INTERNAL'];
@@ -852,7 +852,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?if(!$isInternal):?>
+<?php if(!$isInternal):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -874,7 +874,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -915,7 +915,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):?>
+<?php if($arResult['NEED_FOR_REBUILD_DUP_INDEX']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -956,8 +956,8 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -984,8 +984,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1012,8 +1012,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_BUILD_DUPLICATE_INDEX']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_BUILD_DUPLICATE_INDEX']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1040,8 +1040,8 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_COMPANY_ATTRS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_COMPANY_ATTRS']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -1065,8 +1065,8 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
-<?if($arResult['NEED_FOR_TRANSFER_REQUISITES']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_TRANSFER_REQUISITES']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -1141,4 +1141,4 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

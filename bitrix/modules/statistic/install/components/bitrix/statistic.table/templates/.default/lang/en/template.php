@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATT_HITS'] = "Hits";
 $MESS ['STATT_HOSTS'] = "Hosts";
 $MESS ['STATT_VISITORS'] = "Visitors";

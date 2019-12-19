@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_TRACKING_CHANNEL_POOL_TITLE_PHONE'] = 'Коллтрекинг';
 $MESS['CRM_TRACKING_CHANNEL_POOL_TITLE_EMAIL'] = 'Email';
 ?>

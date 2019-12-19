@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BPATL_TASK_TITLE'] = "Задание";
 $MESS["BPATL_USER_STATUS_YES"] = "Вы утвердили документ";
 $MESS["BPATL_USER_STATUS_NO"] = "Вы отклонили документ";

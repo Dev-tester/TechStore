@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["public_file_edit_edit_cp"] = "Edit file in Control Panel";
 $MESS["FILEMAN_FILEEDIT_FILE_EXISTS"] = "A file with this name already exists.";
 $MESS["FILEMAN_FILEEDIT_FILENAME_EMPTY"] = "The filename is missing.";

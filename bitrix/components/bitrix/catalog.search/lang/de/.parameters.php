@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CHECK_DATES_TIP"] = "Wenn diese Option aktiv ist, wird nur nach aktiven Elementen gesucht.";
 $MESS["CP_BCSE_ELEMENT_SORT_FIELD"] = "Elemente sortieren nach";
 $MESS["CP_BCSE_ELEMENT_SORT_FIELD2"] = "Feld für die zweite Sortierung";

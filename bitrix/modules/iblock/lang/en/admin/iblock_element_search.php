@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ELSEARCH_TITLE"] = "Element search";
 $MESS["IBLOCK_ELSEARCH_LOCK_BY"] = "Locked by";
 $MESS["IBLOCK_ELSEARCH_CHOOSE_IBLOCK"] = "Choose information block";

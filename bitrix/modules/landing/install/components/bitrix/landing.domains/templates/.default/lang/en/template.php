@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_TITLE"] = "Domains";
 $MESS["LANDING_TPL_COL_ACTIVE"] = "Active";
 $MESS["LANDING_TPL_COL_ACT_Y"] = "Yes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Решения Маркетплейс";
 $MESS["MOD_SETUP"] = "Статус";
 $MESS["MOD_ACTION"] = "Действие";

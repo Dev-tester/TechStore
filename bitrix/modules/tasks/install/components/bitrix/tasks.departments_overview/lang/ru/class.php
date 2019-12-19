@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_MANAGE_COLUMN_TITLE'] = "Сотрудник";
 $MESS['TASKS_MANAGE_COLUMN_DEPARTMENTS'] = "Отдел";
 $MESS['TASKS_MANAGE_COLUMN_EFFECTIVE'] = "Эффективность";

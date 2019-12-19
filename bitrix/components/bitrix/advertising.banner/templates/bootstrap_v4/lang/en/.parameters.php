@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_BS_EFFECT"] = "Slide advance effect";
 $MESS["ADV_BS_EFFECT_SLIDE"] = "slide";
 $MESS["ADV_BS_EFFECT_FADE"] = "fade";

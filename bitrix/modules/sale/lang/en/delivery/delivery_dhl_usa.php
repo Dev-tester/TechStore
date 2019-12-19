@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_DHL_USA_NAME"] = "DHL (USA)";
 $MESS["SALE_DH_DHL_USA_DESCRIPTION"] = "DHL delivery service (USA)";
 $MESS ['SALE_DH_DHL_USA_DESCRIPTION_INNER'] = "Delivery service services for <a href=\"http://www.dhl-usa.com\" target=\"_blank\">DHL (USA)</a>. Based on an on-line calculator. DHL (USA) delivers from USA to any country all over the world. Requires specifying the ZIP code in the e-Store module settings.";

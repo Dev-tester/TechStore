@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager                        #
 # Copyright (c) 2002-2007 Bitrix             #
@@ -160,44 +160,44 @@ $aTabs = array(
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>" name="favform">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>" name="favform">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value=<?=$ID?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?if($_REQUEST["addurl"]<>""):?>
-<input type="hidden" name="addurl" value="<?echo htmlspecialcharsbx($_REQUEST["addurl"])?>">
-<?endif;?>
-<?
+<?php if($_REQUEST["addurl"]<>""):?>
+<input type="hidden" name="addurl" value="<?php echo htmlspecialcharsbx($_REQUEST["addurl"])?>">
+<?php endif;?>
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-	<? if (strlen($str_TIMESTAMP_X)>0) : ?>
+	<?php  if (strlen($str_TIMESTAMP_X)>0) : ?>
 	<tr>
-		<td><?echo GetMessage("MAIN_TIMESTAMP_X")?></td>
-		<td><?=$str_TIMESTAMP_X?> / <?echo UserInfo($str_MODIFIED_BY)?></td>
+		<td><?php echo GetMessage("MAIN_TIMESTAMP_X")?></td>
+		<td><?=$str_TIMESTAMP_X?> / <?php echo UserInfo($str_MODIFIED_BY)?></td>
 	</tr>
-	<? endif; ?>
-	<? if (strlen($str_DATE_CREATE)>0) : ?>
+	<?php  endif; ?>
+	<?php  if (strlen($str_DATE_CREATE)>0) : ?>
 	<tr>
-		<td><?echo GetMessage("MAIN_CREATED")?></td>
-		<td><?=$str_DATE_CREATE?> / <?echo UserInfo($str_CREATED_BY)?></td>
+		<td><?php echo GetMessage("MAIN_CREATED")?></td>
+		<td><?=$str_DATE_CREATE?> / <?php echo UserInfo($str_CREATED_BY)?></td>
 	</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr class="adm-detail-required-field">
 		<td width="40%"><?=GetMessage("MAIN_NAME")?></td>
 		<td width="60%"><input type="text" name="NAME" size="45" maxlength="255" value="<?=$str_NAME?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("fav_edit_link")?></td>
+		<td><?php echo GetMessage("fav_edit_link")?></td>
 		<td><input type="text" name="URL" size="45" maxlength="2000" value="<?=$str_URL?>"></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("MAIN_C_SORT")?></td>
-		<td><input type="text" name="C_SORT" size="5" maxlength="18" value="<?echo $str_C_SORT?>"></td>
+		<td><input type="text" name="C_SORT" size="5" maxlength="18" value="<?php echo $str_C_SORT?>"></td>
 	</tr>
 	<tr >
-		<td><?echo GetMessage("fav_edit_lang")?></td>
-		<td><?echo CLanguage::SelectBox("LANGUAGE_ID", $str_LANGUAGE_ID)?></td>
+		<td><?php echo GetMessage("fav_edit_lang")?></td>
+		<td><?php echo CLanguage::SelectBox("LANGUAGE_ID", $str_LANGUAGE_ID)?></td>
 	</tr>
 	<tr>
 		<td width="40%"><?=GetMessage("MAIN_MENU_ID")?></td>
@@ -205,21 +205,21 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td class="adm-detail-valign-top"><?=GetMessage("MAIN_COMMENTS")?></td>
-		<td><textarea name="COMMENTS" class="textarea" rows="5" cols="40"><?echo $str_COMMENTS?></textarea></td>
+		<td><textarea name="COMMENTS" class="textarea" rows="5" cols="40"><?php echo $str_COMMENTS?></textarea></td>
 	</tr>
-<?
+<?php 
 if($isAdmin):
 ?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("fav_edit_admin")?></td>
+		<td colspan="2"><?php echo GetMessage("fav_edit_admin")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("fav_edit_common")?></td>
-		<td><input type="checkbox" name="COMMON" value="Y"<?if($str_COMMON == "Y") echo " checked"?> onClick="EnableControls(this.checked)"></td>
+		<td><?php echo GetMessage("fav_edit_common")?></td>
+		<td><input type="checkbox" name="COMMON" value="Y"<?php if($str_COMMON == "Y") echo " checked"?> onClick="EnableControls(this.checked)"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("fav_edit_user")?></td>
-		<td><?
+		<td><?php echo GetMessage("fav_edit_user")?></td>
+		<td><?php 
 		$sUser = "";
 		if($ID>0)
 			$sUser = UserInfo($str_USER_ID);
@@ -228,16 +228,16 @@ if($isAdmin):
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("fav_edit_modules")?></td>
+		<td><?php echo GetMessage("fav_edit_modules")?></td>
 		<td>
 <select name="MODULE_ID">
-	<option value=""><?echo GetMessage("fav_edit_modules_not")?></option>
-<?
+	<option value=""><?php echo GetMessage("fav_edit_modules_not")?></option>
+<?php 
 $a = CModule::GetDropDownList();
 while($ar = $a->Fetch()):
 ?>
-	<option value="<?echo htmlspecialcharsbx($ar["REFERENCE_ID"])?>"<?if($ar["REFERENCE_ID"] == $str_MODULE_ID) echo " selected"?>><?echo htmlspecialcharsbx($ar["REFERENCE"])?></option>
-<?endwhile?>
+	<option value="<?php echo htmlspecialcharsbx($ar["REFERENCE_ID"])?>"<?php if($ar["REFERENCE_ID"] == $str_MODULE_ID) echo " selected"?>><?php echo htmlspecialcharsbx($ar["REFERENCE"])?></option>
+<?php endwhile?>
 </select>
 <script type="text/javascript">
 function EnableControls(checked)
@@ -249,10 +249,10 @@ EnableControls(document.favform.COMMON.checked);
 </script>
 		</td>
 	</tr>
-<?
+<?php 
 endif; //$isAdmin
 ?>
-<?
+<?php 
 $tabControl->Buttons(array(
 	"disabled"=>false,
 	"back_url"=>($_REQUEST["addurl"]<>""? $_REQUEST["addurl"]:"favorite_list.php?lang=".LANG),
@@ -261,10 +261,10 @@ $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("favform", $message);
 ?>
 
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); 
 ?>

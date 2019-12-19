@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEO_TOOL_TAB_local'] = "Page Words";
 $MESS ['SEO_TOOL_TAB_section'] = "Section Words";
 $MESS ['SEO_PAGE_STAT_TOTAL_LENGTH'] = "Length (bytes)";

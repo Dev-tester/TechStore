@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELD_CX_MODE"] = "Идентификатор режима";
 $MESS["CRM_FIELD_CX_ENTITY_ID"] = "Идентификатор типа";
 $MESS["CRM_FIELD_CX_FIELD_ID"] = "Идентификатор поля";

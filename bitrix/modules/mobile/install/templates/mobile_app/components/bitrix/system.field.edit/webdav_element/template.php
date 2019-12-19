@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (CModule::IncludeModule('webdav'))
 {
 		if (strpos($arParams['arUserField']['FIELD_NAME'], 'UF_BLOG_POST_FILE') === 0 || strpos($arParams['arUserField']['FIELD_NAME'], 'UF_BLOG_COMMENT_FILE') === 0)

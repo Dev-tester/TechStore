@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_CHANNEL_STAT_PRESET_OVERALL_COUNT"] = "Number of deals";
 $MESS["CRM_DEAL_CHANNEL_STAT_PRESET_OVERALL_SUM"] = "Total value of deals";
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SPCP_DTITLE"] = "Yandex.Money (Russian payment system)";

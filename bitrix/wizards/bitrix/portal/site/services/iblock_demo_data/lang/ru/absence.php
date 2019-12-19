@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_IB_ABSENCE_1_NAME"]="Отпуск очередной";
 $MESS["W_IB_ABSENCE_1_PREV1"]="Очередной отпуск за ";
 $MESS["W_IB_ABSENCE_1_PREV2"]=" год.";

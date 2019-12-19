@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -154,9 +154,9 @@ class CBootstrapPageTemplate
 </div>
 ';
 
-		$s = '<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>';
+		$s = '<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>';
 		$s.= $gridHtml;
-		$s.= '<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
+		$s.= '<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>';
 		return $s;
 	}
 }

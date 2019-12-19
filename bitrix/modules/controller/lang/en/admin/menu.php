@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_MENU_NAME"] = "Controller";
 $MESS["CTRLR_MENU_TITLE"] = "Site Controller";
 $MESS["CTRLR_MENU_SITE_NAME"] = "Sites";

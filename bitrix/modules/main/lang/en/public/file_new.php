@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAGE_NEW_FILENAME"] = "Filename";
 $MESS["PAGE_NEW_WINDOW_TITLE"] = "New page creation wizard";
 $MESS["PAGE_NEW_SUB_TITLE"] = "Creating of a new page in section";

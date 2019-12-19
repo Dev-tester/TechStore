@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_IVR_LIST_EDIT"] = "Редактировать";
 $MESS["VOX_IVR_LIST_DELETE"] = "Удалить";
 $MESS["VOX_IVR_LIST_ID"] = "ID";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_INSTALL_NAME"] = "Валюты";
 $MESS["CURRENCY_INSTALL_DESCRIPTION"] = "Модуль управления валютами позволяет управлять валютами сайта и их курсами.";
 $MESS["CURRENCY_INSTALL_TITLE"] = "Установка модуля управления валютами";

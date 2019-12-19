@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -99,22 +99,22 @@ CAdminMessage::ShowMessage(array(
 
 <form method="POST" action="security_otp.php?lang=<?=LANGUAGE_ID?><?=htmlspecialcharsbx($returnUrl)?>" enctype="multipart/form-data" name="editform">
 	<?=bitrix_sessid_post()?>
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
 	<td colspan="2" align="left">
-		<?if(CSecurityUser::isActive()):?>
+		<?php if(CSecurityUser::isActive()):?>
 			<input type="hidden" name="otp_active" value="N">
-			<input type="submit" name="otp_siteb" value="<?echo GetMessage("SEC_OTP_NEW_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
-		<?else:?>
+			<input type="submit" name="otp_siteb" value="<?php echo GetMessage("SEC_OTP_NEW_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
+		<?php else:?>
 			<input type="hidden" name="otp_active" value="Y">
-			<input type="submit" name="otp_siteb" value="<?echo GetMessage("SEC_OTP_NEW_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
-		<?endif?>
+			<input type="submit" name="otp_siteb" value="<?php echo GetMessage("SEC_OTP_NEW_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+		<?php endif?>
 	</td>
 </tr>
 <tr>
@@ -129,7 +129,7 @@ $tabControl->BeginNextTab();
 					getMessage('SEC_OTP_DESCRIPTION_INTRO_INTRANET'):
 					getMessage('SEC_OTP_DESCRIPTION_INTRO_SITE'))?>
 			</div>
-			<?
+			<?php 
 			if (in_array(LANGUAGE_ID, array('en', 'ru', 'de'), true))
 				$imageLanguage = LANGUAGE_ID;
 			else
@@ -158,7 +158,7 @@ $tabControl->BeginNextTab();
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
@@ -175,11 +175,11 @@ $tabControl->BeginNextTab();
 		</td>
 		<td>
 			<select name="otp_default_type">
-				<?foreach($availableTypes as $value):?>
+				<?php foreach($availableTypes as $value):?>
 					<option value="<?=$value?>" <?=($defaultType === $value? 'selected': '')?>>
 						<?=(isset($availableTypesDescription[$value]['title'])? $availableTypesDescription[$value]['title'] : $value)?>
 					</option>
-				<?endforeach?>
+				<?php endforeach?>
 			</select>
 		</td>
 	</tr>
@@ -188,7 +188,7 @@ $tabControl->BeginNextTab();
 			<?=GetMessage("SEC_OTP_ALLOW_REMEMBER")?>:
 		</td>
 		<td>
-			<input type="checkbox" name="otp_allow_remember" id="otp_allow_remember" value="Y" <?if(COption::GetOptionString("security", "otp_allow_remember") == "Y") echo "checked";?>>
+			<input type="checkbox" name="otp_allow_remember" id="otp_allow_remember" value="Y" <?php if(COption::GetOptionString("security", "otp_allow_remember") == "Y") echo "checked";?>>
 		</td>
 	</tr>
 	<tr>
@@ -196,7 +196,7 @@ $tabControl->BeginNextTab();
 			<?=GetMessage("SEC_OTP_ALLOW_RECOVERY_CODES")?>:
 		</td>
 		<td>
-			<input type="checkbox" name="otp_allow_recovery_codes" id="otp_allow_recovery_codes" value="Y" <?if(COption::GetOptionString("security", "otp_allow_recovery_codes") == "Y") echo "checked";?>>
+			<input type="checkbox" name="otp_allow_recovery_codes" id="otp_allow_recovery_codes" value="Y" <?php if(COption::GetOptionString("security", "otp_allow_recovery_codes") == "Y") echo "checked";?>>
 		</td>
 	</tr>
 	<tr class="heading">
@@ -224,8 +224,8 @@ $tabControl->BeginNextTab();
 		</td>
 		<td>
 			<div id="bx_access_div">
-				<?foreach($targetRights as $code):?>
-				<?
+				<?php foreach($targetRights as $code):?>
+				<?php 
 					$value = ($targetRightsNames[$code]['provider']? $targetRightsNames[$code]['provider'].': ':'');
 					$value .= $targetRightsNames[$code]['name'];
 				?>
@@ -233,12 +233,12 @@ $tabControl->BeginNextTab();
 					<input type="hidden" name="otp_mandatory_rights[]" value="<?=htmlspecialcharsbx($code)?>">
 					<?=htmlspecialcharsbx($value)?>&nbsp;<a href="javascript:void(0);" data-role="delete-access" data-code="<?=htmlspecialcharsbx($code)?>" class="access-delete"></a>
 				</div>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</div>
 			<a href="javascript:void(0)" class="bx-action-href" id="add_access" data-role="add-access"><?=GetMessage("SEC_OTP_MANDATORY_RIGHTS_SELECT")?></a>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -246,13 +246,13 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
 	<script id="settings" type="application/json"><?=\Bitrix\Main\Web\Json::encode(array(
 			'rights' => array_flip($targetRights)
 		))?></script>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

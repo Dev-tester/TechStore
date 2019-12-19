@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_VIBER_I_KNOW_KEY"] = "Я знаю ключ";
 $MESS["IMCONNECTOR_COMPONENT_VIBER_FINAL_FORM_DESCRIPTION"] = "Viber успешно подключен к вашей Открытой линии. Теперь все обращения к вашему публичному аккаунту будут автоматически направлены в ваш Битрикс24.";
 $MESS["IMCONNECTOR_COMPONENT_VIBER_TESTED"] = "Тестирование соединения";

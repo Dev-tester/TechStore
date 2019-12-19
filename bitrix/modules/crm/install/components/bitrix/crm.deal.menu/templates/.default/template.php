@@ -56,7 +56,7 @@ BX.ready(
 		);
 	}
 );
-</script><?
+</script><?php 
 endif;
 
 if(isset($arResult['CATEGORY_SELECTOR']) && is_array($arResult['CATEGORY_SELECTOR'])):
@@ -81,7 +81,7 @@ if(isset($arResult['CATEGORY_SELECTOR']) && is_array($arResult['CATEGORY_SELECTO
 				}
 			);
 
-			<?if ($arResult['RC']['CAN_USE']):?>
+			<?php if ($arResult['RC']['CAN_USE']):?>
 				selector.getSelectorMenu().getItems().push(BX.CmrSelectorMenuItem.create({'delimiter': true}));
 				selector.getSelectorMenu().getItems().push(
 					BX.CmrSelectorMenuItem.create({
@@ -89,21 +89,21 @@ if(isset($arResult['CATEGORY_SELECTOR']) && is_array($arResult['CATEGORY_SELECTO
 						'className': '<?=($arResult['RC']['IS_AVAILABLE'] ? '' : 'b24-tariff-lock')?>',
 						'events': {
 							'select': function (){
-								<?if ($arResult['RC']['IS_AVAILABLE']):?>
+								<?php if ($arResult['RC']['IS_AVAILABLE']):?>
 									BX.SidePanel.Instance.open("<?=CUtil::JSEscape($arResult['RC']['PATH_TO_ADD'])?>");
-								<?else:?>
+								<?php else:?>
 									<?=$arResult['RC']['JS_AVAILABLE_POPUP_SHOWER']?>
-								<?endif;?>
+								<?php endif;?>
 								selector.getSelectorMenu().close();
 							}
 						}
 					})
 				);
-			<?endif;?>
+			<?php endif;?>
 
 		}
 	);
-</script><?
+</script><?php 
 endif;
 
 if(isset($arResult['CATEGORY_CHANGER'])):
@@ -141,7 +141,7 @@ if(isset($arResult['CATEGORY_CHANGER'])):
 			};
 		}
 	);
-</script><?
+</script><?php 
 endif;
 if (is_array($arResult['STEXPORT_PARAMS']))
 {
@@ -160,5 +160,5 @@ if (is_array($arResult['STEXPORT_PARAMS']))
 				);
 			}
 		);
-	</script><?
+	</script><?php 
 }

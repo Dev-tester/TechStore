@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACCOUNT_NUMBER_TEMPLATE_EXAMPLE"] = "Example:";
 $MESS["CRM_ACCOUNT_NUMBER_NUMBER"] = "Initial number:";
 $MESS["CRM_ACCOUNT_NUMBER_NUMBER_DESC"] = "1 to 7 characters. The new value must be greater than the previous one.";

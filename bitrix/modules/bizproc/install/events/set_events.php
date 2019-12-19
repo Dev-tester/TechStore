@@ -1,4 +1,4 @@
-<?
+<?php 
 $dbLangs = CLanguage::GetList(($b = ""), ($o = ""));
 while ($arLang = $dbLangs->Fetch())
 {

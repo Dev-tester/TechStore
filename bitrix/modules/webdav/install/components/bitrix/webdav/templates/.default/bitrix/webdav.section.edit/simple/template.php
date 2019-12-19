@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -28,7 +28,7 @@ if ($_REQUEST["AJAX_CALL"] == "Y")
 	<tbody>
 		<tr>
 			<td><div class="content">
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"]))
 {
 	ShowError($arResult["ERROR_MESSAGE"]);
@@ -37,12 +37,12 @@ if (!empty($arResult["ERROR_MESSAGE"]))
 if ($arParams["ACTION"] == "DROP"):
 ?>
 	<?=str_replace("#NAME#", $arResult["SECTION"]["NAME"], GetMessage("WD_DROP_CONFIRM"))?>
-<?
+<?php 
 else:
 ?>
 	<div class="wd-filed-name name"><span class="required starrequired">*</span><?=GetMessage("WD_NAME")?>:</div>
 	<div class="wd-filed name"><input type="text" class="text" name="NAME" value="<?=$arResult["SECTION"]["NAME"]?>" /></div>
-<?
+<?php 
 endif;
 ?>	
 			</div></td>
@@ -51,17 +51,17 @@ endif;
 	<tfoot>
 		<tr>
 			<td>
-<?
+<?php 
 if ($arParams["ACTION"] == "DROP"):
 ?>
 				<input type="submit" name="wd_drop" value="<?=GetMessage("WD_DROP")?>" />
 				<input type="button" name="wd_cancel" value="<?=GetMessage("WD_CANCEL")?>" onclick="if(window.WDOnCancelForm!=null){WDOnCancelForm(this);}else{this.form['cancel'].value='Y'; this.form.submit();}" />
-<?
+<?php 
 else:
 ?>
 				<input type="submit" name="wd_submit" value="<?=GetMessage("WD_SAVE");?>" />
 				<input type="button" name="wd_cancel" value="<?=GetMessage("WD_CANCEL");?>" onclick="if(window.WDOnCancelForm!=null){WDOnCancelForm(this);}else{this.form['cancel'].value='Y'; this.form.submit();}" />
-<?
+<?php 
 endif;
 ?>
 		</td></tr>
@@ -69,7 +69,7 @@ endif;
 </table>
 </form>
 </div>
-<?
+<?php 
 if ($_REQUEST["AJAX_CALL"] == "Y")
 {
 	die();

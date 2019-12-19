@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $arComponentDescription = array(
 	"NAME" => GetMessage("EVENT_CALENDAR_SIMPLE_ADD_FORM"),
 	"DESCRIPTION" => GetMessage("EVENT_CALENDAR_SIMPLE_ADD_FORM_DESCRIPTION"),

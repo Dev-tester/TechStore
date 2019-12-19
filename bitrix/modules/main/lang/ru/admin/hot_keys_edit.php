@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HK_EDIT_ERROR"] = "Запись сохранить не удалось";
 $MESS["HK_UPDATE_ERROR"] = "Запись обновить не удалось";
 $MESS["HK_EDIT_SUCCESS"] = "Запись успешно сохранена";

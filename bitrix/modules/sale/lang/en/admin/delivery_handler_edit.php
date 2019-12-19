@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_TITLE_EDIT"] = "Edit delivery service";
 $MESS["SALE_DH_TAB_TITLE_EDIT"] = "Delivery parameters";
 $MESS["SALE_DH_TAB_TITLE_EDIT_ALT"] = "Delivery service parameters";

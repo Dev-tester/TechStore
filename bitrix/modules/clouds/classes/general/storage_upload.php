@@ -1,4 +1,4 @@
-<?
+<?php 
 /*.
 	require_module 'standard';
 	require_module 'pcre';

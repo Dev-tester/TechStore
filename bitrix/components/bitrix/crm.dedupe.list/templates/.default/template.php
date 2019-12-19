@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Crm\Integrity\DuplicateIndexType;
 use Bitrix\Main\UI;
@@ -38,7 +38,7 @@ if(!empty($arResult['ERRORS']))
 ?><div class="sidebar-block double">
 	<div class="sidebar-block-inner">
 		<div class="reports-description-text">
-			<?=GetMessage('CRM_DEDUPE_LIST_CRITERION_SELECTOR')?>:<?
+			<?=GetMessage('CRM_DEDUPE_LIST_CRITERION_SELECTOR')?>:<?php 
 			if ($entityTypeID === CCrmOwnerType::Company || $entityTypeID === CCrmOwnerType::Contact)
 			{
 				$displayStyle = count($arResult['SCOPE_LIST_ITEMS']) <= 1 ? ' display: none;' : '';
@@ -46,13 +46,13 @@ if(!empty($arResult['ERRORS']))
 			<span style="float: right;<?= $displayStyle ?>">
 				<label for="<?=htmlspecialcharsbx($scopeSelectorID)?>"><?=htmlspecialcharsbx(GetMessage('CRM_DEDUPE_LIST_SCOPE_SELECTOR_LABEL').': ')?></label>
 				<select id="<?=htmlspecialcharsbx($scopeSelectorID)?>">
-					<?
+					<?php 
 					foreach ($arResult['SCOPE_LIST_ITEMS'] as $scope => $scopeTitle)
 					{?>
-						<option<?=$scope === $arResult['CURRENT_SCOPE'] ? ' selected="selected"' : ''?> value="<?= $scope ?>"><?= htmlspecialcharsbx($scopeTitle) ?></option><?
+						<option<?=$scope === $arResult['CURRENT_SCOPE'] ? ' selected="selected"' : ''?> value="<?= $scope ?>"><?= htmlspecialcharsbx($scopeTitle) ?></option><?php 
 					}?>
 				</select>
-			</span><?
+			</span><?php 
 			}
 			?><br/><br/>
 			<div id="<?=htmlspecialcharsbx($typeContainerID)?>" class="crm-double-set-checkbox-wrap">
@@ -70,7 +70,7 @@ if(!empty($arResult['ERRORS']))
 								<span class="webform-small-button-right"></span>
 							</span>
 						</span>
-					</div><?
+					</div><?php 
 				$curTypeGroupName = '';
 				$controlsByScope = array();
 				foreach($arResult['TYPE_INFOS'] as $extTypeID => &$typeInfo)
@@ -85,11 +85,11 @@ if(!empty($arResult['ERRORS']))
 					{
 						if($curTypeGroupName !== '')
 						{
-							?></div><?
+							?></div><?php 
 						}
 						if($typeGroupName !== '')
 						{
-							?><div class="bx-sl-crm-input-container-<?=$typeGroupName?>"><?
+							?><div class="bx-sl-crm-input-container-<?=$typeGroupName?>"><?php 
 						}
 						$curTypeGroupName = $typeGroupName;
 					}
@@ -105,42 +105,42 @@ if(!empty($arResult['ERRORS']))
 					$controlsByScope[$scope][] = $controlID;
 					$displayNone = ($scope !== $arResult['CURRENT_SCOPE']) ? ' style="display: none;"' : '';
 					?><input id="<?=htmlspecialcharsbx($controlID)?>" class="crm-double-set-checkbox" value="<?=htmlspecialcharsbx($extTypeID)?>" type="checkbox"<?=$isSelected ? ' checked="checked"' : ''?><?=$displayNone?>/>&nbsp;
-					<label<?=$isUnderstated ? ' disabled="disabled"' : ''?> for="<?=htmlspecialcharsbx($controlID)?>" class="crm-double-set-label"<?=$displayNone?>><?=htmlspecialcharsbx($typeInfo['DESCRIPTION'])?></label><?
+					<label<?=$isUnderstated ? ' disabled="disabled"' : ''?> for="<?=htmlspecialcharsbx($controlID)?>" class="crm-double-set-label"<?=$displayNone?>><?=htmlspecialcharsbx($typeInfo['DESCRIPTION'])?></label><?php 
 				}
 				unset($typeInfo);
 				if($curTypeGroupName !== '')
 				{
-					?></div><?
+					?></div><?php 
 				}
 
 			?></div>
 			</div>
 		</div>
 	</div>
-</div><?
+</div><?php 
 if($arResult['NEED_FOR_REBUILD_DUP_INDEX'])
 {
 	//CRM_DEDUPE_LIST_LEAD_REBUILD_DUP_INDEX, CRM_DEDUPE_LIST_CONTACT_REBUILD_DUP_INDEX, CRM_DEDUPE_LIST_COMPANY_REBUILD_DUP_INDEX
 	?><div id="rebuildDupIndexMsg" class="crm-view-message">
 		<?=GetMessage("CRM_DEDUPE_LIST_{$entityTypeName}_REBUILD_DUP_INDEX", array('#ID#' => 'rebuildDupIndexLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 }
 if(!empty($arResult['MESSAGES']))
 {
 	foreach($arResult['MESSAGES'] as $msg)
 	{
-		?><div class="crm-view-message"><?=htmlspecialcharsbx($msg)?></div><?
+		?><div class="crm-view-message"><?=htmlspecialcharsbx($msg)?></div><?php 
 	}
 }
 ?><div class="bx-crm-interface-grid"><table id="<?=htmlspecialcharsbx($listID)?>" class="bx-interface-grid-double" cellspacing="0"><tbody>
 <tr class="bx-grid-head">
 <td class="bx-checkbox-col" style="width: 10px;"></td>
-<td class="bx-checkbox-col" style="width: 10px;"></td><?
+<td class="bx-checkbox-col" style="width: 10px;"></td><?php 
 foreach($arResult['COLUMNS'] as $columnID => &$column)
 {
 	$isSorted = $columnID === $sortBy;
 	$colspan = isset($column['COLSPAN']) ? $column['COLSPAN'] : 1;
-	?><td class="bx-grid-sortable<?=$isSorted ? ' bx-sorted' : ''?>" data-column-id="<?=htmlspecialcharsbx($columnID)?>" <?=$colspan > 1 ? ' colspan="'.$colspan.'"' : ''?>><?
+	?><td class="bx-grid-sortable<?=$isSorted ? ' bx-sorted' : ''?>" data-column-id="<?=htmlspecialcharsbx($columnID)?>" <?=$colspan > 1 ? ' colspan="'.$colspan.'"' : ''?>><?php 
 	if(!$column['SORTABLE'])
 	{
 		echo htmlspecialcharsbx($column['TITLE']);
@@ -153,12 +153,12 @@ foreach($arResult['COLUMNS'] as $columnID => &$column)
 				<td><?=htmlspecialcharsbx($column['TITLE'])?></td>
 				<td class="bx-sort-sign<?=$sortClass?>"><div class="empty"></div></td>
 			</tr>
-		</tbody></table><?
+		</tbody></table><?php 
 	}
-	?></td><?
+	?></td><?php 
 }
 unset($column);
-?></tr><?
+?></tr><?php 
 $itemData = array();
 $itemNum = 0;
 /** @var Bitrix\Crm\Integrity\Duplicate $item **/
@@ -176,7 +176,7 @@ foreach($arResult['ITEMS'] as $item)
 		<td class="bx-left"><span class="bx-scroller-control plus"></span></td>
 		<td class="bx-checkbox-col bx-left">
 			<input type="checkbox" id="<?=htmlspecialcharsbx($itemID)?>_chkbx" title="<?=GetMessage('CRM_DEDUPE_LIST_SELECT_ALL')?>" alt="" />
-		</td><?
+		</td><?php 
 	//$isJunk = $item->isJunk();
 	$rootEntityID = $item->getRootEntityID();
 	$rootEntityInfo = isset($entityInfos[$rootEntityID]) ? $entityInfos[$rootEntityID] : array();
@@ -195,7 +195,7 @@ foreach($arResult['ITEMS'] as $item)
 	foreach($arResult['COLUMNS'] as &$column)
 	{
 		$colspan = isset($column['COLSPAN']) ? $column['COLSPAN'] : 1;
-		?><td<?=$colspan > 1 ? ' colspan="'.$colspan.'"' : ''?>><?
+		?><td<?=$colspan > 1 ? ' colspan="'.$colspan.'"' : ''?>><?php 
 
 		$colName = $column['NAME'];
 		if($colName === 'ORGANIZATION' || $colName === 'PERSON')
@@ -226,11 +226,11 @@ foreach($arResult['ITEMS'] as $item)
 			$itemData[$itemID]['TITLE'] = $rootEntityTitle;
 			$rootEntityLegend = isset($rootEntityInfo['LEGEND']) ? $rootEntityInfo['LEGEND'] : '';
 			?><div class="crm-client-summary-wrapper">
-			<? if($imageUrl === '') { ?>
+			<?php  if($imageUrl === '') { ?>
 				<div class="crm-client-photo-wrapper empty">
 					<div class="crm-avatar crm-avatar-user"></div>
 				</div>
-			<?
+			<?php 
 				}
 				else
 				{
@@ -238,12 +238,12 @@ foreach($arResult['ITEMS'] as $item)
 				<div class="crm-client-photo-wrapper">
 					<img width="50" height="50" border="0" src="<?=htmlspecialcharsbx($imageUrl)?>" alt="" />
 				</div>
-			<? 	}; ?>
+			<?php  	}; ?>
 				<div class="crm-client-info-wrapper">
-					<div class="crm-client-title-wrapper"><?
+					<div class="crm-client-title-wrapper"><?php 
 						if($rootEntityShowUrl !== '')
 						{
-							?><a target="_blank" href="<?=htmlspecialcharsbx($rootEntityShowUrl)?>"><?=htmlspecialcharsbx($rootEntityTitle)?></a><?
+							?><a target="_blank" href="<?=htmlspecialcharsbx($rootEntityShowUrl)?>"><?=htmlspecialcharsbx($rootEntityTitle)?></a><?php 
 						}
 						else
 						{
@@ -254,7 +254,7 @@ foreach($arResult['ITEMS'] as $item)
 				</div>
 				<div id="<?=htmlspecialcharsbx($itemID)?>_summary" style="visibility:hidden;" class="crm-double-result-search"><?=htmlspecialcharsbx($item->getSummary())?></div>
 				<div style="clear:both;"></div>
-			</div><?
+			</div><?php 
 		}
 		if($colName === 'PHONE' || $colName === 'EMAIL')
 		{
@@ -275,14 +275,14 @@ foreach($arResult['ITEMS'] as $item)
 			{
 				$itemData[$itemID][$colName] = $rootEntityCommValue;
 				?><div class="crm-client-contacts-block">
-					<div class="crm-client-contacts-block-text" style="white-space:nowrap;"><?=htmlspecialcharsbx($rootEntityCommValue)?></div><?
+					<div class="crm-client-contacts-block-text" style="white-space:nowrap;"><?=htmlspecialcharsbx($rootEntityCommValue)?></div><?php 
 				if($rootEntityCommTotal > 1)
 				{
 					?><div class="crm-multi-field-popup-wrapper">
 						<span id="<?=htmlspecialcharsbx($itemID)?>_show_<?=strtolower($colName)?>" class="crm-multi-field-popup-button"><?=GetMessage('CRM_DEDUPE_LIST_SHOW_MORE_MULTI_FIELD_VALUES')?> <?=($rootEntityCommTotal - 1)?></span>
-					</div><?
+					</div><?php 
 				}
-				?></div><?
+				?></div><?php 
 			}
 		}
 		if(($column['TYPE_ID'] & DuplicateIndexType::REQUISITE) === $column['TYPE_ID']
@@ -305,14 +305,14 @@ foreach($arResult['ITEMS'] as $item)
 			{
 				$itemData[$itemID][$colName] = $rootEntityFieldValue;
 				?><div class="crm-client-contacts-block">
-				<div class="crm-client-contacts-block-text" style="white-space:nowrap;"><?=htmlspecialcharsbx($rootEntityFieldValue)?></div><?
+				<div class="crm-client-contacts-block-text" style="white-space:nowrap;"><?=htmlspecialcharsbx($rootEntityFieldValue)?></div><?php 
 				if($rootEntityFieldTotal > 1)
 				{
 					?><div class="crm-multi-field-popup-wrapper">
 					<span id="<?=htmlspecialcharsbx($itemID)?>_show_<?=strtolower($colName)?>" class="crm-multi-field-popup-button"><?=GetMessage('CRM_DEDUPE_LIST_SHOW_MORE_MULTI_FIELD_VALUES')?> <?=($rootEntityFieldTotal - 1)?></span>
-					</div><?
+					</div><?php 
 				}
-				?></div><?
+				?></div><?php 
 			}
 		}
 		if($colName === 'RESPONSIBLE')
@@ -326,16 +326,16 @@ foreach($arResult['ITEMS'] as $item)
 				echo htmlspecialcharsbx($rootEntityResponsibleName);
 			}
 			$itemData[$itemID]['RESPONSIBLE_FULL_NAME'] = $rootEntityResponsibleName;
-			?><br/><?
+			?><br/><?php 
 			$itemData[$itemID]['RESPONSIBLE_EMAIL'] = $rootEntityResponsibleEmail;
-			?><a id="<?=htmlspecialcharsbx($itemID)?>_mail_to_user" href="mailto:<?=htmlspecialcharsbx($rootEntityResponsibleEmail)?>"><?=GetMessage('CRM_DEDUPE_LIST_MAIL_TO')?></a><?
+			?><a id="<?=htmlspecialcharsbx($itemID)?>_mail_to_user" href="mailto:<?=htmlspecialcharsbx($rootEntityResponsibleEmail)?>"><?=GetMessage('CRM_DEDUPE_LIST_MAIL_TO')?></a><?php 
 			if($rootEntityResponsiblePhone !== '')
 			{
 				$itemData[$itemID]['RESPONSIBLE_PHONE'] = $rootEntityResponsiblePhone;
-				?><a id="<?=htmlspecialcharsbx($itemID)?>_call_to_user" style="margin-left: 20px;" href="callto:<?=htmlspecialcharsbx($rootEntityResponsiblePhone)?>"><?=GetMessage('CRM_DEDUPE_LIST_CALL_TO')?></a><?
+				?><a id="<?=htmlspecialcharsbx($itemID)?>_call_to_user" style="margin-left: 20px;" href="callto:<?=htmlspecialcharsbx($rootEntityResponsiblePhone)?>"><?=GetMessage('CRM_DEDUPE_LIST_CALL_TO')?></a><?php 
 			}
 		}
-		?></td><?
+		?></td><?php 
 	}
 	unset($column);
 	?></tr>
@@ -355,25 +355,25 @@ foreach($arResult['ITEMS'] as $item)
 				</span>
 			</span>
 		</td>
-	</tr><?
+	</tr><?php 
 }
 ?>
 <tr class="bx-grid-footer bx-double-pagination">
 	<td colspan="12">
 		<table class="bx-grid-footer" border="0" cellpadding="0" cellspacing="0">
 			<tbody>
-				<tr><?
+				<tr><?php 
 				if($arResult['HAS_PREV_PAGE'])
 				{
-					?><td><a href="<?=htmlspecialcharsbx($arResult['PREV_PAGE_URL'])?>">&#8592; <?=GetMessage('CRM_DEDUPE_LIST_PREV_PAGE')?></a></td><?
+					?><td><a href="<?=htmlspecialcharsbx($arResult['PREV_PAGE_URL'])?>">&#8592; <?=GetMessage('CRM_DEDUPE_LIST_PREV_PAGE')?></a></td><?php 
 				}
 				if($arResult['HAS_PREV_PAGE'] && $arResult['HAS_NEXT_PAGE'])
 				{
-					?><td><a class="modern-page-dots"></a></td><?
+					?><td><a class="modern-page-dots"></a></td><?php 
 				}
 				if($arResult['HAS_NEXT_PAGE'])
 				{
-					?><td><a href="<?=htmlspecialcharsbx($arResult['NEXT_PAGE_URL'])?>"><?=GetMessage('CRM_DEDUPE_LIST_NEXT_PAGE')?> &#8594;</a></td><?
+					?><td><a href="<?=htmlspecialcharsbx($arResult['NEXT_PAGE_URL'])?>"><?=GetMessage('CRM_DEDUPE_LIST_NEXT_PAGE')?> &#8594;</a></td><?php 
 				}
 				?></tr>
 			</tbody>
@@ -462,7 +462,7 @@ foreach($arResult['ITEMS'] as $item)
 			);
 		}
 	);
-</script><?
+</script><?php 
 if($arResult['NEED_FOR_REBUILD_DUP_INDEX'])
 {
 // CRM_DEDUPE_LIST_LEAD_REBUILD_DUP_INDEX_DLG_TITLE, CRM_DEDUPE_LIST_LEAD_REBUILD_DUP_INDEX_DLG_SUMMARY
@@ -521,5 +521,5 @@ if($arResult['NEED_FOR_REBUILD_DUP_INDEX'])
 			}
 		}
 	);
-</script><?
+</script><?php 
 }

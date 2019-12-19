@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 
 Unfortunately, this menu file has two copies:

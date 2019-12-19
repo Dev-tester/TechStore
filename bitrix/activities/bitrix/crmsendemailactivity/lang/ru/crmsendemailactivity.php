@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SEMA_EMPTY_PROP"] = "Не указан текст письма";
 $MESS["CRM_SEMA_MESSAGE_TEXT"] = "Текст письма";
 $MESS["CRM_SEMA_MESSAGE_TEXT_TYPE"] = "Тип текста";

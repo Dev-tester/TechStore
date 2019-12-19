@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_RADM_ID"] = "ID";
 $MESS["IBLOCK_RADM_NAME"] = "Название";
 $MESS["IBLOCK_RADM_ACTIVE"] = "Акт.";

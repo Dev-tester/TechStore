@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_OP_NAME_DELETE"] = "Delete";
 $MESS["LANDING_OP_NAME_DENIED"] = "Access denied";
 $MESS["LANDING_OP_NAME_EDIT"] = "Edit";

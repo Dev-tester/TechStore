@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["main_app_pass_del"] = "Delete";
 $MESS["main_app_pass_title"] = "What's this?";
 $MESS["main_app_pass_text1"] = "To synchronize your data with external applications securely, use a special password which you can obtain on this page.";

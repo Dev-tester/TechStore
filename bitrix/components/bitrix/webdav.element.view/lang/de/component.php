@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACCESS_DENIED'] = "Zugriff verweigert.";
 $MESS ['WD_ERROR_ELEMENT_NOT_FOUND'] = "Die Datei wurde nicht gefunden.";
 $MESS ['WD_TITLE_1'] = "Änderungshistory der Datei";

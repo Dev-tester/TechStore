@@ -45,7 +45,7 @@ $context->Show();
 
 ?>
 <div id="USER_CONSENT_AGREEMENT_EDIT" style="background: white; padding: 20px;">
-<?
+<?php 
 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.userconsent.edit",
@@ -81,6 +81,6 @@ $APPLICATION->IncludeComponent(
 		})
 	})();
 </script>
-<?
+<?php 
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

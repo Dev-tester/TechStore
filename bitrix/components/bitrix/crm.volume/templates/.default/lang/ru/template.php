@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_VOLUME_TITLE"] = "Чем занято место";
 $MESS["CRM_VOLUME_CLEARING"] = "Очистка CRM";
 $MESS["CRM_VOLUME_START_TITLE"] = "Освободите место";

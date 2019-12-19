@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_IBLOCK_TYPE_NAME"] = "Wiki";
 $MESS["WIKI_FORUM_NAME"] = "Wiki Comments";
 $MESS["WIKI_IBLOCK_NAME"] = "Wiki";

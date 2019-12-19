@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_CSTH_CATEGORY"] = "Kategorien und Eigenschaften";
 $MESS["SALE_EBAY_CSTH_POLICY_RETURN"] = "Richtlinie zur Rückgabe";
 $MESS["SALE_EBAY_CSTH_POLICY_PAYMENT"] = "Richtlinie zur Bezahlung";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_FILE_NAME'] = "Datei";
 $MESS ['WD_CHANGE_DATE'] = "Geändert";
 $MESS ['WD_MODIFIED_BY'] = "Geändert von";

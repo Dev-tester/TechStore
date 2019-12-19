@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["CRM_QUOTE_NOT_FOUND"] = "Предложение не найдено";
 $MESS["CRM_QUOTE_CREATION_PAGE_TITLE"] = "Создание предложения";

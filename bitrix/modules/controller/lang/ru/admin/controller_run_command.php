@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_RUN_ERR_NSELECTED"] = "Выберите клиента для выполнения";
 $MESS["CTRLR_RUN_SUCCESS"] = "#SUCCESS_CNT# из #CNT# удаленных команд успешно добавлены в <a href=\"controller_task.php?lang=#LANG#\">очередь выполнения задач</a>.";
 $MESS["CTRLR_RUN_TITLE"] = "Удаленная командная PHP строка";

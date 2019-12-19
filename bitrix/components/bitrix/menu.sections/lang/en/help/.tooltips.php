@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ID_TIP'] = "The expression that evaluates to the ID of a section or element for which a menu item is created. The default value is <b>={\$_REQUEST[\"ID\"]}</b>";
 $MESS ['IBLOCK_TYPE_TIP'] = "Contains all information block types existing in the system.";
 $MESS ['IBLOCK_ID_TIP'] = "Select here the required information block.";

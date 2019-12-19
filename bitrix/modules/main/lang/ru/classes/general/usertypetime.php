@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_DT_DESCRIPTION"] = "Дата со временем";
 $MESS["USER_TYPE_DT_DEFAULT_VALUE"] = "Значение по умолчанию";
 $MESS["USER_TYPE_DT_USE_SECOND"] = "Использовать секунды";

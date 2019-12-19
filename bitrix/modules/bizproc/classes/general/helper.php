@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 use Bitrix\Bizproc;
@@ -1169,7 +1169,7 @@ class CBPHelper
 			return s;
 		}
 		</script>
-		<?
+		<?php 
 		$str = ob_get_contents();
 		ob_end_clean();
 
@@ -1223,7 +1223,7 @@ class CBPHelper
 			$fieldValueTmp = $fieldValue;
 			?>
 			<select id="id_<?= $arFieldName["Field"] ?>" name="<?= $arFieldName["Field"].($arFieldType["Multiple"] ? "[]" : "") ?>"<?= ($arFieldType["Multiple"] ? ' size="5" multiple' : '') ?>>
-				<?
+				<?php 
 				if (!$arFieldType["Required"])
 					echo '<option value="">['.GetMessage("BPCGHLP_NOT_SET").']</option>';
 				foreach ($arFieldType["Options"] as $k => $v)
@@ -1235,24 +1235,24 @@ class CBPHelper
 				}
 				?>
 			</select>
-			<?
+			<?php 
 			if ($bAllowSelection)
 			{
 				?>
-				<br /><input type="text" id="id_<?= $arFieldName["Field"] ?>_text" name="<?= $arFieldName["Field"] ?>_text" value="<?
+				<br /><input type="text" id="id_<?= $arFieldName["Field"] ?>_text" name="<?= $arFieldName["Field"] ?>_text" value="<?php 
 				if (count($fieldValueTmp) > 0)
 				{
 					$a = array_values($fieldValueTmp);
 					echo htmlspecialcharsbx($a[0]);
 				}
-				?>"><?
+				?>"><?php 
 				echo CBPHelper::renderControlSelectorButton('id_'.$arFieldName["Field"].'_text', 'select');
 			}
 		}
 		elseif ($arFieldType["Type"] == "user")
 		{
 			$fieldValue = CBPHelper::UsersArrayToString($fieldValue, null, $documentType);
-			?><input type="text" size="40" id="id_<?= $arFieldName["Field"] ?>" name="<?= $arFieldName["Field"] ?>" value="<?= htmlspecialcharsbx($fieldValue) ?>"><? echo CBPHelper::renderControlSelectorButton('id_'.$arFieldName["Field"], 'user');
+			?><input type="text" size="40" id="id_<?= $arFieldName["Field"] ?>" name="<?= $arFieldName["Field"] ?>" value="<?= htmlspecialcharsbx($fieldValue) ?>"><?php  echo CBPHelper::renderControlSelectorButton('id_'.$arFieldName["Field"], 'user');
 		}
 		else
 		{
@@ -1312,7 +1312,7 @@ class CBPHelper
 				}
 				//-->
 				</script>
-				<?
+				<?php 
 			}
 
 			if ($arFieldType["Multiple"])
@@ -1347,29 +1347,29 @@ class CBPHelper
 					case "int":
 					case "double":
 						unset($fieldValueTmp[$key]);
-						?><input type="text" size="10" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?
+						?><input type="text" size="10" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 						break;
 					case "file":
 						unset($fieldValueTmp[$key]);
-						?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?
+						?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?php 
 						break;
 					case "bool":
 						if (in_array($value, array("Y", "N")))
 							unset($fieldValueTmp[$key]);
 						?>
 						<select id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>">
-							<?
+							<?php 
 							if (!$arFieldType["Required"])
 								echo '<option value="">['.GetMessage("BPCGHLP_NOT_SET").']</option>';
 							?>
 							<option value="Y"<?= (in_array("Y", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPCGHLP_YES") ?></option>
 							<option value="N"<?= (in_array("N", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPCGHLP_NO") ?></option>
 						</select>
-						<?
+						<?php 
 						break;
 					case "text":
 						unset($fieldValueTmp[$key]);
-						?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?
+						?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?php 
 						break;
 					case "date":
 					case "datetime":
@@ -1383,7 +1383,7 @@ class CBPHelper
 						break;
 					default:
 						unset($fieldValueTmp[$key]);
-						?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?
+						?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 				}
 
 				if ($bAllowSelection)
@@ -1409,13 +1409,13 @@ class CBPHelper
 				if (in_array($arFieldType["Type"], array("file", "bool", "date", "datetime")))
 				{
 					?>
-					<input type="text" id="id_<?= $arFieldName["Field"] ?>_text" name="<?= $arFieldName["Field"] ?>_text" value="<?
+					<input type="text" id="id_<?= $arFieldName["Field"] ?>_text" name="<?= $arFieldName["Field"] ?>_text" value="<?php 
 					if (count($fieldValueTmp) > 0)
 					{
 						$a = array_values($fieldValueTmp);
 						echo htmlspecialcharsbx($a[0]);
 					}
-					?>"><?
+					?>"><?php 
 					echo CBPHelper::renderControlSelectorButton('id_'.$arFieldName["Field"].'_text', $arFieldType["BaseType"]);
 				}
 			}

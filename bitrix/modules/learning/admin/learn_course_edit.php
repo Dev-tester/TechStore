@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -432,10 +432,10 @@ if($Perm>="G"):?>
 
 <?php $tabControl->BeginEpilogContent();?>
 	<?=bitrix_sessid_post()?>
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="COURSE_ID" value="<?echo $COURSE_ID?>">
-	<?php if(strlen($return_url)>0):?><input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($return_url)?>"><?endif?>
+	<input type="hidden" name="COURSE_ID" value="<?php echo $COURSE_ID?>">
+	<?php if(strlen($return_url)>0):?><input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($return_url)?>"><?php endif?>
 <?php
 $tabControl->EndEpilogContent();
 $tabControl->Begin();
@@ -448,7 +448,7 @@ if($linkedLessonId>0)
 {
 	?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td><?=$linkedLessonId?></td>
 	</tr>
 	<?php
@@ -457,17 +457,17 @@ $tabControl->EndCustomField('ID');
 ?>
 <!-- COURSE_ID -->
 <?php $tabControl->BeginCustomField("COURSE_ID", "COURSE_ID", false);?>
-	<?if($COURSE_ID>0):?>
+	<?php if($COURSE_ID>0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$COURSE_ID?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("COURSE_ID");?>
 <?php $tabControl->BeginCustomField("CREATED_USER_NAME", GetMessage("LEARNING_AUTHOR"), false);?>
 <!-- CREATED_USER_NAME -->
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
 			<?php echo $str_CREATED_USER_NAME; ?>
 		</td>
@@ -475,33 +475,33 @@ $tabControl->EndCustomField('ID');
 <?php $tabControl->EndCustomField("CREATED_USER_NAME");?>
 <!-- Timestamp_X -->
 <?php $tabControl->BeginCustomField("TIMESTAMP_X", GetMessage("LEARNING_LAST_UPDATE"), false);?>
-	<?if($COURSE_ID>0):?>
+	<?php if($COURSE_ID>0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$str_TIMESTAMP_X?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("TIMESTAMP_X");?>
 <?php $tabControl->BeginCustomField("ACTIVE", GetMessage("LEARNING_ACTIVE"), false);?>
 <!-- Active -->
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>></td>
 	</tr>
 <?php $tabControl->EndCustomField("ACTIVE");?>
 <?php $tabControl->BeginCustomField("ACTIVE_PERIOD", GetMessage("LEARNING_ACTIVE_PERIOD"), false);?>
 <!-- Active period-->
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>):</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>):</td>
 		<td>
-			<?echo CalendarPeriod("ACTIVE_FROM", $str_ACTIVE_FROM, "ACTIVE_TO", $str_ACTIVE_TO, "courseTabControl", "N", "", "", "19")?>
+			<?php echo CalendarPeriod("ACTIVE_FROM", $str_ACTIVE_FROM, "ACTIVE_TO", $str_ACTIVE_TO, "courseTabControl", "N", "", "", "19")?>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("ACTIVE_PERIOD");?>
 <?php $tabControl->BeginCustomField("CODE", GetMessage("LEARNING_CODE"), false);?>
 <!-- CODE -->
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
 			<input type="text" name="CODE" size="20" maxlength="40" value="<?=$str_CODE?>">
 		</td>
@@ -510,25 +510,25 @@ $tabControl->EndCustomField('ID');
 <?php $tabControl->BeginCustomField("SITE_ID", GetMessage("LEARNING_SITE_ID"), false);?>
 <!-- Site -->
 	<tr class="adm-detail-required-field">
-		<td valign="top"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td valign="top"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td><?=CLang::SelectBoxMulti("SITE_ID", $str_SITE_ID);?></td>
 	</tr>
 <?php $tabControl->EndCustomField("SITE_ID");?>
 <?php $tabControl->BeginCustomField("NAME", GetMessage("LEARNING_NAME"), false);?>
 <!-- Name -->
 	<tr class="adm-detail-required-field">
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="NAME" size="40" maxlength="255" value="<?echo $str_NAME?>">
+			<input type="text" name="NAME" size="40" maxlength="255" value="<?php echo $str_NAME?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("NAME");?>
 <?php $tabControl->BeginCustomField("SORT", GetMessage("LEARNING_SORT"), false);?>
 <!-- Sort -->
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="SORT" size="10" maxlength="10" value="<?echo $str_SORT?>">
+			<input type="text" name="SORT" size="10" maxlength="10" value="<?php echo $str_SORT?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("SORT");?>
@@ -538,7 +538,7 @@ $tabControl->EndCustomField('ID');
 	$arRating['reference'] = Array(GetMessage("LEARNING_RATING_CONFIG"), GetMessage("MAIN_YES"), GetMessage("MAIN_NO"));
 ?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td><?=SelectBoxFromArray("RATING", $arRating, $str_RATING, "", "");?></td>
 	</tr>
 <?php $tabControl->EndCustomField("RATING");?>
@@ -547,20 +547,20 @@ $tabControl->EndCustomField('ID');
 	$arRatingType['reference'] = Array(GetMessage("LEARNING_RATING_TYPE_CONFIG"), GetMessage("LEARNING_RATING_TYPE_LIKE"), GetMessage("LEARNING_RATING_TYPE_LIKE_GRAPHIC"), GetMessage("LEARNING_RATING_TYPE_STANDART_TEXT"), GetMessage("LEARNING_RATING_TYPE_STANDART"));
 ?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td><?=SelectBoxFromArray("RATING_TYPE", $arRatingType, $str_RATING_TYPE, "", "");?></td>
 	</tr>
 <?php $tabControl->EndCustomField("RATING_TYPE");?>
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->BeginNextFormTab();?>
 <!-- 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("LEARNING_ELEMENT_PREVIEW")?></td>
+		<td colspan="2"><?php echo GetMessage("LEARNING_ELEMENT_PREVIEW")?></td>
 	</tr> -->
 
 <?php $tabControl->BeginCustomField("PREVIEW_TEXT", GetMessage("LEARNING_PREVIEW_TEXT"), false);?>
-	<?if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
+	<?php if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
 	<tr>
 		<td colspan="2" align="center">
-			<?CFileMan::AddHTMLEditorFrame(
+			<?php CFileMan::AddHTMLEditorFrame(
 				"PREVIEW_TEXT",
 				$str_PREVIEW_TEXT,
 				"PREVIEW_TEXT_TYPE",
@@ -577,26 +577,26 @@ $tabControl->EndCustomField('ID');
 			);?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
-		<td align="center"><?echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
+		<td align="center"><?php echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
 		<td>
-				<input type="radio" name="PREVIEW_TEXT_TYPE" value="text"<?if($str_PREVIEW_TEXT_TYPE!="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_TEXT")?> / <input type="radio" name="PREVIEW_TEXT_TYPE" value="html"<?if($str_PREVIEW_TEXT_TYPE=="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
+				<input type="radio" name="PREVIEW_TEXT_TYPE" value="text"<?php if($str_PREVIEW_TEXT_TYPE!="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_TEXT")?> / <input type="radio" name="PREVIEW_TEXT_TYPE" value="html"<?php if($str_PREVIEW_TEXT_TYPE=="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<textarea style="width:100%; height:200px;" name="PREVIEW_TEXT" wrap="virtual"><?echo $str_PREVIEW_TEXT?></textarea>
+			<textarea style="width:100%; height:200px;" name="PREVIEW_TEXT" wrap="virtual"><?php echo $str_PREVIEW_TEXT?></textarea>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 <?php $tabControl->EndCustomField("PREVIEW_TEXT");?>
 <?php $tabControl->BeginCustomField("PREVIEW_PICTURE", GetMessage("LEARNING_PICTURE"), false);?>
 	<tr>
-		<td valign="top"><?echo $tabControl->GetCustomLabelHTML()?></td>
+		<td valign="top"><?php echo $tabControl->GetCustomLabelHTML()?></td>
 		<td>
-			<?echo CFile::InputFile("PREVIEW_PICTURE", 20, $str_PREVIEW_PICTURE, false, 0, "IMAGE", "", 40);?><br>
-			<?
+			<?php echo CFile::InputFile("PREVIEW_PICTURE", 20, $str_PREVIEW_PICTURE, false, 0, "IMAGE", "", 40);?><br>
+			<?php 
 				if($str_PREVIEW_PICTURE)
 				{
 					echo CFile::ShowImage($str_PREVIEW_PICTURE, 200, 200, "border=0", "", true);
@@ -605,16 +605,16 @@ $tabControl->EndCustomField('ID');
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("PREVIEW_PICTURE");?>
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->BeginNextFormTab();?>
 <!-- DETAIL_TEXT -->
 	<!-- <tr class="heading">
-		<td colspan="2"><?echo GetMessage("LEARNING_ELEMENT_DETAIL")?></td>
+		<td colspan="2"><?php echo GetMessage("LEARNING_ELEMENT_DETAIL")?></td>
 	</tr> -->
 <?php $tabControl->BeginCustomField("DETAIL_TEXT", GetMessage("LEARNING_DESCRIPTION"), false);?>
-	<?if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
+	<?php if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
 	<tr>
 		<td colspan="2" align="center">
-			<?CFileMan::AddHTMLEditorFrame(
+			<?php CFileMan::AddHTMLEditorFrame(
 				"DETAIL_TEXT",
 				$str_DETAIL_TEXT,
 				"DETAIL_TEXT_TYPE",
@@ -631,20 +631,20 @@ $tabControl->EndCustomField('ID');
 			);?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
-		<td align="center"><?echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
+		<td align="center"><?php echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
 		<td>
-			<input type="radio" name="DETAIL_TEXT_TYPE" value="text"<?if($str_DETAIL_TEXT_TYPE!="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_TEXT")?>
-			<input type="radio" name="DETAIL_TEXT_TYPE" value="html"<?if($str_DETAIL_TEXT_TYPE=="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
+			<input type="radio" name="DETAIL_TEXT_TYPE" value="text"<?php if($str_DETAIL_TEXT_TYPE!="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_TEXT")?>
+			<input type="radio" name="DETAIL_TEXT_TYPE" value="html"<?php if($str_DETAIL_TEXT_TYPE=="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<textarea style="width:100%; height:250px;" name="DETAIL_TEXT" wrap="off"><?echo $str_DETAIL_TEXT?></textarea>
+			<textarea style="width:100%; height:250px;" name="DETAIL_TEXT" wrap="off"><?php echo $str_DETAIL_TEXT?></textarea>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 <?php $tabControl->EndCustomField("DETAIL_TEXT");
 
 
@@ -719,6 +719,6 @@ $tabControl->Show();
 $tabControl->ShowWarnings($tabControl->GetName(), $message);
 
 else:?>
-<?CAdminMessage::ShowMessage(GetMessage("LEARNING_BAD_COURSE"));?>
-<?endif?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php CAdminMessage::ShowMessage(GetMessage("LEARNING_BAD_COURSE"));?>
+<?php endif?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

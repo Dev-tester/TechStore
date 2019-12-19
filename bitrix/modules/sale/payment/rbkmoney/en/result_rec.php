@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SALE_RBK_REC_ORDER"] = "Order ID unknown.";
 $MESS["SALE_RBK_REC_SUMM"] = "Invalid data. Amounts do not match.";

@@ -1,12 +1,12 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
 <div class="blog-post-edit blog-post-edit-micro">
-<?
+<?php 
 if(strlen($arResult["MESSAGE"])>0)
 {
 	?>
@@ -15,7 +15,7 @@ if(strlen($arResult["MESSAGE"])>0)
 			<?=$arResult["MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
@@ -25,7 +25,7 @@ if(strlen($arResult["ERROR_MESSAGE"])>0)
 			<?=$arResult["ERROR_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
@@ -38,7 +38,7 @@ elseif(strlen($arResult["UTIL_MESSAGE"])>0)
 			<?=$arResult["UTIL_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -47,7 +47,7 @@ else
 	<input type="hidden" name="microblog" value="Y">
 	<input type="hidden" id="DATE_PUBLISH_DEF" name="DATE_PUBLISH_DEF" value="<?=$arResult["PostToShow"]["DATE_PUBLISH"];?>">
 	<?=bitrix_sessid_post();?>
-	<?
+	<?php 
 	if(COption::GetOptionString("blog", "use_autosave", "Y") == "Y")
 	{
 		$as = new CAutoSave();
@@ -56,7 +56,7 @@ else
 		<script>
 		BX.ready(BlogPostAutoSave);
 		</script>
-		<?
+		<?php 
 	}
 	?>
 	<div id="blog-post-edit-micro-form" class="blog-edit-form blog-edit-post-form blog-post-edit-form" style="display:none;">
@@ -65,12 +65,12 @@ else
 		</div>
 		<div class="blog-post-message blog-edit-editor-area blog-edit-field-text">
 			<div class="blog-post-field blog-post-field-bbcode">
-				<?
+				<?php 
 				include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/lhe.php");
 				?>
 				<div id="blog-post-micro-lhe-hide"></div>
 			</div>
-			<?
+			<?php 
 //				userconsent only for once for registered early users
 			if ($arParams['USER_CONSENT'] == 'Y' && !$arParams['USER_CONSENT_WAS_GIVEN'])
 			{
@@ -101,13 +101,13 @@ else
 					<span class="blog-small-button-right"></span>
 				</span>
 				<span id="blog-post-micro-lhe-but"></span>
-				<?
+				<?php 
 				if($arResult["CAN_POST_SONET_GROUP"])
 				{?>
 					<script>
 					BX.message({SONET_GROUP_BLOG_NO : "<?=GetMessage("BLOG_POST_GROUP_CHOOSE")?>"});
 					</script>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 									"bitrix:socialnetwork.group.selector", ".default", array(
 										"BIND_ELEMENT" => "blog-post-group-selector",
 										"ON_SELECT" => "onGroupBlogSelect",
@@ -118,18 +118,18 @@ else
 						?>
 						<div id="blog-post-group-selector" class="blog-post-group-text"><span class="blog-post-group-value"><?=GetMessage("BLOG_POST_GROUP_CHOOSE")?></span></div>
 						<input name="SONETGROUP" id="SONETGROUP" type="hidden" value="">
-					<?
+					<?php 
 				}
 				if($arResult["bGroupMode"] && !empty($arResult["SONET_GROUP"]))
 				{
-					?><div class="blog-post-group-selector-text"><?=htmlspecialcharsEx($arResult["SONET_GROUP"]["NAME"])?></div><?
+					?><div class="blog-post-group-selector-text"><?=htmlspecialcharsEx($arResult["SONET_GROUP"]["NAME"])?></div><?php 
 				}
 				?>
 			</div>
 		</div>
 	</div>
 	</form>
-	<?
+	<?php 
 }
 ?>
 </div>

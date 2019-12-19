@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_FILEMAN_VIEW_ALL_SETTINGS"] = "Просмотр настроек модуля";
 $MESS["OP_NAME_FILEMAN_EDIT_MENU_TYPES"] = "Управление типами меню";
 $MESS["OP_NAME_FILEMAN_ADD_ELEMENT_TO_MENU"] = "Добавление пунктов в меню";

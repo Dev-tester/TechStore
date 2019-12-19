@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 
 $component = $this->__component;
@@ -93,7 +93,7 @@ foreach($arAllOptions as $code => $name)
 	?>
 
 	<div class="crm-config-exch1c">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				'bitrix:main.interface.form',
 				'',
@@ -111,4 +111,4 @@ foreach($arAllOptions as $code => $name)
 		?>
 	</div>
 
-<?
+<?php 

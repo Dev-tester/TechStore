@@ -1,4 +1,4 @@
-<?
+<?php 
 class CFileCacheCleaner
 {
 	private $_CacheType;

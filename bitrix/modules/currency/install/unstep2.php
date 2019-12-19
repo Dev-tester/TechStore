@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CDatabase $DB */
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
@@ -32,9 +32,9 @@ if ($ex = $APPLICATION->GetException())
 		)
 	);
 }
-?><form action="<? echo $APPLICATION->GetCurPage(); ?>">
+?><form action="<?php  echo $APPLICATION->GetCurPage(); ?>">
 <p>
-	<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
-	<input type="submit" name="" value="<? echo GetMessage('MOD_BACK'); ?>">
+	<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
+	<input type="submit" name="" value="<?php  echo GetMessage('MOD_BACK'); ?>">
 </p>
 <form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COURSE_ID_TIP"] = "Select here one of the existing courses. If you select <b><i>(other)</i></b>, you will have to specify the course ID in the field beside.";
 $MESS["CHAPTER_ID_TIP"] = "The expression that evaluates to the chapter ID.";
 $MESS["CHAPTER_DETAIL_TEMPLATE_TIP"] = "Specifies the path to a course chapter page.";

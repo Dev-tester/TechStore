@@ -1,4 +1,4 @@
-<?
+<?php 
 //Include Lang
 IncludeModuleLangFile(__FILE__);
 

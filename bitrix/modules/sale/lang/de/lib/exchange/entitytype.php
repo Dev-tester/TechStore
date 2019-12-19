@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_TYPE_INVOICE"] = "Rechnung";
 $MESS["SALE_TYPE_INVOICE_SHIPMENT"] = "Lieferung";
 $MESS["SALE_TYPE_INVOICE_PAYMENT_CASH"] = "Barzahlung";

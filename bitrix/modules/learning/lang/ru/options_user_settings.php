@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['learning_TAB'] = "Обучение";
 $MESS ['learning_TAB_TITLE'] = "Профиль студента";
 $MESS ['learning_RESUME'] = "Резюме";

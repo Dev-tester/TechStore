@@ -1,8 +1,8 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($arResult["VARIABLES"]["PERMISSION"] < "U"):
 	return false;
 endif;
-?><?$arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
+?><?php $arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
 	"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
 	"ELEMENT_ID"	=>	$arResult["VARIABLES"]["ELEMENT_ID"],
@@ -34,7 +34,7 @@ endif;
 );
 ?>
 <h3><?=GetMessage("WD_VERSIONS")?></h3>
-<?$APPLICATION->IncludeComponent("bitrix:webdav.element.version", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:webdav.element.version", ".default", Array(
 	"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
 	"ELEMENT_ID"	=>	$arResult["VARIABLES"]["ELEMENT_ID"],

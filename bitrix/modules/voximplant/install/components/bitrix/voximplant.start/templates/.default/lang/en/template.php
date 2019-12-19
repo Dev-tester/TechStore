@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_START_ACCOUNT_BALANCE"] = "Bitrix24 account balance";
 $MESS["VOX_START_ACCOUNT_SIP_CONNECTOR"] = "SIP connector";
 $MESS["VOX_START_AUTO_PROLONG"] = "Auto renewal enabled";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_VISIT_LEAD_TITLE"] = "New visitor (#DATE#)";
 $MESS["CRM_ACTIVITY_VISIT_LEAD_CREATE_ERROR"] = "Error creating new lead";
 $MESS["CRM_ACTIVITY_VISIT_SUBJECT"] = "Event recording";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_VAL_INN_DESCRIPTION'] = "Проверка ИНН";
 $MESS['FORM_VALIDATOR_VAL_INN_SETTINGS_TYPE'] = "Тип ИНН";
 $MESS['FORM_VALIDATOR_VAL_INN_SETTINGS_TYPE_JUR'] = "юридические лица";

@@ -119,7 +119,7 @@ if($strError == "")
 
 ?>
 <p><?=$chain?></p>
-<?
+<?php 
 
 //endregion
 

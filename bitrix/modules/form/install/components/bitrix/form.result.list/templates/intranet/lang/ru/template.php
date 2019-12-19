@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_RESULT_TITLE"] = "Заявка №";
 $MESS["FORM_WRONG_DATE_CREATE_FROM"] = "Введите правильную дату \"с\" (поле \"Дата ввода\")";
 $MESS["FORM_WRONG_DATE_CREATE_TO"] = "Введите правильную дату \"по\" (поле \"Дата ввода\")";

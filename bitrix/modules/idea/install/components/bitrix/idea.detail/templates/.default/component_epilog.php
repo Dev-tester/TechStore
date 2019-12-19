@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if($arParams["SET_NAV_CHAIN_IDEA"]=="Y")
 {
 	$Category = $arResult["POST_PROPERTIES"]["DATA"]["UF_CATEGORY_CODE"]["VALUE"];

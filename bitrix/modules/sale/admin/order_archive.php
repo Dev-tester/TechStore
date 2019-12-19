@@ -1,4 +1,4 @@
-<?/** @global CMain $APPLICATION */
+<?php /** @global CMain $APPLICATION */
 /** @global CUser $USER */
 /** @global string $DBType */
 /** @global CDatabase $DB */
@@ -894,8 +894,8 @@ function fToggleSetItems(setParentId)
 		BX("set_toggle_link_" + setParentId).innerHTML = '<?=Loc::getMessage("SOA_SHOW_SET")?>';
 }
 </script>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $arFilterFieldsTmp = array(
 	"filter_order_id_from" => Loc::getMessage("SALE_F_ORDER_ID"),
 	"filter_account_number" => Loc::getMessage("SALE_F_ACCOUNT_NUMBER"),
@@ -928,7 +928,7 @@ $oFilter->SetDefaultRows(array("filter_id_from", "filter_id_to"));
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_ORDER_ID");?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_ORDER_ID");?>:</td>
 		<td>
 			<script type="text/javascript">
 				function filter_id_from_Change()
@@ -939,40 +939,40 @@ $oFilter->Begin();
 					}
 				}
 			</script>
-			<?echo Loc::getMessage("SALE_F_FROM");?>
-			<input type="text" name="filter_order_id_from" OnChange="filter_id_from_Change()" value="<?echo ((int)($filter_order_id_from)>0)?(int)($filter_order_id_from):""?>" size="10">
-			<?echo Loc::getMessage("SALE_F_TO");?>
-			<input type="text" name="filter_order_id_to" value="<?echo ((int)($filter_order_id_to)>0)?(int)($filter_order_id_to):""?>" size="10">
+			<?php echo Loc::getMessage("SALE_F_FROM");?>
+			<input type="text" name="filter_order_id_from" OnChange="filter_id_from_Change()" value="<?php echo ((int)($filter_order_id_from)>0)?(int)($filter_order_id_from):""?>" size="10">
+			<?php echo Loc::getMessage("SALE_F_TO");?>
+			<input type="text" name="filter_order_id_to" value="<?php echo ((int)($filter_order_id_to)>0)?(int)($filter_order_id_to):""?>" size="10">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_ACCOUNT_NUMBER");?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_ACCOUNT_NUMBER");?>:</td>
 		<td>
-			<input type="text" name="filter_account_number" value="<?echo htmlspecialcharsbx($filter_account_number)?>" size="10">
+			<input type="text" name="filter_account_number" value="<?php echo htmlspecialcharsbx($filter_account_number)?>" size="10">
 		</td>
 	</tr>
 	<tr>
-		<td><b><?echo Loc::getMessage("SALE_F_DATE");?>:</b></td>
+		<td><b><?php echo Loc::getMessage("SALE_F_DATE");?>:</b></td>
 		<td>
-			<?echo CalendarPeriod("filter_date_from", $filter_date_from, "filter_date_to", $filter_date_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_date_from", $filter_date_from, "filter_date_to", $filter_date_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
 		<td><?=Loc::getMessage("SOA_F_PRICE");?>:</td>
 		<td>
-			<?echo Loc::getMessage("SOA_F_PRICE_FROM");?>
+			<?php echo Loc::getMessage("SOA_F_PRICE_FROM");?>
 			<input type="text" name="filter_price_from" value="<?=((float)($filter_price_from)>0)?(float)($filter_price_from):""?>" size="3">
 
-			<?echo Loc::getMessage("SOA_F_PRICE_TO");?>
+			<?php echo Loc::getMessage("SOA_F_PRICE_TO");?>
 			<input type="text" name="filter_price_to" value="<?=((float)($filter_price_to)>0)?(float)($filter_price_to):""?>" size="3">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_PERSON_TYPE");?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_PERSON_TYPE");?>:</td>
 		<td>
 			<select name="filter_person_type[]" multiple size="3">
-				<option value=""><?echo Loc::getMessage("SALE_F_ALL")?></option>
-				<?
+				<option value=""><?php echo Loc::getMessage("SALE_F_ALL")?></option>
+				<?php 
 					$ptRes = Sale\Internals\PersonTypeTable::getList(array(
 						'order' => array("SORT"=>"ASC", "NAME"=>"ASC")
 					));
@@ -981,41 +981,41 @@ $oFilter->Begin();
 					while ($personType = $ptRes->fetch())
 						$personTypes[$personType['ID']] = $personType;
 					foreach ($personTypes as $personType):
-						?><option value="<?echo htmlspecialcharsbx($personType["ID"])?>"<?if(is_array($filter_person_type) && in_array($personType["ID"], $filter_person_type)) echo " selected"?>>[<?echo htmlspecialcharsbx($personType["ID"]) ?>] <?echo htmlspecialcharsbx($personType["NAME"])?> <?echo "(".htmlspecialcharsbx($personType["LID"]).")";?></option><?
+						?><option value="<?php echo htmlspecialcharsbx($personType["ID"])?>"<?php if(is_array($filter_person_type) && in_array($personType["ID"], $filter_person_type)) echo " selected"?>>[<?php echo htmlspecialcharsbx($personType["ID"]) ?>] <?php echo htmlspecialcharsbx($personType["NAME"])?> <?php echo "(".htmlspecialcharsbx($personType["LID"]).")";?></option><?php 
 					endforeach;
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_USER_ID");?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_USER_ID");?>:</td>
 		<td>
-			<?echo FindUserID("filter_user_id", $filter_user_id, "", "find_form");?>
+			<?php echo FindUserID("filter_user_id", $filter_user_id, "", "find_form");?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_USER_LOGIN");?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_USER_LOGIN");?>:</td>
 		<td>
-			<input type="text" name="filter_user_login" value="<?echo htmlspecialcharsbx($filter_user_login)?>" size="40">
+			<input type="text" name="filter_user_login" value="<?php echo htmlspecialcharsbx($filter_user_login)?>" size="40">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_USER_EMAIL");?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_USER_EMAIL");?>:</td>
 		<td>
-			<input type="text" name="filter_user_email" value="<?echo htmlspecialcharsbx($filter_user_email)?>" size="40">
+			<input type="text" name="filter_user_email" value="<?php echo htmlspecialcharsbx($filter_user_email)?>" size="40">
 		</td>
 	</tr>
 	<tr>
-		<td><b><?echo Loc::getMessage("SALE_F_DATE_ARCHIVED");?>:</b></td>
+		<td><b><?php echo Loc::getMessage("SALE_F_DATE_ARCHIVED");?>:</b></td>
 		<td>
-			<?echo CalendarPeriod("filter_date_archived_from", $filter_date_archived_from, "filter_date_archived_to", $filter_date_archived_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_date_archived_from", $filter_date_archived_from, "filter_date_archived_to", $filter_date_archived_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo Loc::getMessage("SALE_F_STATUS")?>:</td>
+		<td valign="top"><?php echo Loc::getMessage("SALE_F_STATUS")?>:</td>
 		<td valign="top">
 			<select name="filter_status[]" multiple size="3">
-				<?
+				<?php 
 					$statusesList = \Bitrix\Sale\OrderStatus::getStatusesUserCanDoOperations(
 						$USER->GetID(),
 						array('view')
@@ -1027,44 +1027,44 @@ $oFilter->Begin();
 					{
 						if (!$statusName = $allStatusNames[$statusCode])
 							continue;
-						?><option value="<?= htmlspecialcharsbx($statusCode) ?>"<?if(is_array($filter_status) && in_array($statusCode, $filter_status)) echo " selected"?>>[<?= htmlspecialcharsbx($statusCode) ?>] <?= htmlspecialcharsbx($statusName) ?></option><?
+						?><option value="<?= htmlspecialcharsbx($statusCode) ?>"<?php if(is_array($filter_status) && in_array($statusCode, $filter_status)) echo " selected"?>>[<?= htmlspecialcharsbx($statusCode) ?>] <?= htmlspecialcharsbx($statusName) ?></option><?php 
 					}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_CANCELED")?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_CANCELED")?>:</td>
 		<td>
 			<select name="filter_canceled">
-				<option value=""><?echo Loc::getMessage("SALE_F_ALL")?></option>
-				<option value="Y"<?if($filter_canceled=="Y") echo " selected"?>><?echo Loc::getMessage("SALE_YES")?></option>
-				<option value="N"<?if($filter_canceled=="N") echo " selected"?>><?echo Loc::getMessage("SALE_NO")?></option>
+				<option value=""><?php echo Loc::getMessage("SALE_F_ALL")?></option>
+				<option value="Y"<?php if($filter_canceled=="Y") echo " selected"?>><?php echo Loc::getMessage("SALE_YES")?></option>
+				<option value="N"<?php if($filter_canceled=="N") echo " selected"?>><?php echo Loc::getMessage("SALE_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_DEDUCTED")?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_DEDUCTED")?>:</td>
 		<td>
 			<select name="filter_deducted">
-				<option value=""><?echo Loc::getMessage("SALE_F_ALL")?></option>
-				<option value="Y"<?if($filter_deducted=="Y") echo " selected"?>><?echo Loc::getMessage("SALE_YES")?></option>
-				<option value="N"<?if($filter_deducted=="N") echo " selected"?>><?echo Loc::getMessage("SALE_NO")?></option>
+				<option value=""><?php echo Loc::getMessage("SALE_F_ALL")?></option>
+				<option value="Y"<?php if($filter_deducted=="Y") echo " selected"?>><?php echo Loc::getMessage("SALE_YES")?></option>
+				<option value="N"<?php if($filter_deducted=="N") echo " selected"?>><?php echo Loc::getMessage("SALE_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_PAYED")?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_PAYED")?>:</td>
 		<td>
 			<select name="filter_payed">
-				<option value=""><?echo Loc::getMessage("SALE_F_ALL")?></option>
-				<option value="Y"<?if($filter_payed=="Y") echo " selected"?>><?echo Loc::getMessage("SALE_YES")?></option>
-				<option value="N"<?if($filter_payed=="N") echo " selected"?>><?echo Loc::getMessage("SALE_NO")?></option>
+				<option value=""><?php echo Loc::getMessage("SALE_F_ALL")?></option>
+				<option value="Y"<?php if($filter_payed=="Y") echo " selected"?>><?php echo Loc::getMessage("SALE_YES")?></option>
+				<option value="N"<?php if($filter_payed=="N") echo " selected"?>><?php echo Loc::getMessage("SALE_NO")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SALE_F_ID");?>:</td>
+		<td><?php echo Loc::getMessage("SALE_F_ID");?>:</td>
 		<td>
 			<script type="text/javascript">
 				function filter_id_from_Change()
@@ -1075,14 +1075,14 @@ $oFilter->Begin();
 					}
 				}
 			</script>
-			<?echo Loc::getMessage("SALE_F_FROM");?>
-			<input type="text" name="filter_id_from" OnChange="filter_id_from_Change()" value="<?echo ((int)($filter_id_from)>0)?(int)($filter_id_from):""?>" size="10">
-			<?echo Loc::getMessage("SALE_F_TO");?>
-			<input type="text" name="filter_id_to" value="<?echo ((int)($filter_id_to)>0)?(int)($filter_id_to):""?>" size="10">
+			<?php echo Loc::getMessage("SALE_F_FROM");?>
+			<input type="text" name="filter_id_from" OnChange="filter_id_from_Change()" value="<?php echo ((int)($filter_id_from)>0)?(int)($filter_id_from):""?>" size="10">
+			<?php echo Loc::getMessage("SALE_F_TO");?>
+			<input type="text" name="filter_id_to" value="<?php echo ((int)($filter_id_to)>0)?(int)($filter_id_to):""?>" size="10">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo Loc::getMessage("SO_PRODUCT_ID")?></td>
+		<td><?php echo Loc::getMessage("SO_PRODUCT_ID")?></td>
 		<td>
 			<script type="text/javascript">
 				function FillProductFields(arParams)
@@ -1135,7 +1135,7 @@ $oFilter->Begin();
 	<tr>
 		<td><?=Loc::getMessage('SO_XML_ID')?>:</td>
 		<td>
-			<input type="text" name="filter_xml_id" value="<?echo htmlspecialcharsbx($filter_xml_id)?>" size="40">
+			<input type="text" name="filter_xml_id" value="<?php echo htmlspecialcharsbx($filter_xml_id)?>" size="40">
 		</td>
 	</tr>
 	<script>
@@ -1175,7 +1175,7 @@ $oFilter->Begin();
 			}
 		}
 	</script>
-<?
+<?php 
 
 $oFilter->Buttons(
 	array(
@@ -1188,7 +1188,7 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

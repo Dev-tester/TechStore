@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_LIST_ADD_CAPTION"] = "Add new form";
 $MESS["CRM_WEBFORM_LIST_ADD_DESC1"] = "Click here to create a form";
 $MESS["CRM_WEBFORM_LIST_ADS_FORM_DESC_HINT_FACEBOOK"] = "The form is linked to Facebook.<br>Facebook ad forms are now submitted to the CRM.<br>You cannot edit the form as long as it is linked to Facebook.";

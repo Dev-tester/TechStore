@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_COLUMN_PROJECT'] = 'Проекты c моим участием';
 $MESS['TASKS_COLUMN_IN_WORK'] = 'Задач в работе';
 $MESS['TASKS_COLUMN_COMPLETE'] = 'Выполнено';

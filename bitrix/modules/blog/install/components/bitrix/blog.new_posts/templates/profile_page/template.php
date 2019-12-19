@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if(count($arResult) <= 0)
 	echo GetMessage("SONET_BLOG_LM_EMPTY");
 	
@@ -6,11 +6,11 @@ foreach($arResult as $arPost)
 {
 	if($arPost["FIRST"]!="Y")
 	{
-		?><div class="blog-profile-line"></div><?
+		?><div class="blog-profile-line"></div><?php 
 	}
 	?>
 	<span class="blog-profile-post-date"><?=$arPost["DATE_PUBLISH_FORMATED"]?></span><br />
-	<?
+	<?php 
 	if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($arPost["urlToBlog"]) > 0 || strlen($arPost["urlToAuthor"]) > 0) && array_key_exists("BLOG_USER_ALIAS", $arPost) && strlen($arPost["BLOG_USER_ALIAS"]) > 0)
 		$arTmpUser = array(
 			"NAME" => "",
@@ -28,7 +28,7 @@ foreach($arResult as $arPost)
 			"NAME_LIST_FORMATTED" => "",
 		);	
 	?>			
-	<?
+	<?php 
 	$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 		'',
 		array(
@@ -60,20 +60,20 @@ foreach($arResult as $arPost)
 	);
 	?>			
 	<br />
-	<b><a href="<?=$arPost["urlToPost"]?>"><?echo $arPost["TITLE"]; ?></a></b><br /><br />
-	<?
+	<b><a href="<?=$arPost["urlToPost"]?>"><?php echo $arPost["TITLE"]; ?></a></b><br /><br />
+	<?php 
 	if(strlen($arPost["IMG"]) > 0)
 		echo $arPost["IMG"];
 	?>
 	<?=$arPost["TEXT_FORMATED"]?><br clear="left"/><br />
 
 	<span class="blog-profile-post-info">
-		<?if(IntVal($arPost["VIEWS"]) > 0):?>
+		<?php if(IntVal($arPost["VIEWS"]) > 0):?>
 			<span class="blog-eye"><?=GetMessage("SONET_BLOG_LM_VIEWS")?></span>:&nbsp;<?=$arPost["VIEWS"]?>&nbsp;
-		<?endif;?>
-		<?if(IntVal($arPost["NUM_COMMENTS"]) > 0):?>
+		<?php endif;?>
+		<?php if(IntVal($arPost["NUM_COMMENTS"]) > 0):?>
 			<span class="blog-comment-num"><?=GetMessage("SONET_BLOG_LM_NUM_COMMENTS")?></span>:&nbsp;<?=$arPost["NUM_COMMENTS"]?>
-		<?endif;?>
+		<?php endif;?>
 	</span>
-	<?
+	<?php 
 }

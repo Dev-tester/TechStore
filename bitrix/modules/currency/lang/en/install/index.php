@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_INSTALL_NAME"] = "Currency";
 $MESS["CURRENCY_INSTALL_DESCRIPTION"] = "The Currencies module provides for easy management of currencies and currency rates on the site.";
 $MESS["CURRENCY_INSTALL_TITLE"] = "Currencies module installation";

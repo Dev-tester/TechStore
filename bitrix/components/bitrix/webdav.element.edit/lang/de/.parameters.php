@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACTION'] = "Aktion vom Element";
 $MESS ['WD_SECTION_LIST_URL'] = "Seite mit dem Katalog";
 $MESS ['WD_CHECK_CREATOR'] = "Urheber der Datei überprüfen";

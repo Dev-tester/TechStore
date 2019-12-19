@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_IBLOCK_TYPE"] = "Information Block Type";
 $MESS["WD_IBLOCK_ID"] = "Information Block";
 $MESS["WD_SECTION_ID"] = "Catalog ID";

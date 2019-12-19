@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (count($arResult['BANNERS']) > 0):?>
+<?php if (count($arResult['BANNERS']) > 0):?>
 
-<?
+<?php 
 	$this->addExternalCss("/bitrix/css/main/bootstrap.css");
 	$this->addExternalCss("/bitrix/css/main/font-awesome.css");
 	$this->addExternalCss("/bitrix/themes/.default/banner.css");
@@ -22,19 +22,19 @@
 	$frame = $this->createFrame()->begin("");
 ?>
 
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	<div id='tPreview' style="display:none;margin:auto;">
-<?endif;?>
+<?php endif;?>
 
 <div id="carousel-<?=$arResult['ID']?>" class="carousel <?=$arParams['BS_EFFECT']?><?=$arParams['BS_HIDE_FOR_TABLETS']?><?=$arParams['BS_HIDE_FOR_PHONES']?>" data-interval="<?=$arParams['BS_INTERVAL']?>" data-wrap="<?=$arParams['BS_WRAP']?>" data-pause="<?=$arParams['BS_PAUSE']?>" data-keyboard="<?=$arParams['BS_KEYBOARD']?>" data-ride="carousel">
 	<style>
-		<?if($arParams['BS_EFFECT']=='fade'):?>
+		<?php if($arParams['BS_EFFECT']=='fade'):?>
 		.carousel.fade {opacity: 1;}
 		.carousel.fade .item {-moz-transition: opacity ease-in-out .7s;-o-transition: opacity ease-in-out .7s;-webkit-transition: opacity ease-in-out .7s;transition: opacity ease-in-out .7s;
 			left: 0 !important;opacity: 0;top:0;position:absolute;width: 100%;display:block !important;z-index:1;}
 		.carousel.fade .item:first-child {top:auto;position:relative;}
 		.carousel.fade .item.active {opacity: 1;-moz-transition: opacity ease-in-out .7s;-o-transition: opacity ease-in-out .7s;-webkit-transition: opacity ease-in-out .7s;transition: opacity ease-in-out .7s;z-index:2;}
-		<?endif;?>
+		<?php endif;?>
 		.carousel .carousel-control{z-index:4}
 		.carousel-control .icon-prev:before{content: '';}
 		.carousel-control .icon-next:before{content: '';}
@@ -43,26 +43,26 @@
 		.carousel-control.right{background-image:none}
 		.carousel-control.left{background-image:none}
 	</style>
-	<?if($arParams['BS_BULLET_NAV'] == 'Y' || $arParams['BS_PREVIEW'] == 'Y'):?>
+	<?php if($arParams['BS_BULLET_NAV'] == 'Y' || $arParams['BS_PREVIEW'] == 'Y'):?>
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
-		<?$i = 0;?>
-		<?while($i < count($arResult['BANNERS'])):?>
-			<li data-target="#carousel-<?=$arResult['ID']?>" data-slide-to="<?=$i?>" <?if($i==0) echo 'class="active"';$i++?>></li>
-		<?endwhile;?>
+		<?php $i = 0;?>
+		<?php while($i < count($arResult['BANNERS'])):?>
+			<li data-target="#carousel-<?=$arResult['ID']?>" data-slide-to="<?=$i?>" <?php if($i==0) echo 'class="active"';$i++?>></li>
+		<?php endwhile;?>
 		</ol>
-	<?endif;?>
+	<?php endif;?>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
-	<?foreach($arResult["BANNERS"] as $k => $banner):?>
-		<div class="item <?if($k==0) echo 'active';?>">
+	<?php foreach($arResult["BANNERS"] as $k => $banner):?>
+		<div class="item <?php if($k==0) echo 'active';?>">
 			<?=$banner?>
 		</div>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</div>
 
-	<?if($arParams['BS_ARROW_NAV'] == 'Y' || $arParams['PREVIEW'] == 'Y'):?>
+	<?php if($arParams['BS_ARROW_NAV'] == 'Y' || $arParams['PREVIEW'] == 'Y'):?>
 		<!-- Controls -->
 		<a href="#carousel-<?=$arResult['ID']?>" class="left carousel-control" data-slide="prev">
 		<span class="icon-prev fa-stack fa-lg">
@@ -74,7 +74,7 @@
 			<i class="fa fa-angle-right fa-stack-2x"></i>
 		</span>
 		</a>
-	<?endif;?>
+	<?php endif;?>
 
 	<script>
 		BX("carousel-<?=$arResult['ID']?>").addEventListener("slid.bs.carousel", function (e) {
@@ -144,7 +144,7 @@
 		}
 	</script>
 </div>
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	</div>
 	<script>
 		(function(){
@@ -167,8 +167,8 @@
 			BX('tPreview').style.display = '';
 		})();
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?$frame->end();?>
+<?php $frame->end();?>
 
-<?endif;?>
+<?php endif;?>

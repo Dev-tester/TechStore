@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_WRONG_TIMESTAMP_FROM"] = "Geben Sie im Filter richtiges Änderungsdatum \"von\" an";
 $MESS["SALE_WRONG_TIMESTAMP_TILL"] = "Geben Sie im Filter richtiges Änderungsdatum \"bis\" an";
 $MESS["SALE_FROM_TILL_TIMESTAMP"] = "Das Änderungsdatum  \"bis\" muss höher sein als das Datum \"von\"";

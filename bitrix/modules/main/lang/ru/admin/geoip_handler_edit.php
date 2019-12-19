@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GEOIP_EDIT_TITLE"] = "Настройка обработчика геолокации";
 $MESS["GEOIP_EDIT_LIST"] = "Список";
 $MESS["GEOIP_EDIT_LIST_T"] = "Список обработчиков геолокации";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_USER_integrator"] = "Bitrix24 partner";
 $MESS["SONET_MANAGERS"] = "Supervisor";
 $MESS["SONET_SUBORDINATE"] = "Subordinates";

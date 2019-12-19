@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTACT_CENTER_ADS_FORM_FACEBOOK"] = "Facebook Lead Ads";
 $MESS["CONTACT_CENTER_ADS_FORM_SETTINGS_FORM"] = "Edit form";
 $MESS["CONTACT_CENTER_ADS_FORM_SETTINGS_LINK"] = "Edit #NAME# connection parameters";

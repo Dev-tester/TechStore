@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_IMAGE"] = "Image";
 $MESS["BLOG_DELETE"] = "delete";
 $MESS["BLOG_CATEGORY"] = "Tags";

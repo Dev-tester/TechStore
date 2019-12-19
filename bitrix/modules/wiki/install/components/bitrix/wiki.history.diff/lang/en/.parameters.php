@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_PATH_TO_POST"] = "Wiki Page Path Template";
 $MESS["WIKI_PATH_TO_POST_EDIT"] = "Wiki Page Editor Path Template";
 $MESS["WIKI_PATH_TO_PAGES"] = "Wiki Pages List Path Template";

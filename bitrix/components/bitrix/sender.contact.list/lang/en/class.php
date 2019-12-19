@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONTACT_LIST_TITLE1"] = "Recipients";
 $MESS["SENDER_CONTACT_LIST_UI_COLUMN_SET_ID"] = "Custom recipient list";
 $MESS["SENDER_CONTACT_LIST_UI_COLUMN_IS_SUBSCRIBED"] = "Subscribed";

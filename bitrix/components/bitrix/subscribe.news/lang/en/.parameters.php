@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CP_BSN_ORDER_ASC'] = "Ascending";
 $MESS ['CP_BSN_ORDER_DESC'] = "Descending";
 $MESS ['CP_BSN_ACTIVE_FROM'] = "Activation date";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_ODCA_COMPANY'] = "Company";
 $MESS['CRM_ODCA_CONTACT'] = "Contact";
 $MESS['CRM_ODCA_DATE_UPDATED'] = "Modified on";

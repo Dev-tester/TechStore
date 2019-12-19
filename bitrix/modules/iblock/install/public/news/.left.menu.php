@@ -1,4 +1,4 @@
-<?
+<?php 
 $aMenuLinks = Array(
 	Array(
 		GetMessage("IBLOCK_INSTALL_LEFT_MENU"),

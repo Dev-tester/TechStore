@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_ADD_PAGE_TO_FAVORITES"] = "Add a page to favorites";
 $MESS["MAIN_HELP"] = "Context help";
 $MESS["TOP_ADMIN_ENTER"] = "Administrative section";

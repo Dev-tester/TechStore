@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_convert_title"] = "E-mail Marketing module data conversion";
 $MESS["sender_convert_tab_convert_name"] = "Conversion";
 $MESS["sender_convert_tab_convert_title"] = "Data conversion";

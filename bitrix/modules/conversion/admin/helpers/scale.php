@@ -31,7 +31,7 @@ function renderFilter(array $filter)
 				"><?=Loc::getMessage('CONVERSION_FILTER_APPLY')?></span>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 
 function renderMenu($id, $items)
@@ -43,7 +43,7 @@ function renderMenu($id, $items)
 			this.blur();
 
 			BX.adminShowMenu(this,
-				<?
+				<?php 
 
 				$json = array();
 
@@ -63,7 +63,7 @@ function renderMenu($id, $items)
 			return false;
 		};
 	</script>
-	<?
+	<?php 
 }
 
 function renderSite($siteName, array $siteMenu)
@@ -73,9 +73,9 @@ function renderSite($siteName, array $siteMenu)
 		<?=Loc::getMessage('CONVERSION_SITE')?>:
 		<span id="bitrix-conversion-site" class="adm-profit-title-name"><?=htmlspecialcharsbx($siteName) ?></span>
 		<span class="adm-profit-title-name-select"></span>
-		<?renderMenu('bitrix-conversion-site', $siteMenu)?>
+		<?php renderMenu('bitrix-conversion-site', $siteMenu)?>
 	</div>
-	<?
+	<?php 
 }
 
 function renderScale(array $param)
@@ -83,7 +83,7 @@ function renderScale(array $param)
 	?>
 	<div class="adm-profit-scale-block">
 
-		<?renderSite($param['SITE_NAME'], $param['SITE_MENU'])?>
+		<?php renderSite($param['SITE_NAME'], $param['SITE_MENU'])?>
 
 		<br>
 
@@ -115,7 +115,7 @@ function renderScale(array $param)
 				<div class="adm-profit-scale-num-l">0%</div>
 				<div class="adm-profit-scale-num-r"><?=end($param['SCALE'])?>%</div>
 				<div class="adm-profit-scale-separation-inner">
-					<?
+					<?php 
 
 					$conversion = $param['CONVERSION'];
 
@@ -151,6 +151,6 @@ function renderScale(array $param)
 		<span class="adm-description-title"><?=Loc::getMessage('CONVERSION_DESCRIPTION_TITLE')?></span>
 		<span class="adm-clarification"><?=Loc::getMessage('CONVERSION_DESCRIPTION')?></span>
 	</div>
-	<?
+	<?php 
 }
 

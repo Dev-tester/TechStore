@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
@@ -30,7 +30,7 @@ if (!$arResult["ENABLE_EXPORT"])
 			B24.licenseInfoPopup.show(dialogId, "<?=CUtil::JSEscape($arResult["TRIAL_TEXT"]['TITLE'])?>", "<?=CUtil::JSEscape($arResult["TRIAL_TEXT"]['TEXT'])?>");
 		}
 	</script>
-	<?
+	<?php 
 }
 
 $isBitrix24Template = (SITE_TEMPLATE_ID == "bitrix24");
@@ -40,7 +40,7 @@ if($isBitrix24Template)
 	$APPLICATION->SetPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."pagetitle-toolbar-field-view");
 
 	$this->SetViewTarget("inside_pagetitle", 0);
-	?><div class="pagetitle-container pagetitle-flexible-space"><?
+	?><div class="pagetitle-container pagetitle-flexible-space"><?php 
 }
 
 $APPLICATION->IncludeComponent(
@@ -67,11 +67,11 @@ $APPLICATION->IncludeComponent(
 			<span class="webform-small-button-right"></span>
 		</span>
 	</div>
-<?
+<?php 
 
 if($isBitrix24Template)
 {
-	?></div><?
+	?></div><?php 
 	$this->EndViewTarget();
 
 	$isAdmin = CModule::IncludeModule('bitrix24') ? \CBitrix24::isPortalAdmin($USER->getId()) : $USER->IsAdmin();

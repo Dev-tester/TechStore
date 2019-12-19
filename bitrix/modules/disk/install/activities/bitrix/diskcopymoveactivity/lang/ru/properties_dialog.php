@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDCM_PD_ENTITY'] = "Куда";
 $MESS ['BPDCM_PD_ENTITY_TYPE_USER'] = "Диск пользователя";
 $MESS ['BPDCM_PD_ENTITY_TYPE_SG'] = "Диск группы соц.сети";

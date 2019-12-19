@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -61,7 +61,7 @@ $dictionaryTimeList = array(
 	});
 </script>
 
-<?
+<?php 
 $getSenderItemContainer = function (array $letter = []) use ($arParams)
 {
 	ob_start();
@@ -111,7 +111,7 @@ $getSenderItemContainer = function (array $letter = []) use ($arParams)
 						<?=Loc::getMessage("SENDER_TRIGGER_CHAIN_FIELD_CREATED")?>
 					</span>
 					<span>
-						<?
+						<?php 
 						echo Loc::getMessage("SENDER_TRIGGER_CHAIN_FIELD_CREATED_TEXT", array(
 							'%DATE_CREATE%' => '<span data-role="letter-date">'
 								. htmlspecialcharsbx($letter['DATE_INSERT'])
@@ -129,16 +129,16 @@ $getSenderItemContainer = function (array $letter = []) use ($arParams)
 					onclick="BX.Sender.Page.open('<?=CUtil::JSEscape($letter['URLS']['EDIT'])?>');"
 					class="ui-btn ui-btn-sm ui-btn-light-border"
 				>
-					<?if($arParams['CAN_EDIT']):?>
+					<?php if($arParams['CAN_EDIT']):?>
 						<?=Loc::getMessage('SENDER_TRIGGER_CHAIN_LETTER_EDIT')?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('SENDER_TRIGGER_CHAIN_LETTER_VIEW')?>
-					<?endif;?>
+					<?php endif;?>
 				</a>
 
 			</div>
 	</div>
-	<?
+	<?php 
 
 	return ob_get_clean();
 }
@@ -157,7 +157,7 @@ $getSenderItemContainer = function (array $letter = []) use ($arParams)
 		])?>
 	</script>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:sender.ui.panel.title", "", array('LIST' => array(
 		array('type' => 'buttons', 'list' => array(
 			array('type' => 'feedback')
@@ -168,9 +168,9 @@ $getSenderItemContainer = function (array $letter = []) use ($arParams)
 	<div id="SENDER_TIME_DIALOG" class="sender-time-dialog">
 		<b><?=Loc::getMessage("SENDER_TRIGGER_CHAIN_TIME_DIALOG_TITLE")?></b> <br><br>
 		<select id="SENDER_TIME_DIALOG_TYPE">
-			<?foreach($dictionaryTimeList as $timeItem):?>
+			<?php foreach($dictionaryTimeList as $timeItem):?>
 				<option	value="<?=$timeItem['TYPE']?>"><?=$timeItem['TEXT']?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 
 		<input type="text" id="SENDER_TIME_DIALOG_VALUE" value="">
@@ -190,7 +190,7 @@ $getSenderItemContainer = function (array $letter = []) use ($arParams)
 	</div>
 
 	<div data-role="letters" class="trigger_chain">
-		<?
+		<?php 
 		$i = 0;
 		foreach($arResult['LETTERS'] as $letter):
 			$i++;
@@ -212,7 +212,7 @@ $getSenderItemContainer = function (array $letter = []) use ($arParams)
 		<div class="sender-mailing-group-container sender-mailing-group-ok">
 			<span class="sender-mailing-group-container-title">
 				<span>
-					<?
+					<?php 
 					if(strlen($arResult['ROW']['TRIGGER_FIELDS']['END']['NAME']) > 0)
 						echo htmlspecialcharsbx($arResult['ROW']['TRIGGER_FIELDS']['END']['NAME']);
 					else
@@ -223,7 +223,7 @@ $getSenderItemContainer = function (array $letter = []) use ($arParams)
 		</div>
 	</div>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:sender.ui.button.panel",
 		"",

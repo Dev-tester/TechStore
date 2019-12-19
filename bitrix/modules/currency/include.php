@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 
 global $DB;

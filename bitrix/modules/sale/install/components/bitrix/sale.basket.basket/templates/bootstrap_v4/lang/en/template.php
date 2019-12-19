@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBB_FILTER_EMPTY_RESULT"] = "No products were found matching your selection";
 $MESS["SBB_BASKET_ITEM_WARNING"] = "In your cart <a href=\"javascript:void(0)\" data-entity=\"basket-items-warning-count\"></a> with error.";
 $MESS["SBB_BASKET_FILTER"] = "Filter";

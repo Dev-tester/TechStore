@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ID_TIP"] = "Specifies the code in which the blog post ID will be passed.";
 $MESS["BLOG_URL_TIP"] = "Specifies the code in which the blog ID will be passed.";
 $MESS["PATH_TO_BLOG_TIP"] = "The path to the main blog page. Example: blog_blog.php?page=blog&blog=#blog#.";

@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="photo-page-detail-edit">
-<?$ElementID = $APPLICATION->IncludeComponent(
+<?php $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail.edit",
 	"",
 	Array(

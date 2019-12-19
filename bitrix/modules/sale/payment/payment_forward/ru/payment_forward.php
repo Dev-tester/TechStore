@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SPFP_DTITLE"] = "Наложенный платеж";

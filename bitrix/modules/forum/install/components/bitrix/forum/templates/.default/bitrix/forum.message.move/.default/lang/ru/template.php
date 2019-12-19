@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_BUTTON_MOVE"] = "Перенести";
 $MESS["F_TITLE"] = "Перемещение сообщений";
 $MESS["F_TITLE_ON_FORUM"] = "в форуме";

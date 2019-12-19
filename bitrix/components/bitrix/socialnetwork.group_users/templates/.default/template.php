@@ -1,19 +1,19 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	if ($arResult["CurrentUserPerms"]["UserCanInitiate"]):
 
-		?><?
+		?><?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:socialnetwork.group.iframe.popup",
 			".default",
@@ -47,22 +47,22 @@ else
 		);
 			
 		$strOnClick = "if (BX.SGCP) { BX.SGCP.ShowForm('invite', '".$popupName."', event); } else { return false;}";
-		?><?
+		?><?php 
 
 		?><div class="sonet-add-user-button">
 			<a class="sonet-add-user-button-left" onclick="<?=$strOnClick?>" href="<?= $arResult["Urls"]["GroupInvite"] ?>" title="<?= GetMessage("SONET_C25_T_INVITE") ?>"></a>
 			<div class="sonet-add-user-button-fill"><a onclick="<?=$strOnClick?>" href="<?= $arResult["Urls"]["GroupInvite"] ?>" class="sonet-add-user-button-fill-text"><?= GetMessage("SONET_C25_T_INVITE") ?></a></div>
 			<a class="sonet-add-user-button-right" onclick="<?=$strOnClick?>" href="<?= $arResult["Urls"]["GroupInvite"] ?>" title="<?= GetMessage("SONET_C25_T_INVITE") ?>"></a>
 			<div class="sonet-add-user-button-clear"></div>
-		</div><?
+		</div><?php 
 	endif;
 	
 	if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"] || $arResult["CurrentUserPerms"]["UserCanModerateGroup"]):
-		?><form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data"><?
+		?><form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data"><?php 
 	endif;
 	
 	if (StrLen($arResult["NAV_STRING"]) > 0):
-		?><?=$arResult["NAV_STRING"]?><br /><br /><?
+		?><?=$arResult["NAV_STRING"]?><br /><br /><?php 
 	endif;
 	?>
 	<div class="sonet-cntnr-group-users">
@@ -72,11 +72,11 @@ else
 	</tr>
 	<tr>
 		<td>
-		<?
+		<?php 
 		if ($arResult["Users"] && $arResult["Users"]["List"])
 		{
 			?><br />
-			<div class="bx-links-container"><?
+			<div class="bx-links-container"><?php 
 			if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):
 				?><script>
 					var arUsers = []; 
@@ -103,20 +103,20 @@ else
 
 					function SetOwner(id)
 					{
-						var url = '/bitrix/tools/sonet_group_set_owner.php?GROUP_ID=<?echo $arResult["Group"]["ID"]?>&USER_ID=' + parseInt(id) + '&<?echo bitrix_sessid_get()?>';
+						var url = '/bitrix/tools/sonet_group_set_owner.php?GROUP_ID=<?php echo $arResult["Group"]["ID"]?>&USER_ID=' + parseInt(id) + '&<?php echo bitrix_sessid_get()?>';
 						jsUtils.LoadPageToDiv(url, 'blank')
 					}
 
 					window.onload = function() {if (arUsers.length > 0) document.getElementById('bx_owner_link').style.display = 'inline';}
 				</script><span id="blank"></span>
-				<a href="javascript:void(0)" class="bx-owner-link" id="bx_owner_link" onclick="ShowOwnerMenu(this);" style="display: none;"><span><?echo GetMessage('SONET_C25_T_OWNER')?></span></a><?
+				<a href="javascript:void(0)" class="bx-owner-link" id="bx_owner_link" onclick="ShowOwnerMenu(this);" style="display: none;"><span><?php echo GetMessage('SONET_C25_T_OWNER')?></span></a><?php 
 			endif;
 			?></div>
 				
 			<table width="100%" border="0" class="sonet-user-profile-friend-box">
 			<tr>
 				<td align="left" valign="top">
-				<?
+				<?php 
 				$ind = 0;
 				$ind_row = 0;					
 				
@@ -132,18 +132,18 @@ else
 						$ind_row = 0;
 					}
 						
-					?><div class="user-div"><?
+					?><div class="user-div"><?php 
 					
 					if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"] || $arResult["CurrentUserPerms"]["UserCanModerateGroup"])
 					{
 						?><table cellspacing="0" cellpadding="0" border="0" class="sonet-user-profile-friend-user">
 						<tr>
-							<td align="right" class="checkbox-cell"><?
+							<td align="right" class="checkbox-cell"><?php 
 							if (!$friend["IS_MODERATOR"])
 								echo "<input type=\"checkbox\" name=\"checked_".$ind."\" value=\"Y\">";
 							echo "<input type=\"hidden\" name=\"id_".$ind."\" value=\"".$friend["ID"]."\">";
 							?></td>
-							<td><?
+							<td><?php 
 					}
 
 					if ($friend["IS_MODERATOR"])
@@ -183,48 +183,48 @@ else
 					{
 							?></td>
 						</tr>
-						</table><?
+						</table><?php 
 					}
 
 					$ind++;
 					$ind_row++;
-					?></div><?
+					?></div><?php 
 					if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):
-						?><script>arUsers[arUsers.length] = {ID:<?echo $friend["USER_ID"]?>,NAME:'<?echo CUtil::JSEscape(htmlspecialcharsback($friend["USER_NAME_FORMATTED"]))?>',CURRENT:<?echo $friend["IS_OWNER"] ? 'true' : 'false'?>}</script><?	
+						?><script>arUsers[arUsers.length] = {ID:<?php echo $friend["USER_ID"]?>,NAME:'<?php echo CUtil::JSEscape(htmlspecialcharsback($friend["USER_NAME_FORMATTED"]))?>',CURRENT:<?php echo $friend["IS_OWNER"] ? 'true' : 'false'?>}</script><?php 	
 					endif;
 				}
 				?></td>
 			</tr>
-			</table><?
+			</table><?php 
 		}
 		else
 			echo GetMessage("SONET_C25_T_EMPTY");
 			
 		if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):
-			?><a href="<?= $arResult["Urls"]["GroupMods"] ?>"><?= GetMessage("SONET_C25_T_EDIT_MOD") ?></a><?
+			?><a href="<?= $arResult["Urls"]["GroupMods"] ?>"><?= GetMessage("SONET_C25_T_EDIT_MOD") ?></a><?php 
 		endif;
 		?></td>
 	</tr>
 	</table>
 	</div>
-	<?
+	<?php 
 	if (StrLen($arResult["NAV_STRING"]) > 0):
-		?><br><?=$arResult["NAV_STRING"]?><br /><br /><?
+		?><br><?=$arResult["NAV_STRING"]?><br /><br /><?php 
 	endif;
 	
 	if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"] || $arResult["CurrentUserPerms"]["UserCanModerateGroup"]):
 		?><br />
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
-		<?=bitrix_sessid_post()?><?
+		<?=bitrix_sessid_post()?><?php 
 		if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):
-			?><input type="submit" name="save" value="<?= GetMessage("SONET_C25_T_SAVE") ?>"><?
-			?><input type="submit" name="exclude" value="<?= GetMessage("SONET_C25_T_EXCLUDE") ?>"><?
+			?><input type="submit" name="save" value="<?= GetMessage("SONET_C25_T_SAVE") ?>"><?php 
+			?><input type="submit" name="exclude" value="<?= GetMessage("SONET_C25_T_EXCLUDE") ?>"><?php 
 		endif;
 		
 		if ($arParams["GROUP_USE_BAN"] != "N" && (!CModule::IncludeModule('extranet') || !CExtranet::IsExtranetSite())):
-			?><input type="submit" name="ban" value="<?= GetMessage("SONET_C25_T_BAN") ?>"><?
+			?><input type="submit" name="ban" value="<?= GetMessage("SONET_C25_T_BAN") ?>"><?php 
 		endif;
-	?></form><?
+	?></form><?php 
 	endif;
 	
 }

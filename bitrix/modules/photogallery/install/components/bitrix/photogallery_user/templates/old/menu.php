@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$result = $APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $result = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.user",
 	".default",
 	Array(
@@ -36,7 +36,7 @@
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 
 $this->__component->__photogallery_values = $result;
 

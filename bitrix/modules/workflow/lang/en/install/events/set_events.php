@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WF_STATUS_CHANGE_NAME"] = "Document status was changed";
 $MESS["WF_STATUS_CHANGE_DESC"] = "#ID# - ID
 #ADMIN_EMAIL# - Emails of workflow administrators

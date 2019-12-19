@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NTR_MAIL_PAGE_TITLE"] = "Mailbox Integration";
 $MESS["INTR_MAIL_B24_PAGE_TITLE"] = "Bitrix24.Mail";
 $MESS["INTR_MAIL_DOMAIN_PAGE_TITLE"] = "Add E-Mail Domain";

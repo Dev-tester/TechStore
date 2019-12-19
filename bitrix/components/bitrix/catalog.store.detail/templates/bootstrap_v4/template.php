@@ -1,53 +1,53 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 
 <div class="row mb-4" itemscope itemtype="http://schema.org/LocalBusiness">
 	<div class="col">
 		<div class="mb-2">
-			<? if(isset($arResult["LIST_URL"])):?>
+			<?php  if(isset($arResult["LIST_URL"])):?>
 				<div class="mb-2">
 					<a itemprop="url" href="<?=$arResult["LIST_URL"]?>"><?=GetMessage("BACK_STORE_LIST")?></a>
 				</div>
-			<?endif;?>
-			<?if($arResult["TITLE"]):?>
+			<?php endif;?>
+			<?php if($arResult["TITLE"]):?>
 				<strong><?=$arResult["TITLE"];?></strong>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 		<div class="row mb-3 align-items-start">
 			<div class="col">
-				<?if($arResult["DESCRIPTION"]):?>
+				<?php if($arResult["DESCRIPTION"]):?>
 					<p class="mb-4" itemprop="description"><?=$arResult["DESCRIPTION"]?></p>
-				<?endif;?>
-				<? if(isset($arResult["PHONE"]) && $arResult["PHONE"] != ''):?>
+				<?php endif;?>
+				<?php  if(isset($arResult["PHONE"]) && $arResult["PHONE"] != ''):?>
 					<div class="mb-2" itemprop="telephone">
 						<div class="text-dark"><?=GetMessage("S_PHONE")?></div>
 						<div class="text-muted"><?=$arResult["PHONE"]?></div>
 					</div>
-				<?endif;?>
-				<? if(isset($arResult["SCHEDULE"]) && $arResult["PHONE"] != ''):?>
+				<?php endif;?>
+				<?php  if(isset($arResult["SCHEDULE"]) && $arResult["PHONE"] != ''):?>
 					<div class="mb-2">
 						<div class="text-dark"><?=GetMessage("SCHEDULE")?></div>
 						<div class="text-muted"><?=$arResult["SCHEDULE"]?></div>
 					</div>
-				<?endif;?>
-				<? if(isset($arResult["ADDRESS"]) && $arResult["ADDRESS"] != ''):?>
+				<?php endif;?>
+				<?php  if(isset($arResult["ADDRESS"]) && $arResult["ADDRESS"] != ''):?>
 					<div class="mb-2" itemprop="address">
 						<div class="text-dark"><?=GetMessage("S_ADDRESS")?></div>
 						<div class="text-muted"><?=$arResult["ADDRESS"]?></div>
 					</div>
-				<?endif;?>
+				<?php endif;?>
 			</div>
-			<? if(intval($arResult["IMAGE_ID"]) > 0):?>
+			<?php  if(intval($arResult["IMAGE_ID"]) > 0):?>
 				<div class="col-sm-auto catalog-stores-item-info">
 					<div class="mb-2 catalog-store-item-image-container">
-						<?echo CFile::ShowImage($arResult["IMAGE_ID"], 250, 200, "border=0", "", true);?>
+						<?php echo CFile::ShowImage($arResult["IMAGE_ID"], 250, 200, "border=0", "", true);?>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
 
 		<div id="map" class="catalog-detail-recommend">
-			<?
+			<?php 
 			if(($arResult["GPS_N"]) != 0 && ($arResult["GPS_S"]) != 0)
 			{
 				$gpsN = substr($arResult["GPS_N"],0,15);

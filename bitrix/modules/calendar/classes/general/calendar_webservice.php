@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!\Bitrix\Main\Loader::includeModule('webservice'))
 	return;
 

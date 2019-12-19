@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("BX_SECURITY_SHOW_MESSAGE", true);
 define('NO_AGENT_CHECK', true);
@@ -167,22 +167,22 @@ if(isset($_REQUEST['value']))
 <div class="title">
 <table cellspacing="0" width="100%">
 	<tr>
-		<td width="100%" class="title-text" onmousedown="jsFloatDiv.StartDrag(arguments[0], document.getElementById('<?echo $win_id?>'));">&nbsp;</td>
-		<td width="0%"><a class="close" href="javascript:document.getElementById('<?echo $win_id?>').__object.CloseDialog();" title="<?=Loc::getMessage("CT_BMTS_WINDOW_CLOSE")?>"></a></td>
+		<td width="100%" class="title-text" onmousedown="jsFloatDiv.StartDrag(arguments[0], document.getElementById('<?php echo $win_id?>'));">&nbsp;</td>
+		<td width="0%"><a class="close" href="javascript:document.getElementById('<?php echo $win_id?>').__object.CloseDialog();" title="<?=Loc::getMessage("CT_BMTS_WINDOW_CLOSE")?>"></a></td>
 	</tr>
 </table>
 </div>
 <script>
-var current_selected = <?echo CUtil::PhpToJsObject(array_values($arValues))?>;
+var current_selected = <?php echo CUtil::PhpToJsObject(array_values($arValues))?>;
 </script>
 <div class="content" id="_f_popup_content" style="height: 403px; overflow-x: hidden; oveflow-y: auto; padding: 0;"><input id="bx_emp_search_control" type="text" style="width: 99.99%" value="" autocomplete="off" />
 
 <script>
-document.getElementById('<?echo $win_id?>').__object.InitControl('bx_emp_search_control');
+document.getElementById('<?php echo $win_id?>').__object.InitControl('bx_emp_search_control');
 </script>
 
 <div class="mts-section-list" id="mts_search_layout">
-<?
+<?php 
 	function EmployeeDrawStructure($arStructure, $arSections, $key, $win_id)
 	{
 		foreach ($arStructure[$key] as $ID)
@@ -240,8 +240,8 @@ document.getElementById('<?echo $win_id?>').__object.InitControl('bx_emp_search_
 
 ?>
 <script>
-var WIN_ID = document.getElementById('<?echo $win_id?>');
-<?
+var WIN_ID = document.getElementById('<?php echo $win_id?>');
+<?php 
 	if (count($arOpenedSections) > 0)
 	{
 		$arSectionList = array();
@@ -254,8 +254,8 @@ var WIN_ID = document.getElementById('<?echo $win_id?>');
 				$arSectionList[] = $opened_section;
 
 ?>
-WIN_ID.__object.LoadSection('<?echo intval($opened_section)?>', true);
-<?
+WIN_ID.__object.LoadSection('<?php echo intval($opened_section)?>', true);
+<?php 
 				$opened_section = $arSections[$opened_section]['IBLOCK_SECTION_ID'];
 			}
 		}
@@ -266,9 +266,9 @@ WIN_ID.__object.LoadSection('0', true);
 	</div>
 </div>
 <div class="buttons">
-	<input type="button" id="submitbtn" value="<?echo Loc::getMessage('CT_BMTS_SUBMIT')?>" onclick="document.getElementById('<?echo $win_id?>').__object.ElementSet();" />
-	<input type="button" value="<?echo Loc::getMessage('CT_BMTS_CANCEL')?>" onclick="document.getElementById('<?echo $win_id?>').__object.CloseDialog();" />
+	<input type="button" id="submitbtn" value="<?php echo Loc::getMessage('CT_BMTS_SUBMIT')?>" onclick="document.getElementById('<?php echo $win_id?>').__object.ElementSet();" />
+	<input type="button" value="<?php echo Loc::getMessage('CT_BMTS_CANCEL')?>" onclick="document.getElementById('<?php echo $win_id?>').__object.CloseDialog();" />
 </div>
-<?
+<?php 
 }
 ?>

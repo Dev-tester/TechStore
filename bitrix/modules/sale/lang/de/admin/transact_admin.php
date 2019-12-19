@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STA_TPAY"] = "Bezahlung der Bestellung";
 $MESS["STA_TFROM_CARD"] = "Zahlung per Kreditkarte";
 $MESS["STA_TMONEY"] = "Geldeingang";

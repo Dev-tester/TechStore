@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_RIGHT_D"] = "Access denied";
 $MESS["LANDING_RIGHT_W"] = "Full access";
 $MESS["LANDING_MODULE_NAME"] = "Landings";

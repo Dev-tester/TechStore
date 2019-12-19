@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->IncludeComponentLang("action.php");
 if ($_REQUEST["detail_list_edit"] == "Y" && !empty($_REQUEST["ACTION"]) && !empty($_REQUEST["items"]))
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_NOT_FOUND"] = "Order was not found";
 $MESS["CRM_PRODUCT_NAME_EMPTY"] = "Product name is missing";
 $MESS["CRM_PRODUCT_QUANTITY_EMPTY"] = "Product quantity is missing";

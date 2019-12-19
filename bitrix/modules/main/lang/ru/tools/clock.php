@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BX_CLOCK_TITLE'] = "Указать время";
 $MESS ['BX_CLOCK_INSERT'] = "Вставить";
 $MESS ['BX_CLOCK_CLOSE'] = "Закрыть";

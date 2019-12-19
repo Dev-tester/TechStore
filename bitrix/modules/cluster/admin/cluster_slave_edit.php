@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/cluster/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -149,76 +149,76 @@ function updateWeight(source)
 	target.value = source.value;
 }
 </script>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-	<?if($ID > 0):?>
+	<?php if($ID > 0):?>
 		<tr>
-			<td><?echo GetMessage("CLU_SLAVE_EDIT_ID")?>:</td>
-			<td><?echo $str_ID;?></td>
+			<td><?php echo GetMessage("CLU_SLAVE_EDIT_ID")?>:</td>
+			<td><?php echo $str_ID;?></td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLU_SLAVE_EDIT_NAME")?>:</td>
-		<td width="60%"><input type="text" size="40" maxsize="50" name="NAME" value="<?echo $str_NAME?>"></td>
+		<td width="40%"><?php echo GetMessage("CLU_SLAVE_EDIT_NAME")?>:</td>
+		<td width="60%"><input type="text" size="40" maxsize="50" name="NAME" value="<?php echo $str_NAME?>"></td>
 	</tr>
-	<?if($ID > 1):?>
+	<?php if($ID > 1):?>
 	<tr>
-		<td><?echo GetMessage("CLU_SLAVE_EDIT_DB_HOST")?>:</td>
-		<td><?echo $str_DB_HOST?></td>
-	</tr>
-	<tr>
-		<td><?echo GetMessage("CLU_SLAVE_EDIT_DB_NAME")?>:</td>
-		<td><?echo $str_DB_NAME?></td>
+		<td><?php echo GetMessage("CLU_SLAVE_EDIT_DB_HOST")?>:</td>
+		<td><?php echo $str_DB_HOST?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLU_SLAVE_EDIT_DB_LOGIN")?>:</td>
-		<td><?echo $str_DB_LOGIN?></td>
-	</tr>
-	<?endif;?>
-	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("CLU_SLAVE_EDIT_DESCRIPTION")?>:</td>
-		<td><textarea cols="40" rows="10" name="DESCRIPTION"><?echo $str_DESCRIPTION?></textarea></td>
+		<td><?php echo GetMessage("CLU_SLAVE_EDIT_DB_NAME")?>:</td>
+		<td><?php echo $str_DB_NAME?></td>
 	</tr>
 	<tr>
-		<td><label for="SELECTABLE"><?echo $str_ROLE_ID=="SLAVE"? GetMessage("CLU_SLAVE_EDIT_SELECTABLE1"): GetMessage("CLU_SLAVE_EDIT_SELECTABLE2")?>:</label></td>
+		<td><?php echo GetMessage("CLU_SLAVE_EDIT_DB_LOGIN")?>:</td>
+		<td><?php echo $str_DB_LOGIN?></td>
+	</tr>
+	<?php endif;?>
+	<tr>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("CLU_SLAVE_EDIT_DESCRIPTION")?>:</td>
+		<td><textarea cols="40" rows="10" name="DESCRIPTION"><?php echo $str_DESCRIPTION?></textarea></td>
+	</tr>
+	<tr>
+		<td><label for="SELECTABLE"><?php echo $str_ROLE_ID=="SLAVE"? GetMessage("CLU_SLAVE_EDIT_SELECTABLE1"): GetMessage("CLU_SLAVE_EDIT_SELECTABLE2")?>:</label></td>
 		<td>
-			<input type="checkbox" id="SELECTABLE" name="SELECTABLE" value="N" <?echo $str_SELECTABLE=="N"? 'checked="checked"': ''?> onclick="jsSync()">
+			<input type="checkbox" id="SELECTABLE" name="SELECTABLE" value="N" <?php echo $str_SELECTABLE=="N"? 'checked="checked"': ''?> onclick="jsSync()">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLU_SLAVE_EDIT_WEIGHT")?>:</td>
+		<td><?php echo GetMessage("CLU_SLAVE_EDIT_WEIGHT")?>:</td>
 		<td>
-			<input type="text" size="6" maxsize="6" id="FORM_WEIGHT" name="FORM_WEIGHT" value="<?echo $str_WEIGHT?>" onblur="updateWeight(this)" onchange="updateWeight(this)">
-			<input type="hidden" id="WEIGHT" name="WEIGHT" value="<?echo $str_WEIGHT?>">
+			<input type="text" size="6" maxsize="6" id="FORM_WEIGHT" name="FORM_WEIGHT" value="<?php echo $str_WEIGHT?>" onblur="updateWeight(this)" onchange="updateWeight(this)">
+			<input type="hidden" id="WEIGHT" name="WEIGHT" value="<?php echo $str_WEIGHT?>">
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"back_url"=>"cluster_slave_list.php?lang=".LANGUAGE_ID."&group_id=".$group_id,
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-<input type="hidden" name="group_id" value="<?echo $group_id?>">
-<?if($ID>0):?>
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+<input type="hidden" name="group_id" value="<?php echo $group_id?>">
+<?php if($ID>0):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
 	<input type="hidden" name="delete" id="delete" value="">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
 <script>
 jsSync();
 </script>
-<?
+<?php 
 $tabControl->ShowWarnings("editform", $message);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

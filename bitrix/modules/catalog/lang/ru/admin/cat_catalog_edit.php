@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_CEDIT_IBLOCK_MODULE_IS_MISSING"] = "Ошибка подключения модуля инфоблоков.";
 $MESS["CAT_CEDIT_CATALOG_MODULE_IS_MISSING"] = "Ошибка подключения модуля торгового каталога.";
 $MESS["CAT_CEDIT_BAD_IBLOCK"] = "Информационный блок не найден или доступ к нему запрещен.";

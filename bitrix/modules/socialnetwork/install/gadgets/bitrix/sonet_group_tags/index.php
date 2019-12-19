@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!CModule::IncludeModule("socialnetwork"))
@@ -13,7 +13,7 @@ if (intval($arGadgetParams["GROUP_ID"]) > 0)
 if ($bSearch)
 {
 	?>
-	<?$GLOBALS["APPLICATION"]->IncludeComponent(
+	<?php $GLOBALS["APPLICATION"]->IncludeComponent(
 		"bitrix:search.tags.cloud",
 		"gadget",
 		Array(
@@ -39,7 +39,7 @@ if ($bSearch)
 		array("HIDE_ICONS" => "Y")							
 	);
 	?>
-	<?
+	<?php 
 }
 else
 	echo GetMessage('GD_SONET_GROUP_TAGS_FEATURE_INACTIVE');

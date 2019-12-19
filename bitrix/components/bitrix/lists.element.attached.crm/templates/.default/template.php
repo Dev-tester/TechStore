@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -39,7 +39,7 @@ CJSCore::init(array('lists'));
 	});
 </script>
 
-<?if($arResult['SINGLE_MODE'] && $arResult['IBLOCK_PERMISSION'][$arResult['IBLOCK_ID']]['ADD_ELEMENT']):?>
+<?php if($arResult['SINGLE_MODE'] && $arResult['IBLOCK_PERMISSION'][$arResult['IBLOCK_ID']]['ADD_ELEMENT']):?>
 <div class="leac-title-wrap">
 	<div class="leac-title-menu">
 		<div class="sidebar-buttons">
@@ -52,16 +52,16 @@ CJSCore::init(array('lists'));
 		</div>
 	</div>
 </div>
-<?endif;?>
+<?php endif;?>
 
-<? foreach($arResult['GRID_ID'] as $iblockId => $gridId): ?>
+<?php  foreach($arResult['GRID_ID'] as $iblockId => $gridId): ?>
 	<div id="container_<?=$gridId?>">
 
-		<?if(!$arResult['SINGLE_MODE']):?>
+		<?php if(!$arResult['SINGLE_MODE']):?>
 			<div class="leac-grid-title">
 				<?=htmlspecialcharsbx($arResult['LIST_IBLOCK_NAME'][$iblockId])?>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
 		<div class="leac-grid-container">
 			<?=
@@ -101,4 +101,4 @@ CJSCore::init(array('lists'));
 			?>
 		</div>
 	</div>
-<? endforeach; ?>
+<?php  endforeach; ?>

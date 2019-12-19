@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['DIRECTION_FORM_NAME'] = "Fьr die Geschдftsfьhrung";
 $MESS ['DIRECTION_ORDER_FORM_BUTTON'] = "Senden";
 $MESS ['REQUEST_DESCRIPTION_QUESTION'] = "Text";

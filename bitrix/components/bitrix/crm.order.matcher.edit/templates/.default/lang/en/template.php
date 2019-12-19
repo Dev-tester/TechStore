@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDERFORM_EDIT_JS_PRODUCT_CHOICE"] = "Select product";
 $MESS["CRM_ORDERFORM_EDIT_SELECT_FIELD"] = "(select a field)";
 $MESS["CRM_ORDERFORM_EDIT_SELECT_FIELD_OR_SECTION"] = "(select a field or section)";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var  CUser $USER
  * @var  CMain $APPLICATION
@@ -331,18 +331,18 @@ echo $orderBasket->getScripts(true);
 echo $customDraggableBlocks->getScripts();
 
 // navigation socket
-?><div id="sale-order-edit-block-fast-nav-socket"></div><?
+?><div id="sale-order-edit-block-fast-nav-socket"></div><?php 
 
 // yellow block with brief
 echo Admin\Blocks\OrderInfo::getView($saleOrder, $orderBasket);
 
 // Problem block
-?><div id="sale-adm-order-problem-block"><?
+?><div id="sale-adm-order-problem-block"><?php 
 if($saleOrder->getField("MARKED") == "Y")
 {
 	echo Admin\Blocks\OrderMarker::getView($saleOrder->getId());
 }
-?></div><?
+?></div><?php 
 $aTabs = array(
 	array("DIV" => "tab_order", "TAB" => Loc::getMessage("SALE_OVIEW_TAB_ORDER"), "TITLE" => Loc::getMessage("SALE_OVIEW_TAB_ORDER"), "SHOW_WRAP" => "N", "IS_DRAGGABLE" => "Y"),
 	array("DIV" => "tab_history", "TAB" => Loc::getMessage("SALE_OVIEW_TAB_HISTORY"), "TITLE" => Loc::getMessage("SALE_OVIEW_TAB_HISTORY")),
@@ -394,8 +394,8 @@ if (empty($statusOnPaid) && (empty($statusOnAllowDelivery) || empty($statusOnPai
 	<input type="hidden" id="AUTO_CHANGE_STATUS_ON_PAID" name="AUTO_CHANGE_STATUS_ON_PAID" value="<?=$autoChangeStatus;?>">
 	<?=bitrix_sessid_post()?>
 	<div style="position: relative; vertical-align: top">
-		<?$tabControl->DraggableBlocksStart();?>
-		<?
+		<?php $tabControl->DraggableBlocksStart();?>
+		<?php 
 		foreach ($blocksOrder as $blockCode)
 		{
 			$tabControl->DraggableBlockBegin($fastNavItems[$blockCode], $blockCode);
@@ -452,7 +452,7 @@ if (empty($statusOnPaid) && (empty($statusOnAllowDelivery) || empty($statusOnPai
 	</div>
 </td></tr>
 
-<?
+<?php 
 //--TAB order
 $tabControl->EndTab();
 
@@ -460,7 +460,7 @@ $tabControl->EndTab();
 $tabControl->BeginNextTab();
 ?><tr><td id="order-history">
 		<?=$historyContent?>
-</td></tr><?
+</td></tr><?php 
 //-- TAB history
 $tabControl->EndTab();
 //TAB analysis --
@@ -473,7 +473,7 @@ $tabControl->BeginNextTab();
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 //-- TAB analysis
 $tabControl->EndTab();
 $tabControl->End();
@@ -502,4 +502,4 @@ $tabControl->End();
 	});
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

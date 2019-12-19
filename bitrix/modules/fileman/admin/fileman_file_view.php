@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -61,10 +61,10 @@ $limit_php_access = ($USER->CanDoFileOperation('fm_lpa',$arPath) && !$USER->CanD
 $fileType = CFileMan::GetFileTypeEx($path);
 $fileTypeParent = $arFilemanPredifinedFileTypes[CFileMan::GetFileTypeEx($path)]["gtype"];
 ?>
-<?CAdminMessage::ShowMessage($strWarning);?>
+<?php CAdminMessage::ShowMessage($strWarning);?>
 
-<?if(strlen($strWarning) <= 0):?>
-	<?
+<?php if(strlen($strWarning) <= 0):?>
+	<?php 
 	$aMenu = Array();
 	if($fileTypeParent == "text")
 	{
@@ -154,7 +154,7 @@ $fileTypeParent = $arFilemanPredifinedFileTypes[CFileMan::GetFileTypeEx($path)][
 		<td><?=GetMessage("FILEMAN_FILEVIEW_SIZE")?></td>
 		<td><?=CFileMan::GetStrFileSize($flTmp->GetFileSize())?></td>
 	</tr>
-	<?$date_format = CDatabase::DateFormatToPHP(CLang::GetDateFormat("FULL"));?>
+	<?php $date_format = CDatabase::DateFormatToPHP(CLang::GetDateFormat("FULL"));?>
 	<tr>
 		<td><?=GetMessage("FILEMAN_FILEVIEW_TIMESTAMP")?></td>
 		<td><?=date($date_format, $flTmp->GetModificationTime()+CTimeZone::GetOffset())?></td>
@@ -166,11 +166,11 @@ $fileTypeParent = $arFilemanPredifinedFileTypes[CFileMan::GetFileTypeEx($path)][
 	<tr>
 		<td colspan="2">&nbsp;</td>
 	</tr>
-	<?if ($fileTypeParent=="text"):?>
+	<?php if ($fileTypeParent=="text"):?>
 		<tr class="heading">
 			<td colspan="2"><?= GetMessage('FILEMAN_VIEW_CONT') ?></td>
 		</tr>
-		<tr><td colspan="2" style="font-size:100%;"><?
+		<tr><td colspan="2" style="font-size:100%;"><?php 
 		// ###########  L  P  A  ############
 		if (!$USER->CanDoOperation('edit_php'))
 		{
@@ -190,7 +190,7 @@ $fileTypeParent = $arFilemanPredifinedFileTypes[CFileMan::GetFileTypeEx($path)][
 
 					//Trim php tags
 					$src = $arPHP[$n][2];
-					if (SubStr($src, 0, 5) == "<?"."php")
+					if (SubStr($src, 0, 5) == "<?php "."php")
 						$src = SubStr($src, 5);
 					else
 						$src = SubStr($src, 2);
@@ -216,8 +216,8 @@ $fileTypeParent = $arFilemanPredifinedFileTypes[CFileMan::GetFileTypeEx($path)][
 			show_source($io->GetPhysicalName($abs_path));
 		}
 		?></td></tr>
-	<?elseif($fileTypeParent=="image"):?>
-		<?
+	<?php elseif($fileTypeParent=="image"):?>
+		<?php 
 			$rsSite = CSite::GetByID($site);
 			$arSite = $rsSite->GetNext();
 			$sameSite = true;
@@ -233,19 +233,19 @@ $fileTypeParent = $arFilemanPredifinedFileTypes[CFileMan::GetFileTypeEx($path)][
 			<td colspan="2"><?= GetMessage('FILEMAN_VIEW_CONT') ?></td>
 		</tr>
 		<tr><td colspan="2">
-				<?if($sameSite):?>
+				<?php if($sameSite):?>
 					<?= CFile::ShowImage($path, 600, 600, "border=0", "", true, GetMessage("FILEMAN_FILEVIEW_ENLARGE"))?>
-				<?else:?>
+				<?php else:?>
 					<img src="<?=htmlspecialcharsbx($path)?>" style="max-width: 600px; max-height: 600px;" border="0">
-				<?endif;?>
+				<?php endif;?>
 			</td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->End();
 endif;
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

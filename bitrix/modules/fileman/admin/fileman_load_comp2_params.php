@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 if (!$USER->CanDoOperation('fileman_view_file_structure') && !$USER->CanDoOperation('edit_other_settings'))
@@ -42,7 +42,7 @@ function GetProperties($componentName, $curTemplate = '')
 	{
 		foreach ($arProps['GROUPS'] as $k => $arGroup)
 		{
-			?>window.arComp2Groups.push({name: '<?= CUtil::JSEscape($k)?>', title: '<?= CUtil::JSEscape($arGroup['NAME'])?>'});<?
+			?>window.arComp2Groups.push({name: '<?= CUtil::JSEscape($k)?>', title: '<?= CUtil::JSEscape($arGroup['NAME'])?>'});<?php 
 		}
 	}
 
@@ -64,12 +64,12 @@ function fetchPropsHelp($componentName_)
 	if(file_exists($path))
 		include($path);
 
-	?>var arTT = {};<?
+	?>var arTT = {};<?php 
 	if(is_array($arTooltips) && !empty($arTooltips))
 	{
 		foreach($arTooltips as $propName => $tooltip)
 		{
-			?>arTT["<?=CUtil::JSEscape($propName)?>"] = '<?=CUtil::JSEscape($tooltip);?>';<?
+			?>arTT["<?=CUtil::JSEscape($propName)?>"] = '<?=CUtil::JSEscape($tooltip);?>';<?php 
 		}
 	}
 	elseif(is_array($MESS))
@@ -78,11 +78,11 @@ function fetchPropsHelp($componentName_)
 		{
 			if(substr($propName, -4) == '_TIP')
 			{
-			?>arTT["<?=CUtil::JSEscape(substr($propName, 0, -4))?>"] = '<?=CUtil::JSEscape($tooltip);?>';<?
+			?>arTT["<?=CUtil::JSEscape(substr($propName, 0, -4))?>"] = '<?=CUtil::JSEscape($tooltip);?>';<?php 
 			}
 		}
 	}
-	?>window.arComp2Tooltips["<?= CUtil::JSEscape($componentName_)?>"] = arTT;<?
+	?>window.arComp2Tooltips["<?= CUtil::JSEscape($componentName_)?>"] = arTT;<?php 
 }
 
 function push2arComp2Props($name, $arParam, $arGroup)
@@ -91,10 +91,10 @@ function push2arComp2Props($name, $arParam, $arGroup)
 	?>
 var p = {};
 p.param_name = '<?=CUtil::JSEscape($name);?>';
-<?
+<?php 
 	if ($arGroup !== false && isset($arParam['PARENT']) && isset($arGroup[$arParam['PARENT']]))
 	{
-		?>p.group = '<?= $arParam['PARENT']?>';<?
+		?>p.group = '<?= $arParam['PARENT']?>';<?php 
 	}
 
 	if (is_array($arParam))
@@ -117,19 +117,19 @@ p.param_name = '<?=CUtil::JSEscape($name);?>';
 			if (is_array($prop))
 			{
 				?>p.<?= $k;?> = {};
-				<?foreach ($prop as $k2 => $prop_):?>
+				<?php foreach ($prop as $k2 => $prop_):?>
 				p.<?= $k;?>['<?= CUtil::JSEscape($k2)?>'] = '<?= CUtil::JSEscape($prop_)?>';<?= "\n"?>
-				<?endforeach;?>
-				<?
+				<?php endforeach;?>
+				<?php 
 			}
 			else
 			{
-				?>p.<?= $k;?> = '<? echo CUtil::JSEscape($prop);?>';<?
+				?>p.<?= $k;?> = '<?php  echo CUtil::JSEscape($prop);?>';<?php 
 			}
 			echo "\n";
 		}
 	}
-?>window.arComp2Props.push(p);<?
+?>window.arComp2Props.push(p);<?php 
 }
 
 
@@ -142,14 +142,14 @@ template : '<?=$template;?>',
 title	 : '<?=CUtil::JSEscape($title);?>',
 description : '<?=CUtil::JSEscape($description);?>'
 });
-<?
+<?php 
 }
 
 
 function push2arComp2TemplateProps($componentName, $paramName, $arParam)
 {
 	?>var p2 = {param_name: '<?=CUtil::JSEscape($paramName)?>'};
-<?
+<?php 
 	foreach ($arParam  as $k => $prop)
 	{
 		if ($k == 'TYPE' && $prop == 'FILE')
@@ -169,7 +169,7 @@ function push2arComp2TemplateProps($componentName, $paramName, $arParam)
 
 		if (is_array($prop))
 		{
-?>p2.<? echo$k;?> = {<?
+?>p2.<?php  echo$k;?> = {<?php 
 		echo "\n";
 				$i=true;
 				foreach ($prop as $k2 => $prop_)
@@ -182,15 +182,15 @@ function push2arComp2TemplateProps($componentName, $paramName, $arParam)
 					echo '\''.CUtil::JSEscape($k2).'\' : \''.CUtil::JSEscape($prop_).'\'';
 				}
 			echo "\n";
-?>}<?
+?>}<?php 
 		}
 		else
 		{
-?>p2.<?= CUtil::JSEscape($k)?> = '<?= CUtil::JSEscape($prop)?>';<?
+?>p2.<?= CUtil::JSEscape($k)?> = '<?= CUtil::JSEscape($prop)?>';<?php 
 		}
 		echo "\n";
 	}
-?>window.arComp2TemplateProps.push(p2);<?
+?>window.arComp2TemplateProps.push(p2);<?php 
 }
 
 
@@ -222,7 +222,7 @@ function ShowFileDialogsScripts()
 			);
 			?>
 			<script>window._bxMlBrowseButton_<?= strtolower($arFD[$i]['NAME'])?> = '<?= CUtil::JSEscape($MLRes)?>';</script>
-			<?
+			<?php 
 		}
 		CAdminFileDialog::ShowScript(Array
 		(
@@ -245,12 +245,12 @@ window.arComp2Templates = [];
 window.arComp2Groups = [];
 window.arComp2Props = [];
 window.arComp2TemplateProps = [];
-<?
+<?php 
 $arFD = Array();
 if (isset($_GET['cname']))
 	GetProperties($_GET['cname'], $_GET['tname']);
 ?>
 </script>
-<?
+<?php 
 ShowFileDialogsScripts();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php");?>

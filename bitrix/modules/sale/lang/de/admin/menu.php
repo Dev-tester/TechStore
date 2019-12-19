@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAM_EXPORT_DESCR"] = "Datenexport mit dem Exporteur";
 $MESS["CAM_EXPORT_DESCR_EDIT"] = "Das Exportprofil bearbeiten";
 $MESS["CAM_EXPORT_DESCR_EXPORT"] = "Konfiguration und Export von Daten";

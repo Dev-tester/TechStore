@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -108,7 +108,7 @@ new BX.adminLogin({
 	window_wrapper: 'window_wrapper',
 	auth_form_wrapper: 'auth_form_wrapper',
 	login_variants: 'login_variants',
-	url: '<?echo CUtil::JSEscape($sDocPath.(($s=DeleteParam(array("logout", "login"))) == ""? "":"?".$s));?>'
+	url: '<?php echo CUtil::JSEscape($sDocPath.(($s=DeleteParam(array("logout", "login"))) == ""? "":"?".$s));?>'
 });
 </script>
 
@@ -125,13 +125,13 @@ new BX.adminLogin({
 				<div class="login-footer">
 					<div class="login-footer-left"><?=$sCopyright?></div>
 					<div class="login-footer-right">
-						<?if(($siteSupport = getLocalPath("php_interface/this_site_support.php", BX_PERSONAL_ROOT)) !== false):?><?include($_SERVER["DOCUMENT_ROOT"].$siteSupport);?><?else:?><?echo $sLinks?><?endif;?>
+						<?php if(($siteSupport = getLocalPath("php_interface/this_site_support.php", BX_PERSONAL_ROOT)) !== false):?><?php include($_SERVER["DOCUMENT_ROOT"].$siteSupport);?><?php else:?><?php echo $sLinks?><?php endif;?>
 					</div>
 				</div>
 				<form name="form_auth" method="post" target="auth_frame" class="bx-admin-auth-form" action="" novalidate>
 					<input type="hidden" name="AUTH_FORM" value="Y">
 
-					<div id="auth_form_wrapper"><?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/interface/auth/".$inc_file.'.php')?></div>
+					<div id="auth_form_wrapper"><?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/interface/auth/".$inc_file.'.php')?></div>
 
 					<?=bitrix_sessid_post()?>
 				</form>
@@ -142,7 +142,7 @@ new BX.adminLogin({
 <iframe name="auth_frame" src="" style="display:none;"></iframe>
 
 <div id="login_variants" style="display: none;">
-<?
+<?php 
 foreach ($arFormsList as $form)
 {
 	if ($form != $inc_file)
@@ -178,7 +178,7 @@ foreach ($arFormsList as $form)
 </div>
 
 </div>
-<?
+<?php 
 if ($arAuthResult)
 {
 	$bOnHit = true;

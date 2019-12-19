@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
 if (empty($arResult["ELEMENTS_LIST"])):
 	return true;
@@ -122,7 +122,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="photo-error">
 	<?=ShowError($arResult["ERROR_MESSAGE"])?>
 </div>
-<?
+<?php 
 endif;
 
 if (in_array($arParams["SHOW_PAGE_NAVIGATION"], array("top", "both")) && !empty($arResult["NAV_STRING"])):
@@ -130,7 +130,7 @@ if (in_array($arParams["SHOW_PAGE_NAVIGATION"], array("top", "both")) && !empty(
 <div class="photo-navigation photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 
 // Pictures Sights
@@ -146,7 +146,7 @@ phpVars.bitrix_sessid = '<?=bitrix_sessid()?>';
 <noindex>
 <div class="photo-controls photo-controls-photo-top">
 	<ul class="photo-controls">
-<?
+<?php 
 	include_once(str_replace(array("\\", "//"), "/", dirname(__FILE__)."/template_resizer.php"));
 	if (empty($arParams["~TEMPLATE"]))
 	{
@@ -157,35 +157,35 @@ phpVars.bitrix_sessid = '<?=bitrix_sessid()?>';
 					<li class="photo-control-photo-template-square<?=($arParams["TEMPLATE"] == "square" ? " photo-control-photo-template-square-active" : "")?>">
 						<a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam(
 							"template=square".($GLOBALS["USER"]->IsAuthorized() ? "&".bitrix_sessid_get() : ""),
-							array("template", "sessid"))?>" <?
-							?>title="<?=GetMessage("P_SQUARE_TEMPLATE_TITLE")?>" <?
+							array("template", "sessid"))?>" <?php 
+							?>title="<?=GetMessage("P_SQUARE_TEMPLATE_TITLE")?>" <?php 
 							?>onclick="try {__photo_change_template(this, '<?=$arParams["ID"]?>');return false;} catch (e) {return true;}"><i><span><?=GetMessage("P_SQUARE_TEMPLATE")?></span></i></a>
 					</li>
 					<li class="photo-control-photo-template-rectangle<?=($arParams["TEMPLATE"] == "rectangle" ? " photo-control-photo-template-rectangle-active" : "")?>">
 						<a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam(
 							"template=rectangle".($GLOBALS["USER"]->IsAuthorized() ? "&".bitrix_sessid_get() : ""),
-							array("template", "sessid"))?>" <?
-							?>title="<?=GetMessage("P_RECTANGLE_TEMPLATE_TITLE")?>" <?
+							array("template", "sessid"))?>" <?php 
+							?>title="<?=GetMessage("P_RECTANGLE_TEMPLATE_TITLE")?>" <?php 
 							?>onclick="try {__photo_change_template(this, '<?=$arParams["ID"]?>');return false;} catch (e) {return true;}"><i><span><?=GetMessage("P_RECTANGLE_TEMPLATE")?></span></i></a>
 					</li>
 					<li class="photo-control-photo-template-default<?=($arParams["TEMPLATE"] == "default" ? " photo-control-photo-template-default-active" : "")?>">
 						<a rel="nofollow" href="<?=$APPLICATION->GetCurPageParam(
 							"template=default".($GLOBALS["USER"]->IsAuthorized() ? "&".bitrix_sessid_get() : ""),
-							array("template", "sessid"))?>" <?
-							?>title="<?=GetMessage("P_DEFAULT_TEMPLATE_TITLE")?>" <?
+							array("template", "sessid"))?>" <?php 
+							?>title="<?=GetMessage("P_DEFAULT_TEMPLATE_TITLE")?>" <?php 
 							?>onclick="try {__photo_change_template(this, '<?=$arParams["ID"]?>');return false;} catch (e) {return true;}"><i><span><?=GetMessage("P_DEFAULT_TEMPLATE")?></span></i></a>
 					</li>
 				</ul>
 			</span>
 		</li>
-<?
+<?php 
 	}
 ?>
 	</ul>
 	<div class="empty-clear"></div>
 </div>
 </noindex>
-<?
+<?php 
 }
 if ($arParams["SHOW_FORM"] == "Y"):
 ?>
@@ -196,21 +196,21 @@ if ($arParams["SHOW_FORM"] == "Y"):
 	<input type="hidden" name="SECTION_ID" value="<?=$arParams["SECTION_ID"]?>" />
 	<input type="hidden" name="IBLOCK_ID" value="<?=$arParams["IBLOCK_ID"]?>" />
 	<input type="hidden" name="REDIRECT_URL" value="<?=htmlspecialcharsbx($APPLICATION->GetCurPageParam("", array(), false))?>" />
-<?
+<?php 
 endif;
 
 $current_date = "";
 ?>
 
 <div class="photo-items-list photo-photo-list" id="photo_list_<?=$arParams["ID"]?>">
-<?
+<?php 
 if ($_REQUEST["package_id"] == $arParams["ID"]):
 	$APPLICATION->RestartBuffer();
 endif;
 ?>
 	<!-- Photo List <?=$arParams["ID"]?> -->
 	<div class="empty-clear"></div>
-<?
+<?php 
 foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 	if (!is_array($arItem)):
 		continue;
@@ -219,7 +219,7 @@ foreach ($arResult["ELEMENTS_LIST"]	as $key => $arItem):
 		if ($this_date != $current_date)
 		{
 			$current_date = $this_date;
-			?><div class="group-by-days photo-date"><?=PhotoDateFormat($arParams["NEW_DATE_TIME_FORMAT"], MakeTimeStamp($this_date, "DD.MM.YYYY"))?></div><?
+			?><div class="group-by-days photo-date"><?=PhotoDateFormat($arParams["NEW_DATE_TIME_FORMAT"], MakeTimeStamp($this_date, "DD.MM.YYYY"))?></div><?php 
 		}
 	endif;
 
@@ -234,7 +234,7 @@ endforeach;
 ?>
 	<div class="empty-clear"></div>
 	<!-- Photo List End <?=$arParams["ID"]?> -->
-<?
+<?php 
 if ($_REQUEST["package_id"] == $arParams["ID"]):
 	die();
 endif;
@@ -242,7 +242,7 @@ endif;
 ?>
 </div>
 
-<?
+<?php 
 if ($arParams["SHOW_FORM"] == "Y"):
 ?>
 	<noindex>
@@ -257,19 +257,19 @@ if ($arParams["SHOW_FORM"] == "Y"):
 			<li class="photo-control photo-control-photo-drop">
 				<span><a href="#" onclick="Delete(this.firstChild.form); return false;"><input type="hidden" /><?=GetMessage("P_DELETE_SELECTED")?></a></span>
 			</li>
-			<li class="photo-control photo-control-last photo-control-photo-move" <?
+			<li class="photo-control photo-control-last photo-control-photo-move" <?php 
 				?>onclick="this.style.display='none'; this.nextSibling.style.display='block';">
 					<span><a href="#" onclick="return false;"><?=GetMessage("P_MOVE_SELECTED")?></a></span>
-			</li><?
+			</li><?php 
 			?><li class="photo-control photo-control-last photo-control-photo-move" style="display:none;">
 				<span>
 					<label for="TO_SECTION_ID"><?=GetMessage("P_MOVE_SELECTED_IN")?> </label>
-					<select name="TO_SECTION_ID"><?
+					<select name="TO_SECTION_ID"><?php 
 					foreach ($arResult["SECTIONS_LIST"] as $key => $val):
-						?><option value="<?=$key?>" <?
-							?> <?=((intVal($arParams["SECTION_ID"]) == intVal($key)) ? " selected='selected'" : "")?>><?=$val?></option><?
+						?><option value="<?=$key?>" <?php 
+							?> <?=((intVal($arParams["SECTION_ID"]) == intVal($key)) ? " selected='selected'" : "")?>><?=$val?></option><?php 
 					endforeach;
-					?></select><?
+					?></select><?php 
 					?><input type="button" name="name_submit" value="OK" onclick="Move(this.form)"  style="margin-left:0.2em;" />
 				</span>
 			</li>
@@ -321,7 +321,7 @@ function SelectAll(oObj)
 	return false;
 }
 </script>
-<?
+<?php 
 endif;
 
 if (in_array($arParams["SHOW_PAGE_NAVIGATION"], array("bottom", "both")) && !empty($arResult["NAV_STRING"])):
@@ -329,7 +329,7 @@ if (in_array($arParams["SHOW_PAGE_NAVIGATION"], array("bottom", "both")) && !emp
 	<div class="photo-navigation photo-navigation-bottom">
 		<?=$arResult["NAV_STRING"]?>
 	</div>
-<?
+<?php 
 endif;
 if ($arParams["INCLUDE_SLIDER"] == "Y"):
 	$this->__component->setTemplateName("slider_big");

@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalError"]) > 0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
@@ -20,24 +20,24 @@ else
 	<tr>
 		<td colspan="2"><?=$arResult['MEETING']['DESCRIPTION'] ?></td>
 	</tr>
-	<?if (StrLen($arResult["MEETING"]["UF_FLOOR"]) > 0):?>
+	<?php if (StrLen($arResult["MEETING"]["UF_FLOOR"]) > 0):?>
 	<tr>
 		<td width="10%"><?= GetMessage("INTASK_C29T_FLOOR") ?>:</td>
 		<td width="90%"><?= $arResult["MEETING"]["UF_FLOOR"]; ?></td>
 	</tr>
-	<?endif;?>
-	<?if (StrLen($arResult["MEETING"]["UF_PLACE"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["MEETING"]["UF_PLACE"]) > 0):?>
 	<tr>
 		<td><?= GetMessage("INTASK_C29T_PLACE") ?>:</td>
 		<td><?= $arResult["MEETING"]["UF_PLACE"]; ?></td>
 	</tr>
-	<?endif;?>
-	<?if (StrLen($arResult["MEETING"]["UF_PHONE"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["MEETING"]["UF_PHONE"]) > 0):?>
 	<tr>
 		<td><?= GetMessage("INTASK_C29T_PHONE") ?>:</td>
 		<td><?= $arResult["MEETING"]["UF_PHONE"]; ?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	</table>
 	<br>
 
@@ -46,7 +46,7 @@ else
 		<tbody>
 			<tr>
 				<td align="right"><span class="red_star">*</span><?= GetMessage("INTASK_C29T_DATE") ?>:</td>
-				<td><?
+				<td><?php 
 					$GLOBALS["APPLICATION"]->IncludeComponent(
 						'bitrix:main.calendar',
 						'',
@@ -67,7 +67,7 @@ else
 			<tr>
 				<td align="right"><?= GetMessage("INTASK_C29T_AUTHOR") ?>:</td>
 				<td>
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent("bitrix:main.user.link",
 					'',
 					array(
@@ -98,7 +98,7 @@ else
 				<td align="right"><span class="red_star">*</span><?= GetMessage("INTASK_C29T_FROM_TIME") ?>:</td>
 				<td>
 					<select name="start_time" onchange="RMR_CalcEndTime()">
-						<?
+						<?php 
 						$aMpM = IsAmPmMode();
 						$s = (StrLen($arResult["Item"]["StartTime"]) > 0 ? $arResult["Item"]["StartTime"] : "08:00");
 						
@@ -141,7 +141,7 @@ else
 							{
 								$t .= ' '.$mt;
 							}
-							?><option value="<?= $t ?>"<?= ($s == $t ? " selected" : "") ?>><?= $t ?></option><?
+							?><option value="<?= $t ?>"<?= ($s == $t ? " selected" : "") ?>><?= $t ?></option><?php 
 						}
 						?>
 					</select>
@@ -151,14 +151,14 @@ else
 				<td align="right"><span class="red_star">*</span><?= GetMessage("INTASK_C29T_DURATION") ?>:</td>
 				<td>
 					<select name="timeout_time" onchange="RMR_CalcEndTime()">
-						<?
+						<?php 
 						for ($i = 0; $i < 12; $i++)
 						{
 							if ($i > 0)
 							{
-								?><option value="<?= $i ?>.0"<?= ($arResult["Item"]["TimeoutTime"] == $i ? " selected" : "") ?>><?= $i ?>.0</option><?
+								?><option value="<?= $i ?>.0"<?= ($arResult["Item"]["TimeoutTime"] == $i ? " selected" : "") ?>><?= $i ?>.0</option><?php 
 							}
-							?><option value="<?= $i ?>.5"<?= ($arResult["Item"]["TimeoutTime"] == $i.".5" ? " selected" : "") ?>><?= $i ?>.5</option><?
+							?><option value="<?= $i ?>.5"<?= ($arResult["Item"]["TimeoutTime"] == $i.".5" ? " selected" : "") ?>><?= $i ?>.5</option><?php 
 						}
 						?>
 					</select> <?= GetMessage("INTASK_C29T_HOURS") ?>
@@ -285,11 +285,11 @@ else
 				<td align="right"><?= GetMessage("INTASK_C29T_TYPE") ?>:</td>
 				<td>
 					<select name="res_type">
-						<?
+						<?php 
 						$propEnums = CIBlockProperty::GetPropertyEnum($arResult["ALLOWED_ITEM_PROPERTIES"]["UF_RES_TYPE"]["ID"]);
 						while ($arEnum = $propEnums->GetNext())
 						{
-							?><option value="<?= $arEnum["ID"] ?>"<?= ($arEnum["ID"] == $arResult["Item"]["ResType"] ? " selected" : "") ?>><?= $arEnum["VALUE"] ?></option><?
+							?><option value="<?= $arEnum["ID"] ?>"<?= ($arEnum["ID"] == $arResult["Item"]["ResType"] ? " selected" : "") ?>><?= $arEnum["VALUE"] ?></option><?php 
 						}
 						?>
 					</select>
@@ -318,24 +318,24 @@ else
 
 						<span id="span_regularity_count_pref"></span>
 						<select name="regularity_count">
-							<?for ($i = 1; $i < 35; $i++):?>
+							<?php for ($i = 1; $i < 35; $i++):?>
 								<option value="<?= $i ?>"<?= ($arResult["Item"]["RegularityCount"] == $i ? " selected" : "") ?>><?= $i ?></option>
-							<?endfor;?>
+							<?php endfor;?>
 						</select>
 						<span id="span_regularity_count_postf"></span><br />
 
 						<div id="div_regularity_weekly" style="display:none;">
-							<?
+							<?php 
 							$ar = array(GetMessage("INTASK_C29T_RWD_1"), GetMessage("INTASK_C29T_RWD_2"), GetMessage("INTASK_C29T_RWD_3"), GetMessage("INTASK_C29T_RWD_4"), GetMessage("INTASK_C29T_RWD_5"), GetMessage("INTASK_C29T_RWD_6"), GetMessage("INTASK_C29T_RWD_7"));
 							$ar1 = Explode(",", $arResult["Item"]["RegularityAdditional"]);
 							?>
-							<?for ($i = 0; $i < 7; $i++):?>
+							<?php for ($i = 0; $i < 7; $i++):?>
 								<input type="checkbox" name="regularity_additional[]" id="regularity_additional_<?= $i ?>" value="<?= $i ?>"<?= (In_Array($i, $ar1) ? " checked" : "") ?>><label for="regularity_additional_<?= $i ?>"><?= $ar[$i] ?></label>
-							<?endfor;?>
+							<?php endfor;?>
 						</div>
 
 						<?= GetMessage("INTASK_C29T_REGULARITY_UNTIL") ?>:
-						<?
+						<?php 
 						$GLOBALS["APPLICATION"]->IncludeComponent(
 							'bitrix:main.calendar',
 							'',
@@ -365,6 +365,6 @@ else
 	RMR_CalcEndTime();
 	RMR_RegularityChange("<?= (StrLen($arResult["Item"]["Regularity"]) <= 0 ? "NONE" : $arResult["Item"]["Regularity"]) ?>");
 	</script>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_DISCOUNT_ERR_BAD_ORDER_ID"] = "Invalid order ID.";
 $MESS["SALE_ORDER_DISCOUNT_ERR_ORDER_STORED_DATA_ALREADY_EXISTS"] = "Data already exist and cannot be updated";
 $MESS["SALE_ORDER_DISCOUNT_ERR_RESULT_ROW_IS_EMPTY"] = "Discount application result is missing for shopping cart item or rule";

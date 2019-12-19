@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BCIH_ERROR_SESSION_ID_CHANGE"] = "Session ID change is active. Edit a file in which the exchange component is included and define the BX_SESSION_ID_CHANGE constant prior to including the prolog code: define('BX_SESSION_ID_CHANGE', false);";
 $MESS["CC_BCIH_ERROR_SOURCE_CHECK"] = "Error checking the request source. Please update the exchange module or disable check in the component parameters.";
 $MESS["CC_BCIH_ERROR_AUTHORIZE"] = "Authorisation error: incorrect login or password.";

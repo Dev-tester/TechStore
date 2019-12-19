@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ADD_MESSAGE"] = "new CRM message";
 $MESS["CRM_EMAIL_BAD_RESP_QUEUE"] = "A dismissed employee exists in the e-mail distribution queue for mailbox \"#EMAIL#\". They will not receive e-mails from new sources, but all the existing e-mails will still be forwarded to this employee. <a href=\"#CONFIG_URL#\">Configure queue parameters</a>.";
 $MESS["CRM_EMAIL_BANNENED_ATTACHMENTS"] = "Unavailable files (maximum size exceeded: %MAX_SIZE% MB)";

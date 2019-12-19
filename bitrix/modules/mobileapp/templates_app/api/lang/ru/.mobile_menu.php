@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEMO_MENU_LOCAL_NOTIF"] = "Локальные уведомления";
 $MESS["DEMO_MENU_LISTS"] = "Списки";
 $MESS["DEMO_MENU_TEXT_PANEL"] = "Текстовая панель";

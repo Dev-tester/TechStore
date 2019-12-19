@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PP_USER_CONDITION_RATING_NAME"] = "Rating Value";
 $MESS["PP_USER_CONDITION_RATING_DESC"] = "This condition is true when the user rating is equal to or more than the provided value.";
 $MESS["PP_USER_CONDITION_RATING_RATING_ID"] = "Rating";

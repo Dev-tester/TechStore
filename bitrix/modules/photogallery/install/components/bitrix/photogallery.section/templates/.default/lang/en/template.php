@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_ADD_ALBUM"] = "New album";
 $MESS["P_UPLOAD"] = "Upload Photos";
 $MESS["P_SECTION_EDIT"] = "Edit album";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_REQ_LIST_DELETE"] = "Transportation order \"#ID#\" deleted";
 $MESS["SALE_DELIVERY_REQ_LIST_DELETE_ERROR"] = "Error deleting transportation order \"#ID#\"";
 $MESS["SALE_DELIVERY_REQ_LIST_UNKNOWN_ACTION"] = "Unknown action: \"#ACTION#\"";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEL_CON_CALENDARS"] = "Delete Calendars";
 $MESS["EC_ACCEPTED_STATUS"] = "You will be attending this meeting.";
 $MESS["EC_ACCEPT_MAYBE_MEETING"] = "Maybe";

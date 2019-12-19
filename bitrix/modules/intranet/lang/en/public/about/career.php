@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Career Opportunities";
 $MESS["ABOUT_DET_PAGE_TITLE"] = "Page";
 $MESS["ABOUT_PAGE_TITLE"] = "Vacancies";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["Address"] = "Adresse";
 $MESS["Amount"] = "Anzahl";
 $MESS["Article"] = "Artikelposition";

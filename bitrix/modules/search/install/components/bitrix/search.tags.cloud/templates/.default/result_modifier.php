@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $period = 0; $time = 0;
 // ********************************************************************************
 $arParams["FONT_MIN"] = intVal($arParams["FONT_MIN"]) > 0 ? $arParams["FONT_MIN"] : 10;

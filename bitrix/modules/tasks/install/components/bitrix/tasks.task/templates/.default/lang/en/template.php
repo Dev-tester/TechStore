@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ADD_PROJECT"] = "Create project";
 $MESS["TASKS_CANCEL"] = "Cancel";
 $MESS["TASKS_SELECT"] = "Select";

@@ -1,23 +1,23 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
 
 ?>
-<?if(count($arResult['ITEMS']) == 0):?>
+<?php if(count($arResult['ITEMS']) == 0):?>
 	<?=Loc::getMessage('CRM_UTM_VIEW_NOT_FOUND')?>
-<?else:?>
+<?php else:?>
 	<table>
-		<?foreach ($arResult['ITEMS'] as $item):?>
+		<?php foreach ($arResult['ITEMS'] as $item):?>
 		<tr>
 			<td style="opacity: 0.7;"><?=htmlspecialcharsbx($item['NAME'])?>:</td>
 			<td><?=htmlspecialcharsbx($item['VALUE'])?></td>
 		</tr>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</table>
-<?endif;?>
-<?if (false):?>
+<?php endif;?>
+<?php if (false):?>
 <div class="crm-analytics-entity-field">
 	<div class="crm-analytics-entity-field-inner">
 		<div class="crm-analytics-entity-field-row">
@@ -38,4 +38,4 @@ use Bitrix\Main\Localization\Loc;
 		</div>
 	</div>
 </div>
-<?endif;?>
+<?php endif;?>

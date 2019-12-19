@@ -1,4 +1,4 @@
-<?
+<?php 
 /******************************************************************************/
 /* UPS Delivery Handler. Tarifification files can be found at http://ups.com  */
 /* Delete ups/*.php files if you change tarification csv files                */

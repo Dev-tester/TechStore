@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_ERROR_EMPTY_NAME'] = "Название Исключения не заполнено!";
 $MESS ['SUP_ERROR_EMPTY_OPEN_TIME'] = "Действие Исключения не заполнено!";
 $MESS ['SUP_ERROR_EMPTY_DATE'] = "Период действия Исключения не заполнен!";

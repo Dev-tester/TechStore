@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_CITY_IP_ADDR'] = "IP адрес";
 $MESS ['STAT_CITY_COUNTRY_CODE'] = "Код страны";
 $MESS ['STAT_CITY_COUNTRY_NAME'] = "Название страны";

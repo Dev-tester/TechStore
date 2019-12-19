@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MYMS_PARAM_API_KEY"] = "API key";
 $MESS["MYMS_PARAM_KEY"] = "Access Key";
 $MESS["MYMS_PARAM_INIT_MAP_TYPE"] = "Initial Map Type";

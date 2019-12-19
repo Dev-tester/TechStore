@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RECENT_ENTITY_USER_ID_FIELD"] = "User ID";
 $MESS["RECENT_ENTITY_ITEM_TYPE_FIELD"] = "Record type";
 $MESS["RECENT_ENTITY_ITEM_ID_FIELD"] = "Record ID";

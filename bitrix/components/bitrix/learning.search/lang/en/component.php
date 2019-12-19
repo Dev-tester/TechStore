@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MODULE_NOT_INSTALL"] = "E-Learning module is not installed.";
 $MESS["SEARCH_MODULE_NOT_INSTALL"] = "Search module is not installed.";
 $MESS["LEARNING_MAIN_SEARCH_TITLE"] = "Courses search";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TOP_MENU_FAVORITE"] = "Избранное";
 $MESS["TOP_MENU_GROUPS"] = "Группы";
 $MESS["TOP_MENU_GROUPS_EXTRANET"] = "Группы экстранет";

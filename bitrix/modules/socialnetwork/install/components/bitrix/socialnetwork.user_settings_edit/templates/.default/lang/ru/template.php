@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C40_T_ACT"] = "Действие";
 $MESS["SONET_C40_T_PERMS"] = "Права";
 $MESS["SONET_C40_T_SAVE"] = "Изменить параметры";

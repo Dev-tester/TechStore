@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTROLLER_AUTH_LOG_USER_ID"] = "User ID";
 $MESS["CONTROLLER_AUTH_LOG_FROM_CONTROLLER_MEMBER"] = "User registered at";
 $MESS["CONTROLLER_AUTH_LOG_TO_CONTROLLER_MEMBER"] = "User authenticated at";

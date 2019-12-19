@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ML_BUTTON_CANCEL"] = "Cancel";
 $MESS["CRM_ML_BUTTON_DISABLE"] = "Disable";
 $MESS["CRM_ML_CONFIRMATION"] = "Confirm action";

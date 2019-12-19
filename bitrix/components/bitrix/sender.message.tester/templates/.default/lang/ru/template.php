@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_MESSAGE_TESTER_TMPL_TEST_SUCCESS"] = "Успешно отправлено! Проверьте почту.";
 $MESS["SENDER_MESSAGE_TESTER_TMPL_TEST_SUCCESS_PHONE"] = "Успешно отправлено! Проверьте телефон.";
 $MESS["SENDER_MESSAGE_TESTER_TMPL_TEST_EMPTY"] = "Не указаны получатели";

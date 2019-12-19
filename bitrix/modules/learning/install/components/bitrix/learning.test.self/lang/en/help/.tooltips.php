@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COURSE_ID_TIP"] = "Select here one of the existing courses. If you select <b><i>(other)</i></b>, you will have to specify the course ID in the field beside.";
 $MESS["LESSON_ID_TIP"] = "The expression that evaluates to the lesson ID.";
 $MESS["CHECK_PERMISSIONS_TIP"] = "Select here \"Yes\" if you want to check access permissions.";

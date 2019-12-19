@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_WATERMARK_COLORS"] = "Цвета авторского знака";
 $MESS["P_COLOR_FF0000"] = "Красный";
 $MESS["P_COLOR_FFA500"] = "Оранжевый";

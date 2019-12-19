@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_WEBDAV_IS_NOT_INSTALLED'] = "Модуль библиотеки документов не установлен.";
 $MESS ['WD_ERROR_BAD_ACTION'] = "Не указано действие над папкой.";
 $MESS ['WD_ERROR_BAD_SESSID'] = "Ваша сессия истекла. Повторите действие.";

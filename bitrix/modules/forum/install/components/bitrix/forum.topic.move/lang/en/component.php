@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FM_NO_FPERMS'] = "You do not have enough permissions to move this topic";
 $MESS ['FM_EMPTY_DEST_FORUM'] = "Unknown destination forum";
 $MESS ['FM_NO_DEST_FPERMS'] = "You do not have enough permissions to move this topic";

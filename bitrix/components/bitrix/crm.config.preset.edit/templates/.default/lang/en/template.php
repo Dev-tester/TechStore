@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRESET_TOOLBAR_FIELD_ADD"] = "Add field";
 $MESS["CRM_PRESET_TOOLBAR_FIELD_ADD_TITLE"] = "Add new field";
 $MESS["CRM_PRESET_TOOLBAR_FIELD_EDIT"] = "Edit Field";

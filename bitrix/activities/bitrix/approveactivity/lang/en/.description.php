@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAA_DESCR_DESCR"] = "Approve Element";
 $MESS["BPAA_DESCR_NAME"] = "Approve Element";
 $MESS["BPAA_DESCR_VC"] = "Persons Voted";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_PLANNER_VIEW_DATE_AND_TIME"] = "Date and time";
 $MESS["CRM_ACTIVITY_PLANNER_VIEW_DOCUMENTS"] = "Connected documents";
 $MESS["CRM_ACTIVITY_PLANNER_RESPONSIBLE_USER"] = "Responsible person";

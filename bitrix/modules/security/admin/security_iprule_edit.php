@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -178,143 +178,143 @@ if($message)
 	echo $message->Show();
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-	<?if($ID > 0):?>
+	<?php if($ID > 0):?>
 		<tr>
-			<td><?echo GetMessage("SEC_IP_EDIT_ID")?>:</td>
-			<td><?echo $str_ID;?></td>
+			<td><?php echo GetMessage("SEC_IP_EDIT_ID")?>:</td>
+			<td><?php echo $str_ID;?></td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
-		<td width="40%"><?echo GetMessage("SEC_IP_EDIT_ACTIVE")?>:</td>
-		<td width="60%"><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE == "Y") echo " checked"?>></td>
+		<td width="40%"><?php echo GetMessage("SEC_IP_EDIT_ACTIVE")?>:</td>
+		<td width="60%"><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE == "Y") echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("SEC_IP_EDIT_ADMIN_SECTION")?>:</td>
-		<td width="60%"><input type="checkbox" name="ADMIN_SECTION" value="Y"<?if($str_ADMIN_SECTION == "Y") echo " checked"?>></td>
+		<td width="40%"><?php echo GetMessage("SEC_IP_EDIT_ADMIN_SECTION")?>:</td>
+		<td width="60%"><input type="checkbox" name="ADMIN_SECTION" value="Y"<?php if($str_ADMIN_SECTION == "Y") echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("SEC_IP_EDIT_SITE_ID")?>:</td>
-		<td width="60%"><?echo CLang::SelectBox("SITE_ID", $str_SITE_ID, GetMessage("MAIN_ALL"));?></td>
+		<td width="40%"><?php echo GetMessage("SEC_IP_EDIT_SITE_ID")?>:</td>
+		<td width="60%"><?php echo CLang::SelectBox("SITE_ID", $str_SITE_ID, GetMessage("MAIN_ALL"));?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SEC_IP_EDIT_SORT")?>:</td>
-		<td><input type="text" size="5" name="SORT" value="<?echo $str_SORT?>"></td>
+		<td><?php echo GetMessage("SEC_IP_EDIT_SORT")?>:</td>
+		<td><input type="text" size="5" name="SORT" value="<?php echo $str_SORT?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SEC_IP_EDIT_NAME")?>:</td>
-		<td><input type="text" size="45" name="NAME" value="<?echo $str_NAME?>"></td>
+		<td><?php echo GetMessage("SEC_IP_EDIT_NAME")?>:</td>
+		<td><input type="text" size="45" name="NAME" value="<?php echo $str_NAME?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SEC_IP_EDIT_ACTIVE_FROM")?>:</td>
-		<td><?echo CAdminCalendar::CalendarDate("ACTIVE_FROM", $str_ACTIVE_FROM, 19, true)?></td>
+		<td><?php echo GetMessage("SEC_IP_EDIT_ACTIVE_FROM")?>:</td>
+		<td><?php echo CAdminCalendar::CalendarDate("ACTIVE_FROM", $str_ACTIVE_FROM, 19, true)?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SEC_IP_EDIT_ACTIVE_TO")?>:</td>
-		<td><?echo CAdminCalendar::CalendarDate("ACTIVE_TO", $str_ACTIVE_TO, 19, true)?></td>
+		<td><?php echo GetMessage("SEC_IP_EDIT_ACTIVE_TO")?>:</td>
+		<td><?php echo CAdminCalendar::CalendarDate("ACTIVE_TO", $str_ACTIVE_TO, 19, true)?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td class="adm-detail-valign-top"><?echo GetMessage("SEC_IP_EDIT_INCL_IPS")?>:<br><?echo GetMessage("SEC_IP_EDIT_INCL_IPS_SAMPLE")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("SEC_IP_EDIT_INCL_IPS")?>:<br><?php echo GetMessage("SEC_IP_EDIT_INCL_IPS_SAMPLE")?></td>
 		<td>
 			<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbINCL_IPS">
-				<?if($bVarsFromForm)
+				<?php if($bVarsFromForm)
 					$arIPs = $_POST["INCL_IPS"];
 				else
 					$arIPs = CSecurityIPRule::GetRuleInclIPs($ID);
 
 				foreach($arIPs as $i => $ip):?>
 					<tr><td style="padding-bottom: 3px;">
-						<input type="text" size="30" value="<?echo htmlspecialcharsbx($ip)?>" name="INCL_IPS[<?echo htmlspecialcharsbx($i)?>]">
+						<input type="text" size="30" value="<?php echo htmlspecialcharsbx($ip)?>" name="INCL_IPS[<?php echo htmlspecialcharsbx($i)?>]">
 					</td></tr>
-				<?endforeach;
+				<?php endforeach;
 				if(!$bVarsFromForm):?>
 					<tr class="security-addable-row"><td style="padding-bottom: 3px;">
 						<input type="text" size="30" value="" name="INCL_IPS[n0]">
 					</td></tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr><td>
-					<input type="button" id="add-button-incl-ips" value="<?echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
+					<input type="button" id="add-button-incl-ips" value="<?php echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
 				</td></tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top" style="padding-top:12px;"><?echo GetMessage("SEC_IP_EDIT_EXCL_IPS")?>:</td>
+		<td class="adm-detail-valign-top" style="padding-top:12px;"><?php echo GetMessage("SEC_IP_EDIT_EXCL_IPS")?>:</td>
 		<td>
 			<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbEXCL_IPS">
-				<?if($bVarsFromForm)
+				<?php if($bVarsFromForm)
 					$arIPs = $_POST["EXCL_IPS"];
 				else
 					$arIPs = CSecurityIPRule::GetRuleExclIPs($ID);
 
 				foreach($arIPs as $i => $ip):?>
 					<tr><td style="padding-bottom: 3px;">
-						<input type="text" size="30" value="<?echo htmlspecialcharsbx($ip)?>" name="EXCL_IPS[<?echo htmlspecialcharsbx($i)?>]">
+						<input type="text" size="30" value="<?php echo htmlspecialcharsbx($ip)?>" name="EXCL_IPS[<?php echo htmlspecialcharsbx($i)?>]">
 					</td></tr>
-				<?endforeach;
+				<?php endforeach;
 				if(!$bVarsFromForm):?>
 					<tr class="security-addable-row"><td style="padding-bottom: 3px;">
 						<input type="text" size="30" value="" name="EXCL_IPS[n0]">
 					</td></tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr><td>
-					<input type="button" id="add-button-excl-ips" value="<?echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
+					<input type="button" id="add-button-excl-ips" value="<?php echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
 				</td></tr>
 			</table>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td class="adm-detail-valign-top"><?echo GetMessage("SEC_IP_EDIT_INCL_MASKS")?>:<br><?echo GetMessage("SEC_IP_EDIT_INCL_MASKS_SAMPLE")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("SEC_IP_EDIT_INCL_MASKS")?>:<br><?php echo GetMessage("SEC_IP_EDIT_INCL_MASKS_SAMPLE")?></td>
 		<td>
 			<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbINCL_PATH">
-				<?if($bVarsFromForm)
+				<?php if($bVarsFromForm)
 					$arMasks = $_POST["INCL_MASKS"];
 				else
 					$arMasks = CSecurityIPRule::GetRuleInclMasks($ID);
 
 				foreach($arMasks as $i => $mask):?>
 					<tr><td style="padding-bottom: 3px;">
-						<input type="text" size="45" value="<?echo htmlspecialcharsbx($mask)?>" name="INCL_MASKS[<?echo htmlspecialcharsbx($i)?>]">
+						<input type="text" size="45" value="<?php echo htmlspecialcharsbx($mask)?>" name="INCL_MASKS[<?php echo htmlspecialcharsbx($i)?>]">
 					</td></tr>
-				<?endforeach;
+				<?php endforeach;
 				if(!$bVarsFromForm):?>
 					<tr class="security-addable-row"><td style="padding-bottom: 3px;">
 						<input type="text" size="45" value="" name="INCL_MASKS[n0]">
 					</td></tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr><td>
-					<input type="button" id="add-button-incl-masks" value="<?echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
+					<input type="button" id="add-button-incl-masks" value="<?php echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
 				</td></tr>
 			</table>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top" style="padding-top:12px;"><?echo GetMessage("SEC_IP_EDIT_EXCL_MASKS")?>:</td>
+		<td class="adm-detail-valign-top" style="padding-top:12px;"><?php echo GetMessage("SEC_IP_EDIT_EXCL_MASKS")?>:</td>
 		<td>
 			<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbEXCL_PATH">
-				<?if($bVarsFromForm)
+				<?php if($bVarsFromForm)
 					$arMasks = $_POST["EXCL_MASKS"];
 				else
 					$arMasks = CSecurityIPRule::GetRuleExclMasks($ID);
 
 				foreach($arMasks as $i => $mask):?>
 					<tr><td style="padding-bottom: 3px;">
-						<input type="text" size="45" value="<?echo htmlspecialcharsbx($mask)?>" name="EXCL_MASKS[<?echo htmlspecialcharsbx($i)?>]">
+						<input type="text" size="45" value="<?php echo htmlspecialcharsbx($mask)?>" name="EXCL_MASKS[<?php echo htmlspecialcharsbx($i)?>]">
 					</td></tr>
-				<?endforeach;
+				<?php endforeach;
 				if(!$bVarsFromForm):?>
 					<tr class="security-addable-row"><td style="padding-bottom: 3px;">
 						<input type="text" size="45" value="" name="EXCL_MASKS[n0]">
 					</td></tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr><td>
-					<input type="button" id="add-button-excl-masks" value="<?echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
+					<input type="button" id="add-button-excl-masks" value="<?php echo GetMessage("SEC_IP_EDIT_ROW_ADD")?>">
 				</td></tr>
 			</table>
 		</td>
@@ -341,7 +341,7 @@ $tabControl->BeginNextTab();
 		]
 	}
 </script>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -349,26 +349,26 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?if($ID>0):?>
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php if($ID>0):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
-<?endif;?>
-<?if($bShowForce && (COption::GetOptionString("security", "ipcheck_allow_self_block")==="Y")):?>
+<?php endif;?>
+<?php if($bShowForce && (COption::GetOptionString("security", "ipcheck_allow_self_block")==="Y")):?>
 	<input type="hidden" name="USE_THE_FORCE_LUK" value="Y">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("editform", $message);
 ?>
 
-<?/*echo BeginNote();?>
-<span class="required">*</span><?echo GetMessage("REQUIRED_FIELDS")?>
-<?echo EndNote();*/?>
-<?
+<?php /*echo BeginNote();?>
+<span class="required">*</span><?php echo GetMessage("REQUIRED_FIELDS")?>
+<?php echo EndNote();*/?>
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

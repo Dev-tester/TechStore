@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPATT_NAV"] = "Business Process Templates";
 $MESS["BPATT_TITLE"] = "Business Process Templates";
 $MESS["BPATT_AE_CREATE"] = "Create";

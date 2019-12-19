@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_EDIT_RECORD"] = "Изменение группы N#ID#";
 $MESS["FORUM_NEW_RECORD"] = "Новая группа";
 $MESS["FORUM_SORT"] = "Сортировка";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE"] = "Тип инфоблока";
 $MESS["IBLOCK_IBLOCK"] = "Инфоблок";
 $MESS["P_GALLERY_EDIT_URL"] = "Редактирование галереи";

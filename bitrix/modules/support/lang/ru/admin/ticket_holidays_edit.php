@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ADMIN_TAB1"] = "Исключение";
 $MESS["SUP_ADMIN_TITLE"] = "Исключение";
 $MESS["SUP_ERROR"] = "Ошибки";

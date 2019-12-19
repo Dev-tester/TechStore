@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OWNER_TYPE_ACTIVITY"] = "Activity";
 $MESS["CRM_OWNER_TYPE_COMPANY"] = "Company";
 $MESS["CRM_OWNER_TYPE_COMPANY_CATEGORY"] = "Companies";

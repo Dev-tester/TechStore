@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_TABLE_ACTIVE"] = "Aktiv";
 $MESS["SALE_DH_ACTIVATE_DESCR"] = "aktivieren";
 $MESS["SALE_DH_SHOP_ADDRESS_CHANGE"] = "Ändern";

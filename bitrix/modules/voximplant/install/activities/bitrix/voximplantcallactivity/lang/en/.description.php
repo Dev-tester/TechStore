@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPVICA_DESCR_NAME"] = "Robocall";
 $MESS["BPVICA_DESCR_DESCR"] = "Pre-recorded or text based robocall";
 $MESS["BPVICA_DESCR_RESULT"] = "Call result";

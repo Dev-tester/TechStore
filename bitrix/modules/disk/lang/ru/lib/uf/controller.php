@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_UF_CONTROLLER_SAVE_DOCUMENT_TITLE"] = "Выберите папку для сохранения документа";
 $MESS["DISK_UF_CONTROLLER_SELECT_DOCUMENT_TITLE"] = "Выберите один или несколько документов";
 $MESS["DISK_UF_CONTROLLER_SELECT_ONE_DOCUMENT_TITLE"] = "Выберите документ";

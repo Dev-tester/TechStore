@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -26,7 +26,7 @@ else
 		<div class="row mb-3">
 			<div class="col sale-order-payment-change-pp">
 				<div class="sale-order-payment-change-payment-title">
-					<?
+					<?php 
 					$paymentSubTitle = Loc::getMessage('SOPC_TPL_BILL')." ".Loc::getMessage('SOPC_TPL_NUMBER_SIGN').$arResult['PAYMENT']['ACCOUNT_NUMBER'];
 					if(isset($arResult['PAYMENT']['DATE_BILL']))
 					{
@@ -34,18 +34,18 @@ else
 					}
 					$paymentSubTitle .=",";
 					echo $paymentSubTitle;
-						?><span class="sale-order-payment-change-payment-title-element"><?=htmlspecialcharsbx($arResult['PAYMENT']['PAY_SYSTEM_NAME'])?></span> <?
+						?><span class="sale-order-payment-change-payment-title-element"><?=htmlspecialcharsbx($arResult['PAYMENT']['PAY_SYSTEM_NAME'])?></span> <?php 
 					if ($arResult['PAYMENT']['PAID'] === 'Y')
 					{
-						?><span class="sale-order-payment-change-status-success"><?=Loc::getMessage('SOPC_TPL_PAID')?></span> <?
+						?><span class="sale-order-payment-change-status-success"><?=Loc::getMessage('SOPC_TPL_PAID')?></span> <?php 
 					}
 					elseif ($arResult['IS_ALLOW_PAY'] == 'N')
 					{
-						?><span class="sale-order-payment-change-status-restricted"><?=Loc::getMessage('SOPC_TPL_RESTRICTED_PAID')?></span> <?
+						?><span class="sale-order-payment-change-status-restricted"><?=Loc::getMessage('SOPC_TPL_RESTRICTED_PAID')?></span> <?php 
 					}
 					else
 					{
-						?><span class="sale-order-payment-change-status-alert"><?=Loc::getMessage('SOPC_TPL_NOTPAID')?></span> <?
+						?><span class="sale-order-payment-change-status-alert"><?=Loc::getMessage('SOPC_TPL_NOTPAID')?></span> <?php 
 					}
 					?>
 				</div>
@@ -56,14 +56,14 @@ else
 			</div>
 		</div>
 		<div class="row mb-3 sale-order-payment-change-pp-list">
-			<?
+			<?php 
 			foreach ($arResult['PAYSYSTEMS_LIST'] as $key => $paySystem)
 			{
 				?>
 				<div class="sale-order-payment-change-pp-company col-lg-2 col-md-3 col-sm-4 col-6">
 					<div class="mb-1 sale-order-payment-change-pp-company-graf-container">
 						<input type="hidden" class="sale-order-payment-change-pp-company-hidden" name="PAY_SYSTEM_ID" value="<?=$paySystem['ID']?>" <?= ($key == 0) ? "checked='checked'" :""?>>
-						<?
+						<?php 
 						if (empty($paySystem['LOGOTIP']))
 							$paySystem['LOGOTIP'] = '/bitrix/images/sale/nopaysystem.gif';
 
@@ -76,12 +76,12 @@ else
 					</div>
 					<div class="mb-2 sale-order-payment-change-pp-company-smalltitle"><?=CUtil::JSEscape(htmlspecialcharsbx($paySystem['NAME']))?></div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 	</div>
-	<?
+	<?php 
 	$javascriptParams = array(
 		"url" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
 		"templateFolder" => CUtil::JSEscape($templateFolder),
@@ -99,6 +99,6 @@ else
 	<script>
 		var sc = new BX.Sale.OrderPaymentChange(<?=$javascriptParams?>);
 	</script>
-	<?
+	<?php 
 }
 

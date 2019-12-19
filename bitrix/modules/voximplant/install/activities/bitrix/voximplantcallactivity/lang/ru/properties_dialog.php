@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BPVICA_PD_NO_OUTPUT_NUMBER'] = 'Для работы с данным действием необходимо арендовать номер или подключить sip-атс';
 $MESS['BPVICA_PD_CALL_TYPE'] = 'Исходные данные для звонка';
 $MESS['BPVICA_PD_CALL_TYPE_TEXT'] = 'Текст';

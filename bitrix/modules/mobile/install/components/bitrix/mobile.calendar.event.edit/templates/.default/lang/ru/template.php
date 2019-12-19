@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_CALENDAR_SAVE_BUT"] = "Сохранить";
 $MESS["MBCAL_EDEV_NEW"] = "Новое событие";
 $MESS["MBCAL_EDEV_EDIT"] = "Изменение события";

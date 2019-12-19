@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMBOT_BOT_NAME"] = "Марта";
 $MESS["IMBOT_BOT_COLOR"] = "PINK";
 $MESS["IMBOT_BOT_GENDER"] = "F";

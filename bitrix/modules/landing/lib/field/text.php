@@ -51,19 +51,19 @@ class Text extends \Bitrix\Landing\Field
 	public function viewForm(array $params = array())
 	{
 		?>
-		<input type="text" <?
-		?><?= isset($params['additional']) ? $params['additional'] . ' ' : ''?><?
-		?><?= isset($params['id']) ? 'id="' . \htmlspecialcharsbx($params['id']) . '" ' : ''?><?
-		?><?= $this->maxlength > 0 ? 'maxlength="'. $this->maxlength . '" ' : ''?><?
-		?><?= $this->placeholder != '' ? 'placeholder="'. \htmlspecialcharsbx($this->placeholder) . '" ' : ''?><?
-		?>class="<?= isset($params['class']) ? \htmlspecialcharsbx($params['class']) : ''?>" <?
-		?>data-code="<?= \htmlspecialcharsbx($this->code)?>" <?
+		<input type="text" <?php 
+		?><?= isset($params['additional']) ? $params['additional'] . ' ' : ''?><?php 
+		?><?= isset($params['id']) ? 'id="' . \htmlspecialcharsbx($params['id']) . '" ' : ''?><?php 
+		?><?= $this->maxlength > 0 ? 'maxlength="'. $this->maxlength . '" ' : ''?><?php 
+		?><?= $this->placeholder != '' ? 'placeholder="'. \htmlspecialcharsbx($this->placeholder) . '" ' : ''?><?php 
+		?>class="<?= isset($params['class']) ? \htmlspecialcharsbx($params['class']) : ''?>" <?php 
+		?>data-code="<?= \htmlspecialcharsbx($this->code)?>" <?php 
 		?>name="<?= \htmlspecialcharsbx(isset($params['name_format'])
 				? str_replace('#field_code#', $this->code, $params['name_format'])
-				: $this->code)?>" <?
-		?>value="<?= \htmlspecialcharsbx($this->value)?>" <?
+				: $this->code)?>" <?php 
+		?>value="<?= \htmlspecialcharsbx($this->value)?>" <?php 
 		?> />
-		<?
+		<?php 
 	}
 
 	/**

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 
 $SITE_ID = '';
@@ -14,13 +14,13 @@ require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 ?>
 <!DOCTYPE html>
 <html>
-<head><? $APPLICATION->showHead(); ?></head>
+<head><?php  $APPLICATION->showHead(); ?></head>
 <body style="background: #eef2f4 !important; ">
 <div class="bizproc-log-slider-container">
 	<div class="bizproc-log-slider-header">
 		<div class="bizproc-log-slider-header-title"><?=GetMessage('BPABL_SLIDER_TITLE')?></div>
 	</div>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:bizproc.log",
 	'modern',
 	array(
@@ -36,6 +36,6 @@ $APPLICATION->IncludeComponent("bitrix:bizproc.log",
 ?>
 </div>
 </body>
-</html><?
+</html><?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');
 die();

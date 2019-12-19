@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_USE_LIGHT_VIEW"] = "Использовать простой режим настройки";
 $MESS["IBLOCK_TYPE"] = "Тип инфоблока";
 $MESS["IBLOCK_IBLOCK"] = "Инфоблок";

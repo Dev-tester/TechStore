@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 if ($GLOBALS["install_step"] == 2):
 	if(!check_bitrix_sessid()) 
@@ -21,27 +21,27 @@ if ($GLOBALS["install_step"] == 2):
 			<td align="center"><p><b><?=GetMessage("MOD_DEMO_SITE")?></b></p></td>
 			<td align="center"><p><b><?=GetMessage("MOD_DEMO_LINK")?></b></p></td>
 		</tr>
-		<?
+		<?php 
 		$sites = CSite::GetList($by, $order, Array("ACTIVE"=>"Y"));
 		while($site = $sites->GetNext())
 		{
 			?>
 			<tr>
 				<td width="0%"><p>[<?=$site["ID"]?>] <?=$site["NAME"]?></p></td>
-				<td width="0%"><p><a href="<?if(strlen($site["SERVER_NAME"])>0) echo "http://".$site["SERVER_NAME"];?><?=$site["DIR"].$public_dir?>/vote_list.php"><?=$site["DIR"].$public_dir?>/vote_list.php</a></p></td>
+				<td width="0%"><p><a href="<?php if(strlen($site["SERVER_NAME"])>0) echo "http://".$site["SERVER_NAME"];?><?=$site["DIR"].$public_dir?>/vote_list.php"><?=$site["DIR"].$public_dir?>/vote_list.php</a></p></td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 	</table>
-	<?
+	<?php 
 	endif;
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
 	<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>" />
 	<input type="submit" name="" value="<?=GetMessage("MOD_BACK")?>" />
 </form>
-<?
+<?php 
 	return;
 endif;
 

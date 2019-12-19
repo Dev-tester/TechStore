@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["mnu_sender_sect1"] = "Marketing24";
 $MESS["mnu_sender_sect_title1"] = "Marketing24";
 $MESS["mnu_sender_blacklist_alt"] = "Recipients excluded from all campaigns";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USER_TYPE_DOUBLE_DESCRIPTION'] = "Число";
 $MESS ['USER_TYPE_DOUBLE_SIZE'] = "Размер поля ввода для отображения";
 $MESS ['USER_TYPE_DOUBLE_MIN_VALUE'] = "Минимальное значение (0 - не проверять)";

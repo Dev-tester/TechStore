@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -22,7 +22,7 @@ if (!empty($arResult["errorMessage"]))
 	{
 		?>
 		<div class="page-description"><?= $arResult["errorMessage"] ?></div>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -30,7 +30,7 @@ if (!empty($arResult["errorMessage"]))
 		{
 			?>
 			<div class="page-description"><?= $errorMessage ?></div>
-			<?
+			<?php 
 		}
 	}
 }
@@ -54,7 +54,7 @@ elseif ($payment['PAID'] === 'Y')
 			<div class="order-payment-price"><?= Loc::getMessage('SPP_SUM', ['#SUM#' => $payment['FORMATTED_SUM']]) ?></div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -81,7 +81,7 @@ else
 						['#SUM#' => $payment['FORMATTED_SUM']]) ?></div>
 			</div>
 			<hr>
-			<?
+			<?php 
 			if ($arResult['USER_CONSENT'] === 'Y')
 			{
 				$APPLICATION->IncludeComponent(
@@ -106,7 +106,7 @@ else
 				</button>
 			</div>
 		</div>
-		<?
+		<?php 
 		$settings = array(
 			"selectedPaySystemId" => $currentPaySystem['ID'],
 			"paySystemData" => [$currentPaySystem],
@@ -126,7 +126,7 @@ else
 				BX.SalesCenter.Component.PaymentPayInner.create("<?=$id?>", <?=$settings?>);
 			});
 		</script>
-		<?
+		<?php 
 	}
 	elseif (!empty($arResult['PAYSYSTEMS_LIST']))
 	{
@@ -149,7 +149,7 @@ else
 				<hr>
 				<div class="<?= $paySystemDescriptionClassName ?>"></div>
 				<hr>
-				<?
+				<?php 
 				if ($arParams['VIEW_MODE'] !== 'Y')
 				{
 					if ($arResult['USER_CONSENT'] === 'Y')
@@ -175,13 +175,13 @@ else
 							<?= Loc::getMessage('SPP_PAY_BUTTON'); ?>
 						</button>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
 
-		<?
+		<?php 
 		$first = current($arResult['PAYSYSTEMS_LIST']);
 		$settings = array(
 			"selectedPaySystemId" => (int)$currentPaySystem['PAY_SYSTEM_ID'] > 0 ? (int)$currentPaySystem['PAY_SYSTEM_ID'] : (int)$first['ID'],
@@ -205,7 +205,7 @@ else
 				BX.SalesCenter.Component.PaymentPayList.create("<?=$id?>", <?=$settings?>);
 			});
 		</script>
-		<?
+		<?php 
 	}
 }
 

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $isCompositeMode = defined("USE_HTML_STATIC_CACHE") ? true : false;
 $this->setFrameMode(true);
@@ -27,7 +27,7 @@ $arHiddenItemsCounters = array();
 $arAllItemsCounters = array();
 ?>
 <div id="bx_b24_menu">
-<?
+<?php 
 foreach($arResult["TITLE_ITEMS"] as $title => $arTitleItem)
 {
 	if (is_array($arResult["SORT_ITEMS"][$title]["show"]) || is_array($arResult["SORT_ITEMS"][$title]["hide"]))
@@ -42,20 +42,20 @@ foreach($arResult["TITLE_ITEMS"] as $title => $arTitleItem)
 		else
 			$disabled = (!is_array($hideOption) && $arTitleItem["PARAMS"]["class"]!="menu-favorites" && !$SubItemSelected) || (is_array($hideOption) && $hideOption["hide"] == "Y" && !$SubItemSelected);?>
 
-		<div class="menu-items-block <?=$arTitleItem["PARAMS"]["class"]?> " <?if ($arTitleItem["PARAMS"]["is_empty"] == "Y"):?>style="display:none"<?endif?> id="div_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>">
-			<div id="<?=$arTitleItem["PARAMS"]["menu_item_id"]?>" class="menu-items-title <?=$arTitleItem["PARAMS"]["class"]?>"><?
+		<div class="menu-items-block <?=$arTitleItem["PARAMS"]["class"]?> " <?php if ($arTitleItem["PARAMS"]["is_empty"] == "Y"):?>style="display:none"<?php endif?> id="div_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>">
+			<div id="<?=$arTitleItem["PARAMS"]["menu_item_id"]?>" class="menu-items-title <?=$arTitleItem["PARAMS"]["class"]?>"><?php 
 				if ($arTitleItem["PARAMS"]["class"] == "menu-favorites"):?>
-					<span class="menu-items-title-text"><?echo $arTitleItem["TEXT"]?></span>
+					<span class="menu-items-title-text"><?php echo $arTitleItem["TEXT"]?></span>
 					<span class="menu-favorites-settings" id="menu_favorites_settings" onclick="B24menuItemsObj.applyEditMode();" title="<?=GetMessage("MENU_SETTINGS_TITLE")?>"><span class="menu-fav-settings-icon"></span></span>
-					<span class="menu-favorites-btn-done" onclick="B24menuItemsObj.applyEditMode();"><?=GetMessage("MENU_EDIT_READY")?></span><?
+					<span class="menu-favorites-btn-done" onclick="B24menuItemsObj.applyEditMode();"><?=GetMessage("MENU_EDIT_READY")?></span><?php 
 				else:
 					echo $arTitleItem["TEXT"];
-					?><span class="menu-toggle-text"><?=($disabled ? GetMessage("MENU_SHOW") : GetMessage("MENU_HIDE"))?></span><?
+					?><span class="menu-toggle-text"><?=($disabled ? GetMessage("MENU_SHOW") : GetMessage("MENU_HIDE"))?></span><?php 
 				endif
 			?></div>
-			<ul  class="menu-items<?if ($disabled):?> menu-items-close<?endif;?>" id="ul_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>">
+			<ul  class="menu-items<?php if ($disabled):?> menu-items-close<?php endif;?>" id="ul_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>">
 				<li class="menu-items-empty-li" id="empty_li_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>" style="height: 3px;"></li>
-				<?
+				<?php 
 				$arTmp = array("show", "hide");
 				foreach($arTmp as $status)
 				{
@@ -66,7 +66,7 @@ foreach($arResult["TITLE_ITEMS"] as $title => $arTitleItem)
 					</li>
 					<li class="menu-item-block menu-item-favorites-more" id="hidden_items_li_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>">
 						<ul class="menu-items-fav-more-block" id="hidden_items_ul_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>">
-					<?endif;
+					<?php endif;
 					if (is_array($arResult["SORT_ITEMS"][$title][$status]))
 					{
 						foreach($arResult["SORT_ITEMS"][$title][$status] as $arItem)
@@ -110,21 +110,21 @@ foreach($arResult["TITLE_ITEMS"] as $title => $arTitleItem)
 									}
 								}
 								?>
-								<li <?if ($title!= "menu-favorites" && in_array($arItem["PARAMS"]["menu_item_id"],$arResult["ALL_FAVOURITE_ITEMS_ID"])):?>style="display:none; " <?endif?>
-									id="<?if ($title!= "menu-favorites" && in_array($arItem["PARAMS"]["menu_item_id"],$arResult["ALL_FAVOURITE_ITEMS_ID"])) echo "hidden_"; echo $arItem["PARAMS"]["menu_item_id"]?>"
+								<li <?php if ($title!= "menu-favorites" && in_array($arItem["PARAMS"]["menu_item_id"],$arResult["ALL_FAVOURITE_ITEMS_ID"])):?>style="display:none; " <?php endif?>
+									id="<?php if ($title!= "menu-favorites" && in_array($arItem["PARAMS"]["menu_item_id"],$arResult["ALL_FAVOURITE_ITEMS_ID"])) echo "hidden_"; echo $arItem["PARAMS"]["menu_item_id"]?>"
 									data-status="<?=$status?>"
 									data-title-item="<?=$arTitleItem["PARAMS"]["menu_item_id"]?>"
 									data-counter-id="<?=$couterId?>"
 									data-can-delete-from-favorite="<?=$arItem["PARAMS"]["can_delete_from_favourite"]?>"
-									<?if (isset($arItem["PARAMS"]["is_application"])):?>
+									<?php if (isset($arItem["PARAMS"]["is_application"])):?>
 										data-app-id="<?=$arItem["PARAMS"]["app_id"]?>"
-									<?endif?>
-									class="menu-item-block <?if ($isCompositeMode === false && $arItem["SELECTED"]):?> menu-item-active<?endif?><?if($isCompositeMode === false && $counter > 0 && strlen($couterId) > 0 && (!$arItem["SELECTED"] || ($arItem["SELECTED"] && $couterId == "bp_tasks"))):?> menu-item-with-index<?endif?><?if ((IsModuleInstalled("bitrix24") && $arItem["PARAMS"]["menu_item_id"] == "menu_live_feed") || $arItem["PARAMS"]["menu_item_id"] == "menu_all_groups"):?> menu-item-live-feed<?endif?>">
-									<?if (!((IsModuleInstalled("bitrix24") && $arItem["PARAMS"]["menu_item_id"] == "menu_live_feed") || $arItem["PARAMS"]["menu_item_id"] == "menu_all_groups")):?>
+									<?php endif?>
+									class="menu-item-block <?php if ($isCompositeMode === false && $arItem["SELECTED"]):?> menu-item-active<?php endif?><?php if($isCompositeMode === false && $counter > 0 && strlen($couterId) > 0 && (!$arItem["SELECTED"] || ($arItem["SELECTED"] && $couterId == "bp_tasks"))):?> menu-item-with-index<?php endif?><?php if ((IsModuleInstalled("bitrix24") && $arItem["PARAMS"]["menu_item_id"] == "menu_live_feed") || $arItem["PARAMS"]["menu_item_id"] == "menu_all_groups"):?> menu-item-live-feed<?php endif?>">
+									<?php if (!((IsModuleInstalled("bitrix24") && $arItem["PARAMS"]["menu_item_id"] == "menu_live_feed") || $arItem["PARAMS"]["menu_item_id"] == "menu_all_groups")):?>
 										<span class="menu-fav-editable-btn menu-favorites-btn" onclick="B24menuItemsObj.openMenuPopup(this, '<?=CUtil::JSEscape($arItem["PARAMS"]["menu_item_id"])?>')"><span class="menu-favorites-btn-icon"></span></span>
 										<span class="menu-favorites-btn menu-favorites-draggable" onmousedown="BX.addClass(this.parentNode, 'menu-item-draggable');" onmouseup="BX.removeClass(this.parentNode, 'menu-item-draggable');"><span class="menu-fav-draggable-icon"></span></span>
-									<?endif?>
-									<?
+									<?php endif?>
+									<?php 
 									$curLink = "";
 									if (preg_match("~^".SITE_DIR."index\.php~i", $arItem["LINK"]))
 										$curLink = SITE_DIR;
@@ -137,12 +137,12 @@ foreach($arResult["TITLE_ITEMS"] as $title => $arTitleItem)
 										if (B24menuItemsObj.isEditMode())
 											return false;
 
-										<?if (isset($arItem["PARAMS"]["onclick"])):?>
+										<?php if (isset($arItem["PARAMS"]["onclick"])):?>
 											<?=CUtil::JSEscape($arItem["PARAMS"]["onclick"])?>
-										<?endif?>
+										<?php endif?>
 									">
 										<span class="menu-item-link-text"><?=$arItem["TEXT"]?></span>
-										<?if (strlen($couterId) > 0):
+										<?php if (strlen($couterId) > 0):
 											$itemCounter = "";
 											$crmAttrs = "";
 											if ($isCompositeMode === false)
@@ -151,45 +151,45 @@ foreach($arResult["TITLE_ITEMS"] as $title => $arTitleItem)
 												$crmAttrs = ($arItem["PARAMS"]["counter_id"] == "crm_cur_act" ? ' data-counter-crmstream="'.intval($counterCrm).'" data-counter-crmact="'.intval($counterAct).'"' : "");
 											}
 										?><span class="menu-item-index-wrap"><span class="menu-item-index" <?=$crmAttrs?> id="menu-counter-<?=strtolower($arItem["PARAMS"]["counter_id"])?>"><?=$itemCounter?></span></span>
-											<?if (!empty($arItem["PARAMS"]["warning_link"])):?>
+											<?php if (!empty($arItem["PARAMS"]["warning_link"])):?>
 												<span onclick="window.location.replace('<?=$arItem["PARAMS"]["warning_link"]; ?>'); return false; "
-													<? if (!empty($arItem["PARAMS"]["warning_title"])):?>title="<?=$arItem["PARAMS"]["warning_title"]; ?>"<?endif?>
+													<?php  if (!empty($arItem["PARAMS"]["warning_title"])):?>title="<?=$arItem["PARAMS"]["warning_title"]; ?>"<?php endif?>
 													class="menu-post-warn-icon"
 													id="menu-counter-warning-<?=strtolower($arItem["PARAMS"]["counter_id"]); ?>"></span>
-											<?endif?>
-										<?endif;?>
+											<?php endif?>
+										<?php endif;?>
 									</a>
 								</li>
-							<?
+							<?php 
 							}
 						}
 					}
 					if ($status=="hide"):?>
 						</ul>
 					</li>
-					<?endif;
+					<?php endif;
 				}
 				?>
 			</ul>
-			<div class="menu-favorites-more-btn<?if ($disabled):?> menu-items-close<?endif;?>" id="more_btn_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>" <?if (!is_array($arResult["SORT_ITEMS"][$title]["hide"])):?>style="display:none;"<?endif?> onclick="B24menuItemsObj.showHideMoreItems(this, '<?=CUtil::JSEscape($arTitleItem["PARAMS"]["menu_item_id"])?>');">
+			<div class="menu-favorites-more-btn<?php if ($disabled):?> menu-items-close<?php endif;?>" id="more_btn_<?=$arTitleItem["PARAMS"]["menu_item_id"]?>" <?php if (!is_array($arResult["SORT_ITEMS"][$title]["hide"])):?>style="display:none;"<?php endif?> onclick="B24menuItemsObj.showHideMoreItems(this, '<?=CUtil::JSEscape($arTitleItem["PARAMS"]["menu_item_id"])?>');">
 				<span class="menu-favorites-more-text"><?=GetMessage("MENU_MORE_ITEMS_SHOW")?></span>
-				<?if ($title == "menu-favorites"):?>
-					<span class="menu-item-index menu-item-index-more" id="menu-hidden-counter" <?if ($isCompositeMode || $sumHiddenCounters <= 0):?>style="display:none"<?endif?>><?= ($isCompositeMode ? "" : ($sumHiddenCounters > 50 ? "50+" : $sumHiddenCounters))?></span>
-				<?endif?>
+				<?php if ($title == "menu-favorites"):?>
+					<span class="menu-item-index menu-item-index-more" id="menu-hidden-counter" <?php if ($isCompositeMode || $sumHiddenCounters <= 0):?>style="display:none"<?php endif?>><?= ($isCompositeMode ? "" : ($sumHiddenCounters > 50 ? "50+" : $sumHiddenCounters))?></span>
+				<?php endif?>
 				<span class="menu-favorites-more-icon"></span>
 			</div>
-			<?
+			<?php 
 			if (IsSubItemSelected($arResult["SORT_ITEMS"][$title]["hide"]))
 				$arHiddenItemsSelected[] = $arTitleItem["PARAMS"]["menu_item_id"];
 			?>
 		</div>
-	<?
+	<?php 
 	}
 }
 ?>
 </div>
 
-<?
+<?php 
 $arJSParams = array(
 	"arFavouriteAll" => $arResult["ALL_FAVOURITE_ITEMS_ID"],
 	"arFavouriteShowAll" => $arResult["ALL_SHOW_FAVOURITE_ITEMS_ID"],
@@ -221,7 +221,7 @@ $arJSParams = array(
 		menu_hide: '<?=CUtil::JSEscape(GetMessage('MENU_HIDE'))?>'
 	});
 
-	<?if ($isCompositeMode):?>
+	<?php if ($isCompositeMode):?>
 	var path = document.location.pathname;
 
 	if (document.location.pathname !== '<?=SITE_DIR?>')
@@ -233,7 +233,7 @@ $arJSParams = array(
 			BX.Bitrix24.MenuClass.highlight(path);
 		});
 	}
-	<?endif?>
+	<?php endif?>
 
 	BX.ready(function() {
 		window.B24menuItemsObj = new BX.Bitrix24.MenuClass(<?=CUtil::PhpToJSObject($arJSParams)?>);

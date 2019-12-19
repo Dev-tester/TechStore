@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GRE_T_DO_SAVE"] = "Одобрить вступление";
 $MESS["SONET_GRE_T_REJECT"] = "Отказать";
 $MESS["SONET_GRE_T_REJECT_OUT"] = "Отменить приглашения";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_REINDEX_IN_PROGRESS"] = "Переиндексация...";
 $MESS["IBLOCK_REINDEX_TOTAL"] = "Проиндексировано элементов:";
 $MESS["IBLOCK_REINDEX_COMPLETE"] = "Создание индексов завершено.";

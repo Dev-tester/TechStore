@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ACTION"] = "Aktionen";
 $MESS["SALE_DETAIL"] = "Ändern";
 $MESS["P_NAME"] = "Bezeichnung";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 IncludeModuleLangFile($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/intranet/public_bitrix24/crm/tunnels/index.php');
 $APPLICATION->SetTitle(GetMessage('TITLE'));

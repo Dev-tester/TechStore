@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_PAYMENT_RETURN_NO_SUPPORTED"] = "Das Zahlungssystem unterstützt keine Rückzahlungen";
 $MESS["SALE_ORDER_PAYMENT_RETURN_PAID"] = "Rückzahlung für ausgeführte Teilzahlung kann nicht storniert werden.";
 $MESS["SALE_PAYMENT_ALREADY_PAID"] = "Teilbezahlung wurde bereits gemacht";

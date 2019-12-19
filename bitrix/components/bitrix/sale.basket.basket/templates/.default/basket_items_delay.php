@@ -1,78 +1,78 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <b><?= GetMessage("SALE_OTLOG_TITLE")?></b><br /><br />
 <table class="sale_basket_basket data-table">
 	<tr>
-		<?if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
+		<?php if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_NAME")?></th>
-		<?endif;?>
-		<?if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
+		<?php endif;?>
+		<?php if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_PROPS")?></th>
-		<?endif;?>
-		<?if (in_array("PRICE", $arParams["COLUMNS_LIST"])):?>
+		<?php endif;?>
+		<?php if (in_array("PRICE", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_PRICE")?></th>
-		<?endif;?>
-		<?if (in_array("TYPE", $arParams["COLUMNS_LIST"])):?>
+		<?php endif;?>
+		<?php if (in_array("TYPE", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_PRICE_TYPE")?></th>
-		<?endif;?>
-		<?if (in_array("QUANTITY", $arParams["COLUMNS_LIST"])):?>
+		<?php endif;?>
+		<?php if (in_array("QUANTITY", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_QUANTITY")?></th>
-		<?endif;?>
-		<?if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
+		<?php endif;?>
+		<?php if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_DELETE")?></th>
-		<?endif;?>
-		<?if (in_array("DELAY", $arParams["COLUMNS_LIST"])):?>
+		<?php endif;?>
+		<?php if (in_array("DELAY", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_OTLOG")?></th>
-		<?endif;?>
-		<?if (in_array("WEIGHT", $arParams["COLUMNS_LIST"])):?>
+		<?php endif;?>
+		<?php if (in_array("WEIGHT", $arParams["COLUMNS_LIST"])):?>
 			<th align="center"><?= GetMessage("SALE_WEIGHT")?></th>
-		<?endif;?>
+		<?php endif;?>
 	</tr>
-	<?
+	<?php 
 	foreach($arResult["ITEMS"]["DelDelCanBuy"] as $arBasketItems)
 	{
 		?>
 		<tr>
-			<?if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
-				<td><?
+			<?php if (in_array("NAME", $arParams["COLUMNS_LIST"])):?>
+				<td><?php 
 				if (strlen($arBasketItems["DETAIL_PAGE_URL"])>0):
-					?><a href="<?echo $arBasketItems["DETAIL_PAGE_URL"] ?>"><?
+					?><a href="<?php echo $arBasketItems["DETAIL_PAGE_URL"] ?>"><?php 
 				endif;
-				?><b><?echo $arBasketItems["NAME"]?></b><?
+				?><b><?php echo $arBasketItems["NAME"]?></b><?php 
 				if (strlen($arBasketItems["DETAIL_PAGE_URL"])>0):
-					?></a><?
+					?></a><?php 
 				endif;
 				?></td>
-			<?endif;?>
-			<?if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
+			<?php endif;?>
+			<?php if (in_array("PROPS", $arParams["COLUMNS_LIST"])):?>
 				<td>
-				<?
+				<?php 
 				foreach($arBasketItems["PROPS"] as $val)
 				{
 					echo $val["NAME"].": ".$val["VALUE"]."<br />";
 				}
 				?>
 				</td>
-			<?endif;?>
-			<?if (in_array("PRICE", $arParams["COLUMNS_LIST"])):?>
+			<?php endif;?>
+			<?php if (in_array("PRICE", $arParams["COLUMNS_LIST"])):?>
 				<td align="right"><?=$arBasketItems["PRICE_FORMATED"]?></td>
-			<?endif;?>
-			<?if (in_array("TYPE", $arParams["COLUMNS_LIST"])):?>
-				<td><?echo $arBasketItems["NOTES"]?></td>
-			<?endif;?>
-			<?if (in_array("QUANTITY", $arParams["COLUMNS_LIST"])):?>
-				<td align="center"><?echo $arBasketItems["QUANTITY"]?></td>
-			<?endif;?>
-			<?if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
-				<td align="center"><input type="checkbox" name="DELETE_<?echo $arBasketItems["ID"] ?>" value="Y"></td>
-			<?endif;?>
-			<?if (in_array("DELAY", $arParams["COLUMNS_LIST"])):?>
-				<td align="center"><input type="checkbox" name="DELAY_<?echo $arBasketItems["ID"] ?>" value="Y" checked></td>
-			<?endif;?>
-			<?if (in_array("WEIGHT", $arParams["COLUMNS_LIST"])):?>
-				<td align="right"><?echo $arBasketItems["WEIGHT_FORMATED"] ?></td>
-			<?endif;?>
+			<?php endif;?>
+			<?php if (in_array("TYPE", $arParams["COLUMNS_LIST"])):?>
+				<td><?php echo $arBasketItems["NOTES"]?></td>
+			<?php endif;?>
+			<?php if (in_array("QUANTITY", $arParams["COLUMNS_LIST"])):?>
+				<td align="center"><?php echo $arBasketItems["QUANTITY"]?></td>
+			<?php endif;?>
+			<?php if (in_array("DELETE", $arParams["COLUMNS_LIST"])):?>
+				<td align="center"><input type="checkbox" name="DELETE_<?php echo $arBasketItems["ID"] ?>" value="Y"></td>
+			<?php endif;?>
+			<?php if (in_array("DELAY", $arParams["COLUMNS_LIST"])):?>
+				<td align="center"><input type="checkbox" name="DELAY_<?php echo $arBasketItems["ID"] ?>" value="Y" checked></td>
+			<?php endif;?>
+			<?php if (in_array("WEIGHT", $arParams["COLUMNS_LIST"])):?>
+				<td align="right"><?php echo $arBasketItems["WEIGHT_FORMATED"] ?></td>
+			<?php endif;?>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 </table>

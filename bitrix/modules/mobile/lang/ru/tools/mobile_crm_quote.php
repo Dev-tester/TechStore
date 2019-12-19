@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_NOT_FOUND"] = "Предложение не найдено.";
 $MESS["CRM_QUOTE_ID_NOT_DEFINED"] = "Не найден ИД предложения";
 $MESS["CRM_QUOTE_ACCESS_DENIED"] = "Доступ запрещён";

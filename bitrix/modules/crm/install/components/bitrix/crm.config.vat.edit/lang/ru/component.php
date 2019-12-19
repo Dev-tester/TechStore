@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_MODULE_NOT_INSTALLED'] = 'Модуль CRM не установлен.';
 $MESS['CRM_CATALOG_MODULE_NOT_INSTALLED'] = 'Модуль "Торговый каталог" не установлен.';
 $MESS['CRM_PERMISSION_DENIED'] = 'Доступ запрещен';

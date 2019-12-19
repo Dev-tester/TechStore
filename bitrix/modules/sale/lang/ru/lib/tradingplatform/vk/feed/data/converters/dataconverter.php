@@ -1,4 +1,4 @@
-<?
+<?php 
 //$MESS['SALE_VK_INCH'] = ' дюйма';
 $MESS['SALE_VK_INCH_NEW'] = '”';
 $MESS["SALE_VK_PRODUCT_LAQUO_SINGLE"] = "‘";

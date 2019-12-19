@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_CPCR_NAME"] = "SPSR";
 $MESS["SALE_DH_CPCR_DESCRIPTION"] = "Eilversand";
 $MESS["SALE_DH_CPCR_DESCRIPTION_INNER"] = "SPSR-Handler. Funktioniert auf der Basis  <a href=\"http://www.cpcr.ru/calculator.html\" target=\"_blank\">SPSR-tarifcalculator</a> . Die Adresse des E-Shops muss angegeben werden in <a href=\"/bitrix/admin/settings.php?mid=sale&lang=ru\">Moduleinstellungen</a>. <br />Einschränkungen: nur innerhalb von Russland.";

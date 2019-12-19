@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 include(dirname(__FILE__)."/common.php");
 
 $strPaySysError = "";
@@ -182,25 +182,25 @@ else
 			<td class="tablebody" width="60%">
 				<select name="cardexp1" class="inputselect">
 					<option value=""> </option>
-					<?
+					<?php 
 					for ($i = 1; $i <= 12; $i++)
 					{
 						$val = (($i < 10) ? "0" : "").$i;
 						?>
-						<option value="<?= $val ?>" <?if ($_REQUEST["cardexp1"] == $val) echo "selected";?>><?= $val ?></option>
-						<?
+						<option value="<?= $val ?>" <?php if ($_REQUEST["cardexp1"] == $val) echo "selected";?>><?= $val ?></option>
+						<?php 
 					}
 					?>
 				</select>
 				<select name="cardexp2" class="inputselect">
 					<option value=""> </option>
-					<?
+					<?php 
 					for ($i = 4; $i <= 11; $i++)
 					{
 						$val = (($i < 10) ? "0" : "").$i;
 						?>
-						<option value="<?= $val ?>" <?if ($_REQUEST["cardexp2"] == $val) echo "selected";?>><?= $val ?></option>
-						<?
+						<option value="<?= $val ?>" <?php if ($_REQUEST["cardexp2"] == $val) echo "selected";?>><?= $val ?></option>
+						<?php 
 					}
 					?>
 				</SELECT>
@@ -231,6 +231,6 @@ else
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Page;
 
@@ -10,7 +10,7 @@ Page\Asset::getInstance()->addJs($templateFolder.'/js/form-entity.js');
 	new BX.Intranet.UserProfile.Password.EntityEditor({});
 </script>
 <div class="js-intranet-password">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:ui.form",
 		"",

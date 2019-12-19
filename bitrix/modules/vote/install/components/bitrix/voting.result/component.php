@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!IsModuleInstalled("vote")):
 	ShowError(GetMessage("VOTE_MODULE_IS_NOT_INSTALLED"));
 	return;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_TAGS"] = "Теги";
 $MESS["WIKI_PAGE_TEXT"] = "Текст страницы";
 $MESS["WIKI_NAME"] = "Заголовок страницы";

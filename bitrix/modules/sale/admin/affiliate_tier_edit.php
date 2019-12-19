@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -116,7 +116,7 @@ if ($bVarsFromForm)
 	$DB->InitTableVarsForEdit("b_sale_affiliate_tier", "", "str_");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SATE1_LIST"),
@@ -149,17 +149,17 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?if(strlen($errorMessage)>0)
+<?php if(strlen($errorMessage)>0)
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>$errorMessage, "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SATE1_ERROR_SAVE"), "HTML"=>true));?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("SATE1_TIER"), "ICON" => "sale", "TITLE" => GetMessage("SATE1_TIER_ALT")),
 );
@@ -168,57 +168,57 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SATE1_SITE")?></td>
+		<td width="40%"><?php echo GetMessage("SATE1_SITE")?></td>
 		<td width="60%">
-			<?echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "");?>
+			<?php echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "");?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SATE1_RATE1")?></td>
+		<td><?php echo GetMessage("SATE1_RATE1")?></td>
 		<td>
 			<input type="text" name="RATE1" value="<?= $str_RATE1 ?>" size="10" maxlength="10">%
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SATE1_RATE2")?></td>
+		<td><?php echo GetMessage("SATE1_RATE2")?></td>
 		<td>
 			<input type="text" name="RATE2" value="<?= $str_RATE2 ?>" size="10" maxlength="10">%
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SATE1_RATE3")?></td>
+		<td><?php echo GetMessage("SATE1_RATE3")?></td>
 		<td>
 			<input type="text" name="RATE3" value="<?= $str_RATE3 ?>" size="10" maxlength="10">%
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SATE1_RATE4")?></td>
+		<td><?php echo GetMessage("SATE1_RATE4")?></td>
 		<td>
 			<input type="text" name="RATE4" value="<?= $str_RATE4 ?>" size="10" maxlength="10">%
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SATE1_RATE5")?></td>
+		<td><?php echo GetMessage("SATE1_RATE5")?></td>
 		<td>
 			<input type="text" name="RATE5" value="<?= $str_RATE5 ?>" size="10" maxlength="10">%
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => ($saleModulePermissions < "W"),
@@ -227,8 +227,8 @@ $tabControl->Buttons(
 );
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

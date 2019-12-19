@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CT_BLS_TOOLBAR_UP'] = "Up";
 $MESS ['CT_BLS_TOOLBAR_UP_TITLE'] = "Browse parent section";
 $MESS ['CT_BLS_TOOLBAR_ADD_SECTION_TITLE'] = "Add new section to current section";

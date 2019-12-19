@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Crm\Integration\StorageType;
 
@@ -262,7 +262,7 @@ $APPLICATION->IncludeComponent(
 	});
 </script>
 
-<?if($arResult['ENABLE_INSTANT_EDIT']):?>
+<?php if($arResult['ENABLE_INSTANT_EDIT']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -340,7 +340,7 @@ $APPLICATION->IncludeComponent(
 				);
 			}
 
-			<?if(isset($arResult['ENABLE_BIZPROC_LAZY_LOADING']) && $arResult['ENABLE_BIZPROC_LAZY_LOADING'] === true):?>
+			<?php if(isset($arResult['ENABLE_BIZPROC_LAZY_LOADING']) && $arResult['ENABLE_BIZPROC_LAZY_LOADING'] === true):?>
 			var bpContainerId = "<?=$arResult['BIZPROC_CONTAINER_ID']?>";
 			if(BX(bpContainerId))
 			{
@@ -356,13 +356,13 @@ $APPLICATION->IncludeComponent(
 					}
 				);
 			}
-			<?endif;?>
+			<?php endif;?>
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>
 
-<?if(isset($arResult['ENABLE_LIVE_FEED_LAZY_LOAD']) && $arResult['ENABLE_LIVE_FEED_LAZY_LOAD'] === true):?>
+<?php if(isset($arResult['ENABLE_LIVE_FEED_LAZY_LOAD']) && $arResult['ENABLE_LIVE_FEED_LAZY_LOAD'] === true):?>
 <script type="text/javascript">
 	(function()
 	{
@@ -416,8 +416,8 @@ $APPLICATION->IncludeComponent(
 		);
 	})();
 </script>
-<?endif;?>
-<?if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
+<?php endif;?>
+<?php if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -459,4 +459,4 @@ $APPLICATION->IncludeComponent(
 			}
 		);
 	</script>
-<?endif;?>
+<?php endif;?>

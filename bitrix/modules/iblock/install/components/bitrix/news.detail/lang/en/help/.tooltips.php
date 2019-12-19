@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE_TIP"] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type.";
 $MESS["IBLOCK_ID_TIP"] = "Select an information block of the selected type. If you have chosen <i>other</i>, specify the information block ID in the next field. For example: <b>={\$_REQUEST[\"ID\"]}</b>.";
 $MESS["ELEMENT_ID_TIP"] = "The expression that evaluates to the news item ID. It can be defined explicitly, or taken from the _REQUEST array. The default value is <b>={\$_REQUEST[\"ID\"]}</b>";

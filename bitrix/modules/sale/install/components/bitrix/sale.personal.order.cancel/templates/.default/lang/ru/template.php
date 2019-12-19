@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_RECORDS_LIST'] = "В список заказов";
 $MESS ['SALE_CANCEL_ORDER1'] = "Вы уверены, что хотите отменить";
 $MESS ['SALE_CANCEL_ORDER2'] = "заказ";

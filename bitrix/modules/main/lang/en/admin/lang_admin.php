@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Languages";
 $MESS["SAVE_ERROR"] = "Error saving language ";
 $MESS["DELETE_ERROR"] = "Error deleting the language. It can be possibly connected with some other objects.";

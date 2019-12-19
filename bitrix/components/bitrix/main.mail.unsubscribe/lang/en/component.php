@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_MAIL_UNSUBSCRIBE_TITLE"] = "Unsubscribe from Mailing List";
 $MESS["MAIN_MAIL_UNSUBSCRIBE_SUCCESS"] = "Your subscription has been removed.";
 $MESS["MAIN_MAIL_UNSUBSCRIBE_ERROR_UNSUB"] = "Error: cannot unsubscribe.";

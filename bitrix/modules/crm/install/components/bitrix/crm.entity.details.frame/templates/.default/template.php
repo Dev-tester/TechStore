@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
@@ -22,7 +22,7 @@ if($arResult['IFRAME'])
 			}
 		</script>
 
-		<?
+		<?php 
 		//The fastest way to close Slider Loader.
 		Bitrix\Main\Page\Asset::getInstance()->setJsToBody(true);
 		Bitrix\Main\Page\Asset::getInstance()->addString('
@@ -45,8 +45,8 @@ if($arResult['IFRAME'])
 		', false, \Bitrix\Main\Page\AssetLocation::AFTER_CSS);
 		?>
 
-		<?$APPLICATION->ShowHead();?>
-		<title><?$APPLICATION->ShowTitle()?></title>
+		<?php $APPLICATION->ShowHead();?>
+		<title><?php $APPLICATION->ShowTitle()?></title>
 		<style>.crm-iframe-popup,
 			.crm-iframe-popup.crm-form-page,
 			.crm-iframe-popup.crm-detail-page{
@@ -55,26 +55,26 @@ if($arResult['IFRAME'])
 			}
 		</style>
 	</head>
-	<body class="crm-iframe-popup crm-detail-page template-<?= SITE_TEMPLATE_ID ?> <? if(!$arResult['IFRAME_USE_SCROLL']):?>crm-iframe-popup-no-scroll<?endif ?> <? $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
+	<body class="crm-iframe-popup crm-detail-page template-<?= SITE_TEMPLATE_ID ?> <?php  if(!$arResult['IFRAME_USE_SCROLL']):?>crm-iframe-popup-no-scroll<?php endif ?> <?php  $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
 
 	<div class="crm-iframe-header">
 		<div class="pagetitle-wrap">
 			<div class="pagetitle-inner-container">
-				<div class="pagetitle-menu" id="pagetitle-menu"><?
+				<div class="pagetitle-menu" id="pagetitle-menu"><?php 
 					$APPLICATION->ShowViewContent("pagetitle");
 					$APPLICATION->ShowViewContent("inside_pagetitle");
 				?></div>
 				<div class="pagetitle">
 					<span id="pagetitle_icon"></span>
-					<span id="pagetitle" class="pagetitle-item"><?$APPLICATION->ShowTitle()?></span>
+					<span id="pagetitle" class="pagetitle-item"><?php $APPLICATION->ShowTitle()?></span>
 					<span id="pagetitle_btn_wrapper" class="pagetitile-button-container">
-						<?if($arResult['ENABLE_TITLE_EDIT'] && $arResult['ENTITY_ID'] > 0)
+						<?php if($arResult['ENABLE_TITLE_EDIT'] && $arResult['ENTITY_ID'] > 0)
 						{
-							?><span id="pagetitle_edit" class="pagetitle-edit-button"></span><?
+							?><span id="pagetitle_edit" class="pagetitle-edit-button"></span><?php 
 						}
 						?><span id="page_url_copy_btn" class="crm-page-link-btn"></span>
-					</span>	<?
-					?><div id="pagetitle_sub" class="pagetitle-sub"><?
+					</span>	<?php 
+					?><div id="pagetitle_sub" class="pagetitle-sub"><?php 
 						$APPLICATION->ShowViewContent('crm_details_legend');
 					?></div>
 				</div>
@@ -83,8 +83,8 @@ if($arResult['IFRAME'])
 	</div>
 
 	<div class="crm-iframe-workarea" id="crm-content-outer">
-	<div class="crm-iframe-sidebar"><?$APPLICATION->ShowViewContent("sidebar"); ?></div>
-	<div class="crm-iframe-content"><?
+	<div class="crm-iframe-sidebar"><?php $APPLICATION->ShowViewContent("sidebar"); ?></div>
+	<div class="crm-iframe-content"><?php 
 }
 else
 {
@@ -243,7 +243,7 @@ if($arResult['IFRAME'])
 			?></div>
 		</div>
 		</body>
-	</html><?
+	</html><?php 
 	require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');
 	die();
 }

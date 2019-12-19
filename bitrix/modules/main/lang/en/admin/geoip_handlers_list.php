@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GEOIP_LIST_TITLE"] = "Geolocation handlers";
 $MESS["GEOIP_LIST_DELETE_CONFIRM"] = "Are you sure you want to delete handler settings?";
 $MESS["GEOIP_LIST_ADD_HANDLER"] = "Add";

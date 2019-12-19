@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/about/media.php");
 $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:iblock.tv", "round", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:iblock.tv", "round", Array(
 	"IBLOCK_TYPE"	=>	"services",
 	"IBLOCK_ID"	=>	"#VIDEO_IBLOCK_ID#",
 	"PATH_TO_FILE"	=>	"#VIDEO_PATH_TO_FILE_ID#",
@@ -18,4 +18,4 @@ $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

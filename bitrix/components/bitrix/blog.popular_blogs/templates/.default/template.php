@@ -1,31 +1,31 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
 <div class="blog-mainpage-blogs">
-<?
+<?php 
 foreach($arResult as $arBlog)
 {
 	if($arBlog["FIRST_BLOG"]!="Y")
 	{
-		?><div class="blog-line"></div><?
+		?><div class="blog-line"></div><?php 
 	}
 	?>
 	
 	<div class="blog-mainpage-item">
-	<?if(IntVal($arBlog["SOCNET_GROUP_ID"]) <= 0):?>
+	<?php if(IntVal($arBlog["SOCNET_GROUP_ID"]) <= 0):?>
 	<div class="blog-author">
-		<?if($arParams["SEO_USER"] == "Y"):?>
+		<?php if($arParams["SEO_USER"] == "Y"):?>
 			<noindex>
 				<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>" rel="nofollow"></a>
 			</noindex>
-		<?else:?>
+		<?php else:?>
 			<a class="blog-author-icon" href="<?=$arBlog["urlToAuthor"]?>"></a>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 		if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($arBlog["urlToBlog"]) > 0 || strlen($arBlog["urlToAuthor"]) > 0) && array_key_exists("ALIAS", $arBlog["BlogUser"]) && strlen($arBlog["BlogUser"]["ALIAS"]) > 0)
 			$arTmpUser = array(
 				"NAME" => "",
@@ -43,7 +43,7 @@ foreach($arResult as $arBlog)
 				"NAME_LIST_FORMATTED" => "",
 			);
 		?>
-		<?
+		<?php 
 		$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 			'',
 			array(
@@ -76,20 +76,20 @@ foreach($arResult as $arBlog)
 		?>			
 	</div>
 	<div class="blog-clear-float"></div>
-	<?endif;?>
-	<div class="blog-mainpage-title"><a href="<?=$arBlog["urlToBlog"]?>"><?echo $arBlog["NAME"]; ?></a></div>
-	<?if($arParams["SHOW_DESCRIPTION"] == "Y" && strlen($arBlog["DESCRIPTION"]) > 0)
+	<?php endif;?>
+	<div class="blog-mainpage-title"><a href="<?=$arBlog["urlToBlog"]?>"><?php echo $arBlog["NAME"]; ?></a></div>
+	<?php if($arParams["SHOW_DESCRIPTION"] == "Y" && strlen($arBlog["DESCRIPTION"]) > 0)
 	{
 		?>
 		<div class="blog-mainpage-content">
 			<?=$arBlog["DESCRIPTION"]?>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 	<div class="blog-clear-float"></div>
 	</div>
-	<?
+	<?php 
 }
 ?>	
 </div>

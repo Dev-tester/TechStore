@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_EDIT_TITLE1'] = "Создать новый курс";
 $MESS ['LEARNING_EDIT_TITLE2'] = "Изменить курс ##ID#";
 $MESS ['LEARNING_ADD'] = "Добавить курс";

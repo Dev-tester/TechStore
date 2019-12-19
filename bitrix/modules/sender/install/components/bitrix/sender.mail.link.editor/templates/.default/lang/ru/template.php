@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SENDER_MAIL_LINK_EDITOR_TITLE'] = "utm-метки";
 $MESS ['SENDER_MAIL_LINK_EDITOR_ACCEPT'] = "Применить";
 $MESS ['SENDER_MAIL_LINK_EDITOR_CANCEL'] = "Отменить";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_MAIL_AFTER_CONNECT"] = "After connection";
 $MESS["INTR_MAIL_AJAX_ERROR"] = "Error sending request.";
 $MESS["INTR_MAIL_CHECK"] = "Check";

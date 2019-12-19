@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_1C_START_DOC_NAME"] = "1С:Бэкофис";
 $MESS["CRM_1C_START_DOC_ADV_TITLE"] = "1С становится частью Битрикс24";
 $MESS["CRM_1C_START_DOC_ADV_1"] = "Простое подключение";

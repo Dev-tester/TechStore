@@ -33,7 +33,7 @@ if ($isBitrix24Template)
 
 	?>
 	<div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;">
-		<?
+		<?php 
 
 		// Filter
 		if (in_array(
@@ -67,18 +67,18 @@ if ($isBitrix24Template)
 	</div>
 
 	<div id="bx-disk-volume-menu" class="pagetitle-container pagetitle-align-right-container">
-		<? if ($arResult["ADMIN_MODE_ALLOW"] || $arResult["WORKER_COUNT"] > 0)
+		<?php  if ($arResult["ADMIN_MODE_ALLOW"] || $arResult["WORKER_COUNT"] > 0)
 		{
 			?>
 			<div id="bx-disk-volume-popupMenuOptions" class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting task-list-toolbar-lightning"></div>
-			<?
+			<?php 
 		}
 
 		if (!$arResult['DISK_EMPTY'] && !$isQueueRunning && $arResult['DATA_COLLECTED'])
 		{
 			?>
 			<a href="<?= $component->getActionUrl(array('reload' => 'Y', 'action' => $component::ACTION_DEFAULT)); ?>" class="ui-btn ui-btn-primary disk-volume-reload-link"><?= Loc::getMessage('DISK_VOLUME_MEASURE_DATA_REPEAT') ?></a>
-			<?
+			<?php 
 		}
 
 		if ($arResult["ADMIN_MODE_ALLOW"] || $arResult["WORKER_COUNT"] > 0)
@@ -89,7 +89,7 @@ if ($isBitrix24Template)
 				{
 					var menuItemsOptions = [];
 
-					<? if ($arResult["WORKER_COUNT"] > 0): ?>
+					<?php  if ($arResult["WORKER_COUNT"] > 0): ?>
 					menuItemsOptions.push({
 						text: '<?=GetMessageJS('DISK_VOLUME_CANCEL_WORKERS')?>',
 						onclick : function()
@@ -99,21 +99,21 @@ if ($isBitrix24Template)
 							BX.Disk.measureManager.callAction({action: '<?= $component::ACTION_CANCEL_WORKERS ?>', after: BX.Disk.measureManager.stepperHide, doNotShowModalAlert: true});
 						}
 					});
-					<? endif; ?>
+					<?php  endif; ?>
 
-					<? if ($arResult["ADMIN_MODE_ALLOW"]): ?>
-					<? if (!$arResult["ADMIN_MODE"]): ?>
+					<?php  if ($arResult["ADMIN_MODE_ALLOW"]): ?>
+					<?php  if (!$arResult["ADMIN_MODE"]): ?>
 					menuItemsOptions.push({
 						text: '<?=GetMessageJS('DISK_VOLUME_ADMIN_MODE')?>',
 						href: '<?= $component->getActionUrl(array('admin' => 'on', 'action' => $component::ACTION_DEFAULT)); ?>'
 					});
-					<? else: ?>
+					<?php  else: ?>
 					menuItemsOptions.push({
 						text: '<?=GetMessageJS('DISK_VOLUME_ADMIN_MODE_EXIT')?>',
 						href: '<?= $component->getActionUrl(array('admin' => 'off', 'expert' => 'off', 'action' => $component::ACTION_DEFAULT, 'storageId' => '')); ?>'
 					});
-					<? endif; ?>
-					<? endif; ?>
+					<?php  endif; ?>
+					<?php  endif; ?>
 
 					var menu = BX.PopupMenu.create(
 						"popupMenuOptions",
@@ -131,11 +131,11 @@ if ($isBitrix24Template)
 					}, this));
 				});
 			</script>
-			<?
+			<?php 
 		}
 	?>
 	</div>
-	<?
+	<?php 
 	$this->EndViewTarget();
 }
 
@@ -173,17 +173,17 @@ if ($isBitrix24Template && !$arResult['DISK_EMPTY'] && !$isQueueRunning && $arRe
 	?>
 	<div class="tasks-view-switcher pagetitle-align-right-container">
 		<div class="tasks-view-switcher-list">
-			<? foreach ($menuItems as $item):
+			<?php  foreach ($menuItems as $item):
 				if ($item['IS_ACTIVE'])
 				{
 					$item['CLASS'] .= ' tasks-view-switcher-list-item-active';
 				}
 				?>
 				<a href="<?= $item['URL'] ?>" id="<?= $item['ID'] ?>" title="<?= $item['COMMENT'] ?>" class="tasks-view-switcher-list-item <?= $item['CLASS'] ?>"><?= $item['TEXT'] ?></a>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</div>
 	</div>
-	<?
+	<?php 
 
 
 	$this->EndViewTarget();
@@ -225,7 +225,7 @@ if ($isBitrix24Template && !$arResult['DISK_EMPTY'] && !$isQueueRunning && $arRe
 		DISK_VOLUME_UNNECESSARY_VERSION_HINT: '<?= GetMessageJS("DISK_VOLUME_UNNECESSARY_VERSION_HINT") ?>',
 		DISK_VOLUME_DROPPED_TRASHCAN_HINT: '<?= GetMessageJS("DISK_VOLUME_DROPPED_TRASHCAN_HINT") ?>',
 		DISK_VOLUME_STEPPER_STEPS_HINT: '<?= GetMessageJS("DISK_VOLUME_STEPPER_STEPS_HINT") ?>',
-		<?/*
+		<?php /*
 		// hints
 		DISK_VOLUME_UNNECESSARY_VERSION_SIZE_HINT: '<?= GetMessageJS("DISK_VOLUME_UNNECESSARY_VERSION_SIZE_HINT") ?>',
 		DISK_VOLUME_UNNECESSARY_VERSION_COUNT_HINT: '<?= GetMessageJS("DISK_VOLUME_UNNECESSARY_VERSION_COUNT_HINT") ?>',
@@ -279,24 +279,24 @@ if ($isBitrix24Template && !$arResult['DISK_EMPTY'] && !$isQueueRunning && $arRe
 			suppressStepperAlert: <?= ($arResult["WORKER_USES_CRONTAB"] ? 'true' : 'false') ?>
 		});
 
-		<? foreach ($arResult['SCAN_ACTION_LIST'] as $item): ?>
+		<?php  foreach ($arResult['SCAN_ACTION_LIST'] as $item): ?>
 			BX.Disk.measureManager.addQueueItem(<?= \Bitrix\Main\Web\Json::encode((object)$item) ?>);
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 
-		<? if ($isQueueRunning): ?>
-			<? if ($arResult['RUN_QUEUE'] === 'full'): ?>
+		<?php  if ($isQueueRunning): ?>
+			<?php  if ($arResult['RUN_QUEUE'] === 'full'): ?>
 				BX.ready( function() {
 					BX.Disk.measureManager.progressBarShow(0);
 					BX.Disk.measureManager.runQueue(1);
 				});
-			<? elseif ($arResult['RUN_QUEUE'] === 'continue'): ?>
+			<?php  elseif ($arResult['RUN_QUEUE'] === 'continue'): ?>
 				BX.ready( function() {
 					var percent = Math.round(<?= $arResult['QUEUE_STEP']['queueStep'] ?> * 100 / <?= $arResult['QUEUE_STEP']['queueLength'] ?>);
 					BX.Disk.measureManager.progressBarShow(percent);
 					BX.Disk.measureManager.runQueue(<?= $arResult['QUEUE_STEP']['queueStep'] ?>, <?= \Bitrix\Main\Web\Json::encode($arResult['QUEUE_STEP']) ?>);
 				});
-			<? endif; ?>
-		<? endif; ?>
+			<?php  endif; ?>
+		<?php  endif; ?>
 
 		// metric
 		BX.Disk.measureManager.addMetricMark({
@@ -315,8 +315,8 @@ if ($isBitrix24Template && !$arResult['DISK_EMPTY'] && !$isQueueRunning && $arRe
 </script>
 
 
-<div id="bx-disk-volume-stepper" class="disk-volume-stepper disk-volume-stepper-<?=$arResult['ACTION']?>" <? if ($isQueueRunning || !$arResult["HAS_WORKER_IN_PROCESS"]): ?>style="display:none"<? endif; ?>>
-	<?
+<div id="bx-disk-volume-stepper" class="disk-volume-stepper disk-volume-stepper-<?=$arResult['ACTION']?>" <?php  if ($isQueueRunning || !$arResult["HAS_WORKER_IN_PROCESS"]): ?>style="display:none"<?php  endif; ?>>
+	<?php 
 	if (!$isQueueRunning)
 	{
 		echo $component->getWorkerProgressBar();
@@ -327,18 +327,18 @@ if ($isBitrix24Template && !$arResult['DISK_EMPTY'] && !$isQueueRunning && $arRe
 		<span class="disk-volume-stepper-alert-text"><?= Loc::getMessage('DISK_VOLUME_CLOSE_WARNING'); ?></span>
 	</div>
 </div>
-<?
+<?php 
 
 
 if (!$arResult['DISK_EMPTY'])
 {
 	?>
-	<div id="bx-disk-volume-reload-warning" class="disk-volume-info-control-panel" <? if ($arResult["NEED_RELOAD"] !== true || $isQueueRunning): ?>style="display: none" <? endif; ?> >
+	<div id="bx-disk-volume-reload-warning" class="disk-volume-info-control-panel" <?php  if ($arResult["NEED_RELOAD"] !== true || $isQueueRunning): ?>style="display: none" <?php  endif; ?> >
 		<div
 			class="disk-volume-info-control-panel-warning"><?= Loc::getMessage('DISK_VOLUME_NEED_RELOAD_COMMENT'); ?></div>
 		<a href="<?= $component->getActionUrl(array('action' => $component::ACTION_DEFAULT, 'reload' => 'Y')); ?>" class="disk-volume-info-control-panel-link disk-volume-reload-link"><?= Loc::getMessage('DISK_VOLUME_MEASURE_DATA_REPEAT'); ?></a>
 	</div>
-	<?
+	<?php 
 }
 
 
@@ -350,7 +350,7 @@ if (!empty($arResult['ERROR_MESSAGE']))
 			<?= $arResult['ERROR_MESSAGE'] ?>
 		</div>
 	</div>
-	<?
+	<?php 
 	return;
 }
 
@@ -366,7 +366,7 @@ if (
 
 	?>
 	<div class="disk-volume-wrap">
-		<?
+		<?php 
 
 		if ($component::ACTION_DISKS === $arResult['ACTION'] && $arResult["ADMIN_MODE"])
 		{
@@ -376,107 +376,107 @@ if (
 				<div class="disk-volume-header-block">
 					<div class="disk-volume-header-title"><?= Loc::getMessage("DISK_VOLUME_DISK_B24") ?></div>
 					<div id="bx-disk-volume-total-disk-size" class="disk-volume-header-amount-info">
-						<? if ($arResult['TOTAL_FILE_SIZE'] > 0): ?>
+						<?php  if ($arResult['TOTAL_FILE_SIZE'] > 0): ?>
 							<?= Loc::getMessage("DISK_VOLUME_DISK_TOTAL_USEAGE", array('#FILE_SIZE#' => $arResult['TOTAL_FILE_SIZE_FORMAT'])) ?>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 
-					<div id="bx-disk-volume-total-unnecessary" class="disk-volume-header-amount-info disk-volume-hint" data-hint="unnecessary_version" <? if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE_FORMAT'] == 0): ?>style="display:none"<? endif ?>>
-						<? if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE'] > 0): ?>
+					<div id="bx-disk-volume-total-unnecessary" class="disk-volume-header-amount-info disk-volume-hint" data-hint="unnecessary_version" <?php  if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE_FORMAT'] == 0): ?>style="display:none"<?php  endif ?>>
+						<?php  if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE'] > 0): ?>
 							<?= Loc::getMessage('DISK_VOLUME_VERSION_FILES', array('#FILE_SIZE#' => $arResult['Storage']['UNNECESSARY_VERSION_SIZE_FORMAT'])); ?>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 
-					<div id="bx-disk-volume-total-trashcan" class="disk-volume-header-amount-info disk-volume-hint" data-hint="dropped_trashcan" <? if ($arResult['TrashCan']['FILE_SIZE'] == 0): ?>style="display:none"<? endif ?>>
-						<? if ($arResult['TrashCan']['FILE_SIZE'] > 0): ?>
+					<div id="bx-disk-volume-total-trashcan" class="disk-volume-header-amount-info disk-volume-hint" data-hint="dropped_trashcan" <?php  if ($arResult['TrashCan']['FILE_SIZE'] == 0): ?>style="display:none"<?php  endif ?>>
+						<?php  if ($arResult['TrashCan']['FILE_SIZE'] > 0): ?>
 							<?= Loc::getMessage('DISK_VOLUME_TRASHCAN', array('#FILE_SIZE#' => $arResult['TrashCan']['FILE_SIZE_FORMAT'])); ?>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 
 					<div id="bx-disk-volume-total-disk-count" class="disk-volume-header-amount-info">
-						<? if ($arResult['TOTAL_FILE_COUNT'] > 0): ?>
+						<?php  if ($arResult['TOTAL_FILE_COUNT'] > 0): ?>
 							<?= Loc::getMessage("DISK_VOLUME_DISK_TOTAL_COUNT", array('#FILE_COUNT#' => $arResult['TOTAL_FILE_COUNT'])) ?>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		else
 		{
 			?>
 			<div class="disk-volume-header-container <?=($arResult['Storage']['IS_EXTRANET'] ? 'disk-volume-header-container-extranet' : '')?>">
-				<? if ($arResult["ADMIN_MODE"]): ?>
-					<? if ($arResult['Storage']['STYLE'] === 'User'): ?>
-						<div class="disk-volume-header-icon disk-volume-header-icon-default-user" <?
-						if (isset($arResult['Storage']['PICTURE'])): ?>style="background-image: url('<?= $arResult['Storage']['PICTURE'] ?>')"<? endif; ?>></div>
-					<? elseif ($arResult['Storage']['STYLE'] === 'Group'): ?>
-						<div class="disk-volume-header-icon disk-volume-header-icon-default-group" <?
-						if (isset($arResult['Storage']['PICTURE'])): ?>style="background-image: url('<?= $arResult['Storage']['PICTURE'] ?>')"<? endif; ?>></div>
-					<? else: ?>
+				<?php  if ($arResult["ADMIN_MODE"]): ?>
+					<?php  if ($arResult['Storage']['STYLE'] === 'User'): ?>
+						<div class="disk-volume-header-icon disk-volume-header-icon-default-user" <?php 
+						if (isset($arResult['Storage']['PICTURE'])): ?>style="background-image: url('<?= $arResult['Storage']['PICTURE'] ?>')"<?php  endif; ?>></div>
+					<?php  elseif ($arResult['Storage']['STYLE'] === 'Group'): ?>
+						<div class="disk-volume-header-icon disk-volume-header-icon-default-group" <?php 
+						if (isset($arResult['Storage']['PICTURE'])): ?>style="background-image: url('<?= $arResult['Storage']['PICTURE'] ?>')"<?php  endif; ?>></div>
+					<?php  else: ?>
 						<div class="disk-volume-header-icon disk-volume-header-icon-default-disk"></div>
-					<? endif; ?>
-				<? endif; ?>
+					<?php  endif; ?>
+				<?php  endif; ?>
 
 				<div class="disk-volume-header-block">
-					<? if ($isTrashcan):?>
+					<?php  if ($isTrashcan):?>
 						<div class="disk-volume-header-title"><?= Loc::getMessage("DISK_VOLUME_DISK_TRASHCAN") ?>
-							<? if ($arResult["ADMIN_MODE"]): ?>&quot;<?= $arResult['Storage']['TITLE']; ?>&quot; <? endif ?>
+							<?php  if ($arResult["ADMIN_MODE"]): ?>&quot;<?= $arResult['Storage']['TITLE']; ?>&quot; <?php  endif ?>
 						</div>
 
-						<div id="bx-disk-volume-total-trashcan" class="disk-volume-header-amount-info disk-volume-hint" data-hint="dropped_trashcan" <? if ($arResult['TrashCan']['FILE_SIZE'] == 0): ?>style="display:none"<? endif ?>>
-							<? if ($arResult['TrashCan']['FILE_SIZE'] > 0): ?>
+						<div id="bx-disk-volume-total-trashcan" class="disk-volume-header-amount-info disk-volume-hint" data-hint="dropped_trashcan" <?php  if ($arResult['TrashCan']['FILE_SIZE'] == 0): ?>style="display:none"<?php  endif ?>>
+							<?php  if ($arResult['TrashCan']['FILE_SIZE'] > 0): ?>
 								<?= Loc::getMessage('DISK_VOLUME_SIZE', array('#FILE_SIZE#' => $arResult['TrashCan']['FILE_SIZE_FORMAT'])); ?>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
 
 						<div id="bx-disk-volume-total-disk-count" class="disk-volume-header-amount-info">
 							<?= Loc::getMessage("DISK_VOLUME_COUNT", array('#FILE_COUNT#' => $arResult['TrashCan']['FILE_COUNT'])) ?>
 						</div>
 
-					<? else: ?>
+					<?php  else: ?>
 						<div class="disk-volume-header-title">
-							<? if ($arResult["ADMIN_MODE"]): ?><?= Loc::getMessage("DISK_VOLUME_DISK") ?><? endif ?>
+							<?php  if ($arResult["ADMIN_MODE"]): ?><?= Loc::getMessage("DISK_VOLUME_DISK") ?><?php  endif ?>
 							<?= $arResult['Storage']['TITLE']; ?>
 						</div>
 
 						<div id="bx-disk-volume-total-disk-size" class="disk-volume-header-amount-info">
-							<? if ($arResult['TOTAL_FILE_SIZE'] > 0): ?>
+							<?php  if ($arResult['TOTAL_FILE_SIZE'] > 0): ?>
 								<?= Loc::getMessage("DISK_VOLUME_DISK_TOTAL_USEAGE", array('#FILE_SIZE#' => $arResult['TOTAL_FILE_SIZE_FORMAT'])) ?>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
 
-						<div id="bx-disk-volume-total-unnecessary" class="disk-volume-header-amount-info disk-volume-hint" data-hint="unnecessary_version" <? if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE'] == 0): ?>style="display:none"<? endif ?>>
-							<? if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE'] > 0): ?>
+						<div id="bx-disk-volume-total-unnecessary" class="disk-volume-header-amount-info disk-volume-hint" data-hint="unnecessary_version" <?php  if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE'] == 0): ?>style="display:none"<?php  endif ?>>
+							<?php  if ($arResult['Storage']['UNNECESSARY_VERSION_SIZE'] > 0): ?>
 								<?= Loc::getMessage('DISK_VOLUME_VERSION_FILES', array('#FILE_SIZE#' => $arResult['Storage']['UNNECESSARY_VERSION_SIZE_FORMAT'])); ?>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
 
-						<div id="bx-disk-volume-total-trashcan" class="disk-volume-header-amount-info disk-volume-hint" data-hint="dropped_trashcan" <? if ($arResult['TrashCan']['FILE_SIZE'] == 0): ?>style="display:none"<? endif ?>>
-							<? if ($arResult['TrashCan']['FILE_SIZE'] > 0): ?>
+						<div id="bx-disk-volume-total-trashcan" class="disk-volume-header-amount-info disk-volume-hint" data-hint="dropped_trashcan" <?php  if ($arResult['TrashCan']['FILE_SIZE'] == 0): ?>style="display:none"<?php  endif ?>>
+							<?php  if ($arResult['TrashCan']['FILE_SIZE'] > 0): ?>
 								<a href="<?= $component->getActionUrl(array('action' => $component::ACTION_TRASH_FILES, 'storageId' => $arResult['STORAGE_ID'])); ?>">
 									<?= Loc::getMessage('DISK_VOLUME_TRASHCAN', array('#FILE_SIZE#' => $arResult['TrashCan']['FILE_SIZE_FORMAT'])); ?>
 								</a>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
 
 						<div id="bx-disk-volume-total-disk-count" class="disk-volume-header-amount-info">
-							<? if ($arResult['TOTAL_FILE_COUNT'] > 0): ?>
+							<?php  if ($arResult['TOTAL_FILE_COUNT'] > 0): ?>
 								<?= Loc::getMessage("DISK_VOLUME_DISK_TOTAL_COUNT", array('#FILE_COUNT#' => $arResult['TOTAL_FILE_COUNT'])) ?>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 			</div>
 
-			<? if(count($arResult['ACTION_MENU']) > 0):?>
+			<?php  if(count($arResult['ACTION_MENU']) > 0):?>
 				<span id="bx-disk-volume-popupMenuStorage" class="ui-btn ui-btn-light-border ui-btn-icon-list"></span>
 				<script type="text/javascript">
 					BX.ready(function()
 					{
 						var menuItemsOptions = [];
 
-						<?foreach($arResult['ACTION_MENU'] as $menuItem):?>
+						<?php foreach($arResult['ACTION_MENU'] as $menuItem):?>
 						menuItemsOptions.push({
 							text: '<?= $menuItem['text'] ?>',
 							onclick : function(e){
@@ -485,7 +485,7 @@ if (
 								<?= $menuItem['onclick'] ?>
 							}
 						});
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 
 						var menu = BX.PopupMenu.create(
 							"popupMenuStorage",
@@ -503,8 +503,8 @@ if (
 
 					});
 				</script>
-			<? endif; ?>
-			<?
+			<?php  endif; ?>
+			<?php 
 		}
 
 		if (!$isTrashcan)
@@ -515,7 +515,7 @@ if (
 			{
 				?>
 				<div class="bx-disk-interface-percent-diagram">
-					<?
+					<?php 
 					$pp = 0;
 					$tt = 0;
 					$legend = array();
@@ -535,7 +535,7 @@ if (
 						);
 						?>
 						<div class="bx-disk-interface-percent-part" style="flex:<?= $width ?>; background-color:<?= $color ?>;" title="<?= $title ?>"></div>
-						<?
+						<?php 
 					}
 					if (isset($arResult[$plotIndicatorId]['OTHER']))
 					{
@@ -554,18 +554,18 @@ if (
 						);
 						?>
 						<div class="bx-disk-interface-percent-part" style="flex:<?= $width ?>; background-color:<?= $color ?>;" title="<?= $title ?>"></div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
-				<!--<?
+				<!--<?php 
 					echo "\n".$pp;
 					echo "\n".$tt;
 					echo "\n".\Cfile::FormatSize($tt);
 				?>-->
 				<div class="bx-disk-interface-percent-legend">
 					<div class="bx-disk-interface-percent-legend-title"><?= Loc::getMessage('DISK_VOLUME_DISK_USAGE'); ?></div>
-					<?
+					<?php 
 					foreach ($legend as $row)
 					{
 						?>
@@ -573,16 +573,16 @@ if (
 							<span class="bx-disk-interface-percent-legend-part-circle" style="background-color:<?= $row['color'] ?>;"></span>
 							<span class="bx-disk-interface-percent-legend-part-text" title="<?= $row['alt'] ?>"><?= $row['title'] ?></span>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
-				<?
+				<?php 
 			}
 		}
 		?>
 	</div>
-	<?
+	<?php 
 }
 
 

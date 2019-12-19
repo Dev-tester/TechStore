@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_DOC_EDIT_UPLOAD_DOC_TO_GOOGLE"] = "Загрузка документа";
 $MESS["WD_DOC_INSTALL_SOCSERV"] = "Модуль социальные сервисы не установлен.";
 $MESS["WD_DOC_INSTALL_SOCSERV_GOOGLE"] = "Не настроен социальный сервис Google.";

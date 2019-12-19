@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_BOARD_1"] = "Публикуется на сайте";
 $MESS["WZD_OPTION_BOARD_2"] = "Начало публикации с";
 $MESS["WZD_OPTION_BOARD_24"] = "Срок публикации до";

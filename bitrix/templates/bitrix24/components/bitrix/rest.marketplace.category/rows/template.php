@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /*template is only for telephony because of telephony button*/
 
@@ -11,13 +11,13 @@ if (!is_array($arResult["ITEMS"]))
 <div class="mp-apps-wrapper">
 	<div class="mp-apps-title"><?=$arParams["TITLE"]?></div>
 	<ul class="mp-apps-list">
-		<?
+		<?php 
 		foreach($arResult["ITEMS"] as $app)
 		{
 		?>
 			<li class="mp-apps-item">
 				<a href="javascript:void(0)" class="mp-apps-icon mp-apps-icon--grey">
-					<?
+					<?php 
 					if($app["ICON"]):
 						?>
 						<img src="<?=htmlspecialcharsbx($app["ICON"])?>" alt="">
@@ -32,19 +32,19 @@ if (!is_array($arResult["ITEMS"]))
 				<div class="mp-apps-info-container">
 					<span class="mp-apps-subtitle"><?=htmlspecialcharsbx($app["NAME"])?></span>
 					<div class="mp-apps-desc">
-						<?
+						<?php 
 						if (isset($app["SHORT_DESC"]))
 							echo ($app["SHORT_DESC"]);
 						?>
 					</div>
-					<?if ($app["INSTALLED"] == "Y"):?>
+					<?php if ($app["INSTALLED"] == "Y"):?>
 						<a href="<?=$app["URL"]?>" class="ui-btn ui-btn-light-border" onclick="BX.Rest.Markeplace.CategoryRows.setCurrentApp('<?=CUtil::JSEscape($app['CODE'])?>')"><?=GetMessage("MARKETPLACE_CATEGORY_ROWS_DEINSTALL")?></a>
-					<?else:?>
+					<?php else:?>
 						<a href="<?=$app["URL"]?>" class="ui-btn ui-btn-success" data-id="btn-<?=$app['CODE']?>" onclick="BX.Rest.Markeplace.CategoryRows.setCurrentApp('<?=CUtil::JSEscape($app['CODE'])?>')"><?=GetMessage("MARKETPLACE_CATEGORY_ROWS_INSTALL")?></a>
-					<?endif?>
+					<?php endif?>
 				</div>
 			</li>
-			<?
+			<?php 
 		}
 		?>
 	</ul>

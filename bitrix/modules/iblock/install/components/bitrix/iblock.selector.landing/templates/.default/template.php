@@ -75,5 +75,5 @@ if ($filterSettings['useQuickSearch'])
 		);
 	});
 </script>
-<?
+<?php 
 unset($settings);

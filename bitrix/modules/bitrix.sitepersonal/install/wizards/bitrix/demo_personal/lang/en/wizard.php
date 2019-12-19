@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["wiz_structure_data"] = "Install Demo Data";
 $MESS["wiz_restructure_data"] = "Reinstall Demo Data";
 $MESS["wiz_site_name"] = "Personal site";

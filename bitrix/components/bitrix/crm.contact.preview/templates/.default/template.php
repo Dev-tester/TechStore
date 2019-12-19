@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\UI;
@@ -12,11 +12,11 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm-preview.css');
 <div class="crm-preview">
 	<div class="crm-preview-header">
 		<span class="crm-preview-header-icon crm-preview-header-icon-contact"></span>
-		<? if($arResult['HEAD_IMAGE_URL'] !== ''): ?>
+		<?php  if($arResult['HEAD_IMAGE_URL'] !== ''): ?>
 			<span class="crm-preview-header-img">
 					<img alt="" src="<?=htmlspecialcharsbx($arResult['HEAD_IMAGE_URL'])?>" />
 				</span>
-		<? endif; ?>
+		<?php  endif; ?>
 		<span class="crm-preview-header-title">
 			<?=GetMessage("CRM_TITLE_CONTACT")?>:
 			<a href="<?=htmlspecialcharsbx($arParams['URL'])?>" target="_blank"><?=htmlspecialcharsbx($arResult['FULL_NAME'])?></a>
@@ -31,22 +31,22 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm-preview.css');
 				</a>
 			</td>
 		</tr>
-		<? foreach($arResult['CONTACT_INFO'] as $contactInfoType => $contactInfoValue): ?>
+		<?php  foreach($arResult['CONTACT_INFO'] as $contactInfoType => $contactInfoValue): ?>
 			<tr>
 				<td><?= GetMessage('CRM_CONTACT_INFO_'.$contactInfoType)?>: </td>
 				<td>
-					<?
+					<?php 
 					$contactInfoValue = htmlspecialcharsbx($contactInfoValue);
 					switch($contactInfoType)
 					{
 						case 'EMAIL':
-							?><a href="mailto:<?=$contactInfoValue?>" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?
+							?><a href="mailto:<?=$contactInfoValue?>" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?php 
 							break;
 						case 'PHONE':
-							?><a href="callto://<?=$contactInfoValue?>" onclick="if(typeof(BXIM) !== 'undefined') { BXIM.phoneTo('8 4012 531249'); return BX.PreventDefault(event); }" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?
+							?><a href="callto://<?=$contactInfoValue?>" onclick="if(typeof(BXIM) !== 'undefined') { BXIM.phoneTo('8 4012 531249'); return BX.PreventDefault(event); }" title="<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?php 
 							break;
 						case 'WEB':
-							?><a href="http://<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?
+							?><a href="http://<?=$contactInfoValue?>"><?=$contactInfoValue?></a><?php 
 							break;
 						default:
 							echo $contactInfoValue;
@@ -54,6 +54,6 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm-preview.css');
 					?>
 				</td>
 			</tr>
-		<? endforeach ?>
+		<?php  endforeach ?>
 	</table>
 </div>

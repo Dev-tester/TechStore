@@ -112,17 +112,17 @@ if(is_array($find_events) && count($find_events)>0)
 			$height = COption::GetOptionString("statistic", "GRAPH_HEIGHT");
 			?>
 			<div class="graph">
-			<?
+			<?php 
 			if ($summa == "Y")
 				echo GetMessage("STAT_SUMMARIZED");
 			?>
 			<table cellpadding="0" cellspacing="0" border="0" class="graph" align="center"><tr><td>
 				<img class="graph" src="event_graph.php?<?=GetFilterParams($FilterArr)?>&width=<?=$width?>&height=<?=$height?>&lang=<?=LANG?>" width="<?=$width?>" height="<?=$height?>">
 			</td>
-			<?if ($summa != "Y") :?>
+			<?php if ($summa != "Y") :?>
 			<td>
 				<table border="0" cellspacing="0" cellpadding="0" class="legend">
-					<?
+					<?php 
 					foreach($arrLegend as $keyL=>$arrL):
 						$color = $arrL["COLOR"];
 					?>
@@ -131,15 +131,15 @@ if(is_array($find_events) && count($find_events)>0)
 							<div style="background-color: <?="#".$color?>"></div>
 						</td>
 						<td>
-							[<a class="stat_link" href="<?echo htmlspecialcharsbx("/bitrix/admin/event_type_list.php?lang=".urlencode(LANGUAGE_ID)."&find_id=".urlencode($keyL)."&set_filter=Y")?>"><?=$keyL?></a>]&nbsp;<a class="stat_link" title="<?echo GetMessage("STAT_EVENT_DYNAMIC")?>" href="<?echo htmlspecialcharsbx("/bitrix/admin/event_dynamic_list.php?lang=".urlencode(LANGUAGE_ID)."&find_event_id=".urlencode($keyL)."&find_date1=".urlencode($arFilter["DATE1"])."&find_date2=".urlencode($arFilter["DATE2"])."&set_filter=Y")?>"><?=htmlspecialcharsEx($arrL["NAME"])?></a>
+							[<a class="stat_link" href="<?php echo htmlspecialcharsbx("/bitrix/admin/event_type_list.php?lang=".urlencode(LANGUAGE_ID)."&find_id=".urlencode($keyL)."&set_filter=Y")?>"><?=$keyL?></a>]&nbsp;<a class="stat_link" title="<?php echo GetMessage("STAT_EVENT_DYNAMIC")?>" href="<?php echo htmlspecialcharsbx("/bitrix/admin/event_dynamic_list.php?lang=".urlencode(LANGUAGE_ID)."&find_event_id=".urlencode($keyL)."&find_date1=".urlencode($arFilter["DATE1"])."&find_date2=".urlencode($arFilter["DATE2"])."&set_filter=Y")?>"><?=htmlspecialcharsEx($arrL["NAME"])?></a>
 						</td>
 					</tr>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</table>
 			</td>
-			<?endif;?>
+			<?php endif;?>
 			</tr></table></div>
-		<?
+		<?php 
 		else:
 			CAdminMessage::ShowMessage(GetMessage("STAT_NOT_ENOUGH_DATA"));
 		endif;
@@ -201,16 +201,16 @@ $oFilter = new CAdminFilter($sTableID."_filter",array(
 ?>
 
 <form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
-	<td><?echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
+	<td><?php echo GetMessage("STAT_F_PERIOD")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "find_form", "Y")?></td>
 </tr>
 <tr valign="top">
-	<td><?echo GetMessage("STAT_F_EVENTS")?><br><IMG SRC="/bitrix/images/statistic/mouse.gif" WIDTH="44" HEIGHT="21" BORDER=0 ALT=""></td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_EVENTS")?><br><IMG SRC="/bitrix/images/statistic/mouse.gif" WIDTH="44" HEIGHT="21" BORDER=0 ALT=""></td>
+	<td><?php 
 	echo SelectBoxMFromArray("find_events[]",array("REFERENCE"=>$find_events_names, "REFERENCE_ID"=>$find_events), false, "", false, "11", 'id="find_events[]"');
 	?>
 	<script language="Javascript">
@@ -226,20 +226,20 @@ $oFilter->Begin();
 	<input type="button" OnClick="jsSelectUtils.deleteSelectedOptions('find_events[]');" value="<?=GetMessage("STAT_DELETE")?>">
 	</td>
 </tr>
-<?$oFilter->Buttons()?>
-<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="set_filter" value="<?=GetMessage("STAT_F_FIND")?>" title="<?=GetMessage("STAT_F_FIND_TITLE")?>" onClick="<?echo htmlspecialcharsbx("jsSelectUtils.selectAllOptions('find_events[]');".$oFilter->id.".OnSet('".CUtil::JSEscape($sTableID)."', '".CUtil::JSEscape($APPLICATION->GetCurPage()."?lang=".LANG."&")."'); return false;")?>"></span>
-<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="del_filter" value="<?=GetMessage("STAT_F_CLEAR")?>" title="<?=GetMessage("STAT_F_CLEAR_TITLE")?>" onClick="<?echo htmlspecialcharsbx("jsSelectUtils.selectAllOptions('find_events[]');jsSelectUtils.deleteSelectedOptions('find_events[]');".$oFilter->id.".OnClear('".CUtil::JSEscape($sTableID)."', '".CUtil::JSEscape($APPLICATION->GetCurPage()."?lang=".LANG."&")."'); return false;")?>"></span>
+<?php $oFilter->Buttons()?>
+<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="set_filter" value="<?=GetMessage("STAT_F_FIND")?>" title="<?=GetMessage("STAT_F_FIND_TITLE")?>" onClick="<?php echo htmlspecialcharsbx("jsSelectUtils.selectAllOptions('find_events[]');".$oFilter->id.".OnSet('".CUtil::JSEscape($sTableID)."', '".CUtil::JSEscape($APPLICATION->GetCurPage()."?lang=".LANG."&")."'); return false;")?>"></span>
+<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="del_filter" value="<?=GetMessage("STAT_F_CLEAR")?>" title="<?=GetMessage("STAT_F_CLEAR_TITLE")?>" onClick="<?php echo htmlspecialcharsbx("jsSelectUtils.selectAllOptions('find_events[]');jsSelectUtils.deleteSelectedOptions('find_events[]');".$oFilter->id.".OnClear('".CUtil::JSEscape($sTableID)."', '".CUtil::JSEscape($APPLICATION->GetCurPage()."?lang=".LANG."&")."'); return false;")?>"></span>
 
-<?
+<?php 
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

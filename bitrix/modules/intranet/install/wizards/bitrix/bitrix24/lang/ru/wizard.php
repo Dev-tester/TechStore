@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEXT_BUTTON"] = "Далее";
 $MESS["PREVIOUS_BUTTON"] = "Назад";
 $MESS["INSTALL_SERVICE_FINISH_STATUS"] = "Настройка завершена";

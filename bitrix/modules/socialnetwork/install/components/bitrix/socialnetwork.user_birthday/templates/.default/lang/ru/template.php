@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C33_T_FRIENDS'] = "Друзья";
 $MESS ['SONET_C33_T_ONLINE'] = "Сейчас на сайте";
 $MESS ['SONET_C33_T_INVITE'] = "Пригласить в группу";

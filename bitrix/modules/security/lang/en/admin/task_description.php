@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASK_NAME_SECURITY_DENIED'] = "Deny access";
 $MESS ['TASK_NAME_SECURITY_FILTER'] = "Bypass proactive filter";
 $MESS ['TASK_NAME_SECURITY_OTP'] = "Manage one-time passwords";

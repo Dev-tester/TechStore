@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCALE_ADEF_CHPASS_NAME"] = "Change root user password";
 $MESS["SCALE_ADEF_CHPASS_UP_IP"] = "Server IP address";
 $MESS["SCALE_ADEF_CHPASS_UP_OLD_PASS"] = "current password";

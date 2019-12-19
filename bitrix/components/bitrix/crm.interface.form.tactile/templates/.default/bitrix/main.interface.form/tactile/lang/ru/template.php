@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_form_show_all"] = "Развернуть все вкладки на одну страницу";
 $MESS["interface_form_save"] = "Сохранить";
 $MESS["interface_form_save_title"] = "Сохранить и вернуться";

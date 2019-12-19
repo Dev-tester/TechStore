@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -47,7 +47,7 @@ $this->setViewTarget('pagetitle', 10);
 	<a class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting"
 			href="<?=htmlspecialcharsbx($arParams['PATH_TO_CONNECTOR_INSTAGRAM_EDIT_FULL'])?>"></a>
 </div>
-<?
+<?php 
 $this->endViewTarget();
 
 include 'messages.php';
@@ -76,7 +76,7 @@ if ($arResult['FORM']['STEP'] == '3')
 			</div>
 			<div class="crm-order-instagram-edit-block crm-order-instagram-edit-block-view">
 				<div data-tile-grid="tile-grid-stop-close" data-entity="filter">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						'bitrix:main.ui.filter',
 						'',
@@ -101,7 +101,7 @@ if ($arResult['FORM']['STEP'] == '3')
 						<?=Loc::getMessage('CRM_OIIV_UNSELECT_ALL')?>
 					</button>
 				</div>
-				<?
+				<?php 
 				if (!empty($arResult['GRID']))
 				{
 					$generateEmptyBlock = 'function()
@@ -193,7 +193,7 @@ if ($arResult['FORM']['STEP'] == '3')
 	<div data-entity="store-footer" data-tile-grid="tile-grid-stop-close"></div>
 	<div data-entity="step-import-footer" data-tile-grid="tile-grid-stop-close"></div>
 
-	<?
+	<?php 
 	switch (LANGUAGE_ID)
 	{
 		case 'ru':
@@ -217,7 +217,7 @@ if ($arResult['FORM']['STEP'] == '3')
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>
 <script>
@@ -243,7 +243,7 @@ if ($arResult['FORM']['STEP'] == '3')
 			window.top.BX.UI.Notification.Center.getBalloonById('new-media-notification').close();
 		}
 
-		<?
+		<?php 
 		if (!empty($arResult['NOTIFICATIONS']))
 		{
 			foreach ($arResult['NOTIFICATIONS'] as $notification)
@@ -254,7 +254,7 @@ if ($arResult['FORM']['STEP'] == '3')
 					category: 'InstagramStore::general',
 					width: 'auto'
 				});
-				<?
+				<?php 
 			}
 
 			$component::markSessionNotificationsRead();

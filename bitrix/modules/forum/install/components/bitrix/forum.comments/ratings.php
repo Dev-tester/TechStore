@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 class CCommentRatings
 {
 	var $component = null;
@@ -56,14 +56,14 @@ class CCommentRatings
 			{
 				?>
 				<div class="review-rating rating_vote_graphic">
-				<?
+				<?php 
 			}
 			else
 			{
 				?>
 				<span class="rating_vote_text">
 				<span class="separator"></span>
-				<?
+				<?php 
 			}
 					$arRatingParams = Array(
 							"ENTITY_TYPE_ID" => "FORUM_POST",
@@ -82,13 +82,13 @@ class CCommentRatings
 			{
 				?>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{
 				?>
 				</span>
-				<?
+				<?php 
 			}
 		return ob_get_clean();
 	}

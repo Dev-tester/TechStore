@@ -71,7 +71,7 @@ if(($arID = $lAdmin->GroupAction()) && $edit_php)
 <script type="text/javascript">
 exportData('<?=CUtil::JSEscape($ID)?>');
 </script>
-			<?
+			<?php 
 				break;
 			case "copy":
 				$from = getLocalPath("templates/".$ID, BX_PERSONAL_ROOT);
@@ -173,5 +173,5 @@ function exportData(val)
 	window.open("template_export.php?ID="+val+"&<?=bitrix_sessid_get()?>");
 }
 </script>
-<?$lAdmin->DisplayList();?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php $lAdmin->DisplayList();?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

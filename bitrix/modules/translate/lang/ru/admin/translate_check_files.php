@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TITLE"] = "Проверка файлов";
 $MESS["TRANS_TITLE_TITLE"] = "Проверка файлов ";
 $MESS["TRANS_FOLDERS_LIST"] = "Список папок";

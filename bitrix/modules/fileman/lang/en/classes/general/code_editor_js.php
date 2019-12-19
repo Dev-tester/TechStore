@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GoToLine"] = "Go to line";
 $MESS["Line"] = "line";
 $MESS["Char"] = "character";

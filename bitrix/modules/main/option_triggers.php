@@ -1,4 +1,4 @@
-<?
+<?php 
 function __OnAfterSetOption_disk_space($value)
 {
 	if(COption::GetOptionInt("main", "disk_space") > 0)

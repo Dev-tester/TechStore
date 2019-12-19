@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS["MAIL_UF_MESSAGE_H"] = "Письмо";
 

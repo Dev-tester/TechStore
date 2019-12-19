@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SMOB_ORDERS_MANAGEMENT'] = 'Управление заказами';
 $MESS ['SMOB_ORDERS_LIST'] = 'Список заказов';
 $MESS ['SMOB_WAITING_FOR_PAY'] = 'Ожидают оплаты';

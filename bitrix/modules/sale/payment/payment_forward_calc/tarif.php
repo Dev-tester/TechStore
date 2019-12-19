@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 //http://www.russianpost.ru/rp/servise/ru/home/finuslug/cybermoney_russia
 
 include(GetLangFileName(dirname(__FILE__)."/", "/tarif.php"));

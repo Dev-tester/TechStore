@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['php_cmd_title'] = "Командная PHP-строка";
 $MESS ['php_cmd_confirm'] = "Введенная команда будет выполнена на сервере как PHP-скрипт. Продолжить?";
 $MESS ['php_cmd_input'] = "PHP-строка";

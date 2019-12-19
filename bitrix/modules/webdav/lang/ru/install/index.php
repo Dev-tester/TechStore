@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_MODULE_NAME'] = "Библиотека документов";
 $MESS ['WD_MODULE_DESCRIPTION'] = "Библиотека документов";
 $MESS ['WD_INSTALL'] = "Установка модуля библиотеки документов. ";

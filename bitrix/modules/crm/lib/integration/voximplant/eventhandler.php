@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Integration\VoxImplant;
 
 use Bitrix\Crm\Tracking;

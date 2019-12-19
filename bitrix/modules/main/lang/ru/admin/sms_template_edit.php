@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sms_template_edit_tab"] = "Параметры";
 $MESS["sms_template_edit_tab_title"] = "Параметры шаблона SMS";
 $MESS["sms_template_edit_title"] = "Редактирование шаблона SMS";

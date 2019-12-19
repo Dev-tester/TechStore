@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_TRACKING_ENTITY_DETAILS_PAGES'] = "Посещенные страницы сайта";
 $MESS['CRM_TRACKING_ENTITY_DETAILS_NO_TITLE'] = "Без названия";
 $MESS['CRM_TRACKING_ENTITY_DETAILS_ORGANIC'] = "органический трафик";

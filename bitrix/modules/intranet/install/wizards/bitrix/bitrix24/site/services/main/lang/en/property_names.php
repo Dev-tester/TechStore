@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['UF_1C'] = 'User from 1C';
 $MESS['UF_INN'] = 'INN';
 $MESS['UF_PHONE_INNER'] = 'Extension number';

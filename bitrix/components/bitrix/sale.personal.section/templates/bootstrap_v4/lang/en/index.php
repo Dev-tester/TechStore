@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPS_ACCOUNT_PAGE_NAME"] = "Personal account";
 $MESS["SPS_PERSONAL_PAGE_NAME"] = "Personal information";
 $MESS["SPS_PROFILE_PAGE_NAME"] = "Order profiles";

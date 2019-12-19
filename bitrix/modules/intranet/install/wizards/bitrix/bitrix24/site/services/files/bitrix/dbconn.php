@@ -1,4 +1,4 @@
-<?
+<?php 
 $arLang = array("ru", "en", "de", "ua", "la", "tc", "sc", "br", "fr", "pl", "tr");
 if (isset($_GET['user_lang']) && in_array($_GET['user_lang'], $arLang))
 {

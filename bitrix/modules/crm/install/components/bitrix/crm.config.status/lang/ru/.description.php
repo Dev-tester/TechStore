@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_NAME"] = "Настройка статусов";
 $MESS["CRM_STATUS_DESCRIPTION"] = "Настройка статусов модуля CRM";
 $MESS["CRM_NAME"] = "CRM";

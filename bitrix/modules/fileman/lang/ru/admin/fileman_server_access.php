@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_SERV_ACCESS_TITLE'] = "Права на доступ сервера";
 $MESS ['FILEMAN_SA_TAB'] = "Права на доступ сервера";
 $MESS ['FILEMAN_SA_TAB_ALT'] = "Установка прав сервера на файлы и папки (ОС Unix/Linux)";

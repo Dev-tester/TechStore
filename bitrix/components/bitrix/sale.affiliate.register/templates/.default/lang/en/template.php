@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPCR1_UNACTIVE_AFF"] = "You are the registered affiliate but your account is inactive. Please contact the administration for more information.";
 $MESS["SPCR1_IF_REG"] = "Already registered";
 $MESS["SPCR1_IF_NOT_REG"] = "Not registered";

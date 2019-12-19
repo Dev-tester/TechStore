@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /**
  * @var array $arParams
@@ -25,7 +25,7 @@ if (!empty($templateData['TEMPLATE_LIBRARY']))
 		<script>
 			BX.Currency.setCurrencies(<?=$templateData['CURRENCIES']?>);
 		</script>
-		<?
+		<?php 
 	}
 }
 

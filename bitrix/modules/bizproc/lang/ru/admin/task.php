@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAT_BACK"] = "Вернуться";
 $MESS["BPAT_GOTO_DOC"] = "Перейти к документу";
 $MESS["BPAT_TAB"] = "Задание";

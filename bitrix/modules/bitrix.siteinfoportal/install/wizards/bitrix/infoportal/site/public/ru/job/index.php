@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Работа");
 ?>
 <table> 
   <tbody>
-    <tr> <td><?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "job", array(
+    <tr> <td><?php $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "job", array(
 	"IBLOCK_TYPE" => "job",
 	"IBLOCK_ID" => "#VACANCY_IBLOCK_ID#",
 	"SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -27,7 +27,7 @@ $APPLICATION->SetTitle("Работа");
 	"IBLOCK_TITLE_TEXT" => "Вакансии"
 	),
 	false
-);?> </td> <td><?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "job", array(
+);?> </td> <td><?php $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "job", array(
 	"IBLOCK_TYPE" => "job",
 	"IBLOCK_ID" => "#RESUME_IBLOCK_ID#",
 	"SECTION_ID" => $_REQUEST["SECTION_ID"],
@@ -53,4 +53,4 @@ $APPLICATION->SetTitle("Работа");
 );?></td> </tr>
    </tbody>
 </table>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

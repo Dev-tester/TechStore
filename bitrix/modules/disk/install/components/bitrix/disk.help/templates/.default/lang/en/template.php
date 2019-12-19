@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_HELP_0"] = " ";
 $MESS["DISK_HELP_1"] = "<strong>Drive</strong> is the ultimate file storage and sharing solution available inside your Bitrix24 account to streamline your company's operations with documents.";
 $MESS["DISK_HELP_2"] = "Managing Files and Folders";

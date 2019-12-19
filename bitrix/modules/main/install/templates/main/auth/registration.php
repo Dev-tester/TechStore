@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 extract($_REQUEST, EXTR_SKIP);
 IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"].BX_PERSONAL_ROOT."/templates/".SITE_TEMPLATE_ID."/main/auth/auth_form.php");
 $cur_page = $GLOBALS["APPLICATION"]->GetCurPage();
@@ -13,7 +13,7 @@ else
 
 ShowMessage($arAuthResult);
 ?>
-<form method="POST" action="<?echo htmlspecialcharsbx($page).(($s=DeleteParam(array("register"))) == ""? "?register=yes":"?$s&register=yes")?>" name="bform">
+<form method="POST" action="<?php echo htmlspecialcharsbx($page).(($s=DeleteParam(array("register"))) == ""? "?register=yes":"?$s&register=yes")?>" name="bform">
 <?=$str?>
 <input type="hidden" name="AUTH_FORM" value="Y">
 <input type="hidden" name="TYPE" value="REGISTRATION">
@@ -32,30 +32,30 @@ ShowMessage($arAuthResult);
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap width="1%" class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_NAME")?></font></td>
-					<td align="left" width="99%" class="tablebody"><input type="text" name="USER_NAME" size="30" maxlength="50" value="<?echo htmlspecialcharsbx($USER_NAME)?>" class="inputtext"></td>
+					<td align="left" width="99%" class="tablebody"><input type="text" name="USER_NAME" size="30" maxlength="50" value="<?php echo htmlspecialcharsbx($USER_NAME)?>" class="inputtext"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_LAST_NAME")?></font></td>
-					<td align="left" class="tablebody"><input type="text" name="USER_LAST_NAME" maxlength="50" size="30" value="<?echo htmlspecialcharsbx($USER_LAST_NAME)?>" class="inputtext"></td>
+					<td align="left" class="tablebody"><input type="text" name="USER_LAST_NAME" maxlength="50" size="30" value="<?php echo htmlspecialcharsbx($USER_LAST_NAME)?>" class="inputtext"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font class="tablebodytext"><?=GetMessage("AUTH_LOGIN_MIN")?></font></td>
-					<td align="left" class="tablebody"><input type="text" name="USER_LOGIN" size="30" maxlength="50" value="<?echo htmlspecialcharsbx($USER_LOGIN)?>" class="inputtext"></td>
+					<td align="left" class="tablebody"><input type="text" name="USER_LOGIN" size="30" maxlength="50" value="<?php echo htmlspecialcharsbx($USER_LOGIN)?>" class="inputtext"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font class="tablebodytext"><?=GetMessage("AUTH_PASSWORD_MIN")?></font></td>
-					<td align="left" class="tablebody"><input type="password" name="USER_PASSWORD" size="30" maxlength="50" value="<?echo htmlspecialcharsbx($USER_PASSWORD)?>" class="inputtext"></td>
+					<td align="left" class="tablebody"><input type="password" name="USER_PASSWORD" size="30" maxlength="50" value="<?php echo htmlspecialcharsbx($USER_PASSWORD)?>" class="inputtext"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font  class="tablebodytext"><?=GetMessage("AUTH_CONFIRM")?></font></td>
-					<td align="left" class="tablebody"><input type="password" name="USER_CONFIRM_PASSWORD" size="30" maxlength="50" value="<?echo htmlspecialcharsbx($USER_CONFIRM_PASSWORD)?>" class="inputtext"></td>
+					<td align="left" class="tablebody"><input type="password" name="USER_CONFIRM_PASSWORD" size="30" maxlength="50" value="<?php echo htmlspecialcharsbx($USER_CONFIRM_PASSWORD)?>" class="inputtext"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font  class="tablebodytext">E-Mail:</font></td>
-					<td align="left" class="tablebody"><input type="text" name="USER_EMAIL" size="30" maxlength="255" value="<?echo htmlspecialcharsbx(strlen($sf_EMAIL)>0? $sf_EMAIL:$USER_EMAIL)?>" class="inputtext"></td>
+					<td align="left" class="tablebody"><input type="text" name="USER_EMAIL" size="30" maxlength="255" value="<?php echo htmlspecialcharsbx(strlen($sf_EMAIL)>0? $sf_EMAIL:$USER_EMAIL)?>" class="inputtext"></td>
 				</tr>
 
-				<?
+				<?php 
 			$arUserFields = $GLOBALS["USER_FIELD_MANAGER"]->GetUserFields("USER", 0, LANGUAGE_ID);
 			if (is_array($arUserFields) && count($arUserFields) > 0)
 			{
@@ -65,12 +65,12 @@ ShowMessage($arAuthResult);
 						continue;
 					$arUserField["EDIT_FORM_LABEL"] = htmlspecialcharsbx(strLen($arUserField["EDIT_FORM_LABEL"]) > 0 ? $arUserField["EDIT_FORM_LABEL"] : $arUserField["FIELD_NAME"]);
 				?><tr valign="top"> 
-					<td align="right" nowrap class="tablebody"><?if ($arUserField["MANDATORY"]=="Y"):?><span class="required">*</span><?endif;?><font  class="tablebodytext"><?=$arUserField["EDIT_FORM_LABEL"]?>:</font></td>
-					<td align="left" class="tablebody"><?$APPLICATION->IncludeComponent(
+					<td align="right" nowrap class="tablebody"><?php if ($arUserField["MANDATORY"]=="Y"):?><span class="required">*</span><?php endif;?><font  class="tablebodytext"><?=$arUserField["EDIT_FORM_LABEL"]?>:</font></td>
+					<td align="left" class="tablebody"><?php $APPLICATION->IncludeComponent(
 				"bitrix:system.field.edit", 
 				$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
 				array("bVarsFromForm" => (empty($arAuthResult) ? false : true) , "arUserField" => $arUserField, "form_name" => "bform"));?></td>
-				</tr><?
+				</tr><?php 
 				}
 			}
 				/* CAPTCHA */
@@ -89,7 +89,7 @@ ShowMessage($arAuthResult);
 					<tr valign="middle"> 
 						<td align="right" nowrap width="1%" class="tablebody">&nbsp;</td>
 						<td align="left" width="99%" class="tablebody">
-							<?
+							<?php 
 							$capCode = $GLOBALS["APPLICATION"]->CaptchaGetCode();
 							?>
 							<input type="hidden" name="captcha_sid" value="<?= htmlspecialcharsbx($capCode) ?>">
@@ -100,7 +100,7 @@ ShowMessage($arAuthResult);
 						<td align="right" nowrap width="1%" class="tablebody"><font class="starrequired">*</font><font class="tablebodytext"><?=GetMessage("CAPTCHA_REGF_PROMT")?>:</font></td>
 						<td align="left" width="99%" class="tablebody"><input type="text" name="captcha_word" size="30" maxlength="50" value="" class="inputtext"></td>
 					</tr>
-					<?
+					<?php 
 				}
 				/* CAPTCHA */
 				?>

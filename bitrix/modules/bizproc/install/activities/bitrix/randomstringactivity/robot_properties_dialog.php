@@ -8,9 +8,9 @@ foreach ($map as $id => $field):?>
 		<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 			<?=htmlspecialcharsbx($field['Name'])?>:
 		</span>
-		<?
+		<?php 
 		echo $dialog->renderFieldControl($field);
 		?>
 	</div>
-<?
+<?php 
 endforeach;

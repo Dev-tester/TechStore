@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLTR_NOT_SAVE"] = "Изменения не сохранены.";
 $MESS["FLTR_NOT_ACTION"] = "Не указано действие.";
 $MESS["FLTR_NOT_WORDS"] = "Не указано слово поиска.";

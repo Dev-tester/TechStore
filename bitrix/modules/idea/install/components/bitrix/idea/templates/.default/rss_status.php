@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arStatusesByCode = array();
 $arStatuses = CIdeaManagment::getInstance()->Idea()->GetStatusList();
 foreach($arStatuses as $arStatus)
 	$arStatusesByCode[$arStatus["XML_ID"]] = $arStatus;
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 		"bitrix:idea.rss",
 		"",
 		Array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_MODULE_NAME"] = "Helpdesk";
 $MESS["SUP_MODULE_DESCRIPTION"] = "This module equips the site with the helpdesk system.";
 $MESS["SUP_INSTALL_TITLE"] = "Helpdesk module installation";

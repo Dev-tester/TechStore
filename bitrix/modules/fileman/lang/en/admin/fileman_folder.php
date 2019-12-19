@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_FOLDER_TITLE'] = "Folder Properties";
 $MESS ['FILEMAN_FOLDER_SECTION_NAME'] = "Section Name:";
 $MESS ['FILEMAN_FOLDER_ACCESS'] = "Access rights";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_STATUS_N"] = "Akzeptiert, Bezahlung erwartet";
 $MESS["SALE_STATUS_N_DESCR"] = "Bestellung wurde akzeptiert, wird aber noch nicht bearbeitet (z.B. wurde die Bestellung gerade eben erstellt oder es die Bezahlung erwartet).";
 $MESS["SALE_STATUS_P"] = "Bezahlt, Lieferung wird vorbereitet";

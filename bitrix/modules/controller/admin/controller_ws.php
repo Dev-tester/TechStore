@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_PERMISSIONS", true);
 define("NO_KEEP_STATISTIC", true);
 

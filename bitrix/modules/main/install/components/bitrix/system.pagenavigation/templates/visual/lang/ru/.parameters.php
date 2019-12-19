@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_SPN_TPL_USE_PAGE_SIZE"] = "Разрешать выбор размера страницы";
 $MESS["CP_SPN_TPL_PAGE_SIZE_FROM_LINE_COUNT"] = "Размер страницы кратен числу элементов в строке таблицы";
 $MESS["CP_SPN_TPL_PAGE_SIZES"] = "Размеры страницы";

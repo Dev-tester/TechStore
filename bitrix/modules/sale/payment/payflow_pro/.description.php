@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $psTitle = "Payflow Pro";
 $psDescription = "Accept payments on your Web site with Verisign scalable, fully customizable payment gateway solution. Payflow Pro gives you immediate connectivity to all major payment processors. <a href=\"http://verisign.com\" target=\"_blank\">http://verisign.com</a>";
 

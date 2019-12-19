@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/general/vat.php");
 
 class CCatalogVat extends CAllCatalogVat

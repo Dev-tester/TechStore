@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_KANBAN_ACTIVITY_MY"] = "Дела";
 $MESS["CRM_KANBAN_ACTIVITY_PLAN"] = "План";
 $MESS["CRM_KANBAN_ACTIVITY_PLAN_CALL"] = "Звонок";

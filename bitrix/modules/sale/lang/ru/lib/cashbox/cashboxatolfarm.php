@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_ATOL_FARM_TITLE"] = "Атол.Онлайн";
 $MESS["SALE_CASHBOX_BITRIX_SETTINGS_VAT"] = "Настройки ставок НДС";
 $MESS["SALE_CASHBOX_ATOL_FARM_SETTINGS_AUTH"] = "Настройки авторизации";

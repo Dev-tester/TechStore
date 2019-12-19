@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	?>
 	<span class='errortext'><?= $arResult["FatalErrorMessage"] ?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?= $arResult["ErrorMessage"] ?></span><br /><br />
-		<?
+		<?php 
 	}
 	if ($arResult["AllowCreate"] || $arResult["AllowAdmin"])
 	{
@@ -64,7 +64,7 @@ else
 	}
 	?>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.interface.grid",
 		"",
@@ -86,6 +86,6 @@ else
 	);
 	?>
 
-	<?
+	<?php 
 }
 ?>

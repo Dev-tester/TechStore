@@ -4,13 +4,13 @@
 </div>
 
 <div class="bxstl-navi-pages-cnt">
-<?
+<?php 
 $NavRecordGroup = $nStartPage;
 while($NavRecordGroup <= $nEndPage)
 {
 ?>
-	<? if($NavRecordGroup == $this->NavPageNomer) :?>
-		<?
+	<?php  if($NavRecordGroup == $this->NavPageNomer) :?>
+		<?php 
 		$w = 20;
 		if ($NavRecordGroup > 9)
 			$w = 30;
@@ -18,16 +18,16 @@ while($NavRecordGroup <= $nEndPage)
 			$w = 40;
 		?>
 		<div class="bxstl-navi-item-cur" style="width: <?=$w?>px;"><div class="bxstl-navi-it-l"></div><div class="bxstl-navi-it-c"><?= $NavRecordGroup?></div><div class="bxstl-navi-it-r"></div></div>
-	<?else:?>
+	<?php else:?>
 		<a class="bxstl-navi-item" href="javascript: void('');" onclick="if (window.oBXSticker){window.oBXSticker.List.NaviGet('<?= ($NavRecordGroup)?>', '<?= $this->NavNum?>');}; return false;"><?= $NavRecordGroup?></a>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 	$NavRecordGroup++;
 }
 ?>
 </div>
 
-<?
+<?php 
 // if($this->NavPageNomer > 1)
   // echo('<a class="tablebodylink" href="'.$sUrlPath.'?PAGEN_'.$this->NavNum.'='.($this->NavPageNomer-1).$strNavQueryString.'#nav_start'.$add_anchor.'">'.$sPrev.'</a>');
 

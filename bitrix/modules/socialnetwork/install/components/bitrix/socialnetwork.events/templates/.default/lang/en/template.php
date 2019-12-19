@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C1_FR_TITLE'] = "Friendship invitation!";
 $MESS ['SONET_C1_ONLINE'] = "Online";
 $MESS ['SONET_C1_FR_TEXT'] = "wants to list you as a friend";

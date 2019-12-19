@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_URL_TEMPLATES"] = "URLs processing";
 $MESS["F_READ_TEMPLATE"] = "Topic Read page";
 $MESS["F_LIST_TEMPLATE"] = "Topics List page";

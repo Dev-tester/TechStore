@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAGE_NEW_FILENAME"] = "Имя папки";
 $MESS["PAGE_NEW_WINDOW_TITLE"] = "Мастер создания нового раздела";
 $MESS["PAGE_NEW_SUB_TITLE"] = "Создание нового раздела в папке";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CONTROLLER_ERROR_PERSON_TYPE_ID_FIELD_EMPTY'] = 'Не передано значение типа плательщика';
 $MESS['CONTROLLER_ERROR_NAME_FIELD_EMPTY'] = 'Не передано название группы';
 $MESS['CONTROLLER_ERROR_ADD_PROPS_GROUP'] = 'Ошибка создания группы';

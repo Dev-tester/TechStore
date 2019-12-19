@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_LOGIN_BUTTON"] = "Login";
 $MESS["AUTH_LOGIN"] = "Login";
 $MESS["AUTH_PASSWORD"] = "Password";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['DW_PUT_USER_ID'] = "Введите USER_ID";
 $MESS['DW_VIDEO_CALL'] = "Видеозвонок";
 $MESS['DW_VIDEO_WAIT'] = "Ожидание ответа";

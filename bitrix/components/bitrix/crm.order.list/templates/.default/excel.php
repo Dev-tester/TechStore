@@ -54,13 +54,13 @@ else
 				}
 				?>
 				<th><?=$arHead['name']?></th>
-				<?
+				<?php 
 			}
 			?>
 			</tr>
 		</thead>
 		<tbody>
-		<?
+		<?php 
 	}
 
 	$arPersonTypes = CCrmPaySystem::getPersonTypesList();
@@ -82,7 +82,7 @@ else
 		$personTypeId = $orderFields['PERSON_TYPE_ID'];
 		foreach($productRows as $productRow)
 		{
-			?><tr><?
+			?><tr><?php 
 			foreach($arResult['SELECTED_HEADERS'] as $headerID)
 			{
 				$arHead = isset($arHeaders[$headerID]) ? $arHeaders[$headerID] : null;
@@ -198,15 +198,15 @@ else
 				}
 				if(isset($orderData[$headerID]))
 				{
-					?><td><?=$orderData[$headerID]?></td><?
+					?><td><?=$orderData[$headerID]?></td><?php 
 				}
 			}
-			?></tr><?
+			?></tr><?php 
 		}
 	}
 	if (!$isStExport || $isStExportLastPage)
 	{
 		?></tbody>
-		</table><?
+		</table><?php 
 	}
 }

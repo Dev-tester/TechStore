@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UM_GENERAL"] = "Основное";
 $MESS["SONET_UM_MODS"] = "Модераторы";
 $MESS["SONET_UM_PHOTO"] = "Фото";

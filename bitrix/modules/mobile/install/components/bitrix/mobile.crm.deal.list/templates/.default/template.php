@@ -28,7 +28,7 @@ $arJsParams = array(
 		BX.Mobile.Crm.List.init(<?=CUtil::PhpToJSObject($arJsParams)?>);
 
 		var customItems = [
-			<?if ($arResult["IS_CREATE_PERMITTED"]):?>
+			<?php if ($arResult["IS_CREATE_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_DEAL_ADD")?>',
 				image: "/bitrix/js/mobile/images/plus.png",
@@ -39,9 +39,9 @@ $arJsParams = array(
 					});
 				}
 			},
-			<?endif?>
-			<?if (is_array($arResult['FILTER_PRESETS']) && !empty($arResult['FILTER_PRESETS'])):?>
-				<?foreach($arResult['FILTER_PRESETS'] as $code => $preset):
+			<?php endif?>
+			<?php if (is_array($arResult['FILTER_PRESETS']) && !empty($arResult['FILTER_PRESETS'])):?>
+				<?php foreach($arResult['FILTER_PRESETS'] as $code => $preset):
 					$imagePath = "/bitrix/js/mobile/images/filter.png";
 					if ($code == $arResult["CURRENT_FILTER"])
 						$imagePath = "/bitrix/js/mobile/images/select.png";
@@ -56,8 +56,8 @@ $arJsParams = array(
 						BX.Mobile.Crm.List.applyListFilter('<?=($code == "all" ? "" : CUtil::JSEscape($code))?>', '<?=CUtil::JSEscape($arParams["GRID_ID"])?>');
 					}
 				},
-				<?endforeach?>
-			<?endif?>
+				<?php endforeach?>
+			<?php endif?>
 		];
 		BX.Mobile.Crm.List.showContextMenu(customItems);
 

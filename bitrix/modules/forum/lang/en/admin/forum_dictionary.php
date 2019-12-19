@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLT_TITLE_"] = "Dictionary";
 $MESS["FLT_TITLE"] = "Dictionaries";
 $MESS["FLT_HEAD_TITLE"] = "Name";

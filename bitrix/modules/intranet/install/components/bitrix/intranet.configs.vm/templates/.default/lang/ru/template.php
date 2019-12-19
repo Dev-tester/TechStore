@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_VM_HEADER_SETTINGS"] = "Настройки";
 $MESS["CONFIG_VM_SMTP_TITLE"] = "Настройка почты";
 $MESS["CONFIG_VM_SMTP_HOST"] = "Сервер Smtp";

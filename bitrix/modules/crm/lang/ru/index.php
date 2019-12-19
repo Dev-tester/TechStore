@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INSTALL_NAME"] = "CRM";
 $MESS["CRM_INSTALL_DESCRIPTION"] = "Модуль дает создания CRM";
 $MESS["CRM_INSTALL_TITLE"] = "Установка модуля crm";

@@ -1,26 +1,26 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <div class="content-form register-form">
 <div class="fields">
-<?
+<?php 
 ShowMessage($arParams["~AUTH_RESULT"]);
 ?>
-<?if($arResult["USE_EMAIL_CONFIRMATION"] === "Y" && is_array($arParams["AUTH_RESULT"]) &&  $arParams["AUTH_RESULT"]["TYPE"] === "OK"):?>
-<div class="field"><?echo GetMessage("AUTH_EMAIL_SENT")?></div>
-<?else:?>
+<?php if($arResult["USE_EMAIL_CONFIRMATION"] === "Y" && is_array($arParams["AUTH_RESULT"]) &&  $arParams["AUTH_RESULT"]["TYPE"] === "OK"):?>
+<div class="field"><?php echo GetMessage("AUTH_EMAIL_SENT")?></div>
+<?php else:?>
 
-<?if($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):?>
-	<div class="field"><?echo GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></div>
-<?endif?>
+<?php if($arResult["USE_EMAIL_CONFIRMATION"] === "Y"):?>
+	<div class="field"><?php echo GetMessage("AUTH_EMAIL_WILL_BE_SENT")?></div>
+<?php endif?>
 <noindex>
 <form method="post" action="<?=$arResult["AUTH_URL"]?>" name="bform">
-<?
+<?php 
 if (strlen($arResult["BACKURL"]) > 0)
 {
 ?>
 	<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
-<?
+<?php 
 }
 ?>
 	<input type="hidden" name="AUTH_FORM" value="Y" />
@@ -49,24 +49,24 @@ if (strlen($arResult["BACKURL"]) > 0)
 			<label class="field-title">E-Mail<span class="starrequired">*</span></label>
 			<div class="form-input"><input type="text" name="USER_EMAIL" maxlength="255" value="<?=$arResult["USER_EMAIL"]?>" /></div>
 		</div>
-<?// ********************* User properties ***************************************************?>
-<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+<?php // ********************* User properties ***************************************************?>
+<?php if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
 	<div class="field"><?=strLen(trim($arParams["USER_PROPERTY_NAME"])) > 0 ? $arParams["USER_PROPERTY_NAME"] : GetMessage("USER_TYPE_EDIT_TAB")?></div>
-	<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
+	<?php foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
 	<div class="field">
 		<label class="field-title">
-			<?=$arUserField["EDIT_FORM_LABEL"]?><?if ($arUserField["MANDATORY"]=="Y"):?><span class="required">*</span><?endif;?>
+			<?=$arUserField["EDIT_FORM_LABEL"]?><?php if ($arUserField["MANDATORY"]=="Y"):?><span class="required">*</span><?php endif;?>
 		</label>
 		<div class="form-input">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:system.field.edit",
 				$arUserField["USER_TYPE"]["USER_TYPE_ID"],
 				array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField, "form_name" => "bform"), null, array("HIDE_ICONS"=>"Y"));?>
 		</div>
 	</div>
-	<?endforeach;?>
-<?endif;?>
-<?// ******************** /User properties ***************************************************
+	<?php endforeach;?>
+<?php endif;?>
+<?php // ******************** /User properties ***************************************************
 
 	/* CAPTCHA */
 	if ($arResult["USE_CAPTCHA"] == "Y")
@@ -78,13 +78,13 @@ if (strlen($arResult["BACKURL"]) > 0)
 			<p style="clear: left;"><input type="hidden" name="captcha_sid" value="<?=$arResult["CAPTCHA_CODE"]?>" />
 			<img src="/bitrix/tools/captcha.php?captcha_sid=<?=$arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></p>
 		</div>
-		<?
+		<?php 
 	}
 	/* CAPTCHA */
 	?>
 	
 	<div class="field field-button"><input type="submit" name="Register" value="<?=GetMessage("AUTH_REGISTER")?>" /></div>
-<div class="field"><?echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></div>
+<div class="field"><?php echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?></div>
 <div class="field"><span class="starrequired">*</span><?=GetMessage("AUTH_REQ")?></div>
 
 <div class="field"><a href="<?=$arResult["AUTH_AUTH_URL"]?>" rel="nofollow"><b><?=GetMessage("AUTH_AUTH")?></b></a></div>
@@ -94,6 +94,6 @@ if (strlen($arResult["BACKURL"]) > 0)
 document.bform.USER_NAME.focus();
 </script>
 
-<?endif?>
+<?php endif?>
 </div>
 </div>

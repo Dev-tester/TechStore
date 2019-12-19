@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_MODULE_NAME"] = "Document library";
 $MESS["WD_MODULE_DESCRIPTION"] = "Document library";
 $MESS["WD_INSTALL"] = "Install Document library module ";

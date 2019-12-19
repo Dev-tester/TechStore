@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MENU_DRAFT_MESSAGES"] = "Черновики";
 $MESS["BLOG_MENU_DRAFT_MESSAGES_TITLE"] = "Просмотреть неопубликованные сообщения";
 $MESS["BLOG_MENU_MODERATION_MESSAGES"] = "Модерация";

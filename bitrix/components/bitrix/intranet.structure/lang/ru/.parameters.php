@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_IS_GROUP_FILTER'] = "Параметры фильтра";
 $MESS ['INTR_IS_PARAM_SEARCH_URL'] = "Страница поиска сотрудников";
 $MESS ['INTR_IS_PARAM_DETAIL_URL'] = "Страница профиля пользователя";

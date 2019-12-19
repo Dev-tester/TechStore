@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SHIPMENT_LIST_NAME"] = "Shipments";
 $MESS["CRM_ORDER_SHIPMENT_LIST_DESCRIPTION"] = "Shipments";
 $MESS["CRM_NAME"] = "CRM";

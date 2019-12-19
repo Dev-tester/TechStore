@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $this->addExternalCss(SITE_TEMPLATE_PATH."/css/sidebar.css");
@@ -15,21 +15,21 @@ $this->SetViewTarget("sidebar", 300);
 	<div class="sidebar-widget-top">
 		<div class="sidebar-widget-top-title"><?=GetMessage("WIDGET_BIRTHDAY_TITLE")?></div>
 	</div>
-	<?
+	<?php 
 	$i = 0;
 	foreach ($arResult["USERS"] as $arUser):?>
-	<a href="<?=$arUser["DETAIL_URL"]?>" class="sidebar-widget-item<?if(++$i == count($arResult["USERS"])):?> widget-last-item<?endif?><?if ($arUser["IS_BIRTHDAY"]):?> today-birth<?endif?>">
+	<a href="<?=$arUser["DETAIL_URL"]?>" class="sidebar-widget-item<?php if(++$i == count($arResult["USERS"])):?> widget-last-item<?php endif?><?php if ($arUser["IS_BIRTHDAY"]):?> today-birth<?php endif?>">
 		<span class="user-avatar user-default-avatar"
-			<?if (isset($arUser["PERSONAL_PHOTO"]["src"])):?>
+			<?php if (isset($arUser["PERSONAL_PHOTO"]["src"])):?>
 				style="background: url('<?=$arUser["PERSONAL_PHOTO"]["src"]?>') no-repeat center; background-size: cover;"
-			<?endif?>>
+			<?php endif?>>
 		</span>
 		<span class="sidebar-user-info">
 			<span class="user-birth-name"><?=CUser::FormatName($arParams['NAME_TEMPLATE'], $arUser, true);?></span>
-			<span class="user-birth-date"><?
+			<span class="user-birth-date"><?php 
 			if ($arUser["IS_BIRTHDAY"])
 			{
-				?><?=FormatDate("today"); ?>!<?
+				?><?=FormatDate("today"); ?>!<?php 
 			}
 			else
 			{
@@ -42,5 +42,5 @@ $this->SetViewTarget("sidebar", 300);
 			?></span>
 		</span>
 	</a>
-	<?endforeach?>
+	<?php endforeach?>
 </div>

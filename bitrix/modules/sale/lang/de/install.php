@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_INSTALL_DEFAULT"] = "Wählen Sie aus, welche Beispieldateien für das Modul \"Onlineshop\" installiert werden sollen";
 $MESS["SALE_INSTALL_NAME"] = "Onlineshop";
 $MESS["SALE_INSTALL_DESCRIPTION"] = "Erlaubt das Betreiben des Onlineshops.";

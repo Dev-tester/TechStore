@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIG_PERMS_REBUILD_COMPANY_ATTRS"] = "Please <a id=\"#ID#\" href=\"#URL#\">update</a> access attributes for existing companies before using extended access permissions.";
 $MESS["CRM_CONFIG_PERMS_LRP_DLG_BTN_START"] = "Run";
 $MESS["CRM_CONFIG_PERMS_LRP_DLG_BTN_STOP"] = "Stop";

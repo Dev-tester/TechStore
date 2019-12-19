@@ -1,9 +1,9 @@
-<?
+<?php 
 define("NEED_AUTH",true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/board/my/index.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
-?><?$APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:iblock.element.add", ".default", Array(
 	"NAV_ON_PAGE"	=>	"10",
 	"USE_CAPTCHA"	=>	"N",
 	"USER_MESSAGE_ADD"	=>	GetMessage("SERVICES_MESSAGE_ADD"),
@@ -63,4 +63,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 	"CUSTOM_TITLE_DETAIL_PICTURE"	=>	""
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

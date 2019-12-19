@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix Framework
  * @package bitrix
@@ -13,7 +13,7 @@
  * @global CBitrixComponent $component
  */
 $this->IncludeLangFile("form.php");
-?><div class="bx-vote-question-block"><?
+?><div class="bx-vote-question-block"><?php 
 	$this->__component->params = $APPLICATION->IncludeComponent(
 		"bitrix:voting.form",
 		".default",
@@ -29,7 +29,7 @@ $this->IncludeLangFile("form.php");
 		),
 		($this->__component->__parent ?: $component)
 	);
-?></div><?
-?><a href="javascript:void(0);" class="bx-vote-button bx-vote-button-vote" id="vote-do-<?=$arParams["UID"]?>"><?=GetMessage("VOTE_SUBMIT_BUTTON")?></a><?
+?></div><?php 
+?><a href="javascript:void(0);" class="bx-vote-button bx-vote-button-vote" id="vote-do-<?=$arParams["UID"]?>"><?=GetMessage("VOTE_SUBMIT_BUTTON")?></a><?php 
 ?><a class="bx-vote-button bx-vote-button-result" href="<?=(strlen($arParams["ACTION_PAGE"]) > 0 ? $arParams["ACTION_PAGE"] : $APPLICATION->GetCurPageParam("view_result=Y",
 	array("VOTE_ID","VOTING_OK","VOTE_SUCCESSFULL", "view_result", "view_form", "sessid", "AJAX_RESULT", "AJAX_POST", "VOTE_ID")))?>" id="vote-view-<?=$arParams["UID"]?>"><?=GetMessage("VOTE_SUBMIT_RESULTS")?></a>

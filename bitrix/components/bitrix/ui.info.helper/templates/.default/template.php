@@ -1,6 +1,6 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<? $frame = $this->createFrame()->begin('');
+<?php  $frame = $this->createFrame()->begin('');
 
 \Bitrix\Main\UI\Extension::load('ui.info-helper');
 ?>
@@ -13,4 +13,4 @@
 	});
 </script>
 
-<? $frame->end(); ?>
+<?php  $frame->end(); ?>

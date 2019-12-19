@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/public/file_property.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/public/file_property.php");?>

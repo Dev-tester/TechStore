@@ -2006,7 +2006,7 @@ class BizprocDocument extends CIBlockDocument
 			$fieldValueTmp = $fieldValue;
 			?>
 			<select id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>" name="<?= htmlspecialcharsbx($fieldName["Field"]).($fieldType["Multiple"] ? "[]" : "") ?>"<?= ($fieldType["Multiple"] ? ' size="5" multiple' : '') ?>>
-				<?
+				<?php 
 				if (!$fieldType["Required"])
 					echo '<option value="">['.GetMessage("BPCGHLP_NOT_SET").']</option>';
 				foreach ($fieldType["Options"] as $k => $v)
@@ -2025,11 +2025,11 @@ class BizprocDocument extends CIBlockDocument
 				}
 				?>
 			</select>
-			<?
+			<?php 
 			if ($allowSelection)
 			{
 				?>
-				<br /><input type="text" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" value="<?
+				<br /><input type="text" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" value="<?php 
 			if (count($fieldValueTmp) > 0)
 			{
 				$a = array_values($fieldValueTmp);
@@ -2037,13 +2037,13 @@ class BizprocDocument extends CIBlockDocument
 			}
 			?>">
 				<input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text', 'select');">
-			<?
+			<?php 
 			}
 		}
 		elseif ($fieldType["Type"] == "user")
 		{
 			$fieldValue = CBPHelper::usersArrayToString($fieldValue, null, array("lists", get_called_class(), $documentType));
-			?><input type="text" size="40" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>" value="<?= htmlspecialcharsbx($fieldValue) ?>"><input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>', 'user');"><?
+			?><input type="text" size="40" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>" value="<?= htmlspecialcharsbx($fieldValue) ?>"><input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>', 'user');"><?php 
 		}
 		elseif ((strpos($fieldType["Type"], ":") !== false)
 			&& $fieldType["Multiple"]
@@ -2109,7 +2109,7 @@ class BizprocDocument extends CIBlockDocument
 			if ($allowSelection)
 			{
 				?>
-				<br /><input type="text" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" value="<?
+				<br /><input type="text" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" value="<?php 
 			if (count($fieldValueTmp1) > 0)
 			{
 				$a = array_values($fieldValueTmp1);
@@ -2117,7 +2117,7 @@ class BizprocDocument extends CIBlockDocument
 			}
 			?>">
 				<input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text', 'user', '<?= $fieldType["Type"] == 'S:employee'? 'employee' : '' ?>');">
-			<?
+			<?php 
 			}
 		}
 		else
@@ -2263,7 +2263,7 @@ class BizprocDocument extends CIBlockDocument
 						}
 					}
 				</script>
-			<?
+			<?php 
 			}
 
 			if ($fieldType["Multiple"])
@@ -2348,7 +2348,7 @@ class BizprocDocument extends CIBlockDocument
 						}
 						else
 						{
-							?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?
+							?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?php 
 						}
 					}
 					else
@@ -2383,13 +2383,13 @@ class BizprocDocument extends CIBlockDocument
 						case "int":
 						case "double":
 							unset($fieldValueTmp[$key]);
-							?><input type="text" size="10" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?
+							?><input type="text" size="10" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 							break;
 						case "file":
 							if ($publicMode)
 							{
 								//unset($fieldValueTmp[$key]);
-								?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?
+								?><input type="file" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?php 
 							}
 							break;
 						case "bool":
@@ -2397,18 +2397,18 @@ class BizprocDocument extends CIBlockDocument
 								unset($fieldValueTmp[$key]);
 							?>
 							<select id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>">
-								<?
+								<?php 
 								if (!$fieldType["Required"])
 									echo '<option value="">['.GetMessage("BPCGHLP_NOT_SET").']</option>';
 								?>
 								<option value="Y"<?= (in_array("Y", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPCGHLP_YES") ?></option>
 								<option value="N"<?= (in_array("N", $fieldValue) ? ' selected' : '') ?>><?= GetMessage("BPCGHLP_NO") ?></option>
 							</select>
-							<?
+							<?php 
 							break;
 						case "text":
 							unset($fieldValueTmp[$key]);
-							?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?
+							?><textarea rows="5" cols="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>"><?= htmlspecialcharsbx($value) ?></textarea><?php 
 							break;
 						case "date":
 						case "datetime":
@@ -2453,7 +2453,7 @@ class BizprocDocument extends CIBlockDocument
 							break;
 						default:
 							unset($fieldValueTmp[$key]);
-							?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?
+							?><input type="text" size="40" id="<?= $fieldNameId ?>" name="<?= $fieldNameName ?>" value="<?= htmlspecialcharsbx($value) ?>"><?php 
 					}
 				}
 
@@ -2461,7 +2461,7 @@ class BizprocDocument extends CIBlockDocument
 				{
 					if (!in_array($fieldType["Type"], array("file", "bool", "date", "datetime")) && (is_array($customMethodName) && count($customMethodName) <= 0 || !is_array($customMethodName) && strlen($customMethodName) <= 0))
 					{
-						?><input type="button" value="..." onclick="BPAShowSelector('<?= $fieldNameId ?>', '<?= htmlspecialcharsbx($fieldType["BaseType"]) ?>');"><?
+						?><input type="button" value="..." onclick="BPAShowSelector('<?= $fieldNameId ?>', '<?= htmlspecialcharsbx($fieldType["BaseType"]) ?>');"><?php 
 					}
 				}
 
@@ -2487,7 +2487,7 @@ class BizprocDocument extends CIBlockDocument
 				if (in_array($fieldType["Type"], array("file", "bool", "date", "datetime")) || (is_array($customMethodName) && count($customMethodName) > 0 || !is_array($customMethodName) && strlen($customMethodName) > 0))
 				{
 					?>
-					<input type="text" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" value="<?
+					<input type="text" id="id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" name="<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text" value="<?php 
 					if (count($fieldValueTmp) > 0)
 					{
 						$a = array_values($fieldValueTmp);
@@ -2495,7 +2495,7 @@ class BizprocDocument extends CIBlockDocument
 					}
 					?>">
 					<input type="button" value="..." onclick="BPAShowSelector('id_<?= htmlspecialcharsbx($fieldName["Field"]) ?>_text', '<?= htmlspecialcharsbx($fieldType["BaseType"]) ?>', '<?= $fieldType["Type"] == 'S:employee'? 'employee' : '' ?>');">
-				<?
+				<?php 
 				}
 			}
 		}

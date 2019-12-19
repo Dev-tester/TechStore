@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_used"] = "Filter is active, showing only matching records.";
 $MESS["interface_grid_not_used"] = "Filter is inactive, showing all records.";
 $MESS["interface_grid_search"] = "Search";

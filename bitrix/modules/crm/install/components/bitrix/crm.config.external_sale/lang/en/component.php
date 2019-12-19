@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPWC_NO_CRM_MODULE"] = "The CRM module is not installed.";
 $MESS["CRM_MODULE_NOT_INSTALLED_IBLOCK"] = "The Information Blocks module is not installed.";
 $MESS["CRM_MODULE_NOT_INSTALLED_CURRENCY"] = "The Currency module is not installed.";

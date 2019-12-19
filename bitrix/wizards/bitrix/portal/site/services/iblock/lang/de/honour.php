@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HONOR_FORM_1"]="Ausgezeichneter Mitarbeiter";
 $MESS["HONOR_FORM_2"]="Wдhlen Sie Mitarbeiter fьr die Auszeichnung aus";
 $MESS["HONOR_FORM_3"]="Ausgezeichnet fьr";

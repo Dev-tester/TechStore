@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAT2_AFF_IN"] = "Berechnung";
 $MESS["SAT2_AFF_ACCT"] = "Auf das interne Konto einzahlen";
 $MESS["SAT2_TRANSACT_DATE"] = "Transkationsdatum";

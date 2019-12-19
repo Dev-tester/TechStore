@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_MOBILESHOP_TITLE"] = "Access your web store";
 $MESS["GD_MOBILESHOP_TITLE2"] = "from anywhere!";
 $MESS["GD_MOBILESHOP_VIEW"] = "Details";

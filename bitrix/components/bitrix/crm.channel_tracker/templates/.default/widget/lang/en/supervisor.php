@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CH_WGT_DATA_EMPLOYEE_M_1"] = "John";
 $MESS["CRM_CH_WGT_DATA_EMPLOYEE_M_2"] = "Everett";
 $MESS["CRM_CH_WGT_DATA_EMPLOYEE_M_3"] = "Eli";

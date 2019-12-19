@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 
@@ -48,13 +48,13 @@ elseif(!IsModuleInstalled("intranet"))
 	<a href="<?=$arResult["LIST_FIELDS_URL"]?>" class="ui-btn ui-btn-sm ui-btn-link ui-btn-themes lists-list-back">
 		<?=GetMessage("CT_BLFE_TOOLBAR_RETURN_LIST_ELEMENT")?>
 	</a>
-	<?if($listAction):?>
+	<?php if($listAction):?>
 		<span id="lists-title-action" class="ui-btn ui-btn-sm ui-btn-light-border ui-btn-dropdown ui-btn-themes">
 			<?=GetMessage("CT_BLFE_TOOLBAR_ACTION")?>
 		</span>
-	<?endif;?>
+	<?php endif;?>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();
@@ -684,7 +684,7 @@ if(is_array($arResult["LIST"]))
 				});
 			});
 		</script>
-		<?
+		<?php 
 	}
 	else
 	{

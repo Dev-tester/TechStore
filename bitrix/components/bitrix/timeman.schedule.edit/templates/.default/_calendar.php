@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -12,12 +12,12 @@ use Bitrix\Main\Localization\Loc;
 			<span class="timeman-schedule-form-title-text"><?= htmlspecialcharsbx(Loc::getMessage('TIMEMAN_SCHEDULE_EDIT_HOLIDAYS_TITLE')); ?></span>
 			<select class="timeman-schedule-form-settings-select timeman-schedule-form-settings-select-calendar-year"
 					data-role="calendar-year">
-				<? $currentYear = (int)date('Y'); ?>
-				<? $yearDelta = 5; ?>
-				<? for ($year = $currentYear - $yearDelta; $year < $currentYear + $yearDelta; $year++): ?>
+				<?php  $currentYear = (int)date('Y'); ?>
+				<?php  $yearDelta = 5; ?>
+				<?php  for ($year = $currentYear - $yearDelta; $year < $currentYear + $yearDelta; $year++): ?>
 					<option value="<?= (int)$year; ?>" <?= $year === $currentYear ? 'selected' : ''; ?>>
 						<?= (int)$year; ?></option>
-				<? endfor; ?>
+				<?php  endfor; ?>
 			</select>
 		</div>
 	</div>
@@ -55,7 +55,7 @@ use Bitrix\Main\Localization\Loc;
 					data-role="calendars-settings-btn">
 				<span class="timeman-schedule-form-quarter-settings-icon"></span>
 			</div>
-		</div><?
+		</div><?php 
 
 		# calendars;
 		$calendarFormName = $scheduleForm->getFormName() . '[' . $scheduleForm->calendarForm->getFormName() . ']';

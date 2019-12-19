@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMM_WGT_GROWTH"] = "Client base growth";
 $MESS["CRM_COMM_WGT_COMPANY_GROWTH_COUNT"] = "Number of companies";
 $MESS["CRM_COMM_WGT_CONTACT_GROWTH_COUNT"] = "Number of contacts";

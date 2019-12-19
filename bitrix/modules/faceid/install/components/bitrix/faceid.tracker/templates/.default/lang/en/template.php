@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TRACKER_CMP_TITLE"] = "Watch people visiting your brick and mortar locations.";
 $MESS["FACEID_TRACKER_CMP_DESCR"] = "Face tracker will log and count visitors in your shop or office: total visitors for today; new visitors; returning visitors; visitors that already exist in your CRM.";
 $MESS["FACEID_TRACKER_CMP_DESCR_P1"] = "Instant search by photo among people registered in your CRM.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ORDER_DELIVERY_EXTRA_SERVICES_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["ORDER_DELIVERY_EXTRA_SERVICES_ENTITY_SHIPMENT_ID_FIELD"] = "Идентификатор отгрузки";
 $MESS["ORDER_DELIVERY_EXTRA_SERVICES_ENTITY_EXTRA_SERVICE_ID_FIELD"] = "Идентификатор дополнительной услуги";

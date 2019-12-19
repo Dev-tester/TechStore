@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PM_NO_MODULE"] = "Forum module is not installed.";
 $MESS["PM_SUCC_CREATE"] = "The folder has been successfully created.";
 $MESS["PM_SUCC_DELETE"] = "The folder has been successfully deleted.";

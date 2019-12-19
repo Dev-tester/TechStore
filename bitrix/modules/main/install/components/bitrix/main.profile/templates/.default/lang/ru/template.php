@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROFILE_DATA_SAVED"] = "Изменения сохранены";
 $MESS["REG_SHOW_HIDE"] = "Регистрационная информация";
 $MESS["forum_INFO"] = "Профиль форума";

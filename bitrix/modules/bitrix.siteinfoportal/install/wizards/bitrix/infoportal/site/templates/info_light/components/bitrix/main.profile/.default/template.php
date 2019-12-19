@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 //echo "<pre>"; print_r($arResult); echo "</pre>";
 //exit();
 //echo "<pre>"; print_r($_SESSION); echo "</pre>";
 
 ?>
 <?=ShowError($arResult["strProfileError"]);?>
-<?
+<?php 
 if ($arResult['DATA_SAVED'] == 'Y')
 	echo ShowNote(GetMessage('PROFILE_DATA_SAVED'));
 ?>

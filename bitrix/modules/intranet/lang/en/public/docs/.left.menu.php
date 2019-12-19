@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCS_MENU_ALL_DOCS"] = "All Documents";
 $MESS["DOCS_MENU_SHARED"] = "Company Drive";
 $MESS["DOCS_MENU_SALE"] = "Sales and Marketing";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_GROUP_NAME'] = "Intranet Portal";
 $MESS ['INTR_IAU_COMPONENT_NAME'] = "Absence of Person";
 $MESS ['INTR_IAU_COMPONENT_DESCR'] = "Shows the graph of absence of a person";

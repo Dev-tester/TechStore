@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['MYMS_TPL_SEARCH'] = "Search Address";
 $MESS['MYMS_TPL_SUBMIT'] = "Search";
 $MESS['MYMS_TPL_JS_ERROR'] = "Error";

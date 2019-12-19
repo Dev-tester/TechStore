@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $GLOBALS["APPLICATION"]->AddHeadScript("/bitrix/js/main/utils.js");
 // *****************************************************************************************
 if (LANGUAGE_ID == 'ru')
@@ -16,7 +16,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class="errortext"><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -24,7 +24,7 @@ else
 	{
 		?>
 		<span class="errortext"><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 
 	if ($arResult["ShowForm"] == "Input")
@@ -35,7 +35,7 @@ else
 				<tr>
 					<th align="right"><?=GetMessage("SONET_MF_USER")?></th>
 					<th><b>
-						<?
+						<?php 
 						if ($arResult["CurrentUserPerms"]["ViewProfile"])
 							echo "<a href=\"".$arResult["Urls"]["User"]."\">";
 						echo $arResult["User"]["NAME_FORMATTED"];
@@ -72,9 +72,9 @@ else
 						<input type="button" name='QUOTE' class='quote' accesskey='q' value="<?=GetMessage("PM_QUOTE")?>" title="<?=GetMessage("PM_QUOTE_TITLE")?>" />
 						<input type="button" name='CODE' class='code' accesskey='p' value="<?=GetMessage("PM_CODE")?>" title="<?=GetMessage("PM_CODE_TITLE")?>" />
 						<input type="button" name="LIST" class="list" accesskey='l' value="<?=GetMessage("PM_LIST");?>" title="<?=GetMessage("PM_LIST_TITLE")?>" />
-						<?if (LANGUAGE_ID=="ru"):?>
+						<?php if (LANGUAGE_ID=="ru"):?>
 							<input type="button" name="TRANSLIT" class="translit" accesskey='t' value="<?=GetMessage("PM_TRANSLIT")?>" title="<?=GetMessage("PM_TRANSLIT_TITLE")?>" />
-						<?endif;?>
+						<?php endif;?>
 						<input type="button" name="CLOSE" class="close" title="<?=GetMessage("PM_CLOSE_OPENED_TAGS")?>" value="<?=GetMessage("PM_CLOSE_ALL_TAGS")?>">
 						<br /><br />
 						<?=GetMessage("PM_OPENED_TAGS")?>
@@ -104,24 +104,24 @@ else
 				</tr>
 			</table>
 		</form>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
 		<?= GetMessage("SONET_C26_T_SUCCESS") ?><br /><br />
 		<?=GetMessage("SONET_MF_USER")?>
-		<?if ($arResult["CurrentUserPerms"]["ViewProfile"]):?>
+		<?php if ($arResult["CurrentUserPerms"]["ViewProfile"]):?>
 			<a href="<?= $arResult["Urls"]["User"] ?>">
-		<?endif;?>
+		<?php endif;?>
 		<?= $arResult["User"]["NAME_FORMATTED"]; ?>
-		<?if ($arResult["CurrentUserPerms"]["ViewProfile"]):?>
+		<?php if ($arResult["CurrentUserPerms"]["ViewProfile"]):?>
 			</a>
-		<?endif;?>
+		<?php endif;?>
 		<br /><br />
 		<a href="<?= $arResult["Urls"]["MessagesInput"] ?>"><?= GetMessage("SONET_C26_T_MY_INBOX") ?></a><br>
 		<a href="<?= $arResult["Urls"]["MessagesOutput"] ?>"><?= GetMessage("SONET_C26_T_MY_OUTBOX") ?></a><br>
-		<?
+		<?php 
 	}
 }
 ?>

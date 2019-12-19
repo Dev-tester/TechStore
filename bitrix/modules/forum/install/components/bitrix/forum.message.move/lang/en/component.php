@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FM_NO_FPERMS'] = "You do not have enough permissions to moderate this forum";
 $MESS ['FM_NO_ICON'] = "no icon";
 $MESS ['FM_TITLE_PAGE'] = "Message move";

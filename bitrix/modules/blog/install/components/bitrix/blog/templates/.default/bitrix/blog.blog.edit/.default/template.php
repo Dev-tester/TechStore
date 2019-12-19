@@ -1,12 +1,12 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
 <div class="blog-edit">
-<?
+<?php 
 if($arResult["NEED_AUTH"] == "Y")
 {
 	?>
@@ -15,7 +15,7 @@ if($arResult["NEED_AUTH"] == "Y")
 			<ul><?=GetMessage("BLOG_NEED_AUTH")?></ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 elseif(!empty($arResult["FATAL_ERROR"])>0)
 {
@@ -23,18 +23,18 @@ elseif(!empty($arResult["FATAL_ERROR"])>0)
 	<div class="blog-errors">
 		<div class="blog-error-text">
 			<ul>
-			<?
+			<?php 
 			foreach($arResult["FATAL_ERROR"] as $v)
 			{
 				?>
 				<li><?=$v?></li>
-				<?
+				<?php 
 			}
 			?>
 			</ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -44,19 +44,19 @@ else
 		<div class="blog-errors">
 			<div class="blog-error-text">
 				<ul>
-				<?
+				<?php 
 				foreach($arResult["ERROR_MESSAGE"] as $v)
 				{
 					?>
 					
 					<li><?=$v?></li>
-					<?
+					<?php 
 				}
 				?>
 				</ul>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 	
@@ -78,40 +78,40 @@ else
 		<tr>
 			<th><span class="blog-required-field">*</span> <?=GetMessage('BLOG_URL')?></th>
 			<td>
-				<?
+				<?php 
 				if ($arResult["BlockURL"] == "Y")
 					echo $arResult["BLOG"]["URL"];
 				else
 				{
 					?><div class="blog-edit-input"><input type="text" name="URL" maxlength="100" size="40" value="<?=$arResult["BLOG"]["URL"]?>"></div>
 					<br /><small><?=GetMessage("BLOG_URL_TITLE")?></small>
-					<?
+					<?php 
 				}
 				?>
 			</td>
 		</tr>
-		<?
+		<?php 
 		if(count($arResult["GROUP"]) > 1)
 		{
 			?>
 			<tr>
 				<th><span class="blog-required-field">*</span> <?=GetMessage('BLOG_GRP')?></th>
 				<td><select name="GROUP_ID">
-						<?
+						<?php 
 						foreach($arResult["GROUP"] as $v)
 						{
-							?><option value="<?=$v["ID"]?>"<?if ($v["SELECTED"]=="Y") echo " selected";?>><?=$v["NAME"]?></option><?
+							?><option value="<?=$v["ID"]?>"<?php if ($v["SELECTED"]=="Y") echo " selected";?>><?=$v["NAME"]?></option><?php 
 						}
 						?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		else
 		{
 			$val = array_values($arResult["GROUP"]);
-			?><input type="hidden" name="GROUP_ID" value="<?=$val[0]["ID"]?>"><?
+			?><input type="hidden" name="GROUP_ID" value="<?=$val[0]["ID"]?>"><?php 
 		}
 
 		if($arResult["useCaptcha"] == "U")
@@ -120,18 +120,18 @@ else
 			<tr>
 				<th><?=GetMessage('BLOG_AUTO_MSG')?></th>
 				<td>
-					<input id="IMG_VERIF" type="checkbox" name="ENABLE_IMG_VERIF" value="Y"<?if ($arResult["BLOG"]["ENABLE_IMG_VERIF"] != "N") echo " checked";?>>
+					<input id="IMG_VERIF" type="checkbox" name="ENABLE_IMG_VERIF" value="Y"<?php if ($arResult["BLOG"]["ENABLE_IMG_VERIF"] != "N") echo " checked";?>>
 					<label for="IMG_VERIF"><?=GetMessage('BLOG_AUTO_MSG_TITLE')?></label><br />
 					<small><?=GetMessage('BLOG_CAPTHA')?></small>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 		<tr>
 			<th><?=GetMessage('BLOG_EMAIL_NOTIFY')?></th>
 			<td>
-				<input id="EMAIL_NOTIFY" type="checkbox" name="EMAIL_NOTIFY" value="Y"<?if ($arResult["BLOG"]["EMAIL_NOTIFY"] != "N") echo " checked";?>>
+				<input id="EMAIL_NOTIFY" type="checkbox" name="EMAIL_NOTIFY" value="Y"<?php if ($arResult["BLOG"]["EMAIL_NOTIFY"] != "N") echo " checked";?>>
 				<label for="EMAIL_NOTIFY"><?=GetMessage('BLOG_EMAIL_NOTIFY_TITLE')?></label><br />
 				<small><?=GetMessage('BLOG_EMAIL_NOTIFY_HELP')?></small>
 			</td>
@@ -208,12 +208,12 @@ else
 				}
 				</script>
 
-				<?
+				<?php 
 				foreach($arResult["USER_GROUP"] as $v)
 				{
 					?>
 					<div id="group-line-<?=$v["ID"]?>">
-						<input id="open_group_<?=$v["ID"]?>" type="checkbox" name="group[<?=$v['ID']?>]"<?if($v["CHECKED"] == "Y") echo " checked";?> value="Y">
+						<input id="open_group_<?=$v["ID"]?>" type="checkbox" name="group[<?=$v['ID']?>]"<?php if($v["CHECKED"] == "Y") echo " checked";?> value="Y">
 						<span id="group-form-<?=$v["ID"]?>" style="display:none;"><input name="GROUP_NAME" id="group_name_<?=$v["ID"]?>" size="20" maxlength="255" value="<?=$v["NAME"]?>"> <input type="button" name="blog_save" value="Ok" onclick="javascript:saveGroup('<?=$v["ID"]?>');"></span>
 						
 						<span id="group-name-<?=$v["ID"]?>" class="blog-group">
@@ -226,7 +226,7 @@ else
 						</span>
 					</div>
 					
-					<?
+					<?php 
 				}
 				?>
 				<div id="forNewGroup"></div>
@@ -236,7 +236,7 @@ else
 				<small><?=GetMessage('BLOG_OPENED_TITLE')?></small>
 			</td>
 		</tr>
-		<?	
+		<?php 	
 
 		function ShowSelectPerms($type, $id, $def, $arr)
 		{
@@ -267,13 +267,13 @@ else
 					</tr>
 					<tr>
 						<td nowrap><?=GetMessage('BLOG_ALL_USERS')?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_post_everyone_rights"]))
 								echo ShowSelectPerms('p', 1, $arResult["BLOG"]["perms_p"][1], $arResult["ar_post_everyone_rights"]);
 							else
 								echo ShowSelectPerms('p', 1, $arResult["BLOG"]["perms_p"][1], $arResult["BLOG_POST_PERMS"]);
 						?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_comment_everyone_rights"]))
 								echo ShowSelectPerms('c', 1, $arResult["BLOG"]["perms_c"][1], $arResult["ar_comment_everyone_rights"]);
 							else
@@ -282,13 +282,13 @@ else
 					</tr>
 					<tr>
 						<td nowrap><?=GetMessage('BLOG_REGISTERED')?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_post_auth_user_rights"]))
 								echo ShowSelectPerms('p', 2, $arResult["BLOG"]["perms_p"][2], $arResult["ar_post_auth_user_rights"]);
 							else
 								echo ShowSelectPerms('p', 2, $arResult["BLOG"]["perms_p"][2], $arResult["BLOG_POST_PERMS"]);
 						?></td>
-						<td><?
+						<td><?php 
 							if(!empty($arResult["ar_comment_auth_user_rights"]))
 								echo ShowSelectPerms('c', 2, $arResult["BLOG"]["perms_c"][2], $arResult["ar_comment_auth_user_rights"]);
 							else
@@ -296,7 +296,7 @@ else
 						?></td>
 					</tr>
 					
-					<?
+					<?php 
 					if(!empty($arResult["USER_GROUP"]))
 					{
 						foreach($arResult["USER_GROUP"] as $v)
@@ -304,49 +304,49 @@ else
 							?>
 							<tr>
 								<td nowrap><?=$v['NAME']?></td>
-								<td><?
+								<td><?php 
 									if(!empty($arResult["ar_post_group_user_rights"]))
 										echo ShowSelectPerms('p', $v['ID'], $arResult["BLOG"]["perms_p"][$v['ID']], $arResult["ar_post_group_user_rights"]);
 									else
 										echo ShowSelectPerms('p', $v['ID'], $arResult["BLOG"]["perms_p"][$v['ID']], $arResult["BLOG_POST_PERMS"]);
 								?></td>
-								<td><?
+								<td><?php 
 									if(!empty($arResult["ar_comment_group_user_rights"]))
 										echo ShowSelectPerms('c', $v['ID'], $arResult["BLOG"]["perms_c"][$v['ID']], $arResult["ar_comment_group_user_rights"]);
 									else
 										echo ShowSelectPerms('c', $v['ID'], $arResult["BLOG"]["perms_c"][$v['ID']], $arResult["BLOG_COMMENT_PERMS"]);
 								?></td>
 							</tr>
-							<?
+							<?php 
 						}
 					}
 					?>
 				</table>
 			</td>
 		</tr>
-		<?if($arResult["BLOG_PROPERTIES"]["SHOW"] == "Y"):?>
-			<?foreach ($arResult["BLOG_PROPERTIES"]["DATA"] as $FIELD_NAME => $arBlogField):?>
+		<?php if($arResult["BLOG_PROPERTIES"]["SHOW"] == "Y"):?>
+			<?php foreach ($arResult["BLOG_PROPERTIES"]["DATA"] as $FIELD_NAME => $arBlogField):?>
 			<tr>
 				<th><?=$arBlogField["EDIT_FORM_LABEL"]?>:</th>
 				<td>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:system.field.edit", 
 							$arBlogField["USER_TYPE"]["USER_TYPE_ID"], 
 							array("arUserField" => $arBlogField), null, array("HIDE_ICONS"=>"Y"));?>
 				</td>
 			</tr>			
-			<?endforeach;?>
-		<?endif;?>
+			<?php endforeach;?>
+		<?php endif;?>
 		</table>
 		<div class="blog-buttons">
 			<input type="submit" name="save" value="<?= (IntVal($arResult["BLOG"]["ID"])>0 ? GetMessage('BLOG_SAVE') : GetMessage('BLOG_CREATE')) ?>">
-			<?
+			<?php 
 			if ($arResult["CAN_UPDATE"]=="Y")
 			{
 				?>
 				<input type="submit" name="apply" value="<?=GetMessage('BLOG_APPLY')?>">
 				<input type="submit" name="reset" value="<?=GetMessage('BLOG_CANCEL')?>">
-				<?
+				<?php 
 			}
 			?>
 			<input type="hidden" name="do_blog" value="Y">
@@ -354,9 +354,9 @@ else
 	</form>
 	
 	<p>
-		<?echo GetMessage("STOF_REQUIED_FIELDS_NOTE")?>
+		<?php echo GetMessage("STOF_REQUIED_FIELDS_NOTE")?>
 	</p>
-	<?
+	<?php 
 }
 ?>
 </div>

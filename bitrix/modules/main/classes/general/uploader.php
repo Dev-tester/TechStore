@@ -1,4 +1,4 @@
-<?
+<?php 
 // ***** CImageUploader, CFlashUploader *****
 IncludeModuleLangFile(__FILE__);
 
@@ -56,14 +56,14 @@ class CImageUploader
 
 		if ($Params['showAddFileButton'] || $Params['showAddFolderButton']): ?>
 		<div class="bxiu-buttons">
-			<?if($Params['showAddFileButton']):?>
+			<?php if($Params['showAddFileButton']):?>
 			<button type="button" onclick="addFiles();"><?= GetMessage("UPLOADER_ADD_FILES")?></button>
-			<?endif;?>
-			<?if($Params['showAddFolderButton']):?>
+			<?php endif;?>
+			<?php if($Params['showAddFolderButton']):?>
 			<button type="button" onclick="addFolder();"><?= GetMessage("UPLOADER_ADD_FOLDERS")?></button>
-			<?endif;?>
+			<?php endif;?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
 		<script>
 		var oBXUploaderHandler_<?= CUtil::JSEscape($id)?> = new window.BXUploader({id: '<?= CUtil::JSEscape($id)?>'});
@@ -138,12 +138,12 @@ class CImageUploader
 			}
 		};
 
-		<?if (isset($Params['appendFormName']) && $Params['appendFormName'] != ''):?>
+		<?php if (isset($Params['appendFormName']) && $Params['appendFormName'] != ''):?>
 			bxp.metadata.additionalFormName = '<?= CUtil::JSEscape($Params['appendFormName'])?>';
-		<?endif;?>
+		<?php endif;?>
 
-		<?foreach ($Params['converters'] as $converter):?>
-			<?$bSource = (!$converter['width'] || !$converter['height']);?>
+		<?php foreach ($Params['converters'] as $converter):?>
+			<?php $bSource = (!$converter['width'] || !$converter['height']);?>
 			bxp.converters.push({
 					mode: '*.*=Thumbnail',
 					thumbnailApplyCrop: true,
@@ -152,72 +152,72 @@ class CImageUploader
 					thumbnailResizeQuality: "High", // High | Medium | Low,
 					thumbnailCopyIptc: true,
 					thumbnailCopyExif: true,
-				<?if ($bSource):?>
+				<?php if ($bSource):?>
 					thumbnailFitMode: "ActualSize", // Fit | OrientationalFit | Width | Height | ActualSize
-				<?else:?>
+				<?php else:?>
 					thumbnailFitMode: "Fit", // Fit | OrientationalFit | Width | Height | ActualSize
 					thumbnailHeight: <?= intval($converter['height'])?>,
 					thumbnailWidth: <?= intval($converter['width'])?>,
-				<?endif;?>
+				<?php endif;?>
 					thumbnailCompressOversizedOnly: true
 			});
-		<?endforeach;?>
+		<?php endforeach;?>
 
-		<?if ($Params['layout'] == 'ThreePanes'):?>
+		<?php if ($Params['layout'] == 'ThreePanes'):?>
 			bxp.folderPane = {
 				height: <?= intval($Params['folderPaneHeight'])?>,
 				viewMode: '<?= CUtil::JSEscape($Params['folderViewMode'])?>'
 			};
 			bxp.treePane = {width: <?= intval($Params['treePaneWidth'])?>};
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($Params['uploadViewMode'] != 'Thumbnails'):?>
+		<?php if ($Params['uploadViewMode'] != 'Thumbnails'):?>
 			bxp.uploadPane = {
 				viewMode: '<?= CUtil::JSEscape($Params['uploadViewMode'])?>'
 			};
-		<?endif;?>
+		<?php endif;?>
 
-		<?if (isset($Params['redirectUrl'])):?>
+		<?php if (isset($Params['redirectUrl'])):?>
 			bxp.uploadSettings.redirectUrl = '<?= CUtil::JSEscape($Params['redirectUrl'])?>';
-		<?endif;?>
+		<?php endif;?>
 
-		<? if (isset($Params['minFileCount'])):?>
+		<?php  if (isset($Params['minFileCount'])):?>
 			bxp.restrictions.minFileCount= '<?= CUtil::JSEscape($Params['minFileCount'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxFileCount'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxFileCount'])):?>
 			bxp.restrictions.maxFileCount= '<?= CUtil::JSEscape($Params['maxFileCount'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxTotalFileSize'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxTotalFileSize'])):?>
 			bxp.restrictions.maxTotalFileSize = '<?= CUtil::JSEscape($Params['maxTotalFileSize'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxFileSize'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxFileSize'])):?>
 			bxp.restrictions.maxFileSize = '<?= CUtil::JSEscape($Params['maxFileSize'])?>';
-		<?endif;?>
-		<? if (isset($Params['minFileSize'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['minFileSize'])):?>
 			bxp.restrictions.minFileSize = '<?= CUtil::JSEscape($Params['minFileSize'])?>';
-		<?endif;?>
-		<? if (isset($Params['minImageWidth'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['minImageWidth'])):?>
 			bxp.restrictions.minImageWidth = '<?= CUtil::JSEscape($Params['minImageWidth'])?>';
-		<?endif;?>
-		<? if (isset($Params['minImageHeight'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['minImageHeight'])):?>
 			bxp.restrictions.minImageHeight = '<?= CUtil::JSEscape($Params['minImageHeight'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxImageWidth'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxImageWidth'])):?>
 			bxp.restrictions.maxImageWidth = '<?= CUtil::JSEscape($Params['maxImageWidth'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxImageHeight'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxImageHeight'])):?>
 			bxp.restrictions.maxImageHeight = '<?= CUtil::JSEscape($Params['maxImageHeight'])?>';
-		<?endif;?>
+		<?php endif;?>
 
 
-		<?if (isset($Params['cropRatio'])):?>
+		<?php if (isset($Params['cropRatio'])):?>
 			bxp.imageEditor.cropRatio = '<?= CUtil::JSEscape($Params['cropRatio'])?>';
-		<?endif;?>
-		<?if (isset($Params['cropMinSize'])):?>
+		<?php endif;?>
+		<?php if (isset($Params['cropMinSize'])):?>
 			bxp.imageEditor.cropMinSize = '<?= CUtil::JSEscape($Params['cropMinSize'])?>';
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($Params['useWatermark']):?>
+		<?php if ($Params['useWatermark']):?>
 			bxp = oBXUploaderHandler_<?= $id?>.enableWatermark(bxp, {
 				rules: '<?= CUtil::JSEscape($Params['watermarkConfig']['rules'])?>', // ALL | USER
 				type: '<?= CUtil::JSEscape($Params['watermarkConfig']['type'])?>', //
@@ -241,7 +241,7 @@ class CImageUploader
 					file: '<?= CUtil::JSEscape($Params['watermarkConfig']['values']['file'])?>'
 				}
 			});
-		<?endif;?>
+		<?php endif;?>
 
 		BXIU_<?= CUtil::JSEscape($id)?>.set(bxp);
 
@@ -261,16 +261,16 @@ class CImageUploader
 		// Apply localization
 		BXIU_<?= CUtil::JSEscape($id)?>.set(<?= self::GetLocalization()?>);
 
-		<?if($Params['showAddFileButton']):?>
+		<?php if($Params['showAddFileButton']):?>
 		function addFiles()	{$au.uploader('<?= CUtil::JSEscape($id)?>').uploadPane().addFiles();}
-		<?endif;?>
-		<?if($Params['showAddFolderButton']):?>
+		<?php endif;?>
+		<?php if($Params['showAddFolderButton']):?>
 		function addFolder(){$au.uploader('<?= CUtil::JSEscape($id)?>').uploadPane().addFolders();}
-		<?endif;?>
+		<?php endif;?>
 		BX.ready(function(){BX('bxiu_<?= CUtil::JSEscape($id)?>').innerHTML = BXIU_<?= CUtil::JSEscape($id)?>.getHtml();})
 		</script>
 		<div id="bxiu_<?= htmlspecialcharsbx($id)?>" class="bx-image-uploader"></div>
-		<?
+		<?php 
 	}
 
 	public static function UploadCallback($uploadedFiles)
@@ -689,52 +689,52 @@ class CFlashUploader extends CImageUploader
 			restrictions : {fileMask: '<?= CUtil::JSEscape($Params['fileMask'])?>'}
 		};
 
-		<? if (isset($Params['appendFormName']) && $Params['appendFormName'] != ''): ?>
+		<?php  if (isset($Params['appendFormName']) && $Params['appendFormName'] != ''): ?>
 			bxp.metadata.additionalFormName = '<?= CUtil::JSEscape($Params['appendFormName'])?>';
-		<?endif;?>
+		<?php endif;?>
 
-		<? if (isset($Params['redirectUrl'])): ?>
+		<?php  if (isset($Params['redirectUrl'])): ?>
 			bxp.uploadSettings.redirectUrl = '<?= CUtil::JSEscape($Params['redirectUrl'])?>';
-		<?endif;?>
+		<?php endif;?>
 
-		<? if (isset($Params['minFileCount'])):?>
+		<?php  if (isset($Params['minFileCount'])):?>
 			bxp.restrictions.minFileCount= '<?= CUtil::JSEscape($Params['minFileCount'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxFileCount'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxFileCount'])):?>
 			bxp.restrictions.maxFileCount= '<?= CUtil::JSEscape($Params['maxFileCount'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxTotalFileSize'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxTotalFileSize'])):?>
 			bxp.restrictions.maxTotalFileSize = '<?= CUtil::JSEscape($Params['maxTotalFileSize'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxFileSize'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxFileSize'])):?>
 			bxp.restrictions.maxFileSize = '<?= CUtil::JSEscape($Params['maxFileSize'])?>';
-		<?endif;?>
-		<? if (isset($Params['minFileSize'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['minFileSize'])):?>
 			bxp.restrictions.minFileSize = '<?= CUtil::JSEscape($Params['minFileSize'])?>';
-		<?endif;?>
-		<? if (isset($Params['minImageWidth'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['minImageWidth'])):?>
 			bxp.restrictions.minImageWidth = '<?= CUtil::JSEscape($Params['minImageWidth'])?>';
-		<?endif;?>
-		<? if (isset($Params['minImageHeight'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['minImageHeight'])):?>
 			bxp.restrictions.minImageHeight = '<?= CUtil::JSEscape($Params['minImageHeight'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxImageWidth'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxImageWidth'])):?>
 			bxp.restrictions.maxImageWidth = '<?= CUtil::JSEscape($Params['maxImageWidth'])?>';
-		<?endif;?>
-		<? if (isset($Params['maxImageHeight'])):?>
+		<?php endif;?>
+		<?php  if (isset($Params['maxImageHeight'])):?>
 			bxp.restrictions.maxImageHeight = '<?= CUtil::JSEscape($Params['maxImageHeight'])?>';
-		<?endif;?>
+		<?php endif;?>
 
-		<?foreach ($Params['converters'] as $converter):?>
-			<?$bSource = (!$converter['width'] || !$converter['height']);?>
+		<?php foreach ($Params['converters'] as $converter):?>
+			<?php $bSource = (!$converter['width'] || !$converter['height']);?>
 			bxp.converters.push({
-				<?if ($bSource):?>
+				<?php if ($bSource):?>
 					mode: '*.*=Thumbnail',
 					thumbnailFitMode: "ActualSize", // Fit | OrientationalFit | Width | Height | ActualSize
 					thumbnailCopyIptc: true,
 					thumbnailCopyExif: true,
 					thumbnailJpegQuality: <?= $Params['thumbnailJpegQuality']?>,
-				<?else:?>
+				<?php else:?>
 					mode: '*.*=Thumbnail',
 					thumbnailFitMode: "Fit", // Fit | OrientationalFit | Width | Height | ActualSize
 					thumbnailCopyIptc: true,
@@ -743,9 +743,9 @@ class CFlashUploader extends CImageUploader
 					thumbnailHeight: <?= intval($converter['height'])?>,
 					thumbnailWidth: <?= intval($converter['width'])?>,
 					thumbnailJpegQuality: <?= $Params['thumbnailJpegQuality']?>
-				<?endif;?>
+				<?php endif;?>
 			});
-		<?endforeach;?>
+		<?php endforeach;?>
 
 		BXFIU_<?= CUtil::JSEscape($id)?>.set(bxp);
 		// Apply localization
@@ -758,7 +758,7 @@ class CFlashUploader extends CImageUploader
 
 		</script>
 		<div id="bxiu_<?= htmlspecialcharsbx($id)?>" class="bx-image-uploader"></div>
-		<?
+		<?php 
 	}
 
 	public static function InitUploaderHandler()

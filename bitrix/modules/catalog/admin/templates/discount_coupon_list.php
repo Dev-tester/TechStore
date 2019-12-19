@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Catalog;
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
@@ -413,7 +413,7 @@ if (!(false == B_ADMIN_SUBCOUPONS_LIST && $bCopy))
 function ShowNewCoupons(id, multi)
 {
 	var PostParams = {
-		lang: '<? echo LANGUAGE_ID; ?>',
+		lang: '<?php  echo LANGUAGE_ID; ?>',
 		DISCOUNT_ID: id,
 		MULTI: multi,
 		ID: 0,
@@ -428,7 +428,7 @@ function ShowNewCoupons(id, multi)
 		'buttons': [BX.CAdminDialog.btnSave, BX.CAdminDialog.btnCancel]
 	})).Show();
 }
-</script><?
+</script><?php 
 
 		$aContext = array();
 		if (!$boolCouponsReadOnly)

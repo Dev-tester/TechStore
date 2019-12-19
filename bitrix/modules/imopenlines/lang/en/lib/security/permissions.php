@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_SECURITY_ENTITY_LINES"] = "Open Channels";
 $MESS["IMOL_SECURITY_ENTITY_CONNECTORS"] = "Connect communication channels";
 $MESS["IMOL_SECURITY_ENTITY_SESSION"] = "Communication statistics";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_GRID_PANEL_ACTION_ADD_SECTION"] = "add link to section";
 $MESS["IBLOCK_GRID_PANEL_ACTION_ADJUST_SECTION"] = "move to section";
 $MESS["IBLOCK_GRID_PANEL_ACTION_CLEAR_COUNTER"] = "reset view counter";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script>
 function onLightEditorShow(content)
 {
@@ -12,13 +12,13 @@ function onLightEditorShow(content)
 
 function showComment(key, subject, error, comment, userName, userEmail)
 {
-	<?
+	<?php 
 	if($arResult["use_captcha"]===true)
 	{
 		?>
 		var im = BX('captcha');
 		BX('captcha_del').appendChild(im);
-		<?
+		<?php 
 	}
 	?>
 
@@ -32,14 +32,14 @@ function showComment(key, subject, error, comment, userName, userEmail)
 	document.form_comment.post.value = '<?=GetMessage("B_B_MS_SEND")?>';
 	document.form_comment.action = document.form_comment.action + "#" + key;
 
-	<?
+	<?php 
 	if($arResult["use_captcha"]===true)
 	{
 		?>
 		var im = BX('captcha');
 		BX('div_captcha').appendChild(im);
 		im.style.display = "block";
-		<?
+		<?php 
 	}
 	?>
 

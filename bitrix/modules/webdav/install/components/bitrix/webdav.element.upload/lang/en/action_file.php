@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ERROR_BAD_SESSID'] = "Your session has expired. Please repeat the operation.";
 $MESS ['WD_ERROR_BAD_POST'] = "No data. It is likely that you are trying to upload too many files whose total size exceeds #SIZE# MB.";
 $MESS ['WD_ERROR_DOUBLE_NAME_SECTION'] = "The folder '#NAME#' already exists.";

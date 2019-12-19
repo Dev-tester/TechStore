@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_EDEV_EVENT_TITLE"] = "Параметры события";
 $MESS["EC_EVENT_TYPE"] = "Вид события";
 $MESS["EC_EVENT_TYPE_NO"] = "не указано";

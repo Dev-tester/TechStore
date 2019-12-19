@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SRE_MODULE_CATALOG"] = "Commercial Catalog";
 $MESS["SRE_NO_PERMS2ADD"] = "You do not have enough permissions for renewal";
 $MESS["SRE_EMPTY_NEXT"] = "The field \"Next renewal date\" is empty";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TOP_LOG_OFF"] = "Закончить сеанс (logout)";
 $MESS["TOP_ADMIN_ENTER"] = "Административный раздел";
 $MESS["pub_top_panel_view_title"] = "Перейти в режим просмотра сайта";

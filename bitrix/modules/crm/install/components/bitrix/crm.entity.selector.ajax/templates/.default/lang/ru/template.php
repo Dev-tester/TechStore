@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REST_CRM_FF_LEAD"] = "Лиды";
 $MESS["REST_CRM_FF_CONTACT"] = "Контакты";
 $MESS["REST_CRM_FF_COMPANY"] = "Компании";

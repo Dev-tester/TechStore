@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOD_DESC_YES"] = "Yes";
 $MESS["SPOD_DESC_NO"] = "No";
 $MESS["SPOD_PATH_TO_LIST"] = "Orders List page";

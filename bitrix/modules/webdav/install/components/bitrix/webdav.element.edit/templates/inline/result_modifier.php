@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arResult["ELEMENT"]["URL"]["~DOWNLOAD"] = $arResult["ELEMENT"]["URL"]["DOWNLOAD"];
 if (!isset($arParams["THUMB_SIZE"]) && isset($_REQUEST["size"]))
 	$arParams["THUMB_SIZE"] = ($_REQUEST["size"] > 0 && $_REQUEST["size"] < 600 ? $_REQUEST["size"] : 600);

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24NET_SEARCH_STRING_TO_SHORT"] = "Передан слишком маленький поисковый запрос";
 $MESS["B24NET_SOCSERV_NOT_INSTALLED"] = "Модуль \"Социальные сервисы\" не установлен";
 $MESS["B24NET_SOCSERV_TRANSPORT_ERROR"] = "Ошибка авторизации на Битрикс24.Network. Необходимо повторно авторизоваться на портале.";

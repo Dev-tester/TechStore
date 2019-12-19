@@ -2400,7 +2400,7 @@ class Block extends \Bitrix\Landing\Internals\BaseTable
 			{
 				try
 				{
-					eval('?>' . $content . '<?');
+					eval('?>' . $content . '<?php ');
 				}
 				catch (\ParseError $e)
 				{
@@ -2469,7 +2469,7 @@ class Block extends \Bitrix\Landing\Internals\BaseTable
 			{
 				try
 				{
-					eval('?>' . $content . '<?');
+					eval('?>' . $content . '<?php ');
 				}
 				catch (\ParseError $e)
 				{

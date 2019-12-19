@@ -20,21 +20,21 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	BX.message(<?=\CUtil::PhpToJSObject($arResult['MESSAGES'])?>);
 </script>
 
-<?
+<?php 
 if($arResult['STATUS'] == 'PROCESS')
 {?>
-	<div id="component_container_<?=$component->getComponentId() ?>" class="disk-file-transform-file-container disk-file-transform-file-loader-video disk-file-transform-file-container-<?=$arResult['COMMAND_ID'];?>"<?
+	<div id="component_container_<?=$component->getComponentId() ?>" class="disk-file-transform-file-container disk-file-transform-file-loader-video disk-file-transform-file-container-<?=$arResult['COMMAND_ID'];?>"<?php 
 		if($arResult['REFRESH_URL'])
 		{
-			?> data-bx-refresh-url="<?=CUtil::JSEscape($arResult['REFRESH_URL']);?>"<?
+			?> data-bx-refresh-url="<?=CUtil::JSEscape($arResult['REFRESH_URL']);?>"<?php 
 		}?>
 	    >
 		<div class="disk-file-transform-file-loader-container">
 			<h3 class="disk-file-transform-file-loader-title"><?=htmlspecialcharsbx($arResult['TITLE']);?></h3>
-			<?if(!empty($arResult['DESC']))
+			<?php if(!empty($arResult['DESC']))
 			{?>
 			<div class="disk-file-transform-file-loader-desc"><?=htmlspecialcharsbx($arResult['DESC']);?></div>
-			<?}?>
+			<?php }?>
 			<div class="disk-file-transform-file-loader-inner">
 				<svg class="disk-file-transform-file-circular" viewBox="25 25 50 50">
 					<circle class="disk-file-transform-file-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle>
@@ -44,16 +44,16 @@ if($arResult['STATUS'] == 'PROCESS')
 			</div>
 		</div>
 	</div>
-<?}
+<?php }
 elseif($arResult['STATUS'] == 'ERROR')
 {?>
 	<div id="component_container_<?=$component->getComponentId() ?>" class="disk-file-transform-file-container disk-file-transform-file-disable disk-file-transform-file-container-<?=$arResult['COMMAND_ID'];?>">
 		<div class="disk-file-transform-file-loader-container">
 			<h3 class="disk-file-transform-file-loader-title"><?=htmlspecialcharsbx($arResult['TITLE']);?></h3>
-			<?if(!empty($arResult['DESC']))
+			<?php if(!empty($arResult['DESC']))
 			{?>
 				<div class="disk-file-transform-file-loader-desc"><?=htmlspecialcharsbx($arResult['DESC']);?></div>
-			<?}?>
+			<?php }?>
 			<div class="disk-file-transform-file-loader-inner">
 				<div class="disk-file-transform-file-loader-button disk-file-transform-file-loader-button-sad"></div>
 				<div class="disk-file-transform-file-loader-link-conteiner">
@@ -62,7 +62,7 @@ elseif($arResult['STATUS'] == 'ERROR')
 			</div>
 		</div>
 	</div>
-<?
+<?php 
 }
 elseif($arResult['STATUS'] == 'NOT_STARTED')
 {
@@ -70,10 +70,10 @@ elseif($arResult['STATUS'] == 'NOT_STARTED')
 	<div id="component_container_<?=$component->getComponentId() ?>" class="disk-file-transform-file-container disk-file-transform-file-disable">
 		<div class="disk-file-transform-file-loader-container">
 			<h3 class="disk-file-transform-file-loader-title"><?=htmlspecialcharsbx($arResult['TITLE']);?></h3>
-			<?if(!empty($arResult['DESC']))
+			<?php if(!empty($arResult['DESC']))
 			{?>
 				<div class="disk-file-transform-file-loader-desc"><?=htmlspecialcharsbx($arResult['DESC']);?></div>
-			<?}?>
+			<?php }?>
 			<div class="disk-file-transform-file-loader-inner">
 				<div class="disk-file-transform-file-loader-button"></div>
 				<div class="disk-file-transform-file-loader-link-conteiner">
@@ -82,7 +82,7 @@ elseif($arResult['STATUS'] == 'NOT_STARTED')
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }?>
 <script>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_BLOG_CATEGORY_TIP'] = "The path to a blog page with a tag filter. Example: blog_filter.php?page=blog&blog=#blog#<b>&category=#category#</b>.";
 $MESS ['PATH_TO_POST_EDIT_TIP'] = "The path to a blog post editing page. Example: <nobr>blog_p_edit.php?page=post_edit&blog=#blog#&post_id=#post_id#.</nobr>";
 $MESS ['PATH_TO_SMILE_TIP'] = "The path to a folder containing smileys.";

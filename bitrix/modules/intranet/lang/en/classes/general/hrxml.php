@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_IAC_VACATION"] = "VACATION";
 $MESS["INTR_IAC_ASSIGNMENT"] = "BUSINESS";
 $MESS["IBLOCK_XML2_FILE_ERROR"] = "Error opening the file.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTION_DELETE"] = "Delete";
 $MESS["INVITE_USERS"] = "Invite users";
 $MESS["INVITE_USERS_ERROR"] = "Error";

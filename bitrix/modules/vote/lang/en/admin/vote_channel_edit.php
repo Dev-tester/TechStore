@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_SORTING"] = "Sort index:";
 $MESS["VOTE_SITE"] = "Sites:";
 $MESS["VOTE_EDIT_RECORD"] = "Poll channel settings # #ID#";

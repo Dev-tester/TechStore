@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_MESSAGE_TESTER_ERROR_WRONG_RECIPIENT"] = "Неверный получатель `%name%`";
 $MESS["SENDER_MESSAGE_TESTER_ERROR_SENT"] = "Не удалось отправить на `%name%`";
 $MESS["SENDER_MESSAGE_TESTER_ERROR_LIMIT_EXCEEDED"] = "Достигнуто ограничение по количеству отправок.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_ACTION_INSTALL_B24"] = "Install Bitrix24 integration module";
 $MESS["LANDING_TPL_ACTION_SETTINGS"] = "Edit settings";
 $MESS["LANDING_TPL_ACTION_SHOW"] = "Show";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPCAS1_FILTER"]="Фильтр по периоду";
 $MESS["SPCAS1_PERIOD"]="Период:";
 $MESS["SPCAS1_SET"]="Установить";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $className = "CXMPPReceiveError";
 $classVersion = 2;
 

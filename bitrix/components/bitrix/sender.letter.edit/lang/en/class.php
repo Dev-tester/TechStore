@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_COMP_LETTER_EDIT_TITLE_TEMPLATES"] = "Select campaign template";
 $MESS["SENDER_COMP_LETTER_EDIT_TITLE_EDIT"] = "Edit campaign template";
 $MESS["SENDER_COMP_LETTER_EDIT_TITLE_ADD"] = "Create ad campaign template";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_MARKETPLACE_TITLE"] = "Маркетплейс";
 $MESS["GD_MARKETPLACE_VIEW"] = "Подробнее";
 $MESS["GD_MARKETPLACE_ADDITIONAL"] = "Дополнительные возможности";

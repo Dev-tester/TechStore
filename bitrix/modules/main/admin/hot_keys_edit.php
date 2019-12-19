@@ -1,4 +1,4 @@
-<?
+<?php 
 // v.091
 
 require_once(dirname(__FILE__)."/../include/prolog_admin_before.php");
@@ -121,19 +121,19 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 <input type="hidden" name="ID" value=<?=$ID?>>
 <input type="hidden" name="IS_CUSTOM" value=<?=$str_IS_CUSTOM?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?if($_REQUEST["addhk"]<>""):?>
+<?php if($_REQUEST["addhk"]<>""):?>
 <input type="hidden" name="addhk" value="<?= htmlspecialcharsbx($_REQUEST["addhk"])?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-<?if($str_ID):?>
+<?php if($str_ID):?>
 	<tr>
 		<td><?= GetMessage("HK_ID");?>:</td>
 		<td><?=intval($str_ID)?></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 	<tr class="adm-detail-required-field">
 		<td><?=GetMessage("HK_NAME")?>:</td>
 		<td><input type="text" name="NAME" size="45" maxlength="255" value="<?=$str_IS_CUSTOM ? $str_NAME : GetMessage($str_NAME);?>" <?=$str_IS_CUSTOM ? '': 'disabled'?> ></td>
@@ -161,7 +161,7 @@ $tabControl->BeginNextTab();
 		<td><input type="text" name="URL" size="45" maxlength="255" value="<?=$str_URL?>" <?=$str_IS_CUSTOM ? '': 'disabled'?>></td>
 	</tr>
 
-<?
+<?php 
 $tabControl->Buttons(array(
 	"disabled"=>$str_IS_CUSTOM ? false : true,
 	"back_url"=>($_REQUEST["addhk"]<>""? $_REQUEST["addhk"]:"hot_keys_list.php?lang=".LANG),
@@ -170,10 +170,10 @@ $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("hkform", $errMess);
 ?>
 
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

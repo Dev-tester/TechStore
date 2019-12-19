@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ST_ERROR_NO_NEW_COUPON"] = "Cannot create a coupon.";
 $MESS["SUP_ST_ERROR_NO_UPDATE_DATA"] = "No data to update.";
 $MESS["SUP_ST_ERROR_NO_UPDATES_ROWS"] = "No data has been updated.";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 $arParams['WEB_FORM_ID'] = intval($arParams['WEB_FORM_ID']);
 $arParams['RESULT_ID'] = intval($arParams['RESULT_ID']);

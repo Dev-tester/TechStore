@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COMPANY_RULES_BY_ENTITY_TITLE"] = "nach Verknüpfung";
 $MESS["SALE_COMPANY_RULES_BY_ENTITY"] = "Verknüpfung";
 $MESS["SALE_COMPANY_RULES_BY_ENTITY_DESC"] = "nach Verknüpfung";

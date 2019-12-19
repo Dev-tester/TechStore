@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arParams */
@@ -28,12 +28,12 @@ if ($arResult['PERMISSION_DENIED'])
 {
 	?><div id="crm-<?=$fieldUID?>-box">
 		<div class="crm-button-open"><?=GetMessage('CRM_SFE_PERMISSION_DENIED')?></div>
-	</div><?
+	</div><?php 
 }
 else
 {
 	?><div id="crm-<?=$fieldUID?>-box">
-		<span id="crm-<?=$fieldUID?>-open"><?
+		<span id="crm-<?=$fieldUID?>-open"><?php 
 
 		$selectorOptions = [
 			'lazyLoad' => 'Y',
@@ -108,7 +108,7 @@ else
 			]
 		);
 		?>
-		</span><?
+		</span><?php 
 
 		if(!empty($arParams['createNewEntity']))
 		{
@@ -156,8 +156,8 @@ else
 
 			</script>
 
-			<div class="crm-button-open"><span onclick="BX['<?=$jsObject?>'].createNewEntity(event);"><?=GetMessage('CRM_CES_CREATE');?></span></div><?
+			<div class="crm-button-open"><span onclick="BX['<?=$jsObject?>'].createNewEntity(event);"><?=GetMessage('CRM_CES_CREATE');?></span></div><?php 
 		}
-	?></div><?
+	?></div><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -98,51 +98,51 @@ CAdminMessage::ShowMessage(array(
 <form method="POST" action="security_stat_activity.php?lang=<?=LANGUAGE_ID?><?=$returnUrl?>"  enctype="multipart/form-data" name="editform">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 <tr>
 	<td colspan="2" align="left">
-		<?if(COption::GetOptionString($module_id, "DEFENCE_ON")==="Y"):?>
-			<input type="submit" name="DEFENCE_OFF" value="<?echo GetMessage("SEC_STATACT_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
-		<?else:?>
-			<input type="submit" name="DEFENCE_ON" value="<?echo GetMessage("SEC_STATACT_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
-		<?endif?>
+		<?php if(COption::GetOptionString($module_id, "DEFENCE_ON")==="Y"):?>
+			<input type="submit" name="DEFENCE_OFF" value="<?php echo GetMessage("SEC_STATACT_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
+		<?php else:?>
+			<input type="submit" name="DEFENCE_ON" value="<?php echo GetMessage("SEC_STATACT_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+		<?php endif?>
 	</td>
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><?echo GetMessage("SEC_STATACT_NOTE")?>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?><?php echo GetMessage("SEC_STATACT_NOTE")?>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-<?if (CModule::IncludeModule("fileman")):?>
+<?php if (CModule::IncludeModule("fileman")):?>
 	<tr>
-		<td><?echo GetMessage("SEC_STATACT_503_TEMPLATE")?>:</td>
-		<td><a href="/bitrix/admin/fileman_file_edit.php?lang=<?=LANGUAGE_ID?>&amp;full_src=Y&amp;path=%2Fbitrix%2Factivity_limit.php"><?echo GetMessage("SEC_STATACT_GRABBER_EDIT_503_TEMPLATE_LINK")?></a></td>
+		<td><?php echo GetMessage("SEC_STATACT_503_TEMPLATE")?>:</td>
+		<td><a href="/bitrix/admin/fileman_file_edit.php?lang=<?=LANGUAGE_ID?>&amp;full_src=Y&amp;path=%2Fbitrix%2Factivity_limit.php"><?php echo GetMessage("SEC_STATACT_GRABBER_EDIT_503_TEMPLATE_LINK")?></a></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 	<tr>
-		<td width="40%"><?echo GetMessage("SEC_STATACT_DEFENCE_DELAY")?>:</td>
-		<td width="60%"><input size="3" type="text" name="DEFENCE_DELAY" id="DEFENCE_DELAY" value="<?=htmlspecialcharsbx($DEFENCE_DELAY)?>">&nbsp;<?echo GetMessage("SEC_STATACT_DEFENCE_DELAY_MEAS")?></td>
-	</tr>
-	<tr>
-		<td><?echo GetMessage("SEC_STATACT_DEFENCE_STACK_TIME")?></td>
-		<td><input size="3" type="text" name="DEFENCE_STACK_TIME" id="DEFENCE_STACK_TIME" value="<?=htmlspecialcharsbx($DEFENCE_STACK_TIME)?>">&nbsp;<?echo GetMessage("SEC_STATACT_DEFENCE_STACK_TIME_MEAS")?></td>
+		<td width="40%"><?php echo GetMessage("SEC_STATACT_DEFENCE_DELAY")?>:</td>
+		<td width="60%"><input size="3" type="text" name="DEFENCE_DELAY" id="DEFENCE_DELAY" value="<?=htmlspecialcharsbx($DEFENCE_DELAY)?>">&nbsp;<?php echo GetMessage("SEC_STATACT_DEFENCE_DELAY_MEAS")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SEC_STATACT_DEFENCE_MAX_HITS")?></td>
-		<td><input size="3" type="text" name="DEFENCE_MAX_STACK_HITS" id="DEFENCE_MAX_STACK_HITS" value="<?=htmlspecialcharsbx($DEFENCE_MAX_STACK_HITS)?>">&nbsp;<?echo GetMessage("SEC_STATACT_DEFENCE_MAX_HITS_MEAS")?></td>
+		<td><?php echo GetMessage("SEC_STATACT_DEFENCE_STACK_TIME")?></td>
+		<td><input size="3" type="text" name="DEFENCE_STACK_TIME" id="DEFENCE_STACK_TIME" value="<?=htmlspecialcharsbx($DEFENCE_STACK_TIME)?>">&nbsp;<?php echo GetMessage("SEC_STATACT_DEFENCE_STACK_TIME_MEAS")?></td>
 	</tr>
 	<tr>
-		<td nowrap><label for="DEFENCE_LOG"><?echo GetMessage("SEC_STATACT_DEFENCE_LOG", array("#HREF#"=>"/bitrix/admin/event_log.php?lang=".LANGUAGE_ID."&set_filter=Y&find_type=audit_type_id&find_audit_type[]=STAT_ACTIVITY_LIMIT"))?></label></td>
-		<td><?echo InputType("checkbox", "DEFENCE_LOG", "Y", $DEFENCE_LOG)?></td>
+		<td><?php echo GetMessage("SEC_STATACT_DEFENCE_MAX_HITS")?></td>
+		<td><input size="3" type="text" name="DEFENCE_MAX_STACK_HITS" id="DEFENCE_MAX_STACK_HITS" value="<?=htmlspecialcharsbx($DEFENCE_MAX_STACK_HITS)?>">&nbsp;<?php echo GetMessage("SEC_STATACT_DEFENCE_MAX_HITS_MEAS")?></td>
 	</tr>
-<?
+	<tr>
+		<td nowrap><label for="DEFENCE_LOG"><?php echo GetMessage("SEC_STATACT_DEFENCE_LOG", array("#HREF#"=>"/bitrix/admin/event_log.php?lang=".LANGUAGE_ID."&set_filter=Y&find_type=audit_type_id&find_audit_type[]=STAT_ACTIVITY_LIMIT"))?></label></td>
+		<td><?php echo InputType("checkbox", "DEFENCE_LOG", "Y", $DEFENCE_LOG)?></td>
+	</tr>
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -150,10 +150,10 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

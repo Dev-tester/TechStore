@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_VIEWER_ACTIONPANEL_MORE"] = "More...";
 $MESS["JS_CORE_VIEWER_DOWNLOAD"] = "Download";
 $MESS["JS_CORE_VIEWER_EDIT"] = "Edit";

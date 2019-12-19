@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TOP_PANEL_AI_MODULE_UPDATE"] = "Обновление решения Маркетплейс";
 $MESS["TOP_PANEL_AI_MODULE_UPDATE_DESC"] = "Обновление решения <b>#NAME#</b> доступно для установки.";
 $MESS["TOP_PANEL_AI_MODULE_END_UPDATE"] = "Заканчивается период обновлений для решения Маркетплейс";

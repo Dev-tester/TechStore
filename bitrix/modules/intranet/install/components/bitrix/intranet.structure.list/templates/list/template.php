@@ -1,9 +1,9 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $GLOBALS['INTRANET_TOOLBAR']->Show();
 ?>
-<?
+<?php 
 if (!is_array($arResult['USERS']) || !($USERS_CNT = count($arResult['USERS']))):
 	if ($arResult['EMPTY_UNFILTERED_LIST'] == 'Y'):
 		ShowNote(GetMessage('INTR_ISL_TPL_NOTE_UNFILTERED'));
@@ -16,14 +16,14 @@ else:
 
 	if ($arParams['SHOW_NAV_TOP'] == 'Y'):
 ?>
-		<div class="bx-users-nav"><?echo $arResult['USERS_NAV'];?></div>
-<?else:?>
+		<div class="bx-users-nav"><?php echo $arResult['USERS_NAV'];?></div>
+<?php else:?>
 <a name="nav_start"></a>
-<?
+<?php 
 	endif;
 ?>
 <div class="bx-users">
-<?
+<?php 
 	foreach ($arResult['USERS'] as $key => $arUser):
 		$arUser['IS_HEAD'] = false;
 		if ($arResult['DEPARTMENT_HEAD'] == $arUser['ID'])
@@ -63,11 +63,11 @@ else:
 	endforeach;
 ?>
 </div>
-<?
+<?php 
 	if ($arParams['SHOW_NAV_BOTTOM'] == 'Y'):
 ?>
-		<div class="bx-users-nav"><?echo $arResult['USERS_NAV'];?></div>
-<?
+		<div class="bx-users-nav"><?php echo $arResult['USERS_NAV'];?></div>
+<?php 
 	endif;
 endif;
 ?>

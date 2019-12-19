@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SPLT_BARCODES"] = "Штрихкоды";
 $MESS["CRM_ORDER_SPLT_ADD_STORE"] = "Добавить склад";
 $MESS["CRM_ORDER_SPLT_DELETE_ITEM_FROM_SHIPMENT"] = "Удалить товар из отгрузки";

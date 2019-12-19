@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_SUBSCRIBE_TITLE"] = "Name";
 $MESS["IDEA_SUBSCRIBE_STATUS"] = "Status";
 $MESS["IDEA_SUBSCRIBE_AUTHOR"] = "Created by";

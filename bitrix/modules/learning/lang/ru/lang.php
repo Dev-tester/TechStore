@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_EDIT_PARAM_SECTION"] = "Параметры";
 $MESS["LEARNING_LAST_UPDATE"] = "Изменена";
 $MESS["LEARNING_ACTIVE"] = "Запись активна";

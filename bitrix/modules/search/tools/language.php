@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSearchLanguage
 {
 	var $_abc = array();

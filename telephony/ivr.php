@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/telephony/ivr.php");
@@ -7,7 +7,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_afte
 $APPLICATION->SetTitle(GetMessage("VI_PAGE_IVR_TITLE_2"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrapper",
+<?php $APPLICATION->IncludeComponent("bitrix:ui.sidepanel.wrapper",
 	"",
 	array(
 		"POPUP_COMPONENT_NAME" => "bitrix:voximplant.ivr.list",
@@ -16,4 +16,4 @@ $APPLICATION->SetTitle(GetMessage("VI_PAGE_IVR_TITLE_2"));
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

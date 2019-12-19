@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Welcome To Extranet Site");
 ?>
@@ -9,7 +9,7 @@ Extranet is a private area for secure cooperation with partners, customers, clie
 </td>
 </tr>
 </table>
-<p><?$APPLICATION->IncludeComponent("bitrix:desktop", ".default", array(
+<p><?php $APPLICATION->IncludeComponent("bitrix:desktop", ".default", array(
 	"ID" => "dashboard_external",
 	"CAN_EDIT" => "Y",
 	"COLUMNS" => "3",
@@ -106,4 +106,4 @@ Extranet is a private area for secure cooperation with partners, customers, clie
 	),
 	false
 );?></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

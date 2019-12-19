@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPADH_RECOVERY_SUCCESS'] = "Запись успешно восстановлена из истории";
 $MESS ['BPADH_F_AUTHOR_ANY'] = "любой";
 $MESS ['BPADH_DELETE_DOC_CONFIRM'] = "Вы уверены, что хотите удалить эту запись?";

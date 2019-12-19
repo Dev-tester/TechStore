@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOB_PRODUCT_NAME"] = "Product name";
 $MESS["SMOB_BUTTON_CHECK"] = "Check";
 $MESS["SMOB_BUTTON_SAVE"] = "Save";

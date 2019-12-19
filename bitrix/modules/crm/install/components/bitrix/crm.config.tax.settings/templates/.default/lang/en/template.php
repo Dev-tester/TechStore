@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAX_SETTINGS_SAVE_BUTTON"] = "Save";
 $MESS["CRM_TAX_SETTINGS_CHOOSE"] = "Select tax type";
 $MESS["CRM_TAX_TAX"] = "Location-dependent tax (sales tax)";

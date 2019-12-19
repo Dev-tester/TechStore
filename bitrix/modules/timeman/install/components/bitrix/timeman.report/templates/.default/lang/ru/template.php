@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TMR_SET_TODAY"] = "Перейти к сегодняшнему дню";
 $MESS["TMR_FILTER_TITLE"] = "Фильтр";
 $MESS["TMR_FILTER_DEPT_0"] = "Выбрать из структуры";

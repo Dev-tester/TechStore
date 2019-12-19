@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 define("NO_KEEP_STATISTIC", true);
 define('PUBLIC_AJAX_MODE', true);

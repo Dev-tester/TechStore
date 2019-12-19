@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SL_SETTINGS_STEP_TITLE'] = 'Настройки';
 $MESS['SL_FORM_SERVER_STEP_TITLE'] = 'Шаг 1 из 3: настройка доступа к Microsoft SharePoint';
 $MESS['SL_FORM_LISTS_STEP_TITLE'] = 'Шаг 2 из 3: выбор списка';

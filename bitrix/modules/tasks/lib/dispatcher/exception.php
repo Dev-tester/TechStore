@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Dispatcher;
 
 class Exception	extends \Bitrix\Tasks\Exception

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_PANEL_TITLE"] = "Performance Panel";
 $MESS["PERFMON_PANEL_PERF_NAME"] = "Configuration";
 $MESS["PERFMON_PANEL_PERF_TITLE1"] = "System performance has not been evaluated";

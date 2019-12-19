@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BP_CX_MODE"] = "Идентификатор режима";
 $MESS["CRM_BP_CX_ENTITY_ID"] = "Идентификатор типа";
 $MESS["CRM_BP_CX_BP_ID"] = "Идентификатор шаблона";

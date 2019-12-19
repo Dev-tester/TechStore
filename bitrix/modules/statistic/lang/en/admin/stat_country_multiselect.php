@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_COUNTRY_MSEL_PAGES'] = "Countries";
 $MESS ['STAT_COUNTRY_MSEL_ID'] = "ID";
 $MESS ['STAT_COUNTRY_MSEL_NAME'] = "Name";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Sale\Internals\CompanyTable;
 use \Bitrix\Main\Application;
 use Bitrix\Sale\Services\Company;
@@ -159,7 +159,7 @@ echo bitrix_sessid_post();
 <input type="hidden" name="update" value="Y">
 <input type="hidden" name="lang" value="<?=$lang;?>">
 <input type="hidden" name="ID" value="<?=$id;?>">
-<?
+<?php 
 $tabControl->EndEpilogContent();
 $tabControl->Begin(array("FORM_ACTION" => $APPLICATION->GetCurPage()."?ID=".$id."&lang=".$lang));
 
@@ -186,7 +186,7 @@ if ($saleModulePermissions >= 'W'):?>
 	<tr>
 		<td style="vertical-align: top"><?=GetMessage("COMPANY_LOCATION_ID");?></td>
 		<td>
-			<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.".\Bitrix\Sale\Location\Admin\LocationHelper::getWidgetAppearance(), "", array(
+			<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.".\Bitrix\Sale\Location\Admin\LocationHelper::getWidgetAppearance(), "", array(
 					"ID" => "",
 					"CODE" => $fields['LOCATION_ID'],
 					"INPUT_NAME" => "LOCATION_ID",
@@ -202,7 +202,7 @@ if ($saleModulePermissions >= 'W'):?>
 			);?>
 		</td>
 	</tr>
-<?
+<?php 
 else:
 	try
 	{
@@ -229,7 +229,7 @@ else:
 		<td><?=GetMessage("COMPANY_LOCATION");?></td>
 		<td><?=htmlspecialcharsbx($path);?></td>
 	</tr>
-<?
+<?php 
 endif;
 $tabControl->EndCustomField('LOCATIONS', '');
 
@@ -264,16 +264,16 @@ while ($groupData = $resGroups->Fetch())
 	<td style="vertical-align: top"><?=GetMessage("COMPANY_GROUPS");?></td>
 	<td>
 		<select name="GROUPS[]" multiple size="5">
-			<?
+			<?php 
 			foreach ($userGroupList as $userGroupData)
 			{
-				?><option value="<?= $userGroupData["ID"] ?>"<?if (in_array($userGroupData["ID"], $currentGroups)) echo " selected";?>><?= htmlspecialcharsEx($userGroupData["NAME"]) ?></option><?
+				?><option value="<?= $userGroupData["ID"] ?>"<?php if (in_array($userGroupData["ID"], $currentGroups)) echo " selected";?>><?= htmlspecialcharsEx($userGroupData["NAME"]) ?></option><?php 
 			}
 			?>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField('USER_GROUPS', '');
 
 $tabControl->BeginCustomField('RESPONSIBLE_USER_GROUPS', GetMessage("COMPANY_RESPONSIBLE_GROUPS"));
@@ -305,16 +305,16 @@ while ($groupData = $resGroups->Fetch())
 	<td style="vertical-align: top"><?=GetMessage("COMPANY_RESPONSIBLE_GROUPS");?></td>
 	<td>
 		<select name="RESPONSIBLE_GROUPS[]" multiple size="5">
-			<?
+			<?php 
 			foreach ($userGroupList as $userGroupData)
 			{
-				?><option value="<?= $userGroupData["ID"] ?>"<?if (in_array($userGroupData["ID"], $currentResponsibleGroups)) echo " selected";?>><?= htmlspecialcharsEx($userGroupData["NAME"]) ?></option><?
+				?><option value="<?= $userGroupData["ID"] ?>"<?php if (in_array($userGroupData["ID"], $currentResponsibleGroups)) echo " selected";?>><?= htmlspecialcharsEx($userGroupData["NAME"]) ?></option><?php 
 			}
 			?>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField('RESPONSIBLE_USER_GROUPS', '');
 $tabControl->AddEditField("SORT", GetMessage("COMPANY_SORT"), false, array('size' => 30), $fields['SORT']);
 $tabControl->AddEditField("CODE", GetMessage("COMPANY_CODE"), false, array('size' => 30), htmlspecialcharsbx($fields['CODE']));
@@ -334,7 +334,7 @@ if ($id > 0):
 	<tr>
 		<td id="sale-company-rules-container"><?=$companyRules?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField('COMPANY_RULES');
 endif;
 
@@ -395,4 +395,4 @@ $tabControl->Show();
 	}
 
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

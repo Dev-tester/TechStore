@@ -1,8 +1,8 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?
+<?php 
 	//TODO Get rid of it
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 		$APPLICATION->RestartBuffer();
@@ -13,9 +13,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 <form action="" name="load_form" method="post" enctype="multipart/form-data">
 <?=bitrix_sessid_post()?>
-<?if(isset($arResult['FREEZE_EVENT_ID']) && $arResult['FREEZE_EVENT_ID'] !== ''):?>
+<?php if(isset($arResult['FREEZE_EVENT_ID']) && $arResult['FREEZE_EVENT_ID'] !== ''):?>
 	<input type="hidden" name="EVENT_ID" value="<?=$arResult['FREEZE_EVENT_ID']?>"/>
-<?endif;?>
+<?php endif;?>
 <input type="hidden" name="FORM_ID" value="<?=$arResult['FORM_ID']?>"/>
 <input type="hidden" name="FORM_TYPE" value="<?=$arResult['FORM_TYPE']?>"/>
 <input type="hidden" name="ENTITY_TYPE" value="<?=$arResult['ENTITY_TYPE']?>"/>
@@ -34,7 +34,7 @@ var str = '';
 		<i><?=htmlspecialcharsbx($arResult['ENTITY_TITLE'])?></i>
 	</td>
 </tr>
-<?if(!(isset($arResult['FREEZE_EVENT_ID']) && $arResult['FREEZE_EVENT_ID'] !== '')):?>
+<?php if(!(isset($arResult['FREEZE_EVENT_ID']) && $arResult['FREEZE_EVENT_ID'] !== '')):?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<?=GetMessage('CRM_EVENT_ADD_ID')?>:
@@ -45,7 +45,7 @@ var str = '';
 		</div>
 	</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td class="bx-field-value bx-padding event-desc" colspan="2">
 		<textarea id="EVENT_DESC" name="EVENT_DESC" rows="7" style="width:100%"  onblur="if (value == '') {value = '<?=GetMessage('CRM_EVENT_DESC_TITLE');?>'; style.color = '#767676'}" onfocus="if (value == '<?=GetMessage('CRM_EVENT_DESC_TITLE')?>') {value = ''; style.color = '#000000'}" onkeyup="eventAddCheckText(this.value)" onkeydown="eventAddCheckText(this.value)"><?=GetMessage('CRM_EVENT_DESC_TITLE')?></textarea>
@@ -58,7 +58,7 @@ var str = '';
 	<td class="bx-field-value bx-padding event_date_text2" style="height: 35px">
 		<div class="event_date" id="crm_event_date" style="display: inline-block;text-decoration: none; border-bottom: 1px dashed #000;outline:none; cursor: pointer; color: #000" onclick="eventShowDateBox()"><?=ToLower(FormatDate("j F Y", time()));?></div>
 		<div class="event_date_box" id="crm_event_date_box" style="display:none">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:main.calendar',
 				'',
 				array(
@@ -80,21 +80,21 @@ var str = '';
 		<div><input type="file" name="ATTACH[]" onchange="eventAddFileInput(this)" /></div>
 	</td>
 </tr>
-<?if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'LEAD'):?>
+<?php if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'LEAD'):?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<?=GetMessage('CRM_EVENT_STATUS_ID')?>:
 	</td>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
-		<?if ($arResult['ENTITY_CONVERTED'] == 'Y'):?>
+		<?php if ($arResult['ENTITY_CONVERTED'] == 'Y'):?>
 			<?=$arResult['STATUS_LIST_EX'][$arResult['STATUS_ID']]?>
-		<?else:?>
+		<?php else:?>
 			<?=SelectBoxFromArray('STATUS_ID', $arResult['STATUS_LIST'], $arResult['STATUS_ID'])?>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 </tr>
-<?endif;?>
-<?if(!empty($arResult['STAGE_LIST']) && $arResult['ENTITY_TYPE'] == 'DEAL'):?>
+<?php endif;?>
+<?php if(!empty($arResult['STAGE_LIST']) && $arResult['ENTITY_TYPE'] == 'DEAL'):?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<?=GetMessage('CRM_EVENT_STAGE_ID')?>:
@@ -103,8 +103,8 @@ var str = '';
 		<?=SelectBoxFromArray('STAGE_ID', $arResult['STAGE_LIST'], $arResult['STAGE_ID'])?>
 	</td>
 </tr>
-<?endif;?>
-<?if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'QUOTE'):?>
+<?php endif;?>
+<?php if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'QUOTE'):?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<?=GetMessage('CRM_EVENT_QUOTE_STATUS_ID')?>:
@@ -113,7 +113,7 @@ var str = '';
 		<?=SelectBoxFromArray('STATUS_ID', $arResult['STATUS_LIST'], $arResult['STATUS_ID'])?>
 	</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 </form>
 <script type="text/javascript">
 	var eventAddFile = false;

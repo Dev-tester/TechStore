@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Update\UserField;
 
 use Bitrix\Main\Loader;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_MODULE_NOT_INSTALLED"] = "The Wiki module is not installed.";
 $MESS["WIKI_SOCNET_INITIALIZING_FAILED"] = "Social network failed to initialize.";
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "The Information Blocks module is not installed..";

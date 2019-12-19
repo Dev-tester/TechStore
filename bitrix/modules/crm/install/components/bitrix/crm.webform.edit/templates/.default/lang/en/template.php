@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_EDIT_ADD_CAPTION"] = "Add title";
 $MESS["CRM_WEBFORM_EDIT_ADD_DESCRIPTION"] = "Add description";
 $MESS["CRM_WEBFORM_EDIT_ADS_LINKED"] = "This form was linked to an ad to receive data from it.";

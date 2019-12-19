@@ -206,7 +206,7 @@ class CXMLCreator {
 
 	function getXMLHeader()
 	{
-		return "<?xml version=\"1.0\" encoding=\"utf-8\"?>";
+		return "<?php xml version=\"1.0\" encoding=\"utf-8\"?>";
 	}
 
 	function __destruct()

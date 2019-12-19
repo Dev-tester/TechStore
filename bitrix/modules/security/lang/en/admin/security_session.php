@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_SESSION_ADMIN_SAVEDB_TAB'] = "Sessions in Database";
 $MESS ['SEC_SESSION_ADMIN_SAVEDB_TAB_TITLE'] = "Configure storing of session data in database";
 $MESS ['SEC_SESSION_ADMIN_TITLE'] = "Session Protection";

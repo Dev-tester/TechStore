@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_SERVER_TIME'] = "Время на сервере:";
 $MESS ['STAT_GUESTS'] = "Посетителей";
 $MESS ['STAT_C_EVENTS'] = "Событий";

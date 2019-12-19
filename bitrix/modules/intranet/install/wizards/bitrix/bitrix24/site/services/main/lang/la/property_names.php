@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['UF_INN'] = 'INN';
 $MESS['UF_PHONE_INNER'] = 'Teléfono interno';
 $MESS['UF_DISTRICT'] = 'Distrito';

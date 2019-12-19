@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["T_IBLOCK_DESC_PAGER_SETTINGS"] = "Настройки постраничной навигации";
 $MESS["T_IBLOCK_DESC_TOP_PAGER"] = "Выводить над списком";
 $MESS["T_IBLOCK_DESC_BOTTOM_PAGER"] = "Выводить под списком";

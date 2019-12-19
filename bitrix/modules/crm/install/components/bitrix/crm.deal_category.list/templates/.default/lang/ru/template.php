@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_CATEGORY_EDIT_TITLE"] = "Редактировать направление";
 $MESS["CRM_DEAL_CATEGORY_EDIT"] = "Редактировать";
 $MESS["CRM_DEAL_CATEGORY_STATUS_EDIT"] = "Редактировать стадии";

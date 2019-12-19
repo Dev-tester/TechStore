@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_ASSERT_INTEGER_EXPECTED"] = "Argument#ARG_NAME#muss eine ganze Zahl sein";
 $MESS["SALE_LOCATION_ASSERT_INTEGER_NOTNULL_EXPECTED"] = "Argument#ARG_NAME#muss eine positive ganze Zahl sein";
 $MESS["SALE_LOCATION_ASSERT_ARRAY_NOT_EMPTY_EXPECTED"] = "Argument#ARG_NAME#muss ein nicht leeres Feld sein";

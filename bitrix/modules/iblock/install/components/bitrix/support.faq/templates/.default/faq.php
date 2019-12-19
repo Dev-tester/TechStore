@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:support.faq.section.list",
 	"",
 	Array(
@@ -35,9 +35,9 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<?if(IsModuleInstalled("search")):?>
+<?php if(IsModuleInstalled("search")):?>
 <br />
-<?$APPLICATION->IncludeComponent("bitrix:search.page",
+<?php $APPLICATION->IncludeComponent("bitrix:search.page",
 	"",
 	Array(
 		"RESTART"	=>	"N",
@@ -65,4 +65,4 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<?endif?>
+<?php endif?>

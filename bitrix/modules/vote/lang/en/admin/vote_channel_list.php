@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_C_SORT"] = "Sort.";
 $MESS["VOTE_F_SITE"] = "Sites:";
 $MESS["VOTE_SITE"] = "Sites";

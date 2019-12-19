@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELETE_ERROR"] = "Beim Löschen des Feldes ist ein Fehler aufgetreten";
 $MESS["SALE_SECTION_TITLE"] = "Bestellformular";
 $MESS["SALE_F_FILTER"] = "Filter";

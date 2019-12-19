@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_LIST_TASK_NOT_INSTALLED"] = "Модуль управления задачами не установлен.";
 $MESS["TASK_LIST_SOCNET_NOT_INSTALLED"] = "Модуль социальной сети не установлен.";
 $MESS["TASK_LIST_NOT_AVAILABLE_IN_THIS_EDITION"] = "Модуль управления задачами не доступен в данной редакции продукта.";

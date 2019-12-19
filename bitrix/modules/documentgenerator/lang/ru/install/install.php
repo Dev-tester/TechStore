@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCUMENTGENERATOR_MODULE_NAME"] = "Генератор документов";
 $MESS["DOCUMENTGENERATOR_MODULE_DESCRIPTION"] = "Модуль для генерации документов";
 $MESS["DOCUMENTGENERATOR_INSTALL_TITLE"] = "Установка модуля \"Генератор документов\"";

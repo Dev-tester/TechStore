@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HLLIST_COMPONENT_BLOCK_ID_PARAM"] = "Highload block ID";
 $MESS["HLLIST_COMPONENT_DETAIL_URL_PARAM"] = "Record view page path";
 $MESS["HLLIST_COMPONENT_ROWS_PER_PAGE_PARAM"] = "Items per page";

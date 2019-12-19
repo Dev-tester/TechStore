@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEWO_ORDER_DELETE"] = "Bestellung löschen";
 $MESS["NEWO_ORDER_DELETE_TITLE"] = "Bestellung löschen";
 $MESS["NEWO_TO_PRINT"] = "Bestellung drucken";

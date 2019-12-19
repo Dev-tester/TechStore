@@ -53,7 +53,7 @@ BX.ready(
 		);
 	}
 );
-</script><?
+</script><?php 
 endif;
 if (is_array($arResult['STEXPORT_PARAMS']))
 {
@@ -72,5 +72,5 @@ if (is_array($arResult['STEXPORT_PARAMS']))
 			);
 		}
 	);
-	</script><?
+	</script><?php 
 }

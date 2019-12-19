@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_ENTITY_NOT_FOUND"] = "The order was not found";
 $MESS["SALE_ORDER_PAYMENT_CANCELLED_PAID"] = "Error canceling payment";
 $MESS["SALE_ORDER_SHIPMENT_ORDER_CANCELED"] = "Cannot ship a canceled order.";

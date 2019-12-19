@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_FIELD_CREATED_BY_ID"] = "Created by";
 $MESS["LANDING_TABLE_FIELD_DATE_CREATE"] = "Created on";
 $MESS["LANDING_TABLE_FIELD_DATE_MODIFY"] = "Modified on";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CATALOG_FIELD_ID"] = "ID";
 $MESS["CRM_CATALOG_FIELD_NAME"] = "Name";
 $MESS["CRM_CATALOG_FIELD_ORIGINATOR_ID"] = "External source";

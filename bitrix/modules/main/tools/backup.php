@@ -1,7 +1,7 @@
 <?php
 if (ini_get('short_open_tag') == 0 && strtoupper(ini_get('short_open_tag')) != 'ON')
 	die("Error: short_open_tag parameter must be turned on in php.ini\n");
-?><?
+?><?php 
 error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED);
 define('START_TIME', microtime(1));
 define('CLI', defined('BX_CRONTAB') && BX_CRONTAB === true || !$_SERVER['DOCUMENT_ROOT']);

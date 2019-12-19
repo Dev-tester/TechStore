@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $APPLICATION->AddHeadString('<link href="'.CUtil::GetAdditionalFileURL(BX_PERSONAL_ROOT.'/js/im/css/common.css').'" type="text/css" rel="stylesheet" />');
@@ -13,7 +13,7 @@ $composite->setUseAppCache();
 <script type="text/javascript">
 	BXIM = new BX.ImMobile();
 </script>
-<?
+<?php 
 $frame = $this->createFrame("im_component_dialog_v7_".$USER->GetId())->begin();
 $frame->setBrowserStorage(true);
 ?>
@@ -22,13 +22,13 @@ $frame->setBrowserStorage(true);
 		BXIM.initParams(<?=$arResult['TEMPLATE']?>);
 	});
 </script>
-<?
+<?php 
 $frame->beginStub();
 ?>
 <script type="text/javascript">
 	BXMobileApp.UI.Page.TopBar.title.setText('');
 	BXMobileApp.UI.Page.TopBar.title.setDetailText('');
 </script>
-<?
+<?php 
 $frame->end();
 ?>

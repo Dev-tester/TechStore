@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_MESSENGER_ATTACH_FILE_DOWNLOAD_TITLE"] = "Скачать: #NAME# (#SIZE#)";
 $MESS["IM_MESSENGER_ATTACH_FILE_SHOW_TITLE"] = "Открыть полную версию: #NAME# (#SIZE#)";
 $MESS["IM_MESSENGER_ATTACH_FILE_SIZE_BYTE"] = "байт";

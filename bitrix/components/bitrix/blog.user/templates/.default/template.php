@@ -1,17 +1,17 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
 <noindex>
-<?
+<?php 
 if(strlen($arResult["FATAL_ERROR"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FATAL_ERROR"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -19,7 +19,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ERROR_MESSAGE"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	
 	if($arResult["bEdit"]=="Y")
@@ -43,12 +43,12 @@ else
 			<th nowrap><?=GetMessage("B_B_USER_SEX")?></th>
 			<td>
 				<select name="PERSONAL_GENDER">
-					<?
+					<?php 
 					foreach($arResult["arSex"] as $k => $v)
 					{
 					?>
-						<option value="<?=$k?>"<?if($k==$arResult["User"]["PERSONAL_GENDER"]) echo " selected";?>><?=$v?></option>
-					<?
+						<option value="<?=$k?>"<?php if($k==$arResult["User"]["PERSONAL_GENDER"]) echo " selected";?>><?=$v?></option>
+					<?php 
 					}
 					?>
 				</select>
@@ -57,7 +57,7 @@ else
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_BIRTHDAY")?></th>
 			<td>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:main.calendar',
 				'',
@@ -77,9 +77,9 @@ else
 			<td>
 				<input name="PERSONAL_PHOTO" size="30" type="file"><br />
 				<label><input name="PERSONAL_PHOTO_del" value="Y" type="checkbox"><?=GetMessage("BU_DELETE_FILE");?></label>
-				<?if ($arResult["User"]["PERSONAL_PHOTO_ARRAY"]!==false):?>
+				<?php if ($arResult["User"]["PERSONAL_PHOTO_ARRAY"]!==false):?>
 					<br /><?=$arResult["User"]["PERSONAL_PHOTO_IMG"]?>
-				<?endif?>
+				<?php endif?>
 			</td>
 		</tr>
 		<tr>
@@ -87,37 +87,37 @@ else
 			<td>
 				<input name="AVATAR" size="30" type="file"><br />
 				<label><input name="AVATAR_del" value="Y" type="checkbox"><?=GetMessage("BU_DELETE_FILE");?></label>
-				<?if ($arResult["User"]["AVATAR_ARRAY"]!==false):?>
+				<?php if ($arResult["User"]["AVATAR_ARRAY"]!==false):?>
 					<br /><?=$arResult["User"]["AVATAR_IMG"]?>
-				<?endif?>
+				<?php endif?>
 			</td>
 		</tr>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_INTERESTS")?></th>
 			<td><textarea name="INTERESTS" style="width:98%" rows="5"><?=$arResult["User"]["INTERESTS"]?></textarea></td>
 		</tr>
-		<?// ********************* User properties ***************************************************?>
-		<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
-			<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
+		<?php // ********************* User properties ***************************************************?>
+		<?php if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+			<?php foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
 			<tr><th>
-				<?if ($arUserField["MANDATORY"]=="Y"):?>
+				<?php if ($arUserField["MANDATORY"]=="Y"):?>
 					<span class="required">*</span>
-				<?endif;?>
+				<?php endif;?>
 				<?=$arUserField["EDIT_FORM_LABEL"]?>:</th><td>
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:system.field.edit", 
 						$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
 						array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y"));?></td></tr>
-			<?endforeach;?>
-		<?endif;?>
+			<?php endforeach;?>
+		<?php endif;?>
 		
-		<?// ******************** /User properties ***************************************************?>
+		<?php // ******************** /User properties ***************************************************?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_LAST_AUTH")?></th>
 			<td><?=$arResult["User"]["LAST_VISIT_FORMATED"]?>&nbsp;</td>
 		</tr>
 		</table>
-		<?
+		<?php 
 		if ($arParams['USER_CONSENT'] == 'Y')
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.userconsent.request",
@@ -145,7 +145,7 @@ else
 			<input type="reset" name="cancel" value="<?=GetMessage("B_B_USER_CANCEL")?>" OnClick="window.location='<?=$arResult["urlToCancel"]?>'">
 		</div>
 		</form>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -153,7 +153,7 @@ else
 		{
 			?>
 			<?=GetMessage("B_B_USER_TEXT2")?> <a href="<?=$arResult["urlToEdit"]?>"><?=GetMessage("B_B_USER_TEXT3")?></a>.<br /><br />
-			<?
+			<?php 
 		}
 		?>
 		<table class="blog-table-header-left">
@@ -163,69 +163,69 @@ else
 			<small><?=$arResult["User"]["DESCRIPTION"]?></small>
 			</td>
 		</tr>
-		<?if(strlen($arResult["Blog"]["urlToBlog"])>0):?>
+		<?php if(strlen($arResult["Blog"]["urlToBlog"])>0):?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_BLOG")?></th>
 			<td><a href="<?=$arResult["Blog"]["urlToBlog"]?>"><?=$arResult["Blog"]["NAME"]?></a><br />
 				<small><?=$arResult["Blog"]["DESCRIPTION"]?></small>
 			</td>
 		</tr>
-		<?endif;?>
-		<?if(strlen($arResult["User"]["PERSONAL_WWW"])>0):?>
+		<?php endif;?>
+		<?php if(strlen($arResult["User"]["PERSONAL_WWW"])>0):?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_SITE")?></th>
 			<td><a target="blank" href="<?=$arResult["User"]["PERSONAL_WWW"]?>" rel="nofollow"><?=$arResult["User"]["PERSONAL_WWW"]?></a></td>
 		</tr>
-		<?endif;?>
-		<?if(strlen($arResult["User"]["PERSONAL_GENDER"])>0):?>
+		<?php endif;?>
+		<?php if(strlen($arResult["User"]["PERSONAL_GENDER"])>0):?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_SEX")?></th>
 			<td><?=$arResult["arSex"][$arResult["User"]["PERSONAL_GENDER"]]?>&nbsp;</td>
 		</tr>
-		<?endif;?>
-		<?if(strlen($arResult["User"]["PERSONAL_BIRTHDAY"])>0):?>
+		<?php endif;?>
+		<?php if(strlen($arResult["User"]["PERSONAL_BIRTHDAY"])>0):?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_BIRTHDAY")?></th>
 			<td><?=$arResult["User"]["PERSONAL_BIRTHDAY"]?>&nbsp;</td>
 		</tr>
-		<?endif;?>
-		<?if(IntVal($arResult["User"]["PERSONAL_PHOTO"])>0):?>
+		<?php endif;?>
+		<?php if(IntVal($arResult["User"]["PERSONAL_PHOTO"])>0):?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_PHOTO")?></th>
 			<td><?=$arResult["User"]["PERSONAL_PHOTO_IMG"]?>&nbsp;</td>
 		</tr>
-		<?endif;?>
-		<?if(IntVal($arResult["User"]["AVATAR"])>0):?>
+		<?php endif;?>
+		<?php if(IntVal($arResult["User"]["AVATAR"])>0):?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_AVATAR")?></th>
 			<td><?=$arResult["User"]["AVATAR_IMG"]?>&nbsp;</td>
 		</tr>
-		<?endif;?>
-		<?if(count($arResult["User"]["Hobby"])>0):?>
+		<?php endif;?>
+		<?php if(count($arResult["User"]["Hobby"])>0):?>
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_INTERESTS")?></th>
-			<td ><?
+			<td ><?php 
 				foreach($arResult["User"]["Hobby"] as $k => $v)
 				{
 					if($k!=0)
 						echo ", ";
-					?><a href="<?=$v["link"]?>" rel="nofollow"><?=$v["name"]?></a><?
+					?><a href="<?=$v["link"]?>" rel="nofollow"><?=$v["name"]?></a><?php 
 				}
 				?>
 			</td>
 		</tr>
-		<?endif;?>
-		<?// ********************* User properties ***************************************************?>
-		<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
-			<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
+		<?php endif;?>
+		<?php // ********************* User properties ***************************************************?>
+		<?php if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+			<?php foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
 			<th nowrap><?=$arUserField["EDIT_FORM_LABEL"]?>:</th><td>
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:system.field.view", 
 						$arUserField["USER_TYPE"]["USER_TYPE_ID"], 
 						array("arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y"));?></td></tr>			
-			<?endforeach;?>
-		<?endif;?>
-		<?// ******************** /User properties ***************************************************?>		
+			<?php endforeach;?>
+		<?php endif;?>
+		<?php // ******************** /User properties ***************************************************?>		
 		<tr>
 			<th nowrap><?=GetMessage("B_B_USER_LAST_AUTH")?></th>
 			<td nowrap><?=$arResult["BlogUser"]["LAST_VISIT_FORMATED"]?>&nbsp;</td>
@@ -233,21 +233,21 @@ else
 		<tr>
 			<th nowrap><?=GetMessage("B_B_FR_FR_OF")?></th>
 			<td >
-			<?
+			<?php 
 			if(count($arResult["User"]["friendsOf"])>0)
 			{
 				foreach($arResult["User"]["friendsOf"] as $k => $v)
 				{
 					if($k!=0)
 						echo ", ";
-					?><a href="<?=$v["link"]?>"><?=$v["name"]?></a><?
+					?><a href="<?=$v["link"]?>"><?=$v["name"]?></a><?php 
 				}
 			}
 			else
 			{	
 				?>
 				<i><?=GetMessage("B_B_FR_NO")?></i>
-				<?
+				<?php 
 			}
 			?>
 		</td>
@@ -255,27 +255,27 @@ else
 		<tr>
 			<th nowrap><?=GetMessage("B_B_FR_FR")?></th>
 			<td >
-			<?
+			<?php 
 			if(count($arResult["User"]["friends"])>0)
 			{
 				foreach($arResult["User"]["friends"] as $k => $v)
 				{
 					if($k!=0)
 						echo ", ";
-					?><a href="<?=$v["link"]?>"><?=$v["name"]?></a><?
+					?><a href="<?=$v["link"]?>"><?=$v["name"]?></a><?php 
 				}
 			}
 			else
 			{	
 				?>
 				<i><?=GetMessage("B_B_FR_NO")?></i>
-				<?
+				<?php 
 			}
 			?>
 		</td>
 		</tr>
 		</table>
-		<?
+		<?php 
 	}
 }
 ?>

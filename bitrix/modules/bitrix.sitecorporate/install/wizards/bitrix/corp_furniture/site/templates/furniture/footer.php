@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 IncludeTemplateLangFile(__FILE__);
 ?>
 			</div>
@@ -9,7 +9,7 @@ IncludeTemplateLangFile(__FILE__);
 	<div id="footer">
 	
 		<div id="copyright">
-<?
+<?php 
 $APPLICATION->IncludeFile(
 	SITE_DIR."include/copyright.php",
 	Array(),
@@ -18,7 +18,7 @@ $APPLICATION->IncludeFile(
 ?>
 		</div>
 		<div class="footer-links">	
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:menu", "bottom", array(
 	"ROOT_MENU_TYPE" => "bottom",
 	"MENU_CACHE_TYPE" => "N",

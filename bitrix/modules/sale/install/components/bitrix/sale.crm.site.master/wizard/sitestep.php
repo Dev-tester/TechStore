@@ -130,7 +130,7 @@ class SiteStep extends \CWizardStep
 			<div class="adm-crm-site-master-form-row">
 				<span class="adm-crm-site-master-checkbox">
 					<label class="adm-crm-site-master-checkbox-label">
-						<?$wizardRewrite = (isset($this->formFieldList["WIZARD_REWRITE"])
+						<?php $wizardRewrite = (isset($this->formFieldList["WIZARD_REWRITE"])
 							? htmlspecialcharsbx($this->formFieldList["WIZARD_REWRITE"]) : '');?>
 						<input
 							type="checkbox"
@@ -144,7 +144,7 @@ class SiteStep extends \CWizardStep
 				</span>
 			</div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -169,7 +169,7 @@ class SiteStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->prevButtonID?>">
 				<?=$this->GetPrevCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		if ($this->GetNextStepID() !== null)
 		{
@@ -178,7 +178,7 @@ class SiteStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();
@@ -655,7 +655,7 @@ class SiteStep extends \CWizardStep
 			</label>
 			<div class="adm-crm-site-master-form-control">
 				<div class="ui-ctl ui-ctl-textbox ui-ctl-w75">
-					<?
+					<?php 
 					$lid = (isset($this->formFieldList["LID"]) ? htmlspecialcharsbx($this->formFieldList["LID"]) : '');
 					if (!$lid)
 					{
@@ -680,7 +680,7 @@ class SiteStep extends \CWizardStep
 			</label>
 			<div class="adm-crm-site-master-form-control">
 				<div class="ui-ctl ui-ctl-textbox ui-ctl-w75">
-					<?$name = (isset($this->formFieldList["NAME"]) ? htmlspecialcharsbx($this->formFieldList["NAME"]) : '');?>
+					<?php $name = (isset($this->formFieldList["NAME"]) ? htmlspecialcharsbx($this->formFieldList["NAME"]) : '');?>
 					<input type="text" name="NAME" id="NAME" class="ui-ctl-element" value="<?=($name)?>">
 				</div>
 			</div>
@@ -692,7 +692,7 @@ class SiteStep extends \CWizardStep
 			</label>
 			<div class="adm-crm-site-master-form-control">
 				<div class="ui-ctl ui-ctl-textbox ui-ctl-w75">
-					<?$serverName = (isset($this->formFieldList["SERVER_NAME"]) ? htmlspecialcharsbx($this->formFieldList["SERVER_NAME"]) : '');?>
+					<?php $serverName = (isset($this->formFieldList["SERVER_NAME"]) ? htmlspecialcharsbx($this->formFieldList["SERVER_NAME"]) : '');?>
 					<input type="text" name="SERVER_NAME" id="SERVER_NAME" class="ui-ctl-element" value="<?=($serverName)?>">
 				</div>
 			</div>
@@ -704,7 +704,7 @@ class SiteStep extends \CWizardStep
 			</label>
 			<div class="adm-crm-site-master-form-control">
 				<div class="ui-ctl ui-ctl-textbox ui-ctl-w75">
-					<?$docRoot = (isset($this->formFieldList["DOC_ROOT"]) ? htmlspecialcharsbx($this->formFieldList["DOC_ROOT"]) : '');?>
+					<?php $docRoot = (isset($this->formFieldList["DOC_ROOT"]) ? htmlspecialcharsbx($this->formFieldList["DOC_ROOT"]) : '');?>
 					<input type="text" name="DOC_ROOT" id="DOC_ROOT" class="ui-ctl-element" value="<?=($docRoot)?>">
 				</div>
 			</div>
@@ -717,7 +717,7 @@ class SiteStep extends \CWizardStep
 				<?=Loc::getMessage("SALE_CSM_WIZARD_SITESTEP_MAIN_DOC_ROOT_SET")?>
 			</a>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -873,7 +873,7 @@ class SiteStep extends \CWizardStep
 
 		<div class="adm-crm-site-master-buttons">
 			<div class="ui-btn-container ui-btn-container-center">
-				<?
+				<?php 
 				if ($this->GetPrevStepID() !== null)
 				{
 					?>
@@ -881,12 +881,12 @@ class SiteStep extends \CWizardStep
 					<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->prevButtonID?>">
 						<?=$this->GetPrevCaption()?>
 					</button>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 

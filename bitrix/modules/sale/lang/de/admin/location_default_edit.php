@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_ACCES_DENIED"] = "Zugriff verweigert";
 $MESS["SALE_LOCATION_E_ITEM_EDIT"] = "Ausgewählte Standorte: #ITEM_NAME#";
 $MESS["SALE_LOCATION_E_CANNOT_UPDATE_ITEM"] = "Fehler bei Aktualisierung der Gruppe";

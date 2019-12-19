@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIL_MSG_VIEW_TITLE'] = "Просмотр сообщения";
 $MESS ['MAIL_MSG_MESSAGE'] = "Сообщение";
 $MESS ['MAIL_MSG_VIEW_BACK_LINK'] = "Список писем";

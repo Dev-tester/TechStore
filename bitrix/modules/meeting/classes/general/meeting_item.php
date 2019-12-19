@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllMeetingItem
 {
 	public static function Add($arFields, $bSkipInstanceAdd = false)

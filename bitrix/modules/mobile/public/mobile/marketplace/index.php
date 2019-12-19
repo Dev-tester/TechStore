@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Page\Asset;
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
@@ -6,7 +6,7 @@ Asset::getInstance()->addString(Bitrix\MobileApp\Mobile::getInstance()->getViewP
 ?>
 
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:app.layout",
 	".default",
 	array(
@@ -18,4 +18,4 @@ Asset::getInstance()->addString(Bitrix\MobileApp\Mobile::getInstance()->getViewP
 	false
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

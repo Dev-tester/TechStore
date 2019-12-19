@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COMPANY_RULES_BY_ENTITY_TITLE"] = "by binding type";
 $MESS["SALE_COMPANY_RULES_BY_ENTITY"] = "Binding type";
 $MESS["SALE_COMPANY_RULES_BY_ENTITY_DESC"] = "by binding type";

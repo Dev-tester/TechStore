@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Timeman\Model\Schedule\ScheduleTable;
 
 define('BX_SECURITY_SHOW_MESSAGE', 1);
@@ -100,7 +100,7 @@ if (check_bitrix_sessid() && $USER->IsAuthorized())
 				?>
 				<script type="text/javascript">BX.onCustomEvent('onTMClockRegister', [{<?=CUtil::JSEscape($_REQUEST['clock_id'])?>:
 					'<?=$clock_input_id_1?>'
-					}])</script><?
+					}])</script><?php 
 			}
 			else
 			{
@@ -115,7 +115,7 @@ if (check_bitrix_sessid() && $USER->IsAuthorized())
 				<script type="text/javascript">BX.onCustomEvent('onTMClockRegister', [{<?=CUtil::JSEscape($_REQUEST['clock_id'])?>:
 					'<?=$clock_input_id_1?>',<?=CUtil::JSEscape($_REQUEST['clock_id_1'])?>:
 					'<?=$clock_input_id_2?>'
-					}])</script><?
+					}])</script><?php 
 			}
 		}
 		elseif ($action == 'tasks')
@@ -269,9 +269,9 @@ if (check_bitrix_sessid() && $USER->IsAuthorized())
 				Header('Content-Type: text/html; charset=' . LANG_CHARSET);
 				?>
 				<script type="text/javascript">
-					window.parent.window.<?echo $_POST["form_id"]?>.RefreshUpload(<?php echo CUtil::PhpToJsObject($arResult);?>, <?php echo intval($_POST["uniqueID"])?>);
+					window.parent.window.<?php echo $_POST["form_id"]?>.RefreshUpload(<?php echo CUtil::PhpToJsObject($arResult);?>, <?php echo intval($_POST["uniqueID"])?>);
 				</script>
-				<?
+				<?php 
 			}
 			elseif ($_POST["mode"] == "delete")
 			{

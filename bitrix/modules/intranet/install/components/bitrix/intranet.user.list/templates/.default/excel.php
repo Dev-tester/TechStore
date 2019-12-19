@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -27,34 +27,34 @@ foreach ($arResult['HEADERS'] as $header)
 ?><meta http-equiv="Content-type" content="text/html;charset=<?=LANG_CHARSET?>" />
 <table border="1">
 	<thead>
-	<tr><?
+	<tr><?php 
 		foreach($headersList as $header)
 		{
-			?><th><?=$header['name']?></th><?
+			?><th><?=$header['name']?></th><?php 
 		}
 	?></tr>
 	</thead>
-	<tbody><?
+	<tbody><?php 
 
 	foreach($arResult['ROWS'] as $row)
 	{
 		$itemData = (isset($row['data']) && is_array($row['data']) ? $row['data'] : []);
 
-		?><tr><?
+		?><tr><?php 
 		foreach($headersList as $header)
 		{
 
 			if (isset($itemData[$header['id']]))
 			{
-				?><td><?=$itemData[$header['id']]?></td><?
+				?><td><?=$itemData[$header['id']]?></td><?php 
 			}
 			else
 			{
-				?><td>&nbsp;</td><?
+				?><td>&nbsp;</td><?php 
 			}
 		}
-		?></tr><?
+		?></tr><?php 
 	}
 	?></tbody>
-</table><?
+</table><?php 
 

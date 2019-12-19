@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CMedialib
 {
@@ -180,15 +180,15 @@ class CMedialib
 			if (!window.BX && top.BX)
 				window.BX = top.BX;
 
-			<?CMedialib::AppendLangMessages();?>
+			<?php CMedialib::AppendLangMessages();?>
 			window.<?= $arConfig['event']?> = function(bLoadJS)
 			{
 				if (window.oBXMedialib && window.oBXMedialib.bOpened)
 					return false;
 
-				<?if(!CMedialib::CanDoOperation('medialib_view_collection', 0)):?>
+				<?php if(!CMedialib::CanDoOperation('medialib_view_collection', 0)):?>
 					return alert(ML_MESS.AccessDenied);
-				<?else:?>
+				<?php else:?>
 
 				if (!window.BXMediaLib)
 				{
@@ -212,8 +212,8 @@ class CMedialib
 					return setTimeout(function(){<?=$arConfig['event']?>(false)}, 50);
 				}
 
-				<?CMedialib::ShowJS()?>
-				<?
+				<?php CMedialib::ShowJS()?>
+				<?php 
 					$arSet = explode(',' , CUserOptions::GetOption("fileman", "medialib_user_set", '600,450,0'));
 					$width = $arSet[0] ? intVal($arSet[0]) : 600;
 					$height = $arSet[1] ? intVal($arSet[1]) : 450;
@@ -248,10 +248,10 @@ class CMedialib
 
 				window.oBXMedialib = new BXMediaLib(oConfig);
 				oBXMedialib.Open();
-				<?endif;?>
+				<?php endif;?>
 			};
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -266,7 +266,7 @@ class CMedialib
 			define("BX_B_MEDIALIB_SCRIPT_LOADED", true);
 ?>
 BX.loadScript("/bitrix/js/main/file_dialog.js?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/main/file_dialog.js')?>");
-<?
+<?php 
 		}
 	}
 
@@ -322,7 +322,7 @@ if (typeof ML_MESS === "undefined")
 		CheckExtTypeConf : '<?= GetMessageJS('ML_CHECK_TYPE_EXT_CONF')?>'
 	};
 }
-<?
+<?php 
 	}
 
 	public static function AppendLangMessagesEx()
@@ -345,7 +345,7 @@ ML_MESS.ChangeTypeTitle = '<?= GetMessageJS('ML_CHANGE_TYPE_TITLE')?>';
 ML_MESS.ChangeTypeError = '<?= GetMessageJS('ML_CHANGE_TYPE_ERROR')?>';
 ML_MESS.ChangeTypeChildConf = '<?= GetMessageJS('ML_CHANGE_TYPE_CHILD_CONF')?>';
 ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
-<?
+<?php 
 	}
 
 	public static function Start($Params)
@@ -354,7 +354,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		CMedialib::BuildDialog($Params);
 
 		// TODO: Check access
-		?>#ML_SUBDIALOGS_BEGIN#<?
+		?>#ML_SUBDIALOGS_BEGIN#<?php 
 		CMedialib::BuildAddCollectionDialog($Params);
 		CMedialib::BuildAddItemDialog($Params);
 		CMedialib::BuildConfirmDialog($Params);
@@ -362,8 +362,8 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		$exParams = array('types' => $Params['types']);
 		?>#ML_SUBDIALOGS_END#
 
-		<script><?CMedialib::GetCollections($exParams);?></script>
-		<?
+		<script><?php CMedialib::GetCollections($exParams);?></script>
+		<?php 
 	}
 
 	public static function BuildDialog($Params)
@@ -418,11 +418,11 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		<div class="ml-buttons-cont" id="ml_but_cont">
 			<table><tr>
 				<td class="ml-left">
-				<?if (!$Params['bReadOnly']):?>
+				<?php if (!$Params['bReadOnly']):?>
 				<a id="ml_add_collection" href="javascript:void(0)" title="<?=GetMessage('ML_ADD_COLLECTION_TITLE')?>" class="ml-add-el-link"><img src="/bitrix/images/1.gif" /><?=GetMessage('ML_ADD_COLLECTION')?></a>
 
 				<a id="ml_add_item" href="javascript:void(0)" title="<?=GetMessage('ML_ADD_ELEMENT_TITLE')?>" class="ml-add-el-link"><img src="/bitrix/images/1.gif" /><?=GetMessage('ML_ADD_ELEMENT')?></a>
-				<?endif;?>
+				<?php endif;?>
 				</td><td class="ml-right">
 				<input id="medialib_but_save" type="button" value="<?=GetMessage('ML_SELECT')?>" />
 				<input id="medialib_but_cancel" type="button" value="<?=GetMessage('ML_CANCEL')?>" />
@@ -433,7 +433,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</form>
 		<div id="bxml_resizer" class="ml-resizer"></div>
 		#ML_MAIN_DIALOG_END#
-		<?
+		<?php 
 	}
 
 	public static function BuildAddCollectionDialogAdmin($Params)
@@ -448,7 +448,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 			<td><select id="mlsd_coll_parent" style="width: 190px;"><option value="0"><?= GetMessage('ML_UPPER_LEVEL')?></option></select></td></tr>
 			</table>
 		</div>
-		<?
+		<?php 
 	}
 
 	public static function BuildAddCollectionDialog($Params)
@@ -473,7 +473,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</td></tr>
 		</table>
 		</div>
-		<?
+		<?php 
 	}
 
 	public static function BuildAddItemDialogAdmin($Params)
@@ -523,7 +523,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</td></tr>
 	</table>
 
-	<? /* <input type="hidden" name="MAX_FILE_SIZE" value="1000000000">*/?>
+	<?php  /* <input type="hidden" name="MAX_FILE_SIZE" value="1000000000">*/?>
 	<input id="mlsd_item_collections" type="hidden" name="item_collections" value="">
 	<input id="mlsd_item_id" type="hidden" name="id" value="">
 	<input id="mlsd_source_type" type="hidden" name="source_type" value="PC">
@@ -531,7 +531,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</td></tr>
 		</table>
 		</div>
-		<?
+		<?php 
 		CAdminFileDialog::ShowScript(Array
 			(
 				"event" => "mlOpenFileDialog",
@@ -564,7 +564,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</td></tr>
 		</table>
 		</div>
-		<?
+		<?php 
 		CAdminFileDialog::ShowScript(Array
 			(
 				"event" => "mlOpenFileDialog",
@@ -650,14 +650,14 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</td></tr>
 	</table>
 
-	<? /* <input type="hidden" name="MAX_FILE_SIZE" value="1000000000">*/?>
+	<?php  /* <input type="hidden" name="MAX_FILE_SIZE" value="1000000000">*/?>
 	<input id="mlsd_item_collections" type="hidden" name="item_collections" value="">
 	<input id="mlsd_item_id" type="hidden" name="id" value="">
 	<input id="mlsd_source_type" type="hidden" name="source_type" value="PC">
 </form>
 </BODY>
 </HTML>
-<?
+<?php 
 	}
 
 	public static function BuildConfirmDialog($Params)
@@ -669,7 +669,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 			<input id="ml_confd_b2" type="button" value="b2" />
 			<input id="ml_confd_cancel" type="button" value="<?=GetMessage('ML_CANCEL')?>" />
 		</div>
-		<?
+		<?php 
 	}
 
 	public static function BuildViewItemDialog($Params)
@@ -702,7 +702,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 					</td></tr>
 				</table>
 			</div>
-			<div id="mlsd_item_cont" class="mlvi-img-cnt"><?/*<img id="mlsd_viewit_img" src="/bitrix/images/1.gif" />*/?></div>
+			<div id="mlsd_item_cont" class="mlvi-img-cnt"><?php /*<img id="mlsd_viewit_img" src="/bitrix/images/1.gif" />*/?></div>
 		</td></tr>
 		<tr><td class="ml-buttons-cell">
 			<input id="mlsd_viewit_del" type="button" value="<?=GetMessage('ML_DELETE')?>">
@@ -711,7 +711,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</td></tr>
 		</table>
 		</div>
-		<?
+		<?php 
 	}
 
 	public static function BuildChangeType($Params)
@@ -739,7 +739,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		</td></tr>
 		</table>
 		</div>
-		<?
+		<?php 
 	}
 
 	public static function ShowJS()
@@ -760,7 +760,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 			window.jsAjaxUtil = top.jsAjaxUtil;
 		if (!window.jsAjaxUtil)
 			BX.loadScript('/bitrix/js/main/ajax.js?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/main/ajax.js')?>');
-		<?
+		<?php 
 	}
 
 	public static function GetCollections(&$exParams)
@@ -768,7 +768,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		$bCountPermissions = isset($exParams['bCountPermissions']) && $exParams['bCountPermissions'] === true;
 		$exParams['arCountPerm'] = array('new_col' => 0, 'edit' => 0, 'del' => 0, 'new_item' => 0, 'edit_item' => 0, 'del_item' => 0, 'access' => 0);
 
-		?>window.MLCollections = [<?
+		?>window.MLCollections = [<?php 
 		$arCol = CMedialibCollection::GetList(array('arFilter' =>
 			array(
 				'ACTIVE' => 'Y',
@@ -813,12 +813,12 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 	access: {<?= $accStr?>},
 	type: '<?= $arCol[$i]['ML_TYPE']?>'
 }
-			<?
+			<?php 
 			if ($i != $l - 1)
 				echo ',';
 			$arResCol[] = $arCol[$i];
 		}
-		?>];<?
+		?>];<?php 
 		return $arResCol;
 	}
 
@@ -897,24 +897,24 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 				name: '<?= CMedialib::Escape($res['NAME'])?>',
 				desc: '<?= CMedialib::Escape($res['DESCRIPTION'])?>',
 				keywords: '<?= CMedialib::Escape($res['KEYWORDS'])?>',
-				<?if (isset($res['FILE_NAME'])):?>file_name: '<?= CMedialib::Escape($res['FILE_NAME'])?>',<?endif;?>
-				<?if (isset($res['DATE_UPDATE'])):?>date_mod: '<?= CMedialib::GetUsableDate($res['DATE_UPDATE'])?>',<?endif;?>
-				<?if (isset($res['FILE_SIZE'])):?>file_size: '<?= CMedialib::GetUsableSize($res['FILE_SIZE'])?>',<?endif;?>
-				<?if (isset($res['THUMB_PATH'])):?>thumb_path: '<?= CMedialib::Escape($res['THUMB_PATH'])?>',<?endif;?>
-				<?if (isset($res['PATH'])):?>path: '<?= CMedialib::Escape($res['PATH'])?>',<?endif;?>
-				<?if (isset($res['TYPE'])):?>type: '<?= $res['TYPE']?>',<?endif;?>
+				<?php if (isset($res['FILE_NAME'])):?>file_name: '<?= CMedialib::Escape($res['FILE_NAME'])?>',<?php endif;?>
+				<?php if (isset($res['DATE_UPDATE'])):?>date_mod: '<?= CMedialib::GetUsableDate($res['DATE_UPDATE'])?>',<?php endif;?>
+				<?php if (isset($res['FILE_SIZE'])):?>file_size: '<?= CMedialib::GetUsableSize($res['FILE_SIZE'])?>',<?php endif;?>
+				<?php if (isset($res['THUMB_PATH'])):?>thumb_path: '<?= CMedialib::Escape($res['THUMB_PATH'])?>',<?php endif;?>
+				<?php if (isset($res['PATH'])):?>path: '<?= CMedialib::Escape($res['PATH'])?>',<?php endif;?>
+				<?php if (isset($res['TYPE'])):?>type: '<?= $res['TYPE']?>',<?php endif;?>
 				height: <?= ($res['HEIGHT'] ? $res['HEIGHT'] : '0')?>,
 				width: <?= ($res['WIDTH'] ? $res['WIDTH'] : '0')?>
 			};
 
-			top._ml_items_colls = [<?
+			top._ml_items_colls = [<?php 
 			for ($i = 0, $l = count($arCols); $i < $l; $i++)
 				echo $arCols[$i].($i != $l - 1 ? ',' : '');
 			?>];
 			</script>
-			<? else: ?>
+			<?php  else: ?>
 			<script>top.bx_req_res = false;</script>
-			<?endif;
+			<?php endif;
 		}
 	}
 
@@ -1042,7 +1042,7 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 
 		?>
 		<script>
-		window.MLItems[<?=$Params['collectionId']?>] = [<?
+		window.MLItems[<?=$Params['collectionId']?>] = [<?php 
 		for ($i = 0, $l = count($arItems); $i < $l; $i++)
 		{
 		?>
@@ -1061,13 +1061,13 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 			path_external: '<?= CMedialib::Escape($arItems[$i]['PATH_EXTERNAL'])?>',
 			type: '<?= $arItems[$i]['TYPE']?>'
 		}
-		<?
+		<?php 
 			if ($i != $l - 1)
 				echo ',';
 		}
 		?>];
 		</script>
-		<?
+		<?php 
 	}
 
 	public static function DelItem($id, $bCurrent = false, $colId = false)
@@ -1088,12 +1088,12 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 		$ar = CMedialibItem::GetItemCollections($Params);
 		?>
 		<script>
-		window._ml_items_colls = [<?
+		window._ml_items_colls = [<?php 
 		for ($i = 0, $l = count($ar); $i < $l; $i++)
 			echo $ar[$i].($i != $l - 1 ? ',' : '');
 		?>];
 		</script>
-		<?
+		<?php 
 	}
 
 	public static function SaveUserSettings($Params)
@@ -1196,12 +1196,12 @@ ML_MESS.Save = '<?= GetMessageJS('ML_SAVE')?>';
 			$title = isset($Params['title']) ? $Params['title'] : GetMessage('ML_BR_BUT_ML_TITLE');
 			?>
 			<input id="<?= 'bx_ml_'.$inputId?>" type="button" value="<?= $value?>" title="<?= $title?>" onclick="<?= $arMLConfig['event']?>();"/>
-			<?
+			<?php 
 		}
 		elseif ($mode == 'file_dialog')
 		{
 			$title = isset($Params['title']) ? $Params['title'] : GetMessage('ML_BR_BUT_FD_TITLE');
-			?><input type="button" class="adm-btn" style="float:left;" value="<?= $value?>" id="<?= $inputId?>" title="<?= $title?>" onclick="<?= $Params['event']?>();"/><?
+			?><input type="button" class="adm-btn" style="float:left;" value="<?= $value?>" id="<?= $inputId?>" title="<?= $title?>" onclick="<?= $Params['event']?>();"/><?php 
 		}
 		else
 		{
@@ -1235,7 +1235,7 @@ if (!window.<?= $cid?>_onclick)
 <div class="bx-pn1" title="<?= GetMessage('ML_BR_BUT_ML_TITLE')?>" onclick="<?= ($useMLDefault ? $arMLConfig['event'] : $event)?>();"></div>
 <div class="bx-pn2" title="<?= GetMessage('ML_BR_BUT_SEL')?>" onclick="<?= $cid?>_onclick(this);"></div>
 </div>
-		<?
+		<?php 
 		}
 
 		if ($Params['bReturnResult'])
@@ -1334,7 +1334,7 @@ if (!window.<?= $cid?>_onclick)
 ?>
 <script>
 window.MLSearchResult = [
-<?
+<?php 
 		for ($i = 0, $l = count($arItems); $i < $l; $i++)
 		{
 ?>
@@ -1354,14 +1354,14 @@ window.MLSearchResult = [
 	perm: {edit: <?= $arItems[$i]['perm']['edit'] ? 'true' : 'false'?>, del: <?= $arItems[$i]['perm']['del'] ? 'true' : 'false'?>},
 	collections: <?= count($arItems[$i]['collections']) == 1 ? "['".$arItems[$i]['collections'][0]."']" : CUtil::PhpToJSObject($arItems[$i]['collections'])?>
 
-}<?
+}<?php 
 			if ($i != $l - 1)
 				echo ",\n";
 		}
 ?>
 ];
 </script>
-<?
+<?php 
 	}
 
 	/*
@@ -1726,7 +1726,7 @@ window.bx_req_res = {
 	bReplaceAll: <?= $arRes['bReplaceAll'] === true ? 'true' : 'false'?>
 };
 </script>
-<?
+<?php 
 	}
 
 	public static function ChangeColType($Params)
@@ -1747,11 +1747,11 @@ window.bx_req_res = {
 			$Params['childCols'] = $arChild;
 
 			CMedialibCollection::ChangeType($Params);
-			?><script>top.bx_req_res = true;</script><?
+			?><script>top.bx_req_res = true;</script><?php 
 		}
 		else
 		{
-			?><script>top.bx_req_res = false;</script><?
+			?><script>top.bx_req_res = false;</script><?php 
 		}
 	}
 

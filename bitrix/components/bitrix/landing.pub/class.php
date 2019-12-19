@@ -765,7 +765,7 @@ class LandingPubComponent extends LandingBaseComponent
 		}
 
 		$urls = Landing::getPublicUrl(array_keys($ids));
-		$sitemap = '<?xml version="1.0" encoding="' . SITE_CHARSET . '"?>';
+		$sitemap = '<?php xml version="1.0" encoding="' . SITE_CHARSET . '"?>';
 		$sitemap .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 		foreach ($ids as $id => $date)
 		{

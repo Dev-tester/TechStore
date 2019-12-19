@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_RIGHTS"] = "Недостаточно прав";
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_INCORRECT_SESSION"] = "Ваша сессия истекла. Закрой диалоговое окно и авторизуйтесь заново, после чего повторите операцию.";
 $MESS["SALE_BASKET_DISCOUNT_CONVERT_ERRORS_MODULE_SALE_ABSENT"] = "Не удалось подключить модуль Интернет-магазина";

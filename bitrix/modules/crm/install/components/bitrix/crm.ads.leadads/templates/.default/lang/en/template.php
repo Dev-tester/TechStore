@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ADS_LEADADS_AFTER_DISABLE_FACEBOOK"] = "Once the form is unlinked from Facebook, it will be available for editing; form data will not be sent to the CRM.";
 $MESS["CRM_ADS_LEADADS_AFTER_DISABLE_VKONTAKTE"] = "Once the form is unlinked from VK, it will become available for editing. The form data will not be passed on to the CRM.";
 $MESS["CRM_ADS_LEADADS_AFTER_ENABLE_FACEBOOK"] = "Once the form is linked to Facebook, it cannot be edited; form data will be sent to the CRM.";

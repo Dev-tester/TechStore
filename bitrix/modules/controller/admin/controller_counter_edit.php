@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -176,41 +176,41 @@ if ($message)
 	}
 </script>
 
-<form method="POST" action="<? echo $APPLICATION->GetCurPage() ?>?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$ID?>" name="form1" id="form1">
-	<? $tabControl->Begin(); ?>
-	<? $tabControl->BeginNextTab(); ?>
+<form method="POST" action="<?php  echo $APPLICATION->GetCurPage() ?>?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$ID?>" name="form1" id="form1">
+	<?php  $tabControl->Begin(); ?>
+	<?php  $tabControl->BeginNextTab(); ?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><? echo GetMessage("CTRL_COUNTER_EDIT_NAME") ?>:</td>
+		<td width="40%"><?php  echo GetMessage("CTRL_COUNTER_EDIT_NAME") ?>:</td>
 		<td width="60%">
-			<input type="text" name="NAME" size="53" maxlength="255" value="<? echo htmlspecialcharsbx($arCounter["NAME"]) ?>">
+			<input type="text" name="NAME" size="53" maxlength="255" value="<?php  echo htmlspecialcharsbx($arCounter["NAME"]) ?>">
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><? echo GetMessage("CTRL_COUNTER_EDIT_COUNTER_TYPE") ?>:</td>
+		<td><?php  echo GetMessage("CTRL_COUNTER_EDIT_COUNTER_TYPE") ?>:</td>
 		<td><select name="COUNTER_TYPE">
-				<? foreach (CControllerCounter::GetTypeArray() as $key => $value): ?>
-					<option value="<? echo htmlspecialcharsbx($key) ?>"<? if ($arCounter["COUNTER_TYPE"] == $key) echo " selected" ?>><? echo htmlspecialcharsEx($value) ?></option>
-				<? endforeach; ?>
+				<?php  foreach (CControllerCounter::GetTypeArray() as $key => $value): ?>
+					<option value="<?php  echo htmlspecialcharsbx($key) ?>"<?php  if ($arCounter["COUNTER_TYPE"] == $key) echo " selected" ?>><?php  echo htmlspecialcharsEx($value) ?></option>
+				<?php  endforeach; ?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("CTRL_COUNTER_EDIT_COUNTER_FORMAT") ?>:</td>
+		<td><?php  echo GetMessage("CTRL_COUNTER_EDIT_COUNTER_FORMAT") ?>:</td>
 		<td><select name="COUNTER_FORMAT">
-				<? foreach (CControllerCounter::GetFormatArray() as $key => $value): ?>
-					<option value="<? echo htmlspecialcharsbx($key) ?>"<? if ($arCounter["COUNTER_FORMAT"] == $key) echo " selected" ?>><? echo htmlspecialcharsEx($value) ?></option>
-				<? endforeach; ?>
+				<?php  foreach (CControllerCounter::GetFormatArray() as $key => $value): ?>
+					<option value="<?php  echo htmlspecialcharsbx($key) ?>"<?php  if ($arCounter["COUNTER_FORMAT"] == $key) echo " selected" ?>><?php  echo htmlspecialcharsEx($value) ?></option>
+				<?php  endforeach; ?>
 			</select>
 		</td>
 	</tr>
-	<? $tabControl->BeginNextTab(); ?>
+	<?php  $tabControl->BeginNextTab(); ?>
 	<tr valign="top">
 		<td width="40%" class="adm-detail-valign-top">&nbsp;</td>
 		<td width="60%" valign="top">
 			<div class="checkboxes">
 				<input type="checkbox" id="group_filter_checkbox" />
 				<input type="text" value="" id="group_filter">
-				<?
+				<?php 
 				$dbr_group = CControllerGroup::GetList(Array("SORT" => "ASC", "NAME" => "ASC", "ID" => "ASC"));
 				while ($ar_group = $dbr_group->GetNext()):
 					?>
@@ -218,15 +218,15 @@ if ($message)
 						<input
 							type="checkbox"
 							name="CONTROLLER_GROUP_ID[]"
-							id="CONTROLLER_GROUP_ID_<? echo htmlspecialcharsbx($ar_group["ID"]) ?>"
-							value="<? echo htmlspecialcharsbx($ar_group["ID"]) ?>"
-							<? if (in_array($ar_group["ID"], $arCounter["CONTROLLER_GROUP_ID"])) echo " checked" ?>
+							id="CONTROLLER_GROUP_ID_<?php  echo htmlspecialcharsbx($ar_group["ID"]) ?>"
+							value="<?php  echo htmlspecialcharsbx($ar_group["ID"]) ?>"
+							<?php  if (in_array($ar_group["ID"], $arCounter["CONTROLLER_GROUP_ID"])) echo " checked" ?>
 						/>
 						<label
-							for="CONTROLLER_GROUP_ID_<? echo htmlspecialcharsbx($ar_group["ID"]) ?>"
-						><? echo htmlspecialcharsEx($ar_group["NAME"]) ?></label>
+							for="CONTROLLER_GROUP_ID_<?php  echo htmlspecialcharsbx($ar_group["ID"]) ?>"
+						><?php  echo htmlspecialcharsEx($ar_group["NAME"]) ?></label>
 					</div>
-				<? endwhile; ?>
+				<?php  endwhile; ?>
 			</div>
 			<script>
 				function group_filter_change()
@@ -273,30 +273,30 @@ if ($message)
 			</script>
 		</td>
 	</tr>
-	<? $tabControl->BeginNextTab(); ?>
+	<?php  $tabControl->BeginNextTab(); ?>
 	<tr>
 		<td colspan="2">
-			<textarea name="COMMAND" id="COMMAND" style="width:100%" rows="20"><? echo htmlspecialcharsbx($arCounter["COMMAND"]) ?></textarea>
+			<textarea name="COMMAND" id="COMMAND" style="width:100%" rows="20"><?php  echo htmlspecialcharsbx($arCounter["COMMAND"]) ?></textarea>
 		</td>
 	</tr>
-	<? $tabControl->EndTab(); ?>
-	<? $tabControl->Buttons(array(
+	<?php  $tabControl->EndTab(); ?>
+	<?php  $tabControl->Buttons(array(
 		"back_url" => $back_url? $back_url: "controller_counter_admin.php?lang=".LANGUAGE_ID,
 		"disabled" => !$USER->CanDoOperation("controller_counters_manage"),
 	)); ?>
-	<? $tabControl->End(); ?>
-	<? echo bitrix_sessid_post(); ?>
-	<input type="hidden" name="lang" value="<? echo LANGUAGE_ID ?>">
-	<? if ($ID > 0): ?>
+	<?php  $tabControl->End(); ?>
+	<?php  echo bitrix_sessid_post(); ?>
+	<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID ?>">
+	<?php  if ($ID > 0): ?>
 		<input type="hidden" name="ID" value="<?=$ID?>">
 		<input type="hidden" name="delete" id="delete" value="">
-	<? endif; ?>
-	<? if ($back_url != ''): ?>
-		<input type="hidden" name="back_url" value="<? echo htmlspecialcharsbx($back_url) ?>">
-	<? endif ?>
+	<?php  endif; ?>
+	<?php  if ($back_url != ''): ?>
+		<input type="hidden" name="back_url" value="<?php  echo htmlspecialcharsbx($back_url) ?>">
+	<?php  endif ?>
 	<input type="hidden" value="Y" name="apply">
 </form>
-<?
+<?php 
 if (COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y" && CModule::IncludeModule('fileman'))
 {
 	CCodeEditor::Show(array(
@@ -306,4 +306,4 @@ if (COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y" && CModul
 	));
 }
 ?>
-<? require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php"); ?>

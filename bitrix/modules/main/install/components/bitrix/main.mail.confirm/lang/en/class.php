@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_MAIL_CONFIRM_AJAX_ERROR"] = "Error processing the request.";
 $MESS["MAIN_MAIL_CONFIRM_AUTH"] = "Authentication error";
 $MESS["MAIN_MAIL_CONFIRM_BACK"] = "Back";

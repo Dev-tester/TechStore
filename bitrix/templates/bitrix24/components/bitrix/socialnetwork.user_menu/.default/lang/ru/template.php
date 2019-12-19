@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UM_GENERAL"] = "Профиль";
 $MESS["SONET_UM_LOG"] = "Живая лента";
 $MESS["SONET_UM_FRIENDS"] = "Друзья";

@@ -1,9 +1,9 @@
-<?if(!Defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+<?php if(!Defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 $control_id = $arParams['CONTROL_ID'];
 ?>
 <div class="bx-ius-layout">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.lookup.input', 
 	'crm_'.ToLower($arParams['ENTITY_TYPE']), 
@@ -22,7 +22,7 @@ $APPLICATION->IncludeComponent(
 	array('HIDE_ICONS' => 'Y')
 );
 ?>
-<?
+<?php 
 	$name = $APPLICATION->IncludeComponent(
 		'bitrix:crm.entity.search',
 		'',
@@ -37,6 +37,6 @@ $APPLICATION->IncludeComponent(
 		array('HIDE_ICONS' => 'Y')
 	);
 ?>
-	<a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()" class="bx-ius-structure-link"><?echo GetMessage('CRM_ES_ADD')?></a>
+	<a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()" class="bx-ius-structure-link"><?php echo GetMessage('CRM_ES_ADD')?></a>
 
 </div>

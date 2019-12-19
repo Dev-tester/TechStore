@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -233,7 +233,7 @@ if (strlen($action) > 0)
 
 <div id="designer-wrapper" class="designer-prop-wrapper">
 </div>
-<?
+<?php 
 AddEventHandler("mobileapp", "onDesignerFileUploaded", Array("Bitrix\\MobileApp\\Designer\\Manager", "registerFileInApp"));
 AddEventHandler("mobileapp", "onDesignerFileRemoved", Array("Bitrix\\MobileApp\\Designer\\Manager", "unregisterFileInApp"));
 
@@ -283,7 +283,7 @@ $initDataJS = Json::encode($initData);
 	});
 </script>
 <div>
-	<?
+	<?php 
 
 CAdminFileDialog::ShowScript(Array
 (
@@ -301,7 +301,7 @@ CAdminFileDialog::ShowScript(Array
 ?>
 </div>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"] . BX_ROOT . "/modules/main/include/epilog_admin.php"); ?>
 
 

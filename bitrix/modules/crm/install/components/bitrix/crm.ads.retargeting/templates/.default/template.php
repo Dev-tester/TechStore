@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
@@ -63,11 +63,11 @@ $namePrefix = htmlspecialcharsbx($arParams['INPUT_NAME_PREFIX']);
 
 	<div data-bx-ads-block="refresh" style="display: none;">
 		<div class="crm-ads-rtg-popup-settings crm-ads-rtg-popup-settings-wrapper crm-ads-rtg-popup-settings-wrapper-center">
-			<?if ($type == 'yandex'):?>
+			<?php if ($type == 'yandex'):?>
 				<?=Loc::getMessage('CRM_ADS_RTG_REFRESH_TEXT_' . $typeUpped)?>
-			<?else:?>
+			<?php else:?>
 				<?=Loc::getMessage('CRM_ADS_RTG_REFRESH_TEXT')?>
-			<?endif;?>
+			<?php endif;?>
 			<br>
 			<br>
 			<span data-bx-ads-refresh-btn="" class="webform-small-button webform-small-button-transparent">
@@ -99,7 +99,7 @@ $namePrefix = htmlspecialcharsbx($arParams['INPUT_NAME_PREFIX']);
 				</table>
 			</div>
 
-			<?if($provider['IS_SUPPORT_MULTI_TYPE_CONTACTS']):?>
+			<?php if($provider['IS_SUPPORT_MULTI_TYPE_CONTACTS']):?>
 			<div class="crm-ads-rtg-popup-settings">
 				<div class="crm-ads-rtg-popup-settings-title-full"><?=Loc::getMessage('CRM_ADS_RTG_SELECT_AUDIENCE')?>:</div>
 
@@ -116,17 +116,17 @@ $namePrefix = htmlspecialcharsbx($arParams['INPUT_NAME_PREFIX']);
 								</svg>
 							</div>
 						</td>
-						<?if(false && !$provider['IS_ADDING_REQUIRE_CONTACTS']):?>
+						<?php if(false && !$provider['IS_ADDING_REQUIRE_CONTACTS']):?>
 						<td>
 							<a data-role="audience-add" class="crm-ads-rtg-popup-link" style="display: none;">
 								<?=Loc::getMessage('CRM_ADS_RTG_ADD_AUDIENCE')?>
 							</a>
 						</td>
-						<?endif;?>
+						<?php endif;?>
 					</tr>
 				</table>
 			</div>
-			<?else:?>
+			<?php else:?>
 			<div class="crm-ads-rtg-popup-settings">
 				<div class="crm-ads-rtg-popup-settings-title-full"><?=Loc::getMessage('CRM_ADS_RTG_SELECT_CONTACT_DATA')?>:</div>
 				<table class="crm-ads-rtg-table">
@@ -174,10 +174,10 @@ $namePrefix = htmlspecialcharsbx($arParams['INPUT_NAME_PREFIX']);
 					</tr>
 				</table>
 			</div>
-			<?endif?>
+			<?php endif?>
 
-			<?if($provider['IS_SUPPORT_REMOVE_CONTACTS']):?>
-				<?
+			<?php if($provider['IS_SUPPORT_REMOVE_CONTACTS']):?>
+				<?php 
 				$isSelectedOnce = false;
 				$sDayValues = '';
 				$dayValues = array(
@@ -204,11 +204,11 @@ $namePrefix = htmlspecialcharsbx($arParams['INPUT_NAME_PREFIX']);
 				<div class="crm-ads-rtg-popup-chk">
 					<input data-bx-ads-audience-auto-remove-checker="" <?=($isSelectedOnce ? 'checked' : '')?> type="checkbox" class="crm-ads-rtg-popup-chk" id="crm_ads_checker_autorem">
 					<label for="crm_ads_checker_autorem" class="crm-ads-rtg-popup-chk-label">
-							<?if ($type == 'yandex'):?>
+							<?php if ($type == 'yandex'):?>
 								<?=Loc::getMessage('CRM_ADS_RTG_AUTO_REMOVE_TITLE_' . $typeUpped)?>
-							<?else:?>
+							<?php else:?>
 								<?=Loc::getMessage('CRM_ADS_RTG_AUTO_REMOVE_TITLE')?>
-							<?endif;?>
+							<?php endif;?>
 					</label>
 				</div>
 				<div class="crm-ads-rtg-popup-chk-label">
@@ -218,7 +218,7 @@ $namePrefix = htmlspecialcharsbx($arParams['INPUT_NAME_PREFIX']);
 					<?=Loc::getMessage('CRM_ADS_RTG_AUTO_REMOVE_DAYS')?>
 				</div>
 			</div>
-			<?endif?>
+			<?php endif?>
 
 			<div data-bx-ads-audience-not-found="" class="crm-ads-rtg-popup-settings" style="display: none;">
 				<div class="crm-ads-rtg-popup-settings-alert">

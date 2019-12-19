@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_TYPE_CALL"] = "Call";
 $MESS["CRM_ACTIVITY_TYPE_MEETING"] = "Meeting";
 $MESS["CRM_ACTIVITY_TYPE_TASK"] = "Task";

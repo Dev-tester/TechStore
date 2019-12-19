@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DATE'] = "Дата";
 $MESS ['SALE_SUMM'] = "Стоимость";
 $MESS ['SALE_S_DATE'] = "Дата заказа";

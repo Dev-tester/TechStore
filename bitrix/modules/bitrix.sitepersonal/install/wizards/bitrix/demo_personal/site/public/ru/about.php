@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Обо мне");
 ?> 
@@ -45,4 +45,4 @@ $APPLICATION->SetTitle("Обо мне");
   <li>Skype: Fadeeva_Victoria.</li>
  </ul>
 <p> 	<i>Ценю странность во всём. Люблю общаться с людьми, которые видят окружающее по-особенному. 		Если это про вас, и вам есть, что сказать - пишите!</i></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

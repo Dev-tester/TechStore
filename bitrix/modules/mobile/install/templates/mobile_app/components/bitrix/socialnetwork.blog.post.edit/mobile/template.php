@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $APPLICATION->SetPageProperty("BodyClass", "newpost-page");
 
@@ -14,7 +14,7 @@ if($arResult["delete_blog_post"] == "Y")
 		<div class="feed-add-error">
 			<span class="feed-add-info-icon"></span><span class="feed-add-info-text"><?=$arResult["ERROR_MESSAGE"]?></span>
 		</div>
-		<?
+		<?php 
 	}
 	if(strlen($arResult["OK_MESSAGE"])>0)
 	{
@@ -22,7 +22,7 @@ if($arResult["delete_blog_post"] == "Y")
 		<div class="feed-add-successfully">
 			<span class="feed-add-info-text"><span class="feed-add-info-icon"></span><?=$arResult["OK_MESSAGE"]?></span>
 		</div>
-		<?
+		<?php 
 	}
 	die();
 }
@@ -31,14 +31,14 @@ else
 	?>
 	<div class="feed-wrap">
 	<div class="feed-add-post-block blog-post-edit">
-	<?
+	<?php 
 	if(strlen($arResult["OK_MESSAGE"])>0)
 	{
 		?>
 		<div class="feed-add-successfully">
 			<span class="feed-add-info-icon"></span><span class="feed-add-info-text"><?=$arResult["OK_MESSAGE"]?></span>
 		</div>
-		<?
+		<?php 
 	}
 	if(strlen($arResult["ERROR_MESSAGE"])>0)
 	{
@@ -46,7 +46,7 @@ else
 		<div class="feed-add-error">
 			<span class="feed-add-info-icon"></span><span class="feed-add-info-text"><?=$arResult["ERROR_MESSAGE"]?></span>
 		</div>
-		<?
+		<?php 
 	}
 	if(strlen($arResult["FATAL_MESSAGE"])>0)
 	{
@@ -54,7 +54,7 @@ else
 		<div class="feed-add-error">
 			<span class="feed-add-info-icon"></span><span class="feed-add-info-text"><?=$arResult["FATAL_MESSAGE"]?></span>
 		</div>
-		<?
+		<?php 
 	}
 	elseif(strlen($arResult["UTIL_MESSAGE"])>0)
 	{
@@ -62,7 +62,7 @@ else
 		<div class="feed-add-successfully">
 			<span class="feed-add-info-icon"></span><span class="feed-add-info-text"><?=$arResult["UTIL_MESSAGE"]?></span>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -71,7 +71,7 @@ else
 		{
 			?>
 			<script>
-				<?if(!empty($arResult["Image"])):?>
+				<?php if(!empty($arResult["Image"])):?>
 					var imgTable = top.BX('blog-post-image');
 					if (imgTable)
 					{
@@ -85,11 +85,11 @@ else
 					top.bxBlogImageId = '<?=$arResult["Image"]["ID"]?>';
 					top.bxBlogImageIdWidth = '<?=CUtil::JSEscape($arResult["Image"]["source"]["width"])?>';
 					top.bxBlogImageIdSrc = '<?=CUtil::JSEscape($arResult["Image"]["source"]["src"])?>';
-				<?elseif(strlen($arResult["ERROR_MESSAGE"]) > 0):?>
+				<?php elseif(strlen($arResult["ERROR_MESSAGE"]) > 0):?>
 					window.bxBlogImageError = top.bxBlogImageError = '<?=CUtil::JSEscape($arResult["ERROR_MESSAGE"])?>';
-				<?endif;?>
+				<?php endif;?>
 			</script>
-			<?
+			<?php 
 			die();
 		}
 		else
@@ -109,6 +109,6 @@ else
 	?>
 	</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

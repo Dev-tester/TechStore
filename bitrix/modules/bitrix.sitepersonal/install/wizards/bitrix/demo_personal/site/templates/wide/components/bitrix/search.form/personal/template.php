@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <form action="<?=$arResult["FORM_ACTION"]?>">
 <div id="search-button">
 		<input type="submit" name="s" id="search-submit-button" value="<?=GetMessage("BSF_T_SEARCH_BUTTON");?>" onfocus="this.blur();"/>

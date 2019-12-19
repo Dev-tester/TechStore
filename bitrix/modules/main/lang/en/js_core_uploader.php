@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UPLOADER_INPUT_IS_NOT_DEFINED"] = "Input field is not specified.";
 $MESS["UPLOADER_ACTION_URL_NOT_DEFINED"] = "Upload path is not specified.";
 $MESS["FILE_BAD_SIZE"] = "Maximum allowed size of the file to upload exceeded";

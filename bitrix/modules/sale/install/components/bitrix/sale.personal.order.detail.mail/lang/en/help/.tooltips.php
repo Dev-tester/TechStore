@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_LIST_TIP'] = "The address of the orders page.";
 $MESS ['PATH_TO_CANCEL_TIP'] = "The path to the order cancelation page.";
 $MESS ['PATH_TO_PAYMENT_TIP'] = "The path to the payment system processor.";

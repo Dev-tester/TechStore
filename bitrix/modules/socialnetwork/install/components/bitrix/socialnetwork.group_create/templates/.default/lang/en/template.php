@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C8_SUBTITLE"] = "Group Parameters";
 $MESS["SONET_C8_NAME"] = "Group Name";
 $MESS["SONET_C8_DESCR"] = "Group Description";

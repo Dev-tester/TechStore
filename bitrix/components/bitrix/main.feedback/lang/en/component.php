@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MF_OK_MESSAGE'] = "Thank you. Your message is now being processed.";
 $MESS ['MF_REQ_NAME'] = "Please type your name.";
 $MESS ['MF_REQ_EMAIL'] = "Provide a reply-to e-mail address.";

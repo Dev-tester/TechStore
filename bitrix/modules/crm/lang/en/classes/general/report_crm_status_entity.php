@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_ENTITY_ENTITY_ID"] = "Entity ID";
 $MESS["CRM_STATUS_ENTITY_STATUS_ID"] = "Status ID";
 $MESS["CRM_STATUS_ENTITY_NAME"] = "Title";

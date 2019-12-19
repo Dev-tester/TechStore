@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_EDIT_TAB"] = "Подключение";
 $MESS["CLO_STORAGE_EDIT_TAB_TITLE"] = "Настройка параметров подключения и использования облачного хранилища";
 $MESS["CLO_STORAGE_EDIT_TAB2"] = "Правила";

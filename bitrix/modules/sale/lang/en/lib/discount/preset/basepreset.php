@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASE_PRESET_DISCOUNT_EDIT_ERR_ADD"] = "Error adding a discount rule";
 $MESS["SALE_BASE_PRESET_DISCOUNT_EDIT_ERR_UPDATE"] = "Error updating a discount rule";
 $MESS["SALE_BASE_PRESET_ORDERAMOUNT_FIELD_NAME"] = "Discount name";

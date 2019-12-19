@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_ERROR_UPDATE"] = "Ошибка обновления параметров темы";
 $MESS["SONET_UPDATE_ALT"] = "Изменить параметры темы";
 $MESS["SONET_DELETE_ALT"] = "Удалить тему";

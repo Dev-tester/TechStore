@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_COMPOSITE_DIFF_PREV_VERSION"] = "Version of #DATE_TIME#";
 $MESS["MAIN_COMPOSITE_DIFF_CURRENT_VERSION"] = "Current version";
 $MESS["MAIN_COMPOSITE_DIFF_LOG_NOT_FOUND"] = "Log entry was not found";

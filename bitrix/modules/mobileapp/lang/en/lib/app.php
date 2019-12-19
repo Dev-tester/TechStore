@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["APP_ENTITY_ID_FIELD"] = "Record ID";
 $MESS["APP_ENTITY_CODE_FIELD"] = "Application symbolic code";
 $MESS["APP_ENTITY_PLATFORM_FIELD"] = "Platform";

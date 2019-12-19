@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORGOT_TITLE'] = "Please fill in the \"Title\" field";
 $MESS ['FORM_FORM_LIST'] = "Form list";
 $MESS ['FORM_NOT_FOUND'] = "Web form is not found";

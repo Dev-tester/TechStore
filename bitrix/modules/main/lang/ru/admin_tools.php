@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_ROOT_FOLDER'] = "корень";
 $MESS ['MAIN_ADMIN_ADD_COPY'] = "Добавить копию";
 $MESS ['MAIN_ADMIN_MENU_EDIT'] = "Изменить";

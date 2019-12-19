@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_REQUISITE_EDIT_ERR_NOT_FOUND"] = "Cannot get contact or company details (ID = #ID#)";
 $MESS["CRM_REQUISITE_EDIT_ERR_PRESET_NOT_SELECTED"] = "No contact or company details edit template specified.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/prolog.php");
 global $APPLICATION;
@@ -167,10 +167,10 @@ $userId = intval($USER->GetID());
 		var mainSectionId = BX('CLASSIFIER_MAIN_SECTION').value;
 		var subSectionId = BX('CLASSIFIER_SUB_SECTION').value;
 
-		window['<?=$sTableID?>'].GetAdminList("<?=$selfFolderUrl?>cat_measure_edit.php?OKEI=Y&main_section=" + mainSectionId + "&sub_section=" + subSectionId + '&lang=<? echo LANGUAGE_ID;?>' + '&public=y');
+		window['<?=$sTableID?>'].GetAdminList("<?=$selfFolderUrl?>cat_measure_edit.php?OKEI=Y&main_section=" + mainSectionId + "&sub_section=" + subSectionId + '&lang=<?php  echo LANGUAGE_ID;?>' + '&public=y');
 	}
 </script>
-<?
+<?php 
 if($_SERVER["REQUEST_METHOD"] == "POST" && strlen($_REQUEST["Update"]) > 0 && !$bReadOnly && check_bitrix_sessid())
 {
 	$adminSidePanelHelper->decodeUriComponent();
@@ -300,19 +300,19 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($errorMessage);?>
-<?
+<?php CAdminMessage::ShowMessage($errorMessage);?>
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form enctype="multipart/form-data" method="POST" action="<?=$actionUrl?>" name="catalog_measure_edit">
-	<?echo GetFilterHiddens("filter_");?>
+	<?php echo GetFilterHiddens("filter_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="lang" value="<?echo LANG ?>">
-	<input type="hidden" name="ID" value="<?echo $ID ?>">
+	<input type="hidden" name="lang" value="<?php echo LANG ?>">
+	<input type="hidden" name="ID" value="<?php echo $ID ?>">
 	<?=bitrix_sessid_post()?>
 
-	<?
+	<?php 
 	$aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("CAT_MEASURE_TITLE"), "ICON" => "catalog", "TITLE" => GetMessage("CAT_MEASURE_TITLE_ONE")),
 	);
@@ -321,15 +321,15 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 	$tabControl->Begin();
 	?>
 
-	<?
+	<?php 
 	$tabControl->BeginNextTab();
 	?>
-<?if($classifierMode):?>
+<?php if($classifierMode):?>
 	<tr class="adm-detail-required-field" id="classifier-main-section" >
 		<td><?= GetMessage("CAT_MEASURE_CLASSIFIER_MAIN") ?>:</td>
 		<td>
 			<select id="CLASSIFIER_MAIN_SECTION" name="CLASSIFIER_MAIN_SECTION" onchange="makeMeasureTable()"<?=($bReadOnly) ? " disabled" : ""?>>
-			<?foreach($arMeasureClassifier as $key => $val)
+			<?php foreach($arMeasureClassifier as $key => $val)
 			{
 				if(is_array($val) && count($val) > 0)
 				{
@@ -345,7 +345,7 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 		<td><?= GetMessage("CAT_MEASURE_CLASSIFIER_SUB") ?>:</td>
 		<td>
 			<select id="CLASSIFIER_SUB_SECTION" name="CLASSIFIER_SUB_SECTION" onchange="makeMeasureTable()" <?=($bReadOnly) ? " disabled" : ""?>>
-				<?foreach($arMeasureClassifier[0] as $key => $val)
+				<?php foreach($arMeasureClassifier[0] as $key => $val)
 				{
 					if($key !== 'TITLE' && is_array($val))
 					{
@@ -357,18 +357,18 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 			</select>
 		</td>
 	</tr>
-	<?else:?>
-	<?if($ID > 0):
+	<?php else:?>
+	<?php if($ID > 0):
 		?>
 		<tr>
 			<td>ID:</td>
 			<td><?= $ID ?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td width="40%"><?= GetMessage("CAT_MEASURE_DEFAULT") ?>:</td>
 		<td width="60%">
-			<input type="checkbox" name="IS_DEFAULT" value="Y" <?if(($str_IS_DEFAULT=='Y')) echo"checked";?> size="50" />
+			<input type="checkbox" name="IS_DEFAULT" value="Y" <?php if(($str_IS_DEFAULT=='Y')) echo"checked";?> size="50" />
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
@@ -401,8 +401,8 @@ $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 		<td><input type="text" style="width:100px" name="SYMBOL_LETTER_INTL" value="<?=$str_SYMBOL_LETTER_INTL?>" size="15" />
 		</td>
 	</tr>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->EndTab();
 if(!$classifierMode)
 {
@@ -411,10 +411,10 @@ if(!$classifierMode)
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 if($classifierMode)
 {
 	$lAdmin->DisplayList();
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

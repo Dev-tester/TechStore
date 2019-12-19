@@ -57,7 +57,7 @@ if (is_array($filter))
 			null,
 			array('HIDE_ICONS' => 'Y')
 		);
-		?><script type="text/javascript"><?
+		?><script type="text/javascript"><?php 
 		foreach ($userSelectors as $userSelector)
 		{
 			$selectorID = $userSelector['ID'];
@@ -73,9 +73,9 @@ if (is_array($filter))
 						}
 					);
 				}
-			);<?
+			);<?php 
 		}
-		?></script><?
+		?></script><?php 
 	}
 }
 
@@ -86,7 +86,7 @@ if ($viewID === '')
 	$viewID = 'inside_pagetitle';
 }
 $this->SetViewTarget($viewID, 0);
-?><div class="pagetitle-container pagetitle-flexible-space"><?
+?><div class="pagetitle-container pagetitle-flexible-space"><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.ui.filter',
 	'',
@@ -102,5 +102,5 @@ $APPLICATION->IncludeComponent(
 	$component,
 	array('HIDE_ICONS' => true)
 );
-?></div><?
+?></div><?php 
 $this->EndViewTarget();

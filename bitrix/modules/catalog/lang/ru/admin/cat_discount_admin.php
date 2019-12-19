@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_DELETE_DISCOUNT"] = "Ошибка удаления скидки с кодом #ID#";
 $MESS["ERROR_UPDATE_DISCOUNT"] = "Ошибка обновления параметров скидки с кодом #ID#";
 $MESS["DISCOUNT_TITLE"] = "Скидки и купоны";

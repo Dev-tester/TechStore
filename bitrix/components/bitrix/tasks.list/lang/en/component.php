@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_MODULE_NOT_AVAILABLE_IN_THIS_EDITION"] = "The Tasks module is unavailable in this edition.";
 $MESS["TASKS_MODULE_NOT_FOUND"] = "The Task module is not installed.";
 $MESS["SOCNET_MODULE_NOT_INSTALLED"] = "The \"Social Network\" module is not installed.";

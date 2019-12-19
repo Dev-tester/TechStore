@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['show_column'] = "Показать колонку меню";
 $MESS ['menu_tab'] = "М<br>е<br>н<br>ю<br>";
 $MESS ['menu_show_all'] = "Развернуть все секции меню";

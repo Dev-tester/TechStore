@@ -1,4 +1,4 @@
-<?
+<?php 
 define("MODULE_ID", "lists");
 define("ENTITY", $_REQUEST['entity']);
 

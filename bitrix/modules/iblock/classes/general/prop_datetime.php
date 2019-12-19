@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc,
 	Bitrix\Main\Type\Date,
 	Bitrix\Iblock;

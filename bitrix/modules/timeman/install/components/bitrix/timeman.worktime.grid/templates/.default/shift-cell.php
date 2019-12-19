@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -14,16 +14,16 @@ if (empty($recordShiftplanData))
 $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN_RECORD_LINK']
 			  && $recordShiftplanData['WORKTIME_RECORD']['RECORD_LINK'];
 ?>
-<? if ($wrapInLink): ?>
-	<a class="<? if (!$recordShiftplanData['ABSENCE']): ?>timeman-grid-worktime<? endif; ?> timeman-grid-worktime-link"
+<?php  if ($wrapInLink): ?>
+	<a class="<?php  if (!$recordShiftplanData['ABSENCE']): ?>timeman-grid-worktime<?php  endif; ?> timeman-grid-worktime-link"
 	href="<?php echo $recordShiftplanData['WORKTIME_RECORD']['RECORD_LINK']; ?>"
 	data-id="<?php echo htmlspecialcharsbx($recordShiftplanData['WORKTIME_RECORD']['ID']) ?>"
-	data-role="worktime-record-cell"><? endif; ?>
-<? if ($recordShiftplanData['WORKTIME_RECORD']['EXPIRED']): ?>
+	data-role="worktime-record-cell"><?php  endif; ?>
+<?php  if ($recordShiftplanData['WORKTIME_RECORD']['EXPIRED']): ?>
 	<div class="timeman-grid-worktime-inner timeman-grid-worktime timeman-grid-worktime-expired-text"><?= Loc::getMessage('TM_WORKTIME_GRID_RECORD_EXPIRED_TITLE'); ?></div>
 
-<? else: ?>
-	<?
+<?php  else: ?>
+	<?php 
 	$recordShiftplanData['CSS_CLASSES'] = ['timeman-grid-worktime',];
 	if (!$recordShiftplanData['IS_SHIFTED_SCHEDULE'])
 	{
@@ -140,14 +140,14 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 	}
 
 	?>
-	<? if (empty($recordShiftplanData['WORKTIME_RECORD'])): ?>
+	<?php  if (empty($recordShiftplanData['WORKTIME_RECORD'])): ?>
 		<?php return; ?>
-	<? endif; ?>
+	<?php  endif; ?>
 
 	<div class="" <?= $recordShiftplanData['DATASET']; ?> data-shift-block="true">
 		<div class="timeman-grid-worktime-inner <?= $recordShiftplanData['CSS_CLASSES']; ?>">
 			<div class="timeman-grid-worktime-container">
-				<? if ($recordShiftplanData['DRAW_DELETE_BTN'] && $recordShiftplanData['SHIFT_PLAN']): ?>
+				<?php  if ($recordShiftplanData['DRAW_DELETE_BTN'] && $recordShiftplanData['SHIFT_PLAN']): ?>
 					<div class="timeman-grid-shift-plan-delete" data-role="delete-shiftplan-btn">
 						<input type="hidden"
 								data-role="shiftId"
@@ -162,41 +162,41 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 								name="<?= htmlspecialcharsbx($arResult['SHIFT_PLAN_FORM_NAME'] . '[dateAssignedFormatted]'); ?>"
 								value="<?= htmlspecialcharsbx($recordShiftplanData['SHIFT_PLAN']['DATE_ASSIGNED_FORMATTED']); ?>">
 					</div>
-				<? endif; ?>
-				<? if ($recordShiftplanData['IS_SHIFTED_SCHEDULE']): ?>
+				<?php  endif; ?>
+				<?php  if ($recordShiftplanData['IS_SHIFTED_SCHEDULE']): ?>
 					<span class="timeman-grid-worktime-name" data-role="name"><?= htmlspecialcharsbx($recordShiftplanData['WORK_SHIFT']['NAME']) ?></span>
-				<? endif; ?>
-				<? if ($recordShiftplanData['WORKTIME_RECORD']): ?>
+				<?php  endif; ?>
+				<?php  if ($recordShiftplanData['WORKTIME_RECORD']): ?>
 					<div class="timeman-grid-worktime-duration">
 					<span class="timeman-grid-worktime-duration-value">
 						<?= $recordShiftplanData['WORKTIME_RECORD']['FORMATTED_DURATION']; ?>
 					</span>
 					</div>
-				<? endif; ?>
+				<?php  endif; ?>
 
 
-				<? if ($recordShiftplanData['WORKTIME_RECORD']): ?>
-					<? if (!$recordShiftplanData['IS_SHIFTED_SCHEDULE']): ?>
+				<?php  if ($recordShiftplanData['WORKTIME_RECORD']): ?>
+					<?php  if (!$recordShiftplanData['IS_SHIFTED_SCHEDULE']): ?>
 						<div class="timeman-grid-worktime-interval <?= $arResult['SHOW_START_FINISH'] ? '' : 'timeman-hide'; ?>"
 								data-role="start-end">
 							<span data-role="start"><?= htmlspecialcharsbx($recordShiftplanData['WORKTIME_RECORD']['FORMATTED_START']) ?></span>
 							<span>-</span>
 							<span data-role="end"><?= htmlspecialcharsbx($recordShiftplanData['WORKTIME_RECORD']['FORMATTED_END']) ?></span>
 						</div>
-					<? endif; ?>
-				<? else: ?>
+					<?php  endif; ?>
+				<?php  else: ?>
 					<div class="timeman-grid-worktime-interval <?= $arResult['SHOW_START_FINISH'] ? '' : 'timeman-hide'; ?>"
 							data-role="start-end">
 						<span data-role="start"><?= htmlspecialcharsbx($recordShiftplanData['WORK_SHIFT']['FORMATTED_START']) ?></span>
 						<span>-</span>
 						<span data-role="end"><?= htmlspecialcharsbx($recordShiftplanData['WORK_SHIFT']['FORMATTED_END']) ?></span>
 					</div>
-				<? endif; ?>
+				<?php  endif; ?>
 
 			</div>
 			<span class="timeman-grid-worktime-icon-container">
-			<? if (!empty($recordShiftplanData['WORKTIME_RECORD']['WARNINGS']) || $recordShiftplanData['WORKTIME_RECORD']['IS_APPROVED'] === false): ?>
-				<?
+			<?php  if (!empty($recordShiftplanData['WORKTIME_RECORD']['WARNINGS']) || $recordShiftplanData['WORKTIME_RECORD']['IS_APPROVED'] === false): ?>
+				<?php 
 				$cssClass = 'timeman-grid-worktime-icon-warning';
 				$text = Loc::getMessage('TM_WORKTIME_STATS_APPROVAL_REQUIRED');
 				if ($recordShiftplanData['WORKTIME_RECORD']['IS_APPROVED'] && !empty($recordShiftplanData['WORKTIME_RECORD']['WARNINGS']))
@@ -215,9 +215,9 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 						data-role="violation-icon"
 						data-hint="<?= htmlspecialcharsbx($hint); ?>">
 							</span>
-			<? endif; ?>
+			<?php  endif; ?>
 
-				<? if (!empty($recordShiftplanData['WORKTIME_RECORD']['VIOLATIONS'])):
+				<?php  if (!empty($recordShiftplanData['WORKTIME_RECORD']['VIOLATIONS'])):
 					$hint = '<span class="tm-violation-hint-title">' . Loc::getMessage('TM_WORKTIME_STATS_WARNING_TEXT') . "</span><br>";
 					foreach ($recordShiftplanData['WORKTIME_RECORD']['VIOLATIONS'] as $violation)
 					{
@@ -227,9 +227,9 @@ $wrapInLink = $recordShiftplanData['WORKTIME_RECORD'] && $arResult['WRAP_CELL_IN
 					<span class="timeman-grid-worktime-icon timeman-grid-worktime-icon-notice"
 							data-hint-no-icon data-hint="<?= htmlspecialcharsbx($hint); ?>">
 						</span>
-				<? endif; ?>
+				<?php  endif; ?>
 		</span>
 		</div>
 	</div>
-<? endif; ?>
-<? if ($wrapInLink): ?></a><? endif; ?>
+<?php  endif; ?>
+<?php  if ($wrapInLink): ?></a><?php  endif; ?>

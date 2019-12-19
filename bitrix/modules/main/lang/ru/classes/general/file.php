@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_TEXT"] = "Файл";
 $MESS["FILE_WIDTH"] = "Ширина";
 $MESS["FILE_HEIGHT"] = "Высота";

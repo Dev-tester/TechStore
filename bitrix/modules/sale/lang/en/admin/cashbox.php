@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_PAGE_TITLE"] = "Connect Cash Register";
 $MESS["SALE_CASHBOX_TITLE_FZ"] = "FZ-54 Compliance";
 $MESS["SALE_CASHBOX_TITLE"] = "Bitrix Cash Register";

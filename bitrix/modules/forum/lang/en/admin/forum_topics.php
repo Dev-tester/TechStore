@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FM_WRONG_DATE_CREATE_FROM"] = "Please type the correct lower bound of the creation date range";
 $MESS["FM_WRONG_DATE_CREATE_TILL"] = "Please correct the last date value for the creation date.";
 $MESS["FM_FROM_TILL_TIMESTAMP"] = "The last date must be greater than the first date.";

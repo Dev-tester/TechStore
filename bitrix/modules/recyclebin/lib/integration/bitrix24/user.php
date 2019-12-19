@@ -1,4 +1,4 @@
-<?
+<?php 
 
 namespace Bitrix\Recyclebin\Integration\Bitrix24;
 

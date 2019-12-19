@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_TITLE'] = "Управление структурой";
 $MESS ['FILEMAN_DOC_ROOT_TITLE'] = "Файлы и папки";
 $MESS ['FILEMAN_FILE_NAME'] = "Имя";

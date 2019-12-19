@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTIVE"] = "Active";
 $MESS["ADD_TYPE"] = "Add type";
 $MESS["ADD_TYPE_TITLE1"] = "Add event type";

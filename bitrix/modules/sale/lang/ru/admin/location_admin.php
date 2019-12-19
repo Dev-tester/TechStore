@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_SECTION_TITLE'] = "Местоположения";
 $MESS ['SALE_F_FILTER'] = "Фильтр";
 $MESS ['SALE_F_COUNTRY'] = "Страна";

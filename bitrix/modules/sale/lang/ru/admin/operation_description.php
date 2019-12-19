@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['OP_NAME_SALE_STATUS_VIEW'] = 'Просмотр';
 $MESS['OP_NAME_SALE_STATUS_CANCEL'] = 'Флаг отмены';
 $MESS['OP_NAME_SALE_STATUS_MARK'] = 'Флаг отметки о проблеме в заказе';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_MAIL_TEMPLATE_EDIT_TITLE'] = 'Перейти к странице редактирования этого почтового шаблона';
 $MESS['CRM_MAIL_TEMPLATE_EDIT'] = 'Редактировать почтовый шаблон';
 $MESS['CRM_MAIL_TEMPLATE_DELETE_TITLE'] = 'Удалить этот почтовый шаблон';

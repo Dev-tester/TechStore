@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_STATS_TITLE"] = "Start";
 $MESS["SENDER_STATS_EFFICIENCY_TITLE"] = "Ad efficiency";
 $MESS["SENDER_STATS_EFFICIENCY_LEVEL_1"] = "Bad";

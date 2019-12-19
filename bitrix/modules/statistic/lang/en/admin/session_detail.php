@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_ADD_TO_STOPLIST_TITLE'] = "add IP to stop list";
 $MESS ['STAT_EDIT_USER'] = "User profile";
 $MESS ['STAT_VIEW_HITS_LIST_1'] = "Hit list for this visitor ID";

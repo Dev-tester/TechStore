@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -19,7 +19,7 @@ $containerId = 'crm-tracking-channel-pool';
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-tracking-channel-pool-wrap">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:ui.feedback.form',
 		'',
@@ -43,7 +43,7 @@ $containerId = 'crm-tracking-channel-pool';
 					<?=Loc::getMessage('CRM_TRACKING_CHANNEL_POOL_ITEMS_' . $arParams['TYPE_NAME'])?>:
 				</div>
 				<div class="crm-tracking-channel-pool-inner-field">
-					<?
+					<?php 
 					$GLOBALS['APPLICATION']->includeComponent(
 						'bitrix:ui.tile.selector',
 						'',
@@ -68,7 +68,7 @@ $containerId = 'crm-tracking-channel-pool';
 				</div>
 			</div>
 
-			<?/*
+			<?php /*
 			<div class="crm-tracking-channel-format">
 				<div class="crm-tracking-channel-format-inner">
 					<span class="crm-tracking-channel-format-title">
@@ -80,7 +80,7 @@ $containerId = 'crm-tracking-channel-pool';
 			*/?>
 
 			<div class="crm-tracking-channel-pool-section-list">
-				<?foreach ($arResult['SOURCES'] as $source):?>
+				<?php foreach ($arResult['SOURCES'] as $source):?>
 				<div class="crm-tracking-channel-pool-section">
 					<div class="crm-tracking-channel-pool-section-title">
 						<span class="crm-tracking-channel-pool-section-title-text">
@@ -91,7 +91,7 @@ $containerId = 'crm-tracking-channel-pool';
 						</span>
 					</div>
 					<div class="crm-tracking-channel-pool-section-number">
-						<?
+						<?php 
 						$GLOBALS['APPLICATION']->includeComponent(
 							'bitrix:ui.tile.selector',
 							'',
@@ -107,7 +107,7 @@ $containerId = 'crm-tracking-channel-pool';
 						?>
 					</div>
 				</div>
-				<?endforeach;?>
+				<?php endforeach;?>
 
 				<div class="crm-tracking-channel-pool-section">
 					<div class="crm-tracking-channel-pool-section-title">
@@ -119,7 +119,7 @@ $containerId = 'crm-tracking-channel-pool';
 						</span>
 					</div>
 					<div class="crm-tracking-channel-pool-section-number">
-						<?
+						<?php 
 						$GLOBALS['APPLICATION']->includeComponent(
 							'bitrix:ui.tile.selector',
 							'',
@@ -138,7 +138,7 @@ $containerId = 'crm-tracking-channel-pool';
 			</div>
 		</div>
 
-		<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+		<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 			'BUTTONS' => ['save', 'cancel' => $arParams['PATH_TO_LIST']]
 		]);?>
 	</form>
@@ -162,7 +162,7 @@ $containerId = 'crm-tracking-channel-pool';
 		</div>
 
 		<div id="crm-tracking-pool-tester">
-			<?include __DIR__ . '/tester.php'?>
+			<?php include __DIR__ . '/tester.php'?>
 		</div>
 	</div>
 

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <a href="?"><?=GetMessage('WZ_TICKET_LIST')?></a>
 <br><br>
 <div class="wizard">
@@ -7,7 +7,7 @@
 <input type=hidden name=LAST_SECTION_ID value="<?=$arResult['LAST_SECTION_ID']?>">
 <input type=hidden name=CURRENT_STEP value="<?=$arResult['CURRENT_STEP']?>">
 
-<?
+<?php 
 if ($arResult['ERROR'])
 	echo '<div><font class=wizard_errortext>'.$arResult['ERROR'].'</font></div>';
 elseif($arResult['MESSAGE'])
@@ -20,13 +20,13 @@ elseif($arResult['MESSAGE'])
 	<th background="<?=$templateFolder?>/images/top_fill.gif" style="border:none;background-repeat: repeat-x" align=center valign=middle width=60><img src="<?=$templateFolder?>/images/icon.gif"><br><img src="/bitrix/images/1.gif" height=1 width=60></th>
 	<th background="<?=$templateFolder?>/images/top_fill.gif" style="border:none;background-repeat: repeat-x" align=left valign=middle>
 		<h2><?=GetMessage("WZ_TITLE")?></h2>
-		<?
+		<?php 
 		if ($arResult['TOP_MESSAGE'])
 			echo "<div class=wizard_smalltext>".$arResult['TOP_MESSAGE']."</div>";
 		?>
 	</th>
 </tr>
-<?
+<?php 
 ?>
 <tr>
 	<td style="border-left:none;border-bottom:none;border-right:none"><img src="/bitrix/images/1.gif" height=40 width=4></td>
@@ -39,7 +39,7 @@ elseif($arResult['MESSAGE'])
 	<td style="border:none"><img src="/bitrix/images/1.gif" width=1 height=1></td>
 	<td style="border:none" align=left>
 		<table cellspacing=0 cellpadding=8 border=0>
-			<?
+			<?php 
 			if (count($arResult['FIELDS']))
 			{
 				$i=0;
@@ -127,24 +127,24 @@ elseif($arResult['MESSAGE'])
 	<td style="border:none"><img src="/bitrix/images/1.gif" width=1 height=1></td>
 	<td style="border:none">
 		<p align=right style="padding-right:15px;padding-top:15px">
-		<? if (count($arResult['SECTIONS'])) { ?>
-			<? if ($arResult['CURRENT_STEP']>1) { ?>
+		<?php  if (count($arResult['SECTIONS'])) { ?>
+			<?php  if ($arResult['CURRENT_STEP']>1) { ?>
 				<input type=submit name="back" value="<?=GetMessage('BACK')?>">
-			<? } elseif ($arParams['BACK_URL']) {?>
+			<?php  } elseif ($arParams['BACK_URL']) {?>
 				<input type=submit value="<?=GetMessage('BACK')?>" onclick="javascript:window.location='<?=htmlspecialcharsbx(addslashes($arParams['BACK_URL']))?>';return false;">
-			<? } ?>
+			<?php  } ?>
 			<img src="/bitrix/images/1.gif" width=1 height=1>
 			<input type=submit value="<?=GetMessage('NEXT')?>" name="next">
-		<? } else { // Finish ?>
+		<?php  } else { // Finish ?>
 			<input type=submit value="<?=GetMessage('BACK')?>" name="back">
 			<img src="/bitrix/images/1.gif" width=1 height=1>
 			<input type=submit value="<?=GetMessage('FINISH')?>" name="end_wizard">
-		<? } ?>
+		<?php  } ?>
 		</p>
 	</td>
 </tr>
 </table>
-<?
+<?php 
 	if (count($arResult['HIDDEN']))
 	{
 		foreach($arResult['HIDDEN'] as $k=>$v)
@@ -158,7 +158,7 @@ elseif($arResult['MESSAGE'])
 	}
 ?>
 </form>
-<?
+<?php 
 
 // Help
 if (count($arHelp))
@@ -166,12 +166,12 @@ if (count($arHelp))
 ?>
 	<br>
 	<table cellspacing=4 cellpadding=2 style="background-color:#FFFFEF;border:1px solid #d7d7be;" width="100%">
-<?
+<?php 
 	foreach($arHelp as $i=>$help)
 		echo '<tr><td valign=top><font class=smalltext><b>'.$i.'.</b></font></td><td><font class=smalltext><a name="note'.$i.'"></a> ' . $help . '</font></td></tr>';
 ?>
 	</table>
-<?
+<?php 
 }
 ?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STORE_TITLE_UPDATE"] = "Редактирование склада #ID#";
 $MESS["STORE_TITLE_ADD"] = "Новый склад";
 $MESS["STORE_LIST"] = "Список";

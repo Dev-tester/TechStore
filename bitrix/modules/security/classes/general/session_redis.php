@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSecuritySessionRedis
 {
 	/** @var Redis $connection*/

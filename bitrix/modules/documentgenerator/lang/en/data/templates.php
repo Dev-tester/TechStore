@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_TEMPLATE_UPD_RU_NAME"] = "Universal invoice (Russia)";
 $MESS["DOCGEN_TEMPLATE_INVOICE_PL_NAME"] = "Invoice (Poland)";
 $MESS["DOCGEN_TEMPLATE_SALES_ORDER_PL_NAME"] = "Order confirmation (Poland)";

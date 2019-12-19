@@ -27,30 +27,30 @@ if (!empty($arResult['ERROR_MESSAGE']))
 
 ?>
 <div class="bx-disk-volume-structure-path">
-	<? if ($arResult['ADMIN_MODE']): ?>
+	<?php  if ($arResult['ADMIN_MODE']): ?>
 		<a href="<?= $component->getActionUrl(array('action' => $component::ACTION_DISKS)) ?>" class="disk-volume-list-back"><?= Loc::getMessage('DISK_VOLUME_LIST_BACK'); ?></a>
-	<? endif ?>
+	<?php  endif ?>
 
-	<? if (count($arResult['BREAD_CRUMB']) > 0): ?>
+	<?php  if (count($arResult['BREAD_CRUMB']) > 0): ?>
 		<div id="bx-disk-volume-bread-crumb" class="bx-disk-volume-bread-crumbs">
-			<? foreach ($arResult['BREAD_CRUMB'] as $item): ?>
+			<?php  foreach ($arResult['BREAD_CRUMB'] as $item): ?>
 				<span class="bx-disk-volume-bread-crumbs-item-container">
 					<a href="<?= $item['LINK'] ?>" class="bx-disk-volume-bread-crumbs-item-link" data-storageId="<?=$item['STORAGE_ID']?>" data-folderId="<?=$item['FOLDER_ID']?>" data-filterId="<?=$item['FILTER_ID']?>" data-collected="<?=$item['COLLECTED']?>">
 						<?= $item['NAME'] ?>
 					</a>
 				</span>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 </div>
-<?
+<?php 
 
 
 
 ?>
 <div id="disk-volume-disk-grid-<?= $component->getComponentId() ?>">
 	<div class="disk-volume-border"></div>
-	<?
+	<?php 
 
 
 	$APPLICATION->IncludeComponent(

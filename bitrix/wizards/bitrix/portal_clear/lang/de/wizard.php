@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['NEXT_BUTTON'] = "Weiter";
 $MESS ['PREVIOUS_BUTTON'] = "Zurьck";
 $MESS ['WELCOME_TEXT'] = "Dieser Assistent hilft Ihnen die Demodaten von Ihrem Intranet Portal zu entfernen.<br /><br /><span style='color:red'>Achtung!<br />Der Assistent lцscht folgende Demodaten:

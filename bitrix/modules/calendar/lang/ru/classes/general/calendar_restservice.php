@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAL_REST_ACCESS_DENIED"] = "Доступ запрещен";
 $MESS["CAL_REST_SECTION_NEW_ERROR"] = "При создании секции произошла ошибка";
 $MESS["CAL_REST_RESOURCE_NEW_ERROR"] = "При создании ресурса произошла ошибка";

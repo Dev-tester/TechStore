@@ -1,4 +1,4 @@
-<?
+<?php 
 class CVoxImplantError
 {
 	public $method = '';

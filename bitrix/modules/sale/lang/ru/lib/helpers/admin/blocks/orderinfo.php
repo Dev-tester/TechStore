@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_INFO"] = "Заказ ID(#ID#) | №#NUM#, создан #DATE#";
 $MESS["SALE_ORDER_INFO_FIO"] = "Ф.И.О.";
 $MESS["SALE_ORDER_INFO_PHONE"] = "Телефон";

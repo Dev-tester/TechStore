@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -7,7 +7,7 @@ use Bitrix\Main\Localization\Loc;
 ?>
 
 <div class="bx_profile">
-	<?
+	<?php 
 	ShowError($arResult["strProfileError"]);
 
 	if ($arResult['DATA_SAVED'] == 'Y')
@@ -23,7 +23,7 @@ use Bitrix\Main\Localization\Loc;
 		<input type="hidden" name="LOGIN" value="<?=$arResult["arUser"]["LOGIN"]?>" />
 		<div class="main-profile-block-shown" id="user_div_reg">
 			<div class="main-profile-block-date-info">
-				<?
+				<?php 
 				if($arResult["ID"]>0)
 				{
 					if (strlen($arResult["arUser"]["TIMESTAMP_X"])>0)
@@ -33,7 +33,7 @@ use Bitrix\Main\Localization\Loc;
 							<strong><?=Loc::getMessage('LAST_UPDATE')?></strong>
 							<strong><?=$arResult["arUser"]["TIMESTAMP_X"]?></strong>
 						</div>
-						<?
+						<?php 
 					}
 
 					if (strlen($arResult["arUser"]["LAST_LOGIN"])>0)
@@ -43,12 +43,12 @@ use Bitrix\Main\Localization\Loc;
 							<strong><?=Loc::getMessage('LAST_LOGIN')?></strong>
 							<strong><?=$arResult["arUser"]["LAST_LOGIN"]?></strong>
 						</div>
-						<?
+						<?php 
 					}
 				}
 				?>
 			</div>
-			<?
+			<?php 
 			if (!in_array(LANGUAGE_ID,array('ru', 'ua')))
 			{
 				?>
@@ -58,7 +58,7 @@ use Bitrix\Main\Localization\Loc;
 						<input class="form-control" type="text" name="TITLE" maxlength="50" id="main-profile-title" value="<?=$arResult["arUser"]["TITLE"]?>" />
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 			<div class="form-group">
@@ -85,13 +85,13 @@ use Bitrix\Main\Localization\Loc;
 					<input class="form-control" type="text" name="EMAIL" maxlength="50" id="main-profile-email" value="<?=$arResult["arUser"]["EMAIL"]?>" />
 				</div>
 			</div>
-			<?
+			<?php 
 			if ($arResult['CAN_EDIT_PASSWORD'])
 			{
 				?>
 				<div class="form-group">
 					<p class="main-profile-form-password-annotation col-sm-9 col-sm-offset-3 small">
-						<?echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?>
+						<?php echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?>
 					</p>
 				</div>
 				<div class="form-group">
@@ -108,18 +108,18 @@ use Bitrix\Main\Localization\Loc;
 						<input class="form-control" type="password" name="NEW_PASSWORD_CONFIRM" maxlength="50" value="" id="main-profile-password-confirm" autocomplete="off" />
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 		</div>
 		<p class="main-profile-form-buttons-block col-sm-9 col-md-offset-3">
 			<input type="submit" name="save" class="btn btn-themes btn-default btn-md main-profile-submit" value="<?=(($arResult["ID"]>0) ? Loc::getMessage("MAIN_SAVE") : Loc::getMessage("MAIN_ADD"))?>">
 			&nbsp;
-			<input type="submit" class="btn btn-themes btn-default btn-md"  name="reset" value="<?echo GetMessage("MAIN_RESET")?>">
+			<input type="submit" class="btn btn-themes btn-default btn-md"  name="reset" value="<?php echo GetMessage("MAIN_RESET")?>">
 		</p>
 	</form>
 	<div class="col-sm-12 main-profile-social-block">
-		<?
+		<?php 
 		if ($arResult["SOCSERV_ENABLED"])
 		{
 			$APPLICATION->IncludeComponent("bitrix:socserv.auth.split", ".default", array(

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -6,7 +6,7 @@
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 
-?><div class="feed-blog-post-list"><?
+?><div class="feed-blog-post-list"><?php 
 
 $pageId = "user_blog";
 include("util_menu.php");
@@ -44,7 +44,7 @@ if(COption::GetOptionString("blog", "socNetNewPerms", "N") == "N" && $USER->IsAd
 	<div class="feed-add-error">
 		<span class="feed-add-info-icon"></span><span class="feed-add-info-text"><?=GetMessage("BLG_SOCNET_REINDEX", Array("#url#" => $arResult["PATH_TO_REINDEX"]))?></span>
 	</div>
-	<?
+	<?php 
 }
 
 $bType = "user";
@@ -128,7 +128,7 @@ else
 {
 	$arLogParams["DISPLAY"] = $arResult["VARIABLES"]["user_id"];
 }
-?><div id="log_external_container"></div><?
+?><div id="log_external_container"></div><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.log.ex",
 	"",

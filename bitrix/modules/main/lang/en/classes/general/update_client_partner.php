@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ENTER_KEY"] = "Please enter the license key.";
 $MESS["SUP_ENTER_CORRECT_KEY"] = "The license key is incorrect.";
 $MESS["SUP_CANT_OPEN_FILE"] = "Unable to open file for writing.";

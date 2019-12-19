@@ -7,7 +7,7 @@ Loc::loadLanguageFile(__FILE__);
 ?>
 <li class="feed-add-post-destination-block">
 	<div class="feed-add-post-destination-title"><?=GetMessage("CRM_SL_MPF_DESTINATION_WHERE")?></div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.user.selector",
 		"",

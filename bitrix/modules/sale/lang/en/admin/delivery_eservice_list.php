@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ESDL_LIST"] = "Extra services";
 $MESS["SALE_ESDL_COL_ID"] = "ID";
 $MESS["SALE_ESDL_COL_CODE"] = "Code";

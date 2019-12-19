@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C7_ACT_SAVE'] = "Восстановить пользователей";
 $MESS ['SONET_C7_SUBTITLE'] = "Черный список группы";
 $MESS ['SONET_C7_NO_USERS'] = "Нет пользователей.";

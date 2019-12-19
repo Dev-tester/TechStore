@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_PRESET_DEFAULT_PRODUCT_PRODUCT_TITLE"] = "Product discount";
 $MESS["DISCOUNT_PRESET_DEFAULT_PRODUCT_PROPERTY_TITLE"] = "Discount for product with specified properties";
 $MESS["DISCOUNT_PRESET_DEFAULT_PAYMENT_DISCOUNT_TITLE"] = "Discount for payment system ";

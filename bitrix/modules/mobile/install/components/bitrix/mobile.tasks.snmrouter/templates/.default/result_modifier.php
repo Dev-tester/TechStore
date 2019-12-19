@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /**
  * @var CBitrixComponent $component
  * @var CBitrixComponentTemplate $this
@@ -68,11 +68,11 @@ BX.ready(function(){
 		});
 	};
 });
-<?
+<?php 
 	if (CModule::IncludeModule('pull') && $USER->IsAuthorized())
 	{
 		\CPullWatch::Add($USER->getId(), 'TASKS_GENERAL_'.$arParams['USER_ID']);
-		?>BXMobileApp.onCustomEvent('onPullExtendWatch', { id: 'TASKS_GENERAL_<?=$arParams['USER_ID']?>'}, true);<?
+		?>BXMobileApp.onCustomEvent('onPullExtendWatch', { id: 'TASKS_GENERAL_<?=$arParams['USER_ID']?>'}, true);<?php 
 	}
 ?>
 </script>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_IBSEC_DESCRIPTION"] = "Привязка к разделам инф. блоков";
 $MESS["USER_TYPE_IBSEC_DISPLAY"] = "Инфоблок";
 $MESS["USER_TYPE_IBSEC_CHECKBOX"] = "Флажки";

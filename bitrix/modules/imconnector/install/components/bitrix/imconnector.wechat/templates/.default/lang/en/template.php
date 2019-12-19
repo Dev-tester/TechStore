@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_WECHAT_APP_ENCRYPT_KEY"] = "Message Encryption Key:";
 $MESS["IMCONNECTOR_COMPONENT_WECHAT_APP_ID"] = "Developer ID (AppID):";
 $MESS["IMCONNECTOR_COMPONENT_WECHAT_APP_SECRET"] = "Developer Password (AppSecret):";

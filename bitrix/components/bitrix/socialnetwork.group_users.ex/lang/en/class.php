@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GUE_USERS_NAV"] = "Members";
 $MESS["SONET_GUE_MODS_NAV"] = "Moderators";
 $MESS["SONET_GUE_BAN_NAV"] = "Users";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_ENTITY_ID_FIELD"] = "ID des Kassenapparats";
 $MESS["SALE_CASHBOX_ENTITY_NAME_FIELD"] = "Name";
 $MESS["SALE_CASHBOX_ENTITY_ACTIVE_FIELD"] = "Aktiv";

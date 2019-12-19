@@ -1,4 +1,4 @@
-<?
+<?php 
 
 IncludeModuleLangFile(__FILE__);
 
@@ -1063,7 +1063,7 @@ if (!class_exists('CArray2XML'))
 
 		private function StartDocument()
 		{
-			$this->xml = '<?xml version="'.$this->version.'" encoding="'.$this->encoding.'"?>';
+			$this->xml = '<?php xml version="'.$this->version.'" encoding="'.$this->encoding.'"?>';
 		}
 
 		private function StartElement($key, $value='')

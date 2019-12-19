@@ -101,7 +101,7 @@ class Property
 					'search': '<?=GetMessageJS('CRM_ENTITY_SEL_SEARCH')?>',
 					'last': '<?=GetMessageJS('CRM_ENTITY_SEL_LAST')?>'
 				};
-				<?
+				<?php 
 					$listAvailableEntity = array('DEAL', 'CONTACT', 'COMPANY', 'LEAD');
 					foreach($listProperty as $property)
 					{
@@ -126,12 +126,12 @@ class Property
 									title: '<?=\CUtil::JSEscape($title)?>'
 								}
 							);
-						<?
+						<?php 
 					}
 				?>
 			});
 			</script>
-			<?
+			<?php 
 			$html .= ob_get_contents();
 			ob_end_clean();
 		endif;
@@ -203,7 +203,7 @@ class Property
 						);
 					});
 				</script>
-				<?
+				<?php 
 				$html .= ob_get_contents();
 				ob_end_clean();
 			}
@@ -247,7 +247,7 @@ class Property
 					);
 				});
 				</script>
-			<? endforeach;
+			<?php  endforeach;
 			$html .= ob_get_contents();
 			ob_end_clean();
 		}
@@ -603,7 +603,7 @@ class Property
 		}
 		})();
 		</script>
-		<?
+		<?php 
 		$script = ob_get_contents();
 		ob_end_clean();
 		return  $script;
@@ -850,7 +850,7 @@ class Property
 			}
 		})();
 		</script>
-		<?
+		<?php 
 		$script = ob_get_contents();
 		ob_end_clean();
 		return  $script;
@@ -1164,7 +1164,7 @@ class Property
 				}
 			})();
 		</script>
-		<?
+		<?php 
 		$script = ob_get_contents();
 		ob_end_clean();
 		return  $script;

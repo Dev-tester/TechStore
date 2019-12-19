@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGESERVICE_MODULE_NOT_INSTALLED"] = "Модуль 'Служба сообщений' не установлен.";
 $MESS["MESSAGESERVICE_PERMISSION_DENIED"] = "Доступ запрещен";
 $MESS["MESSAGESERVICE_HEADER_SENDER"] = "Сервис";

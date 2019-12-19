@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -26,7 +26,7 @@ $arParams["SHOW_WEBDAV"] = ($arParams["SHOW_WEBDAV"] == "N" ? "N" : "Y");
 				<table cellpadding="0" cellspacing="0" border="0" class="wd-menu-inner">
 					<tr>
 						<td><div class="section-separator"></div></td>
-<?
+<?php 
 if (strpos($arParams["PAGE_NAME"], "WEBDAV_BIZPROC_WORKFLOW") !== false && 
 	$arParams["USE_BIZPROC"] == "Y" && $arParams["PERMISSION"] >= "U" && IsModuleInstalled("bizprocdesigner")):
 ?>
@@ -34,7 +34,7 @@ if (strpos($arParams["PAGE_NAME"], "WEBDAV_BIZPROC_WORKFLOW") !== false &&
 						<td>
 <div class="controls controls-view element-add element-add-bizproc-status">
 	<a target="_self" href="<?=$arResult["URL"]["WEBDAV_BIZPROC_WORKFLOW_EDIT"].
-		(strpos($arResult["URL"]["WEBDAV_BIZPROC_WORKFLOW_EDIT"], "?") === false ? "?" : "&")."init=statemachine"?>" <?
+		(strpos($arResult["URL"]["WEBDAV_BIZPROC_WORKFLOW_EDIT"], "?") === false ? "?" : "&")."init=statemachine"?>" <?php 
 			?>title="<?=GetMessage("BPATT_HELP1_TEXT")?>">
 		<?=GetMessage("BPATT_HELP1")?>
 	</a>
@@ -44,13 +44,13 @@ if (strpos($arParams["PAGE_NAME"], "WEBDAV_BIZPROC_WORKFLOW") !== false &&
 						<td>
 <div class="controls controls-view element-add element-add-bizproc-sequence">
 	<a target="_self" href="<?=$arResult["URL"]["WEBDAV_BIZPROC_WORKFLOW_EDIT"].
-		(strpos($arResult["URL"]["WEBDAV_BIZPROC_WORKFLOW_EDIT"], "?") === false ? "?" : "").""?>" <?
+		(strpos($arResult["URL"]["WEBDAV_BIZPROC_WORKFLOW_EDIT"], "?") === false ? "?" : "").""?>" <?php 
 		?>title="<?=GetMessage("BPATT_HELP2_TEXT")?>">
 		<?=GetMessage("BPATT_HELP2")?>
 	</a>
 </div>
 						</td>
-<?
+<?php 
 else:
 if ($arParams["PAGE_NAME"] != "SECTIONS"):
 ?>
@@ -62,7 +62,7 @@ if ($arParams["PAGE_NAME"] != "SECTIONS"):
 </div>
 						</td>
 						<td class="separator"><div class="separator"></div></td>
-<?
+<?php 
 endif;
 
 if ($arParams["PERMISSION"] >= "U"):
@@ -77,7 +77,7 @@ if ($arParams["PERMISSION"] >= "U"):
 </div>
 						</td>
 						<td id="wd_create_in_ie_separator"  style="display:none;"><div class="separator"></div></td>
-<?
+<?php 
 		endif;
 ?>
 						<td>
@@ -88,7 +88,7 @@ if ($arParams["PERMISSION"] >= "U"):
 	</a>
 </div>
 						</td>
-<?
+<?php 
 if ($arParams["SHOW_CREATE_LINK"] != "N"):
 ?>
 						<td class="separator"><div class="separator"></div></td>
@@ -99,11 +99,11 @@ if ($arParams["SHOW_CREATE_LINK"] != "N"):
 	</a>
 </div>
 						</td>
-<?
+<?php 
 endif;
 ?>
 						<td class="separator"><div class="separator"></div></td>
-<?
+<?php 
 		if ($arParams["USE_SEARCH"] == "Y"):
 ?>
 						<td>
@@ -114,7 +114,7 @@ endif;
 </div>
 						</td>
 						<td class="separator"><div class="separator"></div></td>
-<?
+<?php 
 		endif;
 	elseif (false && $arParams["PAGE_NAME"] == "ELEMENT"):
 ?>
@@ -128,7 +128,7 @@ endif;
 						<td class="separator"><div class="separator"></div></td>
 						<td>
 <div class="controls controls-action element_delete">
-	<a href="<?=$arResult["URL"]["ELEMENT"]["DELETE"]?>" title="<?=GetMessage("WD_ELEMENT_DELETE_ALT")?>" <?
+	<a href="<?=$arResult["URL"]["ELEMENT"]["DELETE"]?>" title="<?=GetMessage("WD_ELEMENT_DELETE_ALT")?>" <?php 
 		?>onclick="return confirm('<?=CUtil::JSEscape(GetMessage("WD_ELEMENT_DELETE_CONFIRM"))?>');">
 		<?=GetMessage("WD_ELEMENT_DELETE")?>
 	</a>
@@ -136,22 +136,22 @@ endif;
 						</td>
 						<td class="separator"><div class="separator"></div></td>
 
-<?
+<?php 
 	endif;
 endif;
 if ($arResult["USER"]["SHOW"]["SUBSCRIBE"] == "Y" && strpos($arParams["PAGE_NAME"], "WEBDAV_BIZPROC_WORKFLOW") === false):
 ?>
 						<td>
-<?
+<?php 
 if ($arResult["USER"]["SUBSCRIBE"]["FORUM"] == "Y"):
 ?>
 <div class="controls controls-view unsubscribe">
-	<a href="<?=$arResult["URL"]["UNSUBSCRIBE"]?>" title="<?=GetMessage("WD_UNSUBSCRIBE_FROM_FORUM")?>" <?
+	<a href="<?=$arResult["URL"]["UNSUBSCRIBE"]?>" title="<?=GetMessage("WD_UNSUBSCRIBE_FROM_FORUM")?>" <?php 
 		?>onclick="return confirm('<?=CUtil::JSEscape(GetMessage("WD_SUBSCRIBE_DELETE_CONFIRM"))?>');">
 		<?=GetMessage("WD_UNSUBSCRIBE")?>
 	</a>
 </div>
-<?
+<?php 
 else:
 ?>
 <div class="controls controls-view subscribe">
@@ -159,12 +159,12 @@ else:
 		<?=GetMessage("WD_SUBSCRIBE")?>
 	</a>
 </div>
-<?
+<?php 
 endif;
 ?>
 						</td>
 						<td class="separator"><div class="separator"></div></td>
-<?
+<?php 
 endif;
 ?>
 						<td>
@@ -174,17 +174,17 @@ endif;
 	</a>
 </div>
 						</td>
-<?
+<?php 
 if ($arParams["SHOW_WEBDAV"] == "Y"):
 ?>
 						<td id="wd_map_in_ie_separator"  style="display:none;"><div class="separator"></div></td>
 						<td id="wd_map_in_ie" style="display:none;">
 <div class="controls controls-view maping">
-	<a href="javascript:void(0);" onclick="WDMappingDrive('<?=CUtil::JSEscape(str_replace(":443", "", $arParams["BASE_URL"]))?>'); return false;" <?
+	<a href="javascript:void(0);" onclick="WDMappingDrive('<?=CUtil::JSEscape(str_replace(":443", "", $arParams["BASE_URL"]))?>'); return false;" <?php 
 		?>title="<?=GetMessage("WD_MAPING_ALT")?>"><?=GetMessage("WD_MAPING")?></a>
 </div>
 						</td>
-<?
+<?php 
 endif;
 if ($arParams["USE_BIZPROC"] == "Y" && $arParams["PERMISSION"] > "U" && $arParams["CHECK_CREATOR"] != "Y" && 
 	strpos($arParams["PAGE_NAME"], "WEBDAV_BIZPROC_WORKFLOW") === false):
@@ -196,7 +196,7 @@ if ($arParams["USE_BIZPROC"] == "Y" && $arParams["PERMISSION"] > "U" && $arParam
 		<a target="_self" href="<?=$arResult["URL"]["WEBDAV_BIZPROC_WORKFLOW_ADMIN"]?>"><?=GetMessage("WD_BP")?></a>
 </div>
 						</td>
-<?
+<?php 
 endif;
 endif;
 
@@ -214,7 +214,7 @@ endif;
 		<td class="right"><div class="empty"></div></td>
 	</tr></tfoot>
 </table>
-<?
+<?php 
 if ($arParams["SHOW_WEBDAV"] == "Y"):
 ?>
 <script>
@@ -262,7 +262,7 @@ if (typeof oText != "object")
 oText['error_create_1'] = '<?=CUtil::JSEscape(GetMessage("WD_ERROR_1"))?>';
 oText['error_create_2'] = '<?=CUtil::JSEscape(GetMessage("WD_ERROR_2"))?>';
 </script>
-<?
+<?php 
 endif;
 ?>
 </div>

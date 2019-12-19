@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_INVOICES_DATE_RANGE"] = "Date range";
 $MESS["VOX_INVOICES_DOCUMENT_DATE"] = "Invoice date";
 $MESS["VOX_INVOICES_DOCUMENT_NUMBER"] = "#";

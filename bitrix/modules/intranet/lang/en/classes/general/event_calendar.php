@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEL_CON_CALENDARS"] = "Delete Calendars";
 $MESS["EC_ACCESSIBILITY"] = "User's availability";
 $MESS["EC_ACCESSIBILITY_A"] = "Away";

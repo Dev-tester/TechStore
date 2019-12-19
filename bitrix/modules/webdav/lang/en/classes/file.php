@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_FILE_ERROR1"] = "The physical directory was not found.";
 $MESS["WD_FILE_ERROR2"] = "The destination path is incorrect.";
 $MESS["WD_FILE_ERROR3"] = "The source was not found.";

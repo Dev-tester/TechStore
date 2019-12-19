@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_CSA_GROUP_STORE"] = "Warehouses";
 $MESS["CP_CSA_PARAM_STORES"] = "Warehouses";
 $MESS["STORES_TIP"] = "If no warehouse is selected, the component will display information across all available warehouses.";

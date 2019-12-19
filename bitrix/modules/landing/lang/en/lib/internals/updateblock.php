@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['LANDING_TABLE_FIELD_BLOCK_CODE'] = "Block symbolic code";
 $MESS['LANDING_TABLE_FIELD_BLOCK_PARAMS'] = "Call parameters";
 $MESS['LANDING_TABLE_FIELD_CREATED_BY_ID'] = "Created by user ID";

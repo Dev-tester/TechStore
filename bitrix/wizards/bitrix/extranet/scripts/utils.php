@@ -1,4 +1,4 @@
-<?
+<?php 
 class WizardServices
 {
 	function GetTemplates($relativePath)

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_JS_STATUS_ACTION_SUCCESS"] = "Успешно";
 $MESS["LISTS_JS_STATUS_ACTION_ERROR"] = "Произошла ошибка";
 $MESS["LISTS_ADD_STAFF"] = "Добавить сотрудников";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_F_ALL"] = "< Alle >";
 $MESS["SALE_DELETE"] = "Abbrechen";
 $MESS["SALE_ACTION"] = "Aktionen";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("MOBILE_APP_ADMIN", true);
 define("MOBILE_APP_ADMIN_PATH","/bitrix/admin/mobile");
 define("MOBILE_APP_MENU_FILE","/bitrix/admin/mobile/.mobile_menu.php");

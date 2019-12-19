@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_DEMO_STORE_CHATS_LIGHT-MAIN-DESC_NEW"] = "Online store to enable sales in social media and messengers. Send product and service pages to a customer and accept payment directly in chat.";
 $MESS["LANDING_DEMO_STORE_CHATS_LIGHT-MAIN-NAME"] = "Chat enabled sales";
 $MESS["LANDING_DEMO_STORE_CHATS_LIGHT-MAIN-RICH_DESC"] = "Learn who we are and what we do. Contact us if you need to know more!";

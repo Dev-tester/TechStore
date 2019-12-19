@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_SETTINGS"] = "Настройки модуля задач";
 $MESS["TASKS_SETTINGS_TITLE"] = "Глобальные настройки модуля задач";
 $MESS["LEARNING_SITE_PATH_SITE"] = "Шаблоны путей для сайта &quot;#SITE#&quot;";

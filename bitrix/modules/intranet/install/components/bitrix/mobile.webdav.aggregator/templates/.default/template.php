@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); ?>
 <div id='wd_aggregator_tree'>
 <ul data-role="listview" data-inset="true">
-<?
+<?php 
 foreach ($arResult['STRUCTURE'] as $node)
 {
 	//$link = rtrim($arParams['SEF_FOLDER'],'/') . $node['PATH'];
@@ -12,20 +12,20 @@ foreach ($arResult['STRUCTURE'] as $node)
 		$lnk = urlencode($lnk);
 	$link = implode('/', $arLink);
 
-	?><li><?
+	?><li><?php 
 	if($node["TYPE"] == "file")
 	{
-		?><a data-icon="none" href="<?=$link?>" rel="external"><img class="ui-li-icon" src="<?=$templateFolder?>/images/icons/ic<?=substr($node["FILE_EXTENTION"], 1)?>.gif" border="0"><?=$node['NAME']?></a><?
+		?><a data-icon="none" href="<?=$link?>" rel="external"><img class="ui-li-icon" src="<?=$templateFolder?>/images/icons/ic<?=substr($node["FILE_EXTENTION"], 1)?>.gif" border="0"><?=$node['NAME']?></a><?php 
 	}
 	elseif($node["TYPE"] == "up")
 	{
-		?><a href="<?=$link?>" data-rel="back"><img class="ui-li-icon" src="<?=$templateFolder?>/images/icons/up.gif" border="0">..</a><?
+		?><a href="<?=$link?>" data-rel="back"><img class="ui-li-icon" src="<?=$templateFolder?>/images/icons/up.gif" border="0">..</a><?php 
 	}
 	else
 	{
-		?><a href="<?=$link?>"><img class="ui-li-icon" src="<?=$templateFolder?>/images/icons/section.gif" border="0"><?=$node['NAME']?></a><?
+		?><a href="<?=$link?>"><img class="ui-li-icon" src="<?=$templateFolder?>/images/icons/section.gif" border="0"><?=$node['NAME']?></a><?php 
 	}
-	?></li><?
+	?></li><?php 
 }
 ?>
 </ul>

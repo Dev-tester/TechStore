@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_SHOW_TAGS"] = "Show tags";
 $MESS["F_PAGE_NAVIGATION_TEMPLATE"] = "Name of the pager template";
 $MESS["F_THEMES"] = "Topics";

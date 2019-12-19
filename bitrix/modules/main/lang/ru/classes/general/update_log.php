@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['HINT_WIND_TITLE'] = "Описание обновления";
 $MESS ['HINT_WIND_EXEC'] = "Описание обновления";
 $MESS ['HINT_WIND_EXEC_ALT'] = "Описание обновления";

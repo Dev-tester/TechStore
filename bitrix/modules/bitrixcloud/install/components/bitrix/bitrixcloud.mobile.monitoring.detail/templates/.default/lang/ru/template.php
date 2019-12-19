@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCLMMD_PARAM_HTTP_RESPONSE_TIME"] = "Работоспособность сайта";
 $MESS["BCLMMD_PARAM_FAILED_PERIOD"] = "Время простоя";
 $MESS["BCLMMD_PARAM_MONITORING_PERIOD"] = "Период измерений";

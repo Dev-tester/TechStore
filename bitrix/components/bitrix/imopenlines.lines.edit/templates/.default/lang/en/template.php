@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_CONFIG_ACTIVE"] = "Channel is active";
 $MESS["IMOL_CONFIG_ADD_BOT"] = "Add chat bot";
 $MESS["IMOL_CONFIG_AVATAR_LOADED"] = "Uploaded photos";

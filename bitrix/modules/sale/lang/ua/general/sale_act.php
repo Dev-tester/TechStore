@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_SALE_ACT_GROUP_BASKET_SELECT_TYPE_CLOSEOUT"] = "фіксовану ціну";
 $MESS["BT_SALE_ACT_GROUP_GLOBAL_PREFIX"] = "Виконати дії:";
 $MESS["BT_SALE_ACT_DELIVERY_LABEL"] = "Змінити вартість доставки";

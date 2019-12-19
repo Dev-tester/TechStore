@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_MODULE_ERROR"] = "The \"Sales Center\" module is not installed.";
 $MESS["SC_CASHBOX_FIELDS_EMAIL"] = "Notification email";
 $MESS["SC_CASHBOX_FIELDS_EMAIL_HINT"] = "A message will be sent to this email if a receipt could not be printed";

@@ -1,7 +1,7 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 foreach ($arResult["ATTACHES"] as $attach)
 {
-	?><input type="hidden" name="<?=$arParams["arUserField"]["FIELD_NAME"]?><?=($arParams["arUserField"]["MULTIPLE"] == "Y" ? "[]" : "")?>" value="<?=$attach["ID"]?>" /><?
+	?><input type="hidden" name="<?=$arParams["arUserField"]["FIELD_NAME"]?><?=($arParams["arUserField"]["MULTIPLE"] == "Y" ? "[]" : "")?>" value="<?=$attach["ID"]?>" /><?php 
 
 	$GLOBALS["APPLICATION"]->IncludeComponent(
 		"bitrix:voting.vote.edit",
@@ -19,7 +19,7 @@ foreach ($arResult["ATTACHES"] as $attach)
 }
 if ($arParams["arUserField"]["MULTIPLE"] == "Y" || empty($arResult["ATTACHES"]))
 {
-	?><input type="hidden" name="<?=$arParams["arUserField"]["FIELD_NAME"]?><?=($arParams["arUserField"]["MULTIPLE"] == "Y" ? "[]" : "")?>" value="n0" /><?
+	?><input type="hidden" name="<?=$arParams["arUserField"]["FIELD_NAME"]?><?=($arParams["arUserField"]["MULTIPLE"] == "Y" ? "[]" : "")?>" value="n0" /><?php 
 	$GLOBALS["APPLICATION"]->IncludeComponent(
 		"bitrix:voting.vote.edit",
 		".default",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_404_ERROR"] = "Template was not found";
 $MESS["LANDING_LOADER_WAIT"] = "The online store is being imported. Please wait...";
 $MESS["LANDING_PREVIEW_NOTICE"] = "Text will be shown as preview on social pages";

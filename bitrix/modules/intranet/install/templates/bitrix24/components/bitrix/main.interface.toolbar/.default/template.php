@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -19,7 +19,7 @@ if (count($arParams["BUTTONS"]) < 1)
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tr>
 
-<?
+<?php 
 $newBar = false;
 $arMoreButtons = Array();
 foreach($arParams["BUTTONS"] as $index=>$item):
@@ -55,16 +55,16 @@ foreach($arParams["BUTTONS"] as $index=>$item):
 				</script>
 				<a href="javascript:void(0);" hidefocus="true" 
 					onclick="this.blur(); jsPopup_<?=$arParams["TOOLBAR_ID"]?>.ShowMenu(this, jsMnu_<?=$arParams["TOOLBAR_ID"].'_'.$index?>); return false;" 
-					title="<?=$item["TITLE"]?>" class="bx-context-button"><span class="bx-context-button-left"></span><?if(!empty($item["ICON"])):?><span class="bx-context-button-icon <?=$item["ICON"]?>"></span><?endif?><span class="bx-context-button-text"><?=$item["TEXT"]?></span><span class="bx-arrow" alt=""></span><span class="bx-context-button-right"></span></a></td>
-<?		
+					title="<?=$item["TITLE"]?>" class="bx-context-button"><span class="bx-context-button-left"></span><?php if(!empty($item["ICON"])):?><span class="bx-context-button-icon <?=$item["ICON"]?>"></span><?php endif?><span class="bx-context-button-text"><?=$item["TEXT"]?></span><span class="bx-arrow" alt=""></span><span class="bx-context-button-right"></span></a></td>
+<?php 		
 	elseif($item["HTML"] <> ""):
 ?>
 				<td><?=$item["HTML"]?></td>
-<?
+<?php 
 	else:
 ?>
-				<td><a href="<?=$item["LINK"]?>" hidefocus="true" title="<?=$item["TITLE"]?>" <?=$item["LINK_PARAM"]?> class="bx-context-button"><span class="bx-context-button-left"></span><?if(!empty($item["ICON"])):?><span class="bx-context-button-icon <?=$item["ICON"]?>"></span><?endif?><span class="bx-context-button-text"><?=$item["TEXT"]?></span><span class="bx-context-button-right"></span></a></td>
-<?
+				<td><a href="<?=$item["LINK"]?>" hidefocus="true" title="<?=$item["TITLE"]?>" <?=$item["LINK_PARAM"]?> class="bx-context-button"><span class="bx-context-button-left"></span><?php if(!empty($item["ICON"])):?><span class="bx-context-button-icon <?=$item["ICON"]?>"></span><?php endif?><span class="bx-context-button-text"><?=$item["TEXT"]?></span><span class="bx-context-button-right"></span></a></td>
+<?php 
 	endif;
 endforeach;?>
 
@@ -91,7 +91,7 @@ var jsPopup_<?=$arParams["TOOLBAR_ID"]?> = new PopupMenu('Popup<?=$arParams["TOO
 </script>
 
 
-<?if (!empty($arMoreButtons)):?>
+<?php if (!empty($arMoreButtons)):?>
 
 			<div class="bx-context-more-buttons">
 			<script type="text/javascript">
@@ -102,7 +102,7 @@ var jsPopup_<?=$arParams["TOOLBAR_ID"]?> = new PopupMenu('Popup<?=$arParams["TOO
 					class="bx-context-button"><span class="bx-context-button-left"></span><span class="bx-context-button-text"><?=GetMessage("TOOLBAR_MORE_BUTTONS")?></span><span class="bx-arrow" alt=""></span><span class="bx-context-button-right"></span></a>
 			</div>
 
-		<?endif;?>
+		<?php endif;?>
 
 
 </div>

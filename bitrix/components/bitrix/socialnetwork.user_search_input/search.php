@@ -1,4 +1,4 @@
-<?Define("STOP_STATISTICS", true);
+<?php Define("STOP_STATISTICS", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 if (
@@ -100,7 +100,7 @@ if (
 			}
 			while ($arUser = $dbUsers->Fetch());
 		}
-		?><?=CUtil::PhpToJSObject($arResult)?><?
+		?><?=CUtil::PhpToJSObject($arResult)?><?php 
 		require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_after.php");
 		die();
 	}

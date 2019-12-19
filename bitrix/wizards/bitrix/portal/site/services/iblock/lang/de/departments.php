@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["iblock_dep_dep"]="Abteilung";
 $MESS["iblock_dep_created"]="Erstellt";
 $MESS["iblock_dep_changed"]="Geдndert";

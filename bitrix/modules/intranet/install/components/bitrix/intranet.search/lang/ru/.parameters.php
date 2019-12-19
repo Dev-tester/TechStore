@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_COMP_IS_GROUP_FILTER'] = "Параметры фильтра";
 $MESS ['INTR_COMP_IS_PARAM_STRUCTURE_PAGE'] = "Страница структуры компании";
 $MESS ['INTR_COMP_IS_PARAM_DETAIL_URL'] = "Страница профиля пользователя";

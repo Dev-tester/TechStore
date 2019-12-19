@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OL_COMPONENT_KPI_FIRST_ANSWER_TEXT"] = "#OPERATOR# exceeded maximum initial response time in conversation ##DIALOG#.";
 $MESS["OL_COMPONENT_KPI_FURTHER_ANSWER_TEXT"] = "#OPERATOR# exceeded maximum response time in conversation ##DIALOG#.";
 $MESS["OL_COMPONENT_LE_BOT_LIST"] = "chat bot  is not selected";

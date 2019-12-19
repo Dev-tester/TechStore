@@ -1,62 +1,62 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="news-list">
-<?if($arParams["DISPLAY_TOP_PAGER"]):?>
+<?php if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
-<?endif;?>
-<?foreach($arResult["ITEMS"] as $arItem):?>
+<?php endif;?>
+<?php foreach($arResult["ITEMS"] as $arItem):?>
 	<p class="docs-item">
-        <?if($arParams["DISPLAY_PICTURE"]!="N"):?> 
-            <?if (is_array($arItem["PREVIEW_PICTURE"])):?>
-                <?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
+        <?php if($arParams["DISPLAY_PICTURE"]!="N"):?> 
+            <?php if (is_array($arItem["PREVIEW_PICTURE"])):?>
+                <?php if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
                     <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img class="preview_picture" border="0" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>" height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>" title="<?=$arItem["NAME"]?>" style="float:left" /></a>
-                <?else:?>
+                <?php else:?>
                     <img class="preview_picture" border="0" src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" width="<?=$arItem["PREVIEW_PICTURE"]["WIDTH"]?>" height="<?=$arItem["PREVIEW_PICTURE"]["HEIGHT"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>" title="<?=$arItem["NAME"]?>" style="float:left" />
-                <?endif;?>
-            <?else:?>
+                <?php endif;?>
+            <?php else:?>
                     <div class="element-icon ic<?=substr($arItem["FILE_EXTENTION"], 1)?>"></div>
-            <?endif?>
-        <?endif?>
-		<?if($arParams["DISPLAY_DATE"]!="N" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
-			<div class="news-date-time intranet-date"><?echo $arItem["DISPLAY_ACTIVE_FROM"]?></div>
-		<?endif?>
-		<?if($arParams["DISPLAY_DATE"]!="N" && $arItem["FIELDS"]["TIMESTAMP_X"]):
+            <?php endif?>
+        <?php endif?>
+		<?php if($arParams["DISPLAY_DATE"]!="N" && $arItem["DISPLAY_ACTIVE_FROM"]):?>
+			<div class="news-date-time intranet-date"><?php echo $arItem["DISPLAY_ACTIVE_FROM"]?></div>
+		<?php endif?>
+		<?php if($arParams["DISPLAY_DATE"]!="N" && $arItem["FIELDS"]["TIMESTAMP_X"]):
 			?>
-			<div class="news-date-time intranet-date"><?echo $arItem["FIELDS"]["TIMESTAMP_X"]?></div>
-		<?
+			<div class="news-date-time intranet-date"><?php echo $arItem["FIELDS"]["TIMESTAMP_X"]?></div>
+		<?php 
 			unset($arItem["FIELDS"]["TIMESTAMP_X"]);
 		endif?>
-		<?if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
-			<?if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
-				<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?></a><br />
-			<?else:?>
-				<b><?echo $arItem["NAME"]?></b><br />
-			<?endif;?>
-		<?endif;?>
-		<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-			<?echo $arItem["PREVIEW_TEXT"];?>
-		<?endif;?>
-		<?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
+		<?php if($arParams["DISPLAY_NAME"]!="N" && $arItem["NAME"]):?>
+			<?php if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($arItem["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"])):?>
+				<a href="<?php echo $arItem["DETAIL_PAGE_URL"]?>"><?php echo $arItem["NAME"]?></a><br />
+			<?php else:?>
+				<b><?php echo $arItem["NAME"]?></b><br />
+			<?php endif;?>
+		<?php endif;?>
+		<?php if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
+			<?php echo $arItem["PREVIEW_TEXT"];?>
+		<?php endif;?>
+		<?php if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
 			<div style="clear:both"></div>
-		<?endif?>
-		<?foreach($arItem["FIELDS"] as $code=>$value):?>
-            <?if ($code == "TIMESTAMP_X" && $arParams["DISPLAY_DATE"]!="Y") continue; ?>  
+		<?php endif?>
+		<?php foreach($arItem["FIELDS"] as $code=>$value):?>
+            <?php if ($code == "TIMESTAMP_X" && $arParams["DISPLAY_DATE"]!="Y") continue; ?>  
 			<small>
 			<?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
 			</small><br />
-		<?endforeach;?>
-		<?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+		<?php endforeach;?>
+		<?php foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 			<small>
 			<?=$arProperty["NAME"]?>:&nbsp;
-			<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
+			<?php if(is_array($arProperty["DISPLAY_VALUE"])):?>
 				<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-			<?else:?>
+			<?php else:?>
 				<?=$arProperty["DISPLAY_VALUE"];?>
-			<?endif?>
+			<?php endif?>
 			</small><br />
-		<?endforeach;?>
+		<?php endforeach;?>
 	</p>
-<?endforeach;?>
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+<?php endforeach;?>
+<?php if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<br /><?=$arResult["NAV_STRING"]?>
-<?endif;?>
+<?php endif;?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BP_EXPR_NAME"] = "Expert Opinion";
 $MESS["BP_EXPR_DESC"] = "Recommended for situations when a person who is to approve or reject a document needs expert comments on it. This process creates a group of experts each of which expresses their opinion on the document. Then	 the opinions are passed over to the person who makes the final decision.";
 $MESS["BP_EXPR_S"] = "Sequential Business Process";

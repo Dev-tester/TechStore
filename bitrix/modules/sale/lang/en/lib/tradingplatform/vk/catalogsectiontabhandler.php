@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_VK_NAME"] = "VK Products";
 $MESS["SALE_VK_DESCRIPTION"] = "VK shop integration";
 $MESS["SALE_VK_ONLY_RUSSIAN"] = "Export to VK is only available in Russian.";

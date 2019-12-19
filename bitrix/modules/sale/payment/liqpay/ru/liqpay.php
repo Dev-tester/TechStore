@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SALE_MERCHANT_ID"]="Merchant ID";

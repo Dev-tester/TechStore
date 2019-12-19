@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 CJSCore::Init(["voximplant.common"]);
 
@@ -31,12 +31,12 @@ function getBalance($amount)
 			<table class="tel-balance-table">
 				<tr>
 					<td class="tel-balance-left">
-						<?if(in_array($arResult['LANG'], Array('ua', 'kz', 'by'))):?>
+						<?php if(in_array($arResult['LANG'], Array('ua', 'kz', 'by'))):?>
 						<div class="tel-balance-title"><?=GetMessage('TELEPHONY_BALANCE_2')?></div>
 						<div class="tel-balance-sum-wrap">
 
 						</div>
-						<?else:?>
+						<?php else:?>
 						<div class="tel-balance-title"><?=GetMessage('TELEPHONY_BALANCE')?></div>
 						<div class="tel-balance-sum-wrap">
 							<span class="tel-balance-box">
@@ -47,7 +47,7 @@ function getBalance($amount)
 							</span>
 							<span class="tel-balance-sum-currency sum-currency-<?=strtoupper($arResult['CURRENCY']);?>"></span>
 						</div>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 					<td class="tel-balance-right">
 						<div class="tel-balance-btn-wrap">
@@ -59,34 +59,34 @@ function getBalance($amount)
 							</a>
 						</div>
 						<div class="tel-balance-btn-wrap">
-							<?if(VI\Limits::isRestOnly()):?>
+							<?php if(VI\Limits::isRestOnly()):?>
 
-							<?elseif (in_array($arResult['LANG'], Array('ua', 'kz'))):?>
+							<?php elseif (in_array($arResult['LANG'], Array('ua', 'kz'))):?>
 							<a href="<?=$arResult['LINK_TO_BUY']?>" target="_blank" class="tel-balance-update-btn tel-balance-update-btn2">
 								<span class="tel-balance-update-btn-text"><?=GetMessage('TELEPHONY_TARIFFS_2')?></span>
 							</a>
-							<?elseif($arResult['LINK_TO_BUY']):?>
+							<?php elseif($arResult['LINK_TO_BUY']):?>
 							<a href="<?=GetMessage('TELEPHONY_TARIFFS_LINK')?>" target="_blank" class="tel-balance-update-btn tel-balance-update-btn2">
 								<span class="tel-balance-update-btn-text"><?=GetMessage('TELEPHONY_TARIFFS_2')?></span>
 							</a>
-							<?endif;?>
+							<?php endif;?>
 						</div>
-						<?if ($arResult['SHOW_PAY_BUTTON']):?>
+						<?php if ($arResult['SHOW_PAY_BUTTON']):?>
 							<div class="tel-balance-btn-wrap">
-								<?if ($arResult['LINK_TO_BUY']):?>
+								<?php if ($arResult['LINK_TO_BUY']):?>
 									<a href="<?=$arResult['LINK_TO_BUY']?>" class="tel-balance-blue-btn"><?=GetMessage('TELEPHONY_PAY')?></a>
-								<?else:?>
+								<?php else:?>
 									<span onclick="alert('<?=CUtil::JSEscape(GetMessage('TELEPHONY_PAY_DISABLE'))?>')" class="tel-balance-update-btn tel-balance-update-btn2">
 										<span class="tel-balance-update-btn-text"><?=GetMessage('TELEPHONY_PAY')?></span>
 									</span>
-								<?endif;?>
+								<?php endif;?>
 							</div>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
 			</table>
 		</div>
-		<?
+		<?php 
 		if($arResult['SHOW_LINES'])
 		{
 			$APPLICATION->IncludeComponent(
@@ -104,27 +104,27 @@ function getBalance($amount)
 	</div>
 
 <!-- statistic-->
-<? if($arResult['SHOW_STATISTICS'] && count($arResult['STATISTICS']) > 0): ?>
+<?php  if($arResult['SHOW_STATISTICS'] && count($arResult['STATISTICS']) > 0): ?>
 	<div class="tel-inner-right">
 		<div class="tel-history-block">
 			<div class="tel-history-title"><?=GetMessage(!in_array($arResult['LANG'], Array('ua', 'kz'))? 'TELEPHONY_HISTORY_2': 'TELEPHONY_HISTORY_3')?></div>
-			<? $firstLine = true; ?>
-			<? foreach ($arResult['STATISTICS'] as $statLine): ?>
+			<?php  $firstLine = true; ?>
+			<?php  foreach ($arResult['STATISTICS'] as $statLine): ?>
 				<div class="tel-history-block-info <?=$firstLine ? 'tel-history-block-info-current' : ''?>">
 					<span>
 						<strong><?=GetMessage('TELEPHONY_MONTH_'.sprintf('%\'02u', $statLine['MONTH']))?> <?=$statLine['YEAR']?></strong> &mdash; <?=htmlspecialcharsbx($statLine["DURATION_FORMATTED"])?>
 					</span>
 					<span class="tel-history-text-right"><?= $statLine['COST_FORMATTED']?></span>
 				</div>
-				<? $firstLine = false; ?>
-			<? endforeach;?>
+				<?php  $firstLine = false; ?>
+			<?php  endforeach;?>
 
 			<div class="tel-history-more">
 				<a href="<?=CVoxImplantMain::GetPublicFolder()?>detail.php" class="tel-history-more-link"><?=GetMessage('TELEPHONY_DETAIL')?></a>
 			</div>
 		</div>
-		<?if ($arResult['RECORD_LIMIT']['ENABLE'] && CModule::IncludeModule('bitrix24')):?>
-		<?
+		<?php if ($arResult['RECORD_LIMIT']['ENABLE'] && CModule::IncludeModule('bitrix24')):?>
+		<?php 
 			CBitrix24::initLicenseInfoPopupJS();
 			$arResult["TRIAL_TEXT"] = CVoxImplantMain::GetTrialText();
 		?>
@@ -141,13 +141,13 @@ function getBalance($amount)
 				B24.licenseInfoPopup.show(dialogId, "<?=CUtil::JSEscape($arResult["TRIAL_TEXT"]['TITLE'])?>", "<?=CUtil::JSEscape($arResult["TRIAL_TEXT"]['TEXT'])?>");
 			}
 		</script>
-		<?endif?>
+		<?php endif?>
 	</div>
-<? endif ?>
-<?
+<?php  endif ?>
+<?php 
 if (!empty($arResult['ERROR_MESSAGE']))
 {
-	?><script type="text/javascript">alert('<?=$arResult['ERROR_MESSAGE'];?>');</script><?
+	?><script type="text/javascript">alert('<?=$arResult['ERROR_MESSAGE'];?>');</script><?php 
 }
 ?>
 </div>

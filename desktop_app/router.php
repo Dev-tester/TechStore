@@ -1,4 +1,4 @@
-<?
+<?php 
 define("BX_IM_FULLSCREEN", true);
 define("EXTRANET_NO_REDIRECT", true);
 

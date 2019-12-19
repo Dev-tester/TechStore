@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
 if (!function_exists("__photo_template_table"))
 {
@@ -54,48 +54,48 @@ if (!function_exists("__photo_template_table"))
 
 		$sImage = '<div style="margin-top:'.$margin_top.'px;margin-left:'.$margin_left.'px;text-align:left;position:static;">'.$sImage.'</div>';
 ?>
-<table cellpadding="0" border="0" class="photo-photo-item photo-photo-item-table <?=($arParams["mode"] == "edit" ? " photo-photo-item-edit" : "")?><?
-	?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?><?
+<table cellpadding="0" border="0" class="photo-photo-item photo-photo-item-table <?=($arParams["mode"] == "edit" ? " photo-photo-item-edit" : "")?><?php 
+	?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?><?php 
 	?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " photo-photo-item-checked" : "")?>" id="table_<?=$arItem["ID"]?>">
 	<tbody>
 		<tr>
 			<th class="photo-photo-image">
 				<div class="photo-photo-item-block-container">
 					<div class="photo-photo-item-block-outer">
-						<div class="photo-photo-item-block-inner"><?
+						<div class="photo-photo-item-block-inner"><?php 
 					if ($arParams["SHOW_ANCHOR"] == "N")
 					{
-						?><div class="photo-photo-item-outline" <?
+						?><div class="photo-photo-item-outline" <?php 
 							?>style="width:<?=$arParams["MAX_WIDTH"]?>px;height:<?=$arParams["MAX_HEIGHT"]?>px;overflow:hidden;">
 							<?=$sImage?>
-						</div><?
+						</div><?php 
 					}
 					elseif ($arParams["mode"] == "edit")
 					{
-						?><div class="photo-photo-item-outline" <?
+						?><div class="photo-photo-item-outline" <?php 
 							?>style="width:<?=$arParams["MAX_WIDTH"]?>px;height:<?=$arParams["MAX_HEIGHT"]?>px;overflow:hidden;position:relative;">
-							<input type="checkbox" value="<?=$arItem["ID"]?>" name="items[]" <?
-								?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " checked='checked' " : "")?> <?
-								?>id="items_<?=$arItem["ID"]?>" <?
-								?>style="position:absolute;top:0;left:0;" <?
-								?>onclick="var res = document.getElementById('table_<?=$arItem["ID"]?>'); <?
-									?>if (this.checked) {res.className += ' photo-photo-item-checked'} <?
+							<input type="checkbox" value="<?=$arItem["ID"]?>" name="items[]" <?php 
+								?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " checked='checked' " : "")?> <?php 
+								?>id="items_<?=$arItem["ID"]?>" <?php 
+								?>style="position:absolute;top:0;left:0;" <?php 
+								?>onclick="var res = document.getElementById('table_<?=$arItem["ID"]?>'); <?php 
+									?>if (this.checked) {res.className += ' photo-photo-item-checked'} <?php 
 									?>else {res.className = res.className.replace(/photo\-photo\-item\-checked/g, ' ').replace(/\s\s/g, ' ');}" />
-							<a class="photo-photo-item-outline" style="width:<?=$arParams["MAX_WIDTH"]?>px; height:<?=$arParams["MAX_HEIGHT"]?>px;display:block;" <?
+							<a class="photo-photo-item-outline" style="width:<?=$arParams["MAX_WIDTH"]?>px; height:<?=$arParams["MAX_HEIGHT"]?>px;display:block;" <?php 
 							?>href="<?=$arItem["URL"]?>" id="photo_<?=$arItem["ID"]?>">
 								<?=$sImage?>
 							</a>
-						</div><?
+						</div><?php 
 					}
 					else
 					{
-						?><div class="photo-photo-item-outline" <?
+						?><div class="photo-photo-item-outline" <?php 
 							?>style="width:<?=$arParams["MAX_WIDTH"]?>px;height:<?=$arParams["MAX_HEIGHT"]?>px;overflow:hidden;">
-							<a class="photo-photo-item-outline" style="width:<?=$arParams["MAX_WIDTH"]?>px; height:<?=$arParams["MAX_HEIGHT"]?>px;display:block;" <?
+							<a class="photo-photo-item-outline" style="width:<?=$arParams["MAX_WIDTH"]?>px; height:<?=$arParams["MAX_HEIGHT"]?>px;display:block;" <?php 
 							?>href="<?=$arItem["URL"]?>">
 								<?=$sImage?>
 							</a>
-						</div><?
+						</div><?php 
 					}
 			?>
 
@@ -110,24 +110,24 @@ if (!function_exists("__photo_template_table"))
 		<tr class="photo-photo-info">
 			<td class="photo-photo-info">
 				<div class="photo-photo-name" style="width:<?=$arParams["MAX_WIDTH"]?>px;">
-<?
+<?php 
 				if ($arParams["SHOW_ANCHOR"] == "Y"):
-					?><a href="<?=$arItem["URL"]?>"><?=$arItem["NAME"]?></a><?
+					?><a href="<?=$arItem["URL"]?>"><?=$arItem["NAME"]?></a><?php 
 				else:
-					?><?=$arItem["NAME"]?><?
+					?><?=$arItem["NAME"]?><?php 
 				endif;
 ?>
 				</div>
-<?
+<?php 
 if (in_array("Y", $arShows))
 {
 ?>
 				<div class="photo-photo-info" style="width:<?=$arParams["MAX_WIDTH"]?>px;">
-<?
+<?php 
 	if ($arParams["SHOW_RATING"] == "Y"):
 ?>
 					<div class="photo-photo-rating">
-			<?$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:iblock.vote",
+			<?php $GLOBALS["APPLICATION"]->IncludeComponent("bitrix:iblock.vote",
 				"ajax",
 				array(
 					"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
@@ -142,7 +142,7 @@ if (in_array("Y", $arShows))
 				(($component && $component->__component && $component->__component->__parent) ? $component->__component->__parent : null),
 				array("HIDE_ICONS" => "Y"));?>
 					</div>
-<?
+<?php 
 	endif;
 	$str = "";
 	if ($arParams["SHOW_COMMENTS"] == "Y"):
@@ -151,7 +151,7 @@ if (in_array("Y", $arShows))
 				<div class="photo-photo-comments">
 					<?=GetMessage("P_COMMENTS")?>: <?=$iComm?>
 				</div>
-<?
+<?php 
 		else:
 			$str .= '<div class="photo-photo-comments">&nbsp;</div>';
 		endif;
@@ -162,7 +162,7 @@ if (in_array("Y", $arShows))
 				<div class="photo-photo-shows">
 					<?=GetMessage("P_SHOWS")?>: <?=intVal($arItem["SHOW_COUNTER"])?>
 				</div>
-<?
+<?php 
 		else:
 			$str .= '<div class="photo-photo-shows">&nbsp;</div>';
 		endif;
@@ -170,13 +170,13 @@ if (in_array("Y", $arShows))
 ?>
 				<?=$str?>
 			</div>
-<?
+<?php 
 }
 ?>
 			</td>
 		</tr>
 	</table>
-<?
+<?php 
 	}
 }
 ?>

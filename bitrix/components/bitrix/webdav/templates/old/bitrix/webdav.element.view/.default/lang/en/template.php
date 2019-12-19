@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_YELLOW_ALT'] = "you have locked it (remember to unlock)";
 $MESS ['IBLOCK_RED_ALT'] = "temporarily locked (being edited at the moment)";
 $MESS ['WD_DELETE_CONFIRM'] = "Are you sure you want to delete the element? This operation cannot be undone!";

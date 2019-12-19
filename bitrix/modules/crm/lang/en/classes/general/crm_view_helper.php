@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_TIME_NOT_SPECIFIED"] = "not set";
 $MESS["CRM_CLIENT_SUMMARY_COMPANY_NOT_SPECIFIED"] = "No company selected";
 $MESS["CRM_CLIENT_SUMMARY_CONTACT_NOT_SPECIFIED"] = "No contact selected";

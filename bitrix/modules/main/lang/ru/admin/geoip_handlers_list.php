@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GEOIP_LIST_TITLE"] = "Список обработчиков геолокации";
 $MESS["GEOIP_LIST_DELETE_CONFIRM"] = "Вы уверены, что хотите удалить настройки обработчика?";
 $MESS["GEOIP_LIST_ADD_HANDLER"] = "Добавить";

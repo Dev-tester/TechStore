@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/tasks/tools/tasks_planner.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/tasks/tools/tasks_planner.php");?>

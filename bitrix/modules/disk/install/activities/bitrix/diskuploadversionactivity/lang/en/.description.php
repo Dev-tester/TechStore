@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDUV_DESCR_DESCR2"] = "Upload new version to Drive";
 $MESS["BPDUV_DESCR_NAME2"] = "Upload new version to Drive";
 $MESS["BPDUV_DESCR_OBJECT_ID"] = "New version ID";

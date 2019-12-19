@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_MODULE_NOT_INSTALLED"] = "Das Modul Report ist nicht installiert";
 $MESS["CATALOG_MODULE_NOT_INSTALLED"] = "Das Modul Kommerzieller Katalog ist nicht installiert";
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Das Modul Informationsblöcke ist nicht installiert";

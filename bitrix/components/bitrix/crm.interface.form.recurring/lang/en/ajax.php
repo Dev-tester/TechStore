@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEXT_EXECUTION_DEAL_HINT"] = "Next deal will be created on #DATE_EXECUTION#";
 $MESS["NEXT_DEAL_EMPTY"] = "Nothing selected";
 $MESS["NEXT_BASED_ON_DEAL_ONCE"] = "Template has been created for recurring deal ##ID# ";

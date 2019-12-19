@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 if (!is_array($arOrder))
 	$arOrder = CSaleOrder::GetByID($ORDER_ID);
@@ -14,7 +14,7 @@ if (!is_array($arOrder))
 </style>
 </head>
 
-<?
+<?php 
 
 $pageWidth  = 595.28;
 $pageHeight = 841.89;
@@ -66,9 +66,9 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 <body
 	style="margin: 0pt; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>"
-	<? if ($_REQUEST['PRINT'] == 'Y') { ?>
+	<?php  if ($_REQUEST['PRINT'] == 'Y') { ?>
 	onload="setTimeout(window.print, 0);"
-	<? } ?>
+	<?php  } ?>
 >
 
 <?=CFile::ShowImage(
@@ -86,10 +86,10 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 <span style="text-decoration: underline">
 	<small>
-		<b><?=CSalePaySystemAction::GetParamValue("SELLER_NAME"); ?><?
+		<b><?=CSalePaySystemAction::GetParamValue("SELLER_NAME"); ?><?php 
 		if (CSalePaySystemAction::GetParamValue("SELLER_ADDRESS"))
 		{
-			?> – <?=CSalePaySystemAction::GetParamValue("SELLER_ADDRESS"); ?><?
+			?> – <?=CSalePaySystemAction::GetParamValue("SELLER_ADDRESS"); ?><?php 
 		}
 ?></b></small></span>
 <br>
@@ -97,15 +97,15 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 <br>
 
 
-<? if (CSalePaySystemAction::GetParamValue("BUYER_NAME")) { ?>
+<?php  if (CSalePaySystemAction::GetParamValue("BUYER_NAME")) { ?>
 	<b><?=CSalePaySystemAction::GetParamValue("BUYER_NAME"); ?></b>
 	<br>
 
-	<? if (CSalePaySystemAction::GetParamValue("BUYER_ADDRESS")) { ?>
+	<?php  if (CSalePaySystemAction::GetParamValue("BUYER_ADDRESS")) { ?>
 	<b><?=CSalePaySystemAction::GetParamValue("BUYER_ADDRESS"); ?></b>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
 <br>
 <br>
@@ -140,7 +140,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 <br>
 
 
-<?
+<?php 
 
 $dbBasket = CSaleBasket::GetList(
 	array("NAME" => "ASC"),
@@ -392,12 +392,12 @@ if ($arBasket = $dbBasket->Fetch())
 		<td><nobr>Anzahl</nobr></td>
 		<td><nobr>Einheit</nobr></td>
 		<td><nobr>Einzelpreis</nobr></td>
-		<? if ($vat > 0) { ?>
+		<?php  if ($vat > 0) { ?>
 		<td><nobr>MwSt.</nobr></td>
-		<? } ?>
+		<?php  } ?>
 		<td><nobr>Gesamtpreis</nobr></td>
 	</tr>
-<?
+<?php 
 
 $rowsCnt = count($arCells);
 for ($n = 1; $n <= $rowsCnt; $n++)
@@ -406,44 +406,44 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 ?>
 	<tr valign="top">
-		<? if (!is_null($arCells[$n][1])) { ?>
+		<?php  if (!is_null($arCells[$n][1])) { ?>
 		<td align="center"><?=$arCells[$n][1]; ?></td>
-		<? } else {
+		<?php  } else {
 			$accumulated++;
 		} ?>
-		<? if (!is_null($arCells[$n][2])) { ?>
+		<?php  if (!is_null($arCells[$n][2])) { ?>
 		<td align="left"
-			<? if ($accumulated) {
-				?> style="border-width: 0pt 1pt 0pt 0pt" colspan="<?=($accumulated+1); ?>"<? $accumulated = 0;
+			<?php  if ($accumulated) {
+				?> style="border-width: 0pt 1pt 0pt 0pt" colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0;
 			} ?>>
 			<?=$arCells[$n][2]; ?>
-			<? if (isset($arProps[$n]) && is_array($arProps[$n])) { ?>
-			<? foreach ($arProps[$n] as $property) { ?>
+			<?php  if (isset($arProps[$n]) && is_array($arProps[$n])) { ?>
+			<?php  foreach ($arProps[$n] as $property) { ?>
 			<br>
 			<small><?=$property; ?></small>
-			<? } ?>
-			<? } ?>
+			<?php  } ?>
+			<?php  } ?>
 		</td>
-		<? } else {
+		<?php  } else {
 			$accumulated++;
 		} ?>
-		<? for ($i = 3; $i <= 7; $i++) { ?>
-			<? if (!is_null($arCells[$n][$i])) { ?>
-				<? if ($i != 6 || $vat > 0 || is_null($arCells[$n][2])) { ?>
+		<?php  for ($i = 3; $i <= 7; $i++) { ?>
+			<?php  if (!is_null($arCells[$n][$i])) { ?>
+				<?php  if ($i != 6 || $vat > 0 || is_null($arCells[$n][2])) { ?>
 				<td align="right"
-					<? if ($accumulated) { ?>
+					<?php  if ($accumulated) { ?>
 					style="border-width: 0pt 1pt 0pt 0pt"
 					colspan="<?=(($i == 6 && $vat <= 0) ? $accumulated : $accumulated+1); ?>"
-					<? $accumulated = 0; } ?>>
+					<?php  $accumulated = 0; } ?>>
 					<nobr><?=$arCells[$n][$i]; ?></nobr>
 				</td>
-				<? }
+				<?php  }
 			} else {
 				$accumulated++;
 			}
 		} ?>
 	</tr>
-<?
+<?php 
 
 }
 
@@ -453,24 +453,24 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 <br>
 <br>
 
-<? if (CSalePaySystemAction::GetParamValue("COMMENT1") || CSalePaySystemAction::GetParamValue("COMMENT2")) { ?>
-	<? if (CSalePaySystemAction::GetParamValue("COMMENT1")) { ?>
+<?php  if (CSalePaySystemAction::GetParamValue("COMMENT1") || CSalePaySystemAction::GetParamValue("COMMENT2")) { ?>
+	<?php  if (CSalePaySystemAction::GetParamValue("COMMENT1")) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback(CSalePaySystemAction::GetParamValue("COMMENT1"))
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-	<? if (CSalePaySystemAction::GetParamValue("COMMENT2")) { ?>
+	<?php  } ?>
+	<?php  if (CSalePaySystemAction::GetParamValue("COMMENT2")) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback(CSalePaySystemAction::GetParamValue("COMMENT2"))
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
 <br>
 
@@ -482,33 +482,33 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 <div style="position: relative">
 	<table class="sign">
-		<? if (CSalePaySystemAction::GetParamValue("SELLER_DIR") || CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN")) { ?>
+		<?php  if (CSalePaySystemAction::GetParamValue("SELLER_DIR") || CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN")) { ?>
 		<tr>
 			<td valign>Geschдftsfьhrer</td>
 			<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
 				<?=CFile::ShowImage(CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN"), 200, 50); ?>
 			</td>
 			<td>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_DIR")) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_DIR")) { ?>
 				(<?=CSalePaySystemAction::GetParamValue("SELLER_DIR"); ?>)
-				<? } ?>
+				<?php  } ?>
 			</td>
 		</tr>
 		<tr><td colspan="3">&nbsp;</td></tr>
-		<? } ?>
-		<? if (CSalePaySystemAction::GetParamValue("SELLER_ACC") || CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN")) { ?>
+		<?php  } ?>
+		<?php  if (CSalePaySystemAction::GetParamValue("SELLER_ACC") || CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN")) { ?>
 		<tr>
 			<td>Buchhalter</td>
 			<td style="width: 160pt; border: 1pt solid #000000; border-width: 0pt 0pt 1pt 0pt; text-align: center; ">
 				<?=CFile::ShowImage(CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN"), 200, 50); ?>
 			</td>
 			<td>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_ACC")) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_ACC")) { ?>
 				(<?=CSalePaySystemAction::GetParamValue("SELLER_ACC"); ?>)
-				<? } ?>
+				<?php  } ?>
 			</td>
 		</tr>
-		<? } ?>
+		<?php  } ?>
 	</table>
 </div>
 
@@ -519,7 +519,7 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 <div style="text-align: center">
 
-<?
+<?php 
 
 $sellerName = CSalePaySystemAction::GetParamValue("SELLER_NAME");
 $sellerAddr = CSalePaySystemAction::GetParamValue("SELLER_ADDRESS");
@@ -534,7 +534,7 @@ if ($sellerAddr)
 if (!empty($sellerData))
 {
 	?><small><?=join(' – ', $sellerData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 
@@ -551,7 +551,7 @@ if ($sellerEmail)
 if (!empty($sellerData))
 {
 	?><small><?=join(' – ', $sellerData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 
@@ -577,7 +577,7 @@ if ($bank)
 if (!empty($bankData))
 {
 	?><small><?=join(' – ', $bankData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 
@@ -600,7 +600,7 @@ if ($sellerDir)
 if (!empty($sellerData))
 {
 	?><small><?=join(' – ', $sellerData); ?></small>
-	<br><?
+	<br><?php 
 }
 
 ?>

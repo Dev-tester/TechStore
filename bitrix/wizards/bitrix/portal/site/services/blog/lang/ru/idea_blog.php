@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_DEMO_BLOG_GROUP_NAME"] = "Идеи компании";
 $MESS["IDEA_DEMO_BLOG_NAME"] = "Идеи";
 $MESS["IDEA_BLOG_DEMO_MESSAGE_TITLE_1"] = "Празднование Нового Года в 2012 году";

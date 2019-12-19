@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$ElementID = $APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.detail",
 	"",
 	Array(
@@ -39,7 +39,7 @@ if ($ElementID <= 0):
 	return false;
 endif;
 if($arParams["USE_RATING"]=="Y"):
-?><div id="photo_vote_source" style="display:none;"><?
+?><div id="photo_vote_source" style="display:none;"><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:iblock.vote",
 	"ajax",
@@ -56,7 +56,7 @@ $APPLICATION->IncludeComponent(
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?></div><?
+?></div><?php 
 ?><script>
 function to_show_vote()
 {
@@ -74,7 +74,7 @@ function to_show_vote()
 	
 }
 setTimeout(to_show_vote, 100);
-</script><?
+</script><?php 
 endif;
 
 // SLIDER
@@ -115,10 +115,10 @@ $APPLICATION->IncludeComponent(
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><div class="clear-empty"></div><?
+?><div class="clear-empty"></div><?php 
 // COMMENTS
 if ($arParams["USE_COMMENTS"] == "Y" && $arParams["COMMENTS_TYPE"] != "none"):
-	?><div class="empty-clear before-comment"></div><?
+	?><div class="empty-clear before-comment"></div><?php 
 	$arCommentsParams = Array(
  		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
  		"IBLOCK_ID" => $arParams["IBLOCK_ID"],

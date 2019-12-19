@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_MODULE_NOT_INSTALLED"] = "The \"Working Time Management\" module is not installed.";
 $MESS["TM_SCHEDULE_DELETE_CONFIRM"] = "Do you really want to delete \"#SCHEDULE_NAME#\"?";
 $MESS["TM_SCHEDULE_DELETE_CONFIRM_NO"] = "Cancel";

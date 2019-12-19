@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Main\Localization\Loc;
 
@@ -26,27 +26,27 @@ if (!$statusMessage)
 		</div>
 		<div class="voximplant-rect-inner">
 			<div class="voximplant-rect-content">
-				<? if (!empty($arResult['LIST_RENT_NUMBERS'])): ?>
+				<?php  if (!empty($arResult['LIST_RENT_NUMBERS'])): ?>
 					<div class="tel-set-text-block" id="phone-confing-title">
 						<strong><?= GetMessage('VI_CONFIG_RENT_PHONES') ?></strong></div>
 					<div id="phone-confing-wrap">
-						<? foreach ($arResult['LIST_RENT_NUMBERS'] as $id => $config): ?>
+						<?php  foreach ($arResult['LIST_RENT_NUMBERS'] as $id => $config): ?>
 							<div class="tel-set-num-block" id="phone-confing-<?= $id ?>">
 								<span class="tel-set-inp-ready-to-use"><?= $config['PHONE_NAME'] ?></span>
 								<button class="ui-btn ui-btn-secondary" onclick="BX.VoxImplant.rentPhoneOrder.showConfig(<?=(int)$id?>)">
 									<?= $config["PORTAL_MODE"] === CVoxImplantConfig::MODE_GROUP ? GetMessage('VI_CONFIG_RENT_GROUP_CONFIGURE') : GetMessage('VI_CONFIG_RENT_PHONE_CONFIGURE') ?>
 								</button>
 							</div>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</div>
-				<? endif; ?>
+				<?php  endif; ?>
 
-				<? if ($arResult['ORDER_STATUS']['OPERATOR_STATUS'] != CVoxImplantPhoneOrder::OPERATOR_STATUS_NONE): ?>
+				<?php  if ($arResult['ORDER_STATUS']['OPERATOR_STATUS'] != CVoxImplantPhoneOrder::OPERATOR_STATUS_NONE): ?>
 					<div class="tel-set-main-wrap tel-set-main-wrap-white"
 						 style="<?= ($showAddButton ? 'margin-bottom: 32px;' : '') ?>">
 						<div class="tel-set-inner-wrap">
 							<div class="tel-number-order-info">
-								<? if (substr($arResult['ORDER_STATUS']['OPERATOR_STATUS'], 0, 7) == 'ACTIVE_'): ?>
+								<?php  if (substr($arResult['ORDER_STATUS']['OPERATOR_STATUS'], 0, 7) == 'ACTIVE_'): ?>
 									<div class="tel-order-form-desc"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_TITLE_2') ?></div>
 									<div class="tel-order-form-info-box">
 										<div class="tel-order-form-info"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_ACCOUNT') ?>
@@ -57,7 +57,7 @@ if (!$statusMessage)
 										<div class="tel-order-form-info"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_DATE_MODIFY') ?>
 											<b><?= $arResult['ORDER_STATUS']['DATE_MODIFY'] ?></b></div>
 									</div>
-								<? elseif ($arResult['ORDER_STATUS']['OPERATOR_STATUS'] != CVoxImplantPhoneOrder::OPERATOR_STATUS_ACCEPT): ?>
+								<?php  elseif ($arResult['ORDER_STATUS']['OPERATOR_STATUS'] != CVoxImplantPhoneOrder::OPERATOR_STATUS_ACCEPT): ?>
 									<div class="tel-order-form-desc"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_TITLE_1') ?></div>
 									<div class="tel-order-form-info-box">
 										<div class="tel-order-form-info"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_ACCOUNT') ?>
@@ -70,7 +70,7 @@ if (!$statusMessage)
 										<div class="tel-order-form-info"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_DATE_MODIFY') ?>
 											<b><?= $arResult['ORDER_STATUS']['DATE_MODIFY'] ?></b></div>
 									</div>
-								<? else: ?>
+								<?php  else: ?>
 									<div class="tel-order-form-desc"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_TITLE_2') ?></div>
 									<div class="tel-order-form-info-box">
 										<div class="tel-order-form-info"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_ACCOUNT') ?>
@@ -78,19 +78,19 @@ if (!$statusMessage)
 										<div class="tel-order-form-info"><?= GetMessage('VI_CONFIG_RENT_ORDER_INFO_OID') ?>
 											<b><?= $arResult['ORDER_STATUS']['OPERATOR_CONTRACT'] ?></b></div>
 									</div>
-								<? endif; ?>
+								<?php  endif; ?>
 							</div>
 						</div>
 					</div>
-				<? endif; ?>
+				<?php  endif; ?>
 
-				<? if ($showAddButton): ?>
+				<?php  if ($showAddButton): ?>
 					<div class="tel-set-inp-add-new">
 						<span id="vi_rent_order" class="ui-btn ui-btn-primary">
 							<?= GetMessage('VI_CONFIG_RENT_FORM_BTN') ?>
 						</span>
 					</div>
-				<? endif; ?>
+				<?php  endif; ?>
 
 				<div id="vi_rent_order_div" class="tel-set-main-wrap tel-set-main-wrap-white"
 					 style="margin-top: 15px; <?=$showForm ? "" : "display:none; "?>">
@@ -105,11 +105,11 @@ if (!$statusMessage)
 					</div>
 					<div class="voximplant-control-row">
 						<div class="voximplant-control-subtitle">
-							<? if ($arResult['ACCOUNT_LANG'] == 'ua'): ?>
+							<?php  if ($arResult['ACCOUNT_LANG'] == 'ua'): ?>
 								<?= GetMessage('VI_CONFIG_RENT_ORDER_COMPANY_REG_CODE') ?>
-							<? elseif ($arResult['ACCOUNT_LANG'] == 'kz'): ?>
+							<?php  elseif ($arResult['ACCOUNT_LANG'] == 'kz'): ?>
 								<?= GetMessage('VI_CONFIG_RENT_ORDER_COMPANY_BIN') ?>
-							<? endif ?></div>
+							<?php  endif ?></div>
 						<input id="vi_rent_order_reg_code" type="text" class="voximplant-control-input">
 					</div>
 					<div class="voximplant-control-row">
@@ -134,7 +134,7 @@ if (!$statusMessage)
 						BX.VoxImplant.rentPhoneOrder.init();
 					});
 				</script>
-				<? if ($showExtraButton): ?>
+				<?php  if ($showExtraButton): ?>
 					<div class="tel-set-inp-add-new" style="margin-top: 15px;">
 						<span id="vi_rent_order_extra" class="ui-btn ui-btn-primary"><?= GetMessage('VI_CONFIG_RENT_ORDER_EXTRA_TITLE') ?></span>
 					</div>
@@ -168,7 +168,7 @@ if (!$statusMessage)
 							BX.VoxImplant.rentPhoneOrderExtra.init();
 						});
 					</script>
-				<? endif; ?>
+				<?php  endif; ?>
 			</div>
 		</div>
 	</div>

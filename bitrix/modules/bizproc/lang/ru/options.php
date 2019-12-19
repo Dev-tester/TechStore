@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_LOG_CLEANUP_DAYS"] = "Время хранения лога выполнения бизнес-процесса (дней)";
 $MESS["BIZPROC_EMPLOYEE_COMPATIBLE_MODE"] = "Включить режим совместимости для типа \"Привязка к сотруднику\"";
 $MESS["BIZPROC_TAB_SET"] = "Настройки";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_CONTACT_INFO"] = "Контактная информация";
 $MESS["INTRANET_USER_PROFILE_ADDITIONAL_INFO"] = "Дополнительная информация";
 $MESS["INTRANET_USER_PROFILE_BLOG_POST_TITLE"] = "Обо мне";

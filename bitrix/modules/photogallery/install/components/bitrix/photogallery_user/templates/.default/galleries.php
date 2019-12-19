@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="photo-page-galleries">
-<?
+<?php 
 	$arCompParams = Array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
@@ -34,18 +34,18 @@
 	);
 
 	if (intVal($arResult["VARIABLES"]["USER_ID"]) > 0):?>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:photogallery.gallery.list",
 		"",
 		$arCompParams,
 		$component
 	);?>
-<?else:?>
-	<?$APPLICATION->IncludeComponent(
+<?php else:?>
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:photogallery.gallery.list",
 		"modern",
 		$arCompParams,
 		$component
 	);?>
-<? endif;?>
+<?php  endif;?>
 </div>

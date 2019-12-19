@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 CUtil::InitJSCore(array('popup', 'tooltip', 'CJSTask', 'task_popups'));
@@ -311,7 +311,7 @@ if ($arResult["IS_IFRAME"])
 var tasksRemindersPopUp;
 BX.ready(function() {
 
-	<?/*
+	<?php /*
 	if (BX('pagetitle'))
 	{
 		<?php
@@ -569,7 +569,7 @@ var createMenu = [
 
 	<div class="webform-round-corners webform-main-block webform-main-block-topless webform-main-block-bottomless">
 		<div class="webform-content">
-			<?$fav = $arResult['TASK']['FAVORITE'] == 'Y';?>
+			<?php $fav = $arResult['TASK']['FAVORITE'] == 'Y';?>
 			<div class="feed-post-important-switch <?=($fav ? 'feed-post-important-switch-active' : '')?>" data-is-favorite="<?=intval($fav)?>" id="task-toggle-favorite" title="<?=GetMessage("TASKS_TASK_ADD_TO_FAVORITES")?>"></div>
 			<div class="task-detail-title"><?php echo $arResult["TASK"]["TITLE"]?></div>
 			<div class="task-detail-description"><?php
@@ -695,9 +695,9 @@ var createMenu = [
 					</td>
 				</tr>
 			</table>
-			<?if($arResult['ALLOWED_ACTIONS']['ACTION_EDIT']):?>
+			<?php if($arResult['ALLOWED_ACTIONS']['ACTION_EDIT']):?>
 
-				<?$groupSet = $arResult["TASK"]["GROUP_ID"];?>
+				<?php $groupSet = $arResult["TASK"]["GROUP_ID"];?>
 				<div class="task-detail-group">
 					<label>
 						<?=GetMessage("TASKS_TASK_GROUP")?>:
@@ -1003,7 +1003,7 @@ var createMenu = [
 <div class="webform task-detail">
 	<div class="task-comments-and-log" <?php if ($arResult['IS_IFRAME']) echo ' style="width:630px;"' ?>>
 
-		<?
+		<?php 
 		$secondsSign = ($arResult["FULL_ELAPSED_TIME"] > 0 ? 1 : -1);
 		$elapsedHours = (int) $secondsSign*floor(abs($arResult["FULL_ELAPSED_TIME"]) / 60);
 		$elapsedMinutes = ($secondsSign*abs($arResult["FULL_ELAPSED_TIME"])) % 60;
@@ -1017,7 +1017,7 @@ var createMenu = [
 
 		<div class="task-comments-block task-comments-block-selected" id="task-comments-block">
 			<a name="comments"></a>
-			<?
+			<?php 
 
 			if(!intval($arResult['FORUM_ID']))
 			{
@@ -1258,12 +1258,12 @@ var createMenu = [
 								$link .= "#message".$record["TO_VALUE"];
 								?>
 
-								<?if($record["FIELD"] != "COMMENT_DEL"):?>
+								<?php if($record["FIELD"] != "COMMENT_DEL"):?>
 									<a href="javascript: void(0)" onClick="GoToComment('<?=$link?>', <?=($pageNumber == $commentsCurrPage ? "true" : "false")?>)">#<?=$record["TO_VALUE"]?></a>
-								<?else:?>
+								<?php else:?>
 									#<?=$record["TO_VALUE"]?>
-								<?endif?>
-								<?
+								<?php endif?>
+								<?php 
 							}
 						?></span></td>
 						<td class="task-log-what-column"><span class="task-log-what"><?php
@@ -1545,7 +1545,7 @@ var createMenu = [
 									false)?></a></td>
 							<td class="task-time-spent-column">
 
-								<?
+								<?php 
 									$secondsSign = ($time["SECONDS"] > 0 ? 1 : -1);
 									$hours = (int) $secondsSign*floor(abs($time["SECONDS"]) / 3600);
 

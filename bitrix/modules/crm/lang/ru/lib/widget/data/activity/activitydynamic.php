@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_DYNAMIC_CHANNELS_ARE_NOT_FOUND"] = 'Нет доступных каналов.';
 $MESS["CRM_ACTIVITY_DYNAMIC_CONNECTED_CHANNELS"] = "Подключенные каналы";
 $MESS["CRM_ACTIVITY_DYNAMIC_CONNECTED_CHANNELS_IN"] = "Входящие";

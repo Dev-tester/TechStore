@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_NEWFOLDER_ENTER_NAME'] = "Введите название!";
 $MESS ['FILEMAN_NEWFOLDER_EXISTS'] = "Папка с таким именем уже существует!";
 $MESS ['FILEMAN_NEWFOLDER_NAME'] = "Имя папки:";

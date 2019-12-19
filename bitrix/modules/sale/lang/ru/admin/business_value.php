@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZVAL_PAGE_TITLE"] = "Соответствие значений бизнес-смыслу";
 $MESS["BIZVAL_PAGE_ERRORS"] = "Были обнаружены ошибки";
 //$MESS["BIZVAL_PAGE_DOMAIN"] = "Значения типов плательщиков";

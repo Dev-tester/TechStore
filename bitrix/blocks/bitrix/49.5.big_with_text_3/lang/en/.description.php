@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_49_5--NAME"] = "Cover with dimmed background video";
 $MESS["LANDING_BLOCK_49_5--LANDINGBLOCKNODE_VIDEO"] = "Background video";
 $MESS["LANDING_BLOCK_49_5--LANDINGBLOCKNODE_CONTAINER"] = "Item collection";

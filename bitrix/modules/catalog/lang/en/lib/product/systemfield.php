@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_PRODUCT_SYSTEMFIELD_ERR_HIGHLOADBLOCK_ABSENT"] = "The Highload Information Blocks module which is required to use extended product parameters is not installed. Install it manually on the <a href=\"/bitrix/admin/module_admin.php?lang=#LANGUAGE_ID#\">System Modules</a> page.";
 $MESS["BX_CATALOG_PRODUCT_SYSTEMFIELD_MESS_VALUE_EMPTY"] = "not selected";
 $MESS["MARKING_CODE_GROUP_FIELD_TITLE"] = "Product group";

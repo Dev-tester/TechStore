@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <table width="100%"><tr><td valign="top">
 <form method="get" action="<?= $arResult["Urls"]["GroupSearch"] ?>" style="margin:0;padding:0;">
 	<input type="hidden" name="<?= $arParams["PAGE_VAR"] ?>" value="group_search">
@@ -16,9 +16,9 @@
 			<td>
 				<select name="subject" style="width:300px">
 					<option value=""><?= GetMessage("SONET_C24_T_ANY") ?></option>
-					<?foreach ($arResult["Subjects"] as $k => $v):?>
+					<?php foreach ($arResult["Subjects"] as $k => $v):?>
 						<option value="<?= $k ?>"<?= ($k == $arResult["subject"]) ? " selected" : "" ?>><?= $v ?></option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</td>
 		</tr>
@@ -32,21 +32,21 @@
 		</tfoot>
 	</table>
 	</div>
-	<?if ($arResult["how"] == "d"):?>
+	<?php if ($arResult["how"] == "d"):?>
 		<input type="hidden" name="how" value="d">
-	<?endif;?>
+	<?php endif;?>
 </form>
 </td>
 <td valign="bottom" align="right">
-	<?if ($arResult["ALLOW_CREATE_GROUP"]):?>
+	<?php if ($arResult["ALLOW_CREATE_GROUP"]):?>
 		<a href="<?= $arResult["Urls"]["GroupCreate"] ?>" class="sonet-icon-create"><?= GetMessage("SONET_C24_T_CREATE_GROUP") ?></a>
-	<?endif;?>
+	<?php endif;?>
 </td>
 </tr></table>
 
-<?if (strlen($arResult["ERROR_MESSAGE"]) <= 0):?>
-	<?if (count($arResult["SEARCH_RESULT"]) > 0):?>
-		<br /><?foreach ($arResult["SEARCH_RESULT"] as $v):?>
+<?php if (strlen($arResult["ERROR_MESSAGE"]) <= 0):?>
+	<?php if (count($arResult["SEARCH_RESULT"]) > 0):?>
+		<br /><?php foreach ($arResult["SEARCH_RESULT"] as $v):?>
 		<div class="sonet-cntnr-group-list2">
 		<table width="100%" class="sonet-user-profile-friends data-table">
 			<tr>
@@ -55,34 +55,34 @@
 				</td>
 				<td valign="top">
 					<a href="<?= $v["URL"] ?>"><b><?= $v["TITLE_FORMATED"] ?></b></a><br />
-					<?
+					<?php 
 					if ($v["ARCHIVE"] == "Y")
 					{
 						?>
 						<br />
 						<b><?= GetMessage("SONET_C39_ARCHIVE_GROUP") ?></b>
-						<?
+						<?php 
 					}
 					if (strlen($v["BODY_FORMATED"]) > 0)
 					{
 						?>
 						<br />
 						<?= $v["BODY_FORMATED"] ?>
-						<?
+						<?php 
 					}
 					if (strlen($v["SUBJECT_NAME"]) > 0)
 					{
 						?>
 						<br />
 						<?= GetMessage("SONET_C24_T_SUBJ") ?>: <?= $v["SUBJECT_NAME"] ?>
-						<?
+						<?php 
 					}
 					if (IntVal($v["NUMBER_OF_MEMBERS"]) > 0)
 					{
 						?>
 						<br />
 						<?= GetMessage("SONET_C24_T_MEMBERS") ?>: <?= $v["NUMBER_OF_MEMBERS"] ?>
-						<?
+						<?php 
 					}
 					?>
 					<br />
@@ -91,20 +91,20 @@
 			</tr>
 		</table>
 		</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 
-		<?if (strlen($arResult["NAV_STRING"]) > 0):?>
+		<?php if (strlen($arResult["NAV_STRING"]) > 0):?>
 			<p><?=$arResult["NAV_STRING"]?></p>
-		<?endif;?>
+		<?php endif;?>
 			
-		<?if (strlen($arResult["ORDER_LINK"]) > 0):?>
-			<?if ($arResult["how"] == "d"):?>
+		<?php if (strlen($arResult["ORDER_LINK"]) > 0):?>
+			<?php if ($arResult["how"] == "d"):?>
 				<p><a href="<?= $arResult["ORDER_LINK"] ?>"><?= GetMessage("SONET_C24_T_ORDER_REL") ?></a>&nbsp;|&nbsp;<b><?= GetMessage("SONET_C24_T_ORDER_DATE") ?></b></p>
-			<?else:?>
+			<?php else:?>
 				<p><b><?= GetMessage("SONET_C24_T_ORDER_REL") ?></b>&nbsp;|&nbsp;<a href="<?=$arResult["ORDER_LINK"]?>"><?= GetMessage("SONET_C24_T_ORDER_DATE") ?></a></p>
-			<?endif;?>
-		<?endif;?>
-	<?endif;?>
-<?else:?>
+			<?php endif;?>
+		<?php endif;?>
+	<?php endif;?>
+<?php else:?>
 	<?= ShowError($arResult["ERROR_MESSAGE"]); ?>
-<?endif;?>
+<?php endif;?>

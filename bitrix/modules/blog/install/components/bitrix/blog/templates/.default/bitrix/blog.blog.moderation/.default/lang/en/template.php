@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_BLOG_BLOG_CATEGORY"] = "Tags:";
 $MESS["BLOG_MES_DELETE_POST_CONFIRM"] = "Are you sure want to delete this post?";
 $MESS["B_B_MODERATION_NO_MES"] = "This blog does not contain posts requiring moderation.";

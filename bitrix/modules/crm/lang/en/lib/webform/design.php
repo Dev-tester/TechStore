@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_DESIGN_MODE_AUTO"] = "Auto";
 $MESS["CRM_WEBFORM_DESIGN_MODE_N"] = "Light";
 $MESS["CRM_WEBFORM_DESIGN_MODE_Y"] = "Dark";

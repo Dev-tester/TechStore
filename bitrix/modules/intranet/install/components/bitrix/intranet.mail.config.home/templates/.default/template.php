@@ -162,180 +162,180 @@ if ($showDomainBlock)
 
 ?>
 
-<div class="mail-set-wrap<? if ($showB24Block xor $showDomainBlock): ?> mail-set-wrap-small<? endif ?>"
-	<? if (!$showB24Block && !$showDomainBlock): ?> style="max-width: 1100px; "<? endif ?>>
-	<div class="mail-top-title-block"<? if (!$showB24Block && !$showDomainBlock): ?> style="margin-bottom: 20px; "<? endif ?>>
+<div class="mail-set-wrap<?php  if ($showB24Block xor $showDomainBlock): ?> mail-set-wrap-small<?php  endif ?>"
+	<?php  if (!$showB24Block && !$showDomainBlock): ?> style="max-width: 1100px; "<?php  endif ?>>
+	<div class="mail-top-title-block"<?php  if (!$showB24Block && !$showDomainBlock): ?> style="margin-bottom: 20px; "<?php  endif ?>>
 		<div class="mail-top-title-icon"></div>
-		<? if ($showB24Block): ?>
+		<?php  if ($showB24Block): ?>
 			<?=getMessage('INTR_MAIL_DESCR_B24_CRM', array('#DOMAIN#' => htmlspecialcharsbx(reset($arParams['CR_DOMAINS'])))) ?>
-		<? elseif ($showDomainBlock): ?>
+		<?php  elseif ($showDomainBlock): ?>
 			<?=getMessage('INTR_MAIL_DESCR_BOX_CRM') ?>
-		<? else: ?>
+		<?php  else: ?>
 			<?=getMessage(isModuleInstalled('bitrix24') ? 'INTR_MAIL_HINT_B24_CRM' : 'INTR_MAIL_HINT_BOX_CRM') ?>
-		<? endif ?>
+		<?php  endif ?>
 	</div>
-	<table class="mail-block-table" id="mail-block-table"<? if (!$showB24Block && !$showDomainBlock): ?> style="display: none; "<? endif ?>>
+	<table class="mail-block-table" id="mail-block-table"<?php  if (!$showB24Block && !$showDomainBlock): ?> style="display: none; "<?php  endif ?>>
 		<tr class="mail-block-top">
-			<td class="mail-block mail-block-imap<? if ($defaultBlock == 'imap'): ?> mail-block-active<? endif ?>" data-block="mail-set-third">
+			<td class="mail-block mail-block-imap<?php  if ($defaultBlock == 'imap'): ?> mail-block-active<?php  endif ?>" data-block="mail-set-third">
 				<div class="mail-block-title">
 					<span class="mail-block-title-icon"></span>
 					<span class="mail-block-title-text"><?=getMessage('INTR_MAIL_IMAP_TITLE') ?></span>
 				</div>
-				<? if ($imapMailbox): ?>
+				<?php  if ($imapMailbox): ?>
 					<div id="imap_block_descr_mailbox" class="mail-block-text">
-						<? if (empty($emailAddress)): ?>
+						<?php  if (empty($emailAddress)): ?>
 							<?=getMessage('INTR_MAIL_IMAP_DESCR_MAILBOX_UN') ?>
-						<? else: ?>
+						<?php  else: ?>
 							<?=getMessage('INTR_MAIL_IMAP_DESCR_MAILBOX', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
-						<? endif ?>
-						<? if (in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags'])): ?>
+						<?php  endif ?>
+						<?php  if (in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags'])): ?>
 							<div class="mail-block-crm mail-block-crm-success">CRM</div>
-						<? elseif ($arParams['CRM_AVAILABLE']): ?>
+						<?php  elseif ($arParams['CRM_AVAILABLE']): ?>
 							<div class="mail-block-crm mail-block-crm-disconnect">CRM</div>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
-				<? endif ?>
-				<div id="imap_block_descr_nomailbox" class="mail-block-text" style="<? if ($imapMailbox): ?>display: none; <? endif ?><? if (!$showB24Block && !$showDomainBlock): ?>min-height: 0; <? endif ?>">
+				<?php  endif ?>
+				<div id="imap_block_descr_nomailbox" class="mail-block-text" style="<?php  if ($imapMailbox): ?>display: none; <?php  endif ?><?php  if (!$showB24Block && !$showDomainBlock): ?>min-height: 0; <?php  endif ?>">
 					<?=getMessage('INTR_MAIL_IMAP_DESCR_CRM') ?>
-					<? if ($showB24Block || $showDomainBlock): ?>
+					<?php  if ($showB24Block || $showDomainBlock): ?>
 						<img class="mail-block-icon-list" src="/bitrix/components/bitrix/intranet.mail.config.home/templates/.default/images/<?=getMessage('INTR_MAIL_IMAP_DESCR_ICONS') ?>"/>
 						<img class="mail-block-icon-list-colorless" src="/bitrix/components/bitrix/intranet.mail.config.home/templates/.default/images/<?=getMessage('INTR_MAIL_IMAP_DESCR_ICONS_CL') ?>"/>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 			</td>
-			<? if ($showB24Block): ?>
+			<?php  if ($showB24Block): ?>
 				<td class="mail-block-space"></td>
-				<td class="mail-block mail-block-b24<? if ($defaultBlock == 'bitrix24'): ?> mail-block-active<? endif ?>" data-block="mail-set-first">
+				<td class="mail-block mail-block-b24<?php  if ($defaultBlock == 'bitrix24'): ?> mail-block-active<?php  endif ?>" data-block="mail-set-first">
 					<div class="mail-block-title">
 						<span class="mail-block-title-at">@</span>
 						<span class="mail-block-title-text"><?=htmlspecialcharsbx(reset($arParams['CR_DOMAINS'])) ?></span>
 					</div>
-					<? if ($b24Mailbox): ?>
+					<?php  if ($b24Mailbox): ?>
 						<div id="b24_block_descr_mailbox" class="mail-block-text">
 							<?=getMessage('INTR_MAIL_B24_DESCR_MAILBOX', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
-							<? if (in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags'])): ?>
+							<?php  if (in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags'])): ?>
 								<div class="mail-block-crm mail-block-crm-success">CRM</div>
-							<? elseif ($arParams['CRM_AVAILABLE']): ?>
+							<?php  elseif ($arParams['CRM_AVAILABLE']): ?>
 								<div class="mail-block-crm mail-block-crm-disconnect">CRM</div>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
-					<? endif ?>
-					<div id="b24_block_descr_nomailbox" class="mail-block-text"<? if ($b24Mailbox): ?> style="display: none; "<? endif ?>>
+					<?php  endif ?>
+					<div id="b24_block_descr_nomailbox" class="mail-block-text"<?php  if ($b24Mailbox): ?> style="display: none; "<?php  endif ?>>
 						<?=getMessage('INTR_MAIL_B24_DESCR_CRM', array('#DOMAIN#' => htmlspecialcharsbx(reset($arParams['CR_DOMAINS'])))) ?>
 					</div>
 				</td>
-			<? endif ?>
-			<? if ($showDomainBlock): ?>
+			<?php  endif ?>
+			<?php  if ($showDomainBlock): ?>
 				<td class="mail-block-space"></td>
-				<td class="mail-block mail-block-own<? if ($defaultBlock == 'domain'): ?> mail-block-active<? endif ?>" data-block="mail-set-second">
+				<td class="mail-block mail-block-own<?php  if ($defaultBlock == 'domain'): ?> mail-block-active<?php  endif ?>" data-block="mail-set-second">
 					<div class="mail-block-title">
-						<? if (empty($domainSettings) || !$isUserAdmin && !$domainAdded): ?>
+						<?php  if (empty($domainSettings) || !$isUserAdmin && !$domainAdded): ?>
 							<span class="mail-block-title-icon"></span>
 							<span class="mail-block-title-text">
 								<?=getMessage('INTR_MAIL_DOMAIN_TITLE') ?>
-								<? if ($limitedDomainBlock): ?>
+								<?php  if ($limitedDomainBlock): ?>
 									<span class="mail-set-icon-lock" style="width: 15px; height: 20px; background-size: 100%; vertical-align: baseline; "></span>
-								<? endif ?>
+								<?php  endif ?>
 							</span>
-						<? else: ?>
+						<?php  else: ?>
 							<span class="mail-block-title-at">@</span>
 							<span class="mail-block-title-text"><?=htmlspecialcharsbx($domainSettings['server']) ?></span>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
-					<? if (empty($domainSettings) || !$isUserAdmin && !$domainAdded): ?>
+					<?php  if (empty($domainSettings) || !$isUserAdmin && !$domainAdded): ?>
 						<div class="mail-block-text">
 							<?=getMessage(isModuleInstalled('bitrix24') ? 'INTR_MAIL_DOMAIN_DESCR_B24' : 'INTR_MAIL_DOMAIN_DESCR_BOX') ?>
 						</div>
-					<? else: ?>
-						<? if ($domainMailbox && $domainAdded): ?>
+					<?php  else: ?>
+						<?php  if ($domainMailbox && $domainAdded): ?>
 							<div id="domain_block_descr_mailbox" class="mail-block-text">
 								<?=getMessage(isModuleInstalled('bitrix24') ? 'INTR_MAIL_DOMAIN_DESCR_B24_DOMAIN' : 'INTR_MAIL_DOMAIN_DESCR_BOX_DOMAIN', array('#DOMAIN#' => htmlspecialcharsbx($domainSettings['server']))) ?>
 								<br><br>
 								<?=getMessage('INTR_MAIL_DOMAIN_DESCR_MAILBOX', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
-								<? if (in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags'])): ?>
+								<?php  if (in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags'])): ?>
 									<div class="mail-block-crm mail-block-crm-success">CRM</div>
-								<? elseif ($arParams['CRM_AVAILABLE']): ?>
+								<?php  elseif ($arParams['CRM_AVAILABLE']): ?>
 									<div class="mail-block-crm mail-block-crm-disconnect">CRM</div>
-								<? endif ?>
+								<?php  endif ?>
 							</div>
-						<? endif ?>
-						<div id="domain_block_descr_nomailbox" class="mail-block-text"<? if ($domainMailbox && $domainAdded): ?> style="display: none; "<? endif ?>>
+						<?php  endif ?>
+						<div id="domain_block_descr_nomailbox" class="mail-block-text"<?php  if ($domainMailbox && $domainAdded): ?> style="display: none; "<?php  endif ?>>
 							<?=getMessage(
 								isModuleInstalled('bitrix24') ? 'INTR_MAIL_DOMAIN_DESCR_B24_DOMAIN' : 'INTR_MAIL_DOMAIN_DESCR_BOX_DOMAIN',
 								array('#DOMAIN#' => htmlspecialcharsbx($domainSettings['server']))
 							) ?><br><br>
 							<?=getMessage($domainAdded ? 'INTR_MAIL_DOMAIN_DESCR_NOMAILBOX_CRM' : 'INTR_MAIL_DOMAIN_DESCR_WAIT') ?>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 				</td>
-			<? endif ?>
+			<?php  endif ?>
 		</tr>
 		<tr class="mail-block-bottom">
-			<td class="mail-block<? if ($defaultBlock == 'imap'): ?> mail-block-active<? endif ?>" data-block="mail-set-third">
+			<td class="mail-block<?php  if ($defaultBlock == 'imap'): ?> mail-block-active<?php  endif ?>" data-block="mail-set-third">
 				<div class="mail-block-footer">
-					<span class="mail-block-btn" id="mail-set-third-btn"<? if (!$showB24Block && !$showDomainBlock): ?> style="position: absolute; visibility: hidden; "<? endif ?>>
+					<span class="mail-block-btn" id="mail-set-third-btn"<?php  if (!$showB24Block && !$showDomainBlock): ?> style="position: absolute; visibility: hidden; "<?php  endif ?>>
 						<?=getMessage($imapMailbox ? 'INTR_MAIL_SERVICETYPE_SETUP' : 'INTR_MAIL_SERVICETYPE_CHOOSE') ?></span>
 				</div>
 			</td>
-			<? if ($showB24Block): ?>
+			<?php  if ($showB24Block): ?>
 				<td class="mail-block-space"></td>
-				<td class="mail-block<? if ($defaultBlock == 'bitrix24'): ?> mail-block-active<? endif ?>"  data-block="mail-set-first">
+				<td class="mail-block<?php  if ($defaultBlock == 'bitrix24'): ?> mail-block-active<?php  endif ?>"  data-block="mail-set-first">
 					<div class="mail-block-footer">
 						<span class="mail-block-btn" id="mail-set-first-btn"><?=getMessage($b24Mailbox ? 'INTR_MAIL_SERVICETYPE_SETUP' : 'INTR_MAIL_SERVICETYPE_CHOOSE') ?></span>
 					</div>
 				</td>
-			<? endif ?>
-			<? if ($showDomainBlock): ?>
+			<?php  endif ?>
+			<?php  if ($showDomainBlock): ?>
 				<td class="mail-block-space"></td>
-				<td class="mail-block<? if ($defaultBlock == 'domain'): ?> mail-block-active<? endif ?>" data-block="mail-set-second">
+				<td class="mail-block<?php  if ($defaultBlock == 'domain'): ?> mail-block-active<?php  endif ?>" data-block="mail-set-second">
 					<div class="mail-block-footer">
 						<span class="mail-block-btn" id="mail-set-second-btn"><?=getMessage($domainMailbox ? 'INTR_MAIL_SERVICETYPE_SETUP' : 'INTR_MAIL_SERVICETYPE_CHOOSE') ?></span>
 					</div>
 				</td>
-			<? endif ?>
+			<?php  endif ?>
 		</tr>
 	</table>
-	<div class="mail-set-block-wrap" id="mail-set-block-wrap"<? if (!$showB24Block && !$showDomainBlock): ?> style="margin-top: 20px; "<? endif ?>>
+	<div class="mail-set-block-wrap" id="mail-set-block-wrap"<?php  if (!$showB24Block && !$showDomainBlock): ?> style="margin-top: 20px; "<?php  endif ?>>
 		<div class="mail-set-block mail-set-block-active" id="mail-set-block">
-			<? if ($showB24Block): ?>
-				<div id="mail-set-first" class="mail-set-first-wrap"<? if ($defaultBlock == 'bitrix24'): ?> style="display: block;"<? endif ?>>
+			<?php  if ($showB24Block): ?>
+				<div id="mail-set-first" class="mail-set-first-wrap"<?php  if ($defaultBlock == 'bitrix24'): ?> style="display: block;"<?php  endif ?>>
 					<div class="mail-set-first">
 
-						<? if ($b24Mailbox): ?>
+						<?php  if ($b24Mailbox): ?>
 							<div id="b24_setup_form">
 
-								<? $lastMailCheck = CUserOptions::getOption('global', 'last_mail_check_'.SITE_ID, null); ?>
-								<? $lastMailCheckSuccess = CUserOptions::getOption('global', 'last_mail_check_success_'.SITE_ID, null); ?>
+								<?php  $lastMailCheck = CUserOptions::getOption('global', 'last_mail_check_'.SITE_ID, null); ?>
+								<?php  $lastMailCheckSuccess = CUserOptions::getOption('global', 'last_mail_check_success_'.SITE_ID, null); ?>
 
 								<div class="mail-set-title">
 									<?=getMessage('INTR_MAIL_MAILBOX_MANAGE', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
 								</div>
-								<? if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT'])): ?>
+								<?php  if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT'])): ?>
 								<div name="post-dialog-alert" class="post-dialog-alert">
 									<span class="post-dialog-alert-align"></span>
 									<span class="post-dialog-alert-icon"></span>
 									<span name="post-dialog-alert-text" class="post-dialog-alert-text">
 										<?=getMessage('INTR_MAIL_CRM_PRECONNECT') ?>
-										<? if (!empty($arParams['IMAP_ERROR'])): ?>
+										<?php  if (!empty($arParams['IMAP_ERROR'])): ?>
 											&mdash; <?=htmlspecialcharsbx($arParams['IMAP_ERROR']) ?>
-											<? if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
+											<?php  if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
 												<span style="font-weight: normal; ">
-													(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; setPost.animCurrent(); return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?
+													(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; setPost.animCurrent(); return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?php 
 													?><span class="post-dialog-alert-text-ext" style="display: none; "><?=htmlspecialcharsbx($arParams['IMAP_ERROR_EXT']) ?></span>)</span>
-											<? endif ?>
-										<? endif ?>
+											<?php  endif ?>
+										<?php  endif ?>
 									</span>
 								</div>
-								<? else: ?>
+								<?php  else: ?>
 								<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 									<span class="post-dialog-alert-align"></span>
 									<span class="post-dialog-alert-icon"></span>
 									<span name="post-dialog-alert-text" class="post-dialog-alert-text"></span>
 								</div>
-								<? endif ?>
+								<?php  endif ?>
 								<div class="mail-set-item-block-wrap">
 									<div class="mail-set-item-block-name"><?=getMessage('INTR_MAIL_MAILBOX_STATUS') ?></div>
-									<div name="status-block" class="mail-set-item-block<? if (isset($lastMailCheckSuccess) && !$lastMailCheckSuccess): ?> post-status-error<? endif ?>">
+									<div name="status-block" class="mail-set-item-block<?php  if (isset($lastMailCheckSuccess) && !$lastMailCheckSuccess): ?> post-status-error<?php  endif ?>">
 										<div class="mail-set-item-block-r">
 											<span id="b24_delete_form" class="webform-button webform-button-decline">
 												<?=getMessage('INTR_MAIL_MAILBOX_DELETE') ?>
@@ -343,31 +343,31 @@ if ($showDomainBlock)
 										</div>
 										<div class="mail-set-item-block-l">
 											<span name="status-text" class="post-dialog-stat-text">
-												<? if (isset($lastMailCheck) && intval($lastMailCheck) > 0): ?>
+												<?php  if (isset($lastMailCheck) && intval($lastMailCheck) > 0): ?>
 													<?=str_replace('#DATE#', FormatDate(
 														array('s' => 'sago', 'i' => 'iago', 'H' => 'Hago', 'd' => 'dago', 'm' => 'mago', 'Y' => 'Yago'),
 														intval($lastMailCheck)
 													), getMessage('INTR_MAIL_CHECK_TEXT')) ?>:
-												<? else: ?>
+												<?php  else: ?>
 													<?=getMessage('INTR_MAIL_CHECK_TEXT_NA') ?>
-												<? endif ?>
+												<?php  endif ?>
 											</span>
 											<span name="status-alert" class="post-dialog-stat-alert">
-												<? if (isset($lastMailCheckSuccess)): ?>
+												<?php  if (isset($lastMailCheckSuccess)): ?>
 													<?=getMessage($lastMailCheckSuccess ? 'INTR_MAIL_CHECK_SUCCESS' : 'INTR_MAIL_CHECK_ERROR') ?>
-												<? endif ?>
+												<?php  endif ?>
 											</span>
 											<span name="status-info" class="post-dialog-stat-info" style="display: none; "></span>
 											<span id="b24_check_form" class="webform-button">
 												<?=getMessage('INTR_MAIL_CHECK') ?>
 											</span>
 										</div>
-										<? $isCrmConfig = in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
-										<? if ($isCrmConfig || $arParams['CRM_AVAILABLE']): ?>
+										<?php  $isCrmConfig = in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
+										<?php  if ($isCrmConfig || $arParams['CRM_AVAILABLE']): ?>
 											<div class="mail-set-item-block-bottom">
 												<div class="mail-set-item-block-l">
 													<span class="post-dialog-stat-text"><?=getMessage('INTR_MAIL_CRM_CONNECT2') ?>:</span>
-													<? if ($isCrmConfig): ?>
+													<?php  if ($isCrmConfig): ?>
 														<span class="post-dialog-stat-alert"><?=getMessage('INTR_MAIL_CRM_ENABLED') ?></span>
 														<span class="webform-button mail-set-nomargin" onclick="toggleSubordinateBlock('b24_setup_crm_options', BX('b24_setup_crm_options').offsetHeight == 0); ">
 															<?=getMessage('INTR_MAIL_CRM_CONFIG') ?>
@@ -375,20 +375,20 @@ if ($showDomainBlock)
 														<span class="webform-button mail-set-nomargin" id="b24_disable_crm">
 															<?=getMessage('INTR_MAIL_CRM_DISABLE') ?>
 														</span>
-													<? else: ?>
+													<?php  else: ?>
 														<span class="post-status-error">
 															<?=getMessage(empty($arParams['CRM_PRECONNECT']) ? 'INTR_MAIL_CRM_DISABLED' : 'INTR_MAIL_CRM_ALMOST') ?>
 														</span>
-														<? if (empty($arParams['CRM_PRECONNECT'])): ?>
+														<?php  if (empty($arParams['CRM_PRECONNECT'])): ?>
 															<span class="webform-button mail-set-nomargin" onclick="toggleSubordinateBlock('b24_setup_crm_options', BX('b24_setup_crm_options').offsetHeight == 0); ">
 																<?=getMessage('INTR_MAIL_CRM_ENABLE') ?>
 															</span>
-														<? else: ?>
+														<?php  else: ?>
 															<span class="webform-button webform-button-disable mail-set-nomargin" name="enablecrm-button">
 																<?=getMessage('INTR_MAIL_CRM_ENABLE') ?>
 															</span>
-														<? endif ?>
-													<? endif ?>
+														<?php  endif ?>
+													<?php  endif ?>
 												</div>
 											</div>
 											<div class="mail-set-item-block-crm" id="b24_setup_crm_options" style="display: none; margin-right: 25px; ">
@@ -397,18 +397,18 @@ if ($showDomainBlock)
 														<input name="ID" type="hidden" value="<?=$arParams['MAILBOX']['ID'] ?>" >
 														<?=bitrix_sessid_post() ?>
 														<div class="mail-set-item-block-crm-wrapper-dec">
-															<? if (empty($arParams['MAILBOX']['PASSWORD'])): ?>
+															<?php  if (empty($arParams['MAILBOX']['PASSWORD'])): ?>
 																<span class="mail-set-crm-title" style="border: none; "><?=getMessage('INTR_MAIL_INP_PASS') ?></span>
 																<div class="post-dialog-inp-item" style="display: inline-block; margin-bottom: 0px; ">
 																	<input name="password" type="password" class="post-dialog-inp" style="width: 380px; ">
 																	<div name="pass-hint" class="mail-inp-description"></div>
 																</div>
-															<? endif ?>
+															<?php  endif ?>
 															<div class="mail-set-crm">
 																<div class="mail-set-crm-title"><?=getMessage('INTR_MAIL_MAILBOX_OPTIONS') ?></div>
 															</div>
-															<? if ($isCrmConfig): ?>
-																<? $imapDirsList = array_merge(
+															<?php  if ($isCrmConfig): ?>
+																<?php  $imapDirsList = array_merge(
 																	$arParams['MAILBOX']['OPTIONS']['imap']['income'],
 																	$arParams['MAILBOX']['OPTIONS']['imap']['outcome']
 																); ?>
@@ -420,35 +420,35 @@ if ($showDomainBlock)
 																			title="<?=htmlspecialcharsbx(join(', ', $imapDirsList)) ?>" ><?=htmlspecialcharsbx(join(', ', $imapDirsList)) ?></a>
 																	</label>
 																	<div id="edit_imap_dirs">
-																		<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
+																		<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
 																			<input type="hidden" name="imap_dirs[income][]" value="<?=htmlspecialcharsbx($item) ?>">
-																		<? endforeach ?>
-																		<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
+																		<?php  endforeach ?>
+																		<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
 																			<input type="hidden" name="imap_dirs[outcome][]" value="<?=htmlspecialcharsbx($item) ?>">
-																		<? endforeach ?>
+																		<?php  endforeach ?>
 																	</div>
 																</div>
-																<? $blacklist = array_map('htmlspecialcharsbx', $arParams['BLACKLIST'] ?: array()) ?>
+																<?php  $blacklist = array_map('htmlspecialcharsbx', $arParams['BLACKLIST'] ?: array()) ?>
 																<div class="mail-set-crm-item">
-																	<a href="#" class="mail-set-textarea-show <? if (!empty($blacklist)): ?>mail-set-textarea-show-open<? endif ?>"
+																	<a href="#" class="mail-set-textarea-show <?php  if (!empty($blacklist)): ?>mail-set-textarea-show-open<?php  endif ?>"
 																		onclick="toggleCrmBlacklist(this, 'edit_b24_crm_blacklist'); return false; "><?=getMessage('INTR_MAIL_CRM_BLACKLIST') ?></a>
 																	<span class="post-dialog-stat-info" title="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_HINT')) ?>" style="margin-left: 15px; "></span>
 																	<div class="mail-set-textarea-wrapper" id="edit_b24_crm_blacklist"
-																		<? if (empty($blacklist)): ?> style="display: none; "<? endif ?>>
+																		<?php  if (empty($blacklist)): ?> style="display: none; "<?php  endif ?>>
 																		<div class="mail-set-textarea" id="mail-set-textarea">
 																			<textarea class="mail-set-textarea-input" name="black_list"
-																				placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?
+																				placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?php 
 																				echo join(', ', $blacklist);
 																			?></textarea>
 																		</div>
 																	</div>
 																</div>
-															<? else: ?>
+															<?php  else: ?>
 																<div class="mail-set-crm-item">
 																	<input class="mail-set-crm-check" id="b24_setup_sync_old" type="checkbox" name="sync_old" value="Y" checked>
 																	<label class="mail-set-crm-check-label" for="b24_setup_sync_old"><?=getMessage('INTR_MAIL_CRM_SYNC_OLD') ?></label>
 																	<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="b24_setup_max_age_3"
-																		<? if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<? endif ?>>
+																		<?php  if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<?php  endif ?>>
 																		<input type="radio" name="max_age" value="0">
 																		<div class="mail-set-singleselect-wrapper">
 																			<input type="radio" name="max_age" value="3" id="b24_setup_max_age_3" checked>
@@ -457,43 +457,43 @@ if ($showDomainBlock)
 																			<label for="b24_setup_max_age_i"><?=getMessage('INTR_MAIL_CRM_SYNC_AGE_I') ?></label>
 																		</div>
 																	</label>
-																	<? if ($limitedLicense): ?>
+																	<?php  if ($limitedLicense): ?>
 																	<span class="mail-set-icon-lock" onclick="showLicenseInfoPopup('age'); "></span>
-																	<? endif ?>
+																	<?php  endif ?>
 																</div>
-															<? endif ?>
+															<?php  endif ?>
 															<div class="mail-set-crm" style="margin-top: 20px; ">
 																<div class="mail-set-crm-title"><?=getMessage('INTR_MAIL_CRM_OPTIONS') ?></div>
 															</div>
 															<div class="mail-set-crm-item">
-																<? $crmNewLeadDenied = $isCrmConfig ? in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
+																<?php  $crmNewLeadDenied = $isCrmConfig ? in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
 																<input class="mail-set-crm-check" id="b24_setup_crm_new_lead" type="checkbox" name="crm_new_lead" value="Y"
-																	<? if (!$crmNewLeadDenied): ?> checked<? endif ?>
+																	<?php  if (!$crmNewLeadDenied): ?> checked<?php  endif ?>
 																	onclick="toggleSubordinateBlock('b24_setup_crm_new_lead_resp', this.checked); ">
 																<label class="mail-set-crm-check-label" for="b24_setup_crm_new_lead"><?=getMessage('INTR_MAIL_INP_CRM_NEW_LEAD') ?></label>
-																<? if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
+																<?php  if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
 																	<div class="mail-set-crm-check-ext" id="b24_setup_crm_new_lead_resp"
-																		<? if ($crmNewLeadDenied): ?> style="display: none; "<? endif ?>>
-																		<? $defaultLeadSource = $isCrmConfig ? $arParams['MAILBOX_LEAD_SOURCE'] : $arParams['DEFAULT_LEAD_SOURCE']; ?>
+																		<?php  if ($crmNewLeadDenied): ?> style="display: none; "<?php  endif ?>>
+																		<?php  $defaultLeadSource = $isCrmConfig ? $arParams['MAILBOX_LEAD_SOURCE'] : $arParams['DEFAULT_LEAD_SOURCE']; ?>
 																		<input class="mail-set-crm-check" type="checkbox" style="visibility: hidden; ">
 																		<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_LEAD_SOURCE') ?>:</label>
 																		<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="b24_setup_lead_source_<?=htmlspecialcharsbx($defaultLeadSource) ?>">
 																			<input type="radio" name="lead_source" value="0">
 																			<div class="mail-set-singleselect-wrapper">
-																				<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+																				<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 																					<input type="radio" name="lead_source" value="<?=htmlspecialcharsbx($value) ?>" id="b24_setup_lead_source_<?=htmlspecialcharsbx($value) ?>"
-																						<? if ($value == $defaultLeadSource): ?> checked<? endif ?>>
+																						<?php  if ($value == $defaultLeadSource): ?> checked<?php  endif ?>>
 																					<label for="b24_setup_lead_source_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-																				<? endforeach ?>
+																				<?php  endforeach ?>
 																			</div>
 																		</label>
 																	</div>
-																<? endif ?>
+																<?php  endif ?>
 															</div>
 															<div class="mail-set-crm-item">
-																<? $crmNewContactDenied = $isCrmConfig ? in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
+																<?php  $crmNewContactDenied = $isCrmConfig ? in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
 																<input class="mail-set-crm-check" id="b24_setup_crm_new_contact" type="checkbox" name="crm_new_contact" value="Y"
-																	<? if (!$crmNewContactDenied): ?> checked<? endif ?>>
+																	<?php  if (!$crmNewContactDenied): ?> checked<?php  endif ?>>
 																<label class="mail-set-crm-check-label" for="b24_setup_crm_new_contact"><?=getMessage('INTR_MAIL_INP_CRM_NEW_CONTACT') ?></label>
 															</div>
 														</div>
@@ -504,14 +504,14 @@ if ($showDomainBlock)
 													</form>
 												</div>
 											</div>
-										<? endif ?>
+										<?php  endif ?>
 									</div>
 								</div>
 								<div class="mail-set-item-block-wrap mail-set-item-block-inp">
 									<div class="mail-set-item-block-name"><?=getMessage('INTR_MAIL_MAILBOX_PASSWORD_MANAGE') ?></div>
 									<div class="mail-set-item-block">
 										<form id="b24_password_form">
-											<? list($login, ) = explode('@', $emailAddress, 2); ?>
+											<?php  list($login, ) = explode('@', $emailAddress, 2); ?>
 											<input name="ID" type="hidden" value="<?=$arParams['MAILBOX']['ID'] ?>" />
 											<input name="login" type="hidden" value="<?=htmlspecialcharsbx($login) ?>" />
 											<?=bitrix_sessid_post() ?>
@@ -537,24 +537,24 @@ if ($showDomainBlock)
 								</div>
 
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 
-						<? if (!empty($arParams['MAILBOX']) && !$b24Mailbox): ?>
+						<?php  if (!empty($arParams['MAILBOX']) && !$b24Mailbox): ?>
 							<div id="b24_block_replace_warning">
 								<div class="mail-set-item-block mail-set-item-icon">
 									<span class="mail-set-item-text">
-										<? if (empty($emailAddress)): ?>
+										<?php  if (empty($emailAddress)): ?>
 											<?=getMessage('INTR_MAIL_REPLACE_WARNING_UN') ?>
-										<? else: ?>
+										<?php  else: ?>
 											<?=getMessage('INTR_MAIL_REPLACE_WARNING', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
-										<? endif ?>
+										<?php  endif ?>
 									</span>
 								</div>
 								<br/><br/>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 
-						<form<? if ($b24Mailbox): ?> style="display: none; "<? endif ?> id="b24_create_form" name="settings_form" action="<?=POST_FORM_ACTION_URI ?>" method="POST">
+						<form<?php  if ($b24Mailbox): ?> style="display: none; "<?php  endif ?> id="b24_create_form" name="settings_form" action="<?=POST_FORM_ACTION_URI ?>" method="POST">
 							<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 								<span class="post-dialog-alert-align"></span>
 								<span class="post-dialog-alert-icon"></span>
@@ -562,25 +562,25 @@ if ($showDomainBlock)
 							</div>
 							<input type="hidden" name="act" value="create">
 							<input type="hidden" name="SERVICE" value="<?=$b24Settings['id'] ?>">
-							<? if (!empty($arParams['MAILBOX'])): ?>
+							<?php  if (!empty($arParams['MAILBOX'])): ?>
 								<input type="hidden" name="ID" value="<?=$arParams['MAILBOX']['ID'] ?>">
-							<? endif ?>
+							<?php  endif ?>
 							<?=bitrix_sessid_post() ?>
 							<div class="mail-set-cont">
 								<div class="mail-set-cont-left">
 									<div class="mail-set-item">
 										<div class="mail-set-first-label"><?=getMessage('INTR_MAIL_INP_MB_NAME') ?></div>
 										<input name="login" class="mail-set-inp" type="text" autocomplete="off" />
-										<? if (count($arParams['CR_DOMAINS']) == 1): ?>
+										<?php  if (count($arParams['CR_DOMAINS']) == 1): ?>
 											<input type="hidden" name="domain" value="<?=htmlspecialcharsbx(reset($arParams['CR_DOMAINS'])) ?>">
 											<span class="mail-set-address">@<?=htmlspecialcharsbx(reset($arParams['CR_DOMAINS'])) ?></span>
-										<? else: ?>
+										<?php  else: ?>
 											<select name="domain" class="mail-set-address mail-set-select">
-												<? foreach ($arParams['CR_DOMAINS'] as $domain): ?>
+												<?php  foreach ($arParams['CR_DOMAINS'] as $domain): ?>
 													<option value="<?=htmlspecialcharsbx($domain) ?>">@<?=htmlspecialcharsbx($domain) ?></option>
-												<? endforeach ?>
+												<?php  endforeach ?>
 											</select>
-										<? endif ?>
+										<?php  endif ?>
 										<div name="login-hint" class="mail-inp-description"></div>
 									</div>
 									<div name="bad-login-hint" style="z-index: 1000; position: absolute; display: none; left: 60px; ">
@@ -619,7 +619,7 @@ if ($showDomainBlock)
 										<input name="password2" class="mail-set-inp" type="password" />
 										<div name="pass2-hint" class="mail-inp-description"></div>
 									</div>
-									<? if ($arParams['CRM_AVAILABLE']): ?>
+									<?php  if ($arParams['CRM_AVAILABLE']): ?>
 										<div class="mail-set-item-block-crm">
 											<div class="mail-set-item-block-crm-wrapper">
 												<div class="mail-set-item-block-crm-wrapper-dec" style="margin-bottom: 0px; ">
@@ -636,22 +636,22 @@ if ($showDomainBlock)
 															<input class="mail-set-crm-check" id="create_b24_crm_new_lead" type="checkbox" name="crm_new_lead" value="Y" checked
 																onclick="toggleSubordinateBlock('create_b24_crm_new_lead_resp', this.checked); ">
 															<label class="mail-set-crm-check-label" for="create_b24_crm_new_lead"><?=getMessage('INTR_MAIL_INP_CRM_NEW_LEAD') ?></label>
-															<? if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
+															<?php  if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
 																<div class="mail-set-crm-check-ext" id="create_b24_crm_new_lead_resp">
 																	<input class="mail-set-crm-check" type="checkbox" style="visibility: hidden; ">
 																	<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_LEAD_SOURCE') ?>:</label>
 																	<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_b24_lead_source_<?=htmlspecialcharsbx($arParams['DEFAULT_LEAD_SOURCE']) ?>">
 																		<input type="radio" name="lead_source" value="0">
 																		<div class="mail-set-singleselect-wrapper">
-																			<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+																			<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 																				<input type="radio" name="lead_source" value="<?=htmlspecialcharsbx($value) ?>" id="create_b24_lead_source_<?=htmlspecialcharsbx($value) ?>"
-																					<? if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<? endif ?>>
+																					<?php  if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<?php  endif ?>>
 																				<label for="create_b24_lead_source_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-																			<? endforeach ?>
+																			<?php  endforeach ?>
 																		</div>
 																	</label>
 																</div>
-															<? endif ?>
+															<?php  endif ?>
 														</div>
 														<div class="mail-set-crm-item">
 															<input class="mail-set-crm-check" id="create_b24_crm_new_contact" type="checkbox" name="crm_new_contact" value="Y" checked>
@@ -661,7 +661,7 @@ if ($showDomainBlock)
 												</div>
 											</div>
 										</div>
-									<? endif ?>
+									<?php  endif ?>
 								</div>
 								<div class="mail-set-cont-right">
 									<div class="mail-set-second-info"><?=getMessage('INTR_MAIL_B24_HELP_CRM') ?></div>
@@ -679,18 +679,18 @@ if ($showDomainBlock)
 
 					</div>
 				</div>
-			<? endif ?>
-			<? if ($showDomainBlock): ?>
-				<div id="mail-set-second" class="mail-set-second-wrap"<? if ($defaultBlock == 'domain'): ?> style="display: block; "<? endif ?>>
+			<?php  endif ?>
+			<?php  if ($showDomainBlock): ?>
+				<div id="mail-set-second" class="mail-set-second-wrap"<?php  if ($defaultBlock == 'domain'): ?> style="display: block; "<?php  endif ?>>
 					<div class="mail-set-second">
 
-						<? if (!$isUserAdmin && !$domainAdded): ?>
+						<?php  if (!$isUserAdmin && !$domainAdded): ?>
 							<div style="text-align: center; "><?=getMessage('INTR_MAIL_NODOMAIN_USER_INFO') ?><br><br><br></div>
-						<? endif ?>
+						<?php  endif ?>
 
-						<? if ($isUserAdmin && empty($domainSettings)): ?>
+						<?php  if ($isUserAdmin && empty($domainSettings)): ?>
 
-							<? if (IsModuleInstalled('bitrix24')): ?>
+							<?php  if (IsModuleInstalled('bitrix24')): ?>
 								<form id="domain_form" name="domain_form" action="<?=POST_FORM_ACTION_URI ?>" method="POST">
 									<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 										<span class="post-dialog-alert-align"></span>
@@ -700,7 +700,7 @@ if ($showDomainBlock)
 									<input type="hidden" name="page" value="domain">
 									<input type="hidden" name="act" value="create">
 									<?=bitrix_sessid_post() ?>
-									<? if (in_array(LANGUAGE_ID, array('ru', 'ua'))): ?>
+									<?php  if (in_array(LANGUAGE_ID, array('ru', 'ua'))): ?>
 										<div id="delegate-domain-block" class="mail-set-item-block-wrap">
 											<div class="mail-set-item-block">
 												<div class="mail-set-radio-item">
@@ -736,7 +736,7 @@ if ($showDomainBlock)
 												</div>
 											</div>
 										</div>
-									<? else: ?>
+									<?php  else: ?>
 										<div class="mail-set-item-block-wrap">
 											<div class="mail-set-item-block">
 												<div class="mail-set-domain-text"><?=getMessage('INTR_MAIL_DOMAIN_INP_NAME') ?></div>
@@ -750,7 +750,7 @@ if ($showDomainBlock)
 												</div>
 											</div>
 										</div>
-									<? endif ?>
+									<?php  endif ?>
 									<div class="mail-set-footer">
 										<a id="domain_create" class="webform-button webform-button-accept" href="<?=$arParams['PATH_TO_MAIL_CFG_DOMAIN'] ?>">
 											<span class="webform-button-left"></span><span class="webform-button-text"><?=getMessage('INTR_MAIL_INP_DOMAIN_ADD') ?></span><span class="webform-button-right"></span>
@@ -783,7 +783,7 @@ if ($showDomainBlock)
 									{
 										e.preventDefault ? e.preventDefault() : e.returnValue = false;
 
-										if (<? if (in_array(LANGUAGE_ID, array('ru', 'ua'))): ?>BX('select-delegate').checked<? else: ?>true<? endif ?>)
+										if (<?php  if (in_array(LANGUAGE_ID, array('ru', 'ua'))): ?>BX('select-delegate').checked<?php  else: ?>true<?php  endif ?>)
 										{
 											var form = BX('domain_form');
 
@@ -845,7 +845,7 @@ if ($showDomainBlock)
 										}
 										else if (BX('select-get').checked)
 										{
-											<? if ($arParams['REG_DOMAIN']): ?>
+											<?php  if ($arParams['REG_DOMAIN']): ?>
 												var formButton = BX('domain_create');
 												var alert = BX.findChild(BX('domain_form'), {attr: {name: 'post-dialog-alert'}}, true, false);
 
@@ -882,9 +882,9 @@ if ($showDomainBlock)
 														setPost.animCurrent();
 													}
 												});
-											<? else: ?>
+											<?php  else: ?>
 												window.location = '<?=CUtil::jsEscape($arParams['PATH_TO_MAIL_CFG_DOMAIN']) ?>#get';
-											<? endif ?>
+											<?php  endif ?>
 										}
 										else if (BX('select-connect').checked)
 										{
@@ -898,7 +898,7 @@ if ($showDomainBlock)
 									BX.bind(BX('domain_create'), 'click', handleDomainForm);
 
 								</script>
-							<? else: ?>
+							<?php  else: ?>
 								<?=getMessage('INTR_MAIL_DOMAIN_HELP', array('#DOMAIN_LINK#' => $arParams['PATH_TO_MAIL_CFG_DOMAIN'])) ?>
 								<br><br><br>
 								<div class="mail-set-footer">
@@ -906,61 +906,61 @@ if ($showDomainBlock)
 										<?=getMessage('INTR_MAIL_INP_DOMAIN_ADD') ?>
 									</a>
 								</div>
-							<? endif ?>
+							<?php  endif ?>
 
-						<? endif ?>
+						<?php  endif ?>
 
-						<? if (!empty($domainSettings)): ?>
+						<?php  if (!empty($domainSettings)): ?>
 
-							<? if ($isUserAdmin): ?>
+							<?php  if ($isUserAdmin): ?>
 								<div class="mail-set-item-block">
 									<span style="float: right; margin-right: 22px; font-size: 16px; ">
 										<a style="text-decoration: underline; " href="<?=$arParams['PATH_TO_MAIL_CFG_DOMAIN'] ?>"><?=getMessage('INTR_MAIL_INP_DOMAIN_EDIT') ?></a>
-										<? if ($domainAdded): ?>
+										<?php  if ($domainAdded): ?>
 											&nbsp;&nbsp;&nbsp;&nbsp;
 											<a style="text-decoration: underline; " href="<?=$arParams['PATH_TO_MAIL_CFG_MANAGE'] ?>"><?=getMessage('INTR_MAIL_INP_ADMIN_MANAGE') ?></a>
-										<? endif ?>
+										<?php  endif ?>
 									</span>
 									<?=getMessage($domainAdded ? 'INTR_MAIL_ADMIN_DOMAIN' : 'INTR_MAIL_ADMIN_DOMAIN_WAIT', array('#DOMAIN#' => htmlspecialcharsbx($domainSettings['server']))) ?>
 								</div>
 								<br><br>
-							<? endif ?>
+							<?php  endif ?>
 
-							<? if ($domainMailbox): ?>
+							<?php  if ($domainMailbox): ?>
 								<div id="domain_setup_form">
 
-									<? $lastMailCheck = CUserOptions::getOption('global', 'last_mail_check_'.SITE_ID, null); ?>
-									<? $lastMailCheckSuccess = CUserOptions::getOption('global', 'last_mail_check_success_'.SITE_ID, null); ?>
+									<?php  $lastMailCheck = CUserOptions::getOption('global', 'last_mail_check_'.SITE_ID, null); ?>
+									<?php  $lastMailCheckSuccess = CUserOptions::getOption('global', 'last_mail_check_success_'.SITE_ID, null); ?>
 
 									<div class="mail-set-title">
 										<?=getMessage('INTR_MAIL_MAILBOX_MANAGE', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
 									</div>
-									<? if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT'])): ?>
+									<?php  if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT'])): ?>
 										<div name="post-dialog-alert" class="post-dialog-alert">
 											<span class="post-dialog-alert-align"></span>
 											<span class="post-dialog-alert-icon"></span>
 											<span name="post-dialog-alert-text" class="post-dialog-alert-text">
 												<?=getMessage('INTR_MAIL_CRM_PRECONNECT') ?>
-												<? if (!empty($arParams['IMAP_ERROR'])): ?>
+												<?php  if (!empty($arParams['IMAP_ERROR'])): ?>
 													&mdash; <?=htmlspecialcharsbx($arParams['IMAP_ERROR']) ?>
-													<? if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
+													<?php  if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
 														<span style="font-weight: normal; ">
-															(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; setPost.animCurrent(); return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?
+															(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; setPost.animCurrent(); return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?php 
 															?><span class="post-dialog-alert-text-ext" style="display: none; "><?=htmlspecialcharsbx($arParams['IMAP_ERROR_EXT']) ?></span>)</span>
-													<? endif ?>
-												<? endif ?>
+													<?php  endif ?>
+												<?php  endif ?>
 											</span>
 										</div>
-									<? else: ?>
+									<?php  else: ?>
 										<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 											<span class="post-dialog-alert-align"></span>
 											<span class="post-dialog-alert-icon"></span>
 											<span name="post-dialog-alert-text" class="post-dialog-alert-text"></span>
 										</div>
-									<? endif ?>
+									<?php  endif ?>
 									<div class="mail-set-item-block-wrap">
 										<div class="mail-set-item-block-name"><?=getMessage('INTR_MAIL_MAILBOX_STATUS') ?></div>
-										<div name="status-block" class="mail-set-item-block<? if (isset($lastMailCheckSuccess) && !$lastMailCheckSuccess): ?> post-status-error<? endif ?>">
+										<div name="status-block" class="mail-set-item-block<?php  if (isset($lastMailCheckSuccess) && !$lastMailCheckSuccess): ?> post-status-error<?php  endif ?>">
 											<div class="mail-set-item-block-r">
 												<span id="domain_delete_form" class="webform-button webform-button-decline">
 													<?=getMessage('INTR_MAIL_MAILBOX_DELETE') ?>
@@ -968,31 +968,31 @@ if ($showDomainBlock)
 											</div>
 											<div class="mail-set-item-block-l">
 												<span name="status-text" class="post-dialog-stat-text">
-													<? if (isset($lastMailCheck) && intval($lastMailCheck) > 0): ?>
+													<?php  if (isset($lastMailCheck) && intval($lastMailCheck) > 0): ?>
 														<?=str_replace('#DATE#', FormatDate(
 															array('s' => 'sago', 'i' => 'iago', 'H' => 'Hago', 'd' => 'dago', 'm' => 'mago', 'Y' => 'Yago'),
 															intval($lastMailCheck)
 														), getMessage('INTR_MAIL_CHECK_TEXT')) ?>:
-													<? else: ?>
+													<?php  else: ?>
 														<?=getMessage('INTR_MAIL_CHECK_TEXT_NA') ?>
-													<? endif ?>
+													<?php  endif ?>
 												</span>
 												<span name="status-alert" class="post-dialog-stat-alert">
-												<? if (isset($lastMailCheckSuccess)): ?>
+												<?php  if (isset($lastMailCheckSuccess)): ?>
 													<?=getMessage($lastMailCheckSuccess ? 'INTR_MAIL_CHECK_SUCCESS' : 'INTR_MAIL_CHECK_ERROR') ?>
-												<? endif ?>
+												<?php  endif ?>
 												</span>
 												<span name="status-info" class="post-dialog-stat-info" style="display: none; "></span>
 												<span id="domain_check_form" class="webform-button">
 													<?=getMessage('INTR_MAIL_CHECK') ?>
 												</span>
 											</div>
-											<? $isCrmConfig = in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
-											<? if ($isCrmConfig || $arParams['CRM_AVAILABLE']): ?>
+											<?php  $isCrmConfig = in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
+											<?php  if ($isCrmConfig || $arParams['CRM_AVAILABLE']): ?>
 												<div class="mail-set-item-block-bottom">
 													<div class="mail-set-item-block-l">
 														<span class="post-dialog-stat-text"><?=getMessage('INTR_MAIL_CRM_CONNECT2') ?>:</span>
-														<? if ($isCrmConfig): ?>
+														<?php  if ($isCrmConfig): ?>
 															<span class="post-dialog-stat-alert"><?=getMessage('INTR_MAIL_CRM_ENABLED') ?></span>
 															<span class="webform-button mail-set-nomargin" onclick="toggleSubordinateBlock('domain_setup_crm_options', BX('domain_setup_crm_options').offsetHeight == 0); ">
 																<?=getMessage('INTR_MAIL_CRM_CONFIG') ?>
@@ -1000,20 +1000,20 @@ if ($showDomainBlock)
 															<span class="webform-button mail-set-nomargin" id="domain_disable_crm">
 																<?=getMessage('INTR_MAIL_CRM_DISABLE') ?>
 															</span>
-														<? else: ?>
+														<?php  else: ?>
 															<span class="post-status-error">
 																<?=getMessage(empty($arParams['CRM_PRECONNECT']) ? 'INTR_MAIL_CRM_DISABLED' : 'INTR_MAIL_CRM_ALMOST') ?>
 															</span>
-															<? if (empty($arParams['CRM_PRECONNECT'])): ?>
+															<?php  if (empty($arParams['CRM_PRECONNECT'])): ?>
 																<span class="webform-button mail-set-nomargin" onclick="toggleSubordinateBlock('domain_setup_crm_options', BX('domain_setup_crm_options').offsetHeight == 0); ">
 																	<?=getMessage('INTR_MAIL_CRM_ENABLE') ?>
 																</span>
-															<? else: ?>
+															<?php  else: ?>
 																<span class="webform-button webform-button-disable mail-set-nomargin" name="enablecrm-button">
 																	<?=getMessage('INTR_MAIL_CRM_ENABLE') ?>
 																</span>
-															<? endif ?>
-														<? endif ?>
+															<?php  endif ?>
+														<?php  endif ?>
 													</div>
 												</div>
 												<div class="mail-set-item-block-crm" id="domain_setup_crm_options" style="display: none; margin-right: 25px; ">
@@ -1022,18 +1022,18 @@ if ($showDomainBlock)
 															<input name="ID" type="hidden" value="<?=$arParams['MAILBOX']['ID'] ?>" >
 															<?=bitrix_sessid_post() ?>
 															<div class="mail-set-item-block-crm-wrapper-dec">
-																<? if (empty($arParams['MAILBOX']['PASSWORD'])): ?>
+																<?php  if (empty($arParams['MAILBOX']['PASSWORD'])): ?>
 																	<span class="mail-set-crm-title" style="border: none; "><?=getMessage('INTR_MAIL_INP_PASS') ?></span>
 																	<div class="post-dialog-inp-item" style="display: inline-block; margin-bottom: 0px; ">
 																		<input name="password" type="password" class="post-dialog-inp" style="width: 380px; ">
 																		<div name="pass-hint" class="mail-inp-description"></div>
 																	</div>
-																<? endif ?>
+																<?php  endif ?>
 																<div class="mail-set-crm">
 																	<div class="mail-set-crm-title"><?=getMessage('INTR_MAIL_MAILBOX_OPTIONS') ?></div>
 																</div>
-																<? if ($isCrmConfig): ?>
-																	<? $imapDirsList = array_merge(
+																<?php  if ($isCrmConfig): ?>
+																	<?php  $imapDirsList = array_merge(
 																		$arParams['MAILBOX']['OPTIONS']['imap']['income'],
 																		$arParams['MAILBOX']['OPTIONS']['imap']['outcome']
 																	); ?>
@@ -1045,35 +1045,35 @@ if ($showDomainBlock)
 																				title="<?=htmlspecialcharsbx(join(', ', $imapDirsList)) ?>" ><?=htmlspecialcharsbx(join(', ', $imapDirsList)) ?></a>
 																		</label>
 																		<div id="edit_imap_dirs">
-																			<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
+																			<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
 																				<input type="hidden" name="imap_dirs[income][]" value="<?=htmlspecialcharsbx($item) ?>">
-																			<? endforeach ?>
-																			<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
+																			<?php  endforeach ?>
+																			<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
 																				<input type="hidden" name="imap_dirs[outcome][]" value="<?=htmlspecialcharsbx($item) ?>">
-																			<? endforeach ?>
+																			<?php  endforeach ?>
 																		</div>
 																	</div>
-																	<? $blacklist = array_map('htmlspecialcharsbx', $arParams['BLACKLIST'] ?: array()) ?>
+																	<?php  $blacklist = array_map('htmlspecialcharsbx', $arParams['BLACKLIST'] ?: array()) ?>
 																	<div class="mail-set-crm-item">
-																		<a href="#" class="mail-set-textarea-show <? if (!empty($blacklist)): ?>mail-set-textarea-show-open<? endif ?>"
+																		<a href="#" class="mail-set-textarea-show <?php  if (!empty($blacklist)): ?>mail-set-textarea-show-open<?php  endif ?>"
 																			onclick="toggleCrmBlacklist(this, 'edit_domain_crm_blacklist'); return false; "><?=getMessage('INTR_MAIL_CRM_BLACKLIST') ?></a>
 																		<span class="post-dialog-stat-info" title="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_HINT')) ?>" style="margin-left: 15px; "></span>
 																		<div class="mail-set-textarea-wrapper" id="edit_domain_crm_blacklist"
-																			<? if (empty($blacklist)): ?> style="display: none; "<? endif ?>>
+																			<?php  if (empty($blacklist)): ?> style="display: none; "<?php  endif ?>>
 																			<div class="mail-set-textarea" id="mail-set-textarea">
 																				<textarea class="mail-set-textarea-input" name="black_list"
-																					placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?
+																					placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?php 
 																					echo join(', ', $blacklist);
 																				?></textarea>
 																			</div>
 																		</div>
 																	</div>
-																<? else: ?>
+																<?php  else: ?>
 																	<div class="mail-set-crm-item">
 																		<input class="mail-set-crm-check" id="domain_setup_sync_old" type="checkbox" name="sync_old" value="Y" checked>
 																		<label class="mail-set-crm-check-label" for="domain_setup_sync_old"><?=getMessage('INTR_MAIL_CRM_SYNC_OLD') ?></label>
 																		<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="domain_setup_max_age_3"
-																			<? if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<? endif ?>>
+																			<?php  if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<?php  endif ?>>
 																			<input type="radio" name="max_age" value="0">
 																			<div class="mail-set-singleselect-wrapper">
 																				<input type="radio" name="max_age" value="3" id="domain_setup_max_age_3" checked>
@@ -1082,43 +1082,43 @@ if ($showDomainBlock)
 																				<label for="domain_setup_max_age_i"><?=getMessage('INTR_MAIL_CRM_SYNC_AGE_I') ?></label>
 																			</div>
 																		</label>
-																		<? if ($limitedLicense): ?>
+																		<?php  if ($limitedLicense): ?>
 																			<span class="mail-set-icon-lock" onclick="showLicenseInfoPopup('age'); "></span>
-																		<? endif ?>
+																		<?php  endif ?>
 																	</div>
-																<? endif ?>
+																<?php  endif ?>
 																<div class="mail-set-crm" style="margin-top: 20px; ">
 																	<div class="mail-set-crm-title"><?=getMessage('INTR_MAIL_CRM_OPTIONS') ?></div>
 																</div>
 																<div class="mail-set-crm-item">
-																	<? $crmNewLeadDenied = $isCrmConfig ? in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
+																	<?php  $crmNewLeadDenied = $isCrmConfig ? in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
 																	<input class="mail-set-crm-check" id="domain_setup_crm_new_lead" type="checkbox" name="crm_new_lead" value="Y"
-																		<? if (!$crmNewLeadDenied): ?> checked<? endif ?>
+																		<?php  if (!$crmNewLeadDenied): ?> checked<?php  endif ?>
 																		onclick="toggleSubordinateBlock('domain_setup_crm_new_lead_resp', this.checked); ">
 																	<label class="mail-set-crm-check-label" for="domain_setup_crm_new_lead"><?=getMessage('INTR_MAIL_INP_CRM_NEW_LEAD') ?></label>
-																	<? if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
+																	<?php  if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
 																		<div class="mail-set-crm-check-ext" id="domain_setup_crm_new_lead_resp"
-																			<? if ($crmNewLeadDenied): ?> style="display: none; "<? endif ?>>
-																			<? $defaultLeadSource = $isCrmConfig ? $arParams['MAILBOX_LEAD_SOURCE'] : $arParams['DEFAULT_LEAD_SOURCE']; ?>
+																			<?php  if ($crmNewLeadDenied): ?> style="display: none; "<?php  endif ?>>
+																			<?php  $defaultLeadSource = $isCrmConfig ? $arParams['MAILBOX_LEAD_SOURCE'] : $arParams['DEFAULT_LEAD_SOURCE']; ?>
 																			<input class="mail-set-crm-check" type="checkbox" style="visibility: hidden; ">
 																			<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_LEAD_SOURCE') ?>:</label>
 																			<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="domain_setup_lead_source_<?=htmlspecialcharsbx($defaultLeadSource) ?>">
 																				<input type="radio" name="lead_source" value="0">
 																				<div class="mail-set-singleselect-wrapper">
-																					<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+																					<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 																						<input type="radio" name="lead_source" value="<?=htmlspecialcharsbx($value) ?>" id="domain_setup_lead_source_<?=htmlspecialcharsbx($value) ?>"
-																							<? if ($value == $defaultLeadSource): ?> checked<? endif ?>>
+																							<?php  if ($value == $defaultLeadSource): ?> checked<?php  endif ?>>
 																						<label for="domain_setup_lead_source_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-																					<? endforeach ?>
+																					<?php  endforeach ?>
 																				</div>
 																			</label>
 																		</div>
-																	<? endif ?>
+																	<?php  endif ?>
 																</div>
 																<div class="mail-set-crm-item">
-																	<? $crmNewContactDenied = $isCrmConfig ? in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
+																	<?php  $crmNewContactDenied = $isCrmConfig ? in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
 																	<input class="mail-set-crm-check" id="domain_setup_crm_new_contact" type="checkbox" name="crm_new_contact" value="Y"
-																		<? if (!$crmNewContactDenied): ?> checked<? endif ?>>
+																		<?php  if (!$crmNewContactDenied): ?> checked<?php  endif ?>>
 																	<label class="mail-set-crm-check-label" for="domain_setup_crm_new_contact"><?=getMessage('INTR_MAIL_INP_CRM_NEW_CONTACT') ?></label>
 																</div>
 															</div>
@@ -1129,7 +1129,7 @@ if ($showDomainBlock)
 														</form>
 													</div>
 												</div>
-											<? endif ?>
+											<?php  endif ?>
 										</div>
 									</div>
 
@@ -1137,7 +1137,7 @@ if ($showDomainBlock)
 										<div class="mail-set-item-block-name"><?=getMessage('INTR_MAIL_MAILBOX_PASSWORD_MANAGE') ?></div>
 										<div class="mail-set-item-block">
 											<form id="domain_password_form">
-												<? list($login, ) = explode('@', $emailAddress, 2); ?>
+												<?php  list($login, ) = explode('@', $emailAddress, 2); ?>
 												<input name="ID" type="hidden" value="<?=$arParams['MAILBOX']['ID'] ?>">
 												<input name="login" type="hidden" value="<?=htmlspecialcharsbx($login) ?>">
 												<?=bitrix_sessid_post() ?>
@@ -1163,26 +1163,26 @@ if ($showDomainBlock)
 									</div>
 
 								</div>
-							<? endif ?>
+							<?php  endif ?>
 
-							<? if ($domainAdded && ($isUserAdmin || $domainSettings['encryption'] == 'N')): ?>
+							<?php  if ($domainAdded && ($isUserAdmin || $domainSettings['encryption'] == 'N')): ?>
 
-								<? if (!empty($arParams['MAILBOX']) && !$domainMailbox): ?>
+								<?php  if (!empty($arParams['MAILBOX']) && !$domainMailbox): ?>
 									<div id="domain_block_replace_warning">
 										<div class="mail-set-item-block mail-set-item-icon">
 											<span class="mail-set-item-text">
-												<? if (empty($emailAddress)): ?>
+												<?php  if (empty($emailAddress)): ?>
 													<?=getMessage('INTR_MAIL_REPLACE_WARNING_UN') ?>
-												<? else: ?>
+												<?php  else: ?>
 													<?=getMessage('INTR_MAIL_REPLACE_WARNING', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
-												<? endif ?>
+												<?php  endif ?>
 											</span>
 										</div>
 										<br/><br/>
 									</div>
-								<? endif ?>
+								<?php  endif ?>
 
-								<form<? if ($domainMailbox): ?> style="display: none; "<? endif ?> id="domain_create_form" name="settings_form" action="<?=POST_FORM_ACTION_URI ?>" method="POST">
+								<form<?php  if ($domainMailbox): ?> style="display: none; "<?php  endif ?> id="domain_create_form" name="settings_form" action="<?=POST_FORM_ACTION_URI ?>" method="POST">
 									<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 										<span class="post-dialog-alert-align"></span>
 										<span class="post-dialog-alert-icon"></span>
@@ -1190,9 +1190,9 @@ if ($showDomainBlock)
 									</div>
 									<input type="hidden" name="act" value="create">
 									<input type="hidden" name="SERVICE" value="<?=$domainSettings['id'] ?>">
-									<? if (!empty($arParams['MAILBOX'])): ?>
+									<?php  if (!empty($arParams['MAILBOX'])): ?>
 										<input type="hidden" name="ID" value="<?=$arParams['MAILBOX']['ID'] ?>">
-									<? endif ?>
+									<?php  endif ?>
 									<?=bitrix_sessid_post() ?>
 									<div class="mail-set-cont">
 										<div class="mail-set-cont-left">
@@ -1239,7 +1239,7 @@ if ($showDomainBlock)
 												<input name="password2" class="mail-set-inp" type="password" />
 												<div name="pass2-hint" class="mail-inp-description"></div>
 											</div>
-											<? if ($arParams['CRM_AVAILABLE']): ?>
+											<?php  if ($arParams['CRM_AVAILABLE']): ?>
 												<div class="mail-set-item-block-crm">
 													<div class="mail-set-item-block-crm-wrapper">
 														<div class="mail-set-item-block-crm-wrapper-dec" style="margin-bottom: 0px; ">
@@ -1256,22 +1256,22 @@ if ($showDomainBlock)
 																	<input class="mail-set-crm-check" id="create_domain_crm_new_lead" type="checkbox" name="crm_new_lead" value="Y" checked
 																		onclick="toggleSubordinateBlock('create_domain_crm_new_lead_resp', this.checked); ">
 																	<label class="mail-set-crm-check-label" for="create_domain_crm_new_lead"><?=getMessage('INTR_MAIL_INP_CRM_NEW_LEAD') ?></label>
-																	<? if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
+																	<?php  if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
 																		<div class="mail-set-crm-check-ext" id="create_domain_crm_new_lead_resp">
 																			<input class="mail-set-crm-check" type="checkbox" style="visibility: hidden; ">
 																			<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_LEAD_SOURCE') ?>:</label>
 																			<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_domain_lead_source_<?=htmlspecialcharsbx($arParams['DEFAULT_LEAD_SOURCE']) ?>">
 																				<input type="radio" name="lead_source" value="0">
 																				<div class="mail-set-singleselect-wrapper">
-																					<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+																					<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 																						<input type="radio" name="lead_source" value="<?=htmlspecialcharsbx($value) ?>" id="create_domain_lead_source_<?=htmlspecialcharsbx($value) ?>"
-																							<? if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<? endif ?>>
+																							<?php  if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<?php  endif ?>>
 																						<label for="create_domain_lead_source_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-																					<? endforeach ?>
+																					<?php  endforeach ?>
 																				</div>
 																			</label>
 																		</div>
-																	<? endif ?>
+																	<?php  endif ?>
 																</div>
 																<div class="mail-set-crm-item">
 																	<input class="mail-set-crm-check" id="create_domain_crm_new_contact" type="checkbox" name="crm_new_contact" value="Y" checked>
@@ -1281,7 +1281,7 @@ if ($showDomainBlock)
 														</div>
 													</div>
 												</div>
-											<? endif ?>
+											<?php  endif ?>
 										</div>
 										<div class="mail-set-cont-right">
 											<div class="mail-set-second-info">
@@ -1299,63 +1299,63 @@ if ($showDomainBlock)
 									<input type="submit" style="position: absolute; visibility: hidden; ">
 								</form>
 
-							<? endif ?>
+							<?php  endif ?>
 
-							<? if ($domainAdded && !$isUserAdmin && $domainSettings['encryption'] != 'N'): ?>
-								<div id="domain_create_form" style="text-align: center; <? if ($domainMailbox): ?>display: none; <? endif ?>">
+							<?php  if ($domainAdded && !$isUserAdmin && $domainSettings['encryption'] != 'N'): ?>
+								<div id="domain_create_form" style="text-align: center; <?php  if ($domainMailbox): ?>display: none; <?php  endif ?>">
 									<?=getMessage('INTR_MAIL_DOMAIN_USER_INFO', array('#DOMAIN#' => htmlspecialcharsbx($domainSettings['server']))) ?>
 									<br><br><br>
 								</div>
-							<? endif ?>
+							<?php  endif ?>
 
-						<? endif ?>
+						<?php  endif ?>
 
 					</div>
 				</div>
-			<? endif ?>
-			<div id="mail-set-third" class="mail-set-third-wrap"<? if ($defaultBlock == 'imap'): ?> style="display: block;"<? endif ?>>
+			<?php  endif ?>
+			<div id="mail-set-third" class="mail-set-third-wrap"<?php  if ($defaultBlock == 'imap'): ?> style="display: block;"<?php  endif ?>>
 				<div class="mail-set-third">
 
-					<? if ($imapMailbox): ?>
+					<?php  if ($imapMailbox): ?>
 						<div id="imap_setup_form" class="mail-set-imap-setup">
 
-							<? $lastMailCheck = CUserOptions::getOption('global', 'last_mail_check_'.SITE_ID, null); ?>
-							<? $lastMailCheckSuccess = CUserOptions::getOption('global', 'last_mail_check_success_'.SITE_ID, null); ?>
+							<?php  $lastMailCheck = CUserOptions::getOption('global', 'last_mail_check_'.SITE_ID, null); ?>
+							<?php  $lastMailCheckSuccess = CUserOptions::getOption('global', 'last_mail_check_success_'.SITE_ID, null); ?>
 
 							<div class="mail-set-title">
-								<? if (empty($emailAddress)): ?>
+								<?php  if (empty($emailAddress)): ?>
 									<?=getMessage('INTR_MAIL_MAILBOX_MANAGE_UN') ?>
-								<? else: ?>
+								<?php  else: ?>
 									<?=getMessage('INTR_MAIL_MAILBOX_MANAGE', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
-								<? endif ?>
+								<?php  endif ?>
 							</div>
 
-							<? if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT'])): ?>
+							<?php  if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT'])): ?>
 								<div name="post-dialog-alert" class="post-dialog-alert">
 									<span class="post-dialog-alert-align"></span>
 									<span class="post-dialog-alert-icon"></span>
 									<span name="post-dialog-alert-text" class="post-dialog-alert-text">
 										<?=getMessage('INTR_MAIL_CRM_PRECONNECT') ?>
-										<? if (!empty($arParams['IMAP_ERROR'])): ?>
+										<?php  if (!empty($arParams['IMAP_ERROR'])): ?>
 											&mdash; <?=htmlspecialcharsbx($arParams['IMAP_ERROR']) ?>
-											<? if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
+											<?php  if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
 												<span style="font-weight: normal; ">
-													(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; setPost.animCurrent(); return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?
+													(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; setPost.animCurrent(); return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?php 
 													?><span class="post-dialog-alert-text-ext" style="display: none; "><?=htmlspecialcharsbx($arParams['IMAP_ERROR_EXT']) ?></span>)</span>
-											<? endif ?>
-										<? endif ?>
+											<?php  endif ?>
+										<?php  endif ?>
 									</span>
 								</div>
-							<? else: ?>
+							<?php  else: ?>
 								<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 									<span class="post-dialog-alert-align"></span>
 									<span class="post-dialog-alert-icon"></span>
 									<span name="post-dialog-alert-text" class="post-dialog-alert-text"></span>
 								</div>
-							<? endif ?>
+							<?php  endif ?>
 							<div class="mail-set-item-block-wrap">
 								<div class="mail-set-item-block-name"><?=getMessage('INTR_MAIL_MAILBOX_STATUS') ?></div>
-								<div name="status-block" class="mail-set-item-block<? if (isset($lastMailCheckSuccess) && !$lastMailCheckSuccess): ?> post-status-error<? endif ?>">
+								<div name="status-block" class="mail-set-item-block<?php  if (isset($lastMailCheckSuccess) && !$lastMailCheckSuccess): ?> post-status-error<?php  endif ?>">
 									<div class="mail-set-item-block-r">
 										<span id="imap_delete_form" class="webform-button webform-button-decline">
 											<?=getMessage('INTR_MAIL_MAILBOX_DELETE') ?>
@@ -1363,20 +1363,20 @@ if ($showDomainBlock)
 									</div>
 									<div class="mail-set-item-block-l">
 										<span name="status-text" class="post-dialog-stat-text">
-											<? if (isset($lastMailCheck) && intval($lastMailCheck) > 0): ?>
+											<?php  if (isset($lastMailCheck) && intval($lastMailCheck) > 0): ?>
 												<?=str_replace('#DATE#', FormatDate(
 													array('s' => 'sago', 'i' => 'iago', 'H' => 'Hago', 'd' => 'dago', 'm' => 'mago', 'Y' => 'Yago'),
 													intval($lastMailCheck)
 												), getMessage('INTR_MAIL_CHECK_TEXT')) ?>:
-											<? else: ?>
+											<?php  else: ?>
 												<?=getMessage('INTR_MAIL_CHECK_TEXT_NA') ?>
-											<? endif ?>
+											<?php  endif ?>
 										</span>
 
 										<span name="status-alert" class="post-dialog-stat-alert">
-											<? if (isset($lastMailCheckSuccess)): ?>
+											<?php  if (isset($lastMailCheckSuccess)): ?>
 												<?=getMessage($lastMailCheckSuccess ? 'INTR_MAIL_CHECK_SUCCESS' : 'INTR_MAIL_CHECK_ERROR') ?>
-											<? endif ?>
+											<?php  endif ?>
 										</span>
 										<span name="status-info" class="post-dialog-stat-info" style="display: none; "></span>
 
@@ -1384,12 +1384,12 @@ if ($showDomainBlock)
 											<?=getMessage('INTR_MAIL_CHECK') ?>
 										</span>
 									</div>
-									<? $isCrmConfig = in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
-									<? if ($isCrmConfig || $arParams['CRM_AVAILABLE']): ?>
+									<?php  $isCrmConfig = in_array('crm_connect', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
+									<?php  if ($isCrmConfig || $arParams['CRM_AVAILABLE']): ?>
 										<div class="mail-set-item-block-bottom">
 											<div class="mail-set-item-block-l">
 												<span class="post-dialog-stat-text"><?=getMessage('INTR_MAIL_CRM_CONNECT2') ?>:</span>
-												<? if ($isCrmConfig): ?>
+												<?php  if ($isCrmConfig): ?>
 													<span class="post-dialog-stat-alert"><?=getMessage('INTR_MAIL_CRM_ENABLED') ?></span>
 													<span class="webform-button mail-set-nomargin" onclick="toggleSubordinateBlock('imap_setup_crm_options', BX('imap_setup_crm_options').offsetHeight == 0); ">
 														<?=getMessage('INTR_MAIL_CRM_CONFIG') ?>
@@ -1397,20 +1397,20 @@ if ($showDomainBlock)
 													<span class="webform-button mail-set-nomargin" id="imap_disable_crm">
 														<?=getMessage('INTR_MAIL_CRM_DISABLE') ?>
 													</span>
-												<? else: ?>
+												<?php  else: ?>
 													<span class="post-status-error">
 														<?=getMessage(empty($arParams['CRM_PRECONNECT']) ? 'INTR_MAIL_CRM_DISABLED' : 'INTR_MAIL_CRM_ALMOST') ?>
 													</span>
-													<? if (empty($arParams['CRM_PRECONNECT'])): ?>
+													<?php  if (empty($arParams['CRM_PRECONNECT'])): ?>
 														<span class="webform-button mail-set-nomargin" onclick="toggleSubordinateBlock('imap_setup_crm_options', BX('imap_setup_crm_options').offsetHeight == 0); ">
 															<?=getMessage('INTR_MAIL_CRM_ENABLE') ?>
 														</span>
-													<? else: ?>
+													<?php  else: ?>
 														<span class="webform-button webform-button-disable mail-set-nomargin" name="enablecrm-button">
 															<?=getMessage('INTR_MAIL_CRM_ENABLE') ?>
 														</span>
-													<? endif ?>
-												<? endif ?>
+													<?php  endif ?>
+												<?php  endif ?>
 											</div>
 										</div>
 										<div class="mail-set-item-block-crm" id="imap_setup_crm_options" style="display: none; margin-right: 25px; ">
@@ -1422,8 +1422,8 @@ if ($showDomainBlock)
 														<div class="mail-set-crm">
 															<div class="mail-set-crm-title"><?=getMessage('INTR_MAIL_MAILBOX_OPTIONS') ?></div>
 														</div>
-														<? if ($isCrmConfig): ?>
-															<? $imapDirsList = array_merge(
+														<?php  if ($isCrmConfig): ?>
+															<?php  $imapDirsList = array_merge(
 																$arParams['MAILBOX']['OPTIONS']['imap']['income'],
 																$arParams['MAILBOX']['OPTIONS']['imap']['outcome']
 															); ?>
@@ -1435,35 +1435,35 @@ if ($showDomainBlock)
 																		title="<?=htmlspecialcharsbx(join(', ', $imapDirsList)) ?>" ><?=htmlspecialcharsbx(join(', ', $imapDirsList)) ?></a>
 																</label>
 																<div id="edit_imap_dirs">
-																	<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
+																	<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
 																		<input type="hidden" name="imap_dirs[income][]" value="<?=htmlspecialcharsbx($item) ?>">
-																	<? endforeach ?>
-																	<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
+																	<?php  endforeach ?>
+																	<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
 																		<input type="hidden" name="imap_dirs[outcome][]" value="<?=htmlspecialcharsbx($item) ?>">
-																	<? endforeach ?>
+																	<?php  endforeach ?>
 																</div>
 															</div>
-															<? $blacklist = array_map('htmlspecialcharsbx', $arParams['BLACKLIST'] ?: array()) ?>
+															<?php  $blacklist = array_map('htmlspecialcharsbx', $arParams['BLACKLIST'] ?: array()) ?>
 															<div class="mail-set-crm-item">
-																<a href="#" class="mail-set-textarea-show <? if (!empty($blacklist)): ?>mail-set-textarea-show-open<? endif ?>"
+																<a href="#" class="mail-set-textarea-show <?php  if (!empty($blacklist)): ?>mail-set-textarea-show-open<?php  endif ?>"
 																	onclick="toggleCrmBlacklist(this, 'edit_imap_crm_blacklist'); return false; "><?=getMessage('INTR_MAIL_CRM_BLACKLIST') ?></a>
 																<span class="post-dialog-stat-info" title="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_HINT')) ?>" style="margin-left: 15px; "></span>
 																<div class="mail-set-textarea-wrapper" id="edit_imap_crm_blacklist"
-																	<? if (empty($blacklist)): ?> style="display: none; "<? endif ?>>
+																	<?php  if (empty($blacklist)): ?> style="display: none; "<?php  endif ?>>
 																	<div class="mail-set-textarea" id="mail-set-textarea">
 																		<textarea class="mail-set-textarea-input" name="black_list"
-																			placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?
+																			placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?php 
 																			echo join(', ', $blacklist);
 																		?></textarea>
 																	</div>
 																</div>
 															</div>
-														<? else: ?>
+														<?php  else: ?>
 															<div class="mail-set-crm-item">
 																<input class="mail-set-crm-check" id="imap_setup_sync_old" type="checkbox" name="sync_old" value="Y" checked>
 																<label class="mail-set-crm-check-label" for="imap_setup_sync_old"><?=getMessage('INTR_MAIL_CRM_SYNC_OLD') ?></label>
 																<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="imap_setup_max_age_3"
-																	<? if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<? endif ?>>
+																	<?php  if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<?php  endif ?>>
 																	<input type="radio" name="max_age" value="0">
 																	<div class="mail-set-singleselect-wrapper">
 																		<input type="radio" name="max_age" value="3" id="imap_setup_max_age_3" checked>
@@ -1472,43 +1472,43 @@ if ($showDomainBlock)
 																		<label for="imap_setup_max_age_i"><?=getMessage('INTR_MAIL_CRM_SYNC_AGE_I') ?></label>
 																	</div>
 																</label>
-																<? if ($limitedLicense): ?>
+																<?php  if ($limitedLicense): ?>
 																<span class="mail-set-icon-lock" onclick="showLicenseInfoPopup('age'); "></span>
-																<? endif ?>
+																<?php  endif ?>
 															</div>
-														<? endif ?>
+														<?php  endif ?>
 														<div class="mail-set-crm" style="margin-top: 20px; ">
 															<div class="mail-set-crm-title"><?=getMessage('INTR_MAIL_CRM_OPTIONS') ?></div>
 														</div>
 														<div class="mail-set-crm-item">
-															<? $crmNewLeadDenied = $isCrmConfig ? in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
+															<?php  $crmNewLeadDenied = $isCrmConfig ? in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
 															<input class="mail-set-crm-check" id="imap_setup_crm_new_lead" type="checkbox" name="crm_new_lead" value="Y"
-																<? if (!$crmNewLeadDenied): ?> checked<? endif ?>
+																<?php  if (!$crmNewLeadDenied): ?> checked<?php  endif ?>
 																onclick="toggleSubordinateBlock('imap_setup_crm_new_lead_resp', this.checked); ">
 															<label class="mail-set-crm-check-label" for="imap_setup_crm_new_lead"><?=getMessage('INTR_MAIL_INP_CRM_NEW_LEAD') ?></label>
-															<? if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
+															<?php  if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
 																<div class="mail-set-crm-check-ext" id="imap_setup_crm_new_lead_resp"
-																	<? if ($crmNewLeadDenied): ?> style="display: none; "<? endif ?>>
-																	<? $defaultLeadSource = $isCrmConfig ? $arParams['MAILBOX_LEAD_SOURCE'] : $arParams['DEFAULT_LEAD_SOURCE']; ?>
+																	<?php  if ($crmNewLeadDenied): ?> style="display: none; "<?php  endif ?>>
+																	<?php  $defaultLeadSource = $isCrmConfig ? $arParams['MAILBOX_LEAD_SOURCE'] : $arParams['DEFAULT_LEAD_SOURCE']; ?>
 																	<input class="mail-set-crm-check" type="checkbox" style="visibility: hidden; ">
 																	<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_LEAD_SOURCE') ?>:</label>
 																	<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="imap_setup_lead_source_<?=htmlspecialcharsbx($defaultLeadSource) ?>">
 																		<input type="radio" name="lead_source" value="0">
 																		<div class="mail-set-singleselect-wrapper">
-																			<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+																			<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 																				<input type="radio" name="lead_source" value="<?=htmlspecialcharsbx($value) ?>" id="imap_setup_lead_source_<?=htmlspecialcharsbx($value) ?>"
-																					<? if ($value == $defaultLeadSource): ?> checked<? endif ?>>
+																					<?php  if ($value == $defaultLeadSource): ?> checked<?php  endif ?>>
 																				<label for="imap_setup_lead_source_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-																			<? endforeach ?>
+																			<?php  endforeach ?>
 																		</div>
 																	</label>
 																</div>
-															<? endif ?>
+															<?php  endif ?>
 														</div>
 														<div class="mail-set-crm-item">
-															<? $crmNewContactDenied = $isCrmConfig ? in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
+															<?php  $crmNewContactDenied = $isCrmConfig ? in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']) : false; ?>
 															<input class="mail-set-crm-check" id="imap_setup_crm_new_contact" type="checkbox" name="crm_new_contact" value="Y"
-																<? if (!$crmNewContactDenied): ?> checked<? endif ?>>
+																<?php  if (!$crmNewContactDenied): ?> checked<?php  endif ?>>
 															<label class="mail-set-crm-check-label" for="imap_setup_crm_new_contact"><?=getMessage('INTR_MAIL_INP_CRM_NEW_CONTACT') ?></label>
 														</div>
 													</div>
@@ -1519,15 +1519,15 @@ if ($showDomainBlock)
 												</form>
 											</div>
 										</div>
-									<? endif ?>
+									<?php  endif ?>
 								</div>
 							</div>
 
-							<div id="imap_pass_block" class="mail-set-item-block-wrap" <? if ($isOauthMailbox): ?> style="display: none; "<? endif ?>>
+							<div id="imap_pass_block" class="mail-set-item-block-wrap" <?php  if ($isOauthMailbox): ?> style="display: none; "<?php  endif ?>>
 								<div class="mail-set-item-block-name"><?=getMessage('INTR_MAIL_MAILBOX_SETTINGS_MANAGE') ?></div>
 								<div class="mail-set-item-block">
 									<form id="imap_password_form">
-										<? list($login, ) = explode('@', $emailAddress, 2); ?>
+										<?php  list($login, ) = explode('@', $emailAddress, 2); ?>
 										<input name="ID" type="hidden" value="<?=$arParams['MAILBOX']['ID'] ?>" />
 										<input name="login" type="hidden" value="<?=htmlspecialcharsbx($login) ?>" />
 										<?=bitrix_sessid_post() ?>
@@ -1552,7 +1552,7 @@ if ($showDomainBlock)
 
 							<div id="edit_imap" name="edit-imap" class="post-dialog-wrap" style="display: none; ">
 								<form>
-									<? $settings = $arParams['SERVICES'][$arParams['MAILBOX']['SERVICE_ID']]; ?>
+									<?php  $settings = $arParams['SERVICES'][$arParams['MAILBOX']['SERVICE_ID']]; ?>
 									<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 										<span class="post-dialog-alert-align"></span>
 										<span class="post-dialog-alert-icon"></span>
@@ -1562,14 +1562,14 @@ if ($showDomainBlock)
 									<input type="hidden" name="SERVICE" value="<?=$settings['id'] ?>">
 									<input type="hidden" name="ID" value="<?=$arParams['MAILBOX']['ID'] ?>">
 									<?=bitrix_sessid_post() ?>
-									<? if (empty($settings['link'])): ?>
+									<?php  if (empty($settings['link'])): ?>
 										<div class="post-dialog-inp-item">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_LINK') ?></span>
 											<input id="link" name="link" type="text" class="post-dialog-inp" value="<?=htmlspecialcharsbx($arParams['MAILBOX']['LINK']) ?>">
 											<div name="link-hint" class="mail-inp-description"></div>
 										</div>
-									<? endif ?>
-									<? if (empty($settings['server'])): ?>
+									<?php  endif ?>
+									<?php  if (empty($settings['server'])): ?>
 										<div class="post-dialog-inp-item">
 											<div class="post-dialog-inp-serv">
 												<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_SERVER') ?></span>
@@ -1580,21 +1580,21 @@ if ($showDomainBlock)
 												<input id="port" name="port" type="text" class="post-dialog-inp" value="<?=$arParams['MAILBOX']['PORT'] ?>">
 											</div>
 										</div>
-									<? endif ?>
-									<? if (empty($settings['encryption'])): ?>
+									<?php  endif ?>
+									<?php  if (empty($settings['encryption'])): ?>
 										<div class="post-dialog-inp-item">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_ENCRYPT') ?></span>
 											<span class="post-dialog-inp-select-wrap">
 												<select name="encryption" class="post-dialog-inp-select">
-													<option value="Y"<? if ($arParams['MAILBOX']['USE_TLS'] == 'Y'): ?> selected="selected"<? endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_YES') ?></option>
-													<? if (PHP_VERSION_ID >= 50600): ?>
-														<option value="S"<? if ($arParams['MAILBOX']['USE_TLS'] == 'S'): ?> selected="selected"<? endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_SKIP') ?></option>
-													<? endif ?>
-													<option value="N"<? if (!in_array($arParams['MAILBOX']['USE_TLS'], array('Y', 'S'))): ?> selected="selected"<? endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_NO') ?></option>
+													<option value="Y"<?php  if ($arParams['MAILBOX']['USE_TLS'] == 'Y'): ?> selected="selected"<?php  endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_YES') ?></option>
+													<?php  if (PHP_VERSION_ID >= 50600): ?>
+														<option value="S"<?php  if ($arParams['MAILBOX']['USE_TLS'] == 'S'): ?> selected="selected"<?php  endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_SKIP') ?></option>
+													<?php  endif ?>
+													<option value="N"<?php  if (!in_array($arParams['MAILBOX']['USE_TLS'], array('Y', 'S'))): ?> selected="selected"<?php  endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_NO') ?></option>
 												</select>
 											</span>
 										</div>
-									<? endif ?>
+									<?php  endif ?>
 									<div class="post-dialog-inp-item">
 										<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_LOGIN') ?></span>
 										<input disabled type="text" class="post-dialog-inp" value="<?=htmlspecialcharsbx($arParams['MAILBOX']['LOGIN']) ?>">
@@ -1616,53 +1616,53 @@ if ($showDomainBlock)
 								</form>
 							</div>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 
-					<? $hasImap = false; ?>
-					<div id="imap_icons" class="mail-set-img-wrap"<? if ($imapMailbox): ?> style="display: none; "<? endif ?>>
-						<? foreach ($arParams['SERVICES'] as $id => $settings): ?>
-							<? if ($settings['type'] != 'imap') continue; ?>
-							<? $hasImap = true; ?>
+					<?php  $hasImap = false; ?>
+					<div id="imap_icons" class="mail-set-img-wrap"<?php  if ($imapMailbox): ?> style="display: none; "<?php  endif ?>>
+						<?php  foreach ($arParams['SERVICES'] as $id => $settings): ?>
+							<?php  if ($settings['type'] != 'imap') continue; ?>
+							<?php  $hasImap = true; ?>
 							<a class="mail-set-serv" id="imap-<?=$id ?>-link" href="#imap-<?=$id ?>" name="imap-link"
-								<? if (strlen($settings['name']) > 15): ?> style="font-size: 18px; "<? endif ?>
-								onclick="toggleImapForm(this, <?=$id ?>); return false; "><?
-								if ($settings['icon']): ?><img src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><? else: ?>&nbsp;<?=htmlspecialcharsbx($settings['name']) ?>&nbsp;<? endif
+								<?php  if (strlen($settings['name']) > 15): ?> style="font-size: 18px; "<?php  endif ?>
+								onclick="toggleImapForm(this, <?=$id ?>); return false; "><?php 
+								if ($settings['icon']): ?><img src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><?php  else: ?>&nbsp;<?=htmlspecialcharsbx($settings['name']) ?>&nbsp;<?php  endif
 							?></a>
-						<? endforeach ?>
+						<?php  endforeach ?>
 					</div>
 
-					<? if (!$hasImap): ?>
+					<?php  if (!$hasImap): ?>
 						<div style="text-align: center; ">
 							<br><br>
 							<?=getMessage('MAIL_SERVICES_NOT_FOUND') ?>
 							<br><br><br>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 
 					<div id="create_imap" class="mail-set-imap-cont-wrap" style="display: none; ">
 
-						<? if (!empty($arParams['MAILBOX']) && !$imapMailbox): ?>
+						<?php  if (!empty($arParams['MAILBOX']) && !$imapMailbox): ?>
 							<div id="imap_block_replace_warning">
 								<br/><br/>
 								<div class="mail-set-item-block mail-set-item-icon">
 									<span class="mail-set-item-text">
-										<? if (empty($emailAddress)): ?>
+										<?php  if (empty($emailAddress)): ?>
 											<?=getMessage('INTR_MAIL_REPLACE_WARNING_UN') ?>
-										<? else: ?>
+										<?php  else: ?>
 											<?=getMessage('INTR_MAIL_REPLACE_WARNING', array('#EMAIL#' => htmlspecialcharsbx($emailAddress))) ?>
-										<? endif ?>
+										<?php  endif ?>
 									</span>
 								</div>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 
-						<? foreach ($arParams['SERVICES'] as $id => $settings): ?>
-							<? if ($settings['type'] != 'imap') continue; ?>
+						<?php  foreach ($arParams['SERVICES'] as $id => $settings): ?>
+							<?php  if ($settings['type'] != 'imap') continue; ?>
 
 							<div id="create_imap_<?=$id ?>" name="create-imap" class="post-dialog-wrap" style="display: none; ">
 								<form>
-									<div style="padding-bottom: 20px; height: 55px; max-width: 130px; font: bold 22px/50px Arial; color: #585858; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; "><?
-										if ($settings['icon']): ?><img style="max-height: 80%; max-width: 100%; vertical-align: middle; " src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><? else: ?><?=htmlspecialcharsbx($settings['name']) ?><?	endif
+									<div style="padding-bottom: 20px; height: 55px; max-width: 130px; font: bold 22px/50px Arial; color: #585858; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; "><?php 
+										if ($settings['icon']): ?><img style="max-height: 80%; max-width: 100%; vertical-align: middle; " src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><?php  else: ?><?=htmlspecialcharsbx($settings['name']) ?><?php 	endif
 									?></div>
 									<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 										<span class="post-dialog-alert-align"></span>
@@ -1671,18 +1671,18 @@ if ($showDomainBlock)
 									</div>
 									<input type="hidden" name="act" value="create">
 									<input type="hidden" name="SERVICE" value="<?=$id ?>">
-									<? if (!empty($arParams['MAILBOX'])): ?>
+									<?php  if (!empty($arParams['MAILBOX'])): ?>
 										<input type="hidden" name="ID" value="<?=$arParams['MAILBOX']['ID'] ?>">
-									<? endif ?>
+									<?php  endif ?>
 									<?=bitrix_sessid_post() ?>
-									<? if (empty($settings['link'])): ?>
+									<?php  if (empty($settings['link'])): ?>
 										<div class="post-dialog-inp-item">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_LINK') ?></span>
 											<input id="link" name="link" type="text" class="post-dialog-inp">
 											<div name="link-hint" class="mail-inp-description"></div>
 										</div>
-									<? endif ?>
-									<? if (empty($settings['server'])): ?>
+									<?php  endif ?>
+									<?php  if (empty($settings['server'])): ?>
 										<div class="post-dialog-inp-item">
 											<div class="post-dialog-inp-serv">
 												<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_SERVER') ?></span>
@@ -1693,22 +1693,22 @@ if ($showDomainBlock)
 												<input id="port" name="port" type="text" class="post-dialog-inp">
 											</div>
 										</div>
-									<? endif ?>
-									<? if (empty($settings['encryption'])): ?>
+									<?php  endif ?>
+									<?php  if (empty($settings['encryption'])): ?>
 										<div class="post-dialog-inp-item">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_ENCRYPT') ?></span>
 											<span class="post-dialog-inp-select-wrap">
 												<select name="encryption" class="post-dialog-inp-select">
 													<option value="Y" selected="selected"><?=getMessage('INTR_MAIL_INP_ENCRYPT_YES') ?></option>
-													<? if (PHP_VERSION_ID >= 50600): ?>
+													<?php  if (PHP_VERSION_ID >= 50600): ?>
 														<option value="S"><?=getMessage('INTR_MAIL_INP_ENCRYPT_SKIP') ?></option>
-													<? endif ?>
+													<?php  endif ?>
 													<option value="N"><?=getMessage('INTR_MAIL_INP_ENCRYPT_NO') ?></option>
 												</select>
 											</span>
 										</div>
-									<? endif ?>
-									<? if (empty($settings['oauth'])): ?>
+									<?php  endif ?>
+									<?php  if (empty($settings['oauth'])): ?>
 										<div class="post-dialog-inp-item">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_EMAIL') ?></span>
 											<input name="email" type="text" class="post-dialog-inp">
@@ -1724,10 +1724,10 @@ if ($showDomainBlock)
 											<input name="password" type="password" class="post-dialog-inp">
 											<div name="pass-hint" class="mail-inp-description"></div>
 										</div>
-									<? else: ?>
+									<?php  else: ?>
 										<input type="hidden" name="oauth" value="<?=htmlspecialcharsbx($settings['oauth']->getUrl('opener', $settings['oauth_scope'], array('BACKURL' => uniqid('#oauth')))) ?>">
-									<? endif ?>
-									<? if ($arParams['CRM_AVAILABLE']): ?>
+									<?php  endif ?>
+									<?php  if ($arParams['CRM_AVAILABLE']): ?>
 										<div class="mail-set-item-block-crm" id="mail-set-item-block-crm">
 											<div class="mail-set-item-block-crm-wrapper" id="mail-set-item-block-crm-wrapper">
 												<div class="mail-set-item-block-crm-wrapper-dec">
@@ -1744,7 +1744,7 @@ if ($showDomainBlock)
 															<input class="mail-set-crm-check" id="create_imap_<?=$id ?>_sync_old" type="checkbox" name="sync_old" value="Y" checked>
 															<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_sync_old"><?=getMessage('INTR_MAIL_CRM_SYNC_OLD') ?></label>
 															<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_imap_<?=$id ?>_max_age_3"
-																<? if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<? endif ?>>
+																<?php  if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<?php  endif ?>>
 																<input type="radio" name="max_age" value="0">
 																<div class="mail-set-singleselect-wrapper">
 																	<input type="radio" name="max_age" value="3" id="create_imap_<?=$id ?>_max_age_3" checked>
@@ -1753,30 +1753,30 @@ if ($showDomainBlock)
 																	<label for="create_imap_<?=$id ?>_max_age_i"><?=getMessage('INTR_MAIL_CRM_SYNC_AGE_I') ?></label>
 																</div>
 															</label>
-															<? if ($limitedLicense): ?>
+															<?php  if ($limitedLicense): ?>
 																<span class="mail-set-icon-lock" onclick="showLicenseInfoPopup('age'); "></span>
-															<? endif ?>
+															<?php  endif ?>
 														</div>
 														<div class="mail-set-crm-item">
 															<input class="mail-set-crm-check" id="create_imap_<?=$id ?>_crm_new_lead" type="checkbox" name="crm_new_lead" value="Y" checked
 																onclick="toggleSubordinateBlock('create_imap_<?=$id ?>_crm_new_lead_resp', this.checked); ">
 															<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_crm_new_lead"><?=getMessage('INTR_MAIL_INP_CRM_NEW_LEAD') ?></label>
-															<? if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
+															<?php  if (!empty($arParams['LEAD_SOURCE_LIST'])): ?>
 																<div class="mail-set-crm-check-ext" id="create_imap_<?=$id ?>_crm_new_lead_resp">
 																	<input class="mail-set-crm-check" type="checkbox" style="visibility: hidden; ">
 																	<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_LEAD_SOURCE') ?>:</label>
 																	<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_imap_<?=$id ?>_lead_source_<?=htmlspecialcharsbx($arParams['DEFAULT_LEAD_SOURCE']) ?>">
 																		<input type="radio" name="lead_source" value="0">
 																		<div class="mail-set-singleselect-wrapper">
-																			<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+																			<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 																				<input type="radio" name="lead_source" value="<?=htmlspecialcharsbx($value) ?>" id="create_imap_<?=$id ?>_lead_source_<?=htmlspecialcharsbx($value) ?>"
-																					<? if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<? endif ?>>
+																					<?php  if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<?php  endif ?>>
 																				<label for="create_imap_<?=$id ?>_lead_source_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-																			<? endforeach ?>
+																			<?php  endforeach ?>
 																		</div>
 																	</label>
 																</div>
-															<? endif ?>
+															<?php  endif ?>
 														</div>
 														<div class="mail-set-crm-item">
 															<input class="mail-set-crm-check" id="create_imap_<?=$id ?>_crm_new_contact" type="checkbox" name="crm_new_contact" value="Y" checked>
@@ -1786,7 +1786,7 @@ if ($showDomainBlock)
 												</div>
 											</div>
 										</div>
-									<? endif ?>
+									<?php  endif ?>
 									<div class="post-dialog-footer">
 										<a id="imap_<?=$id ?>_create_save" name="create-save" href="#" class="webform-button webform-button-accept">
 											<?=getMessage('INTR_MAIL_INP_SAVE') ?>
@@ -1799,7 +1799,7 @@ if ($showDomainBlock)
 								</form>
 							</div>
 
-						<? endforeach ?>
+						<?php  endforeach ?>
 
 						<div class="mail-set-cont-right">
 							<div class="mail-set-second-info" id="create_imap_info">
@@ -1812,14 +1812,14 @@ if ($showDomainBlock)
 					</div>
 				</div>
 			</div>
-			<div id="mail-set-corner" class="mail-set-corner"<? if (!$showB24Block && !$showDomainBlock): ?> style="display: none; " <? endif ?>></div>
+			<div id="mail-set-corner" class="mail-set-corner"<?php  if (!$showB24Block && !$showDomainBlock): ?> style="display: none; " <?php  endif ?>></div>
 		</div>
 	</div>
-	<? if ($showB24Block || $showDomainBlock): ?>
-		<div id="mail-info-message" class="mail-info-message"<? if (!empty($arParams['MAILBOX'])): ?> style="display: none; "<? endif ?>>
+	<?php  if ($showB24Block || $showDomainBlock): ?>
+		<div id="mail-info-message" class="mail-info-message"<?php  if (!empty($arParams['MAILBOX'])): ?> style="display: none; "<?php  endif ?>>
 			<?=getMessage(isModuleInstalled('bitrix24') ? 'INTR_MAIL_HINT_B24_CRM' : 'INTR_MAIL_HINT_BOX_CRM') ?>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 </div>
 
 <script type="text/javascript">
@@ -2107,9 +2107,9 @@ if ($showDomainBlock)
 			else if(event.type == 'click')
 			{
 				btn = BX(blockID+'-btn');
-				<? if (empty($limitedDomainBlock)): ?>
+				<?php  if (empty($limitedDomainBlock)): ?>
 					setPost.anim(blockID, btn);
-				<? else: ?>
+				<?php  else: ?>
 					if (blockID != 'mail-set-second')
 					{
 						setPost.anim(blockID, btn);
@@ -2123,7 +2123,7 @@ if ($showDomainBlock)
 							false
 						);
 					}
-				<? endif ?>
+				<?php  endif ?>
 			}
 		},
 
@@ -2216,16 +2216,16 @@ if ($showDomainBlock)
 	BX.bind(BX('mail-block-table'), 'mouseout', setPost.show);
 	BX.bind(BX('mail-block-table'), 'click', setPost.show);
 
-	<? if ($defaultBlock == 'domain'): ?>
+	<?php  if ($defaultBlock == 'domain'): ?>
 		setTimeout(function () {
 			setPost.anim('mail-set-second', BX('mail-set-second-btn'));
 		}, 10);
-	<? endif ?>
-	<? if ($defaultBlock == 'imap'): ?>
+	<?php  endif ?>
+	<?php  if ($defaultBlock == 'imap'): ?>
 		setTimeout(function () {
 			setPost.anim('mail-set-third', BX('mail-set-third-btn'));
 		}, 10);
-	<? endif ?>
+	<?php  endif ?>
 
 </script>
 
@@ -2505,7 +2505,7 @@ if ($showDomainBlock)
 		imapDirsPopup.show();
 	}
 
-	<? if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT']) && !empty($arParams['IMAP_DIRS'])): ?>
+	<?php  if ($arParams['CRM_AVAILABLE'] && !empty($arParams['CRM_PRECONNECT']) && !empty($arParams['IMAP_DIRS'])): ?>
 
 	(function() {
 
@@ -2608,7 +2608,7 @@ if ($showDomainBlock)
 
 	})();
 
-	<? endif ?>
+	<?php  endif ?>
 
 	(function() {
 
@@ -3013,10 +3013,10 @@ if ($showDomainBlock)
 							}
 							else
 							{
-								<? if ($arParams['CRM_AVAILABLE']): ?>
+								<?php  if ($arParams['CRM_AVAILABLE']): ?>
 								if (data.crm_connect == 'Y' && json.imap_dirs)
 									showImapDirsPopup(json.imap_dirs, self.enableCrm, self.disableCrm);
-								<? endif ?>
+								<?php  endif ?>
 
 								BX.removeClass(formButton, 'webform-button-accept-active webform-button-wait');
 								self.alert(alert, json.error, json.error_ext, true);
@@ -4404,10 +4404,10 @@ if ($showDomainBlock)
 								if (form.elements['oauth'] && json.oauth_url)
 									form.elements['oauth'].value = json.oauth_url;
 
-								<? if ($arParams['CRM_AVAILABLE']): ?>
+								<?php  if ($arParams['CRM_AVAILABLE']): ?>
 								if (act == 'create' && data.crm_connect == 'Y' && json.imap_dirs)
 									showImapDirsPopup(json.imap_dirs, self.enableCrm, self.disableCrm);
-								<? endif ?>
+								<?php  endif ?>
 
 								BX.removeClass(formButton, 'webform-button-accept-active webform-button-wait');
 								self.alert(alert, json.error, json.error_ext, true);

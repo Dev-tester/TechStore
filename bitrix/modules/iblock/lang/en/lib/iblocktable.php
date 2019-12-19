@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ENTITY_ACTIVE_FIELD"] = "Active";
 $MESS["IBLOCK_ENTITY_BIZPROC_FIELD"] = "Use in business processes";
 $MESS["IBLOCK_ENTITY_CANONICAL_PAGE_URL_FIELD"] = "Element canonical URL";

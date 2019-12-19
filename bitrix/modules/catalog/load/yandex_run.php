@@ -1,4 +1,4 @@
-<?
+<?php 
 //<title>Yandex</title>
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
@@ -1003,7 +1003,7 @@ if ($firstStep)
 		}
 		else
 		{
-			if (!@fwrite($fp, '<? $disableReferers = '.($disableReferers ? 'true' : 'false').';'."\n"))
+			if (!@fwrite($fp, '<?php  $disableReferers = '.($disableReferers ? 'true' : 'false').';'."\n"))
 			{
 				$arRunErrors[] = str_replace('#FILE#', $sectionFileName, GetMessage('YANDEX_ERR_SETUP_FILE_WRITE'));
 				@fclose($fp);

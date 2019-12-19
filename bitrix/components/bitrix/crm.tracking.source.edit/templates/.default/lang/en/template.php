@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SOURCE_EDIT_AD_ACCOUNT"] = "Ad Account";
 $MESS["CRM_TRACKING_SOURCE_EDIT_ARCHIVE"] = "Archive";
 $MESS["CRM_TRACKING_SOURCE_EDIT_AUTH"] = "Log on to %name%";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Cashbox\AdminPage\Restrictions
 {
 	use Bitrix\Main\Application;

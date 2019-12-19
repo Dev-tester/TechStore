@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WDUF_PICKUP_ATTACHMENTS"] = "Выбрать файл на компьютере";
 $MESS["WDUF_ATTACHED_TO_MESSAGE"] = "Файл прикреплён к сообщению";
 $MESS["WD_SAVED_PATH"] = "Сохранено";

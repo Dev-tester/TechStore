@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 \Bitrix\Main\Loader::includeModule('bizproc');
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/prolog.php");
@@ -273,11 +273,11 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("BPATT_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 	<input type="hidden" name="document_type" value="<?= htmlspecialcharsbx($documentType[2]) ?>">
 	<input type="hidden" name="back_url_list" value="<?= htmlspecialcharsbx($backUrl) ?>">
 
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -290,7 +290,7 @@ $oFilter->Begin();
 ?>
 	<tr>
 		<td><?= GetMessage("BPATT_F_NAME") ?>:</td>
-		<td><input type="text" name="filter_name" value="<?echo htmlspecialcharsex($filter_name)?>" size="47"></td>
+		<td><input type="text" name="filter_name" value="<?php echo htmlspecialcharsex($filter_name)?>" size="47"></td>
 	</tr>
 	<tr>
 		<td><?= GetMessage("BPATT_F_AUTOEXECUTE") ?>:</td>
@@ -302,7 +302,7 @@ $oFilter->Begin();
 		</td>
 	</tr>
 
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -314,10 +314,10 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

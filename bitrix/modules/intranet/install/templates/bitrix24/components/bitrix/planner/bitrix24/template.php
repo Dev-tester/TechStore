@@ -1,19 +1,19 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<div class="timeman-container planner-container<?=(IsAmPmMode() ? " am-pm-mode" : "")?>"><?
-	?><div class="timeman-wrap planner-wrap"><?
-		?><span id="timeman-block" class="timeman-block"><?
-			?><span class="bx-time" id="timeman-timer"></span><?
-			?><span class="timeman-right-side"><?
-				?><span class="timeman-info" id="timeman-info"></span><?
-				?><span class="timeman-task-time" id="timeman-task-time" style="display: none;"><i></i><span id="timeman-task-timer"></span></span><?
-			?></span><?
-			?><span class="timeman-background"></span><?
-		?></span><?
+<div class="timeman-container planner-container<?=(IsAmPmMode() ? " am-pm-mode" : "")?>"><?php 
+	?><div class="timeman-wrap planner-wrap"><?php 
+		?><span id="timeman-block" class="timeman-block"><?php 
+			?><span class="bx-time" id="timeman-timer"></span><?php 
+			?><span class="timeman-right-side"><?php 
+				?><span class="timeman-info" id="timeman-info"></span><?php 
+				?><span class="timeman-task-time" id="timeman-task-time" style="display: none;"><i></i><span id="timeman-task-timer"></span></span><?php 
+			?></span><?php 
+			?><span class="timeman-background"></span><?php 
+		?></span><?php 
 	?></div>
 </div>
 
-<?$frame = $this->createFrame("planner")->begin("");
+<?php $frame = $this->createFrame("planner")->begin("");
 
 if (is_array($arResult['DATA']) && count($arResult['DATA']) > 0)
 {
@@ -267,7 +267,7 @@ if (is_array($arResult['DATA']) && count($arResult['DATA']) > 0)
 	window.BXPLANNER = BXPLANNER;
 })();
 </script>
-<?
+<?php 
 }
 
 $frame->end();?>

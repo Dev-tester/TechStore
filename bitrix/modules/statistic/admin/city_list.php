@@ -88,7 +88,7 @@ else:
 	$height = COption::GetOptionString("statistic", "GRAPH_HEIGHT");
 	$diameter = COption::GetOptionString("statistic", "DIAGRAM_DIAMETER");
 ?>
-<?
+<?php 
 $found = false;
 foreach($arrLegend as $key => $val)
 {
@@ -99,26 +99,26 @@ foreach($arrLegend as $key => $val)
 }
 
 ?>
-<?if($found):?>
-	<?if(count($arrDays) > 1):?>
+<?php if($found):?>
+	<?php if(count($arrDays) > 1):?>
 	<div class="graph">
 		<table border="0" cellspacing="1" cellpadding="0" align="center">
 			<tr>
 				<td valign="center">
-					<img src="/bitrix/admin/city_graph.php?find_data_type=<?=$find_data_type?><?=GetFilterParams($FilterArr)?>&width=<?=$width?>&height=<?=$height?>&lang=<?echo LANG?>" width="<?=$width?>" height="<?=$height?>">
+					<img src="/bitrix/admin/city_graph.php?find_data_type=<?=$find_data_type?><?=GetFilterParams($FilterArr)?>&width=<?=$width?>&height=<?=$height?>&lang=<?php echo LANG?>" width="<?=$width?>" height="<?=$height?>">
 				</td>
 			</tr>
 		</table>
 	</div>
-	<?endif?>
+	<?php endif?>
 <div class="graph">
-	<?echo GetMessage("STAT_DYNAMIC_GRAPH2")?>
+	<?php echo GetMessage("STAT_DYNAMIC_GRAPH2")?>
 	<table cellspacing=0 cellpadding=10 align="center">
 	<tr>
 		<td valign="center"><img src="/bitrix/admin/city_diagram.php?<?=GetFilterParams($FilterArr)?>&lang=<?=LANG?>&find_data_type=<?=$find_data_type?>" width="<?=$diameter?>" height="<?=$diameter?>"></td>
 		<td valign="center">
 			<table cellpadding=2 cellspacing=0 border=0 class="legend">
-				<?
+				<?php 
 				$sum = 0;
 				foreach($arrLegend as $keyL => $arrL)
 					$sum += $arrL[$find_data_type];
@@ -138,31 +138,31 @@ foreach($arrLegend as $key => $val)
 					<td valign="center" class="color">
 						<div style="background-color: <?="#".$color?>"></div>
 					</td>
-					<td class="number" nowrap><?echo sprintf("%01.2f", $procent)."%"?></td>
-					<td  nowrap>(<?
+					<td class="number" nowrap><?php echo sprintf("%01.2f", $procent)."%"?></td>
+					<td  nowrap>(<?php 
 					if ($find_data_type=="SESSIONS") :
-					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?php echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="NEW_GUESTS") :
-					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_sess2=1&amp;find_period_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_period_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?php echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_sess2=1&amp;find_period_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_period_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="HITS") :
-					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?php echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="C_EVENTS") :
-					?><?=$counter?><?
+					?><?=$counter?><?php 
 					endif;
 					?>)</td>
 					<td nowrap><?=htmlspecialcharsbx($name)?></td>
 				</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</table>
 		</td>
 	</tr>
 </table>
 </div>
-<?else:
+<?php else:
 	CAdminMessage::ShowMessage(GetMessage("STAT_NO_DATA"));
 endif?>
 
-<?
+<?php 
 $found = false;
 foreach($arrTotalLegend as $key => $val)
 {
@@ -174,13 +174,13 @@ foreach($arrTotalLegend as $key => $val)
 if ($found):
 ?>
 <div class="graph">
-<?echo GetMessage("STAT_STATIC_GRAPH")?>
+<?php echo GetMessage("STAT_STATIC_GRAPH")?>
 <table cellspacing=0 cellpadding=10 class="graph" align="center">
 	<tr>
 		<td valign="center"><img src="/bitrix/admin/city_diagram.php?<?=GetFilterParams($FilterArr)?>&lang=<?=LANGUAGE_ID?>&find_data_type=<?=$find_data_type?>&diagram_type=TOTAL" width="<?=$diameter?>" height="<?=$diameter?>"></td>
 		<td valign="center">
 			<table cellpadding=2 cellspacing=0 border=0 class="legend">
-				<?
+				<?php 
 				$sum = 0;
 				foreach($arrTotalLegend as $keyL => $arrL)
 					$sum += $arrL["TOTAL_".$find_data_type];
@@ -199,31 +199,31 @@ if ($found):
 					<td valign="center" class="color">
 						<div style="background-color: <?="#".$color?>"></div>
 					</td>
-					<td class="number" nowrap><?echo sprintf("%01.2f", $procent)."%"?></td>
-					<td  nowrap>(<?
+					<td class="number" nowrap><?php echo sprintf("%01.2f", $procent)."%"?></td>
+					<td  nowrap>(<?php 
 					if ($find_data_type=="SESSIONS") :
-					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?php echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="NEW_GUESTS") :
-					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_sess2=1&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?php echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;find_sess2=1&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="HITS") :
-					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&amp;find_city_id=<?php echo urlencode($id)?>&amp;find_city_exact_match=Y&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="C_EVENTS") :
-					?><?=$counter?><?
+					?><?=$counter?><?php 
 					endif;
 					?>)</td>
 					<td nowrap><?=htmlspecialcharsbx($name)?></td>
 				</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</table>
 		</td>
 	</tr>
 </table>
 </div>
-<?else:
+<?php else:
 	CAdminMessage::ShowMessage(GetMessage("STAT_NO_DATA"));
 endif?>
 
-<?
+<?php 
 endif;
 $lAdmin->EndCustomContent();
 
@@ -290,21 +290,21 @@ $filter = new CAdminFilter($sTableID."_filter_id", array(GetMessage("STAT_F_COUN
 ?>
 
 <form name="form1" method="post" action="<?=$APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <tr valign="top">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
 </tr>
 </tr>
-<?
+<?php 
 $ref = array_values($arrCOUNTRY);
 array_unshift($ref, GetMessage("MAIN_NO"));
 $ref_id = array_keys($arrCOUNTRY);
 array_unshift($ref_id, "-1");
 ?>
 <tr valign="top">
-	<td valign="top"><?echo GetMessage("STAT_F_COUNTRY_ID")?>:</td>
-	<td><?echo SelectBoxFromArray(
+	<td valign="top"><?php echo GetMessage("STAT_F_COUNTRY_ID")?>:</td>
+	<td><?php echo SelectBoxFromArray(
 			"find_country_id",
 			array("REFERENCE"=>$ref, "REFERENCE_ID"=>$ref_id),
 			$find_country_id? $find_country_id: "-1",
@@ -313,12 +313,12 @@ array_unshift($ref_id, "-1");
 	);?></td>
 </tr>
 
-<?
+<?php 
 $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));
 $filter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

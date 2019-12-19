@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DBType;
 
 define("SOCSERV_AUTHORISATION_ERROR", 1);

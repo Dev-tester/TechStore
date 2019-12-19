@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORM_LIST'] = "List of fields";
 $MESS ['FORM_FORM_EDIT'] = "Parameters for the form # #ID#";
 $MESS ['FORM_NOT_FOUND'] = "Incorrect form ID";

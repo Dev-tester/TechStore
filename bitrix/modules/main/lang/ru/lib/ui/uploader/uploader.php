@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BXU_FileIsBlockedByOtherProcess"] = "Файл заблокирован другим процессом.";
 $MESS["BXU_RequiredParamCIDIsNotEntered"] = "Не указан обязательный параметр CID.";
 $MESS["BXU_RequiredParamPackageIndexIsNotEntered"] = "Не указан обязательный параметр packageIndex.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -137,7 +137,7 @@ $context->Show();
 
 echo BeginNote('width="100%"');?>
 <b><?=GetMessage("FORM_FORM_NAME")?></b> [<a title='<?=GetMessage("FORM_EDIT_FORM")?>' href='form_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$WEB_FORM_ID?>'><?=$WEB_FORM_ID?></a>]&nbsp;(<?=htmlspecialcharsbx($arForm["SID"])?>)&nbsp;<?=htmlspecialcharsbx($arForm["NAME"])?>
-<?echo EndNote();
+<?php echo EndNote();
 
 $aMenu = array();
 
@@ -184,30 +184,30 @@ echo ShowNote($strNote);
 
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&WEB_FORM_ID=".$WEB_FORM_ID?>" name="form_status_edit">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID."&WEB_FORM_ID=".$WEB_FORM_ID?>" name="form_status_edit">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value=<?=$ID?>>
-<?
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //General Tab
 //********************
 $tabControl->BeginNextTab();
 ?>
-	<? if (strlen($str_TIMESTAMP_X)>0 && $str_TIMESTAMP_X!="00.00.0000 00:00:00") : ?>
+	<?php  if (strlen($str_TIMESTAMP_X)>0 && $str_TIMESTAMP_X!="00.00.0000 00:00:00") : ?>
 	<tr>
 		<td><?=GetMessage("FORM_TIMESTAMP")?></td>
 		<td><?=$str_TIMESTAMP_X?></td>
 	</tr>
-	<? endif; ?>
-	<? if ($ID>0) : ?>
+	<?php  endif; ?>
+	<?php  if ($ID>0) : ?>
 	<tr>
 		<td><?=GetMessage("FORM_RESULTS_STATUS")?></td>
-		<td><a title="<?=GetMessage("FORM_RESULTS_TITLE")?>" href="form_result_list.php?lang=<?=LANGUAGE_ID?>&WEB_FORM_ID=<?=$WEB_FORM_ID?>&find_status=<?echo $ID?>&set_filter=Y"><?echo intval($str_RESULTS)?></a></td>
+		<td><a title="<?=GetMessage("FORM_RESULTS_TITLE")?>" href="form_result_list.php?lang=<?=LANGUAGE_ID?>&WEB_FORM_ID=<?=$WEB_FORM_ID?>&find_status=<?php echo $ID?>&set_filter=Y"><?php echo intval($str_RESULTS)?></a></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td width="40%"><?=GetMessage("FORM_ACTIVE")?></td>
 		<td width="60%"><?=InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false)?></td>
@@ -218,13 +218,13 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td><?=GetMessage("FORM_DESCRIPTION")?></td>
-		<td><textarea name="DESCRIPTION" rows="3" cols="38"><?echo $str_DESCRIPTION?></textarea></td>
+		<td><textarea name="DESCRIPTION" rows="3" cols="38"><?php echo $str_DESCRIPTION?></textarea></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("FORM_SORTING")?></td>
 		<td><input type="text" name="C_SORT" size="5" value="<?=$str_C_SORT?>"></td>
 	</tr>
-	<?
+	<?php 
 	$disabled = "disabled";
 	if ($DEFAULT_STATUS_ID<=0 || $DEFAULT_STATUS_ID==$ID) $disabled = "";
 	?>
@@ -244,7 +244,7 @@ $tabControl->BeginNextTab();
 		<td><?=GetMessage("FORM_HANDLER_IN")?></td>
 		<td><input type="text" name="HANDLER_IN" size="60" value="<?=$str_HANDLER_IN?>"></td>
 	</tr>
-<?
+<?php 
 //********************
 //Mail templates tab
 //********************
@@ -342,7 +342,7 @@ function DeleteMailTemplate(template_id)
 {
 	if (bInProcess) return;
 
-	if (confirm('<?echo CUtil::JSEscape(GetMessage('FORM_CONFIRM_DEL_MAIL_TEMPLATE'))?>'))
+	if (confirm('<?php echo CUtil::JSEscape(GetMessage('FORM_CONFIRM_DEL_MAIL_TEMPLATE'))?>'))
 	{
 		function __process(data)
 		{
@@ -352,8 +352,8 @@ function DeleteMailTemplate(template_id)
 			bInProcess = false;
 		}
 
-		//var url = 'message_admin.php?action=delete&ID=' + template_id + '&lang=<?echo LANGUAGE_ID?>&<?=bitrix_sessid_get()?>';
-		var url = '/bitrix/admin/form_status_mail.php?action=delete&ID=' + template_id + '&lang=<?echo LANGUAGE_ID?>&<?=bitrix_sessid_get()?>&WEB_FORM_ID=<?=intval($ID)?>';
+		//var url = 'message_admin.php?action=delete&ID=' + template_id + '&lang=<?php echo LANGUAGE_ID?>&<?=bitrix_sessid_get()?>';
+		var url = '/bitrix/admin/form_status_mail.php?action=delete&ID=' + template_id + '&lang=<?php echo LANGUAGE_ID?>&<?=bitrix_sessid_get()?>&WEB_FORM_ID=<?=intval($ID)?>';
 
 		CHttpRequest.Action = __process;
 		ShowWaitWindow();
@@ -363,11 +363,11 @@ function DeleteMailTemplate(template_id)
 }
 //-->
 </script>
-	<?if ($ID>0):?>
+	<?php if ($ID>0):?>
 	<tr>
 		<td width="40%" valign="top"><?=GetMessage("FORM_MAIL_TEMPLATE")?></td>
 		<td width="60%" valign="top" nowrap style="padding:0px" id="form_templates">
-			<?
+			<?php 
 			$arr = CFormStatus::GetTemplateList($ID);
 			//echo '<pre>'; print_r($arr); echo '</pre>';
 			if (is_array($arr) && count($arr)>0):
@@ -379,57 +379,57 @@ function DeleteMailTemplate(template_id)
 						$arrMAIL[$value] = $arr["reference"][$key];
 				}
 				?>
-				<?
+				<?php 
 				if (count($arrMAIL) > 0) echo '<table cellspacing="0" cellpadding="0" id="form_templates_table"><tbody>'
 				?>
-				<?
+				<?php 
 				foreach ($arrMAIL as $mail_id => $mail_name):
 					$checked = (is_array($arMAIL_TEMPLATE) && in_array($mail_id, $arMAIL_TEMPLATE)) ? "checked" : "";
 				?>
 					<tr id="ft_<?=htmlspecialcharsbx($mail_id)?>">
-						<td nowrap style="padding:0px"><input type="checkbox" name="arMAIL_TEMPLATE[]" value="<?=htmlspecialcharsbx($mail_id)?>" id="<?=htmlspecialcharsbx($mail_id)?>" <?=$checked?>><?echo "[<a class=tablebodylink href='/bitrix/admin/message_edit.php?ID=".htmlspecialcharsbx($mail_id)."&lang=".LANGUAGE_ID."'>".htmlspecialcharsbx($mail_id). "</a>]";?>&nbsp;<label for="<?=htmlspecialcharsbx($mail_id)?>"><?=htmlspecialcharsbx($mail_name)?></label></td>
+						<td nowrap style="padding:0px"><input type="checkbox" name="arMAIL_TEMPLATE[]" value="<?=htmlspecialcharsbx($mail_id)?>" id="<?=htmlspecialcharsbx($mail_id)?>" <?=$checked?>><?php echo "[<a class=tablebodylink href='/bitrix/admin/message_edit.php?ID=".htmlspecialcharsbx($mail_id)."&lang=".LANGUAGE_ID."'>".htmlspecialcharsbx($mail_id). "</a>]";?>&nbsp;<label for="<?=htmlspecialcharsbx($mail_id)?>"><?=htmlspecialcharsbx($mail_name)?></label></td>
 						<td nowrap style="padding:0px">&nbsp;[&nbsp;<a href="javascript:void(0)" onclick="DeleteMailTemplate('<?=htmlspecialcharsbx($mail_id)?>')"><?=GetMessage("FORM_DELETE_MAIL_TEMPLATE")?></a>&nbsp;]</td>
 					</tr>
-				<?endforeach;?>
-				<?
+				<?php endforeach;?>
+				<?php 
 				if (count($arrMAIL) > 0) echo '</tbody></table>';
 				?>
-				<?
+				<?php 
 			endif;
 
 			if ($F_RIGHT>=30) :
 			?>
 				<table cellpadding="0" cellspacing="0">
 					<tr>
-						<td colspan=2 style="padding:0px"><?if (count($arrMAIL)>0) echo "<br>"?>&nbsp;[&nbsp;<a title="<?=GetMessage("FORM_GENERATE_TEMPLATE_ALT")?>" onClick="GenerateMailTemplate()" href="javascript:void(0)"><?echo GetMessage("FORM_CREATE_S")?></a>&nbsp;]<?
+						<td colspan=2 style="padding:0px"><?php if (count($arrMAIL)>0) echo "<br>"?>&nbsp;[&nbsp;<a title="<?=GetMessage("FORM_GENERATE_TEMPLATE_ALT")?>" onClick="GenerateMailTemplate()" href="javascript:void(0)"><?php echo GetMessage("FORM_CREATE_S")?></a>&nbsp;]<?php 
 						if (count($arrMAIL)>0):
-							?>&nbsp;&nbsp;&nbsp;[&nbsp;<a href="/bitrix/admin/message_admin.php?find_type_id=FORM_STATUS_CHANGE_<?=$arForm['SID']?>_<?=$ID?>&set_filter=Y"><?echo GetMessage("FORM_VIEW_TEMPLATE_LIST")?></a>&nbsp;]<?
+							?>&nbsp;&nbsp;&nbsp;[&nbsp;<a href="/bitrix/admin/message_admin.php?find_type_id=FORM_STATUS_CHANGE_<?=$arForm['SID']?>_<?=$ID?>&set_filter=Y"><?php echo GetMessage("FORM_VIEW_TEMPLATE_LIST")?></a>&nbsp;]<?php 
 						endif;
 						?></td>
 					</tr>
 				</table>
-			<?
+			<?php 
 			endif;
 			?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
 		<td>
-<?
+<?php 
 		echo BeginNote(), GetMessage("FORM_STATUS_NOT_SAVED"), EndNote();
 ?>
 		</td>
 	</tr>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 //********************
 //Access Tab
 //********************
 $tabControl->BeginNextTab();
 ?>
 
-	<?
+	<?php 
 	$arr_ref = array();
 	$arr_ref_id = array();
 	$arr_ref[] = GetMessage("FORM_OWNER");
@@ -447,32 +447,32 @@ $tabControl->BeginNextTab();
 	?>
 	<tr>
 		<td><?=GetMessage('FORM_MOVE_RIGHTS')." [MOVE]";?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
-		<td><?
+		<td><?php 
 		echo SelectBoxMFromArray("arPERMISSION_MOVE[]", array("REFERENCE" => $arr_ref, "REFERENCE_ID" => $arr_ref_id), $arPERMISSION_MOVE, "", false, 8, "");
 		?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('FORM_VIEW_RIGHTS')." [VIEW]"?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
-		<td><?
+		<td><?php echo GetMessage('FORM_VIEW_RIGHTS')." [VIEW]"?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
+		<td><?php 
 		echo SelectBoxMFromArray("arPERMISSION_VIEW[]", array("REFERENCE" => $arr_ref, "REFERENCE_ID" => $arr_ref_id), $arPERMISSION_VIEW, "", false, 8, "");
 		?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('FORM_EDIT_RIGHTS')." [EDIT]"?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
-		<td><?
+		<td><?php echo GetMessage('FORM_EDIT_RIGHTS')." [EDIT]"?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
+		<td><?php 
 		echo SelectBoxMFromArray("arPERMISSION_EDIT[]", array("REFERENCE" => $arr_ref, "REFERENCE_ID" => $arr_ref_id), $arPERMISSION_EDIT, "", false, 8, "");
 		?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('FORM_DELETE_RIGHTS')." [DELETE]"?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
-		<td><?
+		<td><?php echo GetMessage('FORM_DELETE_RIGHTS')." [DELETE]"?><br><img src="/bitrix/images/form/mouse.gif" width="44" height="21" border=0 alt=""></td>
+		<td><?php 
 		echo SelectBoxMFromArray("arPERMISSION_DELETE[]", array("REFERENCE" => $arr_ref, "REFERENCE_ID" => $arr_ref_id), $arPERMISSION_DELETE, "", false, 8, "");
 		?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled"=>($F_RIGHT<30), "back_url"=>"form_list.php?lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
-<? require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php  require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

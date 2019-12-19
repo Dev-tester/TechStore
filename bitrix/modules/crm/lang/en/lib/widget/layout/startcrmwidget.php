@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CH_TRACKER_WGT_ACTIVITY_DYNAMIC"] = "Communication overview";
 $MESS["CRM_CH_TRACKER_WGT_AMOUNT_OF_SALE"] = "Rating by value of won deals";
 $MESS["CRM_CH_TRACKER_WGT_COMMUNICATION_DYNAMIC"] = "Communication load ";

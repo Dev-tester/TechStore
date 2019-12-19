@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Util;
 
 final class Error extends \Bitrix\Main\Error

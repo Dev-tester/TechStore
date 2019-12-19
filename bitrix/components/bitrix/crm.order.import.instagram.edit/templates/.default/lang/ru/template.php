@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OIIE_DEL_REFERENCE"] = "Отключить";
 $MESS["CRM_OIIE_AUTHORIZATION"] = "Авторизация";
 $MESS["CRM_OIIE_LOG_IN_UNDER_AN_ADMINISTRATOR_ACCOUNT_PAGE"] = "К магазину Битрикс24 можно подключить только бизнес-профиль Instagram. 	Авторизуйтесь под профилем администратора страницы Facebook, которая привязана к нужному бизнес-профилю в Instagram.";

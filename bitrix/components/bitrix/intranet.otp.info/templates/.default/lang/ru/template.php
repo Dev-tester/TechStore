@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_OTP_PASS"] = "1 фактор защиты – ваш пароль";
 $MESS["INTRANET_OTP_CODE"] = "2 фактор защиты – секретный код";
 $MESS["INTRANET_OTP_GOTO"] = "Приступить к защите";

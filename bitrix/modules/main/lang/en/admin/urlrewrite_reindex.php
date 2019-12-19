@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MURL_REINDEX_TOTAL'] = "Documents processed:";
 $MESS ['MURL_REINDEX_COMPLETE'] = "Re-creation of rules is completed.";
 $MESS ['MURL_REINDEX_TITLE'] = "Re-creation of rules for URLs processing";

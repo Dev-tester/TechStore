@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <?php if (sizeof($arResult["ACCESS_ERRORS"])):?>
 
@@ -8,7 +8,7 @@
 
 <?php else:?>
 
-	<?if (!empty($arResult["QUESTION"])):?>
+	<?php if (!empty($arResult["QUESTION"])):?>
 	<?php if (is_array($arResult["INCORRECT_QUESTION"])):?>
 		<div id="learn-test-message">
 			<?php if ($arResult["INCORRECT_QUESTION"]["ID"] != $arResult["QUESTION"]["ID"]):?>
@@ -19,58 +19,58 @@
 	<?php endif?>
 	<div class="learn-test-tabs"><?=GetMessage("LEARNING_QUESTION_TITLE");?>&nbsp;
 
-	<?if ($arResult["TEST"]["PASSAGE_TYPE"] == 2 && $arResult["NAV"]["PREV_NOANSWER"] != $arResult["NAV"]["PREV_QUESTION"] && $arResult["NAV"]["PREV_NOANSWER"]):?>
+	<?php if ($arResult["TEST"]["PASSAGE_TYPE"] == 2 && $arResult["NAV"]["PREV_NOANSWER"] != $arResult["NAV"]["PREV_QUESTION"] && $arResult["NAV"]["PREV_NOANSWER"]):?>
 
 		<a class="previous" href="<?=$arResult["QBAR"][$arResult["NAV"]["PREV_NOANSWER"]]["URL"]?>" title="<?=GetMessage("LEARNING_QBAR_PREVIOUS_NOANSWER_TITLE")?>">&lsaquo;&lsaquo;</a>
 		<a class="first" href="<?=$arResult["QBAR"][$arResult["NAV"]["PREV_QUESTION"]]["URL"]?>" title="<?=GetMessage("LEARNING_QBAR_PREVIOUS_TITLE")?>">&lsaquo;</a>
 
-	<?elseif ($arResult["NAV"]["PREV_QUESTION"]):?>
+	<?php elseif ($arResult["NAV"]["PREV_QUESTION"]):?>
 		<a class="previous" href="<?=$arResult["QBAR"][$arResult["NAV"]["PREV_QUESTION"]]["URL"]?>" title="<?=GetMessage("LEARNING_QBAR_PREVIOUS_TITLE")?>">&lsaquo;</a>
-	<?endif?>
+	<?php endif?>
 
 
-	<?while($arResult["NAV"]["START_PAGE"] <= $arResult["NAV"]["END_PAGE"]):?>
+	<?php while($arResult["NAV"]["START_PAGE"] <= $arResult["NAV"]["END_PAGE"]):?>
 
-		<?if ($arResult["NAV"]["START_PAGE"] == $arResult["NAV"]["PAGE_NUMBER"]):?>
+		<?php if ($arResult["NAV"]["START_PAGE"] == $arResult["NAV"]["PAGE_NUMBER"]):?>
 			<a class="selected" title="<?=GetMessage("LEARNING_QBAR_CURRENT_TITLE")?>">&nbsp;<?=$arResult["NAV"]["START_PAGE"]?>&nbsp;</a>
-		<?elseif ($arResult["QBAR"][$arResult["NAV"]["START_PAGE"]]["ANSWERED"] == "Y"):?>
+		<?php elseif ($arResult["QBAR"][$arResult["NAV"]["START_PAGE"]]["ANSWERED"] == "Y"):?>
 
-			<?if ($arResult["TEST"]["PASSAGE_TYPE"] == 2):?>
+			<?php if ($arResult["TEST"]["PASSAGE_TYPE"] == 2):?>
 				<a href="<?=$arResult["QBAR"][$arResult["NAV"]["START_PAGE"]]["URL"]?>" class="answered" title="<?=GetMessage("LEARNING_QBAR_ANSWERED_TITLE")?>">&nbsp;<?=$arResult["NAV"]["START_PAGE"]?>&nbsp;</a>
-			<?else:?>
+			<?php else:?>
 				<a class="disabled" title="<?=GetMessage("LEARNING_QBAR_ANSWERED_TITLE")?>">&nbsp;<?=$arResult["NAV"]["START_PAGE"]?>&nbsp;</a>
-			<?endif?>
+			<?php endif?>
 
-		<?else:?>
+		<?php else:?>
 
-			<?if ($arResult["TEST"]["PASSAGE_TYPE"] == 0):?>
+			<?php if ($arResult["TEST"]["PASSAGE_TYPE"] == 0):?>
 			<a title="<?=GetMessage("LEARNING_QBAR_NOANSWERED_TITLE")?>">&nbsp;<?=$arResult["NAV"]["START_PAGE"]?>&nbsp;</a>
-			<?else:?>
+			<?php else:?>
 			<a title="<?=GetMessage("LEARNING_QBAR_NOANSWERED_TITLE")?>" href="<?=$arResult["QBAR"][$arResult["NAV"]["START_PAGE"]]["URL"]?>">&nbsp;<?=$arResult["NAV"]["START_PAGE"]?>&nbsp;</a>
-			<?endif?>
+			<?php endif?>
 
-		<?endif;?>
+		<?php endif;?>
 
-	<?
+	<?php 
 	$arResult["NAV"]["START_PAGE"]++;
 	endwhile;
 	?>
 
-	<?if ($arResult["TEST"]["PASSAGE_TYPE"] == 2 && $arResult["NAV"]["NEXT_NOANSWER"] != $arResult["NAV"]["NEXT_QUESTION"] && $arResult["NAV"]["NEXT_NOANSWER"]):?>
+	<?php if ($arResult["TEST"]["PASSAGE_TYPE"] == 2 && $arResult["NAV"]["NEXT_NOANSWER"] != $arResult["NAV"]["NEXT_QUESTION"] && $arResult["NAV"]["NEXT_NOANSWER"]):?>
 
 		<a class="last" href="<?=$arResult["QBAR"][$arResult["NAV"]["NEXT_QUESTION"]]["URL"]?>" title="<?=GetMessage("LEARNING_QBAR_NEXT_TITLE")?>">&rsaquo;</a>
 		<a class="next" href="<?=$arResult["QBAR"][$arResult["NAV"]["NEXT_NOANSWER"]]["URL"]?>" title="<?=GetMessage("LEARNING_QBAR_NEXT_NOANSWER_TITLE")?>">&rsaquo;&rsaquo;</a>
 
-	<?elseif ($arResult["NAV"]["NEXT_QUESTION"]):?>
+	<?php elseif ($arResult["NAV"]["NEXT_QUESTION"]):?>
 		<a class="next" href="<?=$arResult["QBAR"][$arResult["NAV"]["NEXT_QUESTION"]]["URL"]?>" title="<?=GetMessage("LEARNING_QBAR_NEXT_TITLE")?>">&rsaquo;</a>
-	<?endif?>
+	<?php endif?>
 
-	<?if ($arResult["TEST"]["TIME_LIMIT"]>0 && $arParams["SHOW_TIME_LIMIT"] == "Y"):?>
+	<?php if ($arResult["TEST"]["TIME_LIMIT"]>0 && $arParams["SHOW_TIME_LIMIT"] == "Y"):?>
 		<div id="learn-test-timer" title="<?=GetMessage("LEARNING_TEST_TIME_LIMIT");?>"><?=$arResult["SECONDS_TO_END_STRING"]?></div>
 		<script type="text/javascript">
 			var clockID = null; clockID = setTimeout("UpdateClock(<?=$arResult["SECONDS_TO_END"]?>)", 950);
 		</script>
-	<?endif?>
+	<?php endif?>
 
 	</div>
 
@@ -81,13 +81,13 @@
 			<?=$arResult["NAV"]["PAGE_NUMBER"]?> <?=GetMessage("LEARNING_QUESTION_OF");?> <?=$arResult["NAV"]["PAGE_COUNT"]?>
 		</div>
 		<div class="learn-question-name"><?=$arResult["QUESTION"]["NAME"]?>
-			<?if (strlen($arResult["QUESTION"]["DESCRIPTION"]) > 0):?>
+			<?php if (strlen($arResult["QUESTION"]["DESCRIPTION"]) > 0):?>
 				<br /><br /><?=$arResult["QUESTION"]["DESCRIPTION"]?>
-			<?endif?>
+			<?php endif?>
 
-			<?if ($arResult["QUESTION"]["FILE"] !== false):?>
+			<?php if ($arResult["QUESTION"]["FILE"] !== false):?>
 				<br /><br /><img src="<?=$arResult["QUESTION"]["FILE"]["SRC"]?>" width="<?=$arResult["QUESTION"]["FILE"]["WIDTH"]?>" height="<?=$arResult["QUESTION"]["FILE"]["HEIGHT"]?>" />
-			<?endif?>
+			<?php endif?>
 		</div>
 	</div>
 
@@ -114,24 +114,24 @@
 				</div>
 			<?php endfor?>
 		<?php else:?>
-			<?foreach($arResult["QUESTION"]["ANSWERS"] as $arAnswer):?>
+			<?php foreach($arResult["QUESTION"]["ANSWERS"] as $arAnswer):?>
 
-				<?if ($arResult["QUESTION"]["QUESTION_TYPE"] == "M"):?>
-					<label><input type="checkbox" name="answer[]" value="<?=$arAnswer["ID"]?>" <?if (in_array($arAnswer["ID"], $arResult["QBAR"][$arResult["NAV"]["PAGE_NUMBER"]]["RESPONSE"])):?>checked <?endif?>/>&nbsp;<?=$arAnswer["ANSWER"]?></label><br />
-				<?elseif ($arResult["QUESTION"]["QUESTION_TYPE"] == "S"):?>
-					<label><input type="radio" name="answer" value="<?=$arAnswer["ID"]?>" <?if (in_array($arAnswer["ID"], $arResult["QBAR"][$arResult["NAV"]["PAGE_NUMBER"]]["RESPONSE"])):?>checked <?endif?>/>&nbsp;<?=$arAnswer["ANSWER"]?></label><br />
-				<?endif?>
+				<?php if ($arResult["QUESTION"]["QUESTION_TYPE"] == "M"):?>
+					<label><input type="checkbox" name="answer[]" value="<?=$arAnswer["ID"]?>" <?php if (in_array($arAnswer["ID"], $arResult["QBAR"][$arResult["NAV"]["PAGE_NUMBER"]]["RESPONSE"])):?>checked <?php endif?>/>&nbsp;<?=$arAnswer["ANSWER"]?></label><br />
+				<?php elseif ($arResult["QUESTION"]["QUESTION_TYPE"] == "S"):?>
+					<label><input type="radio" name="answer" value="<?=$arAnswer["ID"]?>" <?php if (in_array($arAnswer["ID"], $arResult["QBAR"][$arResult["NAV"]["PAGE_NUMBER"]]["RESPONSE"])):?>checked <?php endif?>/>&nbsp;<?=$arAnswer["ANSWER"]?></label><br />
+				<?php endif?>
 
-			<?endforeach?>
+			<?php endforeach?>
 		<?php endif?>
 
 		<br />
 
-		<?if ($arResult["TEST"]["PASSAGE_TYPE"] > 0 && $arResult["NAV"]["PREV_QUESTION"]):?>
+		<?php if ($arResult["TEST"]["PASSAGE_TYPE"] > 0 && $arResult["NAV"]["PREV_QUESTION"]):?>
 			<input type="submit" name="previous" onClick="javascript:window.location='<?=CUtil::JSEscape($arResult["QBAR"][$arResult["NAV"]["PREV_QUESTION"]]["URL"])?>'; return false;" value="<?=GetMessage("LEARNING_BTN_PREVIOUS")?>" />
-		<?endif?>
+		<?php endif?>
 
-		<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_NEXT")?>"<?if ($arResult["TEST"]["PASSAGE_TYPE"] == 0):?> OnClick="return <?php if ($arResult["QUESTION"]["QUESTION_TYPE"] == "R"):?>checkSorting('<?=GetMessage("LEARNING_INVALID_SORT_CONFIRM")?>');<?php else:?>checkForEmpty('<?php if ($arResult["QUESTION"]["QUESTION_TYPE"] == "T"):?><?=GetMessage("LEARNING_EMPTY_RESPONSE_CONFIRM")?><?php else:?><?=GetMessage("LEARNING_NO_RESPONSE_CONFIRM")?><?php endif?>');<?php endif?>"<?endif?>>
+		<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_NEXT")?>"<?php if ($arResult["TEST"]["PASSAGE_TYPE"] == 0):?> OnClick="return <?php if ($arResult["QUESTION"]["QUESTION_TYPE"] == "R"):?>checkSorting('<?=GetMessage("LEARNING_INVALID_SORT_CONFIRM")?>');<?php else:?>checkForEmpty('<?php if ($arResult["QUESTION"]["QUESTION_TYPE"] == "T"):?><?=GetMessage("LEARNING_EMPTY_RESPONSE_CONFIRM")?><?php else:?><?=GetMessage("LEARNING_NO_RESPONSE_CONFIRM")?><?php endif?>');<?php endif?>"<?php endif?>>
 		&nbsp;&nbsp;&nbsp;
 		<?php
 		{
@@ -147,9 +147,9 @@
 		<div><?php if ($arResult["TEST"]["CURRENT_INDICATION_PERCENT"] == "Y"):?><?=GetMessage("LEARNING_CURRENT_RIGHT_COUNT")?> - <?php echo $arResult["COMPLETE_PERCENT"]?>%.<?php endif?><?php if ($arResult["TEST"]["CURRENT_INDICATION_MARK"] == "Y" && $arResult["CURRENT_MARK"]):?> <?=GetMessage("LEARNING_CURRENT_MARK")?> - <?php echo $arResult["CURRENT_MARK"]?>.<?php endif?></div>
 	<?php endif?>
 
-	<?elseif ($arResult["TEST_FINISHED"] === true):?>
+	<?php elseif ($arResult["TEST_FINISHED"] === true):?>
 
-		<?ShowError($arResult["ERROR_MESSAGE"]);?>
+		<?php ShowError($arResult["ERROR_MESSAGE"]);?>
 		<?php if ($arResult["ATTEMPT"]["COMPLETED"]):?>
 			<?php if ($arResult["ATTEMPT"]["COMPLETED"] == "N"):?>
 				<?php ShowError(GetMessage("LEARNING_TEST_FAILED"))?>
@@ -170,7 +170,7 @@
 					</tr>
 				<?php endif?>
 
-				<?
+				<?php 
 				$percent = round($arResult["ATTEMPT"]["SCORE"] / $arResult["ATTEMPT"]["MAX_SCORE"] * 100, 2);
 				?>
 
@@ -209,15 +209,15 @@
 				<?php endif?>
 			</table>
 		<?php endif?>
-		<?ShowNote(GetMessage("LEARNING_COMPLETED"));?>
+		<?php ShowNote(GetMessage("LEARNING_COMPLETED"));?>
 
 		<?php if ($arResult["GRADEBOOK_URL"]):?>
 		<a href="<?=$arResult["GRADEBOOK_URL"]?>"><?=GetMessage("LEARNING_PROFILE")?></a>
 		<?php endif?>
 
-	<?elseif (strlen($arResult["ERROR_MESSAGE"]) > 0):?>
+	<?php elseif (strlen($arResult["ERROR_MESSAGE"]) > 0):?>
 
-		<?ShowError($arResult["ERROR_MESSAGE"]);?>
+		<?php ShowError($arResult["ERROR_MESSAGE"]);?>
 		<br />
 		<form name="learn_test_start" method="post" action="<?=$arResult["ACTION_PAGE"]?>">
 		<?=bitrix_sessid_post()?>
@@ -225,41 +225,41 @@
 		<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_CONTINUE")?>">
 		</form>
 
-	<?else:?>
+	<?php else:?>
 
 		<?=GetMessage("LEARNING_TEST_NAME")?>: <?=$arResult["TEST"]["NAME"];?><br />
-		<?if (strlen($arResult["TEST"]["DESCRIPTION"]) > 0):?>
+		<?php if (strlen($arResult["TEST"]["DESCRIPTION"]) > 0):?>
 			<?=$arResult["TEST"]["DESCRIPTION"]?><br />
-		<?endif?>
+		<?php endif?>
 
-		<?if ($arResult["TEST"]["ATTEMPT_LIMIT"] > 0):?>
+		<?php if ($arResult["TEST"]["ATTEMPT_LIMIT"] > 0):?>
 			<?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>: <?=$arResult["TEST"]["ATTEMPT_LIMIT"]?>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("LEARNING_TEST_ATTEMPT_LIMIT")?>: <?=GetMessage("LEARNING_TEST_ATTEMPT_UNLIMITED")?>
-		<?endif?>
+		<?php endif?>
 		<br />
 
-		<?if ($arResult["TEST"]["TIME_LIMIT"] > 0):?>
+		<?php if ($arResult["TEST"]["TIME_LIMIT"] > 0):?>
 			<?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>: <?=$arResult["TEST"]["TIME_LIMIT"]?> <?=GetMessage("LEARNING_TEST_TIME_LIMIT_MIN")?>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("LEARNING_TEST_TIME_LIMIT")?>: <?=GetMessage("LEARNING_TEST_TIME_LIMIT_UNLIMITED")?>
-		<?endif?>
+		<?php endif?>
 		<br />
 
 		<?=GetMessage("LEARNING_PASSAGE_TYPE")?>:
-		<?if ($arResult["TEST"]["PASSAGE_TYPE"] == 2):?>
+		<?php if ($arResult["TEST"]["PASSAGE_TYPE"] == 2):?>
 			<?=GetMessage("LEARNING_PASSAGE_FOLLOW_EDIT")?>
-		<?elseif ($arResult["TEST"]["PASSAGE_TYPE"] == 1):?>
+		<?php elseif ($arResult["TEST"]["PASSAGE_TYPE"] == 1):?>
 			<?=GetMessage("LEARNING_PASSAGE_FOLLOW_NO_EDIT")?>
-		<?else:?>
+		<?php else:?>
 			<?=GetMessage("LEARNING_PASSAGE_NO_FOLLOW_NO_EDIT")?>
-		<?endif?>
+		<?php endif?>
 		<br />
 
-		<?if ($arResult["TEST"]["PREVIOUS_TEST_ID"] > 0 && $arResult["TEST"]["PREVIOUS_TEST_SCORE"] > 0 && $arResult["TEST"]["PREVIOUS_TEST_LINK"]):?>
+		<?php if ($arResult["TEST"]["PREVIOUS_TEST_ID"] > 0 && $arResult["TEST"]["PREVIOUS_TEST_SCORE"] > 0 && $arResult["TEST"]["PREVIOUS_TEST_LINK"]):?>
 			<?=str_replace(array("#TEST_LINK#", "#TEST_SCORE#"), array('"'.$arResult["TEST"]["PREVIOUS_TEST_LINK"].'"', $arResult["TEST"]["PREVIOUS_TEST_SCORE"]), GetMessage("LEARNING_PREV_TEST_REQUIRED"))?>
 			<br />
-		<?endif?>
+		<?php endif?>
 
 		<br />
 		<form name="learn_test_start" method="post" action="<?=$arResult["ACTION_PAGE"]?>">
@@ -268,5 +268,5 @@
 		<input type="submit" name="next" value="<?=GetMessage("LEARNING_BTN_START")?>">
 		</form>
 
-	<?endif?>
+	<?php endif?>
 <?php endif?>

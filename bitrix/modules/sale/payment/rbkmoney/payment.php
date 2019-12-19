@@ -1,14 +1,14 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
+<?php 
 $recipientCurrencyB = CSalePaySystemAction::GetParamValue("CURRENCY");
 if ($recipientCurrencyB == "RUB")
 	$recipientCurrencyB = "RUR";
 $ACTION_TYPE = CSalePaySystemAction::GetParamValue("PAYMENT_VALUE");
 ?>
 <form action="https://Rbkmoney.ru/acceptpurchase.aspx" method="POST" name="payment_form">
-<?if (strlen($ACTION_TYPE) > 0)
+<?php if (strlen($ACTION_TYPE) > 0)
 {
-	?><input type="hidden" name="preference" value="<?= $ACTION_TYPE?>" /><?
+	?><input type="hidden" name="preference" value="<?= $ACTION_TYPE?>" /><?php 
 }
 ?>
 	<input type="hidden" name="eshopId" value="<?=CSalePaySystemAction::GetParamValue("ESHOP_ID")?>">

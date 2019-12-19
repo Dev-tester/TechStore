@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAA_PD_TYPE_ALL"] = "All Persons";
 $MESS["BPAA_PD_TYPE_ANY"] = "Any Person";
 $MESS["BPAA_PD_APPROVERS"] = "Approving voters";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 $forgetLogin = isset($_REQUEST["forgot_login"]) && $_REQUEST["forgot_login"] == "yes" ? true : false;
 
@@ -10,10 +10,10 @@ else
 	<form name="form_auth" method="post" target="_top" action="<?=$arResult["AUTH_URL"]?>">
 		<div class="log-popup-header"><?=$APPLICATION->GetTitle();?></div>
 		<hr class="b_line_gray">
-		<?ShowMessage($arParams["~AUTH_RESULT"]);?>
-		<?if (strlen($arResult["BACKURL"]) > 0):?>
+		<?php ShowMessage($arParams["~AUTH_RESULT"]);?>
+		<?php if (strlen($arResult["BACKURL"]) > 0):?>
 			<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
-		<?endif?>
+		<?php endif?>
 		<input type="hidden" name="AUTH_FORM" value="Y">
 		<input type="hidden" name="TYPE" value="SEND_PWD">
 
@@ -26,16 +26,16 @@ else
 				<span class="login-item-alignment"></span><span class="login-label"><?=GetMessage("AUTH_EMAIL")?></span>
 				<input class="login-inp" type="text" name="USER_EMAIL" maxlength="255" />
 			</div>
-<?if ($arResult["USE_CAPTCHA"]):?>
+<?php if ($arResult["USE_CAPTCHA"]):?>
 			<div class="login-item">
-				<input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
-				<img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" />
+				<input type="hidden" name="captcha_sid" value="<?php echo $arResult["CAPTCHA_CODE"]?>" />
+				<img src="/bitrix/tools/captcha.php?captcha_sid=<?php echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" />
 			</div>
 			<div class="login-item">
-				<span class="login-item-alignment"></span><span class="login-label"><?echo GetMessage("AUTH_CAPTCHA_PROMT")?></span>
+				<span class="login-item-alignment"></span><span class="login-label"><?php echo GetMessage("AUTH_CAPTCHA_PROMT")?></span>
 				<input class="login-inp" type="text" name="captcha_word" maxlength="50" value="" size="15" />
 			</div>
-<?endif?>
+<?php endif?>
 		</div>
 		<div class="login-text login-item">
 			<?=GetMessage("AUTH_FORGOT_PASSWORD_1")?>
@@ -52,6 +52,6 @@ else
 			BX.focus(document.forms["form_auth"]["USER_LOGIN"]);
 		});
 	</script>
-<?
+<?php 
 }
 ?>

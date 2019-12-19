@@ -1,10 +1,10 @@
-<?
+<?php 
 define("NO_KEEP_STATISTIC", true);
 define("NOT_CHECK_PERMISSIONS", true);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("");?>
-<?
+<?php 
 $hash = $_GET['hash'];
 
 if ($url = CAjax::decodeURI($hash))
@@ -16,4 +16,4 @@ else
 	LocalRedirect('/');
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

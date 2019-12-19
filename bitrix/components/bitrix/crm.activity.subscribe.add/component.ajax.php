@@ -1,4 +1,4 @@
-<?
+<?php 
 define('NO_KEEP_STATISTIC', 'Y');
 define('NO_AGENT_STATISTIC','Y');
 
@@ -11,7 +11,7 @@ if(!CModule::IncludeModule('crm'))
 <script>
 BX.loadCSS('/bitrix/components/bitrix/crm.activity.subscribe.add/templates/.default/style.css');
 </script>
-<?
+<?php 
 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.activity.subscribe.add',

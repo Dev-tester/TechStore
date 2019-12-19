@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["class_post_err_email"] = "There is an invalid email in the &quot;From&quot; field.";
 $MESS["class_post_err_to"] = "The &quot;To&quot; field must be filled in for an issue that is not sent directly to each recipient.";
 $MESS["class_post_err_subj"] = "The &quot;Subject&quot; field must not be empty.";

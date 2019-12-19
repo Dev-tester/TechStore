@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("STOP_WEBDAV", true);
 define("NOT_CHECK_PERMISSIONS", true);

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_OK_TITLE_SITE"] = "Создание заказа. Сайт: ##SITE##";
 $MESS["SALE_OK_TITLE_NO_SITE"] = "Создание заказа.";
 $MESS["SALE_OK_ACCESS_DENIED"] = "Доступ запрещен";

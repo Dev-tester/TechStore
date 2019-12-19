@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STOREAS_TITLE"] = "Мастер магазина";
 $MESS["STOREAS_PROGRESS"] = "Общий прогресс";
 $MESS["STOREAS_FIRST_SETTINGS"] = "Без настроек, увы, никак!";

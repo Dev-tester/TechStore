@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_TITLE"] = "Social Network Smileys";
 $MESS["ERROR_DELETE"] = "Error deleting the smiley.";
 $MESS["SMILE_DEL_CONF"] = "Are you sure you want to delete this smiley?";

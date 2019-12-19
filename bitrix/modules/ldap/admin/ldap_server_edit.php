@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -384,43 +384,43 @@ else
 		<script type="text/javascript">
 			setTimeout("OutLDSDefParams('AD')", 500);
 		</script>
-		<?
+		<?php 
 	}
 }
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>&ID=<?=$ID?>" name="form1">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>&ID=<?=$ID?>" name="form1">
 <?=bitrix_sessid_post()?>
-<?echo GetFilterHiddens("find_");?>
-<?if($_REQUEST['back_url']):?>
+<?php echo GetFilterHiddens("find_");?>
+<?php if($_REQUEST['back_url']):?>
 <input type="hidden" name="back_url" value="<?=htmlspecialcharsbx($_REQUEST['back_url'])?>">
-<?endif?>
-<?$tabControl->Begin();?>
+<?php endif?>
+<?php $tabControl->Begin();?>
 
-<?$tabControl->BeginNextTab();?>
-	<?if($ID>0):?>
+<?php $tabControl->BeginNextTab();?>
+	<?php if($ID>0):?>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_ID")?></td>
-		<td><?echo $str_ID?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_ID")?></td>
+		<td><?php echo $str_ID?></td>
 	</tr>
-	<?endif?>
-	<?if(strlen($str_TIMESTAMP_X) > 0):?>
+	<?php endif?>
+	<?php if(strlen($str_TIMESTAMP_X) > 0):?>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_TSTAMP")?></td>
-		<td><?echo $str_TIMESTAMP_X?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_TSTAMP")?></td>
+		<td><?php echo $str_TIMESTAMP_X?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
-		<td width="40%"><?echo GetMessage("LDAP_EDIT_ACT")?></td>
-		<td width="60%"><input type="hidden" name="ACTIVE" value="N"><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>></td>
+		<td width="40%"><?php echo GetMessage("LDAP_EDIT_ACT")?></td>
+		<td width="60%"><input type="hidden" name="ACTIVE" value="N"><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_NAME")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_NAME")?></td>
 		<td><input type="text" name="NAME" size="53" maxlength="255" value="<?=$str_NAME?>"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("LDAP_EDIT_DESC")?></td>
-		<td><textarea class="typearea" name="DESCRIPTION" cols="40" rows="5"><?echo $str_DESCRIPTION?></textarea></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("LDAP_EDIT_DESC")?></td>
+		<td><textarea class="typearea" name="DESCRIPTION" cols="40" rows="5"><?php echo $str_DESCRIPTION?></textarea></td>
 	</tr>
 	<tr>
 		<td>
@@ -432,7 +432,7 @@ else
 		<td>
 		<?=GetMessage("LDAP_EDIT_CODE_USER")?></td>
 		<td>
-		<?
+		<?php 
 		$ntlmVarname = COption::GetOptionString('ldap', 'ntlm_varname', 'REMOTE_USER');
 		if (array_key_exists($ntlmVarname,$_SERVER) && trim($_SERVER[$ntlmVarname])!='')
 			echo htmlspecialcharsbx($_SERVER[$ntlmVarname]);
@@ -442,7 +442,7 @@ else
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_SERV_PORT")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_SERV_PORT")?></td>
 		<td>
 			<input type="text" name="SERVER" id="adm-ldap-srv-edit-server" size="42" maxlength="255" value="<?=$str_SERVER?>">:
 			<input type="text" name="PORT" id="adm-ldap-srv-edit-port" size="4" maxlength="5" value="<?=$str_PORT?>">
@@ -499,21 +499,21 @@ else
 	</tr>
 
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_ADM_LOGIN")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_ADM_LOGIN")?></td>
 		<td><input type="text" name="ADMIN_LOGIN" size="53" maxlength="255" value="<?=$str_ADMIN_LOGIN?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_ADM_PASS")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_ADM_PASS")?></td>
 		<td><input type="password" name="ADMIN_PASSWORD" size="53" maxlength="255" value="<?=$str_ADMIN_PASSWORD?>"></td>
 	</tr>
 	<tr>
 		<td>&nbsp;</td>
-		<td><input type="submit" name="check_server" value="<?echo GetMessage("LDAP_EDIT_CHECK")?>" class="button"></td>
+		<td><input type="submit" name="check_server" value="<?php echo GetMessage("LDAP_EDIT_CHECK")?>" class="button"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_BASE_DN")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_BASE_DN")?></td>
 		<td>
-			<?
+			<?php 
 			if($ldp):
 				$ar_rootdse = $ldp->RootDSE();
 				$rootDSEcount = count($ar_rootdse);
@@ -521,11 +521,11 @@ else
 				?>
 					<select name="" onChange="document.getElementById('BASE_DN').value = this.value">
 						<option value=""> </option>
-						<?for($i=0; $i<$rootDSEcount; $i++):?>
+						<?php for($i=0; $i<$rootDSEcount; $i++):?>
 							<option value="<?=htmlspecialcharsbx($ar_rootdse[$i])?>" title="<?=htmlspecialcharsbx($ar_rootdse[$i])?>"><?=htmlspecialcharsbx($ar_rootdse[$i])?></option>
-						<?endfor;?>
+						<?php endfor;?>
 					</select>
-				<?
+				<?php 
 				endif;
 			endif; //if($ldp)
 			?>
@@ -533,33 +533,33 @@ else
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_LDAP_OPT_TIMELIMIT")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_LDAP_OPT_TIMELIMIT")?></td>
 		<td>
 			<input type="text" name="LDAP_OPT_TIMELIMIT" id="LDAP_OPT_TIMELIMIT" size="15" maxlength="255" value="<?=(intval($str_LDAP_OPT_TIMELIMIT) > 0 ? intval($str_LDAP_OPT_TIMELIMIT) : 100)?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_LDAP_OPT_TIMEOUT")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_LDAP_OPT_TIMEOUT")?></td>
 		<td>
 			<input type="text" name="LDAP_OPT_TIMEOUT" id="LDAP_OPT_TIMEOUT" size="15" maxlength="255" value="<?=(intval($str_LDAP_OPT_TIMEOUT) > 0 ? intval($str_LDAP_OPT_TIMEOUT) : 5)?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_LDAP_OPT_NETWORK_TIMEOUT")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_LDAP_OPT_NETWORK_TIMEOUT")?></td>
 		<td>
 			<input type="text" name="LDAP_OPT_NETWORK_TIMEOUT" id="LDAP_OPT_NETWORK_TIMEOUT" size="15" maxlength="255" value="<?=(intval($str_LDAP_OPT_NETWORK_TIMEOUT) > 0 ? intval($str_LDAP_OPT_NETWORK_TIMEOUT) : 5)?>">
 		</td>
 	</tr>
 
-	<?if(CLdapUtil::isLdapPaginationAviable()):?>
+	<?php if(CLdapUtil::isLdapPaginationAviable()):?>
 		<tr>
-			<td><?echo GetMessage("LDAP_EDIT_MAX_PAGE_SIZE")?></td>
+			<td><?php echo GetMessage("LDAP_EDIT_MAX_PAGE_SIZE")?></td>
 			<td>
 				<input type="text" name="MAX_PAGE_SIZE" id="MAX_PAGE_SIZE" size="15" maxlength="255" value="<?=(intval($str_MAX_PAGE_SIZE) > 0 ? intval($str_MAX_PAGE_SIZE) : $defaultMaxPageSizeAD)?>">
 			</td>
 		</tr>
-	<?endif;?>
-<?$tabControl->BeginNextTab();?>
+	<?php endif;?>
+<?php $tabControl->BeginNextTab();?>
 	<script type="text/javascript">
 		function OutLDSDefParams(t)
 		{
@@ -611,70 +611,70 @@ else
 		}
 	</script>
 	<tr class="heading">
-		<td align="center" colspan="2"><b><?echo GetMessage("LDAP_EDIT_PARAMS")?></b> (<a href="javascript:void(0)" onClick="return OutLDSDefParams('AD')" title="<?echo GetMessage("LDAP_EDIT_PARAMS_AD")?>">AD</a> \ <a href="javascript:void(0)"  onClick="return OutLDSDefParams('LDAP')" title="<?echo GetMessage("LDAP_EDIT_PARAMS_LDAP")?>">LDAP</a>)</td>
+		<td align="center" colspan="2"><b><?php echo GetMessage("LDAP_EDIT_PARAMS")?></b> (<a href="javascript:void(0)" onClick="return OutLDSDefParams('AD')" title="<?php echo GetMessage("LDAP_EDIT_PARAMS_AD")?>">AD</a> \ <a href="javascript:void(0)"  onClick="return OutLDSDefParams('LDAP')" title="<?php echo GetMessage("LDAP_EDIT_PARAMS_LDAP")?>">LDAP</a>)</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("LDAP_EDIT_CONVERT_UTF8")?></td>
-		<td width="60%"><input type="checkbox" id="CONVERT_UTF8" name="CONVERT_UTF8" value="Y"<?if($str_CONVERT_UTF8=="Y")echo " checked"?>></td>
+		<td width="40%"><?php echo GetMessage("LDAP_EDIT_CONVERT_UTF8")?></td>
+		<td width="60%"><input type="checkbox" id="CONVERT_UTF8" name="CONVERT_UTF8" value="Y"<?php if($str_CONVERT_UTF8=="Y")echo " checked"?>></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_GROUP_FILTER")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_GROUP_FILTER")?></td>
 		<td><textarea id="GROUP_FILTER" name="GROUP_FILTER" cols="50" rows="4" maxlength="2048"><?=$str_GROUP_FILTER?></textarea></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_GROUP_ATTR")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_GROUP_ATTR")?></td>
 		<td><input type="text" id="GROUP_ID_ATTR" name="GROUP_ID_ATTR" size="30" maxlength="255" value="<?=$str_GROUP_ID_ATTR?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_GROUP_NAME")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_GROUP_NAME")?></td>
 		<td><input type="text" id="GROUP_NAME_ATTR" name="GROUP_NAME_ATTR" size="30" maxlength="255" value="<?=$str_GROUP_NAME_ATTR?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_GROUP_MEMBERS")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_GROUP_MEMBERS")?></td>
 		<td><input type="text" id="GROUP_MEMBERS_ATTR" name="GROUP_MEMBERS_ATTR" size="30" maxlength="255" value="<?=$str_GROUP_MEMBERS_ATTR?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_USER_FILTER")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_FILTER")?></td>
 		<td><textarea id="USER_FILTER" name="USER_FILTER" cols="50" rows="4" maxlength="2048"><?=$str_USER_FILTER?></textarea></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("LDAP_EDIT_USER_ATTR")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_ATTR")?></td>
 		<td><input type="text" id="USER_ID_ATTR" name="USER_ID_ATTR" size="30" maxlength="255" value="<?=$str_USER_ID_ATTR?>"></td>
 	</tr>
 	<!--
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_USER_NAME")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_NAME")?></td>
 		<td><input type="text" id="USER_NAME_ATTR" name="USER_NAME_ATTR" size="30" maxlength="255" value="<?=$str_USER_NAME_ATTR?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_USER_SNAME")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_SNAME")?></td>
 		<td><input type="text" id="USER_LAST_NAME_ATTR" name="USER_LAST_NAME_ATTR" size="30" maxlength="255" value="<?=$str_USER_LAST_NAME_ATTR?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_USER_EMAIL")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_EMAIL")?></td>
 		<td><input type="text" id="USER_EMAIL_ATTR" name="USER_EMAIL_ATTR" size="30" maxlength="255" value="<?=$str_USER_EMAIL_ATTR?>"></td>
 	</tr>
 	-->
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_USER_MEMBER")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_MEMBER")?></td>
 		<td><input type="text" id="USER_GROUP_ATTR" name="USER_GROUP_ATTR" size="30" maxlength="255" value="<?=$str_USER_GROUP_ATTR?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_USER_GROUP_ACCESSORY")?></td>
-		<td><input type="checkbox" id="USER_GROUP_ACCESSORY" name="USER_GROUP_ACCESSORY" value="Y" <?if($str_USER_GROUP_ACCESSORY=="Y")echo " checked"?>></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_GROUP_ACCESSORY")?></td>
+		<td><input type="checkbox" id="USER_GROUP_ACCESSORY" name="USER_GROUP_ACCESSORY" value="Y" <?php if($str_USER_GROUP_ACCESSORY=="Y")echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_USER_DEPARTMENT")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_DEPARTMENT")?></td>
 		<td><input type="text" id="USER_DEPARTMENT_ATTR" name="USER_DEPARTMENT_ATTR" size="30" maxlength="255" value="<?=$str_USER_DEPARTMENT_ATTR?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_USER_MANAGER")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_USER_MANAGER")?></td>
 		<td><input type="text" id="USER_MANAGER_ATTR" name="USER_MANAGER_ATTR" size="30" maxlength="255" value="<?=$str_USER_MANAGER_ATTR?>"></td>
 	</tr>
 	<tr class="heading">
-		<td align="center" colspan="2"><b><?echo GetMessage("LDAP_EDIT_USER_FIELDS")?></b> <a href="#notes" style="text-decoration:none;"><span class="required">**</span></a><br></td>
+		<td align="center" colspan="2"><b><?php echo GetMessage("LDAP_EDIT_USER_FIELDS")?></b> <a href="#notes" style="text-decoration:none;"><span class="required">**</span></a><br></td>
 	</tr>
-	<?
+	<?php 
 	$nm=-1;
 	foreach($arUserFieldMap as $userField=>$ldapField):
 		if ($userField=='UF_DEPARTMENT' && IsModuleInstalled('intranet') /* also checking IsModuleInstalled('intranet'), because user can create his own UF_DEPARTMENT field in non-intranet version? */)
@@ -687,29 +687,29 @@ else
 			<td>
 				<select name="MAP[<?=$nm?>][USER]" id="MAP[<?=$nm?>][USER]" onchange="__UFChange(<?=$nm?>)" style="width:200px">
 					<option value=""></option>
-					<?foreach($arSyncFields as $k=>$p):
+					<?php foreach($arSyncFields as $k=>$p):
 						if ($k=='UF_DEPARTMENT' && IsModuleInstalled('intranet'))
 						{
 							continue;
 						};?>
-						<option value="<?=htmlspecialcharsbx($k)?>" title="<?=htmlspecialcharsbx($p["NAME"])?>" <?if($k == $userField)echo " selected"?>><?=htmlspecialcharsbx($p["NAME"])?></option>
-					<?endforeach?>
+						<option value="<?=htmlspecialcharsbx($k)?>" title="<?=htmlspecialcharsbx($p["NAME"])?>" <?php if($k == $userField)echo " selected"?>><?=htmlspecialcharsbx($p["NAME"])?></option>
+					<?php endforeach?>
 				</select>  :
 			</td>
-			<td><input type="text"  name="MAP[<?=$nm?>][LDAP]"  id="MAP[<?=$nm?>][LDAP]" value="<?=htmlspecialcharsbx($ldapField)?>"> <a href="javascript:void(0);" onclick="__UFDel(<?=$nm?>);"><?echo GetMessage("LDAP_EDIT_USER_FIELDS_DEL")?></a></td>
+			<td><input type="text"  name="MAP[<?=$nm?>][LDAP]"  id="MAP[<?=$nm?>][LDAP]" value="<?=htmlspecialcharsbx($ldapField)?>"> <a href="javascript:void(0);" onclick="__UFDel(<?=$nm?>);"><?php echo GetMessage("LDAP_EDIT_USER_FIELDS_DEL")?></a></td>
 		</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 
 		<tr id="lastmaprow">
 			<td></td>
-			<td><a href="javascript:void(0)" onClick="__UFAdd();"><?echo GetMessage("LDAP_EDIT_USER_FIELDS_ADD")?></a></td>
+			<td><a href="javascript:void(0)" onClick="__UFAdd();"><?php echo GetMessage("LDAP_EDIT_USER_FIELDS_ADD")?></a></td>
 		</tr>
 
 	<script type="text/javascript">
 	var nm = <?=$nm?>;
-	var arMas = {'_': '' <?foreach($arSyncFields as $k=>$p):?>, '<?=Cutil::JSEscape($k)?>': '<?=Cutil::JSEscape($p["AD"])?>'<?endforeach;?>};
-	var arMasLdap = {'_': '' <?foreach($arSyncFields as $k=>$p):?>, '<?=Cutil::JSEscape($k)?>': '<?=Cutil::JSEscape($p["LDAP"])?>'<?endforeach;?>};
-	var arMasName = {'_': '' <?foreach($arSyncFields as $k=>$p):?>, '<?=Cutil::JSEscape($k)?>': '<?=Cutil::JSEscape($p["NAME"])?>'<?endforeach;?>};
+	var arMas = {'_': '' <?php foreach($arSyncFields as $k=>$p):?>, '<?=Cutil::JSEscape($k)?>': '<?=Cutil::JSEscape($p["AD"])?>'<?php endforeach;?>};
+	var arMasLdap = {'_': '' <?php foreach($arSyncFields as $k=>$p):?>, '<?=Cutil::JSEscape($k)?>': '<?=Cutil::JSEscape($p["LDAP"])?>'<?php endforeach;?>};
+	var arMasName = {'_': '' <?php foreach($arSyncFields as $k=>$p):?>, '<?=Cutil::JSEscape($k)?>': '<?=Cutil::JSEscape($p["NAME"])?>'<?php endforeach;?>};
 
 	function __UFChange(id)
 	{
@@ -783,12 +783,12 @@ else
 		oTD.innerHTML = tdText;
 
 		oTD = oTR.insertCell(-1);
-		oTD.innerHTML = '<input type="text"  name="MAP['+nm+'][LDAP]"  id="MAP['+nm+'][LDAP]" value="'+val+'"> <a href="javascript:void(0);" onclick="__UFDel('+nm+')"><?echo GetMessage("LDAP_EDIT_USER_FIELDS_DEL")?></a>';
+		oTD.innerHTML = '<input type="text"  name="MAP['+nm+'][LDAP]"  id="MAP['+nm+'][LDAP]" value="'+val+'"> <a href="javascript:void(0);" onclick="__UFDel('+nm+')"><?php echo GetMessage("LDAP_EDIT_USER_FIELDS_DEL")?></a>';
 	}
 	</script>
 
 
-<?
+<?php 
 
 	if (IsModuleInstalled('intranet'))
 	{
@@ -806,17 +806,17 @@ else
 			</script>
 
 			<tr class="heading">
-				<td align="center" colspan="2"><b><?echo GetMessage("LDAP_EDIT_STRUCTURE")?></b><br/></td>
+				<td align="center" colspan="2"><b><?php echo GetMessage("LDAP_EDIT_STRUCTURE")?></b><br/></td>
 			</tr>
 
 			<tr>
 				<td>
 				<?=GetMessage("LDAP_EDIT_IMPORT_STRUCT")?>: </td>
 				<td>
-					<input onClick="__importStateSwitch(!this.checked);" type="checkbox" id="IMPORT_STRUCT" name="IMPORT_STRUCT" value="Y"<?if($importEnabled)echo " checked"?>>
+					<input onClick="__importStateSwitch(!this.checked);" type="checkbox" id="IMPORT_STRUCT" name="IMPORT_STRUCT" value="Y"<?php if($importEnabled)echo " checked"?>>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$l = CLdapUtil::getDepartmentListFromSystem();
 			if ($l !== false) {
 			?>
@@ -824,23 +824,23 @@ else
 				<td>				<?=GetMessage("LDAP_EDIT_STRUCT_ROOT")?>: </td>
 				<td>
 
-					<select name="ROOT_DEPARTMENT" id="ROOT_DEPARTMENT" <? if (!$importEnabled) echo 'disabled="1" '?> style="width: 270px">
-						<option value="-1" <?if($str_ROOT_DEPARTMENT==-1) echo 'selected="1"'; ?>><?=GetMessage('LDAP_EDIT_DEPT_NOT_SET')?></option>
+					<select name="ROOT_DEPARTMENT" id="ROOT_DEPARTMENT" <?php  if (!$importEnabled) echo 'disabled="1" '?> style="width: 270px">
+						<option value="-1" <?php if($str_ROOT_DEPARTMENT==-1) echo 'selected="1"'; ?>><?=GetMessage('LDAP_EDIT_DEPT_NOT_SET')?></option>
 
-					<?
+					<?php 
 						while($arDepartment = $l->GetNext()):
-							?><option value="<?=$arDepartment["ID"]?>" title="<?echo str_repeat(" . ", $arDepartment["DEPTH_LEVEL"])?><?echo $arDepartment["NAME"]?>" <? if ($arDepartment["ID"]==$str_ROOT_DEPARTMENT) echo 'selected="1"'; ?>><?echo str_repeat(" . ", $arDepartment["DEPTH_LEVEL"])?><?echo $arDepartment["NAME"]?></option><?
+							?><option value="<?=$arDepartment["ID"]?>" title="<?php echo str_repeat(" . ", $arDepartment["DEPTH_LEVEL"])?><?php echo $arDepartment["NAME"]?>" <?php  if ($arDepartment["ID"]==$str_ROOT_DEPARTMENT) echo 'selected="1"'; ?>><?php echo str_repeat(" . ", $arDepartment["DEPTH_LEVEL"])?><?php echo $arDepartment["NAME"]?></option><?php 
 						endwhile;
 					?>
 					</select>
 				</td>
 			</tr>
-			<? } ?>
+			<?php  } ?>
 			<tr>
 				<td>
 				<?=GetMessage("LDAP_EDIT_STRUCT_HAVE_DEFAULT")?>: </td>
 				<td>
-					<input type="checkbox" id="STRUCT_HAVE_DEFAULT" name="STRUCT_HAVE_DEFAULT" <? if (!$importEnabled) echo 'disabled="1" '?>value="Y"<?if($str_STRUCT_HAVE_DEFAULT && $str_STRUCT_HAVE_DEFAULT=='Y')echo " checked"?>>
+					<input type="checkbox" id="STRUCT_HAVE_DEFAULT" name="STRUCT_HAVE_DEFAULT" <?php  if (!$importEnabled) echo 'disabled="1" '?>value="Y"<?php if($str_STRUCT_HAVE_DEFAULT && $str_STRUCT_HAVE_DEFAULT=='Y')echo " checked"?>>
 				</td>
 			</tr>
 			<tr>
@@ -854,17 +854,17 @@ else
 				<td>
 				<?=GetMessage("LDAP_EDIT_STRUCT_DEFAULT_VAL")?>: </td>
 				<td>
-					<input type="text" name="DEFAULT_DEPARTMENT_NAME" id="DEFAULT_DEPARTMENT_NAME" size="40" maxlength="255" <? if (!$importEnabled) echo 'disabled="1" '?>value="<?=$str_DEFAULT_DEPARTMENT_NAME?>">
+					<input type="text" name="DEFAULT_DEPARTMENT_NAME" id="DEFAULT_DEPARTMENT_NAME" size="40" maxlength="255" <?php  if (!$importEnabled) echo 'disabled="1" '?>value="<?=$str_DEFAULT_DEPARTMENT_NAME?>">
 				</td>
 			</tr>
 
-		<?
+		<?php 
 	}
 	?>
 
-	<?$tabControl->BeginNextTab();?>
+	<?php $tabControl->BeginNextTab();?>
 
-	<?
+	<?php 
 	$arLDAPGroups = false;
 	if($ldp && ($gr_res = $ldp->GetGroupList()))
 	{
@@ -896,51 +896,51 @@ else
 	</script>
 
 	<tr>
-		<td align="center" colspan="2"><?echo GetMessage("LDAP_SERV_EDIT_LIST_EMPTY")?></td>
+		<td align="center" colspan="2"><?php echo GetMessage("LDAP_SERV_EDIT_LIST_EMPTY")?></td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><input type="submit" name="refresh_groups" value="<?echo GetMessage("LDAP_EDIT_REFRESH")?>" class="button" onClick="return CheckNAttr();"></td>
+		<td align="center" colspan="2"><input type="submit" name="refresh_groups" value="<?php echo GetMessage("LDAP_EDIT_REFRESH")?>" class="button" onClick="return CheckNAttr();"></td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
 		<td colspan="2" align="center">
 			<table class="internal" cellspacing="0" cellpadding="0">
 				<tr class="heading">
-					<td><?echo GetMessage("LDAP_EDIT_GROUP_REM")?></td>
-					<td><?echo GetMessage("LDAP_EDIT_GROUP_LOC")?></td>
-					<td><?echo GetMessage("LDAP_EDIT_GROUP_MAP_DEL")?></td>
+					<td><?php echo GetMessage("LDAP_EDIT_GROUP_REM")?></td>
+					<td><?php echo GetMessage("LDAP_EDIT_GROUP_LOC")?></td>
+					<td><?php echo GetMessage("LDAP_EDIT_GROUP_MAP_DEL")?></td>
 				</tr>
-				<?foreach($arGroups as $t_id=>$arGroup):?>
+				<?php foreach($arGroups as $t_id=>$arGroup):?>
 				<tr>
 					<td>
 						<select name="LDAP_GROUP[<?=htmlspecialcharsbx($t_id)?>][LDAP_GROUP_ID]" style="width:360px;">
 							<option value=""></option>
-						<?foreach($arLDAPGroups as $gid => $gname):?>
-							<option value="<?=$gid?>" title="<?=$gname?>" <?if(htmlspecialcharsEx($arGroup['LDAP_GROUP_ID'])==$gid)echo ' selected'?>><?=$gname?></option>
-						<?endforeach?>
+						<?php foreach($arLDAPGroups as $gid => $gname):?>
+							<option value="<?=$gid?>" title="<?=$gname?>" <?php if(htmlspecialcharsEx($arGroup['LDAP_GROUP_ID'])==$gid)echo ' selected'?>><?=$gname?></option>
+						<?php endforeach?>
 						</select>
 					</td>
 					<td>
-						<?$dbgr = CGroup::GetList($o="sort", $b="asc");?>
+						<?php $dbgr = CGroup::GetList($o="sort", $b="asc");?>
 						<select name="LDAP_GROUP[<?=htmlspecialcharsbx($t_id)?>][GROUP_ID]" style="width:360px;">
 							<option value=""></option>
-						<?while($argr = $dbgr->GetNext()):
+						<?php while($argr = $dbgr->GetNext()):
 							if ($argr['ID'] == 2)
 								continue;
 							?>
-							<option value="<?=$argr['ID']?>" title="<?=$argr['NAME']?>  [<?=$argr['ID']?>]" <?if($arGroup['GROUP_ID']==$argr['ID'])echo ' selected'?>><?=$argr['NAME']?> [<?=$argr['ID']?>]</option>
-						<?endwhile?>
+							<option value="<?=$argr['ID']?>" title="<?=$argr['NAME']?>  [<?=$argr['ID']?>]" <?php if($arGroup['GROUP_ID']==$argr['ID'])echo ' selected'?>><?=$argr['NAME']?> [<?=$argr['ID']?>]</option>
+						<?php endwhile?>
 						</select>
 					</td>
 					<td align="center">
-						<?if(strlen($arGroup['LDAP_GROUP_ID'])>0 || $arGroup['GROUP_ID']>0):?>
-							<input type="checkbox" name="LDAP_GROUP[<?=htmlspecialcharsbx($t_id)?>][DEL_GROUP]" value="Y" <?if($arGroup['DEL_GROUP']=='Y')echo ' checked'?>>
-						<?endif;?>
+						<?php if(strlen($arGroup['LDAP_GROUP_ID'])>0 || $arGroup['GROUP_ID']>0):?>
+							<input type="checkbox" name="LDAP_GROUP[<?=htmlspecialcharsbx($t_id)?>][DEL_GROUP]" value="Y" <?php if($arGroup['DEL_GROUP']=='Y')echo ' checked'?>>
+						<?php endif;?>
 					</td>
 				</tr>
-				<?endforeach?>
+				<?php endforeach?>
 				<tr>
-					<td colspan="3"><input type="submit" name="more_groups" value="<?echo GetMessage("LDAP_EDIT_GROUP_MAP_MORE")?>"></td>
+					<td colspan="3"><input type="submit" name="more_groups" value="<?php echo GetMessage("LDAP_EDIT_GROUP_MAP_MORE")?>"></td>
 				</tr>
 			</table>
 		</td>
@@ -950,14 +950,14 @@ else
 		<td colspan="2" align="center">
 			<table class="internal" cellspacing="0" cellpadding="0">
 				<tr class="heading">
-					<td><?echo GetMessage("LDAP_EDIT_GROUP_NOIMPORT")?>:</td>
+					<td><?php echo GetMessage("LDAP_EDIT_GROUP_NOIMPORT")?>:</td>
 				</tr>
 				<tr>
 					<td>
 						<select size="8" name="LDAP_NOIMP_GROUPS[]" style="width:360px;" multiple="">
-						<?foreach($arLDAPGroups as $gid=>$gname):?>
-							<option value="<?=$gid?>" title="<?=$gname?>" <?if(array_key_exists(md5(htmlspecialcharsback($gid)),$noimportGroups)) echo ' selected'?>><?=$gname?></option>
-						<?endforeach?>
+						<?php foreach($arLDAPGroups as $gid=>$gname):?>
+							<option value="<?=$gid?>" title="<?=$gname?>" <?php if(array_key_exists(md5(htmlspecialcharsback($gid)),$noimportGroups)) echo ' selected'?>><?=$gname?></option>
+						<?php endforeach?>
 						</select>
 					</td>
 				</tr>
@@ -965,10 +965,10 @@ else
 		</td>
 	</tr>
 
-	<?endif;?>
+	<?php endif;?>
 
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 <script type="text/javascript">
 function _SCh(c)
 {
@@ -981,43 +981,43 @@ function _SCh(c)
 }
 
 </script>
-<?
+<?php 
 if($str_SYNC=="Y")
 	$dis ='';
 else
 	$dis = ' disabled';
 ?>
-<?if(strlen($str_SYNC_LAST)>0):?>
+<?php if(strlen($str_SYNC_LAST)>0):?>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_LAST_SYNC")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_LAST_SYNC")?></td>
 		<td><?=$str_SYNC_LAST?></td>
 	</tr>
-<?endif?>
+<?php endif?>
 	<tr>
-		<td width="40%"><label for="SYNC_USER_ADD"><?echo GetMessage("LDAP_EDIT_SYNC_USER_ADD")?></label></td>
-		<td width="60%"><input type="checkbox" id="SYNC_USER_ADD" name="SYNC_USER_ADD" value="Y" <?if($str_SYNC_USER_ADD=="Y")echo ' checked'?>></td>
+		<td width="40%"><label for="SYNC_USER_ADD"><?php echo GetMessage("LDAP_EDIT_SYNC_USER_ADD")?></label></td>
+		<td width="60%"><input type="checkbox" id="SYNC_USER_ADD" name="SYNC_USER_ADD" value="Y" <?php if($str_SYNC_USER_ADD=="Y")echo ' checked'?>></td>
 	</tr>
 	<tr>
-		<td width="40%"><label for="SYNC"><?echo GetMessage("LDAP_EDIT_SYNC")?></label></td>
-		<td width="60%"><input type="checkbox" id="SYNC" name="SYNC" value="Y" <?if($str_SYNC=="Y")echo ' checked'?> onclick="_SCh(this.checked);"></td>
+		<td width="40%"><label for="SYNC"><?php echo GetMessage("LDAP_EDIT_SYNC")?></label></td>
+		<td width="60%"><input type="checkbox" id="SYNC" name="SYNC" value="Y" <?php if($str_SYNC=="Y")echo ' checked'?> onclick="_SCh(this.checked);"></td>
 	</tr>
 	<tr id="sc3"<?=$dis?>>
-		<td id="sc2"<?=$dis?>><?echo GetMessage("LDAP_EDIT_SYNC_PERIOD")?></td>
-		<td><input type="text" id="SYNC_PERIOD" name="SYNC_PERIOD" size="10" maxlength="18" value="<?=$str_SYNC_PERIOD?>"<?=$dis?>> <?echo GetMessage("LDAP_EDIT_SYNC_PERIOD_H")?></td>
+		<td id="sc2"<?=$dis?>><?php echo GetMessage("LDAP_EDIT_SYNC_PERIOD")?></td>
+		<td><input type="text" id="SYNC_PERIOD" name="SYNC_PERIOD" size="10" maxlength="18" value="<?=$str_SYNC_PERIOD?>"<?=$dis?>> <?php echo GetMessage("LDAP_EDIT_SYNC_PERIOD_H")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LDAP_EDIT_SYNC_ATTR")?></td>
+		<td><?php echo GetMessage("LDAP_EDIT_SYNC_ATTR")?></td>
 		<td><input type="text" id="SYNC_ATTR" name="SYNC_ATTR" size="20" maxlength="255" value="<?=$str_SYNC_ATTR?>"></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(Array("disabled"=> $MOD_RIGHT<"W" ,"back_url" =>"ldap_server_admin.php?lang=".LANG.GetFilterParams("filter_", false)));
 $tabControl->End();?>
 
 </form>
 
-<?$tabControl->ShowWarnings("form1", $message);?>
+<?php $tabControl->ShowWarnings("form1", $message);?>
 <a name="notes" ></a>
-<?echo BeginNote();?>
-<span class="required">**</span> <?echo GetMessage("LDAP_EDIT_SYNC_NOTES")?>
-<?echo EndNote();?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php echo BeginNote();?>
+<span class="required">**</span> <?php echo GetMessage("LDAP_EDIT_SYNC_NOTES")?>
+<?php echo EndNote();?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

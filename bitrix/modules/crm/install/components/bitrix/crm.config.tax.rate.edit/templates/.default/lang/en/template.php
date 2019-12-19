@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAXRATE_SAVE_BUTTON"] = "Save";
 $MESS["CRM_TAXRATE_TITLE"] = "Add tax rate";
 $MESS["CRM_TAXRATE_FIELDS_TAX"] = "Tax";

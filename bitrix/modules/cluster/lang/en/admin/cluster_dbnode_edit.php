@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_DBNODE_EDIT_ERROR"] = "Invalid connection specified.";
 $MESS["CLU_DBNODE_EDIT_TAB"] = "Connection";
 $MESS["CLU_DBNODE_EDIT_TAB_TITLE"] = "Edit Database Connection Parameters";

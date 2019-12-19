@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_SEARCH_TITLE"] = "Выбор файла из облачного хранилища";
 $MESS["CLO_STORAGE_SEARCH_BUCKET"] = "Облачное хранилище";
 $MESS["CLO_STORAGE_SEARCH_CHOOSE_BUCKET"] = "Выберите облачное хранилище";

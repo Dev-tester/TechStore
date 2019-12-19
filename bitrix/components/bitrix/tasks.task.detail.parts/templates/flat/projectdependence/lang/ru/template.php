@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TTDP_TEMPLATE_PROJDEP_DELETE"] = "Удалить";
 $MESS["TASKS_TTDP_TEMPLATE_PROJDEP_COL_RELATED"] = "Предшествующие задачи";
 $MESS["TASKS_TTDP_TEMPLATE_PROJDEP_COL_REL_TYPE"] = "Действие";

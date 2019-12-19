@@ -1,4 +1,4 @@
-<?
+<?php 
 
 define('FPDF_FONTPATH', $_SERVER["DOCUMENT_ROOT"]."/bitrix/fonts/");
 

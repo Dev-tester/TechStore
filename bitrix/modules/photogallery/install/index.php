@@ -1,4 +1,4 @@
-<?global $DOCUMENT_ROOT, $MESS;
+<?php global $DOCUMENT_ROOT, $MESS;
 IncludeModuleLangFile(__FILE__);
 
 if (class_exists("photogallery")) return;

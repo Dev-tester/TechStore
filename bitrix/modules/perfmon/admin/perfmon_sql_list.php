@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -30,33 +30,33 @@ if (
 	if ($arData)
 	{
 		?>
-		<table class="list"><?
+		<table class="list"><?php 
 		?>
 		<tr>
-		<td align="left"><b><? echo GetMessage("PERFMON_SQL_FILE") ?></b></td>
-		<td align="left"><b><? echo GetMessage("PERFMON_SQL_LINE_NUMBER"); ?></b></td>
-		<td align="left"><b><? echo GetMessage("PERFMON_SQL_FUNCTION"); ?></b></td>
-		</tr><?
+		<td align="left"><b><?php  echo GetMessage("PERFMON_SQL_FILE") ?></b></td>
+		<td align="left"><b><?php  echo GetMessage("PERFMON_SQL_LINE_NUMBER"); ?></b></td>
+		<td align="left"><b><?php  echo GetMessage("PERFMON_SQL_FUNCTION"); ?></b></td>
+		</tr><?php 
 		do
 		{
 			?>
 			<tr>
-			<td align="left">&nbsp;<? echo htmlspecialcharsex($arData["FILE_NAME"]) ?></td>
-			<td align="right">&nbsp;<? echo htmlspecialcharsex($arData["LINE_NO"]) ?></td>
-			<?
+			<td align="left">&nbsp;<?php  echo htmlspecialcharsex($arData["FILE_NAME"]) ?></td>
+			<td align="right">&nbsp;<?php  echo htmlspecialcharsex($arData["LINE_NO"]) ?></td>
+			<?php 
 			if ($arData["CLASS_NAME"]):?>
 				<td align="left">
-					&nbsp;<? echo htmlspecialcharsex($arData["CLASS_NAME"]."::".$arData["FUNCTION_NAME"]) ?></td>
-			<? else: ?>
-				<td align="left">&nbsp;<? echo htmlspecialcharsex($arData["FUNCTION_NAME"]) ?></td>
-			<?endif; ?>
-			</tr><?
+					&nbsp;<?php  echo htmlspecialcharsex($arData["CLASS_NAME"]."::".$arData["FUNCTION_NAME"]) ?></td>
+			<?php  else: ?>
+				<td align="left">&nbsp;<?php  echo htmlspecialcharsex($arData["FUNCTION_NAME"]) ?></td>
+			<?php endif; ?>
+			</tr><?php 
 		} while ($arData = $rsData->Fetch());
-		?></table><?
+		?></table><?php 
 	}
 	else
 	{
-		?>no backtrace found<?
+		?>no backtrace found<?php 
 	}
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 }
@@ -323,14 +323,14 @@ CJSCore::Init(array("ajax", "popup"));
 		}
 	</script>
 
-	<form name="find_form" method="get" action="<? echo $APPLICATION->GetCurPage(); ?>">
-		<? $oFilter->Begin(); ?>
+	<form name="find_form" method="get" action="<?php  echo $APPLICATION->GetCurPage(); ?>">
+		<?php  $oFilter->Begin(); ?>
 		<tr>
 			<td><b><?=GetMessage("PERFMON_SQL_FIND")?>:</b></td>
 			<td>
-				<input type="text" size="25" name="find" value="<? echo htmlspecialcharsbx($find) ?>"
+				<input type="text" size="25" name="find" value="<?php  echo htmlspecialcharsbx($find) ?>"
 					title="<?=GetMessage("PERFMON_SQL_FIND")?>">
-				<?
+				<?php 
 				$arr = array(
 					"reference" => array(
 						GetMessage("PERFMON_SQL_HIT_ID"),
@@ -348,22 +348,22 @@ CJSCore::Init(array("ajax", "popup"));
 		<tr>
 			<td><?=GetMessage("PERFMON_SQL_HIT_ID")?></td>
 			<td><input type="text" name="find_hit_id" size="47"
-				value="<? echo htmlspecialcharsbx($find_hit_id) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_hit_id) ?>"></td>
 		</tr>
 		<tr>
 			<td><?=GetMessage("PERFMON_SQL_COMPONENT_ID")?></td>
 			<td><input type="text" name="find_component_id" size="47"
-				value="<? echo htmlspecialcharsbx($find_component_id) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_component_id) ?>"></td>
 		</tr>
 		<tr>
 			<td><?=GetMessage("PERFMON_SQL_QUERY_TIME")?></td>
 			<td><input type="text" name="find_query_time" size="7"
-				value="<? echo htmlspecialcharsbx($find_query_time) ?>"></td>
+				value="<?php  echo htmlspecialcharsbx($find_query_time) ?>"></td>
 		</tr>
-		<? if ($bCluster): ?>
+		<?php  if ($bCluster): ?>
 			<tr>
 				<td><?=GetMessage("PERFMON_SQL_NODE_ID")?></td>
-				<td><?
+				<td><?php 
 					$arr = array(
 						"reference" => array_values($arClusterNodes),
 						"reference_id" => array_keys($arClusterNodes),
@@ -371,8 +371,8 @@ CJSCore::Init(array("ajax", "popup"));
 					echo SelectBoxFromArray("find_node_id", $arr, $find_node_id, "", "");
 					?></td>
 			</tr>
-		<? endif; ?>
-		<?
+		<?php  endif; ?>
+		<?php 
 		$oFilter->Buttons(array(
 			"table_id" => $sTableID,
 			"url" => $APPLICATION->GetCurPage(),
@@ -382,6 +382,6 @@ CJSCore::Init(array("ajax", "popup"));
 		?>
 	</form>
 
-<? $lAdmin->DisplayList(); ?>
+<?php  $lAdmin->DisplayList(); ?>
 
-<? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php  require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

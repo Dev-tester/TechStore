@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['F_ACTIVE'] = "Active";
 $MESS['PROPS_GROUP_DEFAULT_NAME'] = "Order properties";
 $MESS['SPTEN_2FLIST'] = "Payer types";

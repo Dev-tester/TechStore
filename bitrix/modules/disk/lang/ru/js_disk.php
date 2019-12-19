@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_JS_STATUS_ACTION_SUCCESS"] = "Успешно";
 $MESS["DISK_JS_STATUS_ACTION_ERROR"] = "Произошла ошибка";
 $MESS["DISK_JS_SHARING_LABEL_RIGHTS_FOLDER"] = "Общий доступ к папке";

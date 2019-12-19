@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_FPERMS"] = "Enter you login and password to view this topic.";
 $MESS["F_TITLE_NAV"] = "Messages";
 $MESS["F_MESS_SUCCESS_SHOW"] = "The posts have been shown successfully.";

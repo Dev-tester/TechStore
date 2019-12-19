@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Main\Localization\Loc;
@@ -563,6 +563,6 @@ else
 			SALE_DSE_CHOOSE_GROUP_SAVE: '<?=Loc::getMessage("SALE_DSE_CHOOSE_GROUP_SAVE")?>'
 		});
 	</script>
-	<?
+	<?php 
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -86,6 +86,6 @@ $APPLICATION->RestartBuffer();
 	?>
 	</div>
 </body>
-</html><?
+</html><?php 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');
 die();

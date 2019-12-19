@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SOPC_PATH_TO_PAYMENT'] = "Страница подключения платежной системы";
 $MESS ['SOPC_SHOW_ALL'] = "(не выбрано)";
 $MESS ['SOPC_ELIMINATED_PAY_SYSTEMS'] = "Исключить из списка платежных систем";

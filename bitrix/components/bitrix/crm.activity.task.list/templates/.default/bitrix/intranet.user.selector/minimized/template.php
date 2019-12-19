@@ -1,10 +1,10 @@
-<?if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $control_id = $arParams['CONTROL_ID'];
 ?>
 <div class="bx-ius-layout" style="">
 <div class="bx-ius-input" style="width:205px; float:left;">
-<?
+<?php 
 $APPLICATION->IncludeComponent('bitrix:main.lookup.input', 'users', array(
 	'CONTROL_ID' => $control_id,
 	
@@ -32,7 +32,7 @@ $APPLICATION->IncludeComponent('bitrix:main.lookup.input', 'users', array(
         jsMLI_<?=$control_id?>.AddValue(user);
     }
 </script>
-<?
+<?php 
 if ($arParams['EXTERNAL'] == 'I' && intval($arParams["SOCNET_GROUP_ID"]) <= 0):
 
 	$name = $APPLICATION->IncludeComponent(
@@ -51,7 +51,7 @@ if ($arParams['EXTERNAL'] == 'I' && intval($arParams["SOCNET_GROUP_ID"]) <= 0):
 <div class="bx-ius-button" style="float:left;">
 	<a href="javascript:void(0)" onclick="<?=$name?>.SetValue([]); <?=$name?>.Show()" class="bx-ius-structure-link">&nbsp;</a>
 </div>
-<?
+<?php 
 endif;
 ?>
 <br style="clear:left" />

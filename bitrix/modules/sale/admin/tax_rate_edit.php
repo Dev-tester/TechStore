@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Sale\Location;
 
@@ -170,7 +170,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("STREN_2FLIST"),
@@ -206,19 +206,19 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($strError);?>
-<?
+<?php CAdminMessage::ShowMessage($strError);?>
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("STREN_TAB_RATE"), "ICON" => "sale", "TITLE" => GetMessage("STREN_TAB_RATE_DESCR"))
 	);
@@ -227,39 +227,39 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
 
-	<?if ($ID>0):?>
+	<?php if ($ID>0):?>
 	<tr>
 		<td width="40%">
 			ID:
 		</td>
 		<td width="60%">
-			<b><?echo $ID ?></b>
+			<b><?php echo $ID ?></b>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%">
-			<?echo GetMessage("TAX_TIMESTAMP") ?>:
+			<?php echo GetMessage("TAX_TIMESTAMP") ?>:
 		</td>
 		<td width="60%">
-			<b><?echo $str_TIMESTAMP_X ?></b>
+			<b><?php echo $str_TIMESTAMP_X ?></b>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("F_TAX_ID") ?>:</td>
+		<td width="40%"><?php echo GetMessage("F_TAX_ID") ?>:</td>
 		<td width="60%">
 			<select name="TAX_ID">
-				<?
+				<?php 
 				$db_TAX = CSaleTax::GetList(array("NAME" => "ASC"), array());
 				while ($db_TAX_arr = $db_TAX->NavNext(true, "fp_"))
 				{
-					?><option value="<?echo intval($fp_ID) ?>" <?if (IntVal($fp_ID)==IntVal($str_TAX_ID)) echo "selected";?>><?= $fp_NAME ?> (<?echo $fp_LID ?>)</option><?
+					?><option value="<?php echo intval($fp_ID) ?>" <?php if (IntVal($fp_ID)==IntVal($str_TAX_ID)) echo "selected";?>><?= $fp_NAME ?> (<?php echo $fp_LID ?>)</option><?php 
 				}
 				?>
 			</select>
@@ -267,48 +267,48 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td width="40%">
-			<?echo GetMessage("RATE_ACTIVE");?>:
+			<?php echo GetMessage("RATE_ACTIVE");?>:
 		</td>
 		<td width="60%">
-			<input type="checkbox" name="ACTIVE" value="Y" <?if ($str_ACTIVE=="Y") echo "checked";?>>
+			<input type="checkbox" name="ACTIVE" value="Y" <?php if ($str_ACTIVE=="Y") echo "checked";?>>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%">
-			<?echo GetMessage("SALE_F_PERSON_TYPE") ?>:
+			<?php echo GetMessage("SALE_F_PERSON_TYPE") ?>:
 		</td>
 		<td width="60%">
-			<?echo CSalePersonType::SelectBox("PERSON_TYPE_ID", $str_PERSON_TYPE_ID, GetMessage("SALE_ANY"), True, "", "")?>
+			<?php echo CSalePersonType::SelectBox("PERSON_TYPE_ID", $str_PERSON_TYPE_ID, GetMessage("SALE_ANY"), True, "", "")?>
 			
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("RATE_VALUE") ?>:</td>
+		<td width="40%"><?php echo GetMessage("RATE_VALUE") ?>:</td>
 		<td width="60%">
-			<input type="text" name="VALUE" value="<?echo $str_VALUE ?>" size="10">
+			<input type="text" name="VALUE" value="<?php echo $str_VALUE ?>" size="10">
 			<b>%</b>
 			<input type="hidden" name="IS_PERCENT" value="Y">
 		</td>
 	</tr>
 	<tr>
 		<td width="40%">
-			<?echo GetMessage("RATE_IS_INPRICE");?>:
+			<?php echo GetMessage("RATE_IS_INPRICE");?>:
 		</td>
 		<td width="60%">
 			<select name="IS_IN_PRICE">
-				<option value="N" <?if ($str_IS_IN_PRICE=="N" || strlen($str_IS_IN_PRICE)<=0) echo " selected"?>><?echo GetMessage("RATE_NET");?></option>
-				<option value="Y" <?if ($str_IS_IN_PRICE=="Y") echo " selected"?>><?echo GetMessage("RATE_YES");?></option>
+				<option value="N" <?php if ($str_IS_IN_PRICE=="N" || strlen($str_IS_IN_PRICE)<=0) echo " selected"?>><?php echo GetMessage("RATE_NET");?></option>
+				<option value="Y" <?php if ($str_IS_IN_PRICE=="Y") echo " selected"?>><?php echo GetMessage("RATE_YES");?></option>
 			</select>
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("RATE_APPLY_ORDER");?>:</td>
+		<td width="40%"><?php echo GetMessage("RATE_APPLY_ORDER");?>:</td>
 		<td width="60%">
-			<input type="text" name="APPLY_ORDER" value="<?echo $str_APPLY_ORDER ?>" size="10">
+			<input type="text" name="APPLY_ORDER" value="<?php echo $str_APPLY_ORDER ?>" size="10">
 		</td>
 	</tr>
 
-	<?if($lpEnabled):?>
+	<?php if($lpEnabled):?>
 
 		<tr class="heading">
 			<td colspan="2">
@@ -319,7 +319,7 @@ $tabControl->BeginNextTab();
 		<tr class="adm-detail-required-field">
 			<td colspan="2">
 
-				<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.system", "", array(
+				<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.system", "", array(
 						"ENTITY_PRIMARY" => $ID,
 						"LINK_ENTITY_NAME" => CSaleTaxRate::CONN_ENTITY_NAME,
 						"INPUT_NAME" => 'LOCATION',
@@ -334,15 +334,15 @@ $tabControl->BeginNextTab();
 			</td>
 		</tr>
 
-	<?else:?>
+	<?php else:?>
 		<tr class="adm-detail-required-field">
-			<td width="40%" valign="top"><?echo GetMessage("F_LOCATION1");?>:</td>
+			<td width="40%" valign="top"><?php echo GetMessage("F_LOCATION1");?>:</td>
 			<td width="60%" valign="top">
-				<?$db_vars = CSaleLocation::GetList(Array("SORT"=>"ASC", "COUNTRY_NAME_LANG"=>"ASC", "REGION_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array("LID" => LANGUAGE_ID), LANG)?>
+				<?php $db_vars = CSaleLocation::GetList(Array("SORT"=>"ASC", "COUNTRY_NAME_LANG"=>"ASC", "REGION_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array("LID" => LANGUAGE_ID), LANG)?>
 
-				<?$db_location = CSaleTaxRate::GetLocationList(Array("TAX_RATE_ID" => $ID, "LOCATION_TYPE" => "L"));?>
+				<?php $db_location = CSaleTaxRate::GetLocationList(Array("TAX_RATE_ID" => $ID, "LOCATION_TYPE" => "L"));?>
 				<select name="LOCATION1[]" size="5" multiple>
-					<?
+					<?php 
 					$arLOCATION1 = array();
 					if ($bInitVars)
 					{
@@ -359,18 +359,18 @@ $tabControl->BeginNextTab();
 					if(!is_array($arLOCATION1))
 						$arLOCATION1 = Array();
 					?>
-					<?while ($vars = $db_vars->Fetch()):?>
-						<option value="<?echo $vars["ID"]?>"<?if (in_array(IntVal($vars["ID"]), $arLOCATION1)) echo " selected"?>><?echo htmlspecialcharsbx($vars["COUNTRY_NAME_LANG"])?><?if(strlen($vars["REGION_NAME_LANG"]) > 0) echo " - ".htmlspecialcharsbx($vars["REGION_NAME_LANG"])?><?if(strlen($vars["CITY_NAME_LANG"]) > 0) echo " - ".htmlspecialcharsbx($vars["CITY_NAME_LANG"])?></option>
-					<?endwhile;?>
+					<?php while ($vars = $db_vars->Fetch()):?>
+						<option value="<?php echo $vars["ID"]?>"<?php if (in_array(IntVal($vars["ID"]), $arLOCATION1)) echo " selected"?>><?php echo htmlspecialcharsbx($vars["COUNTRY_NAME_LANG"])?><?php if(strlen($vars["REGION_NAME_LANG"]) > 0) echo " - ".htmlspecialcharsbx($vars["REGION_NAME_LANG"])?><?php if(strlen($vars["CITY_NAME_LANG"]) > 0) echo " - ".htmlspecialcharsbx($vars["CITY_NAME_LANG"])?></option>
+					<?php endwhile;?>
 				</select>
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
-			<td width="40%" valign="top"><?echo GetMessage("F_LOCATION2");?>:</td>
+			<td width="40%" valign="top"><?php echo GetMessage("F_LOCATION2");?>:</td>
 			<td width="60%" valign="top">
 				<select name="LOCATION2[]" size="5" multiple>
-					<?$db_vars = CSaleLocationGroup::GetList(Array("NAME"=>"ASC"), array(), LANG)?>
-					<?
+					<?php $db_vars = CSaleLocationGroup::GetList(Array("NAME"=>"ASC"), array(), LANG)?>
+					<?php 
 					$arLOCATION2 = array();
 					if ($bInitVars)
 					{
@@ -387,19 +387,19 @@ $tabControl->BeginNextTab();
 					if(!is_array($arLOCATION2))
 						$arLOCATION2 = Array();
 					?>
-					<?while ($vars = $db_vars->Fetch()):?>
-						<option value="<?echo $vars["ID"]?>"<?if (in_array(IntVal($vars["ID"]), $arLOCATION2)) echo " selected"?>><?echo htmlspecialcharsbx($vars["NAME"])?></option>
-					<?endwhile;?>
+					<?php while ($vars = $db_vars->Fetch()):?>
+						<option value="<?php echo $vars["ID"]?>"<?php if (in_array(IntVal($vars["ID"]), $arLOCATION2)) echo " selected"?>><?php echo htmlspecialcharsbx($vars["NAME"])?></option>
+					<?php endwhile;?>
 				</select>
 			</td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "W"), "back_url" => $listUrl));
 $tabControl->End();
 ?>
 
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

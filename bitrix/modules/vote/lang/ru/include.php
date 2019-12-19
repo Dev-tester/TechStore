@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_VOTE_NOT_FOUND"] = "Опрос #ID# не найден.";
 $MESS["VOTE_CHANNEL_ID_ERR"] = "Неверная группа опросов.";
 $MESS["VOTE_QUESTION_EMPTY"] = "Не указан текст вопроса.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_PERMISSIONS", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -100,7 +100,7 @@ if (!empty($_REQUEST['load_access_lib']))
 ?>
 <body class="dialogcontent">
 
-<?
+<?php 
 $popupWindow = new CJSPopup(GetMessage("BIZPROC_AS_TITLE"));
 
 $popupWindow->ShowTitlebar(GetMessage("BIZPROC_AS_TITLE_TOOLBAR"));
@@ -109,11 +109,11 @@ $popupWindow->ShowTitlebar(GetMessage("BIZPROC_AS_TITLE_TOOLBAR"));
 .dialogt {width:100% !important; }
 .adm-workarea .dialogt option {padding: 0px;}
 </style>
-<?
+<?php 
 $popupWindow->StartDescription("");
 ?>
-<?echo GetMessage("BIZPROC_SEL_TITLEBAR_DESC")?>
-<?
+<?php echo GetMessage("BIZPROC_SEL_TITLEBAR_DESC")?>
+<?php 
 $popupWindow->EndDescription();
 $popupWindow->StartContent();
 ?>
@@ -139,107 +139,107 @@ function BPSHideShow(id)
 </script>
 
 <table class="dialogt" cellpadding="0" cellspacing="0" border="0">
-<?if($_REQUEST['only_users']!='Y'):?>
+<?php if($_REQUEST['only_users']!='Y'):?>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId1')"><b><?echo GetMessage("BIZPROC_SEL_PARAMS_TAB")?></b></a>
+			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId1')"><b><?php echo GetMessage("BIZPROC_SEL_PARAMS_TAB")?></b></a>
 		</td>
 	</tr>
 	<tr id="BPSId1" style="display:none">
 		<td>
 			<select id="BPSId1S" size="13" style="width:100%" ondblclick="BPSVInsert(this.value)">
-				<?foreach($arWorkflowParameters as $fieldId => $documentField):?>
-					<?if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
+				<?php foreach($arWorkflowParameters as $fieldId => $documentField):?>
+					<?php if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
 						if ($_POST['fieldType']=='text')
 							$fieldId .= ' > printable';
 						?>
-						<option value="{=<?=htmlspecialcharsbx($arWorkflowTemplate[0]['Name'])?>:<?=htmlspecialcharsbx($fieldId)?>}<?if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
-					<?endif?>
-				<?endforeach?>
+						<option value="{=<?=htmlspecialcharsbx($arWorkflowTemplate[0]['Name'])?>:<?=htmlspecialcharsbx($fieldId)?>}<?php if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
+					<?php endif?>
+				<?php endforeach?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId3')"><b><?echo GetMessage("BP_SEL_VARS")?></b></a>
+			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId3')"><b><?php echo GetMessage("BP_SEL_VARS")?></b></a>
 		</td>
 	</tr>
 	<tr id="BPSId3" style="display:none">
 		<td>
 			<select id="BPSId3S" size="13" style="width:100%" ondblclick="BPSVInsert(this.value)">
-				<?foreach($arWorkflowVariables as $fieldId => $documentField):?>
-					<?if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
+				<?php foreach($arWorkflowVariables as $fieldId => $documentField):?>
+					<?php if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
 						if ($_POST['fieldType']=='text')
 							$fieldId .= ' > printable';
 						?>
-						<option value="{=Variable:<?=htmlspecialcharsbx($fieldId)?>}<?if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
-					<?endif?>
-				<?endforeach?>
+						<option value="{=Variable:<?=htmlspecialcharsbx($fieldId)?>}<?php if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
+					<?php endif?>
+				<?php endforeach?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId6')"><b><?echo GetMessage("BP_SEL_CONSTANTS")?></b></a>
+			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId6')"><b><?php echo GetMessage("BP_SEL_CONSTANTS")?></b></a>
 		</td>
 	</tr>
 	<tr id="BPSId6" style="display:none">
 		<td>
 			<select id="BPSId6S" size="13" style="width:100%" ondblclick="BPSVInsert(this.value)">
-				<?foreach($arWorkflowConstants as $fieldId => $documentField):?>
-					<?if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
+				<?php foreach($arWorkflowConstants as $fieldId => $documentField):?>
+					<?php if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
 						if ($_POST['fieldType']=='text')
 							$fieldId .= ' > printable';
 						?>
-						<option value="{=Constant:<?=htmlspecialcharsbx($fieldId)?>}<?if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
-					<?endif?>
-				<?endforeach?>
+						<option value="{=Constant:<?=htmlspecialcharsbx($fieldId)?>}<?php if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
+					<?php endif?>
+				<?php endforeach?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId61')"><b><?echo GetMessage("BP_SEL_GCONST")?></b></a>
+			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId61')"><b><?php echo GetMessage("BP_SEL_GCONST")?></b></a>
 		</td>
 	</tr>
 	<tr id="BPSId61" style="display:none">
 		<td>
 			<select id="BPSId61S" size="13" style="width:100%" ondblclick="BPSVInsert(this.value)">
-				<?foreach($arGlobalConstants as $fieldId => $documentField):?>
-					<?if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
+				<?php foreach($arGlobalConstants as $fieldId => $documentField):?>
+					<?php if($arFilter===false || in_array($documentFieldTypes[$documentField["Type"]]["BaseType"], $arFilter)):
 						if ($_POST['fieldType']=='text')
 							$fieldId .= ' > printable';
 						?>
-						<option value="{=GlobalConst:<?=htmlspecialcharsbx($fieldId)?>}<?if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
-					<?endif?>
-				<?endforeach?>
+						<option value="{=GlobalConst:<?=htmlspecialcharsbx($fieldId)?>}<?php if($_POST['fieldType']=='user')echo '; '?>"><?=htmlspecialcharsbx($documentField['Name'])?></option>
+					<?php endif?>
+				<?php endforeach?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId2')"><b><?echo GetMessage("BIZPROC_SEL_FIELDS_TAB")?></b></a>
+			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId2')"><b><?php echo GetMessage("BIZPROC_SEL_FIELDS_TAB")?></b></a>
 		</td>
 	</tr>
 	<tr id="BPSId2" style="display:none">
 		<td>
 			<select id="BPSId2S" size="13" style="width:100%" ondblclick="BPSVInsert(this.value)">
-				<?foreach($documentFields as $fieldId => $documentField):?>
-					<?if($arFilter===false || in_array($documentField["BaseType"], $arFilter)):?>
+				<?php foreach($documentFields as $fieldId => $documentField):?>
+					<?php if($arFilter===false || in_array($documentField["BaseType"], $arFilter)):?>
 						<option value="{=Document:<?=$fieldId?>}"><?=htmlspecialcharsbx($documentField['Name'])?></option>
-					<?endif?>
-				<?endforeach?>
+					<?php endif?>
+				<?php endforeach?>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId4')"><b><?echo GetMessage("BP_SEL_ADDIT")?></b></a>
+			<a href="javascript:void(0)" onclick="BPSHideShow('BPSId4')"><b><?php echo GetMessage("BP_SEL_ADDIT")?></b></a>
 		</td>
 	</tr>
 	<tr id="BPSId4" style="display:none">
 		<td>
-<?
+<?php 
 $runtime = CBPRuntime::GetRuntime();
 $arAllActivities = $runtime->SearchActivitiesByType("activity", $documentType);
 
@@ -313,23 +313,23 @@ $arReturns = Array();
 _RecFindParams($arWorkflowTemplate, $arFilter, $arReturns);
 ?>
 			<select id="BPSId4S" size="13" style="width:100%" ondblclick="BPSVInsert(this.value)">
-				<?foreach($arReturns as $val):?>
-					<?if($val['TYPE']):?>
-						<?if($arFilter===false || in_array($val['TYPE'], $arFilter)):?>
+				<?php foreach($arReturns as $val):?>
+					<?php if($val['TYPE']):?>
+						<?php if($arFilter===false || in_array($val['TYPE'], $arFilter)):?>
 							<option value="<?=htmlspecialcharsbx($val['ID'])?>"><?=htmlspecialcharsbx($val['NAME'])?></option>
-						<?endif?>
-					<?else:?>
+						<?php endif?>
+					<?php else:?>
 						<option value="<?=htmlspecialcharsbx($val['ID'])?>"><?=htmlspecialcharsbx($val['NAME'])?></option>
-					<?endif?>
-				<?endforeach?>
+					<?php endif?>
+				<?php endforeach?>
 			</select>
 		</td>
 	</tr>
-<?endif?>
-	<?if ($selectorMode != 'employee'):?>
+<?php endif?>
+	<?php if ($selectorMode != 'employee'):?>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" <?if($_REQUEST['only_users']!="Y"):?> onclick="BPSHideShow('BPSId5')"<?endif?>><b><?echo GetMessage("BIZPROC_SEL_USERS_TAB")?></b></a>
+			<a href="javascript:void(0)" <?php if($_REQUEST['only_users']!="Y"):?> onclick="BPSHideShow('BPSId5')"<?php endif?>><b><?php echo GetMessage("BIZPROC_SEL_USERS_TAB")?></b></a>
 		</td>
 	</tr>
 	<tr id="BPSId5" style="display:none">
@@ -391,15 +391,15 @@ _RecFindParams($arWorkflowTemplate, $arFilter, $arReturns);
 		</script>
 			<input type="text" id="BPSId5I" style="width:100%" onkeyup="BPSlookup(this.value)" onkeydown="return BPSKeyd(event)">
 			<select id="BPSId5S" size="<?=($_REQUEST['only_users'] == 'Y' ? 14 : 11)?>" style="width:100%" ondblclick="BPSVInsert(this.value, true)">
-				<option value="" style="background-color: #eeeeff" selected><?echo GetMessage("BIZPROC_SEL_USERS_TAB_GROUPS")?></option>
-				<?foreach($arAllowableUserGroups as $groupId => $groupName):
+				<option value="" style="background-color: #eeeeff" selected><?php echo GetMessage("BIZPROC_SEL_USERS_TAB_GROUPS")?></option>
+				<?php foreach($arAllowableUserGroups as $groupId => $groupName):
 					if ($groupName === "" || strpos($groupId, 'group_u') === 0)
 						continue;
 					?>
 					<option value="<?=htmlspecialcharsbx($groupName)?>; "><?=htmlspecialcharsbx($groupName)?></option>
-				<?endforeach?>
-				<option value="" style="background-color: #eeeeff"><?echo GetMessage("BIZPROC_SEL_USERS_TAB_USERS")?></option>
-				<?
+				<?php endforeach?>
+				<option value="" style="background-color: #eeeeff"><?php echo GetMessage("BIZPROC_SEL_USERS_TAB_USERS")?></option>
+				<?php 
 				global $DB;
 				$cnt = max(2000, count($arUsers));
 				$mcnt = 500;
@@ -418,7 +418,7 @@ _RecFindParams($arWorkflowTemplate, $arFilter, $arReturns);
 						$n = CUser::FormatName(str_replace(",","", COption::GetOptionString("bizproc", "name_template", CSite::GetNameFormat(false), SITE_ID)), $user, true, true);
 						?>
 						<option value="<?= $n ?> [<?=(int)$user['ID']?>]; "><?=$n?> &lt;<?=htmlspecialcharsbx($user['EMAIL'])?>&gt; [<?=(int)$user['ID']?>]</option>
-						<?
+						<?php 
 					}
 				}
 				?>
@@ -427,10 +427,10 @@ _RecFindParams($arWorkflowTemplate, $arFilter, $arReturns);
 	</tr>
 	<tr>
 		<td>
-			<a href="javascript:void(0)" onclick="BPSShowUserGropupsDialog()"><b><?echo GetMessage("BIZPROC_SEL_GROUPS_TAB")?></b></a>
+			<a href="javascript:void(0)" onclick="BPSShowUserGropupsDialog()"><b><?php echo GetMessage("BIZPROC_SEL_GROUPS_TAB")?></b></a>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 </table>
 
 <script>
@@ -453,9 +453,9 @@ function BPSVInsert(v, isUser)
 	}
 	else
 	{
-		<?if ($selectorMode == 'employee'):?>
+		<?php if ($selectorMode == 'employee'):?>
 		v = BX.util.trim(v.replace(';', ''));
-		<?endif;?>
+		<?php endif;?>
 		var tdocument = top.document;
 		var toField = tdocument.getElementById('<?=AddSlashes(htmlspecialcharsbx($_POST["fieldName"]))?>');
 
@@ -546,30 +546,30 @@ var BPSShowUserGropupsDialog = function()
 	});
 };
 
-<?if($_POST['fieldType']=='user' && $selectorMode != 'employee'):?>
+<?php if($_POST['fieldType']=='user' && $selectorMode != 'employee'):?>
 BPSHideShow('BPSId5');
 try{
 document.getElementById('BPSId5I').focus();
 }catch(e)
 {}
-<?else:?>
+<?php else:?>
 BPSHideShow('BPSId2');
 try{
 document.getElementById('BPSId2S').focus();
 }catch(e)
 {}
-<?endif?>
+<?php endif?>
 </script>
-<?
+<?php 
 $popupWindow->EndContent();
 $popupWindow->StartButtons();
 ?>
 <input type="button" value="<?=GetMessage("BIZPROC_SEL_INSERT")?>" onclick="BPSVInsert();" />
-<?
+<?php 
 $popupWindow->ShowStandardButtons(array('cancel'));
 ?>
-<?$popupWindow->EndButtons();?>
+<?php $popupWindow->EndButtons();?>
 </body>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 ?>

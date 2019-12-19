@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 class CPhotoUploader
 {
 	var $arParams;
@@ -847,14 +847,14 @@ function simpleUploadHandler($arParams, $arResult = array())
 		error: <?=(($savedData['arError'] && count($savedData['arError']) > 0) ? CUtil::PhpToJSObject($savedData['arError']) : '""')?>,
 		files: <?= CUtil::PhpToJSObject($jsResFiles)?>,
 		redirectUrl: '<?= CUtil::JSEscape($REDIRECT_URL)?>'
-		<? if (!empty($newSectionName)):?>
+		<?php  if (!empty($newSectionName)):?>
 		,newSection: {
 			id: <?= intVal($savedData['SECTION_ID'])?>,
 			title: '<?= CUtil::JSEscape($newSectionName);?>'
 		}
-		<?endif;?>
+		<?php endif;?>
 	};</script>
-	<?
+	<?php 
 	$savedData['arError'] = array();
 	CImageUploader::SetSavedData($savedData);
 	die();

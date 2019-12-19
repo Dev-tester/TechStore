@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C24_T_SEARCH_TITLE'] = "Поиск по группам";
 $MESS ['SONET_C24_T_SEARCH'] = "Искать";
 $MESS ['SONET_C24_T_SUBJECT'] = "В теме";

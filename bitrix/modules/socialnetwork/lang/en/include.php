@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_FEATURES_marketplace"] = "Applications";
 $MESS["SONET_FEATURES_forum"] = "Forum";
 $MESS["SONET_FEATURES_forum_GROUP"] = "Discussions";

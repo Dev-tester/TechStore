@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/workflow/prolog.php");
 
@@ -259,68 +259,68 @@ function Diff()
 	}
 	if(j < 2 || j > 2)
 	{
-		alert('<?echo GetMessageJS("FLOW_COMPARE_ALERT")?>');
+		alert('<?php echo GetMessageJS("FLOW_COMPARE_ALERT")?>');
 	}
 	else
 	{
-		window.location='workflow_history_view.php?lang=<?echo urlencode(LANG)?>&ID='+selection[0]+'&PREV_ID='+selection[1];
+		window.location='workflow_history_view.php?lang=<?php echo urlencode(LANG)?>&ID='+selection[0]+'&PREV_ID='+selection[1];
 	}
 }
 </script>
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("MAIN_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
 		<select name="find_type">
-			<option value="title"<?if($find_type=="title") echo " selected"?>><?=GetMessage('FLOW_F_TITLE')?></option>
-			<option value="body"<?if($find_type=="body") echo " selected"?>><?=GetMessage('FLOW_F_BODY')?></option>
-			<option value="modified_by"<?if($find_type=="modified_by") echo " selected"?>><?=GetMessage('FLOW_F_MODIFIED_BY')?></option>
+			<option value="title"<?php if($find_type=="title") echo " selected"?>><?=GetMessage('FLOW_F_TITLE')?></option>
+			<option value="body"<?php if($find_type=="body") echo " selected"?>><?=GetMessage('FLOW_F_BODY')?></option>
+			<option value="modified_by"<?php if($find_type=="modified_by") echo " selected"?>><?=GetMessage('FLOW_F_MODIFIED_BY')?></option>
 		</select>
 	</td>
 </tr>
 
 <tr>
 	<td>ID:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
 	<td nowrap><?=GetMessage("FLOW_F_DOCUMENT")?>:</td>
-	<td nowrap><input type="text" name="find_document_id" size="47" value="<?echo htmlspecialcharsbx($find_document_id)?>"><?=ShowExactMatchCheckbox("find_document_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_document_id" size="47" value="<?php echo htmlspecialcharsbx($find_document_id)?>"><?=ShowExactMatchCheckbox("find_document_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td nowrap><?echo GetMessage("FLOW_F_DATE_MODIFY").":"?></td>
-	<td nowrap><?echo CalendarPeriod("find_modify_1", $find_modify_1, "find_modify_2", $find_modify_2, "form1", "Y")?></td>
+	<td nowrap><?php echo GetMessage("FLOW_F_DATE_MODIFY").":"?></td>
+	<td nowrap><?php echo CalendarPeriod("find_modify_1", $find_modify_1, "find_modify_2", $find_modify_2, "form1", "Y")?></td>
 </tr>
 <tr valign="center">
 	<td nowrap valign="top"><?=GetMessage("FLOW_F_MODIFIED_BY")?>:</td>
-	<td nowrap><input type="text" name="find_modified_user" value="<?echo htmlspecialcharsbx($find_modified_user)?>" size="47"><?=ShowExactMatchCheckbox("find_modified_user")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_modified_user" value="<?php echo htmlspecialcharsbx($find_modified_user)?>" size="47"><?=ShowExactMatchCheckbox("find_modified_user")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("FLOW_SITE_ID")?>:</td>
+	<td><?php echo GetMessage("FLOW_SITE_ID")?>:</td>
 	<td><?=CSite::SelectBox("find_site_id", $find_site_id, GetMessage("MAIN_ALL"));?></td>
 </tr>
 <tr valign="center">
 	<td nowrap><?=GetMessage("FLOW_F_FILENAME")?>:</td>
-	<td nowrap><input type="text" name="find_filename" value="<?echo htmlspecialcharsbx($find_filename)?>" size="47"><?=ShowExactMatchCheckbox("find_filename")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_filename" value="<?php echo htmlspecialcharsbx($find_filename)?>" size="47"><?=ShowExactMatchCheckbox("find_filename")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
 	<td nowrap><?=GetMessage("FLOW_F_TITLE")?>:</td>
-	<td nowrap><input type="text" name="find_title" value="<?echo htmlspecialcharsbx($find_title)?>" size="47"><?=ShowExactMatchCheckbox("find_title")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_title" value="<?php echo htmlspecialcharsbx($find_title)?>" size="47"><?=ShowExactMatchCheckbox("find_title")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
 	<td nowrap><?=GetMessage("FLOW_F_BODY")?>:</td>
-	<td nowrap><input type="text" name="find_body" value="<?echo htmlspecialcharsbx($find_body)?>" size="47"><?=ShowExactMatchCheckbox("find_body")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_body" value="<?php echo htmlspecialcharsbx($find_body)?>" size="47"><?=ShowExactMatchCheckbox("find_body")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
 	<td nowrap valign="top"><?=GetMessage("FLOW_F_STATUS")?>:</td>
-	<td nowrap><input type="text" name="find_status" value="<?echo htmlspecialcharsbx($find_status)?>" size="47"><?=ShowExactMatchCheckbox("find_status")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?
+	<td nowrap><input type="text" name="find_status" value="<?php echo htmlspecialcharsbx($find_status)?>" size="47"><?=ShowExactMatchCheckbox("find_status")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?php 
 	echo SelectBox("find_status_id", CWorkflowStatus::GetDropDownList("Y"), GetMessage("MAIN_ALL"), htmlspecialcharsbx($find_status_id));
 	?></td>
 </tr>
-<?
+<?php 
 echo ShowLogicRadioBtn();
 $filter->Buttons(array(
 	"table_id" => $sTableID,
@@ -331,6 +331,6 @@ $filter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

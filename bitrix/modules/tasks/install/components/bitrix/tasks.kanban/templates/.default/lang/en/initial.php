@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_KANBAN_VIEWS_DIALOG"] = "Select stage view";
 $MESS["TASKS_KANBAN_VIEWS_DIALOG_DEFAULT"] = "Default";
 $MESS["TASKS_KANBAN_VIEWS_DIALOG_OK"] = "Select";

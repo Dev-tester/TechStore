@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SALES_STAGE_CREATE_ERROR"] = "Cannot create stage";
 $MESS["CRM_SALES_STAGE_UPDATE_ERROR"] = "Cannot update stage";
 $MESS["CRM_SALES_TUNNELS_STAGE_HAS_DEALS"] = "There are active items in this stage. Move the deals before deleting the stage.";

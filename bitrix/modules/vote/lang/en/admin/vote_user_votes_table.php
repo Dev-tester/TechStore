@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DELETE_ERROR"] = "An error occurred while deleting an object.";
 $MESS["MAIN_ADMIN_LIST_CHECKED"] = "Checked:";
 $MESS["MAIN_ADMIN_LIST_SELECTED"] = "Selected:";

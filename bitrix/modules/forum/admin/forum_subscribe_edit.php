@@ -1,4 +1,4 @@
-<?
+<?php 
 //*****************************************************************************************************************
 //	Topic manage
 //************************************!****************************************************************************
@@ -180,39 +180,39 @@ while ($arRes = $rsData->NavNext(true, "t_"))
 	?>
 	<form name="form1" method="get" action="<?=$APPLICATION->GetCurPage()?>?">
 	<input type="hidden" name="USER_ID" value="<?=$USER_ID?>">
-	<?$oFilter->Begin();?>
+	<?php $oFilter->Begin();?>
 	<tr valign="center">
 		<td><b><?=GetMessage("FM_FLT_SEARCH")?>:</b></td>
 		<td nowrap>
 		<input type="text" size="25" name="Filter_S" value="<?=htmlspecialcharsbx($Filter_S)?>" title="<?=GetMessage("FM_FLT_SEARCH_TITLE")?>">
 		<select name="FilterType_S">
-			<option value="forum"<?if($find_type=="forum") echo " selected"?>><?=GetMessage("FM_FLT_FORUM")?></option>
-			<option value="topic"<?if($find_type=="topic") echo " selected"?>><?=GetMessage("FM_FLT_TOPIC")?></option>
+			<option value="forum"<?php if($find_type=="forum") echo " selected"?>><?=GetMessage("FM_FLT_FORUM")?></option>
+			<option value="topic"<?php if($find_type=="topic") echo " selected"?>><?=GetMessage("FM_FLT_TOPIC")?></option>
 		</select>
 		</td>
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FM_FLT_START_DATE").":"?></td>
-		<td><?echo CalendarPeriod("DATE_FROM_S", $DATE_FROM_S, "DATE_TO_S", $DATE_TO_S, "form1","Y")?></td>
+		<td><?php echo CalendarPeriod("DATE_FROM_S", $DATE_FROM_S, "DATE_TO_S", $DATE_TO_S, "form1","Y")?></td>
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FM_FLT_SUBSCR_TYPE")?>:</td>
 		<td>
 		<select name="SUBSCR_TYPE_S">
-			<option value=""<?if($SUBSCR_TYPE_S=="") echo " selected"?>><?=GetMessage('FM_SPACE')?></option>
-			<option value="new_topic_only"<?if($SUBSCR_TYPE_S=="new_topic_only") echo " selected"?>><?=GetMessage('FM_NEW_TOPIC_ONLY')?></option>
-			<option value="all_message"<?if($SUBSCR_TYPE_S=="all_message") echo " selected"?>><?=GetMessage('FM_ALL_MESSAGE')?></option>
-			<option value="typical"<?if($SUBSCR_TYPE_S=="typical") echo " selected"?>><?=GetMessage('FM_TYPICAL')?></option>
+			<option value=""<?php if($SUBSCR_TYPE_S=="") echo " selected"?>><?=GetMessage('FM_SPACE')?></option>
+			<option value="new_topic_only"<?php if($SUBSCR_TYPE_S=="new_topic_only") echo " selected"?>><?=GetMessage('FM_NEW_TOPIC_ONLY')?></option>
+			<option value="all_message"<?php if($SUBSCR_TYPE_S=="all_message") echo " selected"?>><?=GetMessage('FM_ALL_MESSAGE')?></option>
+			<option value="typical"<?php if($SUBSCR_TYPE_S=="typical") echo " selected"?>><?=GetMessage('FM_TYPICAL')?></option>
 		</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(array(
 		"table_id" => $sTableID,
 		"url" => $APPLICATION->GetCurPage()."?USER_ID=".$USER_ID."&lang=".LANG,
 		"form" => "find_form"));
 	$oFilter->End();
-	?></form><?
+	?></form><?php 
 	$lAdmin->DisplayList();
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

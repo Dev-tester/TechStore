@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UG_EMPTY_USER_ID"] = "User is not specified.";
 $MESS["SONET_UG_ERROR_NO_USER_ID"] = "User specified is incorrect.";
 $MESS["SONET_UG_EMPTY_GROUP_ID"] = "The group is not specified.";

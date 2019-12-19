@@ -1,17 +1,17 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->SetTitle(GetMessage("AUTH_TITLE"));
 ?>
 <div class="log-popup-header"><?=$APPLICATION->GetTitle();?></div>
 <hr class="b_line_gray">
-<?
+<?php 
 ShowMessage($arParams["~AUTH_RESULT"]);
 ShowMessage($arResult['ERROR_MESSAGE']);
 ?>
 
-<?if($arResult["AUTH_SERVICES"]):?>
+<?php if($arResult["AUTH_SERVICES"]):?>
 <div style="margin:30px 0 30px 83px;">
-	<?$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
+	<?php $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
 		array(
 			"AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
 			"CURRENT_SERVICE" => $arResult["CURRENT_SERVICE"],
@@ -25,17 +25,17 @@ ShowMessage($arResult['ERROR_MESSAGE']);
 		array("HIDE_ICONS"=>"Y")
 	);?>
 </div>
-<?endif?>
+<?php endif?>
 
 <form name="form_auth" method="post" target="_top" action="<?=$arResult["AUTH_URL"]?>">
 	<input type="hidden" name="AUTH_FORM" value="Y" />
 	<input type="hidden" name="TYPE" value="AUTH" />
-	<?if (strlen($arResult["BACKURL"]) > 0):?>
+	<?php if (strlen($arResult["BACKURL"]) > 0):?>
 	<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
-	<?endif?>
-	<?foreach ($arResult["POST"] as $key => $value):?>
+	<?php endif?>
+	<?php foreach ($arResult["POST"] as $key => $value):?>
 	<input type="hidden" name="<?=$key?>" value="<?=$value?>" />
-	<?endforeach?>
+	<?php endforeach?>
 
 	<div class="">
 		<div class="login-item">
@@ -46,27 +46,27 @@ ShowMessage($arResult['ERROR_MESSAGE']);
 			<!--[if IE]><span class="login-label"><?=GetMessage("AUTH_PASSWORD")?></span><![endif]-->
 			<input class="login-inp" type="password" name="USER_PASSWORD" placeholder="<?=GetMessage("AUTH_PASSWORD")?>" maxlength="255"/>
 		</div>
-		<?if($arResult["CAPTCHA_CODE"]):?>
+		<?php if($arResult["CAPTCHA_CODE"]):?>
 			<div class="login-item">
-				<input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
+				<input type="hidden" name="captcha_sid" value="<?php echo $arResult["CAPTCHA_CODE"]?>" />
 				<span class="login-label"></span>
-				<img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" />
+				<img src="/bitrix/tools/captcha.php?captcha_sid=<?php echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" />
 			</div>
 			<div class="login-item">
-				<span class="login-label"><?echo GetMessage("AUTH_CAPTCHA_PROMT")?></span>
+				<span class="login-label"><?php echo GetMessage("AUTH_CAPTCHA_PROMT")?></span>
 				<input class="login-inp" type="text" name="captcha_word" maxlength="50" value="" size="15" />
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
 		<div class="login-text login-item">
-			<?if ($arResult["STORE_PASSWORD"] == "Y"):?>
+			<?php if ($arResult["STORE_PASSWORD"] == "Y"):?>
 			<input type="checkbox" id="USER_REMEMBER" name="USER_REMEMBER" value="Y" /><label class="login-item-checkbox-label" for="USER_REMEMBER"><?=GetMessage("AUTH_REMEMBER_ME")?></label>
-			<?endif?>
-			<?if($arParams["NOT_SHOW_LINKS"] != "Y" && $arResult["NEW_USER_REGISTRATION"] == "Y" && $arParams["AUTHORIZE_REGISTRATION"] != "Y"):?>
+			<?php endif?>
+			<?php if($arParams["NOT_SHOW_LINKS"] != "Y" && $arResult["NEW_USER_REGISTRATION"] == "Y" && $arParams["AUTHORIZE_REGISTRATION"] != "Y"):?>
 				<noindex>
 					<div class="login-links"><a  href="<?=$arResult["AUTH_REGISTER_URL"]?>" rel="nofollow"><?=GetMessage("AUTH_REGISTER")?></a></div>
 				</noindex>
-			<?endif?>
+			<?php endif?>
 		</div>
 	</div>
 	<div class="log-popup-footer">

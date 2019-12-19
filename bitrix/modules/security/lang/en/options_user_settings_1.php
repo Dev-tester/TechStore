@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_OTP_SECRET_KEY"] = "Secret Key (supplied with the device)";
 $MESS["SEC_OTP_INIT"] = "Initialization";
 $MESS["SEC_OTP_PASS1"] = "The first device password (click and write down)";

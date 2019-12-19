@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_REINDEX_ERR_PRODUCT_PRICE_UPDATE_FAIL"] = "Error re-indexing prices for item [#ID#] #NAME#";
 $MESS["BX_CATALOG_REINDEX_ERR_OFFER_PRICE_UPDATE_FAIL"] = "Error re-indexing prices for SKU [#ID#] #NAME#";
 $MESS["BX_CATALOG_REINDEX_ERR_PRODUCT_UPDATE_FAIL"] = "Error re-indexing item [#ID#] #NAME#";

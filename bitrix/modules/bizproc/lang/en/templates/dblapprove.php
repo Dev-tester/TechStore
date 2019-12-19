@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BP_DBLA_NAME"] = "Two-stage Approval";
 $MESS["BP_DBLA_DESC"] = "Recommended when a document requires preliminary expert evaluation before being approved. During the first process stage	 a document is attested by an expert. If an expert rejects the document	 the latter is returned to an originator for revision. 	 If the document is approved	 it is conveyed for  final approval by a selected group of employees on a simple majority basis. If the final vote fails,	 the document is returned for revision	 and the approval procedure starts from the beginning.";
 $MESS["BP_DBLA_T"] = "Sequential Business Process";

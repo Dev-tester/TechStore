@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager						#
@@ -28,13 +28,13 @@ if ($userOpt["question_edit"] != "old")
 	require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 	/* @var $request \Bitrix\Main\HttpRequest */
 	$request = \Bitrix\Main\Context::getCurrent()->getRequest();
-	?><?$APPLICATION->IncludeComponent("bitrix:voting.admin.question.edit", ".default",
+	?><?php $APPLICATION->IncludeComponent("bitrix:voting.admin.question.edit", ".default",
 	array(
 		"VOTE_ID" => $request->getQuery("VOTE_ID"),
 		"QUESTION_ID" => $request->getQuery("ID")
 	));
 
-	?><?=BeginNote();?><a href="javascript:void(0);" onclick="BX.userOptions.save('admin_panel', 'voting_view', 'question_edit', 'old');BX.reload();return false;"><?
+	?><?=BeginNote();?><a href="javascript:void(0);" onclick="BX.userOptions.save('admin_panel', 'voting_view', 'question_edit', 'old');BX.reload();return false;"><?php 
 		?><?=Loc::getMessage("VOTE_BACK_TO_OLD_PAGE_TITLE")?></a><?=EndNote();
 
 	require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
@@ -256,7 +256,7 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 	<table cellspacing="0" cellpadding="1" border="0" bgcolor="#666666">
 		<tr><td colspan=2>
 				<table cellspacing="1" cellpadding="0" border="0" bgcolor="#FFFFFF">
-					<?
+					<?php 
 					for ($i = 0; $i < 216; $i++)
 					{
 						$t_R = $i%6;
@@ -265,9 +265,9 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 						$t_curCOL="#".$t_COL[$t_R].$t_COL[$t_G].$t_COL[$t_B];
 						print ($i%18==0) ? "<tr>" : "";
 						?>
-						<td bgcolor='<?=$t_curCOL?>'><a href='javascript:void(0)' onmousedown='javascript:col_set("<?=$t_curCOL?>")' <?
+						<td bgcolor='<?=$t_curCOL?>'><a href='javascript:void(0)' onmousedown='javascript:col_set("<?=$t_curCOL?>")' <?php 
 							?>onmouseover='javascript:col_show("<?=$t_curCOL?>")'><img src=/bitrix/images/1.gif border="0" width="10" height="10"></a></td>
-						<?
+						<?php 
 					}
 					?>
 				</table>
@@ -316,7 +316,7 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 	}
 	//-->
 </SCRIPT>
-<?
+<?php 
 /************** Table of colors/************************************/
 ?>
 <form name="form1" method="POST" action="" enctype="multipart/form-data">
@@ -349,11 +349,11 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 	<input type="hidden" name="VOTE_ID" value="<?=$voteId?>" />
 	<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 
-	<?
+	<?php 
 	$tabControl->Begin();
 	?>
 
-	<?
+	<?php 
 	/************** General Tab ****************************************/
 	$tabControl->BeginNextTab();
 	?>
@@ -362,14 +362,14 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 		<td>[<a href="vote_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$vote["ID"]?>" title="<?=GetMessage("VOTE_CONF")?>"><?=$vote["ID"]?></a>]&nbsp;
 			<?=htmlspecialcharsbx($vote["TITLE"])?></td>
 	</tr>
-	<?if (strlen($arQuestion["TIMESTAMP_X"]) > 0):?>
+	<?php if (strlen($arQuestion["TIMESTAMP_X"]) > 0):?>
 		<tr><td><?=GetMessage("VOTE_TIMESTAMP")?></td>
 			<td><?=$arQuestion["TIMESTAMP_X"]?></td>
 		</tr>
 		<tr><td><?=GetMessage("VOTE_COUNTER_QUESTION")?></td>
 			<td><?=$arQuestion["COUNTER"]?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td width="40%"><?=GetMessage("VOTE_ACTIVE")?></td>
 		<td width="60%"><?=InputType("checkbox", "ACTIVE", "Y", $arQuestion["ACTIVE"], false)?></td>
@@ -379,69 +379,69 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 	</tr>
 	<tr>
 		<td><?=GetMessage("VOTE_DIAGRAM")?></td>
-		<td><input type="checkbox" name="DIAGRAM" id="DIAGRAM" value="Y" onclick="OnDiagramFlagChange()" <?
+		<td><input type="checkbox" name="DIAGRAM" id="DIAGRAM" value="Y" onclick="OnDiagramFlagChange()" <?php 
 			?> <?=($arQuestion["DIAGRAM"] == "Y" ? "checked='checked'" : "")?> /></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("VOTE_REQUIRED")?></td>
-		<td><input type="checkbox" name="REQUIRED" id="REQUIRED" value="Y" onclick="OnDiagramFlagChange()" <?
+		<td><input type="checkbox" name="REQUIRED" id="REQUIRED" value="Y" onclick="OnDiagramFlagChange()" <?php 
 			?> <?=($arQuestion["REQUIRED"] == "Y" ? "checked='checked'" : "")?> /></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("VOTE_DIAGRAM_TYPE")?>:</td>
-		<td><?echo SelectBoxFromArray("DIAGRAM_TYPE", GetVoteDiagramList(), $arQuestion["DIAGRAM_TYPE"]);?>
+		<td><?php echo SelectBoxFromArray("DIAGRAM_TYPE", GetVoteDiagramList(), $arQuestion["DIAGRAM_TYPE"]);?>
 			<script type="text/javascript">OnDiagramFlagChange();</script>
 		</td>
 	</tr>
-	<?if (COption::GetOptionString("vote", "VOTE_COMPATIBLE_OLD_TEMPLATE", "N") == "Y"):?>
-		<?if ($old_module_version=="Y"):?>
+	<?php if (COption::GetOptionString("vote", "VOTE_COMPATIBLE_OLD_TEMPLATE", "N") == "Y"):?>
+		<?php if ($old_module_version=="Y"):?>
 			<tr>
 				<td><?=GetMessage("VOTE_TEMPLATE")?></td>
-				<td><?echo SelectBoxFromArray("TEMPLATE", GetTemplateList("RQ"), $arQuestion["TEMPLATE"], " ");
+				<td><?php echo SelectBoxFromArray("TEMPLATE", GetTemplateList("RQ"), $arQuestion["TEMPLATE"], " ");
 					?></td>
 			</tr>
-		<?
+		<?php 
 		else:
 			$arr = CMainAdmin::GetTemplateList(COption::GetOptionString("vote", "VOTE_TEMPLATE_PATH_QUESTION_NEW"));
 			$arrTemplates = array("reference" => $arr, "reference_id" => $arr);
 			?>
 			<tr>
 				<td><?=GetMessage("VOTE_TEMPLATE")?></td>
-				<td><?echo SelectBoxFromArray("TEMPLATE_NEW", $arrTemplates, $arQuestion["TEMPLATE_NEW"], " ");
+				<td><?php echo SelectBoxFromArray("TEMPLATE_NEW", $arrTemplates, $arQuestion["TEMPLATE_NEW"], " ");
 					?></td>
 			</tr>
-		<?endif;?>
-	<?endif?>
+		<?php endif;?>
+	<?php endif?>
 	<tr>
 		<td><?=GetMessage("VOTE_IMAGE")?></td>
-		<td><?=CFile::InputFile("IMAGE_ID", 20, $arQuestion["IMAGE_ID"]);?><?
+		<td><?=CFile::InputFile("IMAGE_ID", 20, $arQuestion["IMAGE_ID"]);?><?php 
 			if (!is_array($arQuestion["IMAGE_ID"]) && strlen($arQuestion["IMAGE_ID"]) > 0):
-				?><br /><?=CFile::ShowImage($arQuestion["IMAGE_ID"], 200, 200, "border=0", "", true)?><?
+				?><br /><?=CFile::ShowImage($arQuestion["IMAGE_ID"], 200, 200, "border=0", "", true)?><?php 
 			endif;?>
 		</td>
 	</tr>
 	<tr class="heading" id="tr_QUESTION_LABEL">
 		<td colspan="2"><?=GetMessage("VOTE_QUESTION_TEXT")?></td>
 	</tr>
-	<?
+	<?php 
 	if(COption::GetOptionString("vote", "USE_HTML_EDIT")=="Y" && CModule::IncludeModule("fileman")):?>
 		<tr>
-			<td align="center" colspan="2"><?
+			<td align="center" colspan="2"><?php 
 				CFileMan::AddHTMLEditorFrame("QUESTION", htmlspecialcharsbx($arQuestion["QUESTION"]), "QUESTION_TYPE", $arQuestion["QUESTION_TYPE"], array('height' => '200', 'width' => '100%'));
 				?></td>
 		</tr>
-	<?else:?>
+	<?php else:?>
 		<tr>
 			<td align="center" colspan="2"><?=InputType("radio","QUESTION_TYPE","text",$arQuestion["QUESTION_TYPE"],false)?>Text &nbsp;/&nbsp;<?=InputType("radio","QUESTION_TYPE","html",$arQuestion["QUESTION_TYPE"],false)?>HTML</td>
 		</tr>
 		<tr>
 			<td align="center" colspan="2"><textarea name="QUESTION" style="width:100%" rows="23"><?=$arQuestion["QUESTION"]?></textarea></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
 
 
-	<?
+	<?php 
 	/************** Answers Tab ****************************************/
 	$tabControl->BeginNextTab();
 	?>
@@ -536,7 +536,7 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 					<td><?=GetMessage("VOTE_ACT")?></td>
 					<td><?=GetMessage("VOTE_DEL")?></td>
 				</tr>
-				<?
+				<?php 
 
 				$arSort = array(0);
 				foreach ($arAnswers as $i => $arAnswer)
@@ -550,22 +550,22 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 							<?=(intval($arAnswer["ID"]) > 0 ? $arAnswer["ID"] : "")?></td>
 						<td><input type="text" name="MESSAGE_<?=$i?>" value="<?=htmlspecialcharsbx($arAnswer["MESSAGE"])?>" style="width:100%;" /></td>
 						<td><?=SelectBoxFromArray("FIELD_TYPE_".$i, GetAnswerTypeList(), $arAnswer["FIELD_TYPE"], "", "OnChange=\"FIELD_TYPE_CHANGE(".$i.")\" class='typeselect'")?></td>
-						<td><input type="text" name="FIELD_WIDTH_<?=$i?>" id="FIELD_WIDTH_<?=$i?>" size="3" <?
-							?>value="<?=(intval($arAnswer["FIELD_WIDTH"])>0 ? intval($arAnswer["FIELD_WIDTH"]) : "")?>" <?
+						<td><input type="text" name="FIELD_WIDTH_<?=$i?>" id="FIELD_WIDTH_<?=$i?>" size="3" <?php 
+							?>value="<?=(intval($arAnswer["FIELD_WIDTH"])>0 ? intval($arAnswer["FIELD_WIDTH"]) : "")?>" <?php 
 							?><?=($arAnswer["FIELD_TYPE"]!=4 && $arAnswer["FIELD_TYPE"]!=5 ? "disabled='disabled'" : "")?> /></td>
-						<td><input type="text" name="FIELD_HEIGHT_<?=$i?>" id="FIELD_HEIGHT_<?=$i?>" size="3" <?
-							?>value="<?=(intval($arAnswer["FIELD_HEIGHT"])>0 ? intval($arAnswer["FIELD_HEIGHT"]) : "")?>" <?
+						<td><input type="text" name="FIELD_HEIGHT_<?=$i?>" id="FIELD_HEIGHT_<?=$i?>" size="3" <?php 
+							?>value="<?=(intval($arAnswer["FIELD_HEIGHT"])>0 ? intval($arAnswer["FIELD_HEIGHT"]) : "")?>" <?php 
 							?><?=($arAnswer["FIELD_TYPE"]!=4 && $arAnswer["FIELD_TYPE"]!=5 ? "disabled='disabled'" : "")?> /></td>
 						<td><input type="text" name="FIELD_PARAM_<?=$i?>" value="<?=htmlspecialcharsbx($arAnswer["FIELD_PARAM"])?>" size="10" /></td>
 						<td><input type="text" name="C_SORT_<?=$i?>" value="<?=htmlspecialcharsbx($arAnswer["C_SORT"])?>" size="3" /></td>
 						<td id="COLB<?=$i?>" style="background:<?=htmlspecialcharsbx($arAnswer["COLOR"])?>;">
-							<input id="COLOR_<?=$i?>" name="COLOR_<?=$i?>" onchange="col_set(this.value, this)" onclick="ColorPicker(this);" <?
+							<input id="COLOR_<?=$i?>" name="COLOR_<?=$i?>" onchange="col_set(this.value, this)" onclick="ColorPicker(this);" <?php 
 							?>type="text" value="<?=htmlspecialcharsbx($arAnswer["COLOR"])?>" size="7" />
 						</td>
 						<td><?=InputType("checkbox", "ACTIVE_".$i,"Y", $arAnswer["ACTIVE"], false);?></td>
 						<td><input type="checkbox" name="del_<?=$i?>" value="Y" /></td>
 					</tr>
-					<?
+					<?php 
 				}
 				$i = 0;
 				if (!empty($arAnswers)):
@@ -590,25 +590,25 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 						<td><input type="text" name="FIELD_PARAM_<?=$i?>" value="" size="10" /></td>
 						<td><input type="text" name="C_SORT_<?=$i?>" value="<?=$s?>" size="3" /></td>
 						<td id="COLB<?=$i?>">
-							<input id="COLOR_<?=$i?>" name="COLOR_<?=$i?>" onchange="col_set(this.value, this)" onclick="ColorPicker(this);" <?
+							<input id="COLOR_<?=$i?>" name="COLOR_<?=$i?>" onchange="col_set(this.value, this)" onclick="ColorPicker(this);" <?php 
 							?>type="text" value="" size="7" />
 						</td>
 						<td><?=InputType("checkbox", "ACTIVE_".$i, "Y", "Y", false)?></td>
 						<td>&nbsp;</td>
 					</tr>
-					<?
+					<?php 
 				}
 				?>
 			</table>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndTab();
 	$tabControl->Buttons(array("back_url"=>"vote_question_list.php?lang=".LANGUAGE_ID."&VOTE_ID=".$voteId));
 	$tabControl->End();
 	?>
 </form>
-<?$tabControl->ShowWarnings("form1", $message);?>
+<?php $tabControl->ShowWarnings("form1", $message);?>
 <style type="text/css">
 	table #answerlist td { vertical-align: middle!important; }
 </style>
@@ -616,7 +616,7 @@ $t_COL = array("00", "33", "66", "99", "CC", "FF");
 <?=BeginNote();?>
 <span class="required"><sup>1</sup></span> -  <?=GetMessage("VOTE_MESSAGE_SPACE")?>
 <?=EndNote();?>
-<?
+<?php 
 ?><?=BeginNote();?><a href="javascript:void(0);" onclick="BX.userOptions.save('admin_panel', 'voting_view', 'question_edit', 'new');BX.reload();return false;"><?= Loc::getMessage("VOTE_GO_TO_NEW_PAGE_TITLE") ?></a><?=EndNote();
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

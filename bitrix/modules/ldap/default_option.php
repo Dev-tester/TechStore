@@ -1,4 +1,4 @@
-<?
+<?php 
 $ldap_default_option = array(
 	"group_limit" => "0",
 	"use_ntlm" => "N",

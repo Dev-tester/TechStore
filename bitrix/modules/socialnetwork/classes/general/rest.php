@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Socialnetwork\ComponentHelper;
 use Bitrix\Main\Config\Option;
 use Bitrix\Main\Loader;

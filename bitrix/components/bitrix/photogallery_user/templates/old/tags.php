@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php 
 	$URL_NAME_DEFAULT = array(
 		"search" => "PAGE_NAME=search");
 	foreach ($URL_NAME_DEFAULT as $URL => $URL_VALUE)
@@ -22,8 +22,8 @@
 	<tr class="middle">
 		<td class="left"><div class="empty"></div></td>
 		<td class="body-text">
-			<div class="photo-head"><?=GetMessage("P_TAGS_CLOUD")?></div><?
-?><?$APPLICATION->IncludeComponent(
+			<div class="photo-head"><?=GetMessage("P_TAGS_CLOUD")?></div><?php 
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:search.tags.cloud",
 	".default",
 	Array(
@@ -59,7 +59,7 @@
 	</tr>
 </table>
 </div>
-<?
+<?php 
 if ($arParams["SET_TITLE"] != "N")
 	$APPLICATION->SetTitle(GetMessage("P_TITLE"));
 ?>

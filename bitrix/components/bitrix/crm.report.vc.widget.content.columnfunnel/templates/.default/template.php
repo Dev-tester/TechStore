@@ -19,10 +19,10 @@ $columnsContainerIds = [
 	<table class="crm-report-column-funnel-table">
 		<tr class="crm-report-column-funnel-tr crm-report-column-funnel-widget">
 
-			<?foreach ($widgetData as $i => $data):?>
+			<?php foreach ($widgetData as $i => $data):?>
 
 				<td class="crm-report-column-funnel-td <?= !empty($data['singleData'])? 'crm-report-column-funnel-td-last':''?>">
-					<?if (!empty($data['singleData'])):?>
+					<?php if (!empty($data['singleData'])):?>
 						<div class="crm-report-column-funnel-through-funnel-widget-conversion">
 							<div class="crm-report-column-funnel-through-funnel-widget-title"><?=$data['topAdditionalTitle']?></div>
 							<div class="crm-report-column-funnel-through-funnel-widget-value-box">
@@ -30,17 +30,17 @@ $columnsContainerIds = [
 								<div class="crm-report-column-funnel-through-funnel-widget-percent"><?=$data['topAdditionalValueUnit']?></div>
 							</div>
 						</div>
-					<?endif;?>
+					<?php endif;?>
 
-					<?if($i === 0):?>
+					<?php if($i === 0):?>
 						<div class="crm-report-column-funnel-scale">
 							<div class="crm-report-column-funnel-scale-box">
 							</div>
 						</div>
-					<?endif;?>
+					<?php endif;?>
 					<div data-role="<?=$columnsContainerIds[$i]?>" class="crm-report-column-funnel-through-funnel-widget crm-report-column-funnel-through-funnel-widget-columns"></div>
 				</td>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</tr>
 
 
@@ -48,19 +48,19 @@ $columnsContainerIds = [
 
 		<tr class="crm-report-column-funnel-tr">
 
-			<?foreach ($widgetData as $i => $data):?>
+			<?php foreach ($widgetData as $i => $data):?>
 				<th class="crm-report-column-funnel-th crm-report-column-funnel-card-title"><?=$data['title']?></th>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</tr>
 		<tr class="crm-report-column-funnel-tr">
 		</tr>
 		<tr class="crm-report-column-funnel-tr">
 
-			<?foreach ($widgetData as $i => $data):?>
+			<?php foreach ($widgetData as $i => $data):?>
 				<td class="crm-report-column-funnel-td">
 					<div class="crm-report-column-funnel-card-flexed-container">
 						<div class="crm-report-column-funnel-card-flex-item">
-							<?if(!empty($data['firstAdditionalTitleAmount']) && !empty($data['firstAdditionalValueAmount'])):?>
+							<?php if(!empty($data['firstAdditionalTitleAmount']) && !empty($data['firstAdditionalValueAmount'])):?>
 								<div  class="crm-report-column-funnel-card-info">
 									<div class="crm-report-column-funnel-card-info-item">
 										<div class="crm-report-column-funnel-card-subtitle"><?=$data['firstAdditionalTitleAmount']?></div>
@@ -70,8 +70,8 @@ $columnsContainerIds = [
 									</div>
 								</div>
 
-							<?endif;?>
-							<?if(!empty($data['secondAdditionalTitleAmount']) && !empty($data['secondAdditionalValueAmount'])):?>
+							<?php endif;?>
+							<?php if(!empty($data['secondAdditionalTitleAmount']) && !empty($data['secondAdditionalValueAmount'])):?>
 								<div class="crm-report-column-funnel-card-info">
 									<div class="crm-report-column-funnel-card-info-item">
 										<div class="crm-report-column-funnel-card-subtitle"><?=$data['secondAdditionalTitleAmount']?></div>
@@ -80,10 +80,10 @@ $columnsContainerIds = [
 										</div>
 									</div>
 								</div>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 						<div class="crm-report-column-funnel-card-flex-item">
-							<?if(!empty($data['thirdAdditionalTitleAmount']) && !empty($data['thirdAdditionalValueAmount'])):?>
+							<?php if(!empty($data['thirdAdditionalTitleAmount']) && !empty($data['thirdAdditionalValueAmount'])):?>
 								<div class="crm-report-column-funnel-card-info">
 									<div class="crm-report-column-funnel-card-info-item">
 										<div class="crm-report-column-funnel-card-subtitle"><?=$data['thirdAdditionalTitleAmount']?></div>
@@ -92,11 +92,11 @@ $columnsContainerIds = [
 										</div>
 									</div>
 								</div>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 					</div>
 				</td>
-			<?endforeach;?>
+			<?php endforeach;?>
 
 		</tr>
 	</table>

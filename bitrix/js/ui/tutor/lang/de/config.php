@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_UI_TUTOR_ARTICLE_HELP"] = "Mehr Artikel";
 $MESS["JS_UI_TUTOR_BTN_BEGIN"] = "Starten";
 $MESS["JS_UI_TUTOR_BTN_COMPLETED"] = "Schritt erledigt";

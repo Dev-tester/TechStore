@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMBOT_MODULE_NAME"] = "Bitrix24 Chat Bots";
 $MESS["IMBOT_MODULE_DESCRIPTION"] = "The Chat Bots module for use with Bitrix24.";
 $MESS["IMBOT_INSTALL_TITLE"] = "\"Bitrix24 Chat Bots\" Module Installation";

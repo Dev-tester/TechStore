@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?if(strlen($arResult["PATH_TO_GROUP"]) <= 0)
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(strlen($arResult["PATH_TO_GROUP"]) <= 0)
 	$arResult["PATH_TO_GROUP"] = $APPLICATION->GetCurPage()."?".$arResult["ALIASES"]["page"]."=group&".$arResult["ALIASES"]["group_id"]."=#group_id#";
 ?>
 
@@ -67,7 +67,7 @@ function BXBlogTabShow(id, type)
 	<div class="blog-clear-float"></div>
 	<div class="blog-tab-content">
 	<div id="new-posts-content" style="display:block;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.new_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arParams["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arParams["MESSAGE_LENGTH"],
@@ -101,7 +101,7 @@ function BXBlogTabShow(id, type)
 		?>
 	</div>
 	<div id="commented-posts-content" style="display:none;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.commented_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arParams["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arParams["MESSAGE_LENGTH"],
@@ -136,7 +136,7 @@ function BXBlogTabShow(id, type)
 		?>
 	</div>
 	<div id="popular-posts-content" style="display:none;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.popular_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arParams["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arParams["MESSAGE_LENGTH"],
@@ -170,7 +170,7 @@ function BXBlogTabShow(id, type)
 		);
 		?>
 	</div>
-	<?
+	<?php 
 	if(strlen($arResult["PATH_TO_HISTORY"]) <= 0)
 		$arResult["PATH_TO_HISTORY"] = htmlspecialcharsbx($APPLICATION->GetCurPage()."?".$arResult["ALIASES"]["page"]."=history");
 	?>
@@ -179,7 +179,7 @@ function BXBlogTabShow(id, type)
 	</noindex>
 	</div>
 	
-<?if(((!is_array($arParams["GROUP_ID"]) && IntVal($arParams["GROUP_ID"]) > 0) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) > 1)) && $arParams["USE_SOCNET"] != "Y")
+<?php if(((!is_array($arParams["GROUP_ID"]) && IntVal($arParams["GROUP_ID"]) > 0) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) > 1)) && $arParams["USE_SOCNET"] != "Y")
 {
 	?>
 	<div class="blog-tab-container">
@@ -190,7 +190,7 @@ function BXBlogTabShow(id, type)
 		</div>	
 	</div>
 		<div class="blog-tab-content">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 					"bitrix:blog.groups", 
 					"", 
@@ -209,7 +209,7 @@ function BXBlogTabShow(id, type)
 				);
 			?>
 		</div>
-	<?
+	<?php 
 }
 ?>
 </div>
@@ -223,7 +223,7 @@ function BXBlogTabShow(id, type)
 	</div>	
 </div>
 	<div class="blog-tab-content">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.new_comments", ".default", Array(
 				"COMMENT_COUNT"		=> $arParams["MESSAGE_COUNT_MAIN"],
 				"MESSAGE_LENGTH"	=>	$arParams["MESSAGE_LENGTH"],
@@ -273,7 +273,7 @@ function BXBlogTabShow(id, type)
 </div>
 	<div class="blog-tab-content">
 	<div id="new-blogs-content" style="display:none;">
-	<?
+	<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.new_blogs", 
 				"", 
@@ -303,7 +303,7 @@ function BXBlogTabShow(id, type)
 		?>
 	</div>
 	<div id="popular-blogs-content" style="display:block;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.popular_blogs", 
 				"", 
@@ -333,18 +333,18 @@ function BXBlogTabShow(id, type)
 			);
 		?>
 	</div>
-	<?
+	<?php 
 	//if((!is_array($arParams["GROUP_ID"]) && IntVal($arParams["GROUP_ID"]) > 0) || (is_array($arParams["GROUP_ID"]) && count($arParams["GROUP_ID"]) == 1) || $arParams[])
 	//{
 		?>
 		<div style="text-align:right;"><a href="<?=CComponentEngine::MakePathFromTemplate($arResult["PATH_TO_GROUP"], array("group_id" => "all"))?>"><?=GetMessage("BC_ALL_BLOGS")?></a></div>
-		<?
+		<?php 
 	//}
 	?>
 
 	</div>
 	<div class="blog-rss-subscribe">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 			"bitrix:blog.rss.link",
 			"mainpage",
@@ -366,7 +366,7 @@ function BXBlogTabShow(id, type)
 </div>
 <div class="blog-clear-float"></div>
 
-<?
+<?php 
 if($arParams["SET_TITLE"]=="Y")
 	$APPLICATION->SetTitle(GetMessage("BLOG_TITLE"));
 ?>

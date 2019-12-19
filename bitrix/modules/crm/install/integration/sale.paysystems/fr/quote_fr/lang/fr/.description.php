@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBLP_DTITLE"] = "Devis (Français)";
 $MESS["SBLP_DDESCR"] = "Devis pour impression. Va s’ouvrir dans une nouvelle fenêtre.";
 

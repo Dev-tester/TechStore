@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!$USER->CanDoOperation('catalog_read') && !$USER->CanDoOperation('catalog_view'))
@@ -147,41 +147,41 @@ $alt_name = preg_replace("/[^a-z0-9_\\[\\]:]/i", "", $_REQUEST['alt_name']);
 <script type="text/javascript">
 function SelEl(id, name, url)
 {
-	<?if ($new_value=="Y"):?>
+	<?php if ($new_value=="Y"):?>
 		window.opener.<?= $func_name ?>(id, name, url);
-	<?else:?>
+	<?php else:?>
 		el = eval("window.opener.document.<?= $form_name ?>.<?= $field_name ?>");
 		if(el)
 			el.value = id;
-		<?if (strlen($field_name_name) > 0):?>
+		<?php if (strlen($field_name_name) > 0):?>
 			el = eval("window.opener.document.<?= $form_name ?>.<?= $field_name_name ?>");
 			if(el)
 				el.value = name;
-		<?endif;?>
-		<?if (strlen($field_name_url) > 0):?>
+		<?php endif;?>
+		<?php if (strlen($field_name_url) > 0):?>
 			el = eval("window.opener.document.<?= $form_name ?>.<?= $field_name_url ?>");
 			if(el)
 				el.value = url;
-		<?endif;?>
-		<?if (strlen($alt_name) > 0):?>
+		<?php endif;?>
+		<?php if (strlen($alt_name) > 0):?>
 			el = window.opener.document.getElementById("<?= $alt_name ?>");
 			if(el)
 				el.innerHTML = name;
-		<?endif;?>
+		<?php endif;?>
 		window.close();
-	<?endif;?>
+	<?php endif;?>
 }
 </script>
 
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-	<input type="hidden" name="field_name" value="<?echo htmlspecialcharsbx($field_name)?>">
-	<input type="hidden" name="field_name_name" value="<?echo htmlspecialcharsbx($field_name_name)?>">
-	<input type="hidden" name="field_name_url" value="<?echo htmlspecialcharsbx($field_name_url)?>">
-	<input type="hidden" name="alt_name" value="<?echo htmlspecialcharsbx($alt_name)?>">
-	<input type="hidden" name="form_name" value="<?echo htmlspecialcharsbx($form_name)?>">
-	<input type="hidden" name="func_name" value="<?echo htmlspecialcharsbx($func_name)?>">
-	<input type="hidden" name="new_value" value="<?echo htmlspecialcharsbx($new_value)?>">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+	<input type="hidden" name="field_name" value="<?php echo htmlspecialcharsbx($field_name)?>">
+	<input type="hidden" name="field_name_name" value="<?php echo htmlspecialcharsbx($field_name_name)?>">
+	<input type="hidden" name="field_name_url" value="<?php echo htmlspecialcharsbx($field_name_url)?>">
+	<input type="hidden" name="alt_name" value="<?php echo htmlspecialcharsbx($alt_name)?>">
+	<input type="hidden" name="form_name" value="<?php echo htmlspecialcharsbx($form_name)?>">
+	<input type="hidden" name="func_name" value="<?php echo htmlspecialcharsbx($func_name)?>">
+	<input type="hidden" name="new_value" value="<?php echo htmlspecialcharsbx($new_value)?>">
+<?php 
 $arIBTYPE = CIBlockType::GetByIDLang($arIBlock["IBLOCK_TYPE_ID"], LANG);
 
 $oFilter = new CAdminFilter(
@@ -202,12 +202,12 @@ $oFilter->Begin();
 		<td><?= GetMessage("SPS_CATALOG") ?>:</td>
 		<td>
 			<select name="IBLOCK_ID">
-			<?
+			<?php 
 			$db_iblocks = CIBlock::GetList(array("NAME"=>"ASC"));
 			ClearVars('str_iblock_');
 			while ($db_iblocks->ExtractFields("str_iblock_"))
 			{
-				?><option value="<?=$str_iblock_ID?>"<?if($IBLOCK_ID==$str_iblock_ID)echo " selected"?>><?=$str_iblock_NAME?> [<?=$str_iblock_LID?>] (<?=$str_iblock_ID?>)</option><?
+				?><option value="<?=$str_iblock_ID?>"<?php if($IBLOCK_ID==$str_iblock_ID)echo " selected"?>><?=$str_iblock_NAME?> [<?=$str_iblock_LID?>] (<?=$str_iblock_ID?>)</option><?php 
 			}
 			?>
 			</select>
@@ -218,19 +218,19 @@ $oFilter->Begin();
 		<td>ID (<?= GetMessage("SPS_ID_FROM_TO") ?>):</td>
 		<td>
 			<nobr>
-			<input type="text" name="filter_id_start" size="10" value="<?echo htmlspecialcharsex($filter_id_start)?>">
+			<input type="text" name="filter_id_start" size="10" value="<?php echo htmlspecialcharsex($filter_id_start)?>">
 			...
-			<input type="text" name="filter_id_end" size="10" value="<?echo htmlspecialcharsex($filter_id_end)?>">
+			<input type="text" name="filter_id_end" size="10" value="<?php echo htmlspecialcharsex($filter_id_end)?>">
 			</nobr>
 		</td>
 	</tr>
 
 	<tr>
 		<td  nowrap><?= GetMessage("SPS_TIMESTAMP") ?>:</td>
-		<td nowrap><? echo CalendarPeriod("filter_timestamp_from", htmlspecialcharsex($filter_timestamp_from), "filter_timestamp_to", htmlspecialcharsex($filter_timestamp_to), "form1")?></td>
+		<td nowrap><?php  echo CalendarPeriod("filter_timestamp_from", htmlspecialcharsex($filter_timestamp_from), "filter_timestamp_to", htmlspecialcharsex($filter_timestamp_to), "form1")?></td>
 	</tr>
 
-<?
+<?php 
 if ($arIBTYPE["SECTIONS"]=="Y"):
 ?>
 		<tr>
@@ -238,18 +238,18 @@ if ($arIBTYPE["SECTIONS"]=="Y"):
 			<td nowrap>
 				<select name="filter_section">
 					<option value="">(<?= GetMessage("SPS_ANY") ?>)</option>
-					<option value="0"<?if($filter_section=="0")echo" selected"?>><?= GetMessage("SPS_TOP_LEVEL") ?></option>
-					<?
+					<option value="0"<?php if($filter_section=="0")echo" selected"?>><?= GetMessage("SPS_TOP_LEVEL") ?></option>
+					<?php 
 					$bsections = CIBlockSection::GetTreeList(array("IBLOCK_ID"=>$IBLOCK_ID));
 					while($bsections->ExtractFields("s_")):
-						?><option value="<?echo $s_ID?>"<?if($s_ID==$filter_section)echo " selected"?>><?echo str_repeat("&nbsp;.&nbsp;", $s_DEPTH_LEVEL)?><?echo $s_NAME?></option><?
+						?><option value="<?php echo $s_ID?>"<?php if($s_ID==$filter_section)echo " selected"?>><?php echo str_repeat("&nbsp;.&nbsp;", $s_DEPTH_LEVEL)?><?php echo $s_NAME?></option><?php 
 					endwhile;
 					?>
 				</select><br>
-				<input type="checkbox" name="filter_subsections" value="Y"<?if($filter_subsections=="Y")echo" checked"?>> <?= GetMessage("SPS_INCLUDING_SUBS") ?>
+				<input type="checkbox" name="filter_subsections" value="Y"<?php if($filter_subsections=="Y")echo" checked"?>> <?= GetMessage("SPS_INCLUDING_SUBS") ?>
 			</td>
 		</tr>
-<?
+<?php 
 endif;
 ?>
 
@@ -258,36 +258,36 @@ endif;
 		<td nowrap>
 			<select name="filter_active">
 				<option value=""><?=htmlspecialcharsex("(".GetMessage("SPS_ANY").")")?></option>
-				<option value="Y"<?if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_YES"))?></option>
-				<option value="N"<?if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_NO"))?></option>
+				<option value="Y"<?php if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_YES"))?></option>
+				<option value="N"<?php if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("SPS_NO"))?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
 		<td nowrap><?= GetMessage("SPS_NAME") ?>:</td>
 		<td nowrap>
-			<input type="text" name="filter_name" value="<?echo htmlspecialcharsex($filter_name)?>" size="30">
+			<input type="text" name="filter_name" value="<?php echo htmlspecialcharsex($filter_name)?>" size="30">
 		</td>
 	</tr>
 	<tr>
 		<td nowrap><?= GetMessage("SPS_DESCR") ?>:</td>
 		<td nowrap>
-			<input type="text" name="filter_intext" size="50" value="<?echo htmlspecialcharsex(${"filter_intext"})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_intext" size="50" value="<?php echo htmlspecialcharsex(${"filter_intext"})?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons();
 ?>
-<input type="submit" name="set_filter" value="<?echo GetMessage("prod_search_find")?>" title="<?echo GetMessage("prod_search_find_title")?>">
-<input type="submit" name="del_filter" value="<?echo GetMessage("prod_search_cancel")?>" title="<?echo GetMessage("prod_search_cancel_title")?>">
-<?
+<input type="submit" name="set_filter" value="<?php echo GetMessage("prod_search_find")?>" title="<?php echo GetMessage("prod_search_find_title")?>">
+<input type="submit" name="del_filter" value="<?php echo GetMessage("prod_search_cancel")?>" title="<?php echo GetMessage("prod_search_cancel_title")?>">
+<?php 
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 <br>
 <input type="button" class="typebutton" value="<?= GetMessage("SPS_CLOSE") ?>" onClick="window.close();">
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MATCH_TITLE"] = "CRM connection";
 $MESS["TYPE_TITLE"] = "Data type";
 $MESS["PROPERTY_TITLE"] = "Property";

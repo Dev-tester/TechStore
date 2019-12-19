@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
@@ -14,9 +14,9 @@ Loc::loadMessages(__FILE__);
 		<input type="hidden" name="LMI_PAYMENT_DESC" value="<?=str_replace(array('#PAYMENT_ID#', '#DATE_INSERT#'), array($params['PAYMENT_ID'], $params['PAYMENT_DATE_INSERT']), Loc::getMessage('SALE_HPS_PAYMASTER_TEMPLATE_DESC_PAYMENT'))?>">
 		<input type="hidden" name="LMI_PAYMENT_NO" value="<?=htmlspecialcharsbx($params["PAYMENT_ID"]) ?>">
 		<input type="hidden" name="LMI_MERCHANT_ID" value="<?= htmlspecialcharsbx($params["PAYMASTER_SHOP_ACCT"]) ?>">
-		<?if ($params["PS_IS_TEST"] == 'Y'): ?>
+		<?php if ($params["PS_IS_TEST"] == 'Y'): ?>
 			<input type="hidden" name="LMI_SIM_MODE" value="0">
-		<?endif;?>
+		<?php endif;?>
 		<input type="hidden" name="LMI_RESULT_URL" value="<?=htmlspecialcharsbx($params["PAYMASTER_RESULT_URL"])?>">
 		<input type="hidden" name="LMI_SUCCESS_URL" value="<?=htmlspecialcharsbx($params["PAYMASTER_SUCCESS_URL"])?>">
 		<input type="hidden" name="LMI_FAIL_URL" value="<?=htmlspecialcharsbx($params["PAYMASTER_FAIL_URL"])?>">

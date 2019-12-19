@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_ADM_TOOLS_ADD_INSTAGRAM_IMPORT"] = "Instagram import";
 $MESS["BT_CAT_ADM_TOOLS_ADD_INSTAGRAM_IMPORT_TITLE"] = "Click to add products using Instagram";
 $MESS["BT_CAT_ADM_TOOLS_TAB_CATALOG"] = "Commercial Catalog";

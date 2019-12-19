@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLIST_CHPRICE_PRICE_TYPE_EMPTY"] = "не выбран";
 $MESS["IBLIST_CHPRICE_HEAD_TABLE_ACTION"] = "Выберите действие";
 $MESS["IBLIST_CHPRICE_HEAD_TABLE_VALUE"] = "Введите значение";

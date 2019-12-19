@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRICE_ENTITY_ID_FIELD"] = "Идентификатор ценового предложения";
 $MESS["PRICE_ENTITY_PRODUCT_ID_FIELD"] = "Идентификатор товара";
 $MESS["PRICE_ENTITY_EXTRA_ID_FIELD"] = "Идентификатор наценки";

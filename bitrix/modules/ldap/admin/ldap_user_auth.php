@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 if (!isset($_REQUEST["ldap_user_id"]) || strlen($_REQUEST["ldap_user_id"]) != 32)
 	LocalRedirect("/");

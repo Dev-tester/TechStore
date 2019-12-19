@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TIMELINE_ACTIVITY_CREATION"] = "Activity created: #TITLE#";
 $MESS["CRM_TIMELINE_ACTIVITY_DELETION_CONFIRM"] = "Are you sure you want to delete this event?";
 $MESS["CRM_TIMELINE_ACTIVITY_DELETION_TITLE_CONFIRM"] = "Delete Event";

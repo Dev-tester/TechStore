@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BUTTON_LIST_ACTIONS_VIEW"] = "View";
 $MESS["CRM_BUTTON_LIST_ACTIONS_EDIT"] = "Edit";
 $MESS["CRM_BUTTON_LIST_ACTIONS_COPY"] = "Create based on";

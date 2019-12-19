@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_LESSON_ID_NAME"] = "Lesson ID";
 $MESS["LEARNING_SELF_TEST_TEMPLATE_NAME"] = "Self test page URL";
 $MESS["LEARNING_DESC_YES"] = "Yes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BOOKMARK_SYSTEM"] = "Use Social Bookmarks And Favorites";
 $MESS["BOOKMARK_URL"] = "Page URL (relative to site root)";
 $MESS["BOOKMARK_TITLE"] = "Page Title";

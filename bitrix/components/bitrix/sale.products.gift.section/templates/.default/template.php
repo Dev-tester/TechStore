@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
 
@@ -114,7 +114,7 @@ $containerName = 'sale-products-gift-container';
 ?>
 
 <div class="sale-products-gift bx-<?=$arParams['TEMPLATE_THEME']?>" data-entity="<?=$containerName?>">
-	<?
+	<?php 
 	if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS']))
 	{
 		$areaIds = array();
@@ -135,13 +135,13 @@ $containerName = 'sale-products-gift-container';
 		unset($item);
 		?>
 		<!-- items-container -->
-		<?
+		<?php 
 		foreach ($arResult['ITEM_ROWS'] as $rowData)
 		{
 			$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
 			?>
 			<div class="row <?=$rowData['CLASS']?>" data-entity="items-row">
-				<?
+				<?php 
 				switch ($rowData['VARIANT'])
 				{
 					case 0:
@@ -151,7 +151,7 @@ $containerName = 'sale-products-gift-container';
 								<div class="col-xs-12 product-item-big-card">
 									<div class="row">
 										<div class="col-md-12">
-											<?
+											<?php 
 											$item = reset($rowItems);
 											$APPLICATION->IncludeComponent(
 												'bitrix:catalog.item',
@@ -178,21 +178,21 @@ $containerName = 'sale-products-gift-container';
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 1:
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-6 product-item-big-card">
 										<div class="row">
 											<div class="col-md-12">
-												<?
+												<?php 
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'',
@@ -216,26 +216,26 @@ $containerName = 'sale-products-gift-container';
 											</div>
 										</div>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 2:
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-sm-4 product-item-big-card">
 										<div class="row">
 											<div class="col-md-12">
-												<?
+												<?php 
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'',
@@ -259,24 +259,24 @@ $containerName = 'sale-products-gift-container';
 											</div>
 										</div>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 3:
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-6 col-md-3">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -298,12 +298,12 @@ $containerName = 'sale-products-gift-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 4:
@@ -312,7 +312,7 @@ $containerName = 'sale-products-gift-container';
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php 
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -340,12 +340,12 @@ $containerName = 'sale-products-gift-container';
 						</div>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -367,12 +367,12 @@ $containerName = 'sale-products-gift-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 5:
@@ -380,12 +380,12 @@ $containerName = 'sale-products-gift-container';
 						?>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -407,7 +407,7 @@ $containerName = 'sale-products-gift-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
@@ -415,7 +415,7 @@ $containerName = 'sale-products-gift-container';
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php 
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -441,19 +441,19 @@ $containerName = 'sale-products-gift-container';
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 6:
 						?>
 						<div class="col-xs-12 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-6 col-sm-4 col-md-2">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -475,12 +475,12 @@ $containerName = 'sale-products-gift-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 7:
@@ -489,7 +489,7 @@ $containerName = 'sale-products-gift-container';
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php 
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -517,12 +517,12 @@ $containerName = 'sale-products-gift-container';
 						</div>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6 col-md-4">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -544,12 +544,12 @@ $containerName = 'sale-products-gift-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 8:
@@ -557,12 +557,12 @@ $containerName = 'sale-products-gift-container';
 						?>
 						<div class="col-sm-6 product-item-small-card">
 							<div class="row">
-								<?
+								<?php 
 								for ($i = 0; $i < $rowItemsCount - 1; $i++)
 								{
 									?>
 									<div class="col-xs-6 col-md-4">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -584,7 +584,7 @@ $containerName = 'sale-products-gift-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 							</div>
@@ -592,7 +592,7 @@ $containerName = 'sale-products-gift-container';
 						<div class="col-sm-6 product-item-big-card">
 							<div class="row">
 								<div class="col-md-12">
-									<?
+									<?php 
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -618,19 +618,19 @@ $containerName = 'sale-products-gift-container';
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 9:
 						?>
 						<div class="col-xs-12">
 							<div class="row">
-								<?
+								<?php 
 								foreach ($rowItems as $item)
 								{
 									?>
 									<div class="col-xs-12 product-line-item-card">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'',
@@ -651,23 +651,23 @@ $containerName = 'sale-products-gift-container';
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								?>
 
 							</div>
 						</div>
-						<?
+						<?php 
 						break;
 				}
 				?>
 			</div>
-			<?
+			<?php 
 		}
 		unset($generalParams, $rowItems);
 		?>
 		<!-- items-container -->
-		<?
+		<?php 
 	}
 	else
 	{

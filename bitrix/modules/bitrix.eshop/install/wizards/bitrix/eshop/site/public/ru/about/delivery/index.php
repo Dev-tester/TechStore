@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Доставка");
 ?>
@@ -45,4 +45,4 @@ $APPLICATION->SetTitle("Доставка");
 
 <p><b>Skype</b>: <a href="skype:shipping.example.ru">shipping.example.ru</a></p>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

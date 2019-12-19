@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C100_MODERATOR'] = "Модератор";
 $MESS ['SONET_C25_T_SAVE'] = "Назначить модератором";
 $MESS ['SONET_C25_T_BAN'] = "Внести в черный список";

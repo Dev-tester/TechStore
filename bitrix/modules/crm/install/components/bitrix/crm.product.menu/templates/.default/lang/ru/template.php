@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_LRP_DLG_BTN_START"] = "Выполнить";
 $MESS["CRM_PRODUCT_LRP_DLG_BTN_STOP"] = "Остановить";
 $MESS["CRM_PRODUCT_LRP_DLG_BTN_CLOSE"] = "Закрыть";

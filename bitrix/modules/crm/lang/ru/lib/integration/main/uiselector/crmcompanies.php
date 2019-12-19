@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["MAIN_UI_SELECTOR_TITLE_CRMCOMPANIES"] = "Компании:";
 $MESS["MAIN_UI_SELECTOR_TAB_CRMCOMPANIES"] = "Компании";

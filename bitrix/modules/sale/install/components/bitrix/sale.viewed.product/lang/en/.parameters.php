@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VIEWED_COUNT"] = "Number of items";
 $MESS["VIEWED_NAME"] = "Show name";
 $MESS["VIEWED_IMAGE"] = "Show image";

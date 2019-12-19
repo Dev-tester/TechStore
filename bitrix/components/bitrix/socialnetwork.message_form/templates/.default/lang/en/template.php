@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_SEARCH_USER'] = "User search";
 $MESS ['PM_POST_FULLY'] = "Used space:";
 $MESS ['PM_HEAD_FROM'] = "From:";

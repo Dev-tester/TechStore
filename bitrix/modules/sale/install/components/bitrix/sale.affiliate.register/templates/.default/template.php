@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 if ($arResult["AFFILIATE"] == "Y")
 {
 	if ($arResult["UNACTIVE_AFFILIATE"] == "Y")
 	{
-		?><?=ShowError(GetMessage("SPCR1_UNACTIVE_AFF"))?><?
+		?><?=ShowError(GetMessage("SPCR1_UNACTIVE_AFF"))?><?php 
 	}
 }
 else
@@ -48,7 +48,7 @@ else
 									</tr>
 									<tr>
 										<td>
-											<?echo GetMessage("SPCR1_LOGIN")?> <span class="starrequired">*</span><br />
+											<?php echo GetMessage("SPCR1_LOGIN")?> <span class="starrequired">*</span><br />
 											<input type="text" name="NEW_LOGIN" size="30" value="<?=$arResult["NEW_LOGIN"]?>" />&nbsp;&nbsp;&nbsp;
 										</td>
 									</tr>
@@ -64,7 +64,7 @@ else
 											<input type="password" name="NEW_PASSWORD_CONFIRM" size="30" />&nbsp;&nbsp;&nbsp;
 										</td>
 									</tr>
-									<?
+									<?php 
 									if ($arResult["CAPTCHA_CODE"])
 									{
 										?>
@@ -85,16 +85,16 @@ else
 												<input type="text" name="captcha_word" size="30" maxlength="50" value="" />
 											</td>
 										</tr>
-										<?
+										<?php 
 									}
 									?>
-									<?
+									<?php 
 									if ($arParams['USER_CONSENT'] === 'Y')
 									{
 										?>
 										<tr>
 											<td>
-												<?
+												<?php 
 												$APPLICATION->IncludeComponent(
 													'bitrix:main.userconsent.request',
 													'',
@@ -116,7 +116,7 @@ else
 												?>
 											</td>
 										</tr>
-										<?
+										<?php 
 									}
 									?>
 								</tbody>
@@ -164,13 +164,13 @@ else
 											<input type="password" name="USER_PASSWORD" maxlength="255" size="25" />&nbsp;&nbsp;&nbsp;
 										</td>
 									</tr>
-									<?if (strlen($arParams["REGISTER_PAGE"]) > 0):?>
+									<?php if (strlen($arParams["REGISTER_PAGE"]) > 0):?>
 										<tr>
 											<td>
 												<a href="<?=$arParams["REGISTER_PAGE"]?>?forgot_password=yes&amp;back_url=<?=urlencode($arResult["CURRENT_PAGE"]) ?>"><?=GetMessage("SPCR1_FORG_PASSWORD")?></a>
 											</td>
 										</tr>
-									<?endif?>
+									<?php endif?>
 								</tbody>
 								<tfoot>
 									<tr>
@@ -187,7 +187,7 @@ else
 				</tr>
 			</tbody>
 		</table>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -209,7 +209,7 @@ else
 							<textarea name="AFF_DESCRIPTION"><?=$arResult["AFF_DESCRIPTION"]?></textarea>
 						</td>
 					</tr>
-					<?
+					<?php 
 					if ($arResult["AGREEMENT_TEXT_FILE"])
 					{
 						?>
@@ -224,7 +224,7 @@ else
 								&nbsp;<label for="agree_agreement_id" class="affiliate-agreement-label"><?=GetMessage("SPCR1_I_AGREE")?></label>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 
 					if ($arParams['USER_CONSENT'] === 'Y')
@@ -232,7 +232,7 @@ else
 						?>
 						<tr>
 							<td>
-								<?
+								<?php 
 								$APPLICATION->IncludeComponent(
 									'bitrix:main.userconsent.request',
 									'',
@@ -250,7 +250,7 @@ else
 								?>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 				</tbody>
@@ -265,7 +265,7 @@ else
 				</tfoot>
 			</table>
 		</form>
-		<?
+		<?php 
 	}
 }
 ?>

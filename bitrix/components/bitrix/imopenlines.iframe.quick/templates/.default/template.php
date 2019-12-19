@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @var $arResult array */
 /** @var $arParams array */
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
@@ -79,15 +79,15 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 		<div id="quick-edit-section-select" class="imopenlines-iframe-quick-edit-select-container">
 			<div class="imopenlines-iframe-quick-edit-select" id="quick-edit-category"><?=Loc::getMessage('IMOL_QUICK_ANSWERS_EDIT_ALL');?></div>
 			<ul class="imopenlines-iframe-quick-category-list" id="edit-category-list">
-				<?foreach($arResult['SECTIONS'] as $id => $section)
+				<?php foreach($arResult['SECTIONS'] as $id => $section)
 				{?>
-					<li data-id="<?=$id;?>" class="imopenlines-iframe-quick-category-item<?
+					<li data-id="<?=$id;?>" class="imopenlines-iframe-quick-category-item<?php 
 					if(isset($section['SELECTED']) && $section['SELECTED'] === true)
 					{
-						?> imopenlines-iframe-quick-category-item-selected<?
+						?> imopenlines-iframe-quick-category-item-selected<?php 
 					}
 					?>"><?=$section['NAME'];?></li>
-				<?}?>
+				<?php }?>
 			</ul>
 		</div>
 	</div>

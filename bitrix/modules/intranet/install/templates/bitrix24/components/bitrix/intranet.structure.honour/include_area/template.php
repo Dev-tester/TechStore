@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arMonths_r = array();
@@ -6,7 +6,7 @@ for ($i = 1; $i <= 12; $i++)
 	$arMonths_r[$i] = ToLower(GetMessage('MONTH_'.$i.'_S'));
 ?>
 <div class="bx-honour-layout-include">
-<?
+<?php 
 foreach ($arResult['ENTRIES'] as $arEntry)
 {
 	$arUser = $arResult['USERS'][$arEntry['PROPERTY_USER_VALUE']];
@@ -18,9 +18,9 @@ foreach ($arResult['ENTRIES'] as $arEntry)
 	<div class="bx-user-info">
 		<div class="bx-user-info-inner">
 			<div class="bx-user-image<?=$arUser['PERSONAL_PHOTO'] ? '' : ' bx-user-image-default'?>"><a href="<?=$arUser['DETAIL_URL']?>"><?=$arUser['PERSONAL_PHOTO'] ? $arUser['PERSONAL_PHOTO'] : '' ?></a></div>
-			<div class="bx-user-subtitle"><?echo htmlspecialcharsbx($arUser['SUBTITLE'])?></div>
+			<div class="bx-user-subtitle"><?php echo htmlspecialcharsbx($arUser['SUBTITLE'])?></div>
 			<div class="bx-user-name">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent("bitrix:main.user.link",
 				'',
 				array(
@@ -48,11 +48,11 @@ foreach ($arResult['ENTRIES'] as $arEntry)
 			);
 			?>
 			</div>
-			<div class="bx-user-post"><?echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
+			<div class="bx-user-post"><?php echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
 			<div class="bx-users-delimiter"></div>
 		</div>
 	</div>
-<?
+<?php 
 }
 ?>
 </div>

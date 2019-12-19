@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/cluster/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -67,61 +67,61 @@ if($message)
 	echo $message->Show();
 ?>
 
-<form method="POST" action="cluster_session.php?lang=<?echo LANGUAGE_ID?><?echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>"  enctype="multipart/form-data" name="editform">
-<?
+<form method="POST" action="cluster_session.php?lang=<?php echo LANGUAGE_ID?><?php echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>"  enctype="multipart/form-data" name="editform">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-<?if(COption::GetOptionString("security", "session") == "Y"):?>
+<?php if(COption::GetOptionString("security", "session") == "Y"):?>
 	<tr>
 		<td valign="top" colspan="2" align="left">
-			<?echo CAdminMessage::ShowMessage(array("TYPE"=>"OK", "MESSAGE" => GetMessage("CLU_SESSION_DB_ON")))?>
+			<?php echo CAdminMessage::ShowMessage(array("TYPE"=>"OK", "MESSAGE" => GetMessage("CLU_SESSION_DB_ON")))?>
 		</td>
 	</tr>
 	<tr>
 		<td valign="top" colspan="2" align="left">
-			<input type="submit" name="db_session_off" value="<?echo GetMessage("CLU_SESSION_DB_BUTTON_OFF")?>">
+			<input type="submit" name="db_session_off" value="<?php echo GetMessage("CLU_SESSION_DB_BUTTON_OFF")?>">
 		</td>
 	</tr>
-<?else:?>
+<?php else:?>
 	<tr>
 		<td valign="top" colspan="2" align="left">
-			<?echo CAdminMessage::ShowMessage(GetMessage("CLU_SESSION_DB_OFF"))?>
+			<?php echo CAdminMessage::ShowMessage(GetMessage("CLU_SESSION_DB_OFF"))?>
 		</td>
 	</tr>
-	<?if(CSecuritySession::CheckSessionId(session_id())):?>
+	<?php if(CSecuritySession::CheckSessionId(session_id())):?>
 	<tr>
 		<td valign="top" colspan="2" align="left">
-			<input type="submit" name="db_session_on" value="<?echo GetMessage("CLU_SESSION_DB_BUTTON_ON")?>">
+			<input type="submit" name="db_session_on" value="<?php echo GetMessage("CLU_SESSION_DB_BUTTON_ON")?>">
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
 		<td valign="top" colspan="2" align="left">
-			<?echo CAdminMessage::ShowMessage(GetMessage("CLU_SESSION_SESSID_WARNING"))?>
+			<?php echo CAdminMessage::ShowMessage(GetMessage("CLU_SESSION_SESSID_WARNING"))?>
 		</td>
 	</tr>
-	<?endif;?>
-<?endif;?>
+	<?php endif;?>
+<?php endif;?>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote(), GetMessage("CLU_SESSION_DB_WARNING"), EndNote();?>
+		<?php echo BeginNote(), GetMessage("CLU_SESSION_DB_WARNING"), EndNote();?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"back_url"=>$_GET["return_url"]? $_GET["return_url"]: "cluster_session.php?lang=".LANG,
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 echo BeginNote(), GetMessage("CLU_SESSION_NOTE"), EndNote();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

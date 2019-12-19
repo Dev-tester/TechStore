@@ -1,1 +1,1 @@
-<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/iblock/admin/redirect_entity.php');
+<?php require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/iblock/admin/redirect_entity.php');

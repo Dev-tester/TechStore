@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STPCL_NEW"] = "Add";
 $MESS["STPCL_TYPE"] = "Card type";
 $MESS["STPCL_PAY_SYS"] = "Payment system";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADV_NIVO_PARAMETER_NO'] = "(не установлено)";
 $MESS ['ADV_NIVO_PARAMETER_IMG'] = "Изображение слайда";
 $MESS ['ADV_NIVO_PARAMETER_LINK_URL'] = "Ссылка слайда";

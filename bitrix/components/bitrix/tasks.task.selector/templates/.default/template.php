@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -19,7 +19,7 @@ $name = $arResult["NAME"];
 
 	O_<?=$name?>.filter = <?=CUtil::PhpToJSObject($arParams["FILTER"])?>;
 
-	<?foreach ($arResult["CURRENT_TASKS"] as $task):?>
+	<?php foreach ($arResult["CURRENT_TASKS"] as $task):?>
 		O_<?=$name?>.arSelected[<?=$task["ID"]?>] = {
 			id : '<?=CUtil::JSEscape($task["ID"])?>',
 			name : "<?=CUtil::JSEscape($task["TITLE"])?>",
@@ -30,37 +30,37 @@ $name = $arResult["NAME"];
 			name : "<?=CUtil::JSEscape($task["TITLE"])?>",
 			status : <?=$task["STATUS"]?>
 		};
-	<?endforeach?>
+	<?php endforeach?>
 
-	<?foreach ($arResult["LAST_TASKS"] as $task):?>
+	<?php foreach ($arResult["LAST_TASKS"] as $task):?>
 		TasksTask.arTasksData[<?=$task["ID"]?>] = {
 			id : '<?=CUtil::JSEscape($task["ID"])?>',
 			name : "<?=CUtil::JSEscape($task["TITLE"])?>",
 			status : <?=$task["STATUS"]?>
 		};
-	<?endforeach?>
+	<?php endforeach?>
 
-	<?if ((string)$arParams['PATH_TO_TASKS_TASK'] != ''):?>
+	<?php if ((string)$arParams['PATH_TO_TASKS_TASK'] != ''):?>
 		BX.message({TASKS_PATH_TO_TASK: "<?=CUtil::JSEscape($arParams['PATH_TO_TASKS_TASK'])?>"});
-	<?endif?>
+	<?php endif?>
 
 	BX.ready(function()
 	{
-		<?if (strlen($arParams["FORM_NAME"]) > 0 && strlen($arParams["INPUT_NAME"]) > 0):?>
+		<?php if (strlen($arParams["FORM_NAME"]) > 0 && strlen($arParams["INPUT_NAME"]) > 0):?>
 			O_<?=$name?>.searchInput = document.forms["<?=CUtil::JSEscape($arParams["FORM_NAME"])?>"].element["<?=CUtil::JSEscape($arParams["INPUT_NAME"])?>"];
-		<?elseif (strlen($arParams["INPUT_NAME"]) > 0):?>
+		<?php elseif (strlen($arParams["INPUT_NAME"]) > 0):?>
 			O_<?=$name?>.searchInput = BX("<?=CUtil::JSEscape($arParams["INPUT_NAME"])?>");
-		<?else:?>
+		<?php else:?>
 			O_<?=$name?>.searchInput = BX("<?=$name?>_task_input");
-		<?endif?>
+		<?php endif?>
 
-		<?if (strlen($arParams["ON_CHANGE"]) > 0):?>
+		<?php if (strlen($arParams["ON_CHANGE"]) > 0):?>
 			O_<?=$name?>.onChange = <?=CUtil::JSEscape($arParams["ON_CHANGE"])?>;
-		<?endif?>
+		<?php endif?>
 
-		<?if (strlen($arParams["ON_SELECT"]) > 0):?>
+		<?php if (strlen($arParams["ON_SELECT"]) > 0):?>
 			O_<?=$name?>.onSelect= <?=CUtil::JSEscape($arParams["ON_SELECT"])?>;
-		<?endif?>
+		<?php endif?>
 
 		BX.bind(O_<?=$name?>.searchInput, "keyup", BX.debounce(
 			BX.proxy(O_<?=$name?>.search, O_<?=$name?>), 700)
@@ -68,16 +68,16 @@ $name = $arResult["NAME"];
 	});
 </script>
 
-<div class="finder-box<?if ($arParams["MULTIPLE"]):?> finder-box-multiple<?endif?>"<?=($arParams["POPUP"] == "Y"? " style=\"display: none;\"" : "")?>
+<div class="finder-box<?php if ($arParams["MULTIPLE"]):?> finder-box-multiple<?php endif?>"<?=($arParams["POPUP"] == "Y"? " style=\"display: none;\"" : "")?>
 	 id="<?=$name?>_selector_content">
 	<table class="finder-box-layout">
 		<tr>
 			<td class="finder-box-left-column">
-				<?if (!isset($arParams["INPUT_NAME"]) || strlen($arParams["INPUT_NAME"]) == 0):?>
+				<?php if (!isset($arParams["INPUT_NAME"]) || strlen($arParams["INPUT_NAME"]) == 0):?>
 					<div class="finder-box-search">
 						<input class="finder-box-search-textbox" name="<?=$name?>_task_input" id="<?=$name?>_task_input"/>
 					</div>
-				<?endif?>
+				<?php endif?>
 
 				<div class="finder-box-tabs">
 					<span class="finder-box-tab finder-box-tab-selected" id="<?=$name?>_tab_last"
@@ -101,44 +101,44 @@ $name = $arResult["NAME"];
 						<table class="finder-box-tab-columns">
 							<tr>
 								<td>
-									<?foreach ($arResult["LAST_TASKS"] as $key => $task):
+									<?php foreach ($arResult["LAST_TASKS"] as $key => $task):
 										$taskId = intval($task['ID']);
 										$selected = in_array($taskId, $arParams['VALUE']);
 									?>
 										<div class="finder-box-item<?=($selected? " finder-box-item-selected" : "")?>"
 											 id="<?=$name?>_last_task_<?=$taskId?>"
 											 onclick="O_<?=$name?>.select(event)">
-											<?if ($arParams["MULTIPLE"]):?>
+											<?php if ($arParams["MULTIPLE"]):?>
 												<input class="tasks-hidden-input"
 													   type="checkbox" name="<?=$name?>[]"
 													   value="<?=$taskId?>"<?=($selected? " checked" : "")?>/>
-											<?else:?>
+											<?php else:?>
 												<input class="tasks-hidden-input"
 													   type="radio" name="<?=$name?>"
 													   value="<?=$taskId?>"<?=($selected? " checked" : "")?>/>
-											<?endif?>
+											<?php endif?>
 											<div class="finder-box-item-text"><?=HtmlFilter::encode($task["TITLE"])?> [<?=$taskId?>]</div>
 											<div class="finder-box-item-icon"
-												<?if ($arParams['HIDE_ADD_REMOVE_CONTROLS']) echo ' style="display:none;" ';?>
+												<?php if ($arParams['HIDE_ADD_REMOVE_CONTROLS']) echo ' style="display:none;" ';?>
 												></div>
 										</div>
-									<?endforeach?>
-									<?foreach ($arResult["CURRENT_TASKS"] as $key => $task):
+									<?php endforeach?>
+									<?php foreach ($arResult["CURRENT_TASKS"] as $key => $task):
 										$taskId = $task['ID'];
 										$selected = in_array($taskId, $arParams['VALUE']);
 									?>
-										<?if (!in_array($task, $arResult["LAST_TASKS"])):?>
-											<?if ($arParams["MULTIPLE"]):?>
+										<?php if (!in_array($task, $arResult["LAST_TASKS"])):?>
+											<?php if ($arParams["MULTIPLE"]):?>
 												<input class="tasks-hidden-input" type="checkbox"
 													   name="<?=$name?>[]"
 													   value="<?=$taskId?>"<?=($selected? " checked" : "")?>/>
-											<?else:?>
+											<?php else:?>
 												<input class="tasks-hidden-input" type="radio"
 													   name="<?=$name?>"
 													   value="<?=$taskId?>"<?=($selected? " checked" : "")?>/>
-											<?endif?>
-										<?endif?>
-									<?endforeach?>
+											<?php endif?>
+										<?php endif?>
+									<?php endforeach?>
 								</td>
 							</tr>
 						</table>
@@ -146,19 +146,19 @@ $name = $arResult["NAME"];
 					<div class="finder-box-tab-content" id="<?=$name?>_search"></div>
 				</div>
 			</td>
-			<?if ($arParams["MULTIPLE"]):?>
+			<?php if ($arParams["MULTIPLE"]):?>
 				<td class="finder-box-right-column" id="<?=$name?>_selected_tasks">
 					<div class="finder-box-selected-title">
 						<?=GetMessage("TASKS_TASKS_CURRENT_COUNT")?> (
 							<span id="<?=$name?>_current_count"><?=sizeof($arResult["CURRENT_TASKS"])?></span>
 						)</div>
 					<div class="finder-box-selected-items">
-						<?foreach ($arResult["CURRENT_TASKS"] as $task):
+						<?php foreach ($arResult["CURRENT_TASKS"] as $task):
 							$taskId = $task['ID'];
 						?>
 							<div class="finder-box-selected-item" id="<?=$name?>_task_selected_<?=$taskId?>">
 								<div class="finder-box-selected-item-icon"
-									<?if ($arParams['HIDE_ADD_REMOVE_CONTROLS']) echo ' style="display:none;" ';?>
+									<?php if ($arParams['HIDE_ADD_REMOVE_CONTROLS']) echo ' style="display:none;" ';?>
 									 onclick="O_<?=$name?>.unselect(<?=$taskId?>, this);"
 									 id="task-unselect-<?=$taskId?>">
 								</div>
@@ -167,10 +167,10 @@ $name = $arResult["NAME"];
 									<?=$task["TITLE"]?>
 								</a>
 							</div>
-						<?endforeach?>
+						<?php endforeach?>
 					</div>
 				</td>
-			<?endif?>
+			<?php endif?>
 		</tr>
 	</table>
 </div>

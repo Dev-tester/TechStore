@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BASE_PRICE"] = "Базовая цена";
 $MESS["BASE_CURRENCY"] = "Валюта базовой цены";
 $MESS["BASE_WEIGHT"] = "Вес (грамм)";

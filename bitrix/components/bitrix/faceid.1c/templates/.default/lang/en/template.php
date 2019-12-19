@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TRACKER1C_CMP_JS_CAMERA_DEFAULT"] = "Camera";
 $MESS["FACEID_TRACKER1C_CMP_JS_CAMERA_NOT_FOUND"] = "Camera was not found";
 $MESS["FACEID_TRACKER1C_CMP_JS_CAMERA_NO_SUPPORT"] = "Your browser does not support camera";

@@ -1,10 +1,10 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 global $APPLICATION;
 ?><div class="crm-right-block sidebar-widget sidebar-widget-birthdays">
 	<div class="sidebar-widget-top">
 		<div class="sidebar-widget-top-title"><?=GetMessage('CRM_ENT_BDAY_TITLE')?></div>
-	</div><?
+	</div><?php 
 
 $items = $arResult['ITEMS'];
 $nameFormat = $arResult['NAME_FORMAT'];
@@ -76,6 +76,6 @@ for($i = 0; $i < $count; $i++)
 			<span class="user-birth-name"><?=htmlspecialcharsEx($name)?></span>
 			<span class="user-birth-date"><?=htmlspecialcharsEx($text)?></span>
 		</span>
-	</a><?
+	</a><?php 
 }
-?></div><?
+?></div><?php 

@@ -1,4 +1,4 @@
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 IncludeModuleLangFile(__FILE__);
 
@@ -237,7 +237,7 @@ if (isset($message) && $message)
 	<input type="hidden" name="lang" value="<?=LANG?>" />
 	<input type="hidden" name="ID" value="<?=$ID?>" />
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 	$aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SMILE_TAB_SMILE"), "ICON" => "smile", "TITLE" => GetMessage("SMILE_TAB_SMILE_DESCR"))
 	);
@@ -259,9 +259,9 @@ $tabControl->BeginNextTab();
 		<td><?=GetMessage("SMILE_SET_ID")?>:</td>
 		<td>
 			<select name="SET_ID">
-			<?foreach (CSmileSet::getListForForm($arSmile['PARENT_ID']) as $key => $value):?>
+			<?php foreach (CSmileSet::getListForForm($arSmile['PARENT_ID']) as $key => $value):?>
 				<option value="<?=$key?>" <?=($arSmile["SET_ID"] == $key ? "selected" : "")?>><?=$value;?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -271,7 +271,7 @@ $tabControl->BeginNextTab();
 			<input type="text" name="TYPING" value="<?=$arSmile["TYPING"]?>" size="40" />
 		</td>
 	</tr>
-	<?if (!empty($arSmile["IMAGE"])):?>
+	<?php if (!empty($arSmile["IMAGE"])):?>
 	<tr>
 		<td>
 			<?=GetMessage("SMILE_IMAGE")?>:</td>
@@ -282,8 +282,8 @@ $tabControl->BeginNextTab();
 			</div>
 		</td>
 	</tr>
-	<?endif;?>
-	<tr<?if ($ID <= 0){ ?> class="adm-detail-required-field"<? }?>>
+	<?php endif;?>
+	<tr<?php if ($ID <= 0){ ?> class="adm-detail-required-field"<?php  }?>>
 		<td>
 			<?=GetMessage(($ID <= 0)?"SMILE_IMAGE" :"SMILE_IMAGE_UPLOAD")?> <span title="<?=GetMessage('SMILE_IMAGE_HR_TITLE_2')?>">(?)</span>:<br><small><?=GetMessage("SMILE_IMAGE_NOTE_2")?></small></td>
 		<td>
@@ -310,14 +310,14 @@ $tabControl->BeginNextTab();
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("SMILE_IMAGE_NAME")?></td>
 	</tr>
-	<?foreach ($arLang as $key => $val):?>
+	<?php foreach ($arLang as $key => $val):?>
 	<tr>
-		<td><? $word = GetMessage('SMILE_IMAGE_NAME_'.strtoupper($key)); if (strlen($word) > 0) { echo $word; } else { echo $val["NAME"]; }?>:</td>
+		<td><?php  $word = GetMessage('SMILE_IMAGE_NAME_'.strtoupper($key)); if (strlen($word) > 0) { echo $word; } else { echo $val["NAME"]; }?>:</td>
 		<td><input type="text" name="LANG[<?=$key?>]" value="<?=$arSmile["LANG"][$key]?>" size="40" /></td>
 	</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(array(
@@ -325,8 +325,8 @@ $tabControl->Buttons(array(
 	"back_url" => "/bitrix/admin/smile.php?SET_ID=".$arSmile['SET_ID']."&lang=".LANG."&".GetFilterParams("filter_", false)));
 ?>
 </form>
-<?
+<?php 
 $tabControl->End();
 $tabControl->ShowWarnings("smile_edit", $message);
 ?>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

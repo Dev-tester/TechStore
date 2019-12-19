@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_T_ADMIN_TITLE_THEME"] = "Темы оформления";
 $MESS["MAIN_T_ADMIN_TITLE"] = "Шаблоны сайта";
 $MESS["MAIN_T_ADMIN_NAME"] = "Название";

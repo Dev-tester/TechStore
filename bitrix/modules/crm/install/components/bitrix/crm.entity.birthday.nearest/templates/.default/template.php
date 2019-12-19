@@ -1,7 +1,7 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 global $APPLICATION;
-?><div class="bx-birthday-layout-include crm-right-block"><?
+?><div class="bx-birthday-layout-include crm-right-block"><?php 
 
 $items = $arResult['ITEMS'];
 $nameFormat = $arResult['NAME_FORMAT'];
@@ -65,11 +65,11 @@ for($i = 0; $i < $count; $i++):
 		$avatarClassName .= " bx-user-image-default";
 	?><div class="bx-user-info">
 		<div class="bx-user-info-inner">
-			<div class="<?=$avatarClassName?>"><?
+			<div class="<?=$avatarClassName?>"><?php 
 				if($imageUrl !== ''):
 				?><a href="<?=htmlspecialcharsbx($item['SHOW_URL'])?>" target="_blank">
 					<img width="42" height="42" alt="" src="<?=htmlspecialcharsbx($imageUrl)?>" />
-				</a><?
+				</a><?php 
 				endif;
 			?></div>
 			<div class="bx-user-birthday"><?=htmlspecialcharsEx($text)?></div>
@@ -80,6 +80,6 @@ for($i = 0; $i < $count; $i++):
 			</div>
 			<div style="clear: both;"></div>
 		</div>
-	</div><?
+	</div><?php 
 endfor;
-?></div><?
+?></div><?php 

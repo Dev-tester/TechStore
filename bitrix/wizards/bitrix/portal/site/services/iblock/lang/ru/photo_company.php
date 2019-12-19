@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_IB_PHOTO_COMPANY_TAB1"]="edit1--#--Фотография--,--ACTIVE--#--  Запись активна--,--NAME--#--*Название--,--IBLOCK_ELEMENT_PROP_VALUE--#----Значения свойств--,--PREVIEW_PICTURE--#--  Картинка для анонса--,--DETAIL_PICTURE--#--  Детальная картинка--,--PROPERTY_";
 $MESS["W_IB_PHOTO_COMPANY_TAB2"]="--#--  Оригинал--,--PROPERTY_";
 $MESS["W_IB_PHOTO_COMPANY_TAB3"]="--#--  Рейтинг--,--PROPERTY_";

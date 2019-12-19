@@ -1,4 +1,4 @@
-<?
+<?php 
 // These class definitions are intended only for IDEs.
 // Do not try to use them in your code.
 namespace

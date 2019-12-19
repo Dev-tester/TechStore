@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_FORGOT_NAME"] = "Вы забыли ввести \"Заголовок\" для записи # #ID#";
 $MESS["SUP_TICKETS_DIC_TITLE"] = "Справочник техподдержки";
 $MESS["SUP_F_ID"] = "ID";

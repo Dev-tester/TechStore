@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILL_BR_TITLE"] = "Счет (Бразильский)";
 $MESS["SALE_HPS_BILL_BR_DATE"] = "Дата заказа";
 $MESS["SALE_HPS_BILL_BR_DATE_DESC"] = "Дата оформления заказа";

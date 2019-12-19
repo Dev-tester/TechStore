@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['WSL_IMPORT_ERROR_ACCESS_DENIED'] = 'Ошибка! Нет доступа.';
 $MESS['WSL_IMPORT_ERROR_FILES'] = 'Ошибка! Неверные имена файлов.';
 $MESS['WSL_IMPORT_FILES_LOADING'] = 'Обрабатываем файлы...';

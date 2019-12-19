@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_DETAIL_ATTR_GR_TYPE_GENERAL"] = "All statuses";
 $MESS["CRM_LEAD_DETAIL_ATTR_GR_TYPE_PIPELINE"] = "In progress + converted";
 $MESS["CRM_LEAD_DETAIL_ATTR_GR_TYPE_JUNK"] = "Junk";

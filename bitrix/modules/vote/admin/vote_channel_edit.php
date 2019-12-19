@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager Forum					 #
 # Copyright (c) 2002-2009 Bitrix			 #
@@ -150,21 +150,21 @@ if($message) echo $message->Show();
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value=<?=$ID?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //General Tab
 //********************
 $tabControl->BeginNextTab();
 ?>
-	<? if (!empty($res["TIMESTAMP_X"]) && $res["TIMESTAMP_X"] != "00.00.0000 00:00:00") : ?>
+	<?php  if (!empty($res["TIMESTAMP_X"]) && $res["TIMESTAMP_X"] != "00.00.0000 00:00:00") : ?>
 	<tr>
 		<td><?=GetMessage("VOTE_TIMESTAMP")?></td>
 		<td><?=$res["TIMESTAMP_X"]?></td>
 	</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr>
 		<td width="40%"><?=GetMessage("VOTE_ACTIVE")?></td>
 		<td width="60%"><?=InputType("checkbox","ACTIVE","Y",$res["ACTIVE"],false)?></td>
@@ -189,15 +189,15 @@ $tabControl->BeginNextTab();
 		<td><?=GetMessage("VOTE_SITE")?></td>
 		<td>
 			<div class="adm-list">
-			<?
+			<?php 
 		while(list($sid, $arrS) = each($arrSites)):
 			$checked = (is_array($res["SITE"]) && in_array($sid, $res["SITE"]) ? "checked" : "");
 			?>
 			<div class="adm-list-item">
 				<div class="adm-list-control"><input type="checkbox" name="SITE[]" value="<?=htmlspecialcharsex($sid)?>" id="<?=htmlspecialcharsex($sid)?>" class="typecheckbox" <?=$checked?> /></div>
-				<div class="adm-list-label"><label for="<?=htmlspecialcharsbx($sid)?>"><?echo '[<a title="'.GetMessage("VOTE_SITE_EDIT").'" href="/bitrix/admin/site_edit.php?LID='.htmlspecialcharsbx($sid).'&lang='.LANGUAGE_ID.'">'.htmlspecialcharsbx($sid).'</a>]&nbsp;'.htmlspecialcharsex($arrS["NAME"])?></label></div>
+				<div class="adm-list-label"><label for="<?=htmlspecialcharsbx($sid)?>"><?php echo '[<a title="'.GetMessage("VOTE_SITE_EDIT").'" href="/bitrix/admin/site_edit.php?LID='.htmlspecialcharsbx($sid).'&lang='.LANGUAGE_ID.'">'.htmlspecialcharsbx($sid).'</a>]&nbsp;'.htmlspecialcharsex($arrS["NAME"])?></label></div>
 			</div>
-			<?
+			<?php 
 		endwhile;
 		?></div></td>
 	</tr>
@@ -209,7 +209,7 @@ $tabControl->BeginNextTab();
 		<td><?=GetMessage("VOTE_TITLE")?></td>
 		<td><input type="text" name="TITLE" size="60" maxlength="255" value="<?=$res["TITLE"]?>"></td>
 	</tr>
-<?
+<?php 
 //********************
 //Permissions Tab
 //********************
@@ -225,14 +225,14 @@ $tabControl->BeginNextTab();
 		<td width="40%"><?=$group["NAME"].":"?></td>
 		<td width="60%"><?=SelectBoxFromArray("GROUP_ID[".$group["ID"]."]", $GLOBALS["aVotePermissions"], $perm);?></td>
 	</tr>
-	<?}?>
-<?
+	<?php }?>
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled"=>($VOTE_RIGHT<"W"), "back_url"=>"vote_channel_list.php?lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 $tabControl->ShowWarnings("post_form", $message);
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

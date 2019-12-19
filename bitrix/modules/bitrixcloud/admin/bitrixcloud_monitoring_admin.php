@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "bitrixcloud");
 if (isset($_REQUEST["referer"]) && $_REQUEST["referer"] === "monitoring")
 	define("NOT_CHECK_PERMISSIONS", true);

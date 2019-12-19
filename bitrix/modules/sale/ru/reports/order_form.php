@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html xmlns:v="urn:schemas-microsoft-com:vml"
 xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:w="urn:schemas-microsoft-com:office:word"
@@ -29,7 +29,7 @@ table.blank td {
 </head>
 
 <body bgcolor=white lang=RU style='tab-interval:35.4pt'>
-<?
+<?php 
 $page = IntVal($page);
 if ($page<=0) $page = 1;
 ?>
@@ -46,8 +46,8 @@ if ($page<=0) $page = 1;
 				<tr>
 					<td width="180"><font class="header">ТОВАРНЫЙ ЧЕК №</font></td>
 					<td style="border-bottom : 1px solid Black;" nowrap>
-						<font class="number"><?echo $arOrder["ACCOUNT_NUMBER"];?></font>
-						<!--- <input size="30" style="border:1px;font-size:24px;font-style:italic;" type="text" value="<?echo $page;?>">-->
+						<font class="number"><?php echo $arOrder["ACCOUNT_NUMBER"];?></font>
+						<!--- <input size="30" style="border:1px;font-size:24px;font-style:italic;" type="text" value="<?php echo $page;?>">-->
 					</td>
 					<td>
 					</td>
@@ -55,7 +55,7 @@ if ($page<=0) $page = 1;
 				<tr>
 					<td width="180"><font class="sub_header">ДАТА:</font></td>
 					<td style="border-bottom : 1px solid Black;">
-						<input class="date" size="30" style="border:0px solid #000000;" type="text" value="<?echo $arOrder["DATE_INSERT_FORMAT"];?>">
+						<input class="date" size="30" style="border:0px solid #000000;" type="text" value="<?php echo $arOrder["DATE_INSERT_FORMAT"];?>">
 					</td>
 					<td>
 					</td>
@@ -63,7 +63,7 @@ if ($page<=0) $page = 1;
 				<tr>
 					<td width="180"><font class="sub_header">КОМУ:</font></td>
 					<td style="border-bottom : 1px solid Black;">
-						<?if(empty($arParams))
+						<?php if(empty($arParams))
 						{
 							$userName = $arOrderProps["F_NAME"];
 						}
@@ -83,7 +83,7 @@ if ($page<=0) $page = 1;
 			</table>
 
 			<br>
-			<?
+			<?php 
 			if (count($arBasketIDs)>0)
 			{
 				$arCurFormat = CCurrencyLang::GetCurrencyFormat($arOrder["CURRENCY"]);
@@ -97,7 +97,7 @@ if ($page<=0) $page = 1;
 						<td align="center">Цена,<?=$currency;?></td>
 						<td align="center">Cумма,<?=$currency;?></td>
 					</tr>
-					<?
+					<?php 
 					$priceTotal = 0;
 					$bUseVat = false;
 					$arBasketOrder = array();
@@ -185,10 +185,10 @@ if ($page<=0) $page = 1;
 						}
 					?>
 					<tr>
-						<td><?echo $i+1;?></td>
+						<td><?php echo $i+1;?></td>
 						<td>
-							<?echo htmlspecialcharsbx($arBasket["NAME"]);?>
-							<?
+							<?php echo htmlspecialcharsbx($arBasket["NAME"]);?>
+							<?php 
 							if (is_array($arBasket["PROPS"]) && $_GET["PROPS_ENABLE"] == "Y")
 									{
 										foreach($arBasket["PROPS"] as $vv)
@@ -199,11 +199,11 @@ if ($page<=0) $page = 1;
 									}
 							?>
 						</td>
-						<td align="center"><?echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$i]) ?></td>
+						<td align="center"><?php echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$i]) ?></td>
 						<td align="right" nowrap><?=CCurrencyLang::CurrencyFormat($arBasket["PRICE"], $arOrder["CURRENCY"], false);?></td>
 						<td align="right" nowrap><?=CCurrencyLang::CurrencyFormat($arBasket["PRICE"]*$arQuantities[$i], $arOrder["CURRENCY"], false);?></td>
 					</tr>
-					<?
+					<?php 
 					if (empty($arBasket['SET_PARENT_ID']))
 					{
 						$total_sum += $arBasket["PRICE"]*$arQuantities[$i];
@@ -222,7 +222,7 @@ if ($page<=0) $page = 1;
 						</td>
 					</tr>
 
-					<?
+					<?php 
 					if ($bUseVat || $arOrder['DELIVERY_VAT_RATE'] <= 0)
 					{
 						$db_tax_list = CSaleOrderTax::GetList(array("APPLY_ORDER"=>"ASC"), Array("ORDER_ID"=>$ORDER_ID));
@@ -231,7 +231,7 @@ if ($page<=0) $page = 1;
 							?>
 							<tr>
 								<td align="right" colspan="4">
-									<?
+									<?php 
 									if ($ar_tax_list["IS_IN_PRICE"]=="Y")
 									{
 										echo "В том числе ";
@@ -247,7 +247,7 @@ if ($page<=0) $page = 1;
 									<?=CCurrencyLang::CurrencyFormat($total_nds, $arOrder["CURRENCY"], false);?>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 					}
 					?>
@@ -261,7 +261,7 @@ if ($page<=0) $page = 1;
 						</td>
 					</tr>
 				</table>
-				<?
+				<?php 
 			}
 			?>
 			<br>

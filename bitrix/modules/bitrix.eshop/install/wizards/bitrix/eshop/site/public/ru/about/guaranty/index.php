@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Гарантия");
 ?>
@@ -37,4 +37,4 @@ $APPLICATION->SetTitle("Гарантия");
 
 	<p>Подробное описание условий предоставления гарантии вы можете найти в документации к приобретенному товару и/или на сайте соответствующего производителя.</p>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_EDIT_RECORD'] = "Изменение смайлика N#ID#";
 $MESS ['FORUM_NEW_RECORD'] = "Новый смайлик";
 $MESS ['ERROR_EDIT_SMILE'] = "Ошибка изменения смайлика";

@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="rounded-block">
 	<div class="corner left-top"></div><div class="corner right-top"></div>
 	<div class="block-content">
 		<h3>Быстрый поиск</h3>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:socialnetwork.user_search", "sidebar", array(
 	"ITEMS_COUNT" => "32",
 	"DATE_TIME_FORMAT" => "d.m.y G:i",

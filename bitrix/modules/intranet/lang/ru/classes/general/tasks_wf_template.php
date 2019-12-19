@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTASK_WF_TMPL_HEEA_T_SetResponsibleEvent'] = "Сменить ответственного";
 $MESS ['INTASK_WF_TMPL_HEEA_T_ApproveEvent'] = "Принять задачу";
 $MESS ['INTASK_WF_TMPL_HEEA_T_InProgressEvent'] = "Начать выполнение задачи";

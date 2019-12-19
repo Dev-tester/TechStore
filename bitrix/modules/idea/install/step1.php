@@ -1,4 +1,4 @@
-<?if(!check_bitrix_sessid() || !CModule::IncludeModule("iblock") || !CModule::IncludeModule("blog"))
+<?php if(!check_bitrix_sessid() || !CModule::IncludeModule("iblock") || !CModule::IncludeModule("blog"))
 	return;
 
 IncludeModuleLangFile(__FILE__);
@@ -635,7 +635,7 @@ while ($site = $oSites->Fetch())
 	//-->
 	</script>
 	<?=bitrix_sessid_post()?>
-	<input type="hidden" name="lang" value="<?echo LANG?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
 	<input type="hidden" name="id" value="<?=$obModule->MODULE_ID?>">
 	<input type="hidden" name="install" value="Y">
 	<input type="hidden" name="step" value="1">
@@ -650,9 +650,9 @@ while ($site = $oSites->Fetch())
 				<td width="10%" style="white-space:nowrap;"><span class="required">*</span><?=GetMessage("IDEA_INSTALL_SITE_ID")?>:</td>
 				<td width="90%">
 					<select name="site_id">
-						<?foreach($arSite as $Site):?>
+						<?php foreach($arSite as $Site):?>
 							<option value="<?=$Site["SITE_ID"]?>"><?=$Site["NAME"]?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>

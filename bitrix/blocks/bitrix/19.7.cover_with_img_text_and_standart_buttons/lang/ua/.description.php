@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_19_9_BUTTON"] = "Кнопка";
 $MESS["LANDING_BLOCK_19_9_CARD"] = "Кнопка";
 $MESS["LANDING_BLOCK_19_9_ICON"] = "Іконка";

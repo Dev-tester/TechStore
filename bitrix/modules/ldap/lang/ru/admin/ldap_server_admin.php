@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LDAP_ADMIN_TITLE'] = "Active Directory / LDAP серверы";
 $MESS ['LDAP_ADMIN_DEL_ERR'] = "Ошибка удаления сервера.";
 $MESS ['LDAP_ADMIN_F_ACT'] = "Активный";

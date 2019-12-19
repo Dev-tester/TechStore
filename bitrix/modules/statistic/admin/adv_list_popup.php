@@ -500,24 +500,24 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_adm
 
 ShowError($strError);
 ?>
-<?if($list_mode!="period"):?>
+<?php if($list_mode!="period"):?>
 <table cellspacing="0" cellpadding="0" width="100%" border="0" class="edit-table"><tr><td>
 <table border="0" width="100%" cellspacing="1" cellpadding="3" class="internal">
 	<tr class="heading">
 		<td width="50%" nowrap>
-			<?if ($GROUP!="Y") :
+			<?php if ($GROUP!="Y") :
 				echo "[".$f_ID."]";
 			else:
 				echo "&nbsp;";
 			endif;
-			?><b><?echo $f_REFERER1?><?if (strlen($f_REFERER2)>0) echo "&nbsp;/&nbsp;";?><?echo $f_REFERER2?></b><?if ($GROUP=="Y") echo "&nbsp;(".GetMessage("STAT_EVENTS_GROUP_BY")."&nbsp;\"".$find_group."\")"?>
+			?><b><?php echo $f_REFERER1?><?php if (strlen($f_REFERER2)>0) echo "&nbsp;/&nbsp;";?><?php echo $f_REFERER2?></b><?php if ($GROUP=="Y") echo "&nbsp;(".GetMessage("STAT_EVENTS_GROUP_BY")."&nbsp;\"".$find_group."\")"?>
 		</td>
-		<td width="50%" nowrap><?echo $f_DATE_FIRST?><?echo strlen($f_DATE_LAST)>0 ? "&nbsp;-&nbsp;".$f_DATE_LAST : "&nbsp;"?>
+		<td width="50%" nowrap><?php echo $f_DATE_FIRST?><?php echo strlen($f_DATE_LAST)>0 ? "&nbsp;-&nbsp;".$f_DATE_LAST : "&nbsp;"?>
 		</td>
 	</tr>
 </table>
 </td></tr></table>
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
@@ -525,13 +525,13 @@ $tabControl->BeginNextTab();
 <table border="0" width="100%" cellspacing="1" cellpadding="3" class="internal">
 	<tr class="heading">
 		<td width="30%" nowrap>&nbsp;</td>
-		<td width="15%" colspan="2" nowrap><?echo GetMessage("STAT_TODAY")?><br><?=$now_date?></td>
-		<td width="15%" colspan="2" nowrap><?echo GetMessage("STAT_YESTERDAY")?><br><?=$yesterday_date?></td>
-		<td width="15%" colspan="2" nowrap><?echo GetMessage("STAT_BEFYESTERDAY")?><br><?=$bef_yesterday_date?></td>
-		<?if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
-		<td width="15%" colspan="2"><?echo GetMessage("STAT_PERIOD")?><br><?=htmlspecialcharsEx($arFilter["DATE1_PERIOD"])?>&nbsp;- <?=htmlspecialcharsEx($arFilter["DATE2_PERIOD"])?></td>
-		<?endif;?>
-		<td width="25%" colspan="2" nowrap><?echo GetMessage("STAT_TOTAL")?><br><?
+		<td width="15%" colspan="2" nowrap><?php echo GetMessage("STAT_TODAY")?><br><?=$now_date?></td>
+		<td width="15%" colspan="2" nowrap><?php echo GetMessage("STAT_YESTERDAY")?><br><?=$yesterday_date?></td>
+		<td width="15%" colspan="2" nowrap><?php echo GetMessage("STAT_BEFYESTERDAY")?><br><?=$bef_yesterday_date?></td>
+		<?php if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
+		<td width="15%" colspan="2"><?php echo GetMessage("STAT_PERIOD")?><br><?=htmlspecialcharsEx($arFilter["DATE1_PERIOD"])?>&nbsp;- <?=htmlspecialcharsEx($arFilter["DATE2_PERIOD"])?></td>
+		<?php endif;?>
+		<td width="25%" colspan="2" nowrap><?php echo GetMessage("STAT_TOTAL")?><br><?php 
 			$days = intval($f_ADV_TIME/86400);
 			echo $days."&nbsp;".GetMessage("STAT_DAYS")."&nbsp;";
 			$f_ADV_TIME = $f_ADV_TIME - $days*86400;
@@ -540,10 +540,10 @@ $tabControl->BeginNextTab();
 			?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_SESSIONS")?>:</td>
-		<td align="right"><?
+		<td><?php echo GetMessage("STAT_SESSIONS")?>:</td>
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_TODAY)>0) :
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?echo urlencode($now_date)?>&amp;find_date2=<?echo urlencode($now_date)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?php echo urlencode($now_date)?>&amp;find_date2=<?php echo urlencode($now_date)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -551,14 +551,14 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=N&amp;set_filter=Y"><?echo intval($f_SESSIONS_TODAY)?></a><?
+				?>&amp;find_adv_back=N&amp;set_filter=Y"><?php echo intval($f_SESSIONS_TODAY)?></a><?php 
 			else:
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<td align="right"><?
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_BACK_TODAY)>0):
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?echo urlencode($now_date)?>&amp;find_date2=<?echo urlencode($now_date)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?php echo urlencode($now_date)?>&amp;find_date2=<?php echo urlencode($now_date)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -566,14 +566,14 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=Y&amp;set_filter=Y"><?echo intval($f_SESSIONS_BACK_TODAY)?></a>*<?
+				?>&amp;find_adv_back=Y&amp;set_filter=Y"><?php echo intval($f_SESSIONS_BACK_TODAY)?></a>*<?php 
 			else:
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<td align="right"><?
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_YESTERDAY)>0):
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?echo urlencode($yesterday_date)?>&amp;find_date2=<?echo urlencode($yesterday_date)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?php echo urlencode($yesterday_date)?>&amp;find_date2=<?php echo urlencode($yesterday_date)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -581,14 +581,14 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=N&amp;set_filter=Y"><?=intval($f_SESSIONS_YESTERDAY)?></a><?
+				?>&amp;find_adv_back=N&amp;set_filter=Y"><?=intval($f_SESSIONS_YESTERDAY)?></a><?php 
 			else :
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<td align="right"><?
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_BACK_YESTERDAY)>0) :
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?echo urlencode($yesterday_date)?>&amp;find_date2=<?echo urlencode($yesterday_date)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?php echo urlencode($yesterday_date)?>&amp;find_date2=<?php echo urlencode($yesterday_date)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -596,14 +596,14 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=Y&amp;set_filter=Y"><?echo intval($f_SESSIONS_BACK_YESTERDAY)?></a>*<?
+				?>&amp;find_adv_back=Y&amp;set_filter=Y"><?php echo intval($f_SESSIONS_BACK_YESTERDAY)?></a>*<?php 
 			else :
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<td align="right"><?
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_BEF_YESTERDAY)>0) :
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?echo urlencode($bef_yesterday_date)?>&amp;find_date2=<?echo urlencode($bef_yesterday_date)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?php echo urlencode($bef_yesterday_date)?>&amp;find_date2=<?php echo urlencode($bef_yesterday_date)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -611,14 +611,14 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=N&amp;set_filter=Y"><?=intval($f_SESSIONS_BEF_YESTERDAY)?></a><?
+				?>&amp;find_adv_back=N&amp;set_filter=Y"><?=intval($f_SESSIONS_BEF_YESTERDAY)?></a><?php 
 			else :
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<td align="right"><?
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_BACK_BEF_YESTERDAY)>0) :
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?echo urlencode($bef_yesterday_date)?>&amp;find_date2=<?echo urlencode($bef_yesterday_date)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?php echo urlencode($bef_yesterday_date)?>&amp;find_date2=<?php echo urlencode($bef_yesterday_date)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -626,15 +626,15 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=Y&samp;et_filter=Y"><?echo intval($f_SESSIONS_BACK_BEF_YESTERDAY)?></a>*<?
+				?>&amp;find_adv_back=Y&samp;et_filter=Y"><?php echo intval($f_SESSIONS_BACK_BEF_YESTERDAY)?></a>*<?php 
 			else :
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<?if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
-		<td align="right"><?
+		<?php if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_PERIOD)>0):
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_date1=<?=urlencode($find_date1_period); ?>&amp;find_date2=<?=urlencode($find_date2_period)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_date1=<?=urlencode($find_date1_period); ?>&amp;find_date2=<?=urlencode($find_date2_period)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -642,14 +642,14 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=N&amp;set_filter=Y"><?=intval($f_SESSIONS_PERIOD)?></a><?
+				?>&amp;find_adv_back=N&amp;set_filter=Y"><?=intval($f_SESSIONS_PERIOD)?></a><?php 
 			else :
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<td align="right"><?
+		<td align="right"><?php 
 			if (intval($f_SESSIONS_BACK_PERIOD)>0) :
-				?><a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?=urlencode($find_date1_period); ?>&amp;find_date2=<?=urlencode($find_date2_period)?>&amp;<?
+				?><a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;find_date1=<?=urlencode($find_date1_period); ?>&amp;find_date2=<?=urlencode($find_date2_period)?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -657,14 +657,14 @@ $tabControl->BeginNextTab();
 				else :
 					echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 				endif;
-				?>&amp;find_adv_back=Y&amp;set_filter=Y"><?echo intval($f_SESSIONS_BACK_PERIOD)?></a>*<?
+				?>&amp;find_adv_back=Y&amp;set_filter=Y"><?php echo intval($f_SESSIONS_BACK_PERIOD)?></a>*<?php 
 			else :
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			endif;
 		?></td>
-		<?endif;?>
+		<?php endif;?>
 		<td align="right">
-			<a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;<?
+			<a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;<?php 
 				if ($find_group=="referer1") :
 					echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 				elseif ($find_group=="referer2") :
@@ -675,7 +675,7 @@ $tabControl->BeginNextTab();
 				?>&amp;find_adv_back=N&amp;set_filter=Y"><b><?=intval($f_SESSIONS)?></b></a>
 		</td>
 		<td align="right">
-			&nbsp;<a target="_blank" title="<?echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;<?
+			&nbsp;<a target="_blank" title="<?php echo GetMessage("STAT_SESSIONS_LIST")?>" href="session_list.php?lang=<?=LANG?>&amp;<?php 
 					if ($find_group=="referer1") :
 						echo "find_referer1=".urlencode("\"".$f_REFERER1."\"");
 					elseif ($find_group=="referer2") :
@@ -683,83 +683,83 @@ $tabControl->BeginNextTab();
 					else :
 						echo "find_adv_id=".$f_ID."&amp;find_adv_id_exact_match=Y";
 					endif;
-					?>&amp;find_adv_back=Y&amp;set_filter=Y"><b><?echo intval($f_SESSIONS_BACK)?></b></a>*
+					?>&amp;find_adv_back=Y&amp;set_filter=Y"><b><?php echo intval($f_SESSIONS_BACK)?></b></a>*
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_GUESTS")?>:</td>
-		<td align="right"><?echo (intval($f_GUESTS_TODAY)>0 ? intval($f_GUESTS_TODAY) : "&nbsp;")?></td>
-		<td align="right"><?echo (intval($f_GUESTS_BACK_TODAY)>0 ? intval($f_GUESTS_BACK_TODAY)."*" : "&nbsp;")?></td>
-		<td align="right"><?echo intval($f_GUESTS_YESTERDAY)>0 ? intval($f_GUESTS_YESTERDAY) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_GUESTS_BACK_YESTERDAY)>0 ? intval($f_GUESTS_BACK_YESTERDAY)."*" : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_GUESTS_BEF_YESTERDAY)>0 ? intval($f_GUESTS_BEF_YESTERDAY) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_GUESTS_BACK_BEF_YESTERDAY)>0 ? intval($f_GUESTS_BACK_BEF_YESTERDAY)."*" : "&nbsp;"?></td>
-		<?if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
-		<td align="right"><?echo intval($f_GUESTS_PERIOD)>0 ? intval($f_GUESTS_PERIOD) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_GUESTS_BACK_PERIOD)>0 ? intval($f_GUESTS_BACK_PERIOD)."*" : "&nbsp;"?></td>
-		<?endif;?>
-		<td align="right"><b><?echo intval($f_GUESTS)?></b></td>
-		<td align="right"><b><?echo intval($f_GUESTS_BACK)?></b>*</td>
+		<td><?php echo GetMessage("STAT_GUESTS")?>:</td>
+		<td align="right"><?php echo (intval($f_GUESTS_TODAY)>0 ? intval($f_GUESTS_TODAY) : "&nbsp;")?></td>
+		<td align="right"><?php echo (intval($f_GUESTS_BACK_TODAY)>0 ? intval($f_GUESTS_BACK_TODAY)."*" : "&nbsp;")?></td>
+		<td align="right"><?php echo intval($f_GUESTS_YESTERDAY)>0 ? intval($f_GUESTS_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_GUESTS_BACK_YESTERDAY)>0 ? intval($f_GUESTS_BACK_YESTERDAY)."*" : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_GUESTS_BEF_YESTERDAY)>0 ? intval($f_GUESTS_BEF_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_GUESTS_BACK_BEF_YESTERDAY)>0 ? intval($f_GUESTS_BACK_BEF_YESTERDAY)."*" : "&nbsp;"?></td>
+		<?php if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
+		<td align="right"><?php echo intval($f_GUESTS_PERIOD)>0 ? intval($f_GUESTS_PERIOD) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_GUESTS_BACK_PERIOD)>0 ? intval($f_GUESTS_BACK_PERIOD)."*" : "&nbsp;"?></td>
+		<?php endif;?>
+		<td align="right"><b><?php echo intval($f_GUESTS)?></b></td>
+		<td align="right"><b><?php echo intval($f_GUESTS_BACK)?></b>*</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_NEW_GUESTS")?>:</td>
-		<td align="right"><?echo (intval($f_NEW_GUESTS_TODAY)>0 ? intval($f_NEW_GUESTS_TODAY) : "&nbsp;")?></td>
+		<td><?php echo GetMessage("STAT_NEW_GUESTS")?>:</td>
+		<td align="right"><?php echo (intval($f_NEW_GUESTS_TODAY)>0 ? intval($f_NEW_GUESTS_TODAY) : "&nbsp;")?></td>
 		<td align="right">&nbsp;</td>
-		<td align="right"><?echo intval($f_NEW_GUESTS_YESTERDAY)>0 ? intval($f_NEW_GUESTS_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_NEW_GUESTS_YESTERDAY)>0 ? intval($f_NEW_GUESTS_YESTERDAY) : "&nbsp;"?></td>
 		<td align="right">&nbsp;</td>
-		<td align="right"><?echo intval($f_NEW_GUESTS_BEF_YESTERDAY)>0 ? intval($f_NEW_GUESTS_BEF_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_NEW_GUESTS_BEF_YESTERDAY)>0 ? intval($f_NEW_GUESTS_BEF_YESTERDAY) : "&nbsp;"?></td>
 		<td align="right">&nbsp;</td>
-		<?if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
-		<td align="right"><?echo (intval($f_NEW_GUESTS_PERIOD)>0 ? intval($f_NEW_GUESTS_PERIOD) : "&nbsp;")?></td>
+		<?php if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
+		<td align="right"><?php echo (intval($f_NEW_GUESTS_PERIOD)>0 ? intval($f_NEW_GUESTS_PERIOD) : "&nbsp;")?></td>
 		<td align="right">&nbsp;</td>
-		<?endif;?>
+		<?php endif;?>
 		<td align="right"><b><?=intval($f_NEW_GUESTS)?></b></td>
 		<td align="right">&nbsp;</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_HOSTS")?>:</td>
-		<td align="right"><?echo (intval($f_C_HOSTS_TODAY)>0 ? intval($f_C_HOSTS_TODAY) : "&nbsp;")?></td>
-		<td align="right"><?echo (intval($f_HOSTS_BACK_TODAY)>0 ? intval($f_HOSTS_BACK_TODAY)."*" : "&nbsp;")?></td>
-		<td align="right"><?echo intval($f_C_HOSTS_YESTERDAY)>0 ? intval($f_C_HOSTS_YESTERDAY) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_HOSTS_BACK_YESTERDAY)>0 ? intval($f_HOSTS_BACK_YESTERDAY)."*" : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_C_HOSTS_BEF_YESTERDAY)>0 ? intval($f_C_HOSTS_BEF_YESTERDAY) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_HOSTS_BACK_BEF_YESTERDAY)>0 ? intval($f_HOSTS_BACK_BEF_YESTERDAY)."*" : "&nbsp;"?></td>
-		<?if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
-		<td align="right"><?echo intval($f_C_HOSTS_PERIOD) ? intval($f_C_HOSTS_PERIOD) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_HOSTS_BACK_PERIOD) ? intval($f_HOSTS_BACK_PERIOD)."*" : "&nbsp;"?></td>
-		<?endif;?>
-		<td align="right"><b><?echo intval($f_C_HOSTS)?></b></td>
-		<td align="right"><b><?echo intval($f_HOSTS_BACK)?></b>*</td>
+		<td><?php echo GetMessage("STAT_HOSTS")?>:</td>
+		<td align="right"><?php echo (intval($f_C_HOSTS_TODAY)>0 ? intval($f_C_HOSTS_TODAY) : "&nbsp;")?></td>
+		<td align="right"><?php echo (intval($f_HOSTS_BACK_TODAY)>0 ? intval($f_HOSTS_BACK_TODAY)."*" : "&nbsp;")?></td>
+		<td align="right"><?php echo intval($f_C_HOSTS_YESTERDAY)>0 ? intval($f_C_HOSTS_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_HOSTS_BACK_YESTERDAY)>0 ? intval($f_HOSTS_BACK_YESTERDAY)."*" : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_C_HOSTS_BEF_YESTERDAY)>0 ? intval($f_C_HOSTS_BEF_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_HOSTS_BACK_BEF_YESTERDAY)>0 ? intval($f_HOSTS_BACK_BEF_YESTERDAY)."*" : "&nbsp;"?></td>
+		<?php if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
+		<td align="right"><?php echo intval($f_C_HOSTS_PERIOD) ? intval($f_C_HOSTS_PERIOD) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_HOSTS_BACK_PERIOD) ? intval($f_HOSTS_BACK_PERIOD)."*" : "&nbsp;"?></td>
+		<?php endif;?>
+		<td align="right"><b><?php echo intval($f_C_HOSTS)?></b></td>
+		<td align="right"><b><?php echo intval($f_HOSTS_BACK)?></b>*</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_HITS")?>:</td>
-		<td align="right"><?echo (intval($f_HITS_TODAY)>0 ? intval($f_HITS_TODAY) : "&nbsp;")?></td>
-		<td align="right"><?echo (intval($f_HITS_BACK_TODAY)>0 ? intval($f_HITS_BACK_TODAY)."*" : "&nbsp;")?></td>
-		<td align="right"><?echo intval($f_HITS_YESTERDAY)>0 ? intval($f_HITS_YESTERDAY) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_HITS_BACK_YESTERDAY)>0 ? intval($f_HITS_BACK_YESTERDAY)."*" : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_HITS_BEF_YESTERDAY)>0 ? intval($f_HITS_BEF_YESTERDAY) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_HITS_BACK_BEF_YESTERDAY)>0 ? intval($f_HITS_BACK_BEF_YESTERDAY)."*" : "&nbsp;"?></td>
-		<?if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
-		<td align="right"><?echo intval($f_HITS_PERIOD)>0 ? intval($f_HITS_PERIOD) : "&nbsp;"?></td>
-		<td align="right"><?echo intval($f_HITS_BACK_PERIOD)>0 ? intval($f_HITS_BACK_PERIOD)."*" : "&nbsp;"?></td>
-		<?endif;?>
-		<td align="right"><b><?echo intval($f_HITS)?></b></td>
-		<td align="right"><b><?echo intval($f_HITS_BACK)?></b>*</td>
+		<td><?php echo GetMessage("STAT_HITS")?>:</td>
+		<td align="right"><?php echo (intval($f_HITS_TODAY)>0 ? intval($f_HITS_TODAY) : "&nbsp;")?></td>
+		<td align="right"><?php echo (intval($f_HITS_BACK_TODAY)>0 ? intval($f_HITS_BACK_TODAY)."*" : "&nbsp;")?></td>
+		<td align="right"><?php echo intval($f_HITS_YESTERDAY)>0 ? intval($f_HITS_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_HITS_BACK_YESTERDAY)>0 ? intval($f_HITS_BACK_YESTERDAY)."*" : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_HITS_BEF_YESTERDAY)>0 ? intval($f_HITS_BEF_YESTERDAY) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_HITS_BACK_BEF_YESTERDAY)>0 ? intval($f_HITS_BACK_BEF_YESTERDAY)."*" : "&nbsp;"?></td>
+		<?php if ((strlen($find_date1_period)>0 || strlen($find_date2_period)>0) && $is_filtered):?>
+		<td align="right"><?php echo intval($f_HITS_PERIOD)>0 ? intval($f_HITS_PERIOD) : "&nbsp;"?></td>
+		<td align="right"><?php echo intval($f_HITS_BACK_PERIOD)>0 ? intval($f_HITS_BACK_PERIOD)."*" : "&nbsp;"?></td>
+		<?php endif;?>
+		<td align="right"><b><?php echo intval($f_HITS)?></b></td>
+		<td align="right"><b><?php echo intval($f_HITS_BACK)?></b>*</td>
 	</tr>
 </table>
 </td></tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 <tr>
-	<td width="50%"><span title="<?=GetMessage("STAT_VISITORS_PER_DAY_ALT")?>"><?echo GetMessage("STAT_VISITORS_PER_DAY")?>:</span></td>
-	<td width="50%"><?echo $f_VISITORS_PER_DAY<0 ? "-" : $f_VISITORS_PER_DAY?></td>
+	<td width="50%"><span title="<?=GetMessage("STAT_VISITORS_PER_DAY_ALT")?>"><?php echo GetMessage("STAT_VISITORS_PER_DAY")?>:</span></td>
+	<td width="50%"><?php echo $f_VISITORS_PER_DAY<0 ? "-" : $f_VISITORS_PER_DAY?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_ATTENTIVENESS_ALT")?>"><?echo GetMessage("STAT_ATTENTIVENESS")?>:</span></td>
-	<td>&nbsp;<?echo $f_ATTENT<0 ? "-" : $f_ATTENT?>(<?echo $f_ATTENT_BACK<0 ? "-" : $f_ATTENT_BACK?>*)</td>
+	<td><span title="<?=GetMessage("STAT_ATTENTIVENESS_ALT")?>"><?php echo GetMessage("STAT_ATTENTIVENESS")?>:</span></td>
+	<td>&nbsp;<?php echo $f_ATTENT<0 ? "-" : $f_ATTENT?>(<?php echo $f_ATTENT_BACK<0 ? "-" : $f_ATTENT_BACK?>*)</td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_ACTIVITY_ALT")?>"><?echo GetMessage("STAT_ACTIVITY")?>:</span></td>
-	<td><?
+	<td><span title="<?=GetMessage("STAT_ACTIVITY_ALT")?>"><?php echo GetMessage("STAT_ACTIVITY")?>:</span></td>
+	<td><?php 
 		if (intval($f_GUESTS)<=0) echo "-";
 		else
 		{
@@ -773,60 +773,60 @@ $tabControl->BeginNextTab();
 	?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_NEW_VISITORS_ALT")?>"><?echo GetMessage("STAT_NEW_VISITORS")?>:</span></td>
-	<td><?echo $f_NEW_VISITORS<0 ? "-" : $f_NEW_VISITORS."%"?></td>
+	<td><span title="<?=GetMessage("STAT_NEW_VISITORS_ALT")?>"><?php echo GetMessage("STAT_NEW_VISITORS")?>:</span></td>
+	<td><?php echo $f_NEW_VISITORS<0 ? "-" : $f_NEW_VISITORS."%"?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_RETURNED_VISITORS_ALT")?>"><?echo GetMessage("STAT_RETURNED_VISITORS")?>:</span></td>
-	<td><?echo $f_RETURNED_VISITORS<0 ? "-" : $f_RETURNED_VISITORS."%"?></td>
+	<td><span title="<?=GetMessage("STAT_RETURNED_VISITORS_ALT")?>"><?php echo GetMessage("STAT_RETURNED_VISITORS")?>:</span></td>
+	<td><?php echo $f_RETURNED_VISITORS<0 ? "-" : $f_RETURNED_VISITORS."%"?></td>
 </tr>
-<?
+<?php 
 if($STAT_RIGHT>="M"):
 $tabControl->BeginNextTab();
 ?>
 <tr>
-	<td width="50%"><span title="<?=GetMessage("STAT_INPUTS_ALT")?>"><?echo GetMessage("STAT_INPUTS")?>:</span></td>
-	<td width="50%"><?echo str_replace(" ", $thousand_sep, number_format($f_COST, 2, ".", " "));?></td>
+	<td width="50%"><span title="<?=GetMessage("STAT_INPUTS_ALT")?>"><?php echo GetMessage("STAT_INPUTS")?>:</span></td>
+	<td width="50%"><?php echo str_replace(" ", $thousand_sep, number_format($f_COST, 2, ".", " "));?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_OUTPUTS_ALT")?>"><?echo GetMessage("STAT_OUTPUTS")?>:</span></td>
-	<td><?echo str_replace(" ", $thousand_sep, number_format($f_REVENUE, 2, ".", " "));?></td>
+	<td><span title="<?=GetMessage("STAT_OUTPUTS_ALT")?>"><?php echo GetMessage("STAT_OUTPUTS")?>:</span></td>
+	<td><?php echo str_replace(" ", $thousand_sep, number_format($f_REVENUE, 2, ".", " "));?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_BENEFIT_ALT")?>"><?echo GetMessage("STAT_BENEFIT")?>:</span></td>
-	<td><?
+	<td><span title="<?=GetMessage("STAT_BENEFIT_ALT")?>"><?php echo GetMessage("STAT_BENEFIT")?>:</span></td>
+	<td><?php 
 	if ($f_BENEFIT<0) :
-		?><span class="required"><?
+		?><span class="required"><?php 
 		echo str_replace(" ", $thousand_sep, number_format($f_BENEFIT, 2, ".", " "));
-		?></span><?
+		?></span><?php 
 	else :
-		?><span class="stat_pointed"><?
+		?><span class="stat_pointed"><?php 
 		echo str_replace(" ", $thousand_sep, number_format($f_BENEFIT, 2, ".", " "));
-		?></span><?
+		?></span><?php 
 	endif;
 	?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_ROI_ALT")?>"><?echo GetMessage("STAT_ROI")?> (%):</span></td>
-	<td><?
+	<td><span title="<?=GetMessage("STAT_ROI_ALT")?>"><?php echo GetMessage("STAT_ROI")?> (%):</span></td>
+	<td><?php 
 	if ($f_ROI<0) :
 		echo "-";
 	else :
-		?><span class="stat_pointed"><?
+		?><span class="stat_pointed"><?php 
 	echo str_replace(" ", $thousand_sep, number_format($f_ROI, 2, ".", " "));
-		?></span><?
+		?></span><?php 
 	endif;
 	?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_SESSION_COST_ALT")?>"><?echo GetMessage("STAT_SESSION_COST")?>:</span></td>
-	<td><?echo str_replace(" ", $thousand_sep, number_format($f_SESSION_COST, 2, ".", " "));?></td>
+	<td><span title="<?=GetMessage("STAT_SESSION_COST_ALT")?>"><?php echo GetMessage("STAT_SESSION_COST")?>:</span></td>
+	<td><?php echo str_replace(" ", $thousand_sep, number_format($f_SESSION_COST, 2, ".", " "));?></td>
 </tr>
 <tr>
-	<td><span title="<?=GetMessage("STAT_VISITOR_COST_ALT")?>"><?echo GetMessage("STAT_VISITOR_COST")?>:</span></td>
-	<td><?echo str_replace(" ", $thousand_sep, number_format($f_VISITOR_COST, 2, ".", " "));?></td>
+	<td><span title="<?=GetMessage("STAT_VISITOR_COST_ALT")?>"><?php echo GetMessage("STAT_VISITOR_COST")?>:</span></td>
+	<td><?php echo str_replace(" ", $thousand_sep, number_format($f_VISITOR_COST, 2, ".", " "));?></td>
 </tr>
-<?
+<?php 
 endif;
 
 $tabControl->End();
@@ -837,13 +837,13 @@ if($full_list):
 
 $oFilter = new CAdminFilter($sTableID."_filter",false);
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("STAT_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_FIND_TITLE")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("STAT_FIND_TITLE")?>">
+		<?php 
 		if($show_events=="event1")
 			$arr = array(
 				"reference" => array("event1"),
@@ -863,12 +863,12 @@ $oFilter = new CAdminFilter($sTableID."_filter",false);
 		?>
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 endif;//if($full_list)
 $lAdmin->DisplayList();
 

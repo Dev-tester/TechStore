@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBEL_BIZPROC_STOP'] = "stop";
 $MESS ['IBEL_BIZPROC_LOG'] = "log";
 $MESS ['IBEL_BIZPROC_DATE'] = "Current Status Date";

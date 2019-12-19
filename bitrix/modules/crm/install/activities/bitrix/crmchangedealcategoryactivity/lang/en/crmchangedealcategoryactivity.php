@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CDCA_CATEGORY"] = "Pipeline";
 $MESS["CRM_CDCA_EMPTY_CATEGORY"] = "Pipeline is not specified";
 $MESS["CRM_CDCA_NO_SOURCE_FIELDS"] = "Cannot get source deal data";

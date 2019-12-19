@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_ACCESS_DENIED_TO_CREATOR_UPDATE'] = "Cannot change the task creator due to insufficient permissions";
 $MESS['TASKS_ACCESS_DENIED_TO_DEADLINE_UPDATE'] = "Cannot change deadline due to insufficient permissions";
 $MESS['TASKS_ACCESS_DENIED_TO_TASK_DELETE'] = "Cannot delete task because access was denied";

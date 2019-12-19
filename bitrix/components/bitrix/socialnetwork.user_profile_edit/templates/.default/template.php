@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arFields = array(
@@ -85,25 +85,25 @@ if ($arResult['ERROR_MESSAGE'])
 {
 ?>
 <div class="bx-sonet-profile-edit-error">
-<?
+<?php 
 	ShowError($arResult['ERROR_MESSAGE']);
 ?>
 </div>
-<?
+<?php 
 }
 
 ?>
-<form name="bx_user_profile_form" method="POST" action="<?echo POST_FORM_ACTION_URI;?>" enctype="multipart/form-data">
-<?echo bitrix_sessid_post()?>
-<input type="hidden" name="current_fieldset" value="<?echo $current_fieldset?>" />
+<form name="bx_user_profile_form" method="POST" action="<?php echo POST_FORM_ACTION_URI;?>" enctype="multipart/form-data">
+<?php echo bitrix_sessid_post()?>
+<input type="hidden" name="current_fieldset" value="<?php echo $current_fieldset?>" />
 <div class="bx-sonet-profile-edit-layout">
 	<ul class="bx-sonet-profile-edit-menu">
-<?
+<?php 
 foreach ($arFields as $GROUP_ID => $arGroupFields):
 	if (is_array($arGroupFields) && count($arGroupFields) > 0):
 ?>
-		<li id="bx_sonet_switcher_<?echo $GROUP_ID?>"<?echo $GROUP_ID == $current_fieldset ? ' class="bx-sonet-switcher-current"' : ''?>><div><a href="javascript: void(0)" onclick="switchFieldSet('<?echo $GROUP_ID?>'); this.blur();"><?echo GetMessage('SOCNET_SUPE_TPL_GROUP_'.$GROUP_ID)?></a></div></li>
-<?
+		<li id="bx_sonet_switcher_<?php echo $GROUP_ID?>"<?php echo $GROUP_ID == $current_fieldset ? ' class="bx-sonet-switcher-current"' : ''?>><div><a href="javascript: void(0)" onclick="switchFieldSet('<?php echo $GROUP_ID?>'); this.blur();"><?php echo GetMessage('SOCNET_SUPE_TPL_GROUP_'.$GROUP_ID)?></a></div></li>
+<?php 
 		${'bShowGroup_'.$GROUP_ID} = true;
 	else:
 		${'bShowGroup_'.$GROUP_ID} = false;
@@ -112,13 +112,13 @@ endforeach;
 ?>
 	</ul>
 	<div class="bx-sonet-profile-edit-layers">
-<?
+<?php 
 foreach ($arFields as $GROUP_ID => $arGroupFields):
 	if (${'bShowGroup_'.$GROUP_ID}):
 ?>
-		<div id="bx_sonet_fieldset_<?echo $GROUP_ID?>" class="bx-sonet-profile-fieldset" style="display: <?echo $GROUP_ID == $current_fieldset ? 'block' : 'none'?>">
+		<div id="bx_sonet_fieldset_<?php echo $GROUP_ID?>" class="bx-sonet-profile-fieldset" style="display: <?php echo $GROUP_ID == $current_fieldset ? 'block' : 'none'?>">
 			<table class="bx-sonet-profile-fieldset-table">
-<?
+<?php 
 		foreach ($arGroupFields as $FIELD):
 
 			if(($FIELD == 'AUTO_TIME_ZONE' || $FIELD == 'TIME_ZONE') && $arResult["TIME_ZONE_ENABLED"] <> true)
@@ -127,9 +127,9 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 			$value = $arResult['User'][$FIELD];
 ?>
 				<tr>
-					<td class="bx-sonet-profile-fieldcaption"><?
+					<td class="bx-sonet-profile-fieldcaption"><?php 
 					if ($arResult['USER_PROPERTY_ALL'][$FIELD]['MANDATORY'] == "Y"):
-						?><span class="required-field">*</span><?
+						?><span class="required-field">*</span><?php 
 					endif;
 					
 					if ($FIELD == "PASSWORD" && intval($arResult["PASSWORD_MIN_LENGTH"]) > 0)
@@ -137,15 +137,15 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 					else
 						echo $arResult['USER_PROP'][$FIELD] ? $arResult['USER_PROP'][$FIELD] : GetMessage('ISL_'.$FIELD)?>:
 					</td>				
-					<td class="bx-sonet-profile-field"><?
+					<td class="bx-sonet-profile-field"><?php 
 			switch ($FIELD)
 			{
 				case 'PERSONAL_GENDER':
-					?><select name="<?echo $FIELD?>">
+					?><select name="<?php echo $FIELD?>">
 						<option value=""></option>
-						<option value="M"<?echo $value == 'M' ? ' selected="selected"' : ''?>><?echo GetMessage('ISL_PERSONAL_GENDER_MALE')?></option>
-						<option value="F"<?echo $value == 'F' ? ' selected="selected"' : ''?>><?echo GetMessage('ISL_PERSONAL_GENDER_FEMALE')?></option>
-					</select><?
+						<option value="M"<?php echo $value == 'M' ? ' selected="selected"' : ''?>><?php echo GetMessage('ISL_PERSONAL_GENDER_MALE')?></option>
+						<option value="F"<?php echo $value == 'F' ? ' selected="selected"' : ''?>><?php echo GetMessage('ISL_PERSONAL_GENDER_FEMALE')?></option>
+					</select><?php 
 					break;
 				
 				case 'PERSONAL_COUNTRY':
@@ -157,7 +157,7 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 					if(!empty($arResult["arSocServ"])):
 						?>
 						<div class="bx-sonet-profile-field-socserv">
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent("bitrix:socserv.auth.split", "twitpost", array(
 									"SHOW_PROFILES" => "Y",
 									"ALLOW_DELETE" => "Y",
@@ -167,7 +167,7 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 							);
 							?>
 						</div>
-						<?
+						<?php 
 					endif;
 					break;
 
@@ -175,10 +175,10 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 				case 'WORK_LOGO':
 				case 'FORUM_AVATAR':
 				case 'BLOG_AVATAR':
-					if ($arResult['User'][$FIELD.'_IMG']):?><div class="bx-sonet-profile-field-photo"><?echo $arResult['User'][$FIELD.'_IMG']?></div>
-					<input type="checkbox" name="<?echo $FIELD?>_del" id="<?echo $FIELD?>_del" value="Y" /><label for="<?echo $FIELD;?>_del"><?echo GetMessage('ISL_'.$FIELD.'_del')?></label><br /><?endif; ?>
-					<input type="file" name="<?echo $FIELD?>" />
-					<?
+					if ($arResult['User'][$FIELD.'_IMG']):?><div class="bx-sonet-profile-field-photo"><?php echo $arResult['User'][$FIELD.'_IMG']?></div>
+					<input type="checkbox" name="<?php echo $FIELD?>_del" id="<?php echo $FIELD?>_del" value="Y" /><label for="<?php echo $FIELD;?>_del"><?php echo GetMessage('ISL_'.$FIELD.'_del')?></label><br /><?php endif; ?>
+					<input type="file" name="<?php echo $FIELD?>" />
+					<?php 
 					break;
 			
 				case 'PERSONAL_BIRTHDAY':
@@ -199,35 +199,35 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 			
 				case 'PASSWORD': 
 				case 'CONFIRM_PASSWORD': 
-					?><input type="password" name="<?echo $FIELD?>" autocomplete="off" /><?
+					?><input type="password" name="<?php echo $FIELD?>" autocomplete="off" /><?php 
 					break;
 			
 				case 'FORUM_SHOW_NAME':
 				case 'FORUM_HIDE_FROM_ONLINE':
 				case 'FORUM_SUBSC_GROUP_MESSAGE':
 				case 'FORUM_SUBSC_GET_MY_MESSAGE':
-					?><input type="checkbox" name="<?echo $FIELD?>" value="Y"<?echo $value == 'Y' ? ' checked="checked"' : ''?> /><?
+					?><input type="checkbox" name="<?php echo $FIELD?>" value="Y"<?php echo $value == 'Y' ? ' checked="checked"' : ''?> /><?php 
 					break;
 				
 				case 'FORUM_INTERESTS':
 				case 'FORUM_SIGNATURE':
 				case 'BLOG_INTERESTS':
-					?><textarea name="<?echo $FIELD?>"><?echo $value;?></textarea><?
+					?><textarea name="<?php echo $FIELD?>"><?php echo $value;?></textarea><?php 
 					break;
 				
 				case 'AUTO_TIME_ZONE':
 					?><select name="AUTO_TIME_ZONE" onchange="this.form.TIME_ZONE.disabled=(this.value != 'N')">
-						<option value=""><?echo GetMessage("soc_profile_time_zones_auto_def")?></option>
-						<option value="Y"<?=($value == "Y"? ' SELECTED="SELECTED"' : '')?>><?echo GetMessage("soc_profile_time_zones_auto_yes")?></option>
-						<option value="N"<?=($value == "N"? ' SELECTED="SELECTED"' : '')?>><?echo GetMessage("soc_profile_time_zones_auto_no")?></option>
-					</select><?
+						<option value=""><?php echo GetMessage("soc_profile_time_zones_auto_def")?></option>
+						<option value="Y"<?=($value == "Y"? ' SELECTED="SELECTED"' : '')?>><?php echo GetMessage("soc_profile_time_zones_auto_yes")?></option>
+						<option value="N"<?=($value == "N"? ' SELECTED="SELECTED"' : '')?>><?php echo GetMessage("soc_profile_time_zones_auto_no")?></option>
+					</select><?php 
 					break;
 				case 'TIME_ZONE':
-					?><select name="TIME_ZONE"<?if($arResult["User"]["AUTO_TIME_ZONE"] <> "N") echo ' disabled="disabled"'?>>
-					<?foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
+					?><select name="TIME_ZONE"<?php if($arResult["User"]["AUTO_TIME_ZONE"] <> "N") echo ' disabled="disabled"'?>>
+					<?php foreach($arResult["TIME_ZONE_LIST"] as $tz=>$tz_name):?>
 						<option value="<?=htmlspecialcharsbx($tz)?>"<?=($value == $tz? ' SELECTED="SELECTED"' : '')?>><?=htmlspecialcharsbx($tz_name)?></option>
-					<?endforeach?>
-					</select><?
+					<?php endforeach?>
+					</select><?php 
 					break;
 				default: 
 					if (substr($FIELD, 0, 3) == 'UF_'):
@@ -242,18 +242,18 @@ foreach ($arFields as $GROUP_ID => $arGroupFields):
 							array('HIDE_ICONS' => 'Y')
 						);
 					else:
-						?><input type="text" name="<?echo $FIELD?>" value="<?echo $value?>" /><? 
+						?><input type="text" name="<?php echo $FIELD?>" value="<?php echo $value?>" /><?php  
 					endif;
 					break;
 			}
 ?></td>
 				</tr>
-<?
+<?php 
 		endforeach;
 ?>
 			</table>
 		</div>
-<?
+<?php 
 	endif;
 endforeach;
 
@@ -262,8 +262,8 @@ if (substr($_REQUEST['backurl'],0,1) != "/")
 ?>
 	</div>
 	<div class="bx-sonet-profile-edit-buttons">
-		<input type="submit" name="submit" value="<?echo GetMessage('SOCNET_SUPE_TPL_SUBMIT')?>" />
-		<input type="button" name="cancel" value="<?echo GetMessage('SOCNET_SUPE_TPL_CANCEL')?>" onclick="location.href = '<?echo htmlspecialcharsbx(CUtil::addslashes(
+		<input type="submit" name="submit" value="<?php echo GetMessage('SOCNET_SUPE_TPL_SUBMIT')?>" />
+		<input type="button" name="cancel" value="<?php echo GetMessage('SOCNET_SUPE_TPL_CANCEL')?>" onclick="location.href = '<?php echo htmlspecialcharsbx(CUtil::addslashes(
 			$_REQUEST['backurl'] 
 			? $_REQUEST['backurl'] 
 			: CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER"], array("user_id" => $arParams["ID"]))

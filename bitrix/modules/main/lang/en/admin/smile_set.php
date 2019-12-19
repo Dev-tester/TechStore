@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_TITLE"] = "Smiley sets";
 $MESS["SMILE_DEL_CONF"] = "Are you sure you want to delete this set? This will also delete all the smileys the set contains.";
 $MESS["SMILE_NAV"] = "Sets";

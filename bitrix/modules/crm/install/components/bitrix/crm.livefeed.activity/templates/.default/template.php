@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
@@ -6,13 +6,13 @@ $APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/crm-entity-show.css");
 
 $ind = RandString(8);
 
-?><div class="crm-post-deal-wrap" id="crm_feed_activity_<?=$ind?>"><?
+?><div class="crm-post-deal-wrap" id="crm_feed_activity_<?=$ind?>"><?php 
 
 	if (!empty($arResult["FIELDS_FORMATTED"]))
 	{
 		if ($arResult["FORMAT"] == "table")
 		{
-			?><table class="crm-feed-info-table"><?
+			?><table class="crm-feed-info-table"><?php 
 		}
 
 		foreach($arResult["FIELDS_FORMATTED"] as $key => $value)
@@ -74,14 +74,14 @@ $ind = RandString(8);
 
 		if ($arResult["FORMAT"] == "table")
 		{
-			?></table><?
+			?></table><?php 
 		}	
 	}
 	?><div class="feed-calendar-view-icon feed-crm-view-icon crm-feed-calendar-icon">
 		<div class="feed-calendar-view-icon-fake-link"><img src="/bitrix/images/1.gif"></div>
 		<div class="feed-calendar-view-icon-day"><?=$arResult["DATE_WEEK_DAY"]?></div>
 		<div class="feed-calendar-view-icon-date"><?=$arResult["DATE_MONTH_DAY"]?></div>
-	</div><?
+	</div><?php 
 	if (
 		!empty($arResult["RECORDS"])
 		&& is_array($arResult["RECORDS"])
@@ -89,11 +89,11 @@ $ind = RandString(8);
 	{
 		?><div class="crm-feed-deal-description">
 			<div class="crm-feed-deal-descr-title"><?=GetMessage("C_T_CRM_LFA_RECORDS")?>:</div>
-			<div class="crm-feed-deal-descr-text"><?
+			<div class="crm-feed-deal-descr-text"><?php 
 			$cnt = 0;
 			foreach($arResult["RECORDS"] as $key => $arRecord)
 			{
-				?><div style="padding-top: <?=(!$cnt ? "0" : "10")?>px;"><?$APPLICATION->IncludeComponent(
+				?><div style="padding-top: <?=(!$cnt ? "0" : "10")?>px;"><?php $APPLICATION->IncludeComponent(
 					"bitrix:player",
 					"audio",
 					Array(
@@ -143,20 +143,20 @@ $ind = RandString(8);
 					),
 					false,
 					Array("HIDE_ICONS" => "Y")
-				);?></div><?
+				);?></div><?php 
 				$cnt++;				
 			}
 			?></div>
-		</div><?
+		</div><?php 
 	}
 	if (!empty($arResult["DESCRIPTION"]))
 	{
 		?><div class="crm-feed-deal-description">
 			<div class="crm-feed-deal-descr-title"><?=GetMessage("C_T_CRM_LFA_DESCRIPTION")?>:</div>
 			<div class="crm-feed-deal-descr-text"><?=$arResult["DESCRIPTION"]?></div>
-		</div><?
+		</div><?php 
 	}	
-?></div><?
+?></div><?php 
 
 /*
 if ($arResult["IS_COMPLETED"])
@@ -180,13 +180,13 @@ if ($arResult["IS_COMPLETED"])
 						node: logEntryNode
 					});
 					
-					<?
+					<?php 
 					if (!empty($arResult['CLIENTS_FOR_JS']))
 					{
 						?>
 						var x1 = new oActivity.clientsPopupList(<?=CUtil::PhpToJsObject($arResult['CLIENTS_FOR_JS'])?>);
 						BX.bind(BX('crm_feed_activity_more_<?=intval($arParams["ACTIVITY"]["ID"])?>'), "click", BX.proxy(x1.showClients, x1));
-						<?
+						<?php 
 					}
 					?>
 				}

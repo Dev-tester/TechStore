@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager						 #
@@ -315,7 +315,7 @@ if ($message)
 ?>
 	<form name="form1" method="POST" action=""	enctype="multipart/form-data">
 		<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-		<?=bitrix_sessid_post()?><?
+		<?=bitrix_sessid_post()?><?php 
 		$tabControl->Begin();
 
 		//region General Tab
@@ -323,11 +323,11 @@ if ($message)
 
 		if (isset($vote))
 		{
-			?><input type="hidden" name="ID" value="<?=$vote->getId()?>" /><?
+			?><input type="hidden" name="ID" value="<?=$vote->getId()?>" /><?php 
 		}
 		else if (isset($copyVote))
 		{
-			?><input type="hidden" name="COPY_ID" value="<?=$copyVote->getId()?>" /><?
+			?><input type="hidden" name="COPY_ID" value="<?=$copyVote->getId()?>" /><?php 
 		}
 		?>
 		<tr>
@@ -338,7 +338,7 @@ if ($message)
 			<td><?=GetMessage("VOTE_DATE").":"?></td>
 			<td><?=CalendarPeriod("DATE_START", $fields["~DATE_START"], "DATE_END", $fields["~DATE_END"], "form1", "N", false, false, "19")?></td>
 		</tr>
-		<?
+		<?php 
 
 		$str_PREVIEW_PICTURE = intval($fields["IMAGE_ID"]);
 		$bFileman = CModule::IncludeModule("fileman");
@@ -346,7 +346,7 @@ if ($message)
 		<tr class="adm-detail-file-row">
 			<td width="40%"><?=GetMessage("VOTE_IMAGE")?></td>
 			<td width="60%">
-				<?
+				<?php 
 				if ($bFileman)
 				{
 					echo CMedialib::InputFile(
@@ -373,11 +373,11 @@ if ($message)
 			</td>
 		</tr>
 		<tr class="heading">
-			<td colspan="2"><?echo GetMessage("VOTE_DESCR")?></td>
+			<td colspan="2"><?php echo GetMessage("VOTE_DESCR")?></td>
 		</tr>
 		<tr>
 			<td align="center" colspan="2">
-				<?
+				<?php 
 				if (COption::GetOptionString("vote", "USE_HTML_EDIT")=="Y" && CModule::IncludeModule("fileman")):
 					CFileMan::AddHTMLEditorFrame("DESCRIPTION", $fields["DESCRIPTION"], "DESCRIPTION_TYPE", $fields["DESCRIPTION_TYPE"], array('height' => '200', 'width' => '100%'));
 				else:
@@ -388,12 +388,12 @@ if ($message)
 					<label for="DESCRIPTION_TYPE_HTML">HTML</label><br />
 
 					<textarea name="DESCRIPTION" style="width:100%" rows="23"><?=$fields["DESCRIPTION"]?></textarea>
-				<?
+				<?php 
 				endif;
 				?>
 			</td>
 		</tr>
-		<?
+		<?php 
 		//endregion
 
 		//region Descr Tab
@@ -402,7 +402,7 @@ if ($message)
 		{
 			if (strlen($vote->get("TIMESTAMP_X")) > 0 && $vote->get("TIMESTAMP_X") != "00.00.0000 00:00:00")
 			{
-				?><tr><td><?= GetMessage("VOTE_TIMESTAMP") ?></td><td><?= $vote->get("TIMESTAMP_X") ?></td></tr><?
+				?><tr><td><?= GetMessage("VOTE_TIMESTAMP") ?></td><td><?= $vote->get("TIMESTAMP_X") ?></td></tr><?php 
 			}
 		}
 		?>
@@ -411,7 +411,7 @@ if ($message)
 			<td><input type="hidden" name="ACTIVE" value="N" /><input type="checkbox" name="ACTIVE" id="ACTIVE" value="Y" <?=($fields["ACTIVE"] == "Y" ? " checked" : "")?> />
 				<label for="ACTIVE"><?=GetMessage("VOTE_ACTIVE")?></label></td>
 		</tr>
-		<?
+		<?php 
 
 		if ($fields["AUTHOR_ID"] > 0 && ($arAuthor = CUser::GetByID($fields["AUTHOR_ID"])->Fetch()))
 		{
@@ -423,13 +423,13 @@ if ($message)
 					<a href="/bitrix/admin/user_edit.php?ID=<?=$fields["AUTHOR_ID"]?>&lang=<?=LANG?>"> [<?=$fields["AUTHOR_ID"]?>] <?=$arAuthor["NAME"]?></a>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 
 		?>
 		<tr>
 			<td><?=GetMessage("VOTE_NOTIFY")?></td>
-			<td width="60%"><?
+			<td width="60%"><?php 
 				$ref = array("reference_id" => array(), "reference" => array());
 				$fields["NOTIFY"] = ($fields["NOTIFY"] != "I" && $fields["NOTIFY"] != "Y" ? "N" : $fields["NOTIFY"]);
 				if (IsModuleInstalled("im") && IsModuleInstalled("search"))
@@ -450,10 +450,10 @@ if ($message)
 		</tr>
 		<tr>
 			<td><?=GetMessage("VOTE_CHANNEL")?></td>
-			<td><select name="CHANNEL_ID"><?
+			<td><select name="CHANNEL_ID"><?php 
 					foreach ($channels as $res):
-						?><option value="<?=$res["ID"]?>" <?=($fields["CHANNEL_ID"] == $res["ID"] ? " selected" : "")?><?
-						?>> [ <?=$res["ID"]?> ] <?=$res["TITLE"]?></option><?
+						?><option value="<?=$res["ID"]?>" <?=($fields["CHANNEL_ID"] == $res["ID"] ? " selected" : "")?><?php 
+						?>> [ <?=$res["ID"]?> ] <?=$res["TITLE"]?></option><?php 
 					endforeach;
 					?></select>
 			</td>
@@ -463,7 +463,7 @@ if ($message)
 			<td><input type="text" name="URL" size="45" maxlength="255" value="<?=$fields["URL"]?>" /></td>
 		</tr>
 
-		<?
+		<?php 
 		if (IsModuleInstalled("statistic")) :
 //********************
 //Statistic Data
@@ -484,21 +484,21 @@ if ($message)
 				<td>event3:</td>
 				<td><input type="text" id="event3" name="EVENT3" size="15" value="<?=$fields["EVENT3"]?>" <?=$fields["EVENTS_disabled"]?> /></td>
 			</tr>
-		<?
+		<?php 
 		endif;
 		if ($old_module_version == "Y"):
 			?>
 			<tr>
 				<td><?=GetMessage("VOTE_TEMPLATE")?></td>
 				<td><?=SelectBoxFromArray("TEMPLATE", GetTemplateList(), $fields["TEMPLATE"]);
-					?>&nbsp;[&nbsp;<a title="<?echo GetMessage("VOTE_CHOOSE_TITLE")?>" href="vote_preview.php?lang=<?=LANGUAGE_ID?>&VOTE_ID=<?=$ID?>" class="tablebodylink"><?=GetMessage("VOTE_CHOOSE")?></a>&nbsp;]</td>
+					?>&nbsp;[&nbsp;<a title="<?php echo GetMessage("VOTE_CHOOSE_TITLE")?>" href="vote_preview.php?lang=<?=LANGUAGE_ID?>&VOTE_ID=<?=$ID?>" class="tablebodylink"><?=GetMessage("VOTE_CHOOSE")?></a>&nbsp;]</td>
 			</tr>
 			<tr>
 				<td><?=GetMessage("VOTE_RESULT_TEMPLATE")?></td>
-				<td><?echo SelectBoxFromArray("RESULT_TEMPLATE", GetTemplateList("RV"), $fields["RESULT_TEMPLATE"]);
-					?>&nbsp;[&nbsp;<a title="<?echo GetMessage("VOTE_CHOOSE_RESULT_TITLE")?>" href="vote_results.php?lang=<?=LANGUAGE_ID?>&VOTE_ID=<?=$ID?>" class="tablebodylink"><?=GetMessage("VOTE_CHOOSE")?></a>&nbsp;]</td>
+				<td><?php echo SelectBoxFromArray("RESULT_TEMPLATE", GetTemplateList("RV"), $fields["RESULT_TEMPLATE"]);
+					?>&nbsp;[&nbsp;<a title="<?php echo GetMessage("VOTE_CHOOSE_RESULT_TITLE")?>" href="vote_results.php?lang=<?=LANGUAGE_ID?>&VOTE_ID=<?=$ID?>" class="tablebodylink"><?=GetMessage("VOTE_CHOOSE")?></a>&nbsp;]</td>
 			</tr>
-		<?
+		<?php 
 		endif;
 		//endregion
 
@@ -508,13 +508,13 @@ if ($message)
 		$uniqType = $fields["UNIQUE_TYPE"];
 		?>
 		<tr class="heading"><td colspan="2"><?=\Bitrix\Main\Localization\Loc::getMessage("VOTE_LIMITS")?></td></tr>
-		<? if (IsModuleInstalled('statistic'))
+		<?php  if (IsModuleInstalled('statistic'))
 		{ ?>
 			<tr>
 				<td><input type="checkbox" id="UNIQUE_TYPE_SESSION" name="UNIQUE_TYPE[]" value="<?=EventLimits::BY_SESSION?>" <?=($uniqType & EventLimits::BY_SESSION)?" checked":""?> /></td>
 				<td><label for="UNIQUE_TYPE_SESSION"><?=GetMessage("VOTE_UNIQUE_SESSION")?></label></td>
 			</tr>
-		<? } ?>
+		<?php  } ?>
 		<tr>
 			<td><input type="checkbox" id="UNIQUE_TYPE_COOKIE" name="UNIQUE_TYPE[]" value="<?=EventLimits::BY_COOKIE?>"	<?=($uniqType & EventLimits::BY_COOKIE)?" checked":""?> /></td>
 			<td><label for="UNIQUE_TYPE_COOKIE"><?=GetMessage("VOTE_UNIQUE_COOKIE_ONLY")?></label></td>
@@ -526,7 +526,7 @@ if ($message)
 		<tr>
 			<td>&nbsp;</td>
 			<td><input type="hidden" name="KEEP_IP_SEC" id="KEEP_IP_SEC" value="<?=$fields["KEEP_IP_SEC"]?>" />
-				<input type="text" name="D1" id="D1" size="5" value="0" />&nbsp;&nbsp;<?
+				<input type="text" name="D1" id="D1" size="5" value="0" />&nbsp;&nbsp;<?php 
 				echo SelectBoxFromArray(
 					"D2",
 					array(
@@ -563,7 +563,7 @@ if ($message)
 			<td><label for="OPTION_HIDE_RESULT"><?=Loc::getMessage("VOTE_FORBID_TO_SEE_RESULTS")?></td>
 		</tr>
 		<tr>
-			<td colspan="2"><?=\Bitrix\Vote\Vote\Anonymity::getTitle()?>: <?
+			<td colspan="2"><?=\Bitrix\Vote\Vote\Anonymity::getTitle()?>: <?php 
 				$ref = array("reference_id" => array(), "reference" => array());
 				foreach(\Bitrix\Vote\Vote\Anonymity::getTitledList() as $key => $val)
 				{
@@ -573,7 +573,7 @@ if ($message)
 				?><?=SelectBoxFromArray("ANONYMITY", $ref, $fields["ANONYMITY"]);
 				?></td>
 		</tr>
-		<?
+		<?php 
 		//endregion
 
 		$tabControl->Buttons(array("back_url" => "vote_list.php?lang=".LANGUAGE_ID.($channelId > 0 ? "&find_channel_id=" . $channelId . "&set_filter=Y" : "")));
@@ -581,7 +581,7 @@ if ($message)
 		?>
 
 	</form>
-<?
+<?php 
 $tabControl->ShowWarnings("form1", $message);
 ?>
 	<script>
@@ -641,15 +641,15 @@ $tabControl->ShowWarnings("form1", $message);
 		});
 	</script>
 
-<?
+<?php 
 if (isset($vote))
 {
-	?><h2><?=GetMessage("VOTE_QUESTIONS")?></h2><?
-	?><?$APPLICATION->IncludeComponent("bitrix:voting.admin.questions", ".default",
+	?><h2><?=GetMessage("VOTE_QUESTIONS")?></h2><?php 
+	?><?php $APPLICATION->IncludeComponent("bitrix:voting.admin.questions", ".default",
 	array(
 		"VOTE_ID" => $vote->getId(),
 		"SHOW_FILTER" => "N"
-	));?><?
+	));?><?php 
 }
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ERROR_ACCESS_DENIED'] = "Zugriff verweigert.";
 $MESS ['WD_NEW'] = "Neuer Ordner";
 $MESS ['WD_ERROR_BAD_ACTION'] = "Es wurde keine Aktion für den Ordner angegeben.";

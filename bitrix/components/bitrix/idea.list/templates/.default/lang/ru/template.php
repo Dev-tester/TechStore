@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_BLOG_BLOG_MORE'] = "Читать подробнее...";
 $MESS ['BLOG_BLOG_BLOG_NO_AVAIBLE_MES'] = "В данной категории нет идей.";
 $MESS ['BLOG_MES_DELETE_POST_CONFIRM'] = "Вы уверены, что хотите удалить сообщение?";

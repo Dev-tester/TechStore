@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -148,18 +148,18 @@ CAdminMessage::ShowMessage($strError);
 ?>
 
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo LANG ?>" ENCTYPE="multipart/form-data">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo LANG ?>" ENCTYPE="multipart/form-data">
 
-<input type="hidden" name="STEP" value="<?echo $STEP + 1;?>">
+<input type="hidden" name="STEP" value="<?php echo $STEP + 1;?>">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 if ($STEP > 1)
 {
-	?><input type="hidden" name="COURSE_ID" value="<?echo $COURSE_ID ?>"><?
+	?><input type="hidden" name="COURSE_ID" value="<?php echo $COURSE_ID ?>"><?php 
 }
 ?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("LEARNING_ADMIN_TAB1"), "TITLE" => GetMessage("LEARNING_ADMIN_TAB1_EX")),
 		array("DIV" => "edit2", "TAB" => GetMessage("LEARNING_ADMIN_TAB2"),  "TITLE" => GetMessage("LEARNING_ADMIN_TAB2_EX")),
@@ -170,35 +170,35 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs, false, true);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 
 if ($STEP < 2)
 {
 	?>
 	<tr>
-		<td><?echo GetMessage("LEARNING_COURSES") ?>:</td>
+		<td><?php echo GetMessage("LEARNING_COURSES") ?>:</td>
 		<td>
 			<select name="COURSE_ID" style="width:300px;">
-				<?
+				<?php 
 				// was: $course = CCourse::GetList(array("SORT" => "ASC"), array("MIN_PERMISSION" => "W"));
 				// TODO: think about better way of rights check (for every exported lesson, I think).
 				$course = CCourse::GetList(array("SORT" => "ASC"), array('ACCESS_OPERATIONS' => CLearnAccess::OP_LESSON_READ | CLearnAccess::OP_LESSON_WRITE));
 				while ($course->ExtractFields("f_"))
 				{
-					?><option value="<?echo $f_ID ?>" <?if (IntVal($f_ID)==$COURSE_ID) echo "selected";?>><?echo $f_NAME ?></option><?
+					?><option value="<?php echo $f_ID ?>" <?php if (IntVal($f_ID)==$COURSE_ID) echo "selected";?>><?php echo $f_NAME ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 
 if ($STEP == 2)
@@ -206,22 +206,22 @@ if ($STEP == 2)
 	?>
 
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("LEARNING_DATA_FILE_NAME") ?></td>
+		<td colspan="2"><?php echo GetMessage("LEARNING_DATA_FILE_NAME") ?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("LEARNING_DATA_FILE_NAME1") ?>:<br>&nbsp;</td>
+		<td><?php echo GetMessage("LEARNING_DATA_FILE_NAME1") ?>:<br>&nbsp;</td>
 		<td valign="top">
-			<input type="text" name="DATA_FILE_NAME" size="40" value="<?echo (strlen($DATA_FILE_NAME)>0)?htmlspecialcharsbx($DATA_FILE_NAME):"package".$COURSE_ID.".tar.gz"?>"><br>
-			<small><?echo GetMessage("LEARNING_DATA_FILE_NAME1_DESC") ?></small>
+			<input type="text" name="DATA_FILE_NAME" size="40" value="<?php echo (strlen($DATA_FILE_NAME)>0)?htmlspecialcharsbx($DATA_FILE_NAME):"package".$COURSE_ID.".tar.gz"?>"><br>
+			<small><?php echo GetMessage("LEARNING_DATA_FILE_NAME1_DESC") ?></small>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 
 if ($STEP > 2)
@@ -229,7 +229,7 @@ if ($STEP > 2)
 
 	?>
 	<tr>
-		<td colspan="2"><b><?echo GetMessage("LEARNING_SUCCESS") ?></b></td>
+		<td colspan="2"><b><?php echo GetMessage("LEARNING_SUCCESS") ?></b></td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -249,25 +249,25 @@ if ($STEP > 2)
 			?>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons();
 ?>
 
-<?if ($STEP < 3):?>
-	<?if ($STEP > 1):?>
-		<input type="submit" name="backButton" value="&lt;&lt; <?echo GetMessage("LEARNING_BACK") ?>">
-	<?endif?>
-	<input type="submit" class="adm-btn-green" value="<?echo ($STEP==2)?GetMessage("LEARNING_NEXT_STEP_F"):GetMessage("LEARNING_NEXT_STEP") ?> &gt;&gt;" name="submit_btn">
-<?else:?>
-	<input type="submit" name="backButton2" value="&lt;&lt; <?echo GetMessage("LEARNING_2_1_STEP") ?>">
-<?endif;?>
+<?php if ($STEP < 3):?>
+	<?php if ($STEP > 1):?>
+		<input type="submit" name="backButton" value="&lt;&lt; <?php echo GetMessage("LEARNING_BACK") ?>">
+	<?php endif?>
+	<input type="submit" class="adm-btn-green" value="<?php echo ($STEP==2)?GetMessage("LEARNING_NEXT_STEP_F"):GetMessage("LEARNING_NEXT_STEP") ?> &gt;&gt;" name="submit_btn">
+<?php else:?>
+	<input type="submit" name="backButton2" value="&lt;&lt; <?php echo GetMessage("LEARNING_2_1_STEP") ?>">
+<?php endif;?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
@@ -275,20 +275,20 @@ $tabControl->End();
 
 <script language="JavaScript">
 <!--
-<?if ($STEP < 2):?>
+<?php if ($STEP < 2):?>
 tabControl.SelectTab("edit1");
 tabControl.DisableTab("edit2");
 tabControl.DisableTab("edit3");
-<?elseif ($STEP == 2):?>
+<?php elseif ($STEP == 2):?>
 tabControl.SelectTab("edit2");
 tabControl.DisableTab("edit1");
 tabControl.DisableTab("edit3");
-<?elseif ($STEP > 2):?>
+<?php elseif ($STEP > 2):?>
 tabControl.SelectTab("edit3");
 tabControl.DisableTab("edit1");
 tabControl.DisableTab("edit2");
-<?endif;?>
+<?php endif;?>
 //-->
 </script>
 
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

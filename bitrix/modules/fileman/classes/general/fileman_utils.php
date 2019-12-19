@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CFilemanUtils
 {
@@ -46,9 +46,9 @@ class CFilemanUtils
 		<script type="text/javascript" src="/bitrix/js/fileman/fileman_utils.js?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/fileman/fileman_utils.js')?>"></script>
 
 		<script>
-		<?CFilemanUtils::AppendLangMessages($arLangArray);?>
+		<?php CFilemanUtils::AppendLangMessages($arLangArray);?>
 
-		<?if ($Params['initSearch']):?>
+		<?php if ($Params['initSearch']):?>
 		// * * * Search / replace * * *
 		var oSearchDialog = new BX.CAdminDialog({
 			title : '<?= GetMessage('FILEMAN_SEARCH')?>',
@@ -107,9 +107,9 @@ class CFilemanUtils
 				lastValues: lastValues || false
 			});
 		};
-		<?endif;?>
+		<?php endif;?>
 
-		<?if ($Params['initCopy']):?>
+		<?php if ($Params['initCopy']):?>
 		// * * * Copy / Move * * *
 		var oCopyDialog = new BX.CDialog({
 			title : 'copy-move',
@@ -157,9 +157,9 @@ class CFilemanUtils
 				ssess: "<?= CFilemanSearch::SecureSearchSess($_GET['ssess'])?>"
 			});
 		};
-		<?endif;?>
+		<?php endif;?>
 
-		<?
+		<?php 
 		if ($Params['initPack']):?>
 		// * * * Pack / Unpack * * *
 		var oPackDialog = new BX.CDialog(
@@ -215,7 +215,7 @@ class CFilemanUtils
 				ssess: "<?= CFilemanSearch::SecureSearchSess($_GET['ssess'])?>"
 			});
 		};
-		<?endif;?>
+		<?php endif;?>
 
 		// Init hot keys
 		BX.bind(BX.browser.IsIE() ? document.body : window, "keydown", function(e)
@@ -223,17 +223,17 @@ class CFilemanUtils
 			if (!e)
 				e = window.event;
 
-			<?if ($Params['initSearch']):?>
+			<?php if ($Params['initSearch']):?>
 			if (e.ctrlKey && !e.shiftKey && !e.altKey && e.keyCode == 70)
 			{
 				var js = BX('btn_fileman_search').getAttribute('href');
 				BX.evalGlobal(js.substr('javascript: '.length));
 				return BX.PreventDefault(e);
 			}
-			<?endif;?>
+			<?php endif;?>
 		});
 		</script>
-		<?
+		<?php 
 	}
 
 	function AppendLangMessages($Config)
@@ -332,8 +332,8 @@ class CFilemanUtils
 
 		if (count($arLangMess) > 0):
 ?>
-var FM_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".addslashes(GetMessage($m2))."'";}?>};
-<?
+var FM_MESS = {0:0<?php foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".addslashes(GetMessage($m2))."'";}?>};
+<?php 
 		endif;
 	}
 
@@ -355,7 +355,7 @@ var FM_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".adds
 		$searchTabControl->SetPublicMode('oSearchDialog');
 		$searchTabControl->Begin();
 		?>
-		<?$searchTabControl->BeginNextTab();?>
+		<?php $searchTabControl->BeginNextTab();?>
 		<tr><td>
 		<div id="bx_search_cont" class="bxfm-search-cont"><form name="bx_search_form" action="<?= $actUri?>" method="POST">
 		<table  id="bx_fms_tbl" class="bxfm-d-params bxfm-d-params-add-hide">
@@ -437,7 +437,7 @@ var FM_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".adds
 		</table>
 		<input type="hidden" name="search" value="Y" />
 		<div id="bx_search_res_cont"></div>
-<?
+<?php 
 		CAdminFileDialog::ShowScript(Array
 			(
 				"event" => "FMFD_SearchDirOpen",
@@ -454,11 +454,11 @@ var FM_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".adds
 ?>
 		</form></div>
 		</td></tr>
-		<?$searchTabControl->BeginNextTab();?>
+		<?php $searchTabControl->BeginNextTab();?>
 		<tr><td>
 		<div id="bx_replace_cont" class="bxfm-replace-cont"></div>
 		</td></tr>
-		<?
+		<?php 
 		$searchTabControl->End();
 
 		// ***  Copy / move dialog ***
@@ -520,7 +520,7 @@ var FM_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".adds
 				</td>
 			</tr>
 		</table>
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array
 	(
 		"event" => "FMFD_CopyMoveOpen",
@@ -569,7 +569,7 @@ CAdminFileDialog::ShowScript(Array
 		</table>
 		</div>
 		</div>
-		<?
+		<?php 
 		$searchTabControl->BeginNextTab();
 
 		// ***  Pack / unpack dialog ***
@@ -631,7 +631,7 @@ CAdminFileDialog::ShowScript(Array
 				</td>
 			</tr>
 		</table>
-<?
+<?php 
 CAdminFileDialog::ShowScript(Array
 	(
 		"event" => "FMFD_PackUnpackOpen",
@@ -689,7 +689,7 @@ CAdminFileDialog::ShowScript(Array
 			</tr>
 		</table>
 		<br/>
-		</div><?
+		</div><?php 
 	}
 
 	function Request($action, $site)
@@ -779,7 +779,7 @@ CAdminFileDialog::ShowScript(Array
 			case "get_last_pathes":
 				?>
 				<script>window.bx_last_pathes = <?= CUtil::PhpToJSObject(CFilemanUtils::GetLastPathes())?>;</script>
-				<?
+				<?php 
 			break;
 			case "pack":
 
@@ -812,7 +812,7 @@ CAdminFileDialog::ShowScript(Array
 					<script>
 						window.BXFM_archivePermsError = true;
 					</script>
-					<?
+					<?php 
 					return;
 				}
 
@@ -822,7 +822,7 @@ CAdminFileDialog::ShowScript(Array
 					<script>
 						window.BXFM_archiveFNameError = true;
 					</script>
-					<?
+					<?php 
 					return;
 				}
 
@@ -846,7 +846,7 @@ CAdminFileDialog::ShowScript(Array
 									}
 								};
 							</script>
-							<?
+							<?php 
 							return;
 						}
 					}
@@ -885,7 +885,7 @@ CAdminFileDialog::ShowScript(Array
 							window.fmPackTimeout = true;
 							window.fmPackLastFile = '<?= CUtil::JSEscape($packarc->GetStartFile())?>';
 							</script>
-						<?
+						<?php 
 							break;
 						case IBXArchive::StatusSuccess:
 						?>
@@ -894,7 +894,7 @@ CAdminFileDialog::ShowScript(Array
 							window.fmPackLastFile = '';
 							window.fmPackSuccess = true;
 							</script>
-						<?
+						<?php 
 							break;
 						case IBXArchive::StatusError:
 						$arErrors = $packarc->GetErrors();
@@ -904,7 +904,7 @@ CAdminFileDialog::ShowScript(Array
 							window.fmPackSuccess = false;
 							window.fmPackErrors = <?=CUtil::PhpToJSObject($arErrors)?>;
 							</script>
-						<?
+						<?php 
 							break;
 					}
 				}
@@ -915,7 +915,7 @@ CAdminFileDialog::ShowScript(Array
 					window.fmPackSuccess = false;
 					window.fmPackErrors = <?=CUtil::PhpToJsObject(GetMessage("FM_UTIL_ARC_ERROR"))?>;
 					</script>
-					<?
+					<?php 
 				}
 			break;
 			case "unpack":
@@ -942,7 +942,7 @@ CAdminFileDialog::ShowScript(Array
 					<script>
 						window.BXFM_archivePermsError = true;
 					</script>
-					<?
+					<?php 
 					return;
 				}
 
@@ -973,7 +973,7 @@ CAdminFileDialog::ShowScript(Array
 						window.fmUnpackSuccess = false;
 						window.fmUnpackErrors = <?=CUtil::PhpToJSObject($uErrors)?>
 						</script>
-					<?
+					<?php 
 					}
 					else
 					{
@@ -981,7 +981,7 @@ CAdminFileDialog::ShowScript(Array
 						<script>
 						window.fmUnpackSuccess = true;
 						</script>
-					<?
+					<?php 
 					}
 				}
 				else
@@ -991,7 +991,7 @@ CAdminFileDialog::ShowScript(Array
 					window.fmUnpackSuccess = false;
 					window.fmUnpackErrors = <?=CUtil::PhpToJsObject(GetMessage("FM_UTIL_ARC_ERROR"))?>;
 					</script>
-					<?
+					<?php 
 				}
 			break;
 		}
@@ -1121,38 +1121,38 @@ class CFilemanSearch
 		{
 ?>
 <script>
-<?if ($bBreak):  // Execution breaks on timeout?>
+<?php if ($bBreak):  // Execution breaks on timeout?>
 	window.fmsBtimeout = true;
 	window.fmsLastPath = '<?= CUtil::JSEscape(CFilemanUtils::TrimPath($nextPath, $this->docRoot))?>';
-<? else: ?>
+<?php  else: ?>
 	window.fmsBtimeout = false;
-<? endif; ?>
+<?php  endif; ?>
 
-<?if ($bStoped):  // Execution breaks on timeout?>
+<?php if ($bStoped):  // Execution breaks on timeout?>
 	window.fmsBstoped = true;
-<? else: ?>
+<?php  else: ?>
 	window.fmsBstoped = false;
-<? endif; ?>
+<?php  endif; ?>
 
-<? if ($this->Params['bCount']): ?>
+<?php  if ($this->Params['bCount']): ?>
 	window.fmsResult = <?= count($this->Result)?>;
-<? else: ?>
+<?php  else: ?>
 	window.fmsResult = <?= CUtil::PhpToJSObject($this->Result)?>;
-<? endif; ?>
+<?php  endif; ?>
 </script>
-<?
+<?php 
 		}
 		else
 		{
 ?>
 <script>
-<? if ($this->Params['bCount']): ?>
+<?php  if ($this->Params['bCount']): ?>
 	window.fmsResult = 0;
-<? else: ?>
+<?php  else: ?>
 	window.fmsResult = [];
-<? endif; ?>
+<?php  endif; ?>
 </script>
-<?
+<?php 
 		}
 	}
 
@@ -1703,7 +1703,7 @@ class CFilemanCopy
 				}
 				else // Ask to user - create destination folder or no?
 				{
-					?><script>window.BXFM_NoCopyToDir = "<?= ($bAccess ? "ask_user" : "access_denied")?>";</script><?
+					?><script>window.BXFM_NoCopyToDir = "<?= ($bAccess ? "ask_user" : "access_denied")?>";</script><?php 
 					return;
 				}
 			}
@@ -1760,7 +1760,7 @@ class CFilemanCopy
 								date: "<?= date(CDatabase::DateFormatToPHP(CLang::GetDateFormat("FULL")), CFilemanUtils::GetModifyTime($absPath_i)+CTimeZone::GetOffset())?>"
 							}
 						};
-						</script><?
+						</script><?php 
 						return;
 					}
 					elseif ($caseOption == 'replace')
@@ -1862,7 +1862,7 @@ class CFilemanCopy
 			status: "<?= (count($arWarnings) > 0 ? 'errors' : 'ok')?>",
 			errors: <?= (count($arWarnings) > 0 ? CUtil::PhpToJSObject($arWarnings) : '{}')?>
 		};
-		</script><?
+		</script><?php 
 	}
 
 	function SaveConfig($arConfig)
@@ -2005,7 +2005,7 @@ InitTranslitInputs({
 	use_google : <?= COption::GetOptionString("fileman", "use_translit_google", true) ? 'true' : 'false'?>
 });
 </script>
-<?
+<?php 
 	}
 }
 ?>

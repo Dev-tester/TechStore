@@ -165,7 +165,7 @@ class PushAndPullStep  extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->prevButtonID?>">
 				<?=$this->GetPrevCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		if ($this->GetNextStepID() !== null)
 		{
@@ -174,7 +174,7 @@ class PushAndPullStep  extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

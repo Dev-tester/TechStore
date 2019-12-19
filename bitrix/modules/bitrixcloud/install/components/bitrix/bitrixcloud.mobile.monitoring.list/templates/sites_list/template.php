@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arParamsMAL = array(
 					"TITLE" => GetMessage("BCLMMSL_TITLE")
@@ -69,7 +69,7 @@ else
 				</li>
 			</ul>
 		</div>
-	<?
+	<?php 
 }
 
 $APPLICATION->IncludeComponent(
@@ -84,13 +84,13 @@ $APPLICATION->IncludeComponent(
 <script type="text/javascript">
 	var listMenuItems = { items: [] };
 
-	<?if(empty($arResult["DOMAINS_TO_ADD"])):?>
+	<?php if(empty($arResult["DOMAINS_TO_ADD"])):?>
 	listMenuItems.items.push ({
 								name: "<?=GetMessage("BCLMMSL_NO_DOMAINS")?>",
 								icon: "default"
 							});
-	<?else:?>
-		<?foreach ($arResult["DOMAINS_TO_ADD"] as $domId => $domain):?>
+	<?php else:?>
+		<?php foreach ($arResult["DOMAINS_TO_ADD"] as $domId => $domain):?>
 			listMenuItems.items.push ({
 										name: "<?=$converter->Decode($domain)?>",
 										url: "<?=CHTTP::urlAddParams($arParams["EDIT_URL"],
@@ -101,8 +101,8 @@ $APPLICATION->IncludeComponent(
 											)?>",
 										icon: "add"
 			});
-		<?endforeach;?>
-	<?endif;?>
+		<?php endforeach;?>
+	<?php endif;?>
 
 	app.menuCreate(listMenuItems);
 

@@ -178,7 +178,7 @@ class XmlWriter
 				chmod($this->file, BX_FILE_PERMISSIONS);
 				if ($newFile)
 				{
-					fwrite($this->f, '<?xml version="1.0" encoding="'. $this->charset .'"?>' . PHP_EOL);
+					fwrite($this->f, '<?php xml version="1.0" encoding="'. $this->charset .'"?>' . PHP_EOL);
 				}
 			}
 			else

@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Loader;
 use Bitrix\Main\ModuleManager;
@@ -22,9 +22,9 @@ else
 
 if ($isFilter || $isSidebar): ?>
 	<div class="col-md-3 col-sm-4 col-sm-push-8 col-md-push-9<?=(isset($arParams['FILTER_HIDE_ON_MOBILE']) && $arParams['FILTER_HIDE_ON_MOBILE'] === 'Y' ? ' hidden-xs' : '')?>">
-		<? if ($isFilter): ?>
+		<?php  if ($isFilter): ?>
 			<div class="bx-sidebar-block">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:catalog.smart.filter",
 					"",
@@ -57,10 +57,10 @@ if ($isFilter || $isSidebar): ?>
 				);
 				?>
 			</div>
-		<? endif ?>
-		<? if ($isSidebar): ?>
+		<?php  endif ?>
+		<?php  if ($isSidebar): ?>
 			<div class="hidden-xs">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					"bitrix:main.include",
 					"",
@@ -75,13 +75,13 @@ if ($isFilter || $isSidebar): ?>
 				);
 				?>
 			</div>
-		<?endif?>
+		<?php endif?>
 	</div>
-<?endif?>
+<?php endif?>
 <div class="<?=(($isFilter || $isSidebar) ? "col-md-9 col-sm-8 col-sm-pull-4 col-md-pull-3" : "col-xs-12")?>">
 	<div class="row">
 		<div class="col-xs-12">
-			<?
+			<?php 
 			if (ModuleManager::isModuleInstalled("sale"))
 			{
 				$arRecomData = array();
@@ -105,14 +105,14 @@ if ($isFilter || $isSidebar): ?>
 				{
 					?>
 					<div data-entity="parent-container">
-						<?
+						<?php 
 						if (!isset($arParams['GIFTS_SECTION_LIST_HIDE_BLOCK_TITLE']) || $arParams['GIFTS_SECTION_LIST_HIDE_BLOCK_TITLE'] !== 'Y')
 						{
 							?>
 							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
 								<?=($arParams['GIFTS_SECTION_LIST_BLOCK_TITLE'] ?: \Bitrix\Main\Localization\Loc::getMessage('CT_GIFTS_SECTION_LIST_BLOCK_TITLE_DEFAULT'))?>
 							</div>
-							<?
+							<?php 
 						}
 
 						CBitrixComponent::includeComponentClass('bitrix:sale.products.gift.section');
@@ -196,13 +196,13 @@ if ($isFilter || $isSidebar): ?>
 						);
 						?>
 					</div>
-					<?
+					<?php 
 				}
 			}
 			?>
 		</div>
 		<div class="col-xs-12">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:catalog.section.list",
 				"",
@@ -377,7 +377,7 @@ if ($isFilter || $isSidebar): ?>
 			);
 			?>
 		</div>
-		<?
+		<?php 
 		$GLOBALS['CATALOG_CURRENT_SECTION_ID'] = $intSectionID;
 
 		if (ModuleManager::isModuleInstalled("sale"))
@@ -391,7 +391,7 @@ if ($isFilter || $isSidebar): ?>
 						<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
 							<?=GetMessage('CATALOG_PERSONAL_RECOM')?>
 						</div>
-						<?
+						<?php 
 						$APPLICATION->IncludeComponent(
 							"bitrix:catalog.section",
 							"",
@@ -507,7 +507,7 @@ if ($isFilter || $isSidebar): ?>
 						);
 						?>
 					</div>
-					<?
+					<?php 
 				}
 			}
 		}

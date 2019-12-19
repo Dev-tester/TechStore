@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REST_EXTERNAL_CHANNEL"] = "Внешний канал";
 $MESS["CRM_REST_EXTERNAL_CHANNEL_ACTIVITY"] = "Внешний канал. Документы  ";
 $MESS["CRM_REST_EXTERNAL_CHANNEL_ACTIVITY_IN"] = "Внешний канал. Документы (входящие)";

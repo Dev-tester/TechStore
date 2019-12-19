@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STORE_TITLE_UPDATE"] = "Edit Warehouse #ID#";
 $MESS["STORE_TITLE_ADD"] = "New warehouse";
 $MESS["STORE_LIST"] = "All warehouses";

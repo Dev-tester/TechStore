@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_DEPENDENCY_START"] = "Старт";
 $MESS["TASKS_DEPENDENCY_END"] = "Финиш";
 $MESS["TASKS_STATUS_METASTATE_EXPIRED"] = "Просрочена";

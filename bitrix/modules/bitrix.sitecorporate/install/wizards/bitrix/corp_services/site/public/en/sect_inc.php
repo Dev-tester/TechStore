@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <h5>New Services</h5>
 <dl class="block-list">
 	<dt><a href="<?=SITE_DIR?>services/corp/merchant.php">Merchant Services</a></dt>

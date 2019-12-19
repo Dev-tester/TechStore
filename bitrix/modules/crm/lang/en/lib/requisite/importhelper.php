@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RQ_IMP_HLPR_ERR_INVALID_ENTITY_TYPE"] = "Incorrect details entity type";
 $MESS["CRM_RQ_IMP_HLPR_ERR_INVALID_ENTITY_ID"] = "No entity specified for use with details.";
 $MESS["CRM_RQ_IMP_HLPR_ERR_COMPANY_NOT_EXISTS"] = "Company was not found (ID: #ID#)";

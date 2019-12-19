@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -18,7 +18,7 @@ if (!empty($arResult['ERRORS']['FATAL']))
 	{
 		?>
 		<div class="page-description"><?= $error ?></div>
-		<?
+		<?php 
 	}
 }
 else
@@ -29,7 +29,7 @@ else
 		{
 			?>
 			<div class="page-description"><?= $error ?></div>
-			<?
+			<?php 
 		}
 	}
 	?>
@@ -45,7 +45,7 @@ else
 					)) ?>
 				</div>
 				<div class="order-list">
-					<? foreach ($arResult['BASKET'] as $basketItem)
+					<?php  foreach ($arResult['BASKET'] as $basketItem)
 					{
 						$src = htmlspecialcharsbx($basketItem['PICTURE']['SRC']);
 						if (strlen($basketItem['PICTURE']['SRC']) === 0)
@@ -64,19 +64,19 @@ else
 								<div class="order-item-quantity"><?= (float)$basketItem['QUANTITY'] ?>
 									&nbsp;<?= htmlspecialcharsbx($basketItem['MEASURE_NAME']) ?></div>
 								<div class="order-item-price">
-									<?
+									<?php 
 									if ($basketItem['DISCOUNT_PRICE'] > 0)
 									{
 										?>
 										<span class="order-item-price-old"><?= $basketItem['BASE_PRICE_FORMATED'] ?></span>
-										<?
+										<?php 
 									}
 									?>
 									<?= $basketItem['PRICE_FORMATED'] ?>
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
@@ -89,18 +89,18 @@ else
 					<tr>
 						<td class="order-total-item"><?= Loc::getMessage('SOD_COMMON_SUM') ?></td>
 						<td class="order-total-value">
-							<?
+							<?php 
 							if (strlen($arResult["BASE_PRODUCT_SUM_FORMATED"]) && ($arResult['BASE_PRODUCT_SUM'] > $arResult['PRODUCT_SUM']))
 							{
 								?>
 								<span class="order-total-price-old"><?= $arResult['BASE_PRODUCT_SUM_FORMATED'] ?></span>
-								<?
+								<?php 
 							}
 							?>
 							<span class="order-total-price"><?= $arResult['PRODUCT_SUM_FORMATED'] ?></span>
 						</td>
 					</tr>
-					<?
+					<?php 
 					if (strlen($arResult["DISCOUNT_VALUE_FORMATED"]))
 					{
 						?>
@@ -110,14 +110,14 @@ else
 								<span class="order-total-sale-price"><?= $arResult['DISCOUNT_VALUE_FORMATED'] ?></span>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					if ((float)($arResult["PRICE_DELIVERY"]) > 0)
 					{
 						?>
 						<tr>
 							<td class="order-total-item"><?= Loc::getMessage('SOD_DELIVERY') ?></td>
-							<?
+							<?php 
 							$dicountText = Loc::getMessage('SOD_FREE');
 							if ((float)($arResult["PRICE_DELIVERY"]) > 0)
 							{
@@ -126,7 +126,7 @@ else
 							?>
 							<td class="order-total-value"><?= $dicountText ?></td>
 						</tr>
-						<?
+						<?php 
 					}
 					if ((float)$arResult["TAX_VALUE"] > 0)
 					{
@@ -137,7 +137,7 @@ else
 								<span class="order-total-price"><?= $arResult["TAX_VALUE_FORMATED"] ?></span>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					?>
 				</table>
@@ -147,7 +147,7 @@ else
 				</div>
 			</div>
 			<!--endregion-->
-			<?
+			<?php 
 			foreach ($arResult['PAYMENT'] as $payment)
 			{
 				$paymentComponentParams = [
@@ -166,7 +166,7 @@ else
 			?>
 		</div>
 	</section>
-	<?
+	<?php 
 }
 ?>
 

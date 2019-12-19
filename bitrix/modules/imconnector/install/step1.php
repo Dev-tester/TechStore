@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Localization\Loc,
 	\Bitrix\Main\Context;
 
@@ -16,11 +16,11 @@ if($ex = $APPLICATION->GetException())
 		"HTML" => true,
 	));
 ?>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo Loc::getMessage("MOD_BACK")?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo Loc::getMessage("MOD_BACK")?>">
 </form>
-<?
+<?php 
 }
 else
 {
@@ -44,7 +44,7 @@ else
 	</div>
 </div>
 <br>
-<form action="<?echo $APPLICATION->GetCurPage()?>" name="form1" style="display: inline-block;">
+<form action="<?php echo $APPLICATION->GetCurPage()?>" name="form1" style="display: inline-block;">
 	<table cellpadding="3" cellspacing="0" border="0" width="0%" class="adm-workarea">
 	<tr>
 		<td><?=Loc::getMessage("IMCONNECTOR_PUBLIC_PATH")?></td>
@@ -54,12 +54,12 @@ else
 	<br><br>
 
 	<?=bitrix_sessid_post()?>
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
 	<input type="hidden" name="id" value="imconnector">
 	<input type="hidden" name="install" value="Y">
 	<input type="hidden" name="step" value="2">
 	<input type="submit" name="inst" value="<?= Loc::getMessage("MOD_INSTALL")?>">
 </form>
-<?
+<?php 
 }
 ?>

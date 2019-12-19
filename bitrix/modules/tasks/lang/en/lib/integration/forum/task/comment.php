@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_COMMENT_MESSAGE_ADD_N"] = "Added a comment to task #TASK_URL_BEGIN##TASK_TITLE##URL_END#.";
 $MESS["TASKS_COMMENT_MESSAGE_EDIT_N"] = "Changed a comment to #TASK_URL_BEGIN##TASK_TITLE##URL_END#.";
 $MESS["TASKS_COMMENT_MESSAGE_ADD_F"] = "Added a comment to task #TASK_URL_BEGIN##TASK_TITLE##URL_END#.";

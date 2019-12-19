@@ -1,4 +1,4 @@
-<?
+<?php 
 class CPackageWelcome extends CWizardStep
 {
 	var $package;

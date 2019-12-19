@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MFC1_CANT_LOAD_DATAFILE"] = "Не удалось загрузить файл с данными";
 $MESS["MFC1_CANT_OPEN_ERRORFILE"] = "Не удалось открыть файл ошибок";
 $MESS["MFC1_CANT_CREATE_ERRORFILE"] = "Не удалось создать файл ошибок";

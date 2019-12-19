@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FILE_VIEW_BPABL_RES_1"] = "No";
 $MESS["DISK_FILE_VIEW_BPABL_RES_2"] = "Success";
 $MESS["DISK_FILE_VIEW_BPABL_RES_3"] = "Canceled";

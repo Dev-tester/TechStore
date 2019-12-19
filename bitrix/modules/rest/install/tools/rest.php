@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/rest/tools/rest.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/rest/tools/rest.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBD_FIELD_ID"] = "Element ID";
 $MESS["IBD_FIELD_TIMESTAMP_X"] = "Element Last Modified On";
 $MESS["IBD_FIELD_MODYFIED"] = "Element Last Modified By";

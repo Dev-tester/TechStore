@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 define('STOP_STATISTICS', true);
 define('NO_AGENT_CHECK', true);
@@ -136,51 +136,51 @@ else
 	$startDate->add('-3M');
 	$startDate->setTime(0,0,0);
 
-	?><div id="basket_discount_empty_orders" style="display: <?=($ordersCounter == 0 ? 'block' : 'none'); ?>;"><?
+	?><div id="basket_discount_empty_orders" style="display: <?=($ordersCounter == 0 ? 'block' : 'none'); ?>;"><?php 
 	ShowNote(Loc::getMessage('SALE_BASKET_DISCOUNT_MESS_ORDERS_ABSENT'));
 	?></div>
 	<div id="basket_discount_result_div" style="margin:0; display: none;"></div>
 	<div id="basket_discount_error_div" style="margin:0; display: none;">
 		<div class="adm-info-message-wrap adm-info-message-red">
 			<div class="adm-info-message">
-				<div class="adm-info-message-title"><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_ERRORS_TITLE'); ?></div>
+				<div class="adm-info-message-title"><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_ERRORS_TITLE'); ?></div>
 				<div id="basket_discount_error_cont"></div>
 				<div class="adm-info-message-icon"></div>
 			</div>
 		</div>
 	</div>
-	<form name="basket_discount_form" action="<? echo $APPLICATION->GetCurPage(); ?>" method="GET"><?
+	<form name="basket_discount_form" action="<?php  echo $APPLICATION->GetCurPage(); ?>" method="GET"><?php 
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		?><tr>
-			<td width="40%"><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_MAX_EXECUTION_TIME')?></td>
-			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $oneStepTime; ?>"></td>
+			<td width="40%"><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_MAX_EXECUTION_TIME')?></td>
+			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $oneStepTime; ?>"></td>
 		</tr>
 		<tr class="heading">
-			<td colspan="2"><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER'); ?></td>
+			<td colspan="2"><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER'); ?></td>
 		</tr>
 		<tr>
-			<td width="40%"><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE') ?></td>
+			<td width="40%"><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE') ?></td>
 			<td>
 				<select name="filter_type" id="filter_type">
-					<option value="all" selected><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE_ALL'); ?></option>
-					<option value="id"><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE_ID'); ?></option>
-					<option value="date" selected><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE_DATE'); ?></option>
+					<option value="all" selected><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE_ALL'); ?></option>
+					<option value="id"><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE_ID'); ?></option>
+					<option value="date" selected><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_TYPE_DATE'); ?></option>
 				</select>
 			</td>
 		</tr>
 		<tr id="tr_filter_id" style="display: none;">
-			<td width="40%"><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_ORDER_ID_RANGE') ?></td>
-			<td><?
+			<td width="40%"><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_ORDER_ID_RANGE') ?></td>
+			<td><?php 
 				echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_RANGE_FROM');
-				?>&nbsp;<input type="text" name="order_id_from" id="order_id_from" size="5">&nbsp;<?
+				?>&nbsp;<input type="text" name="order_id_from" id="order_id_from" size="5">&nbsp;<?php 
 				echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_RANGE_TO');
 				?>&nbsp;<input type="text" name="order_id_to" id="order_id_to" size="5">
 			</td>
 		</tr>
 		<tr id="tr_filter_date" style="display: table-row;">
-			<td width="40%"><? echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_DATE_RANGE') ?></td>
-			<td><?
+			<td width="40%"><?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_FILTER_DATE_RANGE') ?></td>
+			<td><?php 
 				$calendar = new CAdminCalendar;
 				echo $calendar->CalendarPeriodCustom(
 					'order_date_from', 'order_date_to',
@@ -189,14 +189,14 @@ else
 				);
 			?></td>
 		</tr>
-		<?
+		<?php 
 		$tabControl->Buttons();
 		?>
-		<input type="button" id="start_button" value="<? echo Loc::getMessage('SALE_BASKET_DISCOUNT_UPDATE_BTN')?>" disabled>
-		<input type="button" id="stop_button" value="<? echo Loc::getMessage('SALE_BASKET_DISCOUNT_STOP_BTN')?>" disabled>
-		<?
+		<input type="button" id="start_button" value="<?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_UPDATE_BTN')?>" disabled>
+		<input type="button" id="stop_button" value="<?php  echo Loc::getMessage('SALE_BASKET_DISCOUNT_STOP_BTN')?>" disabled>
+		<?php 
 		$tabControl->End();
-	?></form><?
+	?></form><?php 
 	$jsParams = array(
 		'url' => $APPLICATION->GetCurPage(),
 		'options' => array(
@@ -227,7 +227,7 @@ else
 	);
 	?>
 <script type="text/javascript">
-	var jsBasketDiscountConverter = new BX.Sale.Admin.StepOperations.StepOperationsFilter(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
+	var jsBasketDiscountConverter = new BX.Sale.Admin.StepOperations.StepOperationsFilter(<?php  echo CUtil::PhpToJSObject($jsParams, false, true); ?>);
 	BX.ready(function(){
 		var filterType = BX('filter_type'),
 			filterId = BX('tr_filter_id'),
@@ -241,6 +241,6 @@ else
 		}
 	});
 </script>
-	<?
+	<?php 
 	require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');
 }

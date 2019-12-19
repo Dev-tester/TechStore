@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_SHOW_TAB_1"] = "Предложение";
 $MESS["CRM_QUOTE_SHOW_TAB_1_TITLE"] = "Свойства предложения";
 $MESS["CRM_TAB_2"] = "Контакт";

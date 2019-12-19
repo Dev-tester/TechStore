@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 ?>
 
-<?
+<?php 
 
 $dbRes = CSite::GetList($b='SORT', $o='ASC', array('DEF'=>'Y'));
 if ($arRes = $dbRes->Fetch())

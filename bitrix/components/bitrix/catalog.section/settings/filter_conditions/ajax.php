@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_before.php');
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_js.php');
 define('BX_PUBLIC_MODE', 1);

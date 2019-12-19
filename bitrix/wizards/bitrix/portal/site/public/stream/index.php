@@ -1,13 +1,13 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 $APPLICATION->SetPageProperty("title", htmlspecialcharsbx(COption::GetOptionString("main", "site_name", "Bitrix24")));
 ?>
-<?
+<?php 
 if (SITE_TEMPLATE_ID !== "bitrix24")
 	return;
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.log.ex", 
 	"", 
@@ -53,7 +53,7 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:intranet.bitrix24.banner",
 	"",
 	array(),
@@ -61,12 +61,12 @@ $APPLICATION->IncludeComponent(
 	array("HIDE_ICONS" => "N")
 );?>
 
-<?
+<?php 
 if(CModule::IncludeModule('intranet')):
 	$APPLICATION->IncludeComponent("bitrix:intranet.ustat.status", "", array(),	false);
 endif;?>
 
-<?
+<?php 
 if(CModule::IncludeModule('calendar')):
 	$APPLICATION->IncludeComponent("bitrix:calendar.events.list", "widget", array(
 		"CALENDAR_TYPE" => "user",
@@ -83,7 +83,7 @@ if(CModule::IncludeModule('calendar')):
 endif;?>
 
 
-<?
+<?php 
 if(CModule::IncludeModule('tasks')):
 	$APPLICATION->IncludeComponent(
 		"bitrix:tasks.filter.v2",
@@ -101,7 +101,7 @@ if(CModule::IncludeModule('tasks')):
 	);
 endif;?>
 
-<?if ($GLOBALS["USER"]->IsAuthorized())
+<?php if ($GLOBALS["USER"]->IsAuthorized())
 {
 	$APPLICATION->IncludeComponent("bitrix:socialnetwork.blog.blog", "important",
 		Array(
@@ -157,7 +157,7 @@ endif;?>
 }
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:blog.popular_posts", "widget", array(
+<?php $APPLICATION->IncludeComponent("bitrix:blog.popular_posts", "widget", array(
 	"GROUP_ID" => 1,
 	"SORT_BY1" => "RATING_TOTAL_VALUE",
 	"MESSAGE_COUNT" => "5",
@@ -177,7 +177,7 @@ endif;?>
 	false
 );?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:intranet.structure.birthday.nearest",
 	"widget",
 	Array(
@@ -195,7 +195,7 @@ endif;?>
 	)
 );?>
 
-<?if(CModule::IncludeModule('bizproc')):
+<?php if(CModule::IncludeModule('bizproc')):
 	$APPLICATION->IncludeComponent(
 		'bitrix:bizproc.task.list',
 		'widget',
@@ -210,4 +210,4 @@ endif;?>
 	);
 endif;?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

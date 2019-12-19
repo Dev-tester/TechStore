@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SONET_USER_LINKS_ONLINE"] = "Online";
 $MESS["GD_SONET_USER_LINKS_BIRTHDAY"] = "Birthday";
 $MESS["GD_SONET_USER_LINKS_HONOURED"] = "Honored";

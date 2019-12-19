@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_IBEL_IBLOCK_TYPE"] = "Type of information block";
 $MESS["GD_IBEL_IBLOCK_ID"] = "Information block";
 $MESS["GD_IBEL_SORT_ORDER_ASC"] = "Ascending";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EDIT_LANG_TITLE'] = "Редактирование языка \"#ID#\"";
 $MESS ['NEW_LANG_TITLE'] = "Добавление языка";
 $MESS ['RECORD_LIST'] = "Список языков";

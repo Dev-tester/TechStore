@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Socialnetwork\LogTable;
 
 class CSocNetLogRights

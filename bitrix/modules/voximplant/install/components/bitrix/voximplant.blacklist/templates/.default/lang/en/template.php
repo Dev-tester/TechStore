@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLACKLIST_ABOUT_2"] = "A call will be rejected if the caller ID is found in the list. You will find information on this call here: \"#LINK#\"";
 $MESS["BLACKLIST_ABOUT_LINK"] = "Call Log";
 $MESS["BLACKLIST_CANCEL"] = "Cancel";

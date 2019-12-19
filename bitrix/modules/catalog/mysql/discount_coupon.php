@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main,
 	Bitrix\Catalog,
 	Bitrix\Sale\DiscountCouponsManager;

@@ -21,7 +21,7 @@ if ($targetUrl)
 
 
 <script>
-	<?if($sliderMode && $targetUrl):?>
+	<?php if($sliderMode && $targetUrl):?>
 	//TODO: REFACTORE THIS TO ELEMENT CLASS WITH NORMAL NODES
 	var elementNode = document.querySelector('#<?=$elementId?>');
 	if (elementNode)
@@ -34,5 +34,5 @@ if ($targetUrl)
 		};
 	}
 
-	<?endif;?>
+	<?php endif;?>
 </script>

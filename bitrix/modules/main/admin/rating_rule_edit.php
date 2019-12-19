@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager                        #
 # Copyright (c) 2002-2010 Bitrix             #
@@ -133,10 +133,10 @@ $tabControl->BeginEpilogContent();
 	<input type="hidden" name="ID" value=<?=$ID?>>
 	<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 	<input type="hidden" name="action" value="" id="action">
-<?if($_REQUEST["addurl"]<>""):?>
-	<input type="hidden" name="addurl" value="<?echo htmlspecialcharsbx($_REQUEST["addurl"])?>">
-<?endif;?>
-<?
+<?php if($_REQUEST["addurl"]<>""):?>
+	<input type="hidden" name="addurl" value="<?php echo htmlspecialcharsbx($_REQUEST["addurl"])?>">
+<?php endif;?>
+<?php 
 $tabControl->EndEpilogContent();
 $tabControl->Begin();
 
@@ -151,7 +151,7 @@ $tabControl->BeginCustomField("ACTIVE", GetMessage('RATING_RULE_EDIT_FRM_ACTIVE'
 		<td><?=GetMessage("RATING_RULE_EDIT_FRM_ACTIVE")?></td>
 		<td><?=InputType("checkbox", "ACTIVE", "Y", $str_ACTIVE)?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("ACTIVE");
 
 $tabControl->BeginCustomField("ENTITY_TYPE_ID", GetMessage('RATING_RULE_EDIT_FRM_TYPE_ID'), true);
@@ -161,7 +161,7 @@ $arObjects = CRatingRule::GetRatingRuleObjects();
 		<td><?=GetMessage("RATING_RULE_EDIT_FRM_TYPE_ID")?></td>
 		<td><?=SelectBoxFromArray("ENTITY_TYPE_ID", array('reference_id' => $arObjects, 'reference' => $arObjects), $str_ENTITY_TYPE_ID, "", "onChange=\"jsTypeChanged('rating_rule_form')\"");?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("ENTITY_TYPE_ID");
 
 $tabControl->AddSection("CAT_HOW_ACTIVATE", GetMessage("RATING_RULE_EDIT_CAT_HOW_ACTIVATE"));
@@ -188,12 +188,12 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 					<?=SelectBoxFromArray("CONDITION_NAME", $arConditionName, $str_CONDITION_NAME, "", "onChange=\"jsTypeChanged('rating_rule_form')\"");?>
 				</td>
 				<td style="font-size:1em; padding-left: 15px" width="200" rowspan="<?=$conditionCount+1?>">
-				<? if(isset($arCurrentCondition['DESC'])): ?>
+				<?php  if(isset($arCurrentCondition['DESC'])): ?>
 					<p style="margin-top:0"><?=$arCurrentCondition['DESC']?></p>
-				<? endif; ?>
+				<?php  endif; ?>
 				</td>
 			</tr>
-			<?
+			<?php 
 				for ($i=0; $i<$conditionCount; $i++)
 				{
 					// define a default value
@@ -222,7 +222,7 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 							<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentCondition['FIELDS'][$i]['NAME']?>:</label></td>
 							<td width="25%"><?=SelectBoxFromArray("CONDITION_CONFIG[".$arCurrentCondition['ID']."][".$arCurrentCondition['FIELDS'][$i]['ID']."]", $arSelect, $strFieldValue);?></td>
 						</tr>
-						<?
+						<?php 
 					}
 					elseif (isset($arCurrentCondition['FIELDS'][$i]['TYPE']) && $arCurrentCondition['FIELDS'][$i]['TYPE'] == 'SELECT_ARRAY')
 					{
@@ -238,7 +238,7 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 							<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentCondition['FIELDS'][$i]['NAME']?>:</label></td>
 							<td width="25%"><?=SelectBoxFromArray("CONDITION_CONFIG[".$arCurrentCondition['ID']."][".$arCurrentCondition['FIELDS'][$i]['ID']."]", $arSelect, $strFieldValue, "");?></td>
 						</tr>
-						<?
+						<?php 
 					}
 					elseif (isset($arCurrentCondition['FIELDS'][$i]['TYPE']) && $arCurrentCondition['FIELDS'][$i]['TYPE'] == 'SELECT_ARRAY_WITH_INPUT')
 					{
@@ -264,7 +264,7 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 								<input type="text" name="CONDITION_CONFIG[<?=$arCurrentCondition['ID']?>][<?=$arCurrentCondition['FIELDS'][$i]['ID_INPUT']?>]" value="<?=$strFieldValueInput?>" style="width:45px;">
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					elseif (isset($arCurrentCondition['FIELDS'][$i]['TYPE']) && $arCurrentCondition['FIELDS'][$i]['TYPE'] == 'INPUT_INTERVAL')
 					{
@@ -283,7 +283,7 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 								<?=GetMessage('PP_USER_CONDITION_RATING_INTERVAL_TO')?> <input type="text" name="CONDITION_CONFIG[<?=$arCurrentCondition['ID']?>][<?=$arCurrentCondition['FIELDS'][$i]['ID_2']?>]" value="<?=$strFieldValue2?>" style="width:45px;">
 							</td>
 						</tr>
-						<?
+						<?php 
 					}
 					elseif (isset($arCurrentCondition['FIELDS'][$i]['TYPE']) && $arCurrentCondition['FIELDS'][$i]['TYPE'] == 'SEPARATOR')
 					{
@@ -291,7 +291,7 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 						<tr valign="top" class="heading">
 							<td colspan="3"><?=$arCurrentCondition['FIELDS'][$i]['NAME']?></td>
 						</tr>
-						<?
+						<?php 
 					}
 					elseif (isset($arCurrentCondition['FIELDS'][$i]['TYPE']) && $arCurrentCondition['FIELDS'][$i]['TYPE'] == 'TEXT')
 					{
@@ -299,7 +299,7 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 						<tr valign="top">
 							<td colspan="3" style="text-align:center"><?=$arCurrentCondition['FIELDS'][$i]['NAME']?></td>
 						</tr>
-						<?
+						<?php 
 					}
 					else
 					{
@@ -308,14 +308,14 @@ $conditionCount = count($arCurrentCondition['FIELDS']);
 							<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentCondition['FIELDS'][$i]['NAME']?>:</label></td>
 							<td width="25%" style="vertical-align:middle"><input type="text" name="CONDITION_CONFIG[<?=$arCurrentCondition['ID']?>][<?=$arCurrentCondition['FIELDS'][$i]['ID']?>]" size="<?=IntVal($arCurrentCondition['FIELDS'][$i]['SIZE'])?>" value="<?=$strFieldValue?>"> <?=isset($arCurrentCondition['FIELDS'][$i]['NAME_DESC'])? $arCurrentCondition['FIELDS'][$i]['NAME_DESC']: ''?></td>
 						</tr>
-						<?
+						<?php 
 					}
 				}
 			?>
 			</table>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("CONDITION_NAME");
 
 if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACTION'])
@@ -343,14 +343,14 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 						<?=SelectBoxFromArray("ACTION_NAME", $arActionName, $str_ACTION_NAME, "", "style=\"width: 300px\" onChange=\"jsTypeChanged('rating_rule_form')\"");?>
 					</td>
 					<td style="font-size:1em; padding-left: 15px" rowspan="<?=$actionCount+1?>">
-					<? if(isset($arCurrentAction['DESC'])): ?>
+					<?php  if(isset($arCurrentAction['DESC'])): ?>
 						<p style="margin-top:0"><?=$arCurrentAction['DESC']?></p>
-					<? else: ?>
+					<?php  else: ?>
 						<p style="margin-top:0"><?=GetMessage("RATING_RULE_EDIT_FRM_ACTION_DESC")?></p>
-					<? endif; ?>
+					<?php  endif; ?>
 					</td>
 				</tr>
-				<?
+				<?php 
 					for ($i=0; $i<$actionCount; $i++)
 					{
 						// define a default value
@@ -377,7 +377,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 								<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentAction['FIELDS'][$i]['NAME']?>:</label></td>
 								<td width="25%"><?=SelectBoxFromArray("ACTION_CONFIG[".$arCurrentAction['ID']."][".$arCurrentAction['FIELDS'][$i]['ID']."]", $arSelect, $strFieldValue, "", 'style="width: 300px"');?></td>
 							</tr>
-							<?
+							<?php 
 						}
 						else if (isset($arCurrentAction['FIELDS'][$i]['TYPE']) && $arCurrentAction['FIELDS'][$i]['TYPE'] == 'SELECT_CLASS_ARRAY')
 						{
@@ -396,7 +396,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 								<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentAction['FIELDS'][$i]['NAME']?>:</label></td>
 								<td width="25%"><?=SelectBoxFromArray("ACTION_CONFIG[".$arCurrentAction['ID']."][".$arCurrentAction['FIELDS'][$i]['ID']."]", $arSelect, $strFieldValue, "", 'style="width: 300px"');?></td>
 							</tr>
-							<?
+							<?php 
 						}
 						else if (isset($arCurrentAction['FIELDS'][$i]['TYPE']) && $arCurrentAction['FIELDS'][$i]['TYPE'] == 'SELECT_ARRAY')
 						{
@@ -411,7 +411,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 								<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentAction['FIELDS'][$i]['NAME']?>:</label></td>
 								<td width="25%"><?=SelectBoxFromArray("ACTION_CONFIG[".$arCurrentAction['ID']."][".$arCurrentAction['FIELDS'][$i]['ID']."]", $arSelect, $strFieldValue, "");?></td>
 							</tr>
-							<?
+							<?php 
 						}
 						elseif (isset($arCurrentAction['FIELDS'][$i]['TYPE']) && $arCurrentAction['FIELDS'][$i]['TYPE'] == 'SELECT_ARRAY_WITH_INPUT')
 						{
@@ -437,7 +437,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 									<input type="text" name="CONDITION_CONFIG[<?=$arCurrentAction['ID']?>][<?=$arCurrentAction['FIELDS'][$i]['ID_INPUT']?>]" value="<?=$strFieldValueInput?>" style="width:45px;">
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 						elseif (isset($arCurrentAction['FIELDS'][$i]['TYPE']) && $arCurrentAction['FIELDS'][$i]['TYPE'] == 'TEXTAREA')
 						{
@@ -446,7 +446,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 								<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentAction['FIELDS'][$i]['NAME']?>:</label></td>
 								<td width="25%"><textarea name="ACTION_CONFIG[<?=$arCurrentAction['ID']?>][<?=$arCurrentAction['FIELDS'][$i]['ID']?>]" wrap="OFF" rows="10" cols="34"></textarea><?=$strFieldValue?></textarea></td>
 							</tr>
-							<?
+							<?php 
 						}
 						else
 						{
@@ -455,7 +455,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 								<td class="field-name" style="vertical-align:middle"><label><?=$arCurrentAction['FIELDS'][$i]['NAME']?>:</label></td>
 								<td width="25%"><input type="text" name="ACTION_CONFIG[<?=$arCurrentAction['ID']?>][<?=$arCurrentAction['FIELDS'][$i]['ID']?>]" value="<?=$strFieldValue?>"></td>
 							</tr>
-							<?
+							<?php 
 						}
 					}
 
@@ -465,7 +465,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 					$strFieldValue = $arCurrentAction['ACTIVATE_DEFAULT'];
 				?>
 
-				<?
+				<?php 
 				// define a default value
 				$strFieldValue = isset($_REQUEST["DEACTIVATE"]) && $_REQUEST["DEACTIVATE"] == 'Y' ? 'Y' : (isset($str_DEACTIVATE) ? $str_DEACTIVATE : 'N');
 				if ($ID == 0 && empty($_POST))
@@ -475,7 +475,7 @@ if (!isset($arCurrentCondition['HIDE_ACTION']) || !$arCurrentCondition['HIDE_ACT
 				</table>
 			</td>
 		</tr>
-	<?
+	<?php 
 	$tabControl->EndCustomField("ACTION_NAME");
 }
 $tabControl->Buttons(array(
@@ -499,6 +499,6 @@ function jsTypeChanged(form_id)
 }
 </script>
 <style type="text/css">.field-name { text-align:right; padding-top: 10px; vertical-align: top!important }</style>
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

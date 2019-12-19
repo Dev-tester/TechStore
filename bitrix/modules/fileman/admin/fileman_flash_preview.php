@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -38,7 +38,7 @@ if (isset($_GET['path']))
 <embed id="flash_preview" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" name="preview_flash"
 quality="high" <?=$width?> <?=$height?> src="<?=htmlspecialcharsex($path)?>" />
 </BODY></HTML>
-		<?
+		<?php 
 	}
 }
 ?>

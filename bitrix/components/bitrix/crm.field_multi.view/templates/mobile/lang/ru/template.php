@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_LIST_UP"] = "Вверх";
 $MESS["CRM_STATUS_LIST_DOWN"] = "Вниз";
 $MESS["CRM_STATUS_LIST_DELETE"] = "Удалить";

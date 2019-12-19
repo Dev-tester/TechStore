@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die(); 
 
 __IncludeLang($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/lang/'.LANGUAGE_ID.'/template.php');
@@ -25,7 +25,7 @@ if (count($arResult['LISTS']) > 0):
 }
 </style>
 <div class="bx-sp-lists">
-<?
+<?php 
 	foreach ($arResult['LISTS'] as $list):
 		$ID_CLEAR = htmlspecialcharsbx(CIntranetUtils::checkGUID($list['ID']));
 		
@@ -34,14 +34,14 @@ if (count($arResult['LISTS']) > 0):
 		$url_img = $list['IMAGE'] ? $arResult['URL']['scheme'].'://'.$arResult['URL']['host'].$list['IMAGE'] : '';
 		$url_list = $arResult['URL']['scheme'].'://'.$arResult['URL']['host'].$list['URL'];
 ?>
-	<div id="line_<?=$ID_CLEAR?>" class="<?
+	<div id="line_<?=$ID_CLEAR?>" class="<?php 
 echo $bExists ? 'bx-sp-unavail' : ''
 ?>" onclick="SLsetListValue(this)">
 		<input type="radio" name="sp_list_id" value="<?=$ID_CLEAR?>" id="<?=$ID_CLEAR?>"<?=$bExists ? ' disabled="disabled"' : ''?> />
-		<?if ($url_img):?><img src="<?=htmlspecialcharsbx($url_img)?>" border="0" />&nbsp;<?endif;?><a href="<?=htmlspecialcharsbx($url_list)?>" target="_blank"><?=htmlspecialcharsex($list['TITLE'])?></a>
-		<?if (strlen($list['DESCRIPTION']) > 0):?><br /><small><?=htmlspecialcharsex($list['DESCRIPTION'])?></small><?endif;?>
+		<?php if ($url_img):?><img src="<?=htmlspecialcharsbx($url_img)?>" border="0" />&nbsp;<?php endif;?><a href="<?=htmlspecialcharsbx($url_list)?>" target="_blank"><?=htmlspecialcharsex($list['TITLE'])?></a>
+		<?php if (strlen($list['DESCRIPTION']) > 0):?><br /><small><?=htmlspecialcharsex($list['DESCRIPTION'])?></small><?php endif;?>
 	</div>
-<?
+<?php 
 	endforeach;
 ?>
 </div>
@@ -67,7 +67,7 @@ wnd.SetTitle('<?=CUtil::JSEscape(GetMessage('SL_FORM_LISTS_STEP_TITLE'))?>');
 wnd.SetHead('<?=CUtil::JSEscape(GetMessage('SL_FORM_LISTS_STEP_HEAD'))?>');
 
 window.SLnextButton.disable();
-<?
+<?php 
 	if ($arResult['SERVICE']['SP_LIST_ID']):
 ?>
 BX.ready(function() {
@@ -82,11 +82,11 @@ BX.ready(function() {
 		SLsetListValue(obInput.parentNode);
 	}
 });
-<?
+<?php 
 	endif;
 ?>
 </script>
-<?
+<?php 
 else:
 	ShowError(GetMessage('SL_FORM_LISTS_ERROR_NONE'));
 ?>
@@ -96,6 +96,6 @@ wnd.ClearButtons();
 wnd.SetHead('');
 wnd.SetButtons(wnd.btnClose);
 </script>
-<?
+<?php 
 endif;
 ?>

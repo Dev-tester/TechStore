@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_IBLOCK_TYPE'] = "Тип инфоблока";
 $MESS ['WD_IBLOCK_ID'] = "Инфоблок";
 $MESS ['WD_SECTION_ID'] = "ID каталога";

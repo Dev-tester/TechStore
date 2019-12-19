@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_NAME"] = "Блог пользователя";
 $MESS["BLG_SHARE_ALL"] = "Все сотрудники";
 $MESS["BLG_SHARE_ALL_BUS"] = "Все пользователи";

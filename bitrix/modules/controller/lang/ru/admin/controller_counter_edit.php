@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_COUNTER_EDIT_ERROR"] = "Ошибка сохранения";
 $MESS["CTRL_CNT_EDIT_TITLE"] = "Редактирование счетчика ##ID#";
 $MESS["CTRL_CNT_EDIT_TITLE_NEW"] = "Новый счетчик";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_TITLE'] = "Name";
 $MESS ['P_DATE'] = "Date";
 $MESS ['P_TAGS'] = "Tags";

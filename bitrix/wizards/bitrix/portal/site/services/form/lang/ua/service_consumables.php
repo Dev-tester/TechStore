@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_NOTE_QUESTION"] = "Відповідь";
 $MESS["COMMENT_QUESTION"] = "Коментар";
 $MESS["CONSUMABLES_MENU_NAME"] = "Витратні матеріали";

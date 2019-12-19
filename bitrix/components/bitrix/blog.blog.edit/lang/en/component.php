@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BLOG_MODULE_NOT_INSTALL'] = "Blog module is not installed.";
 $MESS ['BLOG_TOP_TITLE'] = "Blog &quot;#BLOG#&quot;";
 $MESS ['BLOG_NEW_BLOG'] = "New blog";

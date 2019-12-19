@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DH_EMS_NAME'] = "EMS Почта России";
 $MESS ['SALE_DH_EMS_DESCRIPTION'] = "Экспресс-доставка";
 $MESS ['SALE_DH_EMS_DESCRIPTION_INNER'] = "Обработчик службы доставки \"EMS Почта России\". Доставка только из России. Работает на основе <a href=\"http://www.emspost.ru/corp_clients/dogovor_docements/api.php\" target=\"_blank\">публичного API службы</a>.<br />Необходима установка адреса магазина в <a href=\"/bitrix/admin/settings.php?mid=sale&lang=ru\">настройках модуля</a>.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIG_PERMS_REBUILD_COMPANY_ATTRS"] = "Для правильной работы расширенных прав доступа к компаниям необходимо <a id=\"#ID#\" href=\"#URL#\">выполнить обновление</a> атрибутов доступа созданных ранее компаний.";
 $MESS["CRM_CONFIG_PERMS_LRP_DLG_BTN_START"] = "Выполнить";
 $MESS["CRM_CONFIG_PERMS_LRP_DLG_BTN_STOP"] = "Остановить";

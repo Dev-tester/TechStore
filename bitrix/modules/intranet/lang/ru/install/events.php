@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_INVITATION_NAME"] = "Приглашение сотрудников";
 $MESS["INTRANET_USER_INVITATION_DESC"] = "#EMAIL_TO# - E-Mail приглашенного сотрудника
 #LINK# - ссылка на страницу активации нового сотрудника";

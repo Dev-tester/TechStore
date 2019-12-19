@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $bFirst = true;
 			 
@@ -7,7 +7,7 @@ if (array_key_exists("CHAIN", $arResult) && count($arResult["CHAIN"]) > 0)
 	foreach ($arResult["CHAIN"] as $arSectionPath)
 	{
 		if (!$bFirst):
-			?><br><?
+			?><br><?php 
 		else:
 			$bFirst = false;
 		endif;
@@ -23,12 +23,12 @@ if (array_key_exists("CHAIN", $arResult) && count($arResult["CHAIN"]) > 0)
 				$res = $arSection["NAME"];
 	
 			if (!$bFirstChain):
-				?> - <?
+				?> - <?php 
 			else:
 				$bFirstChain = false;
 			endif;
 
-			?><span class="fields enumeration"><?=$res?></span><?
+			?><span class="fields enumeration"><?=$res?></span><?php 
 		}
 	}
 }
@@ -42,12 +42,12 @@ else
 			$res = $res;
 	
 		if (!$bFirst):
-			?>, <?
+			?>, <?php 
 		else:
 			$bFirst = false;
 		endif;
 
-		?><span class="fields enumeration"><?=$res?></span><?
+		?><span class="fields enumeration"><?=$res?></span><?php 
 	endforeach;
 }
 ?>

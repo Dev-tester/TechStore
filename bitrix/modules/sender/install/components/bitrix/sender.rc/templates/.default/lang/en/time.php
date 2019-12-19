@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_RC_LETTER_TIME_OUTSIDE_ADD_SUCCESS"] = "Task has been saved!<br>
 You can now access in the CRM Marketing area (<a href=\"%path%\">Sales Boost</a>)";
 $MESS["SENDER_RC_LETTER_TIME_TMPL_TITLE_NEW"] = "%name% is ready to go!";

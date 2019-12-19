@@ -1,4 +1,4 @@
-<?
+<?php 
 global $APPLICATION, $MESS, $DBType;
 IncludeModuleLangFile(__FILE__);
 
@@ -401,7 +401,7 @@ function ForumAddMessage(
 	{
 		$bUpdateTopic = True;
 	}
-?><?
+?><?php 
 	if ($MESSAGE_TYPE =="EDIT" && (ForumCurrUserPermissions($FID, $arParams) > "Q" && $arFieldsG["EDIT_ADD_REASON"] == "N"))
 		$bAddEditNote = false;
 	//*************************!CAPTCHA********************************************************************************
@@ -2686,7 +2686,7 @@ function CustomizeLHEForForum()
 		};
 	};
 	</script>
-<?
+<?php 
 }
 function ForumGetEntity($entityId, $value = true)
 {

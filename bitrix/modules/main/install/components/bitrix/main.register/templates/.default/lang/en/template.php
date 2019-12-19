@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['AUTH_NONSECURE_NOTE'] = "The password will be sent in open form. Enable JavaScript in your web browser to enable password encryption.";
 $MESS['AUTH_REGISTER'] = "Registration";
 $MESS['AUTH_REQ'] = "Required fields.";

@@ -24,7 +24,7 @@ class LPA
 
 				//Trim php tags
 				$src = $arPHP[$n][2];
-				if (substr($src, 0, 5) == "<?"."php")
+				if (substr($src, 0, 5) == "<?php "."php")
 					$src = substr($src, 5);
 				else
 					$src = substr($src, 2);
@@ -77,7 +77,7 @@ class LPA
 				//Trim php tags
 				$src = $arPHP[$n][2];
 				if (substr($src, 0, 5) == "<?php")
-					$src = '<?'.substr($src, 5);
+					$src = '<?php '.substr($src, 5);
 
 				//If it's Component 2 - we handle it's params, non components2 will be somehow erased
 				$isComponent2Begin = false;
@@ -85,7 +85,7 @@ class LPA
 				$arIncludeComponentFunctionStrings = PHPParser::getComponentFunctionStrings();
 				foreach($arIncludeComponentFunctionStrings as $functionName)
 				{
-					$comp2_begin = '<?'.strtoupper($functionName).'(';
+					$comp2_begin = '<?php '.strtoupper($functionName).'(';
 					if(strtoupper(substr($src,0, strlen($comp2_begin))) == $comp2_begin)
 					{
 						$isComponent2Begin = true;
@@ -168,7 +168,7 @@ class LPA
 							$code .= ','.$br."\tarray(".$exParams.')';
 						}
 						$code .= $br.');';
-						$code = '<?'.$code.'?>';
+						$code = '<?php '.$code.'?>';
 						$new_filesrc .= $code;
 					}
 				}
@@ -197,7 +197,7 @@ class LPA
 					$new_filesrc .= substr($old_filesrc, $end, $start - $end);
 					$end = $arPHP[$n][1];
 					$src = $arPHP[$n][2];
-					$src = substr($src, (substr($src, 0, 5) == "<?"."php") ? 5 : 2, -2); // Trim php tags
+					$src = substr($src, (substr($src, 0, 5) == "<?php "."php") ? 5 : 2, -2); // Trim php tags
 
 					$isComponent2Begin = false;
 					$arIncludeComponentFunctionStrings = PHPParser::getComponentFunctionStrings();
@@ -224,11 +224,11 @@ class LPA
 
 				if (isset($arPHPscripts[$php_fr_num]))
 				{
-					$code = '<?'.$arPHPscripts[$php_fr_num].'?>';
+					$code = '<?php '.$arPHPscripts[$php_fr_num].'?>';
 				}
 				else
 				{
-					$code = '<??>';
+					$code = '<?php ?>';
 				}
 				$filesrc = substr($filesrc, 0, $php_begin).$code.substr($filesrc, $php_begin + 9);
 			}
@@ -239,7 +239,7 @@ class LPA
 
 	public static function EncodePHPTags($str)
 	{
-		$str = str_replace(array("<?","?>", "<%", "%>"),array("&lt;?","?&gt;","&lt;%","%&gt;"), $str);
+		$str = str_replace(array("<?php ","?>", "<%", "%>"),array("&lt;?","?&gt;","&lt;%","%&gt;"), $str);
 
 		static $pattern = "/(<script[^>]*language\\s*=\\s*)('|\"|)php('|\"|)([^>]*>)/i";
 		$str = preg_replace($pattern, "&lt;??&gt;", $str);

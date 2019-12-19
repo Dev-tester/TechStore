@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RECURRING_HINT_BASE"] = "Счет выставляется #CONDITION##CONSTRAINT#.";
 $MESS["CRM_RECURRING_DAILY"] = "день";
 $MESS["CRM_RECURRING_WEEKLY"] = "неделя";

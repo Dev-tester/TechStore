@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_DOCS_COUNTRY_RU"] = "Russia";
 $MESS["VI_DOCS_STATUS_REQUIRED"] = "Documents pending";
 $MESS["VI_DOCS_STATUS_IN_PROGRESS"] = "Verifying documents";

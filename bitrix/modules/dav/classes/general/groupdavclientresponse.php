@@ -1,4 +1,4 @@
-<?
+<?php 
 class CDavGroupdavClientResponce
 {
 	private $arDraftHeaders = array();

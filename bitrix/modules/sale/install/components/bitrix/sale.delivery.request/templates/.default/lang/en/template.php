@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CSDRT_SHIPMENTS_AMOUNT"] = "Number of shipments";
 $MESS["SALE_CSDRT_WEIGHT"] = "Total shipment weight";
 $MESS["SALE_CSDRT_CREATE_REQUEST"] = "Create new transportation order";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Order paying dialog
  */
@@ -9,7 +9,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 		<div class="order_acceptpay_title">
 			<?=($arResult['ORDER']['PAYED'] == 'N' ? GetMessage('SMOD_PAY') : GetMessage('SMOD_PAY_CANCEL'))?>
 		</div>
-		<?
+		<?php 
 
 		$APPLICATION->IncludeComponent(
 			'bitrix:mobileapp.interface.radiobuttons',
@@ -19,7 +19,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 		);
 
 		?>
-		<?if($arResult['ORDER']['PAYED'] == 'N'):?>
+		<?php if($arResult['ORDER']['PAYED'] == 'N'):?>
 			<div class="order_acceptpay_infoblock">
 				<div class="order_acceptpay_infoblock_title"><?=GetMessage('SMOD_BUDGET')?></div>
 				<ul>
@@ -30,9 +30,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 					</li>
 				</ul>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
-	<?
+	<?php 
 
 	if(floatval($arResult["ORDER"]["CURRENT_BUDGET"]) >= floatval($arResult["ORDER"]["PRICE"])
 		|| $arResult['ORDER']['PAYED'] == 'Y')
@@ -57,7 +57,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 				</li>
 			</ul>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 </form>

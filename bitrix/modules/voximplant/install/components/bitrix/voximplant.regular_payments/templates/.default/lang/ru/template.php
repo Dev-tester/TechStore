@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_REGULAR_TITLE"] = "Регулярные платежи";
 $MESS["VI_REGULAR_TABLE_NUMBER"] = "Номер";
 $MESS["VI_REGULAR_TABLE_PAID_BEFORE"] = "Оплачен до";

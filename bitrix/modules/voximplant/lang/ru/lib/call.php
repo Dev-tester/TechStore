@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALL_ENTITY_ID_FIELD"] = "ID";
 $MESS["CALL_ENTITY_CONFIG_ID_FIELD"] = "Идентификатор настройки";
 $MESS["CALL_ENTITY_USER_ID_FIELD"] = "Идентификатор пользователя";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AD_MENU_MAIN'] = "Advertising";
 $MESS ['AD_MENU_BANNER_LIST'] = "Banners";
 $MESS ['AD_MENU_BANNER_LIST_ALT'] = "Banner list";

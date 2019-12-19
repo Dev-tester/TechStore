@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPSG_ACT_PROP"] = "Handler properties";
 $MESS["SPSG_TYPE"] = "Type";
 $MESS["SPSG_OTHER"] = "Other value";

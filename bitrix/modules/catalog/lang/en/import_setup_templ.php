@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CICML_STEP_TITLE"] = "Step #CUR# of #ALL#";
 $MESS["CICML_NEXT_STEP_F"] = "Start import";
 $MESS["CICML_SAVE"] = "Save";

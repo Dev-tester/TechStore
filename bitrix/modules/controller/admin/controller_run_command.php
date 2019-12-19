@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -178,7 +178,7 @@ if (
 		echo GetMessage("CTRLR_RUN_ERR_TOO_MANY_SELECTED");
 		echo EndNote();
 		?>
-		<script>top.document.getElementById('tr_force').style.display = '';</script><?
+		<script>top.document.getElementById('tr_force').style.display = '';</script><?php 
 	}
 	else
 	{
@@ -380,7 +380,7 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 		);
 		function __FPHPSubmit()
 		{
-			if (confirm('<?echo GetMessage("CTRLR_RUN_CONFIRM")?>'))
+			if (confirm('<?php echo GetMessage("CTRLR_RUN_CONFIRM")?>'))
 			{
 				var selectedTab = BX('editTab_active_tab');
 				var m = selectedTab.value.match(/^tab(\d+)$/);
@@ -431,7 +431,7 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 		}
 	</script>
 	<div id="whole_form">
-	<?
+	<?php 
 	if(
 		$_SERVER['REQUEST_METHOD'] == 'POST'
 		&& $_POST["ajax"] === "y"
@@ -441,12 +441,12 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 		$APPLICATION->RestartBuffer();
 		?>
 		<script>window.editTab = null;</script>
-		<?
+		<?php 
 	}
 	?>
-	<form name="form1" action="<? echo $APPLICATION->GetCurPage() ?>" method="POST">
+	<form name="form1" action="<?php  echo $APPLICATION->GetCurPage() ?>" method="POST">
 		<input type="hidden" name="lang" value="<?=LANG?>">
-		<?
+		<?php 
 		if ($member_id > 0)
 		{
 			echo GetMessage("CTRLR_RUN_FILTER_SITE").': #'.$member_id."<br><br>";
@@ -472,7 +472,7 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 						for="controller_member_id"><?= GetMessage("CTRLR_RUN_FILTER_SITE") ?></label>:
 				</td>
 				<td nowrap>
-					<?
+					<?php 
 					$dbr_members = CControllerMember::GetList(array(
 						"SORT" => "ASC",
 						"NAME" => "ASC",
@@ -501,43 +501,43 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 
 					if ($arMembers):?>
 						<select name="controller_member_id" id="controller_member_id">
-							<option value=""><? echo GetMessage("CTRLR_RUN_FILTER_SITE_ALL") ?></option>
-							<? foreach ($arMembers as $ID => $NAME): ?>
+							<option value=""><?php  echo GetMessage("CTRLR_RUN_FILTER_SITE_ALL") ?></option>
+							<?php  foreach ($arMembers as $ID => $NAME): ?>
 								<option
-									value="<? echo htmlspecialcharsbx($ID) ?>"
-									<? if ($controller_member_id == $ID) echo ' selected'; ?>
-								><? echo htmlspecialcharsEx($NAME." [".$ID."]") ?></option>
-							<? endforeach ?>
+									value="<?php  echo htmlspecialcharsbx($ID) ?>"
+									<?php  if ($controller_member_id == $ID) echo ' selected'; ?>
+								><?php  echo htmlspecialcharsEx($NAME." [".$ID."]") ?></option>
+							<?php  endforeach ?>
 						</select>
-						<?
+						<?php 
 					else:?>
 						<input
 							type="text"
 							name="controller_member_id"
 							id="controller_member_id"
-							value="<? echo htmlspecialcharsbx($controller_member_id) ?>"
+							value="<?php  echo htmlspecialcharsbx($controller_member_id) ?>"
 							size="47"
 						/>
-					<? endif ?>
+					<?php  endif ?>
 				</td>
 			</tr>
 			<tr>
 				<td nowrap>
-					<label for="controller_group_id"><? echo htmlspecialcharsEx(GetMessage("CTRLR_RUN_FILTER_GROUP")) ?></label>:
+					<label for="controller_group_id"><?php  echo htmlspecialcharsEx(GetMessage("CTRLR_RUN_FILTER_GROUP")) ?></label>:
 				</td>
-				<td nowrap><? echo htmlspecialcharsEx($controller_group_id) ?>
+				<td nowrap><?php  echo htmlspecialcharsEx($controller_group_id) ?>
 					<select name="controller_group_id" id="controller_group_id">
-						<option value=""><? echo GetMessage("CTRLR_RUN_FILTER_GROUP_ANY") ?></option>
-						<? foreach ($arGroups as $group_id => $group_name): ?>
+						<option value=""><?php  echo GetMessage("CTRLR_RUN_FILTER_GROUP_ANY") ?></option>
+						<?php  foreach ($arGroups as $group_id => $group_name): ?>
 							<option
 								value="<?= $group_id ?>"
-								<? if ($group_id == $controller_group_id) echo "selected" ?>
+								<?php  if ($group_id == $controller_group_id) echo "selected" ?>
 							><?= $group_name ?></option>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$filter->Buttons();
 			$filter->End();
 		}
@@ -545,7 +545,7 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 
 
 		<?=bitrix_sessid_post()?>
-		<?
+		<?php 
 		$editTab->Begin();
 		for ($i = 1; $i <= $query_count - ($remove? 1: 0); $i++)
 		{
@@ -560,8 +560,8 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 			<tr>
 				<td>
 					<input type="hidden" name="lang" value="<?=LANG?>">
-					<textarea name="query<?echo $i?>" id="query<?echo $i?>" rows="15" style="width:100%;" title=""><? echo htmlspecialcharsbx($query); ?></textarea>
-					<?
+					<textarea name="query<?php echo $i?>" id="query<?php echo $i?>" rows="15" style="width:100%;" title=""><?php  echo htmlspecialcharsbx($query); ?></textarea>
+					<?php 
 					if (COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y" && CModule::IncludeModule('fileman'))
 					{
 						CCodeEditor::Show(array(
@@ -577,17 +577,17 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 				<td><br>
 					<div class="adm-list">
 						<div class="adm-list-item">
-							<div class="adm-list-control"><input type="checkbox" id="add_task<?echo $i?>" name="add_task<?echo $i?>" title="<? echo GetMessage("CTRLR_RUN_ADD_TASK_LABEL") ?>" value="Y"></div>
-							<div class="adm-list-label"><label for="add_task<?echo $i?>" title="<?echo GetMessage("CTRLR_RUN_ADD_TASK_LABEL")?>"><?echo GetMessage("CTRLR_RUN_ADD_TASK")?></label></div>
+							<div class="adm-list-control"><input type="checkbox" id="add_task<?php echo $i?>" name="add_task<?php echo $i?>" title="<?php  echo GetMessage("CTRLR_RUN_ADD_TASK_LABEL") ?>" value="Y"></div>
+							<div class="adm-list-label"><label for="add_task<?php echo $i?>" title="<?php echo GetMessage("CTRLR_RUN_ADD_TASK_LABEL")?>"><?php echo GetMessage("CTRLR_RUN_ADD_TASK")?></label></div>
 						</div>
 						<div class="adm-list-item" style="display:none" id="tr_force">
 							<div class="adm-list-control"><input type="checkbox" id="force" name="force" value="Y"></div>
-							<div class="adm-list-label"><label for="force"><? echo GetMessage("CTRLR_RUN_FORCE_RUN") ?></label></div>
+							<div class="adm-list-label"><label for="force"><?php  echo GetMessage("CTRLR_RUN_FORCE_RUN") ?></label></div>
 						</div>
 					</div>
 				</td>
 			</tr>
-		<?
+		<?php 
 		}
 		$editTab->Buttons();
 		?>
@@ -595,17 +595,17 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 			type="button"
 			accesskey="x"
 			name="execute"
-			value="<? echo GetMessage("CTRLR_RUN_BUTT_RUN") ?>"
+			value="<?php  echo GetMessage("CTRLR_RUN_BUTT_RUN") ?>"
 			onclick="return __FPHPSubmit();"
 			class="adm-btn-save"
-			<? if (!$bCanRunCommand) echo 'disabled="disabled"' ?>
+			<?php  if (!$bCanRunCommand) echo 'disabled="disabled"' ?>
 		>
-		<?
+		<?php 
 		$editTab->End();
 		?>
 	</form>
 	</div>
-<?
+<?php 
 if(
 	$_SERVER['REQUEST_METHOD'] == 'POST'
 	&& $_POST["ajax"] === "y"
@@ -616,13 +616,13 @@ if(
 	{
 		CUserOptions::SetOption("controller_run_command", "count", $query_count - 1);
 	}
-	?><script>adjustTabTitles();</script><?
+	?><script>adjustTabTitles();</script><?php 
 
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 }
 else
 {
-	?><div id="result_div"></div><?
+	?><div id="result_div"></div><?php 
 }
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

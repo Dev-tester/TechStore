@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_RECORDS_LIST"] = "Динамика посещаемости по городам";
 $MESS["STAT_F_PERIOD"] = "Период";
 $MESS["STAT_F_COUNTRY_ID"] = "Страна";

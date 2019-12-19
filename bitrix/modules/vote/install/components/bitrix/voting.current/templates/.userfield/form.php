@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	$this->IncludeLangFile("form.php");
 	$params = $APPLICATION->IncludeComponent(
 		"bitrix:voting.form",
@@ -19,10 +19,10 @@
 	$this->__component->params = $params + array("uid" => $arParams["UID"]);
 ?>
 <div class="bx-vote-bottom-block">
-		<a href="javascript:void(0);" class="feed-add-button feed-add-com-button" id="vote-<?=$arParams["UID"]?>-act" <?
-			?>onmousedown="BX.addClass(this, 'feed-add-button-press')" <?
-			?>onmouseup="BX.removeClass(this,'feed-add-button-press')"><?
-			?><?=GetMessage("VOTE_SUBMIT_BUTTON")?><?
-		?></a><?
-		?><a class="bx-vote-block-link" href="<?=$APPLICATION->GetCurPageParam("view_result=Y", $arParams["GET_KILL"])?>" id="vote-<?=$arParams["UID"]?>-results" ><?=GetMessage("VOTE_RESULTS")?></a><?
+		<a href="javascript:void(0);" class="feed-add-button feed-add-com-button" id="vote-<?=$arParams["UID"]?>-act" <?php 
+			?>onmousedown="BX.addClass(this, 'feed-add-button-press')" <?php 
+			?>onmouseup="BX.removeClass(this,'feed-add-button-press')"><?php 
+			?><?=GetMessage("VOTE_SUBMIT_BUTTON")?><?php 
+		?></a><?php 
+		?><a class="bx-vote-block-link" href="<?=$APPLICATION->GetCurPageParam("view_result=Y", $arParams["GET_KILL"])?>" id="vote-<?=$arParams["UID"]?>-results" ><?=GetMessage("VOTE_RESULTS")?></a><?php 
 ?></div>

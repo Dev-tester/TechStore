@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILL_TAX"] = "Tax";
 $MESS["SALE_HPS_BILL_BASKET_ITEM_NAME"] = "Test";
 $MESS["SALE_HPS_BILL_BASKET_ITEM_MEASURE"] = "pcs.";

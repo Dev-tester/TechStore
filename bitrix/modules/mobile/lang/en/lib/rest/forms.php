@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACCOUNT_CHANGE_NOTE"] = "The master password is required to update account.";
 $MESS["FIRST_NAME"] = "First name";
 $MESS["LAST_NAME"] = "Last name";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OIIE_FACEBOOK_NO_IMPORT_AVAILABLE"] = "Возможность импорта товаров отключена";
 $MESS["CRM_OIIE_FACEBOOK_SESSION_HAS_EXPIRED"] = "Ваша сессия истекла. Отправьте форму еще раз";
 $MESS["CRM_OIIE_FACEBOOK_REMOVED_REFERENCE_TO_PAGE"] = "Импорт товаров был настроен на работу с группой, доступ к администрированию которой в текущий момент вы не имеете";

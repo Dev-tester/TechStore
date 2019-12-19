@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVRS_ADD_DREQ_REF_QC_G"] = "Пригоден для почтовой рассылки";
 $MESS["SALE_DLVRS_ADD_DREQ_REF_QC_OD"] = "До востребования";
 $MESS["SALE_DLVRS_ADD_DREQ_REF_QC_PB"] = "Абонентский ящик";

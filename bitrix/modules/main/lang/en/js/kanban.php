@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_KANBAN_ERROR_CLOSE"] = "Close";
 $MESS["MAIN_KANBAN_NO_DATA"] = "There are currently no data on this page.";
 $MESS["MAIN_KANBAN_REMOVE_COLUMN_CONFIRM_TITLE"] = "Confirm Delete";

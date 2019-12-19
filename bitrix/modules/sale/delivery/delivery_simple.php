@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************************
 Simple delivery services.
 It uses fixed delivery price for any location groups. Needs at least one group of locations to be configured.

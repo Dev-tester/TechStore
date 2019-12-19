@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arResult["MENU_VARIABLES"] = array();
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/result_modifier.php")));
 __IncludeLang($file);
@@ -28,7 +28,7 @@ if (!phpVars2.messYes)
 if (!phpVars2.messNo)
 	phpVars2.messNo = '&nbsp;<?=CUtil::JSEscape(GetMessage("WD_N"))?>&nbsp;';
 </script>
-<?
+<?php 
 endif;
 if (in_array($this->__page, array("section_edit_simple", "element_upload", "disk_element_upload", "element_upload_simple", "sections_dialog")) || isset($_REQUEST['AJAX_CALL'])): 
 	$this->__component->__page_webdav_template = $this->__page;

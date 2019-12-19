@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLT_TITLE_"] = "Словарь";
 $MESS["FLT_TITLE"] = "Словари";
 $MESS["FLT_HEAD_TITLE"] = "Название";

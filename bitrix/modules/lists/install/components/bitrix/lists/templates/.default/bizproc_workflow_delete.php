@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->IncludeComponent("bitrix:lists.element.navchain", ".default", array(
 	"IBLOCK_TYPE_ID" => $arParams["IBLOCK_TYPE_ID"],
 	"IBLOCK_ID" => $arResult["VARIABLES"]["list_id"],

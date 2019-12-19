@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_INSTALL_MENU_ORDER"] = "Заказы";
 $MESS["SALE_INSTALL_MENU_BASKET"] = "Корзина";
 $MESS["SALE_INSTALL_MENU_REGULAR_PAYMENT"] = "Регулярные платежи";

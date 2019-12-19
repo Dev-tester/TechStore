@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_AUTOMATION_DEMO_LEAD_2_NOTIFY_TITLE"] = "Notification";
 $MESS["CRM_AUTOMATION_DEMO_LEAD_2_CONTROL_TITLE"] = "Control";
 $MESS["CRM_AUTOMATION_DEMO_LEAD_2_MESSAGE_1"] = "New lead created: {=Document:ID} {=Document:TITLE}

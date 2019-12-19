@@ -1,1 +1,1 @@
-<? require_once($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/sale/admin/crm_site_master.php");
+<?php  require_once($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/sale/admin/crm_site_master.php");

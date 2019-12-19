@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSocNetSearchReindex extends CSocNetSearch
 {
 	var $_params;

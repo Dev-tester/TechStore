@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_HANDLER_ACTIVE"] = "Aktiv:";
 $MESS["SALE_DH_PROFILE_ACTIVE"] = "Aktiv:";
 $MESS["SALE_DH_EDIT_BASECONFIG"] = "Basiskonfiguration";

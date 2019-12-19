@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_QUANTITY"] = "Количество";
 $MESS["CATALOG_QUANTITY_FROM_TO"] = "От #FROM# до #TO#";
 $MESS["CATALOG_QUANTITY_FROM"] = "От #FROM#";

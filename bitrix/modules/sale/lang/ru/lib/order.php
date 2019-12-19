@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_ENTITY_NOT_FOUND"] = "Заказ не найден";
 $MESS["SALE_ORDER_PAYMENT_CANCELLED_PAID"] = "Ошибка при отмене оплаты";
 $MESS["SALE_ORDER_SHIPMENT_ORDER_CANCELED"] = "Невозможно отгрузить отмененный заказ";

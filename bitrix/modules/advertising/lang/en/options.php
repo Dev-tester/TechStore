@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_USE_HTML_EDIT"] = "Use visual HTML editor to edit banner code";
 $MESS["AD_DONT_USE_CONTRACT"] = "Ignore contract conditions when showing banners";
 $MESS["MAIN_RESTORE_DEFAULTS"] = "Set to default";

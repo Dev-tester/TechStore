@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_RESUME_0"] = "Resume";
 $MESS["WZD_OPTION_RESUME_1"] = "Published";
 $MESS["WZD_OPTION_RESUME_2"] = "Activity Start";

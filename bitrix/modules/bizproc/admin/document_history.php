@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 \Bitrix\Main\Loader::includeModule('bizproc');
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/prolog.php");
@@ -213,11 +213,11 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("BPADH_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 	<input type="hidden" name="document_id" value="<?= htmlspecialcharsbx($documentId[2]) ?>">
 	<input type="hidden" name="view_document_url" value="<?= htmlspecialcharsbx($viewDocumentUrl) ?>">
 
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -230,25 +230,25 @@ $oFilter->Begin();
 ?>
 	<tr>
 		<td><?= GetMessage("BPADH_F_MODIFIED") ?>:</td>
-		<td><?echo CalendarPeriod("filter_modified_1", htmlspecialcharsbx($filter_modified_1), "filter_modified_2", htmlspecialcharsbx($filter_modified_2), "find_form", "Y")?></td>
+		<td><?php echo CalendarPeriod("filter_modified_1", htmlspecialcharsbx($filter_modified_1), "filter_modified_2", htmlspecialcharsbx($filter_modified_2), "find_form", "Y")?></td>
 	</tr>
 	<tr>
 		<td><?= GetMessage("BPADH_F_AUTHOR") ?>:</td>
-		<td><input type="text" name="filter_user_id" value="<?echo htmlspecialcharsex($filter_user_id)?>" size="3">&nbsp;<?
+		<td><input type="text" name="filter_user_id" value="<?php echo htmlspecialcharsex($filter_user_id)?>" size="3">&nbsp;<?php 
 			$dbGrRes = $history->GetHistoryList(
 				array("USER_LAST_NAME" => "ASC", "USER_NAME" => "ASC", "USER_LOGIN" => "ASC"),
 				array("DOCUMENT_ID" => $documentId),
 				array("USER_ID", "USER_NAME", "USER_LAST_NAME", "USER_LOGIN", "USER_SECOND_NAME")
 			);
 			?><select name="filter_user_id1">
-				<option value="">(<?= GetMessage("BPADH_F_AUTHOR_ANY") ?>)</option><?
+				<option value="">(<?= GetMessage("BPADH_F_AUTHOR_ANY") ?>)</option><?php 
 				while ($arGrRes = $dbGrRes->GetNext())
 					echo "<option value='".$arGrRes["USER_ID"]."'".($filter_user_id1 == $arGrRes["USER_ID"] ? " selected" : "").">(".htmlspecialcharsex($arGrRes["USER_LOGIN"].") ".CUser::FormatName(COption::GetOptionString("bizproc", "name_template", CSite::GetNameFormat(false), SITE_ID), array("NAME" => $arGrRes["USER_NAME"], "LAST_NAME" => $arGrRes["USER_LAST_NAME"], "SECOND_NAME" => $arGrRes["USER_SECOND_NAME"])))."</option>";
 			?></select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -260,10 +260,10 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

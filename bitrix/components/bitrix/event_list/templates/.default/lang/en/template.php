@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EVENT_LIST_SUBMIT"] = "Select";
 $MESS["EVENT_LIST_FILTER_CREATED_BY"] = "Created By";
 $MESS["EVENT_LIST_FILTER_DATE"] = "Date";

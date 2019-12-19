@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_ROOT_FOLDER'] = "root";
 $MESS ['MAIN_ADMIN_ADD_COPY'] = "Add copy";
 $MESS ['MAIN_ADMIN_MENU_EDIT'] = "Edit";

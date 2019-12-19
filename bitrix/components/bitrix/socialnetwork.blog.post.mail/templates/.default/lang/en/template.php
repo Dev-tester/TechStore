@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBPM_TEMPLATE_FILES"] = "Files:";
 $MESS["SBPM_TEMPLATE_LIKE"] = "Like";
 $MESS["SBPM_TEMPLATE_MORE"] = "More";

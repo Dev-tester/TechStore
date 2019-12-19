@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_RATING_USER_VOTE_POST_NAME"] = "Voting For User's Posts In Blogs";
 $MESS["BLOG_RATING_USER_VOTE_COMMENT_NAME"] = "Voting For User's Comments In Blogs";
 $MESS["BLOG_RATING_USER_RATING_ACTIVITY_NAME"] = "Blogging Activity";

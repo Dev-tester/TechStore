@@ -14,7 +14,7 @@ use \Bitrix\Main\Localization\Loc;
 				<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_CONNECT_HELP')?>
 			</div>
 		</div>
-		<?/*<div onclick="top.BX.Helper.show('<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_INFO_IOS_CONNECT_ID')?>');"
+		<?php /*<div onclick="top.BX.Helper.show('<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_INFO_IOS_CONNECT_ID')?>');"
 		   class="imconnector-field-button imconnector-field-button-ios">
 			<div class="imconnector-field-button-icon"></div>
 			<div class="imconnector-field-button-text">

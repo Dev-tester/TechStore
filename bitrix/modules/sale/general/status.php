@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use	Bitrix\Sale\Internals\StatusTable,
 	Bitrix\Sale\Internals\StatusLangTable,

@@ -334,7 +334,7 @@ if (!$isReadOnly && $arResult['DEDUCTED'] != 'Y')
 }
 ?>
 
-<div class="crm-order-product-list-wrapper" id="crm-product-list-container"><?
+<div class="crm-order-product-list-wrapper" id="crm-product-list-container"><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.interface.grid',
 	'titleflex',
@@ -401,14 +401,14 @@ $APPLICATION->IncludeComponent(
 					siteId: '<?=$arResult['ORDER_SITE_ID']?>',
 					languageId: '<?=LANGUAGE_ID?>',
 
-					<?if(!empty($product['STORE_BARCODE_INFO'])):?>
+					<?php if(!empty($product['STORE_BARCODE_INFO'])):?>
 						storeTmpl: '<?=CUtil::JSEscape($storeTmpl)?>',
 						storeQuantityTmpl: '<?=CUtil::JSEscape($storeQuantityTmpl)?>',
 						storeBarcodeTmplI: '<?=CUtil::JSEscape($storeBarcodeTmplI)?>',
 						storeBarcodeTmplB: '<?=CUtil::JSEscape($storeBarcodeTmplB)?>',
 						storeRemainingQuantityTmpl: '<?=CUtil::JSEscape($storeRemainingQuantityTmpl)?>',
 						storeBarcodeInfo: <?=CUtil::PhpToJSObject($storeBarcodeInfo)?>,
-					<?endif;?>
+					<?php endif;?>
 
 					params: <?=CUtil::PhpToJSObject(
 						array_filter(
@@ -430,18 +430,18 @@ $APPLICATION->IncludeComponent(
 			{
 				<?=$jsObjName?>.setController(window['EntityEditorOrderShipmentController']);
 
-				<?if($arResult['SHOW_TOOL_PANEL'] == 'Y'):?>
+				<?php if($arResult['SHOW_TOOL_PANEL'] == 'Y'):?>
 					<?=$jsObjName?>.markAsChanged();
-				<?endif;?>
+				<?php endif;?>
 			}
 			else
 			{
 				BX.addCustomEvent(window, "onEntityEditorOrderShipmentControllerInit", function(controller){
 					<?=$jsObjName?>.setController(controller);
 
-					<?if($arResult['SHOW_TOOL_PANEL'] == 'Y'):?>
+					<?php if($arResult['SHOW_TOOL_PANEL'] == 'Y'):?>
 						<?=$jsObjName?>.markAsChanged();
-					<?endif;?>
+					<?php endif;?>
 				});
 			}
 
@@ -455,5 +455,5 @@ $APPLICATION->IncludeComponent(
 </script>
 </div>
 
-<?
+<?php 
 //endregion

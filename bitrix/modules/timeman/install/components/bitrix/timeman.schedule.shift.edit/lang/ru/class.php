@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TIMEMAN_ERROR_SCHEDULE_NOT_FOUND'] = 'Рабочий график не найден.';
 $MESS['TIMEMAN_SHIFT_EDIT_ERROR_SCHEDULE_ID_IS_REQUIRED'] = 'Не указан id рабочего графика для создания смены.';
 $MESS['TIMEMAN_SHIFT_EDIT_ERROR_ACCESS_DENIED'] = 'Недостаточно прав для изменения рабочего графика.';

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CUtil::InitJSCore(array("ajax"));
 ?>
@@ -10,7 +10,7 @@ CUtil::InitJSCore(array("ajax"));
 			showComment('0', '');
 	})
 </script>
-<?include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/script.php");
+<?php include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/script.php");
 
 if(strlen($arResult["MESSAGE"])>0)
 {
@@ -20,7 +20,7 @@ if(strlen($arResult["MESSAGE"])>0)
 			<?=$arResult["MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
@@ -30,7 +30,7 @@ if(strlen($arResult["ERROR_MESSAGE"])>0)
 			<?=$arResult["ERROR_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
@@ -40,7 +40,7 @@ if(strlen($arResult["FATAL_MESSAGE"])>0)
 			<?=$arResult["FATAL_MESSAGE"]?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -57,7 +57,7 @@ else
 		<?=bitrix_sessid_post()?>
 
 		<div class="blog-comment-fields">
-			<?
+			<?php 
 			if(empty($arResult["User"]))
 			{
 				?>
@@ -67,7 +67,7 @@ else
 					<div class="blog-comment-field blog-comment-field-email"><div class="blog-comment-field-text"><label for="">E-mail</label><span class="blog-required-field">*</span></div><span><input maxlength="255" size="30" tabindex="4" type="text" name="user_email" id="user_email" value="<?=htmlspecialcharsEx($_SESSION["blog_user_email"])?>"></span></div>
 					<div class="blog-clear-float"></div>
 				</div>
-				<?
+				<?php 
 			}
 
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php");
@@ -76,7 +76,7 @@ else
 			{
 				?>
 				<div id="nocommentreason" style="display:none;"><?=$arResult["NoCommentReason"]?></div>
-				<?
+				<?php 
 			}
 			if($arResult["use_captcha"]===true)
 			{
@@ -93,18 +93,18 @@ else
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 
 			<div class="blog-comment-buttons">
-								<?if($arResult["IDEA_MODERATOR"]):?>
+								<?php if($arResult["IDEA_MODERATOR"]):?>
 									<input tabindex="10" value="<?=GetMessage("B_B_MS_SEND")?>" type="submit" name="post">
 									<input type="checkbox" value="Y" name="BIND_OFFICIAL_ANSWER" id="BIND_BITRIX_ANSWER"><label for="BIND_BITRIX_ANSWER"><?=GetMessage("BPC_BIND_BITRIX_ANSWER")?></label>
 									<br clear="both"/>
-								<?else:?>
+								<?php else:?>
 									<input tabindex="10" value="<?=GetMessage("B_B_MS_SEND")?>" type="submit" name="post">
-								<?endif;?>
+								<?php endif;?>
 			</div>
 
 		</div>
@@ -113,7 +113,7 @@ else
 	</div>
 	</div>
 
-	<?
+	<?php 
 	$prevTab = 0;
 		if(!function_exists('ShowCommentCommon')):
 	function ShowCommentCommon($comment, $tabCount=0, $tabSize=2.5, $canModerate=false, $User=Array(), $use_captcha=false, $bCanUserComment=false, $errorComment=false, $arParams = array())
@@ -143,15 +143,15 @@ else
 			<a name="<?=$comment["ID"]?>"></a>
 						<div class="blog-comment-common-<?=$comment["COMMENT_STATUS"]?>">
 						<div class="comment-list-tl"><div class="comment-list-tr"><div></div></div></div>
-			<?
+			<?php 
 			if($comment["PUBLISH_STATUS"] == BLOG_PUBLISH_STATUS_PUBLISH || $comment["SHOW_SCREENNED"] == "Y" || $comment["ID"] == "preview")
 			{?>
 				<div class="blog-comment-common">
 				<div class="idea-answer idea-comment-rating-content-<?=$arParams['RATING_TEMPLATE']?>" style="padding-left:5px;">
-					<?if ($arParams["SHOW_RATING"] == "Y"):?>
+					<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 											<div class="blog-post-rating">
 											<span class="idea-comment-rating-title"><?=GetMessage("IDEA_RATING_TITLE")?>:</span>
-											<?$GLOBALS["APPLICATION"]->IncludeComponent(
+											<?php $GLOBALS["APPLICATION"]->IncludeComponent(
 													"bitrix:rating.vote", $arParams['RATING_TEMPLATE'],
 													Array(
 															"ENTITY_TYPE_ID" => "BLOG_COMMENT",
@@ -168,9 +168,9 @@ else
 													array("HIDE_ICONS" => "Y")
 											);?>
 											</div>
-					<?endif;?>
+					<?php endif;?>
 										<img class="idea-user-avatar" src="<?=$comment["AUTHOR_AVATAR"]?>" align="top">
-					<?
+					<?php 
 					if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($comment["urlToBlog"]) > 0 || strlen($comment["urlToAuthor"]) > 0) && array_key_exists("ALIAS", $comment["BlogUser"]) && strlen($comment["BlogUser"]["ALIAS"]) > 0)
 						$arTmpUser = array(
 							"NAME" => "",
@@ -224,7 +224,7 @@ else
 					{
 						?>
 							<noindex>
-						<?$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
+						<?php $GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 							'',
 							array(
 								"ID" => $comment["arUser"]["ID"],
@@ -254,20 +254,20 @@ else
 						);
 						?>
 							</noindex>
-						<?
+						<?php 
 					}
 					else
 					{
 						?>
 						<div class="blog-author"><?=$comment["AuthorName"]?></div>
-						<?
+						<?php 
 					}
 
 					if(strlen($comment["urlToDelete"])>0 && strlen($comment["AuthorEmail"])>0)
 					{
 						?>
 						(<a href="mailto:<?=$comment["AuthorEmail"]?>"><?=$comment["AuthorEmail"]?></a>)
-						<?
+						<?php 
 					}
 
 					?>
@@ -275,28 +275,28 @@ else
 				</div>
 				<div class="blog-clear-float"></div>
 				<div class="blog-comment-content-common">
-					<?if(strlen($comment["TitleFormated"])>0)
+					<?php if(strlen($comment["TitleFormated"])>0)
 					{
 						?>
 						<b><?=$comment["TitleFormated"]?></b><br />
-						<?
+						<?php 
 					}
 					?>
 					<?=$comment["TextFormated"]?>
 
-					<div class="blog-post-meta<?if((strlen($comment["urlToShow"])==0 || strlen($comment["urlToHide"])==0) && $comment["CAN_EDIT"] != "Y" && strlen($comment["urlToDelete"])==0):?> blog-post-meta-empty<?endif?>">
-					<?
+					<div class="blog-post-meta<?php if((strlen($comment["urlToShow"])==0 || strlen($comment["urlToHide"])==0) && $comment["CAN_EDIT"] != "Y" && strlen($comment["urlToDelete"])==0):?> blog-post-meta-empty<?php endif?>">
+					<?php 
 					if(strlen($comment["urlToShow"])>0)
 					{
 						?>
 						<span class="blog-comment-show"><a href="<?=$comment["urlToShow"]."&".bitrix_sessid_get()?>"><?=GetMessage("BPC_MES_SHOW")?></a></span>
-						<?
+						<?php 
 					}
 					if(strlen($comment["urlToHide"])>0)
 					{
 						?>
 						<span class="blog-comment-show"><a href="<?=$comment["urlToHide"]."&".bitrix_sessid_get()?>"><?=GetMessage("BPC_MES_HIDE")?></a></span>
-						<?
+						<?php 
 					}
 					if($comment["CAN_EDIT"] == "Y")
 					{
@@ -308,19 +308,19 @@ else
 						var Title<?=$comment["ID"]?> = '<?=$Title?>';
 						</script>
 						<span class="blog-comment-edit"><a href="javascript:void(0)" onclick="return editComment('<?=$comment["ID"]?>', Title<?=$comment["ID"]?>, Text<?=$comment["ID"]?>)"><?=GetMessage("BPC_MES_EDIT")?></a></span>
-						<?
+						<?php 
 					}
 					if(strlen($comment["urlToBind"])>0)
 					{
 						?>
 						<span class="blog-comment-bind"><a href="<?=$comment["urlToBind"]."&".bitrix_sessid_get()?>"><?=GetMessage("BPC_MES_BIND")?></a></span>
-						<?
+						<?php 
 					}
 					if(strlen($comment["urlToDelete"])>0)
 					{
 						?>
 						<span class="blog-comment-delete"><a href="javascript:if(confirm('<?=GetMessage("BPC_MES_DELETE_POST_CONFIRM")?>')) window.location='<?=$comment["urlToDelete"]."&".bitrix_sessid_get()?>'"><?=GetMessage("BPC_MES_DELETE")?></a></span>
-						<?
+						<?php 
 					}
 					?>
 					</div>
@@ -329,7 +329,7 @@ else
 				</div>
 					<div class="blog-clear-float"></div>
 
-				<?
+				<?php 
 				if(strlen($errorComment) <= 0 && strlen($_POST["preview"]) > 0 && (IntVal($_POST["parentId"]) > 0 || IntVal($_POST["edit_id"]) > 0)
 					&& ( (IntVal($_POST["parentId"])==$comment["ID"] && IntVal($_POST["edit_id"]) <= 0)
 						|| (IntVal($_POST["edit_id"]) > 0 && IntVal($_POST["edit_id"]) == $comment["ID"] && $comment["CAN_EDIT"] == "Y")))
@@ -353,12 +353,12 @@ else
 							<?=$errorComment?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 				<div id="form_comment_<?=$comment['ID']?>"></div>
 
-				<?
+				<?php 
 				if((strlen($errorComment) > 0 || strlen($_POST["preview"]) > 0)
 					&& (IntVal($_POST["parentId"])==$comment["ID"] || IntVal($_POST["edit_id"]) == $comment["ID"])
 					&& $bCanUserComment===true)
@@ -370,18 +370,18 @@ else
 					$user_email = CUtil::JSEscape($_POST["user_email"]);
 					?>
 					<script>
-					<?
+					<?php 
 					if(IntVal($_POST["edit_id"]) == $comment["ID"])
 					{
-						?>editComment('<?=$comment["ID"]?>', '<?=$subj?>', '<?=$form1?>');<?
+						?>editComment('<?=$comment["ID"]?>', '<?=$subj?>', '<?=$form1?>');<?php 
 					}
 					else
 					{
-						?>showComment('<?=$comment["ID"]?>', '<?=$subj?>', 'Y', '<?=$form1?>', '<?=$user_name?>', '<?=$user_email?>');<?
+						?>showComment('<?=$comment["ID"]?>', '<?=$subj?>', 'Y', '<?=$form1?>', '<?=$user_name?>', '<?=$user_email?>');<?php 
 					}
 					?>
 					</script>
-					<?
+					<?php 
 				}
 			}
 			elseif($comment["SHOW_AS_HIDDEN"] == "Y")
@@ -389,7 +389,7 @@ else
 			?>
 						<div class="comment-list-bl"><div class="comment-list-br"><div></div></div></div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 		endif;
@@ -433,7 +433,7 @@ else
 	}
 		endif;
 	?>
-	<?
+	<?php 
 	if($arResult["CanUserComment"])
 	{
 		$postTitle = "";
@@ -447,11 +447,11 @@ else
 					</a>
 				</div>
 		<a name="0"></a>
-		<?
+		<?php 
 		if(strlen($arResult["COMMENT_ERROR"]) <= 0 && strlen($_POST["parentId"]) < 2
 			&& IntVal($_POST["parentId"])==0 && strlen($_POST["preview"]) > 0 && IntVal($_POST["edit_id"]) <= 0)
 		{
-			?><div style="border:1px solid red"><?
+			?><div style="border:1px solid red"><?php 
 				$commentPreview = Array(
 						"ID" => "preview",
 						"TitleFormated" => htmlspecialcharsEx($_POST["subject"]),
@@ -460,7 +460,7 @@ else
 						"DATE_CREATE" => GetMessage("B_B_MS_PREVIEW_TITLE"),
 					);
 				ShowCommentCommon($commentPreview, 0, 2.5, false, $arResult["User"], $arResult["use_captcha"], $arResult["CanUserComment"], false, $arParams);
-			?></div><?
+			?></div><?php 
 		}
 
 		if(strlen($arResult["COMMENT_ERROR"]) > 0 && strlen($_POST["parentId"]) < 2
@@ -470,12 +470,12 @@ else
 			<div class="blog-errors blog-note-box blog-note-error">
 				<div class="blog-error-text"><?=$arResult["COMMENT_ERROR"]?></div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 		<div id=form_comment_0></div>
 				<div class="blog-add-comment-space"></div>
-		<?
+		<?php 
 		if((strlen($arResult["COMMENT_ERROR"])>0 || strlen($_POST["preview"]) > 0)
 			&& IntVal($_POST["parentId"]) == 0 && strlen($_POST["parentId"]) < 2 && IntVal($_POST["edit_id"]) <= 0)
 		{
@@ -489,7 +489,7 @@ else
 			<script>
 			showComment('0', '<?=$subj?>', 'Y', '<?=$form1?>', '<?=$user_name?>', '<?=$user_email?>');
 			</script>
-			<?
+			<?php 
 		}
 	}
 		else
@@ -504,14 +504,14 @@ else
 	{
 		?>
 		<div class="blog-comment-nav">
-			<?=GetMessage("BPC_PAGE")?>&nbsp;<?
+			<?=GetMessage("BPC_PAGE")?>&nbsp;<?php 
 			foreach($arResult["PAGES"] as $v)
 			{
 				echo $v;
 			}
 		?>
 		</div>
-		<?
+		<?php 
 	}
 }
 ?>

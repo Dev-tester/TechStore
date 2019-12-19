@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_INSTALL_NAME"] = "Social Network";
 $MESS["SONET_INSTALL_DESCRIPTION"] = "Adds the social network feature to your site.";
 $MESS["SONET_INSTALL_TITLE"] = "Install Social Network";

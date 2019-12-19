@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use \Bitrix\Sale\Internals\DeliveryPaySystemTable;
 use \Bitrix\Sale\Delivery;

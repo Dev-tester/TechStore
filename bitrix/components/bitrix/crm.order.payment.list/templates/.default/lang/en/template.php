@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SHOW_ROW_COUNT"] = "Show quantity";
 $MESS["CRM_ALL"] = "Total";
 $MESS["CRM_ORDER_PAYMENT_SHOW_TITLE"] = "View Payment";

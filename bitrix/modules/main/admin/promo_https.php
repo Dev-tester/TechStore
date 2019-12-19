@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Page\Asset;
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -102,4 +102,4 @@ require_once ($DOCUMENT_ROOT.BX_ROOT."/modules/main/include/prolog_admin_after.p
 
 	</div><!--bx-gadgetsadm-list-table-layout-->
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

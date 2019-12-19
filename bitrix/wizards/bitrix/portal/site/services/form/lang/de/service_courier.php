@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADDRESS_QUESTION'] = "Lieferadresse";
 $MESS ['ADMIN_NOTE_QUESTION'] = "Antwort";
 $MESS ['COMMENT_QUESTION'] = "Kommentar";

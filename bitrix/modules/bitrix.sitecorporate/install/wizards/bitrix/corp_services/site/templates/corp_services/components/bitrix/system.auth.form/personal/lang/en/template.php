@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['AUTH_LOGIN_BUTTON'] = "Login";
 $MESS ["AUTH_CLOSE_WINDOW"] = "Close";
 $MESS ['AUTH_LOGOUT_BUTTON'] = "Logout";

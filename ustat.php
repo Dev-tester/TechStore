@@ -1,4 +1,4 @@
-<?
+<?php 
 
 define("NO_KEEP_STATISTIC", true);
 

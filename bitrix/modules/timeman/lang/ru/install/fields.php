@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_FIELD_UF_TIMEMAN"] = "Учет рабочего времени";
 $MESS["TM_FIELD_UF_TM_NOVALUE"] = "(наследовать значение)";
 $MESS["TM_FIELD_UF_TIMEMAN_Y"] = "вести учет";

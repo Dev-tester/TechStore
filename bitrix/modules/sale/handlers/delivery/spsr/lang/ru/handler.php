@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLV_SRV_SPSR_TITLE"] = "СПСР-ЭКСПРЕСС";
 $MESS["SALE_DLV_SRV_SPSR_DESCRIPTION"] = "#A1#СПСР-ЭКСПРЕСС#A2# предлагает широкий спектр услуг по экспресс-доставке документов, почты и грузов по всей России и за границу.";
 $MESS["SALE_DLV_SRV_SPSR_MAIN_TITLE"] = "Настройки";

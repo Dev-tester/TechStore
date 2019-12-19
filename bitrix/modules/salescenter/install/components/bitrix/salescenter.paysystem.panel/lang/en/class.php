@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPP_PAYSYSTEM_ADD"] = "Add payment system";
 $MESS["SPP_PAYSYSTEM_CASH_TITLE"] = "Cash payment";
 $MESS["SPP_PAYSYSTEM_PAYPAL_TITLE"] = "PayPal payment";

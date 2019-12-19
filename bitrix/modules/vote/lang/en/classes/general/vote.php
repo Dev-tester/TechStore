@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_WRONG_DATE_START"] = "Please enter the correct poll starting date";
 $MESS["VOTE_WRONG_DATE_END"] = "Please enter the correct poll end date";
 $MESS["VOTE_WRONG_DATE_TILL"] = "The poll end date should be greater than the poll starting date";

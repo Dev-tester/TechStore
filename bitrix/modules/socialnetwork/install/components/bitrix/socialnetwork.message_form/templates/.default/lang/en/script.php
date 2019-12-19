@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_TRANSLIT_EN'] = "Translit";
 $MESS ['FORUM_LIST_PROMPT'] = "Enter the list item. Click 'Cancel' or leave the space symbol for completing the list";
 $MESS ['FORUM_TEXT_ENTER_URL'] = "Enter the full site URL";

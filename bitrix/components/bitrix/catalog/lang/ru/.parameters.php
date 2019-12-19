@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BC_GROUP_BIG_DATA_SETTINGS"] = "Персональные рекомендации";
 $MESS["IBLOCK_EXTENDED_SETTINGS"] = "Специальные настройки";
 $MESS["ANALYTICS_SETTINGS"] = "Настройки аналитики";

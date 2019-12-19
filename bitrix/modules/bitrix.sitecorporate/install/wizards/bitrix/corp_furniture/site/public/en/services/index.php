@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Services");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:catalog", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog", ".default", array(
 	"IBLOCK_TYPE" => "products",
 	"IBLOCK_ID" => "#SERVICES_IBLOCK_ID#",
 	"BASKET_URL" => "",
@@ -78,4 +78,4 @@ $APPLICATION->SetTitle("Services");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

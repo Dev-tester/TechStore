@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_MEMCACHE_EDIT_TAB"] = "Параметры";
 $MESS["CLU_MEMCACHE_EDIT_TAB_TITLE"] = "Настройка параметров подключения к серверу memcached";
 $MESS["CLU_MEMCACHE_NO_EXTENTION"] = "Отсутствует php расширение memcache.";

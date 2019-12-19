@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_DESKTOP_JS_SETTINGS"] = "Settings";
 $MESS["DISK_DESKTOP_JS_SETTINGS_LABEL_ENABLE"] = "Enable Bitrix24.Drive";
 $MESS["DISK_DESKTOP_JS_SETTINGS_TITLE"] = "Bitrix24.Drive";

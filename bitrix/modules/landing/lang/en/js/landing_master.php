@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTION_BUTTON_ACTIONS"] = "actions";
 $MESS["ACTION_BUTTON_ACTIONS_COPY"] = "Copy";
 $MESS["ACTION_BUTTON_ACTIONS_CUT"] = "Cut";

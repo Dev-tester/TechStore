@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_FILEVIEW_EDIT_AS_TEXT"] = "Редактировать как текст";
 $MESS["FILEMAN_FILEVIEW_EDIT_AS_PHP"] = "Редактировать как PHP";
 $MESS["FILEMAN_FILEVIEW_EDIT_AS_HTML"] = "Редактировать как HTML";

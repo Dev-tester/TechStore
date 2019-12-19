@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_WEBDAV_IS_NOT_INSTALLED"] = "WebDav module is not installed.";
 $MESS["WD_ERROR_BAD_ACTION"] = "The folder action is not specified.";
 $MESS["WD_ERROR_BAD_SESSID"] = "Your session has expired. Please repeat the operation.";

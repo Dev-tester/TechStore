@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_TITLE'] = "#SUBJECT# (чтение)";
 $MESS ['PM_TITLE_NAV'] = "Персональные сообщения";
 $MESS ['PM_ERR_NO_DATA'] = "Нет данных.";

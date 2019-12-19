@@ -1,4 +1,4 @@
-<?
+<?php 
 define("MODULE_ID", "bizproc");
 define("ENTITY", "CBPVirtualDocument");
 define("EDIT_PAGE", "/bitrix/admin/bizproc_bizproc_workflow_edit.php");

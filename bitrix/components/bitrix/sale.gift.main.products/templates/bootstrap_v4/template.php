@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -29,7 +29,7 @@ $signedTemplate = $signer->sign($arResult['RCM_TEMPLATE'], 'bx.sale.gift.main.pr
 
 ?>
 <div id="<?= $injectId ?>" class="sale-gift-main-products <?= $templateData['TEMPLATE_CLASS']; ?>">
-<?
+<?php 
 if($arResult['HAS_MAIN_PRODUCTS'])
 {
 	global $searchFilter;
@@ -47,7 +47,7 @@ if($arResult['HAS_MAIN_PRODUCTS'])
 		<div class="catalog-block-header">
 			<?=($arParams['BLOCK_TITLE'] ? htmlspecialcharsbx($arParams['BLOCK_TITLE']) : GetMessage('SLB_TPL_TITLE_GIFT'))?>
 		</div>
-		<?
+		<?php 
 	}
 
 	CBitrixComponent::includeComponentClass('bitrix:catalog.section');
@@ -168,5 +168,5 @@ BX(function () {
 });
 BX.message({});
 </script>
-<?$frame->beginStub();?>
-<?$frame->end();?>
+<?php $frame->beginStub();?>
+<?php $frame->end();?>

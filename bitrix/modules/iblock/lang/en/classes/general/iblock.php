@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_BAD_SITE_ID_NA"] = "Please enter the site.";
 $MESS["IBLOCK_BAD_SITE_ID"] = "Invalid site!";
 $MESS["IBLOCK_BAD_NAME"] = "Block name is not specified.";

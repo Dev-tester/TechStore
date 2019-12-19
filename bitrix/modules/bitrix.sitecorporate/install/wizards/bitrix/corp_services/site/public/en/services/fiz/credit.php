@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Personal Loans");
 ?>
@@ -22,4 +22,4 @@ $APPLICATION->SetTitle("Personal Loans");
 		<li>Minimum Annual Income: $40,000 p.a.</li> 
 	</ul> 	
  
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

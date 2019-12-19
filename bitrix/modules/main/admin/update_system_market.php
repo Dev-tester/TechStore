@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -206,7 +206,7 @@ else
 
 	}
 	</script>
-	<?
+	<?php 
 	$lAdmin->BeginCustomContent();
 	?>
 	<div class="adm-detail-content-wrap">
@@ -219,7 +219,7 @@ else
 				</div>
 			</div>
 			<div class="mp-list-div">
-				<?
+				<?php 
 				if(count($arModules) > 0)
 				{
 					if(strlen($moduleCode) <=0)
@@ -227,7 +227,7 @@ else
 						$inRow = 0;
 						?>
 						<table class="mp-list" cellpadding="0" cellspacing="0">
-						<?
+						<?php 
 					}
 					
 					function convert2normalArray($ar)
@@ -302,14 +302,14 @@ else
 									<div class="mp-over-inner">
 										<div class="mp-name"><a href="<?=$arM["url"]?>" title="<?=$arM["name"]?>"><?=$arM["name"]?></a></div>
 										<a href="<?=$arM["url"]?>" title="<?=$arM["name"]?>"><span class="mp-list-slide-block-image" style="background: url('<?=$arM["logo"]["src"]?>') center center no-repeat; width:<?=$arM["logo"]["width"]?>px; height:<?=$arM["logo"]["height"]?>px; display:block; border: 1px solid #c0c0c0; float: left;">
-												<?
+												<?php 
 												if(!empty($arM["icons"]) > 0)
 												{
 													foreach($arM["icons"] as $v)
 													{
 														?>
 														<img src="<?=$v["src"]?>" border="0" style="<?=$v["styles"]?>" width="<?=$v["width"]?>" height="<?=$v["height"]?>" />
-														<?
+														<?php 
 													}
 												}
 												?>
@@ -317,10 +317,10 @@ else
 										<div class="mp-content">
 											<span class="mp-ilike"><?=intval($arM["votes"])?></span>
 											<div>
-												<?
+												<?php 
 												if($arM["installed"] == "Y")
 												{
-													?><div class="mp-grey"><?=GetMessage("USM_INSTALLED")?></div><?
+													?><div class="mp-grey"><?=GetMessage("USM_INSTALLED")?></div><?php 
 												}
 
 												if($arM["freeModule"] == "Y")
@@ -328,27 +328,27 @@ else
 													if($arM["installed"] != "Y")
 													{
 														?><div class="mp-install"><a href="<?=$arM["urlInstall"]?>"><?=GetMessage("USM_INSTALL")?></a></div>
-														<div class="mp-grey"><small><?=GetMessage("USM_FREE")?></small></div><?
+														<div class="mp-grey"><small><?=GetMessage("USM_FREE")?></small></div><?php 
 													}
 												}
 												else
 												{
 													if(intval($arM["oldPrice"]) > 0)
 													{
-														?><div class="mp-price"><s><?=intval($arM["oldPrice"])?></s>&nbsp;&nbsp;<span style="color:red;"><?=$arM["price"]?></span></div><?
+														?><div class="mp-price"><s><?=intval($arM["oldPrice"])?></s>&nbsp;&nbsp;<span style="color:red;"><?=$arM["price"]?></span></div><?php 
 													}
 													else
 													{
-														?><div class="mp-price"><?=$arM["price"];?></div><?
+														?><div class="mp-price"><?=$arM["price"];?></div><?php 
 													}
 
 													if($arM["installedDemo"] != "Y")
 													{
-														?><div class="mp-buy"><a href="<?=$arM["url2basket"]?>" target="_blank"><?=GetMessage("USM_BUY")?></a></div><?
+														?><div class="mp-buy"><a href="<?=$arM["url2basket"]?>" target="_blank"><?=GetMessage("USM_BUY")?></a></div><?php 
 													}
 													if($arM["canDemo"] == "Y")
 													{
-														?><div class="mp-test"><a href="<?=$arM["urlInstall"]?>" target="_blank"><?=GetMessage("USM_TEST")?></a></div><?
+														?><div class="mp-test"><a href="<?=$arM["urlInstall"]?>" target="_blank"><?=GetMessage("USM_TEST")?></a></div><?php 
 													}
 												}
 												?>
@@ -357,7 +357,7 @@ else
 									</div>
 								</div>
 							</td>
-							<?
+							<?php 
 							if($inRow%3 == 0)
 							{
 								$inRow = 0;
@@ -369,14 +369,14 @@ else
 							?>
 							<div style="float:left; width:190px; padding-right: 15px;">
 								<div style="display: inline-block;"><span title="<?=htmlspecialcharsbx($arM["name"])?>" class="mp-list-slide-block-image" style="background: url('<?=$arM["logo"]["src"]?>') center center no-repeat; width:<?=$arM["logo"]["width"]?>px; height:<?=$arM["logo"]["height"]?>px; display:block; border: 1px solid #c0c0c0; float: left;">
-										<?
+										<?php 
 										if(!empty($arM["icons"]) > 0)
 										{
 											foreach($arM["icons"] as $v)
 											{
 												?>
 												<img src="<?=$v["src"]?>" border="0" style="<?=$v["styles"]?>" width="<?=$v["width"]?>" height="<?=$v["height"]?>" />
-												<?
+												<?php 
 											}
 										}
 										?>
@@ -388,23 +388,23 @@ else
 									</div>
 									<div class="mp-item">
 										<p class="mp-title"><?=GetMessage("USM_DEVELOPER")?></p>
-										<p><?if(strlen($arM["partner"]["href"]) > 0):?>
+										<p><?php if(strlen($arM["partner"]["href"]) > 0):?>
 											<a href="<?=htmlspecialcharsbx($arM["partner"]["href"])?>" target="_blank"><?=htmlspecialcharsbx($arM["partner"]["name"])?></a>
-											<?else:?>
+											<?php else:?>
 												<?=htmlspecialcharsbx($arM["partner"]["name"])?>
-											<?endif;?>
+											<?php endif;?>
 										</p>
 									</div>
 									<div class="mp-item">
 										<p class="mp-title"><?=GetMessage("USM_DATE_ADD")?></p>
 										<p><?=$arM["date"]?></p>
 									</div>
-									<?if(strlen($arM["version"]) > 0):?>
+									<?php if(strlen($arM["version"]) > 0):?>
 										<div class="mp-item">
 											<p class="mp-title"><?=GetMessage("USM_VERSION")?></p>
 											<p><?=$arM["version"]?></p>
 										</div>
-									<?endif;?>
+									<?php endif;?>
 									<div class="mp-item">
 										<p class="mp-title"><?=GetMessage("USM_INSTALL_CNT")?></p>
 										<p><?=$arM["instCnt"]?></p>
@@ -414,55 +414,55 @@ else
 							<div style="float:left; width:595px;">
 								<div id="mp-price-bar">
 									<div style="float:left;">
-										<?
+										<?php 
 										if($arM["freeModule"] == "Y")
 										{
-											?><div class="mp-grey"><?=GetMessage("USM_FREE")?></div><?
+											?><div class="mp-grey"><?=GetMessage("USM_FREE")?></div><?php 
 										}
 										else
 										{
 											?><div class="mp-grey"><?=GetMessage("USM_PAID")?></div>
 											<div class="mp-price">
-											<?
+											<?php 
 											if(intval($arM["oldPrice"]) > 0)
 											{
-												?><s><?=intval($arM["oldPrice"])?></s>&nbsp;&nbsp;<span style="color:red;"><?=$arM["price"]?></span><?
+												?><s><?=intval($arM["oldPrice"])?></s>&nbsp;&nbsp;<span style="color:red;"><?=$arM["price"]?></span><?php 
 											}
 											else
 											{
-												?><?=$arM["price"];?><?
+												?><?=$arM["price"];?><?php 
 											}
-											?></div><?
+											?></div><?php 
 										}
 										?>
 									</div>
 									<div class="mp-buttons">
-										<?if($arM["installed"] == "Y")
+										<?php if($arM["installed"] == "Y")
 										{
-											?><div class="mp-grey"><?=GetMessage("USM_INSTALLED")?></div><?
+											?><div class="mp-grey"><?=GetMessage("USM_INSTALLED")?></div><?php 
 										}
 
 										if($arM["freeModule"] == "Y")
 										{
 											if($arM["installed"] != "Y")
 											{
-												?><a href="<?=$arM["urlInstall"]?>" class="adm-btn adm-btn-green"><?=GetMessage("USM_INSTALL")?></a><?
+												?><a href="<?=$arM["urlInstall"]?>" class="adm-btn adm-btn-green"><?=GetMessage("USM_INSTALL")?></a><?php 
 											}
 										}
 										else
 										{
 											if($arM["installedDemo"] != "Y")
 											{
-												?><a href="<?=$arM["url2basket"]?>" target="_blank" class="adm-btn adm-btn-green"><?=GetMessage("USM_BUY")?></a><?
+												?><a href="<?=$arM["url2basket"]?>" target="_blank" class="adm-btn adm-btn-green"><?=GetMessage("USM_BUY")?></a><?php 
 											}
 											if($arM["canDemo"] == "Y")
 											{
-												?><a href="<?=$arM["urlInstall"]?>" target="_blank" class="adm-btn"><?=GetMessage("USM_TEST")?></a><?
+												?><a href="<?=$arM["urlInstall"]?>" target="_blank" class="adm-btn"><?=GetMessage("USM_TEST")?></a><?php 
 											}
 										}
 										if(strlen($arM["demoLink"]) > 0)
 										{
-											?><a class="adm-btn" href="<?=htmlspecialcharsbx($arM["demoLink"])?>" target="_blank"><?=GetMessage("USM_ONLINE_DEMO")?></a><?
+											?><a class="adm-btn" href="<?=htmlspecialcharsbx($arM["demoLink"])?>" target="_blank"><?=GetMessage("USM_ONLINE_DEMO")?></a><?php 
 										}
 
 										?>
@@ -493,7 +493,7 @@ else
 								<div id="mp-detail-descripiption-fade"></div>
 
 								<div class="mp-tabs">
-									<?
+									<?php 
 									$aTabs1 = array();
 									if(!empty($arM["action"]))
 										$aTabs1[] = array("DIV"=>"oedit1", "TAB" => GetMessage("USM_ACTIONS"), "TITLE" => GetMessage("USM_ACTIONS"));
@@ -528,7 +528,7 @@ else
 												$arM["styles"]["style"] = array($arM["styles"]["style"]);
 											foreach($arM["styles"]["style"] as $v)
 											{
-												?><link href="<?=$v?>" type="text/css" rel="stylesheet"><?
+												?><link href="<?=$v?>" type="text/css" rel="stylesheet"><?php 
 											}
 										}
 										if(!empty($arM["scripts"]["script"]))
@@ -537,7 +537,7 @@ else
 												$arM["scripts"]["script"] = array($arM["scripts"]["script"]);
 											foreach($arM["scripts"]["script"] as $v)
 											{
-												?><script type="text/javascript" src="<?=$v?>"></script><?
+												?><script type="text/javascript" src="<?=$v?>"></script><?php 
 											}
 										}
 										?>
@@ -545,12 +545,12 @@ else
 											<a class="scroll-prev screenshot-prev disabled"></a>
 											<div id="scrollable-screenshot" class="scrollable" style="visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; width: 507px;">
 												<ul style="margin: 0pt; padding: 0pt; position: relative; list-style-type: none; z-index: 1; width: 676px; left: 0px;">
-													<?foreach($arM["images"]["image"] as $val)
+													<?php foreach($arM["images"]["image"] as $val)
 													{
 														if($val["video"] == "Y")
 														{
 															?><li style="overflow: hidden; float: left; width: <?=$val["width"]?>px; height: <?=$val["height"]?>px; border: 1px solid #cfcfcf;">
-																<div style="display:none; width:645px; height:490px;" id="module-video"><?$APPLICATION->IncludeComponent(
+																<div style="display:none; width:645px; height:490px;" id="module-video"><?php $APPLICATION->IncludeComponent(
 																	"bitrix:player",
 																	"",
 																	array(
@@ -599,13 +599,13 @@ else
 															);?></div>
 																<a class="screenshot-video"><img width="<?=$val["width"]?>" height="<?=$val["height"]?>" alt="" src="<?=$val["small"]?>"></a>
 															</li>
-															<?
+															<?php 
 														}
 														else
 														{
 															?><li style="overflow: hidden; float: left; width: <?=$val["width"]?>px; height: <?=$val["height"]?>px; border: 1px solid #cfcfcf;">
 																<a rel="module_screenshots" href="<?=$val["big"]?>" class="screenshot-image"><img width="<?=$val["width"]?>" height="<?=$val["height"]?>" alt="" src="<?=$val["small"]?>"></a>
-															</li><?
+															</li><?php 
 														}
 													}
 													?>
@@ -613,7 +613,7 @@ else
 											</div>
 											<a class="scroll-next screenshot-next"></a>
 										</div>
-										<?
+										<?php 
 
 									}
 									if(!empty($arM["updates"]))
@@ -622,15 +622,15 @@ else
 										if(!is_array($arM["updates"]["version"][0]))
 											$arM["updates"]["version"] = array($arM["updates"]["version"]);
 
-										?><table width="100%" border="0" cellpadding="2" cellspacing="2"><?
+										?><table width="100%" border="0" cellpadding="2" cellspacing="2"><?php 
 										foreach($arM["updates"]["version"] as $arVersion)
 										{
 											?><tr>
 												<td valign="top" style="padding-right:10px;"><b><?=$arVersion["id"]?></b></td>
 												<td valign="top" style="padding-bottom:10px;padding-left:10px;"><?=$arVersion["descr"]?></td>
-											</tr><?
+											</tr><?php 
 										}
-										?></table><?
+										?></table><?php 
 									}
 									if(!empty($arM["support"]))
 									{
@@ -660,7 +660,7 @@ else
 														<a class="scroll-prev solutions-prev"></a>
 														<div id="scrollable" class="scrollable" style="visibility: visible; overflow: hidden; position: relative; z-index: 2; left: 0px; width: 735px;">
 															<ul style="margin: 0pt; padding: 0pt; position: relative; list-style-type: none; z-index: 1; width: 1470px; left: -490px;">
-																<?foreach($arM["moreItems"]["item"] as $moreItem)
+																<?php foreach($arM["moreItems"]["item"] as $moreItem)
 																{
 																	$moreItem["url"] = str_replace("#module#", $moreItem["code"], "update_system_market.php?module=#module#&lang=".LANGUAGE_ID);
 																	$moreItem["urlClick"] = str_replace("#module#", $moreItem["code"], $sTableID.".GetAdminList('/bitrix/admin/update_system_market.php?module=#module#&lang=".LANGUAGE_ID."&".bitrix_sessid_get()."&table_id=".$sTableID.((intval($category) > 0) ? "&category=".$category : "")."'); return false;");
@@ -678,14 +678,14 @@ else
 																	<li style="overflow: hidden; float: left; width: 225px; height: 114px;">
 																		<div class="mp-name"><a href="<?=$moreItem["url"]?>" title="<?=$moreItem["name"]?>"><?=$moreItem["name"]?></a></div>
 																		<a href="<?=$moreItem["url"]?>" title="<?=$moreItem["name"]?>"><span class="mp-list-slide-block-image" style="background: url('<?=$moreItem["logo"]["src"]?>') center center no-repeat; width:<?=$moreItem["logo"]["width"]?>px; height:<?=$moreItem["logo"]["height"]?>px; display:block; border: 1px solid #c0c0c0; float: left;">
-																				<?
+																				<?php 
 																				if(!empty($moreItem["icons"]) > 0)
 																				{
 																					foreach($moreItem["icons"] as $v)
 																					{
 																						?>
 																						<img src="<?=$v["src"]?>" border="0" style="<?=$v["styles"]?>" width="<?=$v["width"]?>" height="<?=$v["height"]?>" />
-																						<?
+																						<?php 
 																					}
 																				}
 																				?>
@@ -693,10 +693,10 @@ else
 																		<div class="mp-content">
 																			<span class="mp-ilike"><?=intval($moreItem["votes"])?></span>
 																			<div>
-																				<?
+																				<?php 
 																				if($moreItem["installed"] == "Y")
 																				{
-																					?><div class="mp-grey"><?=GetMessage("USM_INSTALLED")?></div><?
+																					?><div class="mp-grey"><?=GetMessage("USM_INSTALLED")?></div><?php 
 																				}
 
 																				if($moreItem["freeModule"] == "Y")
@@ -704,34 +704,34 @@ else
 																					if($moreItem["installed"] != "Y")
 																					{
 																						?><div class="mp-install"><a href="<?=$moreItem["urlInstall"]?>"><?=GetMessage("USM_INSTALL")?></a></div>
-																						<div class="mp-grey"><small><?=GetMessage("USM_FREE")?></small></div><?
+																						<div class="mp-grey"><small><?=GetMessage("USM_FREE")?></small></div><?php 
 																					}
 																				}
 																				else
 																				{
 																					if(intval($moreItem["oldPrice"]) > 0)
 																					{
-																						?><div class="mp-price"><s><?=intval($moreItem["oldPrice"])?></s>&nbsp;&nbsp;<span style="color:red;"><?=$moreItem["price"]?></span></div><?
+																						?><div class="mp-price"><s><?=intval($moreItem["oldPrice"])?></s>&nbsp;&nbsp;<span style="color:red;"><?=$moreItem["price"]?></span></div><?php 
 																					}
 																					else
 																					{
-																						?><div class="mp-price"><?=$moreItem["price"];?></div><?
+																						?><div class="mp-price"><?=$moreItem["price"];?></div><?php 
 																					}
 
 																					if($moreItem["installedDemo"] != "Y")
 																					{
-																						?><div class="mp-buy"><a href="<?=$moreItem["url2basket"]?>" target="_blank"><?=GetMessage("USM_BUY")?></a></div><?
+																						?><div class="mp-buy"><a href="<?=$moreItem["url2basket"]?>" target="_blank"><?=GetMessage("USM_BUY")?></a></div><?php 
 																					}
 																					if($moreItem["canDemo"] == "Y")
 																					{
-																						?><div class="mp-test"><a href="<?=htmlspecialcharsbx($moreItem["urlInstall"])?>" target="_blank"><?=GetMessage("USM_TEST")?></a></div><?
+																						?><div class="mp-test"><a href="<?=htmlspecialcharsbx($moreItem["urlInstall"])?>" target="_blank"><?=GetMessage("USM_TEST")?></a></div><?php 
 																					}
 																				}
 																				?>
 																			</div>
 																		</div>
 																	</li>
-																	<?
+																	<?php 
 																}
 																?>
 															</ul>
@@ -743,7 +743,7 @@ else
 										</table>
 									</div>
 
-									<?						
+									<?php 						
 									}
 									
 									if(!empty($arM["comments"]) > 0)
@@ -755,7 +755,7 @@ else
 										<div id="comments">
 											<hr class="comments-delimiter" noshade>
 											<div style="text-align:center;"><a target="_blank" href="<?=$arM["url2module"]?>"><?=GetMessage("USM_COMMENTS_ADD")?></a></div>
-										<?
+										<?php 
 										foreach($arM["comments"]["comment"] as $v)
 										{
 											?>
@@ -764,9 +764,9 @@ else
 												<div class="mp-comment-title"><b><?=$v["author"]?></b> <span class="mp-grey comment-created"><?=$v["date"]?></span></div>
 												<?=$v["text"]?>
 											</div>
-											<?
+											<?php 
 										}
-										?></div><?
+										?></div><?php 
 									}?>
 
 
@@ -775,7 +775,7 @@ else
 
 
 
-							<?
+							<?php 
 						}
 					}
 
@@ -797,7 +797,7 @@ else
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 
 	if(strlen($arResult["modules"]["#"]["navData"][0]["#"]) > 0)
 	{

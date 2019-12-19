@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COULD_NOT_DELETE_PRODUCT_ROWS_EXIST"] = "Нельзя удалить '#NAME#': этот товар присутствует в сделках, лидах, предложениях или счетах.";
 $MESS["CRM_PRODUCT_FIELD_ID"] = "ID";
 $MESS["CRM_PRODUCT_FIELD_CATALOG_ID"] = "Каталог";

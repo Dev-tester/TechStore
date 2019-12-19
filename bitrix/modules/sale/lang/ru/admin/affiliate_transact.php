@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SAT2_AFF_IN'] = "Начисление";
 $MESS ['SAT2_AFF_ACCT'] = "Выплата на внутренний счет";
 $MESS ['SAT2_TRANSACT_DATE'] = "Дата транзакции";

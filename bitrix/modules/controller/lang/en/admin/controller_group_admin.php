@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_GR_AD_FLT_MODIF"] = "Modified";
 $MESS["CTRLR_GR_AD_FLT_CREAT"] = "Created";
 $MESS["CTRLR_GR_AD_ERR1"] = "Error updating the group parameters ";

@@ -1,4 +1,4 @@
-<?
+<?php 
 // common
 $MESS['SALE_REPORT_GROUP_NOT_FOUND'] = 'Группа не найдена';
 $MESS['SALE_REPORT_USER_NOT_AUTH'] = '<не авторизован>';

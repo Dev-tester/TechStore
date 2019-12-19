@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SCALE_ACTION_EVENT_LOG_TYPE_ACTION'] = "Действие";
 $MESS ['SCALE_ACTION_EVENT_LOG_TYPE_ACTION_STARTED'] = "Масштабирование. Действие запущено.";
 $MESS ['SCALE_ACTION_EVENT_LOG_TYPE_ACTION_RESULT'] = "Масштабирование. Действие, результат запуска";

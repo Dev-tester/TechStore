@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NEED_AUTH", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
@@ -17,4 +17,4 @@ $APPLICATION->SetTitle("Authorization");
 
 <p><a href="<?=SITE_DIR?>">Back to home page</a></p>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

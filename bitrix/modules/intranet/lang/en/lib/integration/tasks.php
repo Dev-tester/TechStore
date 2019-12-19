@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_TASK_TITLE"] = "Fill out profile";
 $MESS["SONET_TASK_DESCRIPTION_V2"] = "Complete your profile, upload your user image and provide your personal information.
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGO_EMPTY_SITE"] = "The ordering site is not specified";
 $MESS["SKGO_EMPTY_PERS_TYPE"] = "The payer type is not specified";
 $MESS["SKGO_EMPTY_USER_ID"] = "The customer ID is not specified";

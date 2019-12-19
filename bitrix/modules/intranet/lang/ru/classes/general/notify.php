@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["I_NEW_USER_TITLE"] = "Добавлен новый сотрудник";
 $MESS["I_NEW_USER_EXTERNAL_TITLE"] = "Добавлен новый внешний пользователь";
 $MESS["I_NEW_USER_TITLE_SETTINGS"] = "Новые сотрудники";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRIA_ACT_TRACK1"] = "Additional information is to be presented by #VAL#";
 $MESS["BPRIA_ACT_INFO"] = "Waiting for additional information";
 $MESS["BPRIA_LOG_Y"] = "Information obtained";

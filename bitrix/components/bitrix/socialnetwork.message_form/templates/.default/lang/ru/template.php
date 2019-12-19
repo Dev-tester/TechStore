@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_SEARCH_USER'] = "Найти пользователя";
 $MESS ['PM_POST_FULLY'] = "Заполнение ящика:";
 $MESS ['PM_HEAD_FROM'] = "Отправитель:";

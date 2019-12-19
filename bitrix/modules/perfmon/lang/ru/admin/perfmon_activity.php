@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['PERFMON_ACTIVITY_TITLE'] = "Управление активностью";
 $MESS['PERFMON_ACTIVE_Y'] = "Монитор включен и выполняет сбор данных.";
 $MESS['PERFMON_ACTIVE_N'] = "Монитор отключен.";

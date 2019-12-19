@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EXTRANET_WG_TO_ARCHIVE_NAME"] = "The workgroup has been archived.";
 $MESS["EXTRANET_WG_TO_ARCHIVE_DESC"] = "#WG_ID# - workgroup ID
 #WG_NAME# - workgroup name

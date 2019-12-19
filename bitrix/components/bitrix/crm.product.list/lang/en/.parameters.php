@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_COUNT"] = "Default products per page";
 $MESS["CRM_CATALOG_ID"] = "Commercial Catalog";
 $MESS["CRM_SECTION_ID"] = "Section";

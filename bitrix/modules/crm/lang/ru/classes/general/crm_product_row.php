@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EVENT_PROD_ROW_ADD"] = "Добавлен товар";
 $MESS["CRM_EVENT_PROD_ROW_UPD"] = "Изменён товар";
 $MESS["CRM_EVENT_PROD_ROW_PRICE_UPD"] = "Изменена цена товара '#NAME#'";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CLL2_CRM_MODULE_NOT_INSTALL"] = "The CRM module is not installed.";
 $MESS["CRM_CLL2_IMPORT_ERROR"] = "Location import procedure may have failed. Please import the locations again.";
 $MESS["CRM_CLL2_INTS_TASKS_NAV"] = "Records";

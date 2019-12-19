@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BCSE_GROUPS_PRICES"] = "Цены";
 $MESS["CP_BCSE_GROUPS_SEARCH"] = "Поиск";
 $MESS["CP_BCSE_IBLOCK_TYPE"] = "Тип инфоблока";

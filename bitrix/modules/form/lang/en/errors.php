@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_ERROR_ACCESS_DENIED'] = "Error! Access denied.";
 $MESS ['FORM_ERROR_WRONG_SID'] = "Error! This \"Symbolic identifier\" is already in use in #TYPE# # #ID#.";
 $MESS ['FORM_ERROR_INCORRECT_SID'] = "Error! Incorrect Symbolic identifier (only latin letters, numbers and underscore symbol \"_\" allowed).";

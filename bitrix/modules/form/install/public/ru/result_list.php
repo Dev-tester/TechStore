@@ -1,12 +1,12 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Анкеты");
 ?>
-<?
+<?php 
 $WEB_FORM_NAME = $_REQUEST["WEB_FORM_NAME"];
 if (strlen($WEB_FORM_NAME)<=0) $WEB_FORM_NAME = "ANKETA";
 ?>
-<?
+<?php 
 $APPLICATION->IncludeFile("form/result_list/default.php", array(
 	"WEB_FORM_ID"			=> $_REQUEST["WEB_FORM_ID"],	// ID веб-формы 
 	"WEB_FORM_NAME"			=> $WEB_FORM_NAME,				// символьный код веб-формы
@@ -20,4 +20,4 @@ $APPLICATION->IncludeFile("form/result_list/default.php", array(
 	"NOT_SHOW_TABLE"		=> ""							// коды полей которые нельзя показывать в таблице (через запятую)
 	));
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

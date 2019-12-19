@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_PERM_ROLE"] = "Role";
 $MESS["IMOL_PERM_ADD_ACCESS_CODE"] = "Add access permission";
 $MESS["IMOL_PERM_ROLE_LIST"] = "Roles";

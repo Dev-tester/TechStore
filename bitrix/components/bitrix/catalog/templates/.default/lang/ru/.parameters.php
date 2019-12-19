@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BC_TPL_DML_SIMPLE"] = "простой режим";
 $MESS["CP_BC_TPL_DML_EXT"] = "расширенный";
 $MESS["CPT_BC_TPL_THEME_SITE"] = "Брать тему из настроек сайта (для решения bitrix.eshop)";

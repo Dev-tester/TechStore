@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_VIEWER_DOCUMENT_ITEM_OPEN_DESCR_OFFICE365"] = "To view the file, open it in new window";
 $MESS["JS_VIEWER_DOCUMENT_ITEM_OPEN_FILE_OFFICE365"] = "Open";
 $MESS["JS_VIEWER_DOCUMENT_ITEM_OPEN_HELP_HINT_OFFICE365"] = "<a href=\"#\" onclick='top.BX.Helper.show(\"redirect=detail&code=9562101\");event.preventDefault();'>Learn more</a> on how to work with files in Office365.";

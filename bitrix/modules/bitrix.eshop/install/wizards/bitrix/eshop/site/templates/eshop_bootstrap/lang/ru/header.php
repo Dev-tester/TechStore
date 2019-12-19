@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_GOODS"] = "Товары";
 $MESS["SEARCH_OTHER"] = "Прочее";
 $MESS["FOOTER_COMPANY_ABOUT"] = "Подробнее о компании";

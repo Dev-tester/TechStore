@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle(" ");
 ?> 
-<p><?$APPLICATION->IncludeComponent("bitrix:blog", "one_blog", array(
+<p><?php $APPLICATION->IncludeComponent("bitrix:blog", "one_blog", array(
 	"MESSAGE_COUNT" => "10",
 	"PERIOD_DAYS" => "30",
 	"MESSAGE_COUNT_MAIN" => "6",
@@ -81,4 +81,4 @@ $APPLICATION->SetTitle(" ");
 	),
 	false
 );?></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

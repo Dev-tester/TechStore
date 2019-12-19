@@ -1,4 +1,4 @@
-<?
+<?php 
 $className = "CXMPPServerQuery";
 $classVersion = 2;
 

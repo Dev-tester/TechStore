@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_INIT_FOLDERS"] = "Начальный каталог:";
 $MESS["TRANS_SAVE"] = "Сохранить";
 $MESS["TRANS_RESET"] = "Сбросить";

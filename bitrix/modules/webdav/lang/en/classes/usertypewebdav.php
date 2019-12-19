@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_WEBDAV_FILE_DESCRIPTION"] = "Document from Library";
 $MESS["USER_TYPE_WEBDAV_FILE_IBLOCK_ID"] = "Document Library information block";
 $MESS["USER_TYPE_WEBDAV_FILE_SECTION_ID"] = "Document Library folder";

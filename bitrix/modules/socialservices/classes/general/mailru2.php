@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Web\HttpClient;
 use Bitrix\Main\Web\Json;
@@ -234,7 +234,7 @@ class CSocServMailRu2 extends CSocServAuth
 				window.opener.location = '<?=CUtil::JSEscape($url)?>';
 			window.close();
 		</script>
-		<?
+		<?php 
 		die();
 	}
 

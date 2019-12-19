@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPCGERR_INVALID_TYPE1'] = "The '#PARAM#' argument must be of '#VALUE#' type.";
 $MESS ['BPCGERR_INVALID_ARG1'] = "The argument '#PARAM#' has an invalid value '#VALUE#'";
 $MESS ['BPCGERR_INVALID_ARG'] = "The argument '#PARAM#' has an invalid value.";

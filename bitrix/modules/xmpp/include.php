@@ -1,4 +1,4 @@
-<?
+<?php 
 define("BX_XMPP_SERVER_DOMAIN", "192.168.0.8");
 
 $arClasses = array(

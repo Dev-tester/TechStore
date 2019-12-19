@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_1C_START_DOC"] = "1C:Backoffice";
 $MESS["CRM_1C_START_EXCHANGE"] = "1C + CRM";
 $MESS["CRM_1C_START_FACE_CARD"] = "Face Card";

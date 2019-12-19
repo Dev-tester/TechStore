@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_UGE_TITLE_ADD"] = "Добавление пользователя в группу";
 $MESS["SUP_UGE_TAB1"] = "Пользователь";
 $MESS["SUP_UGE_TAB1_TITLE"] = "Пользователь в группе";

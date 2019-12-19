@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_ADD_REC2"] = "Возможно на эту дату курс уже задан.";
 $MESS["BT_MOD_CURR_ERR_RATE_CURRENCY_ABSENT"] = "Не указан идентификатор валюты";
 $MESS["BT_MOD_CURR_ERR_RATE_CURRENCY_LAT"] = "Идентификатор валюты может содержать только латинские символы";

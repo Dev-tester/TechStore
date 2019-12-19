@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ISIA_TPL_SHOW'] = "Показать: ";
 $MESS ['INTR_ISIA_TPL_ALL'] = "все";
 $MESS ['INTR_ISIA_TPL_NOW'] = "сейчас";

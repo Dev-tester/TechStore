@@ -23,14 +23,14 @@ foreach($arResult['APPLICATION_LIST'] as $app):
 	$current = $app['ID'] == $arResult['APPLICATION_CURRENT'];
 	$applicationIdList[] = $app['ID'];
 ?>
-	<div id="rest_carousel_<?=$c->encode($arResult['PLACEMENT'].'_'.$app['ID'])?>" class="rest-placement-carousel-app"<?if(!$current):?> style="display: none"<?endif;?>>
-<?
+	<div id="rest_carousel_<?=$c->encode($arResult['PLACEMENT'].'_'.$app['ID'])?>" class="rest-placement-carousel-app"<?php if(!$current):?> style="display: none"<?php endif;?>>
+<?php 
 	if($current):
 		require_once('layout.php');
 	endif;
 ?>
 	</div>
-<?
+<?php 
 endforeach;
 
 ?>

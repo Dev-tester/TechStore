@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "The Blogs module is not installed.";
 $MESS["IDEA_POST_UNSUBSCRIBE"] = "Unsubscribe";
 $MESS["IDEA_SUBSCRIBE_ALL_SUBSCRIBED"] = "Subscribe to all new ideas and comments";

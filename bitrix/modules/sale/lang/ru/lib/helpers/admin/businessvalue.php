@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZVAL_PAGE_ALL"] = "(все)";
 $MESS["BIZVAL_PAGE_SHOW_ROWS"] = "Показать все";
 $MESS["BIZVAL_PAGE_HIDE_ROWS"] = "Скрыть заполненные";

@@ -62,7 +62,7 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 	if (!empty($selectors))
 	{
 		?>
-		<script type="text/javascript"><?
+		<script type="text/javascript"><?php 
 		foreach ($selectors as $groupSelector)
 		{
 			$selectorID = $groupSelector['ID'];
@@ -81,16 +81,16 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 						}
 					);
 				}
-			);<?
+			);<?php 
 			}
-			?></script><?
+			?></script><?php 
 	}
 }
 ?>
-<? if (!$isBitrix24Template): ?>
+<?php  if (!$isBitrix24Template): ?>
 
 	<div class="tasks-interface-filter-container">
-		<? endif ?>
+		<?php  endif ?>
 
 		<?php
 		$taskUrlTemplate = ($arParams['MENU_GROUP_ID'] > 0 ? $arParams['PATH_TO_GROUP_TASKS_TASK'] : $arParams['PATH_TO_USER_TASKS_TASK']);
@@ -112,10 +112,10 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 				   )?>"
 				><?=GetMessage('TASKS_BTN_ADD_TASK')?></a>
 				<span id="tasks-popupMenuAdd" class="ui-btn-extra"></span>
-			</div><?
+			</div><?php 
 		}?>
 
-		<div class="tasks-interface-filter pagetitle-container<?php if (!$isBitrix24Template): ?> pagetitle-container-light<? endif ?> pagetitle-flexible-space">
+		<div class="tasks-interface-filter pagetitle-container<?php if (!$isBitrix24Template): ?> pagetitle-container-light<?php  endif ?> pagetitle-flexible-space">
             <?php
 			$filterComponentData = [
 				"FILTER_ID" => $arParams["FILTER_ID"],
@@ -141,8 +141,8 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 			); ?>
 		</div>
 
-		<? if ($arParams['USE_GROUP_SELECTOR'] == 'Y'): ?>
-			<?
+		<?php  if ($arParams['USE_GROUP_SELECTOR'] == 'Y'): ?>
+			<?php 
 			$containerID = 'tasks_group_selector';
 			if (isset($arResult['GROUPS'][$arParams['GROUP_ID']]))
 			{
@@ -202,9 +202,9 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 					}
 				);
 			</script>
-		<? endif; ?>
+		<?php  endif; ?>
 
-		<?if ($arResult['SPRINTS'] && isset($arResult['SPRINTS'][$arParams['SPRINT_ID']])):
+		<?php if ($arResult['SPRINTS'] && isset($arResult['SPRINTS'][$arParams['SPRINT_ID']])):
 			$currentSprint = $arResult['SPRINTS'][$arParams['SPRINT_ID']];
 			$containerID = 'tasks_sprint_selector';
 			?>
@@ -235,7 +235,7 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 					);
 				});
 			</script>
-		<?endif;?>
+		<?php endif;?>
 
 		<div class="pagetitle-container pagetitle-align-right-container">
 
@@ -248,18 +248,18 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 				<button id="tasks-popupMenuOptions" class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting webform-cogwheel"></button>
 			<?php endif ?>
 
-			<? if ($arParams["SHOW_QUICK_FORM_BUTTON"] != "N"): ?>
+			<?php  if ($arParams["SHOW_QUICK_FORM_BUTTON"] != "N"): ?>
 				<button class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting ui-btn-icon-task tasks-quick-form-button"
 					id="task-quick-form-button"
 					title="<?=GetMessage("TASKS_ADD_QUICK_TASK")?>"
 				></button>
-			<? endif ?>
+			<?php  endif ?>
 
 		</div>
 
-		<? if (!$isBitrix24Template): ?>
+		<?php  if (!$isBitrix24Template): ?>
 	</div>
-<? endif ?>
+<?php  endif ?>
 
 <?php if ($arParams['SHOW_USER_SORT'] == 'Y' ||
 		  $arParams['USE_GROUP_BY_SUBTASKS'] == 'Y' ||
@@ -568,8 +568,8 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 			});
 			<?php endif?>
 
-			<?if (!empty($arParams['POPUP_MENU_ITEMS'])):?>
-				<?foreach ($arParams['POPUP_MENU_ITEMS'] as $menuItem):?>
+			<?php if (!empty($arParams['POPUP_MENU_ITEMS'])):?>
+				<?php foreach ($arParams['POPUP_MENU_ITEMS'] as $menuItem):?>
 				menuItemsOptions.push({
 					tabId: "<?= isset($menuItem['tabId']) ? $menuItem['tabId'] : ''?>",
 					text: "<?= isset($menuItem['text']) ? $menuItem['text'] : ''?>",
@@ -578,8 +578,8 @@ if (isset($arParams['FILTER']) && is_array($arParams['FILTER']))
 					onclick: <?= isset($menuItem['onclick']) ? $menuItem['onclick'] : '""'?>,
 					params: <?= isset($menuItem['params']) ? $menuItem['params'] : '{}'?>
 				});
-				<?endforeach;?>
-			<?endif;?>
+				<?php endforeach;?>
+			<?php endif;?>
 
 			var buttonRect = BX("tasks-popupMenuOptions").getBoundingClientRect();
 			var menu = BX.PopupMenu.create(
@@ -766,7 +766,7 @@ CJSCore::Init("spotlight");
 //				renderTo: node,
 //				top: node.offsetHeight / 2,
 //				left: left,
-//				content: "<?//=GetMessageJS("TASKS_SPOTLIGHT_ADD_TASK")?>//"
+//				content: "<?php //=GetMessageJS("TASKS_SPOTLIGHT_ADD_TASK")?>//"
 //			});
 //
 //			var onresize = function() {
@@ -785,4 +785,4 @@ CJSCore::Init("spotlight");
 //			spotlight.show();
 		});
 	</script>
-<?//endif?>
+<?php //endif?>

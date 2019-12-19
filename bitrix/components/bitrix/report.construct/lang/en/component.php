@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_NOT_FOUND"] = "Report ID \"%s\" was not found.";
 $MESS["REPORT_VIEW_PERMISSION_DENIED"] = "Insufficient permissions to view the report.";
 $MESS["REPORT_TITLE_NOT_SELECTED"] = "The report name is required.";

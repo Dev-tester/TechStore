@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PAGE_DELETE_ACCESS_DENIED'] = "У вас не прав на удаление этого файла.";
 $MESS ['PAGE_DELETE_FILE_NOT_FOUND'] = "Указанный файл не существует.";
 $MESS ['PAGE_DELETE_WINDOW_TITLE'] = "Подтверждение удаления страницы";

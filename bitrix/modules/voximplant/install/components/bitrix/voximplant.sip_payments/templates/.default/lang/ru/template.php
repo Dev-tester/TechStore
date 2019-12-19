@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_SIP_TITLE"] = "SIP-коннектор";
 $MESS["VI_SIP_PAID_BEFORE"] = "Модуль оплачен до #DATE#";
 $MESS["VI_SIP_PAID_NOTICE"] = "После указанной даты, SIP номера будут автоматически отключены.";

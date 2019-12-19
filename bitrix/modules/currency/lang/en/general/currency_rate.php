@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_ADD_REC2"] = "The rate has possibly been already assigned for this date.";
 $MESS["BT_MOD_CURR_ERR_RATE_CURRENCY_ABSENT"] = "The currency ID is not specified.";
 $MESS["BT_MOD_CURR_ERR_RATE_CURRENCY_LAT"] = "The currency ID must include Latin letters only.";

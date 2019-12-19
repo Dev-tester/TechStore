@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 
 <div class="order_acceptpay_infoblock">
 
-	<?if($arResult["TITLE"]):?>
+	<?php if($arResult["TITLE"]):?>
 		<div class="order_acceptpay_infoblock_title"><?=$arResult["TITLE"]?></div>
-	<?endif;?>
+	<?php endif;?>
 
-	<?require($_SERVER['DOCUMENT_ROOT'] . $templateFolder.'/nowrap.php')?>
+	<?php require($_SERVER['DOCUMENT_ROOT'] . $templateFolder.'/nowrap.php')?>
 
 </div>

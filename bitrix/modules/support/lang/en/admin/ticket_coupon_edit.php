@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_CE_ERROR'] = "Error";
 $MESS ['SUP_CE_TITLE_EDIT'] = "Edit coupon %COUPON%";
 $MESS ['SUP_CE_TITLE_NEW'] = "Create new coupon";

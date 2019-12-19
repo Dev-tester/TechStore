@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MODULE_NOT_INSTALL"] = "The Social Network module is not installed.";
 $MESS["SONET_C73_TITLE_JOIN1"] = "New member #TITLE# has joined the group.";
 $MESS["SONET_C73_TITLE_JOIN2"] = "New members #TITLE# has joined the group.";

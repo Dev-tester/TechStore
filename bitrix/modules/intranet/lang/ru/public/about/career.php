@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Вакансии";
 $MESS["ABOUT_PAGE_TITLE"] = "Вакансии";
 $MESS["ABOUT_DET_PAGE_TITLE"] = "Страница";

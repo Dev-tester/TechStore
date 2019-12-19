@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 global $INTRANET_TOOLBAR;
@@ -13,8 +13,8 @@ for ($i = 1; $i <= 12; $i++)
 ?>
 <table class="bx-users-toolbar"><tr><td class="bx-users-toolbar-last">
 <form name="bx_birthday_filter" action="" method="get">
-<?echo GetMessage('INTR_ISBN_TPL_FILTER_DEPARTMENT')?>:
-<?
+<?php echo GetMessage('INTR_ISBN_TPL_FILTER_DEPARTMENT')?>:
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:system.field.edit',
 	'iblock_section',
@@ -29,11 +29,11 @@ $APPLICATION->IncludeComponent(
 </form>
 <script>window.onload = function() {document.forms.bx_birthday_filter.department.onchange = function() {this.form.submit()}}</script>
 </td></tr></table>
-<?
+<?php 
 	endif;*/
 ?>
 <div class="bx-honour-layout">
-<?
+<?php 
 foreach ($arResult['ENTRIES'] as $arEntry)
 //foreach ($arResult['USERS'] as $arUser)
 {

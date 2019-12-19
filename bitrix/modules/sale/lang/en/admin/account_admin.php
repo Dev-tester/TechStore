@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAA_ERROR_DELETE"] = "Error deleting account ##ID#";
 $MESS["SAA_ERROR_MONEY"] = "Error charging off the account ##ID#";
 $MESS["SAA_ERROR_GET"] = "Error getting parameters of the account ##ID#";

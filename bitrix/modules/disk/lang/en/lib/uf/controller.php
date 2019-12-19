@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_UF_CONTROLLER_SAVE_DOCUMENT_TITLE"] = "Select a folder to save the document to";
 $MESS["DISK_UF_CONTROLLER_SELECT_DOCUMENT_TITLE"] = "Select one or more documents";
 $MESS["DISK_UF_CONTROLLER_MY_DOCUMENTS"] = "My drive";

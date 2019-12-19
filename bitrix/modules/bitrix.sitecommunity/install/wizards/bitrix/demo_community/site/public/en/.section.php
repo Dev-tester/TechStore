@@ -1,4 +1,4 @@
-<?
+<?php 
 $sSectionName = "Home";
 $arDirProperties = array(
    "description" => "#SITE_DESCRIPTION#",

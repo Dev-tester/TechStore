@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!$USER->IsAdmin())
 	return;
 
@@ -71,47 +71,47 @@ $EXTRANET_SITE_ID = COption::GetOptionString($module_id, "extranet_site");
 $arSiteID = array("REFERENCE" => $arSiteIDReference, "REFERENCE_ID" => $arSiteIDReferenceID);
 
 $tabControl->Begin();
-?><form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?=LANGUAGE_ID?>"><?
+?><form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?=LANGUAGE_ID?>"><?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td valign="top"><?echo GetMessage("EXTRANET_SITE_ID")?></td>
-		<td valign="middle"><?echo SelectBoxFromArray("EXTRANET_SITE_ID", $arSiteID, $EXTRANET_SITE_ID, GetMessage("MAIN_NO"));?></td>
+		<td valign="top"><?php echo GetMessage("EXTRANET_SITE_ID")?></td>
+		<td valign="middle"><?php echo SelectBoxFromArray("EXTRANET_SITE_ID", $arSiteID, $EXTRANET_SITE_ID, GetMessage("MAIN_NO"));?></td>
 	</tr>
-	<?
+	<?php 
 	for($i=0; $i<count($arAllOptions); $i++):
 		$Option = $arAllOptions[$i];
 		$val = COption::GetOptionString($module_id, $Option[0], $Option[2]);
 		$type = $Option[3];
 	?>
 	<tr>
-		<td valign="top" width="50%"><?if($type[0]=="checkbox")
+		<td valign="top" width="50%"><?php if($type[0]=="checkbox")
 							echo "<label for=\"".htmlspecialcharsbx($Option[0])."\">".$Option[1]."</label>";
 						else
 							echo $Option[1];?></td>
-		<td valign="top" width="50%"><?
+		<td valign="top" width="50%"><?php 
 		if($type[0]=="checkbox"):
-			?><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>><?
+			?><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>><?php 
 		elseif($type[0]=="text"):
-			?><input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?
+			?><input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php 
 			if (strlen($Option[4])>0) :
-				?>&nbsp;<label for="<?echo htmlspecialcharsbx($Option[0])?>_clear"><?=GetMessage("EXTRANET_CLEAR")?>:</label><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>_clear" id="<?echo htmlspecialcharsbx($Option[0])?>_clear" value="Y"><?
+				?>&nbsp;<label for="<?php echo htmlspecialcharsbx($Option[0])?>_clear"><?=GetMessage("EXTRANET_CLEAR")?>:</label><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>_clear" id="<?php echo htmlspecialcharsbx($Option[0])?>_clear" value="Y"><?php 
 			endif;
 		elseif($type[0]=="textarea"):
-			?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+			?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 		endif;
 			?></td>
 	</tr>
-	<?endfor;?>
+	<?php endfor;?>
 	<tr>
-		<td valign="top"><?echo GetMessage("EXTRANET_USER_GROUP")?></td>
-		<td valign="middle"><?echo SelectBox("EXTRANET_USER_GROUP_ID", CGroup::GetDropDownList("and ACTIVE='Y' and ID <> 2"), GetMessage("MAIN_NO"), htmlspecialcharsbx($EXTRANET_USER_GROUP_ID));?></td>
+		<td valign="top"><?php echo GetMessage("EXTRANET_USER_GROUP")?></td>
+		<td valign="middle"><?php echo SelectBox("EXTRANET_USER_GROUP_ID", CGroup::GetDropDownList("and ACTIVE='Y' and ID <> 2"), GetMessage("MAIN_NO"), htmlspecialcharsbx($EXTRANET_USER_GROUP_ID));?></td>
 	</tr>
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 <input type="submit" name="Update" value="<?=GetMessage("EXTRANET_SAVE")?>">
 <input type="hidden" name="Update" value="Y">
 <input type="reset" name="reset" value="<?=GetMessage("EXTRANET_RESET")?>">
-<input type="submit" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>" name="RestoreDefaults">
+<input type="submit" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>" name="RestoreDefaults">
 <?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>

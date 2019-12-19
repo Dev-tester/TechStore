@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADM_FILE_ADD"] = "Add file";
 $MESS["ADM_FILE_ADD_M"] = "Add files";
 $MESS["ADM_FILE_UPLOAD"] = "Upload";

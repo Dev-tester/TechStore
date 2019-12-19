@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTVT_NOT_SET'] = "(не установлено)";
 $MESS ['INTVT_YES'] = "Да";
 $MESS ['INTVT_NO'] = "Нет";

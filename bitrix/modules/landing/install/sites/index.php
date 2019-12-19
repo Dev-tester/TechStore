@@ -1,6 +1,6 @@
-<?require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:landing.start',
 	'.default',
 	array(
@@ -22,4 +22,4 @@
 );
 ?>
 
-<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>
+<?php require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>

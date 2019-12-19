@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_JS_BP_STARTER_REQUEST_FAILURE"] = "Во время запроса произошла ошибка. Попробуйте перезагрузить страницу.";
 $MESS["BIZPROC_JS_BP_STARTER_CANCEL"] = "Отменить";
 $MESS["BIZPROC_JS_BP_STARTER_START"] = "Запустить";

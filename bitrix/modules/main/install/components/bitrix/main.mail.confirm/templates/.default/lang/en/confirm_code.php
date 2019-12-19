@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS['MAIN_MAIL_CONFIRM_MESSAGE_HINT'] = 'Enter this confirmation code on your Bitrix24 to confirm your email address.';
 $MESS['MAIN_MAIL_CONFIRM_MESSAGE_FAQ_Q1'] = 'Why do I need to verify my email address?';

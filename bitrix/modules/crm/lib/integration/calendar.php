@@ -88,7 +88,7 @@ class Calendar
 					}
 				});
 			</script>
-			<?
+			<?php 
 		}
 	}
 
@@ -135,7 +135,7 @@ class Calendar
 					}
 				});
 			</script>
-			<?
+			<?php 
 		}
 	}
 

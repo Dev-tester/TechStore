@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBCONV_TITLE"] = "Конвертер свойств ИБ";
 $MESS["IBCONV_PERMISSION"] = "Не достаточно прав.";
 $MESS["IBCONV_WRONG_CONVERSION"] = "Недопустимое преобразование.";

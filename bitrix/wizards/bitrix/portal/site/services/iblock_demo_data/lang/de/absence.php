@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_IB_ABSENCE_1_FINISH'] = "Arbeitsbeginn";
 $MESS ['W_IB_ABSENCE_1_NAME'] = "Jahresurlaub";
 $MESS ['W_IB_ABSENCE_1_PREV1'] = "Jahresurlaub fьr ";

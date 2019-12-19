@@ -1,4 +1,4 @@
-<?
+<?php 
 /** Bitrix Framework */
 
 /**
@@ -67,29 +67,29 @@ if(\Bitrix\Scale\Helper::checkBxEnvVersion())
 
 		?>
 		<form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-			<?$oFilter->Begin();?>
+			<?php $oFilter->Begin();?>
 			<tr valign="center">
-				<td class="bx-digit-cell" width="0%" nowrap><?echo Loc::getMessage("SCALE_GRAPH_SELECT_SERVER")?>:</td>
+				<td class="bx-digit-cell" width="0%" nowrap><?php echo Loc::getMessage("SCALE_GRAPH_SELECT_SERVER")?>:</td>
 				<td width="0%" nowrap>
 					<select id="SERVER_HOSTNAME" name="SERVER_HOSTNAME" onchange="changeGraphCategories();">
-						<?foreach($serversList as $hostName => $data):?>
+						<?php foreach($serversList as $hostName => $data):?>
 							<option value="<?=htmlspecialcharsbx($hostName)?>"<?=($hostName == $serverHostname ? " selected" : "")?>><?=htmlspecialcharsbx($hostName)?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
 			<tr valign="center">
-				<td class="bx-digit-cell" width="0%" nowrap><?echo Loc::getMessage("SCALE_GRAPH_SELECT_CATEGORY")?>:</td>
+				<td class="bx-digit-cell" width="0%" nowrap><?php echo Loc::getMessage("SCALE_GRAPH_SELECT_CATEGORY")?>:</td>
 				<td width="0%" nowrap>
 					<select id="GRAPH_CATEGORY" name="GRAPH_CATEGORY">
-						<?foreach($graphCategories[$serverHostname] as $categoryId => $category):?>
+						<?php foreach($graphCategories[$serverHostname] as $categoryId => $category):?>
 							<option value="<?=htmlspecialcharsbx($categoryId)?>"<?=($categoryId == $monitoringCategoryId ? " selected" : "")?>><?=htmlspecialcharsbx($category)?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
 			<tr valign="center">
-				<td class="bx-digit-cell" width="0%" nowrap><?echo Loc::getMessage("SCALE_GRAPH_SELECT_PERIOD")?>:</td>
+				<td class="bx-digit-cell" width="0%" nowrap><?php echo Loc::getMessage("SCALE_GRAPH_SELECT_PERIOD")?>:</td>
 				<td width="0%" nowrap>
 					<select id="PERIOD" name="PERIOD">
 						<option value="day"<?=($period == "day" ? " selected" : "")?>><?=Loc::getMessage("SCALE_GRAPH_PERIOD_DAY")?></option>
@@ -100,29 +100,29 @@ if(\Bitrix\Scale\Helper::checkBxEnvVersion())
 				</td>
 			</tr>
 
-			<?$oFilter->Buttons()?>
+			<?php $oFilter->Buttons()?>
 			<span class="adm-btn-wrap"><input type="submit" class="adm-btn" name="set_filter" value="<?=Loc::getMessage("SCALE_GRAPH_SHOW")?>" title="<?=Loc::getMessage("SCALE_GRAPH_SHOW")?>"></span>
-			<?
+			<?php 
 			$oFilter->End();
 			?>
 		</form>
 
 		<div class="adm-scale-page-wrap" id="adm-scale-page-wrap">
 			<div class="adm-scale-blocks-wrapper" id="adm-scale-blocks-wrapper">
-				<?if(\Bitrix\Scale\Monitoring::isDatabaseCreated($serverHostname)):?>
+				<?php if(\Bitrix\Scale\Monitoring::isDatabaseCreated($serverHostname)):?>
 					<div class="bx-scale-graph">
 						<div class="bx-scale-graph-category"><?=$graphs[$monitoringCategoryId]["NAME"]?></div>
-						<?if( isset($graphs[$monitoringCategoryId]["ITEMS"]) && is_array($graphs[$monitoringCategoryId]["ITEMS"])): ?>
-							<?foreach($graphs[$monitoringCategoryId]["ITEMS"] as $param):?>
+						<?php if( isset($graphs[$monitoringCategoryId]["ITEMS"]) && is_array($graphs[$monitoringCategoryId]["ITEMS"])): ?>
+							<?php foreach($graphs[$monitoringCategoryId]["ITEMS"] as $param):?>
 								<div><img class="adm-scale-graph-img" src="scale_image.php?SERVER=<?=htmlspecialcharsbx($serverHostname)?>&PARAM=<?=$param?>&PERIOD=<?=$period?>"></div>
-							<?endforeach;?>
-						<?endif;?>
+							<?php endforeach;?>
+						<?php endif;?>
 					</div>
-				<?else:?>
+				<?php else:?>
 					<?="<br>".Loc::getMessage("SCALE_GRAPH_MONITORING_DATABASE_CREATING")."."?>
-				<?endif;?>
+				<?php endif;?>
 			</div>
-		</div><?
+		</div><?php 
 	}
 	else
 	{
@@ -160,4 +160,4 @@ else
 		}
 	}
 </script>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

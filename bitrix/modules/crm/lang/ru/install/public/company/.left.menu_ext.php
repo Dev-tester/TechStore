@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS["CRM_COMPANY_ADD"] = "Добавить компанию";
 $MESS["CRM_COMPANY"] = "Список компаний";

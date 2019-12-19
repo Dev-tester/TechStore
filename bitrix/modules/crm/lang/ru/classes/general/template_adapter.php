@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TEMPLATE_ADAPTER_TITLE"] = "Название";
 $MESS["CRM_TEMPLATE_ADAPTER_LAST_NAME"] = "Фамилия";
 $MESS["CRM_TEMPLATE_ADAPTER_NAME"] = "Имя";

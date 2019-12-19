@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 
@@ -23,7 +23,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_adm
 
 ?>
 <form method="GET" action="posting_search.php" name="post_form">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
@@ -36,9 +36,9 @@ $tabControl->BeginNextTab();
 			<div class="adm-list">
 				<div class="adm-list-item">
 					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_ALL" name="RUB_ID_ALL" value="Y" OnClick="CheckAll('RUB_ID', true)"></div>
-					<div class="adm-list-label"><label for="RUB_ID_ALL"><?echo GetMessage("MAIN_ALL")?></label></div>
+					<div class="adm-list-label"><label for="RUB_ID_ALL"><?php echo GetMessage("MAIN_ALL")?></label></div>
 				</div>
-			<?
+			<?php 
 			if(!is_array($RUB_ID))
 				$RUB_ID = array();
 			$aRub = array();
@@ -47,35 +47,35 @@ $tabControl->BeginNextTab();
 				$aRub[] = $ar["ID"];
 			?>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_<?echo $ar["ID"]?>" name="RUB_ID[]" value="<?echo $ar["ID"]?>"<?if(in_array($ar["ID"], $RUB_ID)) echo " checked"?> OnClick="CheckAll('RUB_ID')"></div>
-					<div class="adm-list-label"><label for="RUB_ID_<?echo $ar["ID"]?>"><?echo "[".$ar["LID"]."] ".$ar["NAME"]?></label></div>
+					<div class="adm-list-control"><input type="checkbox" id="RUB_ID_<?php echo $ar["ID"]?>" name="RUB_ID[]" value="<?php echo $ar["ID"]?>"<?php if(in_array($ar["ID"], $RUB_ID)) echo " checked"?> OnClick="CheckAll('RUB_ID')"></div>
+					<div class="adm-list-label"><label for="RUB_ID_<?php echo $ar["ID"]?>"><?php echo "[".$ar["LID"]."] ".$ar["NAME"]?></label></div>
 				</div>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</div>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("post_format")?></td>
+		<td><?php echo GetMessage("post_format")?></td>
 		<td>
 			<select name="SUBSCR_FORMAT">
-				<option value=""<?if($SUBSCR_FORMAT=="") echo" selected"?>><?echo GetMessage("post_format_any")?></option>
-				<option value="text"<?if($SUBSCR_FORMAT=="text") echo" selected"?>><?echo GetMessage("post_format_text")?></option>
-				<option value="html"<?if($SUBSCR_FORMAT=="html") echo" selected"?>>HTML</option>
+				<option value=""<?php if($SUBSCR_FORMAT=="") echo" selected"?>><?php echo GetMessage("post_format_any")?></option>
+				<option value="text"<?php if($SUBSCR_FORMAT=="text") echo" selected"?>><?php echo GetMessage("post_format_text")?></option>
+				<option value="html"<?php if($SUBSCR_FORMAT=="html") echo" selected"?>>HTML</option>
 			</select>
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_search_users")?></td>
+		<td colspan="2"><?php echo GetMessage("post_search_users")?></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("post_group")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("post_group")?></td>
 		<td>
 			<div class="adm-list">
 				<div class="adm-list-item">
 					<div class="adm-list-control"><input type="checkbox" id="GROUP_ID_ALL" name="GROUP_ID_ALL" value="Y" OnClick="CheckAll('GROUP_ID', true)"></div>
-					<div class="adm-list-label"><label for="GROUP_ID_ALL"><?echo GetMessage("MAIN_ALL")?></label></div>
+					<div class="adm-list-label"><label for="GROUP_ID_ALL"><?php echo GetMessage("MAIN_ALL")?></label></div>
 				</div>
-			<?
+			<?php 
 			if(!is_array($GROUP_ID))
 				$GROUP_ID = array();
 			$aGroup = array();
@@ -84,31 +84,31 @@ $tabControl->BeginNextTab();
 				$aGroup[] = $ar["ID"];
 			?>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" id="GROUP_ID_<?echo $ar["ID"]?>" name="GROUP_ID[]" value="<?echo $ar["ID"]?>"<?if(in_array($ar["ID"], $GROUP_ID)) echo " checked"?> OnClick="CheckAll('GROUP_ID')"></div>
-					<div class="adm-list-label"><label for="GROUP_ID_<?echo $ar["ID"]?>"><?echo $ar["NAME"]?>&nbsp;[<a target="_blank" href="/bitrix/admin/group_edit.php?ID=<?echo $ar["ID"]?>&amp;lang=<?echo LANGUAGE_ID?>"><?echo $ar["ID"]?></a>]</label></div>
+					<div class="adm-list-control"><input type="checkbox" id="GROUP_ID_<?php echo $ar["ID"]?>" name="GROUP_ID[]" value="<?php echo $ar["ID"]?>"<?php if(in_array($ar["ID"], $GROUP_ID)) echo " checked"?> OnClick="CheckAll('GROUP_ID')"></div>
+					<div class="adm-list-label"><label for="GROUP_ID_<?php echo $ar["ID"]?>"><?php echo $ar["NAME"]?>&nbsp;[<a target="_blank" href="/bitrix/admin/group_edit.php?ID=<?php echo $ar["ID"]?>&amp;lang=<?php echo LANGUAGE_ID?>"><?php echo $ar["ID"]?></a>]</label></div>
 				</div>
-			<?endwhile;?>
+			<?php endwhile;?>
 			</div>
 		</td>
 	</tr>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage("post_search_filter")?></td>
+		<td colspan="2"><?php echo GetMessage("post_search_filter")?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("post_filter")?></td>
-		<td><input type="text" name="EMAIL_FILTER" value="<?echo htmlspecialcharsbx($EMAIL_FILTER)?>" size="30" maxlength="255"></td>
+		<td><?php echo GetMessage("post_filter")?></td>
+		<td><input type="text" name="EMAIL_FILTER" value="<?php echo htmlspecialcharsbx($EMAIL_FILTER)?>" size="30" maxlength="255"></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons();
 ?>
-<input type="submit" name="search" value="<?echo GetMessage("post_search")?>">
-<input type="reset" name="Reset" value="<?echo GetMessage("post_reset")?>">
+<input type="submit" name="search" value="<?php echo GetMessage("post_search")?>">
+<input type="reset" name="Reset" value="<?php echo GetMessage("post_reset")?>">
 <input type="hidden" name="search" value="search">
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $tabControl->End();
 ?>
-<?
+<?php 
 $aEmail = array();
 
 /*subscribers*/
@@ -135,11 +135,11 @@ if(is_array($GROUP_ID) && count($GROUP_ID)>0)
 $aEmail = array_keys($aEmail);
 
 if(count($aEmail)>0):?>
-	<h2><?echo GetMessage("post_result")?></h2>
+	<h2><?php echo GetMessage("post_result")?></h2>
 	<p class="subscribe_border">
-		<?echo implode(", ",$aEmail)?>
+		<?php echo implode(", ",$aEmail)?>
 	</p>
-	<p><?echo GetMessage("post_total")?> <b><?echo count($aEmail);?></b></p><?
+	<p><?php echo GetMessage("post_total")?> <b><?php echo count($aEmail);?></b></p><?php 
 else:
 	CAdminMessage::ShowMessage(GetMessage("post_notfound"));
 endif;?>
@@ -148,14 +148,14 @@ endif;?>
 function SetValues()
 {
 	var d = window.opener.document;
-	d.getElementById('EMAIL_FILTER').value="<?echo CUtil::JSEscape($EMAIL_FILTER)?>";
-	d.getElementById('SUBSCR_FORMAT').value="<?echo CUtil::JSEscape($SUBSCR_FORMAT)?>";
-	<?foreach($aRub as $id):?>
-	d.getElementById('RUB_ID_<?echo $id?>').checked = <?echo (in_array($id, $RUB_ID)? "true":"false")?>;
-	<?endforeach?>
-	<?foreach($aGroup as $id):?>
-	d.getElementById('GROUP_ID_<?echo $id?>').checked = <?echo (in_array($id, $GROUP_ID)? "true":"false")?>;
-	<?endforeach?>
+	d.getElementById('EMAIL_FILTER').value="<?php echo CUtil::JSEscape($EMAIL_FILTER)?>";
+	d.getElementById('SUBSCR_FORMAT').value="<?php echo CUtil::JSEscape($SUBSCR_FORMAT)?>";
+	<?php foreach($aRub as $id):?>
+	d.getElementById('RUB_ID_<?php echo $id?>').checked = <?php echo (in_array($id, $RUB_ID)? "true":"false")?>;
+	<?php endforeach?>
+	<?php foreach($aGroup as $id):?>
+	d.getElementById('GROUP_ID_<?php echo $id?>').checked = <?php echo (in_array($id, $GROUP_ID)? "true":"false")?>;
+	<?php endforeach?>
 	window.opener.CheckAll('RUB_ID');
 	window.opener.CheckAll('GROUP_ID');
 	window.close();
@@ -190,10 +190,10 @@ CheckAll('RUB_ID');
 CheckAll('GROUP_ID');
 //-->
 </script>
-<input title="<?echo GetMessage("post_search_set_title")?> (<?echo count($aEmail);?>)"  type="button" name="Set" value="<?echo GetMessage("post_set")?>" OnClick="SetValues()" class="adm-btn-save">
-<input type="button" name="Close" value="<?echo GetMessage("post_cancel")?>" OnClick="window.close()">
+<input title="<?php echo GetMessage("post_search_set_title")?> (<?php echo count($aEmail);?>)"  type="button" name="Set" value="<?php echo GetMessage("post_set")?>" OnClick="SetValues()" class="adm-btn-save">
+<input type="button" name="Close" value="<?php echo GetMessage("post_cancel")?>" OnClick="window.close()">
 </form>
-<?echo BeginNote();?>
-<?echo GetMessage("post_search_note")?>
-<?echo EndNote();?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php")?>
+<?php echo BeginNote();?>
+<?php echo GetMessage("post_search_note")?>
+<?php echo EndNote();?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php")?>

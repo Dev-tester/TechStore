@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\ArgumentNullException;
 use Bitrix\Main\Config\Option;
 use Bitrix\Main\Entity;

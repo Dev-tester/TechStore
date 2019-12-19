@@ -184,7 +184,7 @@ $APPLICATION->SetTitle(GetMessage("MAIL_MSERVICE_ADM_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage(); ?>?">
-<? $filter->Begin(); ?>
+<?php  $filter->Begin(); ?>
 
 <tr>
 	<td nowrap>ID:</td>
@@ -195,17 +195,17 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 	<td nowrap>
 		<select name="find_site_id">
 			<option value=""><?=GetMessage("MAIL_MSERVICE_ADM_FILT_ANY"); ?></option>
-			<? $result = Bitrix\Main\SiteTable::getList(array('filter' => array('ACTIVE' => 'Y'), 'order' => array('SORT' => 'ASC'))); ?>
-			<? while (($site = $result->fetch()) !== false) { ?>
-				?><option value="<?=$site['LID']; ?>"<? if ($find_lid == $site['LID']) { ?> selected="selected"<? } ?>><?=$site['NAME']; ?></option>
-			<? } ?>
+			<?php  $result = Bitrix\Main\SiteTable::getList(array('filter' => array('ACTIVE' => 'Y'), 'order' => array('SORT' => 'ASC'))); ?>
+			<?php  while (($site = $result->fetch()) !== false) { ?>
+				?><option value="<?=$site['LID']; ?>"<?php  if ($find_lid == $site['LID']) { ?> selected="selected"<?php  } ?>><?=$site['NAME']; ?></option>
+			<?php  } ?>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td nowrap><?=GetMessage("MAIL_MSERVICE_ADM_ACTIVE"); ?>:</td>
 	<td nowrap>
-		<? $arr = array("reference" => array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id" => array("Y", "N")); ?>
+		<?php  $arr = array("reference" => array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id" => array("Y", "N")); ?>
 		<?=SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("MAIL_MSERVICE_ADM_FILT_ANY")); ?>
 	</td>
 </tr>
@@ -218,10 +218,10 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 	<td nowrap><input type="text" name="find_server" value="<?=htmlspecialcharsbx($find_server); ?>" size="47"><?=ShowFilterLogicHelp(); ?></td>
 </tr>
 
-<? $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1")); $filter->End(); ?>
+<?php  $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1")); $filter->End(); ?>
 
 </form>
 
-<? $lAdmin->DisplayList(); ?>
+<?php  $lAdmin->DisplayList(); ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

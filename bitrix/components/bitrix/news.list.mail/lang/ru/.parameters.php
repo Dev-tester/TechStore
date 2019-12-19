@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_CACHE_FILTER"] = "Кешировать при установленном фильтре";
 $MESS["T_IBLOCK_DESC_ASC"] = "По возрастанию";
 $MESS["T_IBLOCK_DESC_DESC"] = "По убыванию";

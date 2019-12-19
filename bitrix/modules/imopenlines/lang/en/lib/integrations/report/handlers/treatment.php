@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WHAT_WILL_CALCULATE_DUPLICATE_TREATMENT_NEW"] = "Sessions, returning enquiries";
 $MESS["WHAT_WILL_CALCULATE_FIRST_TREATMENT_NEW"] = "Sessions, new enquiries";
 $MESS["OPEN_LINES_TREATMENT"] = "Sessions";

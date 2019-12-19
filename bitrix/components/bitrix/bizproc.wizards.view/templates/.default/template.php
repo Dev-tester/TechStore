@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	?>
 	<span class='errortext'><?= $arResult["FatalErrorMessage"] ?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?= $arResult["ErrorMessage"] ?></span><br /><br />
-		<?
+		<?php 
 	}
 	$arButtons = array(
 		array(
@@ -32,7 +32,7 @@ else
 	);
 	?>
 
-	<?
+	<?php 
 	$arResult["FORM_ID"] = "form_bp_".implode("_", $arResult["DocumentType"]);
 
 	$arTabs = array();

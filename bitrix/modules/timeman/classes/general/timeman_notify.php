@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Timeman\Model\Worktime\Record\WorktimeRecordTable;
 

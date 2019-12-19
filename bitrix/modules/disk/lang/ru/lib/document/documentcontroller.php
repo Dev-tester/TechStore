@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['DISK_DOC_CONTROLLER_ERROR_COULD_NOT_FIND_VERSION'] = "Не удалось найти версию.";
 $MESS['DISK_DOC_CONTROLLER_ERROR_COULD_NOT_FIND_FILE'] = "Не удалось найти файл.";
 $MESS["DISK_DOC_CONTROLLER_ERROR_BAD_RIGHTS"] = "Недостаточно прав для работы с файлом.";

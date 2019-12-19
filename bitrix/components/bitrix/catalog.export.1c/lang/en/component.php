@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BCE1_ERROR_AUTHORIZE"] = "Authorisation error: incorrect login or password.";
 $MESS["CC_BCE1_PERMISSION_DENIED"] = "You do not have enough permissions to import the catalog. Please check the import component settings.";
 $MESS["CC_BCE1_ERROR_UNKNOWN_COMMAND"] = "Unknown command.";

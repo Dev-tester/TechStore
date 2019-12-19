@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BLL_MODULE_NOT_INSTALLED"] = "Модуль универсальных списков не установлен.";
 $MESS["CC_BLL_TITLE"] = "Мои процессы";
 $MESS["CC_BLL_DOCUMENT_NAME"] = "Документ";

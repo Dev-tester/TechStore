@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $module_id = "sale";
@@ -303,7 +303,7 @@ function AddRekvMore(ind)
 			<script language="JavaScript">
 			<!--
 			var paySysActVisible_<?= $arPersonType["ID"] ?> = true;
-			<?
+			<?php 
 			$dbExport = CSaleExport::GetList();
 			while($arExport = $dbExport->Fetch())
 			{
@@ -320,7 +320,7 @@ function AddRekvMore(ind)
 						$k = str_replace("REKV_", "REKV_n", $k);
 						?>
 						var param_<?=$k?>_name_<?= $arExport["PERSON_TYPE_ID"] ?> = '<?= CUtil::JSEscape($v["NAME"]) ?>';
-						<?
+						<?php 
 					}
 
 					if(strpos($k, "REKV_") !== false)
@@ -328,17 +328,17 @@ function AddRekvMore(ind)
 					?>
 					var param_<?= $k ?>_type_<?= $arExport["PERSON_TYPE_ID"] ?> = '<?= CUtil::JSEscape($v["TYPE"]) ?>';
 					var param_<?= $k ?>_value_<?= $arExport["PERSON_TYPE_ID"] ?> = '<?= CUtil::JSEscape($v["VALUE"]) ?>';
-					<?
+					<?php 
 				}
 				?>
 				var param_person_type_1c_<?=$arExport["PERSON_TYPE_ID"]?> = '<?=(($arExpParams["IS_FIZ"]=="Y")?"FIZ":"UR")?>';
 				var param_person_type_rekv_<?=$arExport["PERSON_TYPE_ID"]?> = '<?=IntVal($i)?>';
-				<?
+				<?php 
 			}
 			?>
 			//-->
 			</script>
-			<?
+			<?php 
 			$aTabs1 = array();
 			$personType = Array();
 			$dbPersonType = CSalePersonType::GetList(Array("SORT" => "ASC", "NAME"=>"ASC"), Array("ACTIVE"=>"Y"));
@@ -351,7 +351,7 @@ function AddRekvMore(ind)
 					<!--
 					arPropFieldsList[<?= $arPersonType["ID"] ?>] = new Array();
 					arPropFieldsNameList[<?= $arPersonType["ID"] ?>] = new Array();
-					<?
+					<?php 
 					$dbOrderProps = CSaleOrderProps::GetList(
 							array("SORT" => "ASC", "NAME" => "ASC"),
 							array("PERSON_TYPE_ID" => $arPersonType["ID"]),
@@ -366,31 +366,31 @@ function AddRekvMore(ind)
 						?>
 						arPropFieldsList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["ID"]) ?>';
 						arPropFieldsNameList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["NAME"]) ?>';
-						<?
+						<?php 
 						if ($arOrderProps["TYPE"] == "LOCATION")
 						{
 							$i++;
 							?>
 							arPropFieldsList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["ID"]."_COUNTRY") ?>';
 							arPropFieldsNameList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["NAME"]." (".GetMessage("SPS_JCOUNTRY").")") ?>';
-							<?
+							<?php 
 							$i++;
 							?>
 							arPropFieldsList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["ID"]."_REGION") ?>';
 							arPropFieldsNameList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["NAME"]." (".GetMessage("SPS_JREGION").")") ?>';
-							<?
+							<?php 
 
 							$i++;
 							?>
 							arPropFieldsList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["ID"]."_CITY") ?>';
 							arPropFieldsNameList[<?= $arPersonType["ID"] ?>][<?= $i ?>] = '<?= CUtil::JSEscape($arOrderProps["NAME"]." (".GetMessage("SPS_JCITY").")") ?>';
-							<?
+							<?php 
 						}
 					}
 					?>
 					//-->
 					</script>
-				<?
+				<?php 
 			}
 			$tabControl1 = new CAdminViewTabControl("tabControl1", $aTabs1);
 			$tabControl1->Begin();
@@ -417,18 +417,18 @@ function AddRekvMore(ind)
 				BX.ready(function(){ActionFileChange(<?=CUtil::JSEscape($val["ID"])?>, '');});
 				//-->
 				</script>
-				<?
+				<?php 
 			}
 			$tabControl1->End();
 			?>
-			<?echo BeginNote();?>
+			<?php echo BeginNote();?>
 			<font class="legendtext">
 			<?=GetMessage("SO_1C_COMMENT")?>
 			</font>
-			<?echo EndNote(); ?>
+			<?php echo EndNote(); ?>
 
 		</td>
 	</tr>
-	<?
+	<?php 
 endif;
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/xmpp/include.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/xmpp/prolog.php");
@@ -178,7 +178,7 @@ function StartServer()
 	}
 
 	ShowWaitWindow();
-	CHttpRequest.Send('xmpp_server.php?lang=<?echo htmlspecialchars(LANG)?>&server_action=start&<?echo bitrix_sessid_get()?>');
+	CHttpRequest.Send('xmpp_server.php?lang=<?php echo htmlspecialchars(LANG)?>&server_action=start&<?php echo bitrix_sessid_get()?>');
 }
 
 function StopServer()
@@ -198,7 +198,7 @@ function StopServer()
 	}
 
 	ShowWaitWindow();
-	CHttpRequest.Send('xmpp_server.php?lang=<?echo htmlspecialchars(LANG)?>&server_action=stop&<?echo bitrix_sessid_get()?>');
+	CHttpRequest.Send('xmpp_server.php?lang=<?php echo htmlspecialchars(LANG)?>&server_action=stop&<?php echo bitrix_sessid_get()?>');
 }
 
 function ClearCacheServer()
@@ -218,7 +218,7 @@ function ClearCacheServer()
 	}
 
 	ShowWaitWindow();
-	CHttpRequest.Send('xmpp_server.php?lang=<?echo htmlspecialchars(LANG)?>&server_action=clearcache&<?echo bitrix_sessid_get()?>');
+	CHttpRequest.Send('xmpp_server.php?lang=<?php echo htmlspecialchars(LANG)?>&server_action=clearcache&<?php echo bitrix_sessid_get()?>');
 }
 
 function DumpServer()
@@ -238,7 +238,7 @@ function DumpServer()
 	}
 
 	ShowWaitWindow();
-	CHttpRequest.Send('xmpp_server.php?lang=<?echo htmlspecialchars(LANG)?>&server_action=dump&<?echo bitrix_sessid_get()?>');
+	CHttpRequest.Send('xmpp_server.php?lang=<?php echo htmlspecialchars(LANG)?>&server_action=dump&<?php echo bitrix_sessid_get()?>');
 }
 
 function XPPrepareString(str)
@@ -282,7 +282,7 @@ function QueryServer()
 	}
 
 	ShowWaitWindow();
-	CHttpRequest.Send('xmpp_server.php?lang=<?echo htmlspecialchars(LANG)?>&server_action=query&<?echo bitrix_sessid_get()?>');
+	CHttpRequest.Send('xmpp_server.php?lang=<?php echo htmlspecialchars(LANG)?>&server_action=query&<?php echo bitrix_sessid_get()?>');
 }
 
 function ShowData(run, online, connected)
@@ -300,8 +300,8 @@ function ShowData(run, online, connected)
 
 <div id="reindex_result_div" style="margin:0px; font-size:100%; color:#FF0000"></div>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo htmlspecialchars(LANG)?>" name="fs1">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo htmlspecialchars(LANG)?>" name="fs1">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
@@ -317,7 +317,7 @@ $tabControl->BeginNextTab();
 		<td><?= GetMessage('XMPP_AXS_F_USERS_CONNECTED') ?>:</td>
 		<td><div id="f_users_connected">???<div></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons();
 ?>
 	<input type="button" id="continue_button" value="<?= GetMessage('XMPP_AXS_ACT_QUERY') ?>" OnClick="QueryServer();">
@@ -325,11 +325,11 @@ $tabControl->Buttons();
 	<input type="button" id="stop_button" value="<?= GetMessage('XMPP_AXS_ACT_STOP') ?>" OnClick="StopServer();">
 	<input type="button" id="clearcache_button" value="<?= GetMessage('XMPP_AXS_ACT_CLEARCACHE') ?>" OnClick="ClearCacheServer();">
 	<input type="button" id="dump_button" value="Dump" OnClick="DumpServer();">
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

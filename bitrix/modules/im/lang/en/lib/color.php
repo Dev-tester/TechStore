@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_COLOR_RED"] = "Red";
 $MESS["IM_COLOR_ORANGE"] = "Orange";
 $MESS["IM_COLOR_BROWN"] = "Brown";

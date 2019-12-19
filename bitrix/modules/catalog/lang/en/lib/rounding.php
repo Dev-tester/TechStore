@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ROUNDING_ENTITY_ID_FIELD"] = "Rounding rule ID";
 $MESS["ROUNDING_ENTITY_CURRENCY_FIELD"] = "Currency";
 $MESS["ROUNDING_ENTITY_PRICE_FIELD"] = "Minimum price";

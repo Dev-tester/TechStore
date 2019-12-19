@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /*if(!$arResult["NavShowAlways"])
@@ -12,7 +12,7 @@ $strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryStr
 $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["NavQueryString"] : "");
 ?>
 	<span class="forum-page-title"><?=GetMessage("pages")?></span>
-<?
+<?php 
 if($arResult["bDescPageNumbering"] === true):
 	$bFirst = true;
 	if ($arResult["NavPageNomer"] < $arResult["NavPageCount"]):
@@ -20,16 +20,16 @@ if($arResult["bDescPageNumbering"] === true):
 ?>
 			
 			<a class="forum-page-previous" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]+1)?>"><?=GetMessage("nav_prev")?></a>
-<?
+<?php 
 		else:
 			if ($arResult["NavPageCount"] == ($arResult["NavPageNomer"]+1) ):
 ?>
 			<a class="forum-page-previous" href="<?=$arResult["sUrlPath"]?><?=$strNavQueryStringFull?>"><?=GetMessage("nav_prev")?></a>
-<?
+<?php 
 			else:
 ?>
 			<a class="forum-page-previous" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]+1)?>"><?=GetMessage("nav_prev")?></a>
-<?
+<?php 
 			endif;
 		endif;
 		
@@ -38,16 +38,16 @@ if($arResult["bDescPageNumbering"] === true):
 			if($arResult["bSavePage"]):
 ?>
 			<a class="forum-page-first" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["NavPageCount"]?>">1</a>
-<?
+<?php 
 			else:
 ?>
 			<a class="forum-page-first" href="<?=$arResult["sUrlPath"]?><?=$strNavQueryStringFull?>">1</a>
-<?
+<?php 
 			endif;
 			if ($arResult["nStartPage"] < ($arResult["NavPageCount"] - 1)):
 ?>
 			<span class="forum-page-dots">...</span>
-<?
+<?php 
 			endif;
 		endif;
 	endif;
@@ -58,16 +58,16 @@ if($arResult["bDescPageNumbering"] === true):
 		if ($arResult["nStartPage"] == $arResult["NavPageNomer"]):
 ?>
 		<span class="<?=($bFirst ? "forum-page-first " : "")?>forum-page-current"><?=$NavRecordGroupPrint?></span>
-<?
+<?php 
 		elseif($arResult["nStartPage"] == $arResult["NavPageCount"] && $arResult["bSavePage"] == false):
 ?>
 		<a href="<?=$arResult["sUrlPath"]?><?=$strNavQueryStringFull?>" class="<?=($bFirst ? "forum-page-first" : "")?>"><?=$NavRecordGroupPrint?></a>
-<?
+<?php 
 		else:
 ?>
-		<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["nStartPage"]?>"<?
+		<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["nStartPage"]?>"<?php 
 			?> class="<?=($bFirst ? "forum-page-first" : "")?>"><?=$NavRecordGroupPrint?></a>
-<?
+<?php 
 		endif;
 		
 		$arResult["nStartPage"]--;
@@ -79,16 +79,16 @@ if($arResult["bDescPageNumbering"] === true):
 			if ($arResult["nEndPage"] > 2):
 ?>
 		<span class="forum-page-dots">...</span>
-<?
+<?php 
 			endif;
 ?>
 		<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=1"><?=$arResult["NavPageCount"]?></a>
-<?
+<?php 
 		endif;
 	
 ?>
 		<a class="forum-page-next"href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]-1)?>"><?=GetMessage("nav_next")?></a>
-<?
+<?php 
 	endif; 
 
 else:
@@ -98,16 +98,16 @@ else:
 		if($arResult["bSavePage"]):
 ?>
 			<a class="forum-page-previous" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]-1)?>"><?=GetMessage("nav_prev")?></a>
-<?
+<?php 
 		else:
 			if ($arResult["NavPageNomer"] > 2):
 ?>
 			<a class="forum-page-previous" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]-1)?>"><?=GetMessage("nav_prev")?></a>
-<?
+<?php 
 			else:
 ?>
 			<a class="forum-page-previous" href="<?=$arResult["sUrlPath"]?><?=$strNavQueryStringFull?>"><?=GetMessage("nav_prev")?></a>
-<?
+<?php 
 			endif;
 		
 		endif;
@@ -117,16 +117,16 @@ else:
 			if($arResult["bSavePage"]):
 ?>
 			<a class="forum-page-first" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=1">1</a>
-<?
+<?php 
 			else:
 ?>
 			<a class="forum-page-first" href="<?=$arResult["sUrlPath"]?><?=$strNavQueryStringFull?>">1</a>
-<?
+<?php 
 			endif;
 			if ($arResult["nStartPage"] > 2):
 ?>
 			<span class="forum-page-dots">...</span>
-<?
+<?php 
 			endif;
 		endif;
 	endif;
@@ -136,16 +136,16 @@ else:
 		if ($arResult["nStartPage"] == $arResult["NavPageNomer"]):
 ?>
 		<span class="<?=($bFirst ? "forum-page-first " : "")?>forum-page-current"><?=$arResult["nStartPage"]?></span>
-<?
+<?php 
 		elseif($arResult["nStartPage"] == 1 && $arResult["bSavePage"] == false):
 ?>
 		<a href="<?=$arResult["sUrlPath"]?><?=$strNavQueryStringFull?>" class="<?=($bFirst ? "forum-page-first" : "")?>"><?=$arResult["nStartPage"]?></a>
-<?
+<?php 
 		else:
 ?>
-		<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["nStartPage"]?>"<?
+		<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["nStartPage"]?>"<?php 
 			?> class="<?=($bFirst ? "forum-page-first" : "")?>"><?=$arResult["nStartPage"]?></a>
-<?
+<?php 
 		endif;
 		$arResult["nStartPage"]++;
 		$bFirst = false;
@@ -156,15 +156,15 @@ else:
 			if ($arResult["nEndPage"] < ($arResult["NavPageCount"] - 1)):
 ?>
 		<span class="forum-page-dots">...</span>
-<?
+<?php 
 			endif;
 ?>
 		<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=$arResult["NavPageCount"]?>"><?=$arResult["NavPageCount"]?></a>
-<?
+<?php 
 		endif;
 ?>
 		<a class="forum-page-next" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]+1)?>"><?=GetMessage("nav_next")?></a>
-<?
+<?php 
 	endif;
 endif;
 
@@ -172,11 +172,11 @@ if ($arResult["bShowAll"]):
 	if ($arResult["NavShowAll"]):
 ?>
 		<a class="forum-page-pagen" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=0"><?=GetMessage("nav_paged")?></a>
-<?
+<?php 
 	else:
 ?>
 		<a class="forum-page-all" href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>SHOWALL_<?=$arResult["NavNum"]?>=1"><?=GetMessage("nav_all")?></a>
-<?
+<?php 
 	endif;
 endif
 ?>

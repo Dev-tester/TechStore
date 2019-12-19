@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_SIP_ADD_CLOUD_ERR"] = "You cannot connect more than #NUMBER# cloud hosted PBX's.";
 $MESS["VI_SIP_CONFIG_ID_NULL"] = "The number configuration ID is not specified.";
 $MESS["VI_SIP_CONFIG_NOT_FOUND"] = "Configuration was not found.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MYMV_SET_POPUP_TITLE"] = "Настройки карты";
 $MESS["MYMV_SET_POPUP_WINDOW_TITLE"] = "Редактирование настроек карты";
 $MESS["MYMV_SET_POPUP_WINDOW_DESCRIPTION"] = "Управление видом карты и списком отображаемых объектов";

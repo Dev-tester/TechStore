@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_JS_STATUS_ACTION_SUCCESS"] = "Успешно";
 $MESS["CRM_JS_STATUS_ACTION_ERROR"] = "Произошла ошибка";
 $MESS["CRM_REQUISITE_PRESET_SELECTOR_TITLE_COMPANY"] = "Добавить реквизиты с использованием шаблона";

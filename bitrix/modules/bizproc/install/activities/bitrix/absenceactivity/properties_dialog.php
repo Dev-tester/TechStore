@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
@@ -36,10 +36,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPSNAA2_PD_CTYPES") ?>:</span></td>
 	<td width="60%">
 		<select name="absence_type" id="id_absence_type">
-			<?
+			<?php 
 			foreach ($arAbsenceTypes as $key => $value)
 			{
-				?><option value="<?= $key ?>"<?= ($key == $arCurrentValues["absence_type"]) ? " selected" : "" ?>><?= $value ?></option><?
+				?><option value="<?= $key ?>"<?= ($key == $arCurrentValues["absence_type"]) ? " selected" : "" ?>><?= $value ?></option><?php 
 			}
 			?>
 		</select>

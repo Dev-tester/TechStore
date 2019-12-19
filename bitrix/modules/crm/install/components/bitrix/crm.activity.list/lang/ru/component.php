@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_MODULE_NOT_INSTALLED'] = 'Модуль CRM не установлен.';
 $MESS['CRM_OWNER_ID_NOT_DEFINED'] = 'Не задан Идентификатор владельца ("OWNER_ID").';
 $MESS['CRM_UNSUPPORTED_OWNER_TYPE'] = 'Задан неподдерживаемый тип владельца: "#OWNER_TYPE#".';

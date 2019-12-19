@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SEO_ROBOTS_EDIT_TITLE'] = 'Управление robots.txt';
 $MESS["SEO_ROBOTS_CHOOSE_SITE"] = "Выберите сайт:";
 $MESS['SEO_ROBOTS_common'] = 'Общие правила';

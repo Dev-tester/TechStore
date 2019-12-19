@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CDavWebDav
 {
 	private $httpStatus = "200 OK";
@@ -1300,7 +1300,7 @@ abstract class CDavWebDav
 		{
 			$response->AddHeader('Content-Type: text/xml; charset="utf-8"');
 
-			$content = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+			$content = "<?php xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 			$content .= "<D:error xmlns:D=\"DAV:\"> \n";
 			foreach ($arResult['errors'] as $e)
 				$content .= "<D:".$e."/>\n";

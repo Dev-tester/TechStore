@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CreateLink"] = "Ссылка";
 $MESS["EditLink"] = "Редактировать ссылку";
 $MESS["DialogSave"] = "Сохранить";

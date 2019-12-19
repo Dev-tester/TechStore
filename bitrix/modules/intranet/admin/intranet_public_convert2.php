@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/include.php");
 
@@ -79,9 +79,9 @@ if ($isCOnverted)
 else
 {
 	?>
-	<form method="post" name="intr_convert_form" action="<? echo $APPLICATION->GetCurPage() ?>?lang=<? echo LANGUAGE_ID ?>">
-		<? echo bitrix_sessid_post(); ?>
-		<?
+	<form method="post" name="intr_convert_form" action="<?php  echo $APPLICATION->GetCurPage() ?>?lang=<?php  echo LANGUAGE_ID ?>">
+		<?php  echo bitrix_sessid_post(); ?>
+		<?php 
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		?>
@@ -105,16 +105,16 @@ else
 				</div>
 			</td>
 		</tr>
-		<?
+		<?php 
 		$tabControl->Buttons();
 		?>
-		<input type="submit" id="convert_button" name="convert_button" value="<? echo GetMessage("INTRANET_PUBLIC_CONVERT2_BUTTON") ?>" class="adm-btn-save">
-		<input type="submit" id="skip_convert_button" name="skip_convert_button" value="<? echo GetMessage("INTRANET_PUBLIC_CONVERT2_SKIP_BUTTON") ?>">
-		<?
+		<input type="submit" id="convert_button" name="convert_button" value="<?php  echo GetMessage("INTRANET_PUBLIC_CONVERT2_BUTTON") ?>" class="adm-btn-save">
+		<input type="submit" id="skip_convert_button" name="skip_convert_button" value="<?php  echo GetMessage("INTRANET_PUBLIC_CONVERT2_SKIP_BUTTON") ?>">
+		<?php 
 		$tabControl->End();
 		?>
 	</form>
-	<?
+	<?php 
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

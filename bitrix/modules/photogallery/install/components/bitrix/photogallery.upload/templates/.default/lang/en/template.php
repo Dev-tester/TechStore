@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SourceFile"] = "File";
 $MESS["Tags"] = "Tags";
 $MESS["Description"] = "Description";

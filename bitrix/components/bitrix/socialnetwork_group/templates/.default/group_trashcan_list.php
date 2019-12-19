@@ -15,7 +15,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 ?>
-<?
+<?php 
 $pageId = "group_files";
 include("util_group_menu.php");
 include("util_group_profile.php");

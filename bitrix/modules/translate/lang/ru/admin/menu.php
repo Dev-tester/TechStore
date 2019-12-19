@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TRANSLATE"] = "Локализация";
 $MESS["TRANS_BROWS_FILES"] = "Просмотр файлов";
 $MESS["TRANS_COLLECTOR"] = "Выгрузка и загрузка";

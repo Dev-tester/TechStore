@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["main_epilog_before_menu_edit"] = "Изменить страницу в редакторе";
 $MESS["main_epilog_before_menu_edit_title"] = "Редактировать страницу в визуальном редакторе";
 $MESS["main_epilog_before_menu_edit_html"] = "Изменить страницу как HTML";

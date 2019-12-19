@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -40,7 +40,7 @@ $lastStageCode = end($stages);
     <tr class="crm-report-chart-tr crm-report-chart-widget">
 		<td colspan="<?=count($arResult['DATA']['stages'])?>">
 			<div class="crm-report-chart-through-funnel-widget-conversion crm-report-chart-funnel-through-funnel-widget-conversion-inline">
-				<?if($arParams['IS_COSTABLE'] && !$arParams['IS_TRAFFIC']):?>
+				<?php if($arParams['IS_COSTABLE'] && !$arParams['IS_TRAFFIC']):?>
 					<div class="crm-report-chart-through-funnel-widget-title"><?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_ROI')?></div>
 					<div class="crm-report-chart-through-funnel-widget-value-box">
 						<div class="crm-report-chart-through-funnel-widget-value">
@@ -48,7 +48,7 @@ $lastStageCode = end($stages);
 						</div>
 						<div class="crm-report-chart-through-funnel-widget-percent">%</div>
 					</div>
-				<?else:?>
+				<?php else:?>
 					<div class="crm-report-chart-through-funnel-widget-title"><?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_CONV_FULL')?></div>
 					<div class="crm-report-chart-through-funnel-widget-value-box">
 						<div class="crm-report-chart-through-funnel-widget-value">
@@ -56,28 +56,28 @@ $lastStageCode = end($stages);
 						</div>
 						<div class="crm-report-chart-through-funnel-widget-percent">%</div>
 					</div>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</td>
 	</tr>
     <tr data-role="graph" class="crm-report-chart-tr crm-report-chart-widget">
-		<?foreach ($arResult['DATA']['stages'] as $stage):?>
+		<?php foreach ($arResult['DATA']['stages'] as $stage):?>
 			<td class="crm-report-chart-td">
-				<?if ($stage['code'] === $firstStageCode):?>
+				<?php if ($stage['code'] === $firstStageCode):?>
 					<div class="crm-report-chart-scale">
 						<div class="crm-report-chart-scale-box">
-							<?foreach ($stage['scales'] as $scale):?>
+							<?php foreach ($stage['scales'] as $scale):?>
 								<div class="crm-report-chart-scale-item">
 									<?=htmlspecialcharsbx($scale)?>
 								</div>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</div>
 					</div>
 
-					<?if (!$arParams['IS_COSTABLE']):?>
+					<?php if (!$arParams['IS_COSTABLE']):?>
 						<div class="crm-report-chart-temporary-box">
 							<div class="crm-report-chart-temporary-content">
-								<?if ($arParams['IS_AD_ACCESSIBLE']):?>
+								<?php if ($arParams['IS_AD_ACCESSIBLE']):?>
 									<div class="crm-report-chart-temporary-text">
 										<?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_SETUP')?>
 									</div>
@@ -88,11 +88,11 @@ $lastStageCode = end($stages);
 											<?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_SETUP_BTN')?>
 										</a>
 									</div>
-								<?else:?>
+								<?php else:?>
 									<div class="crm-report-chart-temporary-text">
 										<?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_COMING_SOON')?>
 									</div>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 							<div class="crm-report-chart-temporary-bg"></div>
 							<div class="crm-report-chart-temporary-info">
@@ -116,23 +116,23 @@ $lastStageCode = end($stages);
 								</div>
 							</div>
 						</div>
-					<?endif;?>
-				<?endif;?>
+					<?php endif;?>
+				<?php endif;?>
                 <div class="crm-report-chart-flex-box">
                     <div class="crm-report-chart-through-funnel-widget crm-report-chart-through-funnel-widget-1">
-                        <?foreach ($arResult['DATA']['sources'] as $source):
+                        <?php foreach ($arResult['DATA']['sources'] as $source):
 							?>
                             <div data-role="items/<?=htmlspecialcharsbx($source['code'])?>/<?=htmlspecialcharsbx($stage['code'])?>"
                                  class="crm-report-chart-through-funnel-widget-item"
                                  style="background: <?=htmlspecialcharsbx($source['color'])?>;"
                             ></div>
-                        <?endforeach;?>
+                        <?php endforeach;?>
                     </div>
 
-					<?if ($stage['code'] !== $lastStageCode):?>
+					<?php if ($stage['code'] !== $lastStageCode):?>
 						<div class="crm-report-chart-through-funnel-widget crm-report-chart-through-funnel-widget-1 crm-report-chart-through-funnel-widget-mirror">
 							<svg class="crm-report-chart-through-funnel-widget-svg" >
-								<?foreach ($arResult['DATA']['sources'] as $source):
+								<?php foreach ($arResult['DATA']['sources'] as $source):
 									if (empty($source['color']))
 									{
 										continue;
@@ -144,12 +144,12 @@ $lastStageCode = end($stages);
 											style="fill: white; stroke: white;"
 											preserveAspectRatio="none"
 									></polygon>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</svg>
 						</div>
-					<?else:?>
+					<?php else:?>
 
-					<?endif;?>
+					<?php endif;?>
 				</div>
 
 				<div data-role="tooltips/<?=htmlspecialcharsbx($stage['code'])?>"
@@ -163,47 +163,47 @@ $lastStageCode = end($stages);
 					</div>
 				</div>
 			</td>
-		<?endforeach;?>
+		<?php endforeach;?>
     </tr>
     <tr class="crm-report-chart-tr">
-		<?foreach ($arResult['DATA']['stages'] as $stage):?>
+		<?php foreach ($arResult['DATA']['stages'] as $stage):?>
 			<th class="crm-report-chart-th crm-report-chart-card-title">
 				<?=htmlspecialcharsbx($stage['caption'])?>
 			</th>
-		<?endforeach;?>
+		<?php endforeach;?>
     </tr>
     <tr class="crm-report-chart-tr">
-		<?foreach ($arResult['DATA']['stages'] as $stage):?>
+		<?php foreach ($arResult['DATA']['stages'] as $stage):?>
 			<th class="crm-report-chart-th crm-report-chart-card-subtitle">
-				<?if ($arParams['IS_COSTABLE']):?>
+				<?php if ($arParams['IS_COSTABLE']):?>
 					<?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_AVG_COST')?>
-				<?else:?>
+				<?php else:?>
 					<?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_QUANTITY_SMALL')?>
-				<?endif;?>
+				<?php endif;?>
 			</th>
-		<?endforeach;?>
+		<?php endforeach;?>
     </tr>
     <tr class="crm-report-chart-tr">
-		<?foreach ($arResult['DATA']['stages'] as $stage):?>
+		<?php foreach ($arResult['DATA']['stages'] as $stage):?>
 			<td class="crm-report-chart-td">
 				<div class="crm-report-chart-card-info">
 					<div class="crm-report-chart-card-info-box crm-report-chart-card-info-price">
-						<?if ($arParams['IS_COSTABLE']):?>
+						<?php if ($arParams['IS_COSTABLE']):?>
 							<div class="crm-report-chart-card-info-value">
 								<?=($stage['costPrint'])?>
 							</div>
 							<div class="crm-report-chart-card-info-symbol">
 								<?=($arResult['DATA']['currencyText'])?>
 							</div>
-						<?else:?>
+						<?php else:?>
 							<div class="crm-report-chart-card-info-value">
 								<?=htmlspecialcharsbx($stage['quantityPrint'])?>
 							</div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 
 					<div class="crm-report-chart-card-info-box crm-report-chart-card-info-percent">
-						<?
+						<?php 
 						$valueChanging = $arParams['IS_COSTABLE'] ? $stage['costChanging'] : $stage['quantityChanging'];
 						$valueChangingGreen = ($arParams['IS_COSTABLE'] && $valueChanging <= 0) || (!$arParams['IS_COSTABLE'] && $valueChanging >= 0);
 						$valueHint = Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_HINT_' . ($arParams['IS_COSTABLE'] ? 'COST' : 'QUANTITY'));
@@ -218,7 +218,7 @@ $lastStageCode = end($stages);
 					</div>
 				</div>
 			</td>
-		<?endforeach;?>
+		<?php endforeach;?>
     </tr>
 </table>
 
@@ -243,7 +243,7 @@ $lastStageCode = end($stages);
 					<div data-role="popup-quantity-arrow" class="crm-report-chart-modal-arrow-right">&#8594;</div>
 					<div data-role="popup-quantity" class="crm-report-chart-modal-value crm-report-chart-modal-value-black"></div>
 				</div>
-				<div <?if (!$arParams['IS_COSTABLE']):?>style="display: none;"<?endif;?>>
+				<div <?php if (!$arParams['IS_COSTABLE']):?>style="display: none;"<?php endif;?>>
 					<div class="crm-report-chart-modal-subtitle"><?=Loc::getMessage('CRM_REPORT_VC_W_C_CHART_STAGE_COST')?></div>
 					<div class="crm-report-chart-card-info">
 						<div class="crm-report-chart-card-info-box crm-report-chart-card-info-price">

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ST_ERROR_NO_NEW_COUPON"] = "Не удалось создать купон.";
 $MESS["SUP_ST_ERROR_NO_UPDATE_DATA"] = "Нет данных для обновления.";
 $MESS["SUP_ST_ERROR_NO_UPDATES_ROWS"] = "Ничего не обновлено.";

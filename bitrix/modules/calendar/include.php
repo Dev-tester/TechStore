@@ -1,4 +1,4 @@
-<?
+<?php 
 /*patchlimitationmutatormark1*/
 IncludeModuleLangFile(__FILE__);
 

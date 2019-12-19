@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_FORM_SUBMIT'] = "Save";
 $MESS ['IBLOCK_FORM_APPLY'] = "Apply";
 $MESS ['IBLOCK_FORM_RESET'] = "Reset";

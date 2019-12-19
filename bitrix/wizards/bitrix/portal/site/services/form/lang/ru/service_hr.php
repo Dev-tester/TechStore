@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_HR_FORM_NAME"] = "Подбор персонала";
 $MESS["HR_REQUEST_MENU_NAME"] = "Подбор персонала";
 $MESS["SERVICE_HR_FORM_BUTTON"] = "Отправить заявку";

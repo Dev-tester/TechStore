@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_TITLE'] = "Title:";
 $MESS ['BLOG_TEXT'] = "Text:";
 $MESS ['BLOG_IMAGE'] = "Image:";

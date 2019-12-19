@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 CModule::IncludeModule("iblock");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/iblock/prolog.php");
@@ -229,8 +229,8 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 
 // Filter output
 ?>
-<form name="filter_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="filter_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -241,21 +241,21 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td><b><?echo GetMessage("IBLOCK_TYPE_ADMIN_COL_NAME")?>:</b></td>
+	<td><b><?php echo GetMessage("IBLOCK_TYPE_ADMIN_COL_NAME")?>:</b></td>
 	<td nowrap>
-		<input type="text" size="25" name="find_name" value="<?echo htmlspecialcharsbx($find_name)?>" title="<?=GetMessage("MAIN_ADMIN_LIST_FILTER_1ST")?>">
+		<input type="text" size="25" name="find_name" value="<?php echo htmlspecialcharsbx($find_name)?>" title="<?=GetMessage("MAIN_ADMIN_LIST_FILTER_1ST")?>">
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("IBLOCK_TYPE_ADMIN_FILTER_ID")?>:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"></td>
+	<td><?php echo GetMessage("IBLOCK_TYPE_ADMIN_FILTER_ID")?>:</td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"filter_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 
 // Here is List will be displayed
 $lAdmin->DisplayList();

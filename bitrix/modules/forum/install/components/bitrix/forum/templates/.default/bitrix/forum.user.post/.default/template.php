@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $filter_value_fid = array(
 	"0" => GetMessage("F_ALL_FORUMS"));
 if (is_array($arResult["GROUPS_FORUMS"])):
@@ -19,7 +19,7 @@ endif;
 ?>
 <div class="forum-info-box forum-filter">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:forum.interface", "filter_simple",
 	array(
 		"FORM_METHOD_GET" => 'Y',
@@ -72,26 +72,26 @@ $APPLICATION->IncludeComponent("bitrix:forum.interface", "filter_simple",
 			)),
 
 		array(
-			"HIDE_ICONS" => "Y"));?><?
+			"HIDE_ICONS" => "Y"));?><?php 
 ?>
 	</div>
 </div>
 
 <br/>
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 
 if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
@@ -101,7 +101,7 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 if (empty($arResult["FORUMS"])):
@@ -111,7 +111,7 @@ if (empty($arResult["FORUMS"])):
 		<?=GetMessage("FR_EMPTY")?>
 	</div>
 </div>
-<?
+<?php 
 	return false;
 endif;
 
@@ -137,24 +137,24 @@ while (!empty($arMessages))
 ?>
 <div class="forum-header-box">
 	<div class="forum-header-options">
-		<span class="forum-option-messages"><a href="<?=$arTopic["URL"]["TOPIC"]?>"><?
-				?><?=GetMessage("LU_USER_POSTS_ON_TOPIC")?>: <span><?=$arTopic["COUNT_MESSAGE"]?></span><?
+		<span class="forum-option-messages"><a href="<?=$arTopic["URL"]["TOPIC"]?>"><?php 
+				?><?=GetMessage("LU_USER_POSTS_ON_TOPIC")?>: <span><?=$arTopic["COUNT_MESSAGE"]?></span><?php 
 				?></a></span>
 	</div>
-	<div class="forum-header-title"><span><?
+	<div class="forum-header-title"><span><?php 
 			if ($arTopic["STATE"] != "Y"):
-			?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span> ]</span> <?
+			?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span> ]</span> <?php 
 			endif;
-			?><?=trim($arTopic["TITLE"])?><?
+			?><?=trim($arTopic["TITLE"])?><?php 
 			if (strlen($arTopic["DESCRIPTION"])>0):
-			?>, <?=trim($arTopic["DESCRIPTION"])?><?
+			?>, <?=trim($arTopic["DESCRIPTION"])?><?php 
 			endif;
 			?></span></div>
 </div>
 <div class="forum-block-container">
 	<div class="forum-block-outer">
 		<div class="forum-block-inner">
-			<?
+			<?php 
 			}
 		}
 		else
@@ -162,16 +162,16 @@ while (!empty($arMessages))
 ?>
 <div class="forum-header-box">
 	<div class="forum-header-title">
-		<span><?if ($arTopic["STATE"] != "Y"): ?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span>]</span> <? endif;
-		?><?=trim($arTopic["TITLE"])?><?if (strlen($arTopic["DESCRIPTION"])>0): ?>, <?=trim($arTopic["DESCRIPTION"])?><? endif; ?></span>
+		<span><?php if ($arTopic["STATE"] != "Y"): ?><span class="forum-header-title-closed">[ <span><?=GetMessage("F_CLOSED")?></span>]</span> <?php  endif;
+		?><?=trim($arTopic["TITLE"])?><?php if (strlen($arTopic["DESCRIPTION"])>0): ?>, <?=trim($arTopic["DESCRIPTION"])?><?php  endif; ?></span>
 	</div>
 </div>
 <div class="forum-block-container">
 	<div class="forum-block-outer">
 		<div class="forum-block-inner">
-<?
+<?php 
 		}
-			?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+			?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 				"bitrix:forum.message.template", "",
 				Array(
 					"MESSAGE" => array_merge($res,
@@ -197,7 +197,7 @@ while (!empty($arMessages))
 				),
 				$component->__parent,
 				array("HIDE_ICONS" => "Y")
-				);?><?
+				);?><?php 
 		if ($_REQUEST["sort"] == "topic")
 		{
 			if ($cntMessages == $cntrMessages)
@@ -206,7 +206,7 @@ while (!empty($arMessages))
 		</div>
 	</div>
 </div>
-		<?
+		<?php 
 			}
 		}
 		else
@@ -215,7 +215,7 @@ while (!empty($arMessages))
 		</div>
 	</div>
 </div>
-<?
+<?php 
 		}
 	}
 
@@ -230,6 +230,6 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 ?>

@@ -1571,7 +1571,7 @@ abstract class CAllMain
 
 		$bDiff = false;
 
-		$str="<?\n";
+		$str="<?php \n";
 		foreach($arPermissions as $group=>$perm)
 		{
 			if(strlen($perm) > 0)
@@ -1657,7 +1657,7 @@ abstract class CAllMain
 
 		include($io->GetPhysicalName($DOC_ROOT.$path_dir."/.access.php"));
 
-		$str = "<?\n";
+		$str = "<?php \n";
 		foreach($PERM as $file=>$arPerm)
 		{
 			if($file != $path_file || $arGroups !== false)

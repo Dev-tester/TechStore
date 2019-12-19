@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -12,7 +12,7 @@ UI\Extension::load("ui.tooltip");
 
 if(strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
@@ -20,7 +20,7 @@ else
 
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class="errortext"><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class="errortext"><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	$APPLICATION->IncludeComponent("bitrix:main.user.link",
@@ -95,26 +95,26 @@ else
 			}
 		);
 
-	</script><?
+	</script><?php 
 
-	?><div class="sonet-members-item"><?
+	?><div class="sonet-members-item"><?php 
 		if (is_array($arResult["Baned"]["List"]))
 		{
-			?><span class="sonet-members-item-name"><?=GetMessage("SONET_UFE_T_FRIENDS_SUBTITLE")?></span><?
-			?><div class="sonet-members-separator"></div><?
+			?><span class="sonet-members-item-name"><?=GetMessage("SONET_UFE_T_FRIENDS_SUBTITLE")?></span><?php 
+			?><div class="sonet-members-separator"></div><?php 
 		}
 		if ($arResult["CurrentUserPerms"] && $arResult["CurrentUserPerms"]["IsCurrentUser"])
 		{
-			?><div class="sonet-members-item-menu"><?
-				?><span class="sonet-members-item-menu-title" onclick="__UFEShowMenu(this, 'friends');"><?
-					?><?=GetMessage("SONET_UFE_T_ACTIONS_TITLE")?>&nbsp;<?
-					?><span class="sonet-members-item-menu-arrow"></span><?
+			?><div class="sonet-members-item-menu"><?php 
+				?><span class="sonet-members-item-menu-title" onclick="__UFEShowMenu(this, 'friends');"><?php 
+					?><?=GetMessage("SONET_UFE_T_ACTIONS_TITLE")?>&nbsp;<?php 
+					?><span class="sonet-members-item-menu-arrow"></span><?php 
 				?></span>
-			</div><?
+			</div><?php 
 		}
 		if (is_array($arResult["Friends"]) && is_array($arResult["Friends"]["List"]))
 		{			
-			?><div class="sonet-members-member-block-shift"><?
+			?><div class="sonet-members-member-block-shift"><?php 
 				foreach ($arResult["Friends"]["List"] as $arFriend)
 				{
 					$arUserTmp = array(
@@ -125,63 +125,63 @@ else
 						"LOGIN" => htmlspecialcharsback($arFriend["USER_LOGIN"])
 					);
 
-					?><span class="sonet-members-member-block"><?
-						?><span class="sonet-members-member-img-wrap" <?
+					?><span class="sonet-members-member-block"><?php 
+						?><span class="sonet-members-member-img-wrap" <?php 
 						if ($arResult["CurrentUserPerms"] && $arResult["CurrentUserPerms"]["IsCurrentUser"])
 						{
-							?>onclick="__UFEtoggleCheckbox(event, this, 'F<?=intval($arFriend["USER_ID"])?>');"<?
+							?>onclick="__UFEtoggleCheckbox(event, this, 'F<?=intval($arFriend["USER_ID"])?>');"<?php 
 						}
-						?>><?
-							?><span class="sonet-members-member-img" style="<?=(is_array($arFriend["USER_PERSONAL_PHOTO_IMG"]) && strlen($arFriend["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arFriend["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?
+						?>><?php 
+							?><span class="sonet-members-member-img" style="<?=(is_array($arFriend["USER_PERSONAL_PHOTO_IMG"]) && strlen($arFriend["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arFriend["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?php 
 							if ($arResult["CurrentUserPerms"] && $arResult["CurrentUserPerms"]["IsCurrentUser"])
 							{
-								?><input class="sonet-members-checkbox" type="checkbox"/><?
+								?><input class="sonet-members-checkbox" type="checkbox"/><?php 
 							}
-						?></span><?
-						?><span class="sonet-members-member-text"><?
-							?><span class="sonet-members-member-title"><?
+						?></span><?php 
+						?><span class="sonet-members-member-text"><?php 
+							?><span class="sonet-members-member-title"><?php 
 							if ($arFriend["SHOW_PROFILE_LINK"])
 							{
-								?><a href="<?=htmlspecialcharsback($arFriend["USER_PROFILE_URL"])?>" class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arFriend["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?
+								?><a href="<?=htmlspecialcharsback($arFriend["USER_PROFILE_URL"])?>" class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arFriend["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?php 
 							}
 							else
 							{
-								?><span class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arFriend["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?
+								?><span class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arFriend["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?php 
 							}
-							?></span><?
+							?></span><?php 
 							if (IsModuleInstalled("intranet"))
 							{
-								?><span class="sonet-members-member-description"><?=$arFriend["USER_WORK_POSITION"]?></span><?
+								?><span class="sonet-members-member-description"><?=$arFriend["USER_WORK_POSITION"]?></span><?php 
 							}
-						?></span><?
-					?></span><?
+						?></span><?php 
+					?></span><?php 
 				}
-			?></div><?
+			?></div><?php 
 		}
 		else
 			echo GetMessage("SONET_UFE_T_NO_FRIENDS");
 
 		if (StrLen($arResult["Friends"]["NAV_STRING"]) > 0):
-			?><div class="sonet-members-nav"><?=$arResult["Friends"]["NAV_STRING"]?></div><?
+			?><div class="sonet-members-nav"><?=$arResult["Friends"]["NAV_STRING"]?></div><?php 
 		endif;
 
-	?></div><?
+	?></div><?php 
 
 	if (is_array($arResult["Banned"]) && is_array($arResult["Banned"]["List"]))
 	{
-		?><div class="sonet-members-item"><?
-			?><span class="sonet-members-item-name"><?=GetMessage("SONET_UFE_T_BAN_SUBTITLE")?></span><?
-			?><div class="sonet-members-separator"></div><?
+		?><div class="sonet-members-item"><?php 
+			?><span class="sonet-members-item-name"><?=GetMessage("SONET_UFE_T_BAN_SUBTITLE")?></span><?php 
+			?><div class="sonet-members-separator"></div><?php 
 			if ($arResult["CurrentUserPerms"] && $arResult["CurrentUserPerms"]["IsCurrentUser"])
 			{
-				?><div class="sonet-members-item-menu"><?
-					?><span class="sonet-members-item-menu-title" onclick="__UFEShowMenu(this, 'ban');"><?
-						?><?=GetMessage("SONET_UFE_T_ACTIONS_TITLE")?>&nbsp;<?
-						?><span class="sonet-members-item-menu-arrow"></span><?
+				?><div class="sonet-members-item-menu"><?php 
+					?><span class="sonet-members-item-menu-title" onclick="__UFEShowMenu(this, 'ban');"><?php 
+						?><?=GetMessage("SONET_UFE_T_ACTIONS_TITLE")?>&nbsp;<?php 
+						?><span class="sonet-members-item-menu-arrow"></span><?php 
 					?></span>
-				</div><?
+				</div><?php 
 			}
-			?><div class="sonet-members-member-block-shift"><?
+			?><div class="sonet-members-member-block-shift"><?php 
 				foreach ($arResult["Banned"]["List"] as $arBanned)
 				{
 					$arUserTmp = array(
@@ -192,44 +192,44 @@ else
 						"LOGIN" => htmlspecialcharsback($arBanned["USER_LOGIN"])
 					);
 
-					?><span class="sonet-members-member-block"><?
-						?><span class="sonet-members-member-img-wrap" id="sonet-members-owner" <?
+					?><span class="sonet-members-member-block"><?php 
+						?><span class="sonet-members-member-img-wrap" id="sonet-members-owner" <?php 
 						if ($arBanned["CAN_UNBAN"])
 						{
-							?>onclick="__UFEtoggleCheckbox(event, this, 'B<?=intval($arBanned["USER_ID"])?>');"<?
+							?>onclick="__UFEtoggleCheckbox(event, this, 'B<?=intval($arBanned["USER_ID"])?>');"<?php 
 						}
-						?>><?
-							?><span class="sonet-members-member-img" style="<?=(is_array($arBanned["USER_PERSONAL_PHOTO_IMG"]) && strlen($arBanned["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arBanned["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?
+						?>><?php 
+							?><span class="sonet-members-member-img" style="<?=(is_array($arBanned["USER_PERSONAL_PHOTO_IMG"]) && strlen($arBanned["USER_PERSONAL_PHOTO_IMG"]["src"]) > 0 ? "background: url('".$arBanned["USER_PERSONAL_PHOTO_IMG"]["src"]."') no-repeat 0 0;" : "")?>"></span><?php 
 							if ($arBanned["CAN_UNBAN"])
 							{
-								?><input class="sonet-members-checkbox" type="checkbox"/><?
+								?><input class="sonet-members-checkbox" type="checkbox"/><?php 
 							}
-						?></span><?
-						?><span class="sonet-members-member-text"><?
-							?><span class="sonet-members-member-title"><?
+						?></span><?php 
+						?><span class="sonet-members-member-text"><?php 
+							?><span class="sonet-members-member-title"><?php 
 							if ($arBanned["SHOW_PROFILE_LINK"])
 							{
-								?><a href="<?=htmlspecialcharsback($arBanned["USER_PROFILE_URL"])?>" class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arBanned["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?
+								?><a href="<?=htmlspecialcharsback($arBanned["USER_PROFILE_URL"])?>" class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arBanned["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></a><?php 
 							}
 							else
 							{
-								?><span class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arBanned["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?
+								?><span class="sonet-members-membet-link" bx-tooltip-user-id="<?=$arBanned["USER_ID"]?>"><?=CUser::FormatName(str_replace(array("#NOBR#", "#/NOBR#"), array("", ""), $arParams["NAME_TEMPLATE"]), $arUserTmp, $arParams["SHOW_LOGIN"] != "N")?></span><?php 
 							}
-							?></span><?
+							?></span><?php 
 							if (IsModuleInstalled("intranet"))
 							{
-								?><span class="sonet-members-member-description"><?=$arBanned["USER_WORK_POSITION"]?></span><?
+								?><span class="sonet-members-member-description"><?=$arBanned["USER_WORK_POSITION"]?></span><?php 
 							}
-						?></span><?
-					?></span><?
+						?></span><?php 
+					?></span><?php 
 				}
-			?></div><?
+			?></div><?php 
 
 			if (StrLen($arResult["Banned"]["NAV_STRING"]) > 0):
-				?><div class="sonet-members-nav"><?=$arResult["Banned"]["NAV_STRING"]?></div><?
+				?><div class="sonet-members-nav"><?=$arResult["Banned"]["NAV_STRING"]?></div><?php 
 			endif;
 
-		?></div><?
+		?></div><?php 
 	}	
 	
 }

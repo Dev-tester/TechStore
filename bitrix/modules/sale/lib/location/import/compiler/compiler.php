@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This class is for internal use only, not a part of public API.
  * It can be changed at any time without notification.
@@ -472,7 +472,7 @@ final class Compiler {
 		/*
 		добавить сюда генерацию файла country_codes.php с содержимым:
 
-		<?
+		<?php 
 		$LOCALIZATION_COUNTRY_CODE_MAP = array(
 			'ru' => '0000028023',
 			'ua' => '0000000364',

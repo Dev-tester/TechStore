@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HIGHLOADBLOCK_HIGHLOAD_BLOCK_ENTITY_NAME_FIELD_INVALID"] = "The entity name must begin with a capital letter and may only include alphanumeric characters.";
 $MESS["HIGHLOADBLOCK_HIGHLOAD_BLOCK_ENTITY_TABLE_NAME_FIELD"] = "Database table name";
 $MESS["HIGHLOADBLOCK_HIGHLOAD_BLOCK_ENTITY_NAME_FIELD"] = "Entity name";

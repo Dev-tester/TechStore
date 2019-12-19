@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["post_title"] = "Newsletter issues";
 $MESS["post_del_err"] = "Cannot delete newsletter.";
 $MESS["post_send_ok"] = "The newsletter was successfully sent.";

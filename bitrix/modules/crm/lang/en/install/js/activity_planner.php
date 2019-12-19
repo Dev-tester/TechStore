@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_PLANNER_DURATION_ERR"] = "Cannot show selected period in the Planner";
 $MESS["CRM_ACTIVITY_PLANNER_PLANNING_TITLE"] = "Plan activity";
 $MESS["CRM_ACTIVITY_PLANNER_SAVE"] = "Save";

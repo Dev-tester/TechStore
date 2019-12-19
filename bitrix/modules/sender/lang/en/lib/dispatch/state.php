@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_DISPATCH_STATE1_W"] = "In progress";
 $MESS["SENDER_DISPATCH_STATE_ERROR_CAMPAIGN_INACTIVE"] = "Newsletter campaign is inactive.";
 $MESS["SENDER_DISPATCH_STATE_ERROR_CHANGE"] = "Cannot update campaign status from \"%old%\" to \"%new%\".";

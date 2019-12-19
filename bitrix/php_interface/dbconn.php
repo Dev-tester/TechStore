@@ -1,4 +1,4 @@
-<? define("SHORT_INSTALL_CHECK", true);?><?
+<?php  define("SHORT_INSTALL_CHECK", true);?><?php 
 define("DBPersistent", false);
 $DBType = "mysql";
 $DBHost = "localhost";

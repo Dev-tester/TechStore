@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEF_MODE_TIP"] = "Check this option to enable SEF mode and the URL configuration fields.";
 $MESS["ORDERS_PER_PAGE_TIP"] = "Specifies the number of orders per page. Other orders are available via the breadcrumb navigation.";
 $MESS["PATH_TO_PAYMENT_TIP"] = "You can create this page using the <b>Payment System Integration</b> component. Customers open this page by clicking <b>Repeat payment</b> in the order details page.";

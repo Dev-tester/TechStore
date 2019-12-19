@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_SAVE'] = "Сохранить";
 $MESS ['FORM_RESET'] = "Сбросить";
 $MESS ['FORM_USE_HTML_EDIT'] = "Использовать HTML редактор:";

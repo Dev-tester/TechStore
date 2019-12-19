@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->AddHeadScript("/bitrix/components/bitrix/webdav/templates/.default/script.js");
@@ -58,7 +58,7 @@ if ($arResult["WRITEABLE"] == "Y")
 	);
 }
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.form",
 	"",
 	array(
@@ -229,7 +229,7 @@ function WDCopyLinkDialog(url)
 	wdci.select();
 }
 
-<? if ($arResult["WRITEABLE"] == "Y") { ?>
+<?php  if ($arResult["WRITEABLE"] == "Y") { ?>
 BX(function() {
 	var viewRoot = BX('form_webdav_file_edit');
 	docID = BX.findChild(viewRoot, {'attribute':{'name':'ELEMENT_ID'}}, true).value;
@@ -269,7 +269,7 @@ BX(function() {
 		WDEditDocument("<?=CUtil::JSEscape($arResult["ELEMENT"]["URL"]["DOWNLOAD"])?>");
 	}
 
-<? if (in_array($arResult["ELEMENT"]["EXTENTION"], $arOfficeExtensions)) { ?>
+<?php  if (in_array($arResult["ELEMENT"]["EXTENTION"], $arOfficeExtensions)) { ?>
 	var btn_edit_office = BX('wd_edit_office');
 	if (WDCheckOfficeEdit())
 	{
@@ -284,10 +284,10 @@ BX(function() {
 	} else {
 		BX.remove(BX('wd_edit_office'));
 	}
-<? } else { ?>
+<?php  } else { ?>
 	BX.remove(BX('wd_edit_office'));
-<? } ?>
+<?php  } ?>
 });
-<? } ?>
+<?php  } ?>
 
 </script>

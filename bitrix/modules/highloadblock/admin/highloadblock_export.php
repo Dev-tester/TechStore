@@ -507,7 +507,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admi
 </script>
 
 <form name="form_tools" method="get" action="<?=$APPLICATION->GetCurPage()?>">
-	<?
+	<?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?>
@@ -516,7 +516,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admi
 		<td>
 			<input type="text" id="url_data_file" size="30" value="" />
 			<input type="button" value="..." OnClick="BtnClick()">
-			<?
+			<?php 
 			CAdminFileDialog::ShowScript
 			(
 				Array(
@@ -540,9 +540,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admi
 		<td>
 			<select id="object">
 				<option value="0"></option>
-				<?foreach ($hlsVisual as $row):?>
+				<?php foreach ($hlsVisual as $row):?>
 				<option value="<?= intval($row['ID'])?>"><?= htmlspecialcharsbx($row['NAME_LANG'])?> [<?= $row['ID']?>]</option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -558,10 +558,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admi
 			<input type="checkbox" id="export_data" value="Y" checked="checked" />
 		</td>
 	</tr>
-	<?$tabControl->Buttons();?>
+	<?php $tabControl->Buttons();?>
 	<input type="button" id="start_button" value="<?= Loc::getMessage('ADMIN_TOOLS_START_EXPORT')?>" OnClick="StartExport();" class="adm-btn-save" />
 	<input type="button" id="stop_button" value="<?= Loc::getMessage('ADMIN_TOOLS_STOP_EXPORT')?>" OnClick="EndExport();" />
-	<?$tabControl->End();?>
+	<?php $tabControl->End();?>
 </form>
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

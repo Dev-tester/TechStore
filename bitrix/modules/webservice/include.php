@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DB, $MESS, $APPLICATION;
 
 define('WS_SP_SERVICE_PATH', '/_vti_bin/lists.asmx');

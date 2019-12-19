@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONTACT_EDIT_TMPL_FIELD_ADDRESS"] = "Recipient";
 $MESS["SENDER_CONTACT_EDIT_TMPL_FIELD_SET"] = "Used in static recipient lists";
 $MESS["SENDER_CONTACT_EDIT_TMPL_FIELD_TYPE"] = "Type";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -108,7 +108,7 @@ if ($bVarsFromForm)
 	$DB->InitTableVarsForEdit("b_sonet_group_subject", "", "str_");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("SONETE_2FLIST"),
@@ -138,16 +138,16 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($errorMessage);?>
+<?php CAdminMessage::ShowMessage($errorMessage);?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SONETE_TAB_SUBJECT"), "ICON" => "socialnetwork", "TITLE" => GetMessage("SONETE_TAB_SUBJECT_DESCR"))
 	);
@@ -156,26 +156,26 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("SONETE_NAME")?>:</td>
+		<td width="40%"><?php echo GetMessage("SONETE_NAME")?>:</td>
 		<td width="60%">
 			<input type="text" name="NAME" size="50" value="<?= $str_NAME ?>">
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td class="adm-detail-valign-top"><?echo GetMessage("SONETE_SITE")?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("SONETE_SITE")?>:</td>
 		<td>
-			<?
+			<?php 
 			$rsSite = CLang::GetList(($by="sort"), ($order="asc"));
 			echo '<select name="SITE_ID[]" multiple>';
 
@@ -187,17 +187,17 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("SONETE_SORT")?>:</td>
+		<td width="40%"><?php echo GetMessage("SONETE_SORT")?>:</td>
 		<td width="60%">
 			<input type="text" name="SORT" size="10" value="<?= $str_SORT ?>">
 		</td>
 	</tr>	
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($socialnetworkModulePermissions < "W"),
@@ -206,10 +206,10 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

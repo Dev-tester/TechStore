@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_CHANGE_STATUS_EMPTY_PROP"] = "Не указан конечный статус";
 $MESS["TASKS_CHANGE_STATUS_STATUS"] = "Изменить на статус";
 $MESS["TASKS_CHANGE_STATUS_NO_PERMISSIONS"] = "Недостаточно прав для изменения статуса задачи";

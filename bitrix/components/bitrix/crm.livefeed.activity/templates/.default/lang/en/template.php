@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["C_T_CRM_LFA_DESCRIPTION"] = "Event description";
 $MESS["C_T_CRM_LFA_COMPLETED"] = "(completed)";
 $MESS["C_T_CRM_LFA_CLIENTS_MORE_LINK_0"] = "#COUNT# more users";

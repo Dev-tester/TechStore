@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $arComponentDescription = array(
 	"NAME" => GetMessage("CRM_BPWC_COMPONENT_NAME"),
 	"DESCRIPTION" => GetMessage("CRM_BPWC_COMPONENT_NAME_DESCRIPTION"),

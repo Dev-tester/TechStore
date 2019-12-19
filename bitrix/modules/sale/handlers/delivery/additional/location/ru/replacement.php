@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Sale\Handlers\Delivery\Additional\Location;
 
 class Replacement

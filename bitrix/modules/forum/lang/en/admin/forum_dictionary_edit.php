@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLTR_IS_NOT_ADD"] = "Update failed.";
 $MESS["FLTR_IS_NOT_UPDATE"] = "Update failed.";
 $MESS["FLTR_NEW"] = "New dictionary";

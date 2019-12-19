@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CES_ERROR_NO_FILE"] = "Не указан файл экспорта.";
 $MESS["CES_ERROR_NO_ACTION"] = "Не указано действие над файлом экспорта.";
 $MESS["CES_ERROR_FILE_NOT_EXIST"] = "Файл экспорта не найден:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_1C_START_EXCHANGE_NAME"] = "1С + CRM";
 $MESS["CRM_1C_START_EXCHANGE_ADV_TITLE"] = "1С становится каналом получения данных продаж для вашего Битрикс24";
 $MESS["CRM_1C_START_EXCHANGE_ADV_1"] = "Простое подключение";

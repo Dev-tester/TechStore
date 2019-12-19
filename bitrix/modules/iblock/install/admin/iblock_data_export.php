@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/iblock/admin/data_export.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/iblock/admin/data_export.php");?>

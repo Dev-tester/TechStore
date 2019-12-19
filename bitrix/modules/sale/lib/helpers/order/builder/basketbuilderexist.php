@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Helpers\Order\Builder;
 
 use Bitrix\Sale\BasketItem;

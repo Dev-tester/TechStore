@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_43.3.COVER_WITH_FEEDBACK_CARDS_LANDINGBLOCKNODECARD"] = "Feedback";
 $MESS["LANDING_BLOCK_43.3.COVER_WITH_FEEDBACK_NAME"] = "Kundenfeedbacks mit Daumenkinoeffekt und einem gedimmten Bild im Hintergrund";
 $MESS["LANDING_BLOCK_43.3.COVER_WITH_FEEDBACK_NODES_CARD"] = "Blockelement";

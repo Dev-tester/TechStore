@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_PRODUCTPROP_EDIT_TITLE'] = 'Перейти к странице редактирования этого свойства';
 $MESS['CRM_PRODUCTPROP_EDIT'] = 'Изменить';
 $MESS['CRM_PRODUCTPROP_DELETE_TITLE'] = 'Удалить это свойство';

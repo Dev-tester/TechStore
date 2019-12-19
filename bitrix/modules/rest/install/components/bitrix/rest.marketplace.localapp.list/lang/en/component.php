@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["APP_HEADER_NAME"] = "Name";
 $MESS["APP_HEADER_ONLY_API"] = "Script only";
 $MESS["APP_HEADER_CLIENT_ID"] = "Application ID (client_id)";

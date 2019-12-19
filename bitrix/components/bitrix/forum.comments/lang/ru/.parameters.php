@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_MESSAGES_PER_PAGE"] = "Количество сообщений на одной странице";
 $MESS["F_FORUM_ID"] = "ID форума для комментариев";
 $MESS["F_USE_CAPTCHA"] = "Использовать CAPTCHA";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_SHIPMENT_BASKET_COMPOSITION"] = "Produkte zur Auslieferung";
 $MESS["SALE_ORDER_BASKET_ROW_SETTINGS"] = "Spalten einstellen";
 $MESS["SALE_ORDER_SHIPMENT_BASKET_ALL_PRODUCTS_DEL"] = "Möchten Sie alle Produkte aus der Auslieferung wirklich löschen?";

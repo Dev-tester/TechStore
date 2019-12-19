@@ -44,11 +44,11 @@ foreach ($arResult['ITEMS'] as &$arItem)
 		title="<?php echo GetMessage("TASKS_DOUBLE_CLICK")?>"<?php if (!$projectExpanded):?> style="display: none;"<?php endif?>
 	>
 
-		<?if(in_array(CTaskColumnList::SYS_COLUMN_CHECKBOX, $arResult['SYSTEM_COLUMN_IDS'])):?>
+		<?php if(in_array(CTaskColumnList::SYS_COLUMN_CHECKBOX, $arResult['SYSTEM_COLUMN_IDS'])):?>
 			<td ondblclick="if (window.event) BX.PreventDefault(window.event); return (false);">
 				<input id="task_list_group_action_ID_<?php echo $task['ID']; ?>" name="task_list_group_action_ID" value="<?php echo $task['ID']; ?>" class="task-list-inp" type="checkbox" />
 			</td>
-		<?endif?>
+		<?php endif?>
 	<?php
 
 	foreach ($arResult['COLUMNS_IDS'] as $columnId)
@@ -95,10 +95,10 @@ foreach ($arResult['ITEMS'] as &$arItem)
 						?><a href="<?php echo $viewUrl; ?>"
 							class="task-title-link"
 
-							<?if($arParams['SHOW_QUICK_INFORMERS'] !== false):?>
+							<?php if($arParams['SHOW_QUICK_INFORMERS'] !== false):?>
 								onmouseover="ShowTaskQuickInfo(<?php echo $task["ID"]?>, event);"
 								onmouseout="HideTaskQuickInfo(<?php echo $task["ID"]?>, event);"
-							<?endif?>
+							<?php endif?>
 
 							<?php
 							if ($bShowInPopup)
@@ -161,7 +161,7 @@ foreach ($arResult['ITEMS'] as &$arItem)
 						}
 						?>
 					</div>
-				</div><?/*do not put CRLF here*/?><div class="task-title-right-block">
+				</div><?php /*do not put CRLF here*/?><div class="task-title-right-block">
 					<span id="task-title-btn-menu-<?php echo (int) $task['ID']; ?>" class="task-title-btn-wrap">
 						<a href="javascript: void(0)" class="task-menu-button" onclick="return ShowMenuPopup(<?php echo $task["ID"]?>, this);" title="<?php echo GetMessage("TASKS_MENU")?>"><i class="task-menu-button-icon"></i></a>
 					</span><span id="task-title-btn-start-<?php echo (int) $task['ID']; ?>" class="task-title-btn-wrap">
@@ -311,7 +311,7 @@ foreach ($arResult['ITEMS'] as &$arItem)
 
 			case CTaskColumnList::COLUMN_RESPONSIBLE:
 				?>
-				<?if(intval($task["RESPONSIBLE_ID"])):?>
+				<?php if(intval($task["RESPONSIBLE_ID"])):?>
 
 					<a class="task-responsible-link" target="_top"
 						href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATHS"]["PATH_TO_USER_PROFILE"], array("user_id" => $task["RESPONSIBLE_ID"]))?>"
@@ -347,11 +347,11 @@ foreach ($arResult['ITEMS'] as &$arItem)
 						}
 					?></a>
 
-				<?else:?>
+				<?php else:?>
 					[<?=GetMessage('TASKS_LIST_NOT_SET')?>]
-				<?endif?>
+				<?php endif?>
 
-				<?
+				<?php 
 			break;
 
 			case CTaskColumnList::COLUMN_GRADE:
@@ -521,7 +521,7 @@ foreach ($arResult['ITEMS'] as &$arItem)
 
 	?>
 
-		<?if(in_array(CTaskColumnList::SYS_COLUMN_COMPLETE, $arResult['SYSTEM_COLUMN_IDS'])):?>
+		<?php if(in_array(CTaskColumnList::SYS_COLUMN_COMPLETE, $arResult['SYSTEM_COLUMN_IDS'])):?>
 			<td>
 			<?php
 			if (
@@ -567,11 +567,11 @@ foreach ($arResult['ITEMS'] as &$arItem)
 			}
 			?>
 			</td>
-		<?endif?>
+		<?php endif?>
 	</tr>
 
 	<script type="text/javascript"<?php echo $arParams["DEFER"] ? "  defer=\"defer\"" : ""?>>
-		tasksMenuPopup[<?php echo $task["ID"]?>] = [<?
+		tasksMenuPopup[<?php echo $task["ID"]?>] = [<?php 
 			if((string) $arParams['CUSTOM_ACTIONS_CALLBACK'] != '' && is_callable($arParams['CUSTOM_ACTIONS_CALLBACK']))
 			{
 				call_user_func_array($arParams['CUSTOM_ACTIONS_CALLBACK'], array($task, $arParams["PATHS"]));
@@ -582,9 +582,9 @@ foreach ($arResult['ITEMS'] as &$arItem)
 			}
 		?>];
 
-		<?if($arParams['SHOW_QUICK_INFORMERS'] !== false):?>
+		<?php if($arParams['SHOW_QUICK_INFORMERS'] !== false):?>
 			quickInfoData[<?php echo $task["ID"]?>] = <?=tasksRenderJSON($task, $childrenCount, $arParams["PATHS"], false, false, false, $arParams["NAME_TEMPLATE"], array(), false, array('VIEW_STATE' => $arParams['VIEW_STATE']))?>;
-		<?endif?>
+		<?php endif?>
 		<?php if($arParams["TASK_ADDED"]):?>
 			BX.onCustomEvent("onTaskListTaskAdd", [quickInfoData[<?php echo $task["ID"]?>]]);
 		<?php endif?>

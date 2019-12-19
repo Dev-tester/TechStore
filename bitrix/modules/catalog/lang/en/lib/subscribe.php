@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTACT_TYPE_EMAIL_NAME"] = "E-mail";
 $MESS["EMAIL_TEMPLATE_USER_NAME"] = "Client";
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_CONTROL"] = "Торговый каталог";
 $MESS["CURRENCY"] = "Валюты";
 $MESS["CURRENCY_ALT"] = "Валюты";

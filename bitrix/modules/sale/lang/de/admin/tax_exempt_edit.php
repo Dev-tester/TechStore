@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ALL"] = "(alle)";
 $MESS["SALE_ANY"] = "(beliebig)";
 $MESS["TAX_ACTIONS"] = "Aktionen";

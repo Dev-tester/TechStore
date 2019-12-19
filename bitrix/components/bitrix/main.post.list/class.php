@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Web\Json;
@@ -450,17 +450,17 @@ HTML;
 			$buttonText = \CRatingsComponentsMain::getRatingLikeMessage($emotion);
 
 			ob_start();
-			?><span id="bx-ilike-button-<?=htmlspecialcharsbx($res["RATING_VOTE_ID"])?>" class="feed-inform-ilike feed-new-like"><?
-				?><span class="bx-ilike-left-wrap<?=($userHasVoted ? ' bx-you-like-button' : '')?>"><a href="#like" class="bx-ilike-text"><?=$buttonText?></a></span><?
-			?></span><?
+			?><span id="bx-ilike-button-<?=htmlspecialcharsbx($res["RATING_VOTE_ID"])?>" class="feed-inform-ilike feed-new-like"><?php 
+				?><span class="bx-ilike-left-wrap<?=($userHasVoted ? ' bx-you-like-button' : '')?>"><a href="#like" class="bx-ilike-text"><?=$buttonText?></a></span><?php 
+			?></span><?php 
 			$result["WEB"]["BEFORE_ACTIONS"] .= ob_get_clean();
 
 			ob_start();
-			?><span id="bx-ilike-button-<?=htmlspecialcharsbx($res["RATING_VOTE_ID"])?>" class="post-comment-control-item post-comment-control-item-like bx-ilike-text" data-rating-vote-id="<?=htmlspecialcharsbx($res["RATING_VOTE_ID"])?>"><?
-				?><span class="bx-ilike-left-wrap<?=($userHasVoted ? ' bx-you-like-button' : '')?>"><?
-					?><span class="bx-ilike-text"><?=$buttonText?></span><?
-				?></span><?
-			?></span><?
+			?><span id="bx-ilike-button-<?=htmlspecialcharsbx($res["RATING_VOTE_ID"])?>" class="post-comment-control-item post-comment-control-item-like bx-ilike-text" data-rating-vote-id="<?=htmlspecialcharsbx($res["RATING_VOTE_ID"])?>"><?php 
+				?><span class="bx-ilike-left-wrap<?=($userHasVoted ? ' bx-you-like-button' : '')?>"><?php 
+					?><span class="bx-ilike-text"><?=$buttonText?></span><?php 
+				?></span><?php 
+			?></span><?php 
 			$result["MOBILE"]["BEFORE_ACTIONS"] .= ob_get_clean();
 		}
 
@@ -542,38 +542,38 @@ HTML;
 				ob_start();
 				?><div class="feed-com-files">
 					<div class="feed-com-files-title"><?=GetMessage("MPL_PHOTO")?></div>
-					<div class="feed-com-files-cont"><?
+					<div class="feed-com-files-cont"><?php 
 				foreach ($images as $file)
 				{
 					$thumbnail = ($file["THUMBNAIL"] ?: $file["SRC"]);
 					?><span class="feed-com-files-photo">
-						<img src="<?=$thumbnail?>" data-bx-src="<?=$file["SRC"]?>" <?
-							?>border="0" data-bx-viewer="image" <?
-							?>data-bx-width="<?=$file["WIDTH"]?>" <?
-							?>data-bx-height="<?=$file["HEIGHT"]?>" <?
-							?>data-bx-title="<?=($file["FILE_NAME"])?>" <?
-							?>data-bx-size="<?=$file["FILE_SIZE"]?>"/></span><?
+						<img src="<?=$thumbnail?>" data-bx-src="<?=$file["SRC"]?>" <?php 
+							?>border="0" data-bx-viewer="image" <?php 
+							?>data-bx-width="<?=$file["WIDTH"]?>" <?php 
+							?>data-bx-height="<?=$file["HEIGHT"]?>" <?php 
+							?>data-bx-title="<?=($file["FILE_NAME"])?>" <?php 
+							?>data-bx-size="<?=$file["FILE_SIZE"]?>"/></span><?php 
 				}
 					?></div>
-				</div><?
+				</div><?php 
 				$result["WEB"]["AFTER"] = preg_replace("/[\n\t]/", "", ob_get_clean()).$result["WEB"]["AFTER"];
 
 				ob_start();
-				?><div class="post-item-attached-img-wrap"><?
+				?><div class="post-item-attached-img-wrap"><?php 
 					$ids = array();
 					foreach($images as $file)
 					{
 						$id = "mpl-".$arParams["ENTITY_XML_ID"]."-".strtolower(randString(5));
 						$ids[] = $id;
 						$thumbnail = ($file["THUMBNAIL"] ?: $file["SRC"]);
-						?><div class="post-item-attached-img-block" onclick="<?
-							?>app.loadPageBlank({ url: '<?=$file["SRC"]?>' }); <?
-							?>event.stopPropagation();"><img class="post-item-attached-img" <?
-							?>id="<?=$id?>" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2N88f7jfwAJWAPJBTw90AAAAABJRU5ErkJggg==" <?
-							?>data-src="<?=$thumbnail?>" border="0"></div><?
+						?><div class="post-item-attached-img-block" onclick="<?php 
+							?>app.loadPageBlank({ url: '<?=$file["SRC"]?>' }); <?php 
+							?>event.stopPropagation();"><img class="post-item-attached-img" <?php 
+							?>id="<?=$id?>" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2N88f7jfwAJWAPJBTw90AAAAABJRU5ErkJggg==" <?php 
+							?>data-src="<?=$thumbnail?>" border="0"></div><?php 
 					}
-				?><script>BitrixMobile.LazyLoad.registerImages(<?=CUtil::PhpToJSObject($ids)?>, oMSL.checkVisibility);</script><?
-				?></div><?
+				?><script>BitrixMobile.LazyLoad.registerImages(<?=CUtil::PhpToJSObject($ids)?>, oMSL.checkVisibility);</script><?php 
+				?></div><?php 
 				$result["MOBILE"]["AFTER"] = preg_replace("/[\n\t]/", "", ob_get_clean()).$result["MOBILE"]["AFTER"];
 			}
 			if (!empty($files))
@@ -581,7 +581,7 @@ HTML;
 				ob_start();
 				?><div class="feed-com-files feed-com-basic-files-entity">
 					<div class="feed-com-files-title"><?=GetMessage("MPL_FILES")?></div>
-					<div class="feed-com-files-cont"><?
+					<div class="feed-com-files-cont"><?php 
 				foreach ($files as $file)
 				{
 					$url = $file["URL"] ?: $file["SRC"];
@@ -590,31 +590,31 @@ HTML;
 					?><div class="feed-com-file-wrap">
 						<span class="feed-con-file-icon feed-file-icon-<?=$ext?>"></span>
 						<span class="feed-com-file-name-wrap">
-							<a href="<?=$url?>" <?
-								?>class="feed-com-file-name" <?
-								?>data-bx-viewer="unknown" <?
-								?>data-bx-src="<?=$url?>" <?
-								?>data-bx-title="<?=($file["FILE_NAME"])?>" <?
-								?>data-bx-size="<?=$size?>" <?
-								?>data-bx-owner="" <?
-								?>data-bx-dateModify="" <?
-								?>title="<?=($file["FILE_NAME"])?>" <?
+							<a href="<?=$url?>" <?php 
+								?>class="feed-com-file-name" <?php 
+								?>data-bx-viewer="unknown" <?php 
+								?>data-bx-src="<?=$url?>" <?php 
+								?>data-bx-title="<?=($file["FILE_NAME"])?>" <?php 
+								?>data-bx-size="<?=$size?>" <?php 
+								?>data-bx-owner="" <?php 
+								?>data-bx-dateModify="" <?php 
+								?>title="<?=($file["FILE_NAME"])?>" <?php 
 								?>target="_blank" ><?=($file["FILE_NAME"])?></a>
 							<span class="feed-com-file-size"><?=$size?></span>
 						</span>
-					</div><?
+					</div><?php 
 				}
 					?></div>
-				</div><?
+				</div><?php 
 				$result["WEB"]["AFTER"] = preg_replace("/[\n\t]/", "", ob_get_clean()).$result["WEB"]["AFTER"];
 
 				ob_start();
-				?><ul class="post-item-attached-file-wrap"><?
+				?><ul class="post-item-attached-file-wrap"><?php 
 					foreach($files as $file)
 					{
-						?><li><?=$file["FILE_NAME"]?></li><?
+						?><li><?=$file["FILE_NAME"]?></li><?php 
 					}
-				?></ul><?
+				?></ul><?php 
 				$res["MOBILE"]["AFTER"] .= ob_get_clean();
 			}
 		}

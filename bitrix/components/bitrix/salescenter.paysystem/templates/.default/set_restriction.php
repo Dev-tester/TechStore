@@ -7,7 +7,7 @@ use Bitrix\Main\Localization\Loc;
 	<span class="salescenter-restriction-text"><?=Loc::getMessage('SALESCENTER_SP_PSR_TITLE')?></span>
 </div>
 <div id="salescenter-paysystem-restriction-grid-block">
-<?
+<?php 
 	$APPLICATION->IncludeComponent('bitrix:main.ui.grid', '', [
 		'GRID_ID' => $arParams['GRID_ID'],
 		'COLUMNS' => [

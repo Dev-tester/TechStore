@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_MODULE_NOT_INSTALLED'] = "Модуль CRM не установлен.";
 $MESS['CRM_PERMISSION_DENIED'] = "Доступ запрещен";
 $MESS['CRM_DEDUPE_LIST_INVALID_ENTITY_TYPE'] = "Тип '#TYPE_NAME#' не поддерживается в данном контексте";

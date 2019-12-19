@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Extranet";
 $MESS["SERVICES_INFO"] = "<h3>Unifying The Neighbouring Information Spaces </h3>
 

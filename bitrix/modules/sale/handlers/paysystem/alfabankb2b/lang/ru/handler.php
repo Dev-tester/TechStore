@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_ALFABANK_ERROR_CPD0001"] = "Должны быть заполнены все обязательные поля";
 $MESS["SALE_HPS_ALFABANK_ERROR_CPD0002"] = "Некорректный номер платежа";
 $MESS["SALE_HPS_ALFABANK_ERROR_CPD0003"] = "Дата платежного поручения не может быть меньше, чем Бизнес Дата - 10 дней";

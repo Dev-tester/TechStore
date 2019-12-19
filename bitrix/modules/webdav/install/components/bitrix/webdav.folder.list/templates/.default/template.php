@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -154,7 +154,7 @@ if ($arParams['OBJECT']->meta_state != "TRASH")
 			}
 		});
 	</script>
-<?
+<?php 
 
 }
 if ($arParams['OBJECT']->meta_state == 'TRASH' && $arParams['PERMISSION'] > "W")
@@ -213,10 +213,10 @@ BX(function() {
 	}
 });
 </script>
-<?
+<?php 
 }
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.grid",
 	"",
 	array(
@@ -350,13 +350,13 @@ BX(function() {
 		'wd_service_edit_doc_default': '<?= CUtil::JSEscape(CWebDavTools::getServiceEditDocForCurrentUser()) ?>'
 	});
 </script>
-<?
+<?php 
 }
 
 if (!empty($arParams["SHOW_NOTE"])):
 ?>
 <br />
 <div class="wd-help-list selected" id="wd_list_note"><?=$arParams["~SHOW_NOTE"]?></div>
-<?
+<?php 
 endif;
 ?>

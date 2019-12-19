@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_ADMIN_NEW_FOLDER"] = "New folder";
 $MESS["FILEMAN_ADMIN_NEW_FILE"] = "New file";
 $MESS["FILEMAN_ADMIN_FILE_UPLOAD"] = "Upload file";

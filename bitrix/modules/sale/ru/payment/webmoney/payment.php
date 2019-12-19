@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
 <title>Оплата через WebMoney</title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?= LANG_CHARSET ?>">
 </head>
 <body bgColor="#ffffff">
-<?
+<?php 
 $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 if ($_SERVER["REQUEST_METHOD"] == "POST" && strlen($_POST["SendAdditionalInfo"]) > 0)
 {
@@ -16,12 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && strlen($_POST["SendAdditionalInfo"])
 	$DB->Query($strSql);
 	?>
 	<font class="text"><font color="#006600"><b>Спасибо, ваш идентификатор записан. Вы можете закрыть данное окно.</b></font></font>
-	<?
+	<?php 
 }
 ?>
 <p><font class="tablebodytext"><b>Счет № <?= $ORDER_ID ?> от <?= htmlspecialcharsbx($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["DATE_INSERT"]) ?></b></font></p>
 <p>
-Сумма к оплате: <b><?echo SaleFormatCurrency($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["SHOULD_PAY"], $GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["CURRENCY"]) ?></b>
+Сумма к оплате: <b><?php echo SaleFormatCurrency($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["SHOULD_PAY"], $GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["CURRENCY"]) ?></b>
 </font></p>
 
 <form method="POST" action="">

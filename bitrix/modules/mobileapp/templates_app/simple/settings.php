@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_FILE_PERMISSIONS", true);
 define("BX_MOBILE_LOG", true);
 

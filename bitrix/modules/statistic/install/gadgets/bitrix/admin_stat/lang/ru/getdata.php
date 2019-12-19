@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_STAT_ADV_NAME"] = "Рекламная кампания";
 $MESS["GD_STAT_EVENT"] = "События";
 $MESS["GD_STAT_EVENT_GRAPH"] = "График типа события по дням";

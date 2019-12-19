@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_USER_INFO_LAST_ACTIVITY_DATE_TITLE"] = "Дата последнего входа";
 $MESS["IDEA_USER_INFO_WORK_COMPANY_TITLE"] = "Наименование компании";
 $MESS["IDEA_USER_INFO_PERSONAL_PHONE_TITLE"] = "Телефон";

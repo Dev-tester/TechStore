@@ -1,4 +1,4 @@
-<?
+<?php 
 function GetGlobalID()
 {
 	global $GLOBAL_IBLOCK_ID;

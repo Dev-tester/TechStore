@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOCIALNETWORK_ITEM_WORKGROUP_IP_MOD"] = "Group owner and moderators";
 $MESS["SOCIALNETWORK_ITEM_WORKGROUP_IP_MOD_PROJECT"] = "Project owner and moderators";
 $MESS["SOCIALNETWORK_ITEM_WORKGROUP_IP_OWNER"] = "Group owner only";

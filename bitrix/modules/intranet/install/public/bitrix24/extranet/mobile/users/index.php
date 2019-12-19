@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/mobile/headers.php");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
 $USER_ID = intval($_GET["user_id"]) > 0 ? intval($_GET["user_id"]) : false;
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:socialnetwork.user_profile", "mobile", array(
+<?php $APPLICATION->IncludeComponent("bitrix:socialnetwork.user_profile", "mobile", array(
 		"PATH_TO_USER" => SITE_DIR."mobile/users/?user_id=#user_id#",
 		"PATH_TO_GROUP" => SITE_DIR."mobile/?group_id=#group_id#",
 		"PATH_TO_MESSAGES_CHAT" => SITE_DIR."mobile/im/dialog.php?id=#user_id#",
@@ -48,4 +48,4 @@ $USER_ID = intval($_GET["user_id"]) > 0 ? intval($_GET["user_id"]) : false;
 	false,
 	Array("HIDE_ICONS" => "Y")
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>

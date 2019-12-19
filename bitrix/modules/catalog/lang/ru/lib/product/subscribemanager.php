@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ERROR_REQUIRED_PARAMATERS"] = "Не указан обязательный параметр \"#PARAM#\"";
 $MESS["ERROR_PRODUCT_NOT_FOUND"] = "Не найден товар, на который осуществляется подписка";
 $MESS["ERROR_SUBSCRIBE_DENIED"] = "Подписка запрещена";

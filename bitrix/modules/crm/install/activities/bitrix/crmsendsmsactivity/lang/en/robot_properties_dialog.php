@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SSMSA_RPD_MARKETPLACE"] = "Select another provider";
 $MESS["CRM_SSMSA_RPD_PROVIDER_IS_DEMO"] = "The provider is in demo mode";
 $MESS["CRM_SSMSA_RPD_PROVIDER_CANT_USE"] = "The provider is unavailable because it was not configured";

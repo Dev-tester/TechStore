@@ -1,17 +1,17 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if(isset($_GET['coupon'])): ?>
+<?php if(isset($_GET['coupon'])): ?>
 	<div class="content-edit-form-notice-successfully">
 		<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=GetMessage('UPDATES_COUPON_SUCCESS')?></span>
 	</div>
-<?endif;?>
-<?if(isset($_GET['activate'])): ?>
+<?php endif;?>
+<?php if(isset($_GET['activate'])): ?>
 	<div class="content-edit-form-notice-successfully">
 		<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=GetMessage('UPDATES_ACTIVATE_SUCCESS')?></span>
 	</div>
-<?endif;?>
+<?php endif;?>
 
-<div class="content-edit-form-notice-error" <?if (!$arResult["ERROR"]):?>style="display: none;"<?endif?> id="config_error_block">
+<div class="content-edit-form-notice-error" <?php if (!$arResult["ERROR"]):?>style="display: none;"<?php endif?> id="config_error_block">
 	<span class="content-edit-form-notice-text"><span class="content-edit-form-notice-icon"></span><?=$arResult["ERROR"]?></span>
 </div>
 
@@ -25,31 +25,31 @@
 			</td>
 		</tr>
 
-		<?if (is_array($arResult["UPDATE_LIST"]) && array_key_exists("CLIENT", $arResult["UPDATE_LIST"])):?>
+		<?php if (is_array($arResult["UPDATE_LIST"]) && array_key_exists("CLIENT", $arResult["UPDATE_LIST"])):?>
 			<tr>
-				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_REGISTERED")?></td>
-				<td class="content-edit-form-field-input"><?echo $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["NAME"]?></td>
+				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_REGISTERED")?></td>
+				<td class="content-edit-form-field-input"><?php echo $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["NAME"]?></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if (is_array($arResult["UPDATE_LIST"]) && array_key_exists("CLIENT", $arResult["UPDATE_LIST"])):?>
+		<?php if (is_array($arResult["UPDATE_LIST"]) && array_key_exists("CLIENT", $arResult["UPDATE_LIST"])):?>
 			<tr>
-				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_EDITION")?></td>
-				<td class="content-edit-form-field-input"><?echo $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["LICENSE"]?></td>
+				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_EDITION")?></td>
+				<td class="content-edit-form-field-input"><?php echo $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["LICENSE"]?></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 			<tr>
-				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_SITES")?></td>
+				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_SITES")?></td>
 				<td class="content-edit-form-field-input">
-					<?echo ($arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["MAX_SITES"] > 0? $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["MAX_SITES"] : GetMessage("SUP_CHECK_PROMT_2")); ?>
+					<?php echo ($arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["MAX_SITES"] > 0? $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["MAX_SITES"] : GetMessage("SUP_CHECK_PROMT_2")); ?>
 				</td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
 			<tr valign="top">
-				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_USERS")?></td>
+				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_USERS")?></td>
 				<td class="content-edit-form-field-input">
-					<?
+					<?php 
 					if ($arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["MAX_USERS"] > 0)
 					{
 						echo $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["MAX_USERS"];
@@ -67,11 +67,11 @@
 			</tr>
 
 			<tr>
-				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?echo GetMessage("SUP_ACTIVE_TITLE")?></td>
-				<td class="content-edit-form-field-input"><?echo GetMessage("SUP_ACTIVE_PERIOD_TO", array("#DATE_TO#"=>((strlen($arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"]) > 0) ? $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"] : "<i>N/A</i>")));?></td>
+				<td class="content-edit-form-field-name content-edit-form-field-name-left"><?php echo GetMessage("SUP_ACTIVE_TITLE")?></td>
+				<td class="content-edit-form-field-input"><?php echo GetMessage("SUP_ACTIVE_PERIOD_TO", array("#DATE_TO#"=>((strlen($arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"]) > 0) ? $arResult["UPDATE_LIST"]["CLIENT"][0]["@"]["DATE_TO_FORMAT"] : "<i>N/A</i>")));?></td>
 				<td class="content-edit-form-field-error"></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 
 		<tr>
 			<td class="content-edit-form-field-name content-edit-form-field-name-left"><?=GetMessage('UPDATES_LICENSE_KEY')?></td>
@@ -92,7 +92,7 @@
 	</table>
 </form>
 <br/>
-<?if ($arResult["NEED_ACTIVATE"]):?>
+<?php if ($arResult["NEED_ACTIVATE"]):?>
 	<form name="activateLicenseForm" id="activateLicenseForm" method="POST" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
 		<input type="hidden" name="save_settings" value="true" >
 		<?=bitrix_sessid_post();?>
@@ -256,7 +256,7 @@
 		</table>
 	</form>
 	<br/>
-<?endif?>
+<?php endif?>
 
 
 <form name="updatesCouponForm" id="updatesCouponForm" method="POST" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">

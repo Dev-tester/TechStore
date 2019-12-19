@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Resumes");
 ?>
 <h4><a href="#SITE_DIR#job/resume/my/?edit=Y">Post a Resume</a> | <a href="#SITE_DIR#job/resume/my/">My Resumes</a></h4>
-<?$APPLICATION->IncludeComponent("bitrix:catalog", "resume", array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog", "resume", array(
 	"IBLOCK_TYPE" => "job",
 	"IBLOCK_ID" => "#RESUME_IBLOCK_ID#",
 	"BASKET_URL" => "/personal/basket.php",
@@ -92,4 +92,4 @@ $APPLICATION->SetTitle("Resumes");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

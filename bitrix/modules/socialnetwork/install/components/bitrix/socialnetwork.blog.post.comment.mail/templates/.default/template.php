@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <table cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse: collapse;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
 	<tr>
 		<td valign="top" style="border-collapse: collapse;border-spacing: 0;text-align: left;vertical-align: top;">
@@ -7,29 +7,29 @@
 					<td align="left" valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 3px 0 8px;text-align: left;">
 						<table cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
 							<tr>
-								<td align="left" valign="middle" style="border-collapse: collapse;border-spacing: 0;padding: 3px 10px 8px 0;text-align: left;"><?
+								<td align="left" valign="middle" style="border-collapse: collapse;border-spacing: 0;padding: 3px 10px 8px 0;text-align: left;"><?php 
 									$src = $arResult["AUTHORS"][$arResult["POST"]["AUTHOR_ID"]]["AVATAR_URL"];
 									?><img height="50" width="50" src="<?=$src?>" alt="user" style="outline: none;text-decoration: none;border-radius: 50%;display: block;">
 								</td>
 								<td align="left" valign="middle" style="border-collapse: collapse;border-spacing: 0;padding: 3px 0 8px;text-align: left;">
-									<span style="color:#586777;font-size: 14px;font-weight: bold;"><?
-									?><?=$arResult["AUTHORS"][$arResult["POST"]["AUTHOR_ID"]]["NAME_FORMATTED"]?></span><?
+									<span style="color:#586777;font-size: 14px;font-weight: bold;"><?php 
+									?><?=$arResult["AUTHORS"][$arResult["POST"]["AUTHOR_ID"]]["NAME_FORMATTED"]?></span><?php 
 									if (!empty($arResult["DESTINATIONS"]))
 									{
 										$src = $this->getFolder()."/images/arrow.gif";
-										?><img height="16" width="20" src="<?=$src?>" alt="&rarr;" style="outline: none;text-decoration: none;font-size: 19px;line-height: 15px;"><?
-										?><span style="color: #7f7f7f;font-size: 14px;"><?
+										?><img height="16" width="20" src="<?=$src?>" alt="&rarr;" style="outline: none;text-decoration: none;font-size: 19px;line-height: 15px;"><?php 
+										?><span style="color: #7f7f7f;font-size: 14px;"><?php 
 										$i = 0;
 										foreach ($arResult["DESTINATIONS"] as $destinationName)
 										{
 											if ($i > 0)
 											{
-											?>, <?
+											?>, <?php 
 											}
-											?><span style="color: #7f7f7f;font-size: 14px;"><?=($destinationName == "#ALL#" ? GetMessage("BLOG_DESTINATION_ALL") : $destinationName)?></span><?
+											?><span style="color: #7f7f7f;font-size: 14px;"><?=($destinationName == "#ALL#" ? GetMessage("BLOG_DESTINATION_ALL") : $destinationName)?></span><?php 
 											$i++;
 										}
-										?></span><?
+										?></span><?php 
 									}
 								?></td>
 							</tr>
@@ -40,9 +40,9 @@
 					<td style="border-collapse: collapse;border-spacing: 0;">
 						<table cellspacing="0" cellpadding="0" border="0" align="left" style="border-collapse: collapse;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
 							<tr>
-								<td valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 13px 0 14px;vertical-align: top;"><?
+								<td valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 13px 0 14px;vertical-align: top;"><?php 
 									$src = $this->getFolder()."/images/post-icon.gif";
-									?><img width="30" height="29" alt="" src="<?=$src?>" style="outline: none;text-decoration: none;vertical-align: top;"><?
+									?><img width="30" height="29" alt="" src="<?=$src?>" style="outline: none;text-decoration: none;vertical-align: top;"><?php 
 								?></td>
 								<td valign="middle" style="border-collapse: collapse;border-spacing: 0;padding: 9px 0 14px 16px;vertical-align: top;">
 									<a href="<?=$arResult["POST_URL_COMMENT"]?>" style="color: #0067a3;border-bottom: 1px solid #0067a3;font-size: 14px;line-height: 18px;text-decoration: none;">
@@ -58,7 +58,7 @@
 							</tr>
 						</table>
 					</td>
-				</tr><?
+				</tr><?php 
 				$arResult["OUTPUT_LIST"] = $APPLICATION->IncludeComponent(
 					"bitrix:main.post.list",
 					"mail",
@@ -83,7 +83,7 @@
 					)
 				);
 
-				?><?=$arResult["OUTPUT_LIST"]["HTML"]?><?
+				?><?=$arResult["OUTPUT_LIST"]["HTML"]?><?php 
 				?><tr>
 					<td valign="top" align="center" style="border-collapse: collapse;border-spacing: 0;border-top: 1px solid #edeef0;padding: 33px 0 20px;">
 						<table cellspacing="0" cellpadding="0" border="0" align="center" style="border-collapse: collapse;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">

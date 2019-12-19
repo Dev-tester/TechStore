@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_THEME_BEIGE'] = "Beige";
 $MESS ['F_THEME_BLUE'] = "Blue";
 $MESS ['F_THEME_FLUXBB'] = "FluxBB";

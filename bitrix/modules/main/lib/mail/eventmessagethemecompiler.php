@@ -381,7 +381,7 @@ class EventMessageThemeCompiler
 		try
 		{
 			$arParams = $this->params;
-			$result = eval('use \Bitrix\Main\Mail\EventMessageThemeCompiler; ob_start();?>' . $template . '<? return ob_get_clean();');
+			$result = eval('use \Bitrix\Main\Mail\EventMessageThemeCompiler; ob_start();?>' . $template . '<?php  return ob_get_clean();');
 		}
 		catch(StopException $e)
 		{

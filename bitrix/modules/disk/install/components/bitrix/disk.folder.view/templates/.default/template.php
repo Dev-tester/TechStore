@@ -13,16 +13,16 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var \Bitrix\Disk\Internals\BaseComponent $component */
 ?>
 
-<?
+<?php 
 if($component->hasErrors())
 {
 	var_dump($component->getErrors());
 }
 ?>
 
-<? foreach($arResult['BREADCRUMBS'] as $crumb){ ?>
+<?php  foreach($arResult['BREADCRUMBS'] as $crumb){ ?>
 	<a href="<?= $crumb['LINK'] ?>"><?= $crumb['NAME'] ?></a>
-<? }?>
+<?php  }?>
 
 <h2><?= $arResult['FOLDER']['NAME'] ?></h2>
 

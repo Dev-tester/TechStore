@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_PHOTOS_CNT'] = "Фотографий";
 $MESS ['P_ALBUMS_CNT'] = "Альбомы";
 $MESS ['P_ADD_ALBUM'] = "Добавить альбом";

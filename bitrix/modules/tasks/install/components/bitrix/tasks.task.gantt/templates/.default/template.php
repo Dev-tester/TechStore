@@ -142,7 +142,7 @@ else
      */
     // tmp END
 
-	<?
+	<?php 
 		$filter = $arResult["GET_LIST_PARAMS"]["legacyFilter"];
 		unset($filter['ONLY_ROOT_TASKS']);
 	?>
@@ -338,7 +338,7 @@ else
                 worktime: "<?=$hours?>",
                 canDragTasks: <?= CUtil::PhpToJSObject($canDragTasks)?>,
                 oneGroupMode: <?=($currentGroupId > 0 ? "true" : "false")?>,
-                treeMode: <?
+                treeMode: <?php 
 				if ($arParams['VIEW_STATE']['SUBMODES']['VIEW_SUBMODE_WITH_SUBTASKS']['SELECTED'] === 'Y')
 					echo 'true';
 				else
@@ -490,23 +490,23 @@ else
             }
         );
 
-		<?// hellish hack, sorry for that?>
+		<?php // hellish hack, sorry for that?>
         window.COMPANY_WORKTIME = {
             h: <?=intval($arResult['COMPANY_WORKTIME']['END']['H'])?>,
             m: <?=intval($arResult['COMPANY_WORKTIME']['END']['M'])?>};
 
         var projects = [
-			<? $i = 0?>
-			<? foreach((array)$arResult["GROUPS"] as $arGroup):?>
-			<? $i++ ?>
+			<?php  $i = 0?>
+			<?php  foreach((array)$arResult["GROUPS"] as $arGroup):?>
+			<?php  $i++ ?>
             {
                 id: <?=$arGroup["ID"]?>,
                 name: "<?=CUtil::JSEscape($arGroup["NAME"])?>",
                 opened: <?=CUtil::PhpToJSObject($arGroup["EXPANDED"])?>,
                 canCreateTasks: <?=CUtil::PhpToJSObject($arGroup["CAN_CREATE_TASKS"])?>,
                 canEditTasks: <?=CUtil::PhpToJSObject($arGroup["CAN_EDIT_TASKS"])?>
-            }<? if ($i != sizeof($arResult["GROUPS"])):?>,<?endif?>
-			<? endforeach?>
+            }<?php  if ($i != sizeof($arResult["GROUPS"])):?>,<?php endif?>
+			<?php  endforeach?>
         ];
         ganttChart.addProjectsFromJSON(projects);
 
@@ -538,7 +538,7 @@ else
 
         ganttChart.addTasksFromJSON(tasks);
 
-		<?
+		<?php 
 		$deps = array();
 		foreach ($arResult["TASKS_LINKS"] as $arTasksLinks)
 		{
@@ -660,11 +660,11 @@ if (is_array($arResult['ERROR']['FATAL']) && !empty($arResult['ERROR']['FATAL'])
 endif
 ?>
 
-<? if (is_array($arResult['ERROR']['WARNING'])): ?>
-	<? foreach ($arResult['ERROR']['WARNING'] as $error): ?>
+<?php  if (is_array($arResult['ERROR']['WARNING'])): ?>
+	<?php  foreach ($arResult['ERROR']['WARNING'] as $error): ?>
 		<?= ShowError($error['MESSAGE']) ?>
-	<? endforeach ?>
-<? endif ?>
+	<?php  endforeach ?>
+<?php  endif ?>
 <?php
 if ($isBitrix24Template)
 {

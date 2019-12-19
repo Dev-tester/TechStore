@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\UI\Extension;
@@ -13,14 +13,14 @@ use Bitrix\Main\Web\Json;
 
 <?php $this->SetViewTarget('left-panel') ?>
 
-<div <?if($arResult['ID']):?>id="<?=$arResult['ID']?>"<?endif;?> class="ui-sidepanel-sidebar">
-	<?if(!empty($arResult['TITLE'])):?>
+<div <?php if($arResult['ID']):?>id="<?=$arResult['ID']?>"<?php endif;?> class="ui-sidepanel-sidebar">
+	<?php if(!empty($arResult['TITLE'])):?>
 		<div class="ui-sidepanel-head">
 			<h2 class="ui-sidepanel-title">
 				<?=$arResult['TITLE']?>
 			</h2>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 	<?= getWrapperMenu($arResult['ITEMS']);?>
 </div>
 

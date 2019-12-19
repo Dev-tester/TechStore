@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($arParams['FORUM_ID'] > 0)
@@ -15,7 +15,7 @@ if ($arParams['FORUM_ID'] > 0)
 			{
 				window.onForumImagesLoad();
 			}
-		</script><?
+		</script><?php 
 	}
 
 	$APPLICATION->IncludeComponent("bitrix:forum.comments", ".default", array(

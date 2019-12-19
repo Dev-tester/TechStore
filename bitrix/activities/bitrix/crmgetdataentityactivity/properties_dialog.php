@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $listDefaultEntity = array(
 	'LEAD' => GetMessage("CRM_ACTIVITY_ENTITY_NAME_LEAD"),
@@ -27,12 +27,12 @@ $currentEntityType = !empty($currentValues['EntityType']) ? $currentValues['Enti
 	<td width="60%">
 		<select name="EntityType" onchange="BPCGDEA_getEntityFields(this.value)">
 			<option value=""><?=GetMessage("CRM_ACTIVITY_SELECT_TYPE_ENTITY")?></option>
-			<?foreach($listDefaultEntity as $entityType => $entityName):?>
+			<?php foreach($listDefaultEntity as $entityType => $entityName):?>
 				<option value="<?=htmlspecialcharsbx($entityType)?>"
 					<?=($currentEntityType == $entityType) ? 'selected' : ''?>>
 					<?=htmlspecialcharsbx($entityName)?>
 				</option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>

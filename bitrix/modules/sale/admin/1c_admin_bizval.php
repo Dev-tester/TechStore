@@ -35,9 +35,9 @@ if($REQUEST_METHOD == 'POST' && strlen($Update) > 0 && $salePermissions >= 'W' &
 	</tr>
 	<tr>
 		<td colspan="2">
-			<?$businessValueControl->renderMap(array('CONSUMER_KEY' => '1C', 'HIDE_FILLED_CODES' => false))?>
+			<?php $businessValueControl->renderMap(array('CONSUMER_KEY' => '1C', 'HIDE_FILLED_CODES' => false))?>
 		</td>
 	</tr>
-<?
+<?php 
 
 

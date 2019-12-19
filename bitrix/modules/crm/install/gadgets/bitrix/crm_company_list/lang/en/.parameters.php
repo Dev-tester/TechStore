@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_CRM_COMPANY_LIST_COMPANY_COUNT"] = "Deals Per Page";
 $MESS["GD_CRM_ONLY_MY"] = "My Only";
 $MESS["GD_CRM_SORT"] = "Sorting";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
@@ -28,26 +28,26 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 		</div>
 	</div>
 
-	<?if($arParams['DELIVERY_REQUESTS'] > 0):?>
-		<?foreach($arResult['DELIVERY_REQUESTS'] as $id => $params):?>
+	<?php if($arParams['DELIVERY_REQUESTS'] > 0):?>
+		<?php foreach($arResult['DELIVERY_REQUESTS'] as $id => $params):?>
 			<div class="admin-delivery-request-confirm green">
 				<span class="admin-delivery-request-confirm-text">
-					<?if($arParams['ACTION'] == 'CREATE'):?>
+					<?php if($arParams['ACTION'] == 'CREATE'):?>
 						<?=Loc::getMessage('SALE_CSDRPT_DELIVERY_REQUEST_CREATED', array('#REQUEST_ID#' => '<a href="/bitrix/admin/sale_delivery_request_view.php?ID='.$id.'&lang='.LANGUAGE_ID.'" title="'.Loc::getMessage('SALE_CSDRPT_DELIVERY_REQUEST_TITLE', array('#REQUEST_ID#' => $id)).'">'.$id.'</a>'))?>
-					 <?else:?>
+					 <?php else:?>
 						<?=Loc::getMessage('SALE_CSDRPT_DELIVERY_REQUEST_UPD', array('#REQUEST_ID#' => '<a href="/bitrix/admin/sale_delivery_request_view.php?ID='.$id.'&lang='.LANGUAGE_ID.'" title="'.Loc::getMessage('SALE_CSDRPT_DELIVERY_REQUEST_TITLE', array('#REQUEST_ID#' => $id)).'">'.$id.'</a>'))?>
-					 <?endif;?>
+					 <?php endif;?>
 				</span>
 
 				<span class="admin-delivery-request-confirm-text">. <?=Loc::getMessage('SALE_CSDRPT_SHIPMENTS_SUCCESS_AMOUNT')?>: <?=$params['SHIPMENTS_COUNT']?> .</span>
 			</div>
-		<?endforeach;?>
-	<?endif;?>
+		<?php endforeach;?>
+	<?php endif;?>
 
-	<?if($arParams['SHIPMENTS_ERRORS'] > 0):?>
+	<?php if($arParams['SHIPMENTS_ERRORS'] > 0):?>
 		<div class="admin-delivery-request-confirm red">
 			<span class="admin-delivery-request-confirm-text"><?=Loc::getMessage('SALE_CSDRPT_SHIPMENTS_FAIL_AMOUNT')?>: <a href="/bitrix/admin/sale_order_shipment.php?lang=<?=LANGUAGE_ID?>&filter_delivery_id=<?=$arResult['DELIVERY']['ID']?>&filter_is_delivery_request_failed=Y&set_filter=Y" title="<?=Loc::getMessage('SALE_CSDRPT_SHIPMENTS_FAIL_AMOUNT_TITLE')?>"><?=$arParams['SHIPMENTS_ERRORS']?></a></span>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
 </div>

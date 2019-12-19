@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABTEST_LIST_TITLE"] = "A/B Testing";
 $MESS["ABTEST_LIST_DESCR"] = "A/B Testing is one of the marketing research methods. Basically, it compares two layouts of a certain page or website design in terms of conversion.<br><br>A good example is the effect of position and/or color of the \"Buy\" button on the conversion.<br><br>Below is the list of ready to use tests you can use to create and conduct your A/B test.";
 $MESS["ABTEST_BTN_NEW"] = "New test";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Company Today";
 $MESS["ABOUT_INFO"] = "With the establishing of the Global Food grocery supermarket stores in the early 1990s, we have laid the foundation for a consistent retail brand strategy. Our customers are assured of having the best possible selection and offers available to them.
 <br />

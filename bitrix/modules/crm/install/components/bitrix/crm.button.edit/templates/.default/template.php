@@ -105,15 +105,15 @@ $getFormattedScript = function ($script)
 	});
 </script>
 
-<?
+<?php 
 if (!empty($arResult['ERRORS']))
 {
-	?><div class="crm-button-edit-top-block"><?
+	?><div class="crm-button-edit-top-block"><?php 
 	foreach ($arResult['ERRORS'] as $error)
 	{
 		ShowError($error);
 	}
-	?></div><?
+	?></div><?php 
 }
 ?>
 
@@ -121,7 +121,7 @@ if (!empty($arResult['ERRORS']))
 <form id="crm_button_main_form" method="post" action="<?=$APPLICATION->GetCurPageParam()?>">
 	<?=bitrix_sessid_post()?>
 
-<?
+<?php 
 
 $showItemWorkTimeInterface = function ($item) use($arResult)
 {
@@ -150,13 +150,13 @@ $showItemWorkTimeInterface = function ($item) use($arResult)
 					name="ITEMS[<?=$type?>][WORK_TIME][TIME_ZONE]"
 					id="ITEMS_<?=$type?>_WORK_TIME_TIME_ZONE"
 				>
-					<?foreach ($workTime['TIME_ZONE']['LIST'] as $value => $name):
+					<?php foreach ($workTime['TIME_ZONE']['LIST'] as $value => $name):
 						$selected = $value == $item['WORK_TIME']['TIME_ZONE'] ? 'selected' : '';
 						?>
 						<option value="<?=htmlspecialcharsbx($value)?>" <?=$selected?>>
 							<?=htmlspecialcharsbx($name)?>
 						</option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</div>
 
@@ -166,32 +166,32 @@ $showItemWorkTimeInterface = function ($item) use($arResult)
 						data-crm-wt-time-from=""
 						id="ITEMS_<?=$type?>_WORK_TIME_TIME_FROM"
 				>
-					<?foreach ($workTime['TIME_LIST'] as $value => $name):
+					<?php foreach ($workTime['TIME_LIST'] as $value => $name):
 						$selected = $value == $item['WORK_TIME']['TIME_FROM'] ? 'selected' : '';
 						?>
 						<option value="<?=htmlspecialcharsbx($value)?>" <?=$selected?>>
 							<?=htmlspecialcharsbx($name)?>
 						</option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 				&nbsp; - &nbsp;
 				<select class="crm-button-edit-hello-select-item crm-button-edit-channel-lines-display-options-time-select-max-width-short crm-button-edit-channel-lines-display-options-time-select" name="ITEMS[<?=$type?>][WORK_TIME][TIME_TO]"
 						data-crm-wt-time-to=""
 						id="ITEMS_<?=$type?>_WORK_TIME_TIME_TO"
 				>
-					<?foreach ($workTime['TIME_LIST'] as $value => $name):
+					<?php foreach ($workTime['TIME_LIST'] as $value => $name):
 						$selected = $value == $item['WORK_TIME']['TIME_TO'] ? 'selected' : '';
 						?>
 						<option value="<?=htmlspecialcharsbx($value)?>" <?=$selected?>>
 							<?=htmlspecialcharsbx($name)?>
 						</option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</div>
 
 			<div class="crm-button-edit-channel-lines-display-options-time-title" data-crm-wt-days-caption=""><?=Loc::getMessage('CRM_BUTTON_EDIT_WORK_TIME_FIELD_DAY_OFF')?></div>
 			<div class="crm-button-edit-channel-lines-display-options-time-margin-bottom crm-button-edit-channel-lines-display-options-time-weekends">
-				<?foreach ($workTime['NAMED_WEEK_DAY_LIST'] as $value => $name):
+				<?php foreach ($workTime['NAMED_WEEK_DAY_LIST'] as $value => $name):
 					$selected = in_array($value, $item['WORK_TIME']['DAY_OFF']) ? 'checked' : '';
 					?>
 					<input class="crm-button-edit-channel-lines-display-options-time-checkbox"
@@ -204,7 +204,7 @@ $showItemWorkTimeInterface = function ($item) use($arResult)
 					<label class="crm-button-edit-channel-lines-display-options-time-checkbox-name" for="ITEMS_<?=$type?>_WORK_TIME_DAY_OFF_<?=htmlspecialcharsbx($value)?>">
 						<?=htmlspecialcharsbx($name)?>
 					</label>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</div>
 
 			<div class="crm-button-edit-channel-lines-display-options-time-title"><?=Loc::getMessage('CRM_BUTTON_EDIT_WORK_TIME_FIELD_HOLIDAYS')?></div>
@@ -217,18 +217,18 @@ $showItemWorkTimeInterface = function ($item) use($arResult)
 				<div class="crm-button-edit-channel-lines-display-options-settings-item crm-button-edit-channel-lines-display-options-time-weekends-example">(<?=Loc::getMessage('CRM_BUTTON_EDIT_WORK_TIME_FIELD_HOLIDAYS_EXAMPLE')?>)	</div>
 			</div>
 
-			<?if (isset($workTime['ACTIONS'][$type])):?>
+			<?php if (isset($workTime['ACTIONS'][$type])):?>
 
 				<div class="crm-button-edit-channel-lines-display-options-time-title"><?=Loc::getMessage('CRM_BUTTON_EDIT_WORK_TIME_FIELD_ACTION_RULE')?></div>
 				<div class="crm-button-edit-channel-lines-display-options-time-margin-bottom crm-button-edit-channel-lines-display-options-time-select-container">
 					<select class="crm-button-edit-channel-lines-display-options-time-select-max-width-mid crm-button-edit-hello-select-item crm-button-edit-channel-lines-display-options-time-select" data-crm-button-item-worktime-action-rule="<?=$type?>" name="ITEMS[<?=$type?>][WORK_TIME][ACTION_RULE]" id="ITEMS_<?=$type?>_WORKTIME_ACTION_RULE" class="tel-set-inp tel-set-item-select">
-						<?foreach ($workTime['ACTIONS'][$type] as $value => $name):
+						<?php foreach ($workTime['ACTIONS'][$type] as $value => $name):
 							$selected = $value == $item['WORK_TIME']['ACTION_RULE'] ? 'selected' : '';
 							?>
 							<option value="<?=htmlspecialcharsbx($value)?>" <?=$selected?>>
 								<?=htmlspecialcharsbx($name)?>
 							</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</div>
 
@@ -240,11 +240,11 @@ $showItemWorkTimeInterface = function ($item) use($arResult)
 					</div>
 
 				</div>
-			<?endif;?>
+			<?php endif;?>
 
 		</div>
 	</div>
-	<?
+	<?php 
 };
 
 
@@ -280,7 +280,7 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 
 		</div><!--crm-button-edit-channel-lines-title-container-->
 		<div class="crm-button-edit-channel-lines-inner-wrapper">
-			<?if(count($item['LIST']) == 0):?>
+			<?php if(count($item['LIST']) == 0):?>
 				<div class="crm-button-edit-channel-make-line">
 					<div class="crm-button-edit-channel-make-line-description">
 						<span class="crm-button-edit-channel-make-line-description">
@@ -296,30 +296,30 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 						</a>
 					</div>
 				</div><!--crm-button-edit-channel-make-line-->
-			<?else:?>
+			<?php else:?>
 			<div class="crm-button-edit-channel-lines-inner-container">
 
-				<?if ($type != 'openline'):?>
+				<?php if ($type != 'openline'):?>
 				<div class="crm-button-edit-channel-lines-inner-create-container">
 					<div class="crm-button-edit-channel-lines-inner-create-select-container">
 						<select data-bx-crm-button-widget-select="<?=$type?>" id="ITEMS_<?=$type?>" name="ITEMS[<?=$type?>][EXTERNAL_ID]" class="crm-button-edit-channel-lines-inner-create-select-item">
-							<?foreach($item['LIST'] as $external):?>
+							<?php foreach($item['LIST'] as $external):?>
 								<option value="<?=htmlspecialcharsbx($external['ID'])?>" <?=($external['SELECTED'] ? 'selected' : '')?>>
 									<?=htmlspecialcharsbx($external['NAME'])?>
 								</option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
 					<div class="crm-button-edit-channel-lines-inner-create-button-container">
 						<a data-bx-slider-href="" data-bx-crm-button-widget-btn-edit="<?=$type?>" href="" class="crm-button-edit-channel-lines-inner-create-button-item"><?=Loc::getMessage('CRM_WEBFORM_EDIT_CHANNEL_EDIT')?></a>
-						<?if($item['PATH_ADD']):?>
+						<?php if($item['PATH_ADD']):?>
 							<a data-bx-slider-href=""  href="<?=htmlspecialcharsbx($item['PATH_ADD'])?>" class="crm-button-edit-channel-lines-inner-create-button-item"><?=Loc::getMessage('CRM_WEBFORM_EDIT_CHANNEL_ADD')?></a>
-						<?endif;?>
+						<?php endif;?>
 					</div>
 				</div>
-				<?endif;?>
+				<?php endif;?>
 
-				<?if ($type == 'openline'):
+				<?php if ($type == 'openline'):
 
 					$ids = array();
 					foreach ($item['LIST'] as $external)
@@ -384,7 +384,7 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 							)?>
 						</div>
 
-						<?if(!$arResult['CAN_USE_MULTI_LINES']):?>
+						<?php if(!$arResult['CAN_USE_MULTI_LINES']):?>
 
 							<div id="USE_MULTI_LINES" class="crm-button-edit-channel-lines-social-link crm-button-edit-channel-lines-social-link-icon crm-button-edit-channel-lines-social-link-icon-lock crm-button-edit-channel-lines-social-no-margin">
 								<span class="crm-button-edit-channel-lines-social-link-item">
@@ -392,7 +392,7 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 								</span>
 							</div>
 
-						<?else:?>
+						<?php else:?>
 
 							<div class="crm-button-edit-channel-lines-display-options-title-container">
 								<span class="crm-button-edit-channel-lines-display-options-title-item">
@@ -400,23 +400,23 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 								</span>
 							</div>
 
-							<?if (count($extList) == 0):?>
+							<?php if (count($extList) == 0):?>
 								<div data-bx-add-desc="" class="crm-button-edit-channel-lines-wrap">
 									<div class="crm-button-edit-channel-lines-social-name">
 										<?=Loc::getMessage('CRM_BUTTON_EDIT_OPENLINE_ANOTHER_CHANNELS_EMPTY')?>
 									</div>
 								</div>
-							<?endif;?>
+							<?php endif;?>
 
 							<div data-bx-list-ext="">
-								<?foreach ($extList as $existedId => $existedConfig):?>
+								<?php foreach ($extList as $existedId => $existedConfig):?>
 									<?=getCrmButtonEditTemplateLine(
 										array(
 											'%lineid%' => $existedId,
 											'%lineconfig%' => htmlspecialcharsbx($existedConfig)
 										)
 									)?>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</div>
 
 							<div class="crm-button-edit-channel-lines-social-link">
@@ -424,27 +424,27 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 									<?=Loc::getMessage('CRM_BUTTON_EDIT_OPENLINE_ADD')?>
 								</span>
 							</div>
-						<?endif?>
+						<?php endif?>
 					</div>
 
-				<?endif?>
+				<?php endif?>
 
-				<?if ($type == 'callback'):?>
+				<?php if ($type == 'callback'):?>
 					<div class="crm-button-edit-channel-lines-phone-container">
 						<span class="crm-button-edit-channel-lines-phone-description">
 							<?=Loc::getMessage('CRM_BUTTON_EDIT_DETAIL_CALLBACK_PHONE_NUMBER')?>:
 						</span>
 						<span id="<?=$type?>_phone_number" class="crm-button-edit-channel-lines-phone-number"></span>
 					</div>
-				<?endif?>
-				<?if ($type == 'crmform'):?>
+				<?php endif?>
+				<?php if ($type == 'crmform'):?>
 					<div class="crm-button-edit-channel-lines-phone-container">
 						<span class="crm-button-edit-channel-lines-phone-description">
 							<?=Loc::getMessage('CRM_BUTTON_EDIT_DETAIL_CRMFORM_FIELDS')?>:
 						</span>
 						<span id="<?=$type?>_fields" class="crm-button-edit-channel-lines-phone-number"></span>
 					</div>
-				<?endif?>
+				<?php endif?>
 
 
 			</div><!--crm-button-edit-channel-lines-inner-container-->
@@ -473,7 +473,7 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 					</div>
 				</div><!--crm-button-edit-channel-lines-display-options-inner-container-->
 				<div data-crm-button-item-settings-wt="<?=$type?>" class="crm-button-edit-channel-lines-display-options-links-container">
-					<?$showItemWorkTimeInterface($item);?>
+					<?php $showItemWorkTimeInterface($item);?>
 				</div>
 			</div>
 
@@ -494,11 +494,11 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 						</div>
 						<div class="crm-button-edit-channel-lines-display-options-settings-descriptions-container">
 							<span class="crm-button-edit-channel-lines-display-options-settings-item">
-								<?if($item['PAGES_USES']):?>
+								<?php if($item['PAGES_USES']):?>
 									<?=Loc::getMessage('CRM_WEBFORM_EDIT_PAGE_SETTINGS_USER')?>
-								<?else:?>
+								<?php else:?>
 									<?=Loc::getMessage('CRM_WEBFORM_EDIT_PAGE_SETTINGS_DEFAULT')?>
-								<?endif;?>
+								<?php endif;?>
 							</span>
 						</div>
 					</div>
@@ -511,7 +511,7 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 							<span class="crm-button-edit-channel-lines-display-options-links-button-description"><?=Loc::getMessage('CRM_WEBFORM_EDIT_SHOW_ON_ALL_PAGES')?>:</span>
 						</label>
 
-						<?ShowIntranetButtonItemPageInterface($type, $item['PAGES']['LIST']['EXCLUDE'], 'EXCLUDE');?>
+						<?php ShowIntranetButtonItemPageInterface($type, $item['PAGES']['LIST']['EXCLUDE'], 'EXCLUDE');?>
 					</div><!--crm-button-edit-channel-lines-display-options-links-for-all-container-->
 					<div class="crm-button-edit-channel-lines-display-options-links-specified-container">
 						<label for="ITEMS_<?=$type?>_PAGES_MODE_INCLUDE" class="crm-button-edit-channel-lines-display-options-links-button-container">
@@ -519,7 +519,7 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 							<span class="crm-button-edit-channel-lines-display-options-links-button-description"><?=Loc::getMessage('CRM_WEBFORM_EDIT_SHOW_ONLY_PAGES')?>:</span>
 						</label>
 
-						<?ShowIntranetButtonItemPageInterface($type, $item['PAGES']['LIST']['INCLUDE'], 'INCLUDE');?>
+						<?php ShowIntranetButtonItemPageInterface($type, $item['PAGES']['LIST']['INCLUDE'], 'INCLUDE');?>
 					</div><!--crm-button-edit-channel-lines-display-options-links-specified-container-->
 					<div class="crm-button-edit-channel-lines-display-options-links-description-container">
 						<div class="crm-button-edit-channel-lines-display-options-links-description-info">
@@ -531,10 +531,10 @@ $showItemInterface = function ($item) use($arResult, $showItemWorkTimeInterface)
 					</div><!--crm-button-edit-channel-lines-display-options-links-description-container-->
 				</div><!--crm-button-edit-channel-lines-display-options-links-container-->
 			</div><!--crm-button-edit-channel-lines-display-options-container-->
-			<?endif;?>
+			<?php endif;?>
 		</div><!--crm-button-edit-channel-lines-inner-wrapper-->
 	</div><!--crm-button-edit-channel-lines-container-->
-	<?
+	<?php 
 };
 
 function ShowIntranetButtonItemPage($type, $mode, $page, $target = 'ITEMS')
@@ -554,7 +554,7 @@ function ShowIntranetButtonItemPage($type, $mode, $page, $target = 'ITEMS')
 			<span data-crm-button-pages-btn-del="" class="crm-button-edit-channel-lines-display-options-links-block-button-item crm-button-edit-close-icon"></span>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 
 function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITEMS')
@@ -566,10 +566,10 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 	?>
 	<div data-crm-button-pages="null">
 		<script type="text/template">
-			<?ShowIntranetButtonItemPage($type, $mode, '');?>
+			<?php ShowIntranetButtonItemPage($type, $mode, '');?>
 		</script>
 		<div data-crm-button-pages-list="null">
-		<?
+		<?php 
 		foreach ($list as $page)
 		{
 			ShowIntranetButtonItemPage($type, $mode, $page);
@@ -577,14 +577,14 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 		?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>
 
 <div class="crm-button-edit-container">
 
 
-	<?$this->SetViewTarget('sidebar');?>
+	<?php $this->SetViewTarget('sidebar');?>
 	<form id="crm_button_sub_form">
 	<div class="crm-button-edit-right-container">
 		<div class="crm-button-edit-sidebar-title">
@@ -593,7 +593,7 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 		<div id="BUTTON_COLOR_CONTAINER">
 			<div class="crm-button-edit-sidebar-button-preview-container">
 				<div id="BUTTON_VIEW_CONTAINER" class="crm-button-edit-sidebar-button-preview-inner">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent("bitrix:crm.button.button", ".default", array(
 						'PREVIEW' => true,
 						'LOCATION' => 1,
@@ -626,7 +626,7 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 							</span>
 						</span>
 
-						<?/*$APPLICATION->IncludeComponent(
+						<?php /*$APPLICATION->IncludeComponent(
 							"bitrix:main.colorpicker",
 							"",
 							Array(
@@ -654,13 +654,13 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 				<div class="crm-button-edit-sidebar-button-position-header-line"></div>
 			</div>
 			<div class="crm-button-edit-sidebar-button-position-inner">
-				<?foreach($arResult['BUTTON_LOCATION'] as $location):
+				<?php foreach($arResult['BUTTON_LOCATION'] as $location):
 					?>
-					<label for="LOCATION_<?=htmlspecialcharsbx($location['ID'])?>" data-bx-crm-button-loc="" class="crm-button-edit-sidebar-button-position-block <?if($location['SELECTED']):?>crm-button-edit-sidebar-button-position-block-active-<?=htmlspecialcharsbx($location['ID'])?><?endif;?>" title="<?=htmlspecialcharsbx($location['NAME'])?>">
+					<label for="LOCATION_<?=htmlspecialcharsbx($location['ID'])?>" data-bx-crm-button-loc="" class="crm-button-edit-sidebar-button-position-block <?php if($location['SELECTED']):?>crm-button-edit-sidebar-button-position-block-active-<?=htmlspecialcharsbx($location['ID'])?><?php endif;?>" title="<?=htmlspecialcharsbx($location['NAME'])?>">
 						<span class="crm-button-edit-arrow crm-button-edit-sidebar-button-position-arrow-<?=htmlspecialcharsbx($location['ID'])?>"></span>
 						<input data-bx-crm-button-loc-val="" id="LOCATION_<?=htmlspecialcharsbx($location['ID'])?>" class="crm-button-edit-sidebar-button-position-block-item" type="radio" name="LOCATION" value="<?=htmlspecialcharsbx($location['ID'])?>" <?=($location['SELECTED'] ? 'checked' : '')?>>
 					</label>
-				<?endforeach?>
+				<?php endforeach?>
 			</div>
 		</div><!--crm-button-edit-sidebar-button-position-container-->
 		<div class="crm-button-edit-sidebar-title">
@@ -680,11 +680,11 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 				</span>
 				<div class="crm-button-edit-sidebar-show-delay-container">
 					<select class="crm-button-edit-sidebar-show-delay" name="DELAY">
-						<?foreach($arResult['BUTTON_DELAY'] as $delayItem):?>
+						<?php foreach($arResult['BUTTON_DELAY'] as $delayItem):?>
 							<option value="<?=htmlspecialcharsbx($delayItem['ID'])?>" <?=($delayItem['SELECTED'] ? 'selected' : '')?>>
 								<?=htmlspecialcharsbx($delayItem['NAME'])?>
 							</option>
-						<?endforeach?>
+						<?php endforeach?>
 					</select>
 				</div><!--crm-button-edit-sidebar-show-delay-container-->
 			</div>
@@ -718,7 +718,7 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 			</div>
 		</div>
 
-		<?if (!empty($arResult['LANGUAGES']['LIST'])):?>
+		<?php if (!empty($arResult['LANGUAGES']['LIST'])):?>
 			<div class="crm-button-edit-sidebar-title">
 				<span class="crm-button-edit-sidebar-title-item">
 					<?=Loc::getMessage('CRM_BUTTON_EDIT_LANG_CHOOSE')?>:
@@ -740,11 +740,11 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 					</span>
 				</div>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 
 	</div><!--crm-button-edit-right-container-->
 	</form>
-	<?$this->EndViewTarget();?>
+	<?php $this->EndViewTarget();?>
 
 	<div class="crm-button-edit-left-container">
 		<div class="crm-button-edit-button-name-container">
@@ -754,7 +754,7 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 		</div>
 		<div class="crm-button-edit-border"></div><!--crm-button-edit-border-->
 		<div class="crm-button-edit-channel-container">
-			<?if($arParams['ELEMENT_ID']):?>
+			<?php if($arParams['ELEMENT_ID']):?>
 				<div class="crm-button-edit-channel-field">
 					<div class="crm-button-edit-channel-title">
 						<span class="crm-button-edit-channel-title-item">
@@ -775,26 +775,26 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 						</div><!--crm-button-edit-sidebar-insert-code-container-->
 					</div><!--crm-button-edit-channel-content-->
 				</div><!--crm-button-edit-channel-field-->
-			<?else:?>
+			<?php else:?>
 				<div class="crm-button-edit-channel-description-container">
 					<div class="crm-button-edit-channel-description-item">
 						<?=nl2br(Loc::getMessage('CRM_WEBFORM_EDIT_DESC'))?>
 					</div>
 				</div><!--"crm-button-edit-channel-description-container-->
-			<?endif;?>
+			<?php endif;?>
 
 			<div class="crm-button-edit-channel-field">
 				<div class="crm-button-edit-channel-title">
 					<span class="crm-button-edit-channel-title-item">
 						<span><?=Loc::getMessage('CRM_WEBFORM_EDIT_CHANNELS')?></span>
-						<?if($arParams['ELEMENT_ID']):?>
+						<?php if($arParams['ELEMENT_ID']):?>
 							<span data-hint="<?=htmlspecialcharsbx(Loc::getMessage("CRM_WEBFORM_EDIT_DESC"))?>"></span>
-						<?endif;?>
+						<?php endif;?>
 					</span>
 				</div>
 				<div class="crm-button-edit-channel-content">
 					<div id="WIDGET_CONTAINER">
-						<?
+						<?php 
 						$showItemInterface($arResult['BUTTON_ITEM_OPEN_LINE'], $this);
 						$showItemInterface($arResult['BUTTON_ITEM_CRM_FORM'], $this);
 						$showItemInterface($arResult['BUTTON_ITEM_CALLBACK'], $this);
@@ -807,7 +807,7 @@ function ShowIntranetButtonItemPageInterface($type, $list, $mode, $target = 'ITE
 
 			<!---------- NEW BLOCK: AUTO HELLO ---------->
 
-<?
+<?php 
 
 function ShowIntranetButtonHelloPageInterface($type, $list, $mode, $target = 'ITEMS')
 {
@@ -818,7 +818,7 @@ function ShowIntranetButtonHelloPageInterface($type, $list, $mode, $target = 'IT
 	?>
 	<div data-crm-button-pages="null">
 		<div data-crm-button-pages-list="null">
-			<?
+			<?php 
 			foreach ($list as $page)
 			{
 				ShowIntranetButtonItemPage($type, $mode, $page, $target);
@@ -826,7 +826,7 @@ function ShowIntranetButtonHelloPageInterface($type, $list, $mode, $target = 'IT
 			?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 
 function ShowIntranetButtonHelloBlock($params)
@@ -844,11 +844,11 @@ function ShowIntranetButtonHelloBlock($params)
 	$id = htmlspecialcharsbx($id);
 	?>
 	<div data-b24-crm-hello-block="<?=$id?>" class="crm-button-edit-constructor-block">
-		<?if ($mode == 'INCLUDE'):?>
+		<?php if ($mode == 'INCLUDE'):?>
 		<div class="crm-button-edit-constructor-close">
 			<span data-b24-hello-btn-remove="" class="crm-button-edit-constructor-close-item"></span>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 		<div id="crm-button-edit-popup-event" class="crm-button-edit-constructor-popup">
 			<div data-b24-crm-hello-cont="" class="b24-widget-button-popup" style="border-color: <?=$arResult['COLOR_BACKGROUND']?>;">
 				<div class="b24-widget-button-popup-inner">
@@ -890,45 +890,45 @@ function ShowIntranetButtonHelloBlock($params)
 		<div class="crm-button-edit-hello-select crm-button-edit-select-delay">
 			<select name="HELLO[CONDITIONS][<?=$id?>][DELAY]" type="text" class="crm-button-edit-hello-select-item">
 				<option value=""><?=Loc::getMessage('CRM_WEBFORM_EDIT_HELLO_TIME_DELAY_NO')?></option>
-				<?foreach($arResult['BUTTON_DELAY'] as $delayItem):?>
+				<?php foreach($arResult['BUTTON_DELAY'] as $delayItem):?>
 					<option value="<?=htmlspecialcharsbx($delayItem['ID'])?>" <?=($delayItem['ID'] == $delay ? 'selected' : '')?>>
 						<?=htmlspecialcharsbx($delayItem['NAME'])?>
 					</option>
-				<?endforeach?>
+				<?php endforeach?>
 			</select>
 		</div>
 		<div class="crm-button-edit-hello-select-description">
 			<span class="crm-button-edit-hello-select-description-item">
-				<?if ($mode == 'INCLUDE'):?>
+				<?php if ($mode == 'INCLUDE'):?>
 					<?=Loc::getMessage('CRM_WEBFORM_EDIT_HELLO_PAGES_LIST')?>:
-				<?else:?>
+				<?php else:?>
 					<?=Loc::getMessage('CRM_WEBFORM_EDIT_HELLO_PAGES_EXCLUDE')?>:
-				<?endif;?>
+				<?php endif;?>
 			</span>
 			<span data-hint="<?=htmlspecialcharsbx(nl2br(Loc::getMessage('CRM_WEBFORM_EDIT_HINT_ANY')))?>"></span>
 		</div>
 		<div class="crm-button-edit-hello-input">
-			<?
+			<?php 
 			ShowIntranetButtonHelloPageInterface($id, $pageList, $mode, 'HELLO[CONDITIONS]')
 			?>
 		</div>
-		<?if ($mode != 'INCLUDE'):?>
+		<?php if ($mode != 'INCLUDE'):?>
 			<span class="crm-button-edit-hello-select-description-item">
 				<?=Loc::getMessage('CRM_WEBFORM_EDIT_HELLO_PAGES_EXCLUDE_ADDITIONAL')?>
 			</span>
 			<div data-b24-hello-excluded-pages="" class="crm-button-edit-hello-pages"></div>
-		<?endif;?>
+		<?php endif;?>
 	</div><!--crm-button-edit-constructor-block-->
-	<?
+	<?php 
 }
 ?>
 
 <script id="template-crm-button-page" type="text/html">
-	<?ShowIntranetButtonItemPage('%type%', '%mode%', '', '%target%');?>
+	<?php ShowIntranetButtonItemPage('%type%', '%mode%', '', '%target%');?>
 </script>
 
 <script id="template-crm-button-hello" type="text/html">
-	<?
+	<?php 
 	ShowIntranetButtonHelloBlock(array(
 		'arResult' => $arResult,
 		'pageList' => array(),
@@ -999,7 +999,7 @@ function ShowIntranetButtonHelloBlock($params)
 										</span>
 									</div>
 									<div>
-										<?
+										<?php 
 										$helloCommon = $arResult['HELLO']['CONDITIONS'][0];
 										ShowIntranetButtonHelloBlock(array(
 											'arResult' => $arResult,
@@ -1022,7 +1022,7 @@ function ShowIntranetButtonHelloBlock($params)
 									</div>
 
 									<div id="HELLO_MY_CONTAINER" class="crm-button-edit-block-scrolled">
-										<?for($num = 1, $cnt = count($arResult['HELLO']['CONDITIONS']); $num < $cnt; $num++):
+										<?php for($num = 1, $cnt = count($arResult['HELLO']['CONDITIONS']); $num < $cnt; $num++):
 											$condition = $arResult['HELLO']['CONDITIONS'][$num];
 											ShowIntranetButtonHelloBlock(array(
 												'arResult' => $arResult,
@@ -1055,7 +1055,7 @@ function ShowIntranetButtonHelloBlock($params)
 
 		</div><!--crm-button-edit-channel-container-->
 
-		<?$APPLICATION->IncludeComponent("bitrix:ui.button.panel", "", [
+		<?php $APPLICATION->IncludeComponent("bitrix:ui.button.panel", "", [
 			'BUTTONS' => ['save', 'cancel' => $arResult['PATH_TO_BUTTON_LIST']]
 		]);?>
 	</div><!--crm-button-edit-left-container-->
@@ -1065,7 +1065,7 @@ function ShowIntranetButtonHelloBlock($params)
 
 </form>
 
-<?
+<?php 
 function getCrmButtonEditTemplateAvatar()
 {
 	ob_start();
@@ -1075,7 +1075,7 @@ function getCrmButtonEditTemplateAvatar()
 		<span data-view="" style="background-image: url(%path%)" class="crm-button-edit-photo-upload-item"></span>
 		<span class="crm-button-edit-photo-upload-item-selected"></span>
 	</span>
-	<?
+	<?php 
 	return ob_get_clean();
 }
 
@@ -1090,18 +1090,18 @@ function getCrmButtonEditTemplateLine($replace = array(), $pathAdd = null)
 			</div>
 			<div class="crm-button-edit-channel-lines-inner-create-button-container">
 				<a data-bx-slider-href="" data-line-edit="" href="" class="crm-button-edit-channel-lines-inner-create-button-item"><?=Loc::getMessage('CRM_WEBFORM_EDIT_CHANNEL_EDIT')?></a>
-				<?if ($pathAdd):?>
+				<?php if ($pathAdd):?>
 					<a data-bx-slider-href="" data-line-add="" href="<?=htmlspecialcharsbx($pathAdd)?>" class="crm-button-edit-channel-lines-inner-create-button-item"><?=Loc::getMessage('CRM_WEBFORM_EDIT_CHANNEL_ADD')?></a>
-				<?else:?>
+				<?php else:?>
 					<span data-line-remove="" class="crm-button-edit-channel-lines-inner-create-button-item"><?=Loc::getMessage('CRM_BUTTON_EDIT_OPENLINE_REMOVE')?></span>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 		</div>
 
 		<div class="crm-button-edit-channel-lines-social-name"><?=Loc::getMessage('CRM_BUTTON_EDIT_DETAIL_OPENLINE_CHANNELS')?>:</div>
 		<div data-line-channels="" class="crm-button-edit-channel-lines-social-item-container"></div>
 	</div>
-	<?
+	<?php 
 	$s = ob_get_clean();
 	return str_replace(array_keys($replace), array_values($replace), $s);
 }
@@ -1114,7 +1114,7 @@ function getCrmButtonEditTemplateConnector($replace = array())
 		<span data-crm-tooltip="" class="crm-button-edit-channel-lines-social-item ui-icon ui-icon-service-%icon%"><i></i></span>
 		<input id="items_openline_config_%lineid%_%connector%" name="ITEMS[openline][EXTERNAL_CONFIG][%lineid%][]" value="%connector%" type="checkbox" %checked% class="crm-button-edit-channel-lines-social-checkbox">
 	</label>
-	<?
+	<?php 
 	$s = ob_get_clean();
 	return str_replace(array_keys($replace), array_values($replace), $s);
 }
@@ -1147,7 +1147,7 @@ function getCrmButtonEditTemplateConnector($replace = array())
 				<div class="crm-button-edit-photo-upload-item-added-completed-container">
 					<div class="crm-button-edit-photo-upload-item-added-completed-slider-container">
 						<div data-crm-button-edit-avatars="" class="crm-button-edit-photo-upload-item-added-completed-block">
-							<?foreach($arResult['AVATARS'] as $icon):
+							<?php foreach($arResult['AVATARS'] as $icon):
 								echo str_replace(
 									array(
 										'%file_id%',
@@ -1172,12 +1172,12 @@ function getCrmButtonEditTemplateConnector($replace = array())
 
 		<div class="crm-button-edit-photo-uploaded-container">
 			<div class="crm-button-edit-photo-uploaded-item-container-title"><span><?=Loc::getMessage('CRM_BUTTON_EDIT_AVATAR_PRESET')?></span></div>
-			<?foreach($arResult['HELLO']['ICONS'] as $icon):?>
+			<?php foreach($arResult['HELLO']['ICONS'] as $icon):?>
 				<span data-crm-button-edit-avatar-item="" data-file-id="" data-path="<?=htmlspecialcharsbx($icon['PATH'])?>" class="crm-button-edit-photo-upload-item-container">
 					<span style="background-image: url(<?=htmlspecialcharsbx($icon['PATH'])?>)" class="crm-button-edit-photo-upload-item"></span>
 					<span class="crm-button-edit-photo-upload-item-selected"></span>
 				</span>
-			<?endforeach;?>
+			<?php endforeach;?>
 			<div style="clear: both;"></div>
 		</div>
 	</div>

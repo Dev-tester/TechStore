@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_FILE_CANCEL_BTN"] = "Cancel";
 $MESS["CLO_STORAGE_FILE_COUNT"] = "Quantity";
 $MESS["CLO_STORAGE_FILE_DELETE"] = "Delete";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->IncludeComponentLang("action.php");
 
 $photo_list_action = $_REQUEST["photo_list_action"];
@@ -9,10 +9,10 @@ if (isset($photo_list_action) && $photo_list_action != "")
 	?><script>
 	if (!window.BX && top.BX){BX = top.BX;}
 	window.bxph_action_url_<?= $UCID?> = '<?= CUtil::JSEscape(CHTTP::urlDeleteParams(htmlspecialcharsback(POST_FORM_ACTION_URI), array("view_mode", "sessid", "uploader_redirect", "photo_list_action", "pio", "ELEMENT_ID", "UCID"), true));?>';
-	<?
-	if (!check_bitrix_sessid()){?>window.bxph_error = '<?= GetMessage("IBLOCK_WRONG_SESSION")?>';<?die('</'.'script>');}?>
+	<?php 
+	if (!check_bitrix_sessid()){?>window.bxph_error = '<?= GetMessage("IBLOCK_WRONG_SESSION")?>';<?php die('</'.'script>');}?>
 	</script>
-	<?
+	<?php 
 	if ($photo_list_action == 'load_comments' && $arParams["USE_COMMENTS"] == "Y" && $arParams["PERMISSION"] >= "R")
 	{
 		$this->InitComponentTemplate("", false, "");
@@ -108,7 +108,7 @@ if (isset($photo_list_action) && $photo_list_action != "")
 			<script>
 				window.bxph_error = '<?= GetMessage("SAVE_DESC_ERROR").": ".$bs->LAST_ERROR?>';
 			</script>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -123,7 +123,7 @@ if (isset($photo_list_action) && $photo_list_action != "")
 		$ID = $bs->Update($arParams["ELEMENT_ID"], Array("MODIFIED_BY" => $USER->GetID(), "ACTIVE" => "Y"));
 		if ($ID <= 0)
 		{
-			?><script>window.bxph_error = '<?= $bs->LAST_ERROR?>';</script><?
+			?><script>window.bxph_error = '<?= $bs->LAST_ERROR?>';</script><?php 
 		}
 		else
 		{
@@ -217,7 +217,7 @@ if (isset($photo_list_action) && $photo_list_action != "")
 							h: parseInt('<?= CUtil::JSEscape($file['HEIGHT'])?>')
 						}
 					};
-					</script><?
+					</script><?php 
 
 					PClearComponentCacheEx($arParams["IBLOCK_ID"], array(0, $arParams["SECTION_ID"]));
 				}
@@ -226,7 +226,7 @@ if (isset($photo_list_action) && $photo_list_action != "")
 			{
 				?><script>
 				window.bxph_error = '<?= GetMessage("ROTATE_ERROR").": ".$bs->LAST_ERROR?>';
-				</script><?
+				</script><?php 
 			}
 		}
 	}
@@ -255,7 +255,7 @@ if (isset($photo_list_action) && $photo_list_action != "")
 			<script>
 				window.bxph_error = '<?= GetMessage("DEL_ITEM_ERROR").($ex = $APPLICATION->GetException() ? ': '.$ex->GetString() : '')?>';
 			</script>
-			<?
+			<?php 
 		}
 	}
 	elseif($photo_list_action == 'edit' && $arParams["PERMISSION"] >= "U")
@@ -268,7 +268,7 @@ if (isset($photo_list_action) && $photo_list_action != "")
 			$arParams["USER_ALIAS"] = $_REQUEST["USER_ALIAS"];
 
 		// Don't delete <!--BX_PHOTO_EDIT_RES-->, <!--BX_PHOTO_EDIT_RES_END--> comments - they are used in js to catch html content
-		?><!--BX_PHOTO_EDIT_RES--><?
+		?><!--BX_PHOTO_EDIT_RES--><?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:photogallery.detail.edit",
 			"",
@@ -302,7 +302,7 @@ if (isset($photo_list_action) && $photo_list_action != "")
 			),
 			$component
 		);
-		?><!--BX_PHOTO_EDIT_RES_END--><?
+		?><!--BX_PHOTO_EDIT_RES_END--><?php 
 	}
 	die();
 }

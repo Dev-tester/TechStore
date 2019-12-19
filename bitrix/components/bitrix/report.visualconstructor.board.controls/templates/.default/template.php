@@ -8,11 +8,11 @@ CJSCore::Init(array("popup"));
 	<div id="visualconstrctor_board_configuration_button" class="webform-small-button webform-small-button-transparent webform-cogwheel">
 		<span class="webform-button-icon"></span>
 	</div>
-	<?if(!$arResult['IS_FRAME_MODE']):?>
+	<?php if(!$arResult['IS_FRAME_MODE']):?>
 		<div id="add_report_popup_button" class="ui-btn ui-btn-primary">
 			<?= \Bitrix\Main\Localization\Loc::getMessage('VISUALCONSTUCTOR_ADD_WIDGET_TO_BOARD') ?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 </div>
 
 <div id="add_report_to_board"></div>

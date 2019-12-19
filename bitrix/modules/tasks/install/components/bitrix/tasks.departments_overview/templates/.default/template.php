@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -27,7 +27,7 @@ if (isset($arResult["ERROR"]) && !empty($arResult["ERROR"]))
 		<div class="ui-alert ui-alert-icon-warning ui-alert-danger">
 			<span class="ui-alert-message"><?= htmlspecialcharsbx($error['MESSAGE'])?></span>
 		</div>
-		<?
+		<?php 
 	}
 
 	if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
@@ -83,7 +83,7 @@ if (isset($arResult['FILTER']['FIELDS']) && is_array($arResult['FILTER']['FIELDS
 	if (!empty($selectors))
 	{
 		?>
-		<script type="text/javascript"><?
+		<script type="text/javascript"><?php 
 			foreach ($selectors as $groupSelector)
 			{
 			$selectorID = $groupSelector['ID'];
@@ -101,9 +101,9 @@ if (isset($arResult['FILTER']['FIELDS']) && is_array($arResult['FILTER']['FIELDS
 						}
 					);
 				}
-			);<?
+			);<?php 
 			}
-			?></script><?
+			?></script><?php 
 	}
 }
 ?>
@@ -135,7 +135,7 @@ if (isset($arResult['FILTER']['FIELDS']) && is_array($arResult['FILTER']['FIELDS
 	$this->SetViewTarget('inside_pagetitle');
 ?>
 <div class="pagetitle-container pagetitle-flexible-space">
-	<? $APPLICATION->IncludeComponent(
+	<?php  $APPLICATION->IncludeComponent(
 	"bitrix:main.ui.filter",
 	"",
 	array(
@@ -158,12 +158,12 @@ $this->EndViewTarget();
 //endregion
 ?>
 
-<? $helper->displayFatals(); ?>
-<? if (!$helper->checkHasFatals()): ?>
+<?php  $helper->displayFatals(); ?>
+<?php  if (!$helper->checkHasFatals()): ?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
 
-		<? $helper->displayWarnings(); ?>
+		<?php  $helper->displayWarnings(); ?>
 
 		<div class='js-id-departments-overview-grid'>
 			<?php
@@ -224,6 +224,6 @@ $this->EndViewTarget();
 
 	</div>
 
-	<? $helper->initializeExtension(); ?>
+	<?php  $helper->initializeExtension(); ?>
 
-<? endif ?>
+<?php  endif ?>

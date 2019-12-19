@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FILE_VIEW_FILE_PROPERTIES"] = "Свойства документа";
 $MESS["DISK_FILE_VIEW_FILE_SIZE"] = "Размер";
 $MESS["DISK_FILE_VIEW_FILE_UPDATE_TIME"] = "Изменен";

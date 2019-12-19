@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_ABSENCE"] = "Absence Chart";
 $MESS["MENU_MEETING"] = "Meetings and Briefings";
 $MESS["MENU_SCHEDULES"] = "Work Schedules";

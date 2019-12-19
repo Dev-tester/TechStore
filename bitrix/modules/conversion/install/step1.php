@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Config\Option;
 use Bitrix\Main\Localization\Loc;
@@ -18,7 +18,7 @@ if (! check_bitrix_sessid())
 	<input type="hidden" name="step" value="2">
 
 	<table cellpadding="3" cellspacing="0" border="0">
-		<?
+		<?php 
 
 		if (Option::get('conversion', 'GENERATE_INITIAL_DATA', 'undefined') == 'undefined')
 		{
@@ -33,7 +33,7 @@ if (! check_bitrix_sessid())
 					</p>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 
 		?>

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -22,7 +22,7 @@ $verticalGrid = ('Y' == $arParams['USE_FILTER'] && $arParams["FILTER_VIEW_MODE"]
 
 if ($verticalGrid)
 {
-	?><div class="workarea grid2x1"><?
+	?><div class="workarea grid2x1"><?php 
 }
 if ($arParams['USE_FILTER'] == 'Y')
 {
@@ -77,9 +77,9 @@ if ($arParams['USE_FILTER'] == 'Y')
 	}
 	if ($verticalGrid)
 	{
-		?><div class="bx_sidebar"><?
+		?><div class="bx_sidebar"><?php 
 	}
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.smart.filter",
 	"",
 	array(
@@ -107,17 +107,17 @@ if ($arParams['USE_FILTER'] == 'Y')
 	),
 	$component,
 	array('HIDE_ICONS' => 'Y')
-);?><?
+);?><?php 
 	if ($verticalGrid)
 	{
-		?></div><?
+		?></div><?php 
 	}
 }
 if ($verticalGrid)
 {
-	?><div class="bx_content_section"><?
+	?><div class="bx_content_section"><?php 
 }
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"",
 	array(
@@ -138,10 +138,10 @@ if ($verticalGrid)
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 if($arParams["USE_COMPARE"]=="Y")
 {
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.compare.list",
 	"",
 	array(
@@ -157,7 +157,7 @@ if($arParams["USE_COMPARE"]=="Y")
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 }
 
 if (isset($arParams['USE_COMMON_SETTINGS_BASKET_POPUP']) && $arParams['USE_COMMON_SETTINGS_BASKET_POPUP'] == 'Y')
@@ -169,7 +169,7 @@ else
 	$basketAction = (isset($arParams['SECTION_ADD_TO_BASKET_ACTION']) ? $arParams['SECTION_ADD_TO_BASKET_ACTION'] : '');
 }
 $intSectionID = 0;
-?><?$intSectionID = $APPLICATION->IncludeComponent(
+?><?php $intSectionID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"",
 	array(
@@ -266,14 +266,14 @@ $intSectionID = 0;
 		'COMPARE_PATH' => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['compare']
 	),
 	$component
-);?><?
+);?><?php 
 $GLOBALS['CATALOG_CURRENT_SECTION_ID'] = $intSectionID;
 unset($basketAction);
 if ($verticalGrid)
 {
 	?></div>
 	<div style="clear: both;"></div>
-	</div><?
+	</div><?php 
 }
 if (ModuleManager::isModuleInstalled("sale"))
 {
@@ -297,7 +297,7 @@ if (ModuleManager::isModuleInstalled("sale"))
 	{
 		if (!isset($arParams['USE_SALE_BESTSELLERS']) || $arParams['USE_SALE_BESTSELLERS'] != 'N')
 		{
-			?><?$APPLICATION->IncludeComponent("bitrix:sale.bestsellers", "", array(
+			?><?php $APPLICATION->IncludeComponent("bitrix:sale.bestsellers", "", array(
 				"HIDE_NOT_AVAILABLE" => $arParams["HIDE_NOT_AVAILABLE"],
 				"PAGE_ELEMENT_COUNT" => "5",
 				"SHOW_DISCOUNT_PERCENT" => $arParams['SHOW_DISCOUNT_PERCENT'],
@@ -357,7 +357,7 @@ if (ModuleManager::isModuleInstalled("sale"))
 		}
 		if (!isset($arParams['USE_BIG_DATA']) || $arParams['USE_BIG_DATA'] != 'N')
 		{
-			?><?$APPLICATION->IncludeComponent("bitrix:catalog.bigdata.products", "", array(
+			?><?php $APPLICATION->IncludeComponent("bitrix:catalog.bigdata.products", "", array(
 				"LINE_ELEMENT_COUNT" => 5,
 				"TEMPLATE_THEME" => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 				"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],

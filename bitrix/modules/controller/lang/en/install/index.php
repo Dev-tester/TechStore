@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CTRL_INST_NAME'] = "Site Controller";
 $MESS ['CTRL_INST_DESC'] = "Remote site management";
 $MESS ['CTRL_INST_STEP1'] = "Controller Module Installation: Step 1";

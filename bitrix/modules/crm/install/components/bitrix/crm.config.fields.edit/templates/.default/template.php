@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 
@@ -28,7 +28,7 @@ if ($arResult['CLOSE_SLIDER'] === true)
 			}
 		);
 	</script>
-	<?
+	<?php 
 	return;
 }
 
@@ -265,7 +265,7 @@ $custom_html .= '<input type="hidden" name="action" id="action" value="">';
 if(!$arResult["NEW_FIELD"])
 	$custom_html .= '<input type="hidden" name="USER_TYPE_ID" id="action" value="'.$arResult["FIELD"]['USER_TYPE_ID'].'">';
 
-?><div class="bx-crm-field-edit-wrapper"><?
+?><div class="bx-crm-field-edit-wrapper"><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.form",
 	"",
@@ -331,7 +331,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?if($arResult["FORM_DATA"]["USER_TYPE_ID"] === 'enumeration'):
+<?php if($arResult["FORM_DATA"]["USER_TYPE_ID"] === 'enumeration'):
 ?><script type="text/javascript">
 	BX.ready(
 			function()
@@ -351,7 +351,7 @@ $APPLICATION->IncludeComponent(
 				}
 			}
 	);
-</script><?
+</script><?php 
 endif;
 if(SITE_TEMPLATE_ID === 'bitrix24'):
 ?><script type="text/javascript">
@@ -361,5 +361,5 @@ if(SITE_TEMPLATE_ID === 'bitrix24'):
 				BX.CrmInterfaceFormUtil.disableThemeSelection("<?= CUtil::JSEscape($arResult["FORM_ID"])?>");
 			}
 	);
-</script><?
+</script><?php 
 endif;?>

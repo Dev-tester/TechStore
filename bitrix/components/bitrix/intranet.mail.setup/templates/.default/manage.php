@@ -14,9 +14,9 @@ $hasOptions2 = isModuleInstalled('crm');
 
 ?>
 
-<? if (IsModuleInstalled('bitrix24') || !empty($customDomains) || in_array(LANGUAGE_ID, array('ru', 'ua'))) { ?>
+<?php  if (IsModuleInstalled('bitrix24') || !empty($customDomains) || in_array(LANGUAGE_ID, array('ru', 'ua'))) { ?>
 <?=GetMessage('INTR_MAIL_MANAGE_HINT'); ?><br/><br/>
-<? } ?>
+<?php  } ?>
 
 <table cellpadding="0" cellspacing="0" border="0" class="bx-edit-tab-title" style="width: 100%; ">
 	<tr>
@@ -24,7 +24,7 @@ $hasOptions2 = isModuleInstalled('crm');
 	</tr>
 </table>
 
-<? if ($hasOptions1 || $hasOptions2): ?>
+<?php  if ($hasOptions1 || $hasOptions2): ?>
 
 	<form id="setup_form" name="setup_form" action="<?=POST_FORM_ACTION_URI; ?>" method="POST" style="padding: 20px 15px; ">
 
@@ -32,37 +32,37 @@ $hasOptions2 = isModuleInstalled('crm');
 		<input type="hidden" name="act" value="settings">
 		<?=bitrix_sessid_post() ?>
 
-		<? if (!empty($customDomains)): ?>
+		<?php  if (!empty($customDomains)): ?>
 			<a href="?page=domain" style="border-bottom: 1px solid"><?=getMessage('INTR_MAIL_MANAGE_DOMAIN_EDIT2') ?> <b><?=join('</b>, <b>', $customDomains); ?></b></a>
 			<br><br>
-		<? elseif (in_array(LANGUAGE_ID, array('ru', 'ua'))): ?>
+		<?php  elseif (in_array(LANGUAGE_ID, array('ru', 'ua'))): ?>
 			<a href="?page=domain" style="border-bottom: 1px solid"><?=getMessage('INTR_MAIL_MANAGE_DOMAIN_ADD') ?></a>
 			<br><br>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if (!empty($arParams['SERVICES'])): ?>
+		<?php  if (!empty($arParams['SERVICES'])): ?>
 			<a href="#" style="border-bottom: 1px dashed" onclick="mb.create(); return false; "><?=getMessage('INTR_MAIL_MANAGE_ADD_MAILBOX') ?></a>
 			<br><br>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($hasOptions1 && $hasOptions2): ?>
+		<?php  if ($hasOptions1 && $hasOptions2): ?>
 			<div style="border-top: 1px solid #ddd; margin: 5px 0 15px 0; "></div>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if (isModuleInstalled('crm')): ?>
+		<?php  if (isModuleInstalled('crm')): ?>
 
-			<? if (empty($arParams['BLACKLIST'])): ?>
+			<?php  if (empty($arParams['BLACKLIST'])): ?>
 				<a href="#" style="border-bottom: 1px dashed" onclick="BX.toggle(BX('setup_blacklist')); return false; "><?=getMessage('INTR_MAIL_MANAGE_SETUP_BLACKLIST') ?></a>
-			<? else: ?>
+			<?php  else: ?>
 				<?=getMessage('INTR_MAIL_MANAGE_SETUP_BLACKLIST') ?>:
-				<? if (count($arParams['BLACKLIST']) > 2): ?>
+				<?php  if (count($arParams['BLACKLIST']) > 2): ?>
 					<b><?=join(', ', array_slice($arParams['BLACKLIST'], 0, 2)) ?></b>
 					<a href="#" style="border-bottom: 1px dashed; " onclick="BX.toggle(BX('setup_blacklist')); return false; "><?=getMessage('INTR_MAIL_MANAGE_SETUP_BLACKLIST_MORE') ?> <?=(count($arParams['BLACKLIST'])-2) ?></a>
-				<? else: ?>
+				<?php  else: ?>
 					<b><?=join(', ', $arParams['BLACKLIST']) ?>.</b>
 					<a href="#" style="border-bottom: 1px dashed; " onclick="BX.toggle(BX('setup_blacklist')); return false; "><?=getMessage('INTR_MAIL_MANAGE_SETUP_BLACKLIST_ADD') ?></a>
-				<? endif ?>
-			<? endif ?><br>
+				<?php  endif ?>
+			<?php  endif ?><br>
 
 			<span id="setup_blacklist" style="display: none; margin-top: 5px; ">
 				<textarea name="blacklist" rows="2" style="min-width: 700px; padding: 5px; font: inherit; "
@@ -71,7 +71,7 @@ $hasOptions2 = isModuleInstalled('crm');
 
 			<label>
 				<input name="allow_crm" type="checkbox" value="Y" style="margin: 0 3px 0 0; vertical-align: middle; "
-					<? if ($arParams['ALLOW_CRM']): ?>checked<? endif ?>>
+					<?php  if ($arParams['ALLOW_CRM']): ?>checked<?php  endif ?>>
 				<?=getMessage('INTR_MAIL_MANAGE_SETUP_ALLOW_CRM') ?>
 			</label><br><br>
 
@@ -80,11 +80,11 @@ $hasOptions2 = isModuleInstalled('crm');
 			</a>
 			<span class="manage-settings-notice" id="save_result"></span>
 
-		<? endif ?>
+		<?php  endif ?>
 
 	</form>
 
-<? endif ?>
+<?php  endif ?>
 
 <table cellpadding="0" cellspacing="0" border="0" class="bx-edit-tab-title" style="width: 100%; ">
 	<tr>
@@ -98,17 +98,17 @@ $hasOptions2 = isModuleInstalled('crm');
 	<span class="filter-field">
 		<input
 			id="mail_search_input" name="FILTER" type="text"
-			value="<? if (empty($arResult['FILTER'])) { echo GetMessage('INTR_MAIL_MANAGE_SEARCH_PROMPT'); } else { echo htmlspecialcharsbx($arResult['FILTER']); } ?>"
-			class="filter-textbox" style="height: 21px; width: 260px; padding: 2px 5px; <? if (empty($arResult['FILTER'])) { ?>color: #a9a9a9; <? } ?>">
+			value="<?php  if (empty($arResult['FILTER'])) { echo GetMessage('INTR_MAIL_MANAGE_SEARCH_PROMPT'); } else { echo htmlspecialcharsbx($arResult['FILTER']); } ?>"
+			class="filter-textbox" style="height: 21px; width: 260px; padding: 2px 5px; <?php  if (empty($arResult['FILTER'])) { ?>color: #a9a9a9; <?php  } ?>">
 		&nbsp;
 		<a id="search_btn" href="#" class="webform-small-button">
 			<?=getMessage('INTR_MAIL_MANAGE_SEARCH_BTN') ?>
 		</a>
-		<? if (!empty($arResult['FILTER'])) { ?>
+		<?php  if (!empty($arResult['FILTER'])) { ?>
 		<a id="clear_btn" href="#" class="webform-small-button">
 			<?=getMessage('INTR_MAIL_MANAGE_SEARCH_CANCEL') ?>
 		</a>
-		<? } ?>
+		<?php  } ?>
 	</span>
 
 	<input type="submit" style="visibility: hidden; ">
@@ -215,7 +215,7 @@ $hasOptions2 = isModuleInstalled('crm');
 
 </script>
 
-<?
+<?php 
 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.interface.grid',
@@ -246,18 +246,18 @@ $APPLICATION->IncludeComponent(
 	var services = {};
 	var domainUsers = {};
 
-	<? foreach ($arParams['SERVICES'] as $service)
+	<?php  foreach ($arParams['SERVICES'] as $service)
 	{
 		if ($service['type'] == 'controller')
 		{
-			?>services['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject(array_values($service['domains'])); ?>;<?
-			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?
+			?>services['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject(array_values($service['domains'])); ?>;<?php 
+			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?php 
 		}
 		if (in_array($service['type'], array('domain', 'crdomain')))
 		{
-			?>domains['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?
-			?>services['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?
-			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?
+			?>domains['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?php 
+			?>services['<?=$service['id']; ?>'] = ['<?=$service['server']; ?>'];<?php 
+			?>domainUsers['<?=$service['id']; ?>'] = <?=CUtil::phpToJSObject($service['users']); ?>;<?php 
 		}
 	} ?>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORGOT_SID'] = "Please fill in the \"ID\" field";
 $MESS ['FORM_WRONG_SID'] = "This \"ID\" is already in use in #TYPE# # #ID#";
 $MESS ['FORM_NO_ANSWERS'] = "Question should have at least one answer";

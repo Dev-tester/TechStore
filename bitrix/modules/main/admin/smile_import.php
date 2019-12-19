@@ -1,4 +1,4 @@
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 IncludeModuleLangFile(__FILE__);
 
@@ -125,7 +125,7 @@ else if (isset($message) && $message)
 	<input type="hidden" name="lang" value="<?=LANG?>" />
 	<input type="hidden" name="ID" value="<?=$ID?>" />
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 	$aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SMILE_TAB_SMILE"), "ICON" => "smile", "TITLE" => GetMessage("SMILE_TAB_SMILE_DESCR"))
 	);
@@ -146,20 +146,20 @@ $tabControl->BeginNextTab();
 		<td width="40%"><?=GetMessage("SMILE_SET_ID")?>:</td>
 		<td width="60%">
 			<select name="SET_ID" <?=($arSmileSetDisabled? 'disabled="true"':'')?>>
-			<?foreach ($arSmileSet as $key => $value):?>
+			<?php foreach ($arSmileSet as $key => $value):?>
 				<option value="<?=$key?>" <?=($arSmile["SET_ID"] == $key ? "selected" : "")?>><?=$value;?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
-	<tr<?if ($ID <= 0){ ?> class="adm-detail-required-field"<? }?>>
+	<tr<?php if ($ID <= 0){ ?> class="adm-detail-required-field"<?php  }?>>
 		<td>
 			<?=GetMessage("SMILE_FILE")?>:<br><small><?=GetMessage("SMILE_FILE_NOTE")?></small></td>
 		<td>
 			<input type="file" name="IMPORT" size="30" />
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(array(
@@ -167,7 +167,7 @@ $tabControl->Buttons(array(
 ));
 ?>
 </form>
-<?
+<?php 
 $tabControl->End();
 $tabControl->ShowWarnings("smile_import", $message);
 
@@ -178,4 +178,4 @@ $tabControl->ShowWarnings("smile_import", $message);
 <div style="padding-top:5px"><?=GetMessage('IM_IMPORT_HELP_3')?></div>
 <div style="padding-top:15px"><?=GetMessage('IM_IMPORT_HELP_4')?></div>
 <?=EndNote();?>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

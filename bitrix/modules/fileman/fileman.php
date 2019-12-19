@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -943,7 +943,7 @@ class CFileMan
 			<script type="text/javascript">
 				window.location = '<?= CUtil::JSEscape(CHTTP::URN2URI(GetDirPath($Params['path'])))?>';
 			</script>
-		<?
+		<?php 
 		}
 
 		$GLOBALS["CACHE_MANAGER"]->CleanDir("menu");
@@ -1052,15 +1052,15 @@ class CFileMan
 		$ch = "checked=\"checked\"";
 		?>
 		<div class="bx-ed-type-selector">
-			<?if ($showTextType):?>
-				<span class="bx-ed-type-selector-item"><input <? if ($textType == 'text') {echo $ch;}?>  type="radio" name="<?= $strTextTypeFieldName?>" id="<?= $bxid?>_text" value="text" /><label for="<?= $bxid?>_text"><?= GetMessage('FILEMAN_FILEMAN_TYPE_TEXT')?></label></span>
+			<?php if ($showTextType):?>
+				<span class="bx-ed-type-selector-item"><input <?php  if ($textType == 'text') {echo $ch;}?>  type="radio" name="<?= $strTextTypeFieldName?>" id="<?= $bxid?>_text" value="text" /><label for="<?= $bxid?>_text"><?= GetMessage('FILEMAN_FILEMAN_TYPE_TEXT')?></label></span>
 
-				<span class="bx-ed-type-selector-item"><input <? if ($textType == 'html') {echo $ch;}?>  type="radio" name="<?= $strTextTypeFieldName?>" id="<?= $bxid?>_html" value="html" /><label for="<?= $bxid?>_html">HTML</label></span>
+				<span class="bx-ed-type-selector-item"><input <?php  if ($textType == 'html') {echo $ch;}?>  type="radio" name="<?= $strTextTypeFieldName?>" id="<?= $bxid?>_html" value="html" /><label for="<?= $bxid?>_html">HTML</label></span>
 
-				<span class="bx-ed-type-selector-item"><input <? if ($textType == 'editor') {echo $ch;}?>  type="radio" name="<?= $strTextTypeFieldName?>" id="<?= $bxid?>_editor" value="html" /><label for="<?= $bxid?>_editor"><?= GetMessage('FILEMAN_FILEMAN_TYPE_HTML_EDITOR')?></label></span>
-			<? else:?>
-				<span class="bx-ed-type-selector-item"><input type="checkbox" id="<?= $bxid?>_editor" name="<?= $strTextTypeFieldName?>" value="Y" <? if ($textType == 'editor') {echo $ch;}?> /><label for="<?= $bxid?>_editor"><?= GetMessage("FILEMAN_FILEMAN_USE_HTML_EDITOR");?></span>
-			<? endif;?>
+				<span class="bx-ed-type-selector-item"><input <?php  if ($textType == 'editor') {echo $ch;}?>  type="radio" name="<?= $strTextTypeFieldName?>" id="<?= $bxid?>_editor" value="html" /><label for="<?= $bxid?>_editor"><?= GetMessage('FILEMAN_FILEMAN_TYPE_HTML_EDITOR')?></label></span>
+			<?php  else:?>
+				<span class="bx-ed-type-selector-item"><input type="checkbox" id="<?= $bxid?>_editor" name="<?= $strTextTypeFieldName?>" value="Y" <?php  if ($textType == 'editor') {echo $ch;}?> /><label for="<?= $bxid?>_editor"><?= GetMessage("FILEMAN_FILEMAN_USE_HTML_EDITOR");?></span>
+			<?php  endif;?>
 		</div>
 		<script>
 			function onChangeInputType(editorName)
@@ -1097,7 +1097,7 @@ class CFileMan
 			});
 		</script>
 
-		<?if ($useEditor3):?>
+		<?php if ($useEditor3):?>
 		<script>
 			BX.ready(function()
 			{
@@ -1115,20 +1115,20 @@ class CFileMan
 					}
 
 					// Save choice
-					<?if ($params['bSave']):?>
+					<?php if ($params['bSave']):?>
 					if (bSave !== false)
 					{
 						BX.userOptions.save('html_editor', 'type_selector_<?= $name.$key?>', 'type', curType);
 					}
-					<?endif;?>
+					<?php endif;?>
 
-					<?if (isset($params['externalFuncName']) && $params['externalFuncName']):?>
+					<?php if (isset($params['externalFuncName']) && $params['externalFuncName']):?>
 					var func = window['<?= $params['externalFuncName']?>'];
 					if (func && typeof func == 'function')
 					{
 						func(curType);
 					}
-					<?else:?>
+					<?php else:?>
 					// Editor
 					var
 						editorName = '<?= $name?>',
@@ -1205,11 +1205,11 @@ class CFileMan
 						window.BXHtmlEditor.Show(false, editorName);
 						textarea.style.display = "none";
 					}
-					<?endif;?>
+					<?php endif;?>
 				}
 			});
 		</script>
-	<?else: /* if ($useEditor3) */ ?>
+	<?php else: /* if ($useEditor3) */ ?>
 		<script>
 			BX.ready(
 				function()
@@ -1226,14 +1226,14 @@ class CFileMan
 							curType = 'html';
 						}
 
-						<?if (isset($params['externalFuncName']) && $params['externalFuncName']):?>
+						<?php if (isset($params['externalFuncName']) && $params['externalFuncName']):?>
 						var func = window['<?= $params['externalFuncName']?>'];
 						if (func && typeof func == 'function')
 						{
 							func(curType);
 						}
 
-						<?else:?>
+						<?php else:?>
 						// Editor
 						var el = BX("bxed_<?= $name?>");
 						if(pOptEditor.checked && el.style.display != "none")
@@ -1257,15 +1257,15 @@ class CFileMan
 							el.pMainObj.SaveContent(true);
 							el.style.display = "";
 						}
-						<?endif;?>
+						<?php endif;?>
 
 						// Save choice
-						<?if ($params['bSave']):?>
+						<?php if ($params['bSave']):?>
 						if (bSave !== false)
 						{
 							BX.ajax.get('/bitrix/admin/fileman_manage_settings.php?<?= bitrix_sessid_get()?>&target=text_type&edname=<?= $name?>&key=<?= $key?>&type=' + curType);
 						}
-						<?endif;?>
+						<?php endif;?>
 					};
 
 
@@ -1293,7 +1293,7 @@ class CFileMan
 				}
 			);
 		</script>
-	<?endif;/* if ($useEditor3) */
+	<?php endif;/* if ($useEditor3) */
 		return $textType;
 	}
 
@@ -1331,7 +1331,7 @@ class CFileMan
 		if ($arAdditionalParams['hideTypeSelector'])
 		{
 			$textType = $strTextTypeValue == 'html' ? 'editor' : 'text';
-			?><input type="hidden" name="<?= $strTextTypeFieldName?>" value="<?= $strTextTypeValue?>"/><?
+			?><input type="hidden" name="<?= $strTextTypeFieldName?>" value="<?= $strTextTypeValue?>"/><?php 
 		}
 		else
 		{
@@ -1347,8 +1347,8 @@ class CFileMan
 		$curHTMLEd = $textType == 'editor';
 		setEditorEventHandlers($strTextFieldName);
 		?>
-		<textarea class="typearea" style="<? echo(($curHTMLEd || $dontShowTA) ? 'display:none;' : '');?>width:100%;height:<?=$iHeight?>px;" name="<?=$strTextFieldName?>" id="bxed_<?=$strTextFieldName?>" wrap="virtual" <?=$textarea_field?>><?= htmlspecialcharsbx($strTextValue)?></textarea>
-		<?
+		<textarea class="typearea" style="<?php  echo(($curHTMLEd || $dontShowTA) ? 'display:none;' : '');?>width:100%;height:<?=$iHeight?>px;" name="<?=$strTextFieldName?>" id="bxed_<?=$strTextFieldName?>" wrap="virtual" <?=$textarea_field?>><?= htmlspecialcharsbx($strTextValue)?></textarea>
+		<?php 
 
 		if ($bWithoutPHP)
 			$arTaskbars = Array("BXPropertiesTaskbar", "BXSnippetsTaskbar");
@@ -1514,8 +1514,8 @@ class CFileMan
 		?>
 		<script bxrunfirst="true">
 			var relPath = "<?= CUtil::JSEscape($relPath);?>";
-			var <? echo 'ar_'.$name.'_taskbars';?> = {};
-			<?
+			var <?php  echo 'ar_'.$name.'_taskbars';?> = {};
+			<?php 
 			for ($k = 0, $l = count($arTaskbars); $k < $l; $k++)
 				echo 'ar_'.$name.'_taskbars["'.$arTaskbars[$k].'"] = true;';
 			if ($arToolbars !== false)
@@ -1530,7 +1530,7 @@ class CFileMan
 
 			window.ar_<?= $name?>_config = <?= CUtil::PhpToJSObject($arParams)?>; // editor-config
 		</script>
-		<?
+		<?php 
 		$str_taskbars = "";
 		CFileman::GetHTMLEditorSettings($name, $arParams["light_mode"], $arTaskbars, $str_taskbars);
 		$str_taskbars .= '_'.CFileman::GetVersion();
@@ -1561,7 +1561,7 @@ class CFileMan
 				window.BXSite = top.BXSite = BXSite;
 				window.BX_PERSONAL_ROOT = top.BX_PERSONAL_ROOT = BX_PERSONAL_ROOT;
 			</script>
-			<?
+			<?php 
 
 			$arJS = Array();
 			$arCSS = Array();
@@ -1588,21 +1588,21 @@ class CFileMan
 			?>
 			<script type="text/javascript" src="/bitrix/admin/fileman_js.php?lang=<?=LANGUAGE_ID?>&v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/fileman/lang/'.LANGUAGE_ID.'/admin/fileman_js.php')?>"></script>
 			<script type="text/javascript" src="/bitrix/admin/fileman_common_js.php?s=<?=$str_taskbars?>"></script>
-			<?
+			<?php 
 			for($i = 0, $l = count($arr); $i < $l; $i++)
 			{
 				$script_filename = $arr[$i];
-				?><script type="text/javascript" src="/bitrix/admin/htmleditor2/<?=$script_filename?>?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/admin/htmleditor2/'.$script_filename)?>"></script><?
+				?><script type="text/javascript" src="/bitrix/admin/htmleditor2/<?=$script_filename?>?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/admin/htmleditor2/'.$script_filename)?>"></script><?php 
 			}
 			?>
 			<script type="text/javascript" src="/bitrix/js/main/popup_menu.js?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/main/popup_menu.js')?>"></script>
-			<?
+			<?php 
 			for($i = 0, $l = count($arCSS); $i < $l; $i++) // Additional CSS files from event OnBeforeHtmlEditorScriptGet
 			{
 				$arCSS[$i] = preg_replace("/[^a-zA-Z0-9_:\.]/is", "", $arCSS[$i]);
 				if(!file_exists($_SERVER['DOCUMENT_ROOT'].'/bitrix/admin/htmleditor2/'.$arCSS[$i]))
 					continue;
-				?><link rel="stylesheet" type="text/css" href="/bitrix/admin/htmleditor2/<?=$arCSS[$i]?>?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/admin/htmleditor2/'.$arCSS[$i])?>"/><?
+				?><link rel="stylesheet" type="text/css" href="/bitrix/admin/htmleditor2/<?=$arCSS[$i]?>?v=<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/admin/htmleditor2/'.$arCSS[$i])?>"/><?php 
 			}
 
 			$db_events = GetModuleEvents("fileman", "OnIncludeHTMLEditorScript");
@@ -1651,7 +1651,7 @@ class CFileMan
 			if (bEd && !bEd.checked)
 				BX("<?= $name?>_object").style.display = "none";
 		</script>
-		<?
+		<?php 
 		if(!$arParams["bFromTextarea"])
 			echo '<input type="hidden" name="'.$name.'" id="bxed_'.$name.'" value="'.htmlspecialcharsbx($content).'">';
 
@@ -1665,7 +1665,7 @@ class CFileMan
 					BX("bxed_<?= $name;?>").pMainObj  = new BXHTMLEditor("<?= $name;?>");
 				});
 			</script>
-		<?
+		<?php 
 		}
 	}
 
@@ -1927,7 +1927,7 @@ class CFileMan
 				SETTINGS = {};
 
 			SETTINGS['<?= $edname?>'] = {};
-			<?
+			<?php 
 					$loadParams = '';
 					if (!$lightMode)
 					{
@@ -1937,7 +1937,7 @@ class CFileMan
 
 						if ($toolbar_settings)
 						{
-							?>SETTINGS['<?= $edname?>'].arToolbarSettings = [];<?
+							?>SETTINGS['<?= $edname?>'].arToolbarSettings = [];<?php 
 				$res = explode("||", $toolbar_settings);
 				for ($i = 0, $len = count($res); $i < $len; $i++)
 				{
@@ -1949,19 +1949,19 @@ class CFileMan
 					$arPos = explode(";", substr($tmp2[2], 1, -1));
 ?>
 			var _ar = [];
-			_ar.show = <?echo($show == 'true' ? 'true' : 'false');?>;
-			_ar.docked = <?echo($docked=='true' ? 'true' : 'false');?>;
-			<?if ($docked=='true'):?>
-			_ar.position = [<?echo$arPos[0];?>,<?echo$arPos[1];?>,<?echo$arPos[2];?>];
-			<?else:?>
+			_ar.show = <?php echo($show == 'true' ? 'true' : 'false');?>;
+			_ar.docked = <?php echo($docked=='true' ? 'true' : 'false');?>;
+			<?php if ($docked=='true'):?>
+			_ar.position = [<?php echo$arPos[0];?>,<?php echo$arPos[1];?>,<?php echo$arPos[2];?>];
+			<?php else:?>
 			_ar.position = {
-				x : '<?echo(substr($arPos[0],-2)=="px" ? substr($arPos[0],0,-2) : $arPos[0]);?>',
-				y : '<?echo(substr($arPos[1],-2)=="px" ? substr($arPos[1],0,-2) : $arPos[1]);?>'
+				x : '<?php echo(substr($arPos[0],-2)=="px" ? substr($arPos[0],0,-2) : $arPos[0]);?>',
+				y : '<?php echo(substr($arPos[1],-2)=="px" ? substr($arPos[1],0,-2) : $arPos[1]);?>'
 			};
-			<?endif;?>
+			<?php endif;?>
 
 			SETTINGS['<?= $edname?>'].arToolbarSettings["<?=$tlbrname?>"] = _ar;
-			<?
+			<?php 
 							}
 						}
 						$loadParams = 'em'; // extended mode
@@ -1976,11 +1976,11 @@ class CFileMan
 
 					if (is_array($taskbars))
 					{
-						?>SETTINGS['<?= $edname?>'].arTaskbarSettings = {};<?
+						?>SETTINGS['<?= $edname?>'].arTaskbarSettings = {};<?php 
 			foreach($taskbars as $tname => $tskbr)
 			{
 				// Display settings
-				?>SETTINGS['<?= $edname?>'].arTaskbarSettings["<?=$tname;?>"] = {show: <?= $tskbr['show'] ? 'true' : 'false'?>, set: <?= $tskbr['set'] == 2 ? 2 : 3?>, active: <?= $tskbr['active'] ? 'true' : 'false'?>};<?
+				?>SETTINGS['<?= $edname?>'].arTaskbarSettings["<?=$tname;?>"] = {show: <?= $tskbr['show'] ? 'true' : 'false'?>, set: <?= $tskbr['set'] == 2 ? 2 : 3?>, active: <?= $tskbr['active'] ? 'true' : 'false'?>};<?php 
 				if ($tskbr['show'] && in_array($tname, $arTaskbars))
 				{
 					switch ($tname)
@@ -2013,13 +2013,13 @@ class CFileMan
 
 		if (is_array($taskbarset))
 		{
-			?>SETTINGS['<?= $edname?>'].arTBSetsSettings = [];<?
+			?>SETTINGS['<?= $edname?>'].arTBSetsSettings = [];<?php 
 			foreach($taskbarset as $iNum => $tskbrset)
 			{
 				if ($iNum != 2)
 					$iNum = 3;
 				?>SETTINGS['<?= $edname?>'].arTBSetsSettings["<?= intVal($iNum)?>"] = {show: <?= $tskbrset['show'] ? 'true' : 'false'?>, size: <?= intVal($tskbrset['size'])?>};
-			<?
+			<?php 
 		}
 	}
 
@@ -2028,12 +2028,12 @@ class CFileMan
 	$arC2DS = CUtil::GetPopupSize("bx_edc2_".$edname, array("width" => 650, "height" => 450));
 	?>
 
-			SETTINGS['<?= $edname?>'].showTooltips4Components = <?echo $show_tooltips == "N" ? "false" : "true";?>;
-			SETTINGS['<?= $edname?>'].visualEffects = <?echo $visualEffects == "N" ? "false" : "true";?>;
+			SETTINGS['<?= $edname?>'].showTooltips4Components = <?php echo $show_tooltips == "N" ? "false" : "true";?>;
+			SETTINGS['<?= $edname?>'].visualEffects = <?php echo $visualEffects == "N" ? "false" : "true";?>;
 
 			window.comp2_dialog_size = {width: '<?= $arC2DS['width']?>', height: '<?= $arC2DS['height']?>'};
 		</script>
-		<?
+		<?php 
 		//return $str_res;
 	}
 
@@ -2259,7 +2259,7 @@ function setEditorEventHandlers($name)
 		function OnDispatcherEvent_pDocument_<?= $name;?>(e){pBXEventDispatcher.OnEvent(GLOBAL_pMainObj['<?= $name;?>'].pDocument, e);}
 		function OnDispatcherEvent_pEditorDocument_<?= $name;?>(e){pBXEventDispatcher.OnEvent(GLOBAL_pMainObj['<?= $name;?>'].pEditorDocument, e);}
 	</script>
-<?
+<?php 
 }
 
 function _replace_br_($str)

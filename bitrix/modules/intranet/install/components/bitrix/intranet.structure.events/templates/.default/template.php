@@ -1,25 +1,25 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $GLOBALS['INTRANET_TOOLBAR']->Show();
 ?>
-<?
+<?php 
 if ($arParams['SHOW_FILTER'] == 'Y'):
 ?>
 <table class="bx-users-toolbar"><tr><td class="bx-users-toolbar-last">
 <form name="bx_events_filter" action="" method="get">
-<?echo GetMessage('INTR_ISE_TPL_FILTER_DEPARTMENT')?>:
-<?
+<?php echo GetMessage('INTR_ISE_TPL_FILTER_DEPARTMENT')?>:
+<?php 
 	CIntranetUtils::ShowDepartmentFilter($arResult['UF_DEPARTMENT_field'], true);
 ?>
-	<input type="submit" value="<?echo GetMessage('INTR_ISE_TPL_FILTER_SUBMIT')?>" />
+	<input type="submit" value="<?php echo GetMessage('INTR_ISE_TPL_FILTER_SUBMIT')?>" />
 </form>
 <script>window.onload = function() {document.forms.bx_events_filter.department.onchange = function() {this.form.submit()}}</script>
 </td></tr></table>
-<?
+<?php 
 endif;
 ?>
-<?
+<?php 
 if (!is_array($arResult['ENTRIES']) || !($USERS_CNT = count($arResult['ENTRIES']))):
 	ShowError(GetMessage('INTR_ISE_TPL_NOTE_NULL'));
 else:
@@ -28,14 +28,14 @@ else:
 
 if ($arParams['SHOW_NAV_TOP'] == 'Y'):
 ?>
-<div class="bx-users-nav"><?echo $arResult['ENTRIES_NAV'];?></div>
-<?else:?>
+<div class="bx-users-nav"><?php echo $arResult['ENTRIES_NAV'];?></div>
+<?php else:?>
 <a name="nav_start"></a>
-<?
+<?php 
 endif;
 ?>
 <div class="bx-events-layout">
-<?
+<?php 
 foreach ($arResult['ENTRIES'] as $arEntry)
 {
 	$arUser = $arResult['USERS'][$arEntry['PROPERTY_USER_VALUE']];
@@ -78,11 +78,11 @@ foreach ($arResult['ENTRIES'] as $arEntry)
 }
 ?>
 </div>
-<?
+<?php 
 if ($arParams['SHOW_NAV_BOTTOM'] == 'Y'):
 ?>
-<div class="bx-users-nav"><?echo $arResult['ENTRIES_NAV'];?></div>
-<?
+<div class="bx-users-nav"><?php echo $arResult['ENTRIES_NAV'];?></div>
+<?php 
 endif;
 
 endif;

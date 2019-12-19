@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_IBLOCK_TYPE'] = "Type of information block";
 $MESS ['WD_IBLOCK_ID'] = "Information block";
 $MESS ['WD_USE_AUTH'] = "Use Authorization for Anonymous Users in WebDAV";

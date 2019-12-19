@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TTDP_CHECKLIST_IN_PROGRESS"] = "In progress";
 $MESS["TASKS_TTDP_CHECKLIST_ADD"] = "add";
 $MESS["TASKS_TTDP_CHECKLIST_COMPLETE"] = "Completed";

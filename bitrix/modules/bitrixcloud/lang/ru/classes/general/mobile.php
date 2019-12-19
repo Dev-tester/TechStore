@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_MON_MOB_MENU_TITLE"] = "Облако 1С-Битрикс";
 $MESS["BCL_MON_MOB_MENU_IPAGE"] = "Информация инспектора";
 $MESS["BCL_MON_MOB_TEST_LICENSE"] = "Срок истечения лицензии 1С-Битрикс";

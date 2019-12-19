@@ -42,7 +42,7 @@ else
 		?><meta http-equiv="Content-type" content="text/html;charset=<?=LANG_CHARSET?>" />
 		<table border="1">
 		<thead>
-			<tr><?
+			<tr><?php 
 
 		// Display headers
 		foreach($arResult['SELECTED_HEADERS'] as $headerID)
@@ -52,16 +52,16 @@ else
 
 			// Special logic for ENTITIES_LINKS headers: expand in 3 columns
 			if($headerID === 'ENTITIES_LINKS'):
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_DEAL'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_COMPANY'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_CONTACT'))?></th><?
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_DEAL'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_COMPANY'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_CONTACT'))?></th><?php 
 			else:
-				?><th><?=$arHead['name']?></th><?
+				?><th><?=$arHead['name']?></th><?php 
 			endif;
 		}
 			?></tr>
 		</thead>
-		<tbody><?
+		<tbody><?php 
 	}
 
 	$arPersonTypes = CCrmPaySystem::getPersonTypesList();
@@ -85,7 +85,7 @@ else
 		$personTypeId = $arInvoice['PERSON_TYPE_ID'];
 		foreach($productRows as $productRow)
 		{
-			?><tr><?
+			?><tr><?php 
 			foreach($arResult['SELECTED_HEADERS'] as $headerID)
 			{
 				$arHead = isset($arHeaders[$headerID]) ? $arHeaders[$headerID] : null;
@@ -98,9 +98,9 @@ else
 				if($headerID === 'ENTITIES_LINKS')
 				{
 					// Special logic for ENTITIES_LINKS: expand in 3 columns
-					?><td><?= htmlspecialcharsbx($arInvoice['DEAL_TITLE']) ?></td><?
-					?><td><?= htmlspecialcharsbx($arInvoice['COMPANY_TITLE']) ?></td><?
-					?><td><?= $arInvoice['CONTACT_FORMATTED_NAME'] ?></td><?
+					?><td><?= htmlspecialcharsbx($arInvoice['DEAL_TITLE']) ?></td><?php 
+					?><td><?= htmlspecialcharsbx($arInvoice['COMPANY_TITLE']) ?></td><?php 
+					?><td><?= $arInvoice['CONTACT_FORMATTED_NAME'] ?></td><?php 
 
 					continue;
 				}
@@ -153,15 +153,15 @@ else
 				}
 				if(isset($invoiceData[$headerID]))
 				{
-					?><td><?=$invoiceData[$headerID]?></td><?
+					?><td><?=$invoiceData[$headerID]?></td><?php 
 				}
 			}
-			?></tr><?
+			?></tr><?php 
 		}
 	}
 	if (!$isStExport || $isStExportLastPage)
 	{
 		?></tbody>
-		</table><?
+		</table><?php 
 	}
 }

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONTACT_STEXPORT_OPTION_EXPORT_ALL_FIELDS"] = "Export all contact fields";
 $MESS["DOCUMENT_BUTTON_TEXT"] = "Documents";
 $MESS["DOCUMENT_BUTTON_TITLE"] = "Create document based on contact";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_iblock_name"] = "Инфоблоки";
 $MESS["sender_connector_iblock_required_settings"] = "Требуется обязательная настройка";
 $MESS["sender_connector_iblock_select"] = "(выберите инфоблок)";

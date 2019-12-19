@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_RESUME'] = "Резюме";
 $MESS ['LEARNING_PUBLIC_PROFILE'] = "Разрешить публичный доступ к резюме студента";
 $MESS ['LEARNING_EDIT_PROFILE'] = "Настройки профиля";

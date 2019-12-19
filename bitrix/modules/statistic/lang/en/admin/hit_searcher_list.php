@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Search engine hits for the last #STATISTIC_DAYS# days";
 $MESS ['STAT_ADD_TO_STOPLIST_TITLE'] = "add IP to stop list";
 $MESS ['STAT_F_SEARCH_SYSTEM'] = "Search engine:";

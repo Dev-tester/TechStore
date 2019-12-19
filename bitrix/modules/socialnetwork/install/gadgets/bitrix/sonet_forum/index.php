@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["SHOW"] = ($arGadgetParams["SHOW"]?$arGadgetParams["SHOW"]:false);
@@ -35,7 +35,7 @@ elseif	(intval($arGadgetParams["USER_ID"]) > 0)
 if($arGadgetParams["SHOW"] == "Y"):
 	?><table width="100%" cellspacing="2" cellpadding="2">
 	<tr>
-		<td><?$GLOBALS["APPLICATION"]->IncludeComponent(
+		<td><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 				"bitrix:socialnetwork.forum.topic.last",
 				"",
 				$arP,
@@ -43,7 +43,7 @@ if($arGadgetParams["SHOW"] == "Y"):
 				Array("HIDE_ICONS"=>"Y")
 		);?></td>
 	</tr>
-	</table><?
+	</table><?php 
 else:
 	echo GetMessage('GD_SONET_FORUM_NOT_ALLOWED');
 endif;

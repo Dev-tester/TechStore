@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LFP_SCHEME_LIST_SORT"] = "Сортировка";
 $MESS["LFP_SCHEME_LIST_LID"] = "Сайт";
 $MESS["LFP_SCHEME_LIST_ID"] = "ID";

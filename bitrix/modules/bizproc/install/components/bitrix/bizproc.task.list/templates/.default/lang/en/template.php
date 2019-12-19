@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPATL_MODIFIED"] = "Modified";
 $MESS["BPATL_NAME"] = "Name";
 $MESS["BPATL_DESCRIPTION"] = "Description";

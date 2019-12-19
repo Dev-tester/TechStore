@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EXTRANET_SAVE'] = "Save";
 $MESS ['EXTRANET_RESET'] = "Reset";
 $MESS ['EXTRANET_USER_GROUP'] = "Extranet User Group:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_TAX_INCLUDED_TITLE"] = "included #TAX_NAME#";
 $MESS["CRM_COLUMN_LEAD_FIND"] = "Search";
 $MESS["CRM_COLUMN_LEAD_TITLE_NAME_LAST_NAME"] = "First name,Last name,Title,Company name";

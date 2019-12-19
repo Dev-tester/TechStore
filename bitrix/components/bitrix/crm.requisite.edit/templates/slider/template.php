@@ -134,7 +134,7 @@ $tactileSettings = array('DRAG_PRIORITY' => 50, 'ENABLE_SECTION_DRAG' => 'N');
 $formId = $arResult['FORM_ID'];
 $wrapperId = "wrapper_".strtolower($formId);
 
-?><div id="<?=htmlspecialcharsbx($wrapperId)?>"><?
+?><div id="<?=htmlspecialcharsbx($wrapperId)?>"><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.interface.form',
 	'edit',
@@ -162,7 +162,7 @@ $APPLICATION->IncludeComponent(
 		'PREFIX' => $arResult['PREFIX'],
 	)
 );
-?></div><?
+?></div><?php 
 ?><script type="text/javascript">
 	BX.ready(function()
 	{

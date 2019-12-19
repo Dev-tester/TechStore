@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_MESSAGES_PER_PAGE"] = "Messages per page";
 $MESS["F_FORUM_ID"] = "Discussion forum ID";
 $MESS["F_USE_CAPTCHA"] = "Use CAPTCHA";

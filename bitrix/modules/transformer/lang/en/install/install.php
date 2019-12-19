@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANSFORMER_MODULE_NAME"] = "File Converter";
 $MESS["TRANSFORMER_MODULE_DESCRIPTION"] = "The module sends files to a conversion engine";
 $MESS["TRANSFORMER_INSTALL_TITLE"] = "\"File Converter\" Module Installation";

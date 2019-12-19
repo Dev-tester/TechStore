@@ -7,7 +7,7 @@ use \Bitrix\Main\Localization\Loc;
 		<?=Loc::getMessage('IMCONNECTOR_COMPONENT_TELEGRAMBOT_INSTRUCTION_TITLE')?>
 	</div>
 	<div class="imconnector-field-button-box">
-		<?/*<div onclick="top.BX.Helper.show('<?=Loc::getMessage('IMCONNECTOR_COMPONENT_TELEGRAMBOT_INFO_CREATE_CONNECT_ID')?>');"
+		<?php /*<div onclick="top.BX.Helper.show('<?=Loc::getMessage('IMCONNECTOR_COMPONENT_TELEGRAMBOT_INFO_CREATE_CONNECT_ID')?>');"
 		   class="imconnector-field-button imconnector-field-button-create">
 			<div class="imconnector-field-button-icon"></div>
 			<div class="imconnector-field-button-text">

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CAT_HELPER_ADMIN_CATALOGEDIT_ERR_IBLOCK_ID_ABSENT"] = "Information block ID is missing";
 $MESS["BX_CAT_HELPER_ADMIN_CATALOGEDIT_ERR_IBLOCK_IS_NOT_EXISTS"] = "Information block specified does not exist.";
 $MESS["BX_CAT_HELPER_ADMIN_CATALOGEDIT_ERR_IBLOCK_SITELIST_IS_EMPTY"] = "Information block does not have any sites assigned to it.";

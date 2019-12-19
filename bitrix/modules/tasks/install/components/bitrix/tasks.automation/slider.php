@@ -19,10 +19,10 @@ $APPLICATION->RestartBuffer();
 	<!DOCTYPE html>
 	<html>
 <head>
-	<?$APPLICATION->ShowHead(); ?>
+	<?php $APPLICATION->ShowHead(); ?>
 </head>
 <body style="padding: 25px">
-<?
+<?php 
 $APPLICATION->includeComponent(
 	'bitrix:tasks.automation', '',
 	array(
@@ -33,5 +33,5 @@ $APPLICATION->includeComponent(
 );
 ?>
 </body>
-	</html><?
+	</html><?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');

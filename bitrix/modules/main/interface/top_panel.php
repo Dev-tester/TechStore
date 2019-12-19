@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 IncludeModuleLangFile(__FILE__);
 
@@ -32,23 +32,23 @@ function _showTopPanelButtonsSection($arPanelButtons, $hkInstance, $section = nu
 
 		if ($item['LINK']):
 
-?><a id="<?=htmlspecialcharsEx($id)?>" href="<?=htmlspecialcharsEx($item['LINK'])?>" class="<?=$item['ICON']?>"<?=isset($item["TITLE"])?' title="'.htmlspecialcharsEx($item["TITLE"]).'"':''?><?=isset($item["TARGET"])?' target="'.htmlspecialcharsEx($item["TARGET"]).'"':''?> hidefocus="true" onfocus="this.blur();"><?=htmlspecialcharsbx($item["TEXT"])?></a><?
+?><a id="<?=htmlspecialcharsEx($id)?>" href="<?=htmlspecialcharsEx($item['LINK'])?>" class="<?=$item['ICON']?>"<?=isset($item["TITLE"])?' title="'.htmlspecialcharsEx($item["TITLE"]).'"':''?><?=isset($item["TARGET"])?' target="'.htmlspecialcharsEx($item["TARGET"]).'"':''?> hidefocus="true" onfocus="this.blur();"><?=htmlspecialcharsbx($item["TEXT"])?></a><?php 
 
 		else:
 
-?><span id="<?=htmlspecialcharsEx($id)?>" class="<?=$item['ICON']?>"<?=isset($item["TITLE"])?'title="'.htmlspecialcharsEx($item["TITLE"]).'"':''?>><?=htmlspecialcharsbx($item["TEXT"])?></span><?
+?><span id="<?=htmlspecialcharsEx($id)?>" class="<?=$item['ICON']?>"<?=isset($item["TITLE"])?'title="'.htmlspecialcharsEx($item["TITLE"]).'"':''?>><?=htmlspecialcharsbx($item["TEXT"])?></span><?php 
 
 		endif;
 
 		if ($bHasMenu || $item['TOOLTIP'] && $item['TOOLTIP_ID']):
-?><script type="text/javascript"><?
+?><script type="text/javascript"><?php 
 
 			if ($item['TOOLTIP']):
 				if ($item['TOOLTIP_ID']):
 
 ?>
 BX.ready(function() {BX.hint(BX('<?=CUtil::JSEscape($id)?>'), '<?=CUtil::JSEscape($item["TITLE"])?>', '<?=CUtil::JSEscape($item['TOOLTIP'])?>', '<?=CUtil::JSEscape($item['TOOLTIP_ID'])?>')});
-<?
+<?php 
 
 				endif;
 			endif;
@@ -56,11 +56,11 @@ BX.ready(function() {BX.hint(BX('<?=CUtil::JSEscape($id)?>'), '<?=CUtil::JSEscap
 
 ?>
 BX.adminPanel.registerButton('<?=CUtil::JSEscape($id)?>', {MENU: <?=CUtil::PhpToJsObject($item['MENU'])?>});
-<?
+<?php 
 
 			endif;
 
-?></script><?
+?></script><?php 
 
 		endif;
 	endforeach;
@@ -209,12 +209,12 @@ $informerItemsCount = CAdminInformer::InsertMainItems();
 
 if ($USER->IsAuthorized() && $informerItemsCount>0):
 
-?><span class="adm-header-notif-block" id="adm-header-notif-block" onclick="BX.adminInformer.Toggle(this);" title="<?=GetMessage("admin_panel_notif_block_title")?>"><span class="adm-header-notif-icon"></span><span class="adm-header-notif-counter" id="adm-header-notif-counter"><?=CAdminInformer::$alertCounter?></span></span><?
+?><span class="adm-header-notif-block" id="adm-header-notif-block" onclick="BX.adminInformer.Toggle(this);" title="<?=GetMessage("admin_panel_notif_block_title")?>"><span class="adm-header-notif-icon"></span><span class="adm-header-notif-counter" id="adm-header-notif-counter"><?=CAdminInformer::$alertCounter?></span></span><?php 
 endif;
 
 _showTopPanelButtonsSection($arPanelButtons, $hkInstance)
 
-?></div><div class="adm-header-right"><?
+?></div><div class="adm-header-right"><?php 
 if($USER->IsAuthorized() && IsModuleInstalled("search")):
 
 ?><div class="adm-header-search-block" id="bx-search-box"><input class="adm-header-search" id="bx-search-input" onfocus="if (this.value=='<?=GetMessage("top_panel_search_def")?>') {this.value=''; BX.addClass(this.parentNode,'adm-header-search-block-active');}" value="<?=GetMessage("top_panel_search_def")?>" onblur="if (this.value==''){this.value='<?=GetMessage("top_panel_search_def")?>'; BX.removeClass(this.parentNode,'adm-header-search-block-active');}" type="text" autocomplete="off" /><a href="#" onclick="BX('bx-search-input').value=''; BX('bx-search-input').onblur();" class="adm-header-search-block-btn"></a></div><script type="text/javascript">
@@ -224,13 +224,13 @@ var jsControl = new JCAdminTitleSearch({
 	'INPUT_ID': 'bx-search-input',
 	'MIN_QUERY_LEN': 1
 });
-</script><?
+</script><?php 
 
 	$Execs = $hkInstance->GetCodeByClassName("bx-search-input", GetMessage("top_panel_search_def"));
 	echo $hkInstance->PrintJSExecs($Execs);
 
 endif;
-?><div class="adm-header-right-block"><?
+?><div class="adm-header-right-block"><?php 
 
 if ($USER->IsAuthorized()):
 
@@ -249,11 +249,11 @@ if ($USER->IsAuthorized()):
 
 	if ($USER->CanDoOperation('view_own_profile') || $USER->CanDoOperation('edit_own_profile')):
 
-?><a hidefocus="true" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$USER->GetID()?>" class="adm-header-user-block<?=$bShowSSO ? ' adm-header-separate' : ''?>" onfocus="this.blur()"><?=$userName;?></a><?
+?><a hidefocus="true" href="/bitrix/admin/user_edit.php?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$USER->GetID()?>" class="adm-header-user-block<?=$bShowSSO ? ' adm-header-separate' : ''?>" onfocus="this.blur()"><?=$userName;?></a><?php 
 
 	else:
 
-?><span class="adm-header-user-block<?=$bShowSSO ? ' adm-header-separate' : ''?>" id="bx-panel-user"><?=$userName?></span><?
+?><span class="adm-header-user-block<?=$bShowSSO ? ' adm-header-separate' : ''?>" id="bx-panel-user"><?=$userName?></span><?php 
 
 	endif;
 
@@ -261,10 +261,10 @@ if ($USER->IsAuthorized()):
 	{
 ?>
 <script>BX.adminPanel.registerButton('bx-panel-sso', {MENU: <?=CUtil::PhpToJsObject($ssoSwitcher)?>});</script>
-<?
+<?php 
 	}
 
-?><a hidefocus="true" href="<?=htmlspecialcharsbx((defined('BX_ADMIN_SECTION_404') && BX_ADMIN_SECTION_404 == 'Y' ? '/bitrix/admin/' : $APPLICATION->GetCurPage())).'?logout=yes'.htmlspecialcharsbx(($s=DeleteParam(array("logout"))) == ""? "":"&".$s)?>" class="adm-header-exit" id="bx-panel-logout" title="<?=GetMessage('admin_panel_logout_title')?>"><?=GetMessage("admin_panel_logout")?></a><?
+?><a hidefocus="true" href="<?=htmlspecialcharsbx((defined('BX_ADMIN_SECTION_404') && BX_ADMIN_SECTION_404 == 'Y' ? '/bitrix/admin/' : $APPLICATION->GetCurPage())).'?logout=yes'.htmlspecialcharsbx(($s=DeleteParam(array("logout"))) == ""? "":"&".$s)?>" class="adm-header-exit" id="bx-panel-logout" title="<?=GetMessage('admin_panel_logout_title')?>"><?=GetMessage("admin_panel_logout")?></a><?php 
 
 	$Execs = $hkInstance->GetCodeByClassName("bx-panel-logout",GetMessage('admin_panel_logout'));
 	echo $hkInstance->PrintJSExecs($Execs);
@@ -277,13 +277,13 @@ _showTopPanelButtonsSection($arPanelButtons, $hkInstance, 1);
 if ($USER->IsAuthorized()):
 	if($hkInstance->IsActive()):
 
-?><a hidefocus="true" id="bx-panel-hotkeys" href="javascript:void(0)" onclick="BXHotKeys.ShowSettings();" class="header-keyboard" title="<?=GetMessage('admin_panel_hotkeys_title')?>"></a><?
+?><a hidefocus="true" id="bx-panel-hotkeys" href="javascript:void(0)" onclick="BXHotKeys.ShowSettings();" class="header-keyboard" title="<?=GetMessage('admin_panel_hotkeys_title')?>"></a><?php 
 
 	endif;
 
 	$aUserOpt = CUserOptions::GetOption("admin_panel", "settings");
 
-?><a hidefocus="true" href="javascript:void(0)" id="bx-panel-pin" class="adm-header-pin" onclick="BX.adminPanel.Fix(this)" title="<?=GetMessage('top_panel_pin_'.($aUserOpt['fix'] == 'on' ? 'off' : 'on'))?>"></a><?
+?><a hidefocus="true" href="javascript:void(0)" id="bx-panel-pin" class="adm-header-pin" onclick="BX.adminPanel.Fix(this)" title="<?=GetMessage('top_panel_pin_'.($aUserOpt['fix'] == 'on' ? 'off' : 'on'))?>"></a><?php 
 
 	if(LANGUAGE_ID == "ru")
 	{
@@ -304,7 +304,7 @@ if ($USER->IsAuthorized()):
 			)
 		);
 		?>
-		<span class="adm-header-help-btn" id="bx_top_panel_button_helper" <?if (!isset($helperHeroOption["show"])):?>onclick="BX.userOptions.save('main', 'helper_hero_admin',  'show', 'Y');"<?endif?>>
+		<span class="adm-header-help-btn" id="bx_top_panel_button_helper" <?php if (!isset($helperHeroOption["show"])):?>onclick="BX.userOptions.save('main', 'helper_hero_admin',  'show', 'Y');"<?php endif?>>
 		   <span class="adm-header-help-btn-icon"></span>
 		   <span class="adm-header-help-btn-text"><?=GetMessage("top_panel_help")?></span>
 		</span>
@@ -317,7 +317,7 @@ if ($USER->IsAuthorized()):
 				isAdmin: 'Y'
 			});
 		</script>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -327,21 +327,21 @@ if ($USER->IsAuthorized()):
 		   <span class="adm-header-help-btn-icon"></span>
 		   <span class="adm-header-help-btn-text"><?=GetMessage("top_panel_help")?></span>
 		</span>
-		<?
+		<?php 
 	}
 ?>
 
-<?
+<?php 
 	$Execs = $hkInstance->GetCodeByClassName("bx-panel-pin",GetMessage('top_panel_pin'));
 	echo $hkInstance->PrintJSExecs($Execs);
 
 endif;
-?></div></div><div class="adm-header-bottom"></div><?
+?></div></div><div class="adm-header-bottom"></div><?php 
 
 if ($USER->IsAdmin())
 	echo CAdminNotify::GetHtml();
 
-?></div><?
+?></div><?php 
 
 echo $GLOBALS["adminPage"]->ShowSound();
 ?>

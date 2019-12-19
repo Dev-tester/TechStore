@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_SET_NAVCHAIN'] = "Set Breadcrumbs";
 $MESS ['SONET_PATH_TO_USER'] = "User Profile Path Template";
 $MESS ['SONET_PATH_TO_GROUP'] = "Group Page Path Template";

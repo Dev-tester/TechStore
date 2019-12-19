@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAT_GOTO_DOC"] = "Go to Element";
 $MESS["BPATL_SUCCESS"] = "Assignment is completed.";
 $MESS["BPAT_COMMENT"] = "Comments";

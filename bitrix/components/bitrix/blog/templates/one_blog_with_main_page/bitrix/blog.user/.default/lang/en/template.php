@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['B_B_USER_ALIAS'] = "Nickname:";
 $MESS ['B_B_USER_ALIAS_COM'] = "It will be displayed if specified.";
 $MESS ['B_B_USER_ABOUT'] = "Personal:";

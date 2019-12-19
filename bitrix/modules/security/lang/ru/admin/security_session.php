@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_SESSION_ADMIN_SAVEDB_TAB'] = "Хранение в базе данных";
 $MESS ['SEC_SESSION_ADMIN_SAVEDB_TAB_TITLE'] = "Включение механизма хранения данных сессий пользователей в базе данных";
 $MESS ['SEC_SESSION_ADMIN_TITLE'] = "Защита сессий";

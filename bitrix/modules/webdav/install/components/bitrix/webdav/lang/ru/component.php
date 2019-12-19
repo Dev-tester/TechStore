@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_MODULE_IS_NOT_INSTALLED"] = "Модуль библиотеки документов не установлен.";
 $MESS["IB_MODULE_IS_NOT_INSTALLED"] = "Модуль информационных блоков не установлен.";
 $MESS["WD_IBLOCK_ID_EMPTY"] = "Не указан инфоблок.";

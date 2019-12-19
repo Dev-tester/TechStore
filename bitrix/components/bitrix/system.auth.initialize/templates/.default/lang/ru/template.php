@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CT_MAIN_REG_INIT_CONFIRM'] = "Подтвердить";
 $MESS ['CT_MAIN_REG_INIT_LOGIN_TITLE'] = "Логин";
 $MESS ['CT_MAIN_REG_INIT_CHECKWORD_TITLE'] = "Контрольное слово";

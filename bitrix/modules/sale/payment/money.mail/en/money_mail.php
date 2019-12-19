@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["MM_TITLE"]='Dengi@mail.ru';
 $MESS["MM_KEY"]='Access code';

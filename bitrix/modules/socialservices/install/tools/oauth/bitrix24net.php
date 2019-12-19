@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 This is callback page for Bitrix24.Net OAuth 2.0 authentication.
 Bitrix24.Net redirects only to specific back url set in the OAuth application.

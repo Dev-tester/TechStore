@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMP_WEBDAV_RECENT_MOBILE_TITLE"] = "Files (mobile)";
 $MESS["COMP_WEBDAV_RECENT_MOBILE_DESCR"] = "Files";
 ?>

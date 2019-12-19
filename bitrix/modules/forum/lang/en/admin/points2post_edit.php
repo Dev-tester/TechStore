@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_PPE_EDDOR_UPDATE"] = "Error while updating record";
 $MESS["FORUM_PPE_ERROR_ADD"] = "Error while adding record";
 $MESS["FORUM_PPE_TITLE_UPD"] = "Modify record ##ID#";

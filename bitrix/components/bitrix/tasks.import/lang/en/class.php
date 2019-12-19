@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_IMPORT_HEADERS_TITLE"] = "Name";
 $MESS["TASKS_IMPORT_HEADERS_DESCRIPTION"] = "Description";
 $MESS["TASKS_IMPORT_HEADERS_PRIORITY"] = "Important task";

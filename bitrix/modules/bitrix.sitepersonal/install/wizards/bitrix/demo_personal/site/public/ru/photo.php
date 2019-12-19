@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Фото");
-?><?$APPLICATION->IncludeComponent("bitrix:photogallery", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:photogallery", ".default", array(
 	"USE_LIGHT_VIEW" => "Y",
 	"IBLOCK_TYPE" => "photos",
 	"IBLOCK_ID" => "#PHOTO_IBLOCK_ID#",
@@ -87,4 +87,4 @@ $APPLICATION->SetTitle("Фото");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

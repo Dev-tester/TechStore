@@ -16,7 +16,7 @@ $this->setViewTarget('pagetitle_icon');
 
 <span class="mail-msg-title-icon mail-msg-title-icon-<?=($message['__is_outcome'] ? 'outcome' : 'income') ?>"></span>
 
-<?
+<?php 
 
 $this->endViewTarget();
 
@@ -79,20 +79,20 @@ if (SITE_TEMPLATE_ID == 'bitrix24' || $_REQUEST['IFRAME'] == 'Y' && $_REQUEST['I
 
 <div class="pagetitle-container mail-pagetitle-flexible-space"></div>
 <div class="mail-msg-header-group">
-	<? if (!empty($message['BIND_LINKS']) && !empty(@call_user_func_array('array_merge', (array) $message['BIND_LINKS']))): ?>
+	<?php  if (!empty($message['BIND_LINKS']) && !empty(@call_user_func_array('array_merge', (array) $message['BIND_LINKS']))): ?>
 		<div class="mail-msg-header-control-item mail-msg-header-control-select" id="mail-msg-additional-switch">
 			<div class="mail-msg-header-control-text"><?=Loc::getMessage('MAIL_MESSAGE_EXT_BLOCK_LINK') ?></div>
 			<div class="mail-msg-header-control-triangle"></div>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 
-	<div class="ui-btn-double ui-btn-primary" style="<? if ($_REQUEST['IFRAME'] != 'Y'): ?> margin-right: 20px;<? endif ?>">
+	<div class="ui-btn-double ui-btn-primary" style="<?php  if ($_REQUEST['IFRAME'] != 'Y'): ?> margin-right: 20px;<?php  endif ?>">
 		<a class="ui-btn-main" id="mail-msg-view-create-btn"><?=$createMenu['__default']['title'] ?></a>
 		<a class="ui-btn-extra" id="mail-msg-view-create-menu-btn"></a>
 	</div>
 </div>
 
-<?
+<?php 
 
 if (SITE_TEMPLATE_ID == 'bitrix24' || $_REQUEST['IFRAME'] == 'Y' && $_REQUEST['IFRAME_TYPE'] == 'SIDE_SLIDER')
 {
@@ -109,9 +109,9 @@ BX.ready(function ()
 		messageId: <?=intval($message['ID']) ?>,
 		ajaxUrl: '/bitrix/services/main/ajax.php?c=<?=rawurlencode($this->__component->getName()) ?>&mode=class',
 		pageSize: <?=intval($arParams['PAGE_SIZE']) ?>,
-		<? if (isset($_REQUEST['mail_uf_message_token']) && is_string($_REQUEST['mail_uf_message_token'])): ?>
+		<?php  if (isset($_REQUEST['mail_uf_message_token']) && is_string($_REQUEST['mail_uf_message_token'])): ?>
 			mail_uf_message_token: '<?=\CUtil::jsEscape($_REQUEST['mail_uf_message_token']) ?>',
-		<? endif ?>
+		<?php  endif ?>
 		pathNew: '<?=\CUtil::jsEscape(\CHTTP::urlAddParams(
 			$arParams['~PATH_TO_MAIL_MSG_NEW'],
 			array(
@@ -165,7 +165,7 @@ BX.ready(function ()
 
 </script>
 
-<?
+<?php 
 
 $renderBindLink = function ($item)
 {
@@ -185,8 +185,8 @@ $renderBindLink = function ($item)
 		</div>
 		<div class="mail-additional-options">
 			<div class="mail-additional-options-inner">
-				<? foreach ((array) $message['BIND_LINKS'] as $typeTitle => $linksList): ?>
-					<? if (!empty($linksList)): ?>
+				<?php  foreach ((array) $message['BIND_LINKS'] as $typeTitle => $linksList): ?>
+					<?php  if (!empty($linksList)): ?>
 						<div class="mail-additional-item">
 							<div class="mail-additional-item-name-block">
 								<span class="mail-additional-item-name"><?=htmlspecialcharsbx($typeTitle) ?></span>
@@ -195,8 +195,8 @@ $renderBindLink = function ($item)
 								<?=join(', ', array_map($renderBindLink, (array) $linksList)) ?>
 							</div>
 						</div>
-					<? endif ?>
-				<? endforeach ?>
+					<?php  endif ?>
+				<?php  endforeach ?>
 			</div>
 		</div>
 	</div>
@@ -205,11 +205,11 @@ $renderBindLink = function ($item)
 <div class="mail-msg-view-wrapper" data-uid-key="<?= htmlspecialcharsbx($arResult['MESSAGE_UID_KEY']); ?>">
 
 	<div class="mail-msg-view-log-separator"
-		style="margin-bottom: 1px; <? if (count($arResult['LOG']['A']) < $arParams['PAGE_SIZE']): ?> display: none; <? endif ?>">
+		style="margin-bottom: 1px; <?php  if (count($arResult['LOG']['A']) < $arParams['PAGE_SIZE']): ?> display: none; <?php  endif ?>">
 		<a class="mail-msg-view-log-more mail-msg-view-log-more-a" href="#"><?=Loc::getMessage('MAIL_MESSAGE_LOG_MORE') ?></a>
 	</div>
 
-	<?
+	<?php 
 
 	$list = $arResult['LOG']['A'];
 	include __DIR__ . '/__log.php';
@@ -219,10 +219,10 @@ $renderBindLink = function ($item)
 	<div style="display: none; "></div>
 	<div class="mail-msg-view-details" data-id="<?=intval($message['ID']) ?>"
 		id="mail-msg-view-details-<?=intval($message['ID']) ?>">
-		<? include __DIR__ . '/__body.php'; ?>
+		<?php  include __DIR__ . '/__body.php'; ?>
 	</div>
 
-	<?
+	<?php 
 
 	$list = $arResult['LOG']['B'];
 	include __DIR__ . '/__log.php';
@@ -230,7 +230,7 @@ $renderBindLink = function ($item)
 	?>
 
 	<div class="mail-msg-view-log-separator"
-		style="margin-top: 1px; <? if (count($arResult['LOG']['B']) < $arParams['PAGE_SIZE']): ?> display: none; <? endif ?>">
+		style="margin-top: 1px; <?php  if (count($arResult['LOG']['B']) < $arParams['PAGE_SIZE']): ?> display: none; <?php  endif ?>">
 		<a class="mail-msg-view-log-more mail-msg-view-log-more-b" href="#"><?=Loc::getMessage('MAIL_MESSAGE_LOG_MORE') ?></a>
 	</div>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOL_BUTTON_TEST_TEXT"] = "Test a New#BR#Solution";
 $MESS["SOL_BUTTON_TEST_TITLE"] = "Create a New Site and Launch the New Solution Wizard";
 $MESS["SOL_BUTTON_DEL_TEXT"] = "Delete Button";

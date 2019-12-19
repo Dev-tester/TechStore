@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_SESSION_SAVEDB_TAB"] = "Sessions in Database";
 $MESS["CLU_SESSION_SAVEDB_TAB_TITLE"] = "Configure storing of session data in database";
 $MESS["CLU_SESSION_DB_ON"] = "Session data is stored in the Security module database.";

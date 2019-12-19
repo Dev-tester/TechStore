@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FILEMAN_FILEUPLOAD_NAME'] = "File name";
 $MESS ['FILEMAN_FILEUPLOAD_FILE'] = "Upload file";
 $MESS ['FILEMAN_FILEUPLOAD_UPLOAD'] = "Upload files";

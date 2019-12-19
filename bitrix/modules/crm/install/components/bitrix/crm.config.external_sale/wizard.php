@@ -1,4 +1,4 @@
-<?
+<?php 
 define('NO_KEEP_STATISTIC', 'Y');
 define('NO_AGENT_STATISTIC', 'Y');
 
@@ -20,7 +20,7 @@ CUtil::InitJSCore(array('window', 'popup', 'tooltip'));
 		}
 	</style>
 
-<?
+<?php 
 //require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 //require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_admin.php");
 //require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_js.php");
@@ -310,7 +310,7 @@ if ($processActions && !empty($errorMessage))
 ?>
 
 <script>
-	top.BX.WindowManager.Get().SetTitle('<?
+	top.BX.WindowManager.Get().SetTitle('<?php 
 	$stepTitle = GetMessageJS("BPWC_WNCW_TITLE_".$currentStep);
 	if (empty($stepTitle))
 		$stepTitle = GetMessageJS("BPWC_WNCW_TITLE", array("#STEP#" => $currentStep));
@@ -331,7 +331,7 @@ if ($processActions && !empty($errorMessage))
 	}
 
 	var btns = [];
-	<?
+	<?php 
 	if ($currentStep > 1)
 	{
 		?>
@@ -341,7 +341,7 @@ if ($processActions && !empty($errorMessage))
 			'name': 'btn-prev',
 			'action': function(){ bxExtSaleWizard.Send("prev"); }
 		});
-		<?
+		<?php 
 	}
 	if ($currentStep < 6)
 	{
@@ -358,7 +358,7 @@ if ($processActions && !empty($errorMessage))
 			'name': 'btn-cancel',
 			'action': function(){ this.parentWindow.Close(); __CrmConfigExtSaleReload(); }
 		});
-		<?
+		<?php 
 	}
 	else
 	{
@@ -369,26 +369,26 @@ if ($processActions && !empty($errorMessage))
 			'name': 'btn-next',
 			'action': function(){ this.parentWindow.Close(); __CrmConfigExtSaleReload(); }
 		});
-		<?
+		<?php 
 	}
 	?>
 	top.BX.WindowManager.Get().ClearButtons();
 	top.BX.WindowManager.Get().SetButtons(btns);
 </script>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
-<?if (!empty($errorMessage)):?>
+<?php if (!empty($errorMessage)):?>
 <tr><td colspan="2">
-	<?CAdminMessage::ShowMessage(array('HTML' => true, 'DETAILS' => $errorMessage));?>
+	<?php CAdminMessage::ShowMessage(array('HTML' => true, 'DETAILS' => $errorMessage));?>
 </td></tr>
-	<?endif;?>
+	<?php endif;?>
 <tr><td>
 <form method="post">
-	<?
+	<?php 
 	if ($currentStep == 1)
 	{
 		?>
 		<?= GetMessage("CRM_CES_STEP_1"); ?>
-		<?
+		<?php 
 	}
 	elseif ($currentStep == 2)
 	{
@@ -438,7 +438,7 @@ if ($processActions && !empty($errorMessage))
 				<td class="bx-popup-label"><?= GetMessage("BPWC_WNCW_SHPREF") ?>:</td>
 				<td valign="top"><input type="text" name="IMPORT_PREFIX" value="<?= $arFields["IMPORT_PREFIX"] ?>" size="45"></td>
 			</tr>
-			<?
+			<?php 
 			if ($id > 0)
 			{
 				?>
@@ -446,7 +446,7 @@ if ($processActions && !empty($errorMessage))
 					<td class="bx-popup-label"><?= GetMessage("BPWC_WNCW_SHDATE_CREATE") ?>:</td>
 					<td valign="top"><?= $arRecord["DATE_CREATE"] ?></td>
 				</tr>
-				<?
+				<?php 
 				$lastStatusValue = "";
 				if (intval($arRecord["MODIFICATION_LABEL"]) == 0)
 					$lastStatusValue .= GetMessage("BPWC_WLC_NEED_FIRST_SYNC1");
@@ -459,11 +459,11 @@ if ($processActions && !empty($errorMessage))
 					<td class="bx-popup-label"><?= GetMessage("BPWC_WNCW_SHSTATUS") ?>:</td>
 					<td valign="top"><?= $lastStatusValue ?></td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 		</table>
-		<?
+		<?php 
 	}
 	elseif ($currentStep == 3)
 	{
@@ -523,7 +523,7 @@ if ($processActions && !empty($errorMessage))
 			</script>
 			<tr>
 				<td class="bx-popup-label"><?= GetMessage("BPWC_WNCW_SHRESPONS") ?>:</td>
-				<td valign="top"><a onclick="javascript:__BXOnImportResponsibleShow(this)" class="crm-field-action-link" id="id_IMPORT_RESPONSIBLE_TXT"><?= $arUser ? $arUser["NAME"]." ".$arUser["LAST_NAME"]." (".$arUser["LOGIN"].")" : GetMessage("BPWC_WNCW_SELECT") ?></a><?
+				<td valign="top"><a onclick="javascript:__BXOnImportResponsibleShow(this)" class="crm-field-action-link" id="id_IMPORT_RESPONSIBLE_TXT"><?= $arUser ? $arUser["NAME"]." ".$arUser["LAST_NAME"]." (".$arUser["LOGIN"].")" : GetMessage("BPWC_WNCW_SELECT") ?></a><?php 
 					$GLOBALS["APPLICATION"]->IncludeComponent(
 						'bitrix:intranet.user.selector.new',
 						'',
@@ -548,7 +548,7 @@ if ($processActions && !empty($errorMessage))
 				<td valign="top"><input type="checkbox" name="IMPORT_PUBLIC" value="Y"<?= $arFields["IMPORT_PUBLIC"] == "Y" ? " checked" : "" ?>></td>
 			</tr>
 		</table>
-		<?
+		<?php 
 	}
 	elseif ($currentStep == 4)
 	{
@@ -712,7 +712,7 @@ if ($processActions && !empty($errorMessage))
 
 			BX.ready(function(){ExtSaleDoSyncStart();});
 		</script>
-		<?
+		<?php 
 	}
 	elseif ($currentStep == 5)
 	{
@@ -797,7 +797,7 @@ if ($processActions && !empty($errorMessage))
 			</script>
 			<tr>
 				<td class="bx-popup-label"><?= GetMessage("BPWC_WNCW_SHRESPONS") ?>:</td>
-				<td valign="top"><a onclick="javascript:__BXOnImportResponsibleShow(this)" class="crm-field-action-link" id="id_IMPORT_RESPONSIBLE_TXT"><?= $arUser ? $arUser["NAME"]." ".$arUser["LAST_NAME"]." (".$arUser["LOGIN"].")" : GetMessage("BPWC_WNCW_SELECT") ?></a><?
+				<td valign="top"><a onclick="javascript:__BXOnImportResponsibleShow(this)" class="crm-field-action-link" id="id_IMPORT_RESPONSIBLE_TXT"><?= $arUser ? $arUser["NAME"]." ".$arUser["LAST_NAME"]." (".$arUser["LOGIN"].")" : GetMessage("BPWC_WNCW_SELECT") ?></a><?php 
 					$GLOBALS["APPLICATION"]->IncludeComponent(
 						'bitrix:intranet.user.selector.new',
 						'',
@@ -838,7 +838,7 @@ if ($processActions && !empty($errorMessage))
 				<td class="bx-popup-label"><?= GetMessage("BPWC_WNCW_SHGROUPS") ?>:</td>
 				<td valign="top">
 					<a onclick="javascript:__BXOnImportGroupShow()" class="crm-field-action-link" id="id_GROUP_TXT"><?= $arGroup ? $arGroup["NAME"] : GetMessage("BPWC_WNCW_SELECT") ?></a>
-					<?
+					<?php 
 					$name = $APPLICATION->IncludeComponent(
 							"bitrix:socialnetwork.group.selector", ".default", array(
 								"BIND_ELEMENT" => "id_GROUP_TXT",
@@ -851,13 +851,13 @@ if ($processActions && !empty($errorMessage))
 				</td>
 			</tr>
 		</table>
-		<?
+		<?php 
 	}
 	elseif ($currentStep == 6)
 	{
 		?>
 		<?= GetMessage("CRM_CES_STEP_6", array("#URL#" => "/crm/configs/external_sale/")); ?>
-		<?
+		<?php 
 	}
 	?>
 	<input type="hidden" name="current_step" value="<?= $currentStep ?>">
@@ -870,4 +870,4 @@ if ($processActions && !empty($errorMessage))
 
 </td></tr>
 </table>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>

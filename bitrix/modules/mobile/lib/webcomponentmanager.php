@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Mobile;
 
 use Bitrix\Main\Application;

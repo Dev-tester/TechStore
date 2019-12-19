@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TRANSLATE"] = "Localization";
 $MESS["TRANS_INTERFACE"] = "Translate files";
 $MESS["TRANS_INTERFACE_ALT"] = "Administrative interface for language file localization";

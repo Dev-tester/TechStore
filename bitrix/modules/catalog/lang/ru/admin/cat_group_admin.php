@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GROUP_TITLE"] = "Типы цен";
 $MESS["ADD_GROUP"] = "Добавить";
 $MESS["GROUP_PAGES"] = "Типы";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_COMPANY_BASE_CAPTION_LEAD'] = "Based on lead";
 $MESS['CRM_COMPANY_CREATION'] = "Company added";
 $MESS['CRM_COMPANY_MOVING_TO_RECYCLEBIN'] = "Company has been deleted to the Recycle Bin";

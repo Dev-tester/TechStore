@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -9,7 +9,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
  * @var array $arResult
  */
 ?>
-<?
+<?php 
 if($arResult['REQUIRED_BY_MANDATORY'] === true):
 
 	$APPLICATION->IncludeComponent(
@@ -29,12 +29,12 @@ $APPLICATION->SetAdditionalCSS("/bitrix/css/main/system.auth/flat/style.css");
 
 <div class="bx-authform">
 
-<?
+<?php 
 if(!empty($arParams["~AUTH_RESULT"])):
 	$text = str_replace(array("<br>", "<br />"), "\n", $arParams["~AUTH_RESULT"]["MESSAGE"]);
 ?>
 	<div class="alert <?=($arParams["~AUTH_RESULT"]["TYPE"] == "OK"? "alert-success":"alert-danger")?>"><?=nl2br(htmlspecialcharsbx($text))?></div>
-<?endif?>
+<?php endif?>
 
 	<h3 class="bx-title"><?=GetMessage("AUTH_OTP_PLEASE_AUTH")?></h3>
 
@@ -50,21 +50,21 @@ if(!empty($arParams["~AUTH_RESULT"])):
 			</div>
 		</div>
 
-<?if($arResult["CAPTCHA_CODE"]):?>
-		<input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
+<?php if($arResult["CAPTCHA_CODE"]):?>
+		<input type="hidden" name="captcha_sid" value="<?php echo $arResult["CAPTCHA_CODE"]?>" />
 
 		<div class="bx-authform-formgroup-container">
 			<div class="bx-authform-label-container">
-				<?echo GetMessage("AUTH_OTP_CAPTCHA_PROMT")?>
+				<?php echo GetMessage("AUTH_OTP_CAPTCHA_PROMT")?>
 			</div>
-			<div class="bx-captcha"><img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></div>
+			<div class="bx-captcha"><img src="/bitrix/tools/captcha.php?captcha_sid=<?php echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></div>
 			<div class="bx-authform-input-container">
 				<input type="text" name="captcha_word" maxlength="50" value="" autocomplete="off" />
 			</div>
 		</div>
-<?endif;?>
+<?php endif;?>
 
-<?if($arResult["REMEMBER_OTP"]):?>
+<?php if($arResult["REMEMBER_OTP"]):?>
 		<div class="bx-authform-formgroup-container">
 			<div class="checkbox">
 				<label class="bx-filter-param-label">
@@ -73,16 +73,16 @@ if(!empty($arParams["~AUTH_RESULT"])):
 				</label>
 			</div>
 		</div>
-<?endif?>
+<?php endif?>
 		<div class="bx-authform-formgroup-container">
 			<input type="submit" class="btn btn-primary" name="Otp" value="<?=GetMessage("AUTH_OTP_AUTHORIZE")?>" />
 		</div>
 
-<?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
+<?php if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
 		<div class="bx-authform-link-container">
-			<a href="<?=$arResult["AUTH_LOGIN_URL"]?>" rel="nofollow"><?echo GetMessage("AUTH_OTP_AUTH_BACK")?></a>
+			<a href="<?=$arResult["AUTH_LOGIN_URL"]?>" rel="nofollow"><?php echo GetMessage("AUTH_OTP_AUTH_BACK")?></a>
 		</div>
-<?endif?>
+<?php endif?>
 
 	</form>
 </div>
@@ -90,4 +90,4 @@ if(!empty($arParams["~AUTH_RESULT"])):
 <script type="text/javascript">
 try{document.form_auth.USER_OTP.focus();}catch(e){}
 </script>
-<?endif;?>
+<?php endif;?>

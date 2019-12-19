@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_PROFILE_COURSE"] = "Course";
 $MESS["LEARNING_PROFILE_TEST"] = "Test";
 $MESS["LEARNING_PROFILE_SCORE"] = "Score";

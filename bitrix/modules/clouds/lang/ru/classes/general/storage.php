@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_MENU"] = "Облачные хранилища";
 $MESS["CLO_STORAGE_TITLE"] = "Просмотр и управление файлами в облачных хранилищах";
 $MESS["CLO_STORAGE_UPLOAD_MENU"] = "Переместить в облако";

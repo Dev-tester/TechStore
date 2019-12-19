@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/template.php")));
 __IncludeLang($file);
 
@@ -62,11 +62,11 @@ if (isset($_REQUEST['CHECK_NAME']))
 	<input type="hidden" name="use_light_view" value="Y" />
 	<input type="hidden" name="ACTIVE" value="Y" />
 	<input type="hidden" name="overview" value="Y" />
-<? if (isset($_REQUEST['random_folder'])) { ?>
+<?php  if (isset($_REQUEST['random_folder'])) { ?>
 	<input type="hidden" name="random_folder" value="Y" />
-<? } else if (isset($_REQUEST['dropped'])) { ?>
+<?php  } else if (isset($_REQUEST['dropped'])) { ?>
 	<input type="hidden" name="dropped" value="Y" />
-<? } ?>
+<?php  } ?>
 	<input type="hidden" name="AJAX_CALL" value="Y" />
 	<input type="hidden" name="SIMPLE_UPLOAD" value="Y" />
 	<input type="hidden" name="MAX_FILE_SIZE" value="<?=htmlspecialcharsbx($arParams["UPLOAD_MAX_FILESIZE_BYTE"])?>" />
@@ -77,7 +77,7 @@ if (isset($_REQUEST['CHECK_NAME']))
 	</span>
 </form>
 <script>
-<?
+<?php 
 $deferedName = str_replace("template.php", "script_deferred.js", __FILE__);
 $mtime = 0;
 if (file_exists($deferedName))
@@ -109,4 +109,4 @@ BX(function() {
 	});
 });
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

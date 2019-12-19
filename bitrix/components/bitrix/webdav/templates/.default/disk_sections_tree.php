@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $dir = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/")));
 __IncludeLang($dir."lang/".LANGUAGE_ID."/disk_sections_tree.php");
 CModule::IncludeModule("webdav"); 
@@ -160,7 +160,7 @@ function __WDGetSectionsTree($base, $active)
 
 $popupWindow->ShowTitlebar(GetMessage("WD_TITLE"));
 ?>
-<?
+<?php 
 $popupWindow->StartContent();
 ?>
 <script type="text/javascript">
@@ -286,17 +286,17 @@ function __wd_focus_blur(obj, focus, set)
 </script>
 <div class="folder-blocks" id="__wd_div_blocks">
 	<div id="div_<?=$id?>" class="folder-block folder-root-block">
-		<a id="item_<?=$id?>" class="folder-root-title folder-title<? 
+		<a id="item_<?=$id?>" class="folder-root-title folder-title<?php  
 		if ($arParams["ACTIVE"] == "/" || empty($arParams["ACTIVE"])):
-			?> folder-active<?
+			?> folder-active<?php 
 		endif;
-		?>" href="#" <?
-		?>hidefocus="true" title="/" <?
-		?>ondblclick="__wd_dir_selector.checkEvent('dblclick', this);" <?
-		?>onclick="return false;" <?
-		?>onfocus="__wd_focus_blur(this, true);" onblur="__wd_focus_blur(this, false);" <?
+		?>" href="#" <?php 
+		?>hidefocus="true" title="/" <?php 
+		?>ondblclick="__wd_dir_selector.checkEvent('dblclick', this);" <?php 
+		?>onclick="return false;" <?php 
+		?>onfocus="__wd_focus_blur(this, true);" onblur="__wd_focus_blur(this, false);" <?php 
 		?>><span><font>/</font></span></a>
-<?
+<?php 
 		
 	$arPath = array(); 
 	$deep = 0; 
@@ -306,7 +306,7 @@ function __wd_focus_blur(obj, focus, set)
 	foreach ($arResult["FOLDERS"] as $res)
 	{
 		for ($ii = ($deep - $res["DEEP"]); $ii >= 0; $ii--):
-			?></div><?
+			?></div><?php 
 			$closed++; 
 		endfor;
 		
@@ -318,14 +318,14 @@ function __wd_focus_blur(obj, focus, set)
 		$name = $res["NAME"]; 
 		$id = md5($val);
 		
-	?><div id="div_<?=$id?>" class="folder-block"><?
-		?><a id="item_<?=$id?>" <?
-		?>hidefocus="true" <?
-		?>onfocus="__wd_focus_blur(this, true);" <?
-		?>onblur="__wd_focus_blur(this, false);" <?
-		?>class="folder-title-<?=$status?><? 
+	?><div id="div_<?=$id?>" class="folder-block"><?php 
+		?><a id="item_<?=$id?>" <?php 
+		?>hidefocus="true" <?php 
+		?>onfocus="__wd_focus_blur(this, true);" <?php 
+		?>onblur="__wd_focus_blur(this, false);" <?php 
+		?>class="folder-title-<?=$status?><?php  
 		if ($arParams["ACTIVE"] == $val):
-			?> folder-active<?
+			?> folder-active<?php 
 			$activeNumber = $couner; 
 		endif;
 		?>" href="#" title="<?=$val?>" onclick="<?=($status == "closed" ? 
@@ -334,20 +334,20 @@ function __wd_focus_blur(obj, focus, set)
 				$status == "opened" ? 
 				'__wd_open_close(this); ' : 
 				''
-			))?>return false;" <?
-		?> ondblclick="__wd_dir_selector.checkEvent('dblclick', this);"><span><font><?=$name?></font></span></a><?
+			))?>return false;" <?php 
+		?> ondblclick="__wd_dir_selector.checkEvent('dblclick', this);"><span><font><?=$name?></font></span></a><?php 
 		$opened++; 
 		$deep = $res["DEEP"];
 		$couner++; 
 	}
 	for ($ii = $deep; $ii > 0; $ii--):
-		?></div><?
+		?></div><?php 
 		$closed++;
 	endfor;
 ?>
 </div>
 <input type="hidden" id="__wd_active_path" value="" />
-<?
+<?php 
 $height = 17; 
 ?>
 <style> 
@@ -404,7 +404,7 @@ div.folder-block a.folder-focused span font {
 div.bx-core-dialog-foot input {
 	width: 20%;}
 </style>
-<?
+<?php 
 
 if ($activeNumber > 1)
 {
@@ -424,13 +424,13 @@ function __wd_set_scroll_top()
 }
 __wd_set_scroll_top(); 
 </script>
-<?
+<?php 
 }
 $popupWindow->EndContent();
 if ($popupWindow->bButtonsStarted)
 	$popupWindow->EndButtons();
 ?>
-<script type="text/javascript"><?=$popupWindow->jsPopup?>.SetButtons(<?
+<script type="text/javascript"><?=$popupWindow->jsPopup?>.SetButtons(<?php 
 	?>'<input type="button" value="<?=GetMessage("WD_SELECT")?>" onclick="__wd_dir_selector.insertDir(document.getElementById(\'__wd_active_path\'));" />');</script>
 <script type="text/javascript"><?=$popupWindow->jsPopup?>.SetButtons([BX.WindowManager.Get().btnCancel]);</script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

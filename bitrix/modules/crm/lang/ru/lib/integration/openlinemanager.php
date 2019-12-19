@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OPEN_LINE_SEND_MESSAGE"] = "Отправить сообщение";
 $MESS["CRM_OPEN_LINE_LIVECHAT"] = "Онлайн-чат";
 $MESS["CRM_OPEN_LINE_NETWORK"] = "Битрикс24.Network";

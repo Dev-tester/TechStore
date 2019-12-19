@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 
 CJSCore::Init(array('finder'));
 
@@ -35,7 +35,7 @@ $className =
 	</div>
 </div>
 
-<? $frame = $this->createFrame()->begin(""); ?>
+<?php  $frame = $this->createFrame()->begin(""); ?>
 <script type="text/javascript">
 new BX.B24SearchTitle({
 	'AJAX_PAGE' : '<?=CUtil::JSEscape(POST_FORM_ACTION_URI)?>',
@@ -51,4 +51,4 @@ new BX.B24SearchTitle({
 	'SEARCH_PAGE': '<?=str_replace("#SITE_DIR#", SITE_DIR, $arParams["PAGE"])?>'
 });
 </script>
-<? $frame->end(); ?>
+<?php  $frame->end(); ?>

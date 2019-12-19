@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REST_UF_ID"] = "Ид";
 $MESS["REST_UF_ENTITY_ID"] = "Объект";
 $MESS["REST_UF_FIELD_NAME"] = "Код";

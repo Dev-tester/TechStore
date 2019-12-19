@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 CUtil::InitJSCore("ajax");
 ?>
 <script type="text/javascript">
@@ -71,17 +71,17 @@ function SonetPageLoadUSI()
 BX.bind(window, "load", SonetPageLoadUSI);
 </script>
 
-<?
+<?php 
 if ($arParams["SILENT"] == "Y")
 	return;
 ?>
 
 <nobr><input name="<?=$arResult["NAME"]?>" id="<?=$arResult["ID"]?>" value="<?=(StrLen($arResult["VALUE"]) > 0 ? $arResult["VALUE"] : GetMessage("SONET_T8761_PROMT"))?>" class="search-tags<?=(strlen($arParams["CLASS_NAME"]) > 0 ? " ".$arParams["CLASS_NAME"] : "")?>" type="text" autocomplete="off" <?=$arResult["TEXT"]?> onkeypress="SonetStopPost_<?=$arResult["ID"]?>(event)" /><input type="button" value="..." onclick="SonetTTTButtonPress(document.getElementById('<?=$arResult["ID"]?>'));"></nobr>
-<?if (StrLen($arResult["FUNCTION"]) > 0):?>
+<?php if (StrLen($arResult["FUNCTION"]) > 0):?>
 	<input type="button" name="<?=$arResult["NAME"]?>_button" id="id_<?=$arResult["NAME"]?>_button" value="<?= GetMessage("SONET_T876_SELECT") ?>" <?=(StrLen($arResult["VALUE"]) > 0 ? "" : "disabled")?> onclick="SonetSearchButtonClick_<?=$arResult["ID"]?>()">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 if (false && $arParams["TMPL_IFRAME"] != "N"):
-	?><IFRAME style="width:0px; height:0px; border: 0px;" src="javascript:void(0)" name="<?=$arResult["ID"]?>_div_frame" id="<?=$arResult["ID"]?>_div_frame"></IFRAME><?
+	?><IFRAME style="width:0px; height:0px; border: 0px;" src="javascript:void(0)" name="<?=$arResult["ID"]?>_div_frame" id="<?=$arResult["ID"]?>_div_frame"></IFRAME><?php 
 endif;
 ?>

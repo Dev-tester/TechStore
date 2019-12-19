@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("About J&V");
 ?>
@@ -25,4 +25,4 @@ $APPLICATION->SetTitle("About J&V");
  									
 <p>J&V's offices' offer a new format where clients can be serviced with maximum convenience and comfort.</p>
  									
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

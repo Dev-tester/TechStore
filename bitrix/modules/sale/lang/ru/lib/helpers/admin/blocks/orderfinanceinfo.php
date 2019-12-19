@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SALE_ORDER_FINANCEINFO_USE_INNER_BUDGET'] = 'Использовать внутренний счет';
 $MESS['SALE_ORDER_FINANCEINFO_SUM_PAID'] = 'Оплачено';
 $MESS['SALE_ORDER_FINANCEINFO_PAYABLE'] = 'Осталось оплатить';

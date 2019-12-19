@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CMDESKTOP_TDEF_ERR1"] = "Error while saving gadget position to server.";
 $MESS["CMDESKTOP_TDEF_ERR2"] = "Error while adding gadget to server.";
 $MESS["CMDESKTOP_TDEF_SETTINGS"] = "Settings";

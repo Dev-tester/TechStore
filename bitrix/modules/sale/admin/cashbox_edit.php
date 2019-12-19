@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Application;
 use Bitrix\Main\Page;
@@ -262,7 +262,7 @@ echo bitrix_sessid_post();
 <input type="hidden" name="lang" value="<?=$context->getLanguage();?>">
 <input type="hidden" name="ID" value="<?=$id;?>" id="ID">
 
-<?
+<?php 
 $tabControl->EndEpilogContent();
 $actionUrl = $APPLICATION->GetCurPage()."?ID=".$id."&lang=".$lang;
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
@@ -279,7 +279,7 @@ $tabControl->BeginCustomField('HANDLER', GetMessage("SALE_CASHBOX_HANDLER"));
 	<tr class="adm-detail-required-field">
 		<td width="40%"><?=Loc::getMessage("SALE_CASHBOX_HANDLER");?>:</td>
 		<td width="60%" valign="top">
-			<?
+			<?php 
 				$disabled = '';
 				if (Cashbox\Cashbox1C::getId() > 0 && $id == Cashbox\Cashbox1C::getId())
 				{
@@ -288,11 +288,11 @@ $tabControl->BeginCustomField('HANDLER', GetMessage("SALE_CASHBOX_HANDLER"));
 				}
 			?>
 			<select name="HANDLER" id="HANDLER" onchange="BX.Sale.Cashbox.reloadSettings()" <?=$disabled;?>>
-				<?
+				<?php 
 					$handlerList = Bitrix\Sale\Cashbox\Cashbox::getHandlerList();
 				?>
 				<option value=""><?=Loc::getMessage("SALE_CASHBOX_NO_HANDLER") ?></option>
-				<?
+				<?php 
 				foreach ($handlerList as $handler => $path)
 				{
 					if ($handler === '\Bitrix\Sale\Cashbox\Cashbox1C' && $cashbox['ID'] != Cashbox\Cashbox1C::getId())
@@ -308,7 +308,7 @@ $tabControl->BeginCustomField('HANDLER', GetMessage("SALE_CASHBOX_HANDLER"));
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField('HANDLER', '');
 
 $tabControl->BeginCustomField('OFD', GetMessage("SALE_CASHBOX_OFD"));
@@ -319,7 +319,7 @@ $tabControl->BeginCustomField('OFD', GetMessage("SALE_CASHBOX_OFD"));
 		</td>
 		<td width="60%">
 			<select name="OFD" id="OFD" onchange="BX.Sale.Cashbox.reloadOfdSettings()">
-				<?
+				<?php 
 				$ofdList = Bitrix\Sale\Cashbox\Ofd::getHandlerList();
 				foreach ($ofdList as $handler => $name)
 				{
@@ -334,7 +334,7 @@ $tabControl->BeginCustomField('OFD', GetMessage("SALE_CASHBOX_OFD"));
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndCustomField('OFD', '');
 
 $name = $request->get('NAME') ? $request->get('NAME') : $cashbox['NAME'];
@@ -344,8 +344,8 @@ $tabControl->AddEditField('NAME', Loc::getMessage("SALE_CASHBOX_NAME").':', true
 $tabControl->BeginCustomField('KKM_ID', GetMessage("SALE_CASHBOX_KKM_ID"));
 ?>
 	<tbody id="sale-cashbox-models-container">
-		<?if ($cashbox['HANDLER'] && class_exists($cashbox['HANDLER'])):?>
-			<?
+		<?php if ($cashbox['HANDLER'] && class_exists($cashbox['HANDLER'])):?>
+			<?php 
 			$kkmList = $cashbox['HANDLER']::getSupportedKkmModels();
 			if ($kkmList):
 			?>
@@ -356,7 +356,7 @@ $tabControl->BeginCustomField('KKM_ID', GetMessage("SALE_CASHBOX_KKM_ID"));
 				<td width="60%">
 					<select name="KKM_ID" id="KKM_ID" onchange="BX.Sale.Cashbox.reloadSettings()">
 						<option value=""><?=Loc::getMessage('SALE_CASHBOX_KKM_NO_CHOOSE')?></option>
-						<?
+						<?php 
 							foreach ($kkmList as $code => $kkm)
 							{
 								$selected = ($code === $cashbox['KKM_ID']) ? 'selected' : '';
@@ -366,10 +366,10 @@ $tabControl->BeginCustomField('KKM_ID', GetMessage("SALE_CASHBOX_KKM_ID"));
 					</select>
 				</td>
 			</tr>
-			<?endif;?>
-		<?endif;?>
+			<?php endif;?>
+		<?php endif;?>
 	</tbody>
-<?
+<?php 
 $tabControl->EndCustomField('KKM_ID', '');
 
 $numberKkm = $request->get('NUMBER_KKM') ? $request->get('NUMBER_KKM') : $cashbox['NUMBER_KKM'];
@@ -386,7 +386,7 @@ $tabControl->BeginCustomField('NUMBER_KKM', GetMessage("SALE_CASHBOX_EXTERNAL_UU
 	<script>
 		BX.hint_replace(BX('hint_NUMBER_KKM'), '<?=Loc::getMessage('SALE_CASHBOX_EXTERNAL_UUID_HINT_V2');?>');
 	</script>
-<?
+<?php 
 $tabControl->EndCustomField('NUMBER_KKM', '');
 
 $isOffline = isset($cashbox['USE_OFFLINE']) ? $cashbox['USE_OFFLINE'] : 'N';
@@ -410,7 +410,7 @@ $email = $request->get('EMAIL') ? $request->get('EMAIL') : $cashbox['EMAIL'];
 	<script>
 		BX.hint_replace(BX('hint_EMAIL'), '<?=Loc::getMessage('SALE_CASHBOX_EMAIL_HINT');?>');
 	</script>
-<?
+<?php 
 $tabControl->EndCustomField('EMAIL');
 
 if ($restrictionsHtml !== ''):
@@ -418,7 +418,7 @@ if ($restrictionsHtml !== ''):
 	$tabControl->BeginCustomField('CASHBOX_RULES', GetMessage("CASHBOX_RULES"));
 ?>
 	<tr><td id="sale-cashbox-restriction-container"><?=$restrictionsHtml?></td></tr>
-	<?$tabControl->EndCustomField('CASHBOX_RULES');
+	<?php $tabControl->EndCustomField('CASHBOX_RULES');
 endif;
 
 
@@ -431,7 +431,7 @@ ob_end_clean();
 
 $tabControl->BeginCustomField('CASHBOX_SETTINGS', GetMessage("CASHBOX_SETTINGS"));?>
 	<tbody id="sale-cashbox-settings-container"><?=$cashboxSettings?></tbody>
-<?$tabControl->EndCustomField('CASHBOX_SETTINGS');
+<?php $tabControl->EndCustomField('CASHBOX_SETTINGS');
 
 $tabControl->BeginNextFormTab();
 
@@ -442,7 +442,7 @@ ob_end_clean();
 
 $tabControl->BeginCustomField('OFD_SETTINGS', GetMessage("CASHBOX_OFD_SETTINGS"));?>
 	<tbody id="sale-cashbox-ofd-settings-container"><?=$cashboxOfdSettings?></tbody>
-<?$tabControl->EndCustomField('OFD_SETTINGS');
+<?php $tabControl->EndCustomField('OFD_SETTINGS');
 
 $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "W"), "back_url" => $listUrl));
 
@@ -455,6 +455,6 @@ $tabControl->Show();
 		SALE_RDL_SAVE: '<?=Loc::getMessage("SALE_CASHBOX_RDL_SAVE")?>'
 	});
 </script>
-<?
+<?php 
 require($documentRoot."/bitrix/modules/main/include/epilog_admin.php");
 ?>

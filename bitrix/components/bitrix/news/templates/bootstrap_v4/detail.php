@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?$ElementID = $APPLICATION->IncludeComponent(
+<?php $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:news.detail",
 	"bootstrap_v4",
 	Array(
@@ -76,7 +76,7 @@ $this->setFrameMode(true);
 	$component
 );?>
 <p><a href="<?=$arResult["FOLDER"].$arResult["URL_TEMPLATES"]["news"]?>"><?=GetMessage("T_NEWS_DETAIL_BACK")?></a></p>
-<?if($arParams["USE_CATEGORIES"]=="Y" && $ElementID):
+<?php if($arParams["USE_CATEGORIES"]=="Y" && $ElementID):
 	global $arCategoryFilter;
 	$obCache = new CPHPCache;
 	$strCacheID = $componentPath.LANG.$arParams["IBLOCK_ID"].$ElementID.$arParams["CATEGORY_CODE"];
@@ -113,8 +113,8 @@ $this->setFrameMode(true);
 		);
 		?>
 		<hr /><h3><?=GetMessage("CATEGORIES")?></h3>
-		<?foreach($arParams["CATEGORY_IBLOCK"] as $iblock_id):?>
-			<?$APPLICATION->IncludeComponent(
+		<?php foreach($arParams["CATEGORY_IBLOCK"] as $iblock_id):?>
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:news.list",
 				$arParams["CATEGORY_THEME_".$iblock_id],
 				Array(
@@ -132,12 +132,12 @@ $this->setFrameMode(true);
 				),
 				$component
 			);?>
-		<?endforeach?>
-	<?endif?>
-<?endif?>
-<?if($arParams["USE_REVIEW"]=="Y" && IsModuleInstalled("forum") && $ElementID):?>
+		<?php endforeach?>
+	<?php endif?>
+<?php endif?>
+<?php if($arParams["USE_REVIEW"]=="Y" && IsModuleInstalled("forum") && $ElementID):?>
 <hr />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:forum.topic.reviews",
 	"",
 	Array(
@@ -157,4 +157,4 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<?endif?>
+<?php endif?>

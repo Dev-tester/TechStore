@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Редактирование заявки");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:form.result.edit", ".default", array(
+<?php $APPLICATION->IncludeComponent("bitrix:form.result.edit", ".default", array(
 	"RESULT_ID" => $_REQUEST["RESULT_ID"],
 	"IGNORE_CUSTOM_TEMPLATE" => "N",
 	"USE_EXTENDED_ERRORS" => "Y",
@@ -17,4 +17,4 @@ $APPLICATION->SetTitle("Редактирование заявки");
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

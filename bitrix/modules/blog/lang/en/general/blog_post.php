@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GP_CODE_EXIST"] = "A blog post with code <b>#CODE#</b> already exists. Please change the post address.";
 $MESS["BLG_GP_EMPTY_AUTHOR_ID"] = "The message author is not specified";
 $MESS["BLG_GP_EMPTY_BLOG_ID"] = "The message blog is not specified";

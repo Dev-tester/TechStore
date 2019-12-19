@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 IncludeModuleLangFile(__FILE__);
@@ -172,7 +172,7 @@ foreach ($arDirProperties as $propertyCode => $propertyValue)
 ?>
 
 
-<?
+<?php 
 //HTML Output
 $popupWindow->ShowTitlebar(GetMessage("PAGE_PROP_WINDOW_TITLE"));
 $popupWindow->StartDescription("bx-property-page");
@@ -183,11 +183,11 @@ if ($strWarning != "")
 
 <p><?=GetMessage("PAGE_PROP_WINDOW_TITLE")?> <b><?=htmlspecialcharsbx($path)?></b></p>
 
-<?if (IsModuleInstalled("fileman")):?>
+<?php if (IsModuleInstalled("fileman")):?>
 	<p><a href="/bitrix/admin/fileman_html_edit.php?lang=<?=urlencode($lang)?>&site=<?=urlencode($site)?>&path=<?=urlencode($path)?>&back_url=<?=urlencode($back_url)?>"><?=GetMessage("PAGE_PROP_EDIT_IN_ADMIN")?></a></p>
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 $popupWindow->EndDescription();
 $popupWindow->StartContent();
 ?>
@@ -207,7 +207,7 @@ $popupWindow->StartContent();
 		<td colspan="2"><div class="empty"></div></td>
 	</tr>
 
-<?if (!empty($arGlobalProperties) || !empty($arDirProperties) || !empty($arInheritProperties)):?>
+<?php if (!empty($arGlobalProperties) || !empty($arDirProperties) || !empty($arInheritProperties)):?>
 
 	<tr class="section">
 		<td colspan="2">
@@ -220,9 +220,9 @@ $popupWindow->StartContent();
 		</td>
 	</tr>
 
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 $propertyIndex = 0;
 $jsInheritPropIds = "var jsInheritProps = [";
 
@@ -236,9 +236,9 @@ foreach ($arGlobalProperties as $propertyCode => $propertyValue):?>
 		?>:</td>
 		<td>
 
-		<?$inheritValue = $APPLICATION->GetDirProperty($propertyCode, Array($site, $path));?>
+		<?php $inheritValue = $APPLICATION->GetDirProperty($propertyCode, Array($site, $path));?>
 
-		<?if (strlen($inheritValue) > 0 && strlen($propertyValue) <= 0):
+		<?php if (strlen($inheritValue) > 0 && strlen($propertyValue) <= 0):
 			$jsInheritPropIds .= ",".$propertyIndex;
 		?>
 
@@ -248,17 +248,17 @@ foreach ($arGlobalProperties as $propertyCode => $propertyValue):?>
 
 			<div id="bx_edit_property_<?=$propertyIndex?>" style="display:none;"></div>
 
-		<?else:?>
+		<?php else:?>
 
 			<input type="text" name="PROPERTY[<?=$propertyIndex?>][VALUE]" value="<?=htmlspecialcharsEx($propertyValue)?>" style="width:90%;"><input type="hidden" name="PROPERTY[<?=$propertyIndex?>][CODE]" value="<?=htmlspecialcharsEx($propertyCode)?>" />
 
-		<?endif?>
+		<?php endif?>
 		</td>
 	</tr>
 
-<?$propertyIndex++; endforeach;?>
+<?php $propertyIndex++; endforeach;?>
 
-<?foreach ($arInheritProperties as $propertyCode => $propertyValue): $jsInheritPropIds .= ",".$propertyIndex;?>
+<?php foreach ($arInheritProperties as $propertyCode => $propertyValue): $jsInheritPropIds .= ",".$propertyIndex;?>
 
 	<tr style="height:30px;">
 		<td class="bx-popup-label bx-width30"><?=htmlspecialcharsEx($propertyCode)?>:</td>
@@ -273,22 +273,22 @@ foreach ($arGlobalProperties as $propertyCode => $propertyValue):?>
 		</td>
 	</tr>
 
-<?$propertyIndex++; endforeach; ?>
+<?php $propertyIndex++; endforeach; ?>
 
-<?foreach ($arDirProperties as $propertyCode => $propertyValue):?>
+<?php foreach ($arDirProperties as $propertyCode => $propertyValue):?>
 
 		<tr id="bx_user_property_<?=$propertyIndex?>">
 			<td class="bx-popup-label bx-width30"><?=htmlspecialcharsEx(ToUpper($propertyCode))?><input type="hidden" name="PROPERTY[<?=$propertyIndex?>][CODE]" value="<?=htmlspecialcharsEx(ToUpper($propertyCode))?>" />:</td>
 			<td><input type="text" name="PROPERTY[<?=$propertyIndex?>][VALUE]" value="<?=htmlspecialcharsEx($propertyValue)?>" style="width:90%;"></td>
 		</tr>
 
-<?
+<?php 
 $propertyIndex++; 
 endforeach;
 $jsInheritPropIds .= "];"
 ?>
 
-<?if (CModule::IncludeModule("search") && isset($tagPropertyCode)):?>
+<?php if (CModule::IncludeModule("search") && isset($tagPropertyCode)):?>
 
 	<tr class="empty">
 		<td colspan="2"><div class="empty"></div></td>
@@ -308,11 +308,11 @@ $jsInheritPropIds .= "];"
 			<td class="bx-popup-label bx-width30"><?=GetMessage("PAGE_PROP_TAGS")?>:</td>
 			<td><?=InputTags("TAGS", $tagPropertyValue, array($site), 'style="width:90%;"');?></td>
 		</tr> 
-<?endif?>
+<?php endif?>
 
 </table>
 <input type="hidden" name="save" value="Y" />
-<?
+<?php 
 $popupWindow->EndContent();
 $popupWindow->ShowStandardButtons();
 ?>
@@ -387,4 +387,4 @@ window.BXFolderEditHint();
 
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

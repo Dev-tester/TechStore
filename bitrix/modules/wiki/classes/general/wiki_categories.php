@@ -1,4 +1,4 @@
-<?
+<?php 
 /* Categories list*/
 class CWikiCategories
 {

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	$arParams["SHOW_CONTROLS"] = ($arParams["SHOW_CONTROLS"] == "Y" ? "Y" : "N");
 //	$arParams["SHOW_CONTROLS"] = (($arParams["SHOW_CONTROLS"] == "Y" && $arParams["PERMISSION"] >= "W") ? "Y" : "N");
 	if (empty($arParams["DetailListViewMode"]) && $arParams["SHOW_CONTROLS"] == "Y")

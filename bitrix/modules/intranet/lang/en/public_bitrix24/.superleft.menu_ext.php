@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_AI_SECTION"] = "AI Labs";
 $MESS["MENU_BIZPROC"] = "Workflows";
 $MESS["MENU_BLOG"] = "Conversations";

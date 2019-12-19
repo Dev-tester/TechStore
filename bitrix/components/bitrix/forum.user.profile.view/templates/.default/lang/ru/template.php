@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_EDIT_PROFILE"] = "Изменить профиль";
 $MESS["F_PROFILE"] = "Профиль";
 $MESS["F_DO_VOTE"] = "Голосовать";

@@ -70,7 +70,7 @@ IncludeModuleLangFile('/modules/tasks/lib/task.php');
 ); ?>
 
 
-<?
+<?php 
 
 $APPLICATION->IncludeComponent(
 	"bitrix:report.construct",
@@ -103,27 +103,27 @@ $mark_lang = $entity->getField('MARK')->getLangCode();
 	<span name="report-filter-value-control-STATUS" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-			<? foreach($arResult['enumValues']['STATUS'] as $val): ?>
+			<?php  foreach($arResult['enumValues']['STATUS'] as $val): ?>
 				<option value="<?=$val?>"><?=GetMessage($status_lang.'_VALUE_'.$val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-STATUS_PSEUDO" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-			<? foreach($arResult['enumValues']['STATUS_PSEUDO'] as $val): ?>
+			<?php  foreach($arResult['enumValues']['STATUS_PSEUDO'] as $val): ?>
 				<option value="<?=$val?>"><?=GetMessage($status_lang_pseudo.'_VALUE_'.$val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-PRIORITY" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-			<? foreach ($arResult['enumValues']['PRIORITY'] as $val): ?>
+			<?php  foreach ($arResult['enumValues']['PRIORITY'] as $val): ?>
 				<option value="<?=$val?>"><?=GetMessage($priority_lang.'_VALUE_'.$val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 

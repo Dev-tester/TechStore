@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_SETS_AVAILABLE_ERRORS_FATAL"] = "Cannot complete operation.";
 $MESS["CAT_SETS_AVAILABLE_PAGE_TITLE"] = "Update bundle stock and availability";
 $MESS["CAT_SETS_AVAILABLE_TAB"] = "Parameters";

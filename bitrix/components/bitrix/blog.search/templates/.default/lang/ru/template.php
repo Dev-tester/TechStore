@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MAIN_SEARCH_SEARCH'] = "Найти:";
 $MESS ['BLOG_MAIN_SEARCH_SORT_RELEVATION'] = "Сортировать по релевантности";
 $MESS ['BLOG_MAIN_SEARCH_SORTED_DATE'] = "Отсортировано по дате";

@@ -4855,7 +4855,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		<img src='/bitrix/images/sale/magaz.png'>
 	</div>
 <div class = 'block_step'>
-<?
+<?php 
 $step = 0;
 $select = '';
 if (isset($_GET['step']) && intval($_GET['step']))
@@ -4992,17 +4992,17 @@ switch ($step)
 		<div id="ajax_result"></div>
 	</div>
 <br>
-<form method="GET" action="<?echo $APPLICATION->GetCurPage()?>" name="form">
+<form method="GET" action="<?php echo $APPLICATION->GetCurPage()?>" name="form">
 	<input type="hidden" name="step" value="<?=$step+1;?>">
 	<input type="hidden" name="lang" value="<?=LANGUAGE_ID;?>">
-	<?if ($step > $stepsBeforeAjax):?>
+	<?php if ($step > $stepsBeforeAjax):?>
 		<input type="hidden" id="ajax_step" name="ajax_step" value="<?=($ajax_step <= 0) ? 0 : $ajax_step;?>">
 		<input type="button" id="start_button" value="<?=Loc::getMessage('SALE_CONVERTER_BUTTON_START_AJAX');?>" onclick="startConverter();" class="adm-btn-save">
-	<?else:?>
+	<?php else:?>
 		<input type="submit" value="<?=($step <= 0) ? Loc::getMessage('SALE_CONVERTER_BUTTON_START') : Loc::getMessage('SALE_CONVERTER_BUTTON_NEXT');?>" class="adm-btn-save">
-	<?endif;?>
+	<?php endif;?>
 </form>
-<?if ($step > $stepsBeforeAjax):?>
+<?php if ($step > $stepsBeforeAjax):?>
 	<script type="text/javascript">
 		function startConverter()
 		{
@@ -5070,8 +5070,8 @@ switch ($step)
 			return false;
 		}
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

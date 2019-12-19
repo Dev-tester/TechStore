@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_CL_GROUP_LAST"] = "Recent contacts";
 $MESS["IM_CL_GROUP_OTHER"] = "External contacts";
 $MESS["IM_CL_GROUP_OTHER_2"] = "Other contacts";

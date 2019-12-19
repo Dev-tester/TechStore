@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -38,7 +38,7 @@ Extension::load("ui.buttons.icons");
 <div class="webform-buttons sender-footer-fixed">
 	<div class="sender-footer-container">
 
-		<?if(!empty($arParams['CHECKBOX'])):?>
+		<?php if(!empty($arParams['CHECKBOX'])):?>
 		<div id="sender-ui-button-panel-checkbox" class="sender-add-template-container" style="<?=(!$arParams['CHECKBOX']['DISPLAY'] ? 'display: none;' :'')?>">
 			<label class="sender-add-template-label">
 				<input
@@ -50,13 +50,13 @@ Extension::load("ui.buttons.icons");
 				>
 				<?=htmlspecialcharsbx($arParams['CHECKBOX']['CAPTION'])?>
 			</label>
-			<?if(!empty($arParams['CHECKBOX']['HINT'])):?>
+			<?php if(!empty($arParams['CHECKBOX']['HINT'])):?>
 				<span data-hint="<?=htmlspecialcharsbx($arParams['CHECKBOX']['HINT'])?>"></span>
-			<?endif;?>
+			<?php endif;?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if(is_array($arParams['SAVE'])):?>
+		<?php if(is_array($arParams['SAVE'])):?>
 		<button
 			id="sender-ui-button-panel-save"
 			data-role="panel-button-save"
@@ -65,9 +65,9 @@ Extension::load("ui.buttons.icons");
 		>
 			<?=htmlspecialcharsbx($arParams['SAVE']['CAPTION'])?>
 		</button>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if(!empty($arParams['CANCEL'])):?>
+		<?php if(!empty($arParams['CANCEL'])):?>
 			<a
 				id="sender-ui-button-panel-cancel"
 				data-role="panel-button-cancel"
@@ -76,9 +76,9 @@ Extension::load("ui.buttons.icons");
 			>
 				<?=htmlspecialcharsbx($arParams['CANCEL']['CAPTION'])?>
 			</a>
-		<?endif;?>
+		<?php endif;?>
 
-		<?if(!empty($arParams['CLOSE'])):?>
+		<?php if(!empty($arParams['CLOSE'])):?>
 			<a
 				id="sender-ui-button-panel-cancel"
 				data-role="panel-button-cancel"
@@ -87,6 +87,6 @@ Extension::load("ui.buttons.icons");
 			>
 				<?=htmlspecialcharsbx($arParams['CLOSE']['CAPTION'])?>
 			</a>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>

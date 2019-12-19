@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_PHOTO_MY'] = "Мои фото";
 $MESS ['P_PHOTO_MY_TITLE'] = "Смотреть мои фото";
 $MESS ['P_PHOTO'] = "Фотографии";

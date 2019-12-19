@@ -1,12 +1,12 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(!empty($arResult["OK_MESSAGE"]))
 {
 	foreach($arResult["OK_MESSAGE"] as $v)
 	{
 		?>
 		<span class='notetext'><?=$v?></span><br /><br />
-		<?
+		<?php 
 	}
 }
 if(!empty($arResult["MESSAGE"]))
@@ -15,7 +15,7 @@ if(!empty($arResult["MESSAGE"]))
 	{
 		?>
 		<?=$v?><br /><br />
-		<?
+		<?php 
 	}
 }
 if(!empty($arResult["ERROR_MESSAGE"]))
@@ -24,14 +24,14 @@ if(!empty($arResult["ERROR_MESSAGE"]))
 	{
 		?>
 		<span class='errortext'><?=$v?></span><br /><br />
-		<?
+		<?php 
 	}
 }
 if(strlen($arResult["FATAL_ERROR"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FATAL_ERROR"]?></span><br /><br />
-	<?
+	<?php 
 }
 elseif(count($arResult["POST"])>0)
 {
@@ -47,16 +47,16 @@ elseif(count($arResult["POST"])>0)
 						<span class="blog-post-date"><?=$CurPost["DATE_PUBLISH_FORMATED"]?>
 						<br /><b><?=$CurPost["TITLE"]?></b></span>
 					</td>
-					<?if(strLen($CurPost["urlToEdit"])>0):?>
+					<?php if(strLen($CurPost["urlToEdit"])>0):?>
 						<td>
 							<a href="<?=$CurPost["urlToEdit"]?>" class="blog-post-edit"></a>
 						</td>
-					<?endif;?>
-					<?if(strLen($CurPost["urlToDelete"])>0):?>
+					<?php endif;?>
+					<?php if(strLen($CurPost["urlToDelete"])>0):?>
 						<td>
 							<a href="javascript:if(confirm('<?=GetMessage("BLOG_MES_DELETE_POST_CONFIRM")?>')) window.location='<?=$CurPost["urlToDelete"]?>'" class="blog-post-delete"></a>
 						</td>
-					<?endif;?>
+					<?php endif;?>
 				</tr>
 				</table>
 			</th>
@@ -64,7 +64,7 @@ elseif(count($arResult["POST"])>0)
 		<tr>
 			<td>
 				<?=$CurPost["TEXT_FORMATED"]?>
-				<?if(!empty($CurPost["Category"]))
+				<?php if(!empty($CurPost["Category"]))
 				{
 					?>
 					<table width="100%" cellspacing="0" cellpadding="0" border="0" class="blog-table-post-table">
@@ -72,26 +72,26 @@ elseif(count($arResult["POST"])>0)
 						<td><div class="blog-line"></div></td>
 					</tr>
 					<tr>
-						<td align="left"><?echo GetMessage("BLOG_BLOG_BLOG_CATEGORY");
+						<td align="left"><?php echo GetMessage("BLOG_BLOG_BLOG_CATEGORY");
 						$i=0;
 						foreach($CurPost["Category"] as $v)
 						{
 							if($i!=0)
 								echo ",";
-							?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?
+							?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?php 
 							$i++;
 						}?>
 						</td>
 					</tr>
 					</table>
-					<?
+					<?php 
 				}
 				?>
 			</td>
 		</tr>
 		</table>
 		<br />
-		<?
+		<?php 
 	}
 }
 else

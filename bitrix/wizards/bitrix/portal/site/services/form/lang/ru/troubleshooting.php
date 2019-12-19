@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TROUBLESHOOTING_FORM_NAME"] = "Устранение неполадок";
 $MESS["TROUBLESHOOTING_FORM_BUTTON"] = "Отправить заявку";
 

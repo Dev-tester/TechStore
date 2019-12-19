@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EVENT_TITLE_ORDER"] = "Order";
 $MESS["CRM_EVENT_ADD_TITLE"] = "Add new event";
 $MESS["CRM_EVENT_ADD_BUTTON"] = "Add";

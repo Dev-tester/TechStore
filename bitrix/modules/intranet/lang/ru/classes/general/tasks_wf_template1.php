@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTASK_WF_TMPL_HACK_SRE'] = "Сменить ответственного";
 $MESS ['INTASK_WF_TMPL_HACK_IPE'] = "Начать выполнение";
 $MESS ['INTASK_WF_TMPL_HACK_CE'] = "Завершить";

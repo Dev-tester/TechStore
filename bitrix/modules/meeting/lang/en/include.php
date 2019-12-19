@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEETING_FORUM_NAME"] = "Comments on meetings";
 $MESS["MEETING_STATE_P"] = "Scheduled";
 $MESS["MEETING_STATE_A"] = "In progress";

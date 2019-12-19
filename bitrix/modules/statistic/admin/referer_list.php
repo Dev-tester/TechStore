@@ -241,7 +241,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 
 <a name="tb"></a>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -259,40 +259,40 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td><b><?echo GetMessage("STAT_F_ID")?></b></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><b><?php echo GetMessage("STAT_F_ID")?></b></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_SESSION")?></td>
-	<td><input type="text" name="find_session_id" size="47" value="<?echo htmlspecialcharsbx($find_session_id)?>"><?=ShowExactMatchCheckbox("find_session_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_SESSION")?></td>
+	<td><input type="text" name="find_session_id" size="47" value="<?php echo htmlspecialcharsbx($find_session_id)?>"><?=ShowExactMatchCheckbox("find_session_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_FROM")?>:</td>
-	<td><input type="text" name="find_from" size="47" value="<?echo htmlspecialcharsbx($find_from)?>"><?=ShowExactMatchCheckbox("find_from")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_FROM")?>:</td>
+	<td><input type="text" name="find_from" size="47" value="<?php echo htmlspecialcharsbx($find_from)?>"><?=ShowExactMatchCheckbox("find_from")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("STAT_F_PROTOCOL")?>:</td>
-	<td><input type="text" name="find_from_protocol" size="47" value="<?echo htmlspecialcharsbx($find_from_protocol)?>"></td>
+	<td><input type="text" name="find_from_protocol" size="47" value="<?php echo htmlspecialcharsbx($find_from_protocol)?>"></td>
 </tr>
 <tr>
 	<td><?=GetMessage("STAT_F_DOMAIN")?>:</td>
-	<td><input type="text" name="find_from_domain" size="47" value="<?echo htmlspecialcharsbx($find_from_domain)?>"></td>
+	<td><input type="text" name="find_from_domain" size="47" value="<?php echo htmlspecialcharsbx($find_from_domain)?>"></td>
 </tr>
 <tr>
 	<td><?=GetMessage("STAT_F_PAGE")?>:</td>
-	<td><input type="text" name="find_from_url" size="47" value="<?echo htmlspecialcharsbx($find_from_url)?>"><?=ShowExactMatchCheckbox("find_from_detail")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_from_url" size="47" value="<?php echo htmlspecialcharsbx($find_from_url)?>"><?=ShowExactMatchCheckbox("find_from_detail")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("STAT_F_TO")?></td>
-	<td><?
+	<td nowrap><?php echo GetMessage("STAT_F_TO")?></td>
+	<td><?php 
 		echo SelectBoxFromArray("find_site_id", $arSiteDropdown, $find_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_to_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_to_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_to" size="34" value="<?echo htmlspecialcharsbx($find_to)?>"><?=ShowExactMatchCheckbox("find_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_to" size="34" value="<?php echo htmlspecialcharsbx($find_to)?>"><?=ShowExactMatchCheckbox("find_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 <?=ShowLogicRadioBtn();
 
@@ -301,10 +301,10 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

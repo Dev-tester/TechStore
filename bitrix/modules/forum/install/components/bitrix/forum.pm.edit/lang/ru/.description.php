@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_EDIT'] = "PM (изменение)";
 $MESS ['PM_EDIT_DESCRIPTION'] = "Изменение или создание нового сообщения";
 $MESS ['FORUM'] = "Форум";

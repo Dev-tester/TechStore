@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Main\Localization\Loc,
@@ -141,7 +141,7 @@ if(!empty($adminErrorMessages))
 <input type="hidden" name="DELIVERY_ID" value="<?=$fields["DELIVERY_ID"]?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
@@ -176,27 +176,27 @@ $tabControl->BeginNextTab();
 		<td><?=htmlspecialcharsbx($fields["EXTERNAL_ID"])?></td>
 	</tr>
 
-<?$tabControl->BeginNextTab();?>
-	<?foreach($contentRes->getErrorMessages() as $item):?>
+<?php $tabControl->BeginNextTab();?>
+	<?php foreach($contentRes->getErrorMessages() as $item):?>
 		<tr><td colspan="2" class="admin-delivery-request-confirm red"><?=htmlspecialcharsbx($item)?></td></tr>
-	<?endforeach;?>
-	<?foreach($contentRes->getMessagesMessages() as $item):?>
+	<?php endforeach;?>
+	<?php foreach($contentRes->getMessagesMessages() as $item):?>
 		<tr><td colspan="2" class="admin-delivery-request-confirm green"><?=htmlspecialcharsbx($item)?></td></tr>
-	<?endforeach;?>
-	<?$white = false;?>
-	<?foreach($contentRes->getData() as $item):?>
+	<?php endforeach;?>
+	<?php $white = false;?>
+	<?php foreach($contentRes->getData() as $item):?>
 		<tr>
 			<td class="adm-sale-delivery-request-content<?=$white ? ' white' : ''?>" width="40%"><?=htmlspecialcharsbx($item["TITLE"])?>:</td>
 			<td class="adm-sale-delivery-request-content<?=$white ? ' white' : ''?>" width="60%"><?=htmlspecialcharsbx($item["VALUE"])?></td>
 		</tr>
-	<?$white = !$white?>
-	<?endforeach;?>
+	<?php $white = !$white?>
+	<?php endforeach;?>
 
-<?$tabControl->BeginNextTab();
-	?><tr><td><?
+<?php $tabControl->BeginNextTab();
+	?><tr><td><?php 
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/admin/delivery_request_shipment.php");
 	?></td></tr>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

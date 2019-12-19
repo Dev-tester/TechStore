@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $arUser = $arParams['~USER'];
 $name = CUser::FormatName($arParams['NAME_TEMPLATE'], $arUser, $arResult["bUseLogin"]);
@@ -12,24 +12,24 @@ $avatar = !empty($arUser["PERSONAL_PHOTO"]) ? $arUser["PERSONAL_PHOTO"] : false;
 			<a
 				class="department-manager-avatar user-default-avatar"
 				href="<?=$arUser['DETAIL_URL']?>"
-				<?if ($avatar):?>
+				<?php if ($avatar):?>
 					style="background: url('<?=$avatar?>') no-repeat; background-size: cover;"
-				<?endif?>>
+				<?php endif?>>
 			</a>
 			<span class="department-manager-name-block">
 				<div class="department-manager-name">
-					<a href="<?=$arUser['DETAIL_URL']?>" class="department-manager-name-link"><?=$arUser["FORMATTED_NAME"]?></a><?if ($arResult['CAN_EDIT_USER'] || $arUser["ACTIVITY_STATUS"] == "active"):?><span onclick="user_action_menu<?=$user_action_menu_number?>(this,<?=$arUser['ID'].rand()?>,<?=$arUser["ID"]?>)" class="employee-user-action"></span><?endif?>
+					<a href="<?=$arUser['DETAIL_URL']?>" class="department-manager-name-link"><?=$arUser["FORMATTED_NAME"]?></a><?php if ($arResult['CAN_EDIT_USER'] || $arUser["ACTIVITY_STATUS"] == "active"):?><span onclick="user_action_menu<?=$user_action_menu_number?>(this,<?=$arUser['ID'].rand()?>,<?=$arUser["ID"]?>)" class="employee-user-action"></span><?php endif?>
 				</div>
 				<div class="department-manager-post"><?=$arUser["WORK_POSITION"]?></div>
 			</span><span class="department-manager-info">
-				<?if ($arUser["PERSONAL_MOBILE"]):?><div class="department-manager-tel"><?=GetMessage("ISL_PERSONAL_PHONE")?>: <?=$arUser["PERSONAL_MOBILE"]?></div><?endif?>
-				<?if ($arUser["UF_SKYPE"]):?><div class="department-manager-tel"><?=GetMessage("ISL_PERSONAL_SKYPE")?>: <a href="callto:<?=$arUser["UF_SKYPE"]?>"><?=$arUser["UF_SKYPE"]?></a></div><?endif?>
-				<?if ($arUser["EMAIL"]):?><div class="department-manager-tel"><?=GetMessage("ISL_PERSONAL_EMAIL")?>: <a href="mailto:<?=$arUser["EMAIL"]?>"><?=$arUser["EMAIL"]?></a></div><?endif?>
+				<?php if ($arUser["PERSONAL_MOBILE"]):?><div class="department-manager-tel"><?=GetMessage("ISL_PERSONAL_PHONE")?>: <?=$arUser["PERSONAL_MOBILE"]?></div><?php endif?>
+				<?php if ($arUser["UF_SKYPE"]):?><div class="department-manager-tel"><?=GetMessage("ISL_PERSONAL_SKYPE")?>: <a href="callto:<?=$arUser["UF_SKYPE"]?>"><?=$arUser["UF_SKYPE"]?></a></div><?php endif?>
+				<?php if ($arUser["EMAIL"]):?><div class="department-manager-tel"><?=GetMessage("ISL_PERSONAL_EMAIL")?>: <a href="mailto:<?=$arUser["EMAIL"]?>"><?=$arUser["EMAIL"]?></a></div><?php endif?>
 			</span>
 		</span>
 </div>
 
-<?
+<?php 
 if ($arUser["ACTIVITY_STATUS"] == "fired") $userActive = "Y"; elseif($arUser["ACTIVITY_STATUS"] == "inactive")  $userActive = "D"; else $userActive = "N"; 
 $userActionHref = CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER_EDIT'], array("user_id" => $arUser["ID"]))."?ACTIVE=".$userActive;
 if ($arUser["ACTIVITY_STATUS"] == "fired") 
@@ -43,12 +43,12 @@ else
 function user_action_menu<?=$user_action_menu_number?> (button, number, user_id, is_extranet) {
 
 	var popupUserMenuItems = [
-		<?if ($arUser["ACTIVITY_STATUS"] == "active" || $arUser["ACTIVITY_STATUS"] == "extranet"):?>
+		<?php if ($arUser["ACTIVITY_STATUS"] == "active" || $arUser["ACTIVITY_STATUS"] == "extranet"):?>
 			{ text : "<?=GetMessage("INTR_ISP_TASK")?>", onclick : function() { this.popupWindow.close(); taskIFramePopup.add({RESPONSIBLE_ID: user_id});}},
-			<?if ($arResult["CAN_MESSAGE"]):?>
-			{ text : "<?=GetMessage("INTR_ISP_PM")?>", onclick : function() {if (BX.IM) { BXIM.openMessenger(user_id); return false; } else { window.open('<?echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }}},
-			<?endif?>
-		<?elseif ($arUser["ACTIVITY_STATUS"] == "inactive" && (!IsModuleInstalled("bitrix24") && $USER->CanDoOperation('edit_all_users') || $USER->CanDoOperation('bitrix24_invite') && CModule::IncludeModule('bitrix24'))):?>
+			<?php if ($arResult["CAN_MESSAGE"]):?>
+			{ text : "<?=GetMessage("INTR_ISP_PM")?>", onclick : function() {if (BX.IM) { BXIM.openMessenger(user_id); return false; } else { window.open('<?php echo $url ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }}},
+			<?php endif?>
+		<?php elseif ($arUser["ACTIVITY_STATUS"] == "inactive" && (!IsModuleInstalled("bitrix24") && $USER->CanDoOperation('edit_all_users') || $USER->CanDoOperation('bitrix24_invite') && CModule::IncludeModule('bitrix24'))):?>
 		{ text : "<?=GetMessage("INTR_ISP_INVITE")?>", onclick : function() {
 			var myBX = (window.BX? window.BX: (window.top.BX? window.top.BX: null));
 			var user_reinvite = "reinvite_user_id_";
@@ -78,9 +78,9 @@ function user_action_menu<?=$user_action_menu_number?> (button, number, user_id,
 			);
 			return false;
 		}},
-		<?endif;?>
-		<?if ($arResult['CAN_EDIT_USER'] && !in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))):?>
-			<?if ($arUser["ID"] != $USER->GetID()):?>
+		<?php endif;?>
+		<?php if ($arResult['CAN_EDIT_USER'] && !in_array($arUser['EXTERNAL_AUTH_ID'], array('bot', 'imconnector'))):?>
+			<?php if ($arUser["ID"] != $USER->GetID()):?>
 				{ text : "<?=$userActionMessage?>", onclick : function() {
 					if (confirmUser("<?=$arUser["ACTIVITY_STATUS"]?>"))
 					{
@@ -125,16 +125,16 @@ function user_action_menu<?=$user_action_menu_number?> (button, number, user_id,
 					this.popupWindow.close();
 					return false;
 				} },
-			<?endif;?>
+			<?php endif;?>
 		{ text : "<?=GetMessage("INTR_ISP_EDIT_USER")?>", href : "<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_USER_EDIT'], array("user_id" => $arUser["ID"]))?>" }
-		<?endif;?>
+		<?php endif;?>
 	];
-	<?if ($arResult['CAN_VIDEO_CALL']):?>
+	<?php if ($arResult['CAN_VIDEO_CALL']):?>
 		if (BXIM && BXIM.checkCallSupport())
 		{
 			popupUserMenuItems.push({ text : "<?=GetMessage("INTR_ISP_VIDEO_CALL")?>", onclick : function() {if (BXIM) { BXIM.callTo(user_id); return false;}}});
 		}
-	<?endif?>
+	<?php endif?>
 	BX.PopupMenu.show('more-action-menu'+number, button, popupUserMenuItems,
 		{
 		offsetTop:7,

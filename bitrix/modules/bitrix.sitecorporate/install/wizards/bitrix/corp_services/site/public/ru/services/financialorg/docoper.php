@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Документарные операции");
 $APPLICATION->SetTitle("Документарные операции");
@@ -62,4 +62,4 @@ $APPLICATION->SetTitle("Документарные операции");
  									 
   <li>иные виды операций, включая предварительную проработку схемы расчетов и условий аккредитивной сделки.</li>
  </ul>
- <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

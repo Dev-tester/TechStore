@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ERROR_ADD_PROP'] = "Beim Hinzufügen eines Feldes ist ein Fehler aufgetreten.";
 $MESS['ERROR_ADD_VARIANT'] = "Beim Speichern des Feldes ist ein Fehler aufgetreten";
 $MESS['ERROR_EDIT_PROP'] = "Beim Ändern des Feldes ist ein Fehler aufgetreten.";

@@ -58,7 +58,7 @@ Extension::load([
 							?>
 							<div class="ui-title-3" style="margin-bottom: 0;"><?=$title?></div>
 							<div class="salescenter-main-header-feedback-container">
-								<?Bitrix\SalesCenter\Integration\Bitrix24Manager::getInstance()->renderFeedbackButton();?>
+								<?php Bitrix\SalesCenter\Integration\Bitrix24Manager::getInstance()->renderFeedbackButton();?>
 							</div>
 							<div data-bx-salescenter-block="form" class="salescenter-main-header-switcher-container">
 								<span data-switcher="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode([

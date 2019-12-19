@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global $USER
  * @global $APPLICATION

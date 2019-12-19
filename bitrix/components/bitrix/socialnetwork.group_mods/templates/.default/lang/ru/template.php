@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C10_DO_SAVE'] = "Исключить из модераторов";
 $MESS ['SONET_C10_SUBTITLE'] = "Модераторы группы";
 $MESS ['SONET_C10_ONLINE'] = "Сейчас на сайте";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TAB1'] = "Урок";
 $MESS ['LEARNING_ADMIN_TAB1_EX'] = "Параметры урока";
 $MESS ['LEARNING_ADMIN_TAB3'] = "Содержание";

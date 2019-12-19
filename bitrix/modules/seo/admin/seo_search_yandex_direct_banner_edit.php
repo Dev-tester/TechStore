@@ -438,8 +438,8 @@ if($bReadOnly && $ID <= 0)
 
 // draw form even in readonly mode
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$ID?>&amp;campaign=<?=$campaignId?>" name="form1" id="form1"<?=$bReadOnly?' onsubmit="return false;' : ''?>>
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$ID?>&amp;campaign=<?=$campaignId?>" name="form1" id="form1"<?=$bReadOnly?' onsubmit="return false;' : ''?>>
+<?php 
 
 $tabControl->Begin();
 
@@ -459,7 +459,7 @@ $tabControl->BeginNextTab();
 
 </style>
 
-<?
+<?php 
 if($ID > 0):
 
 	$active = '';
@@ -517,17 +517,17 @@ if($ID > 0):
 		<td><?=Loc::getMessage("SEO_ISACTIVE")?>:</td>
 		<td colspan="3">
 			<div class="lamp-<?=$active?>" style="display:inline-block;"></div>&nbsp;<?=$active_title?>
-<?
+<?php 
 	if($bAllowUpdate)
 	{
 ?>
 		&nbsp;&nbsp;<a href="javascript:void(0)" onclick="updateBanner(this, '<?=$ID?>')"><?=Loc::getMessage("SEO_BANNER_LIST_UPDATE");?></a>
-<?
+<?php 
 	}
 ?>
 		</td>
 	</tr>
-<?
+<?php 
 endif;
 ?>
 
@@ -540,7 +540,7 @@ endif;
 			<span id="title_stats" class="yandex-adv-stats"><?=Adv\YandexBannerTable::MAX_TITLE_LENGTH-strlen($banner["SETTINGS"]["Title"])?></span>
 		</td>
 		<td width="60%" valign="top" rowspan="2">
-<?
+<?php 
 $bannerInfo = $ID > 0 ? $banner : null;
 require("tab/seo_search_yandex_direct_banner.php");
 ?>
@@ -560,20 +560,20 @@ require("tab/seo_search_yandex_direct_banner.php");
 		<td colspan="3">
 			<input type="text" name="SETTINGS[Href]" value="<?=HtmlFilter::encode($banner["SETTINGS"]["Href"])?>" id="link_content" style="width: 500px;" onkeyup="updateAdv()" onchange="updateAdv()" onpaste="updateAdv()" tabindex="3">
 			<div id="link_hint" style="display: none;">
-<?
+<?php 
 echo BeginNote();
 echo Loc::getMessage('SEO_LINK_HINT', array(
 	"#PARAMS_HINT#" => "<ul><li>".AdvSession::URL_PARAM_CAMPAIGN."=".AdvSession::URL_PARAM_CAMPAIGN_VALUE."</li><li>".AdvSession::URL_PARAM_BANNER."=".AdvSession::URL_PARAM_BANNER_VALUE."</li></ul>"
 ));
 ?>
 				<a class="bx-action-href" hidefocus="true" onclick="addUrlParams();" href="javascript:void(0)"><?=Loc::getMessage('SEO_LINK_HINT_ACTION')?></a>
-<?
+<?php 
 echo EndNote();
 ?>
 			</div>
 		</td>
 	</tr>
-<?
+<?php 
 
 if(($ID > 0 || $elementId > 0) && Main\Loader::includeModule('iblock'))
 {
@@ -582,7 +582,7 @@ if(($ID > 0 || $elementId > 0) && Main\Loader::includeModule('iblock'))
 	<tr>
 		<td valign="top"><?=Loc::getMessage("SEO_BANNER_LINKS")?>:</td>
 		<td valign="top" colspan="3">
-<?
+<?php 
 	if($ID > 0)
 	{
 		$dbRes = Adv\LinkTable::getList(array(
@@ -627,13 +627,13 @@ if(($ID > 0 || $elementId > 0) && Main\Loader::includeModule('iblock'))
 
 ?>
 			<div id="adv_link_list">
-<?
+<?php 
 	require_once("tab/seo_search_yandex_direct_list_banner.php");
 ?>
 			</div>
 		</td>
 	</tr>
-<?
+<?php 
 	if($ID > 0)
 	{
 ?>
@@ -644,7 +644,7 @@ if(($ID > 0 || $elementId > 0) && Main\Loader::includeModule('iblock'))
 			<a href="javascript:void(0)" onclick="BX.util.popup('/bitrix/admin/iblock_element_search.php?lang=ru&n=new_link_container', 1000, 700);"><?=Loc::getMessage('SEO_BANNER_LINK_CREATE_ITEM')?></a><br />
 		</td>
 	</tr>
-<?
+<?php 
 if($bShowAuto):
 ?>
 	<tr>
@@ -654,7 +654,7 @@ if($bShowAuto):
 
 		</td>
 	</tr>
-<?
+<?php 
 endif;
 ?>
 	<script>
@@ -667,13 +667,13 @@ endif;
 			});
 		}
 	</script>
-<?
+<?php 
 	}
 
 }
 ?>
 <script>
-<?
+<?php 
 if($bAllowUpdate):
 ?>
 function updateBanner(btn, bannerId)
@@ -707,7 +707,7 @@ function updateBanner(btn, bannerId)
 		}
 	});
 }
-<?
+<?php 
 endif;
 ?>
 
@@ -769,7 +769,7 @@ function updateAdv()
 }
 BX.ready(updateAdv);
 </script>
-<?
+<?php 
 // geo tab
 $tabControl->BeginNextTab();
 
@@ -879,7 +879,7 @@ span.yandex-delete
 			<tr>
 				<td valign="top">
 					<div class="regions-list" id="regions-list">
-<?
+<?php 
 echo implode('</div>', $regionsOutput).'</div>';
 ?>
 
@@ -1016,7 +1016,7 @@ echo implode('</div>', $regionsOutput).'</div>';
 	})
 </script>
 
-<?
+<?php 
 // keywords tab
 $tabControl->BeginNextTab();
 
@@ -1550,7 +1550,7 @@ foreach($banner["SETTINGS"]["Phrases"] as $phraseData)
 
 </script>
 
-<?
+<?php 
 // Auto tab
 if($bShowAuto)
 {
@@ -1605,7 +1605,7 @@ BX.addCustomEvent("OnSeoYandexDirectLinksChange", BX.defer(function(el){
 	}
 }));
 </script>
-<?
+<?php 
 }
 
 if($bShowStats)
@@ -1685,14 +1685,14 @@ if($bShowStats)
 				</select>&nbsp;<span id="seo_graph_interval"><?=CalendarDate("date_from", $dateStart->toString(), 'form1', "4")?>&nbsp;&hellip;<?=CalendarDate("date_to", $dateFinish->toString(), 'form1', "4")?></span></span>&nbsp;&nbsp;<input type="button" value="<?=Loc::getMessage('SEO_YANDEX_STATS_PERIOD_APPLY')?>" onclick="loadGraphData()" id="stats_loading_button" name="template_preview"><span id="stats_wait" class="loading-message-text" style="display: none; margin-top: 5px;"><?=Loc::getMessage('SEO_YANDEX_STATS_WAIT')?></span>
 	</td>
 </tr>
-<?
+<?php 
 	if($bSale):
 ?>
 <tr>
 	<td><?=Loc::getMessage('SEO_YANDEX_STATS_SUM_ORDER_REPIOD')?>:</td>
 	<td><span id="banner_profit"><?=\CCurrencyLang::CurrencyFormat(doubleval($bannerProfit), \Bitrix\Currency\CurrencyManager::getBaseCurrency(), true)?></span></td>
 </tr>
-<?
+<?php 
 	endif;
 ?>
 <tr>
@@ -1705,7 +1705,7 @@ if($bShowStats)
 </tr>
 <tr>
 	<td colspan="2">
-<?
+<?php 
 	if($errorMessage)
 	{
 		echo $errorMessage->Show();
@@ -1916,30 +1916,30 @@ if($bShowStats)
 			"dataProvider": <?=Main\Web\Json::encode($graphData)?>
 		});
 
-<?
+<?php 
 		if($bLoadStats):
 ?>
 		loadGraphData();
-<?
+<?php 
 		endif;
 ?>
 
 		window.showStats = BX.DoNothing;
 	};
-<?
+<?php 
 		if($tabControl->selectedTab == "edit_stats"):
 ?>
 	showStats();
-<?
+<?php 
 		endif;
 ?>
 </script>
-<?
+<?php 
 	endif;
 ?>
 	</td>
 </tr>
-<?
+<?php 
 }
 
 $tabControl->EndTab();
@@ -1954,11 +1954,11 @@ $tabControl->End();
 if(!$bReadOnly):
 ?>
 <?=bitrix_sessid_post();?>
-<?
+<?php 
 	if($back_url!=''):
 ?>
-	<input type="hidden" name="back_url" value="<?echo HtmlFilter::encode($back_url)?>">
-<?
+	<input type="hidden" name="back_url" value="<?php echo HtmlFilter::encode($back_url)?>">
+<?php 
 	endif;
 ?>
 
@@ -1967,11 +1967,11 @@ if(!$bReadOnly):
 	<input type="hidden" name="ID" value="<?=$ID?>">
 
 
-<?
+<?php 
 endif;
 ?>
 </form>
-<?
+<?php 
 if($ID > 0):
 ?>
 <script>
@@ -1979,7 +1979,7 @@ if($ID > 0):
 		BX.onCustomEvent("OnSeoYandexDirectLinksChange", [BX('adv_link_list')]);
 	});
 </script>
-<?
+<?php 
 endif;
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_INVITATION_NAME"] = "Invite people";
 $MESS["INTRANET_USER_INVITATION_DESC"] = "#EMAIL_TO# - the invited person's e-mail address
 #LINK# - new employee activation link";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACGA1_NO_SITE"] = "The plan site is not specified";
 $MESS["ACGA1_NO_USER"] = "The user ID is not specified";
 $MESS["ACGA1_NO_PLAN"] = "The plan ID is not specified";

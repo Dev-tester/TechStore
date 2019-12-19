@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\UI;
 
 use Bitrix\Main\Loader;

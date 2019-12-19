@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/company/gallery/index.php");
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:photogallery_user", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:photogallery_user", ".default", Array(
 	"SECTION_PAGE_ELEMENTS"	=>	"100",
 	"ELEMENTS_PAGE_ELEMENTS"	=>	"100",
 	"PAGE_NAVIGATION_TEMPLATE"	=>	"",
@@ -93,4 +93,4 @@ $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 	)
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

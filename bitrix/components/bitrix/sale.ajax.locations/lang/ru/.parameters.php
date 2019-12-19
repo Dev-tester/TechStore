@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ["SALE_SAL_PARAM_COUNTRY"] = "Стартовое значение страны";
 $MESS ["SALE_SAL_PARAM_CITY_OUT_LOCATION"] = "Возвращать ID местоположения (в противном случае - города)";
 $MESS ["SALE_SAL_PARAM_ALLOW_EMPTY_CITY"] = "Выбор города местоположения не обязателен";

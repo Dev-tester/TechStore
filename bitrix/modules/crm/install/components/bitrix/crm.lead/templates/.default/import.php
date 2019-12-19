@@ -41,7 +41,7 @@ $APPLICATION->IncludeComponent(
 	$component
 );?>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.lead.import', 
 	'', 

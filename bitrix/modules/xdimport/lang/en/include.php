@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LFP_SOCNET_LOG_LIST_P_ALL"] = "All external events";
 $MESS["LFP_SOCNET_LOG_P"] = "External data source";
 $MESS["LFP_SOCNET_LOG_XDI_P"] = "external data source";

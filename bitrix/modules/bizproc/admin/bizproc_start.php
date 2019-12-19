@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 \Bitrix\Main\Loader::includeModule('bizproc');
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/bizproc/prolog.php");
@@ -215,13 +215,13 @@ else
 	{
 		?>
 		<?= str_replace("#TEMPLATE#", $arWorkflowTemplates[$workflowTemplateId]["NAME"], GetMessage("BPABS_MESSAGE_SUCCESS")) ?>
-		<?
+		<?php 
 	}
 	elseif ($showMode == "StartWorkflowError")
 	{
 		?>
 		<?= str_replace("#TEMPLATE#", $arWorkflowTemplates[$workflowTemplateId]["NAME"], GetMessage("BPABS_MESSAGE_ERROR")) ?>
-		<?
+		<?php 
 	}
 	elseif ($showMode == "WorkflowParameters")
 	{
@@ -233,7 +233,7 @@ else
 			<input type="hidden" name="back_url" value="<?= htmlspecialcharsbx($backUrl) ?>">
 
 			<?= bitrix_sessid_post() ?>
-			<?
+			<?php 
 			$aTabs = array(
 				array("DIV" => "edit1", "TAB" => GetMessage("BPABS_TAB"), "ICON" => "bizproc", "TITLE" => GetMessage("BPABS_TAB_TITLE"))
 			);
@@ -249,21 +249,21 @@ else
 					<?= $arWorkflowTemplates[$workflowTemplateId]["NAME"] ?>
 				</td>
 			</tr>
-			<?if($arWorkflowTemplates[$workflowTemplateId]["DESCRIPTION"]!=''):?>
+			<?php if($arWorkflowTemplates[$workflowTemplateId]["DESCRIPTION"]!=''):?>
 			<tr>
 				<td class="adm-detail-valign-top"><?= GetMessage("BPABS_DESCRIPTION") ?>:</td>
 				<td>
 					<?= $arWorkflowTemplates[$workflowTemplateId]["DESCRIPTION"] ?>
 				</td>
 			</tr>
-			<?endif?>
-			<?
+			<?php endif?>
+			<?php 
 			foreach ($arWorkflowTemplates[$workflowTemplateId]["PARAMETERS"] as $parameterKey => $arParameter)
 			{
 				?>
-				<tr<?if ($arParameter["Required"]):?> class="adm-detail-required-field"<?endif?>>
-					<td><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
-					<td><?
+				<tr<?php if ($arParameter["Required"]):?> class="adm-detail-required-field"<?php endif?>>
+					<td><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?php if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
+					<td><?php 
 						echo $documentService->GetFieldInputControl(
 							$documentType,
 							$arParameter,
@@ -277,58 +277,58 @@ else
 						{
 							case "int":
 							case "double":
-								?><input type="text" name="<?= $parameterKey ?>" size="10" value="<?= $arParametersValues[$parameterKey] ?>" /><?
+								?><input type="text" name="<?= $parameterKey ?>" size="10" value="<?= $arParametersValues[$parameterKey] ?>" /><?php 
 								break;
 							case "string":
-								?><input type="text" name="<?= $parameterKey ?>" size="50" value="<?= $arParametersValues[$parameterKey] ?>" /><?
+								?><input type="text" name="<?= $parameterKey ?>" size="50" value="<?= $arParametersValues[$parameterKey] ?>" /><?php 
 								break;
 							case "text":
-								?><textarea name="<?= $parameterKey ?>" rows="5" cols="40"><?= $arParametersValues[$parameterKey] ?></textarea><?
+								?><textarea name="<?= $parameterKey ?>" rows="5" cols="40"><?= $arParametersValues[$parameterKey] ?></textarea><?php 
 								break;
 							case "select":
 								?><select name="<?= $parameterKey ?><?= $arParameter["Multiple"] ? "[]\" size='5' multiple" : "\"" ?>>
-								<?
+								<?php 
 								if (is_array($arParameter["Options"]) && count($arParameter["Options"]) > 0)
 								{
 									foreach ($arParameter["Options"] as $key => $value)
 									{
-										?><option value="<?= htmlspecialcharsbx($key) ?>"<?= (!$arParameter["Multiple"] && $key == $arParametersValues[$parameterKey] || $arParameter["Multiple"] && is_array($arParametersValues[$parameterKey]) && in_array($key, $arParametersValues[$parameterKey])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value) ?></option><?
+										?><option value="<?= htmlspecialcharsbx($key) ?>"<?= (!$arParameter["Multiple"] && $key == $arParametersValues[$parameterKey] || $arParameter["Multiple"] && is_array($arParametersValues[$parameterKey]) && in_array($key, $arParametersValues[$parameterKey])) ? " selected" : "" ?>><?= htmlspecialcharsbx($value) ?></option><?php 
 									}
 								}
 								?>
-								</select><?
+								</select><?php 
 								break;
 							case "bool":
 								?><select name="<?= $parameterKey ?>">
 									<option value="Y"<?= ($arParametersValues[$parameterKey] == "Y") ? " selected" : "" ?>><?= GetMessage("BPABS_YES") ?></option>
 									<option value="N"<?= ($arParametersValues[$parameterKey] == "N") ? " selected" : "" ?>><?= GetMessage("BPABS_NO") ?></option>
-								</select><?
+								</select><?php 
 								break;
 							case "date":
 							case "datetime":
 								echo CAdminCalendar::CalendarDate($parameterKey, $arParametersValues[$parameterKey], 19, ($arParameter["Type"] == "date"));
 								break;
 							case "user":
-								?><textarea name="<?= $parameterKey ?>" id="id_<?= $parameterKey ?>" rows="3" cols="40"><?= $arParametersValues[$parameterKey] ?></textarea><input type="button" value="..." onclick="BPAShowSelector('id_<?= $parameterKey ?>', 'user');" /><?
+								?><textarea name="<?= $parameterKey ?>" id="id_<?= $parameterKey ?>" rows="3" cols="40"><?= $arParametersValues[$parameterKey] ?></textarea><input type="button" value="..." onclick="BPAShowSelector('id_<?= $parameterKey ?>', 'user');" /><?php 
 								break;
 							default:
 								echo GetMessage("BPABS_INVALID_TYPE");
 						}*/
 					?></td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
-			<?
+			<?php 
 			$tabControl->Buttons();
 			?>
 			<input type="submit" class="adm-btn-save" name="DoStartParamWorkflow" value="<?= GetMessage("BPABS_DO_START") ?>" />
 			<input type="submit" name="CancelStartParamWorkflow" value="<?= GetMessage("BPABS_DO_CANCEL") ?>" />
-			<?
+			<?php 
 			$tabControl->End();
 			?>
 		</form>
-		<?
+		<?php 
 	}
 	elseif ($showMode == "SelectWorkflow")
 	{
@@ -352,7 +352,7 @@ else
 						<?= $arWorkflowTemplate["DESCRIPTION"] ?><br><br>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 		}
 		else
@@ -361,7 +361,7 @@ else
 			<tr>
 				<td colspan="2"><?= GetMessage("BPABS_NO_TEMPLATES") ?></td>
 			</tr>
-			<?
+			<?php 
 		}
 
 		$tabControl->End();

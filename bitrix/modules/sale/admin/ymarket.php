@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use \Bitrix\Sale\Services\PaySystem\Restrictions;
 
@@ -160,7 +160,7 @@ if($bSaved)
 
 ?>
 <form method="post" action="<?=$APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>" name="ymform">
-<?
+<?php 
 
 if(CSaleYMHandler::isActive())
 {
@@ -176,7 +176,7 @@ if(CSaleYMHandler::isActive())
 				</td>
 			</tr>
 		</table>
-	<?
+	<?php 
 
 	$activeListNames = array();
 
@@ -292,9 +292,9 @@ if(CSaleYMHandler::isActive())
 			<td ><?=GetMessage("SALE_YM_PAYER_TYPE")?>:</td>
 			<td>
 				<select name="YMSETTINGS[PERSON_TYPE]" onchange="this.form.submit();">
-					<?foreach ($arPersonTypes as $ptId => $ptName):?>
+					<?php foreach ($arPersonTypes as $ptId => $ptName):?>
 						<option value="<?=$ptId?>"<?=$personTypeId == $ptId ? " selected" : ""?>><?=htmlspecialcharsbx($ptName)?></option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</td>
 		</tr>
@@ -322,7 +322,7 @@ if(CSaleYMHandler::isActive())
 			<td ><?=GetMessage("SALE_YM_LOG_LEVEL")?>:</td>
 			<td>
 				<select name="YMSETTINGS[LOG_LEVEL]">
-					<? $logLevel = isset($siteSetts["LOG_LEVEL"]) && $siteSetts["LOG_LEVEL"] ? $siteSetts["LOG_LEVEL"] : CSaleYMHandler::LOG_LEVEL_ERROR; ?>
+					<?php  $logLevel = isset($siteSetts["LOG_LEVEL"]) && $siteSetts["LOG_LEVEL"] ? $siteSetts["LOG_LEVEL"] : CSaleYMHandler::LOG_LEVEL_ERROR; ?>
 					<option value="<?=CSaleYMHandler::LOG_LEVEL_ERROR?>"<?=$logLevel == CSaleYMHandler::LOG_LEVEL_ERROR ? " selected" : ""?>><?=GetMessage("SALE_YM_LOG_LEVEL_ERROR")?></option>
 					<option value="<?=CSaleYMHandler::LOG_LEVEL_INFO?>"<?=$logLevel == CSaleYMHandler::LOG_LEVEL_INFO ? " selected" : ""?>><?=GetMessage("SALE_YM_LOG_LEVEL_INFO")?></option>
 					<option value="<?=CSaleYMHandler::LOG_LEVEL_DEBUG?>"<?=$logLevel == CSaleYMHandler::LOG_LEVEL_DEBUG ? " selected" : ""?>><?=GetMessage("SALE_YM_LOG_LEVEL_DEBUG")?></option>
@@ -364,13 +364,13 @@ if(CSaleYMHandler::isActive())
 
 
 		<tr>
-			<td  class="adm-detail-valign-top"><?echo GetMessage("SALE_YM_OUTLETS")?>:</td>
-			<td id="OUTLETS_IDS_<?=htmlspecialcharsbx($SITE_ID)?>"><?
+			<td  class="adm-detail-valign-top"><?php echo GetMessage("SALE_YM_OUTLETS")?>:</td>
+			<td id="OUTLETS_IDS_<?=htmlspecialcharsbx($SITE_ID)?>"><?php 
 				if(isset($siteSetts["OUTLETS_IDS"]) && is_array($siteSetts["OUTLETS_IDS"]))
 				{
 					foreach ($siteSetts["OUTLETS_IDS"] as $outletId)
 					{
-						?><input type="text" name="YMSETTINGS[OUTLETS_IDS][]" size="10" value="<?=htmlspecialcharsbx($outletId)?>"><br><?
+						?><input type="text" name="YMSETTINGS[OUTLETS_IDS][]" size="10" value="<?=htmlspecialcharsbx($outletId)?>"><br><?php 
 					}
 				}
 			?>
@@ -388,7 +388,7 @@ if(CSaleYMHandler::isActive())
 			<td  class="adm-detail-valign-top"><?=GetMessage("SALE_YM_ACCEPT_OLD_PRICE")?>:</td>
 			<td>
 				<select name="YMSETTINGS[IS_ACCEPT_OLD_PRICE]">
-					<? $isAcceptOldPrice = isset($siteSetts["IS_ACCEPT_OLD_PRICE"]) ? $siteSetts["IS_ACCEPT_OLD_PRICE"] : CSaleYMHandler::NOT_ACCEPT_OLD_PRICE; ?>
+					<?php  $isAcceptOldPrice = isset($siteSetts["IS_ACCEPT_OLD_PRICE"]) ? $siteSetts["IS_ACCEPT_OLD_PRICE"] : CSaleYMHandler::NOT_ACCEPT_OLD_PRICE; ?>
 					<option value="<?=CSaleYMHandler::NOT_ACCEPT_OLD_PRICE?>"<?=$isAcceptOldPrice == CSaleYMHandler::NOT_ACCEPT_OLD_PRICE ? " selected" : ""?>><?=GetMessage("SALE_YM_ACCEPT_OLD_PRICE_N")?></option>
 					<option value="<?=CSaleYMHandler::ACCEPT_OLD_PRICE?>"<?=$isAcceptOldPrice == CSaleYMHandler::ACCEPT_OLD_PRICE ? " selected" : ""?>><?=GetMessage("SALE_YM_ACCEPT_OLD_PRICE_Y")?></option>
 			</td>
@@ -403,7 +403,7 @@ if(CSaleYMHandler::isActive())
 			</td>
 		</tr>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 
 		<tr>
 			<td width="40%"><?=GetMessage("SALE_YM_YANDEX")?>:</td>
@@ -418,7 +418,7 @@ if(CSaleYMHandler::isActive())
 			<td><?=makeSelectorFromPaySystems("YMSETTINGS[PAY_SYSTEMS][CARD_ON_DELIVERY]", $siteSetts["PAY_SYSTEMS"]["CARD_ON_DELIVERY"], $personTypeId, $SITE_ID)?></td>
 		</tr>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 
 		<tr>
 			<td colspan="2">
@@ -428,7 +428,7 @@ if(CSaleYMHandler::isActive())
 			</td>
 		</tr>
 
-		<?foreach ($arDeliveryList as $deliveryId => $deliveryName):
+		<?php foreach ($arDeliveryList as $deliveryId => $deliveryName):
 			$selected = isset($siteSetts["DELIVERIES"][$deliveryId]) ? $siteSetts["DELIVERIES"][$deliveryId] : '';
 		?>
 			<tr>
@@ -446,19 +446,19 @@ if(CSaleYMHandler::isActive())
 						</td>
 						<td>
 							<table style="margin-left: 40px;">
-								<?foreach(\CSaleYMHandler::getExistPaymentMethods() as $methodIdx => $method):?>
+								<?php foreach(\CSaleYMHandler::getExistPaymentMethods() as $methodIdx => $method):?>
 									<tr>
 										<td><?=GetMessage("SALE_YM_DLV_PS_".$method)?></td><td><input type="checkbox" class="adm-sale-dlv-ps-methods" name="YMSETTINGS[DLV_PS][<?=$deliveryId?>][<?=$methodIdx?>]" value="Y"<?=$siteSetts['DLV_PS'][$deliveryId][$methodIdx] && $siteSetts['DLV_PS'][$deliveryId][$methodIdx] == 'N' ? '' : ' checked'?>></td>
 									</tr>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</table>
 						</td>
 					</tr>
 					</table>
 				</td>
 			</tr>
-		<?endforeach;?>
-		<?
+		<?php endforeach;?>
+		<?php 
 			if(!isset($siteSetts["STATUS_IN"]))
 			{
 				$siteSetts["STATUS_IN"] = array(
@@ -469,14 +469,14 @@ if(CSaleYMHandler::isActive())
 			}
 		?>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 
 		<tr class="heading"><td colspan="2"><?=GetMessage("SALE_YM_STATUS_IN")?></td></tr>
 		<tr><td width="40%"><?=GetMessage("SALE_YM_Y_STATUS_UNPAID")." [UNPAID]"?></td><td width="60%"><?=getSelectHtml("YMSETTINGS[STATUS_IN][UNPAID]", $statuses, $siteSetts["STATUS_IN"]["UNPAID"])?></td></tr>
 		<tr><td><?=GetMessage("SALE_YM_Y_STATUS_PROCESSING")." [PROCESSING]"?></td><td><?=getSelectHtml("YMSETTINGS[STATUS_IN][PROCESSING]", $statuses, $siteSetts["STATUS_IN"]["PROCESSING"])?></td></tr>
 		<tr><td><?=GetMessage("SALE_YM_Y_STATUS_CANCELLED")." [CANCELLED]"?></td><td><?=getSelectHtml("YMSETTINGS[STATUS_IN][CANCELLED]", $statuses, $siteSetts["STATUS_IN"]["CANCELLED"])?></td></tr>
 
-		<?
+		<?php 
 		if(!isset($siteSetts["STATUS_OUT"]))
 		{
 			$siteSetts["STATUS_OUT"] = array(
@@ -487,13 +487,13 @@ if(CSaleYMHandler::isActive())
 		}
 		?>
 		<tr class="heading"><td colspan="2"><?=GetMessage("SALE_YM_STATUS_OUT")?></td></tr>
-		<?foreach($statuses as $statusId => $statusName):?>
+		<?php foreach($statuses as $statusId => $statusName):?>
 			<tr><td><?=$statusName?></td><td><?=getSelectHtml("YMSETTINGS[STATUS_OUT][".$statusId."]", $outYandexStatuses, $siteSetts["STATUS_OUT"][$statusId])?></td></tr>
-		<?endforeach;?>
+		<?php endforeach;?>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 
-		<?foreach($requiredOrderProperties as $orderPropertyId):?>
+		<?php foreach($requiredOrderProperties as $orderPropertyId):?>
 			<tr>
 				<td width="40%"><?=GetMessage("SALE_YM_ORDER_PROPS_".$orderPropertyId)?>:</td>
 				<td width="60%">
@@ -506,8 +506,8 @@ if(CSaleYMHandler::isActive())
 					?>
 				</td>
 			</tr>
-		<?endforeach;?>
-	<?
+		<?php endforeach;?>
+	<?php 
 
 	$tabControl->Buttons(array(
 		"btnSave" => true,
@@ -516,7 +516,7 @@ if(CSaleYMHandler::isActive())
 	echo '<input type="submit" name="YANDEX_MARKET_OFF" value="'.GetMessage("SALE_YM_OFF").'" title="'.GetMessage("SALE_YM_OFF_TITLE").'" onclick="return confirm(\''.GetMessage("SALE_YM_OFF_CONFIRM").'\')"/>';
 	?>
 	<?=bitrix_sessid_post();?>
-	<?$tabControl->End();?>
+	<?php $tabControl->End();?>
 	<script>
 		function addOutletIdField(name, siteId)
 		{
@@ -541,7 +541,7 @@ if(CSaleYMHandler::isActive())
 			return (e.charCode <= 57 && e.charCode >= 49 && input.value.length <= 8) || e.charCode == 0
 		}
 	</script>
-	<?
+	<?php 
 }
 else //If integration with yandex market is not active
 {
@@ -552,7 +552,7 @@ else //If integration with yandex market is not active
 }
 	?>
 	</form>
-	<?
+	<?php 
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 

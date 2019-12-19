@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_SET_NAVCHAIN'] = "Set Breadcrumbs";
 $MESS ['SONET_PAGE_VAR'] = "Page Variable";
 $MESS ['SONET_TASK_VAR'] = "Task Variable";

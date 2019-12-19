@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUYER_PE_ACCESS_DENIED"] = "Access denied.";
 $MESS["BUYER_PE_TAB_PROFILE"] = "Profile";
 $MESS["BUYER_PE_TITLE"] = "Edit Profile #NAME#";

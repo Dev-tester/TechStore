@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLL_TOOLBAR_ADD_ELEMENT_TITLE"] = "Добавить новый элемент в текущий раздел списка";
 $MESS["CT_BLL_TOOLBAR_EDIT_SECTION"] = "Управление разделами";
 $MESS["CT_BLL_TOOLBAR_EDIT_SECTION_TITLE"] = "Удаление и редактирование разделов";

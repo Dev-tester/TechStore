@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_PL_ORDER_DISCOUNT"] = "Скидки на заказ";
 $MESS["CRM_ORDER_PL_PROMO_CODE"] = "Промокод";
 $MESS["CRM_ORDER_PL_COUPON_REFRESH"] = "Для использования купонов, действующих на конкретный тип цен, необходимо ввести купон и пересчитать заказ";

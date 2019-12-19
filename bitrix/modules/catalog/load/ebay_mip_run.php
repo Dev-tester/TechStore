@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\SystemException;
 
 //<title>Ebay</title>
@@ -65,7 +65,7 @@ if (empty($arRunErrors))
 	}
 	else
 	{
-		if (!@fwrite($fp, '<?xml version="1.0" encoding="utf-8"?>'))
+		if (!@fwrite($fp, '<?php xml version="1.0" encoding="utf-8"?>'))
 		{
 			$arRunErrors[] = str_replace('#FILE#', $_SERVER["DOCUMENT_ROOT"].$SETUP_FILE_NAME, GetMessage('EBAY_ERR_SETUP_FILE_WRITE'));
 			@fclose($fp);

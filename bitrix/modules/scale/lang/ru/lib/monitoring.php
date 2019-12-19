@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SCALE_MONITORING_HDD'] = "Диски";
 $MESS ['SCALE_MONITORING_HDD_PARAMS'] = "(всего/исп./своб.)";
 $MESS ['SCALE_MONITORING_NET'] = "Сеть";

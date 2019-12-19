@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Profanity dictionary.
 ********************************************************************/
@@ -117,7 +117,7 @@
 	<input type="hidden" name="Update" value="Y"><input type="hidden" name="lang" value="<?=LANG ?>">
 	<input type="hidden" name="ID" value="<?=$ID ?>">
 	<input type="hidden" name="DICTIONARY_ID" value="<?=htmlspecialcharsbx($str_DICTIONARY_ID)?>" />
-	<?=bitrix_sessid_post()?><?
+	<?=bitrix_sessid_post()?><?php 
 	$aTabs = array(array("DIV" => "edit", "TAB" => $sDocTitle, "ICON" => "forum", "TITLE" => "",));
 	$tabControl = new CAdminTabControl("tabControl", $aTabs);
 	$tabControl->Begin();
@@ -130,7 +130,7 @@
 	<td><?=GetMessage("FLTR_USE_IT")?>: </td><td><input type="checkbox" name="USE_IT" value="Y" <?=$str_USE_IT == "Y" ? "checked" : ""?>></td></tr>
 <tr>
 	<td><?=GetMessage("FLTR_SEARCH_WHAT")?>:</td><td>
-	<?
+	<?php 
 	$arr = array(
 		"reference" => array(
 			GetMessage("FLTR_SEARCH_0"),
@@ -156,14 +156,14 @@
 		<textarea style="width:60%; height:150px;" name="DESCRIPTION" wrap="VIRTUAL"><?=htmlspecialcharsbx($str_DESCRIPTION)?></textarea>
 	</td>
 </tr>
-<?$tabControl->EndTab();?>
-<?$tabControl->Buttons(
+<?php $tabControl->EndTab();?>
+<?php $tabControl->Buttons(
 		array(
 				"disabled" => (!CFilterUnquotableWords::FilterPerm()),
 				"back_url" => "/bitrix/admin/forum_words.php?DICTIONARY_ID=".$DICTIONARY_ID."&lang=".LANG
 			)
 	);?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

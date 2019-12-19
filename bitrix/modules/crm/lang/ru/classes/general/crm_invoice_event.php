@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_EVENT_NAME_COMMENTED"] = "Изменение комментария менеджера";
 $MESS["CRM_INVOICE_EVENT_INFO_COMMENTED"] = "#COMMENTS#";
 $MESS["CRM_INVOICE_EVENT_NAME_STATUS_CHANGED"] = "Изменение статуса счёта";

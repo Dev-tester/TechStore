@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WDUF_FILES"] = "Файлы:";
 $MESS["WDUF_MORE_ACTIONS"] = "Ещё";
 $MESS["WDUF_FILE_EDIT"] = "Редактировать";

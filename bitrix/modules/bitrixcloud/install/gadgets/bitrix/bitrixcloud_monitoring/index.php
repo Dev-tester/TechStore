@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $APPLICATION->SetAdditionalCSS('/bitrix/gadgets/bitrix/bitrixcloud_monitoring/styles.css');
@@ -115,39 +115,39 @@ if ($bAlert)
 }
 ?>
 <div class="bx-gadgets-content-layout-inspector">
-	<div class="bx-gadgets-title"><?echo GetMessage("GD_BITRIXCLOUD_MONITOR")?></div>
+	<div class="bx-gadgets-title"><?php echo GetMessage("GD_BITRIXCLOUD_MONITOR")?></div>
 	<div class="bx-gadget-bottom-cont bx-gadget-bottom-button-cont bx-gadget-mark-cont">
-<?
+<?php 
 	if ($uptimeRate < 1)
 	{
 ?>
-		<a class="bx-gadget-button" href="/bitrix/admin/bitrixcloud_monitoring_admin.php?lang=<?echo LANGUAGE_ID?>&amp;referer=gadget">
+		<a class="bx-gadget-button" href="/bitrix/admin/bitrixcloud_monitoring_admin.php?lang=<?php echo LANGUAGE_ID?>&amp;referer=gadget">
 			<div class="bx-gadget-button-lamp"></div>
-			<div class="bx-gadget-button-text"><?echo GetMessage("GD_BITRIXCLOUD_MONITOR_BTN_ALERT")?></div>
+			<div class="bx-gadget-button-text"><?php echo GetMessage("GD_BITRIXCLOUD_MONITOR_BTN_ALERT")?></div>
 		</a>
-		<div class="bx-gadget-mark"><?echo $sumHtml?></div>
-		<div class="bx-gadget-desc bx-gadget-desc-wmark"><?echo $alertIntervalText;?></div>
-<?
+		<div class="bx-gadget-mark"><?php echo $sumHtml?></div>
+		<div class="bx-gadget-desc bx-gadget-desc-wmark"><?php echo $alertIntervalText;?></div>
+<?php 
 	}
 	elseif ($bAlert)
 	{
 ?>
-		<a class="bx-gadget-button" href="/bitrix/admin/bitrixcloud_monitoring_admin.php?lang=<?echo LANGUAGE_ID?>&amp;referer=gadget">
+		<a class="bx-gadget-button" href="/bitrix/admin/bitrixcloud_monitoring_admin.php?lang=<?php echo LANGUAGE_ID?>&amp;referer=gadget">
 			<div class="bx-gadget-button-lamp"></div>
-			<div class="bx-gadget-button-text"><?echo GetMessage("GD_BITRIXCLOUD_MONITOR_BTN_OK")?></div>
+			<div class="bx-gadget-button-text"><?php echo GetMessage("GD_BITRIXCLOUD_MONITOR_BTN_OK")?></div>
 		</a>
-		<div class="bx-gadget-desc bx-gadget-desc-wmark"><?echo $sumHtml;?></div>
-<?
+		<div class="bx-gadget-desc bx-gadget-desc-wmark"><?php echo $sumHtml;?></div>
+<?php 
 	}
 	else
 	{
 		?>
-		<a class="bx-gadget-button" href="/bitrix/admin/bitrixcloud_monitoring_admin.php?lang=<?echo LANGUAGE_ID?>&amp;referer=gadget">
+		<a class="bx-gadget-button" href="/bitrix/admin/bitrixcloud_monitoring_admin.php?lang=<?php echo LANGUAGE_ID?>&amp;referer=gadget">
 			<div class="bx-gadget-button-lamp"></div>
-			<div class="bx-gadget-button-text"><?echo GetMessage("GD_BITRIXCLOUD_MONITOR_BTN_OK")?></div>
+			<div class="bx-gadget-button-text"><?php echo GetMessage("GD_BITRIXCLOUD_MONITOR_BTN_OK")?></div>
 		</a>
-		<div class="bx-gadget-mark"><?echo GetMessage("GD_BITRIXCLOUD_MONITOR_MESS_OK")?></div>
-	<?
+		<div class="bx-gadget-mark"><?php echo GetMessage("GD_BITRIXCLOUD_MONITOR_MESS_OK")?></div>
+	<?php 
 	}
 ?>
 	</div>

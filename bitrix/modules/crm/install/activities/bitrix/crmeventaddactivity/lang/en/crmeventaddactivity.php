@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPEAA_EVENT_TEXT"] = "Message text";
 $MESS["BPEAA_EVENT_TYPE"] = "Event type";
 $MESS["BPEAA_EVENT_USER"] = "Created by";

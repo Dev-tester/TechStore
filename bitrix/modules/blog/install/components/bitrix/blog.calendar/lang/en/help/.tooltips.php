@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_BLOG_TIP'] = "The path to the main blog page. Example: blog_blog.php?page=blog&blog=#blog#.";
 $MESS ['BLOG_VAR_TIP'] = "Specify here the name of a variable to which the blog ID will be passed.";
 $MESS ['PAGE_VAR_TIP'] = "Specify here the name of a variable to which the blog page will be passed.";

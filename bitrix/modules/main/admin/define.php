@@ -1,1 +1,1 @@
-<?define("TEMPORARY_CACHE", "ARtufgYHb2MMdQgebRtnG24A");?>
+<?php define("TEMPORARY_CACHE", "ARtufgYHb2MMdQgebRtnG24A");?>

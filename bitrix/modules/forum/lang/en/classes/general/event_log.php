@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_MESSAGE_APPROVE"] = "Approve Message";
 $MESS["FORUM_MESSAGE_UNAPPROVE"] = "Hide Message";
 $MESS["FORUM_MESSAGE_MOVE"] = "Move Message";

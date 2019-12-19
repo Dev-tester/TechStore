@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DOCUMENT_VIEW_SHOW_FULL_DOCUMENT"] = "Show full document";
 $MESS["CRM_DOCUMENT_VIEW_CREATE_OR_EDIT_MY_COMPANY_REQUISITES"] = "<a href=\"#URL#\" target=\"_blank\" class=\"docs-preview-details-link\">Provide or edit</a>
 <span class=\"docs-preview-details-text\">my company details</span>";

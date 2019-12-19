@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_ERROR_NO_URL'] = "Вы должны ввести адрес (URL)";
 $MESS ['FORUM_ERROR_NO_TITLE'] = "Вы должны ввести название";
 $MESS ['FORUM_HELP_BOLD'] = "Жирный текст (alt + b)";

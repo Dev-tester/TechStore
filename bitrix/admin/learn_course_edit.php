@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/learning/admin/learn_course_edit.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/learning/admin/learn_course_edit.php");?>

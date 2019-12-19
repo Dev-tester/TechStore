@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_8_6_AUTHOR"] = "Erstellt von";
 $MESS["LANDING_BLOCK_8_6_BLOCK_BOTTOM"] = "Unterer Teil";
 $MESS["LANDING_BLOCK_8_6_BORDER"] = "Rahmen";

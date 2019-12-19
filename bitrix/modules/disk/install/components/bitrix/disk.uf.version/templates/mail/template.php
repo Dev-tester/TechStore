@@ -14,7 +14,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var string $componentPath */
 /** @var \Bitrix\Disk\Internals\BaseComponent $component */
 
-?><div><?
+?><div><?php 
 foreach($arResult['VERSIONS'] as $version)
 {
 	$title = Loc::getMessage('DISK_UF_VERSION_HISTORY_FILE_MAIL', array('#NUMBER#' => $version['GLOBAL_CONTENT_VERSION']));
@@ -23,11 +23,11 @@ foreach($arResult['VERSIONS'] as $version)
 		$title = Loc::getMessage('DISK_UF_HEAD_VERSION_HISTORY_FILE_MAIL');
 	}
 
-	?><div class="post-item-file-version"><?= $title ?></div><?
-	?><div><?
-		?><span><?
-			?><span><?=htmlspecialcharsbx($version['NAME'])?></span><span>(<?=$version['SIZE']?>)</span><?
-		?></span><?
-	?></div><?
+	?><div class="post-item-file-version"><?= $title ?></div><?php 
+	?><div><?php 
+		?><span><?php 
+			?><span><?=htmlspecialcharsbx($version['NAME'])?></span><span>(<?=$version['SIZE']?>)</span><?php 
+		?></span><?php 
+	?></div><?php 
 }
 ?></div>

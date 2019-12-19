@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CF_LOCATION_TITLE"] = "Online store address";
 $MESS["CRM_CF_WEIGHT_TITLE"] = "Weight Units";
 $MESS["CRM_CF_DIF_SETTINGS"] = "Use individual settings for different sites";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -138,19 +138,19 @@ if (!$templateData['BLOG']['BLOG_FROM_AJAX'])
 			"ID" => $templateData['TABS_ID']
 		);
 
-?><div id="<? echo $templateData['TABS_FRAME_ID']; ?>" class="bx_soc_comments_div bx_important <? echo $templateData['TEMPLATE_CLASS']; ?>"><?
+?><div id="<?php  echo $templateData['TABS_FRAME_ID']; ?>" class="bx_soc_comments_div bx_important <?php  echo $templateData['TEMPLATE_CLASS']; ?>"><?php 
 		$content = "";
 		$activeTabId = "";
 		$tabIDList = array();
-?><div id="<? echo $templateData['TABS_ID']; ?>" class="bx-catalog-tab-section-container"<?=isset($arResult["WIDTH"]) ? ' style="width: '.$arResult["WIDTH"].'px;"' : ''?>>
-	<ul class="bx-catalog-tab-list" style="left: 0;"><?
+?><div id="<?php  echo $templateData['TABS_ID']; ?>" class="bx-catalog-tab-section-container"<?=isset($arResult["WIDTH"]) ? ' style="width: '.$arResult["WIDTH"].'px;"' : ''?>>
+	<ul class="bx-catalog-tab-list" style="left: 0;"><?php 
 		foreach ($arData as $tabId => $arTab)
 		{
 			if (isset($arTab["NAME"]) && isset($arTab["CONTENT"]))
 			{
 				$id = $templateData['TABS_ID'].$tabId;
 				$tabActive = (isset($arTab["ACTIVE"]) && $arTab["ACTIVE"] == "Y");
-				?><li id="<?=$id?>"><span><?=$arTab["NAME"]?></span></li><?
+				?><li id="<?=$id?>"><span><?=$arTab["NAME"]?></span></li><?php 
 				if($tabActive || $activeTabId == "")
 					$activeTabId = $tabId;
 
@@ -164,7 +164,7 @@ if (!$templateData['BLOG']['BLOG_FROM_AJAX'])
 		<div class="bx-catalog-tab-container"><?=$content?></div>
 	</div>
 </div>
-<?
+<?php 
 		$arJSParams['tabs'] = array(
 			'activeTabId' =>  $activeTabId,
 			'tabsContId' => $templateData['TABS_ID'],
@@ -172,8 +172,8 @@ if (!$templateData['BLOG']['BLOG_FROM_AJAX'])
 		);
 ?></div>
 <script type="text/javascript">
-var obCatalogComments_<? echo $arResult['ELEMENT']['ID']; ?> = new JCCatalogSocnetsComments(<? echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
-</script><?
+var obCatalogComments_<?php  echo $arResult['ELEMENT']['ID']; ?> = new JCCatalogSocnetsComments(<?php  echo CUtil::PhpToJSObject($arJSParams, false, true); ?>);
+</script><?php 
 	}
 	else
 	{

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_OBJECT_ENTITY_STORAGE_ID_FIELD"] = "Storage";
 $MESS["DISK_OBJECT_ENTITY_PARENT_ID_FIELD"] = "Parent";
 $MESS["DISK_OBJECT_ENTITY_ERROR_UPDATE_STORAGE_ID"] = "Cannot update \"#FIELD#\" for an existing object.";

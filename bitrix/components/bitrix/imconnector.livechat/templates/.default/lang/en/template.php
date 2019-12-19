@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_LIVECHAT_CONNECTED"] = "Livechat connected";
 $MESS["IMCONNECTOR_COMPONENT_LIVECHAT_CONNECTOR_ERROR_STATUS"] = "An error occurred while using live chat. Please check data specified and test again.";
 $MESS["IMCONNECTOR_COMPONENT_LIVECHAT_CONNECT_ACTIVE"] = "Connect";

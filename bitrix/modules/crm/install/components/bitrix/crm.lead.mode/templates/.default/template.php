@@ -239,14 +239,14 @@ CJSCore::Init(["popup"]);
 		<div class="crm-lead-info-popup-cont-title"><?=$arResult["IS_LEAD_ENABLED"] ? GetMessage("CRM_TYPE_POPUP_TITLE") : GetMessage("CRM_TYPE_POPUP_TITLE_LEADS_DISABLED")?></div>
 		<div class="crm-lead-info-popup-btn-wrap">
 			<div class="crm-lead-info-popup-btn-wrap-half js-bx-lead-type-block" data-crm-type="simple">
-				<span id="crm-lead-info-popup-btn-local" class="crm-lead-info-popup-btn crm-lead-info-popup-btn-local<?if (!$arResult["IS_LEAD_ENABLED"]):?> crm-lead-info-popup-btn-active<?endif?>">
+				<span id="crm-lead-info-popup-btn-local" class="crm-lead-info-popup-btn crm-lead-info-popup-btn-local<?php if (!$arResult["IS_LEAD_ENABLED"]):?> crm-lead-info-popup-btn-active<?php endif?>">
 					<span class="crm-lead-info-popup-btn-text"><?=GetMessage("CRM_TYPE_SIMPLE")?></span>
 					<span class="crm-lead-info-popup-btn-descript"><?=GetMessage("CRM_TYPE_SIMPLE_DESC")?></span>
 				</span>
 				<span class="crm-lead-info-popup-btn-wrap-text"><?=GetMessage("CRM_TYPE_SIMPLE_DESC2")?></span>
 			</div>
 			<div class="crm-lead-info-popup-btn-wrap-half js-bx-lead-type-block" data-crm-type="classic">
-				<span id="crm-lead-info-popup-btn-cloud" class="crm-lead-info-popup-btn crm-lead-info-popup-btn-cloud <?if ($arResult["IS_LEAD_ENABLED"]):?> crm-lead-info-popup-btn-active<?endif?>">
+				<span id="crm-lead-info-popup-btn-cloud" class="crm-lead-info-popup-btn crm-lead-info-popup-btn-cloud <?php if ($arResult["IS_LEAD_ENABLED"]):?> crm-lead-info-popup-btn-active<?php endif?>">
 					<span class="crm-lead-info-popup-btn-text"><?=GetMessage("CRM_TYPE_CLASSIC")?></span>
 					<span class="crm-lead-info-popup-btn-descript"><?=GetMessage("CRM_TYPE_CLASSIC_DESC")?></span>
 				</span>
@@ -259,19 +259,19 @@ CJSCore::Init(["popup"]);
 		<div class="crm-lead-info-descript">
 			<div class="crm-lead-info-descript-text"><?=GetMessage("CRM_TYPE_CHANGE")?></div>
 			<img class="crm-lead-info-descript-img" src="<?=$this->GetFolder()?>/images/<?=$arResult["CURRENT_LANG"]?>.png" alt="">
-			<?if (!$arResult["IS_CRM_ADMIN"]):?>
+			<?php if (!$arResult["IS_CRM_ADMIN"]):?>
 			<div class="crm-lead-info-descript-text crm-lead-info-descript-text-info"><?=GetMessage("CRM_RIGTHS_INFO")?></div>
-			<?endif?>
+			<?php endif?>
 		</div>
 	</div>
-	<?if ($arResult["IS_CRM_ADMIN"]):?>
+	<?php if ($arResult["IS_CRM_ADMIN"]):?>
 	<div class="crm-lead-info-popup-deal-block">
 		<?=GetMessage("CRM_DEAL_SETTINGS", array(
 			"#LINK_START#" => "<span class=\"crm-lead-info-popup-deal-link js-bx-converter-config\">",
 			"#LINK_END#" => "</span>")
 		);?>
 	</div>
-	<?endif?>
+	<?php endif?>
 </div>
 
 <script>

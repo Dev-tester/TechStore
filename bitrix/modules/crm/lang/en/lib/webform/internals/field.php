@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_FIELD_TYPE_RESOURCEBOOKING"] = "Book a resource";
 $MESS["CRM_WEBFORM_FIELD_TYPE"] = "Field type";
 $MESS["CRM_WEBFORM_FIELD_TYPE_SECTION"] = "Section";

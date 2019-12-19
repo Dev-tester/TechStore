@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_MOD_CATALOG_ADMIN_CSS_TITLE"] = "Выбор раздела";
 $MESS["BX_MOD_CATALOG_ADMIN_CSS_BAD_BLOCK_TYPE_ID"] = "Неверный тип инфоблока";
 $MESS["BX_MOD_CATALOG_ADMIN_CSS_BAD_IBLOCK"] = "Неверный инфоблок";

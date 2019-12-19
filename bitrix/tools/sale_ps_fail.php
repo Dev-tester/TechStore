@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("NO_AGENT_CHECK", true);
 define('NOT_CHECK_PERMISSIONS', true);

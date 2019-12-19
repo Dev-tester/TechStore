@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Crm\Integration;
 /** @var array $arResult */
@@ -75,7 +75,7 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 				</div><!--crm-activity-popup-recall-select-container-->
 				<div class="crm-activity-popup-recall-remind-container">
 					<label class="crm-activity-popup-recall-remind-block">
-						<input type="checkbox" class="crm-activity-popup-recall-remind-checkbox" data-role="notify-activator" <?if ($activity['NOTIFY_VALUE']):?>checked<?endif?>>
+						<input type="checkbox" class="crm-activity-popup-recall-remind-checkbox" data-role="notify-activator" <?php if ($activity['NOTIFY_VALUE']):?>checked<?php endif?>>
 						<span class="crm-activity-popup-recall-remind-text" data-role="notify-activator-label" data-label-y="<?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_SWITCHER_2')?>" data-label-n="<?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_SWITCHER')?>"><?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_SWITCHER'.($activity['NOTIFY_VALUE'] ? '_2' : ''))?></span>
 					</label>
 					<span class="crm-activity-popup-recall-remind-link crm-activity-popup-container-open" data-role="notify-switcher"></span>
@@ -83,7 +83,7 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 			</div><!--crm-activity-popup-recall-container-->
 			<div class="crm-activity-popup-timeline-container">
 				<div class="crm-activity-popup-calendar-planner-wrap" id="calendar-planner-outer<?=htmlspecialcharsbx($arResult['PLANNER_ID'])?>" style="min-height: 104px">
-					<?
+					<?php 
 					\Bitrix\Main\UI\Extension::load("ui.alerts");
 					CCalendarPlanner::Init(array(
 						'id' => 'calendar_planner_'.htmlspecialcharsbx($arResult['PLANNER_ID']),
@@ -108,9 +108,9 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 					<label class="crm-activity-popup-timeline-detail-info-duration-name"><?=GetMessage('CRM_ACTIVITY_PLANNER_DURATION')?>:</label>
 					<input type="text" name="durationValue" value="<?=(int)$arResult['DURATION_VALUE']?>" placeholder="---" class="crm-activity-popup-timeline-detail-info-duration-number" data-role="duration-value">
 					<select name="durationType" class="crm-activity-popup-timeline-detail-info-duration-input" data-role="duration-type">
-						<option value="<?=CCrmActivityNotifyType::Min?>" <?if ($arResult['DURATION_TYPE'] === CCrmActivityNotifyType::Min):?> selected<?endif?>><?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_TYPE_M')?></option>
-						<option value="<?=CCrmActivityNotifyType::Hour?>" <?if ($arResult['DURATION_TYPE'] === CCrmActivityNotifyType::Hour):?> selected<?endif?>><?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_TYPE_H')?></option>
-						<option value="<?=CCrmActivityNotifyType::Day?>" <?if ($arResult['DURATION_TYPE'] === CCrmActivityNotifyType::Day):?> selected<?endif?>><?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_TYPE_D')?></option>
+						<option value="<?=CCrmActivityNotifyType::Min?>" <?php if ($arResult['DURATION_TYPE'] === CCrmActivityNotifyType::Min):?> selected<?php endif?>><?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_TYPE_M')?></option>
+						<option value="<?=CCrmActivityNotifyType::Hour?>" <?php if ($arResult['DURATION_TYPE'] === CCrmActivityNotifyType::Hour):?> selected<?php endif?>><?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_TYPE_H')?></option>
+						<option value="<?=CCrmActivityNotifyType::Day?>" <?php if ($arResult['DURATION_TYPE'] === CCrmActivityNotifyType::Day):?> selected<?php endif?>><?=GetMessage('CRM_ACTIVITY_PLANNER_NOTIFY_TYPE_D')?></option>
 					</select>
 				</span><!--crm-activity-popup-timeline-detail-info-duration-->
 				<span class="crm-activity-popup-timeline-detail-info-date">
@@ -136,7 +136,7 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 				</div><!--crm-activity-popup-timeline-detail-->
 			</div><!--crm-activity-popup-timeline-container-->
 			<div class="crm-activity-popup-info">
-				<? foreach ($provider::getFieldsForEdit($activity) as $field):
+				<?php  foreach ($provider::getFieldsForEdit($activity) as $field):
 					$name = isset($field['NAME']) ? $field['NAME'] : '';
 					if($name === '')
 					{
@@ -149,20 +149,20 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 						case 'TEXT':?>
 							<div class="crm-activity-popup-info-location-container">
 								<span class="crm-activity-popup-info-location-text"><?=htmlspecialcharsbx($field['LABEL'])?>:</span>
-								<input type="text" name="<?=strtolower($name)?>" value="<?=htmlspecialcharsbx($field['VALUE'])?>" class="crm-activity-popup-info-location" <?if($field['PLACEHOLDER'] != ''):?>placeholder="<?=htmlspecialcharsbx($field['PLACEHOLDER'])?>"<?endif?> data-role="focus-on-show">
-							</div><?
+								<input type="text" name="<?=strtolower($name)?>" value="<?=htmlspecialcharsbx($field['VALUE'])?>" class="crm-activity-popup-info-location" <?php if($field['PLACEHOLDER'] != ''):?>placeholder="<?=htmlspecialcharsbx($field['PLACEHOLDER'])?>"<?php endif?> data-role="focus-on-show">
+							</div><?php 
 							break;
 						case 'TEXTAREA':?>
 							<div class="crm-activity-popup-info-person-detail-description">
 								<label class="crm-activity-popup-info-person-detail-description-name"><?=htmlspecialcharsbx($field['LABEL'])?>:</label>
-								<textarea name="<?=strtolower($name)?>" class="crm-activity-popup-info-person-detail-description-input" <?if($field['PLACEHOLDER'] != ''):?>placeholder="<?=htmlspecialcharsbx($field['PLACEHOLDER'])?>"<?endif?>><?=htmlspecialcharsbx($field['VALUE'])?></textarea>
-							</div><?
+								<textarea name="<?=strtolower($name)?>" class="crm-activity-popup-info-person-detail-description-input" <?php if($field['PLACEHOLDER'] != ''):?>placeholder="<?=htmlspecialcharsbx($field['PLACEHOLDER'])?>"<?php endif?>><?=htmlspecialcharsbx($field['VALUE'])?></textarea>
+							</div><?php 
 						break;
 						case 'COMMUNICATIONS': ?>
 							<div class="crm-activity-popup-info-person-container">
 								<span class="crm-activity-popup-info-person-text"><?=htmlspecialcharsbx($field['LABEL'])?>:</span>
 								<div class="crm-activity-popup-info-person-block" data-role="communications-container" data-communication-type="<?=$provider::getCommunicationType($activity['PROVIDER_TYPE_ID'])?>"></div><!--crm-activity-popup-info-person-block-->
-							</div><?
+							</div><?php 
 						default:
 							if (isset($field['HTML']))
 								echo $field['HTML'];
@@ -171,22 +171,22 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 				?>
 				<div class="crm-activity-popup-info-additional-container">
 					<div class="crm-activity-popup-info-person-link-container">
-						<span class="crm-activity-popup-info-person-link-triangle <?if ($arResult['ADDITIONAL_MODE']):?>crm-activity-popup-info-person-link-triangle-up<?endif;?>" data-role="additional-mode-switcher">
+						<span class="crm-activity-popup-info-person-link-triangle <?php if ($arResult['ADDITIONAL_MODE']):?>crm-activity-popup-info-person-link-triangle-up<?php endif;?>" data-role="additional-mode-switcher">
 							<?=GetMessage('CRM_ACTIVITY_PLANNER_ADDITIONAL')?>
 						</span>
 						<div class="crm-activity-popup-timeline-checkbox-container">
 							<label class="crm-activity-popup-timeline-checkbox-block">
-								<input type="checkbox" name="completed" value="Y" class="crm-activity-popup-timeline-checkbox" <?if ($activity['COMPLETED'] == 'Y'):?>checked<?endif?>>
+								<input type="checkbox" name="completed" value="Y" class="crm-activity-popup-timeline-checkbox" <?php if ($activity['COMPLETED'] == 'Y'):?>checked<?php endif?>>
 								<span class="crm-activity-popup-timeline-checkbox-text"><?=GetMessage('CRM_ACTIVITY_PLANNER_CHECK_COMPLETED_2')?></span>
 							</label>
 							<label class="crm-activity-popup-timeline-checkbox-block">
-								<input type="checkbox" name="important" value="Y" class="crm-activity-popup-timeline-checkbox" data-role="priority-switcher" <?if ($activity['PRIORITY'] == CCrmActivityPriority::High):?>checked<?endif?>>
+								<input type="checkbox" name="important" value="Y" class="crm-activity-popup-timeline-checkbox" data-role="priority-switcher" <?php if ($activity['PRIORITY'] == CCrmActivityPriority::High):?>checked<?php endif?>>
 								<span class="crm-activity-popup-timeline-checkbox-text"><?=GetMessage('CRM_ACTIVITY_PLANNER_CHECK_IMPORTANT')?></span>
 								<svg class="crm-activity-popup-timeline-checkbox-flame" viewBox="0 0 12 17" version="1.1">
 									<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 										<g transform="translate(-489.000000, -341.000000)">
 											<g transform="translate(489.000000, 341.000000)">
-												<path class="crm-activity-flame <?if ($activity['PRIORITY'] == CCrmActivityPriority::High):?>crm-activity-popup-container-open<?endif?>" d="M6.99737834,5.68434189e-14 C4.48779883,1.21921125 -1.13686838e-13,5.48917695 -1.13686838e-13,10.0533128 C-1.13686838e-13,14.6177213 4.28414257,16.0853005 4.28414257,16.0853005 L7.71167473,16.0853005 C7.71167473,16.0853005 11.9958173,14.7055089 11.9958173,10.8076861 C11.9958173,5.31551023 6.52190776,4.21298556 6.99737834,5.68434189e-14" fill="#A6ACB3" data-role="priority-flame"></path>
+												<path class="crm-activity-flame <?php if ($activity['PRIORITY'] == CCrmActivityPriority::High):?>crm-activity-popup-container-open<?php endif?>" d="M6.99737834,5.68434189e-14 C4.48779883,1.21921125 -1.13686838e-13,5.48917695 -1.13686838e-13,10.0533128 C-1.13686838e-13,14.6177213 4.28414257,16.0853005 4.28414257,16.0853005 L7.71167473,16.0853005 C7.71167473,16.0853005 11.9958173,14.7055089 11.9958173,10.8076861 C11.9958173,5.31551023 6.52190776,4.21298556 6.99737834,5.68434189e-14" fill="#A6ACB3" data-role="priority-flame"></path>
 												<path d="M3,12.9755379 C3,15.605875 5.33680504,16.4515986 5.33680504,16.4515986 L7.20636804,16.4515986 C7.20636804,16.4515986 8.99790865,15.6564644 8.99790865,13.4102615 C8.99790865,10.2452788 6.54431789,10.4536899 5.99895433,8 C4.63009278,8.70259631 3,10.3453579 3,12.9755379 Z" fill="#EEF2F4"></path>
 											</g>
 										</g>
@@ -195,15 +195,15 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 							</label>
 						</div><!--crm-activity-popup-timeline-checkbox-container-->
 					</div><!--crm-activity-popup-info-person-link-container-->
-					<div class="crm-activity-popup-info-person-detail-container <?if ($arResult['ADDITIONAL_MODE']):?>crm-activity-person-detail-open<?endif;?>" data-role="additional-container">
-						<? foreach ($provider::getAdditionalFieldsForEdit($activity) as $field):
+					<div class="crm-activity-popup-info-person-detail-container <?php if ($arResult['ADDITIONAL_MODE']):?>crm-activity-person-detail-open<?php endif;?>" data-role="additional-container">
+						<?php  foreach ($provider::getAdditionalFieldsForEdit($activity) as $field):
 							switch ($field['TYPE'])
 							{
 								case 'DESCRIPTION': ?>
 									<div class="crm-activity-popup-info-person-detail-description">
 										<label class="crm-activity-popup-info-person-detail-description-name"><?=GetMessage('CRM_ACTIVITY_PLANNER_DESCRIPTION')?>:</label>
 										<textarea name="description" class="crm-activity-popup-info-person-detail-description-input"><?=htmlspecialcharsbx($activity['DESCRIPTION'])?></textarea>
-									</div><?
+									</div><?php 
 									break;
 								case 'PROVIDER_TYPE':
 									$directions = $provider::getTypeDirections($activity['PROVIDER_TYPE_ID']);
@@ -212,18 +212,18 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 										<div class="crm-activity-popup-info-person-detail-calendar">
 										<label class="crm-activity-popup-info-person-detail-calendar-name"><?=GetMessage('CRM_ACTIVITY_PLANNER_DIRECTIONS')?>:</label>
 										<select name="direction" class="crm-activity-popup-info-person-detail-calendar-input" data-role="field-direction">
-											<?foreach ($directions as $dir => $label):?>
-												<option value="<?=htmlspecialcharsbx($dir)?>" <?if($activity['DIRECTION'] == $dir):?>selected<?endif;?>><?=htmlspecialcharsbx($label)?></option>
-											<?endforeach;?>
+											<?php foreach ($directions as $dir => $label):?>
+												<option value="<?=htmlspecialcharsbx($dir)?>" <?php if($activity['DIRECTION'] == $dir):?>selected<?php endif;?>><?=htmlspecialcharsbx($label)?></option>
+											<?php endforeach;?>
 										</select>
-										</div><?
+										</div><?php 
 									}
 									break;
 								case 'FILE': ?>
 									<div class="crm-activity-popup-info-person-detail-file">
 										<div class="crm-activity-popup-info-person-detail-file-name" data-role="storage-switcher" data-storage-type="<?=(int)$activity['STORAGE_TYPE_ID']?>" data-values="<?=$storageValues?>" data-props="<?=$storageProps?>"><?=GetMessage('CRM_ACTIVITY_PLANNER_FILES')?>:</div>
 										<div data-role="storage-container"></div>
-									</div> <?
+									</div> <?php 
 									break;
 								case 'DEAL':
 									if ($activity['OWNER_TYPE_ID'] !== CCrmOwnerType::Order)
@@ -233,7 +233,7 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 											<span class="crm-activity-popup-info-person-text"><?=GetMessage('CRM_ACTIVITY_PLANNER_DEAL')?>:</span>
 											<div class="crm-activity-popup-info-person-detail-deal" data-role="deal-container"></div><!--crm-activity-popup-info-person-detail-deal-->
 										</div>
-										<?
+										<?php 
 									}
 									break;
 								case 'ORDER':
@@ -244,14 +244,14 @@ $communicationsData = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($arResult
 											<span class="crm-activity-popup-info-person-text"><?=GetMessage('CRM_ACTIVITY_PLANNER_ORDER')?>:</span>
 											<div class="crm-activity-popup-info-person-detail-deal" data-role="order-container"></div><!--crm-activity-popup-info-person-detail-order-->
 										</div>
-										<?
+										<?php 
 									}
 									break;
 								case 'RESPONSIBLE': ?>
 									<div class="crm-activity-popup-info-person-detail-responsible">
 										<label class="crm-activity-popup-info-person-detail-responsible-name"><?=GetMessage('CRM_ACTIVITY_PLANNER_RESPONSIBLE_USER')?>:</label>
 										<div class="crm-activity-popup-info-person-detail-responsible-person-container" data-role="responsible-container" style="margin-bottom: 20px"></div><!--crm-activity-popup-info-person-detail-responsible-->
-									</div><?
+									</div><?php 
 									break;
 								default:
 									if (isset($field['HTML']))

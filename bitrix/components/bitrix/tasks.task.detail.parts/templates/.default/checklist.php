@@ -67,7 +67,7 @@ $APPLICATION->AddHeadScript('/bitrix/js/main/dd.js');
 						)
 					);
 
-					<?if($arParams['READ_ONLY'] != 'Y'):?>
+					<?php if($arParams['READ_ONLY'] != 'Y'):?>
 						tasksDetailPartsNS.initChecklistItem(
 							<?php echo ($isCreateTaskMode ? 'true' : 'false'); ?>, 
 							<?php echo (int) $arResult['TASK_ID']; ?>, 
@@ -75,7 +75,7 @@ $APPLICATION->AddHeadScript('/bitrix/js/main/dd.js');
 							'<?php echo CUtil::JSEscape($itemData['~TITLE']); ?>', 
 							<?php echo (($itemData['IS_COMPLETE'] === 'Y') ? 'true' : 'false'); ?>
 						);
-					<?endif?>
+					<?php endif?>
 					<?php
 				}
 				?>
@@ -124,10 +124,10 @@ $APPLICATION->AddHeadScript('/bitrix/js/main/dd.js');
 		<?php
 	}
 	?>
-	<?if(!$isCreateTaskMode):?>
+	<?php if(!$isCreateTaskMode):?>
 		<a id="task-detail-checklist-show-completed" class="webform-field-action-link tasks-checklist-action-link" href="javascript:void(0);" style="margin-right: 20px"><?=GetMessage('TASKS_DETAIL_CHECKLIST_SHOW_COMPLETED')?></a>
 		<a id="task-detail-checklist-hide-completed" class="webform-field-action-link tasks-checklist-action-link" href="javascript:void(0);" style="margin-right: 20px"><?=GetMessage('TASKS_DETAIL_CHECKLIST_HIDE_COMPLETED')?></a>
-	<?endif?>
+	<?php endif?>
 
 	<script>
 		tasksDetailPartsNS.initChecklist(<?=($isCreateTaskMode ? 'true' : 'false')?>);

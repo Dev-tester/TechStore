@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\ModuleManager;
 use Bitrix\Main\Update\Stepper;

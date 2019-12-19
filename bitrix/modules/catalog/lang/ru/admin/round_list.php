@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRICE_ROUND_HEADER_NAME_CATALOG_GROUP_ID"] = "Тип цен";
 $MESS["PRICE_ROUND_HEADER_TITLE_CATALOG_GROUP_ID"] = "Тип цен для округления";
 $MESS["PRICE_ROUND_HEADER_NAME_PRICE"] = "Цена от";

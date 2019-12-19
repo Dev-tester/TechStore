@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEW_LEARNING_TEXT_ANSWER_NAME"] = "New Text Answer";
 $MESS["NEW_LEARNING_TEXT_ANSWER_DESC"] = "#ID# - The result ID
 #ATTEMPT_ID# - The attempt ID

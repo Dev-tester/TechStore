@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Мебельная компания");
 ?><p>
@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 </p><p>
 «Мебельная компания» осуществляет производство мебели на высококлассном оборудовании с применением минимальной доли ручного труда, что позволяет обеспечить высокое качество нашей продукции. Налажен производственный процесс как массового и индивидуального характера, что с одной стороны позволяет обеспечить постоянную номенклатуру изделий и индивидуальный подход – с другой.
 <h3>Наша продукция</h3>
-<?$APPLICATION->IncludeComponent("bitrix:furniture.catalog.index", "", array(
+<?php $APPLICATION->IncludeComponent("bitrix:furniture.catalog.index", "", array(
 	"IBLOCK_TYPE" => "products",
 	"IBLOCK_ID" => "#PRODUCTS_IBLOCK_ID#",
 	"IBLOCK_BINDING" => "section",
@@ -17,7 +17,7 @@ $APPLICATION->SetTitle("Мебельная компания");
 	false
 );?>
 <h3>Наши услуги</h3>
-<?$APPLICATION->IncludeComponent("bitrix:furniture.catalog.index", "", array(
+<?php $APPLICATION->IncludeComponent("bitrix:furniture.catalog.index", "", array(
 	"IBLOCK_TYPE" => "products",
 	"IBLOCK_ID" => "#SERVICES_IBLOCK_ID#",
 	"IBLOCK_BINDING" => "element",
@@ -27,4 +27,4 @@ $APPLICATION->SetTitle("Мебельная компания");
 	),
 	false
 );?>
-</p><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+</p><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

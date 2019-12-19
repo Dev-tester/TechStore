@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -297,16 +297,16 @@ BX.ready(function() {
 			</td>
 			<td class="sidebar-pulse-cell-r">
 				<div class="sidebar-pulse-nums">
-					<div class="sidebar-pulse-counter" title="<?=GetMessage('INTRANET_USTAT_WIDGET_ACTIVITY_HELP')?>"><span id="pulse-cnt"></span><?
+					<div class="sidebar-pulse-counter" title="<?=GetMessage('INTRANET_USTAT_WIDGET_ACTIVITY_HELP')?>"><span id="pulse-cnt"></span><?php 
 						$frame = $this->createFrame("pulse-cnt", false)->begin("");
 						echo number_format($arResult['STATUS_INFO']['ACTIVITY'], 0, '', ' ');
 						$frame->end();
 					?><div class="sidebar-pulse-counter-line"></div>
 					</div>
-					<div class="sidebar-pulse-percent" title="<?=GetMessage('INTRANET_USTAT_WIDGET_INVOLVEMENT_HELP')?>"><span id="pulse-rate"></span><?
+					<div class="sidebar-pulse-percent" title="<?=GetMessage('INTRANET_USTAT_WIDGET_INVOLVEMENT_HELP')?>"><span id="pulse-rate"></span><?php 
 						$frame = $this->createFrame("pulse-rate", false)->begin("");
 						echo $arResult['STATUS_INFO']['INVOLVEMENT'];
-						?><span class="sidebar-pulse-percent-icon">%</span><?
+						?><span class="sidebar-pulse-percent-icon">%</span><?php 
 						$frame->end();
 					?><div class="sidebar-pulse-percent-bg"></div>
 					</div>

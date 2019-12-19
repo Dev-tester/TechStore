@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_INCLUDE_PAGE'] = "для страницы";
 $MESS ['MAIN_INCLUDE_SECT'] = "для раздела";
 $MESS ['MAIN_INCLUDE_FILE'] = "из файла";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $forumPermissions = $APPLICATION->GetGroupRight("forum");
@@ -81,7 +81,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("FPN_2FLIST"),
@@ -112,13 +112,13 @@ $context->Show();
 if($message)
 	echo $message->Show();
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>" name="forum_edit">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>" name="forum_edit">
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("FPN_TAB_POINT"), "ICON" => "forum", "TITLE" => GetMessage("FPN_TAB_POINT_DESCR")),
 	);
@@ -127,16 +127,16 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID>0):?>
+	<?php if ($ID>0):?>
 	<tr>
 		<td width="40%">ID:</td>
-		<td width="60%"><?echo $ID ?></td>
+		<td width="60%"><?php echo $ID ?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr class="adm-detail-required-field">
 		<td width="40%">
@@ -156,7 +156,7 @@ $tabControl->BeginNextTab();
 			<input type="text" name="CODE" value="<?=htmlspecialcharsbx($str_CODE)?>" size="30" />
 		</td>
 	</tr>
-	<?
+	<?php 
 	if (COption::GetOptionString("forum", "SHOW_VOTES", "Y")=="Y"):
 	?>
 	<tr>
@@ -166,7 +166,7 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 
-	<?
+	<?php 
 	endif;
 	for ($i = 0; $i < count($arSysLangs); $i++):
 		$arPointsLang = CForumPoints::GetLangByID($ID, $arSysLangs[$i]);
@@ -174,7 +174,7 @@ $tabControl->BeginNextTab();
 		?>
 		<tr class="heading">
 			<td colspan="2">
-				[<?echo $arSysLangs[$i];?>] <?echo $arSysLangNames[$i];?>
+				[<?php echo $arSysLangs[$i];?>] <?php echo $arSysLangNames[$i];?>
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
@@ -182,16 +182,16 @@ $tabControl->BeginNextTab();
 				<?= GetMessage("FORUM_PE_NAME") ?>:
 			</td>
 			<td>
-				<input type="text" name="NAME_<?echo $arSysLangs[$i] ?>" value="<?=htmlspecialcharsbx($str_NAME)?>" size="40" />
+				<input type="text" name="NAME_<?php echo $arSysLangs[$i] ?>" value="<?=htmlspecialcharsbx($str_NAME)?>" size="40" />
 			</td>
 		</tr>
-	<?endfor;?>
+	<?php endfor;?>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => ($forumPermissions < "W"),
@@ -201,7 +201,7 @@ $tabControl->Buttons(
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 $messageParams = array("POINTS[MIN_POINTS]" => "MIN_POINTS");
 for ($i = 0; $i<count($arSysLangs); $i++)
 {

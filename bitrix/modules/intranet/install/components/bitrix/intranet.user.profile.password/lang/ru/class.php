@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_FIELD_PASSWORD"] = "Новый пароль";
 $MESS["INTRANET_USER_PROFILE_FIELD_CONFIRM_PASSWORD"] = "Подтверждение нового пароля";
 $MESS["INTRANET_USER_PROFILE_SECTION_PASSWORD"] = "Смена пароля";

@@ -45,7 +45,7 @@ BX.ready(
 		);
 	}
 );
-</script><?
+</script><?php 
 endif;
 if (is_array($arResult['STEXPORT_PARAMS']))
 {

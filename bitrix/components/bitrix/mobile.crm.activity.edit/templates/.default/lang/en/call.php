@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_ACTIVITY_EDIT_PULL_TEXT"] = "Pull down to refresh...";
 $MESS["M_CRM_ACTIVITY_EDIT_DOWN_TEXT"] = "Release to refresh...";
 $MESS["M_CRM_ACTIVITY_EDIT_LOAD_TEXT"] = "Updating...";

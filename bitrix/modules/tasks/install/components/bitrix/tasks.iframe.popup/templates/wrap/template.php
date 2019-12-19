@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Localization\Loc;
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
@@ -114,9 +114,9 @@ else
 	);
 endif?>
 
-<?if($isIFrame):?>
+<?php if($isIFrame):?>
 
-	<?
+	<?php 
 	// to stay inside iframe after form submit and also after clicking on "to task" links
 	// for other links target="_top" is used
 	$urlParameters = array('IFRAME' => 'Y');
@@ -142,7 +142,7 @@ endif?>
 				}
 			</script>
 
-			<?
+			<?php 
 			//The fastest way to close Slider Loader.
 			Bitrix\Main\Page\Asset::getInstance()->setJsToBody(true);
 			Bitrix\Main\Page\Asset::getInstance()->addString("
@@ -162,40 +162,40 @@ endif?>
 				</script>
 			", false, \Bitrix\Main\Page\AssetLocation::AFTER_CSS);
 			?>
-			<? $APPLICATION->ShowHead(); ?>
-			<title><?$APPLICATION->ShowTitle()?></title>
+			<?php  $APPLICATION->ShowHead(); ?>
+			<title><?php $APPLICATION->ShowTitle()?></title>
 		</head>
 		<body id="tasks-iframe-popup-scope" class="
-			template-<?=SITE_TEMPLATE_ID?> <?$APPLICATION->ShowProperty("BodyClass");?> <?if($isSideSlider):?>task-iframe-popup-side-slider<?endif?>" onload="window.top.BX.onCustomEvent(window.top, 'tasksIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'tasksIframeUnload');">
+			template-<?=SITE_TEMPLATE_ID?> <?php $APPLICATION->ShowProperty("BodyClass");?> <?php if($isSideSlider):?>task-iframe-popup-side-slider<?php endif?>" onload="window.top.BX.onCustomEvent(window.top, 'tasksIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'tasksIframeUnload');">
 
-			<?if($isSideSlider):?>
+			<?php if($isSideSlider):?>
 				<div class="tasks-iframe-header">
 					<div class="pagetitle-wrap">
 						<div class="pagetitle-inner-container">
-							<div class="pagetitle-menu" id="pagetitle-menu"><?
+							<div class="pagetitle-menu" id="pagetitle-menu"><?php 
 								$APPLICATION->ShowViewContent("pagetitle")
 								?></div>
 							<div class="pagetitle">
-								<span id="pagetitle" class="pagetitle-item"><?$APPLICATION->ShowTitle(false);?><?if($existingTask):?><span class="task-page-link-btn js-id-copy-page-url" title="<?=Loc::getMessage('TASKS_TIP_TEMPLATE_COPY_CURRENT_URL')?>"></span><?endif?></span>
+								<span id="pagetitle" class="pagetitle-item"><?php $APPLICATION->ShowTitle(false);?><?php if($existingTask):?><span class="task-page-link-btn js-id-copy-page-url" title="<?=Loc::getMessage('TASKS_TIP_TEMPLATE_COPY_CURRENT_URL')?>"></span><?php endif?></span>
 							</div>
 						</div>
 					</div>
 				</div>
-				<?// side slider needs for an additional controller, but in case of standard iframe there is a controller already: tasks.iframe.popup default template?>
+				<?php // side slider needs for an additional controller, but in case of standard iframe there is a controller already: tasks.iframe.popup default template?>
 				<script>
 					new BX.Tasks.Component.IframePopup.SideSlider({
 						scope: BX('tasks-iframe-popup-scope')
 					});
 				</script>
-			<?endif?>
+			<?php endif?>
 
-			<div class="task-iframe-workarea <?if($isSideSlider):?>task-iframe-workarea-own-padding<?endif?>" id="tasks-content-outer">
-				<?$APPLICATION->ShowViewContent("below_pagetitle");?>
+			<div class="task-iframe-workarea <?php if($isSideSlider):?>task-iframe-workarea-own-padding<?php endif?>" id="tasks-content-outer">
+				<?php $APPLICATION->ShowViewContent("below_pagetitle");?>
 				<div class="task-iframe-sidebar">
-					<? $APPLICATION->ShowViewContent("sidebar"); ?>
+					<?php  $APPLICATION->ShowViewContent("sidebar"); ?>
 				</div>
 				<div class="task-iframe-content">
-<?
+<?php 
 endif;
 
 if(\Bitrix\Tasks\Util\Restriction::canManageTask())
@@ -219,8 +219,8 @@ if($isIFrame):?>
 				</div>
 			</div>
 		</body>
-	</html><?
+	</html><?php 
 	require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');
 	die();?>
 
-<?endif?>
+<?php endif?>

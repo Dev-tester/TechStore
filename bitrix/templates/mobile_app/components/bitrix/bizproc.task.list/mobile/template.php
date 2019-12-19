@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 global $APPLICATION;
 $APPLICATION->AddHeadString('<script type="text/javascript" src="'
 	.CUtil::GetAdditionalFileURL(SITE_TEMPLATE_PATH . '/bizproc_mobile.js')
@@ -9,7 +9,7 @@ if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	?>
 	<span class='errortext' style="color: red"><?= $arResult["FatalErrorMessage"] ?></span>
-	<?
+	<?php 
 	return;
 }
 
@@ -17,7 +17,7 @@ if (strlen($arResult["ErrorMessage"]) > 0)
 {
 	?>
 	<span class='errortext' style="color: red"><?= $arResult["ErrorMessage"] ?></span><br /><br />
-	<?
+	<?php 
 }
 if (empty($arResult["RECORDS"])):?>
 	<div class="bp-empty-search">
@@ -25,7 +25,7 @@ if (empty($arResult["RECORDS"])):?>
 			<div class="bp-empty-search-text"><?=GetMessage("MB_BP_LIST_IS_EMPTY")?></div>
 		</div>
 	</div>
-<?
+<?php 
 else: foreach($arResult["RECORDS"] as $record):
 	$task = $record['data'];
 	if (empty($task['DOCUMENT_ICON']))
@@ -50,13 +50,13 @@ else: foreach($arResult["RECORDS"] as $record):
 					<!-- content -->
 					<div class="pb-popup-mobile">
 						<div class="bp-post bp-lent">
-							<?if ($task["DOCUMENT_NAME"]):?>
+							<?php if ($task["DOCUMENT_NAME"]):?>
 								<span class="bp-title-desc">
 									<span class=""><?=$task["DOCUMENT_NAME"]?></span>
 								</span>
-							<?endif?>
+							<?php endif?>
 							<div class="bp-short-process-inner">
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									"bitrix:bizproc.workflow.faces",
 									"",
 									array(
@@ -67,7 +67,7 @@ else: foreach($arResult["RECORDS"] as $record):
 								);
 								?>
 							</div>
-							<?
+							<?php 
 							if ($task['USER_STATUS'] > CBPTaskUserStatus::Waiting):
 								switch ($task['USER_STATUS'])
 								{
@@ -84,7 +84,7 @@ else: foreach($arResult["RECORDS"] as $record):
 							elseif ($task['IS_INLINE'] == 'Y'):?>
 								<div class="bp-btn-panel">
 									<div class="">
-										<?
+										<?php 
 										$controls = CBPDocument::getTaskControls($task);
 										foreach ($controls['BUTTONS'] as $control):
 											$class = $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Yes || $control['TARGET_USER_STATUS'] == CBPTaskUserStatus::Ok ? 'accept' : 'decline';
@@ -98,22 +98,22 @@ else: foreach($arResult["RECORDS"] as $record):
 												<span class="bp-button-icon"></span>
 												<span class="bp-button-text"><?=$control['TEXT']?></span>
 											</a>
-										<?
+										<?php 
 										endforeach;
 										?>
 									</div>
 								</div>
-							<?else:?>
+							<?php else:?>
 								<div class="bp-btn-panel">
 									<a href="javascript:void(0)" class="webform-small-button bp-small-button webform-small-button-blue">
 										<span class="bp-button-text"><?=GetMessage("BPATL_BEGIN")?></span>
 									</a>
 								</div>
-							<?endif?>
+							<?php endif?>
 
 							<div class="bp-task-block">
 								<span class="bp-task-block-title"><?=GetMessage("BPATL_TASK_TITLE")?>: </span>
-								<?
+								<?php 
 								if (strlen($task["DESCRIPTION"]) > 0):
 									echo nl2br($task["DESCRIPTION"]);
 								else:
@@ -131,7 +131,7 @@ else: foreach($arResult["RECORDS"] as $record):
 			</div>
 		</div>
 	</div>
-<?endforeach; endif;?>
+<?php endforeach; endif;?>
 
 <script type="text/javascript">
 	BX.ready(function(){
@@ -175,7 +175,7 @@ else: foreach($arResult["RECORDS"] as $record):
 				}
 			]
 		});
-		<? $pageTitle = GetMessageJS("MB_BP_TITLE");
+		<?php  $pageTitle = GetMessageJS("MB_BP_TITLE");
 		if ($arResult['currentUserStatus'] > 0)
 			$pageTitle = GetMessageJs($arResult['currentUserStatus'] == 2 ? 'BPATL_FILTER_STATUS_ALL' : 'BPATL_FILTER_STATUS_COMPLETE');
 		?>
@@ -190,9 +190,9 @@ else: foreach($arResult["RECORDS"] as $record):
 			app.reload();
 		};
 		BX.removeCustomEvent('bpDoTaskComplete', h);
-		<?if ($arResult['currentUserStatus']==0):?>
+		<?php if ($arResult['currentUserStatus']==0):?>
 		BXMobileApp.addCustomEvent('bpDoTaskComplete', h);
-		<?endif?>
+		<?php endif?>
 	});
 
 	app.pullDown({

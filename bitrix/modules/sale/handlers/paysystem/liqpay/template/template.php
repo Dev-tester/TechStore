@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -9,7 +9,7 @@ Loc::loadMessages(__FILE__);
 <div class="mb-4">
 	<p><?=Loc::getMessage("PAYMENT_DESCRIPTION_PS")?> <strong>LiqPAY.com</strong>.</p>
 	<p><?=Loc::getMessage("PAYMENT_DESCRIPTION_SUM")?>: <strong><?=CurrencyFormat($params["PAYMENT_SHOULD_PAY"], $params['PAYMENT_CURRENCY'])?></strong></p>
-	<?
+	<?php 
 	if ($params['PAYMENT_CURRENCY'] == "RUB")
 		$params['PAYMENT_CURRENCY'] = "RUR";
 	?>

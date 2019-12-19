@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ATTACH_FILE_QUESTION"] = "Прикріпити ваше резюме (.zip, .rar, .doc)";
 $MESS["EMAIL_QUESTION"] = "E-mail";
 $MESS["EXPERIENCE_QUESTION"] = "Досвід роботи";

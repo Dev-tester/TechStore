@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This class left for compatibility
  *

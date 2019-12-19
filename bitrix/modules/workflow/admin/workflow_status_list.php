@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -257,12 +257,12 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
 
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <tr valign="top">
 	<td><b><?=GetMessage("MAIN_FIND")?>:</b></td>
 	<td nowrap>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage('FLOW_F_DESCRIPTION'),
@@ -283,32 +283,32 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 
 <tr>
 	<td>ID:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="top">
 	<td nowrap><?=GetMessage("FLOW_F_ACTIVE")?>:</td>
-	<td nowrap><?
+	<td nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr valign="center">
 	<td nowrap><?=GetMessage("FLOW_TITLE")?>:</td>
-	<td nowrap><input type="text" name="find_title" value="<?echo htmlspecialcharsbx($find_title)?>" size="47"><?=ShowExactMatchCheckbox("find_title")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_title" value="<?php echo htmlspecialcharsbx($find_title)?>" size="47"><?=ShowExactMatchCheckbox("find_title")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
 	<td nowrap><?=GetMessage("FLOW_F_DESCRIPTION")?>:</td>
-	<td nowrap><input type="text" name="find_description" value="<?echo htmlspecialcharsbx($find_description)?>" size="47"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_description" value="<?php echo htmlspecialcharsbx($find_description)?>" size="47"><?=ShowExactMatchCheckbox("find_description")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td nowrap><?echo GetMessage("FLOW_F_DOCUMENTS")?>:</td>
-	<td nowrap><input type="text" name="find_documents_1" value="<?=htmlspecialcharsbx($find_documents_1)?>" size="5"><?echo "&nbsp;".GetMessage("FLOW_TILL")."&nbsp;"?><input type="text" name="find_documents_2" value="<?=htmlspecialcharsbx($find_documents_2)?>" size="5"></td>
+	<td nowrap><?php echo GetMessage("FLOW_F_DOCUMENTS")?>:</td>
+	<td nowrap><input type="text" name="find_documents_1" value="<?=htmlspecialcharsbx($find_documents_1)?>" size="5"><?php echo "&nbsp;".GetMessage("FLOW_TILL")."&nbsp;"?><input type="text" name="find_documents_2" value="<?=htmlspecialcharsbx($find_documents_2)?>" size="5"></td>
 </tr>
 <?=ShowLogicRadioBtn()?>
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form" => "form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form" => "form1"));$filter->End();?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MSG_ADM_TITLE"] = "Письма";
 $MESS["MAIL_MSG_ADM_ERR_DELETE"] = "Ошибка удаления письма";
 $MESS["MAIL_MSG_ADM_MAILBOX"] = "Почтовый ящик";

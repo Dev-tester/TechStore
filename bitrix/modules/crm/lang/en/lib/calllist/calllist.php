@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CALL_LIST_LICENSE_POPUP_CONTENT"] = "Use call lists to make up a list of clients that expect your call and create a respective task for the assigned responsible person.";
 $MESS["CRM_CALL_LIST_LICENSE_POPUP_FOOTER"] = "Call lists and other useful features are available starting with Plus plan for only \$39/mo .";
 $MESS["CRM_CALL_LIST_LICENSE_POPUP_FOOTER_2"] = "Call Lists and other useful features are available in <a href=\"/settings/license_all.php\" target=\"_blank\">selected commercial plans</a>.";

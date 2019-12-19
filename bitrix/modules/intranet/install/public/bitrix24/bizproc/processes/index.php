@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/bizproc/processes/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:lists", ".default", array(
 		"IBLOCK_TYPE_ID" => "bitrix_processes",
 		"SEF_MODE" => "Y",
@@ -23,4 +23,4 @@ $APPLICATION->IncludeComponent("bitrix:lists", ".default", array(
 );
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_JSSOR_PARAMETER_NO"] = "(not set)";
 $MESS["ADV_JSSOR_PARAMETER_IMG"] = "Slide image";
 $MESS["ADV_JSSOR_PARAMETER_LINK_URL"] = "Slide link";

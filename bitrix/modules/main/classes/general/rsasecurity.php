@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CRsaProvider
 {
 	//$_M, $_E - public components

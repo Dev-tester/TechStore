@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RQ_IMP_HLPR_ERR_EMPTY_KEY_FIELDS"] = "Отсутствуют значения ключевых полей";
 $MESS["CRM_RQ_IMP_HLPR_ERR_NEXT_ENTITY"] = "Данные принадлежат следующей сущности";
 $MESS["CRM_RQ_IMP_HLPR_ERR_NEXT_ROW_LIMIT"] = "Превышен лимит кол-ва строк на одну сущность: #ROW_LIMIT#.";

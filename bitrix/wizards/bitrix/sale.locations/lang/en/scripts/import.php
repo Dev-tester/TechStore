@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WSL_IMPORT_ERROR_ACCESS_DENIED"] = "Error: access denied!";
 $MESS["WSL_IMPORT_ERROR_FILES"] = "Error! Bad file names.";
 $MESS["WSL_IMPORT_FILES_LOADING"] = "Processing files...";

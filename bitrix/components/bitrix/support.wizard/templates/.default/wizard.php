@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $template = $arParams["TEMPLATE_TYPE"]=='standard'?'standard':'';
 $APPLICATION->IncludeComponent("bitrix:iblock.wizard", $template, Array(

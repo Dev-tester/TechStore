@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DELIVERY_EXTRA_SERVICE_STRING_TITLE"] = "Extra Service";
 $MESS["DELIVERY_EXTRA_SERVICE_STRING_PRICE"] = "Preis pro Stück";
 ?>

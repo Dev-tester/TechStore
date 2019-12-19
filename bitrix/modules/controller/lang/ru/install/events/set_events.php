@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CONTROLLER_MEMBER_REGISTER_NAME'] = "Регистрация нового клиента";
 $MESS ['CONTROLLER_MEMBER_REGISTER_DESC'] = "#ID# - числовой идентификатор,
 #MEMBER_ID# - глобальный идентификатор клиента,

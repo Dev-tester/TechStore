@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || strpos($this->__component->__parent->__name, "photogallery") === false):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/themes/gray/style.css');
@@ -7,7 +7,7 @@ div.photo-gallery-avatar{
 	width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;
 	height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;}
 </style>
-<?
+<?php 
 endif;
 
 if (!empty($arResult["ERROR_MESSAGE"])):
@@ -15,14 +15,14 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="photo-note-box photo-note-error">
 	<div class="photo-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"])?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])):
 ?>
 <div class="photo-note-box photo-note-note">
 	<div class="photo-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"])?></div>
 </div>
-<?
+<?php 
 endif;
 
 ?>
@@ -54,7 +54,7 @@ endif;
 			<input type="text" name="NAME" id="NAME" value="<?=$arResult["FORM"]["NAME"]?>" />
 		</div>
 
-<?if (count($arResult["GALLERIES"]) > 1 || (count($arResult["GALLERIES"]) > 0 && $arParams["ACTION"] == "CREATE")):?>
+<?php if (count($arResult["GALLERIES"]) > 1 || (count($arResult["GALLERIES"]) > 0 && $arParams["ACTION"] == "CREATE")):?>
 		<div class="photo-edit-field photo-edit-field-active">
 			<input type="checkbox" name="ACTIVE" id="GALLERY_ACTIVE" value="Y" <?=
 				($arResult["FORM"]["UF_DEFAULT"] == "Y" ? " checked='checked'" : "")?> <?=
@@ -62,13 +62,13 @@ endif;
 			<label for="GALLERY_ACTIVE"><?=GetMessage("P_GALLERY_ACTIVE")?></label>
 			<i><?=GetMessage("P_GALLERY_ACTIVE_NOTIFY")?></i>
 		</div>
-<?endif;?>
+<?php endif;?>
 
 		<div class="photo-edit-field photo-edit-field-avatar">
 			<label for="AVATAR"><?=GetMessage("P_GALLERY_AVATAR")?></label>
-		<?if (!empty($arResult["FORM"]["AVATAR"]["SRC"])):?>
+		<?php if (!empty($arResult["FORM"]["AVATAR"]["SRC"])):?>
 			<div class="photo-gallery-avatar" style="background-image:url('<?=$arResult["FORM"]["AVATAR"]["SRC"]?>'); float: left; margin-right: 0.5em;"></div>
-		<?endif;?>
+		<?php endif;?>
 			<input type="file" name="AVATAR" id="AVATAR" value="" />
 			<i><?=str_replace(array("#WIDTH#", "#HEIGHT#"),
 				$arParams["GALLERY_AVATAR_SIZE"], GetMessage("P_GALLERY_AVATAR_NOTIFY"))?></i>

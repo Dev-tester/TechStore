@@ -135,7 +135,7 @@ class CSqlTokenizer
 
 	function parse($sql)
 	{
-		$this->tokens = token_get_all("<?".$sql);
+		$this->tokens = token_get_all("<?php ".$sql);
 		array_shift($this->tokens);
 		$this->current = 0;
 

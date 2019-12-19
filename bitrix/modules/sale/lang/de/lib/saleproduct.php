@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PRODUCT_ENTITY_ID"] = "ID";
 $MESS["SALE_PRODUCT_ENTITY_QUANTITY"] = "Lagerbestand";
 $MESS["SALE_PRODUCT_ENTITY_NAME"] = "Name";

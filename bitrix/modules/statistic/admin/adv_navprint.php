@@ -1,4 +1,4 @@
-<?
+<?php 
 echo('<font class="'.$StyleText.'">('.$title.' ');
 echo(($this->NavPageNomer-1)*$this->NavPageSize+1);
 echo(' - ');

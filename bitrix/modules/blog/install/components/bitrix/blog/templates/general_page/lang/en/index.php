@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BC_NEW_COMMENTS'] = "Recent comments";
 $MESS ['BC_NEW_BLOGS'] = "New";
 $MESS ['BC_POPULAR_BLOGS'] = "Popular";

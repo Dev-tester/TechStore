@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 -document	pdf
 +document	rtf TODO: source document encoding

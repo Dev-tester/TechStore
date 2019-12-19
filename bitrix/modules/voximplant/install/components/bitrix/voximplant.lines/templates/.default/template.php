@@ -16,7 +16,7 @@ if($isBitrix24Template)
 			<button class="ui-btn ui-btn-primary ui-btn-icon-add"><?= Loc::getMessage("VOX_LINES_CREATE_NUMBER_GROUP") ?></button>
 		</div>
 	</div>
-<?
+<?php 
 
 if($isBitrix24Template)
 {

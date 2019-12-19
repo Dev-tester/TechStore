@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['REGISTER_SHOW_FIELDS'] = "Поля, которые показывать в форме";
 $MESS ['REGISTER_REQUIRED_FIELDS'] = "Поля, обязательные для заполнения";
 $MESS ['REGISTER_AUTOMATED_AUTH'] = "Автоматически авторизовать пользователей";

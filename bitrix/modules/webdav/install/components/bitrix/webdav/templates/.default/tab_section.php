@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$arSection = $APPLICATION->IncludeComponent("bitrix:webdav.section.edit", ".default", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $arSection = $APPLICATION->IncludeComponent("bitrix:webdav.section.edit", ".default", Array(
 	"OBJECT" => $arParams["OBJECT"], 
 	"SECTION_ID"	=>	$arResult["VARIABLES"]["SECTION_ID"],
 	"ELEMENT_ID"	=>	$arResult["VARIABLES"]["ELEMENT_ID"],

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FM_ML"] = "Media Library";
 $MESS["FM_ML_UPL_LOACATE"] = "Select Collection";
 $MESS["FM_ML_UPL_NOTICE"] = "You can bind new files to collections after upload is complete.";

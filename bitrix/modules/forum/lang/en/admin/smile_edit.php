@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_EDIT_RECORD'] = "Edit smiley N#ID#";
 $MESS ['FORUM_NEW_RECORD'] = "New smiley";
 $MESS ['ERROR_EDIT_SMILE'] = "Error updating the smiley";

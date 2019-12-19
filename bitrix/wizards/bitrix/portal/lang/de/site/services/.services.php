@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_SENDER"] = "CRM-Marketing";
 $MESS["SERVICE_MAIN_SETTINGS"] = "Einstellungen des Intranet-Portals";
 $MESS["SERVICE_VOTE"] = "Umfragen und Abstimmungen";

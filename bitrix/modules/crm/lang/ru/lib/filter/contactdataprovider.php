@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONTACT_FILTER_ALL"] = "(все)";
 $MESS["CRM_CONTACT_FILTER_COMPANY_ID"] = "Список компаний";
 $MESS["CRM_CONTACT_FILTER_COMPANY_TITLE"] = "Название компании";

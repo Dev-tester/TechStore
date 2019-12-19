@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["YANDEX_CERT_ERR_EXT"] = "Erweiterung ist ungültig. Ein Zertifikat muss eine .cer Datei sein.";
 $MESS["YANDEX_CERT_ERR_LOAD"] = "Das Zertifikat kann nicht hochgeladen werden. Versuchen Sie bitte erneut.";
 $MESS["YANDEX_CERT_ERR_SIZE"] = "Das Zertifikat kann nicht hochgeladen werden, weil die Datei zu groß ist. Maximale Dateigröße beträgt 2 KB.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 /** @global string $mid */
@@ -200,13 +200,13 @@ if (!isset($periodList[$currentValues['iblock_activity_dates_period']]))
 }
 
 $tabControl->Begin();
-?><form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?echo LANGUAGE_ID?>"><?
+?><form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?php echo LANGUAGE_ID?>"><?php 
 $tabControl->BeginNextTab();
 foreach($arAllOptions as $arOption)
 {
 	if (!is_array($arOption))
 	{
-		?><tr class="heading"><td colspan="2"><?=htmlspecialcharsbx($arOption); ?></td></tr><?
+		?><tr class="heading"><td colspan="2"><?=htmlspecialcharsbx($arOption); ?></td></tr><?php 
 	}
 	else
 	{
@@ -216,8 +216,8 @@ foreach($arAllOptions as $arOption)
 		$controlId = htmlspecialcharsbx($id);
 		?>
 		<tr>
-			<td width="40%" nowrap <? if ($type[0] == "textarea") echo 'class="adm-detail-valign-top"' ?>>
-				<?
+			<td width="40%" nowrap <?php  if ($type[0] == "textarea") echo 'class="adm-detail-valign-top"' ?>>
+				<?php 
 				if ($id == 'property_features_enabled')
 				{
 					$message = GetMessage(
@@ -225,41 +225,41 @@ foreach($arAllOptions as $arOption)
 						['#LINK#' => 'https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=42&LESSON_ID=1986']
 					);
 					?><span id="hint_<?= $controlId; ?>"></span>
-					<script type="text/javascript">BX.hint_replace(BX('hint_<?=$controlId;?>'), '<?=\CUtil::JSEscape($message); ?>');</script>&nbsp;<?
+					<script type="text/javascript">BX.hint_replace(BX('hint_<?=$controlId;?>'), '<?=\CUtil::JSEscape($message); ?>');</script>&nbsp;<?php 
 					unset($message);
 				}
 				?><label for="<?=$controlId; ?>"><?=htmlspecialcharsbx($arOption[1]); ?></label>
 			<td width="60%">
-			<?
+			<?php 
 			switch ($type[0])
 			{
 				case "checkbox":
 					?><input type="hidden" name="<?=$controlId; ?>" value="N">
-					<input type="checkbox" id="<?=$controlId; ?>" name="<?=$controlId; ?>" value="Y"<?=($val == "Y" ? " checked" : ""); ?>><?
+					<input type="checkbox" id="<?=$controlId; ?>" name="<?=$controlId; ?>" value="Y"<?=($val == "Y" ? " checked" : ""); ?>><?php 
 					break;
 				case "text":
-					?><input type="text" id="<?=$controlId; ?>" name="<?=$controlId; ?>" value="<?=htmlspecialcharsbx($val); ?>" size="<?=$type[1]; ?>" maxlength="255"><?
+					?><input type="text" id="<?=$controlId; ?>" name="<?=$controlId; ?>" value="<?=htmlspecialcharsbx($val); ?>" size="<?=$type[1]; ?>" maxlength="255"><?php 
 					break;
 				case "textarea":
-					?><textarea id="<?=$controlId; ?>" name="<?=$controlId; ?>" rows="<?=$type[1]; ?>" cols="<?=$type[2]; ?>"><?=htmlspecialcharsbx($val); ?></textarea><?
+					?><textarea id="<?=$controlId; ?>" name="<?=$controlId; ?>" rows="<?=$type[1]; ?>" cols="<?=$type[2]; ?>"><?=htmlspecialcharsbx($val); ?></textarea><?php 
 					break;
 			}
 			?>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 }
 unset($arOption, $arAllOptions);
 $tabControl->BeginNextTab();
 ?><tr class="heading"><td colspan="2"><?=htmlspecialcharsbx(GetMessage("IBLOCK_OPTION_SECTION_TAG_CACHE")); ?></td></tr>
 <tr>
-	<td style="width: 40%; white-space: nowrap;" class="adm-detail-valign-top"><?
+	<td style="width: 40%; white-space: nowrap;" class="adm-detail-valign-top"><?php 
 	echo GetMessage("IBLOCK_OPTION_CHECK_ACTIVITY_CACHE");
 	?></td>
 	<td style="width: 60%">
 		<table id="iblockList" class="internal">
-		<?
+		<?php 
 		if (!empty($currentValues['iblock_activity_dates']))
 		{
 			foreach($currentValues['iblock_activity_dates'] as $iblockId)
@@ -273,7 +273,7 @@ $tabControl->BeginNextTab();
 							<input type="button" value="<?=htmlspecialcharsbx(GetMessage("IBLOCK_MESS_DELETE_ENTITY")) ?>" onclick="deleteRow(this)">
 							<input type="hidden" name="IBLOCK_ACTIVITY_DATES[]" value="<?=$iblockId; ?>">
 						</td>
-						</tr><?
+						</tr><?php 
 				}
 			}
 			unset($iblockId);
@@ -297,7 +297,7 @@ $tabControl->BeginNextTab();
 				}
 			}
 		}
-		function InS<?echo md5("input_IBLOCK_LIST")?>(iblockId, iblockName)
+		function InS<?php echo md5("input_IBLOCK_LIST")?>(iblockId, iblockName)
 		{
 			var table = document.getElementById('iblockList'),
 				oRow,
@@ -328,10 +328,10 @@ $tabControl->BeginNextTab();
 <tr>
 	<td style="width: 40%;"><?=GetMessage("IBLOCK_OPTION_CHECK_ACTIVITY_PERIOD"); ?></td>
 	<td style="width: 60%;">
-		<select id="iblock_activity_dates_period" name="iblock_activity_dates_period"><?
+		<select id="iblock_activity_dates_period" name="iblock_activity_dates_period"><?php 
 		foreach ($periodList as $index => $value)
 		{
-			?><option value="<?=$index; ?>"<?=($index == $currentValues['iblock_activity_dates_period'] ? ' selected' : '');?>><?=htmlspecialcharsbx($value); ?></option><?
+			?><option value="<?=$index; ?>"<?=($index == $currentValues['iblock_activity_dates_period'] ? ' selected' : '');?>><?=htmlspecialcharsbx($value); ?></option><?php 
 		}
 		?></select>
 	</td>
@@ -342,17 +342,17 @@ $tabControl->BeginNextTab();
 		<input type="text" name="iblock_activity_dates_period_custom" value="<?=$currentValues['iblock_activity_dates_period_custom']; ?>"><?=GetMessage('IBLOCK_OPTION_CHECK_ACTIVITY_PERIOD_CUSTOM_UNIT'); ?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->Buttons();?>
 	<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
 <script type="text/javascript">
 function checkFeatures()
@@ -380,14 +380,14 @@ function checkCachePeriod()
 BX.ready(function(){
 	var featureControl = BX('property_features_enabled'),
 		periodControl = BX('iblock_activity_dates_period');
-<?if ($needFeatureConfirm)
+<?php if ($needFeatureConfirm)
 {
 	?>
 	if (BX.type.isElementNode(featureControl))
 	{
 		BX.bind(featureControl, 'click', checkFeatures);
 	}
-<?
+<?php 
 }
 ?>
 	if (BX.type.isElementNode(periodControl))

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_MEM_EDIT_ERR"] = "Client not found";
 $MESS["CTRLR_MEM_EDIT_ERROR"] = "Error";
 $MESS["CTRLR_MEM_EDIT_ERR2"] = "Disconnection error";

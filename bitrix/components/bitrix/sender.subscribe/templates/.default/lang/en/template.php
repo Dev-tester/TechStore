@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["subscr_form_title_desc"] = "Select Subscription";
 $MESS["subscr_form_email_title"] = "Enter your e-mail address";
 $MESS["subscr_form_button"] = "Subscribe";

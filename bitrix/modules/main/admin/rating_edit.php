@@ -139,10 +139,10 @@ $tabControl->BeginEpilogContent();
 	<input type="hidden" name="ID" value=<?=$ID?>>
 	<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 	<input type="hidden" name="action" value="" id="action">
-<?if($_REQUEST["addurl"]<>""):?>
-	<input type="hidden" name="addurl" value="<?echo htmlspecialcharsbx($_REQUEST["addurl"])?>">
-<?endif;?>
-<?
+<?php if($_REQUEST["addurl"]<>""):?>
+	<input type="hidden" name="addurl" value="<?php echo htmlspecialcharsbx($_REQUEST["addurl"])?>">
+<?php endif;?>
+<?php 
 $tabControl->EndEpilogContent();
 $tabControl->Begin();
 
@@ -157,7 +157,7 @@ $arObjects = CRatings::GetRatingObjects();
 		<td><?=GetMessage("RATING_EDIT_FRM_TYPE_ID")?></td>
 		<td><?=SelectBoxFromArray("ENTITY_ID", array('reference_id' => $arObjects, 'reference' => $arObjects), $str_ENTITY_ID, "", "onChange=\"jsTypeChanged('rating_form')\"");?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("ENTITY_ID");
 
 $tabControl->BeginCustomField("CALCULATION_METHOD", GetMessage('RATING_EDIT_FRM_CALC_METHOD'), true);
@@ -170,7 +170,7 @@ $arCalcMethod = array(
 		<td width="40%"><?=GetMessage("RATING_EDIT_FRM_CALC_METHOD")?></td>
 		<td width="60%"><?=SelectBoxFromArray("CALCULATION_METHOD", $arCalcMethod, $str_CALCULATION_METHOD);?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("CALCULATION_METHOD");
 
 
@@ -180,7 +180,7 @@ $tabControl->BeginCustomField("ACTIVE", GetMessage('RATING_EDIT_FRM_ACTIVE'), fa
 		<td><?=GetMessage("RATING_EDIT_FRM_ACTIVE")?></td>
 		<td><?=InputType("checkbox", "ACTIVE", "Y", $str_ACTIVE)?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("ACTIVE");
 
 $tabControl->AddSection("CAT_RATING_COMPONENT", GetMessage("RATING_EDIT_CAT_RATING_COMPONENT"));
@@ -190,7 +190,7 @@ $tabControl->BeginCustomField("CAT_WHAT_CNT_FORM", '', true);
 ?>
 	<tr>
 		<td width="100%" colspan="2">
-<?
+<?php 
 $aTabs2 = Array();
 foreach ($arRatingConfigs as $arConfigModule => $arConfigModuleValue)
 	$aTabs2[] = Array("DIV"=>"panel_".$arConfigModule, "TAB" => $arConfigModuleValue['MODULE_NAME'], "TITLE" => $arConfigModuleValue['MODULE_NAME']);
@@ -215,7 +215,7 @@ foreach ($arRatingConfigs as $arConfigModule => $arConfigModuleValue)
 						$bBlockException = true;
 						?>
 						<div class="rating-component-exception"><?=$exceptionText?></div><br>
-						<?
+						<?php 
 					}
 				}
 				$FIELD_COUNT = count($arConfig['FIELDS']);
@@ -244,7 +244,7 @@ foreach ($arRatingConfigs as $arConfigModule => $arConfigModuleValue)
 							<tr valign="top" style="">
 								<td class="rating-table-component-table-td rating-table-component-table-td-1">
 									<table cellpadding="3" cellspacing="0" class="rating-table-component-table-td-table" align="right">
-									<?
+									<?php 
 									for ($i=0; $i<$FIELD_COUNT; $i++)
 									{
 										if (isset($arConfig['FIELDS'][$i]['TYPE']) && $arConfig['FIELDS'][$i]['TYPE'] == 'SELECT_ARRAY_WITH_INPUT')
@@ -272,13 +272,13 @@ foreach ($arRatingConfigs as $arConfigModule => $arConfigModuleValue)
 
 											?>
 											<tr valign="top">
-												<td class="rating-table-component-table-td-table-td rating-table-component-table-td-table-td-1 field-name" style="vertical-align:middle"><label><? echo isset($arConfig['FIELDS'][$i]['NAME'])? $arConfig['FIELDS'][$i]['NAME']: GetMessage('RATING_FIELDS_DEF_NAME')?></label></td>
+												<td class="rating-table-component-table-td-table-td rating-table-component-table-td-table-td-1 field-name" style="vertical-align:middle"><label><?php  echo isset($arConfig['FIELDS'][$i]['NAME'])? $arConfig['FIELDS'][$i]['NAME']: GetMessage('RATING_FIELDS_DEF_NAME')?></label></td>
 												<td class="rating-table-component-table-td-table-td rating-table-component-table-td-table-td-2" width="25%" >
 													<?=SelectBoxFromArray("CONFIGS[$arConfigModule][$arConfigType>][".$arConfig['ID']."][".$arConfig['FIELDS'][$i]['ID']."]", $arSelect, $strFieldValue, "");?>
 													<input type="text" name="CONFIGS[<?=$arConfigModule?>][<?=$arConfigType?>][<?=$arConfig['ID']?>][<?=$arConfig['FIELDS'][$i]['ID_INPUT']?>]" value="<?=htmlspecialcharsbx($strFieldValueInput)?>" style="width:45px;">
 												</td>
 											</tr>
-											<?
+											<?php 
 										}
 										else
 										{
@@ -290,31 +290,31 @@ foreach ($arRatingConfigs as $arConfigModule => $arConfigModuleValue)
 												$strFieldValue = $str_CONFIGS[$arConfigModule][$arConfigType][$arConfig['ID']][$arConfig['FIELDS'][$i]['ID']];
 											?>
 											<tr valign="top" style="">
-												<td class="rating-table-component-table-td-table-td rating-table-component-table-td-table-td-1 field-name" style="vertical-align:middle"><label><? echo isset($arConfig['FIELDS'][$i]['NAME'])? $arConfig['FIELDS'][$i]['NAME']: GetMessage('RATING_FIELDS_DEF_NAME')?></label></td>
+												<td class="rating-table-component-table-td-table-td rating-table-component-table-td-table-td-1 field-name" style="vertical-align:middle"><label><?php  echo isset($arConfig['FIELDS'][$i]['NAME'])? $arConfig['FIELDS'][$i]['NAME']: GetMessage('RATING_FIELDS_DEF_NAME')?></label></td>
 												<td class="rating-table-component-table-td-table-td rating-table-component-table-td-table-td-2" width="20%"><input type="text" name="CONFIGS[<?=$arConfigModule?>][<?=$arConfigType?>][<?=$arConfig['ID']?>][<?=$arConfig['FIELDS'][$i]['ID']?>]" value="<?=htmlspecialcharsbx($strFieldValue)?>"></td>
 											</tr>
-											<?
+											<?php 
 										}
 									}
 									?>
 									</table>
 								</td>
 								<td width="50%" class="rating-table-component-table-td rating-table-component-table-td-2 rating-component-descr" style="padding-left:10px;" rowspan="<?=$FIELD_COUNT?>">
-								<? if(isset($arConfig['DESC'])): ?>
+								<?php  if(isset($arConfig['DESC'])): ?>
 									<p style="margin-top:5px"><?=$arConfig['DESC']?></p>
-								<? else: ?>
+								<?php  else: ?>
 									<p><?=GetMessage('RATING_FIELDS_DEF_DESC')?></p>
-								<? endif; ?>
-								<? if(isset($arConfig['FORMULA'])): ?>
+								<?php  endif; ?>
+								<?php  if(isset($arConfig['FORMULA'])): ?>
 									<p class="formula"><?=$arConfig['FORMULA']?></p>
-								<? else: ?>
+								<?php  else: ?>
 									<p class="formula"><?=GetMessage('RATING_FIELDS_DEF_FORMULA')?></p>
-								<? endif; ?>
-								<? if(isset($arConfig['FORMULA_DESC'])): ?>
+								<?php  endif; ?>
+								<?php  if(isset($arConfig['FORMULA_DESC'])): ?>
 									<p><?=$arConfig['FORMULA_DESC']?></p>
-								<? else: ?>
+								<?php  else: ?>
 									<p><?=GetMessage('RATING_FIELDS_DEF_FORMULA_DESC')?></p>
-								<? endif; ?>
+								<?php  endif; ?>
 								</td>
 							</tr>
 						</table>
@@ -323,7 +323,7 @@ foreach ($arRatingConfigs as $arConfigModule => $arConfigModuleValue)
 				</tr>
 				<tr><td colspan="2" class="rating-table-td rating-component-gap"></td></tr>
 				</table>
-			<?
+			<?php 
 			}
 		}
 	}
@@ -332,7 +332,7 @@ $tabControl2->End();
 ?>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("CAT_WHAT_CNT_FORM");
 $tabControl->AddSection("CAT_WHAT_NEW_CALC", GetMessage("RATING_EDIT_CAT_WHAT_NEW_CALC"));
 $tabControl->AddCheckBoxField("POSITION", GetMessage('RATING_EDIT_FRM_POSITION'), false, "Y", ($str_POSITION == 'Y' ? true : false), array());
@@ -370,6 +370,6 @@ function jsChangeDisplayRatingBlock(block_id)
 }
 </script>
 
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

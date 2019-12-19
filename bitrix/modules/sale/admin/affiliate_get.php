@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -20,7 +20,7 @@ if (!CBXFeatures::IsFeatureEnabled('SaleAffiliate'))
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
 </head>
-<body><?
+<body><?php 
 $res = "";
 $ID = IntVal($ID);
 $func_name = preg_replace("/[^a-zA-Z0-9_-]/is", "", $func_name);
@@ -44,5 +44,5 @@ if ($ID > 0)
 window.parent.<?= $func_name ?>('<?= CUtil::JSEscape($res) ?>');
 </script>
 </body>
-</html><?
+</html><?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");

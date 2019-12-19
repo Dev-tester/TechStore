@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['NEXT_BUTTON'] = "Next";
 $MESS ['PREVIOUS_BUTTON'] = "Back";
 $MESS ['WELCOME_TEXT'] = "

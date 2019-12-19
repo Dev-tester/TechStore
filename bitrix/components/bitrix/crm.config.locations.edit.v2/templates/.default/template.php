@@ -1,24 +1,24 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location\Admin\LocationHelper as Helper;
 
 Loc::loadMessages(__FILE__);
 ?>
 
-<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+<?php if(!empty($arResult['ERRORS']['FATAL'])):?>
 
-	<?foreach($arResult['ERRORS']['FATAL'] as $error):?>
+	<?php foreach($arResult['ERRORS']['FATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
+	<?php endforeach?>
 
-<?else:?>
+<?php else:?>
 
-	<?foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
+	<?php foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
+	<?php endforeach?>
 
-	<?
+	<?php 
 	global $APPLICATION;
 
 	CJSCore::Init();
@@ -110,60 +110,60 @@ Loc::loadMessages(__FILE__);
 			ob_start();
 			?>
 
-			<?$randTag = rand(99, 999);?>
+			<?php $randTag = rand(99, 999);?>
 			<div id="ib_external_values_<?=$randTag?>" class="bx-ccle2-external-values">
 
 				<table cellpadding="0" cellspacing="0">
 					<tbody class="bx-ui-dynamiclist-container">
 
 						<tr class="heading">
-							<?foreach($arResult['EXTERNAL_TABLE_COLUMNS'] as $code => $column):?>
+							<?php foreach($arResult['EXTERNAL_TABLE_COLUMNS'] as $code => $column):?>
 								<th><?=$column['title']?></td>
-							<?endforeach?>
+							<?php endforeach?>
 							<th><?=Loc::getMessage('CRM_CLE2_REMOVE')?></th>
 						</tr>
 
-						<?if(is_array($arResult['FORM_DATA']['EXTERNAL']) && !empty($arResult['FORM_DATA']['EXTERNAL'])):?>
+						<?php if(is_array($arResult['FORM_DATA']['EXTERNAL']) && !empty($arResult['FORM_DATA']['EXTERNAL'])):?>
 
-							<?foreach($arResult['FORM_DATA']['EXTERNAL'] as $id => $ext):?>
+							<?php foreach($arResult['FORM_DATA']['EXTERNAL'] as $id => $ext):?>
 								<tr>
-									<?foreach($arResult['EXTERNAL_TABLE_COLUMNS'] as $code => $void):?>
-										<?$value = Helper::makeSafeDisplay($ext[$code], $code);?>
+									<?php foreach($arResult['EXTERNAL_TABLE_COLUMNS'] as $code => $void):?>
+										<?php $value = Helper::makeSafeDisplay($ext[$code], $code);?>
 										<td>
-											<?if($code == 'SERVICE_ID'):?>
+											<?php if($code == 'SERVICE_ID'):?>
 												<select name="EXTERNAL[<?=$ext['ID']?>][<?=$code?>]">
-													<?foreach($arResult['EXTERNAL_SERVICES'] as $sId => $serv):?>
+													<?php foreach($arResult['EXTERNAL_SERVICES'] as $sId => $serv):?>
 														<option value="<?=intval($serv['ID'])?>"<?=($serv['ID'] == $value ? ' selected' : '')?>><?=htmlspecialcharsbx($serv['CODE'])?></option>
-													<?endforeach?>
+													<?php endforeach?>
 												</select>
-											<?elseif($code == 'ID'):?>
-												<?if(intval($value)):?>
+											<?php elseif($code == 'ID'):?>
+												<?php if(intval($value)):?>
 													<?=$value?>
-												<?endif?>
-											<?else:?>
+												<?php endif?>
+											<?php else:?>
 												<input type="text" name="EXTERNAL[<?=$ext['ID']?>][<?=$code?>]" value="<?=$value?>" size="20" />
-											<?endif?>
+											<?php endif?>
 										</td>
-									<?endforeach?>
+									<?php endforeach?>
 
 									<td style="text-align: center">
-										<?if($ext['ID']):?>
+										<?php if($ext['ID']):?>
 											<input type="checkbox" name="EXTERNAL[<?=$ext['ID']?>][REMOVE]" value="1" />
-										<?endif?>
+										<?php endif?>
 									</td>
 								</tr>
-							<?endforeach?>
+							<?php endforeach?>
 
-						<?endif?>
+						<?php endif?>
 
 						<script type="text/html" data-template-id="bx-ui-dynamiclist-row">
 							<tr>
 								<td></td>
 								<td>
 									<select name="EXTERNAL[n{{column_id}}][SERVICE_ID]">
-										<?foreach($arResult['EXTERNAL_SERVICES'] as $sId => $serv):?>
+										<?php foreach($arResult['EXTERNAL_SERVICES'] as $sId => $serv):?>
 											<option value="<?=intval($serv['ID'])?>"><?=htmlspecialcharsbx($serv['CODE'])?></option>
-										<?endforeach?>
+										<?php endforeach?>
 									</select>
 								</td>
 								<td>
@@ -189,7 +189,7 @@ Loc::loadMessages(__FILE__);
 				});
 			</script>
 				
-			<?
+			<?php 
 			$field['value'] = ob_get_contents();
 			ob_end_clean();
 		}
@@ -227,4 +227,4 @@ Loc::loadMessages(__FILE__);
 	);
 	?>
 
-<?endif?>
+<?php endif?>

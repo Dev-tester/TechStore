@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Helpers\Admin;
 
 use Bitrix\Main\Loader;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_CONNECTION_TITLE"] = "Подключение библиотеки документов как сетевого диска";
 $MESS["WD_WEBFOLDER_TITLE"] = "Как подключить библиотеку как Web папку";
 $MESS["WD_MACOS_TITLE"] = "Подключение в Mac OS X";

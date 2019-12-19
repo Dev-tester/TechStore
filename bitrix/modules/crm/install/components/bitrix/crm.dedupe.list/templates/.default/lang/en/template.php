@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEDUPE_LIST_SELECT"] = "Select";
 $MESS["CRM_DEDUPE_LIST_SELECT_ALL"] = "Select all";
 $MESS["CRM_DEDUPE_LIST_UNTITLED_COMPANY"] = "Untitled";

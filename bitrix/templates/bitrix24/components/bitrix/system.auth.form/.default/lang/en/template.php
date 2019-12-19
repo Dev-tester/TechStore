@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['AUTH_ADMIN_SECTION'] = "Administration";
 $MESS['AUTH_AUTH'] = "Authorization";
 $MESS['AUTH_CHANGE_MAIL'] = "E-mail integration options";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_IBLOCK_IS_NOT_INSTALLED'] = "Модуль информационных блоков не установлен.";
 $MESS ['W_WEBDAV_IS_NOT_INSTALLED'] = "Модуль библиотеки документов не установлен.";
 $MESS ['W_WORKFLOW_IS_NOT_INSTALLED'] = "Модуль документооборота не установлен.";

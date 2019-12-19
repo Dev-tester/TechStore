@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SLSS_LOCATION_SELECTOR_TITLE"] = "Выбор местоположений";
 $MESS["SALE_SLSS_CHOICE_DO"] = "Выбрать";
 $MESS["SALE_SLSS_CHOICE_REDO"] = "Изменить выбор";

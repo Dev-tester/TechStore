@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACTIONS"] = "Настройки действий";
 $MESS["IBLOCK_COMPARE"] = "Сравнение товаров";
 $MESS["IBLOCK_EXTENDED_SETTINGS"] = "Специальные настройки";

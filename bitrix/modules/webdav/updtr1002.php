@@ -1,4 +1,4 @@
-<?
+<?php 
 class CWebdavUpdateAgent1002
 {
 	var $optionID = "update_agent_10.0.2";

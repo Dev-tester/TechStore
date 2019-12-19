@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTROLLER_GROUP_MAP_ID"] = "ID";
 $MESS["CONTROLLER_GROUP_MAP_CONTROLLER_GROUP_ID"] = "Группа на контроллере";
 $MESS["CONTROLLER_GROUP_MAP_REMOTE_GROUP_CODE"] = "Код группы на гостевом сайте";

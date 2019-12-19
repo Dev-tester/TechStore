@@ -1,4 +1,4 @@
-<?
+<?php 
 define("MODULE_ID", "lists");
 if($_REQUEST['entity']=="BitrixListsBizprocDocumentLists")
 	define("ENTITY", 'Bitrix\Lists\BizprocDocumentLists');

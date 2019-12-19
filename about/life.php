@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/about/life.php");
 $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:news", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:news", ".default", Array(
 	"IBLOCK_TYPE"	=>	"news",
 	"IBLOCK_ID"	=>	"1",
 	"NEWS_COUNT"	=>	"10",
@@ -76,4 +76,4 @@ $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 	)
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

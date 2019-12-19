@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
@@ -21,11 +21,11 @@ if(!defined("BX_GADGET_DEFAULT"))
 		var langGDConfirmUser = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CONF_USER"))?>';
 		var langGDConfirmGroup = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CONF_GROUP"))?>';
 		var langGDClearConfirm = '<?=CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CLEAR_CONF"))?>';
-		var langGDCancel = "<?echo CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CANCEL"))?>";
-	</script><?
+		var langGDCancel = "<?php echo CUtil::JSEscape(GetMessage("CMDESKTOP_TDEF_CANCEL"))?>";
+	</script><?php 
 	if($arResult["PERMISSION"]>"R")
 	{
-		?><script type="text/javascript" src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script><?
+		?><script type="text/javascript" src="/bitrix/components/bitrix/desktop/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/desktop/script.js');?>"></script><?php 
 	}
 }
 
@@ -49,7 +49,7 @@ if($arResult["PERMISSION"]>"R")
 		BX.ready(function() {
 			new BXGadget('<?=$arResult["ID"]?>', <?=CUtil::PhpToJSObject($allGD)?>);
 		});
-	</script><?
+	</script><?php 
 
 	$gadgetButtons = '
 	<div class="sidebar-buttons">
@@ -127,16 +127,16 @@ if ($arResult["PERMISSION"] > "W")
 
 <table class="gadgetholder gadgetholder-<?=$arResult["ID"]?>" cellspacing="0" cellpadding="0" width="100%" id="GDHolder_<?=$arResult["ID"]?>">
 	<tbody>
-	<tr><?
+	<tr><?php 
 		for($i=0; $i<$arResult["COLS"]; $i++)
 		{
 			if($i==0)
 			{
-				?><td class="gd-page-column<?=$i?>" valign="top" width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s0"><?
+				?><td class="gd-page-column<?=$i?>" valign="top" width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s0"><?php 
 				if ($arResult["COLS"] == 1)
 				{
 					$this->SetViewTarget("sidebar", 100);
-					?><?=$gadgetButtons?><?
+					?><?=$gadgetButtons?><?php 
 					$this->EndViewTarget();
 				}
 			}
@@ -146,9 +146,9 @@ if ($arResult["PERMISSION"] > "W")
 					<div style="WIDTH: 10px"></div>
 					<br />
 				</td>
-				<td class="gd-page-column<?=$i?>" valign="top" width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s2"><?
+				<td class="gd-page-column<?=$i?>" valign="top" width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s2"><?php 
 					$this->SetViewTarget("sidebar", 100);
-					?><?=$gadgetButtons?><?
+					?><?=$gadgetButtons?><?php 
 					$this->EndViewTarget();
 			}
 			else
@@ -157,7 +157,7 @@ if ($arResult["PERMISSION"] > "W")
 					<div style="WIDTH: 10px"></div>
 					<br />
 				</td>
-				<td class="gd-page-column<?=$i?>" valign="top"  width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s1"><?
+				<td class="gd-page-column<?=$i?>" valign="top"  width="<?=$arResult["COLUMN_WIDTH"][$i]?>" id="s1"><?php 
 			}
 				
 			foreach($arResult["GADGETS"][$i] as $arGadget)
@@ -173,26 +173,26 @@ if ($arResult["PERMISSION"] > "W")
 				)
 					$bChangable = false;
 				?>
-				<table id="t<?=$arGadget["ID"]?>" class="data-table-gadget<?=($arGadget["HIDE"] == "Y" ?' gdhided':'')?>"><tr><td><div class="gdparent"><?
+				<table id="t<?=$arGadget["ID"]?>" class="data-table-gadget<?=($arGadget["HIDE"] == "Y" ?' gdhided':'')?>"><tr><td><div class="gdparent"><?php 
 					if($arResult["PERMISSION"]>"R")
 					{
 						?><div class="gdheader" style="cursor:move;" onmousedown="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arGadget["ID"]?>', event)" onmouseover="this.className=this.className.replace(/\s*gdheader-hover\s*/,'') + ' gdheader-hover';" onmouseout="this.className=this.className.replace(/\s*gdheader-hover\s*/,'')">
-							<div class="gdheader-actions"><?
+							<div class="gdheader-actions"><?php 
 							if ($bChangable)
 							{
-								?><a class="gdsettings<?=($arGadget["NOPARAMS"]?' gdnoparams':'')?>" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').ShowSettings('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_SETTINGS")?>"></a><?
+								?><a class="gdsettings<?=($arGadget["NOPARAMS"]?' gdnoparams':'')?>" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').ShowSettings('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_SETTINGS")?>"></a><?php 
 							}
-							?><a class="gdhide" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Hide('<?=$arGadget["ID"]?>', this);" title="<?=GetMessage("CMDESKTOP_TDEF_HIDE")?>"></a><?
+							?><a class="gdhide" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Hide('<?=$arGadget["ID"]?>', this);" title="<?=GetMessage("CMDESKTOP_TDEF_HIDE")?>"></a><?php 
 							if ($bChangable)
 							{
-								?><a class="gdremove" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_DELETE")?>"></a><?
+								?><a class="gdremove" href="javascript:void(0)" onclick="return getGadgetHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arGadget["ID"]?>');" title="<?=GetMessage("CMDESKTOP_TDEF_DELETE")?>"></a><?php 
 							}
 							?>
-							</div><?
+							</div><?php 
 					}
 					else
 					{
-						?><div class="gdheader"><?
+						?><div class="gdheader"><?php 
 					}
 					?><div class="gdheader-title"><?=$arGadget["TITLE"]?></div>
 					</div>
@@ -200,9 +200,9 @@ if ($arResult["PERMISSION"] > "W")
 					<div class="gdoptions" style="display:none" id="dset<?=$arGadget["ID"]?>"></div>
 					<div class="gdcontent" id="dgd<?=$arGadget["ID"]?>"><?=$arGadget["CONTENT"]?></div>
 				</div></td></tr></table>
-				<div style="display:none; border:1px #404040 dashed; margin-bottom:8px;" id="d<?=$arGadget["ID"]?>"></div><?
+				<div style="display:none; border:1px #404040 dashed; margin-bottom:8px;" id="d<?=$arGadget["ID"]?>"></div><?php 
 			}
-			?></td><?
+			?></td><?php 
 		}
 	?></tr>
 	</tbody>

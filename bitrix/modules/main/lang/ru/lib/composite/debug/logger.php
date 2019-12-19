@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_COMPOSITE_LOG_MESSAGE"] = "Сообщение";
 $MESS["MAIN_COMPOSITE_LOG_BUFFER_RESTART"] = "Вызов RestartBuffer";
 $MESS["MAIN_COMPOSITE_LOG_CACHE_REWRITING"] = "Перезапись кеша";

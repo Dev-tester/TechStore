@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FOLDER_EDIT_ACCESS_DENIED"] = "Доступ к редактированию раздела запрещен.";
 $MESS["ACCESS_EDIT_FILE_NOT_FOUND"] = "Указанный файл не существует.";
 $MESS["EDIT_ACCESS_TO_DENIED"] = "Недостаточно прав для изменения параметров доступа к";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SOURCE_BASE_ADS_DESC"] = "%name% ad source";
 $MESS["CRM_TRACKING_SOURCE_BASE_NAME_ANOTHER"] = "Other traffic";
 $MESS["CRM_TRACKING_SOURCE_BASE_NAME_FB"] = "Facebook";

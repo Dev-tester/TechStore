@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_LC_GUEST_NAME"] = "Guest";
 $MESS["IMOL_LC_CHAT_NAME_COLOR_GUEST"] = "#COLOR# guest ##NUMBER#";
 $MESS["IMOL_LC_CHAT_NAME_GUEST"] = "Guest ##NUMBER#";

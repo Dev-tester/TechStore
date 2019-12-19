@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_admin_before.php");
 
 define('ADMIN_MODULE_NAME', 'seo');
@@ -163,7 +163,7 @@ if(!empty($errors))
 ?>
 <form method="POST" action="<?=POST_FORM_ACTION_URI?>" name="robots_form" onsubmit="window.seoParser.compile();">
 	<input type="hidden" name="site_id" value="<?=$siteId?>">
-<?
+<?php 
 $fileContent = '';
 if($robotsFile->isExists())
 {
@@ -182,7 +182,7 @@ else
 <script>
 window.seoParser = new BX.seoParser('<?=CUtil::JSEscape($fileContent)?>', 'robots_text');
 </script>
-<?
+<?php 
 $tabControl->Begin();
 
 foreach($arRobotsConfig as $key => $arConfig)
@@ -191,7 +191,7 @@ foreach($arRobotsConfig as $key => $arConfig)
 ?>
 <tr>
 	<td colspan="2" align="center">
-<?
+<?php 
 	$arSubTabs = array();
 	foreach($arConfig as $i => $arAgent)
 	{
@@ -228,18 +228,18 @@ window.seoParser.registerEditor(new BX.seoEditor({
 	}
 }));
 </script>
-<?
+<?php 
 	}
 	$childTabControl->End();
 ?>
 	</td>
 </tr>
 <tr>
-	<td colspan="2"><?echo BeginNote().Loc::getMessage('SEO_ROBOTS_HINT'.(!$bVendor ? '' : '_1C')).EndNote();
+	<td colspan="2"><?php echo BeginNote().Loc::getMessage('SEO_ROBOTS_HINT'.(!$bVendor ? '' : '_1C')).EndNote();
 ?></td>
 </tr>
 
-<?
+<?php 
 }
 
 $tabControl->BeginNextTab();
@@ -251,18 +251,18 @@ $tabControl->BeginNextTab();
 	</td>
 </tr>
 <tr>
-	<td colspan="2"><?echo BeginNote().Loc::getMessage('SEO_ROBOTS_HINT'.(!$bVendor ? '' : '_1C')).EndNote();
+	<td colspan="2"><?php echo BeginNote().Loc::getMessage('SEO_ROBOTS_HINT'.(!$bVendor ? '' : '_1C')).EndNote();
 ?></td>
 </tr>
 
-<?
+<?php 
 $tabControl->Buttons(array('btnApply' => false));
 ?>
 <?=bitrix_sessid_post();?>
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

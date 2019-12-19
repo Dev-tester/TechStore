@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 use Bitrix\Main\Application,
@@ -559,7 +559,7 @@ if (!isset($_REQUEST["mode"]) || ($_REQUEST["mode"] != 'excel' && $_REQUEST["mod
 	function ShowNewCoupons(id, multi)
 	{
 		var PostParams = {
-			lang: '<? echo LANGUAGE_ID; ?>',
+			lang: '<?php  echo LANGUAGE_ID; ?>',
 			DISCOUNT_ID: id,
 			MULTI: multi,
 			ID: 0,
@@ -576,7 +576,7 @@ if (!isset($_REQUEST["mode"]) || ($_REQUEST["mode"] != 'excel' && $_REQUEST["mod
 			'buttons': [BX.CAdminDialog.btnSave, BX.CAdminDialog.btnCancel]
 		})).Show();
 	}
-	</script><?
+	</script><?php 
 	$aContext = array();
 	if (!$couponsReadOnly)
 	{

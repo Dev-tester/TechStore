@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE_TIP'] = "Select one of existing information block types in the list and click <b>OK</b>. This will load information blocks of the selected type.";
 $MESS ['IBLOCK_ID_TIP'] = "Select one of information blocks of the chosen type. If you select <b>(other)-&gt;</b>, specify the information block ID in the field beside.";
 $MESS ['SECTION_ID_TIP'] = "This field contains an expression that evaluates to the section ID. By default, the expression is <b>={\$_REQUEST[\"SECTION_ID\"]}</b>.";

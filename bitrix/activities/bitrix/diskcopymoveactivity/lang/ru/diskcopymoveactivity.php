@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDCM_ACCESS_DENIED"] = "Доступ разрешен только администраторам портала.";
 $MESS["BPDCM_EMPTY_ENTITY_TYPE"] = "Не указан тип места хранения.";
 $MESS["BPDCM_EMPTY_ENTITY_ID"] = "Не указано место хранения.";

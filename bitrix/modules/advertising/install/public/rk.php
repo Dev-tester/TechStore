@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_SECTION",false);
 
 if (!empty($_REQUEST['site_id']) && preg_match('/^[a-z0-9_]{2}$/i', $_REQUEST['site_id']))

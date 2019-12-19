@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PERFMON_HIT_TITLE2'] = "Монитор производительности: страницы";
 $MESS ['PERFMON_HIT_PAGE2'] = "Страницы";
 $MESS ['PERFMON_HIT_SERVER_NAME'] = "Имя сервера";

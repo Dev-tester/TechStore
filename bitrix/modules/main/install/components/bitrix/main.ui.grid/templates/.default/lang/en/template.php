@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_act"] = "Actions";
 $MESS["interface_grid_actions"] = "Action Column";
 $MESS["interface_grid_actions_list"] = "- actions -";

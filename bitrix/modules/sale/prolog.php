@@ -1,4 +1,4 @@
-<?
+<?php 
 define('ADMIN_MODULE_NAME', 'sale');
 use \Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);

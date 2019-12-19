@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROFILE_DATA_SAVED"] = "All changes saved";
 $MESS["LAST_UPDATE"] = "Last update:";
 $MESS["ACTIVE"] = "Active:";

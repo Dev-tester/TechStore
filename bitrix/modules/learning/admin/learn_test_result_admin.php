@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -250,25 +250,25 @@ $filter = new CAdminFilter(
 );
 ?>
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
+<?php $filter->Begin();?>
 
 	<tr>
-		<td><b><?echo GetMessage("LEARNING_ADMIN_QUESTION_NAME")?>:</b></td>
+		<td><b><?php echo GetMessage("LEARNING_ADMIN_QUESTION_NAME")?>:</b></td>
 		<td align="left">
-			<input type="text" name="filter_question_name" size="50" value="<?echo htmlspecialcharsex($filter_question_name)?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_question_name" size="50" value="<?php echo htmlspecialcharsex($filter_question_name)?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 
 	<tr>
 		<td>ID:</b></td>
-		<td><input type="text" name="filter_id" value="<?echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
+		<td><input type="text" name="filter_id" value="<?php echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
 	</tr>
 
 	<tr>
 		<td><?=GetMessage("LEARNING_ADMIN_ANSWERED")?>:</td>
 		<td>
-			<?
+			<?php 
 			$arr = array("reference"=>array(GetMessage("LEARNING_YES"), GetMessage("LEARNING_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("filter_answered", $arr, htmlspecialcharsex($filter_answered), GetMessage('LEARNING_ALL'));
 			?>
@@ -278,14 +278,14 @@ $filter = new CAdminFilter(
 	<tr>
 		<td><?=GetMessage("LEARNING_ADMIN_CORRECT")?>:</td>
 		<td>
-			<?
+			<?php 
 			$arr = array("reference"=>array(GetMessage("LEARNING_YES"), GetMessage("LEARNING_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("filter_correct", $arr, htmlspecialcharsex($filter_correct), GetMessage('LEARNING_ALL'));
 			?>
 		</td>
 	</tr>
 
-<?
+<?php 
 $filter->Buttons(array(
 	"table_id"=>$sTableID,
 	"url"=>$APPLICATION->GetCurPage()."?ATTEMPT_ID=".$ATTEMPT_ID.GetFilterParams("filter_", false), "form"=>"form1")
@@ -294,6 +294,6 @@ $filter->End();?>
 </form>
 
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

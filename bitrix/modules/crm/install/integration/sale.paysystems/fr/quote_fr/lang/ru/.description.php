@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBLP_DTITLE"] = "Quote (French)";
 $MESS["SBLP_DDESCR"] = "Quote for printing. Will open in a new window.";
 

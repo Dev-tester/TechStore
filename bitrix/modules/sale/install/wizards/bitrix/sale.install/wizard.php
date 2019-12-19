@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 class Step0 extends CWizardStep
 {
@@ -405,7 +405,7 @@ class Step4 extends CWizardStep
 		var arPropFieldsList = new Array();
 		var arPropFieldsNameList = new Array();
 
-		<?
+		<?php 
 		$i = -1;
 		foreach($arFieldsList["USER"] as $k => $v)
 		{
@@ -413,7 +413,7 @@ class Step4 extends CWizardStep
 			?>
 			arUserFieldsList[<?=$i?>] = "<?=$k?>";
 			arUserFieldsNameList[<?=$i?>] = "<?=$v?>";
-			<?
+			<?php 
 		}
 		$i = -1;
 		foreach($arFieldsList["ORDER"] as $k => $v)
@@ -422,7 +422,7 @@ class Step4 extends CWizardStep
 			?>
 			arOrderFieldsList[<?=$i?>] = "<?=$k?>";
 			arOrderFieldsNameList[<?=$i?>] = "<?=$v?>";
-			<?
+			<?php 
 		}
 		$i = -1;
 		foreach($arFieldsList["PROPERTY"] as $k => $v)
@@ -430,14 +430,14 @@ class Step4 extends CWizardStep
 			?>
 			arPropFieldsList[<?=$k?>] = new Array();
 			arPropFieldsNameList[<?=$k?>] = new Array();
-			<?
+			<?php 
 			foreach($v as $k1 => $v1)
 			{
 				$i++;
 				?>
 				arPropFieldsList[<?=$k?>][<?=$i?>] = "<?=$k1?>";
 				arPropFieldsNameList[<?=$k?>][<?=$i?>] = "<?=$v1?>";
-				<?
+				<?php 
 			}
 		}
 		?>
@@ -519,7 +519,7 @@ class Step4 extends CWizardStep
 			}
 		}
 		</script>
-		<?
+		<?php 
 
 		$this->content .= GetMessage("WW_STEP4_1")."<br /><br />";
 		$wizard = &$this->GetWizard();

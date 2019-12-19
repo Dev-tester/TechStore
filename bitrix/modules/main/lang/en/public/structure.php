@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['pub_struct_title'] = "Site Structure";
 $MESS ['pub_struct_folder'] = "Folder";
 $MESS ['pub_struct_file'] = "File";

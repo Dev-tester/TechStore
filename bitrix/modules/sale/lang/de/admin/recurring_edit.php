@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SRE_MODULE_CATALOG"] = "Kommerzieller Katalog";
 $MESS["SRE_NO_PERMS2ADD"] = "Sie haben nicht genügend Rechte, um die Verlängerung hinzuzufügen";
 $MESS["SRE_EMPTY_NEXT"] = "Das Feld \"Datum der nächsten Verlängerung\" wurde nicht ausgefüllt";

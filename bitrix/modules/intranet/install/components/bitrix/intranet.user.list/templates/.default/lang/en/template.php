@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_LIST_ACTION_DEACTIVATE_CONFIRM"] = "The employee will not be able to log in to Bitrix24 and will no longer show in the company structure. However, all user data (files, messages, tasks etc.) will remain.
 
 Are you sure you want to revoke user access?";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_DEFAULT_TITLE"] = "Name of task";
 $MESS["TASKS_REPEAT_DAY_0"] = "Monday";
 $MESS["TASKS_REPEAT_DAY_1"] = "Tuesday";

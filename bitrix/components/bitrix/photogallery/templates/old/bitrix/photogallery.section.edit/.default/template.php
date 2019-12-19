@@ -1,14 +1,14 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
 endif;
 
 ?>
 <div class="photo-controls photo-action">
-	<noindex><a rel="nofollow" href="<?=$arResult["URL"]?>" title="<?=GetMessage("P_UP_TITLE")?>" <?
+	<noindex><a rel="nofollow" href="<?=$arResult["URL"]?>" title="<?=GetMessage("P_UP_TITLE")?>" <?php 
 		?>class="photo-action back-to-album"><?=GetMessage("P_UP")?></a></noindex>
 </div>
-<?
+<?php 
 
 if ($arParams["AJAX_CALL"] == "Y"):
 	$APPLICATION->RestartBuffer();
@@ -32,7 +32,7 @@ endif;
 			<td class="table-body">
 				<div class="photo-info-box photo-info-box-section-edit inner">
 					<div class="photo-info-box-inner">
-<?
+<?php 
 	ShowError($arResult["ERROR_MESSAGE"]);
 
 if ($arParams["ACTION"] != "CHANGE_ICON")
@@ -45,7 +45,7 @@ if ($arParams["ACTION"] != "CHANGE_ICON")
 		</div>
 		<div class="photo-edit-field photo-edit-field-date">
 			<label for="DATE_CREATE"><?=GetMessage("P_ALBUM_DATE")?></label>
-			<?$APPLICATION->IncludeComponent( "bitrix:system.field.edit",
+			<?php $APPLICATION->IncludeComponent( "bitrix:system.field.edit",
 				$arResult["FORM"]["~DATE"]["USER_TYPE"]["USER_TYPE_ID"],
 				array(
 					"bVarsFromForm" => $arResult["bVarsFromForm"],
@@ -60,13 +60,13 @@ if ($arParams["ACTION"] != "CHANGE_ICON")
 		</div>
 
 		<div class="photo-edit-field photo-edit-field-password" id="section_password">
-<?
+<?php 
 		if (!empty($arResult["FORM"]["~PASSWORD"]["VALUE"])):
 ?>
 			<input type="hidden" id="DROP_PASSWORD" name="DROP_PASSWORD" value="N" />
 			<input type="checkbox" id="USE_PASSWORD" name="USE_PASSWORD" value="Y" onclick="this.form.DROP_PASSWORD.value=this.checked?'N':'Y';" checked="checked" />
 			<label for="USE_PASSWORD"><?=GetMessage("P_SET_PASSWORD")?></label>
-<?
+<?php 
 		else:
 ?>
 			<input type="checkbox" id="USE_PASSWORD" name="USE_PASSWORD" value="Y" onclick="this.form.PHOTO_PASSWORD.disabled=!this.checked;" />
@@ -75,12 +75,12 @@ if ($arParams["ACTION"] != "CHANGE_ICON")
 				<label for="PHOTO_PASSWORD"><?=GetMessage("P_PASSWORD")?></label>
 				<input type="password" name="PASSWORD" id="PHOTO_PASSWORD" value="" disabled="disabled" />
 			</div>
-<?
+<?php 
 		endif;
 ?>
 		</div>
 	</div>
-<?
+<?php 
 }
 ?>
 					</div>
@@ -97,7 +97,7 @@ if ($arParams["ACTION"] != "CHANGE_ICON")
 </table>
 </form>
 </div>
-<?
+<?php 
 if ($arParams["AJAX_CALL"] == "Y"):
 	$APPLICATION->ShowHeadStrings();
 	$APPLICATION->ShowHeadScripts();
@@ -121,7 +121,7 @@ function CheckForm()
 	return true;
 }
 </script>
-<?
+<?php 
 endif;
 
 ?>

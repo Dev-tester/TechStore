@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_USER_CONSENT_DATA_PROVIDER_NAME"] = "Реквизиты моей компании в CRM";
 $MESS["CRM_USER_CONSENT_PROVIDER_NAME"] = "Дело CRM";
 $MESS["CRM_USER_CONSENT_PROVIDER_ITEM_NAME"] = "Дело CRM #%id%";

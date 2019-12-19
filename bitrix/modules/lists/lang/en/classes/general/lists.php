@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_MODULE_BIZPROC_NOT_INSTALLED"] = "The \"Workflows\" module is not installed.";
 $MESS["LISTS_ACCESS_DENIED"] = "Access denied.";
 $MESS["LISTS_REQUIRED_PARAMETER"] = "Required parameter \"#parameter#\" is missing.";

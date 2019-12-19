@@ -54,5 +54,5 @@ if($component->hasItems())
 			);
 		}
 	);
-</script><?
+</script><?php 
 }

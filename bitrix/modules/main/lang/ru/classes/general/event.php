@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BAD_EMAIL_FROM'] = "Введите E-Mail отправителя.";
 $MESS ['BAD_EMAIL_TO'] = "Введите E-Mail получателя.";
 $MESS ['BAD_EVENT_TYPE'] = "Неверный тип события.";

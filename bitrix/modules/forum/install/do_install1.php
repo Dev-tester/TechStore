@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__); 
 $SHOW = array(
 	"FILTER" => "Y",
@@ -37,17 +37,17 @@ if ($db_res && ($res = $db_res->Fetch()))
 	<input type="hidden" name="step" value="2">	
 	
 	<table class="filter-form" cellpadding="3" cellspacing="0" border="0" width="0%">
-	<?
+	<?php 
 	if ($SHOW["FILTER"] == "Y"):?>
 		<tr><td><input type="checkbox" name="INSTALL_FILTER" id="INSTALL_FILTER" value="Y"  checked="checked" /></td>
-		<td><label for="INSTALL_FILTER"><?=GetMessage("FORUM_INSTALL_FILTER")?></label></td></tr><?
+		<td><label for="INSTALL_FILTER"><?=GetMessage("FORUM_INSTALL_FILTER")?></label></td></tr><?php 
 	endif;
 	if ($SHOW["SEARCH"] == "Y"):?>
 		<tr><td><input type="checkbox" name="REINDEX" id="REINDEX" value="Y" /></td>
-		<td><label for="REINDEX"><?=GetMessage("FORUM_REINDEX")?></label></td></tr><?
+		<td><label for="REINDEX"><?=GetMessage("FORUM_REINDEX")?></label></td></tr><?php 
 	endif;
 		?><tr><td><input type="checkbox" name="INSTALL_PUBLIC" id="INSTALL_PUBLIC" value="Y"  checked="checked" onclick="document.getElementById('row_install_public').style.display = (this.checked ? '' : 'none');"/></td>
-		<td><label for="INSTALL_PUBLIC"><?=GetMessage("FORUM_INSTALL_PUBLIC")?></label></td></tr><?
+		<td><label for="INSTALL_PUBLIC"><?=GetMessage("FORUM_INSTALL_PUBLIC")?></label></td></tr><?php 
 	
 	?><tr id="row_install_public">
 		<td><div></div></td>
@@ -57,7 +57,7 @@ if ($db_res && ($res = $db_res->Fetch()))
 				<td width="100%"><label for="REWRITE_PUBLIC"><?=GetMessage("FORUM_PUBLIC_REWRITE")?></label></td></tr>
 			<tr><td colspan="2">
 				<table border="0" cellspacing="0" cellpadding="0" width="100%" class="list-table">
-					<tr class="head"><td><?=GetMessage("FORUM_HEADER_INSTALL")?></td><td><?=GetMessage("FORUM_HEADER_PATH")?></td><td><?=GetMessage("FORUM_HEADER_MODE")?></td></tr><?
+					<tr class="head"><td><?=GetMessage("FORUM_HEADER_INSTALL")?></td><td><?=GetMessage("FORUM_HEADER_PATH")?></td><td><?=GetMessage("FORUM_HEADER_MODE")?></td></tr><?php 
 				$iIndex = 1;
 				foreach ($arSites as $res):
 					?><tr>
@@ -65,7 +65,7 @@ if ($db_res && ($res = $db_res->Fetch()))
 						<td><input name="PUBLIC_INFO[<?=$iIndex?>][PATH]" type="text" value="<?=htmlspecialcharsbx($res["DIR"])?>" /></td>
 						<td><select name="PUBLIC_INFO[<?=$iIndex?>][MODE]">
 							<option value="sef"><?=GetMessage("FORUM_HEADER_MODE_SEF")?></option>
-							<option value="nsef"><?=GetMessage("FORUM_HEADER_MODE_NSEF")?></option></select></td></tr><?
+							<option value="nsef"><?=GetMessage("FORUM_HEADER_MODE_NSEF")?></option></select></td></tr><?php 
 					$iIndex++;
 				endforeach;?>
 				</table>

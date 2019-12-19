@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_LIST_ACTION_REINVITE_SUCCESS"] = "Приглашение было отправлено";
 $MESS["INTRANET_USER_LIST_ACTION_RESTORE_CONFIRM"] = "Сотрудник сможет зайти на портал, появится в структуре компании.\n\nВы уверены, что хотите открыть доступ сотруднику?";
 $MESS["INTRANET_USER_LIST_ACTION_DELETE_CONFIRM"] = "Приглашение сотрудника будет удалено безвозвратно.\n\nВы уверены, что хотите удалить сотрудника?";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['F_ACTIVE'] = "Aktiv";
 $MESS['PROPS_GROUP_DEFAULT_NAME'] = "Bestelleigenschaften";
 $MESS['SPTEN_2FLIST'] = "Kundengruppen";

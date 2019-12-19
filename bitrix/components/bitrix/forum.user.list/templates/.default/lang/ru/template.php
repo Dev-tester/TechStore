@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LU_TITLE_USER'] = "Пользователи";
 $MESS ['FLU_HEAD_NAME'] = "Имя";
 $MESS ['FLU_HEAD_POST'] = "Сообщений";

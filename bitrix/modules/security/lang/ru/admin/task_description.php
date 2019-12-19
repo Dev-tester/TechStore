@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASK_NAME_SECURITY_DENIED'] = "Доступ закрыт";
 $MESS ['TASK_NAME_SECURITY_FILTER'] = "Обход проактивного фильтра";
 $MESS ['TASK_NAME_SECURITY_OTP'] = "Управление одноразовыми паролями";

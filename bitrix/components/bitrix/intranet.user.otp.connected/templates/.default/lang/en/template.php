@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_OTP_ACTIVATE"] = "Enable";
 $MESS["INTRANET_USER_OTP_ACTIVE"] = "Enabled";
 $MESS["INTRANET_USER_OTP_AUTH"] = "Two-step authentication";

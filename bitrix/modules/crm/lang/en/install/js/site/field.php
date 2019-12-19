@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SITE_FORM_FIELD_ADD"] = "Add more";
 $MESS["CRM_SITE_FORM_FIELD_DATE_CLOSE"] = "Close";
 $MESS["CRM_SITE_FORM_FIELD_DATE_DAY_1"] = "Mo";

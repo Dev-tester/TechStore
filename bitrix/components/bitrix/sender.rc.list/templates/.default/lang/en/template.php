@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_LIST_BTN_ADD"] = "Create";
 $MESS["SENDER_LETTER_LIST_ROW_FROM"] = "from";
 $MESS["SENDER_LETTER_LIST_STATE_IS_SENT"] = "Completed";

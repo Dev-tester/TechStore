@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C4_FUNC_TITLE"] = "The feature '#NAME#' is enabled";
 $MESS["SONET_C4_FUNC_TITLE_ON"] = "The feature '#NAME#' is enabled";
 $MESS["SONET_C4_FUNC_TITLE_OFF"] = "The feature '#NAME#' is disabled";

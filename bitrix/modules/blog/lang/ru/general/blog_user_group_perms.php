@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GUGP_EMPTY_BLOG_ID"] = "Не указан блог группы пользователей";
 $MESS["BLG_GUGP_ERROR_NO_BLOG"] = "Блог с кодом &quot;#ID#&quot; не найден";
 $MESS["BLG_GUGP_EMPTY_USER_GROUP_ID"] = "Не указана группа пользователей";

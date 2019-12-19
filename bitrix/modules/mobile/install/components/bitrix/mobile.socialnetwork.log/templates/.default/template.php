@@ -1,9 +1,9 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->AddHeadString('<script src="'.CUtil::GetAdditionalFileURL("/bitrix/components/bitrix/mobile.socialnetwork.log/templates/.default/script_attached.js").'"></script>', true);
 
 if (strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
@@ -19,12 +19,12 @@ else
 		var arLogTs = {};
 		var arLikeRandomID = {};
 
-		<?
+		<?php 
 		if (!$arResult["AJAX_CALL"])
 		{
 			?>
 			var LiveFeedID = parseInt(Math.random() * 100000);
-			<?
+			<?php 
 		}
 
 		if ($arParams["GROUP_ID"] > 0)
@@ -114,7 +114,7 @@ else
 					}
 				});
 			}
-			<?
+			<?php 
 		}
 		else
 		{
@@ -133,7 +133,7 @@ else
 					}
 				}
 			});
-			<?
+			<?php 
 		}
 		?>
 
@@ -221,17 +221,17 @@ else
 			MSLLogCounter1: '<?=CUtil::JSEscape(GetMessage("MOBILE_LOG_COUNTER_1"))?>',
 			MSLLogCounter2: '<?=CUtil::JSEscape(GetMessage("MOBILE_LOG_COUNTER_2"))?>',
 			MSLLogCounter3: '<?=CUtil::JSEscape(GetMessage("MOBILE_LOG_COUNTER_3"))?>'
-			<?
+			<?php 
 			if ($arParams["USE_FOLLOW"] == "Y"):
 				?>
 				, MSLFollowY: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_Y")?>'
 				, MSLFollowN: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_N")?>'
-				<?
+				<?php 
 			endif;
 			?>
 		});
 		</script>
-		<div class="lenta-notifier" id="lenta_notifier" onclick="if (!BMAjaxWrapper.offline) { app.BasicAuth({'success': function() { document.location.reload(); }, 'failture': function() { } }); return false; }"><span class="lenta-notifier-arrow"></span><span class="lenta-notifier-text"><span id="lenta_notifier_cnt"></span>&nbsp;<span id="lenta_notifier_cnt_title"></span></span></div><?
+		<div class="lenta-notifier" id="lenta_notifier" onclick="if (!BMAjaxWrapper.offline) { app.BasicAuth({'success': function() { document.location.reload(); }, 'failture': function() { } }); return false; }"><span class="lenta-notifier-arrow"></span><span class="lenta-notifier-text"><span id="lenta_notifier_cnt"></span>&nbsp;<span id="lenta_notifier_cnt_title"></span></span></div><?php 
 	}
 	elseif ($arParams["LOG_ID"] > 0)
 	{
@@ -251,46 +251,46 @@ else
 				MSLDestinationLimit: '<?=intval($arParams["DESTINATION_LIMIT"])?>',
 				MSLNameTemplate: '<?=CUtil::JSEscape($arParams["NAME_TEMPLATE"])?>',
 				MSLShowLogin: '<?=CUtil::JSEscape($arParams["SHOW_LOGIN"])?>'
-				<?
+				<?php 
 				if ($arParams["USE_FOLLOW"] == "Y"):
 					?>
 					, MSLFollowY: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_Y")?>'
 					, MSLFollowN: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_N")?>'
-					<?
+					<?php 
 				endif;
 				?>
 			});
-		</script><?
+		</script><?php 
 	}
 
 	if (!$arResult["AJAX_CALL"])
 	{
 		?><script type="text/javascript">
 			var arBlockToCheck = [];
-		</script><?
+		</script><?php 
 	}
 
 	if ($arParams["LOG_ID"] > 0)
 	{
-		?><div class="post-card-wrap" id="post-card-wrap" onclick=""><?
+		?><div class="post-card-wrap" id="post-card-wrap" onclick=""><?php 
 	}
 	else
 	{
-		?><div class="lenta-wrapper" id="lenta_wrapper"><?
-			?><div class="lenta-item post-without-informers new-post-message" id="blog-post-new-waiter" style="display: none;"><?
-				?><div class="post-item-top-wrap"><?
-					?><div class="new-post-waiter"></div><?
-				?></div><?
-			?></div><?
-			?><div class="lenta-item post-without-informers new-post-message" id="blog-post-new-error" style="display: none;"><?
-				?><div class="post-item-top-wrap"><div class="post-item-post-block"><div class="post-item-text" style="text-align: center;"><?=GetMessage("MOBILE_LOG_NEW_ERROR")?></div></div></div><?
-			?></div><?
-			?><span id="blog-post-first-after"></span><?
+		?><div class="lenta-wrapper" id="lenta_wrapper"><?php 
+			?><div class="lenta-item post-without-informers new-post-message" id="blog-post-new-waiter" style="display: none;"><?php 
+				?><div class="post-item-top-wrap"><?php 
+					?><div class="new-post-waiter"></div><?php 
+				?></div><?php 
+			?></div><?php 
+			?><div class="lenta-item post-without-informers new-post-message" id="blog-post-new-error" style="display: none;"><?php 
+				?><div class="post-item-top-wrap"><div class="post-item-post-block"><div class="post-item-text" style="text-align: center;"><?=GetMessage("MOBILE_LOG_NEW_ERROR")?></div></div></div><?php 
+			?></div><?php 
+			?><span id="blog-post-first-after"></span><?php 
 	}
 
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	if($arResult["AJAX_CALL"])
@@ -299,7 +299,7 @@ else
 
 		?><script type="text/javascript">
 			arBlockToCheck = []; // empty array to check height
-		</script><?
+		</script><?php 
 	}
 
 	if (
@@ -311,7 +311,7 @@ else
 		?><script type="text/javascript">
 			if (BX("lenta_block_empty", true))
 				BX("lenta_block_empty", true).style.display = "none";
-		</script><?
+		</script><?php 
 
 		foreach ($arResult["EventsNew"] as $arEvent)
 		{
@@ -431,7 +431,7 @@ else
 				{
 					?><script type="text/javascript">
 						arLogTs.entry_<?=intval($arEvent["EVENT"]["ID"])?> = <?=intval($arResult["LAST_LOG_TS"])?>;
-					</script><?
+					</script><?php 
 				}
 
 				if ($arParams["LOG_ID"] <= 0)
@@ -497,20 +497,20 @@ else
 						<div class="post-item-top">
 							<div class="avatar<?=(strlen($arEvent["EVENT_FORMATTED"]["AVATAR_STYLE"]) > 0 ? " ".$arEvent["EVENT_FORMATTED"]["AVATAR_STYLE"] : "")?>"<?=(strlen($arEvent["AVATAR_SRC"]) > 0 ? " style=\"background:url('".$arEvent["AVATAR_SRC"]."') 0 0 no-repeat; background-size: 29px 29px;\"" : "")?>></div>
 							<div class="post-item-top-cont">
-								<?=$strCreatedBy?><?
+								<?=$strCreatedBy?><?php 
 								if ($arParams["LOG_ID"] > 0)
 								{
-									?><div class="post-date"><?=$datetime?></div><?
+									?><div class="post-date"><?=$datetime?></div><?php 
 								}
-								?><div class="post-item-top-topic"><?=$strTopic ?></div><?
+								?><div class="post-item-top-topic"><?=$strTopic ?></div><?php 
 								if (strlen($strDescription) > 0)
 									echo $strDescription;
-							?></div><?
+							?></div><?php 
 							if ($arParams["LOG_ID"] <= 0)
 							{
-								?><div class="lenta-item-time"><?=$datetime?></div><?
+								?><div class="lenta-item-time"><?=$datetime?></div><?php 
 							}
-						?></div><?
+						?></div><?php 
 
 						ob_start();
 
@@ -521,7 +521,7 @@ else
 						{
 							$bHasComments = true;
 							$strOnClickComments = ($arParams["LOG_ID"] <= 0 ? " onclick=\"__MSLOpenLogEntry(".intval($arEvent["EVENT"]["ID"]).", '".$strPath."', true);\"" : " onclick=\"__MSLDetailMoveBottom();\"");
-							?><div class="post-item-informers post-item-inform-comments"<?=$strOnClickComments?>><div class="post-item-inform-left"></div><div class="post-item-inform-right" id="informer_comments_<?=$arEvent["EVENT"]["ID"]?>"><?
+							?><div class="post-item-informers post-item-inform-comments"<?=$strOnClickComments?>><div class="post-item-inform-left"></div><div class="post-item-inform-right" id="informer_comments_<?=$arEvent["EVENT"]["ID"]?>"><?php 
 							if (
 								($arParams["USE_FOLLOW"] != "Y" || $arEvent["EVENT"]["FOLLOW"] == "Y")
 								&& is_array($arResult["NEW_COMMENTS"])
@@ -529,17 +529,17 @@ else
 								&& intval($arResult["NEW_COMMENTS"][$arEvent["EVENT"]["ID"]]) > 0
 							)
 							{
-								?><span id="informer_comments_all_<?=$arEvent["EVENT"]["ID"]?>"><?
+								?><span id="informer_comments_all_<?=$arEvent["EVENT"]["ID"]?>"><?php 
 									$old_comments = intval(abs(intval($arEvent["COMMENTS_COUNT"]) - intval($arResult["NEW_COMMENTS"][$arEvent["EVENT"]["ID"]])));
 									echo ($old_comments > 0 ? $old_comments : '');
-								?></span><?
-								?><span id="informer_comments_new_<?=$arEvent["EVENT"]["ID"]?>">+<?=intval($arResult["NEW_COMMENTS"][$arEvent["EVENT"]["ID"]])?></span><?
+								?></span><?php 
+								?><span id="informer_comments_new_<?=$arEvent["EVENT"]["ID"]?>">+<?=intval($arResult["NEW_COMMENTS"][$arEvent["EVENT"]["ID"]])?></span><?php 
 							}
 							else
 							{
-								?><?=intval($arEvent["COMMENTS_COUNT"])?><?
+								?><?=intval($arEvent["COMMENTS_COUNT"])?><?php 
 							}
-							?></div></div><?
+							?></div></div><?php 
 						}
 						else
 							$bHasComments = false;
@@ -587,7 +587,7 @@ else
 							{
 								?><script type="text/javascript">
 									arLikeRandomID.entry_<?=intval($arEvent["EVENT"]["ID"])?> = <?=intval($arResultVote["VOTE_RAND"])?>;
-								</script><?
+								</script><?php 
 							}
 						}
 
@@ -600,7 +600,7 @@ else
 							$follow_type = " post-item-follow".($arEvent["EVENT"]["FOLLOW"] == "Y" ? "-active" : "");
 							?><div id="log_entry_follow_<?=intval($arEvent["EVENT"]["ID"])?>" data-follow="<?=($arEvent["EVENT"]["FOLLOW"] == "Y" ? "Y" : "N")?>" class="post-item-informers<?=$follow_type_default?><?=$follow_type?>" onclick="__MSLSetFollow(<?=$arEvent["EVENT"]["ID"]?>)">
 								<div class="post-item-inform-left"></div>
-							</div><?
+							</div><?php 
 						}
 
 						if ($_REQUEST["show_full"] != "Y")
@@ -610,12 +610,12 @@ else
 							else
 								$strOnClickMore = "onclick=\"__MSLExpandText(".intval($arEvent["EVENT"]["ID"]).");\"";
 
-							?><div <?=$strOnClickMore?> class="post-item-more" ontouchstart="BX.toggleClass(this, 'post-item-more-pressed');" ontouchend="BX.toggleClass(this, 'post-item-more-pressed');" style="display: none;" id="post_block_check_more_<?=$arEvent["EVENT"]["ID"]?>"><?=GetMessage("MOBILE_LOG_MORE")?></div><?
+							?><div <?=$strOnClickMore?> class="post-item-more" ontouchstart="BX.toggleClass(this, 'post-item-more-pressed');" ontouchend="BX.toggleClass(this, 'post-item-more-pressed');" style="display: none;" id="post_block_check_more_<?=$arEvent["EVENT"]["ID"]?>"><?=GetMessage("MOBILE_LOG_MORE")?></div><?php 
 						}
 
 						if ($bRatingExtended)
 						{
-							?><div class="post-item-inform-footer" id="rating-footer"></div><?
+							?><div class="post-item-inform-footer" id="rating-footer"></div><?php 
 						}
 
 						$strBottomBlock = ob_get_contents();
@@ -628,7 +628,7 @@ else
 
 						if(in_array($arEvent["EVENT"]["EVENT_ID"], Array("blog_post", "blog_post_micro", "blog_comment", "blog_comment_micro")))
 						{
-							?><div class="<?=$post_item_style?>"<?=$strOnClick?> id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>"><?
+							?><div class="<?=$post_item_style?>"<?=$strOnClick?> id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>"><?php 
 
 								$arComponentParams = array(
 									"PATH_TO_BLOG" => $arParams["PATH_TO_USER_BLOG"],
@@ -712,17 +712,17 @@ else
 
 								echo $post_more_block;
 
-							?></div><?
+							?></div><?php 
 						}
 						elseif (in_array($arEvent["EVENT"]["EVENT_ID"], array("photo", "photo_photo")))
 						{
 							if ($arEvent["EVENT"]["EVENT_ID"] == "photo")
 							{
-								?><div class="post-item-post-block-full"<?=$strOnClick?>><?
+								?><div class="post-item-post-block-full"<?=$strOnClick?>><?php 
 							}
 							else
 							{
-								?><div class="post-item-post-img-block"<?=$strOnClick?>><?
+								?><div class="post-item-post-img-block"<?=$strOnClick?>><?php 
 							}
 
 								$arPhotoItems = array();
@@ -791,7 +791,7 @@ else
 										&& count($arPhotoItems) > 0
 									)
 									{
-										?><?$APPLICATION->IncludeComponent(
+										?><?php $APPLICATION->IncludeComponent(
 											"bitrix:photogallery.detail.list.ex",
 											"mobile",
 											Array(
@@ -883,11 +883,11 @@ else
 											array(
 												"HIDE_ICONS" => "Y"
 											)
-										);?><?
+										);?><?php 
 									}
 								}
 
-							?></div><?
+							?></div><?php 
 						}
 						elseif (strlen($arEvent["EVENT_FORMATTED"]["MESSAGE"]) > 0)
 						{
@@ -902,8 +902,8 @@ else
 							{
 								$news_item_style = ($arParams["LOG_ID"] > 0 && $_REQUEST["show_full"] == "Y" ? "lenta-info-block-wrapp-full" : "lenta-info-block-wrapp");
 
-								?><div class="<?=$news_item_style?>"<?=$strOnClick?> id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>"><?
-									?><div class="lenta-info-block <?=(in_array($arEvent["EVENT"]["EVENT_ID"], array("intranet_new_user", "bitrix24_new_user")) ? "lenta-block-new-employee" : "info-block-important")?>"><?
+								?><div class="<?=$news_item_style?>"<?=$strOnClick?> id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>"><?php 
+									?><div class="lenta-info-block <?=(in_array($arEvent["EVENT"]["EVENT_ID"], array("intranet_new_user", "bitrix24_new_user")) ? "lenta-block-new-employee" : "info-block-important")?>"><?php 
 										if (in_array($arEvent["EVENT"]["EVENT_ID"], array("intranet_new_user", "bitrix24_new_user")))
 										{
 											echo CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]));
@@ -917,64 +917,64 @@ else
 												&& strlen($arEvent["EVENT_FORMATTED"]["TITLE_24_2"]) > 0
 											)
 											{
-													?><div class="lenta-important-block-title"><?=$arEvent["EVENT_FORMATTED"]["TITLE_24_2"]?></div><?
+													?><div class="lenta-important-block-title"><?=$arEvent["EVENT_FORMATTED"]["TITLE_24_2"]?></div><?php 
 											}
 
-											?><div class="lenta-important-block-text"><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?><i></i></div><?
+											?><div class="lenta-important-block-text"><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?><i></i></div><?php 
 										}
-									?></div><?
+									?></div><?php 
 
 									echo $post_more_block;
 
-								?></div><?
+								?></div><?php 
 							}
 							elseif (in_array($arEvent["EVENT"]["EVENT_ID"], array("files", "commondocs")))
 							{
 								?><div class="post-item-post-block-full"<?=$strOnClick?>>
 									<div class="post-item-attached-file-wrap">
 										<div class="post-item-attached-file"><span><?=$arEvent["EVENT"]["TITLE"]?></span></div>
-									</div><?
-								?></div><?
+									</div><?php 
+								?></div><?php 
 							}
 							elseif (in_array($arEvent["EVENT"]["EVENT_ID"], array("tasks")))
 							{
-								?><div class="lenta-info-block-wrapp"<?=$strOnClick?>><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?></div><?
+								?><div class="lenta-info-block-wrapp"<?=$strOnClick?>><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?></div><?php 
 							}
 							elseif (in_array($arEvent["EVENT"]["EVENT_ID"], array("timeman_entry", "report")))
 							{
-								?><div class="lenta-info-block-wrapp"<?=$strOnClick?>><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?></div><?
+								?><div class="lenta-info-block-wrapp"<?=$strOnClick?>><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?></div><?php 
 							}
 							elseif (!in_array($arEvent["EVENT"]["EVENT_ID"], array("system", "system_groups", "system_friends")) && strlen($arEvent["EVENT_FORMATTED"]["MESSAGE"]) > 0) // all other events
 							{
-								?><div class="<?=$post_item_style?>"<?=$strOnClick?> id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>"><?
+								?><div class="<?=$post_item_style?>"<?=$strOnClick?> id="post_block_check_cont_<?=$arEvent["EVENT"]["ID"]?>"><?php 
 									if (
 										array_key_exists("TITLE_24_2", $arEvent["EVENT_FORMATTED"])
 										&& strlen($arEvent["EVENT_FORMATTED"]["TITLE_24_2"]) > 0
 									)
 									{
-										?><div class="post-text-title" id="post_text_title_<?=$arEvent["EVENT"]["ID"]?>"><?=$arEvent["EVENT_FORMATTED"]["TITLE_24_2"]?></div><?
+										?><div class="post-text-title" id="post_text_title_<?=$arEvent["EVENT"]["ID"]?>"><?=$arEvent["EVENT_FORMATTED"]["TITLE_24_2"]?></div><?php 
 									}
-									?><div class="post-item-text" id="post_block_check_<?=$arEvent["EVENT"]["ID"]?>"><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?></div><?
+									?><div class="post-item-text" id="post_block_check_<?=$arEvent["EVENT"]["ID"]?>"><?=CSocNetTextParser::closetags(htmlspecialcharsback($arEvent["EVENT_FORMATTED"]["MESSAGE"]))?></div><?php 
 
 									echo $post_more_block;
 
-								?></div><?
+								?></div><?php 
 							}
 						}
 
 						echo $post_more_corner;
 
-					?></div><? // post-item-top-wrap
+					?></div><?php  // post-item-top-wrap
 
 					if (
 						strlen($strBottomBlock) > 0
 						&& !in_array($arEvent["EVENT"]["EVENT_ID"], array("system", "system_group", "system_friends", "photo"))
 					)
 					{
-						?><div <?=($bRatingExtended ? 'id="post_item_inform_wrap"' : '')?> id="post_inform_wrap_<?=$arEvent["EVENT"]["ID"]?>" class="post-item-inform-wrap<?=($bRatingExtendedOpen ? " post-item-inform-action" : "")?>"><?=$strBottomBlock;?></div><?
+						?><div <?=($bRatingExtended ? 'id="post_item_inform_wrap"' : '')?> id="post_inform_wrap_<?=$arEvent["EVENT"]["ID"]?>" class="post-item-inform-wrap<?=($bRatingExtendedOpen ? " post-item-inform-action" : "")?>"><?=$strBottomBlock;?></div><?php 
 					}
 
-				?></div><? // post-wrap / lenta-item
+				?></div><?php  // post-wrap / lenta-item
 				
 				?><script type="text/javascript">
 				arBlockToCheck[arBlockToCheck.length] = {
@@ -987,7 +987,7 @@ else
 					post_inform_wrap_id: 'post_inform_wrap_<?=$arEvent["EVENT"]["ID"]?>'
 				};
 				</script>
-				<?
+				<?php 
 
 				if (
 					$arParams["LOG_ID"] > 0
@@ -1047,7 +1047,7 @@ else
 					}
 					else
 					{
-						?><div class="post-comments-wrap" id="post-comments-wrap"><?
+						?><div class="post-comments-wrap" id="post-comments-wrap"><?php 
 							if (is_array($arEvent["COMMENTS"]))
 							{
 								foreach($arEvent["COMMENTS"] as $arComment)
@@ -1102,7 +1102,7 @@ else
 											});
 										});
 										</script>
-										<div id="post-comment-hidden" style="display:none; overflow:hidden;"></div><?
+										<div id="post-comment-hidden" style="display:none; overflow:hidden;"></div><?php 
 									}
 
 									$strCreatedBy = "";
@@ -1122,21 +1122,21 @@ else
 									);
 									?><div class="post-comment-block<?=($bUnread ? " post-comment-new" : "")?>">
 										<div class="avatar"<?=(strlen($arComment["AVATAR_SRC"]) > 0 ? " style=\"background:url('".$arComment["AVATAR_SRC"]."') no-repeat; background-size: 29px 29px;\"" : "")?>></div>
-										<div class="post-comment-cont"><?
+										<div class="post-comment-cont"><?php 
 											if (strlen($arComment["CREATED_BY"]["URL"]) > 0)
 											{
-												?><a href="<?=$arComment["CREATED_BY"]["URL"]?>" class="post-comment-author"><?=$strCreatedBy?></a><?
+												?><a href="<?=$arComment["CREATED_BY"]["URL"]?>" class="post-comment-author"><?=$strCreatedBy?></a><?php 
 											}
 											else
 											{
-												?><div class="post-comment-author"><?=$strCreatedBy?></div><?
+												?><div class="post-comment-author"><?=$strCreatedBy?></div><?php 
 											}
-											?><div class="post-comment-text"><?
+											?><div class="post-comment-text"><?php 
 												$message = (array_key_exists("EVENT_FORMATTED", $arComment) && array_key_exists("MESSAGE", $arComment["EVENT_FORMATTED"]) ? $arComment["EVENT_FORMATTED"]["MESSAGE"] : $arComment["EVENT"]["MESSAGE"]);
 												if (strlen($message) > 0)
 													echo CSocNetTextParser::closetags(htmlspecialcharsback($message));
 											?></div>
-											<div class="post-comment-time"><?
+											<div class="post-comment-time"><?php 
 												echo (
 													array_key_exists("EVENT_FORMATTED", $arComment)
 													&& array_key_exists("DATETIME", $arComment["EVENT_FORMATTED"])
@@ -1144,7 +1144,7 @@ else
 														? $arComment["EVENT_FORMATTED"]["DATETIME"]
 														: ($arComment["LOG_DATE_DAY"] == ConvertTimeStamp() ? $arComment["LOG_TIME_FORMAT"] : $arComment["LOG_DATE_DAY"]." ".$arComment["LOG_TIME_FORMAT"])
 												);
-											?></div><?
+											?></div><?php 
 											$strBottomBlockComments = "";
 
 											ob_start();
@@ -1180,19 +1180,19 @@ else
 
 											if (strlen($strBottomBlockComments) > 0)
 											{
-												?><?=$strBottomBlockComments;?><? // comments rating
+												?><?=$strBottomBlockComments;?><?php  // comments rating
 											}
 
 										?></div>
-									</div><?
+									</div><?php 
 								}
 							}
 							?><span id="post-comment-last-after"></span>
-						</div><? // post-comments-wrap
+						</div><?php  // post-comments-wrap
 
 						if ($arParams["LOG_ID"] > 0)
 						{
-							?></div><? // post-card-wrap
+							?></div><?php  // post-card-wrap
 						}
 
 						if (
@@ -1288,7 +1288,7 @@ else
 									});
 								}
 							});
-							</script><?
+							</script><?php 
 						}
 					}
 				}
@@ -1301,7 +1301,7 @@ else
 		&& !$arResult["AJAX_CALL"]
 	)
 	{
-		?><div class="lenta-block-empty" id="lenta_block_empty"><?=GetMessage("MOBILE_LOG_MESSAGE_EMPTY");?></div><?
+		?><div class="lenta-block-empty" id="lenta_block_empty"><?=GetMessage("MOBILE_LOG_MESSAGE_EMPTY");?></div><?php 
 	}
 
 	if($arResult["AJAX_CALL"])
@@ -1309,7 +1309,7 @@ else
 		$strParams = "LAST_LOG_TS=".$arResult["LAST_LOG_TS"]."&AJAX_CALL=Y&PAGEN_".$arResult["PAGE_NAVNUM"]."=".($arResult["PAGE_NUMBER"] + 1);
 
 		?><script type="text/javascript">
-			<?
+			<?php 
 			if (
 				$event_cnt > 0
 				&& $event_cnt >= $arParams["PAGE_SIZE"]
@@ -1317,16 +1317,16 @@ else
 			{
 				?>
 				url_next = '<?=$APPLICATION->GetCurPageParam($strParams, array("LAST_LOG_TS", "AJAX_CALL", "PAGEN_".$arResult["PAGE_NAVNUM"]));?>';
-				<?
+				<?php 
 			}
 			else
 			{
 				?>
 				__MSLScrollInit(false, true);
-				<?
+				<?php 
 			}
 			?>
-		</script><?
+		</script><?php 
 		die();
 	}
 
@@ -1334,9 +1334,9 @@ else
 	{
 		if ($event_cnt >= $arParams["PAGE_SIZE"])
 		{
-			?><div id="next_post_more" class="next-post-more"></div><?
+			?><div id="next_post_more" class="next-post-more"></div><?php 
 		}
-		?></div><? // lenta-wrapper
+		?></div><?php  // lenta-wrapper
 	}
 
 	$strParams = "LAST_LOG_TS=".$arResult["LAST_LOG_TS"]."&AJAX_CALL=Y&PAGEN_".$arResult["PAGE_NAVNUM"]."=".($arResult["PAGE_NUMBER"] + 1);
@@ -1349,7 +1349,7 @@ else
 		BX.ready(function() {
 			app.pullDownLoadingStop();
 
-			<?
+			<?php 
 			if (
 				$arParams["LOG_ID"] <= 0
 				&& !$arResult["AJAX_CALL"]
@@ -1391,20 +1391,20 @@ else
 					else
 						__MSLHideNotifier();
 				});
-				<?
+				<?php 
 			}
 			?>
 			setTimeout(function() { __MSLCheckNodesHeight(); }, 1000);
-			<?
+			<?php 
 			if ($arParams["LOG_ID"] <= 0)
 			{
 				?>
 				__MSLPullDownInit(true);
-				<?
+				<?php 
 			}
 			?>
 		});
-		<?
+		<?php 
 		if (
 			$arParams["LOG_ID"] > 0
 			&& $_REQUEST["BOTTOM"] == "Y"
@@ -1412,10 +1412,10 @@ else
 		{
 			?>
 			__MSLDetailMoveBottom();
-			<?
+			<?php 
 		}
 	?>
 	</script>
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_TITLE"] = "E-bay-Einstellungen";
 $MESS["SALE_EBAY_AUTH_FAIL"] = "Fehler bei Authentifizierung";
 $MESS["SALE_EBAY_GET_TOKEN_FAIL"] = "Fehler beim Empfangen des Tokens";

@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["DISK_INTERFACE_TOOLBAR_LABEL_FOR_DROPDOWN_FILTERS"] = "Показать";
 ?>

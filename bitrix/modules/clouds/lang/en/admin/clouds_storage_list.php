@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_LIST_ADD"] = "Add";
 $MESS["CLO_STORAGE_LIST_ADD_TITLE"] = "Adds a new cloud storage connection";
 $MESS["CLO_STORAGE_LIST_ID"] = "ID";

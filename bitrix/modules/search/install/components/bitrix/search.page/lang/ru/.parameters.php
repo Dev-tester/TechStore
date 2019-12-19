@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_WHERE_DROPDOWN"] = "Значения для выпадающего списка \"Где искать\"";
 $MESS["SEARCH_PAGE_RESULT_COUNT"] = "Количество результатов на странице";
 $MESS["SEARCH_SHOW_DROPDOWN"] = "Показывать выпадающий список \"Где искать\"";

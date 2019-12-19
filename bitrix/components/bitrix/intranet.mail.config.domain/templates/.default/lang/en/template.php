@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_MAIL_DOMAIN_TITLE"] = "If your domain is configured for work in Yandex.Mail for domains, just enter the domain name and token in the form below";
 $MESS["INTR_MAIL_DOMAIN_TITLE2"] = "The domain is now linked to your portal";
 $MESS["INTR_MAIL_DOMAIN_TITLE3"] = "Domain for your email";

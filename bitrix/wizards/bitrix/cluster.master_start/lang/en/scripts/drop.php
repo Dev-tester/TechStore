@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLUWIZ_ERROR_ACCESS_DENIED"] = "Error! Access denied.";
 $MESS["CLUWIZ_CONNECTION_ERROR"] = "Error connecting to the database.";
 $MESS["CLUWIZ_TABLE_DROPPED"] = "The table #table_name# has been deleted.";

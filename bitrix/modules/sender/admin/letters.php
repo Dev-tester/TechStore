@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once(__DIR__ ."/page_header.php");
 
 /** @var \CAllMain $APPLICATION */

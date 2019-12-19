@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_PAYMENT_NO_DELIVERY_SERVICE"] = "(Wählen Sie einen Lieferservice aus)";
 $MESS["SALE_ORDER_SHIPMENT_ADD_COMPANY"] = "Die Liste aktiver Unternehmen ist leer. <a href=\"#URL#\" target=\"_blank\">Hinzufügen</a>";
 $MESS["SALE_ORDER_SHIPMENT_ADD_SHIPMENT"] = "Auslieferung hinzufügen";

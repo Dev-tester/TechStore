@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_STATS_TITLE"] = "Старт";
 $MESS["SENDER_STATS_EFFICIENCY_TITLE"] = "Уровень эффективности";
 $MESS["SENDER_STATS_EFFICIENCY_LEVEL_1"] = "Плохо";

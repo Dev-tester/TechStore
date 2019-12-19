@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -9,20 +9,20 @@ $helper = $arResult['HELPER'];
 $arParams =& $helper->getComponent()->arParams; // make $arParams the same variable as $this->__component->arParams, as it really should be
 ?>
 
-<?$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php $helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
 
-		<?$helper->displayWarnings();?>
+		<?php $helper->displayWarnings();?>
 
-		<?// make dom node accessible in js controller like that: ?>
+		<?php // make dom node accessible in js controller like that: ?>
 		<div class="js-id-skeleton-some-div js-id-another-controller-some-button">
 			...
 		</div>
 
 	</div>
 
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

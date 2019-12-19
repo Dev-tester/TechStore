@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Util\Type;
 
 use Bitrix\Tasks\Util\User;

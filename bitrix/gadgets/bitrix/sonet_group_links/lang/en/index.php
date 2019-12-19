@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SONET_GROUP_LINKS_SEND_MESSAGE_GROUP_TITLE"] = "Write a message to the group members";
 $MESS["GD_SONET_GROUP_LINKS_SEND_MESSAGE_GROUP"] = "Write message";
 $MESS["GD_SONET_GROUP_LINKS_ACT_EDIT"] = "Edit Group";

@@ -1,7 +1,7 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
-<?
+<?php 
 $this->addExternalCss(SITE_TEMPLATE_PATH."/css/breadcrumbs.css");
 
 if (!is_array($arResult['USERS']) || !($USERS_CNT = count($arResult['USERS']))):
@@ -24,20 +24,20 @@ else:
 		{
 		?>
 			<div class="breadcrumbs" style="padding:10px 0 0 0">
-				<?
+				<?php 
 				$ar_dep_breadcrumb = array_slice($arDeptsChain, 0, $arDept['DEPTH_LEVEL']);
 				$ar_dep_breadcrumb_size = sizeof($ar_dep_breadcrumb)-1;
 				foreach($ar_dep_breadcrumb as $key => $val)
 				{
-					?><a class="breadcrumbs-item" href="<?=$arParams['STRUCTURE_PAGE'].'?set_filter_'.$arParams['STRUCTURE_FILTER'].'=Y&'.$arParams['STRUCTURE_FILTER'].'_UF_DEPARTMENT='.$val['ID']?>"><?=htmlspecialcharsbx($val['NAME'])?><?if ($key != $ar_dep_breadcrumb_size):?><i></i><?endif;?></a><?
+					?><a class="breadcrumbs-item" href="<?=$arParams['STRUCTURE_PAGE'].'?set_filter_'.$arParams['STRUCTURE_FILTER'].'=Y&'.$arParams['STRUCTURE_FILTER'].'_UF_DEPARTMENT='.$val['ID']?>"><?=htmlspecialcharsbx($val['NAME'])?><?php if ($key != $ar_dep_breadcrumb_size):?><i></i><?php endif;?></a><?php 
 				}
 				//echo implode('&nbsp;|&nbsp;', array_slice($arDeptsChain, 0, $arDept['DEPTH_LEVEL'])); ?>
 			</div>
-		<?
+		<?php 
 ?>
 <div>
 	<table id="employee-table" class="employee-table" cellspacing="0">
-<?
+<?php 
 			foreach ($arDept['USERS'] as $arUser)
 			{
 				/*$APPLICATION->IncludeComponent(
@@ -100,7 +100,7 @@ else:
 ?>
 	</table>
 </div>
-<?
+<?php 
 		}
 	
 	}

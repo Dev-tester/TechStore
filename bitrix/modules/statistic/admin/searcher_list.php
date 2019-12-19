@@ -267,7 +267,7 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 <a name="tb"></a>
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -285,60 +285,60 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td width="0%" nowrap><b><?echo GetMessage("STAT_F_NAME")?></b></td>
-	<td width="0%" nowrap><input type="text" name="find_name" value="<?echo htmlspecialcharsbx($find_name)?>" size="47"><?=ShowExactMatchCheckbox("find_name")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><b><?php echo GetMessage("STAT_F_NAME")?></b></td>
+	<td width="0%" nowrap><input type="text" name="find_name" value="<?php echo htmlspecialcharsbx($find_name)?>" size="47"><?=ShowExactMatchCheckbox("find_name")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("STAT_F_ID")?></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("STAT_F_ID")?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_ACTIVE")?></td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_ACTIVE")?></td>
+	<td width="0%" nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_STATICS")?></td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_STATICS")?></td>
+	<td width="0%" nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_save_statistic", $arr, htmlspecialcharsbx($find_save_statistic), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PIE_CHART")?></td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PIE_CHART")?></td>
+	<td width="0%" nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_diagram_default", $arr, htmlspecialcharsbx($find_diagram_default), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_HITS")?></td>
-	<td width="0%" nowrap><input type="text" maxlength="10" name="find_hits1" value="<?echo htmlspecialcharsbx($find_hits1)?>" size="9"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" maxlength="10" name="find_hits2" value="<?echo htmlspecialcharsbx($find_hits2)?>" size="9"></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_HITS")?></td>
+	<td width="0%" nowrap><input type="text" maxlength="10" name="find_hits1" value="<?php echo htmlspecialcharsbx($find_hits1)?>" size="9"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" maxlength="10" name="find_hits2" value="<?php echo htmlspecialcharsbx($find_hits2)?>" size="9"></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_LAST_HIT_DATE").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_LAST_HIT_DATE").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1_period", $find_date1_period, "find_date2_period", $find_date2_period, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1_period", $find_date1_period, "find_date2_period", $find_date2_period, "form1","Y")?></td>
 </tr>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_USER_AGENT")?></td>
-	<td width="0%" nowrap><input type="text" name="find_user_agent" value="<?echo htmlspecialcharsbx($find_user_agent)?>" size="47"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_USER_AGENT")?></td>
+	<td width="0%" nowrap><input type="text" name="find_user_agent" value="<?php echo htmlspecialcharsbx($find_user_agent)?>" size="47"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
 $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

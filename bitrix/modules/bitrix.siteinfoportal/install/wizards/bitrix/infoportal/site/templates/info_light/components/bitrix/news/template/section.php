@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if($arParams["USE_RSS"]=="Y"):?>
-	<?
+<?php if($arParams["USE_RSS"]=="Y"):?>
+	<?php 
 	$rss_url = str_replace(
 		array("#SECTION_ID#", "#SECTION_CODE#")
 		,array(urlencode($arResult["VARIABLES"]["SECTION_ID"]), urlencode($arResult["VARIABLES"]["SECTION_CODE"]))
@@ -11,10 +11,10 @@
 		$APPLICATION->AddHeadString('<link rel="alternate" type="application/rss+xml" title="'.$rss_url.'" href="'.$rss_url.'" />');
 	?>
 	<a href="<?=$rss_url?>" title="rss" target="_self"><img alt="RSS" src="<?=$templateFolder?>/images/gif-light/feed-icon-16x16.gif" border="0" align="right" /></a>
-<?endif?>
+<?php endif?>
 
-<?if($arParams["USE_SEARCH"]=="Y"):?>
-<?=GetMessage("SEARCH_LABEL")?><?$APPLICATION->IncludeComponent(
+<?php if($arParams["USE_SEARCH"]=="Y"):?>
+<?=GetMessage("SEARCH_LABEL")?><?php $APPLICATION->IncludeComponent(
 	"bitrix:search.form",
 	"flat",
 	Array(
@@ -23,9 +23,9 @@
 	$component
 );?>
 <br />
-<?endif?>
-<?if($arParams["USE_FILTER"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+<?php endif?>
+<?php if($arParams["USE_FILTER"]=="Y"):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"",
 	Array(
@@ -42,9 +42,9 @@
 );
 ?>
 <br />
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 CModule::IncludeModule("iblock");
 $arFilter["CODE"] = $arResult["VARIABLES"]["SECTION_CODE"];
 $rsSections = CIBlockSection::GetList(array(), $arFilter, true, array("NAME"));
@@ -53,7 +53,7 @@ $arResult["SECTION"] = $rsSections->GetNext();
 $APPLICATION->SetPageProperty("title", $arResult["SECTION"]["NAME"]);
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"",
 	Array(

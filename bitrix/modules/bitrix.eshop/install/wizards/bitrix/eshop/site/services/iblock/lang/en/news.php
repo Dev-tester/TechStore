@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_NEWS_1"] = "News Item";
 $MESS["WZD_OPTION_NEWS_2"] = "Published";
 $MESS["WZD_OPTION_NEWS_3"] = "News Date";

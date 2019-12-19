@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\Service\GeoIp;
 
 use Bitrix\Main;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VIDEO_FORM_1"]="Видео-ролик";
 $MESS["VIDEO_FORM_2"]="Название";
 $MESS["VIDEO_FORM_3"]="Файл";

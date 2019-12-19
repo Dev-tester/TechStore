@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sender/tools/sender_sub_confirm.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sender/tools/sender_sub_confirm.php");?>

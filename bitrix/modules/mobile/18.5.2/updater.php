@@ -1,4 +1,4 @@
-<?
+<?php 
 if(IsModuleInstalled('mobile'))
 {
 	$updater->CopyFiles("install/templates", "templates");

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die(); 
 
 __IncludeLang($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/lang/'.LANGUAGE_ID.'/template.php');
@@ -37,7 +37,7 @@ __IncludeLang($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/lang/'.LANGUAGE_ID.
 	<tr class="section">
 		<td colspan="2"><?=GetMessage('SL_SETTINGS_SECTION_FIELDS')?></td>
 	</tr>
-<?
+<?php 
 	foreach ($arResult['SERVICE']['FIELDS'] as $fld):
 ?>
 	<tr>
@@ -47,7 +47,7 @@ __IncludeLang($_SERVER['DOCUMENT_ROOT'].$this->GetFolder().'/lang/'.LANGUAGE_ID.
 		<td>
 			<?=(substr($fld['FIELD_ID'], 0, 9) == 'PROPERTY_' ? GetMessage('SL_SETTINGS_FIELD_PROP') : GetMessage('SL_SETTINGS_FIELD_FLD'));?> &quot;<?=htmlspecialcharsbx($arResult['TYPES'][$fld['FIELD_ID']])?>&quot;
 		</td>
-<?
+<?php 
 	endforeach;
 ?>
 </table>

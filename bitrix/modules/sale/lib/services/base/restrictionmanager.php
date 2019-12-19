@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Services\Base;
 
 use Bitrix\Main\ArgumentNullException;

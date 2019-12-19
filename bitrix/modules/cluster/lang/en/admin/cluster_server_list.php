@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_SL_TITLE"] = "Licensed servers in web cluster";
 $MESS["CLU_SL_NN"] = "#";
 $MESS["CLU_SL_HOST"] = "Server";

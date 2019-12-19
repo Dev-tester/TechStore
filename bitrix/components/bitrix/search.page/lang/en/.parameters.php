@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_WHERE_DROPDOWN"] = "Values for drop-down list \"Where to search\"";
 $MESS["SEARCH_PAGE_RESULT_COUNT"] = "Results per page";
 $MESS["SEARCH_SHOW_DROPDOWN"] = "Show drop-down list \"Where to search\"";

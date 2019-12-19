@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HTTPS_PROMO__ADMIN_TITLE"] = "Update your website to use HTTPS";
 $MESS["HTTPS_PROMO__SUBTITLE"] = "HTTPS - safety and security for your data";
 $MESS["HTTPS_PROMO__TITLE"] = "Setting up HTTPS for your website";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -28,18 +28,18 @@ $containerId = 'crm-tracking-site';
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-tracking-site-wrap">
 
-	<?
+	<?php 
 		if ($arResult['ROW']['ID']):
 			$this->SetViewTarget('pagetitle');
 	?>
 			<div id="crm-tracking-site-remove" class="ui-btn ui-btn-light-border ui-btn-icon-remove">
 				<?=Loc::getMessage('CRM_TRACKING_SITE_BTN_REMOVE')?>
 			</div>
-	<?
+	<?php 
 			$this->EndViewTarget();
 		endif;
 	?>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:ui.feedback.form',
 		'',
@@ -165,7 +165,7 @@ $containerId = 'crm-tracking-site';
 								<?=Loc::getMessage('CRM_TRACKING_SITE_PHONES')?>:
 							</div>
 							<div class="crm-analytics-channel-phone-inner-field">
-								<?
+								<?php 
 								$GLOBALS['APPLICATION']->includeComponent(
 									'bitrix:ui.tile.selector',
 									'',
@@ -192,7 +192,7 @@ $containerId = 'crm-tracking-site';
 								<?=Loc::getMessage('CRM_TRACKING_SITE_EMAILS')?>:
 							</div>
 							<div class="crm-analytics-channel-phone-inner-field">
-								<?
+								<?php 
 								$GLOBALS['APPLICATION']->includeComponent(
 									'bitrix:ui.tile.selector',
 									'',
@@ -274,7 +274,7 @@ $containerId = 'crm-tracking-site';
 			-->
 		</div>
 
-		<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+		<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 			'BUTTONS' => [
 				'save', 'cancel' => $arParams['PATH_TO_LIST'],
 				[

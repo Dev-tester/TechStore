@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 if (!is_array($arParams["SITE_LIST"]) || count($arParams["SITE_LIST"]) == 0 || $arParams["SITE_LIST"][0] == "*all*") 
 {

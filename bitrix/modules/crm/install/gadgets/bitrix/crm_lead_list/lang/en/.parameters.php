@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_CRM_LEAD_LIST_LEAD_COUNT"] = "Leads Per Page";
 $MESS["GD_CRM_ONLY_MY"] = "My Only";
 $MESS["GD_CRM_SORT"] = "Sorting";

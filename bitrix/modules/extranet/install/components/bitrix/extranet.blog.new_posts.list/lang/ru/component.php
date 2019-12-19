@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MODULE_NOT_INSTALL'] = "Модуль блогов не установлен.";
 $MESS ['EXTRANET_MODULE_NOT_INSTALL'] = "Модуль экстранета не установлен.";
 $MESS ['EBNPL_TITLE'] = "Последние сообщения блогов";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -10,9 +10,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
  * @global CUser $USER
  */
 ?>
-<?if ($arResult["MESSAGE"]):?>
-	<?ShowError($arResult["MESSAGE"]);?>
-<?else:?>
+<?php if ($arResult["MESSAGE"]):?>
+	<?php ShowError($arResult["MESSAGE"]);?>
+<?php else:?>
 	<div class="code-p-wrap" id="recovery-codes-container">
 		<div class="code-p-title"><?=GetMessage("SEC_CODES")?></div>
 		<div class="code-p-block">
@@ -36,12 +36,12 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 				<?=GetMessage("SEC_SHORT_NOTICE")?>
 			</div>
 		</div>
-		<?if (\Bitrix\Main\Context::getCurrent()->getRequest()->isPost()):?>
+		<?php if (\Bitrix\Main\Context::getCurrent()->getRequest()->isPost()):?>
 			<a href="javascript:void(0)" onclick="BX.Intranet.UserProfile.Security.showRecoveryCodesComponent('print')" class="webform-button webform-button-blue" target="_blank"><?=toUpper(GetMessage("SEC_PRINT"))?></a>
-		<?else:?>
+		<?php else:?>
 			<a href="<?=$APPLICATION->GetCurPageParam('codesAction=print&ncc=1')?>" class="webform-button webform-button-blue" target="_blank"><?=toUpper(GetMessage("SEC_PRINT"))?></a>
-		<?endif?>
-		<?
+		<?php endif?>
+		<?php 
 		if (isset($arParams["PATH_TO_CODES"]))
 		{
 			$pathToCodes = $arParams["PATH_TO_CODES"]."?codesAction=download&ncc=1";
@@ -53,7 +53,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		?>
 		<a href="<?=$pathToCodes?>" target="_blank" class="webform-button"><?=GetMessage("SEC_SAVE")?></a>
 	</div>
-	<?
+	<?php 
 	$jsCodes = array();
 	foreach($arResult['CODES'] as $code)
 	{
@@ -74,4 +74,4 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 			recoveryCodes.drawRecoveryCodes(<?=\Bitrix\Main\Web\Json::encode($jsCodes)?>);
 		});
 	</script>
-<?endif?>
+<?php endif?>

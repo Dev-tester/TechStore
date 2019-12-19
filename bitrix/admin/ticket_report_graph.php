@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/admin/ticket_report_graph.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/admin/ticket_report_graph.php");?>

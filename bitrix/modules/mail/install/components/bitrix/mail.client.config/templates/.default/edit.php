@@ -124,30 +124,30 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 		<?=bitrix_sessid_post() ?>
 		<input type="hidden" name="fields[site_id]" value="<?=SITE_ID ?>">
 		<input type="hidden" name="fields[service_id]" value="<?=$settings['id'] ?>">
-		<? if (!empty($mailbox)): ?>
+		<?php  if (!empty($mailbox)): ?>
 			<input type="hidden" name="fields[mailbox_id]" value="<?=$mailbox['ID'] ?>">
 			<input type="hidden" name="fields[pass_placeholder]" value="<?=htmlspecialcharsbx($arParams['PASSWORD_PLACEHOLDER']) ?>">
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if (empty($settings['oauth'])): ?>
+		<?php  if (empty($settings['oauth'])): ?>
 			<div class="mail-connect-section-block">
 				<div class="mail-connect-img-block">
-					<? if ($settings['icon']): ?>
+					<?php  if ($settings['icon']): ?>
 						<img class="mail-connect-img" src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>">
-					<? else: ?>
-						<span class="mail-connect-text <? if (strlen($settings['name']) > 10): ?> mail-connect-text-small"<? endif ?>">
+					<?php  else: ?>
+						<span class="mail-connect-text <?php  if (strlen($settings['name']) > 10): ?> mail-connect-text-small"<?php  endif ?>">
 							&nbsp;<?=htmlspecialcharsbx($settings['name']) ?>&nbsp;
 						</span>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if (!empty($mailbox)): ?>
+		<?php  if (!empty($mailbox)): ?>
 			<div class="mail-connect-section-block">
 				<div class="mail-connect-mailbox-block">
 					<div class="mail-connect-mailbox-name"><?=htmlspecialcharsbx($mailbox['EMAIL'] ?: sprintf('#%u', $mailbox['ID'])) ?></div>
-					<? if ($arResult['LAST_MAIL_CHECK_DATE'] > 0): ?>
+					<?php  if ($arResult['LAST_MAIL_CHECK_DATE'] > 0): ?>
 						<div class="mail-connect-last-sync-wrapper">
 							<span class="mail-connect-last-sync-title">
 								<?=Loc::getMessage(
@@ -160,18 +160,18 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 									)
 								) ?>
 							</span>
-							<? $isSuccessSyncStatus = $arResult['LAST_MAIL_CHECK_STATUS']; ?>
+							<?php  $isSuccessSyncStatus = $arResult['LAST_MAIL_CHECK_STATUS']; ?>
 							<span class="mail-connect-last-sync-status mail-connect-last-sync-<?= $isSuccessSyncStatus ? 'success' : 'error'; ?>">
 								<?= Loc::getMessage('MAIL_CLIENT_CONFIG_LAST_MAIL_CHECK_' . ($isSuccessSyncStatus ? 'SUCCESS' : 'ERROR')); ?>
 							</span>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 
 		<div class="mail-connect-section-block">
-			<? if (!empty($settings['oauth'])): ?>
+			<?php  if (!empty($settings['oauth'])): ?>
 				<input type="hidden" name="fields[email]" value="<?=htmlspecialcharsbx($mailbox['EMAIL']) ?>">
 				<input type="hidden" name="fields[oauth_uid]" value="<?=htmlspecialcharsbx($settings['oauth']->getStoredUid()) ?>">
 				<input type="hidden" id="mail_connect_mb_oauth_url_field"
@@ -180,22 +180,22 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 					value="<?=(empty($settings['oauth_user']) ? 'N' : 'S') ?>">
 				<div class="mail-connect-inner">
 					<div class="mail-connect-img-block">
-						<? if ($settings['icon']): ?>
+						<?php  if ($settings['icon']): ?>
 							<img class="mail-connect-img" src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>">
-						<? else: ?>
-							<span class="mail-connect-text <? if (strlen($settings['name']) > 10): ?> mail-connect-text-small"<? endif ?>">
+						<?php  else: ?>
+							<span class="mail-connect-text <?php  if (strlen($settings['name']) > 10): ?> mail-connect-text-small"<?php  endif ?>">
 								&nbsp;<?=htmlspecialcharsbx($settings['name']) ?>&nbsp;
 							</span>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 					<button class="ui-btn ui-btn-primary" id="mail_connect_mb_oauth_btn" type="button"
-						<? if (!empty($settings['oauth_user'])): ?> style="display: none; "<? endif ?>><?=Loc::getMessage('MAIL_CLIENT_CONFIG_OAUTH_CONNECT') ?></button>
+						<?php  if (!empty($settings['oauth_user'])): ?> style="display: none; "<?php  endif ?>><?=Loc::getMessage('MAIL_CLIENT_CONFIG_OAUTH_CONNECT') ?></button>
 					<div class="mail-connect-email-block" id="mail_connect_mb_oauth_status"
-						<? if (empty($settings['oauth_user'])): ?> style="display: none; "<? endif ?>>
+						<?php  if (empty($settings['oauth_user'])): ?> style="display: none; "<?php  endif ?>>
 						<div class="mail-connect-email-inner">
 							<span class="mail-connect-email-img" id="mail_connect_mb_oauth_status_image"></span>
 							<a class="mail-connect-email-text" id="mail_connect_mb_oauth_status_email">
-								<? if (!empty($settings['oauth_user'])) echo htmlspecialcharsbx($settings['oauth_user']['email']); ?>
+								<?php  if (!empty($settings['oauth_user'])) echo htmlspecialcharsbx($settings['oauth_user']['email']); ?>
 							</a>
 						</div>
 						<button class="ui-btn ui-btn-md ui-btn-link ui-btn-no-caps mail-connect-email-btn-disable"
@@ -204,24 +204,24 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 				</div>
 				<a href="<?=htmlspecialcharsbx(\CHTTP::urlAddParams($baseUri, array('oauth' => 'N'))) ?>"
 					data-slider-ignore-autobinding="true" style="display: none; ">password mode</a>
-			<? else: ?>
+			<?php  else: ?>
 				<div class="mail-connect-form-inner">
-					<? if (empty($mailbox['EMAIL'])): ?>
+					<?php  if (empty($mailbox['EMAIL'])): ?>
 						<div class="mail-connect-form-item">
 							<label class="mail-connect-form-label" for="mail_connect_mb_email_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_MAILBOX_EMAIL') ?></label>
 							<input class="mail-connect-form-input" type="text" placeholder="info@example.com" 
 								name="fields[email]" id="mail_connect_mb_email_field">
 							<div class="mail-connect-form-error"></div>
 						</div>
-					<?else:?>
+					<?php else:?>
 						<input type="hidden" name="fields[email]" value="<?=htmlspecialcharsbx($mailbox['EMAIL']) ?>">
-					<? endif ?>
-					<? if (empty($settings['server'])): ?>
+					<?php  endif ?>
+					<?php  if (empty($settings['server'])): ?>
 						<div class="mail-connect-form-item">
 							<label class="mail-connect-form-label" for="mail_connect_mb_server_imap_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_SERVER') ?></label>
 							<input class="mail-connect-form-input" type="text" placeholder="imap.example.com"
 								name="fields[server_imap]" id="mail_connect_mb_server_imap_field"
-								<? if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['SERVER']) ?>" <? endif ?>>
+								<?php  if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['SERVER']) ?>" <?php  endif ?>>
 							<div class="mail-connect-form-error"></div>
 						</div>
 						<div class="mail-connect-form-item">
@@ -229,84 +229,84 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 							<div class="mail-connect-form-item-inner">
 								<input class="mail-connect-form-input" type="text" placeholder="993"
 									name="fields[port_imap]" id="mail_connect_mb_port_imap_field"
-									<? if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['PORT']) ?>" <? endif ?>>
+									<?php  if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['PORT']) ?>" <?php  endif ?>>
 								<div class="mail-connect-option-email">
 									<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 										name="fields[ssl_imap]" id="mail_connect_mb_ssl_imap_field"
-										<? if (!empty($mailbox) && in_array($mailbox['USE_TLS'], array('Y', 'S'))): ?> value="<?=$mailbox['USE_TLS'] ?>" <? else: ?> value="Y" <? endif ?>
-										<? if (empty($mailbox) || in_array($mailbox['USE_TLS'], array('Y', 'S'))): ?> checked <? endif ?>>
+										<?php  if (!empty($mailbox) && in_array($mailbox['USE_TLS'], array('Y', 'S'))): ?> value="<?=$mailbox['USE_TLS'] ?>" <?php  else: ?> value="Y" <?php  endif ?>
+										<?php  if (empty($mailbox) || in_array($mailbox['USE_TLS'], array('Y', 'S'))): ?> checked <?php  endif ?>>
 									<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_ssl_imap_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_SSL') ?></label>
 								</div>
 							</div>
 							<div class="mail-connect-form-error"></div>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 					<div class="mail-connect-form-item">
 						<label class="mail-connect-form-label" for="mail_connect_mb_login_imap_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_LOGIN') ?></label>
 						<input class="mail-connect-form-input" type="text"
 							name="fields[login_imap]" id="mail_connect_mb_login_imap_field"
 							onchange="this['__filled'] = this.value.length > 0; "
-							<? if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['LOGIN']) ?>" disabled <? endif ?>>
+							<?php  if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['LOGIN']) ?>" disabled <?php  endif ?>>
 						<div class="mail-connect-form-error"></div>
 					</div>
 					<div class="mail-connect-form-item">
 						<label class="mail-connect-form-label" for="mail_connect_mb_pass_imap_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_PASS') ?></label>
 						<input class="mail-connect-form-input" type="password" name="fields[pass_imap]" id="mail_connect_mb_pass_imap_field"
-							<? if (!empty($mailbox['PASSWORD'])): ?>
+							<?php  if (!empty($mailbox['PASSWORD'])): ?>
 								data-placeholder="<?=htmlspecialcharsbx($arParams['PASSWORD_PLACEHOLDER']) ?>"
 								onfocus="if (this.value == this.getAttribute('data-placeholder')) this.value = ''; "
 								onblur="if ('' == this.value) this.value = this.getAttribute('data-placeholder'); "
 								value="<?=htmlspecialcharsbx($arParams['PASSWORD_PLACEHOLDER']) ?>"
-							<? endif ?>>
+							<?php  endif ?>>
 						<div class="mail-connect-form-error"></div>
 					</div>
 				</div>
-				<? if (!empty($hiddenOAuth)): ?>
+				<?php  if (!empty($hiddenOAuth)): ?>
 					<a href="<?=htmlspecialcharsbx(\CHTTP::urlAddParams($baseUri, array('oauth' => 'Y'))) ?>"
 						data-slider-ignore-autobinding="true" style="display: none; ">oauth mode</a>
-				<? endif ?>
-			<? endif ?>
+				<?php  endif ?>
+			<?php  endif ?>
 		</div>
 
-		<? $maxAgeLimit = LicenseManager::getSyncOldLimit(); ?>
-		<? if (empty($mailbox)): ?>
+		<?php  $maxAgeLimit = LicenseManager::getSyncOldLimit(); ?>
+		<?php  if (empty($mailbox)): ?>
 			<div class="mail-connect-section-block">
 				<div class="mail-connect-form-inner">
 					<input type="checkbox" class="mail-connect-form-input mail-connect-form-input-check" name="fields[mail_connect_import_messages]" value="Y" id="mail_connect_mb_import_messages" checked>
-					<? list($label1, $label2) = explode('#AGE#', Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE'), 2); ?>
+					<?php  list($label1, $label2) = explode('#AGE#', Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE'), 2); ?>
 					<label class="mail_connect_mb_import_messages_label" for="mail_connect_mb_import_messages"><?=$label1 ?></label>
-					<? $maxAgeDefault = $maxAgeLimit > 0 && $maxAgeLimit < 7 ? 1 : 7; ?>
+					<?php  $maxAgeDefault = $maxAgeLimit > 0 && $maxAgeLimit < 7 ? 1 : 7; ?>
 					<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="mail_connect_mb_max_age_field_<?=$maxAgeDefault ?>">
 						<input id="mail_connect_mb_max_age_field_0" type="radio" name="fields[msg_max_age]" value="0">
 						<label for="mail_connect_mb_max_age_field_0"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE_2_<?=$maxAgeDefault ?>') ?></label>
 						<div class="mail-set-singleselect-wrapper">
-							<? foreach ($maxAgeDefault < 7 ? array(1, 7, 30, 60, 90) : array(7, 30, 60, 90) as $value): ?>
-								<? $disabled = $maxAgeLimit > 0 && $value > $maxAgeLimit; ?>
+							<?php  foreach ($maxAgeDefault < 7 ? array(1, 7, 30, 60, 90) : array(7, 30, 60, 90) as $value): ?>
+								<?php  $disabled = $maxAgeLimit > 0 && $value > $maxAgeLimit; ?>
 								<input type="radio" name="fields[msg_max_age]" value="<?=$value ?>"
 									id="mail_connect_mb_max_age_field_<?=$value ?>"
-									<? if ($maxAgeDefault == $value): ?> checked<? endif ?>
-									<? if ($disabled): ?> disabled<? endif ?>>
+									<?php  if ($maxAgeDefault == $value): ?> checked<?php  endif ?>
+									<?php  if ($disabled): ?> disabled<?php  endif ?>>
 								<label for="mail_connect_mb_max_age_field_<?=$value ?>"
-									<? if ($disabled): ?>
+									<?php  if ($disabled): ?>
 										class="mail-set-singleselect-option-disabled"
 										onclick="showLicenseInfoPopup('age'); "
-									<? endif ?>><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE_2_' . $value) ?></label>
-							<? endforeach ?>
-							<? if ($maxAgeLimit <= 0): ?>
+									<?php  endif ?>><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE_2_' . $value) ?></label>
+							<?php  endforeach ?>
+							<?php  if ($maxAgeLimit <= 0): ?>
 								<input type="radio" name="fields[msg_max_age]" value="-1" id="mail_connect_mb_max_age_field_i">
 								<label for="mail_connect_mb_max_age_field_i"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE_2_I') ?></label>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
 					</label>
 					<?=$label2 ?>
 				</div>
 			</div>
-		<? else: ?>
+		<?php  else: ?>
 			<div class="mail-connect-section-block">
 				<a class="mail-connect-dashed-switch" href="#" id="mail_connect_mb_imap_dirs_link"
 					><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_DIRS_LINK') ?></a>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 
 		<div class="mail-connect-section-block">
 			<span class="mail-connect-dashed-switch"
@@ -318,93 +318,93 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 					<input class="mail-connect-form-input" type="text"
 						name="fields[name]" id="mail_connect_mb_name_field"
 						onchange="this['__filled'] = this.value.length > 0; "
-						<? if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['NAME']) ?>" <? endif ?>>
+						<?php  if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['NAME']) ?>" <?php  endif ?>>
 				</div>
 				<div class="mail-connect-form-item">
 					<label class="mail-connect-form-label" for="mail_connect_mb_sender_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_MAILBOX_USERNAME') ?></label>
 					<input class="mail-connect-form-input" type="text" name="fields[sender]" id="mail_connect_mb_sender_field"
-						<? if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['USERNAME']) ?>" <? endif ?>>
+						<?php  if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['USERNAME']) ?>" <?php  endif ?>>
 				</div>
-				<? if (empty($settings['link'])): ?>
+				<?php  if (empty($settings['link'])): ?>
 					<div class="mail-connect-form-item">
 						<label class="mail-connect-form-label" for="mail_connect_mb_link_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_MAILBOX_LINK') ?></label>
 						<input class="mail-connect-form-input" type="text" name="fields[link]" id="mail_connect_mb_link_field"
-							<? if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['LINK']) ?>" <? endif ?>>
+							<?php  if (!empty($mailbox)): ?> value="<?=htmlspecialcharsbx($mailbox['LINK']) ?>" <?php  endif ?>>
 						<div class="mail-connect-form-error"></div>
 					</div>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
 		</div>
 
-		<? if (!empty($arParams['IS_SMTP_AVAILABLE'])): ?>
-			<? $hasSmtpFields = empty($settings['smtp']['server']) || !$settings['smtp']['login'] || !$settings['smtp']['password'] || !empty($settings['oauth']); ?>
+		<?php  if (!empty($arParams['IS_SMTP_AVAILABLE'])): ?>
+			<?php  $hasSmtpFields = empty($settings['smtp']['server']) || !$settings['smtp']['login'] || !$settings['smtp']['password'] || !empty($settings['oauth']); ?>
 			<div class="mail-connect-section-block">
 				<div class="mail-connect-title-block">
 					<div class="mail-connect-title"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_SMTP') ?></div>
 				</div>
-				<div class="<? if (empty($mailbox['__smtp']) || !$hasSmtpFields): ?>mail-connect-form-hidden-block<? endif ?>">
-					<? if (empty($mailbox['__smtp']) || !$hasSmtpFields): ?>
+				<div class="<?php  if (empty($mailbox['__smtp']) || !$hasSmtpFields): ?>mail-connect-form-hidden-block<?php  endif ?>">
+					<?php  if (empty($mailbox['__smtp']) || !$hasSmtpFields): ?>
 						<div class="mail-connect-option-email">
 							<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 								name="fields[use_smtp]" value="1" id="mail_connect_mb_server_smtp_switch"
-								<? if (empty($mailbox)): ?> checked <? endif ?>
-								<? if (!empty($mailbox['__smtp'])): ?> checked disabled <? endif ?>
+								<?php  if (empty($mailbox)): ?> checked <?php  endif ?>
+								<?php  if (!empty($mailbox['__smtp'])): ?> checked disabled <?php  endif ?>
 								onchange="BX('mail_connect_mb_server_smtp_form').style.display = this.checked ? '' : 'none'; ">
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_server_smtp_switch"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_SMTP_ACTIVE') ?></label>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 					<div class="mail-connect-form-inner" id="mail_connect_mb_server_smtp_form"
-						<? if (!empty($mailbox) && empty($mailbox['__smtp'])): ?> style="display: none; " <? endif ?>>
-						<? if ($hasSmtpFields): ?>
+						<?php  if (!empty($mailbox) && empty($mailbox['__smtp'])): ?> style="display: none; " <?php  endif ?>>
+						<?php  if ($hasSmtpFields): ?>
 							<div class="mail-connect-warning-block">
 								<div class="mail-connect-warning-text"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_SMTP_WARNING') ?></div>
 							</div>
-						<? endif ?>
-						<? if (empty($settings['smtp']['server'])): ?>
+						<?php  endif ?>
+						<?php  if (empty($settings['smtp']['server'])): ?>
 							<div class="mail-connect-form-item">
 								<label class="mail-connect-form-label" for="mail_connect_mb_server_smtp_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_SMTP_SERVER') ?></label>
 								<div class="mail-connect-form-item-server-port">
 									<input class="mail-connect-form-input mail-connect-form-input-server" type="text" placeholder="smtp.example.com"
 										name="fields[server_smtp]" id="mail_connect_mb_server_smtp_field"
-										<? if (!empty($mailbox['__smtp'])): ?> value="<?=htmlspecialcharsbx($mailbox['__smtp']['server']) ?>" <? endif ?>>
+										<?php  if (!empty($mailbox['__smtp'])): ?> value="<?=htmlspecialcharsbx($mailbox['__smtp']['server']) ?>" <?php  endif ?>>
 									<input class="mail-connect-form-input mail-connect-form-input-port" type="text"
 										name="fields[port_smtp]" id="mail_connect_mb_port_smtp_field"
-										<? if (!empty($mailbox['__smtp'])): ?> value="<?=htmlspecialcharsbx($mailbox['__smtp']['port']) ?>" <? endif ?>>
+										<?php  if (!empty($mailbox['__smtp'])): ?> value="<?=htmlspecialcharsbx($mailbox['__smtp']['port']) ?>" <?php  endif ?>>
 								</div>
 								<div class="mail-connect-form-error"></div>
 							</div>
-						<? endif ?>
-						<? if (!$settings['smtp']['login']): ?>
+						<?php  endif ?>
+						<?php  if (!$settings['smtp']['login']): ?>
 							<div class="mail-connect-form-item">
 								<label class="mail-connect-form-label" for="mail_connect_mb_login_smtp_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_SMTP_LOGIN') ?></label>
 								<input class="mail-connect-form-input" type="text"
 									name="fields[login_smtp]" id="mail_connect_mb_login_smtp_field"
 									onchange="this['__filled'] = this.value.length > 0; "
-									<? if (!empty($mailbox['__smtp'])): ?> value="<?=htmlspecialcharsbx($mailbox['__smtp']['login']) ?>" <? endif ?>>
+									<?php  if (!empty($mailbox['__smtp'])): ?> value="<?=htmlspecialcharsbx($mailbox['__smtp']['login']) ?>" <?php  endif ?>>
 								<div class="mail-connect-form-error"></div>
 							</div>
-						<? endif ?>
-						<? if (!$settings['smtp']['password'] || !empty($settings['oauth'])): ?>
+						<?php  endif ?>
+						<?php  if (!$settings['smtp']['password'] || !empty($settings['oauth'])): ?>
 							<div class="mail-connect-form-item">
 								<label class="mail-connect-form-label" for="mail_connect_mb_pass_smtp_field"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_SMTP_PASS') ?></label>
 								<input class="mail-connect-form-input" type="password"
 									name="fields[pass_smtp]" id="mail_connect_mb_pass_smtp_field"
 									onchange="this['__filled'] = this.value.length > 0; "
-									<? if (!empty($mailbox['__smtp'])): ?>
+									<?php  if (!empty($mailbox['__smtp'])): ?>
 										data-placeholder="<?=htmlspecialcharsbx($arParams['PASSWORD_PLACEHOLDER']) ?>"
 										onfocus="if (this.value == this.getAttribute('data-placeholder')) this.value = ''; "
 										onblur="if ('' == this.value) this.value = this.getAttribute('data-placeholder'); "
 										value="<?=htmlspecialcharsbx($arParams['PASSWORD_PLACEHOLDER']) ?>"
-									<? endif ?>>
+									<?php  endif ?>>
 								<div class="mail-connect-form-error"></div>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 				</div>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if ($arParams['CRM_AVAILABLE']): ?>
+		<?php  if ($arParams['CRM_AVAILABLE']): ?>
 			<div class="mail-connect-section-block">
 				<div class="mail-connect-title-block">
 					<div class="mail-connect-title"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_CRM') ?></div>
@@ -414,17 +414,17 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 						<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 							name="fields[use_crm]" value="Y" id="mail_connect_mb_crm_switch"
 							onchange="BX('mail_connect_mb_crm_form').style.display = this.checked ? '' : 'none'; "
-							<? if (empty($mailbox) || !empty($mailbox['__crm'])): ?> checked <? endif ?>>
+							<?php  if (empty($mailbox) || !empty($mailbox['__crm'])): ?> checked <?php  endif ?>>
 						<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_switch"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_ACTIVE') ?></label>
 					</div>
 					<div class="mail-connect-form-inner" id="mail_connect_mb_crm_form"
-						<? if (!empty($mailbox) && empty($mailbox['__crm'])): ?> style="display: none; " <? endif ?>>
-						<? if (empty($mailbox)): ?>
+						<?php  if (!empty($mailbox) && empty($mailbox['__crm'])): ?> style="display: none; " <?php  endif ?>>
+						<?php  if (empty($mailbox)): ?>
 							<div class="mail-connect-option-email mail-connect-form-check-hidden">
-								<? list($label1, $label2) = explode('#AGE#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_AGE'), 2); ?>
+								<?php  list($label1, $label2) = explode('#AGE#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_AGE'), 2); ?>
 								<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 									name="fields[crm_sync_old]" value="Y" id="mail_connect_mb_crm_sync_old"
-									<? if (empty($mailbox)): ?> checked <? endif ?>>
+									<?php  if (empty($mailbox)): ?> checked <?php  endif ?>>
 								<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_sync_old">
 									<?=$label1 ?>
 								</label>
@@ -432,12 +432,12 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 									<input id="mail_connect_mb_crm_max_age_field_0" type="radio" name="fields[crm_max_age]" value="0">
 									<label for="mail_connect_mb_crm_max_age_field_0"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE_2_7') ?></label>
 									<div class="mail-set-singleselect-wrapper">
-										<? foreach (array(7, 30) as $value): ?>
+										<?php  foreach (array(7, 30) as $value): ?>
 											<input type="radio" name="fields[crm_max_age]" value="<?=$value ?>"
 												id="mail_connect_mb_crm_max_age_field_<?=$value ?>"
-												<? if (7 == $value): ?> checked <? endif ?>>
+												<?php  if (7 == $value): ?> checked <?php  endif ?>>
 											<label for="mail_connect_mb_crm_max_age_field_<?=$value ?>"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE_2_' . $value) ?></label>
-										<? endforeach ?>
+										<?php  endforeach ?>
 										<input type="radio" name="fields[crm_max_age]" value="-1" id="mail_connect_mb_crm_max_age_field_i">
 										<label for="mail_connect_mb_crm_max_age_field_i"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_IMAP_AGE_2_I') ?></label>
 									</div>
@@ -446,20 +446,20 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 									<?=$label2 ?>
 								</label>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 						<div class="mail-connect-option-email mail-connect-form-check-hidden">
 							<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 								name="fields[crm_public]" value="Y" id="mail_connect_mb_crm_public"
-								<? if (!empty($mailbox) && in_array('crm_public_bind', $mailbox['OPTIONS']['flags'])): ?> checked <? endif ?>>
+								<?php  if (!empty($mailbox) && in_array('crm_public_bind', $mailbox['OPTIONS']['flags'])): ?> checked <?php  endif ?>>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_public">
 								<?=Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_PUBLIC') ?>
 							</label>
 						</div>
 						<div class="mail-connect-option-email mail-connect-form-check-hidden">
-							<? list($label1, $label2) = explode('#ENTITY#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_ENTITY_IN'), 2); ?>
+							<?php  list($label1, $label2) = explode('#ENTITY#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_ENTITY_IN'), 2); ?>
 							<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 								name="fields[crm_allow_entity_in]" value="Y" id="mail_connect_mb_crm_allow_entity_in"
-								<? if (empty($mailbox) || !array_intersect(array('crm_deny_new_lead', 'crm_deny_entity_in'), $mailbox['OPTIONS']['flags'])): ?> checked <? endif ?>>
+								<?php  if (empty($mailbox) || !array_intersect(array('crm_deny_new_lead', 'crm_deny_entity_in'), $mailbox['OPTIONS']['flags'])): ?> checked <?php  endif ?>>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_allow_entity_in">
 								<?=$label1 ?>
 							</label>
@@ -467,12 +467,12 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 								<input id="mail_connect_mb_crm_entity_in_0" type="radio" name="fields[crm_entity_in]" value="0">
 								<label for="mail_connect_mb_crm_entity_in_0"><?=htmlspecialcharsbx($arParams['NEW_ENTITY_LIST'][$arParams['DEFAULT_NEW_ENTITY_IN']]) ?></label>
 								<div class="mail-set-singleselect-wrapper">
-									<? foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
+									<?php  foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
 										<input type="radio" name="fields[crm_entity_in]" value="<?=htmlspecialcharsbx($value) ?>"
 											id="mail_connect_mb_crm_entity_in_<?=htmlspecialcharsbx($value) ?>"
-											<? if ($value == $arParams['DEFAULT_NEW_ENTITY_IN']): ?> checked <? endif ?>>
+											<?php  if ($value == $arParams['DEFAULT_NEW_ENTITY_IN']): ?> checked <?php  endif ?>>
 										<label for="mail_connect_mb_crm_entity_in_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-									<? endforeach ?>
+									<?php  endforeach ?>
 								</div>
 							</label>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_allow_entity_in">
@@ -480,10 +480,10 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 							</label>
 						</div>
 						<div class="mail-connect-option-email mail-connect-form-check-hidden">
-							<? list($label1, $label2) = explode('#ENTITY#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_ENTITY_OUT'), 2); ?>
+							<?php  list($label1, $label2) = explode('#ENTITY#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_ENTITY_OUT'), 2); ?>
 							<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 								name="fields[crm_allow_entity_out]" value="Y" id="mail_connect_mb_crm_allow_entity_out"
-								<? if (empty($mailbox) || !array_intersect(array('crm_deny_new_lead', 'crm_deny_entity_out'), $mailbox['OPTIONS']['flags'])): ?> checked <? endif ?>>
+								<?php  if (empty($mailbox) || !array_intersect(array('crm_deny_new_lead', 'crm_deny_entity_out'), $mailbox['OPTIONS']['flags'])): ?> checked <?php  endif ?>>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_allow_entity_out">
 								<?=$label1 ?>
 							</label>
@@ -491,12 +491,12 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 								<input id="mail_connect_mb_crm_entity_out_0" type="radio" name="fields[crm_entity_out]" value="0">
 								<label for="mail_connect_mb_crm_entity_out_0"><?=htmlspecialcharsbx($arParams['NEW_ENTITY_LIST'][$arParams['DEFAULT_NEW_ENTITY_IN']]) ?></label>
 								<div class="mail-set-singleselect-wrapper">
-									<? foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
+									<?php  foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
 										<input type="radio" name="fields[crm_entity_out]" value="<?=htmlspecialcharsbx($value) ?>"
 											id="mail_connect_mb_crm_entity_out_<?=htmlspecialcharsbx($value) ?>"
-											<? if ($value == $arParams['DEFAULT_NEW_ENTITY_OUT']): ?> checked <? endif ?>>
+											<?php  if ($value == $arParams['DEFAULT_NEW_ENTITY_OUT']): ?> checked <?php  endif ?>>
 										<label for="mail_connect_mb_crm_entity_out_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-									<? endforeach ?>
+									<?php  endforeach ?>
 								</div>
 							</label>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_allow_entity_out">
@@ -506,13 +506,13 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 						<div class="mail-connect-option-email mail-connect-form-check-hidden">
 							<input class="mail-connect-form-input mail-connect-form-input-check" type="checkbox"
 								name="fields[crm_vcf]" value="Y" id="mail_connect_mb_crm_vcf"
-								<? if (empty($mailbox) || !in_array('crm_deny_new_contact', $mailbox['OPTIONS']['flags'])): ?> checked <? endif ?>>
+								<?php  if (empty($mailbox) || !in_array('crm_deny_new_contact', $mailbox['OPTIONS']['flags'])): ?> checked <?php  endif ?>>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_vcf">
 								<?=Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_VCF') ?>
 							</label>
 						</div>
 						<div class="mail-connect-option-email mail-connect-form-check-hidden">
-							<? list($label1, $label2) = explode('#SOURCE#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_LEAD_SOURCE'), 2); ?>
+							<?php  list($label1, $label2) = explode('#SOURCE#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_LEAD_SOURCE'), 2); ?>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_lead_source">
 								<?=$label1 ?>
 							</label>
@@ -520,12 +520,12 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 								<input id="mail_connect_mb_crm_lead_source_0" type="radio" name="fields[crm_lead_source]" value="0">
 								<label for="mail_connect_mb_crm_lead_source_0"><?=htmlspecialcharsbx($arParams['LEAD_SOURCE_LIST'][$arParams['DEFAULT_LEAD_SOURCE']]) ?></label>
 								<div class="mail-set-singleselect-wrapper">
-									<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+									<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 										<input type="radio" name="fields[crm_lead_source]" value="<?=htmlspecialcharsbx($value) ?>"
 											id="mail_connect_mb_crm_lead_source_<?=htmlspecialcharsbx($value) ?>"
-											<? if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked <? endif ?>>
+											<?php  if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked <?php  endif ?>>
 										<label for="mail_connect_mb_crm_lead_source_<?=htmlspecialcharsbx($value) ?>"><?=htmlspecialcharsbx($title) ?></label>
-									<? endforeach ?>
+									<?php  endforeach ?>
 								</div>
 							</label>
 							<label class="mail-connect-form-label mail-connect-form-label-check" for="mail_connect_mb_crm_lead_source">
@@ -533,11 +533,11 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 							</label>
 						</div>
 						<div class="mail-connect-option-email mail-connect-form-check-hidden">
-							<? list($label1, $label2) = explode('#LIST#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_LEAD_ALLWAYS'), 2); ?>
+							<?php  list($label1, $label2) = explode('#LIST#', Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_LEAD_ALLWAYS'), 2); ?>
 							<label class="mail-connect-form-label mail-connect-form-label-check">
 								<?=$label1 ?>
 							</label>
-							<span class="mail-set-textarea-show <? if (!empty($arParams['NEW_LEAD_FOR'])): ?> mail-set-textarea-show-open<? endif ?>"
+							<span class="mail-set-textarea-show <?php  if (!empty($arParams['NEW_LEAD_FOR'])): ?> mail-set-textarea-show-open<?php  endif ?>"
 								id="mail_connect_mb_crm_new_lead_for_link"
 								><?=Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_LEAD_ALLWAYS_LIST') ?></span>
 							<label class="mail-connect-form-label mail-connect-form-label-check">
@@ -545,9 +545,9 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 							</label>
 						</div>
 						<div class="mail-connect-form-textarea-block" id="mail_connect_mb_crm_new_lead_for"
-							<? if (empty($arParams['NEW_LEAD_FOR'])): ?> style="display: none; " <? endif ?>>
+							<?php  if (empty($arParams['NEW_LEAD_FOR'])): ?> style="display: none; " <?php  endif ?>>
 							<textarea class="mail-connect-form-textarea" name="fields[crm_new_lead_for]"
-								placeholder="<?=Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_LEAD_FOR_PROMPT') ?>"><?
+								placeholder="<?=Loc::getMessage('MAIL_CLIENT_CONFIG_CRM_NEW_LEAD_FOR_PROMPT') ?>"><?php 
 								echo join(', ', (array) $arParams['NEW_LEAD_FOR']);
 							?></textarea>
 						</div>
@@ -566,7 +566,7 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 					</div>
 				</div>
 			</div>
-		<? endif ?>
+		<?php  endif ?>
 
 		<div class="mail-connect-section-block">
 			<div class="mail-connect-title-block">
@@ -587,9 +587,9 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 					data-forbidden-to-share="<?= CUtil::JSEscape($arResult['FORBIDDEN_TO_SHARE_MAILBOX']); ?>">
 					<?=Loc::getMessage('MAIL_CLIENT_CONFIG_ACCESS_ADD') ?>
 				</a>
-				<? if ($arResult['FORBIDDEN_TO_SHARE_MAILBOX']): ?>
+				<?php  if ($arResult['FORBIDDEN_TO_SHARE_MAILBOX']): ?>
 					<span class="mail-connect-lock-icon"></span>
-				<? endif ?>
+				<?php  endif ?>
 			</div>
 		</div>
 
@@ -598,10 +598,10 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 			<div class="mail-connect-footer-container">
 				<button class="ui-btn ui-btn-md ui-btn-success ui-btn-success mail-connect-btn-connect"
 					type="submit" id="mail_connect_save_btn"><?=Loc::getMessage(empty($mailbox) ? 'MAIL_CLIENT_CONFIG_BTN_CONNECT' : 'MAIL_CLIENT_CONFIG_BTN_SAVE') ?></button>
-				<? if (!empty($mailbox)): ?>
+				<?php  if (!empty($mailbox)): ?>
 					<button class="ui-btn ui-btn-md ui-btn ui-btn-danger mail-connect-btn-disconnect"
 						type="button" id="mail_connect_disconnect_btn"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_BTN_DISCONNECT') ?></button>
-				<? endif ?>
+				<?php  endif ?>
 				<button class="ui-btn ui-btn-md ui-btn-link mail-connect-btn-cancel"
 					type="reset" id="mail_connect_cancel_btn"><?=Loc::getMessage('MAIL_CLIENT_CONFIG_BTN_CANCEL') ?></button>
 			</div>
@@ -1579,7 +1579,7 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 			}
 		);
 
-		<? if (!empty($mailbox)): ?>
+		<?php  if (!empty($mailbox)): ?>
 
 		var deletePopup = false;
 		BX.bind(
@@ -1685,7 +1685,7 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 			),
 		)) ?>;
 
-		<? $imapDirs = array_map(
+		<?php  $imapDirs = array_map(
 			function ($dirName) use ($mailbox)
 			{
 				return Bitrix\Mail\Helper\MessageFolder::getFormattedPath($dirName, $mailbox['OPTIONS']);
@@ -1725,9 +1725,9 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 			BXMailMailbox.setupDirs(applyDirs);
 		}
 
-		<? endif ?>
+		<?php  endif ?>
 
-		<? if (!empty($settings['oauth']) && !empty($settings['oauth_user'])): ?>
+		<?php  if (!empty($settings['oauth']) && !empty($settings['oauth_user'])): ?>
 
 		BX.onCustomEvent(
 			'OnMailOAuthBCompleted',
@@ -1739,11 +1739,11 @@ $APPLICATION->includeComponent('bitrix:main.mail.confirm', '', array());
 			]
 		);
 
-		<? endif ?>
+		<?php  endif ?>
 
 	})();
 
-	<?
+	<?php 
 
 	function get_plural_messages($prefix)
 	{

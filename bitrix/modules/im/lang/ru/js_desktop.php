@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BXD_DEFAULT_TITLE"] = "1С-Битрикс: Десктопное приложение (Версия: #VERSION#)";
 $MESS["BXD_QUOTE_BLOCK"] = "Цитата";
 $MESS["BXD_CONFIRM_CLOSE"] = "Закрыть";

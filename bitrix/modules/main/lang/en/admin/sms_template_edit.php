@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['sms_template_edit_add'] = "New SMS template";
 $MESS['sms_template_edit_add_btn'] = "Add";
 $MESS['sms_template_edit_add_btn_title'] = "Add new SMS template";

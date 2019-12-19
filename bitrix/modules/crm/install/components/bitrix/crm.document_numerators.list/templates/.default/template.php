@@ -33,7 +33,7 @@ $APPLICATION->IncludeComponent(
 		<a href="#" class="ui-btn ui-btn-primary ui-btn-icon-add crm-btn-toolbar-add"
 		   title="" data-role="numerator-create-btn"><?= Loc::getMessage('CRM_NUMERATOR_LIST_CREATE_NUMERATOR'); ?></a>
 	</div>
-<?
+<?php 
 $this->EndViewTarget();
 $APPLICATION->SetTitle(Loc::getMessage('CRM_NUMERATOR_LIST_PAGE_TITLE'));
 // main menu

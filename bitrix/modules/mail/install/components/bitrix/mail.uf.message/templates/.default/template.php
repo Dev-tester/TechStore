@@ -24,19 +24,19 @@ $readDatetimeFormatted = !empty($message['READ_CONFIRMED']) && $message['READ_CO
 
 <div class="mail-uf-message-wrapper">
 
-	<? if ('view' == $arParams['MODE']): ?>
-		<? if ($message['__thread_new'] > 0): ?>
+	<?php  if ('view' == $arParams['MODE']): ?>
+		<?php  if ($message['__thread_new'] > 0): ?>
 			<a class="mail-uf-message-counter" data-slider-ignore-autobinding="true"
 				href="<?=htmlspecialcharsbx($message['__href']) ?>"
 				onclick="return BXMailUfMessageHelper.openMessage(this.href); ">
 				<span class="mail-uf-message-counter-icon"></span>
 				+<?=intval($message['__thread_new']) ?>
 			</a>
-		<? endif ?>
-	<? endif ?>
+		<?php  endif ?>
+	<?php  endif ?>
 
 	<div class="mail-uf-message-h"><?=Loc::getMessage('MAIL_UF_MESSAGE_H') ?></div>
-	<div class="mail-uf-message-date"><?
+	<div class="mail-uf-message-date"><?php 
 
 		echo Loc::getMessage(
 			$message['__is_outcome'] ? 'MAIL_UF_MESSAGE_SENT' : 'MAIL_UF_MESSAGE_RECEIVED',
@@ -54,10 +54,10 @@ $readDatetimeFormatted = !empty($message['READ_CONFIRMED']) && $message['READ_CO
 	<div class="mail-uf-message-separator"></div>
 	<div class="mail-uf-message-h"><?=htmlspecialcharsbx($message['SUBJECT']) ?></div>
 	<div>
-		<? $__from = reset($message['__from']); ?>
-		<? if (!empty($__from['name']) && !empty($__from['email']) && $__from['name'] != $__from['email']): ?>
+		<?php  $__from = reset($message['__from']); ?>
+		<?php  if (!empty($__from['name']) && !empty($__from['email']) && $__from['name'] != $__from['email']): ?>
 			<span class="mail-uf-message-rcpt"><?=htmlspecialcharsbx($__from['name']) ?></span>
-		<? endif ?>
+		<?php  endif ?>
 		<?=htmlspecialcharsbx($__from['email'] ?: $__from['name']) ?>
 	</div>
 	<div>
@@ -82,7 +82,7 @@ $readDatetimeFormatted = !empty($message['READ_CONFIRMED']) && $message['READ_CO
 			<?=Loc::getMessage('MAIL_UF_MESSAGE_BODY_EXPAND') ?>
 		</a>
 	</div>
-	<? if ($message['OPTIONS']['attachments'] > 0 || $message['ATTACHMENTS'] > 0): ?>
+	<?php  if ($message['OPTIONS']['attachments'] > 0 || $message['ATTACHMENTS'] > 0): ?>
 		<div>
 			<a class="mail-uf-message-files" data-slider-ignore-autobinding="true"
 				href="<?=htmlspecialcharsbx($message['__href']) ?>"
@@ -95,13 +95,13 @@ $readDatetimeFormatted = !empty($message['READ_CONFIRMED']) && $message['READ_CO
 				) ?>
 			</a>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 </div>
 
-<? if ('edit' == $arParams['MODE']): ?>
+<?php  if ('edit' == $arParams['MODE']): ?>
 	<input type="hidden" value="<?=intval($message['ID']) ?>"
-		name="<?=htmlspecialcharsbx($uf['FIELD_NAME']) ?><? if ('Y' == $uf['MULTIPLE']) echo '[]'; ?>">
-<? endif?>
+		name="<?=htmlspecialcharsbx($uf['FIELD_NAME']) ?><?php  if ('Y' == $uf['MULTIPLE']) echo '[]'; ?>">
+<?php  endif?>
 
 <script type="text/javascript">
 	

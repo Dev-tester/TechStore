@@ -165,7 +165,7 @@ function setTargetValue(id, form_name, field)
 //-->
 </script>
 
-<?
+<?php 
 $arFilterDropDown = array(
 	GetMessage('STAT_REGION_MSEL_COUNTRY_ID'),
 	GetMessage('STAT_REGION_MSEL_COUNTRY_SHORT_NAME'),
@@ -175,16 +175,16 @@ $arFilterDropDown = array(
 
 $oFilter = new CAdminFilter($sTableID."_filter",$arFilterDropDown);
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
 <input type="hidden" name="field" value="<?=htmlspecialcharsbx($_REQUEST["field"])?>">
-<?
+<?php 
 $oFilter->Begin();
 ?>
 <tr>
 	<td><b><?=GetMessage("STAT_REGION_MSEL_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage('STAT_REGION_MSEL_COUNTRY_ID'),
@@ -204,27 +204,27 @@ $oFilter->Begin();
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_REGION_MSEL_COUNTRY_ID")?></td>
-	<td><input type="text" name="find_country_id" size="47" value="<?echo htmlspecialcharsbx($find_country_id)?>"><?=ShowExactMatchCheckbox("find_country_id")?></td>
+	<td><?php echo GetMessage("STAT_REGION_MSEL_COUNTRY_ID")?></td>
+	<td><input type="text" name="find_country_id" size="47" value="<?php echo htmlspecialcharsbx($find_country_id)?>"><?=ShowExactMatchCheckbox("find_country_id")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_REGION_MSEL_COUNTRY_SHORT_NAME")?></td>
-	<td><input type="text" name="find_country_short_name" size="47" value="<?echo htmlspecialcharsbx($find_country_short_name)?>"><?=ShowExactMatchCheckbox("find_country_short_name")?></td>
+	<td><?php echo GetMessage("STAT_REGION_MSEL_COUNTRY_SHORT_NAME")?></td>
+	<td><input type="text" name="find_country_short_name" size="47" value="<?php echo htmlspecialcharsbx($find_country_short_name)?>"><?=ShowExactMatchCheckbox("find_country_short_name")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_REGION_MSEL_COUNTRY_NAME")?></td>
-	<td><input type="text" name="find_country_name" size="47" value="<?echo htmlspecialcharsbx($find_country_name)?>"><?=ShowExactMatchCheckbox("find_country_name")?></td>
+	<td><?php echo GetMessage("STAT_REGION_MSEL_COUNTRY_NAME")?></td>
+	<td><input type="text" name="find_country_name" size="47" value="<?php echo htmlspecialcharsbx($find_country_name)?>"><?=ShowExactMatchCheckbox("find_country_name")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_REGION_MSEL_REGION_NAME")?></td>
-	<td><input type="text" name="find_region_name" size="47" value="<?echo htmlspecialcharsbx($find_region_name)?>"><?=ShowExactMatchCheckbox("find_region_name")?></td>
+	<td><?php echo GetMessage("STAT_REGION_MSEL_REGION_NAME")?></td>
+	<td><input type="text" name="find_region_name" size="47" value="<?php echo htmlspecialcharsbx($find_region_name)?>"><?=ShowExactMatchCheckbox("find_region_name")?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(), "form" => "find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

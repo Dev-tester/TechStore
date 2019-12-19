@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_RATING_SETTINGS"] = "Rating Parameters";
 $MESS["MAIN_RATING_SETTINGS_ALT"] = "Parameters for voting weight, calculation method and voting permissions";
 $MESS["RATING_SETTINGS_TAB_MAIN"] = "Vote Permission";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRESET_UFIELDS_TOOLBAR_LIST"] = "Список шаблонов";
 $MESS["CRM_PRESET_UFIELDS_TOOLBAR_LIST_TITLE"] = "Список шаблонов: #NAME#";
 $MESS["CRM_ALL"] = "Всего";

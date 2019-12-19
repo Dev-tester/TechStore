@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_INVITE_MODAL_TITLE_SHARING"] = "Share this folder";
 $MESS["WD_INVITE_MODAL_DESTINATION"] = "To:";
 $MESS["WD_INVITE_MODAL_PLACEHOLDER"] = "Description";

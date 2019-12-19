@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_B24_EMAIL_FREE_LICENSE_SIGNATURE"] = "Отправлено из «Битрикс24»
 полный комплект инструментов для организации работы компании
 [url=http://www.bitrix24.ru]bitrix24.ru[/url]";

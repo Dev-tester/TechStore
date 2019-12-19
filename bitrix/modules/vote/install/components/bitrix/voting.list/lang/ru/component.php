@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_MODULE_IS_NOT_INSTALLED'] = "Модуль опросов не установлен.";
 $MESS ['VOTE_PAGES'] = "Опросы";
 $MESS ['comp_voting_list_add'] = "Добавить опрос";

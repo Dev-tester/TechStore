@@ -1,6 +1,6 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div id="idea-posts-content-light">
-<?
+<?php 
 // GetMessage("IDEA_STATUS_NEW"); GetMessage("IDEA_STATUS_PROCESSING"); GetMessage("IDEA_STATUS_COMPLETED");
 if(count($arResult["POST"])>0)
 {
@@ -8,18 +8,18 @@ $arStatusList = CIdeaManagment::getInstance()->Idea()->GetStatusList();
 	$i = 0;
 ?>
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<?foreach($arResult["POST"] as $CurPost)
+	<?php foreach($arResult["POST"] as $CurPost)
 	{
 		if($arParams["MESSAGE_COUNT"] <= $i) break;
 		$status = GetMessage("IDEA_STATUS_".ToUpper($arStatusList[$CurPost["POST_PROPERTIES"]["DATA"]["UF_STATUS"]["VALUE"]]["XML_ID"]));
 		if($status == '')
 			$status = $arStatusList[$CurPost["POST_PROPERTIES"]["DATA"]["UF_STATUS"]["VALUE"]]["VALUE"];
 		?>
-	<?if($i++>0):?><tr><td colspan="3"><div class="idea-light-delimiter"></div></td></tr><?endif;?>
+	<?php if($i++>0):?><tr><td colspan="3"><div class="idea-light-delimiter"></div></td></tr><?php endif;?>
 	<tr>
 		<td width="1" style="overflow: visible; white-space: nowrap;">
-			<?if($arParams["SHOW_RATING"] == "Y"):?>
-			<?$APPLICATION->IncludeComponent(
+			<?php if($arParams["SHOW_RATING"] == "Y"):?>
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:rating.vote", $arParams['RATING_TEMPLATE'],
 				Array(
 					"VOTE_AVAILABLE" => $CurPost["DISABLE_VOTE"]?"N":"Y",
@@ -36,7 +36,7 @@ $arStatusList = CIdeaManagment::getInstance()->Idea()->GetStatusList();
 				false,
 				array("HIDE_ICONS" => "Y")
 			);?>
-			<?endif;?>
+			<?php endif;?>
 		</td>
 		<td width="*">
 			<div class="idea-title idea-title-<?=$arParams['RATING_TEMPLATE']?>"><a href="<?=$CurPost["urlToPost"]?>" target="_blank" title="<?=$CurPost["TITLE"]?>"><?=$CurPost["TITLE"]?></a></div>
@@ -48,8 +48,8 @@ $arStatusList = CIdeaManagment::getInstance()->Idea()->GetStatusList();
 			</div>
 		</td>
 	</tr>
-	<?}?>
+	<?php }?>
 </table>
-<?}?>
+<?php }?>
 
 </div>

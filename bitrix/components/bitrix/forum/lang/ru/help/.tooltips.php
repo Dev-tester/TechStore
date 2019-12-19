@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USE_LIGHT_VIEW_TIP"] = "Использовать простой режим настройки";
 $MESS["SEF_MODE_TIP"] = "Включить поддержку ЧПУ";
 $MESS["CHECK_CORRECT_PATH_TEMPLATES_TIP"] = "Проверять корректность шаблонов пути";

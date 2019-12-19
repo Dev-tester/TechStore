@@ -10,8 +10,8 @@ $dispatcherData = array();
 
 <div id="<?=htmlspecialcharsbx($UID)?>" class="crm_wrapper">
 <ul class="crm_dealings_list">
-	<?foreach($arResult['ITEMS'] as &$item):?>
-		<?
+	<?php foreach($arResult['ITEMS'] as &$item):?>
+		<?php 
 		$dataItem = CCrmMobileHelper::PrepareInvoiceEventData($item);
 		$dispatcherData[] = $dataItem;
 		?>
@@ -21,12 +21,12 @@ $dispatcherData = array();
 			<div class="crm_history_cnt"><?=htmlspecialcharsbx($dataItem['DATE_CREATE'])?>, <?=htmlspecialcharsbx($dataItem['USER_FORMATTED_NAME'])?></div>
 			<div class="clb"></div>
 		</li>
-	<?endforeach;?>
-	<?unset($item);?>
+	<?php endforeach;?>
+	<?php unset($item);?>
 
-	<?if($arResult['PAGE_NEXT_NUMBER'] <= $arResult['PAGE_NAVCOUNT']):?>
+	<?php if($arResult['PAGE_NEXT_NUMBER'] <= $arResult['PAGE_NAVCOUNT']):?>
 		<li class="crm_history_list_item crm_history_list_item_wait"></li>
-	<?endif;?>
+	<?php endif;?>
 </ul></div>
 <script type="text/javascript">
 	BX.ready(

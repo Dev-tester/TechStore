@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $mobileAdminPageHtml = ob_get_contents();
 ob_end_clean();
@@ -10,12 +10,12 @@ CMobile::Init();
 <html<?=$APPLICATION->ShowProperty("Manifest");?> class="<?=CMobile::$platform;?>">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=<?=SITE_CHARSET?>"/>
-		<meta name="format-detection" content="telephone=no"><?
+		<meta name="format-detection" content="telephone=no"><?php 
 			$APPLICATION->ShowHeadStrings(true);
 			$APPLICATION->ShowHeadStrings();
 			$APPLICATION->ShowHeadScripts();
 			CJSCore::Init('ajax');
-		?><title><?$APPLICATION->ShowTitle()?></title>
+		?><title><?php $APPLICATION->ShowTitle()?></title>
 	</head>
 	<body class="<?=$APPLICATION->ShowProperty("BodyClass")?>">
 		<?=$mobileAdminPageHtml?>
@@ -36,4 +36,4 @@ CMobile::Init();
 	app.pullDown(pullParams);
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php"); ?>

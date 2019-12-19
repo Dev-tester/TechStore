@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_PHONE_ATTACH_ERROR_115"] = "Error sending request to provider. Please contact the Helpdesk (115)";
 $MESS["VI_PHONE_ATTACH_ERROR_121"] = "Error sending request to provider. Please contact the Helpdesk (121)";
 $MESS["VI_PHONE_ATTACH_ERROR_127"] = "Insufficient balance";

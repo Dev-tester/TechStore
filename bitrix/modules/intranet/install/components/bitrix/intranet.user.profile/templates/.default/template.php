@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Page;
 
@@ -20,7 +20,7 @@ if (!$arResult["Permissions"]['view'])
 {
 	?><div class="ui-alert ui-alert-danger">
 		<span class="ui-alert-message"><?=Loc::getMessage('INTRANET_USER_PROFILE_VIEW_ACCESS_DENIED')?></span>
-	</div><?
+	</div><?php 
 	return;
 }
 
@@ -33,16 +33,16 @@ if (
 	$this->SetViewTarget('inside_pagetitle');
 	?>
 
-	<?if ($arResult["Permissions"]['edit']):?>
+	<?php if ($arResult["Permissions"]['edit']):?>
 		<span
 			onclick="BX.SidePanel.Instance.open('<?=$arResult["Urls"]["CommonSecurity"]."?page=auth"?>', {width: 1100});"
 			class="ui-btn ui-btn-light-border ui-btn-themes"
 		>
 			<?=Loc::getMessage("INTRANET_USER_PROFILE_PASSWORDS")?>
 		</span>
-	<?endif?>
+	<?php endif?>
 
-	<?if (
+	<?php if (
 		$arResult["OTP_IS_ENABLED"] == "Y"
 		&& ($arResult["IsOwnProfile"] || $USER->CanDoOperation('security_edit_user_otp'))
 	):?>
@@ -52,13 +52,13 @@ if (
 		>
 			<?=Loc::getMessage("INTRANET_USER_PROFILE_SECURITY")?>
 		</span>
-	<?endif?>
-	<?
+	<?php endif?>
+	<?php 
 	$this->EndViewTarget();
 }
 ?>
 
-<?
+<?php 
 if (
 	$arResult["IsOwnProfile"]
 	&& file_exists($_SERVER["DOCUMENT_ROOT"]."/bitrix/components/bitrix/socialnetwork.admin.set")
@@ -81,7 +81,7 @@ if (
 	<div class="intranet-user-profile-column-left">
 		<div class="intranet-user-profile-column-block">
 			<div class="intranet-user-profile-rank">
-				<?if (
+				<?php if (
 					isset($arResult["User"]["STATUS"]) && !empty($arResult["User"]["STATUS"])
 					&& (
 						!(
@@ -91,13 +91,13 @@ if (
 						|| $arResult["User"]["SHOW_SONET_ADMIN"]
 					)
 				):?>
-					<div class="intranet-user-profile-rank-item intranet-user-profile-rank-<?=$arResult["User"]["STATUS"]?> <?if ($arResult["Permissions"]['edit']):?>intranet-user-profile-rank-item-pointer<?endif?>" data-role="user-profile-actions-button">
+					<div class="intranet-user-profile-rank-item intranet-user-profile-rank-<?=$arResult["User"]["STATUS"]?> <?php if ($arResult["Permissions"]['edit']):?>intranet-user-profile-rank-item-pointer<?php endif?>" data-role="user-profile-actions-button">
 						<span><?=ToUpper(Loc::getMessage("INTRANET_USER_PROFILE_".$arResult["User"]["STATUS"]))?></span>
-						<?if ($arResult["Permissions"]['edit']):?>
+						<?php if ($arResult["Permissions"]['edit']):?>
 						<span class="intranet-user-profile-rank-item-config"></span>
-						<?endif?>
+						<?php endif?>
 					</div>
-				<?endif?>
+				<?php endif?>
 			</div>
 
 			<div class="intranet-user-profile-status-info">
@@ -105,39 +105,39 @@ if (
 					<?=ToUpper($arResult["User"]["ONLINE_STATUS"]["STATUS_TEXT"])?>
 				</div>
 				<div class="intranet-user-profile-last-time">
-					<?if ($arResult["User"]["ONLINE_STATUS"]['STATUS'] == 'idle'):?>
-						<?echo ($arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'] ? Loc::getMessage('INTRANET_USER_PROFILE_LAST_SEEN_IDLE_'.($arResult["User"]["PERSONAL_GENDER"] == 'F'? 'F': 'M'), Array('#LAST_SEEN#' => $arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'])): '');?>
-					<?else:?>
-						<?echo ($arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'] ? Loc::getMessage('INTRANET_USER_PROFILE_LAST_SEEN_'.($arResult["User"]["PERSONAL_GENDER"] == 'F'? 'F': 'M'), Array('#LAST_SEEN#' => $arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'])): '');?>
-					<?endif; ?>
+					<?php if ($arResult["User"]["ONLINE_STATUS"]['STATUS'] == 'idle'):?>
+						<?php echo ($arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'] ? Loc::getMessage('INTRANET_USER_PROFILE_LAST_SEEN_IDLE_'.($arResult["User"]["PERSONAL_GENDER"] == 'F'? 'F': 'M'), Array('#LAST_SEEN#' => $arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'])): '');?>
+					<?php else:?>
+						<?php echo ($arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'] ? Loc::getMessage('INTRANET_USER_PROFILE_LAST_SEEN_'.($arResult["User"]["PERSONAL_GENDER"] == 'F'? 'F': 'M'), Array('#LAST_SEEN#' => $arResult["User"]["ONLINE_STATUS"]['LAST_SEEN_TEXT'])): '');?>
+					<?php endif; ?>
 				</div>
 			</div>
 
 			<div
 				class="intranet-user-profile-userpic
-				<?if ($arResult["IsOwnProfile"] || $arResult["Permissions"]['edit']):?>
+				<?php if ($arResult["IsOwnProfile"] || $arResult["Permissions"]['edit']):?>
 				 intranet-user-profile-userpic-edit
-				<?endif?>"
+				<?php endif?>"
 				id="intranet-user-profile-photo"
-				 <?if (isset($arResult["User"]["PHOTO"]) && !empty($arResult["User"]["PHOTO"])):?>
+				 <?php if (isset($arResult["User"]["PHOTO"]) && !empty($arResult["User"]["PHOTO"])):?>
 					 style="background-image: url('<?=$arResult["User"]["PHOTO"]?>'); background-size: cover"
-				 <?endif?>
+				 <?php endif?>
 			>
-				<?if ($arResult["IsOwnProfile"] || $arResult["Permissions"]['edit']):?>
+				<?php if ($arResult["IsOwnProfile"] || $arResult["Permissions"]['edit']):?>
 				<div class="intranet-user-profile-userpic-load">
 					<div class="intranet-user-profile-userpic-create" id="intranet-user-profile-photo-camera"><?=Loc::getMessage("INTRANET_USER_PROFILE_AVATAR_CAMERA")?></div>
 					<div class="intranet-user-profile-userpic-upload" id="intranet-user-profile-photo-file"><?=Loc::getMessage("INTRANET_USER_PROFILE_AVATAR_LOAD")?></div>
 				</div>
 				<div class="intranet-user-profile-userpic-remove" id="intranet-user-profile-photo-remove"></div>
-				<?endif?>
+				<?php endif?>
 			</div>
 
-			<?
+			<?php 
 			if (!$arResult["IsOwnProfile"] && $arResult["User"]["STATUS"] !== "email")
 			{
 				?>
 				<div class="intranet-user-profile-actions">
-					<?if ($arResult["User"]["ACTIVE"] == "N"):?>
+					<?php if ($arResult["User"]["ACTIVE"] == "N"):?>
 						<a
 							class="ui-btn ui-btn-sm ui-btn-light-border ui-btn-round"
 							href="javascript:void(0)"
@@ -145,7 +145,7 @@ if (
 						>
 							<?=Loc::getMessage("INTRANET_USER_PROFILE_CHAT_HISTORY")?>
 						</a>
-					<?else:?>
+					<?php else:?>
 						<a
 							class="ui-btn ui-btn-sm ui-btn-light-border ui-btn-round"
 							href="javascript:void(0)"
@@ -160,12 +160,12 @@ if (
 						>
 							<?=Loc::getMessage("INTRANET_USER_PROFILE_VIDEOCALL")?>
 						</a>
-					<?endif?>
+					<?php endif?>
 				</div>
-			<?
+			<?php 
 			}
 			?>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:intranet.absence.user",
 				"profile",
@@ -177,7 +177,7 @@ if (
 			);
 			?>
 		</div>
-		<?
+		<?php 
 
 		if (
 			$arResult["StressLevel"]['AVAILABLE'] == 'Y'
@@ -199,18 +199,18 @@ if (
 				<div id="intranet-user-profile-stresslevel-widget" class="intranet-user-profile-stresslevel-widget"></div>
 				<div class="intranet-user-profile-stresslevel-info">
 					<div class="intranet-user-profile-stresslevel-info-block">
-						<?
+						<?php 
 						foreach($arResult["StressLevel"]["TYPES_LIST"] as $type => $description)
 						{
 							?>
 							<div id="intranet-user-profile-stresslevel-status-<?=htmlspecialcharsbx($type)?>" class="intranet-user-profile-stresslevel-status intranet-user-profile-stresslevel-status-<?=htmlspecialcharsbx($type)?>" style="display: none;"></div>
-							<?
+							<?php 
 						}
 						?>
 						<div id="intranet-user-profile-stresslevel-status-info" class="intranet-user-profile-stresslevel-status-info" data-hint="" data-hint-no-icon></div>
 					</div>
 					<div id="intranet-user-profile-stresslevel-comment" class="intranet-user-profile-stresslevel-status-text"></div>
-					<?
+					<?php 
 					if (
 						$USER->getId() == $arResult["User"]["ID"]
 						&& $arResult["StressLevel"]["IMAGE_SUPPORT"] == 'Y'
@@ -218,12 +218,12 @@ if (
 					{
 						?>
 						<div id="intranet-user-profile-stresslevel-status-copy" class="intranet-user-profile-stresslevel-status-copy"><?=Loc::getMessage('INTRANET_USER_PROFILE_STRESSLEVEL_RESULT_SHARE_LINK')?></div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 
 		if ($arResult["IsOwnProfile"] && $arResult["User"]["STATUS"] !== "email")
@@ -232,7 +232,7 @@ if (
 		<div class="intranet-user-profile-column-block">
 			<div class="intranet-user-profile-apps">
 				<div class="intranet-user-profile-apps-item">
-					<?/*
+					<?php /*
 						.intranet-user-profile-apps-icon-active
 						.intranet-user-profile-apps-icon-complete
 						.intranet-user-profile-apps-icon-download
@@ -240,43 +240,43 @@ if (
 					<div class="intranet-user-profile-apps-title"><?=Loc::getMessage("INTRANET_USER_PROFILE_MOBILE_APP")?></div>
 					<a href="<?=Loc::getMessage("INTRANET_USER_PROFILE_MOBILE_GOOGLE_PLAY_URL")?>" target="_blank"
 					   class="intranet-user-profile-apps-icon  intranet-user-profile-apps-icon-android
-					   <?if ($arResult["User"]["APP_ANDROID_INSTALLED"]):?>
+					   <?php if ($arResult["User"]["APP_ANDROID_INSTALLED"]):?>
 							intranet-user-profile-apps-icon-active
-					   <?else:?>
+					   <?php else:?>
 							intranet-user-profile-apps-icon-download
-					   <?endif?>"
+					   <?php endif?>"
 					></a>
 					<a href="<?=Loc::getMessage("INTRANET_USER_PROFILE_MOBILE_APPSTORE_URL")?>" target="_blank"
 					   class="intranet-user-profile-apps-icon intranet-user-profile-apps-icon-appstore
-					   <?if ($arResult["User"]["APP_IOS_INSTALLED"]):?>
+					   <?php if ($arResult["User"]["APP_IOS_INSTALLED"]):?>
 							intranet-user-profile-apps-icon-active
-					    <?else:?>
+					    <?php else:?>
 							intranet-user-profile-apps-icon-download
-					   <?endif?>"
+					   <?php endif?>"
 					></a>
 				</div>
 				<div class="intranet-user-profile-apps-item">
 					<div class="intranet-user-profile-apps-title"><?=Loc::getMessage("INTRANET_USER_PROFILE_DESKTOP_APP")?></div>
 					<a href="http://dl.bitrix24.com/b24/bitrix24_desktop.exe" target="_blank"
 					   class="intranet-user-profile-apps-icon intranet-user-profile-apps-icon-windows
-					   <?if ($arResult["User"]["APP_WINDOWS_INSTALLED"]):?>
+					   <?php if ($arResult["User"]["APP_WINDOWS_INSTALLED"]):?>
 							intranet-user-profile-apps-icon-active
-					   <?else:?>
+					   <?php else:?>
 							intranet-user-profile-apps-icon-download
-					   <?endif?>"
+					   <?php endif?>"
 					></a>
 					<a href="http://dl.bitrix24.com/b24/bitrix24_desktop.dmg" target="_blank"
 					   class="intranet-user-profile-apps-icon intranet-user-profile-apps-icon-iphone
-					   <?if ($arResult["User"]["APP_MAC_INSTALLED"]):?>
+					   <?php if ($arResult["User"]["APP_MAC_INSTALLED"]):?>
 							intranet-user-profile-apps-icon-active
-					   <?else:?>
+					   <?php else:?>
 							intranet-user-profile-apps-icon-download
-					   <?endif?>"
+					   <?php endif?>"
 					></a>
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		}
 
 		if (
@@ -287,7 +287,7 @@ if (
 		{
 			?><div class="intranet-user-profile-column-block">
 				<div class="intranet-user-profile-column-block-title">
-					<span class="intranet-user-profile-column-block-title-text"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_GRAT_TITLE')?></span><?
+					<span class="intranet-user-profile-column-block-title-text"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_GRAT_TITLE')?></span><?php 
 					if (
 						!empty($arResult["Gratitudes"]['URL_ADD'])
 						&& $USER->getId() != $arResult["User"]["ID"]
@@ -300,14 +300,14 @@ if (
 								entityId: '<?=intval($arResult["User"]["ID"])?>'
 							},
 							width: 1000
-						}); return event.preventDefault();" class="intranet-user-profile-column-block-title-like" data-role="intranet-user-profile-column-block-title-like"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_GRAT_ADD')?></div><?
+						}); return event.preventDefault();" class="intranet-user-profile-column-block-title-like" data-role="intranet-user-profile-column-block-title-like"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_GRAT_ADD')?></div><?php 
 					}
 				?></div>
 
-				<div id="intranet-user-profile-thanks" class="intranet-user-profile-thanks" data-bx-grat-url="<?=htmlspecialcharsbx($arResult['Gratitudes']['URL_LIST'])?>"><?
+				<div id="intranet-user-profile-thanks" class="intranet-user-profile-thanks" data-bx-grat-url="<?=htmlspecialcharsbx($arResult['Gratitudes']['URL_LIST'])?>"><?php 
 					foreach($arResult['Gratitudes']['BADGES'] as $badge)
 					{
-						?><div class="intranet-user-profile-thanks-item intranet-user-profile-thanks-item-<?=htmlspecialcharsbx($badge['CODE'])?>" title="<?=htmlspecialcharsbx($badge['NAME'])?>" data-bx-grat-code="<?=htmlspecialcharsbx($badge['CODE'])?>" data-bx-grat-enum="<?=intval($badge['ID'])?>"></div><?
+						?><div class="intranet-user-profile-thanks-item intranet-user-profile-thanks-item-<?=htmlspecialcharsbx($badge['CODE'])?>" title="<?=htmlspecialcharsbx($badge['NAME'])?>" data-bx-grat-code="<?=htmlspecialcharsbx($badge['CODE'])?>" data-bx-grat-enum="<?=intval($badge['ID'])?>"></div><?php 
 					}
 				?></div>
 
@@ -315,7 +315,7 @@ if (
 					<div class="intranet-user-profile-thanks-users-wrapper" id="intranet-user-profile-thanks-users-wrapper"></div>
 					<div class="intranet-user-profile-thanks-users-loader" id="intranet-user-profile-thanks-users-loader"></div>
 					<div class="intranet-user-profile-load-users-link" style="display: none;" id="intranet-user-profile-load-users-link"><?=Loc::getMessage('INTRANET_USER_PROFILE_MORE', array('#NUM#' => $arParams['GRAT_POST_LIST_PAGE_SIZE']))?></div>
-				</div><?
+				</div><?php 
 
 				if (
 					!empty($arResult["Gratitudes"]['URL_ADD'])
@@ -331,13 +331,13 @@ if (
 							},
 							width: 1000
 						}); return event.preventDefault();" class="ui-btn ui-btn-xs ui-btn-light-border ui-btn-round"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_GRAT_ADD')?></a>
-					</div><?
+					</div><?php 
 				}
-			?></div><?
+			?></div><?php 
 		}
 	?></div>
 	<div class="intranet-user-profile-column-right">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:ui.form",
 			"",
@@ -371,7 +371,7 @@ if (
 		);
 		?>
 
-		<?if (!empty($arResult["User"]["SUBORDINATE"]) || !empty($arResult["User"]["MANAGERS"]))
+		<?php if (!empty($arResult["User"]["SUBORDINATE"]) || !empty($arResult["User"]["MANAGERS"]))
 		{
 		?>
 			<div class="intranet-user-profile-container">
@@ -379,7 +379,7 @@ if (
 					<div class="intranet-user-profile-container-title"><?=Loc::getMessage("INTRANET_USER_PROFILE_ADDITIONAL_INFO")?></div>
 				</div>
 
-				<?
+				<?php 
 				if (!empty($arResult["User"]["SUBORDINATE"]))
 				{
 				?>
@@ -388,37 +388,37 @@ if (
 							<?=Loc::getMessage("INTRANET_USER_PROFILE_FIELD_SUBORDINATE")?>
 						</div>
 						<div class="intranet-user-profile-grid">
-							<?
+							<?php 
 							$i = 0;
 							foreach ($arResult["User"]["SUBORDINATE"] as $key => $subUser)
 							{
 								$i++;
 							?>
 								<a class="intranet-user-profile-grid-item" href="<?=$subUser["LINK"]?>"
-								   <?if ($i > 4):?>style="display: none" data-role="user-profile-item"<?endif?>
+								   <?php if ($i > 4):?>style="display: none" data-role="user-profile-item"<?php endif?>
 								>
 									<div
 										class="intranet-user-profile-user-avatar"
-										<?if (isset($subUser["PHOTO"]) && !empty($subUser["PHOTO"])): ?>
+										<?php if (isset($subUser["PHOTO"]) && !empty($subUser["PHOTO"])): ?>
 											style="background-image: url('<?=$subUser["PHOTO"]?>'); background-size: cover"
-										<?endif?>
+										<?php endif?>
 									></div>
 									<div class="intranet-user-profile-user-container">
 										<div class="intranet-user-profile-user-name"><?=$subUser["FULL_NAME"]?></div>
 										<div class="intranet-user-profile-user-position"><?=$subUser["WORK_POSITION"]?></div>
 									</div>
 								</a>
-							<?
+							<?php 
 							}
 							?>
 						</div>
-						<?if ($i > 4):?>
+						<?php if ($i > 4):?>
 							<div class="intranet-user-profile-grid-loadmore" id="intranet-user-profile-subordinate-more">
 								<?=Loc::getMessage("INTRANET_USER_PROFILE_MORE", array("#NUM#" => "(<span>".($i-4)."</span>)"))?>
 							</div>
-						<?endif?>
+						<?php endif?>
 					</div>
-				<?
+				<?php 
 				}
 				if (!empty($arResult["User"]["MANAGERS"]))
 				{
@@ -428,7 +428,7 @@ if (
 							<?=Loc::getMessage("INTRANET_USER_PROFILE_FIELD_MANAGERS")?>
 						</div>
 						<div class="intranet-user-profile-grid">
-							<?
+							<?php 
 							$i = 0;
 							foreach ($arResult["User"]["MANAGERS"] as $manager)
 							{
@@ -437,9 +437,9 @@ if (
 								<a class="intranet-user-profile-grid-item" href="<?=$manager["LINK"]?>">
 									<div href="<?=$manager["LINK"]?>"
 									   class="intranet-user-profile-user-avatar"
-									   <?if (isset($manager["PHOTO"]) && !empty($manager["PHOTO"])):?>
+									   <?php if (isset($manager["PHOTO"]) && !empty($manager["PHOTO"])):?>
 										   style="background-image: url('<?=$manager["PHOTO"]?>'); background-size: cover"
-									   <?endif?>
+									   <?php endif?>
 									>
 									</div>
 									<div class="intranet-user-profile-user-container">
@@ -447,21 +447,21 @@ if (
 										<div class="intranet-user-profile-user-position"><?=$manager["WORK_POSITION"]?></div>
 									</div>
 								</a>
-							<?
+							<?php 
 							}
 							?>
 						</div>
-						<?if ($i > 4):?>
+						<?php if ($i > 4):?>
 							<div class="intranet-user-profile-grid-loadmore" id="intranet-user-profile-manages-more">
 								<?=Loc::getMessage("INTRANET_USER_PROFILE_MORE", array("#NUM#" => "(<span>".($i-4)."</span>)"))?>
 							</div>
-						<?endif?>
+						<?php endif?>
 					</div>
-				<?
+				<?php 
 				}
 				?>
 			</div>
-		<?
+		<?php 
 		}
 
 		if (
@@ -476,14 +476,14 @@ if (
 		{
 			?><div id="intranet-user-profile-post-container" class="intranet-user-profile-container<?=(empty($arResult["ProfileBlogPost"]["POST_ID"]) ? ' intranet-user-profile-container-empty' : '')?>">
 				<div class="intranet-user-profile-container-header">
-					<div class="intranet-user-profile-container-title"><?=Loc::getMessage("INTRANET_USER_PROFILE_BLOG_POST_TITLE")?></div><?
+					<div class="intranet-user-profile-container-title"><?=Loc::getMessage("INTRANET_USER_PROFILE_BLOG_POST_TITLE")?></div><?php 
 
 					if (
 						$arResult["Permissions"]['edit']
 						|| $USER->getId() == $arResult["User"]["ID"]
 					)
 					{
-						?><a id="intranet-user-profile-post-edit-link" class="intranet-user-profile-container-edit"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_POST_MODIFY');?></a><?
+						?><a id="intranet-user-profile-post-edit-link" class="intranet-user-profile-container-edit"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_POST_MODIFY');?></a><?php 
 					}
 
 				?></div>
@@ -493,7 +493,7 @@ if (
 					<div id="intranet-user-profile-post-edit-stub" class="intranet-user-profile-about intranet-user-profile-empty-stub intranet-user-profile-about-profile">
 						<div class="intranet-user-profile-post-edit-stub-default"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_POST_STUB_TEXT')?></div>
 						<a id="intranet-user-profile-post-edit-stub-button" class="ui-btn ui-btn-sm ui-btn-light-border ui-btn-round"><?=Loc::getMessage('INTRANET_USER_PROFILE_BLOG_POST_STUB_BUTTON')?></a>
-					</div><?
+					</div><?php 
 
 					if (
 						(
@@ -505,7 +505,7 @@ if (
 						?><div id="intranet-user-profile-about-form-wrapper" style="display: block;">
 							<form action="" id="<?=htmlspecialcharsbx($arResult["ProfileBlogPost"]["formParams"]["FORM_ID"])?>" name="<?=htmlspecialcharsbx($arResult["ProfileBlogPost"]["formParams"]["FORM_ID"])?>" method="POST" enctype="multipart/form-data" target="_self" class="profile-post-form">
 								<?=bitrix_sessid_post();?>
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									"bitrix:main.post.form",
 									".default",
 									$arResult["ProfileBlogPost"]["formParams"],
@@ -516,13 +516,13 @@ if (
 								);?>
 								<input type="hidden" name="cuid" id="upload-cid" value="" />
 							</form>
-						</div><?
+						</div><?php 
 					}
 
 					?><div class="intranet-user-profile-about-loader" id="intranet-user-profile-about-loader"></div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 
 		if (
@@ -538,25 +538,25 @@ if (
 		{
 			?><div id="intranet-user-profile-tags-container" class="intranet-user-profile-container<?=(empty($arResult["Tags"]["COUNT"]) ? ' intranet-user-profile-container-empty' : '')?>">
 				<div class="intranet-user-profile-container-header">
-					<div class="intranet-user-profile-container-title"><?=Loc::getMessage('INTRANET_USER_PROFILE_TAGS_TITLE')?></div><?
+					<div class="intranet-user-profile-container-title"><?=Loc::getMessage('INTRANET_USER_PROFILE_TAGS_TITLE')?></div><?php 
 
 					if (
 						$arResult["Permissions"]['edit']
 						|| $USER->getId() == $arResult["User"]["ID"]
 					)
 					{
-						?><div id="intranet-user-profile-add-tags" class="intranet-user-profile-container-edit"><?=Loc::getMessage('INTRANET_USER_PROFILE_TAGS_MODIFY')?></div><?
+						?><div id="intranet-user-profile-add-tags" class="intranet-user-profile-container-edit"><?=Loc::getMessage('INTRANET_USER_PROFILE_TAGS_MODIFY')?></div><?php 
 					}
 
 				?></div>
-				<div class="intranet-user-profile-container-body intranet-user-profile-tags-wrapper"><?
+				<div class="intranet-user-profile-container-body intranet-user-profile-tags-wrapper"><?php 
 
 					if (
 						$arResult["Permissions"]['edit']
 						|| $USER->getId() == $arResult["User"]["ID"]
 					)
 					{
-						?><div id="intranet-user-profile-tags-input" class="intranet-user-profile-tags-area"></div><?
+						?><div id="intranet-user-profile-tags-input" class="intranet-user-profile-tags-area"></div><?php 
 					}
 
 					?><div class="intranet-user-profile-tags" id="intranet-user-profile-tags"></div>
@@ -568,20 +568,20 @@ if (
 
 					<div class="intranet-user-profile-thanks-users-loader" id="intranet-user-profile-tags-loader"></div>
 				</div>
-			</div><?
+			</div><?php 
 		}
 	?>
 	</div>
 </div>
 <div class="intranet-user-profile-bottom-controls">
-	<?if ($arResult["IsOwnProfile"]):?>
+	<?php if ($arResult["IsOwnProfile"]):?>
 	<a class="ui-btn ui-btn-xs ui-btn-light-border ui-btn-themes" onclick="BX.Intranet.Bitrix24.ThemePicker.Singleton.showDialog()">
 		<?=Loc::getMessage("INTRANET_USER_PROFILE_THEME")?>
 	</a>
-	<?endif?>
+	<?php endif?>
 </div>
 
-<?
+<?php 
 if ($arResult["adminRightsRestricted"])
 {
 	$moveRightsConfirmText = Loc::getMessage("INTRANET_USER_PROFILE_MOVE_ADMIN_RIGHTS_CONFIRM");
@@ -595,25 +595,25 @@ if ($arResult["adminRightsRestricted"])
 ?>
 	<div style="display: none">
 		<div id="adminRestrContent" >
-			<?if ($arResult["IS_COMPANY_TARIFF"]):?>
+			<?php if ($arResult["IS_COMPANY_TARIFF"]):?>
 				<div style="padding-bottom: 20px;"><?=Loc::getMessage("INTRANET_USER_PROFILE_RIGHTS_RESTR_COMPANY_TEXT")?></div>
-			<?else:?>
+			<?php else:?>
 				<div style='font-size: 20px; padding-bottom: 20px;'><?=Loc::getMessage("INTRANET_USER_PROFILE_RIGHTS_RESTR_TEXT1")?></div>
 				<div style='padding-bottom: 20px;'><?=Loc::getMessage("INTRANET_USER_PROFILE_RIGHTS_RESTR_TEXT2")?></div>
 				<table width='100%'>
 					<tr align='center' style='font-weight: bold'>
 						<td><?=Loc::getMessage("INTRANET_USER_PROFILE_TARIFF_PROJECT")?></td>
-						<?if ($issetTfTariff):?>
+						<?php if ($issetTfTariff):?>
 						<td><?=Loc::getMessage("INTRANET_USER_PROFILE_TARIFF_TF")?></td>
-						<?endif?>
+						<?php endif?>
 						<td><?=Loc::getMessage("INTRANET_USER_PROFILE_TARIFF_TEAM")?></td>
 						<td><?=Loc::getMessage("INTRANET_USER_PROFILE_TARIFF_COMPANY")?></td>
 					</tr>
 					<tr align='center'>
 						<td>1</td>
-						<?if ($issetTfTariff):?>
+						<?php if ($issetTfTariff):?>
 						<td>2</td>
-						<?endif?>
+						<?php endif?>
 						<td>5</td>
 						<td><?=Loc::getMessage("INTRANET_USER_PROFILE_UNLIM")?></td>
 					</tr>
@@ -622,10 +622,10 @@ if ($arResult["adminRightsRestricted"])
 				<div>
 					<a href='javascript:void' onclick='BX.Helper.show("redirect=detail&code=5869717");'><?=Loc::getMessage("INTRANET_USER_PROFILE_RIGHTS_RESTR_MORE")?></a>
 				</div>-->
-			<?endif?>
+			<?php endif?>
 		</div>
 	</div>
-<?
+<?php 
 }
 
 //include($_SERVER["DOCUMENT_ROOT"].$this->GetFolder()."/settings.php");

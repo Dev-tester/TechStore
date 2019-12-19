@@ -392,7 +392,7 @@ class CacheEngineFiles
 		{
 			if (is_array($allVars))
 			{
-				$contents = "<?";
+				$contents = "<?php ";
 				$contents .= "\nif(\$INCLUDE_FROM_CACHE!='Y')return false;";
 				$contents .= "\n\$datecreate = '".str_pad(time(), 12, "0", STR_PAD_LEFT)."';";
 				$contents .= "\n\$dateexpire = '".str_pad(time() + intval($TTL), 12, "0", STR_PAD_LEFT)."';";

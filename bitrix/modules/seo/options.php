@@ -1,4 +1,4 @@
-<?
+<?php 
 $module_id = "seo";
 
 if (!$USER->CanDoOperation('seo_settings'))
@@ -108,16 +108,16 @@ $counters = COption::GetOptionString(
 
 $tabControl->Begin();
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?echo LANG?>" name="seo_settings">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&amp;lang=<?php echo LANG?>" name="seo_settings">
 <?=bitrix_sessid_post();?>
-<?
+<?php 
 if($bShowYandexServices):
 	$tabControl->BeginNextTab();
 
 ?>
 <tr>
 	<td>
-<?
+<?php 
 		\Bitrix\Main\Localization\Loc::loadMessages(dirname(__FILE__).'/admin/seo_search.php');
 		\Bitrix\Main\Localization\Loc::loadMessages(dirname(__FILE__).'/admin/seo_adv.php');
 
@@ -147,13 +147,13 @@ if($bShowYandexServices):
 		}
 	}
 </script>
-<?
+<?php 
 		}
 ?>
 	</td>
 </tr>
 
-<?
+<?php 
 endif;
 $tabControl->BeginNextTab();
 
@@ -163,34 +163,34 @@ foreach($arAllOptions as $arOption):
 
 ?>
 <tr>
-	<td valign="top" width="50%"><?
+	<td valign="top" width="50%"><?php 
 	if ($type[0] == "checkbox")
 		echo "<label for=\"".htmlspecialcharsbx($arOption[0])."\">".$arOption[1]."</label>";
 	else
 		echo $arOption[1];
 ?>: </td>
-	<td valign="top" width="50%"><?
+	<td valign="top" width="50%"><?php 
 	if($type[0]=="checkbox"):
-		?><input type="checkbox" name="<?echo htmlspecialcharsbx($arOption[0])?>" id="<?echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?if($val=="Y")echo" checked";?> /><?
+		?><input type="checkbox" name="<?php echo htmlspecialcharsbx($arOption[0])?>" id="<?php echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?php if($val=="Y")echo" checked";?> /><?php 
 	elseif ($type[0]=="text"):
-		?><input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($arOption[0])?>" /><?
+		?><input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>" /><?php 
 	elseif($type[0]=="textarea"):
-		?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($arOption[0])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+		?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 	endif;
 	?></td>
 </tr>
-<?
+<?php 
 endforeach;
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td width="30%" valign="top"><?echo GetMessage('SEO_OPT_COUNTERS')?>: </td>
-		<td width="70%"><textarea cols="50" rows="7" name="counters"><?echo htmlspecialcharsbx($counters)?></textarea></td>
+		<td width="30%" valign="top"><?php echo GetMessage('SEO_OPT_COUNTERS')?>: </td>
+		<td width="70%"><textarea cols="50" rows="7" name="counters"><?php echo htmlspecialcharsbx($counters)?></textarea></td>
 	</tr>
 	<tr>
-		<td width="30%" valign="top"><?echo GetMessage('SEO_OPT_SEARCHERS')?>: </td>
+		<td width="30%" valign="top"><?php echo GetMessage('SEO_OPT_SEARCHERS')?>: </td>
 		<td width="70%">
-<?
+<?php 
 if (CModule::IncludeModule('statistic'))
 {
 	if (count($arCurrentSearchers) > 0)
@@ -205,7 +205,7 @@ else
 ?>
 		</td>
 	</tr>
-<?
+<?php 
 
 $tabControl->BeginNextTab();
 
@@ -217,14 +217,14 @@ $tabControl->Buttons();?>
 <script language="JavaScript">
 function confirmRestoreDefaults()
 {
-	return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>');
+	return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>');
 }
 </script>
-<input type="submit" name="Update" value="<?echo GetMessage("MAIN_SAVE")?>">
+<input type="submit" name="Update" value="<?php echo GetMessage("MAIN_SAVE")?>">
 <input type="hidden" name="Update" value="Y">
-<input type="reset" name="reset" value="<?echo GetMessage("MAIN_RESET")?>">
-<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirmRestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input type="reset" name="reset" value="<?php echo GetMessage("MAIN_RESET")?>">
+<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirmRestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
 
-<?endif;?>
+<?php endif;?>

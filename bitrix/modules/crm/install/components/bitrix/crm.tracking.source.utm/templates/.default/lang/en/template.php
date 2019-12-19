@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SOURCE_UTM_ADDITIONAL_GOOGLE"] = "Extra UTM parameters for Google Adwords";
 $MESS["CRM_TRACKING_SOURCE_UTM_CAMPAIGN"] = "Advertising campaign name";
 $MESS["CRM_TRACKING_SOURCE_UTM_CAMPAIGN_DESC_GOOGLE"] = "AdWords will replace {network} with \"g\" (google search), \"s\" (search partner) or \"d\" (Display Planner). Example: children_clothes, cheap_shoes etc.";

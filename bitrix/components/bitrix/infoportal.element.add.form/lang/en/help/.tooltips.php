@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEF_MODE_TIP"] = "Checking this option enables the SEF mode and the URL configuration fields.";
 $MESS["IBLOCK_TYPE_TIP"] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type. If you select <b><i>(other)</i></b>, you will have to specify the information block type ID in the field beside.";
 $MESS["IBLOCK_ID_TIP"] = "Select here one of the existing information blocks. If you select <b><i>(other)</i></b>, you will have to specify the information block ID in the field beside.";

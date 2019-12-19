@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['IMBOT_GIPHY_BOT_NAME'] = 'Giphy';
 $MESS['IMBOT_GIPHY_BOT_COLOR'] = 'AQUA';
 $MESS['IMBOT_GIPHY_BOT_GENDER'] = 'M';

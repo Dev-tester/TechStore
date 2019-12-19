@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FOLDER_ACTION_MESSAGE_FOLDER_MARK_DELETED"] = "Folder has been deleted";
 $MESS["DISK_FOLDER_ACTION_MESSAGE_FILE_MARK_DELETED"] = "File has been deleted";
 $MESS["DISK_FOLDER_ACTION_MESSAGE_FOLDER_DELETED"] = "Folder has been deleted";

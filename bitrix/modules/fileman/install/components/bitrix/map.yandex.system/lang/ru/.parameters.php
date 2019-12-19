@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MYMS_PARAM_INIT_MAP_TYPE"] = "Стартовый тип карты";
 $MESS["MYMS_PARAM_INIT_MAP_TYPE_MAP"] = "схема";
 $MESS["MYMS_PARAM_INIT_MAP_TYPE_SATELLITE"] = "спутник";

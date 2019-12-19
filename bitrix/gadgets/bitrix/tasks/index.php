@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!IsModuleInstalled("tasks"))
@@ -36,7 +36,7 @@ $arGadgetParams["ACTION_VAR"] = ($arGadgetParams["ACTION_VAR"]?$arGadgetParams["
 
 if($arGadgetParams["SHOW"] == "Y"):
 	if($arGadgetParams["SHOW_TITLE"] == "Y"):
-		?><h4><?= $arGadgetParams["TITLE"] ?></h4><?
+		?><h4><?= $arGadgetParams["TITLE"] ?></h4><?php 
 	endif;
 
 	$o = $arGadgetParams["ORDER_BY"];
@@ -95,9 +95,9 @@ if($arGadgetParams["SHOW"] == "Y"):
 		$p = array("user_id"=>$USER->GetID());
 		?>
 		<br><br>
-		<a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK"], $p)?>"><?echo GetMessage("GD_TASKS_LIST")?></a> <a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK"], $p)?>"><img height="7" src="/images/icons/arrows.gif" width="7" border="0" /></a>
-		| <a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK_NEW"], $p)?>"><?echo GetMessage("GD_TASK_TASK_NEW")?></a> <a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK_NEW"], $p)?>"><img height="7" src="/images/icons/arrows.gif" width="7" border="0" /></a>
-	<?endif;
+		<a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK"], $p)?>"><?php echo GetMessage("GD_TASKS_LIST")?></a> <a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK"], $p)?>"><img height="7" src="/images/icons/arrows.gif" width="7" border="0" /></a>
+		| <a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK_NEW"], $p)?>"><?php echo GetMessage("GD_TASK_TASK_NEW")?></a> <a href="<?=CComponentEngine::MakePathFromTemplate($arGadgetParams["PATH_TO_TASK_NEW"], $p)?>"><img height="7" src="/images/icons/arrows.gif" width="7" border="0" /></a>
+	<?php endif;
 
 else:
 	echo GetMessage('GD_TASKS_NOT_ALLOWED');

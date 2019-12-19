@@ -1,4 +1,4 @@
-<?
+<?php 
 interface IBPEventActivity
 {
 	public function Subscribe(IBPActivityExternalEventListener $eventHandler);

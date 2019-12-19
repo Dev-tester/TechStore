@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EBMNP_MESSAGE_PER_PAGE'] = "Количество результатов, выводимых на страницу";
 $MESS ['EBMNP_MESSAGE_LENGTH'] = "Длина выводимого текста сообщения";
 $MESS ['EBMNP_PATH_TO_BLOG'] = "Шаблон пути к странице блога";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["T_IBLOCK_DESC_LIST_ID"] = "Information block code";
 $MESS["T_IBLOCK_DESC_LIST_TYPE"] = "Type of information block (used for verification only)";
 $MESS["T_IBLOCK_DESC_LIST_PAGE_URL"] = "List page URL (from information block settings by default)";

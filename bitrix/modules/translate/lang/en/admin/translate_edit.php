@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TRANS_CHAIN_FOLDER'] = "Click to go to the folder";
 $MESS['TRANS_CHAIN_FOLDER_ROOT'] = "Click to go to the root folder";
 $MESS['TRANS_DELETE'] = "Delete:";

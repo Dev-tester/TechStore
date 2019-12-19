@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -171,8 +171,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $arFilter = array(
 	"ID"			=> $find_id,
 	"LETTER"		=> $find_letter,
@@ -193,35 +193,35 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td nowrap><?echo GetMessage("TASK_FILTER_ID")?>:</td>
-	<td nowrap><input type="text" name="find_id" value="<?echo htmlspecialcharsbx($find_id)?>" size="35"></td>
+	<td nowrap><?php echo GetMessage("TASK_FILTER_ID")?>:</td>
+	<td nowrap><input type="text" name="find_id" value="<?php echo htmlspecialcharsbx($find_id)?>" size="35"></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("TASK_FILTER_LETTER")?>:</td>
-	<td nowrap><input type="text" name="find_letter" value="<?echo htmlspecialcharsbx($find_letter)?>" size="10"></td>
+	<td nowrap><?php echo GetMessage("TASK_FILTER_LETTER")?>:</td>
+	<td nowrap><input type="text" name="find_letter" value="<?php echo htmlspecialcharsbx($find_letter)?>" size="10"></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("TASK_FILTER_MODULE_ID")?>:</td>
+	<td nowrap><?php echo GetMessage("TASK_FILTER_MODULE_ID")?>:</td>
 	<td nowrap>
-	<?
+	<?php 
 	$arr = array("reference" => $arModuleRef, "reference_id" => $arModuleRefId);
 	echo SelectBoxFromArray("find_module_id", $arr, htmlspecialcharsbx($find_module_id));
 	?>
 	</td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("TASK_FILTER_SYS")?>:</td>
+	<td nowrap><?php echo GetMessage("TASK_FILTER_SYS")?>:</td>
 	<td nowrap>
-		<?
+		<?php 
 		$arr = array("reference" => array(GetMessage("TASK_FILTER_ANY"), GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id" => array("", "Y", "N"));
 		echo SelectBoxFromArray("find_sys", $arr, htmlspecialcharsbx($find_sys));
 		?>
 	</td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("TASK_FILTER_BINDING")?>:</td>
+	<td nowrap><?php echo GetMessage("TASK_FILTER_BINDING")?>:</td>
 	<td nowrap>
-		<?
+		<?php 
 		$bindings = COperation::GetBindingList();
 		$arRef = array(GetMessage("TASK_FILTER_ANY"));
 		$arRefId = array('');
@@ -238,11 +238,11 @@ $oFilter->Begin();
 		?>
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>htmlspecialcharsbx($sTableID), "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

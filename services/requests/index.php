@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Система электронных заявок");
 
@@ -120,4 +120,4 @@ endif?>
 		рабочего места</a></td><td></td><td></td><td></td></tr>
 	</tbody>
 </table>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

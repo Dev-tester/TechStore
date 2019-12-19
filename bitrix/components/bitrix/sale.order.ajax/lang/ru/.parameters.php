@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOA_DESC_YES"] = "Да";
 $MESS["SOA_DESC_NO"] = "Нет";
 $MESS["SOA_ACTION_VARIABLE"] = "Название переменной, в которой передается действие";

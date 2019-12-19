@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_FilePermissionsTest_NAME"] = "Проверка прав доступа к файлам";
 $MESS["SECURITY_SITE_CHECKER_FILE_PERM_ADDITIONAL"] = "Последние #COUNT# файлов/директорий:";
 $MESS["SECURITY_SITE_CHECKER_FILE_PERM_TITLE"] = "Обнаружено как минимум #COUNT# файлов или директорий с доступом на запись для всех пользователей окружения в котором работает веб-сервер (не пользователей Bitrix Framework)";

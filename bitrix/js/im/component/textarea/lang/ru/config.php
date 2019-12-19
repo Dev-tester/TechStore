@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_MESSENGER_TEXTAREA_PLACEHOLDER"] = "Введите сообщение...";
 $MESS["BX_MESSENGER_TEXTAREA_BUTTON_SEND"] = "Отправить сообщение";
 $MESS["BX_MESSENGER_TEXTAREA_FILE"] = "Отправить файл";

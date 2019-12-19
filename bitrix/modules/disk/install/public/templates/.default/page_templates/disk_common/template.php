@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -89,18 +89,18 @@ class CDiskCommonStoragePageTemplate
 		}
 		$commonStorage->changeBaseUrl($arParams['path']);
 
-		return '<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+		return '<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/docs/shared/index.php");
 $APPLICATION->SetTitle("'.EscapePHPString($title).'");
 $APPLICATION->AddChainItem($APPLICATION->GetTitle(), "'.EscapePHPString($arParams["path"]).'");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:disk.common", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:disk.common", ".default", Array(
 		"SEF_MODE" => "Y",
 		"SEF_FOLDER" => "'.EscapePHPString($arParams["path"]).'",
 		"STORAGE_ID" => "'.$commonStorage->getId().'",
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
 		';
 	}
 }

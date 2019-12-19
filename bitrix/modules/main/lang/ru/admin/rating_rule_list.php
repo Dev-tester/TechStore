@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_RATING_RULE_LIST'] = "Правила обработки";
 $MESS ['RATING_RULE_NAME'] = "Название";
 $MESS ['RATING_RULE_CREATED'] = "Создан";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EMPLOYEES_GROUP_NAME"] = "Сотрудники";
 $MESS["EMPLOYEES_GROUP_DESC"] = "Все сотрудники компании, зарегистрированные на сайте.";
 

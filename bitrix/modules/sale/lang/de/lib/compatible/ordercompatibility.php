@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COMPATIBLE_ORDER_CANCEL_NO_PERMISSION"] = "Sie haben nicht genügend Rechte, um Bestellung zu stornieren";
 $MESS["SALE_COMPATIBLE_ORDER_MARKED_NO_PERMISSION"] = "Sie haben nicht genügend Rechte, um diese Bestellung als problematisch zu markieren";
 $MESS["SALE_COMPATIBLE_ORDER_DEDUCT_NO_PERMISSION"] = "Sie haben nicht genügend Rechte, um diese Bestellung auszuliefern";

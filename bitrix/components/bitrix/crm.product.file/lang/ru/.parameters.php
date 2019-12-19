@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_FILE_CATALOG_ID"] = "Каталог";
 $MESS["CRM_PRODUCT_FILE_PRODUCT_ID"] = "Товар";
 $MESS["CRM_PRODUCT_FILE_FIELD_ID"] = "Поле";

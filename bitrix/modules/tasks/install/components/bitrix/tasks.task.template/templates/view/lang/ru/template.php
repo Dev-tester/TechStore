@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TT_VIEW"] = "Просмотр шаблона № #ID#";
 $MESS["TASKS_STATUS_OVERDUE"] = "Просрочена";
 $MESS["TASKS_STATUS_NEW"] = "Новая";

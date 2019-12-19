@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_CM_ERR_EMPTY_TEXT"] = "Comment text was not specified.";
 $MESS["FORUM_CM_ERR_EMPTY_AUTHORS_NAME"] = "Author name was not specified.";
 $MESS["FORUM_CM_ERR_COMMENT_IS_LOST1"] = "Comment to be modified was not found.";

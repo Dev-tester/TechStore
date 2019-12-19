@@ -1,4 +1,4 @@
-<? if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 /** @var array $arResult */
 
@@ -45,7 +45,7 @@ if ($sender->isRegistered())
 			}
 		);
 	</script>
-	</div><?
+	</div><?php 
 	if (!defined('ADMIN_SECTION'))
 	{
 		$this->EndViewTarget();
@@ -111,7 +111,7 @@ if ($sender->isRegistered())
 					</div>
 				</form>
 			</div>
-		<?else:
+		<?php else:
 			$ownerInfo = $sender->getOwnerInfo();
 			?>
 			<!---->
@@ -130,7 +130,7 @@ if ($sender->isRegistered())
 				</div>
 			</div>
 			<!---->
-		<?endif;?>
+		<?php endif;?>
 		<?php if ($sender->canUse()):?>
 			<div class="sms-settings-step-section sms-settings-step-section-active">
 				<div class="sms-settings-step-number">2</div>
@@ -140,7 +140,7 @@ if ($sender->isRegistered())
 							'#A2#' => '</a>'
 						))?></div>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>
 <script>
@@ -220,12 +220,12 @@ if ($sender->isRegistered())
 				});
 			}
 		};
-		<?if ($sender->isRegistered()):?>
+		<?php if ($sender->isRegistered()):?>
 		var steps = BX('sms-settings-steps');
 		if (steps)
 		{
 			BX.scrollToNode(steps);
 		}
-		<?endif?>
+		<?php endif?>
 	});
 </script>

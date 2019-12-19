@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_EDIT_ACTIVE"] = "Active";
 $MESS["CLO_STORAGE_EDIT_ADD_FILE_RULE"] = "Add new rule";
 $MESS["CLO_STORAGE_EDIT_ADD_TITLE"] = "Adds a new cloud storage connection";

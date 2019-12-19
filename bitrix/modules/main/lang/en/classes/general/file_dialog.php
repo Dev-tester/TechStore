@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BX_FD_ERROR'] = "File Dialog error";
 $MESS ['BX_FD_ACCESS_DENIED'] = "Access denied";
 $MESS ['BX_FD_SESS_EXPIRED'] = "User Session expired";

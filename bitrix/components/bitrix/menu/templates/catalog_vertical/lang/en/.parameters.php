@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_THEME"] = "Menu theme";
 $MESS["F_THEME_SITE"] = "Use site theme (for bitrix.eshop)";
 $MESS["F_THEME_BLUE"] = "Blue";

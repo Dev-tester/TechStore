@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -30,15 +30,15 @@ if (in_array("USERS_ONLINE", $arParams["SHOW"]))
 ?>
 <div class="forum-info-box forum-users-online">
 	<div class="forum-info-box-inner">
-		<span class="forum-users-online"><?=$text?></span><?
+		<span class="forum-users-online"><?=$text?></span><?php 
 $first = true;
 foreach ($arResult["USERS"] as $res)
 {
 	if($arParams["WORD_WRAP_CUT"] > 0 && strLen($res["~SHOW_NAME"])>$arParams["WORD_WRAP_CUT"])
 		$res["SHOW_NAME"] = htmlspecialcharsbx(subStr($res["~SHOW_NAME"], 0, $arParams["WORD_WRAP_CUT"]))."...";
-	?><?=(!$first ? ", ": "")?><span class="forum-user-online"><?
+	?><?=(!$first ? ", ": "")?><span class="forum-user-online"><?php 
 		?><?=str_replace(array("#URL#", "#NAME#"), array($res["profile_view"], $res["SHOW_NAME"]), $arParams["USER_TMPL"])
-	?></span><?
+	?></span><?php 
 	$first = false;
 }
 if (CForumUser::IsAdmin() && !empty($arResult["USERS_HIDDEN"]))
@@ -47,48 +47,48 @@ if (CForumUser::IsAdmin() && !empty($arResult["USERS_HIDDEN"]))
 	{
 		if($arParams["WORD_WRAP_CUT"] > 0 && strLen($res["~SHOW_NAME"])>$arParams["WORD_WRAP_CUT"])
 			$res["SHOW_NAME"] = htmlspecialcharsbx(subStr($res["~SHOW_NAME"], 0, $arParams["WORD_WRAP_CUT"]))."...";
-		?><?=(!$first ? ", ": "")?><span class="forum-user-online-hidden"><?
+		?><?=(!$first ? ", ": "")?><span class="forum-user-online-hidden"><?php 
 			?><?=str_replace(array("#URL#", "#NAME#"), array($res["profile_view"], $res["SHOW_NAME"]), $arParams["USER_TMPL"])
-		?></span><?
+		?></span><?php 
 		$first = false;
 	}
 }
 		?>
 	</div>
 </div>
-<?
+<?php 
 }
 
 if (in_array("BIRTHDAY", $arParams["SHOW"]) && !empty($arResult["USERS_BIRTHDAY"])):
 ?>
 <div class="forum-info-box forum-users-birthday">
 	<div class="forum-info-box-inner">
-		<span class="forum-users-birthday"><?=GetMessage("F_TODAY_BIRTHDAY")?> <?
+		<span class="forum-users-birthday"><?=GetMessage("F_TODAY_BIRTHDAY")?> <?php 
 $first = true;
 foreach ($arResult["USERS_BIRTHDAY"] as $res)
 {
-	?><?=((!$first)? ", ":"")?><?
+	?><?=((!$first)? ", ":"")?><?php 
 	?><?=str_replace(array("#URL#", "#NAME#"), array($res["profile_view"], $res["SHOW_NAME"]), $arParams["USER_TMPL"])
-	?>(<span><?=$res["AGE"]?></span>)<?
+	?>(<span><?=$res["AGE"]?></span>)<?php 
 	$first = false;
 }
 		?></span>
 	</div>
 </div>
-<?
+<?php 
 endif;
 
 if (in_array("STATISTIC", $arParams["SHOW"])):
 ?>
 <div class="forum-info-box forum-statistics">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 	if (empty($arParams["FID"])):
 ?>
 		<div class="forum-statistics-allusers"><?=GetMessage("F_REGISTER_USERS")?>:&nbsp;<span><?=intVal($arResult["STATISTIC"]["USERS_ON_FORUM"])?></span></div>
 		<div class="forum-statistics-users"><?=GetMessage("F_ACTIVE_USERS")?>:&nbsp;<span><?=intVal($arResult["STATISTIC"]["USERS_ON_FORUM_ACTIVE"])?></span></div>
-<?/*?>		<div class="forum-statistics-forums"><?=GetMessage("F_FORUMS_ALL")?>:&nbsp;<span><?=$arResult["STATISTIC"]["FORUMS"]?></span></div><?*/?>
-<?
+<?php /*?>		<div class="forum-statistics-forums"><?=GetMessage("F_FORUMS_ALL")?>:&nbsp;<span><?=$arResult["STATISTIC"]["FORUMS"]?></span></div><?php */?>
+<?php 
 	endif;
 ?>
 		<div class="forum-statistics-topics"><?=GetMessage("F_TOPICS_ALL")?>:&nbsp;<span><?=intVal($arResult["STATISTIC"]["TOPICS"])?></span></div>
@@ -97,6 +97,6 @@ if (in_array("STATISTIC", $arParams["SHOW"])):
 	</div>
 	
 </div>
-<?
+<?php 
 endif;
 ?>

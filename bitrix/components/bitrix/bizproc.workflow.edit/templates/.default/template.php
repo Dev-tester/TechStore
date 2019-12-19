@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
 $isAdminSection = (isset($arParams['IS_ADMIN_SECTION']));
@@ -108,7 +108,7 @@ $aMenu[] = [
 			alert('<?= GetMessageJS("BIZPROC_EMPTY_EXPORT") ?>');
 			return false;
 		}
-		<? $u = \Bitrix\Main\Engine\UrlManager::getInstance()->create('export', [
+		<?php  $u = \Bitrix\Main\Engine\UrlManager::getInstance()->create('export', [
 				'c' => 'bitrix:bizproc.workflow.edit',
 				'mode' => \Bitrix\Main\Engine\Router::COMPONENT_MODE_AJAX,
 				'templateId' => $ID,
@@ -178,14 +178,14 @@ $aMenu[] = [
 		}
 	}
 
-	<?$v = str_replace("&amp;", "&", POST_FORM_ACTION_URI);?>
+	<?php $v = str_replace("&amp;", "&", POST_FORM_ACTION_URI);?>
 
 	function BCPSaveUserParams()
 	{
 		var data = JSToPHP(arUserParams, 'USER_PARAMS');
 
 		jsExtLoader.onajaxfinish = BCPSaveTemplateComplete;
-		jsExtLoader.startPost('<?= CUtil::JSEscape($v) ?><?if(strpos($v, "?")):?>&<?else:?>?<?endif?><?=bitrix_sessid_get()?>&saveajax=Y&saveuserparams=Y', data);
+		jsExtLoader.startPost('<?= CUtil::JSEscape($v) ?><?php if(strpos($v, "?")):?>&<?php else:?>?<?php endif?><?=bitrix_sessid_get()?>&saveajax=Y&saveuserparams=Y', data);
 	}
 
 	function BCPSaveTemplate(save)
@@ -201,7 +201,7 @@ $aMenu[] = [
 			JSToPHP(arWorkflowTemplate, 'arWorkflowTemplate');
 
 		jsExtLoader.onajaxfinish = BCPSaveTemplateComplete;
-		jsExtLoader.startPost('<?=CUtil::JSEscape($v)?><?if(strpos($v, "?")):?>&<?else:?>?<?endif?><?=bitrix_sessid_get()?>&saveajax=Y' +
+		jsExtLoader.startPost('<?=CUtil::JSEscape($v)?><?php if(strpos($v, "?")):?>&<?php else:?>?<?php endif?><?=bitrix_sessid_get()?>&saveajax=Y' +
 			(save ? '' : '&apply=Y'),
 			data);
 	}
@@ -225,14 +225,14 @@ $aMenu[] = [
 		})).Show();
 	}
 </script>
-<? if ($arParams['SHOW_ADMIN_TOOLBAR'] == 'Y')
+<?php  if ($arParams['SHOW_ADMIN_TOOLBAR'] == 'Y')
 {
 	$context = new CAdminContextMenu($aMenu);
 	$context->Show();
 }
 ?>
-<div style="background-color: #FFFFFF;<?if($isAdminSection):?>padding: 10px<?endif;?>">
-	<? if ($arParams['SHOW_TOOLBAR'] == 'Y')
+<div style="background-color: #FFFFFF;<?php if($isAdminSection):?>padding: 10px<?php endif;?>">
+	<?php  if ($arParams['SHOW_TOOLBAR'] == 'Y')
 	{
 		$APPLICATION->IncludeComponent(
 			"bitrix:main.interface.toolbar",
@@ -380,9 +380,9 @@ $aMenu[] = [
 				return;
 			}
 			BizProcRender(arWorkflowTemplate, document.getElementById('wf1'));
-			<?if($ID <= 0):?>
+			<?php if($ID <= 0):?>
 			BCPShowParams();
-			<?endif;?>
+			<?php endif;?>
 		}
 
 		setTimeout("start()", 0);
@@ -393,7 +393,7 @@ $aMenu[] = [
 		};
 	</script>
 
-	<? if (!$arResult['TEMPLATE_CHECK_STATUS']):
+	<?php  if (!$arResult['TEMPLATE_CHECK_STATUS']):
 		echo ShowError(GetMessage('BIZPROC_WFEDIT_CHECK_ERROR'));
 	endif;
 	?>
@@ -428,13 +428,13 @@ $aMenu[] = [
 			<br>
 			<input type="button"
 				onclick="BCPSaveTemplate(true);"
-				value="<? echo GetMessage("BIZPROC_WFEDIT_SAVE_BUTTON") ?>">
+				value="<?php  echo GetMessage("BIZPROC_WFEDIT_SAVE_BUTTON") ?>">
 			<input type="button"
 				onclick="BCPSaveTemplate();"
-				value="<? echo GetMessage("BIZPROC_WFEDIT_APPLY_BUTTON") ?>">
+				value="<?php  echo GetMessage("BIZPROC_WFEDIT_APPLY_BUTTON") ?>">
 			<input type="button"
 				onclick="window.location='<?= htmlspecialcharsbx(CUtil::JSEscape(isset($arResult['BACK_URL']) ? $arResult['BACK_URL'] : $arResult['LIST_PAGE_URL'])) ?>';"
-				value="<? echo GetMessage("BIZPROC_WFEDIT_CANCEL_BUTTON") ?>">
+				value="<?php  echo GetMessage("BIZPROC_WFEDIT_CANCEL_BUTTON") ?>">
 		</div>
 		<?php endif;?>
 	</form>

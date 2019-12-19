@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $type = $arCurrentValues["PLAYER_TYPE"] ? $arCurrentValues["PLAYER_TYPE"] : 'auto';

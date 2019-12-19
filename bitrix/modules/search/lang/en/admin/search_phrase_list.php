@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_PHL_TITLE"] = "Search Query Statistics";
 $MESS["SEARCH_PHL_ID"] = "ID";
 $MESS["SEARCH_PHL_DATE"] = "Date";

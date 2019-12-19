@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WIZARD_TITLE'] = "Bitrix Site Manager<br>Configuration";
 $MESS ['WIZARD_TITLE_SOL'] = "";
 $MESS ['COPYRIGHT'] = "Copyright &copy; 2001-#CURRENT_YEAR# Bitrix, Inc.";

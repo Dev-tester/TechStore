@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GROUP_ENTITY_ID_FIELD"] = "Идентификатор группы";
 $MESS["GROUP_ENTITY_TIMESTAMP_X_FIELD"] = "Время изменения";
 $MESS["GROUP_ENTITY_NAME_FIELD"] = "Название группы";

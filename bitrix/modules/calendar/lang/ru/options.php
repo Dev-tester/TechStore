@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAL_OPT_SETTINGS"] = "Настройки";
 $MESS["CAL_SETTINGS_TITLE"] = "Общие настройки для компонентов модуля";
 $MESS["CAL_OPT_TYPES"] = "Типы календарей";

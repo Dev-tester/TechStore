@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_RECURRING_DATE_START_ERROR"] = "Next create date is earlier than the current date. Please change the recurring deal parameters.";
 $MESS["CRM_DEAL_CONVERSION_NOT_FOUND"] = "Deal was not found.";
 $MESS["CRM_DEAL_CONVERSION_ID_NOT_DEFINED"] = "Deal ID was not found.";

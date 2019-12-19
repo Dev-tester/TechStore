@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SALE_RBK_SHOULD_PAY"] = "Сумма к оплате";
 $MESS["SALE_RBK_DESC_SHOULD_PAY"] = "";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_IVR_EDIT_MENU_TITLE"] = "Введите название меню";
 $MESS["VOX_IVR_EDIT_MENU_SOURCE"] = "Источник голосового меню";
 $MESS["VOX_IVR_EDIT_MENU_SETUP"] = "Настройка меню";

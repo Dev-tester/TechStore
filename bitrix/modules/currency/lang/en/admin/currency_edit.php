@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["currency_curr"] = "Currency";
 $MESS["currency_curr_settings"] = "Currency settings";
 $MESS["BT_CURRENCY_EDIT_TAB_NAME_LANGUAGE"] = "Language settings";

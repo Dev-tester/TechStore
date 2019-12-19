@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_CONFIG_USER_EMAIL_PULL_TEXT"] = "Pull down to refresh...";
 $MESS["M_CRM_CONFIG_USER_EMAIL_DOWN_TEXT"] = "Release to refresh...";
 $MESS["M_CRM_CONFIG_USER_EMAIL_LOAD_TEXT"] = "Updating...";

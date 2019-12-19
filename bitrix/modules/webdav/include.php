@@ -1,4 +1,4 @@
-<?
+<?php 
 CModule::IncludeModule("iblock");
 //IncludeModuleLangFile(__FILE__);
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PS_FIELD_PS_MODE_DOCUMENT"] = "Document template";
 $MESS["CRM_PS_FIELD_TEMPLATE_DOCUMENT_ADD"] = "Add template";
 $MESS["CRM_TAB_1"] = "Payment system";

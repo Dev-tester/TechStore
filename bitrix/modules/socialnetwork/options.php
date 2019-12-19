@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\ModuleManager;
 use Bitrix\Socialnetwork\UserToGroupTable;
 
@@ -871,7 +871,7 @@ while($arRes = $rsSites->Fetch())
 $siteCount = $i;
 
 ?>
-<?
+<?php 
 $tabControl->Begin();
 ?>
 
@@ -882,11 +882,11 @@ $tabControl->Begin();
 
 	function SelectSite(id)
 	{
-		<?
+		<?php 
 		for($i = 0; $i < $siteCount; $i++):
 			?>
 			document.getElementById('<?= CUtil::JSEscape(htmlspecialcharsbx($siteList[$i]["ID"]));?>_Propery').style.display='none';
-			<?
+			<?php 
 		endfor;
 		?>
 		document.getElementById(id+'_Propery').style.display='';
@@ -908,8 +908,8 @@ $tabControl->Begin();
 	}
 </script>
 
-<form method="POST" name="sonet_opt_form" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" ENCTYPE="multipart/form-data"><?
-?><?=bitrix_sessid_post()?><?
+<form method="POST" name="sonet_opt_form" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" ENCTYPE="multipart/form-data"><?php 
+?><?=bitrix_sessid_post()?><?php 
 $tabControl->BeginNextTab();
 
 	if (count($arAllOptionsCommon) > 0)
@@ -933,27 +933,27 @@ $tabControl->BeginNextTab();
 			if ($type[0] != "hidden")
 			{
 				?><tr id="<?=htmlspecialcharsbx($Option[0])?>_tr" style="display: <?=($Option[0] != "default_livefeed_toall" || COption::GetOptionString("socialnetwork", "allow_livefeed_toall", "Y") == "Y" ? "table-row" : "none")?>;">
-					<td <?=set_valign($type[0], $type[1])?> width="40%"><?
+					<td <?=set_valign($type[0], $type[1])?> width="40%"><?php 
 
 						if ($type[0] == "checkbox")
 							echo "<label for=\"".htmlspecialcharsbx($Option[0])."\">".$Option[1]."</label>";
 						else
 							echo $Option[1];
 					?>:</td>
-					<td width="60%"><?
+					<td width="60%"><?php 
 						if($type[0]=="checkbox"):
-							?><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>><?
+							?><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>><?php 
 						elseif($type[0]=="text"):
-							?><input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?
+							?><input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php 
 						elseif($type[0]=="textarea"):
-							?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+							?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 						endif;
 
 						if ($Option[0] == "allow_livefeed_toall")
 						{
 							?><script>
 								var toAllCheckBox = BX('allow_livefeed_toall');
-							</script><?
+							</script><?php 
 						}
 						elseif ($Option[0] == "default_livefeed_toall")
 						{
@@ -967,10 +967,10 @@ $tabControl->BeginNextTab();
 									}, toAllCheckBox));
 								}
 							</script>
-							<?
+							<?php 
 						}
 					?></td>
-				</tr><?
+				</tr><?php 
 			}
 			elseif ($Option[0] == "livefeed_toall_rights")
 			{
@@ -981,7 +981,7 @@ $tabControl->BeginNextTab();
 				$access = new CAccess();
 				$arNames = $access->GetNames($arToAllRights);
 
-				?><tr id="RIGHTS_all" style="display: <?=(COption::GetOptionString("socialnetwork", "allow_livefeed_toall", "Y") == "Y" ? "table-row" : "none")?>;"><td>&nbsp;</td><td><?
+				?><tr id="RIGHTS_all" style="display: <?=(COption::GetOptionString("socialnetwork", "allow_livefeed_toall", "Y") == "Y" ? "table-row" : "none")?>;"><td>&nbsp;</td><td><?php 
 				?><script>
 
 					var rightsCont = BX('RIGHTS_all');
@@ -1094,35 +1094,35 @@ $tabControl->BeginNextTab();
 
 						return false;
 					}
-				</script><?
+				</script><?php 
 
-				?><div id="RIGHTS_div"><?
+				?><div id="RIGHTS_div"><?php 
 				foreach($arToAllRights as $right)
 				{
-					?><input type="hidden" name="<?echo htmlspecialcharsbx($Option[0])?>[]" id="<?echo htmlspecialcharsbx($Option[0]."_".$right)?>" value="<?=htmlspecialcharsbx($right)?>"><?
-					?><div data-bx-right="<?=htmlspecialcharsbx($right)?>" class="toall-right"><span><?=(!empty($arNames[$right]["provider"]) ? $arNames[$right]["provider"].": " : "").$arNames[$right]["name"]?>&nbsp;</span><a href="javascript:void(0);" onclick="DeleteToAllAccessRow(this);" class="access-delete" title="<?=GetMessage("SONET_LOG_TOALL_DEL")?>"></a></div><?
+					?><input type="hidden" name="<?php echo htmlspecialcharsbx($Option[0])?>[]" id="<?php echo htmlspecialcharsbx($Option[0]."_".$right)?>" value="<?=htmlspecialcharsbx($right)?>"><?php 
+					?><div data-bx-right="<?=htmlspecialcharsbx($right)?>" class="toall-right"><span><?=(!empty($arNames[$right]["provider"]) ? $arNames[$right]["provider"].": " : "").$arNames[$right]["name"]?>&nbsp;</span><a href="javascript:void(0);" onclick="DeleteToAllAccessRow(this);" class="access-delete" title="<?=GetMessage("SONET_LOG_TOALL_DEL")?>"></a></div><?php 
 				}
-				?></div><?
+				?></div><?php 
 				?><script>
 					var arToAllRights = <?=CUtil::PhpToJSObject($arToAllRights)?>;
-				</script><?
+				</script><?php 
 
 				?><div style="padding-top: 5px;"><a href="javascript:void(0)" class="bx-action-href" onclick="ShowToAllAccessPopup(arToAllRights);"><?=GetMessage("SONET_LOG_TOALL_RIGHTS_ADD")?></a></div>
-				</td></tr><?
+				</td></tr><?php 
 			}
 
 		endfor;
 
-		?><tr><td colspan="2">&nbsp;</td></tr><?
+		?><tr><td colspan="2">&nbsp;</td></tr><?php 
 	}
 	?><tr>
-		<td colspan="2"><?
+		<td colspan="2"><?php 
 		$arChildTabControlSite->Begin();
 
 		for($j = 1; $j < $siteCount; $j++)
 		{
 			$arChildTabControlSite->BeginNextTab();
-			?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?
+			?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?php 
 			$tmp_count = count($arAllOptions);
 			for ($i = 0; $i < $tmp_count; $i++)
 			{
@@ -1141,7 +1141,7 @@ $tabControl->BeginNextTab();
 					$val = ($type[1] == true ? unserialize($val) : array($val)); // multiple select
 				}
 				?><tr>
-					<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?
+					<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?php 
 						if ($type[0]=="checkbox")
 						{
 							echo "<label for=\"".htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])."\">".$Option[1]."</label>";
@@ -1152,37 +1152,37 @@ $tabControl->BeginNextTab();
 						}
 					?>:</td>
 					<td width="60%" align="left">
-						<?if($type[0]=="checkbox"):?>
-							<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-						<?elseif($type[0]=="text"):?>
-							<input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
-						<?elseif($type[0]=="textarea"):?>
-							<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-						<?elseif($type[0]=="select_fields"):?>
-							<select <?=($type[1] == true ? "multiple" : "")?> size="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?><?=($type[1] == true ? "[]" : "")?>">
-							<? foreach ($arTooltipFields as $key => $value):
-								?><option value="<?=htmlspecialcharsbx($key)?>" <?=(in_array($key, $val) ? "selected" : "")?>><?=htmlspecialcharsEx($value)?></option><?
+						<?php if($type[0]=="checkbox"):?>
+							<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+						<?php elseif($type[0]=="text"):?>
+							<input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
+						<?php elseif($type[0]=="textarea"):?>
+							<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+						<?php elseif($type[0]=="select_fields"):?>
+							<select <?=($type[1] == true ? "multiple" : "")?> size="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?><?=($type[1] == true ? "[]" : "")?>">
+							<?php  foreach ($arTooltipFields as $key => $value):
+								?><option value="<?=htmlspecialcharsbx($key)?>" <?=(in_array($key, $val) ? "selected" : "")?>><?=htmlspecialcharsEx($value)?></option><?php 
 							endforeach; ?>
 							</select>
-						<?elseif($type[0]=="select_properties"):?>
-							<select <?=($type[1] == true ? "multiple" : "")?> size="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?><?=($type[1] == true ? "[]" : "")?>">
-							<? foreach ($arTooltipProperties as $key => $value):
-								?><option value="<?=htmlspecialcharsbx($key)?>" <?=(in_array($key, $val) ? "selected" : "")?>><?=htmlspecialcharsEx($value)?></option><?
+						<?php elseif($type[0]=="select_properties"):?>
+							<select <?=($type[1] == true ? "multiple" : "")?> size="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?><?=($type[1] == true ? "[]" : "")?>">
+							<?php  foreach ($arTooltipProperties as $key => $value):
+								?><option value="<?=htmlspecialcharsbx($key)?>" <?=(in_array($key, $val) ? "selected" : "")?>><?=htmlspecialcharsEx($value)?></option><?php 
 							endforeach; ?>
 							</select>
-						<?elseif($type[0]=="select_rating"):?>
-							<select <?=($type[1] == true ? "multiple" : "")?> size="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?><?=($type[1] == true ? "[]" : "")?>">
-							<? foreach ($arRatings as $key => $value):
-								?><option value="<?=$key?>" <?=(in_array($key, $val) ? "selected" : "")?>><?=$value?></option><?
+						<?php elseif($type[0]=="select_rating"):?>
+							<select <?=($type[1] == true ? "multiple" : "")?> size="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?><?=($type[1] == true ? "[]" : "")?>">
+							<?php  foreach ($arRatings as $key => $value):
+								?><option value="<?=$key?>" <?=(in_array($key, $val) ? "selected" : "")?>><?=$value?></option><?php 
 							endforeach; ?>
 							</select>
-						<?endif?>
+						<?php endif?>
 					</td>
-				</tr><?
+				</tr><?php 
 			}
 			?><tr class="heading">
 				<td colspan="2"><?=GetMessage("SONET_4_USERS")?></td>
-			</tr><?
+			</tr><?php 
 			$tmp_count = count($arAllOptionsUsers);
 			for ($i = 0; $i < $tmp_count; $i++)
 			{
@@ -1191,7 +1191,7 @@ $tabControl->BeginNextTab();
 				$val = COption::GetOptionString("socialnetwork", $Option[0], $Option[2], $siteList[$j]["ID"]);
 				$type = $Option[3];
 				?><tr>
-					<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?
+					<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?php 
 						if ($type[0]=="checkbox")
 						{
 							echo "<label for=\"".htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])."\">".$Option[1]."</label>";
@@ -1201,22 +1201,22 @@ $tabControl->BeginNextTab();
 							echo $Option[1];
 						}
 					?>:</td>
-					<td width="60%" align="left"><?
+					<td width="60%" align="left"><?php 
 						if($type[0]=="checkbox")
 						{
-							?><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?=($val == "Y" ? " checked" : "")?> <?=(isset($Option[4]) && $Option[4] == 'showHideTab' ? ' onclick="showHideTab(childTabControlUser_'.$siteList[$j]["ID"].', \''.$Option[5].'_'.$siteList[$j]["ID"].'\');"' : '')?>><?
+							?><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?=($val == "Y" ? " checked" : "")?> <?=(isset($Option[4]) && $Option[4] == 'showHideTab' ? ' onclick="showHideTab(childTabControlUser_'.$siteList[$j]["ID"].', \''.$Option[5].'_'.$siteList[$j]["ID"].'\');"' : '')?>><?php 
 						}
 						elseif($type[0]=="text")
 						{
-							?><input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?
+							?><input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php 
 						}
 						elseif($type[0]=="textarea")
 						{
-							?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+							?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 						}
 						elseif($type[0]=="select_user_perm")
 						{
-							?><select name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?
+							?><select name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php 
 								if (!$bAllowFriends)
 								{
 									if (in_array($val, array(SONET_RELATIONS_TYPE_FRIENDS, SONET_RELATIONS_TYPE_FRIENDS2)))
@@ -1238,20 +1238,20 @@ $tabControl->BeginNextTab();
 									{
 										continue;
 									}
-									?><option value="<?=$key?>" <?=($key == $val ? "selected" : "")?>><?=$value?></option><?
+									?><option value="<?=$key?>" <?=($key == $val ? "selected" : "")?>><?=$value?></option><?php 
 								}
-							?></select><?
+							?></select><?php 
 						}
 					?></td>
-				</tr><?
+				</tr><?php 
 			}
 			?><tr>
-				<td colspan="2"><?
+				<td colspan="2"><?php 
 				$arChildTabControlUser[$siteList[$j]["ID"]]->Begin();
 
 				foreach ($arAllOptionsUsersBlocks as $feature => $arAllOptionsUsersFeature):
 					$arChildTabControlUser[$siteList[$j]["ID"]]->BeginNextTab();
-					?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?
+					?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?php 
 					$tmp_count = count($arAllOptionsUsersFeature);
 					for ($i = 0; $i < $tmp_count; $i++):
 						$Option = $arAllOptionsUsersFeature[$i];
@@ -1262,22 +1262,22 @@ $tabControl->BeginNextTab();
 							$type = $Option[3];
 							?>
 							<tr>
-								<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?
+								<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?php 
 									if ($type[0]=="checkbox")
 										echo "<label for=\"".htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])."\">".$Option[1]."</label>";
 									else
 										echo $Option[1];
 								?>:</td>
 								<td width="60%">
-									<?if($type[0]=="checkbox"):?>
-										<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-									<?elseif($type[0]=="text"):?>
-										<input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
-									<?elseif($type[0]=="textarea"):?>
-										<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-									<?elseif($type[0]=="select_user"):?>
-										<select name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
-										<?foreach ($arUserPermsVar as $permvar_key => $permvar_value)
+									<?php if($type[0]=="checkbox"):?>
+										<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+									<?php elseif($type[0]=="text"):?>
+										<input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
+									<?php elseif($type[0]=="textarea"):?>
+										<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+									<?php elseif($type[0]=="select_user"):?>
+										<select name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
+										<?php foreach ($arUserPermsVar as $permvar_key => $permvar_value)
 										{
 											preg_match('/^default_'.$feature.'_operation_([A-Za-z_]+)_user$/i', $Option[0], $matches);
 											$operation = $matches[1];
@@ -1307,29 +1307,29 @@ $tabControl->BeginNextTab();
 												{
 													continue;
 												}
-												?><option value="<?= $permvar_key ?>"<?= ($permvar_key == $val) ? " selected" : "" ?>><?= $permvar_value ?></option><?
+												?><option value="<?= $permvar_key ?>"<?= ($permvar_key == $val) ? " selected" : "" ?>><?= $permvar_value ?></option><?php 
 											}
 										}
 										?></select>
-									<?endif?>
+									<?php endif?>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 					endfor;
-					?></table><?
+					?></table><?php 
 				endforeach;
 
 				$arChildTabControlUser[$siteList[$j]["ID"]]->End();
 				?></td>
 			</tr>
 			<tr>
-				<td colspan="2"><?
+				<td colspan="2"><?php 
 				$arChildTabControlUserGender[$siteList[$j]["ID"]]->Begin();
 
 				foreach ($arAllOptionsUsersGender as $gender => $arOptionUserGender):
 					$arChildTabControlUserGender[$siteList[$j]["ID"]]->BeginNextTab();
-					?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?
+					?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?php 
 					$tmp_count = count($arOptionUserGender);
 					for ($i = 0; $i < $tmp_count; $i++):
 						$Option = $arOptionUserGender[$i];
@@ -1339,27 +1339,27 @@ $tabControl->BeginNextTab();
 							$val = COption::GetOptionString("socialnetwork", $Option[0], $Option[2], $siteList[$j]["ID"]);
 							$type = $Option[3];
 							?><tr>
-								<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?
+								<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?php 
 									echo $Option[1];
 								?>:</td>
 								<td width="60%">
-									<?if($type[0]=="image"):?>
-										<?echo CFile::InputFile(htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"]), 20, $val);?><br>
-										<?echo CFile::ShowImage($val, 200, 200, "border=0", "", true)?>
-									<?endif?>
+									<?php if($type[0]=="image"):?>
+										<?php echo CFile::InputFile(htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"]), 20, $val);?><br>
+										<?php echo CFile::ShowImage($val, 200, 200, "border=0", "", true)?>
+									<?php endif?>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 					endfor;
-					?></table><?
+					?></table><?php 
 				endforeach;
 				$arChildTabControlUserGender[$siteList[$j]["ID"]]->End();
 				?></td>
 			</tr>
 			<tr class="heading">
 				<td colspan="2"><?=GetMessage("SONET_4_GROUPS")?></td>
-			</tr><?
+			</tr><?php 
 			$tmp_count = count($arAllOptionsGroups);
 			for ($i = 0; $i < $tmp_count; $i++)
 			{
@@ -1367,7 +1367,7 @@ $tabControl->BeginNextTab();
 				$val = COption::GetOptionString("socialnetwork", $Option[0], $Option[2], $siteList[$j]["ID"]);
 				$type = $Option[3];
 				?><tr>
-				<td <?=set_valign($type[0], $type[1])?> width="40%"><?
+				<td <?=set_valign($type[0], $type[1])?> width="40%"><?php 
 					if ($type[0]=="checkbox")
 					{
 						echo "<label for=\"".htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])."\">".$Option[1]."</label>";
@@ -1377,29 +1377,29 @@ $tabControl->BeginNextTab();
 						echo $Option[1];
 					}
 					?>:</td>
-				<td width="60%"><?
+				<td width="60%"><?php 
 					if($type[0]=="checkbox")
 					{
-						?><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?=($val == "Y" ? " checked" : "")?> <?=(isset($Option[4]) && $Option[4] == 'showHideTab' ? ' onclick="showHideTab(childTabControlGroup_'.$siteList[$j]["ID"].', \''.$Option[5].'_'.$siteList[$j]["ID"].'\');"' : '')?>><?
+						?><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?=($val == "Y" ? " checked" : "")?> <?=(isset($Option[4]) && $Option[4] == 'showHideTab' ? ' onclick="showHideTab(childTabControlGroup_'.$siteList[$j]["ID"].', \''.$Option[5].'_'.$siteList[$j]["ID"].'\');"' : '')?>><?php 
 					}
 					elseif($type[0]=="text")
 					{
-						?><input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?
+						?><input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php 
 					}
 					elseif($type[0]=="textarea")
 					{
-						?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+						?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 					}
 					?></td>
-				</tr><?
+				</tr><?php 
 			}
 			?><tr>
-				<td colspan="2"><?
+				<td colspan="2"><?php 
 				$arChildTabControlGroup[$siteList[$j]["ID"]]->Begin();
 
 				foreach ($arAllOptionsGroupsBlocks as $feature => $arAllOptionsGroupsFeature):
 					$arChildTabControlGroup[$siteList[$j]["ID"]]->BeginNextTab();
-					?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?
+					?><table cellspacing="7" cellpadding="0" border="0" width="100%"><?php 
 					$tmp_count = count($arAllOptionsGroupsFeature);
 					for ($i = 0; $i < $tmp_count; $i++):
 						$Option = $arAllOptionsGroupsFeature[$i];
@@ -1409,24 +1409,24 @@ $tabControl->BeginNextTab();
 							$val = COption::GetOptionString("socialnetwork", $Option[0], $Option[2], $siteList[$j]["ID"]);
 							$type = $Option[3];
 							?><tr>
-								<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?
+								<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?php 
 									if ($type[0]=="checkbox")
 										echo "<label for=\"".htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])."\">".$Option[1]."</label>";
 									else
 										echo $Option[1];
 								?>:</td>
 								<td width="60%">
-									<?if($type[0]=="checkbox"):?>
-										<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-									<?elseif($type[0]=="hidden"):?>
-										<input type="hidden" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
-									<?elseif($type[0]=="text"):?>
-										<input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
-									<?elseif($type[0]=="textarea"):?>
-										<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-									<?elseif($type[0]=="select_group"):?>
-										<select name="<?echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
-										<?foreach ($arGroupPermsVar as $permvar_key => $permvar_value):
+									<?php if($type[0]=="checkbox"):?>
+										<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" id="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+									<?php elseif($type[0]=="hidden"):?>
+										<input type="hidden" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
+									<?php elseif($type[0]=="text"):?>
+										<input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
+									<?php elseif($type[0]=="textarea"):?>
+										<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+									<?php elseif($type[0]=="select_group"):?>
+										<select name="<?php echo htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])?>">
+										<?php foreach ($arGroupPermsVar as $permvar_key => $permvar_value):
 											preg_match('/^default_'.$feature.'_operation_([A-Za-z_]+)_group$/i', $Option[0], $matches);
 											$operation = $matches[1];
 
@@ -1435,20 +1435,20 @@ $tabControl->BeginNextTab();
 												&& (!array_key_exists("restricted", $arSocNetFeaturesSettings[$feature]["operations"][$operation])
 												|| !in_array($permvar_key, $arSocNetFeaturesSettings[$feature]["operations"][$operation]["restricted"][SONET_ENTITY_GROUP]))
 											):
-												?><option value="<?= $permvar_key ?>"<?= ($permvar_key == $val) ? " selected" : "" ?>><?= $permvar_value ?></option><?
+												?><option value="<?= $permvar_key ?>"<?= ($permvar_key == $val) ? " selected" : "" ?>><?= $permvar_value ?></option><?php 
 											endif;
 										endforeach;?>
-										</select><?
+										</select><?php 
 									endif;
 								?></td>
-							</tr><?
+							</tr><?php 
 						}
 					endfor;
-					?></table><?
+					?></table><?php 
 				endforeach;
 				$arChildTabControlGroup[$siteList[$j]["ID"]]->End();
 				?></td>
-			</tr><?
+			</tr><?php 
 			$tmp_count = count($arAllOptionsGroupsGender);
 			for ($i = 0; $i < $tmp_count; $i++):
 				$Option = $arAllOptionsGroupsGender[$i];
@@ -1456,41 +1456,41 @@ $tabControl->BeginNextTab();
 				$val = COption::GetOptionString("socialnetwork", $Option[0], $Option[2], $siteList[$j]["ID"]);
 				$type = $Option[3];
 				?><tr>
-					<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?
+					<td <?=set_valign($type[0], $type[1])?> width="40%" align="right"><?php 
 						if ($type[0]=="checkbox")
 							echo "<label for=\"".htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"])."\">".$Option[1]."</label>";
 						else
 							echo $Option[1];
 					?>:</td>
 					<td width="60%" align="left">
-						<?if($type[0]=="image"):?>
-							<?echo CFile::InputFile(htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"]), 20, $val);?><br>
-							<?echo CFile::ShowImage($val, 200, 200, "border=0", "", true)?>
-						<?endif?>
+						<?php if($type[0]=="image"):?>
+							<?php echo CFile::InputFile(htmlspecialcharsbx($Option[0]."_".$siteList[$j]["ID"]), 20, $val);?><br>
+							<?php echo CFile::ShowImage($val, 200, 200, "border=0", "", true)?>
+						<?php endif?>
 					</td>
-				</tr><?
+				</tr><?php 
 			endfor;
-			?></table><?
+			?></table><?php 
 		}
 		$arChildTabControlSite->End();
 		?></td>
-	</tr><?
+	</tr><?php 
 unset($value);
 $tabControl->BeginNextTab();?>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
-<?$tabControl->Buttons();?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if (confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)."&".bitrix_sessid_get();?>";
+	if (confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)."&".bitrix_sessid_get();?>";
 }
 </script>
 
-<input type="submit" <?if ($SONET_RIGHT<"W") echo "disabled" ?> name="Update" value="<?echo GetMessage("MAIN_SAVE")?>" class="adm-btn-save">
+<input type="submit" <?php if ($SONET_RIGHT<"W") echo "disabled" ?> name="Update" value="<?php echo GetMessage("MAIN_SAVE")?>" class="adm-btn-save">
 <input type="hidden" name="Update" value="Y">
-<input type="reset" name="reset" value="<?echo GetMessage("MAIN_RESET")?>">
-<input type="button" <?if ($SONET_RIGHT<"W") echo "disabled" ?> title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input type="reset" name="reset" value="<?php echo GetMessage("MAIN_RESET")?>">
+<input type="button" <?php if ($SONET_RIGHT<"W") echo "disabled" ?> title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
-<?endif;?>
+<?php endif;?>

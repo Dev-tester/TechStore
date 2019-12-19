@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_TODAY_BIRTHDAY"] = "Today's Birthdays";
 $MESS["F_USER_PROFILE"] = "User profile";
 $MESS["F_NOW_TOPIC_READ"] = "Users browsing this topic";

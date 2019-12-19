@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_UL_P_USER_ID'] = "Идентификатор пользователя";
 $MESS ['MAIN_UL_P_SHOW_FIELDS'] = "Показывать поля пользователя";
 $MESS ['MAIN_UL_P_USER_PROPERTY'] = "Показывать доп. свойства";

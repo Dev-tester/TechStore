@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global CUser $USER
  * @global CMain $APPLICATION
@@ -52,7 +52,7 @@ foreach ($mapIframeLangKeys as $key)
 ?>
 
 <div class="site-speed-page">
-	<?
+	<?php 
 		$currentHost = preg_replace("/:(80|443)$/", "", $_SERVER["HTTP_HOST"]);
 		$currentHost = htmlspecialcharsbx($currentHost);
 		$currentHostTitle = htmlspecialcharsbx(\CBXPunycode::ToUnicode($currentHost, $errors));
@@ -96,24 +96,24 @@ foreach ($mapIframeLangKeys as $key)
 			</div>
 
 			<div class="site-speed-perf" id="site-speed-perf">
-				<?
+				<?php 
 				if (\Bitrix\Main\ModuleManager::isModuleInstalled("perfmon")):
 					$mark = (double)COption::GetOptionString("perfmon", "mark_php_page_rate", "");
 				?>
-					<a href="/bitrix/admin/perfmon_panel.php?lang=<?=LANGUAGE_ID?>" class="site-speed-perf-label"><?=Loc::getMessage("MAIN_SITE_SPEED_PERF")?></a>:<span class="site-speed-perf-value"><?if ($mark > 0):?><?=$mark?><?else:?><?=Loc::getMessage("MAIN_SITE_SPEED_PERF_NO_RES")?><?endif?></span>
-				<?endif?>
+					<a href="/bitrix/admin/perfmon_panel.php?lang=<?=LANGUAGE_ID?>" class="site-speed-perf-label"><?=Loc::getMessage("MAIN_SITE_SPEED_PERF")?></a>:<span class="site-speed-perf-value"><?php if ($mark > 0):?><?=$mark?><?php else:?><?=Loc::getMessage("MAIN_SITE_SPEED_PERF_NO_RES")?><?php endif?></span>
+				<?php endif?>
 
-				<?
+				<?php 
 					$compositeStatus = \Bitrix\Main\Composite\Helper::isCompositeEnabled() ? Loc::getMessage("MAIN_SITE_SPEED_ENABLED") : Loc::getMessage("MAIN_SITE_SPEED_DISABLED");
 				?>
 				<a href="/bitrix/admin/composite.php?lang=<?=LANGUAGE_ID?>" class="site-speed-perf-label"><?=Loc::getMessage("MAIN_SITE_SPEED_COMPOSITE_SITE")?></a>:<span class="site-speed-perf-value"><?=$compositeStatus?></span>
-				<?
+				<?php 
 
 				if (\Bitrix\Main\Loader::includeModule("bitrixcloud")):
 					$cdnStatus = CBitrixCloudCDN::IsActive() ? Loc::getMessage("MAIN_SITE_SPEED_ENABLED") : Loc::getMessage("MAIN_SITE_SPEED_DISABLED");
 				?>
 				<a href="/bitrix/admin/bitrixcloud_cdn.php?lang=<?=LANGUAGE_ID?>" class="site-speed-perf-label"><?=Loc::getMessage("MAIN_SITE_SPEED_CDN")?></a>:<span class="site-speed-perf-value"><?=$cdnStatus?></span>
-				<?endif?>
+				<?php endif?>
 			</div>
 		</div>
 
@@ -292,4 +292,4 @@ foreach ($mapIframeLangKeys as $key)
 </script>
 
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

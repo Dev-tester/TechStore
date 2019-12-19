@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -13,20 +13,20 @@ CJSCore::Init(array('qrcode', 'ajax'));
  * @global CUser $USER
  */
 ?>
-<?if ($arResult["MESSAGE"]):?>
-	<?ShowMessage($arResult["MESSAGE"]);?>
-<?else:?>
+<?php if ($arResult["MESSAGE"]):?>
+	<?php ShowMessage($arResult["MESSAGE"]);?>
+<?php else:?>
 <div id="user-otp-container" class="bx-otp-wrap-container <?=LANGUAGE_ID?>" style="padding-top: 0; max-width:1300px;">
-	<?
+	<?php 
 	ShowMessage(array("MESSAGE" => GetMessage("SECURITY_OTP_MANDATORY_REQUIRED"), "TYPE" => "ERROR"));
 	?>
-	<?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
+	<?php if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
 		<noindex>
 			<p>
 				<a href="<?=$arParams["AUTH_LOGIN_URL"]?>" rel="nofollow"><?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_BACK")?></a>
 			</p>
 		</noindex>
-	<?endif?>
+	<?php endif?>
 	<p class="bx-otp-wrap-container-description"><?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_DESCR1")?></p>
 	<div class="bx-otp-wrap-container-getstart">
 		<?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_CONNECT")?>
@@ -42,9 +42,9 @@ CJSCore::Init(array('qrcode', 'ajax'));
 		<ul class="bx-otp-section-market-list">
 			<li class="bx-otp-section-market-icon-Apple"><a href="https://itunes.apple.com/<?=(LANGUAGE_ID == "ru" || LANGUAGE_ID == "ua" ? "ru" : "en")?>/app/bitrix24-otp/id929604673?mt=8" target="_blank"></a></li>
 			<li class="bx-otp-section-market-icon-Google"><a href="https://play.google.com/store/apps/details?id=com.bitrixsoft.otp" target="_blank"></a></li>
-			<?/*if (in_array(LANGUAGE_ID, array("ru", "ua"))):?>
+			<?php /*if (in_array(LANGUAGE_ID, array("ru", "ua"))):?>
 			<li class="bx-otp-section-market-icon-Yandex"><a href=""></a></li>
-			<?endif*/?>
+			<?php endif*/?>
 		</ul>
 		<div class="clb"></div>
 	</div>
@@ -89,7 +89,7 @@ CJSCore::Init(array('qrcode', 'ajax'));
 				<div class="bx-otp-section-col">
 					<span class="bx-otp-section-desc">
 						<?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_HAND_DESCR")?>
-						<b><?
+						<b><?php 
 							if ($arResult['TYPE'] === \Bitrix\Security\Mfa\Otp::TYPE_TOTP):
 								echo getMessage('SECURITY_OTP_MANDATORY_AUTH_CODE_INFO_TOTP');
 							elseif ($arResult['TYPE'] === \Bitrix\Security\Mfa\Otp::TYPE_HOTP):
@@ -126,20 +126,20 @@ CJSCore::Init(array('qrcode', 'ajax'));
 		<div class="tac" style="margin-bottom: 40px;">
 			<input type="text" class="bx-otp-input-custom bx-otp-int big" dir="ltr" data-role="check-code" autocomplete="off" placeholder="<?=($arResult['TWO_CODE_REQUIRED'] ? GetMessage("SECURITY_OTP_MANDATORY_AUTH_ENTER_CODE_PL1") : GetMessage("SECURITY_OTP_MANDATORY_AUTH_ENTER_CODE_PL"))?>">
 		</div>
-		<?if ($arResult['TWO_CODE_REQUIRED']):?>
+		<?php if ($arResult['TWO_CODE_REQUIRED']):?>
 			<p class="bx-otp-section-desc tac lhn">
 				<?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_CODE_DESCR2")?>
 			</p>
 			<div class="tac" style="margin-bottom: 10px;">
 				<input type="text" class="bx-otp-input-custom bx-otp-int big"  dir="ltr" data-role="check-code" autocomplete="off" placeholder="<?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_ENTER_CODE_PL2")?>">
 			</div>
-		<?endif;?>
+		<?php endif;?>
 		<div class="tac">
 			<input class="bx-otp-btn green big" type="submit" data-role="check-button" value="<?=GetMessage("SECURITY_OTP_MANDATORY_AUTH_DONE")?>">
 		</div>
 	</div>
 </div>
-	<?
+	<?php 
 	$jsParams = array(
 		'data' => array(
 			'secret' => $arResult['SECRET'],
@@ -163,4 +163,4 @@ CJSCore::Init(array('qrcode', 'ajax'));
 			new BX.Security.AuthOtpMandatory(<?=\CUtil::PhpToJSObject($jsParams)?>);
 		});
 	</script>
-<?endif?>
+<?php endif?>

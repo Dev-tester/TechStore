@@ -2,7 +2,7 @@
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:crm.control_panel',
 	'',
 	array(
@@ -12,7 +12,7 @@ require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
 	)
 );?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:crm.config.external_plugins',
 	'',
 	Array(

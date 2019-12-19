@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\UI\Uploader;
 use Bitrix\Main\AccessDeniedException;
 use Bitrix\Main\ArgumentException;

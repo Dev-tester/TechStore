@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAS1_AFF"] = "Affiliates";
 $MESS["SAS1_SITE"] = "Site";
 $MESS["SAS1_USER"] = "User";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BSP_SHOW_RATING"] = "Show ratings";
 $MESS["TP_BSP_PATH_TO_USER_PROFILE"] = "User profile path template";
 $MESS["TP_BSP_SHOW_RATING_CONFIG"] = "default";

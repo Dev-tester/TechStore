@@ -45,5 +45,5 @@ BX.ready(
 		);
 	}
 );
-</script><?
+</script><?php 
 endif;

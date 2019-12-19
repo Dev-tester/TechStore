@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_OTP_PARAMETERS_TAB"] = "Parameters";
 $MESS["SEC_OTP_WINDOW_SIZE"] = "Password Check Window Size";
 $MESS["SEC_OTP_DEFAULT_YPE"] = "Default password generation algorithm";

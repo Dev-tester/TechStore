@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $blogModulePermissions = $APPLICATION->GetGroupRight("blog");
@@ -96,7 +96,7 @@ if ($bVarsFromForm)
 	$DB->InitTableVarsForEdit("b_blog_group", "", "str_");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("BLGE_2FLIST"),
@@ -126,16 +126,16 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($errorMessage);?>
+<?php CAdminMessage::ShowMessage($errorMessage);?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("BLGE_TAB_GROUP"), "ICON" => "blog", "TITLE" => GetMessage("BLGE_TAB_GROUP_DESCR"))
 	);
@@ -144,34 +144,34 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
-	<?if ($ID > 0):?>
+	<?php if ($ID > 0):?>
 		<tr>
 			<td width="40%">ID:</td>
 			<td width="60%"><?=$ID?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("BLGE_NAME")?>:</td>
+		<td width="40%"><?php echo GetMessage("BLGE_NAME")?>:</td>
 		<td width="60%">
 			<input type="text" name="NAME" size="50" value="<?= $str_NAME ?>">
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("BLGE_SITE")?>:</td>
+		<td><?php echo GetMessage("BLGE_SITE")?>:</td>
 		<td>
-			<?echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "");?>
+			<?php echo CSite::SelectBox("SITE_ID", $str_SITE_ID, "", "");?>
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($blogModulePermissions < "W"),
@@ -180,9 +180,9 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

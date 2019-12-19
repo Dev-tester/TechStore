@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USMP_NO_MODULE'] = "The module was not found.";
 $MESS ['USMP_BACK'] = "Back";
 $MESS ['USMP_TITLE'] = "Module #ID#";

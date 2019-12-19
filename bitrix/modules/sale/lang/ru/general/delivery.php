@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGD_EMPTY_DELIVERY"]="Не указано название службы доставки";
 $MESS["SKGD_EMPTY_SITE"]="Не указан сайт службы доставки";
 $MESS["SKGD_EMPTY_CURRENCY"]="Не указана валюта службы доставки";

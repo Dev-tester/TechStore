@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($isAdmin):
 ?>
@@ -13,33 +13,33 @@ if ($isAdmin):
 	<td width="60%">
 		<select name="" onchange="BPSWFA_getDocumentTypes(this.value)">
 			<option value=""><?= GetMessage("BPSWFA_PD_ENTITY") ?>:</option>
-			<? foreach ($entities as $id => $name):?>
-			<option value="<?= htmlspecialcharsbx($id) ?>" <?if ($id == $currentEntity) echo 'selected'?>><?= htmlspecialcharsbx($name) ?></option>
-			<? endforeach ?>
+			<?php  foreach ($entities as $id => $name):?>
+			<option value="<?= htmlspecialcharsbx($id) ?>" <?php if ($id == $currentEntity) echo 'selected'?>><?= htmlspecialcharsbx($name) ?></option>
+			<?php  endforeach ?>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td align="right" width="40%"><?= GetMessage("BPSWFA_PD_DOCUMENT_TYPE") ?>:</td>
 	<td width="60%">
-		<select name="" id="bpswfa_types" <?if (empty($currentType)) echo 'disabled'?> onchange="BPSWFA_getTemplates(this.value)">
+		<select name="" id="bpswfa_types" <?php if (empty($currentType)) echo 'disabled'?> onchange="BPSWFA_getTemplates(this.value)">
 			<option value=""><?= GetMessage("BPSWFA_PD_DOCUMENT_TYPE") ?>:</option>
-			<? foreach ($types as $type):?>
-				<option value="<?= htmlspecialcharsbx($type['id']) ?>" <?if ($type['id'] == $currentType) echo 'selected'?>>
+			<?php  foreach ($types as $type):?>
+				<option value="<?= htmlspecialcharsbx($type['id']) ?>" <?php if ($type['id'] == $currentType) echo 'selected'?>>
 					<?= htmlspecialcharsbx($type['name']) ?></option>
-			<? endforeach ?>
+			<?php  endforeach ?>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td align="right" width="40%"><span class="adm-required-field"><?= GetMessage("BPSWFA_PD_TEMPLATE") ?>:</span></td>
 	<td width="60%">
-		<select name="template_id" id="bpswfa_templates" <?if (empty($currentTemplateId)) echo 'disabled'?>  onchange="BPSWFA_getTemplateParameters(this.value)">
+		<select name="template_id" id="bpswfa_templates" <?php if (empty($currentTemplateId)) echo 'disabled'?>  onchange="BPSWFA_getTemplateParameters(this.value)">
 			<option value=""><?= GetMessage("BPSWFA_PD_TEMPLATE") ?>:</option>
-			<? foreach ($templates as $template):?>
-				<option value="<?= htmlspecialcharsbx($template['id']) ?>" <?if ($template['id'] == $currentTemplateId) echo 'selected'?>>
+			<?php  foreach ($templates as $template):?>
+				<option value="<?= htmlspecialcharsbx($template['id']) ?>" <?php if ($template['id'] == $currentTemplateId) echo 'selected'?>>
 					<?= htmlspecialcharsbx($template['name']) ?></option>
-			<? endforeach ?>
+			<?php  endforeach ?>
 		</select>
 	</td>
 </tr>
@@ -47,7 +47,7 @@ if ($isAdmin):
 	<td align="right" width="40%"></td>
 	<td width="60%">
 		<label>
-			<input type="checkbox" value="Y" name="use_subscription" <?if ($useSubscription == 'Y') echo 'checked'?>/>
+			<input type="checkbox" value="Y" name="use_subscription" <?php if ($useSubscription == 'Y') echo 'checked'?>/>
 			<?= GetMessage("BPSWFA_PD_USE_SUBSCRIPTION") ?>
 		</label>
 	</td>
@@ -157,8 +157,8 @@ if ($isAdmin):
 		);
 	};
 </script>
-<?else:?>
+<?php else:?>
 <tr>
 	<td align="right" width="40%" valign="top" colspan="2" style="color: red"><?=GetMessage('BPSWFA_PD_ACCESS_DENIED')?></td>
 </tr>
-<?endif?>
+<?php endif?>

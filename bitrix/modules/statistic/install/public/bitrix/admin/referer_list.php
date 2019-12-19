@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/statistic/admin/referer_list.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/statistic/admin/referer_list.php");?>

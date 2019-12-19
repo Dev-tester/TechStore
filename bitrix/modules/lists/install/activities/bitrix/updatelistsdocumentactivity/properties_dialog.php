@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var \Bitrix\Bizproc\Activity\PropertiesDialog $dialog */
 /** @var \CBPDocumentService $documentService */
 $elementId = $dialog->getMap()['ElementId'];
@@ -26,7 +26,7 @@ $docType = $dialog->getMap()['DocumentType'];
 	<td colspan="2">
 		<a href="#" id="ulda_pd_add_field_btn"><?= GetMessage("BPULDA_PD_ADD_FIELD") ?></a>
 		<table width="100%" border="0" cellpadding="2" cellspacing="2" id="ulda_lists_document_fields">
-			<?
+			<?php 
 			$fields = $dialog->getCurrentValue('fields');
 			foreach ($fields as $fieldKey => $fieldValue):
 
@@ -39,9 +39,9 @@ $docType = $dialog->getMap()['DocumentType'];
 				?>
 				<tr data-field="<?=htmlspecialcharsbx($fieldKey)?>">
 					<td align="right" width="30%" class="adm-detail-content-cell-l">
-						<?if ($property["Required"]):?><span class="adm-required-field"><?endif;?>
+						<?php if ($property["Required"]):?><span class="adm-required-field"><?php endif;?>
 							<?=htmlspecialcharsbx($property["Name"])?>:
-			<?if ($property["Required"]):?></span><?endif;?>
+			<?php if ($property["Required"]):?></span><?php endif;?>
 					</td>
 					<td width="60%" class="adm-detail-content-cell-r"><?=$documentService->GetFieldInputControl(
 							$listsDocumentType,
@@ -53,7 +53,7 @@ $docType = $dialog->getMap()['DocumentType'];
 					</td>
 					<td align="right"><a onclick="BX.remove(BX.findParent(this, {tag: 'tr'})); return false"><?=GetMessage("BPULDA_PD_DELETE")?></a></td>
 				</tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</table>
 	</td>
 </tr>

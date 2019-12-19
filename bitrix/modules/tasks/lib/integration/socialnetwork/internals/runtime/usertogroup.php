@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Integration\Socialnetwork\Internals\RunTime;
 
 use \Bitrix\Main\DB\SqlExpression;

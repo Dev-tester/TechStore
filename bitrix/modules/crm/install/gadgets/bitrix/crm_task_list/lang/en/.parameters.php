@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_CRM_TASK_ENTITY_TYPE"] = "Entities In List";
 $MESS["GD_CRM_TASK_TYPE_LEAD"] = "Lead";
 $MESS["GD_CRM_TASK_TYPE_CONTACT"] = "Contact";

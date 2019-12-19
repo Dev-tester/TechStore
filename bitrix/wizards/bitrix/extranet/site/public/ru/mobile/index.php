@@ -1,4 +1,4 @@
-<?
+<?php 
 define("BX_MOBILE_LOG", true);
 
 require($_SERVER["DOCUMENT_ROOT"]."/mobile/headers.php");
@@ -61,7 +61,7 @@ if (
 			if ($arLogSrc = $rsLogSrc->Fetch())
 			{
 				ob_start();
-				?><?$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:mobile.socialnetwork.log.ex", ".default", array(
+				?><?php $GLOBALS["APPLICATION"]->IncludeComponent("bitrix:mobile.socialnetwork.log.ex", ".default", array(
 						"NEW_LOG_ID" => intval($arLogSrc["ID"]),
 						"PATH_TO_LOG_ENTRY" => SITE_DIR."mobile/log/?detail_log_id=#log_id#",
 						"PATH_TO_LOG_ENTRY_EMPTY" => SITE_DIR."mobile/log/?empty=Y",
@@ -72,7 +72,7 @@ if (
 					),
 					false,
 					Array("HIDE_ICONS" => "Y")
-				);?><?
+				);?><?php 
 				$postText = ob_get_contents();
 				ob_end_clean();
 
@@ -143,7 +143,7 @@ elseif ($_GET["blog"] == "Y")
 	$filter = "blog";
 }
 
-?><?$APPLICATION->IncludeComponent("bitrix:mobile.socialnetwork.log.ex", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:mobile.socialnetwork.log.ex", ".default", array(
 		"GROUP_ID" => intval($_GET["group_id"]),
 		"LOG_ID" => intval($_GET["detail_log_id"]),
 		"FAVORITES" => ($_GET["favorites"] == "Y" ? "Y" : "N"),
@@ -170,4 +170,4 @@ elseif ($_GET["blog"] == "Y")
 	false,
 	Array("HIDE_ICONS" => "Y")
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_IS_TPL_SEARCH'] = "Найти сотрудника";
 $MESS ['INTR_IS_TPL_SEARCH_DEPARTMENT'] = "Найти сотрудника в этом отделе";
 $MESS ['INTR_IS_TPL_OUTLOOK'] = "Экспорт сотрудников в Outlook";

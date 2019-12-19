@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPT1_TTITLE"] = "Leave";
 $MESS["BPT1_BT_PARAM_OP_READ"] = "Employees Allowed to View All Processes";
 $MESS["BPT1_BT_PARAM_OP_CREATE"] = "Employees Allowed to Create New Processes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_CLOCK_INPUT_ID'] = "ID поля ввода";
 $MESS ['COMP_CLOCK_INPUT_NAME'] = "Имя поля ввода";
 $MESS ['COMP_CLOCK_INPUT_TITLE'] = "Всплывающая подсказка на поле ввода";

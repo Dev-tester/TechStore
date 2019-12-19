@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["iblock_dep_act"] = "Підрозділ активно";
 $MESS["iblock_dep_addit"] = "Додатково";
 $MESS["iblock_dep_changed"] = "Змінено";

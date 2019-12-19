@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_MODULE_IS_NOT_INSTALLED"] = "Модуль опросов не установлен.";
 $MESS["VOTE_ACCESS_DENIED"] = "У вас нет прав на участие в данном опросе.";
 $MESS["VOTE_NOT_FOUND"] = "Опрос не найден.";

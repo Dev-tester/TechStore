@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MENU_DISK_USER"] = "My Drive";
 $MESS["MENU_DISK_COMMON"] = "Company Drive";
 $MESS["MENU_DISK_MP_APPS"] = "Applications";

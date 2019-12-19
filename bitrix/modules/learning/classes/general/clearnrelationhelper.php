@@ -151,7 +151,7 @@ class CLearnRelationHelper
 					<input type="hidden" name="<?php echo ($arElem['elemName']); ?>" value="<?php echo (int) $arElem['lessonId']; ?>">
 					<span style="font-style:italic;"><?php echo ($arElem['Name']); ?></span>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 			</div>
@@ -204,7 +204,7 @@ class CLearnRelationHelper
 					<input type="hidden" name="<?php echo ($arElem['elemName']); ?>" value="<?php echo (int) $arElem['lessonId']; ?>">
 					<span style="font-style:italic;"><?php echo ($arElem['Name']); ?></span>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 			</div>

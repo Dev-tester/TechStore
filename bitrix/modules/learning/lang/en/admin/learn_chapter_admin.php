@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TITLE'] = "Chapters list";
 $MESS ['LEARNING_ADD'] = "Add chapter";
 $MESS ['LEARNING_ADD_ALT'] = "Add new chapter";

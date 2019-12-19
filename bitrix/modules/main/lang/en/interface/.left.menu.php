@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_MENU_PUBLIC'] = "Public section";
 $MESS ['MAIN_MENU_PUBLIC_ALT'] = "Go to the public section";
 $MESS ['admin_index'] = "Desktop";

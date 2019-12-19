@@ -134,7 +134,7 @@ if ($arResult['POPUP_MODE'] === 'N' && $arResult['INNER_FORM_MODE'] === 'N')
 
 if($arResult['INNER_FORM_MODE'] === 'Y')
 {
-	?><div class="crm-offer-requisite-form-wrap"><?
+	?><div class="crm-offer-requisite-form-wrap"><?php 
 }
 
 
@@ -179,7 +179,7 @@ $APPLICATION->IncludeComponent(
 
 if($arResult['INNER_FORM_MODE'] === 'Y')
 {
-	?></div><?
+	?></div><?php 
 }
 ?><script type="text/javascript">
 	BX.ready(function()

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_user_name"] = "Пользователи";
 $MESS["sender_connector_user_all"] = "Любое";
 $MESS["sender_connector_user_y"] = "Да";

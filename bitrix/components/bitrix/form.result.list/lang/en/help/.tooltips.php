@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEF_MODE_TIP'] = "Check this option to enable the search engine friendly (SEF) mode.";
 $MESS ['WEB_FORM_ID_TIP'] = "The drop-down list contains all currently exsiting web forms. Alternatively, you can select <i>other</i> to use an external form ID passed via _REQUEST.";
 $MESS ['VIEW_URL_TIP'] = "Specify here the path to the result view page. Users can open this page from the result report page. The default value is <b>result_view.php</b>.";

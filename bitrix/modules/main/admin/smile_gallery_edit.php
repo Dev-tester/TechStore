@@ -1,4 +1,4 @@
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 IncludeModuleLangFile(__FILE__);
 
@@ -150,7 +150,7 @@ if (isset($message) && $message)
 	<input type="hidden" name="lang" value="<?=LANG?>" />
 	<input type="hidden" name="ID" value="<?=$ID?>" />
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 	$aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SMILE_TAB_SMILE"), "ICON" => "smile", "TITLE" => GetMessage("SMILE_TAB_SMILE_DESCR"))
 	);
@@ -162,12 +162,12 @@ $tabControl->BeginNextTab();
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("SMILE_IMAGE_NAME")?></td>
 	</tr>
-	<?foreach ($arLang as $key => $val):?>
+	<?php foreach ($arLang as $key => $val):?>
 	<tr>
-		<td><? $word = GetMessage('SMILE_IMAGE_NAME_'.strtoupper($key)); if (strlen($word) > 0) { echo $word; } else { echo $val["NAME"]; }?>:</td>
+		<td><?php  $word = GetMessage('SMILE_IMAGE_NAME_'.strtoupper($key)); if (strlen($word) > 0) { echo $word; } else { echo $val["NAME"]; }?>:</td>
 		<td><input type="text" name="NAME[<?=$key?>]" value="<?=$arSmileSet["NAME"][$key]?>" size="40" /></td>
 	</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 	<tr class="heading">
 		<td colspan="2"><?=GetMessage("SMILE_IMAGE_PARAMS")?></td>
 	</tr>
@@ -177,14 +177,14 @@ $tabControl->BeginNextTab();
 			<input type="text" name="SORT" value="<?=$arSmileSet["SORT"]?>" size="10" />
 		</td>
 	</tr>
-	<?if($arSmileSet["STRING_ID"] != 'bitrix'):?>
+	<?php if($arSmileSet["STRING_ID"] != 'bitrix'):?>
 	<tr>
 		<td width="40%"><?=GetMessage("SMILE_STRING_ID")?>:</td>
 		<td width="60%">
 			<input type="text" name="STRING_ID" value="<?=$arSmileSet["STRING_ID"]?>" size="40" />
 		</td>
 	</tr>
-	<?
+	<?php 
 	endif;
 	if ($ID > 0)
 	{
@@ -203,21 +203,21 @@ $tabControl->BeginNextTab();
 	<tr>
 		<td><?=GetMessage("SMILE_SMILE_EXAMPLE")?>:</td>
 		<td>
-			<?foreach($arSmiles as $smile):?>
+			<?php foreach($arSmiles as $smile):?>
 				<img src="<?=($smile['TYPE'] == CSmile::TYPE_ICON? CSmile::PATH_TO_ICON: CSmile::PATH_TO_SMILE).$smile['SET_ID']."/".$smile['IMAGE'];?>" border="0" width="<?=$smile['IMAGE_WIDTH']?>" height="<?=$smile['IMAGE_HEIGHT']?>" title="<?=$smile['NAME']?>" style="vertical-align: text-top">
-			<?endforeach;?>
+			<?php endforeach;?>
 		</td>
 	</tr>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(array(
 	"back_url" => "/bitrix/admin/smile_gallery.php?lang=".LANG."&".GetFilterParams("filter_", false)));
 ?>
 </form>
-<?
+<?php 
 $tabControl->End();
 $tabControl->ShowWarnings("smile_gallery_edit", $message);
 ?>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

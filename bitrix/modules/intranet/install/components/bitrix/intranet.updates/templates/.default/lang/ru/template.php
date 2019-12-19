@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ACTIVE"] = "Срок действия ключа для установки обновлений";
 $MESS["SUP_ACTIVE_PERIOD"] = "с #DATE_FROM# по #DATE_TO#";
 $MESS["SUP_ACTIVE_PERIOD_TO"] = "по #DATE_TO#";

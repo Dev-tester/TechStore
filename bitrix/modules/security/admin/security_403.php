@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?><?php 
 CHTTP::SetStatus("403 Forbidden");
 ?>
 <html>
@@ -10,4 +10,4 @@ CHTTP::SetStatus("403 Forbidden");
 		Access denied.
 	</body>
 </html>
-<?die();?>
+<?php die();?>

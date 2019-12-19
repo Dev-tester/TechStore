@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_COMP_TMPL_LETTER_PATTERN_TITLE"] = "%name% от %date%";
 $MESS["SENDER_LETTER_EDIT_CHANGE_TEMPLATE"] = "сменить шаблон";
 $MESS["SENDER_LETTER_EDIT_FIELD_NAME"] = "Название";

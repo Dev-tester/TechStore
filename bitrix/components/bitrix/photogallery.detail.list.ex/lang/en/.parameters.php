@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE"] = "Information Block type";
 $MESS["IBLOCK_IBLOCK"] = "Information Block";
 $MESS["IBLOCK_DETAIL_URL"] = "Detailed view page";

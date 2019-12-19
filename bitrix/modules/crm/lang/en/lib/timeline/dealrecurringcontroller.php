@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_RECURRING_NEXT_EXECUTION"] = "Next creation date";
 $MESS["CRM_DEAL_RECURRING_NEXT_EXECUTION_CHANGED"] = "Next creation date changed";
 $MESS["CRM_DEAL_RECURRING_NOT_ACTIVE"] = "Recurring deal is not active";

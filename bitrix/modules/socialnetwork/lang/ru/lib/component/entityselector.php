@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_ENTITY_SELECTOR_ERR_SONET_MODULE_NOT_INSTALLED"] = "Модуль \"Социальная сеть\" не установлен";
 $MESS["SONET_ENTITY_SELECTOR_ERR_INTRANET_MODULE_NOT_INSTALLED"] = "Модуль \"Интранет\" не установлен";
 $MESS["SONET_ENTITY_SELECTOR_FILTER_FIELD_GROUP_TITLE"] = "Группа или проект";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["admin_index_product_name_1c_bitrix"] = "1С-Битрикс: Управление сайтом";
 $MESS["admin_index_product_name_1c_bitrix_portal"] = "1С-Битрикс: Корпоративный портал";
 $MESS["admin_index_product_name_1c_bitrix_eduportal"] = "1С-Битрикс: Внутренний портал учебного заведения";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use	Bitrix\Sale\Internals\OrderTable,
 	Bitrix\Sale\Internals\OrderArchiveTable,
 	Bitrix\Sale\Compatible,

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_CALENDAR_DENIED"] = "Access denied";
 $MESS["TASK_NAME_CALENDAR_VIEW_TIME"] = "View availability";
 $MESS["TASK_NAME_CALENDAR_VIEW_TITLE"] = "View availability and names";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAE_NO_SITE_PLAN"] = "Die Seite der Umsatzplanung wurde nicht angegeben";
 $MESS["SAE_NO_PLAN"] = "Die Umsatzplanung wurde nicht angegeben";
 $MESS["SAE_NO_DATE_CREATE"] = "Das Erstellungsdatum wurde nicht angegeben";

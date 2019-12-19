@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_EDIT_TMPL_NAME"] = "Name";
 $MESS["MAIN_USER_CONSENT_EDIT_TMPL_TYPE"] = "Type: custom or standard";
 $MESS["MAIN_USER_CONSENT_EDIT_TMPL_DATA_PROVIDER"] = "Data source";

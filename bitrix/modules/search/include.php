@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("CACHED_b_search_tags")) define("CACHED_b_search_tags", 3600);
 if(!defined("CACHED_b_search_tags_len")) define("CACHED_b_search_tags_len", 2);
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_PATH_TO_GROUP'] = "Шаблон пути к странице группы";
 $MESS ['SONET_PATH_TO_GROUP_MODS'] = "Шаблон пути к странице руководства группы";
 $MESS ['SONET_PATH_TO_GROUP_USERS'] = "Шаблон пути к странице членов группы";

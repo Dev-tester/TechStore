@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BSE_SUBSCRIPTION_FORM_TITLE"] = "Подписаться на рассылку";
 $MESS["CT_BSE_BTN_ADD_SUBSCRIPTION"] = "Подписаться";
 $MESS["CT_BSE_BTN_EDIT_SUBSCRIPTION"] = "Изменить подписку";

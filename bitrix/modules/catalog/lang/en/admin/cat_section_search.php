@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_MOD_CATALOG_ADMIN_CSS_TITLE"] = "Select section";
 $MESS["BX_MOD_CATALOG_ADMIN_CSS_BAD_BLOCK_TYPE_ID"] = "Invalid information block type";
 $MESS["BX_MOD_CATALOG_ADMIN_CSS_BAD_IBLOCK"] = "Invalid information block";

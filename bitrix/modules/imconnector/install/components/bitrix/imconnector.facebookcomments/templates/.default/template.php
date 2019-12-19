@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -35,7 +35,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_del" value="Y">
 	<?=bitrix_sessid_post();?>
 </form>
-<?
+<?php 
 if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 {
 	if ($arResult['STATUS'])
@@ -65,14 +65,14 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
+		<?php include 'messages.php'?>
 		<div class="imconnector-field-container">
 			<div class="imconnector-field-section">
 				<div class="imconnector-field-main-title">
 					<?=Loc::getMessage('IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_INFO')?>
 				</div>
 				<div class="imconnector-field-box">
-					<?
+					<?php 
 					if (!empty($arResult["FORM"]["USER"]["INFO"]["URL"]))
 					{
 						?>
@@ -88,10 +88,10 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 							<span class="imconnector-field-box-entity-icon-copy-to-clipboard"
 								  data-text="<?=htmlspecialcharsbx(CUtil::JSEscape($arResult["FORM"]["USER"]["INFO"]["URL"]))?>"></span>
 						</div>
-						<?
+						<?php 
 					}
 					?>
-					<?
+					<?php 
 					if (!empty($arResult["FORM"]["PAGE"]["URL"]))
 					{
 						?>
@@ -107,13 +107,13 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 							<span class="imconnector-field-box-entity-icon-copy-to-clipboard"
 								  data-text="<?=htmlspecialcharsbx(CUtil::JSEscape($arResult["FORM"]["PAGE"]["URL"]))?>"></span>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -143,8 +143,8 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
-		<?
+		<?php include 'messages.php'?>
+		<?php 
 	}
 }
 else
@@ -167,8 +167,8 @@ else
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
-		<?
+		<?php include 'messages.php'?>
+		<?php 
 		if ($arResult['ACTIVE_STATUS']) //case before auth to fb
 		{
 			?>
@@ -182,7 +182,7 @@ else
 							<?= Loc::getMessage('IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_LOG_IN_UNDER_AN_ADMINISTRATOR_ACCOUNT_PAGE') ?>
 						</div>
 					</div>
-					<?
+					<?php 
 					if ($arResult['FORM']['USER']['URI'] != '')
 					{
 						?>
@@ -193,12 +193,12 @@ else
 								<?= Loc::getMessage('IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_AUTHORIZE') ?>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		else
 		{    //case before start connecting to fb
@@ -228,7 +228,7 @@ else
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	else
@@ -246,19 +246,19 @@ else
 					<div class="imconnector-field-social-card">
 						<div class="imconnector-field-social-card-info">
 							<div class="imconnector-field-social-icon"></div>
-							<?if(empty($arResult['FORM']['USER']['INFO']['URL'])):?>
+							<?php if(empty($arResult['FORM']['USER']['INFO']['URL'])):?>
 							<span class="imconnector-field-social-name">
-							<?else:?>
+							<?php else:?>
 								<a href="<?= $arResult['FORM']['USER']['INFO']['URL'] ?>"
 								   target="_blank"
 								   class="imconnector-field-social-name">
-							<?endif;?>
+							<?php endif;?>
 							<?= htmlspecialcharsbx($arResult['FORM']['USER']['INFO']['NAME']) ?>
-							<?if(empty($arResult['FORM']['USER']['INFO']['URL'])):?>
+							<?php if(empty($arResult['FORM']['USER']['INFO']['URL'])):?>
 								</span>
-						<?else:?>
+						<?php else:?>
 							</a>
-						<?endif;?>
+						<?php endif;?>
 						</div>
 						<div class="ui-btn ui-btn-sm ui-btn-light-border imconnector-field-social-card-button"
 							 onclick="popupShow(<?= CUtil::PhpToJSObject($arResult["CONNECTOR"]) ?>)">
@@ -268,8 +268,8 @@ else
 				</div>
 			</div>
 		</div>
-		<?include 'messages.php'?>
-		<?
+		<?php include 'messages.php'?>
+		<?php 
 		if (empty($arResult['FORM']['PAGES']))  //case user haven't got any groups.
 		{
 			?>
@@ -287,7 +287,7 @@ else
 						</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -300,7 +300,7 @@ else
 							<?= Loc::getMessage('IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_SELECT_THE_PAGE') ?>
 						</div>
 						<div class="imconnector-field-social-list">
-							<?
+							<?php 
 							foreach ($arResult['FORM']['PAGES'] as $page)
 							{
 								if (empty($page['ACTIVE']))
@@ -310,19 +310,19 @@ else
 										<div class="imconnector-field-social-list-inner">
 											<div class="imconnector-field-social-icon imconnector-field-social-list-icon"></div>
 											<div class="imconnector-field-social-list-info">
-											<?if(empty($page["INFO"]["URL"])):?>
+											<?php if(empty($page["INFO"]["URL"])):?>
 												<span class="imconnector-field-social-name">
-											<?else:?>
+											<?php else:?>
 												<a href="<?= htmlspecialcharsbx($page["INFO"]["URL"]) ?>"
 													target="_blank"
 													class="imconnector-field-social-name">
-											<?endif;?>
+											<?php endif;?>
 											<?= htmlspecialcharsbx($page["INFO"]["NAME"]) ?>
-											<?if(empty($page["INFO"]["URL"])):?>
+											<?php if(empty($page["INFO"]["URL"])):?>
 												</span>
-											<?else:?>
+											<?php else:?>
 												</a>
-											<?endif;?>
+											<?php endif;?>
 											</div>
 										</div>
 										<form action="<?= $arResult["URL"]["SIMPLE_FORM"] ?>" method="post">
@@ -337,14 +337,14 @@ else
 											</button>
 										</form>
 									</div>
-									<?
+									<?php 
 								}
 							}
 							?>
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -358,19 +358,19 @@ else
 						<div class="imconnector-field-social-card">
 							<div class="imconnector-field-social-card-info">
 								<div class="connector-icon ui-icon ui-icon-service-<?=$iconCode?> imconnector-field-social-icon"><i></i></div>
-								<?if(empty($arResult['FORM']['PAGE']['URL'])):?>
+								<?php if(empty($arResult['FORM']['PAGE']['URL'])):?>
 								<span class="imconnector-field-social-name">
-								<?else:?>
+								<?php else:?>
 									<a href="<?= $arResult['FORM']['PAGE']['URL'] ?>"
 									   target="_blank"
 									   class="imconnector-field-social-name">
-								<?endif;?>
+								<?php endif;?>
 								<?= htmlspecialcharsbx($arResult['FORM']['PAGE']['NAME']) ?>
-								<?if(empty($arResult['FORM']['PAGE']['URL'])):?>
+								<?php if(empty($arResult['FORM']['PAGE']['URL'])):?>
 									</span>
-							<?else:?>
+							<?php else:?>
 								</a>
-							<?endif;?>
+							<?php endif;?>
 							</div>
 							<form action="<?= $arResult["URL"]["SIMPLE_FORM"] ?>" method="post">
 								<input type="hidden" name="<?= $arResult["CONNECTOR"] ?>_form" value="true">
@@ -385,7 +385,7 @@ else
 							</form>
 						</div>
 
-						<?
+						<?php 
 						if (count($arResult['FORM']['PAGES']) > 1)
 						{
 							?>
@@ -399,7 +399,7 @@ else
 									<?= Loc::getMessage('IMCONNECTOR_COMPONENT_FACEBOOK_COMMENTS_OTHER_PAGES') ?>
 								</div>
 								<div class="imconnector-field-social-list">
-									<?
+									<?php 
 									foreach ($arResult['FORM']['PAGES'] as $page)
 									{
 										if (empty($page['ACTIVE']))
@@ -409,19 +409,19 @@ else
 												<div class="imconnector-field-social-list-inner">
 													<div class="imconnector-field-social-icon imconnector-field-social-list-icon"></div>
 													<div class="imconnector-field-social-list-info">
-													<?if(empty($page["INFO"]["URL"])):?>
+													<?php if(empty($page["INFO"]["URL"])):?>
 														<span class="imconnector-field-social-name">
-													<?else:?>
+													<?php else:?>
 														<a href="<?= htmlspecialcharsbx($page["INFO"]["URL"]) ?>"
 															target="_blank"
 															class="imconnector-field-social-name">
-													<?endif;?>
+													<?php endif;?>
 														<?= htmlspecialcharsbx($page["INFO"]["NAME"]) ?>
-													<?if(empty($page["INFO"]["URL"])):?>
+													<?php if(empty($page["INFO"]["URL"])):?>
 														</span>
-													<?else:?>
+													<?php else:?>
 														</a>
-													<?endif;?>
+													<?php endif;?>
 													</div>
 												</div>
 												<form action="<?= $arResult["URL"]["SIMPLE_FORM_EDIT"] ?>" method="post">
@@ -438,18 +438,18 @@ else
 													</button>
 												</form>
 											</div>
-											<?
+											<?php 
 										}
 									}
 									?>
 								</div>
 							</div>
-							<?
+							<?php 
 						}
 						?>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 		}
 	}

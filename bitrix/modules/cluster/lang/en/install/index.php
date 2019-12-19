@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_MODULE_NAME"] = "Web Cluster";
 $MESS["CLU_MODULE_DESCRIPTION"] = "A Web cluster support module.";
 $MESS["CLU_INSTALL_TITLE"] = "Install Web Cluster Support Module";

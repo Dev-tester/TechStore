@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <div id="wiki-post">
-<?
+<?php 
 
 if(!empty($arResult["FATAL_MESSAGE"])):
 	?>
@@ -10,25 +10,25 @@ if(!empty($arResult["FATAL_MESSAGE"])):
 			<?=$arResult['FATAL_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 else:
 ?>
 	<div id="wiki-post-content">
-	<? if (isset($arResult['VERSION'])) : ?>
+	<?php  if (isset($arResult['VERSION'])) : ?>
 		<div id="wiki-sub-post_content">
 			<div id="wiki-version-info">
 			<?=GetMessage('WIKI_VERSION_FROM')?> <?=$arResult['VERSION']['MODIFIED']?>;
-			<?=$arResult['VERSION']['USER_LOGIN']?>  (<? if (!empty($arResult['VERSION']['CUR_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['CANCEL_LINK']?>"><?=GetMessage('WIKI_RESTORE_TO_CURRENT')?></a><? } else { ?><?=GetMessage('WIKI_RESTORE_TO_CURRENT')?><? } ?>)
+			<?=$arResult['VERSION']['USER_LOGIN']?>  (<?php  if (!empty($arResult['VERSION']['CUR_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['CANCEL_LINK']?>"><?=GetMessage('WIKI_RESTORE_TO_CURRENT')?></a><?php  } else { ?><?=GetMessage('WIKI_RESTORE_TO_CURRENT')?><?php  } ?>)
 			</div>
 			<div id="wiki-version-nav">
-			<? if (!empty($arResult['VERSION']['PREV_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['PREV_LINK']?>"><?=GetMessage('WIKI_PREV_VERSION')?></a> <? } else { ?> <?=GetMessage('WIKI_PREV_VERSION')?> <? } ?> |
-			<? if (!empty($arResult['VERSION']['CUR_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['CUR_LINK']?>"><?=GetMessage('WIKI_CURR_VERSION')?></a> <? } else { ?> <?=GetMessage('WIKI_CURR_VERSION')?> <? } ?> |
-			<? if (!empty($arResult['VERSION']['NEXT_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['NEXT_LINK']?>"><?=GetMessage('WIKI_NEXT_VERSION')?></a> <? } else { ?> <?=GetMessage('WIKI_NEXT_VERSION')?> <? } ?>
+			<?php  if (!empty($arResult['VERSION']['PREV_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['PREV_LINK']?>"><?=GetMessage('WIKI_PREV_VERSION')?></a> <?php  } else { ?> <?=GetMessage('WIKI_PREV_VERSION')?> <?php  } ?> |
+			<?php  if (!empty($arResult['VERSION']['CUR_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['CUR_LINK']?>"><?=GetMessage('WIKI_CURR_VERSION')?></a> <?php  } else { ?> <?=GetMessage('WIKI_CURR_VERSION')?> <?php  } ?> |
+			<?php  if (!empty($arResult['VERSION']['NEXT_LINK'])){ ?><a title="<?=$arResult['ELEMENT']['NAME'];?>" href="<?=$arResult['VERSION']['NEXT_LINK']?>"><?=GetMessage('WIKI_NEXT_VERSION')?></a> <?php  } else { ?> <?=GetMessage('WIKI_NEXT_VERSION')?> <?php  } ?>
 			</div>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 	<?=$arResult['ELEMENT']['DETAIL_TEXT'];?>
-	<?
+	<?php 
 	switch($arResult['SERVICE_PAGE'])
 	{
 		case 'category' :
@@ -66,11 +66,11 @@ else:
 	if (!empty($arResult['ELEMENT']['SECTIONS'])):
 		?><div id="wiki_category">
 			<div class="wiki-category-item">
-				<?
+				<?php 
 				$_i = 1;
 				foreach ($arResult['ELEMENT']['SECTIONS'] as $arSect)
 				{
-					?><a title="<?=htmlspecialcharsbx($arSect['TITLE'], ENT_QUOTES)?>" class="<?=($arSect['IS_RED'] == 'Y' ? 'wiki_red' : '')?>" href="<?=htmlspecialcharsbx($arSect['LINK'], ENT_QUOTES)?>"><?=htmlspecialcharsbx($arSect['NAME'], ENT_QUOTES)?></a><?
+					?><a title="<?=htmlspecialcharsbx($arSect['TITLE'], ENT_QUOTES)?>" class="<?=($arSect['IS_RED'] == 'Y' ? 'wiki_red' : '')?>" href="<?=htmlspecialcharsbx($arSect['LINK'], ENT_QUOTES)?>"><?=htmlspecialcharsbx($arSect['NAME'], ENT_QUOTES)?></a><?php 
 					if ($_i < count($arResult['ELEMENT']['SECTIONS']))
 						echo $arSect['IS_SERVICE'] == 'Y' ? ': ' : ' | ';
 					$_i++;
@@ -78,8 +78,8 @@ else:
 				}
 				?>
 			</div>
-			<?if ($arParams['SHOW_RATING'] == 'Y'):?>
-				<div class="wiki-category-rating"><?
+			<?php if ($arParams['SHOW_RATING'] == 'Y'):?>
+				<div class="wiki-category-rating"><?php 
 				$APPLICATION->IncludeComponent(
 					'bitrix:rating.vote', $arParams['RATING_TYPE'],
 					Array(
@@ -92,23 +92,23 @@ else:
 					array('HIDE_ICONS' => 'Y')
 				);?>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 			<div style="clear:both"></div>
 		</div>
-	<?
+	<?php 
 	endif;
 	?>
-	<?
+	<?php 
 	if (!empty($arResult['ELEMENT']['_TAGS'])):
 		?><div id="wiki_category">
 		<?=GetMessage('WIKI_TAGS')?>:
 		<?=CWikiUtils::GetTagsAsLinks($arResult['ELEMENT']['_TAGS'])?>
 		</div>
-		<?
+		<?php 
 	endif;
 	?>
 	</div>
-<?
+<?php 
 endif;
 ?>
 </div>

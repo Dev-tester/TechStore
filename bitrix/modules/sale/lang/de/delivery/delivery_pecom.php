@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_PECOM_NAME"] = " ";
 $MESS["SALE_DH_PECOM_DESCRIPTION"] = " ";
 $MESS["SALE_DH_PECOM_SETT_TITLE"] = " ";

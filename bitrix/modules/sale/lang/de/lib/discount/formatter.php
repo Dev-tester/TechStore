@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_FORMATTER_MESS_SIMPLE_GIFT"] = "Geschenk";
 $MESS["SALE_DISCOUNT_FORMATTER_ERR_FORMAT_DESCR_BAD"] = "Format der Beschreibung ist nicht korrekt";
 $MESS["SALE_DISCOUNT_FORMATTER_ERR_FORMAT_TYPE_BAD"] = "Typ der Beschreibung ist nicht korrekt";

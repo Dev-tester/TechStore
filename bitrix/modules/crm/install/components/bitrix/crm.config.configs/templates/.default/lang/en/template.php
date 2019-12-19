@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_TAB_ACTIVITY_CONFIG'] = "Activity";
 $MESS['CRM_TAB_ACTIVITY_CONFIG_TITLE'] = "Activity Parameters";
 $MESS['CRM_TAB_CONFIG'] = "E-mail sending";

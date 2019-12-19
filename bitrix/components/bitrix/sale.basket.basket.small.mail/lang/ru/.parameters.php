@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBBS_USER_ID"] = "Код пользователя";
 $MESS["SBBS_PATH_TO_BASKET"] = "Страница корзины";
 $MESS["SBBS_PATH_TO_ORDER"] = "Страница оформления заказа";

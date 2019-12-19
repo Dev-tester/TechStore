@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_MAIL_COLUMN_WG'] = "Workgroup";
 $MESS ['FORUM_MAIL_COLUMN_EMAIL'] = "Reply E-Mail";
 $MESS ['FORUM_MAIL_COLUMN_FILTER'] = "E-Mail For Filter";

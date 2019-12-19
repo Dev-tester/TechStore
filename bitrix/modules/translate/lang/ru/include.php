@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_MODULE_TITLE"] = "Модуль перевода";
 $MESS["TRANS_APPLY"] = "Применить";
 $MESS["TRANSLATE_ICON_ALT"] = "Перевод";

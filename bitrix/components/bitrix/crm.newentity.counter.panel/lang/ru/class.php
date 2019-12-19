@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль crm не установлен.";
 $MESS["CRM_NEW_ENT_COUNTER_ENTITY_TYPE_NOT_DEFINED"] = "Не задан тип сущности.";
 $MESS["CRM_NEW_ENT_COUNTER_DEAL_CAPTION"] = "Новых сделок";

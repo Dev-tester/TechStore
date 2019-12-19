@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 define("SALE_TIME_LOCK_USER", 600);

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_MAIL_ADMIN_DOMAIN"] = "Domain <b>#DOMAIN#</b> attached to your Intranet.";
 $MESS["INTR_MAIL_ADMIN_DOMAIN_WAIT"] = "Waiting for completion of configuration of domain <b>#DOMAIN#</b>";
 $MESS["INTR_MAIL_AJAX_ERROR"] = "Error sending request.";

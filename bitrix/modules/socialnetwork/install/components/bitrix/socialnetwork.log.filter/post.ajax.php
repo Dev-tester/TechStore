@@ -1,4 +1,4 @@
-<?
+<?php 
 define("PUBLIC_AJAX_MODE", true);
 define("EXTRANET_NO_REDIRECT", true);
 define("NO_KEEP_STATISTIC", "Y");

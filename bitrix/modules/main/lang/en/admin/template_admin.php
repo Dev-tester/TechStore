@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_T_ADMIN_TITLE"] = "Site Templates";
 $MESS["MAIN_T_ADMIN_NAME"] = "Name";
 $MESS["MAIN_T_ADMIN_DESCRIPTION"] = "Description";

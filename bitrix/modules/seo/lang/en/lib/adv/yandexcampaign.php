@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_CAMPAIGN_ERROR_WRONG_ENGINE"] = "Cannot update record owned by other provider";
 $MESS["SEO_CAMPAIGN_ERROR_WRONG_OWNER"] = "Cannot update record owned by other user";
 $MESS["SEO_CAMPAIGN_ERROR_NO_NAME"] = "Ad campaign name is not specified";

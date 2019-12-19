@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script>
 	
 (function() {
@@ -64,7 +64,7 @@ window.__blogOnUCFormAfterShow = function(obj, text, data){
 
 window.__blogOnClickBeforeSubmit = function(obj, res)
 {
-	<?if ($arParams['USER_CONSENT'] == 'Y' && (empty($arResult["User"]) || !$arParams['USER_CONSENT_WAS_GIVEN'])):?>
+	<?php if ($arParams['USER_CONSENT'] == 'Y' && (empty($arResult["User"]) || !$arParams['USER_CONSENT_WAS_GIVEN'])):?>
 	
 //		stop submit, until we dont have user consent
 		res["result"] = false;
@@ -88,7 +88,7 @@ window.__blogOnClickBeforeSubmit = function(obj, res)
 //		to open consent form if needed
 		BX.onCustomEvent(this, 'OnUCFormCheckConsent', []);
 
-	<?endif;?>
+	<?php endif;?>
 };
 
 window.__blogOnUCFormSubmit =  function(obj, post_data) {

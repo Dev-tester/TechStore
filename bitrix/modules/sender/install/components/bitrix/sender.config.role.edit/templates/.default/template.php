@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Localization\Loc as Loc;
 
 /**
@@ -11,7 +11,7 @@ $this->addExternalCss('/bitrix/css/main/table/style.css');
 
 ?>
 <form method="POST">
-	<?echo bitrix_sessid_post()?>
+	<?php echo bitrix_sessid_post()?>
 	<div class="bx-sender-letter-field" style="">
 		<div class="bx-sender-caption">
 			<?=Loc::getMessage('SENDER_CONFIG_ROLE_EDIT_NAME')?>:
@@ -41,7 +41,7 @@ $this->addExternalCss('/bitrix/css/main/table/style.css');
 							<?=Loc::getMessage('SENDER_CONFIG_ROLE_EDIT_PERMISSION')?>
 						</th>
 					</tr>
-					<?foreach ($arResult['LIST'] as $entity)
+					<?php foreach ($arResult['LIST'] as $entity)
 					{
 						$firstAction = true;
 						foreach ($entity['ACTIONS'] as $action)
@@ -59,19 +59,19 @@ $this->addExternalCss('/bitrix/css/main/table/style.css');
 											class="table-blue-select"
 											name="PERMISSIONS[<?=htmlspecialcharsbx($entity['CODE'])?>][<?=htmlspecialcharsbx($action['CODE'])?>]"
 										>
-											<?foreach ($action['PERMS'] as $permission):?>
+											<?php foreach ($action['PERMS'] as $permission):?>
 												<option
 													value="<?=htmlspecialcharsbx($permission['CODE'])?>"
 													<?=($permission['SELECTED'] ? 'selected' : '')?>
 												>
 													<?=htmlspecialcharsbx($permission['NAME'])?>
 												</option>
-											<?endforeach;?>
+											<?php endforeach;?>
 										</select>
 									</td>
 
 								</tr>
-							<?
+							<?php 
 							$firstAction = false;
 						}
 					}
@@ -81,7 +81,7 @@ $this->addExternalCss('/bitrix/css/main/table/style.css');
 		</tr>
 	</table>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:sender.ui.button.panel",
 		"",

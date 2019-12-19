@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CONVERSION_RATE_CART_NAME"] = "Added to cart";
 $MESS["SALE_CONVERSION_RATE_ORDER_NAME"] = "Orders created";
 $MESS["SALE_CONVERSION_RATE_PAYMENT_NAME"] = "Orders paid";

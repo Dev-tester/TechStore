@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_ERROR_NO_MODULE"] = "Модуль Поисковой оптимизации не установлен!";
 $MESS["SEO_ERROR_SITEMAP_NOT_FOUND"] = "Настройка не найдена";
 $MESS["SEO_ERROR_SITEMAP_NO_SITE"] = "Не указан сайт";

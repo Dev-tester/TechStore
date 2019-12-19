@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arParams["CALENDAR_TYPE"] = $arParams["CALENDAR_TYPE"];
 $arParams['B_CUR_USER_LIST'] = $arParams['B_CUR_USER_LIST'] == 'Y';

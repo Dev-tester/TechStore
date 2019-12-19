@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix vars
  * @global CMain $APPLICATION
@@ -48,24 +48,24 @@ if ($boolStringValue)
 }
 ?><div class="mli-layout <?=$mliLayoutClass?>" id="layout_<?=$control_id?>">
 <div style="display:none" id="value_container_<?=$control_id?>">
-<?if ($INPUT_VALUE):?>
-	<?foreach ($INPUT_VALUE as $value):?>
-		<input type="hidden" name="<?echo $arParams['~INPUT_NAME']; ?>" value="<?echo $value["ID"]?>">
-	<?endforeach;?>
-<?else:?>
-	<input type="hidden" name="<?echo $arParams['~INPUT_NAME']; ?>" value="">
-<?endif;?>
+<?php if ($INPUT_VALUE):?>
+	<?php foreach ($INPUT_VALUE as $value):?>
+		<input type="hidden" name="<?php echo $arParams['~INPUT_NAME']; ?>" value="<?php echo $value["ID"]?>">
+	<?php endforeach;?>
+<?php else:?>
+	<input type="hidden" name="<?php echo $arParams['~INPUT_NAME']; ?>" value="">
+<?php endif;?>
 </div>
-<?
+<?php 
 if($arParams["MULTIPLE"]=="Y" && $arParams['MAIN_UI_FILTER'] !== 'Y')
 {
-	?><textarea name="<?=$textarea_id?>" id="<?=$textarea_id?>" class="mli-field"><? echo ($boolStringValue ? htmlspecialcharsbx($arParams['INPUT_VALUE_STRING']) : '');?></textarea><?
+	?><textarea name="<?=$textarea_id?>" id="<?=$textarea_id?>" class="mli-field"><?php  echo ($boolStringValue ? htmlspecialcharsbx($arParams['INPUT_VALUE_STRING']) : '');?></textarea><?php 
 }
 else
 {
-	?><input autocomplete="off" type="text" name="<?=$textarea_id?>" id="<?=$textarea_id?>" value="<? echo ($boolStringValue ? htmlspecialcharsbx($arParams['INPUT_VALUE_STRING']) : '');?>" class="mli-field <?=$mliFieldClass?>" /><?
+	?><input autocomplete="off" type="text" name="<?=$textarea_id?>" id="<?=$textarea_id?>" value="<?php  echo ($boolStringValue ? htmlspecialcharsbx($arParams['INPUT_VALUE_STRING']) : '');?>" class="mli-field <?=$mliFieldClass?>" /><?php 
 }
-?></div><?
+?></div><?php 
 $arAjaxParams = array(
 	"IBLOCK_ID" => $arParams["IBLOCK_ID"],
 	'WITHOUT_IBLOCK' => $arParams['WITHOUT_IBLOCK'],
@@ -114,16 +114,16 @@ if ($arParams['MAX_WIDTH'] > 0)
 <script type="text/javascript">
 BX.ready(
 	BX.defer(function(){
-		window.jsMLI_<?=$control_id?> = new JCMainLookupAdminSelector(<? echo CUtil::PhpToJSObject($arSelectorParams); ?>);
-		<? if ((defined('BX_PUBLIC_MODE')) && (1 == BX_PUBLIC_MODE))
+		window.jsMLI_<?=$control_id?> = new JCMainLookupAdminSelector(<?php  echo CUtil::PhpToJSObject($arSelectorParams); ?>);
+		<?php  if ((defined('BX_PUBLIC_MODE')) && (1 == BX_PUBLIC_MODE))
 		{
 			?>window.jsMLI_<?=$control_id?>.Init();
 			BX.addCustomEvent(BX.WindowManager.Get(), 'onWindowClose', function() {window.jsMLI_<?=$control_id?>.Clear(); window.jsMLI_<?=$control_id?> = null; });
-			<?
+			<?php 
 		}
 		if (array_key_exists('RESET', $arParams) && 'Y' == $arParams['RESET'])
 		{
-			?>window.jsMLI_<?=$control_id?>.Reset(true, false);<?
+			?>window.jsMLI_<?=$control_id?>.Reset(true, false);<?php 
 		}
 		?>
 	})

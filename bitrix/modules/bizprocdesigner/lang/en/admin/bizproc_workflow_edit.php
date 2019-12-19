@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_WFEDIT_TITLE_EDIT"] = "Edit Business Process Template";
 $MESS["BIZPROC_WFEDIT_ERROR_TYPE"] = "The document type is required.";
 $MESS["BIZPROC_WFEDIT_DEFAULT_TITLE"] = "Business Process Template";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLIST_CHPRICE_HEAD_TABLE_ACTION"] = "Select action";
 $MESS["IBLIST_CHPRICE_HEAD_TABLE_VALUE"] = "Enter value";
 $MESS["IBLIST_CHPRICE_HEAD_TABLE_UNITS"] = "Select units";

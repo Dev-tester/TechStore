@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_PRODUCT_SETTINGS_ACCESS_DENIED"] = "Access denied";
 $MESS["BX_CATALOG_PRODUCT_SETTINGS_ALLOW_CAN_BUY_ZERO"] = "Make out-of-stock items available for purchase (also enables negative product quantity)";
 $MESS["BX_CATALOG_PRODUCT_SETTINGS_ENABLE_QUANTITY_TRACE"] = "Enable stock control";

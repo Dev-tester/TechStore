@@ -52,7 +52,7 @@ $customButtons .= '<input type="hidden" name="MAILBOX_ID" value="'.htmlspecialch
 ?>
 
 <div class="crm-config-sendsave">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.interface.form',
 	'',

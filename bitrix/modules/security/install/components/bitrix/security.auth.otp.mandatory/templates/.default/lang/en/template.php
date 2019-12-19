@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_OTP_MANDATORY_AUTH_DESCR1"] = "You haven't enabled two-step authentication within a period of time your system administrator specified. You cannot log on without a one-time code anymore.
 <br /><br />
 To enable two-step authentication now and get the code, please follow the steps below.

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAE_NO_PERMS2ADD"] = "Sie haben keine Berechtigung ein neues Konto anzulegen";
 $MESS["SAE_EMPTY_CURRENCY"] = "Das Feld \"Währung\" wurde nicht ausgefüllt";
 $MESS["SAE_ALREADY_EXISTS"] = "Das Konto des Nutzers #USER# für die Währung #CURENCY# existiert bereits";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BCT_ELEMENT_DELETE_CONFIRM"] = "All the information linked to this record will be deleted. Continue anyway?";
 $MESS["CT_BCT_TPL_MESS_BTN_ADD_TO_BASKET"] = "Add to cart";
 $MESS["CATALOG_COMPARE"] = "Compare";

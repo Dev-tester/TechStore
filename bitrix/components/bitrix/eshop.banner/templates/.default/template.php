@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -16,7 +16,7 @@ $this->setFrameMode(true);
 	<a href="http://marketplace.1c-bitrix.ru/?utm_source=demoshop&utm_medium=referral&utm_campaign=marketplace" target="_blank" class="marketplace-banner-link">
 		<?=GetMessage("ESHOP_BANNER_CONTENT")?>
 	</a>
-	<?if ($USER->IsAdmin()):?>
+	<?php if ($USER->IsAdmin()):?>
 	<a href="javascript:void(0)"
 	   class="marketplace-banner-close"
 	   onclick="eshopBannerClose(this.parentNode);">
@@ -39,5 +39,5 @@ $this->setFrameMode(true);
 			);
 		}
 	</script>
-	<?endif?>
+	<?php endif?>
 </div>

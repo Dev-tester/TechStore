@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCALE_MONITORING_HDD"] = "Disks";
 $MESS["SCALE_MONITORING_HDD_PARAMS"] = "(total/used/free)";
 $MESS["SCALE_MONITORING_NET"] = "Network";

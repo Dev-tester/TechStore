@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_COMPARE"] = "Сравнить";
 $MESS["CATALOG_BUY"] = "Купить";
 $MESS["CATALOG_ADD"] = "В корзину";

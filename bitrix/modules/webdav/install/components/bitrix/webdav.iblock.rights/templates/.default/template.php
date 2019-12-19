@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!empty($arResult["ERROR_MESSAGE"]))
 	ShowError($arResult["ERROR_MESSAGE"]);
 if (!empty($arResult["OK_MESSAGE"]))
@@ -33,24 +33,24 @@ if (!function_exists('__wd_perms_select'))
 			<input type='hidden' name='RIGHTS[][GROUP_CODE]' value="<?=htmlspecialcharsbx($groupID)?>" />
 			<div class="<?=(!$inherited ? 'wd-toggle-edit quick-view' : 'wd-inherited')?> wd-section">
 				<?=$arPerms[$perm]?>
-				<?if ($inherited && ($arRight['ENTITY_TYPE'] == 'iblock' || $arRight['ENTITY_TYPE'] == 'section')) { ?>
-					<? if (! $arRight['ENTITY_SELF']) { ?>
-						<a target="<?=$arRight['ENTITY_SOURCE_URL']?>" <?/*ondblclick="return BX.WebDavRightsDialog.ShowDialog(this);"*/?> class="wd-inherited-source">(<?=GetMessage('WD_INHERITED_FROM_'.strtoupper($arRight['ENTITY_TYPE']), array('#NAME#' => htmlspecialcharsEx($arRight['ENTITY_SOURCE_NAME'])))?>)</a>
-					<? } else { ?>
+				<?php if ($inherited && ($arRight['ENTITY_TYPE'] == 'iblock' || $arRight['ENTITY_TYPE'] == 'section')) { ?>
+					<?php  if (! $arRight['ENTITY_SELF']) { ?>
+						<a target="<?=$arRight['ENTITY_SOURCE_URL']?>" <?php /*ondblclick="return BX.WebDavRightsDialog.ShowDialog(this);"*/?> class="wd-inherited-source">(<?=GetMessage('WD_INHERITED_FROM_'.strtoupper($arRight['ENTITY_TYPE']), array('#NAME#' => htmlspecialcharsEx($arRight['ENTITY_SOURCE_NAME'])))?>)</a>
+					<?php  } else { ?>
 						<span></span>
-					<? } ?>
-				<? } ?>
+					<?php  } ?>
+				<?php  } ?>
 			</div>
 			<select class="<?=(!$inherited ? "quick-edit" : "wd_hidden")?>" style="float: left;" name="RIGHTS[][TASK_ID]">
-<?				foreach ($arPerms as $permID => $permTitle) { ?>
+<?php 				foreach ($arPerms as $permID => $permTitle) { ?>
 					<option value="<?=$permID?>" <?=($permID == $perm ? ' selected=selected class="selected"' : '')?>><?=$permTitle?></option>
-<?			} ?>
+<?php 			} ?>
 			</select>
-<? if (!$inherited) { ?>
+<?php  if (!$inherited) { ?>
 			<div class="wd-rights-delete quick-edit"></div>
-<? } ?>
+<?php  } ?>
 		</div>
-<?	return ob_get_clean();
+<?php 	return ob_get_clean();
 	}
 }
 
@@ -106,7 +106,7 @@ if (($arParams["MERGE_VIEW"] == "Y") && ($this->__component->__parent))
 		$this->__component->__parent->arResult["DATA"] = array();
 	$this->__component->__parent->arResult["DATA"] = array_merge($this->__component->__parent->arResult["DATA"], $arData);
 } else {
-	?><div class="wd-iblock-rights"><?
+	?><div class="wd-iblock-rights"><?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.interface.form",
 		"",
@@ -126,7 +126,7 @@ if (($arParams["MERGE_VIEW"] == "Y") && ($this->__component->__parent))
 		),
 		($this->__component->__parent ? $this->__component->__parent : $component)
 	);
-	?></div><?
+	?></div><?php 
 }
 
 ?>

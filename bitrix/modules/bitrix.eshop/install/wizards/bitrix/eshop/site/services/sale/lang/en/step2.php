@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_WIZARD_GROUP"] = "  ";
 $MESS["SALE_WIZARD_MAIL_A"] = "Snail mail";
 $MESS["SALE_WIZARD_MAIL_A_DESC"] = "Tariffs of mail and courier services depend on the order weight with an interval of 500 or 1000 gram.";

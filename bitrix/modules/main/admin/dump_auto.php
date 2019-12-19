@@ -443,7 +443,7 @@ function SaveSettings()
 		{
 			PasswordDialog = new BX.CDialog({
 				title: '<?=GetMessage("DUMP_MAIN_ENC_ARC")?>',
-				content: '<?
+				content: '<?php 
 					echo '<div style="color:red" id=password_error></div>';
 					echo CUtil::JSEscape(BeginNote().GetMessage('MAIN_DUMP_SAVE_PASS_AUTO').EndNote());
 					echo '<table>';
@@ -475,12 +475,12 @@ function SaveSettings()
 }
 </script>
 
-<form name="fd1" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>" method="POST">
+<form name="fd1" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>" method="POST">
 <?=bitrix_sessid_post()?>
 <input type=hidden name=save value=Y>
 <input type=hidden name=dump_encrypt_key>
 <input type=hidden name=dump_auto_green_button>
-<?
+<?php 
 $aTabs = array();
 $aTabs[] = array("DIV"=>"main", "TAB"=>GetMessage('DUMP_AUTO_TAB'), "ICON"=>"main_user_edit", "TITLE"=>GetMessage("MAIN_DUMP_AUTO_PAGE_TITLE"));
 $aTabs[] = array("DIV"=>"expert", "TAB"=>GetMessage("DUMP_MAIN_PARAMETERS"), "ICON"=>"main_user_edit", "TITLE"=>GetMessage("DUMP_MAIN_AUTO_PARAMETERS"));
@@ -491,7 +491,7 @@ $editTab->BeginNextTab();
 ?>
 <tr>
 	<td colspan=2>
-	<?
+	<?php 
 		if ($dump_auto_enable)
 			echo '<input type="button" value="'.GetMessage('DUMP_BTN_AUTO_DISABLE').'" onclick="BigGreyButton()">';
 		else
@@ -501,14 +501,14 @@ $editTab->BeginNextTab();
 </tr>
 <tr>
 	<td colspan=2>
-<? echo BeginNote();
+<?php  echo BeginNote();
 	echo nl2br(GetMessage('DUMP_AUTO_INFO_TEXT'));
 echo EndNote(); 
 
 ?>
 	</td>
 </tr>
-<?
+<?php 
 $editTab->BeginNextTab();
 
 $BUCKET_ID = IntOption('dump_bucket_id', -1);
@@ -520,7 +520,7 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 	<td>
 		<div><label><input type=radio name=dump_bucket_id value="-1" <?=$BUCKET_ID == -1 ? "checked" : ""?> id="bitrixcloud" <?=!$bBitrixCloud ? 'disabled' : ''?> onclick="CheckEncrypt()"> <?=GetMessage('DUMP_MAIN_IN_THE_BXCLOUD')?></label><?=$strBXError ? ' <span style="color:red">('.$strBXError.')</span>' : ''?></div>
 		<div><label><input type=radio name=dump_bucket_id value="0"  <?=$BUCKET_ID == 0  ? "checked" : ""?> id="localfolder" onclick="CheckEncrypt()"> <?=GetMessage('MAIN_DUMP_LOCAL_DISK')?></label></div>
-		<?
+		<?php 
 		$arWriteBucket = CBackup::GetBucketList($arFilter = array('READ_ONLY' => 'N'));
 		if ($arWriteBucket)
 		{
@@ -536,7 +536,7 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 <tr>
 	<td class="adm-detail-valign-top" width=40%><?=GetMessage('AUTO_EXEC_METHOD')?></td>
 	<td>
-		<?
+		<?php 
 		?>
 		<div><label><input type="radio" name="dump_auto_enable" id="dump_auto_bitrix" value="2" <?= $dump_auto_enable == 2 ? 'checked' : '' ?> <?=$bBitrixCloud ? '' : 'disabled'?> onclick="CheckEnabled()"> <?=GetMessage('AUTO_EXEC_FROM_BITRIX')?> (<a href="/bitrix/admin/settings.php?lang=<?=LANGUAGE_ID?>&mid=main" target=_blank><?=GetMessage('AUTO_URL')?></a>: <?=htmlspecialcharsbx($url)?>)</div>
 		<div><label><input type="radio" name="dump_auto_enable" id="dump_auto_cron" value="1" <?= $dump_auto_enable == 1 ? 'checked' : '' ?> <?=$bCron ? '' : 'disabled'?> onclick="CheckEnabled()"> <?=GetMessage('AUTO_EXEC_FROM_CRON')?><span class="required"><sup>1</sup></span></label></div>
@@ -545,7 +545,7 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 </tr>
 <tr>
 	<td><?=GetMessage("TIME_SPENT")?></td>
-	<td><?
+	<td><?php 
 		require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/clock.php");
 		$min = IntOption('dump_auto_time');
 		CClock::Show(array(
@@ -561,7 +561,7 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 	<td><?=GetMessage("MAIN_DUMP_PERIODITY")?></td>
 	<td>
 		<select name=dump_auto_interval>
-		<?
+		<?php 
 			foreach(array(
 				1 => GetMessage("MAIN_DUMP_PER_1"),
 				2 => GetMessage("MAIN_DUMP_PER_2"),
@@ -583,7 +583,7 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 <tr>
 	<td class="adm-detail-valign-top" width=40%><?=GetMessage('DUMP_DELETE')?>:</td>
 	<td>
-		<?
+		<?php 
 			$dump_delete_old = IntOption('dump_delete_old', 1);
 		?>
 		<div><label><input type=radio name=dump_delete_old value=0 <?=$dump_delete_old == 0 ? "checked" : ""?>> <?=GetMessage('DUMP_NOT_DELETE')?></label></div>
@@ -599,7 +599,7 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 <tr class="heading">
 	<td colspan="2"><?=GetMessage("DUMP_MAIN_ARC_CONTENTS")?></td>
 </tr>
-<?
+<?php 
 	$arSitePath = array();
 	$res = CSite::GetList($by='sort', $order='asc', array('ACTIVE'=>'Y'));
 	while($f = $res->Fetch())
@@ -615,7 +615,7 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 	<tr>
 		<td class="adm-detail-valign-top"><?=GetMessage("DUMP_MAIN_SITE")?></td>
 		<td>
-			<?
+			<?php 
 				if ($s = COption::GetOptionString("main", "dump_site_id"."_auto", ($NS['dump_site_id'])))
 					$dump_site_id = unserialize($s);
 				else
@@ -631,10 +631,10 @@ if ($BUCKET_ID == -1 && !$bBitrixCloud)
 			?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	}
 	?>
-<?
+<?php 
 if ($arAllBucket)
 {
 ?>
@@ -642,16 +642,16 @@ if ($arAllBucket)
 	<td class="adm-detail-valign-top"><?=GetMessage("DUMP_MAIN_DOWNLOAD_CLOUDS")?></td>
 	<td>
 		<input type="checkbox" name="dump_do_clouds" value=Y <?=(IntOption("dump_do_clouds", 1) ? "checked" : "")?>>
-		<?
+		<?php 
 //		foreach($arAllBucket as $arBucket)
 //			echo '<div><input type="checkbox" id="dump_cloud_'.$arBucket['ID'].'" name="dump_cloud['.$arBucket['ID'].']" value=Y '.(IntOption("dump_cloud_".$arBucket['ID'], 1) ? "checked" : "").'> <label for="dump_cloud_'.$arBucket['ID'].'">'.htmlspecialcharsbx($arBucket['BUCKET'].' ('.$arBucket['SERVICE_ID'].')').'</label></div>';
 		?>
 	</td>
 </tr>
-<?
+<?php 
 }
 ?>
-<?
+<?php 
 if ($DB->type == 'MYSQL') 
 {
 ?>
@@ -662,28 +662,28 @@ if ($DB->type == 'MYSQL')
 <tr>
 	<td class="adm-detail-valign-top"><?=GetMessage("DUMP_MAIN_DB_EXCLUDE")?></td>
 	<td>
-		<div><input type="checkbox" name="dump_base_skip_stat" value=Y <?=IntOption("dump_base_skip_stat", 0) ? "checked" : "" ?> id="dump_base_skip_stat"> <label for="dump_base_skip_stat"><? echo GetMessage("MAIN_DUMP_BASE_STAT") ?></label></div>
-		<div><input type="checkbox" name="dump_base_skip_search" value="Y" <?=IntOption("dump_base_skip_search", 0) ? "checked" : "" ?> id="dump_base_skip_search"> <label for="dump_base_skip_search"><? echo GetMessage("MAIN_DUMP_BASE_SINDEX") ?></label></div>
-		<div><input type="checkbox" name="dump_base_skip_log" value="Y"<?=IntOption("dump_base_skip_log", 0) ? "checked" : "" ?> id="dump_base_skip_log"> <label for="dump_base_skip_log"><? echo GetMessage("MAIN_DUMP_EVENT_LOG") ?></label></div>
+		<div><input type="checkbox" name="dump_base_skip_stat" value=Y <?=IntOption("dump_base_skip_stat", 0) ? "checked" : "" ?> id="dump_base_skip_stat"> <label for="dump_base_skip_stat"><?php  echo GetMessage("MAIN_DUMP_BASE_STAT") ?></label></div>
+		<div><input type="checkbox" name="dump_base_skip_search" value="Y" <?=IntOption("dump_base_skip_search", 0) ? "checked" : "" ?> id="dump_base_skip_search"> <label for="dump_base_skip_search"><?php  echo GetMessage("MAIN_DUMP_BASE_SINDEX") ?></label></div>
+		<div><input type="checkbox" name="dump_base_skip_log" value="Y"<?=IntOption("dump_base_skip_log", 0) ? "checked" : "" ?> id="dump_base_skip_log"> <label for="dump_base_skip_log"><?php  echo GetMessage("MAIN_DUMP_EVENT_LOG") ?></label></div>
 	</td>
 </tr>
-<?
+<?php 
 }
 ?>
 <tr>
-	<td><?echo GetMessage("MAIN_DUMP_FILE_KERNEL")?></td>
+	<td><?php echo GetMessage("MAIN_DUMP_FILE_KERNEL")?></td>
 	<td><input type="checkbox" name="dump_file_kernel" value="Y" <?=IntOption("dump_file_kernel", 1) ? "checked" : ''?>></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_DUMP_FILE_PUBLIC")?></td>
+	<td><?php echo GetMessage("MAIN_DUMP_FILE_PUBLIC")?></td>
 	<td><input type="checkbox" name="dump_file_public" value="Y" <?=IntOption("dump_file_public", 1) ? "checked" : ''?>></td>
 </tr>
 <tr>
-	<td class="adm-detail-valign-top"><?echo GetMessage("MAIN_DUMP_MASK")?></span></td>
+	<td class="adm-detail-valign-top"><?php echo GetMessage("MAIN_DUMP_MASK")?></span></td>
 	<td>
 		<input type="checkbox" name="skip_mask" value="Y" <?=IntOption('skip_mask', 0)?" checked":'';?>>
 		<table id="skip_mask_table" cellspacing=0 cellpadding=0>
-		<?
+		<?php 
 		$i=-1;
 
 		$res = unserialize(COption::GetOptionString("main","skip_mask_array_auto"));
@@ -706,12 +706,12 @@ if ($DB->type == 'MYSQL')
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_DUMP_FILE_MAX_SIZE")?></td>
+	<td><?php echo GetMessage("MAIN_DUMP_FILE_MAX_SIZE")?></td>
 	<td><input type="text" name="max_file_size" size="10" value="<?=IntOption("dump_max_file_size", 0)?>">
-	<?echo GetMessage("MAIN_DUMP_FILE_MAX_SIZE_kb")?></td>
+	<?php echo GetMessage("MAIN_DUMP_FILE_MAX_SIZE_kb")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("MAIN_DUMP_SKIP_SYMLINKS")?></td>
+	<td><?php echo GetMessage("MAIN_DUMP_SKIP_SYMLINKS")?></td>
 	<td><input type="checkbox" name="skip_symlinks" value="Y" <?=IntOption("skip_symlinks", 0) ? "checked" : ''?>></td>
 </tr>
 
@@ -738,26 +738,26 @@ if ($DB->type == 'MYSQL')
 	<td width=40%><?=GetMessage('STEP_LIMIT')?></td>
 	<td>
 		<input type="text" name="dump_max_exec_time" value="<?=IntOption("dump_max_exec_time", 20)?>" size=2>
-		<?echo GetMessage("MAIN_DUMP_FILE_STEP_sec");?>,
-		<?echo GetMessage("MAIN_DUMP_FILE_STEP_SLEEP")?>
+		<?php echo GetMessage("MAIN_DUMP_FILE_STEP_sec");?>,
+		<?php echo GetMessage("MAIN_DUMP_FILE_STEP_SLEEP")?>
 		<input type="text" name="dump_max_exec_time_sleep" value="<?=IntOption("dump_max_exec_time_sleep", 3)?>" size=2>
-		<?echo GetMessage("MAIN_DUMP_FILE_STEP_sec");?>
+		<?php echo GetMessage("MAIN_DUMP_FILE_STEP_sec");?>
 	</td>
 </tr>
 <tr>
 	<td><?=GetMessage("MAIN_DUMP_MAX_ARCHIVE_SIZE")?></td>
 	<td><input type="text" name="dump_archive_size_limit" value="<?=IntOption('dump_archive_size_limit', 100 * 1024 * 1024) / 1024 / 1024?>" size=4> <?=GetMessage("MAIN_DUMP_MAX_ARCHIVE_SIZE_VALUES")?><span class="required"><sup>3</sup></span></td>
 </tr>
-<?
+<?php 
 $editTab->Buttons();
 ?>
 <input type="button" class="adm-btn-save" value="<?=GetMessage("DUMP_MAIN_SAVE")?>" onclick="SaveSettings()">
-<?
+<?php 
 $editTab->End();
 ?>
 </form>
 
-<?
+<?php 
 echo BeginNote();
 echo '<div><span class=required><sup>1</sup></span> '.GetMessage("MAIN_DUMP_SHED_TIME_SET").'.</div>';
 echo '<div><span class=required><sup>2</sup></span> '.GetMessage("MAIN_DUMP_BXCLOUD_ENC").'</div>';

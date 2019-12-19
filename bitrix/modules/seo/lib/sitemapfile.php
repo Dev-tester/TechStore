@@ -20,7 +20,7 @@ use Bitrix\Main\Text\Converter;
 class SitemapFile
 	extends File
 {
-	const XML_HEADER = '<?xml version="1.0" encoding="UTF-8"?>';
+	const XML_HEADER = '<?php xml version="1.0" encoding="UTF-8"?>';
 
 	const FILE_HEADER = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 	const FILE_FOOTER = '</urlset>';

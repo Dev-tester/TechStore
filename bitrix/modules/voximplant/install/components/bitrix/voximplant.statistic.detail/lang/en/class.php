@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TELEPHONY_STATUS_1"] = "Sign-up bonus credit charged. For details, please contact technical support.";
 $MESS["TELEPHONY_STATUS_2"] = "Sign-up bonus credit charged";
 $MESS["TELEPHONY_STATUS_3"] = "Credit top-up";

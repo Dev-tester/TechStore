@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPATT_NAV'] = "Шаблоны бизнес-процессов";
 $MESS ['BPATT_TITLE'] = "Шаблоны бизнес-процессов";
 $MESS ['BPATT_AE_CREATE'] = "Создание";

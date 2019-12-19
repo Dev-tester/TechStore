@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_MODULE_NOT_INSTALL'] = "Модуль блогов не установлен.";
 $MESS ['SEARCH_MODULE_NOT_INSTALL'] = "Модуль поиска не установлен.";
 $MESS ['LEARNING_MAIN_SEARCH_TITLE'] = "Поиск по курсам";

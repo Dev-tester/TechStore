@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTL_VARIABLE_ALIASES"] = "Псевдонимы переменных";
 $MESS["INTL_IBLOCK_TYPE"] = "Тип информационного блока";
 $MESS["INTL_IBLOCK"] = "Информационный блок";

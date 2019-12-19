@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Unified Communications";
 $MESS["SERVICES_INFO"] = "The Portal has a private <b>XMPP/JABBER server</b>! Get connected and <b>be on-line!</b> Exchange messages and files,
 enjoy voice and video chatting - all with your favorite mobile or messaging software!<br />

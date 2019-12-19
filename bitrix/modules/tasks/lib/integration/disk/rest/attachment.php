@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Class implements all further interactions with "disk" module considering rest interface to disk`s attachments.
  *

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_VIEW_SLIDER_IMPORTANT_EVENT"] = "Это важное событие";
 $MESS["EC_VIEW_SLIDER_SAVE_EVENT_BUTTON"] = "Сохранить";
 $MESS["EC_VIEW_SLIDER_CANCEL_BUTTON"] = "Отменить";

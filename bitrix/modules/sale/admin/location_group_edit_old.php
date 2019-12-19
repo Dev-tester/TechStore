@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -110,7 +110,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SLGEN_2FLIST"),
@@ -139,16 +139,16 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($strError);?>
+<?php CAdminMessage::ShowMessage($strError);?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="fform">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="fform">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SLGEN_TAB_LGROUP"), "ICON" => "sale", "TITLE" => GetMessage("SLGEN_TAB_LGROUP_DESCR"))
 	);
@@ -157,7 +157,7 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
@@ -166,38 +166,38 @@ $tabControl->BeginNextTab();
 			ID:
 		</td>
 		<td width="60%">
-			<?if ($ID>0):?><?echo $ID ?><?else:?><?echo GetMessage("SALE_NEW")?><?endif;?>
+			<?php if ($ID>0):?><?php echo $ID ?><?php else:?><?php echo GetMessage("SALE_NEW")?><?php endif;?>
 		</td>
 	</tr>
 
 	<tr>
 		<td>
-			<?echo GetMessage("SALE_SORT")?>:
+			<?php echo GetMessage("SALE_SORT")?>:
 		</td>
 		<td>
-			<input type="text" name="SORT" value="<?echo $str_SORT ?>" size="10">
+			<input type="text" name="SORT" value="<?php echo $str_SORT ?>" size="10">
 		</td>
 	</tr>
 
 	<tr class="adm-detail-required-field">
 		<td valign="top">
-			<?echo GetMessage("SALE_LOCATIONS")?>:<br><img src="/bitrix/images/sale/mouse.gif" width="44" height="21" border="0" alt="">
+			<?php echo GetMessage("SALE_LOCATIONS")?>:<br><img src="/bitrix/images/sale/mouse.gif" width="44" height="21" border="0" alt="">
 		</td>
 		<td valign="top">
 
-			<?
+			<?php 
 			$db_locs = CSaleLocationGroup::GetLocationList(Array("LOCATION_GROUP_ID"=>$ID));
 			$db_vars = CSaleLocation::GetList(Array("COUNTRY_NAME_LANG"=>"ASC", "REGION_NAME_LANG"=>"ASC", "CITY_NAME_LANG"=>"ASC"), array(), LANG);
 			?>
 
 			<select name="LOCATION_ID[]" size="10" multiple>
-				<?
+				<?php 
 				$arCurLocs = array();
 				while ($arLocs = $db_locs->Fetch())
 					$arCurLocs[] = IntVal($arLocs["LOCATION_ID"]);
 				if ($bInitVars && is_array($LOCATION_ID)) $arCurLocs = $LOCATION_ID;
 				?>
-				<?while ($vars = $db_vars->Fetch()):
+				<?php while ($vars = $db_vars->Fetch()):
 					$locationName = $vars["COUNTRY_NAME"];
 
 					if (strlen($vars["REGION_NAME"]) > 0)
@@ -213,12 +213,12 @@ $tabControl->BeginNextTab();
 						$locationName .= $vars["CITY_NAME"];
 					}
 					?>
-					<option value="<?echo $vars["ID"]?>"<?if (in_array(IntVal($vars["ID"]), $arCurLocs)) echo " selected"?>><?echo htmlspecialcharsbx($locationName)?></option>
-				<?endwhile;?>
+					<option value="<?php echo $vars["ID"]?>"<?php if (in_array(IntVal($vars["ID"]), $arCurLocs)) echo " selected"?>><?php echo htmlspecialcharsbx($locationName)?></option>
+				<?php endwhile;?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$langCnt = count($arSysLangs);
 	for ($i = 0; $i<$langCnt; $i++):
 		$arGroupLang = CSaleLocationGroup::GetGroupLangByID($ID, $arSysLangs[$i]);
@@ -230,22 +230,22 @@ $tabControl->BeginNextTab();
 		?>
 		<tr class="heading">
 			<td colspan="2">
-				[<?echo $arSysLangs[$i];?>] <?echo $arSysLangNames[$i];?>:
+				[<?php echo $arSysLangs[$i];?>] <?php echo $arSysLangNames[$i];?>:
 			</td>
 		</tr>
 		<tr class="adm-detail-required-field">
-			<td><?echo GetMessage("SALE_NAME")?>:</td>
+			<td><?php echo GetMessage("SALE_NAME")?>:</td>
 			<td>
-				<input type="text" name="NAME_<?echo $arSysLangs[$i] ?>" value="<?echo $str_NAME ?>" size="30">
+				<input type="text" name="NAME_<?php echo $arSysLangs[$i] ?>" value="<?php echo $str_NAME ?>" size="30">
 			</td>
 		</tr>
-	<?endfor;?>
+	<?php endfor;?>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($saleModulePermissions < "W"),
@@ -254,8 +254,8 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

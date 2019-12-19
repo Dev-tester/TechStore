@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BLFE_MODULE_NOT_INSTALLED"] = "The Common Lists module is not installed.";
 $MESS["CC_BLFE_WRONG_IBLOCK_TYPE"] = "Incorrect information block type.";
 $MESS["CC_BLFE_WRONG_IBLOCK"] = "The list specified is incorrect.";

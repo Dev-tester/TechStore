@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CLIENT_PORTRAIT_COMPANY_TITLE"] = "Портрет компании";
 $MESS["CRM_CLIENT_PORTRAIT_CONTACT_TITLE"] = "Портрет контакта";
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";

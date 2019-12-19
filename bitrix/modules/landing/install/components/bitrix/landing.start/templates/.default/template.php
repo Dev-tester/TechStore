@@ -14,7 +14,7 @@ foreach ($arParams['SEF_URL_TEMPLATES'] as $code => $url)
 \Bitrix\Landing\Update\Stepper::show();
 ?>
 
-<?$result = $APPLICATION->IncludeComponent(
+<?php $result = $APPLICATION->IncludeComponent(
 	'bitrix:landing.sites',
 	'.default',
 	array(

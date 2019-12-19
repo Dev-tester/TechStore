@@ -27,7 +27,7 @@ if(!empty($arResult["SEARCH_ITEMS"])):
 		);
 ?>
 		<li>
-			<span class="mp_search_ls_img" href="/marketplace/?app=<?=htmlspecialcharsbx($app["CODE"])?>"><span><?if ($app["ICON"]):?><img src="<?=htmlspecialcharsbx($app["ICON"])?>" alt=""/><?endif?></span></span>
+			<span class="mp_search_ls_img" href="/marketplace/?app=<?=htmlspecialcharsbx($app["CODE"])?>"><span><?php if ($app["ICON"]):?><img src="<?=htmlspecialcharsbx($app["ICON"])?>" alt=""/><?php endif?></span></span>
 			<a href="<?=$appUrl;?>" class="mp_search_ls_shadow"></a>
 			<a href="<?=$appUrl;?>" class="mp_search_ls_title"><?=htmlspecialcharsbx($app["NAME"])?></a>
 		</li>

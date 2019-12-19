@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_MAIN_CALENDAR_SHOW_INPUT'] = "Show control";
 $MESS ['COMP_MAIN_CALENDAR_SHOW_INPUT_Y'] = "with input field";
 $MESS ['COMP_MAIN_CALENDAR_SHOW_INPUT_N'] = "only icon";

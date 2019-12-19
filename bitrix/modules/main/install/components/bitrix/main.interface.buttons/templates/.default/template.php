@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)die();
 use \Bitrix\Main\Localization\Loc;
 
@@ -32,7 +32,7 @@ $this->addExternalJs($templateFolder."/utils.js");
 
 <div class="main-buttons">
 	<div class="main-buttons-inner-container" id="<?=$arResult["ID"]?>">
-		<? foreach ($arResult["ITEMS"] as $key => $arItem) :
+		<?php  foreach ($arResult["ITEMS"] as $key => $arItem) :
 			$itemClass = $arItem["CLASS"];
 			if ($arItem["IS_ACTIVE"])
 			{
@@ -61,46 +61,46 @@ $this->addExternalJs($templateFolder."/utils.js");
 				 data-item="<?=\Bitrix\Main\Text\Converter::getHtmlConverter()->encode(\Bitrix\Main\Web\Json::encode($arItem))?>"
 				 data-top-menu-id="<?=$arResult["ID"]?>"
 				 title="<?=isset($arItem["TITLE"]) ? $arItem["TITLE"] : ""?>">
-				<? if (!$arItem["HTML"]) :?>
-					<? if (!empty($arItem["URL"])): ?>
+				<?php  if (!$arItem["HTML"]) :?>
+					<?php  if (!empty($arItem["URL"])): ?>
 						<a class="main-buttons-item-link<?=$arParams["CLASS_ITEM_LINK"] ? " ".$arParams["CLASS_ITEM_LINK"] : ""?>"
 						href="<?=$arItem["URL"]?>">
-					<? else: ?>
+					<?php  else: ?>
 						<span class="main-buttons-item-link<?=$arParams["CLASS_ITEM_LINK"] ? " ".$arParams["CLASS_ITEM_LINK"] : ""?>">
-					<? endif; ?>
+					<?php  endif; ?>
 
-						<span class="main-buttons-item-icon<?=$arParams["CLASS_ITEM_ICON"] ? " ".$arParams["CLASS_ITEM_ICON"] : ""?>"></span><?
+						<span class="main-buttons-item-icon<?=$arParams["CLASS_ITEM_ICON"] ? " ".$arParams["CLASS_ITEM_ICON"] : ""?>"></span><?php 
 						?><span class="main-buttons-item-text<?=$arParams["CLASS_ITEM_TEXT"] ? " ".$arParams["CLASS_ITEM_TEXT"] : ""?>">
 							<span class="main-buttons-item-edit-button"></span>
 							<span class="main-buttons-item-text-title"><?=$arItem["TEXT"]?></span>
 							<span class="main-buttons-item-drag-button"></span>
 							<span class="main-buttons-item-text-marker"></span>
-						</span><?
+						</span><?php 
 						?><span class="main-buttons-item-counter<?=$arParams["CLASS_ITEM_COUNTER"] ? " ".$arParams["CLASS_ITEM_COUNTER"] : ""?>"><?=$arItem["COUNTER"] > $arItem['MAX_COUNTER_SIZE'] ? $arItem['MAX_COUNTER_SIZE'].'+' : $arItem["COUNTER"]?></span>
-					<? if (!empty($arItem["URL"])): ?>
+					<?php  if (!empty($arItem["URL"])): ?>
 						</a>
-					<? else: ?>
+					<?php  else: ?>
 					</span>
-					<? endif; ?>
+					<?php  endif; ?>
 
-					<? if ($arItem["SUB_LINK"]) : ?>
+					<?php  if ($arItem["SUB_LINK"]) : ?>
 						<a class="main-buttons-item-sublink<?=" ".$arItem["SUB_LINK"]["CLASS"]?>" href="<?=$arItem["SUB_LINK"]["URL"]?>"></a>
-					<? endif; ?>
-				<? else : ?>
+					<?php  endif; ?>
+				<?php  else : ?>
 					<?=$arItem["HTML"]?>
-				<? endif; ?>
+				<?php  endif; ?>
 			</div><!--main-buttons-item-->
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 		<div class="main-buttons-item <?=$arResult["MORE_BUTTON"]["CLASS"]?> main-buttons-item-more" id="<?=$arResult["ID"]?>_more_button"<?=$arParams["DISABLE_SETTINGS"] ? " style=\"display: none;\"" : ""?>>
-			<? if (!$arResult["MORE_BUTTON"]["HTML"]) : ?>
+			<?php  if (!$arResult["MORE_BUTTON"]["HTML"]) : ?>
 				<a href="#" class="main-buttons-item-link<?=$arParams["CLASS_ITEM_LINK"] ? " ".$arParams["CLASS_ITEM_LINK"] : ""?>">
-					<span class="main-buttons-item-icon<?=$arParams["CLASS_ITEM_ICON"] ? " ".$arParams["CLASS_ITEM_ICON"] : ""?>"></span><?
+					<span class="main-buttons-item-icon<?=$arParams["CLASS_ITEM_ICON"] ? " ".$arParams["CLASS_ITEM_ICON"] : ""?>"></span><?php 
 					?><span class="main-buttons-item-text<?=$arParams["CLASS_ITEM_TEXT"] ? " ".$arParams["CLASS_ITEM_TEXT"] : ""?>"><?=$arResult["MORE_BUTTON"]["TEXT"]?></span>
 					<span class="main-buttons-item-counter"></span>
 				</a>
-			<? else : ?>
+			<?php  else : ?>
 				<?=$arResult["MORE_BUTTON"]["HTML"]?>
-			<? endif; ?>
+			<?php  endif; ?>
 		</div><!--main-buttons-item-->
 	</div><!--main-buttons-inner-container-->
 	<iframe height="100%" width="100%" id="maininterfacebuttons-tmp-frame-<?=$arResult["ID"]?>" name="maininterfacebuttonstmpframe-<?=$arResult["ID"]?>" style="position: absolute; z-index: -1; opacity: 0;"></iframe>

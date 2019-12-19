@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_ENTITY_ID"] = "ID";
 $MESS["SALE_ORDER_ENTITY_DATE_INSERT"] = "Order date";
 $MESS["SALE_ORDER_ENTITY_DATE_INS"] = "Order date";

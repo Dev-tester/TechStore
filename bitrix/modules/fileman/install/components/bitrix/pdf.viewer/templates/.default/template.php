@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if($arResult['IFRAME'])
 {
 	$APPLICATION->RestartBuffer();?>
@@ -31,7 +31,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 	<meta name="google" content="notranslate">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title><?=$arResult['TITLE'];?></title>
-	<?
+	<?php 
 	foreach($arResult['CSS_FILES'] as $file)
 	{
 		echo '<link rel="stylesheet" href="'.$file.'">';
@@ -56,7 +56,7 @@ See https://github.com/adobe-type-tools/cmap-resources
 		window.pdfJsPathToWorker = '<?=CUtil::JSEscape($this->arResult['PATH_TO_WORKER']);?>';
 		window.pdfJsLangCharset = '<?=LANG_CHARSET;?>';
 		window.pdfJsViewerId = '_<?=CUtil::JSEscape($arResult['ID']);?>';
-		<?if($arResult['PRINT'])
+		<?php if($arResult['PRINT'])
 		{?>
 		window.addEventListener('pagesloaded', function(params){
 			setTimeout(function(){
@@ -67,12 +67,12 @@ See https://github.com/adobe-type-tools/cmap-resources
 				}
 			}, 100);
 		}, true);
-		<?}?>
+		<?php }?>
 	</script>
 </head>
 
 <body tabindex="1" class="loadingInProgress">
-<?
+<?php 
 	$outerContainerStyles = 'style="display: block; position: absolute;"';
 }
 else
@@ -108,20 +108,20 @@ else
 			});
 			window.PdfJsLoaded = true;
 		}
-		<?if(isset($arResult['PRINT_URL']))
+		<?php if(isset($arResult['PRINT_URL']))
 		{?>
 		function openPrintInNewWindow()
 		{
 			window.open('<?=CUtil::JSEscape($arResult['PRINT_URL']);?>', '_blank');
 		}
 		window.pdfJsPrintDisabled = true;
-		<?}?>
+		<?php }?>
 	</script>
 	<div class="bx-pdf-container" style="
 		height: <?=intval($arResult['HEIGHT']);?>px;
 		width: <?=intval($arResult['WIDTH']);?>px;
 		">
-	<?
+	<?php 
 	$outerContainerStyles = 'style="display: none;"';
 }?>
 <div class="outerContainer" id="outerContainer_<?=htmlspecialcharsbx($arResult['ID']);?>" <?=$outerContainerStyles;?>">
@@ -187,24 +187,24 @@ else
 					<span data-l10n-id="open_file_label">Open</span>
 				</button>
 
-				<?if($arResult['IFRAME'])
+				<?php if($arResult['IFRAME'])
 				{?>
 					<button id="secondaryPrint_<?=htmlspecialcharsbx($arResult['ID']);?>" class="secondaryToolbarButton print visibleMediumView" title="Print" tabindex="53" data-l10n-id="print">
 						<span data-l10n-id="print_label">Print</span>
 					</button>
-				<?}
+				<?php }
 				elseif(isset($arResult['PRINT_URL']))
 				{?>
 					<button id="secondaryPrint_<?=htmlspecialcharsbx($arResult['ID']);?>" class="secondaryToolbarButton print visibleMediumView" title="Print" tabindex="53" data-l10n-id="print" onclick="openPrintInNewWindow(); return false;">
 						<span data-l10n-id="print_label">Print</span>
 					</button>
-				<?}
+				<?php }
 				else
 				{?>
 					<button id="secondaryPrint_<?=htmlspecialcharsbx($arResult['ID']);?>" class="secondaryToolbarButton print visibleMediumView" title="Print" tabindex="53" data-l10n-id="print" style="display: none !important;">
 						<span data-l10n-id="print_label">Print</span>
 					</button>
-				<?}?>
+				<?php }?>
 				<button id="secondaryDownload_<?=htmlspecialcharsbx($arResult['ID']);?>" class="secondaryToolbarButton download visibleMediumView" title="Download" tabindex="54" data-l10n-id="download">
 					<span data-l10n-id="download_label">Download</span>
 				</button>
@@ -280,24 +280,24 @@ else
 							<span data-l10n-id="open_file_label">Open</span>
 						</button>
 
-						<?if($arResult['IFRAME'])
+						<?php if($arResult['IFRAME'])
 						{?>
 							<button id="print_<?=htmlspecialcharsbx($arResult['ID']);?>" class="toolbarButton print hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print">
 								<span data-l10n-id="print_label">Print</span>
 							</button>
-						<?}
+						<?php }
 						elseif(isset($arResult['PRINT_URL']))
 						{?>
 							<button id="print_<?=htmlspecialcharsbx($arResult['ID']);?>" class="toolbarButton print hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print" onclick="openPrintInNewWindow(); return false;">
 								<span data-l10n-id="print_label">Print</span>
 							</button>
-						<?}
+						<?php }
 						else
 						{?>
 							<button id="print_<?=htmlspecialcharsbx($arResult['ID']);?>" class="toolbarButton print hiddenMediumView" title="Print" tabindex="33" data-l10n-id="print" style="display: none !important;">
 								<span data-l10n-id="print_label">Print</span>
 							</button>
-						<?}?>
+						<?php }?>
 
 						<button id="download_<?=htmlspecialcharsbx($arResult['ID']);?>" class="toolbarButton download hiddenMediumView" title="Download" tabindex="34" data-l10n-id="download">
 							<span data-l10n-id="download_label">Download</span>
@@ -459,13 +459,13 @@ else
 
 </div> <!-- outerContainer -->
 <div class="printContainer" id="printContainer_<?=htmlspecialcharsbx($arResult['ID']);?>"></div>
-<?
+<?php 
 if($arResult['IFRAME'])
 {?>
 </body>
 </html>
-<?}
+<?php }
 else
 {?>
 	</div>
-<?}
+<?php }

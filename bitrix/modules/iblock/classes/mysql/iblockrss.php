@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIBlockRSS extends CAllIBlockRSS
 {
 	public static function GetCache($cacheKey)

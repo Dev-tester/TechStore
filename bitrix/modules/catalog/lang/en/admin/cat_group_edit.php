@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_EDIT_RECORD"] = "Modify price type # #ID#";
 $MESS["CAT_NEW_RECORD"] = "New price type";
 $MESS["NAME"] = "Name";

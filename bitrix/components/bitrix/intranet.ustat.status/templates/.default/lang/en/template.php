@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USTAT_RATING_LOADING"] = "Loading...";
 $MESS["INTRANET_USTAT_RATING_COMMON_TAB"] = "General rating";
 $MESS["INTRANET_USTAT_RATING_INVOLVE_TAB"] = "Not involved";

@@ -6,7 +6,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 ?>
 <section class="landing-block g-pt-50 g-pb-50">
 	<div class="landing-block-container">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:salescenter.payment.pay',
 			'.default',
 			[

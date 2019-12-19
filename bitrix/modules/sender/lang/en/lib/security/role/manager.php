@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SECURITY_ROLE_MANAGER_INSTALLER_ADMIN"] = "Administrator";
 $MESS["SENDER_SECURITY_ROLE_MANAGER_INSTALLER_MANAGER"] = "Manager";
 $MESS["SENDER_SECURITY_ROLE_MANAGER_TRIAL_TEXT"] = "CRM marketing access permissions are available in selected commercial plans. 

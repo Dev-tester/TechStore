@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_OTP_PASS"] = "The first line of defense: your password";
 $MESS["INTRANET_OTP_CODE"] = "The second line of defense: verification code";
 $MESS["INTRANET_OTP_GOTO"] = "Get started";

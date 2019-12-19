@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -649,15 +649,15 @@ function hideFormElementsByNames(cbObject, aElNames)
 }
 </script>
 
-<?CAdminMessage::ShowMessage($errorsList);?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>" name="form1" onSubmit='return prepareData()' enctype="multipart/form-data">
+<?php CAdminMessage::ShowMessage($errorsList);?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>" name="form1" onSubmit='return prepareData()' enctype="multipart/form-data">
 
-	<input type="hidden" name="lang" value="<?echo LANG ?>" />
+	<input type="hidden" name="lang" value="<?php echo LANG ?>" />
 	<input type="hidden" name="Update" value="Y" />
-	<input type="hidden" name="SID" value="<?echo htmlspecialcharsbx($SID) ?>" />
+	<input type="hidden" name="SID" value="<?php echo htmlspecialcharsbx($SID) ?>" />
 	<input type="hidden" name="STRUCTURE" id="STRUCTURE" value="" />
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 $parentTabControl->Begin();
 $parentTabControl->BeginNextTab();
 ?>
@@ -673,15 +673,15 @@ $parentTabControl->BeginNextTab();
 		<td>
 			<?=GetMessage("SALE_DH_SITES_LIST")?>:
 		</td>
-		<td><select name="site" id="site_id"<? if(!$bSites) echo " disabled=\"disabled\""; ?> onChange="selectSite(this.value)">
-			<?
+		<td><select name="site" id="site_id"<?php  if(!$bSites) echo " disabled=\"disabled\""; ?> onChange="selectSite(this.value)">
+			<?php 
 				for($i = 0; $i < $siteCount; $i++)
 					echo "<option value=\"".htmlspecialcharsbx($siteList[$i]["ID"])."\" ".($i == 0 ? "selected=\"selected\"" : "").">".htmlspecialcharsbx($siteList[$i]["NAME"])."</option>";
 			?></select><input type="hidden" name="current_site" id="current_site" value="<?=htmlspecialcharsbx($siteList[0]["ID"]);?>" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">
-<?
+<?php 
 if (strlen($deliveryHint) > 0)
 {
 	echo BeginNote();
@@ -733,9 +733,9 @@ $tabControl->BeginNextTab();
 	<td width="40%"><?=GetMessage('SDEN_LOGOTIP');?></td>
 	<td width="60%">
 		<div><input type="file" name="LOGOTIP"></div>
-		<?if (count($arDeliveryInfo[$SITE_ID]["LOGOTIP"]) > 0):?>
+		<?php if (count($arDeliveryInfo[$SITE_ID]["LOGOTIP"]) > 0):?>
 			<br>
-			<?
+			<?php 
 			echo CFile::ShowImage($arDeliveryInfo[$SITE_ID]["LOGOTIP"], 150, 150, "border=0", "", false);
 			?>
 			<br />
@@ -743,12 +743,12 @@ $tabControl->BeginNextTab();
 				<input type="checkbox" name="LOGOTIP_del" value="Y" id="LOGOTIP_del" >
 				<label for="LOGOTIP_del"><?=GetMessage("SDEN_LOGOTIP_DEL");?></label>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 </tr>
 </table>
 
-<?
+<?php 
 
 CModule::IncludeModule('currency');
 
@@ -756,7 +756,7 @@ CModule::IncludeModule('currency');
 foreach ($arDeliveryInfo[$SITE_ID]["CONFIG"]["CONFIG_GROUPS"] as $group => $arConfigGroup)
 {
 	$tabControl->BeginNextTab();
-	?><table border="0" cellspacing="0" cellpadding="0" width="100%" class="edit-table" id="params_<?=htmlspecialcharsbx($group)?>_table"><?
+	?><table border="0" cellspacing="0" cellpadding="0" width="100%" class="edit-table" id="params_<?=htmlspecialcharsbx($group)?>_table"><?php 
 
 	//if exist profile witch named such as config group
 	if(isset($arDeliveryInfo[$SITE_ID]["PROFILES"][$group]))
@@ -799,7 +799,7 @@ foreach ($arDeliveryInfo[$SITE_ID]["CONFIG"]["CONFIG_GROUPS"] as $group => $arCo
 		}
 	}
 	echo CSaleHelper::getAdminMultilineControl($arMultiControlQuery);
-	?></table><?
+	?></table><?php 
 }
 
 // if stayed unprinted profiles
@@ -808,9 +808,9 @@ foreach ($arDeliveryInfo[$SITE_ID]["PROFILES"] as $profileId => $arProfile)
 	if(!isset($arProfile["TABBED"]))
 	{
 		$tabControl->BeginNextTab();
-		?><table border="0" cellspacing="0" cellpadding="0" width="100%" class="edit-table" id="params_<?=htmlspecialcharsbx($profileId)?>_table"><?
+		?><table border="0" cellspacing="0" cellpadding="0" width="100%" class="edit-table" id="params_<?=htmlspecialcharsbx($profileId)?>_table"><?php 
 			printProfileInfo($SID, $profileId, $arProfile, $arDeliveryInfo[$SITE_ID]["BASE_CURRENCY"]);
-		?></table><?
+		?></table><?php 
 	}
 }
 
@@ -818,7 +818,7 @@ $tabControl->End();
 ?>
 	</td>
 </tr>
-<?
+<?php 
 $parentTabControl->Buttons(
 		array(
 				"disabled" => ($saleModulePermissions < "W"),
@@ -830,7 +830,7 @@ $parentTabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");
 
 function wrapDescrLHE($inputName, $content = '', $divId = false)
@@ -874,7 +874,7 @@ function printProfileInfo($SID, $profileId, $arProfile, $baseCurrency)
 	?>
 		<tr>
 			<td class="field-name"><?=GetMessage('SALE_DH_PROFILE_ACTIVE')?></td>
-			<td valign="top" width="60%"><input type="checkbox" name="HANDLER[PROFILES][<?=htmlspecialcharsbx($profileId)?>][ACTIVE]" value="Y" <?if ($arProfile['ACTIVE'] == 'Y'):?>checked="checked"<?endif?> /></td>
+			<td valign="top" width="60%"><input type="checkbox" name="HANDLER[PROFILES][<?=htmlspecialcharsbx($profileId)?>][ACTIVE]" value="Y" <?php if ($arProfile['ACTIVE'] == 'Y'):?>checked="checked"<?php endif?> /></td>
 		</tr>
 		<tr>
 			<td align="right"><?=GetMessage('SALE_DH_PROFILE_TITLE')?></td>
@@ -898,7 +898,7 @@ function printProfileInfo($SID, $profileId, $arProfile, $baseCurrency)
 			<td align="right"><?=GetMessage('SDEN_PAY_NAME')?>:</td>
 			<td valign="top" width="60%">
 				<select multiple="multiple" size="5" name="PAY_SYSTEM[<?=$profileId?>][]">
-				<?
+				<?php 
 				$arPaySystemIdSID = array();
 				$arPaySystemIdProfile = array();
 				$dbRes = CSaleDelivery2PaySystem::GetList(
@@ -923,7 +923,7 @@ function printProfileInfo($SID, $profileId, $arProfile, $baseCurrency)
 					<option value="<?=intval($arPayType["ID"]);?>" <?=(in_array($arPayType["ID"], $arPaySystemIdProfile) || empty($arPaySystemIdProfile) ? " selected" : "")?>>
 						<?=htmlspecialcharsbx($arPayType["NAME"].(!is_null($arPayType["LID"]) ? " (".$arPayType["LID"].")" : ""))?>
 					</option>
-				<?endwhile;?>
+				<?php endwhile;?>
 				</select>
 			</td>
 		</tr>
@@ -969,6 +969,6 @@ function printProfileInfo($SID, $profileId, $arProfile, $baseCurrency)
 					<input type="text" name="HANDLER[PROFILES][<?=htmlspecialcharsbx($profileId)?>][RESTRICTIONS_DIMENSIONS_SUM]" value="<?=intval($arProfile['RESTRICTIONS_DIMENSIONS_SUM'])?>" size="8" />
 			</td>
 		</tr>
-	<?
+	<?php 
 }
 ?>

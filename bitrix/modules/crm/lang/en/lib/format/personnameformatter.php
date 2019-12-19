@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRSN_NM_FRMT_DEFAULT"] = "[default]";
 $MESS["CRM_PRSN_NM_FRMT_FIRST_LAST"] = "John Smith";
 $MESS["CRM_PRSN_NM_FRMT_LAST_FIRST"] = "Smith, John";

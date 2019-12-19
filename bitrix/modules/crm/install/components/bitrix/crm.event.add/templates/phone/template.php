@@ -1,8 +1,8 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?
+<?php 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 		$APPLICATION->RestartBuffer();
 		?>
@@ -11,7 +11,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 		top.location.href = '<?=CUtil::JSEscape($arResult['EVENT_PAGE'])?>';
 		top.BX.WindowManager.Get().Close();
 		</script>
-		<?
+		<?php 
 		die();
 	endif;
 
@@ -42,27 +42,27 @@ var str = '';
 	</td>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<input type="hidden" name="EVENT_ID" value="PHONE"/>
-		<? $descrTemplate = GetMessage('CRM_CALL_DESCR'); ?>
-		<?foreach($arResult['PHONE_GROUPS'] as $arPhoneGroup):?>
+		<?php  $descrTemplate = GetMessage('CRM_CALL_DESCR'); ?>
+		<?php foreach($arResult['PHONE_GROUPS'] as $arPhoneGroup):?>
 			<div class="crm-phone-group">
-				<?$groupTitle = isset($arPhoneGroup['TITLE']) ? $arPhoneGroup['TITLE'] : ''; ?>
+				<?php $groupTitle = isset($arPhoneGroup['TITLE']) ? $arPhoneGroup['TITLE'] : ''; ?>
 				<span class="crm-phone-name"><?= strlen($groupTitle) > 0 ? htmlspecialcharsbx($groupTitle).': ' : '' ?></span>
 				<span class="crm-phone-number">
-					<?if(!isset($arPhoneGroup['PHONES']) || count($arPhoneGroup['PHONES']) === 0): ?>
+					<?php if(!isset($arPhoneGroup['PHONES']) || count($arPhoneGroup['PHONES']) === 0): ?>
 						<span class="crm-phone-text"><?= htmlspecialcharsbx(GetMessage('CRM_NO_PHONES'))?></span>
-						<?continue;?>
-					<?endif;?>
-					<? $phoneCount = 0; ?>
-					<?foreach($arPhoneGroup['PHONES'] as $arPhone):?>
-						<?$phone =  isset($arPhone['NUMBER']) ? trim($arPhone['NUMBER']) : '';
+						<?php continue;?>
+					<?php endif;?>
+					<?php  $phoneCount = 0; ?>
+					<?php foreach($arPhoneGroup['PHONES'] as $arPhone):?>
+						<?php $phone =  isset($arPhone['NUMBER']) ? trim($arPhone['NUMBER']) : '';
 						if(strlen($phone) === 0) continue;?>
 						<span class="crm-phone-text"><?=($phoneCount > 0 ? ', ' : '').htmlspecialcharsbx(isset($arPhone['TITLE']) ? $arPhone['TITLE'] : '')?> </span>
 						<a class="crm-phone-number-link" onclick="addToDescription('<?= htmlspecialcharsbx(str_replace(array('#NAME#', '#PHONE#'), array($groupTitle, $phone), $descrTemplate));?>');" href="<?=CCrmCallToUrl::Format(urlencode($arPhone['NUMBER']))?>"><?=htmlspecialcharsbx($arPhone['NUMBER'])?></a>
-						<?$phoneCount++;?>
-					<?endforeach;?>
+						<?php $phoneCount++;?>
+					<?php endforeach;?>
 				</span>
 			</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</td>
 </tr>
 <tr>
@@ -77,7 +77,7 @@ var str = '';
 	<td class="bx-field-value bx-padding event_date_text2" style="height: 35px">
 		<div class="event_date" id="crm_event_date" style="display: inline-block;text-decoration: none; border-bottom: 1px dashed #000;outline:none; cursor: pointer; color: #000" onclick="eventShowDateBox()"><?=ToLower(FormatDate("j F Y", time()));?></div>
 		<div class="event_date_box" id="crm_event_date_box" style="display:none">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:main.calendar',
 				'',
 				array(
@@ -99,21 +99,21 @@ var str = '';
 		<div><input type="file" name="ATTACH[]" onchange="eventAddFileInput(this)" /></div>
 	</td>
 </tr>
-<?if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'LEAD'):?>
+<?php if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'LEAD'):?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<?=GetMessage('CRM_EVENT_STATUS_ID')?>:
 	</td>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
-		<?if ($arResult['ENTITY_CONVERTED'] == 'Y'):?>
+		<?php if ($arResult['ENTITY_CONVERTED'] == 'Y'):?>
 			<?=$arResult['STATUS_LIST_EX'][$arResult['STATUS_ID']]?>
-		<?else:?>
+		<?php else:?>
 			<?=SelectBoxFromArray('STATUS_ID', $arResult['STATUS_LIST'], $arResult['STATUS_ID'])?>
-		<?endif;?>
+		<?php endif;?>
 	</td>
 </tr>
-<?endif;?>
-<?if(!empty($arResult['STAGE_LIST']) && $arResult['ENTITY_TYPE'] == 'DEAL'):?>
+<?php endif;?>
+<?php if(!empty($arResult['STAGE_LIST']) && $arResult['ENTITY_TYPE'] == 'DEAL'):?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<?=GetMessage('CRM_EVENT_STAGE_ID')?>:
@@ -122,8 +122,8 @@ var str = '';
 		<?=SelectBoxFromArray('STAGE_ID', $arResult['STAGE_LIST'], $arResult['STAGE_ID'])?>
 	</td>
 </tr>
-<?endif;?>
-<?if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'QUOTE'):?>
+<?php endif;?>
+<?php if(!empty($arResult['STATUS_LIST']) && $arResult['ENTITY_TYPE'] == 'QUOTE'):?>
 <tr>
 	<td class="bx-field-value bx-padding" style="padding-top: 11px!important">
 		<?=GetMessage('CRM_EVENT_QUOTE_STATUS_ID')?>:
@@ -132,7 +132,7 @@ var str = '';
 		<?=SelectBoxFromArray('STATUS_ID', $arResult['STATUS_LIST'], $arResult['STATUS_ID'])?>
 	</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 </form>
 <script type="text/javascript">
 	function addToDescription(text)

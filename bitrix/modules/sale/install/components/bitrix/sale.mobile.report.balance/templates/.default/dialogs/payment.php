@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Order paying dialog
  */
@@ -11,7 +11,7 @@ require($_SERVER['DOCUMENT_ROOT'] . $templateFolder.'/dialogs/functions.php');
 	<div class="order_acceptpay_component">
 		<div class="order_acceptpay_title"><?=($arResult['ORDER']['PAYED'] == 'N' ? GetMessage('SMOD_PAY') : GetMessage('SMOD_PAY_CANCEL'))?></div>
 		<?printStatusesListHtml($arResult["STATUSES"], $arResult["ORDER"]['STATUS_ID'], true);?>
-		<?if($arResult['ORDER']['PAYED'] == 'N'):?>
+		<?php if($arResult['ORDER']['PAYED'] == 'N'):?>
 			<div class="order_acceptpay_infoblock">
 				<div class="order_acceptpay_infoblock_title"><?=GetMessage('SMOD_BUDGET')?></div>
 				<ul>
@@ -37,7 +37,7 @@ require($_SERVER['DOCUMENT_ROOT'] . $templateFolder.'/dialogs/functions.php');
 					</li>
 				</ul>
 			</div>
-		<?else: //alredy peyed?>
+		<?php else: //alredy peyed?>
 			<div class="order_acceptpay_infoblock">
 				<div class="order_acceptpay_infoblock_title"><?=GetMessage('SMOD_PAYMENT')?></div>
 				<ul>
@@ -63,7 +63,7 @@ require($_SERVER['DOCUMENT_ROOT'] . $templateFolder.'/dialogs/functions.php');
 					</li>
 				</ul>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>
 

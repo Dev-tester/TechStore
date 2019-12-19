@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_ADD_TO_BASKET"] = "Add to cart";
 $MESS["CATALOG_MORE_PHOTO"] = "More photo";
 $MESS["CATALOG_DOWNLOAD"] = "Download";

@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIBlockResult extends CDBResult
 {
 	/** @var bool|array */

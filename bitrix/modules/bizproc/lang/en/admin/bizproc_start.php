@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPABS_MESSAGE_SUCCESS"] = "A '#TEMPLATE#'-type business process has been successfully launched.";
 $MESS["BPABS_ADD"] = "Add";
 $MESS["BPABS_BACK"] = "Back";

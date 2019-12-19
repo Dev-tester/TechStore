@@ -16,40 +16,40 @@ CUtil::InitJSCore();
 					<th>&nbsp;</th>
 					<th><?=GetMessage("CRM_PERMS_PERM_ROLE")?></th>
 				</tr>
-				<? foreach ($arResult['RELATION'] as $arRelation): ?>
+				<?php  foreach ($arResult['RELATION'] as $arRelation): ?>
 				<tr data-roleId="<?=$arRelation['RELATION']?>">
 					<td><?=$arRelation['NAME']?></td>
 					<td class="last-child">
 						<div style="float:left">
 						<select name="PERMS[<?=$arRelation['RELATION']?>][]">
-						<? foreach ($arResult['ROLE'] as $arRole): ?>
+						<?php  foreach ($arResult['ROLE'] as $arRole): ?>
 							<option <?=($arRole['ID'] == $arRelation['ROLE_ID'] ? 'selected="selected"' : '')?> value="<?=$arRole['ID']?>" title="<?=$arRole['NAME']?>"><?=$arRole['NAME']?></option>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 						</select>
 						</div>
-						<?if($arResult['IS_PERMITTED']):?>
+						<?php if($arResult['IS_PERMITTED']):?>
 							<a href="#" onclick="CrmPermRemoveRow(this.parentNode.parentNode); return false;"  class="crmPermA crmPermADelete" title="<?=GetMessage("CRM_PERMS_PERM_DELETE")?>"></a>
-						<?else:?>
+						<?php else:?>
 							<a href="#" onclick="<?=htmlspecialcharsbx($arResult['LOCK_SCRIPT'])?>; return false;"  class="crmPermA crmPermADelete" title="<?=GetMessage("CRM_PERMS_PERM_DELETE")?>"></a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
-				<? endforeach; ?>
+				<?php  endforeach; ?>
 				<tr id="crmPermTableInsertTd" style="display:none">
 					<td id="crmPermTableInsertTdName"></td>
 					<td class="last-child">
 						<div style="float:left">
 						<select name="">
-						<? foreach ($arResult['ROLE'] as $arRole): ?>
+						<?php  foreach ($arResult['ROLE'] as $arRole): ?>
 							<option value="<?=$arRole['ID']?>" title="<?=$arRole['NAME']?>"><?=$arRole['NAME']?></option>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 						</select>
 						</div>
-						<?if($arResult['IS_PERMITTED']):?>
+						<?php if($arResult['IS_PERMITTED']):?>
 							<a href="#" onclick="CrmPermRemoveRow(this.parentNode.parentNode); return false;" class="crmPermA crmPermADelete" title="<?=GetMessage("CRM_PERMS_PERM_DELETE")?>"></a>
-						<?else:?>
+						<?php else:?>
 							<a href="#" onclick="<?=htmlspecialcharsbx($arResult['LOCK_SCRIPT'])?>; return false;"  class="crmPermA crmPermADelete" title="<?=GetMessage("CRM_PERMS_PERM_DELETE")?>"></a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
 				<tr  class="AddPerm">
@@ -64,16 +64,16 @@ CUtil::InitJSCore();
 				</tr>
 				<tr>
 					<td>
-						<? foreach ($arResult['ROLE'] as $arRole): ?>
-							<?if($arResult['IS_PERMITTED']):?>
+						<?php  foreach ($arResult['ROLE'] as $arRole): ?>
+							<?php if($arResult['IS_PERMITTED']):?>
 								<a href="<?=$arRole['PATH_TO_DELETE']?>" style="float:right"  title="<?=GetMessage("CRM_PERMS_ROLE_DELETE")?>" class="crmPermA crmPermADelete" onclick="CrmRoleDelete('<?=CUtil::JSEscape(GetMessage('CRM_PERMS_DLG_TITLE'))?>', '<?=CUtil::JSEscape(GetMessage('CRM_PERMS_DLG_MESSAGE'))?>', '<?=CUtil::JSEscape(GetMessage('CRM_PERMS_DLG_BTN'))?>', '<?=CUtil::JSEscape($arRole['PATH_TO_DELETE'])?>'); return false;"></a>
-							<?else:?>
+							<?php else:?>
 								<a href="#" style="float:right" title="<?=GetMessage("CRM_PERMS_PERM_DELETE")?>" class="crmPermA crmPermADelete" onclick="<?=htmlspecialcharsbx($arResult['LOCK_SCRIPT'])?>; return false;"></a>
-							<?endif;?>
+							<?php endif;?>
 							<a href="<?=$arRole['PATH_TO_EDIT']?>" style="float:right" class="crmPermA crmPermAEdit" title="<?=GetMessage("CRM_PERMS_ROLE_EDIT")?>"></a>
 							<div style="padding-bottom: 4px" algin="left">- <?=$arRole['NAME']?></div>
 							<div style="clear:both"></div>
-						<? endforeach; ?>
+						<?php  endforeach; ?>
 						<div class="crmRole" style="padding-left:10px"><a href="<?=$arResult['PATH_TO_ROLE_ADD']?>"><?=GetMessage("CRM_PERMS_ROLE_ADD")?></a></div>
 					</td>
 				</tr>
@@ -82,18 +82,18 @@ CUtil::InitJSCore();
 	</tr>
 	</table>
 	<div id="crmPermButtonBoxPlace">
-	<?if($arResult['IS_PERMITTED']):?>
+	<?php if($arResult['IS_PERMITTED']):?>
 		<button type="submit"><?=GetMessage('CRM_PERMS_BUTTONS_SAVE');?></button>
-	<?else:?>
+	<?php else:?>
 		<button type="button" onclick="<?=htmlspecialcharsbx($arResult['LOCK_SCRIPT'])?>"><?=GetMessage('CRM_PERMS_BUTTONS_SAVE');?></button>
-	<?endif;?>
+	<?php endif;?>
 	</div>
 </form>
-<?if(!$arResult['IS_PERMITTED']):?>
+<?php if(!$arResult['IS_PERMITTED']):?>
 <div class="ui-alert ui-alert-warning" style="margin: 15px 0 0 0;">
 	<span class="ui-alert-message"><?=GetMessage('CRM_PERMS_RESTRICTION')?></span>
 </div>
-<?endif;?>
+<?php endif;?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -108,7 +108,7 @@ CUtil::InitJSCore();
 <script type="text/javascript">
 var arCrmSelected = <?=CUtil::PhpToJsObject($arResult['RELATION_ENTITY']);?>;
 var arCrmPermSettings = {};
-<?if(isset($arResult['DISABLED_PROVIDERS'])):?>
+<?php if(isset($arResult['DISABLED_PROVIDERS'])):?>
 arCrmPermSettings['DISABLED_PROVIDERS'] = <?=CUtil::PhpToJsObject($arResult['DISABLED_PROVIDERS'])?>;
-<?endif;?>
+<?php endif;?>
 </script>

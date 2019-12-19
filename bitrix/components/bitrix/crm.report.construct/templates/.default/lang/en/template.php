@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_POPUP_COLUMN_TITLE"] = "Deal";
 $MESS["REPORT_CHOOSE"] = "Select";
 $MESS["CRM_FF_LEAD"] = "Leads";

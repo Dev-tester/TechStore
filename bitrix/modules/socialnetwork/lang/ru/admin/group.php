@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_ERROR_UPDATE"] = "Ошибка обновления параметров группы";
 $MESS["SONET_DELETE_ALT"] = "Удалить группу";
 $MESS["SONET_DELETE_CONF"] = "Вы уверены, что хотите удалить эту группу?";

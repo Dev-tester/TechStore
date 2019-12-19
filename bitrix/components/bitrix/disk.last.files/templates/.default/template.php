@@ -19,7 +19,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
 ?>
 <div class="news-list">
-<?
+<?php 
 foreach($arResult['FILES'] as $file)
 {
 	?>
@@ -31,7 +31,7 @@ foreach($arResult['FILES'] as $file)
 		<a href="<?= $file['VIEW_URL'] ?>"><?= htmlspecialcharsbx($file['NAME']) ?></a><br>
 
 		<p></p>
-	<?
+	<?php 
 }
 unset($file);
 

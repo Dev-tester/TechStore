@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Config;
 use Bitrix\Main\Localization\Loc;
@@ -169,11 +169,11 @@ if(!$fatalFailure) // no fatals like "module not installed, etc."
 	$tabControl->BeginEpilogContent();
 
 	?>
-	<?if(strlen($_REQUEST['return_url'])):?>
+	<?php if(strlen($_REQUEST['return_url'])):?>
 		<input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($returnUrl)?>">
-	<?endif?>
+	<?php endif?>
 	<?=bitrix_sessid_post()?>
-	<?
+	<?php 
 	$tabControl->EndEpilogContent();
 }
 
@@ -215,8 +215,8 @@ else:
 		<tr>
 			<td>
 
-				<?$randTag = rand(99, 999);?>
-				<?$appearance = Helper::getWidgetAppearance();?>
+				<?php $randTag = rand(99, 999);?>
+				<?php $appearance = Helper::getWidgetAppearance();?>
 
 				<input type="hidden" name="element[ID]" value="<?=$id?>" />
 				<div id="ib_external_values_<?=$randTag?>">
@@ -229,13 +229,13 @@ else:
 								<td width="10%"><?=Loc::getMessage('SALE_LOCATION_E_HEADER_LOC_REMOVE')?></td>
 							</tr>
 
-							<?if(is_array($formData['LOCATION'])):?>
+							<?php if(is_array($formData['LOCATION'])):?>
 
-								<?$i = 0;?>
-								<?foreach($formData['LOCATION'] as $location):?>
+								<?php $i = 0;?>
+								<?php foreach($formData['LOCATION'] as $location):?>
 									<tr>
 										<td>
-											<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.".Helper::getWidgetAppearance(), "", array(
+											<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.".Helper::getWidgetAppearance(), "", array(
 												"ID" => "",
 												"CODE" => $location['LOCATION_CODE'],
 												"INPUT_NAME" => "element[LOCATION][".$i."][LOCATION_CODE]",
@@ -255,15 +255,15 @@ else:
 										</td>
 
 										<td style="text-align: center">
-											<?if(strlen($location['LOCATION_CODE'])):?>
+											<?php if(strlen($location['LOCATION_CODE'])):?>
 												<input type="checkbox" name="element[LOCATION][<?=$i?>][REMOVE]" value="1" <?=($location['REMOVE'] == 1 ? 'checked' : '')?> />
-											<?endif?>
+											<?php endif?>
 										</td>
 									</tr>
-									<?$i++;?>
-								<?endforeach?>
+									<?php $i++;?>
+								<?php endforeach?>
 
-							<?endif?>
+							<?php endif?>
 
 							<script type="text/html" data-template-id="bx-ui-dynamiclist-row">
 								<tr>
@@ -284,7 +284,7 @@ else:
 				</div>
 
 				<div style="display: none">
-					<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.".Helper::getWidgetAppearance(), "", array(
+					<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.".Helper::getWidgetAppearance(), "", array(
 						"ID" => "",
 						"CODE" => "",
 						"INPUT_NAME" => "",
@@ -333,7 +333,7 @@ else:
 
 			</td>
 		</tr>
-	<?$tabControl->EndCustomField('LOCATIONS', '');
+	<?php $tabControl->EndCustomField('LOCATIONS', '');
 	$tabControl->Buttons(array(
 		"disabled" => !$userIsAdmin,
 		"btnApply" => true,

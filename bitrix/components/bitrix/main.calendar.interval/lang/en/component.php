@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_no_no_no_2"] = "(no)";
 $MESS["inerface_grid_today"] = "today";
 $MESS["inerface_grid_yesterday"] = "yesterday";

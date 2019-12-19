@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Посещаемость разделов и страниц";
 $MESS ['STAT_SECTION_PAGES'] = "Записи";
 $MESS ['STAT_F_SECTIONS'] = "Страница / раздел";

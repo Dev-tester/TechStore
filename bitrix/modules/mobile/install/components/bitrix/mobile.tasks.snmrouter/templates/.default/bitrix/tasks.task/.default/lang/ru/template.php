@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_BASE_SETTINGS"] = "Базовые настройки задачи";
 $MESS["MB_TASKS_BASE_SETTINGS_TITLE"] = "название задачи";
 $MESS["MB_TASKS_BASE_SETTINGS_TITLE_PLACEHOLDER"] = "Название";

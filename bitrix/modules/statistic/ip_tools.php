@@ -1,4 +1,4 @@
-<?
+<?php 
 
 define("IP_DEFAULT_SOURCE_FILENAME", "/bitrix/modules/statistic/ip2country/ip-to-country.csv");
 define("IP_DEFAULT_SOURCE_TYPE", "ip-to-country.com");

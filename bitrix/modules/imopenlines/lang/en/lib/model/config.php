@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_ENTITY_ACTIVE_FIELD"] = "Active";
 $MESS["CONFIG_ENTITY_AUTO_CLOSE_BOT_ID_FIELD"] = "Autoclosed dialog bot ID";
 $MESS["CONFIG_ENTITY_AUTO_CLOSE_FORM_ID_FIELD"] = "The ID of CRM form to use when auto closing conversation";

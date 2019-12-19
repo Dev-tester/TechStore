@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_YELLOW_ALT'] = "durch Sie blockiert (vergessen Sie nicht freizugeben)";
 $MESS ['IBLOCK_RED_ALT'] = "Vorübergehend gesperrt (wird gerade bearbeitet)";
 $MESS ['WD_DELETE_CONFIRM'] = "Wollen Sie die Datei unwiderruflich löschen?";

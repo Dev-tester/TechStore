@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_REQUIRED_FIELDS"] = "Erforderliche Felder";
 $MESS["FORM_APPLY"] = "Anwenden";
 $MESS["FORM_ADD"] = "Hinzufьgen";

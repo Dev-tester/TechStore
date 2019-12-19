@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_BITRIX24"] = "<strong>free</strong> for 12 users";
 $MESS["GD_BITRIX24_LINK"] = "http://www.bitrix24.com/?utm_source=BSM&utm_medium=admin&utm_campaign=BSMEN";
 $MESS["GD_BITRIX24_TITLE"] = "Bitrix24 cloud service";

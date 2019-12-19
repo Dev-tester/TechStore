@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_CAT_DSC_CONV_INVITE"] = "Important! Discounts will be inactive until they are converted to a new format. You have to convert all the discounts to activate them. Please use the converter <a href=\"#LINK#\">here</a>.";
 $MESS["BT_MOD_CAT_DSC_CONV_ENTITY_IBLOCK_ERR"] = "Incorrect or non-existent information block IDs: #IDS#";
 $MESS["BT_MOD_CAT_DSC_CONV_ENTITY_SECTION_ERR"] = "Incorrect or non-existent section IDs: #IDS#";

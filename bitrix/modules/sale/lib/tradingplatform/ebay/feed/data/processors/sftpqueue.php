@@ -55,7 +55,7 @@ class SftpQueue extends DataProcessor
 
 	protected function prepareFile($file)
 	{
-		$res = file_put_contents($file, '<?xml version="1.0" encoding="UTF-8"?>'."\n");
+		$res = file_put_contents($file, '<?php xml version="1.0" encoding="UTF-8"?>'."\n");
 
 		if(!$res)
 			throw new SystemException("Can't flush data feed \"".$this->feedType."\" to file ".$file);

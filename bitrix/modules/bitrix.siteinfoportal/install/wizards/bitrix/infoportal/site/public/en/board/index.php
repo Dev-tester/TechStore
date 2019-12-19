@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Classifieds");
 ?>
 <h4><a href="#SITE_DIR#board/my/?edit=Y" >Create New</a> <span class="small-grey">|</span> <a href="#SITE_DIR#board/my/" >My Posts</a></h4>
- <?$APPLICATION->IncludeComponent("bitrix:catalog.section", "board", array(
+ <?php $APPLICATION->IncludeComponent("bitrix:catalog.section", "board", array(
 	"IBLOCK_TYPE" => "services",
 	"IBLOCK_ID" => "#BOARD_IBLOCK_ID#",
 	"SECTION_ID" => "",
@@ -73,4 +73,4 @@ $APPLICATION->SetTitle("Classifieds");
 	false
 );?> 
 <br />
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

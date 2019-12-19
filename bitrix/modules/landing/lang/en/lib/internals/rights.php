@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_FIELD_BY_ROLE_ID"] = "Included in role";
 $MESS["LANDING_TABLE_FIELD_RIGHT_ACCESS_CODE"] = "Access permission symbolic code";
 $MESS["LANDING_TABLE_FIELD_RIGHT_ENTITY_ID"] = "Entity ID";

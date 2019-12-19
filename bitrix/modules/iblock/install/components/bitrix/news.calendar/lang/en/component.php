@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBL_NEWS_CAL_M_1'] = "January";
 $MESS ['IBL_NEWS_CAL_M_2'] = "February";
 $MESS ['IBL_NEWS_CAL_M_3'] = "March";

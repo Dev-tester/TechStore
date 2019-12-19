@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_BCF_ALL'] = "(all)";
 $MESS ['CC_BCF_TILL'] = "till";
 $MESS ['CC_BCF_TOP_LEVEL'] = "Top level";

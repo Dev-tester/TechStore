@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_ST_PERSONAL_PERSONAL"] = "Personal area";
 $MESS["LANDING_BLOCK_ST_PERSONAL_ORDERS"] = "Current orders";
 $MESS["LANDING_BLOCK_ST_PERSONAL_ACCOUNT"] = "Personal account";

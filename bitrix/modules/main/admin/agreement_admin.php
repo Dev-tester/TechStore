@@ -24,7 +24,7 @@ $APPLICATION->SetAdditionalCSS('/bitrix/css/main/grid/webform-button.css');
 ?>
 <a href="<?=BX_ROOT?>/admin/agreement_edit.php?ID=0&lang=<?=LANGUAGE_ID?>" class="adm-btn adm-btn-save adm-btn-add"><?=Loc::getMessage('MAIN_ADMIN_MENU_ADD')?></a>
 <br>
-<?
+<?php 
 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.userconsent.list",

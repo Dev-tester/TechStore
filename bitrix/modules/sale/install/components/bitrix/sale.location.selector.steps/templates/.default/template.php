@@ -1,62 +1,62 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location;
 
 Loc::loadMessages(__FILE__);
 ?>
 
-<?if(!empty($arResult['ERRORS']['FATAL'])):?>
+<?php if(!empty($arResult['ERRORS']['FATAL'])):?>
 
-	<?foreach($arResult['ERRORS']['FATAL'] as $error):?>
+	<?php foreach($arResult['ERRORS']['FATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
+	<?php endforeach?>
 
-<?else:?>
+<?php else:?>
 
-	<?CJSCore::Init(array("fx"));?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_widget.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_etc.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_pager.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_combobox.js')?>
-	<?$GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_chainedselectors.js')?>
+	<?php CJSCore::Init(array("fx"));?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_widget.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_etc.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_pager.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_combobox.js')?>
+	<?php $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/sale/core_ui_chainedselectors.js')?>
 
-	<div id="sls-<?=$arResult['RANDOM_TAG']?>" class="bx-slst<?if($arResult['ADMIN_MODE']):?> bx-admin-mode<?endif?>">
+	<div id="sls-<?=$arResult['RANDOM_TAG']?>" class="bx-slst<?php if($arResult['ADMIN_MODE']):?> bx-admin-mode<?php endif?>">
 
-		<?if(is_array($arResult['DEFAULT_LOCATIONS']) && !empty($arResult['DEFAULT_LOCATIONS'])):?>
+		<?php if(is_array($arResult['DEFAULT_LOCATIONS']) && !empty($arResult['DEFAULT_LOCATIONS'])):?>
 
 			<div class="bx-ui-sls-quick-locations quick-locations">
 
-				<?foreach($arResult['DEFAULT_LOCATIONS'] as $lid => $loc):?>
+				<?php foreach($arResult['DEFAULT_LOCATIONS'] as $lid => $loc):?>
 					<a href="javascript:void(0)" data-id="<?=$loc['ID']?>" class="quick-location-tag"><?=htmlspecialcharsbx($loc['NAME'])?></a>
-				<?endforeach?>
+				<?php endforeach?>
 
 			</div>
 
-		<?endif?>
+		<?php endif?>
 		
-		<?if(is_array($arResult['TRUNK_NAMES']) && !empty($arResult['TRUNK_NAMES'])):?>
+		<?php if(is_array($arResult['TRUNK_NAMES']) && !empty($arResult['TRUNK_NAMES'])):?>
 			<div class="bx-ui-sls-tree-trunk">
 				<?=htmlspecialcharsbx(implode(', ', $arResult['TRUNK_NAMES']))?>
 			</div>
-		<?endif?>
+		<?php endif?>
 
 		<input type="hidden" name="<?=$arParams['INPUT_NAME']?>" value="<?=$arResult['VALUE']?>" class="bx-ui-slst-target" />
 
 		<div class="bx-ui-slst-pool">
 		</div>
 
-		<?if(!$arParams['SUPPRESS_ERRORS']):?>
+		<?php if(!$arParams['SUPPRESS_ERRORS']):?>
 			<div data-bx-ui-id="slst-error">
-				<?if(!empty($arResult['ERRORS']['NONFATAL'])):?>
+				<?php if(!empty($arResult['ERRORS']['NONFATAL'])):?>
 
-					<?foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
+					<?php foreach($arResult['ERRORS']['NONFATAL'] as $error):?>
 						<?=ShowError($error)?>
-					<?endforeach?>
+					<?php endforeach?>
 
-				<?endif?>
+				<?php endif?>
 			</div>
-		<?endif?>
+		<?php endif?>
 
 		<script type="text/html" data-template-id="bx-ui-slst-selector-scope">
 
@@ -64,13 +64,13 @@ Loc::loadMessages(__FILE__);
 				<span class="dropdown-icon"></span>
 				<input type="text" name="" value="" autocomplete="off" class="dropdown-field" />
 				<div class="bx-ui-combobox-container" style="margin: 0px; padding: 0px; border: none; position: relative;">
-					<?if($arParams['DISABLE_KEYBOARD_INPUT'] == 'Y'):?>
+					<?php if($arParams['DISABLE_KEYBOARD_INPUT'] == 'Y'):?>
 						<div class="bx-ui-combobox-fake bx-combobox-fake-as-input">
 							<?=Loc::getMessage('SALE_SLS_SELECTOR_PROMPT')?>
 						</div>
-					<?else:?>
+					<?php else:?>
 						<input type="text" value="" autocomplete="off" class="bx-ui-combobox-fake" placeholder="<?=Loc::getMessage('SALE_SLS_SELECTOR_PROMPT')?>" />
-					<?endif?>
+					<?php endif?>
 				</div>
 				<div class="dropdown-fade2white"></div>
 				<div class="bx-ui-combobox-loader" data-bx-ui-id="combobox-loader"></div>
@@ -93,15 +93,15 @@ Loc::loadMessages(__FILE__);
 		if (!window.BX && top.BX)
 			window.BX = top.BX;
 
-		<?if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
+		<?php if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
 			if(typeof window.BX.locationsDeferred == 'undefined') window.BX.locationsDeferred = {};
 			window.BX.locationsDeferred['<?=$arParams['JS_CONTROL_DEFERRED_INIT']?>'] = function(){
-		<?endif?>
+		<?php endif?>
 
-			<?if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
+			<?php if(strlen($arParams['JS_CONTROL_GLOBAL_ID'])):?>
 				if(typeof window.BX.locationSelectors == 'undefined') window.BX.locationSelectors = {};
 				window.BX.locationSelectors['<?=$arParams['JS_CONTROL_GLOBAL_ID']?>'] = 
-			<?endif?>
+			<?php endif?>
 
 			new BX.Sale.component.location.selector.steps(<?=CUtil::PhpToJSObject(array(
 
@@ -151,10 +151,10 @@ Loc::loadMessages(__FILE__);
 
 			), false, false, true)?>);
 
-		<?if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
+		<?php if(strlen($arParams['JS_CONTROL_DEFERRED_INIT'])):?>
 			};
-		<?endif?>
+		<?php endif?>
 
 	</script>
 
-<?endif?>
+<?php endif?>

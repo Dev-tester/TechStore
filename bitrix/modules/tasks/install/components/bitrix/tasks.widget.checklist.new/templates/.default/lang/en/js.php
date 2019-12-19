@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_CHECKLIST_COMPONENT_JS_CHECKLIST_NOT_CONVERTED_MESSAGE_PART_1"] = "Please wait while checklist is being updated.";
 $MESS["TASKS_CHECKLIST_COMPONENT_JS_CHECKLIST_NOT_CONVERTED_MESSAGE_PART_2"] = "New checklist will be added to the task shortly.";
 $MESS["TASKS_CHECKLIST_COMPONENT_JS_CHECKLIST_NOT_CONVERTED_MESSAGE_PART_3"] = "All your data will remain intact.";

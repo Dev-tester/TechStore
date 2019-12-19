@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/timeman/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
@@ -33,8 +33,8 @@ else
 	<div style="text-align: center;"><img src="images/<?=$lang?>/absence.png"/></div>
 	<p><?=GetMessage("ABSENCE_TARIFF_RESTRICTION_TITLE")?></p>
 	<br/>
-	<div style="text-align: center;"><?CBitrix24::showTariffRestrictionButtons("absence")?></div>
-	<?
+	<div style="text-align: center;"><?php CBitrix24::showTariffRestrictionButtons("absence")?></div>
+	<?php 
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

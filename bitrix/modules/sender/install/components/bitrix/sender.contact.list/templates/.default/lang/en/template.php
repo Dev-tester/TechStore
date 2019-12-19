@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONTACT_LIST_BTN_SET_LIST"] = "Custom recipient lists";
 $MESS["SENDER_CONTACT_LIST_BTN_RECIPIENT_TITLE"] = "Find campaigns with this recipient";
 $MESS["SENDER_CONTACT_LIST_BTN_VIEW"] = "View";

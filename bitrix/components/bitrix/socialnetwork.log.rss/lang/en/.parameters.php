@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_VARIABLE_ALIASES"] = "Variable Aliases";
 $MESS["SONET_EVENTS_VAR"] = "Event ID Variable Name";
 $MESS["SONET_PATH_TO_USER"] = "User Profile Path Template";

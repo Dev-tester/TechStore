@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LHE_GROUP_BASE_SETTINGS"] = "Основные настройки";
 $MESS["LHE_GROUP_VIDEO_SETTINGS"] = "Настройки вставки видео";
 $MESS["LHE_GROUP_ADDITIONAL_SETTINGS"] = "Дополнительные настройки";

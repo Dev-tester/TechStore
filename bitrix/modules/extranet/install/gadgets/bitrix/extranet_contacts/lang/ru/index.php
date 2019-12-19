@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_CONTACTS_MYGROUPS_USERS'] = "Пользователи моих рабочих групп: ";
 $MESS ['GD_CONTACTS_PUBLIC_USERS'] = "Доступные контакты: ";
 $MESS ['GD_CONTACTS_MESSAGES_CHAT'] = "Написать<br>сообщение";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAXRATE_SAVE_BUTTON"] = "Сохранить";
 $MESS["CRM_TAXRATE_TITLE"] = "Добавление ставки налога";
 $MESS["CRM_TAXRATE_TITLE_EDIT"] = "Изменение ставки налога";

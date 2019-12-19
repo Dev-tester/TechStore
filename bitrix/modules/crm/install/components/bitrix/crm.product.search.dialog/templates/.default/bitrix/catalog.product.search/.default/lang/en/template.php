@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CPS_TPL_MESS_USE_SUBSTRING_QUERY"] = "Don't use complex search query logic";
 $MESS["CRM_ALL"] = "Total";
 $MESS["CRM_PRODUCT_SHOW_TITLE"] = "View this product page";

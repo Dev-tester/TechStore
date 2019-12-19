@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_SAVE"] = "Save";
 $MESS["FORM_RESET"] = "Reset";
 $MESS["FORM_USE_HTML_EDIT"] = "Use visual HTML editor";

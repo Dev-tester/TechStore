@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_DELETE_BUTTON"] = "Удалить";
 $MESS["MARKETPLACE_INSTALL_BUTTON"] = "Установить";
 $MESS["MARKETPLACE_APP_BUY"] = "Купить";

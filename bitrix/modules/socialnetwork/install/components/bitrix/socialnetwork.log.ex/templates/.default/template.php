@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -19,7 +19,7 @@ if ($arResult["NEED_AUTH"] == "Y")
 }
 elseif (strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 	return;
 }
 
@@ -132,7 +132,7 @@ if (!$arResult["AJAX_CALL"])
 
 	if ($arParams['USE_TASKS'] == 'Y')
 	{
-		?><?
+		?><?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:tasks.iframe.popup",
 			".default",
@@ -144,7 +144,7 @@ if (!$arResult["AJAX_CALL"])
 			null,
 			array("HIDE_ICONS" => "Y")
 		);
-		?><?
+		?><?php 
 	}
 
 	if ($arParams["HIDE_EDIT_FORM"] != "Y" && IntVal($arResult["MICROBLOG_USER_ID"]) > 0 && $USER->IsAuthorized())
@@ -215,7 +215,7 @@ if (!$arResult["AJAX_CALL"])
 			$this->SetViewTarget($arResult["FORM_TARGET_ID"]);
 		}
 
-		?><div id="sonet_log_microblog_container"><?
+		?><div id="sonet_log_microblog_container"><?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:socialnetwork.blog.post.edit",
 			"",
@@ -223,7 +223,7 @@ if (!$arResult["AJAX_CALL"])
 			$component,
 			array("HIDE_ICONS" => "Y")
 		);
-		?></div><?
+		?></div><?php 
 
 		if ($arResult["FORM_TARGET_ID"])
 		{
@@ -234,7 +234,7 @@ if (!$arResult["AJAX_CALL"])
 	}
 	elseif ($arParams["SHOW_EVENT_ID_FILTER"] == "Y")
 	{
-		?><div class="feed-filter-fake-cont"></div><?
+		?><div class="feed-filter-fake-cont"></div><?php 
 	}
 
 	if ($arParams["SHOW_EVENT_ID_FILTER"] == "Y")
@@ -301,27 +301,27 @@ if (!$arResult["AJAX_CALL"])
 			$this->SetViewTarget($arResult["INFORMER_TARGET_ID"]);
 		}
 
-		?><div class="feed-new-message-informer-place<?=($arParams["LOG_ID"] > 0 ? " feed-new-message-informer-place-hidden" : "")?>"><?
+		?><div class="feed-new-message-informer-place<?=($arParams["LOG_ID"] > 0 ? " feed-new-message-informer-place-hidden" : "")?>"><?php 
 		if ($arParams["SHOW_REFRESH"] != "N")
 		{
-			?><div class="feed-new-message-inform-wrap new-message-balloon-wrap" id="sonet_log_counter_2_wrap" style="visibility: hidden;"><?
-				?><div onclick="oLF.refresh()" id="sonet_log_counter_2_container" class="feed-new-message-informer"><?
-					?><span class="feed-new-message-inf-text new-message-balloon"><?
-						?><span class="feed-new-message-icon new-message-balloon-icon"></span><?
-						?><span class="new-message-balloon-text"><?=GetMessage("SONET_C30_COUNTER_TEXT_1")?></span><?
-						?><span class="feed-new-message-informer-counter" id="sonet_log_counter_2">0</span><span class="feed-new-message-informer-counter feed-new-message-informer-counter-plus-hidden" id="sonet_log_counter_2_plus">+</span><?
-					?></span><?
-					?><span class="feed-new-message-inf-text feed-new-message-inf-text-reload new-message-balloon" style="display: none;"><?
-						?><?=GetMessage("SONET_C30_T_RELOAD_NEEDED")?><?
-					?></span><?
-				?></div><?
-			?></div><?
+			?><div class="feed-new-message-inform-wrap new-message-balloon-wrap" id="sonet_log_counter_2_wrap" style="visibility: hidden;"><?php 
+				?><div onclick="oLF.refresh()" id="sonet_log_counter_2_container" class="feed-new-message-informer"><?php 
+					?><span class="feed-new-message-inf-text new-message-balloon"><?php 
+						?><span class="feed-new-message-icon new-message-balloon-icon"></span><?php 
+						?><span class="new-message-balloon-text"><?=GetMessage("SONET_C30_COUNTER_TEXT_1")?></span><?php 
+						?><span class="feed-new-message-informer-counter" id="sonet_log_counter_2">0</span><span class="feed-new-message-informer-counter feed-new-message-informer-counter-plus-hidden" id="sonet_log_counter_2_plus">+</span><?php 
+					?></span><?php 
+					?><span class="feed-new-message-inf-text feed-new-message-inf-text-reload new-message-balloon" style="display: none;"><?php 
+						?><?=GetMessage("SONET_C30_T_RELOAD_NEEDED")?><?php 
+					?></span><?php 
+				?></div><?php 
+			?></div><?php 
 		}
 		else
 		{
-			?><div class="feed-new-message-inform-wrap"  id="sonet_log_counter_2_wrap" style="visibility: hidden;"></div><?
+			?><div class="feed-new-message-inform-wrap"  id="sonet_log_counter_2_wrap" style="visibility: hidden;"></div><?php 
 		}
-		?></div><?
+		?></div><?php 
 
 		if ($arResult["INFORMER_TARGET_ID"])
 		{
@@ -329,12 +329,12 @@ if (!$arResult["AJAX_CALL"])
 		}
 	}
 
-	?><div id="log_internal_container"><?
-		?><div class="feed-loader-container" id="feed-loader-container"><?
-			?><svg class="feed-loader-circular" viewBox="25 25 50 50"><?
-				?><circle class="feed-loader-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"/><?
-			?></svg><?
-		?></div><?
+	?><div id="log_internal_container"><?php 
+		?><div class="feed-loader-container" id="feed-loader-container"><?php 
+			?><svg class="feed-loader-circular" viewBox="25 25 50 50"><?php 
+				?><circle class="feed-loader-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"/><?php 
+			?></svg><?php 
+		?></div><?php 
 }
 elseif (
 	!$arResult["Events"]
@@ -368,11 +368,11 @@ else // AJAX_CALL
 
 if (!$arResult["AJAX_CALL"])
 {
-	?><div class="feed-wrap"><?
+	?><div class="feed-wrap"><?php 
 }
 
 ?><script>
-	<?
+	<?php 
 	if (!$arResult["AJAX_CALL"])
 	{
 		?>
@@ -412,7 +412,7 @@ if (!$arResult["AJAX_CALL"])
 			SONET_C30_T_EMPTY_SEARCH: '<?=GetMessageJS("SONET_C30_T_EMPTY_SEARCH")?>'
 
 		});
-		<?
+		<?php 
 	}
 
 	if (!$arResult["AJAX_CALL"])
@@ -425,7 +425,7 @@ if (!$arResult["AJAX_CALL"])
 				filterId: '<?=(!empty($arResult['FILTER_ID']) ? CUtil::JSEscape($arResult["FILTER_ID"]) : '')?>'
 			});
 		});
-		<?
+		<?php 
 	}
 
 	if (
@@ -458,7 +458,7 @@ if (!$arResult["AJAX_CALL"])
 				), false)?>'
 			});
 		});
-		<?
+		<?php 
 	}
 
 	if (
@@ -476,11 +476,11 @@ if (!$arResult["AJAX_CALL"])
 		{
 			?>
 			BX.loadCSS('/bitrix/components/bitrix/rating.vote/templates/<?=$likeTemplate?>/popup.css');
-			<?
+			<?php 
 		}
 		?>
 		BX.loadCSS('/bitrix/components/bitrix/rating.vote/templates/<?=($arParams["RATING_TYPE"] == "like" ? $likeTemplate : $arParams["RATING_TYPE"])?>/style.css');
-		<?
+		<?php 
 	}
 
 	if ($arResult["bReload"])
@@ -493,7 +493,7 @@ if (!$arResult["AJAX_CALL"])
 				__logOnReload(<?=intval($arResult["LOG_COUNTER"])?>);
 			});
 		}
-		<?
+		<?php 
 	}
 	elseif ($arParams["IS_CRM"] == "Y" && !$arResult["AJAX_CALL"])
 	{
@@ -504,19 +504,19 @@ if (!$arResult["AJAX_CALL"])
 				__logOnReload(<?=intval($arResult["LOG_COUNTER"])?>);
 			});
 		}
-		<?
+		<?php 
 	}
 
 	if (!$arResult["AJAX_CALL"] || $arResult["bReload"])
 	{
 		?>
 		BX.ready(function(){
-			<?
+			<?php 
 			if ($arParams["SET_LOG_COUNTER"] != "N")
 			{
 				?>
 				BX.onCustomEvent(window, 'onSonetLogCounterClear', [BX.message('sonetLCounterType')]);
-				<?
+				<?php 
 				if (!$arResult["AJAX_CALL"])
 				{
 					?>
@@ -547,7 +547,7 @@ if (!$arResult["AJAX_CALL"])
 					BX.addCustomEvent("onCounterDecrement", function(iDecrement) {
 						__logDecrementCounter(iDecrement);
 					});
-					<?
+					<?php 
 				}
 			}
 
@@ -560,12 +560,12 @@ if (!$arResult["AJAX_CALL"])
 						top.location = top.location.href;
 					}
 				});
-				<?
+				<?php 
 			}
 			?>
 		});
 
-		<?
+		<?php 
 		if (!$arResult["AJAX_CALL"])
 		{
 			if(\Bitrix\Main\Page\Frame::isAjaxRequest())
@@ -575,7 +575,7 @@ if (!$arResult["AJAX_CALL"])
 					oLF.recalcMoreButton();
 					oLF.registerViewAreaList();
 				}, 1000);
-				<?
+				<?php 
 			}
 			elseif (!empty($arParams["CRM_ENTITY_ID"]))
 			{
@@ -586,7 +586,7 @@ if (!$arResult["AJAX_CALL"])
 					}, 1000);
 					oLF.registerViewAreaList();
 				});
-				<?
+				<?php 
 			}
 			else
 			{
@@ -597,7 +597,7 @@ if (!$arResult["AJAX_CALL"])
 				BX.bind(window, 'load', function() {
 					oLF.registerViewAreaList();
 				});
-				<?
+				<?php 
 			}
 		}
 	}
@@ -610,7 +610,7 @@ if (!$arResult["AJAX_CALL"])
 				BX.LazyLoad.onScroll();
 			}, 80));
 		});
-		<?
+		<?php 
 	}
 	?>
 
@@ -642,11 +642,11 @@ if (!$arResult["AJAX_CALL"])
 		BX.LazyLoad.showImages(true);
 	});
 
-</script><?
+</script><?php 
 
 if(strlen($arResult["ErrorMessage"]) > 0)
 {
-	?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 }
 
 if ($arResult["AJAX_CALL"])
@@ -928,9 +928,9 @@ else
 	$emptyMessage = Loc::getMessage('SONET_C30_T_EMPTY');
 }
 
-?><div class="feed-wrap-empty-wrap" id="feed-empty-wrap" style="display: <?=(!is_array($arResult["Events"]) || empty($arResult["Events"]) ? 'block' : 'none')?>"><?
-	?><div class="feed-wrap-empty"><?=$emptyMessage?></div><?
-?></div><?
+?><div class="feed-wrap-empty-wrap" id="feed-empty-wrap" style="display: <?=(!is_array($arResult["Events"]) || empty($arResult["Events"]) ? 'block' : 'none')?>"><?php 
+	?><div class="feed-wrap-empty"><?=$emptyMessage?></div><?php 
+?></div><?php 
 
 if ($arParams["SHOW_NAV_STRING"] != "N" && is_array($arResult["Events"]))
 {
@@ -978,7 +978,7 @@ if ($arParams["SHOW_NAV_STRING"] != "N" && is_array($arResult["Events"]))
 	<script>
 		BX.ready(function() {
 			oLF.nextURL = '<?=CUtil::JSEscape(htmlspecialcharsEx($uri->getUri()))?>';
-			<?
+			<?php 
 			if (
 				$arResult["PAGE_NUMBER"] == 1
 				&& (!$arResult["AJAX_CALL"] || $arResult["bReload"])
@@ -986,33 +986,33 @@ if ($arParams["SHOW_NAV_STRING"] != "N" && is_array($arResult["Events"]))
 			{
 				?>
 				oLF.initScroll();
-				<?
+				<?php 
 			}
 			?>
 		});
-	</script><?
+	</script><?php 
 
 	if (!$arResult["AJAX_CALL"] || $arResult["bReload"])
 	{
-		?><div class="feed-new-message-inf-wrap-first" id="feed-new-message-inf-wrap-first"><?
-			?><a href="javascript:void(0);" id="sonet_log_more_container_first" class="feed-new-message-inf-bottom"><?
-				?><span class="feed-new-message-inf-text" id="feed-new-message-inf-text-first" style="display: none;"><?
-					?><?=GetMessage("SONET_C30_MORE")?><?
-					?><span class="feed-new-message-icon"></span><?
-				?></span><?
-				?><span class="feed-new-message-inf-loader-first-cont" id="feed-new-message-inf-loader-first"><?
-					?><svg class="feed-new-message-inf-loader-first-loader" viewBox="25 25 50 50"><circle class="feed-new-message-inf-loader-first-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle><circle class="feed-new-message-inf-loader-first-inner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle></svg><?
-				?></span><?
-			?></a><?
-		?></div><?
+		?><div class="feed-new-message-inf-wrap-first" id="feed-new-message-inf-wrap-first"><?php 
+			?><a href="javascript:void(0);" id="sonet_log_more_container_first" class="feed-new-message-inf-bottom"><?php 
+				?><span class="feed-new-message-inf-text" id="feed-new-message-inf-text-first" style="display: none;"><?php 
+					?><?=GetMessage("SONET_C30_MORE")?><?php 
+					?><span class="feed-new-message-icon"></span><?php 
+				?></span><?php 
+				?><span class="feed-new-message-inf-loader-first-cont" id="feed-new-message-inf-loader-first"><?php 
+					?><svg class="feed-new-message-inf-loader-first-loader" viewBox="25 25 50 50"><circle class="feed-new-message-inf-loader-first-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle><circle class="feed-new-message-inf-loader-first-inner-path" cx="50" cy="50" r="20" fill="none" stroke-miterlimit="10"></circle></svg><?php 
+				?></span><?php 
+			?></a><?php 
+		?></div><?php 
 	}
-	?><div class="feed-new-message-inf-wrap feed-new-message-active" id="feed-new-message-inf-wrap" style="display: none;"><?=$stub?></div><?
+	?><div class="feed-new-message-inf-wrap feed-new-message-active" id="feed-new-message-inf-wrap" style="display: none;"><?=$stub?></div><?php 
 }
 
 if (!$arResult["AJAX_CALL"])
 {
-		?></div><? // feed-wrap
-	?></div><? // log_internal_container
+		?></div><?php  // feed-wrap
+	?></div><?php  // log_internal_container
 }
 else
 {
@@ -1189,11 +1189,11 @@ $formParams = array(
 );
 
 ?><div style="display: none;">
-	<form action="" id="<?=$arParams["FORM_ID"]?>" name="<?=$arParams["FORM_ID"]?>" <?
+	<form action="" id="<?=$arParams["FORM_ID"]?>" name="<?=$arParams["FORM_ID"]?>" <?php 
 	?>method="POST" enctype="multipart/form-data" target="_self" class="comments-form">
 		<?=bitrix_sessid_post();?>
 		<input type="hidden" name="sonet_log_comment_logid" id="sonet_log_comment_logid" value="">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:main.post.form",
 			".default",
 			$formParams,
@@ -1279,7 +1279,7 @@ $formParams = array(
 		}
 	});
 </script>
-<?
+<?php 
 if (defined("BITRIX24_INDEX_COMPOSITE"))
 {
 	$dynamicArea->finishDynamicArea();

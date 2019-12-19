@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
 $APPLICATION->SetPageProperty("title", htmlspecialcharsbx(COption::GetOptionString("main", "site_name", "Extranet")));
 
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.log.ex", 
 	"", 
@@ -48,7 +48,7 @@ $APPLICATION->IncludeComponent(
 	)
 );
 ?>
-<?
+<?php 
 if(CModule::IncludeModule('calendar')):
 	$APPLICATION->IncludeComponent("bitrix:calendar.events.list", "widget", array(
 		"CALENDAR_TYPE" => "user",
@@ -65,7 +65,7 @@ if(CModule::IncludeModule('calendar')):
 endif;?>
 
 
-<?
+<?php 
 if(CModule::IncludeModule('tasks')):
 	$APPLICATION->IncludeComponent(
 		"bitrix:tasks.filter.v2",
@@ -83,4 +83,4 @@ if(CModule::IncludeModule('tasks')):
 	);
 endif;?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

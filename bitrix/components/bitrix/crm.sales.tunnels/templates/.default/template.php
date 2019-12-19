@@ -36,9 +36,9 @@ if (!Rc\Service::isAvailable())
 		<svg class="crm-st-svg-links-root"> </svg>
 	</div>
 	<div class="crm-st-footer">
-		<? if ($arResult['canEditTunnels']) : ?>
+		<?php  if ($arResult['canEditTunnels']) : ?>
 			<button class="ui-btn ui-btn-link ui-btn-xs ui-btn-icon-add crm-st-add-category-btn"><?=Loc::getMessage('CRM_ST_ADD_NEW_CATEGORY_BUTTON_LABEL')?></button>
-		<? endif; ?>
+		<?php  endif; ?>
 	</div>
 </div>
 
@@ -48,9 +48,9 @@ $this->SetViewTarget('pagetitle', 100);
 
 <div class="pagetitle-container">
 	<button class="ui-btn ui-btn-icon-info ui-btn-light-border crm-st-help-button"><?=Loc::getMessage('CRM_ST_HELP_BUTTON')?></button>
-	<? if ($arResult['canEditTunnels']) : ?>
+	<?php  if ($arResult['canEditTunnels']) : ?>
 		<button class="ui-btn ui-btn-primary crm-st-add-category-btn-top"><?=Loc::getMessage('CRM_ST_ADD_FUNNEL_BUTTON')?></button>
-	<? endif; ?>
+	<?php  endif; ?>
 </div>
 
 <?php

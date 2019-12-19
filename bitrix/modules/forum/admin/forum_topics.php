@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Topics
 **************************************!*****************************/
@@ -384,10 +384,10 @@ while ($res = $rsData->NavNext(true, "t_"))
 	);
 	?>
 	<form name="form1" method="get" action="<?=$APPLICATION->GetCurPage()?>?">
-	<?$oFilter->Begin();?>
+	<?php $oFilter->Begin();?>
 	<tr valign="center">
 		<td><b><?=GetMessage("FM_TITLE_FORUM")?>:</b></td>
-		<td><?echo SelectBoxFromArray("FORUM_ID", $arr, $FORUM_ID)?></td>
+		<td><?php echo SelectBoxFromArray("FORUM_ID", $arr, $FORUM_ID)?></td>
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FM_TITLE_NAME")?>:</td>
@@ -423,19 +423,19 @@ while ($res = $rsData->NavNext(true, "t_"))
 			</select></td>
 	</tr>
 	<tr valign="center">
-		<td><?echo GetMessage("FM_TITLE_DATE_CREATE").":"?></td>
-		<td><?echo CalendarPeriod("CREATE_DATE_FROM", $CREATE_DATE_FROM, "CREATE_DATE_TO", $CREATE_DATE_TO, "form1","Y")?></td>
+		<td><?php echo GetMessage("FM_TITLE_DATE_CREATE").":"?></td>
+		<td><?php echo CalendarPeriod("CREATE_DATE_FROM", $CREATE_DATE_FROM, "CREATE_DATE_TO", $CREATE_DATE_TO, "form1","Y")?></td>
 	</tr>
 	<tr valign="center">
-		<td><?echo GetMessage("FM_TITLE_DATE_LAST_POST").":"?></td>
-		<td><?echo CalendarPeriod("DATE_FROM", $DATE_FROM, "DATE_TO", $DATE_TO, "form1","Y")?></td>
+		<td><?php echo GetMessage("FM_TITLE_DATE_LAST_POST").":"?></td>
+		<td><?php echo CalendarPeriod("DATE_FROM", $DATE_FROM, "DATE_TO", $DATE_TO, "form1","Y")?></td>
 	</tr>
 	<tr valign="center">
 		<td><?=GetMessage("FM_TITLE_USER_START_ID")?>:</td>
 		<td><input type="text" name="USER_START_ID" value="<?=$USER_START_ID?>" /></td>
 	</tr>
 
-	<?
+	<?php 
 	$oFilter->Buttons(array("table_id" => $sTableID,"url" => $APPLICATION->GetCurPage(),"form" => "find_form"));
 	$oFilter->End();
 	?>
@@ -451,7 +451,7 @@ while ($res = $rsData->NavNext(true, "t_"))
 			return;
 		}
 	</script>
-	<?
+	<?php 
 	$lAdmin->DisplayList();
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

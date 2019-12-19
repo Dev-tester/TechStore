@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_WS_ERR_BAD_PASSW"] = "Неправильный пароль.";
 $MESS["CTRLR_WS_ERR_BAD_LEVEL"] = "Отсутствуют права доступа на добавление нового клиента";
 $MESS["CTRLR_WS_ERR_MEMB_NFOUND"] = "Клиент не найден на контроллере";

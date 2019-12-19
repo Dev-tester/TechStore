@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SHOW_SORTING'] = "Display Sorting controls";
 $MESS ['F_IN_FORUM'] = "on forum #FORUM#";
 $MESS ['F_SHOW_NAV'] = "Display navigation controls on";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADDRESS_VERIFICATION_NOTIFY"] = "Documentation required to rent phone numbers has been verified.";
 $MESS["ADDRESS_VERIFICATION_NOTIFY_HEAD_ACCEPTED"] = "Your documentation has been verified.";
 $MESS["ADDRESS_VERIFICATION_NOTIFY_BODY_ACCEPTED"] = "You can now rent a phone number and handle calls in your Bitrix24!";

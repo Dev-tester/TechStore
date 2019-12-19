@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -29,24 +29,24 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 	<tr>
 		<td valign="top" align="left" nowrap>
 		<p>
-			<?echo GetMessage("MAIL_CHECK_CHECK")?>
+			<?php echo GetMessage("MAIL_CHECK_CHECK")?>
 			<select name="mailbox_id">
-				<option value=""><?echo GetMessage("MAIL_CHECK_CHECK_ALL")?></option>
-				<?
+				<option value=""><?php echo GetMessage("MAIL_CHECK_CHECK_ALL")?></option>
+				<?php 
 				$l = CMailbox::GetList(array('NAME' => 'ASC', 'ID' => 'ASC'), array('ACTIVE' => 'Y', 'USER_ID' => 0));
 				while($l->ExtractFields("mb_")):
-					?><option value="<?echo $mb_ID?>"<?if($mailbox_id==$mb_ID)echo " selected"?>><?echo $mb_NAME?></option><?
+					?><option value="<?php echo $mb_ID?>"<?php if($mailbox_id==$mb_ID)echo " selected"?>><?php echo $mb_NAME?></option><?php 
 				endwhile;
 				?>
 			</select>
-			<input type="hidden" name="lang" value="<?echo LANG?>">
-			<input type="submit" name="make_action" value="<?echo GetMessage("MAIL_CHECK_CHECK_OK")?>">
-			<?echo bitrix_sessid_post();?>
+			<input type="hidden" name="lang" value="<?php echo LANG?>">
+			<input type="submit" name="make_action" value="<?php echo GetMessage("MAIL_CHECK_CHECK_OK")?>">
+			<?php echo bitrix_sessid_post();?>
 		</p>
 	</tr>
 
 </table></form>
-<?
+<?php 
 if(check_bitrix_sessid())
 {
 	$arFilter = array('ACTIVE' => 'Y', 'USER_ID' => 0);
@@ -132,4 +132,4 @@ if(check_bitrix_sessid())
 	}
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

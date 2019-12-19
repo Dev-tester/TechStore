@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BP_TOOLBAR_ADD"] = "Добавить шаблон";
 $MESS["CRM_BP_TOOLBAR_ADD_TITLE"] = "Добавить новый шаблон";
 $MESS["CRM_BP_TOOLBAR_TYPES"] = "Бизнес-процессы";

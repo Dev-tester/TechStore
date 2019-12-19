@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CDatabase $DB
  * @global CUser $USER
  * @global CMain $APPLICATION
@@ -192,12 +192,12 @@ $tabControl->EndPrologContent();
 $tabControl->BeginEpilogContent();
 echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
-<input type="hidden" name="ID" value="<? echo $ID; ?>">
-<? echo bitrix_sessid_post();
+<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
+<input type="hidden" name="ID" value="<?php  echo $ID; ?>">
+<?php  echo bitrix_sessid_post();
 if (!empty($returnUrl))
 {
-	?><input type="hidden" name="return_url" value="<? echo htmlspecialcharsbx($returnUrl); ?>"><?
+	?><input type="hidden" name="return_url" value="<?php  echo htmlspecialcharsbx($returnUrl); ?>"><?php 
 }
 $tabControl->EndEpilogContent();
 $tabControl->Begin(array(
@@ -213,14 +213,14 @@ $tabControl->BeginNextFormTab();
 		{
 			$tabControl->BeginCustomField("DISCOUNT_ID", GetMessage('DSC_CPN_DISC').':', false);
 			?><tr id="tr_DISCOUNT_ID" class="adm-detail-required-field">
-			<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
-			<td width="60%"><?
+			<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
+			<td width="60%"><?php 
 				if (isset($arDiscountList[$arCoupon['DISCOUNT_ID']]))
 				{
 					echo htmlspecialcharsbx($arDiscountList[$arCoupon['DISCOUNT_ID']]);
 				}
 			?></td>
-			</tr><?
+			</tr><?php 
 			$tabControl->EndCustomField('DISCOUNT_ID');
 		}
 		else
@@ -232,37 +232,37 @@ $tabControl->BeginNextFormTab();
 	{
 		$tabControl->BeginCustomField("DISCOUNT_ID", GetMessage('DSC_CPN_DISC').':', true);
 		?><tr id="tr_DISCOUNT_ID" class="adm-detail-required-field">
-			<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
-			<td width="60%">&nbsp;<a href="/bitrix/admin/cat_discount_edit.php?lang=<? echo LANGUAGE_ID; ?>&return_url=<? echo urlencode($APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID); ?>"><? echo GetMessage('DSC_ADD_DISCOUNT'); ?></a></td>
-		</tr><?
+			<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
+			<td width="60%">&nbsp;<a href="/bitrix/admin/cat_discount_edit.php?lang=<?php  echo LANGUAGE_ID; ?>&return_url=<?php  echo urlencode($APPLICATION->GetCurPage()."?lang=".LANGUAGE_ID); ?>"><?php  echo GetMessage('DSC_ADD_DISCOUNT'); ?></a></td>
+		</tr><?php 
 		$tabControl->EndCustomField('DISCOUNT_ID');
 	}
 	$tabControl->AddCheckBoxField("ACTIVE", GetMessage("DSC_ACTIVE").":", false, "Y", $arCoupon['ACTIVE'] == "Y");
 	$tabControl->BeginCustomField('ONE_TIME', GetMessage('DSC_COUPON_TYPE').':', true);
 	?><tr id="tr_ONE_TIME" class="adm-detail-required-field">
-		<td width="40%" style="vertical-align: top;"><? echo $tabControl->GetCustomLabelHTML(); ?> <span class="required" style="vertical-align: super; font-size: smaller;">1</span></td>
+		<td width="40%" style="vertical-align: top;"><?php  echo $tabControl->GetCustomLabelHTML(); ?> <span class="required" style="vertical-align: super; font-size: smaller;">1</span></td>
 		<td width="60%" id="td_ONE_TIME_VALUE">
 			<select name="ONE_TIME" size="3">
-			<?
+			<?php 
 			foreach ($arTypeList as $typeID => $typeName)
 			{
-				?><option value="<? echo $typeID; ?>"<? echo ($typeID == $arCoupon['ONE_TIME'] ? ' selected' : ''); ?>><? echo $typeName; ?></option><?
+				?><option value="<?php  echo $typeID; ?>"<?php  echo ($typeID == $arCoupon['ONE_TIME'] ? ' selected' : ''); ?>><?php  echo $typeName; ?></option><?php 
 			}
 			?>
 			</select>
 		</td>
-	</tr><?
+	</tr><?php 
 	$tabControl->EndCustomField('ONE_TIME',
 		'<input type="hidden" name="ONE_TIME" value="'.htmlspecialcharsbx($arCoupon['ONE_TIME']).'">'
 	);
 	$tabControl->BeginCustomField('COUPON', GetMessage("DSC_CPN_CODE").':', true);
 	?><tr id="tr_COUPON" class="adm-detail-required-field">
-		<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
+		<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
 		<td width="60%" id="td_COUPON_VALUE">
-			<input type="text" id="COUPON" name="COUPON" size="32" maxlength="32" value="<? echo htmlspecialcharsbx($arCoupon['COUPON']); ?>" />&nbsp;
-			<input type="button" value="<? echo GetMessage("DSC_CPN_GEN") ?>" id="COUPON_GENERATE">
+			<input type="text" id="COUPON" name="COUPON" size="32" maxlength="32" value="<?php  echo htmlspecialcharsbx($arCoupon['COUPON']); ?>" />&nbsp;
+			<input type="button" value="<?php  echo GetMessage("DSC_CPN_GEN") ?>" id="COUPON_GENERATE">
 		</td>
-	</tr><?
+	</tr><?php 
 	$tabControl->EndCustomField('COUPON',
 		'<input type="hidden" name="COUPON" value="'.htmlspecialcharsbx($arCoupon['COUPON']).'">'
 	);
@@ -279,7 +279,7 @@ $tabControl->Buttons($arButtonsParams);
 $tabControl->Show();
 
 echo BeginNote();
-?><span class="required" style="vertical-align: super; font-size: smaller;">1</span> <? echo GetMessage('DSC_CPN_ONE_ORDER_NOTE');
+?><span class="required" style="vertical-align: super; font-size: smaller;">1</span> <?php  echo GetMessage('DSC_CPN_ONE_ORDER_NOTE');
 echo EndNote();
 ?><script type="text/javascript">
 BX.ready(function(){
@@ -356,4 +356,4 @@ BX.ready(function(){
 	}
 });
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

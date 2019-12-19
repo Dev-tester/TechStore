@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USTAT_USER_GRAPH_DEPT"] = "%DEPT% dept. average";
 $MESS["INTRANET_USTAT_USER_GRAPH_COMPANY"] = "Company average";
 $MESS["INTRANET_USTAT_USER_GRAPH_ME"] = "Me";

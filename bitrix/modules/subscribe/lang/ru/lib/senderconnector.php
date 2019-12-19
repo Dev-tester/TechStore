@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["sender_connector_subscriber_name"] = "Подписка, рассылки - Подписчики";
 $MESS["sender_connector_subscriber_all"] = "Любое";
 $MESS["sender_connector_subscriber_y"] = "Да";

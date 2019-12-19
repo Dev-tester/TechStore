@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Web\HttpClient;
 use Bitrix\Main\Web\Json;
 
@@ -235,7 +235,7 @@ if(window.opener)
 	window.opener.location = '<?=CUtil::JSEscape($url)?>';
 window.close();
 </script>
-<?
+<?php 
 		die();
 	}
 

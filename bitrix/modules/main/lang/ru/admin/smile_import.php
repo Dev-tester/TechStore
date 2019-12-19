@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SMILE_IMPORT_TITLE'] = "Импорт смайлов";
 $MESS ['ERROR_IMPORT_SMILE'] = "Ошибка импорта смайлов";
 $MESS ['ERROR_BAD_SESSID'] = "Ваша сессия истекла. Пожалуйста, повторите действие еще раз.";

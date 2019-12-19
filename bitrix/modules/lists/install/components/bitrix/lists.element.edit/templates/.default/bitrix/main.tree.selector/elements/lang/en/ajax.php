@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BMTS_WINDOW_CLOSE"] = "Close";
 $MESS["CT_BMTS_WAIT"] = "Loading...";
 $MESS["CT_BMTS_SUBMIT"] = "Select";

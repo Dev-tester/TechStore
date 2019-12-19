@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PRODUCT_ENTITY_ID_FIELD"] = "ID";
 $MESS["SALE_PRODUCT_ENTITY_QUANTITY_FIELD"] = "Общий остаток";
 $MESS["SALE_PRODUCT_ENTITY_NAME_FIELD"] = "Наименование";

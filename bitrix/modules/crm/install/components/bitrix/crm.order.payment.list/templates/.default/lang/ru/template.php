@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_PAYMENT_SHOW_TITLE"] = "Просмотреть оплату";
 $MESS["CRM_ORDER_PAYMENT_SHOW"] = "Просмотреть";
 $MESS["CRM_ORDER_PAYMENT_EDIT_TITLE"] = "Редактировать оплату";

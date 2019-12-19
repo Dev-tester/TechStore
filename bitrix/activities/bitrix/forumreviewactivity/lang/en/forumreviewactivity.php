@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTASK_FROM_DATE_TLP'] = "from #DATE#";
 $MESS ['INTE_ADD_TASK_DATES_EMPTY'] = "not set";
 $MESS ['INTAST_T6654_LOG'] = "State: #STATUS#																										

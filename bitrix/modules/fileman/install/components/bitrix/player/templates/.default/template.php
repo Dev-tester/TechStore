@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?if ($arResult["PLAYER_TYPE"] == "flv"): // Attach Flash Player?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if ($arResult["PLAYER_TYPE"] == "flv"): // Attach Flash Player?>
 
 	<div id="<?=$arResult["ID"]?>_div" style="width: <?= $arParams['WIDTH']?>px; height: <?= $arParams['HEIGHT']?>px;"><?= GetMessage('PLAYER_LOADING')?></div>
 	<script>
@@ -10,7 +10,7 @@
 
 			jwplayer("<?=$arResult["ID"]?>_div").setup(config);
 
-			<?if (isset($arParams['WMODE']) && $arParams['WMODE'] != 'opaque'):?>
+			<?php if (isset($arParams['WMODE']) && $arParams['WMODE'] != 'opaque'):?>
 			jwplayer("<?=$arResult["ID"]?>_div").onReady(function()
 			{
 				try{
@@ -23,7 +23,7 @@
 						pEmbed.setAttribute("wmode", "<?= $arParams['WMODE']?>");
 				}catch(e){}
 			});
-			<?endif;?>
+			<?php endif;?>
 		};
 
 		if (window.jwplayer) // jw script already loaded
@@ -45,14 +45,14 @@
 		}
 	</script><noscript><?=GetMessage('ENABLE_JAVASCRIPT')?></noscript>
 
-<?elseif ($arResult["PLAYER_TYPE"] == "wmv"): // Attach WMV Player?>
+<?php elseif ($arResult["PLAYER_TYPE"] == "wmv"): // Attach WMV Player?>
 	<div id="<?=$arResult["ID"]?>"></div>
 	<script>
 		var arFiles = [
 			'<?=$this->__component->__path;?>/wmvplayer/silverlight.js',
 			'<?=$this->__component->__path;?>/wmvplayer/wmvplayer.js'
 		];
-		<?if ($arResult["USE_JS_PLAYLIST"]):?>
+		<?php if ($arResult["USE_JS_PLAYLIST"]):?>
 		var JSMESS = {
 			ClickToPLay : "<?= GetMessage('JS_CLICKTOPLAY')?>",
 			Link : "<?= GetMessage('JS_LINK')?>",
@@ -60,9 +60,9 @@
 		};
 		BX.loadCSS('<?=$templateFolder;?>/wmvplaylist.css');
 		arFiles.push('<?=$templateFolder;?>/wmvscript_playlist.js');
-		<?else:?>
+		<?php else:?>
 		arFiles.push('<?=$this->__component->__path;?>/wmvplayer/wmvscript.js');
-		<?endif;?>
+		<?php endif;?>
 
 		BX.loadScript(arFiles, function(){setTimeout(function(){
 			if (window.showWMVPlayer)
@@ -71,8 +71,8 @@
 
 	</script><noscript><?=GetMessage('ENABLE_JAVASCRIPT')?></noscript>
 
-<?elseif($arResult["PLAYER_TYPE"] == "videojs"): // Attach video.js?>
-	<?
+<?php elseif($arResult["PLAYER_TYPE"] == "videojs"): // Attach video.js?>
+	<?php 
 	if($arResult['AUDIO_FILE'] === true)
 	{
 		$tag_name = 'audio';
@@ -82,16 +82,16 @@
 		$tag_name = 'video';
 	}
 	?>
-	<<?=$tag_name;?> id="<?=$arResult["ID"];?>" class="video-js <?=$arResult['SKIN_NAME'];?> vjs-big-play-centered" width="<?=$arParams["WIDTH"];?>" height="<?=$arParams["HEIGHT"];?>"<?
+	<<?=$tag_name;?> id="<?=$arResult["ID"];?>" class="video-js <?=$arResult['SKIN_NAME'];?> vjs-big-play-centered" width="<?=$arParams["WIDTH"];?>" height="<?=$arParams["HEIGHT"];?>"<?php 
 	if($arParams["MUTE"] === "Y")
 	{
 		echo " muted";
 	}
 	?>>
-	<?if($arParams["USE_PLAYLIST"] != 'Y' && !$arResult['YOUTUBE'] && !$arResult['LAZYLOAD'])
+	<?php if($arParams["USE_PLAYLIST"] != 'Y' && !$arResult['YOUTUBE'] && !$arResult['LAZYLOAD'])
 	{?>
 		<source src="<?=$arResult['PATH'];?>" type="<?=$arResult['FILE_TYPE'];?>">
-	<?}?>
+	<?php }?>
 	</<?=$tag_name;?>><noscript><?=GetMessage('ENABLE_JAVASCRIPT')?></noscript>
 	<script>
 		BX.ready(function()
@@ -108,10 +108,10 @@
 			if(typeof videojs == 'undefined')
 			{
 				window.videojs_player_timout = true;
-				<?if(!empty($arResult['CSS_FILES']))
+				<?php if(!empty($arResult['CSS_FILES']))
 				{?>
 				BX.loadCSS(<?=\CUtil::PhpToJSObject($arResult['CSS_FILES']);?>);
-				<?}
+				<?php }
 				if(!empty($arResult['JS_FILES']))
 				{?>
 				BX.loadScript(<?=\CUtil::PhpToJSObject($arResult['JS_FILES']);?>, function()
@@ -121,7 +121,7 @@
 						init_player_<?=$arResult["ID"];?>();
 					}, 100);
 				});
-				<?}?>
+				<?php }?>
 			}
 			else
 			{
@@ -138,4 +138,4 @@
 			}
 		});
 	</script>
-<?endif;?>
+<?php endif;?>

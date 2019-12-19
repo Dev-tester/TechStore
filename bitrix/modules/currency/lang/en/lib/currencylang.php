@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_LANG_ENTITY_CURRENCY_FIELD"] = "Currency";
 $MESS["CURRENCY_LANG_ENTITY_LID_FIELD"] = "Language";
 $MESS["CURRENCY_LANG_ENTITY_FORMAT_STRING_FIELD"] = "Currency format string";

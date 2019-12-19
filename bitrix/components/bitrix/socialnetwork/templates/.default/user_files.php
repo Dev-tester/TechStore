@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $sectionTpl = (isset($_REQUEST["dialog"]) && strtoupper($_REQUEST["dialog"]) == "Y") ? "dialog" : ".default";
 $APPLICATION->IncludeComponent("bitrix:webdav.section.list", $sectionTpl, Array(
 	"OBJECT" => $arParams["OBJECT"], 

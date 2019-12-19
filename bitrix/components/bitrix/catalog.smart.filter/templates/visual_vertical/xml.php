@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 echo '<'.'?xml version="1.0" encoding="utf-8" ?'.'>';
 
 //We'll show at least one price
@@ -29,11 +29,11 @@ else
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://interactive-answers.webmaster.yandex.ru/schemas/site/0.0.1  http://interactive-answers.webmaster.yandex.ru/schemas/site-0.0.1.xsd"
 >
-	<title><?echo $arResult["SECTION_TITLE"]?></title>
-	<description><?echo $arResult["SECTION_DESCRIPTION"]?></description>
-	<rootUrl><?echo CHTTP::urn2uri("/");?></rootUrl>
+	<title><?php echo $arResult["SECTION_TITLE"]?></title>
+	<description><?php echo $arResult["SECTION_DESCRIPTION"]?></description>
+	<rootUrl><?php echo CHTTP::urn2uri("/");?></rootUrl>
 	<resource>
-		<fixed name="<?echo CHTTP::urn2uri($arResult["FORM_ACTION"]);?>"/>
+		<fixed name="<?php echo CHTTP::urn2uri($arResult["FORM_ACTION"]);?>"/>
 	</resource>
 	<filters>
 	<constant key="Y">
@@ -41,46 +41,46 @@ else
 			<setParameter name="set_filter"/>
 		</description>
 	</constant>
-	<?foreach($arResult["HIDDEN"] as $arItem):?>
-		<constant key="<?echo $arItem["HTML_VALUE"]?>">
-			<description caption="<?echo $arItem["CONTROL_ID"]?>">
-				<setParameter name="<?echo $arItem["CONTROL_NAME"]?>"/>
+	<?php foreach($arResult["HIDDEN"] as $arItem):?>
+		<constant key="<?php echo $arItem["HTML_VALUE"]?>">
+			<description caption="<?php echo $arItem["CONTROL_ID"]?>">
+				<setParameter name="<?php echo $arItem["CONTROL_NAME"]?>"/>
 			</description>
 		</constant>
-	<?endforeach;?>
-	<?foreach($arResult["ITEMS"] as $arItem):?>
-		<?if($priceCounter && isset($arItem["PRICE"])):?>
-			<?if(isset($arItem["VALUES"]["MIN"]["VALUE"]) && isset($arItem["VALUES"]["MAX"]["VALUE"])):?>
-				<?$priceCounter--;$totalCounter--;?>
-				<rangeFilter min="<?echo floor($arItem["VALUES"]["MIN"]["VALUE"])?>" max="<?echo ceil($arItem["VALUES"]["MAX"]["VALUE"])?>" step="1" <?if (count($arItem["CURRENCIES"]) == 1) echo ' unit="'.current($arItem["CURRENCIES"]).'"';?>>
-					<description caption="<?echo $arItem["NAME"]?>">
-						<setParameter name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"/>
-						<setParameter name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"/>
+	<?php endforeach;?>
+	<?php foreach($arResult["ITEMS"] as $arItem):?>
+		<?php if($priceCounter && isset($arItem["PRICE"])):?>
+			<?php if(isset($arItem["VALUES"]["MIN"]["VALUE"]) && isset($arItem["VALUES"]["MAX"]["VALUE"])):?>
+				<?php $priceCounter--;$totalCounter--;?>
+				<rangeFilter min="<?php echo floor($arItem["VALUES"]["MIN"]["VALUE"])?>" max="<?php echo ceil($arItem["VALUES"]["MAX"]["VALUE"])?>" step="1" <?php if (count($arItem["CURRENCIES"]) == 1) echo ' unit="'.current($arItem["CURRENCIES"]).'"';?>>
+					<description caption="<?php echo $arItem["NAME"]?>">
+						<setParameter name="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"/>
+						<setParameter name="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"/>
 					</description>
 				</rangeFilter>
-			<?endif;?>
-		<?elseif($rangeCounter && $arItem["PROPERTY_TYPE"] == "N"):?>
-			<?if(isset($arItem["VALUES"]["MIN"]["VALUE"]) && isset($arItem["VALUES"]["MAX"]["VALUE"])):?>
-				<?$rangeCounter--;$totalCounter--;?>
-				<rangeFilter min="<?echo floor($arItem["VALUES"]["MIN"]["VALUE"])?>" max="<?echo ceil($arItem["VALUES"]["MAX"]["VALUE"])?>" step="1" <?if (count($arItem["CURRENCIES"]) == 1) echo ' unit="'.current($arItem["CURRENCIES"]).'"';?>>
-					<description caption="<?echo $arItem["NAME"]?>">
-						<setParameter name="<?echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"/>
-						<setParameter name="<?echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"/>
+			<?php endif;?>
+		<?php elseif($rangeCounter && $arItem["PROPERTY_TYPE"] == "N"):?>
+			<?php if(isset($arItem["VALUES"]["MIN"]["VALUE"]) && isset($arItem["VALUES"]["MAX"]["VALUE"])):?>
+				<?php $rangeCounter--;$totalCounter--;?>
+				<rangeFilter min="<?php echo floor($arItem["VALUES"]["MIN"]["VALUE"])?>" max="<?php echo ceil($arItem["VALUES"]["MAX"]["VALUE"])?>" step="1" <?php if (count($arItem["CURRENCIES"]) == 1) echo ' unit="'.current($arItem["CURRENCIES"]).'"';?>>
+					<description caption="<?php echo $arItem["NAME"]?>">
+						<setParameter name="<?php echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"]?>"/>
+						<setParameter name="<?php echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"]?>"/>
 					</description>
 				</rangeFilter>
-			<?endif;?>
-		<?elseif($totalCounter && !empty($arItem["VALUES"])):;?>
-			<?$totalCounter--;?>
+			<?php endif;?>
+		<?php elseif($totalCounter && !empty($arItem["VALUES"])):;?>
+			<?php $totalCounter--;?>
 			<dropDown>
-				<description caption="<?echo $arItem["NAME"]?>">
-					<?$ar = current($arItem["VALUES"])?>
-					<setParameter name="<?echo $ar["CONTROL_NAME_ALT"]?>"/>
+				<description caption="<?php echo $arItem["NAME"]?>">
+					<?php $ar = current($arItem["VALUES"])?>
+					<setParameter name="<?php echo $ar["CONTROL_NAME_ALT"]?>"/>
 				</description>
-				<?foreach($arItem["VALUES"] as $val => $ar):?>
-					<dropDownValue key="<?echo $ar["HTML_VALUE_ALT"]?>" caption="<?echo $ar["VALUE"];?>"/>
-				<?endforeach;?>
+				<?php foreach($arItem["VALUES"] as $val => $ar):?>
+					<dropDownValue key="<?php echo $ar["HTML_VALUE_ALT"]?>" caption="<?php echo $ar["VALUE"];?>"/>
+				<?php endforeach;?>
 			</dropDown>
-		<?endif;?>
-	<?endforeach;?>
+		<?php endif;?>
+	<?php endforeach;?>
 	</filters>
 </site>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_SECTION_NAME'] = "Kernel";
 $MESS ['MAIN_MAP_NAME'] = "Site map";
 $MESS ['MAIN_MAP_TEMPLATE_NAME'] = "Site map (by default)";

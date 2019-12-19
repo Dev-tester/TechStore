@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_F_PERIOD"] = "Период";
 $MESS["SUP_PAGE_TITLE"] = "Рабочий стол ТП";
 $MESS["SUP_WRONG_DATE_FROM"] = "Введите в фильтре правильный \"Период\" \"c\"";

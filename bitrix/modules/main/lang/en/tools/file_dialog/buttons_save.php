@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_FD_LAST_MENU_ITEM'] = "(last menu item)";
 $MESS ['MAIN_FD_TITLE'] = "Page title:";
 $MESS ['MAIN_FD_ADD_2_MENU'] = "Add to menu:";

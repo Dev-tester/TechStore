@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BOT_TOKEN_ENTITY_ID_FIELD"] = "Post permission token ID";
 $MESS["BOT_TOKEN_ENTITY_TOKEN_FIELD"] = "Permission token";
 $MESS["BOT_TOKEN_ENTITY_DATE_CREATE_FIELD"] = "Created on";

@@ -1,4 +1,4 @@
-<?
+<?php 
 \Bitrix\Main\UI\Extension::load("ui.icons");
 $bodyClass = $APPLICATION->GetPageProperty('BodyClass');
 $APPLICATION->SetPageProperty('BodyClass', ($bodyClass ? $bodyClass . ' ' : '') . ' no-background no-all-paddings pagetitle-toolbar-field-view ');

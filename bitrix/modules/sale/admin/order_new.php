@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -1652,13 +1652,13 @@ if (
 					}
 				}
 
-				<?if(CSaleLocation::isLocationProEnabled()):?>
+				<?php if(CSaleLocation::isLocationProEnabled()):?>
 					el = document.querySelector('[name="ORDER_PROP_' + locationID + '"]');
 					if(!BX.type.isDomNode(el))
 						el = document.querySelector('[name="CITY_ORDER_PROP_' + locationID + '"]');
-				<?else:?>
+				<?php else:?>
 					el = document.getElementById("ORDER_PROP_" + locationID + "CITY_ORDER_PROP_"+locationID);
-				<?endif?>
+				<?php endif?>
 
 				if(el && arProps[locationID])
 				{
@@ -1668,7 +1668,7 @@ if (
 					fRecalProduct('', '', 'N', 'N', null);
 
 			</script>
-		<?
+		<?php 
 		}
 		die();
 	}
@@ -2364,12 +2364,12 @@ if ((!isset($LID) OR $LID == "") AND (defined('BX_PUBLIC_MODE') OR BX_PUBLIC_MOD
 					<div><?=GetMessage("NEWO_SELECT_SITE")?></div><br />
 					<select name="LID" onChange="fLidChange(this);">
 						<option selected="selected" value=""><?=GetMessage("NEWO_SELECT_SITE")?></option>
-						<?
+						<?php 
 						foreach ($arSitesShop as $key => $val)
 						{
 						?>
-							<option value="<?=$val["ID"]?>"><? echo $val["NAME"]." (".$val["ID"].")";?></option>
-						<?
+							<option value="<?=$val["ID"]?>"><?php  echo $val["NAME"]." (".$val["ID"].")";?></option>
+						<?php 
 						}
 						?>
 					</select>
@@ -2402,7 +2402,7 @@ if ((!isset($LID) OR $LID == "") AND (defined('BX_PUBLIC_MODE') OR BX_PUBLIC_MOD
 				</script>
 			</form>
 		</div>
-<?
+<?php 
 		die();
 	}
 	else
@@ -2615,7 +2615,7 @@ function getLocation(country_id, region_id, city_id, arParams, site_id, admin_se
 }
 </script>
 <div id="form_content">
-<?
+<?php 
 $tabControl->BeginEpilogContent();
 
 if (isset($_REQUEST["user_id"]) && intval($_REQUEST["user_id"]) > 0 && $_POST["btnTypeBuyer"] != "btnBuyerNew")
@@ -2624,27 +2624,27 @@ if (isset($_REQUEST["user_id"]) && intval($_REQUEST["user_id"]) > 0 && $_POST["b
 }
 
 ?><?=bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
+<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
 <input type="hidden" name="LID" value="<?=htmlspecialcharsbx($LID)?>">
 <input type="hidden" name="ID" value="<?=$ID?>">
 <input type="hidden" name="save_order_data" value="Y">
 <input type="hidden" name="RECALC_ORDER" id="RECALC_ORDER" value="N">
 
-<?if (isset($_REQUEST["user_id"]) && intval($_REQUEST["user_id"]) > 0):?>
+<?php if (isset($_REQUEST["user_id"]) && intval($_REQUEST["user_id"]) > 0):?>
 	<input type="hidden" name="user_id" value="<?=intval($_REQUEST["user_id"])?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 if (isset($_REQUEST["product"]) && !empty($_REQUEST["product"]) && is_array($_REQUEST["product"]))
 {
 	foreach ($_REQUEST["product"] as $val)
 	{
 		if(intval($val) > 0)
 		{
-			?><input type="hidden" name="product[]" value="<?=intval($val)?>"><?
+			?><input type="hidden" name="product[]" value="<?=intval($val)?>"><?php 
 		}
 	}
 }
-?><input type="hidden" name="CART_FIX" value="<? echo (0 < $ID ? 'Y' : 'N'); ?>" id="CART_FIX"><?
+?><input type="hidden" name="CART_FIX" value="<?php  echo (0 < $ID ? 'Y' : 'N'); ?>" id="CART_FIX"><?php 
 
 $tabControl->EndEpilogContent();
 
@@ -2713,7 +2713,7 @@ $tabControl->BeginCustomField("ORDER_STATUS", GetMessage("SOE_STATUS"), true);
 	<tr class="adm-detail-required-field">
 		<td width="40%"><?=GetMessage("SOE_STATUS")?>:</td>
 		<td width="60%">
-			<?
+			<?php 
 			$arFilter = array("LID" => LANGUAGE_ID);
 			$arGroupByTmp = false;
 
@@ -2737,7 +2737,7 @@ $tabControl->BeginCustomField("ORDER_STATUS", GetMessage("SOE_STATUS"), true);
 			{
 			?>
 				<select name="STATUS_ID" id="STATUS_ID">
-					<?
+					<?php 
 					$arFilter = array("LID" => LANG);
 					$arGroupByTmp = false;
 					if ($saleModulePermissions < "W")
@@ -2754,11 +2754,11 @@ $tabControl->BeginCustomField("ORDER_STATUS", GetMessage("SOE_STATUS"), true);
 					);
 					while($arStatusListTmp = $dbStatusListTmp->GetNext())
 					{
-						?><option value="<?echo $arStatusListTmp["ID"] ?>"<?if ($arStatusListTmp["ID"]==$str_STATUS_ID) echo " selected"?>><?echo $arStatusListTmp["NAME"] ?> [<?echo $arStatusListTmp["ID"] ?>]</option><?
+						?><option value="<?php echo $arStatusListTmp["ID"] ?>"<?php if ($arStatusListTmp["ID"]==$str_STATUS_ID) echo " selected"?>><?php echo $arStatusListTmp["NAME"] ?> [<?php echo $arStatusListTmp["ID"] ?>]</option><?php 
 					}
 					?>
 				</select>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -2770,7 +2770,7 @@ $tabControl->BeginCustomField("ORDER_STATUS", GetMessage("SOE_STATUS"), true);
 			<input type="hidden" name="user_id" id="user_id" value="<?=$str_USER_ID?>" onchange="fUserGetProfile(this);" >
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("ORDER_STATUS");
 
 if ($ID > 0)
@@ -2797,7 +2797,7 @@ if ($ID > 0)
 			<td width="60%"><?=htmlspecialcharsbx($arSitesShop[$str_LID]["NAME"])." (".$str_LID.")"?>
 			</td>
 		</tr>
-		<?
+		<?php 
 		$tabControl->EndCustomField("ORDER_SITE");
 	}
 
@@ -2808,8 +2808,8 @@ if ($ID > 0)
 			<?= GetMessage("SOE_CANCELED") ?>:
 		</td>
 		<td width="60%">
-			<input type="checkbox"<?if (!$bUserCanCancelOrder) echo " disabled";?> name="CANCELED" id="CANCELED" value="Y"<?if ($str_CANCELED == "Y") echo " checked";?>>&nbsp;<label for="CANCELED"><?=GetMessage("SO_YES")?></label>
-			<?if(strlen($str_DATE_CANCELED) > 0)
+			<input type="checkbox"<?php if (!$bUserCanCancelOrder) echo " disabled";?> name="CANCELED" id="CANCELED" value="Y"<?php if ($str_CANCELED == "Y") echo " checked";?>>&nbsp;<label for="CANCELED"><?=GetMessage("SO_YES")?></label>
+			<?php if(strlen($str_DATE_CANCELED) > 0)
 			{
 				echo "&nbsp;(".$str_DATE_CANCELED.")";
 			}
@@ -2821,10 +2821,10 @@ if ($ID > 0)
 			<?= GetMessage("SOE_CANCEL_REASON") ?>:
 		</td>
 		<td width="60%" valign="top">
-			<textarea name="REASON_CANCELED"<?if (!$bUserCanCancelOrder) echo " disabled";?> rows="2" cols="40"><?= $str_REASON_CANCELED ?></textarea>
+			<textarea name="REASON_CANCELED"<?php if (!$bUserCanCancelOrder) echo " disabled";?> rows="2" cols="40"><?= $str_REASON_CANCELED ?></textarea>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndCustomField("ORDER_CANCEL");
 }
 
@@ -2837,10 +2837,10 @@ if ($ID <= 0)
 	?>
 <tr>
 	<td width="40%" align="right">
-		<a onClick="fButtonCurrent('btnBuyerNew')" href="javascript:void(0);" id="btnBuyerNew" class="adm-btn<?if ($_REQUEST["btnTypeBuyer"] == 'btnBuyerNew' || !isset($_REQUEST["btnTypeBuyer"])) echo ' adm-btn-active';?>"><?=GetMessage("NEWO_BUYER_NEW")?></a>
+		<a onClick="fButtonCurrent('btnBuyerNew')" href="javascript:void(0);" id="btnBuyerNew" class="adm-btn<?php if ($_REQUEST["btnTypeBuyer"] == 'btnBuyerNew' || !isset($_REQUEST["btnTypeBuyer"])) echo ' adm-btn-active';?>"><?=GetMessage("NEWO_BUYER_NEW")?></a>
 	</td>
-	<td width="60%" align="left"><a onClick="fButtonCurrent('btnBuyerExist')" href="javascript:void(0);" id="btnBuyerExist" class="adm-btn<? if ($_REQUEST["btnTypeBuyer"] == 'btnBuyerExist') echo ' adm-btn-active';?>"><?=GetMessage("NEWO_BUYER_SELECT")?></a>
-		<?
+	<td width="60%" align="left"><a onClick="fButtonCurrent('btnBuyerExist')" href="javascript:void(0);" id="btnBuyerExist" class="adm-btn<?php  if ($_REQUEST["btnTypeBuyer"] == 'btnBuyerExist') echo ' adm-btn-active';?>"><?=GetMessage("NEWO_BUYER_SELECT")?></a>
+		<?php 
 		$typeBuyerTmp = "btnBuyerNew";
 		if ($bVarsFromForm && isset($_REQUEST["btnTypeBuyer"]))
 			$typeBuyerTmp = htmlspecialcharsbx($_REQUEST["btnTypeBuyer"]);
@@ -2849,7 +2849,7 @@ if ($ID <= 0)
 		<input type="hidden" name="btnTypeBuyer" id="btnTypeBuyer" value="<?=$typeBuyerTmp?>" />
 	</td>
 </tr>
-<?
+<?php 
 }
 ?>
 <tr>
@@ -2858,7 +2858,7 @@ if ($ID <= 0)
 		<script>
 			function fChangeLocationCity(item, info, townPropId)
 			{
-				<?if(CSaleLocation::isLocationProEnabled()):?>
+				<?php if(CSaleLocation::isLocationProEnabled()):?>
 				BX(function(){
 
 					/*
@@ -2907,10 +2907,10 @@ if ($ID <= 0)
 					BX('CART_FIX').value= 'N';
 					fRecalProduct('', '', 'N', 'N', null);
 				});
-				<?else:?>
+				<?php else:?>
 					BX('CART_FIX').value= 'N';
 					fRecalProduct('', '', 'N', 'N', null);
-				<?endif?>
+				<?php endif?>
 			}
 		</script>
 
@@ -2969,7 +2969,7 @@ if ($ID <= 0)
 				}
 
 				if (el == 'btnBuyerExist')
-					window.open('/bitrix/admin/user_search.php?lang=<? echo LANGUAGE_ID; ?>&FN=order_edit_info_form&FC=user_id', '', 'scrollbars=yes,resizable=yes,width=840,height=500,top='+Math.floor((screen.height - 560)/2-14)+',left='+Math.floor((screen.width - 840)/2-5));
+					window.open('/bitrix/admin/user_search.php?lang=<?php  echo LANGUAGE_ID; ?>&FN=order_edit_info_form&FC=user_id', '', 'scrollbars=yes,resizable=yes,width=840,height=500,top='+Math.floor((screen.height - 560)/2-14)+',left='+Math.floor((screen.width - 840)/2-5));
 			}
 		}
 
@@ -3005,9 +3005,9 @@ if ($ID <= 0)
 				insertHtmlResult(document.getElementById("buyer_type_change"), rss['buyertype']);
 				insertHtmlResult(document.getElementById("buyer_type_delivery"), rss['buyerdelivery']);
 
-				<?if(CSaleLocation::isLocationProEnabled()):?>
+				<?php if(CSaleLocation::isLocationProEnabled()):?>
 					initZipHandling();
-				<?endif?>
+				<?php endif?>
 
 				//document.getElementById("buyer_type_change").innerHTML = rss["buyertype"];
 				//document.getElementById("buyer_type_delivery").innerHTML = rss["buyerdelivery"];
@@ -3046,14 +3046,14 @@ if ($ID <= 0)
 			{
 				BX('CART_FIX').value= 'N';
 
-				<?if(CSaleLocation::isLocationProEnabled()):?>
+				<?php if(CSaleLocation::isLocationProEnabled()):?>
 					window.jamLocationCallbackFire = true;
 					insertHtmlResult(document.querySelector('.location-selector-wrapper.prop-'+parseInt(res["prop_id"])), res["location"]);
 					initZipHandling();
 					window.jamLocationCallbackFire = false;
-				<?else:?>
+				<?php else:?>
 					document.getElementById("LOCATION_CITY_ORDER_PROP_" + res["prop_id"]).innerHTML = res["location"];
-				<?endif?>
+				<?php endif?>
 				fRecalProduct('', '', 'N', 'N', null);
 			}
 		}
@@ -3073,9 +3073,9 @@ if ($ID <= 0)
 				postData = {
 					'sessid': BX.bitrix_sessid(),
 					'ORDER_AJAX': 'Y',
-					'id': <? echo $ID; ?>,
-					'LID': '<? echo CUtil::JSEscape($LID); ?>',
-					'currency': '<? echo $str_CURRENCY; ?>',
+					'id': <?php  echo $ID; ?>,
+					'LID': '<?php  echo CUtil::JSEscape($LID); ?>',
+					'currency': '<?php  echo $str_CURRENCY; ?>',
 					'userId': userId,
 					'buyerType': buyerType,
 					'oldUserId': (!!oldUserId ? oldUserId.value : 0)
@@ -3164,7 +3164,7 @@ if ($ID <= 0)
 		</script>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField("NEWO_BUYER");
 
 $tabControl->AddSection("BUYER_DELIVERY", GetMessage("SOE_DELIVERY"));
@@ -3502,7 +3502,7 @@ $tabControl->BeginCustomField("DELIVERY_SERVICE", GetMessage("NEWO_DELIVERY_SERV
 			<?=GetMessage("SOE_DELIVERY_PRICE")?>:
 		</td>
 		<td class="adm-detail-content-cell-r">
-			<?
+			<?php 
 				$deliveryPrice = roundEx($str_PRICE_DELIVERY, SALE_VALUE_PRECISION);
 
 				if ($bVarsFromForm)
@@ -3527,7 +3527,7 @@ $tabControl->BeginCustomField("DELIVERY_SERVICE", GetMessage("NEWO_DELIVERY_SERV
 			</script>
 		</td>
 	</tr>
-	<?
+	<?php 
 	if ($bVarsFromForm)
 		$priceDeliveryDiff = $PRICE_DELIVERY_DIFF;
 	else
@@ -3544,7 +3544,7 @@ $tabControl->BeginCustomField("DELIVERY_SERVICE", GetMessage("NEWO_DELIVERY_SERV
 		</td>
 		<input type="hidden" value="<?=$priceDeliveryDiff?>" name="PRICE_DELIVERY_DIFF" id="PRICE_DELIVERY_DIFF" />
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("DELIVERY_SERVICE");
 
 if($ID > 0)
@@ -3556,8 +3556,8 @@ if($ID > 0)
 			<?= GetMessage("SOE_DELIVERY_ALLOWED") ?>:
 		</td>
 		<td width="60%">
-			<input type="checkbox" name="ALLOW_DELIVERY" id="ALLOW_DELIVERY"<?if (!$bUserCanDeliverOrder) echo " disabled";?> value="Y"<?if ($str_ALLOW_DELIVERY == "Y") echo " checked";?>>&nbsp;<label for="ALLOW_DELIVERY"><?=GetMessage("SO_YES")?></label>
-			<?if(strlen($str_DATE_ALLOW_DELIVERY) > 0)
+			<input type="checkbox" name="ALLOW_DELIVERY" id="ALLOW_DELIVERY"<?php if (!$bUserCanDeliverOrder) echo " disabled";?> value="Y"<?php if ($str_ALLOW_DELIVERY == "Y") echo " checked";?>>&nbsp;<label for="ALLOW_DELIVERY"><?=GetMessage("SO_YES")?></label>
+			<?php if(strlen($str_DATE_ALLOW_DELIVERY) > 0)
 			{
 				echo "&nbsp;(".$str_DATE_ALLOW_DELIVERY.")";
 			}
@@ -3580,7 +3580,7 @@ if($ID > 0)
 			<?= CalendarDate("DELIVERY_DOC_DATE", $str_DELIVERY_DOC_DATE, "order_edit_info_form", "10", 'class="typeinput"'); ?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndCustomField("ORDER_ALLOW_DELIVERY");
 }
 $tabControl->BeginCustomField("ORDER_TRACKING_NUMBER", GetMessage("SOE_TRACKING_NUMBER"));
@@ -3593,7 +3593,7 @@ $tabControl->BeginCustomField("ORDER_TRACKING_NUMBER", GetMessage("SOE_TRACKING_
 		<input type="text" name="TRACKING_NUMBER" id="TRACKING_NUMBER" size="30" maxlength="250" value="<?=$str_TRACKING_NUMBER;?>" >
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField("ORDER_TRACKING_NUMBER");
 
 $tabControl->AddSection("BUYER_PAYMENT", GetMessage("SOE_PAYMENT"));
@@ -3613,7 +3613,7 @@ $tabControl->BeginCustomField("BUYER_PAY_SYSTEM", GetMessage("SOE_PAY_SYSTEM"), 
 		</script>
 	</td>
 </tr>
-<?
+<?php 
 if ($bVarsFromForm)
 {
 	$pricePay = $PAY_SYSTEM_PRICE;
@@ -3661,7 +3661,7 @@ $hidden = ((float)preg_replace("/[^0-9]/", "", $pricePay) > 0 ?'' : 'style="disp
 	</td>
 	<input type="hidden" id="PAY_SYSTEM_PRICE" name="PAY_SYSTEM_PRICE" value="<?=$pricePay?>">
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField("BUYER_PAY_SYSTEM");
 
 if ($ID > 0)
@@ -3673,18 +3673,18 @@ if ($ID > 0)
 			<?= GetMessage("SOE_ORDER_PAID") ?>:
 		</td>
 		<td width="60%">
-			<input type="checkbox"<?if (!$bUserCanPayOrder) echo " disabled";?> name="PAYED" id="PAYED" value="Y"<?if ($str_PAYED == "Y") echo " checked";?> onchange="BX.show(BX('ORDER_PAYED_MORE'))">&nbsp;<label for="PAYED"><?=GetMessage("SO_YES")?></label>
-			<?if(strlen($str_DATE_PAYED) > 0)
+			<input type="checkbox"<?php if (!$bUserCanPayOrder) echo " disabled";?> name="PAYED" id="PAYED" value="Y"<?php if ($str_PAYED == "Y") echo " checked";?> onchange="BX.show(BX('ORDER_PAYED_MORE'))">&nbsp;<label for="PAYED"><?=GetMessage("SO_YES")?></label>
+			<?php if(strlen($str_DATE_PAYED) > 0)
 			{
 				echo "&nbsp;(".$str_DATE_PAYED.")";
 			}
-			?><div id="ORDER_PAYED_MORE" style="display:none;"><?
+			?><div id="ORDER_PAYED_MORE" style="display:none;"><?php 
 			$arPayDefault = fGetPayFromAccount($str_USER_ID, $str_CURRENCY);
 			if($str_PAYED == "Y")
 			{
 				?>
 				<input type="checkbox" name="PAY_FROM_ACCOUNT_BACK" id="PAY_FROM_ACCOUNT_BACK" value="Y"/>&nbsp;<label for="PAY_FROM_ACCOUNT_BACK"><?=GetMessage('SOD_PAY_ACCOUNT_BACK')?></label>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -3694,9 +3694,9 @@ if ($ID > 0)
 				endif;
 				?>
 				<span id="buyerCanBuy" style="display:<?=$buyerCanPay?>">
-					<input type="checkbox" name="PAY_CURRENT_ACCOUNT" id="PAY_CURRENT_ACCOUNT" value="Y" <?if ($PAY_CURRENT_ACCOUNT == "Y") echo " checked";?><?if (!$bUserCanPayOrder) echo " disabled";?>/>&nbsp;<label for="PAY_CURRENT_ACCOUNT"><?=GetMessage("NEWO_CURRENT_ACCOUNT")?> (<span id="PAY_CURRENT_ACCOUNT_DESC"><?=$arPayDefault["PAY_MESSAGE"]?></span>)</label>
+					<input type="checkbox" name="PAY_CURRENT_ACCOUNT" id="PAY_CURRENT_ACCOUNT" value="Y" <?php if ($PAY_CURRENT_ACCOUNT == "Y") echo " checked";?><?php if (!$bUserCanPayOrder) echo " disabled";?>/>&nbsp;<label for="PAY_CURRENT_ACCOUNT"><?=GetMessage("NEWO_CURRENT_ACCOUNT")?> (<span id="PAY_CURRENT_ACCOUNT_DESC"><?=$arPayDefault["PAY_MESSAGE"]?></span>)</label>
 				</span>
-				<?
+				<?php 
 			}
 			?>
 			</div>
@@ -3718,7 +3718,7 @@ if ($ID > 0)
 			<?= CalendarDate("PAY_VOUCHER_DATE", $str_PAY_VOUCHER_DATE, "order_edit_info_form", "10", 'class="typeinput"'.((!$bUserCanPayOrder) ? " disabled" : "")); ?>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndCustomField("ORDER_PAYED");
 }
 
@@ -3754,7 +3754,7 @@ $tabControl->BeginCustomField("RELATED_PROPS_DATA", GetMessage("NEW_ORDER_RELATE
 		<?=$propsHTML?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField("RELATED_PROPS_DATA");
 
 $tabControl->AddSection("NEWO_COMMENTS", GetMessage("NEWO_COMMENTS"));
@@ -3766,14 +3766,14 @@ $tabControl->BeginCustomField("NEWO_COMMENTS_A", GetMessage("NEWO_COMMENTS"), tr
 		<textarea name="COMMENTS" cols="40" rows="5"><?=htmlspecialcharsbx($str_COMMENTS)?></textarea>
 	</td>
 </tr>
-<?if (strlen($str_ADDITIONAL_INFO) > 0):?>
+<?php if (strlen($str_ADDITIONAL_INFO) > 0):?>
 <tr>
 	<td width="40%" valign="top"><?=GetMessage("SOE_ADDITIONAL")?>:</td>
 	<td width="60%">
 		<?=htmlspecialcharsbx($str_ADDITIONAL_INFO);?>
 	</td>
 </tr>
-<?
+<?php 
 endif;
 $tabControl->EndCustomField("NEWO_COMMENTS_A");
 
@@ -3789,8 +3789,8 @@ if($ID > 0)
 			<?= GetMessage("SOE_MARKED") ?>:
 		</td>
 		<td width="60%">
-			<input type="checkbox"<?if (!$bUserCanMarkOrder) echo " disabled";?> onclick="fShowReasonMarkedBlock(this.checked);" name="MARKED" id="MARKED" value="Y"<?if ($str_MARKED == "Y") echo " checked";?>>&nbsp;<label for="MARKED"><?=GetMessage("SO_YES");?></label>
-			<?if(strlen($str_DATE_MARKED) > 0 && $str_MARKED == "Y")
+			<input type="checkbox"<?php if (!$bUserCanMarkOrder) echo " disabled";?> onclick="fShowReasonMarkedBlock(this.checked);" name="MARKED" id="MARKED" value="Y"<?php if ($str_MARKED == "Y") echo " checked";?>>&nbsp;<label for="MARKED"><?=GetMessage("SO_YES");?></label>
+			<?php if(strlen($str_DATE_MARKED) > 0 && $str_MARKED == "Y")
 			{
 				echo "&nbsp;(".$str_DATE_MARKED.")";
 			}
@@ -3802,7 +3802,7 @@ if($ID > 0)
 			<?= GetMessage("SOE_MARK_REASON") ?>:
 		</td>
 		<td width="60%" valign="top">
-			<textarea id="REASON_MARKED" name="REASON_MARKED"<?if (!$bUserCanMarkOrder) echo " disabled";?> rows="5" cols="40"><?= $str_REASON_MARKED ?></textarea>
+			<textarea id="REASON_MARKED" name="REASON_MARKED"<?php if (!$bUserCanMarkOrder) echo " disabled";?> rows="5" cols="40"><?= $str_REASON_MARKED ?></textarea>
 		</td>
 	</tr>
 	<script type="text/javascript">
@@ -3822,7 +3822,7 @@ if($ID > 0)
 			}
 		}
 	</script>
-	<?
+	<?php 
 	$tabControl->EndCustomField("ORDER_MARK");
 
 	$tabControl->AddSection("ORDER_DEDUCTION", GetMessage("SOE_DEDUCTION"));
@@ -3831,7 +3831,7 @@ if($ID > 0)
 	?>
 	<tr>
 		<td width="40%">
-			<?
+			<?php 
 			if ($str_DEDUCTED == "Y")
 				echo GetMessage("SOE_DEDUCTED");
 			else
@@ -3839,28 +3839,28 @@ if($ID > 0)
 			?>
 		</td>
 		<td width="60%">
-			<input name="DEDUCTED" id="DEDUCTED" type="checkbox" <?if(!$bUserCanDeductOrder)echo"disabled";?> value="<?=($str_DEDUCTED == "Y") ? "Y" : "N"?>" <?if($str_DEDUCTED == "Y")echo"checked";?> onclick="toggleStoresView(this, <?=($useStores) ? "true" : "false"?>)">
+			<input name="DEDUCTED" id="DEDUCTED" type="checkbox" <?php if(!$bUserCanDeductOrder)echo"disabled";?> value="<?=($str_DEDUCTED == "Y") ? "Y" : "N"?>" <?php if($str_DEDUCTED == "Y")echo"checked";?> onclick="toggleStoresView(this, <?=($useStores) ? "true" : "false"?>)">
 			<input name="ORDER_DEDUCTED" id="ORDER_DEDUCTED" type="hidden" value="<?=($str_DEDUCTED == "Y") ? "Y" : "N"?>">
 			<input name="HAS_PRODUCTS_WITH_BARCODE_MULTI" id="HAS_PRODUCTS_WITH_BARCODE_MULTI" type="hidden" value="<?=($hasProductsWithMultipleBarcodes) ? "Y" : "N"?>" />
 			<input name="HAS_SAVED_BARCODES" id="HAS_SAVED_BARCODES" type="hidden" value="<?=($hasSavedBarcodes) ? "Y" : "N"?>" />
 			<input name="storeCount" id="storeCount" type="hidden" value="<?=$storeCount?>" />
 			<label for="DEDUCTED"><?=GetMessage("SO_YES")?></label>
-			<?
+			<?php 
 			if (strlen($str_DATE_DEDUCTED) > 0):
 				echo "&nbsp;(".$str_DATE_DEDUCTED.")";
 			endif;
 			?>
 		</td>
 	</tr>
-	<tr id="reason_undo_deducted_area" style="display:<? echo ($str_DEDUCTED == "N" && strlen($str_REASON_UNDO_DEDUCTED) > 0 ? 'table-row;' : 'none;'); ?>">
+	<tr id="reason_undo_deducted_area" style="display:<?php  echo ($str_DEDUCTED == "N" && strlen($str_REASON_UNDO_DEDUCTED) > 0 ? 'table-row;' : 'none;'); ?>">
 		<td width="40%" valign="top">
 			<?= GetMessage("SOE_UNDO_DEDUCT_REASON") ?>:
 		</td>
 		<td width="60%" valign="top">
-			<textarea name="REASON_UNDO_DEDUCTED" <?if (!$bUserCanDeductOrder) echo " disabled"?> rows="2" cols="40"><?= $str_REASON_UNDO_DEDUCTED ?></textarea>
+			<textarea name="REASON_UNDO_DEDUCTED" <?php if (!$bUserCanDeductOrder) echo " disabled"?> rows="2" cols="40"><?= $str_REASON_UNDO_DEDUCTED ?></textarea>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->EndCustomField("ORDER_DEDUCT");
 }
 
@@ -3880,7 +3880,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 </tr>
 <tr>
 	<td colspan="2" id="ID_BASKET_CONTAINER">
-		<?
+		<?php 
 		if(
 			$bUseIblock
 			&& (
@@ -3927,7 +3927,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 			var arProductEditCountProps = [];
 			var countProduct = 0;
 		</script>
-		<?
+		<?php 
 		$arCurFormat = CCurrencyLang::GetCurrencyFormat($str_CURRENCY);
 		$CURRENCY_FORMAT = trim(str_replace("#", '', $arCurFormat["FORMAT_STRING"]));
 		$ORDER_TOTAL_PRICE = 0;
@@ -4183,16 +4183,16 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 		<!-- table header with stores columns -->
 		<tr id="heading_with_stores" class="heading" <?=($useStores && ($str_DEDUCTED == "Y" || $hasSavedBarcodes)) ? "style=\"display:table-row\"" : "style=\"display:none\""?>>
 			<td id="table_settings" onclick="showColumnsForm();"></td>
-			<? getColumnsHeaders($arUserColumns, "edit", true);?>
+			<?php  getColumnsHeaders($arUserColumns, "edit", true);?>
 		</tr>
 
 		<!-- table header WITHOUT stores columns. Only one is shown at the time -->
 		<tr id="heading_without_stores" class="heading" <?=($useStores && ($str_DEDUCTED == "Y" || $hasSavedBarcodes)) ? "style=\"display:none\"" : "style=\"display:table-row\""?>>
 			<td id="table_settings" onclick="showColumnsForm();"></td>
-			<? getColumnsHeaders($arUserColumns, "edit", false);?>
+			<?php  getColumnsHeaders($arUserColumns, "edit", false);?>
 		</tr>
 
-		<?
+		<?php 
 		$productNumber = 0;
 
 		foreach ($arBasketItem as $val)
@@ -4274,7 +4274,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 		<tr id="BASKET_TABLE_ROW_<?=$val["ID"]?>" <?=$hidden?> <?=$setItemClass?> onmouseover="fMouseOver(this);" onmouseout="fMouseOut(this);">
 
 			<td class="action">
-				<?
+				<?php 
 				if (!CSaleBasketHelper::isSetItem($val)):
 					$arActions = array();
 
@@ -4286,12 +4286,12 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					$productNumber++;
 				?>
 					<div class="adm-list-table-popup" onClick="this.blur();BX.adminList.ShowMenu(this, <?=CUtil::PhpToJsObject($arActions)?>);"></div>
-				<?
+				<?php 
 				endif;
 				?>
 			</td>
 
-			<?
+			<?php 
 			$arShownColumns = array();
 
 			foreach ($arUserColumns as $columnCode => $columnName)
@@ -4305,7 +4305,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					<td class="COLUMN_NUMBER" <?=$hidden?>>
 						<div><?=(!CSaleBasketHelper::isSetItem($val)) ? $productNumber : ""?></div>
 					</td>
-					<?
+					<?php 
 				}
 
 				if (($columnCode == "COLUMN_IMAGE") || (!array_key_exists("COLUMN_IMAGE", $arUserColumns) && !in_array("COLUMN_IMAGE", $arShownColumns)))
@@ -4314,13 +4314,13 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					$arShownColumns[] = "COLUMN_IMAGE";
 					?>
 					<td class="COLUMN_IMAGE" <?=$hidden?>>
-						<?if (is_array($val["PICTURE"])):?>
+						<?php if (is_array($val["PICTURE"])):?>
 							<img src="<?=$val["PICTURE"]["src"]?>" alt="" border="0" />
-						<?else:?>
+						<?php else:?>
 							<div class="no_foto"><?=GetMessage('NO_FOTO');?></div>
-						<?endif?>
+						<?php endif?>
 					</td>
-					<?
+					<?php 
 				}
 
 				if ($columnCode == "COLUMN_NAME")
@@ -4328,34 +4328,34 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					?>
 					<td class="COLUMN_NAME">
 						<div id="product_name_<?=$val["ID"]?>">
-							<?
+							<?php 
 							$linkClass = (CSaleBasketHelper::isSetItem($val)) ? "set-item-link-name" : "";
 							if (strlen($val["EDIT_PAGE_URL"]) > 0):?>
-								<a href="<?echo $val["EDIT_PAGE_URL"]?>" target="_blank" class="name-link <?=$linkClass?>">
-							<?
+								<a href="<?php echo $val["EDIT_PAGE_URL"]?>" target="_blank" class="name-link <?=$linkClass?>">
+							<?php 
 							endif;
 								echo trim($val["NAME"]);
 							if (strlen($val["EDIT_PAGE_URL"]) > 0):
 							?>
 								</a>
-							<?
+							<?php 
 							endif;
 							if (CSaleBasketHelper::isSetParent($val)):
 							?>
 								<div class="set-link-block">
 									<a class="dashed-link show-set-link" href="javascript:void(0);" id="set_toggle_link_<?=$val["SET_PARENT_ID"]?>" onclick="fToggleSetItems('<?=$val["SET_PARENT_ID"]?>');"><?=GetMessage("SOE_SHOW_SET")?></a>
 								</div>
-							<?
+							<?php 
 							endif;
 							?>
 						</div>
 
-						<?if (!isset($val["NEW_PRODUCT"])):?>
+						<?php if (!isset($val["NEW_PRODUCT"])):?>
 							<input type="hidden" name="PRODUCT[<?=$val["ID"]?>][ID]"                 id="BASKET_<?=$val["ID"]?>" value="<?=$val["ID"]?>" />
 							<input type="hidden" name="PRODUCT[<?=$val["ID"]?>][BASKET_ID]"          id="BASKET_<?=$val["ID"]?>" value="<?=$val["ID"]?>" />
-						<?else:?>
+						<?php else:?>
 							<input type="hidden" name="PRODUCT[<?=$val["ID"]?>][NEW_PRODUCT]"        id="PRODUCT[<?=$val["ID"]?>][NEW_PRODUCT]" value="NEW_PRODUCT" />
-						<?endif;?>
+						<?php endif;?>
 
 						<input type="hidden" name="PRODUCT[<?=$val["ID"]?>][CURRENCY]"               id="CURRENCY_<?=$val["ID"]?>" value="<?=$val["CURRENCY"]?>" />
 						<input type="hidden" name="PRODUCT[<?=$val["ID"]?>][CALLBACK_FUNC]"          id="CALLBACK_FUNC_<?=$val["ID"]?>" value="<?=$val["CALLBACK_FUNC"]?>" />
@@ -4384,12 +4384,12 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 
 						<span id="product_props_<?=$val["ID"]?>"><?=$propsProd?></span>
 						<script type="text/javascript">
-							arProduct[<? echo $val["ID"]; ?>] = '<? echo $val["PRODUCT_ID"]; ?>';
-							arProductEditCountProps[<? echo $val["ID"]; ?>] = <? echo $countProp; ?>;
+							arProduct[<?php  echo $val["ID"]; ?>] = '<?php  echo $val["PRODUCT_ID"]; ?>';
+							arProductEditCountProps[<?php  echo $val["ID"]; ?>] = <?php  echo $countProp; ?>;
 							countProduct = countProduct + 1;
 						</script>
 					</td>
-					<?
+					<?php 
 				}
 
 				if ($columnCode == "COLUMN_QUANTITY") // including store fields for deducting (hidden by default)
@@ -4399,7 +4399,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 						<div class="quantity-block">
 							<div class="quantity-block-wrap">
 								<div class="quantity-wrap">
-									<?
+									<?php 
 									if (!CSaleBasketHelper::isSetItem($val)):
 									?>
 										<input
@@ -4412,16 +4412,16 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 											maxlength="7"
 											onchange="fRecalProduct(<?=$val["ID"]?>, '', 'N', 'N', null);"
 										>
-									<?
+									<?php 
 									else:
 									?>
 										<span id="set_item_quantity_<?=$val["ID"]?>"><?=$val["QUANTITY"]?></span>&nbsp;<span><?=$val["MEASURE_TEXT"]?></span>
 										<input type="hidden" name="PRODUCT[<?=$val["ID"]?>][QUANTITY]" id="PRODUCT[<?=$val["ID"]?>][QUANTITY]" value="<?=$val["QUANTITY"]?>" >
-									<?
+									<?php 
 									endif;
 									?>
 								</div>
-								<?
+								<?php 
 								$left = -3;
 								if (isset($val["MEASURE_RATIO"]) && $val["MEASURE_RATIO"] != 1 && !CSaleBasketHelper::isInSet($val)):
 									$left = 10;
@@ -4430,14 +4430,14 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 										<a href="javascript:void(0)" title="<?=GetMessage("NEWO_UP_RATIO", array("#RATIO#" => $val["MEASURE_RATIO"]));?>" class="plus" onclick="fChangeQuantityValue(<?=$val["ID"]?>, 'up', <?=floatval($val["MEASURE_RATIO"])?>);"></a>
 										<a href="javascript:void(0)" title="<?=GetMessage("NEWO_DOWN_RATIO", array("#RATIO#" => $val["MEASURE_RATIO"]));?>" class="minus" onclick="fChangeQuantityValue(<?=$val["ID"]?>, 'down', <?=floatval($val["MEASURE_RATIO"])?>);"></a>
 									</div>
-								<?
+								<?php 
 								endif;
 								if (isset($val["MEASURE_TEXT"]) && !CSaleBasketHelper::isSetItem($val)):
 								?>
 									<div class="measure-wrap" style="left: <?=$left?>px">
 										<span class="measure-text"><?=$val["MEASURE_TEXT"];?></span>
 									</div>
-								<?
+								<?php 
 								endif;
 								?>
 							</div>
@@ -4446,10 +4446,10 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					</td>
 
 					<!-- store selector -->
-					<td id="td_store_block_<?=$val["ID"]?>" class="store" style="<? echo (($useStores && ($str_DEDUCTED == "Y" || $hasSavedBarcodes)) ? '' : 'display:none'); ?>;">
+					<td id="td_store_block_<?=$val["ID"]?>" class="store" style="<?php  echo (($useStores && ($str_DEDUCTED == "Y" || $hasSavedBarcodes)) ? '' : 'display:none'); ?>;">
 						<div id="store_block_<?=$val["ID"]?>" style="display:<?=((!CSaleBasketHelper::isSetParent($val)) ? '' : 'none')?>;">
 							<div id="store_select_block_<?=$val["ID"]?>">
-								<?
+								<?php 
 								$hasValidStores = true;
 								if (is_array($arBasketItem[$val["ID"]]["STORES"]) && !empty($arBasketItem[$val["ID"]]["STORES"])) //is too strong?
 								{
@@ -4480,15 +4480,15 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 												?>
 												<div id="store_select_wrapper_<?=$val["ID"]?>_<?=$storeId?>" class="store_select_wrapper <?=($ind>0) ? "store_row_element" : ""?>">
 													<div id="store_select_delete_<?=$val["ID"]?>_<?=$storeId?>" class="store_select_delete <?=($ind>0) ? "store_row_element" : ""?>"></div>
-														<select id="<? echo $strSelectID; ?>" name="<? echo $strSelectID; ?>" class="store_first_row_element" onchange="fChangeStoreSelector(this, <?=$val["ID"]?>, <?=$storeId?>, <?=CUtil::PhpToJSObject($arBasketItem[$val["ID"]]["STORES"])?>)" class="<?=($ind>0) ? "store_row_element" : ""?>">
-														<?
+														<select id="<?php  echo $strSelectID; ?>" name="<?php  echo $strSelectID; ?>" class="store_first_row_element" onchange="fChangeStoreSelector(this, <?=$val["ID"]?>, <?=$storeId?>, <?=CUtil::PhpToJSObject($arBasketItem[$val["ID"]]["STORES"])?>)" class="<?=($ind>0) ? "store_row_element" : ""?>">
+														<?php 
 														foreach($arBasketItem[$val["ID"]]["STORES"] as &$arStore2)
 														{
 														?>
-															<option value="<?=$arStore2["STORE_ID"]?>" <? if ($arStore["STORE_ID"] == $arStore2["STORE_ID"]) echo 'selected'; ?>>
-															<? echo htmlspecialcharsex($arStore2["STORE_NAME"])." [".$arStore2["STORE_ID"]."]"; ?>
+															<option value="<?=$arStore2["STORE_ID"]?>" <?php  if ($arStore["STORE_ID"] == $arStore2["STORE_ID"]) echo 'selected'; ?>>
+															<?php  echo htmlspecialcharsex($arStore2["STORE_NAME"])." [".$arStore2["STORE_ID"]."]"; ?>
 															</option>
-														<?
+														<?php 
 														}
 														if (isset($arStore2))
 															unset($arStore2);
@@ -4498,11 +4498,11 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 													<input name="PRODUCT[<?=$val["ID"]?>][STORES][<?=$storeId?>][AMOUNT]" id="PRODUCT[<?=$val["ID"]?>][STORES][<?=$storeId?>][AMOUNT]" type="hidden" value="<?=$arStore["AMOUNT"]?>">
 												</div>
 												<script type="text/javascript"> //store selector change
-													BX.bind(BX('<? echo $strSelectID; ?>'), 'change', function() {
-																		return fChangeStoreSelector(this, '<? echo $val["ID"]; ?>', '<? echo $ind; ?>', '<? echo CUtil::JSEscape(CUtil::PHPToJsObject($arBasketItem[$val["ID"]]["STORES"])); ?>');
+													BX.bind(BX('<?php  echo $strSelectID; ?>'), 'change', function() {
+																		return fChangeStoreSelector(this, '<?php  echo $val["ID"]; ?>', '<?php  echo $ind; ?>', '<?php  echo CUtil::JSEscape(CUtil::PHPToJsObject($arBasketItem[$val["ID"]]["STORES"])); ?>');
 													});
 												</script>
-												<?
+												<?php 
 												if ($ind > 0)
 												{
 												?>
@@ -4520,7 +4520,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 														}
 													);
 												</script>
-												<?
+												<?php 
 												}
 											$ind++;
 											} //quantity is defined
@@ -4530,8 +4530,8 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 										if ($intTmpCount > 1)
 										{
 											?>
-											<a id="add_store_link_<?=$val["ID"]?>" <?=($intTmpCount > $ind) ? '' : 'style="display:none;"' ?> class="add_store" href="javascript:void(0);" onclick="fAddStore(<?=$val["ID"]?>, <?=CUtil::PhpToJSObject($arBasketItem[$val["ID"]]["STORES"])?>, <? echo ($intTmpCount - 1); ?>, <?=($val["BARCODE_MULTI"] == "Y")? "true" : "false"?>);"><span></span><?=GetMessage("SALE_F_ADD_STORE")?></a>
-											<?
+											<a id="add_store_link_<?=$val["ID"]?>" <?=($intTmpCount > $ind) ? '' : 'style="display:none;"' ?> class="add_store" href="javascript:void(0);" onclick="fAddStore(<?=$val["ID"]?>, <?=CUtil::PhpToJSObject($arBasketItem[$val["ID"]]["STORES"])?>, <?php  echo ($intTmpCount - 1); ?>, <?=($val["BARCODE_MULTI"] == "Y")? "true" : "false"?>);"><span></span><?=GetMessage("SALE_F_ADD_STORE")?></a>
+											<?php 
 										}
 									}
 									else
@@ -4540,14 +4540,14 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 										<div id="store_select_wrapper_<?=$val["ID"]?>_0" class="store_select_wrapper">
 											<div id="store_select_delete_<?=$val["ID"]?>_0" class="store_select_delete"></div>
 											<select id="PRODUCT[<?=$val["ID"]?>][STORES][0][STORE_ID]" name="PRODUCT[<?=$val["ID"]?>][STORES][0][STORE_ID]" class="store_first_row_element" onchange="fChangeStoreSelector(this, <?=$val["ID"]?>, 0, <?=CUtil::PhpToJSObject($arBasketItem[$val["ID"]]["STORES"])?>)">
-											<?
+											<?php 
 											if (is_array($arBasketItem[$val["ID"]]["STORES"]))
 											{
 												foreach($arBasketItem[$val["ID"]]["STORES"] as &$arStore)
 												{
 													?>
 													<option value="<?=$arStore["STORE_ID"]?>"><?=htmlspecialcharsex($arStore["STORE_NAME"])." [".$arStore["STORE_ID"]."]"?></option>
-													<?
+													<?php 
 												}
 												if (isset($arStore))
 													unset($arStore);
@@ -4557,22 +4557,22 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 
 											<input name="PRODUCT[<?=$val["ID"]?>][STORES][0][STORE_NAME]" id="PRODUCT[<?=$val["ID"]?>][STORES][0][STORE_NAME]" type="hidden" value="<?=$arBasketItem[$val["ID"]]["STORES"][0]["STORE_NAME"]?>">
 											<input name="PRODUCT[<?=$val["ID"]?>][STORES][0][AMOUNT]" id="PRODUCT[<?=$val["ID"]?>][STORES][0][AMOUNT]" type="hidden" value="<?=$arBasketItem[$val["ID"]]["STORES"][0]["AMOUNT"]?>">
-											<?
+											<?php 
 											$intTmpCount = count($arBasketItem[$val["ID"]]["STORES"]);
 											if ($intTmpCount > 1)
 											{
 												?>
-												<a id="add_store_link_<?=$val["ID"]?>" class="add_store" href="javascript:void(0);" onclick="fAddStore(<?=$val["ID"]?>, <?=CUtil::PhpToJSObject($arBasketItem[$val["ID"]]["STORES"])?>, <? echo ($intTmpCount - 1); ?>, <?=($val["BARCODE_MULTI"] == "Y")? "true" : "false"?>);"><span></span><?=GetMessage("SALE_F_ADD_STORE")?></a>
-												<?
+												<a id="add_store_link_<?=$val["ID"]?>" class="add_store" href="javascript:void(0);" onclick="fAddStore(<?=$val["ID"]?>, <?=CUtil::PhpToJSObject($arBasketItem[$val["ID"]]["STORES"])?>, <?php  echo ($intTmpCount - 1); ?>, <?=($val["BARCODE_MULTI"] == "Y")? "true" : "false"?>);"><span></span><?=GetMessage("SALE_F_ADD_STORE")?></a>
+												<?php 
 											}
 											?>
 										</div>
-									<?
+									<?php 
 									}
 								}
 								else //no valid stores to show
 								{
-									?><div class="store_product_no_stores"><?=GetMessage("NEWO_NO_PRODUCT_STORES")?></div><?
+									?><div class="store_product_no_stores"><?=GetMessage("NEWO_NO_PRODUCT_STORES")?></div><?php 
 								}
 								?>
 							</div>
@@ -4582,7 +4582,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					<!-- quantity on the store -->
 					<td class="store_amount" id="store_amount_block_<?=$val["ID"]?>" nowrap <?=($useStores && ($str_DEDUCTED == "Y" || $hasSavedBarcodes) ? '' : 'style="display:none;"'); ?>>
 						<div style="display:<?=((!CSaleBasketHelper::isSetParent($val)) ? '' : 'none')?>;">
-							<?
+							<?php 
 							if ($hasValidStores)
 							{
 								if ($arBasketItem[$val["ID"]]["HAS_SAVED_QUANTITY"] == "Y")
@@ -4596,7 +4596,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 										<div id="store_amount_wrapper_<?=$val["ID"]?>_<?=$storeId?>" class="<?=($ind>0) ? "store_row_element" : ""?>">
 											<input name="PRODUCT[<?=$val["ID"]?>][STORES][<?=$storeId?>][QUANTITY]" id="PRODUCT[<?=$val["ID"]?>][STORES][<?=$storeId?>][QUANTITY]" value="<?=$arStore['QUANTITY']?>" size="4" maxlength="7" type="text" ><span id="store_max_amount_<?=$val["ID"]?>_<?=$storeId?>">&nbsp;/&nbsp;<?=$arBasketItem[$val["ID"]]["STORES"][$storeId]["AMOUNT"]?></span>
 										</div>
-										<?
+										<?php 
 										}
 										$ind++;
 									}
@@ -4607,7 +4607,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 									<div id="store_amount_wrapper_<?=$val["ID"]?>_0">
 										<input name="PRODUCT[<?=$val["ID"]?>][STORES][0][QUANTITY]" id="PRODUCT[<?=$val["ID"]?>][STORES][0][QUANTITY]" value="" size="4" maxlength="7" type="text" ><span id="store_max_amount_<?=$val["ID"]?>_0">&nbsp;/&nbsp;<?=$arBasketItem[$val["ID"]]["STORES"][0]["AMOUNT"]?></span>
 									</div>
-								<?
+								<?php 
 								}
 							}
 							?>
@@ -4617,7 +4617,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					<!-- barcode data (form popup button if BARCODE_MULTI = Y or input field) -->
 					<td class="store_barcode" id="store_barcode_block_<?=$val["ID"]?>" <?=($useStores && ($str_DEDUCTED == "Y" || $hasSavedBarcodes) ? "" : 'style="display:none;"'); ?>>
 						<div style="display:<?=((!CSaleBasketHelper::isSetParent($val)) ? '' : 'none')?>;">
-							<?
+							<?php 
 							if ($hasValidStores)
 							{
 								if ($arBasketItem[$val["ID"]]["HAS_SAVED_QUANTITY"] == "Y")
@@ -4636,7 +4636,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 												<div style="display: block;" class="store_barcode_scroll_div" id="STORE_BARCODE_DIV_SCROLL_<?=$val["ID"]?>_<?=$storeId?>">
 													<table id="STORE_BARCODE_TABLE_MULTI_<?=$val["ID"]?>_<?=$storeId?>">
 														<tbody>
-															<?
+															<?php 
 															foreach ($arBasketItem[$val["ID"]]["STORES"] as $storeId2 => $arStore2)
 															{
 																if (isset($arStore2["BARCODE"]) && $arStore2["STORE_ID"] == $arStore["STORE_ID"])
@@ -4669,7 +4669,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 																				<a class="split-delete-item" tabindex="<?=$barcodeId?>" href="javascript:void(0);" onclick="deleteBarcodeValue(<?=$val["ID"]?>, <?=$storeId2?>, <?=$barcodeId?>); " title="<?=GetMessage("NEWO_STORE_DELETE_BARCODE")?>"></a>
 																			</td>
 																		</tr>
-																		<?
+																		<?php 
 																	}
 																}
 															}
@@ -4679,7 +4679,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 												</div>
 											</div>
 										</div>
-										<?
+										<?php 
 										$ind++;
 										}
 									}
@@ -4690,7 +4690,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 										<div id="store_barcode_wrapper_<?=$val["ID"]?>_0">
 											<input name="PRODUCT[<?=$val["ID"]?>][STORES][0][BARCODE]" id="PRODUCT[<?=$val["ID"]?>][STORES][0][BARCODE]" onChange="fCheckBarcode(<?=$val["ID"]?>, 0)" type="text" />
 										</div>
-									<?
+									<?php 
 									}
 								}
 								else // if no saved quantity
@@ -4710,13 +4710,13 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 												</div>
 											</div>
 										</div>
-									<?
+									<?php 
 									}
 									else
 									{
 									?>
 										<input name="PRODUCT[<?=$val["ID"]?>][STORES][0][BARCODE]" id="PRODUCT[<?=$val["ID"]?>][STORES][0][BARCODE]" onChange="fCheckBarcode(<?=$val["ID"]?>, 0)" type="text" />
-									<?
+									<?php 
 									}
 								}
 							}
@@ -4724,7 +4724,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 						</div>
 					</td>
 					<!-- end of store data -->
-					<?
+					<?php 
 				}
 
 				if (($columnCode == "COLUMN_REMAINING_QUANTITY") || (!array_key_exists("COLUMN_REMAINING_QUANTITY", $arUserColumns) && !in_array("COLUMN_REMAINING_QUANTITY", $arShownColumns)))
@@ -4733,7 +4733,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					$arShownColumns[] = "COLUMN_REMAINING_QUANTITY";
 					?>
 					<td class="COLUMN_REMAINING_QUANTITY" <?=$hidden?>>
-						<?
+						<?php 
 						$balance = "0";
 						if ($val["MODULE"] == "catalog" && $bUseCatalog)
 						{
@@ -4743,7 +4743,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 						?>
 						<div id="DIV_BALANCE_<?=$val["ID"]?>"><?=$balance?></div>
 					</td>
-					<?
+					<?php 
 				}
 
 				if (($columnCode == "COLUMN_PROPS") || (!array_key_exists("COLUMN_PROPS", $arUserColumns) && !in_array("COLUMN_PROPS", $arShownColumns)))
@@ -4753,7 +4753,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					?>
 					<td class="COLUMN_PROPS" <?=$hidden?>>
 						<div id="PRODUCT_PROPS_USER_<?=$val["ID"]?>">
-							<?
+							<?php 
 							if (!empty($val["PROPS"]) && is_array($val["PROPS"]))
 							{
 								foreach($val["PROPS"] as $vv)
@@ -4765,14 +4765,14 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 							?>
 						</div>
 					</td>
-					<?
+					<?php 
 				}
 
 				if ($columnCode == "COLUMN_PRICE")
 				{
 					?>
 					<td class="COLUMN_PRICE" style="white-space: nowrap;">
-						<?
+						<?php 
 						$priceBase = ($val["DISCOUNT_PRICE"] + $val["PRICE"]);
 						$priceDiscount = 0;
 						$discountPercent = "";
@@ -4783,7 +4783,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 						?>
 
 						<div id="DIV_PRICE_<?=$val["ID"]?>" class="edit_price">
-							<?
+							<?php 
 							if (!CSaleBasketHelper::isSetItem($val)):
 							?>
 								<span class="default_price_product" id="default_price_<?=$val["ID"]?>">
@@ -4800,7 +4800,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 								<a href="javascript:void(0);" onclick="fEditPrice(<?=$val["ID"]?>, 'on');">
 									<span class="pencil"></span>
 								</a>
-							<?
+							<?php 
 							else: // Set items don't have control to change their prices
 							?>
 								<span class="default_price_product" id="default_price_<?=$val["ID"]?>">
@@ -4812,13 +4812,13 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 									<?=$CURRENCY_FORMAT?>
 								</span>
 								<input type="hidden" name="PRODUCT[<?=$val["ID"]?>][PRICE]" id="PRODUCT[<?=$val["ID"]?>][PRICE]" value="<?=floatval($val["PRICE"])?>">
-							<?
+							<?php 
 							endif;
 							?>
 						</div>
 						<div id="DIV_PRICE_OLD_<?=$val["ID"]?>" class="base_price" style="display:none;"><?=CCurrencyLang::CurrencyFormat($val["PRICE"] + $val["DISCOUNT_PRICE"], $str_CURRENCY, false);?> <span><?=$CURRENCY_FORMAT?></span></div>
 
-						<?
+						<?php 
 						if ($priceDiscount > 0)
 							$discountPercent = "(".GetMessage('NEWO_PRICE_DISCOUNT')." ".$priceDiscount."%)";
 
@@ -4831,7 +4831,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 								<?=($val["CUSTOM_PRICE"] == "Y") ? GetMessage("NEWO_BASE_CATALOG_PRICE") : $val["NOTES"]?>
 							</div>
 					</td>
-					<?
+					<?php 
 				}
 
 				if ($columnCode == "COLUMN_SUM")
@@ -4841,7 +4841,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					<td id="DIV_SUMMA_<?=$val["ID"]?>" class="COLUMN_SUM" nowrap>
 						<div <?=$hidden?>><?=CCurrencyLang::CurrencyFormat(($val["QUANTITY"] * $val["PRICE"]), $str_CURRENCY, false);?> <span><?=$CURRENCY_FORMAT?></span></div>
 					</td>
-					<?
+					<?php 
 				}
 
 				// custom property column
@@ -4851,12 +4851,12 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					<td class="property_field <?=$columnCode?>">
 						<?=getIblockPropInfo($val[$columnCode], $arIblockProps[$columnCode], array("WIDTH" => 90, "HEIGHT" => 90), $ID);?>
 					</td>
-					<?
+					<?php 
 				}
 			}
 			?>
 		</tr>
-	<?
+	<?php 
 	}//end foreach $arBasketItem
 	if ($ORDER_TOTAL_PRICE == $ORDER_PRICE_WITH_DISCOUNT)
 		$ORDER_PRICE_WITH_DISCOUNT = 0;
@@ -4885,7 +4885,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 				BX("set_toggle_link_" + setParentId).innerHTML = '<?=GetMessage("SOE_SHOW_SET")?>';
 		}
 	</script>
-	<?
+	<?php 
 	$style = (array_key_exists("COLUMN_NUMBER", $arUserColumns)) ? "" : "style=\"display: none\"";
 	?>
 	<table id="total_count_table" <?=$style?>>
@@ -4905,7 +4905,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 		<div class="set_coupon" id="coupons_block">
 			<?=GetMessage("NEWO_BASKET_COUPON")?>:<br>
 			<input type="text" name="COUPON" id="COUPON" value="" /><a href="javascript:void(0);" onclick="fRecalByCoupon();"><?=GetMessage("NEWO_COUPON_RECALC")?></a><sup style="color:#BE0000;">1)</sup>
-			<?
+			<?php 
 			$couponsList = DiscountCouponsManager::get(true, array(), true, true);
 			$couponErrors = array();
 			if ($couponsList === false)
@@ -4927,7 +4927,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 							$couponClass = 'good';
 							break;
 					}
-					?><div class="bx_ordercart_coupon"><input disabled readonly type="text" name="OLD_COUPON[]" value="<?=htmlspecialcharsbx($oneCoupon['COUPON']);?>" class="<? echo $couponClass; ?>"><span class="<? echo $couponClass; ?>" data-coupon="<? echo htmlspecialcharsbx($oneCoupon['COUPON']); ?>"></span><div class="bx_ordercart_coupon_notes"><?
+					?><div class="bx_ordercart_coupon"><input disabled readonly type="text" name="OLD_COUPON[]" value="<?=htmlspecialcharsbx($oneCoupon['COUPON']);?>" class="<?php  echo $couponClass; ?>"><span class="<?php  echo $couponClass; ?>" data-coupon="<?php  echo htmlspecialcharsbx($oneCoupon['COUPON']); ?>"></span><div class="bx_ordercart_coupon_notes"><?php 
 						if (isset($oneCoupon['CHECK_CODE_TEXT']))
 						{
 							echo (
@@ -4936,11 +4936,11 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 								: $oneCoupon['CHECK_CODE_TEXT']
 							);
 						}
-					?></div></div><?
+					?></div></div><?php 
 				}
 				unset($couponClass, $oneCoupon);
 			}
-			?><div id="global-coupon-errors" style="display: <? echo (empty($couponErrors) ? 'none' : 'block'); ?>;"><?
+			?><div id="global-coupon-errors" style="display: <?php  echo (empty($couponErrors) ? 'none' : 'block'); ?>;"><?php 
 			if (!empty($couponErrors))
 				echo implode('<br>', $couponErrors);
 			?></div>
@@ -5025,12 +5025,12 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 				}
 
 			</script>
-			<?
+			<?php 
 			$productAddBool = COption::GetOptionString('sale', 'SALE_ADMIN_NEW_PRODUCT');
 			?>
-			<?if ($productAddBool == "Y"):?>
+			<?php if ($productAddBool == "Y"):?>
 				<span title="<?=GetMessage("SOE_NEW_ITEMS")?>" onClick="ShowProductEdit('', 'Y');" style="display:inline;" class="adm-btn adm-btn-green"><?=GetMessage("SOE_NEW_ITEMS")?></span>
-			<?endif;?>
+			<?php endif;?>
 			<span title="<?=GetMessage("SOE_ADD_ITEMS")?>" onClick="AddProductSearch();" style="display:inline;" class="adm-btn adm-btn-green adm-btn-add"><?=GetMessage("SOE_ADD_ITEMS")?></span>
 		</div>
 
@@ -6613,7 +6613,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 		}
 		productData = productData + "}";
 
-		<?if(CSaleLocation::isLocationProEnabled()):?>
+		<?php if(CSaleLocation::isLocationProEnabled()):?>
 
 			input = document.querySelector('input[name="CITY_ORDER_PROP_' + locationID+'"]');
 
@@ -6623,7 +6623,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 			if(BX.type.isDomNode(input))
 				location = input.value;
 
-		<?else:?>
+		<?php else:?>
 
 			if (BX('CITY_ORDER_PROP_' + locationID))
 			{
@@ -6639,7 +6639,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 			if (locationID > 0 && selectedIndex > 0)
 				location = selectedOption[selectedIndex].value;
 
-		<?endif?>
+		<?php endif?>
 
 		if (BX('ORDER_PROP_' + locationZipID))
 			locationZip = BX('ORDER_PROP_' + locationZipID).value;
@@ -7704,7 +7704,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 					<table width="100%" class="itog_header"><tr><td><?=GetMessage('NEWO_SUBTAB_RECOM_REQUEST');?></td></tr></table>
 					<br>
 					<div id="tabs">
-						<?
+						<?php 
 						$displayNone = "block";
 						$displayNoneBasket = "block";
 						$displayNoneViewed = "block";
@@ -7827,7 +7827,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 						<div id="tab_2" style="display:<?=$displayNoneBasket?>" class="<?=$tabBasket?>" onClick="fTabsSelect('user_basket', this);"><?=GetMessage('NEWO_SUBTAB_BASKET')?></div>
 						<div id="tab_3" style="display:<?=$displayNoneViewed?>" class="<?=$tabViewed?>" onClick="fTabsSelect('buyer_viewed', this);"><?=GetMessage('NEWO_SUBTAB_LOOKED')?></div>
 
-						<?
+						<?php 
 						if ($displayNone == 'block')
 						{
 							$displayNoneBasket = 'none';
@@ -7845,18 +7845,18 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 						}
 						?>
 						<div id="user_recomendet" class="tabstext active" style="display:<?=$displayNone?>">
-							<? echo fGetFormatedProduct($str_USER_ID, $LID, $arRecommendedResult, $str_CURRENCY, 'recom');?>
+							<?php  echo fGetFormatedProduct($str_USER_ID, $LID, $arRecommendedResult, $str_CURRENCY, 'recom');?>
 						</div>
 
 						<div id="user_basket" class="tabstext active" style="display:<?=$displayNoneBasket?>">
-						<?
+						<?php 
 							if (!empty($arShoppingCart["ITEMS"]))
 								echo fGetFormatedProduct($str_USER_ID, $LID, $arShoppingCart, $str_CURRENCY, 'basket');
 						?>
 						</div>
 
 						<div id="buyer_viewed" class="tabstext active" style="display:<?=$displayNoneViewed?>">
-						<?
+						<?php 
 							if (!empty($arViewedResult["ITEMS"]))
 								echo fGetFormatedProduct($str_USER_ID, $LID, $arViewedResult, $str_CURRENCY, 'viewed');
 						?>
@@ -7899,7 +7899,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 									</div>
 								</td>
 							</tr>
-							<tr class="price" style="display:<?echo (($ORDER_PRICE_WITH_DISCOUNT > 0) ? 'table-row' : 'none');?>" id="ORDER_PRICE_WITH_DISCOUNT_DESC_VISIBLE">
+							<tr class="price" style="display:<?php echo (($ORDER_PRICE_WITH_DISCOUNT > 0) ? 'table-row' : 'none');?>" id="ORDER_PRICE_WITH_DISCOUNT_DESC_VISIBLE">
 								<td id="ORDER_PRICE_WITH_DISCOUNT_DESC" class="title" >
 									<div><?=GetMessage("NEWO_TOTAL_PRICE_WITH_DISCOUNT_MARGIN")?></div>
 								</td>
@@ -7945,7 +7945,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 						</td>
 						<td nowrap class="sum_paid" onclick="fEditSumPaid(true);">
 							<span id="ORDER_PAY_FROM_ACCOUNT" style="white-space:nowrap;" onclick="fEditSumPaid(true);">
-								<?
+								<?php 
 								$str_SUM_PAID = floatval($str_SUM_PAID);
 								?>
 								<?=CCurrencyLang::CurrencyFormat($str_SUM_PAID, $str_CURRENCY, false);?>
@@ -7970,7 +7970,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 							</a>
 						</td>
 						</tr>
-						<tr class="price" style="display:<?echo (($str_DISCOUNT_VALUE > 0) ? 'table-row' : 'none');?>" id="ORDER_DISCOUNT_PRICE_VALUE">
+						<tr class="price" style="display:<?php echo (($str_DISCOUNT_VALUE > 0) ? 'table-row' : 'none');?>" id="ORDER_DISCOUNT_PRICE_VALUE">
 							<td class="title" >
 								<?=GetMessage("NEWO_TOTAL_DISCOUNT_PRICE_VALUE")?>
 							</td>
@@ -7997,7 +7997,7 @@ $tabControl->BeginCustomField("BASKET_CONTAINER", GetMessage("NEWO_BASKET_CONTAI
 		</table>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->EndCustomField("BASKET_CONTAINER");
 
 if (!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1)
@@ -8335,7 +8335,7 @@ echo '</div>';//end div for form
 		}
 	}
 
-	<?if(CSaleLocation::isLocationProEnabled()):?>
+	<?php if(CSaleLocation::isLocationProEnabled()):?>
 
 		function initZipHandling()
 		{
@@ -8460,16 +8460,16 @@ echo '</div>';//end div for form
 		BX(function(){
 			window.doneInit = true;
 		});
-	<?endif?>
+	<?php endif?>
 BX.ready(function() {
 	var couponBlock = BX('coupons_block');
 	if (!!couponBlock)
 		BX.bindDelegate(couponBlock, 'click', { 'attribute': 'data-coupon' }, BX.delegate(function(e){ deleteCoupon(e); }, this));
 });
 </script>
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 1) - <?=GetMessage("NEWO_ORDER_RECOUNT_HINT")?><br>
-<?
+<?php 
 echo EndNote();
 
 require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");

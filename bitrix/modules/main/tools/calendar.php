@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("NOT_CHECK_PERMISSIONS", true);
 
@@ -15,7 +15,7 @@ $sDocPath = $APPLICATION->GetCurPage();
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<title><?echo GetMessage("calend_title")?></title>
+<title><?php echo GetMessage("calend_title")?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=<?=LANG_CHARSET?>">
 <style type="text/css">
 .headtext{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color:#1A4D80;}
@@ -23,7 +23,7 @@ $sDocPath = $APPLICATION->GetCurPage();
 .daytext{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color:#1F6F9A;}
 .holidaytext{font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color:#970000;}
 </style>
-<?
+<?php 
 $form = preg_replace("/[^a-z0-9_\\[\\]]/i", "", $_REQUEST["form"]);
 $name = preg_replace("/[^a-z0-9_\\[\\]]/i", "", $_REQUEST["name"]);
 $from = preg_replace("/[^a-z0-9_\\[\\]]/i", "", $_REQUEST["from"]);
@@ -37,23 +37,23 @@ function KeyPress()
 }
 function InsertDate(valDate)
 {
-	window.opener.document['<?echo $form?>']['<?echo $name?>'].value = valDate;
+	window.opener.document['<?php echo $form?>']['<?php echo $name?>'].value = valDate;
 	window.close();
 }
 function InsertPeriod(valDate1, valDate2)
 {
-<?if($from <> "" && $to <> ""):?>
-	window.opener.document['<?echo $form?>']['<?echo $from?>'].value = valDate1;
-	window.opener.document['<?echo $form?>']['<?echo $to?>'].value = valDate2;
+<?php if($from <> "" && $to <> ""):?>
+	window.opener.document['<?php echo $form?>']['<?php echo $from?>'].value = valDate1;
+	window.opener.document['<?php echo $form?>']['<?php echo $to?>'].value = valDate2;
 	window.close();
-<?else:?>
+<?php else:?>
 	InsertDate(valDate1);
-<?endif;?>
+<?php endif;?>
 }
 </script>
 </head>
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="8" topmargin="8" marginwidth="8" marginheight="8" link="#be6602" alink="#de8601" vlink="#6c4500" onKeyPress="KeyPress()">
-<?
+<?php 
 $aMonths = array(GetMessage("calend_jan"), GetMessage("calend_feb"), GetMessage("calend_mar"), GetMessage("calend_apr"), GetMessage("calend_may"), GetMessage("calend_jun"), GetMessage("calend_jul"), GetMessage("calend_aug"), GetMessage("calend_sep"), GetMessage("calend_okt"), GetMessage("calend_nov"), GetMessage("calend_des"));
 
 global $DB;
@@ -98,30 +98,30 @@ if($sParam <> "")
 <table width="100%" border="0" cellspacing="1" cellpadding="2">
 <tr>
 	<td class="headbg" nowrap align="center"><font class="headtext">
-		<a class="headtext" title="<?echo GetMessage("calend_prev_mon")?>" style="text-decoration:none; color:red;" href="<?echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1-1, 1, $y1), $dtformat).$sParam?>">&laquo;</a>
-		<a title="<?echo GetMessage("calend_per_mon")?>" href="javascript:InsertPeriod('<?echo GetTime(mktime($iH, $iI, $iS,  $m1, 1, $y1), $dtformat)?>','<?echo GetTime(mktime($iH, $iI, $iS,  $m1+1, 0, $y1), $dtformat)?>')" class="headtext"><?echo $aMonths[$m1-1]?></a>
-		<a class="headtext" title="<?echo GetMessage("calend_next_mon")?>" style="text-decoration:none; color:red;" href="<?echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1+1, 1, $y1), $dtformat).$sParam?>">&raquo;</a>
+		<a class="headtext" title="<?php echo GetMessage("calend_prev_mon")?>" style="text-decoration:none; color:red;" href="<?php echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1-1, 1, $y1), $dtformat).$sParam?>">&laquo;</a>
+		<a title="<?php echo GetMessage("calend_per_mon")?>" href="javascript:InsertPeriod('<?php echo GetTime(mktime($iH, $iI, $iS,  $m1, 1, $y1), $dtformat)?>','<?php echo GetTime(mktime($iH, $iI, $iS,  $m1+1, 0, $y1), $dtformat)?>')" class="headtext"><?php echo $aMonths[$m1-1]?></a>
+		<a class="headtext" title="<?php echo GetMessage("calend_next_mon")?>" style="text-decoration:none; color:red;" href="<?php echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1+1, 1, $y1), $dtformat).$sParam?>">&raquo;</a>
 	</font></td>
 	<td align="center" class="headbg" nowrap><font class="headtext">
-		<a class="headtext" title="<?echo GetMessage("calend_prev_year")?>" style="text-decoration:none; color:red;" href="<?echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1, 1, $y1-1), $dtformat).$sParam?>">&laquo;</a>
-		<a title="<?echo GetMessage("calend_per_year")?>" href="javascript:InsertPeriod('<?echo GetTime(mktime($iH, $iI, $iS, 1, 1, $y1), $dtformat)?>','<?echo GetTime(mktime($iH, $iI, $iS, 1, 0, $y1+1), $dtformat)?>')" class="headtext"><?echo $y1?></a>
-		<a class="headtext" title="<?echo GetMessage("calend_next_year")?>" style="text-decoration:none; color:red;" href="<?echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1, 1, $y1+1), $dtformat).$sParam?>">&raquo;</a>
+		<a class="headtext" title="<?php echo GetMessage("calend_prev_year")?>" style="text-decoration:none; color:red;" href="<?php echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1, 1, $y1-1), $dtformat).$sParam?>">&laquo;</a>
+		<a title="<?php echo GetMessage("calend_per_year")?>" href="javascript:InsertPeriod('<?php echo GetTime(mktime($iH, $iI, $iS, 1, 1, $y1), $dtformat)?>','<?php echo GetTime(mktime($iH, $iI, $iS, 1, 0, $y1+1), $dtformat)?>')" class="headtext"><?php echo $y1?></a>
+		<a class="headtext" title="<?php echo GetMessage("calend_next_year")?>" style="text-decoration:none; color:red;" href="<?php echo $sDocPath."?date=".GetTime(mktime($iH, $iI, $iS, $m1, 1, $y1+1), $dtformat).$sParam?>">&raquo;</a>
 	</font></td>
-	<td class="headbg" align="center"><a title="<?echo GetMessage("calend_curr")?>" href="<?echo $sDocPath."?date=".GetTime($today, $dtformat).$sParam?>" class="headtext" style="text-decoration:none; color:red;">*</a></td>
+	<td class="headbg" align="center"><a title="<?php echo GetMessage("calend_curr")?>" href="<?php echo $sDocPath."?date=".GetTime($today, $dtformat).$sParam?>" class="headtext" style="text-decoration:none; color:red;">*</a></td>
 </tr>
 </table>
 <table width="100%" border="0" cellspacing="2" cellpadding="1">
 <tr align="center">
 	<td></td>
-	<td class="headtext"><?echo GetMessage("calend_mo")?></td>
-	<td class="headtext"><?echo GetMessage("calend_tu")?></td>
-	<td class="headtext"><?echo GetMessage("calend_we")?></td>
-	<td class="headtext"><?echo GetMessage("calend_th")?></td>
-	<td class="headtext"><?echo GetMessage("calend_fr")?></td>
-	<td class="headtext"><?echo GetMessage("calend_sa")?></td>
-	<td class="headtext"><?echo GetMessage("calend_su")?></td>
+	<td class="headtext"><?php echo GetMessage("calend_mo")?></td>
+	<td class="headtext"><?php echo GetMessage("calend_tu")?></td>
+	<td class="headtext"><?php echo GetMessage("calend_we")?></td>
+	<td class="headtext"><?php echo GetMessage("calend_th")?></td>
+	<td class="headtext"><?php echo GetMessage("calend_fr")?></td>
+	<td class="headtext"><?php echo GetMessage("calend_sa")?></td>
+	<td class="headtext"><?php echo GetMessage("calend_su")?></td>
 </tr>
-<?
+<?php 
 	$firstDate = mktime($iH, $iI, $iS, $m1, 1, $y1);
 	$firstDay = intval(date("w", $firstDate)-1);
 	if($firstDay == -1)
@@ -175,6 +175,6 @@ if($sParam <> "")
 </table>
 </body>
 </html>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_after.php");
 ?>

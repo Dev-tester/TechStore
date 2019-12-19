@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TWR_TEMPLATE_FEATURE_ACCESS_RESTRICTED"] = "Access permissions are available on major plans.";
 $MESS["TASKS_TWR_TEMPLATE_FEATURE_ACCESS_RESTRICTED_MORE"] = "Details";
 $MESS["TASKS_TWR_TEMPLATE_USER"] = "User";

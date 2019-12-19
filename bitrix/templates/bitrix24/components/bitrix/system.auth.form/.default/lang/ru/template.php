@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_PROFILE"] = "Моя страница";
 $MESS["AUTH_PROFILE_B24NET"] = "Моя страница Битрикс24.Нетворк";
 $MESS["AUTH_CHANGE_PROFILE"] = "Изменить личные данные";

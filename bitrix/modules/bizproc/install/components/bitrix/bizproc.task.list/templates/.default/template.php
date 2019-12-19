@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!empty($_REQUEST['action_button_'.$arResult["GRID_ID"]]))
 {
 	//@TODO remake
@@ -22,7 +22,7 @@ if (strlen($arResult["FatalErrorMessage"]) > 0)
 	<div class="bp-errortext">
 		<?= $arResult["FatalErrorMessage"] ?>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -36,20 +36,20 @@ else
 						<table cellpadding="0" cellspacing="0" border="0">
 							<tbody>
 							<tr>
-								<?foreach ($arResult['DOCUMENT_TYPES'] as $uid => $dt):?>
+								<?php foreach ($arResult['DOCUMENT_TYPES'] as $uid => $dt):?>
 								<td>
 									<a href="<?=$APPLICATION->GetCurPage().($uid!='*'?'?type='.$uid:'')?>" hidefocus="true" class="bp-context-button <?=!empty($dt['ACTIVE'])?'active':''?>">
 										<span class="bp-context-button-text"><?=htmlspecialcharsbx($dt['NAME'])?></span>
-										<?if (empty($dt['FILTER']) && !empty($arResult["COUNTERS"]['*'])):?>
+										<?php if (empty($dt['FILTER']) && !empty($arResult["COUNTERS"]['*'])):?>
 										<span class="bp-context-button-notice"><?=$arResult["COUNTERS"]['*']?></span>
-										<?elseif (!empty($dt['FILTER']['ENTITY']) && !empty($arResult["COUNTERS"][$dt['FILTER']['MODULE_ID']][$dt['FILTER']['ENTITY']])):?>
+										<?php elseif (!empty($dt['FILTER']['ENTITY']) && !empty($arResult["COUNTERS"][$dt['FILTER']['MODULE_ID']][$dt['FILTER']['ENTITY']])):?>
 										<span class="bp-context-button-notice"><?=$arResult["COUNTERS"][$dt['FILTER']['MODULE_ID']][$dt['FILTER']['ENTITY']]?></span>
-										<?elseif (empty($dt['FILTER']['ENTITY']) && !empty($arResult["COUNTERS"][$dt['FILTER']['MODULE_ID']]['*'])):?>
+										<?php elseif (empty($dt['FILTER']['ENTITY']) && !empty($arResult["COUNTERS"][$dt['FILTER']['MODULE_ID']]['*'])):?>
 										<span class="bp-context-button-notice"><?=$arResult["COUNTERS"][$dt['FILTER']['MODULE_ID']]['*']?></span>
-										<?endif?>
+										<?php endif?>
 									</a>
 								</td>
-								<?endforeach;?>
+								<?php endforeach;?>
 							</tr>
 							</tbody>
 						</table>
@@ -59,7 +59,7 @@ else
 			</table>
 		</div>
 	</div>
-	<?
+	<?php 
 
 	if (strlen($arResult["ErrorMessage"]) > 0)
 	{
@@ -67,7 +67,7 @@ else
 		<div class="bp-errortext">
 			<p><?= $arResult["ErrorMessage"] ?></p>
 		</div>
-	<?
+	<?php 
 	}
 
 	if (is_array($arResult["RECORDS"]))
@@ -235,11 +235,11 @@ else
 	);
 	?>
 
-	<?
+	<?php 
 	if ($arParams["SHOW_TRACKING"] == "Y")
 	{
 		?><h2><?=GetMessage("BPATL_FINISHED_TASKS")?></h2>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:bizproc.interface.grid",
 			"",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CALL_TRANSFER_PSTN"] = "Call forwarded to #NUMBER#";
 $MESS["VI_CURRENCY_RUR"] = "RUB";
 $MESS["VI_CURRENCY_EUR"] = "&euro;";

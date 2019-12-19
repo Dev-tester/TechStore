@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $WORKFLOW_RIGHT = $APPLICATION->GetGroupRight("workflow");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_DOC_INSUFFICIENTLY_AMOUNT"] = "На складе #STORE# нет достаточного количества товара #PRODUCT#.";
 $MESS["CAT_DOC_WRONG_TYPE"] = "Некорректный тип документа.";
 $MESS["CAT_DOC_WRONG_STATUS"] = "Нельзя удалить проведенный документ.";

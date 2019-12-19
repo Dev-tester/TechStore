@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_IMPORT_FORM_TITLE"] = "Import Tasks";
 $MESS["TASKS_IMPORT_FIELDS_SECTION_IMPORT_RESULTS"] = "Import result";
 $MESS["TASKS_IMPORT_FIELDS_SECTION_IMPORT_PARAMETERS"] = "Edit import settings";

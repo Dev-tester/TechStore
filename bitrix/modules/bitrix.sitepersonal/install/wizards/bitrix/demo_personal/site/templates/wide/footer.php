@@ -1,11 +1,11 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 IncludeTemplateLangFile(__FILE__);
 ?>
 				</div>
 				<div id="sidebar">
-					<?if($USER->IsAuthorized()):?>
+					<?php if($USER->IsAuthorized()):?>
 						<div id="user-menu-wrapper">
-							<?$APPLICATION->IncludeComponent(
+							<?php $APPLICATION->IncludeComponent(
 								"bitrix:menu", 
 								"personal_left", 
 								Array(
@@ -15,13 +15,13 @@ IncludeTemplateLangFile(__FILE__);
 								)
 							);?>
 						</div>
-					<?endif;?>
+					<?php endif;?>
 					<div id="tags-stub-id">
 						<div class="sidebar-box popular-posts">
 							<b class="r1"></b>
 							<div class="sidebar-box-header"><?=GetMessage("TMPL_POPULAR_POSTS")?></div>
 							<div class="sidebar-box-content">
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									"bitrix:blog.popular_posts",
 									"personal",
 									Array(
@@ -55,7 +55,7 @@ IncludeTemplateLangFile(__FILE__);
 							<b class="r1"></b>
 							<div class="sidebar-box-header"><?=GetMessage("TMPL_NEW_COMMENTS")?></div>
 							<div class="sidebar-box-content">
-								<?$APPLICATION->IncludeComponent(
+								<?php $APPLICATION->IncludeComponent(
 									"bitrix:blog.new_comments",
 									"personal",
 									Array(
@@ -82,7 +82,7 @@ IncludeTemplateLangFile(__FILE__);
 							</div>
 							<b class="r0"></b><b class="r1"></b><b class="r2"></b>
 						</div>
-						<?if(IsModuleInstalled("search") && IsModuleInstalled("blog"))
+						<?php if(IsModuleInstalled("search") && IsModuleInstalled("blog"))
 						{
 							$arBlog = CBlog::GetByUrl("#BLOG_URL#");
 							if(!empty($arBlog))
@@ -93,7 +93,7 @@ IncludeTemplateLangFile(__FILE__);
 									<div class="sidebar-box-header"><?=GetMessage("TMPL_TAGS_CLOUD")?></div>
 									<div class="sidebar-box-content">
 										<div class="search-cloud">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default", array(
 											"SORT" => "NAME",
 											"PAGE_ELEMENTS" => "30",
@@ -126,7 +126,7 @@ IncludeTemplateLangFile(__FILE__);
 									</div>
 									<b class="r0"></b><b class="r1"></b><b class="r2"></b>
 								</div>
-							<?
+							<?php 
 							}
 						}?>
 
@@ -136,16 +136,16 @@ IncludeTemplateLangFile(__FILE__);
 		</div>
 		<div id="footer">
 			<div id="pencil"></div>			
-			<div id="copyright"><?$APPLICATION->IncludeFile(
+			<div id="copyright"><?php $APPLICATION->IncludeFile(
 				SITE_TEMPLATE_PATH."/include_areas/copyright.php",
 				Array(),
 				Array("MODE"=>"html")
 			);?></div>
 			<ul id="contact-links">
 				<li><a href="<?=SITE_DIR?>contacts.php"><?=GetMessage("TMPL_FEEDBACK")?></a></li>
-				<?if(!$USER->IsAuthorized()):?>
+				<?php if(!$USER->IsAuthorized()):?>
 					<li><a href="<?=SITE_DIR?>auth.php"><?=GetMessage("TMPL_AUTH")?></a></li>
-				<?endif;?>
+				<?php endif;?>
 			</ul>
 			<div id="jump-to-top">
 				<a href="#" onclick="scroll(0,0);"><?=GetMessage("TMPL_UP")?></a>
@@ -155,5 +155,5 @@ IncludeTemplateLangFile(__FILE__);
 	</form>
 </body>
 </html>
-<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/blog.css");
+<?php $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/blog.css");
 $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/common.css");?>

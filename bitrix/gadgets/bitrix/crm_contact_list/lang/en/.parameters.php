@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_CRM_CONTACT_LIST_CONTACT_COUNT"] = "Contacts Per Page";
 $MESS["GD_CRM_ONLY_MY"] = "My Only";
 $MESS["GD_CRM_SORT"] = "Sorting";

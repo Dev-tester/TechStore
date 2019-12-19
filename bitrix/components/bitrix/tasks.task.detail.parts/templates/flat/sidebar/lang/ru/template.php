@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_SIDEBAR_STATUS"] = "Статус";
 $MESS["TASKS_SIDEBAR_STAGE"] = "Стадия";
 $MESS["TASKS_SIDEBAR_START_DATE"] = "с";

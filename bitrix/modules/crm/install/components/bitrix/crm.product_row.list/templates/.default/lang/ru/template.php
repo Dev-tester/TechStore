@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_ROW_COL_TTL_NAME"] = "Наименование";
 $MESS["CRM_PRODUCT_ROW_COL_TTL_QUANTITY"] = "Кол-во";
 $MESS["CRM_PRODUCT_ROW_COL_TTL_PRICE"] = "Цена#CURRENCY#";

@@ -1,12 +1,12 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
-<?
+<?php 
 if($arResult['ERROR_MESSAGE'])
 	ShowMessage($arResult['ERROR_MESSAGE']);
 ?>
-<?
+<?php 
 $arServices = $arResult["AUTH_SERVICES_ICONS"];
 if(!empty($arResult["AUTH_SERVICES"]))
 {
@@ -16,7 +16,7 @@ if(!empty($arResult["AUTH_SERVICES"]))
 			<?=GetMessage("SS_GET_COMPONENT_INFO")?>
 			<br><br>
 		</div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
 		array(
 			"AUTH_SERVICES"=>$arResult["AUTH_SERVICES"],
@@ -31,7 +31,7 @@ if(!empty($arResult["AUTH_SERVICES"]))
 		array("HIDE_ICONS"=>"Y")
 	);
 	?>
-	<?
+	<?php 
 }
 
 if(isset($arResult["DB_SOCSERV_USER"]) && $arParams["SHOW_PROFILES"] != 'N')
@@ -46,7 +46,7 @@ if(isset($arResult["DB_SOCSERV_USER"]) && $arParams["SHOW_PROFILES"] != 'N')
 				<td><?=GetMessage("SS_SOCNET");?></td>
 				<td><?=GetMessage("SS_NAME");?></td>
 			</tr>
-			<?
+			<?php 
 			foreach($arResult["DB_SOCSERV_USER"] as $key => $arUser)
 			{
 				if(!$icon = htmlspecialcharsbx($arResult["AUTH_SERVICES_ICONS"][$arUser["EXTERNAL_AUTH_ID"]]["ICON"]))
@@ -56,36 +56,36 @@ if(isset($arResult["DB_SOCSERV_USER"]) && $arParams["SHOW_PROFILES"] != 'N')
 				<tr class="soc-serv-personal">
 					<td class="bx-ss-icons">
 						<i class="bx-ss-icon <?=$icon?>">&nbsp;</i>
-						<?if ($arUser["PERSONAL_LINK"] != ''):?>
+						<?php if ($arUser["PERSONAL_LINK"] != ''):?>
 							<a class="soc-serv-link" target="_blank" href="<?=$arUser["PERSONAL_LINK"]?>">
-						<?endif;?>
+						<?php endif;?>
 						<?=$authID?>
-						<?if ($arUser["PERSONAL_LINK"] != ''):?>
+						<?php if ($arUser["PERSONAL_LINK"] != ''):?>
 							</a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 					<td class="soc-serv-name">
 						<?=$arUser["VIEW_NAME"]?>
 					</td>
 					<td class="split-item-actions">
-						<?if (in_array($arUser["ID"], $arResult["ALLOW_DELETE_ID"])):?>
+						<?php if (in_array($arUser["ID"], $arResult["ALLOW_DELETE_ID"])):?>
 						<a class="split-delete-item" href="<?=htmlspecialcharsbx($arUser["DELETE_LINK"])?>" onclick="return confirm('<?=GetMessage("SS_PROFILE_DELETE_CONFIRM")?>')" title=<?=GetMessage("SS_DELETE")?>></a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 		</table>
 	</div>
-	<?
+	<?php 
 }
 ?>
-<?
+<?php 
 if(!empty($arResult["AUTH_SERVICES"]))
 {
 	?>
 	</div>
-	<?
+	<?php 
 }
 ?>

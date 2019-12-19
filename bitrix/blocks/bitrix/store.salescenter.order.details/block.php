@@ -15,7 +15,7 @@ Loc::loadMessages(
 ?>
 <section class="landing-block g-pt-10 g-pb-10">
 	<div class="container g-font-size-13">
-		<?
+		<?php 
 		if (\Bitrix\Landing\Landing::getEditMode())
 		{
 			echo '

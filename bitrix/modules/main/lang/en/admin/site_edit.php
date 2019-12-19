@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EDIT_SITE_TITLE"] = "Edit site \"#ID#\"";
 $MESS["NEW_SITE_TITLE"] = "Add Site";
 $MESS["NAME"] = "Name:";

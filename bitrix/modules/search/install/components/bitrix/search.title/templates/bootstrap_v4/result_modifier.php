@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $PREVIEW_WIDTH = intval($arParams["PREVIEW_WIDTH"]);
 if ($PREVIEW_WIDTH <= 0)

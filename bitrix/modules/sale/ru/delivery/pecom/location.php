@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Delivery\Pecom;
 
 use Bitrix\Main\Error;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGUC_NO_ID"] = "The ID of the record is not specified";
 $MESS["SKGUC_NO_CURRENCY"] = "The currency for the payment limits is not specified";
 $MESS["SKGUC_NO_USER"] = "The user ##ID# cannot be found";

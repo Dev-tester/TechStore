@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PC_DEFAUL_SKIN"] = "Стандартный";
 $MESS["PC_GROUP_BASE_SETTINGS"] = "Основные настройки";
 $MESS["PC_GROUP_ADDITIONAL_SETTINGS"] = "Дополнительные настройки";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -12,12 +12,12 @@ $data = $arParams['DATA'];
 $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 ?>
 
-<?$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php $helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks task-options-repeat">
 
-		<?$helper->displayWarnings();?>
+		<?php $helper->displayWarnings();?>
 
 		<div class="task-options-field">
 			<span class="task-option-fn"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_REPEAT_TYPE')?></span>
@@ -32,7 +32,7 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 
 		<div class="js-id-replication-panel task-replication-panel">
 
-			<?//daily?>
+			<?php //daily?>
 			<div class="js-id-replication-panel-daily task-replication-params<?=($data['PERIOD'] != 'daily' ? ' nodisplay' : ' opacity-1')?>">
 				<div class="task-options-field">
 					<span class="task-option-fn"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_EACH_M')?></span>
@@ -53,7 +53,7 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 				</div>
 			</div>
 
-			<?//weekly?>
+			<?php //weekly?>
 			<div class="js-id-replication-panel-weekly task-replication-params<?=($data['PERIOD'] != 'weekly' ? ' nodisplay' : ' opacity-1')?>">
 				<div class="task-options-field">
 					<span class="task-option-fn"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_EACH_F')?></span>
@@ -64,18 +64,18 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 				</div>
 				<div class="task-options-field">
 					<div class="task-options-day-container">
-						<?for($k = 0; $k <= 6; $k++):?>
-							<?$i = $arResult['AUX_DATA']['WEEKDAY_MAP'][$k] + 1;?>
-							<label class="task-options-day"><input class="js-id-replication-week-days" type="checkbox" name="<?=$prefix?>[WEEK_DAYS][]" value="<?=$i?>" <?if(in_array($i, $data['WEEK_DAYS'])):?>checked="checked"<?endif?>/>&nbsp;<?=Loc::getMessage('TASKS_TTDP_REPLICATION_WD_SH_'.($i - 1))?></label>
-						<?endfor?>
+						<?php for($k = 0; $k <= 6; $k++):?>
+							<?php $i = $arResult['AUX_DATA']['WEEKDAY_MAP'][$k] + 1;?>
+							<label class="task-options-day"><input class="js-id-replication-week-days" type="checkbox" name="<?=$prefix?>[WEEK_DAYS][]" value="<?=$i?>" <?php if(in_array($i, $data['WEEK_DAYS'])):?>checked="checked"<?php endif?>/>&nbsp;<?=Loc::getMessage('TASKS_TTDP_REPLICATION_WD_SH_'.($i - 1))?></label>
+						<?php endfor?>
 					</div>
 				</div>
 			</div>
 
-			<?//monthly?>
+			<?php //monthly?>
 			<div class="js-id-replication-panel-monthly task-replication-params<?=($data['PERIOD'] != 'monthly' ? ' nodisplay' : ' opacity-1')?>">
 				<div class="task-options-field">
-					<input id="replication-monthly-type-1" name="<?=$prefix?>[MONTHLY_TYPE]" value="1" <?if($data['MONTHLY_TYPE'] == 1):?>checked<?endif?> class="js-id-replication-monthly-type task-options-radio" type="radio">
+					<input id="replication-monthly-type-1" name="<?=$prefix?>[MONTHLY_TYPE]" value="1" <?php if($data['MONTHLY_TYPE'] == 1):?>checked<?php endif?> class="js-id-replication-monthly-type task-options-radio" type="radio">
 					<label class="task-field-label" for="replication-monthly-type-1"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_EACH')?></label>
 	                <span class="task-options-inp-container task-options-inp-int">
 	                    <input name="<?=$prefix?>[MONTHLY_DAY_NUM]" value="<?=intval($data['MONTHLY_DAY_NUM'])?>" type="text" class="js-id-replication-monthly-day-num task-options-inp" />
@@ -87,22 +87,22 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 					<label class="task-field-label" for="replication-monthly-type-1"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_MONTH_ALT')?></label>
 				</div>
 				<div class="task-options-field">
-					<input id="replication-monthly-type-2" name="<?=$prefix?>[MONTHLY_TYPE]" value="2" <?if($data['MONTHLY_TYPE'] == 2):?>checked<?endif?> class="js-id-replication-monthly-type task-options-radio" type="radio">
+					<input id="replication-monthly-type-2" name="<?=$prefix?>[MONTHLY_TYPE]" value="2" <?php if($data['MONTHLY_TYPE'] == 2):?>checked<?php endif?> class="js-id-replication-monthly-type task-options-radio" type="radio">
 					<label class="task-field-label" for="replication-monthly-type-2"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_EACH_M')?></label>
 	                <span class="task-options-inp-container task-options-inp-container-period">
 	                    <select name="<?=$prefix?>[MONTHLY_WEEK_DAY_NUM]" class="js-id-replication-monthly-week-day-num task-options-inp">
-		                    <?for($i = 0; $i <= 4; $i++):?>
-			                    <option value="<?=$i?>" <?if($data['MONTHLY_WEEK_DAY_NUM'] == $i):?>selected<?endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_NUMBER_'.$i.'_M')?></option>
-		                    <?endfor?>
+		                    <?php for($i = 0; $i <= 4; $i++):?>
+			                    <option value="<?=$i?>" <?php if($data['MONTHLY_WEEK_DAY_NUM'] == $i):?>selected<?php endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_NUMBER_'.$i.'_M')?></option>
+		                    <?php endfor?>
 	                    </select>
 	                </span>
 	                <span class="task-options-inp-container task-options-inp-container-period">
 	                    <select name="<?=$prefix?>[MONTHLY_WEEK_DAY]" class="js-id-replication-monthly-week-day task-options-inp">
-							<?/** do not reorder weekday numbers, because strtotime() accepts 0 - monday, 6 - sunday, @see \Bitrix\Tasks\Util\Replicator\Task\FromTemplate::getNextTime() */?>
-							<?for($k = 0; $k <= 6; $k++):?>
-			                    <?$i = $arResult['AUX_DATA']['WEEKDAY_MAP'][$k]; // wee need mapping because of different week start?>
-			                    <option value="<?=$i?>" <?if($data['MONTHLY_WEEK_DAY'] == $i):?>selected<?endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_WD_'.$i)?></option>
-		                    <?endfor?>
+							<?php /** do not reorder weekday numbers, because strtotime() accepts 0 - monday, 6 - sunday, @see \Bitrix\Tasks\Util\Replicator\Task\FromTemplate::getNextTime() */?>
+							<?php for($k = 0; $k <= 6; $k++):?>
+			                    <?php $i = $arResult['AUX_DATA']['WEEKDAY_MAP'][$k]; // wee need mapping because of different week start?>
+			                    <option value="<?=$i?>" <?php if($data['MONTHLY_WEEK_DAY'] == $i):?>selected<?php endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_WD_'.$i)?></option>
+		                    <?php endfor?>
 	                    </select>
 	                </span>
 					<label class="task-field-label" for="replication-monthly-type-2"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_EACH_M_ALT')?></label>
@@ -113,10 +113,10 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 				</div>
 			</div>
 
-			<?//yearly?>
+			<?php //yearly?>
 			<div class="js-id-replication-panel-yearly task-replication-params<?=($data['PERIOD'] != 'yearly' ? ' nodisplay' : ' opacity-1')?>">
 				<div class="task-options-field">
-					<input id="replication-yearly-type-1" name="<?=$prefix?>[YEARLY_TYPE]" value="1" <?if($data['YEARLY_TYPE'] == 1):?>checked<?endif?> class="js-id-replication-yearly-type task-options-radio" type="radio">
+					<input id="replication-yearly-type-1" name="<?=$prefix?>[YEARLY_TYPE]" value="1" <?php if($data['YEARLY_TYPE'] == 1):?>checked<?php endif?> class="js-id-replication-yearly-type task-options-radio" type="radio">
 					<label class="task-field-label" for="replication-yearly-type-1"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_EACH_M')?></label>
 	                <span class="task-options-inp-container task-options-inp-int">
 	                    <input name="<?=$prefix?>[YEARLY_DAY_NUM]" value="<?=intval($data['YEARLY_DAY_NUM'])?>" type="text" class="js-id-replication-yearly-day-num task-options-inp">
@@ -124,37 +124,37 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 					<label class="task-field-label" for="replication-yearly-type-1"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_DAY_OF_MONTH')?></label>
 	                <span class="task-options-inp-container task-options-inp-container-period">
 	                    <select name="<?=$prefix?>[YEARLY_MONTH_1]" class="js-id-replication-yearly-month-1 task-options-inp">
-		                    <?for($i = 0; $i <= 11; $i++):?>
-			                    <option value="<?=$i?>" <?if($data['YEARLY_MONTH_1'] == $i):?>selected<?endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_MONTH_'.$i)?></option>
-		                    <?endfor?>
+		                    <?php for($i = 0; $i <= 11; $i++):?>
+			                    <option value="<?=$i?>" <?php if($data['YEARLY_MONTH_1'] == $i):?>selected<?php endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_MONTH_'.$i)?></option>
+		                    <?php endfor?>
 	                    </select>
 	                </span>
 				</div>
 				<div class="task-options-field">
-					<input id="replication-yearly-type-2" name="<?=$prefix?>[YEARLY_TYPE]" value="2" <?if($data['YEARLY_TYPE'] == 2):?>checked<?endif?> class="js-id-replication-yearly-type task-options-radio" type="radio">
+					<input id="replication-yearly-type-2" name="<?=$prefix?>[YEARLY_TYPE]" value="2" <?php if($data['YEARLY_TYPE'] == 2):?>checked<?php endif?> class="js-id-replication-yearly-type task-options-radio" type="radio">
 					<label class="task-field-label" for="replication-yearly-type-2"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_EACH_M')?></label>
 	                <span class="task-options-inp-container task-options-inp-container-period">
 	                    <select name="<?=$prefix?>[YEARLY_WEEK_DAY_NUM]" class="js-id-replication-yearly-week-day-num task-options-inp">
-		                    <?for($i = 0; $i <= 4; $i++):?>
-			                    <option value="<?=$i?>" <?if($data['YEARLY_WEEK_DAY_NUM'] == $i):?>selected<?endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_NUMBER_'.$i.'_M')?></option>
-		                    <?endfor?>
+		                    <?php for($i = 0; $i <= 4; $i++):?>
+			                    <option value="<?=$i?>" <?php if($data['YEARLY_WEEK_DAY_NUM'] == $i):?>selected<?php endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_NUMBER_'.$i.'_M')?></option>
+		                    <?php endfor?>
 	                    </select>
 	                </span>
 	                <span class="task-options-inp-container task-options-inp-container-period">
 	                    <select name="<?=$prefix?>[YEARLY_WEEK_DAY]" class="js-id-replication-yearly-week-day task-options-inp">
-							<?/** do not reorder weekday numbers, because strtotime() accepts 0 - monday, 6 - sunday, @see \Bitrix\Tasks\Util\Replicator\Task\FromTemplate::getNextTime() */?>
-		                    <?for($k = 0; $k <= 6; $k++):?>
-			                    <?$i = $arResult['AUX_DATA']['WEEKDAY_MAP'][$k]; // wee need mapping because of different week start?>
-			                    <option value="<?=$i?>" <?if($data['YEARLY_WEEK_DAY'] == $i):?>selected<?endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_WD_'.$i)?></option>
-		                    <?endfor?>
+							<?php /** do not reorder weekday numbers, because strtotime() accepts 0 - monday, 6 - sunday, @see \Bitrix\Tasks\Util\Replicator\Task\FromTemplate::getNextTime() */?>
+		                    <?php for($k = 0; $k <= 6; $k++):?>
+			                    <?php $i = $arResult['AUX_DATA']['WEEKDAY_MAP'][$k]; // wee need mapping because of different week start?>
+			                    <option value="<?=$i?>" <?php if($data['YEARLY_WEEK_DAY'] == $i):?>selected<?php endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_WD_'.$i)?></option>
+		                    <?php endfor?>
 	                    </select>
 	                </span>
 					<label class="task-field-label" for="replication-yearly-type-2"><?=Loc::getMessage('TASKS_TTDP_REPLICATION_MONTH_ALT')?></label>
 	                <span class="task-options-inp-container task-options-inp-container-period">
 	                    <select name="<?=$prefix?>[YEARLY_MONTH_2]" class="js-id-replication-yearly-month-2 task-options-inp">
-		                    <?for($i = 0; $i <= 11; $i++):?>
-			                    <option value="<?=$i?>" <?if($data['YEARLY_MONTH_2'] == $i):?>selected<?endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_MONTH_'.$i)?></option>
-		                    <?endfor?>
+		                    <?php for($i = 0; $i <= 11; $i++):?>
+			                    <option value="<?=$i?>" <?php if($data['YEARLY_MONTH_2'] == $i):?>selected<?php endif?>><?=Loc::getMessage('TASKS_TTDP_REPLICATION_MONTH_'.$i)?></option>
+		                    <?php endfor?>
 	                    </select>
 	                </span>
 				</div>
@@ -168,7 +168,7 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 	                <input type="text" class="js-id-timepicker-display task-options-inp" readonly="readonly" />
 		            <input class="js-id-replication-time js-id-timepicker-value" name="<?=$prefix?>[TIME]" type="hidden" value="<?=htmlspecialcharsbx($data['TIME'])?>" />
 	                <div class="task-main-clock-monkeyfix">
-		                <?$GLOBALS['APPLICATION']->IncludeComponent('bitrix:main.clock', '', array(
+		                <?php $GLOBALS['APPLICATION']->IncludeComponent('bitrix:main.clock', '', array(
 			                'INIT_TIME' => $data['TIME'] ? $data['TIME'] : '00:00',
 			                'INPUT_ID' => $arResult['JS_DATA']['timerId'],
 		                ));?>
@@ -211,12 +211,12 @@ $tzOffset = intval($arResult['AUX_DATA']['UTC_TIME_ZONE_OFFSET']);
 			</div>
 		</div>
 
-		<?if(LANGUAGE_ID == 'ru'):?>
+		<?php if(LANGUAGE_ID == 'ru'):?>
 			<div class="task-options-field-fn task-options-field-ok"><span class="js-id-replication-hint"></span></div>
-		<?endif?>
+		<?php endif?>
 
 	</div>
 
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

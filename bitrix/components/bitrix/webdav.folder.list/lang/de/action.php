@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACCESS_DENIED'] = "Zugriff verweigert.";
 $MESS ['WD_ERROR_DELETE'] = "Beim Löschen ist ein Fehler aufgetreten.";
 $MESS ['WD_ERROR_EMPTY_ACTION'] = "Die Aktion wurde nicht angegeben.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_JS_BUTTON_OK"] = "Yes";
 $MESS["CRM_JS_BUTTON_CANCEL"] = "Cancel";
 $MESS["CRM_JS_DELETE_CONFIRM"] = "Are you sure you want to delete this item?";

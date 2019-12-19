@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COMPANY_RULES_BY_LOCATION"] = "Standort";
 $MESS["SALE_COMPANY_RULES_BY_LOCATION_TITLE"] = "nach Standort";
 $MESS["SALE_COMPANY_RULES_BY_LOCATION_DESC"] = "nach Standort";

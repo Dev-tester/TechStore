@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FW_CONVERT_FAILED"] = "Error converting Document Library module data";
 $MESS["DISK_FW_PROCESSED_SUMMARY"] = "Items converted (cumulative):";
 $MESS["DISK_FW_CONVERT_IN_PROGRESS"] = "Still converting";

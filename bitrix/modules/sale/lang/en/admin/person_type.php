@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERSON_TYPE_TITLE"] = "Payer type";
 $MESS["ERROR_ADD_REC"] = "Error adding a record ";
 $MESS["ERROR_NAME_REC"] = "The \"Name\" field is not set in the record";

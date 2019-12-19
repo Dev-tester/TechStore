@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Integration\Intranet\Internals\Runtime;
 
 use Bitrix\Main\Entity;

@@ -1,8 +1,8 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
-<?
+<?php 
 if($arResult['ERROR_MESSAGE'])
 	ShowMessage($arResult['ERROR_MESSAGE']);
 ?>
@@ -15,7 +15,7 @@ if($arResult['ERROR_MESSAGE'])
 			obTwitterRecipients.style.display = 'block'
 	}
 </script>
-<?
+<?php 
 $arServices = $arResult["AUTH_SERVICES_ICONS"];
 $userIdTwitter = array();
 $userIdOther = array();
@@ -23,7 +23,7 @@ $showDivTwitter = false;
 $arPerm = array();
 ?>
 <div class="soc-serv-main">
-<?
+<?php 
 if(!empty($arResult["AUTH_SERVICES"]))
 {
 	?>
@@ -31,7 +31,7 @@ if(!empty($arResult["AUTH_SERVICES"]))
 			<?=GetMessage("SS_GET_COMPONENT_INFO")?>
 			<br><br>
 		</div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "split",
 		array(
 			"AUTH_SERVICES"=>$arResult["AUTH_SERVICES"],
@@ -46,7 +46,7 @@ if(!empty($arResult["AUTH_SERVICES"]))
 		array("HIDE_ICONS"=>"Y")
 	);
 	?>
-	<?
+	<?php 
 }
 
 if(isset($arResult["DB_SOCSERV_USER"]) && $arParams["SHOW_PROFILES"] != 'N')
@@ -64,7 +64,7 @@ if(isset($arResult["DB_SOCSERV_USER"]) && $arParams["SHOW_PROFILES"] != 'N')
 				<td><?=GetMessage("SS_SOCNET");?></td>
 				<td class="soc-serv-name-title"><?=GetMessage("SS_NAME");?></td>
 			</tr>
-			<?
+			<?php 
 			foreach($arResult["DB_SOCSERV_USER"] as $key => $arUser)
 			{
 				if(!$icon = htmlspecialcharsbx($arResult["AUTH_SERVICES_ICONS"][$arUser["EXTERNAL_AUTH_ID"]]["ICON"]))
@@ -83,41 +83,41 @@ if(isset($arResult["DB_SOCSERV_USER"]) && $arParams["SHOW_PROFILES"] != 'N')
 					<td class="bx-ss-icons">
 						<i class="bx-ss-icon <?=$icon?>">&nbsp;</i>
 
-						<?if ($arUser["PERSONAL_LINK"] != ''):?>
+						<?php if ($arUser["PERSONAL_LINK"] != ''):?>
 							<a class="soc-serv-link" target="_blank" href="<?=$arUser["PERSONAL_LINK"]?>">
 
-						<?endif;?>
+						<?php endif;?>
 						<?=$authID?>
-						<?if ($arUser["PERSONAL_LINK"] != ''):?>
+						<?php if ($arUser["PERSONAL_LINK"] != ''):?>
 							</a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 					<td class="soc-serv-name">
-						<?if(intval($arUser["PERSONAL_PHOTO"]) > 0):?>
+						<?php if(intval($arUser["PERSONAL_PHOTO"]) > 0):?>
 						<i class="soc-serv-photo">
-							<?echo CFile::ShowImage($arUser["PERSONAL_PHOTO"], 30, 30, "border=0", "", true);?>
+							<?php echo CFile::ShowImage($arUser["PERSONAL_PHOTO"], 30, 30, "border=0", "", true);?>
 						</i>
-						<?endif;?>
+						<?php endif;?>
 						<i class="soc-serv-text"><?=$arUser["VIEW_NAME"]?></i>
 					</td>
 					<td class="split-item-actions">
-						<?if (in_array($arUser["ID"], $arResult["ALLOW_DELETE_ID"])):?>
+						<?php if (in_array($arUser["ID"], $arResult["ALLOW_DELETE_ID"])):?>
 						<a class="split-delete-item" href="?action=delete&user_id=<?=$arUser["ID"]."&".bitrix_sessid_get()?>" onclick="return confirm('<?=GetMessage("SS_PROFILE_DELETE_CONFIRM")?>')" title=<?=GetMessage("SS_DELETE")?>></a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 
 		</table>
 	</div>
-	<?if($showDivTwitter):?>
+	<?php if($showDivTwitter):?>
 	<div class="soc-serv-title-grey">
-		<?if(COption::GetOptionString("socialservices", "get_message_from_twitter", "N") == 'Y'):?>
+		<?php if(COption::GetOptionString("socialservices", "get_message_from_twitter", "N") == 'Y'):?>
 		<br><?=str_replace("#hash#", $arResult["TWIT_HASH"], GetMessage("SS_SEND_MESSAGE_TO"))."  "?><a href="javascript:void(0)" onclick="ShowTwitDiv()"><?=GetMessage("SS_TO_RECIPIENTS")?></a>
 			<div id="soc-serv-recipients">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:main.post.form",
 			"",
@@ -141,18 +141,18 @@ if(isset($arResult["DB_SOCSERV_USER"]) && $arParams["SHOW_PROFILES"] != 'N')
 		);
 		?>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
-	<?
+	<?php 
 endif;
 	?>
-	<?
+	<?php 
 }
 if(!empty($arResult["AUTH_SERVICES"]))
 {
 ?>
 	</div>
-<?
+<?php 
 }
 if(!empty($userIdTwitter))
 {
@@ -160,7 +160,7 @@ if(!empty($userIdTwitter))
 	{
 	?>
 		<input type="hidden" name="USER_ID_TWITTER[<?=$value?>]" value="<?=$value?>" />
-	<?
+	<?php 
 	}
 }
 if(!empty($userIdOther))
@@ -169,6 +169,6 @@ if(!empty($userIdOther))
 	{
 	?>
 		<input type="hidden" name="USER_ID_OTHER[<?=$value?>]" value="<?=$value?>" />
-	<?
+	<?php 
 	}
 }

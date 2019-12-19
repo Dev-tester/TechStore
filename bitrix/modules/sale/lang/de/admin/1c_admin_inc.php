@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_1C_GROUP_PERMISSIONS"] = "Gruppen mit Export-Berechtigung";
 $MESS["SALE_1C_SITE_LIST"] = "Bestellungen von dieser Website in 1C exportieren ";
 $MESS["SALE_1C_SALE_ACCOUNT_NUMBER_SHOP_PREFIX"] = "Bestellnummer-Präfix (für Export)";

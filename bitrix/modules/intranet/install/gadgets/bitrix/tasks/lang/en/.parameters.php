@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_TASKS_P_ORDER_BY'] = "Arrange By";
 $MESS ['GD_TASKS_P_ORDER_BY_D1'] = "due date";
 $MESS ['GD_TASKS_P_ORDER_BY_D2'] = "creation date";

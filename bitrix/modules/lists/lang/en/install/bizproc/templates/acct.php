@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LIBTA_NAME"] = "Name";
 $MESS["LIBTA_TYPE"] = "Type";
 $MESS["LIBTA_TYPE_ADV"] = "Advertising";

@@ -19,4 +19,4 @@ foreach (['Responsible', 'ModifiedBy'] as $propertyKey):
 		</span>
 		<?=$dialog->renderFieldControl($map[$propertyKey])?>
 	</div>
-<?endforeach;?>
+<?php endforeach;?>

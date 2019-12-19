@@ -1,16 +1,16 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 CModule::IncludeModule("photogallery");
 $arParams["SHOW_TAGS"] = ($arParams["SHOW_TAGS"] == "Y" ? "Y" : "N");
 $arParams["MAX_LENGTH"] = 200;
 $arParams["THUMBS_SIZE"] = (intVal($arParams["THUMBS_SIZE"]) > 0 ? intVal($arParams["THUMBS_SIZE"]) : 120);
 
-?><div class="photo-controls"><?
+?><div class="photo-controls"><?php 
 if (!empty($arResult["SECTION_TOP_LINK"])):
-	?><a href="<?=$arResult["SECTION_TOP_LINK"]?>" title="<?=GetMessage("P_UP_TITLE")?>" class="photo-action back-to-album" <?
-	?>><?=GetMessage("P_UP")?></a><?
+	?><a href="<?=$arResult["SECTION_TOP_LINK"]?>" title="<?=GetMessage("P_UP_TITLE")?>" class="photo-action back-to-album" <?php 
+	?>><?=GetMessage("P_UP")?></a><?php 
 endif;
 ?></div>
-<div class="empty-clear"></div><?
+<div class="empty-clear"></div><?php 
 
 if(IsModuleInstalled("search") && $arParams["SHOW_TAGS"] == "Y")
 {
@@ -24,7 +24,7 @@ if(IsModuleInstalled("search") && $arParams["SHOW_TAGS"] == "Y")
 	<tr class="middle">
 		<td class="left"><div class="empty"></div></td>
 		<td class="body-text">
-			<div class="photo-head"><?=GetMessage("P_TAGS")?></div><?
+			<div class="photo-head"><?=GetMessage("P_TAGS")?></div><?php 
 	$APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default",
 		Array(
 		"SEARCH" => $arResult["REQUEST"]["~QUERY"],
@@ -61,23 +61,23 @@ if(IsModuleInstalled("search") && $arParams["SHOW_TAGS"] == "Y")
 </div>
 <div class="empty-clear"></div>
 <br />
-<?
+<?php 
 }
 
-/*?><form action="" method="get"><?
+/*?><form action="" method="get"><?php 
 	if($arResult["REQUEST"]["HOW"]=="d"):
-		?><input type="hidden" name="how" value="d" /><?
+		?><input type="hidden" name="how" value="d" /><?php 
 	endif;
-	?><input type="hidden" name="tags" value="<?echo $arResult["REQUEST"]["TAGS"]?>" />
+	?><input type="hidden" name="tags" value="<?php echo $arResult["REQUEST"]["TAGS"]?>" />
 	<input type="text" name="q" value="<?=$arResult["REQUEST"]["QUERY"]?>" size="40" />
 	&nbsp;<input type="submit" value="<?=GetMessage("SEARCH_GO")?>" />
-</form><br /><?
+</form><br /><?php 
 */
-?><div class="search-page"><?
+?><div class="search-page"><?php 
 if($arResult["REQUEST"]["QUERY"] === false && $arResult["REQUEST"]["TAGS"] === false):
-	?><?
+	?><?php 
 elseif($arResult["ERROR_CODE"]!=0):
-	?><p><?=GetMessage("SEARCH_ERROR")?></p><?
+	?><p><?=GetMessage("SEARCH_ERROR")?></p><?php 
 	ShowError($arResult["ERROR_TEXT"]);
 	?><p><?=GetMessage("SEARCH_CORRECT_AND_CONTINUE")?></p>
 	<br /><br />
@@ -104,101 +104,101 @@ elseif($arResult["ERROR_CODE"]!=0):
 			<td valign="top">&nbsp;</td>
 			<td><?=GetMessage("SEARCH_BRACKETS_ALT")?></td>
 		</tr>
-	</table><?
+	</table><?php 
 
 elseif(count($arResult["SEARCH"])>0):
-?><div class="empty-clear"></div><?
+?><div class="empty-clear"></div><?php 
 
 	$counter = 0;
 	foreach ($arResult["SEARCH"] as $arItem):
 	$counter++;
 	if ($arParams["CELL_COUNT"] > 0 && $counter > $arParams["CELL_COUNT"]):
-		?><div class="empty-clear"></div><?
+		?><div class="empty-clear"></div><?php 
 		$counter = 1;
 	endif;
-	?><table cellpadding="0" cellspacing="0" border="0" class="result" style="width:<?=intVal($arParams["THUMBS_SIZE"] + 2 + 20 + 2)?>px; height:<?=intVal($arParams["THUMBS_SIZE"] + 2 + 10 + 2 + 70)?>px;" onmouseover="ShowDescription('<?=$arItem["ELEMENT"]["ID"]?>')" onmouseout="HideDescription('<?=$arItem["ELEMENT"]["ID"]?>')"><tr><th class="result_image"><?
-		?><div class="photo-image-outer"><?
-			?><table class="shadow" cellpadding="0" cellspacing="0" border="0" width="0"><?
-				?><tr valign="middle"><td colspan="2" class="photo-image" align="center" <?
-					?>style="width:<?=$arParams["THUMBS_SIZE"]?>px; height:<?=$arParams["THUMBS_SIZE"]?>px;"><?
+	?><table cellpadding="0" cellspacing="0" border="0" class="result" style="width:<?=intVal($arParams["THUMBS_SIZE"] + 2 + 20 + 2)?>px; height:<?=intVal($arParams["THUMBS_SIZE"] + 2 + 10 + 2 + 70)?>px;" onmouseover="ShowDescription('<?=$arItem["ELEMENT"]["ID"]?>')" onmouseout="HideDescription('<?=$arItem["ELEMENT"]["ID"]?>')"><tr><th class="result_image"><?php 
+		?><div class="photo-image-outer"><?php 
+			?><table class="shadow" cellpadding="0" cellspacing="0" border="0" width="0"><?php 
+				?><tr valign="middle"><td colspan="2" class="photo-image" align="center" <?php 
+					?>style="width:<?=$arParams["THUMBS_SIZE"]?>px; height:<?=$arParams["THUMBS_SIZE"]?>px;"><?php 
 	if(is_array($arItem["ELEMENT"]["PREVIEW_PICTURE"])):
 		$sTitle = htmlspecialcharsEx($arItem["ELEMENT"]["~NAME"]);
 		if($arResult["USER_HAVE_ACCESS"]):
-			?><a href="<?=$arItem["ELEMENT"]["URL"]?>"><?
+			?><a href="<?=$arItem["ELEMENT"]["URL"]?>"><?php 
 				?><?=CFile::ShowImage($arItem["ELEMENT"]["PREVIEW_PICTURE"], $arParams["THUMBS_SIZE"], $arParams["THUMBS_SIZE"],
 					"border=\"0\" vspace=\"0\" hspace=\"0\" ".
-					"alt=\"".$sTitle."\" title=\"".$sTitle."\"", "", true);?><?
-			?></a><?
+					"alt=\"".$sTitle."\" title=\"".$sTitle."\"", "", true);?><?php 
+			?></a><?php 
 		else:
 			?><?=CFile::ShowImage($arItem["ELEMENT"]["PREVIEW_PICTURE"], $arParams["THUMBS_SIZE"], $arParams["THUMBS_SIZE"],
 				"border=\"0\" vspace=\"0\" hspace=\"0\" ".
-				"alt=\"".$sTitle."\" title=\"".$sTitle."\"", "", true);?><?
+				"alt=\"".$sTitle."\" title=\"".$sTitle."\"", "", true);?><?php 
 		endif;
 	endif;
-				?></td></tr><?
-				?><tr class="b"><?
-					?><td class="l"><div class="empty"></div></td><?
-					?><td class="r"><div class="empty"></div></td><?
-				?></tr><?
-			?></table><?
-		?></div><?
-		?></th></tr><?
-		?><tr><td class="result_text"><?
+				?></td></tr><?php 
+				?><tr class="b"><?php 
+					?><td class="l"><div class="empty"></div></td><?php 
+					?><td class="r"><div class="empty"></div></td><?php 
+				?></tr><?php 
+			?></table><?php 
+		?></div><?php 
+		?></th></tr><?php 
+		?><tr><td class="result_text"><?php 
 
 		if (!empty($arItem)):
-		?><div style="position:relative;"><?
-		?><div class="photo-image-inner" id="item_<?=$arItem["ELEMENT"]["ID"]?>" <?
+		?><div style="position:relative;"><?php 
+		?><div class="photo-image-inner" id="item_<?=$arItem["ELEMENT"]["ID"]?>" <?php 
 				if (PhotoGetBrowser() == "opera"):
-					?> style="overflow:auto; height:150px;"<?
+					?> style="overflow:auto; height:150px;"<?php 
 				endif;
-		?>><?
-			?><div class="photo-title"><?
+		?>><?php 
+			?><div class="photo-title"><?php 
 			if($arResult["USER_HAVE_ACCESS"]):
-				?><a href="<?=$arItem["ELEMENT"]["URL"]?>"><?=$arItem["TITLE_FORMATED"]?></a><?
+				?><a href="<?=$arItem["ELEMENT"]["URL"]?>"><?=$arItem["TITLE_FORMATED"]?></a><?php 
 			else:
-				?><?=$arItem["TITLE_FORMATED"]?><?
+				?><?=$arItem["TITLE_FORMATED"]?><?php 
 			endif;
 
-			?></div><?
+			?></div><?php 
 
-			?><div class="photo-date"><?=$arItem["DATE_CHANGE"]?></div><?
+			?><div class="photo-date"><?=$arItem["DATE_CHANGE"]?></div><?php 
 
 		if ($arParams["SHOW_TAGS"] == "Y"):
-			?><div class="photo-tags"><?
+			?><div class="photo-tags"><?php 
 			if (!empty($arItem["TAGS"]))
 			{
 				$first = true;
 				foreach ($arItem["TAGS"] as $tags):
 					if (!$first)
 					{
-						?>, <?
+						?>, <?php 
 					}
-					?><a href="<?=$tags["URL"]?>"><?=$tags["TAG_NAME"]?></a><?
+					?><a href="<?=$tags["URL"]?>"><?=$tags["TAG_NAME"]?></a><?php 
 					$first = false;
 				endforeach;
 			}
-			?></div><?
+			?></div><?php 
 		endif;
-			?><div class="photo-description"><?=$arItem["ELEMENT"]["DETAIL_TEXT"]?></div><?
-		?></div><?
-		?></div><?
+			?><div class="photo-description"><?=$arItem["ELEMENT"]["DETAIL_TEXT"]?></div><?php 
+		?></div><?php 
+		?></div><?php 
 		endif;
-		?><div class="photo-title" style="width:<?=intVal($arParams["THUMBS_SIZE"] + 14)?>px;overflow:hidden;"><?=$arItem["ELEMENT"]["NAME"]?></div><?
+		?><div class="photo-title" style="width:<?=intVal($arParams["THUMBS_SIZE"] + 14)?>px;overflow:hidden;"><?=$arItem["ELEMENT"]["NAME"]?></div><?php 
 
-		?></td></tr><?
-	?></table><?
+		?></td></tr><?php 
+	?></table><?php 
 	endforeach;
-?><div class="empty-clear"></div><?
+?><div class="empty-clear"></div><?php 
 
 
 	?><div class="photo-navigation"><?=$arResult["NAV_STRING"]?></div>
-	<div class="photogallery-navigation pages"><?
+	<div class="photogallery-navigation pages"><?php 
 	if($arResult["REQUEST"]["HOW"]=="d"):
-		?><a href="<?=$arResult["SEARCH_URL"]?>"><?=GetMessage("SEARCH_SORT_BY_RANK")?></a> <span class="active"><?=GetMessage("SEARCH_SORTED_BY_DATE")?></span><?
+		?><a href="<?=$arResult["SEARCH_URL"]?>"><?=GetMessage("SEARCH_SORT_BY_RANK")?></a> <span class="active"><?=GetMessage("SEARCH_SORTED_BY_DATE")?></span><?php 
 	else:
-		?><span class="active"><?=GetMessage("SEARCH_SORTED_BY_RANK")?></a> <a href="<?=$arResult["SEARCH_URL"]?>&amp;how=d"><?=GetMessage("SEARCH_SORT_BY_DATE")?></a><?
+		?><span class="active"><?=GetMessage("SEARCH_SORTED_BY_RANK")?></a> <a href="<?=$arResult["SEARCH_URL"]?>&amp;how=d"><?=GetMessage("SEARCH_SORT_BY_DATE")?></a><?php 
 	endif;
-	?></div><?
+	?></div><?php 
 else:
 	ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND"));
 endif;

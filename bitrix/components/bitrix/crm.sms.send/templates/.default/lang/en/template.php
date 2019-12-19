@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SMS_MANAGE_TEXT_1"] = "Explore possibilities of SMS marketing";
 $MESS["CRM_SMS_MANAGE_TEXT_2"] = "Bitrix24 provides easy and hassle free SMS messaging";
 $MESS["CRM_SMS_MANAGE_TEXT_3"] = "Send messages directly from lead, deal, client or quote.";

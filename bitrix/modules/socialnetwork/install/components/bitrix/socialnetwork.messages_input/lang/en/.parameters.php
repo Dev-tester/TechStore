@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_MESSAGE_VAR'] = "Variable for Message";
 $MESS ['SONET_SET_NAVCHAIN'] = "Set Breadcrumbs";
 $MESS ['SONET_ITEMS_COUNT'] = "Count of Items in List";

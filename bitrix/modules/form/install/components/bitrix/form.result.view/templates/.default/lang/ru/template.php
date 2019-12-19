@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_CURRENT_STATUS'] = "Текущий статус: ";
 $MESS ['FORM_MODULE_NOT_INSTALLED'] = "Модуль веб-форм не установлен.";
 $MESS ['FORM_RECORD_NOT_FOUND'] = "Запись не найдена";

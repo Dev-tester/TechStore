@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Socialnetwork\Item\WorkgroupFavorites;
 
 define("NOT_CHECK_PERMISSIONS", true);

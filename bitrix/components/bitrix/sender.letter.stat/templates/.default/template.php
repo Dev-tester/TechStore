@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -88,15 +88,15 @@ $containerId = htmlspecialcharsbx($containerId);
 		<div data-bx-block="Counters" class="bx-sender-block">
 <!--			<div class="bx-sender-mailfilter">-->
 <!--				<div class="bx-sender-mailfilter-half">-->
-<!--					<div class="bx-sender-mailfilter-item">--><?//=Loc::getMessage('SENDER_LETTER_STAT_STATS_COUNTER_SEND_ALL')?><!--:</div>-->
+<!--					<div class="bx-sender-mailfilter-item">--><?php //=Loc::getMessage('SENDER_LETTER_STAT_STATS_COUNTER_SEND_ALL')?><!--:</div>-->
 <!--					<div data-bx-point="counters/SEND_ALL/VALUE_DISPLAY" class="bx-sender-mailfilter-item bx-sender-mailfilter-item-total">-->
-<!--						--><?//=htmlspecialcharsbx($arResult['DATA']['counters']['SEND_ALL']['VALUE_DISPLAY'])?>
+<!--						--><?php //=htmlspecialcharsbx($arResult['DATA']['counters']['SEND_ALL']['VALUE_DISPLAY'])?>
 <!--					</div>-->
 <!--				</div>-->
 <!--				<div class="bx-sender-mailfilter-half bx-sender-mailfilter-half-right">-->
-<!--					<span class="bx-sender-mailfilter-item-light">--><?//=Loc::getMessage('SENDER_LETTER_STAT_STATS_MAILING')?><!--:</span>-->
+<!--					<span class="bx-sender-mailfilter-item-light">--><?php //=Loc::getMessage('SENDER_LETTER_STAT_STATS_MAILING')?><!--:</span>-->
 <!--					<span class="bx-sender-mailfilter-item">-->
-<!--						--><?//=htmlspecialcharsbx($arResult['POSTING']['MAILING_NAME'])?>
+<!--						--><?php //=htmlspecialcharsbx($arResult['POSTING']['MAILING_NAME'])?>
 <!--					</span>-->
 <!--				</div>-->
 <!--			</div>-->
@@ -227,14 +227,14 @@ $containerId = htmlspecialcharsbx($containerId);
 									<?=htmlspecialcharsbx($arResult['DATA']['counters']['SEND_ERROR']['VALUE_DISPLAY'])?>
 								</span>
 							</a>
-							<?if ($arResult['CAN_RESEND_ERRORS']):?>
+							<?php if ($arResult['CAN_RESEND_ERRORS']):?>
 								<div class="sender-letter-stat-number-action">
 									<span data-role="resend-errors" class="ui-btn ui-btn-xs ui-btn-light">
 										<?=Loc::getMessage('SENDER_LETTER_STAT_RESEND')?>
 									</span>
 									<span data-hint="<?=Loc::getMessage('SENDER_LETTER_STAT_RESEND_HINT')?>"></span>
 								</div>
-							<?endif;?>
+							<?php endif;?>
 						</div>
 						<div class="bx-sender-mailfilter-result-item bx-sender-mailfilter-2-items">
 							<p class="bx-sender-mailfilter-result-title"><?=Loc::getMessage('SENDER_LETTER_STAT_STATS_COUNTER_UNSUB')?></p>
@@ -252,7 +252,7 @@ $containerId = htmlspecialcharsbx($containerId);
 			</div>
 		</div>
 
-		<?if ($arResult['IS_SUPPORT_HEAT_MAP']):?>
+		<?php if ($arResult['IS_SUPPORT_HEAT_MAP']):?>
 		<div class="bx-sender-block" data-bx-block="ClickMap">
 			<p class="bx-sender-title"><?=Loc::getMessage('SENDER_LETTER_STAT_STATS_CLICK_MAP')?></p>
 			<div data-bx-view-loader="" class="bx-sender-insert bx-sender-insert-loader">
@@ -270,9 +270,9 @@ $containerId = htmlspecialcharsbx($containerId);
 				<iframe data-bx-click-map="" class="bx-sender-click-map-frame bx-sender-resizer" width="100%" height="400" src=""></iframe>
 			</div>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
-		<?/*
+		<?php /*
 		<div class="bx-sender-block" data-bx-block="ReadByTime">
 			<p class="bx-sender-title"><?=Loc::getMessage('SENDER_LETTER_STAT_STATS_READ_BY_TIME')?></p>
 			<div data-bx-view-loader="" class="bx-sender-insert bx-sender-insert-loader">
@@ -292,7 +292,7 @@ $containerId = htmlspecialcharsbx($containerId);
 
 	</div>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:sender.ui.button.panel",
 		"",

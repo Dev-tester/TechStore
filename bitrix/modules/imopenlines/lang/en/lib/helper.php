@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_HELPER_TEMPLATE_TRANSPARENT"] = "Transparent";
 $MESS["IMOL_HELPER_TEMPLATE_COLORED"] = "Colored";
 ?>

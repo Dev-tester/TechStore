@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global \CMain $APPLICATION */
 use Bitrix\Main\Loader,
 	Bitrix\Main\Localization\Loc,

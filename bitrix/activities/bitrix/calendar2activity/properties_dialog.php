@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <tr>
@@ -55,17 +55,17 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	<td width="60%">
 		<select name="calendar_timezone" id="id_calendar_timezone">
 			<option value=""> - </option>
-			<?
+			<?php 
 			if (is_array($timezoneList))
 			{
 				foreach($timezoneList as $tz)
 				{?>
 					<option value="<?= $tz['timezone_id'] ?>"
-						<? if($tz['timezone_id'] == $arCurrentValues["calendar_timezone"])
+						<?php  if($tz['timezone_id'] == $arCurrentValues["calendar_timezone"])
 						{
 							echo 'selected';
 						} ?>><?= htmlspecialcharsEx($tz['title']) ?></option>
-				<?}
+				<?php }
 			}
 			?>
 		</select>

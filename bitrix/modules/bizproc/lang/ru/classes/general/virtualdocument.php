@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPVDX_FIELD_ID"] = "ID элемента";
 $MESS["BPVDX_FIELD_TIMESTAMP_X"] = "Дата изменения элемента";
 $MESS["BPVDX_FIELD_MODYFIED"] = "Кем изменен";

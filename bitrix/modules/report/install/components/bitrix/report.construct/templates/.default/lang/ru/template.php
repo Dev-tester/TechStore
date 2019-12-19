@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_CONSTRUCT"] = "Конструктор отчетов";
 $MESS["REPORT_TITLE"] = "Название отчета";
 $MESS["REPORT_DESCRIPTION"] = "Описание отчета";

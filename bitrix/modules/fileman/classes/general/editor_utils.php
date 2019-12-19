@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CEditorUtils
 {
@@ -132,7 +132,7 @@ class CEditorUtils
 			{
 				//Trim php tags
 				$src = $arPHP[$n][2];
-				if (SubStr($src, 0, 5) == "<?"."php")
+				if (SubStr($src, 0, 5) == "<?php "."php")
 					$src = SubStr($src, 5);
 				else
 					$src = SubStr($src, 2);

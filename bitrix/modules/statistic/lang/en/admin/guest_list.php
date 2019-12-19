@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_SESS1_SESS2"] = "The session field \"from\" must be less than or equal to \"till\" field in the filter";
 $MESS["STAT_HITS1_HITS2"] = "The hit field \"from\" must be less than or equal to \"till\" field in the filter";
 $MESS["STAT_EVENTS1_EVENTS2"] = "The event field \"from\" must be less than or equal to \"till\" field in the filter";

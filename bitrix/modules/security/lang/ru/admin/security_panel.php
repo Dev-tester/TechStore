@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_PANEL_TITLE'] = "Панель безопасности";
 $MESS ['SEC_PANEL_CURRENT_LEVEL'] = "Текущий уровень безопасности: #LEVEL_NAME#.";
 $MESS ['SEC_PANEL_NORMAL_NAME'] = "Начальный";

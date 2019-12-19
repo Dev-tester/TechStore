@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				Input params
 ********************************************************************/
@@ -53,7 +53,7 @@ if (is_array($arResult["MENU_VARIABLES"]) && isset($arResult["MENU_VARIABLES"]["
 	$arResult = $arResult + $arResult["MENU_VARIABLES"]["ALL"];
 
 ob_start();
-?><?$arResultGalleries = $APPLICATION->IncludeComponent(
+?><?php $arResultGalleries = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.gallery.list",
 	"ascetic",
 	Array(
@@ -85,7 +85,7 @@ ob_start();
 		"SHOW_PAGE_NAVIGATION"	=>	"none"
 	),
 	$component,
-	array("HIDE_ICONS" => "Y"));?><?
+	array("HIDE_ICONS" => "Y"));?><?php 
 	$sGalleryList = ob_get_clean();
 
 if (empty($sGalleryList))
@@ -105,7 +105,7 @@ if (empty($sGalleryList))
 		<?=$sError?>
 	</div>
 </div>
-<?
+<?php 
 return false;
 }
 $sDetailListUrl = CComponentEngine::MakePathFromTemplate($arParams["DETAIL_LIST_URL"], array());
@@ -216,7 +216,7 @@ if (!$bEmptyBest)
 	if ($_REQUEST["return_array"] != "Y")
 		ob_start();
 	?>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:photogallery.detail.list.ex",
 		"",
 		Array(
@@ -284,7 +284,7 @@ if (!$bEmptyBest)
 		array("HIDE_ICONS" => "Y")
 	);?>
 
-	<?
+	<?php 
 	if ($_REQUEST["return_array"] != "Y")
 		$sBestPhotos = ob_get_clean();
 }
@@ -293,7 +293,7 @@ if (!$bEmptyBest)
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="photo-table">
 	<tr valign="top">
 		<td class="photo-td-left">
-<?
+<?php 
 	if ($arParams["PERMISSION"] >= "W")
 	{
 		$arGalleries = unserialize(COption::GetOptionString("photogallery", "UF_GALLERY_SIZE"));
@@ -307,17 +307,17 @@ if (!$bEmptyBest)
 			<?=str_replace("#URL#", $APPLICATION->GetCurPage()."?galleries_recalc=Y", GetMessage("P_RECALC_7"))?>
 		</div>
 	</div>
-<?
+<?php 
 		}
 	}
 ?>
-<?
+<?php 
 	if (!empty($sBestPhotos))
 	{
 ?>
 			<div class="photo-header-component"><?=GetMessage("P_PHOTO_LAST")?></div>
 			<?=$sBestPhotos?>
-<?
+<?php 
 	}
 	else
 	{
@@ -332,7 +332,7 @@ if (!$bEmptyBest)
 			<div class="photo-note-box">
 				<div class="photo-note-box-text"><?=$sBestPhotos?></div>
 			</div>
-<?
+<?php 
 		}
 	}
 
@@ -340,20 +340,20 @@ if (!$bEmptyBest)
 		</td>
 
 		<td class="photo-td-right">
-<?
+<?php 
 $this->SetViewTarget("sidebar", 100);
 if (!empty($sBestPhoto)):?>
 <div class="photo-info-box photo-info-box-best-photo">
 	<div class="photo-info-box-inner">
 		<div class="photo-header-big">
 			<div class="photo-header-inner">
-<?
+<?php 
 	if ($sSortField == "PROPERTY_RATING"):
-		?><?=GetMessage("P_RATING_PHOTO")?><?
+		?><?=GetMessage("P_RATING_PHOTO")?><?php 
 	elseif ($sSortField != "shows"):
-		?><?=GetMessage("P_COMMENT_PHOTO")?><?
+		?><?=GetMessage("P_COMMENT_PHOTO")?><?php 
 	else:
-		?><?=GetMessage("P_PHOTO_2")?><?
+		?><?=GetMessage("P_PHOTO_2")?><?php 
 	endif;
 ?>
 			</div>
@@ -361,9 +361,9 @@ if (!empty($sBestPhoto)):?>
 		<?=$sBestPhoto?>
 	</div>
 </div>
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 if ($arParams["PERMISSION"] >= "U")
 {
 	CModule::IncludeModule("iblock");
@@ -409,25 +409,25 @@ if ($arParams["PERMISSION"] >= "U")
 <noindex>
 	<div class="photo-controls photo-controls-buttons photo-controls-moderate">
 		<ul class="photo-controls">
-		<?if ($bNeedModerate):?>
+		<?php if ($bNeedModerate):?>
 			<li class="photo-control photo-control-first <?=($bNeedPublic ? "" : "photo-control-last")?> photo-control-moderate">
 				<a rel="nofollow" href="<?=$sDetailListUrl."&mode=active"?>" title="<?=GetMessage("P_NOT_MODERATED_TITLE")?>">
 					<span><?=GetMessage("P_NOT_MODERATED")?></span>
 				</a>
 			</li>
-		<?endif;?>
-		<?if ($bNeedPublic):?>
+		<?php endif;?>
+		<?php if ($bNeedPublic):?>
 			<li class="photo-control <?=($bNeedModerate ? "" : "photo-control-first")?> photo-control-last photo-control-public">
 				<a rel="nofollow" href="<?=$sDetailListUrl."&mode=public"?>" title="<?=GetMessage("P_NOT_APPROVED_TITLE")?>">
 					<span><?=GetMessage("P_NOT_APPROVED")?></span>
 				</a>
 			</li>
-		<?endif;?>
+		<?php endif;?>
 		</ul>
 		<div class="empty-clear"></div>
 	</div>
 </noindex>
-<?
+<?php 
 	}
 }
 
@@ -437,36 +437,36 @@ if ($GLOBALS["USER"]->IsAuthorized() && (!empty($arResult["MY_GALLERY"]) || $arR
 <noindex>
 	<div class="photo-controls photo-controls-buttons photo-controls-usermenu">
 		<ul class="photo-controls">
-<?if (empty($arResult["MY_GALLERY"])):?>
+<?php if (empty($arResult["MY_GALLERY"])):?>
 			<li class="photo-control photo-control-first photo-control-last photo-control-create photo-control-create-gallery-first">
 				<a rel="nofollow" href="<?=$arResult["LINK"]["NEW"]?>">
 					<span><?=GetMessage("P_GALLERY_CREATE")?></span></a>
 			</li>
-<?else:?>
+<?php else:?>
 			<li class="photo-control photo-control-first photo-control-view photo-control-gallery">
 				<a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["VIEW"]?>">
 					<span><?=GetMessage("P_PHOTO_VIEW")?></span></a>
 			</li>
-<?if (count($arResult["MY_GALLERIES"]) > 1 || $arResult["I"]["ACTIONS"]["CREATE_GALLERY"] == "Y"):?>
+<?php if (count($arResult["MY_GALLERIES"]) > 1 || $arResult["I"]["ACTIONS"]["CREATE_GALLERY"] == "Y"):?>
 			<li class="photo-control photo-control-view photo-control-galleries">
 				<a rel="nofollow" href="<?=$arResult["LINK"]["GALLERIES"]?>">
 					<span><?=GetMessage("P_GALLERIES_VIEW")?></span></a>
 			</li>
-<?else:?>
+<?php else:?>
 			<li class="photo-control photo-control-edit photo-control-gallery-edit">
 				<a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["EDIT"]?>">
 					<span><?=GetMessage("P_GALLERY_VIEW")?></span></a>
 			</li>
-<?endif;?>
+<?php endif;?>
 			<li class="photo-control photo-control-last photo-control-album-upload">
 				<a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["UPLOAD"]?>"><span><?=GetMessage("P_UPLOAD")?></span></a>
 			</li>
-<?endif;?>
+<?php endif;?>
 		</ul>
 		<div class="empty-clear"></div>
 	</div>
 </noindex>
-<?
+<?php 
 }
 elseif (!$GLOBALS["USER"]->IsAuthorized() && $arParams['SHOW_CONTROLS_BUTTONS'] != "N")
 {
@@ -482,7 +482,7 @@ elseif (!$GLOBALS["USER"]->IsAuthorized() && $arParams['SHOW_CONTROLS_BUTTONS'] 
 		<div class="empty-clear"></div>
 	</div>
 </noindex>
-<?
+<?php 
 }
 ?>
 
@@ -498,18 +498,18 @@ elseif (!$GLOBALS["USER"]->IsAuthorized() && $arParams['SHOW_CONTROLS_BUTTONS'] 
 			<ul class="photo-controls">
 				<li class="photo-control"><a rel="nofollow" href="<?=$sDetailListUrl?>"><span><?=GetMessage("P_PHOTO_NEW")?></span></a></li>
 				<li class="photo-control"><a rel="nofollow" href="<?=$sDetailListUrl?>order=shows&group_photo=Y"><span><?=GetMessage("P_PHOTO_SHOWS")?></span></a></li>
-<?
+<?php 
 		if ($arParams["USE_RATING"] == "Y")
 		{
 ?>
 				<li class="photo-control"><a rel="nofollow" href="<?=$sDetailListUrl?>order=rating&group_photo=Y"><span><?=GetMessage("P_PHOTO_RATING")?></span></a></li>
-<?
+<?php 
 		}
 		if ($arParams["USE_COMMENTS"] == "Y")
 		{
 ?>
 				<li class="photo-control"><a rel="nofollow" href="<?=$sDetailListUrl?>order=comments&group_photo=Y"><span><?=GetMessage("P_PHOTO_COMMENTS")?></span></a></li>
-<?
+<?php 
 		}
 ?>
 			</ul>
@@ -518,7 +518,7 @@ elseif (!$GLOBALS["USER"]->IsAuthorized() && $arParams['SHOW_CONTROLS_BUTTONS'] 
 	</div>
 </div>
 </noindex>
-<?
+<?php 
 if (!empty($sGalleryList))
 {
 ?>
@@ -527,9 +527,9 @@ if (!empty($sGalleryList))
 		<div class="photo-header-big">
 			<div class="photo-header-inner">
 				<?=GetMessage("P_USERS_GALLERIES")?>
-<?if (count($arResultGalleries["GALLERIES"]) >= 10):?>
+<?php if (count($arResultGalleries["GALLERIES"]) >= 10):?>
 				<span class="photo-header-link"> (<a href="<?=CComponentEngine::MakePathFromTemplate($arParams["GALLERIES_URL"], array("USER_ID" => "users"))?>"><?=GetMessage("P_ALL_PHOTOS")?></a>)</span>
-<?endif;?>
+<?php endif;?>
 			</div>
 		</div>
 		<div class="photo-controls photo-controls-mainpage">
@@ -538,7 +538,7 @@ if (!empty($sGalleryList))
 		</div>
 	</div>
 </div>
-<?
+<?php 
 }
 
 if ($arParams["SHOW_TAGS"] == "Y" && IsModuleInstalled("search"))

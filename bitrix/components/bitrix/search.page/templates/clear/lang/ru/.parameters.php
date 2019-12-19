@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BSP_USE_SUGGEST"] = "Показывать подсказку с поисковыми фразами";
 $MESS["TP_BSP_SHOW_ITEM_TAGS"] = "Показывать теги документа";
 $MESS["TP_BSP_TAGS_INHERIT"] = "Сужать область поиска";

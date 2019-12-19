@@ -18,10 +18,10 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/report/css/report.css');
 		</div>
 		<div class="webform-content">
 			<div class="reports-title-label"><?=htmlspecialcharsbx(GetMessage('CRM_REPORT_SELECT_OWNER'))?></div>
-			<select id="report-helper-selector" name="reportOwnerID" class="filter-dropdown" style="min-width: 250px;"><?
+			<select id="report-helper-selector" name="reportOwnerID" class="filter-dropdown" style="min-width: 250px;"><?php 
 				$ownerInfos = CCrmReportManager::getOwnerInfos();
 				foreach ($ownerInfos as &$ownerInfo) :
-					?><option value="<?=htmlspecialcharsbx($ownerInfo['ID'])?>"><?= htmlspecialcharsbx($ownerInfo['TITLE']) ?></option><?
+					?><option value="<?=htmlspecialcharsbx($ownerInfo['ID'])?>"><?= htmlspecialcharsbx($ownerInfo['TITLE']) ?></option><?php 
 				endforeach;
 				unset($ownerInfo);?>
 			</select>
@@ -52,7 +52,7 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/report/css/report.css');
 			);
 		}
 	);
-</script><?
+</script><?php 
 return;
 else:
 ?><script type="text/javascript">
@@ -91,7 +91,7 @@ else:
 		}
 	);
 </script>
-<?
+<?php 
 endif;
 
 ?><style>
@@ -107,87 +107,87 @@ endif;
 <div id="report-filter-value-control-examples-custom" style="display: none">
 	<span name="report-filter-value-control-CATEGORY_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
-			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?
+			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?php 
 			$categories = \Bitrix\Crm\Category\DealCategory::getSelectListItems();
 			foreach($categories as $key => $val):
-				?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?
+				?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?php 
 			endforeach;
 		?></select>
 	</span>
 	<span name="report-filter-value-control-STAGE_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
-			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?
+			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?php 
 			$categoryGroups = \Bitrix\Crm\Category\DealCategory::getStageGroupInfos();
 			foreach($categoryGroups as $group):
 				$groupName = isset($group['name']) ? $group['name'] : '';
-				if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?endif;
+				if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?php endif;
 				$groupItems = isset($group['items']) && is_array($group['items'])
 					? $group['items'] : array();
 				foreach($groupItems as $key => $val):
-					?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?
+					?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?php 
 				endforeach;
-				if($groupName !== ''):?></optgroup><?endif;
+				if($groupName !== ''):?></optgroup><?php endif;
 			endforeach;
 		?></select>
 	</span>
 	<span name="report-filter-value-control-STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			if ($arResult['REPORT_OWNER_ID'] === 'crm_invoice')
 				$arResult['enumValues']['STATUS_ID'] = CCrmStatus::GetStatusList('INVOICE_STATUS');
 			else
 				$arResult['enumValues']['STATUS_ID'] = CCrmStatus::GetStatusList('STATUS');
 			?>
-			<? foreach($arResult['enumValues']['STATUS_ID'] as $key => $val): ?>
+			<?php  foreach($arResult['enumValues']['STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
-	<?
+	<?php 
 	if ($arResult['REPORT_OWNER_ID'] === 'crm_invoice'):
 	?><span name="report-filter-value-control-PERSON_TYPE_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['PERSON_TYPE_ID'] = CCrmReportHelperBase::getInvoicePersonTypeList();
+			<?php  $arResult['enumValues']['PERSON_TYPE_ID'] = CCrmReportHelperBase::getInvoicePersonTypeList();
 			foreach($arResult['enumValues']['PERSON_TYPE_ID'] as $key => $val):
 				?>          <option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 	<span name="report-filter-value-control-PAY_SYSTEM_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['PAY_SYSTEM_ID'] = CCrmReportHelperBase::getInvoicePaySystemList();
+			<?php  $arResult['enumValues']['PAY_SYSTEM_ID'] = CCrmReportHelperBase::getInvoicePaySystemList();
 			foreach($arResult['enumValues']['PAY_SYSTEM_ID'] as $key => $val):
 				?>          <option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
-	</span><?
+	</span><?php 
 	endif;
 	?>
 	<span name="report-filter-value-control-SOURCE_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['SOURCE_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arResult['enumValues']['SOURCE_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['SOURCE_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arResult['enumValues']['SOURCE_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 		<span name="report-filter-value-control-DEAL_OWNER.STAGE_ID" class="report-filter-vcc">
 			<select class="reports-filter-select-small" name="value">
-				<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?
+				<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option><?php 
 				$categoryGroups = \Bitrix\Crm\Category\DealCategory::getStageGroupInfos();
 				foreach($categoryGroups as $group):
 					$groupName = isset($group['name']) ? $group['name'] : '';
-					if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?endif;
+					if($groupName !== ''):?><optgroup label="<?=htmlspecialcharsbx($groupName)?>"><?php endif;
 					$groupItems = isset($group['items']) && is_array($group['items'])
 						? $group['items'] : array();
 					foreach($groupItems as $key => $val):
-						?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?
+						?><option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option><?php 
 					endforeach;
-					if($groupName !== ''):?></optgroup><?endif;
+					if($groupName !== ''):?></optgroup><?php endif;
 				endforeach;
 			?></select>
 		</span>
@@ -195,119 +195,119 @@ endif;
 	<span name="report-filter-value-control-TYPE_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			if ($arResult['REPORT_OWNER_ID'] === 'crm_activity')
 				$arResult['enumValues']['TYPE_ID'] = CCrmActivityType::PrepareFilterItems();
 			else
 				$arResult['enumValues']['TYPE_ID'] = CCrmStatus::GetStatusList('DEAL_TYPE');
 			?>
-			<? foreach($arResult['enumValues']['TYPE_ID'] as $key => $val): ?>
+			<?php  foreach($arResult['enumValues']['TYPE_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 	<span name="report-filter-value-control-DEAL_OWNER.TYPE_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['TYPE_ID'] = CCrmStatus::GetStatusList('DEAL_TYPE'); ?>
-			<? foreach($arResult['enumValues']['TYPE_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['TYPE_ID'] = CCrmStatus::GetStatusList('DEAL_TYPE'); ?>
+			<?php  foreach($arResult['enumValues']['TYPE_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DIRECTION" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<?
+			<?php 
 			$directions = CCrmActivityDirection::GetAllDescriptions(0);
 			unset($directions[CCrmActivityDirection::Undefined]);
 			$arResult['enumValues']['DIRECTION'] = $directions;
 			unset($directions);
 			?>
-			<? foreach($arResult['enumValues']['DIRECTION'] as $key => $val): ?>
+			<?php  foreach($arResult['enumValues']['DIRECTION'] as $key => $val): ?>
 				<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-PRIORITY" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['DIRECTION'] = CCrmActivityPriority::PrepareFilterItems(); ?>
-			<? foreach($arResult['enumValues']['DIRECTION'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['DIRECTION'] = CCrmActivityPriority::PrepareFilterItems(); ?>
+			<?php  foreach($arResult['enumValues']['DIRECTION'] as $key => $val): ?>
 				<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-CURRENCY_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['CURRENCY_ID'] = CCrmCurrencyHelper::PrepareListItems(); ?>
-			<? foreach($arResult['enumValues']['CURRENCY_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['CURRENCY_ID'] = CCrmCurrencyHelper::PrepareListItems(); ?>
+			<?php  foreach($arResult['enumValues']['CURRENCY_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.CURRENCY_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['CURRENCY_ID'] = CCrmCurrencyHelper::PrepareListItems(); ?>
-			<? foreach($arResult['enumValues']['CURRENCY_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['CURRENCY_ID'] = CCrmCurrencyHelper::PrepareListItems(); ?>
+			<?php  foreach($arResult['enumValues']['CURRENCY_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-LEAD_BY.CURRENCY_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['LEAD_BY.CURRENCY_ID'] = CCrmCurrencyHelper::PrepareListItems(); ?>
-			<? foreach($arResult['enumValues']['LEAD_BY.CURRENCY_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['LEAD_BY.CURRENCY_ID'] = CCrmCurrencyHelper::PrepareListItems(); ?>
+			<?php  foreach($arResult['enumValues']['LEAD_BY.CURRENCY_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-LEAD_BY.STATUS_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['LEAD_BY.STATUS_BY.STATUS_ID'] = CCrmStatus::GetStatusList('STATUS'); ?>
-			<? foreach($arResult['enumValues']['LEAD_BY.STATUS_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['LEAD_BY.STATUS_BY.STATUS_ID'] = CCrmStatus::GetStatusList('STATUS'); ?>
+			<?php  foreach($arResult['enumValues']['LEAD_BY.STATUS_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-LEAD_BY.SOURCE_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['LEAD_BY.SOURCE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arResult['enumValues']['LEAD_BY.SOURCE_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['LEAD_BY.SOURCE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arResult['enumValues']['LEAD_BY.SOURCE_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-EVENT_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['EVENT_ID'] = CCrmStatus::GetStatusList('EVENT_TYPE'); ?>
-			<? foreach($arResult['enumValues']['EVENT_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['EVENT_ID'] = CCrmStatus::GetStatusList('EVENT_TYPE'); ?>
+			<?php  foreach($arResult['enumValues']['EVENT_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.EVENT_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['EVENT_ID'] = CCrmStatus::GetStatusList('EVENT_TYPE'); ?>
-			<? foreach($arResult['enumValues']['EVENT_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['EVENT_ID'] = CCrmStatus::GetStatusList('EVENT_TYPE'); ?>
+			<?php  foreach($arResult['enumValues']['EVENT_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
@@ -349,120 +349,120 @@ endif;
 	<span name="report-filter-value-control-COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('COMPANY_TYPE'); ?>
-			<? foreach($arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('COMPANY_TYPE'); ?>
+			<?php  foreach($arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('COMPANY_TYPE'); ?>
-			<? foreach($arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('COMPANY_TYPE'); ?>
+			<?php  foreach($arResult['enumValues']['COMPANY_BY.COMPANY_TYPE_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-COMPANY_BY.INDUSTRY_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] = CCrmStatus::GetStatusList('INDUSTRY'); ?>
-			<? foreach($arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] = CCrmStatus::GetStatusList('INDUSTRY'); ?>
+			<?php  foreach($arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.COMPANY_BY.INDUSTRY_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] = CCrmStatus::GetStatusList('INDUSTRY'); ?>
-			<? foreach($arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] = CCrmStatus::GetStatusList('INDUSTRY'); ?>
+			<?php  foreach($arResult['enumValues']['COMPANY_BY.INDUSTRY_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-COMPANY_BY.EMPLOYEES_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] = CCrmStatus::GetStatusList('EMPLOYEES'); ?>
-			<? foreach($arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] = CCrmStatus::GetStatusList('EMPLOYEES'); ?>
+			<?php  foreach($arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.COMPANY_BY.EMPLOYEES_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] = CCrmStatus::GetStatusList('EMPLOYEES'); ?>
-			<? foreach($arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] = CCrmStatus::GetStatusList('EMPLOYEES'); ?>
+			<?php  foreach($arResult['enumValues']['COMPANY_BY.EMPLOYEES_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-CONTACT_BY.TYPE_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('CONTACT_TYPE'); ?>
-			<? foreach($arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('CONTACT_TYPE'); ?>
+			<?php  foreach($arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.CONTACT_BY.TYPE_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('CONTACT_TYPE'); ?>
-			<? foreach($arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('CONTACT_TYPE'); ?>
+			<?php  foreach($arResult['enumValues']['CONTACT_BY.TYPE_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-CONTACT_BY.SOURCE_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.CONTACT_BY.SOURCE_BY.STATUS_ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
-			<? foreach($arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] = CCrmStatus::GetStatusList('SOURCE'); ?>
+			<?php  foreach($arResult['enumValues']['CONTACT_BY.SOURCE_BY.STATUS_ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-ORIGINATOR_BY.ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['ORIGINATOR_BY.ID'] = CCrmExternalSaleHelper::PrepareListItems() ?>
-			<? foreach($arResult['enumValues']['ORIGINATOR_BY.ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['ORIGINATOR_BY.ID'] = CCrmExternalSaleHelper::PrepareListItems() ?>
+			<?php  foreach($arResult['enumValues']['ORIGINATOR_BY.ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
 	<span name="report-filter-value-control-DEAL_OWNER.ORIGINATOR_BY.ID" class="report-filter-vcc">
 		<select class="reports-filter-select-small" name="value">
 			<option value=""><?=GetMessage('CRM_REPORT_INCLUDE_ALL')?></option>
-			<? $arResult['enumValues']['ORIGINATOR_BY.ID'] = CCrmExternalSaleHelper::PrepareListItems() ?>
-			<? foreach($arResult['enumValues']['ORIGINATOR_BY.ID'] as $key => $val): ?>
+			<?php  $arResult['enumValues']['ORIGINATOR_BY.ID'] = CCrmExternalSaleHelper::PrepareListItems() ?>
+			<?php  foreach($arResult['enumValues']['ORIGINATOR_BY.ID'] as $key => $val): ?>
 			<option value="<?=htmlspecialcharsbx($key)?>"><?=htmlspecialcharsbx($val)?></option>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</select>
 	</span>
 
@@ -475,7 +475,7 @@ endif;
 		<a href="" class="report-select-popup-link" caller="true"><?=GetMessage('REPORT_CHOOSE')?></a>
 		<input type="hidden" name="value" />
 	</span>
-	<?
+	<?php 
 	//CCrmCompany
 	$arCompanyTypeList = CCrmStatus::GetStatusListEx('COMPANY_TYPE');
 	$arCompanyIndustryList = CCrmStatus::GetStatusListEx('INDUSTRY');
@@ -608,10 +608,10 @@ endif;
 	?>
 
 	<script type="text/javascript">
-		var crmCompanyElements = <? echo CUtil::PhpToJsObject($arCompanies); ?>;
-		var crmContactElements = <? echo CUtil::PhpToJsObject($arContacts); ?>;
-		var crmLeadElements = <? echo CUtil::PhpToJsObject($arLeads); ?>;
-		var crmDealElements = <? echo CUtil::PhpToJsObject($arDeals); ?>;
+		var crmCompanyElements = <?php  echo CUtil::PhpToJsObject($arCompanies); ?>;
+		var crmContactElements = <?php  echo CUtil::PhpToJsObject($arContacts); ?>;
+		var crmLeadElements = <?php  echo CUtil::PhpToJsObject($arLeads); ?>;
+		var crmDealElements = <?php  echo CUtil::PhpToJsObject($arDeals); ?>;
 
 		var crmCompanyDialogID = '';
 		var crmContactDialogID = '';
@@ -876,7 +876,7 @@ endif;
 			h.setAttribute('value', item ? item['id'] : '');
 		}
 	</script>
-</div><?
+</div><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:report.construct',
 	'',

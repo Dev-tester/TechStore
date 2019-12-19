@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROPERTY_FEATURE_NAME_LIST_PAGE_SHOW"] = "Показывать на странице списка элементов";
 $MESS["PROPERTY_FEATURE_NAME_DETAIL_PAGE_SHOW"] = "Показывать на детальной странице элемента";
 $MESS["PROPERTY_FEATURE_ERR_BAD_PROPERTY_ID"] = "Неверный ID свойства";

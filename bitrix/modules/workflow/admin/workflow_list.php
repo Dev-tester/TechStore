@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -338,28 +338,28 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("FLOW_PAGE_TITLE"));
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("MAIN_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("MAIN_FIND_TITLE")?>">
 		<select name="find_type">
-			<option value="title"<?if($find_type=="title") echo " selected"?>><?=GetMessage('FLOW_F_TITLE')?></option>
-			<option value="body"<?if($find_type=="body") echo " selected"?>><?=GetMessage('FLOW_F_BODY')?></option>
-			<option value="modified_by"<?if($find_type=="modified_by") echo " selected"?>><?=GetMessage('FLOW_F_MODIFIED_BY')?></option>
+			<option value="title"<?php if($find_type=="title") echo " selected"?>><?=GetMessage('FLOW_F_TITLE')?></option>
+			<option value="body"<?php if($find_type=="body") echo " selected"?>><?=GetMessage('FLOW_F_BODY')?></option>
+			<option value="modified_by"<?php if($find_type=="modified_by") echo " selected"?>><?=GetMessage('FLOW_F_MODIFIED_BY')?></option>
 		</select>
 	</td>
 </tr>
 
 <tr>
 	<td><?=GetMessage("FLOW_F_ID")?>:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="top">
 	<td><?=GetMessage("FLOW_F_LOCK_STATUS")?>:</td>
-	<td><?
+	<td><?php 
 		$arr = array(
 			"reference"=>array(
 				GetMessage("FLOW_RED"),
@@ -373,56 +373,56 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 	?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("FLOW_F_DATE_MODIFY").":"?></td>
-	<td><?echo CalendarPeriod("find_modify_1", $find_modify_1, "find_modify_2", $find_modify_2, "form1","Y")?></td>
+	<td><?php echo GetMessage("FLOW_F_DATE_MODIFY").":"?></td>
+	<td><?php echo CalendarPeriod("find_modify_1", $find_modify_1, "find_modify_2", $find_modify_2, "form1","Y")?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("FLOW_F_MODIFIED_BY")?>:</td>
-	<td><input type="text" name="find_modified_user_id" value="<?echo htmlspecialcharsbx($find_modified_user_id)?>" size="47"><?=ShowExactMatchCheckbox("find_modified_user_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_modified_user_id" value="<?php echo htmlspecialcharsbx($find_modified_user_id)?>" size="47"><?=ShowExactMatchCheckbox("find_modified_user_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("FLOW_LIST_SITE")?>:</td>
+	<td><?php echo GetMessage("FLOW_LIST_SITE")?>:</td>
 	<td><?=CSite::SelectBox("find_site_id", $find_site_id, GetMessage("FLOW_LIST_SITE_ALL"));?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("FLOW_F_FILENAME")?>:</td>
-	<td><input type="text" name="find_filename" value="<?echo htmlspecialcharsbx($find_filename)?>" size="47"><?=ShowExactMatchCheckbox("find_filename")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_filename" value="<?php echo htmlspecialcharsbx($find_filename)?>" size="47"><?=ShowExactMatchCheckbox("find_filename")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("FLOW_F_TITLE")?>:</td>
-	<td><input type="text" name="find_title" value="<?echo htmlspecialcharsbx($find_title)?>" size="47"><?=ShowExactMatchCheckbox("find_title")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_title" value="<?php echo htmlspecialcharsbx($find_title)?>" size="47"><?=ShowExactMatchCheckbox("find_title")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("FLOW_F_BODY")?>:</td>
-	<td><input type="text" name="find_body" value="<?echo htmlspecialcharsbx($find_body)?>" size="47"><?=ShowExactMatchCheckbox("find_body")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_body" value="<?php echo htmlspecialcharsbx($find_body)?>" size="47"><?=ShowExactMatchCheckbox("find_body")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("FLOW_F_STATUS")?>:</td>
-	<td><input type="text" name="find_status" value="<?echo htmlspecialcharsbx($find_status)?>" size="47"><?=ShowExactMatchCheckbox("find_status")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?
+	<td><input type="text" name="find_status" value="<?php echo htmlspecialcharsbx($find_status)?>" size="47"><?=ShowExactMatchCheckbox("find_status")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?php 
 	echo SelectBox("find_status_id", CWorkflowStatus::GetDropDownList(), GetMessage("MAIN_ALL"), htmlspecialcharsbx($find_status_id));
 	?></td>
 </tr>
 <?=ShowLogicRadioBtn()?>
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form" => "form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form" => "form1"));$filter->End();?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <table border="0" width="100%" cellspacing="5" cellpadding="3">
 	<tr>
 		<td><div class="lamp-green"></div></td>
-		<td nowrap><?echo GetMessage("FLOW_GREEN_ALT")?></td>
+		<td nowrap><?php echo GetMessage("FLOW_GREEN_ALT")?></td>
 	</tr>
 	<tr>
 		<td><div class="lamp-yellow"></div></td>
-		<td nowrap><?echo GetMessage("FLOW_YELLOW_ALT")?></td>
+		<td nowrap><?php echo GetMessage("FLOW_YELLOW_ALT")?></td>
 	</tr>
 	<tr>
 		<td><div class="lamp-red"></div></td>
-		<td nowrap><?echo GetMessage("FLOW_RED_ALT")?></td>
+		<td nowrap><?php echo GetMessage("FLOW_RED_ALT")?></td>
 	</tr>
 </table>
-<?echo EndNote();?>
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php echo EndNote();?>
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

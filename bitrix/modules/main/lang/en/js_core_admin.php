@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_INCLAREA_DBLCLICK"] = "Double-click";
 $MESS["ADMIN_SHOW_MODE_ON"] = "ON";
 $MESS["ADMIN_SHOW_MODE_OFF"] = "OFF";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_EXT_COMMENTAUX_CREATE_TASK_BLOG_POST"] = "Задача создана на основании #A_BEGIN#сообщения Живой ленты#A_END#";
 $MESS["SONET_EXT_COMMENTAUX_CREATE_TASK_TASK"] = "Задача создана на основании #A_BEGIN#задачи#A_END#";
 $MESS["SONET_EXT_COMMENTAUX_CREATE_TASK_FORUM_TOPIC"] = "Задача создана на основании #A_BEGIN#сообщения форума#A_END#";

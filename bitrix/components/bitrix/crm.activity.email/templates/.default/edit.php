@@ -153,7 +153,7 @@ if (!empty($arParams['TEMPLATES']))
 		<div class="crm-activity-planner-slider-header-control-text"><?=getMessage('CRM_ACT_EMAIL_CREATE_NOTEMPLATE') ?></div>
 		<div class="crm-activity-planner-slider-header-control-triangle"></div>
 	</div>
-	<?
+	<?php 
 
 	$this->endViewTarget();
 }
@@ -167,18 +167,18 @@ if (!empty($arParams['TEMPLATES']))
 	<input type="hidden" name="ACTION" value="SAVE_EMAIL">
 	<input type="hidden" name="DATA[ownerType]" value="<?=\CCrmOwnerType::resolveName($activity['OWNER_TYPE_ID']) ?>">
 	<input type="hidden" name="DATA[ownerID]" value="<?=$activity['OWNER_ID'] ?>">
-	<? if (preg_grep(sprintf('/^%s:/i', preg_quote($ownerUid, '/')), array_keys($rcptSelected + $rcptCcSelected))): ?>
+	<?php  if (preg_grep(sprintf('/^%s:/i', preg_quote($ownerUid, '/')), array_keys($rcptSelected + $rcptCcSelected))): ?>
 		<input type="hidden" name="DATA[ownerRcpt]" value="Y">
-	<? endif ?>
+	<?php  endif ?>
 	<input type="hidden" name="DATA[storageTypeID]" value="<?=\CCrmActivityStorageType::Disk ?>">
-	<? if ($activity['FORWARDED_ID'] > 0): ?>
+	<?php  if ($activity['FORWARDED_ID'] > 0): ?>
 		<input name="DATA[FORWARDED_ID]" type="hidden" value="<?=$activity['FORWARDED_ID'] ?>">
-	<? elseif ($activity['REPLIED_ID'] > 0): ?>
+	<?php  elseif ($activity['REPLIED_ID'] > 0): ?>
 		<input name="DATA[REPLIED_ID]" type="hidden" value="<?=$activity['REPLIED_ID'] ?>">
-	<? endif ?>
+	<?php  endif ?>
 	<input type="hidden" name="DATA[content_type]" value="<?=\CCrmContentType::Html ?>">
 
-	<? 
+	<?php  
 
 	$inlineFiles = array();
 	$quote = preg_replace_callback(
@@ -228,9 +228,9 @@ if (!empty($arParams['TEMPLATES']))
 					$k = count($field['value']);
 					foreach ($field['value'] as $item)
 					{
-						?><a class="crm-task-list-mail-additionally-info-text-bold" href="<?=htmlspecialcharsbx($item['DOC_URL']) ?>"><?
+						?><a class="crm-task-list-mail-additionally-info-text-bold" href="<?=htmlspecialcharsbx($item['DOC_URL']) ?>"><?php 
 							echo htmlspecialcharsbx($item['DOC_NAME']), ' - ', htmlspecialcharsbx($item['TITLE']);
-						?></a><? if (--$k > 0) echo ', ';
+						?></a><?php  if (--$k > 0) echo ', ';
 					}
 
 					return ob_get_clean();

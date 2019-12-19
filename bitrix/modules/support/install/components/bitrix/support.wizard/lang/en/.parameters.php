@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_LIST_TICKETS_PER_PAGE"] = "Tickets per page";
 $MESS["SUP_SET_PAGE_TITLE"] = "Set page title";
 $MESS["SUP_EDIT_MESSAGES_PER_PAGE"] = "Messages per page";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BUTTON_LIST_INFO_TITLE"] = "This widget unifies all possible digital communication channels with your clients in your Bitrix24 account.";
 $MESS["CRM_BUTTON_LIST_INFO_DESC"] = "All means of communication in one widget.";
 $MESS["CRM_BUTTON_LIST_INFO_DESC_ITEM_1"] = "Live chat, callbacks, CRM forms - anything you need to stay connected with your customers.";

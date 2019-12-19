@@ -132,7 +132,7 @@ foreach ($arResult['PRODUCTS'] as $productId => $arItems)
 <!-- START HTML -->
 <div id="<?= htmlspecialcharsbx($leftContainerId) ?>" class="crm-catalog-left">
 	<div class="crm-catalog-left-inner">
-	<?
+	<?php 
 	// Tree
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.product.section.tree',
@@ -178,23 +178,23 @@ foreach ($arResult['PRODUCTS'] as $productId => $arItems)
 			</div>
 		</div>
 
-		<form name="find_form" method="GET" action="<? echo $APPLICATION->GetCurPage() ?>?"
-			accept-charset="<? echo LANG_CHARSET; ?>" id="<?= $tableId ?>_form">
+		<form name="find_form" method="GET" action="<?php  echo $APPLICATION->GetCurPage() ?>?"
+			accept-charset="<?php  echo LANG_CHARSET; ?>" id="<?= $tableId ?>_form">
 			<input type="hidden" name="mode" value="list">
 			<input type="hidden" name="SECTION_ID" value="<?= (int)$arResult['SECTION_ID'] ?>"
 				id="<?= $tableId ?>_section_id">
 			<input type="hidden" name="QUERY" value="<?= htmlspecialcharsbx($arFilter['QUERY']) ?>"
 				id="<?= $tableId ?>_query_value">
 			<input type="hidden" name="USE_SUBSTRING_QUERY" value="<?=htmlspecialcharsbx($arFilter['USE_SUBSTRING_QUERY']) ?>" id="<?= $tableId ?>_query_substring_value">
-			<input type="hidden" name="func_name" value="<? echo htmlspecialcharsbx($arResult['JS_CALLBACK']) ?>">
-			<input type="hidden" name="lang" value="<? echo LANGUAGE_ID ?>">
+			<input type="hidden" name="func_name" value="<?php  echo htmlspecialcharsbx($arResult['JS_CALLBACK']) ?>">
+			<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID ?>">
 			<input type="hidden" id="LID" name="LID" value="<?= $arResult['LID'] ?>">
 			<input type="hidden" id="caller" name="caller" value="<?= $arResult['CALLER'] ?>">
 			<input type="hidden" name="IBLOCK_ID" value="<?= (int)$arResult['IBLOCK_ID'] ?>"
 				id="<?= $tableId ?>_iblock"/>
 
 		</form>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:crm.product.section.crumbs',
 			'',
@@ -230,7 +230,7 @@ foreach ($arResult['PRODUCTS'] as $productId => $arItems)
 						}
 					}
 				}
-			</script><?
+			</script><?php 
 
 			return true;
 		}

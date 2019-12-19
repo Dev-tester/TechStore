@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -38,7 +38,7 @@ use \Bitrix\Main\Localization\Loc;
 		</div>
 	</div>
 </div>
-<?
+<?php 
 include 'messages.php';
 
 if (!empty($arResult["FORM"]["USER"]["INFO"]))
@@ -48,7 +48,7 @@ if (!empty($arResult["FORM"]["USER"]["INFO"]))
 		<div class="crm-order-instagram-edit-content-inner">
 			<div class="crm-order-instagram-edit-section"><?=Loc::getMessage('CRM_OIIE_INFO')?></div>
 			<div class="crm-order-instagram-edit-desc">
-				<?
+				<?php 
 				if (!empty($arResult["FORM"]["USER"]["INFO"]["URL"]))
 				{
 					?>
@@ -60,7 +60,7 @@ if (!empty($arResult["FORM"]["USER"]["INFO"]))
 							<?=$arResult["FORM"]["USER"]["INFO"]["NAME"]?>
 						</a>
 					</span>
-					<?
+					<?php 
 				}
 
 				if (!empty($arResult["FORM"]["PAGE"]["URL"]))
@@ -74,7 +74,7 @@ if (!empty($arResult["FORM"]["USER"]["INFO"]))
 							<?=$arResult["FORM"]["PAGE"]["NAME"]?>
 						</a>
 					</span>
-					<?
+					<?php 
 				}
 
 				if (!empty($arResult["FORM"]["PAGE"]['INSTAGRAM']['USERNAME']))
@@ -88,11 +88,11 @@ if (!empty($arResult["FORM"]["USER"]["INFO"]))
 							<?=$arResult["FORM"]["PAGE"]['INSTAGRAM']['NAME']?>
 						</a>
 					</span>
-					<?
+					<?php 
 				}
 				?>
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }

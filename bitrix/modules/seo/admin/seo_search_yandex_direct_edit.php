@@ -472,15 +472,15 @@ if ($message)
 	echo $message->Show();
 
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$ID?>" name="form1" id="form1">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>&amp;ID=<?=$ID?>" name="form1" id="form1">
+<?php 
 
 $tabControl->Begin();
 
 // main settings tab
 $tabControl->BeginNextTab();
 ?>
-<?
+<?php 
 if($ID > 0):
 
 	$active = 'grey';
@@ -510,32 +510,32 @@ if($ID > 0):
 		<td><?=Loc::getMessage("SEO_CAMPAIGN_STATUS")?>:</td>
 		<td>
 			<div class="lamp-<?=$active?>" style="display:inline-block;"></div>&nbsp;<?=$active_title?>
-<?
+<?php 
 	if($bAllowUpdate)
 	{
 ?>
 			&nbsp;&nbsp;<a href="javascript:void(0)" onclick="updateCampaign(this, '<?=$ID?>')"><?=Loc::getMessage("SEO_CAMPAIGN_LIST_UPDATE");?></a>
-<?
+<?php 
 	}
 ?>
 		</td>
 	</tr>
 
-<?
+<?php 
 endif;
 ?>
 	<tr class="adm-detail-required-field">
 		<td width="40%"><?=Loc::getMessage("SEO_CAMPAIGN_NAME")?>:</td>
-		<td width="60%"><?if(!$bReadOnly):?><input type="text" name="SETTINGS[Name]" value="<?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['Name']);?>" size="53" maxlength="255"><?else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['Name']);?><?endif;?></td>
+		<td width="60%"><?php if(!$bReadOnly):?><input type="text" name="SETTINGS[Name]" value="<?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['Name']);?>" size="53" maxlength="255"><?php else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['Name']);?><?php endif;?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td><?=Loc::getMessage("SEO_CAMPAIGN_FIO")?>:</td>
-		<td><?if(!$bReadOnly):?><input type="text" name="SETTINGS[FIO]" value="<?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['FIO']);?>" size="53" maxlength="255"><?else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['FIO']);?><?endif;?></td>
+		<td><?php if(!$bReadOnly):?><input type="text" name="SETTINGS[FIO]" value="<?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['FIO']);?>" size="53" maxlength="255"><?php else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['FIO']);?><?php endif;?></td>
 	</tr>
 
 	<tr class="adm-detail-required-field">
 		<td><?=Loc::getMessage("SEO_CAMPAIGN_START_DATE")?>:</td>
-		<td><?if(!$bReadOnly):?><?=CalendarDate("SETTINGS[StartDate]", $campaign['SETTINGS']['StartDate'])?><?else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['StartDate']);?><?endif;?></td>
+		<td><?php if(!$bReadOnly):?><?=CalendarDate("SETTINGS[StartDate]", $campaign['SETTINGS']['StartDate'])?><?php else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['StartDate']);?><?php endif;?></td>
 	</tr>
 
 	<tr class="adm-detail-required-field">
@@ -543,9 +543,9 @@ endif;
 			<?=Loc::getMessage("SEO_CAMPAIGN_EMAIL")?>:
 			<div style="font-weight: normal; font-size: 11px; margin-top: 5px; color: gray;"><?=Loc::getMessage('SEO_CAMPAIGN_EMAIL_HINT')?></div>
 		</td>
-		<td valign="top"><?if(!$bReadOnly):?><input type="text" name="SETTINGS[EmailNotification][Email]" value="<?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['EmailNotification']['Email']);?>" size="42" maxlength="255"><?else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['EmailNotification']['Email']);?><?endif;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="BX.toggle(BX('seo_email_details'));"><?=Loc::getMessage('SEO_CAMPAIGN_EMAIL_SETTINGS')?></a></td>
+		<td valign="top"><?php if(!$bReadOnly):?><input type="text" name="SETTINGS[EmailNotification][Email]" value="<?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['EmailNotification']['Email']);?>" size="42" maxlength="255"><?php else:?><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['EmailNotification']['Email']);?><?php endif;?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0)" onclick="BX.toggle(BX('seo_email_details'));"><?=Loc::getMessage('SEO_CAMPAIGN_EMAIL_SETTINGS')?></a></td>
 	</tr>
-<?
+<?php 
 // email settings subtable
 ?>
 	<tr>
@@ -555,27 +555,27 @@ endif;
 		</tr>
 		<tr>
 			<td width="50%" align="right"><?=Loc::getMessage("SEO_CAMPAIGN_EMAIL_MONEY_WARNING_VALUE")?></td>
-			<td width="50%"><?if(!$bReadOnly):?><input type="text" name="SETTINGS[EmailNotification][MoneyWarningValue]" value="<?=intval($campaign["SETTINGS"]["EmailNotification"]["MoneyWarningValue"])?>" size="3" maxlength="2">&nbsp;<?else:?><b><?=intval($campaign["SETTINGS"]["EmailNotification"]["MoneyWarningValue"])?></b><?endif;?><?=Loc::getMessage('SEO_CAMPAIGN_EMAIL_MONEY_WARNING_VALUE_HINT')?></td>
+			<td width="50%"><?php if(!$bReadOnly):?><input type="text" name="SETTINGS[EmailNotification][MoneyWarningValue]" value="<?=intval($campaign["SETTINGS"]["EmailNotification"]["MoneyWarningValue"])?>" size="3" maxlength="2">&nbsp;<?php else:?><b><?=intval($campaign["SETTINGS"]["EmailNotification"]["MoneyWarningValue"])?></b><?php endif;?><?=Loc::getMessage('SEO_CAMPAIGN_EMAIL_MONEY_WARNING_VALUE_HINT')?></td>
 		</tr>
-<?
+<?php 
 if(!$bReadOnly):
 ?>
 		<tr>
 			<td align="right"><?=Loc::getMessage("SEO_CAMPAIGN_EMAIL_SENDWARN")?></td>
 			<td><input type="hidden" name="SETTINGS[EmailNotification][SendWarn]" value="N"><input type="checkbox" name="SETTINGS[EmailNotification][SendWarn]" value="Y" id="seo_sendwarn" <?=$campaign["SETTINGS"]["EmailNotification"]["SendWarn"]?' checked="checked"':''?> onclick="BX('seo_warn_interval').disabled=!this.checked;">&nbsp;<label for="seo_sendwarn"><?=Loc::getMessage("SEO_CAMPAIGN_EMAIL_MONEY_WARN_PLACE_INTERVAL")?></label>&nbsp;<select name="SETTINGS[EmailNotification][WarnPlaceInterval]" id="seo_warn_interval"<?=$campaign["SETTINGS"]["EmailNotification"]["SendWarn"]?'':' disabled="disabled"'?>>
-<?
+<?php 
 	$v = intval($campaign["SETTINGS"]["EmailNotification"]["WarnPlaceInterval"]);
 	foreach(Adv\YandexCampaignTable::$allowedWarnPlaceIntervalValues as $value):
 ?>
 
 		<option value="<?=$value?>"<?=$v===$value?' selected="selected"':''?>><?=$value?></option>
-<?
+<?php 
 	endforeach;
 ?>
 
 			</select>&nbsp;<?=Loc::getMessage('SEO_CAMPAIGN_EMAIL_MONEY_WARN_PLACE_INTERVAL_HINT')?></td>
 		</tr>
-<?
+<?php 
 elseif($campaign["SETTINGS"]["EmailNotification"]["SendWarn"]):
 ?>
 
@@ -584,7 +584,7 @@ elseif($campaign["SETTINGS"]["EmailNotification"]["SendWarn"]):
 			<td><?=Loc::getMessage("SEO_CAMPAIGN_EMAIL_MONEY_WARN_PLACE_INTERVAL")?>&nbsp;<b><?=intval($campaign["SETTINGS"]["EmailNotification"]["WarnPlaceInterval"])?></b>&nbsp;<?=Loc::getMessage('SEO_CAMPAIGN_EMAIL_MONEY_WARN_PLACE_INTERVAL_HINT')?></td>
 		</tr>
 
-<?
+<?php 
 endif;
 ?>
 	</table></div></td>
@@ -595,26 +595,26 @@ endif;
 </tr>
 <tr>
 	<td colspan="2">
-<?
+<?php 
 if($bReadOnly):
 	echo Converter::getHtmlConverter()->encode($campaign["SETTINGS"]["MinusKeywords"]);
 else:
 ?>
 		<textarea id="minus_text" style="width: 99%;" rows="3" name="SETTINGS[MinusKeywords]"><?=Converter::getHtmlConverter()->encode($campaign["SETTINGS"]["MinusKeywords"])?></textarea>
-<?
+<?php 
 endif;
 ?>
 	</td>
 </tr>
 
-<?
+<?php 
 // strategy settings tab
 $tabControl->BeginNextTab();
 ?>
 <tr class="adm-detail-required-field">
 	<td width="40%" valign="top"><?=Loc::getMessage("SEO_CAMPAIGN_STRATEGY")?>: </td>
 	<td width="60%">
-<?
+<?php 
 $strategyKey = array_search($campaign["SETTINGS"]["Strategy"]["StrategyName"], Adv\YandexCampaignTable::$supportedStrategy);
 
 if(!$bReadOnly):
@@ -622,7 +622,7 @@ if(!$bReadOnly):
 ?>
 		<input type="radio" name="SETTINGS[Strategy][StrategyName]" value="<?=$strategy?>" id="seo_str<?=$key?>" <?=$campaign["SETTINGS"]["Strategy"]["StrategyName"] == $strategy ? ' checked="checked"' : ''?> onclick="showStrategyParams('<?=$key?>')"><label for="seo_str<?=$key?>"><?=GetMessage('SEO_CAMPAIGN_STRATEGY_'.$strategy)?></label><br />
 
-<?
+<?php 
 	endforeach;
 else:
 	echo $strategyTitle;
@@ -633,14 +633,14 @@ endif;
 </tr>
 <tr id="tr_SEO_CAMPAIGN_STRATEGY_PARAMS" class="heading"><td colspan="2"><?=Loc::getMessage('SEO_CAMPAIGN_STRATEGY_PARAMS')?></td></tr>
 
-<?
+<?php 
 if(!$bReadOnly)
 {
 	foreach(Adv\YandexCampaignTable::$supportedStrategy as $key => $strategy)
 	{
 ?>
 <tbody id="strategy_params_<?=$key?>" style="<?=$key == $strategyKey ? 'display:table-row-group' : 'display:none'?>;">
-<?
+<?php 
 		foreach(Adv\YandexCampaignTable::$strategyConfig[$strategy] as $param => $config)
 		{
 			$v = $campaign['SETTINGS']['Strategy'][$param];
@@ -651,11 +651,11 @@ if(!$bReadOnly)
 		<td><input type="text" name="STRATEGY_SETTINGS[<?=$strategy?>][<?=$param?>]"
 				value="<?=$v === 0 ? '' : $v?>" size="5" id="param_<?=$key?>_<?=$param?>"> <?=($config['type'] === 'float')?$clientCurrency:'';?></td>
 	</tr>
-<?
+<?php 
 		}
 ?>
 </tbody>
-<?
+<?php 
 	}
 }
 elseif($strategyKey)
@@ -670,7 +670,7 @@ elseif($strategyKey)
 			<td><?=Loc::getMessage('SEO_CAMPAIGN_STRATEGY_PARAM_'.ToUpper($param))?></td>
 			<td><b><?=$v === 0 ? '' : $v?></b></td>
 		</tr>
-<?
+<?php 
 	}
 }
 else
@@ -684,13 +684,13 @@ else
 			<td><?=Converter::getHtmlConverter()->encode($param);?></td>
 			<td><b><?=Converter::getHtmlConverter()->encode($campaign['SETTINGS']['Strategy'][$param])?></b></td>
 		</tr>
-<?
+<?php 
 		}
 	}
 }
 ?>
 
-<?
+<?php 
 if($ID > 0)
 {
 	// stats tab
@@ -700,22 +700,22 @@ if($ID > 0)
 		<td colspan="3"><?=Loc::getMessage('SEO_YANDEX_STATS_GENERAL');?></td>
 	</tr>
 	<tr>
-		<td width="50%" colspan="2"><?ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_SUM_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_SUM')?>, <?=$clientCurrency?>:</td>
+		<td width="50%" colspan="2"><?php ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_SUM_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_SUM')?>, <?=$clientCurrency?>:</td>
 		<td width="50%"><?=doubleval($campaign['SETTINGS']['Sum']);?></td>
 	</tr>
 	<tr>
-		<td colspan="2"><?ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_REST_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_REST')?>, <?=$clientCurrency?>:</td>
+		<td colspan="2"><?php ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_REST_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_REST')?>, <?=$clientCurrency?>:</td>
 		<td><?=doubleval($campaign['SETTINGS']['Rest']);?></td>
 	</tr>
 	<tr>
-		<td colspan="2"><?ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_SHOWS_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_SHOWS')?>:</td>
+		<td colspan="2"><?php ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_SHOWS_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_SHOWS')?>:</td>
 		<td><?=doubleval($campaign['SETTINGS']['Shows']);?></td>
 	</tr>
 	<tr>
-		<td colspan="2"><?ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_CLICKS_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_CLICKS')?>:</td>
+		<td colspan="2"><?php ShowJSHint(Loc::getMessage('SEO_CAMPAIGN_CLICKS_HINT'))?> <?=Loc::getMessage('SEO_CAMPAIGN_CLICKS')?>:</td>
 		<td><?=doubleval($campaign['SETTINGS']['Clicks']);?></td>
 	</tr>
-<?
+<?php 
 	if($bShowStats)
 	{
 		CJSCore::Init(array('amcharts_serial'));
@@ -1009,21 +1009,21 @@ span.loading-message-text
 
 		});
 
-<?
+<?php 
 		if($bLoadStats):
 ?>
 		loadGraphData();
-<?
+<?php 
 		endif;
 ?>
 
 		window.showStats = BX.DoNothing;
 	};
-<?
+<?php 
 		if($tabControl->selectedTab == "edit_stats"):
 ?>
 	showStats();
-<?
+<?php 
 		endif;
 ?>
 </script>
@@ -1032,13 +1032,13 @@ span.loading-message-text
 <tr>
 	<td colspan="3" style="padding: 0 100px 20px; text-align: center;">
 		<div id="yandex_sublist_layout">
-<?
+<?php 
 $statsAdminList->DisplayList();
 ?>
 		</div>
 	</td>
 </tr>
-<?
+<?php 
 	}
 }
 
@@ -1053,17 +1053,17 @@ $tabControl->End();
 
 if(!$bReadOnly): ?>
 	<?=bitrix_sessid_post();?>
-	<? if($back_url!=''): ?>
-		<input type="hidden" name="back_url" value="<?echo Converter::getHtmlConverter()->encode($back_url)?>">
-	<? endif; ?>
+	<?php  if($back_url!=''): ?>
+		<input type="hidden" name="back_url" value="<?php echo Converter::getHtmlConverter()->encode($back_url)?>">
+	<?php  endif; ?>
 		<input type="hidden" name="ID" value="<?=$ID?>">
 	
 	<script type="text/javascript">
 		function showStrategyParams(key)
 		{
-			<? foreach (Adv\YandexCampaignTable::$supportedStrategy as $key => $strategy): ?>
+			<?php  foreach (Adv\YandexCampaignTable::$supportedStrategy as $key => $strategy): ?>
 				BX('strategy_params_<?=$key?>').style.display = key =='<?=$key?>' ? 'table-row-group' : 'none';
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		}
 		
 		BX.ready(function(){
@@ -1084,9 +1084,9 @@ if(!$bReadOnly): ?>
 		
 		});
 	</script>
-<?endif; ?>
+<?php endif; ?>
 
-<?if($bAllowUpdate):?>
+<?php if($bAllowUpdate):?>
 	<script type="text/javascript">
 		function updateCampaign(btn, campaignId)
 		{
@@ -1120,7 +1120,7 @@ if(!$bReadOnly): ?>
 			});
 		}
 	</script>
-<?endif;?>
+<?php endif;?>
 
 </form>
-<? require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
+<?php  require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_IMPORT_ERRORS_WRONG_FILE_HASH'] = 'Не удается получить доступ к загруженному файлу';
 $MESS['TASKS_IMPORT_ERRORS_WRONG_FILE_PATH'] = 'Ошибка в пути к загруженному файлу';
 $MESS['TASKS_IMPORT_ERRORS_MODULE_TASKS_NOT_INCLUDED'] = 'Модуль Задачи не подключен';

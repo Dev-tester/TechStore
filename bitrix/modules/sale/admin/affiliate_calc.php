@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -214,23 +214,23 @@ if ($REQUEST_METHOD=="GET" && strlen($Update)>0 && $saleModulePermissions>="W" &
 			?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 			<html>
 			<head>
-				<title><?echo GetMessage("SAC_STEP_TITLE")?></title>
+				<title><?php echo GetMessage("SAC_STEP_TITLE")?></title>
 			</head>
 			<body>
-				<?echo GetMessage("SAC_STEP_AUTO_HINT")?><br>
-				<?echo GetMessage("SAC_STEP_AUTO_HINT1")?>
-				<a href="<?echo $APPLICATION->GetCurPage() ?>?lang=<?echo LANG; ?>&<?echo $urlParams ?>"><?echo GetMessage("SAC_STEP_AUTO_HINT2")?></a><br>
+				<?php echo GetMessage("SAC_STEP_AUTO_HINT")?><br>
+				<?php echo GetMessage("SAC_STEP_AUTO_HINT1")?>
+				<a href="<?php echo $APPLICATION->GetCurPage() ?>?lang=<?php echo LANG; ?>&<?php echo $urlParams ?>"><?php echo GetMessage("SAC_STEP_AUTO_HINT2")?></a><br>
 				<script language="JavaScript" type="text/javascript">
 				<!--
 				function DoNext()
 				{
-					window.location="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo LANG?>&<?echo $urlParams ?>";
+					window.location="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo LANG?>&<?php echo $urlParams ?>";
 				}
 				setTimeout('DoNext()', 2000);
 				//-->
 				</script>
 			</body>
-			</html><?
+			</html><?php 
 
 			include($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php");
 
@@ -261,7 +261,7 @@ $APPLICATION->SetTitle(GetMessage("SAC_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<?
+<?php 
 $aMenu = array(
 		array(
 				"TEXT" => GetMessage("SAC_AFFILIATE_LIST"),
@@ -274,7 +274,7 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?
+<?php 
 if (StrLen($curLoadSessID) > 0 && array_key_exists($curLoadSessID, $_SESSION) && is_array($_SESSION[$curLoadSessID]) && array_key_exists("ERROR_MESSAGE", $_SESSION[$curLoadSessID]))
 	$errorMessage = $_SESSION[$curLoadSessID]["ERROR_MESSAGE"].$errorMessage;
 if (StrLen($curLoadSessID) > 0 && array_key_exists($curLoadSessID, $_SESSION) && is_array($_SESSION[$curLoadSessID]) && array_key_exists("OK_MESSAGE", $_SESSION[$curLoadSessID]))
@@ -290,13 +290,13 @@ elseif (strlen($okMessage) > 0)
 }
 ?>
 
-<form method="GET" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<form method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("SAC_TITLE"), "ICON" => "sale", "TITLE" => GetMessage("SAC_CALC_SETUP")),
 );
@@ -305,14 +305,14 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs, true, true);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("SAC_AFFILIATES")?></td>
+		<td width="40%" valign="top"><?php echo GetMessage("SAC_AFFILIATES")?></td>
 		<td width="60%" valign="top">
-			<?
+			<?php 
 			$bFilteredList = False;
 			if (isset($OID) && is_array($OID))
 			{
@@ -339,15 +339,15 @@ $tabControl->BeginNextTab();
 						$bFilteredList = True;
 						?>
 						<select name="OID[]" multiple size="5">
-							<?
+							<?php 
 							do
 							{
-								?><option value="<?= IntVal($arAffiliates["ID"]) ?>" selected><?= htmlspecialcharsex("[".$arAffiliates["ID"]."] ".$arAffiliates["USER_NAME"]." ".$arAffiliates["USER_LAST_NAME"]." (".$arAffiliates["USER_LOGIN"].")") ?></option><?
+								?><option value="<?= IntVal($arAffiliates["ID"]) ?>" selected><?= htmlspecialcharsex("[".$arAffiliates["ID"]."] ".$arAffiliates["USER_NAME"]." ".$arAffiliates["USER_LAST_NAME"]." (".$arAffiliates["USER_LOGIN"].")") ?></option><?php 
 							}
 							while ($arAffiliates = $dbAffiliates->Fetch());
 							?>
 						</select>
-						<?
+						<?php 
 					}
 				}
 			}
@@ -362,64 +362,64 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("SAC_CALC_PERIOD")?></td>
+		<td width="40%" valign="top"><?php echo GetMessage("SAC_CALC_PERIOD")?></td>
 		<td width="60%" valign="top">
-			<?echo CalendarPeriod("DATE_CALC_FROM", $DATE_CALC_FROM, "DATE_CALC_TO", $DATE_CALC_TO, "form1", "N")?><br>
-			<small><?echo GetMessage("SAC_CALC_PERIOD_HINT")?><br><?echo GetMessage("SAC_CALC_PERIOD_HINT1")?></small>
+			<?php echo CalendarPeriod("DATE_CALC_FROM", $DATE_CALC_FROM, "DATE_CALC_TO", $DATE_CALC_TO, "form1", "N")?><br>
+			<small><?php echo GetMessage("SAC_CALC_PERIOD_HINT")?><br><?php echo GetMessage("SAC_CALC_PERIOD_HINT1")?></small>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("SAC_PLAN_PERIOD_HINT1")?><br><small><?echo GetMessage("SAC_PLAN_PERIOD_HINT2")?></small></td>
+		<td width="40%" valign="top"><?php echo GetMessage("SAC_PLAN_PERIOD_HINT1")?><br><small><?php echo GetMessage("SAC_PLAN_PERIOD_HINT2")?></small></td>
 		<td width="60%" valign="top">
-			<?echo CalendarPeriod("DATE_PLAN_FROM", $DATE_PLAN_FROM, "DATE_PLAN_TO", $DATE_PLAN_TO, "form1", "N")?><br>
-			<small><?echo GetMessage("SAC_PLAN_PERIOD_HINT3")?><br><?echo GetMessage("SAC_PLAN_PERIOD_HINT4")?></small>
+			<?php echo CalendarPeriod("DATE_PLAN_FROM", $DATE_PLAN_FROM, "DATE_PLAN_TO", $DATE_PLAN_TO, "form1", "N")?><br>
+			<small><?php echo GetMessage("SAC_PLAN_PERIOD_HINT3")?><br><?php echo GetMessage("SAC_PLAN_PERIOD_HINT4")?></small>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("SAC_ACTION")?></td>
+		<td width="40%" valign="top"><?php echo GetMessage("SAC_ACTION")?></td>
 		<td width="60%" valign="top">
-			<?
+			<?php 
 			foreach ($arPossibleActions as $key => $value)
 			{
 				?>
-				<input type="radio" name="SUM_TODO" id="ID_SUM_TODO_<?= $key ?>" value="<?= $key ?>"<?if ($SUM_TODO == $key || StrLen($SUM_TODO) <= 0 && $key == "U") echo " checked";?>>
+				<input type="radio" name="SUM_TODO" id="ID_SUM_TODO_<?= $key ?>" value="<?= $key ?>"<?php if ($SUM_TODO == $key || StrLen($SUM_TODO) <= 0 && $key == "U") echo " checked";?>>
 				<label for="ID_SUM_TODO_<?= $key ?>"><?= $value ?></label><br>
-				<?
+				<?php 
 			}
 			?>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("SAC_STEP")?></td>
+		<td width="40%" valign="top"><?php echo GetMessage("SAC_STEP")?></td>
 		<td width="60%" valign="top">
-			<input type="text" name="max_execution_time" value="<?= IntVal($max_execution_time) ?>" size="5"> <?echo GetMessage("SAC_SEC")?><br>
-			<small><?echo GetMessage("SAC_SEC_0")?></small>
+			<input type="text" name="max_execution_time" value="<?= IntVal($max_execution_time) ?>" size="5"> <?php echo GetMessage("SAC_SEC")?><br>
+			<small><?php echo GetMessage("SAC_SEC_0")?></small>
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(false);
 ?>
 
-	<input<?= ($saleModulePermissions >= "W") ? "" : " disabled" ?> type="submit" name="apply" value="<?echo GetMessage("SAC_DO_CALC")?>" title="<?echo GetMessage("SAC_DO_CALC_DESCR")?>" class="adm-btn-save">
-	<input<?= ($saleModulePermissions >= "W") ? "" : " disabled" ?> type="reset" name="dontsave" value="<?echo GetMessage("SAC_RESET")?>" title="<?echo GetMessage("SAC_RESET")?>">
+	<input<?= ($saleModulePermissions >= "W") ? "" : " disabled" ?> type="submit" name="apply" value="<?php echo GetMessage("SAC_DO_CALC")?>" title="<?php echo GetMessage("SAC_DO_CALC_DESCR")?>" class="adm-btn-save">
+	<input<?= ($saleModulePermissions >= "W") ? "" : " disabled" ?> type="reset" name="dontsave" value="<?php echo GetMessage("SAC_RESET")?>" title="<?php echo GetMessage("SAC_RESET")?>">
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
 
-<?echo BeginNote();?>
-<?echo GetMessage("SAC_NOTE1")?><br><br>
-<?echo GetMessage("SAC_NOTE2")?><br><br>
-<?echo GetMessage("SAC_NOTE3")?><br><br>
-<?echo GetMessage("SAC_NOTE4")?><br><br>
-<?echo GetMessage("SAC_NOTE5")?>
-<?echo EndNote();?>
+<?php echo BeginNote();?>
+<?php echo GetMessage("SAC_NOTE1")?><br><br>
+<?php echo GetMessage("SAC_NOTE2")?><br><br>
+<?php echo GetMessage("SAC_NOTE3")?><br><br>
+<?php echo GetMessage("SAC_NOTE4")?><br><br>
+<?php echo GetMessage("SAC_NOTE5")?>
+<?php echo EndNote();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

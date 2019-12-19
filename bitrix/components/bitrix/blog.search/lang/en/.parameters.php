@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BMS_COUNT'] = "Messages per page";
 $MESS ['BMS_SEARCH_PAGE'] = "Search page";
 $MESS ['BMS_PATH_TO_BLOG'] = "Blog page path template";

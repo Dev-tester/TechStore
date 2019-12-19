@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "blue", SITE_ID);
@@ -20,12 +20,12 @@ if (empty($arResult))
 ?>
 <nav class="bx-inclinkspersonal-container">
 	<ul class="bx-inclinkspersonal-list">
-		<?foreach($arResult as $itemIdex => $arItem):?>
-			<?if ($arItem["DEPTH_LEVEL"] == "1"):?>
+		<?php foreach($arResult as $itemIdex => $arItem):?>
+			<?php if ($arItem["DEPTH_LEVEL"] == "1"):?>
 				<li class="bx-inclinkspersonal-item bx-theme-<?=$theme?> <?=($arItem["SELECTED"]) ? "bx-inclinkspersonal-selected" : "" ;?>">
 					<a class="bx-inclinkspersonal-item-element" href="<?=htmlspecialcharsbx($arItem["LINK"])?>"><?=htmlspecialcharsbx($arItem["TEXT"])?></a>
 				</li>
-			<?endif?>
-		<?endforeach;?>
+			<?php endif?>
+		<?php endforeach;?>
 	</ul>
 </nav>

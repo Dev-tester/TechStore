@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_FILEEDIT_FILE_EXISTS"] = "File with the specified name already exists!";
 $MESS["FILEMAN_FILEEDIT_FOLDER_EXISTS"] = "Folder with the specified name already exists!";
 $MESS["FILEMAN_FILEEDIT_FILENAME_EMPTY"] = "Filename is not specified";

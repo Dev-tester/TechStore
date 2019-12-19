@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CBPCompositeActivity
 	extends CBPActivity
 {

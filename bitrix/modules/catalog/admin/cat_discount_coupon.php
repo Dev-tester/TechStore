@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global CMain $APPLICATION
  * @global CDatabase $DB
@@ -434,8 +434,8 @@ $APPLICATION->SetTitle(GetMessage("DSC_CPN_TITLE"));
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -453,17 +453,17 @@ $oFilter->Begin();
 	<tr>
 		<td>ID:</td>
 		<td>
-			<input type="text" name="filter_id_start" size="10" value="<?echo htmlspecialcharsex($filter_id_start)?>">
+			<input type="text" name="filter_id_start" size="10" value="<?php echo htmlspecialcharsex($filter_id_start)?>">
 			...
-			<input type="text" name="filter_id_end" size="10" value="<?echo htmlspecialcharsex($filter_id_end)?>">
+			<input type="text" name="filter_id_end" size="10" value="<?php echo htmlspecialcharsex($filter_id_end)?>">
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("DSC_CPN_DISC") ?>:</td>
+		<td><?php  echo GetMessage("DSC_CPN_DISC") ?>:</td>
 		<td>
 			<select name="filter_discount_id">
-				<option value="">(<? echo GetMessage("DSC_CPN_ALL") ?>)</option>
-				<?
+				<option value="">(<?php  echo GetMessage("DSC_CPN_ALL") ?>)</option>
+				<?php 
 				$dbDiscountList = CCatalogDiscount::GetList(
 					array("NAME" => "ASC"),
 					array(),
@@ -473,7 +473,7 @@ $oFilter->Begin();
 				);
 				while ($arDiscountList = $dbDiscountList->Fetch())
 				{
-					?><option value="<? echo $arDiscountList["ID"] ?>"<?if ($filter_discount_id == $arDiscountList["ID"]) echo " selected";?>><? echo "[".$arDiscountList["ID"]."] ".htmlspecialcharsbx($arDiscountList["NAME"]." (".$arDiscountList["SITE_ID"].")") ?></option><?
+					?><option value="<?php  echo $arDiscountList["ID"] ?>"<?php if ($filter_discount_id == $arDiscountList["ID"]) echo " selected";?>><?php  echo "[".$arDiscountList["ID"]."] ".htmlspecialcharsbx($arDiscountList["NAME"]." (".$arDiscountList["SITE_ID"].")") ?></option><?php 
 				}
 				unset($arDiscountList, $dbDiscountList);
 				?>
@@ -481,44 +481,44 @@ $oFilter->Begin();
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("DSC_CPN_ACT") ?>:</td>
+		<td><?php  echo GetMessage("DSC_CPN_ACT") ?>:</td>
 		<td>
 			<select name="filter_active">
-				<option value=""><? echo htmlspecialcharsex("(".GetMessage("DSC_CPN_ALL").")") ?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><? echo htmlspecialcharsex(GetMessage("DSC_CPN_YES")) ?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><? echo htmlspecialcharsex(GetMessage("DSC_CPN_NO")) ?></option>
+				<option value=""><?php  echo htmlspecialcharsex("(".GetMessage("DSC_CPN_ALL").")") ?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?php  echo htmlspecialcharsex(GetMessage("DSC_CPN_YES")) ?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?php  echo htmlspecialcharsex(GetMessage("DSC_CPN_NO")) ?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("DSC_CPN_CPN") ?>:</td>
+		<td><?php  echo GetMessage("DSC_CPN_CPN") ?>:</td>
 		<td>
-			<input type="text" name="filter_coupon" value="<?echo htmlspecialcharsbx($filter_coupon)?>" />
+			<input type="text" name="filter_coupon" value="<?php echo htmlspecialcharsbx($filter_coupon)?>" />
 		</td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("DSC_CPN_TIME2") ?>:</td>
+		<td><?php  echo GetMessage("DSC_CPN_TIME2") ?>:</td>
 		<td>
 			<select name="filter_one_time">
-				<option value=""><? echo htmlspecialcharsex("(".GetMessage("DSC_CPN_ALL").")") ?></option><?
+				<option value=""><?php  echo htmlspecialcharsex("(".GetMessage("DSC_CPN_ALL").")") ?></option><?php 
 				foreach ($arCouponType as $strType => $strName)
 				{
-					?><option value="<? echo $strType; ?>"<?if ($filter_one_time == $strType) echo " selected"; ?>><? echo htmlspecialcharsex($strName); ?></option><?
+					?><option value="<?php  echo $strType; ?>"<?php if ($filter_one_time == $strType) echo " selected"; ?>><?php  echo htmlspecialcharsex($strName); ?></option><?php 
 				}
 				?></select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("DSC_CPN_DATE").":"?></td>
-		<td><?echo CalendarPeriod("filter_apply_time_start", htmlspecialcharsex($filter_apply_time_start), "filter_apply_time_end", htmlspecialcharsex($filter_apply_time_end), "find_form")?></td>
+		<td><?php echo GetMessage("DSC_CPN_DATE").":"?></td>
+		<td><?php echo CalendarPeriod("filter_apply_time_start", htmlspecialcharsex($filter_apply_time_start), "filter_apply_time_end", htmlspecialcharsex($filter_apply_time_end), "find_form")?></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("DSC_CPN_DESCRIPTION") ?>:</td>
+		<td><?php  echo GetMessage("DSC_CPN_DESCRIPTION") ?>:</td>
 		<td>
-			<textarea name="filter_description"><?echo htmlspecialcharsbx($filter_description)?></textarea>
+			<textarea name="filter_description"><?php echo htmlspecialcharsbx($filter_description)?></textarea>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -529,7 +529,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

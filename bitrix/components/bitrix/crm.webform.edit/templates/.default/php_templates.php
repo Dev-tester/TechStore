@@ -29,7 +29,7 @@ class CrmWebFormEditTemplate
 				</div>
 			</div><!--pinable-block crm-webform-edit-task-options-item crm-webform-edit-task-options-item-se-project-->
 		</div><!--crm-webform-edit-task-edit-block-place-->
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 
@@ -238,7 +238,7 @@ class CrmWebFormEditTemplate
 		<div class="crm-webform-element-separator">
 			<span class="crm-webform-element-separator-item"></span>
 		</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 		$result['SETTINGS'] = null;
 		$result['HIDE_CAPTION'] = true;
@@ -252,7 +252,7 @@ class CrmWebFormEditTemplate
 		ob_start();
 		?>
 		<div class="crm-webform-element-br">&lt;br&gt;</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 		$result['SETTINGS'] = null;
 		$result['HIDE_CAPTION'] = true;
@@ -271,7 +271,7 @@ class CrmWebFormEditTemplate
 		ob_start();
 		?>
 			<input type="text" placeholder="%placeholder%" class="crm-webform-edit-left-inner-field-input">
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -282,7 +282,7 @@ class CrmWebFormEditTemplate
 		echo self::getFieldSettingsCommonStringType();
 		echo self::getFieldSettingsCommonMultiple();
 		echo self::getFieldSettingsCommonRequired();
-		?><?
+		?><?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -298,12 +298,12 @@ class CrmWebFormEditTemplate
 				<div class="crm-webform-edit-file-upload-text"><?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_FILE_NOT_SELECTED')?></div>
 				<input type="file" class="crm-webform-edit-left-inner-field-input">
 			</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
 		echo self::getFieldSettingsCommon();
-		?><?
+		?><?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -315,12 +315,12 @@ class CrmWebFormEditTemplate
 		ob_start();
 		?>
 			<input type="text" class="crm-webform-edit-left-inner-field-input">
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
 		echo self::getFieldSettingsCommon();
-		?><?
+		?><?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -332,12 +332,12 @@ class CrmWebFormEditTemplate
 		ob_start();
 		?>
 			<input type="text" class="crm-webform-edit-left-inner-field-input">
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
 		echo self::getFieldSettingsCommon();
-		?><?
+		?><?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -359,7 +359,7 @@ class CrmWebFormEditTemplate
 				<span data-bx-web-form-lbl-btn-apply="" class="crm-webform-edit-field-accept" title="<?=Loc::getMessage('CRM_WEBFORM_EDIT_INLINE_EDIT_APPLY')?>"></span>
 			</span>
 		</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 		$result['SETTINGS'] = '';
 		$result['HIDE_CAPTION'] = true;
@@ -385,7 +385,7 @@ class CrmWebFormEditTemplate
 				<span data-bx-web-form-lbl-btn-apply="" class="crm-webform-edit-field-accept" title="<?=Loc::getMessage('CRM_WEBFORM_EDIT_INLINE_EDIT_APPLY')?>"></span>
 			</span>
 		</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 		$result['SETTINGS'] = '';
 		$result['HIDE_CAPTION'] = true;
@@ -399,7 +399,7 @@ class CrmWebFormEditTemplate
 		ob_start();
 		?>
 			<select data-bx-web-form-field-display-cont="" class="crm-webform-edit-left-inner-field-select">%items%</select>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -410,10 +410,10 @@ class CrmWebFormEditTemplate
 			<div class="crm-webform-edit-popup-name"><?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_LIST_ENUM')?></div>
 			<div data-bx-crm-webform-field-settings-items="">%settings_items%</div>
 		</label>
-		<?
+		<?php 
 		echo self::getFieldSettingsCommonMultiple();
 		echo self::getFieldSettingsCommonRequired();
-		?><?
+		?><?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -425,7 +425,7 @@ class CrmWebFormEditTemplate
 		ob_start();
 		?>
 		<div data-bx-web-form-field-display-cont="">%items%</div>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -436,7 +436,7 @@ class CrmWebFormEditTemplate
 			<div class="crm-webform-edit-popup-name"><?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_LIST_ENUM')?></div>
 			<div data-bx-crm-webform-field-settings-items="">%settings_items%</div>
 		</label>
-		<?
+		<?php 
 		echo self::getFieldSettingsCommonRequired();
 		$result['SETTINGS'] = ob_get_clean();
 
@@ -453,7 +453,7 @@ class CrmWebFormEditTemplate
 		if ($hasItems):
 			?>
 			<div data-bx-web-form-field-display-cont="">%items%</div>
-			<?
+			<?php 
 		else:
 			?>
 			<span class="crm-webform-edit-left-inner-field-checkbox-container">
@@ -464,7 +464,7 @@ class CrmWebFormEditTemplate
 						>%caption%</span>
 				</label>
 			</span>
-			<?
+			<?php 
 		endif;
 		$result['DISPLAY_PART'] = ob_get_clean();
 
@@ -480,7 +480,7 @@ class CrmWebFormEditTemplate
 			<div class="crm-webform-edit-popup-name"><?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_LIST_ENUM')?></div>
 			<div data-bx-crm-webform-field-settings-items="">%settings_items%</div>
 		</label>
-		<?
+		<?php 
 		else:
 			$result['HIDE_CAPTION'] = true;
 		endif;
@@ -526,17 +526,17 @@ class CrmWebFormEditTemplate
 		<div id="%name%" class="crm-webform-edit-left-inner-field">
 			<div class="crm-webform-edit-left-inner-field-block">
 				<div class="crm-webform-edit-left-inner-field-container">
-					<?if($hideCaption !== true):?>
+					<?php if($hideCaption !== true):?>
 						<label data-bx-web-form-lbl-caption="" for="" class="crm-webform-edit-left-inner-field-label"
 							title="<?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_SETTINGS_IN_CRM')?>: %entity_field_caption% (%entity_caption%)"
 							>%caption%</label>
-					<?endif;?>
+					<?php endif;?>
 					<div class="crm-webform-edit-left-inner-field-wrap">
 						<span data-bx-web-form-btn-move="" class="crm-webform-edit-field-option"  title="<?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_FIELD_MOVE')?>"></span>
 						%FIELD_DISPLAY_PART%
-						<?if($settings):?>
+						<?php if($settings):?>
 							<span data-bx-web-form-btn-edit="" class="crm-webform-edit-field-settings"  title="<?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_FIELD_EDIT')?>"></span>
-						<?endif;?>
+						<?php endif;?>
 						<span data-bx-web-form-btn-delete="" class="crm-webform-edit-field-close"  title="<?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_FIELD_REMOVE')?>"></span>
 					</div>
 				</div>
@@ -549,7 +549,7 @@ class CrmWebFormEditTemplate
 				<input data-bx-web-form-field-type="" type="hidden" name="FIELD[%name%][TYPE]" value="%type%">
 			</div>
 		</div>
-		<?
+		<?php 
 		$template = ob_get_clean();
 
 		return str_replace(
@@ -715,7 +715,7 @@ class CrmWebFormEditTemplate
 				<option value=""><?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_ITEMS_DEFAULT')?></option>
 				%items%
 			</select>
-		<?
+		<?php 
 		$result['DISPLAY_PART'] = ob_get_clean();
 
 		ob_start();
@@ -742,7 +742,7 @@ class CrmWebFormEditTemplate
 					<?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_PRODUCT_ADD_ROW')?>
 				</span>
 			</div>
-		<?
+		<?php 
 		$result['SETTINGS'] = ob_get_clean();
 
 		return $result;
@@ -849,9 +849,9 @@ function GetCrmWebFormFieldDependencyTemplate($params)
 			<span class="crm-webform-edit-task-options-rule-select-item rule-select-item-to"><?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_DEP_THEN')?>:</span>
 
 			<select name="<?=$namePrefix?>[DO_ACTION]" id="<?=$idPrefix?>_DO_ACTION" class="crm-webform-edit-task-options-rule-select">
-				<?foreach($actionList as $action):?>
+				<?php foreach($actionList as $action):?>
 					<option value="<?=htmlspecialcharsbx($action['VALUE'])?>" <?=($action['SELECTED'] ? 'selected' : '')?>><?=htmlspecialcharsbx($action['CAPTION'])?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 
 			<span class="crm-webform-edit-task-options-rule-select-item rule-select-item-equally-line">&ndash;</span>
@@ -866,7 +866,7 @@ function GetCrmWebFormFieldDependencyTemplate($params)
 			<?=Loc::getMessage('CRM_WEBFORM_EDIT_TMPL_DEP_ELSE_SHOW', array('%name%' => '<span></span>'))?>
 		</span>
 	</div><!--crm-webform-edit-task-edit-deal-stage-->
-	<?
+	<?php 
 }
 
 function GetCrmWebFormPresetFieldTemplate($params)
@@ -889,5 +889,5 @@ function GetCrmWebFormPresetFieldTemplate($params)
 			<span class="crm-webform-context-help" data-text="<?=htmlspecialcharsbx(nl2br(Loc::getMessage("CRM_WEBFORM_EDIT_TMPL_PRESET_MACROS_HINT")))?>">?</span>
 		</div>
 	</div><!--crm-webform-edit-task-edit-deal-stage-->
-	<?
+	<?php 
 }

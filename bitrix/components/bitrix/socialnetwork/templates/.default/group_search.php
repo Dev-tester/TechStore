@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (CModule::IncludeModule('intranet'))
 	$GLOBALS['INTRANET_TOOLBAR']->Show();
 
-?><?
+?><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.user_groups", 
 	"", 
@@ -25,13 +25,13 @@ $APPLICATION->IncludeComponent(
 	),
 	$component 
 );
-?><?
+?><?php 
 
 // if (IsModuleInstalled("search")):
 if (false && IsModuleInstalled("search")):
 	$arrFilterAdd = array("PARAMS" => array("entity" => "sonet_group"));
 	?>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:search.tags.cloud",
 		"",
@@ -61,6 +61,6 @@ if (false && IsModuleInstalled("search")):
 		$component
 	);
 	?>
-<?endif;?>
+<?php endif;?>
 
 <br/>

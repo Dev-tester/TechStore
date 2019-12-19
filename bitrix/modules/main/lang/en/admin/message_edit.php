@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTIVE"] = "Active:";
 $MESS["ADD"] = "Add";
 $MESS["ATTACHMENT_DYNAMIC"] = "Use e-mail event fields";

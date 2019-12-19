@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPABS_MESSAGE_SUCCESS"] = "A '#TEMPLATE#' business process has been successfully launched.";
 $MESS["BPABS_TAB"] = "Business Process";
 $MESS["BPABS_TAB_TITLE"] = "Business Process Run Parameters";

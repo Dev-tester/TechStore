@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BANKDETAIL_ERR_INVALID_ENTITY_TYPE"] = "Incorrect banking details entity type";
 $MESS["CRM_BANKDETAIL_ERR_INVALID_ENTITY_ID"] = "No banking details entity specified";
 $MESS["CRM_BANKDETAIL_ERR_ON_DELETE"] = "Error deleting banking details";

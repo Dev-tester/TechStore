@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_CONVERT_SYNC_TITLE"] = "Создать на основании";
 $MESS["M_CRM_CONVERT_SYNC_PULL_TEXT"] = "Потяните, чтобы обновить...";
 $MESS["M_CRM_CONVERT_SYNC_DOWN_TEXT"] = "Отпустите, чтобы обновить...";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COURSE_ID_TIP'] = "Select here one of the existing courses. If you select <b><i>(other)</i></b>, you will have to specify the course ID in the field beside.";
 $MESS ['TEST_ID_TIP'] = "Select here one of the existing tests. If you select <b><i>(other)</i></b>, you will have to specify the test ID in the field beside.";
 $MESS ['PAGE_NUMBER_VARIABLE_TIP'] = "The name of a variable for the test question ID.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FLTR_NOT_SAVE'] = "Update failed.";
 $MESS ['FLTR_NOT_ACTION'] = "No action selected.";
 $MESS ['FLTR_NOT_WORDS'] = "No search word specified.";

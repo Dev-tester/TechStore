@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SUP_LIST_DEFAULT_TEMPLATE_PARAM_1_NAME'] = "Страница редактирования обращения";
 $MESS ['SUP_LIST_TICKETS_PER_PAGE'] = "Количество обращений на одной странице";
 $MESS ['SUP_DESC_YES'] = "Да";

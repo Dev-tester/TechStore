@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['NO_OF_COUNT'] = "#NO# of #TOTAL#";
 $MESS ['P_UPLOAD'] = "Upload Photos";
 $MESS ['P_UPLOAD_TITLE'] = "Upload Photos";

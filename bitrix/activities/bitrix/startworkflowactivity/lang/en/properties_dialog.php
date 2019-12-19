@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPSWFA_PD_DOCUMENT_ID"] = "Element ID";
 $MESS["BPSWFA_PD_ENTITY"] = "Entity";
 $MESS["BPSWFA_PD_DOCUMENT_TYPE"] = "Element type";

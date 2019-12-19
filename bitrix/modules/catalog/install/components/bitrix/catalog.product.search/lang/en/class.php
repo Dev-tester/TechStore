@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPS_TIMESTAMP"] = "Modified on";
 $MESS["SPS_ANY"] = "any";
 $MESS["SPS_ACTIVE"] = "Active";

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "clouds");
 
 /*.require_module 'standard';.*/
@@ -143,8 +143,8 @@ $APPLICATION->SetTitle(GetMessage("CLO_STORAGE_SEARCH_TITLE"));
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_popup_admin.php");
 ?>
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>">
-<?
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>">
+<?php 
 $arFindFields = Array(
 	"bucket"=>GetMessage("CLO_STORAGE_SEARCH_BUCKET"),
 	"path"=>GetMessage("CLO_STORAGE_SEARCH_PATH"),
@@ -159,7 +159,7 @@ function SelFile(name)
 	{
 		window.opener.BX.onCustomEvent('onCloudFileIsChosen', [name]);
 	}
-	el = window.opener.document.getElementById('<?echo CUtil::JSEscape($n)?>');
+	el = window.opener.document.getElementById('<?php echo CUtil::JSEscape($n)?>');
 	if(el)
 	{
 		el.value = name;
@@ -170,20 +170,20 @@ function SelFile(name)
 }
 </script>
 	<tr>
-		<td><b><?echo GetMessage("CLO_STORAGE_SEARCH_BUCKET")?></b></td>
+		<td><b><?php echo GetMessage("CLO_STORAGE_SEARCH_BUCKET")?></b></td>
 		<td><select name="bucket">
-			<option value=""><?echo GetMessage("CLO_STORAGE_SEARCH_CHOOSE_BUCKET")?></option>
-			<?foreach($arBuckets as $id => $name):?>
-					<option value="<?echo htmlspecialcharsbx($id)?>" <?if($id == $bucket) echo "selected"?>><?echo htmlspecialcharsex($name)?></option>
-			<?endforeach?>
+			<option value=""><?php echo GetMessage("CLO_STORAGE_SEARCH_CHOOSE_BUCKET")?></option>
+			<?php foreach($arBuckets as $id => $name):?>
+					<option value="<?php echo htmlspecialcharsbx($id)?>" <?php if($id == $bucket) echo "selected"?>><?php echo htmlspecialcharsex($name)?></option>
+			<?php endforeach?>
 		</select></td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("CLO_STORAGE_SEARCH_PATH")?></td>
-		<td><input type="text" name="path" size="45" value="<?echo htmlspecialcharsbx($path)?>"></td>
+		<td><?php echo GetMessage("CLO_STORAGE_SEARCH_PATH")?></td>
+		<td><input type="text" name="path" size="45" value="<?php echo htmlspecialcharsbx($path)?>"></td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(array(
 	"url" => "/bitrix/admin/clouds_file_search.php?lang=".LANGUAGE_ID."&n=".urlencode($n),
 	"table_id" => $sTableID,
@@ -191,7 +191,7 @@ $oFilter->Buttons(array(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

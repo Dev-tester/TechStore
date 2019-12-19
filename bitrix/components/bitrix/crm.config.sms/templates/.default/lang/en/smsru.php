@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONFIG_SMS_TITLE"] = "SMS notifications are simple!";
 $MESS["CRM_CONFIG_SMS_TITLE_2"] = "Provided by SMS.RU";
 $MESS["CRM_CONFIG_SMS_FEATURES_TITLE"] = "Explore possibilities of SMS marketing";

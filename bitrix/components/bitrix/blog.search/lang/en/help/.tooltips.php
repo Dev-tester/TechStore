@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PAGE_RESULT_COUNT_TIP'] = "The number of search results that can be displayed on one page.";
 $MESS ['SEARCH_PAGE_TIP'] = "The path to a search page. Example: blog_search.php.";
 $MESS ['PATH_TO_BLOG_TIP'] = "The path to the main blog page. Example: blog_blog.php?page=blog&blog=#blog#.";

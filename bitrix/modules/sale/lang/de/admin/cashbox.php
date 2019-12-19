@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CASHBOX_PAGE_TITLE"] = "Cash-Register anbinden";
 $MESS["SALE_CASHBOX_TITLE_FZ"] = "Entspricht dem FZ-54";
 $MESS["SALE_CASHBOX_TITLE"] = "Bitrix Cash-Register";

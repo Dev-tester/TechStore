@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 IncludeModuleLangFile(__FILE__);
 

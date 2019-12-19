@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SUP_UGL_PAGES'] = 'Пользователи';
 $MESS['SUP_UGL_GROUP_ID'] = 'ID группы';
 $MESS['SUP_UGL_USER_ID'] = 'ID пользователя';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_NAME_CHANGE'] = "Change group name";
 $MESS ['BLOG_GROUP_DELETE'] = "Delete user group";
 $MESS ['BLOG_GROUP_ADD'] = "Add user group";

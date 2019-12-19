@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WAIT_ACTIVITY_WAIT_TYPE"] = "Wait type";
 $MESS["CRM_WAIT_ACTIVITY_WAIT_AFTER"] = "Wait for specified number of days";
 $MESS["CRM_WAIT_ACTIVITY_WAIT_BEFORE"] = "Wait for specified number of days until selected day";

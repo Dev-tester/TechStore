@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABTEST_ADD_TITLE"] = "New A/B test";
 $MESS["ABTEST_EDIT_TITLE1"] = "Edit A/B test ##ID#";
 $MESS["ABTEST_EDIT_TITLE2"] = "Edit A/B test: #NAME#";

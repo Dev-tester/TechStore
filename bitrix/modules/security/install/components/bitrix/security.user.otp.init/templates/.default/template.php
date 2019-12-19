@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -13,14 +13,14 @@ CJSCore::Init(array('qrcode', 'ajax', 'popup'));
  * @global CUser $USER
  */
 ?>
-<?if ($arResult["MESSAGE"]):?>
-	<?ShowMessage($arResult["MESSAGE"]);?>
-<?else:?>
+<?php if ($arResult["MESSAGE"]):?>
+	<?php ShowMessage($arResult["MESSAGE"]);?>
+<?php else:?>
 
 <div id="user-otp-container" class="security-user-otp <?=LANGUAGE_ID?>">
-	<?if ($arParams['SHOW_DESCRIPTION'] === 'Y'):?>
+	<?php if ($arParams['SHOW_DESCRIPTION'] === 'Y'):?>
 	<div class="ui-text-1 ui-color-medium"><?=GetMessage("SECURITY_OTP_DESCR")?></div>
-	<?endif?>
+	<?php endif?>
 
 	<div class="bx-otp-wrap-container-getstart">
 		<?=GetMessage("SECURITY_OTP_CONNECT")?>
@@ -36,9 +36,9 @@ CJSCore::Init(array('qrcode', 'ajax', 'popup'));
 		<ul class="bx-otp-section-market-list">
 			<li class="bx-otp-section-market-icon-Apple"><a href="https://itunes.apple.com/<?=(LANGUAGE_ID == "ru" || LANGUAGE_ID == "ua" ? "ru" : "en")?>/app/bitrix24-otp/id929604673?mt=8" target="_blank"></a></li>
 			<li class="bx-otp-section-market-icon-Google"><a href="https://play.google.com/store/apps/details?id=com.bitrixsoft.otp" target="_blank"></a></li>
-			<?/*if (in_array(LANGUAGE_ID, array("ru", "ua"))):?>
+			<?php /*if (in_array(LANGUAGE_ID, array("ru", "ua"))):?>
 			<li class="bx-otp-section-market-icon-Yandex"><a href=""></a></li>
-			<?endif*/?>
+			<?php endif*/?>
 		</ul>
 		<div class="clb"></div>
 	</div>
@@ -64,7 +64,7 @@ CJSCore::Init(array('qrcode', 'ajax', 'popup'));
 				<h4 class="bx-otp-section-title-small"><?=GetMessage("SECURITY_OTP_HAND_TYPE")?></h4>
 						<span class="bx-otp-section-desc">
 							<?=GetMessage("SECURITY_OTP_HAND_DESCR")?>
-							<b><?
+							<b><?php 
 							if ($arResult['TYPE'] === \Bitrix\Security\Mfa\Otp::TYPE_TOTP):
 								echo getMessage('SECURITY_OTP_CODE_INFO_TOTP');
 							elseif ($arResult['TYPE'] === \Bitrix\Security\Mfa\Otp::TYPE_HOTP):
@@ -109,20 +109,20 @@ CJSCore::Init(array('qrcode', 'ajax', 'popup'));
 		<div class="tac" style="margin-bottom: 40px;">
 			<input type="text" class="bx-otp-input-custom bx-otp-int big" dir="ltr" data-role="check-code" autocomplete="off" placeholder="<?=($arResult['TWO_CODE_REQUIRED'] ? GetMessage("SECURITY_OTP_ENTER_CODE_PL1") : GetMessage("SECURITY_OTP_ENTER_CODE_PL"))?>">
 		</div>
-		<?if ($arResult['TWO_CODE_REQUIRED']):?>
+		<?php if ($arResult['TWO_CODE_REQUIRED']):?>
 			<p class="bx-otp-section-desc tac lhn">
 				<?=GetMessage("SECURITY_OTP_CODE_DESCR2")?>
 			</p>
 			<div class="tac" style="margin-bottom: 10px;">
 				<input type="text" class="bx-otp-input-custom bx-otp-int big"  dir="ltr" data-role="check-code" autocomplete="off" placeholder="<?=GetMessage("SECURITY_OTP_ENTER_CODE_PL2")?>">
 			</div>
-		<?endif;?>
+		<?php endif;?>
 		<div class="tac">
 			<input class="bx-otp-btn green big" type="submit" data-role="check-button" value="<?=GetMessage("SECURITY_OTP_DONE")?>">
 		</div>
 	</div>
 </div>
-	<?
+	<?php 
 	$jsParams = array(
 		'data' => array(
 			'secret' => $arResult['SECRET'],
@@ -149,4 +149,4 @@ CJSCore::Init(array('qrcode', 'ajax', 'popup'));
 			new BX.Security.UserOtp.Init(<?=\CUtil::PhpToJSObject($jsParams)?>);
 		});
 	</script>
-<?endif?>
+<?php endif?>

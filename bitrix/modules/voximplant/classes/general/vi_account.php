@@ -1,4 +1,4 @@
-<?
+<?php 
 class CVoxImplantAccount
 {
 	const ACCOUNT_PAYED = "account_payed";

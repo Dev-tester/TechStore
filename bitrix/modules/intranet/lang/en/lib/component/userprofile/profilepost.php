@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_POST_TITLE_PLACEHOLDER"] = "File";
 ?>

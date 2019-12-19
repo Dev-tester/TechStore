@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CATALOG_NOT_INSTALLED"] = "CATALOG module is not installed.";
 $MESS["CRM_CATALOG_STORE_ADR"] = "944 5th Avenue";
 $MESS["CRM_CATALOG_STORE_DESCR"] = "Here you can find goods from leading global vendors";

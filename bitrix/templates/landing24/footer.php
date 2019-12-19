@@ -21,6 +21,6 @@ $APPLICATION->ShowProperty('FooterJS');
 ?>
 
 </main>
-<?$APPLICATION->ShowProperty('BeforeBodyClose');?>
+<?php $APPLICATION->ShowProperty('BeforeBodyClose');?>
 </body>
 </html>

@@ -1,14 +1,14 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <form method="post" action="<?=$arResult["AUTH_FORM"]?>" name="form_auth">
 	<div class="log-popup-header"><?=$APPLICATION->GetTitle();?></div>
 	<hr class="b_line_gray">
-	<?
+	<?php 
 	ShowMessage($arParams["~AUTH_RESULT"]);
 	?>
-	<?if (strlen($arResult["BACKURL"]) > 0): ?>
+	<?php if (strlen($arResult["BACKURL"]) > 0): ?>
 	<input type="hidden" name="backurl" value="<?=$arResult["BACKURL"]?>" />
-	<? endif ?>
+	<?php  endif ?>
 	<input type="hidden" name="AUTH_FORM" value="Y">
 	<input type="hidden" name="TYPE" value="CHANGE_PWD">
 	<div class="">
@@ -24,19 +24,19 @@
 		<div class="login-item">
 			<span class="login-item-alignment"></span><span class="login-label"><?=GetMessage("AUTH_NEW_PASSWORD_CONFIRM")?></span><input class="login-inp" type="password"  name="USER_CONFIRM_PASSWORD" maxlength="255" value="<?=$arResult["USER_CONFIRM_PASSWORD"]?>"/>
 		</div>
-<?if ($arResult["USE_CAPTCHA"]):?>
+<?php if ($arResult["USE_CAPTCHA"]):?>
 		<div class="login-item">
-			<input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
-			<img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" />
+			<input type="hidden" name="captcha_sid" value="<?php echo $arResult["CAPTCHA_CODE"]?>" />
+			<img src="/bitrix/tools/captcha.php?captcha_sid=<?php echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" />
 		</div>
 		<div class="login-item">
-			<span class="login-item-alignment"></span><span class="login-label"><?echo GetMessage("AUTH_CAPTCHA_PROMT")?></span>
+			<span class="login-item-alignment"></span><span class="login-label"><?php echo GetMessage("AUTH_CAPTCHA_PROMT")?></span>
 			<input class="login-inp" type="text" name="captcha_word" maxlength="50" value="" size="15" />
 		</div>
-<?endif?>
+<?php endif?>
 	</div>
 	<div class="login-text login-item">
-		<?echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?>
+		<?php echo $arResult["GROUP_POLICY"]["PASSWORD_REQUIREMENTS"];?>
 		<div class="login-links"><a href="<?=$arResult["AUTH_AUTH_URL"]?>"><?=GetMessage("AUTH_AUTH")?></a></div>
 	</div>
 

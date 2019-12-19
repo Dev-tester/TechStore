@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATI_DATA_EXPORT"] = "Data export";
 $MESS["CATI_NO_IBLOCK"] = "Information block not selected. Unable to export.";
 $MESS["CATI_NO_FORMAT"] = "Please specify the format and properties of the data file.";

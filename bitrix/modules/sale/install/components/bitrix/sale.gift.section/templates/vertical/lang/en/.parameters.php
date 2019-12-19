@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CVP_LINE_ELEMENT_COUNT"] = "Items per row";
 $MESS["CVP_TPL_THEME_BLUE"] = "blue (default theme)";
 $MESS["CVP_TPL_THEME_GREEN"] = "green";

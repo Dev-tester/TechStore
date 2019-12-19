@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $PathInstall = str_replace("\\", "/", __FILE__);
 $PathInstall = substr($PathInstall, 0, strlen($PathInstall)-strlen("/index.php"));

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/prolog_admin_before.php");
 
 define('ADMIN_MODULE_NAME', 'seo');
@@ -990,7 +990,7 @@ if($_REQUEST['action'] == 'sitemap_run' && check_bitrix_sessid())
 <script>
 top.BX.runSitemap(<?=$ID?>, <?=$v?>, '<?=$PID?>', <?=CUtil::PhpToJsObject($NS)?>);
 </script>
-<?
+<?php 
 	}
 	else
 	{
@@ -1006,7 +1006,7 @@ top.BX.runSitemap(<?=$ID?>, <?=$v?>, '<?=$PID?>', <?=CUtil::PhpToJsObject($NS)?>
 <script>
 top.BX.finishSitemap();
 </script>
-<?
+<?php 
 	}
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MODULE_NOT_INSTALL"] = "Модуль социальной сети не установлен.";
 $MESS["SONET_C30_DATE_FILTER_NO_NO_NO_1"] = "(нет)";
 $MESS["SONET_C30_DATE_FILTER_TODAY"] = "сегодня";

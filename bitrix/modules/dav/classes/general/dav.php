@@ -1,4 +1,4 @@
-<?
+<?php 
 define("GW_MAXIMUM_PRIVILEGES", "65535");
 define("GW_ADDRESSBOOK_MAXIMUM_PRIVILEGES", "1023");
 
@@ -85,7 +85,7 @@ class CDav
 					}
 
 				CDavResponse::sendStatus('207 Multi-Status');
-echo '<?xml version="1.0" encoding="utf-8" ?>
+echo '<?php xml version="1.0" encoding="utf-8" ?>
 <D:multistatus xmlns:D="DAV:" xmlns:Office="urn:schemas-microsoft-com:office:office" xmlns:Repl="http://schemas.microsoft.com/repl/" xmlns:Z="urn:schemas-microsoft-com:">
 <D:response>
 	<D:href>http://'.htmlspecialcharsbx($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']).'</D:href>

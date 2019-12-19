@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UNDO_ESCAPE_CHANGES"] = "Отменить изменения";
 $MESS["MAIN_UNDO_ESCAPE_CHANGES_TITLE"] = "Отменить последнее внесенное изменение";
 $MESS["MAIN_UNDO_ESCAPE_ERROR"] = "В процессе отмены изменений произошла ошибка!";

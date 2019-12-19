@@ -5,13 +5,13 @@
 			<tr>
 				<td bgcolor="#FFFFFF" align="center">
 					<FONT face="Verdana, Arial, Helvetica, sans-serif" size="-1">
-					<font color="#FF0000"><b><?echo "DB query error."?></b></font><br>
+					<font color="#FF0000"><b><?php echo "DB query error."?></b></font><br>
 					Please try later.
 					</font><br>
-					<?if (is_object($GLOBALS["USER"]) && $GLOBALS["USER"]->IsAdmin()):?>
+					<?php if (is_object($GLOBALS["USER"]) && $GLOBALS["USER"]->IsAdmin()):?>
 						</form>
 						<form method="post" action="/bitrix/admin/site_checker.php?tabControl_active_tab=edit5#edit5">
-							<?
+							<?php 
 							$strSupportErrorText = "";
 							$strSupportErrorText .= "File: ".__FILE__."\n";
 
@@ -37,10 +37,10 @@
 							$strSupportErrorText .= "debug_backtrace:\n".print_r($trace, True)."\n";
 							?>
 							<input type="hidden" name="last_error_query" value="<?= htmlspecialcharsbx($strSupportErrorText) ?>">
-							<?echo bitrix_sessid_post();?>
+							<?php echo bitrix_sessid_post();?>
 							<input type="submit" value="Send error report to support">
 						</form>
-					<?endif;?>
+					<?php endif;?>
 				</td>
 			</tr>
 		</table></td>

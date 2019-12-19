@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WEBDAV_OPTIONS_OFFICE_EXTENSIONS"] = "Расширения документов для включения пункта меню \"Редактировать в MS Office\":";
 $MESS["WEBDAV_OPTIONS_HIDE_SYSTEM_FILES"] = "Скрывать системные файлы (начинающиеся с \".\"):";
 $MESS["WEBDAV_OPTIONS_FILES_TYPE_NAME"] = "Название типа документов";

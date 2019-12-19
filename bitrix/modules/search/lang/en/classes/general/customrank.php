@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["customrank_error_update"] = "Error while updating search index.";
 $MESS["customrank_iblocks"] = "Information blocks";
 $MESS["customrank_forum"] = "Forums";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPSNAA2_PD_CUSER'] = "User";
 $MESS ['BPSNAA2_PD_CNAME'] = "Event name";
 $MESS ['BPSNAA2_PD_CDESCR'] = "Event description";

@@ -13,7 +13,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var \Bitrix\Disk\Internals\BaseComponent $component */
 ?>
 
-<?
+<?php 
 CJSCore::Init(array('viewer', 'disk_page', 'disk'));
 \Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/components/bitrix/disk.interface.grid/templates/.default/bitrix/main.interface.grid/.default/style.css');
 \Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/components/bitrix/disk.interface.toolbar/templates/.default/style.css');
@@ -22,9 +22,9 @@ $bodyClass = $APPLICATION->getPageProperty('BodyClass', false);
 $APPLICATION->setPageProperty('BodyClass', trim(sprintf('%s %s', $bodyClass, 'pagetitle-toolbar-field-view')));
 ?>
 
-<? $this->setViewTarget("inside_pagetitle", 10); ?>
+<?php  $this->setViewTarget("inside_pagetitle", 10); ?>
 	<div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:main.ui.filter',
 			'',
@@ -47,11 +47,11 @@ $APPLICATION->setPageProperty('BodyClass', trim(sprintf('%s %s', $bodyClass, 'pa
 			</span>
 		</div>
 	</div>
-<? $this->endViewTarget(); ?>
+<?php  $this->endViewTarget(); ?>
 
-<? $this->setViewTarget('below_pagetitle'); ?>
+<?php  $this->setViewTarget('below_pagetitle'); ?>
 <div class="bx-disk-interface-toolbar-container">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:disk.breadcrumbs',
 		'',
@@ -65,10 +65,10 @@ $APPLICATION->setPageProperty('BodyClass', trim(sprintf('%s %s', $bodyClass, 'pa
 	?>
 	<div style="clear: both;"></div>
 </div>
-<? $this->endViewTarget(); ?>
+<?php  $this->endViewTarget(); ?>
 
 <div class="bx-disk-interface-filelist">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.ui.grid',
 	'',

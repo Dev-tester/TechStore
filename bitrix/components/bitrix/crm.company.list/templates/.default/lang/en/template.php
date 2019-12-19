@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMPANY_STEPWISE_STATE_TEMPLATE"] = "#processed# of #total#";
 $MESS["CRM_COMPANY_ACTION_DELETE"] = "Delete";
 $MESS["CRM_COMPANY_BATCH_DELETION_COMPLETED"] = "Companies have been deleted.";

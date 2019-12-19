@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Localization\Loc;
@@ -44,7 +44,7 @@ $rowTemplate = <<<HTML
 HTML;
 ?>
 
-<table id="task-time-table" class="task-time-table<?if ($arParams["PUBLIC_MODE"]):?> task-time-table-public<?endif?>">
+<table id="task-time-table" class="task-time-table<?php if ($arParams["PUBLIC_MODE"]):?> task-time-table-public<?php endif?>">
 	<col class="task-time-date-column" />
 	<col class="task-time-author-column" />
 	<col class="task-time-spent-column" />
@@ -55,7 +55,7 @@ HTML;
 		<th class="task-time-spent-column"><?=Loc::getMessage("TASKS_ELAPSED_TIME_SHORT")?></th>
 		<th class="task-time-comment-column"><?=Loc::getMessage("TASKS_ELAPSED_COMMENT")?></th>
 	</tr>
-	<?
+	<?php 
 	$records = array();
 	foreach($timeRecords as $time)
 	{
@@ -135,7 +135,7 @@ HTML;
 		);
 	}
 	?>
-	<tr class="task-time-add-link-row"<?if (!$canAddTime):?> style="display: none;"<?endif?>>
+	<tr class="task-time-add-link-row"<?php if (!$canAddTime):?> style="display: none;"<?php endif?>>
 		<td class="task-time-date-column">
 			<span class="task-dashed-link"><span class="task-dashed-link-inner"><?=Loc::getMessage("TASKS_ELAPSED_ADD")?></span></span>
 		</td>

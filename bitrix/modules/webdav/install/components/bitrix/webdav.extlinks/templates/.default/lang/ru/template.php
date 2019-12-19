@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_EXT_LINK_COMP_LINK"] = "Скачать файл";
 $MESS["WD_EXT_LINK_COMP_REMOVED"] = "Неверная ссылка или файл был удален пользователем";
 $MESS["WD_EXT_LINK_COMP_T1"] = "Файл доступен через социальный интранет";

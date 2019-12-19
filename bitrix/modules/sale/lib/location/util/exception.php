@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Location\Util;
 
 use Bitrix\Main;

@@ -383,24 +383,24 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 			<tr id="<?="{$guid}_header"?>">
 				<td class="crm-lead-header-header" colspan="3">
 					<div class="crm-lead-header-header-left"><div class="crm-lead-header-left-inner">
-					<span class="crm-lead-header-icon"></span><?
+					<span class="crm-lead-header-icon"></span><?php 
 					if($entityTypeID === CCrmOwnerType::Contact):
 						$formattedName = isset($entityFields['FORMATTED_NAME']) ? $entityFields['FORMATTED_NAME'] : '';
 						if($arResult['HEAD_IMAGE_URL'] !== ''):
 							?><span class="crm-lead-header-img">
 								<img alt="" src="<?=htmlspecialcharsbx($arResult['HEAD_IMAGE_URL'])?>" />
-							</span><?
+							</span><?php 
 						endif;
 					?><div class="crm-lead-header-title">
 						<span class="crm-lead-header-title-text"><?=$formattedName?></span>
-					</div><?
+					</div><?php 
 					elseif($entityTypeID === CCrmOwnerType::Company):
 						$title = $arResult['HEAD_TITLE'];
 						$headerConfig['TITLE'] = array('fieldId' => $arResult['HEAD_TITLE_FIELD_ID']);
 						if($arResult['HEAD_IMAGE_URL'] !== ''):
 						?><div class="crm-lead-header-company-img">
 							<img alt="" src="<?=htmlspecialcharsbx($arResult['HEAD_IMAGE_URL'])?>" />
-						</div><?
+						</div><?php 
 						endif;
 						?><div class="crm-lead-header-company-title">
 							<div id="<?="{$guid}_title"?>" class="crm-lead-header-title">
@@ -408,7 +408,7 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 								<span class="crm-lead-header-title-edit-wrapper" style="display: none;"></span>
 								<div class="crm-lead-header-title-edit"></div>
 							</div>
-						</div><?
+						</div><?php 
 					elseif($entityTypeID === CCrmOwnerType::Deal || $entityTypeID === CCrmOwnerType::Lead || $entityTypeID === CCrmOwnerType::Quote || $entityTypeID === CCrmOwnerType::Invoice):
 						$title = $arResult['HEAD_TITLE'];
 						$headerConfig['TITLE'] = array('fieldId' => $arResult['HEAD_TITLE_FIELD_ID']);
@@ -416,10 +416,10 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 							<span class="crm-lead-header-title-text"><?=$title?></span>
 						<span class="crm-lead-header-title-edit-wrapper" style="display: none;"></span>
 							<div class="crm-lead-header-title-edit"></div>
-						</div><?
+						</div><?php 
 					endif;
 					?></div></div>
-					<div class="crm-lead-header-header-right"><div class="crm-lead-header-right-inner"><?
+					<div class="crm-lead-header-header-right"><div class="crm-lead-header-right-inner"><?php 
 						if ($arParams['SHOW_STATUS_ACTION'] !== 'N')
 						{
 							if($entityTypeID === CCrmOwnerType::Deal || $entityTypeID === CCrmOwnerType::Lead || $entityTypeID === CCrmOwnerType::Quote || $entityTypeID === CCrmOwnerType::Invoice):
@@ -428,7 +428,7 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 									<span id="<?=htmlspecialcharsbx($arResult['HEAD_PROGRESS_LEGEND_CONTAINER_ID'])?>" class="crm-lead-header-status-title"><?=htmlspecialcharsbx($arResult['HEAD_PROGRESS_LEGEND'])?></span>
 										<div class="crm-detail-stage"><?=$arResult['HEAD_PROGRESS_BAR']?></div>
 										<span id="<?="{$guid}_sum"?>" class="crm-lead-header-status-sum"><?=GetMessage('CRM_ENTITY_QPV_SUM_HEADER')?>: <span class="crm-lead-header-status-sum-num"><?=$arResult['HEAD_FORMATTED_SUM']?></span></span>
-								</div><?
+								</div><?php 
 							endif;
 						}
 						?><div class="crm-lead-header-contact-btns">
@@ -455,7 +455,7 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 								<col class="crm-lead-header-inner-cell" />
 								<col class="crm-lead-header-inner-cell crm-lead-header-inner-cell-del" />
 							</colgroup>
-							<?__CrmQuickPanelViewRenderSection('left', $config, $entityData, $entityFields, $entityContext, $guid);?>
+							<?php __CrmQuickPanelViewRenderSection('left', $config, $entityData, $entityFields, $entityContext, $guid);?>
 						</tbody>
 					</table>
 				</td>
@@ -468,7 +468,7 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 								<col class="crm-lead-header-inner-cell" />
 								<col class="crm-lead-header-inner-cell crm-lead-header-inner-cell-del" />
 							</colgroup>
-							<?__CrmQuickPanelViewRenderSection('center', $config, $entityData, $entityFields, $entityContext, $guid);?>
+							<?php __CrmQuickPanelViewRenderSection('center', $config, $entityData, $entityFields, $entityContext, $guid);?>
 						</tbody>
 					</table>
 				</td>
@@ -481,7 +481,7 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 								<col class="crm-lead-header-inner-cell" />
 								<col class="crm-lead-header-inner-cell crm-lead-header-inner-cell-del" />
 							</colgroup>
-							<?__CrmQuickPanelViewRenderSection('right', $config, $entityData, $entityFields, $entityContext, $guid);?>
+							<?php __CrmQuickPanelViewRenderSection('right', $config, $entityData, $entityFields, $entityContext, $guid);?>
 						</tbody>
 					</table>
 				</td>
@@ -496,7 +496,7 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 								<col class="crm-lead-header-inner-cell crm-lead-header-com-cell" />
 								<col class="crm-lead-header-inner-cell crm-lead-header-inner-cell-del" />
 							</colgroup>
-							<?__CrmQuickPanelViewRenderSection('bottom', $config, $entityData, $entityFields, $entityContext, $guid);?>
+							<?php __CrmQuickPanelViewRenderSection('bottom', $config, $entityData, $entityFields, $entityContext, $guid);?>
 						</tbody>
 					</table>
 				</td>
@@ -507,7 +507,7 @@ if(!function_exists('__CrmQuickPanelViewRenderSection'))
 </div>
 </div>
 <div id="<?="{$guid}_message_wrap"?>"></div>
-<?
+<?php 
 
 $sipData = isset($entityContext['SIP_MANAGER_CONFIG']) ? $entityContext['SIP_MANAGER_CONFIG'] : array();
 if(!empty($sipData)):
@@ -515,13 +515,13 @@ if(!empty($sipData)):
 	BX.ready(
 			function()
 			{
-				var mgr = BX.CrmSipManager.getCurrent();<?
+				var mgr = BX.CrmSipManager.getCurrent();<?php 
 				foreach($sipData as $item):
 				?>
 				mgr.setServiceUrl(
 					"CRM_<?=CUtil::JSEscape($item['ENTITY_TYPE'])?>",
 					"<?=isset($item['SERVICE_URL']) ? CUtil::JSEscape($item['SERVICE_URL']) : ''?>"
-				);<?
+				);<?php 
 				endforeach;
 				?>
 				if(typeof(BX.CrmSipManager.messages) === 'undefined')
@@ -534,7 +534,7 @@ if(!empty($sipData)):
 				}
 			}
 	);
-</script><?
+</script><?php 
 endif;
 ?><script type="text/javascript">
 	BX.ready(

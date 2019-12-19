@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_PROP_EMP_NO"] = "none";
 $MESS["INTR_PROP_EMP_CU"] = "Current";
 $MESS["INTR_PROP_EMP_SU"] = "Select";

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 namespace Bitrix\Sender\Integration\Sale\Preset;
 
@@ -43,7 +43,7 @@ class TriggerCampaign
 		if(!is_numeric($perc))
 			$perc = 5;
 
-		return '<?EventMessageThemeCompiler::includeComponent(
+		return '<?php EventMessageThemeCompiler::includeComponent(
 			"bitrix:sale.discount.coupon.mail",
 			"",
 			Array(
@@ -59,7 +59,7 @@ class TriggerCampaign
 
 	protected static function getBasketCart()
 	{
-		return '<?EventMessageThemeCompiler::includeComponent(
+		return '<?php EventMessageThemeCompiler::includeComponent(
 			"bitrix:sale.basket.basket.small.mail",
 			"",
 			Array(

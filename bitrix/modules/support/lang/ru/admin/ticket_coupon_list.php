@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_CL_TITLE"] = "Список купонов";
 $MESS["SUP_CL_FLT_COUPON"] = "Купон";
 $MESS["SUP_CL_EXACT_MATCH"] = "Искать точное совпадение";

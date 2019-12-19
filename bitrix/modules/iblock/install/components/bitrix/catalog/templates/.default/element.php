@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -31,7 +31,7 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 ?>
 <div class='row'>
 	<div class='<?=($isSidebar ? 'col-md-9 col-sm-8' : 'col-xs-12')?>'>
-		<?
+		<?php 
 		if ($arParams["USE_COMPARE"] === "Y")
 		{
 			$APPLICATION->IncludeComponent(
@@ -335,7 +335,7 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
 								<?=GetMessage('CATALOG_RECOMMENDED_BY_LINK')?>
 							</div>
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.recommended.products',
 								'',
@@ -429,7 +429,7 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 							?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 
 				if (!isset($arParams['DETAIL_SHOW_POPULAR']) || $arParams['DETAIL_SHOW_POPULAR'] != 'N')
@@ -440,7 +440,7 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
 								<?=GetMessage('CATALOG_POPULAR_IN_SECTION')?>
 							</div>
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.section',
 								'',
@@ -559,7 +559,7 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 							?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 
 				if (
@@ -573,7 +573,7 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 							<div class="catalog-block-header" data-entity="header" data-showed="false" style="display: none; opacity: 0;">
 								<?=GetMessage('CATALOG_VIEWED')?>
 							</div>
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent(
 								'bitrix:catalog.products.viewed',
 								'',
@@ -671,15 +671,15 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 							?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 			}
 		}
 		?>
 	</div>
-	<? if ($isSidebar): ?>
+	<?php  if ($isSidebar): ?>
 		<div class='col-md-3 col-sm-4'>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:main.include',
 				'',
@@ -694,5 +694,5 @@ $isSidebar = ($arParams['SIDEBAR_DETAIL_SHOW'] == 'Y' && !empty($arParams['SIDEB
 			);
 			?>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CEventCalendar
@@ -507,7 +507,7 @@ class CEventCalendar
 
 		?>
 		<script>
-		<?CEventCalendar::AppendLangMessages();?>
+		<?php CEventCalendar::AppendLangMessages();?>
 		BX.ready(function()
 			{
 				window.bxRunEC = function()
@@ -519,14 +519,14 @@ class CEventCalendar
 					new JCEC(<?=$Params['JSConfig']?>, <?=$Params['JS_arEvents']?>, <?=$Params['JS_arSPEvents']?>);
 				};
 
-				<?if (count($arCSS) > 0):?>
+				<?php if (count($arCSS) > 0):?>
 				BX.loadCSS(<?= '["'.implode($arCSS, '","').'"]'?>);
-				<?endif;?>
+				<?php endif;?>
 				BX.loadScript(<?= '["'.implode($arJS, '","').'"]'?>, bxRunEC);
 			}
 		);
 		</script>
-		<?
+		<?php 
 	}
 
 	function Request($action)
@@ -748,7 +748,7 @@ class CEventCalendar
 					if ($res !== true)
 						return $this->ThrowError(strlen($res) > 0 ? $res : GetMessage('EC_EVENT_DEL_ERROR'));
 
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 
 					$this->ClearCache($this->cachePath.'events/'.$this->iblockId.'/');
 					break;
@@ -775,7 +775,7 @@ class CEventCalendar
 						}
 					}
 
-					?><script>window._bx_ar_events = <?= $ev?>;</script><?
+					?><script>window._bx_ar_events = <?= $ev?>;</script><?php 
 					break;
 
 				// * * * * * Edit calendar * * * * *
@@ -815,7 +815,7 @@ class CEventCalendar
 						$this->SetUserSettings($SET);
 					}
 
-					?><script>window._bx_calendar = {ID: <?=intVal($id)?>, EXPORT_LINK: '<?= $export_link?>',  EXPORT: '<?= $arFields['EXPORT']?>',  EXPORT_SET: '<?= $arFields['EXPORT_SET']?>', OUTLOOK_JS: '<?= CUtil::JSEscape($outlookJs)?>'};</script><?
+					?><script>window._bx_calendar = {ID: <?=intVal($id)?>, EXPORT_LINK: '<?= $export_link?>',  EXPORT: '<?= $arFields['EXPORT']?>',  EXPORT_SET: '<?= $arFields['EXPORT_SET']?>', OUTLOOK_JS: '<?= CUtil::JSEscape($outlookJs)?>'};</script><?php 
 
 					// Clear cache
 					$this->ClearCache($this->cachePath.$this->iblockId."/calendars/".($this->bOwner ? $this->ownerId : 0)."/");
@@ -852,7 +852,7 @@ class CEventCalendar
 					else
 						$this->ClearCache($this->cachePath.'sp_common/');
 
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 					break;
 
 				// * * * * * Append superposed calendar * * * * *
@@ -860,13 +860,13 @@ class CEventCalendar
 					$spcl = is_array($_POST['spcl']) ? $_POST['spcl'] : Array();
 					if (!$this->SaveDisplayedSPCalendars($spcl))
 						return $this->ThrowError('Error! Cant save displayed superposed calendars');
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 					break;
 
 				// * * * * * Hide superposed calendar * * * * *
 				case 'spcal_hide':
 					$this->HideSPCalendar(intVal($_POST['id']));
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 					break;
 
 				// * * * * * Return info about user, and user calendars * * * * *
@@ -874,11 +874,11 @@ class CEventCalendar
 					$name = trim($_POST['name']);
 					if ($res = $this->HandleSPUserCals($name))
 					{
-						?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;</script><?
+						?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;</script><?php 
 					}
 					else
 					{
-						?><script>window._bx_result = [];</script><?
+						?><script>window._bx_result = [];</script><?php 
 					}
 					break;
 
@@ -886,13 +886,13 @@ class CEventCalendar
 				case 'spcal_del_user':
 					if (!$this->DeleteTrackingUser(intVal($_POST['id'])))
 						return $this->ThrowError('Error! Cant delete tracking user!');
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 					break;
 
 				// * * * * * Delete all tracking users * * * * *
 				case 'spcal_del_all_user':
 					$this->DeleteTrackingUser();
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 					break;
 
 				// * * * * * Add calendar to Superposed * * * * *
@@ -902,7 +902,7 @@ class CEventCalendar
 
 					$this->ClearCache($this->cachePath.'sp_handle/'.($this->curUserId % 1000)."/");
 
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 					break;
 
 				// * * * * * Save user settings * * * * *
@@ -911,7 +911,7 @@ class CEventCalendar
 					{
 						// Del user options
 						$res = $this->SetUserSettings(false);
-						?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;</script><?
+						?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;</script><?php 
 					}
 					else
 					{
@@ -949,20 +949,20 @@ class CEventCalendar
 					$bAddCurUser = false;
 					$res = $this->HandleUserSearch(trim($_POST['name']), $from, $to, false, $_POST['event_id'], $bAddCurUser);
 
-					?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;<?if ($bAddCurUser):?>window._bx_add_cur_user = true;<?endif;?></script><?
+					?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;<?php if ($bAddCurUser):?>window._bx_add_cur_user = true;<?php endif;?></script><?php 
 					break;
 
 				// * * * * * Confirm user part in event * * * * *
 				case 'confirm_event':
 					$this->ClearCache($this->cachePath.'events/'.$this->iblockId.'/');
 					$this->ConfirmEvent(array('id' => intVal($_POST['id'])));
-					?><script>window._bx_result = true;</script><?
+					?><script>window._bx_result = true;</script><?php 
 					break;
 
 				// * * * * * Check users accessibility * * * * *
 				case 'check_guests':
 					$res = $this->CheckGuestsAccessibility(array('arGuests' => $_POST['guests'], 'from' => $_POST['from'], 'to' => $_POST['to'], 'eventId' => $_POST['event_id']));
-					?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;</script><?
+					?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;</script><?php 
 					break;
 
 				// * * * * * Get list of group members * * * * *
@@ -983,7 +983,7 @@ class CEventCalendar
 						$bAddCurUser = false;
 						$res = $this->GetGroupMembers(array('groupId' => $this->ownerId, 'from' => $from, 'to' => $to), $bAddCurUser);
 
-						?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;<?if ($bAddCurUser):?>window._bx_add_cur_user = true;<?endif;?></script><?
+						?><script>window._bx_result = <?=CUtil::PhpToJSObject($res);?>;<?php if ($bAddCurUser):?>window._bx_add_cur_user = true;<?php endif;?></script><?php 
 					}
 					break;
 
@@ -1050,7 +1050,7 @@ class CEventCalendar
 						$check = CEventCalendar::CheckMR($Params);
 					}
 
-					?><script>window._bx_result = <?= $check === true ? 'true' : '"'.$check.'"'?></script><?
+					?><script>window._bx_result = <?= $check === true ? 'true' : '"'.$check.'"'?></script><?php 
 					break;
 
 				case 'connections_edit':
@@ -1157,9 +1157,9 @@ class CEventCalendar
 						$res = CDavExchangeCalendar::DoDataSync($this->ownerId, $error);
 						if ($res === true):?>
 							<script>window._bx_result_sync = true;</script>
-						<?elseif($res === false):?>
+						<?php elseif($res === false):?>
 							<script>window._bx_result_sync = false;</script>
-						<?else:
+						<?php else:
 							CEventCalendar::ThrowError($error);
 						endif;
 					}
@@ -3500,12 +3500,12 @@ END:VEVENT'."\n";
 		{
 			if ($arParams['bNew'])
 			{
-				?><script>window._bx_new_event = {ID: <?=$ID?>, IBLOCK_ID: '<?=$iblockId?>', LOC: '<?= CUtil::JSEscape($loc_new)?>', arGuestConfirm: <?= CUtil::PhpToJSObject($arGuestConfirm)?>};</script><?
+				?><script>window._bx_new_event = {ID: <?=$ID?>, IBLOCK_ID: '<?=$iblockId?>', LOC: '<?= CUtil::JSEscape($loc_new)?>', arGuestConfirm: <?= CUtil::PhpToJSObject($arGuestConfirm)?>};</script><?php 
 			}
 			else
 			{
 				?><script>window._bx_existent_event = {ID: <?= intVal($ID)?>, NAME : '<?= CUtil::JSEscape($arParams['name'])?>', DETAIL_TEXT: '<?= CUtil::JSEscape($arParams['desc'])?>', DATE_FROM : '<?= $arParams['dateFrom']?>', DATE_TO : '<?= $arParams['dateTo']?>', LOC: '<?= CUtil::JSEscape($loc_new)?>', arGuestConfirm: <?= CUtil::PhpToJSObject($arGuestConfirm)?>};</script>
-<?
+<?php 
 			}
 		}
 		$this->ClearCache($this->cachePath.'events/'.$iblockId.'/');
@@ -4418,7 +4418,7 @@ END:VEVENT'."\n";
 
 	function UpdateSectionId($sectionId)
 	{
-		?><script>window._bx_section_id = <?=intVal($sectionId)?>;</script><?
+		?><script>window._bx_section_id = <?=intVal($sectionId)?>;</script><?php 
 	}
 
 	function GetUserSettings($arParams = array())
@@ -5053,7 +5053,7 @@ END:VEVENT'."\n";
 	</table>
 	</div>
 	<div style="display:none;" id="dep_<?=$department["ID"]?>_block" class="vcsd-user-contact-block">
-	<?
+	<?php 
 			$bExit = false;
 			if(list($key, $subdepartment) = each($arStructure))
 			{
@@ -5064,7 +5064,7 @@ END:VEVENT'."\n";
 					$bExit = true;
 			}
 	?>
-	<?
+	<?php 
 	if(is_array($arUsersInStructure[$department["ID"]])):
 		foreach($arUsersInStructure[$department["ID"]] as $dep_user):?>
 	<div class="vcsd-user-contact" onclick="BxecCS_SwitchUser('vscd_user_<?=$dep_user["USER_ID"]?>', arguments[0] || window.event);" title="<?= GetMessage("EC_SELECT_USER")?>">
@@ -5076,12 +5076,12 @@ END:VEVENT'."\n";
 	</tr>
 	</table>
 	</div>
-	<?
+	<?php 
 		endforeach;
 	endif;
 	?>
 	</div>
-	<?
+	<?php 
 			if($bExit)
 				return;
 		endwhile;
@@ -5158,24 +5158,24 @@ END:VEVENT'."\n";
 
 	function DisplayJSGuestsAccessability($arResult)
 	{
-		?><script><?
+		?><script><?php 
 		foreach ($arResult as $uid => $arEvents)
 		{
 ?>
 window._bx_plann_events['<?= $uid?>'] = [
-<?
+<?php 
 			for ($i = 0, $l = count($arEvents); $i < $l; $i++):
 				$fts = MakeTimeStamp($arEvents[$i]['DATE_FROM'], getTSFormat()) * 1000;
 				$tts = MakeTimeStamp($arEvents[$i]['DATE_TO'], getTSFormat()) * 1000;
 ?>
 {id: <?= $arEvents[$i]['ID']?>, from: <?= strval($fts)?>, to: <?= strval($tts)?>, imp: '<?= $arEvents[$i]['IMPORTANCE']?>', acc: '<?= $arEvents[$i]['ACCESSIBILITY']?>'}<?= ($i < $l - 1 ? ",\n" : "\n")?>
-<?
+<?php 
 			endfor;
 ?>
 ];
-<?
+<?php 
 		}
-		?></script><?
+		?></script><?php 
 	}
 
 	function GetNearestEventsList($arParams)
@@ -5479,8 +5479,8 @@ window._bx_plann_events['<?= $uid?>'] = [
 		);
 
 ?>
-var EC_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".addslashes(GetMessage($m2))."'";}?>};
-<?
+var EC_MESS = {0:0<?php foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".addslashes(GetMessage($m2))."'";}?>};
+<?php 
 	}
 
 	// Show html
@@ -5490,24 +5490,24 @@ var EC_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".adds
 		$bCalDAV = CEventCalendar::IsCalDAVEnabled() && $arParams['ownerType'] == 'USER';
 ?>
 <table class="BXECControls"><tr><td  style="vertical-align: top;">
-<?if (!($arParams['bReadOnly'] && $arParams['arCalendarsCount'] == 0)):?>
+<?php if (!($arParams['bReadOnly'] && $arParams['arCalendarsCount'] == 0)):?>
 <table class="bxec-calendar-bar">
 <tr><td class="bxec-calendar-title bxec-cal-title-str"><img id="<?=$id?>_cal_bar_fliper" class="bxec-iconkit bxec-hide-arrow" src="/bitrix/images/1.gif"/><nobr><?=GetMessage('EC_T_CALENDARS')?></nobr>
 </td>
 <td class="bxec-calendar-title bxec-cal-title-ch"><img id="<?=$id?>_cal_bar_check" class="bxec-iconkit bxec-cal-bar-check" src="/bitrix/images/1.gif"/></td>
 </tr>
 <tr><td colSpan="2"><div class="bxec-calendar-cont" id="<?=$id?>_calendar_div"></div>
-<?if(!$arParams['bReadOnly']):?>
+<?php if(!$arParams['bReadOnly']):?>
 <a id="<?=$id?>_add_calendar_link" class="bxec-add-calendar-link" href="javascript:void(0);" title="<?=GetMessage('EC_ADD_CAL_TITLE')?>"><img class="bxec-iconkit bxec-addcal" src="/bitrix/images/1.gif"/><?=GetMessage('EC_ADD_CAL')?></a>
-<? if ($bCalDAV):?>
+<?php  if ($bCalDAV):?>
 <a id="<?=$id?>_external" class="bxec-add-calendar-link" href="javascript:void(0);" title="<?=GetMessage('EC_MANAGE_CALDAV_TITLE')?>"><img class="bxec-iconkit bxec-addcal" src="/bitrix/images/1.gif"/><?=GetMessage('EC_MANAGE_CALDAV')?></a>
-<?endif;?>
-<?endif;?>
+<?php endif;?>
+<?php endif;?>
 </td></tr>
 </table>
-<?endif;?>
+<?php endif;?>
 
-<?if($arParams['allowSuperpose']):?>
+<?php if($arParams['allowSuperpose']):?>
 <table class="bxec-calendar-bar">
 <tr><td class="bxec-calendar-title bxec-cal-title-str"><img id="<?=$id?>_sp_cal_bar_fliper" class="bxec-iconkit bxec-hide-arrow" src="/bitrix/images/1.gif"/><nobr><?=GetMessage('EC_T_SP_CALENDARS')?></nobr></td>
 <td class="bxec-calendar-title bxec-cal-title-ch"><img id="<?=$id?>_sp_cal_bar_check" class="bxec-iconkit bxec-cal-bar-check" src="/bitrix/images/1.gif"/></td>
@@ -5516,9 +5516,9 @@ var EC_MESS = {0:0<?foreach($arLangMess as $m1 => $m2){echo ', '.$m1." : '".adds
 	<table class="bxec-add-cal-link-tbl"><tr><td><a id="<?=$id?>_sp_add_calendar" class="bxec-add-calendar-link" href="javascript:void(0);" title="<?=GetMessage('EC_ADD_EX_CAL_TITLE')?>"><img class="bxec-iconkit bxec-addcal-sp" src="/bitrix/images/1.gif"/><?=GetMessage('EC_ADD_EX_CAL')?></a></td><td align="right"><img id="<?=$id?>_export_sp_cals" class="bxec-iconkit bxec-export-sp" src="/bitrix/images/1.gif" title="<?=GetMessage('EC_EXPORT_SP_CALS')?>"/></td></tr></table>
 </td></tr>
 </table>
-<?endif;?>
+<?php endif;?>
 
-<?if($arParams['bShowBanner']):
+<?php if($arParams['bShowBanner']):
 $bExchange = CEventCalendar::IsExchangeEnabled() && $arParams['ownerType'] == 'USER';
 
 if (!$bCalDAV && !$bExchange)
@@ -5537,14 +5537,14 @@ else
 		<div class="bxec-banner-icon"></div>
 		<div class="bxec-banner-text" id="<?=$id?>_outl_sel"><div><?= GetMessage('EC_BAN_CONNECT_OUTL')?></div><div class="bxec-ban-arrow"></div></div>
 	</div>
-	<?if ($bCalDAV):?>
+	<?php if ($bCalDAV):?>
 	<div class="bxec-banner-sep"></div>
 	<div class="bxec-banner-elem bxec-ban-mobile">
 		<div class="bxec-banner-icon"></div>
 		<div class="bxec-banner-text" id="<?=$id?>_mob_sel"><div><?= GetMessage('EC_BAN_CONNECT_MOBI')?></div><div class="bxec-ban-arrow"></div></div>
 	</div>
-	<?endif;?>
-	<?if ($bExchange):
+	<?php endif;?>
+	<?php if ($bExchange):
 	$bExchangeConnected = CDavExchangeCalendar::IsExchangeEnabledForUser($arParams['ownerId']);
 	?>
 	<div class="bxec-banner-sep"></div>
@@ -5552,18 +5552,18 @@ else
 		<div class="bxec-banner-icon"></div>
 		<div class="bxec-banner-status-<?= ($bExchangeConnected ? 'ok' : 'warn')?>"></div>
 		<div class="bxec-banner-text"><div>
-		<?if ($bExchangeConnected):?>
+		<?php if ($bExchangeConnected):?>
 			<?= GetMessage('EC_BAN_CONNECT_EXCH')?>
 			<a href="javascript: void('');"  id="<?=$id?>_exch_sync" title="<?= GetMessage('EC_BAN_EXCH_SYNC_TITLE')?>"><?= GetMessage('EC_BAN_EXCH_SYNC')?></a>
-		<?else:?>
+		<?php else:?>
 			<?= GetMessage('EC_BAN_NOT_CONNECT_EXCH')?>
-		<?endif;?>
+		<?php endif;?>
 		</div></div>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="bxec-close"  id="<?=$id?>_ban_close"></div>
 </div>
-<?endif;?>
+<?php endif;?>
 </td></tr>
 </table>
 
@@ -5615,9 +5615,9 @@ else
 </tr>
 </table>
 
-	<div id="<?=$id?>_dialogs_cont"><?CEventCalendar::BuildDialogsSceletons($arParams);?></div>
+	<div id="<?=$id?>_dialogs_cont"><?php CEventCalendar::BuildDialogsSceletons($arParams);?></div>
 
-	<?
+	<?php 
 	}
 
 	function BuildDialogsSceletons($arParams)
@@ -5670,13 +5670,13 @@ else
 		<div class="bxec-c" style="width: 95px;"><span><?=GetMessage('EC_T_DESC')?></span></div>
 		<div class="bxec-r"></div>
 	</div>
-	<?if($arParams['bSocNet']):?>
+	<?php if($arParams['bSocNet']):?>
 	<div class="bxec-d-tab" title="<?=GetMessage('EC_EDEV_GUESTS_TITLE')?>" id="<?=$id?>_ed_tab_2">
 		<div class="bxec-l"></div>
 		<div class="bxec-c" style="width: 95px;"><span><?=GetMessage('EC_EDEV_GUESTS')?></span></div>
 		<div class="bxec-r"></div>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 	<div class="bxec-d-tab" title="<?=GetMessage('EC_EDEV_ADD_TAB_TITLE')?>" id="<?=$id?>_ed_tab_3">
 		<div class="bxec-l"></div>
 		<div class="bxec-c"><span><?=GetMessage('EC_EDEV_ADD_TAB')?></span></div>
@@ -5684,13 +5684,13 @@ else
 	</div>
 </div>
 <div class="bxec-d-cont"  id="<?=$id?>_edit_ed_d_tabcont">
-	<?/* ####### TAB 0 : MAIN####### */?>
+	<?php /* ####### TAB 0 : MAIN####### */?>
 	<div id="<?=$id?>_ed_tab_cont_0" class="bxec-d-cont-div">
 		<table>
 			<tr><td class="dialog-par-name"><b><?=GetMessage('EC_EDEV_DATE_FROM')?>:</b></td><td class="bxec-ed-lp" style="width: 310px;">
 
 			<input name="edit_event_from" />
-			<? $APPLICATION->IncludeComponent(
+			<?php  $APPLICATION->IncludeComponent(
 			"bitrix:main.calendar",
 			"",
 			Array(
@@ -5702,11 +5702,11 @@ else
 			),
 			false, array("HIDE_ICONS" => "Y"));?>
 
-			<?CClock::Show(array('inputId' => $id.'_edev_time_from', 'inputTitle' => GetMessage('EC_EDEV_TIME_FROM')));?>
+			<?php CClock::Show(array('inputId' => $id.'_edev_time_from', 'inputTitle' => GetMessage('EC_EDEV_TIME_FROM')));?>
 			</td></tr>
 			<tr><td class="dialog-par-name"><?=GetMessage('EC_EDEV_DATE_TO')?>:</td><td class="bxec-ed-lp">
 			<input name="edit_event_to" />
-			<?$APPLICATION->IncludeComponent("bitrix:main.calendar", "",
+			<?php $APPLICATION->IncludeComponent("bitrix:main.calendar", "",
 			Array(
 				"FORM_NAME" => "bxec_edit_ed_form_".$id,
 				"INPUT_NAME" => "edit_event_to",
@@ -5715,7 +5715,7 @@ else
 				"HIDE_TIMEBAR" => "Y"
 			),
 			false, array("HIDE_ICONS" => "Y"));?>
-			<?CClock::Show(array('inputId' => $id.'_edev_time_to', 'inputTitle' => GetMessage('EC_EDEV_TIME_TO')));?>
+			<?php CClock::Show(array('inputId' => $id.'_edev_time_to', 'inputTitle' => GetMessage('EC_EDEV_TIME_TO')));?>
 			</td></tr>
 			<tr><td class="dialog-par-name"><b><?=GetMessage('EC_T_NAME')?>:</b></td><td class="bxec-ed-lp"><input type="text" size="37" id="<?=$id?>_edit_ed_name" style="width: 260px;"/></td></tr>
 			<tr><td class="dialog-par-name"><label for="<?=$id?>_planner_location1"><?=GetMessage('EC_LOCATION')?>:</label></td><td class="bxec-ed-lp">
@@ -5723,7 +5723,7 @@ else
 				<input size="37" style="width: 246px;" id="<?=$id?>_planner_location1" type="text"  title="<?=GetMessage('EC_LOCATION_TITLE')?>" value="<?= GetMessage('EC_PL_SEL_MEET_ROOM')?>" class="ec-label" />
 			</div>
 			</td></tr>
-			<?if($arParams['ownerType'] == 'USER'):?>
+			<?php if($arParams['ownerType'] == 'USER'):?>
 			<tr title="<?=GetMessage('EC_ACCESSIBILITY_TITLE')?>">
 				<td class="dialog-par-name"><label for="<?=$id?>_bxec_accessibility"><?=GetMessage('EC_ACCESSIBILITY')?>:</label></td>
 				<td class="bxec-ed-lp">
@@ -5735,14 +5735,14 @@ else
 				</select>
 				</td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			<tr><td class="dialog-par-name" style="height: 23px"><?=GetMessage('EC_T_CALENDAR')?>:</td><td class="bxec-cal-sel-cel"><span><?=GetMessage('EC_T_CREATE_DEF')?></span><select id="<?=$id?>_edit_ed_calend_sel"></select><span style="display: none;"><?=GetMessage('EC_T_CALEN_DIS_WARNING')?></span>
 			</td></tr>
 		</table>
 	</div>
-	<?/* ####### TAB 1 : DESCRIPTION ####### */?>
+	<?php /* ####### TAB 1 : DESCRIPTION ####### */?>
 	<div id="<?=$id?>_ed_tab_cont_1" class="bxec-d-cont-div bxec-lhe">
-	<?
+	<?php 
 		CModule::IncludeModule("fileman");
 		$LHE = new CLightHTMLEditor;
 		$LHE->Show(array(
@@ -5768,14 +5768,14 @@ else
 		));
 		?>
 	</div>
-	<?if($arParams['bSocNet']):?>
-	<?/* ####### TAB 2 : GUESTS ####### */?>
+	<?php if($arParams['bSocNet']):?>
+	<?php /* ####### TAB 2 : GUESTS ####### */?>
 	<div id="<?=$id?>_ed_tab_cont_2" class="bxec-d-cont-div" style="padding: 5px 8px;">
 		<div style="padding: 0 0 6px 6px;">
 		<a id="<?=$id?>_planner_link" href="javascript:void(0);" title="<?=GetMessage('EC_PLANNER_TITLE')?>" class="bxex-planner-link"><img src="/bitrix/images/1.gif" /><?=GetMessage('EC_PLANNER2')?></a>
 		</div>
 		<?=GetMessage('EC_ADD_GUEST')?>:
-		<?
+		<?php 
 		if ($arParams['bExtranet'])
 			$ExtraMode = 'E';
 		elseif (CModule::IncludeModule('extranet'))
@@ -5806,12 +5806,12 @@ else
 			// ), false, array("HIDE_ICONS" => "Y"));
 		?>
 		<div id="<?=$id?>_edev_add_ex" class="bxec-add-ex">
-		<?if (!$arParams['bExtranet']):?>
-		<?if($arParams['ownerType'] == 'GROUP'):?>
+		<?php if (!$arParams['bExtranet']):?>
+		<?php if($arParams['ownerType'] == 'GROUP'):?>
 		<a id="<?=$id?>_add_from_group" href="javascript:void(0);" title="<?=GetMessage('EC_ADD_GROUP_MEMBER_TITLE')?>" class="bxex-add-ex-link"><img src="/bitrix/images/1.gif" /><?=GetMessage('EC_ADD_GROUP_MEMBER')?></a>
-		<?endif;?>
+		<?php endif;?>
 		<a id="<?=$id?>_add_from_struc" href="javascript:void(0);" title="<?=GetMessage('EC_ADD_MEMBERS_FROM_STR_TITLE')?>" class="bxex-add-ex-link"><img src="/bitrix/images/1.gif" /><?=GetMessage('EC_ADD_MEMBERS_FROM_STR')?></a>
-		<?endif;?>
+		<?php endif;?>
 		</div>
 		<div id="<?=$id?>_edev_uc_notice" class="bxec-eeuc-notice"></div>
 
@@ -5827,12 +5827,12 @@ else
 			<textarea  class="bxec-mt-t" cols="63" id="<?=$id?>_meeting_text" rows="3"></textarea>
 		</div>
 	</div>
-	<?endif;?>
-	<?/* ####### TAB 3 ####### */?>
+	<?php endif;?>
+	<?php /* ####### TAB 3 ####### */?>
 	<div id="<?=$id?>_ed_tab_cont_3" class="bxec-d-cont-div" style="padding: 5px 8px;">
 		<table class="bxec-reminder-table">
 			<tr class="bxec-edev-ad-title"><td colSpan="2"><?=GetMessage('EC_T_REPEATING')?></td></tr>
-			<?/* Repeat row start*/?>
+			<?php /* Repeat row start*/?>
 			<tr id="<?=$id?>_edit_ed_rep_tr"  class="bxec-edit-ed-rep"><td class="bxec-edit-ed-repeat"><?=GetMessage('EC_T_REPEAT')?>:</td><td class="bxec-ed-lp">
 			<select id="<?=$id?>_edit_ed_rep_sel">
 				<option value="none"><?=GetMessage('EC_T_REPEAT_NONE')?></option>
@@ -5844,22 +5844,22 @@ else
 			<div id="<?=$id?>_edit_ed_repeat_sect" style="display: none; width: 310px;">
 			<span id="<?=$id?>_edit_ed_rep_phrase1"></span>
 			<select id="<?=$id?>_edit_ed_rep_count">
-				<?for ($i = 1; $i < 36; $i++):?>
+				<?php for ($i = 1; $i < 36; $i++):?>
 					<option value="<?=$i?>"><?=$i?></option>
-				<?endfor;?>
+				<?php endfor;?>
 			</select>
 			<span id="<?=$id?>_edit_ed_rep_phrase2"></span>
 			<br>
 			<div id="<?=$id?>_edit_ed_rep_week_days" class="bxec-rep-week-days">
-				<?for($i = 0; $i < 7; $i++):
+				<?php for($i = 0; $i < 7; $i++):
 					$id_ = $id.'bxec_week_day_'.$i;?>
 				<input id="<?=$id_?>" type="checkbox" value="Y">
 				<label for="<?=$id_?>" title="<?=$arParams['week_days'][$i][0]?>"><?=$arParams['week_days'][$i][1]?></label>
-				<?endfor;?>
+				<?php endfor;?>
 			</div>
 			<?=GetMessage('EC_T_DIALOG_STOP_REPEAT')?>:
 			<input name="date_calendar" size="19" />
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 			"bitrix:main.calendar",
 			"",
 			Array(
@@ -5872,9 +5872,9 @@ else
 			false, array("HIDE_ICONS" => "Y"));?>
 			<div>
 			</td></tr>
-			<?/* Repeat row end*/?>
+			<?php /* Repeat row end*/?>
 
-			<?if($arParams['bSocNet']):?>
+			<?php if($arParams['bSocNet']):?>
 			<tr class="bxec-edev-ad-title"><td colSpan="2"><?=GetMessage('EC_EDEV_REMINDER')?></td></tr>
 			<tr>
 				<td colspan="2">
@@ -5893,7 +5893,7 @@ else
 				<a id="<?=$id?>_bxec_rem_save"  title="<?=GetMessage('EC_EDEV_REM_SAVE_TITLE')?>" href="javascript:void(0);" class="bxec-rem-save"><?=GetMessage('EC_EDEV_REM_SAVE')?></a>
 				</td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			<tr class="bxec-edev-ad-title"><td colSpan="2"><?=GetMessage('EC_EDDIV_SPECIAL_NOTES')?></td></tr>
 			<tr>
 				<td colspan="2">
@@ -5905,14 +5905,14 @@ else
 				</select>
 				</td>
 			</tr>
-			<?if($arParams['ownerType'] == 'USER'):?>
+			<?php if($arParams['ownerType'] == 'USER'):?>
 			<tr>
 				<td colspan="2">
 				<input id="<?=$id?>_bxec_private" type="checkbox" value="Y" title="<?=GetMessage('EC_PRIVATE_TITLE')?>">
 				<label for="<?=$id?>_bxec_private" title="<?=GetMessage('EC_PRIVATE_TITLE')?>"><?=GetMessage('EC_PRIVATE_EVENT')?></label>
 				</td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 		</table>
 		</div>
 	</div>
@@ -5927,7 +5927,7 @@ else
 </table>
 </form>
 </div>
-	<?
+	<?php 
 	}
 
 	function BDS_SimpleAddEvent($arParams)
@@ -5943,7 +5943,7 @@ else
 	</td></tr>
 	<tr><td class="dialog-par-name" style="height: 23px"><label for="<?=$id?>_add_ed_name"><b><?=GetMessage('EC_T_NAME')?>:</b></label></td><td class="bxec-ed-lp"><input type="text" size="30" id="<?=$id?>_add_ed_name"  style="width: 210px"/></td></tr>
 	<tr><td class="dialog-par-name" style="height: 60px"><label for="<?=$id?>_add_ed_desc"><?=GetMessage('EC_T_DESC')?>:</label></td><td class="bxec-ed-lp"><textarea cols="27" rows="2" id="<?=$id?>_add_ed_desc" style="width: 210px; resize: none;"></textarea></td></tr>
-	<?if($arParams['ownerType'] == 'USER'):?>
+	<?php if($arParams['ownerType'] == 'USER'):?>
 	<tr title="<?=GetMessage('EC_ACCESSIBILITY_TITLE')?>"><td class="dialog-par-name"><label for="<?=$id?>_add_ed_acc"><?=GetMessage('EC_ACCESSIBILITY_S')?>:</label></td><td class="bxec-ed-lp">
 		<select id="<?=$id?>_add_ed_acc" style="width:210px;">
 			<option value="busy" title="<?=GetMessage('EC_ACCESSIBILITY_B')?>"><?=GetMessage('EC_ACCESSIBILITY_B')?></option>
@@ -5953,7 +5953,7 @@ else
 		</select>
 		</td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr><td class="dialog-par-name" style="height: 23px; padding-top:4px;"><label for="<?=$id?>_add_ed_calend_sel"><?=GetMessage('EC_T_CALENDAR')?>:</label></td><td class="bxec-cal-sel-cel" style="padding: 2px 0 0 7px;"><span><?=GetMessage('EC_T_CREATE_DEF')?></span><select id="<?=$id?>_add_ed_calend_sel"></select><span class="bxec-warn" style="display: none;"><?=GetMessage('EC_T_CALEN_DIS_WARNING')?></span>
 	</td></tr>
 	<tr><td colSpan="2" class="bxec-add-ed-buttons bxec-ed-lp">
@@ -5963,7 +5963,7 @@ else
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_ViewEvent($arParams)
@@ -5994,7 +5994,7 @@ else
 		</div>
 	</div>
 	<div class="bxec-d-cont"  id="<?=$id?>_view_d_tabcont">
-	<?/* ####### TAB 0 ####### */?>
+	<?php /* ####### TAB 0 ####### */?>
 		<div id="<?=$id?>_view_tab_cont_0" class="bxec-d-cont-div"><table>
 				<tr><td align="left" class="bxec-ed-lp" style="height: 23px; width: 60px;"><?=GetMessage('EC_T_NAME')?>:</td><td class="bxec-ed-lp" style="width: 380px;"><div class="bxec-view-name"></div></td></tr>
 				<tr><td align="left" class="bxec-ed-lp" style="height: 23px; width: 60px;"><?=GetMessage('EC_T_CREATED_BY_NAME')?>:</td><td class="bxec-ed-lp" style="width: 380px;"><div class="bxec-view-name"></div></td></tr>
@@ -6006,12 +6006,12 @@ else
 				<tr><td class="bxec-par-name" style="white-space: nowrap;"><?=GetMessage('EC_EDEV_CONFIRM')?>:</td><td></td></tr>
 			</table>
 		</div>
-		<?/* ####### TAB 1 ####### */?>
+		<?php /* ####### TAB 1 ####### */?>
 		<div id="<?=$id?>_view_tab_cont_1" class="bxec-d-cont-div">
 			<span><?=GetMessage('EC_T_DESC')?>:</span>
 			<div class="bxec-view-ed-desc-cont" id="<?=$id?>_view_ed_desc"><span class="no-desc"><?=GetMessage('EC_NO_DESC')?></span></div>
 		</div>
-		<?/* ####### TAB 2 ####### */?>
+		<?php /* ####### TAB 2 ####### */?>
 		<div id="<?=$id?>_view_tab_cont_2" class="bxec-d-cont-div"><table>
 				<tr><td class="bxec-par-name"><?=GetMessage('EC_T_CALENDAR')?>:</td><td class="bxec-par-cont"></td></tr>
 				<tr class="bxec-edev-ad-title"><td colSpan="2"><?=GetMessage('EC_EDDIV_SPECIAL_NOTES')?></td></tr>
@@ -6030,7 +6030,7 @@ else
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_EditCalendar($arParams)
@@ -6049,7 +6049,7 @@ else
 	<tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
 	</table>
 	</td></tr>
-	<?if($arParams['ownerType'] == 'USER'):?>
+	<?php if($arParams['ownerType'] == 'USER'):?>
 	<tr><td class="bxec-ed-lp" style="height: 23px" colSpan="2"><?=GetMessage('EC_CAL_STATUS')?>:
 		<select id="<?=$id?>_cal_priv_status" style="width: 230px">
 			<option value="private" title="<?=GetMessage('EC_CAL_STATUS_PRIVATE')?>"><?=GetMessage('EC_CAL_STATUS_PRIVATE')?></option>
@@ -6061,7 +6061,7 @@ else
 	<tr><td class="bxec-ed-lp" colSpan="2" style="padding-right: 30px;">
 		<input id="<?=$id?>_bxec_meeting_calendar" type="checkbox" value="Y"><label for="<?=$id?>_bxec_meeting_calendar"><?=GetMessage('EC_MEETING_CALENDAR')?></label>
 	</td></tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr><td colSpan="2" class="bxec-ed-lp">
 		<input id="<?=$id?>_bxec_cal_exp_allow" type="checkbox" value="Y"><label for="<?=$id?>_bxec_cal_exp_allow"><?=GetMessage('EC_T_ALLOW_CALEN_EXP')?></label>
 		<div id="<?=$id?>_bxec_calen_exp_div" style="margin-top: 4px;">
@@ -6074,17 +6074,17 @@ else
 		</div>
 	</td></tr>
 
-	<?if (CEventCalendar::IsExchangeEnabled() && $arParams['ownerType'] == 'USER'):?>
+	<?php if (CEventCalendar::IsExchangeEnabled() && $arParams['ownerType'] == 'USER'):?>
 	<tr><td colSpan="2" class="bxec-ed-lp">
 		<input id="<?=$id?>_bxec_cal_exch" type="checkbox" value="Y" checked="checked"><label for="<?=$id?>_bxec_cal_exch"><?=GetMessage('EC_CALENDAR_TO_EXCH')?></label>
 	</td></tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?if($arParams['allowSuperpose']):?>
+	<?php if($arParams['allowSuperpose']):?>
 	<tr id="<?=$id?>_bxec_cal_add2sp_cont"><td colSpan="2" class="bxec-ed-lp">
 		<input id="<?=$id?>_bxec_cal_add2sp" type="checkbox" value="Y"><label for="<?=$id?>_bxec_cal_add2sp"><?=GetMessage('EC_T_ADD_TO_SP')?></label>
 	</td></tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr><td colSpan="2" class="bxec-edcal-buttons"><div style="float: left; margin: 3px 5px 0px 10px;">
 	<a id="<?=$id?>_edcal_delete" href="javascript:void(0);"><img class="bxec-iconkit bxec-delcal" src="/bitrix/images/1.gif" /><?=GetMessage('EC_T_DELETE_CALENDAR')?></a></div>
 	<input id="<?=$id?>_edcal_save" type="button" value="<?=GetMessage('EC_T_SAVE')?>"><input id="<?=$id?>_edcal_cancel" type="button" value="<?=GetMessage('EC_T_CLOSE')?>">
@@ -6092,7 +6092,7 @@ else
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_ExportCalendar($arParams)
@@ -6119,7 +6119,7 @@ else
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_Superpose($arParams)
@@ -6143,7 +6143,7 @@ else
 <div id="<?=$id?>_sp_user_search_input_cont" style="display: none; margin-top: -5px;">
 <div id="<?=$id?>_sp_user_nf_notice" class="bxec-sprpose-users-nf"><?=GetMessage('EC_SP_DIALOG_USERS_NOT_FOUND')?></div>
 <?=GetMessage('EC_USER_SEARCH')?>:
-<?
+<?php 
 if ($arParams['bExtranet'])
 	$ExtraMode = 'E';
 elseif (CModule::IncludeModule('extranet'))
@@ -6162,7 +6162,7 @@ $APPLICATION->IncludeComponent(
 	), false, array("HIDE_ICONS" => "Y"));
 ?>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_ViewCompanyStructure($arParams)
@@ -6195,7 +6195,7 @@ $APPLICATION->IncludeComponent(
 			<td title="<?=GetMessage('EC_EDEV_DATE_FROM')?>" style="padding-top:4px;"><label for="bxec_planner_from_<?=$id?>"><?=GetMessage('EC_FROM')?>:</label></td>
 			<td title="<?=GetMessage('EC_EDEV_DATE_FROM')?>">
 				<input name="bxec_planner_from" style="width: 80px;"/>
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 				"bitrix:main.calendar",
 				"",
 				Array(
@@ -6206,7 +6206,7 @@ $APPLICATION->IncludeComponent(
 					"HIDE_TIMEBAR" => "Y"
 				),
 				false, array("HIDE_ICONS" => "Y"));?>
-				<?CClock::Show(array('inputId' => 'bxec_pl_time_f_'.$id, 'inputTitle' => GetMessage('EC_EDEV_TIME_FROM')));?>
+				<?php CClock::Show(array('inputId' => 'bxec_pl_time_f_'.$id, 'inputTitle' => GetMessage('EC_EDEV_TIME_FROM')));?>
 			</td>
 			<td title="<?=GetMessage('EC_EVENT_DURATION_TITLE')?>" style="padding-top:4px;"><label for="<?=$id?>_pl_dur"><?=GetMessage('EC_EVENT_DURATION')?>:</label></td>
 			<td>
@@ -6223,7 +6223,7 @@ $APPLICATION->IncludeComponent(
 			<td title="<?=GetMessage('EC_EDEV_DATE_TO')?>"  style="padding-top:4px;"><label for="bxec_planner_to_<?=$id?>"><?=GetMessage('EC_TO')?>:</label></td>
 			<td  title="<?=GetMessage('EC_EDEV_DATE_TO')?>">
 				<input name="bxec_planner_to" style="width: 80px;"/>
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 				"bitrix:main.calendar",
 				"",
 				Array(
@@ -6234,7 +6234,7 @@ $APPLICATION->IncludeComponent(
 					"HIDE_TIMEBAR" => "Y"
 				),
 				false, array("HIDE_ICONS" => "Y"));?>
-				<?CClock::Show(array('inputId' => 'bxec_pl_time_t_'.$id, 'inputTitle' => GetMessage('EC_EDEV_TIME_TO')));?>
+				<?php CClock::Show(array('inputId' => 'bxec_pl_time_t_'.$id, 'inputTitle' => GetMessage('EC_EDEV_TIME_TO')));?>
 			</td>
 			<td title="<?=GetMessage('EC_LOCATION_TITLE')?>"  style="padding-top:4px;"><label for="<?=$id?>_planner_location2"><?=GetMessage('EC_LOCATION')?>:</label></td>
 			<td>
@@ -6276,7 +6276,7 @@ $APPLICATION->IncludeComponent(
 	</div>
 	<div id="<?=$id?>_plan_bottom_cont" class="bxec-plan-bottom-cont">
 		<?=GetMessage('EC_ADD_GUEST')?>:
-		<?
+		<?php 
 		if ($arParams['bExtranet'])
 			$ExtraMode = 'E';
 		elseif (CModule::IncludeModule('extranet'))
@@ -6294,12 +6294,12 @@ $APPLICATION->IncludeComponent(
 				"FUNCTION" => "PlannerAddGuest_".$id
 			),false, array("HIDE_ICONS" => "Y"));?>
 		<div class="bxec-planner-add-ex">
-		<?if (!$arParams['bExtranet']):?>
-		<?if($arParams['ownerType'] == 'GROUP'):?>
+		<?php if (!$arParams['bExtranet']):?>
+		<?php if($arParams['ownerType'] == 'GROUP'):?>
 		<a id="<?=$id?>_planner_add_from_group" href="javascript:void(0);" title="<?=GetMessage('EC_ADD_GROUP_MEMBER_TITLE')?>" class="bxex-add-ex-link"><img src="/bitrix/images/1.gif" /><?=GetMessage('EC_ADD_GROUP_MEMBER')?></a>
-		<?endif;?>
+		<?php endif;?>
 		<a id="<?=$id?>_planner_add_from_struc" href="javascript:void(0);" title="<?=GetMessage('EC_ADD_MEMBERS_FROM_STR_TITLE')?>" class="bxex-add-ex-link"><img src="/bitrix/images/1.gif" /><?=GetMessage('EC_ADD_MEMBERS_FROM_STR')?></a>
-		<?endif;?>
+		<?php endif;?>
 		</div>
 	</div>
 	<div class="bxec-planner-auto-cont">
@@ -6327,7 +6327,7 @@ $APPLICATION->IncludeComponent(
 </table>
 <div id="<?=$id?>_plan_resizer" class="bxec-plan-resizer"></div>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_UserSettings($arParams)
@@ -6351,7 +6351,7 @@ $APPLICATION->IncludeComponent(
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_ExternalCalendars($arParams)
@@ -6392,7 +6392,7 @@ $APPLICATION->IncludeComponent(
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_MobileCon($arParams)
@@ -6419,7 +6419,7 @@ $APPLICATION->IncludeComponent(
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	function BDS_SortCalendar($arParams)
@@ -6449,7 +6449,7 @@ $APPLICATION->IncludeComponent(
 	</td></tr>
 </table>
 </div>
-<?
+<?php 
 	}
 
 	/* * * * RESERVE MEETING ROOMS  * * * */
@@ -6659,16 +6659,16 @@ $APPLICATION->IncludeComponent(
 	{
 		?><script>
 window._bx_plann_mr['<?= $mrid?>'] = [
-<?
+<?php 
 			for ($i = 0, $l = count($arEvents); $i < $l; $i++):
 ?>
 {id: <?= $arEvents[$i]['ID']?>, from: <?= MakeTimeStamp($arEvents[$i]['DATE_FROM'], getTSFormat()) * 1000?>, to: <?= MakeTimeStamp($arEvents[$i]['DATE_TO'], getTSFormat()) * 1000?>, name: '<?= $arEvents[$i]['NAME']?>'}<?= ($i < $l - 1 ? ",\n" : "\n")?>
-<?
+<?php 
 			endfor;
 ?>
 ];
 
-</script><?
+</script><?php 
 	}
 
 	function ReserveMR($Params)
@@ -6913,7 +6913,7 @@ window._bx_plann_mr['<?= $mrid?>'] = [
 				catch(e){clearInterval(window._BXEC_EvDynCloseInt);}
 			}, 500);
 		</script>
-		<?
+		<?php 
 	}
 
 	function ThrowError($str)
@@ -8100,7 +8100,7 @@ class CECCalendar
 
 			if ($bDisplay)
 			{
-				?><script>window._bx_section_id = <?=intVal($sectionId)?>;</script><?
+				?><script>window._bx_section_id = <?=intVal($sectionId)?>;</script><?php 
 			}
 			$newSectionId = $sectionId;
 		}
@@ -8218,7 +8218,7 @@ class CECCalendar
 	bNew: true,
 	OUTLOOK_JS: '<?=addslashes(htmlspecialcharsex($outlookJs))?>'
 };</script>
-			<?
+			<?php 
 		}
 
 		// Clear cache

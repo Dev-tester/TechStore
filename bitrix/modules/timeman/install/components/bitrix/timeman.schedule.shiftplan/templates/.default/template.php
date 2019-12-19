@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -19,7 +19,7 @@ $APPLICATION->setTitle(htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_PLAN_TITL
 
 
 <div class="timeman-report-container timeman-report-container-plan" data-role="shift-plans-container">
-	<?
+	<?php 
 	$APPLICATION->includeComponent('bitrix:timeman.worktime.grid', '', [
 		'IS_SLIDER' => $arResult['isSlider'],
 		'GRID_ID' => $arResult['GRID_ID'],
@@ -42,18 +42,18 @@ $APPLICATION->setTitle(htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_PLAN_TITL
 
 
 	?>
-	<? if ($arResult['SHOW_ADD_USER_BUTTON']): ?>
+	<?php  if ($arResult['SHOW_ADD_USER_BUTTON']): ?>
 		<div class="timeman-grid-user timeman-grid-user-add" data-role="add-user-btn">
 			<div class="timeman-grid-add-btn"></div>
 			<span class="timeman-grid-add-btn-text"><?= htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_PLAN_USER_ADD')) ?></span>
 		</div>
-	<? endif; ?>
-	<?
+	<?php  endif; ?>
+	<?php 
 
 
 	?>
 	<div class="main-ui-hide" data-role="user-selector">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:main.user.selector",
 			"",

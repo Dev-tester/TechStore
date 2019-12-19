@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NAME"] = "First name";
 $MESS["LAST_NAME"] = "Last name";
 $MESS["SECOND_NAME"] = "Second name";

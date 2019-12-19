@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_VISIT_TITLE"] = "Визит";
 $MESS["CRM_ACTIVITY_VISIT_BUTTON_FINISH"] = "Завершить";
 $MESS["CRM_ACTIVITY_VISIT_OWNER_SELECT"] = "Выбрать";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBPCM_COMMENT_ID"] = "Comment ID";
 $MESS["SBPCM_POST_ID"] = "Post ID";
 $MESS["SBPCM_URL"] = "Post URL";

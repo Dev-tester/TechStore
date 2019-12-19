@@ -1,4 +1,4 @@
-<?
+<?php 
 // Clear Category table
 function ClearCategoryTable()
 { 
@@ -103,38 +103,38 @@ $aTabs = array(
 );
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 ?>
-<?
+<?php 
 $tabControl->Begin();
-?><form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>">
+?><form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>">
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr>
 		<td valign="top" width="50%"><?=GetMessage("SUP_URL_PUBLIC")?></td>
-		<td valign="top" width="50%"><input type="text" size="40" value="<?echo htmlspecialcharsbx($SUPPORT_DIR)?>" name="SUPPORT_DIR"></td>
+		<td valign="top" width="50%"><input type="text" size="40" value="<?php echo htmlspecialcharsbx($SUPPORT_DIR)?>" name="SUPPORT_DIR"></td>
 	</tr>
 	<tr>
 		<td valign="top" width="50%"><?=GetMessage("SUP_URL_PUBLIC_EDIT")?></td>
-		<td valign="top" width="50%"><input type="text" size="40" value="<?echo htmlspecialcharsbx($SUPPORT_EDIT)?>" name="SUPPORT_EDIT"></td>
+		<td valign="top" width="50%"><input type="text" size="40" value="<?php echo htmlspecialcharsbx($SUPPORT_EDIT)?>" name="SUPPORT_EDIT"></td>
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("SUP_MAX_FILESIZE")?></td>
-		<td valign="top"><input type="text" size="5" value="<?echo htmlspecialcharsbx($SUPPORT_MAX_FILESIZE)?>" name="SUPPORT_MAX_FILESIZE"></td>
+		<td valign="top"><input type="text" size="5" value="<?php echo htmlspecialcharsbx($SUPPORT_MAX_FILESIZE)?>" name="SUPPORT_MAX_FILESIZE"></td>
 	</tr>
 	<tr>
 		<td valign="top"><label><?=GetMessage("SUP_DEFAULT_VALUE_HIDDEN")?></label></td>
-		<td valign="top"><?echo InputType("checkbox", "DEFAULT_VALUE_HIDDEN", "Y", $DEFAULT_VALUE_HIDDEN, false, "", 'id="DEFAULT_VALUE_HIDDEN"')?></td>
+		<td valign="top"><?php echo InputType("checkbox", "DEFAULT_VALUE_HIDDEN", "Y", $DEFAULT_VALUE_HIDDEN, false, "", 'id="DEFAULT_VALUE_HIDDEN"')?></td>
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("SUP_DEFAULT_RESPONSIBLE")?></td>
-		<td valign="top"><?
+		<td valign="top"><?php 
 			echo SelectBox("DEFAULT_RESPONSIBLE_ID", CTicket::GetSupportTeamList(), " ", $DEFAULT_RESPONSIBLE_ID);
 			?></td>
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("SUP_DEFAULT_AUTO_CLOSE_DAYS")?></td>
-		<td valign="top"><?
+		<td valign="top"><?php 
 		$ref_id = array("-1", "0");
 		$ref = array(GetMessage("SUP_NOT_CHANGE"), GetMessage("SUP_SET_NULL"));
 		for ($i=1;$i<=90;$i++)
@@ -148,7 +148,7 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("SUP_DEFAULT_MODE")?></td>
-		<td valign="top"><?
+		<td valign="top"><?php 
 		$ref_id = array("", "view", "answer");
 		$ref = array(GetMessage("SUP_NO_MODE"), GetMessage("SUP_VIEW_MODE"), GetMessage("SUP_ANSWER_MODE"));
 		$arr = Array("reference" => $ref, "reference_id" => $ref_id);
@@ -157,7 +157,7 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("SUP_ONLINE_INTERVAL")?></td>
-		<td valign="top"><?
+		<td valign="top"><?php 
 		$ref_id = array(
 			"60",
 			"120",
@@ -190,7 +190,7 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("SUP_ONLINE_AUTO_REFRESH")?></td>
-		<td valign="top"><?
+		<td valign="top"><?php 
 		$ref_id = array(
 			"0",
 			"10",
@@ -227,13 +227,13 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("SUP_SHOW_COMMENTS_IN_TICKET_LIST")?></td>
-		<td valign="top"><?echo InputType("checkbox", "SHOW_COMMENTS_IN_TICKET_LIST", "Y", $SHOW_COMMENTS_IN_TICKET_LIST, false, "", 'id="SHOW_COMMENTS_IN_TICKET_LIST"')?></td>
+		<td valign="top"><?php echo InputType("checkbox", "SHOW_COMMENTS_IN_TICKET_LIST", "Y", $SHOW_COMMENTS_IN_TICKET_LIST, false, "", 'id="SHOW_COMMENTS_IN_TICKET_LIST"')?></td>
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage('SUP_SUPERTICKET_COUPON_FORMAT')?></td>
-		<td valign="top"><input type="text" size="30" value="<?echo htmlspecialcharsbx($SUPERTICKET_COUPON_FORMAT)?>" name="SUPERTICKET_COUPON_FORMAT"></td>
+		<td valign="top"><input type="text" size="30" value="<?php echo htmlspecialcharsbx($SUPERTICKET_COUPON_FORMAT)?>" name="SUPERTICKET_COUPON_FORMAT"></td>
 	</tr>
-	<?
+	<?php 
 	$arr = Array("reference" => array(), "reference_id" => array());
 	$rs = CTicketSLA::GetList($a = array('NAME' => 'ASC'), array(), $__is_f);
 	while ($arSla = $rs->GetNext())
@@ -261,7 +261,7 @@ $tabControl->BeginNextTab();
 		<td valign="top"><?=SelectBoxFromArray("SUPPORT_OLD_FUNCTIONALITY", $arr2, $SUPPORT_OLD_FUNCTIONALITY , "")?></td>
 	</tr>
 	
-	<?
+	<?php 
 	$arr = Array("reference" => array(), "reference_id" => array());
 	$rs = CTicketDictionary::GetDropDown("SR");
 	$arEmail = array();
@@ -283,12 +283,12 @@ $tabControl->BeginNextTab();
 	
 	<tr>
 		<td valign="top"><?=GetMessage('SUP_CACHE_DAYS_BACKWARD')?></td>
-		<td valign="top"><input type="text" size="30" value="<? echo intval( $SUPPORT_CACHE_DAYS_BACKWARD ); ?>" name="SUPPORT_CACHE_DAYS_BACKWARD"></td>
+		<td valign="top"><input type="text" size="30" value="<?php  echo intval( $SUPPORT_CACHE_DAYS_BACKWARD ); ?>" name="SUPPORT_CACHE_DAYS_BACKWARD"></td>
 	</tr>
 	
 	<tr>
 		<td valign="top"><?=GetMessage('SUP_CACHE_DAYS_FORWARD')?></td>
-		<td valign="top"><input type="text" size="30" value="<? echo intval( $SUPPORT_CACHE_DAYS_FORWARD ); ?>" name="SUPPORT_CACHE_DAYS_FORWARD"></td>
+		<td valign="top"><input type="text" size="30" value="<?php  echo intval( $SUPPORT_CACHE_DAYS_FORWARD ); ?>" name="SUPPORT_CACHE_DAYS_FORWARD"></td>
 	</tr>
 		
 	<tr>
@@ -302,20 +302,20 @@ $tabControl->BeginNextTab();
 					var obj = JSON.parse( datum );
 					if( obj.hasOwnProperty( "ALL_OK" ) && obj.ALL_OK == "OK" )
 					{
-						alert( "<? echo GetMessage("SUP_RESTART_AGENTS_OK"); ?>" );
+						alert( "<?php  echo GetMessage("SUP_RESTART_AGENTS_OK"); ?>" );
 						return;
 					}
-					alert( "<? echo GetMessage("SUP_RESTART_AGENTS_NO_OK"); ?>" );
+					alert( "<?php  echo GetMessage("SUP_RESTART_AGENTS_NO_OK"); ?>" );
 				}
 				function callbackFnRANoOK(datum)
 				{
-					alert( "<? echo GetMessage("SUP_RESTART_AGENTS_NO_OK"); ?>" );
+					alert( "<?php  echo GetMessage("SUP_RESTART_AGENTS_NO_OK"); ?>" );
 				}
 				function restartAgentsJS()
 				{
 					var data = {
 						'MY_AJAX' : 'restartAgentsAJAX',
-						"b_sessid": '<? echo bitrix_sessid(); ?>'
+						"b_sessid": '<?php  echo bitrix_sessid(); ?>'
 					};
 					
 					return BX.ajax({
@@ -329,41 +329,41 @@ $tabControl->BeginNextTab();
 					
 				}
 			</script>
-			<a id="RESTART_AGENTS" href="#nul" onClick="javascript: restartAgentsJS();"><? echo GetMessage('SUP_RESTART_AGENTS_BTN'); ?></a>
+			<a id="RESTART_AGENTS" href="#nul" onClick="javascript: restartAgentsJS();"><?php  echo GetMessage('SUP_RESTART_AGENTS_BTN'); ?></a>
 		</td>
 	</tr>
 	
 	
-<?$tabControl->BeginNextTab();?>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
-<?$tabControl->Buttons();?>
+<?php $tabControl->BeginNextTab();?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)?>&<?echo bitrix_sessid_get()?>";
+	if(confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)?>&<?php echo bitrix_sessid_get()?>";
 }
 </script>
-<input <?if ($SUP_RIGHT<"W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("SUP_SAVE")?>">
+<input <?php if ($SUP_RIGHT<"W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("SUP_SAVE")?>">
 <input type="hidden" name="Update" value="Y">
 <input type="reset" name="reset" value="<?=GetMessage("SUP_RESET")?>">
-<input <?if ($SUP_RIGHT<"W") echo "disabled" ?> type="button" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input <?php if ($SUP_RIGHT<"W") echo "disabled" ?> type="button" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
 
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit21", "TAB" => GetMessage("SUP_SEARCH_NDX_TAB_NAME"), "ICON" => "support_settings", "TITLE" => GetMessage("SUP_SEARCH_NDX_TAB_TITLE")),
 );
 $tabControl = new CAdminTabControl("tabControl2", $aTabs);
 ?>
 <h2><?=GetMessage('SUP_SERVICE_OPERAIONS')?></h2>
-<?
+<?php 
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
@@ -375,7 +375,7 @@ $tabControl->BeginNextTab();
 		</div>
 
 		<div id="sup_search_ndx_progressbar_nil" style="display: none;">
-			<? CAdminMessage::ShowMessage(array(
+			<?php  CAdminMessage::ShowMessage(array(
 				"DETAILS" => "<br>#PROGRESS_BAR#",
 				"HTML" => true,
 				"TYPE" => "PROGRESS",
@@ -425,7 +425,7 @@ $tabControl->BeginNextTab();
 			}
 
 			var data = {
-				'b_sessid': '<? echo bitrix_sessid(); ?>',
+				'b_sessid': '<?php  echo bitrix_sessid(); ?>',
 				'action' : 'reindex',
 				'data' : {
 					'interval' : BX('sup_search_ndx_inerval').value,
@@ -463,7 +463,7 @@ $tabControl->BeginNextTab();
 
 			if (response.LAST_ID == (-1))
 			{
-				alert( "<? echo GetMessageJS("SUP_REINDEX_END"); ?>" );
+				alert( "<?php  echo GetMessageJS("SUP_REINDEX_END"); ?>" );
 				supSearchNdxStop();
 				return;
 			}
@@ -474,7 +474,7 @@ $tabControl->BeginNextTab();
 
 		function supSearchNdxGoFail(data)
 		{
-			alert( "<? echo GetMessageJS("SUP_REINDEX_STRANGE_ANSWER"); ?>" );
+			alert( "<?php  echo GetMessageJS("SUP_REINDEX_STRANGE_ANSWER"); ?>" );
 			supSearchNdxStop();
 		}
 
@@ -483,7 +483,7 @@ $tabControl->BeginNextTab();
 	</td>
 </tr>
 
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 
 
-<?endif;?>
+<?php endif;?>

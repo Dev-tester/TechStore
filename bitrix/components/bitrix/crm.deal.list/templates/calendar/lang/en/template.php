@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_CALENDAR_TITLE"] = "Add new item to calendar";
 $MESS["CRM_DEAL_CALENDAR"] = "Add call or event";
 $MESS["CRM_DEAL_LIST_FILTER_NAV_BUTTON_CALENDAR"] = "Calendar";

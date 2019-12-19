@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['INTR_ISS_TPL_PARAM_COLUMNS'] = "Column Count";
 $MESS['INTR_ISS_TPL_PARAM_COLUMNS_FIRST'] = "Columns at First Page";
 $MESS['INTR_ISS_TPL_PARAM_MAX_DEPTH'] = "Max. Tree Depth (0 - all)";

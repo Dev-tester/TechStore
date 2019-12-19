@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_CRM_CALL_TITLE"] = "Телефонный звонок";
 $MESS["VI_CRM_CALLBACK_TITLE"] = "Обратный звонок";
 $MESS["VI_CRM_CALL_DURATION"] = "Длительность звонка: #DURATION#.";

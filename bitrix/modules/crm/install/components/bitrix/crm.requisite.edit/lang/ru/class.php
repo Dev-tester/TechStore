@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль crm не установлен.";
 $MESS["CRM_REQUISITE_EDIT_ERR_NOT_FOUND"] = "Не удалось получить реквизиты (ID = #ID#)";
 $MESS["CRM_REQUISITE_EDIT_ERR_PRESET_NOT_SELECTED"] = "Не задан шаблон для редактирования реквизитов";

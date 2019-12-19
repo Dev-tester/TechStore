@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $settings = $arResult["SETTINGS"];
 if ($settings['MODE'] === 'edit' && !is_null($settings['FIELD_ID']))
 {
@@ -41,6 +41,6 @@ else
 			}
 		);
 	</script>
-	<?
+	<?php 
 	return;
 }

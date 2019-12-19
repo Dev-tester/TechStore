@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_OVIEW_TITLE"] = "Просмотр заказа ID (#ID#), № #NUM#, создан #DATE#";
 $MESS["SALE_OVIEW_TO_ARCHIVE_LIST"] = "Архив заказов";
 $MESS["SALE_OVIEW_TO_ARCHIVE_LIST_TITLE"] = "Перейти к архиву заказов";

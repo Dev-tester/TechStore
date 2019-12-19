@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/crm/configs/exch1c/index.php");
 $APPLICATION->SetTitle(GetMessage("CRM_TITLE"));
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:ui.sidepanel.wrapper',
 	'',
@@ -17,4 +17,4 @@ $APPLICATION->IncludeComponent(
 		]
 	]
 );
-?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

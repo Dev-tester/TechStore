@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TAB1'] = "Файл данных";
 $MESS ['LEARNING_ADMIN_TAB1_EX'] = "Выбор файла данных";
 $MESS ['LEARNING_ADMIN_TAB2'] = "Результат";

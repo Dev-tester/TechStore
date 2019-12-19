@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["SUBSCRIBE_MODULE_NOT_INSTALLED"] = "Модуль SUBSCRIBE не установлен.";
 $MESS["CRM_PERMISSION_DENIED"] = "Доступ запрещен";

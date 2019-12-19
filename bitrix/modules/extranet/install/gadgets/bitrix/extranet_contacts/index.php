@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\UI;
@@ -106,7 +106,7 @@ if (!function_exists('_ShowUserString'))
 			<td colspan="2"><div class="gd-contacts-vertical-spacer"></div></td>
 		</tr>
 		<tr>
-			<td colspan="2" width="100%" class="gd-contacts-main"><?
+			<td colspan="2" width="100%" class="gd-contacts-main"><?php 
 
 				$tooltip_id = randString(8);
 
@@ -130,25 +130,25 @@ if (!function_exists('_ShowUserString'))
 					$arUser["PERSONAL_PHOTO"] = $arImage["IMG"];
 				}	
 
-				?><table cellspacing="0" cellpadding="0" border="0" class="bx-user-info-anchor" bx-tooltip-user-id="<?=$arUser["ID"]?>"><?
-				?><tr><?
-					?><td class="bx-user-info-anchor-cell"><?
-						?><div class="bx-user-info-thumbnail" align="center" valign="middle" style="width: 30px; height: 32px;"><?
-							?><?=$arUser["PERSONAL_PHOTO"]?><?
-						?></div><?
-					?></td><?
-					?><td class="bx-user-info-anchor-cell" valign="top"><?
-						?><a class="bx-user-info-name" href="<?=$link?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $arUser, ($arParams["SHOW_LOGIN"] != "N"))?></a><?
-					?></td><?
-				?></tr><?
-				?></table><?
+				?><table cellspacing="0" cellpadding="0" border="0" class="bx-user-info-anchor" bx-tooltip-user-id="<?=$arUser["ID"]?>"><?php 
+				?><tr><?php 
+					?><td class="bx-user-info-anchor-cell"><?php 
+						?><div class="bx-user-info-thumbnail" align="center" valign="middle" style="width: 30px; height: 32px;"><?php 
+							?><?=$arUser["PERSONAL_PHOTO"]?><?php 
+						?></div><?php 
+					?></td><?php 
+					?><td class="bx-user-info-anchor-cell" valign="top"><?php 
+						?><a class="bx-user-info-name" href="<?=$link?>"><?=CUser::FormatName($arParams["NAME_TEMPLATE"], $arUser, ($arParams["SHOW_LOGIN"] != "N"))?></a><?php 
+					?></td><?php 
+				?></tr><?php 
+				?></table><?php 
 			?>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" class="gd-contacts-delimiter"></td>
 		</tr>
-		<?
+		<?php 
 		return true;
 
 	}
@@ -179,7 +179,7 @@ $arPublicUsersFmt = array();
 
 ?>
 <table width="100%" cellspacing="0" cellpadding="0" border="0">
-<?
+<?php 
 echo "<tr><td colspan='2'><b>".GetMessage('GD_CONTACTS_MYGROUPS_USERS')."</b></td></tr>";
 
 $arUsersInListID = array();
@@ -235,7 +235,7 @@ foreach ($arPublicUsersFmt as $arUser)
 ?>
 </table>
 <div class="gd-contacts-vertical-spacer"></div>
-<?
+<?php 
 echo "<div class='fullist-links'><a href='".$arGadgetParams['FULLLIST_URL']."'>".GetMessage('GD_CONTACTS_FULLLIST')."</a></div>";
 echo "<div class='fullist-links'><a href='".$arGadgetParams['EMPLOYEES_FULLLIST_URL']."'>".GetMessage('GD_CONTACTS_EMPLOYEES_FULLLIST')."</a></div>";
 ?>

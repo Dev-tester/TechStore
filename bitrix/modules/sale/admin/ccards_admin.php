@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2006 Bitrix             #
@@ -233,8 +233,8 @@ $APPLICATION->SetTitle(GetMessage("SCA_TITLE"));
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -269,12 +269,12 @@ $oFilter->Begin();
 		<td>
 			<select name="filter_active">
 				<option value=""><?= htmlspecialcharsex("(".GetMessage("SCA_ALL").")"); ?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SCA_YES")) ?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SCA_NO")) ?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SCA_YES")) ?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SCA_NO")) ?></option>
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -286,12 +286,12 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if (!CSaleUserCards::CheckPassword())
 	CAdminMessage::ShowMessage(array("DETAILS"=>GetMessage("SCA_NO_VALID_PASSWORD"), "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("SCA_ATTENTION")));
 ?>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

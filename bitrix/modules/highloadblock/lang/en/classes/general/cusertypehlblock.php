@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_HLEL_DESCRIPTION"] = "Bind to highload information block elements";
 $MESS["USER_TYPE_HLEL_DISPLAY"] = "Highload information block";
 $MESS["USER_TYPE_HLEL_CHECKBOX"] = "Check box";

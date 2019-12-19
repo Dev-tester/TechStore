@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
 use Bitrix\Main;
@@ -460,18 +460,18 @@ CAdminCalendar::ShowScript();
 $tabControl->EndPrologContent();
 
 $tabControl->BeginEpilogContent();
-?><?echo GetFilterHiddens("filter_");?>
+?><?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
-<? echo bitrix_sessid_post(); ?><?
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
+<?php  echo bitrix_sessid_post(); ?><?php 
 if (!empty($returnUrl))
 {
-	?><input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($returnUrl); ?>"><?
+	?><input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($returnUrl); ?>"><?php 
 }
 if ($boolCopy)
 {
-	?><input type="hidden" name="action" value="copy"><?
+	?><input type="hidden" name="action" value="copy"><?php 
 }
 $tabControl->EndEpilogContent();
 $tabControl->Begin(array(
@@ -486,8 +486,8 @@ $tabControl->BeginNextFormTab();
 	$tabControl->AddDropDownField("SITE_ID", GetMessage('DSC_SITE').':', true, $arSiteList, $arDiscount['SITE_ID']);
 	$tabControl->BeginCustomField("PERIOD", GetMessage('DSC_PERIOD').":",false);
 	?><tr id="tr_PERIOD">
-		<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
-		<td width="60%"><?
+		<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
+		<td width="60%"><?php 
 			$periodValue = '';
 			if ('' != $arDiscount['ACTIVE_FROM'] || '' != $arDiscount['ACTIVE_TO'])
 				$periodValue = CAdminCalendar::PERIOD_INTERVAL;
@@ -507,33 +507,33 @@ $tabControl->BeginNextFormTab();
 				$periodValue
 			);
 		?></td>
-	</tr><?
+	</tr><?php 
 	$tabControl->EndCustomField("PERIOD",
 		'<input type="hidden" name="ACTIVE_FROM" value="'.htmlspecialcharsbx($arDiscount['ACTIVE_FROM']).'">'.
 		'<input type="hidden" name="ACTIVE_TO" value="'.htmlspecialcharsbx($arDiscount['ACTIVE_FROM']).'">'
 	);
 	$tabControl->BeginCustomField("VALUE_TYPE", GetMessage('DSC_TYPE').":",true);
 	?><tr id="tr_VALUE_TYPE" class="adm-detail-required-field">
-		<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
+		<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
 		<td width="60%">
-			<select name="VALUE_TYPE" id="ob_value_type"><?
+			<select name="VALUE_TYPE" id="ob_value_type"><?php 
 				foreach (CCatalogDiscount::GetDiscountTypes(true) as $key => $value)
 				{
-					?><option value="<?=htmlspecialcharsbx($key); ?>"<?if ($arDiscount['VALUE_TYPE'] == $key) echo " selected";?>><?=htmlspecialcharsbx($value); ?></option><?
+					?><option value="<?=htmlspecialcharsbx($key); ?>"<?php if ($arDiscount['VALUE_TYPE'] == $key) echo " selected";?>><?=htmlspecialcharsbx($value); ?></option><?php 
 				}
 			?></select>
 		</td>
-	</tr><?
+	</tr><?php 
 	$tabControl->EndCustomField("VALUE_TYPE",
 		'<input type="hidden" name="VALUE_TYPE" value="'.htmlspecialcharsbx($arDiscount['VALUE_TYPE']).'">'
 	);
 	$tabControl->AddEditField("VALUE", GetMessage("DSC_VALUE").":", true, array('size' => 20, 'maxlength' => 20), htmlspecialcharsbx($arDiscount['VALUE']));
 	$tabControl->AddDropDownField("CURRENCY", GetMessage('DSC_CURRENCY').':', true, $arCurrencyList, $arDiscount['CURRENCY']);
 	$tabControl->BeginCustomField("MAX_DISCOUNT", GetMessage('DSC_MAX_SUM').":",false);
-	?><tr id="tr_MAX_DISCOUNT" style="display: <? echo 'P' == $arDiscount['VALUE_TYPE'] ? 'table-row' : 'none'; ?>;">
-		<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
+	?><tr id="tr_MAX_DISCOUNT" style="display: <?php  echo 'P' == $arDiscount['VALUE_TYPE'] ? 'table-row' : 'none'; ?>;">
+		<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
 		<td width="60%"><input id="ob_max_discount" type="text" name="MAX_DISCOUNT" size="20" maxlength="20" value="<?=htmlspecialcharsbx($arDiscount['MAX_DISCOUNT']); ?>"></td>
-	</tr><?
+	</tr><?php 
 	$tabControl->EndCustomField("MAX_DISCOUNT",
 		'<input type="hidden" name="MAX_DISCOUNT" value="'.htmlspecialcharsbx($arDiscount['MAX_DISCOUNT']).'">'
 	);
@@ -541,12 +541,12 @@ $tabControl->BeginNextFormTab();
 	$tabControl->AddEditField("PRIORITY", GetMessage("BT_CAT_DISCOUNT_EDIT_FIELDS_PRIORITY").":", false, array("size" => 20, "maxlength" => 20), intval($arDiscount['PRIORITY']));
 	$tabControl->BeginCustomField("LAST_DISCOUNT", GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_LAST_DISCOUNT').":",false);
 	?><tr id="tr_LAST_DISCOUNT">
-		<td width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
+		<td width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
 		<td width="60%">
 			<input type="hidden" value="N" name="LAST_DISCOUNT">
-			<input type="checkbox" value="Y" name="LAST_DISCOUNT" <? echo ('Y' == $arDiscount['LAST_DISCOUNT']? 'checked' : '');?>>
+			<input type="checkbox" value="Y" name="LAST_DISCOUNT" <?php  echo ('Y' == $arDiscount['LAST_DISCOUNT']? 'checked' : '');?>>
 		</td>
-	</tr><?
+	</tr><?php 
 	$tabControl->EndCustomField("LAST_DISCOUNT",
 		'<input type="hidden" name="LAST_DISCOUNT" value="'.htmlspecialcharsbx($arDiscount['LAST_DISCOUNT']).'">'
 	);
@@ -556,7 +556,7 @@ $tabControl->BeginNextFormTab();
 
 	$tabControl->BeginCustomField("CONDITIONS", GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_COND').":",false);
 	?><tr id="tr_CONDITIONS">
-		<td valign="top" colspan="2"><div id="tree" style="position: relative; z-index: 1;"></div><?
+		<td valign="top" colspan="2"><div id="tree" style="position: relative; z-index: 1;"></div><?php 
 			if (!is_array($arDiscount['CONDITIONS']))
 			{
 				if (CheckSerializedData($arDiscount['CONDITIONS']))
@@ -580,7 +580,7 @@ $tabControl->BeginNextFormTab();
 				$obCond->Show($arDiscount['CONDITIONS']);
 			}
 		?></td>
-	</tr><?
+	</tr><?php 
 	$strHidden = '';
 	$strCond = base64_encode(serialize($arDiscount['CONDITIONS']));
 	$tabControl->EndCustomField("CONDITIONS",
@@ -592,10 +592,10 @@ $tabControl->BeginNextFormTab();
 	$tabControl->BeginCustomField("GROUP_IDS", GetMessage('DSC_USER_GROUPS').":",false);
 	$strHidden = '';
 	?><tr id="tr_GROUP_IDS">
-		<td valign="top" width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
+		<td valign="top" width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
 		<td width="60%">
 			<select name="GROUP_IDS[]" multiple size="8">
-			<?
+			<?php 
 			$groupIterator = Main\GroupTable::getList(array(
 				'select' => array('ID', 'NAME', 'C_SORT'),
 				'order' => array('C_SORT' => 'ASC', 'ID' => 'ASC')
@@ -604,13 +604,13 @@ $tabControl->BeginNextFormTab();
 			{
 				$group['ID'] = (int)$group['ID'];
 				$selected = (in_array($group['ID'], $arDiscountGroupList) ? ' selected' : '');
-				?><option value="<? echo $group['ID']; ?>"<? echo $selected; ?>>[<? echo $group['ID']; ?>] <?=htmlspecialcharsbx($group['NAME']); ?></option><?
+				?><option value="<?php  echo $group['ID']; ?>"<?php  echo $selected; ?>>[<?php  echo $group['ID']; ?>] <?=htmlspecialcharsbx($group['NAME']); ?></option><?php 
 			}
 			unset($selected, $group, $groupIterator);
 			?>
 			</select>
 		</td>
-	</tr><?
+	</tr><?php 
 	if ($ID > 0 && !empty($arDiscountGroupList))
 	{
 		$arHidden = array();
@@ -632,9 +632,9 @@ $tabControl->BeginNextFormTab();
 	$tabControl->BeginCustomField("CAT_IDS", GetMessage('DSC_PRICE_TYPES').":", false);
 	$strHidden = '';
 	?><tr id="tr_CAT_IDS">
-		<td valign="top" width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?></td>
+		<td valign="top" width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?></td>
 		<td valign="top" width="60%">
-			<select name="CAT_IDS[]" multiple size="8"><?
+			<select name="CAT_IDS[]" multiple size="8"><?php 
 				$priceTypeIterator = Catalog\GroupTable::getList(array(
 					'select' => array('ID', 'NAME', 'LANG_NAME' => 'CURRENT_LANG.NAME'),
 					'order' => array('NAME' => 'ASC', 'ID' => 'ASC')
@@ -645,12 +645,12 @@ $tabControl->BeginNextFormTab();
 					$priceType['LANG_NAME'] = (string)$priceType['LANG_NAME'];
 					$priceName = $priceType['NAME'].($priceType['LANG_NAME'] != '' ? ' ('.$priceType['LANG_NAME'].')' : '');
 					$selected = (in_array($priceType['ID'], $arDiscountCatList) ? ' selected' : '');
-					?><option value="<? echo $priceType['ID']; ?>"<? echo $selected; ?>>[<? echo $priceType['ID']; ?>] <?=htmlspecialcharsbx($priceName); ?></option><?
+					?><option value="<?php  echo $priceType['ID']; ?>"<?php  echo $selected; ?>>[<?php  echo $priceType['ID']; ?>] <?=htmlspecialcharsbx($priceName); ?></option><?php 
 				}
 				unset($selected, $priceName, $priceType, $priceTypeIterator);
 			?></select>
 		</td>
-	</tr><?
+	</tr><?php 
 	if ($ID > 0 && !empty($arDiscountCatList))
 	{
 		$arHidden = array();
@@ -680,34 +680,34 @@ $tabControl->BeginNextFormTab();
 	$strSubElementAjaxPath = '/bitrix/admin/cat_subcoupons_admin.php?lang='.LANGUAGE_ID.'&find_discount_id='.$intDiscountID.'&TMP_ID='.urlencode($strSubTMP_ID);
 	if (0 < $intDiscountID && $boolShowCoupons && !$boolCopy)
 	{
-		?><tr id="tr_COUPONS"><td colspan="2"><?
+		?><tr id="tr_COUPONS"><td colspan="2"><?php 
 		require($_SERVER["DOCUMENT_ROOT"].'/bitrix/modules/catalog/admin/templates/discount_coupon_list.php');
-		?></td></tr><?
+		?></td></tr><?php 
 	}
 	else
 	{
 		?><tr id="tr_COUPON_ADD">
-			<td width="40%"><? echo GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_COUPON_ADD'); ?>:</td>
+			<td width="40%"><?php  echo GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_COUPON_ADD'); ?>:</td>
 			<td width="60%">
 				<input type="hidden" value="N" name="COUPON_ADD" id="COUPON_ADD_N">
-				<input type="checkbox" value="Y" name="COUPON_ADD" id="COUPON_ADD_Y" <? echo ('Y' == $arCoupons['COUPON_ADD'] ? 'checked' : ''); ?>>
+				<input type="checkbox" value="Y" name="COUPON_ADD" id="COUPON_ADD_Y" <?php  echo ('Y' == $arCoupons['COUPON_ADD'] ? 'checked' : ''); ?>>
 			</td>
 		</tr>
-		<tr id="tr_COUPON_TYPE" class="adm-detail-required-field" style="display: <? echo ('Y' == $arCoupons['COUPON_ADD'] ? 'table-row' : 'none'); ?>;">
-			<td width="40%"><? echo GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_COUPON_TYPE'); ?>:</td>
+		<tr id="tr_COUPON_TYPE" class="adm-detail-required-field" style="display: <?php  echo ('Y' == $arCoupons['COUPON_ADD'] ? 'table-row' : 'none'); ?>;">
+			<td width="40%"><?php  echo GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_COUPON_TYPE'); ?>:</td>
 			<td width="60%">
-				<select name="COUPON_TYPE" size="3"><?
+				<select name="COUPON_TYPE" size="3"><?php 
 				foreach ($arCouponTypeList as $strType => $strName)
 				{
-					?><option value="<?=htmlspecialcharsbx($strType); ?>" <? echo ($strType == $arCoupons['COUPON_TYPE'] ? 'selected' : ''); ?>><?=htmlspecialcharsbx($strName); ?></option><?
+					?><option value="<?=htmlspecialcharsbx($strType); ?>" <?php  echo ($strType == $arCoupons['COUPON_TYPE'] ? 'selected' : ''); ?>><?=htmlspecialcharsbx($strName); ?></option><?php 
 				}
 				?></select>
 			</td>
 		</tr>
-		<tr id="tr_COUPON_COUNT" class="adm-detail-required-field" style="display: <? echo ('Y' == $arCoupons['COUPON_ADD'] ? 'table-row' : 'none'); ?>;">
-			<td width="40%"><? echo GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_COUPON_COUNT'); ?>:</td>
-			<td width="60%"><input type="text" name="COUPON_COUNT" value="<? echo intval($arCoupons['COUPON_COUNT']); ?>"></td>
-		</tr><?
+		<tr id="tr_COUPON_COUNT" class="adm-detail-required-field" style="display: <?php  echo ('Y' == $arCoupons['COUPON_ADD'] ? 'table-row' : 'none'); ?>;">
+			<td width="40%"><?php  echo GetMessage('BT_CAT_DISCOUNT_EDIT_FIELDS_COUPON_COUNT'); ?>:</td>
+			<td width="60%"><input type="text" name="COUPON_COUNT" value="<?php  echo intval($arCoupons['COUPON_COUNT']); ?>"></td>
+		</tr><?php 
 	}
 	$tabControl->EndCustomField('COUPONS');
 
@@ -749,4 +749,4 @@ BX.ready(function(){
 	}
 });
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRADING_PLATFORM_SFTP_ERROR_CONNECT"] = "Не удается установить ssh соединение с хостом \"#HOST#\":\"#PORT#";
 $MESS["TRADING_PLATFORM_SFTP_ERROR_SSH2_EXT"] = "Расширение SSH2 для PHP не установлено";
 $MESS["TRADING_PLATFORM_SFTP_ERROR_FINGERPRINT"] = "Неверный отпечаток хоста \"#HOST#\"! Либо отпечаток хоста изменился, либо это атака вида \"Man-in-the-middle\". Текущий отпечаток хоста:\"#FINGERPRINT1#\" ожидается: \"#FINGERPRINT2#\".";

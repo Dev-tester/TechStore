@@ -78,21 +78,21 @@ else
 	$show_site_id = "";
 ?>
 
-<p><?=$show_site_id?><?
+<p><?=$show_site_id?><?php 
 	if ($public != "Y"):
-		?><a target="_blank" href="<?=htmlspecialcharsbx($section)?>" title="<?=GetMessage("STAT_GO_LINK")?>"><?=htmlspecialcharsbx(TruncateText($section,100))?></a><?
+		?><a target="_blank" href="<?=htmlspecialcharsbx($section)?>" title="<?=GetMessage("STAT_GO_LINK")?>"><?=htmlspecialcharsbx(TruncateText($section,100))?></a><?php 
 	else:
 		echo htmlspecialcharsbx($section);
 	endif;
 ?></p>
 
-<?if ($days>=2):?>
+<?php if ($days>=2):?>
 <div class="graph">
 <?=$strTitle?>
 <table border="0" cellspacing="0" cellpadding="0" class="graph" align="center">
 	<tr>
 		<td valign="center">
-		<img width=<?=$width?> height=<?=$height?> src="<?echo htmlspecialcharsbx("/bitrix/admin/section_graph.php?lang=".urlencode(LANGUAGE_ID)."&date1=".urlencode($date1)."&date2=".urlencode($date2).$s."&is_dir=".urlencode($is_dir)."&adv_data_type=".urlencode($find_adv_data_type)."&width=".intval($width)."&height=".intval($height)."&section=".urlencode($section)."&find_hits=".urlencode($find_hits)."&find_enter_points=".urlencode($find_enter_points)."&find_exit_points=".urlencode($find_exit_points))?>"></td>
+		<img width=<?=$width?> height=<?=$height?> src="<?php echo htmlspecialcharsbx("/bitrix/admin/section_graph.php?lang=".urlencode(LANGUAGE_ID)."&date1=".urlencode($date1)."&date2=".urlencode($date2).$s."&is_dir=".urlencode($is_dir)."&adv_data_type=".urlencode($find_adv_data_type)."&width=".intval($width)."&height=".intval($height)."&section=".urlencode($section)."&find_hits=".urlencode($find_hits)."&find_enter_points=".urlencode($find_enter_points)."&find_exit_points=".urlencode($find_exit_points))?>"></td>
 		</td>
 		<td valign="center">
 			<table border="0" cellspacing="1" cellpadding="2" width="0%" class="legend">
@@ -101,7 +101,7 @@ else
 				<td>&nbsp;</td>
 				<td><?=GetMessage("STAT_TOTAL")?></td>
 			</tr>
-			<?if ($find_enter_points=="Y"):?>
+			<?php if ($find_enter_points=="Y"):?>
 			<tr>
 				<td valign="center" class="color-line">
 					<div style="background-color: <?="#".$arrColor["GREEN"]?>"></div>
@@ -109,8 +109,8 @@ else
 				<td nowrap><?=GetMessage("STAT_ENTER_POINTS")?></td>
 				<td  class="number"><?=intval($SUM_ENTER_COUNTER)?></td>
 			</tr>
-			<?endif;?>
-			<?if ($find_exit_points=="Y"):?>
+			<?php endif;?>
+			<?php if ($find_exit_points=="Y"):?>
 			<tr>
 				<td valign="center" class="color-line">
 					<div style="background-color: <?="#".$arrColor["BLUE"]?>"></div>
@@ -118,8 +118,8 @@ else
 				<td nowrap><?=GetMessage("STAT_EXIT_POINTS")?></td>
 				<td  class="number"><?=intval($SUM_EXIT_COUNTER)?></td>
 			</tr>
-			<?endif;?>
-			<?if ($find_hits=="Y"):?>
+			<?php endif;?>
+			<?php if ($find_hits=="Y"):?>
 			<tr>
 				<td valign="center" class="color-line">
 					<div style="background-color: <?="#".$arrColor["RED"]?>"></div>
@@ -127,7 +127,7 @@ else
 				<td nowrap><?=GetMessage("STAT_HITS")?></td>
 				<td  class="number"><?=intval($SUM_COUNTER)?></td>
 			</tr>
-			<?endif;?>
+			<?php endif;?>
 			</table>
 		</td>
 	</tr>
@@ -141,18 +141,18 @@ else
 	<input type="hidden" name="date2" value="<?=htmlspecialcharsbx($date2)?>">
 	<input type="hidden" name="width" value="<?=$width?>">
 	<input type="hidden" name="height" value="<?=$height?>">
-	<p><?echo InputType("checkbox","find_enter_points","Y",$find_enter_points,false); ?>&nbsp;<?=GetMessage("STAT_ENTER_POINTS"); ?></p>
-	<p><?echo InputType("checkbox","find_exit_points","Y",$find_exit_points,false); ?>&nbsp;<?=GetMessage("STAT_EXIT_POINTS"); ?></p>
-	<p><?echo InputType("checkbox","find_hits","Y",$find_hits,false);?>&nbsp;<?=GetMessage("STAT_HITS")?></p>
-	<input type="submit" name="set_filter" value="<?echo GetMessage("STAT_CREATE_GRAPH")?>">
+	<p><?php echo InputType("checkbox","find_enter_points","Y",$find_enter_points,false); ?>&nbsp;<?=GetMessage("STAT_ENTER_POINTS"); ?></p>
+	<p><?php echo InputType("checkbox","find_exit_points","Y",$find_exit_points,false); ?>&nbsp;<?=GetMessage("STAT_EXIT_POINTS"); ?></p>
+	<p><?php echo InputType("checkbox","find_hits","Y",$find_hits,false);?>&nbsp;<?=GetMessage("STAT_HITS")?></p>
+	<input type="submit" name="set_filter" value="<?php echo GetMessage("STAT_CREATE_GRAPH")?>">
 	<input type="hidden" name="set_filter" value="Y">
-	<input type="button" onClick="window.close()" value="<?echo GetMessage("STAT_CLOSE")?>">
+	<input type="button" onClick="window.close()" value="<?php echo GetMessage("STAT_CLOSE")?>">
 </form>
 
-<?
+<?php 
 else:
 	CAdminMessage::ShowMessage(GetMessage("STAT_NOT_ENOUGH_DATA"));
 ?>
-<form><input type="button" onClick="window.close()" value="<?echo GetMessage("STAT_CLOSE")?>"></form>
-<?endif?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");
+<form><input type="button" onClick="window.close()" value="<?php echo GetMessage("STAT_CLOSE")?>"></form>
+<?php endif?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

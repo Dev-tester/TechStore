@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Scale;
 
 use \Bitrix\Main\Localization\Loc;

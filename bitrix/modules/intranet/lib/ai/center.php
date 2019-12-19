@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Intranet\AI;
 
 use Bitrix\Bitrix24\Integration\AssistantApp;

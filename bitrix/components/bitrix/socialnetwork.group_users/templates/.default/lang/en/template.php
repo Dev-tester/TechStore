@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C100_MODERATOR'] = "Moderator";
 $MESS ['SONET_C25_T_SAVE'] = "Set as Moderator";
 $MESS ['SONET_C25_T_BAN'] = "Ban";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VOLUME_TITLE"] = "Название";
 $MESS["DISK_VOLUME_FILE_TITLE"] = "Название файла";
 $MESS["DISK_VOLUME_FOLDER_TITLE"] = "Название папки";

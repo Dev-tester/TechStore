@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_URL_TEMPLATES'] = "URLs processing";
 $MESS ['F_PM_LIST_TEMPLATE'] = "Private Messages List page";
 $MESS ['F_PM_READ_TEMPLATE'] = "Private Message Read page";

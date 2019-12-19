@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,16 +13,16 @@
 $this->setFrameMode(true);
 ?>
 
-<?if($arParams["USE_RSS"]=="Y"):?>
-	<?
+<?php if($arParams["USE_RSS"]=="Y"):?>
+	<?php 
 	$rss_url = CComponentEngine::makePathFromTemplate($arResult["FOLDER"].$arResult["URL_TEMPLATES"]["rss_section"], array_map("urlencode", $arResult["VARIABLES"]));
 	if(method_exists($APPLICATION, 'addheadstring'))
 		$APPLICATION->AddHeadString('<link rel="alternate" type="application/rss+xml" title="'.$rss_url.'" href="'.$rss_url.'" />');
 	?>
-<?endif?>
+<?php endif?>
 
-<?if($arParams["USE_SEARCH"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+<?php if($arParams["USE_SEARCH"]=="Y"):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:search.form",
 	"flat",
 	Array(
@@ -30,10 +30,10 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<?endif?>
+<?php endif?>
 
-<?if($arParams["USE_FILTER"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+<?php if($arParams["USE_FILTER"]=="Y"):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"flat",
 	Array(
@@ -50,9 +50,9 @@ $this->setFrameMode(true);
 	$component
 );
 ?>
-<?endif?>
+<?php endif?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"flat",
 	Array(

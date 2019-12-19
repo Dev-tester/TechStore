@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USE_LIGHT_VIEW_TIP"] = "Use Simple Configuration Mode";
 $MESS["SEF_MODE_TIP"] = "Enable SEF support";
 $MESS["CHECK_CORRECT_PATH_TEMPLATES_TIP"] = "Verify Path Templates";

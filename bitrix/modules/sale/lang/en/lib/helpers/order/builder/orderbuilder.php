@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HLP_ORDERBUILDER_DATE_FORMAT_ERROR"] = "Document date format is incorrect";
 $MESS["SALE_HLP_ORDERBUILDER_DATE_FORMAT_RES_ERROR"] = "Return date format is incorrect";
 $MESS["SALE_HLP_ORDERBUILDER_DATE_FORMAT_VOU_ERROR"] = "Invalid payment order date";

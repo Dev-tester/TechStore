@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_PE_ERROR_MIN_POINTS_EMPTY"] = "Не указано минимальное количество баллов";
 $MESS["FORUM_PE_ERROR_MIN_POINTS_EXIST"] = "Указанное минимальное количество баллов уже существует";
 $MESS["FORUM_PE_ERROR_MIN_POINTS_BAD"] = "Не правильный формат минимального количества баллов";

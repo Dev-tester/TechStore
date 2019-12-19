@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_B24_FEATURES_DISK_EXTERNAL_LINK_1_DESCR"] = "Share a link to a document on your Bitrix24. Choose when you'd like the link to expire and set a password to make sure your information is secure. Shared links and many other features are available in selected commercial plans.";
 $MESS["DISK_B24_FEATURES_DISK_EXTERNAL_LINK_1_TITLE"] = "Public links to files and folders";
 $MESS["DISK_B24_FEATURES_DISK_EXTERNAL_LINK_DESCR"] = "Share a link to a document on your Bitrix24. Choose when you'd like the link to expire and set a password to make sure your information is secure. Shared links and many other features are available in selected commercial plans.";

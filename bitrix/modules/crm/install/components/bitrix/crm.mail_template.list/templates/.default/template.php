@@ -57,7 +57,7 @@ if($arResult['NEED_FOR_CONVERTING'])
 	{
 		$this->SetViewTarget($messageViewID, 100);
 	}
-	?><div class="crm-view-message"><?= GetMessage('CRM_MAIL_TEMPLATE_NEED_FOR_CONVERTING', array('#URL_EXECUTE_CONVERTING#' => htmlspecialcharsbx($arResult['CONV_EXEC_URL']), '#URL_SKIP_CONVERTING#' => htmlspecialcharsbx($arResult['CONV_SKIP_URL']))) ?></div><?
+	?><div class="crm-view-message"><?= GetMessage('CRM_MAIL_TEMPLATE_NEED_FOR_CONVERTING', array('#URL_EXECUTE_CONVERTING#' => htmlspecialcharsbx($arResult['CONV_EXEC_URL']), '#URL_SKIP_CONVERTING#' => htmlspecialcharsbx($arResult['CONV_SKIP_URL']))) ?></div><?php 
 	if($messageViewID !== '')
 	{
 		$this->EndViewTarget();
@@ -154,4 +154,4 @@ $APPLICATION->IncludeComponent(
 		d.setButtons(_BTN);
 		d.show();
 	}
-</script><?
+</script><?php 

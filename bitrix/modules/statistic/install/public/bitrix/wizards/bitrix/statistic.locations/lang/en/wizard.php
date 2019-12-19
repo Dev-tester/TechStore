@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STATWIZ_NO_MODULE_ERROR"] = "Web Analytics module is not installed. The Wizard cannot continue.";
 $MESS["STATWIZ_FILES_NOT_FOUND"] = "No files were found. Load files from www.maxmind.com or ip-to-country.webhosting.info sites to the specified folder and run the wizard again. ";
 $MESS["STATWIZ_STEP1_TITLE"] = "IP address index wizard";

@@ -158,14 +158,14 @@ $APPLICATION->SetTitle(GetMessage("MFD_TITLE"));
 						<div class="ddos-info-container-title"><?=GetMessage("MFD_11");?></div>
 						<?=GetMessage("MFD_12");?>
 						<a name="ddf"></a>
-						<?if(strlen($errorMessage) > 0)
+						<?php if(strlen($errorMessage) > 0)
 						{
-							?><div id="error" style="color:red; font-weight: bold;"><?=htmlspecialcharsBack($errorMessage)?></div><?
+							?><div id="error" style="color:red; font-weight: bold;"><?=htmlspecialcharsBack($errorMessage)?></div><?php 
 						}
 
 						if($_REQUEST["ok"] == "y")
 						{
-							?><div id="ok" style="color: #859f4a; font-weight: bold;"><br /><br /><?=GetMessage("MFD_OK");?></div><?
+							?><div id="ok" style="color: #859f4a; font-weight: bold;"><br /><br /><?=GetMessage("MFD_OK");?></div><?php 
 						}
 						else
 						{
@@ -195,7 +195,7 @@ $APPLICATION->SetTitle(GetMessage("MFD_TITLE"));
 									<a href="javascript:void(0)" onclick="BX('ddos').submit();" class="ddos-btn"><span class="ddos-btn-main"><?=GetMessage("MFD_19");?></span><span class="ddos-btn-arrow"><span></span></span></a>
 								</form>
 							</div>
-							<?
+							<?php 
 						}
 						?>
 					</div>
@@ -212,4 +212,4 @@ $APPLICATION->SetTitle(GetMessage("MFD_TITLE"));
 	</div>
 </div>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

@@ -5,7 +5,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 if (!\Bitrix\Crm\Settings\LeadSettings::isEnabled())
 {
 	CCrmComponentHelper::RegisterScriptLink('/bitrix/js/crm/common.js');
-	?><script><?=\Bitrix\Crm\Settings\LeadSettings::showCrmTypePopup();?></script><?
+	?><script><?=\Bitrix\Crm\Settings\LeadSettings::showCrmTypePopup();?></script><?php 
 }
 
 if(!Bitrix\Crm\Integration\Bitrix24Manager::isAccessEnabled(CCrmOwnerType::Lead))

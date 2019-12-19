@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllIBlockOffersTmp
 {
 	public static function Add($intProductIBlockID,$intOffersIBlockID)

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CT_BLL_TOOLBAR_ADD'] = "Добавить";
 $MESS ['CT_BLL_TOOLBAR_ADD_TITLE'] = "Добавить новый список";
 $MESS ['CT_BLL_TOOLBAR_ADD_TITLE_LIST'] = "Создать новый список";

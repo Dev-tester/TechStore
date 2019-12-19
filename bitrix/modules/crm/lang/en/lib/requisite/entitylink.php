@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_LINK_ENTITY_TYPE_ID_FIELD"] = "Entity type ID";
 $MESS["CRM_ENTITY_LINK_ENTITY_ID_FIELD"] = "Entity ID";
 $MESS["CRM_ENTITY_LINK_REQUISITE_ID_FIELD"] = "Bind to details";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RECYCLE_BIN_ACTIVITY_ENTITY_NAME"] = "Дело";
 $MESS["CRM_RECYCLE_BIN_ACTIVITY_RESTORED"] = "Дело успешно восстановлено.";
 $MESS["CRM_RECYCLE_BIN_ACTIVITY_REMOVED"] = "Дело успешно удалено.";

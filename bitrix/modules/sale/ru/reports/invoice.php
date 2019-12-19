@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 /*
 Скопируйте этот файл в папку /bitrix/admin/reports и измените по своему усмотрению
 
@@ -69,7 +69,7 @@ div.Section1
 <p><b>ПОСТАВЩИК:</b>
 <?=$arParams["COMPANY_NAME"]?>
 <br>
-Адрес: <? echo $arParams["COUNTRY"].", ".$arParams["INDEX"].", г. ".$arParams["CITY"].", ".$arParams["ADDRESS"];?><br>
+Адрес: <?php  echo $arParams["COUNTRY"].", ".$arParams["INDEX"].", г. ".$arParams["CITY"].", ".$arParams["ADDRESS"];?><br>
 Телефон: <?=$arParams["PHONE"]?><br>
 ИНН: <?=$arParams["INN"]?> / КПП: <?=$arParams["KPP"]?><br>
 Банковские реквизиты:<br>
@@ -79,7 +79,7 @@ div.Section1
 
 <p><b>ЗАКАЗЧИК: </b>
 <!-- ИЗМЕНИТЕ КЛЮЧИ МАССИВА $arOrderProps НА РЕАЛЬНЫЕ ПОСЛЕ КОПИРОВАНИЯ В ПАПКУ /bitrix/admin/reports -->
-<?
+<?php 
 if(empty($arParams))
 {
 	echo "[".$arOrder["USER_ID"]."] ";
@@ -89,7 +89,7 @@ if(empty($arParams))
 
 	if (strlen($arOrderProps["F_INN"])>0) echo "<br>ИНН: ".$arOrderProps["F_INN"];?>
 	<br>Адрес:
-	<?
+	<?php 
 	if (strlen($arOrderProps["F_INDEX"])>0) echo $arOrderProps["F_INDEX"].",";
 
 	$arVal = CSaleLocation::GetByID($arOrderProps["F_LOCATION"], "ru");
@@ -105,8 +105,8 @@ if(empty($arParams))
 		echo $arOrderProps["F_ADDRESS"];
 
 	if (strlen($arOrderProps["F_EMAIL"])>0) echo "<br>E-Mail: ".$arOrderProps["F_EMAIL"];?>
-	<br>Контактное лицо: <?echo $arOrderProps["F_NAME"];?>
-	<?
+	<br>Контактное лицо: <?php echo $arOrderProps["F_NAME"];?>
+	<?php 
 	if (strlen($arOrderProps["F_PHONE"])>0)
 		echo "<br>Телефон: ".$arOrderProps["F_PHONE"];
 
@@ -130,15 +130,15 @@ else
 }
 ?>
 <br>Платежная система:
-[<?echo $arOrder["PAY_SYSTEM_ID"];?>]
-<?
+[<?php echo $arOrder["PAY_SYSTEM_ID"];?>]
+<?php 
 $arPaySys = CSalePaySystem::GetByID($arOrder["PAY_SYSTEM_ID"]);
 echo htmlspecialcharsbx($arPaySys["NAME"]);
 ?>
 </p>
-<p><b>СЧЕТ N:</b> <?echo $arOrder["ACCOUNT_NUMBER"]?> от <?echo $arOrder["DATE_INSERT_FORMAT"]?></p>
+<p><b>СЧЕТ N:</b> <?php echo $arOrder["ACCOUNT_NUMBER"]?> от <?php echo $arOrder["DATE_INSERT_FORMAT"]?></p>
 
-<?
+<?php 
 $priceTotal = 0;
 $bUseVat = false;
 $arBasketOrder = array();
@@ -212,7 +212,7 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 			<td nowrap align="center" style="border: 1pt solid #000000; border-right:none;">Цена,<?=$currency;?></td>
 			<td nowrap align="center" style="border: 1pt solid #000000;">Сумма,<?=$currency;?></td>
 		</tr>
-		<?
+		<?php 
 		$n = 1;
 		$sum = 0.00;
 		$arTax = array("VAT_RATE" => 0, "TAX_RATE" => 0);
@@ -260,11 +260,11 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 			?>
 			<tr valign="top">
 				<td bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?echo $n++ ?>
+					<?php echo $n++ ?>
 				</td>
 				<td bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?echo $arBasket["NAME"]; ?>
-					<?
+					<?php echo $arBasket["NAME"]; ?>
+					<?php 
 					if (is_array($arBasket["PROPS"]) && $_GET["PROPS_ENABLE"] == "Y")
 					{
 						foreach($arBasket["PROPS"] as $vv)
@@ -276,19 +276,19 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 					?>
 				</td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$mi]); ?>
+					<?php echo Bitrix\Sale\BasketItem::formatQuantity($arQuantities[$mi]); ?>
 				</td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?echo CCurrencyLang::CurrencyFormat($arBasket["PRICE"], $arOrder["CURRENCY"], false) ?>
+					<?php echo CCurrencyLang::CurrencyFormat($arBasket["PRICE"], $arOrder["CURRENCY"], false) ?>
 				</td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-top:none;">
-					<?
+					<?php 
 						$sum = $arBasket["PRICE"] * $arQuantities[$mi];
 						echo CCurrencyLang::CurrencyFormat($sum, $arOrder["CURRENCY"], false);
 					?>
 				</td>
 			</tr>
-			<?
+			<?php 
 			if (empty($arBasket['SET_PARENT_ID']))
 			{
 				$total_sum += $arBasket["PRICE"]*$arQuantities[$mi];
@@ -297,33 +297,33 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 		}//endforeach
 		?>
 
-		<?if (False && DoubleVal($arOrder["DISCOUNT_VALUE"])>0):?>
+		<?php if (False && DoubleVal($arOrder["DISCOUNT_VALUE"])>0):?>
 			<tr>
 				<td bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?echo $n++?>
+					<?php echo $n++?>
 				</td>
 				<td bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
 					Скидка
 				</td>
 				<td valign="top" align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">1 </td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?echo CCurrencyLang::CurrencyFormat($arOrder["DISCOUNT_VALUE"], $arOrder["CURRENCY"], false);?>
+					<?php echo CCurrencyLang::CurrencyFormat($arOrder["DISCOUNT_VALUE"], $arOrder["CURRENCY"], false);?>
 				</td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-top:none;">
-					<?echo CCurrencyLang::CurrencyFormat($arOrder["DISCOUNT_VALUE"], $arOrder["CURRENCY"], false);?>
+					<?php echo CCurrencyLang::CurrencyFormat($arOrder["DISCOUNT_VALUE"], $arOrder["CURRENCY"], false);?>
 				</td>
 			</tr>
-		<?endif?>
+		<?php endif?>
 
 
 
-		<?if ($arOrder["DELIVERY_ID"]):?>
+		<?php if ($arOrder["DELIVERY_ID"]):?>
 			<tr>
 				<td bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?echo $n?>
+					<?php echo $n?>
 				</td>
 				<td bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					Доставка <?
+					Доставка <?php 
 					$deliveryId = \CSaleDelivery::getIdByCode($arOrder['DELIVERY_ID']);
 
 					if($deliveryId > 0)
@@ -340,24 +340,24 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 				</td>
 				<td valign="top" align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">1 </td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?
+					<?php 
                     echo CCurrencyLang::CurrencyFormat($arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"], false);
                     ?>
 				</td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-top:none;">
-					<?echo CCurrencyLang::CurrencyFormat($arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"], false);?>
+					<?php echo CCurrencyLang::CurrencyFormat($arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"], false);?>
 				</td>
 			</tr>
-		<?endif?>
+		<?php endif?>
 
-		<?
+		<?php 
 		$db_tax_list = CSaleOrderTax::GetList(array("APPLY_ORDER"=>"ASC"), Array("ORDER_ID"=>$ORDER_ID));
 		while ($ar_tax_list = $db_tax_list->Fetch())
 		{
 			?>
 			<tr>
 				<td align="right" bgcolor="#ffffff" colspan="4" style="border: 1pt solid #000000; border-right:none; border-top:none;">
-					<?
+					<?php 
 					if ($ar_tax_list["IS_IN_PRICE"]=="Y")
 					{
 						echo "В том числе ";
@@ -370,10 +370,10 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 					?>:
 				</td>
 				<td align="right" bgcolor="#ffffff" style="border: 1pt solid #000000; border-top:none;">
-					<?echo CCurrencyLang::CurrencyFormat($total_nds, $arOrder["CURRENCY"], false);?>
+					<?php echo CCurrencyLang::CurrencyFormat($total_nds, $arOrder["CURRENCY"], false);?>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 		<tr>
@@ -383,9 +383,9 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 			</td>
 		</tr>
 	</table>
-<?//endif?>
+<?php //endif?>
 <p><b>Итого к оплате:</b>
-	<?
+	<?php 
 	if ($arOrder["CURRENCY"]=="RUR" || $arOrder["CURRENCY"]=="RUB")
 	{
 		echo Number2Word_Rus($arOrder["PRICE"]);
@@ -395,7 +395,7 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 		echo SaleFormatCurrency($arOrder["PRICE"], $arOrder["CURRENCY"]);
 	}
 	?>.</p>
-<?
+<?php 
 	if ($arOrder['CURRENCY'] === 'UAH')
 		$contextCurrency = 'гривнах';
 	else
@@ -405,7 +405,7 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 банковских дней со дня выписки счета, продавец оставляет за собой право
 пересмотреть отпускную цену товара в <?=$contextCurrency;?> пропорционально изменению курса доллара
 и выставить счет на доплату.<br><br>
-В платежном поручении обязательно указать - "Оплата по счету № <?echo $arOrder["ACCOUNT_NUMBER"]?> от <?echo $arOrder["DATE_INSERT_FORMAT"] ?>".<br><br>
+В платежном поручении обязательно указать - "Оплата по счету № <?php echo $arOrder["ACCOUNT_NUMBER"]?> от <?php echo $arOrder["DATE_INSERT_FORMAT"] ?>".<br><br>
 Получение товара только после прихода денег на расчетный счет компании.
 </font></p>
 <!-- END REPORT BODY -->
@@ -417,7 +417,7 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 <p class=MsoNormal>Руководитель организации:</p>
 </td>
 <td width="80%">
-<p class=MsoNormal>_______________ <input size="55" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?echo ((strlen($arParams["DIRECTOR"]) > 0) ? $arParams["DIRECTOR"] : "______________________________")?> /"></p>
+<p class=MsoNormal>_______________ <input size="55" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?php echo ((strlen($arParams["DIRECTOR"]) > 0) ? $arParams["DIRECTOR"] : "______________________________")?> /"></p>
 </td>
 </tr>
 <tr>
@@ -441,7 +441,7 @@ $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 <p class=MsoNormal>Гл. бухгалтер:</p>
 </td>
 <td>
-<p class=MsoNormal>_______________ <input size="45" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?echo ((strlen($arParams["BUHG"]) > 0) ? $arParams["BUHG"] : "______________________________")?> /"></p>
+<p class=MsoNormal>_______________ <input size="45" style="border:0px solid #000000;font-size:14px;font-style:bold;" type="text" value="/ <?php echo ((strlen($arParams["BUHG"]) > 0) ? $arParams["BUHG"] : "______________________________")?> /"></p>
 </td>
 </tr>
 </table>

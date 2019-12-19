@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_SONET_GROUP_DESC_NAME"] = "Group";
 $MESS["GD_SONET_GROUP_DESC_ARCHIVE"] = "Archive Group";
 $MESS["GD_SONET_GROUP_DESC_SUBJECT_NAME"] = "Topic";

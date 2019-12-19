@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Tasks\Internals\Counter;
@@ -333,11 +333,11 @@ if ($arParams['SHOW_COUNTERS_BAR'] === 'Y')
 	{
 		?>
 		<div class="task-top-panel-tre">
-			<div class="task-main-notification-icon-counter"><?
+			<div class="task-main-notification-icon-counter"><?php 
 				echo $arResult['SELECTED_ROLE_COUNTER']['VALUE'];
 				?></div>
-			<span><? echo GetMessage('TASKS_PANEL_EXPLANATION_PREFIX'); ?></span>
-			<?
+			<span><?php  echo GetMessage('TASKS_PANEL_EXPLANATION_PREFIX'); ?></span>
+			<?php 
 			$stringsPrinted = 0;
 
 			foreach ($arStrings as $string)
@@ -354,7 +354,7 @@ if ($arParams['SHOW_COUNTERS_BAR'] === 'Y')
 			}
 			?>
 		</div>
-		<?
+		<?php 
 	}
 }
 
@@ -411,7 +411,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 			<span class="task-top-panel-create-container">
 				<input type="text" autocomplete="off" placeholder="<?=GetMessage("TASKS_RESPONSIBLE")?>"
 					tabindex="3" id="task-new-item-responsible" name="task-new-item-responsible"
-					value="<?
+					value="<?php 
 					echo tasksFormatName(
 						$arParams["~USER"]["NAME"],
 						$arParams["~USER"]["LAST_NAME"],
@@ -420,7 +420,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 						$arParams["NAME_TEMPLATE"]
 					);
 					?>">
-				<input type="hidden" id="task-new-item-responsible-id" value="<? echo $arParams["USER_ID"]?>">
+				<input type="hidden" id="task-new-item-responsible-id" value="<?php  echo $arParams["USER_ID"]?>">
 			</span>
 			<span class="task-top-panel-create-container">
 				<input type="text" autocomplete="off" placeholder="<?=GetMessage("TASKS_QUICK_DEADLINE")?>" tabindex="2"
@@ -442,7 +442,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 				<button class="ui-btn-light-border" id="task-new-item-save"><?=GetMessage("TASKS_QUICK_SAVE")?></button>
 				<button class="ui-btn ui-btn-link" id="task-new-item-cancel"><?=GetMessage("TASKS_QUICK_CANCEL")?></button>
 			</span>
-			</form><?
+			</form><?php 
 			$canAddMailUsers = (
 				\Bitrix\Main\ModuleManager::isModuleInstalled('mail')
 				&& \Bitrix\Main\ModuleManager::isModuleInstalled('intranet')
@@ -472,9 +472,9 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 		<div class="task-top-panel-leftbottom">
 		<span class="task-top-panel-two-inright">
 			<span class="task-top-panel-create-text"><?=GetMessage("TASKS_PANEL_SORTED_BY")?>:</span>
-			<span class="task-top-panel-create-link" id="task-top-panel-sorting-selector"><span<?if (LANGUAGE_ID !== "de"):?> style="text-transform: lowercase"<?endif?>><?=$currentSortingName?></span></span>
+			<span class="task-top-panel-create-link" id="task-top-panel-sorting-selector"><span<?php if (LANGUAGE_ID !== "de"):?> style="text-transform: lowercase"<?php endif?>><?=$currentSortingName?></span></span>
 			<span id="task-top-panel-view-mode-selector" class="webform-small-button webform-small-button-transparent bx-filter-button">
-				<span class="webform-small-button-text"><?
+				<span class="webform-small-button-text"><?php 
 					$selectedViewCodename = $arResult['VIEW_STATE']['VIEW_SELECTED']['CODENAME'];
 					echo $arResult['VIEW_STATE']['VIEWS'][$selectedViewCodename]['SHORT_TITLE'];
 					?></span><span class="webform-small-button-icon"></span>
@@ -483,10 +483,10 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 
 		<span class="task-top-panel-inleft">
 
-			<?
+			<?php 
 			if ($arResult['MARK_SECTION_ALL'] === 'Y') // "all" + advanced filter
 			{
-				?><div class="task-main-top-menu-advanced-filter">&nbsp;<?
+				?><div class="task-main-top-menu-advanced-filter">&nbsp;<?php 
 
 				$filterName = '';
 				if (strlen($arParams['SELECTED_PRESET_NAME']))
@@ -494,26 +494,26 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 
 				if ($arParams["VIEW_TYPE"] == "gantt")
 				{
-					?><span class="webform-small-button task-list-toolbar-filter webform-small-button-transparent bx-filter-button" onclick="showGanttFilter(this)"><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?
+					?><span class="webform-small-button task-list-toolbar-filter webform-small-button-transparent bx-filter-button" onclick="showGanttFilter(this)"><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?php 
 						echo GetMessage("TASK_TOOLBAR_FILTER_BUTTON") . $filterName;
-						?></span><span class="webform-small-button-icon"></span><span class="webform-small-button-right"></span></span><?
+						?></span><span class="webform-small-button-icon"></span><span class="webform-small-button-right"></span></span><?php 
 				}
 				else
 				{
-					?><span class="webform-small-button task-list-toolbar-filter webform-small-button-transparent bx-filter-button" onclick="showTaskListFilter(this)"><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?
+					?><span class="webform-small-button task-list-toolbar-filter webform-small-button-transparent bx-filter-button" onclick="showTaskListFilter(this)"><span class="webform-small-button-left"></span><span class="webform-small-button-text"><?php 
 						echo GetMessage("TASK_TOOLBAR_FILTER_BUTTON") . $filterName;
-						?></span><span class="webform-small-button-icon"></span><span class="webform-small-button-right"></span></span><?
+						?></span><span class="webform-small-button-icon"></span><span class="webform-small-button-right"></span></span><?php 
 				}
-				?></div><?
+				?></div><?php 
 			}
 			else
 			{
 				?><span class="task-top-panel-create-text"><?=GetMessage("TASKS_PANEL_FILTER_STATUS_LABEL")?>:</span>
-				<span id="task-top-panel-task-category-selector" class="task-top-panel-create-link"><span><?
+				<span id="task-top-panel-task-category-selector" class="task-top-panel-create-link"><span><?php 
 						$selectedCategoryCodename = $arResult['VIEW_STATE']['TASK_CATEGORY_SELECTED']['CODENAME'];
 						echo $arResult['VIEW_STATE']['TASK_CATEGORIES'][$selectedCategoryCodename]['TITLE'];
-						?></span><?
-				?></span>,<?
+						?></span><?php 
+				?></span>,<?php 
 
 				$showCreatorSelector = true;
 				$showResponsibleSelector = true;
@@ -522,24 +522,24 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 				{
 					$showCreatorSelector = $selectedRoleCodename === "VIEW_ROLE_RESPONSIBLE";
 					$showResponsibleSelector = $selectedRoleCodename === "VIEW_ROLE_ORIGINATOR";
-					?><span class="task-top-panel-create-text task-top-panel-from-to"><?= ($showCreatorSelector ? GetMessage("TASKS_PANEL_HUMAN_FILTER_STRING_FROM") : GetMessage("TASKS_PANEL_HUMAN_FILTER_STRING_FOR"))?></span><?
+					?><span class="task-top-panel-create-text task-top-panel-from-to"><?= ($showCreatorSelector ? GetMessage("TASKS_PANEL_HUMAN_FILTER_STRING_FROM") : GetMessage("TASKS_PANEL_HUMAN_FILTER_STRING_FOR"))?></span><?php 
 				}
 				else
 				{
 					?><span class="task-top-panel-create-link task-top-panel-switch" id="task-top-panel-from-for-switch">
 						<span data-bx-ui-id="from-for-switch-label" data-label="FROM"><?=GetMessage('TASKS_PANEL_HUMAN_FILTER_STRING_FROM')?></span>
 						<span data-bx-ui-id="from-for-switch-label" data-label="FOR"><?=GetMessage('TASKS_PANEL_HUMAN_FILTER_STRING_FOR')?></span>
-					</span><?
+					</span><?php 
 				}
 
 				if ($showCreatorSelector)
 				{
-					?><span id="task-top-panel-task-originator-selector" class="task-top-panel-create-link"><span><?=$creatorName?></span></span><?
+					?><span id="task-top-panel-task-originator-selector" class="task-top-panel-create-link"><span><?=$creatorName?></span></span><?php 
 				}
 
 				if ($showResponsibleSelector)
 				{
-					?><span id="task-top-panel-task-responsible-selector" class="task-top-panel-create-link"><span><?=$responsibleName?></span></span><?
+					?><span id="task-top-panel-task-responsible-selector" class="task-top-panel-create-link"><span><?=$responsibleName?></span></span><?php 
 				}
 			}
 			?>
@@ -547,7 +547,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 	</div>
 	</div>
 
-	<?if($taskListGlobalOpts['enable_gantt_hint'] != 'N' && $taskListUserOpts['enable_gantt_hint'] != 'N' && $arParams["VIEW_TYPE"] == "gantt"):?>
+	<?php if($taskListGlobalOpts['enable_gantt_hint'] != 'N' && $taskListUserOpts['enable_gantt_hint'] != 'N' && $arParams["VIEW_TYPE"] == "gantt"):?>
 		<div class="task-widg-white-tooltip" id="gantt-hint">
 			<div class="task-widg-white-text">
 				<?=GetMessage('TASKS_PANEL_GANTT_HINT_TITLE')?>
@@ -558,29 +558,29 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 			<img src="<?=$templateFolder?>/images/gant-task-pict.png" class="task-widg-gant" alt="" />
 			<div class="task-widg-white-close" id="gantt-hint-close"></div>
 		</div>
-	<?endif?>
+	<?php endif?>
 
 	<script>
 	(function(){
 		BX.ready(function(){
 			BX.Tasks.ListControlsNS.menu.create('views_menu');
-			<?
+			<?php 
 			foreach ($arResult['VIEW_STATE']['VIEWS'] as $viewCodeName => $viewData)
 			{
 				$href = $arParams['SECTION_URL_PREFIX'] . $arResult['VIEW_HREFS']['VIEWS'][$viewCodeName];
 				?>BX.Tasks.ListControlsNS.menu.addItem(
 					'views_menu',
-					'<? echo CUtil::JSEscape($viewData['TITLE']); ?>',
+					'<?php  echo CUtil::JSEscape($viewData['TITLE']); ?>',
 					'<?=($viewData["SELECTED"] === "Y" ? "menu-popup-item-accept" : "task-menu-popup-no-icon")?>',
-					'<? echo $href; ?>'
+					'<?php  echo $href; ?>'
 				);
-				<?
+				<?php 
 			}
 			?>
 
 			BX.Tasks.ListControlsNS.menu.addDelimiter('views_menu');
 
-			<?
+			<?php 
 			foreach ($arResult['VIEW_STATE']['SUBMODES'] as $submodeCodeName => $submodeData)
 			{
 				$cls = (($submodeData['SELECTED'] === 'Y') ? 'menu-popup-item-accept' : 'menu-popup-no-icon');
@@ -596,27 +596,27 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 
 				?>BX.Tasks.ListControlsNS.menu.addItem(
 					'views_menu',
-					'<? echo CUtil::JSEscape($submodeData['TITLE']); ?>',
-					'<? echo $cls; ?>',
-					'<? echo $href; ?>'
+					'<?php  echo CUtil::JSEscape($submodeData['TITLE']); ?>',
+					'<?php  echo $cls; ?>',
+					'<?php  echo $href; ?>'
 				);
-				<?
+				<?php 
 			}
 			?>
 
 			BX.Tasks.ListControlsNS.menu.create('categories_menu');
-			<?
+			<?php 
 			foreach ($arResult['VIEW_STATE']['TASK_CATEGORIES'] as $categoryCodeName => $categoryData)
 			{
 				$href = $arParams['SECTION_URL_PREFIX'] . $arResult['VIEW_HREFS']['TASK_CATEGORIES'][$categoryCodeName];
 
 				?>BX.Tasks.ListControlsNS.menu.addItem(
 					'categories_menu',
-					'<? echo CUtil::JSEscape($categoryData['TITLE']); ?>',
+					'<?php  echo CUtil::JSEscape($categoryData['TITLE']); ?>',
 					'menu-popup-no-icon',
-					'<? echo $href; ?>'
+					'<?php  echo $href; ?>'
 				);
-				<?
+				<?php 
 
 				// add delimiter after completed tasks
 				if ($categoryCodeName === 'VIEW_TASK_CATEGORY_COMPLETED')
@@ -625,7 +625,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 			?>
 
 			BX.Tasks.ListControlsNS.menu.create('sorting_menu');
-			<?
+			<?php 
 			$currentSorting = null;
 			foreach ($arParams['SORTING'] as $sortItem)
 			{
@@ -635,10 +635,10 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 				}
 				?>BX.Tasks.ListControlsNS.menu.addItem(
 					'sorting_menu',
-					'<? echo GetMessageJS("TASKS_LIST_COLUMN_".$sortItem["INDEX"]) ?>',
+					'<?php  echo GetMessageJS("TASKS_LIST_COLUMN_".$sortItem["INDEX"]) ?>',
 					'<?= ($sortItem["SELECTED"] ? " menu-popup-item-accept" : "task-menu-popup-no-icon") ?>',
 					'<?= CUtil::JSEscape($sortItem["ASC_DIRECTION"] ? $sortItem["ASC_URL"] : $sortItem["DESC_URL"]) ?>'
-				);<?
+				);<?php 
 			}
 
 			if ($currentSorting && $currentSorting["INDEX"] !== "SORTING")
@@ -656,7 +656,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 					'<?= GetMessageJS("TASKS_PANEL_SORTING_DIRECTION_DESC") ?>',
 					'<?= (!$currentSorting["ASC_DIRECTION"] ? "menu-popup-item-accept" : "task-menu-popup-no-icon")?>',
 					'<?= CUtil::JSEscape($currentSorting["DESC_URL"]) ?>'
-				);<?
+				);<?php 
 			}
 			?>
 
@@ -700,8 +700,8 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 				userInputs.push({
 					inputNode        : BX('task-top-panel-task-responsible-selector'),
 					menuId           : 'responsibles_menu',
-					pathPrefix       : '<? echo CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('F_CREATED_BY', 'F_RESPONSIBLE_ID'))); ?>',
-					strAnyOriginator : '<? echo GetMessageJS('TASKS_PANEL_HUMAN_FILTER_STRING_ANY_RESPONSIBLE'); ?>',
+					pathPrefix       : '<?php  echo CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('F_CREATED_BY', 'F_RESPONSIBLE_ID'))); ?>',
+					strAnyOriginator : '<?php  echo GetMessageJS('TASKS_PANEL_HUMAN_FILTER_STRING_ANY_RESPONSIBLE'); ?>',
 					operation        : 'tasks.list::getResponsibles()',
 					urlParamName     : 'F_RESPONSIBLE_ID'
 				});
@@ -736,9 +736,9 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 							BX.CJSTask.batchOperations(
 								[{
 									operation : userInput.operation,
-									userId    : <? echo (int) $arParams['USER_ID']; ?>,
-									groupId   : <? echo (int) $arParams['GROUP_ID']; ?>,
-									rawState  : '<? echo CUtil::JSEscape($arResult['VIEW_STATE_RAW']); ?>'
+									userId    : <?php  echo (int) $arParams['USER_ID']; ?>,
+									groupId   : <?php  echo (int) $arParams['GROUP_ID']; ?>,
+									rawState  : '<?php  echo CUtil::JSEscape($arResult['VIEW_STATE_RAW']); ?>'
 								}],
 								{
 									callbackOnSuccess : (function(){
@@ -751,10 +751,10 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 												var name = '';
 
 												if (item['USER_ID'] == loggedInUserId)
-													name = '<? echo GetMessageJS("TASKS_PANEL_HUMAN_FILTER_STRING_RESPONSIBLE_IS_ME"); ?>';
+													name = '<?php  echo GetMessageJS("TASKS_PANEL_HUMAN_FILTER_STRING_RESPONSIBLE_IS_ME"); ?>';
 												else
 												{
-													<?// NAME_FORMATTED may vary, but we want "LAST_NAME NAME" format?>
+													<?php // NAME_FORMATTED may vary, but we want "LAST_NAME NAME" format?>
 													var name = [];
 													if(typeof item['LAST_NAME'] != 'undefined')
 														name.push(item['LAST_NAME']);
@@ -801,7 +801,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 				);
 			});
 
-			<?if($taskListUserOpts['enable_viewmode_hint'] != 'N' && $arParams['VIEW_TYPE'] == 'gantt'):?>
+			<?php if($taskListUserOpts['enable_viewmode_hint'] != 'N' && $arParams['VIEW_TYPE'] == 'gantt'):?>
 
 				BX.message(<?=CUtil::PhpToJSObject(array(
 					'TASKS_PANEL_VM_HINT_TITLE' => GetMessage('TASKS_PANEL_VM_HINT_TITLE'),
@@ -811,7 +811,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 
 				BX.Tasks.ListControlsNS.createViewModeHint();
 
-			<?endif?>
+			<?php endif?>
 		});
 	})();
 
@@ -868,7 +868,7 @@ if ($arParams['SHOW_FILTER_BAR'] === 'Y')
 	});
 	switchFromFor('<?=$arResult['FROM_FOR_SWITCH']?>');
 	</script>
-	<?
+	<?php 
 }
 if(SITE_TEMPLATE_ID === "bitrix24")
 {

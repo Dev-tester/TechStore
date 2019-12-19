@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/workgroups/index.php");
 $APPLICATION->SetTitle(GetMessage("WORKGROUPS_TITLE"));
 
-?><?$APPLICATION->IncludeComponent("bitrix:socialnetwork_group", ".default", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:socialnetwork_group", ".default", Array(
 	"ITEM_DETAIL_COUNT"	=>	"32",
 	"ITEM_MAIN_COUNT"	=>	"6",
 	"DATE_TIME_FORMAT"	=>	"d.m.Y H:i:s",
@@ -137,4 +137,4 @@ $APPLICATION->SetTitle(GetMessage("WORKGROUPS_TITLE"));
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

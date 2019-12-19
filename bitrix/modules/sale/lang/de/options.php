@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ARCHIVE_BLOCKED_ORDER_ACCEPT"] = "Archivierung von gesperrten Bestellungen erlauben";
 $MESS["BX_SALE_SETTINGS_OPTION_DISCOUNT_APPLY_MODE"] = "Das Verhalten der Warenkorbregeln, wenn andere Module auch Rabatte haben";
 $MESS["BX_SALE_SETTINGS_OPTION_PERCENT_FROM_BASE_PRICE"] = "Den vollen Produktpreis benutzen, um einen Rabatt in Prozent/ einen Preisaufschlag zu kalkulieren";

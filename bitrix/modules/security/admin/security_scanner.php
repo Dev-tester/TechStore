@@ -1,4 +1,4 @@
-<?
+<?php 
 define("BX_SESSION_ID_CHANGE", false);
 define("ADMIN_MODULE_NAME", "security");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -112,7 +112,7 @@ if ($startupError):
 else:
 ?>
 	<div id="error_container" class="adm-security-error-container" style="display:none;">
-		<?
+		<?php 
 		CAdminMessage::ShowMessage(array(
 			"MESSAGE" => GetMessage("SEC_SCANNER_CRITICAL_ERRORS_TITLE"),
 			"TYPE" => "ERROR",
@@ -122,8 +122,8 @@ else:
 		?>
 	</div>
 	<form method="POST" action="security_scanner.php?lang=<?=LANG?><?=$_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>" name="settings_form">
-	<?$tabControl->Begin();?>
-	<?$tabControl->BeginNextTab();?>
+	<?php $tabControl->Begin();?>
+	<?php $tabControl->BeginNextTab();?>
 	<div class="adm-security-wrap">
 		<div id="start_container" class="adm-security-first-step">
 			<div id="first_start" class="adm-security-text-block" <?=(!CSecuritySiteChecker::isNewTestNeeded())? "style=\"display:none;\"" : ""?>>
@@ -146,12 +146,12 @@ else:
 		</div>
 		<div id="results" class="adm-security-third-step" <?=(empty($lastResults))? "style=\"display:none;\"" : ""?>></div>
 	</div>
-	<?$tabControl->End();?>
+	<?php $tabControl->End();?>
 	</form>
 
 	<script id="scanner_messages" type="application/json"><?=\Bitrix\Main\Web\Json::encode(IncludeModuleLangFile(__FILE__, false, true))?></script>
 	<script id="scanner_results" type="application/json"><?=\Bitrix\Main\Web\Json::encode($lastResults)?></script>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

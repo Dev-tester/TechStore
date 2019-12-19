@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_CRM_DESCRIPTION"] = "Привязка к элементам CRM";
 $MESS["USER_TYPE_CRM_ENTITY_TYPE"] = "Доступная сущность";
 $MESS["USER_TYPE_CRM_ENTITY_TYPE_LEAD"] = "Лид";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_ADMIN_TAB1'] = "Курс";
 $MESS ['LEARNING_ADMIN_TAB1_EX'] = "Выбор курса для экспорта";
 $MESS ['LEARNING_ADMIN_TAB2'] = "Параметры экспорта";

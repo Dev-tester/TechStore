@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SLS_ID_PARAMETER"] = "ID местоположения";
 $MESS["SALE_SLS_CODE_PARAMETER"] = "Символьный код местоположения";
 $MESS["SALE_SLS_INPUT_NAME_PARAMETER"] = "Имя поля ввода";

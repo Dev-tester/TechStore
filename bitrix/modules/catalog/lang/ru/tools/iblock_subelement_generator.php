@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IB_SEG_MAIN_TITLE"] = "Страница генерации торговых предложений";
 $MESS["IB_SEG_TAB_TITLE"] = "Генератор SKU";
 $MESS["IB_SEG_TITLE"] = "Название";

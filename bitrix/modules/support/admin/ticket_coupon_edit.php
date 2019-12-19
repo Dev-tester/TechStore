@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/prolog.php");
 CModule::IncludeModule('support');
@@ -128,32 +128,32 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs);
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value="<?=$ID?>">
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?$tabControl->Begin();?>
+<?php $tabControl->Begin();?>
 
-<?$tabControl->BeginNextTab();?>
-<?if ($ID > 0){?>
+<?php $tabControl->BeginNextTab();?>
+<?php if ($ID > 0){?>
 <tr> 
 	<td align="right" width="35%"><?=GetMessage('SUP_CE_F_COUPON')?></td>
 	<td width="65%"><?=$arCoupon['COUPON']?></td>
 </tr>
-<?}?>
+<?php }?>
 <tr> 
 	<td align="right" width="35%"><?=GetMessage('SUP_CE_F_ACTIVE_FROM')?></td>
-	<td width="65%"><?echo CalendarDate("ACTIVE_FROM", $str_ACTIVE_FROM, "form1")?></td>
+	<td width="65%"><?php echo CalendarDate("ACTIVE_FROM", $str_ACTIVE_FROM, "form1")?></td>
 </tr>
 <tr> 
 	<td align="right" width="35%"><?=GetMessage('SUP_CE_F_ACTIVE_TO')?></td>
-	<td width="65%"><?echo CalendarDate("ACTIVE_TO", $str_ACTIVE_TO, "form1")?></td>
+	<td width="65%"><?php echo CalendarDate("ACTIVE_TO", $str_ACTIVE_TO, "form1")?></td>
 </tr>
 <tr> 
 	<td align="right" width="35%"><?=GetMessage('SUP_CE_F_ACTIVE')?></td>
-	<td width="65%"><input type="hidden" name="ACTIVE" value="N"><input type="checkbox" name="ACTIVE" value="Y"<?if ($str_ACTIVE == 'Y'){?> checked<?}?>></td>
+	<td width="65%"><input type="hidden" name="ACTIVE" value="N"><input type="checkbox" name="ACTIVE" value="Y"<?php if ($str_ACTIVE == 'Y'){?> checked<?php }?>></td>
 </tr>
 <tr> 
 	<td align="right" width="35%"><?=GetMessage('SUP_CE_F_COUNT')?></td>
 	<td width="65%"><input type="text" name="COUNT_TICKETS" value="<?=$str_COUNT_TICKETS?>"></td>
 </tr>
-<?
+<?php 
 $arr = Array("reference" => array(), "reference_id" => array());
 $rs = CTicketSLA::GetList($a = array('NAME' => 'ASC'), array(), $__is_f);
 while ($arSla = $rs->GetNext())
@@ -166,11 +166,11 @@ while ($arSla = $rs->GetNext())
 	<td align="right" width="35%"><?=GetMessage('SUP_CE_F_SLA')?></td>
 	<td width="65%"><?=SelectBoxFromArray('SLA_ID', $arr, $str_SLA_ID , '')?></td>
 </tr>
-<?
+<?php 
 $tabControl->Buttons(Array("disabled"=>!$bAdmin, 'back_url' => $LIST_URL . '?lang='.LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 
 $orderIsPaid = $_POST["orderIsPaid"];
 $orderSumAmount = $_POST["orderSumAmount"];

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_REGEXP"] = "Resolve Entity Using The Expression";
 $MESS["CRM_ENTITY_REGEXP_NOTES"] = "(regular expression; the first brackets group must contain the entity ID)";
 $MESS["CRM_MAIL_ENTITY"] = "Entity:";

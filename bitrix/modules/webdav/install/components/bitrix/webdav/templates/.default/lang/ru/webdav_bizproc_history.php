@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_VERSIONS'] = "Список версий";
 $MESS ['WD_VERSIONS_ALT'] = "Перейти к списку версий документа";
 $MESS ['WD_ORIGINAL'] = "Оригинал";

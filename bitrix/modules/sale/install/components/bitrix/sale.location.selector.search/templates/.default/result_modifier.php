@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arParams['JS_CONTROL_GLOBAL_ID'] = 		$this->__component->tryParseStringStrict($arParams['JS_CONTROL_GLOBAL_ID']);

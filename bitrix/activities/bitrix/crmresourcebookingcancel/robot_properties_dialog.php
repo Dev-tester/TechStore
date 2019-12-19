@@ -9,7 +9,7 @@ $map = $dialog->getMap();
 	<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 		<?=htmlspecialcharsbx($map['ResourceField']['Name'])?>:
 	</span>
-	<?
+	<?php 
 	echo $dialog->renderFieldControl($map['ResourceField']);
 	?>
 </div>

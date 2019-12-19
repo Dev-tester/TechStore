@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arResult["ITEMS_TOTAL"] = 0;
 $arResult["ITEMS_MESSAGES"] = 0;
 $arResult["ITEMS_REQUESTS_USER"] = 0;

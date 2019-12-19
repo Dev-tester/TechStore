@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILL_KZ_TITLE"] = "Счет (Казахский)";
 $MESS["SALE_HPS_BILL_KZ_DATE"] = "Дата оплаты";
 $MESS["SALE_HPS_BILL_KZ_DATE_DESC"] = "Дата создания оплаты";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_PANEL_TITLE"] = "Панель производительности";
 $MESS["PERFMON_PANEL_PERF_NAME"] = "Конфигурация";
 $MESS["PERFMON_PANEL_PERF_TITLE1"] = "Оценка производительности конфигурации не проводилась";

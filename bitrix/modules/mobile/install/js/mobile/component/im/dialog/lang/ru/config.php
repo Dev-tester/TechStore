@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_CHAT_LOADING"] = "Подождите немного";
 $MESS["MOBILE_CHAT_EMPTY"] = "- Нет сообщений -";
 $MESS["MOBILE_CHAT_ERROR_TITLE"] = "К сожалению, загрузить чат не удалось :(";

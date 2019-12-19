@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_GRID_PANEL_ACTION_CLEAR_COUNTER"] = "сбросить счетчик просмотров";
 $MESS["IBLOCK_GRID_PANEL_ACTION_CLEAR_COUNTER_CONFIRM"] = "Вы уверены, что хотите обнулить счетчик и дату начала просмотров у выбранных элементов?";
 $MESS["IBLOCK_GRID_PANEL_ACTION_CODE_TRANSLITERATION"] = "создать символьный код";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIL_FLT_EDT_TITILE_1'] = "Изменение параметров правила ##ID#";
 $MESS ['MAIL_FLT_EDT_TITILE_2'] = "Новое правило";
 $MESS ['MAIL_FLT_EDT_BACK_LINK'] = "Список правил";

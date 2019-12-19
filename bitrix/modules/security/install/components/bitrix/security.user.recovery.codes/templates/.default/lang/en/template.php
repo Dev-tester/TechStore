@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_CODES"] = "Recovery codes";
 $MESS["SEC_INFO"] = "Copy the recovery codes you may need if you lost your mobile device or cannot get a code via the app for any other reason. Keep them handy, say in your wallet or purse. Each of the codes can only be used once.";
 $MESS["SEC_NEW_CODES"] = "Short on recovery codes?<br/>

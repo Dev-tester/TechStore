@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	$URL_NAME_DEFAULT = array(
 		"sections_top" => "");
 	foreach ($URL_NAME_DEFAULT as $URL => $URL_VALUE)
@@ -10,10 +10,10 @@
 		$arParams[strToUpper($URL)."_URL"] = htmlspecialcharsbx($arParams["~".strToUpper($URL)."_URL"]);
 	}
 
-?><div class="photo-controls"><?
-?><noindex><a rel="nofollow" href="<?=CComponentEngine::MakePathFromTemplate($arParams["SECTIONS_TOP_URL"], array())?>" title="<?=GetMessage("P_UP_TITLE")?>" <?
-	?> class="photo-action back-to-album"><?=GetMessage("P_UP")?></a></noindex><?
-?></div><?
+?><div class="photo-controls"><?php 
+?><noindex><a rel="nofollow" href="<?=CComponentEngine::MakePathFromTemplate($arParams["SECTIONS_TOP_URL"], array())?>" title="<?=GetMessage("P_UP_TITLE")?>" <?php 
+	?> class="photo-action back-to-album"><?=GetMessage("P_UP")?></a></noindex><?php 
+?></div><?php 
 
 $order = (in_array($_REQUEST["order"], array("id", "shows", "rating", "comments")) ? $_REQUEST["order"] : "id");
 
@@ -38,7 +38,7 @@ if ($arParams["USE_COMMENTS"] == "Y")
 		"title" => GetMessage("P_PHOTO_SORT_COMMENTS"),
 		"description" => GetMessage("P_PHOTO_SORT_COMMENTS_TITLE"));
 }
-?><div class="photo-controls photo-view only-on-main"><?
+?><div class="photo-controls photo-view only-on-main"><?php 
 	$counter = 0;
 
 	foreach ($arSort as $key => $val):
@@ -46,27 +46,27 @@ if ($arParams["USE_COMMENTS"] == "Y")
 		$addClassName = (count($arSort) <= 1 ? " single" : "");
 		$addClassName .= ($order == $key ? " active" : "");
 
-		?><noindex><a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=".$key, array("order"))?>" <?
-			?>title="<?=$val["description"]?>" class="photo-view <?=$key?><?=$addClassName?>"><?=$val["title"]?></a></noindex><?
+		?><noindex><a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("&order=".$key, array("order"))?>" <?php 
+			?>title="<?=$val["description"]?>" class="photo-view <?=$key?><?=$addClassName?>"><?=$val["title"]?></a></noindex><?php 
 
 		if ($counter < (count($arSort) - 1)):
-			?><span class="empty"></span><?
+			?><span class="empty"></span><?php 
 		endif;
 
 		$counter++;
 	endforeach;
-?></div><?
+?></div><?php 
 
 if ($arParams["SHOW_PHOTO_ON_DETAIL_LIST"] == "show_period"):
 
 $photo_from = trim($_REQUEST["photo_from"]);
 $photo_to = trim($_REQUEST["photo_to"]);
-?><div id="empty-clear"></div><?
-?><div id="photo_filter" style="position:relative;"><?
-?><div id="photo_filter_form_div" style="display:<?=((!empty($photo_from) || !empty($photo_to)) ? 'block' : 'none')?>;position:absolute; background:white; z-index:1000;"><?
-?><form action="<?=POST_FORM_ACTION_URI?>"<?
-	?> id="photo_filter_form" method="post" class="photo-form"><?
-	?><span id="photo_filter_calendar"><?
+?><div id="empty-clear"></div><?php 
+?><div id="photo_filter" style="position:relative;"><?php 
+?><div id="photo_filter_form_div" style="display:<?=((!empty($photo_from) || !empty($photo_to)) ? 'block' : 'none')?>;position:absolute; background:white; z-index:1000;"><?php 
+?><form action="<?=POST_FORM_ACTION_URI?>"<?php 
+	?> id="photo_filter_form" method="post" class="photo-form"><?php 
+	?><span id="photo_filter_calendar"><?php 
 	$APPLICATION->IncludeComponent("bitrix:main.calendar", ".default",
 	Array(
 		"SHOW_INPUT"	=>	"Y",
@@ -77,13 +77,13 @@ $photo_to = trim($_REQUEST["photo_to"]);
 		"SHOW_TIME"	=>	"N"
 	), $component,
 	array("HIDE_ICONS" => "Y"));
-	?></span><?
-	?><span id="photo_filter_submit"><?
-		?><input type="submit" name="photo_filter_submit" value="<?=GetMessage("P_FILTER_SHOW")?>" /><?
-	?></span><?
-?></form><?
-?></div><?
-?><noindex><a rel="nofollow" href="#" onclick="show_filter(); return false;" class="photo-action set-filter"><?=GetMessage("P_SET_FILTER")?></a></noindex><?
+	?></span><?php 
+	?><span id="photo_filter_submit"><?php 
+		?><input type="submit" name="photo_filter_submit" value="<?=GetMessage("P_FILTER_SHOW")?>" /><?php 
+	?></span><?php 
+?></form><?php 
+?></div><?php 
+?><noindex><a rel="nofollow" href="#" onclick="show_filter(); return false;" class="photo-action set-filter"><?=GetMessage("P_SET_FILTER")?></a></noindex><?php 
 ?></div><br />
 <script>
 function show_filter()
@@ -92,10 +92,10 @@ function show_filter()
 	document.getElementById('photo_filter_form').photo_from.focus();
 	return false;
 }
-</script><?
+</script><?php 
 endif;
 
-?><div id="detail_list_order"><?
+?><div id="detail_list_order"><?php 
 	$arParams["ELEMENT_FILTER"] = array();
 	if ($order == "shows")
 	{
@@ -113,7 +113,7 @@ endif;
 			$arParams["ELEMENT_FILTER"] = array(">PROPERTY_FORUM_MESSAGE_CNT" => "0");
 	}
 
-?><?$APPLICATION->IncludeComponent("bitrix:photogallery.detail.list", $arParams["TEMPLATE_LIST"],
+?><?php $APPLICATION->IncludeComponent("bitrix:photogallery.detail.list", $arParams["TEMPLATE_LIST"],
 		Array(
 			"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 			"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],

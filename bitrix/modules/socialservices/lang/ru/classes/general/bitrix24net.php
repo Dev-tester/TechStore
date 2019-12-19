@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["socserv_b24net_id"] = "Идентификатор сайта:";
 $MESS["socserv_b24net_secret"] = "Секретный код сайта:";
 $MESS["socserv_b24net_domain"] = "Домен регистрации:";

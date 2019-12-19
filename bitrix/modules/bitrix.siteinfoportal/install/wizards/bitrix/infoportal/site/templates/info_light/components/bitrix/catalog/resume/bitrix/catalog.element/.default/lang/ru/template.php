@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_DOWNLOAD"] = "Скачать";
 $MESS["CATALOG_BACK"] = "Назад в раздел";
 $MESS["JOB_REQUIREMENTS"] = "Информация";

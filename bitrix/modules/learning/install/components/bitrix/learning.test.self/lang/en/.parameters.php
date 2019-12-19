@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['LEARNING_LESSON_ID_NAME'] = "Lesson ID";
 $MESS['LEARNING_DESC_YES'] = "Yes";
 $MESS['LEARNING_DESC_NO'] = "No";

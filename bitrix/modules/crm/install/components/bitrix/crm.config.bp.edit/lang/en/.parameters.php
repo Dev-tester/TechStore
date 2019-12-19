@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BP_ENTITY_ID"] = "Template type";
 $MESS["CRM_BP_BP_ID"] = "Template ID";
 $MESS["CRM_ENTITY_LIST_URL"] = "Type list URL";

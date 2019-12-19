@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGOT_EMPTY_ORDER_ID"]="Не установлен код заказа";
 $MESS["SKGOT_EMPTY_TAX_NAME"]="Не установлено название налога";
 $MESS["SKGOT_EMPTY_TAX_VALUE"]="Не установлена процентность налога";

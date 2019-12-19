@@ -1,4 +1,4 @@
-<?
+<?php 
 	if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	if (!isset($arParams["WSDESCR"]))
 	{
@@ -37,7 +37,7 @@
 </table><br>
 
 <span>
-<?
+<?php 
 	if (!is_object($arParams["WSDESCR"]) or
 		!is_array($arParams["WSDESCR"]->classes))
 	{

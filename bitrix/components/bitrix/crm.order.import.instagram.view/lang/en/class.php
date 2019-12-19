@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OIIV_COLUMN_NEW"] = "New";
 $MESS["CRM_OIIV_FACEBOOK_NO_ACTIVE_CONNECTOR"] = "This connector is inactive.";
 $MESS["CRM_OIIV_FACEBOOK_REMOVED_REFERENCE_TO_PAGE"] = "Product import was configured for use with a group you currently don't have administrator access to.";

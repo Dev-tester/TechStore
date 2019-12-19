@@ -1,18 +1,18 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
 } ?>
 
 <script>
-	<?if ($APPLICATION->GetPageProperty("LAZY_AUTOLOAD", true) === true):?>
+	<?php if ($APPLICATION->GetPageProperty("LAZY_AUTOLOAD", true) === true):?>
 	document.addEventListener("deviceready", function ()
 	{
 		if(typeof window.BitrixMobile !== "undefined")
 			BitrixMobile.LazyLoad.showImages();
 	}, false);
-	<?endif?>
+	<?php endif?>
 
-	<?if ($APPLICATION->GetPageProperty("LAZY_AUTOSCROLL", true) === true):?>
+	<?php if ($APPLICATION->GetPageProperty("LAZY_AUTOSCROLL", true) === true):?>
 	document.addEventListener("DOMContentLoaded", function ()
 	{
 		if(typeof window.BitrixMobile !== "undefined")
@@ -20,7 +20,7 @@
 			window.addEventListener("scroll", BitrixMobile.LazyLoad.onScroll, { passive: true });
 		}
 	}, false);
-	<?endif?>
+	<?php endif?>
 
 
 	document.addEventListener('DOMContentLoaded', function ()

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_DETAIL_HISTORY_STUB"] = "Прямо сейчас вы создаёте предложение...";
 $MESS["CRM_QUOTE_CONV_ACCESS_DENIED"] = "Для выполнения операции необходимы разрешения на создание сделок и счетов.";
 $MESS["CRM_QUOTE_CONV_GENERAL_ERROR"] = "Общая ошибка.";

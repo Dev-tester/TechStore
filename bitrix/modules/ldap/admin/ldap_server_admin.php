@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -207,32 +207,32 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 
 ?>
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php $filter->Begin();?>
 
 <tr>
-	<td nowrap><?echo GetMessage("LDAP_ADMIN_F_NAME")?>:</td>
-	<td nowrap><input type="text" name="find_name" value="<?echo htmlspecialcharsbx($find_name)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("LDAP_ADMIN_F_NAME")?>:</td>
+	<td nowrap><input type="text" name="find_name" value="<?php echo htmlspecialcharsbx($find_name)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
 
 <tr>
 	<td nowrap>ID:</td>
-	<td nowrap><input type="text" name="find_id" value="<?echo htmlspecialcharsbx($find_id)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_id" value="<?php echo htmlspecialcharsbx($find_id)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("LDAP_ADMIN_F_ACT")?>:</td>
-	<td nowrap><?
+	<td nowrap><?php echo GetMessage("LDAP_ADMIN_F_ACT")?>:</td>
+	<td nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("LDAP_ADMIN_F_ACT_ANY"));
 		?></td>
 </tr>
 
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));$filter->End();?>
 </form>
 
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

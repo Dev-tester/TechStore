@@ -1,11 +1,11 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $this->setFrameMode(true);
 
 if ($arParams['BX_EDITOR_RENDER_MODE'] == 'Y'):
 ?>
 <img src="/bitrix/components/bitrix/map.yandex.view/templates/.default/images/screenshot.png" border="0" />
-<?
+<?php 
 else:
 
 	$arTransParams = array(
@@ -32,7 +32,7 @@ else:
 	}
 ?>
 <script type="text/javascript">
-function BX_SetPlacemarks_<?echo $arParams['MAP_ID']?>(map)
+function BX_SetPlacemarks_<?php echo $arParams['MAP_ID']?>(map)
 {
 	if(typeof window["BX_YMapAddPlacemark"] != 'function')
 	{
@@ -53,7 +53,7 @@ function BX_SetPlacemarks_<?echo $arParams['MAP_ID']?>(map)
 		var ymWaitIntervalId = setInterval( function(){
 				if(typeof window["BX_YMapAddPlacemark"] == 'function')
 				{
-					BX_SetPlacemarks_<?echo $arParams['MAP_ID']?>(map);
+					BX_SetPlacemarks_<?php echo $arParams['MAP_ID']?>(map);
 					clearInterval(ymWaitIntervalId);
 				}
 			}, 300
@@ -63,40 +63,40 @@ function BX_SetPlacemarks_<?echo $arParams['MAP_ID']?>(map)
 	}
 
 	var arObjects = {PLACEMARKS:[],POLYLINES:[]};
-<?
+<?php 
 	if (is_array($arResult['POSITION']['PLACEMARKS']) && ($cnt = count($arResult['POSITION']['PLACEMARKS']))):
 		for($i = 0; $i < $cnt; $i++):
 ?>
-	arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, <?echo CUtil::PhpToJsObject($arResult['POSITION']['PLACEMARKS'][$i])?>);
-<?
+	arObjects.PLACEMARKS[arObjects.PLACEMARKS.length] = BX_YMapAddPlacemark(map, <?php echo CUtil::PhpToJsObject($arResult['POSITION']['PLACEMARKS'][$i])?>);
+<?php 
 		endfor;
 	endif;
 	if (is_array($arResult['POSITION']['POLYLINES']) && ($cnt = count($arResult['POSITION']['POLYLINES']))):
 		for($i = 0; $i < $cnt; $i++):
 ?>
-	arObjects.POLYLINES[arObjects.POLYLINES.length] = BX_YMapAddPolyline(map, <?echo CUtil::PhpToJsObject($arResult['POSITION']['POLYLINES'][$i])?>);
-<?
+	arObjects.POLYLINES[arObjects.POLYLINES.length] = BX_YMapAddPolyline(map, <?php echo CUtil::PhpToJsObject($arResult['POSITION']['POLYLINES'][$i])?>);
+<?php 
 		endfor;
 	endif;
 
 	if ($arParams['ONMAPREADY']):
 ?>
-	if (window.<?echo $arParams['ONMAPREADY']?>)
+	if (window.<?php echo $arParams['ONMAPREADY']?>)
 	{
-		window.<?echo $arParams['ONMAPREADY']?>(map, arObjects);
+		window.<?php echo $arParams['ONMAPREADY']?>(map, arObjects);
 	}
-<?
+<?php 
 	endif;
 ?>
 }
 </script>
 <div class="bx-yandex-view-layout">
 	<div class="bx-yandex-view-map">
-<?
+<?php 
 	$APPLICATION->IncludeComponent('bitrix:map.yandex.system', '.default', $arTransParams, false, array('HIDE_ICONS' => 'Y'));
 ?>
 	</div>
 </div>
-<?
+<?php 
 endif;
 ?>

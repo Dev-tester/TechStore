@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -10,7 +10,7 @@ use Bitrix\Tasks\UI;
 \Bitrix\Main\UI\Extension::load("ui.buttons");
 ?>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:tasks.interface.topmenu',
 	'',
@@ -44,9 +44,9 @@ $pathToTask = UI::convertActionPathToBarNotation($pathToTask);
 $pathToTask = str_replace('TASK_ID', 'ID', $pathToTask);
 ?>
 
-<?$arResult['HELPER']->displayFatals();?>
-<?if(!$arResult['HELPER']->checkHasFatals()):?>
-	<?$arResult['HELPER']->displayWarnings();?>
+<?php $arResult['HELPER']->displayFatals();?>
+<?php if(!$arResult['HELPER']->checkHasFatals()):?>
+	<?php $arResult['HELPER']->displayWarnings();?>
 
 	<div id="<?=$arResult['HELPER']->getScopeId()?>" class="tasks-empplan tasks tasks-employee-plan-wrapper">
 
@@ -102,6 +102,6 @@ $pathToTask = str_replace('TASK_ID', 'ID', $pathToTask);
 
 	</div>
 
-	<?$arResult['HELPER']->initializeExtension();?>
+	<?php $arResult['HELPER']->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

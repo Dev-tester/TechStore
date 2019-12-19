@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Update;
 
 use Bitrix\Main\Update\AdminFilterOption as BaseAdminFilterOption;

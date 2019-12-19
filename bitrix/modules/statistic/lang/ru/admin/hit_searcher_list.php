@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Хиты поисковиков за последние #STATISTIC_DAYS# дней";
 $MESS ['STAT_ADD_TO_STOPLIST_TITLE'] = "добавить IP в стоп-лист";
 $MESS ['STAT_F_SEARCH_SYSTEM'] = "Поисковая система:";

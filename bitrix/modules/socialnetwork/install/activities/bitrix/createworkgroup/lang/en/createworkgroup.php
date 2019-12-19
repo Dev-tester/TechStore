@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCWG_EMPTY_GROUP_NAME"] = "The group name is missing.";
 $MESS["BPCWG_EMPTY_OWNER"] = "The group owner is missing.";
 $MESS["BPCWG_EMPTY_USERS"] = "Group members are not specified.";

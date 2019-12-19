@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Location;
 
 use Bitrix\Main\Service\GeoIp\Data;

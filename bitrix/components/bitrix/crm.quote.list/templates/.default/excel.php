@@ -43,7 +43,7 @@ else
 		?><meta http-equiv="Content-type" content="text/html;charset=<?=LANG_CHARSET?>" />
 		<table border="1">
 		<thead>
-			<tr><?
+			<tr><?php 
 
 		// Display headers
 		foreach($arResult['SELECTED_HEADERS'] as $headerID)
@@ -53,21 +53,21 @@ else
 
 			// Special logic for PRODUCT_ROWS and ENTITIES_LINKS headers: expand product in 3 columns
 			if ($headerID === 'PRODUCT_ID'):
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_NAME'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_PRICE'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_QUANTITY'))?></th><?
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_NAME'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_PRICE'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_QUANTITY'))?></th><?php 
 			elseif ($headerID === 'ENTITIES_LINKS'):
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_LEAD_ID'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_DEAL_ID'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_COMPANY_ID'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_CONTACT_ID'))?></th><?
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_LEAD_ID'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_DEAL_ID'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_COMPANY_ID'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_CONTACT_ID'))?></th><?php 
 			else:
-				?><th><?=$arHead['name']?></th><?
+				?><th><?=$arHead['name']?></th><?php 
 			endif;
 		}
 			?></tr>
 		</thead>
-		<tbody><?
+		<tbody><?php 
 	}
 
 	foreach ($arResult['QUOTE'] as $i => &$arQuote)
@@ -82,7 +82,7 @@ else
 		$quoteData = array();
 		foreach($productRows as $productRow)
 		{
-			?><tr><?
+			?><tr><?php 
 			foreach($arResult['SELECTED_HEADERS'] as $headerID)
 			{
 				$arHead = isset($arHeaders[$headerID]) ? $arHeaders[$headerID] : null;
@@ -92,22 +92,22 @@ else
 				$headerID = $arHead['id'];
 				if($headerID === 'PRODUCT_ID'):
 					// Special logic for PRODUCT_ROWS: expand product in 3 columns
-					?><td><?=isset($productRow['PRODUCT_NAME']) ? htmlspecialcharsbx($productRow['PRODUCT_NAME']) : ''?></td><?
-					?><td><?=CCrmProductRow::GetPrice($productRow, '')?></td><?
-					?><td><?=CCrmProductRow::GetQuantity($productRow, '')?></td><?
+					?><td><?=isset($productRow['PRODUCT_NAME']) ? htmlspecialcharsbx($productRow['PRODUCT_NAME']) : ''?></td><?php 
+					?><td><?=CCrmProductRow::GetPrice($productRow, '')?></td><?php 
+					?><td><?=CCrmProductRow::GetQuantity($productRow, '')?></td><?php 
 					continue;
 				elseif($headerID === 'ENTITIES_LINKS'):
-					?><td><?= $arQuote['LEAD_TITLE'] ?></td><?
-					?><td><?= $arQuote['DEAL_TITLE'] ?></td><?
-					?><td><?= $arQuote['COMPANY_TITLE'] ?></td><?
-					?><td><?= $arQuote['CONTACT_FORMATTED_NAME'] ?></td><?
+					?><td><?= $arQuote['LEAD_TITLE'] ?></td><?php 
+					?><td><?= $arQuote['DEAL_TITLE'] ?></td><?php 
+					?><td><?= $arQuote['COMPANY_TITLE'] ?></td><?php 
+					?><td><?= $arQuote['CONTACT_FORMATTED_NAME'] ?></td><?php 
 					continue;
 				elseif($headerID === 'OPPORTUNITY'):
 					// Special logic for OPPORTUNITY: replace it by product row sum if it specified
 					if(isset($productRow['ID']) && intval($productRow['ID']) > 0):
-						?><td><?=round(CCrmProductRow::GetPrice($productRow) * CCrmProductRow::GetQuantity($productRow), 2)?></td><?
+						?><td><?=round(CCrmProductRow::GetPrice($productRow) * CCrmProductRow::GetQuantity($productRow), 2)?></td><?php 
 					else:
-						?><td><?=isset($arQuote['OPPORTUNITY']) ? strval($arQuote['OPPORTUNITY']) : ''?></td><?
+						?><td><?=isset($arQuote['OPPORTUNITY']) ? strval($arQuote['OPPORTUNITY']) : ''?></td><?php 
 					endif;
 					continue;
 				endif;
@@ -167,15 +167,15 @@ else
 					endswitch;
 				endif;
 				if(isset($quoteData[$headerID])):
-					?><td><?=$quoteData[$headerID]?></td><?
+					?><td><?=$quoteData[$headerID]?></td><?php 
 				endif;
 			}
-			?></tr><?
+			?></tr><?php 
 		}
 	}
 
 	if (!$isStExport || $isStExportLastPage):
 		?></tbody>
-		</table><?
+		</table><?php 
 	endif;
 }

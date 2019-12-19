@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Form output class
  *

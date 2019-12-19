@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CLE2_NOT_SELECTED"] = "Not selected";
 $MESS["CRM_CLE2_NEW_ITEM"] = "New";
 $MESS["CRM_CLE2_TAB_PARAMS"] = "Parameters";

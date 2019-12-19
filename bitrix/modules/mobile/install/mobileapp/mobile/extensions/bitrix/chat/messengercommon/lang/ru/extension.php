@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_STATUS_ONLINE"] = "Онлайн";
 $MESS["IM_STATUS_BOT"] = "Чат-бот";
 $MESS["IM_STATUS_NETWORK"] = "Битрикс24.Network";

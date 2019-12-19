@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TOPICS_PER_PAGE'] = "Количество тем на одной странице";
 $MESS ['F_SET_NAVIGATION'] = "Показывать навигацию";
 $MESS ['F_INDEX_TEMPLATE'] = "Страница списка форумов";

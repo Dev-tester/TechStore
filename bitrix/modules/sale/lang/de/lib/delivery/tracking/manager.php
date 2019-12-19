@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DTM_STATUS_NAME_NO_INFORMATION"] = "Informationen nicht verfügbar";
 $MESS["SALE_DTM_STATUS_NAME_WAITING_SHIPMENT"] = "Auslieferung akzeptiert";
 $MESS["SALE_DTM_STATUS_NAME_ON_THE_WAY"] = "unterwegs";

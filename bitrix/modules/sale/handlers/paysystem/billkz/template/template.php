@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -23,7 +23,7 @@ Loc::loadMessages(__FILE__);
 </style>
 </head>
 
-<?
+<?php 
 
 if ($_REQUEST['BLANK'] == 'Y')
 	$blank = true;
@@ -76,50 +76,50 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 ?>
 
-<body style="margin: 0pt; padding: 0pt; background: <?=$background; ?>"<? if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<? } ?>>
+<body style="margin: 0pt; padding: 0pt; background: <?=$background; ?>"<?php  if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<?php  } ?>>
 
 <div style="margin: 0pt; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>">
 
-<?if ($params['BILLKZ_HEADER_SHOW'] == 'Y'):?>
-	<? if ($params["BILLKZ_PATH_TO_LOGO"] || $params["BILLKZ_COMMENT1"] || $params["BILLKZ_COMMENT2"]) { ?>
+<?php if ($params['BILLKZ_HEADER_SHOW'] == 'Y'):?>
+	<?php  if ($params["BILLKZ_PATH_TO_LOGO"] || $params["BILLKZ_COMMENT1"] || $params["BILLKZ_COMMENT2"]) { ?>
 	<table class="header" style="margin-bottom: 10pt; width: 100%">
 		<tr>
 			<td style="min-width: 80pt; padding-right: 5pt; padding-bottom: 5pt; ">
-				<? if ($params["BILLKZ_PATH_TO_LOGO"]) { ?>
-					<? $imgParams = CFile::_GetImgParams($params['BILLKZ_PATH_TO_LOGO']);
+				<?php  if ($params["BILLKZ_PATH_TO_LOGO"]) { ?>
+					<?php  $imgParams = CFile::_GetImgParams($params['BILLKZ_PATH_TO_LOGO']);
 						$dpi = intval($params['BILLKZ_LOGO_DPI']) ?: 96;
 						$imgWidth = $imgParams['WIDTH'] * 96 / $dpi;
 						if ($imgWidth > $pageWidth)
 							$imgWidth = $pageWidth * 0.6;
 					?>
 				<img src="<?=$imgParams['SRC']; ?>" width="<?=$imgWidth; ?>" />
-				<? } ?>
+				<?php  } ?>
 			</td>
-			<? if ($params["BILLKZ_COMMENT1"] || $params["BILLKZ_COMMENT2"]) { ?>
+			<?php  if ($params["BILLKZ_COMMENT1"] || $params["BILLKZ_COMMENT2"]) { ?>
 			<td style="width: 10pt;"></td>
 			<td style="text-align: center; vertical-align: middle;">
-				<? if ($params["BILLKZ_COMMENT1"]) { ?>
+				<?php  if ($params["BILLKZ_COMMENT1"]) { ?>
 					<?=nl2br(HTMLToTxt(preg_replace(
 						array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 						htmlspecialcharsback($params["BILLKZ_COMMENT1"])
 					), '', array(), 0)); ?>
-					<? if ($params["BILLKZ_COMMENT2"]) { ?>
+					<?php  if ($params["BILLKZ_COMMENT2"]) { ?>
 					<br><br>
-					<? } ?>
-				<? } ?>
-				<? if ($params["BILLKZ_COMMENT2"]) { ?>
+					<?php  } ?>
+				<?php  } ?>
+				<?php  if ($params["BILLKZ_COMMENT2"]) { ?>
 					<?=nl2br(HTMLToTxt(preg_replace(
 						array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 						htmlspecialcharsback($params["BILLKZ_COMMENT2"])
 					), '', array(), 0)); ?>
-				<? } ?>
+				<?php  } ?>
 			</td>
-			<? } ?>
+			<?php  } ?>
 		</tr>
 	</table>
-	<? } ?>
+	<?php  } ?>
 
-	<?
+	<?php 
 	if ($params["SELLER_COMPANY_BANK_NAME"])
 	{
 		$sellerBankCity = '';
@@ -181,16 +181,16 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 			<td style="text-align: center;"><?= $params["SELLER_COMPANY_BANK_BIC"] ? $params["SELLER_COMPANY_BANK_BIC"] : '&nbsp;' ?></td>
 			<td colspan="2" style="text-align: center;"><?= $params["PAYMENT_PC"] ? $params["PAYMENT_PC"] : '&nbsp;' ?></td>
 		</tr>
-		<? if ($params["BILLKZ_ORDER_SUBJECT"]): ?>
+		<?php  if ($params["BILLKZ_ORDER_SUBJECT"]): ?>
 		<tr class="ntb nbb">
 			<td colspan="4"><?= Loc::getMessage('SALE_HPS_BILLKZ_PAYMENT_PURPOSE') ?>:</td>
 		</tr>
 		<tr class="ntb">
 			<td colspan="4"><?= $params["BILLKZ_ORDER_SUBJECT"] ?></td>
 		</tr>
-		<? endif; ?>
+		<?php  endif; ?>
 	</table>
-<?endif;?>
+<?php endif;?>
 <br>
 <br>
 
@@ -200,8 +200,8 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		<col width="0">
 		<col width="50%">
 	</colgroup>
-<?if ($params['BILLKZ_HEADER']):?>
-	<?
+<?php if ($params['BILLKZ_HEADER']):?>
+	<?php 
 	$dateValue = $params["PAYMENT_DATE_INSERT"];
 	if ($dateValue instanceof \Bitrix\Main\Type\Date || $dateValue instanceof \Bitrix\Main\Type\DateTime)
 	{
@@ -224,10 +224,10 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 			<nobr><?=$params['BILLKZ_HEADER'];?> <?=Loc::getMessage('SALE_HPS_BILLKZ_SELLER_TITLE', array('#PAYMENT_NUM#' => $params["ACCOUNT_NUMBER"], '#PAYMENT_DATE#' => $dateValue));?></nobr>
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 </table>
 <table width="100%" style="margin: 16pt 0;"><tr style="border-bottom: 2pt solid #000000;"><td style="padding: 0;"></td></tr></table>
-<?
+<?php 
 $sellerTitle = $sellerInfo = '';
 if ($params["SELLER_COMPANY_BIN"] || $params["SELLER_COMPANY_IIN"])
 {
@@ -322,23 +322,23 @@ if ($params['BILLKZ_PAYER_SHOW'] == 'Y')
 		<td><?= !empty($sellerTitle) ? $sellerTitle : '&nbsp' ?></td>
 		<td><?= !empty($sellerInfo) ? $sellerInfo : '&nbsp' ?></td>
 	</tr>
-<? if ($params['BILLKZ_PAYER_SHOW'] == 'Y'): ?>
+<?php  if ($params['BILLKZ_PAYER_SHOW'] == 'Y'): ?>
 	<tr><td colspan="2" style="padding: 0; line-height: 7pt;">&nbsp;</td></tr>
 	<tr>
 		<td><?= !empty($buyerTitle) ? $buyerTitle : '&nbsp' ?></td>
 		<td><?= !empty($buyerInfo) ? $buyerInfo : '&nbsp' ?></td>
 	</tr>
-<? endif; ?>
-<? if ($params['BUYER_PERSON_COMPANY_DOGOVOR']): ?>
+<?php  endif; ?>
+<?php  if ($params['BUYER_PERSON_COMPANY_DOGOVOR']): ?>
 	<tr><td colspan="2" style="padding: 0; line-height: 7pt;">&nbsp;</td></tr>
 	<tr>
 		<td><?= Loc::getMessage('SALE_HPS_BILLKZ_BUYER_DOGOVOR') ?>:</td>
 		<td><?= $params['BUYER_PERSON_COMPANY_DOGOVOR'] ?></td>
 	</tr>
-<? endif; ?>
+<?php  endif; ?>
 </table>
 <br>
-<?
+<?php 
 $arCurFormat = CCurrencyLang::GetCurrencyFormat($params['CURRENCY']);
 $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 
@@ -562,11 +562,11 @@ if ($params['BILLKZ_TOTAL_SHOW'] == 'Y')
 ?>
 <table class="it" width="100%">
 	<tr>
-		<?foreach ($arCols as $columnId => $col):?>
+		<?php foreach ($arCols as $columnId => $col):?>
 			<td><?=$col['NAME'];?></td>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>
-<?
+<?php 
 
 $rowsCnt = count($cells);
 for ($n = 1; $n <= $rowsCnt; $n++):
@@ -574,29 +574,29 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 	$accumulated = 0;
 ?>
 	<tr valign="top">
-		<?foreach ($arCols as $columnId => $col):?>
-		<?
+		<?php foreach ($arCols as $columnId => $col):?>
+		<?php 
 			if (!is_null($cells[$n][$columnId]))
 			{
 				if ($columnId === 'NUMBER')
 				{?>
 					<td align="center"><?=$cells[$n][$columnId];?></td>
-				<?}
+				<?php }
 				elseif ($columnId === 'NAME')
 				{
 				?>
 					<td align="<?=($n > $cntBasketItem) ? 'right' : 'left';?>"
-						style="word-break: break-word; word-wrap: break-word; <? if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <? } ?>"
-						<? if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<? $accumulated = 0; } ?>>
+						style="word-break: break-word; word-wrap: break-word; <?php  if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <?php  } ?>"
+						<?php  if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0; } ?>>
 						<?=$cells[$n][$columnId]; ?>
-						<? if (isset($props[$n]) && is_array($props[$n])) { ?>
-						<? foreach ($props[$n] as $property) { ?>
+						<?php  if (isset($props[$n]) && is_array($props[$n])) { ?>
+						<?php  foreach ($props[$n] as $property) { ?>
 						<br>
 						<small><?=$property; ?></small>
-						<? } ?>
-						<? } ?>
+						<?php  } ?>
+						<?php  } ?>
 					</td>
-				<?}
+				<?php }
 				else
 				{
 					if (!is_null($cells[$n][$columnId]))
@@ -604,17 +604,17 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 						if ($columnId != 'VAT_RATE' || $vat > 0 || is_null($cells[$n][$columnId]) || $n > $cntBasketItem)
 						{ ?>
 							<td align="right"
-								<? if ($accumulated) { ?>
+								<?php  if ($accumulated) { ?>
 								style="border-width: 0pt 1pt 0pt 0pt"
 								colspan="<?=(($columnId == 'VAT_RATE' && $vat <= 0) ? $accumulated : $accumulated+1); ?>"
-								<? $accumulated = 0; } ?>>
-								<?if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
+								<?php  $accumulated = 0; } ?>>
+								<?php if ($columnId == 'SUM' || $columnId == 'PRICE'):?>
 									<nobr><?=$cells[$n][$columnId];?></nobr>
-								<?else:?>
+								<?php else:?>
 									<?=$cells[$n][$columnId]; ?>
-								<?endif;?>
+								<?php endif;?>
 							</td>
-						<? }
+						<?php  }
 					}
 					else
 					{
@@ -627,14 +627,14 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 				$accumulated++;
 			}
 		?>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</tr>
 
-<?endfor;?>
+<?php endfor;?>
 </table>
 <br>
 
-<?if ($params['BILLKZ_TOTAL_SHOW'] == 'Y'):?>
+<?php if ($params['BILLKZ_TOTAL_SHOW'] == 'Y'):?>
 	<?=Loc::getMessage(
 			'SALE_HPS_BILLKZ_BASKET_TOTAL',
 			array(
@@ -645,7 +645,7 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 	<br>
 
 	<b>
-	<?
+	<?php 
 
 	if (in_array($params['CURRENCY'], array("RUR", "RUB", "UAH", "KZT", "BYR", "BYN")))
 	{
@@ -662,10 +662,10 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 
 	?>
 	</b>
-<?endif;?>
+<?php endif;?>
 <table width="100%" style="margin: 16pt 0;"><tr style="border-bottom: 2pt solid #000000;"><td style="padding: 0;"></td></tr></table>
-<?if ($params['BILLKZ_SIGN_SHOW'] == 'Y'):?>
-	<?
+<?php if ($params['BILLKZ_SIGN_SHOW'] == 'Y'):?>
+	<?php 
 	$executorInfo = '';
 	$signParamName = '';
 	if ($params['SELLER_COMPANY_ACCOUNTANT_NAME'])
@@ -701,11 +701,11 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 		$executorInfo = str_pad('', 6 * 35, '&nbsp;');
 	}
 	?>
-	<? if (!$blank) { ?>
-	<div style="position: relative; "><?
+	<?php  if (!$blank) { ?>
+	<div style="position: relative; "><?php 
 		echo CFile::ShowImage($params["BILLKZ_PATH_TO_STAMP"], 160, 160, 'style="position: absolute; left: 40pt; "');
 	?></div>
-	<? } ?>
+	<?php  } ?>
 	<div style="position: relative">
 		<table class="sign" style="width: 100%; margin-top: 50pt;">
 			<colgroup>
@@ -724,7 +724,7 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 			</tr>
 		</table>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 </div>
 

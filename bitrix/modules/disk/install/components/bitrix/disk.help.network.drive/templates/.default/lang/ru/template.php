@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_NETWORK_DRIVE_SHAREDDRIVE_TITLE"] = "Как подключить библиотеку как сетевой диск";
 $MESS["DISK_NETWORK_DRIVE_CONNECTOR_HELP_MAPDRIVE"] = "<h3>Подключение сетевого диска</h3>
 <p>Для подключения библиотеки как сетевого диска при помощи <b>проводника</b>:

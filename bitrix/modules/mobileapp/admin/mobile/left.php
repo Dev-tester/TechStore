@@ -1,4 +1,4 @@
-<?
+<?php 
 define('BX_DONT_SKIP_PULL_INIT', true);
 require_once($_SERVER["DOCUMENT_ROOT"] . '/bitrix/modules/mobileapp/include/prolog_admin_mobile_before.php');
 
@@ -39,4 +39,4 @@ $APPLICATION->IncludeComponent(
 	app.enableSliderMenu(true);
 </script>
 
-<? require_once($_SERVER["DOCUMENT_ROOT"] . '/bitrix/modules/mobileapp/include/epilog_admin_mobile_after.php');?>
+<?php  require_once($_SERVER["DOCUMENT_ROOT"] . '/bitrix/modules/mobileapp/include/epilog_admin_mobile_after.php');?>

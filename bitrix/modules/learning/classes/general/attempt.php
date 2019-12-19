@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @global $USER_FIELD_MANAGER CUserTypeManager
  */

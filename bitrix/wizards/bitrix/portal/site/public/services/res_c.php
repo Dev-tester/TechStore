@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/res_c.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 ?>
-<p><?$APPLICATION->IncludeComponent(
+<p><?php $APPLICATION->IncludeComponent(
 	"bitrix:intranet.event_calendar",
 	".default",
 	Array(
@@ -37,4 +37,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 
 <p><a href="#SITE_DIR#services/index.php"><?=GetMessage("SERVICES_LINK")?></a><br /></p>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

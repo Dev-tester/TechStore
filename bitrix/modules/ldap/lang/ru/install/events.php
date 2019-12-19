@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LDAP_USER_CONFIRM_TYPE_NAME'] = "Подтверждение регистрации";
 $MESS ['LDAP_USER_CONFIRM_TYPE_DESC'] = "
 #USER_ID# - ID пользователя

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CMP_CDI_TPL_MESS_NO_DISCOUNT_SAVE"] = "Sorry, you cannot use progressive discounts.";
 $MESS["BX_CMP_CDI_TPL_MESS_DISCOUNT_SAVE"] = "Progressive discounts";
 $MESS["BX_CMP_CDI_TPL_MESS_SIZE"] = "Your discount is";

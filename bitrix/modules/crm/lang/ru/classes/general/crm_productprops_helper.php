@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_PE_PROP_TYPE_S"] = "Строка";
 $MESS["CRM_PRODUCT_PE_PROP_TYPE_N"] = "Число";
 $MESS["CRM_PRODUCT_PE_PROP_TYPE_L"] = "Список";

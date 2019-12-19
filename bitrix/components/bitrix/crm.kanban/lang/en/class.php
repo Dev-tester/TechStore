@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACCESS_NOTIFY_MESSAGE"] = "Please <a href=\"#URL#\">configure CRM kanban stages</a> for me, or grant me an appropriate permission so I could do it myself.";
 $MESS["CRM_KANBAN_BOOLEAN_0"] = "No";
 $MESS["CRM_KANBAN_BOOLEAN_1"] = "Yes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_PPE_EDDOR_UPDATE"] = "Ошибка изменения параметров записи";
 $MESS["FORUM_PPE_ERROR_ADD"] = "Ошибка добавления новой записи";
 $MESS["FORUM_PPE_TITLE_UPD"] = "Изменение записи ##ID#";

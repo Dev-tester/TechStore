@@ -19,7 +19,7 @@ $this->SetViewTarget('pagetitle');
 		Bitrix24Manager::getInstance()->renderFeedbackButton();
 		?>
 	</div>
-<?
+<?php 
 $this->EndViewTarget();
 
 // todo a bit later
@@ -31,7 +31,7 @@ if (!empty($arResult['CURRENCIES']))
 	<script>
 		BX.Currency.setCurrencies(<?=CUtil::PhpToJSObject($arResult['CURRENCIES'])?>);
 	</script>
-	<?
+	<?php 
 }
 ?>
 	<div id="salescenter-app-root"></div>

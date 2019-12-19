@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["TITLE"] = "Tasks";
 ?>

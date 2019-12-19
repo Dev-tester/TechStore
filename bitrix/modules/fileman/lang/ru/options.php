@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_OPTION_DEF_EDITOR"] = "Редактор страниц по умолчанию:";
 $MESS["FILEMAN_OPTION_EDITOR_TEXT"] = "Текстовый редактор";
 $MESS["FILEMAN_OPTION_EDITOR_HTML"] = "Визуальный HTML редактор";

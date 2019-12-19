@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_REDIRECT_TITLE"] = "Защита редиректов от фишинга";
 $MESS["SEC_REDIRECT_MAIN_TAB"] = "Защита редиректов";
 $MESS["SEC_REDIRECT_MAIN_TAB_TITLE"] = "Включение защиты редиректов от фишинга.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/prolog.php");
 CModule::IncludeModule('support');
@@ -152,9 +152,9 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs, true, true);
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value="<?=$ID?>">
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?$tabControl->Begin();?>
+<?php $tabControl->Begin();?>
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 <tr class="adm-detail-required-field"> 
 	<td align="right" width="40%"><?=GetMessage('SUP_GE_NAME')?>:</td>
 	<td width="60%"><input type="text" name="NAME" size="40" maxlength="255" value="<?=$arGroup['NAME']?>"></td>
@@ -169,10 +169,10 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs, true, true);
 </tr>
 <tr> 
 	<td align="right"><?=GetMessage('SUP_GE_IS_TEAM_GROUP')?>:</td>
-	<td><input type="checkbox" name="IS_TEAM_GROUP" value="Y"<?if ($arGroup['IS_TEAM_GROUP'] == 'Y'){?> checked<?}?>></td>
+	<td><input type="checkbox" name="IS_TEAM_GROUP" value="Y"<?php if ($arGroup['IS_TEAM_GROUP'] == 'Y'){?> checked<?php }?>></td>
 </tr>
 
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
 <tr valign="top"> 
 	<td align="right"><?=GetMessage('SUP_GE_GROUP_USERS')?>:</td>
@@ -185,7 +185,7 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs, true, true);
 			<td><?=GetMessage('SUP_GE_CAN_MAIL')?></td>
 			<td><?=GetMessage('SUP_GE_CAN_MAIL_UPDATE')?></td>
 		</tr>
-		<?
+		<?php 
 		$i = 0;
 		$UIDS = array();
 		foreach ($arGroupUsers as $val)
@@ -209,7 +209,7 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs, true, true);
 		<td><input type="checkbox" name="<?=$FMUTagName?>[MAIL][<?=$i?>]"<?=$cMgm?> value="Y"></td>
 		<td><input type="checkbox" name="<?=$FMUTagName?>[MAIL_UPDATE][<?=$i?>]"<?=$cMUgm?> value="Y"></td>
 		</tr>
-		<?
+		<?php 
 			$i++;
 		}
 		?>
@@ -223,9 +223,9 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs, true, true);
 		
 		var rowCounter = <?=intval($i)?>;
 		var UIDS = new Array();
-		<?foreach ($UIDS as $k => $v){?>
+		<?php foreach ($UIDS as $k => $v){?>
 		UIDS[<?=$k?>] = '<?=$v?>';
-		<?}?>
+		<?php }?>
 		
 		function SUVUpdateUserNames()
 		{
@@ -233,8 +233,8 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs, true, true);
 			var div;
 			for(i in UIDS)
 			{
-				//alert(document.<?echo $FMUFormID;?>["<?=$FMUTagName?>[VALS]["+String(i)+"]"].value);
-				str = document.<?echo $FMUFormID;?>["<?=$FMUTagName?>[VALS]["+String(i)+"]"].value;
+				//alert(document.<?php echo $FMUFormID;?>["<?=$FMUTagName?>[VALS]["+String(i)+"]"].value);
+				str = document.<?php echo $FMUFormID;?>["<?=$FMUTagName?>[VALS]["+String(i)+"]"].value;
 				if(str.length > 0)
 				{
 					if(String(UIDS[i]) != str)
@@ -285,15 +285,15 @@ $tabControl = new CAdminTabControl('tabControl', $aTabs, true, true);
 	</td>
 </tr>
 
-<?
+<?php 
 $tabControl->Buttons(Array("disabled"=>!$bAdmin, 'back_url' => $LIST_URL . '?lang=' . LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
 
-<?echo BeginNote();?>
-<span style="font-weight: bold;"><?echo GetMessage("REQUIRED_FIELDS")?></span>
-<?echo EndNote();?>
-<?
+<?php echo BeginNote();?>
+<span style="font-weight: bold;"><?php echo GetMessage("REQUIRED_FIELDS")?></span>
+<?php echo EndNote();?>
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

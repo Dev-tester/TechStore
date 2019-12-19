@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -325,28 +325,28 @@ ob_start();
 <form action="mail_check_new_messages.php" method="get">
 <table cellspacing="0">
 	<tr>
-		<td style="padding-left:5px;"><?echo GetMessage("MAIL_MSG_ADM_GETMAIL")?></td>
+		<td style="padding-left:5px;"><?php echo GetMessage("MAIL_MSG_ADM_GETMAIL")?></td>
 		<td style="padding-left:5px;">
 			<select name="mailbox_id" class="form-select">
-				<option value=""><?echo GetMessage("MAIL_MSG_ADM_ALLMAILBOXES")?></option>
-				<?
+				<option value=""><?php echo GetMessage("MAIL_MSG_ADM_ALLMAILBOXES")?></option>
+				<?php 
 				ClearVars("mb_");
 				$l = CMailbox::GetList(array('NAME' => 'ASC', 'ID' => 'ASC'), array('VISIBLE' => 'Y', 'USER_ID' => 0));
 				while($l->ExtractFields("mb_")):
-					?><option value="<?echo $mb_ID?>"<?if($find_mailbox_id==$mb_ID)echo " selected"?>><?echo $mb_NAME?></option><?
+					?><option value="<?php echo $mb_ID?>"<?php if($find_mailbox_id==$mb_ID)echo " selected"?>><?php echo $mb_NAME?></option><?php 
 				endwhile;
 				?>
 			</select>
 		</td>
 		<td style="padding-left:3px; padding-right:3px;">
-			<input class="form-button" type="submit" name="make_action" value="<?echo GetMessage("MAIL_MSG_ADM_OK")?>">
-			<input type="hidden" name="lang" value="<?echo LANG?>">
-			<?echo bitrix_sessid_post();?>
+			<input class="form-button" type="submit" name="make_action" value="<?php echo GetMessage("MAIL_MSG_ADM_OK")?>">
+			<input type="hidden" name="lang" value="<?php echo LANG?>">
+			<?php echo bitrix_sessid_post();?>
 		</td>
 	</tr>
 </table>
 </form>
-<?
+<?php 
 $s = ob_get_contents();
 ob_end_clean();
 
@@ -359,102 +359,102 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 
 ?>
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php $filter->Begin();?>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_FILTER_ANYWHERE")?>:</td>
-	<td nowrap><input type="text" name="find_all" value="<?echo htmlspecialcharsbx($find_all)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_FILTER_ANYWHERE")?>:</td>
+	<td nowrap><input type="text" name="find_all" value="<?php echo htmlspecialcharsbx($find_all)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
 
 <tr>
 	<td nowrap>ID:</td>
-	<td nowrap><input type="text" name="find_id" value="<?echo htmlspecialcharsbx($find_id)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_id" value="<?php echo htmlspecialcharsbx($find_id)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_MAILBOX")?>:</td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_MAILBOX")?>:</td>
 	<td nowrap>
 		<select name="find_mailbox_id">
-			<option value=""><?echo GetMessage("MAIL_MSG_ADM_ANY")?></option>
-			<?
+			<option value=""><?php echo GetMessage("MAIL_MSG_ADM_ANY")?></option>
+			<?php 
 			ClearVars("mb_");
 			$l = CMailbox::GetList(array('NAME' => 'ASC', 'ID' => 'ASC'), array('VISIBLE' => 'Y', 'USER_ID' => 0));
 			while($l->ExtractFields("mb_")):
-				?><option value="<?echo $mb_ID?>"<?if($find_mailbox_id==$mb_ID)echo " selected"?>><?echo $mb_NAME?></option><?
+				?><option value="<?php echo $mb_ID?>"<?php if($find_mailbox_id==$mb_ID)echo " selected"?>><?php echo $mb_NAME?></option><?php 
 			endwhile;
 			?>
 		</select>
 		</td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_MARKEDSPAM")?>:</td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_MARKEDSPAM")?>:</td>
 	<td nowrap>
 		<select name="find_spam">
-			<option value=""><?echo GetMessage("MAIL_MSG_ADM_FILTER_ANY")?></option>
-			<option value="Y"<?if($find_spam=="Y")echo " selected"?>><?echo GetMessage("MAIL_MSG_ADM_FILTER_YES")?></option>
-			<option value="N"<?if($find_spam=="N")echo " selected"?>><?echo GetMessage("MAIL_MSG_ADM_FILTER_NO")?></option>
+			<option value=""><?php echo GetMessage("MAIL_MSG_ADM_FILTER_ANY")?></option>
+			<option value="Y"<?php if($find_spam=="Y")echo " selected"?>><?php echo GetMessage("MAIL_MSG_ADM_FILTER_YES")?></option>
+			<option value="N"<?php if($find_spam=="N")echo " selected"?>><?php echo GetMessage("MAIL_MSG_ADM_FILTER_NO")?></option>
 		</select>
 		</td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_FILTER_READ")?>:</td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_FILTER_READ")?>:</td>
 	<td nowrap>
 		<select name="find_new">
-			<option value=""><?echo GetMessage("MAIL_MSG_ADM_FILTER_ANY")?></option>
-			<option value="Y"<?if($find_new=="Y")echo " selected"?>><?echo GetMessage("MAIL_MSG_ADM_FILTER_NEW")?></option>
-			<option value="N"<?if($find_new=="N")echo " selected"?>><?echo GetMessage("MAIL_MSG_ADM_FILTER_OLD")?></option>
+			<option value=""><?php echo GetMessage("MAIL_MSG_ADM_FILTER_ANY")?></option>
+			<option value="Y"<?php if($find_new=="Y")echo " selected"?>><?php echo GetMessage("MAIL_MSG_ADM_FILTER_NEW")?></option>
+			<option value="N"<?php if($find_new=="N")echo " selected"?>><?php echo GetMessage("MAIL_MSG_ADM_FILTER_OLD")?></option>
 		</select>
 		</td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_FILTER_FROM")?>:</td>
-	<td nowrap><input type="text" name="find_from" value="<?echo htmlspecialcharsbx($find_from)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_FILTER_FROM")?>:</td>
+	<td nowrap><input type="text" name="find_from" value="<?php echo htmlspecialcharsbx($find_from)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_FILTER_TO")?>:</td>
-	<td nowrap><input type="text" name="find_to" value="<?echo htmlspecialcharsbx($find_to)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_FILTER_TO")?>:</td>
+	<td nowrap><input type="text" name="find_to" value="<?php echo htmlspecialcharsbx($find_to)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_FILTER_SUBJECT")?>:</td>
-	<td nowrap><input type="text" name="find_subject" value="<?echo htmlspecialcharsbx($find_subject)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_FILTER_SUBJECT")?>:</td>
+	<td nowrap><input type="text" name="find_subject" value="<?php echo htmlspecialcharsbx($find_subject)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("MAIL_MSG_ADM_FILTER_TEXT")?>:</td>
-	<td nowrap><input type="text" name="find_body" value="<?echo htmlspecialcharsbx($find_body)?>" size="47"><?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("MAIL_MSG_ADM_FILTER_TEXT")?>:</td>
+	<td nowrap><input type="text" name="find_body" value="<?php echo htmlspecialcharsbx($find_body)?>" size="47"><?=ShowFilterLogicHelp()?></td>
 </tr>
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>
 
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <table border="0" cellspacing="3" cellpadding="0" class="adm-mail-table">
 	<tr>
 		<td class="mail-message-spam-right-cell adm-mail-cell-left"><div class="mail-message-spam"></div></td>
-		<td class="adm-mail-cell-right"><?echo GetMessage("MAIL_MSG_ADM_READ_SPAM")?></td>
+		<td class="adm-mail-cell-right"><?php echo GetMessage("MAIL_MSG_ADM_READ_SPAM")?></td>
 	</tr>
 	<tr>
 		<td class="mail-message-unread-spam-right-cell adm-mail-cell-left"><div class="mail-message-unread-spam"></div></td>
-		<td class="adm-mail-cell-right"><?echo GetMessage("MAIL_MSG_ADM_NOTREAD_SPAM")?></td>
+		<td class="adm-mail-cell-right"><?php echo GetMessage("MAIL_MSG_ADM_NOTREAD_SPAM")?></td>
 	</tr>
 	<tr>
 		<td class="mail-message-notspam-cell adm-mail-cell-left"><div class="mail-message-notspam"></div></td>
-		<td class="adm-mail-cell-right"><?echo GetMessage("MAIL_MSG_ADM_READ_NOTSPAM")?></td>
+		<td class="adm-mail-cell-right"><?php echo GetMessage("MAIL_MSG_ADM_READ_NOTSPAM")?></td>
 	</tr>
 	<tr>
 		<td class="mail-message-unread-notspam-cell adm-mail-cell-left"><div class="mail-message-unread-notspam"></div></td>
-		<td class="adm-mail-cell-right"><?echo GetMessage("MAIL_MSG_ADM_NOTREAD_NOTSPAM")?></td>
+		<td class="adm-mail-cell-right"><?php echo GetMessage("MAIL_MSG_ADM_NOTREAD_NOTSPAM")?></td>
 	</tr>
 	<tr>
 		<td class="mail-message-cell adm-mail-cell-left"><div class="mail-message"></div></td>
-		<td class="adm-mail-cell-right"><?echo GetMessage("MAIL_MSG_ADM_READ")?></td>
+		<td class="adm-mail-cell-right"><?php echo GetMessage("MAIL_MSG_ADM_READ")?></td>
 	</tr>
 	<tr>
 		<td class="mail-message-unread-cell adm-mail-cell-left"><div class="mail-message-unread"></div></td>
-		<td class="adm-mail-cell-right"><?echo GetMessage("MAIL_MSG_ADM_NOTREAD")?></td>
+		<td class="adm-mail-cell-right"><?php echo GetMessage("MAIL_MSG_ADM_NOTREAD")?></td>
 	</tr>
 </table>
-<?echo EndNote();?>
+<?php echo EndNote();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

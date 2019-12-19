@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Intranet\Integration\Templates\Bitrix24\ThemePicker;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
@@ -10,7 +10,7 @@ if (!$USER->IsAuthorized())
 {
 ?>
 	<div class="authorization-block"><a href="<?=(SITE_DIR."auth/?backurl=".$arResult["BACKURL"])?>" class="authorization-text"><?=GetMessage("AUTH_AUTH")?></a></div>
-<?
+<?php 
 	return;
 }
 
@@ -137,7 +137,7 @@ else
 				className : "menu-popup-no-icon",
 				href: "<?=CComponentEngine::MakePathFromTemplate($arParams['PATH_TO_SONET_PROFILE'], array("user_id" => $USER->GetID()))?>"
 			},
-			<? if (ThemePicker::isAvailable()): ?>
+			<?php  if (ThemePicker::isAvailable()): ?>
 			{
 				text : "<?=GetMessageJS("AUTH_THEME_DIALOG")?>",
 				className : "menu-popup-no-icon",
@@ -146,17 +146,17 @@ else
 					BX.Intranet.Bitrix24.ThemePicker.Singleton.showDialog(false);
 				}
 			},
-			<? endif ?>
-			<?if(isset($arResult['B24NET_WWW'])):?>
+			<?php  endif ?>
+			<?php if(isset($arResult['B24NET_WWW'])):?>
 				{ text : "<?=GetMessageJS("AUTH_PROFILE_B24NET")?>", className : "menu-popup-no-icon", href : "https://www.bitrix24.net/"},
-			<?endif;?>
-			<?if (IsModuleInstalled("im")):?>
+			<?php endif;?>
+			<?php if (IsModuleInstalled("im")):?>
 				{ text : "<?=GetMessageJS("AUTH_CHANGE_NOTIFY")?>", className : "menu-popup-no-icon", onclick : "BXIM.openSettings({'onlyPanel':'notify'})"},
-			<?endif?>
-			<?if (!IsModuleInstalled('bitrix24') && $USER->isAdmin()):?>
+			<?php endif?>
+			<?php if (!IsModuleInstalled('bitrix24') && $USER->isAdmin()):?>
 				{ text : "<?=GetMessageJS("AUTH_ADMIN_SECTION")?>", className : "menu-popup-no-icon", href : "/bitrix/admin/"},
-			<?endif?>
-			<?if ($arResult["SHOW_LICENSE_BUTTON"]):
+			<?php endif?>
+			<?php if ($arResult["SHOW_LICENSE_BUTTON"]):
 				$arJsParams = array(
 					"LICENSE_PATH" => $arResult["B24_LICENSE_PATH"],
 					"COUNTER_URL" => $arResult["LICENSE_BUTTON_COUNTER_URL"],
@@ -164,7 +164,7 @@ else
 				);
 			?>
 				{ text : "<?=GetMessageJS("B24_UPGRADE_LICENSE")?>", className : "menu-popup-no-icon", onclick : "if (BX.getClass('B24.upgradeButtonRedirect')) B24.upgradeButtonRedirect(<?=CUtil::PhpToJSObject($arJsParams)?>)"},
-			<?endif?>
+			<?php endif?>
 				{ text : "<?=GetMessageJS("AUTH_LOGOUT")?>", className : "menu-popup-no-icon", href : "/auth/?logout=yes&backurl=" + encodeURIComponent(B24.getBackUrl()) }
 			],
 			{
@@ -181,11 +181,11 @@ else
 </script>
 
 <div class="user-block" id="user-block" onclick="showUserMenu()">
-	<span class="user-img user-default-avatar" <?if ($arResult["USER_PERSONAL_PHOTO_SRC"]):?>style="background: url('<?=$arResult["USER_PERSONAL_PHOTO_SRC"]?>') no-repeat center; background-size: cover;"<?endif?>></span><span class="user-name" id="user-name"><?=$arResult["USER_NAME"]?></span>
+	<span class="user-img user-default-avatar" <?php if ($arResult["USER_PERSONAL_PHOTO_SRC"]):?>style="background: url('<?=$arResult["USER_PERSONAL_PHOTO_SRC"]?>') no-repeat center; background-size: cover;"<?php endif?>></span><span class="user-name" id="user-name"><?=$arResult["USER_NAME"]?></span>
 </div>
 
 
-<?
+<?php 
 
 $imBarExists =
 	CModule::IncludeModule("im") &&
@@ -206,7 +206,7 @@ else
 		<div class="help-block-counter-wrap" id="bx-help-notify">
 		</div>
 	</div>
-	<?
+	<?php 
 }
 
 $frame = $this->createFrame("b24_helper")->begin("");
@@ -287,12 +287,12 @@ $frame = $this->createFrame("b24_helper")->begin("");
 			helpUrl: '<?=GetMessageJS("B24_HELPDESK_URL")?>',
 			runtimeUrl: '//helpdesk.bitrix24.ru/widget/hero/runtime.js'
 		});
-		<?
+		<?php 
 		if ($support_bot && $_REQUEST['support_chat'])
 			echo 'BX.addCustomEvent("onImInit", function(BXIM) {BXIM.openMessenger('.$support_bot.');});';
 		?>
 	</script>
-<?
+<?php 
 if ($arResult["CAN_HAVE_HELP_NOTIFICATIONS"] === 'Y')
 {
 	//if something getting wrong in JS - this parameter can actualize script
@@ -315,7 +315,7 @@ if ($arResult["CAN_HAVE_HELP_NOTIFICATIONS"] === 'Y')
 			BX.Intranet.Helper.Notification.Kernel.initLoader(<?=\Bitrix\Main\Web\Json::encode($jsNotificationParams);?>);
 		});
 	</script>
-	<?
+	<?php 
 }
 
 $frame->end();

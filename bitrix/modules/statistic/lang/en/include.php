@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_TOTAL'] = "Total";
 $MESS ['STAT_EDIT'] = "Modify";
 $MESS ['STAT_ADD'] = "Add";

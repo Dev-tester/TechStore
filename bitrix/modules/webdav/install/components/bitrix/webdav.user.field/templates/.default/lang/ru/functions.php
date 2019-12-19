@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WDUF_SELECT_ATTACHMENTS"] = "Загрузить файл или картинку";
 $MESS["WDUF_DROP_ATTACHMENTS"] = "Перетащить с помощью Drag'n'drop";
 $MESS["WD_SELECT_FILE_LINK"] = "Найти в Битрикс24";

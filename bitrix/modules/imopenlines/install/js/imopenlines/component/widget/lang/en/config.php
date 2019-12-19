@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_LIVECHAT_ABOUT_CONSENT_ERROR"] = "We cannot save your information because you didn't agree to the terms of our Privacy Policy.";
 $MESS["BX_LIVECHAT_ABOUT_FIELD_EMAIL"] = "Email";
 $MESS["BX_LIVECHAT_ABOUT_FIELD_NAME_NEW"] = "Full name";

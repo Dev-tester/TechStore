@@ -1,4 +1,4 @@
-<?
+<?php 
 if (defined("STOP_WEBDAV") && STOP_WEBDAV)
 	return;
 

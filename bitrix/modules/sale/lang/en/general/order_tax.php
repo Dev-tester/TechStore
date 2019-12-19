@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGOT_EMPTY_ORDER_ID"] = "The order ID is not specified";
 $MESS["SKGOT_EMPTY_TAX_NAME"] = "The tax name is not specified";
 $MESS["SKGOT_EMPTY_TAX_VALUE"] = "The tax percent value is not specified";

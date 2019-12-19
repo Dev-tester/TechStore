@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DBType;
 
 IncludeModuleLangFile(__FILE__);

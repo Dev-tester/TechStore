@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_NEWFOLDER_ENTER_NAME"] = "Please provide a name!";
 $MESS["FILEMAN_NEWFOLDER_EXISTS"] = "Folder with the specified name already exists!";
 $MESS["FILEMAN_NEWFOLDER_NAME"] = "Folder name:";

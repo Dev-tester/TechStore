@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_BAD_ACTIVE_FROM"] = "Incorrect starting date format.";
 $MESS["IBLOCK_BAD_ACTIVE_TO"] = "Incorrect expiration date format.";
 $MESS["IBLOCK_BAD_FIELD"] = "Required field \"#FIELD_NAME#\" is not specified.";

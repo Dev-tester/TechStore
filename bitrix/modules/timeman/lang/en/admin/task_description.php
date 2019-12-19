@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_TIMEMAN_DENIED"] = "Access denied";
 $MESS["TASK_NAME_TIMEMAN_SUBORDINATE"] = "Head Or Employee Of Department";
 $MESS["TASK_NAME_TIMEMAN_READ"] = "HR Department";

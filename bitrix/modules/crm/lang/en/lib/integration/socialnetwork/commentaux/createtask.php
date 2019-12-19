@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SONET_COMMENTAUX_CREATETASK_COMMENT_CRM_ENTITY_COMMENT_ACTIVITY'] = "Task \"#TASK_NAME#\" has been created based on a #A_BEGIN#comment left to an Activity Stream activity create/update notification entry#A_END#.";
 $MESS['SONET_COMMENTAUX_CREATETASK_COMMENT_CRM_ENTITY_COMMENT_COMPANY'] = "Task \"#TASK_NAME#\" has been created based on a #A_BEGIN#comment left to an Activity Stream company create/update notification entry#A_END#.";
 $MESS['SONET_COMMENTAUX_CREATETASK_COMMENT_CRM_ENTITY_COMMENT_CONTACT'] = "Task \"#TASK_NAME#\" has been created based on a #A_BEGIN#comment left to an Activity Stream lead create/update notification entry#A_END#.";

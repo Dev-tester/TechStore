@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager IBlock                 #
 # Copyright (c) 2002-2007 Bitrix             #

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_WIZARD_IMPORT_ERROR'] = "Wizard import error";
 $MESS ['MAIN_WIZARD_LOAD_ERROR_LOAD'] = "Select a file to download";
 $MESS ['MAIN_WIZARD_LOAD_ERROR_ID'] = "Enter the wizard ID";

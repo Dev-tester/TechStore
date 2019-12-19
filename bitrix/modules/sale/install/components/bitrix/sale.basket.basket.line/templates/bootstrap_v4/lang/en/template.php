@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TSB1_PERSONAL"] = "Personal Section";
 $MESS["TSB1_EXPAND"] = "Expand";
 $MESS["TSB1_COLLAPSE"] = "Hide";

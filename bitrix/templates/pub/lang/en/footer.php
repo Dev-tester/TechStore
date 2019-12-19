@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["POWERED_BY"] = "Powered by";
 $MESS["ERR_UNAUTHORIZED_TITLE"] = "Use the link in the email";
 $MESS["ERR_UNAUTHORIZED_TEXT"] = "Unfortunately, this link has expired.<br>Please use the link in your email again to continue working.";

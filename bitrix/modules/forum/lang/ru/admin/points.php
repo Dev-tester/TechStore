@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_P_POINTS"] = "Звания";
 $MESS["FORUM_P_ERROR_DEL"] = "Ошибка удаления звания";
 $MESS["FORUM_P_RANKS"] = "Звания";

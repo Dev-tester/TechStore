@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HIDE_ON_BASKET_PAGES_TIP"] = "The option hides the component  on shopping cart and checkout pages. It is highly recommended to keep this option enabled to avoid extra system load on these pages. ";
 $MESS["PATH_TO_AUTHORIZE_TIP"] = "This field is required only if you need a dedicated authentication page. Leave the field empty to use the registration page instead";
 $MESS["PATH_TO_REGISTER_TIP"] = "Leave this field empty to get the registration page path from the Kernel module preferences";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 \Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/bizproc/tools.js');
 CJSCore::Init('bp_starter');
@@ -11,7 +11,7 @@ $arDocumentStates = $arResult["DOCUMENT_STATES"];
 
 ?>
 <div class="bizproc-page-document" data-role="bizproc-document-base">
-<?if ($arParams["StartWorkflowPermission"] == "Y"):?>
+<?php if ($arParams["StartWorkflowPermission"] == "Y"):?>
 	<div>
 		<span class="webform-small-button webform-small-button-blue" data-role="start-button">
 			<span class="webform-small-button-text">
@@ -19,11 +19,11 @@ $arDocumentStates = $arResult["DOCUMENT_STATES"];
 			</span>
 		</span>
 	</div>
-<?endif;?>
+<?php endif;?>
 <form action="" method="POST" data-role="form">
 	<?=bitrix_sessid_post()?>
 <ul class="bizproc-document-list bizproc-document-workflow-list-item" data-role="workflows-list">
-<?
+<?php 
 $workflows = array();
 
 foreach ($arDocumentStates as $arDocumentState)

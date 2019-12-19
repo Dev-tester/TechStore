@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -24,14 +24,14 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 
 ?>
@@ -41,7 +41,7 @@ endif;
 </div>
 <div class="forum-clear-float"></div>
 
-<?
+<?php 
 if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
 <div class="forum-navigation-box forum-navigation-top">
@@ -50,14 +50,14 @@ if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 <div class="forum-header-box">
 	<div class="forum-header-title"><span><?=$arResult["FolderName"]?></span></div>
 </div>
 
-<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?
+<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?php 
 	?>onsubmit="return Validate(this)"  name="REPLIER" id="REPLIER">
 	<?=bitrix_sessid_post()?>
 	<input type="hidden" name="action" value="" />
@@ -71,20 +71,20 @@ endif;
 			<thead>
 				<tr>
 					<th class="forum-first-column"><span><?=GetMessage("PM_HEAD_SUBJ")?></span><?=$arResult["SortingEx"]["POST_SUBJ"]?></th>
-					<th><span><?
+					<th><span><?php 
 					if ($arResult["StatusUser"] == "RECIPIENT"):
-						?><?=GetMessage("PM_HEAD_RECIPIENT")?><?
+						?><?=GetMessage("PM_HEAD_RECIPIENT")?><?php 
 					elseif ($arResult["StatusUser"] == "SENDER"):
-						?><?=GetMessage("PM_HEAD_SENDER")?><?
+						?><?=GetMessage("PM_HEAD_SENDER")?><?php 
 					else:
-						?><?=GetMessage("PM_HEAD_AUTHOR")?><?
+						?><?=GetMessage("PM_HEAD_AUTHOR")?><?php 
 					endif;
 					?></span><?=$arResult["SortingEx"]["AUTHOR_NAME"]?></th>
 					<th><span><?=GetMessage("PM_HEAD_DATE")?></span><?=$arResult["SortingEx"]["POST_DATE"]?></th>
 					<th class="forum-last-column forum-column-action"><input type="checkbox" name="all_message__" onclick="FSelectAll(this, 'message[]');" /></th>
 				</tr>
 			</thead>
-<?
+<?php 
 if ($arResult["MESSAGE"] == "N" || empty($arResult["MESSAGE"])):
 ?>
 			<tbody>
@@ -99,31 +99,31 @@ if ($arResult["MESSAGE"] == "N" || empty($arResult["MESSAGE"])):
 					</td>
 				</tr>
 			</tfoot>
-<?
+<?php 
 else:
 ?>
 			<tbody>
-<?
+<?php 
 	$iCount = 0;
 	foreach ($arResult["MESSAGE"] as $res):
 		$iCount++;
 ?>
 				<tr onmouseup="OnRowClick(<?=$res["ID"]?>, this);" id="message_row_<?=$res["ID"]?>" class="<?=($iCount == 1 ? "forum-row-first " : (
-				$iCount == count($arResult["MESSAGE"]) ? "forum-row-last " : ""))?><?=($iCount%2 == 1 ? "forum-row-odd" : "forum-row-even")?> <?
+				$iCount == count($arResult["MESSAGE"]) ? "forum-row-last " : ""))?><?=($iCount%2 == 1 ? "forum-row-odd" : "forum-row-even")?> <?php 
 					?><?=($res["IS_READ"] != "Y" ? "forum-pmessage-new" : "")?>">
 					<td class="forum-first-column">
-						<a href="<?=$res["pm_read"]?>" onmouseup="FCancelBubble(event);" class="<?
+						<a href="<?=$res["pm_read"]?>" onmouseup="FCancelBubble(event);" class="<?php 
 							?><?=($res["IS_READ"] != "Y" ? "forum-pmessage-new" : "")?>"><?=$res["POST_SUBJ"]?></a></td>
-					<td><span onmouseup="FCancelBubble(event)"><?
+					<td><span onmouseup="FCancelBubble(event)"><?php 
 						?><?=str_replace(array("#URL#", "#NAME#"), array($res["profile_view"], $res["SHOW_NAME"]), $arParams["USER_TMPL"])?></span>
 					</td>
 					<td><?=$res["POST_DATE"]?></td>
 					<td class="forum-last-column forum-column-action">
-						<input type=checkbox name="message[]" id="message_id_<?=$res["ID"]?>" value="<?=$res["ID"]?>" <?
+						<input type=checkbox name="message[]" id="message_id_<?=$res["ID"]?>" value="<?=$res["ID"]?>" <?php 
 							?><?=$res["checked"]?> onclick="OnInputClick(this);" />
 					</td>
 				</tr>
-		<?
+		<?php 
 	endforeach;
 ?>
 			</tbody>
@@ -134,19 +134,19 @@ else:
 							<div class="forum-topics-moderate">
 								<input type="button" name="action_delete" value="<?=GetMessage("PM_ACT_DELETE")?>" onclick="ChangeAction('delete', this);" />
 								<?=GetMessage("PM_ACT_MOVE")?> <?=GetMessage("PM_ACT_IN")?>
-								<select name="folder_id_move"><?
+								<select name="folder_id_move"><?php 
 								for ($ii = 1; $ii <= $arResult["SystemFolder"]; $ii++)
 								{
 									if (($arResult["version"] == 2 && $ii==2) || $arParams["FID"] == $ii)
 										continue;
-									?><option value="<?=$ii?>"><?=GetMessage("PM_FOLDER_ID_".$ii)?></option><?
+									?><option value="<?=$ii?>"><?=GetMessage("PM_FOLDER_ID_".$ii)?></option><?php 
 								}
 								if (($arResult["UserFolder"] != "N") && is_array($arResult["UserFolder"]))
 								{
 									foreach ($arResult["UserFolder"] as $res):
 										if ($arParams["FID"] == $res["ID"])
 											continue;
-									?><option value="<?=$res["ID"]?>"><?=$res["TITLE"]?></option><?
+									?><option value="<?=$res["ID"]?>"><?=$res["TITLE"]?></option><?php 
 									endforeach;
 								}
 								?></select> 
@@ -156,7 +156,7 @@ else:
 					</td>
 				</tr>
 			</tfoot>
-<?
+<?php 
 endif;
 ?>
 			</table>
@@ -164,7 +164,7 @@ endif;
 	</div>
 </div>
 </form>
-<?
+<?php 
 if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
 <div class="forum-navigation-box forum-navigation-bottom">
@@ -173,7 +173,7 @@ if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 <script>

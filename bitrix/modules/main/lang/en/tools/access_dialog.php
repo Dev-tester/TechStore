@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["acc_dialog_sel"] = "Selected";
 $MESS["acc_dialog_wait"] = "Please wait...";
 $MESS["acc_dialog_not_found"] = "Your search did not return any results.";

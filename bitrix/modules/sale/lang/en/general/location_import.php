@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SL_IMPORT_ERROR_FILES"] = "Error! The filenames are incorrect.";
 $MESS["SL_IMPORT_ERROR_NO_LOC_FILE"] = "No locations file uploaded.";
 $MESS["SL_IMPORT_ERROR_WRONG_LOC_FILE"] = "The locations file format is incorrect.";

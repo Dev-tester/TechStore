@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_MODULE_NAME"] = "Конверсия";
 $MESS["CONVERSION_MODULE_DESC"] = "Конверсия (в интернет-маркетинге)";
 $MESS["CONVERSION_INSTALL_TITLE"] = "Установка модуля конверсии";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This file contains a recommended default template structure.
  * 
@@ -19,23 +19,23 @@ use Bitrix\Main\Localization\Loc;
 Loc::loadMessages(__FILE__);
 ?>
 
-<?if(is_array($arResult['ERROR']['FATAL']) && !empty($arResult['ERROR']['FATAL'])):?>
-	<?foreach($arResult['ERROR']['FATAL'] as $error):?>
+<?php if(is_array($arResult['ERROR']['FATAL']) && !empty($arResult['ERROR']['FATAL'])):?>
+	<?php foreach($arResult['ERROR']['FATAL'] as $error):?>
 		<?=ShowError($error)?>
-	<?endforeach?>
-<?else:?>
+	<?php endforeach?>
+<?php else:?>
 
-	<?if(is_array($arResult['ERROR']['WARNING'])):?>
-		<?foreach($arResult['ERROR']['WARNING'] as $error):?>
+	<?php if(is_array($arResult['ERROR']['WARNING'])):?>
+		<?php foreach($arResult['ERROR']['WARNING'] as $error):?>
 			<?=ShowError($error)?>
-		<?endforeach?>
-	<?endif?>
+		<?php endforeach?>
+	<?php endif?>
 
 	<div id="sls-<?=$arResult['RANDOM_TAG']?>">
 		<pre><?print_r($arResult);?></pre>
 	</div>
 
-	<?
+	<?php 
 	if((string) $arResult['TEMPLATE_DATA']['EXTENSION_ID'] != '')
 	{
 		CJSCore::Init($arResult['TEMPLATE_DATA']['EXTENSION_ID']);
@@ -46,4 +46,4 @@ Loc::loadMessages(__FILE__);
 
 	</script>
 
-<?endif?>
+<?php endif?>

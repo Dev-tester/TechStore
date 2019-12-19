@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BCI1_GROUP_PERMISSIONS"] = "User groups allowed to export";
 $MESS["CP_BCI1_SITE_LIST"] = "Export orders of this site to 1C";
 $MESS["CP_BCI1_USE_ZIP"] = "Use ZIP compression if available";

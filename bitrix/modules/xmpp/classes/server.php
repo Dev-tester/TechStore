@@ -1,4 +1,4 @@
-<?
+<?php 
 class CXMPPServer
 {
 	private $sockServer;

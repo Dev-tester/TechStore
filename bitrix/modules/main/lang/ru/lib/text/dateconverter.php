@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_TDC_METRIC_1_1"] = "послезавтра";
 $MESS["MAIN_TDC_METRIC_1_2"] = "завтра";
 $MESS["MAIN_TDC_METRIC_1_3"] = "сегодня";

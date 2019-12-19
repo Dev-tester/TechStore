@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEF_MODE_TIP"] = "Enables SEF support.";
 $MESS["IBLOCK_TYPE_TIP"] = "Select one of existing information block types in the list and click <b>OK</b>. This will load information blocks of the selected type.";
 $MESS["IBLOCK_ID_TIP"] = "Select an information block of the selected type. If you have chosen <i>other</i>, specify the information block ID in the next field.";

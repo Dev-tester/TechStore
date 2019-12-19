@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOP_TITLE"] = "e-Store";
 $MESS["SMOP_HEAD"] = "Subscribe for PUSH notifications";
 $MESS["SMOP_BACK"] = "Back";

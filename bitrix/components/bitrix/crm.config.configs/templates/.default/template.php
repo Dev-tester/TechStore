@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)
 	die();
 
 CCrmComponentHelper::RegisterScriptLink('/bitrix/js/crm/common.js');
@@ -127,7 +127,7 @@ if(SITE_TEMPLATE_ID === 'bitrix24'):
 				BX.CrmInterfaceFormUtil.disableThemeSelection("<?= CUtil::JSEscape($arResult["FORM_ID"])?>");
 			}
 	);
-</script><?
+</script><?php 
 endif;
 ?><script type="text/javascript">
 	BX.ready(

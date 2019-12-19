@@ -41,7 +41,7 @@ class CPerfomanceMeasure
 	{
 		$res = array();
 		$file_name = $_SERVER["DOCUMENT_ROOT"]."/".COption::GetOptionString("main", "upload_dir", "/upload/")."/perfmon#i#.php";
-		$content = "<?\$s='".str_repeat("x", 1024)."';?><?/*".str_repeat("y", 1024)."*/?><?\$r='".str_repeat("z", 1024)."';?>";
+		$content = "<?php \$s='".str_repeat("x", 1024)."';?><?php /*".str_repeat("y", 1024)."*/?><?php \$r='".str_repeat("z", 1024)."';?>";
 
 		for ($j = 0; $j < 4; $j++)
 		{

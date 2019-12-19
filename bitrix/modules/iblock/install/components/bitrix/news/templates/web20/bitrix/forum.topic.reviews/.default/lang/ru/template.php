@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OPINIONS_NAME"] = "Ваше имя";
 $MESS["OPINIONS_EMAIL"] = "Ваш E-Mail";
 $MESS["OPINIONS_SEND"] = "Отправить";

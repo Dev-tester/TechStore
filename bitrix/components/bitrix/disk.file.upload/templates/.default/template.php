@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -28,14 +28,14 @@ BX.ready(function() {
 		bpParametersRequired: <?= \Bitrix\Main\Web\Json::encode($bizProcParametersRequired) ?>,
 		storageId: <?= $arParams['STORAGE_ID'] ?>,
 		CID : '<?=CUtil::JSEscape($arParams["CID"])?>',
-		<?if (!empty($arParams["FILE_ID"])): ?>targetFileId : '<?=CUtil::JSEscape($arParams["FILE_ID"])?>',<?
-		else: ?>targetFolderId : '<?=CUtil::JSEscape(($arParams["FOLDER"] ? $arParams["FOLDER"]->getId() : ''))?>',<? endif; ?>
+		<?php if (!empty($arParams["FILE_ID"])): ?>targetFileId : '<?=CUtil::JSEscape($arParams["FILE_ID"])?>',<?php 
+		else: ?>targetFolderId : '<?=CUtil::JSEscape(($arParams["FOLDER"] ? $arParams["FOLDER"]->getId() : ''))?>',<?php  endif; ?>
 		urlUpload : '/bitrix/components/bitrix/disk.file.upload/ajax.php',
-		<?if (!empty($arParams["~INPUT_CONTAINER"])) { ?>inputContainer : <?=$arParams["~INPUT_CONTAINER"]?>,<? } ?>
+		<?php if (!empty($arParams["~INPUT_CONTAINER"])) { ?>inputContainer : <?=$arParams["~INPUT_CONTAINER"]?>,<?php  } ?>
 		dropZone : <?=(isset($arParams["~DROPZONE"]) ? $arParams["~DROPZONE"] : 'null')?>});
 });
 </script>
-<?
+<?php 
 global $USER;
 if(
 	\Bitrix\Disk\Integration\Bitrix24Manager::isEnabled()
@@ -43,7 +43,7 @@ if(
 {
 	?>
 	<div id="bx-bitrix24-business-tools-info" style="display: none; width: 600px; margin: 9px;">
-		<? $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
+		<?php  $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
 	</div>
-<?
+<?php 
 }

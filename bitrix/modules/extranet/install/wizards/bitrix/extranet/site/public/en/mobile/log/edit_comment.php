@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/mobile/headers.php");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
@@ -24,4 +24,4 @@ $APPLICATION->IncludeComponent("bitrix:main.post.form", "mobile_comment", array(
 	Array("HIDE_ICONS" => "Y")
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php")?>

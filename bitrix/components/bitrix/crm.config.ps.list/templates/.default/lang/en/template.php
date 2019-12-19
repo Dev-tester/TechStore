@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PS_EDIT_TITLE"] = "Open payment system for editing";
 $MESS["CRM_PS_EDIT"] = "Edit";
 $MESS["CRM_PS_DELETE_TITLE"] = "Delete payment system";

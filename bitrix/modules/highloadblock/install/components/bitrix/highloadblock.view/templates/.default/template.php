@@ -1,4 +1,4 @@
-<?
+<?php 
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
@@ -38,17 +38,17 @@ $listUrl = str_replace('#BLOCK_ID#', intval($arParams['BLOCK_ID']),	$arParams['L
 				<td class="reports-last-column"><?=$arResult['row']['ID']?></td>
 			</tr>
 
-			<? foreach($arResult['fields'] as $field): ?>
-				<? $title = $field["LIST_COLUMN_LABEL"]? $field["LIST_COLUMN_LABEL"]: $field['FIELD_NAME']; ?>
+			<?php  foreach($arResult['fields'] as $field): ?>
+				<?php  $title = $field["LIST_COLUMN_LABEL"]? $field["LIST_COLUMN_LABEL"]: $field['FIELD_NAME']; ?>
 				<tr>
 					<td class="reports-first-column"><?=htmlspecialcharsEx($title)?></td>
-					<?
+					<?php 
 					$valign = "";
 					$html = $USER_FIELD_MANAGER->getListView($field, $arResult['row'][$field['FIELD_NAME']]);
 					?>
 					<td class="reports-last-column"><?=$html?></td>
 				</tr>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</table>
 	</div>
 </div>

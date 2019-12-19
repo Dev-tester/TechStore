@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_TASKS_COLUMN_TREE_STATUS_SUB"] = "In status";
 $MESS["REPORT_TASKS_TAGS"] = "Tags";
 $MESS["TASKS_REPORT_DEFAULT_2"] = "Involvement in projects";

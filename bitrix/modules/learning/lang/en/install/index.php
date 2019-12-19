@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MODULE_NAME"] = "e-Learning";
 $MESS["LEARNING_MODULE_DESC"] = "e-Learning system";
 $MESS["LEARNING_INSTALL_COPY_PUBLIC"] = "Copy public section scripts";

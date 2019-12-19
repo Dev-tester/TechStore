@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SRP_TPL_ELEMENT_DELETE_CONFIRM"] = "This will delete all the information related to this record! Continue?";
 $MESS["SRP_TPL_MESS_BTN_BUY"] = "Buy";
 $MESS["SRP_TPL_MESS_BTN_ADD_TO_BASKET"] = "Add to cart";

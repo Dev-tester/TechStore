@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAS1_AFF"] = "Affiliate";
 $MESS["SAS1_SITE"] = "Seite";
 $MESS["SAS1_PLAN"] = "Umsatzplanung";

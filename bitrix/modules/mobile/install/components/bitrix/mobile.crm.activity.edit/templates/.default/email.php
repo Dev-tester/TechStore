@@ -44,9 +44,9 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 		<hr/>
 		<div class="crm_card crm_arrow" style="padding-bottom: 0;">
 			<div class="crm_card_image">
-				<?if($arResult['USER_PHOTO_URL'] !== ''):?>
+				<?php if($arResult['USER_PHOTO_URL'] !== ''):?>
 				<img src="<?=htmlspecialcharsbx($arResult['USER_PHOTO_URL'])?>" />
-				<?endif;?>
+				<?php endif;?>
 			</div>
 			<div id="<?=$prefix?>_addresser_name" class="crm_card_name_meeting"><?=htmlspecialcharsbx($arResult['USER_ACTUAL_NAME'])?></div>
 			<div id="<?=$prefix?>_addresser_email" class="crm_card_description_meeting"><?=htmlspecialcharsbx($arResult['USER_ACTUAL_EMAIL'])?></div>
@@ -59,7 +59,7 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 		<div class="crm_block_title fln"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_EDIT_EMAIL_FIELD_COMM'))?></div>
 		<hr />
 		<div id="<?=$prefix?>_communication" class="crm_card" style="padding-bottom: 0;">
-			<?foreach($communications as &$comm):?>
+			<?php foreach($communications as &$comm):?>
 			<div class="task-form-participant-block">
 				<div class="task-form-participant-row">
 					<div class="task-form-participant-row-name">
@@ -69,8 +69,8 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 					<div class="task-form-participant-btn"><i></i></div>
 				</div>
 			</div>
-			<?endforeach;?>
-			<?unset($comm);?>
+			<?php endforeach;?>
+			<?php unset($comm);?>
 			<div class="tac" style="margin-top: 20px;"><a id="<?=$prefix?>_add_communication" class="crm_people_cont_aqua_two" href="#">+ <?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_EDIT_EMAIL_ADD_COMM'))?></a></div>
 		</div>
 	</div>
@@ -99,20 +99,20 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 	<div class="crm_block_container"<?=empty($storageElements) ? ' style="display:none;"' : ''?>>
 		<div class="crm_files">
 			<input type="hidden"  id="<?=$prefix?>_storage_type" value="<?=htmlspecialcharsbx($storageTypeID)?>" />
-			<ul id="<?=$prefix?>_files"><?
+			<ul id="<?=$prefix?>_files"><?php 
 			if($storageTypeID === \Bitrix\Crm\Integration\StorageType::Disk):
 				foreach($storageElements as &$info):
-					?><li><a href="<?=htmlspecialcharsbx($info['VIEW_URL'])?>"><?=htmlspecialcharsbx($info['NAME'])?></a></li><?
+					?><li><a href="<?=htmlspecialcharsbx($info['VIEW_URL'])?>"><?=htmlspecialcharsbx($info['NAME'])?></a></li><?php 
 				endforeach;
 				unset($info);
 			elseif($storageTypeID === \Bitrix\Crm\Integration\StorageType::WebDav):
 				foreach($storageElements as &$info):
-					?><li><a href="<?=htmlspecialcharsbx($info['VIEW_URL'])?>"><?=htmlspecialcharsbx($info['NAME'])?></a></li><?
+					?><li><a href="<?=htmlspecialcharsbx($info['VIEW_URL'])?>"><?=htmlspecialcharsbx($info['NAME'])?></a></li><?php 
 				endforeach;
 				unset($info);
 			elseif($storageTypeID === \Bitrix\Crm\Integration\StorageType::File):
 				foreach($storageElements as &$info):
-					?><li><a href="<?=htmlspecialcharsbx($info['fileURL'])?>"><?=htmlspecialcharsbx($info['fileName'])?></a></li><?
+					?><li><a href="<?=htmlspecialcharsbx($info['fileURL'])?>"><?=htmlspecialcharsbx($info['fileName'])?></a></li><?php 
 				endforeach;
 				unset($info);
 			endif;
@@ -157,7 +157,7 @@ $canChangeOwner = $arResult['CAN_CHANGE_OWNER'];
 				userSelectorCancelButton: '<?=GetMessageJS('M_CRM_ACTIVITY_EDIT_USER_SELECTOR_CANCEL_BTN')?>'
 			};
 
-			<?
+			<?php 
 			$onDealSelectEventName = 'onCrmDealSelectForEmailActivity_'.$arResult['ENTITY_ID'];
 			$dealSelectorUrl = CHTTP::urlAddParams($arResult['DEAL_SELECTOR_URL'], array(
 				"event" => $onDealSelectEventName

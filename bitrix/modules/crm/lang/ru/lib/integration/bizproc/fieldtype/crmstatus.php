@@ -1,1 +1,1 @@
-<?$MESS["CRM_BP_FIELDTYPE_UF_CRM_STATUS"] = "Статус";
+<?php $MESS["CRM_BP_FIELDTYPE_UF_CRM_STATUS"] = "Статус";

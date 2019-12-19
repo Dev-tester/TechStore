@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -9,7 +9,7 @@ CJSCore::Init(array("fx"))
 <div class="menu-wrap">
 <div  class="menu-items" id="menu-items">
 
-	<?
+	<?php 
 
 	$htmlMenu = "";
 

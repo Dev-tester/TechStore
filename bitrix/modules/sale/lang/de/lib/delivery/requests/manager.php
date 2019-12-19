@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_SHIPMENT_ID"] = "Transportbestellung muss größer als Null sein.";
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_SHIPMENT_NOT_IN_REQUEST"] = "Auslieferung \"#SHIPMENT_ID#\" ist kein Bestandteil einer Transportbestellung.";
 $MESS["SALE_DLVR_REQ_MNGR_ERROR_DELIVERY_NOT_FOUND"] = "Für Auslieferung mit ID \"#SHIPMENT_LINK#\" wurde kein Lieferservice festgelegt.";

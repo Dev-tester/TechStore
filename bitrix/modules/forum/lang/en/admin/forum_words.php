@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLT_WORDS"] = "Word";
 $MESS["FLT_PATTERN"] = "Template";
 $MESS["FLT_REPLACEMENT"] = "Replace";

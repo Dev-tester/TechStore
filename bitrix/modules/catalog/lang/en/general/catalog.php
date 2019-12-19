@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_CATALOG_ERR_BEFORE_DEL_TITLE"] = "Deletion error in ";
 $MESS["BT_MOD_CATALOG_ERR_CANNOT_DEACTIVE_SKU_PROPERTY"] = "Property ##SKU_PROPERTY_ID# cannot be deactivated because it binds product information block ##PRODUCT_IBLOCK_ID# to SKU information block ##IBLOCK_ID#";
 $MESS["BT_MOD_CATALOG_ERR_CANNOT_DELETE_OFFERS"] = "SKU's cannot be deleted.";

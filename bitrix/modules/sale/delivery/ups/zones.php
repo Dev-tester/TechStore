@@ -1,4 +1,4 @@
-<?
+<?php 
 $arUPSZones = array(
 "AU" => array("Australia", 6, 6),
 "AT" => array("Austria", 2, 2),

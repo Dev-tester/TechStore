@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
 CJSCore::Init(array('mobile_interface'));
 ?>
-<?if ($arParams["SHOW_SEARCH"] == "Y"):?>
+<?php if ($arParams["SHOW_SEARCH"] == "Y"):?>
 <div class="mobile-grid-field mobile-grid-field-search">
 	<img src="<?=$this->GetFolder()?>/images/icon-search2x.png" srcset="<?=$this->GetFolder()?>/images/icon-search2x.png 2x" alt="">
 	<form>
@@ -11,26 +11,26 @@ CJSCore::Init(array('mobile_interface'));
 		<span class="mobile-grid-field-search-close" data-role="search-cancel"></span>
 	</form>
 </div>
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 if (is_array($arResult["SECTIONS"]) && !empty($arResult["SECTIONS"]))
 {
 ?>
 	<div class="mobile-grid-field-folder-list" id="bx-mobile-sections" data-role="mobile-grid-sections">
-	<?foreach ($arResult["SECTIONS"] as $item):?>
-		<div class="mobile-grid-field-folder" <?if (isset($item["ONCLICK"])):?>onclick="<?=$item["ONCLICK"] ?>"<?endif?>>
+	<?php foreach ($arResult["SECTIONS"] as $item):?>
+		<div class="mobile-grid-field-folder" <?php if (isset($item["ONCLICK"])):?>onclick="<?=$item["ONCLICK"] ?>"<?php endif?>>
 			<div class="mobile-grid-field-item-icon-folder"><img src="<?=$this->GetFolder()?>/images/icon-folder.png" srcset="<?=$this->GetFolder()?>/images/icon-folder.png 2x" alt=""></div>
 			<div class="mobile-grid-field-item-folder"><?=$item['TITLE']?></div>
 		</div>
-	<?endforeach?>
+	<?php endforeach?>
 	</div>
-<?
+<?php 
 }
 ?>
 
 <div class="mobile-grid<?=(!(is_array($arResult["ITEMS"]) && !empty($arResult["ITEMS"])) ? " mobile-grid-empty" : "")?>" data-role="mobile-grid" id="bx-mobile-grid">
-<?
+<?php 
 if (isset($_POST["ajax"]) && $_POST["ajax"] == "Y" || isset($_REQUEST["search"]) && $arParams["SHOW_SEARCH"] == "Y")
 {
 	$APPLICATION->RestartBuffer();
@@ -49,19 +49,19 @@ if (is_array($arResult["ITEMS"]) && !empty($arResult["ITEMS"]))
 				<div class="mobile-grid-change" data-role="mobile-grid-item">
 					<?=$item["VALUE"]?>
 				</div>
-				<?
+				<?php 
 				break;
 			default:
 				?>
 				<div class="mobile-grid-item" data-role="mobile-grid-item" data-id="<?=$item["DATA_ID"]?>">
-					<div class="mobile-grid-field" <?if (isset($item["ONCLICK"])):?>onclick="<?=$item["ONCLICK"] ?>"<?endif?>>
-						<?if (isset($item["ICON_HTML"])):?>
+					<div class="mobile-grid-field" <?php if (isset($item["ONCLICK"])):?>onclick="<?=$item["ONCLICK"] ?>"<?php endif?>>
+						<?php if (isset($item["ICON_HTML"])):?>
 							<?=$item["ICON_HTML"]?>
-						<?endif?>
+						<?php endif?>
 						<span class="mobile-grid-field-lead-title"><span class="mobile-grid-field-lead-title-arrow"></span><?=$item["TITLE"] ? $item["TITLE"] : "&nbsp;"?></span>
 					</div>
 
-					<?
+					<?php 
 					if (is_array($arResult["FIELDS"]) && !empty($arResult["FIELDS"]))
 					{
 						foreach ($arResult["FIELDS"] as $key => $field)
@@ -78,7 +78,7 @@ if (is_array($arResult["ITEMS"]) && !empty($arResult["ITEMS"]))
 										<a class="mobile-grid-field-data" href="javascript:void();"><?=$item["FIELDS"][$field["id"]]?></a>
 										<span class="mobile-grid-field-textarea-title"><?=htmlspecialcharsbx($field["name"])?></span>
 									</div>
-									<?
+									<?php 
 									break;
 								case "EMAIL":
 									?>
@@ -87,12 +87,12 @@ if (is_array($arResult["ITEMS"]) && !empty($arResult["ITEMS"]))
 										<span class="mobile-grid-field-data"><?=$item["FIELDS"][$field["id"]]?></span>
 										<span class="mobile-grid-field-textarea-title"><?=htmlspecialcharsbx($field["name"])?></span>
 									</a>
-									<?
+									<?php 
 									break;
 								case "HTML":
 									?>
 									<?=$item["FIELDS"][$field["id"]]?>
-									<?
+									<?php 
 									break;
 								default:
 									?>
@@ -104,24 +104,24 @@ if (is_array($arResult["ITEMS"]) && !empty($arResult["ITEMS"]))
 											<?=$field["name"]?>
 										</span>
 									</div>
-									<?
+									<?php 
 									break;
 							}
 						}
 					}
 					?>
 
-					<?if (isset($item["ACTIONS"]) && !empty($item["ACTIONS"])):?>
+					<?php if (isset($item["ACTIONS"]) && !empty($item["ACTIONS"])):?>
 						<div class="mobile-grid-action-panel">
-							<?foreach ($item["ACTIONS"] as $action):?>
-								<a href="javascript:void(0)" <?if ($action["HIDDEN"]):?>style="display: none;" <?endif;?><?if ($action["ID"]): ?>id="<?=$action["ID"]?>" <?endif;?><?if ($action["DISABLE"]):?>class="mobile-grid-action-dis"<?else:?>onclick="<?=$action["ONCLICK"]?>"<?endif?>>
+							<?php foreach ($item["ACTIONS"] as $action):?>
+								<a href="javascript:void(0)" <?php if ($action["HIDDEN"]):?>style="display: none;" <?php endif;?><?php if ($action["ID"]): ?>id="<?=$action["ID"]?>" <?php endif;?><?php if ($action["DISABLE"]):?>class="mobile-grid-action-dis"<?php else:?>onclick="<?=$action["ONCLICK"]?>"<?php endif?>>
 									<?=$action["TEXT"]?>
 								</a>
-							<?endforeach?>
+							<?php endforeach?>
 						</div>
-					<?endif?>
+					<?php endif?>
 				</div>
-		<?
+		<?php 
 		}
 	}
 }
@@ -132,7 +132,7 @@ if (isset($_POST["ajax"]) && $_POST["ajax"] == "Y" || isset($_REQUEST["search"])
 	<script>
 		BX.Mobile.Grid.pagesNum = '<?=$arParams["NAV_PARAMS"]["PAGE_NAVCOUNT"] ? $arParams["NAV_PARAMS"]["PAGE_NAVCOUNT"] : 1?>';
 	</script>
-	<?
+	<?php 
 	CMain::FinalActions();
 	die();
 }
@@ -145,12 +145,12 @@ if (empty($arResult["ITEMS"]) && (!isset($arResult["SECTIONS"]) || empty($arResu
 			<div class="mobile-grid-empty-search-text"><?=GetMessage("M_GRID_EMPTY_LIST")?></div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>
 
 </div>
-<?
+<?php 
 $arJsParams = array(
 	"pagerName" => $arParams["NAV_PARAMS"]["PAGER_PARAM"],
 	"pagesNum" => $arParams["NAV_PARAMS"]["PAGE_NAVCOUNT"],
@@ -180,7 +180,7 @@ $arJsParams = array(
 
 	BX.Mobile.Grid.init(<?=CUtil::PhpToJSObject($arJsParams)?>);
 
-	<?if ($arParams["SHOW_SEARCH"] == "Y"):?>
+	<?php if ($arParams["SHOW_SEARCH"] == "Y"):?>
 		BX.Mobile.Grid.searchInit();
-	<?endif?>
+	<?php endif?>
 </script>

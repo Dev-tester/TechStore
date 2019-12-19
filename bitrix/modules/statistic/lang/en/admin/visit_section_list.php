@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Pages and sections popularity";
 $MESS ['STAT_SECTION_PAGES'] = "Records";
 $MESS ['STAT_F_SECTIONS'] = "Page / Section";

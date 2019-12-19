@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SITE_FORM_SIGN"] = "Заряжено";
 $MESS["CRM_SITE_FORM_SIGN_BY"] = "Битрикс24";
 $MESS["CRM_SITE_FORM_NAV_NEXT"] = "Далее";

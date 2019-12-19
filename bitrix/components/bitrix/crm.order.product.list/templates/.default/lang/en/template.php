@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_PL_ADD"] = "Add";
 $MESS["CRM_ORDER_PL_ADD_PRODUCT"] = "Add product";
 $MESS["CRM_ORDER_PL_APPLY"] = "Apply";

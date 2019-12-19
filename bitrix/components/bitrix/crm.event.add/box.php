@@ -1,4 +1,4 @@
-<?
+<?php 
 define('NO_KEEP_STATISTIC', 'Y');
 define('NO_AGENT_STATISTIC','Y');
 
@@ -11,7 +11,7 @@ if(!CModule::IncludeModule('crm'))
 <script>
 BX.loadCSS('/bitrix/components/bitrix/crm.event.add/templates/.default/style.css');
 </script>
-<?
+<?php 
 //Crutch for BX.ajax.submitAjax (we have urlencoded multipart data)
 CUtil::JSPostUnescape();
 if(isset($_FILES['ATTACH']))

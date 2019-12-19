@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Advertising campaigns";
 $MESS ['STAT_F_ID'] = "ID:";
 $MESS ['STAT_F_REFERER_1_2'] = "referer1 / referer2:";

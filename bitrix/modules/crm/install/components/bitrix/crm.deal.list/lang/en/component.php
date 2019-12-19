@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_MODULE_NOT_INSTALLED"] = "The Business Processes module is not installed.";
 $MESS["CRM_BPLIST"] = "Business Processes";
 $MESS["CRM_BP_R_P"] = "Business Processes";

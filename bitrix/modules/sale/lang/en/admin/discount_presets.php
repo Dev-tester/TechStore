@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_PRESET_TITLE"] = "Shopping cart rule wizard";
 $MESS["BX_SALE_DISCOUNT_PRESET_ANNOUNCE"] = "Description";
 $MESS["BX_SALE_DISCOUNT_PRESET_CREATE"] = "Create rule";

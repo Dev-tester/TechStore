@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_ICOMPLETE_STATUS"] = "Статус";
 $MESS["PERFMON_ICOMPLETE_TABLE_NAME"] = "Таблица";
 $MESS["PERFMON_ICOMPLETE_COLUMN_NAMES"] = "Колонки";

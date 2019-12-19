@@ -1,4 +1,4 @@
-<?
+<?php 
 $module_id = "bizproc";
 $bizprocPerms = $APPLICATION->GetGroupRight($module_id);
 if ($bizprocPerms>="R") :
@@ -76,63 +76,63 @@ $aTabs = array(
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
-<form method="POST" name="bizproc_opt_form" action="<?= $APPLICATION->GetCurPage() ?>?mid=<?= htmlspecialcharsbx($mid) ?>&lang=<?= LANGUAGE_ID ?>" ENCTYPE="multipart/form-data"><?
+<form method="POST" name="bizproc_opt_form" action="<?= $APPLICATION->GetCurPage() ?>?mid=<?= htmlspecialcharsbx($mid) ?>&lang=<?= LANGUAGE_ID ?>" ENCTYPE="multipart/form-data"><?php 
 echo bitrix_sessid_post();
 $tabControl->BeginNextTab();
 ?>
-	<?for ($i = 0, $cnt = count($arAllOptions); $i < $cnt; $i++):
+	<?php for ($i = 0, $cnt = count($arAllOptions); $i < $cnt; $i++):
 		$Option = $arAllOptions[$i];
 		$val = COption::GetOptionString("bizproc", $Option[0], $Option[2]);
 		$type = $Option[3];
 		?>
 		<tr>
-			<td width="50%" valign="top"><?
+			<td width="50%" valign="top"><?php 
 				if ($type[0]=="checkbox")
 					echo "<label for=\"".htmlspecialcharsbx($Option[0])."\">".$Option[1]."</label>";
 				else
 					echo $Option[1];
 			?>:</td>
 			<td width="50%" valign="top">
-				<?if($type[0]=="checkbox"):?>
-					<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-				<?elseif($type[0]=="text"):?>
-					<input type="text" size="<?echo $type[1]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>">
-				<?elseif($type[0]=="textarea"):?>
-					<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-				<?elseif($type[0]=="checkboxlist"):?>
-					<?
+				<?php if($type[0]=="checkbox"):?>
+					<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+				<?php elseif($type[0]=="text"):?>
+					<input type="text" size="<?php echo $type[1]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>">
+				<?php elseif($type[0]=="textarea"):?>
+					<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+				<?php elseif($type[0]=="checkboxlist"):?>
+					<?php 
 					$arVal = explode(',', $val);
 					?>
-					<?foreach ($type[1] as $k => $v):?>
-						<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>[]" id="<?echo htmlspecialcharsbx($Option[0].'_'.$k)?>" value="<?= $k ?>"<?if(in_array($k, $arVal))echo" checked";?>>
-						<label for="<?= htmlspecialcharsbx($Option[0].'_'.$k) ?>"><?echo htmlspecialcharsbx($v)?></label><br>
-					<?endforeach;?>
-				<?endif?>
+					<?php foreach ($type[1] as $k => $v):?>
+						<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>[]" id="<?php echo htmlspecialcharsbx($Option[0].'_'.$k)?>" value="<?= $k ?>"<?php if(in_array($k, $arVal))echo" checked";?>>
+						<label for="<?= htmlspecialcharsbx($Option[0].'_'.$k) ?>"><?php echo htmlspecialcharsbx($v)?></label><br>
+					<?php endforeach;?>
+				<?php endif?>
 			</td>
 		</tr>
-	<?endfor;?>
+	<?php endfor;?>
 		<tr>
 			<td width="50%" valign="top"><?= GetMessage("BIZPROC_OPT_USE_GZIP_COMPRESSION") ?>:</td>
 			<td width="50%" valign="top">
 				<select name="use_gzip_compression">
-					<?$useGZipCompression = \Bitrix\Main\Config\Option::get("bizproc", "use_gzip_compression", "");?>
-					<option value="" <? if (empty($useGZipCompression)) echo "selected";  ?>><?= GetMessage("BIZPROC_OPT_USE_GZIP_COMPRESSION_EMPTY") ?></option>
-					<option value="Y" <? if ($useGZipCompression == "Y") echo "selected";  ?>><?= GetMessage("BIZPROC_OPT_USE_GZIP_COMPRESSION_Y") ?></option>
-					<option value="N" <? if ($useGZipCompression == "N") echo "selected";  ?>><?= GetMessage("BIZPROC_OPT_USE_GZIP_COMPRESSION_N") ?></option>
+					<?php $useGZipCompression = \Bitrix\Main\Config\Option::get("bizproc", "use_gzip_compression", "");?>
+					<option value="" <?php  if (empty($useGZipCompression)) echo "selected";  ?>><?= GetMessage("BIZPROC_OPT_USE_GZIP_COMPRESSION_EMPTY") ?></option>
+					<option value="Y" <?php  if ($useGZipCompression == "Y") echo "selected";  ?>><?= GetMessage("BIZPROC_OPT_USE_GZIP_COMPRESSION_Y") ?></option>
+					<option value="N" <?php  if ($useGZipCompression == "N") echo "selected";  ?>><?= GetMessage("BIZPROC_OPT_USE_GZIP_COMPRESSION_N") ?></option>
 				</select>
 			</td>
 		</tr>
 		<tr>
 			<td width="50%" valign="top"><?= GetMessage("BIZPROC_OPT_LOCKED_WI_PATH") ?>:</td>
 			<td width="50%" valign="top">
-				<?$path = \Bitrix\Main\Config\Option::get("bizproc", "locked_wi_path", "/bizproc/bizproc/?type=is_locked");?>
+				<?php $path = \Bitrix\Main\Config\Option::get("bizproc", "locked_wi_path", "/bizproc/bizproc/?type=is_locked");?>
 				<input type="text" size="40" name="locked_wi_path" value="<?=htmlspecialcharsbx($path)?>">
 			</td>
 		</tr>
 		<tr>
 			<td width="50%" valign="top"><?= GetMessage("BIZPROC_OPT_TIME_LIMIT") ?>:</td>
 			<td width="50%" valign="top">
-				<?
+				<?php 
 					list($delayTime, $delayType) = CBPSchedulerService::getDelayMinLimit(true);
 				?>
 				<input type="text" name="delay_min_limit" value="<?=$delayTime?>" size="5" />
@@ -146,7 +146,7 @@ $tabControl->BeginNextTab();
 		</tr>
 		<tr>
 			<td valign="top" colspan="2" align="center">
-			<?
+			<?php 
 				$subTabControl->Begin();
 				foreach ($arSites as $site)
 				{
@@ -155,7 +155,7 @@ $tabControl->BeginNextTab();
 						?>
 						<label><?=GetMessage("BIZPROC_NAME_TEMPLATE")?></label>:
 							<select name="name_template_<?php echo $site["LID"]?>">
-								<?
+								<?php 
 								$arNameTemplates = CSite::GetNameTemplates();
 								$arNameTemplates = array_reverse($arNameTemplates, true); //prepend array with default '' => Site Format value
 								$arNameTemplates[""] = GetMessage("BIZPROC_OPTIONS_NAME_IN_SITE_FORMAT");
@@ -163,29 +163,29 @@ $tabControl->BeginNextTab();
 								foreach ($arNameTemplates as $template => $phrase)
 								{
 									$template = str_replace(array("#NOBR#","#/NOBR#"), array("",""), $template);
-									?><option value="<?= $template?>" <?=(($template == $curVal) ? " selected" : "")?> ><?= $phrase?></option><?
+									?><option value="<?= $template?>" <?=(($template == $curVal) ? " selected" : "")?> ><?= $phrase?></option><?php 
 								}
 								?>
 							</select>
-						<?
+						<?php 
 				}
 				$subTabControl->End();
 			?>
 		</td>
 	</tr>
-<?$tabControl->Buttons();?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if (confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+	if (confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
 		window.location = "<?= $APPLICATION->GetCurPage() ?>?RestoreDefaults=Y&lang=<?= LANG ?>&mid=<?= urlencode($mid) ?>&<?= bitrix_sessid_get() ?>";
 }
 </script>
 
-<input type="submit" class="adm-btn-save" <?if ($bizprocPerms < "W") echo "disabled" ?> name="Update" value="<?echo GetMessage("MAIN_SAVE")?>">
+<input type="submit" class="adm-btn-save" <?php if ($bizprocPerms < "W") echo "disabled" ?> name="Update" value="<?php echo GetMessage("MAIN_SAVE")?>">
 <input type="hidden" name="Update" value="Y">
-<input type="reset" name="reset" value="<?echo GetMessage("MAIN_RESET")?>">
-<input type="button" <?if ($bizprocPerms<"W") echo "disabled" ?> title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input type="reset" name="reset" value="<?php echo GetMessage("MAIN_RESET")?>">
+<input type="button" <?php if ($bizprocPerms<"W") echo "disabled" ?> title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
-<?endif;?>
+<?php endif;?>

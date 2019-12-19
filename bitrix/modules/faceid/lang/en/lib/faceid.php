@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TRACKER"] = "Face Tracker";
 $MESS["FACEID_CLOUD_ERR_FAIL"] = "Error getting data from the cloud.";
 $MESS["FACEID_CLOUD_ERR_FAIL_CONNECT"] = "Error connecting to the cloud.";

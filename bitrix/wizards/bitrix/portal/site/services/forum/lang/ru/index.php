@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GENERAL_GROUP_NAME"] = "Основные форумы";
 $MESS["COMMENTS_GROUP_NAME"] = "Форумы для комментариев";
 $MESS["HIDDEN_GROUP_NAME"] = "Скрытые форумы";

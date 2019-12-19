@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_WEBFORM_FILL_ERROR_FIELD_EMPTY"] = "Fill in all the required fields";
 $MESS["CRM_WEBFORM_FILL_ERROR_TITLE"] = "Attention!";
 $MESS["CRM_WEBFORM_FILL_NOT_SELECTED"] = "Not selected";

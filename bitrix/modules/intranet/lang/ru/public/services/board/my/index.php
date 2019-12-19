@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_TITLE"] = "Доска объявлений";
 $MESS["SERVICES_MESSAGE_ADD"] = "Ваше объявление добавлено";
 $MESS["SERVICES_MESSAGE_EDIT"] = "Ваше объявление сохранено";

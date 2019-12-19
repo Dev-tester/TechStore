@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -24,37 +24,37 @@ if ($arParams['POSITION_FIXED'] == 'Y')
 	$mainClass .= ' fix '.($arParams['POSITION'][0] == 'bottom' ? 'bottom' : 'top').' '.($arParams['POSITION'][1] == 'right' ? 'right' : 'left');
 }
 $style = ($itemCount == 0 ? ' style="display: none;"' : '');
-?><div id="<? echo $idCompareCount; ?>" class="<? echo $mainClass; ?> "<? echo $style; ?>><?
+?><div id="<?php  echo $idCompareCount; ?>" class="<?php  echo $mainClass; ?> "<?php  echo $style; ?>><?php 
 unset($style, $mainClass);
 if ($isAjax)
 {
 	$APPLICATION->RestartBuffer();
 }
 $frame = $this->createFrame($idCompareCount)->begin('');
-?><div class="bx_catalog_compare_count"><?
+?><div class="bx_catalog_compare_count"><?php 
 if ($itemCount > 0)
 {
-	?><p><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_COUNT'); ?>&nbsp;<span id="<? echo $idCompareAll; ?>"><? echo $itemCount; ?></span></p>
-	<p class="compare-redirect"><a href="<? echo $arParams["COMPARE_URL"]; ?>"><? echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_PAGE'); ?></a></p><?
+	?><p><?php  echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_COUNT'); ?>&nbsp;<span id="<?php  echo $idCompareAll; ?>"><?php  echo $itemCount; ?></span></p>
+	<p class="compare-redirect"><a href="<?php  echo $arParams["COMPARE_URL"]; ?>"><?php  echo GetMessage('CP_BCCL_TPL_MESS_COMPARE_PAGE'); ?></a></p><?php 
 }
-?></div><?
+?></div><?php 
 if (!empty($arResult))
 {
 ?><div class="bx_catalog_compare_form">
-<table id="<? echo $idCompareTable; ?>" class="compare-items">
+<table id="<?php  echo $idCompareTable; ?>" class="compare-items">
 <thead><tr><td align="center" colspan="2"><?=GetMessage("CATALOG_COMPARE_ELEMENTS")?></td></tr></thead>
-<tbody><?
+<tbody><?php 
 	foreach($arResult as $arElement)
 	{
-		?><tr id="<? echo $idCompareRow.$arElement['PARENT_ID']; ?>">
+		?><tr id="<?php  echo $idCompareRow.$arElement['PARENT_ID']; ?>">
 			<td><a href="<?=$arElement["DETAIL_PAGE_URL"]?>"><?=$arElement["NAME"]?></a></td>
-			<td><noindex><a href="javascript:void(0);"  data-id="<? echo $arElement['PARENT_ID']; ?>" rel="nofollow"><?=GetMessage("CATALOG_DELETE")?></a></noindex></td>
-		</tr><?
+			<td><noindex><a href="javascript:void(0);"  data-id="<?php  echo $arElement['PARENT_ID']; ?>" rel="nofollow"><?=GetMessage("CATALOG_DELETE")?></a></noindex></td>
+		</tr><?php 
 	}
 ?>
 </tbody>
 </table>
-</div><?
+</div><?php 
 }
 $frame->end();
 if ($isAjax)
@@ -94,5 +94,5 @@ $jsParams = array(
 );
 ?></div>
 <script type="text/javascript">
-var <? echo $obCompare; ?> = new JCCatalogCompareList(<? echo CUtil::PhpToJSObject($jsParams, false, true); ?>)
+var <?php  echo $obCompare; ?> = new JCCatalogCompareList(<?php  echo CUtil::PhpToJSObject($jsParams, false, true); ?>)
 </script>

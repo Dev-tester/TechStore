@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <?php
 /** @var $APPLICATION CAllMain */
 /** @var $arResult array */
@@ -44,24 +44,24 @@ function wdPrintAccessTabButtons(array $arResult)
 	var BXSocNetLogDestinationFormName = '<?=randString(6)?>';
 	BX.loadCSS('/bitrix/components/bitrix/webdav.invite/templates/.default/style.css');
 </script>
-<? if(empty($arResult['CONNECTED_USERS_CAN_EDITED_COUNT']) && empty($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT']) && empty($arResult['DISCONNECTED_USERS_COUNT'])) {?>
+<?php  if(empty($arResult['CONNECTED_USERS_CAN_EDITED_COUNT']) && empty($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT']) && empty($arResult['DISCONNECTED_USERS_COUNT'])) {?>
 	<?= wdPrintAccessTab($arResult) ?>
-<? } else {?>
+<?php  } else {?>
 <div class="bx-webdav-invite-tabs-wrap" id="bx-webdav-invite-tabs">
 	<div class="bx-webdav-invite-tabs">
 		<span onclick="wdChangeTab(this, 'bx-webdav-invite-show-access-list')" class="bx-webdav-invite-tab bx-webdav-invite-tab-active"><?= GetMessage('DISK_FOLDER_LIST_INVITE_MODAL_TAB_HEADER_ACCESS') ?></span><span id="wd-tab-access-add" onclick="wdChangeTab(this, 'bx-webdav-invite-show-access-add')" class="bx-webdav-invite-tab"><?= GetMessage('DISK_FOLDER_LIST_INVITE_MODAL_TAB_HEADER_MANAGE_ACCESS') ?></span>
 	</div>
 	<div id="bx-webdav-invite-show-access-list" class="bx-webdav-invite-tabs-cont">
 		<span class="bx-webdav-invite-users bx-webdav-invite-owner">
-			<span class="bx-webdav-invite-us-avatar"><?
+			<span class="bx-webdav-invite-us-avatar"><?php 
 				if(!empty($arResult['OWNER']['PHOTO_SRC']))
 				{
-					?><img height="21" width="21" src="<?= $arResult['OWNER']['PHOTO_SRC'] ?>" alt="<?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?>"/><?
+					?><img height="21" width="21" src="<?= $arResult['OWNER']['PHOTO_SRC'] ?>" alt="<?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?>"/><?php 
 				}
 			?></span>
 			<a class="bx-webdav-invite-us-name" href="<?= $arResult['OWNER']['HREF']; ?>" target="_blank" title="<?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?>"><?= htmlspecialcharsbx($arResult['OWNER']['FORMATTED_NAME']); ?></a><span class="bx-webdav-invite-us-descript"><?= GetMessage('DISK_FOLDER_LIST_INVITE_MODAL_OWNER_USER') ?></span>
 		</span>
-		<? if($arResult['CONNECTED_USERS_CAN_EDITED_COUNT'] > 0){ ?>
+		<?php  if($arResult['CONNECTED_USERS_CAN_EDITED_COUNT'] > 0){ ?>
 		<div class="bx-webdav-invite-users-list" style="height: auto;">
 			<div onclick="diskOpenUsersList(<?= $arResult['OBJECT']['ID'] ?>, this, 'can_edit', '<?= $arResult['URL_TO_SHOW_USER_LIST'] ?>');" class="bx-webdav-invite-users-title">
 				<span class="bx-webdav-invite-users-title-text"><?=
@@ -77,8 +77,8 @@ function wdPrintAccessTabButtons(array $arResult)
 			</div>
 			<div class="bx-webdav-invite-users-block"></div>
 		</div>
-		<? } ?>
-		<? if($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT'] > 0){ ?>
+		<?php  } ?>
+		<?php  if($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT'] > 0){ ?>
 		<div class="bx-webdav-invite-users-list" style="height: auto;">
 			<div onclick="diskOpenUsersList(<?= $arResult['OBJECT']['ID'] ?>, this, 'cannot_edit', '<?= $arResult['URL_TO_SHOW_USER_LIST'] ?>');" class="bx-webdav-invite-users-title">
 				<span class="bx-webdav-invite-users-title-text"><?=
@@ -94,8 +94,8 @@ function wdPrintAccessTabButtons(array $arResult)
 			</div>
 			<div class="bx-webdav-invite-users-block"></div>
 		</div>
-		<? } ?>
-		<? if($arResult['DISCONNECTED_USERS_COUNT'] > 0){ ?>
+		<?php  } ?>
+		<?php  if($arResult['DISCONNECTED_USERS_COUNT'] > 0){ ?>
 		<div class="bx-webdav-invite-users-list" style="height: auto;">
 			<div onclick="diskOpenUsersList(<?= $arResult['OBJECT']['ID'] ?>, this, 'disconnect', '<?= $arResult['URL_TO_SHOW_USER_LIST'] ?>');" class="bx-webdav-invite-users-title">
 				<span class="bx-webdav-invite-users-title-text"><?=
@@ -111,7 +111,7 @@ function wdPrintAccessTabButtons(array $arResult)
 			</div>
 			<div class="bx-webdav-invite-users-block"></div>
 		</div>
-		<? } ?>
+		<?php  } ?>
 		<div class="bx-webdav-invite-footer-link-block">
 			<a onclick="diskUnshareAllUsers(<?= $arResult['OBJECT']['ID'] ?>, '<?= $arResult['URL_TO_UNSHARE_ALL_USERS'] ?>');" class="bx-webdav-invite-footer-link" href="javascript:void(0)"><?= GetMessage('DISK_FOLDER_LIST_INVITE_MODAL_BTN_DIE_ACCESS'); ?></a>
 		</div>
@@ -121,13 +121,13 @@ function wdPrintAccessTabButtons(array $arResult)
 	</div>
 	<?= wdPrintAccessTabButtons($arResult) ?>
 </div>
-<? } ?>
+<?php  } ?>
 
 <script type="text/javascript">
 BX.ready(function(){
-	<? if(empty($arResult['CONNECTED_USERS_CAN_EDITED_COUNT']) && empty($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT']) && empty($arResult['DISCONNECTED_USERS_COUNT'])){ ?>
+	<?php  if(empty($arResult['CONNECTED_USERS_CAN_EDITED_COUNT']) && empty($arResult['CONNECTED_USERS_CANNOT_EDITED_COUNT']) && empty($arResult['DISCONNECTED_USERS_COUNT'])){ ?>
 	wdChangeTab(null, 'bx-webdav-invite-show-access-add');
-	<? } ?>
+	<?php  } ?>
 	if(window.location.href.match(/[#]share/) && BX('wd-tab-access-add'))
 	{
 		BX.fireEvent(BX('wd-tab-access-add'), 'click');
@@ -148,7 +148,7 @@ BX.ready(function(){
 			relation : {}
 		};
 
-	<?if(empty($arResult["FEED_DESTINATION"]['DEPARTMENT_RELATION']))
+	<?php if(empty($arResult["FEED_DESTINATION"]['DEPARTMENT_RELATION']))
 	{
 		?>
 		for(var iid in socBPDest.department)
@@ -181,11 +181,11 @@ BX.ready(function(){
 			return arRelations;
 		}
 		socBPDest.departmentRelation = makeDepartmentTree('DR0', socBPDest.relation);
-		<?
+		<?php 
 	}
 	else
 	{
-		?>socBPDest.departmentRelation = <?=CUtil::PhpToJSObject($arResult["FEED_DESTINATION"]['DEPARTMENT_RELATION'])?>;<?
+		?>socBPDest.departmentRelation = <?=CUtil::PhpToJSObject($arResult["FEED_DESTINATION"]['DEPARTMENT_RELATION'])?>;<?php 
 	}
 	?>
 </script>

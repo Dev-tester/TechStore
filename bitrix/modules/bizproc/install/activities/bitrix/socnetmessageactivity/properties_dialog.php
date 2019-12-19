@@ -1,10 +1,10 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 <tr>
 	<td align="right" width="40%"><?= GetMessage("BPSNMA_PD_FROM") ?>:</td>
 	<td width="60%">
-		<?
+		<?php 
 		if ($user->isAdmin())
 		{
 			echo CBPDocument::ShowParameterField("user", 'message_user_from', $arCurrentValues['message_user_from'], Array('rows'=> 1));

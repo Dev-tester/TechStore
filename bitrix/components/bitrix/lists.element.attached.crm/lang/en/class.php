@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEAC_MODULE_NOT_INSTALLED"] = "The module \"MODULE_ID\" is not installed";
 $MESS["LEAC_ERROR_REQUIRED_PARAMETER"] = "Required parameters are missing";
 $MESS["LEAC_GRID_ACTION_ELEMENT_SHOW"] = "View";

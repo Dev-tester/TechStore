@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FM_ML_NEW_COLLECTION"] = "New Collection";
 $MESS["FM_ML_NEW_COLLECTION_TITLE"] = "Create a new collection in Media Library";
 $MESS["FM_ML_NEW_ITEM"] = "New Element";

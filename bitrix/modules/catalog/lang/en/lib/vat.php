@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VAT_ENTITY_ID_FIELD"] = "Mark-up ID";
 $MESS["VAT_ENTITY_TIMESTAMP_X_FIELD"] = "Modified on";
 $MESS["VAT_ENTITY_ACTIVE_FIELD"] = "Active";

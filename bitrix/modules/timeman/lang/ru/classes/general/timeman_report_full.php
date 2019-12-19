@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_FROM"] = "От";
 $MESS["REPORT_TO"] = "Кому";
 $MESS["REPORT_PERIOD"] = "Рабочий отчет за ";

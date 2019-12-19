@@ -1,4 +1,4 @@
-<?
+<?php 
 $DB->Query("DELETE FROM b_event_type WHERE EVENT_NAME in (
 	'SONET_NEW_MESSAGE', 
 	'SONET_INVITE_FRIEND',

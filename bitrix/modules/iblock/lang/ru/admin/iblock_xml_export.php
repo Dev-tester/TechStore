@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_CML2_IBLOCK_ERROR'] = "Ошибка чтения инфоблока.";
 $MESS ['IBLOCK_CML2_FILE_ERROR'] = "Ошибка открытия файла.";
 $MESS ['IBLOCK_CML2_SECTIONS'] = "Экспорт разделов каталога.";

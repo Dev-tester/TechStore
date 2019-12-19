@@ -22,7 +22,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 foreach($arResult["ITEMS"] as $index => $arItem):
 ?>
 		<li class="mp_top_nav_ul_li <?=$arItem["PARAMS"]["class"]?> <?php if($arItem["SELECTED"] && !isset($_GET["app"]) && !isset($_GET["category"])): ?>active<?php endif; ?>">
-			<a href="<?=($arItem["PARAMS"]["class"] == "category" ? "javascript:void(0)" : $arItem["LINK"])?>" <? if($arItem["PARAMS"]["class"] == "category"): ?>onclick="BX.addClass(this.parentNode, 'active');ShowCategoriesPopup(this);"<? endif; ?>>
+			<a href="<?=($arItem["PARAMS"]["class"] == "category" ? "javascript:void(0)" : $arItem["LINK"])?>" <?php  if($arItem["PARAMS"]["class"] == "category"): ?>onclick="BX.addClass(this.parentNode, 'active');ShowCategoriesPopup(this);"<?php  endif; ?>>
 				<span class="leftborder"></span><span class="icon"></span><?=$arItem["TEXT"]?>
 <?php
 	if($arItem["PARAMS"]["class"] == "category"):
@@ -44,7 +44,7 @@ foreach($arResult["ITEMS"] as $index => $arItem):
 	elseif($arItem["PARAMS"]["class"] == "sale" && $arResult["UNINSTALLED_PAID_APPS_COUNT"] > 0):
 ?>
 				<span>(<?=$arResult["UNINSTALLED_PAID_APPS_COUNT"]?>)</span>
-<?
+<?php 
 	endif;
 ?>
 				<span class="rightborder"></span>
@@ -99,7 +99,7 @@ if(is_array($arResult['CATEGORY_LIST']) && !empty($arResult['CATEGORY_LIST'])):
 				}
 			}
 		});
-<?
+<?php 
 endif;
 ?>
 	}

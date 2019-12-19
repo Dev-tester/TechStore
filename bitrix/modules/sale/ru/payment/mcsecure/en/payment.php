@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 $MESS["SPCP_DTITLE"] = "Impexbank (Russian payment system)";
 $MESS["SPCP_DDESCR"] = "Payment via Impexbank";

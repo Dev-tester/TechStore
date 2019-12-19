@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPSVA_PD_ADD'] = "Добавить условие";
 $MESS ['BPSVA_PD_CALENDAR'] = "Календарь";
 $MESS ['BPSVA_PD_DELETE'] = "Удалить";

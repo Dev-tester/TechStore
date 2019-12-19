@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_SELECT_CALC_VAR_MIN"] = "Minimum";
 $MESS["REPORT_SELECT_CALC_VAR_AVG"] = "Average";
 $MESS["REPORT_SELECT_CALC_VAR_MAX"] = "Maximum";

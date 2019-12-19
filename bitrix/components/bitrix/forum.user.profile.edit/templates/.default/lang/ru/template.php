@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_CHANGE_PROFILE"] = "Изменение профиля";
 $MESS["F_NAME"] = "Имя:";
 $MESS["F_LAST_NAME"] = "Фамилия:";

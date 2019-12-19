@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_CMP_DESCRIPTION"] = "Roles.";
 $MESS["LANDING_CMP_NAME"] = "Roles";
 $MESS["LANDING_CMP_NAMESPACE_NAME"] = "Sites24";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_MAIN_SETTINGS"] = "Website Settings";
 $MESS["SERVICE_IBLOCK"] = "Information Blocks";
 $MESS["SERVICE_SALE_DEMO_DATA"] = "Configure Your Web Store";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FSL_NO_MODULE'] = "Forum module is not installed";
 $MESS ['FSL_NO_SPERMS'] = "You do not have enough permissions to delete this subscription";
 $MESS ['FSL_NO_DUSER'] = "User ##UID# is not found";

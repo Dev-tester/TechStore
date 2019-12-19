@@ -100,7 +100,7 @@ class WelcomeStep extends \CWizardStep
 		<div class="adm-crm-site-master-paragraph">
 			<a class="adm-crm-site-popup-documentation-link" onclick="BX.Helper.show('redirect=detail&code=10412476');"><?=Loc::getMessage("SALE_CSM_WIZARD_WELCOMESTEP_DOCUMENTATION_LINK")?></a>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -122,7 +122,7 @@ class WelcomeStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

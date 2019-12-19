@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GRE_T_ERROR"] = "Error processing request.";
 $MESS["SONET_GUE_T_ACTIONLINK_ADD"] = "Add";
 $MESS["SONET_GUE_T_ACTIONLINK_CHANGE"] = "Change";

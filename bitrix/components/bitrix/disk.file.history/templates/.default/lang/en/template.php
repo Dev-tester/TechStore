@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FILE_HISTORY_VERSION_RESTORE_CONFIRM"] = "Do you want to restore this document version?";
 $MESS["DISK_FILE_HISTORY_VERSION_RESTORE_BUTTON"] = "Restore";
 $MESS["DISK_FILE_HISTORY_VERSION_RESTORE_TITLE"] = "Restore version";

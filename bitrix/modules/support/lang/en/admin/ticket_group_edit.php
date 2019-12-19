@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_GE_TITLE_EDIT"] = "Edit Group \"%GROUP_NAME%\"";
 $MESS["SUP_GE_TITLE_NEW"] = "New Group";
 $MESS["SUP_GE_GROUP"] = "Group";

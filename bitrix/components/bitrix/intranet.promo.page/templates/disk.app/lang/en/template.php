@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_DISK_PROMO_TITLE_MACOS"] = "Bitrix24 Desktop App for MacOS";
 $MESS["INTRANET_DISK_PROMO_TITLE_WINDOWS"] = "Bitrix24 Desktop App for Windows";
 $MESS["INTRANET_DISK_PROMO_HEADER"] = "Power your Bitrix24 with even more file management features.";

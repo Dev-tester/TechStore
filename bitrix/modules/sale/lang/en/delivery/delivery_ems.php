@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_EMS_NAME"] = "EMS Post of Russia";
 $MESS["SALE_DH_EMS_DESCRIPTION"] = "Express Delivery";
 $MESS["SALE_DH_EMS_DESCRIPTION_INNER"] = "Handler for EMS Post of Russia. Ships only from Russia. Based on <a href=\"http://www.emspost.ru/corp_clients/dogovor_docements/api.php\" target=\"_blank\">public EMS API</a>.<br />Requires the shop address to be specified in the <a href=\"/bitrix/admin/settings.php?mid=sale&lang=ru\">module settings</a>.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 use \Bitrix\Imopenlines\Limit;
@@ -13,15 +13,15 @@ use \Bitrix\Imopenlines\Limit;
 				   name="CONFIG[VOTE_MESSAGE]"
 				   value="Y"
 				   data-limit="<?=!Limit::canUseVoteClient()?'Y':'N';?>"
-				   <? if ($arResult['CONFIG']['VOTE_MESSAGE'] == "Y") { ?>checked<? } ?>>
+				   <?php  if ($arResult['CONFIG']['VOTE_MESSAGE'] == "Y") { ?>checked<?php  } ?>>
 			<?=Loc::getMessage("IMOL_CONFIG_EDIT_VOTE_MESSAGE_NEW")?>
-			<?
+			<?php 
 			if (!Limit::canUseVoteClient() || Limit::isDemoLicense())
 			{
 				?>
 				<span id="imol_vote"
 					  data-hint="<?=htmlspecialcharsbx(Loc::getMessage('IMOL_CONFIG_LOCK_ALT'))?>"></span>
-				<?
+				<?php 
 				if (!Limit::canUseVoteClient())
 				{
 					?>
@@ -31,20 +31,20 @@ use \Bitrix\Imopenlines\Limit;
 							window.BX.imolTrialHandler.openPopupQueueVote();
 						});
 					</script>
-					<?
+					<?php 
 				}
 			}
 			?>
 		</label>
 	</div>
-	<div id="imol_vote_message_block" <? if ($arResult['CONFIG']['VOTE_MESSAGE'] != "Y") { ?>class="invisible"<? } ?>>
+	<div id="imol_vote_message_block" <?php  if ($arResult['CONFIG']['VOTE_MESSAGE'] != "Y") { ?>class="invisible"<?php  } ?>>
 		<div class="imopenlines-control-checkbox-container">
 			<label class="imopenlines-control-checkbox-label">
 				<input type="checkbox"
 					   class="imopenlines-control-checkbox"
 					   name="CONFIG[VOTE_BEFORE_FINISH]"
 					   value="Y"
-					   <? if ($arResult['CONFIG']['VOTE_BEFORE_FINISH'] == "Y") { ?>checked<? } ?>>
+					   <?php  if ($arResult['CONFIG']['VOTE_BEFORE_FINISH'] == "Y") { ?>checked<?php  } ?>>
 				<?=Loc::getMessage("IMOL_CONFIG_EDIT_VOTE_BEFORE_FINISH")?>
 			</label>
 		</div>
@@ -52,10 +52,10 @@ use \Bitrix\Imopenlines\Limit;
 			<label class="imopenlines-control-checkbox-label">
 				<input type="checkbox"
 					   class="imopenlines-control-checkbox"
-					   <?/*id="imol_vote_message"*/?>
+					   <?php /*id="imol_vote_message"*/?>
 					   name="CONFIG[VOTE_CLOSING_DELAY]"
 					   value="Y"
-					   <? if ($arResult['CONFIG']['VOTE_CLOSING_DELAY'] == "Y") { ?>checked<? } ?>>
+					   <?php  if ($arResult['CONFIG']['VOTE_CLOSING_DELAY'] == "Y") { ?>checked<?php  } ?>>
 				<?=Loc::getMessage("IMOL_CONFIG_EDIT_VOTE_CLOSING_DELAY_NEW")?>
 			</label>
 		</div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CURRENCY_FIELD_CURRENCY"] = "Currency";
 $MESS["CRM_CURRENCY_FIELD_AMOUNT"] = "Face-value";
 $MESS["CRM_CURRENCY_FIELD_AMOUNT_CNT"] = "Exchange rate";

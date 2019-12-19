@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
 
@@ -155,9 +155,9 @@ $containerName = 'container-'.$navParams['NavNum'];
 $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_THEME'] : '';
 
 ?>
-<div class="row<?=$themeClass?>"> <? // wrapper ?>
+<div class="row<?=$themeClass?>"> <?php  // wrapper ?>
 	<div class="col">
-	<?
+	<?php 
 	//region Pagination
 	if ($showTopPager)
 	{
@@ -169,7 +169,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 				<!-- pagination-container -->
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	//endregion
 
@@ -182,13 +182,13 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 				<p><?=$arResult['DESCRIPTION']?></p>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	//endregion
 	?>
 		<div class="mb-4 catalog-section" data-entity="<?=$containerName?>">
 			<!-- items-container -->
-			<?
+			<?php 
 			if (!empty($arResult['ITEMS']) && !empty($arResult['ITEM_ROWS']))
 			{
 				$areaIds = array();
@@ -206,13 +206,13 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 					$rowItems = array_splice($arResult['ITEMS'], 0, $rowData['COUNT']);
 					?>
 					<div class="row <?=$rowData['CLASS']?>" data-entity="items-row">
-						<?
+						<?php 
 						switch ($rowData['VARIANT'])
 						{
 							case 0:
 								?>
 								<div class="col product-item-big-card">
-									<?
+									<?php 
 									$item = reset($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -235,7 +235,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 									);
 									?>
 								</div>
-								<?
+								<?php 
 								break;
 
 							case 1:
@@ -243,7 +243,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								{
 									?>
 									<div class="col-6 product-item-big-card">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -265,7 +265,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								break;
 
@@ -274,7 +274,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								{
 									?>
 									<div class="col-sm-4 product-item-small-card">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -296,7 +296,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								break;
 
@@ -305,7 +305,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								{
 									?>
 									<div class="col-6 col-md-3 product-item-small-card">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -327,7 +327,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 								break;
 
@@ -335,7 +335,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								$rowItemsCount = count($rowItems);
 								?>
 								<div class="col-sm-6 product-item-big-card">
-									<?
+									<?php 
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -361,12 +361,12 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								</div>
 								<div class="col-sm-6 product-item-small-card">
 									<div class="row">
-										<?
+										<?php 
 										for ($i = 0; $i < $rowItemsCount - 1; $i++)
 										{
 											?>
 											<div class="col-6">
-												<?
+												<?php 
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'bootstrap_v4',
@@ -388,12 +388,12 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 												);
 												?>
 											</div>
-											<?
+											<?php 
 										}
 										?>
 									</div>
 								</div>
-								<?
+								<?php 
 								break;
 
 							case 5:
@@ -401,12 +401,12 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								?>
 								<div class="col-sm-6 col-12 product-item-small-card">
 									<div class="row">
-										<?
+										<?php 
 										for ($i = 0; $i < $rowItemsCount - 1; $i++)
 										{
 											?>
 											<div class="col-6">
-												<?
+												<?php 
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'bootstrap_v4',
@@ -428,13 +428,13 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 												);
 												?>
 											</div>
-											<?
+											<?php 
 										}
 										?>
 									</div>
 								</div>
 								<div class="col-sm-6 product-item-big-card">
-									<?
+									<?php 
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -458,7 +458,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 									unset($item);
 									?>
 								</div>
-								<?
+								<?php 
 								break;
 
 							case 6:
@@ -466,7 +466,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								{
 									?>
 									<div class="col-6 col-sm-4 col-md-4 col-lg-2 product-item-small-card">
-										<?
+										<?php 
 										$APPLICATION->IncludeComponent(
 											'bitrix:catalog.item',
 											'bootstrap_v4',
@@ -488,7 +488,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 
 								break;
@@ -497,7 +497,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								$rowItemsCount = count($rowItems);
 								?>
 								<div class="col-sm-6 col-12 product-item-big-card">
-									<?
+									<?php 
 									$item = array_shift($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -523,12 +523,12 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								</div>
 								<div class="col-sm-6 col-12 product-item-small-card">
 									<div class="row">
-										<?
+										<?php 
 										for ($i = 0; $i < $rowItemsCount - 1; $i++)
 										{
 											?>
 											<div class="col-6 col-md-4">
-												<?
+												<?php 
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'bootstrap_v4',
@@ -550,12 +550,12 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 												);
 												?>
 											</div>
-											<?
+											<?php 
 										}
 										?>
 									</div>
 								</div>
-								<?
+								<?php 
 								break;
 
 							case 8:
@@ -563,12 +563,12 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								?>
 								<div class="col-sm-6 col-12 product-item-small-card">
 									<div class="row">
-										<?
+										<?php 
 										for ($i = 0; $i < $rowItemsCount - 1; $i++)
 										{
 											?>
 											<div class="col-6 col-md-4">
-												<?
+												<?php 
 												$APPLICATION->IncludeComponent(
 													'bitrix:catalog.item',
 													'bootstrap_v4',
@@ -590,13 +590,13 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 												);
 												?>
 											</div>
-											<?
+											<?php 
 										}
 										?>
 									</div>
 								</div>
 								<div class="col-sm-6 col-12 product-item-big-card">
-									<?
+									<?php 
 									$item = end($rowItems);
 									$APPLICATION->IncludeComponent(
 										'bitrix:catalog.item',
@@ -620,7 +620,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 									unset($item);
 									?>
 								</div>
-								<?
+								<?php 
 								break;
 
 							case 9:
@@ -628,7 +628,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 								{
 									?>
 									<div class="col product-item-line-card">
-										<? $APPLICATION->IncludeComponent('bitrix:catalog.item', 'bootstrap_v4', array(
+										<?php  $APPLICATION->IncludeComponent('bitrix:catalog.item', 'bootstrap_v4', array(
 												'RESULT' => array(
 													'ITEM' => $item,
 													'AREA_ID' => $areaIds[$item['ID']],
@@ -645,14 +645,14 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 										);
 										?>
 									</div>
-									<?
+									<?php 
 								}
 
 								break;
 						}
 						?>
 					</div>
-					<?
+					<?php 
 				}
 				unset($generalParams, $rowItems);
 
@@ -671,7 +671,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 			?>
 			<!-- items-container -->
 		</div>
-		<?
+		<?php 
 
 		//region LazyLoad Button
 		if ($showLazyLoad)
@@ -685,7 +685,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 							<?=$arParams['MESS_BTN_LAZY_LOAD']?>
 				</button>
 			</div>
-			<?
+			<?php 
 		}
 		//endregion
 
@@ -700,7 +700,7 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 					<!-- pagination-container -->
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		//endregion
 
@@ -749,5 +749,5 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 
 
 	</div>
-</div> <? //end wrapper?>
+</div> <?php  //end wrapper?>
 <!-- component-end -->

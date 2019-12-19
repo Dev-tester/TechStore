@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELDS_TOOLBAR_ADD"] = "Добавить поле";
 $MESS["CRM_FIELDS_TOOLBAR_ADD_TITLE"] = "Добавить новое поле";
 $MESS["CRM_FIELDS_LIST_SORT"] = "Сортировка";

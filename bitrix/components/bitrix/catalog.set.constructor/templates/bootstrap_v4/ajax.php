@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 define('NO_AGENT_CHECK', true);
 define('NOT_CHECK_PERMISSIONS', true);

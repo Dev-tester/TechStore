@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
-<?
+<?php 
 if(strlen($arResult["FATAL_ERROR"])>0)
 {
 	?>
@@ -14,7 +14,7 @@ if(strlen($arResult["FATAL_ERROR"])>0)
 			<ul><?=$arResult["FATAL_ERROR"]?></ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -26,7 +26,7 @@ else
 			<ul><?=$arResult["ERROR_MESSAGE"]?></ul>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	if(strlen($arResult["OK_MESSAGE"])>0)
 	{
@@ -36,7 +36,7 @@ else
 				<ul><?=$arResult["OK_MESSAGE"]?></ul>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	
 	if(!empty($arResult["Candidate"]))
@@ -49,7 +49,7 @@ else
 			<th><?=GetMessage("B_B_US_VISIT")?></th>
 			<th><?=GetMessage("B_B_US_ACTIONS")?></th>
 		</tr>
-		<?
+		<?php 
 		foreach($arResult["Candidate"] as $arUser)
 		{
 			?>
@@ -62,11 +62,11 @@ else
 						<a href="<?=$arUser["urlToDelete"]?>"><?=GetMessage("B_B_US_DELETE")?></a><br />
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 		</table>
-		<?
+		<?php 
 	}
 	if(!empty($arResult["Users"]))
 	{
@@ -79,7 +79,7 @@ else
 			<th><?=GetMessage("B_B_US_FR_GROUPS")?></th>
 			<th><?=GetMessage("B_B_US_FR_ACTIONS")?></th>
 		</tr>
-		<?
+		<?php 
 		foreach($arResult["Users"] as $arUser)
 		{
 			?>
@@ -91,11 +91,11 @@ else
 						<a href="<?=$arUser["urlToDelete"]?>"><?=GetMessage("B_B_US_DELETE")?></a><br />
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 		</table>
-		<?
+		<?php 
 	}
 	?>
 	
@@ -154,6 +154,6 @@ else
 			<input type="submit" value="<?=GetMessage("B_B_US_ADD")?>">
 		</div>
 	</form>
-	<?
+	<?php 
 }
 ?>

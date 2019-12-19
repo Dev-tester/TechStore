@@ -1,4 +1,4 @@
-<?
+<?php 
 $PERM["extranet"]["12"]="T_8";
 $PERM["extranet"]["16"]="T_10";
 $PERM["extranet"]["15"]="T_8";

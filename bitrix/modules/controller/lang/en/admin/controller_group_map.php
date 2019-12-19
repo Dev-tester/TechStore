@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTROLLER_GROUP_MAP_ID"] = "ID";
 $MESS["CONTROLLER_GROUP_MAP_CS_TITLE"] = "Configure controller user authentication on client websites";
 $MESS["CONTROLLER_GROUP_MAP_SS_TITLE"] = "Configure pass-through authentication across client websites";

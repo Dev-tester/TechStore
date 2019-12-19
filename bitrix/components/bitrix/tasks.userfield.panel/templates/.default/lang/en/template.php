@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TUFP_FIELD_ADD"] = "Add field";
 $MESS["TASKS_TUFP_FIELD_EDIT"] = "Edit field";
 $MESS["TASKS_TUFP_FIELD_HIDE"] = "Hide field";

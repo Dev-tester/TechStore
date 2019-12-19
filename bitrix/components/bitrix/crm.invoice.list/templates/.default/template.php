@@ -22,16 +22,16 @@ Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/progress_control.js
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/autorun_proc.js');
 Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/js/crm/css/autorun_proc.css');
 
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):
-	?><div id="rebuildInvoiceSearchWrapper"></div><?
+	?><div id="rebuildInvoiceSearchWrapper"></div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_INVOICE_ATTRS']):
 	?><div id="rebuildInvoiceAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_INVOICE_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildInvoiceAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES']):
@@ -42,14 +42,14 @@ if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES']):
 			'SKIP_ID' => 'skipTransferPSRequisitesLink', 'SKIP_URL' => '#'
 		)
 	)?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):
-	?><div id="refreshInvoiceAccountingWrapper"></div><?
+	?><div id="refreshInvoiceAccountingWrapper"></div><?php 
 endif;
 
-?></div><?
+?></div><?php 
 
 $isRecurring = isset($arParams['IS_RECURRING']) && $arParams['IS_RECURRING'] === 'Y';
 
@@ -339,7 +339,7 @@ if ($arResult['IS_AJAX_CALL'])
 					BX.CrmInvoiceStatusManager.statusInfoValues = <?= CUtil::PhpToJSObject($GLOBALS['OnCrmCrmInvoiceListAfterAjaxHandlerParams']['arInvoiceStatusInfoValues']) ?>;
 				}
 			});
-		</script><?
+		</script><?php 
 
 		return '';
 	}
@@ -594,7 +594,7 @@ if (!$arResult['IS_AJAX_CALL'])
 			}
 		});
 	</script>
-	<?
+	<?php 
 }
 
 ?>
@@ -610,7 +610,7 @@ if (!$arResult['IS_AJAX_CALL'])
 				requestError: "<?=GetMessageJS('CRM_INVOICE_LRP_DLG_REQUEST_ERR')?>"
 			};
 	});
-</script><?
+</script><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 <script type="text/javascript">
@@ -639,7 +639,7 @@ if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 			manager.runAfter(100);
 		}
 	);
-</script><?
+</script><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_INVOICE_ATTRS'])
@@ -668,7 +668,7 @@ if($arResult['NEED_FOR_REBUILD_INVOICE_ATTRS'])
 		}
 	);
 </script>
-<?
+<?php 
 }
 if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES'])
 {
@@ -747,7 +747,7 @@ if($arResult['NEED_FOR_TRANSFER_PS_REQUISITES'])
 		}
 	);
 </script>
-<?
+<?php 
 }
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
 	<script type="text/javascript">
@@ -776,5 +776,5 @@ if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
 			}
 		);
 	</script>
-<?endif;?>
+<?php endif;?>
 

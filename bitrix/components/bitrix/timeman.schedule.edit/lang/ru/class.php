@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TM_SCHEDULE_CREATE_TITLE'] = 'Создание рабочего графика';
 $MESS['TM_SCHEDULE_EDIT_TITLE'] = 'Редактирование рабочего графика';
 $MESS['TIMEMAN_SCHEDULE_EDIT_DEFAULT_TITLE'] = 'Введите название графика';

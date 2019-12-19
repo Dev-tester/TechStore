@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INTEGRATION_SMS_PROVIDER_TWILIO_NAME"] = "Twilio.com";
 $MESS["CRM_INTEGRATION_SMS_PROVIDER_TWILIO_CAN_USE_ERROR"] = "Twilio integration is not configured";
 $MESS["CRM_INTEGRATION_SMS_PROVIDER_TWILIO_ERROR_ACCOUNT_INACTIVE"] = "The specified account is inactive";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DCM_COUPONS_VERIFY_ERR"] = "Fehler der Gutscheinverifizierung";
 $MESS["BX_SALE_DCM_ERR_BAD_MODE"] = "Manager-Modus ist nicht korrekt";
 $MESS["BX_SALE_DCM_ERR_BAD_USER_ID"] = "Kunden-ID ist nicht angegeben";

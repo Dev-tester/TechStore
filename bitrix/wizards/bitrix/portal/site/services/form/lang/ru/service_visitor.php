@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_VISITOR_FORM_NAME"] = "Пропуск для посетителя";
 $MESS["VISITOR_ACCESS_MENU_NAME"] = "Пропуск для посетителя";
 $MESS["SERVICE_VISITOR_FORM_BUTTON"] = "Отправить заявку";

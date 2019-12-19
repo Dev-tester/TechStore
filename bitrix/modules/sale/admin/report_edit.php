@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
@@ -203,7 +203,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 
 	arPropFieldsList = new Array();
 	arPropFieldsNameList = new Array();
-	<?
+	<?php 
 	$dbOrderProps = CSaleOrderProps::GetList(
 			array("SORT" => "ASC", "NAME" => "ASC"),
 			array(),
@@ -223,20 +223,20 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 			?>
 			arPropFieldsList[<?= $i ?>] = '<?= CUtil::JSEscape($orderID) ?>';
 			arPropFieldsNameList[<?= $i ?>] = '<?= CUtil::JSEscape("[".$orderID."] ".$arOrderProps["NAME"]) ?>';
-			<?
+			<?php 
 			if ($arOrderProps["TYPE"] == "LOCATION")
 			{
 				$i++;
 				?>
 				arPropFieldsList[<?= $i ?>] = '<?= CUtil::JSEscape($orderID."_COUNTRY") ?>';
 				arPropFieldsNameList[<?= $i ?>] = '<?= CUtil::JSEscape("[".$orderID."] ".$arOrderProps["NAME"]." (".GetMessage("SPS_JCOUNTRY").")") ?>';
-				<?
+				<?php 
 
 				$i++;
 				?>
 				arPropFieldsList[<?= $i ?>] = '<?= CUtil::JSEscape($orderID."_CITY") ?>';
 				arPropFieldsNameList[<?= $i ?>] = '<?= CUtil::JSEscape("[".$orderID."] ".$arOrderProps["NAME"]." (".GetMessage("SPS_JCITY").")") ?>';
-				<?
+				<?php 
 			}
 		}
 	}
@@ -244,12 +244,12 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 //-->
 </script>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="report_edit">
-<?echo GetFilterHiddens("filter_");?>
-<input type="hidden" name="lang" value="<?echo LANG ?>">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="report_edit">
+<?php echo GetFilterHiddens("filter_");?>
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("SRE_TAB_NAME"), "ICON" => "sale")
 	);
@@ -258,7 +258,7 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
@@ -273,7 +273,7 @@ $tabControl->BeginNextTab();
 				<tr class="heading">
 					<td colspan="3" align="center"><?=GetMessage("SRE_PARAM_SHOP")?></td>
 				</tr>
-				<?
+				<?php 
 				foreach($arFieldsShop as $key => $val)
 				{
 					if(!empty($arOptions))
@@ -286,34 +286,34 @@ $tabControl->BeginNextTab();
 						<td><?=$val["NAME"]?></td>
 						<td><select name="TYPE_<?=$key?>" id="TYPE_<?=$key?>" onchange="PropertyTypeChange('<?=$key?>');">
 								<option value=""><?=GetMessage("SRE_PARAM_PROP_TYPE_1")?></option>
-								<option value="USER"<?if($val["TYPE"] == "USER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_2")?></option>
-								<option value="ORDER"<?if($val["TYPE"] == "ORDER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_3")?></option>
-								<option value="PROPERTY"<?if($val["TYPE"] == "PROPERTY") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_4")?></option>
+								<option value="USER"<?php if($val["TYPE"] == "USER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_2")?></option>
+								<option value="ORDER"<?php if($val["TYPE"] == "ORDER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_3")?></option>
+								<option value="PROPERTY"<?php if($val["TYPE"] == "PROPERTY") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_4")?></option>
 							</select>
 						</td>
 						<td>
 							<select name="VALUE_<?=$key?>" id="VALUE_<?=$key?>" style="display:none;">
 								<option value="">--</option>
 							</select>					
-							<input type="text" name="VALUE2_<?=$key?>" id="VALUE2_<?=$key?>" value="<?if(strlen($val["TYPE"]) <= 0) echo htmlspecialcharsbx($val["VALUE"])?>"  size="40">
-							<?if(strlen($val["VALUE"]) > 0 && strlen($val["TYPE"]) > 0)
+							<input type="text" name="VALUE2_<?=$key?>" id="VALUE2_<?=$key?>" value="<?php if(strlen($val["TYPE"]) <= 0) echo htmlspecialcharsbx($val["VALUE"])?>"  size="40">
+							<?php if(strlen($val["VALUE"]) > 0 && strlen($val["TYPE"]) > 0)
 							{
 								?>
 								<script>
 									PropertyTypeChange('<?=CUtil::JSEscape($key)?>', '<?=CUtil::JSEscape($val["VALUE"])?>');
 								</script>
-								<?
+								<?php 
 							}
 							?>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 				?>
 <tr class="heading">
 					<td colspan="3" align="center"><?=GetMessage("SRE_PARAM_USER")?></td>
 				</tr>
-				<?
+				<?php 
 				foreach($arFieldsBuyer as $key => $val)
 				{
 					if(!empty($arOptions))
@@ -326,9 +326,9 @@ $tabControl->BeginNextTab();
 						<td><?=$val["NAME"]?></td>
 						<td><select name="TYPE_<?=$key?>" id="TYPE_<?=$key?>" onchange="PropertyTypeChange('<?=$key?>');">
 								<option value=""><?=GetMessage("SRE_PARAM_PROP_TYPE_1")?></option>
-								<option value="USER"<?if($val["TYPE"] == "USER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_2")?></option>
-								<option value="ORDER"<?if($val["TYPE"] == "ORDER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_3")?></option>
-								<option value="PROPERTY"<?if($val["TYPE"] == "PROPERTY") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_4")?></option>
+								<option value="USER"<?php if($val["TYPE"] == "USER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_2")?></option>
+								<option value="ORDER"<?php if($val["TYPE"] == "ORDER") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_3")?></option>
+								<option value="PROPERTY"<?php if($val["TYPE"] == "PROPERTY") echo " selected";?>><?=GetMessage("SRE_PARAM_PROP_TYPE_4")?></option>
 							</select>
 						</td>
 						<td>
@@ -336,18 +336,18 @@ $tabControl->BeginNextTab();
 								<option value="">--</option>
 							</select>					
 							<input type="text" name="VALUE2_<?=$key?>" id="VALUE2_<?=$key?>" value=""  size="40">
-							<?if(strlen($val["VALUE"]) > 0)
+							<?php if(strlen($val["VALUE"]) > 0)
 							{
 								?>
 								<script>
 									PropertyTypeChange('<?=CUtil::JSEscape($key)?>', '<?=CUtil::JSEscape($val["VALUE"])?>');
 								</script>
-								<?
+								<?php 
 							}
 							?>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 				?>
 			</table>
@@ -355,11 +355,11 @@ $tabControl->BeginNextTab();
 	</tr>
 	
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($saleModulePermissions < "W"),
@@ -368,9 +368,9 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

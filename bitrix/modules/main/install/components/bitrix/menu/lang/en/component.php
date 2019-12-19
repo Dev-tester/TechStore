@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_MENU_EDIT"] = "Modify menu items";
 $MESS["MAIN_MENU_ADD"] = "Add menu items";
 $MESS["MAIN_MENU_ADD_NEW"] = "Create menu in current section";

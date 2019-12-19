@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_2_THREE_COLS_3_NAME"] = "Three columns: flipping images with text; text column and image column on a color background";
 $MESS["LANDING_BLOCK_2_THREE_COLS_3_DESCRIPTION"] = "Left: carousel with images and text
 Center: title and text

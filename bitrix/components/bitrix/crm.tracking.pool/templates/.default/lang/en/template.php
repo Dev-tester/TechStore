@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_CHANNEL_POOL_AV"] = "Available";
 $MESS["CRM_TRACKING_CHANNEL_POOL_AV_ITEMS_EMAIL"] = "Available email addresses";
 $MESS["CRM_TRACKING_CHANNEL_POOL_AV_ITEMS_PHONE"] = "Available numbers";

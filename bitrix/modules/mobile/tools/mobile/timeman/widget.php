@@ -1,4 +1,4 @@
-<?
+<?php 
 
 /** @var $USER \CALLUser */
 /** @var $APPLICATION \CALLUser */

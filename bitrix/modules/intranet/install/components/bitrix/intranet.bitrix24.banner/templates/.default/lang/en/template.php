@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24_BANNER_MOBILE_TITLE"] = "Mobile application";
 $MESS["B24_BANNER_MESSENGER_TITLE"] = "Desktop client";
 $MESS["B24_BANNER_MOBILE_APPSTORE_URL"] = "https://itunes.apple.com/app/bitrix24/id561683423";

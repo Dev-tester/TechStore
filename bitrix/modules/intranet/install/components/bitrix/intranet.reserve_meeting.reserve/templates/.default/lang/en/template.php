@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTASK_C29T_FLOOR'] = "Floor";
 $MESS ['INTASK_C29T_PLACE'] = "Seats";
 $MESS ['INTASK_C29T_PHONE'] = "Phone";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Application;
 use Bitrix\Main\Localization\Loc;
 
@@ -14,24 +14,24 @@ $sum = round($params['SUM'], 2);
 	<form id="paysystem-yandex-form">
 		<p class="mb-2"><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_YANDEX_CHECKOUT_DESCRIPTION');?></p>
 		<p class="mb-2"><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_YANDEX_CHECKOUT_DESCRIPTION_SUM')." ".SaleFormatCurrency($params['SUM'], $params['CURRENCY']);?></p>
-		<?if (isset($params['FIELDS'])):?>
+		<?php if (isset($params['FIELDS'])):?>
 			<fieldset class="form-group">
-				<?foreach ($params['FIELDS'] as $field):?>
-					<?if (in_array($field, $params['PHONE_FIELDS'])):?>
+				<?php foreach ($params['FIELDS'] as $field):?>
+					<?php if (in_array($field, $params['PHONE_FIELDS'])):?>
 						<label for="<?=$field?>"><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_YANDEX_CHECKOUT_'.ToUpper($params['PAYMENT_METHOD']).'_'.ToUpper($field));?>:</label>
 						<input name="<?=$field;?>" type="text" style="max-width: 300px;" id="<?=$field;?>" class="form-control js-paysystem-yandex-input-phone" value="" autocomplete="off" placeholder="">
-					<?else:?>
+					<?php else:?>
 						<label for="<?=$field;?>"><?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_YANDEX_CHECKOUT_'.ToUpper($params['PAYMENT_METHOD']).'_'.ToUpper($field));?></label>
 						<input name="<?=$field;?>" type="text" style="max-width: 300px;" id="<?=$field;?>" class="form-control" placeholder="<?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_YANDEX_CHECKOUT_'.ToUpper($params['PAYMENT_METHOD']).'_'.ToUpper($field));?>">
-					<?endif;?>
-				<?endforeach;?>
+					<?php endif;?>
+				<?php endforeach;?>
 			</fieldset>
-		<?endif;?>
+		<?php endif;?>
 		<input class="btn btn-primary pl-4 pr-4" name="BuyButton" value="<?=Loc::getMessage('SALE_HANDLERS_PAY_SYSTEM_YANDEX_CHECKOUT_BUTTON_NEXT')?>" type="submit">
 	</form>
 </div>
 
-<?
+<?php 
 $phoneCountryCode = null;
 if (Bitrix\Main\Loader::includeModule('bitrix24'))
 {
@@ -47,7 +47,7 @@ $messages = Loc::loadLanguageFile(__FILE__);
 ?>
 
 <script>
-	<?
+	<?php 
 	include_once $documentRoot.'/bitrix/js/sale/masked.js';
 	include_once 'script.js';
 	?>

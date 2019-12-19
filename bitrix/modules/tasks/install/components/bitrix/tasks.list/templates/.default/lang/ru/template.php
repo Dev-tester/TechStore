@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_PRIORITY_V2"] = "Важная задача";
 $MESS["TASKS_MARK"] = "Оценка";
 $MESS["TASKS_MARK_NONE"] = "Нет оценки";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_43.5.COVER_WITH_FEEDBACK_CARDS_LANDINGBLOCKNODECARD"] = "Review";
 $MESS["LANDING_BLOCK_43.5.COVER_WITH_FEEDBACK_NAME"] = "Customer reviews slider featuring customer links and a dimmed background image";
 $MESS["LANDING_BLOCK_43.5.COVER_WITH_FEEDBACK_NODES_CARD"] = "Block Element";

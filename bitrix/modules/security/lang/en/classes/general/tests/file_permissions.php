@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_FilePermissionsTest_NAME"] = "File accessibility check";
 $MESS["SECURITY_SITE_CHECKER_FILE_PERM_ADDITIONAL"] = "Last #COUNT# files/directories:";
 $MESS["SECURITY_SITE_CHECKER_FILE_PERM_TITLE"] = "There are at least #COUNT# files or directories with full write permission for anyone in the current environment (users foreign to Bitrix Framework)";

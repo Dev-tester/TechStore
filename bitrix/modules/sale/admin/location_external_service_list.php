@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
 
@@ -197,66 +197,66 @@ if(empty($fatal))
 } // empty($fatal)
 ?>
 
-<?$APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE'))?>
+<?php $APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE'))?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<?
+<?php 
 #####################################
 #### Data output
 #####################################
 ?>
 
-<?//temporal code?>
-<?if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php //temporal code?>
+<?php if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
 
-<?SearchHelper::checkIndexesValid();?>
+<?php SearchHelper::checkIndexesValid();?>
 
-<?if(strlen($fatal)):?>
+<?php if(strlen($fatal)):?>
 
 	<div class="error-message">
-		<?CAdminMessage::ShowMessage(array('MESSAGE' => $fatal, 'type' => 'ERROR'))?>
+		<?php CAdminMessage::ShowMessage(array('MESSAGE' => $fatal, 'type' => 'ERROR'))?>
 	</div>
 
-<?else:?>
+<?php else:?>
 
 	<form method="GET" action="<?=Helper::getListUrl($itemId ? array('id' => $itemId) : array())?>" name="filter_form">
 
 		<input type="hidden" name="filter" value="Y" />
-		<?if($itemId):?>
+		<?php if($itemId):?>
 			<input type="hidden" name="id" value="<?=$itemId?>" />
-		<?endif?>
+		<?php endif?>
 
-		<?$oFilter->Begin();?>
-			<?foreach($columns as $code => $fld):?>
-				<?//if(!in_array($code, $excludedColumns)):?>
+		<?php $oFilter->Begin();?>
+			<?php foreach($columns as $code => $fld):?>
+				<?php //if(!in_array($code, $excludedColumns)):?>
 					<tr>
 
-						<td><?=htmlspecialcharsbx($fld['title'])?><?if($fld['data_type'] == 'integer'):?> (<?=Loc::getMessage('SALE_LOCATION_L_FROM_AND_TO')?>)<?endif?>:</td>
+						<td><?=htmlspecialcharsbx($fld['title'])?><?php if($fld['data_type'] == 'integer'):?> (<?=Loc::getMessage('SALE_LOCATION_L_FROM_AND_TO')?>)<?php endif?>:</td>
 						<td>
 
-							<?if($fld['data_type'] == 'integer'):?>
+							<?php if($fld['data_type'] == 'integer'):?>
 								<input type="text" name="find_<?=$code?>_1" value="<?=htmlspecialcharsbx($GLOBALS['find_'.$code.'_1'])?>" />
 								...
 								<input type="text" name="find_<?=$code?>_2" value="<?=htmlspecialcharsbx($GLOBALS['find_'.$code.'_2'])?>" />
-							<?else:?>
+							<?php else:?>
 								<input type="text" name="find_<?=$code?>" value="<?=htmlspecialcharsbx($GLOBALS['find_'.$code])?>" />
-							<?endif?>
+							<?php endif?>
 
 						</td>
 
 					</tr>
-				<?//endif?>
-			<?endforeach?>
-		<?
+				<?php //endif?>
+			<?php endforeach?>
+		<?php 
 		$oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPageParam(), "form"=>"filter_form"));
 		$oFilter->End();
 		?>
 
 	</form>
 
-	<?$lAdmin->DisplayList();?>
+	<?php $lAdmin->DisplayList();?>
 
-<?endif?>
+<?php endif?>
 
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

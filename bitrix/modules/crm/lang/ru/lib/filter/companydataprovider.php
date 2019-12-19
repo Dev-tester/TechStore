@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COMPANY_FILTER_ALL"] = "(все)";
 $MESS["CRM_COMPANY_FILTER_COMMUNICATION_TYPE"] = "Способ связи";
 $MESS["CRM_COMPANY_FILTER_PHONE"] = "Телефон";

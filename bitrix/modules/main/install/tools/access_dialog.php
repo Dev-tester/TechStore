@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/access_dialog.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/access_dialog.php");?>

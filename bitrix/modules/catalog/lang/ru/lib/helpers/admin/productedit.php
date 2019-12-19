@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_HELPER_PRODUCTEDIT_ERR_IBLOCK_EMPTY"] = "Не указан идентификатор инфоблока";
 $MESS["BX_CATALOG_HELPER_PRODUCTEDIT_ERR_ELEMENT_EMPTY"] = "Не указан идентификатор элемента инфоблока";
 $MESS["BX_CATALOG_HELPER_PRODUCTEDIT_ERR_CATALOG_ABSENT"] = "Инфоблок не является торговым каталогоам и не имеет торговых предложений";

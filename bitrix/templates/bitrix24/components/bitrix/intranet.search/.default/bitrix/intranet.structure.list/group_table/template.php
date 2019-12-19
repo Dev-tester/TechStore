@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\UI;
@@ -40,18 +40,18 @@ else:
 <table class="bx-users-table data-table" style="border: 0px" width="100%">
 	<thead>
 		<tr>
-<?
+<?php 
 foreach ($arParams['USER_PROPERTY'] as $key):
 ?>
 			<td><?=$arResult['USER_PROP'][$key] ? $arResult['USER_PROP'][$key] : GetMessage('ISL_'.$key)?></td>
-<?
+<?php 
 endforeach;
 ?>
 		</tr>
 	</thead>
 	<tbody>
 
-<?
+<?php 
 
 	$arDeptsChain = array();
 	$arCurrentDepth = array();
@@ -66,21 +66,21 @@ endforeach;
 
 	<tr>
 		<td colspan="<?=count($arParams['USER_PROPERTY'])?>">
-			<br><?if ($cnt++ > 0):?><br><?endif?>
+			<br><?php if ($cnt++ > 0):?><br><?php endif?>
 			<div class="users-departments-chain" style="margin-bottom:4px;"><?= isset($arDept['DEPTH_LEVEL'])? implode('&nbsp;-&nbsp;', array_slice($arDeptsChain, 0, $arDept['DEPTH_LEVEL'])) : GetMessage('ISL_DEPARTMENT_NOT_FOUND')?></div>
 		</td>
 	</tr>
-<?foreach ($arDept['USERS'] as $arUser):?>
+<?php foreach ($arDept['USERS'] as $arUser):?>
 	<tr>
-	<?foreach ($arParams['USER_PROPERTY'] as $key):?>
-		<td><?
+	<?php foreach ($arParams['USER_PROPERTY'] as $key):?>
+		<td><?php 
 			switch($key)
 			{
 				case 'FULL_NAME':
 					if(true):
 					?>
 					<div class="bx-user-name">
-					<?
+					<?php 
 		
 					$arUser["NAME_FORMATTED"] = CUser::FormatName($arParams["NAME_TEMPLATE"], $arUser, $bUseLogin);						
 
@@ -89,13 +89,13 @@ endforeach;
 					$bShowLink = true;
 
 					if ($bShowLink):
-						?><a href="<?=$arUser["DETAIL_URL"]?>" id="anchor_<?=$anchor_id?>" bx-tooltip-user-id="<?=$arUser["ID"]?>"><?=$arUser["NAME_FORMATTED"]?></a><?
+						?><a href="<?=$arUser["DETAIL_URL"]?>" id="anchor_<?=$anchor_id?>" bx-tooltip-user-id="<?=$arUser["ID"]?>"><?=$arUser["NAME_FORMATTED"]?></a><?php 
 					else:
-						?><?=$arUser["NAME_FORMATTED"]?><?
+						?><?=$arUser["NAME_FORMATTED"]?><?php 
 					endif;
 					?>
 					</div>
-					<?
+					<?php 
 						$result = '';
 					else:
 						$bUseLogin = $arParams['SHOW_LOGIN'] != "N" ? true : false;
@@ -183,15 +183,15 @@ endforeach;
 			}
 			echo $result;
 		?></td>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</tr>
-<?endforeach;?>
-<?
+<?php endforeach;?>
+<?php 
 	}
 ?>
 </tbody>
 </table>
-<?
+<?php 
 
 
 endif;

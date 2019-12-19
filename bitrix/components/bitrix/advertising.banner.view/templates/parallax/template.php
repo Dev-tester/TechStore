@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 /**
  * @var CBitrixComponent $component
@@ -65,49 +65,49 @@ else
 ?>
 
 <div class='bx-parallax' style="position:relative;height:<?=$arParams['HEIGHT']?>px;background-image:url('<?=$imgSrc?>');background-attachment:fixed;background-repeat: no-repeat;background-position: 50% 0;">
-<? if ($showUrl): ?>
-	<a href="<?=$url?>" title="<?=$alt?>" target="<?=$urlTarget?>" style="display:block;<? if ($arParams['PROPS']['PRESET']!=4): ?>height:100%;<? endif ?>">
-<? endif ?>
+<?php  if ($showUrl): ?>
+	<a href="<?=$url?>" title="<?=$alt?>" target="<?=$urlTarget?>" style="display:block;<?php  if ($arParams['PROPS']['PRESET']!=4): ?>height:100%;<?php  endif ?>">
+<?php  endif ?>
 	<div class="bx-slider-preset-<?=$arParams['PROPS']['PRESET']?>">
-		<? if ($arParams['EXT_MODE'] == 'N'): ?>
-			<? if ($arParams['PROPS']['OVERLAY'] == 'Y'): ?>
+		<?php  if ($arParams['EXT_MODE'] == 'N'): ?>
+			<?php  if ($arParams['PROPS']['OVERLAY'] == 'Y'): ?>
 				<div class="bx-advertisingbanner-pattern" style="background:rgba(<?=$arParams['PROPS']['OVERLAY_COLOR']?>)"></div>
-			<? endif ?>
-			<? if ($arParams['PROPS']['HEADING_SHOW'] == 'Y' || $arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y' || $arParams['PROPS']['BUTTON'] == 'Y'): ?>
-				<div class="bx-advertisingbanner-content<?=$playClass?>"<?=$animation?> <? if ($arParams['PROPS']['PRESET']==2 || $arParams['PROPS']['PRESET']==3){echo 'style="background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');"';}?>>
-					<? if ($arParams['PROPS']['HEADING_SHOW'] == 'Y'): ?>
-						<div id='text<?=$rnd?>' class="bx-advertisingbanner-text-title" style="display:inline-block;font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<? if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>"><?=$headingText?></div>
-					<? endif ?>
-					<? if ($arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y'): ?>
+			<?php  endif ?>
+			<?php  if ($arParams['PROPS']['HEADING_SHOW'] == 'Y' || $arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y' || $arParams['PROPS']['BUTTON'] == 'Y'): ?>
+				<div class="bx-advertisingbanner-content<?=$playClass?>"<?=$animation?> <?php  if ($arParams['PROPS']['PRESET']==2 || $arParams['PROPS']['PRESET']==3){echo 'style="background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');"';}?>>
+					<?php  if ($arParams['PROPS']['HEADING_SHOW'] == 'Y'): ?>
+						<div id='text<?=$rnd?>' class="bx-advertisingbanner-text-title" style="display:inline-block;font-size:<?=$arParams['PROPS']['HEADING_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['HEADING_FONT_COLOR']?>;<?php  if ($arParams['PROPS']['PRESET']==1 || $arParams['PROPS']['PRESET']==4){echo 'background:rgba('.$arParams['PROPS']['HEADING_BG_COLOR'].');';}?>"><?=$headingText?></div>
+					<?php  endif ?>
+					<?php  if ($arParams['PROPS']['ANNOUNCEMENT_SHOW'] == 'Y'): ?>
 						<div id='announce<?=$rnd?>' class="bx-advertisingbanner-text-block" style="font-size:<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_SIZE']?>px;color:#<?=$arParams['PROPS']['ANNOUNCEMENT_FONT_COLOR']?>;background:rgba(<?=$arParams['PROPS']['ANNOUNCEMENT_BG_COLOR']?>);"><?=$announcementText?></div>
-					<? endif ?>
-					<? if ($arParams['PROPS']['BUTTON'] == 'Y'): ?>
-						<? if (isset($arParams['PREVIEW'])): ?>
+					<?php  endif ?>
+					<?php  if ($arParams['PROPS']['BUTTON'] == 'Y'): ?>
+						<?php  if (isset($arParams['PREVIEW'])): ?>
 							<button  class="bx-advertisingbanner-btn" style="background-color: rgb(<?=$arParams['PROPS']['BUTTON_BG_COLOR']?>);color:#<?=$arParams['PROPS']['BUTTON_FONT_COLOR']?>;border: 0;"><?=$arParams['PROPS']['BUTTON_TEXT']?></button>
-						<? else: ?>
+						<?php  else: ?>
 							<a class="bx-advertisingbanner-btn" href="<?=$arParams['PROPS']['BUTTON_LINK_URL']?>" title="<?=$arParams['PROPS']['BUTTON_LINK_TITLE']?>" target="<?=$arParams['PROPS']['BUTTON_LINK_TARGET']?>" style="background-color: rgb(<?=$arParams['PROPS']['BUTTON_BG_COLOR']?>);color:#<?=$arParams['PROPS']['BUTTON_FONT_COLOR']?>">
 								<?=$arParams['PROPS']['BUTTON_TEXT']?>
 							</a>
-						<? endif ?>
-					<? endif ?>
+						<?php  endif ?>
+					<?php  endif ?>
 				</div>
-			<? endif ?>
-		<? elseif ($arParams['EXT_MODE'] == 'Y'): ?>
+			<?php  endif ?>
+		<?php  elseif ($arParams['EXT_MODE'] == 'Y'): ?>
 			<?=$headingText?>
-		<? endif ?>
+		<?php  endif ?>
 		<script>
 			var objList = [];
 			if (BX('text<?=$rnd?>'))
 				objList.push({node : BX('text<?=$rnd?>'), maxFontSize : <?=$arParams['PROPS']['HEADING_FONT_SIZE']?>, smallestValue : false});
-			<? if (!isset($arParams['PREVIEW'])): ?>
+			<?php  if (!isset($arParams['PREVIEW'])): ?>
 			BX.FixFontSize.init({
 				objList : objList,
 				onresize : true
 			});
-			<? endif ?>
+			<?php  endif ?>
 		</script>
 	</div>
-<? if ($showUrl): ?>
+<?php  if ($showUrl): ?>
 	</a>
-<? endif ?>
+<?php  endif ?>
 </div>

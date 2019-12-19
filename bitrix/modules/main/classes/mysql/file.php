@@ -1,4 +1,4 @@
-<?
+<?php 
 class CFile extends CAllFile
 {
 	public static function Delete($ID)

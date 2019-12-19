@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_BP_MAIN_MENU_ITEM"] = "Workflows";
 $MESS["MB_BP_MAIN_STRESS_LEVEL"] = "Stress level";
 $MESS["MB_CALENDAR_LIST"] = "Calendar";

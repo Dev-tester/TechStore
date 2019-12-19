@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_LINKS_0"] = "Link";
 $MESS["WZD_OPTION_LINKS_1"] = "Published";
 $MESS["WZD_OPTION_LINKS_2"] = "Activity Start";

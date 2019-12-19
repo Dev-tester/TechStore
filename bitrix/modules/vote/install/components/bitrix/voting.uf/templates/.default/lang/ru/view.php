@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_HIDE_MY_VOTE"] = "Скрыть мой голос";
 $MESS["VOTE_SUBMIT_BUTTON"] = "Голосовать";
 $MESS["F_CAPTCHA_PROMT"] = "Символы на картинке";

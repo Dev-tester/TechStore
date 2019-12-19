@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DIRECTION_FORM_NAME"] = "Administrative services";
 $MESS["DIRECTION_ORDER_FORM_BUTTON"] = "Submit Order";
 

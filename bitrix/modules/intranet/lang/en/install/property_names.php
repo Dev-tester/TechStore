@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UF_1C"] = "User from 1C";
 $MESS["UF_DEPARTMENT"] = "Departments";
 $MESS["UF_DISTRICT"] = "District";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_NAME"] = "Файл";
 $MESS["CATEGORY_NAME"] = "Категория";
 $MESS["PAGE_SERVICE"] = "Служебная страница";

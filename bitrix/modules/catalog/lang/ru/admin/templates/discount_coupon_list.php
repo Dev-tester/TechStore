@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_DISC_COUPON_LIST_REFRESH"] = "Обновить список";
 $MESS["BT_CAT_DISC_COUPON_LIST_REFRESH_TITLE"] = "Обновить список купонов";
 $MESS["BT_CAT_DISC_COUPON_LIST_SHOW_AFTER_COPY"] = "Чтобы редактировать купоны, необходимо скопировать скидку";

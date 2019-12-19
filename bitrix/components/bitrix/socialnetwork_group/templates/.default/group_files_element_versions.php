@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($arResult["VARIABLES"]["PERMISSION"] < "U") 
 	return false;
-?><?$arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
+?><?php $arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
 	"OBJECT"	=>	$arParams["OBJECT"], 
 	"IBLOCK_TYPE"	=>	$arParams["FILES_GROUP_IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["FILES_GROUP_IBLOCK_ID"],
@@ -47,7 +47,7 @@ if ($arResult["VARIABLES"]["PERMISSION"] < "U")
 	array("HIDE_ICONS" => "Y")
 );?>
 <h3><?=GetMessage("WD_VERSIONS")?></h3>
-<?$APPLICATION->IncludeComponent("bitrix:webdav.element.version", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:webdav.element.version", ".default", Array(
 	"OBJECT"	=>	$arParams["OBJECT"], 
 	"IBLOCK_TYPE"	=>	$arParams["FILES_GROUP_IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["FILES_GROUP_IBLOCK_ID"],
@@ -88,7 +88,7 @@ if ($arResult["VARIABLES"]["PERMISSION"] < "U")
 	"DISPLAY_PANEL"	=>	$arParams["DISPLAY_PANEL"]),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 unset($this->__component->arResult["arButtons"]["versions"]);
 unset($this->__component->arResult["arButtons"]["history"]);
 unset($this->__component->arResult["arButtons"]["edit"]);

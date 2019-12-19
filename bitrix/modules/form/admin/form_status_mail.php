@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -73,6 +73,6 @@ $arReturn = array(
 <script>
 _processData(<?=CUtil::PhpToJsObject($arReturn)?>);
 </script>
-<?
+<?php 
 //require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php")
 ?>

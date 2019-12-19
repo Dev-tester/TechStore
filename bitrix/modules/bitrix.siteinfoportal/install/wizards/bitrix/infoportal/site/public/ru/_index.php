@@ -1,9 +1,9 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новости");
 $GLOBALS["arrFilterMainTheme"] = array("PROPERTY_MAIN_VALUE" => 1);
 $GLOBALS["arrFilterMain"] = array("PROPERTY_MAIN_VALUE" => 1);
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:news.list", "main_theme", array(
+<?php $APPLICATION->IncludeComponent("bitrix:news.list", "main_theme", array(
 	"IBLOCK_TYPE" => "news",
 	"IBLOCK_ID" => "#THEME_NEWS_IBLOCK_ID#",
 	"NEWS_COUNT" => "1",
@@ -58,7 +58,7 @@ $GLOBALS["arrFilterMain"] = array("PROPERTY_MAIN_VALUE" => 1);
 	)
 );?>
   <h1>Новости</h1>
- <?$APPLICATION->IncludeComponent("bitrix:news.list", "main_news", array(
+ <?php $APPLICATION->IncludeComponent("bitrix:news.list", "main_news", array(
 	"IBLOCK_TYPE" => "news",
 	"IBLOCK_ID" => "#NEWS_IBLOCK_ID#",
 	"NEWS_COUNT" => "3",
@@ -118,7 +118,7 @@ $GLOBALS["arrFilterMain"] = array("PROPERTY_MAIN_VALUE" => 1);
 	false
 );?> 
 <div class="hr"></div>
- <?$APPLICATION->IncludeComponent("bitrix:news.list", "news", array(
+ <?php $APPLICATION->IncludeComponent("bitrix:news.list", "news", array(
 	"IBLOCK_TYPE" => "news",
 	"IBLOCK_ID" => "#NEWS_IBLOCK_ID#",
 	"NEWS_COUNT" => "10",
@@ -176,4 +176,4 @@ $GLOBALS["arrFilterMain"] = array("PROPERTY_MAIN_VALUE" => 1);
 	"AJAX_OPTION_ADDITIONAL" => ""
 	),
 	false
-);?> <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?> <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

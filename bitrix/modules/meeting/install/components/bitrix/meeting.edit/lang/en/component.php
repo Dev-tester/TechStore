@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ME_MODULE_NOT_INSTALLED"] = "The \"Meetings and Events\" module is not installed.";
 $MESS["ME_MEETING_NOT_FOUND"] = "The meeting was not found.";
 $MESS["ME_MEETING_ACCESS_DENIED"] = "Access denied";

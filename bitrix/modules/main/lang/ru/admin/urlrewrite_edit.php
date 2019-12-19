@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MURL_NO_USL'] = "Не указано условие";
 $MESS ['MURL_DUPL_CONDITION'] = "Запись с условием '#CONDITION#' уже существует";
 $MESS ['MURL_EDIT'] = "Изменение записи";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_COMPOSITE_PAGES_TITLE"] = "Composite pages";
 $MESS["MAIN_COMPOSITE_PAGES_PAGES"] = "Pages";
 $MESS["MAIN_COMPOSITE_PAGES_PAGE"] = "Page";

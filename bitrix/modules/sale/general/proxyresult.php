@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSaleProxyResult extends CDBResult
 {
 	private $parameters = array();

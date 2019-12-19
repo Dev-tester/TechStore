@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_AUTH_TITLE"] = "Bitrix24 password";
 $MESS["INTRANET_USER_PROFILE_RECOVERY_CODES_TITLE"] = "Recovery codes";
 $MESS["INTRANET_USER_PROFILE_SECURITY_OTP_TITLE"] = "Extra security options";

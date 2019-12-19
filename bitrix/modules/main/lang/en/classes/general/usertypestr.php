@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['USER_TYPE_STRING_DESCRIPTION'] = "Text";
 $MESS ['USER_TYPE_STRING_SIZE'] = "Input field size";
 $MESS ['USER_TYPE_STRING_ROWS'] = "Row count";

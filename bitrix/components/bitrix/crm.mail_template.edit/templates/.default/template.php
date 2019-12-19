@@ -22,21 +22,21 @@ if ($_REQUEST['IFRAME'] == 'Y' && $_REQUEST['IFRAME_TYPE'] == 'SIDE_SLIDER')
 
 	?><!DOCTYPE html>
 	<html>
-		<head><? $APPLICATION->showHead(); ?></head>
+		<head><?php  $APPLICATION->showHead(); ?></head>
 		<body style="background: #eef2f4 !important; ">
 			<div style="padding: 0 20px 20px 20px; ">
 				<div class="pagetitle-wrap">
 					<div class="pagetitle-inner-container">
-						<div class="pagetitle-menu" id="pagetitle-menu"><?
+						<div class="pagetitle-menu" id="pagetitle-menu"><?php 
 							$APPLICATION->showViewContent('pagetitle');
 							$APPLICATION->showViewContent('inside_pagetitle');
 						?></div>
 						<div class="pagetitle">
-							<span id="pagetitle" class="pagetitle-item"><? $APPLICATION->showTitle() ?></span>
+							<span id="pagetitle" class="pagetitle-item"><?php  $APPLICATION->showTitle() ?></span>
 						</div>
 					</div>
 				</div>
-	<?
+	<?php 
 
 	if (!empty($arResult['ERRORS']))
 		showError(implode("\n", $arResult['ERRORS']));
@@ -51,37 +51,37 @@ else
 
 <form id="<?=htmlspecialcharsbx($formId) ?>" action="<?=POST_FORM_ACTION_URI ?>" method="POST">
 	<?=bitrix_sessid_post() ?>
-	<? $saveAction = isset($arResult['EXTERNAL_CONTEXT']) && $arResult['EXTERNAL_CONTEXT'] != '' ? 'save' : 'apply'; ?>
+	<?php  $saveAction = isset($arResult['EXTERNAL_CONTEXT']) && $arResult['EXTERNAL_CONTEXT'] != '' ? 'save' : 'apply'; ?>
 	<input type="hidden" name="<?=$saveAction ?>" value="<?=$saveAction ?>">
 	<input type="hidden" name="element_id" value="<?=intval($arResult['ELEMENT']['ID']) ?>">
 	<input type="hidden" name="BODY_TYPE" value="<?=\CCrmContentType::Html ?>">
 
-	<? ob_start(); ?>
+	<?php  ob_start(); ?>
 	<span class="crm-mail-template-edit-form-switches-wrapper">
 		<span class="crm-mail-template-edit-form-switch">
 			<input class="crm-mail-template-edit-form-switch-checkbox" form="<?=htmlspecialcharsbx($formId) ?>"
 				id="crm_mail_template_<?=intval($arResult['ELEMENT']['ID']) ?>_active"
 				name="IS_ACTIVE" value="Y" type="checkbox"
-				<? if ('Y' == $arResult['ELEMENT']['IS_ACTIVE']): ?> checked<? endif ?>
+				<?php  if ('Y' == $arResult['ELEMENT']['IS_ACTIVE']): ?> checked<?php  endif ?>
 				onchange="BX(this.id+'_alt').value = this.checked ? this.value : '';">
 			<label class="crm-mail-template-edit-form-switch-label"
 				for="crm_mail_template_<?=intval($arResult['ELEMENT']['ID']) ?>_active"><?=getMessage('CRM_MAIL_TEMPLATE_IS_ACTIVE') ?></label>
 		</span>
-		<? if (\CCrmPerms::isAdmin() || \CCrmMailTemplateScope::Common == $arResult['ELEMENT']['SCOPE']): ?>
+		<?php  if (\CCrmPerms::isAdmin() || \CCrmMailTemplateScope::Common == $arResult['ELEMENT']['SCOPE']): ?>
 			<span class="crm-mail-template-edit-form-switch">
 				<input type="hidden" name="SCOPE" value="<?=\CCrmMailTemplateScope::Personal ?>">
 				<input class="crm-mail-template-edit-form-switch-checkbox" form="<?=htmlspecialcharsbx($formId) ?>"
 					id="crm_mail_template_<?=intval($arResult['ELEMENT']['ID']) ?>_public"
 					name="SCOPE" value="<?=\CCrmMailTemplateScope::Common ?>" type="checkbox"
-					<? if (\CCrmMailTemplateScope::Common == $arResult['ELEMENT']['SCOPE']): ?> checked<? endif ?>
+					<?php  if (\CCrmMailTemplateScope::Common == $arResult['ELEMENT']['SCOPE']): ?> checked<?php  endif ?>
 					onchange="BX(this.id+'_alt').value = this.checked ? this.value : <?=\CCrmMailTemplateScope::Personal ?>;"
-					<? if (!\CCrmPerms::isAdmin()): ?> disabled<? endif ?>>
+					<?php  if (!\CCrmPerms::isAdmin()): ?> disabled<?php  endif ?>>
 				<label class="crm-mail-template-edit-form-switch-label"
 					for="crm_mail_template_<?=intval($arResult['ELEMENT']['ID']) ?>_public"><?=getMessage('CRM_MAIL_TEMPLATE_SCOPE_PUBLIC') ?></label>
 			</span>
-		<? endif ?>
-		<? if (false && $arResult['ELEMENT']['ID'] > 0 && (\CCrmPerms::isAdmin() || $arResult['USER_ID'] == $arResult['ELEMENT']['OWNER_ID'])): ?>
-			<? $deleteHref = \CHTTP::urlAddParams(
+		<?php  endif ?>
+		<?php  if (false && $arResult['ELEMENT']['ID'] > 0 && (\CCrmPerms::isAdmin() || $arResult['USER_ID'] == $arResult['ELEMENT']['OWNER_ID'])): ?>
+			<?php  $deleteHref = \CHTTP::urlAddParams(
 				\CComponentEngine::makePathFromTemplate(
 					$arParams['PATH_TO_MAIL_TEMPLATE_EDIT'],
 					array('element_id' => $arResult['ELEMENT']['ID'])
@@ -93,9 +93,9 @@ else
 					<a href="#" onclick="confirm('<?=\CUtil::jsEscape(getMessage('CRM_MAIL_TEMPLATE_DELETE_DLG_MESSAGE')) ?>') && (window.location = '<?=\CUtil::jsEscape($deleteHref); ?>'); return false; "><?=getMessage('CRM_MAIL_TEMPLATE_DELETE_BTN') ?></a>
 				</label>
 			</span>
-		<? endif ?>
+		<?php  endif ?>
 	</span>
-	<?
+	<?php 
 
 	$controls = ob_get_clean();
 
@@ -109,7 +109,7 @@ else
 	{
 		$this->setViewTarget('inside_pagetitle');
 		?><div class="pagetitle-container pagetitle-flexible-space"></div>
-		<span class="pagetitle-container pagetitle-align-right-container"><?=$controls ?></span><?
+		<span class="pagetitle-container pagetitle-align-right-container"><?=$controls ?></span><?php 
 		$this->endViewTarget();
 	}
 	else
@@ -124,7 +124,7 @@ else
 	<input id="crm_mail_template_<?=intval($arResult['ELEMENT']['ID']) ?>_public_alt"
 		type="hidden" name="SCOPE" value="<?=htmlspecialcharsbx($arResult['ELEMENT']['SCOPE']) ?>">
 
-	<? $APPLICATION->includeComponent(
+	<?php  $APPLICATION->includeComponent(
 		'bitrix:main.mail.form', '',
 		array(
 			'FORM_ID' => $formId,
@@ -260,7 +260,7 @@ BX.ready(function()
 		);
 	});
 
-	<? if ($arResult['ELEMENT']['ID'] > 0 && empty($arResult['CAN_EDIT'])): ?>
+	<?php  if ($arResult['ELEMENT']['ID'] > 0 && empty($arResult['CAN_EDIT'])): ?>
 
 	var submitButton = BX.findChildByClassName(formNode, 'main-mail-form-submit-button', true);
 	if (submitButton)
@@ -271,13 +271,13 @@ BX.ready(function()
 		return BX.PreventDefault(event);
 	});
 
-	<? endif ?>
+	<?php  endif ?>
 
 	BX.addCustomEvent(mailForm, 'MailForm:footer:buttonClick', function(form, button)
 	{
 		if (BX.hasClass(button, 'main-mail-form-cancel-button'))
 		{
-			<? if (isset($arResult['EXTERNAL_CONTEXT']) && $arResult['EXTERNAL_CONTEXT'] != ''): ?>
+			<?php  if (isset($arResult['EXTERNAL_CONTEXT']) && $arResult['EXTERNAL_CONTEXT'] != ''): ?>
 			BX.localStorage.set(
 				'onCrmMailTemplateCreate',
 				{
@@ -285,7 +285,7 @@ BX.ready(function()
 				},
 				10
 			);
-			<? endif ?>
+			<?php  endif ?>
 
 			var slider = top.BX.SidePanel.Instance.getSliderByWindow(window);
 			if (slider && slider.close)
@@ -304,14 +304,14 @@ BX.ready(function()
 });
 </script>
 
-<?
+<?php 
 
 if ($_REQUEST['IFRAME'] == 'Y' && $_REQUEST['IFRAME_TYPE'] == 'SIDE_SLIDER')
 {
 	?>
 			</div>
 		</body>
-	</html><?
+	</html><?php 
 
 	require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_after.php');
 	die;

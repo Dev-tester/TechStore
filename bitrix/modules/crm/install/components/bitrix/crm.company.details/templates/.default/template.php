@@ -61,7 +61,7 @@ $APPLICATION->IncludeComponent(
 				BX.message({ "CRM_TIMELINE_HISTORY_STUB": "<?=GetMessageJS('CRM_COMPANY_DETAIL_HISTORY_STUB')?>" });
 			}
 		);
-</script><?
+</script><?php 
 
 $editorContext = array('PARAMS' => $arResult['CONTEXT_PARAMS']);
 if(isset($arResult['ORIGIN_ID']) && $arResult['ORIGIN_ID'] !== '')

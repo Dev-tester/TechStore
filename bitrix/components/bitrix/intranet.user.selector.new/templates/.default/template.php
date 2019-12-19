@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $APPLICATION->AddHeadScript('/bitrix/components/bitrix/intranet.user.selector.new/templates/.default/users.js');
@@ -158,16 +158,16 @@ $ajaxUrl = $this->__component->GetPath() . '/ajax.php?' .
 			<td class="finder-box-right-column" id="<?=$arResult["NAME"]; ?>_selected_users">
 				<div class="finder-box-selected-title"><?=GetMessage("INTRANET_EMP_CURRENT_COUNT"); ?> (<span id="<?=$arResult["NAME"]; ?>_current_count"><?=sizeof($arResult["CURRENT_USERS"]); ?></span>)</div>
 				<div class="finder-box-selected-items">
-					<? foreach($arResult["CURRENT_USERS"] as $user) { ?>
+					<?php  foreach($arResult["CURRENT_USERS"] as $user) { ?>
 						<div
 							class="finder-box-selected-item"
 							id="<?=$arResult["NAME"]; ?>_employee_selected_<?=$user["ID"]; ?>"><div
 								class="finder-box-selected-item-icon"
 								id="<?=$arResult['NAME']; ?>-user-selector-unselect-<?=$user["ID"]; ?>"
 								onclick="window['O_<?=CUtil::jsEscape($arResult['NAME']) ?>'].unselect(<?=$user["ID"]; ?>, this);"
-								<? if (in_array($user['ID'], $arResult['FIXED_USERS'])) { ?>style="visibility: hidden; "<? } ?>></div><span
+								<?php  if (in_array($user['ID'], $arResult['FIXED_USERS'])) { ?>style="visibility: hidden; "<?php  } ?>></div><span
 									class="finder-box-selected-item-text"><?=$user["NAME"]; ?></span></div>
-					<? } ?>
+					<?php  } ?>
 				</div>
 			</td>
 			<?php endif?>

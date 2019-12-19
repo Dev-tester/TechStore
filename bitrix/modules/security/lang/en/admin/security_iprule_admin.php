@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_IPRULE_ADMIN_MAIN_TAB"] = "Control Panel Protection";
 $MESS["SEC_IPRULE_ADMIN_MAIN_TAB_TITLE"] = "Deny any access to Control Panel except specified IP addresses";
 $MESS["SEC_IPRULE_ADMIN_TITLE"] = "Control Panel Protection";

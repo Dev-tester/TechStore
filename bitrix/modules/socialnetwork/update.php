@@ -1,4 +1,4 @@
-<?
+<?php 
 if($updater->CanUpdateDatabase() && $updater->TableExists("b_sonet_group"))
 {
 	$updater->Query(array(

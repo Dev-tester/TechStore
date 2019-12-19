@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GCT_EMPTY_POST_ID"] = "The post of the tag is not specified";
 $MESS["BLG_GCT_EMPTY_BLOG_ID"] = "The blog of the tag is not specified";
 $MESS["BLG_GCT_EMPTY_CATEGORY_ID"] = "The tag is not specified";

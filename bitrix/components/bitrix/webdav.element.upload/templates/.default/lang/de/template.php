@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_VIEW'] = "Ansicht";
 $MESS ['WD_IU_APPLET'] = "Standard";
 $MESS ['WD_IU_APPLET_TITLE'] = "Es ist möglich, zusätzliche Angaben zu Datei bequem beim Hochladen zu machen.";

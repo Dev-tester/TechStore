@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_ISS_PARAM_DEPARTMENT"] = "Department";
 $MESS["INTR_ISS_PARAM_DEPARTMENT_MINE"] = "Only my office";
 $MESS["INTR_ISS_PARAM_POST"] = "Position";

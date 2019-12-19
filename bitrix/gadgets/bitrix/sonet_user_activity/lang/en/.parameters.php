@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_ACTIVITY_P_EVENT_ID"] = "Message Type";
 $MESS["GD_ACTIVITY_P_EVENT_ID_VALUE_FORUM"] = "forums/discussions";
 $MESS["GD_ACTIVITY_P_EVENT_ID_VALUE_BLOG"] = "blogs/reports";

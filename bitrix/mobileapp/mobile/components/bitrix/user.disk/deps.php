@@ -1,1 +1,1 @@
-<? return ["disk"];
+<?php  return ["disk"];

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_COMPOSITE_LOG_TITLE"] = "Журнал отладки";
 $MESS["MAIN_COMPOSITE_LOG_PAGES"] = "Записи";
 $MESS["MAIN_COMPOSITE_LOG_PAGE_COLUMN"] = "Страница";

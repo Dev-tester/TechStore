@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_FIELD_ID"] = "Task ID";
 $MESS["WD_FIELD_TIMESTAMP_X"] = "Task Modification Date";
 $MESS["WD_FIELD_MODIFIED"] = "Task Modified By";

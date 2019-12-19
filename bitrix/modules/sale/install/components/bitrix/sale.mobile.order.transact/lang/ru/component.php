@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOT_TR_TYPE_PAYMENT"] = "Оплата заказа";
 $MESS["SMOT_TR_TYPE_FROM_CARD"] = "Внесение денег с пластиковой карты";
 $MESS["SMOT_TR_TYPE_INPUT"] = "Внесение денег";

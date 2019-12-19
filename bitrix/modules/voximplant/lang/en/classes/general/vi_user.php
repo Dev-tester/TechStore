@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_ERROR_COULD_NOT_CREATE_ACCOUNT"] = "Could not create a telephony account on the telephony controller";
 $MESS["VI_USER_PASS_ERROR"] = "Incorrect password";
 $MESS["VI_ERROR_EMAIL_NOT_CONFIRMED"] = "You have to confirm your e-mail address to connect phones.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_TELEGRAMBOT_API_TOKEN"] = "Токен доступа:";
 $MESS["IMCONNECTOR_COMPONENT_TELEGRAMBOT_I_KNOW_TOKEN"] = "Я знаю токен";
 $MESS["IMCONNECTOR_COMPONENT_TELEGRAMBOT_FINAL_FORM_DESCRIPTION"] = "Telegram успешно подключен к вашей Открытой линии. Теперь все обращения к вашему публичному аккаунту будут автоматически направлены в ваш Битрикс24.";

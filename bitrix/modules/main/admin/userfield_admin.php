@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 define("HELP_FILE", "settings/userfield_admin.php");
 
@@ -286,13 +286,13 @@ $arrYN = array(
 	"reference_id" => array("Y", "N")
 );
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("USERTYPE_F_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				"ID",
@@ -310,21 +310,21 @@ $arrYN = array(
 <tr>
 	<td><?="ID"?>:</td>
 	<td>
-		<input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>">
+		<input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>">
 	</td>
 </tr>
 <tr>
 	<td><?=GetMessage("USERTYPE_ENTITY_ID").":"?></td>
-	<td><input type="text" name="find_entity_id" size="47" value="<?echo htmlspecialcharsbx($find_entity_id)?>"></td>
+	<td><input type="text" name="find_entity_id" size="47" value="<?php echo htmlspecialcharsbx($find_entity_id)?>"></td>
 </tr>
 <tr>
 	<td><?=GetMessage("USERTYPE_FIELD_NAME").":"?></td>
-	<td><input type="text" name="find_field_name" size="47" value="<?echo htmlspecialcharsbx($find_field_name)?>"></td>
+	<td><input type="text" name="find_field_name" size="47" value="<?php echo htmlspecialcharsbx($find_field_name)?>"></td>
 </tr>
 <tr>
 	<td><?=GetMessage("USERTYPE_USER_TYPE_ID")?>:</td>
 	<td>
-		<?
+		<?php 
 		$typeList = array();
 		foreach($USER_FIELD_MANAGER->GetUserType() as $arUserType)
 		{
@@ -347,7 +347,7 @@ $arrYN = array(
 </tr>
 <tr>
 	<td><?=GetMessage("USERTYPE_XML_ID").":"?></td>
-	<td><input type="text" name="find_xml_id" size="47" value="<?echo htmlspecialcharsbx($find_xml_id)?>"></td>
+	<td><input type="text" name="find_xml_id" size="47" value="<?php echo htmlspecialcharsbx($find_xml_id)?>"></td>
 </tr>
 <tr>
 	<td><?=GetMessage("USERTYPE_MULTIPLE")?>:</td>
@@ -364,7 +364,7 @@ $arrYN = array(
 <tr>
 	<td><?=GetMessage("USERTYPE_SHOW_FILTER")?>:</td>
 	<td>
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("USER_TYPE_FILTER_N"),
@@ -401,12 +401,12 @@ $arrYN = array(
 		<?=SelectBoxFromArray("find_is_searchable", $arrYN, $find_is_searchable, GetMessage("MAIN_ALL"), "");?>
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

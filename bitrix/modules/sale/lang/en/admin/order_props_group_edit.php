@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOPGEN_NO_PERMS2ADD"] = "You do not have enough permissions to add a new property group";
 $MESS["SOPGEN_NO_PROPS_GRP"] = "The property group ##ID# was not found";
 $MESS["SOPGEN_ERROR_SAVING_PROPS_GRP"] = "Error saving property group";

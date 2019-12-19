@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUBSCRIBE_NAME_forum"] = "Форум";
 $MESS["SUBSCRIBE_NAME_blog"] = "Блог";
 $MESS["SUBSCRIBE_NAME_calendar"] = "Календарь";

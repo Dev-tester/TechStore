@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_DBNODE_EDIT_ERROR"] = "Указано неверное подключение для редактирования.";
 $MESS["CLU_DBNODE_EDIT_TAB"] = "Подключение";
 $MESS["CLU_DBNODE_EDIT_TAB_TITLE"] = "Редактирование подключения к базе данных";

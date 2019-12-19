@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ALL"] = "alle";
 $MESS["PERS_TYPE_DEL_CONF"] = "Alle Feldergruppen werden gelöscht. Wollen Sie fortfahren?";
 $MESS["ERROR_UPDATE_REC"] = "Beim Aktualisieren des Datensatzes ist ein Fehler aufgetreten";

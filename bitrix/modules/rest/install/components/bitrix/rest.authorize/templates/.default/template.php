@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /**
  * Bitrix vars
@@ -14,5 +14,5 @@ if(isset($arResult["OAUTH_PARAMS"])):
 			<h1 style="position: static; border: 1px solid; zoom:1.2; width:150px; text-align: center;"><?=$arResult["OAUTH_PARAMS"]["code"]?></h1>
 		</div>
 	</div>
-<?
+<?php 
 endif;

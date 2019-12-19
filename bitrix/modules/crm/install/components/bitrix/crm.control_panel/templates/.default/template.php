@@ -40,7 +40,7 @@ if ($arResult["ENABLE_SEARCH"])
 					type="text"
 					autocomplete="off"
 					placeholder="<?=GetMessage("CRM_CONTROL_PANEL_SEARCH_PLACEHOLDER")?>"/></span>
-			<input type="hidden" name="where" value="crm"><?
+			<input type="hidden" name="where" value="crm"><?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:search.title",
 				"backend",
@@ -59,7 +59,7 @@ if ($arResult["ENABLE_SEARCH"])
 			);
 			?></form>
 	</span>
-	<?
+	<?php 
 
 	$this->EndViewTarget();
 }

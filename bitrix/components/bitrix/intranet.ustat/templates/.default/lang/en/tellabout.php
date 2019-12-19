@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USTAT_TELLABOUT_SOCNET_TITLE"] = "Unity in the workforce";
 $MESS["INTRANET_USTAT_TELLABOUT_SOCNET_TEXT"] = "We can all see that technology is developing with blinding speed. Social networks have crowded out other communication forms because of their convenience and the simplicity of exchanges messages and media across computers and mobile devices. So let's use the same techniques in our workplace.
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_BROWSE_TITLE"] = "Дерево местоположений 2.0";
 $MESS["SALE_LOCATION_BROWSE_TAB"] = "Дерево местоположений";
 $MESS["SALE_LOCATION_BROWSE_HELP"] = "";

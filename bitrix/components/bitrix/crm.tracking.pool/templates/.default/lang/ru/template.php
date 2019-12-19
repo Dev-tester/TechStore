@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_CHANNEL_POOL_HEAD_PHONE"] = "Распределение телефонных номеров";
 $MESS["CRM_TRACKING_CHANNEL_POOL_HEAD_EMAIL"] = "Распределение email-адресов";
 $MESS["CRM_TRACKING_CHANNEL_POOL_DESC_PHONE"] = "Распределите телефонные номера по настроенным рекламным источникам";

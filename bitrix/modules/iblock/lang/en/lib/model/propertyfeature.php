@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PROPERTY_FEATURE_NAME_LIST_PAGE_SHOW"] = "Show on items page";
 $MESS["PROPERTY_FEATURE_NAME_DETAIL_PAGE_SHOW"] = "Show on item details page";
 $MESS["PROPERTY_FEATURE_ERR_BAD_PROPERTY_ID"] = "Invalid property ID";

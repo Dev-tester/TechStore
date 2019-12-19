@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SM_SETTINGS_TITLE_1"] = "Feature Configurator: ";
 $MESS["SONET_SM_SETTINGS_TITLE_forum"] = "forum";
 $MESS["SONET_SM_SETTINGS_TITLE_blog"] = "blog";

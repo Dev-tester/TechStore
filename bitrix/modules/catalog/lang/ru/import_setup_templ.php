@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CICML_STEP_TITLE"] = "Шаг #CUR# из #ALL#";
 $MESS["CICML_NEXT_STEP_F"] = "Начать загрузку";
 $MESS["CICML_SAVE"] = "Сохранить";

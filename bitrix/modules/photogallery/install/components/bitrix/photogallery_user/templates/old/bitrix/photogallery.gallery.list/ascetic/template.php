@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
 endif;
@@ -6,39 +6,39 @@ endif;
 $arParams["GALLERY_AVATAR_SIZE"] = intVal(intVal($arParams["GALLERY_AVATAR_SIZE"]) > 0 ? $arParams["GALLERY_AVATAR_SIZE"] : 50);
 $arParams["SHOW_PAGE_NAVIGATION"] = (in_array($arParams["SHOW_PAGE_NAVIGATION"], array("none", "top", "bottom", "both")) ? 
 		$arParams["SHOW_PAGE_NAVIGATION"] : "none");
-?><div class="empty-clear"></div><?
+?><div class="empty-clear"></div><?php 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "top" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?><div class="photo-navigation"><?=$arResult["NAV_STRING"]?></div>
-<div class="empty-clear"></div><?
+<div class="empty-clear"></div><?php 
 endif;
-?><div class="photo-galleries-ascetic"><?
+?><div class="photo-galleries-ascetic"><?php 
 foreach($arResult["GALLERIES"] as $res):
 ?>
 	<div class="photo-gallery-ascetic">
 		<a href="<?=$res["LINK"]["VIEW"]?>" title="<?=
 				str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>">
-<?
+<?php 
 ?>
-			<div class="photo-gallery-avatar" style="width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px; <?
-							?>height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;<?
+			<div class="photo-gallery-avatar" style="width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px; <?php 
+							?>height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;<?php 
 						if (!empty($res["PICTURE"]["SRC"])):
-							?>background-image:url('<?=$res["PICTURE"]["SRC"]?>');<?
+							?>background-image:url('<?=$res["PICTURE"]["SRC"]?>');<?php 
 						endif;?>"></div>
-<?
+<?php 
 ?>
 		</a>
 		<div class="photo-gallery-name">
 			<a href="<?=$res["LINK"]["VIEW"]?>" title="<?=
-				str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>"><?
+				str_replace("#GALLERY#", $res["NAME"], GetMessage("P_GALLERY_VIEW_TITLE"))?>"><?php 
 				?><?=$res["NAME"]?>
 			</a>
 		</div>
 		<div class="photo-gallery-description"><?=$res["DESCRIPTION"]?></div>
-	</div><?
+	</div><?php 
 endforeach;
-?></div><?
+?></div><?php 
 if (($arParams["SHOW_PAGE_NAVIGATION"] == "bottom" || $arParams["SHOW_PAGE_NAVIGATION"] == "both") && !empty($arResult["NAV_STRING"])):
 ?><div class="empty-clear"></div>
-<div class="photo-navigation"><?=$arResult["NAV_STRING"]?></div><?
+<div class="photo-navigation"><?=$arResult["NAV_STRING"]?></div><?php 
 endif;
 ?><div class="empty-clear"></div>

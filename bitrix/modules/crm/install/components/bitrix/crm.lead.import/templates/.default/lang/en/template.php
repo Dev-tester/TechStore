@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Import Settings";
 $MESS["CRM_TAB_1_TITLE"] = "Edit import settings";
 $MESS["CRM_TAB_2"] = "Fields";

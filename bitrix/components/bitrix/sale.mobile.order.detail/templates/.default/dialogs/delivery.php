@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Order delivery dialog
  */
@@ -7,7 +7,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 <form id="delivery_form">
 	<div class="order_acceptpay_component">
 		<div class="order_acceptpay_title"><?=GetMessage('SMOD_ALLOW_DELIVERY');?></div>
-			<?
+			<?php 
 
 			$APPLICATION->IncludeComponent(
 				'bitrix:mobileapp.interface.radiobuttons',

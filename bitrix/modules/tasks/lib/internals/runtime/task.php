@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This class is for private use only, it can be changed in any time, partially or entirely, so use it on your own risk.
  * However, we will provide backward compatibility as possible.

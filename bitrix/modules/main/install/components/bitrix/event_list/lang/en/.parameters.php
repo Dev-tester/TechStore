@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EVENT_LIST_FILTER_SETTINGS"] = "Filter Parameters";
 $MESS["EVENT_LIST_LOG_CNT"] = "Records per page";
 $MESS["EVENT_LIST_FILTER"] = "Filter Items";

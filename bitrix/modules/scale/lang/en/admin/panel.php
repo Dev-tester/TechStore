@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCALE_PANEL_TITLE"] = "Scalability Panel";
 $MESS["SCALE_PANEL_ACCESS_DENIED"] = "Access denied";
 $MESS["SCALE_PANEL_MODULE_NOT_INSTALLED"] = "Error including the \"Scalability\" module.";

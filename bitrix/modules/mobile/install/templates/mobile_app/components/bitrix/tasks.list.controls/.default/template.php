@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -164,7 +164,7 @@ if (($arParams['SHOW_SECTIONS_BAR'] === 'Y') || ($arParams['SHOW_FILTER_BAR'] ==
 		BX['taskroles'].instance('taskgroups', BX['taskgroups']);
 	</script>
 
-	<?
+	<?php 
 	$frame->startDynamicWithID("mobile-tasks-roles");
 	?>
 		<script>
@@ -173,7 +173,7 @@ if (($arParams['SHOW_SECTIONS_BAR'] === 'Y') || ($arParams['SHOW_FILTER_BAR'] ==
 				'userId' => intval($arParams['USER_ID'])
 			))?>);
 		</script>
-	<?
+	<?php 
 
 	$frame->finishDynamicWithID("mobile-tasks-roles", $stub = "", $containerId = null, $useBrowserStorage = true);
 }

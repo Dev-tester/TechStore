@@ -13,7 +13,7 @@ $APPLICATION->setTitle(Loc::getMessage('CRM_CONFIG_PLG_TITLE'));
 		<div class="crm-config-external-plugins-desc-title">
 			<span class="crm-config-external-plugins-desc-title-item"><?= Loc::getMessage('CRM_CONFIG_PLG_TITLE')?></span>
 		</div>
-		<?/*<div class="crm-config-external-plugins-desc-close-icon">
+		<?php /*<div class="crm-config-external-plugins-desc-close-icon">
 			<span class="crm-config-external-plugins-desc-close-icon-item"></span>
 		</div>*/?>
 	</div><!--crm-config-external-plugins-desc-head-->
@@ -43,11 +43,11 @@ $APPLICATION->setTitle(Loc::getMessage('CRM_CONFIG_PLG_TITLE'));
 		<span class="crm-config-external-plugins-platform-title-item"><?= Loc::getMessage('CRM_CONFIG_PLG_SELECT_CMS')?></span>
 	</div>
 	<div class="crm-config-external-plugins-platform">
-		<?/*if ($arResult['B24_LANG'] == 'ru'):?>
+		<?php /*if ($arResult['B24_LANG'] == 'ru'):?>
 		<div class="crm-config-external-plugins-platform-item icon-1c-bitrix">
 			<a href="<?= $uri->addParams(array('cms' => '1cbitrix'))->getUri()?>" class="crm-config-external-plugins-platform-icon"></a>
 		</div>
-		<?endif;*/?>
+		<?php endif;*/?>
 		<div class="crm-config-external-plugins-platform-item icon-drupal">
 			<a href="<?= $uri->addParams(array('cms' => 'drupal7'))->getUri()?>" class="crm-config-external-plugins-platform-icon"></a>
 		</div>

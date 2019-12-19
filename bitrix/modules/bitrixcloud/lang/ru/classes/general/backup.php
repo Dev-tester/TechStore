@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_BACKUP_AI_TITLE"] = "Резервное копирование";
 $MESS["BCL_BACKUP_AI_USAGE_TOTAL"] = "Всего:";
 $MESS["BCL_BACKUP_AI_USAGE_AVAIL"] = "Доступно:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Security\Sign;
 IncludeModuleLangFile(__FILE__);
 

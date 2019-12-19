@@ -1,4 +1,4 @@
-<?
+<?php 
 // set EUV for logged events
 $dbResult = CSocNetLog::GetList(Array("ENTITY_ID" => "ASC"), Array(), array("ENTITY_TYPE", "ENTITY_ID"));
 while ($arResult = $dbResult->Fetch())

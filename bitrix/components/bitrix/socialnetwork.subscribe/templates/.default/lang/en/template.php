@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C4_FUNC_TITLE"] = "Show updates for '#NAME#'";
 $MESS["SONET_C4_SUBMIT"] = "Apply";
 $MESS["SONET_C4_GR_SUCCESS"] = "Your subscription for the group updates has been changed successfully.";

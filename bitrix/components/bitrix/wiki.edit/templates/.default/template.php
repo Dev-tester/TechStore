@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 ?>
 <script>
@@ -22,14 +22,14 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 		charset: '<?=LANG_CHARSET?>',
 		maxImageWidth: <?=COption::GetOptionInt("wiki", "image_max_width", 600)?>
 	});
-	<?
+	<?php 
 	foreach($arResult['IMAGES'] as $aImg)
 	{
-		?>wikiMainEditor.arWikiImg[<?=$aImg['ID']?>] = '<?=CUtil::JSEscape($aImg['ORIGINAL_NAME'])?>';<?
+		?>wikiMainEditor.arWikiImg[<?=$aImg['ID']?>] = '<?=CUtil::JSEscape($aImg['ORIGINAL_NAME'])?>';<?php 
 	}
 	?>
 </script>
-<?
+<?php 
 if(strlen($arResult['ERROR_MESSAGE'])>0 && $arResult['WIKI_oper'] != 'delete'):
 	?>
 	<div class="wiki-errors">
@@ -37,7 +37,7 @@ if(strlen($arResult['ERROR_MESSAGE'])>0 && $arResult['WIKI_oper'] != 'delete'):
 			<?=$arResult['ERROR_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 endif;
 if(strlen($arResult['FATAL_MESSAGE'])>0):
 	?>
@@ -46,7 +46,7 @@ if(strlen($arResult['FATAL_MESSAGE'])>0):
 			<?=$arResult['FATAL_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 else:
 	include($_SERVER['DOCUMENT_ROOT'].$templateFolder.'/dialogs_content.php');
 	?>
@@ -57,7 +57,7 @@ else:
 				<h1><?=htmlspecialcharsbx($arResult['ELEMENT']['NAME_LOCALIZE'], ENT_QUOTES)?></h1>
 				</div>
 			</div>
-			<?
+			<?php 
 			if($arResult['PREVIEW'] == 'Y' && !empty($arResult['ELEMENT_PREVIEW'])):
 			?>
 				<div class="wiki-prereview-header">
@@ -67,12 +67,12 @@ else:
 					<div class="wiki-prereview-post-text"><?=$arResult['ELEMENT_PREVIEW']['DETAIL_TEXT']?></div>
 				</div>
 
-			<?endif;?>
+			<?php endif;?>
 			<form action="<?=$arResult['PATH_TO_POST_EDIT_SUBMIT']?>" name="REPLIER" method="post" >
 			<?=bitrix_sessid_post();?>
 			<div class="wiki-post-fields">
 
-			<?
+			<?php 
 			if (!$arResult["IS_CATEGORY_PAGE"]):
 			?>
 				<div class="wiki-post-header">
@@ -81,31 +81,31 @@ else:
 				<div class="wiki-post-area">
 					<input maxlength="255" size="70" tabindex="1" type="text" name="POST_TITLE" id="POST_TITLE" value="<?=htmlspecialcharsbx($arResult['ELEMENT']['NAME_LOCALIZE'], ENT_QUOTES)?>"/>
 				</div>
-			<?endif?>
+			<?php endif?>
 
 				<div class="wiki-post-header"><?=GetMessage('WIKI_PAGE_TEXT')?><font color="#ff0000">*</font></div>
 
 				<div class="wiki-post-area" id="wiki-editor">
 					<div class="wiki-post-textarea">
-						<?
+						<?php 
 						if($arResult['ALLOW_HTML'] == 'Y'):
 						?>
 							<input type="radio"
 								   id="wki-text-text"
 								   name="POST_MESSAGE_TYPE"
-								   value="text"<?if($arResult['ELEMENT']['DETAIL_TEXT_TYPE'] != 'html') echo " checked";?>
+								   value="text"<?php if($arResult['ELEMENT']['DETAIL_TEXT_TYPE'] != 'html') echo " checked";?>
 							/>
 							<label for="wki-text-text"><?=GetMessage('WIKI_TEXT_TEXT')?></label>
 							<input type="radio"
 								   id="wki-text-html"
 								   name="POST_MESSAGE_TYPE"
-								   value="html"<?if($arResult['ELEMENT']['DETAIL_TEXT_TYPE'] == 'html') echo " checked";?>
+								   value="html"<?php if($arResult['ELEMENT']['DETAIL_TEXT_TYPE'] == 'html') echo " checked";?>
 							/>
 							<label for="wki-text-html"><?=GetMessage('WIKI_TEXT_HTML')?></label>
 							<div id="edit-post-html" style="display:none;">
-								<?include($_SERVER['DOCUMENT_ROOT'].$templateFolder.'/lhe_custom.php')?>
+								<?php include($_SERVER['DOCUMENT_ROOT'].$templateFolder.'/lhe_custom.php')?>
 							</div>
-						<?
+						<?php 
 						endif;
 						?>
 						<div id="edit-post-text"  style="display:none;">
@@ -131,7 +131,7 @@ else:
 								<textarea cols="55" rows="15" tabindex="2" name="POST_MESSAGE" id="MESSAGE"><?=htmlspecialcharsbx($arResult["ELEMENT"]["~DETAIL_TEXT"], ENT_QUOTES)?></textarea>
 							</div>
 						</div>
-						<?
+						<?php 
 						if($arResult['ALLOW_HTML'] == 'Y')
 						{
 							$APPLICATION->AddHeadScript("/bitrix/js/main/ajax.js");
@@ -144,11 +144,11 @@ else:
 						?>
 					</div>
 					<div class="wiki-post-image" id="wiki-post-image">
-						<?
+						<?php 
 						if (!empty($arResult['IMAGES'])):
 							?>
 						<div><?=GetMessage('WIKI_IMAGES')?></div>
-						<?
+						<?php 
 						foreach($arResult['IMAGES'] as $aImg)
 						{
 							?>
@@ -159,7 +159,7 @@ else:
 									<label for="img_del_<?=$aImg['ID']?>"><?=GetMessage('WIKI_IMAGE_DELETE')?></label>
 								</div>
 							</div>
-							<?
+							<?php 
 						}
 					endif;
 					?>
@@ -183,7 +183,7 @@ else:
 					</div>
 					<div class="wiki-post-div-animate wiki-post-div-hide wiki-post-div-nonedisplay" id="wiki-input-tags">
 						<label for="TAGS"><?=GetMessage('WIKI_TAGS')?></label><br>
-						<?
+						<?php 
 						if(IsModuleInstalled('search')):
 							$arSParams = Array(
 								'NAME'	=>	'TAGS',
@@ -196,28 +196,28 @@ else:
 
 							$APPLICATION->IncludeComponent('bitrix:search.tags.input', '.default', $arSParams);
 						else:
-							?><input type="text" class="wiki-input" id="TAGS" tabindex="4" name="TAGS" size="30" value="<?=$arResult['ELEMENT']['~TAGS']?>"/><?
+							?><input type="text" class="wiki-input" id="TAGS" tabindex="4" name="TAGS" size="30" value="<?=$arResult['ELEMENT']['~TAGS']?>"/><?php 
 						endif?>
 					</div>
 				</div>
 				<div class="wiki-post-buttons wiki-edit-buttons">
-					<? if(!$arResult["IS_CATEGORY_PAGE"] && ($arResult['SOCNET'] && ($arResult['WIKI_oper'] == 'edit' || $arResult['WIKI_oper'] == 'add'))):?>
+					<?php  if(!$arResult["IS_CATEGORY_PAGE"] && ($arResult['SOCNET'] && ($arResult['WIKI_oper'] == 'edit' || $arResult['WIKI_oper'] == 'add'))):?>
 						<label><input type="checkbox" id="cb_post_to_feed" <?=($arResult['POST_TO_FEED'] == "Y" ? "checked" : "")?> onclick="wikiMainEditor.wikiPostToFeedTogle();") title="<?=GetMessage('WIKI_POST_TO_FEED_CB_TITLE')?>"/><?=GetMessage('WIKI_POST_TO_FEED_CB')?></label><br><br>
-					<?endif;?>
+					<?php endif;?>
 					<input type="hidden" name="<?=$arResult['PAGE_VAR']?>" value="<?=htmlspecialcharsbx($arResult['ELEMENT']['NAME'],ENT_QUOTES)?>"/>
 					<input type="hidden" name="<?=htmlspecialcharsbx($arResult['OPER_VAR'],ENT_QUOTES)?>" value="<?=htmlspecialcharsbx($arResult['WIKI_oper'],ENT_QUOTES)?>"/>
 					<input type="hidden" name="save" value="Y"/>
 					<input type="hidden" name="post_to_feed" id="post_to_feed" value="<?=htmlspecialcharsbx($arResult['POST_TO_FEED'])?>">
 					<input tabindex="5" type="submit" name="save" value="<?=GetMessage($arResult['WIKI_oper'] == 'add' || $arResult['WIKI_oper'] == 'edit' ? 'WIKI_PUBLISH' : 'WIKI_SAVE')?>"/>
-					<? if ($arResult['WIKI_oper'] == 'edit' || $arResult['WIKI_oper'] == 'add'): ?>
+					<?php  if ($arResult['WIKI_oper'] == 'edit' || $arResult['WIKI_oper'] == 'add'): ?>
 						<input type="submit" name="apply" value="<?=GetMessage('WIKI_APPLY')?>"/>
 						<input type="submit" name="preview" value="<?=GetMessage('WIKI_PREVIEW')?>"/>
-					<? endif; ?>
+					<?php  endif; ?>
 				</div>
 			</div>
 			</form>
 			<div class="wiki-post-note">
-			<?
+			<?php 
 			if ($arResult['WIKI_oper'] != 'delete')
 				echo GetMessage('WIKI_REQUIED_FIELDS_NOTE')
 			?>
@@ -227,7 +227,7 @@ else:
 	<script>
 		wikiMainEditor.init();
 	</script>
-	<?
+	<?php 
 
 endif;
 ?>

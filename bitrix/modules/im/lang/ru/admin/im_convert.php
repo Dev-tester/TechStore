@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_CONVERT_BUTTON"] = "Начать конвертацию";
 $MESS["IM_CONVERT_STOP"] = "Остановить";
 $MESS["IM_CONVERT_STEP"] = "Максимальное время конвертации за один шаг:";

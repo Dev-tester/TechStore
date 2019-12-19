@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_ORDERS_CONNECTED"] = "VK order messages enabled";
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_ORDERS_GET_INFO"] = "VK order information";
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_ORDERS_CONNECTION_INFO"] = "Enable new order notifications from your VK store. You will receive order notifications as Bitrix24 Open Channel chats.<br><br>You will find more details on VK store orders <a onclick=\"top.BX.Helper.show('redirect=detail&code=8288267');\" class=\"imconnector-field-box-link\">in this article</a>.";

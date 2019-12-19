@@ -314,31 +314,31 @@ if (!empty($errors))
 	<?=bitrix_sessid_post()?>
 	<input type="hidden" name="ID" value="<?= htmlspecialcharsbx($hlblock['ID'])?>">
 	<input type="hidden" name="lang" value="<?= LANGUAGE_ID?>">
-	<?
+	<?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?>
 	<tr>
 		<td width="40%"><strong><?= GetMessage('HIGHLOADBLOCK_HIGHLOAD_BLOCK_ENTITY_NAME_FIELD')?></strong></td>
-		<td><?
+		<td><?php 
 			if (!$isEditMode):
-				?><?=htmlspecialcharsEx($hlblock['NAME'])?><?
+				?><?=htmlspecialcharsEx($hlblock['NAME'])?><?php 
 			else:
-				?><input type="text" name="NAME" size="30" value="<?= htmlspecialcharsbx($hlblock['NAME'])?>"><?
+				?><input type="text" name="NAME" size="30" value="<?= htmlspecialcharsbx($hlblock['NAME'])?>"><?php 
 			endif;
 		?></td>
 	</tr>
 	<tr>
 		<td><strong><?=GetMessage('HLBLOCK_ADMIN_ENTITY_EDIT_TABLE_NAME')?></strong></td>
-		<td><?
+		<td><?php 
 			if (!$isEditMode):
-				?><?=htmlspecialcharsEx($hlblock['TABLE_NAME'])?><?
+				?><?=htmlspecialcharsEx($hlblock['TABLE_NAME'])?><?php 
 			else:
-				?><input type="text" name="TABLE_NAME" size="30" value="<?=htmlspecialcharsbx($hlblock['TABLE_NAME'])?>"><?
+				?><input type="text" name="TABLE_NAME" size="30" value="<?=htmlspecialcharsbx($hlblock['TABLE_NAME'])?>"><?php 
 			endif;
 			?></td>
 	</tr>
-	<?if ($is_update_form):?>
+	<?php if ($is_update_form):?>
 		<tr>
 			<td><?=GetMessage('HLBLOCK_ADMIN_ENTITY_EDIT_FIELDS_COUNT')?></td>
 			<td><a href="userfield_admin.php?lang=<?=LANGUAGE_ID?>&amp;set_filter=Y&amp;find=HLBLOCK_<?=intval($hlblock['ID'])?>&amp;find_type=ENTITY_ID&amp;back_url=<?=urlencode($APPLICATION->GetCurPageParam())?>">[<?= intval($hlblock['FIELDS_COUNT'])?>]</a></td>
@@ -347,17 +347,17 @@ if (!empty($errors))
 			<td><?=GetMessage('HLBLOCK_ADMIN_ENTITY_EDIT_ROWS_COUNT')?></td>
 			<td><a href="highloadblock_rows_list.php?lang=<?=LANGUAGE_ID?>&amp;ENTITY_ID=<?=intval($hlblock['ID'])?>">[<?=intval($hlblock['ROWS_COUNT'])?>]</a></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="heading">
-		<td colspan="2"><?echo GetMessage('HLBLOCK_ADMIN_ENTITY_EDIT_LANGS')?></td>
+		<td colspan="2"><?php echo GetMessage('HLBLOCK_ADMIN_ENTITY_EDIT_LANGS')?></td>
 	</tr>
-	<?foreach ($langs as $lng):?>
+	<?php foreach ($langs as $lng):?>
 	<tr>
 		<td><?= $lng['NAME']?></td>
 		<td><input type="text" name="LANGS[<?= $lng['LID']?>]" size="30" maxlength="100" value="<?= isset($localization[$lng['LID']]) ? htmlspecialcharsbx($localization[$lng['LID']]['NAME']) : ''?>" /></td>
 	</tr>
-	<?endforeach;?>
-	<?$tabControl->BeginNextTab();?>
+	<?php endforeach;?>
+	<?php $tabControl->BeginNextTab();?>
 	<tr>
 		<td colspan="2" align="center">
 			<table width="100%" class="internal" id="RIGHTS_table" align="center">
@@ -365,14 +365,14 @@ if (!empty($errors))
 					<tr class="heading">
 						<td colspan="2"></td>
 					</tr>
-					<?if (!empty($currentRights)):?>
-						<?foreach ($currentRights as $i => $rght):
+					<?php if (!empty($currentRights)):?>
+						<?php foreach ($currentRights as $i => $rght):
 							$code = $rght['ACCESS_CODE'];
 							$task = $rght['TASK_ID'];
 							?>
 						<tr>
 							<td align="right">
-								<?
+								<?php 
 								$title = isset($currentRightsName[$code]['provider']) && $currentRightsName[$code]['provider']
 										? $currentRightsName[$code]['provider'].': '
 										: '';
@@ -385,17 +385,17 @@ if (!empty($errors))
 							</td>
 							<td>
 								<select name="RIGHTS[TASK_ID][]">
-									<?foreach ($tasks as $tid => $tname):?>
-									<option value="<?= $tid?>"<?if ($task == $tid){?> selected="selected"<?}?>><?= $tname?></option>
-									<?endforeach;?>
+									<?php foreach ($tasks as $tid => $tname):?>
+									<option value="<?= $tid?>"<?php if ($task == $tid){?> selected="selected"<?php }?>><?= $tname?></option>
+									<?php endforeach;?>
 								</select>
 								<input type="hidden" name="RIGHTS[RIGHT_ID][]" value="<?= $i?>">
 								<input type="hidden" name="RIGHTS[ACCESS_CODE][]" value="<?= htmlspecialcharsbx($code)?>">
 								<a href="javascript:void(0);" onclick="deleteRow(this);" data-id="<?= htmlspecialcharsbx($code)?>" class="access-delete"></a>
 							</td>
 						</tr>
-						<?endforeach;?>
-					<?endif;?>
+						<?php endforeach;?>
+					<?php endif;?>
 					<tr>
 						<td width="40%" align="right">&nbsp;</td>
 						<td width="60%" align="left">
@@ -404,7 +404,7 @@ if (!empty($errors))
 					</tr>
 				</tbody>
 			</table>
-			<?\CUtil::InitJSCore(array('access'))?>
+			<?php \CUtil::InitJSCore(array('access'))?>
 			<script type="text/javascript">
 
 				var selected = <?= json_encode(array_fill_keys($accessCodes, true))?>;
@@ -463,7 +463,7 @@ if (!empty($errors))
 			</script>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->Buttons(array('disabled' => !$isEditMode, 'back_url' => 'highloadblock_index.php?lang='.LANGUAGE_ID));
 	$tabControl->End();
 	?>

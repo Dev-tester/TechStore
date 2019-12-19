@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIZARD_TITLE"] = "Konfiguration von Bitrix24";
 $MESS["WIZARD_TITLE_CP"] = "Konfiguration von Bitrix24";
 $MESS["COPYRIGHT"] = "Copyright &copy; 2001-#CURRENT_YEAR# Bitrix, Inc.";

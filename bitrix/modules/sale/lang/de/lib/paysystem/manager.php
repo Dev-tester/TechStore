@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_PS_MANAGER_GROUP_CONNECT_SETTINGS_YANDEX"] = "Yandex-Verbindungsparameter";
 $MESS["SALE_PS_MANAGER_GROUP_CONNECT_SETTINGS"] = "Verbindungsparameter";
 $MESS["SALE_PS_MANAGER_GROUP_CONNECT_SETTINGS_WEBMONEY"] = "Yandex-Verbindungsparameter";

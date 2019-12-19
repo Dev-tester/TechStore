@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
 if (!function_exists("__photo_template_default"))
 {
@@ -75,89 +75,89 @@ if (!function_exists("__photo_template_default"))
 		}
 
 ?>
-<table border="0" cellpadding="0" class="photo-photo-item photo-photo-item-default <?=($arParams["mode"] == "edit" ? " photo-photo-item-edit" : "")?><?
-	?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?><?
+<table border="0" cellpadding="0" class="photo-photo-item photo-photo-item-default <?=($arParams["mode"] == "edit" ? " photo-photo-item-edit" : "")?><?php 
+	?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?><?php 
 	?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " photo-photo-item-checked" : "")?>" id="table_<?=$arItem["ID"]?>">
 	<tr>
 		<td class="photo-photo-item" style="height:<?=$arParams["MAX_HEIGHT"]?>px;">
 		<div style="padding-top:<?=intval($arParams["MAX_HEIGHT"] - $arItem["PICTURE"]["HEIGHT"])?>px;">
-			<div class="photo-photo-item-inner"><?
-				?><div style="position:relative;"><?
+			<div class="photo-photo-item-inner"><?php 
+				?><div style="position:relative;"><?php 
 		if ($arParams["mode"] == "edit")
 		{
-					?><input type="checkbox" value="<?=$arItem["ID"]?>" <?
-						?>name="items[]" <?
-						?>id="items_<?=$arItem["ID"]?>" <?
-						?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " checked='checked'" : "")?> style="position:absolute;" <?
-						?>onclick="var res=document.getElementById('table_<?=$arItem["ID"]?>'); <?
-							?>if (this.checked){res.className+=' photo-photo-item-checked'} <?
-							?>else {res.className=res.className.replace(/photo\-photo\-item\-checked/g, ' ').replace(/\s\s/g, ' ');}" /><?
+					?><input type="checkbox" value="<?=$arItem["ID"]?>" <?php 
+						?>name="items[]" <?php 
+						?>id="items_<?=$arItem["ID"]?>" <?php 
+						?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " checked='checked'" : "")?> style="position:absolute;" <?php 
+						?>onclick="var res=document.getElementById('table_<?=$arItem["ID"]?>'); <?php 
+							?>if (this.checked){res.className+=' photo-photo-item-checked'} <?php 
+							?>else {res.className=res.className.replace(/photo\-photo\-item\-checked/g, ' ').replace(/\s\s/g, ' ');}" /><?php 
 		}
 		if ($arParams["SHOW_ANCHOR"] != "Y")
 		{
-					?><?=$sImage?><?
+					?><?=$sImage?><?php 
 		}
 		else
 		{
-					?><a href="<?=$arItem["URL"]?>" id="photo_<?=$arItem["ID"]?>" style="display:block; width: <?=$arItem["PICTURE"]["WIDTH"]?>px; height:  <?=$arItem["PICTURE"]["HEIGHT"]?>px;"<?
+					?><a href="<?=$arItem["URL"]?>" id="photo_<?=$arItem["ID"]?>" style="display:block; width: <?=$arItem["PICTURE"]["WIDTH"]?>px; height:  <?=$arItem["PICTURE"]["HEIGHT"]?>px;"<?php 
 					if (!empty($arItem["EVENTS"])):
 						foreach ($arItem["EVENTS"] as $key => $val):
-							?> on<?=$key?>="<?=$val?>" <?
+							?> on<?=$key?>="<?=$val?>" <?php 
 						endforeach;
 					endif;
-					?>><?=$sImage?></a><?
+					?>><?=$sImage?></a><?php 
 		}
-				?></div><?
+				?></div><?php 
 ?>
 			</div>
 		</div>
 		</td>
 	</tr>
-<?
+<?php 
 	if ($arParams["SHOW_COMMENTS"] == "Y"):
 ?>
 	<tr>
 		<td class="photo-photo-info">
 			<div class="photo-photo-comments">
-<?
+<?php 
 		if ($arItem["COMMENTS"] > 0):
 			$sText = $arItem["COMMENTS"]." ".__photo_template_default_comments_ending($arItem["COMMENTS"]);
 			if ($arParams["SHOW_ANCHOR"] != "Y"):
-				?><?=$sText?><?
+				?><?=$sText?><?php 
 			else:
-				?><a href="<?=$arItem["URL"]?>"><?=$sText?></a><?
+				?><a href="<?=$arItem["URL"]?>"><?=$sText?></a><?php 
 			endif;
 		endif;
 ?>
 			</div>
 		</td>
 	</tr>
-<?
+<?php 
 	elseif ($arParams["SHOW_SHOWS"] == "Y"):
 ?>
 	<tr>
 		<td class="photo-photo-info">
 			<div class="photo-photo-comments">
-<?
+<?php 
 		if ($arItem["SHOW_COUNTER"] > 0):
 			$sText = $arItem["SHOW_COUNTER"]." ".__photo_template_default_shows_ending($arItem["SHOW_COUNTER"]);
 			if ($arParams["SHOW_ANCHOR"] != "Y"):
-				?><?=$sText?><?
+				?><?=$sText?><?php 
 			else:
-				?><a href="<?=$arItem["URL"]?>"><?=$sText?></a><?
+				?><a href="<?=$arItem["URL"]?>"><?=$sText?></a><?php 
 			endif;
 		endif;
 ?>
 			</div>
 		</td>
 	</tr>
-<?
+<?php 
 	elseif ($arParams["SHOW_RATING"] == "Y"):
 ?>
 	<tr>
 		<td class="photo-photo-info">
 			<div class="photo-photo-comments">
-<?
+<?php 
 			$DISPLAY_VALUE = doubleval($arItem["PROPERTIES"]["rating"]["VALUE"]);
 			if($arParams["DISPLAY_AS_RATING"] == "vote_avg")
 			{
@@ -173,20 +173,20 @@ if (!function_exists("__photo_template_default"))
 				if ($arParams["DISPLAY_AS_RATING"] == "vote_avg")
 					$sTitle = $sText . ", ".GetMessage("P_VOTES").": ".$arItem["PROPERTIES"]["vote_count"]["VALUE"];
 				if ($arParams["SHOW_ANCHOR"] != "Y"):
-					?><span <?=(!empty($sTitle) ? ' title="'.$sTitle.'"' : '')?>><?=$sText?></span><?
+					?><span <?=(!empty($sTitle) ? ' title="'.$sTitle.'"' : '')?>><?=$sText?></span><?php 
 				else:
-					?><a href="<?=$arItem["URL"]?>"<?=(!empty($sTitle) ? ' title="'.$sTitle.'"' : '')?>><?=$sText?></a><?
+					?><a href="<?=$arItem["URL"]?>"<?=(!empty($sTitle) ? ' title="'.$sTitle.'"' : '')?>><?=$sText?></a><?php 
 				endif;
 			}
 ?>
 			</div>
 		</td>
 	</tr>
-<?
+<?php 
 	endif;
 ?>
 </table>
-<?
+<?php 
 	}
 }
 ?>

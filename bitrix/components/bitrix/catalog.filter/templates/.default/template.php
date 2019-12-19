@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,8 +12,8 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get">
-	<?foreach($arResult["ITEMS"] as $arItem):
+<form name="<?php echo $arResult["FILTER_NAME"]."_form"?>" action="<?php echo $arResult["FORM_ACTION"]?>" method="get">
+	<?php foreach($arResult["ITEMS"] as $arItem):
 		if(array_key_exists("HIDDEN", $arItem)):
 			echo $arItem["INPUT"];
 		endif;
@@ -25,14 +25,14 @@ $this->setFrameMode(true);
 		</tr>
 	</thead>
 	<tbody>
-		<?foreach($arResult["ITEMS"] as $arItem):?>
-			<?if(!array_key_exists("HIDDEN", $arItem)):?>
+		<?php foreach($arResult["ITEMS"] as $arItem):?>
+			<?php if(!array_key_exists("HIDDEN", $arItem)):?>
 				<tr>
 					<td valign="top"><?=$arItem["NAME"]?>:</td>
 					<td valign="top"><?=$arItem["INPUT"]?></td>
 				</tr>
-			<?endif?>
-		<?endforeach;?>
+			<?php endif?>
+		<?php endforeach;?>
 	</tbody>
 	<tfoot>
 		<tr>

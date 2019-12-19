@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMAIL_FOOTER_BR"] = "Best regards,
 Administration.";
 $MESS["SMAIL_FOOTER_SHOP"] = "Web store";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMILE_EDIT_RECORD"] = "Edit Smiley";
 $MESS["SMILE_NEW_RECORD"] = "Add Smiley";
 $MESS["ERROR_EDIT_SMILE"] = "Error editing smiley.";

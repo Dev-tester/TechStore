@@ -112,8 +112,8 @@ use Bitrix\Crm\Widget\Layout\DealWidget; ?><script type="text/javascript">
 			);
 		}
 	);
-</script><?
-?><div class="bx-crm-view"><?
+</script><?php 
+?><div class="bx-crm-view"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.widget_panel',
 		'',

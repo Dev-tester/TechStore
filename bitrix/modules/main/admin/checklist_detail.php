@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -57,7 +57,7 @@ if($_REQUEST["TEST_ID"] && $arPoints[$_REQUEST["TEST_ID"]])
 	$APPLICATION->RestartBuffer();?>
 
 	
-<?
+<?php 
 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("CL_TAB_TEST"), "ICON" => "checklist_detail", "TITLE" => GetMessage("CL_TEST_NAME").': '.$arPoints[$arTestID]["NAME"].'&nbsp;('.$htmlTestID.')'),
@@ -81,14 +81,14 @@ $tabControl->BeginNextTab();
 					</div>
 				</div>
 			</div>
-			<?if($arPoints[$arTestID]["AUTO"] == "Y"):?>
+			<?php if($arPoints[$arTestID]["AUTO"] == "Y"):?>
 				<div class="checklist-popup-start-test-block checklist-popup-name-test">
 					<a id="bx_start_button_detail" onclick="StartPointAutoCheck()" class="adm-btn adm-btn-green adm-btn">
 						<span class="checklist-button-cont" style="color: #ffffff; font-weight: bold"><?=GetMessage("CL_AUTOTEST_START");?></span>
 					</a>
 					<span id="bx_per_point_done" class="checklist-popup-start-test-text"></span>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 			<div id="check_list_comments" class="checklist-popup-result-test-block">
 				<div class="checklist-popup-result-form">
 					<div class="checklist-form-textar-block">
@@ -122,33 +122,33 @@ $tabControl->BeginNextTab();
 						class="checklist-popup-tes-not-necessarily-r"></span><input name="checklist-form-radio" type="radio" value="S" id="S_status" /></span>
 				</div>
 			</div>
-<?
+<?php 
 
 $tabControl->BeginNextTab();
 ?>		
 				<div class="checklist-popup-test">
 					<div class="checklist-popup-name-test"><?=GetMessage("CL_DESC");?></div>
-						<?if($arPoints[$arTestID]["DESC"]):
+						<?php if($arPoints[$arTestID]["DESC"]):
 						?><div class="checklist-popup-test-text">
-							<div class="checklist-popup-result-form"><p><?
+							<div class="checklist-popup-result-form"><p><?php 
 							echo $arPoints[$arTestID]["DESC"];
-						?></p></div></div><?
+						?></p></div></div><?php 
 						else:
 							echo '<p>'.GetMessage("CL_EMPTY_DESC").'</p>';
 						endif;?>
 				</div>
 				<div class="checklist-popup-test">
 					<div class="checklist-popup-name-test"><?=GetMessage("CL_NOW_TO_TEST_IT");?></div>
-						<?if($arPoints[$arTestID]["HOWTO"]):?>
+						<?php if($arPoints[$arTestID]["HOWTO"]):?>
 						<div class="checklist-popup-test-text">
 							<div class="checklist-popup-result-form checklist-popup-code">
 								<?=$arPoints[$arTestID]["HOWTO"];?>
 						</div></div>	
-						<?else:?>
+						<?php else:?>
 							<?=GetMessage("CL_EMPTY_DESC");?>
-						<?endif;?>
+						<?php endif;?>
 				</div>
-				<?if($arPoints[$arTestID]["AUTOTEST_DESC"]):?>
+				<?php if($arPoints[$arTestID]["AUTOTEST_DESC"]):?>
 				<div class="checklist-popup-test">
 					<div class="checklist-popup-name-test"><?=GetMessage("CL_NOW_AUTOTEST_WORK");?></div>
 					<div class="checklist-popup-test-text">
@@ -157,7 +157,7 @@ $tabControl->BeginNextTab();
 						</div>
 					</div>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 	</div>
 	<script>
 	var test_is_run = false;
@@ -434,9 +434,9 @@ $tabControl->BeginNextTab();
 		toDiv.innerHTML = text;
 	}
 	</script>
-	<?
+	<?php 
 	$tabControl->End();
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php");?>
 

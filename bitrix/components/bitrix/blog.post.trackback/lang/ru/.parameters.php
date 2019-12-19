@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPH_BLOG_URL'] = "Путь блога";
 
 $MESS ['BPH_PATH_TO_TRACKBACK'] = "Шаблон пути к trackback'у сообщения";

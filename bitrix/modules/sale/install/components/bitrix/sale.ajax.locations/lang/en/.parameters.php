@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SAL_PARAM_COUNTRY"] = "Initial country";
 $MESS["SALE_SAL_PARAM_CITY_OUT_LOCATION"] = "Return location ID (or city otherwise)";
 $MESS["SALE_SAL_PARAM_ALLOW_EMPTY_CITY"] = "The location city is optional";

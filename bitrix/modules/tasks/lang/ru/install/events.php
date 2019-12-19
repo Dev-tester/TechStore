@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASK_REMINDER_NAME'] = "Напоминание о задаче";
 $MESS ['TASK_REMINDER_DESC'] = "#TASK_TITLE# - название задачи
 #PATH_TO_TASK# - ссылка на задачу";

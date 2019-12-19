@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/board/detail.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
-?><?$APPLICATION->IncludeComponent("bitrix:catalog.element", "board", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:catalog.element", "board", Array(
 	"IBLOCK_TYPE"	=>	"services",
 	"IBLOCK_ID"	=>	"8",
 	"ELEMENT_ID"	=>	$_REQUEST["ELEMENT_ID"],
@@ -37,4 +37,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 	"LINK_ELEMENTS_URL"	=>	"link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#"
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

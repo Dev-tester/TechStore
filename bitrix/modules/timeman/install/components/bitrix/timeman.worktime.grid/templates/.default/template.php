@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -34,13 +34,13 @@ if ($arResult['showFilter'])
 	]);
 }
 ?>
-<? if ($arResult['SHOW_SCHEDULES_LIST_BTN']):
+<?php  if ($arResult['SHOW_SCHEDULES_LIST_BTN']):
 	\Bitrix\UI\Toolbar\Facade\Toolbar::addButton(
 		(new \Bitrix\UI\Buttons\SettingsButton([]))
 			->setDataRole('worktime-grid-config-btn')
 	);
 endif; ?>
-<? if ($arResult['SHOW_SHIFTPLAN_LIST_BTN']):
+<?php  if ($arResult['SHOW_SHIFTPLAN_LIST_BTN']):
 	\Bitrix\UI\Toolbar\Facade\Toolbar::addButton(
 		(new \Bitrix\UI\Buttons\Button([]))
 			->setText(htmlspecialcharsbx(Loc::getMessage('TM_WORKTIME_STATS_SHIFTPLANS')))
@@ -49,7 +49,7 @@ endif; ?>
 			->setDropdown(true)
 	);
 endif; ?>
-<? if ($arResult['SHOW_ADD_SCHEDULE_BTN']):
+<?php  if ($arResult['SHOW_ADD_SCHEDULE_BTN']):
 	\Bitrix\UI\Toolbar\Facade\Toolbar::addButton(
 		(new \Bitrix\UI\Buttons\Button([]))
 			->setText(htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_LIST_ADD')))
@@ -57,7 +57,7 @@ endif; ?>
 			->setColor(Bitrix\UI\Buttons\Color::PRIMARY)
 	);
 endif; ?>
-<? if ($arResult['SHOW_PRINT_BTN']):
+<?php  if ($arResult['SHOW_PRINT_BTN']):
 	\Bitrix\UI\Toolbar\Facade\Toolbar::addButton(
 		(new \Bitrix\UI\Buttons\Button([]))
 			->setDataRole('print-shift-plan-btn')
@@ -65,14 +65,14 @@ endif; ?>
 			->setIcon(Bitrix\UI\Buttons\Icon::PRINTER)
 	);
 endif; ?>
-<? if ($arResult['SHOW_EDIT_SCHEDULE_BTN']):
+<?php  if ($arResult['SHOW_EDIT_SCHEDULE_BTN']):
 	\Bitrix\UI\Toolbar\Facade\Toolbar::addButton(
 		(new \Bitrix\UI\Buttons\SettingsButton([]))
 			->setDataRole('edit-schedule-btn')
 			->setLink($arResult['URLS']['SCHEDULE_EDIT'])
 	);
 endif; ?>
-<? if ($arResult['SHOW_CREATE_SHIFT_BTN']):
+<?php  if ($arResult['SHOW_CREATE_SHIFT_BTN']):
 	\Bitrix\UI\Toolbar\Facade\Toolbar::addButton(
 		(new \Bitrix\UI\Buttons\Button([]))
 			->setDataRole('add-shift-btn')
@@ -84,8 +84,8 @@ endif; ?>
 <div class="timeman-report-container timeman-report-container-plan" data-role="shift-records-container">
 	<div class="timeman-top-block">
 		<div class="timeman-top-title-container" id="timeman-grid-navigation-container">
-			<? $this->setViewTarget('timeman-grid-navigation-container'); ?>
-			<? // this html block will be replaced after every grid reload (for updating hrefs to next and prev period) ?>
+			<?php  $this->setViewTarget('timeman-grid-navigation-container'); ?>
+			<?php  // this html block will be replaced after every grid reload (for updating hrefs to next and prev period) ?>
 			<div class="timeman-top-title-month" data-role="tm-grid-navigation-arrows">
 				<a href="<?= $arResult['URLS']['PERIOD_PREV'] ?>" class="timeman-navigation-previous"
 						data-start-datesel="<?= $arResult['URLS']['PERIOD_PREV_PARTS']['REPORT_PERIOD_datesel'] ?>"
@@ -108,12 +108,12 @@ endif; ?>
 						data-start-from="<?= $arResult['URLS']['PERIOD_NEXT_PARTS']['REPORT_PERIOD_from'] ?>"
 						data-role="navigation-period"></a>
 			</div>
-			<? $this->endViewTarget(); ?>
+			<?php  $this->endViewTarget(); ?>
 			<?= $APPLICATION->getViewContent('timeman-grid-navigation-container') ?>
 		</div>
 
 		<div class="timeman-top-title-right">
-			<div class="timeman-top-title-today <?php if ($arResult['SHOW_GRID_SETTINGS_BTN']): ?>timeman-top-title-today-separator-right<? endif; ?>">
+			<div class="timeman-top-title-today <?php if ($arResult['SHOW_GRID_SETTINGS_BTN']): ?>timeman-top-title-today-separator-right<?php  endif; ?>">
 				<a href="<?= $arResult['URLS']['PERIOD_TODAY'] ?>" class="timeman-top-title-today-text"
 						data-role="tm-navigation-today"
 						data-start-datesel="<?= $arResult['URLS']['PERIOD_TODAY_PARTS']['REPORT_PERIOD_datesel'] ?>"
@@ -125,24 +125,24 @@ endif; ?>
 				<div class="timeman-top-title-settings" data-role="grid-options">
 					<span class="timeman-top-title-settings-icon"></span>
 				</div>
-			<? endif; ?>
+			<?php  endif; ?>
 		</div>
 	</div>
-	<?
+	<?php 
 	// it is for partial dynamic html replacement after grid reload
 	$this->setViewTarget('timeman-grid-navigation-container-script'); ?>
 	<script>
 		BX('timeman-grid-navigation-container').innerHTML = '<?=\CUtil::jsEscape($APPLICATION->getViewContent('timeman-grid-navigation-container')) ?>';
 		BX.Timeman.Component.Worktime.Grid<?=CUtil::JSEscape($arResult['GRID_ID'])?>.addEventHandlersInsideGrid();
 	</script>
-	<?
+	<?php 
 	$this->endViewTarget();
 	addEventHandler('main', 'onAfterAjaxResponse', function () {
 		global $APPLICATION;
 		return $APPLICATION->getViewContent('timeman-grid-navigation-container-script');
 	});
 	?>
-	<?
+	<?php 
 	/** @var \Bitrix\Main\UI\PageNavigation $navigation */
 	$navigation = $arResult['NAV_OBJECT'];
 	foreach ($arResult['HEADERS'] as $index => $item)
@@ -207,7 +207,7 @@ endif; ?>
 			<div class="timeman-entity-config-block" data-role="tm-settings">
 				<label class="period-setting-label"><?php echo htmlspecialcharsbx(Loc::getMessage('JS_CORE_TM')); ?></label>
 				<select name="UF_TIMEMAN" class="timeman-grid-settings-select"
-					<? if (!$arResult['canManageSettings']): ?> disabled="disabled"<? endif; ?>>
+					<?php  if (!$arResult['canManageSettings']): ?> disabled="disabled"<?php  endif; ?>>
 					<option value=""><?php echo htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_INHERIT')); ?></option>
 					<option value="Y"><?php echo htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_ON')); ?></option>
 					<option value="N"><?php echo htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_OFF')); ?></option>
@@ -216,7 +216,7 @@ endif; ?>
 			<div class="timeman-entity-config-block" data-role="tm-settings">
 				<label class="period-setting-label"><?php echo htmlspecialcharsbx(Loc::getMessage('TM_WORKTIME_GRID_CONFIG_HINT_REPORT_REQ')); ?></label>
 				<select name="UF_TM_REPORT_REQ" class="timeman-grid-settings-select"
-					<? if (!$arResult['canManageSettings']): ?> disabled="disabled"<? endif; ?>>
+					<?php  if (!$arResult['canManageSettings']): ?> disabled="disabled"<?php  endif; ?>>
 					<option value=""><?php echo htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_INHERIT')); ?></option>
 					<option value="Y"><?php echo htmlspecialcharsbx(Loc::getMessage('TM_WORKTIME_GRID_CONFIG_HINT_REPORT_REQ_Y')); ?></option>
 					<option value="N"><?php echo htmlspecialcharsbx(Loc::getMessage('TM_WORKTIME_GRID_CONFIG_HINT_REPORT_REQ_N')); ?></option>
@@ -241,9 +241,9 @@ endif; ?>
 		BX.Timeman.Component.Worktime.Grid<?= CUtil::JSEscape($arResult['GRID_ID'])?> = new BX.Timeman.Component.Worktime.Grid({
 			flexibleScheduleTypeName: <?= CUtil::PhpToJSObject(\Bitrix\Timeman\Model\Schedule\Schedule::getFlextimeScheduleTypeName())?>,
 			gridId: <?= CUtil::PhpToJSObject($arResult['GRID_ID'])?>,
-			<? if($arResult['showFilter']) :?>
+			<?php  if($arResult['showFilter']) :?>
 			filterId: <?= CUtil::PhpToJSObject($arResult['FILTER']['ID'])?>,
-			<? endif;?>
+			<?php  endif;?>
 			todayWord: <?= CUtil::PhpToJSObject(Loc::getMessage('TM_WORKTIME_GRID_TODAY'))?>,
 			isSlider: <?= CUtil::PhpToJSObject($arResult['isSlider']);?>,
 			canReadSchedules: <?= CUtil::PhpToJSObject($arResult['canReadSchedules']);?>,

@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 CModule::IncludeModule("sale");
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
 if ($saleModulePermissions < "W")
@@ -9,7 +9,7 @@ if ($saleModulePermissions < "W")
 <head>
 </head>
 <body>
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $divInd = IntVal($divInd);
@@ -195,14 +195,14 @@ window.parent.document.forms["pay_sys_form"].elements["PS_ACTION_FIELDS_LIST_<?=
 window.parent.document.getElementById("pay_sys_act_<?= $divInd ?>").style["backgroundColor"] = "#E4EDF3";
 window.parent.document.getElementById("pay_sys_act_<?= $divInd ?>").innerHTML = '<?= $res; ?>';
 
-<?
+<?php 
 if (is_array($arPSCorrespondence) && count($arPSCorrespondence) > 0)
 {
 	foreach ($arPSCorrespondence as $key => $value)
 	{
 		?>
 		window.parent.InitActionProps('<?= $key ?>', <?= $divInd ?>);
-		<?
+		<?php 
 	}
 }
 
@@ -218,13 +218,13 @@ if($exist == "Y")
 				window.parent.document.getElementById("TYPE_<?=$key?>_<?=$divInd?>").value = '<?=CUtil::JSEscape($value["TYPE"])?>';
 				window.parent.PropertyTypeChange('<?=$key?>', '<?=$divInd?>', '<?=CUtil::JSEscape($value["VALUE"])?>');
 
-				<?
+				<?php 
 			}
 			elseif(strlen($value["VALUE"]) > 0)
 			{
 				?>
 				window.parent.document.getElementById("VALUE2_<?=$key?>_<?=$divInd?>").value = '<?=CUtil::JSEscape($value["VALUE"])?>';
-				<?
+				<?php 
 			}
 		}
 	}
@@ -235,13 +235,13 @@ if (strlen($res) <= 0)
 	?>
 	window.parent.document.getElementById("pay_sys_switch_<?= $divInd ?>").innerHTML = "";
 	window.parent.document.getElementById("pay_sys_act_<?= $divInd ?>").style["backgroundColor"] = "#F1F1F1";
-	<?
+	<?php 
 }
 else
 {
 	?>
 	window.parent.SetActLinkText(<?= $divInd ?>, window.parent.paySysActVisible_<?= $divInd ?>);
-	<?
+	<?php 
 }
 
 ?>
@@ -260,4 +260,4 @@ window.parent.BX.onCustomEvent('onAdminTabsChange');
 //-->
 </script>
 </body>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>

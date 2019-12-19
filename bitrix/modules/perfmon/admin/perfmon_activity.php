@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -44,13 +44,13 @@ else
 }
 ?>
 
-<form name="clear_form" method="post" action="<?echo $APPLICATION->GetCurPage();?>">
-	<?echo bitrix_sessid_post();?>
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-	<?if ($ACTIVE):?>
-		<h3><?echo GetMessage("PERFMON_ACTIVE_Y")?></h3>
-		<p><?echo GetMessage("PERFMON_ACT_ACTIVE_TO")?>:
-			<?
+<form name="clear_form" method="post" action="<?php echo $APPLICATION->GetCurPage();?>">
+	<?php echo bitrix_sessid_post();?>
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+	<?php if ($ACTIVE):?>
+		<h3><?php echo GetMessage("PERFMON_ACTIVE_Y")?></h3>
+		<p><?php echo GetMessage("PERFMON_ACT_ACTIVE_TO")?>:
+			<?php 
 			$hours = intval($interval / 3600);
 			$interval -= $hours * 3600;
 			$minutes = intval($interval / 60 );
@@ -59,23 +59,23 @@ else
 			echo GetMessage("PERFMON_ACT_MINUTES", array("#HOURS#" => $hours, "#MINUTES#" => $minutes, "#SECONDS#" => $seconds));
 			?></p>
 		<p>
-			<label for="ACTIVE"><?echo GetMessage("PERFMON_ACT_SET_IN_ACTIVE")?></label>:
+			<label for="ACTIVE"><?php echo GetMessage("PERFMON_ACT_SET_IN_ACTIVE")?></label>:
 			<input type="checkbox" name="ACTIVE" value="0" id="ACTIVE">
 		</p>
-		<input type="submit" name="activity" value="<?echo GetMessage("PERFMON_ACTION_BUTTON_OFF");?>">
-	<?else:?>
-		<h3><?echo GetMessage("PERFMON_ACTIVE_N")?></h3>
-		<p><label for="ACTIVE"><?echo GetMessage("PERFMON_ACT_SET_ACTIVE")?></label>:
+		<input type="submit" name="activity" value="<?php echo GetMessage("PERFMON_ACTION_BUTTON_OFF");?>">
+	<?php else:?>
+		<h3><?php echo GetMessage("PERFMON_ACTIVE_N")?></h3>
+		<p><label for="ACTIVE"><?php echo GetMessage("PERFMON_ACT_SET_ACTIVE")?></label>:
 		<select name="ACTIVE" id="ACTIVE">
-			<option value="0"><?echo GetMessage("PERFMON_ACT_INTERVAL_NO")?></option>
-			<option value="60"><?echo GetMessage("PERFMON_ACT_INTERVAL_60_SEC")?></option>
-			<option value="300"><?echo GetMessage("PERFMON_ACT_INTERVAL_300_SEC")?></option>
-			<option value="600"><?echo GetMessage("PERFMON_ACT_INTERVAL_600_SEC")?></option>
-			<option value="1800"><?echo GetMessage("PERFMON_ACT_INTERVAL_1800_SEC")?></option>
-			<option value="3600"><?echo GetMessage("PERFMON_ACT_INTERVAL_3600_SEC")?></option>
+			<option value="0"><?php echo GetMessage("PERFMON_ACT_INTERVAL_NO")?></option>
+			<option value="60"><?php echo GetMessage("PERFMON_ACT_INTERVAL_60_SEC")?></option>
+			<option value="300"><?php echo GetMessage("PERFMON_ACT_INTERVAL_300_SEC")?></option>
+			<option value="600"><?php echo GetMessage("PERFMON_ACT_INTERVAL_600_SEC")?></option>
+			<option value="1800"><?php echo GetMessage("PERFMON_ACT_INTERVAL_1800_SEC")?></option>
+			<option value="3600"><?php echo GetMessage("PERFMON_ACT_INTERVAL_3600_SEC")?></option>
 		</select></p>
-		<input type="submit" name="activity" value="<?echo GetMessage("PERFMON_ACTION_BUTTON_ON");?>">
-	<?endif;?>
+		<input type="submit" name="activity" value="<?php echo GetMessage("PERFMON_ACTION_BUTTON_ON");?>">
+	<?php endif;?>
 </form>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

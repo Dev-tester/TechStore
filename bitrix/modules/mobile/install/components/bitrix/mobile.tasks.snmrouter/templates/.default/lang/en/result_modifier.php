@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_TASK_SNMROUTER_TASK_WAS_REMOVED"] = "Task has been deleted.";
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_PULL"] = "Pull down to refresh";
 $MESS["MB_TASKS_TASKS_LIST_PULLDOWN_DOWN"] = "Release to refresh";

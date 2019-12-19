@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_STRUCTURE_IBLOCK_MODULE"] = "The Information Blocks module is not installed.";
 $MESS["INTR_EDIT_TITLE"] = "Edit department";
 $MESS["INTR_ADD_TITLE"] = "Add department";

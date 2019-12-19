@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_NAME"] = "Started by";
 $MESS["BLG_SHARE"] = "Shared with: ";
 $MESS["BLG_SHARE_1"] = "Shared with: ";

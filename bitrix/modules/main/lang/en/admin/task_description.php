@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TASK_NAME_MAIN_DENIED'] = "Access denied";
 $MESS ['TASK_NAME_MAIN_CHANGE_PROFILE'] = "Edit personal profile";
 $MESS ['TASK_NAME_MAIN_VIEW_ALL_SETTINGS'] = "View all settings";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ORDER_ADD"] = "New order";
 $MESS["ORDER_ADD_TITLE"] = "New order";
 $MESS["ORDER_CANCEL"] = "Cancel order";

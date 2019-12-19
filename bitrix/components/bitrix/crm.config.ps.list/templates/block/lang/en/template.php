@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PS_LIST_BLOCK_ACTIVE"] = "Active";
 $MESS["CRM_PS_LIST_BLOCK_CONNECT"] = "connect";
 $MESS["CRM_PS_LIST_BLOCK_DISCONNECT"] = "disconnect";

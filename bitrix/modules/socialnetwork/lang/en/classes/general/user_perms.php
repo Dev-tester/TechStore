@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_GB_EMPTY_USER_ID'] = "User is not specified.";
 $MESS ['SONET_GB_ERROR_NO_USER_ID'] = "User specified is incorrect.";
 $MESS ['SONET_GG_EMPTY_OPERATION_ID'] = "The operation is not specified.";

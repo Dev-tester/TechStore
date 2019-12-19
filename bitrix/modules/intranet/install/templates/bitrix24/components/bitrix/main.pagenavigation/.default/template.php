@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
@@ -10,7 +10,7 @@ $this->setFrameMode(true);
 $ClientID = $arResult['ID'];
 ?>
 <div class="navigation">
-<?
+<?php 
 if($arResult["REVERSED_PAGES"] === true)
 {
 	// to show always first and last pages
@@ -47,7 +47,7 @@ if($arResult["REVERSED_PAGES"] === true)
 
 	<div class="navigation-pages">
 		<span class="navigation-title"><?=GetMessage("mp_pages")?></span>
-	<?
+	<?php 
 	$bFirst = true;
 	$bPoints = false;
 	do
@@ -56,15 +56,15 @@ if($arResult["REVERSED_PAGES"] === true)
 		if ($arResult["START_PAGE"] <= 2 || $arResult["PAGE_COUNT"]-$arResult["START_PAGE"] <= 1 || abs($arResult['START_PAGE']-$arResult["CURRENT_PAGE"])<=2)
 		{
 			if ($arResult["START_PAGE"] == $arResult["CURRENT_PAGE"]):
-				?><span class="navigation-current-page"><?=$NavRecordGroupPrint?></span><?
+				?><span class="navigation-current-page"><?=$NavRecordGroupPrint?></span><?php 
 			elseif($arResult["START_PAGE"] == $arResult["PAGE_COUNT"]):
 				?><a data-slider-ignore-autobinding="true" class="navigation-page-numb" href="<?=htmlspecialcharsbx(
 				$arResult["URL"]
-			)?>"><?=$NavRecordGroupPrint?></a><?
+			)?>"><?=$NavRecordGroupPrint?></a><?php 
 			else:
 				?><a data-slider-ignore-autobinding="true" class="navigation-page-numb" href="<?=htmlspecialcharsbx(
 				$component->replaceUrlTemplate($arResult["START_PAGE"])
-			)?>"><?=$NavRecordGroupPrint?></a><?
+			)?>"><?=$NavRecordGroupPrint?></a><?php 
 			endif;
 			$bFirst = false;
 			$bPoints = true;
@@ -73,7 +73,7 @@ if($arResult["REVERSED_PAGES"] === true)
 		{
 			if ($bPoints)
 			{
-				?><span class="navigation-points">...</span><?
+				?><span class="navigation-points">...</span><?php 
 				$bPoints = false;
 			}
 		}
@@ -88,37 +88,37 @@ if($arResult["REVERSED_PAGES"] === true)
 			?><a
 			data-slider-ignore-autobinding="true"
 			class="navigation-page-numb navigation-page-all"
-			href="<?=htmlspecialcharsbx($arResult["URL"])?>"><?=GetMessage("mp_nav_paged")?></a><?
+			href="<?=htmlspecialcharsbx($arResult["URL"])?>"><?=GetMessage("mp_nav_paged")?></a><?php 
 		}
 		else
 		{
 			?><a
 			data-slider-ignore-autobinding="true"
 			class="navigation-page-numb navigation-page-all"
-			href="<?=htmlspecialcharsbx($component->replaceUrlTemplate("all"))?>"><?=GetMessage("mp_nav_all")?></a><?
+			href="<?=htmlspecialcharsbx($component->replaceUrlTemplate("all"))?>"><?=GetMessage("mp_nav_all")?></a><?php 
 		}
 	}
 	?>
 
 	</div>
 	<div class="navigation-arrows">
-		<<?
-		if (!$bPrevDisabled):?>a href="<?=$sPrevHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_previous_page"<? else:?>span<?endif ?> class="navigation-button<?
-		if ($bPrevDisabled):?> navigation-disabled<?endif ?>"><span class="navigation-text"><span class="navigation-ctrl-before">Ctrl</span><span class="navigation-text-cont"><?=GetMessage(
+		<<?php 
+		if (!$bPrevDisabled):?>a href="<?=$sPrevHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_previous_page"<?php  else:?>span<?php endif ?> class="navigation-button<?php 
+		if ($bPrevDisabled):?> navigation-disabled<?php endif ?>"><span class="navigation-text"><span class="navigation-ctrl-before">Ctrl</span><span class="navigation-text-cont"><?=GetMessage(
 						"mp_nav_prev"
-					)?></span></span><?
-			if (!$bPrevDisabled): ?></a><?
-		else: ?></span><?
-		endif ?><<?
-		if (!$bNextDisabled):?>a href="<?=$sNextHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_next_page"<? else:?>span<?endif ?> class="navigation-button<?
-		if ($bNextDisabled):?> navigation-disabled<?endif ?>"><span class="navigation-text"><span class="navigation-text-cont"><?=GetMessage(
+					)?></span></span><?php 
+			if (!$bPrevDisabled): ?></a><?php 
+		else: ?></span><?php 
+		endif ?><<?php 
+		if (!$bNextDisabled):?>a href="<?=$sNextHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_next_page"<?php  else:?>span<?php endif ?> class="navigation-button<?php 
+		if ($bNextDisabled):?> navigation-disabled<?php endif ?>"><span class="navigation-text"><span class="navigation-text-cont"><?=GetMessage(
 						"mp_nav_next"
-					)?></span><span class="navigation-ctrl-after">Ctrl</span></span><?
-			if (!$bNextDisabled): ?></a><?
-	else:?></span><?
+					)?></span><span class="navigation-ctrl-after">Ctrl</span></span><?php 
+			if (!$bNextDisabled): ?></a><?php 
+	else:?></span><?php 
 	endif ?>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -158,7 +158,7 @@ else
 	?>
 
 	<div class="navigation-pages">
-		<span class="navigation-title"><?=GetMessage("mp_pages")?></span><?
+		<span class="navigation-title"><?=GetMessage("mp_pages")?></span><?php 
 
 	$bFirst = true;
 	$bPoints = false;
@@ -167,15 +167,15 @@ else
 		if ($arResult["START_PAGE"] <= 2 || $arResult["END_PAGE"]-$arResult["START_PAGE"] <= 1 || abs($arResult['START_PAGE']-$arResult["CURRENT_PAGE"])<=2)
 		{
 			if ($arResult["START_PAGE"] == $arResult["CURRENT_PAGE"]):
-				?><span class="navigation-current-page"><?=$arResult["START_PAGE"]?></span><?
+				?><span class="navigation-current-page"><?=$arResult["START_PAGE"]?></span><?php 
 			elseif($arResult["START_PAGE"] == 1):
 				?><a data-slider-ignore-autobinding="true" class="navigation-page-numb" href="<?=htmlspecialcharsbx(
 				$arResult["URL"]
-			)?>"><?=$arResult["START_PAGE"]?></a><?
+			)?>"><?=$arResult["START_PAGE"]?></a><?php 
 			else:
 				?><a data-slider-ignore-autobinding="true" class="navigation-page-numb" href="<?=htmlspecialcharsbx(
 				$component->replaceUrlTemplate($arResult["START_PAGE"])
-			)?>"><?=$arResult["START_PAGE"]?></a><?
+			)?>"><?=$arResult["START_PAGE"]?></a><?php 
 			endif;
 			$bFirst = false;
 			$bPoints = true;
@@ -184,7 +184,7 @@ else
 		{
 			if ($bPoints)
 			{
-				?><span class="navigation-points">...</span><?
+				?><span class="navigation-points">...</span><?php 
 				$bPoints = false;
 			}
 		}
@@ -199,42 +199,42 @@ else
 			?><a
 			data-slider-ignore-autobinding="true"
 			class="navigation-page-numb navigation-page-all"
-			href="<?=htmlspecialcharsbx($arResult["URL"])?>"><?=GetMessage("mp_nav_paged")?></a><?
+			href="<?=htmlspecialcharsbx($arResult["URL"])?>"><?=GetMessage("mp_nav_paged")?></a><?php 
 		}
 		else
 		{
 			?><a
 			data-slider-ignore-autobinding="true"
 			class="navigation-page-numb navigation-page-all"
-			href="<?=htmlspecialcharsbx($component->replaceUrlTemplate("all"))?>"><?=GetMessage("mp_nav_all")?></a><?
+			href="<?=htmlspecialcharsbx($component->replaceUrlTemplate("all"))?>"><?=GetMessage("mp_nav_all")?></a><?php 
 		}
 	}
 
 	?>
 	</div>
 	<div class="navigation-arrows">
-		<<?
-		if (!$bPrevDisabled):?>a href="<?=$sPrevHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_previous_page"<? else:?>span<?endif ?> class="navigation-button<?
-		if ($bPrevDisabled):?> navigation-disabled<?endif ?>"><span class="navigation-text"><span class="navigation-ctrl-before">Ctrl</span><span class="navigation-text-cont"><?=GetMessage(
+		<<?php 
+		if (!$bPrevDisabled):?>a href="<?=$sPrevHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_previous_page"<?php  else:?>span<?php endif ?> class="navigation-button<?php 
+		if ($bPrevDisabled):?> navigation-disabled<?php endif ?>"><span class="navigation-text"><span class="navigation-ctrl-before">Ctrl</span><span class="navigation-text-cont"><?=GetMessage(
 						"mp_nav_prev"
-					)?></span></span><?
-			if (!$bPrevDisabled): ?></a><?
-		else: ?></span><?
-		endif ?><<?
-		if (!$bNextDisabled):?>a href="<?=$sNextHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_next_page"<? else:?>span<?endif ?> class="navigation-button<?
-		if ($bNextDisabled):?> navigation-disabled<?endif ?>"><span class="navigation-text"><span class="navigation-text-cont"><?=GetMessage(
+					)?></span></span><?php 
+			if (!$bPrevDisabled): ?></a><?php 
+		else: ?></span><?php 
+		endif ?><<?php 
+		if (!$bNextDisabled):?>a href="<?=$sNextHref;?>" data-slider-ignore-autobinding="true" id="<?=$ClientID?>_next_page"<?php  else:?>span<?php endif ?> class="navigation-button<?php 
+		if ($bNextDisabled):?> navigation-disabled<?php endif ?>"><span class="navigation-text"><span class="navigation-text-cont"><?=GetMessage(
 						"mp_nav_next"
-					)?></span><span class="navigation-ctrl-after">Ctrl</span></span><?
-			if (!$bNextDisabled): ?></a><?
-	else:?></span><?
+					)?></span><span class="navigation-ctrl-after">Ctrl</span></span><?php 
+			if (!$bNextDisabled): ?></a><?php 
+	else:?></span><?php 
 	endif ?>
 	</div>
-	<?
+	<?php 
 }
 ?>
 </div>
 
-<?CJSCore::Init();?>
+<?php CJSCore::Init();?>
 <script type="text/javascript">
 	BX.bind(document, "keydown", function (event) {
 

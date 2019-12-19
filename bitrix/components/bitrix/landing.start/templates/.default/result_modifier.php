@@ -22,7 +22,7 @@ ob_start();
 		LANDING_TPL_JS_PAY_TARIFF: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_JS_PAY_TARIFF'));?>'
 	});
 </script>
-<?
+<?php 
 \Bitrix\Main\Page\Asset::getInstance()->addString(ob_get_contents());
 ob_end_clean();
 
@@ -63,7 +63,7 @@ elseif ($request->get('IFRAME') == 'N')
 	<script type="text/javascript">
 		window.top.location.href = "<?= \CUtil::JSEscape($redirect->getUri());?>";
 	</script>
-	<?
+	<?php 
 	include 'slider_footer.php';
 	\CMain::finalActions();
 	die();
@@ -183,5 +183,5 @@ if (
 			}
 		});
 	</script>
-	<?
+	<?php 
 }

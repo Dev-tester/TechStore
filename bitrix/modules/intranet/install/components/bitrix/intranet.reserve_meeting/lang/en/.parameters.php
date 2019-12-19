@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_MEETING_VAR'] = "Variable for Meeting Room ID";
 $MESS ['SONET_ITEM_VAR'] = "Booking ID variable";
 $MESS ['SONET_PAGE_VAR'] = "Page Variable";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -11,7 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 ?>
-<?
+<?php 
 $pageId = "group_tasks_report_view";
 include("util_group_menu.php");
 include("util_group_profile.php");

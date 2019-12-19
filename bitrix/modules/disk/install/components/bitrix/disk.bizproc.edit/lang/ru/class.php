@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BIZPROC_WFEDIT_ERROR_TYPE'] = "Не указан тип документа.";
 $MESS ['BIZPROC_WFEDIT_DEFAULT_TITLE'] = "Шаблон бизнес-процесса";
 $MESS ['BIZPROC_WFEDIT_SAVE_ERROR'] = "Ошибка сохранения:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_MODULE_IS_NOT_INSTALLED'] = "WebDav module is not installed.";
 $MESS ['IB_MODULE_IS_NOT_INSTALLED'] = "Information blocks module is not installed.";
 $MESS ['WD_IBLOCK_ID_EMPTY'] = "The information block is not specified.";

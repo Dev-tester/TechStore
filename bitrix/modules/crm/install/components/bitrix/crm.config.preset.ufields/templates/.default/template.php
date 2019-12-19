@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -10,9 +10,9 @@ use Bitrix\Main\Localization\Loc;
 /** @global CMain $APPLICATION */
 global $APPLICATION;
 
-?><div class="crm-dup-control-type-info" style="margin-bottom: 10px; max-width: none;"><?
+?><div class="crm-dup-control-type-info" style="margin-bottom: 10px; max-width: none;"><?php 
 echo htmlspecialcharsbx(Loc::getMessage('CRM_PRESET_UFIELDS_NOTE'));
-?></div><?
+?></div><?php 
 
 $toolbarButtons = array(
 	array(

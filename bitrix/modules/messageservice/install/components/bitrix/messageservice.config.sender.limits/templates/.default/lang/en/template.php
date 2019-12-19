@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGESERVICE_CONFIG_SENDER_LIMIT_TIP_ADMIN"] = "Limits are set by your provider. Specify the limit values in the column below.";
 $MESS["MESSAGESERVICE_CONFIG_SENDER_LIMIT_TITLE"] = "Limits";
 $MESS["MESSAGESERVICE_CONFIG_SENDER_LIMIT_TIP"] = "Limits are set by your provider. Specify the limit values in the column below. Bitrix24 will use these values when creating SMS campaigns.";

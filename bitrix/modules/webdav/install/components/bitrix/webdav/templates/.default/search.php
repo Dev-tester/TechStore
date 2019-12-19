@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->IncludeComponent("bitrix:search.page", "tags", array(
 	"RESTART" => "N",
 	"CHECK_DATES" => "N",
@@ -36,7 +36,7 @@ $APPLICATION->IncludeComponent("bitrix:search.page", "tags", array(
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><?
+?><?php 
 if ($arParams["SET_TITLE"] != "N")
 	$APPLICATION->SetTitle(GetMessage("P_TITLE"));
 ?>

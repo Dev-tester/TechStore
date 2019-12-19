@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_DIAGRAM_TYPE_HISTOGRAM'] = "Гистограмма";
 $MESS ['VOTE_DIAGRAM_TYPE_CIRCLE'] = "Круговая диаграмма";
 $MESS ['VOTE_FORGOT_TITLE'] = "Не заполнено поле 'Заголовок'.";

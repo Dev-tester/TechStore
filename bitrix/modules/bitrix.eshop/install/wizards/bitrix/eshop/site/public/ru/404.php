@@ -1,4 +1,4 @@
-<?
+<?php 
 include_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/urlrewrite.php');
 
 CHTTP::SetStatus("404 Not Found");
@@ -22,7 +22,7 @@ $APPLICATION->SetTitle("Страница не найдена");?>
 
 	<div class="col-sm-offset-2 col-sm-4">
 		<div class="bx-map-title"><i class="fa fa-leanpub"></i> Каталог</div>
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:catalog.section.list",
 			"tree",
 			array(
@@ -54,7 +54,7 @@ $APPLICATION->SetTitle("Страница не найдена");?>
 
 	<div class="col-sm-offset-1 col-sm-4">
 		<div class="bx-map-title"><i class="fa fa-info-circle"></i> О магазине</div>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:main.map",
 			".default",
@@ -70,4 +70,4 @@ $APPLICATION->SetTitle("Страница не найдена");?>
 			false
 		);?>
 	</div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

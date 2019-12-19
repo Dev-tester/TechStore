@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_P_USER_SEX'] = "Sex:";
 $MESS ['SONET_P_USER_BIRTHDAY'] = "Birthday:";
 $MESS ['SONET_C38_T_ONLINE'] = "Online";

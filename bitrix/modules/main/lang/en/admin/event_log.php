@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_EVENTLOG_WRONG_TIMESTAMP_X_FROM"] = "Enter the correct log starting date in the filter.";
 $MESS["MAIN_EVENTLOG_WRONG_TIMESTAMP_X_TO"] = "Enter the correct log end date in the filter.";
 $MESS["MAIN_EVENTLOG_ID"] = "ID";

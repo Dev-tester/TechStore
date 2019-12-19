@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORM_FORM_NAME"] = "Form:";
 $MESS["FORM_TYPE_FIELD"] = "field";
 $MESS["FORM_TYPE_QUESTION"] = "question";

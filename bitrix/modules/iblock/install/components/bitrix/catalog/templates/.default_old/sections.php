@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -13,7 +13,7 @@
 
 $this->setFrameMode(true);
 $this->addExternalCss("/bitrix/css/main/bootstrap.css");
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"",
 	array(
@@ -33,10 +33,10 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><?
+?><?php 
 if($arParams["USE_COMPARE"]=="Y")
 {
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.compare.list",
 	"",
 	array(
@@ -52,7 +52,7 @@ if($arParams["USE_COMPARE"]=="Y")
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 }
 if($arParams["SHOW_TOP_ELEMENTS"]!="N")
 {
@@ -65,7 +65,7 @@ if($arParams["SHOW_TOP_ELEMENTS"]!="N")
 		$basketAction = (isset($arParams['TOP_ADD_TO_BASKET_ACTION']) ? $arParams['TOP_ADD_TO_BASKET_ACTION'] : '');
 	}
 
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.top",
 	"",
 	array(
@@ -132,7 +132,7 @@ if($arParams["SHOW_TOP_ELEMENTS"]!="N")
 		'COMPARE_PATH' => $arResult['FOLDER'].$arResult['URL_TEMPLATES']['compare']
 	),
 	$component
-);?><?
+);?><?php 
 	unset($basketAction);
 }
 ?>

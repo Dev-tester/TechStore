@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBB_DESC_YES"] = "Yes";
 $MESS["SBB_DESC_NO"] = "No";
 $MESS["SBB_PATH_TO_ORDER"] = "Order page";

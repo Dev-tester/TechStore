@@ -30,27 +30,27 @@ Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/autorun_proc.js');
 Bitrix\Main\Page\Asset::getInstance()->addCss('/bitrix/js/crm/css/autorun_proc.css');
 
 
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT'])
 {
-	?><div id="rebuildOrderSearchWrapper"></div><?
+	?><div id="rebuildOrderSearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_BUILD_TIMELINE'])
 {
-	?><div id="buildOrderTimelineWrapper"></div><?
+	?><div id="buildOrderTimelineWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING'])
 {
-	?><div id="refreshOrderAccountingWrapper"></div><?
+	?><div id="refreshOrderAccountingWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_ORDER_ATTRS'])
 {
 	?><div id="rebuildOrderAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_ORDER_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildOrderAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 }
-?></div><?
+?></div><?php 
 
 $isRecurring = isset($arParams['IS_RECURRING']) && $arParams['IS_RECURRING'] === 'Y';
 $isInternal = $arResult['INTERNAL'];
@@ -915,7 +915,7 @@ if ($arResult['IS_AJAX_CALL'])
 					BX.CrmOrderStatusManager.statusInfoValues = <?= CUtil::PhpToJSObject($GLOBALS['OnCrmCrmOrderListAfterAjaxHandlerParams']['arOrderStatusInfoValues']) ?>;
 				}
 			});
-		</script><?
+		</script><?php 
 
 		return '';
 	}
@@ -1037,7 +1037,7 @@ if (!$arResult['IS_AJAX_CALL'])
 			}
 		});
 	</script>
-	<?
+	<?php 
 }
 
 ?>
@@ -1073,7 +1073,7 @@ if (!$arResult['IS_AJAX_CALL'])
 			});
 		}
 	);
-</script><?
+</script><?php 
 if(!$isInternal):
 ?><script type="text/javascript">
 	BX.ready(
@@ -1096,8 +1096,8 @@ if(!$isInternal):
 			}
 	);
 </script>
-<?endif;?>
-<?if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
+<?php endif;?>
+<?php if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1130,8 +1130,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1158,8 +1158,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1186,8 +1186,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1214,8 +1214,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_ORDER_SEMANTICS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_ORDER_SEMANTICS']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1240,8 +1240,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_ORDER_ATTRS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_ORDER_ATTRS']):?>
 <script type="text/javascript">
 
 	BX.ready(
@@ -1266,4 +1266,4 @@ if(!$isInternal):
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

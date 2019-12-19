@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 // A < E < I < M < Q < U < Y
 // A - NO ACCESS		E - READ			I - ANSWER
 // M - NEW TOPIC		Q - MODERATE	U - EDIT			Y - FULL_ACCESS

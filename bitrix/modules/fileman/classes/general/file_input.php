@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CFileInput
 {
@@ -408,7 +408,7 @@ class CFileInput
 
 
 		//Base container
-		?><div class="adm-input-file-control" id="<?= self::$jsId.'_cont'?>"><?
+		?><div class="adm-input-file-control" id="<?= self::$jsId.'_cont'?>"><?php 
 			if (!self::$bViewMode)
 				self::DisplayDialogs();
 
@@ -418,9 +418,9 @@ class CFileInput
 		?>
 		<script type="text/javascript">(top.BX.file_input) ? new top.BX.file_input(<?= CUtil::PHPToJSObject($arConfig)?>) : new BX.file_input(<?= CUtil::PHPToJSObject($arConfig)?>)</script>
 		</div>
-		<?/* Used to refresh form content - workaround for IE bug (mantis:37969) */?>
+		<?php /* Used to refresh form content - workaround for IE bug (mantis:37969) */?>
 	<div id="<?= self::$jsId.'_ie_bogus_container'?>"><input type="hidden" value="" /></div>
-	<?
+	<?php 
 	}
 
 	private static function DisplayDialogs()
@@ -478,36 +478,36 @@ class CFileInput
 				$hint .= '<span class="adm-input-file-hint-row">'.GetMessage('ADM_FILE_DESCRIPTION').':&nbsp;&nbsp;'.htmlspecialcharsbx($arFile['DESCRIPTION']).'</span>';
 		}
 		?><span class="adm-input-file-exist-cont" id="<?= self::$jsId?>_file_cont_<?= $ind?>">
-		<div class="adm-input-file-ex-wrap<?if(self::$bMultiple){echo ' adm-input-cont-bordered';}?>">
-		<?
+		<div class="adm-input-file-ex-wrap<?php if(self::$bMultiple){echo ' adm-input-cont-bordered';}?>">
+		<?php 
 		if ($bNotFound)
 		{
 			?>
 			<span id="<?= self::$jsId.'_file_404_'.$ind?>" class="adm-input-file-not-found">
 			<?= GetMessage('ADM_FILE_NOT_FOUND')?>
 			</span>
-			<?
+			<?php 
 		}
 		elseif ($arFile['IS_IMAGE'])
 		{
 			$file = CFile::ResizeImageGet($arFile['ID'], array('width' => self::$maxPreviewWidth, 'height' => self::$maxPreviewHeight), BX_RESIZE_IMAGE_PROPORTIONAL, true);
 			?>
-			<span id="<?= $hintId?>" class="adm-input-file-preview" style="<?if(self::$minPreviewWidth > 0){echo 'min-width: '.self::$minPreviewWidth.'px;';}?> <?if(self::$minPreviewHeight > 0){echo 'min-height:'.self::$minPreviewHeight.'px;';}?>">
-				<?= CFile::Show2Images($file['src'], $arFile['SRC'], self::$maxPreviewWidth, self::$maxPreviewHeight);?><?
+			<span id="<?= $hintId?>" class="adm-input-file-preview" style="<?php if(self::$minPreviewWidth > 0){echo 'min-width: '.self::$minPreviewWidth.'px;';}?> <?php if(self::$minPreviewHeight > 0){echo 'min-height:'.self::$minPreviewHeight.'px;';}?>">
+				<?= CFile::Show2Images($file['src'], $arFile['SRC'], self::$maxPreviewWidth, self::$maxPreviewHeight);?><?php 
 				if (!self::IsViewMode() || self::$bShowDelInput)
 				{
 					?><div id="<?= self::$jsId.'_file_del_lbl_'.$ind?>" class="adm-input-file-del-lbl"><?= GetMessage
-			('ADM_FILE_DELETED_TITLE')?></div><?
+			('ADM_FILE_DELETED_TITLE')?></div><?php 
 				}
 			?></span>
-			<?
+			<?php 
 		}
 		else
 		{
 			$val = !empty($arFile['FILE_NAME']) ? $arFile['FILE_NAME'] : $sImagePath;
 			?>
 			<a id="<?= $hintId?>" href="<?= htmlspecialcharsbx($arFile['SRC'])?>" class="adm-input-file-name"><?= htmlspecialcharsbx($val)?></a>
-			<?
+			<?php 
 		}
 
 		if ($hint != '')
@@ -524,7 +524,7 @@ class CFileInput
 				hint: '<?= CUtil::JSEscape($hint)?>'
 			});
 		</script>
-			<?
+			<?php 
 		}
 
 		if (!self::$bViewMode)
@@ -533,20 +533,20 @@ class CFileInput
 		if (!$bNotFound && self::$bShowDescInput)
 		{
 			?>
-			<div id="<?= self::$jsId.'_file_desc_'.$ind?>" class="adm-input-file-desc-inp-cont" <?if($arFile['DESCRIPTION'] == ""){echo 'style="display: none;"';}?>>
-				<input name="<?= $descName?>" class="adm-input" type="text" value="<?= htmlspecialcharsbx($arFile['DESCRIPTION'])?>" size="<?= self::$inputSize?>" placeholder="<?= GetMessage("ADM_FILE_DESC")?>" <?if(self::$bViewMode){echo ' disabled="disabled"';}?>>
+			<div id="<?= self::$jsId.'_file_desc_'.$ind?>" class="adm-input-file-desc-inp-cont" <?php if($arFile['DESCRIPTION'] == ""){echo 'style="display: none;"';}?>>
+				<input name="<?= $descName?>" class="adm-input" type="text" value="<?= htmlspecialcharsbx($arFile['DESCRIPTION'])?>" size="<?= self::$inputSize?>" placeholder="<?= GetMessage("ADM_FILE_DESC")?>" <?php if(self::$bViewMode){echo ' disabled="disabled"';}?>>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 		</div>
 		</span>
-		<?
+		<?php 
 	}
 
 	private static function ShowOpenerMenuHtml($id, $data=false)
 	{
-		?><span <?if($data !== false){echo 'data-bx-meta="'.$data.'"';}?> id="<?= $id?>" class="adm-btn add-file-popup-btn"></span><?
+		?><span <?php if($data !== false){echo 'data-bx-meta="'.$data.'"';}?> id="<?= $id?>" class="adm-btn add-file-popup-btn"></span><?php 
 	}
 
 	private static function GetInputName($inputName, $type = "")

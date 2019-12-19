@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPSWFA_ERROR_DOCUMENT_ID"] = "Element ID is not specified";
 $MESS["BPSWFA_ERROR_TEMPLATE"] = "No template selected.";
 $MESS["BPSWFA_TEMPLATE_PARAMETERS"] = "Workflow parameters";

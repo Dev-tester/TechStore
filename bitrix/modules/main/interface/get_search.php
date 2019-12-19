@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NO_KEEP_STATISTIC", true);
 define("NO_AGENT_STATISTIC", true);
 define("NOT_CHECK_PERMISSIONS", true);
@@ -129,28 +129,28 @@ if($bFound)
 {
 ?>
 	<table class="adm-search-result">
-		<?foreach($arResult["CATEGORIES"] as $category_id => $arCategory):
+		<?php foreach($arResult["CATEGORIES"] as $category_id => $arCategory):
 			if(count($arCategory["ITEMS"])==0)
 				continue;
 			?>
-			<?foreach($arCategory["ITEMS"] as $i => $arItem):
+			<?php foreach($arCategory["ITEMS"] as $i => $arItem):
 				if($i>9)
 					break;
 				?>
 			<tr onclick="window.location='<?=CUtil::JSEscape($arItem["URL"]);?>';">
-				<?if($i == 0):?>
+				<?php if($i == 0):?>
 					<th>&nbsp;<?=$arCategory["TITLE"]?></th>
-				<?else:?>
+				<?php else:?>
 					<th>&nbsp;</th>
-				<?endif?>
-				<td class="adm-search-item" <?if($arItem["TITLE"]!='' && $arItem["TITLE"]!=$arItem["NAME"]):?>title="<?=$arItem["TITLE"]?>"<?endif?>>
-					<a href="<?=$arItem["URL"]?>"><?if($arItem["ICON"]!=''):?><span class="adm-submenu-item-link-icon <?=$arItem["ICON"]?>"></span><?endif?><span class="adm-submenu-item-name-link-text"><?=$arItem["NAME"]?></span></a>
+				<?php endif?>
+				<td class="adm-search-item" <?php if($arItem["TITLE"]!='' && $arItem["TITLE"]!=$arItem["NAME"]):?>title="<?=$arItem["TITLE"]?>"<?php endif?>>
+					<a href="<?=$arItem["URL"]?>"><?php if($arItem["ICON"]!=''):?><span class="adm-submenu-item-link-icon <?=$arItem["ICON"]?>"></span><?php endif?><span class="adm-submenu-item-name-link-text"><?=$arItem["NAME"]?></span></a>
 				</td>
 			</tr>
-			<?endforeach;?>
-		<?endforeach;?>
+			<?php endforeach;?>
+		<?php endforeach;?>
 	</table>
-<?
+<?php 
 }
 
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_MODULE_NOT_INSTALLED"] = "Модуль \"Интеграция с Битрикс24\" не установлен.";
 $MESS["B24C_SS_MODULE_NOT_INSTALLED"] = "Модуль \"Социальные сервисы\" не установлен.";
 $MESS["B24C_PERMISSION_DENIED"] = "Доступ запрещен";

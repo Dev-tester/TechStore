@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_ADDRESS_1"] = "Улица, дом, корпус, строение";
 $MESS["CRM_ENTITY_ADDRESS_2"] = "Квартира / офис";
 $MESS["CRM_ENTITY_ADDRESS_CITY"] = "Город";

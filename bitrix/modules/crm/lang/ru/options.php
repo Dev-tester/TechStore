@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_PATH"] = "Шаблоны пути";
 $MESS["CRM_TAB_TITLE_PATH"] = "Настройка шаблонов путей для компонентов CRM";
 $MESS["CRM_OPTIONS_PATH_TO_LEAD_LIST"] = "Шаблон пути к списку лидов";

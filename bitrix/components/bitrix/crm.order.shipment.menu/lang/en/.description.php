@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SHIPMENT_MENU_NAME"] = "Toolbar";
 $MESS["CRM_ORDER_SHIPMENT_MENU_DESCRIPTION"] = "Toolbar";
 $MESS["CRM_NAME"] = "CRM";

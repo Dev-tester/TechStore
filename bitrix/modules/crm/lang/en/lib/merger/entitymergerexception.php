@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_MERGER_EXCEPTION_CONFLICT_OCCURRED"] = "Cannot auto merge due to data conflict.";
 $MESS["CRM_ENTITY_MERGER_EXCEPTION_CONFLICT_RESOLUTION_NOT_SUPPORTED"] = "Conflict resolution method \"#RESOLUTION_CAPTION#\" is not supported.";
 $MESS["CRM_ENTITY_MERGER_EXCEPTION_DELETE_DENIED"] = "No delete access to \"#TITLE#\" [#ID#].";

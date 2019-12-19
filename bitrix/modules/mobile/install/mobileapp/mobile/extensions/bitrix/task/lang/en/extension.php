@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ROLE_VIEW_ALL"] = "All tasks";
 $MESS["TASKS_ROLE_RESPONSIBLE"] = "Ongoing";
 $MESS["TASKS_ROLE_ACCOMPLICE"] = "Assisting";

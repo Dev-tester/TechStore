@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USMP_VIEW"] = "View";
 $MESS["USMP_MODULES"] = "Modules";
 $MESS["USMP_H_ID"] = "Module ID";

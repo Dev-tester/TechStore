@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?='<?xml version="1.0" encoding="'.SITE_CHARSET.'"?>'?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?='<?php xml version="1.0" encoding="'.SITE_CHARSET.'"?>'?>
 <rss version="2.0">
 <channel>
 <title><?=$arResult["NAME"]?></title>
@@ -7,7 +7,7 @@
 <description><?=$arResult["DESCRIPTION"]?></description>
 <lastBuildDate><?=date("r")?></lastBuildDate>
 <ttl><?=$arResult["RSS_TTL"]?></ttl>
-<?if(is_array($arResult["PICTURE"])):?>
+<?php if(is_array($arResult["PICTURE"])):?>
 <image>
 	<title><?=$arResult["NAME"]?></title>
 	<url><?=$arResult["PICTURE"]["FILE"]["SRC"]?></url>
@@ -15,14 +15,14 @@
 	<width><?=$arResult["PICTURE"]["WIDTH"]?></width>
 	<height><?=$arResult["PICTURE"]["HEIGHT"]?></height>
 </image>
-<?endif?>
-<?foreach($arResult["Events"] as $arEvent):?>
+<?php endif?>
+<?php foreach($arResult["Events"] as $arEvent):?>
 <item>
 	<title><?=$arEvent["TITLE_FORMAT"]?></title>
 	<link><?=$arEvent["URL"]?></link>
 	<description><?=$arEvent["MESSAGE_FORMAT"]?></description>
 	<pubDate><?=$arEvent["LOG_DATE"]?></pubDate>
 </item>
-<?endforeach?>
+<?php endforeach?>
 </channel>
 </rss>

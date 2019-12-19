@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOA_YES"] = "да";
 $MESS["SOA_NO"] = "нет";
 $MESS["SOA_DO_SOC_SERV"] = "Войти с помощью соцсетей";

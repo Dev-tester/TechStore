@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_ENTITY_DETAILS_BTN_HIDE"] = "Hide";
 $MESS["CRM_TRACKING_ENTITY_DETAILS_BTN_SETUP"] = "Configure";
 $MESS["CRM_TRACKING_ENTITY_DETAILS_DESC"] = "Rate the quality of ad traffic.";

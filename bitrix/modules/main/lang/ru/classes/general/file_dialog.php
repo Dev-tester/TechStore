@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BX_FD_ERROR'] = "Ошибка файлового диалога";
 $MESS ['BX_FD_ACCESS_DENIED'] = "Доступ запрещен";
 $MESS ['BX_FD_SESS_EXPIRED'] = "Сессия пользователя истекла";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_OPT_ACTIVE"] = "Активность монитора";
 $MESS["PERFMON_OPT_ACTIVE_Y"] = "Работает";
 $MESS["PERFMON_OPT_ACTIVE_N"] = "Отключен";

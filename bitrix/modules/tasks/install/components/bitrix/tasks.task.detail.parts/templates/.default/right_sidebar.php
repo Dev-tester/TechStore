@@ -31,8 +31,8 @@ if ($arResult['DEFER_LOAD'] === 'Y')
 					<div class="task-detail-info-users-title"><span><?php echo GetMessage("TASKS_CREATOR")?></span></div>
 					<div class="task-detail-info-users-list">
 						<div class="task-detail-info-user">
-							<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["CREATED_BY"]))?>" class="task-detail-info-user-avatar"><?
-								?><img src="<?=(isset($arResult["TASK"]["CREATED_BY_PHOTO"]) && strlen($arResult["TASK"]["CREATED_BY_PHOTO"]) > 0 ? $arResult["TASK"]["CREATED_BY_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?
+							<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["CREATED_BY"]))?>" class="task-detail-info-user-avatar"><?php 
+								?><img src="<?=(isset($arResult["TASK"]["CREATED_BY_PHOTO"]) && strlen($arResult["TASK"]["CREATED_BY_PHOTO"]) > 0 ? $arResult["TASK"]["CREATED_BY_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?php 
 							?></a>
 							<div class="task-detail-info-user-info">
 								<div class="task-detail-info-user-name"><a href="<?php 
@@ -64,8 +64,8 @@ if ($arResult['DEFER_LOAD'] === 'Y')
 						?></span></div>
 					<div class="task-detail-info-users-list">
 						<div class="task-detail-info-user">
-							<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["RESPONSIBLE_ID"]))?>" class="task-detail-info-user-avatar"><?
-								?><img src="<?=(isset($arResult["TASK"]["RESPONSIBLE_PHOTO"]) && strlen($arResult["TASK"]["RESPONSIBLE_PHOTO"]) > 0 ? $arResult["TASK"]["RESPONSIBLE_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?
+							<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["RESPONSIBLE_ID"]))?>" class="task-detail-info-user-avatar"><?php 
+								?><img src="<?=(isset($arResult["TASK"]["RESPONSIBLE_PHOTO"]) && strlen($arResult["TASK"]["RESPONSIBLE_PHOTO"]) > 0 ? $arResult["TASK"]["RESPONSIBLE_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?php 
 							?></a>
 							<div class="task-detail-info-user-info">
 								<div class="task-detail-info-user-name"><a href="<?php 
@@ -226,7 +226,7 @@ else
 		<b class="r2"></b><b class="r1"></b><b class="r0"></b>
 		<div class="sidebar-block-inner">
 
-			<?if((is_array($arParams['DISPLAY_DATA']) && in_array('CREATOR', $arParams['DISPLAY_DATA']))):?>
+			<?php if((is_array($arParams['DISPLAY_DATA']) && in_array('CREATOR', $arParams['DISPLAY_DATA']))):?>
 
 				<div class="task-detail-info-users task-detail-info-director">
 					<div class="task-detail-info-users-border"></div>
@@ -235,8 +235,8 @@ else
 							<div class="task-detail-info-users-title"><span><?php echo GetMessage("TASKS_CREATOR")?></span></div>
 							<div class="task-detail-info-users-list">
 								<div class="task-detail-info-user">
-									<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["CREATED_BY"]))?>" class="task-detail-info-user-avatar"><?
-										?><img src="<?=(isset($arResult["TASK"]["CREATED_BY_PHOTO"]) && strlen($arResult["TASK"]["CREATED_BY_PHOTO"]) > 0 ? $arResult["TASK"]["CREATED_BY_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?
+									<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["CREATED_BY"]))?>" class="task-detail-info-user-avatar"><?php 
+										?><img src="<?=(isset($arResult["TASK"]["CREATED_BY_PHOTO"]) && strlen($arResult["TASK"]["CREATED_BY_PHOTO"]) > 0 ? $arResult["TASK"]["CREATED_BY_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?php 
 									?></a>
 									<div class="task-detail-info-user-info">
 										<div class="task-detail-info-user-name"><a href="<?php 
@@ -259,9 +259,9 @@ else
 						<div class="task-detail-info-users-border"></div>
 				</div>
 
-			<?endif?>
+			<?php endif?>
 
-			<?if((is_array($arParams['DISPLAY_DATA']) && in_array('RESPONSIBLE', $arParams['DISPLAY_DATA']))):?>
+			<?php if((is_array($arParams['DISPLAY_DATA']) && in_array('RESPONSIBLE', $arParams['DISPLAY_DATA']))):?>
 
 				<div class="task-detail-info-users task-detail-info-responsible">
 					<div class="task-detail-info-users-border"></div>
@@ -294,21 +294,21 @@ else
 						<div class="task-detail-info-users-list">
 							<div class="task-detail-info-user">
 
-								<?if(intval($arResult["TASK"]["RESPONSIBLE_ID"])):?>
+								<?php if(intval($arResult["TASK"]["RESPONSIBLE_ID"])):?>
 
-									<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["RESPONSIBLE_ID"]))?>" class="task-detail-info-user-avatar"><?
-										?><img src="<?=(isset($arResult["TASK"]["RESPONSIBLE_PHOTO"]) && strlen($arResult["TASK"]["RESPONSIBLE_PHOTO"]) > 0 ? $arResult["TASK"]["RESPONSIBLE_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?
+									<a href="<?php echo CComponentEngine::MakePathFromTemplate($arParams["PATH_TO_USER_PROFILE"], array("user_id" => $arResult["TASK"]["RESPONSIBLE_ID"]))?>" class="task-detail-info-user-avatar"><?php 
+										?><img src="<?=(isset($arResult["TASK"]["RESPONSIBLE_PHOTO"]) && strlen($arResult["TASK"]["RESPONSIBLE_PHOTO"]) > 0 ? $arResult["TASK"]["RESPONSIBLE_PHOTO"] : "/bitrix/images/1.gif")?>" width="30" height="30"><?php 
 									?></a>
 
-								<?else:?>
+								<?php else:?>
 									<div class="task-detail-info-user-avatar">
 										<img src="/bitrix/images/1.gif" width="30" height="30" />
 									</div>
-								<?endif?>
+								<?php endif?>
 
 								<div class="task-detail-info-user-info">
 									<div class="task-detail-info-user-name">
-										<?if(intval($arResult["TASK"]["RESPONSIBLE_ID"])):?>
+										<?php if(intval($arResult["TASK"]["RESPONSIBLE_ID"])):?>
 											<a href="<?php 
 												echo CComponentEngine::MakePathFromTemplate(
 													$arParams["PATH_TO_USER_PROFILE"], 
@@ -322,15 +322,15 @@ else
 													$arParams["NAME_TEMPLATE"],
 													false);
 												?></a>
-										<?else:?>
+										<?php else:?>
 											<?=GetMessage('TASKS_NEW_RESPONSIBLE')?>
-										<?endif?>
+										<?php endif?>
 									</div>
 
-									<?if(intval($arResult["TASK"]["RESPONSIBLE_ID"])):?>
+									<?php if(intval($arResult["TASK"]["RESPONSIBLE_ID"])):?>
 										<?php if ($arResult["TASK"]["RESPONSIBLE_WORK_POSITION"]):?><div class="task-detail-info-user-position"><?php 
 										echo $arResult["TASK"]["RESPONSIBLE_WORK_POSITION"]?><?php else:?><div class="task-detail-info-user-position-empty"><?php endif?></div>
-									<?endif?>
+									<?php endif?>
 								</div>
 							</div>
 						</div>
@@ -338,15 +338,15 @@ else
 					<div class="task-detail-info-users-border"></div>
 				</div>
 
-			<?endif?>
+			<?php endif?>
 
 			<table class="task-detail-info-layout" cellspacing="0">
 
-				<?foreach($arParams['DISPLAY_DATA'] as $dataPieceName):?>
+				<?php foreach($arParams['DISPLAY_DATA'] as $dataPieceName):?>
 
-					<?if(in_array($dataPieceName, $arResult['TABLE_ROWS_MAP'])):?>
+					<?php if(in_array($dataPieceName, $arResult['TABLE_ROWS_MAP'])):?>
 
-						<?
+						<?php 
 						switch($dataPieceName)
 						{
 							case 'STATUS':
@@ -368,7 +368,7 @@ else
 											</span>
 										</td>
 									</tr>
-								<?
+								<?php 
 
 								break;
 
@@ -395,7 +395,7 @@ else
 											?></span></span>
 										</td>
 									</tr>
-								<?
+								<?php 
 
 								break;
 
@@ -572,7 +572,7 @@ else
 									</td>
 								</tr>
 								<?php endif?>
-								<?
+								<?php 
 
 								break;
 
@@ -630,7 +630,7 @@ else
 											></span
 										></td>
 									</tr>
-								<?
+								<?php 
 
 								break;
 
@@ -663,7 +663,7 @@ else
 										}
 										?></span></td>
 									</tr>
-								<?
+								<?php 
 
 								break;
 
@@ -708,13 +708,13 @@ else
 						}
 						?>
 
-					<?endif?>
+					<?php endif?>
 
-				<?endforeach?>
+				<?php endforeach?>
 
 			</table>
 
-			<?if($arResult['SHOW_ACCOMPLICES']):?>
+			<?php if($arResult['SHOW_ACCOMPLICES']):?>
 
 				<div class="task-detail-info-users<?php if (!sizeof($arResult["TASK"]["ACCOMPLICES"])):?> task-detail-info-users-empty<?php endif?> task-detail-info-assistants" id="task-detail-info-assistants">
 					<div class="task-detail-info-users-border"></div>
@@ -757,9 +757,9 @@ else
 					<div class="task-detail-info-users-border"></div>
 				</div>
 
-			<?endif?>
+			<?php endif?>
 
-			<?if($arResult['SHOW_AUDITORS']):?>
+			<?php if($arResult['SHOW_AUDITORS']):?>
 
 				<div class="task-detail-info-users<?php if (!sizeof($arResult["TASK"]["AUDITORS"])):?> task-detail-info-users-empty<?php endif?> task-detail-info-auditors" id="task-detail-info-auditors">
 					<div class="task-detail-info-users-border"></div>
@@ -786,7 +786,7 @@ else
 									}
 									?>
 									>
-									<?if(is_array($arParams['DISPLAY_DATA']) && in_array('STOP_WATCH', $arParams['DISPLAY_DATA'])):?>
+									<?php if(is_array($arParams['DISPLAY_DATA']) && in_array('STOP_WATCH', $arParams['DISPLAY_DATA'])):?>
 										<span  
 											class="webform-field-action-link" 
 											href="javascript:void(0);"
@@ -797,7 +797,7 @@ else
 											><?php
 												echo GetMessage("TASKS_SIDEBAR_STOP_WATCH");
 										?></span>
-									<?endif?>
+									<?php endif?>
 								</div><?php
 							}
 							?></div>
@@ -833,9 +833,9 @@ else
 					</div>
 				</div>
 
-			<?endif?>
+			<?php endif?>
 
-			<?if($arParams['SHOW_EDIT_MEMBERS'] != 'N'):?>
+			<?php if($arParams['SHOW_EDIT_MEMBERS'] != 'N'):?>
 
 				<div class="task-detail-info-users-links">
 					<?php
@@ -877,7 +877,7 @@ else
 					?>
 				</div>
 
-			<?endif?>
+			<?php endif?>
 
 		</div>
 		<i class="r0"></i><i class="r1"></i><i class="r2"></i>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UI_ENTITY_EDITOR_YES"] = "Да";
 $MESS["UI_ENTITY_EDITOR_NO"] = "Нет";
 $MESS["UI_ENTITY_EDITOR_SELECT"] = "Выбрать";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CSA_TITLE'] = "Adding a site";
 $MESS ['CSA_MODULE_NOT_INSTALLED'] = "The Controller module is not installed";
 $MESS ['CSA_ERROR_DOMAIN_NAME'] = "Domain names can include only Latin letters, digits, dots and hyphens.";

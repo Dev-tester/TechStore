@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
 
 <html>
 <head>
@@ -12,31 +12,31 @@
 <table border="1">
 	<thead>
 	<tr>
-		<?
+		<?php 
 		foreach($arResult['HEADERS'] as $arHeader)
 		{
 			if($arHeader['id'] === 'LOG' || $arHeader['id'] === 'RECORD')
 				continue;
 
-			?><td><?=$arHeader['name'];?></td><?
+			?><td><?=$arHeader['name'];?></td><?php 
 		}
 		?>
 	</tr>
 	</thead>
 	<tbody>
-	<?
+	<?php 
 	foreach($arResult["ROWS"] as $arRow)
 	{
 		?>
 		<tr>
-			<?
+			<?php 
 			foreach($arResult['HEADERS'] as $arHeader)
 			{
 				if($arHeader['id'] === 'LOG' || $arHeader['id'] === 'RECORD')
 					continue;
 				?>
 				<td>
-					<?
+					<?php 
 					if(isset($arRow["columns"][$arHeader['id']]))
 					{
 						echo $arRow["columns"][$arHeader['id']];
@@ -47,11 +47,11 @@
 					}
 					?>
 				</td>
-				<?
+				<?php 
 			}
 			?>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	</tbody>

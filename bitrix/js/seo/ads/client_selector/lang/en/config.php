@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_ADS_CLIENT_ADD"] = "Add account";
 $MESS["SEO_ADS_CLIENT_BTN_CANCEL"] = "Cancel";
 $MESS["SEO_ADS_CLIENT_DISCONNECT"] = "Disable";

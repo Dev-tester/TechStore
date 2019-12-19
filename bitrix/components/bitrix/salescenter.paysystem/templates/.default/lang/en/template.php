@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_SP_ADD_PAYMENT_BUTTON"] = "Configure";
 $MESS["SALESCENTER_SP_BUTTON_CLOSE"] = "Cancel";
 $MESS["SALESCENTER_SP_CAHSBOX_HINT"] = "There are no cash registers. <a href='#CASHBOX_SETTINGS_LINK#'>Configure cash registers</a>";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**********************************************************************/
 /**    DO NOT MODIFY THIS FILE                                       **/
 /**    MODIFICATION OF THIS FILE WILL ENTAIL SITE FAILURE            **/
@@ -137,8 +137,8 @@ $APPLICATION->SetAdditionalCSS("/bitrix/themes/".ADMIN_THEME_ID."/sysupdate.css"
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

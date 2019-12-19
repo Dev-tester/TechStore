@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_CREATE_FORM"] = "Новая тема";
 $MESS["F_REPLY_FORM"] = "Форма ответов";
 $MESS["F_EDIT_FORM"] = "Изменение сообщения в теме";

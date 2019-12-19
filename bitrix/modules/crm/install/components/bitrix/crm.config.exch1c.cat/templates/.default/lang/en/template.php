@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_CATALOG_IMPORT"] = "Products: import";
 $MESS["CRM_TAB_CATALOG_IMPORT_TITLE"] = "Configure 1C:Enterprise product import";
 $MESS["CRM_TAB_CATALOG_EXPORT"] = "Products: export";

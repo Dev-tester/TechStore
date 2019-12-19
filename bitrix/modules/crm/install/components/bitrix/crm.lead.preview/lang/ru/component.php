@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TITLE_LEAD"] = "Лид";
 $MESS["CRM_FIELD_OPPORTUNITY"] = "Возможная сумма сделки";
 $MESS["CRM_FIELD_STATUS"] = "Статус";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_MESSENGER_COMMENT_PLURAL_0"] = "comment";
 $MESS["IM_MESSENGER_COMMENT_PLURAL_1"] = "comments";
 $MESS["IM_MESSENGER_COMMENT_PLURAL_2"] = "comments";

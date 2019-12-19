@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -18,10 +18,10 @@ if (defined('SITE_TEMPLATE_ID') && SITE_TEMPLATE_ID == 'bitrix24')
 				data-role="timeman-add-schedule-btn">
 			<?= htmlspecialcharsbx(Loc::getMessage('TM_SCHEDULE_LIST_ADD')) ?>
 		</a>
-		<? $this->EndViewTarget();
+		<?php  $this->EndViewTarget();
 	}
 } ?>
-<?
+<?php 
 foreach ($arResult['ITEMS'] as $item)
 {
 	$gridActions = [];

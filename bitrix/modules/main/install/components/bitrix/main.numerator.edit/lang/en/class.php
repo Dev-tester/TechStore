@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NUMERATOR_EDIT_BTN_CANCEL"] = "Cancel";
 $MESS["NUMERATOR_EDIT_BTN_SAVE"] = "Save";
 $MESS["NUMERATOR_EDIT_CREATE_PAGE_TITLE"] = "New Auto Numbering Template";

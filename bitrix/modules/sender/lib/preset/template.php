@@ -110,7 +110,7 @@ class Template
 					<tr>
 					<td style="vertical-align: top;">
 						<div class="sender-template-type-selector">
-							<?
+							<?php 
 							$firstTemplateType = null;
 							foreach($templateTypeList as $templateType => $templateTypeName):
 								if(!$firstTemplateType) $firstTemplateType = $templateType;
@@ -119,14 +119,14 @@ class Template
 										data-bx-sender-tmpl-type="<?=htmlspecialcharsbx($templateType)?>">
 									<?=$templateTypeName?>
 								</div>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</div>
 					</td>
 					<td style="vertical-align: top; width: 100%;">
 						<div class="sender-template-list-container">
-							<?foreach($templateTypeList as $templateType => $templateTypeName):?>
+							<?php foreach($templateTypeList as $templateType => $templateTypeName):?>
 								<div id="sender-template-list-type-container-<?=$templateType?>" class="sender-template-list-type-container sender-template-list-type-container-<?=$templateType?>" style="display: none;">
-									<?
+									<?php 
 									if(isset($templateListByType[$templateType]))
 										foreach($templateListByType[$templateType] as $templateNum => $template):
 											$isContentForBlockEditor = TemplateTable::isContentForBlockEditor($template['HTML']);
@@ -141,10 +141,10 @@ class Template
 												<a class="sender-link-email" href="javascript: void(0);">
 													<?=htmlspecialcharsbx($template['NAME'])?>
 												</a>
-												<?if(!$isContentForBlockEditor):?>
+												<?php if(!$isContentForBlockEditor):?>
 													<br>
 													<span style="font-size: 10px;"><?=Loc::getMessage('SENDER_PRESET_TEMPLATE_OLD_EDITOR')?></span>
-												<?endif;?>
+												<?php endif;?>
 											</div>
 											<div class="sender-template-list-type-block-img sender-template-list-block-selector"
 													data-bx-sender-tmpl-version="<?=($isContentForBlockEditor?'block':'visual')?>"
@@ -152,11 +152,11 @@ class Template
 													data-bx-sender-tmpl-type="<?=htmlspecialcharsbx($template['TYPE'])?>"
 													data-bx-sender-tmpl-code="<?=htmlspecialcharsbx($template['ID'])?>"
 													data-bx-sender-tmpl-lang="<?=LANGUAGE_ID?>">
-												<?if(!empty($template['ICON'])):?>
+												<?php if(!empty($template['ICON'])):?>
 													<img src="<?=$template['ICON']?>">
-												<?endif;?>
+												<?php endif;?>
 											</div>
-											<?if(!empty($template['HTML'])):?>
+											<?php if(!empty($template['HTML'])):?>
 												<div class="sender-template-message-preview-btn"
 													data-bx-sender-tmpl-name="<?=htmlspecialcharsbx($template['NAME'])?>"
 													data-bx-sender-tmpl-type="<?=htmlspecialcharsbx($template['TYPE'])?>"
@@ -164,16 +164,16 @@ class Template
 													data-bx-sender-tmpl-lang="<?=LANGUAGE_ID?>">
 													<a class="sender-link-email " href="javascript: void(0);"><?=Loc::getMessage('SENDER_PRESET_TEMPLATE_BTN_PREVIEW')?></a>
 												</div>
-											<?endif;?>
+											<?php endif;?>
 										</div>
-									<?endforeach;?>
-									<?if(empty($templateListByType[$templateType])):?>
+									<?php endforeach;?>
+									<?php if(empty($templateListByType[$templateType])):?>
 										<div class="sender-template-list-type-blockempty">
 											<?=Loc::getMessage('SENDER_PRESET_TEMPLATE_NO_TMPL')?>
 										</div>
-									<?endif;?>
+									<?php endif;?>
 								</div>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</div>
 					</td>
 					<td style="vertical-align: top;">
@@ -183,7 +183,7 @@ class Template
 				</table>
 			</div>
 		</div>
-		<?
+		<?php 
 		return ob_get_clean();
 	}
 }

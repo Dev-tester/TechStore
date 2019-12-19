@@ -180,13 +180,13 @@ if (isset($arParams['INCLUDE_INTERFACE_HEADER']) && $arParams['INCLUDE_INTERFACE
 ?>
 
 <div id="task_kanban">
-	<?if ($arParams['SPRINT_SELECTED'] == 'Y' && !$arParams['SPRINT_ID']):?>
+	<?php if ($arParams['SPRINT_SELECTED'] == 'Y' && !$arParams['SPRINT_ID']):?>
 		<div class="tasks-kanban-start">
 			<div class="tasks-kanban-start-title-sm">
 				<?= Loc::getMessage('KANBAN_WO_SPRINT');?>
 			</div>
 		</div>
-		<?
+		<?php 
 		return;
 	elseif ($emptyKanban):?>
 		<div class="tasks-kanban-start">
@@ -198,9 +198,9 @@ if (isset($arParams['INCLUDE_INTERFACE_HEADER']) && $arParams['INCLUDE_INTERFACE
 				<div class="tasks-kanban-start-title-sm">
 					<?= Loc::getMessage('KANBAN_WO_GROUP_2');?>
                 </div>
-				<a href="<?= htmlspecialcharsbx(str_replace('#user_id#', $arResult['CURRENT_USER_ID'], $arParams['PATH_TO_USER_PROFILE']));?>groups/create/" <?
-					?>class="webform-button webform-button-blue tasks-kanban-start-button"><?
-						?><?= Loc::getMessage('KANBAN_WO_GROUP_BUTTON'); ?><?
+				<a href="<?= htmlspecialcharsbx(str_replace('#user_id#', $arResult['CURRENT_USER_ID'], $arParams['PATH_TO_USER_PROFILE']));?>groups/create/" <?php 
+					?>class="webform-button webform-button-blue tasks-kanban-start-button"><?php 
+						?><?= Loc::getMessage('KANBAN_WO_GROUP_BUTTON'); ?><?php 
 				?></a>
 			</div>
 		</div>
@@ -209,7 +209,7 @@ if (isset($arParams['INCLUDE_INTERFACE_HEADER']) && $arParams['INCLUDE_INTERFACE
 				display: none;
 			}
 		</style>
-		<?
+		<?php 
 		return;
 	endif;?>
 </div>
@@ -284,7 +284,7 @@ if (isset($arParams['INCLUDE_INTERFACE_HEADER']) && $arParams['INCLUDE_INTERFACE
 
 </script>
 
-<?
+<?php 
 // select views
 if (!empty($arResult['VIEWS'])) {
     require 'initial.php';
@@ -348,10 +348,10 @@ if ($show) {
     $this->addExternalCss($this->getFolder() . '/popup/style.css');
     $this->addExternalJs($this->getFolder() . '/popup/script.js');
     ?>
-    <div class="tasks-kanban-popup" id="kanban-popup" <?
-    ?>data-close="<?= Loc::getMessage('KANBAN_POPUP_CLOSE'); ?>" <?
-         ?>data-ajax="<?= \CUtil::JSEscape($this->getFolder() . '/popup/ajax.php') ?>" <?
-         ?>data-type="<?= $type ?>"<?
+    <div class="tasks-kanban-popup" id="kanban-popup" <?php 
+    ?>data-close="<?= Loc::getMessage('KANBAN_POPUP_CLOSE'); ?>" <?php 
+         ?>data-ajax="<?= \CUtil::JSEscape($this->getFolder() . '/popup/ajax.php') ?>" <?php 
+         ?>data-type="<?= $type ?>"<?php 
     ?>>
         <div class="tasks-kanban-popup-title"><?= Loc::getMessage('KANBAN_POPUP_' . $type . '_TITLE'); ?></div>
         <div class="tasks-kanban-popup-text"><?= Loc::getMessage('KANBAN_POPUP_' . $type . '_TEXT_1'); ?></div>
@@ -360,14 +360,14 @@ if ($show) {
         <div class="tasks-kanban-popup-text"><?= Loc::getMessage('KANBAN_POPUP_' . $type . '_TEXT_3'); ?></div>
         <div class="tasks-kanban-popup-text tasks-kanban-popup-text-italic"><?= Loc::getMessage('KANBAN_POPUP_' . $type . '_TEXT_4'); ?></div>
         <a href="https://helpdesk.bitrix24.<?= $popupDomain ?>/open/<?= $popupUrlId ?>/" target="_blank"
-           data-helpId="<?= $popupUrlId ?>"<?
+           data-helpId="<?= $popupUrlId ?>"<?php 
         if (SITE_TEMPLATE_ID == 'bitrix24') {
-            ?> id="kanban-readmore"<?
+            ?> id="kanban-readmore"<?php 
         } ?> class="tasks-kanban-popup-text-redmore">
             <?= Loc::getMessage('KANBAN_POPUP_DETAIL'); ?>
         </a>
     </div>
-    <?
+    <?php 
 }
 
 
@@ -384,4 +384,4 @@ CJSCore::Init("spotlight");
         TASKS_CLOSE_PAGE_CONFIRM: '<?=GetMessageJS('TASKS_CLOSE_PAGE_CONFIRM')?>'
     });
 </script>
-<? //endif?>
+<?php  //endif?>

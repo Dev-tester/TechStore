@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
@@ -14,18 +14,18 @@ endif;
 			<div class="blog-search-text"><input type="text" name="q" size="15" value="<?=$arResult["q"]?>"></div>
 			<div class="blog-search-select">
 				<select name="where">
-				<?foreach($arResult["WHERE"] as $k => $v)
+				<?php foreach($arResult["WHERE"] as $k => $v)
 				{
-					?><option value="<?=$k?>"<?=$k==$arResult["where"]?" selected":""?>><?=$v?></option><?
+					?><option value="<?=$k?>"<?=$k==$arResult["where"]?" selected":""?>><?=$v?></option><?php 
 				}
 				?>
 				</select>
 			</div>
 			<div class="blog-search-submit"><input type="submit" value="<?=GetMessage("BLOG_SEARCH_BUTTON")?>"></div>
 
-		<?if($arResult["how"]=="d"):?>
+		<?php if($arResult["how"]=="d"):?>
 			<input type="hidden" name="how" value="d">
-		<?endif;?>
+		<?php endif;?>
 		</form>
 		</div>
 	</li>

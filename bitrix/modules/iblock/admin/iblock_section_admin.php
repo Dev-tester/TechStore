@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global $DB CDatabase */
 /** @global CUserTypeManager $USER_FIELD_MANAGER */
@@ -33,8 +33,8 @@ if($bBadBlock)
 	$APPLICATION->SetTitle($arIBTYPE["NAME"]);
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 	ShowError(GetMessage("IBSEC_A_BAD_IBLOCK"));?>
-	<a href="iblock_admin.php?lang=<?echo LANGUAGE_ID?>&amp;type=<?echo htmlspecialcharsbx($type)?>"><?echo GetMessage("IBSEC_A_BACK_TO_ADMIN")?></a>
-	<?
+	<a href="iblock_admin.php?lang=<?php echo LANGUAGE_ID?>&amp;type=<?php echo htmlspecialcharsbx($type)?>"><?php echo GetMessage("IBSEC_A_BACK_TO_ADMIN")?></a>
+	<?php 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 	die();
 }

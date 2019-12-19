@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_EMPLOYEES"] = "EMPLOYEES";
 $MESS["SEARCH_CHATS"] = "CHATS";
 $MESS["SEARCH"] = "Search...";

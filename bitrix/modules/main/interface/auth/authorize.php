@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $store_password = COption::GetOptionString("main", "store_password", "Y");
@@ -24,7 +24,7 @@ if(
 		<div class="login-popup-field">
 			<div class="login-popup-field-title"><?=GetMessage("AUTH_LOGIN")?></div>
 			<div class="login-input-wrap">
-				<input type="text" class="login-input" onfocus="BX.addClass(this.parentNode, 'login-input-active')" onblur="BX.removeClass(this.parentNode, 'login-input-active')" name="USER_LOGIN" value="<?echo htmlspecialcharsbx($last_login)?>" tabindex="1">
+				<input type="text" class="login-input" onfocus="BX.addClass(this.parentNode, 'login-input-active')" onblur="BX.removeClass(this.parentNode, 'login-input-active')" name="USER_LOGIN" value="<?php echo htmlspecialcharsbx($last_login)?>" tabindex="1">
 				<div class="login-inp-border"></div>
 			</div>
 		</div>
@@ -39,7 +39,7 @@ if(
 				<img class="login-waiter" alt="" src="/bitrix/panel/main/images/login-waiter.gif">
 			</div>
 		</div>
-<?
+<?php 
 $CAPTCHA_CODE = '';
 if($bNeedCaptcha)
 {
@@ -51,11 +51,11 @@ if($bNeedCaptcha)
 		<div class="login-popup-field login-captcha-field">
 			<div class="login-popup-field-title"><?=GetMessage("AUTH_CAPTCHA_PROMT")?></div>
 			<div class="login-input-wrap">
-				<span class="login-captcha-wrap" id="captcha_image"><?if($bNeedCaptcha):?><img src="/bitrix/tools/captcha.php?captcha_sid=<?=$CAPTCHA_CODE?>" width="180" height="40" alt="CAPTCHA" /><?endif;?></span><input type="text" onfocus="BX.addClass(this.parentNode, 'login-input-active')" onblur="BX.removeClass(this.parentNode, 'login-input-active')" name="captcha_word" class="login-input" tabindex="5" autocomplete="off">
+				<span class="login-captcha-wrap" id="captcha_image"><?php if($bNeedCaptcha):?><img src="/bitrix/tools/captcha.php?captcha_sid=<?=$CAPTCHA_CODE?>" width="180" height="40" alt="CAPTCHA" /><?php endif;?></span><input type="text" onfocus="BX.addClass(this.parentNode, 'login-input-active')" onblur="BX.removeClass(this.parentNode, 'login-input-active')" name="captcha_word" class="login-input" tabindex="5" autocomplete="off">
 				<div class="login-inp-border"></div>
 			</div>
 		</div>
-<?
+<?php 
 
 if($store_password=="Y"):
 	?>
@@ -63,17 +63,17 @@ if($store_password=="Y"):
 		<input type="checkbox" class="adm-designed-checkbox" id="USER_REMEMBER" name="USER_REMEMBER" value="Y" tabindex="3" onfocus="BX.addClass(this.nextSibling, 'login-popup-checkbox-label-active')" onblur="BX.removeClass(this.nextSibling, 'login-popup-checkbox-label-active')"><label for="USER_REMEMBER" class="adm-designed-checkbox-label"></label>
 		<label for="USER_REMEMBER" class="login-popup-checkbox-label"><?=GetMessage("AUTH_REMEMBER_ME")?></label>
 	</div>
-	<?
+	<?php 
 endif;
 
 if($not_show_links!="Y"):
 ?>
 		<a class="login-popup-link login-popup-forget-pas" href="javascript:void(0)" onclick="BX.adminLogin.toggleAuthForm('forgot_password')"><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></a>
-<?
+<?php 
 endif;
 ?>
 
-<?
+<?php 
 if($authLink):
 	$lang = LANGUAGE_ID == 'ua'
 		? LANGUAGE_ID :
@@ -86,12 +86,12 @@ if($authLink):
 		<span class="login-popup-network-label"><?=GetMessage("AUTH_NW_SECTION")?></span>
 		<span class="login-popup-network-btn login-popup-network-btn-<?=$lang?>" onclick="BX.util.popup('<?=CUtil::JSEscape($authLink)?>', 800, 600);"></span>
 	</div>
-<?
+<?php 
 endif;
 ?>
 
 	</div>
 </div>
 <script type="text/javascript">
-BX.adminLogin.registerForm(new BX.authFormAuthorize('authorize', {url: '<?echo CUtil::JSEscape($authUrl."?login=yes".(($s=DeleteParam(array("logout", "login"))) == ""? "":"&".$s));?>'}));
+BX.adminLogin.registerForm(new BX.authFormAuthorize('authorize', {url: '<?php echo CUtil::JSEscape($authUrl."?login=yes".(($s=DeleteParam(array("logout", "login"))) == ""? "":"&".$s));?>'}));
 </script>

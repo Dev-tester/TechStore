@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_PL_TASKS"] = "Задачи на день";
 $MESS["JS_CORE_PL_TASKS_CHOOSE"] = "выбрать из списка";
 $MESS["JS_CORE_PL_TASKS_ADD"] = "введите текст задачи";

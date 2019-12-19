@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "Blog module is not installed.";
 $MESS["BLOG_BLOG_BLOG_TITLE"] = "Blog messages";
 $MESS["BLOG_BLOG_BLOG_REQUEST_ALREADY"] = "Your request is already under consideration with the blog author";

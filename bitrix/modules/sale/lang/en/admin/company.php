@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_COMPANY_SECTION_TITLE"] = "Companies";
 $MESS["SALE_COMPANY_NAME"] = "Name";
 $MESS["SALE_COMPANY_LOCATION_ID"] = "Location";

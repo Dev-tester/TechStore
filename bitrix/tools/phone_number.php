@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/phone_number.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/tools/phone_number.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_ADM_FORM_NAME"] = "Заявка в отдел АХО";
 $MESS["ADM_TROUBLESHOOTING_MENU_NAME"] = "Заявка в отдел АХО";
 $MESS["SERVICE_ADM_FORM_BUTTON"] = "Отправить заявку";

@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,16 +12,16 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>	
 
-	<?if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):?>
+	<?php if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):?>
 		<form method="post" name="form1" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
-	<?endif;?>
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php endif;?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
+	<?php endif;?>
 	<div class="sonet-cntnr-group-mods">
 	<table width="100%" class="sonet-user-profile-friends data-table">
 		<tr>
@@ -29,11 +29,11 @@ else
 		</tr>
 		<tr>
 			<td>
-				<?
+				<?php 
 				if ($arResult["Moderators"] && $arResult["Moderators"]["List"])
 				{
 					?><br />
-					<div class="bx-links-container"><?
+					<div class="bx-links-container"><?php 
 					if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):
 						?><script>
 							var arUsers = []; 
@@ -60,20 +60,20 @@ else
 
 							function SetOwner(id)
 							{
-								var url = '/bitrix/tools/sonet_group_set_owner.php?GROUP_ID=<?echo $arResult["Group"]["ID"]?>&USER_ID=' + parseInt(id) + '&<?echo bitrix_sessid_get()?>';
+								var url = '/bitrix/tools/sonet_group_set_owner.php?GROUP_ID=<?php echo $arResult["Group"]["ID"]?>&USER_ID=' + parseInt(id) + '&<?php echo bitrix_sessid_get()?>';
 								jsUtils.LoadPageToDiv(url, 'blank')
 							}
 
 							window.onload = function() {if (arUsers.length > 0) document.getElementById('bx_owner_link').style.display = 'inline';}
 						</script><span id="blank"></span>
-						<a href="javascript:void(0)" class="bx-owner-link" id="bx_owner_link" onclick="ShowOwnerMenu(this);" style="display: none;"><span><?echo GetMessage('SONET_C10_T_OWNER')?></span></a><?
+						<a href="javascript:void(0)" class="bx-owner-link" id="bx_owner_link" onclick="ShowOwnerMenu(this);" style="display: none;"><span><?php echo GetMessage('SONET_C10_T_OWNER')?></span></a><?php 
 					endif;
 					?></div>
 			
 					<table width="100%" border="0" class="sonet-user-profile-friend-box">
 					<tr>
 						<td align="left" valign="top">					
-					<?
+					<?php 
 					$ind = 0;
 					$ind_row = 0;
 					
@@ -89,7 +89,7 @@ else
 							$ind_row = 0;
 						}
 
-						?><div class="user-div"><?
+						?><div class="user-div"><?php 
 						
 						if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"])
 						{
@@ -97,14 +97,14 @@ else
 							<table cellspacing="0" cellpadding="0" border="0" class="sonet-user-profile-friend-user">
 							<tr>
 								<td align="right" class="checkbox-cell">
-								<?
+								<?php 
 								if ($friend["USER_ID"] != $arResult["Group"]["OWNER_ID"])
 									echo "<input type=\"checkbox\" name=\"checked_".$ind."\" value=\"Y\">";
 								echo "<input type=\"hidden\" name=\"id_".$ind."\" value=\"".$friend["ID"]."\">";
 								?>
 								</td>
 								<td>
-							<?
+							<?php 
 						}
 
 						if ($friend["USER_ID"] == $arResult["Group"]["OWNER_ID"])
@@ -146,21 +146,21 @@ else
 								</td>
 							</tr>
 							</table>
-							<?
+							<?php 
 						}
 
 						$ind++;
 						$ind_row++;						
-						?></div><?
+						?></div><?php 
 						if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):
-							?><script>arUsers[arUsers.length] = {ID:<?echo $friend["USER_ID"]?>,NAME:'<?echo CUtil::JSEscape(htmlspecialcharsback($friend["USER_NAME_FORMATTED"]))?>',CURRENT:<?echo $friend["IS_OWNER"] ? 'true' : 'false'?>}</script><?	
+							?><script>arUsers[arUsers.length] = {ID:<?php echo $friend["USER_ID"]?>,NAME:'<?php echo CUtil::JSEscape(htmlspecialcharsback($friend["USER_NAME_FORMATTED"]))?>',CURRENT:<?php echo $friend["IS_OWNER"] ? 'true' : 'false'?>}</script><?php 	
 						endif;						
 					}
 					?>
 						</td>
 					</tr>
 					</table>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -168,23 +168,23 @@ else
 				}
 				?>
 
-				<?if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):?>
+				<?php if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):?>
 					<a href="<?= $arResult["Urls"]["GroupUsers"] ?>"><?= GetMessage("SONET_C10_DO_SET") ?></a>
-				<?endif;?>
+				<?php endif;?>
 			</td>
 		</tr>
 	</table>
 	</div>
-	<?if (StrLen($arResult["NAV_STRING"]) > 0):?>
+	<?php if (StrLen($arResult["NAV_STRING"]) > 0):?>
 		<br><?=$arResult["NAV_STRING"]?><br /><br />
-	<?endif;?>
-	<?if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):?>
+	<?php endif;?>
+	<?php if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"]):?>
 		<br />
 		<input type="hidden" name="max_count" value="<?= $ind ?>">
 		<?=bitrix_sessid_post()?>
 		<input type="submit" name="save" value="<?= GetMessage("SONET_C10_DO_SAVE") ?>">
 		</form>
-	<?endif;?>
-	<?
+	<?php endif;?>
+	<?php 
 }
 ?>

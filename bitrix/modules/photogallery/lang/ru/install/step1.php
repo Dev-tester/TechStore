@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_CREATE_NEW_IBLOCK'] = "Создать информационный блок";
 $MESS ['P_CREATE_NEW_IBLOCK_NAME'] = "Название информационного блока";
 $MESS ['P_CREATE_NEW_IBLOCK_TYPE'] = "Тип информационного блока";

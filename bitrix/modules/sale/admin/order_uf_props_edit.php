@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CUserTypeManager $USER_FIELD_MANAGER */
 /** @global CDatabase $DB */
@@ -202,7 +202,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 /*********************************************************************/
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("SOPEN_2FLIST"),
@@ -253,12 +253,12 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 
 CAdminMessage::ShowMessage($strError);?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
-<input type="hidden" name="PERSON_TYPE_ID" value="<?echo $PERSON_TYPE_ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
+<input type="hidden" name="PERSON_TYPE_ID" value="<?php echo $PERSON_TYPE_ID ?>">
 <?=bitrix_sessid_post();
 
 $arPersonType = CSalePersonType::GetByID($PERSON_TYPE_ID);
@@ -274,33 +274,33 @@ $tabControl->BeginNextTab();
 	if ($ID>0):?>
 	<tr>
 		<td width="40%">ID:</td>
-		<td width="60%"><?echo $ID ?></td>
+		<td width="60%"><?php echo $ID ?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<tr>
-		<td width="40%"><?echo GetMessage("SALE_PERS_TYPE")?>:</td>
+		<td width="40%"><?php echo GetMessage("SALE_PERS_TYPE")?>:</td>
 		<td width="60%">
-			[<?echo $arPersonType["ID"] ?>] <?echo htmlspecialcharsEx($arPersonType["NAME"]) ?> (<?echo htmlspecialcharsEx($arPersonType["LID"]) ?>)
+			[<?php echo $arPersonType["ID"] ?>] <?php echo htmlspecialcharsEx($arPersonType["NAME"]) ?> (<?php echo htmlspecialcharsEx($arPersonType["LID"]) ?>)
 		</td>
 	</tr>
 
 	<tr>
-		<td width="40%"><span class="required">*</span><?echo GetMessage("F_NAME") ?>:</td>
+		<td width="40%"><span class="required">*</span><?php echo GetMessage("F_NAME") ?>:</td>
 		<td width="60%">
-			<input type="text" name="NAME" value="<?echo $str_NAME ?>">
+			<input type="text" name="NAME" value="<?php echo $str_NAME ?>">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_CODE") ?>:</td>
+		<td width="40%"><?php echo GetMessage("F_CODE") ?>:</td>
 		<td width="60%">
-			<input type="text" name="CODE" value="<?echo $str_CODE ?>">
+			<input type="text" name="CODE" value="<?php echo $str_CODE ?>">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><span class="required">*</span><?echo GetMessage("F_TYPE") ?>:</td>
+		<td width="40%"><span class="required">*</span><?php echo GetMessage("F_TYPE") ?>:</td>
 		<td width="60%">
-			<?
+			<?php 
 				foreach(\Bitrix\Sale\Internals\Input\Manager::getTypes() as $k => $v)
 					$arSaleFieldType[$k] = Array("DESCRIPTION"=>$v['NAME']);
 
@@ -313,149 +313,149 @@ $tabControl->BeginNextTab();
 
 			?>
 			<select name="TYPE">
-				<?
+				<?php 
 				foreach ($arSaleFieldType as $key => $value):
-					?><option value="<?echo $key?>"<?if ($str_TYPE==$key) echo " selected"?>>[<?echo htmlspecialcharsbx($key) ?>] <?echo htmlspecialcharsbx($value["DESCRIPTION"]) ?></option><?
+					?><option value="<?php echo $key?>"<?php if ($str_TYPE==$key) echo " selected"?>>[<?php echo htmlspecialcharsbx($key) ?>] <?php echo htmlspecialcharsbx($value["DESCRIPTION"]) ?></option><?php 
 				endforeach;
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_REQUIED");?>:</td>
+		<td width="40%"><?php echo GetMessage("F_REQUIED");?>:</td>
 		<td width="60%">
-			<input type="checkbox" name="REQUIED" value="Y" <?if ($str_REQUIED=="Y") echo "checked"?>>
+			<input type="checkbox" name="REQUIED" value="Y" <?php if ($str_REQUIED=="Y") echo "checked"?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_DEFAULT_VALUE");?>:</td>
+		<td width="40%"><?php echo GetMessage("F_DEFAULT_VALUE");?>:</td>
 		<td width="60%">
-			<input type="text" name="DEFAULT_VALUE" value="<?echo $str_DEFAULT_VALUE ?>">
+			<input type="text" name="DEFAULT_VALUE" value="<?php echo $str_DEFAULT_VALUE ?>">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_SORT");?>:</td>
+		<td width="40%"><?php echo GetMessage("F_SORT");?>:</td>
 		<td width="60%">
-			<input type="text" name="SORT" value="<?echo $str_SORT ?>">
+			<input type="text" name="SORT" value="<?php echo $str_SORT ?>">
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_USER_PROPS");?>:</td>
+		<td width="40%"><?php echo GetMessage("F_USER_PROPS");?>:</td>
 		<td width="60%">
-			<input type="checkbox" name="USER_PROPS" value="Y" <?if ($str_USER_PROPS=="Y") echo "checked"?>>
+			<input type="checkbox" name="USER_PROPS" value="Y" <?php if ($str_USER_PROPS=="Y") echo "checked"?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("F_PROPS_GROUP_ID") ?>:</td>
+		<td width="40%"><?php echo GetMessage("F_PROPS_GROUP_ID") ?>:</td>
 		<td width="60%">
 			<select name="PROPS_GROUP_ID">
-				<?
+				<?php 
 				$l = CSaleOrderPropsGroup::GetList(($b="NAME"), ($o="ASC"), Array("PERSON_TYPE_ID"=>$PERSON_TYPE_ID));
 				while ($l->ExtractFields("l_")):
-					?><option value="<?echo $l_ID?>"<?if (IntVal($str_PROPS_GROUP_ID)==IntVal($l_ID)) echo " selected"?>>[<?echo $l_ID ?>] <?echo $l_NAME?></option><?
+					?><option value="<?php echo $l_ID?>"<?php if (IntVal($str_PROPS_GROUP_ID)==IntVal($l_ID)) echo " selected"?>>[<?php echo $l_ID ?>] <?php echo $l_NAME?></option><?php 
 				endwhile;
 				?>
 			</select>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="sale_order_props_group.php?lang=<?echo LANGUAGE_ID?>" target="_blank"><b><?echo GetMessage("SALE_PROPS_GROUP")?> &gt;&gt;</b></a>
+			<a href="sale_order_props_group.php?lang=<?php echo LANGUAGE_ID?>" target="_blank"><b><?php echo GetMessage("SALE_PROPS_GROUP")?> &gt;&gt;</b></a>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("F_SIZE1");?>:</td>
+		<td width="40%" valign="top"><?php echo GetMessage("F_SIZE1");?>:</td>
 		<td width="60%" valign="top">
-			<input type="text" name="SIZE1" value="<?echo $str_SIZE1 ?>"><br>
-			<small><?echo GetMessage("F_SIZE1_DESCR");?></small><br>
+			<input type="text" name="SIZE1" value="<?php echo $str_SIZE1 ?>"><br>
+			<small><?php echo GetMessage("F_SIZE1_DESCR");?></small><br>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%" valign="top"><?echo GetMessage("F_SIZE2");?>:</td>
+		<td width="40%" valign="top"><?php echo GetMessage("F_SIZE2");?>:</td>
 		<td width="60%" valign="top">
-			<input type="text" name="SIZE2" value="<?echo $str_SIZE2 ?>"><br>
-			<small><?echo GetMessage("F_SIZE2_DESCR");?></small><br>
+			<input type="text" name="SIZE2" value="<?php echo $str_SIZE2 ?>"><br>
+			<small><?php echo GetMessage("F_SIZE2_DESCR");?></small><br>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_DESCRIPTION");?>:
+			<?php echo GetMessage("F_DESCRIPTION");?>:
 		</td>
 		<td width="60%" valign="top">
-			<textarea rows="3" cols="40" name="DESCRIPTION"><?echo $str_DESCRIPTION;?></textarea>
+			<textarea rows="3" cols="40" name="DESCRIPTION"><?php echo $str_DESCRIPTION;?></textarea>
 		</td>
 	</tr>
 
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_IS_LOCATION");?>:
+			<?php echo GetMessage("F_IS_LOCATION");?>:
 		</td>
 		<td width="60%" valign="top">
-			<input type="checkbox" name="IS_LOCATION" value="Y" <?if ($str_IS_LOCATION=="Y") echo "checked"?>><br>
-			<small><?echo GetMessage("F_IS_LOCATION_DESCR");?></small><br>
+			<input type="checkbox" name="IS_LOCATION" value="Y" <?php if ($str_IS_LOCATION=="Y") echo "checked"?>><br>
+			<small><?php echo GetMessage("F_IS_LOCATION_DESCR");?></small><br>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_IS_LOCATION4TAX");?>:
+			<?php echo GetMessage("F_IS_LOCATION4TAX");?>:
 		</td>
 		<td width="60%" valign="top">
-			<input type="checkbox" name="IS_LOCATION4TAX" value="Y" <?if ($str_IS_LOCATION4TAX=="Y") echo "checked"?>><br>
-			<small><?echo GetMessage("F_IS_LOCATION4TAX_DESCR");?></small><br>
+			<input type="checkbox" name="IS_LOCATION4TAX" value="Y" <?php if ($str_IS_LOCATION4TAX=="Y") echo "checked"?>><br>
+			<small><?php echo GetMessage("F_IS_LOCATION4TAX_DESCR");?></small><br>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_IS_EMAIL");?>:
+			<?php echo GetMessage("F_IS_EMAIL");?>:
 		</td>
 		<td width="60%" valign="top">
-			<input type="checkbox" name="IS_EMAIL" value="Y" <?if ($str_IS_EMAIL=="Y") echo "checked"?>><br>
-			<small><?echo GetMessage("F_IS_EMAIL_DESCR");?></small><br>
+			<input type="checkbox" name="IS_EMAIL" value="Y" <?php if ($str_IS_EMAIL=="Y") echo "checked"?>><br>
+			<small><?php echo GetMessage("F_IS_EMAIL_DESCR");?></small><br>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_IS_PROFILE_NAME");?>:
+			<?php echo GetMessage("F_IS_PROFILE_NAME");?>:
 		</td>
 		<td width="60%" valign="top">
-			<input type="checkbox" name="IS_PROFILE_NAME" value="Y" <?if ($str_IS_PROFILE_NAME=="Y") echo "checked"?>><br>
-			<small><?echo GetMessage("F_IS_PROFILE_NAME_DESCR");?></small><br>
+			<input type="checkbox" name="IS_PROFILE_NAME" value="Y" <?php if ($str_IS_PROFILE_NAME=="Y") echo "checked"?>><br>
+			<small><?php echo GetMessage("F_IS_PROFILE_NAME_DESCR");?></small><br>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_IS_PAYER");?>:
+			<?php echo GetMessage("F_IS_PAYER");?>:
 		</td>
 		<td width="60%" valign="top">
-			<input type="checkbox" name="IS_PAYER" value="Y" <?if ($str_IS_PAYER=="Y") echo "checked"?>><br>
-			<small><?echo GetMessage("F_IS_PAYER_DESCR");?></small><br>
+			<input type="checkbox" name="IS_PAYER" value="Y" <?php if ($str_IS_PAYER=="Y") echo "checked"?>><br>
+			<small><?php echo GetMessage("F_IS_PAYER_DESCR");?></small><br>
 		</td>
 	</tr>
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_IS_FILTERED");?>
+			<?php echo GetMessage("F_IS_FILTERED");?>
 		</td>
 		<td width="60%" valign="top">
-			<input type="checkbox" name="IS_FILTERED" value="Y" <?if ($str_IS_FILTERED=="Y") echo "checked"?>><br>
-			<small><?echo GetMessage("F_IS_FILTERED_DESCR");?></small><br>
+			<input type="checkbox" name="IS_FILTERED" value="Y" <?php if ($str_IS_FILTERED=="Y") echo "checked"?>><br>
+			<small><?php echo GetMessage("F_IS_FILTERED_DESCR");?></small><br>
 		</td>
 	</tr>
 
-<?if ($str_TYPE=="SELECT" || $str_TYPE=="MULTISELECT" || $str_TYPE=="RADIO"):?>
+<?php if ($str_TYPE=="SELECT" || $str_TYPE=="MULTISELECT" || $str_TYPE=="RADIO"):?>
 	<tr class="heading">
 		<td colspan="2">
-			<?if (strlen($propeditmore)>0):?><a name="tb"></a><?endif;?>
-			<?echo GetMessage("SALE_VARIANTS")?>
+			<?php if (strlen($propeditmore)>0):?><a name="tb"></a><?php endif;?>
+			<?php echo GetMessage("SALE_VARIANTS")?>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
 			<table cellspacing="0" class="internal">
 				<tr class="heading">
-					<td align="center"><?echo GetMessage("SALE_VARIANTS_CODE")?></td>
-					<td align="center"><?echo GetMessage("SALE_VARIANTS_NAME")?></td>
-					<td align="center"><?echo GetMessage("SALE_VARIANTS_SORT")?></td>
-					<td align="center"><?echo GetMessage("SALE_VARIANTS_DESCR")?></td>
-					<td align="center"><?echo GetMessage("SALE_VARIANTS_DEL")?></td>
+					<td align="center"><?php echo GetMessage("SALE_VARIANTS_CODE")?></td>
+					<td align="center"><?php echo GetMessage("SALE_VARIANTS_NAME")?></td>
+					<td align="center"><?php echo GetMessage("SALE_VARIANTS_SORT")?></td>
+					<td align="center"><?php echo GetMessage("SALE_VARIANTS_DESCR")?></td>
+					<td align="center"><?php echo GetMessage("SALE_VARIANTS_DEL")?></td>
 				</tr>
-			<?
+			<?php 
 			$db_propsVars = CSaleOrderPropsVariant::GetList(($b="SORT"), ($o="ASC"), Array("ORDER_PROPS_ID"=>$ID));
 			$ind = -1;
 			$oldind = -1;
@@ -470,23 +470,23 @@ $tabControl->BeginNextTab();
 				?>
 				<tr>
 					<td>
-						<input type="hidden" name="ID_<?echo $ind;?>" value="<?echo $f_ID;?>">
-						<input type="text" name="VALUE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_VALUE);?>" size="5">
+						<input type="hidden" name="ID_<?php echo $ind;?>" value="<?php echo $f_ID;?>">
+						<input type="text" name="VALUE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_VALUE);?>" size="5">
 					</td>
 					<td>
-						<input type="text" name="NAME_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_NAME);?>" size="30">
+						<input type="text" name="NAME_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_NAME);?>" size="30">
 					</td>
 					<td>
-						<input type="text" name="SORT_<?echo $ind;?>" value="<?echo IntVal($f_SORT);?>" size="3">
+						<input type="text" name="SORT_<?php echo $ind;?>" value="<?php echo IntVal($f_SORT);?>" size="3">
 					</td>
 					<td>
-						<input type="text" name="DESCRIPTION_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_DESCRIPTION);?>" size="30">
+						<input type="text" name="DESCRIPTION_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_DESCRIPTION);?>" size="30">
 					</td>
 					<td>
-						<input type="checkbox" name="DELETE_<?echo $ind;?>" value="Y"<?if (${"DELETE_".$ind}=="Y") echo " checked"?>>
+						<input type="checkbox" name="DELETE_<?php echo $ind;?>" value="Y"<?php if (${"DELETE_".$ind}=="Y") echo " checked"?>>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 
 			$numpropsvals = IntVal($numpropsvals);
@@ -502,23 +502,23 @@ $tabControl->BeginNextTab();
 					?>
 					<tr>
 						<td>
-							<input type="hidden" name="ID_<?echo $ind;?>" value="new">
-							<input type="text" name="VALUE_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_VALUE);?>" size="5">
+							<input type="hidden" name="ID_<?php echo $ind;?>" value="new">
+							<input type="text" name="VALUE_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_VALUE);?>" size="5">
 						</td>
 						<td>
-							<input type="text" name="NAME_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_NAME);?>" size="30">
+							<input type="text" name="NAME_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_NAME);?>" size="30">
 						</td>
 						<td>
-							<input type="text" name="SORT_<?echo $ind;?>" value="<?echo IntVal($f_SORT);?>" size="3">
+							<input type="text" name="SORT_<?php echo $ind;?>" value="<?php echo IntVal($f_SORT);?>" size="3">
 						</td>
 						<td>
-							<input type="text" name="DESCRIPTION_<?echo $ind;?>" value="<?echo htmlspecialcharsbx($f_DESCRIPTION);?>" size="30">
+							<input type="text" name="DESCRIPTION_<?php echo $ind;?>" value="<?php echo htmlspecialcharsbx($f_DESCRIPTION);?>" size="30">
 						</td>
 						<td>
-							<input type="checkbox" name="DELETE_<?echo $ind;?>" value="Y"<?if (${"DELETE_".$ind}=="Y") echo " checked"?>>
+							<input type="checkbox" name="DELETE_<?php echo $ind;?>" value="Y"<?php if (${"DELETE_".$ind}=="Y") echo " checked"?>>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 			}
 
@@ -529,29 +529,29 @@ $tabControl->BeginNextTab();
 				?>
 				<tr>
 					<td>
-						<input type="hidden" name="ID_<?echo $ind;?>" value="new">
-						<input type="text" name="VALUE_<?echo $ind;?>" value="" size="5">
+						<input type="hidden" name="ID_<?php echo $ind;?>" value="new">
+						<input type="text" name="VALUE_<?php echo $ind;?>" value="" size="5">
 					</td>
 					<td>
-						<input type="text" name="NAME_<?echo $ind;?>" value="" size="30">
+						<input type="text" name="NAME_<?php echo $ind;?>" value="" size="30">
 					</td>
 					<td>
-						<input type="text" name="SORT_<?echo $ind;?>" value="" size="3">
+						<input type="text" name="SORT_<?php echo $ind;?>" value="" size="3">
 					</td>
 					<td>
-						<input type="text" name="DESCRIPTION_<?echo $ind;?>" value="" size="30">
+						<input type="text" name="DESCRIPTION_<?php echo $ind;?>" value="" size="30">
 					</td>
 					<td>
 						&nbsp;
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 				<tr>
 					<td colspan="4" align="right">
-						<input type="hidden" name="numpropsvals" value="<?echo $ind; ?>">
-						<input type="submit" name="propeditmore" value="<?echo GetMessage("SALE_VARIANTS_MORE")?>">
+						<input type="hidden" name="numpropsvals" value="<?php echo $ind; ?>">
+						<input type="submit" name="propeditmore" value="<?php echo GetMessage("SALE_VARIANTS_MORE")?>">
 					</td>
 					<td align="right">
 						&nbsp;
@@ -560,13 +560,13 @@ $tabControl->BeginNextTab();
 			</table>
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 		array(
 				"disabled" => ($saleModulePermissions < "W"),
@@ -575,14 +575,14 @@ $tabControl->Buttons(
 	);
 ?>
 
-<?
+<?php 
 $tabControl->End();
 ?>
 
 </form>
 
-<?echo BeginNote();?>
-<span class="required">*</span> <?echo GetMessage("REQUIRED_FIELDS")?>
-<?echo EndNote();
+<?php echo BeginNote();?>
+<span class="required">*</span> <?php echo GetMessage("REQUIRED_FIELDS")?>
+<?php echo EndNote();
 
 require($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include/epilog_admin.php");?>

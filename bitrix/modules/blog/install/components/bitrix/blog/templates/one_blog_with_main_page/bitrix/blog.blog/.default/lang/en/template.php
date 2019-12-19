@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_BLOG_BLOG_MORE'] = "More...";
 $MESS ['BLOG_BLOG_BLOG_CATEGORY'] = "Tags:";
 $MESS ['BLOG_BLOG_BLOG_PERMALINK'] = "Permanent address";

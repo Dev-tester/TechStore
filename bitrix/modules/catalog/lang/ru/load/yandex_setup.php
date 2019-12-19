@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_CATALOG_EXPORT_IBLOCK"] = "Выберите инфоблок для выгрузки:";
 $MESS["BX_CATALOG_EXPORT_YANDEX_SITE"] = "Выберите сайт для выгрузки:";
 $MESS["BX_CATALOG_EXPORT_YANDEX_COMPANY_NAME"] = "Название компании:";

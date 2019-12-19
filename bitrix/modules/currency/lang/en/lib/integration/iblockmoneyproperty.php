@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CIMP_INPUT_DESCRIPTION"] = "Money";
 $MESS["CIMP_INPUT_FORMAT_ERROR_1"] = "Only numbers and separator characters: [#separators#] (#example#)";
 $MESS["CIMP_INPUT_FORMAT_ERROR_2"] = "Invalid format. Example: (#example#)";

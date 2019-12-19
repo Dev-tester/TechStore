@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_COPY_PAGE_TITLE"] = "Copy lead";
 $MESS["CRM_LEAD_CREATE_ON_BASIS"] = "Generate";
 $MESS["CRM_LEAD_CREATION_PAGE_TITLE"] = "New lead";

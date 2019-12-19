@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_CLOCK_INPUT_ID'] = "Input Field ID";
 $MESS ['COMP_CLOCK_INPUT_NAME'] = "Input Field Name";
 $MESS ['COMP_CLOCK_INPUT_TITLE'] = "Input Field tooltip";

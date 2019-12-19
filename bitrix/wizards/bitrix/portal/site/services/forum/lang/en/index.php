@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GENERAL_GROUP_NAME"] = "General forums";
 $MESS["COMMENTS_GROUP_NAME"] = "Forum for comments";
 $MESS["HIDDEN_GROUP_NAME"] = "Hidden forums";

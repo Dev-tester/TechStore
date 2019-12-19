@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "Non approved messages";
 $MESS ['F_TITLE_NAV'] = "Messages";
 $MESS ['F_AUTH'] = "You need to be authorised to view this page";

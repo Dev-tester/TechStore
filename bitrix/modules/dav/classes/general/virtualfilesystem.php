@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllDavVirtualFileSystem
 {
 	static protected $lockCache;

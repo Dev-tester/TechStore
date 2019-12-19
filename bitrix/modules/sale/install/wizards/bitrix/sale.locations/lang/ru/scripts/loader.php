@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['WSL_LOADER_ERROR_FILES'] = 'Ошибка! Неверные имена файлов.';
 $MESS['WSL_LOADER_ERROR_ACCESS_DENIED'] = 'Ошибка! Нет доступа.';
 $MESS['WSL_LOADER_LOADING'] = 'Загружаем файлы...';

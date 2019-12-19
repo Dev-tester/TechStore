@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -22,13 +22,13 @@ $containerId = 'crm-tracking-entity-details-edit';
 	<select name="<?=$arParams['SOURCE_INPUT_NAME']?>"
 		class="crm-entity-widget-content-select"
 	>
-		<?foreach ($arResult['SOURCES'] as $source):?>
+		<?php foreach ($arResult['SOURCES'] as $source):?>
 			<option value="<?=htmlspecialcharsbx($source['ID'])?>"
 				<?=($source['ID'] == $arResult['SOURCE']['ID'] ? 'selected' : '')?>
 			>
 				<?=htmlspecialcharsbx($source['NAME'])?>
 			</option>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</select>
 </div>
 <?

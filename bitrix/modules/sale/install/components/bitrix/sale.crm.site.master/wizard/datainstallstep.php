@@ -88,10 +88,10 @@ class DataInstallStep extends \DataInstallStep
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		echo $this->ShowHiddenField("nextStep", "main");
 		echo $this->ShowHiddenField("nextStepStage", "database");
-		?><iframe style="display:none;" id="iframe-post-form" name="iframe-post-form" src="javascript:''"></iframe><?
+		?><iframe style="display:none;" id="iframe-post-form" name="iframe-post-form" src="javascript:''"></iframe><?php 
 		$wizard =& $this->GetWizard();
 		$arServices = \WizardServices::GetServices($_SERVER["DOCUMENT_ROOT"].$wizard->GetPath(), "/site/services/");
 		list($firstService, $stage, $status) = $this->GetFirstStep($arServices);
@@ -105,7 +105,7 @@ class DataInstallStep extends \DataInstallStep
 			ajaxForm.Post("<?=$firstService?>", "<?=$stage?>", "<?=$status?>");
 			ajaxForm.SetEventBeforeUnloadWindow();
 		</script>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 

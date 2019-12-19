@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_CONVERT_FAILED"] = "Error converting Document Library module data";
 $MESS["WD_PROCESSED_SUMMARY"] = "Items converted (cumulative):";
 $MESS["WD_CONVERT_IN_PROGRESS"] = "Still converting";

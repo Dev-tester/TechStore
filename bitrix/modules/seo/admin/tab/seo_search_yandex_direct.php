@@ -93,7 +93,7 @@ if(count($campaignList) <= 0)
 
 ?>
 <a href="/bitrix/admin/seo_search_yandex_direct_edit.php?lang=<?=LANGUAGE_ID?>&back_url=<?=urlencode($APPLICATION->GetCurPageParam('form_element_'.$iblockElementInfo["IBLOCK"]["ID"].'_active_tab=seo_adv_seo_adv', array('form_element_'.$iblockElementInfo["IBLOCK"]["ID"].'_active_tab')))?>"><?=Loc::getMessage("SEO_CREATE_NEW_CAMPAIGN")?></a>
-<?
+<?php 
 }
 else
 {
@@ -241,7 +241,7 @@ span.yandex-delete {
 		<td width="60%">
 			<select id="seo_adv_campaign" style="width:400px" onchange="updateNewBannerLink()">
 				<option value="0"><?=Loc::getMessage("SEO_CAMPAIGN_CHOOSE_OPTION")?></option>
-				<?
+				<?php 
 				foreach($campaignList as $campaign)
 				{
 					$canAdd = in_array(
@@ -251,7 +251,7 @@ span.yandex-delete {
 					?>
 					<option value="<?=$campaign["ID"]?>"
 						data-add="<?=$canAdd ? 1 : 0?>"><?=Converter::getHtmlConverter()->encode($campaign["NAME"])?></option>
-				<?
+				<?php 
 				}
 				?>
 			</select>&nbsp;&nbsp;<a
@@ -568,11 +568,11 @@ span.yandex-delete {
 </script>
 
 <div id="adv_banner_list">
-<?
+<?php 
 	require(dirname(__FILE__)."/seo_search_yandex_direct_list_link.php");
 ?>
 </div>
 
-<?
+<?php 
 }
 

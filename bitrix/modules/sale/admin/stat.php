@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 \Bitrix\Main\Loader::includeModule('sale');
@@ -487,8 +487,8 @@ $APPLICATION->SetTitle(GetMessage("SALE_SECTION_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -500,34 +500,34 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><b><?echo GetMessage("SALE_S_BY")?>:</b></td>
+		<td><b><?php echo GetMessage("SALE_S_BY")?>:</b></td>
 		<td>
 			<select name="filter_by">
-				<option value="day"<?if ($filter_by=="day") echo " selected"?>><?echo GetMessage("SALE_S_DAY")?></option>
-				<option value="week"<?if ($filter_by=="week") echo " selected"?>><?echo GetMessage("SALE_S_WEEK")?></option>
-				<option value="month"<?if ($filter_by=="month") echo " selected"?>><?echo GetMessage("SALE_S_MONTH")?></option>
-				<option value="year"<?if ($filter_by=="year") echo " selected"?>><?echo GetMessage("SALE_S_YEAR")?></option>
+				<option value="day"<?php if ($filter_by=="day") echo " selected"?>><?php echo GetMessage("SALE_S_DAY")?></option>
+				<option value="week"<?php if ($filter_by=="week") echo " selected"?>><?php echo GetMessage("SALE_S_WEEK")?></option>
+				<option value="month"<?php if ($filter_by=="month") echo " selected"?>><?php echo GetMessage("SALE_S_MONTH")?></option>
+				<option value="year"<?php if ($filter_by=="year") echo " selected"?>><?php echo GetMessage("SALE_S_YEAR")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_S_DATE");?>:</td>
+		<td><?php echo GetMessage("SALE_S_DATE");?>:</td>
 		<td>
-			<?echo CalendarPeriod("filter_date_from", $filter_date_from, "filter_date_to", $filter_date_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_date_from", $filter_date_from, "filter_date_to", $filter_date_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo GetMessage("SALE_S_SITE");?>:</td>
+		<td valign="top"><?php echo GetMessage("SALE_S_SITE");?>:</td>
 		<td>
-			<?
+			<?php 
 			foreach($arSite as $k => $v)
 			{
-				?><input type="checkbox" name="filter_site_id[]" value="<?=$k?>" id="site_<?=$k?>"<?if(in_array($k, $filter_site_id)) echo " checked"?>> <label for="site_<?=$k?>"><?=$v?></label><br /><?
+				?><input type="checkbox" name="filter_site_id[]" value="<?=$k?>" id="site_<?=$k?>"<?php if(in_array($k, $filter_site_id)) echo " checked"?>> <label for="site_<?=$k?>"><?=$v?></label><br /><?php 
 			}
 			?>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -539,7 +539,7 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

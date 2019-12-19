@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (count($arResult['BANNERS']) > 0):?>
+<?php if (count($arResult['BANNERS']) > 0):?>
 
-<?
+<?php 
 	$this->addExternalCss("/bitrix/themes/.default/banner.css");
 	$arParams['WIDTH'] = intval($arResult['SIZE']['WIDTH']);
 	$arParams['HEIGHT'] = intval($arResult['SIZE']['HEIGHT']);
@@ -10,11 +10,11 @@
 	$frame = $this->createFrame()->begin("");
 ?>
 
-<?if ($arParams['PREVIEW'] != 'Y'):?>
-	<?foreach($arResult["BANNERS"] as $k => $banner):?>
+<?php if ($arParams['PREVIEW'] != 'Y'):?>
+	<?php foreach($arResult["BANNERS"] as $k => $banner):?>
 		<?=$banner?>
-	<?endforeach;?>
-<?else:?>
+	<?php endforeach;?>
+<?php else:?>
 	<div id='tPreview' style="display:none;margin:auto;">
 		<img style='width:100%' src="/bitrix/themes/.default/icons/advertising/placeholder.png">
 	</div>
@@ -39,8 +39,8 @@
 			BX('tPreview').style.display = '';
 		})();
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?$frame->end();?>
+<?php $frame->end();?>
 
-<?endif;?>
+<?php endif;?>

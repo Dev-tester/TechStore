@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 \Bitrix\Main\UI\Extension::load("ui.forms");
 \Bitrix\Main\UI\Extension::load("ui.alerts");
@@ -15,7 +15,7 @@ if (empty($arResult["EMAIL_FORWARD_TO"]))
 
 	<div class="intranet-socnet-email-intro"><?=Loc::getMessage("INTRANET_SOCNET_EMAIL_SETTINGS_DESC")?></div>
 
-	<?
+	<?php 
 	if (!empty($arResult["EMAIL_FORWARD_TO"]['BLOG_POST']))
 	{
 	?><div class="intranet-socnet-email-tr">
@@ -36,7 +36,7 @@ if (empty($arResult["EMAIL_FORWARD_TO"]))
 		</div>
 	</div>
 
-	<?
+	<?php 
 	}
 	if (!empty($arResult["EMAIL_FORWARD_TO"]['TASKS_TASK']))
 	{
@@ -56,7 +56,7 @@ if (empty($arResult["EMAIL_FORWARD_TO"]))
 				<?=Loc::getMessage("INTRANET_SOCNET_EMAIL_SETTINGS_COPY")?>
 			</span>
 		</div>
-	</div><?
+	</div><?php 
 	}?>
 
 	<div class="intranet-socnet-email-warning">

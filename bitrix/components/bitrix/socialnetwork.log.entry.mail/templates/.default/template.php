@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -16,7 +16,7 @@
 					<td align="left" valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 3px 0 8px;text-align: left;">
 						<table style="border-collapse: collapse;mso-table-lspace: 0;">
 							<tr>
-								<td align="left" valign="middle" style="border-collapse: collapse;border-spacing: 0;padding: 3px 10px 8px 0;text-align: left;"><?
+								<td align="left" valign="middle" style="border-collapse: collapse;border-spacing: 0;padding: 3px 10px 8px 0;text-align: left;"><?php 
 									$src = (
 										isset($arResult["LOG_ENTRY"]["AVATAR_SRC"])
 										&& strlen($arResult["LOG_ENTRY"]["AVATAR_SRC"]) > 0
@@ -26,7 +26,7 @@
 									?><img height="50" width="50" src="<?=$src?>" alt="user" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;border-radius: 50%;display: block;">
 								</td>
 								<td style="border-collapse: collapse;border-spacing: 0;padding: 0;">
-									<span style="color:#586777;font-size: 14px;font-weight: bold;vertical-align: top; text-decoration: none;"><?
+									<span style="color:#586777;font-size: 14px;font-weight: bold;vertical-align: top; text-decoration: none;"><?php 
 
 									$authorName = (
 										isset($arResult["LOG_ENTRY"]["CREATED_BY"])
@@ -36,32 +36,32 @@
 											: ''
 									);
 
-									?><?=$authorName?></span><?
+									?><?=$authorName?></span><?php 
 									if (
 										isset($arResult["DESTINATIONS"])
 										&& !empty($arResult["DESTINATIONS"])
 									)
 									{
 										$src = $this->getFolder().'/images/arrow.gif';
-										?><img height="16" width="20" src="<?=$src?>" alt="&rarr;" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;display: inline;font-size: 19px;vertical-align: top;line-height: 15px;"><?
-										?><span style="color: #7f7f7f;font-size: 14px;vertical-align: top;"><?
+										?><img height="16" width="20" src="<?=$src?>" alt="&rarr;" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;display: inline;font-size: 19px;vertical-align: top;line-height: 15px;"><?php 
+										?><span style="color: #7f7f7f;font-size: 14px;vertical-align: top;"><?php 
 										$i = 0;
 										foreach ($arResult["DESTINATIONS"] as $destination)
 										{
 											if ($i > 0)
 											{
-												?>, <?
+												?>, <?php 
 											}
-											?><span style="color: #7f7f7f;font-size: 14px;vertical-align: top;"><?=$destination["TITLE"]?></span><?
+											?><span style="color: #7f7f7f;font-size: 14px;vertical-align: top;"><?=$destination["TITLE"]?></span><?php 
 											$i++;
 										}
-										?></span><?
+										?></span><?php 
 									}
 								?></td>
 							</tr>
 						</table>
 					</td>
-				</tr><?
+				</tr><?php 
 				if (empty($arResult["COMMENTS"]))
 				{
 					if (
@@ -71,11 +71,11 @@
 					{
 						?><tr>
 						<td valign="top" style="border-collapse: collapse;border-spacing: 0;color: #000000;font-size: 14px;font-weight: bold;padding: 0 0 14px;vertical-align: top;"><?=$arResult["LOG_ENTRY"]["EVENT"]["TITLE"]?></td>
-						</tr><?
+						</tr><?php 
 					}
 					?><tr>
 						<td valign="top" style="border-collapse: collapse;border-spacing: 0;color: #000000;font-size: 14px;vertical-align: top;padding: 0 0 38px;"><?=$arResult["LOG_ENTRY"]["EVENT"]["MESSAGE_FORMATTED"]?></td>
-					</tr><?
+					</tr><?php 
 					if (!empty($arResult["LOG_ENTRY"]["ATTACHMENTS"]))
 					{
 						?><tr>
@@ -84,15 +84,15 @@
 								<tr>
 									<td valign="top" style="border-collapse: collapse;border-spacing: 0;color: #8d8d8d;padding: 0 5px 0 0;vertical-align: top;"><?=GetMessage('SLEM_TEMPLATE_FILES')?></td>
 									<td valign="top" style="border-collapse: collapse;border-spacing: 0; padding: 0;">
-										<?
+										<?php 
 										$i = 0;
 										foreach($arResult["LOG_ENTRY"]["ATTACHMENTS"] as $attachment)
 										{
 											if ($i > 0)
 											{
-												?><br/><?
+												?><br/><?php 
 											}
-											?><a href="<?=$attachment["URL"]?>" style="color: #146cc5;"><?=$attachment["NAME"]?> (<?=$attachment["SIZE"]?>)</a><?
+											?><a href="<?=$attachment["URL"]?>" style="color: #146cc5;"><?=$attachment["NAME"]?> (<?=$attachment["SIZE"]?>)</a><?php 
 											$i++;
 										}
 										?>
@@ -100,16 +100,16 @@
 								</tr>
 							</table>
 						</td>
-						</tr><?
+						</tr><?php 
 					}
 					?><tr>
 					<td valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 0 0 20px;vertical-align: top;">
 						<a href="<?=$arResult["LOG_ENTRY_URL"]?>" style="color: #0b66c3;font-size: 12px;"><?=GetMessage('SLEM_TEMPLATE_ADD_COMMENT_LINK');?></a>
 						&nbsp;
-						<a href="<?=$arResult["LOG_ENTRY_URL"]?>" style="color: #0b66c3;font-size: 12px;"><?=GetMessage('SLEM_TEMPLATE_LIKE')?></a><?
+						<a href="<?=$arResult["LOG_ENTRY_URL"]?>" style="color: #0b66c3;font-size: 12px;"><?=GetMessage('SLEM_TEMPLATE_LIKE')?></a><?php 
 						?></td>
 					</tr>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -118,9 +118,9 @@
 						<td style="border-collapse: collapse;border-spacing: 0;">
 							<table cellspacing="0" cellpadding="0" border="0" align="left" style="border-collapse: collapse;font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
 								<tr>
-									<td valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 13px 0 14px;vertical-align: top;"><?
+									<td valign="top" style="border-collapse: collapse;border-spacing: 0;padding: 13px 0 14px;vertical-align: top;"><?php 
 										$src = $this->getFolder()."/images/post-icon.gif";
-										?><img width="30" height="29" alt="" src="<?=$src?>" style="outline: none;text-decoration: none;vertical-align: top;"><?
+										?><img width="30" height="29" alt="" src="<?=$src?>" style="outline: none;text-decoration: none;vertical-align: top;"><?php 
 									?></td>
 									<td valign="middle" style="border-collapse: collapse;border-spacing: 0;padding: 9px 0 14px 16px;vertical-align: top;">
 										<a href="<?=$arResult["LOG_ENTRY_URL_COMMENT"]?>" style="color: #0067a3;border-bottom: 1px solid #0067a3;font-size: 14px;line-height: 18px;text-decoration: none;">
@@ -136,7 +136,7 @@
 								</tr>
 							</table>
 						</td>
-					</tr><?
+					</tr><?php 
 				}
 
 				if (!empty($arResult["COMMENTS"]))
@@ -159,7 +159,7 @@
 						)
 					);
 
-					?><?=$commentsHtml["HTML"]?><?
+					?><?=$commentsHtml["HTML"]?><?php 
 				}
 				?>
 				<tr>

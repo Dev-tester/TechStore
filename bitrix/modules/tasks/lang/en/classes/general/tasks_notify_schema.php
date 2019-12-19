@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_NS_MANAGE"] = "Task created or updated";
 $MESS["TASKS_NS_COMMENT"] = "New comment added to a task";
 $MESS["TASKS_NS_REMINDER"] = "Task reminder";

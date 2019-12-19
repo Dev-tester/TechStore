@@ -1,4 +1,4 @@
-<?
+<?php 
 class CPHPCacheMemcache implements ICacheBackend
 {
 	private static $obMemcache;

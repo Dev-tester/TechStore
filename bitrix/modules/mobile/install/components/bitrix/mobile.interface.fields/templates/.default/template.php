@@ -1,19 +1,19 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 ?>
 
 <div id="bx-mobile-interface-fields-block" class="mobile-grid-field-list">
 	<span class="mobile-grid-field-title"><?=GetMessage("M_FIELDS_TITLE")?></span>
-	<?if (is_array($arResult['ALL_FIELDS']) && !empty($arResult['ALL_FIELDS'])):?>
-		<?foreach($arResult['ALL_FIELDS'] as $field):?>
-			<div data-id="<?=$field["id"]?>" data-role="mobile-grid-field-item" class="mobile-grid-field <?if (in_array($field["id"], $arResult["SELECTED_FIELDS"])) echo 'mobile-grid-field-selected'?>">
+	<?php if (is_array($arResult['ALL_FIELDS']) && !empty($arResult['ALL_FIELDS'])):?>
+		<?php foreach($arResult['ALL_FIELDS'] as $field):?>
+			<div data-id="<?=$field["id"]?>" data-role="mobile-grid-field-item" class="mobile-grid-field <?php if (in_array($field["id"], $arResult["SELECTED_FIELDS"])) echo 'mobile-grid-field-selected'?>">
 				<div class="mobile-grid-field-textarea"><span class="mobile-grid-field-textarea-select"></span><?=$field["name"]?></div>
 			</div>
-		<?endforeach?>
-	<?endif?>
+		<?php endforeach?>
+	<?php endif?>
 </div>
 
-<?
+<?php 
 $arJsParams = array(
 	"gridId" => $arParams["GRID_ID"],
 	"eventName" => $arResult['EVENT_NAME']

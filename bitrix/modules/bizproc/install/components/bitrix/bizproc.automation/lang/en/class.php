@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_AUTOMATION_NO_EDIT_PERMISSIONS"] = "Insufficient permissions to configure automation rules.";
 $MESS["BIZPROC_AUTOMATION_TITLE"] = "Automation";
 $MESS["BIZPROC_MODULE_NOT_INSTALLED"] = "The Workflows module is not installed.";

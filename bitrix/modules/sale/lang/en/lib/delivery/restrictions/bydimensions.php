@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_RSTR_BY_DIMENSIONS_NAME"] = "by max. dimensions";
 $MESS["SALE_DLVR_RSTR_BY_DIMENSIONS_DESCRIPT"] = "Restrict delivery service to specified maximum dimensions";
 $MESS["SALE_DLVR_RSTR_BY_DIMENSIONS_LENGTH"] = "Max. length (mm)";

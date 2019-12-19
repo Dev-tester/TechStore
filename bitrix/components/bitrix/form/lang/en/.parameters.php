@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMP_FORM_PARAMS_ACTION_ALIAS"] = "Alias name for the action GET variable";
 $MESS["COMP_FORM_SEF_RESULT_VIEW_PAGE"] = "Results View page";
 $MESS["COMP_FORM_SEF_RESULT_NEW_PAGE"] = "Result Add page";

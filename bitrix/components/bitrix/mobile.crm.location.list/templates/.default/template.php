@@ -17,7 +17,7 @@ $dispatcherData = array();
 	<span class="crm_clear"></span>
 </div>
 <div id="<?=htmlspecialcharsbx($UID)?>" class="crm_wrapper">
-	<ul class="crm_location_list crm_itemcategory"><?
+	<ul class="crm_location_list crm_itemcategory"><?php 
 		foreach($arResult['ITEMS'] as &$item):
 			$dispatcherData[] = $item;
 
@@ -57,16 +57,16 @@ $dispatcherData = array();
 				$title = $countryName;
 			}
 		?><li class="crm_itemcategory_item" data-entity-id="<?=htmlspecialcharsbx($item['ID'])?>">
-			<div class="crm_itemcategory_title"><?=htmlspecialcharsbx($title)?></div><?
+			<div class="crm_itemcategory_title"><?=htmlspecialcharsbx($title)?></div><?php 
 			if($legend !== ''):
 			?><div class="crm_category_desc">
 				<span><?=htmlspecialcharsbx($legend)?></span>
-			</div><?
+			</div><?php 
 			endif;
 			?><div class="clb"></div>
 		</li>
-		<?endforeach;?>
-		<?unset($item);?>
+		<?php endforeach;?>
+		<?php unset($item);?>
 	</ul>
 </div>
 <script type="text/javascript">

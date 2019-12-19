@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_GROUP_EDIT_TAB"] = "Server group";
 $MESS["CLU_GROUP_EDIT_TAB_TITLE"] = "Edit server group parameters";
 $MESS["CLU_GROUP_EDIT_EDIT_TITLE"] = "Edit server group";

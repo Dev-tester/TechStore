@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTASK_LIST_EMPTY'] = "Задач пока нет";
 $MESS ['INTASK_TASKPRIORITY'] = "Важность";
 $MESS ['INTASK_TASKSTATUS'] = "Статус";

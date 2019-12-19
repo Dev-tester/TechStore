@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PERFMON_EXPLAIN_SQL_ERROR'] = "Указанный запрос не найден или не является выборкой (SELECT).";
 $MESS ['PERFMON_EXPLAIN_TITLE'] = "План исполнения запроса";
 $MESS ['PERFMON_EXPLAIN_F_SELECT_TYPE'] = "Тип запроса";

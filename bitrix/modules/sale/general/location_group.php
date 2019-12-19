@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * The content of this file was marked as deprecated.
  * It will be removed from future releases. Do not rely on this code.

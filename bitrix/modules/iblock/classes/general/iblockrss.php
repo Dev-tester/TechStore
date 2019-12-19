@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllIBlockRSS
 {
 	function GetRSSNodes()

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Tasks\Util\Type;
 use Bitrix\Tasks\Util\User;
 use Bitrix\Tasks\Util\Site;

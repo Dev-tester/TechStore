@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_ERROR_UPDATE"] = "Error updating topic parameters.";
 $MESS["SONET_UPDATE_ALT"] = "Edit topic parameters";
 $MESS["SONET_DELETE_ALT"] = "Deletes a topic";

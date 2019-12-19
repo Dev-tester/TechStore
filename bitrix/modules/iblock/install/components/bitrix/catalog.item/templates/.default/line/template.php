@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
 
@@ -41,26 +41,26 @@ else
 <div class="row product-item">
 	<div class="col-xs-12">
 		<div class="product-item-title">
-			<? if ($itemHasDetailUrl): ?>
+			<?php  if ($itemHasDetailUrl): ?>
 			<a href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$productTitle?>">
-			<? endif; ?>
+			<?php  endif; ?>
 			<?=$productTitle?>
-			<? if ($itemHasDetailUrl): ?>
+			<?php  if ($itemHasDetailUrl): ?>
 			</a>
-			<? endif; ?>
+			<?php  endif; ?>
 		</div>
 	</div>
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-2">
-		<? if ($itemHasDetailUrl): ?>
+		<?php  if ($itemHasDetailUrl): ?>
 		<a class="product-item-image-wrapper" href="<?=$item['DETAIL_PAGE_URL']?>" title="<?=$imgTitle?>"
 				data-entity="image-wrapper">
-		<? else: ?>
+		<?php  else: ?>
 		<span class="product-item-image-wrapper" data-entity="image-wrapper">
-		<? endif; ?>
+		<?php  endif; ?>
 			<span class="product-item-image-slider-slide-container slide" id="<?=$itemIds['PICT_SLIDER']?>"
 				<?=($showSlider ? '' : 'style="display: none;"')?>
 				data-slider-interval="<?=$arParams['SLIDER_INTERVAL']?>" data-slider-wrap="true">
-				<?
+				<?php 
 				if ($showSlider)
 				{
 					foreach ($morePhoto as $key => $photo)
@@ -69,7 +69,7 @@ else
 						<span class="product-item-image-slide item <?=($key == 0 ? 'active' : '')?>"
 							style="background-image: url('<?=$photo['SRC']?>');">
 						</span>
-						<?
+						<?php 
 					}
 				}
 				?>
@@ -77,7 +77,7 @@ else
 			<span class="product-item-image-original" id="<?=$itemIds['PICT']?>"
 				style="background-image: url('<?=$item['PREVIEW_PICTURE']['SRC']?>'); <?=($showSlider ? 'display: none;' : '')?>">
 			</span>
-			<?
+			<?php 
 			if ($item['SECOND_PICT'])
 			{
 				$bgImage = !empty($item['PREVIEW_PICTURE_SECOND']) ? $item['PREVIEW_PICTURE_SECOND']['SRC'] : $item['PREVIEW_PICTURE']['SRC'];
@@ -85,7 +85,7 @@ else
 				<span class="product-item-image-alternative" id="<?=$itemIds['SECOND_PICT']?>"
 					style="background-image: url('<?=$bgImage?>'); <?=($showSlider ? 'display: none;' : '')?>">
 				</span>
-				<?
+				<?php 
 			}
 
 			if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y')
@@ -95,14 +95,14 @@ else
 					<?=($price['PERCENT'] > 0 ? '' : 'style="display: none;"')?>>
 					<span><?=-$price['PERCENT']?>%</span>
 				</div>
-				<?
+				<?php 
 			}
 
 			if ($item['LABEL'])
 			{
 				?>
 				<div class="product-item-label-text <?=$labelPositionClass?>" id="<?=$itemIds['STICKER_ID']?>">
-					<?
+					<?php 
 					if (!empty($item['LABEL_ARRAY_VALUE']))
 					{
 						foreach ($item['LABEL_ARRAY_VALUE'] as $code => $value)
@@ -111,58 +111,58 @@ else
 							<div<?=(!isset($item['LABEL_PROP_MOBILE'][$code]) ? ' class="hidden-xs"' : '')?>>
 								<span title="<?=$value?>"><?=$value?></span>
 							</div>
-							<?
+							<?php 
 						}
 					}
 					?>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 			<div class="product-item-image-slider-control-container" id="<?=$itemIds['PICT_SLIDER']?>_indicator"
 				<?=($showSlider ? '' : 'style="display: none;"')?>>
-				<?
+				<?php 
 				if ($showSlider)
 				{
 					foreach ($morePhoto as $key => $photo)
 					{
 						?>
 						<div class="product-item-image-slider-control<?=($key == 0 ? ' active' : '')?>" data-go-to="<?=$key?>"></div>
-						<?
+						<?php 
 					}
 				}
 				?>
 			</div>
-			<?
+			<?php 
 			if ($arParams['SLIDER_PROGRESS'] === 'Y')
 			{
 				?>
 				<div class="product-item-image-slider-progress-bar-container">
 					<div class="product-item-image-slider-progress-bar" id="<?=$itemIds['PICT_SLIDER']?>_progress_bar" style="width: 0;"></div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
-		<? if ($itemHasDetailUrl): ?>
+		<?php  if ($itemHasDetailUrl): ?>
 		</a>
-		<? else: ?>
+		<?php  else: ?>
 		</span>
-		<? endif; ?>
+		<?php  endif; ?>
 	</div>
-	<?
+	<?php 
 	if (!$haveOffers)
 	{
 		if ($showPropsBlock)
 		{
 			?>
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-7">
-				<?
+				<?php 
 				if ($showDisplayProps)
 				{
 					?>
 					<div class="product-item-info-container" data-entity="props-block">
 						<dl class="product-item-properties">
-							<?
+							<?php 
 							foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
 							{
 								?>
@@ -174,19 +174,19 @@ else
 										? implode(' / ', $displayProperty['DISPLAY_VALUE'])
 										: $displayProperty['DISPLAY_VALUE'])?>
 								</dd>
-								<?
+								<?php 
 							}
 							?>
 						</dl>
 					</div>
-					<?
+					<?php 
 				}
 
 				if ($showProductProps)
 				{
 					?>
 					<div id="<?=$itemIds['BASKET_PROP_DIV']?>" style="display: none;">
-						<?
+						<?php 
 						if (!empty($item['PRODUCT_PROPERTIES_FILL']))
 						{
 							foreach ($item['PRODUCT_PROPERTIES_FILL'] as $propID => $propInfo)
@@ -194,7 +194,7 @@ else
 								?>
 								<input type="hidden" name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]"
 									value="<?=htmlspecialcharsbx($propInfo['ID'])?>">
-								<?
+								<?php 
 								unset($item['PRODUCT_PROPERTIES'][$propID]);
 							}
 						}
@@ -203,14 +203,14 @@ else
 						{
 							?>
 							<table>
-								<?
+								<?php 
 								foreach ($item['PRODUCT_PROPERTIES'] as $propID => $propInfo)
 								{
 									?>
 									<tr>
 										<td><?=$item['PROPERTIES'][$propID]['NAME']?></td>
 										<td>
-											<?
+											<?php 
 											if (
 												$item['PROPERTIES'][$propID]['PROPERTY_TYPE'] === 'L'
 												&& $item['PROPERTIES'][$propID]['LIST_TYPE'] === 'C'
@@ -220,20 +220,20 @@ else
 												{
 													?>
 													<label>
-														<? $checked = $valueID === $propInfo['SELECTED'] ? 'checked' : ''; ?>
+														<?php  $checked = $valueID === $propInfo['SELECTED'] ? 'checked' : ''; ?>
 														<input type="radio" name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]"
 															value="<?=$valueID?>" <?=$checked?>>
 														<?=$value?>
 													</label>
 													<br />
-													<?
+													<?php 
 												}
 											}
 											else
 											{
 												?>
 												<select name="<?=$arParams['PRODUCT_PROPS_VARIABLE']?>[<?=$propID?>]">
-													<?
+													<?php 
 													foreach ($propInfo['VALUES'] as $valueID => $value)
 													{
 														$selected = $valueID === $propInfo['SELECTED'] ? 'selected' : '';
@@ -241,28 +241,28 @@ else
 														<option value="<?=$valueID?>" <?=$selected?>>
 															<?=$value?>
 														</option>
-														<?
+														<?php 
 													}
 													?>
 												</select>
-												<?
+												<?php 
 											}
 											?>
 										</td>
 									</tr>
-									<?
+									<?php 
 								}
 								?>
 							</table>
-							<?
+							<?php 
 						}
 						?>
 					</div>
-					<?
+					<?php 
 				}
 				?>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	else
@@ -273,7 +273,7 @@ else
 			<div class="col-xs-12 col-sm-6 <?=($showSkuBlock ? 'col-md-4 col-lg-5' : 'col-md-6 col-lg-7')?>">
 				<div class="product-item-info-container" data-entity="props-block">
 					<dl class="product-item-properties">
-						<?
+						<?php 
 						if ($showDisplayProps)
 						{
 							foreach ($item['DISPLAY_PROPERTIES'] as $code => $displayProperty)
@@ -287,7 +287,7 @@ else
 										? implode(' / ', $displayProperty['DISPLAY_VALUE'])
 										: $displayProperty['DISPLAY_VALUE'])?>
 								</dd>
-								<?
+								<?php 
 							}
 						}
 
@@ -295,13 +295,13 @@ else
 						{
 							?>
 							<span id="<?=$itemIds['DISPLAY_PROP_DIV']?>" style="display: none;"></span>
-							<?
+							<?php 
 						}
 						?>
 					</dl>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 
 		if ($showSkuBlock)
@@ -309,7 +309,7 @@ else
 			?>
 			<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2<?=($showPropsBlock ? '' : ' col-md-offset-4 col-lg-offset-5')?>">
 				<div id="<?=$itemIds['PROP_DIV']?>">
-					<?
+					<?php 
 					foreach ($arParams['SKU_PROPS'] as $skuProperty)
 					{
 						$propertyId = $skuProperty['ID'];
@@ -323,7 +323,7 @@ else
 								<div class="product-item-scu-block">
 									<div class="product-item-scu-list">
 										<ul class="product-item-scu-item-list">
-											<?
+											<?php 
 											foreach ($skuProperty['VALUES'] as $value)
 											{
 												if (!isset($item['SKU_TREE_VALUES'][$propertyId][$value['ID']]))
@@ -342,7 +342,7 @@ else
 															</div>
 														</div>
 													</li>
-													<?
+													<?php 
 												}
 												else
 												{
@@ -353,7 +353,7 @@ else
 															<div class="product-item-scu-item-text"><?=$value['NAME']?></div>
 														</div>
 													</li>
-													<?
+													<?php 
 												}
 											}
 											?>
@@ -363,11 +363,11 @@ else
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 				</div>
-				<?
+				<?php 
 				foreach ($arParams['SKU_PROPS'] as $skuProperty)
 				{
 					if (!isset($item['OFFERS_PROP'][$skuProperty['CODE']]))
@@ -406,20 +406,20 @@ else
 				}
 				?>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	?>
 	<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3<?=($showPropsBlock || $showSkuBlock ? '' : ' col-md-offset-6 col-lg-offset-7')?>">
 		<div class="product-line-item-info-right-container">
-			<?
+			<?php 
 			foreach ($arParams['PRODUCT_BLOCKS_ORDER'] as $blockName)
 			{
 				switch ($blockName)
 				{
 					case 'price': ?>
 						<div class="product-item-info-container product-item-price-container" data-entity="price-block">
-							<?
+							<?php 
 							if ($arParams['SHOW_OLD_PRICE'] === 'Y')
 							{
 								?>
@@ -427,11 +427,11 @@ else
 									<?=($price['RATIO_PRICE'] >= $price['RATIO_BASE_PRICE'] ? 'style="display: none;"' : '')?>>
 									<?=$price['PRINT_RATIO_BASE_PRICE']?>
 								</span>&nbsp;
-								<?
+								<?php 
 							}
 							?>
 							<span class="product-item-price-current" id="<?=$itemIds['PRICE']?>">
-								<?
+								<?php 
 								if (!empty($price))
 								{
 									if ($arParams['PRODUCT_DISPLAY_MODE'] === 'N' && $haveOffers)
@@ -453,7 +453,7 @@ else
 								?>
 							</span>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 'quantityLimit':
@@ -473,7 +473,7 @@ else
 											<span class="product-item-quantity" data-entity="quantity-limit-value"></span>
 										</div>
 									</div>
-									<?
+									<?php 
 								}
 							}
 							else
@@ -490,7 +490,7 @@ else
 										<div class="product-item-info-container-title">
 											<?=$arParams['MESS_SHOW_MAX_QUANTITY']?>:
 											<span class="product-item-quantity" data-entity="quantity-limit-value">
-												<?
+												<?php 
 												if ($arParams['SHOW_MAX_QUANTITY'] === 'M')
 												{
 													if ((float)$actualItem['CATALOG_QUANTITY'] / $measureRatio >= $arParams['RELATIVE_QUANTITY_FACTOR'])
@@ -510,7 +510,7 @@ else
 											</span>
 										</div>
 									</div>
-									<?
+									<?php 
 								}
 							}
 						}
@@ -540,7 +540,7 @@ else
 										</div>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 						}
 						elseif ($arParams['PRODUCT_DISPLAY_MODE'] === 'Y')
@@ -563,7 +563,7 @@ else
 										</div>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 						}
 
@@ -572,7 +572,7 @@ else
 					case 'buttons':
 						?>
 						<div class="product-item-info-container" data-entity="buttons-block">
-							<?
+							<?php 
 							if (!$haveOffers)
 							{
 								if ($actualItem['CAN_BUY'])
@@ -584,13 +584,13 @@ else
 											<?=($arParams['ADD_TO_BASKET_ACTION'] === 'BUY' ? $arParams['MESS_BTN_BUY'] : $arParams['MESS_BTN_ADD_TO_BASKET'])?>
 										</a>
 									</div>
-									<?
+									<?php 
 								}
 								else
 								{
 									?>
 									<div class="product-item-button-container">
-										<?
+										<?php 
 										if ($showSubscribe)
 										{
 											$APPLICATION->IncludeComponent(
@@ -613,7 +613,7 @@ else
 											<?=$arParams['MESS_NOT_AVAILABLE']?>
 										</a>
 									</div>
-									<?
+									<?php 
 								}
 							}
 							else
@@ -622,7 +622,7 @@ else
 								{
 									?>
 									<div class="product-item-button-container">
-										<?
+										<?php 
 										if ($showSubscribe)
 										{
 											$APPLICATION->IncludeComponent(
@@ -652,7 +652,7 @@ else
 											</a>
 										</div>
 									</div>
-									<?
+									<?php 
 								}
 								else
 								{
@@ -662,12 +662,12 @@ else
 											<?=$arParams['MESS_BTN_DETAIL']?>
 										</a>
 									</div>
-									<?
+									<?php 
 								}
 							}
 							?>
 						</div>
-						<?
+						<?php 
 						break;
 
 					case 'compare':
@@ -687,7 +687,7 @@ else
 									</div>
 								</div>
 							</div>
-							<?
+							<?php 
 						}
 
 						break;

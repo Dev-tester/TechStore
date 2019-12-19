@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_CLOUDS_DENIED"]="Доступ закрыт";
 $MESS["TASK_NAME_CLOUDS_BROWSE"]="Выбор файлов";
 $MESS["TASK_NAME_CLOUDS_UPLOAD"]="Перемещение файлов";

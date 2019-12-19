@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $sectionTpl = (isset($_REQUEST["dialog"]) && strtoupper($_REQUEST["dialog"]) == "Y") ? "dialog" : ".default";
 
 if ($arParams["ROOT_SECTION_ID"] !== "NO_OBJECT")

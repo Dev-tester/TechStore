@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_BAD_LEARNING_GROUP_ID_EX"] = "The class was not fount or you do not have sufficient access permission.";
 $MESS["LEARNING_BACK_TO_LEARNING_GROUPS"] = "Back to classes";
 $MESS["LEARNING_GROUPS_LIST"] = "Classes";

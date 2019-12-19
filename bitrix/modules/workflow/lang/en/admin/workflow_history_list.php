@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLOW_PAGE_TITLE"] = "Change history";
 $MESS["FLOW_F_DOCUMENT"] = "Document ID";
 $MESS["FLOW_F_FILENAME"] = "File name";

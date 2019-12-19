@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C31_T_ONLINE'] = "Сейчас на сайте";
 $MESS ['SONET_C31_T_PROFILE'] = "Профиль пользователя";
 $MESS ['SONET_C31_T_WRITE_MESSAGE'] = "Написать сообщение пользователю";

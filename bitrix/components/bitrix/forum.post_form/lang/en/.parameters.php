@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_DEFAULT_MESSAGE_TYPE"] = "Edit Form display mode (reply, edit, new topic)";
 $MESS["F_DEFAULT_FID"] = "Forum ID";
 $MESS["F_DEFAULT_TID"] = "Topic ID";

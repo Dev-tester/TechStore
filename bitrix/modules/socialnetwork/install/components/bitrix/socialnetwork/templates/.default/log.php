@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -9,7 +9,7 @@
 $pageId = "user_log";
 include("util_menu.php");
 
-?><div id="log_external_container"></div><?
+?><div id="log_external_container"></div><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.log.ex", 
 	"", 

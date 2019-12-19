@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['MESSAGESERVICE_SENDER_SMS_SMSASTBY_CAN_USE_ERROR'] = "SMS Assistant provider not configured";
 $MESS['MESSAGESERVICE_SENDER_SMS_SMSASTBY_ERROR_1'] = "Insufficient balance";
 $MESS['MESSAGESERVICE_SENDER_SMS_SMSASTBY_ERROR_10'] = "Service is temporary unavailable";

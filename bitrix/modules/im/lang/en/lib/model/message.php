@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGE_ENTITY_ID_FIELD"] = "Unique ID";
 $MESS["MESSAGE_ENTITY_CHAT_ID_FIELD"] = "Chat ID";
 $MESS["MESSAGE_ENTITY_AUTHOR_ID_FIELD"] = "Created by";

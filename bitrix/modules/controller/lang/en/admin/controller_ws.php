@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_WS_ERR_BAD_PASSW"] = "Incorrect password.";
 $MESS["CTRLR_WS_ERR_BAD_LEVEL"] = "Insufficient permissions to add a new client";
 $MESS["CTRLR_WS_ERR_MEMB_NFOUND"] = "The client is not found";

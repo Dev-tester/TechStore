@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -33,22 +33,22 @@ if (
 	if ($arData)
 	{
 		?>
-		<table class="list"><?
+		<table class="list"><?php 
 		?>
 		<tr>
-		<td align="left" colspan="2"><b><? echo htmlspecialcharsEx($table_name) ?></b></td></tr><?
+		<td align="left" colspan="2"><b><?php  echo htmlspecialcharsEx($table_name) ?></b></td></tr><?php 
 		foreach ($arData as $key => $value)
 		{
 			?>
 			<tr>
-			<td align="left"><? echo htmlspecialcharsEx($key) ?></td>
-			<td align="left">&nbsp;<? echo htmlspecialcharsEx($value) ?></td></tr><?
+			<td align="left"><?php  echo htmlspecialcharsEx($key) ?></td>
+			<td align="left">&nbsp;<?php  echo htmlspecialcharsEx($value) ?></td></tr><?php 
 		}
-		?></table><?
+		?></table><?php 
 	}
 	else
 	{
-		?>no data found<?
+		?>no data found<?php 
 	}
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");
 }
@@ -425,15 +425,15 @@ CJSCore::Init(array("ajax", "popup"));
 		}
 	}
 </script>
-<form name="find_form" id="find_form" method="get" action="<? echo $APPLICATION->GetCurPage(); ?>">
-	<input type="hidden" value="<? echo htmlspecialcharsbx($table_name) ?>" name="table_name">
-	<? $oFilter->Begin(); ?>
+<form name="find_form" id="find_form" method="get" action="<?php  echo $APPLICATION->GetCurPage(); ?>">
+	<input type="hidden" value="<?php  echo htmlspecialcharsbx($table_name) ?>" name="table_name">
+	<?php  $oFilter->Begin(); ?>
 	<tr>
 		<td><b><?=GetMessage("PERFMON_TABLE_FIND")?>:</b></td>
 		<td>
-			<input type="text" size="25" name="find" value="<? echo htmlspecialcharsbx($find) ?>"
+			<input type="text" size="25" name="find" value="<?php  echo htmlspecialcharsbx($find) ?>"
 				title="<?=GetMessage("PERFMON_TABLE_FIND")?>">
-			<?
+			<?php 
 			$arr = array(
 				"reference" => array_keys($arFilter),
 				"reference_id" => array_keys($arFilter),
@@ -442,16 +442,16 @@ CJSCore::Init(array("ajax", "popup"));
 			?>
 		</td>
 	</tr>
-	<? foreach ($arFields as $FIELD_NAME => $FIELD_TYPE): ?>
-		<? if ($FIELD_TYPE != "unknown"): ?>
+	<?php  foreach ($arFields as $FIELD_NAME => $FIELD_TYPE): ?>
+		<?php  if ($FIELD_TYPE != "unknown"): ?>
 			<tr>
-				<td><? echo htmlspecialcharsbx($FIELD_NAME) ?></td>
-				<td><input type="text" name="find_<? echo htmlspecialcharsbx($FIELD_NAME) ?>" size="47"
-					value="<? echo htmlspecialcharsbx(${"find_".$FIELD_NAME}) ?>"></td>
+				<td><?php  echo htmlspecialcharsbx($FIELD_NAME) ?></td>
+				<td><input type="text" name="find_<?php  echo htmlspecialcharsbx($FIELD_NAME) ?>" size="47"
+					value="<?php  echo htmlspecialcharsbx(${"find_".$FIELD_NAME}) ?>"></td>
 			</tr>
-		<? endif ?>
-	<? endforeach ?>
-	<?
+		<?php  endif ?>
+	<?php  endforeach ?>
+	<?php 
 	$oFilter->Buttons(array(
 		"table_id" => $sTableID,
 		"url" => $APPLICATION->GetCurPage(),
@@ -461,7 +461,7 @@ CJSCore::Init(array("ajax", "popup"));
 	?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 echo BeginNote();
 echo '

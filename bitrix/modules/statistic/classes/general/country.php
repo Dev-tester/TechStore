@@ -1,4 +1,4 @@
-<?
+<?php 
 class CCountry
 {
 	public static function GetList(&$by, &$order, $arFilter=Array(), &$is_filtered)

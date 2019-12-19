@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/about/business_news.php");
 $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
-?><?$APPLICATION->IncludeComponent("bitrix:desktop", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:desktop", ".default", array(
 	"ID" => "business_news",
 	"CAN_EDIT" => "Y",
 	"COLUMNS" => "1",
@@ -17,4 +17,4 @@ $APPLICATION->SetTitle(GetMessage("ABOUT_TITLE"));
 	"GU_RSSREADER_RSS_URL" => (LANGUAGE_ID == "en") ? "http://rss.cnn.com/rss/edition_business.rss"	: ((LANGUAGE_ID == "de") ? "http://www.tagesschau.de/xml/rss2/" : "http://news.yandex.ru/business.rss")
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

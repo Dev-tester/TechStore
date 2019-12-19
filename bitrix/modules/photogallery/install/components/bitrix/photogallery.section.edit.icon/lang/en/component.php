@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Information blocks module is not installed";
 $MESS["IBLOCK_WRONG_SESSION"] = "Your session has expired. Please save your document again.";
 $MESS["P_TITLE"] = "(choose cover)";

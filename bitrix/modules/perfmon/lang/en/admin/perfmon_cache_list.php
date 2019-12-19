@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_CACHE_ID"] = "ID";
 $MESS["PERFMON_CACHE_HIT_ID"] = "Hit";
 $MESS["PERFMON_CACHE_NN"] = "No.";

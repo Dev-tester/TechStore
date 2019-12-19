@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 
 IncludeModuleLangFile(__FILE__);

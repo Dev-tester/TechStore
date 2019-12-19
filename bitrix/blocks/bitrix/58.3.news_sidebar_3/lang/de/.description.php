@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_58_3-BUTTON"] = "Schaltfläche";
 $MESS["LANDING_BLOCK_58_3-CARD"] = "News";
 $MESS["LANDING_BLOCK_58_3-IMG"] = "Bild";

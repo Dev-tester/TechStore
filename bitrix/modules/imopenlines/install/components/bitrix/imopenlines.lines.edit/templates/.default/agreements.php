@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc; ?>
 
@@ -11,14 +11,14 @@ use \Bitrix\Main\Localization\Loc; ?>
 					   id="imol_agreement_message"
 					   name="CONFIG[AGREEMENT_MESSAGE]"
 					   value="Y"
-					   <? if ($arResult['CONFIG']['AGREEMENT_MESSAGE'] == "Y") { ?>checked<? } ?>>
+					   <?php  if ($arResult['CONFIG']['AGREEMENT_MESSAGE'] == "Y") { ?>checked<?php  } ?>>
 				<?=Loc::getMessage("IMOL_CONFIG_EDIT_AGREEMENT_MESSAGE")?>
 			</label>
 		</div>
 	</div>
-	<div id="imol_agreement_message_block" <? if ($arResult['CONFIG']['AGREEMENT_MESSAGE'] != "Y") { ?>class="invisible" <? } ?>>
+	<div id="imol_agreement_message_block" <?php  if ($arResult['CONFIG']['AGREEMENT_MESSAGE'] != "Y") { ?>class="invisible" <?php  } ?>>
 		<div class="imopenlines-control-container">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:intranet.userconsent.selector",
 				"",
 				array(

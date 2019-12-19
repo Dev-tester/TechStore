@@ -45,13 +45,13 @@ if (isset($arResult['ACCESS_CODES']))
 }
 ?>
 
-<?if ($arResult['EXTENDED']):?>
+<?php if ($arResult['EXTENDED']):?>
 <form action="<?=POST_FORM_ACTION_URI;?>" method="post">
 	<input type="hidden" name="action" value="saveExtended" />
 	<?= bitrix_sessid_post();?>
 	<table class="table-blue landing-additional-rights-table" id="landing-additional-rights-table">
 		<tbody>
-		<?foreach ($arResult['ADDITIONAL'] as $code => $title):
+		<?php foreach ($arResult['ADDITIONAL'] as $code => $title):
 			$checked = !is_array($row['ADDITIONAL_RIGHTS']['CURRENT']) ||
 					   in_array($code, $row['ADDITIONAL_RIGHTS']['CURRENT']);
 			$accessCodes = \htmlspecialcharsbx(
@@ -65,27 +65,27 @@ if (isset($arResult['ACCESS_CODES']))
 					</label>
 				</td>
 				<td class="table-blue-td-select" id="landing-additional-rights-fields-<?= $code;?>">
-					<?foreach ($arResult['ACCESS_CODES'][$code] as $codeKey => $accessItem):?>
+					<?php foreach ($arResult['ACCESS_CODES'][$code] as $codeKey => $accessItem):?>
 						<div>
 							<input type="hidden" name="rights[<?= $code;?>][]" value="<?= \htmlspecialcharsbx($codeKey);?>">
 							<?= \htmlspecialcharsbx($accessItem['PROVIDER'])?>: <?= \htmlspecialcharsbx($accessItem['NAME']);?>
-							<span class="table-blue-delete table-blue-delete-landing-role" <?
-							?>data-code="<?= $code;?>" <?
-							?>data-id="<?= $accessItem['CODE'];?>" <?
-							?>onclick="deleteAccessRowExtended(this);" <?
+							<span class="table-blue-delete table-blue-delete-landing-role" <?php 
+							?>data-code="<?= $code;?>" <?php 
+							?>data-id="<?= $accessItem['CODE'];?>" <?php 
+							?>onclick="deleteAccessRowExtended(this);" <?php 
 							?>title="<?= Loc::getMessage('LANDING_TPL_ACTION_DEL');?>"></span>
 						</div>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</td>
 				<td>
-					<a href="javascript:void(0);" class="landing-additional-rights-form" <?
-					?>data-codes="<?= $accessCodes;?>" <?
+					<a href="javascript:void(0);" class="landing-additional-rights-form" <?php 
+					?>data-codes="<?= $accessCodes;?>" <?php 
 					   ?>data-id="<?= $code;?>">
 						<?= Loc::getMessage('LANDING_TPL_ACTION_RIGHT');?>
 					</a>
 				</td>
 			</tr>
-		<?endforeach;?>
+		<?php endforeach;?>
 		</tbody>
 	</table>
 	<div class="pinable-block">
@@ -118,7 +118,7 @@ if (isset($arResult['ACCESS_CODES']))
 	});
 </script>
 
-<?else:?>
+<?php else:?>
 
 <form action="<?= POST_FORM_ACTION_URI;?>" method="post">
 <input type="hidden" name="action" value="save" />
@@ -135,7 +135,7 @@ if (isset($arResult['ACCESS_CODES']))
 						<td class="table-blue-td-title"><?= Loc::getMessage('LANDING_TPL_COL_ROLE');?></td>
 						<td class="table-blue-td-title"></td>
 					</tr>
-					<?foreach (array_values($arResult['ACCESS_CODES']) as $i => $code):?>
+					<?php foreach (array_values($arResult['ACCESS_CODES']) as $i => $code):?>
 					<tr>
 						<td class="table-blue-td-name"><?= \htmlspecialcharsbx($code['PROVIDER'])?></td>
 						<td class="table-blue-td-param"><?= \htmlspecialcharsbx($code['NAME']);?></td>
@@ -147,7 +147,7 @@ if (isset($arResult['ACCESS_CODES']))
 							<span class="table-blue-delete table-blue-delete-landing-role" data-id="<?= $code['CODE'];?>" onclick="deleteAccessRow(this);" title="<?= Loc::getMessage('LANDING_TPL_ACTION_DEL');?>"></span>
 						</td>
 					</tr>
-					<?endforeach;?>
+					<?php endforeach;?>
 					<tr>
 						<td colspan="4" class="table-blue-td-link">
 							<a class="table-blue-link" href="javascript:void(0);" id="landing-rights-form">
@@ -166,7 +166,7 @@ if (isset($arResult['ACCESS_CODES']))
 						<?= Loc::getMessage('LANDING_TPL_COL_ROLES');?>
 					</td>
 				</tr>
-				<?foreach ($arResult['ROLES'] as $item):
+				<?php foreach ($arResult['ROLES'] as $item):
 					$urlEdit = str_replace(
 						'#role_edit#',
 						$item['ID'],
@@ -183,7 +183,7 @@ if (isset($arResult['ACCESS_CODES']))
 						<span class="table-blue-delete landing-role-delete" title="<?= Loc::getMessage('LANDING_TPL_ACTION_DEL');?>"></span>
 					</td>
 				</tr>
-				<?endforeach;?>
+				<?php endforeach;?>
 				<tr>
 					<td colspan="2" class="table-blue-td-link">
 						<a href="<?= str_replace('#role_edit#', 0, $arParams['PAGE_URL_ROLE_EDIT']);?>" class="table-blue-link">
@@ -217,4 +217,4 @@ if (isset($arResult['ACCESS_CODES']))
 	});
 </script>
 
-<?endif;?>
+<?php endif;?>

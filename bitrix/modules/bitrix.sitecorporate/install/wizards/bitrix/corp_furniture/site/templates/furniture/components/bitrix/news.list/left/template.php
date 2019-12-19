@@ -1,15 +1,15 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="news-list">
-<?if($arParams["DISPLAY_TOP_PAGER"]):?>
+<?php if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
-<?endif;?>
+<?php endif;?>
 <dl class="block-list">
-<?foreach($arResult["ITEMS"] as $arItem):?>
-		<dt><?echo $arItem["DISPLAY_ACTIVE_FROM"]?></dt>
-		<dd><a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["PREVIEW_TEXT"]?></a></dd>
-<?endforeach;?>
+<?php foreach($arResult["ITEMS"] as $arItem):?>
+		<dt><?php echo $arItem["DISPLAY_ACTIVE_FROM"]?></dt>
+		<dd><a href="<?php echo $arItem["DETAIL_PAGE_URL"]?>"><?php echo $arItem["PREVIEW_TEXT"]?></a></dd>
+<?php endforeach;?>
 </dl>
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+<?php if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<br /><?=$arResult["NAV_STRING"]?>
-<?endif;?>
+<?php endif;?>
 </div>

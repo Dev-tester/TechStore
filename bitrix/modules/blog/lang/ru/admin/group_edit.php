@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLGE_ERROR_SAVING'] = "Ошибка сохранения группы";
 $MESS ['BLGE_UPDATING'] = "Изменение параметров группы";
 $MESS ['BLGE_ADDING'] = "Создание новой группы";

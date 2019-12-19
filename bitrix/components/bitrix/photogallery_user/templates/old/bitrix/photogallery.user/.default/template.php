@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
 endif;
@@ -11,31 +11,31 @@ if ($GLOBALS["USER"]->IsAuthorized() && (!empty($arResult["MY_GALLERY"]) || $arR
 <div class="photo-user photo-user-my">
 	<div class="photo-controls photo-action">
 	<noindex>
-	<?
+	<?php 
 	if (empty($arResult["MY_GALLERY"])):
-		?><a rel="nofollow" href="<?=$arResult["LINK"]["NEW"]?>" title="<?=GetMessage("P_GALLERY_CREATE_TITLE")?>" <?
-			?>class="photo-action gallery-create-first"><?=GetMessage("P_GALLERY_CREATE")?></a><?
+		?><a rel="nofollow" href="<?=$arResult["LINK"]["NEW"]?>" title="<?=GetMessage("P_GALLERY_CREATE_TITLE")?>" <?php 
+			?>class="photo-action gallery-create-first"><?=GetMessage("P_GALLERY_CREATE")?></a><?php 
 	else:
 		if ($arParams["PAGE_NAME"] != "INDEX"):
-		?><a rel="nofollow" href="<?=$arResult["LINK"]["INDEX"]?>" title="<?=GetMessage("P_GALLERY_TITLE")?>" <?
-			?>class="photo-action back-to-album"><?=GetMessage("P_GALLERY")?></a><?
+		?><a rel="nofollow" href="<?=$arResult["LINK"]["INDEX"]?>" title="<?=GetMessage("P_GALLERY_TITLE")?>" <?php 
+			?>class="photo-action back-to-album"><?=GetMessage("P_GALLERY")?></a><?php 
 		endif;
-		?><a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["VIEW"]?>" title="<?=GetMessage("P_PHOTO_VIEW_TITLE")?>" <?
-			?>class="photo-action gallery-view"><?=GetMessage("P_PHOTO_VIEW")?></a> <?
+		?><a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["VIEW"]?>" title="<?=GetMessage("P_PHOTO_VIEW_TITLE")?>" <?php 
+			?>class="photo-action gallery-view"><?=GetMessage("P_PHOTO_VIEW")?></a> <?php 
 
 		if (count($arResult["MY_GALLERIES"]) > 1 || $arResult["I"]["ACTIONS"]["CREATE_GALLERY"] == "Y"):
-		?><a rel="nofollow" href="<?=$arResult["LINK"]["GALLERIES"]?>" title="<?=GetMessage("P_GALLERIES_VIEW_TITLE")?>" <?
-			?>class="photo-action gallery-view-list"><?=GetMessage("P_GALLERIES_VIEW")?></a> <?
+		?><a rel="nofollow" href="<?=$arResult["LINK"]["GALLERIES"]?>" title="<?=GetMessage("P_GALLERIES_VIEW_TITLE")?>" <?php 
+			?>class="photo-action gallery-view-list"><?=GetMessage("P_GALLERIES_VIEW")?></a> <?php 
 		else:
-		?><a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["EDIT"]?>" title="<?=GetMessage("P_GALLERY_VIEW_TITLE")?>" <?
-			?>class="photo-action gallery-edit"><?=GetMessage("P_GALLERY_VIEW")?></a> <?
+		?><a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["EDIT"]?>" title="<?=GetMessage("P_GALLERY_VIEW_TITLE")?>" <?php 
+			?>class="photo-action gallery-edit"><?=GetMessage("P_GALLERY_VIEW")?></a> <?php 
 		endif;
-		?><a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["UPLOAD"]?>" class="photo-action photo-upload"><?=GetMessage("P_UPLOAD")?></a><?
+		?><a rel="nofollow" href="<?=$arResult["MY_GALLERY"]["LINK"]["UPLOAD"]?>" class="photo-action photo-upload"><?=GetMessage("P_UPLOAD")?></a><?php 
 	endif;
 	?></div>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 elseif (!$GLOBALS["USER"]->IsAuthorized()):
 ?>
 <div class="photo-controls photo-action">
@@ -44,23 +44,23 @@ elseif (!$GLOBALS["USER"]->IsAuthorized()):
 		?>" class="photo-action authorize" title="<?=GetMessage("P_LOGIN_TITLE")?>"><?=GetMessage("P_LOGIN")?></a></noindex>
 	<div class="empty-clear"></div>
 </div>
-<?
+<?php 
 endif;
 
 if (!empty($arResult["GALLERY"])):
 ?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="gallery-table-header"><tr>
-	<td width="0%" class="picture"><div class="photo-gallery-avatar" <?
-		?>style="width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px; height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;<?
+	<td width="0%" class="picture"><div class="photo-gallery-avatar" <?php 
+		?>style="width:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px; height:<?=$arParams["GALLERY_AVATAR_SIZE"]?>px;<?php 
 	if (!empty($arResult["GALLERY"]["PICTURE"])):
-			?>background-image:url('<?=$arResult["GALLERY"]["PICTURE"]["SRC"]?>');<?
+			?>background-image:url('<?=$arResult["GALLERY"]["PICTURE"]["SRC"]?>');<?php 
 	endif;
 		?>"></div>
 	</td>
 	<td width="<?=($arParams["GALLERY_SIZE"] > 0 ? "70" : "100")?>%" align="left" class="data">
-		<div class="photo-gallery-name"><?=$arResult["GALLERY"]["NAME"]?></div><?
+		<div class="photo-gallery-name"><?=$arResult["GALLERY"]["NAME"]?></div><?php 
 	if (!empty($arResult["GALLERY"]["DESCRIPTION"])):?>
-		<div class="photo-gallery-description"><?=$arResult["GALLERY"]["DESCRIPTION"]?></div><?
+		<div class="photo-gallery-description"><?=$arResult["GALLERY"]["DESCRIPTION"]?></div><?php 
 	endif;
 
 	if ($arParams["GALLERY_SIZE"] > 0):?>
@@ -68,7 +68,7 @@ if (!empty($arResult["GALLERY"])):
 		<table width="100%" cellpadding="0" cellspacing="0" border="0" class="gallery-size"><tr><td align="right">
 			<div class="out"><div class="in" id="photo_gallery_size_inner" style="width:<?=$arResult["GALLERY"]["UF_GALLERY_SIZE_PERCENT"]?>%">&nbsp;</div></div>
 			<div class="out1"><div class="in1" id="photo_gallery_size_inner1"><?=GetMessage("P_GALLERY_SIZE")." ".$arResult["GALLERY"]["UF_GALLERY_SIZE_PERCENT"]?>%</div></div>
-		</td></tr></table><?
+		</td></tr></table><?php 
 
 		if ($arParams["PERMISSION"] >= "W" && $arResult["GALLERY"]["ELEMENTS_CNT"] > 0):
 			if ($arResult["GALLERY"]["RECALC_INFO"]["STATUS"] == "CONTINUE"):
@@ -78,11 +78,11 @@ if (!empty($arResult["GALLERY"])):
 			<div class="out1"><div class="in1"><?=GetMessage("P_GALLERY_SIZE_RECOUNT")." ".$res?>%</div></div>
 		</td></tr></table>
 		<noindex>
-			<a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("action=recalc", array("action", "status", "AJAX_CALL"))?>" <?
+			<a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("action=recalc", array("action", "status", "AJAX_CALL"))?>" <?php 
 				?>class="gallery-recalc-begin" ><?=GetMessage("P_GALLERY_SIZE_RECALC_NEW")?></a>
 			<a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("action=recalc&status=continue", array("action", "status", "AJAX_CALL"))
 			?>" class="gallery-recalc-continue" ><?=GetMessage("P_GALLERY_SIZE_RECALC_CONTINUE")?></a>
-		</noindex><?
+		</noindex><?php 
 
 			else:?>
 			<div id="photo_progress_outer" style="display:none;">
@@ -91,12 +91,12 @@ if (!empty($arResult["GALLERY"])):
 				<div class="out1"><div class="in1" id="photo_progress_inner1"><?=GetMessage("P_GALLERY_SIZE_RECOUNT")?> 00%</div></div>
 			</td></tr></table></div>
 			<noindex><a rel="nofollow" href="<?=$GLOBALS['APPLICATION']->GetCurPageParam("action=recalc", array("action", "status", "AJAX_CALL"))
-			?>" onclick="oGallery.Start(this); return false;" class="gallery-recalc-begin" ><?=GetMessage("P_GALLERY_SIZE_RECALC")?></a></noindex><?
+			?>" onclick="oGallery.Start(this); return false;" class="gallery-recalc-begin" ><?=GetMessage("P_GALLERY_SIZE_RECALC")?></a></noindex><?php 
 			endif;
 		endif;
 	endif;?>
 	</td>
 </tr></table>
-<?
+<?php 
 endif;
 ?>

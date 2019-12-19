@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_REST_INDEX_DESCRIPTION_NEW"] = "Подключите коннектор к Открытой линии чтобы принимать сообщения от ваших клиентов в рабочем чате Битрикс24.";
 $MESS["IMCONNECTOR_COMPONENT_REST_CONNECT"] = "Подключить";
 

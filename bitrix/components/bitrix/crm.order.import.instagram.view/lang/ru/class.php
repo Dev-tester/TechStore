@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OIIV_FACEBOOK_NO_ACTIVE_CONNECTOR"] = "Данный коннектор не активен";
 $MESS["CRM_OIIV_FACEBOOK_REMOVED_REFERENCE_TO_PAGE"] = "Импорт товаров был настроен на работу с группой, доступа к администрированию которой в текущий момент у вас нет";
 

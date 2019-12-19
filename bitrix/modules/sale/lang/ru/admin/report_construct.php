@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_MODULE_NOT_INSTALLED"] = "Не установлен модуль report";
 $MESS["CATALOG_MODULE_NOT_INSTALLED"] = "Не установлен модуль catalog";
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Не установлен модуль iblock";

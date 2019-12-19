@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_AVITO_CHANGE_ANY_TIME"] = "Change or disable at any time";
 $MESS["IMCONNECTOR_COMPONENT_AVITO_CLIENT_ID"] = "Enter Client ID:";
 $MESS["IMCONNECTOR_COMPONENT_AVITO_CLIENT_SECRET"] = "Enter Client Secret:";

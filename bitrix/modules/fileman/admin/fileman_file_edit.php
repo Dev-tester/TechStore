@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2006 Bitrix             #
@@ -100,7 +100,7 @@ else
 	{
 		$strWarning = GetMessage("FILEMAN_FILEEDIT_FILE_EXISTS")." ";
 		$bEdit = false;
-		?><script id="ajax-script-file-exists">top.strWarning = '<?= CUtil::JSEscape($strWarning)?>';</script><?
+		?><script id="ajax-script-file-exists">top.strWarning = '<?= CUtil::JSEscape($strWarning)?>';</script><?php 
 		$bVarsFromForm = true;
 		$path = $io->CombinePath("/", $arParsedPath["PREV"]);
 		$arParsedPath = CFileMan::ParsePath($path, true, false, "", $logical == "Y");
@@ -292,7 +292,7 @@ if(strlen($strWarning)<=0)
 			if(isset($_POST['AJAX_APPLY']))
 			{
 				$APPLICATION->RestartBuffer();
-				?><script id="ajax-script-apply">top.strWarning = '<?= CUtil::JSEscape($strWarning)?>';</script><?
+				?><script id="ajax-script-apply">top.strWarning = '<?= CUtil::JSEscape($strWarning)?>';</script><?php 
 				die();
 			}
 
@@ -351,7 +351,7 @@ if(!$bVarsFromForm)
 
 					//Trim php tags
 					$src = $arPHP[$n][2];
-					if (SubStr($src, 0, 5) == "<?"."php")
+					if (SubStr($src, 0, 5) == "<?php "."php")
 						$src = SubStr($src, 5);
 					else
 						$src = SubStr($src, 2);
@@ -408,10 +408,10 @@ foreach ($arParsedPath["AR_PATH"] as $chainLevel)
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<?CAdminMessage::ShowMessage($strWarning);?>
+<?php CAdminMessage::ShowMessage($strWarning);?>
 
-<?if(strlen($strWarning)<=0 || $bVarsFromForm):?>
-<?
+<?php if(strlen($strWarning)<=0 || $bVarsFromForm):?>
+<?php 
 $aMenu = array();
 if($bEdit)
 {
@@ -505,17 +505,17 @@ $context->Show();
 <input type="hidden" name="save" value="Y">
 <input type="hidden" name="lang" value="<?= LANG?>">
 <?=bitrix_sessid_post()?>
-<?if(!$bEdit):?>
+<?php if(!$bEdit):?>
 	<input type="hidden" name="new" value="y">
-<?endif?>
+<?php endif?>
 <input type="hidden" name="save" value="Y">
-<?if($full_src=="Y"):?>
+<?php if($full_src=="Y"):?>
 	<input type="hidden" name="full_src" value="Y">
-<?endif?>
+<?php endif?>
 <input type="hidden" name="template" value="<?= htmlspecialcharsbx($template)?>">
 <input type="hidden" name="back_url" value="<?= htmlspecialcharsbx($back_url)?>">
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => (($bEdit) ? GetMessage('FILEMAN_EDIT_TAB') : GetMessage('FILEMAN_EDIT_TAB1')), "ICON" => "fileman", "TITLE" => (($bEdit) ? GetMessage('FILEMAN_EDIT_TAB_ALT') : GetMessage('FILEMAN_EDIT_TAB_ALT1'))),
 );
@@ -524,28 +524,28 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 $tabControl->BeginNextTab();?>
 
-	<?if(!$bEdit):?>
-		<?$arTemplates = CFileman::GetFileTemplates(LANGUAGE_ID, array($site_template));?>
+	<?php if(!$bEdit):?>
+		<?php $arTemplates = CFileman::GetFileTemplates(LANGUAGE_ID, array($site_template));?>
 		<tr>
 			<td width="30%"><?= GetMessage("FILEMAN_FILEEDIT_TEMPLATE")?></td>
 			<td width="70%">
-				<select name="template" onchange="window.location='/bitrix/admin/fileman_file_edit.php?lang=<?= LANG?>&site=<?=Urlencode($site)?>&path=<?= UrlEncode($path)?><? echo ($full_src=="Y" ? "&full_src=Y" : "")?>&new=y&template='+escape(this[this.selectedIndex].value)">
-					<?for($i = 0, $l = count($arTemplates); $i < $l; $i++):?>
-					<option value="<?= htmlspecialcharsbx($arTemplates[$i]["file"])?>"<?if($template==$arTemplates[$i]["file"])echo " selected"?>><?= htmlspecialcharsbx($arTemplates[$i]["name"])?></option>
-					<?endfor;?>
+				<select name="template" onchange="window.location='/bitrix/admin/fileman_file_edit.php?lang=<?= LANG?>&site=<?=Urlencode($site)?>&path=<?= UrlEncode($path)?><?php  echo ($full_src=="Y" ? "&full_src=Y" : "")?>&new=y&template='+escape(this[this.selectedIndex].value)">
+					<?php for($i = 0, $l = count($arTemplates); $i < $l; $i++):?>
+					<option value="<?= htmlspecialcharsbx($arTemplates[$i]["file"])?>"<?php if($template==$arTemplates[$i]["file"])echo " selected"?>><?= htmlspecialcharsbx($arTemplates[$i]["name"])?></option>
+					<?php endfor;?>
 				</select>
 			</td>
 		</tr>
-		<?if(!$bFullPHP):?>
+		<?php if(!$bFullPHP):?>
 		<tr>
 			<td width="30%"><label for="bxfm_title"><?= GetMessage("FILEMAN_FILEEDIT_TITLE")?></label></td>
 			<td width="70%"><input id="bxfm_title" type="text" name="title" size="50" maxlength="255" value="<?= htmlspecialcharsbx($title)?>"></td>
 		</tr>
-		<?endif;?>
+		<?php endif;?>
 		<tr>
 			<td><label for="bxfm_filename"><?= GetMessage("FILEMAN_FILEEDIT_NAME")?></label></td>
 			<td>
-				<?if (isset($filename2))
+				<?php if (isset($filename2))
 					$filename = $filename2;
 				if(strpos($filename,'.') === false)
 					$filename .= ($USER->CanDoOperation('edit_php') || $limit_php_access) ? '.php' : '.html';
@@ -597,20 +597,20 @@ $tabControl->BeginNextTab();?>
 			}
 			</script>
 		</td></tr>
-	<?elseif(!$bFullPHP):?>
+	<?php elseif(!$bFullPHP):?>
 		<tr>
 			<td width="30%"><label for="bxfm_title"><?= GetMessage("FILEMAN_FILEEDIT_TITLE")?></label></td>
 			<td width="70%"><input id="bxfm_title" type="text" name="title" size="50" maxlength="255" value="<?= htmlspecialcharsbx($title)?>"></td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 
-	<?if(!$bFullPHP):?>
-		<? /* Transliteration - only for new files*/
+	<?php if(!$bFullPHP):?>
+		<?php  /* Transliteration - only for new files*/
 		if (!$bEdit && COption::GetOptionString("fileman", "use_translit", true))
 		{
 			?>
 			<input type="hidden" name="bxfm_linked" id="bxfm_linked" value="N" />
-			<?
+			<?php 
 			include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/classes/general/fileman_utils.php");
 			CFilemanTransliterate::Init(array(
 				'fromInputId' => 'bxfm_title',
@@ -624,7 +624,7 @@ $tabControl->BeginNextTab();?>
 		}
 		?>
 
-		<?if($bEditProps):?>
+		<?php if($bEditProps):?>
 			<input type="hidden" name="prop_edit" value="Y">
 			<!-- FILE PROPS -->
 			<script>
@@ -653,7 +653,7 @@ $tabControl->BeginNextTab();?>
 							<td><?= GetMessage("FILEMAN_EDIT_PROPSCODE")?></td>
 							<td><?= GetMessage("FILEMAN_EDIT_PROPSVAL")?></td>
 						</tr>
-						<?
+						<?php 
 						$arPropTypes = CFileMan::GetPropstypes($site);
 						$tag_prop_name = '';
 						$search_exist = false;
@@ -741,31 +741,31 @@ $tabControl->BeginNextTab();?>
 							$arProp = $arAllPropFields[$i];
 							?>
 							<tr>
-								<td  valign="top" <?if(!$arProp["NAME"]) echo 'nowrap';?>>
+								<td  valign="top" <?php if(!$arProp["NAME"]) echo 'nowrap';?>>
 									<input type="hidden" id="H_CODE_<?=$i;?>" name="H_CODE_<?=$i;?>" value="<?=htmlspecialcharsbx($arProp["CODE"])?>">
-									<?if($arProp["NAME"]):?>
+									<?php if($arProp["NAME"]):?>
 										<input type="hidden" id="CODE_<?=$i;?>" name="CODE_<?=$i;?>" value="<?=htmlspecialcharsbx($arProp["CODE"])?>">
 										<input type="hidden" id="NAME_<?=$i;?>" name="NAME_<?=$i;?>" value="<?=htmlspecialcharsbx($arProp["NAME"]);?>">
 										<?=htmlspecialcharsbx($arProp["NAME"]);?>:
-									<?else:?>
+									<?php else:?>
 										<input type="text" name="CODE_<?=$i?>" id="CODE_<?=$i?>" value="<?= htmlspecialcharsbx((isset($_POST["CODE_$i"])) ? $_POST["CODE_$i"] : $arProp["CODE"]);?>" size="30">:
-									<?endif;?>
+									<?php endif;?>
 								</td>
 								<td>
-									<?
+									<?php 
 									$value_ = (isset($_POST["VALUE_$i"])) ? $_POST["VALUE_$i"] : $arProp["VALUE"];
 									if($arProp["CODE"] == $tag_prop_name && $search_exist):
 										echo InputTags("VALUE_".$i, $value_, array($documentSite), 'size="55"', "VALUE_".$i);
 									else:?>
 										<input type="text" name="VALUE_<?=$i?>" id="VALUE_<?=$i?>" value="<?=htmlspecialcharsbx($value_);?>" size="60">
-									<?endif;
+									<?php endif;
 									if($APPLICATION->GetDirProperty($arProp["CODE"], Array($site, $path)))
 									{
-										?><br><small><b><?=GetMessage("FILEMAN_FILE_EDIT_FOLDER_PROP")?></b> <?= htmlspecialcharsbx($APPLICATION->GetDirProperty($arProp["CODE"], Array($site, $path)));?></small><?
+										?><br><small><b><?=GetMessage("FILEMAN_FILE_EDIT_FOLDER_PROP")?></b> <?= htmlspecialcharsbx($APPLICATION->GetDirProperty($arProp["CODE"], Array($site, $path)));?></small><?php 
 									}?>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 						?>
 <script type="text/javascript">
@@ -798,12 +798,12 @@ BX.ready(function() {
 				</td>
 			</tr>
 			<!-- END FILE PROPS -->
-		<?endif?>
-	<?endif?>
+		<?php endif?>
+	<?php endif?>
 		<tr><td colspan="2">
 			<textarea id="bx-filesrc" name="filesrc" rows="37" style="width:100%; overflow:auto;" wrap="OFF"><?= htmlspecialcharsbx($filesrc)?></textarea></td></tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(
@@ -860,8 +860,8 @@ function AjaxApply(e)
 			var filename = BX('bxfm_filename');
 			if (filename)
 			{
-				document.location.href = '<?$APPLICATION->getCurPage()?>?<?=CUtil::JSEscape($addUrl."&site=".Urlencode($site)
-				."&path=".UrlEncode($path."/"))?>'+encodeURIComponent(filename.value)+'<?if($full_src=="Y") echo "&full_src=Y";?>';
+				document.location.href = '<?php $APPLICATION->getCurPage()?>?<?=CUtil::JSEscape($addUrl."&site=".Urlencode($site)
+				."&path=".UrlEncode($path."/"))?>'+encodeURIComponent(filename.value)+'<?php if($full_src=="Y") echo "&full_src=Y";?>';
 			}
 		}
 
@@ -877,7 +877,7 @@ BX.ready(function() {
 });
 </script>
 
-<?
+<?php 
 if(COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y")
 {
 	$forceSyntax = false;
@@ -902,5 +902,5 @@ if(COption::GetOptionString('fileman', "use_code_editor", "Y") == "Y")
 // echo $hkInst->PrintJSExecs($arExecs);
 ?>
 
-<?endif;?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php endif;?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

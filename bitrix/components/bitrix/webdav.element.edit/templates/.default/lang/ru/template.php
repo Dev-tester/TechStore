@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_NAME'] = "Название";
 $MESS ['WD_TAGS'] = "Теги";
 $MESS ['WD_FILE'] = "Файл";

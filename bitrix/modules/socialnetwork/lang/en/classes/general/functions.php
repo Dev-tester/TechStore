@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_QUOTE"] = "Quote";
 $MESS["SONET_CODE"] = "Code";
 $MESS["FRM_IMAGE_ALT"] = "Image";

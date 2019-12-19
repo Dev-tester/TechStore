@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EBMNP_NAME_TEMPLATE'] = "Отображение имени";
 $MESS ['EBMNP_NAME_TEMPLATE_DEFAULT'] = "#NOBR##LAST_NAME# #NAME##/NOBR#";
 $MESS ['EBMNP_SHOW_LOGIN'] = "Показывать логин, если не задано имя";

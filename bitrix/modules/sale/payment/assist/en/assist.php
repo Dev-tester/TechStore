@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SASP_PROMT"] = "Payment via <b>www.assist.ru</b>.";

@@ -28,7 +28,7 @@ CJSCore::Init([
 ?>
 
 <div>
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:main.ui.grid',
 		'',

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PERFMON_ERR_TITLE'] = "Performance Monitor: PHP Error Log";
 $MESS ['PERFMON_ERR_PAGE'] = "Errors";
 $MESS ['PERFMON_ERR_ID'] = "ID";

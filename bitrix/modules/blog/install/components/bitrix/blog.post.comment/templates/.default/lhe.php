@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 // Light Visual BB Editor
 if(CModule::IncludeModule("fileman"))
 {
@@ -7,19 +7,19 @@ if(CModule::IncludeModule("fileman"))
 	<script>
 	var arImages = Array();
 	var arImagesId = Array();
-	<?
+	<?php 
 	$i = 0;
 	foreach($arResult["Images"] as $aImg)
 	{
 		?>
 		arImages['<?=$i?>'] = '<?=CUtil::JSEscape($aImg["SRC"])?>';
 		arImagesId['<?=$i?>'] = '<?=$aImg["ID"]?>';
-		<?
+		<?php 
 		$i++;
 	}
 	?>
 	</script>
-	<?
+	<?php 
 
 	function CustomizeLHEForBlogComments()
 	{
@@ -332,7 +332,7 @@ if(CModule::IncludeModule("fileman"))
 			submitComment();
 		};
 		</script>
-		<?
+		<?php 
 	}
 
 	AddEventHandler("fileman", "OnIncludeLightEditorScript", "CustomizeLHEForBlogComments");

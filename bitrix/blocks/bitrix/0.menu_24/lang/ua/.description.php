@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_MENU_24-LINK"] = "Посилання";
 $MESS["LANDING_BLOCK_MENU_24-NAME"] = "Вертикальне меню з покажчиком на пунктах";
 $MESS["LANDING_BLOCK_MENU_24-NAVBAR"] = "Меню";

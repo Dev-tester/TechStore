@@ -1,4 +1,4 @@
-<?
+<?php 
 define("MODULE_ID", "webdav");
 if (isset($_REQUEST["entity"]) && ($_REQUEST["entity"] == "CIBlockDocumentWebdavSocnet")):
 	define("ENTITY", "CIBlockDocumentWebdavSocnet");

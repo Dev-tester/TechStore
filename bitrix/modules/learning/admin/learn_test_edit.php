@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -491,64 +491,64 @@ $context->Show();
 
 <?php $tabControl->BeginEpilogContent();?>
 	<?=bitrix_sessid_post()?>
-	<?echo GetFilterHiddens("find_");?>
+	<?php echo GetFilterHiddens("find_");?>
 	<input type="hidden" name="Update" value="Y">
-	<input type="hidden" name="ID" value="<?echo $ID?>">
-	<input type="hidden" name="COURSE_ID" value="<?echo $COURSE_ID?>">
-	<input type="hidden" name="from" value="<?echo htmlspecialcharsbx($from)?>">
-	<?if(strlen($return_url)>0):?><input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($return_url)?>"><?endif?>
+	<input type="hidden" name="ID" value="<?php echo $ID?>">
+	<input type="hidden" name="COURSE_ID" value="<?php echo $COURSE_ID?>">
+	<input type="hidden" name="from" value="<?php echo htmlspecialcharsbx($from)?>">
+	<?php if(strlen($return_url)>0):?><input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($return_url)?>"><?php endif?>
 <?php $tabControl->EndEpilogContent();?>
-<?$tabControl->Begin();?>
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->Begin();?>
+<?php $tabControl->BeginNextFormTab();?>
 <!-- ID -->
 <?php $tabControl->BeginCustomField("ID", "ID", false);?>
-	<?if($ID>0):?>
+	<?php if($ID>0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$str_ID?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("ID");?>
 <!-- Timestamp_X -->
 <?php $tabControl->BeginCustomField("TIMESTAMP_X", GetMessage("LEARNING_LAST_UPDATE"), false);?>
-	<?if($ID>0):?>
+	<?php if($ID>0):?>
 		<tr>
-			<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+			<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 			<td><?=$str_TIMESTAMP_X?></td>
 		</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 <?php $tabControl->EndCustomField("TIMESTAMP_X");?>
 <?php $tabControl->BeginCustomField("ACTIVE", GetMessage("LEARNING_ACTIVE"), false);?>
 <!-- Active -->
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>></td>
 	</tr>
 <?php $tabControl->EndCustomField("ACTIVE");?>
 <?php $tabControl->BeginCustomField("NAME", GetMessage("LEARNING_NAME"), false);?>
 	<tr class="adm-detail-required-field">
-		<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td valign="top">
-			<input type="text" name="NAME" size="50" maxlength="255" value="<?echo $str_NAME?>">
+			<input type="text" name="NAME" size="50" maxlength="255" value="<?php echo $str_NAME?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("NAME");?>
 <?php $tabControl->BeginCustomField("SORT", GetMessage("LEARNING_SORT"), false);?>
 <!-- Sort -->
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="SORT" size="10" maxlength="10" value="<?echo $str_SORT?>">
+			<input type="text" name="SORT" size="10" maxlength="10" value="<?php echo $str_SORT?>">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("SORT");?>
 <?php $tabControl->BeginCustomField("QUESTIONS_FROM", GetMessage("LEARNING_QUESTIONS_FROM"), false);?>
 	<tr>
-		<td valign="top"><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td valign="top"><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
 		<table>
 			<tr>
-				<td colspan="2"><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_A" value="A"<?if($str_QUESTIONS_FROM=="A" && intval($str_QUESTIONS_AMOUNT)==0)echo " checked"?>  onClick="OnChangeAnswer('');"><label for="QUESTIONS_FROM_A"><? echo GetMessage("LEARNING_QUESTIONS_FROM_ALL")?></label></td>
+				<td colspan="2"><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_A" value="A"<?php if($str_QUESTIONS_FROM=="A" && intval($str_QUESTIONS_AMOUNT)==0)echo " checked"?>  onClick="OnChangeAnswer('');"><label for="QUESTIONS_FROM_A"><?php  echo GetMessage("LEARNING_QUESTIONS_FROM_ALL")?></label></td>
 			</tr>
 
 			<?php
@@ -631,19 +631,19 @@ $context->Show();
 			</tr>
 			
 			<tr>
-				<td colspan="2"><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_A2" value="A"<?if($str_QUESTIONS_FROM=="A" && intval($str_QUESTIONS_AMOUNT)!=0)echo " checked"?> onclick="OnChangeAnswer('A');"><label for="QUESTIONS_FROM_A2"><input type="text" name="QUESTIONS_AMOUNT_A" onclick="return false;" size="2" value="<?echo ($str_QUESTIONS_FROM=="A" && $str_QUESTIONS_AMOUNT!=0? $str_QUESTIONS_AMOUNT : "")?>">&nbsp;<? echo GetMessage("LEARNING_QUESTIONS_FROM_COURSE")?></label></td>
+				<td colspan="2"><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_A2" value="A"<?php if($str_QUESTIONS_FROM=="A" && intval($str_QUESTIONS_AMOUNT)!=0)echo " checked"?> onclick="OnChangeAnswer('A');"><label for="QUESTIONS_FROM_A2"><input type="text" name="QUESTIONS_AMOUNT_A" onclick="return false;" size="2" value="<?php echo ($str_QUESTIONS_FROM=="A" && $str_QUESTIONS_AMOUNT!=0? $str_QUESTIONS_AMOUNT : "")?>">&nbsp;<?php  echo GetMessage("LEARNING_QUESTIONS_FROM_COURSE")?></label></td>
 			</tr>
 
 			<tr>
-				<td><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_C" value="C"<?if($str_QUESTIONS_FROM=="C")echo " checked"?> onclick="OnChangeAnswer('C');"><label for="QUESTIONS_FROM_C"><input type="text" name="QUESTIONS_AMOUNT_C" onclick="return false;" size="2" value="<?echo ($str_QUESTIONS_FROM=="C" ? $str_QUESTIONS_AMOUNT : "")?>">&nbsp;<? echo GetMessage("LEARNING_QUESTIONS_FROM_CHAPTERS")?></label></td>
+				<td><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_C" value="C"<?php if($str_QUESTIONS_FROM=="C")echo " checked"?> onclick="OnChangeAnswer('C');"><label for="QUESTIONS_FROM_C"><input type="text" name="QUESTIONS_AMOUNT_C" onclick="return false;" size="2" value="<?php echo ($str_QUESTIONS_FROM=="C" ? $str_QUESTIONS_AMOUNT : "")?>">&nbsp;<?php  echo GetMessage("LEARNING_QUESTIONS_FROM_CHAPTERS")?></label></td>
 			</tr>
 
 			<tr>
-				<td><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_L" value="L"<?if($str_QUESTIONS_FROM=="L")echo " checked"?> onclick="OnChangeAnswer('L');"><label for="QUESTIONS_FROM_L"><input type="text" name="QUESTIONS_AMOUNT_L" onclick="return false;" size="2" value="<?echo ($str_QUESTIONS_FROM=="L" ? $str_QUESTIONS_AMOUNT : "")?>">&nbsp;<? echo GetMessage("LEARNING_QUESTIONS_FROM_LESSONS")?></label></td>
+				<td><input type="radio" name="QUESTIONS_FROM" id="QUESTIONS_FROM_L" value="L"<?php if($str_QUESTIONS_FROM=="L")echo " checked"?> onclick="OnChangeAnswer('L');"><label for="QUESTIONS_FROM_L"><input type="text" name="QUESTIONS_AMOUNT_L" onclick="return false;" size="2" value="<?php echo ($str_QUESTIONS_FROM=="L" ? $str_QUESTIONS_AMOUNT : "")?>">&nbsp;<?php  echo GetMessage("LEARNING_QUESTIONS_FROM_LESSONS")?></label></td>
 			</tr>
 		</table>
 		<script type="text/javascript">
-			<?
+			<?php 
 			if ($str_QUESTIONS_AMOUNT == '0' && $str_QUESTIONS_FROM != "S" && $str_QUESTIONS_FROM != "H" && $str_QUESTIONS_FROM != "R")
 				$str = "";
 			else
@@ -687,66 +687,66 @@ $context->Show();
 <?php $tabControl->EndCustomField("QUESTIONS_FROM");?>
 <?php $tabControl->BeginCustomField("INCLUDE_SELF_TEST", GetMessage("LEARNING_INCLUDE_SELF_TEST"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="INCLUDE_SELF_TEST" value="Y"<?if($str_INCLUDE_SELF_TEST=="Y")echo " checked"?>>
+			<input type="checkbox" name="INCLUDE_SELF_TEST" value="Y"<?php if($str_INCLUDE_SELF_TEST=="Y")echo " checked"?>>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("INCLUDE_SELF_TEST");?>
 <?php $tabControl->BeginCustomField("RANDOM_QUESTIONS", GetMessage("LEARNING_RANDOM_QUESTIONS"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="RANDOM_QUESTIONS" value="Y"<?if($str_RANDOM_QUESTIONS=="Y")echo " checked"?>>
+			<input type="checkbox" name="RANDOM_QUESTIONS" value="Y"<?php if($str_RANDOM_QUESTIONS=="Y")echo " checked"?>>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("RANDOM_QUESTIONS");?>
 <?php $tabControl->BeginCustomField("RANDOM_ANSWERS", GetMessage("LEARNING_RANDOM_ANSWERS"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="RANDOM_ANSWERS" value="Y"<?if($str_RANDOM_ANSWERS=="Y")echo " checked"?>>
+			<input type="checkbox" name="RANDOM_ANSWERS" value="Y"<?php if($str_RANDOM_ANSWERS=="Y")echo " checked"?>>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("RANDOM_ANSWERS");?>
 <?php $tabControl->BeginCustomField("ATTEMPT_LIMIT", GetMessage("LEARNING_ATTEMPT_LIMIT"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="ATTEMPT_LIMIT" value="<?echo $str_ATTEMPT_LIMIT?>" size="3"> <? echo GetMessage("LEARNING_ATTEMPT_LIMIT_HINT")?>
+			<input type="text" name="ATTEMPT_LIMIT" value="<?php echo $str_ATTEMPT_LIMIT?>" size="3"> <?php  echo GetMessage("LEARNING_ATTEMPT_LIMIT_HINT")?>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("ATTEMPT_LIMIT");?>
 <?php $tabControl->BeginCustomField("MIN_TIME_BETWEEN_ATTEMPTS", GetMessage("LEARNING_MIN_TIME_BETWEEN_ATTEMPTS"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="MIN_TIME_BETWEEN_ATTEMPTS_D" value="<?echo $str_MIN_TIME_BETWEEN_ATTEMPTS_D?>" size="3"> <? echo GetMessage("LEARNING_MIN_TIME_BETWEEN_ATTEMPTS_D")?> <input type="text" name="MIN_TIME_BETWEEN_ATTEMPTS_H" value="<?echo $str_MIN_TIME_BETWEEN_ATTEMPTS_H?>" size="3"> <? echo GetMessage("LEARNING_MIN_TIME_BETWEEN_ATTEMPTS_H")?> <input type="text" name="MIN_TIME_BETWEEN_ATTEMPTS_M" value="<?echo $str_MIN_TIME_BETWEEN_ATTEMPTS_M?>" size="3"> <? echo GetMessage("LEARNING_MIN_TIME_BETWEEN_ATTEMPTS_M")?>
+			<input type="text" name="MIN_TIME_BETWEEN_ATTEMPTS_D" value="<?php echo $str_MIN_TIME_BETWEEN_ATTEMPTS_D?>" size="3"> <?php  echo GetMessage("LEARNING_MIN_TIME_BETWEEN_ATTEMPTS_D")?> <input type="text" name="MIN_TIME_BETWEEN_ATTEMPTS_H" value="<?php echo $str_MIN_TIME_BETWEEN_ATTEMPTS_H?>" size="3"> <?php  echo GetMessage("LEARNING_MIN_TIME_BETWEEN_ATTEMPTS_H")?> <input type="text" name="MIN_TIME_BETWEEN_ATTEMPTS_M" value="<?php echo $str_MIN_TIME_BETWEEN_ATTEMPTS_M?>" size="3"> <?php  echo GetMessage("LEARNING_MIN_TIME_BETWEEN_ATTEMPTS_M")?>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("MIN_TIME_BETWEEN_ATTEMPTS");?>
 <?php $tabControl->BeginCustomField("TIME_LIMIT", GetMessage("LEARNING_TIME_LIMIT"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="TIME_LIMIT" value="<?echo $str_TIME_LIMIT?>" size="3"> <? echo GetMessage("LEARNING_TIME_LIMIT_HINT")?>
+			<input type="text" name="TIME_LIMIT" value="<?php echo $str_TIME_LIMIT?>" size="3"> <?php  echo GetMessage("LEARNING_TIME_LIMIT_HINT")?>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("TIME_LIMIT");?>
 <?php $tabControl->BeginCustomField("APPROVED", GetMessage("LEARNING_APPROVED"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="APPROVED" value="Y"<?if($str_APPROVED=="Y")echo " checked"?> onclick="OnChangeApproved(this.checked);">
+			<input type="checkbox" name="APPROVED" value="Y"<?php if($str_APPROVED=="Y")echo " checked"?> onclick="OnChangeApproved(this.checked);">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("APPROVED");?>
 <?php $tabControl->BeginCustomField("COMPLETED_SCORE", GetMessage("LEARNING_COMPLETED_SCORE"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="text" name="COMPLETED_SCORE" size="3" maxlength="3" value="<?echo $str_COMPLETED_SCORE?>">
-			<? echo GetMessage("LEARNING_COMPLETED_SCORE2")?>
+			<input type="text" name="COMPLETED_SCORE" size="3" maxlength="3" value="<?php echo $str_COMPLETED_SCORE?>">
+			<?php  echo GetMessage("LEARNING_COMPLETED_SCORE2")?>
 		</td>
 	</tr>
 	<script type="text/javascript">
@@ -759,19 +759,19 @@ $context->Show();
 <?php $tabControl->EndCustomField("COMPLETED_SCORE");?>
 <?php $tabControl->BeginCustomField("PASSAGE_TYPE", GetMessage("LEARNING_PASSAGE_TYPE"), false);?>
 	<tr>
-		<td valign="top"><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td valign="top"><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
 			<table>
 			<tr>
-				<td valign="top"><input type="radio" name="PASSAGE_TYPE" id="PASSAGE_TYPE_0" value="0"<?if($str_PASSAGE_TYPE=="0")echo " checked"?> onclick="toggleNextQ();"></td>
+				<td valign="top"><input type="radio" name="PASSAGE_TYPE" id="PASSAGE_TYPE_0" value="0"<?php if($str_PASSAGE_TYPE=="0")echo " checked"?> onclick="toggleNextQ();"></td>
 				<td><label for="PASSAGE_TYPE_0"><?=GetMessage("LEARNING_PASSAGE_TYPE_0")?></label></td>
 			</tr>
 			<tr>
-				<td valign="top"><input type="radio" name="PASSAGE_TYPE" id="PASSAGE_TYPE_1" value="1"<?if($str_PASSAGE_TYPE=="1")echo " checked"?> onclick="toggleNextQ();"></td>
+				<td valign="top"><input type="radio" name="PASSAGE_TYPE" id="PASSAGE_TYPE_1" value="1"<?php if($str_PASSAGE_TYPE=="1")echo " checked"?> onclick="toggleNextQ();"></td>
 				<td><label for="PASSAGE_TYPE_1"><?=GetMessage("LEARNING_PASSAGE_TYPE_1")?></label></td>
 			</tr>
 			<tr>
-				<td valign="top"><input type="radio" name="PASSAGE_TYPE" id="PASSAGE_TYPE_2" value="2"<?if($str_PASSAGE_TYPE=="2")echo " checked"?> onclick="toggleNextQ();"></td>
+				<td valign="top"><input type="radio" name="PASSAGE_TYPE" id="PASSAGE_TYPE_2" value="2"<?php if($str_PASSAGE_TYPE=="2")echo " checked"?> onclick="toggleNextQ();"></td>
 				<td><label for="PASSAGE_TYPE_2"><?=GetMessage("LEARNING_PASSAGE_TYPE_2")?></label></td>
 			</tr>
 			</table>
@@ -787,7 +787,7 @@ $context->Show();
 
 	?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td valign="top">
 		<script type="text/javascript">
 			function filterTests()
@@ -824,24 +824,24 @@ $context->Show();
 			}
 		</script>
 		<select name="PREVIOUS_TEST_COURSE_ID" id="PREVIOUS_TEST_COURSE_ID" onchange="filterTests()">
-			<?
+			<?php 
 			// was: $course = CCourse::GetList(array("SORT" => "ASC"), array("MIN_PERMISSION" => "W"));
 			$course = CCourse::GetList(array("SORT" => "ASC"), array("ACCESS_OPERATIONS" => CLearnAccess::OP_LESSON_READ));
 			while ($course->ExtractFields("f_"))
 			{
-				?><option value="<?echo $f_ID ?>" <?if (IntVal($f_ID)==$PREVIOUS_TEST_COURSE_ID || (!isset($PREVIOUS_TEST_COURSE_ID) && IntVal($f_ID)==$COURSE_ID)) echo "selected";?>><?echo $f_NAME ?></option><?
+				?><option value="<?php echo $f_ID ?>" <?php if (IntVal($f_ID)==$PREVIOUS_TEST_COURSE_ID || (!isset($PREVIOUS_TEST_COURSE_ID) && IntVal($f_ID)==$COURSE_ID)) echo "selected";?>><?php echo $f_NAME ?></option><?php 
 			}
 			?>
 		</select>
-		<?$t = CTest::GetList(array(), array("ACTIVE" => "Y"));?>
+		<?php $t = CTest::GetList(array(), array("ACTIVE" => "Y"));?>
 		<select name="PREVIOUS_TEST_ID" id="PREVIOUS_TEST_ID" onchange="OnChangePreviousTest();">
-			<option value="0">&lt;<? echo GetMessage("LEARNING_TEST_NO_DEPENDS")?>&gt;</option>
-			<?
+			<option value="0">&lt;<?php  echo GetMessage("LEARNING_TEST_NO_DEPENDS")?>&gt;</option>
+			<?php 
 				while($t->ExtractFields("t_")):
 					if (!isset($ID) || $ID != $t_ID):
 			?>
-					<option data-course="<?php echo intval($t_COURSE_ID)?>" value="<?echo $t_ID?>"<?if($str_PREVIOUS_TEST_ID == $t_ID)echo " selected"?>><?echo $t_NAME?></option>
-			<?
+					<option data-course="<?php echo intval($t_COURSE_ID)?>" value="<?php echo $t_ID?>"<?php if($str_PREVIOUS_TEST_ID == $t_ID)echo " selected"?>><?php echo $t_NAME?></option>
+			<?php 
 					endif;
 				endwhile;
 			?>
@@ -851,9 +851,9 @@ $context->Show();
 			sourceList.selectedIndex = BX("PREVIOUS_TEST_ID").selectedIndex;
 			filterTests();
 		</script>
-		<? echo GetMessage("LEARNING_PREVIOUS_TEST_SCORE")?>
-		<input type="text" name="PREVIOUS_TEST_SCORE" size="3" maxlength="3" value="<?echo $str_PREVIOUS_TEST_SCORE?>">
-		<? echo GetMessage("LEARNING_PREVIOUS_TEST_SCORE2")?>
+		<?php  echo GetMessage("LEARNING_PREVIOUS_TEST_SCORE")?>
+		<input type="text" name="PREVIOUS_TEST_SCORE" size="3" maxlength="3" value="<?php echo $str_PREVIOUS_TEST_SCORE?>">
+		<?php  echo GetMessage("LEARNING_PREVIOUS_TEST_SCORE2")?>
 		</td>
 	</tr>
 	<script type="text/javascript">
@@ -866,34 +866,34 @@ $context->Show();
 <?php $tabControl->EndCustomField("PREVIOUS_TEST");?>
 <?php $tabControl->BeginCustomField("INCORRECT_CONTROL", GetMessage("LEARNING_INCORRECT_CONTROL"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="INCORRECT_CONTROL" value="Y"<?if($str_INCORRECT_CONTROL=="Y")echo " checked"?>>
+			<input type="checkbox" name="INCORRECT_CONTROL" value="Y"<?php if($str_INCORRECT_CONTROL=="Y")echo " checked"?>>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("INCORRECT_CONTROL");?>
 <?php $tabControl->BeginCustomField("CURRENT_INDICATION", GetMessage("LEARNING_CURRENT_INDICATION"), false);?>
 	<tr>
-		<td valign="top"><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td valign="top"><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="CURRENT_INDICATION" value="Y"<?if($str_CURRENT_INDICATION == "Y")echo " checked"?> onClick="toggleIndication(this.checked, 1);" id="indication_cb_1">
+			<input type="checkbox" name="CURRENT_INDICATION" value="Y"<?php if($str_CURRENT_INDICATION == "Y")echo " checked"?> onClick="toggleIndication(this.checked, 1);" id="indication_cb_1">
 			<div id="indication_1">
-				<label><input type="checkbox" name="CURRENT_INDICATION_PERCENT" value="Y"<?if($str_CURRENT_INDICATION_PERCENT == "Y")echo " checked"?>><? echo GetMessage("LEARNING_CURRENT_INDICATION_PERCENT")?></label><br />
-				<label><input type="checkbox" name="CURRENT_INDICATION_MARK" value="Y"<?if($str_CURRENT_INDICATION_MARK =="Y")echo " checked"?>><? echo GetMessage("LEARNING_CURRENT_INDICATION_MARK")?></label>
+				<label><input type="checkbox" name="CURRENT_INDICATION_PERCENT" value="Y"<?php if($str_CURRENT_INDICATION_PERCENT == "Y")echo " checked"?>><?php  echo GetMessage("LEARNING_CURRENT_INDICATION_PERCENT")?></label><br />
+				<label><input type="checkbox" name="CURRENT_INDICATION_MARK" value="Y"<?php if($str_CURRENT_INDICATION_MARK =="Y")echo " checked"?>><?php  echo GetMessage("LEARNING_CURRENT_INDICATION_MARK")?></label>
 			</div>
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("CURRENT_INDICATION");?>
 <?php $tabControl->BeginCustomField("FINAL_INDICATION", GetMessage("LEARNING_FINAL_INDICATION"), false);?>
 	<tr>
-		<td valign="top"><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td valign="top"><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="FINAL_INDICATION" value="Y"<?if($str_FINAL_INDICATION == "Y")echo " checked"?> onClick="toggleIndication(this.checked, 2);" id="indication_cb_2">
+			<input type="checkbox" name="FINAL_INDICATION" value="Y"<?php if($str_FINAL_INDICATION == "Y")echo " checked"?> onClick="toggleIndication(this.checked, 2);" id="indication_cb_2">
 			<div id="indication_2">
-				<label><input type="checkbox" name="FINAL_INDICATION_CORRECT_COUNT" value="Y"<?if($str_FINAL_INDICATION_CORRECT_COUNT == "Y")echo " checked"?>><? echo GetMessage("LEARNING_FINAL_INDICATION_CORRECT_COUNT")?></label><br />
-				<label><input type="checkbox" name="FINAL_INDICATION_SCORE" value="Y"<?if($str_FINAL_INDICATION_SCORE == "Y")echo " checked"?>><? echo GetMessage("LEARNING_FINAL_INDICATION_SCORE")?></label><br />
-				<label><input type="checkbox" name="FINAL_INDICATION_MARK" value="Y"<?if($str_FINAL_INDICATION_MARK == "Y")echo " checked"?>><? echo GetMessage("LEARNING_FINAL_INDICATION_MARK")?></label><br />
-				<label><input type="checkbox" name="FINAL_INDICATION_MESSAGE" value="Y"<?if($str_FINAL_INDICATION_MESSAGE == "Y")echo " checked"?>><? echo GetMessage("LEARNING_FINAL_INDICATION_MESSAGE")?></label>
+				<label><input type="checkbox" name="FINAL_INDICATION_CORRECT_COUNT" value="Y"<?php if($str_FINAL_INDICATION_CORRECT_COUNT == "Y")echo " checked"?>><?php  echo GetMessage("LEARNING_FINAL_INDICATION_CORRECT_COUNT")?></label><br />
+				<label><input type="checkbox" name="FINAL_INDICATION_SCORE" value="Y"<?php if($str_FINAL_INDICATION_SCORE == "Y")echo " checked"?>><?php  echo GetMessage("LEARNING_FINAL_INDICATION_SCORE")?></label><br />
+				<label><input type="checkbox" name="FINAL_INDICATION_MARK" value="Y"<?php if($str_FINAL_INDICATION_MARK == "Y")echo " checked"?>><?php  echo GetMessage("LEARNING_FINAL_INDICATION_MARK")?></label><br />
+				<label><input type="checkbox" name="FINAL_INDICATION_MESSAGE" value="Y"<?php if($str_FINAL_INDICATION_MESSAGE == "Y")echo " checked"?>><?php  echo GetMessage("LEARNING_FINAL_INDICATION_MESSAGE")?></label>
 			</div>
 		</td>
 	</tr>
@@ -912,18 +912,18 @@ $context->Show();
 <?php $tabControl->EndCustomField("FINAL_INDICATION");?>
 <?php $tabControl->BeginCustomField("SHOW_ERRORS", GetMessage("LEARNING_SHOW_ERRORS"), false);?>
 	<tr>
-		<td><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="checkbox" name="SHOW_ERRORS" value="Y"<?if($str_SHOW_ERRORS=="Y")echo " checked"?> onClick="toggleNextQ();" id="show_errors">
+			<input type="checkbox" name="SHOW_ERRORS" value="Y"<?php if($str_SHOW_ERRORS=="Y")echo " checked"?> onClick="toggleNextQ();" id="show_errors">
 		</td>
 	</tr>
 <?php $tabControl->EndCustomField("SHOW_ERRORS");?>
 <?php $tabControl->BeginCustomField("NEXT_QUESTION_ON_ERROR", GetMessage("LEARNING_ON_ERROR"), false);?>
 	<tr id="next_q_on_error">
-		<td valign="top"><? echo $tabControl->GetCustomLabelHTML()?>:</td>
+		<td valign="top"><?php  echo $tabControl->GetCustomLabelHTML()?>:</td>
 		<td>
-			<input type="radio" name="NEXT_QUESTION_ON_ERROR" value="Y"<?if($str_NEXT_QUESTION_ON_ERROR!="N")echo " checked"?>>&nbsp;<? echo GetMessage("LEARNING_NEXT_QUESTION_ON_ERROR")?><br />
-			<input type="radio" name="NEXT_QUESTION_ON_ERROR" value="N"<?if($str_NEXT_QUESTION_ON_ERROR=="N")echo " checked"?>>&nbsp;<? echo GetMessage("LEARNING_PREV_QUESTION_ON_ERROR")?>
+			<input type="radio" name="NEXT_QUESTION_ON_ERROR" value="Y"<?php if($str_NEXT_QUESTION_ON_ERROR!="N")echo " checked"?>>&nbsp;<?php  echo GetMessage("LEARNING_NEXT_QUESTION_ON_ERROR")?><br />
+			<input type="radio" name="NEXT_QUESTION_ON_ERROR" value="N"<?php if($str_NEXT_QUESTION_ON_ERROR=="N")echo " checked"?>>&nbsp;<?php  echo GetMessage("LEARNING_PREV_QUESTION_ON_ERROR")?>
 		</td>
 	</tr>
 	<script type="text/javascript">
@@ -943,12 +943,12 @@ $context->Show();
 	</script>
 <?php $tabControl->EndCustomField("NEXT_QUESTION_ON_ERROR");?>
 
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("DESCRIPTION", GetMessage("LEARNING_DESCRIPTION"), false);?>
-	<?if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
+	<?php if(COption::GetOptionString("learning", "use_htmledit", "Y")=="Y" && CModule::IncludeModule("fileman")):?>
 	<tr>
 		<td colspan="2" align="center">
-			<?CFileMan::AddHTMLEditorFrame(
+			<?php CFileMan::AddHTMLEditorFrame(
 				"DESCRIPTION",
 				$str_DESCRIPTION,
 				"DESCRIPTION_TYPE",
@@ -968,23 +968,23 @@ $context->Show();
 			);?>
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
-		<td align="center"><?echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
+		<td align="center"><?php echo GetMessage("LEARNING_DESC_TYPE")?>:</td>
 		<td>
-			<input type="radio" name="DESCRIPTION_TYPE" value="text"<?if($str_DESCRIPTION_TYPE!="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_TEXT")?>
-			<input type="radio" name="DESCRIPTION_TYPE" value="html"<?if($str_DESCRIPTION_TYPE=="html")echo " checked"?>> <?echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
+			<input type="radio" name="DESCRIPTION_TYPE" value="text"<?php if($str_DESCRIPTION_TYPE!="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_TEXT")?>
+			<input type="radio" name="DESCRIPTION_TYPE" value="html"<?php if($str_DESCRIPTION_TYPE=="html")echo " checked"?>> <?php echo GetMessage("LEARNING_DESC_TYPE_HTML")?>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="2">
-			<textarea style="width:100%; height:250px;" name="DESCRIPTION" wrap="off"><?echo $str_DESCRIPTION?></textarea>
+			<textarea style="width:100%; height:250px;" name="DESCRIPTION" wrap="off"><?php echo $str_DESCRIPTION?></textarea>
 		</td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 <?php $tabControl->EndCustomField("DESCRIPTION");?>
 
-<?$tabControl->BeginNextFormTab();?>
+<?php $tabControl->BeginNextFormTab();?>
 <?php $tabControl->BeginCustomField("MARKS", GetMessage("LEARNING_MARKS"), false);?>
 	<tr>
 		<td colspan="2">
@@ -992,10 +992,10 @@ $context->Show();
 				<tbody id="marks-table-tbody">
 				<tr class="heading">
 					<td align="center" width="10%">ID</td>
-					<td align="center" width="15%"><?echo GetMessage("LEARNING_TEST_MARK_SCORE")?></td>
-					<td align="center" width="20%"><?echo GetMessage("LEARNING_TEST_MARK")?></td>
-					<td align="center" width="50%"><?echo GetMessage("LEARNING_TEST_MARK_MESSAGE")?></td>
-					<td align="center" width="10%"><?echo GetMessage("LEARNING_TEST_MARK_DELETE")?></td>
+					<td align="center" width="15%"><?php echo GetMessage("LEARNING_TEST_MARK_SCORE")?></td>
+					<td align="center" width="20%"><?php echo GetMessage("LEARNING_TEST_MARK")?></td>
+					<td align="center" width="50%"><?php echo GetMessage("LEARNING_TEST_MARK_MESSAGE")?></td>
+					<td align="center" width="10%"><?php echo GetMessage("LEARNING_TEST_MARK_DELETE")?></td>
 				</tr>
 				<?php
 					if ($ID)
@@ -1036,7 +1036,7 @@ $context->Show();
 					<tr>
 						<td align="center">&nbsp;</td>
 						<td align="center">
-							<div style="white-space:nowrap;"><?echo GetMessage("LEARNING_TEST_SCORE_TILL")?> <input type="text" size="4" name="N_SCORE_<?php echo $i?>" value="<?php echo isset(${"N_SCORE_".$i}) ? intval(${"N_SCORE_".$i}) : ""?>"> %</div>
+							<div style="white-space:nowrap;"><?php echo GetMessage("LEARNING_TEST_SCORE_TILL")?> <input type="text" size="4" name="N_SCORE_<?php echo $i?>" value="<?php echo isset(${"N_SCORE_".$i}) ? intval(${"N_SCORE_".$i}) : ""?>"> %</div>
 						</td>
 						<td align="center">
 							<input type="text" size="20"  name="N_MARK_<?php echo $i?>" value="<?php echo isset(${"N_MARK_".$i}) ? htmlspecialcharsbx(${"N_MARK_".$i}) : ""?>">
@@ -1058,7 +1058,7 @@ $context->Show();
 								html : '&nbsp;'
 							}),
 							BX.create('td', {
-								html : '<div style="white-space:nowrap;"><?echo GetMessage("LEARNING_TEST_SCORE_TILL")?> <input type="text" size="4" name="N_SCORE_' + nextNum + '" value=""> %</div>',
+								html : '<div style="white-space:nowrap;"><?php echo GetMessage("LEARNING_TEST_SCORE_TILL")?> <input type="text" size="4" name="N_SCORE_' + nextNum + '" value=""> %</div>',
 								props : {align: 'center'}
 							}),
 							BX.create('td', {
@@ -1094,7 +1094,7 @@ $context->Show();
 	</tr>
 <?php $tabControl->EndCustomField("MARKS");?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		'disabled' => $isBtnsDisabled,

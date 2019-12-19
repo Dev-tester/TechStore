@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EC_T_CALENDARS'] = "Календари";
 $MESS ['EC_T_EVENT_CALENDAR'] = "Календарь событий";
 $MESS ['EC_T_CALENDAR'] = "Календарь";

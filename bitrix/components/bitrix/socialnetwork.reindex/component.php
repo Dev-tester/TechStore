@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponent $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -221,24 +221,24 @@ if($_GET["index"] == "y" && check_bitrix_sessid())
 		document.getElementById("btn_pause").disabled = true;
 		document.getElementById("btn_continue").disabled = true;
 	</script>
-	<?echo GetMessage("CC_BSR_MESS_DONE");
+	<?php echo GetMessage("CC_BSR_MESS_DONE");
 	else:
 	?><script>
-		var url = url_template.replace(/#step#/, '<?echo $arResult["step"]?>');
-		url = url.replace(/#last_id#/, '<?echo $arResult["last_id"]?>');
-		url = url.replace(/#cnt#/, '<?echo $cnt?>');
+		var url = url_template.replace(/#step#/, '<?php echo $arResult["step"]?>');
+		url = url.replace(/#last_id#/, '<?php echo $arResult["last_id"]?>');
+		url = url.replace(/#cnt#/, '<?php echo $cnt?>');
 		if(run)
 		{
-			HighlightItem('<?echo $arResult["step"]?>');
+			HighlightItem('<?php echo $arResult["step"]?>');
 			BX.ajax.insertToNode(url, 'reindex_result');
 		}
 		else
 		{
 			continue_url = url;
-			continue_item = '<?echo $arResult["step"]?>';
+			continue_item = '<?php echo $arResult["step"]?>';
 		}
 	</script>
-	<?echo GetMessage("CC_BSR_MESS_PROGRESS", array("#cnt#" => $cnt));
+	<?php echo GetMessage("CC_BSR_MESS_PROGRESS", array("#cnt#" => $cnt));
 	endif;
 
 	echo $APPLICATION->EndBufferContentMan();
@@ -259,14 +259,14 @@ CUtil::InitJSCore(array('ajax'));
 <div id="reindex_result">
 </div>
 <ul>
-<?foreach($arSteps as $id => $label):?>
-	<li id="<?echo $id?>"><?echo $label?></li>
-<?endforeach?>
+<?php foreach($arSteps as $id => $label):?>
+	<li id="<?php echo $id?>"><?php echo $label?></li>
+<?php endforeach?>
 </ul>
 <script>
 var run = false;
-var steps = <?echo CUtil::PhpToJSObject($arSteps);?>;
-var url_template = <?echo CUtil::PhpToJSObject($APPLICATION->GetCurPageParam(bitrix_sessid_get()."&index=y&step=#step#&last_id=#last_id#&cnt=#cnt#", array("step", "last_id", "cnt", "sessid", "index")));?>;
+var steps = <?php echo CUtil::PhpToJSObject($arSteps);?>;
+var url_template = <?php echo CUtil::PhpToJSObject($APPLICATION->GetCurPageParam(bitrix_sessid_get()."&index=y&step=#step#&last_id=#last_id#&cnt=#cnt#", array("step", "last_id", "cnt", "sessid", "index")));?>;
 var continue_url = '';
 var continue_item = '';
 
@@ -320,10 +320,10 @@ function ContinueIndex()
 }
 </script>
 <form method="get">
-<input type="button" id="btn_start" value="<?echo GetMessage("CC_BSR_BTN_START")?>" <?if(count($arWarnings)) echo "disabled=\"disabled\"";?> OnClick="StartIndex()">
-<input type="button" id="btn_pause" value="<?echo GetMessage("CC_BSR_BTN_PAUSE")?>" disabled="disabled" OnClick="PauseIndex()">
-<input type="button" id="btn_continue" value="<?echo GetMessage("CC_BSR_BTN_CONTINUE")?>" disabled="disabled" OnClick="ContinueIndex()">
+<input type="button" id="btn_start" value="<?php echo GetMessage("CC_BSR_BTN_START")?>" <?php if(count($arWarnings)) echo "disabled=\"disabled\"";?> OnClick="StartIndex()">
+<input type="button" id="btn_pause" value="<?php echo GetMessage("CC_BSR_BTN_PAUSE")?>" disabled="disabled" OnClick="PauseIndex()">
+<input type="button" id="btn_continue" value="<?php echo GetMessage("CC_BSR_BTN_CONTINUE")?>" disabled="disabled" OnClick="ContinueIndex()">
 </form>
-<?
+<?php 
 $this->IncludeComponentTemplate();
 ?>

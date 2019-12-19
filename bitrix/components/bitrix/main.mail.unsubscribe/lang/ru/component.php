@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_MAIL_UNSUBSCRIBE_TITLE'] = "Отписка от писем";
 $MESS ['MAIN_MAIL_UNSUBSCRIBE_SUCCESS'] = "Вы успешно отписаны.";
 $MESS ['MAIN_MAIL_UNSUBSCRIBE_ERROR_UNSUB'] = "Ошибка. Не удалось отписать.";

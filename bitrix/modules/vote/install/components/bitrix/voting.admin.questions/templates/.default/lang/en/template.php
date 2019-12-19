@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_ACTIVATE"] = "activate";
 $MESS["VOTE_ACTIVE"] = "Active";
 $MESS["VOTE_ADD_QUESTION"] = "Add a question";

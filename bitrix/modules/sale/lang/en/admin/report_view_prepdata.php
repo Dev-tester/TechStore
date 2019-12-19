@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_MODULE_NOT_INSTALLED"] = "The Report module is not installed.";
 $MESS["CATALOG_MODULE_NOT_INSTALLED"] = "The Commercial Catalog module is not installed.";
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "The Information Blocks module is not installed.";

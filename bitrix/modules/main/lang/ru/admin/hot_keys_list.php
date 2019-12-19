@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HK_TITLE"] = "Управление горячими клавишами";
 $MESS["HK_UPDATE_ERROR"] = "Ошибка при сохранении";
 $MESS["HK_DELETION_ERROR"] = "Ошибка при удалении";

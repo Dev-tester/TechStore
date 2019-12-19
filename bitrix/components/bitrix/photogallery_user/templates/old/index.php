@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /********************************************************************
 				Input params
@@ -96,24 +96,24 @@ if ($arParams["PERMISSION"] >= "U"):
 	if ($bNeedModerate || $bNeedPublic):
 ?>
 <div class="photo-controls photo-action">
-<?
+<?php 
 		if ($bNeedModerate):
 ?>
 	<noindex><a rel="nofollow" href="<?=$sDetailListUrl."&mode=active"?>" class="photo-action photo-moderate" title="<?=GetMessage("P_NOT_MODERATED_TITLE")?>">
 		<?=GetMessage("P_NOT_MODERATED")?>
 	</a></noindex>
-<?
+<?php 
 		endif;
 		if ($bNeedPublic):
 ?>
 	<noindex><a rel="nofollow" href="<?=$sDetailListUrl."&mode=public"?>" class="photo-action photo-public" title="<?=GetMessage("P_NOT_APPROVED_TITLE")?>">
 		<?=GetMessage("P_NOT_APPROVED")?>
 	</a></noindex>
-<?
+<?php 
 		endif;
 ?>
 </div>
-<?
+<?php 
 	endif;
 endif;
 ?>
@@ -121,12 +121,12 @@ endif;
 <div id="photo-main-div">
 	<table border="0" cellpadding="0" cellspacing="0" id="photo-main-table">
 		<tr>
-<?
+<?php 
 if ($arParams["SHOW_BEST_ELEMENT"] == "Y"):
 ?>
 			<td id="photo-main-td-left">
 				<div id="photo-main-div-best">
-					<?$element_id = $APPLICATION->IncludeComponent(
+					<?php $element_id = $APPLICATION->IncludeComponent(
 						"bitrix:photogallery.detail.list",
 						"simple",
 						Array(
@@ -187,16 +187,16 @@ if ($arParams["SHOW_BEST_ELEMENT"] == "Y"):
 				</div>
 			</td>
 			<td id="photo-main-td-right">
-<?
+<?php 
 	$arFilterBest["!ID"] = $element_id;
 else:
 ?>
 			<td id="photo-main-td-left" colspan="2">
-<?
+<?php 
 endif;
 
 ob_start();
-	?><?$APPLICATION->IncludeComponent(
+	?><?php $APPLICATION->IncludeComponent(
 		"bitrix:photogallery.detail.list",
 		"ascetic",
 		Array(
@@ -253,13 +253,13 @@ ob_start();
 			"PERCENT" => $arParams["INDEX_PAGE_TOP_ELEMENTS_PERCENT"]
 		),
 		$component
-	);?><?
+	);?><?php 
 
 $best = ob_get_contents();
 ob_end_clean();
 
 ?>
-				<?$APPLICATION->IncludeComponent("bitrix:photogallery.interface", "bookmark",
+				<?php $APPLICATION->IncludeComponent("bitrix:photogallery.interface", "bookmark",
 					Array(
 						"DATA" => array(
 							array(
@@ -279,12 +279,12 @@ ob_end_clean();
 			</td>
 		</tr>
 		<tr>
-<?
+<?php 
 
 if($bSearch):
 ob_start();
 ?>
-				<?$APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default",
+				<?php $APPLICATION->IncludeComponent("bitrix:search.tags.cloud", ".default",
 						Array(
 						"SEARCH" => $arResult["REQUEST"]["~QUERY"],
 						"TAGS" => $arResult["REQUEST"]["~TAGS"],
@@ -306,11 +306,11 @@ ob_start();
 						"arrFILTER" => array("iblock_".$arParams["IBLOCK_TYPE"]),
 						"arrFILTER_iblock_".$arParams["IBLOCK_TYPE"] => array($arParams["IBLOCK_ID"])
 						), $component);?>
-<?
+<?php 
 $tags_cloud = ob_get_clean();
 ?>
 			<td id="photo-main-td-middle-left">
-				<?$APPLICATION->IncludeComponent("bitrix:photogallery.interface",
+				<?php $APPLICATION->IncludeComponent("bitrix:photogallery.interface",
 					"bookmark",
 					Array("DATA" => array(
 						array(
@@ -328,17 +328,17 @@ $tags_cloud = ob_get_clean();
 					array("HIDE_ICONS" => "Y"));?>
 			</td>
 			<td id="photo-main-td-middle-right">
-<?
+<?php 
 else:
 ?>
 			<td id="photo-main-td-middle-left" colspan="2">
-<?
+<?php 
 endif;
 ?>
-				<div class="photo-head"><a href="<?=CComponentEngine::MakePathFromTemplate($arParams["GALLERIES_URL"], array("USER_ID" => "users"))?>"><?
+				<div class="photo-head"><a href="<?=CComponentEngine::MakePathFromTemplate($arParams["GALLERIES_URL"], array("USER_ID" => "users"))?>"><?php 
 					?><?=GetMessage("P_GALLERIES")?></a></div>
 				<div id="photo-main-galleries">
-					<?$APPLICATION->IncludeComponent("bitrix:photogallery.gallery.list",
+					<?php $APPLICATION->IncludeComponent("bitrix:photogallery.gallery.list",
 						"ascetic",
 						Array(
 							"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
@@ -380,10 +380,10 @@ endif;
 		</tr>
 	</table>
 
-<?
+<?php 
 ob_start();
 ?>
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:photogallery.detail.list",
 				"ascetic",
 				Array(
@@ -429,7 +429,7 @@ ob_start();
 				$component
 			);?>
 			<div class="all-elements"><noindex><a rel="nofollow" href="<?=($sDetailListUrl."&order=date_create")?>"><?=GetMessage("P_PHOTO_NEW_ALL")?></a></noindex></div>
-<?
+<?php 
 $new = ob_get_clean();
 $arFields = array(
 	array(
@@ -456,7 +456,7 @@ endif;
 
 ?>
 	<div id="photo-main-new">
-		<?$APPLICATION->IncludeComponent("bitrix:photogallery.interface", "bookmark",
+		<?php $APPLICATION->IncludeComponent("bitrix:photogallery.interface", "bookmark",
 			Array("DATA" => $arFields),
 			$component,
 			array("HIDE_ICONS" => "Y"));?>

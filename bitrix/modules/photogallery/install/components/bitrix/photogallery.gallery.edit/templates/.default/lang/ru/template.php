@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ["P_GALLERY_CREATE"] = "Создание галереи";
 $MESS ["P_GALLERY_EDIT"] = "Изменение галереи";
 $MESS ["P_GALLERY_CODE"] = "Код";

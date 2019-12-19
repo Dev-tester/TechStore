@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Заказы");
-?><?$APPLICATION->IncludeComponent("bitrix:sale.order.full", ".default", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:sale.order.full", ".default", Array(
 	"ALLOW_PAY_FROM_ACCOUNT"	=>	"Y",
 	"SHOW_MENU"	=>	"Y",
 	"PATH_TO_BASKET"	=>	"/personal/cart/",
@@ -11,4 +11,4 @@ $APPLICATION->SetTitle("Заказы");
 	"SET_TITLE"	=>	"Y",
 	"DELIVERY_NO_SESSION"	=>	"Y",
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

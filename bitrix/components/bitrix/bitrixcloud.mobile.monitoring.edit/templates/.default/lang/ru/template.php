@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCLMME_TITLE"] = "Параметры инспектора";
 $MESS["BCLMME_HEAD"] = "Настройка параметров";
 $MESS["BCLMME_DOMAIN_TITLE"] = "Домен";

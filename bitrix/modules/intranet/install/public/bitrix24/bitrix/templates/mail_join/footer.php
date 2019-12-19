@@ -29,7 +29,7 @@ $site = LANGUAGE_ID == 'de'
 		</tr>
 		<tr>
 			<td bgcolor="#f5f8f9" align="center" style="background:#f5f8f9;" height="100">
-<?
+<?php 
 if(LANGUAGE_ID == 'de'):
 ?>
 
@@ -62,7 +62,7 @@ if(LANGUAGE_ID == 'de'):
 					</tr>
 				</table>
 
-<?
+<?php 
 elseif(\Bitrix\Main\Localization\Loc::getDefaultLang(LANGUAGE_ID) == 'en'):
 ?>
 
@@ -101,7 +101,7 @@ elseif(\Bitrix\Main\Localization\Loc::getDefaultLang(LANGUAGE_ID) == 'en'):
 					</tbody>
 				</table>
 
-<?
+<?php 
 else:
 ?>
 
@@ -115,7 +115,7 @@ else:
 					</tbody>
 				</table>
 
-<?
+<?php 
 endif;
 ?>
 			</td>

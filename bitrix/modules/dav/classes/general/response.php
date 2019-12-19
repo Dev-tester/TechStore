@@ -1,4 +1,4 @@
-<?
+<?php 
 define("DAV_XML_OUTPUT", 0);
 define("DAV_BINARY_OUTPUT", 1);
 define("DAV_HTML_OUTPUT", 2);

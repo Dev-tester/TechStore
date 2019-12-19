@@ -9,7 +9,7 @@ class Details extends Entity
 {
 	protected function requestData()
 	{
-		$data = '<?xml version="1.0" encoding="utf-8"?>
+		$data = '<?php xml version="1.0" encoding="utf-8"?>
 			<GeteBayDetailsRequest xmlns="urn:ebay:apis:eBLBaseComponents">
 			<RequesterCredentials>
 			<eBayAuthToken>'.$this->authToken.'</eBayAuthToken>

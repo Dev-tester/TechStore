@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STPCL_NEW"]="Добавить новую запись";
 $MESS["STPCL_TYPE"]="Тип карты";
 $MESS["STPCL_PAY_SYS"]="Платежная система";

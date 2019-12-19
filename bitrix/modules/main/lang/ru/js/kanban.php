@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_KANBAN_NO_DATA"] = "Пока данных на этой странице нет";
 $MESS["MAIN_KANBAN_REMOVE_COLUMN_CONFIRM_TITLE"] = "Подтверждение удаления";
 $MESS["MAIN_KANBAN_REMOVE_COLUMN_CONFIRM_DESC"] = "Вы действительно хотите удалить колонку?";

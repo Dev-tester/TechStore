@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_FAVORITES_DEL'] = "удалить";
 $MESS ['GD_FAVORITES_ADD'] = "Добавить...";
 $MESS ['GD_FAVORITES_CH'] = "Изменить...";

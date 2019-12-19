@@ -1,9 +1,9 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
-<meta http-equiv="Content-type" content="text/html;charset=<?echo LANG_CHARSET?>" />
+<meta http-equiv="Content-type" content="text/html;charset=<?php echo LANG_CHARSET?>" />
 <table border="1">
-<?
+<?php 
 
 /** @var CBitrixComponentTemplate $this */
 $this->IncludeLangFile('template.php');
@@ -16,9 +16,9 @@ $arParams['USER_PROPERTY'] =
 TrimArr($arParams['USER_PROPERTY']);
 
 if (!is_array($arResult['USERS']) || !($USERS_CNT = count($arResult['USERS']))):
-	?><tbody><tr><td><?
+	?><tbody><tr><td><?php 
 	echo(GetMessage('INTR_ISL_TPL_NOTE_NULL'));
-	?></td></tr></tbody><?
+	?></td></tr></tbody><?php 
 else:
 	if (!is_array($arParams['USER_PROPERTY']) || count($arParams['USER_PROPERTY']) <= 0)
 		$arParams['USER_PROPERTY'] = array('FULL_NAME', 'PERSONAL_PHONE', 'EMAIL', 'PERSONAL_PROFESSION', 'UF_DEPARTMENT');
@@ -26,22 +26,22 @@ else:
 ?>
 	<thead>
 		<tr>
-<?
+<?php 
 foreach ($arParams['USER_PROPERTY'] as $key):
 	//if ($key == 'PERSONAL_PHOTO') continue;
 ?>
 			<th><?=$arResult['USER_PROP'][$key]['LIST_COLUMN_LABEL'] ? $arResult['USER_PROP'][$key]['LIST_COLUMN_LABEL'] : GetMessage('ISL_'.$key)?></th>
-<?
+<?php 
 endforeach;
 ?>
 		</tr>
 	</thead>
 	<tbody>
-<?
+<?php 
 	foreach ($arResult['USERS'] as $i => $arUser):
 ?>
 		<tr>
-<?
+<?php 
 		foreach ($arParams['USER_PROPERTY'] as $key):
 			//if ($key == 'PERSONAL_PHOTO') continue;
 
@@ -83,15 +83,15 @@ endforeach;
 
 			echo '<td'.($cell_height ? ' height="'.$cell_height.'"' : '').($cell_width ? ' width="'.$cell_width.'"' : '').'>'.$arResult['USERS'][$i][$key].'</td>';
 ?>
-<?
+<?php 
 		endforeach;
 ?>
 		</tr>
-<?
+<?php 
 	endforeach;
 ?>
 	</tbody>
-<?
+<?php 
 endif;
 ?>
 </table>

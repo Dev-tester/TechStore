@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTET_NOT_SET'] = "(не установлено)";
 $MESS ['INTET_ADD'] = "Добавить";
 $MESS ['INTET_CREATE_TITLE'] = "Создание новой задачи";

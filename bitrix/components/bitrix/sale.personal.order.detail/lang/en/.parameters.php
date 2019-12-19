@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOD_DISALLOW_CANCEL"] = "Don't allow order cancellation";
 $MESS["SPOD_DESC_YES"] = "Yes";
 $MESS["SPOD_DESC_NO"] = "No";

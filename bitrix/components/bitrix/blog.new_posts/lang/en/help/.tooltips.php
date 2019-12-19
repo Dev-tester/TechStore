@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MESSAGE_COUNT_TIP'] = "Maximum number of messages that can be displayed on a page.";
 $MESS ['MESSAGE_LENGTH_TIP'] = "The length of a single post excerpt, in symbols.";
 $MESS ['PATH_TO_BLOG_TIP'] = "The path to the main blog page. Example: blog_blog.php?page=blog&blog=#blog#.";

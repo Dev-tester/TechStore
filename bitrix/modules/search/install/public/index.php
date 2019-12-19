@@ -1,7 +1,7 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle(GetMessage("SEARCH_INSTALL_PUBLIC_TITLE"));?>
 
-<?$APPLICATION->IncludeComponent("bitrix:search.page", "tags", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:search.page", "tags", Array(
 	"RESTART"	=>	"N",
 	"CHECK_DATES"	=>	"N",
 	"arrWHERE"	=>	array(
@@ -34,4 +34,4 @@ $APPLICATION->SetTitle(GetMessage("SEARCH_INSTALL_PUBLIC_TITLE"));?>
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

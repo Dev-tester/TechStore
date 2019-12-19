@@ -246,8 +246,8 @@ for ($i=0, $ic=sizeof($arResult['FILTER']); $i < $ic; $i++)
 if ($arResult['EVENT_HINT_MESSAGE'] == 'Y' && COption::GetOptionString('crm', 'mail', '') != ''):
 ?>
 <div class="crm_notice_message"><?=GetMessage('CRM_IMPORT_EVENT', Array('%EMAIL%' => COption::GetOptionString('crm', 'mail', '')));?></div>
-<?endif;?>
-<?if($arResult['FORM_ID'] !== '' && $arResult['TAB_ID'] !== ''):?>
+<?php endif;?>
+<?php if($arResult['FORM_ID'] !== '' && $arResult['TAB_ID'] !== ''):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -290,4 +290,4 @@ if ($arResult['EVENT_HINT_MESSAGE'] == 'Y' && COption::GetOptionString('crm', 'm
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

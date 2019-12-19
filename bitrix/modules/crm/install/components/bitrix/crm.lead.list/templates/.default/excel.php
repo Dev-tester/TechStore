@@ -42,7 +42,7 @@ else
 		?><meta http-equiv="Content-type" content="text/html;charset=<?=LANG_CHARSET?>" />
 		<table border="1">
 		<thead>
-		<tr><?
+		<tr><?php 
 		// Display headers
 		foreach($arResult['SELECTED_HEADERS'] as $headerID)
 		{
@@ -54,16 +54,16 @@ else
 
 			// Special logic for PRODUCT_ROWS headers: expand product in 3 columns
 			if($headerID === 'PRODUCT_ID'):
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_NAME'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_PRICE'))?></th><?
-				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_QUANTITY'))?></th><?
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_NAME'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_PRICE'))?></th><?php 
+				?><th><?=htmlspecialcharsbx(GetMessage('CRM_COLUMN_PRODUCT_QUANTITY'))?></th><?php 
 			else:
-				?><th><?=$arHead['name']?></th><?
+				?><th><?=$arHead['name']?></th><?php 
 			endif;
 		}
 		?></tr>
 		</thead>
-		<tbody><?
+		<tbody><?php 
 	}
 
 	foreach ($arResult['LEAD'] as $i => &$arLead)
@@ -79,7 +79,7 @@ else
 		$leadData = array();
 		foreach($productRows as $productRow)
 		{
-			?><tr><?
+			?><tr><?php 
 			foreach($arResult['SELECTED_HEADERS'] as $headerID)
 			{
 				$arHead = isset($arHeaders[$headerID]) ? $arHeaders[$headerID] : null;
@@ -92,9 +92,9 @@ else
 				if($headerID === 'PRODUCT_ID')
 				{
 					// Special logic for PRODUCT_ROWS: expand product in 3 columns
-					?><td><?=isset($productRow['PRODUCT_NAME']) ? htmlspecialcharsbx($productRow['PRODUCT_NAME']) : ''?></td><?
-					?><td><?=CCrmProductRow::GetPrice($productRow, '')?></td><?
-					?><td><?=CCrmProductRow::GetQuantity($productRow, '')?></td><?
+					?><td><?=isset($productRow['PRODUCT_NAME']) ? htmlspecialcharsbx($productRow['PRODUCT_NAME']) : ''?></td><?php 
+					?><td><?=CCrmProductRow::GetPrice($productRow, '')?></td><?php 
+					?><td><?=CCrmProductRow::GetQuantity($productRow, '')?></td><?php 
 
 					continue;
 				}
@@ -102,9 +102,9 @@ else
 				{
 					// Special logic for OPPORTUNITY: replace it by product row sum if it specified
 					if($hasProducts):
-						?><td><?=round(CCrmProductRow::GetPrice($productRow) * CCrmProductRow::GetQuantity($productRow), 2)?></td><?
+						?><td><?=round(CCrmProductRow::GetPrice($productRow) * CCrmProductRow::GetQuantity($productRow), 2)?></td><?php 
 					else:
-						?><td><?=isset($arLead['OPPORTUNITY']) ? strval($arLead['OPPORTUNITY']) : ''?></td><?
+						?><td><?=isset($arLead['OPPORTUNITY']) ? strval($arLead['OPPORTUNITY']) : ''?></td><?php 
 					endif;
 
 					continue;
@@ -149,15 +149,15 @@ else
 				}
 				if(isset($leadData[$headerID]))
 				{
-					?><td><?=$leadData[$headerID]?></td><?
+					?><td><?=$leadData[$headerID]?></td><?php 
 				}
 			}
-			?></tr><?
+			?></tr><?php 
 		}
 	}
 
 	if (!$isStExport || $isStExportLastPage)
 	{
-		?></tbody></table><?
+		?></tbody></table><?php 
 	}
 }

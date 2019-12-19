@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BP_DEAL_TITLE"] = "Transaction Execution by stage";
 $MESS["CRM_BP_DEAL_PROPERTIES_1"] = "State-driven business process";
 $MESS["CRM_BP_DEAL_PROPERTIES_1_TITLE"] = "Status: New (analysis)";

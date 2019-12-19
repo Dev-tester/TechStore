@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IB1C_ERROR_CATEGORY"] = "Error importing group";
 $MESS["IB1C_ERROR_CATALOG"] = "Error importing catalog";
 $MESS["IB1C_ERROR_PROPERTY"] = "Error importing property";

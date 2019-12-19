@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /********************************************************************
 				CANCEL
 ********************************************************************/
@@ -27,7 +27,7 @@ if (!empty($_REQUEST["cancel"]))
 	}
 	
 	$APPLICATION->RestartBuffer();
-	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?
+	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?php 
 	die();
 }
 /********************************************************************
@@ -235,7 +235,7 @@ if (!$url)
 if ($_REQUEST["AJAX_CALL"] == "Y" || !empty($_REQUEST["bxajaxid"]))
 {
 	$APPLICATION->RestartBuffer();
-	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?
+	?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?php 
 	die();
 }
 LocalRedirect($url);

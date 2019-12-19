@@ -1,8 +1,8 @@
-<?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true) die();
 $APPLICATION->SetPageProperty("BodyClass","calendar-addevent-page");
 ?>
 
-<?
+<?php 
 CUtil::InitJSCore(array('ajax', 'date'));
 /* *********************** From To modal window **************************** */
 
@@ -16,7 +16,7 @@ else
 TIME_FORMAT_SHORT = TIME_FORMAT.replace(':s', '');
 </script>
 
-<?
+<?php 
 
 if($arResult['GET_FROM_TO_MODE'] == 'Y'):?>
 
@@ -216,7 +216,7 @@ if($arResult['GET_FROM_TO_MODE'] == 'Y'):?>
 			</div>
 		</div>
 	</div>
-<?
+<?php 
 /* END *********************** From To modal window **************************** */
 else: /*$arResult('GET_FROM_TO_MODE') == 'Y')*/?>
 
@@ -934,7 +934,7 @@ else: /*$arResult('GET_FROM_TO_MODE') == 'Y')*/?>
 							<span class="calendar-addevent-row-left"><?= GetMessage('MBCAL_EDEV_REMIMDER')?></span>
 							<span class="calendar-addevent-row-right">
 						<select id="mbcal-edit-remind">
-							<?
+							<?php 
 							$reminders = array(
 								'0' => GetMessage('MBCAL_EDEV_REM_NO'),
 								'5_min' => GetMessage('MBCAL_EDEV_REM_MIN', array('#N#' => 5)),
@@ -947,7 +947,7 @@ else: /*$arResult('GET_FROM_TO_MODE') == 'Y')*/?>
 							);
 							foreach($reminders as $value => $title):?>
 								<option value="<?= $value?>"><?= $title?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</span>
 							<div style="clear: both;"></div>
@@ -1048,9 +1048,9 @@ else: /*$arResult('GET_FROM_TO_MODE') == 'Y')*/?>
 						<span class="calendar-addevent-row-left"><?= GetMessage('MBCAL_EDEV_SECTION')?></span>
 						<span class="calendar-addevent-row-right">
 						<select id="mbcal-edit-section">
-							<?foreach($arResult['SECTIONS'] as $sect):?>
+							<?php foreach($arResult['SECTIONS'] as $sect):?>
 								<option value="<?= intval($sect["ID"])?>"><?= htmlspecialcharsbx($sect["NAME"])?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</span>
 						<div style="clear: both;"></div>
@@ -1066,4 +1066,4 @@ else: /*$arResult('GET_FROM_TO_MODE') == 'Y')*/?>
 	</div>
 
 
-<?endif;/*$arResult('GET_FROM_TO_MODE') == 'Y')*/?>
+<?php endif;/*$arResult('GET_FROM_TO_MODE') == 'Y')*/?>

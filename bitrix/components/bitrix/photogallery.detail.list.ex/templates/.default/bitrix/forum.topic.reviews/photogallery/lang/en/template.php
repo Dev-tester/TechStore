@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OPINIONS_NAME"] = "Your name";
 $MESS["OPINIONS_EMAIL"] = "Your E-mail";
 $MESS["REQUIRED_FIELD"] = "Required field";

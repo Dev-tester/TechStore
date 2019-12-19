@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BSP_ALL"] = "(all)";
 $MESS["CT_BSP_GO"] = "Search";
 $MESS["CT_BSP_ITEM_TAGS"] = "Tags";

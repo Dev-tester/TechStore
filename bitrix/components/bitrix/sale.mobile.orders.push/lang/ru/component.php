@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOP_ACCESS_DENIED"] = "Доступ запрещен";
 $MESS["SMOP_MA_NOT_INSTALLED"] = "Не установлен модуль \"Мобильная платформа\"";
 $MESS["SMOP_SALE_NOT_INSTALLED"] = "Не установлен модуль \"Интернет магазин\"";

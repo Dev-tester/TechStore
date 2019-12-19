@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_MODULE_NOT_INSTALLED"] = "The \"Bitrix24 Connector\" module is not installed.";
 $MESS["B24C_SS_MODULE_NOT_INSTALLED"] = "The Social Network module is not installed.";
 $MESS["B24C_PERMISSION_DENIED"] = "Access denied";

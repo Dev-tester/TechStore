@@ -1,4 +1,4 @@
-<?
+<?php 
 // convert forum
 
 if (CModule::IncludeModule("forum"))

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STATUS_ACTIVE"] = "активен";
 $MESS["STATUS_BLOCKED"] = "заблокирован";
 $MESS["LOGIN_BLOCK"] = "Ваш логин заблокирован.";

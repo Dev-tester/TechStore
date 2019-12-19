@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUTTONS"] = "Buttons";
 $MESS["BUTTONS_IOS_USE_SQUARE_BUTTONS"] = "iOS7 look and feel buttons";
 $MESS["BUTTONS_STRETCHABLE_MAIN_POSITION_HORIZONTAL"] = "Horizontal position";

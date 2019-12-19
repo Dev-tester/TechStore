@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -27,7 +27,7 @@ CClock::Show(
 	)
 );
 
-?><script type="text/javascript">BX.onCustomEvent('onClockRegister',[{<?=CUtil::JSEscape($_REQUEST['clock_id'])?>:'<?=$clock_input_id?>'}])</script><?
+?><script type="text/javascript">BX.onCustomEvent('onClockRegister',[{<?=CUtil::JSEscape($_REQUEST['clock_id'])?>:'<?=$clock_input_id?>'}])</script><?php 
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");
 ?>

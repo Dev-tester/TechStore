@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_SESSION_ERROR_NO_IMOL_CONFIGURATION"] = "Cannot load Open Channel configuration";
 $MESS["IMOL_SESSION_ERROR_NO_CHAT"] = "Cannot load conversation";
 $MESS["IMOL_SESSION_DEAL"] = "Deal";

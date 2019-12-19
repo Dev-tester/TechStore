@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SECURITY_ROLE_ENTITY_SEGMENT"] = "Segments and recipient lists";
 $MESS["SENDER_SECURITY_ROLE_PERMISSION_NONE"] = "Access denied";
 $MESS["SENDER_SECURITY_ROLE_PERMISSION_SELF"] = "Personal";

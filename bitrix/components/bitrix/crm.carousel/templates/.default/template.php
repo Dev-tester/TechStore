@@ -24,26 +24,26 @@ $autorewind = $pageCount > 1 && $component->isAutoRewindEnabled();
 $defaultButtonText = $component->getDefaultButtonText();
 
 ?><div id="<?=htmlspecialcharsbx($wrapperID)?>" class="crm-carousel-wrapper">
-	<?if($component->isCloseButtonEnabled())
+	<?php if($component->isCloseButtonEnabled())
 	{
 		?><div id="<?=htmlspecialcharsbx($closeButtonID)?>" class="crm-carousel-close">
 			<span class="crm-carousel-close-item"></span>
-		</div><?
+		</div><?php 
 	}?>
-	<?if($pageCount > 1)
+	<?php if($pageCount > 1)
 	{
 		?><div class="crm-carousel-arrow">
 			<span id="<?=htmlspecialcharsbx($forwardButtonID)?>" class="crm-carousel-arrow-item"></span>
 		</div>
 		<div class="crm-carousel-arrow-previous">
 			<span id="<?=htmlspecialcharsbx($backwardButtonID)?>" class="crm-carousel-arrow-item-previous"></span>
-		</div><?
+		</div><?php 
 	}?>
 	<div class="crm-carousel-container">
 		<div id="<?=htmlspecialcharsbx($containerID)?>" class="crm-carousel-inner-container">
-			<?foreach($pages as $page)
+			<?php foreach($pages as $page)
 			{
-				?><div class="crm-carousel-item"><?
+				?><div class="crm-carousel-item"><?php 
 					foreach($page as $item)
 					{
 						/** @var CCrmCarouselItem $item */
@@ -74,21 +74,21 @@ $defaultButtonText = $component->getDefaultButtonText();
 									<?=htmlspecialcharsbx($buttonText)?>
 								</a>
 							</div>
-						</div><?
+						</div><?php 
 					}
-				?></div><?
+				?></div><?php 
 			}?>
 		</div>
 	</div>
-	<?if($pageCount > 1)
+	<?php if($pageCount > 1)
 	{
 		?><div class="crm-carousel-bullet-container">
 			<div id="<?=htmlspecialcharsbx($bulletContainerID)?>" class="crm-carousel-bullet-inner">
-				<?for($pageNum = 0; $pageNum < $pageCount; $pageNum++){
-					?><span class="crm-carousel-bullet-item"></span><?
+				<?php for($pageNum = 0; $pageNum < $pageCount; $pageNum++){
+					?><span class="crm-carousel-bullet-item"></span><?php 
 				}?>
 			</div>
-		</div><?
+		</div><?php 
 	}?>
 </div>
 <script type="text/javascript">

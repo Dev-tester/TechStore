@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EVENT_TABLE_EMPTY"] = "- Нет данных -";
 $MESS["CRM_EVENT_TABLE_FILES"] = "Файлы";
 $MESS["CRM_EVENT_ENTITY_TYPE_DEAL"] = "Сделка";

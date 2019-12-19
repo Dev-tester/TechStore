@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOCIALNETWORK_ITEM_WORKGROUP_TYPE_PROJECT_OPEN"] = "Открытый проект";
 $MESS["SOCIALNETWORK_ITEM_WORKGROUP_TYPE_PROJECT_OPEN_DESC"] = "Наличие проекта видимо всем сотрудникам, все могут вступить в него.";
 $MESS["SOCIALNETWORK_ITEM_WORKGROUP_TYPE_PROJECT_OPEN_DESC2"] = "Наличие проекта видимо всем сотрудникам.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!\Bitrix\Main\Loader::includeModule("bizproc"))
@@ -392,11 +392,11 @@ $APPLICATION->SetTitle(GetMessage("IBLOCK_ADM_TITLE", array("#IBLOCK_TYPE#" => $
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 <form method="GET" action="iblock_admin.php?type=<?=urlencode($type)?>" name="find_form">
-<input type="hidden" name="admin" value="<?echo ($_REQUEST["admin"]=="Y"? "Y": "N")?>">
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
+<input type="hidden" name="admin" value="<?php echo ($_REQUEST["admin"]=="Y"? "Y": "N")?>">
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
 <input type="hidden" name="filter" value="Y">
-<input type="hidden" name="type" value="<?echo htmlspecialcharsbx($type)?>">
-<?
+<input type="hidden" name="type" value="<?php echo htmlspecialcharsbx($type)?>">
+<?php 
 $oFilter = new CAdminFilter(
 	$tableId."_filter",
 	array(
@@ -410,27 +410,27 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><b><?echo GetMessage("IBLOCK_ADM_FILT_NAME")?></b></td>
-		<td><input type="text" name="find_name" value="<?echo htmlspecialcharsbx($find_name)?>" size="40">&nbsp;<?=ShowFilterLogicHelp()?></td>
+		<td><b><?php echo GetMessage("IBLOCK_ADM_FILT_NAME")?></b></td>
+		<td><input type="text" name="find_name" value="<?php echo htmlspecialcharsbx($find_name)?>" size="40">&nbsp;<?=ShowFilterLogicHelp()?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_ADM_FILT_SITE");?>:</td>
+		<td><?php echo GetMessage("IBLOCK_ADM_FILT_SITE");?>:</td>
 		<td>
 			<select name="find_lang">
-				<option value=""><?echo GetMessage("IBLOCK_ALL")?></option>
-			<?
+				<option value=""><?php echo GetMessage("IBLOCK_ALL")?></option>
+			<?php 
 			$l = CLang::GetList($b="sort", $o="asc", Array("VISIBLE"=>"Y"));
 			while($ar = $l->GetNext()):
-				?><option value="<?echo $ar["LID"]?>"<?if($find_lang==$ar["LID"])echo " selected"?>><?echo $ar["NAME"]?></option><?
+				?><option value="<?php echo $ar["LID"]?>"<?php if($find_lang==$ar["LID"])echo " selected"?>><?php echo $ar["NAME"]?></option><?php 
 			endwhile;
 			?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_ADM_FILT_ACT")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_ADM_FILT_ACT")?>:</td>
 		<td>
-			<?
+			<?php 
 			$arr = array("reference"=>array(GetMessage("IBLOCK_YES"), GetMessage("IBLOCK_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsex($find_active), GetMessage('IBLOCK_ALL'));
 			?>
@@ -438,18 +438,18 @@ $oFilter->Begin();
 	</tr>
 	<tr>
 		<td>ID:</td>
-		<td><input type="text" name="find_id" value="<?echo htmlspecialcharsbx($find_id)?>" size="15"></td>
+		<td><input type="text" name="find_id" value="<?php echo htmlspecialcharsbx($find_id)?>" size="15"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_FIELD_CODE")?>:</td>
-		<td><input type="text" name="find_code" value="<?echo htmlspecialcharsbx($find_code)?>" size="15">&nbsp;<?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("IBLOCK_FIELD_CODE")?>:</td>
+		<td><input type="text" name="find_code" value="<?php echo htmlspecialcharsbx($find_code)?>" size="15">&nbsp;<?=ShowFilterLogicHelp()?></td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$tableId, "url"=>$APPLICATION->GetCurPageParam().'?type='.urlencode($type), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $adminList->DisplayList();
 
 if($_REQUEST["admin"]!="Y"):

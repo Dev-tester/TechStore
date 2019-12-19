@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_MAIN_SETTINGS"] = "Intranet Portal Settings";
 $MESS["SERVICE_VOTE"] = "Polls and Surveys";
 $MESS["SERVICE_COMPANY_STRUCTURE"] = "Company Structure";

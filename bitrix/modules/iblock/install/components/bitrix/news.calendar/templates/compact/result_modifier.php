@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arParams["FILTER_NAME"] = trim($arParams["FILTER_NAME"]);
 $arParams["LIST_URL"] = trim($arParams["LIST_URL"]);

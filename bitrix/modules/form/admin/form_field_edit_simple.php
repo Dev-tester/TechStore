@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -235,7 +235,7 @@ $context->Show();
 
 echo BeginNote('width="100%"');?>
 <b><?=GetMessage("FORM_FORM_NAME")?></b> [<a title='<?=GetMessage("FORM_EDIT_FORM")?>' href='form_edit.php?lang=<?=LANGUAGE_ID?>&ID=<?=$WEB_FORM_ID?>'><?=$WEB_FORM_ID?></a>]&nbsp;(<?=htmlspecialcharsbx($arForm["SID"])?>)&nbsp;<?=htmlspecialcharsbx($arForm["NAME"])?>
-<?echo EndNote();
+<?php echo EndNote();
 
 $aMenu = array();
 
@@ -326,30 +326,30 @@ function FormSubmit()
 <input type="hidden" name="WEB_FORM_ID" value=<?=$WEB_FORM_ID?> />
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>" />
 <input type="hidden" name="VAL_STRUCTURE" value="" />
-<?
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //General Tab
 //********************
 $tabControl->BeginNextTab();
 ?>
-	<? if (strlen($str_TIMESTAMP_X)>0) : ?>
+	<?php  if (strlen($str_TIMESTAMP_X)>0) : ?>
 	<tr>
 		<td><?=GetMessage("FORM_TIMESTAMP")?></td>
 		<td><?=$str_TIMESTAMP_X?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td width="40%"><?=GetMessage("FORM_ACTIVE")?></td>
-		<td width="60%"><?echo InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false) ?></td>
+		<td width="60%"><?php echo InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false) ?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("FORM_C_SORT")?></td>
-		<td><input type="text" name="C_SORT" size="5" maxlength="18" value="<?echo $str_C_SORT?>" /></td>
+		<td><input type="text" name="C_SORT" size="5" maxlength="18" value="<?php echo $str_C_SORT?>" /></td>
 	</tr>
-<?
+<?php 
 //********************
 //question
 //********************
@@ -358,37 +358,37 @@ $str_IMAGE_ID = intval($str_IMAGE_ID);
 ?>
 	<tr>
 		<td valign="top"><?=GetMessage("FORM_IMAGE")?></td>
-		<td><?echo CFile::InputFile("IMAGE_ID", 20, $str_IMAGE_ID);?><?if ($str_IMAGE_ID>0):?><br><?echo CFile::ShowImage($str_IMAGE_ID, 200, 200, "border=0", "", true)?><?endif;?></td>
+		<td><?php echo CFile::InputFile("IMAGE_ID", 20, $str_IMAGE_ID);?><?php if ($str_IMAGE_ID>0):?><br><?php echo CFile::ShowImage($str_IMAGE_ID, 200, 200, "border=0", "", true)?><?php endif;?></td>
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage("FORM_QUESTION")?></td>
-	<?
+	<?php 
 	if(COption::GetOptionString("form", "USE_HTML_EDIT")=="Y" && CModule::IncludeModule("fileman")):?>
-		<td><?
+		<td><?php 
 		CFileMan::AddHTMLEditorFrame("TITLE", $str_TITLE, "TITLE_TYPE", $str_TITLE_TYPE, 50);
 		?></td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
-		<td align="center" colspan="2"><? echo InputType("radio","TITLE_TYPE","text",$str_TITLE_TYPE,false)?>&nbsp;<?echo GetMessage("FORM_TEXT")?>/&nbsp;<? echo InputType("radio","TITLE_TYPE","html",$str_TITLE_TYPE,false)?>HTML</td>
+		<td align="center" colspan="2"><?php  echo InputType("radio","TITLE_TYPE","text",$str_TITLE_TYPE,false)?>&nbsp;<?php echo GetMessage("FORM_TEXT")?>/&nbsp;<?php  echo InputType("radio","TITLE_TYPE","html",$str_TITLE_TYPE,false)?>HTML</td>
 	</tr>
 	<tr>
-		<td align="center" colspan="2"><textarea name="TITLE" style="width:100%" rows="5"><?echo $str_TITLE?></textarea></td>
+		<td align="center" colspan="2"><textarea name="TITLE" style="width:100%" rows="5"><?php echo $str_TITLE?></textarea></td>
 	</tr>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 //********************
 //Answer
 //********************
 ?>
-<? ################################# JS START ######### ?>
+<?php  ################################# JS START ######### ?>
 <script language="JavaScript">
 
 var multi = false;
 function ShowSelected()
 {
 	a = document.getElementById("selected_type").value;
-<?
+<?php 
 $arDisplayTypes=array("text", "textarea", "list", "hidden");
 foreach ($arDisplayTypes as $e)
 	echo "BX('type_".$e."').style.display=\"none\"\n";
@@ -523,15 +523,15 @@ BX.ready(function() {
 	})
 });
 </script>
-<? ################################# END ################ ?>
+<?php  ################################# END ################ ?>
 	<tr>
 		<td><?=GetMessage("FORM_REQUIRED")?></td>
-		<td><?echo InputType("checkbox","REQUIRED","Y",$str_REQUIRED,false) ?></td>
+		<td><?php echo InputType("checkbox","REQUIRED","Y",$str_REQUIRED,false) ?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("FORM_ANS_TYPE")?></td>
 		<td><select name="FIELD_TYPE" id="selected_type" onchange="ShowSelected(); jsFormValidatorSettings.UpdateAll();">
-	<?
+	<?php 
 	$arDisplay = array(
 		'text'		=>'none',
 		'textarea'	=>'none',
@@ -597,7 +597,7 @@ BX.ready(function() {
 			<div id="type_text" style="display:<?=$arDisplay['text']?>">
 				<table class="internal">
 				<tr class="heading">
-					<td><?echo GetMessage("FORM_FIELD_SIZE_VAL")?></td>
+					<td><?php echo GetMessage("FORM_FIELD_SIZE_VAL")?></td>
 				</tr>
 				<tr>
 					<td><input type="text" size="8" name="FIELD_SIZE" value="<?=$arRows[0]['WIDTH']?>" /></td>
@@ -607,8 +607,8 @@ BX.ready(function() {
 			<div id="type_textarea">
 				<table class="internal">
 				<tr class="heading">
-					<td><?echo GetMessage("FORM_FIELD_WIDTH_VAL")?></td>
-					<td><?echo GetMessage("FORM_FIELD_HEIGHT_VAL")?></td>
+					<td><?php echo GetMessage("FORM_FIELD_WIDTH_VAL")?></td>
+					<td><?php echo GetMessage("FORM_FIELD_HEIGHT_VAL")?></td>
 				</tr>
 				<tr>
 					<td><input type="text" size="5" name="FIELD_WIDTH" value="<?=$arRows[0]['WIDTH']?>" /></td>
@@ -619,12 +619,12 @@ BX.ready(function() {
 			<div id="type_list">
 				<table class="internal" id="tbl_answers">
 				<tr class="heading">
-					<td><?echo GetMessage("FORM_ANSWER_VAL")?></td>
-					<td><?echo GetMessage("FORM_SORT_VAL")?></td>
-					<td><?echo GetMessage("FORM_DEF_VAL")?></td>
+					<td><?php echo GetMessage("FORM_ANSWER_VAL")?></td>
+					<td><?php echo GetMessage("FORM_SORT_VAL")?></td>
+					<td><?php echo GetMessage("FORM_DEF_VAL")?></td>
 					<td></td>
 				</tr>
-				<?
+				<?php 
 				$i=0;
 				if (is_array($arRows))
 				{
@@ -635,9 +635,9 @@ BX.ready(function() {
 							<td><input type="hidden" name="ANSWER[]" value="<?=$arRow['ID']?>" /><input type="text" name="MESSAGE[]" value="<?=$arRow['MESSAGE']?>" /></td>
 							<td><input id="row<?=$i?>_sort" name="SORT[]" value="<?=$arRow['SORT']?>" type="text" size="5" /></td>
 							<td><input name="DEF[]" type="hidden" value="<?=$arRow['DEF_HIDDEN']?>" id="row<?=$i?>_def_hidden" /><input OnClick="ClearAll('row<?=$i?>')" type="checkbox" <?=$arRow['DEF']?> id="row<?=$i?>_def" name="row<?=$i?>_def" /></td>
-							<td id="row<?=$i?>_del" <?if(count($arRows)<2) print 'style="visibility:hidden"'?>><div onclick="RowDelete('row<?=$i?>',1)" title="<?=GetMessage("FORM_ANS_DEL")?>" id="btn_delete" style="width:20px;height:20px;cursor:pointer;"></div></td>
+							<td id="row<?=$i?>_del" <?php if(count($arRows)<2) print 'style="visibility:hidden"'?>><div onclick="RowDelete('row<?=$i?>',1)" title="<?=GetMessage("FORM_ANS_DEL")?>" id="btn_delete" style="width:20px;height:20px;cursor:pointer;"></div></td>
 						</tr>
-						<?
+						<?php 
 					endforeach;
 				}
 				else
@@ -649,7 +649,7 @@ BX.ready(function() {
 						<td><input name="DEF[]" type="hidden" id="row1_def_hidden" /><input OnClick="ClearAll('row1')" type="checkbox" id="row1_def" name="row1_def" /></td>
 						<td id="row1_del" style="visibility:hidden"><div onclick="RowDelete('row1',0)" title="<?=GetMessage("FORM_ANS_DEL")?>" id="btn_delete" style="width:20px;height:20px;cursor:pointer;"></div></td>
 					</tr>
-				<?
+				<?php 
 				}
 				?>
 				</table>
@@ -663,10 +663,10 @@ BX.ready(function() {
 			<div id="type_hidden">
 				<table class="internal">
 					<tr class="heading">
-						<td><?echo GetMessage("FORM_ADDITIONAL_FIELD_TYPE")?></td>
+						<td><?php echo GetMessage("FORM_ADDITIONAL_FIELD_TYPE")?></td>
 					</tr>
 					<tr>
-						<td><?
+						<td><?php 
 						echo SelectBoxFromArray("FIELD_HIDDEN_TYPE", CFormField::GetTypeList(), $str_FIELD_TYPE);
 						?></td>
 					</tr>
@@ -675,7 +675,7 @@ BX.ready(function() {
 		</td>
 	</tr>
 <script>ShowSelected();</script>
-<?
+<?php 
 //********************
 // Validators Tab
 //********************
@@ -688,7 +688,7 @@ if ($rsValidators->SelectedRowsCount() > 0)
 	<script language="javascript">
 	var arValidatorsType = [];
 	var arValidators = [];
-<?
+<?php 
 	while ($arValidatorInfo = $rsValidators->Fetch())
 	{
 		if (!is_array($arValidatorInfo["TYPES"]))
@@ -700,7 +700,7 @@ if ($rsValidators->SelectedRowsCount() > 0)
 		?>
 
 	arValidators['<?=CUtil::JSEscape($arValidatorInfo["NAME"])?>'] = {NAME:'<?=CUtil::JSEscape($arValidatorInfo["NAME"])?>', DESCRIPTION:'<?=CUtil::JSEscape($arValidatorInfo["DESCRIPTION"])?>', HAS_SETTINGS:'<?=is_callable($arValidatorInfo['SETTINGS']) ? "Y" : "N"?>'};
-<?
+<?php 
 
 		foreach ($arValidatorInfo["TYPES"] as $type)
 		{
@@ -708,14 +708,14 @@ if ($rsValidators->SelectedRowsCount() > 0)
 ?>
 	if (!arValidatorsType['<?=$type?>']) arValidatorsType['<?=$type?>'] = [];
 	arValidatorsType['<?=$type?>'][arValidatorsType['<?=$type?>'].length] = '<?=CUtil::JSEscape($arValidatorInfo["NAME"])?>';
-<?
+<?php 
 		}
 	}
 ?>
 	</script>
 	<script language="JavaScript">
 var arCurrentValidators = new Array();
-<?
+<?php 
 if (is_array($arCurrentValidators) && count($arCurrentValidators) > 0)
 {
 	foreach ($arCurrentValidators as $arVal)
@@ -724,26 +724,26 @@ if (is_array($arCurrentValidators) && count($arCurrentValidators) > 0)
 	arCurrentValidators[arCurrentValidators.length] = {
 		NAME:'<?=CUtil::JSEscape($arVal["NAME"])?>'
 
-<?
+<?php 
 		if (is_array($arVal["PARAMS"]) && count($arVal["PARAMS"]) > 0)
 		{
 ?>		,
-		PARAMS:[<?
+		PARAMS:[<?php 
 			$i = 0;
 			foreach ($arVal["PARAMS"] as $key => $value)
 			{
 ?><?=$i++ == 0 ? "" : ","?>
 
-				{NAME:'<?=CUtil::JSEscape($key)?>', VALUE:'<?=CUtil::JSEscape($value)?>', TITLE:'<?=CUtil::JSEscape($arVal["PARAMS_FULL"][$key]["TITLE"]) ?>:'}<?
+				{NAME:'<?=CUtil::JSEscape($key)?>', VALUE:'<?=CUtil::JSEscape($value)?>', TITLE:'<?=CUtil::JSEscape($arVal["PARAMS_FULL"][$key]["TITLE"]) ?>:'}<?php 
 			}
 ?>
 
 		]
-<?
+<?php 
 		}
 ?>
 	}
-<?
+<?php 
 	}
 }
 
@@ -751,7 +751,7 @@ if (is_array($arCurrentValidators) && count($arCurrentValidators) > 0)
 ?>
 	</script>
 	<script>
-var _global_BX_UTF = <?if (defined('BX_UTF') && BX_UTF === true):?>true<?else:?>false<?endif?>;
+var _global_BX_UTF = <?php if (defined('BX_UTF') && BX_UTF === true):?>true<?php else:?>false<?php endif?>;
 	</script>
 	<script src="/bitrix/js/form/form_validators.js?<?=@filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/form/form_validators.js')?>"></script>
 	<script language="JavaScript">
@@ -781,7 +781,7 @@ var jsFormValidatorSettings = new CFormValidatorSettings(true);
 	<script language="JavaScript">
 jsFormValidatorSettings.UpdateAll();
 </script>
-<?
+<?php 
 }
 else
 {
@@ -789,24 +789,24 @@ else
 	<tr>
 		<td colspan="2"><?=ShowError(GetMessage("FORM_VAL_NO_REGISTERED_VALS"))?></td>
 	</tr>
-<?
+<?php 
 }
 ?>
 
-<?
+<?php 
 //********************
 // Last tab
 //********************
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td colspan="2" align="center"><textarea name="COMMENTS" cols="80" rows="5"><?echo $str_COMMENTS?></textarea></td>
+		<td colspan="2" align="center"><textarea name="COMMENTS" cols="80" rows="5"><?php echo $str_COMMENTS?></textarea></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled"=>($F_RIGHT<30), "back_url"=>"form_field_list.php?WEB_FORM_ID=".$WEB_FORM_ID."&lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
 
-<? require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php  require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

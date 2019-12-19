@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_USE_LIGHT_VIEW"] = "Simple mode";
 $MESS["IBLOCK_TYPE"] = "Type of information block";
 $MESS["IBLOCK_IBLOCK"] = "Information block";

@@ -1,4 +1,4 @@
-<?
+<?php 
 class CDavRequest
 {
 	protected $arRequestParameters = null;

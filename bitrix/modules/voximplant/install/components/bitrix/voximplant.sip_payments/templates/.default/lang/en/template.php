@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_SIP_TITLE"] = "SIP Connector";
 $MESS["VI_SIP_PAID_BEFORE"] = "Module will expire on #DATE#";
 $MESS["VI_SIP_PAID_NOTICE"] = "SIP phone numbers will be disconnected after the module subscription expires.";

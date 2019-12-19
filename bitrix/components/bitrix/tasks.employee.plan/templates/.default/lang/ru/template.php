@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_EMPLOYEEPLAN_TEMPLATE_TITLE'] = 'Занятость по задачам';
 $MESS['TASKS_EMPLOYEEPLAN_SHOW_MORE'] = 'Показать ещё';
 $MESS['TASKS_EMPLOYEEPLAN_BY_DEPARTMENT'] = 'По отделу';

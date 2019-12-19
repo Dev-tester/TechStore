@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Loader;
 use Bitrix\Sale;
@@ -2128,7 +2128,7 @@ if(!empty($arUser))
 	?>
 
 	<br />
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
 				<table border="0" cellspacing="0" cellpadding="0" width="100%" class="adm-detail-content-table edit-table">
@@ -2138,47 +2138,47 @@ if(!empty($arUser))
 				<tr>
 					<td class="adm-detail-content-cell-l" width="40%"><?=GetMessage("BUYER_FILED_LOGIN")?>:</td>
 					<td class="adm-detail-content-cell-r">
-						<? if ($adminSidePanelHelper->isPublicSidePanel()): ?>
+						<?php  if ($adminSidePanelHelper->isPublicSidePanel()): ?>
 							<div><?=$u_LOGIN?></div>
-						<? else: ?>
+						<?php  else: ?>
 							<div>
 								<a href="<?=$selfFolderUrl."user_edit.php?ID=".$u_ID."&lang=".LANG ?>" target="_top">
 									<?=$u_LOGIN?>
 								</a>
 							</div>
-						<? endif; ?>
+						<?php  endif; ?>
 					</td>
 				</tr>
-				<?if(strlen($userFIO) > 0):?>
+				<?php if(strlen($userFIO) > 0):?>
 					<tr>
 						<td class="adm-detail-content-cell-l"><?=GetMessage("BUYER_FILED_FIO")?>:</td>
 						<td class="adm-detail-content-cell-r">
 							<div><?=$userFIO?></div>
 						</td>
 					</tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr>
 					<td class="adm-detail-content-cell-l"><?=GetMessage("BUYER_FILED_MAIL")?>:</td>
 					<td class="adm-detail-content-cell-r">
 						<div><a href="mailto:<?=$u_EMAIL?>"><?=$u_EMAIL?></a></div>
 					</td>
 				</tr>
-				<?if(strlen($u_PERSONAL_PHONE) > 0):?>
+				<?php if(strlen($u_PERSONAL_PHONE) > 0):?>
 					<tr>
 						<td class="adm-detail-content-cell-l"><?=GetMessage("BUYER_FILED_PHONE")?>:</td>
 						<td class="adm-detail-content-cell-r">
 							<div><a href="callto:<?=$u_PERSONAL_PHONE?>"><?=$u_PERSONAL_PHONE?></a></div>
 						</td>
 					</tr>
-				<?endif;?>
-				<?if(strlen($u_PERSONAL_MOBILE) > 0):?>
+				<?php endif;?>
+				<?php if(strlen($u_PERSONAL_MOBILE) > 0):?>
 					<tr>
 						<td class="adm-detail-content-cell-l"><?=GetMessage("BUYER_FILED_PHONE_M")?>:</td>
 						<td class="adm-detail-content-cell-r">
 							<div><a href="callto:<?=$u_PERSONAL_MOBILE?>"><?=$u_PERSONAL_MOBILE?></a></div>
 						</td>
 					</tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr>
 					<td class="adm-detail-content-cell-l"><?=GetMessage("BUYER_FILED_REG")?>:</td>
 					<td class="adm-detail-content-cell-r">
@@ -2197,14 +2197,14 @@ if(!empty($arUser))
 						<div><?=$strUserGroup?></div>
 					</td>
 				</tr>
-				<?if (strlen($userAdres) > 0):?>
+				<?php if (strlen($userAdres) > 0):?>
 				<tr>
 					<td class="adm-detail-content-cell-l" valign="top"><?=GetMessage("BUYER_FILED_ADRES")?>:</td>
 					<td class="adm-detail-content-cell-r">
 						<div><?=$userAdres?></div>
 					</td>
 				</tr>
-				<?endif;?>
+				<?php endif;?>
 				</table>
 			</td>
 		</tr>
@@ -2219,13 +2219,13 @@ if(!empty($arUser))
 				}
 			});
 		</script>
-		<?$tabControl->EndTab();?>
+		<?php $tabControl->EndTab();?>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
 			<table border="0" cellspacing="0" cellpadding="0" width="100%" class="adm-detail-content-table edit-table">
-				<?
+				<?php 
 				$arStatOrder = array();
 				$arStatOrder["PAYED"] = array();
 				$arStatOrder["ALL"] = array();
@@ -2340,25 +2340,25 @@ if(!empty($arUser))
 				</tr>
 			</table>
 
-			<?$lAdmin_tab1->DisplayList();?>
+			<?php $lAdmin_tab1->DisplayList();?>
 			</td>
 		</tr>
-		<?$tabControl->EndTab();?>
+		<?php $tabControl->EndTab();?>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
-				<?$lAdmin_tab2->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
+				<?php $lAdmin_tab2->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
 			</td>
 		</tr>
-		<?$tabControl->EndTab();?>
+		<?php $tabControl->EndTab();?>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
-				<form name="find_form3" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+				<form name="find_form3" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 					<input type="hidden" name="USER_ID" value="<?=$ID?>">
-					<?
+					<?php 
 					$arFilterFieldsTmp = array(
 						GetMessage("BUYER_F_DATE_UPDATE"),
 						GetMessage("BUYER_F_LID"),
@@ -2385,60 +2385,60 @@ if(!empty($arUser))
 					$selectLID .= "</select>";
 					?>
 					<tr>
-						<td><?echo GetMessage("BUYER_F_DATE_INSERT");?>:</td>
+						<td><?php echo GetMessage("BUYER_F_DATE_INSERT");?>:</td>
 						<td>
-							<?echo CalendarPeriod("filter_date_order_from", $filter_date_order_from, "filter_date_order_to", $filter_date_order_to, "find_form3", "Y")?>
+							<?php echo CalendarPeriod("filter_date_order_from", $filter_date_order_from, "filter_date_order_to", $filter_date_order_to, "find_form3", "Y")?>
 							<input type="hidden" name="USER_ID" value="<?=$ID?>" >
 						</td>
 					</tr>
 					<tr>
-						<td><?echo GetMessage("BUYER_F_DATE_UPDATE");?>:</td>
+						<td><?php echo GetMessage("BUYER_F_DATE_UPDATE");?>:</td>
 						<td>
-							<?echo CalendarPeriod("filter_order_date_up_from", $filter_order_date_up_from, "filter_order_date_up_to", $filter_order_date_up_to, "find_form3", "Y")?>
+							<?php echo CalendarPeriod("filter_order_date_up_from", $filter_order_date_up_from, "filter_order_date_up_to", $filter_order_date_up_to, "find_form3", "Y")?>
 						</td>
 					</tr>
 					<tr>
 						<td><?=GetMessage('BUYER_VIEW_F_LID')?>:</td>
 						<td>
-							<?echo $selectLID?>
+							<?php echo $selectLID?>
 							<input type="hidden" name="USER_ID" value="<?=$ID?>" >
 						</td>
 					</tr>
 					<tr>
-						<td><?echo GetMessage("BUYER_F_PAYED")?>:</td>
+						<td><?php echo GetMessage("BUYER_F_PAYED")?>:</td>
 						<td>
 							<select name="filter_order_payed">
-								<option value="">(<?echo GetMessage("BUYERS_PAY_ALL")?>)</option>
-								<option value="Y"<?if ($filter_order_payed=="Y") echo " selected"?>><?echo GetMessage("BUYERS_PAY_YES")?></option>
-								<option value="N"<?if ($filter_order_payed=="N") echo " selected"?>><?echo GetMessage("BUYERS_PAY_NO")?></option>
+								<option value="">(<?php echo GetMessage("BUYERS_PAY_ALL")?>)</option>
+								<option value="Y"<?php if ($filter_order_payed=="Y") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_YES")?></option>
+								<option value="N"<?php if ($filter_order_payed=="N") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_NO")?></option>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td><?echo GetMessage("BUYER_F_DELIVERY")?>:</td>
+						<td><?php echo GetMessage("BUYER_F_DELIVERY")?>:</td>
 						<td>
 							<select name="filter_order_delivery">
-								<option value="">(<?echo GetMessage("BUYERS_PAY_ALL")?>)</option>
-								<option value="Y"<?if ($filter_order_delivery=="Y") echo " selected"?>><?echo GetMessage("BUYERS_PAY_YES")?></option>
-								<option value="N"<?if ($filter_order_delivery=="N") echo " selected"?>><?echo GetMessage("BUYERS_PAY_NO")?></option>
+								<option value="">(<?php echo GetMessage("BUYERS_PAY_ALL")?>)</option>
+								<option value="Y"<?php if ($filter_order_delivery=="Y") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_YES")?></option>
+								<option value="N"<?php if ($filter_order_delivery=="N") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_NO")?></option>
 							</select>
 						</td>
 					</tr>
 					<tr>
-						<td><?echo GetMessage("BUYER_F_PRICE")?>:</td>
+						<td><?php echo GetMessage("BUYER_F_PRICE")?>:</td>
 						<td>
 							<span style="position:absolute;padding-top:5px;"><?=GetMessage('BUYER_F_PRICE_FROM');?></span>&nbsp;<input type="text" size="7" maxlength="10" name="filter_summa_from" value="<?=htmlspecialcharsbx($filter_summa_from)?>">&nbsp;
 							<?=GetMessage('BUYER_F_PRICE_TO');?>&nbsp;<input type="text" size="7" name="filter_summa_to" maxlength="10" value="<?=htmlspecialcharsbx($filter_summa_to)?>">
 						</td>
 					</tr>
 					<tr>
-						<td><?echo GetMessage("BUYER_F_NAME_PRODUCT")?>:</td>
+						<td><?php echo GetMessage("BUYER_F_NAME_PRODUCT")?>:</td>
 						<td>
-							<? CUtil::DecodeUriComponent($filter_order_prod_name);?>
+							<?php  CUtil::DecodeUriComponent($filter_order_prod_name);?>
 							<input type="text" name="filter_order_prod_name" value="<?=htmlspecialcharsbx($filter_order_prod_name)?>" size="42">
 						</td>
 					</tr>
-					<?
+					<?php 
 					$oFilter->Buttons(
 						array(
 							"table_id" => $sTableID_tab3,
@@ -2448,21 +2448,21 @@ if(!empty($arUser))
 					);
 					$oFilter->End();?>
 				</form>
-				<?$lAdmin_tab3->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
+				<?php $lAdmin_tab3->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
 			</td>
 		</tr>
-		<?$tabControl->EndTab();?>
+		<?php $tabControl->EndTab();?>
 
-		<?
+		<?php 
 		if (!$adminSidePanelHelper->isPublicSidePanel())
 		{
 			?>
-			<?$tabControl->BeginNextTab();?>
+			<?php $tabControl->BeginNextTab();?>
 			<tr>
 				<td colspan="2">
-					<form name="find_form7" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+					<form name="find_form7" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 						<input type="hidden" name="USER_ID" value="<?=$ID?>">
-						<?
+						<?php 
 							$arFilterFieldsTmp = array(
 								GetMessage("BUYER_F_DATE_ARCHIVED"),
 								GetMessage("BUYER_F_LID"),
@@ -2489,60 +2489,60 @@ if(!empty($arUser))
 							$selectLID .= "</select>";
 						?>
 						<tr>
-							<td><?echo GetMessage("BUYER_F_DATE_INSERT");?>:</td>
+							<td><?php echo GetMessage("BUYER_F_DATE_INSERT");?>:</td>
 							<td>
-								<?echo CalendarPeriod("filter_date_order_from", $filter_date_order_from, "filter_date_order_to", $filter_date_order_to, "find_form7", "Y")?>
+								<?php echo CalendarPeriod("filter_date_order_from", $filter_date_order_from, "filter_date_order_to", $filter_date_order_to, "find_form7", "Y")?>
 								<input type="hidden" name="USER_ID" value="<?=$ID?>" >
 							</td>
 						</tr>
 						<tr>
-							<td><?echo GetMessage("BUYER_F_DATE_ARCHIVED");?>:</td>
+							<td><?php echo GetMessage("BUYER_F_DATE_ARCHIVED");?>:</td>
 							<td>
-								<?echo CalendarPeriod("filter_date_order_archived_from", $filter_date_order_archived_from, "filter_date_order_archived_to", $filter_date_order_archived_to, "find_form7", "Y")?>
+								<?php echo CalendarPeriod("filter_date_order_archived_from", $filter_date_order_archived_from, "filter_date_order_archived_to", $filter_date_order_archived_to, "find_form7", "Y")?>
 							</td>
 						</tr>
 						<tr>
 							<td><?=GetMessage('BUYER_VIEW_F_LID')?>:</td>
 							<td>
-								<?echo $selectLID?>
+								<?php echo $selectLID?>
 								<input type="hidden" name="USER_ID" value="<?=$ID?>" >
 							</td>
 						</tr>
 						<tr>
-							<td><?echo GetMessage("BUYER_F_PAYED")?>:</td>
+							<td><?php echo GetMessage("BUYER_F_PAYED")?>:</td>
 							<td>
 								<select name="filter_order_payed">
-									<option value="">(<?echo GetMessage("BUYERS_PAY_ALL")?>)</option>
-									<option value="Y"<?if ($filter_order_payed=="Y") echo " selected"?>><?echo GetMessage("BUYERS_PAY_YES")?></option>
-									<option value="N"<?if ($filter_order_payed=="N") echo " selected"?>><?echo GetMessage("BUYERS_PAY_NO")?></option>
+									<option value="">(<?php echo GetMessage("BUYERS_PAY_ALL")?>)</option>
+									<option value="Y"<?php if ($filter_order_payed=="Y") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_YES")?></option>
+									<option value="N"<?php if ($filter_order_payed=="N") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_NO")?></option>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td><?echo GetMessage("BUYER_F_DELIVERY")?>:</td>
+							<td><?php echo GetMessage("BUYER_F_DELIVERY")?>:</td>
 							<td>
 								<select name="filter_order_delivery">
-									<option value="">(<?echo GetMessage("BUYERS_PAY_ALL")?>)</option>
-									<option value="Y"<?if ($filter_order_delivery=="Y") echo " selected"?>><?echo GetMessage("BUYERS_PAY_YES")?></option>
-									<option value="N"<?if ($filter_order_delivery=="N") echo " selected"?>><?echo GetMessage("BUYERS_PAY_NO")?></option>
+									<option value="">(<?php echo GetMessage("BUYERS_PAY_ALL")?>)</option>
+									<option value="Y"<?php if ($filter_order_delivery=="Y") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_YES")?></option>
+									<option value="N"<?php if ($filter_order_delivery=="N") echo " selected"?>><?php echo GetMessage("BUYERS_PAY_NO")?></option>
 								</select>
 							</td>
 						</tr>
 						<tr>
-							<td><?echo GetMessage("BUYER_F_PRICE")?>:</td>
+							<td><?php echo GetMessage("BUYER_F_PRICE")?>:</td>
 							<td>
 								<span style="position:absolute;padding-top:5px;"><?=GetMessage('BUYER_F_PRICE_FROM');?></span>&nbsp;<input type="text" size="7" maxlength="10" name="filter_summa_from" value="<?=htmlspecialcharsbx($filter_summa_from)?>">&nbsp;
 								<?=GetMessage('BUYER_F_PRICE_TO');?>&nbsp;<input type="text" size="7" name="filter_summa_to" maxlength="10" value="<?=htmlspecialcharsbx($filter_summa_to)?>">
 							</td>
 						</tr>
 						<tr>
-							<td><?echo GetMessage("BUYER_F_NAME_PRODUCT")?>:</td>
+							<td><?php echo GetMessage("BUYER_F_NAME_PRODUCT")?>:</td>
 							<td>
-								<? CUtil::DecodeUriComponent($filter_order_prod_name);?>
+								<?php  CUtil::DecodeUriComponent($filter_order_prod_name);?>
 								<input type="text" name="filter_order_prod_name" value="<?=htmlspecialcharsbx($filter_order_prod_name)?>" size="42">
 							</td>
 						</tr>
-						<?
+						<?php 
 						$oFilter->Buttons(
 							array(
 								"table_id" => $sTableID_tab7,
@@ -2552,22 +2552,22 @@ if(!empty($arUser))
 						);
 						$oFilter->End();?>
 					</form>
-					<?
+					<?php 
 					$lAdmin_tab7->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));
 					?>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$tabControl->EndTab();
 		}
 		?>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
-				<form name="find_form4" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+				<form name="find_form4" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 					<input type="hidden" name="USER_ID" value="<?=$ID?>">
-					<?
+					<?php 
 					$arFilterFieldsTmp = array();
 					if (count($arSites) > 1)
 						$arFilterFieldsTmp[] = GetMessage('BUYER_BASKET_F_LID');
@@ -2595,20 +2595,20 @@ if(!empty($arUser))
 					<tr>
 						<td><?=GetMessage('BUYER_BASKET_F_LID')?>:</td>
 						<td>
-							<?echo $selectLID?>
+							<?php echo $selectLID?>
 						</td>
 					</tr>
-					<?
+					<?php 
 					}
 					?>
 					<tr>
 						<td><?=GetMessage('BUYER_BASKET_F_NAME')?>:</td>
 						<td>
-							<? CUtil::DecodeUriComponent($basket_name_product);?>
+							<?php  CUtil::DecodeUriComponent($basket_name_product);?>
 							<input type="text" name="basket_name_product" size="48" value="<?=htmlspecialcharsbx($basket_name_product)?>" >
 						</td>
 					</tr>
-					<?
+					<?php 
 					$oFilter4->Buttons(
 						array(
 							"table_id" => $sTableID_tab4,
@@ -2618,18 +2618,18 @@ if(!empty($arUser))
 					);
 					$oFilter4->End();?>
 				</form>
-				<?$lAdmin_tab4->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
+				<?php $lAdmin_tab4->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
 			</td>
 		</tr>
-		<?$tabControl->EndTab();?>
+		<?php $tabControl->EndTab();?>
 
-		<?$tabControl->BeginNextTab();?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
-				<form name="find_form5" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+				<form name="find_form5" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 					<input type="hidden" name="USER_ID" value="<?=$ID?>">
 
-					<?$arFilterFieldsTmp = array();
+					<?php $arFilterFieldsTmp = array();
 					if (count($arSites) > 1)
 						$arFilterFieldsTmp[] = GetMessage('BUYER_VIEW_F_LID');
 
@@ -2653,19 +2653,19 @@ if(!empty($arUser))
 					<tr>
 						<td><?=GetMessage('BUYER_VIEW_F_DATE')?>:</td>
 						<td>
-							<?echo CalendarPeriod("filter_date_visit_from", $filter_date_visit_from, "filter_date_visit_to", $filter_date_visit_to, "find_form5", "Y")?>
+							<?php echo CalendarPeriod("filter_date_visit_from", $filter_date_visit_from, "filter_date_visit_to", $filter_date_visit_to, "find_form5", "Y")?>
 							<input type="hidden" name="USER_ID" value="<?=$ID?>" >
 						</td>
 					</tr>
-					<?if (count($arSites) > 1):?>
+					<?php if (count($arSites) > 1):?>
 					<tr>
 						<td><?=GetMessage('BUYER_VIEW_F_LID')?>:</td>
 						<td>
-							<?echo $selectLID?>
+							<?php echo $selectLID?>
 						</td>
 					</tr>
-					<?endif?>
-					<?
+					<?php endif?>
+					<?php 
 					$oFilter5->Buttons(
 						array(
 							"table_id" => $sTableID_tab5,
@@ -2676,7 +2676,7 @@ if(!empty($arUser))
 					$oFilter5->End();
 					?>
 					</form>
-				<?$lAdmin_tab5->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
+				<?php $lAdmin_tab5->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
 
 				<div class="sale_popup_form" id="popup_form_sku_order" style="display:none;">
 					<table width="100%">
@@ -2883,11 +2883,11 @@ if(!empty($arUser))
 										else
 										{
 											BX('sku_to_basket_apply').value = "N";
-											<? if ($adminSidePanelHelper->isPublicSidePanel()):?>
+											<?php  if ($adminSidePanelHelper->isPublicSidePanel()):?>
 												BX('viewed_url_action').value = '/shop/orders/details/0/?USER_ID='+arSKU[i]["USER_ID"]+'&lang=<?=LANG?>&SITE_ID='+arSKU[i]["LID"]+'&product['+arSKU[i]["ID"]+']=1';
-											<? else: ?>
+											<?php  else: ?>
 												BX('viewed_url_action').value = '<?=$selfFolderUrl?>sale_order_create.php?USER_ID='+arSKU[i]["USER_ID"]+'&lang=<?=LANG?>&SITE_ID='+arSKU[i]["LID"]+'&product['+arSKU[i]["ID"]+']=1';
-											<? endif; ?>
+											<?php  endif; ?>
 											btnText = BX.message('PRODUCT_ADD_TO_ORDER');
 										}
 
@@ -2926,15 +2926,15 @@ if(!empty($arUser))
 				</script>
 			</td>
 		</tr>
-		<?$tabControl->EndTab();?>
+		<?php $tabControl->EndTab();?>
 
-		<?if($catalogSubscribeEnabled):?>
-		<?$tabControl->BeginNextTab();?>
+		<?php if($catalogSubscribeEnabled):?>
+		<?php $tabControl->BeginNextTab();?>
 		<tr>
 			<td colspan="2">
 				<form method="GET" name="find_subscribe_form" id="find_subscribe_form" 
 				      action="<?=$APPLICATION->getCurPage()?>">
-					<?
+					<?php 
 						$findFields = array(
 							Loc::getMessage('CS_FILTER_ID'),
 							Loc::getMessage('CS_FILTER_USER_CONTACT'),
@@ -2975,13 +2975,13 @@ if(!empty($arUser))
 						<td>
 							<select name="find_contact_type[]">
 								<option value=""><?=Loc::getMessage('CS_FILTER_ANY')?></option>
-								<?
+								<?php 
 								$contactTypes = !empty($find_contact_type) ? $find_contact_type : array();
 								foreach ($contactType as $contactTypeId => $contactTypeData):?>
 									<option value="<?=$contactTypeId?>"<?=in_array($contactTypeId, $contactTypes) ? ' selected' : ''?>>
 										<?=htmlspecialcharsbx($contactTypeData['NAME']); ?>
 									</option>
-								<?endforeach; ?>
+								<?php endforeach; ?>
 							</select>
 						</td>
 					</tr>
@@ -2990,29 +2990,29 @@ if(!empty($arUser))
 						<td>
 							<select name="find_active">
 								<option value=""><?=Loc::getMessage('CS_FILTER_ANY')?></option>
-								<option value="Y"<?if($find_active=="Y")echo " selected"?>>
+								<option value="Y"<?php if($find_active=="Y")echo " selected"?>>
 									<?=Loc::getMessage('CS_FILTER_YES')?>
 								</option>
-								<option value="N"<?if($find_active=="N")echo " selected"?>>
+								<option value="N"<?php if($find_active=="N")echo " selected"?>>
 									<?=Loc::getMessage('CS_FILTER_NO')?>
 								</option>
 							</select>
 						</td>
 					</tr>
-					<?
+					<?php 
 						$filterObject->buttons(array('table_id' => $sTableID_tab6,
 							'url' => $APPLICATION->getCurPageParam(), 'form' => 'find_subscribe_form'));
 						$filterObject->end();
 					?>
 				</form>
-				<?$lAdmin_tab6->displayList(array('FIX_HEADER' => false, 'FIX_FOOTER' => false));?>
+				<?php $lAdmin_tab6->displayList(array('FIX_HEADER' => false, 'FIX_FOOTER' => false));?>
 			</td>
 		</tr>
-		<?$tabControl->EndTab();?>
-		<?endif;?>
+		<?php $tabControl->EndTab();?>
+		<?php endif;?>
 
-	<?$tabControl->End();?>
-<?
+	<?php $tabControl->End();?>
+<?php 
 }
 else
 {

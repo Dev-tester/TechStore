@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if(!$USER->CanDoOperation('edit_other_settings'))
@@ -27,10 +27,10 @@ if($res !== false):
 	if (!window.parent.window.result)
 		window.parent.window.result = new Array();
 	window.parent.window.result['done'] = true;
-<?if ($res["status"] == "error"):?>
+<?php if ($res["status"] == "error"):?>
 	window.parent.window.result['stop'] = true;
 	window.parent.window.result['error'] = true;
-<?else:?>
+<?php else:?>
 	window.parent.window.result['<?=CUtil::JSEscape($_REQUEST["name"])?>'] = new Array();
 	window.parent.window.result['<?=CUtil::JSEscape($_REQUEST["name"])?>']['size'] = '<?=$res['size']?>';
 	window.parent.window.result['<?=CUtil::JSEscape($_REQUEST["name"])?>']['status'] = '<?=substr($res['status'], 0, 1)?>';
@@ -40,9 +40,9 @@ if($res !== false):
 	window.parent.window.result['error'] = false;
 	
 	window.parent.window.onStepDone('<?=CUtil::JSEscape($_REQUEST["name"])?>');
-<?endif;?>
+<?php endif;?>
 </script>
-<?
+<?php 
 endif;
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_popup_admin.php");

@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Частным лицам");
 ?>
@@ -10,4 +10,4 @@ $APPLICATION->SetTitle("Частным лицам");
 		<li><a href="credit.php">Потребительский кредит</a></li> 
 	</ul>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?> 
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?> 

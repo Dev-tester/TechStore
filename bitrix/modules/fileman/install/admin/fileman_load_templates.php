@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/admin/fileman_load_templates.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/admin/fileman_load_templates.php");?>

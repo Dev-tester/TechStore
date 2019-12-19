@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Location\Normalizer;
 
 use \Bitrix\Main\Text\Encoding;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IB1C_ERROR_CATEGORY"] = "Ошибка загрузки группы";
 $MESS["IB1C_ERROR_CATALOG"] = "Ошибка загрузки каталога";
 $MESS["IB1C_ERROR_PROPERTY"] = "Ошибка загрузки свойства";

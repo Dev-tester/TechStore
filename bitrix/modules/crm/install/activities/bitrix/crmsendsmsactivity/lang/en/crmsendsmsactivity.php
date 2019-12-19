@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SSMSA_PHONE_TYPE"] = "Client phone number type";
 $MESS["CRM_SSMSA_PHONE_TYPE_EMPTY_OPTION"] = "Auto select";
 $MESS["CRM_SSMSA_TIMELINE_ERROR"] = "Message was not sent. #ERROR_TEXT#";

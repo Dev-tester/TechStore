@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -42,7 +42,7 @@ if (!empty($arResult["bShowRequestSentMessage"]))
 					PROJECT: <?=($arResult["Group"]["PROJECT"] == "Y" ? 'true' : 'false')?>
 				});
 			});
-		</script><?
+		</script><?php 
 	}
 	elseif ($arResult["bShowRequestSentMessage"] == UserToGroupTable::INITIATED_BY_GROUP)
 	{
@@ -87,7 +87,7 @@ if (!empty($arResult["bShowRequestSentMessage"]))
 			}
 		});
 	});
-</script><?
+</script><?php 
 
 ?><div class="profile-menu profile-menu-group">
 	<div class="profile-menu-inner">
@@ -95,31 +95,31 @@ if (!empty($arResult["bShowRequestSentMessage"]))
 			<a
 					href="<?=$arResult["Urls"]["View"]?>"
 					class="profile-menu-avatar group-default-avatar"
-			<?if (strlen($arResult["Group"]["IMAGE_FILE"]["src"]) > 0):?>
+			<?php if (strlen($arResult["Group"]["IMAGE_FILE"]["src"]) > 0):?>
 				style="background:url('<?=$arResult["Group"]["IMAGE_FILE"]["src"]?>') no-repeat center center; background-size: cover"
-			<?endif;?>
+			<?php endif;?>
 			></a>
 			<div class="profile-menu-info<?=($arResult["Group"]["IS_EXTRANET"] == "Y" ? " profile-menu-group-info-extranet" : "")?>">
 				<a href="<?=$arResult["Urls"]["View"]?>" class="profile-menu-name"><?=$arResult["Group"]["NAME"]?></a>
 				<div class="profile-menu-type">
 					<span class="profile-menu-type-name">
-						<span class="profile-menu-type-name-item"><?=(is_array($arResult['Group']['Type']) && !empty($arResult['Group']['Type']) && !empty($arResult['Group']['Type']['NAME']) ? (LANGUAGE_ID == 'de' ? $arResult['Group']['Type']['NAME'] : strtolower($arResult['Group']['Type']['NAME'])) : '')?></span><?
+						<span class="profile-menu-type-name-item"><?=(is_array($arResult['Group']['Type']) && !empty($arResult['Group']['Type']) && !empty($arResult['Group']['Type']['NAME']) ? (LANGUAGE_ID == 'de' ? $arResult['Group']['Type']['NAME'] : strtolower($arResult['Group']['Type']['NAME'])) : '')?></span><?php 
 						if ($arResult["CurrentUserPerms"]["UserCanModifyGroup"])
 						{
-							?><a href="<?=htmlspecialcharsbx($arResult["Urls"]["Edit"].(strpos($arResult["Urls"]["Edit"], "?") !== false ? "&" : '?')."tab=edit")?>" class="profile-menu-type-icon"></a><?
+							?><a href="<?=htmlspecialcharsbx($arResult["Urls"]["Edit"].(strpos($arResult["Urls"]["Edit"], "?") !== false ? "&" : '?')."tab=edit")?>" class="profile-menu-type-icon"></a><?php 
 						}
 					?></span>
-				</div><?
+				</div><?php 
 
 				if ($arResult["Group"]["CLOSED"] == "Y")
 				{
-					?><span class="profile-menu-description"><?=Loc::getMessage("SONET_UM_ARCHIVE_GROUP")?></span><?
+					?><span class="profile-menu-description"><?=Loc::getMessage("SONET_UM_ARCHIVE_GROUP")?></span><?php 
 				}
 
-				?><span class="profile-menu-links"><?
-					?><a href="<?=$arResult["Urls"]["Card"]?>" class="profile-menu-links-item"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == "Y" ? "SONET_SGM_T_LINKS_ABOUT_PROJECT" : "SONET_SGM_T_LINKS_ABOUT")?></a><?
+				?><span class="profile-menu-links"><?php 
+					?><a href="<?=$arResult["Urls"]["Card"]?>" class="profile-menu-links-item"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == "Y" ? "SONET_SGM_T_LINKS_ABOUT_PROJECT" : "SONET_SGM_T_LINKS_ABOUT")?></a><?php 
 
-					?><a href="<?=$arResult["Urls"]["GroupUsers"]?>" class="profile-menu-links-item"><?
+					?><a href="<?=$arResult["Urls"]["GroupUsers"]?>" class="profile-menu-links-item"><?php 
 						if (intval($arResult['Group']['NUMBER_OF_MEMBERS']) > 0)
 						{
 							echo Loc::getMessage("SONET_SGM_T_MEMBERS2", array('#NUM#' => intval($arResult['Group']['NUMBER_OF_MEMBERS'])));
@@ -128,7 +128,7 @@ if (!empty($arResult["bShowRequestSentMessage"]))
                         {
 							echo Loc::getMessage("SONET_SGM_T_MEMBERS");
                         }
-					?></a><?
+					?></a><?php 
 
 					if (
 						$arResult["CurrentUserPerms"]["UserCanProcessRequestsIn"]
@@ -136,7 +136,7 @@ if (!empty($arResult["bShowRequestSentMessage"]))
 						&& intval($arResult['Group']['NUMBER_OF_REQUESTS']) > 0
 					)
 					{
-						?><a href="<?=$arResult["Urls"]["GroupRequests"]?>" class="profile-menu-links-count">+<?=intval($arResult['Group']['NUMBER_OF_REQUESTS'])?></a><?
+						?><a href="<?=$arResult["Urls"]["GroupRequests"]?>" class="profile-menu-links-count">+<?=intval($arResult['Group']['NUMBER_OF_REQUESTS'])?></a><?php 
 					}
 
 					if (
@@ -144,30 +144,30 @@ if (!empty($arResult["bShowRequestSentMessage"]))
 						|| $arResult["CurrentUserPerms"]["UserIsMember"]
 					)
 					{
-						?><a id="bx-group-menu-settings" href="javascript:void(0);" class="profile-menu-links-item"><?=Loc::getMessage("SONET_UM_ACTIONS_BUTTON")?></a><?
+						?><a id="bx-group-menu-settings" href="javascript:void(0);" class="profile-menu-links-item"><?=Loc::getMessage("SONET_UM_ACTIONS_BUTTON")?></a><?php 
 					}
-				?></span><?
+				?></span><?php 
 
 				if ($arResult["bUserCanRequestGroup"])
 				{
-					?><span id="bx-group-menu-join-cont" style="padding-left: 10px;"><?
+					?><span id="bx-group-menu-join-cont" style="padding-left: 10px;"><?php 
 
 						if ($arResult['Group']['OPENED'] == 'Y')
 						{
-							?><button class="ui-btn ui-btn-sm ui-btn-primary" id="bx-group-menu-join" bx-request-url="<?=$arResult["Urls"]["UserRequestGroup"]?>"><?=Loc::getMessage('SONET_SGM_T_BUTTON_JOIN')?></button><?
+							?><button class="ui-btn ui-btn-sm ui-btn-primary" id="bx-group-menu-join" bx-request-url="<?=$arResult["Urls"]["UserRequestGroup"]?>"><?=Loc::getMessage('SONET_SGM_T_BUTTON_JOIN')?></button><?php 
 						}
 						else
 						{
-							?><a class="ui-btn ui-btn-sm ui-btn-primary" href="<?=$arResult["Urls"]["UserRequestGroup"]?>"><?=Loc::getMessage('SONET_SGM_T_BUTTON_JOIN')?></a><?
+							?><a class="ui-btn ui-btn-sm ui-btn-primary" href="<?=$arResult["Urls"]["UserRequestGroup"]?>"><?=Loc::getMessage('SONET_SGM_T_BUTTON_JOIN')?></a><?php 
 						}
 
-					?></span><?
+					?></span><?php 
 				}
 
 			?></div>
 		</div>
 		<div class="profile-menu-bottom">
-			<div class="profile-menu-items-new"><?
+			<div class="profile-menu-items-new"><?php 
 
 				$menuItems = array();
 
@@ -226,7 +226,7 @@ if (!empty($arResult["bShowRequestSentMessage"]))
 		</div>
 	</div>
 </div>
-<?
+<?php 
 
 
 $this->EndViewTarget();?>

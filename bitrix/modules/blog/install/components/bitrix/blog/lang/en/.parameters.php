@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BC_BLOG_VAR"] = "Blog identifier variable";
 $MESS["BC_POST_VAR"] = "Blog message identifier variable";
 $MESS["BC_USER_VAR"] = "Blog user identifier variable";

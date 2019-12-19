@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_TMS_START_SERVICES_MAIN_SECTION"] = "Корпоративный портал";
 $MESS["FACEID_TMS_START_SERVICES_PARENT_SECTION"] = "Учет рабочего времени";
 $MESS["FACEID_TMS_START_SECTION_TEMPLATE_NAME"] = "Начало работы с Bitrix24Time";

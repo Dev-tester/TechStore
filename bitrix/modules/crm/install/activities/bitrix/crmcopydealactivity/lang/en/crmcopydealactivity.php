@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CDA_CHANGE_RESPONSIBLE"] = "Responsible person";
 $MESS["CRM_CDA_CHANGE_STAGE"] = "Initial stage";
 $MESS["CRM_CDA_COPY_PRODUCTS_ERROR"] = "Cannot copy product items from the source deal";

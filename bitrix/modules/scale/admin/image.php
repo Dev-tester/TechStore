@@ -1,4 +1,4 @@
-<?
+<?php 
 /** Bitrix Framework
  * Bitrix vars
  * @global CUser $USER

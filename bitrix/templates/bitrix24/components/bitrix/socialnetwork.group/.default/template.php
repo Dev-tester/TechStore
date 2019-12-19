@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -12,7 +12,7 @@ use \Bitrix\Main\UI;
 
 if (strlen($arResult["FatalError"]) > 0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br/><br/><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br/><br/><?php 
 	return;
 }
 
@@ -23,14 +23,14 @@ UI\Extension::load("socialnetwork.common");
 
 if (strlen($arResult["ErrorMessage"]) > 0)
 {
-	?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br/><br/><?
+	?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br/><br/><?php 
 }
 
 if ($arResult["bShowRequestSentMessage"] == "U")
 {
 	?><div class="socialnetwork-group-join-request-sent">
 		<?=GetMessage("SONET_C6_ACT_JOIN_REQUEST_SENT")?>
-	</div><?
+	</div><?php 
 }
 elseif ($arResult["bShowRequestSentMessage"] == "G")
 {
@@ -43,7 +43,7 @@ elseif ($arResult["bShowRequestSentMessage"] == "G")
 				COption::GetOptionString("socialnetwork", "user_request_page", (IsModuleInstalled("intranet")) ? "/company/personal/user/#user_id#/requests/" : "/club/user/#user_id#/requests/", SITE_ID)
 			),
 			GetMessage("SONET_C6_ACT_JOIN_REQUEST_SENT_BY_GROUP")
-	)?></div><?
+	)?></div><?php 
 }
 elseif ($arResult["bUserCanRequestGroup"])
 {
@@ -51,18 +51,18 @@ elseif ($arResult["bUserCanRequestGroup"])
 		BX.message({
 			SONET_C6_T_AJAX_ERROR: '<?=GetMessageJS('SONET_C6_T_AJAX_ERROR')?>'
 		});
-	</script><?
+	</script><?php 
 
 	?><div class="socialnetwork-group-description-wrapper">
-	<table width="100%" cellspacing="0" id="bx_group_description" class="socialnetwork-group-description-table<?if ($arResult["bDescriptionOpen"] != "Y"):?> socialnetwork-group-description-hide-table<?endif?>">
+	<table width="100%" cellspacing="0" id="bx_group_description" class="socialnetwork-group-description-table<?php if ($arResult["bDescriptionOpen"] != "Y"):?> socialnetwork-group-description-hide-table<?php endif?>">
 		<tr>
 			<td valign="top">
-				<table width="100%" cellspacing="0"><?
+				<table width="100%" cellspacing="0"><?php 
 					if ($arResult["Group"]["CLOSED"] == "Y")
 					{
 						?><tr>
 							<td colspan="2" class="socialnetwork-group-description"><b><?=GetMessage("SONET_C39_ARCHIVE_GROUP")?></b></td>
-						</tr><?
+						</tr><?php 
 					}
 
 					if (strlen($arResult["Group"]["DESCRIPTION"]) > 0)
@@ -70,7 +70,7 @@ elseif ($arResult["bUserCanRequestGroup"])
 						?><tr class="ext-header-center-row">
 							<td class="socialnetwork-group-description-left-col"><?=GetMessage("SONET_C6_DESCR")?>:</td>
 							<td class="socialnetwork-group-description"><?=nl2br($arResult["Group"]["DESCRIPTION"])?></td>
-						</tr><?
+						</tr><?php 
 					}
 
 					if ($arResult["GroupProperties"]["SHOW"] == "Y")
@@ -90,7 +90,7 @@ elseif ($arResult["bUserCanRequestGroup"])
 							{
 								?><tr class="ext-header-center-row">
 									<td class="socialnetwork-group-description-left-col"><?=$arUserField["EDIT_FORM_LABEL"]?>:</td>
-									<td class="socialnetwork-group-description"><?
+									<td class="socialnetwork-group-description"><?php 
 										$APPLICATION->IncludeComponent(
 											"bitrix:system.field.view",
 											$arUserField["USER_TYPE"]["USER_TYPE_ID"],
@@ -99,17 +99,17 @@ elseif ($arResult["bUserCanRequestGroup"])
 											array("HIDE_ICONS"=>"Y")
 										);
 									?></td>
-								</tr><?
+								</tr><?php 
 							}
 						}
 					}
 
 					?><tr>
 						<td class="socialnetwork-group-description-left-col"><nobr><?=Loc::getMessage($arResult['Group']['PROJECT'] == 'Y' ? "SONET_C6_TYPE_PROJECT" : "SONET_C6_TYPE")?>:</nobr></td>
-						<td class="socialnetwork-group-description"><?
+						<td class="socialnetwork-group-description"><?php 
 
-							?><?=$arResult['Group']['Type']['NAME']?><br /><?;
-							?><?=($arResult['Group']['Type']['DESCRIPTION'])?><br /><?
+							?><?=$arResult['Group']['Type']['NAME']?><br /><?php ;
+							?><?=($arResult['Group']['Type']['DESCRIPTION'])?><br /><?php 
 
 							if ($arResult["bUserCanRequestGroup"])
 							{
@@ -119,36 +119,36 @@ elseif ($arResult["bUserCanRequestGroup"])
 										: Loc::getMessage($arResult['Group']['PROJECT'] == 'Y' ? "SONET_C6_ACT_JOIN2_PROJECT" : "SONET_C6_ACT_JOIN2")
 								);
 
-								?><div id="bx-group-join-form" class="sonet-group-user-request-form"><?
-									?><div id="bx-group-join-error" class="sonet-ui-form-error-block-invisible ui-alert ui-alert-danger"></div><?
+								?><div id="bx-group-join-form" class="sonet-group-user-request-form"><?php 
+									?><div id="bx-group-join-error" class="sonet-ui-form-error-block-invisible ui-alert ui-alert-danger"></div><?php 
 
 									if ($arResult['Group']['OPENED'] != 'Y')
 									{
 										?><div class="sonet-group-user-request-join-message-cont">
 											<textarea class="sonet-group-user-request-join-message-text" id="bx-group-join-message"></textarea>
-										</div><?
+										</div><?php 
 									}
 
-									?><span class="sonet-ui-btn-cont"><?
-										?><button class="ui-btn ui-btn-success" id="bx-group-join-submit" bx-request-url="<?=$arResult["Urls"]["UserRequestGroup"]?>"><?=$joinButtonTitle?></button><?
-										?><a class="ui-btn ui-btn-light-border" href="<?=$arResult["Urls"]["GroupsList"]?>"><?=Loc::getMessage("SONET_C6_ACT_RETURN_TO_LIST")?></a><?
+									?><span class="sonet-ui-btn-cont"><?php 
+										?><button class="ui-btn ui-btn-success" id="bx-group-join-submit" bx-request-url="<?=$arResult["Urls"]["UserRequestGroup"]?>"><?=$joinButtonTitle?></button><?php 
+										?><a class="ui-btn ui-btn-light-border" href="<?=$arResult["Urls"]["GroupsList"]?>"><?=Loc::getMessage("SONET_C6_ACT_RETURN_TO_LIST")?></a><?php 
 									?></span>
 
-								</div><?
+								</div><?php 
 							}
 						?></td>
-					</tr><?
+					</tr><?php 
 				?></table>
 			</td>
 		</tr>
 	</table>
-	</div><?
+	</div><?php 
 }
 ?>
 
 	<div class="sonet-group-log">
 		<div id="log_external_container"></div>
-		<?
+		<?php 
 		if (
 			!empty($arResult["ActiveFeatures"])
 			&& array_key_exists('blog', $arResult["ActiveFeatures"])
@@ -205,7 +205,7 @@ elseif ($arResult["bUserCanRequestGroup"])
 		?>
 	</div>
 
-<?
+<?php 
 
 if (
 	$_SERVER['REQUEST_METHOD'] == "POST"

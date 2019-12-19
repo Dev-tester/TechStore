@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_URL_TEMPLATES"] = "URLs processing";
 $MESS["F_TOPICS_PER_PAGE"] = "Number of topics per page";
 $MESS["F_SHOW_FORUM_ANOTHER_SITE"] = "Display Forums from other internal sites";

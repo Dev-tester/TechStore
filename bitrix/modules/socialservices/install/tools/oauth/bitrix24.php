@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 This is callback page for Bitrix24 OAuth 2.0 authentication.
 Google redirects only to specific back url set in the OAuth application.

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ACTIVE'] = "Active:";
 $MESS['ADD'] = "Add a new user";
 $MESS['AUTH_NONSECURE_NOTE'] = "The password will be sent in open form. Enable JavaScript in your web browser to enable password encryption.";

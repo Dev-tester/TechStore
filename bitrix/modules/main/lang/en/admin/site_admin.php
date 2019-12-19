@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Sites";
 $MESS["SAVE_ERROR"] = "Error saving site ";
 $MESS["DELETE_ERROR"] = "Error deleting the record";

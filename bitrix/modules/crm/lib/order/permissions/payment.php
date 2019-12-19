@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\Order\Permissions;
 
 /**

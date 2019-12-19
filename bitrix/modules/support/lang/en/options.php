@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_URL_PUBLIC"] = "Helpdesk folder (use #SITE_DIR# for the website root):";
 $MESS["SUP_URL_PUBLIC_EDIT"] = "Ticket edit page (relative to the helpdesk folder):";
 $MESS["SUP_MAX_FILESIZE"] = "Maximum uploadable file size (bytes):";

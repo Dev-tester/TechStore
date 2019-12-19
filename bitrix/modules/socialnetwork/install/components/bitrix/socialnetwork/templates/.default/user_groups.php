@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $pageId = "user_groups";
 include("util_menu.php");
@@ -6,7 +6,7 @@ include("util_profile.php");
 
 $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/js/socialnetwork/sonet-iframe-popup.js");
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.user_groups", 
 	"", 

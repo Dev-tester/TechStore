@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BASE_PRESET_DISCOUNT_EDIT_ERR_ADD"] = "Fehler beim Hinzufügen einer Rabattregel";
 $MESS["SALE_BASE_PRESET_DISCOUNT_EDIT_ERR_UPDATE"] = "Fehler beim Aktualisieren einer Rabattregel";
 $MESS["SALE_BASE_PRESET_ORDERAMOUNT_FIELD_NAME"] = "Rabattname";

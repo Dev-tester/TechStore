@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLT_LETTER"] = "Буква";
 $MESS["FLT_LETTERS"] = "Буквы";
 $MESS["FLT_REPLACE"] = "Аналог";

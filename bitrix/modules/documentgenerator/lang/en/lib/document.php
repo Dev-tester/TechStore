@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCUMENT_TITLE_FIELD_NAME"] = "Document name";
 $MESS["DOCUMENT_GROUP_NAME"] = "Document";
 $MESS["DOCUMENT_TRANSOFMER_MODULE_ERROR"] = "Cannot convert files because the module is not installed.";

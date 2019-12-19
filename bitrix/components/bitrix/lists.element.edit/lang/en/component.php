@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BLEE_ACCESS_DENIED"] = "Insufficient permission to view and edit the list.";
 $MESS["CC_BLEE_ACCESS_DENIED_STATUS"] = "You do not have enough permissions to edit this record in its current state";
 $MESS["CC_BLEE_DELETE_ERROR"] = "Error when deleting.";

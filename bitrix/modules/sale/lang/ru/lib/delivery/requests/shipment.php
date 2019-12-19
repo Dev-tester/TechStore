@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_REQ_SHP_TBL_ID_FIELD"] = "Идентификатор";
 $MESS["SALE_DLVR_REQ_SHP_TBL_SHIPMENT_ID_FIELD"] = "Идентификатор отгрузки";
 $MESS["SALE_DLVR_REQ_SHP_TBL_REQUEST_ID_FIELD"] = "Идентификатор заявки";

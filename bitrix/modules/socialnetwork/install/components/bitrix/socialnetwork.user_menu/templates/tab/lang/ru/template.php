@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_UM_GENERAL'] = "Основное";
 $MESS ['SONET_UM_FRIENDS'] = "Друзья";
 $MESS ['SONET_UM_GROUPS'] = "Группы";

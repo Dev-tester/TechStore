@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMP_INT_MAIN_CALENDAR_FORM_NAME"] = "Form name";
 $MESS["COMP_INT_MAIN_CALENDAR_INPUT_NAME"] = "Field name";
 $MESS["COMP_INT_MAIN_CALENDAR_INPUT_NAME_FINISH"] = "Name of the second interval field";

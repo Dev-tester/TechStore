@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_TABLES_TITLE"] = "Таблицы в базе данных";
 $MESS["PERFMON_TABLES_RECENTLY_BROWSED"] = "Последние просмотренные таблицы";
 $MESS["PERFMON_TABLES_ALL"] = "Таблицы базы данных";

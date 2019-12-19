@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["wiz_structure_data"] = "Install Demo Data.";
 $MESS["wiz_restructure_data"] = "Reinstall community demo data";
 $MESS["FINISH_STEP_REINDEX"] = "<br><br>The <b>Social Network</b> module needs to be re-indexed in the public section. Open the pages containing the components <i>socialnetwork_group</i> or <i>socialnetwork_user</i> (e.g.  <i>Communities -> My Groups</i> or <i>Persons -> Personal Page</i>) and click <b>Reindex</b> on the toolbar.<br><br><img src=\"/bitrix/images/search/socnet_reindex_en.png\" width=\"484\">";

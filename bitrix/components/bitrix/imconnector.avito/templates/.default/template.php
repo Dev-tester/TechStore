@@ -137,7 +137,7 @@ if (empty($arResult['PAGE'])) //case when not first open
 		?>
 		<div class="imconnector-field-container">
 			<div class="imconnector-field-section">
-				<?include 'connection-help.php';?>
+				<?php include 'connection-help.php';?>
 			</div>
 		</div>
 		<?php
@@ -178,7 +178,7 @@ else
 				?>
 			</div>
 		</div>
-		<?include 'messages.php'?>
+		<?php include 'messages.php'?>
 		<div class="imconnector-field-section imconnector-field-section-control">
 			<form action="<?=$arResult['URL']['SIMPLE_FORM']?>"
 				  method="post">

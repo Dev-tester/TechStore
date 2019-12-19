@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 if(is_array($arResult['PRESETS_TREE']) && !empty($arResult['PRESETS_TREE']))

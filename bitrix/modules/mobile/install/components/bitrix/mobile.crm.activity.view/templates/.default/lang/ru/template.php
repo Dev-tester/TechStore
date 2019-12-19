@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_ACTIVITY_VIEW_PULL_TEXT"] = "Потяните, чтобы обновить...";
 $MESS["M_CRM_ACTIVITY_VIEW_DOWN_TEXT"] = "Отпустите, чтобы обновить...";
 $MESS["M_CRM_ACTIVITY_VIEW_LOAD_TEXT"] = "Обновление формы...";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_BAD_TITLE"] = "The task name is not specified.";
 $MESS["TASKS_LONG_TITLE"] = "The task name is too long";
 $MESS["TASKS_BAD_CREATED_BY"] = "Task creator is not specified.";

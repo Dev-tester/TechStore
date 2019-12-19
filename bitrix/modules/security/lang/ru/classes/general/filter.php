@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SECURITY_FILTER_IP_RULE'] = "Автоматическая блокировка #IP# проактивным фильтром.";
 $MESS ['SECURITY_FILTER_SQL'] = "Попытка внедрения SQL";
 $MESS ['SECURITY_FILTER_XSS'] = "Попытка атаки через XSS";

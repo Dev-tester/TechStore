@@ -30,7 +30,7 @@ $hostName = BX24_HOST_NAME;
 
 	BX.ready(function(){
 		BX.Mobile.Crm.List.init(<?=CUtil::PhpToJSObject($arJsParams)?>);
-		var isBizCardScanSupported = <?echo ($isBizCardScanSupported? "true":"false");?>;
+		var isBizCardScanSupported = <?php echo ($isBizCardScanSupported? "true":"false");?>;
 		var bizcardLoader = window.loader = BX.MobileUI.createLoader();
 
 		var bizcardScanner = window.scanner = BX.MobileTools.createCardScanner({
@@ -136,7 +136,7 @@ $hostName = BX24_HOST_NAME;
 			BXMobileApp.UI.Page.SlidingPanel.hide();
 		}
 		var customItems = [
-			<?if ($arResult["IS_CREATE_PERMITTED"]):?>
+			<?php if ($arResult["IS_CREATE_PERMITTED"]):?>
 				{
 					name: '<?=GetMessageJS("M_CRM_CONTACT_ADD")?>',
 					image: "/bitrix/js/mobile/images/plus.png",
@@ -176,8 +176,8 @@ $hostName = BX24_HOST_NAME;
 						}
 					}
 				},
-			<?endif?>
-			<?foreach($arResult['FILTER_PRESETS'] as $code => $preset):
+			<?php endif?>
+			<?php foreach($arResult['FILTER_PRESETS'] as $code => $preset):
 				$imagePath = "/bitrix/js/mobile/images/filter.png";
 				if ($code == $arResult["CURRENT_FILTER"])
 					$imagePath = "/bitrix/js/mobile/images/select.png";
@@ -192,7 +192,7 @@ $hostName = BX24_HOST_NAME;
 					BX.Mobile.Crm.List.applyListFilter('<?=($code == "all" ? "" : CUtil::JSEscape($code))?>', '<?=CUtil::JSEscape($arParams["GRID_ID"])?>');
 				}
 			},
-			<?endforeach?>
+			<?php endforeach?>
 		];
 		BX.Mobile.Crm.List.showContextMenu(customItems);
 

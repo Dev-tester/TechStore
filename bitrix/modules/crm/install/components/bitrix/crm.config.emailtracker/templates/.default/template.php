@@ -135,10 +135,10 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 			<div id="mail-set-third" class="mail-set-third-wrap" style="display: block; ">
 				<div class="mail-set-third">
 
-					<? if (!empty($arParams['MAILBOX'])): ?>
+					<?php  if (!empty($arParams['MAILBOX'])): ?>
 
-						<? $lastMailCheck = \Bitrix\Main\Config\Option::get('mail', 'last_mail_check', null, SITE_ID); ?>
-						<? $lastMailCheckSuccess = \Bitrix\Main\Config\Option::get('mail', 'last_mail_check_success', null, SITE_ID); ?>
+						<?php  $lastMailCheck = \Bitrix\Main\Config\Option::get('mail', 'last_mail_check', null, SITE_ID); ?>
+						<?php  $lastMailCheckSuccess = \Bitrix\Main\Config\Option::get('mail', 'last_mail_check_success', null, SITE_ID); ?>
 
 						<div id="imap_setup_form" class="mail-set-imap-setup">
 							<div class="mail-set-title" style="padding-bottom: 20px; ">
@@ -152,21 +152,21 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 								</div>
 								<div class="mail-set-item-block-l">
 									<span name="status-text" class="post-dialog-stat-text">
-										<? if (isset($lastMailCheck) && $lastMailCheck > 0): ?>
+										<?php  if (isset($lastMailCheck) && $lastMailCheck > 0): ?>
 											<?=getMessage('INTR_MAIL_CHECK_TEXT', array(
 												'#DATE#' => formatDate(
 													array('s' => 'sago', 'i' => 'iago', 'H' => 'Hago', 'd' => 'dago', 'm' => 'mago', 'Y' => 'Yago'),
 													(int) $lastMailCheck
 												)
 											)) ?>:
-										<? else: ?>
+										<?php  else: ?>
 											<?=getMessage('INTR_MAIL_CHECK_TEXT_NA') ?>
-										<? endif ?>
+										<?php  endif ?>
 									</span>
-									<span name="status-alert" class="post-dialog-stat-alert<? if ($lastMailCheckSuccess == 'N'): ?> post-status-error<? endif ?>" style="margin: 0px; ">
-										<? if (in_array($lastMailCheckSuccess, array('Y', 'N'))): ?>
+									<span name="status-alert" class="post-dialog-stat-alert<?php  if ($lastMailCheckSuccess == 'N'): ?> post-status-error<?php  endif ?>" style="margin: 0px; ">
+										<?php  if (in_array($lastMailCheckSuccess, array('Y', 'N'))): ?>
 											<?=getMessage($lastMailCheckSuccess == 'Y' ? 'INTR_MAIL_CHECK_SUCCESS' : 'INTR_MAIL_CHECK_ERROR') ?>
-										<? endif ?>
+										<?php  endif ?>
 									</span>
 									<span name="status-info" class="post-dialog-stat-info" style="display: none; "></span>
 								</div>
@@ -175,32 +175,32 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 
 						<div id="edit_imap" name="edit-imap" class="post-dialog-wrap">
 							<form>
-								<? if (!empty($arParams['CRM_PRECONNECT'])): ?>
+								<?php  if (!empty($arParams['CRM_PRECONNECT'])): ?>
 									<div name="post-dialog-alert" class="post-dialog-alert">
 										<span class="post-dialog-alert-align"></span>
 										<span class="post-dialog-alert-icon"></span>
 										<span name="post-dialog-alert-text" class="post-dialog-alert-text">
 											<?=getMessage('INTR_MAIL_CRM_PRECONNECT'); ?>
-											<? if (!empty($arParams['IMAP_ERROR'])): ?>
+											<?php  if (!empty($arParams['IMAP_ERROR'])): ?>
 												&mdash; <?=$arParams['IMAP_ERROR'] ?>
-												<? if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
+												<?php  if (!empty($arParams['IMAP_ERROR_EXT'])): ?>
 													<span style="font-weight: normal; ">
-														(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?
+														(<a href="#" onclick="this.style.display = 'none'; BX.findNextSibling(this, {class: 'post-dialog-alert-text-ext'}).style.display = ''; return false; "><?=getMessage('INTR_MAIL_ERROR_EXT') ?></a><?php 
 														?><span class="post-dialog-alert-text-ext" style="display: none; "><?=$arParams['IMAP_ERROR_EXT'] ?></span>)</span>
-												<? endif ?>
-											<? endif ?>
+												<?php  endif ?>
+											<?php  endif ?>
 										</span>
 									</div>
-								<? else: ?>
+								<?php  else: ?>
 									<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 										<span class="post-dialog-alert-align"></span>
 										<span class="post-dialog-alert-icon"></span>
 										<span name="post-dialog-alert-text" class="post-dialog-alert-text"></span>
 									</div>
-								<? endif ?>
+								<?php  endif ?>
 								<input type="hidden" name="act" value="edit">
 								<?=bitrix_sessid_post() ?>
-								<? if (empty($arParams['SERVICE']['server'])): ?>
+								<?php  if (empty($arParams['SERVICE']['server'])): ?>
 									<div class="post-dialog-inp-item">
 										<div class="post-dialog-inp-serv">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_SERVER') ?></span>
@@ -213,27 +213,27 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 												value="<?=htmlspecialcharsbx($arParams['MAILBOX']['PORT']) ?>">
 										</div>
 									</div>
-								<? endif ?>
-								<? if (empty($arParams['SERVICE']['encryption'])): ?>
+								<?php  endif ?>
+								<?php  if (empty($arParams['SERVICE']['encryption'])): ?>
 									<div class="post-dialog-inp-item">
 										<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_ENCRYPT') ?></span>
 										<span class="post-dialog-inp-select-wrap">
 											<select name="encryption" class="post-dialog-inp-select">
-												<option value="Y"<? if ($arParams['MAILBOX']['USE_TLS'] == 'Y'): ?> selected<? endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_YES') ?></option>
-												<? if (PHP_VERSION_ID >= 50600): ?>
-													<option value="S"<? if ($arParams['MAILBOX']['USE_TLS'] == 'S'): ?> selected<? endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_SKIP') ?></option>
-												<? endif ?>
-												<option value="N"<? if (!in_array($arParams['MAILBOX']['USE_TLS'], array('Y', 'S'))): ?> selected<? endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_NO') ?></option>
+												<option value="Y"<?php  if ($arParams['MAILBOX']['USE_TLS'] == 'Y'): ?> selected<?php  endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_YES') ?></option>
+												<?php  if (PHP_VERSION_ID >= 50600): ?>
+													<option value="S"<?php  if ($arParams['MAILBOX']['USE_TLS'] == 'S'): ?> selected<?php  endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_SKIP') ?></option>
+												<?php  endif ?>
+												<option value="N"<?php  if (!in_array($arParams['MAILBOX']['USE_TLS'], array('Y', 'S'))): ?> selected<?php  endif ?>><?=getMessage('INTR_MAIL_INP_ENCRYPT_NO') ?></option>
 											</select>
 										</span>
 									</div>
-								<? endif ?>
+								<?php  endif ?>
 								<div class="post-dialog-inp-item">
 									<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_NAME') ?></span>
 									<input name="name" type="text" class="post-dialog-inp"
 										value="<?=htmlspecialcharsbx($arParams['MAILBOX']['OPTIONS']['name']) ?>">
 								</div>
-								<? if (!$isOauthMailbox): ?>
+								<?php  if (!$isOauthMailbox): ?>
 									<div class="post-dialog-inp-item">
 										<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_LOGIN') ?></span>
 										<input disabled type="text" class="post-dialog-inp"
@@ -244,7 +244,7 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 										<input name="password" type="password" class="post-dialog-inp">
 										<div name="pass-hint" class="mail-inp-description"></div>
 									</div>
-								<? endif ?>
+								<?php  endif ?>
 								<div class="mail-set-item-block-crm" id="mail-set-item-block-crm" style="min-width: 836px; ">
 									<div class="mail-set-item-block-crm-wrapper" id="mail-set-item-block-crm-wrapper">
 										<div class="mail-set-item-block-crm-wrapper-dec">
@@ -256,21 +256,21 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 												<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="edit_imap_interval_<?=$arParams['DEFAULT_CHECK_INTERVAL'] ?>">
 													<input type="radio" name="interval" value="0">
 													<div class="mail-set-singleselect-wrapper">
-														<? foreach ($arParams['CHECK_INTERVAL_LIST'] as $value => $title): ?>
-															<? $disabled = $limitedLicense && $value < 10; ?>
+														<?php  foreach ($arParams['CHECK_INTERVAL_LIST'] as $value => $title): ?>
+															<?php  $disabled = $limitedLicense && $value < 10; ?>
 															<input type="radio" name="interval" value="<?=$value ?>" id="edit_imap_interval_<?=$value ?>"
-																<? if ($value == $arParams['DEFAULT_CHECK_INTERVAL']): ?> checked<? endif ?>
-																<? if ($disabled): ?> disabled<? endif ?>>
+																<?php  if ($value == $arParams['DEFAULT_CHECK_INTERVAL']): ?> checked<?php  endif ?>
+																<?php  if ($disabled): ?> disabled<?php  endif ?>>
 															<label for="edit_imap_interval_<?=$value ?>"
-																<? if ($disabled): ?> onclick="showLicenseInfoPopup('interval'); "<? endif ?>><?=htmlspecialcharsbx($title) ?></label>
-														<? endforeach ?>
+																<?php  if ($disabled): ?> onclick="showLicenseInfoPopup('interval'); "<?php  endif ?>><?=htmlspecialcharsbx($title) ?></label>
+														<?php  endforeach ?>
 													</div>
 												</label>
-												<? if ($limitedLicense): ?>
+												<?php  if ($limitedLicense): ?>
 													<span class="mail-set-icon-lock" onclick="showLicenseInfoPopup('interval'); "></span>
-												<? endif ?>
+												<?php  endif ?>
 											</div>
-											<? $imapDirsList = array_merge(
+											<?php  $imapDirsList = array_merge(
 												$arParams['MAILBOX']['OPTIONS']['imap']['income'],
 												$arParams['MAILBOX']['OPTIONS']['imap']['outcome']
 											); ?>
@@ -282,23 +282,23 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 														title="<?=join(', ', $imapDirsList) ?>" ><?=join(', ', $imapDirsList) ?></a>
 												</label>
 												<div id="edit_imap_dirs">
-													<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
+													<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['income'] as $item): ?>
 														<input type="hidden" name="imap_dirs[income][]" value="<?=htmlspecialcharsbx($item) ?>">
-													<? endforeach ?>
-													<? foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
+													<?php  endforeach ?>
+													<?php  foreach ($arParams['MAILBOX']['OPTIONS']['imap']['outcome'] as $item): ?>
 														<input type="hidden" name="imap_dirs[outcome][]" value="<?=htmlspecialcharsbx($item) ?>">
-													<? endforeach ?>
+													<?php  endforeach ?>
 												</div>
 											</div>
 											<div class="mail-set-crm-item">
-												<a href="#" class="mail-set-textarea-show <? if (!empty($arParams['BLACKLIST'])): ?>mail-set-textarea-show-open<? endif ?>"
+												<a href="#" class="mail-set-textarea-show <?php  if (!empty($arParams['BLACKLIST'])): ?>mail-set-textarea-show-open<?php  endif ?>"
 													onclick="toggleCrmBlacklist(this, 'edit_imap_crm_blacklist'); return false; "><?=getMessage('INTR_MAIL_CRM_BLACKLIST') ?></a>
 												<span class="post-dialog-stat-info" title="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_HINT')) ?>"></span>
 												<div class="mail-set-textarea-wrapper" id="edit_imap_crm_blacklist"
-													<? if (empty($arParams['BLACKLIST'])): ?> style="display: none; "<? endif ?>>
+													<?php  if (empty($arParams['BLACKLIST'])): ?> style="display: none; "<?php  endif ?>>
 													<div class="mail-set-textarea" id="mail-set-textarea">
 														<textarea class="mail-set-textarea-input" name="black_list"
-															placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?
+															placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_BLACKLIST_PROMPT')) ?>"><?php 
 															echo join(', ', $arParams['BLACKLIST']);
 														?></textarea>
 													</div>
@@ -307,7 +307,7 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 											<div class="mail-set-crm" style="margin-top: 20px; ">
 												<div class="mail-set-crm-title"><?=getMessage('INTR_MAIL_CRM_OPTIONS') ?></div>
 											</div>
-											<?
+											<?php 
 											$crmNewEntityInDenied = in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']);
 											$crmNewEntityInDenied = $crmNewEntityInDenied || in_array('crm_deny_entity_in', $arParams['MAILBOX']['OPTIONS']['flags']);
 											$crmNewEntityOutDenied = in_array('crm_deny_new_lead', $arParams['MAILBOX']['OPTIONS']['flags']);
@@ -315,44 +315,44 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 											?>
 											<div class="mail-set-crm-item">
 												<input class="mail-set-crm-check" id="edit_imap_crm_new_entity_in" type="checkbox" name="crm_new_entity_in" value="Y"
-													<? if (!$crmNewEntityInDenied): ?> checked<? endif ?>>
-												<? list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_IN'), 2); ?>
+													<?php  if (!$crmNewEntityInDenied): ?> checked<?php  endif ?>>
+												<?php  list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_IN'), 2); ?>
 												<label class="mail-set-crm-check-label" for="edit_imap_crm_new_entity_in"><?=$label1 ?></label>
 												<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="edit_imap_allow_new_entity_in_<?=$arParams['DEFAULT_NEW_ENTITY_IN'] ?>">
 													<input id="edit_imap_allow_new_entity_in_0" type="radio" name="allow_new_entity_in" value="0">
 													<label for="edit_imap_allow_new_entity_in_0"><?=htmlspecialcharsbx($arParams['NEW_ENTITY_LIST'][$arParams['DEFAULT_NEW_ENTITY_IN']]) ?></label>
 													<div class="mail-set-singleselect-wrapper">
-														<? foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
+														<?php  foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
 															<input type="radio" name="allow_new_entity_in" value="<?=$value ?>" id="edit_imap_allow_new_entity_in_<?=$value ?>"
-																<? if ($value == $arParams['DEFAULT_NEW_ENTITY_IN']): ?> checked<? endif ?>>
+																<?php  if ($value == $arParams['DEFAULT_NEW_ENTITY_IN']): ?> checked<?php  endif ?>>
 															<label for="edit_imap_allow_new_entity_in_<?=$value ?>"><?=htmlspecialcharsbx($title) ?></label>
-														<? endforeach ?>
+														<?php  endforeach ?>
 													</div>
 												</label>
 												<label class="mail-set-crm-check-label" for="edit_imap_crm_new_entity_in"><?=$label2 ?></label>
 											</div>
 											<div class="mail-set-crm-item">
 												<input class="mail-set-crm-check" id="edit_imap_crm_new_entity_out" type="checkbox" name="crm_new_entity_out" value="Y"
-													<? if (!$crmNewEntityOutDenied): ?> checked<? endif ?>>
-												<? list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_OUT'), 2); ?>
+													<?php  if (!$crmNewEntityOutDenied): ?> checked<?php  endif ?>>
+												<?php  list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_OUT'), 2); ?>
 												<label class="mail-set-crm-check-label" for="edit_imap_crm_new_entity_out"><?=$label1 ?></label>
 												<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="edit_imap_allow_new_entity_out_<?=$arParams['DEFAULT_NEW_ENTITY_OUT'] ?>">
 													<input id="edit_imap_allow_new_entity_out_0" type="radio" name="allow_new_entity_out" value="0">
 													<label for="edit_imap_allow_new_entity_out_0"><?=htmlspecialcharsbx($arParams['NEW_ENTITY_LIST'][$arParams['DEFAULT_NEW_ENTITY_OUT']]) ?></label>
 													<div class="mail-set-singleselect-wrapper">
-														<? foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
+														<?php  foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
 															<input type="radio" name="allow_new_entity_out" value="<?=$value ?>" id="edit_imap_allow_new_entity_out_<?=$value ?>"
-																<? if ($value == $arParams['DEFAULT_NEW_ENTITY_OUT']): ?> checked<? endif ?>>
+																<?php  if ($value == $arParams['DEFAULT_NEW_ENTITY_OUT']): ?> checked<?php  endif ?>>
 															<label for="edit_imap_allow_new_entity_out_<?=$value ?>"><?=htmlspecialcharsbx($title) ?></label>
-														<? endforeach ?>
+														<?php  endforeach ?>
 													</div>
 												</label>
 												<label class="mail-set-crm-check-label" for="edit_imap_crm_new_entity_in"><?=$label2 ?></label>
 											</div>
-											<? $crmNewContactDenied = in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
+											<?php  $crmNewContactDenied = in_array('crm_deny_new_contact', $arParams['MAILBOX']['OPTIONS']['flags']); ?>
 											<div class="mail-set-crm-item">
 												<input class="mail-set-crm-check" id="edit_imap_crm_new_contact" type="checkbox" name="crm_new_contact" value="Y"
-													<? if (!$crmNewContactDenied): ?> checked<? endif ?>>
+													<?php  if (!$crmNewContactDenied): ?> checked<?php  endif ?>>
 												<label class="mail-set-crm-check-label" for="edit_imap_crm_new_contact"><?=getMessage('INTR_MAIL_INP_CRM_NEW_CONTACT') ?></label>
 											</div>
 											<div class="mail-set-crm-item">
@@ -371,10 +371,10 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 												</label>
 												<span class="post-dialog-stat-info" title="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_NEW_LEAD_FOR_HINT')) ?>"></span>
 												<div class="mail-set-textarea-wrapper" id="edit_imap_crm_new_lead_for"
-													<? if (empty($arParams['NEW_LEAD_FOR'])): ?> style="display: none; "<? endif ?>>
+													<?php  if (empty($arParams['NEW_LEAD_FOR'])): ?> style="display: none; "<?php  endif ?>>
 													<div class="mail-set-textarea" id="mail-set-textarea">
 														<textarea class="mail-set-textarea-input" name="new_lead_for"
-															placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_NEW_LEAD_FOR_PROMPT')) ?>"><?
+															placeholder="<?=htmlspecialcharsbx(getMessage('INTR_MAIL_CRM_NEW_LEAD_FOR_PROMPT')) ?>"><?php 
 															echo join(', ', $arParams['NEW_LEAD_FOR']);
 														?></textarea>
 													</div>
@@ -385,11 +385,11 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 												<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="edit_imap_lead_source_<?=$arParams['DEFAULT_LEAD_SOURCE'] ?>">
 													<input type="radio" name="lead_source" value="0">
 													<div class="mail-set-singleselect-wrapper">
-														<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+														<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 															<input type="radio" name="lead_source" value="<?=$value ?>" id="edit_imap_lead_source_<?=$value ?>"
-																<? if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<? endif ?>>
+																<?php  if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<?php  endif ?>>
 															<label for="edit_imap_lead_source_<?=$value ?>"><?=htmlspecialcharsbx($title) ?></label>
-														<? endforeach ?>
+														<?php  endforeach ?>
 													</div>
 												</label><br>
 												<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_ENTITY_RESP') ?>:</label>
@@ -524,27 +524,27 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 
 						</script>
 
-					<? endif ?>
+					<?php  endif ?>
 
-					<div id="imap_icons" class="mail-set-img-wrap"<? if (!empty($arParams['MAILBOX'])): ?> style="display: none; "<? endif ?>>
-						<? foreach ($arParams['SERVICES'] as $id => $settings): ?>
-							<? if ($settings['type'] != 'imap') continue; ?>
+					<div id="imap_icons" class="mail-set-img-wrap"<?php  if (!empty($arParams['MAILBOX'])): ?> style="display: none; "<?php  endif ?>>
+						<?php  foreach ($arParams['SERVICES'] as $id => $settings): ?>
+							<?php  if ($settings['type'] != 'imap') continue; ?>
 							<a onclick="toggleImapForm(this, <?=$id ?>); return false; " href="#imap-<?=$id ?>" id="imap-<?=$id ?>-link" name="imap-link"
-								class="mail-set-serv"<? if (strlen($settings['name']) > 15): ?> style="font-size: 18px; "<? endif ?>><?
-								if ($settings['icon']): ?><img src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><?
-								else: ?>&nbsp;<?=htmlspecialcharsbx($settings['name']) ?>&nbsp;<? endif ?></a>
-						<? endforeach ?>
+								class="mail-set-serv"<?php  if (strlen($settings['name']) > 15): ?> style="font-size: 18px; "<?php  endif ?>><?php 
+								if ($settings['icon']): ?><img src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><?php 
+								else: ?>&nbsp;<?=htmlspecialcharsbx($settings['name']) ?>&nbsp;<?php  endif ?></a>
+						<?php  endforeach ?>
 					</div>
 
 					<div id="create_imap" class="mail-set-imap-cont-wrap" style="display: none; ">
 
-						<? foreach ($arParams['SERVICES'] as $id => $settings): ?>
-							<? if ($settings['type'] != 'imap') continue; ?>
+						<?php  foreach ($arParams['SERVICES'] as $id => $settings): ?>
+							<?php  if ($settings['type'] != 'imap') continue; ?>
 
 							<div id="create_imap_<?=$id ?>" name="create-imap" class="post-dialog-wrap" style="display: none; ">
 								<form>
-									<div style="padding-bottom: 20px; height: 55px; max-width: 130px; font: bold 22px/50px Arial; color: #585858; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; "><?
-										if ($settings['icon']): ?><img style="max-height: 80%; max-width: 100%; vertical-align: middle; " src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><? else: ?><?=htmlspecialcharsbx($settings['name']) ?><?	endif
+									<div style="padding-bottom: 20px; height: 55px; max-width: 130px; font: bold 22px/50px Arial; color: #585858; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; "><?php 
+										if ($settings['icon']): ?><img style="max-height: 80%; max-width: 100%; vertical-align: middle; " src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>"><?php  else: ?><?=htmlspecialcharsbx($settings['name']) ?><?php 	endif
 									?></div>
 									<div name="post-dialog-alert" class="post-dialog-alert" style="display: none; ">
 										<span class="post-dialog-alert-align"></span>
@@ -554,7 +554,7 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 									<input type="hidden" name="act" value="create">
 									<input type="hidden" name="SERVICE" value="<?=$id ?>">
 									<?=bitrix_sessid_post() ?>
-									<? if (empty($settings['server'])): ?>
+									<?php  if (empty($settings['server'])): ?>
 										<div class="post-dialog-inp-item">
 											<div class="post-dialog-inp-serv">
 												<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_SERVER') ?></span>
@@ -565,22 +565,22 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 												<input id="port" name="port" type="text" class="post-dialog-inp">
 											</div>
 										</div>
-									<? endif ?>
-									<? if (empty($settings['encryption'])): ?>
+									<?php  endif ?>
+									<?php  if (empty($settings['encryption'])): ?>
 										<div class="post-dialog-inp-item">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_ENCRYPT') ?></span>
 											<span class="post-dialog-inp-select-wrap">
 												<select name="encryption" class="post-dialog-inp-select">
 													<option value="Y" selected="selected"><?=getMessage('INTR_MAIL_INP_ENCRYPT_YES') ?></option>
-													<? if (PHP_VERSION_ID >= 50600): ?>
+													<?php  if (PHP_VERSION_ID >= 50600): ?>
 														<option value="S"><?=getMessage('INTR_MAIL_INP_ENCRYPT_SKIP') ?></option>
-													<? endif ?>
+													<?php  endif ?>
 													<option value="N"><?=getMessage('INTR_MAIL_INP_ENCRYPT_NO') ?></option>
 												</select>
 											</span>
 										</div>
-									<? endif ?>
-									<? if (empty($settings['oauth'])): ?>
+									<?php  endif ?>
+									<?php  if (empty($settings['oauth'])): ?>
 										<div class="post-dialog-inp-item">
 											<span class="post-dialog-inp-label"><?=getMessage('INTR_MAIL_INP_NAME') ?></span>
 											<input name="name" type="text" class="post-dialog-inp">
@@ -600,9 +600,9 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 											<input name="password" type="password" class="post-dialog-inp">
 											<div name="pass-hint" class="mail-inp-description"></div>
 										</div>
-									<? else: ?>
+									<?php  else: ?>
 										<input type="hidden" name="oauth" value="<?=htmlspecialcharsbx($settings['oauth']->getUrl('opener', $settings['oauth_scope'], array('BACKURL' => uniqid('#oauth')))) ?>">
-									<? endif ?>
+									<?php  endif ?>
 									<div class="mail-set-item-block-crm" id="mail-set-item-block-crm" style="min-width: 836px; ">
 										<div class="mail-set-item-block-crm-wrapper" id="mail-set-item-block-crm-wrapper">
 											<div class="mail-set-item-block-crm-wrapper-dec">
@@ -613,7 +613,7 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 													<input class="mail-set-crm-check" id="create_imap_<?=$id ?>_sync_old" type="checkbox" name="sync_old" value="Y" checked>
 													<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_sync_old"><?=getMessage('INTR_MAIL_CRM_SYNC_OLD') ?></label>
 													<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_imap_<?=$id ?>_max_age_3"
-														<? if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<? endif ?>>
+														<?php  if ($limitedLicense): ?>onclick="showLicenseInfoPopup('age'); return false; "<?php  endif ?>>
 														<input type="radio" name="max_age" value="0">
 														<div class="mail-set-singleselect-wrapper">
 															<input type="radio" name="max_age" value="3" id="create_imap_<?=$id ?>_max_age_3" checked>
@@ -622,31 +622,31 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 															<label for="create_imap_<?=$id ?>_max_age_i"><?=getMessage('INTR_MAIL_CRM_SYNC_AGE_I') ?></label>
 														</div>
 													</label>
-													<? if ($limitedLicense): ?>
+													<?php  if ($limitedLicense): ?>
 														<span class="mail-set-icon-lock" onclick="showLicenseInfoPopup('age'); "></span>
-													<? endif ?>
+													<?php  endif ?>
 												</div>
 												<div class="mail-set-crm-item">
 													<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_interval"><?=getMessage('INTR_MAIL_INP_CHECK_INTERVAL') ?></label>
 													<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_imap_<?=$id ?>_interval_<?=$arParams['DEFAULT_CHECK_INTERVAL'] ?>">
 														<input type="radio" name="interval" value="0">
 														<div class="mail-set-singleselect-wrapper">
-															<? foreach ($arParams['CHECK_INTERVAL_LIST'] as $value => $title): ?>
-																<? $disabled = $limitedLicense && $value < 10; ?>
+															<?php  foreach ($arParams['CHECK_INTERVAL_LIST'] as $value => $title): ?>
+																<?php  $disabled = $limitedLicense && $value < 10; ?>
 																<input type="radio" name="interval" value="<?=$value ?>" id="create_imap_<?=$id ?>_interval_<?=$value ?>"
-																	<? if ($value == $arParams['DEFAULT_CHECK_INTERVAL']): ?> checked<? endif ?>
-																	<? if ($disabled): ?> disabled<? endif ?>>
+																	<?php  if ($value == $arParams['DEFAULT_CHECK_INTERVAL']): ?> checked<?php  endif ?>
+																	<?php  if ($disabled): ?> disabled<?php  endif ?>>
 																<label for="create_imap_<?=$id ?>_interval_<?=$value ?>"
-																	<? if ($disabled): ?>
+																	<?php  if ($disabled): ?>
 																		class="mail-set-singleselect-option-disabled"
 																		onclick="showLicenseInfoPopup('interval'); "
-																	<? endif ?>><?=htmlspecialcharsbx($title) ?></label>
-															<? endforeach ?>
+																	<?php  endif ?>><?=htmlspecialcharsbx($title) ?></label>
+															<?php  endforeach ?>
 														</div>
 													</label>
-													<? if ($limitedLicense): ?>
+													<?php  if ($limitedLicense): ?>
 														<span class="mail-set-icon-lock" onclick="showLicenseInfoPopup('interval'); "></span>
-													<? endif ?>
+													<?php  endif ?>
 												</div>
 												<div class="mail-set-crm-item" >
 													<a href="#" class="mail-set-textarea-show"
@@ -664,34 +664,34 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 												</div>
 												<div class="mail-set-crm-item">
 													<input class="mail-set-crm-check" id="create_imap_<?=$id ?>_crm_new_entity_in" type="checkbox" name="crm_new_entity_in" value="Y" checked>
-													<? list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_IN'), 2); ?>
+													<?php  list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_IN'), 2); ?>
 													<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_crm_new_entity_in"><?=$label1 ?></label>
 													<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_imap_<?=$id ?>_allow_new_entity_in_<?=$arParams['DEFAULT_NEW_ENTITY_IN'] ?>">
 														<input id="create_imap_<?=$id ?>_allow_new_entity_in_0" type="radio" name="allow_new_entity_in" value="0">
 														<label for="create_imap_<?=$id ?>_allow_new_entity_in_0"><?=htmlspecialcharsbx($arParams['NEW_ENTITY_LIST'][$arParams['DEFAULT_NEW_ENTITY_IN']]) ?></label>
 														<div class="mail-set-singleselect-wrapper">
-															<? foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
+															<?php  foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
 																<input type="radio" name="allow_new_entity_in" value="<?=$value ?>" id="create_imap_<?=$id ?>_allow_new_entity_in_<?=$value ?>"
-																	<? if ($value == $arParams['DEFAULT_NEW_ENTITY_IN']): ?> checked<? endif ?>>
+																	<?php  if ($value == $arParams['DEFAULT_NEW_ENTITY_IN']): ?> checked<?php  endif ?>>
 																<label for="create_imap_<?=$id ?>_allow_new_entity_in_<?=$value ?>"><?=htmlspecialcharsbx($title) ?></label>
-															<? endforeach ?>
+															<?php  endforeach ?>
 														</div>
 													</label>
 													<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_crm_new_entity_in"><?=$label2 ?></label>
 												</div>
 												<div class="mail-set-crm-item">
 													<input class="mail-set-crm-check" id="create_imap_<?=$id ?>_crm_new_entity_out" type="checkbox" name="crm_new_entity_out" value="Y" checked>
-													<? list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_OUT'), 2); ?>
+													<?php  list($label1, $label2) = explode('#ENTITY#', getMessage('INTR_MAIL_INP_CRM_NEW_ENTITY_OUT'), 2); ?>
 													<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_crm_new_entity_out"><?=$label1 ?></label>
 													<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_imap_<?=$id ?>_allow_new_entity_out_<?=$arParams['DEFAULT_NEW_ENTITY_OUT'] ?>">
 														<input id="create_imap_<?=$id ?>_allow_new_entity_out_0" type="radio" name="allow_new_entity_out" value="0">
 														<label for="create_imap_<?=$id ?>_allow_new_entity_out_0"><?=htmlspecialcharsbx($arParams['NEW_ENTITY_LIST'][$arParams['DEFAULT_NEW_ENTITY_OUT']]) ?></label>
 														<div class="mail-set-singleselect-wrapper">
-															<? foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
+															<?php  foreach ($arParams['NEW_ENTITY_LIST'] as $value => $title): ?>
 																<input type="radio" name="allow_new_entity_out" value="<?=$value ?>" id="create_imap_<?=$id ?>_allow_new_entity_out_<?=$value ?>"
-																	<? if ($value == $arParams['DEFAULT_NEW_ENTITY_OUT']): ?> checked<? endif ?>>
+																	<?php  if ($value == $arParams['DEFAULT_NEW_ENTITY_OUT']): ?> checked<?php  endif ?>>
 																<label for="create_imap_<?=$id ?>_allow_new_entity_out_<?=$value ?>"><?=htmlspecialcharsbx($title) ?></label>
-															<? endforeach ?>
+															<?php  endforeach ?>
 														</div>
 													</label>
 													<label class="mail-set-crm-check-label" for="create_imap_<?=$id ?>_crm_new_entity_in"><?=$label2 ?></label>
@@ -726,11 +726,11 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 													<label class="mail-set-singleselect mail-set-singleselect-line" data-checked="create_imap_<?=$id ?>_lead_source_<?=$arParams['DEFAULT_LEAD_SOURCE'] ?>">
 														<input type="radio" name="lead_source" value="0">
 														<div class="mail-set-singleselect-wrapper">
-															<? foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
+															<?php  foreach ($arParams['LEAD_SOURCE_LIST'] as $value => $title): ?>
 																<input type="radio" name="lead_source" value="<?=$value ?>" id="create_imap_<?=$id ?>_lead_source_<?=$value ?>"
-																	<? if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<? endif ?>>
+																	<?php  if ($value == $arParams['DEFAULT_LEAD_SOURCE']): ?> checked<?php  endif ?>>
 																<label for="create_imap_<?=$id ?>_lead_source_<?=$value ?>"><?=htmlspecialcharsbx($title) ?></label>
-															<? endforeach ?>
+															<?php  endforeach ?>
 														</div>
 													</label><br>
 													<label class="mail-set-crm-check-label"><?=getMessage('INTR_MAIL_INP_CRM_ENTITY_RESP') ?>:</label>
@@ -865,7 +865,7 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 
 							</script>
 
-						<? endforeach ?>
+						<?php  endforeach ?>
 
 					</div>
 
@@ -1396,7 +1396,7 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 		imapDirsPopup.show();
 	}
 
-	<? if (!empty($arParams['CRM_PRECONNECT']) && !empty($arParams['IMAP_DIRS'])): ?>
+	<?php  if (!empty($arParams['CRM_PRECONNECT']) && !empty($arParams['IMAP_DIRS'])): ?>
 
 	(function() {
 
@@ -1462,7 +1462,7 @@ foreach ($arParams['LEAD_RESP_SELECTED'] as $item)
 
 	})();
 
-	<? endif ?>
+	<?php  endif ?>
 
 	(function() {
 

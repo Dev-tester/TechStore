@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CCloudStorageService_HotBox extends CCloudStorageService_AmazonS3

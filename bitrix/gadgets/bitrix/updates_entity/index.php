@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["TEMPLATE_NAME"] = ($arGadgetParams["TEMPLATE_NAME"]?$arGadgetParams["TEMPLATE_NAME"]:"main");
@@ -45,7 +45,7 @@ if (strlen($arGadgetParams["EVENT_ID"]) > 0)
 	$arGadget["TITLE"] .= " [".$sTitle."]";
 	
 if($arGadgetParams["SHOW_TITLE"] == "Y"):
-	?><h4><?= GetMessage("GD_LOG_ENTITY_TITLE") ?></h4><?
+	?><h4><?= GetMessage("GD_LOG_ENTITY_TITLE") ?></h4><?php 
 endif;
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.log.ex",
@@ -90,7 +90,7 @@ $APPLICATION->IncludeComponent(
 	Array("HIDE_ICONS"=>"Y")
 );
 ?>
-<?
+<?php 
 $list_url = false;
 
 if (
@@ -106,7 +106,7 @@ elseif (strlen($arGadgetParams["LIST_URL"]) > 0)
 
 if ($list_url):
 	?><br /><br />
-	<div align="right"><a href="<?=$list_url?>"><?echo GetMessage("GD_LOG_ENTITY_MORE")?></a> <a href="<?=$list_url?>"><img width="7" height="7" border="0" src="/bitrix/images/socialnetwork/icons/arrows.gif" /></a>
+	<div align="right"><a href="<?=$list_url?>"><?php echo GetMessage("GD_LOG_ENTITY_MORE")?></a> <a href="<?=$list_url?>"><img width="7" height="7" border="0" src="/bitrix/images/socialnetwork/icons/arrows.gif" /></a>
 	<br />
-	</div><?
+	</div><?php 
 endif?>

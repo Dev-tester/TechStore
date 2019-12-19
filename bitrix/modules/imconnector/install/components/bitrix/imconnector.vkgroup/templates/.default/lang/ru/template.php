@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_TITLE"] = "Отвечайте на обращения клиентов из группы ВКонтакте в рабочем чате Битрикс24";
 $MESS["IMCONNECTOR_COMPONENT_VKGROUP_DESCRIPTION"] = "<p class=\"im-connector-settings-header-description\">Подключите группу вашей компании к Открытой линии чтобы принимать обращения клиентов в рабочем чате Битрикс24.</p>
 				<ul class=\"im-connector-settings-header-list\">

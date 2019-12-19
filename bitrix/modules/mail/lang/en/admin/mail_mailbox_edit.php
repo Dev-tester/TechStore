@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MBOX_EDT_TITLE_1"] = "Edit mailbox ##ID#";
 $MESS["MAIL_MBOX_EDT_TITLE_2"] = "New mailbox";
 $MESS["MAIL_MBOX_EDT_ERROR"] = "Error saving mailbox";

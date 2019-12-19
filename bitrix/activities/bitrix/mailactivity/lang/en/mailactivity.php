@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPMA_EMPTY_PROP4"] = "The 'Encoding' parameter is missing.";
 $MESS["BPMA_EMPTY_PROP7"] = "The 'Message Text' parameter is missing.";
 $MESS["BPMA_EMPTY_PROP6"] = "The 'Message Type' parameter is incorrect.";

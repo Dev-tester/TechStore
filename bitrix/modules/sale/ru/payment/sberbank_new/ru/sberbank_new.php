@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SIBP_DTITLE"] = "Квитанция Сбербанка";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main,
 	Bitrix\Main\Localization\Loc,
 	Bitrix\Catalog;

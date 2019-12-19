@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_TASKS_TASK_FILTER_CREATE_NEW_FILTER"] = "Create new filter";
 $MESS["MB_TASKS_TASK_FILTER_NEW_FILTER_NAME"] = "New filter name";
 $MESS["MB_TASKS_TASK_FILTER_BTN_OR"] = "or";

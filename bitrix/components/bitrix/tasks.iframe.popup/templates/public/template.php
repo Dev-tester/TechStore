@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
@@ -10,10 +10,10 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
 <div class="task-public-workarea">
-	<div class="task-public-sidebar"><? $APPLICATION->ShowViewContent("sidebar"); ?></div>
+	<div class="task-public-sidebar"><?php  $APPLICATION->ShowViewContent("sidebar"); ?></div>
 	<div class="task-public-content">
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:tasks.task",
 	"view",

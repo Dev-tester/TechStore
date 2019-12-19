@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ERROR_FIELD_INCORRECT"] = "The field '%FIELD_NAME%' is incorrect.";
 $MESS["CRM_ERROR_FIELD_IS_MISSING"] = "The required field '%FIELD_NAME%' is missing.";
 $MESS["CRM_FIELD_COMPARE_ADDRESS"] = "Changed the field \"Address\"";

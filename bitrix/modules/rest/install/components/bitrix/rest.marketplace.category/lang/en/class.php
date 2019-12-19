@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_ALL_APPS"] = "All applications";
 $MESS["MARKETPLACE_CAT_PLACEMENT"] = "Embedded applications";
 $MESS["MARKETPLACE_FILTER_CATEGORY"] = "Category";

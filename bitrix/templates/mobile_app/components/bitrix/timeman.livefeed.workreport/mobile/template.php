@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $userAvatarId = "workreport-user-".randString(5);
@@ -11,10 +11,10 @@ $managerAvatarId = "workreport-manager-".randString(5);
 	</div>
 	<div class="lenta-info-block-r">
 		<div class="lenta-info-block-data">
-			<div class="lenta-info-avatar avatar" id="<?=$userAvatarId?>"<?
+			<div class="lenta-info-avatar avatar" id="<?=$userAvatarId?>"<?php 
 				if(strlen($arParams["USER"]["PHOTO"]) > 0)
 				{
-					?> style="background-image:url('<?=$arParams["USER"]["PHOTO"]?>')"<?
+					?> style="background-image:url('<?=$arParams["USER"]["PHOTO"]?>')"<?php 
 				}
 			?>></div>
 			<div class="lenta-info-name">
@@ -23,10 +23,10 @@ $managerAvatarId = "workreport-manager-".randString(5);
 			</div>
 		</div>
 		<div class="lenta-info-block-data">
-			<div class="lenta-info-avatar avatar" id="<?=$managerAvatarId?>"<?
+			<div class="lenta-info-avatar avatar" id="<?=$managerAvatarId?>"<?php 
 				if(strlen($arParams["MANAGER"]["PHOTO"]) > 0)
 				{
-					?> style="background-image:url('<?=$arParams["MANAGER"]["PHOTO"]?>')"<?
+					?> style="background-image:url('<?=$arParams["MANAGER"]["PHOTO"]?>')"<?php 
 				}
 			?>></div>
 			<div class="lenta-info-name">

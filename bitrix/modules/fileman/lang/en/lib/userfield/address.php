@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_ADDRESS_DESCRIPTION"] = "Address";
 $MESS["USER_TYPE_ADDRESS_NO_KEY_HINT"] = "A Google API key is required to use maps. Please enter your key <a href=\"#settings_path##google_api_key\" target=\"_blank\">on the settings form</a>.";
 $MESS["USER_TYPE_ADDRESS_NO_KEY_HINT_B24"] = "A Google API key is required to use maps. Please enter your key <a href=\"#settings_path##google_api_key\" target=\"_blank\">on the settings form</a>.";

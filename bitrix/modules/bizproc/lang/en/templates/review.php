@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BP_REVW_TITLE"] = "Read Document";
 $MESS["BP_REVW_T"] = "Sequential Business Process";
 $MESS["BP_REVW_TASK"] = "Please read the document: \"{=Document:NAME}\"";

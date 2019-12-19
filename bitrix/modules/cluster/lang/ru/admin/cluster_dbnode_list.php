@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_DBNODE_LIST_TITLE"] = "Вертикальный шардинг (базы данных модулей)";
 $MESS["CLU_DBNODE_LIST_ID"] = "ID";
 $MESS["CLU_DBNODE_LIST_FLAG"] = "Состояние";

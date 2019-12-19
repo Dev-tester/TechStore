@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle(GetMessage("IBLOCK_INSTALL_PUBLIC_TITLE"));
-?><?$APPLICATION->IncludeComponent("bitrix:news", ".default", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:news", ".default", Array(
 	"SEF_MODE"	=>	"N",
 	"IBLOCK_TYPE"	=>	"news",
 	"IBLOCK_ID"	=>	GetMessage("IBLOCK_INSTALL_PUBLIC_IBLOCK_ID"),
@@ -57,4 +57,4 @@ $APPLICATION->SetTitle(GetMessage("IBLOCK_INSTALL_PUBLIC_TITLE"));
 		"ELEMENT_ID"	=>	"news",
 	)
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

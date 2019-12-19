@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Sale\Internals\PaySystemActionTable;
 use \Bitrix\Sale\Internals\ServiceRestrictionTable;
 use \Bitrix\Sale\Services\PaySystem\Restrictions\Manager;

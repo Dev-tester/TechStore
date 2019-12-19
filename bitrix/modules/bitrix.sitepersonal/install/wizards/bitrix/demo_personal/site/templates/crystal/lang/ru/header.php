@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TMPL_POPULAR_POSTS"] = "Популярные записи";
 $MESS["TMPL_NEW_COMMENTS"] = "Новые комментарии";
 $MESS["TMPL_TAGS_CLOUD"] = "Облако тегов";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UM_MY_MESSAGES"] = "Мои сообщения";
 $MESS["SONET_UM_INPUT"] = "Входящие";
 $MESS["SONET_UM_OUTPUT"] = "Исходящие";

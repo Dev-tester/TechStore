@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -37,7 +37,7 @@ $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECT
 	<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_del" value="Y">
 	<?=bitrix_sessid_post();?>
 </form>
-<?
+<?php 
 if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first time open active connector
 {
 	?>
@@ -66,7 +66,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first ti
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
+	<?php include 'messages.php'?>
 	<div class="imconnector-field-container">
 		<div class="imconnector-field-section">
 			<div class="imconnector-field-main-title">
@@ -106,7 +106,7 @@ if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS']) //case when first ti
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 elseif ($arResult['ACTIVE_STATUS'])
 {
@@ -153,7 +153,7 @@ elseif ($arResult['ACTIVE_STATUS'])
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
+	<?php include 'messages.php'?>
 	<div class="imconnector-field-container">
 		<div class="imconnector-field-section">
 			<form action="<?=$arResult["URL"]["SIMPLE_FORM_EDIT"]?>" method="post" enctype="multipart/form-data">
@@ -212,7 +212,7 @@ elseif ($arResult['ACTIVE_STATUS'])
 										<input type="file" name="avatar" class="imconnector-public-link-settings-inner-upload-item">
 									</div>
 									<span id="avatar_text" class="imconnector-public-link-settings-inner-upload-info"></span>
-									<?
+									<?php 
 									if(!empty($arResult["FORM"]["AVATAR"]))
 									{
 										?>
@@ -225,7 +225,7 @@ elseif ($arResult['ACTIVE_STATUS'])
 												<img class="imconnector-public-link-upload-image" alt="<?=Loc::getMessage('IMCONNECTOR_COMPONENT_NETWORK_FIELD_4')?>" src="<?=htmlspecialcharsbx($arResult['FORM']['AVATAR_LINK'])?>">
 											</div>
 										</div>
-										<?
+										<?php 
 									}
 									?>
 								</div>
@@ -240,7 +240,7 @@ elseif ($arResult['ACTIVE_STATUS'])
 						</div>
 					</div>
 
-					<?
+					<?php 
 					if ($arResult["FORM"]["CODE"] != '')
 					{
 						?>
@@ -257,7 +257,7 @@ elseif ($arResult['ACTIVE_STATUS'])
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="imconnector-step-text">
@@ -276,7 +276,7 @@ elseif ($arResult['ACTIVE_STATUS'])
 			</form>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else //case when open not active connector
 {
@@ -296,7 +296,7 @@ else //case when open not active connector
 			</div>
 		</div>
 	</div>
-	<?include 'messages.php'?>
+	<?php include 'messages.php'?>
 	<div class="imconnector-field-container">
 		<div class="imconnector-field-section">
 			<div class="imconnector-field-main-title">
@@ -322,6 +322,6 @@ else //case when open not active connector
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>

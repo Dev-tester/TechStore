@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EVENT_COMPATIBILITY_WRONG_ORDER"] = "Wrong order entity";
 $MESS["SALE_EVENT_COMPATIBILITY_WRONG_SHIPMENT"] = "Wrong shipping entity";
 $MESS["SALE_EVENT_COMPATIBILITY_WRONG_BASKET"] = "Wrong basket entity";

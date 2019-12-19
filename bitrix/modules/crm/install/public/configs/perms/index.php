@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle(GetMessage("CRM_PAGE_TITLE"));
 ?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:crm.config.perms",
 	"",
 	Array(
@@ -20,7 +20,7 @@ $APPLICATION->SetTitle(GetMessage("CRM_PAGE_TITLE"));
 	)
 );?>
 
-<?
+<?php 
 
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "E-mail templates";
 $MESS["SAVE_ERROR"] = "Error saving the template #";
 $MESS["DELETE_ERROR"] = "Error deleting the template. It is probably connected with other objects.";

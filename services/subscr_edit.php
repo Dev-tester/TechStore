@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/subscr_edit.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
@@ -6,7 +6,7 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 
 <p><?=GetMessage("SERVICES_INFO")?></p>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:subscribe.simple",
 	"",
 	Array(
@@ -23,4 +23,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 	false
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOX_LINES_ACTION_ADD_TO_GROUP"] = "Add to number pool";
 $MESS["VOX_LINES_ACTION_CONFIGURE"] = "Configure";
 $MESS["VOX_LINES_ACTION_DELETE"] = "Delete";

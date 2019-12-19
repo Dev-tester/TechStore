@@ -1,18 +1,18 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><div class="fields double" id="main_<?=$arParams["arUserField"]["FIELD_NAME"]?>"><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><div class="fields double" id="main_<?=$arParams["arUserField"]["FIELD_NAME"]?>"><?php 
 foreach ($arResult["VALUE"] as $res):
-?><div class="fields double"><?
+?><div class="fields double"><?php 
 ?><input type="text" name="<?=$arParams["arUserField"]["FIELD_NAME"]?>_from" value="<?=$res[0]?>" size="8"
-	<? if ($arParams["arUserField"]["EDIT_IN_LIST"]!="Y"):
-		?> disabled="disabled"<?
+	<?php  if ($arParams["arUserField"]["EDIT_IN_LIST"]!="Y"):
+		?> disabled="disabled"<?php 
 	endif;
 ?> class="fields integer"> ...
 <input type="text" name="<?=$arParams["arUserField"]["FIELD_NAME"]?>_to" value="<?=$res[1]?>" size="8"
-	<? if ($arParams["arUserField"]["EDIT_IN_LIST"]!="Y"):
-		?> disabled="disabled"<?
+	<?php  if ($arParams["arUserField"]["EDIT_IN_LIST"]!="Y"):
+		?> disabled="disabled"<?php 
 	endif;
 ?> class="fields integer">  
-<?
-?></div><?
+<?php 
+?></div><?php 
 endforeach;
 ?></div>

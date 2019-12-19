@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PAY_SYSTEM_ENTITY_ID_FIELD"] = "Идентификатор";
 $MESS["PAY_SYSTEM_ENTITY_LID_FIELD"] = "Сайт";
 $MESS["PAY_SYSTEM_ENTITY_CURRENCY_FIELD"] = "Валюта";

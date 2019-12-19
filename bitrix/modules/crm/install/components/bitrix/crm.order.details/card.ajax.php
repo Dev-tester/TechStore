@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Crm\Order\Permissions,
 	\Bitrix\Main\Localization\Loc,
 	\Bitrix\Main\Loader,

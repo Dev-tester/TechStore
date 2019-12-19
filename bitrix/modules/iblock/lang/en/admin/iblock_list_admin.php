@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLIST_A_ACCESS_DENIED_STATUS"] = "You do not have enough permissions to edit this record in its current state";
 $MESS["IBLIST_A_ACTIVATE"] = "Activate";
 $MESS["IBLIST_A_ACTIVE"] = "Active";

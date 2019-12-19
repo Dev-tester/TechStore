@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALENDAR_TIP_TEMPLATE_LINK_COPIED"] = "Event link has been copied to the Clipboard.";
 $MESS["DEL_CON_CALENDARS"] = "Delete Calendars";
 $MESS["EC_ACCESS_DENIED"] = "Access denied";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
 /** @global CDatabase $DB */
@@ -64,8 +64,8 @@ if (CModule::IncludeModule("lists") && !CLists::isFeatureEnabled($featureName))
 			});
 		});
     </script>
-    <div style="text-align: center"><?\CBitrix24::showTariffRestrictionButtons("lists"); ?></div>
-	<?
+    <div style="text-align: center"><?php \CBitrix24::showTariffRestrictionButtons("lists"); ?></div>
+	<?php 
 
 	return;
 }

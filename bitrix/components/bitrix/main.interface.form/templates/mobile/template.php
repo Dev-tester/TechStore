@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /**
  * Bitrix Framework
  * @package bitrix
@@ -91,13 +91,13 @@ $userUrl = str_replace("//", "/", "/".SITE_DIR."mobile/users/?user_id=#ID#");
 $groupUrl = str_replace("//", "/", "/".SITE_DIR."mobile/log/?group_id=#ID#");
 
 ?>
-<div class="mobile-grid mobile-grid-entity <?if ($arParams["RESTRICTED_MODE"]) echo "mobile-grid-restricted";?> ">
-<?if($arParams["SHOW_FORM_TAG"]):?>
+<div class="mobile-grid mobile-grid-entity <?php if ($arParams["RESTRICTED_MODE"]) echo "mobile-grid-restricted";?> ">
+<?php if($arParams["SHOW_FORM_TAG"]):?>
 <form name="<?=$arParams["FORM_ID"]?>" id="<?=$arParams["FORM_ID"]?>" action="<?=POST_FORM_ACTION_URI?>" method="POST" enctype="multipart/form-data">
 <?=bitrix_sessid_post();?>
 <input type="hidden" id="<?=$arParams["FORM_ID"]?>_active_tab" name="<?=$arParams["FORM_ID"]?>_active_tab" value="<?=htmlspecialcharsbx($arResult["SELECTED_TAB"])?>">
-<?endif;
-?><div class="bx-tabs"><?
+<?php endif;
+?><div class="bx-tabs"><?php 
 $i = 0;
 $jsObjects = array();
 foreach($arResult["TABS"] as $tab)
@@ -109,11 +109,11 @@ foreach($arResult["TABS"] as $tab)
 	<div id="tab_<?=$tab["id"]?>">
 		<div
 			id="inner_tab_<?=$tab["id"]?>"
-			class="bx-edit-tab-inner"<?if($tab["id"] <> $arResult["SELECTED_TAB"]) echo ' style="display:none;"'?>>
-			<? if($tab["icon"] <> ""): ?> <div class="bx-icon <?=htmlspecialcharsbx($tab["icon"])?>"></div> <? endif; ?>
-			<?/*?><div class="bx-form-title"><?=htmlspecialcharsbx($tab["title"])?></div><?*/ // Our design is not support this 13.11.2015 ?>
+			class="bx-edit-tab-inner"<?php if($tab["id"] <> $arResult["SELECTED_TAB"]) echo ' style="display:none;"'?>>
+			<?php  if($tab["icon"] <> ""): ?> <div class="bx-icon <?=htmlspecialcharsbx($tab["icon"])?>"></div> <?php  endif; ?>
+			<?php /*?><div class="bx-form-title"><?=htmlspecialcharsbx($tab["title"])?></div><?php */ // Our design is not support this 13.11.2015 ?>
 			<div style="height: 100%;">
-				<div class="bx-edit-table <?=(isset($tab["class"]) ? $tab['class'] : '')?>" id="<?=$tab["id"]?>_edit_table"><?
+				<div class="bx-edit-table <?=(isset($tab["class"]) ? $tab['class'] : '')?>" id="<?=$tab["id"]?>_edit_table"><?php 
 /**
  * File
 array_unshift($tab["fields"], array(
@@ -151,20 +151,20 @@ array_unshift($tab["fields"], array(
 							{
 								$expanded = ($field["expanded"] == "Y" || $field["expanded"] == true);
 
-								?><div class="mobile-grid-field" id="<?=$field["id"]?>" <?if(!empty($style)): ?> style="<?= $style ?>"<? endif ?>><?
+								?><div class="mobile-grid-field" id="<?=$field["id"]?>" <?php if(!empty($style)): ?> style="<?= $style ?>"<?php  endif ?>><?php 
 									if(array_key_exists("name", $field))
 									{
-										?><div class="mobile-grid-title"><?=htmlspecialcharsEx($field["name"])?></div><?
+										?><div class="mobile-grid-title"><?=htmlspecialcharsEx($field["name"])?></div><?php 
 									}
-									?><input id="checkbox_<?=$field["id"]?>" type="checkbox" <?=($expanded ? "checked" : "")?> value="section" /><?
-									?><label for="checkbox_<?=$field["id"]?>" class="mobile-grid-field-switcher"><?=htmlspecialcharsbx($field["value"])?></label><?
-									?><div class="mobile-grid-body" id="section_<?=$field["id"]?>_body"<?if(!empty($style)): ?> style="<?= $style ?>"<? endif ?>><?
+									?><input id="checkbox_<?=$field["id"]?>" type="checkbox" <?=($expanded ? "checked" : "")?> value="section" /><?php 
+									?><label for="checkbox_<?=$field["id"]?>" class="mobile-grid-field-switcher"><?=htmlspecialcharsbx($field["value"])?></label><?php 
+									?><div class="mobile-grid-body" id="section_<?=$field["id"]?>_body"<?php if(!empty($style)): ?> style="<?= $style ?>"<?php  endif ?>><?php 
 							}
 							else
 							{
-								?><div class="mobile-grid-field<?if(array_key_exists("class", $field)): ?> <?= htmlspecialcharsbx($field['class']) ?><? endif ?>"<?
-									if(!empty($style)): ?> style="<?= $style ?>"<? endif ?>><?
-									?><span class="mobile-grid-field-head"><?= htmlspecialcharsbx($field["name"]) ?></span><?
+								?><div class="mobile-grid-field<?php if(array_key_exists("class", $field)): ?> <?= htmlspecialcharsbx($field['class']) ?><?php  endif ?>"<?php 
+									if(!empty($style)): ?> style="<?= $style ?>"<?php  endif ?>><?php 
+									?><span class="mobile-grid-field-head"><?= htmlspecialcharsbx($field["name"]) ?></span><?php 
 							}
 							$sections[] = $field["id"];
 						}
@@ -181,7 +181,7 @@ array_unshift($tab["fields"], array(
 									else
 									{
 										?></div>
-									</div><?
+									</div><?php 
 										array_pop($sections);
 									}
 								}
@@ -283,17 +283,17 @@ array_unshift($tab["fields"], array(
 										$item = array_change_key_case($field["item"], CASE_LOWER);
 										$html .= "<option value=\"{$item["id"]}\" selected>{$item["id"]}</option>";
 
-										?><div class="mobile-grid-field-select-user-item"><?
+										?><div class="mobile-grid-field-select-user-item"><?php 
 											if ($field["canDrop"] !== false):
-												?><del id="<?=$field["~id"]?>_del_<?=$item["id"]?>"></del><?
+												?><del id="<?=$field["~id"]?>_del_<?=$item["id"]?>"></del><?php 
 											endif;
 											?>
-											<div class="avatar"<?if(!empty($item["avatar"])):?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<?endif;?>></div>
-											<?/*
+											<div class="avatar"<?php if(!empty($item["avatar"])):?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<?php endif;?>></div>
+											<?php /*
                                             <span onclick="BXMobileApp.PageManager.loadPageBlank({url: '<?=str_replace("#ID#", $item["id"], $url)?>',bx24ModernStyle : true});"><?=htmlspecialcharsbx($item["name"])?></span>
                                             */?>
                                             <span onclick="BXMobileApp.Events.postToComponent('onUserProfileOpen', [<?=$item["id"]?>], 'communication');"><?=htmlspecialcharsbx($item["name"])?></span>
-										</div><?
+										</div><?php 
 									}
 									$users = ob_get_clean();
 									$html = "<select class=\"mobile-grid-data-select\" name=\"{$field["id"]}\" data-bx-type=\"{$field["type"]}\" bx-can-drop=\"".($field["canDrop"] === false ? "false" : "")."\" id=\"{$field["~id"]}\"{$params}>".$html."</select>".
@@ -310,12 +310,12 @@ array_unshift($tab["fields"], array(
 									{
 										$item = array_change_key_case($field["item"], CASE_LOWER);
 										?><div class="mobile-grid-field-select-user-item">
-											<div class="avatar"<?if(!empty($item["avatar"])):?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<?endif;?>></div>
-                                        <?/*
+											<div class="avatar"<?php if(!empty($item["avatar"])):?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<?php endif;?>></div>
+                                        <?php /*
                                         <span onclick="BXMobileApp.PageManager.loadPageBlank({url: '<?=str_replace("#ID#", $item["id"], $url)?>',bx24ModernStyle : true});"><?=htmlspecialcharsbx($item["name"])?></span>
                                         */?>
                                         <span onclick="BXMobileApp.Events.postToComponent('onUserProfileOpen', [<?=$item["id"]?>], 'communication');"><?=htmlspecialcharsbx($item["name"])?></span>
-										</div><?
+										</div><?php 
 									}
 									$users = ob_get_clean();
 									$html = "<div class=\"mobile-grid-field-select-user-container\">".$users."</div>";
@@ -339,16 +339,16 @@ array_unshift($tab["fields"], array(
 												continue;
 											$u++;
 											$html .= "<option value=\"{$item["id"]}\" selected>{$item["id"]}</option>";
-											?><div class="mobile-grid-field-select-user-item"><?
+											?><div class="mobile-grid-field-select-user-item"><?php 
 												if ($field["canDrop"] !== false):
-													?><del id="<?=$field["~id"]?>_del_<?=$item["id"]?>"></del><?
+													?><del id="<?=$field["~id"]?>_del_<?=$item["id"]?>"></del><?php 
 												elseif (is_array($field["menu"])):
-													?><i class="mobile-grid-menu" id="<?=$field["~id"]?>_menu_<?=$item["id"]?>"></i><?
+													?><i class="mobile-grid-menu" id="<?=$field["~id"]?>_menu_<?=$item["id"]?>"></i><?php 
 												endif;
 												?>
-												<div class="avatar"<?if (!empty($item["avatar"])): ?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<? endif; ?>></div>
+												<div class="avatar"<?php if (!empty($item["avatar"])): ?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<?php  endif; ?>></div>
 												<span onclick="BXMobileApp.PageManager.loadPageBlank({url: '<?=str_replace("#ID#", $item["id"], $url)?>',bx24ModernStyle:true});"><?=htmlspecialcharsbx($item["name"])?></span>
-											</div><?
+											</div><?php 
 										}
 									}
 									$users = ob_get_clean();
@@ -380,9 +380,9 @@ array_unshift($tab["fields"], array(
 											$item = array_change_key_case($item, CASE_LOWER);
 
 											?><div class="mobile-grid-field-select-user-item">
-												<div class="avatar"<?if (!empty($item["avatar"])): ?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<? endif; ?>></div>
+												<div class="avatar"<?php if (!empty($item["avatar"])): ?> style="background-image:url('<?=htmlspecialcharsbx($item["avatar"])?>')"<?php  endif; ?>></div>
 												<span onclick="BXMobileApp.PageManager.loadPageBlank({url: '<?=str_replace("#ID#", $item["id"], $url)?>',bx24ModernStyle:true});"><?=htmlspecialcharsbx($item["name"])?></span>
-											</div><?
+											</div><?php 
 										}
 									}
 									$users = ob_get_clean();
@@ -538,17 +538,17 @@ array_unshift($tab["fields"], array(
 									$val = (is_array($val) ? $val : array($val));
 									$uploadedFile =  preg_replace("/[\n\t]+/", "", $uploadedFile);
 									ob_start();
-									?><input type="hidden" <?
-										?>name="<?=$field["id"]?>" <?
-										?>value="0" <?
-										?>id="<?=$field["~id"]?>" <?
-										?>data-bx-type="<?=$field["type"]?>" <?
-										?>data-bx-extension="<?=$field["ext"]?>" <?
-										?>data-bx-url="<?=$field["url"]?>" <?
-										?>data-bx-name="<?=$field["id"]?>" <?
-										?>data-bx-max="<?=$field["maxCount"]?>" <?
-									?> /><?
-								?><div id="file-placeholder-<?=$field["~id"]?>"><?
+									?><input type="hidden" <?php 
+										?>name="<?=$field["id"]?>" <?php 
+										?>value="0" <?php 
+										?>id="<?=$field["~id"]?>" <?php 
+										?>data-bx-type="<?=$field["type"]?>" <?php 
+										?>data-bx-extension="<?=$field["ext"]?>" <?php 
+										?>data-bx-url="<?=$field["url"]?>" <?php 
+										?>data-bx-name="<?=$field["id"]?>" <?php 
+										?>data-bx-max="<?=$field["maxCount"]?>" <?php 
+									?> /><?php 
+								?><div id="file-placeholder-<?=$field["~id"]?>"><?php 
 									foreach ($val as $f)
 									{
 										$f = (is_array($f) ? $f : CFile::GetFileArray($f));
@@ -572,14 +572,14 @@ array_unshift($tab["fields"], array(
 													$field["id"]
 												),
 												$uploadedFile
-											)?><?
+											)?><?php 
 										}
 									}
 									?></div>
-									<div class="mobile-grid-button file" id="file-eventnode-<?=$field["~id"]?>"><?
-											?><?=($field["maxCount"] != 1 ? GetMessage("interface_form_add") : GetMessage("interface_form_change"))?><?
-										?><input class="mobile-grid-button-file" type="file" id="<?=$field["~id"]?>_file" size="1" <?if ($field["maxCount"] != 1){?>multiple="multiple" <?}?>/></div>
-								<?
+									<div class="mobile-grid-button file" id="file-eventnode-<?=$field["~id"]?>"><?php 
+											?><?=($field["maxCount"] != 1 ? GetMessage("interface_form_add") : GetMessage("interface_form_change"))?><?php 
+										?><input class="mobile-grid-button-file" type="file" id="<?=$field["~id"]?>_file" size="1" <?php if ($field["maxCount"] != 1){?>multiple="multiple" <?php }?>/></div>
+								<?php 
 									$html = ob_get_clean();
 									$jsObjects[] = $field["~id"];
 									break;
@@ -609,17 +609,17 @@ array_unshift($tab["fields"], array(
 							}
 							if ($html === '')
 								continue;
-							?><div class="mobile-grid-section<?=(!empty($sections) ? "-child" : "")?> <?= htmlspecialcharsbx($field['class']) ?>"<?if(!empty($style)): ?> style="<?= $style ?>"<? endif;
-							if(!empty($field['fieldId'])): ?> id="<?= $field['fieldId'] ?>"<? endif ?>><?
+							?><div class="mobile-grid-section<?=(!empty($sections) ? "-child" : "")?> <?= htmlspecialcharsbx($field['class']) ?>"<?php if(!empty($style)): ?> style="<?= $style ?>"<?php  endif;
+							if(!empty($field['fieldId'])): ?> id="<?= $field['fieldId'] ?>"<?php  endif ?>><?php 
 								if(array_key_exists("name", $field))
 								{
-									?><div class="mobile-grid-title <?= ($field["required"] ? " mobile-grid-title-required" : "") ?>" <?
-									if($field["title"] <> '') echo ' title="' . htmlspecialcharsEx($field["title"]) . '"'?>><?
-									?><?if(strlen($field["name"])):?><?=htmlspecialcharsEx($field["name"])?><? endif ?>
-									</div><?
+									?><div class="mobile-grid-title <?= ($field["required"] ? " mobile-grid-title-required" : "") ?>" <?php 
+									if($field["title"] <> '') echo ' title="' . htmlspecialcharsEx($field["title"]) . '"'?>><?php 
+									?><?php if(strlen($field["name"])):?><?=htmlspecialcharsEx($field["name"])?><?php  endif ?>
+									</div><?php 
 								}
-								?><div class="mobile-grid-block mobile-grid-data-<?=$className?>-container"><?=preg_replace("/[\t\n]+/i", "", $html)?></div><?
-							?></div><?
+								?><div class="mobile-grid-block mobile-grid-data-<?=$className?>-container"><?=preg_replace("/[\t\n]+/i", "", $html)?></div><?php 
+							?></div><?php 
 						}
 					}
 ?>
@@ -627,9 +627,9 @@ array_unshift($tab["fields"], array(
 			</div>
 		</div>
 	</div>
-<?
+<?php 
 }
-?></div><?
+?></div><?php 
 if (isset($arParams["BUTTONS"]) && is_string($arParams["BUTTONS"]) && strtolower($arParams["BUTTONS"]) == "app")
 {
 
@@ -638,17 +638,17 @@ else if (isset($arParams["BUTTONS"]))
 {
 ?>
 	<div class="mobile-grid-button-panel" id="buttons_<?=$arParams["FORM_ID"]?>">
-	<?if($arParams["~BUTTONS"]["standard_buttons"] !== false):?>
+	<?php if($arParams["~BUTTONS"]["standard_buttons"] !== false):?>
 		<a href="#" id="submit_<?=$arParams["FORM_ID"]?>"><?=GetMessage("interface_form_save")?></a>
 		<a href="#" id="cancel_<?=$arParams["FORM_ID"]?>"><?=GetMessage("interface_form_cancel")?></a>
-	<?endif?>
+	<?php endif?>
 	<?=$arParams["~BUTTONS"]["custom_html"]?>
 	</div>
-<?
+<?php 
 }
 if($arParams["SHOW_FORM_TAG"]):?>
 </form>
-<?endif;?>
+<?php endif;?>
 <script>
 BX.message({
 	interface_form_select : '<?=GetMessageJS("interface_form_select")?>',

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_SELECTOR_HIDDEN_TITLE"] = "Hidden";
 $MESS["MAIN_UI_SELECTOR_PLEASE_WAIT"] = "Loading... Please wait";
 $MESS["MAIN_UI_SELECTOR_SEARCH_TAB_TITLE"] = "Search";

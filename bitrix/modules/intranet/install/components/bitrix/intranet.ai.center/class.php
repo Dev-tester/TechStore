@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Intranet\AI;
 use Bitrix\Main\Localization\Loc;

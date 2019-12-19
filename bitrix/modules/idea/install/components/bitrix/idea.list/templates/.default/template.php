@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 // GetMessage("IDEA_STATUS_NEW"); GetMessage("IDEA_STATUS_PROCESSING"); GetMessage("IDEA_STATUS_COMPLETED");
 if(!empty($arResult["OK_MESSAGE"]))
 {
@@ -6,18 +6,18 @@ if(!empty($arResult["OK_MESSAGE"]))
 	<div class="blog-notes blog-note-box">
 		<div class="blog-note-text">
 			<ul>
-				<?
+				<?php 
 				foreach($arResult["OK_MESSAGE"] as $v)
 				{
 					?>
 					<li><?=$v?></li>
-					<?
+					<?php 
 				}
 				?>
 			</ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(!empty($arResult["MESSAGE"]))
 {
@@ -25,18 +25,18 @@ if(!empty($arResult["MESSAGE"]))
 	<div class="blog-textinfo blog-note-box">
 		<div class="blog-textinfo-text">
 			<ul>
-				<?
+				<?php 
 				foreach($arResult["MESSAGE"] as $v)
 				{
 					?>
 					<li><?=$v?></li>
-					<?
+					<?php 
 				}
 				?>
 			</ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(!empty($arResult["ERROR_MESSAGE"]))
 {
@@ -44,35 +44,35 @@ if(!empty($arResult["ERROR_MESSAGE"]))
 	<div class="blog-errors blog-note-box blog-note-error">
 		<div class="blog-error-text">
 			<ul>
-				<?
+				<?php 
 				foreach($arResult["ERROR_MESSAGE"] as $v)
 				{
 					?>
 					<li><?=$v?></li>
-					<?
+					<?php 
 				}
 				?>
 			</ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 ?>
 <div id="idea-posts-content">
-<?
+<?php 
 if(count($arResult["POST"])>0)
 {
 	$arStatusList = CIdeaManagment::getInstance()->Idea()->GetStatusList();
 	foreach($arResult["POST"] as $CurPost)
 	{
-		?><div id="blog-post-<?=$CurPost["ID"]?>"><?
+		?><div id="blog-post-<?=$CurPost["ID"]?>"><?php 
 		if($arParams["SHOW_RATING"] == "Y"):?>
 		<div class="idea-rating-block">
 			<span class="idea-rating-block-left">
 				<span class="idea-rating-block-right">
 					<span class="idea-rating-block-content idea-rating-block-content-ext-<?=$arParams['RATING_TEMPLATE']?>">
 						<span class="idea-rating-block-content-description"><?=GetMessage("IDEA_RATING_TITLE");?>:</span>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:rating.vote", $arParams['RATING_TEMPLATE'],
 							Array(
 								"VOTE_AVAILABLE" => $CurPost["DISABLE_VOTE"]?"N":"Y",
@@ -94,20 +94,20 @@ if(count($arResult["POST"])>0)
 				</span>
 			</span>
 		</div>
-		<?endif;
+		<?php endif;
 		$status = GetMessage("IDEA_STATUS_".ToUpper($arStatusList[$CurPost["POST_PROPERTIES"]["DATA"]["UF_STATUS"]["VALUE"]]["XML_ID"]));
 		if($status == '')
 			$status = $arStatusList[$CurPost["POST_PROPERTIES"]["DATA"]["UF_STATUS"]["VALUE"]]["VALUE"];
 		?>
-		<div class="blog-qtl<?if(in_array($CurPost["PUBLISH_STATUS"], array(BLOG_PUBLISH_STATUS_READY, BLOG_PUBLISH_STATUS_DRAFT))):?> blog-post-hidden<?endif;?>">
+		<div class="blog-qtl<?php if(in_array($CurPost["PUBLISH_STATUS"], array(BLOG_PUBLISH_STATUS_READY, BLOG_PUBLISH_STATUS_DRAFT))):?> blog-post-hidden<?php endif;?>">
 			<div class="blog-qtr">
 				<div class="blog-idea-body">
 					<div class="idea-owner">
 						<div class="bx-idea-condition-description status-color-<?=ToLower($arStatusList[$CurPost["POST_PROPERTIES"]["DATA"]["UF_STATUS"]["VALUE"]]["XML_ID"]);?>">
-							<div <?if($arResult["IDEA_MODERATOR"]):?>class="status-action idea-action-cursor" onclick="JSPublicIdea.ShowStatusDialog(this, '<?=$CurPost["ID"]?>')" id="status-<?=$CurPost["ID"]?>"<?endif;?>><?=htmlspecialcharsbx($status)?></div>
+							<div <?php if($arResult["IDEA_MODERATOR"]):?>class="status-action idea-action-cursor" onclick="JSPublicIdea.ShowStatusDialog(this, '<?=$CurPost["ID"]?>')" id="status-<?=$CurPost["ID"]?>"<?php endif;?>><?=htmlspecialcharsbx($status)?></div>
 						</div>
 						<?=GetMessage("IDEA_INTRODUCED_TITLE")?> <img class="idea-user-avatar" src="<?=$arResult["AUTHOR_AVATAR"][$CurPost["arUser"]["ID"]]["src"]?>" align="top">
-						<?if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && array_key_exists("ALIAS", $CurPost["BlogUser"]) && strlen($CurPost["BlogUser"]["ALIAS"]) > 0)
+						<?php if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && array_key_exists("ALIAS", $CurPost["BlogUser"]) && strlen($CurPost["BlogUser"]["ALIAS"]) > 0)
 							$arTmpUser = array(
 								"NAME" => "",
 								"LAST_NAME" => "",
@@ -122,7 +122,7 @@ if(count($arResult["POST"])>0)
 								"LOGIN" => $CurPost["arUser"]["~LOGIN"],
 								"NAME_LIST_FORMATTED" => "",
 							);
-						?><noindex><?$APPLICATION->IncludeComponent("bitrix:main.user.link",
+						?><noindex><?php $APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
 								array(
 										"ID" => $CurPost["arUser"]["ID"],
@@ -156,28 +156,28 @@ if(count($arResult["POST"])>0)
 						<?=$CurPost["DATE_PUBLISH_FORMATED"]?>
 					</div>
 					<div class="post-title"><h2><a href="<?=$CurPost["urlToPost"]?>" title="<?=$CurPost["TITLE"]?>"><?=$CurPost["TITLE"]?></a></h2></div>
-					<div class="idea-post-content"><?=$CurPost["TEXT_FORMATED"]?><?
+					<div class="idea-post-content"><?=$CurPost["TEXT_FORMATED"]?><?php 
 						if ($CurPost["CUT"] == "Y")
 						{
-							?><p><a class="blog-postmore-link" href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_MORE")?></a></p><?
+							?><p><a class="blog-postmore-link" href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_MORE")?></a></p><?php 
 						}
 						if($CurPost["POST_PROPERTIES"]["SHOW"] == "Y" && false)
 						{
-							?><p><?
+							?><p><?php 
 							foreach ($CurPost["POST_PROPERTIES"]["DATA"] as $arPostField)
 							{
 								if(!empty($arPostField["VALUE"]))
 								{
-									?><b><?=$arPostField["EDIT_FORM_LABEL"]?>:</b>&nbsp;<?$APPLICATION->IncludeComponent(
+									?><b><?=$arPostField["EDIT_FORM_LABEL"]?>:</b>&nbsp;<?php $APPLICATION->IncludeComponent(
 										"bitrix:system.field.view",
 										$arPostField["USER_TYPE"]["USER_TYPE_ID"],
 										array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));
-									?><br /><?
+									?><br /><?php 
 								}
 							}
-							?></p><?
+							?></p><?php 
 						}
-					?></div><?
+					?></div><?php 
 
 					if (!empty($CurPost["POST_PROPERTIES"]["DATA"][CBlogPost::UF_NAME])):
 					$eventHandlerID = false;
@@ -185,12 +185,12 @@ if(count($arResult["POST"])>0)
 					$blogPostDoc = $CurPost["POST_PROPERTIES"]["DATA"][CBlogPost::UF_NAME];
 					if (!empty($blogPostDoc["VALUE"])): ?>
 					<div class="blog-post-files">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:system.field.view",
 							$blogPostDoc["USER_TYPE"]["USER_TYPE_ID"],
 							array("arUserField" => $blogPostDoc), null, array("HIDE_ICONS"=>"N"));?>
 					</div>
-					<? endif;
+					<?php  endif;
 					if ($eventHandlerID !== false && (intval($eventHandlerID) > 0))
 						RemoveEventHandler("main", "system.field.view.file", $eventHandlerID);
 					endif;
@@ -199,37 +199,37 @@ if(count($arResult["POST"])>0)
 						!empty($CurPost["urlToEdit"]) || !empty($CurPost["urlToDelete"])):?>
 						<div class="idea-post-meta">
 							<div class="idea-post-meta-util">
-								<?if(strLen($CurPost["urlToHide"])>0):?>
+								<?php if(strLen($CurPost["urlToHide"])>0):?>
 									<a href="<?=$CurPost["urlToHide"]?>" onclick="if(confirm('<?=GetMessageJS("BLOG_MES_HIDE_POST_CONFIRM")?>')){this.href+='&sessid='+BX.bitrix_sessid(); return true;}return false;"><span class="idea-post-link-caption"><?=GetMessage("BLOG_MES_HIDE")?></span></a>
-								<?elseif(strLen($CurPost["urlToShow"])>0):?>
+								<?php elseif(strLen($CurPost["urlToShow"])>0):?>
 									<a href="<?=$CurPost["urlToShow"]?>" onclick="if(confirm('<?=GetMessageJS("IDEA_MES_SHOW_POST_CONFIRM")?>')){this.href+='&sessid='+BX.bitrix_sessid(); return true;}return false;"><span class="idea-post-link-caption"><?=GetMessage("IDEA_MES_SHOW")?></span></a>
-								<?endif;?>
-								<?if(strLen($CurPost["urlToEdit"])>0):?>
+								<?php endif;?>
+								<?php if(strLen($CurPost["urlToEdit"])>0):?>
 									<a href="<?=$CurPost["urlToEdit"]?>"><span class="idea-post-link-caption"><?=GetMessage("BLOG_MES_EDIT")?></span></a>
-								<?endif;?>
-								<?if(strLen($CurPost["urlToDelete"])>0):?>
+								<?php endif;?>
+								<?php if(strLen($CurPost["urlToDelete"])>0):?>
 									<a href="<?=$CurPost["urlToDelete"]?>" onclick="if(confirm('<?=GetMessageJS("BLOG_MES_DELETE_POST_CONFIRM")?>')){this.href+='&sessid='+BX.bitrix_sessid(); return true;}return false;"><span class="idea-post-link-caption"><?=GetMessage("BLOG_MES_DELETE")?></span></a>
-								<?endif;?>
+								<?php endif;?>
 							</div>
 							<br clear="both"/>
 						</div>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 			</div>
 		</div>
 		<div>
-			<?if($CurPost["IS_DUPLICATE"] !== false):?>
+			<?php if($CurPost["IS_DUPLICATE"] !== false):?>
 			<div class="blog-comments-duplicate">
 				<div class="blog-comment-line-duplicate"></div>
 				<div class="blog-comment-duplicate">
 					<?=GetMessage("IDEA_POST_DUPLICATE", array("#LINK#" => $CurPost["IS_DUPLICATE"]))?>
 				</div>
 			</div>
-			<?endif;?>
-			<?$cntOfficial = 0;
+			<?php endif;?>
+			<?php $cntOfficial = 0;
 			if(!empty($CurPost["OFFICIAL_POST_ID"])):
 				$arOfficialComments = array("ID"=>$CurPost["OFFICIAL_POST_ID"]);
-				?><?$cntOfficial = $APPLICATION->IncludeComponent(
+				?><?php $cntOfficial = $APPLICATION->IncludeComponent(
 				"bitrix:idea.comment.list",
 				"official_list",
 				Array(
@@ -274,31 +274,31 @@ if(count($arResult["POST"])>0)
 				),
 				$component,
 				array("HIDE_ICONS" => "Y")
-			);?><?
+			);?><?php 
 				$cntOfficial = intval($cntOfficial);
 			endif;?>
 			<div class="tag-tl">
 				<div class="tag-tr">
 					<div class="tag-block">
 						<div class="tag-line">
-							<span class="main-tag-category"><?
+							<span class="main-tag-category"><?php 
 							if($CurPost["IDEA_CATEGORY"]["NAME"]!==false)
 							{
 								if($CurPost["IDEA_CATEGORY"]["LINK"]===false)
 									echo $CurPost["IDEA_CATEGORY"]["NAME"];
 								else
 								{
-									?><a href="<?=$CurPost["IDEA_CATEGORY"]["LINK"];?>"><?=$CurPost["IDEA_CATEGORY"]["NAME"];?></a><?
+									?><a href="<?=$CurPost["IDEA_CATEGORY"]["LINK"];?>"><?=$CurPost["IDEA_CATEGORY"]["NAME"];?></a><?php 
 								}
 							}?></span>
-							<?if(!empty($CurPost["CATEGORY"]))
+							<?php if(!empty($CurPost["CATEGORY"]))
 							{
 									$skipFirst = true;
-									?><span class="tag-marker"></span><?
+									?><span class="tag-marker"></span><?php 
 									foreach($CurPost["CATEGORY"] as $v)
 									{
 										if (!$skipFirst) echo ', ';
-											?><a href="<?=$v["urlToCategory"]?>" rel="nofollow"><?=$v["NAME"]?></a><?
+											?><a href="<?=$v["urlToCategory"]?>" rel="nofollow"><?=$v["NAME"]?></a><?php 
 										$skipFirst = false;
 									}
 							}
@@ -313,7 +313,7 @@ if(count($arResult["POST"])>0)
 		</div>
 		<div class="bottom-space"></div>
 	</div>
-<?
+<?php 
 	}
 ?><?=$arResult["NAV_STRING"];?>
 <script type="text/javascript">
@@ -325,7 +325,7 @@ BX.ready(function(){
 	} while ((res = res.nextSibling) && res);
 });
 </script>
-<?
+<?php 
 }
 elseif(!empty($arResult["BLOG"]))
 {
@@ -333,7 +333,7 @@ elseif(!empty($arResult["BLOG"]))
 		<div class="blog-errors blog-note-box blog-textinfo">
 			<div class="blog-error-text"><?=GetMessage("BLOG_BLOG_BLOG_NO_AVAIBLE_MES");?></div>
 		</div>
-	</div><?
+	</div><?php 
 }
 ?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_ERROR_EMPTY_FROM_USER_ID"] = "Не задан отправитель сообщения";
 $MESS["IM_ERROR_EMPTY_TO_USER_ID"] = "Не задан получатель сообщения";
 $MESS["IM_ERROR_EMPTY_MESSAGE"] = "Не задан текст сообщений";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MOBILE_AJAX_POST_ID_ERROR"] = "No post ID is supplied.";
 $MESS["BLOG_MOBILE_AJAX_BLOG_MODULE_ERROR"] = "The Blog module is not installed.";
 $MESS["BLOG_MOBILE_AJAX_SONET_MODULE_ERROR"] = "The Social Services module is not installed.";

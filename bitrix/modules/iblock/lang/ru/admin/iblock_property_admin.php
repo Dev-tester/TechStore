@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBP_ADM_TO_ADD"] = "Добавить свойство";
 $MESS["IBP_ADM_TO_ADD_TITLE"] = "Добавить новое свойство";
 $MESS["IBP_ADM_ID"] = "ID";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_NEW_ORDER_NAME"] = "Новый заказ";
 $MESS["SALE_NEW_ORDER_DESC"] = "#ORDER_ID# - код заказа
 #ORDER_ACCOUNT_NUMBER_ENCODE# - код заказа(для ссылок)

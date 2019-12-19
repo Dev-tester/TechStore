@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EBMNP_NAME_TEMPLATE'] = "Name Format";
 $MESS ['EBMNP_NAME_TEMPLATE_DEFAULT'] = "#NOBR##NAME# #LAST_NAME##/NOBR#";
 $MESS ['EBMNP_SHOW_LOGIN'] = "Show Login Name if no required user name fields are available";

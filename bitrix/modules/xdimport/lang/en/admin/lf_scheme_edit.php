@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LFP_SCHEME_EDIT_TAB1"] = "Connection";
 $MESS["LFP_SCHEME_EDIT_TAB1_TITLE"] = "Activity Stream publishing connection parameters";
 $MESS["LFP_SCHEME_EDIT_EDIT_TITLE"] = "Edit Activity Stream publishing connection";

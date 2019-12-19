@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBSEC_E_TAB2"] = "Дополнительно";
 $MESS["IBSEC_E_TAB2_TITLE"] = "Дополнительные параметры";
 $MESS["IBSEC_E_TAB5"] = "SEO";

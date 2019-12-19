@@ -216,7 +216,7 @@ BX.ready(function(){
 		}
 	});
 
-	<?if ($allowWrite):?>
+	<?php if ($allowWrite):?>
 	BX.addCustomEvent(eventCalendar, 'createNewEntry', function(params)
 	{
 		if (params)
@@ -240,7 +240,7 @@ BX.ready(function(){
 			BX.SidePanel.Instance.open(url, {loader: "task-new-loader"});
 		}
 	});
-	<?endif;?>
+	<?php endif;?>
 
 	// Handle of changing type of field which is used to display entries on calendar grid
 	BX.addCustomEvent(eventCalendar, 'changeViewMode', function(params)
@@ -443,11 +443,11 @@ if (is_array($arResult['ERROR']['FATAL']) && !empty($arResult['ERROR']['FATAL'])
 endif
 ?>
 
-<? if (is_array($arResult['ERROR']['WARNING'])): ?>
-	<? foreach ($arResult['ERROR']['WARNING'] as $error): ?>
+<?php  if (is_array($arResult['ERROR']['WARNING'])): ?>
+	<?php  foreach ($arResult['ERROR']['WARNING'] as $error): ?>
 		<?= ShowError($error['MESSAGE']) ?>
-	<? endforeach ?>
-<? endif ?>
+	<?php  endforeach ?>
+<?php  endif ?>
 <?php
 if ($isBitrix24Template)
 {

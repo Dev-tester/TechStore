@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPABS_TITLE"] = "Задания бизнес-процессов";
 $MESS["BPATL_NAV"] = "Задания";
 $MESS["BPTL_C_DETAIL"] = "Подробнее";

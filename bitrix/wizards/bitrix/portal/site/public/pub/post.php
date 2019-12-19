@@ -1,11 +1,11 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 
 if (!$USER->isAuthorized() && CModule::includeModule('mail'))
 	Bitrix\Mail\User::login();
 
 ?>
-<?
+<?php 
 $postId = (isset($_REQUEST["post_id"]) ? intval($_REQUEST["post_id"]) : false);
 if (IsModuleInstalled('bitrix24'))
 {
@@ -101,4 +101,4 @@ else
 
 
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

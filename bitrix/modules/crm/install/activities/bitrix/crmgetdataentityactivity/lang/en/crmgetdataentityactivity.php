@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_LABLE_SELECT_FIELDS"] = "Select fields:";
 $MESS["CRM_ACTIVITY_LABLE_PRINTABLE_VERSION"] = "Print version:";
 $MESS["CRM_ACTIVITY_ERROR_DT"] = "Incorrect document type.";

@@ -1,4 +1,4 @@
-<? if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 /** @var array $arResult */
 
@@ -139,7 +139,7 @@ $formatPhone = function ($phone)
 				</div>
 			</form>
 		</div>
-		<?else:
+		<?php else:
 			$ownerInfo = $provider->getOwnerInfo();
 		?>
 		<!---->
@@ -162,7 +162,7 @@ $formatPhone = function ($phone)
 			</div>
 		</div>
 		<!---->
-		<?endif;?>
+		<?php endif;?>
 		<!---->
 		<?php if ($provider->isRegistered() && !$provider->isConfirmed()):?>
 		<div class="sms-settings-step-section">
@@ -187,14 +187,14 @@ $formatPhone = function ($phone)
 				</div>
 			</form>
 		</div>
-		<?elseif ($provider->isConfirmed()):?>
+		<?php elseif ($provider->isConfirmed()):?>
 		<!---->
 		<div class="sms-settings-step-section sms-settings-step-section-active">
 			<div class="sms-settings-step-number">2</div>
 			<div class="sms-settings-step-title"><?=Loc::getMessage('CRM_CONFIG_SMS_IS_CONFIRMED')?></div>
 		</div>
 		<!---->
-		<?endif?>
+		<?php endif?>
 		<!---->
 		<?php if ($provider->canUse()):
 			/** @var \Bitrix\Crm\Integration\Sms\Provider\SmsRu $provider */
@@ -224,7 +224,7 @@ $formatPhone = function ($phone)
 				</div>
 			</form>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 		<!---->
 		<?php if ($provider->canUse()):?>
 		<div class="sms-settings-step-section <?=$provider->isDemo()? '':'sms-settings-step-section-active'?>">
@@ -240,14 +240,14 @@ $formatPhone = function ($phone)
 				<li class="sms-settings-futures-list-item"><?= Loc::getMessage("CRM_CONFIG_SMS_CABINET_RULE_2")?></li>
 				<li class="sms-settings-futures-list-item"><?= htmlspecialcharsbx(Loc::getMessage("CRM_CONFIG_SMS_CABINET_RULE_3"))?></li>
 			</ul>
-			<?else:?>
+			<?php else:?>
 			<div class="sms-settings-step-description"><?=Loc::getMessage("CRM_CONFIG_SMS_DEMO_IS_DISABLED", array(
 					'#A1#' => '<a href="'.htmlspecialcharsbx($provider->getExternalManageUrl()).'" target="_blank">',
 					'#A2#' => '</a>'
 				))?></div>
-			<?endif;?>
+			<?php endif;?>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 		<?php if ($provider->isDemo()):?>
 		<form action="" method="post" class="sms-settings-step-form" name="form_disable_demo">
 			<?=bitrix_sessid_post()?>
@@ -258,7 +258,7 @@ $formatPhone = function ($phone)
 				</button>
 			</div>
 		</form>
-		<?endif;?>
+		<?php endif;?>
 		<!---->
 	</div>
 </div>
@@ -508,12 +508,12 @@ $formatPhone = function ($phone)
 				});
 			}
 		};
-		<?if ($provider->isRegistered()):?>
+		<?php if ($provider->isRegistered()):?>
 		var steps = BX('sms-settings-steps');
 		if (steps)
 		{
 			BX.scrollToNode(steps);
 		}
-		<?endif?>
+		<?php endif?>
 	});
 </script>

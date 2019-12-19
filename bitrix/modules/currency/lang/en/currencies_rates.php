@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["curr_rates_flt_date"] = "Date:";
 $MESS["curr_rates_flt_btn"] = "Set Filter";
 $MESS["curr_rates_nav"] = "Rates";

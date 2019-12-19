@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/prolog.php");
 
@@ -326,72 +326,72 @@ if (!$fCriticalError)
 						<span name="report-filter-value-control-LID">
 							<select class="report-filter-select" name="value">
 								<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? foreach(CBaseSaleReportHelper::getSiteList() as $kID => $vSiteName): ?>
+								<?php  foreach(CBaseSaleReportHelper::getSiteList() as $kID => $vSiteName): ?>
 								<option value="<?=htmlspecialcharsbx($kID)?>"><?=htmlspecialcharsbx($vSiteName)?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
 						<span name="report-filter-value-control-PERSONAL_GENDER">
 							<select class="report-filter-select" name="value">
 								<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? foreach(CBaseSaleReportHelper::getGenders() as $kID => $vName): ?>
+								<?php  foreach(CBaseSaleReportHelper::getGenders() as $kID => $vName): ?>
 								<option value="<?=htmlspecialcharsbx($kID)?>"><?=htmlspecialcharsbx($vName)?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
 						<span name="report-filter-value-control-PERSON_TYPE_ID">
 							<select class="report-filter-select sale-report-site-dependent" name="value" tid="PersonType">
 								<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? $siteId = CBaseSaleReportHelper::getDefaultSiteId(); ?>
-								<? foreach(CBaseSaleReportHelper::getPersonTypes() as $kID => $v): ?>
-									<? if ($v['LID'] === $siteId): ?>
+								<?php  $siteId = CBaseSaleReportHelper::getDefaultSiteId(); ?>
+								<?php  foreach(CBaseSaleReportHelper::getPersonTypes() as $kID => $v): ?>
+									<?php  if ($v['LID'] === $siteId): ?>
 									<option value="<?=htmlspecialcharsbx($kID)?>"><?=htmlspecialcharsbx($v['NAME'])?></option>
-									<? endif; ?>
-								<? endforeach; ?>
+									<?php  endif; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
 						<span name="report-filter-value-control-ORDER.PERSON_TYPE_ID">
 							<select class="report-filter-select sale-report-site-dependent" name="value" tid="PersonType">
 								<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? $siteId = CBaseSaleReportHelper::getDefaultSiteId(); ?>
-								<? foreach(CBaseSaleReportHelper::getPersonTypes() as $kID => $v): ?>
-									<? if ($v['LID'] === $siteId): ?>
+								<?php  $siteId = CBaseSaleReportHelper::getDefaultSiteId(); ?>
+								<?php  foreach(CBaseSaleReportHelper::getPersonTypes() as $kID => $v): ?>
+									<?php  if ($v['LID'] === $siteId): ?>
 									<option value="<?=htmlspecialcharsbx($kID)?>"><?=htmlspecialcharsbx($v['NAME'])?></option>
-									<? endif; ?>
-								<? endforeach; ?>
+									<?php  endif; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
 						<span name="report-filter-value-control-Bitrix\Sale\Internals\Order:USER.PERSON_TYPE_ID">
 							<select class="report-filter-select sale-report-site-dependent" name="value" tid="PersonType">
 								<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? $siteId = CBaseSaleReportHelper::getDefaultSiteId(); ?>
-								<? foreach(CBaseSaleReportHelper::getPersonTypes() as $kID => $v): ?>
-									<? if ($v['LID'] === $siteId): ?>
+								<?php  $siteId = CBaseSaleReportHelper::getDefaultSiteId(); ?>
+								<?php  foreach(CBaseSaleReportHelper::getPersonTypes() as $kID => $v): ?>
+									<?php  if ($v['LID'] === $siteId): ?>
 									<option value="<?=htmlspecialcharsbx($kID)?>"><?=htmlspecialcharsbx($v['NAME'])?></option>
-									<? endif; ?>
-								<? endforeach; ?>
+									<?php  endif; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
 						<span name="report-filter-value-control-\Bitrix\Sale\Internals\StatusLang">
 							<select class="report-filter-select" name="value">
 								<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? foreach(CBaseSaleReportHelper::getStatusList() as $kID => $vStatusName): ?>
+								<?php  foreach(CBaseSaleReportHelper::getStatusList() as $kID => $vStatusName): ?>
 								<option value="<?=htmlspecialcharsbx($kID)?>"><?=htmlspecialcharsbx($vStatusName)?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
 						<span name="report-filter-value-control-Order:USER.LID">
 							<select class="report-filter-select" name="value">
 								<option value=""><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? foreach(CBaseSaleReportHelper::getSiteList() as $kID => $vSiteName): ?>
+								<?php  foreach(CBaseSaleReportHelper::getSiteList() as $kID => $vSiteName): ?>
 								<option value="<?=htmlspecialcharsbx($kID)?>"><?=htmlspecialcharsbx($vSiteName)?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
@@ -524,9 +524,9 @@ if (!$fCriticalError)
 						<span name="report-filter-value-control-StoreProduct:SALE_PRODUCT">
 							<select class="report-filter-select" name="value" tid="Section" multiple="multiple" size="5">
 								<option value="" selected="selected"><?=GetMessage('REPORT_IGNORE_FILTER_VALUE')?></option>
-								<? foreach(CBaseSaleReportHelper::getProductStores() as $k => $v): ?>
+								<?php  foreach(CBaseSaleReportHelper::getProductStores() as $k => $v): ?>
 									<option value="<?=htmlspecialcharsbx($k)?>"><?=htmlspecialcharsbx($v)?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
 						</span>
 
@@ -646,28 +646,28 @@ if (!$fCriticalError)
 			<?php endif; // if (!$fSelectHelperMode) : ?>
 			</table>
 
-			<?
+			<?php 
 			// <editor-fold defaultstate="collapsed" desc="-- Buttons --">
 			?>
 			<div id="sale-report-construct-buttons-block">
 				<input id="report-save-button" class="adm-btn-save"
 						type="submit" name="save"
-						value="<?
+						value="<?php 
 							if ($fEditMode) echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_SAVE_LABEL_ON_EDIT');
 							elseif ($fSelectHelperMode) echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_SAVE_LABEL_ON_SELECT_HELPER');
 							else echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_SAVE_LABEL');
 						?>"
-						title="<?
+						title="<?php 
 							if ($fEditMode) echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_SAVE_TITLE_ON_EDIT');
 							elseif ($fSelectHelperMode) echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_SAVE_TITLE_ON_SELECT_HELPER');
 							else echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_SAVE_TITLE');
 						?>" />&nbsp
 				<input class="adm-btn"
 						type="submit" name="cancel"
-						value="<? echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_CANCEL_LABEL'); ?>"
-						title="<? echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_CANCEL_TITLE'); ?>" />
+						value="<?php  echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_CANCEL_LABEL'); ?>"
+						title="<?php  echo GetMessage('SALE_REPORT_CONSTRUCT_BUTTON_CANCEL_TITLE'); ?>" />
 			</div>
-			<?
+			<?php 
 			// </editor-fold>
 			?>
 
@@ -676,7 +676,7 @@ if (!$fCriticalError)
 	</div>
 	<div class="adm-detail-content-btns adm-detail-content-btns-empty"></div>
 </div>
-	<?
+	<?php 
 		// </editor-fold>
 }// if (!$fCriticalError)
 

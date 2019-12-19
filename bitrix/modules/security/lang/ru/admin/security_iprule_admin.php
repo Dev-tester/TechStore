@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_IPRULE_ADMIN_MAIN_TAB'] = "Защита административной части";
 $MESS ['SEC_IPRULE_ADMIN_MAIN_TAB_TITLE'] = "Ограничение доступа к административной части всех, кроме указанных IP-адресов";
 $MESS ['SEC_IPRULE_ADMIN_TITLE'] = "Защита административной части";

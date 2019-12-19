@@ -34,37 +34,37 @@ Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/batch_merge.js');
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/partial_entity_editor.js');
 Bitrix\Main\Page\Asset::getInstance()->addJs('/bitrix/js/crm/dialog.js');
 
-?><div id="batchDeletionWrapper"></div><?
-?><div id="rebuildMessageWrapper"><?
-?><div id="batchActionWrapper"></div><?
+?><div id="batchDeletionWrapper"></div><?php 
+?><div id="rebuildMessageWrapper"><?php 
+?><div id="batchActionWrapper"></div><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT'])
 {
-	?><div id="rebuildDealSearchWrapper"></div><?
+	?><div id="rebuildDealSearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_TIMELINE_SEARCH_CONTENT'])
 {
-	?><div id="buildTimelineSearchWrapper"></div><?
+	?><div id="buildTimelineSearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_BUILD_TIMELINE'])
 {
-	?><div id="buildDealTimelineWrapper"></div><?
+	?><div id="buildDealTimelineWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING'])
 {
-	?><div id="refreshDealAccountingWrapper"></div><?
+	?><div id="refreshDealAccountingWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_DEAL_SEMANTICS'])
 {
-	?><div id="rebuildDealSemanticsWrapper"></div><?
+	?><div id="rebuildDealSemanticsWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_DEAL_ATTRS'])
 {
 	?><div id="rebuildDealAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_DEAL_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildDealAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 }
-?></div><?
+?></div><?php 
 $isRecurring = isset($arParams['IS_RECURRING']) && $arParams['IS_RECURRING'] === 'Y';
 $isInternal = $arResult['INTERNAL'];
 $callListUpdateMode = $arResult['CALL_LIST_UPDATE_MODE'];
@@ -1172,7 +1172,7 @@ $APPLICATION->IncludeComponent(
 				};
 		}
 	);
-</script><?
+</script><?php 
 if(!$isInternal):
 ?><script type="text/javascript">
 	BX.ready(
@@ -1195,8 +1195,8 @@ if(!$isInternal):
 			}
 	);
 </script>
-<?endif;?>
-<?if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
+<?php endif;?>
+<?php if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1229,8 +1229,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1257,8 +1257,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_TIMELINE_SEARCH_CONTENT']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_TIMELINE_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1285,8 +1285,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1313,8 +1313,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REFRESH_ACCOUNTING']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1341,8 +1341,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_DEAL_SEMANTICS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_DEAL_SEMANTICS']):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -1369,8 +1369,8 @@ if(!$isInternal):
 			}
 		);
 	</script>
-<?endif;?>
-<?if($arResult['NEED_FOR_REBUILD_DEAL_ATTRS']):?>
+<?php endif;?>
+<?php if($arResult['NEED_FOR_REBUILD_DEAL_ATTRS']):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -1394,4 +1394,4 @@ if(!$isInternal):
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_SIDEBAR_AUTOMATION"] = "Automation";
 $MESS["TASKS_SIDEBAR_ROBOTS_1"] = "Configure";
 $MESS["TASKS_SIDEBAR_STATUS"] = "Status";

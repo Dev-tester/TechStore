@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_PRODUCT_SUBSCRIBE_NAME"] = "Product subscriptions";
 $MESS["CATALOG_PRODUCT_SUBSCRIBE_DESCRIPTION"] = "A form to subscribe for product notifications";
 $MESS["CP_CATALOG_SERVICES_MAIN_SECTION"] = "e-Store";

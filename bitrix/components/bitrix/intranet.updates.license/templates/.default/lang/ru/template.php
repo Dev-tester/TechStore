@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UPDATES_LICENSE_TITLE"] = "Лицензия Битрикс24";
 $MESS["UPDATES_LICENSE_KEY"] = "Лицензионный ключ";
 $MESS["UPDATES_LICENSE_SAVE"] = "Сохранить";

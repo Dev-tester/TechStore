@@ -1,4 +1,4 @@
-<?
+<?php 
 if (CModule::IncludeModule("socialnetwork"))
 {
 	$GLOBALS["DB"]->Query("TRUNCATE TABLE b_sonet_log_right");

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_DELIVERY_REQ_AJAX_CREATE'] = "Создание транспортной заявки";
 $MESS ['SALE_DELIVERY_REQ_AJAX_DELIVERY_NOT_FOUND'] = "Службу доставки с идентификатором \"#DELIVERY_ID#\" найти не удалось";
 $MESS ['SALE_DELIVERY_REQ_AJAX_NOT_SUPPORT'] = "Служба доставки с идентификатором \"#DELIVERY_ID#\" не поддерживает транспортные заявки";

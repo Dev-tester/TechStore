@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /**
  * @var CMain $APPLICATION
  * @var array $arResult
@@ -20,7 +20,7 @@ else if ($arResult["VIEW_STATE"]["TASK_CATEGORY_SELECTED"] && array_key_exists($
 \Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH.'/log_mobile.js');
 if (empty($arResult["ITEMS"]) && isset($_GET['F_SEARCH_ALT']) && $_GET['F_SEARCH_ALT'])
 {
-	?><div class="mobile-grid-stub-text"><?=GetMessage("TASKS_EMPTY_LIST2")?></div><?
+	?><div class="mobile-grid-stub-text"><?=GetMessage("TASKS_EMPTY_LIST2")?></div><?php 
 }
 else if (empty($arResult["ITEMS"]))
 {
@@ -31,13 +31,13 @@ else if (empty($arResult["ITEMS"]))
 		<a href="#" class="webform-button webform-button-blue" onclick="BX.Mobile.Tasks.createWindow(); return false;"><?=GetMessage("TASKS_EMPTY_LIST1")?></a>
 	</div>
 </div>
-<?
+<?php 
 }
 else
 {
 $APPLICATION->SetPageProperty('BodyClass', 'task-list');
-?><?=CJSCore::Init(array("tasks_util_query", "tasks_dayplan", "fx", "mobile_fastclick"), true);?><?
-?><div id="bx-task-list"><?$APPLICATION->IncludeComponent("bitrix:mobile.interface.grid", "", array(
+?><?=CJSCore::Init(array("tasks_util_query", "tasks_dayplan", "fx", "mobile_fastclick"), true);?><?php 
+?><div id="bx-task-list"><?php $APPLICATION->IncludeComponent("bitrix:mobile.interface.grid", "", array(
 	"GRID_ID"=> $arParams["GRID_ID"],
 	"FIELDS" => $arResult["FIELDS"],
 	"ITEMS" => $arResult["ITEMS"],
@@ -55,12 +55,12 @@ $APPLICATION->SetPageProperty('BodyClass', 'task-list');
 	"SHOW_SEARCH" => "Y"
 ));
 ?></div>
-<?
+<?php 
 }
 ?>
 <script type="text/javascript">
 BX.message({
-	<?if ($title != '') :?>PAGE_TITLE : '<?=CUtil::JSEscape($title)?>',<?endif;?>
+	<?php if ($title != '') :?>PAGE_TITLE : '<?=CUtil::JSEscape($title)?>',<?php endif;?>
 	TASKS_LIST_SORT : '<?=GetMessageJS("TASKS_LIST_SORT")?>',
 	TASKS_LIST_FIELDS : '<?=GetMessageJS("TASKS_LIST_FIELDS")?>',
 	TASKS_LIST_GROUP_ACTION_VIEW : '<?=GetMessageJS("TASKS_LIST_GROUP_ACTION_VIEW")?>',

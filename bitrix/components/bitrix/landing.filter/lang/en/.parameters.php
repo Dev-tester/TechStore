@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_CMP_PAR_FOLDER_SITE_ID"] = "Folder ID";
 $MESS["LANDING_CMP_PAR_FILTER_TYPE"] = "Filter type";
 $MESS["LANDING_CMP_PAR_BUTTONS"] = "Button array";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LDAP_MODULE_NAME'] = "AD/LDAP интеграция";
 $MESS ['LDAP_MODULE_DESC'] = "Модуль для работы с Active Directory и LDAP.";
 $MESS ['LDAP_UNINSTALL_TITLE'] = "Деинсталляция модуля AD/LDAP интеграции.";

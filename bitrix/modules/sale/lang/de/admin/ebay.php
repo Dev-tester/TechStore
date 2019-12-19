@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_NOT_INSTALLED"] = "Das Modul Onlineshop ist nicht installiert.";
 $MESS["SALE_ACCESS_DENIED"] = "Zugriff verweigert";
 $MESS["SALE_EBAY_TITLE"] = "Integration mit eBay";

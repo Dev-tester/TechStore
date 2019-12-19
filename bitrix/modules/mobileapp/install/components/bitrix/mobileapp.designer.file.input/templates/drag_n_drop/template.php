@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 CJSCore::Init(array('fx', 'ajax', 'dd'));
 $APPLICATION->AddHeadScript('/bitrix/js/main/file_upload_agent.js');
 $uid = $arParams['CONTROL_ID'];
@@ -31,12 +31,12 @@ if (!function_exists('mfi_format_line'))
 					<td class="files-storage">
 						<div class="files-storage-block">&nbsp;
 							<span class='del-but' onclick="BfileFD<?=$uid?>.agent.StopUpload(BX('wd-doc<?=$elementID?>'));"></span>
-							<span class="files-placement"><?/*=htmlspecialcharsEx($title)*/?></span>
+							<span class="files-placement"><?php /*=htmlspecialcharsEx($title)*/?></span>
 							<input id="file-doc<?=$elementID?>" type="hidden" name="<?=htmlspecialcharsbx($controlNameFull)?>" value="<?=$elementID?>" />
 						</div>
 					</td>
 				</tr>
-<?
+<?php 
 			}
 			$result = ob_get_clean();
 		}
@@ -96,7 +96,7 @@ if (!function_exists('mfi_format_line'))
 				</tbody>
 			</table>
 		</div>
-		<div class="file-selector"><span class="file-uploader"><span class="file-uploader-left"></span><span class="file-but-text"><?=GetMessage('BFDND_SELECT_LOCAL');?></span><span class="file-uploader-right"></span><input class="file-fileUploader <?=$addClass?>" id="file-fileUploader-<?=$uid?>" type="file" <?/*multiple='multiple'*/?> size='1' /></span></div></div>
+		<div class="file-selector"><span class="file-uploader"><span class="file-uploader-left"></span><span class="file-but-text"><?=GetMessage('BFDND_SELECT_LOCAL');?></span><span class="file-uploader-right"></span><input class="file-fileUploader <?=$addClass?>" id="file-fileUploader-<?=$uid?>" type="file" <?php /*multiple='multiple'*/?> size='1' /></span></div></div>
 	<script>
 	BX.ready(function(){
 		BX.message({
@@ -118,9 +118,9 @@ if (!function_exists('mfi_format_line'))
 					status : status
 			});
 		});
-		<? if (sizeof($arValue) >= 1) { ?>
+		<?php  if (sizeof($arValue) >= 1) { ?>
 		BX.onCustomEvent(<?=$controller?>.parentNode, "BFileDLoadFormController");
-		<?}?>
+		<?php }?>
 	});
 	</script>
 </div>

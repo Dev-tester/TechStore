@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIX_MAIN_NUMERATOR_GENERATOR_SEQUENTNUMBERGENERATOR_WORD_NUMBER"] = "Sequential numbers";
 $MESS["NUMERATOR_SEQUENT_DEFAULT_INTERNAL_ERROR"] = "Internal error.";
 $MESS["NUMERATOR_UPDATE_SEQUENT_IS_NOT_SET_YET"] = "Sequential number is yet to be generated.";

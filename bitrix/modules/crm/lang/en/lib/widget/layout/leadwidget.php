@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_WGT_CONVERSION_FAIL"] = "Lost";
 $MESS["CRM_LEAD_WGT_CONVERSION_SUCCESS"] = "Conversion";
 $MESS["CRM_LEAD_WGT_DATE_NEW_LEAD"] = "New lead processing dynamics";

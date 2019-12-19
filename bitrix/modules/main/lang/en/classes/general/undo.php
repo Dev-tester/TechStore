@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UNDO_ESCAPE_CHANGES"] = "Undo Changes";
 $MESS["MAIN_UNDO_ESCAPE_CHANGES_TITLE"] = "Undo last action";
 $MESS["MAIN_UNDO_ESCAPE_ERROR"] = "Error undoing the last action(s)!";

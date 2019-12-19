@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!empty($arResult['ERROR']))
@@ -9,7 +9,7 @@ if (!empty($arResult['ERROR']))
 
 ?>
 <div class="mobile-admin-report-ptitle"><?=GetMessage('REPORT_REPORT').": ".$arResult['report']['TITLE']?></div>
-<?
+<?php 
 
 // determine column data type
 function getResultColumnDataType(&$viewColumnInfo, &$customColumnTypes, $helperClassName)
@@ -415,8 +415,8 @@ unset($arGroupingResult);
 		<!-- head -->
 		<thead>
 		<tr>
-			<? $i = 0; foreach($arResult['viewColumns'] as $colId => $col): ?>
-			<?
+			<?php  $i = 0; foreach($arResult['viewColumns'] as $colId => $col): ?>
+			<?php 
 			$i++;
 
 			// sorting
@@ -429,16 +429,16 @@ unset($arGroupingResult);
 					<?=htmlspecialcharsbx($col['humanTitle'])?>
 
 			</td>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</tr>
 		</thead>
 
 		<!-- data -->
 		<tbody>
-		<? foreach ($arResult['data'] as $row): ?>
+		<?php  foreach ($arResult['data'] as $row): ?>
 		<tr>
-			<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-			<?
+			<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+			<?php 
 			$i++;
 
 			$finalValue = $row[$col['resultName']];
@@ -469,12 +469,12 @@ unset($arGroupingResult);
 			}
 			?>
 			<td><?=$finalValue?></td>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</tr>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 		<tr>
-			<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-			<?
+			<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+			<?php 
 			$i++;
 
 			if (array_key_exists('TOTAL_'.$col['resultName'], $arResult['total']))
@@ -484,7 +484,7 @@ unset($arGroupingResult);
 			else $finalValue = '&mdash;';
 			?>
 			<td></td>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</tr>
 		</tbody>
 

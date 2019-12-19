@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["XMPP_OPT_DOMAIN"] = "Domain";
 $MESS["XMPP_OPT_LISTEN_DOMAIN"] = "Listen";
 $MESS["XMPP_OPT_LANG"] = "Language";

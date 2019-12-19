@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OP_NAME_SALE_STATUS_VIEW"] = "View";
 $MESS["OP_NAME_SALE_STATUS_CANCEL"] = "Canceled flag";
 $MESS["OP_NAME_SALE_STATUS_MARK"] = "Problematic mark flag";

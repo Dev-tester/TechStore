@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $module_id = "b24connector";
 
@@ -49,10 +49,10 @@ if($moduleAccess >= "W"):
 
 	$tabControl->Begin();
 	?>
-	<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=LANGUAGE_ID?>">
-	<?$tabControl->BeginNextTab();?>
+	<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=LANGUAGE_ID?>">
+	<?php $tabControl->BeginNextTab();?>
 
-	<?if(Connection::isExist()):?>
+	<?php if(Connection::isExist()):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage('B24C_CONNECTED')?>:</td>
 			<td width="60%">
@@ -65,25 +65,25 @@ if($moduleAccess >= "W"):
 				<input type="checkbox" name="disconnect" value="Y">
 			</td>
 		</tr>
-	<?else:?>
+	<?php else:?>
 		<tr>
 			<td colspan="2">
 				<?=Connection::getOptionButtonHtml(Loc::getMessage('B24C_CONNECT'))?>
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?$tabControl->BeginNextTab();?>
-	<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+	<?php $tabControl->BeginNextTab();?>
+	<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
 
-	<?$tabControl->Buttons();?>
+	<?php $tabControl->Buttons();?>
 		<input type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
 		<?=bitrix_sessid_post();?>
-		<?if(strlen($_REQUEST["back_url_settings"]) > 0):?>
-			<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+		<?php if(strlen($_REQUEST["back_url_settings"]) > 0):?>
+			<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 			<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-		<?endif;?>
-	<?$tabControl->End();?>
+		<?php endif;?>
+	<?php $tabControl->End();?>
 	</form>
 
-<?endif;?>
+<?php endif;?>

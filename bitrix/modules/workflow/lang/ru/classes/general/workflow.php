@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLOW_PANEL_CREATE_WITH_WF"] = "Через документооборот";
 $MESS["FLOW_PANEL_EDIT_WITH_WF"] = "Через документооборот";
 $MESS["FLOW_PANEL_CREATE_ALT"] = "Создать новую страницу в текущем разделе через документооборот";

@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
 ?>
-<?if (IsModuleInstalled("advertising")):?>
+<?php if (IsModuleInstalled("advertising")):?>
 	<div class="mb-5">
-		<?$APPLICATION->IncludeComponent(
+		<?php $APPLICATION->IncludeComponent(
 			"bitrix:advertising.banner",
 			"bootstrap_v4",
 			array(
@@ -27,14 +27,14 @@ $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
 			false
 		);?>
 	</div>
-<?endif?>
+<?php endif?>
 
-<?
+<?php 
 global $trendFilter;
 $trendFilter = array('PROPERTY_TREND' => '#TREND_PROPERTY_VALUE_ID#');
 ?>
 <h2>Тренды сезона</h2>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"bootstrap_v4",
 	array(
@@ -159,4 +159,4 @@ $trendFilter = array('PROPERTY_TREND' => '#TREND_PROPERTY_VALUE_ID#');
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

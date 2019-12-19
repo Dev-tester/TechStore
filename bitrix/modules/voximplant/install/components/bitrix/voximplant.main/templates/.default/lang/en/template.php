@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TELEPHONY_TITLE"] = "Telephony Settings";
 $MESS["TELEPHONY_TITLE_2"] = "Telephony";
 $MESS["TELEPHONY_BALANCE"] = "Account balance";

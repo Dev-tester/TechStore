@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_FILTER_ALL"] = "(все)";
 $MESS["CRM_QUOTE_FILTER_LEAD_ID"] = "Список лидов";
 $MESS["CRM_QUOTE_FILTER_DEAL_ID"] = "Список сделок";

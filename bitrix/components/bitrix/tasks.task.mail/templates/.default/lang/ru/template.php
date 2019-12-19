@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ADD_TASK_F"] = "Поручила задачу";
 $MESS["TASKS_ADD_TASK_M"] = "Поручил задачу";
 $MESS["TASKS_UPDATE_TASK_F"] = "Изменила задачу";

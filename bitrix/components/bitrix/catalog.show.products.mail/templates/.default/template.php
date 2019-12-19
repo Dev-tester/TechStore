@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -7,7 +7,7 @@ use Bitrix\Main\Localization\Loc;
 
 $skuTemplate = array();
 ?>
-<? if(!empty($arResult['ITEMS'])):
+<?php  if(!empty($arResult['ITEMS'])):
 
 	if(is_array($arResult['SKU_PROPS']))
 	{
@@ -20,7 +20,7 @@ $skuTemplate = array();
 				?>
 				<table>
 					<tbody>
-					<? if($arProp['SHOW_MODE'] == 'TEXT'): ?>
+					<?php  if($arProp['SHOW_MODE'] == 'TEXT'): ?>
 
 					<tr>
 						<td>
@@ -32,9 +32,9 @@ $skuTemplate = array();
 								<tbody>
 								<tr>
 									<td>
-									<? foreach($arProp['VALUES'] as $key => $arOneValue): ?>
+									<?php  foreach($arProp['VALUES'] as $key => $arOneValue): ?>
 
-										<?
+										<?php 
 										if(isset($arOneValue['ALLOCATION']))
 											$border = 2;
 										else
@@ -45,7 +45,7 @@ $skuTemplate = array();
 												<span><?= htmlspecialcharsex($arOneValue['NAME']); ?></span>
 											</div>
 										</div>
-									<? endforeach ?>
+									<?php  endforeach ?>
 									</td>
 								</tr>
 								</tbody>
@@ -55,7 +55,7 @@ $skuTemplate = array();
 
 					<tr><td height="15"></td></tr>
 
-					<? elseif ($arProp['SHOW_MODE'] == 'PICT'): ?>
+					<?php  elseif ($arProp['SHOW_MODE'] == 'PICT'): ?>
 
 						<tr>
 							<td>
@@ -66,9 +66,9 @@ $skuTemplate = array();
 								<table cellpadding="0" cellspacing="3">
 									<tbody>
 									<tr>
-										<? foreach ($arProp['VALUES'] as $arOneValue): ?>
+										<?php  foreach ($arProp['VALUES'] as $arOneValue): ?>
 
-											<?
+											<?php 
 											if(isset($arOneValue['ALLOCATION']))
 												$border = 3;
 											else
@@ -86,7 +86,7 @@ $skuTemplate = array();
 													</tbody>
 												</table>
 											</td>
-										<? endforeach ?>
+										<?php  endforeach ?>
 									</tr>
 									</tbody>
 								</table>
@@ -94,10 +94,10 @@ $skuTemplate = array();
 						</tr>
 						<tr><td height="15"></td></tr>
 
-					<? endif ?>
+					<?php  endif ?>
 					</tbody>
 				</table>
-				<?
+				<?php 
 				$skuTemplate[$itemId][$arProp['CODE']] = ob_get_contents();
 				ob_end_clean();
 				unset($arProp);
@@ -109,7 +109,7 @@ $skuTemplate = array();
 	<table width="" cellpadding="0" cellspacing="0">
 
 		<tbody>
-		<? foreach($arResult['ITEMS'] as $item): ?>
+		<?php  foreach($arResult['ITEMS'] as $item): ?>
 
 			<tr><td colspan="5" height="25"></td></tr>
 
@@ -149,15 +149,15 @@ $skuTemplate = array();
 						</tbody>
 					</table>
 
-					<? if(!empty($item['OFFERS']) && isset($skuTemplate[$item['ID']])): ?>
+					<?php  if(!empty($item['OFFERS']) && isset($skuTemplate[$item['ID']])): ?>
 
 						<table cellpadding="0" cellspacing="0" style="display: inline-block" valign="top">
 							<tbody>
 							<tr>
 								<td>
-									<? foreach ($skuTemplate[$item['ID']] as $code => $template): ?>
+									<?php  foreach ($skuTemplate[$item['ID']] as $code => $template): ?>
 										<?=$template?>
-									<? endforeach ?>
+									<?php  endforeach ?>
 
 								</td>
 								<td width="45"></td>
@@ -165,7 +165,7 @@ $skuTemplate = array();
 							</tbody>
 						</table>
 
-					<? endif ?>
+					<?php  endif ?>
 
 					<table style="display: inline-block" valign="top">
 						<tbody>
@@ -175,12 +175,12 @@ $skuTemplate = array();
 						font-weight: bold; font-size: 14px; margin:0 0 5px;">
 									<?=$item['MIN_PRICE']['PRINT_DISCOUNT_VALUE']?>
 								</p>
-								<? if($item['MIN_PRICE']['VALUE'] != $item['MIN_PRICE']['DISCOUNT_VALUE']): ?>
+								<?php  if($item['MIN_PRICE']['VALUE'] != $item['MIN_PRICE']['DISCOUNT_VALUE']): ?>
 									<p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #adadad;
 							text-decoration: line-through; font-size: 12px; margin:0 0 10px;">
 										<?=$item['MIN_PRICE']['PRINT_VALUE']?>
 									</p>
-								<? endif ?>
+								<?php  endif ?>
 							</td>
 						</tr>
 						<tr>
@@ -200,9 +200,9 @@ $skuTemplate = array();
 
 				</td>
 			</tr>
-		<? endforeach ?>
+		<?php  endforeach ?>
 		</tbody>
 
 	</table>
 
-<? endif ?>
+<?php  endif ?>

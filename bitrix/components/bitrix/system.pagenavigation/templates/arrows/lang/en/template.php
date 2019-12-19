@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['nav_prev'] = "previous";
 $MESS ['nav_paged'] = "Paged";
 $MESS ['pages'] = "Pages:";

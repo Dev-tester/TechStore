@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SEGMENT_LIST_COMP_TITLE"] = "Сегменты";
 $MESS["SENDER_SEGMENT_LIST_COMP_UI_COLUMN_TITLE"] = "Название";
 $MESS["SENDER_SEGMENT_LIST_COMP_UI_COLUMN_SYSTEM"] = "Предустановленный";

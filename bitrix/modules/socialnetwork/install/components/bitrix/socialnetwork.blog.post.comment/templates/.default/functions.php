@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!function_exists("__sbpc_bind_post_to_form"))
 {
 	function __sbpc_bind_post_to_form($xml_id, $form_id_get=null, $arParams)
@@ -9,7 +9,7 @@ if (!function_exists("__sbpc_bind_post_to_form"))
 			$form_id = $form_id_get;
 			return;
 		}
-?><script type="text/javascript">BX.ready(function(){__blogLinkEntity({'<?=CUtil::JSEscape($xml_id)?>' : ['BG', <?=$arParams["ID"]?>, '<?=$arParams["LOG_ID"]?>']}, <?if ($form_id == null) { ?> window.SBPC.form.id<? } else { ?>"<?=$form_id?>"<? } ?>);});</script><?
+?><script type="text/javascript">BX.ready(function(){__blogLinkEntity({'<?=CUtil::JSEscape($xml_id)?>' : ['BG', <?=$arParams["ID"]?>, '<?=$arParams["LOG_ID"]?>']}, <?php if ($form_id == null) { ?> window.SBPC.form.id<?php  } else { ?>"<?=$form_id?>"<?php  } ?>);});</script><?php 
 	}
 }
 function socialnetworkBlogPostCommentWeb(
@@ -208,7 +208,7 @@ function socialnetworkBlogPostCommentWeb(
 	?><script>
 		top.text<?=$comment["ID"]?> = text<?=$comment["ID"]?> = '<?=CUtil::JSEscape(\Bitrix\Main\Text\Emoji::decode($comment["POST_TEXT"]))?>';
 		top.title<?=$comment["ID"]?> = title<?=$comment["ID"]?> = '<?=CUtil::JSEscape(\Bitrix\Main\Text\Emoji::decode($comment["TITLE"]))?>';
-		top.arComFiles<?=$comment["ID"]?> = [];<?
+		top.arComFiles<?=$comment["ID"]?> = [];<?php 
 
 		if ($comment["COMMENT_PROPERTIES"]["DATA"])
 		{
@@ -220,19 +220,19 @@ function socialnetworkBlogPostCommentWeb(
 				{
 					?>
 					top.arComDFiles<?=$comment["ID"]?> = BX.util.array_merge((top.arComDFiles<?=$comment["ID"]?> || []), <?=CUtil::PhpToJSObject($userField["VALUE"])?>);
-					<?
+					<?php 
 				}
 				else if ($userField["USER_TYPE_ID"] == "webdav_element")
 				{
 					?>
 					top.arComDocs<?=$comment["ID"]?> = BX.util.array_merge((top.arComDocs<?=$comment["ID"]?> || []), <?=CUtil::PhpToJSObject($userField["VALUE"])?>);
-					<?
+					<?php 
 				}
 				else if ($userField["USER_TYPE_ID"] == "file")
 				{
 					?>
 					top.arComFilesUf<?=$comment["ID"]?> = BX.util.array_merge((top.arComDocs<?=$comment["ID"]?> || []), <?=CUtil::PhpToJSObject($userField["VALUE"])?>);
-					<?
+					<?php 
 				}
 			}
 		}
@@ -247,7 +247,7 @@ function socialnetworkBlogPostCommentWeb(
 				{
 					?>
 					top.UrlPreview<?=$comment["ID"]?> = '<?=CUtil::JSEscape($userField["VALUE"])?>';
-					<?
+					<?php 
 				}
 			}
 		}
@@ -264,11 +264,11 @@ function socialnetworkBlogPostCommentWeb(
 						src: '<?=CUtil::JSEscape($arResult["Images"][$imgId]["source"]["src"])?>',
 						thumbnail: '<?=CUtil::JSEscape($arResult["Images"][$imgId]["src"])?>',
 						isImage: true
-					});<?
+					});<?php 
 				}
 			}
 		}
-	?></script><?
+	?></script><?php 
 	$res["AFTER"] .= ob_get_clean();
 
 	if ($arParams["SHOW_RATING"] == "Y")

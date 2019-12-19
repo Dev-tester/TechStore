@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $bodyClass = $APPLICATION->GetPageProperty("BodyClass");
@@ -26,19 +26,19 @@ if (!function_exists('__intr_vis_get_div')):
 <span class="structure-dept-block structure-dept-<?=$cssSuffix[$l].($bHasChildren ? ' structure-dept-nesting' : '').($can_edit ? ' structure-dept-editable' : '')?><?=$arEntry['IBLOCK_SECTION_ID']>0?'':' structure-dept-top'?>" id="bx_str_<?=$arEntry['ID']?>">
 	<div class="structure-dept-title">
 		<div class="structure-dept-title-text">
-<?
+<?php 
 		if ($arEntry['DETAIL_URL']):
 ?>
-			<a href="<?=htmlspecialcharsbx($arEntry['DETAIL_URL'])?>" data-role="department_name" title="<?echo htmlspecialcharsbx($arEntry['NAME'])?>"><?echo htmlspecialcharsEx($arEntry['NAME'])?></a>
-<?
+			<a href="<?=htmlspecialcharsbx($arEntry['DETAIL_URL'])?>" data-role="department_name" title="<?php echo htmlspecialcharsbx($arEntry['NAME'])?>"><?php echo htmlspecialcharsEx($arEntry['NAME'])?></a>
+<?php 
 		else: // $arEntry['DETAIL_URL']
 ?>
-			<span data-role="department_name" title="<?echo htmlspecialcharsbx($arEntry['NAME'])?>"><?=htmlspecialcharsEx($arEntry['NAME'])?></span>
-<?
+			<span data-role="department_name" title="<?php echo htmlspecialcharsbx($arEntry['NAME'])?>"><?=htmlspecialcharsEx($arEntry['NAME'])?></span>
+<?php 
 		endif; // $arEntry['DETAIL_URL']
 ?>
 		</div>
-<?
+<?php 
 		if ($can_edit):
 ?>
 		<div class="structure-icon-box">
@@ -46,12 +46,12 @@ if (!function_exists('__intr_vis_get_div')):
 			<div class="structure-delete-icon" data-role="department_delete" title="<?=GetMessage('ISV_HINT_DELETE')?>"></div>
 			<div class="structure-add-icon" data-role="department_add" title="<?=GetMessage('ISV_HINT_ADD')?>"></div>
 		</div>
-<?
+<?php 
 		endif; // $can_edit
 ?>
 	</div>
 	<div class="structure-boss-block" data-role="department_head" data-user="<?=$arEntry['UF_HEAD']?>" data-dpt="<?=$arEntry['ID']?>">
-<?
+<?php 
 		if ($bHasHead):
 
 			$headName = strip_tags(CUser::FormatName($arParams['NAME_TEMPLATE'], $arUsers[$arEntry['UF_HEAD']]));
@@ -65,36 +65,36 @@ if (!function_exists('__intr_vis_get_div')):
 
 			if ($arUsers[$arEntry['UF_HEAD']]['PROFILE_URL']):
 ?>
-		<a href="<?=htmlspecialcharsbx($arUsers[$arEntry['UF_HEAD']]['PROFILE_URL'])?>" class="structure-avatar"<?if ($arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']):?> style="background: url('<?=$arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']['CACHE']['src']?>') no-repeat scroll center center transparent; background-size: cover;"<?endif;?> bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['UF_HEAD'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"></a>
+		<a href="<?=htmlspecialcharsbx($arUsers[$arEntry['UF_HEAD']]['PROFILE_URL'])?>" class="structure-avatar"<?php if ($arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']):?> style="background: url('<?=$arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']['CACHE']['src']?>') no-repeat scroll center center transparent; background-size: cover;"<?php endif;?> bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['UF_HEAD'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"></a>
 		<a href="<?=htmlspecialcharsbx($arUsers[$arEntry['UF_HEAD']]['PROFILE_URL'])?>" class="structure-boss-name" bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['UF_HEAD'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"><?=$headName?></a>
 
-<?
+<?php 
 			else: // $arUsers[$arEntry['UF_HEAD']]['PROFILE_URL']
 ?>
-		<span class="structure-avatar"<?if ($arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']):?> style="background: url('<?=$arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']['CACHE']['src']?>') no-repeat scroll center center transparent; background-size: cover;"<?endif;?> bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['UF_HEAD'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"></span>
+		<span class="structure-avatar"<?php if ($arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']):?> style="background: url('<?=$arUsers[$arEntry['UF_HEAD']]['PERSONAL_PHOTO']['CACHE']['src']?>') no-repeat scroll center center transparent; background-size: cover;"<?php endif;?> bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['UF_HEAD'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"></span>
 		<div class="structure-boss-name" bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['UF_HEAD'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"><?=$headName?></div>
-<?
+<?php 
 			endif; // $arUsers[$arEntry['UF_HEAD']]['PROFILE_URL']
 			if ($arUsers[$arEntry['UF_HEAD']]['WORK_POSITION']):
 ?>
 		<span class="structure-manager" title="<?=htmlspecialcharsbx($arUsers[$arEntry['UF_HEAD']]['WORK_POSITION'])?>"><?=htmlspecialcharsEx($arUsers[$arEntry['UF_HEAD']]['WORK_POSITION'])?></span>
-<?
+<?php 
 			endif; // $arUsers[$arEntry['UF_HEAD']]['WORK_POSITION']
 		endif; // $bHasHead
 		if ($can_edit):
 ?>
 		<div class="structure-designate-text structure-add-boss-text"><i></i><?=GetMessage('ISV_set_head')?></div>
-<?
+<?php 
 		endif; // $can_edit;
 ?>
 	</div>
-<?
+<?php 
 		$cnt = $arEntry['EMPLOYEES'] ? count($arEntry['EMPLOYEES']) : 0;
 		$real_cnt = $cnt;
 		$bFirst = true;
 ?>
 	<div class="structure-employee-block">
-<?
+<?php 
 		for ($i = 0; $i < $cnt; $i++):
 
 			if ($arEntry['EMPLOYEES'][$i]['ID'] == $arEntry['UF_HEAD'])
@@ -107,13 +107,13 @@ if (!function_exists('__intr_vis_get_div')):
 ?>
 		<div class="structure-employee-title"><?=GetMessage('ISV_EMPLOYEES');?></div>
 		<div class="structure-employee-list" data-role="department_employee_images">
-<?
+<?php 
 				$bFirst = false;
 			endif; // $bFirst
 
 			$name = strip_tags(CUser::FormatName($arParams['NAME_TEMPLATE'], $arEntry['EMPLOYEES'][$i]));
 
-?><span class="structure-avatar"<?if ($arEntry['EMPLOYEES'][$i]['PERSONAL_PHOTO']):?> style="background: url('<?=$arEntry['EMPLOYEES'][$i]['PERSONAL_PHOTO']['CACHE']['src']?>') no-repeat scroll center center transparent; background-size: cover;"<?endif;?> data-user="<?=$arEntry['EMPLOYEES'][$i]['ID']?>" data-dpt="<?=$arEntry['ID']?>" bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['EMPLOYEES'][$i]['ID'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"></span><?
+?><span class="structure-avatar"<?php if ($arEntry['EMPLOYEES'][$i]['PERSONAL_PHOTO']):?> style="background: url('<?=$arEntry['EMPLOYEES'][$i]['PERSONAL_PHOTO']['CACHE']['src']?>') no-repeat scroll center center transparent; background-size: cover;"<?php endif;?> data-user="<?=$arEntry['EMPLOYEES'][$i]['ID']?>" data-dpt="<?=$arEntry['ID']?>" bx-tooltip-user-id="<?=($arParams['USE_USER_LINK'] == 'Y' ? $arEntry['EMPLOYEES'][$i]['ID'] : '')?>" bx-tooltip-classname="intrantet-user-selector-tooltip"></span><?php 
 
 			$arJSEmployees[] = array(
 				'ID' => $arEntry['EMPLOYEES'][$i]['ID'],
@@ -127,7 +127,7 @@ if (!function_exists('__intr_vis_get_div')):
 		if (!$bFirst):
 ?>
 		</div>
-<?
+<?php 
 		endif; // $bFirst
 		if ($real_cnt > 0):
 			$title = GetMessage('ISV_EMP_COUNT_'.$real_cnt);
@@ -135,16 +135,16 @@ if (!function_exists('__intr_vis_get_div')):
 				$title = GetMessage('ISV_EMP_COUNT_MUL');
 ?>
 		<a href="javascript:void(0)" class="structure-more-employee" data-role="department_employee_count"><?=str_replace('#NUM#', $real_cnt, $title);?></a>
-<?
+<?php 
 		endif;
 		if ($can_edit):
 ?>
 		<div class="structure-designate-text structure-add-empl-text"><i></i><?=GetMessage('ISV_add_emp')?></div>
-<?
+<?php 
 		endif; // $can_edit
 ?>
 	</div>
-<?
+<?php 
 		if ($bHasChildren):
 			$childrenNum = (int) $arEntry['__children'];
 			$title = GetMessage('ISV_CHILDREN_COUNT_'.$childrenNum);
@@ -157,12 +157,12 @@ if (!function_exists('__intr_vis_get_div')):
 		<div class="structure-nesting-bottom3"></div>
 		<span class="structure-nesting-text"><?=str_replace('#NUM#', $childrenNum, $title);?></span>
 	</div>
-<?
+<?php 
 		endif; // $bHasChildren
 		if ($can_edit):
 ?>
 		<div class="structure-designate-text structure-add-dept-text"><i></i><?=GetMessage('ISV_add_dep')?></div>
-<?
+<?php 
 		endif; // $can_edit
 ?>
 </span>
@@ -180,7 +180,7 @@ new BX.IntranetVSBlock({
 
 });
 </script>
-<?
+<?php 
 	} // function __intr_vis_get_div
 
 	function __intr_vis_get_sorter($afterId, $beforeId, $depthLevel, $parentSection)
@@ -197,7 +197,7 @@ new BX.IntranetVSSorter({
 	parentSection: <?=intval($parentSection)?>
 });
 </script>
-<?
+<?php 
 	} // function __intr_vis_get_sorter
 endif; // function_exists
 
@@ -215,7 +215,7 @@ if ($arResult['__SKIP_ROOT'] != 'Y'):
 		<a class="structure-undo-link" href="javascript:void(0)" onclick="BX.IntranetVS.get().Undo('<?=$arResult['UNDO_ID']?>')"><?=GetMessage('ISV_UNDO')?></a>
 	</span>
 </span>
-<?
+<?php 
 	endif; // UNDO_ID
 ?>
 
@@ -235,7 +235,7 @@ new BX.IntranetVS('bx_visual_structure', {
 	URL: '<?=$arParams['PAGE_URL_JS']?>',
 	USE_USER_LINK: <?=$arParams['USE_USER_LINK'] == 'Y' ? 'true' : 'false'?>,
 	MAX_DEPTH: <?=intval($arParams['MAX_DEPTH'])?>,
-<?
+<?php 
 	if ($arResult['UNDO_ID']):
 ?>
 	UNDO: {
@@ -243,7 +243,7 @@ new BX.IntranetVS('bx_visual_structure', {
 		CONT: 'bx_undo_block',
 		TEXT: '<?=CUtil::JSEscape($arResult['UNDO_TEXT'])?>'
 	},
-<?
+<?php 
 endif;
 ?>
 	SKIP_CONFIRM: true
@@ -255,7 +255,7 @@ window.BXSTRUCTURECALLBACK = function()
 	BX.IntranetVS.get().Reload();
 }
 </script>
-<?
+<?php 
 	$arTopEntry = array_shift($arResult['ENTRIES']);
 	if ($arParams['MODE'] != 'reload'):
 		if ($arResult['CAN_EDIT']):
@@ -266,18 +266,18 @@ window.BXSTRUCTURECALLBACK = function()
 					?><button
 						class="ui-btn ui-btn-primary"
 						onclick="<?=CIntranetInviteDialog::ShowInviteDialogLink()?>"
-					><?=GetMessage("ISV_B24_INVITE")?></button><?
+					><?=GetMessage("ISV_B24_INVITE")?></button><?php 
 				endif;
 
 				?><button
 					class="ui-btn ui-btn-primary"
 					onclick="BX.IntranetStructure.ShowForm({IBLOCK_SECTION_ID: <?=intval($arTopEntry['ID'])?>})"
-				><?=GetMessage('ISV_ADD_DEPARTMENT')?></button><?
+				><?=GetMessage('ISV_ADD_DEPARTMENT')?></button><?php 
 			else:
 				?><button
 					class="ui-btn ui-btn-primary"
 					onclick="BX.IntranetStructure.ShowForm({IBLOCK_SECTION_ID: <?=intval($arTopEntry['ID'])?>})"
-				><?=GetMessage('ISV_ADD_DEPARTMENT')?></button><?
+				><?=GetMessage('ISV_ADD_DEPARTMENT')?></button><?php 
 			endif;
 
 			$this->EndViewTarget();
@@ -285,21 +285,21 @@ window.BXSTRUCTURECALLBACK = function()
 		endif;
 ?>
 <div id="bx_visual_structure" class="structure-wrap" style="overflow: auto; position: relative;">
-<?
+<?php 
 	endif; // MODE!=reload
 ?>
 
 <table cellpadding="0" cellspacing="0" border="0" align="center" id="bx_str_level1_table">
 	<tr>
 		<td class="bx-str-top" align="center">
-<?
+<?php 
 	$arTopEntry['DISABLE_DRAG_DEST'] = $arResult['HAS_MULTIPLE_ROOTS'];
 	__intr_vis_get_div($arTopEntry, $arResult['USERS'], $arParams, $arResult['HAS_MULTIPLE_ROOTS'] ? false : $arResult['CAN_EDIT'], 1);
 ?>
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 endif; // __SKIP_ROOT
 
 $arEntries = array();
@@ -327,7 +327,7 @@ if (($cnt = count($arEntries)) > 0)
 ?>
 <table cellpadding="0" cellspacing="0" border="0" align="center" id="bx_str_level<?=$arParams['LEVEL']+2?>_table">
 	<tr class="bx-str-l2">
-<?
+<?php 
 	$arPrevEntry = null;
 	foreach ($arEntries as $key => $arEntry)
 	{
@@ -336,8 +336,8 @@ if (($cnt = count($arEntries)) > 0)
 		$bFirst = !$bSingle && ($key == 0);
 		$bLast = !$bSingle && ($key == $cnt-1);
 ?>
-		<td <?echo $bFirst ? 'class="bx-str-first"' : ($bLast ? 'class="bx-str-last"' : ($bSingle ? 'class="bx-str-single"' : ''))?>>
-<?
+		<td <?php echo $bFirst ? 'class="bx-str-first"' : ($bLast ? 'class="bx-str-last"' : ($bSingle ? 'class="bx-str-single"' : ''))?>>
+<?php 
 		if (!$bSingle && $arResult['CAN_EDIT'])
 			__intr_vis_get_sorter($arPrevEntry ? $arPrevEntry['ID'] : null, $arEntry['ID'], 2, $arEntry['IBLOCK_SECTION_ID']);
 
@@ -347,23 +347,23 @@ if (($cnt = count($arEntries)) > 0)
 		__intr_vis_get_div($arEntry, $arResult['USERS'], $arParams, $arResult['CAN_EDIT'], 2);
 ?>
 		</td>
-<?
+<?php 
 		$arPrevEntry = $arEntry;
 	}
 ?>
 	</tr><tr>
-<?
+<?php 
 	$bFirst = true;
 	foreach ($arEntries as $key => $arEntry)
 	{
 ?>
 		<td valign="top">
-<?
+<?php 
 		if (isset($arSubEntries[$arEntry['ID']]))
 		{
 ?>
 			<table id="bx_str_children_<?=$arEntry['ID']?>" cellspacing="0" cellpadding="0" border="0">
-<?
+<?php 
 			$cnt1 = count($arSubEntries[$arEntry['ID']]);
 			$bSingle = $cnt1 < 2;
 			$arPrevEntry = null;
@@ -374,7 +374,7 @@ if (($cnt = count($arEntries)) > 0)
 				<tr class="bx-str-l3">
 					<td class="bx-str-l3-connector<?=$bFirst ? ' bx-str-first' : ''?><?=$bLast ? ' bx-str-last' : ''?>"><img src="/bitrix/images/1.gif" height="1" width="17" border="0" /></td>
 					<td>
-<?
+<?php 
 				if (!$bSingle && $arResult['CAN_EDIT'])
 					__intr_vis_get_sorter($arPrevEntry ? $arPrevEntry['ID'] : null, $arSubEntry['ID'], 3, $arSubEntry['IBLOCK_SECTION_ID']);
 
@@ -385,29 +385,29 @@ if (($cnt = count($arEntries)) > 0)
 ?>
 					</td>
 				</tr>
-<?
+<?php 
 				$arPrevEntry = $arSubEntry;
 			}
 ?>
 			</table>
-<?
+<?php 
 		}
 ?>
 		</td>
-<?
+<?php 
 		$bFirst = false;
 	}
 ?>
 	</tr>
 </table>
-<?
+<?php 
 }
 ?>
 	<div style="height: 30px;"></div>
-<?
+<?php 
 if ($arParams['MODE'] != 'reload'):
 ?>
 </div>
-<?
+<?php 
 endif;
 ?>

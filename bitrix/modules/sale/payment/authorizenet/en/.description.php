@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["AN_NAME"] = "Advanced Integration Method (AIM).";

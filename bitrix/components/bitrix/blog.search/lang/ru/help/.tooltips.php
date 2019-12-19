@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PAGE_RESULT_COUNT_TIP'] = "Количество результатов поиска, вводимых на страницу.";
 $MESS ['SEARCH_PAGE_TIP'] = "Указывается путь к странице поиска. Например: blog_search.php.";
 $MESS ['PATH_TO_BLOG_TIP'] = "Указывается путь к главной странице блога. Например: blog_blog.php?page=blog&blog=#blog#.";

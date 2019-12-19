@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_UI_VIEWER_DEFAULT_ERROR_TITLE"] = "That's an error.";
 $MESS["JS_UI_VIEWER_IMAGE_VIEW_FULL_SIZE"] = "View full size";
 $MESS["JS_UI_VIEWER_ITEM_ACTION_DELETE"] = "Delete";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $arTooltips = array(
 	"IBLOCK_TYPE" => GetMessage("IBLOCK_TYPE_TIP"),
 	"IBLOCKS" => GetMessage("IBLOCKS_TIP"),

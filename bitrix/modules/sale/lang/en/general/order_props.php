@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGOP_EMPTY_PERS_TYPE"] = "The payer type is not specified";
 $MESS["SKGOP_EMPTY_PROP_NAME"] = "The property name is not specified";
 $MESS["SKGOP_EMPTY_PROP_TYPE"] = "The property type is not specified";

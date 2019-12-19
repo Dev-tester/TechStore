@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C30_T_FILTER_TITLE"] = "Фильтр";
 $MESS["SONET_C30_T_FILTER_CREATED_BY"] = "Автор";
 $MESS["SONET_C30_T_FILTER_GROUP"] = "Группа";

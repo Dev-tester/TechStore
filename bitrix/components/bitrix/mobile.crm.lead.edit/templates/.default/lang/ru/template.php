@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_LEAD_EDIT_SAVE_BTN"] = "Сохранить";
 $MESS["M_CRM_LEAD_EDIT_CANCEL_BTN"] = "Отменить";
 $MESS["M_CRM_LEAD_EDIT_CREATE_TITLE"] = "Создание лида";

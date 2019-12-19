@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/learning/classes/general/sitepath.php");
 
 // 2012-04-16 Checked/modified for compatibility with new data model

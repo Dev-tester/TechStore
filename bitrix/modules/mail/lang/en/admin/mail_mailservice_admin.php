@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MSERVICE_ADM_TITLE"] = "E-mail Services";
 $MESS["MAIL_MSERVICE_ADM_SITE_ID"] = "Website";
 $MESS["MAIL_MSERVICE_ADM_ACTIVE"] = "Active";

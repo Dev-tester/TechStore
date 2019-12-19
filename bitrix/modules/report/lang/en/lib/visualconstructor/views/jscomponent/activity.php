@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_ACTIVITY_VIEW_LABEL"] = "Active";
 $MESS["MONDAY"] = "Mo";
 $MESS["TUESDAY"] = "Tu";

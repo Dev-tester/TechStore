@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['mnu_sender_sect'] = "Email-маркетинг";
 $MESS ['mnu_sender_sect_title'] = "Email-маркетинг";
 

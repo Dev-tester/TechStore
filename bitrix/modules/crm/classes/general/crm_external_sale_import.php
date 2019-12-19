@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 class CCrmExternalSaleImport
@@ -1648,10 +1648,10 @@ class CCrmExternalSaleImport
 			return null;
 		}
 
-		if (substr(ltrim($orderData), 0, strlen('<?xml')) != '<?xml')
+		if (substr(ltrim($orderData), 0, strlen('<?php xml')) != '<?php xml')
 		{
 			$orderDataTmp = @gzuncompress($orderData);
-			if (substr(ltrim($orderDataTmp), 0, strlen('<?xml')) != '<?xml')
+			if (substr(ltrim($orderDataTmp), 0, strlen('<?php xml')) != '<?php xml')
 			{
 				if (strpos($orderDataTmp, "You haven't rights for exchange") !== false)
 					$arErrors[] = array("PD2", GetMessage("CRM_EXT_SALE_IMPORT_UNKNOWN_ANSW_PERMS"));

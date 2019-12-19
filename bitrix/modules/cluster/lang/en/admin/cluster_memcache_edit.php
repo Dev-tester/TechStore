@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_MEMCACHE_EDIT_TAB"] = "Parameters";
 $MESS["CLU_MEMCACHE_EDIT_TAB_TITLE"] = "Memcached Server Connection Parameters";
 $MESS["CLU_MEMCACHE_NO_EXTENTION"] = "A PHP extension \"Memcached\" is not installed.";

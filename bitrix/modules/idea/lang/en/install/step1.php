@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_INSTALL_DEMO"] = "Install demo data (extended)";
 $MESS["IDEA_INSTALL_DEMO_SIMPLE"] = "Install demo data";
 $MESS["IDEA_INSTALL_IDEA_IBLOCK_TYPE"] = "Information block type";

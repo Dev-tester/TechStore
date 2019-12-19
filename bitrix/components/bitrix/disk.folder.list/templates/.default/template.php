@@ -30,7 +30,7 @@ use Bitrix\UI\Buttons\Tag;
 
 ?>
 
-<?
+<?php 
 $documentRoot = Application::getDocumentRoot();
 $isBitrix24Template = (SITE_TEMPLATE_ID === 'bitrix24');
 $isInIframe = Main\Context::getCurrent()->getRequest()->get('IFRAME') === 'Y';
@@ -241,9 +241,9 @@ else
 }
 ?>
 
-<? $isBitrix24Template && $this->setViewTarget('below_pagetitle'); ?>
+<?php  $isBitrix24Template && $this->setViewTarget('below_pagetitle'); ?>
 <div class="disk-folder-list-toolbar" id="disk-folder-list-toolbar">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:disk.breadcrumbs',
 		'',
@@ -267,16 +267,16 @@ else
 		</div>
 	</div>
 </div>
-<? $isBitrix24Template && $this->endViewTarget(); ?>
+<?php  $isBitrix24Template && $this->endViewTarget(); ?>
 
-<? if($arResult['STATUS_BIZPROC'] && $arResult['WORKFLOW_TEMPLATES']) { ?>
+<?php  if($arResult['STATUS_BIZPROC'] && $arResult['WORKFLOW_TEMPLATES']) { ?>
 	<div style="display:none;">
 		<form id="parametersFormBp">
 		<div id="divStartBizProc" class="bx-disk-form-bizproc-start-div">
 			<table class="bx-disk-form-bizproc-start-table">
 				<col class="bx-disk-col-table-left">
 				<col class="bx-disk-col-table-right">
-				<? if(!empty($arResult['WORKFLOW_TEMPLATES'])) {
+				<?php  if(!empty($arResult['WORKFLOW_TEMPLATES'])) {
 					if($arResult['BIZPROC_PARAMETERS']) {?>
 						<tr>
 							<td class="bx-disk-form-bizproc-start-td-title" colspan="2">
@@ -288,7 +288,7 @@ else
 
 							</td>
 						</tr>
-					<? }
+					<?php  }
 					foreach($arResult['WORKFLOW_TEMPLATES'] as $workflowTemplate)
 					{
 						if(!empty($workflowTemplate['PARAMETERS'])) { ?>
@@ -299,7 +299,7 @@ else
 									<input type="hidden" value="create" name="autoExecute" />
 								</td>
 							</tr>
-						<?CBPDocument::StartWorkflowParametersShow($workflowTemplate['ID'], $workflowTemplate['PARAMETERS'], 'formAutoloadBizProc', false);
+						<?php CBPDocument::StartWorkflowParametersShow($workflowTemplate['ID'], $workflowTemplate['PARAMETERS'], 'formAutoloadBizProc', false);
 						}else { ?>
 							<tr>
 								<td class="bx-disk-form-bizproc-start-td-name-bizproc" colspan="2">
@@ -307,7 +307,7 @@ else
 									<input type="hidden" value="create" name="autoExecute" />
 								</td>
 							</tr>
-						<? }
+						<?php  }
 					}
 				}
 				?>
@@ -315,7 +315,7 @@ else
 		</div>
 		</form>
 	</div>
-<? } ?>
+<?php  } ?>
 
 <script type="text/javascript">
 BX.message({
@@ -582,7 +582,7 @@ BX(function () {
 		}
 	});
 
-	<?
+	<?php 
 	if (!empty($arResult['DOCUMENT_HANDLERS']))
 	{
 		foreach ($arResult['DOCUMENT_HANDLERS'] as $handler)
@@ -614,13 +614,13 @@ BX(function () {
 					}
 				]
 			});
-		<? }
+		<?php  }
 	?>
-	<?
+	<?php 
 	}
 	?>
 
-	<? if (empty($arResult['IS_TRASH_MODE']))
+	<?php  if (empty($arResult['IS_TRASH_MODE']))
 		{
 			?>
 				var addButton = document.querySelector('.js-disk-add-button');
@@ -646,7 +646,7 @@ BX(function () {
 						menu.popupWindow.show();
 					}
 				});
-			<?
+			<?php 
 		}
 	?>
 
@@ -656,7 +656,7 @@ BX(function () {
 });
 </script>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent('bitrix:disk.help.network.drive','');
 
 global $USER;
@@ -666,17 +666,17 @@ if(
 {
 	?>
 	<div id="bx-bitrix24-business-tools-info" style="display: none; width: 600px; margin: 9px;">
-		<? $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
+		<?php  $APPLICATION->IncludeComponent('bitrix:bitrix24.business.tools.info', '', array()); ?>
 	</div>
 	<script type="text/javascript">
 	BX.message({
 		disk_restriction: <?= (!Bitrix24Manager::checkAccessEnabled('disk', $USER->getId())? 'true' : 'false') ?>
 	});
 	</script>
-	<?
+	<?php 
 		$APPLICATION->IncludeComponent("bitrix:bitrix24.limit.lock", "");
 	?>
-<?
+<?php 
 }
 
 $APPLICATION->includeComponent("bitrix:spotlight", "", array(

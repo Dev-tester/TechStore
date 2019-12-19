@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_RUN_ERR_NSELECTED"] = "Select a client for execution";
 $MESS["CTRLR_RUN_SUCCESS"] = "#SUCCESS_CNT# of #CNT# remote commands have been successfully added to the <a href=\"controller_task.php?lang=#LANG#\">task queue</a>.";
 $MESS["CTRLR_RUN_TITLE"] = "Remote PHP command line";

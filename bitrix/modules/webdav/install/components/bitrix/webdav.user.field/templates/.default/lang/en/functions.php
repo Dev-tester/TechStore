@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WDUF_SELECT_ATTACHMENTS"] = "Upload files and images";
 $MESS["WDUF_DROP_ATTACHMENTS"] = "Drag attachments here";
 $MESS["WD_SELECT_FILE_LINK"] = "Select document from Bitrix24";

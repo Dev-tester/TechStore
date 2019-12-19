@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBEL_BIZPROC_STOP'] = "остановить";
 $MESS ['IBEL_BIZPROC_DEL'] = "удалить";
 $MESS ['IBEL_BIZPROC_LOG'] = "журнал";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOL_PSEUDO_CANCELLED_COLOR"] = "Canceled order color";
 $MESS["SPOL_STATUS_COLOR"] = "Status color";
 $MESS["SPOL_STATUS_COLOR_GREEN"] = "Green";

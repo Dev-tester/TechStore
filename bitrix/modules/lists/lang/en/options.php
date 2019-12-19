@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_OPTIONS_TAB_PERMISSIONS"] = "Access Permissions";
 $MESS["LISTS_OPTIONS_TAB_TITLE_PERMISSIONS"] = "Select a user group allowed to manage lists of a respective information block type";
 $MESS["LISTS_OPTIONS_CHOOSE_GROUP"] = "(select group)";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $sql_str = "SELECT T.ID
 FROM b_task T
 WHERE T.MODULE_ID='security'";

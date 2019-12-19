@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONTACT_PULL_LIST_PREFIX"] = "Источник: ";
 $MESS["SENDER_ENTITY_CONTACT_VALID_EMAIL"] = "Поле 'Email' не является email-адресом.";
 

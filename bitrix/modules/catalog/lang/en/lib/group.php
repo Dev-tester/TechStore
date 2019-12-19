@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GROUP_ENTITY_ID_FIELD"] = "Price type ID";
 $MESS["GROUP_ENTITY_NAME_FIELD"] = "ID";
 $MESS["GROUP_ENTITY_BASE_FIELD"] = "Base type";

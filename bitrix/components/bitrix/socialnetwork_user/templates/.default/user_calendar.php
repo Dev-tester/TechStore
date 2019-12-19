@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "user_calendar";
 include("util_menu.php");
 include("util_profile.php");
 ?>
-<?
+<?php 
 $ownerId = $arResult["VARIABLES"]["user_id"];
 if (
 	isset($_GET['bx_enable_calendar'])

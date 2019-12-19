@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($arParams["PERMISSION"] <= "D"):
 	ShowError(GetMessage("P_ACCESS_DENIED"));
 	return false;
@@ -17,7 +17,7 @@ $arParams["SET_TITLE"] = ($arParams["SET_TITLE"] == "N" ? "N" : "Y"); //Turn on 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="photo-table">
 	<tr valign="top">
 		<td class="photo-td-left">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:search.page",
 	"",
@@ -67,7 +67,7 @@ $APPLICATION->IncludeComponent(
 ?>
 		</td>
 		<td class="photo-td-right">
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				"bitrix:search.tags.cloud", 
 				"photogallery", 
 				Array(
@@ -98,7 +98,7 @@ $APPLICATION->IncludeComponent(
 	</tr>
 </table>
 </div>
-<?
+<?php 
 /********************************************************************
 				Standart
 ********************************************************************/

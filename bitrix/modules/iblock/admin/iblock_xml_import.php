@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 CModule::IncludeModule("iblock");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/iblock/prolog.php");
@@ -180,7 +180,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Import"]=="Y")
 	<script>
 		CloseWaitWindow();
 	</script>
-	<?
+	<?php 
 
 	foreach($arErrors as $strError)
 		CAdminMessage::ShowMessage($strError);
@@ -319,7 +319,7 @@ $APPLICATION->SetTitle(GetMessage("IBLOCK_CML2_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 <div id="tbl_iblock_import_result_div"></div>
-<?
+<?php 
 $aTabs = array(
 	array(
 		"DIV" => "edit1",
@@ -337,8 +337,8 @@ function DoNext(NS)
 {
 	var interval = parseInt(document.getElementById('INTERVAL').value);
 	var queryString = 'Import=Y'
-		+ '&lang=<?echo LANG?>'
-		+ '&<?echo bitrix_sessid_get()?>'
+		+ '&lang=<?php echo LANG?>'
+		+ '&<?php echo bitrix_sessid_get()?>'
 		+ '&INTERVAL=' + interval;
 	;
 
@@ -360,7 +360,7 @@ function DoNext(NS)
 		}
 		if(!found)
 		{
-			alert('<?echo GetMessage("IBLOCK_CML2_LID_ERROR")?>');
+			alert('<?php echo GetMessage("IBLOCK_CML2_LID_ERROR")?>');
 			EndImport();
 			return;
 		}
@@ -399,8 +399,8 @@ function EndImport()
 	running = document.getElementById('start_button').disabled = false;
 }
 </script>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo htmlspecialcharsbx(LANG)?>" name="form1" id="form1">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo htmlspecialcharsbx(LANG)?>" name="form1" id="form1">
+<?php 
 $rsIBlockType = CIBlockType::GetList(array("sort"=>"asc"), array("ACTIVE"=>"Y"));
 $arIBlockType = array("reference"=>array(), "reference_id"=>array());
 while($arr = $rsIBlockType->Fetch())
@@ -416,11 +416,11 @@ $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("IBLOCK_CML2_URL_DATA_FILE")?>:</td>
+		<td width="40%"><?php echo GetMessage("IBLOCK_CML2_URL_DATA_FILE")?>:</td>
 		<td width="60%">
 			<input type="text" id="URL_DATA_FILE" name="URL_DATA_FILE" size="30" value="<?=htmlspecialcharsbx($URL_DATA_FILE)?>">
-			<input type="button" value="<?echo GetMessage("IBLOCK_CML2_OPEN")?>" OnClick="BtnClick()">
-			<?
+			<input type="button" value="<?php echo GetMessage("IBLOCK_CML2_OPEN")?>" OnClick="BtnClick()">
+			<?php 
 			CAdminFileDialog::ShowScript
 			(
 				Array(
@@ -440,39 +440,39 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("IBLOCK_CML2_IBLOCK_TYPE")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_CML2_IBLOCK_TYPE")?>:</td>
 		<td><?=SelectBoxFromArray("IBLOCK_TYPE", $arIBlockType, $IBLOCK_TYPE, "", "");?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_CML2_LID")?></td>
-		<td><?echo CLang::SelectBoxMulti("LID", htmlspecialcharsbx($LID));?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_CML2_LID")?></td>
+		<td><?php echo CLang::SelectBoxMulti("LID", htmlspecialcharsbx($LID));?></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("IBLOCK_CML2_ACTION")?>:</td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("IBLOCK_CML2_ACTION")?>:</td>
 		<td>
-			<input type="radio" name="outFileAction" value="N" id="outFileAction_N" checked="checked"><label for="outFileAction_N"><?echo GetMessage("IBLOCK_CML2_ACTION_NONE")?></label><br>
-			<input type="radio" name="outFileAction" value="A" id="outFileAction_A"><label for="outFileAction_A"><?echo GetMessage("IBLOCK_CML2_ACTION_DEACTIVATE")?></label><br>
-			<input type="radio" name="outFileAction" value="D" id="outFileAction_D"><label for="outFileAction_D"><?echo GetMessage("IBLOCK_CML2_ACTION_DELETE")?></label><br>
+			<input type="radio" name="outFileAction" value="N" id="outFileAction_N" checked="checked"><label for="outFileAction_N"><?php echo GetMessage("IBLOCK_CML2_ACTION_NONE")?></label><br>
+			<input type="radio" name="outFileAction" value="A" id="outFileAction_A"><label for="outFileAction_A"><?php echo GetMessage("IBLOCK_CML2_ACTION_DEACTIVATE")?></label><br>
+			<input type="radio" name="outFileAction" value="D" id="outFileAction_D"><label for="outFileAction_D"><?php echo GetMessage("IBLOCK_CML2_ACTION_DELETE")?></label><br>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_CML2_INTERVAL")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_CML2_INTERVAL")?>:</td>
 		<td>
-			<input type="text" id="INTERVAL" name="INTERVAL" size="5" value="<?echo intval($INTERVAL)?>">
+			<input type="text" id="INTERVAL" name="INTERVAL" size="5" value="<?php echo intval($INTERVAL)?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("IBLOCK_CML2_IMAGE_RESIZE")?>:</td>
+		<td><?php echo GetMessage("IBLOCK_CML2_IMAGE_RESIZE")?>:</td>
 		<td>
 			<input type="checkbox" id="GENERATE_PREVIEW" name="GENERATE_PREVIEW" value="Y" checked>
 		</td>
 	</tr>
-<?$tabControl->Buttons();?>
-	<input type="button" id="start_button" value="<?echo GetMessage("IBLOCK_CML2_START_IMPORT")?>" OnClick="StartImport();" class="adm-btn-save">
-	<input type="button" id="stop_button" value="<?echo GetMessage("IBLOCK_CML2_STOP_IMPORT")?>" OnClick="EndImport();">
-<?$tabControl->End();?>
+<?php $tabControl->Buttons();?>
+	<input type="button" id="start_button" value="<?php echo GetMessage("IBLOCK_CML2_START_IMPORT")?>" OnClick="StartImport();" class="adm-btn-save">
+	<input type="button" id="stop_button" value="<?php echo GetMessage("IBLOCK_CML2_STOP_IMPORT")?>" OnClick="EndImport();">
+<?php $tabControl->End();?>
 </form>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

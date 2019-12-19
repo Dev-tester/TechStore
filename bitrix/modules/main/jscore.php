@@ -1,4 +1,4 @@
-<?
+<?php 
 $pathJS = '/bitrix/js/main/core';
 $pathCSS = '/bitrix/js/main/core/css';
 $pathCSSPanel = '/bitrix/panel/main';

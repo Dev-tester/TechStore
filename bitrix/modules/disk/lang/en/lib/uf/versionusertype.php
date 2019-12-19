@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_VERSION_USER_TYPE_ERROR_COULD_NOT_FIND_ATTACHED_OBJECT"] = "Cannot find the attached object.";
 $MESS["DISK_VERSION_USER_TYPE_ERROR_COULD_NOT_FIND_FILE"] = "File could not be found.";
 $MESS["DISK_VERSION_USER_TYPE_ERROR_INVALID_VALUE"] = "Invalid value: there must be a number.";

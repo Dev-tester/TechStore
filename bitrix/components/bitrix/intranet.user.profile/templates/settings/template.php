@@ -15,7 +15,7 @@ use \Bitrix\Main\Web\Json;
 			data-value='<?=Json::encode($arResult["SettingsFieldsView"]);?>'
 			id="FieldsView" class="main-ui-control main-ui-multi-select">
 			<span class="main-ui-square-container">
-				<?
+				<?php 
 				if (!empty($arResult["SettingsFieldsView"]))
 				{
 					foreach ($arResult["SettingsFieldsView"] as $item)
@@ -30,7 +30,7 @@ use \Bitrix\Main\Web\Json;
 							<span class="main-ui-square-item"><?=htmlspecialcharsbx($item["NAME"])?></span>
 							<span class="main-ui-item-icon main-ui-square-delete"></span>
 						</span>
-						<?
+						<?php 
 					}
 				}
 				?>
@@ -51,7 +51,7 @@ use \Bitrix\Main\Web\Json;
 			 data-value='<?= \Bitrix\Main\Web\Json::encode($arResult["SettingsFieldsEdit"]);?>'
 			 id="FieldsEdit" class="main-ui-control main-ui-multi-select">
 			<span class="main-ui-square-container">
-				<?
+				<?php 
 				if (!empty($arResult["SettingsFieldsEdit"]))
 				{
 					foreach ($arResult["SettingsFieldsEdit"] as $item)
@@ -66,7 +66,7 @@ use \Bitrix\Main\Web\Json;
 							<span class="main-ui-square-item"><?=htmlspecialcharsbx($item["NAME"])?></span>
 							<span class="main-ui-item-icon main-ui-square-delete"></span>
 						</span>
-						<?
+						<?php 
 					}
 				}
 				?>

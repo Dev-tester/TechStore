@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEARCH_FONT_MAX'] = "Largest font size (px)";
 $MESS ['SEARCH_FONT_MIN'] = "Smallest font size (px)";
 $MESS ['SEARCH_COLOR_OLD'] = "Latest tag color (ex. \"FEFEFE\")";

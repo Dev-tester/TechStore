@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -20,7 +20,7 @@ if ($arResult["NEED_AUTH"] == "Y")
 }
 elseif (strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
@@ -29,7 +29,7 @@ else
 		&& $arResult["ShowForm"] != "Input"
 	)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	if ($arResult["ShowForm"] == "Input")
@@ -44,9 +44,9 @@ else
 			BX.message({
 				SONET_C39_T_ERROR: '<?=GetMessageJS('SONET_C39_T_ERROR')?>'
 			});
-		</script><?
+		</script><?php 
 
-		?><div id="sonet_group_user_request_error_block" class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger<?=(strlen($arResult["ErrorMessage"]) > 0 ? "" : " sonet-ui-form-error-block-invisible")?>"><?=$arResult["ErrorMessage"]?></div><?
+		?><div id="sonet_group_user_request_error_block" class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger<?=(strlen($arResult["ErrorMessage"]) > 0 ? "" : " sonet-ui-form-error-block-invisible")?>"><?=$arResult["ErrorMessage"]?></div><?php 
 
 		?><form method="post" name="form1" id="sonet_group_user_request_form" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
 			<table cellspacing="0">
@@ -68,15 +68,15 @@ else
 				<input type="hidden" name="ajax_request" value="Y">
 				<input type="hidden" name="save" value="Y">
 				<?=bitrix_sessid_post()?>
-				<span class="sonet-ui-btn-cont sonet-ui-btn-cont-center"><?
-					?><button class="ui-btn ui-btn-success" id="sonet_group_user_request_button_submit"><?=Loc::getMessage("SONET_C39_T_SEND_BUTTON_TITLE") ?></button><?
-					?><button class="ui-btn ui-btn-light-border" id="sonet_group_user_request_button_cancel"><?=Loc::getMessage("SONET_C39_T_CANCEL_BUTTON_TITLE") ?></button><?
-				?></span><? // class="sonet-ui-btn-cont"
+				<span class="sonet-ui-btn-cont sonet-ui-btn-cont-center"><?php 
+					?><button class="ui-btn ui-btn-success" id="sonet_group_user_request_button_submit"><?=Loc::getMessage("SONET_C39_T_SEND_BUTTON_TITLE") ?></button><?php 
+					?><button class="ui-btn ui-btn-light-border" id="sonet_group_user_request_button_cancel"><?=Loc::getMessage("SONET_C39_T_CANCEL_BUTTON_TITLE") ?></button><?php 
+				?></span><?php  // class="sonet-ui-btn-cont"
 
-			?></div><? // sonet-slider-footer-fixed
+			?></div><?php  // sonet-slider-footer-fixed
 
 		?></form>
-		<?
+		<?php 
 	}
 	elseif(is_array($arResult["Events"]) && count($arResult["Events"]) > 0)
 	{
@@ -88,24 +88,24 @@ else
 				<th width="90%"><?= GetMessage("SONET_C39_T_MESSAGE") ?></th>
 				<th width="0%"><?= GetMessage("SONET_C39_T_ACTIONS") ?></th>
 			</tr>
-			<?foreach ($arResult["Events"] as $event):?>
+			<?php foreach ($arResult["Events"] as $event):?>
 				<tr>
 					<td valign="top" width="10%" nowrap>
-						<?if ($event["EventType"] == "GroupRequest"):?>
+						<?php if ($event["EventType"] == "GroupRequest"):?>
 							<?= $event["Event"]["GROUP_IMAGE_ID_IMG"]; ?><br>
-							<?
+							<?php 
 							if ($event["Event"]["SHOW_GROUP_LINK"])
 								echo "<a href=\"".$event["Event"]["GROUP_PROFILE_URL"]."\">";
 							echo $event["Event"]["GROUP_NAME"];
 							if ($event["Event"]["SHOW_GROUP_LINK"])
 								echo "</a>";
 							?>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 					<td valign="top" width="90%">
-						<?if ($event["EventType"] == "GroupRequest"):?>
+						<?php if ($event["EventType"] == "GroupRequest"):?>
 							<?= GetMessage("SONET_C39_T_USER") ?>
-							<?
+							<?php 
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -138,36 +138,36 @@ else
 							<?= GetMessage("SONET_C39_T_INVITE") ?>:<br /><br />
 							<?= $event["Event"]["MESSAGE"]; ?><br /><br />
 							<i><?= $event["Event"]["DATE_CREATE"]; ?></i>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 					<td valign="top" width="0%" nowrap>
-						<?if ($event["EventType"] == "GroupRequest"):?>
+						<?php if ($event["EventType"] == "GroupRequest"):?>
 							<a href="<?= $event["Urls"]["FriendAdd"] ?>"><?= GetMessage("SONET_C39_T_DO_AGREE") ?></a><br><br>
 							<a href="<?= $event["Urls"]["FriendReject"] ?>"><?= GetMessage("SONET_C39_T_DO_DENY") ?></a>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</table>
 		</div>
 		<br /><br />
-		<?
+		<?php 
 	}	
 	else
 	{
 		?>
-		<?if (array_key_exists("Success", $arResult) && $arResult["Success"] == "Rejected"):?>
+		<?php if (array_key_exists("Success", $arResult) && $arResult["Success"] == "Rejected"):?>
 			<?= GetMessage("SONET_C39_T_REJECTED") ?>
-		<?elseif (array_key_exists("Success", $arResult) && $arResult["Success"] == "Added"):?>
+		<?php elseif (array_key_exists("Success", $arResult) && $arResult["Success"] == "Added"):?>
 			<?= GetMessage("SONET_C39_T_SUCCESS_ALT") ?>
-		<?elseif ($arResult["Group"]["OPENED"] == "Y"):?>
+		<?php elseif ($arResult["Group"]["OPENED"] == "Y"):?>
 			<?= GetMessage("SONET_C39_T_SUCCESS_ALT") ?>
-		<?else:?>
+		<?php else:?>
 			<?= GetMessage("SONET_C39_T_SUCCESS") ?>
-		<?endif;?>
+		<?php endif;?>
 		<br><br>
 		<a href="<?= $arResult["Urls"]["Group"] ?>"><?= $arResult["Group"]["NAME"]; ?></a>
-		<?
+		<?php 
 	}
 }
 ?>

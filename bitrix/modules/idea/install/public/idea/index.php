@@ -1,5 +1,5 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
-<?$APPLICATION->IncludeComponent("bitrix:idea", ".default", array(
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");?>
+<?php $APPLICATION->IncludeComponent("bitrix:idea", ".default", array(
 	"MESSAGE_COUNT" => "10",
 	"COMMENTS_COUNT" => "10",
 	"DATE_TIME_FORMAT" => "d.m.y G:i",
@@ -70,4 +70,4 @@
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

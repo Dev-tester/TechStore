@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WEBDAV_SOCNET_LOG_FILES"] = "Shared file";
 $MESS["WEBDAV_SOCNET_LOG_FILES_TITLE"] = "New document: \"#TITLE#\"";
 $MESS["WEBDAV_SOCNET_LOG_FILES_TITLE_MAIL"] = "A new document \"#TITLE#\" has been added to library \"#ENTITY#\"";

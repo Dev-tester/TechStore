@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_DURATION_REGEXP_DAY"] = "day|d";
 $MESS["USER_TYPE_DURATION_REGEXP_HOUR"] = "hour|hr";
 $MESS["USER_TYPE_DURATION_X_DAY"] = "#NUM# day(s)";

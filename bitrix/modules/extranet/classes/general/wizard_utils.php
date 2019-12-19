@@ -1,4 +1,4 @@
-<?
+<?php 
 class CExtranetWizardServices
 {
 	function GetTemplates($relativePath)

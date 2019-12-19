@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -19,12 +19,12 @@ if (!empty($arResult['ERRORS']))
 			<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 				<div class="alert alert-danger"><?=$arResult['ERRORS'][$component::E_NOT_AUTHORIZED]?></div>
 			</div>
-			<? $authListGetParams = array(); ?>
+			<?php  $authListGetParams = array(); ?>
 			<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-				<?$APPLICATION->AuthForm('', false, false, 'N', false);?>
+				<?php $APPLICATION->AuthForm('', false, false, 'N', false);?>
 			</div>
 		</div>
-		<?
+		<?php 
 
 		return;
 	}
@@ -35,7 +35,7 @@ if(strlen($arResult["NAV_STRING"]) > 0)
 	<div class="row mb-3">
 		<div class="col"><?=$arResult["NAV_STRING"]?></div>
 	</div>
-	<?
+	<?php 
 }
 
 if (count($arResult["PROFILES"]))
@@ -47,7 +47,7 @@ if (count($arResult["PROFILES"]))
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<?
+							<?php 
 							$dataColumns = array(
 								"ID", "DATE_UPDATE", "NAME", "PERSON_TYPE_ID"
 							);
@@ -59,14 +59,14 @@ if (count($arResult["PROFILES"]))
 									<a class="sale-personal-profile-list-arrow-up" href="<?=$arResult['URL']?>by=<?=$column?>&order=asc#nav_start"><i class="fa fa-chevron-up"></i></a>
 									<a class="sale-personal-profile-list-arrow-down" href="<?=$arResult['URL']?>by=<?=$column?>&order=desc#nav_start"><i class="fa fa-chevron-down"></i></a>
 								</th>
-								<?
+								<?php 
 							}
 							?>
 							<th class="text-right"><?=Loc::getMessage("SALE_ACTION")?></th>
 						</tr>
 					</thead>
 					<tbody>
-						<?foreach($arResult["PROFILES"] as $val)
+						<?php foreach($arResult["PROFILES"] as $val)
 					{
 						?>
 						<tr>
@@ -83,27 +83,27 @@ if (count($arResult["PROFILES"]))
 								</a>
 							</td>
 						</tr>
-						<?
+						<?php 
 					}?>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 	if(strlen($arResult["NAV_STRING"]) > 0)
 	{
 		?>
 		<div class="row">
 			<div class="col"><?=$arResult["NAV_STRING"]?></div>
 		</div>
-		<?
+		<?php 
 	}
 }
 else
 {
 	?>
 	<h3><?=Loc::getMessage("STPPL_EMPTY_PROFILE_LIST") ?></h3>
-	<?
+	<?php 
 }
 ?>

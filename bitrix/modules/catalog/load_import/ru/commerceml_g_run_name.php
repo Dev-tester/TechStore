@@ -1,4 +1,4 @@
-<?
+<?php 
 $nameUTF = array(
 	"CommerceInfo" => "КоммерческаяИнформация",
 	"Company" => "Контрагент",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATEACT_ADD'] = "Add";
 $MESS ['STATEACT_EDITBP'] = "Edit this business process";
 $MESS ['STATEACT_SETT'] = "Handler Settings";

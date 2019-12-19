@@ -33,7 +33,7 @@ $sortBpLog = false;
 ?>
 
 <div>
-	<? if($arParams['STATUS_BIZPROC']) {
+	<?php  if($arParams['STATUS_BIZPROC']) {
 	$bizProcIndex = 0;
 	?>
 	<form action="<?= $arResult['PATH_TO_FILE_VIEW'] ?>" method="POST" class="bizproc-form" name="start_workflow_form1" id="start_workflow_form1">
@@ -45,14 +45,14 @@ $sortBpLog = false;
 		if(!isset($_GET['log_workflow'])) { ?>
 			<ul class="bizproc-list bizproc-document-states">
 
-				<? $this->setViewTarget("inside_pagetitle", 10); ?>
+				<?php  $this->setViewTarget("inside_pagetitle", 10); ?>
 				<div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;">
 					<div class="pagetitle-container pagetitle-align-right-container">
 						<span id="bx-disk-run-bp" class="ui-btn ui-btn-primary ui-btn-dropdown"><?= Loc::getMessage('DISK_FILE_VIEW_FILE_BIZPROC_START') ?></span>
 					</div>
 				</div>
-				<? $this->endViewTarget(); ?>
-			<?
+				<?php  $this->endViewTarget(); ?>
+			<?php 
 			if(!empty($arResult['BIZPROC_LIST']))
 			{
 				foreach($arResult['BIZPROC_LIST'] as $key => $bizProcArray)
@@ -77,39 +77,39 @@ $sortBpLog = false;
 						<tr>
 							<th class="bizproc-field-name"><?= $bizProcArray['TEMPLATE_NAME'] ?></th>
 							<th class="bizproc-field-value">
-								<? if(strlen($bizProcArray["WORKFLOW_STATUS"]) > 0) { ?>
+								<?php  if(strlen($bizProcArray["WORKFLOW_STATUS"]) > 0) { ?>
 									<a class="webform-small-button webform-button-transparent" href="<?= $strStopBizProc ?>"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_STOP_BUTTON') ?></a>
-								<? }else if($arResult['BIZPROC_PERMISSION']['DROP']) { $checkAction = false; ?>
+								<?php  }else if($arResult['BIZPROC_PERMISSION']['DROP']) { $checkAction = false; ?>
 									<a class="webform-small-button webform-button-transparent" href="<?= $strDelBizProc ?>"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_DELETE_BUTTON') ?></a>
-								<? } ?>
+								<?php  } ?>
 								<a class="webform-small-button webform-button-transparent" href="<?= $strLogBizProc ?>"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_LOG_BUTTON') ?></a>
 							</th>
 						</tr>
-						<? if(!empty($bizProcArray['STATE_MODIFIED'])) { ?>
+						<?php  if(!empty($bizProcArray['STATE_MODIFIED'])) { ?>
 							<tr class="bizproc-item-row-first">
 								<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_STATE_MODIFIED') ?></td>
 								<td class="bizproc-field-value"><?= $bizProcArray['STATE_MODIFIED'] ?></td>
 							</tr>
-						<? } ?>
-						<tr <? if(empty($bizProcArray['EVENTS']) && empty($bizProcArray['TASK']) && !$checkAction){?>class="bizproc-item-row-last" <?}?>>
+						<?php  } ?>
+						<tr <?php  if(empty($bizProcArray['EVENTS']) && empty($bizProcArray['TASK']) && !$checkAction){?>class="bizproc-item-row-last" <?php }?>>
 							<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_STATE_TITLE') ?></td>
 							<td class="bizproc-field-value"><?= $bizProcArray['STATE_TITLE'] ?></td>
 						</tr>
-						<? if(!empty($bizProcArray['DUMP_WORKFLOW']) && $checkAction) { ?>
-							<tr <? if(empty($bizProcArray['EVENTS']) && empty($bizProcArray['TASK'])){?>class="bizproc-item-row-last" <?}?>>
+						<?php  if(!empty($bizProcArray['DUMP_WORKFLOW']) && $checkAction) { ?>
+							<tr <?php  if(empty($bizProcArray['EVENTS']) && empty($bizProcArray['TASK'])){?>class="bizproc-item-row-last" <?php }?>>
 								<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_MODIFICATION') ?></td>
 								<td class="bizproc-field-value"><?=implode("<br />", $bizProcArray['DUMP_WORKFLOW'])?></td>
 							</tr>
-						<? } ?>
-						<? if(!empty($bizProcArray['TASK'])) { ?>
-							<tr <? if(empty($bizProcArray['EVENTS'])){?>class="bizproc-item-row-last" <?}?>>
+						<?php  } ?>
+						<?php  if(!empty($bizProcArray['TASK'])) { ?>
+							<tr <?php  if(empty($bizProcArray['EVENTS'])){?>class="bizproc-item-row-last" <?php }?>>
 								<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_TASKS_BIZPROC') ?></td>
 								<td class="bizproc-field-value">
 									<a href="<?= $bizProcArray['TASK']['URL'] ?>"><?= $bizProcArray['TASK']['TASK_NAME'] ?></a>
 								</td>
 							</tr>
-						<? } ?>
-						<? if(!empty($bizProcArray['EVENTS'])) { ?>
+						<?php  } ?>
+						<?php  if(!empty($bizProcArray['EVENTS'])) { ?>
 							<tr class="bizproc-item-row-last">
 								<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_RUN_CMD') ?></td>
 								<td class="bizproc-field-value">
@@ -117,25 +117,25 @@ $sortBpLog = false;
 									<input type="hidden" name="bizproc_template_id_<?= $bizProcIndex ?>" value="<?= $bizProcArray["TEMPLATE_ID"] ?>">
 									<select name="bizproc_event_<?= $bizProcIndex ?>">
 										<option value=""><?= Loc::getMessage("DISK_FILE_VIEW_BIZPROC_RUN_CMD_NO") ?></option>
-										<? foreach ($bizProcArray['EVENTS'] as $event) { ?>
+										<?php  foreach ($bizProcArray['EVENTS'] as $event) { ?>
 											<option value="<?= htmlspecialcharsbx($event["NAME"]) ?>">
 												<?= htmlspecialcharsbx($event["TITLE"]) ?>
 											</option>
-										<? } ?>
+										<?php  } ?>
 									</select>
 									<input type="hidden" name="bizproc_index" value="<?= $bizProcIndex ?>" />
 									<input type="submit" name="save" value="<?= Loc::getMessage("DISK_FILE_VIEW_BIZPROC_APPLY")?>" />
 								</td>
 							</tr>
-						<? } ?>
+						<?php  } ?>
 					</table>
 				</li>
-				<?}
+				<?php }
 			}?>
 			</ul>
-		<?}else{ $sortBpLog = true; ?>
+		<?php }else{ $sortBpLog = true; ?>
 			<ul class="bizproc-list bizproc-document-states">
-			<?
+			<?php 
 			$checkAction = true;
 			$idWorkflow = $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['ID'];
 			$strDelBizProc = "javascript:BX.Disk['FileViewClass_{$component->getComponentId()}'].deleteBizProc('{$idWorkflow}');";
@@ -155,36 +155,36 @@ $sortBpLog = false;
 					<tr>
 						<th class="bizproc-field-name"><?= $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TEMPLATE_NAME'] ?></th>
 						<th class="bizproc-field-value">
-							<? if(strlen($arResult['BIZPROC_LIST'][$_GET['log_workflow']]["WORKFLOW_STATUS"]) > 0) { ?>
+							<?php  if(strlen($arResult['BIZPROC_LIST'][$_GET['log_workflow']]["WORKFLOW_STATUS"]) > 0) { ?>
 								<a class="webform-small-button webform-button-transparent" href="<?= $strStopBizProc ?>"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_STOP_BUTTON') ?></a>
-							<? }else if($arResult['BIZPROC_PERMISSION']['DROP']) { $checkAction = false; ?>
+							<?php  }else if($arResult['BIZPROC_PERMISSION']['DROP']) { $checkAction = false; ?>
 								<a class="webform-small-button webform-button-transparent" href="<?= $strDelBizProc ?>"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_DELETE_BUTTON') ?></a>
-							<? } ?>
+							<?php  } ?>
 						</th>
 					</tr>
 					<tr class="bizproc-item-row-first">
 						<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_STATE_MODIFIED') ?></td>
 						<td class="bizproc-field-value"><?= $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['STATE_MODIFIED'] ?></td>
 					</tr>
-					<tr <? if(empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS']) && empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK']) && !$checkAction){?>class="bizproc-item-row-last" <?}?>>
+					<tr <?php  if(empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS']) && empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK']) && !$checkAction){?>class="bizproc-item-row-last" <?php }?>>
 						<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_STATE_TITLE') ?></td>
 						<td class="bizproc-field-value"><?= $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['STATE_TITLE'] ?></td>
 					</tr>
-					<? if(!empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['DUMP_WORKFLOW']) && $checkAction) { ?>
-						<tr <? if(empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS']) && empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK'])){?>class="bizproc-item-row-last" <?}?>>
+					<?php  if(!empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['DUMP_WORKFLOW']) && $checkAction) { ?>
+						<tr <?php  if(empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS']) && empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK'])){?>class="bizproc-item-row-last" <?php }?>>
 							<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_MODIFICATION') ?></td>
 							<td class="bizproc-field-value"><?=implode("<br />", $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['DUMP_WORKFLOW'])?></td>
 						</tr>
-					<? } ?>
-					<? if(!empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK'])) { ?>
-						<tr <? if(empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS'])){?>class="bizproc-item-row-last" <?}?>>
+					<?php  } ?>
+					<?php  if(!empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK'])) { ?>
+						<tr <?php  if(empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS'])){?>class="bizproc-item-row-last" <?php }?>>
 							<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_TASKS_BIZPROC') ?></td>
 							<td class="bizproc-field-value">
 								<a href="<?= $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK']['URL'] ?>"><?= $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TASK']['TASK_NAME'] ?></a>
 							</td>
 						</tr>
-					<? } ?>
-					<? if(!empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS'])) { ?>
+					<?php  } ?>
+					<?php  if(!empty($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS'])) { ?>
 						<tr class="bizproc-item-row-last">
 							<td class="bizproc-field-name"><?= Loc::getMessage('DISK_FILE_VIEW_BIZPROC_RUN_CMD') ?></td>
 							<td class="bizproc-field-value">
@@ -192,20 +192,20 @@ $sortBpLog = false;
 								<input type="hidden" name="bizproc_template_id_1" value="<?= $arResult['BIZPROC_LIST'][$_GET['log_workflow']]['TEMPLATE_ID'] ?>">
 								<select name="bizproc_event_1">
 									<option value=""><?= Loc::getMessage("DISK_FILE_VIEW_BIZPROC_RUN_CMD_NO") ?></option>
-									<? foreach ($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS'] as $event) { ?>
+									<?php  foreach ($arResult['BIZPROC_LIST'][$_GET['log_workflow']]['EVENTS'] as $event) { ?>
 										<option value="<?= htmlspecialcharsbx($event["NAME"]) ?>">
 											<?= htmlspecialcharsbx($event["TITLE"]) ?>
 										</option>
-									<? } ?>
+									<?php  } ?>
 								</select>
 								<input type="hidden" name="bizproc_index" value="1" />
 								<input type="submit" name="save" value="<?= Loc::getMessage("DISK_FILE_VIEW_BIZPROC_APPLY")?>" />
 							</td>
 						</tr>
-					<? } ?>
+					<?php  } ?>
 					<tr class="bizproc-item-row-last">
 						<td colspan="2">
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent("bitrix:bizproc.log", "", Array(
 									"MODULE_ID" => \Bitrix\Disk\Driver::INTERNAL_MODULE_ID,
 									"ENTITY" => \Bitrix\Disk\BizProcDocument::className(),
@@ -223,12 +223,12 @@ $sortBpLog = false;
 				</table>
 				</li>
 			</ul>
-		<?
+		<?php 
 		} ?>
 	</form>
 </div>
-<? } ?>
-<?
+<?php  } ?>
+<?php 
 $showBpUri = (clone $currentUri);
 $showBpUri->addParams(['action' => 'showBp',]);
 ?>

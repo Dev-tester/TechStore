@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_BASE_SERVICE_RESULT_ERROR_CALENDAR_NOT_FOUND"] = "No holiday calendar was found for the schedule";
 $MESS["TM_BASE_SERVICE_RESULT_ERROR_NOTHING_TO_START"] = "Too early to clock in";
 $MESS["TM_BASE_SERVICE_RESULT_ERROR_OTHER_RECORD_FOR_DATES_EXISTS"] = "Work hours record for specified day already exists";

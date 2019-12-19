@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $successfullyConverted = \Bitrix\Main\Config\Option::get('disk', 'successfully_converted', false);

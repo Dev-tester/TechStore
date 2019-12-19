@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_UC_TITLE1"] = "General Units of Measurement";
 $MESS["CAT_UC_LENGTH_UNITS"] = "Units of length";
 $MESS["CAT_UC_AREA_UNITS"] = "Units of area";

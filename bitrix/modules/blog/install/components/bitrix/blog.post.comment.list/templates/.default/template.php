@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
@@ -8,7 +8,7 @@ endif;
 include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/script.php");
 ?>
 
-<?
+<?php 
 $arResult["OUTPUT_LIST"] = $APPLICATION->IncludeComponent(
 	"bitrix:main.post.list",
 	"",
@@ -66,7 +66,7 @@ $arResult["OUTPUT_LIST"] = $APPLICATION->IncludeComponent(
 	<?=$arResult["OUTPUT_LIST"]["HTML"]?>
 </div>
 
-<?
+<?php 
 //init comment form, is user can comment
 if ($arResult["CanUserComment"])
 {
@@ -81,7 +81,7 @@ BX.viewElementBind(
 );
 top.postFollow<?=$arParams["ID"]?> = postFollow<?=$arParams["ID"]?> = '<?=$arParams["FOLLOW"]?>';
 </script>
-	<?
+	<?php 
 	if (
 		(empty($_REQUEST["bxajaxid"]) && empty($_REQUEST["logajax"]))
 		|| ($_REQUEST["RELOAD"] == "Y" && !(empty($_REQUEST["bxajaxid"]) && empty($_REQUEST["logajax"])))

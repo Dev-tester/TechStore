@@ -1,10 +1,10 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 $APPLICATION->SetTitle("Опрос");
 $APPLICATION->AddChainItem("Архив опросов", "vote_list.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_after.php");
 ?>
-<?
+<?php 
 $VOTE_ID = $_REQUEST["VOTE_ID"]; // берет ID опроса из параметров страницы
 
 // Примеры использования основных функций модуля опросов
@@ -19,10 +19,10 @@ if (CModule::IncludeModule("vote"))
 */
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:voting.form", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:voting.form", ".default", Array(
 	"VOTE_ID"	=>	$_REQUEST["VOTE_ID"],
 	"VOTE_RESULT_TEMPLATE"	=>	"vote_result.php?VOTE_ID=#VOTE_ID#"
 	)
 );?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog.php");?>

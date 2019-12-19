@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PLAYER_TYPE_TIP"] = "<b>Определить автоматически</b>: если необходимо проигрывать файлы разных форматов;<br /><br /><b>WMV плеер</b>: поддерживает форматы wmv, wma. Для работы WMV плеера необходимо установить Microsoft Silverlight;<br /><br /><b>Flash плеер</b>: поддерживает форматы FLV7 video, FLV8 video и <a target=\"_blank\" href=\"http://code.longtailvideo.com/trac/wiki/FlashFormats#Mediafileformats\">другие форматы</a>.";
 $MESS["USE_PLAYLIST_TIP"] = "Чтобы использовать список воспроизведения, отметьте опцию и задайте путь к файлу списка воспроизведения.";
 $MESS["PATH_TIP"] = "Путь к файлу для проигрывания или к списку воспроизведения (<a target=\"_blank\" href=\"http://code.longtailvideo.com/trac/wiki/FlashFormats#Playlistformats\">Поддерживаемые форматы</a>). Следует задавать полный путь к файлу от корня сайта. Также можно указать ссылку на видео с сайта YouTube.";

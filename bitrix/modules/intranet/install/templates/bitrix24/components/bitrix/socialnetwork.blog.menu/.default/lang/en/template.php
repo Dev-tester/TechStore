@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MENU_DRAFT_MESSAGES"] = "Drafts";
 $MESS["BLOG_MENU_DRAFT_MESSAGES_TITLE"] = "View unpublished conversations";
 $MESS["BLOG_MENU_MODERATION_MESSAGES"] = "Moderation";

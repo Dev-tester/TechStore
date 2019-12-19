@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_FIELD_ID"] = "ID задачи";
 $MESS["WD_FIELD_TIMESTAMP_X"] = "Дата изменения задачи";
 $MESS["WD_FIELD_MODIFIED"] = "Пользователь, изменивший задачу";

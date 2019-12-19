@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGE_ENTITY_ID_FIELD"] = "Уникальный идентификатор";
 $MESS["MESSAGE_ENTITY_CHAT_ID_FIELD"] = "Идентификатор чата";
 $MESS["MESSAGE_ENTITY_AUTHOR_ID_FIELD"] = "Автор";

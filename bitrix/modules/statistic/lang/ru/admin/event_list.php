@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_RECORDS_LIST"] = "Список событий";
 $MESS["STAT_F_ID"] = "ID";
 $MESS["STAT_F_EVENT_ID"] = "ID типа события";

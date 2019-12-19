@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_FIELDS_PULL_TEXT"] = "Потяните, чтобы обновить...";
 $MESS["M_FIELDS_DOWN_TEXT"] = "Отпустите, чтобы обновить...";
 $MESS["M_FIELDS_LOAD_TEXT"] = "Обновление списка...";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_COLUMN_USER_TYPE2"] = "Role";
 $MESS["TASKS_COLUMN_TASK"] = "Task";
 $MESS["TASKS_COLUMN_STATUS"] = "Status";

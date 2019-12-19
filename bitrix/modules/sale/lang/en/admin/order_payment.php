@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_ID"] = "Order ID";
 $MESS["SALE_ACCOUNT_NUMBER"] = "Order #";
 $MESS["SALE_ORDER_PAID"] = "Order payment";

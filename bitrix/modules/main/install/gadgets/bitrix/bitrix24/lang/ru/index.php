@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_BITRIX24"] = "для 12 сотрудников <strong>бесплатно</strong>";
 $MESS["GD_BITRIX24_TITLE"] = "Облачный сервис";
 $MESS["GD_BITRIX24_BUTTON"] = "Подключить";

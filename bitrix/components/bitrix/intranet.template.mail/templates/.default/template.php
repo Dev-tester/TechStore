@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<?
+<?php 
 $httpPrefix = "http";
 if (defined('BX24_HOST_NAME') || \Bitrix\Main\Context::getCurrent()->getRequest()->isHttps())
 {
@@ -45,13 +45,13 @@ if ($arParams["TEMPLATE_TYPE"] == "USER_INVITATION" || $arParams["TEMPLATE_TYPE"
 
 													<table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; display: inline-block;">
 														<tr>
-															<?if (isset($arResult["USER_PHOTO"])):?>
+															<?php if (isset($arResult["USER_PHOTO"])):?>
 																<td align="left" valign="middle" style="text-align: left; padding:0; height: 45px; vertical-align: middle;">
 																	<img src="<?=$arResult["USER_PHOTO"]?>" width="40" height="40" alt="">
 																</td>
-															<?endif?>
+															<?php endif?>
 
-															<?if (isset($arResult["USER_NAME"])):?>
+															<?php if (isset($arResult["USER_NAME"])):?>
 																<td align="left" valign="middle" style="text-align: left; padding:0 0 0 7px; height: 45px; vertical-align: middle;">
 																	<span style="color: #525c69; font-size: 16px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">
 																		<?=GetMessage("INTRANET_INVITE_TEXT", array(
@@ -61,14 +61,14 @@ if ($arParams["TEMPLATE_TYPE"] == "USER_INVITATION" || $arParams["TEMPLATE_TYPE"
 																			"#BLOCK_END#" => "</span></b>"
 																		))?>
 																	</span>
-																	<?if (\Bitrix\Main\ModuleManager::isModuleInstalled("bitrix24")):?>
+																	<?php if (\Bitrix\Main\ModuleManager::isModuleInstalled("bitrix24")):?>
 																		<br/>
 																		<a href="<?=$httpPrefix?>://<?=BX24_HOST_NAME?>" style="color: #525c69; font-size: 13px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; text-decoration: none;">
 																			<?=BX24_HOST_NAME?>
 																		</a>
-																	<?endif;?>
+																	<?php endif;?>
 																</td>
-															<?endif?>
+															<?php endif?>
 														</tr>
 													</table>
 
@@ -161,11 +161,11 @@ if ($arParams["TEMPLATE_TYPE"] == "USER_INVITATION" || $arParams["TEMPLATE_TYPE"
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 }
 ?>
 
-<?
+<?php 
 if ($arParams["TEMPLATE_TYPE"] == "IM_NEW_NOTIFY" || $arParams["TEMPLATE_TYPE"] == "IM_NEW_MESSAGE")
 {
 ?>
@@ -215,12 +215,12 @@ if ($arParams["TEMPLATE_TYPE"] == "IM_NEW_NOTIFY" || $arParams["TEMPLATE_TYPE"] 
 
 													<table border="0" cellpadding="0" cellspacing="0" style="margin:0; padding:0; width: 100%;min-height: 350px">
 														<tr>
-															<?if (isset($arResult["USER_PHOTO"]) && !empty($arResult["USER_PHOTO"])):?>
+															<?php if (isset($arResult["USER_PHOTO"]) && !empty($arResult["USER_PHOTO"])):?>
 															<td valign="top" align="left" width="55" style="width: 55px;vertical-align: top;">
 																<img src="<?=$arResult["USER_PHOTO"]?>" width="40" height="40" alt="">
 															</td>
-															<?endif?>
-															<td valign="top" style="word-break: break-all; vertical-align: top;width: 464px; max-width: 100%;" <?if (!isset($arResult["USER_PHOTO"]) || empty($arResult["USER_PHOTO"])):?>colspan="2" <?endif?>>
+															<?php endif?>
+															<td valign="top" style="word-break: break-all; vertical-align: top;width: 464px; max-width: 100%;" <?php if (!isset($arResult["USER_PHOTO"]) || empty($arResult["USER_PHOTO"])):?>colspan="2" <?php endif?>>
 																<span style="display: block; border-radius: 14px; padding: 13px 16px; background-color: #fbfcfc;text-align: left;">
 																	<span style="display: block; font-size: 16px;font-family: Helvetica Neue, Helvetica, Arial, sans-serif; color: #525c69;text-align: left;">
 																		<?=htmlspecialcharsback($arParams["MESSAGE"])?>
@@ -259,7 +259,7 @@ if ($arParams["TEMPLATE_TYPE"] == "IM_NEW_NOTIFY" || $arParams["TEMPLATE_TYPE"] 
 			</td>
 		</tr>
 	</table>
-<?
+<?php 
 }
 ?>
 </body>

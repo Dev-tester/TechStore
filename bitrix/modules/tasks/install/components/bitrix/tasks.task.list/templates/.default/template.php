@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -99,11 +99,11 @@ if (is_array($arResult['ERROR']['FATAL']) && !empty($arResult['ERROR']['FATAL'])
 endif
 ?>
 
-<? if (is_array($arResult['ERROR']['WARNING'])): ?>
-	<? foreach ($arResult['ERROR']['WARNING'] as $error): ?>
+<?php  if (is_array($arResult['ERROR']['WARNING'])): ?>
+	<?php  foreach ($arResult['ERROR']['WARNING'] as $error): ?>
 		<?=ShowError($error['MESSAGE'])?>
-	<? endforeach ?>
-<? endif ?>
+	<?php  endforeach ?>
+<?php  endif ?>
 
 
 

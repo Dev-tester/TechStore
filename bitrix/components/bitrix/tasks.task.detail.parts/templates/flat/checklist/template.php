@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); 
 
 use Bitrix\Main\Localization\Loc;
@@ -12,7 +12,7 @@ $canReorder = $arResult['TEMPLATE_DATA']['TASK_CAN']['CHECKLIST.REORDER'];
 $canAddOwn = $arResult['TEMPLATE_DATA']['TASK_CAN']['CHECKLIST.ADD'];
 ?>
 
-<div id="bx-component-scope-<?=htmlspecialcharsbx($templateId)?>" class="task-options task-checklist<?if(!$canReorder):?> nodrag<?endif?>">
+<div id="bx-component-scope-<?=htmlspecialcharsbx($templateId)?>" class="task-options task-checklist<?php if(!$canReorder):?> nodrag<?php endif?>">
 
 	<div class="task-checklist-title"><?=Loc::getMessage('TASKS_TTDP_CHECKLIST_TEMPLATE_BLOCK_TITLE')?><span data-bx-id="checklist-counterset" class="task-checklist-status hidden">&nbsp;(<?=Loc::getMessage('TASKS_TTDP_CHECKLIST_COMPLETE')?> <span data-bx-id="checklist-complete-counter">0</span> <?=Loc::getMessage('TASKS_TTDP_CHECKLIST_OF')?> <span data-bx-id="checklist-total-counter">0</span>)</span></div>
 
@@ -27,11 +27,11 @@ $canAddOwn = $arResult['TEMPLATE_DATA']['TASK_CAN']['CHECKLIST.ADD'];
 						<span data-bx-id="checklist-item-drag" class="task-field-drg-btn"></span>
 						<input data-bx-id="checklist-item-btn-check" id="chl_item_{{ID}}" class="task-checklist-field-checkbox" type="checkbox" {{CHECKED}} />
 
-						<?//read mode?>
+						<?php //read mode?>
 						<label class="block-read task-checklist-field-label" for="chl_item_{{ID}}"><span data-bx-id="checklist-item-number"></span>.&nbsp;<span data-bx-id="checklist-item-title">{{{TITLE_HTML}}}</span></label>
 						<span data-bx-id="checklist-item-btn-edit" class="block-read task-field-title-edit"></span>
 
-						<?//edit mode?>
+						<?php //edit mode?>
 						<input data-bx-id="checklist-item-title-edit" class="block-edit task-checklist-field-add" type="text" value="{{TITLE}}" name="<?=$prefix?>[{{ID}}][TITLE]" placeholder="<?=Loc::getMessage('TASKS_TTDP_CHECKLIST_WHAT_TO_BE_DONE')?>" maxlength="255" />
 						<span data-bx-id="checklist-item-btn-apply" class="block-edit task-field-title-ok"></span>
 
@@ -66,7 +66,7 @@ $canAddOwn = $arResult['TEMPLATE_DATA']['TASK_CAN']['CHECKLIST.ADD'];
 
 	</div>
 
-	<?if($canAddOwn):?>
+	<?php if($canAddOwn):?>
 		<div data-bx-id="checklist-add-item-form" class="task-checklist-field tasks-checklist-dropzone off">
 			<span class="block-on task-checklist-field-inner-add">
 				<input data-bx-id="checklist-add-item-title" type="text" class="task-checklist-field-add" placeholder="<?=Loc::getMessage('TASKS_TTDP_CHECKLIST_WHAT_TO_BE_DONE')?>" maxlength="255" />
@@ -79,7 +79,7 @@ $canAddOwn = $arResult['TEMPLATE_DATA']['TASK_CAN']['CHECKLIST.ADD'];
                 <span data-bx-id="checklist-add-separator" class="task-dashed-link"><span class="task-dashed-link-inner"><?=Loc::getMessage('TASKS_TTDP_CHECKLIST_SEPARATOR')?></span></span>
             </div>
 		</div>
-	<?endif?>
+	<?php endif?>
 
 	<div data-bx-id="checklist-complete-block" class="task-checklist-resolved hidden">
 		<div class="task-checklist-subtitle"><span data-bx-id="checklist-toggle-complete"><?=Loc::getMessage('TASKS_TTDP_CHECKLIST_COMPLETE')?> (<span data-bx-id="checklist-complete-counter">0</span>)</span></div>
@@ -88,7 +88,7 @@ $canAddOwn = $arResult['TEMPLATE_DATA']['TASK_CAN']['CHECKLIST.ADD'];
 		</div>
 	</div>
 
-	<?// in case of all items removed, the field should be sent anyway?>
+	<?php // in case of all items removed, the field should be sent anyway?>
 	<input type="hidden" name="<?=$prefix?>[]" value="">
 </div>
 

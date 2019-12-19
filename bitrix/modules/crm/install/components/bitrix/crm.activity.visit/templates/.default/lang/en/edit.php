@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_VISIT_OWNER"] = "With:";
 $MESS["CRM_ACTIVITY_VISIT_FINISH"] = "Complete";
 $MESS["CRM_ACTIVITY_VISIT_RECORDING"] = "recording in progress";

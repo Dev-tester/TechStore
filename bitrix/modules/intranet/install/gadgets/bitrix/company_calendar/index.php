@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["DETAIL_URL"] = (isset($arGadgetParams["CALENDAR_TYPE"]) ? $arGadgetParams["DETAIL_URL"]:"/about/calendar.php");
@@ -9,8 +9,8 @@ $arGadgetParams["EVENTS_COUNT"] = ($arGadgetParams["EVENTS_COUNT"]>0 && $arGadge
 $calendar2 = COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && CModule::IncludeModule("calendar");
 ?>
 
-<?if($calendar2):?>
-	<?$APPLICATION->IncludeComponent("bitrix:calendar.events.list", "", array(
+<?php if($calendar2):?>
+	<?php $APPLICATION->IncludeComponent("bitrix:calendar.events.list", "", array(
 			"CALENDAR_TYPE" => $arGadgetParams["CALENDAR_TYPE"],
 			"DETAIL_URL" => $arGadgetParams["DETAIL_URL"],
 			"EVENTS_COUNT" => $arGadgetParams["EVENTS_COUNT"],
@@ -21,8 +21,8 @@ $calendar2 = COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && C
 		false,
 		Array("HIDE_ICONS"=>"Y")
 	);?>
-<?else:?>
-	<?$APPLICATION->IncludeComponent("bitrix:intranet.event_calendar", ".default", array(
+<?php else:?>
+	<?php $APPLICATION->IncludeComponent("bitrix:intranet.event_calendar", ".default", array(
 			"IBLOCK_TYPE" => $arGadgetParams["IBLOCK_TYPE"],
 			"IBLOCK_ID" => $arGadgetParams["IBLOCK_ID"],
 			"EVENT_LIST_MODE" => "Y",
@@ -35,10 +35,10 @@ $calendar2 = COption::GetOptionString("intranet", "calendar_2", "N") == "Y" && C
 		false,
 		Array("HIDE_ICONS"=>"Y")
 	);?>
-<?endif;?>
+<?php endif;?>
 
-<?if(strlen($arGadgetParams["DETAIL_URL"])>0):?>
+<?php if(strlen($arGadgetParams["DETAIL_URL"])>0):?>
 <br />
-<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["DETAIL_URL"])?>"><?echo GetMessage("GD_COMPANY_CALENDAR_ALL")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["DETAIL_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
+<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["DETAIL_URL"])?>"><?php echo GetMessage("GD_COMPANY_CALENDAR_ALL")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["DETAIL_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
 <br /></div>
-<?endif?>
+<?php endif?>

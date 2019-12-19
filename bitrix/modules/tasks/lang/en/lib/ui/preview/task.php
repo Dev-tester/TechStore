@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_PREVIEW_FIELD_STATUS"] = "Status";
 $MESS["TASK_PREVIEW_FIELD_ASSIGNER"] = "Created by";
 $MESS["TASK_PREVIEW_FIELD_RESPONSIBLE"] = "Responsible person";

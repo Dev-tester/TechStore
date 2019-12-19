@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["subscr_del_err"] = "Невозможно удалить адрес подписки.";
 $MESS["subscr_title"] = "Список подписчиков";
 $MESS["subscr_nav"] = "Адреса";

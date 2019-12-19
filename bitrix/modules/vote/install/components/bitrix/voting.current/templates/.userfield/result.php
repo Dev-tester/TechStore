@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->IncludeLangFile("result.php");
 $params = $APPLICATION->IncludeComponent(
 	"bitrix:voting.result",
@@ -21,17 +21,17 @@ $this->__component->params = $params + array("uid" => $arParams["UID"]);
 ob_start();
 if ($arResult["VOTE"]["LAMP"] == "green" && $arParams["CAN_REVOTE"] == "Y" || $arParams["CAN_VOTE"] == "Y")
 {
-		?><a href="<?=$APPLICATION->GetCurPageParam("", $arParams["GET_KILL"])?>" id="vote-<?=$arParams["UID"]?>-revote" class="bx-vote-block-link" <?
-		?>><?=($arParams["CAN_REVOTE"] == "Y" ? GetMessage("VOTE_RESUBMIT_BUTTON") : GetMessage("VOTE_SUBMIT_BUTTON"))?></a><?
+		?><a href="<?=$APPLICATION->GetCurPageParam("", $arParams["GET_KILL"])?>" id="vote-<?=$arParams["UID"]?>-revote" class="bx-vote-block-link" <?php 
+		?>><?=($arParams["CAN_REVOTE"] == "Y" ? GetMessage("VOTE_RESUBMIT_BUTTON") : GetMessage("VOTE_SUBMIT_BUTTON"))?></a><?php 
 }
 if ($arParams["PERMISSION"] >= 4)
 {
-	?><a href="<?=$APPLICATION->GetCurPageParam(($arResult["VOTE"]["LAMP"] == "green" ? "stopVoting" : "resumeVoting")."=".$arResult["VOTE"]["ID"], $arParams["GET_KILL"])?>" <?
-		?>id="vote-<?=$arParams["UID"]?>-<?=($arResult["VOTE"]["LAMP"] == "green" ? "stop" : "resume")?>" class="bx-vote-block-link"><?=($arResult["VOTE"]["LAMP"] == "green" ? GetMessage("VOTE_STOP_BUTTON") : GetMessage("VOTE_RESUME_BUTTON"))?></a><?
+	?><a href="<?=$APPLICATION->GetCurPageParam(($arResult["VOTE"]["LAMP"] == "green" ? "stopVoting" : "resumeVoting")."=".$arResult["VOTE"]["ID"], $arParams["GET_KILL"])?>" <?php 
+		?>id="vote-<?=$arParams["UID"]?>-<?=($arResult["VOTE"]["LAMP"] == "green" ? "stop" : "resume")?>" class="bx-vote-block-link"><?=($arResult["VOTE"]["LAMP"] == "green" ? GetMessage("VOTE_STOP_BUTTON") : GetMessage("VOTE_RESUME_BUTTON"))?></a><?php 
 }
 $res = ob_get_clean();
 if (!empty($res))
 {
-	?><div class="bx-vote-bottom-block"><?=$res?></div><?
+	?><div class="bx-vote-bottom-block"><?=$res?></div><?php 
 }
 ?>

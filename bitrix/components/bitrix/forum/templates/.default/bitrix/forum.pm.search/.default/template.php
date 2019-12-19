@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arParams["SEO_USER"] = (in_array($arParams["SEO_USER"], array("Y", "N", "TEXT")) ? $arParams["SEO_USER"] : "Y");
 $arParams["USER_TMPL"] = '<noindex><a rel="nofollow" href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a></noindex>';
 if ($arParams["SEO_USER"] == "N") $arParams["USER_TMPL"] = '<a href="#URL#" title="'.GetMessage("F_USER_PROFILE").'">#NAME#</a>';
@@ -22,7 +22,7 @@ self.close();
 </script>
 </body>
 </html>
-<?
+<?php 
 	die();
 }
 
@@ -36,7 +36,7 @@ endif;
 <head>
 	<meta  http-equiv="Content-Type" content="text/html; charset='<?=$arResult["SITE_CHARSET"]?>'">
 	<title><?=GetMessage("PM_TITLE")?></title>
-	<?$APPLICATION->ShowHead()?>
+	<?php $APPLICATION->ShowHead()?>
 	<style type=text/css>
 		body{background-color:white;}
 		div.forum-pmessage-search-user label{
@@ -50,23 +50,23 @@ endif;
 	<input type="hidden" name="PAGE_NAME" value="pm_search" />
 	<input type=hidden value="Y" name="do_search" />
 	<?=bitrix_sessid_post()?>
-	<?/*?><?=GetMessage("PM_SEARCH_PATTERN")?><?*/?>
+	<?php /*?><?=GetMessage("PM_SEARCH_PATTERN")?><?php */?>
 	<div class="forum-filter-field forum-pmessage-search-user search-input">
 		<label class="forum-filter-field-title" for="<?=$res["ID"]?>"><?=GetMessage("PM_SEARCH_INSERT")?>:</label>
 		<span class="forum-filter-field-item"><input type="text" class="search-input" name="search_template" id="search_template" value="<?=$arResult["search_template"]?>" />
 		<input type=submit value="<?=GetMessage("PM_SEARCH")?>" name="do_search1" class="inputbutton" /></span>
 	</div>
-<?/*?>	
+<?php /*?>	
 	<div class="forum-filter-field forum-filter-footer">
 			
 			<input type=button value="<?=GetMessage("PM_CANCEL")?>" onclick='self.close();' class=inputbutton>
 		<div class="forum-clear-float"></div>
-	</div><?*/?>
+	</div><?php */?>
 	<div class="forum-clear-float"></div>
 </form>
 	</div>
 </div>
-<?
+<?php 
 if ($arResult["SHOW_SEARCH_RESULT"] == "Y"):
 	if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
@@ -76,41 +76,41 @@ if ($arResult["SHOW_SEARCH_RESULT"] == "Y"):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 	endif;
 ?>
 <div class="forum-header-box">
 	<div class="forum-header-title"><span><?=GetMessage("PM_TITLE")?></span></div>
 </div>
-<?
+<?php 
 ?>
 <div class="forum-info-box forum-info-box-pmsearch">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 if (!empty($arResult["SEARCH_RESULT"])):
 $iStartNumber = (($arResult["NAV_RESULT"]->NavPageNomer-1)*$arResult["NAV_RESULT"]->NavPageSize);
 $iStartNumber = ($iStartNumber > 0 ? $iStartNumber : 1);
 ?>
 	<ol start="<?=$iStartNumber?>">
-<?
+<?php 
 	foreach ($arResult["SEARCH_RESULT"] as $res):
 ?>
 	<li>
 		<a href="<?=$res["link"]?>"><?=$res["SHOW_ABC"]?></a>
 	</li>
-<?
+<?php 
 	endforeach;
 ?>
 	</ol>
-<?
+<?php 
 else:
 ?>
 	<?=GetMessage("PM_SEARCH_NOTHING")?>
-<?
+<?php 
 endif;
 ?>
 	</div>
-</div><?
+</div><?php 
 if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
 <div class="forum-navigation-box forum-navigation-bottom">
@@ -119,7 +119,7 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 endif;
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Socialnetwork\Livefeed;
 
 use Bitrix\Socialnetwork\LogCommentTable;

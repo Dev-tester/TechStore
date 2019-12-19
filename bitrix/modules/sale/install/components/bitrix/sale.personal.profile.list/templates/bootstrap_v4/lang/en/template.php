@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_DATE_UPDATE"] = "Update date";
 $MESS["P_ID"] = "Code";
 $MESS["P_NAME"] = "Name";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if($arResult["FILE"] <> ''):
@@ -7,12 +7,12 @@ if($arResult["FILE"] <> ''):
 	
 		?>
 		<div id="search-wrapper">
-		<?$APPLICATION->IncludeComponent("bitrix:search.form", "", Array(
+		<?php $APPLICATION->IncludeComponent("bitrix:search.form", "", Array(
 			"PAGE"	=>	SITE_DIR."search/"
 		)
 		);?>
 		</div>
-		<?
+		<?php 
 	endif;
 
 	include($arResult["FILE"]);

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPDD_DESCR_NAME2'] = "Детально об объекте Диска";
 $MESS ['BPDD_DESCR_DESCR2'] = "Получение детальной информации об объекте Диска";
 $MESS ['BPDD_DESCR_TYPE'] = "Тип объекта";

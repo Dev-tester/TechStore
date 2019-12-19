@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CP_BMS_IBLOCK_TYPE'] = "Type of information block";
 $MESS ['CP_BMS_IBLOCK_ID'] = "Information block code";
 $MESS ['CP_BMS_ID'] = "Element ID for menu highlighting";

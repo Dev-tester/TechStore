@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Delivery\Requests;
 
 use Bitrix\Main\Entity;

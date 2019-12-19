@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader,
 	Bitrix\Main\Localization\Loc,
 	Bitrix\Highloadblock\HighloadBlockTable,

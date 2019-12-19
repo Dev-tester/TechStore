@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_ACCESS_DENIED"] = "Zugriff verweigert.";
 $MESS["WD_DOCUMENTS"] = "Dokumente";
 $MESS["WD_ERROR_ELEMENT_NOT_FOUND"] = "Die Datei wurde nicht gefunden.";

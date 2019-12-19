@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPT_SM_NAME"] = "Simple Approval/Vote";
 $MESS["BPT_SM_DESC"] = "Recommended when a decision is to be made by a simple majority of votes. You can assign voting persons and allow them comment. When voting is complete	 all the involved persons are notified about the result.";
 $MESS["BPT_SM_TITLE1"] = "Sequential Business Process";

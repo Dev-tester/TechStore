@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SECTION_NAME"] = "Name";
 $MESS["CRM_SECTION_ADD_DIALOG_TITLE"] = "Add section";
 $MESS["CRM_SECTION_RENAME_DIALOG_TITLE"] = "Rename section";

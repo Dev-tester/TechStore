@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Sale\Internals\CompanyTable;
 use \Bitrix\Main\Application;
 use Bitrix\Main\Localization\Loc;
@@ -299,8 +299,8 @@ $APPLICATION->SetTitle(Loc::getMessage("SALE_COMPANY_SECTION_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $arFindFields = array(Loc::getMessage("SALE_COMPANY_F_PERSON_TYPE"));
 $USER_FIELD_MANAGER->AddFindFields(CompanyTable::getUfId(), $arFindFields);
 $oFilter = new CAdminFilter(
@@ -322,7 +322,7 @@ $oFilter->Begin();
 	<tr>
 		<td><?=Loc::getMessage("SALE_COMPANY_NAME");?>:</td>
 		<td>
-			<input type="text" name="filter_name" value="<?echo htmlspecialcharsbx($filter_name)?>" />
+			<input type="text" name="filter_name" value="<?php echo htmlspecialcharsbx($filter_name)?>" />
 		</td>
 	</tr>
 	<tr>
@@ -330,8 +330,8 @@ $oFilter->Begin();
 		<td>
 			<select name="filter_active">
 				<option value="NOT_REF">(<?=Loc::getMessage("SALE_COMPANY_ALL");?>)</option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?=Loc::getMessage("SALE_COMPANY_YES");?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?=Loc::getMessage("SALE_COMPANY_NO");?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?=Loc::getMessage("SALE_COMPANY_YES");?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?=Loc::getMessage("SALE_COMPANY_NO");?></option>
 			</select>
 		</td>
 	</tr>
@@ -339,7 +339,7 @@ $oFilter->Begin();
 		<td><?=Loc::getMessage('SALE_COMPANY_LOCATION');?>:</td>
 		<td>
 			<div style="width: 100%; margin-left: 12px">
-				<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.search"/*.\Bitrix\Sale\Location\Admin\LocationHelper::getWidgetAppearance()*/, "", array(
+				<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.search"/*.\Bitrix\Sale\Location\Admin\LocationHelper::getWidgetAppearance()*/, "", array(
 						"ID" => "",
 						"CODE" => $fields['LOCATION_ID'],
 						"INPUT_NAME" => "filter_location_id",
@@ -359,7 +359,7 @@ $oFilter->Begin();
 			</div>
 		</td>
 	</tr>
-	<?
+	<?php 
 $USER_FIELD_MANAGER->AdminListShowFilter(CompanyTable::getUfId());
 $oFilter->Buttons(
 	array(
@@ -371,7 +371,7 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

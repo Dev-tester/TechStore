@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Cashbox\AdminPage\OfdSettings
 {
 	use Bitrix\Main\Localization\Loc;

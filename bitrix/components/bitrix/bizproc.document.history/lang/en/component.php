@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_WEBDAV_IS_NOT_INSTALLED"] = "The Document Library module is not installed.";
 $MESS["BPADH_RECOVERY_ERROR"] = "Could not recover record from the history.";
 $MESS["BPADH_RECOVERY_OK"] = "The history record has been recovered.";

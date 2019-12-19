@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOPC_ERROR_ORDER_PAYMENT_SYSTEM"] = "Error creating order: cannot get payment system. Please contact site administrator for more information.";
 $MESS["SOPC_ERROR_ORDER_NOT_EXISTS"] = "Order was not found.";
 $MESS["SOPC_ERROR_PAYMENT_NOT_EXISTS"] = "Payment was not found";

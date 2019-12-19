@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_PhpConfigurationTest_NAME"] = "Проверка настроек PHP";
 $MESS["SECURITY_SITE_CHECKER_PHP_ENTROPY"] = "Не установлен дополнительный источник энтропии при создании идентификатора сессии";
 $MESS["SECURITY_SITE_CHECKER_PHP_ENTROPY_DETAIL"] = "Отсутствие дополнительной энтропии может использоваться для предугадывания случайных чисел";

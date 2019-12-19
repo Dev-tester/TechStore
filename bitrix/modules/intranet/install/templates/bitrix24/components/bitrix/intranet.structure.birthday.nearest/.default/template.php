@@ -1,11 +1,11 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arMonths_r = array();
 for ($i = 1; $i <= 12; $i++)
 	$arMonths_r[$i] = ToLower(GetMessage('MONTH_'.$i.'_S'));
 ?>
-<?
+<?php 
 if ($arParams['SHOW_FILTER'] == 'Y'):
 	$this->SetViewTarget("sidebar", 100);
 	?>
@@ -16,7 +16,7 @@ if ($arParams['SHOW_FILTER'] == 'Y'):
 			<div class="sidebar-block-title"><?= GetMessage('INTR_ISBN_TPL_FILTER_DEPARTMENT')?></div>
 			<div class="filter-block">
 				<div class="filter-field filter-field-user-department">
-					<?
+					<?php 
 					CIntranetUtils::ShowDepartmentFilter($arResult['UF_DEPARTMENT_field'], true);
 					?>
 				</div>
@@ -31,12 +31,12 @@ if ($arParams['SHOW_FILTER'] == 'Y'):
 	<script type="text/javascript">
 	window.onload = function() {document.forms.bx_birthday_filter.department.onchange = function() {this.form.submit()}}
 	</script>
-	<?
+	<?php 
 	$this->EndViewTarget();
 endif;
 ?>
 <div class="bx-birthday-layout">
-<?
+<?php 
 foreach ($arResult['USERS'] as $arUser)
 {
 	$birthday = FormatDateEx(

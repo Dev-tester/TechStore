@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_MAIN_REG_INIT_MESSAGE_NO_USER'] = "Пользователь не найден.";
 $MESS ['CC_MAIN_REG_INIT_MESSAGE_AUTH_SUCCESS'] = "Аккаунт уже подтвержден.";
 $MESS ['CC_MAIN_REG_INIT_MESSAGE_AUTHORIZED'] = "Вы уже авторизованы на сайте, подтверждение приглашения на сайт невозможно.";

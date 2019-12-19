@@ -1,4 +1,4 @@
-<?
+<?php 
 include_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/urlrewrite.php');
 
 CHTTP::SetStatus("404 Not Found");
@@ -16,4 +16,4 @@ $APPLICATION->SetTitle(GetMessage("ERROR_404_TITLE"));
 		<div class="error-404-footer"></div>
 	</div>
 </div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

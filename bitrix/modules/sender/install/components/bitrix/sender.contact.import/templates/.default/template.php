@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -50,7 +50,7 @@ $containerId = 'bx-sender-contact-import';
 					</div>
 				</div>
 			</div>
-			<?/*
+			<?php /*
 		<div class="sender-contact-import-popup-confirm">
 			<div class="sender-contact-import-popup-close">
 				<div class="sender-contact-import-popup-close-item"></div>
@@ -63,39 +63,39 @@ $containerId = 'bx-sender-contact-import';
 	</div>
 
 	<div>
-		<?if ($arParams['SHOW_SETS']):?>
+		<?php if ($arParams['SHOW_SETS']):?>
 			<div class="sender-contact-import-set">
-				<?if ($arParams['LIST_ID']):?>
+				<?php if ($arParams['LIST_ID']):?>
 					<?=Loc::getMessage('SENDER_CONTACT_IMPORT_SET')?>
 					<?=Loc::getMessage('SENDER_CONTACT_IMPORT_SET_NAME')?>
 					"<?=htmlspecialcharsbx($arResult['SET_NAME'])?>"
-				<?else:?>
+				<?php else:?>
 					<?=Loc::getMessage('SENDER_CONTACT_IMPORT_SET')?>:
 					<select data-role="set-id"
 						onchange="this.nextElementSibling.style.display = this.value ? 'none' : '';"
 						class="sender-form-control sender-form-control-select"
 					>
 						<option value="">[<?=Loc::getMessage('SENDER_CONTACT_IMPORT_SET_ADD')?>]</option>
-						<?foreach ($arResult['SET_LIST'] as $index => $set):?>
+						<?php foreach ($arResult['SET_LIST'] as $index => $set):?>
 							<option value="<?=htmlspecialcharsbx($set['ID'])?>" <?=(!$index ? 'selected' : '')?>>
 								<?=htmlspecialcharsbx($set['NAME'])?>
 							</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 					<span style="<?=(empty($arResult['SET_LIST']) ? '' : 'display: none;')?>">
 						<?=Loc::getMessage('SENDER_CONTACT_IMPORT_SET_NAME')?>
 						<input data-role="set-name" type="text" class="sender-form-control">
 					</span>
-				<?endif;?>
+				<?php endif;?>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 
 	<div class="sender-box-informer">
 		<div class="sender-box-informer-text"><?=Loc::getMessage('SENDER_CONTACT_IMPORT_FORMAT_DESC')?></div>
 	</div>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:sender.ui.button.panel",
 		"",

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_ACCESS_DENIED"] = "Access denied.";
 $MESS["CRM_ORDER_DA_ADD_COUPON_ERROR"] = "Error adding coupon";
 $MESS["CRM_ORDER_DA_BASKET_CODE_ABSENT"] = "Shopping cart item ID is mising";

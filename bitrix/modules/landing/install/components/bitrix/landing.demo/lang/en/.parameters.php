@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_CMP_PAR_LANDING_TYPE"] = "Type";
 $MESS["LANDING_CMP_PAR_SITE_WORK_MODE"] = "Force site mode";
 $MESS["LANDING_CMP_PAR_SITE_ID"] = "Site ID";

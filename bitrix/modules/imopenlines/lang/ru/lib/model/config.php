@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONFIG_ENTITY_ID_FIELD"] = "ID";
 $MESS["CONFIG_ENTITY_LINE_NAME_FIELD"] = "Название";
 $MESS["CONFIG_ENTITY_ACTIVE_FIELD"] = "Активность";

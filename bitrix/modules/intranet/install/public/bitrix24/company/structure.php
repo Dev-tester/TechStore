@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/company/structure.php");
 $APPLICATION->SetTitle(GetMessage("TITLE1"));
 ?>
 
-<?$APPLICATION->IncludeComponent("bitrix:intranet.structure", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:intranet.structure", ".default", Array(
 	"SEARCH_URL"	=>	"index.php",
 	"PM_URL"	=> "/company/personal/messages/chat/#USER_ID#/",
 	"USERS_PER_PAGE"	=>	"25",
@@ -39,4 +39,4 @@ $APPLICATION->SetTitle(GetMessage("TITLE1"));
 	"VIS_STRUCTURE_URL" => "/company/vis_structure.php",
 	)
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle(GetMessage("IBLOCK_INSTALL_PUBLIC_CATALOG_TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:catalog", ".default", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog", ".default", Array(
 	"IBLOCK_TYPE"	=>	"catalog",
 	"IBLOCK_ID"	=>	GetMessage("IBLOCK_INSTALL_PUBLIC_IBLOCK_ID"),
 	"USE_FILTER"	=>	"Y",
@@ -83,4 +83,4 @@ $APPLICATION->SetTitle(GetMessage("IBLOCK_INSTALL_PUBLIC_CATALOG_TITLE"));
 		"ELEMENT_ID"	=>	"ELEMENT_ID",
 	)
 	)
-);?> <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?> <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1605,7 +1605,7 @@ class main extends CModule
 			'EMAIL_FROM'       => '#DEFAULT_EMAIL_FROM#',
 			'EMAIL_TO'         => '#EMAIL_TO#',
 			'SUBJECT'          => '#MESSAGE_SUBJECT#',
-			'MESSAGE'          => "<? EventMessageThemeCompiler::includeComponent('bitrix:main.mail.confirm', '', \$arParams); ?>",
+			'MESSAGE'          => "<?php  EventMessageThemeCompiler::includeComponent('bitrix:main.mail.confirm', '', \$arParams); ?>",
 			'BODY_TYPE'        => 'html',
 			'SITE_TEMPLATE_ID' => 'mail_join',
 		);

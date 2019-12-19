@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_NOT_FOUND"] = "Сделка не найдена.";
 $MESS["CRM_DEAL_ID_NOT_DEFINED"] = "Не найден ИД сделки";
 $MESS["CRM_DEAL_ACCESS_DENIED"] = "Доступ запрещён";

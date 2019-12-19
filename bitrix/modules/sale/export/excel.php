@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 IncludeModuleLangFile(__FILE__);
 
@@ -19,7 +19,7 @@ ob_start();
 ?>
 <table border="1">
 	<tr>
-		<?
+		<?php 
 		for ($i = 0; $i < count($arShownFieldsParams); $i++)
 		{
 			switch ($arShownFieldsParams[$i]["KEY"])
@@ -39,16 +39,16 @@ ob_start();
 		}
 		?>
 	</tr>
-	<?
+	<?php 
 	while ($arOrder = $dbOrderList->Fetch()):
 		?>
 		<tr>
-			<?
+			<?php 
 			for ($i = 0; $i < count($arShownFieldsParams); $i++)
 			{
 				?>
 				<td>
-					<?
+					<?php 
 					switch ($arShownFieldsParams[$i]["KEY"])
 					{
 						case "ID":
@@ -191,16 +191,16 @@ ob_start();
 					}
 					?>
 				</td>
-				<?
+				<?php 
 			}
 			?>
 		</tr>
-		<?
+		<?php 
 	endwhile;
 	?>
 </table>
 
-<?
+<?php 
 
 $content = ob_get_contents();
 ob_end_clean();

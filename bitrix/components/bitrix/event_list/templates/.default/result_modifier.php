@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/sonet_log.css");?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/sonet_log.css");?>
 
-<?
+<?php 
 if (
 		$GLOBALS["USER"]->IsAuthorized() 
 		|| $arParams["AUTH"] == "Y" 

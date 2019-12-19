@@ -20,9 +20,9 @@ if ($arParams['TYPE'] != 'STORE')
 }
 ?>
 
-<?if ($arResult['VARS']['site_edit']):?>
+<?php if ($arResult['VARS']['site_edit']):?>
 
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:landing.site_edit',
 		'.default',
 		array(
@@ -35,9 +35,9 @@ if ($arParams['TYPE'] != 'STORE')
 		$component
 	);?>
 
-<?elseif ($template = $request->get('tpl')):?>
+<?php elseif ($template = $request->get('tpl')):?>
 
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:landing.demo_preview',
 		'.default',
 		array(
@@ -49,9 +49,9 @@ if ($arParams['TYPE'] != 'STORE')
 		$component
 	);?>
 
-<?else:?>
+<?php else:?>
 
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		'bitrix:landing.demo',
 		'.default',
 		array(
@@ -63,4 +63,4 @@ if ($arParams['TYPE'] != 'STORE')
 		$component
 	);?>
 
-<?endif;?>
+<?php endif;?>

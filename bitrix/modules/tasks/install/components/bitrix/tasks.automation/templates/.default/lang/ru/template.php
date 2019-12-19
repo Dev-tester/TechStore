@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_AUTOMATION_CMP_TITLE_TASK_VIEW"] = "Текущее состояние задачи: «#TITLE#»";
 $MESS["TASKS_AUTOMATION_CMP_TITLE_VIEW"] = "Текущие роботы всех задач проекта";
 $MESS["TASKS_AUTOMATION_CMP_TITLE_VIEW_PLAN_1"] = "Текущие роботы всех задач Моего плана";

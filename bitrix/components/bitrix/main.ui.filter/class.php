@@ -1,4 +1,4 @@
-<?
+<?php 
 
 use Bitrix\Main\Loader;
 use Bitrix\Main\UI\Filter\Type;

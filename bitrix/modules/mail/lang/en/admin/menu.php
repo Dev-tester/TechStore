@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MENU_MAIL"] = "Mail";
 $MESS["MAIL_MENU_MSG"] = "Messages";
 $MESS["MAIL_MENU_MSG_ALT"] = "View mail messages";

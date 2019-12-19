@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_LIQPAY_MERCHANT_ID"] = "Merchant ID";
 $MESS["SALE_HPS_LIQPAY_SIGN"] = "Подпись";
 $MESS["SALE_HPS_LIQPAY_PATH_TO_SERVER_URL"] = "Путь к файлу-обработчику результата";

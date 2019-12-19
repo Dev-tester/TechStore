@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_SB_FB_USE"] = "Увімвнути використання Facebook";
 $MESS["CATALOG_SB_FB_SECTION_TITLE"] = "Налаштування Facebook";
 $MESS["CATALOG_SB_TW_USE"] = "Увімвнути використання Twitter";

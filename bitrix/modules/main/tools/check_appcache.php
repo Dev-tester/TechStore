@@ -1,4 +1,4 @@
-<?
+<?php 
 define('BX_SECURITY_SHOW_MESSAGE', 1);
 define("NO_KEEP_STATISTIC", true);
 define("NOT_CHECK_FILE_PERMISSIONS", true);

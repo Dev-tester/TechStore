@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 if (!IsModuleInstalled("webdav")):
 	ShowError(GetMessage("W_WEBDAV_IS_NOT_INSTALLED"));
 	return 0;

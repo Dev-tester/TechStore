@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -19,7 +19,7 @@ if ($arResult["OTP"]["IS_ENABLED"] == "N")
 ?>
 
 <div class="intranet-user-otp-con-top">
-<?
+<?php 
 if (
 	$USER->GetID() == $arParams["USER_ID"]
 	|| $USER->CanDoOperation('security_edit_user_otp')
@@ -27,7 +27,7 @@ if (
 {
 ?>
 	<div class="intranet-user-otp-con-top-title"><?=GetMessage("INTRANET_USER_OTP_AUTH")?></div>
-	<?
+	<?php 
 	if ($arResult["OTP"]["IS_ACTIVE"])
 	{
 	?>
@@ -36,17 +36,17 @@ if (
 				<?=GetMessage("INTRANET_USER_OTP_ACTIVE")?>
 			</span>
 
-			<?if ($USER->CanDoOperation('security_edit_user_otp') || !$arResult["OTP"]["IS_MANDATORY"]):?>
+			<?php if ($USER->CanDoOperation('security_edit_user_otp') || !$arResult["OTP"]["IS_MANDATORY"]):?>
 				<a class="intranet-user-otp-con-top-status-link" href="javascript:void(0)" data-role="intranet-otp-deactivate">
 					<?=GetMessage("INTRANET_USER_OTP_DEACTIVATE")?>
 				</a>
-			<?endif?>
+			<?php endif?>
 		</div>
 
-		<?if ($USER->GetID() == $arParams["USER_ID"]):?>
+		<?php if ($USER->GetID() == $arParams["USER_ID"]):?>
 			<a class="ui-btn ui-btn-light-border" href="javascript:void(0)" data-role="intranet-otp-change-phone"><?=GetMessage("INTRANET_USER_OTP_CHANGE_PHONE_1")?></a>
-		<?endif?>
-	<?
+		<?php endif?>
+	<?php 
 	}
 	elseif (
 		!$arResult["OTP"]["IS_ACTIVE"]
@@ -58,12 +58,12 @@ if (
 			<span class="intranet-user-otp-con-top-status-block intranet-user-otp-con-top-status-block-off">
 				<?=($arResult["OTP"]["IS_EXIST"]) ? GetMessage("INTRANET_USER_OTP_NOT_ACTIVE") : GetMessage("INTRANET_USER_OTP_NOT_EXIST")?>
 			</span>
-			<?
+			<?php 
 			if ($arResult["OTP"]["IS_EXIST"])
 			{
 			?>
 				<a class="intranet-user-otp-con-top-status-link" href="javascript:void(0)" onclick="BX.Intranet.UserOtpConnected.activateUserOtp()"><?=GetMessage("INTRANET_USER_OTP_ACTIVATE")?></a>
-			<?
+			<?php 
 			}
 			else
 			{
@@ -71,20 +71,20 @@ if (
 					<a class="intranet-user-otp-con-top-status-link" href="javascript:void(0)" data-role="intranet-otp-change-phone">
 						<?=GetMessage("INTRANET_USER_OTP_SETUP")?>
 					</a>
-				<?else:?>
+				<?php else:?>
 					<a class="intranet-user-otp-con-top-status-link" href="javascript:void(0)" data-role="intranet-otp-defer">
 						<?=GetMessage("INTRANET_USER_OTP_PROROGUE")?>
 					</a>
-				<?endif;
+				<?php endif;
 			}
 			?>
 		</div>
 
-		<?if ($arResult["OTP"]["IS_EXIST"] && $USER->GetID() == $arParams["USER_ID"]):?>
+		<?php if ($arResult["OTP"]["IS_EXIST"] && $USER->GetID() == $arParams["USER_ID"]):?>
 			<a class="ui-btn ui-btn-light-border" href="javascript:void(0)" data-role="intranet-otp-change-phone">
 				<?=GetMessage("INTRANET_USER_OTP_CHANGE_PHONE_1")?>
 			</a>
-		<?endif;
+		<?php endif;
 
 		if ($arResult["OTP"]["NUM_LEFT_DAYS"])
 		{
@@ -98,7 +98,7 @@ if (
 					</span>
 				</div>
 			</div>
-		<?
+		<?php 
 		}
 	}
 	elseif (
@@ -115,14 +115,14 @@ if (
 
 			<a class="intranet-user-otp-con-top-status-link" href="javascript:void(0)" onclick="BX.Intranet.UserOtpConnected.activateUserOtp()"><?=GetMessage("INTRANET_USER_OTP_ACTIVATE")?></a>
 		</div>
-		<?
+		<?php 
 		if ($USER->GetID() == $arParams["USER_ID"])
 		{
 		?>
 			<a class="ui-btn ui-btn-light-border" href="javascript:void(0)" data-role="intranet-otp-change-phone">
 				<?=GetMessage("INTRANET_USER_OTP_CHANGE_PHONE_1")?>
 			</a>
-		<?
+		<?php 
 		}
 
 		if ($arResult["OTP"]["NUM_LEFT_DAYS"])
@@ -137,7 +137,7 @@ if (
 					</span>
 				</div>
 			</div>
-		<?
+		<?php 
 		}
 	}
 	elseif (
@@ -151,21 +151,21 @@ if (
 				<?=GetMessage("INTRANET_USER_OTP_NOT_EXIST")?>
 			</span>
 		</div>
-		<?
+		<?php 
 		if ($USER->GetID() == $arParams["USER_ID"])
 		{
 			?>
 			<a class="ui-btn ui-btn-light-border" href="javascript:void(0)" data-role="intranet-otp-change-phone">
 				<?=GetMessage("INTRANET_USER_OTP_CONNECT")?>
 			</a>
-			<?
+			<?php 
 		}
 		?>
-	<?
+	<?php 
 	}
 	?>
 
-	<!-- codes --><?
+	<!-- codes --><?php 
 	if (
 		$USER->GetID() == $arParams["USER_ID"]
 		&& $arResult["OTP"]["IS_ACTIVE"]
@@ -174,13 +174,13 @@ if (
 	{
 	?>
 		<a href="javascript:void(0)" class="ui-btn ui-btn-link" data-role="intranet-recovery-codes"><?=GetMessage("INTRANET_USER_OTP_CODES")?></a>
-	<?
+	<?php 
 	}
 }
 ?>
 </div>
 
-<?
+<?php 
 $days = array();
 for($i=1; $i<=10; $i++)
 {

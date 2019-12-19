@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix Framework
  * @package bitrix
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" &&
 		}
 	);
 </script>
-<?
+<?php 
 $res = ob_get_clean();
 
 if ($_REQUEST["VOTE_ID"] == $arParams["VOTE_ID"] && $_REQUEST["AJAX_POST"] == "Y" && check_bitrix_sessid()):

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DDCT_DEDUCTION_STORE_ERROR"] = "No warehouse selected to ship product #PRODUCT_NAME# (##PRODUCT_ID#)";
 $MESS["DDCT_DEDUCTION_QUANTITY_STORE_ERROR"] = "Insufficient stock of #PRODUCT_NAME# (##PRODUCT_ID#) for shipment from the warehouse ##STORE_ID#.";
 $MESS["SALE_PROVIDER_SHIPMENT_QUANTITY_NOT_ENOUGH"] = "Quantity of \"#PRODUCT_NAME#\" to reserve exceeds that in the catalog";

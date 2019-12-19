@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_TYPE_CHECKBOX'] = "Флажок";
 $MESS ['SALE_TYPE_TEXT'] = "Строка";
 $MESS ['SALE_TYPE_SELECT'] = "Список";

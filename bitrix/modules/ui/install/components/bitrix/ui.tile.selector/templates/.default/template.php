@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -22,14 +22,14 @@ $getTileTemplate = function () use ($arParams)
 	?>
 	<span data-role="tile-item" data-bx-id="%id%" data-bx-data="%data%" class="ui-tile-selector-item ui-tile-selector-item-%type% ui-tile-selector-item-readonly-%readonly%" style="%style%">
 		<span data-role="tile-item-name">%name%</span>
-		<?if ($inputName):?>
+		<?php if ($inputName):?>
 			<input type="hidden" name="<?=$inputName?>" value="%id%">
-		<?endif;?>
-		<?if (!$arParams['READONLY'] && $arParams['CAN_REMOVE_TILES']):?>
+		<?php endif;?>
+		<?php if (!$arParams['READONLY'] && $arParams['CAN_REMOVE_TILES']):?>
 			<span data-role="remove" class="ui-tile-selector-item-remove"></span>
-		<?endif;?>
+		<?php endif;?>
 	</span>
-	<?
+	<?php 
 	return ob_get_clean();
 };
 
@@ -84,7 +84,7 @@ $containerId .= $arParams['ID'] ?: 'def';
 	</script>
 
 	<span data-role="tile-container" class="ui-tile-selector-selector">
-		<?
+		<?php 
 		foreach ($arResult['LIST'] as $tile):
 			$style = '';
 			if (isset($tile['bgcolor']) && $tile['bgcolor'])
@@ -117,28 +117,28 @@ $containerId .= $arParams['ID'] ?: 'def';
 		?>
 		<input data-role="tile-input" type="text" class="ui-tile-selector-input" autocomplete="off" style="display: none;">
 
-		<?if ($arParams['SHOW_BUTTON_SELECT'] && !$arParams['READONLY']):?>
+		<?php if ($arParams['SHOW_BUTTON_SELECT'] && !$arParams['READONLY']):?>
 			<span class="ui-tile-selector-select-container">
 				<span data-role="tile-select" class="ui-tile-selector-select">
-					<?if ($arParams['BUTTON_SELECT_CAPTION']):?>
+					<?php if ($arParams['BUTTON_SELECT_CAPTION']):?>
 						<?=htmlspecialcharsbx($arParams['BUTTON_SELECT_CAPTION'])?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('UI_TILE_SELECTOR_SELECT')?>
-					<?endif;?>
+					<?php endif;?>
 				</span>
 			</span>
-		<?endif;?>
-		<?if ($arParams['LOCK']):?>
+		<?php endif;?>
+		<?php if ($arParams['LOCK']):?>
 			<span class="ui-tile-selector-lock-icon"></span>
-		<?endif;?>
+		<?php endif;?>
 	</span>
-	<?if ($arParams['SHOW_BUTTON_ADD'] && !$arParams['READONLY']):?>
+	<?php if ($arParams['SHOW_BUTTON_ADD'] && !$arParams['READONLY']):?>
 		<span data-role="tile-add" class="ui-tile-selector-add">
-			<?if ($arParams['BUTTON_ADD_CAPTION']):?>
+			<?php if ($arParams['BUTTON_ADD_CAPTION']):?>
 				<?=htmlspecialcharsbx($arParams['BUTTON_ADD_CAPTION'])?>
-			<?else:?>
+			<?php else:?>
 				<?=Loc::getMessage('UI_TILE_SELECTOR_ADD')?>
-			<?endif;?>
+			<?php endif;?>
 		</span>
-	<?endif;?>
+	<?php endif;?>
 </span>

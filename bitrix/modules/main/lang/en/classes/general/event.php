@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACTION_EMPTY"] = "Action is not specified";
 $MESS["BAD_EMAIL_FROM"] = "Please enter the sender's E-mail.";
 $MESS["BAD_EMAIL_TO"] = "Please enter the recipient's E-mail.";

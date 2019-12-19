@@ -1,1 +1,1 @@
-<? return ["stress"];
+<?php  return ["stress"];

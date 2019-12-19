@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Депозиты");
 $APPLICATION->SetTitle("Депозиты");
@@ -54,4 +54,4 @@ $APPLICATION->SetTitle("Депозиты");
 										<td valign="top">В конце срока. </td>
 									</tr> 
 									
- 									</table><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ 									</table><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

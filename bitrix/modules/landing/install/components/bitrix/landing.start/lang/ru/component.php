@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_CMP_TITLE"] = "Сайты";
 $MESS["LANDING_CMP_MODULE_NOT_INSTALLED"] = "Сервис лендингов в данный момент недоступен.";
 $MESS["LANDING_CMP_MODULE_NOT_INSTALLED_CRM"] = "Не удалось подготовить данные CRM.";

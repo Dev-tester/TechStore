@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav.invite/templates/.default/style.css');
@@ -822,7 +822,7 @@ function FFWDExtDialog()
 	} catch (err) {}
 }
 </script>
-<?
+<?php 
 endif;
 ?>
 <script>
@@ -850,13 +850,13 @@ oText['wd_open'] = '<?=CUtil::JSEscape(GetMessage("WD_BTN_OPEN"))?>';
 oText['wd_edit_in'] = '<?=CUtil::JSEscape(GetMessage("WD_MENU_EDIT_IN"))?>';
 oText['wd_edit_in_other'] = '<?=CUtil::JSEscape(GetMessage("WD_MENU_EDIT_IN_OTHER"))?>';
 oText['wd_install_cancel'] = '<?=CUtil::JSEscape(GetMessage("WD_BTN_INSTALL_CANCEL"))?>';
-<? if ($bIsFF) {
+<?php  if ($bIsFF) {
 	$arUserOptions = CUserOptions::GetOption('webdav', 'suggest', array('ff_extension' => true));
 	if ($arUserOptions['ff_extension'] === true) {
 ?>
 window.suggest_ff_extension = true;
-<? }} ?>
-</script><?
+<?php  }} ?>
+</script><?php 
 
 if($ob instanceof CWebDavIblock && $ob->Type === "iblock" && CWebDavIblock::needBlockByDisk())
 {

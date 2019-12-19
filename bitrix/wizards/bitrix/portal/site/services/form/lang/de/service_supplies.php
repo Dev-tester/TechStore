@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADMIN_NOTE_QUESTION'] = "Antwort";
 $MESS ['COMMENT_QUESTION'] = "Kommentar";
 $MESS ['OFFICE_SUPPLIES_MENU_NAME'] = "Bьrobedarf";

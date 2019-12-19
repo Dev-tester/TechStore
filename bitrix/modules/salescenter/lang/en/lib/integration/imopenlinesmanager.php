@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_IMOPMANAGER_ORDER_ADD_MESSAGE_BOTTOM"] = "Easy one click payment. Send us a message if you have any questions!";
 $MESS["SALESCENTER_IMOPMANAGER_ORDER_ADD_MESSAGE_DISCOUNT"] = "Order discount #DISCOUNT#";
 $MESS["SALESCENTER_IMOPMANAGER_ORDER_ADD_MESSAGE_TOP"] = "Your order for #SUM# of #DATE#";

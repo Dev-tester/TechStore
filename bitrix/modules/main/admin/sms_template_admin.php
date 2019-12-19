@@ -246,7 +246,7 @@ $adminList->CheckListMode();
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
 <form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$tableID."_filter",
 	array(
@@ -264,38 +264,38 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td><b><?echo Loc::getMessage("sms_template_admin_find")?></b></td>
+	<td><b><?php echo Loc::getMessage("sms_template_admin_find")?></b></td>
 	<td nowrap>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=Loc::getMessage("F_SEARCH_TITLE")?>">
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=Loc::getMessage("F_SEARCH_TITLE")?>">
 		<select name="find_type">
-			<option value="message"<?if($find_type=="message") echo " selected"?>><?echo Loc::getMessage("sms_template_admin_message")?></option>
-			<option value="sender"<?if($find_type=="sender") echo " selected"?>><?echo Loc::getMessage("sms_template_admin_sender")?></option>
-			<option value="receiver"<?if($find_type=="receiver") echo " selected"?>><?echo Loc::getMessage("sms_template_admin_receiver")?></option>
+			<option value="message"<?php if($find_type=="message") echo " selected"?>><?php echo Loc::getMessage("sms_template_admin_message")?></option>
+			<option value="sender"<?php if($find_type=="sender") echo " selected"?>><?php echo Loc::getMessage("sms_template_admin_sender")?></option>
+			<option value="receiver"<?php if($find_type=="receiver") echo " selected"?>><?php echo Loc::getMessage("sms_template_admin_receiver")?></option>
 		</select>
 	</td>
 </tr>
 <tr>
-	<td><?echo $fields["ID"]->getTitle()?>:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"></td>
+	<td><?php echo $fields["ID"]->getTitle()?>:</td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"></td>
 </tr>
 <tr>
-	<td><?echo $fields["EVENT_NAME"]->getTitle()?>:</td>
-	<td><input type="text" name="find_event_name" size="25" value="<?echo htmlspecialcharsbx($find_event_name)?>"><br>
+	<td><?php echo $fields["EVENT_NAME"]->getTitle()?>:</td>
+	<td><input type="text" name="find_event_name" size="25" value="<?php echo htmlspecialcharsbx($find_event_name)?>"><br>
 			<select name="find_event_name_id">
-				<option value=""><?echo Loc::getMessage("sms_template_admin_all")?></option>
-				<?foreach($eventTypes as $eventName => $name): ?>
-					<option value="<?=Main\Text\HtmlFilter::encode($eventName)?>"<? if($find_event_name_id == $eventName) echo " selected" ?>>
+				<option value=""><?php echo Loc::getMessage("sms_template_admin_all")?></option>
+				<?php foreach($eventTypes as $eventName => $name): ?>
+					<option value="<?=Main\Text\HtmlFilter::encode($eventName)?>"<?php  if($find_event_name_id == $eventName) echo " selected" ?>>
 						<?=Main\Text\HtmlFilter::encode($name)?>
 					</option>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</select>
 	</td>
 </tr>
 <tr>
 	<td><?=Loc::getMessage("sms_template_admin_site")?>:</td>
 	<td><select name="find_site">
-			<option value=""><?echo Loc::getMessage("sms_template_admin_all")?></option>
-			<?
+			<option value=""><?php echo Loc::getMessage("sms_template_admin_all")?></option>
+			<?php 
 			$l = CLang::GetList($by = "sort", $order = "asc");
 			while(($l_arr = $l->Fetch()))
 			{
@@ -306,24 +306,24 @@ $oFilter->Begin();
 	</td>
 </tr>
 <tr>
-	<td><?echo $fields["LANGUAGE_ID"]->getTitle()?>:</td>
+	<td><?php echo $fields["LANGUAGE_ID"]->getTitle()?>:</td>
 	<td>
 			<select name="find_language_id">
-				<option value=""><?echo Loc::getMessage("sms_template_admin_all")?></option>
-				<?
+				<option value=""><?php echo Loc::getMessage("sms_template_admin_all")?></option>
+				<?php 
 				unset($langOptions[""]);
 				?>
-				<? foreach($langOptions as $language_id => $name): ?>
-					<option value="<?=$language_id?>"<? if($find_language_id == $language_id) echo " selected" ?>>
+				<?php  foreach($langOptions as $language_id => $name): ?>
+					<option value="<?=$language_id?>"<?php  if($find_language_id == $language_id) echo " selected" ?>>
 						<?=\Bitrix\Main\Text\HtmlFilter::encode($name)?>
 					</option>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</select>
 	</td>
 </tr>
 <tr>
 	<td><?=$fields["ACTIVE"]->getTitle()?>:</td>
-	<td><?
+	<td><?php 
 		$arr = array(
 			"reference" => [Loc::getMessage("sms_template_admin_yes"), Loc::getMessage("sms_template_admin_no")],
 			"reference_id" => ["Y","N"]
@@ -332,23 +332,23 @@ $oFilter->Begin();
 		?></td>
 </tr>
 <tr>
-	<td><?echo $fields["SENDER"]->getTitle()?>:</td>
-	<td><input type="text" name="find_sender" size="47" value="<?echo htmlspecialcharsbx($find_sender)?>"></td>
+	<td><?php echo $fields["SENDER"]->getTitle()?>:</td>
+	<td><input type="text" name="find_sender" size="47" value="<?php echo htmlspecialcharsbx($find_sender)?>"></td>
 </tr>
 <tr>
-	<td><?echo $fields["RECEIVER"]->getTitle()?>:</td>
-	<td><input type="text" name="find_receiver" size="47" value="<?echo htmlspecialcharsbx($find_receiver)?>"></td>
+	<td><?php echo $fields["RECEIVER"]->getTitle()?>:</td>
+	<td><input type="text" name="find_receiver" size="47" value="<?php echo htmlspecialcharsbx($find_receiver)?>"></td>
 </tr>
 <tr>
-	<td><?echo $fields["MESSAGE"]->getTitle()?>:</td>
-	<td><input type="text" name="find_message" size="47" value="<?echo htmlspecialcharsbx($find_message)?>"></td>
+	<td><?php echo $fields["MESSAGE"]->getTitle()?>:</td>
+	<td><input type="text" name="find_message" size="47" value="<?php echo htmlspecialcharsbx($find_message)?>"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$tableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $adminList->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

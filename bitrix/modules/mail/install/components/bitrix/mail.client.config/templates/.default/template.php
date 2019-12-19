@@ -27,23 +27,23 @@ if (!$arResult['CAN_CONNECT_NEW_MAILBOX'])
 		</div>
 		<div class="mail-add-services">
 			<div class="mail-add-list">
-				<? foreach ($arParams['SERVICES'] as $id => $settings): ?>
-					<? if ($settings['type'] != 'imap') continue; ?>
+				<?php  foreach ($arParams['SERVICES'] as $id => $settings): ?>
+					<?php  if ($settings['type'] != 'imap') continue; ?>
 					<a class="mail-add-item"
-						<? if ($arResult['CAN_CONNECT_NEW_MAILBOX']): ?>
+						<?php  if ($arResult['CAN_CONNECT_NEW_MAILBOX']): ?>
 							href="<?=htmlspecialcharsbx(\CHTTP::urlAddParams($newPath, array('id' => $id))) ?>"
-						<? else: ?>
+						<?php  else: ?>
 							onclick="showLicenseInfoPopup('limit')"
-						<? endif ?>>
-						<? if ($settings['icon']): ?>
+						<?php  endif ?>>
+						<?php  if ($settings['icon']): ?>
 							<img class="mail-add-img" src="<?=$settings['icon'] ?>" alt="<?=htmlspecialcharsbx($settings['name']) ?>">
-						<? else: ?>
-							<span class="mail-add-text <? if (strlen($settings['name']) > 10): ?> mail-add-text-small"<? endif ?>">
+						<?php  else: ?>
+							<span class="mail-add-text <?php  if (strlen($settings['name']) > 10): ?> mail-add-text-small"<?php  endif ?>">
 								&nbsp;<?=htmlspecialcharsbx($settings['name']) ?>&nbsp;
 							</span>
-						<? endif ?>
+						<?php  endif ?>
 					</a>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</div>
 		</div>
 	</div>
@@ -99,8 +99,8 @@ if (!$arResult['CAN_CONNECT_NEW_MAILBOX'])
 		);
 	}
 
-	<? if (!$arResult['CAN_CONNECT_NEW_MAILBOX']): ?>
+	<?php  if (!$arResult['CAN_CONNECT_NEW_MAILBOX']): ?>
 		showLicenseInfoPopup('limit');
-	<? endif ?>
+	<?php  endif ?>
 
 </script>

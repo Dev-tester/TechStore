@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DESC_LOADING"] = "Loading...";
 $MESS["STRESS_GREEN_1"] = "Perfect work stress balance";
 $MESS["STRESS_GREEN_2"] = "Busy, productive, happy";

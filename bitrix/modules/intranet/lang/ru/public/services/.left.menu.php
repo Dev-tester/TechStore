@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICES_MENU_MEETING_ROOM"] = "Переговорные";
 $MESS["SERVICES_MENU_MEETING"] = "Собрания и планерки";
 $MESS["SERVICES_MENU_IDEA"] = "Есть Идея?";

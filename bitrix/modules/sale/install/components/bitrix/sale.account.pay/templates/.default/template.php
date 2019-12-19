@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -28,7 +28,7 @@ else
 		?>
 		<div class="bx-sap" id="bx-sap<?=$wrapperId?>">
 			<div class="container-fluid">
-				<?
+				<?php 
 				if ($arParams['SELL_VALUES_FROM_VAR'] != 'Y')
 				{
 					if ($arParams['SELL_SHOW_FIXED_VALUES'] === 'Y')
@@ -39,21 +39,21 @@ else
 								<h3 class="sale-acountpay-title"><?= Loc::getMessage("SAP_FIXED_PAYMENT") ?></h3>
 								<div class="sale-acountpay-fixedpay-container">
 									<div class="sale-acountpay-fixedpay-list">
-										<?
+										<?php 
 										foreach ($arParams["SELL_TOTAL"] as $valueChanging)
 										{
 											?>
 											<div class="sale-acountpay-fixedpay-item">
 												<?=CUtil::JSEscape(htmlspecialcharsbx($valueChanging))?>
 											</div>
-											<?
+											<?php 
 										}
 										?>
 									</div>
 								</div>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="row">
@@ -61,7 +61,7 @@ else
 							<h3 class="sale-acountpay-title"><?=Loc::getMessage("SAP_SUM")?></h3>
 							<div class="" style="max-width: 200px;">
 								<div class="form-group" style="margin-bottom: 0;">
-									<?
+									<?php 
 									$inputElement = "
 										<div class='col-sm-9'>
 											<input type='text'	placeholder='0.00' 
@@ -80,7 +80,7 @@ else
 							</div>
 						</div>
 					</div>
-				<?
+				<?php 
 				}
 				else
 				{
@@ -93,7 +93,7 @@ else
 								<h2><?=SaleFormatCurrency($arResult["SELL_VAR_PRICE_VALUE"], $arParams['SELL_CURRENCY'])?></h2>
 							</div>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="row">
@@ -101,7 +101,7 @@ else
 							class="form-control input-lg sale-acountpay-input"
 							value="<?=CUtil::JSEscape(htmlspecialcharsbx($arResult["SELL_VAR_PRICE_VALUE"]))?>">
 					</div>
-					<?
+					<?php 
 				}
 				?>
 				<div class="row">
@@ -110,7 +110,7 @@ else
 						<div>
 							<div class="sale-acountpay-pp row">
 								<div class="col-md-7 col-sm-8 col-xs-12 ">
-									<?
+									<?php 
 									foreach ($arResult['PAYSYSTEMS_LIST'] as $key => $paySystem)
 									{
 										?>
@@ -122,7 +122,7 @@ else
 														value="<?=$paySystem['ID']?>"
 														<?= ($key == 0) ? "checked='checked'" :""?>
 												>
-												<?
+												<?php 
 												if (isset($paySystem['LOGOTIP']))
 												{
 													?>
@@ -131,7 +131,7 @@ else
 															background-image: url(<?=$paySystem['LOGOTIP']?>);
 															background-image: -webkit-image-set(url(<?=$paySystem['LOGOTIP']?>) 1x, url(<?=$paySystem['LOGOTIP']?>) 2x);">
 													</div>
-													<?
+													<?php 
 												}
 												?>
 											</div>
@@ -139,7 +139,7 @@ else
 												<?=CUtil::JSEscape(htmlspecialcharsbx($paySystem['NAME']))?>
 											</div>
 										</div>
-										<?
+										<?php 
 									}
 									?>
 								</div>
@@ -154,7 +154,7 @@ else
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$javascriptParams = array(
 			"alertMessages" => array("wrongInput" => Loc::getMessage('SAP_ERROR_INPUT')),
 			"url" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
@@ -168,14 +168,14 @@ else
 		<script>
 			var sc = new BX.saleAccountPay(<?=$javascriptParams?>);
 		</script>
-	<?
+	<?php 
 	}
 	else
 	{
 		?>
 		<h3><?=Loc::getMessage("SAP_BUY_MONEY")?></h3>
 		<form method="post" name="buyMoney" action="">
-			<?
+			<?php 
 			foreach($arResult["AMOUNT_TO_SHOW"] as $value)
 			{
 				?>
@@ -183,12 +183,12 @@ else
 					value="<?=$value["ID"]?>" id="<?=CUtil::JSEscape(htmlspecialcharsbx($arParams["VAR"])).$value["ID"]?>">
 				<label for="<?=CUtil::JSEscape(htmlspecialcharsbx($arParams["VAR"])).$value["ID"]?>"><?=$value["NAME"]?></label>
 				<br />
-				<?
+				<?php 
 			}
 			?>
 			<input type="submit" name="button" value="<?=GetMessage("SAP_BUTTON")?>">
 		</form>
-		<?
+		<?php 
 	}
 }
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEFAULT_TITLE"] = "Open Channel";
 $MESS["READY_TO_RESPOND"] = "Our team of skilled professionals is here to help!";
 $MESS["RESPOND_LATER"] = "One of our  representatives will get back to you as soon as possible.";

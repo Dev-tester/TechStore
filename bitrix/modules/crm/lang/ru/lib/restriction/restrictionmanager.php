@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_RESTR_MGR_DUP_CTRL_MSG_CONTENT_2"] = "<div class=\"crm-duplicate-tab-content\">
 	<h3 class=\"crm-duplicate-tab-title\">Расширенный поиск дубликатов</h3>
 	<div class=\"crm-duplicate-tab-text\">

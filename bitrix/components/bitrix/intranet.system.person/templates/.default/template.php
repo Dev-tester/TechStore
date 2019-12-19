@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\UI;
@@ -42,33 +42,33 @@ endif;
 
 <div class="bx-user-info-big">
 	<div class="bx-user-info-inner-big">
-	<?
+	<?php 
 	if ($arUser['SUBTITLE']):
 		?>
-		<div class="bx-user-subtitle<?echo $arUser['SUBTITLE_FEATURED'] == 'Y' ? ' bx-user-subtitle-featured' : ''?>">
-			<?echo (!empty($arUser['PREVIEW_TEXT_TYPE']) && $arUser['PREVIEW_TEXT_TYPE'] == 'html' ? $arUser['SUBTITLE'] : htmlspecialcharsbx($arUser['SUBTITLE']))?>
+		<div class="bx-user-subtitle<?php echo $arUser['SUBTITLE_FEATURED'] == 'Y' ? ' bx-user-subtitle-featured' : ''?>">
+			<?php echo (!empty($arUser['PREVIEW_TEXT_TYPE']) && $arUser['PREVIEW_TEXT_TYPE'] == 'html' ? $arUser['SUBTITLE'] : htmlspecialcharsbx($arUser['SUBTITLE']))?>
 		</div>
-		<?
+		<?php 
 	endif;
 	?>
 	<div class="bx-user-controls">
-	<?
+	<?php 
 	if ($USER->IsAuthorized() && (!isset($arUser['ACTIVE']) || $arUser['ACTIVE'] == 'Y')):
 		?>
 		<div class="bx-user-control">
 		<ul>
-			<?
+			<?php 
 			if ($arResult['CAN_MESSAGE'] && $arParams['PM_URL']):
 				?>
-				<li class="bx-icon bx-icon-message"><a href="<?echo ($url = str_replace('#USER_ID#', $arUser['ID'], $arParams['PM_URL']))?>" onclick="if (typeof(BX) != 'undefined' && BX.IM) { BXIM.openMessenger(<?=$arUser['ID']?>); return false; } else { window.open('<?=$url?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><?echo GetMessage('INTR_ISP_PM')?></a></li>
-				<?
+				<li class="bx-icon bx-icon-message"><a href="<?php echo ($url = str_replace('#USER_ID#', $arUser['ID'], $arParams['PM_URL']))?>" onclick="if (typeof(BX) != 'undefined' && BX.IM) { BXIM.openMessenger(<?=$arUser['ID']?>); return false; } else { window.open('<?=$url?>', '', 'status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><?php echo GetMessage('INTR_ISP_PM')?></a></li>
+				<?php 
 			endif;
 			?>
-			<?
+			<?php 
 			if ($arResult['CAN_VIDEO_CALL'] && $arParams['PATH_TO_VIDEO_CALL']):
 				?>
-				<li class="bx-icon bx-icon-video"><a href="<?echo $arResult["Urls"]["VideoCall"]?>" onclick="window.open('<?echo $arResult["Urls"]["VideoCall"] ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=1000,height=600,top='+Math.floor((screen.height - 600)/2-14)+',left='+Math.floor((screen.width - 1000)/2-5)); return false;"><?echo GetMessage('INTR_ISP_VIDEO_CALL')?></a></li>
-				<?
+				<li class="bx-icon bx-icon-video"><a href="<?php echo $arResult["Urls"]["VideoCall"]?>" onclick="window.open('<?php echo $arResult["Urls"]["VideoCall"] ?>', '', 'status=no,scrollbars=yes,resizable=yes,width=1000,height=600,top='+Math.floor((screen.height - 600)/2-14)+',left='+Math.floor((screen.width - 1000)/2-5)); return false;"><?php echo GetMessage('INTR_ISP_VIDEO_CALL')?></a></li>
+				<?php 
 			endif;
 			if ($arResult['CAN_EDIT_USER'] == false && $arResult['CAN_EDIT_USER_SELF'] == true) :
 				?>
@@ -76,44 +76,44 @@ endif;
 					$arParams["PATH_TO_USER_EDIT"],
 					array(
 						"user_id" => $arUser['ID']
-					))?>"><?echo GetMessage('INTR_ISP_EDIT_USER')?></a></li>
-				<?
+					))?>"><?php echo GetMessage('INTR_ISP_EDIT_USER')?></a></li>
+				<?php 
 			elseif ($arResult['CAN_EDIT_USER']):
 				?>
-				<li class="bx-icon bx-icon-edit"><a href="javascript:<?echo $APPLICATION->GetPopupLink(
+				<li class="bx-icon bx-icon-edit"><a href="javascript:<?php echo $APPLICATION->GetPopupLink(
 						array(
 							'URL' => '/bitrix/admin/user_edit.php?lang='.LANGUAGE_ID.'&bxpublic=Y&from_module=main&ID='.$arUser['ID'],
 							"PARAMS"=>array("width"=>780, "height"=>500, "resize"=>false),
-				))?>"><?echo GetMessage('INTR_ISP_EDIT_USER')?></a></li>
-				<?
+				))?>"><?php echo GetMessage('INTR_ISP_EDIT_USER')?></a></li>
+				<?php 
 			endif;
 			?>
 		</ul>
 		</div>
-		<?
+		<?php 
 	endif;
 	if ($arUser['IS_ONLINE'] || $arUser['IS_BIRTHDAY'] || $arUser['IS_ABSENT'] || $arUser['IS_FEATURED']):
 		?>
 		<div class="bx-user-control">
 		<ul>
-			<?if ($arUser['IS_ONLINE']):?><li class="bx-icon bx-icon-online"><?echo GetMessage('INTR_ISP_IS_ONLINE')?></li><?endif;?>
-			<?if ($arUser['IS_ABSENT']):?><li class="bx-icon bx-icon-away"><?echo GetMessage('INTR_ISP_IS_ABSENT')?></li><?endif;?>
-			<?if ($arUser['IS_BIRTHDAY']):?><li class="bx-icon bx-icon-birth"><?echo GetMessage('INTR_ISP_IS_BIRTHDAY')?></li><?endif;?>
-			<?if ($arUser['IS_FEATURED']):?><li class="bx-icon bx-icon-featured"><?echo GetMessage('INTR_ISP_IS_FEATURED')?></li><?endif;?>
+			<?php if ($arUser['IS_ONLINE']):?><li class="bx-icon bx-icon-online"><?php echo GetMessage('INTR_ISP_IS_ONLINE')?></li><?php endif;?>
+			<?php if ($arUser['IS_ABSENT']):?><li class="bx-icon bx-icon-away"><?php echo GetMessage('INTR_ISP_IS_ABSENT')?></li><?php endif;?>
+			<?php if ($arUser['IS_BIRTHDAY']):?><li class="bx-icon bx-icon-birth"><?php echo GetMessage('INTR_ISP_IS_BIRTHDAY')?></li><?php endif;?>
+			<?php if ($arUser['IS_FEATURED']):?><li class="bx-icon bx-icon-featured"><?php echo GetMessage('INTR_ISP_IS_FEATURED')?></li><?php endif;?>
 		</ul>
 		</div>
-		<?
+		<?php 
 	endif;
-	?></div><?
+	?></div><?php 
 	if (
 		is_array($arParams['USER_PROPERTY'])
 		&& in_array('PERSONAL_PHOTO', $arParams['USER_PROPERTY'])
 	)
 	{
-		?><div class="bx-user-image<? if (!$arUser['PERSONAL_PHOTO']) { ?> bx-user-image-default<? } ?>"><?
+		?><div class="bx-user-image<?php  if (!$arUser['PERSONAL_PHOTO']) { ?> bx-user-image-default<?php  } ?>"><?php 
 		if ($arResult['CAN_VIEW_PROFILE'])
 		{
-			?><a href="<?echo $arUser['DETAIL_URL']?>"><?
+			?><a href="<?php echo $arUser['DETAIL_URL']?>"><?php 
 		}
 		if ($arUser['PERSONAL_PHOTO']) 
 		{
@@ -121,24 +121,24 @@ endif;
 		}
 		if ($arResult['CAN_VIEW_PROFILE'])
 		{
-			?></a><? 
+			?></a><?php  
 		}
-		?></div><?
+		?></div><?php 
 	}
-	?><div class="bx-user-text<? if (!is_array($arParams['USER_PROPERTY']) || !in_array('PERSONAL_PHOTO', $arParams['USER_PROPERTY'])) { ?> no-photo<? } ?>">
+	?><div class="bx-user-text<?php  if (!is_array($arParams['USER_PROPERTY']) || !in_array('PERSONAL_PHOTO', $arParams['USER_PROPERTY'])) { ?> no-photo<?php  } ?>">
 		<div class="bx-user-name">
 			<a href="<?=$arUser['DETAIL_URL']?>" bx-tooltip-user-id="<?=$arUser["ID"]?>"><?=CUser::FormatName($arParams['NAME_TEMPLATE'], $arUser, $arParams["SHOW_LOGIN"] != 'N');?></a>
 		</div>
-		<div class="bx-user-post"><?echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
+		<div class="bx-user-post"><?php echo htmlspecialcharsbx($arUser['WORK_POSITION'])?></div>
 		<div class="bx-user-properties">
-		<? foreach ($arUserData as $key => $value)
+		<?php  foreach ($arUserData as $key => $value)
 		{
 			if (in_array($key, array('PERSONAL_PHOTO')))
 			{
 				continue;
 			}
 			echo $arParams['USER_PROP'][$key] ? $arParams['USER_PROP'][$key] : GetMessage('ISL_'.$key); ?>:
-			<? switch($key)
+			<?php  switch($key)
 			{
 				case 'EMAIL':
 					echo '<a href="mailto:',urlencode($value),'">',htmlspecialcharsbx($value),'</a>';
@@ -219,17 +219,17 @@ endif;
 					break;
 			} ?>
 			<br />
-		<? } ?>
+		<?php  } ?>
 		</div>
 	</div>
 	<div class="bx-users-delimiter"></div>
 	</div>
 </div>
-<?
+<?php 
 if ($arParams['LIST_OBJECT'])
 {
 ?>
-<script><?echo CUtil::JSEscape($arParams['LIST_OBJECT'])?>[<?echo CUtil::JSEscape($arParams['LIST_OBJECT'])?>.length] = {ID:<?echo $arUser['ID']?>,NAME:'<?echo CUtil::JSEscape($name)?>',CURRENT:<?echo $arUser['IS_HEAD'] ? 'true' : 'false'?>}</script>
-<?
+<script><?php echo CUtil::JSEscape($arParams['LIST_OBJECT'])?>[<?php echo CUtil::JSEscape($arParams['LIST_OBJECT'])?>.length] = {ID:<?php echo $arUser['ID']?>,NAME:'<?php echo CUtil::JSEscape($name)?>',CURRENT:<?php echo $arUser['IS_HEAD'] ? 'true' : 'false'?>}</script>
+<?php 
 }
 ?>

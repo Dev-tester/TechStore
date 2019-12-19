@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPWC_WNCT_2LIST"] = "Web stores";
 $MESS["BPWC_WNCT_2EDIT"] = "Edit";
 $MESS["BPWC_WNCTS_TAB1"] = "Import";

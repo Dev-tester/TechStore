@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTDT_GRAPH'] = "Schedule";
 $MESS ['INTDT_NO_TASKS'] = "No meeting rooms";
 $MESS ['INTST_CLOSE'] = "Close";

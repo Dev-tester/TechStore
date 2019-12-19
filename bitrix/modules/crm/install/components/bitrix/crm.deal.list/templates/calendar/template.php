@@ -42,27 +42,27 @@ if (isset($arParams['CATEGORY_ID']) && $arParams['CATEGORY_ID'] > 0)
 	$newDealUrl = CCrmUrlUtil::AddUrlParams($newDealUrl, array('category_id' => intval($arParams['CATEGORY_ID'])));
 }
 
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT'])
 {
-	?><div id="rebuildDealSearchWrapper"></div><?
+	?><div id="rebuildDealSearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_BUILD_TIMELINE'])
 {
-	?><div id="buildDealTimelineWrapper"></div><?
+	?><div id="buildDealTimelineWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REFRESH_ACCOUNTING'])
 {
-	?><div id="refreshDealAccountingWrapper"></div><?
+	?><div id="refreshDealAccountingWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_REBUILD_DEAL_ATTRS'])
 {
 	?><div id="rebuildDealAttrsMsg" class="crm-view-message">
 		<?=Loc::getMessage('CRM_DEAL_REBUILD_ACCESS_ATTRS', array('#ID#' => 'rebuildDealAttrsLink', '#URL#' => $arResult['PATH_TO_PRM_LIST']))?>
-	</div><?
+	</div><?php 
 }
-?></div><?
+?></div><?php 
 $isRecurring = isset($arParams['IS_RECURRING']) && $arParams['IS_RECURRING'] === 'Y';
 $isInternal = $arResult['INTERNAL'];
 $callListUpdateMode = $arResult['CALL_LIST_UPDATE_MODE'];
@@ -347,7 +347,7 @@ if(isset($arResult['ERRORS']) && is_array($arResult['ERRORS']))
 				};
 		}
 	);
-</script><?
+</script><?php 
 
 //region Filter
 //Skip rendering of grid filter for internal grid request (filter already created)
@@ -435,7 +435,7 @@ if(!Bitrix\Main\Grid\Context::isInternalRequest()
 			});
 		});
 	</script>
-	<?
+	<?php 
 }
 //endregion
 $uri = new \Bitrix\Main\Web\Uri(\Bitrix\Main\HttpApplication::getInstance()->getContext()->getRequest()->getRequestUri());
@@ -569,7 +569,7 @@ $APPLICATION->IncludeComponent("bitrix:calendar.interface.grid", "", Array(
 			}
 		});
 
-		<?if ($allowWrite):?>
+		<?php if ($allowWrite):?>
 			BX.addCustomEvent(eventCalendar, 'createNewEntry', function(params)
 			{
 				if (params)
@@ -593,7 +593,7 @@ $APPLICATION->IncludeComponent("bitrix:calendar.interface.grid", "", Array(
 					BX.SidePanel.Instance.open(url, {cacheable: false, loader: "crm-entity-details-loader"});
 				}
 			});
-		<?endif;?>
+		<?php endif;?>
 
 		// Handle of changing type of field which is used to display entries on calendar grid
 		BX.addCustomEvent(eventCalendar, 'changeViewMode', function(params)

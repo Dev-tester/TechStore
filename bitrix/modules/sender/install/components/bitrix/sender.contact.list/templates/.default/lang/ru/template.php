@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONTACT_LIST_BTN_ADD"] = "Добавить в список";
 $MESS["SENDER_CONTACT_LIST_BTN_SET_LIST"] = "Наборы адресов";
 $MESS["SENDER_CONTACT_LIST_BTN_REMOVE_FROM_BL"] = "Удалить из черного списка";

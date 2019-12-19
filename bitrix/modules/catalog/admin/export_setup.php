@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CDatabase $DB */
 /** @global CMain $APPLICATION */
 /** @global CUser $USER */
@@ -362,8 +362,8 @@ if (($bCanEdit || $bCanExec) && check_bitrix_sessid())
 	<title><?= GetMessage("CES_STEP_TITLE") ?></title>
 </head>
 <body>
-<?echo GetMessage("CES_AUTO_REFRESH");?><br>
-<a href="<?=$fullUrl; ?>"><?echo GetMessage("CES_AUTO_REFRESH_STEP");?></a><br>
+<?php echo GetMessage("CES_AUTO_REFRESH");?><br>
+<a href="<?=$fullUrl; ?>"><?php echo GetMessage("CES_AUTO_REFRESH_STEP");?></a><br>
 <script type="text/javascript">
 function DoNext()
 {
@@ -372,7 +372,7 @@ function DoNext()
 setTimeout('DoNext()', 2000);
 </script>
 </body>
-</html><?
+</html><?php 
 
 					include($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php");
 					die();
@@ -1605,14 +1605,14 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 	<table class="edit-table">
 		<tbody>
 	<tr>
-		<td style="white-space: nowrap; font-size: 12px;"><? echo GetMessage("CES_RUN_INTERVAL"); ?></td>
+		<td style="white-space: nowrap; font-size: 12px;"><?php  echo GetMessage("CES_RUN_INTERVAL"); ?></td>
 		<td><input type="text" name="agent_period" value="" size="10"></td>
 	</tr>
 		</tbody>
 		<tfoot>
 	<tr>
 		<td colspan="2" style="text-align: center;">
-			<input type="submit" value="<? echo GetMessage("CES_SET"); ?>">&nbsp;&nbsp;<input type="button" value="<? echo GetMessage("CES_CLOSE"); ?>" onclick="HideAgentForm();">
+			<input type="submit" value="<?php  echo GetMessage("CES_SET"); ?>">&nbsp;&nbsp;<input type="button" value="<?php  echo GetMessage("CES_CLOSE"); ?>" onclick="HideAgentForm();">
 		</td>
 	</tr>
 		</tfoot>
@@ -1624,27 +1624,27 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 <form name="cronform_add" id="cronform_add" action="" method="post">
 	<table class="edit-table">
 	<tr>
-		<td style="font-size: 12px;"><? echo GetMessage("CES_RUN_INTERVAL"); ?></td>
+		<td style="font-size: 12px;"><?php  echo GetMessage("CES_RUN_INTERVAL"); ?></td>
 		<td><input type="text" name="agent_period" value="" size="10"></td>
 	</tr>
 	<tr>
-		<td colspan="2" style="text-align: center; font-weight: bold; font-size: 12px;"><? echo GetMessage("CES_OR"); ?></td>
+		<td colspan="2" style="text-align: center; font-weight: bold; font-size: 12px;"><?php  echo GetMessage("CES_OR"); ?></td>
 	</tr>
 	<tr>
-		<td style="font-size: 12px;"><? echo GetMessage("CES_RUN_TIME"); ?></td>
+		<td style="font-size: 12px;"><?php  echo GetMessage("CES_RUN_TIME"); ?></td>
 		<td style="white-space: nowrap;"><input type="text" name="agent_hour" value="" size="2"> : <input type="text" name="agent_minute" value="" size="2"></td>
 	</tr>
 	<tr>
-		<td style="font-size: 12px;"><? echo GetMessage("CES_PHP_PATH"); ?></td>
+		<td style="font-size: 12px;"><?php  echo GetMessage("CES_PHP_PATH"); ?></td>
 		<td><input type="text" name="agent_php_path" value="/usr/local/php/bin/php" size="25"></td>
 	</tr>
 	<tr>
-		<td style="font-size: 12px;"><? echo GetMessage("CES_AUTO_CRON"); ?></td>
+		<td style="font-size: 12px;"><?php  echo GetMessage("CES_AUTO_CRON"); ?></td>
 		<td><input type="hidden" name="auto_cron_tasks" value="N"><input type="checkbox" name="auto_cron_tasks" value="Y"></td>
 	</tr>
 	<tr>
 		<td colspan="2" style="text-align: center;">
-			<input type="submit" value="<? echo GetMessage("CES_SET"); ?>">&nbsp;&nbsp;<input type="button" value="<? echo GetMessage("CES_CLOSE"); ?>" onclick="HideCronForm(true);">
+			<input type="submit" value="<?php  echo GetMessage("CES_SET"); ?>">&nbsp;&nbsp;<input type="button" value="<?php  echo GetMessage("CES_CLOSE"); ?>" onclick="HideCronForm(true);">
 		</td>
 	</tr>
 	</table>
@@ -1655,12 +1655,12 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 <form name="cronform_del" id="cronform_del" action="" method="post">
 	<table class="edit-table">
 	<tr>
-		<td style="font-size: 12px;"><? echo GetMessage("CES_AUTO_CRON_DEL"); ?></td>
+		<td style="font-size: 12px;"><?php  echo GetMessage("CES_AUTO_CRON_DEL"); ?></td>
 		<td><input type="hidden" name="auto_cron_tasks" value="N"><input type="checkbox" name="auto_cron_tasks" value="Y"></td>
 	</tr>
 	<tr>
 		<td colspan="2" style="text-align: center;">
-			<input type="submit" value="<? echo GetMessage("CES_DELETE"); ?>">&nbsp;&nbsp;<input type="button" value="<? echo GetMessage("CES_CLOSE"); ?>" onclick="HideCronForm(false);">
+			<input type="submit" value="<?php  echo GetMessage("CES_DELETE"); ?>">&nbsp;&nbsp;<input type="button" value="<?php  echo GetMessage("CES_CLOSE"); ?>" onclick="HideCronForm(false);">
 		</td>
 	</tr>
 	</table>
@@ -1671,10 +1671,10 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 <div id="vars_div_cont" class="data" style="font-size: 12px;">
 </div>
 <div style="text-align: center;">
-	<input type="button" value="<? echo GetMessage("CES_CLOSE"); ?>" onclick="HideVarsForm();">
+	<input type="button" value="<?php  echo GetMessage("CES_CLOSE"); ?>" onclick="HideVarsForm();">
 </div>
 </div>
-<?
+<?php 
 if (strlen($strErrorMessage) > 0)
 	CAdminMessage::ShowMessage(array("MESSAGE"=>GetMessage("CES_ERRORS"), "DETAILS"=>$strErrorMessage));
 
@@ -1731,32 +1731,32 @@ if (!empty($cronErrors))
 $lAdmin->DisplayList();
 
 echo BeginNote();
-	echo GetMessage("export_setup_cat")?> <?echo CATALOG_PATH2EXPORTS?><br><br>
-	<?echo GetMessage("CES_NOTES1");?><br><br>
-	<?if ($bWindowsHosting):?>
-		<b><?echo GetMessage("CES_NOTES2");?></b>
-	<?else:?>
-		<?echo GetMessage("CES_NOTES3");?>
-		<b><?echo $_SERVER["DOCUMENT_ROOT"];?>/bitrix/crontab/crontab.cfg</b>
-		<?echo GetMessage("CES_NOTES4");?><br>
-		<?echo GetMessage("CES_NOTES5");?><br>
-		<b>crontab <?echo $_SERVER["DOCUMENT_ROOT"];?>/bitrix/crontab/crontab.cfg</b><br>
-		<?echo GetMessage("CES_NOTES6");?><br>
+	echo GetMessage("export_setup_cat")?> <?php echo CATALOG_PATH2EXPORTS?><br><br>
+	<?php echo GetMessage("CES_NOTES1");?><br><br>
+	<?php if ($bWindowsHosting):?>
+		<b><?php echo GetMessage("CES_NOTES2");?></b>
+	<?php else:?>
+		<?php echo GetMessage("CES_NOTES3");?>
+		<b><?php echo $_SERVER["DOCUMENT_ROOT"];?>/bitrix/crontab/crontab.cfg</b>
+		<?php echo GetMessage("CES_NOTES4");?><br>
+		<?php echo GetMessage("CES_NOTES5");?><br>
+		<b>crontab <?php echo $_SERVER["DOCUMENT_ROOT"];?>/bitrix/crontab/crontab.cfg</b><br>
+		<?php echo GetMessage("CES_NOTES6");?><br>
 		<b>crontab -l</b><br>
-		<?echo GetMessage("CES_NOTES7");?><br>
+		<?php echo GetMessage("CES_NOTES7");?><br>
 		<b>crontab -r</b><br><br>
-		<?
+		<?php 
 		$arRetval = array();
 		@exec("crontab -l", $arRetval);
 		if (is_array($arRetval) && !empty($arRetval))
 		{
 			echo GetMessage("CES_NOTES8");?><br>
 			<textarea name="crontasks" cols="70" rows="5" readonly>
-			<?
+			<?php 
 			echo htmlspecialcharsbx(implode("\n", $arRetval))."\n";
 			?>
 			</textarea><br>
-			<?
+			<?php 
 		}
 		echo GetMessage("CES_NOTES10");?><br><br>
 		<?=GetMessage("CES_NOTES11_EXT", array('#FILE#' => '/bitrix/php_interface/include/catalog_export/cron_frame.php'));?><br>
@@ -1880,6 +1880,6 @@ function HideVarsForm()
 	HideDiv('vars_div', 'form_shadow');
 }
 </script>
-<?
+<?php 
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

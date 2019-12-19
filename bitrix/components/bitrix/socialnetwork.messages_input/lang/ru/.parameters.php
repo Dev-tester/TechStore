@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_MESSAGE_VAR'] = "Имя переменной для сообщения";
 $MESS ['SONET_SET_NAVCHAIN'] = "Устанавливать цепочку навигации";
 $MESS ['SONET_ITEMS_COUNT'] = "Количество записей в списке";

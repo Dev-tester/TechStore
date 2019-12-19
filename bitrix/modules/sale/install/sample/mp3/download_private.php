@@ -1,4 +1,4 @@
-<?
+<?php 
 function initialize_params($url)
 {
 	if (strpos($url,"?")>0)

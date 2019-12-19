@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 if ($arResult)
 {
@@ -14,7 +14,7 @@ if ($arResult)
 
 	<?=GetMessage("SPCAT3_NOTE")?></p>
 	
-	<?
+	<?php 
 	if ($arResult["SHOW_TIER_INFO"])
 	{
 		?>
@@ -24,13 +24,13 @@ if ($arResult)
 		<?=GetMessage("SPCAT3_VIEW")?> <a href="http://<?=$arParams["SHOP_URL"]?><?=$arParams["AFF_REG_PAGE"]?>?<?=$arResult["affiliateParam"]?>=<?=$arResult["arAffiliate"]["ID"] ?>"><?=str_replace("#NAME#", $arParams["SHOP_NAME"], GetMessage("SPCAT3_LINK_TEXT"))?></a><br />
 		<?=GetMessage("SPCAT3_HTML")?> &lt;a href="http://<?=$arParams["SHOP_URL"]?><?=$arParams["AFF_REG_PAGE"]?>?<?=$arResult["affiliateParam"]?>=<?=$arResult["arAffiliate"]["ID"]?>"&gt;<?=str_replace("#NAME#", $arParams["SHOP_NAME"], GetMessage("SPCAT3_LINK_TEXT")) ?>&lt;/a&gt;<br /><br />
 		</p>
-		<?
+		<?php 
 	}
 	?>
-<?
+<?php 
 }
 else
 {
-	?><?=ShowError(GetMessage("SPCAT3_UNACTIVE_AFF"))?><?
+	?><?=ShowError(GetMessage("SPCAT3_UNACTIVE_AFF"))?><?php 
 }
 ?>

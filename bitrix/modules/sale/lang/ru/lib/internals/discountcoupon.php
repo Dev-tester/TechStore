@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISCOUNT_COUPON_ENTITY_ID_FIELD"] = "Идентификатор купона";
 $MESS["DISCOUNT_COUPON_ENTITY_DISCOUNT_ID_FIELD"] = "Правило корзины купона";
 $MESS["DISCOUNT_COUPON_ENTITY_ACTIVE_FIELD"] = "Активность";

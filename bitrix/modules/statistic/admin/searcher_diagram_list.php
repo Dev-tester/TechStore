@@ -87,18 +87,18 @@ if ($sum > 0):?>
 <div class="graph">
 <table cellpadding="0" cellspacing="0" border="0" class="graph" align="center">
 	<tr>
-		<td><?
+		<td><?php 
 		$diameter = COption::GetOptionString("statistic", "DIAGRAM_DIAMETER");
 		$url = "searcher_diagram.php?lang=".LANGUAGE_ID;
 		foreach ($find_searchers as $sid)
 			$url .= "&find_searchers[]=".urlencode($sid);
 		$url .= "&find_date1=".$arFilter["DATE1_PERIOD"]."&find_date2=".$arFilter["DATE2_PERIOD"];
 
-		?><img class="graph" src="<?echo htmlspecialcharsbx($url)?>" width="<?=$diameter?>" height="<?=$diameter?>">
+		?><img class="graph" src="<?php echo htmlspecialcharsbx($url)?>" width="<?=$diameter?>" height="<?=$diameter?>">
 		</td>
 		<td>
 		<table border="0" cellspacing="2" cellpadding="0" class="legend">
-			<?
+			<?php 
 			$i = 0;
 			foreach($arr as $key => $sector)
 			{
@@ -112,18 +112,18 @@ if ($sum > 0):?>
 				<td valign="center" class="color">
 					<div style="background-color: <?="#".$color?>"></div>
 				</td>
-				<td nowrap class="number"><?echo sprintf("%01.2f", $procent)."%"?></td>
-				<td nowrap class="number">(<a title="<?echo GetMessage("STAT_VIEW_SEARCHER_HITS")?>" href="<?echo htmlspecialcharsbx("/bitrix/admin/hit_searcher_list.php?lang=".urlencode(LANGUAGE_ID)."&find_searcher_id=".urlencode($id)."&find_date1=".urlencode($arFilter["DATE1_PERIOD"])."&find_date2=".urlencode($arFilter["DATE2_PERIOD"])."&set_filter=Y")?>"><?=$sector["COUNTER"]?></a>)</td>
-				<td nowrap>[<a title="<?=GetMessage("STAT_SEARCHER_LIST_OPEN")?>" href="searcher_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$id?>&set_filter=Y"><?=$id?></a>] <a title="<?echo GetMessage("STAT_VIEW_SEARCHER_GRAPH")?>" href="searcher_graph_list.php?lang=<?=LANGUAGE_ID?>&find_searchers[]=<?=$id?>&set_filter=Y"><?=htmlspecialcharsbx($sector["NAME"])?></a></td>
+				<td nowrap class="number"><?php echo sprintf("%01.2f", $procent)."%"?></td>
+				<td nowrap class="number">(<a title="<?php echo GetMessage("STAT_VIEW_SEARCHER_HITS")?>" href="<?php echo htmlspecialcharsbx("/bitrix/admin/hit_searcher_list.php?lang=".urlencode(LANGUAGE_ID)."&find_searcher_id=".urlencode($id)."&find_date1=".urlencode($arFilter["DATE1_PERIOD"])."&find_date2=".urlencode($arFilter["DATE2_PERIOD"])."&set_filter=Y")?>"><?=$sector["COUNTER"]?></a>)</td>
+				<td nowrap>[<a title="<?=GetMessage("STAT_SEARCHER_LIST_OPEN")?>" href="searcher_list.php?lang=<?=LANGUAGE_ID?>&find_id=<?=$id?>&set_filter=Y"><?=$id?></a>] <a title="<?php echo GetMessage("STAT_VIEW_SEARCHER_GRAPH")?>" href="searcher_graph_list.php?lang=<?=LANGUAGE_ID?>&find_searchers[]=<?=$id?>&set_filter=Y"><?=htmlspecialcharsbx($sector["NAME"])?></a></td>
 			</tr>
-			<?
+			<?php 
 			}
 			?>
 		</table>
 	</tr>
 </table>
 </div>
-<?
+<?php 
 else :
 	$lAdmin->AddFilterError(GetMessage("STAT_NO_DATA"));
 endif;
@@ -137,7 +137,7 @@ $APPLICATION->SetTitle(GetMessage("STAT_RECORDS_LIST"));
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 <form name="form1" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -148,10 +148,10 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
 </tr>
-<?
+<?php 
 if (is_array($arrSEARCHERS)):
 
 	$arrSEARCHERS_lower = array_map("strtolower", $arrSEARCHERS);
@@ -191,10 +191,10 @@ if (is_array($arrSEARCHERS)):
 	}
 	?>
 	<tr valign="top">
-		<td width="0%" nowrap><?echo GetMessage("STAT_F_SEACHERS")?><br><IMG SRC="/bitrix/images/statistic/mouse.gif" WIDTH="44" HEIGHT="21" BORDER=0 ALT=""></td>
-		<td width="0%" nowrap><?echo SelectBoxMFromArray("find_searchers[]",array("REFERENCE"=>$ref, "REFERENCE_ID"=>$ref_id), $find_searchers,"",false,"11", "' style=\"width:100%\"");?></td>
+		<td width="0%" nowrap><?php echo GetMessage("STAT_F_SEACHERS")?><br><IMG SRC="/bitrix/images/statistic/mouse.gif" WIDTH="44" HEIGHT="21" BORDER=0 ALT=""></td>
+		<td width="0%" nowrap><?php echo SelectBoxMFromArray("find_searchers[]",array("REFERENCE"=>$ref, "REFERENCE_ID"=>$ref_id), $find_searchers,"",false,"11", "' style=\"width:100%\"");?></td>
 	</tr>
-	<?
+	<?php 
 endif;
 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()));
@@ -202,7 +202,7 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 
@@ -225,4 +225,4 @@ $context->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

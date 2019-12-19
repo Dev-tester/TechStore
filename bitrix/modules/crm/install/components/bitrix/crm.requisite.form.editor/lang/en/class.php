@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_PRESET_ENTITY_TYPE_INVALID"] = "Incorrect contact or company details templates";
 $MESS["CRM_REQUISITE_ENTITY_TYPE_INVALID"] = "Incorrect contact or company details entity type";

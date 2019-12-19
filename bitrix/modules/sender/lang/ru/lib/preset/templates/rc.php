@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_PRESET_TEMPLATE_RC_EMPTY"] = "Создать вручную";
 $MESS["SENDER_PRESET_TEMPLATE_RC_EMPTY_DESC"] = "Создайте вручную и генерируйте продажи!";
 $MESS["SENDER_PRESET_TEMPLATE_RC_HINT_EVERY_DAY"] = "Задание запускается ежедневно.<br>

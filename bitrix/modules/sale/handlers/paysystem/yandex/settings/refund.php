@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Main\Localization\Loc;
 use \Bitrix\Sale\PaySystem;
 
@@ -76,9 +76,9 @@ $tabRControl = new \CAdminTabControl("tabRControl", $personTypeTabs);
 $tabRControl->Begin();?>
 
 <form method="POST" enctype="multipart/form-data"
-	  action="<?=$APPLICATION->GetCurPage()?>?shop_id=<?=$shopId;?>&handler=<?=$handler;?>&lang=<?echo LANG?>"
+	  action="<?=$APPLICATION->GetCurPage()?>?shop_id=<?=$shopId;?>&handler=<?=$handler;?>&lang=<?php echo LANG?>"
 	  xmlns="http://www.w3.org/1999/html">
-<?
+<?php 
 	echo bitrix_sessid_post();
 	$tabRControl->BeginNextTab();
 
@@ -91,15 +91,15 @@ $tabRControl->Begin();?>
 		<td width="40%" class="adm-detail-content-cell-l"><?=Loc::getMessage("SALE_YANDEX_RETURN_CERT")?>:</td>
 
 		<td width="60%" class="adm-detail-content-cell-r">
-			<?if (!PaySystem\YandexCert::isLoaded($shopId)):?>
+			<?php if (!PaySystem\YandexCert::isLoaded($shopId)):?>
 				<input type="file" name="CERT_FILE" size="40"><br>
 				<?=Loc::getMessage('SALE_YANDEX_RETURN_TEXT_CLEAR_ALL')?>
 				<input id=SETTINGS_CLEAR_ALL' type="checkbox" name='SETTINGS_CLEAR_ALL'>
-			<?else:?>
+			<?php else:?>
 				<?=Loc::getMessage('SALE_YANDEX_RETURN_TEXT_SUCCESS')?><br>
 				<?=Loc::getMessage('SALE_YANDEX_RETURN_TEXT_CLEAR')?>
 				<input id='SETTINGS_CLEAR' type="checkbox" name='SETTINGS_CLEAR'>
-			<?endif;?>
+			<?php endif;?>
 			<br>
 		</td>
 	</tr>
@@ -125,7 +125,7 @@ $tabRControl->Begin();?>
 		<td colspan="2"><?=Loc::getMessage("SALE_YANDEX_RETURN_STATEMENT")?></td>
 	</tr>
 
-	<? if ($strCN):?>
+	<?php  if ($strCN):?>
 		<tr>
 			<td class="adm-detail-valign-top adm-detail-content-cell-l"><strong><?=Loc::getMessage("SALE_YANDEX_RETURN_STATEMENT_CN")?></strong>:</td>
 			<td class="adm-detail-content-cell-r"><?=$strCN?></td>
@@ -146,7 +146,7 @@ $tabRControl->Begin();?>
 			<td class="adm-detail-valign-top adm-detail-content-cell-l"><strong><?=Loc::getMessage("SALE_YANDEX_RETURN_STATEMENT_CAUSE")?></strong>:</td>
 			<td class="adm-detail-content-cell-r"><?=Loc::getMessage("SALE_YANDEX_RETURN_STATEMENT_CAUSE_VAL")?></td>
 		</tr>
-	<?else:?>
+	<?php else:?>
 		<tr align="center">
 			<td class="adm-detail-valign-top" colspan="2">
 				<?=Loc::getMessage('SALE_YANDEX_RETURN_COMPANY_NAME')?>: <input type="text" name="company_name" value="">
@@ -158,15 +158,15 @@ $tabRControl->Begin();?>
 				<input type="hidden" name="generate" value="Y">
 			</td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 
-	<?$tabRControl->EndTab();?>
+	<?php $tabRControl->EndTab();?>
 
-	<? if ($strCN):?>
-		<?$tabRControl->Buttons();?>
+	<?php  if ($strCN):?>
+		<?php $tabRControl->Buttons();?>
 		<input type="submit" name="Update" value="<?=Loc::getMessage("SALE_YANDEX_RETURN_SAVE")?>">
 		<input type="hidden" name="Update" value="Y">
-	<?endif;?>
+	<?php endif;?>
 </form>
 
-<?$tabRControl->End();
+<?php $tabRControl->End();

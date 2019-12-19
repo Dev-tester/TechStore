@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WTC_EMPTY_IBLOCK_TYPE'] = "The information block type is not specified.";
 $MESS ['BPWC_WTC_EMPTY_IBLOCK'] = "The information block ID is not specified.";
 $MESS ['BPWC_WTC_PERMS_ERROR'] = "The session has expired. Please open the <a href='#URL#'>summary page</a> and try again.";

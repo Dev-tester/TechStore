@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -21,75 +21,75 @@ if (!$editableOrAuditor && $arResult['TEMPLATE_DATA']['EMPTY_LIST'])
 }
 ?>
 
-<div id="<?=$id?>" class="task-user-selector user-view-empty-true<?if(!$editable):?> readonly<?endif?><?if(!$multiple):?> single<?endif?><?if($imAuditor):?> imauditor<?endif?>">
+<div id="<?=$id?>" class="task-user-selector user-view-empty-true<?php if(!$editable):?> readonly<?php endif?><?php if(!$multiple):?> single<?php endif?><?php if($imAuditor):?> imauditor<?php endif?>">
 
-    <div class="task-detail-sidebar-info-link" data-bx-id="<?if($editable):?>user-view-open-form<?elseif($role == 'AUDITORS'):?>user-view-toggle-auditor<?endif?>">
+    <div class="task-detail-sidebar-info-link" data-bx-id="<?php if($editable):?>user-view-open-form<?php elseif($role == 'AUDITORS'):?>user-view-toggle-auditor<?php endif?>">
 
-        <?if($editable):?>
+        <?php if($editable):?>
             <span class="task-user-selector-change"><?=Loc::getMessage("TASKS_TTDP_TEMPLATE_USER_VIEW_CHANGE")?></span>
             <span class="task-user-selector-add"><?=Loc::getMessage("TASKS_TTDP_TEMPLATE_USER_VIEW_ADD")?></span>
-        <?elseif($role == 'AUDITORS'):?>
+        <?php elseif($role == 'AUDITORS'):?>
             <span class="task-user-selector-enter-auditor"><?=Loc::getMessage("TASKS_TTDP_TEMPLATE_USER_VIEW_ENTER_AUDITOR")?></span>
             <span class="task-user-selector-leave-auditor"><?=Loc::getMessage("TASKS_TTDP_TEMPLATE_USER_VIEW_LEAVE_AUDITOR")?></span>
-        <?endif?>
+        <?php endif?>
 
     </div>
 
-    <div class="task-detail-sidebar-info-title <?if($multiple):?>task-detail-sidebar-info-title-line<?endif?>">
+    <div class="task-detail-sidebar-info-title <?php if($multiple):?>task-detail-sidebar-info-title-line<?php endif?>">
         <?=Loc::getMessage("TASKS_TTDP_TEMPLATE_USER_VIEW_".$role)?>
     </div>
 
-    <div data-bx-id="user-view-items" <?if($multiple):?>class="task-detail-sidebar-info-users-list"<?endif?>>
+    <div data-bx-id="user-view-items" <?php if($multiple):?>class="task-detail-sidebar-info-users-list"<?php endif?>>
 
-        <?$i = 1;?>
-        <?foreach($arResult["TEMPLATE_DATA"]["ITEMS"]['DATA'] as $j => $item):?>
-            <?$last = $i == count($arResult["TEMPLATE_DATA"]["ITEMS"]['DATA']);?>
+        <?php $i = 1;?>
+        <?php foreach($arResult["TEMPLATE_DATA"]["ITEMS"]['DATA'] as $j => $item):?>
+            <?php $last = $i == count($arResult["TEMPLATE_DATA"]["ITEMS"]['DATA']);?>
 
-            <?if($editableOrAuditor && $last):?>
+            <?php if($editableOrAuditor && $last):?>
                 <script type="text/html" data-bx-id="user-view-item">
-            <?endif?>
+            <?php endif?>
 
 			<div data-bx-id="user-view-item<?=(!$last ? ' user-view-item-'.$item['ID'] : '')?>" data-item-value="<?=htmlspecialcharsbx($item['ID'])?>" class="task-detail-sidebar-info-user task-detail-sidebar-info-user-<?=$item["USER_TYPE"]?>">
 
-				<? if ($item["URL"] !== ""): ?>
+				<?php  if ($item["URL"] !== ""): ?>
 				<a class="task-detail-sidebar-info-user-photo" data-bx-id="item-set-item-avatar" href="<?=$item["URL"]?>" target="_top"
-					<?if ($item["AVATAR"] !== ""):?>
+					<?php if ($item["AVATAR"] !== ""):?>
 						style="background: url('<?=$item["AVATAR"]?>') center no-repeat; background-size: 40px;"
-					<?endif?>></a>
-				<? else:?>
+					<?php endif?>></a>
+				<?php  else:?>
 				<span class="task-detail-sidebar-info-user-photo" data-bx-id="item-set-item-avatar"
-					<?if ($item["AVATAR"] !== ""):?>
+					<?php if ($item["AVATAR"] !== ""):?>
 						style="background: url('<?=$item["AVATAR"]?>') center no-repeat; background-size: 40px;"
-					<?endif?>></span>
-				<? endif ?>
+					<?php endif?>></span>
+				<?php  endif ?>
 
 				<div class="task-detail-sidebar-info-user-title">
-					<? if ($item["URL"] !== ""): ?>
+					<?php  if ($item["URL"] !== ""): ?>
 						<a href="<?=$item["URL"]?>" class="task-detail-sidebar-info-user-name task-detail-sidebar-info-user-name-link"
 						   target="_top"><?=htmlspecialcharsbx($item["NAME_FORMATTED"])?></a>
-					<? else: ?>
+					<?php  else: ?>
 						<span class="task-detail-sidebar-info-user-name"><?=htmlspecialcharsbx($item["NAME_FORMATTED"])?></span>
-					<? endif ?>
+					<?php  endif ?>
 					<div class="task-detail-sidebar-info-user-pos"><?=htmlspecialcharsbx($item["WORK_POSITION"])?></div>
 					<span class="task-detail-sidebar-info-user-del" data-bx-id="user-view-item-delete" title="<?=Loc::getMessage('TASKS_TTDP_TEMPLATE_USER_VIEW_DELETE')?>"></span>
 				</div>
             </div>
 
-            <?if($editableOrAuditor && $last):?>
+            <?php if($editableOrAuditor && $last):?>
                 </script>
-                <?unset($arResult["TEMPLATE_DATA"]["ITEMS"]['DATA'][$j]);?>
-            <?endif?>
+                <?php unset($arResult["TEMPLATE_DATA"]["ITEMS"]['DATA'][$j]);?>
+            <?php endif?>
 
-            <?$i++;?>
-        <?endforeach?>
+            <?php $i++;?>
+        <?php endforeach?>
 
     </div>
 
 </div>
 
-<?if($editableOrAuditor): // we need for js logic to make changing work?>
+<?php if($editableOrAuditor): // we need for js logic to make changing work?>
 
-    <?
+    <?php 
     $params = array(
         'id' => $id,
         'scope' => $id,
@@ -115,4 +115,4 @@ if (!$editableOrAuditor && $arResult['TEMPLATE_DATA']['EMPTY_LIST'])
     <script>
         new BX.Tasks.Component.TaskDetailPartsUserView(<?=CUtil::PhpToJSObject($params)?>);
     </script>
-<?endif?>
+<?php endif?>

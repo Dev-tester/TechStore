@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_IBLOCK_PROPERTY_BIND_CRM_ELEMENT"] = "Привязка к элементам CRM";
 $MESS["CRM_IBLOCK_PROPERTY_SETTINGS_LABLE_ENTITY"] = "Доступная сущность:";
 $MESS["CRM_IBLOCK_PROPERTY_ENTITY_LEAD"] = "Лид";

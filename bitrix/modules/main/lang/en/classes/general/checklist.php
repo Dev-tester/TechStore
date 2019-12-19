@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CL_WENV"] = "Web environment";
 $MESS["CL_QDESIGN"] = "Design, integration and development";
 $MESS["CL_DESIGN"] = "HTML and layout";

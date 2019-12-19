@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NOTIFY_TITLE"] = "Notify when back in stock";
 $MESS["NOTIFY"] = "Notify when back in stock";
 $MESS["MAIN_NOTIFY_MESSAGE"] = "You will be notified when this product is available.";

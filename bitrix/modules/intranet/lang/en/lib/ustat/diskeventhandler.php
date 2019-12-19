@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["INTRANET_USTAT_SECTION_DISK_NAME"] = "Drive";
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_FILTER__AFTER"] = "After";
 $MESS["MAIN_UI_FILTER__AND"] = "and";
 $MESS["MAIN_UI_FILTER__BEFORE"] = "Before";

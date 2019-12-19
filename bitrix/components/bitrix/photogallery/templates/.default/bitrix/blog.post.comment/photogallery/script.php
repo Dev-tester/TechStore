@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script>
 function onLightEditorShow(content)
 {
@@ -12,7 +12,7 @@ function onLightEditorShow(content)
 
 function showComment(key, subject, error, comment, userName, userEmail)
 {
-	<?
+	<?php 
 	if($arResult["use_captcha"]===true)
 	{
 		?>
@@ -22,7 +22,7 @@ function showComment(key, subject, error, comment, userName, userEmail)
 			BX("captcha").src = '/bitrix/tools/captcha.php?captcha_code=' + data["captcha_sid"];
 			BX("captcha").style.display = "";
 		});
-		<?
+		<?php 
 	}
 	?>
 

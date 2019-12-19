@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_SAS_T_SESSION_WRONG"] = "Your session has expired. Please try again..";
 $MESS["SONET_SAS_T_NOT_ADMIN"] = "The current user doesn't have social network administrator permissions.";
 $MESS["SONET_SAS_T_NOT_ATHORIZED"] = "You are not logged in.";

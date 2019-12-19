@@ -1,4 +1,4 @@
-<?
+<?php 
 define("SELF_FOLDER_URL", "/shop/settings/");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 

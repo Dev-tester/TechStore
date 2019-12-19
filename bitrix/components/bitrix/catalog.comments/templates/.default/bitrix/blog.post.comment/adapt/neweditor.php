@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->IncludeComponent(
 	"bitrix:main.post.form",
 	"",
@@ -53,9 +53,9 @@ BX.ready(function() {
 		entitiesId : {},
 		formId : '<?=$component->createPostFormId()?>',
 		editorId : '<?=$component->createEditorId()?>',
-		<?if(isset($switcerhId) && strlen($switcerhId) > 0) :?>
+		<?php if(isset($switcerhId) && strlen($switcerhId) > 0) :?>
 		fileDialogSwitcherId : '<?=$switcerhId?>',
-		<?endif;?>
+		<?php endif;?>
 		editorName : ''
 	});
 		if (!!window["UC"]["f<?=$component->createPostFormId()?>"].eventNode)

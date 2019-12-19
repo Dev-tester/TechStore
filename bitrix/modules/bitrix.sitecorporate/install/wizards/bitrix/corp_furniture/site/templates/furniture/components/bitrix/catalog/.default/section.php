@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"",
 	Array(
@@ -18,8 +18,8 @@
 	$component
 );?>
 <br />
-<?if($arParams["USE_FILTER"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+<?php if($arParams["USE_FILTER"]=="Y"):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"",
 	Array(
@@ -37,9 +37,9 @@
 );
 ?>
 <br />
-<?endif?>
-<?if($arParams["USE_COMPARE"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+<?php endif?>
+<?php if($arParams["USE_COMPARE"]=="Y"):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.compare.list",
 	"",
 	Array(
@@ -52,8 +52,8 @@
 	$component
 );?>
 <br />
-<?endif?>
-<?$APPLICATION->IncludeComponent(
+<?php endif?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.section",
 	"furniture",
 	Array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOCA_FILE"] = "Datei";
 $MESS["NO_LOC_FILE"] = "Die Datei mit den Standorten wurde nicht geladen";
 $MESS["NO_MAIN_LANG"] = "Die Standardsprache wurde nicht definiert";

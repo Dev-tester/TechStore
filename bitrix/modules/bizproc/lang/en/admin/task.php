@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAT_BACK"] = "Back";
 $MESS["BPAT_GOTO_DOC"] = "Go to Element";
 $MESS["BPAT_TAB"] = "Task";

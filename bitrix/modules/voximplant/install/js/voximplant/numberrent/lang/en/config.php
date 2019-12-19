@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VI_NUMBER_BUNDLE_WILL_BE_DELETED"] = "The bundle will be disconnected within 24 hours.";
 $MESS["VI_NUMBER_CONFIRM_ACTION"] = "Confirm action";
 $MESS["VI_NUMBER_CONFIRM_BUNDLE_DISCONNECTION"] = "Bundle cannot be partially disconnected. Do you want to disconnect all the numbers in the bundle?";

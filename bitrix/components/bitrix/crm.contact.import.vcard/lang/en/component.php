@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_PERMISSION_DENIED"] = "Access denied";
 $MESS["CRM_CONTACT_NAV_TITLE_LIST"] = "Import contacts from vCard";

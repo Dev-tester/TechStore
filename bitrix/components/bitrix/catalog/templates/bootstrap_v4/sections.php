@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -17,7 +17,7 @@ $this->setFrameMode(true);
 ?>
 <div class="row">
 	<div class="col bx-<?=$arParams['TEMPLATE_THEME']?>">
-		<?
+		<?php 
 
 $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "bootstrap_v4", array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],

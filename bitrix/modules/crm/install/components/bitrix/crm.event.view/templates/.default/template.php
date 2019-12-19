@@ -212,7 +212,7 @@ $prefix = $arResult['GRID_ID'];
 if ($arResult['EVENT_HINT_MESSAGE'] == 'Y' && COption::GetOptionString('crm', 'mail', '') != ''):
 ?>
 <div class="crm_notice_message"><?=GetMessage('CRM_IMPORT_EVENT', Array('%EMAIL%' => COption::GetOptionString('crm', 'mail', '')));?></div>
-<?endif;?>
+<?php endif;?>
 
 <script type="text/javascript">
 	BX.ready(

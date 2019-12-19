@@ -1,4 +1,4 @@
-<?
+<?php 
 if (strpos($_SERVER['SCRIPT_NAME'], "/bitrix/groupdav.php") === 0)
 	return;
 

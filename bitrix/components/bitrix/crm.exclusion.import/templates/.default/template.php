@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -58,7 +58,7 @@ $containerId = 'bx-crm-exclusion-import';
 		<div class="crm-exclusion-import-informer-text"><?=Loc::getMessage('CRM_EXCLUSION_IMPORT_FORMAT_DESC')?></div>
 	</div>
 
-	<?if ($arParams['CAN_EDIT']):?>
+	<?php if ($arParams['CAN_EDIT']):?>
 	<div class="crm-exclusion-footer-buttons crm-exclusion-footer-buttons-fixed"></div>
 	<div class="webform-buttons crm-exclusion-footer-fixed">
 		<div class="crm-exclusion-footer-container">
@@ -79,5 +79,5 @@ $containerId = 'bx-crm-exclusion-import';
 			</a>
 		</div>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 </div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TRACKING_SOURCE_UTM_NAME"] = "Название набора UTM-меток";
 $MESS["CRM_TRACKING_SOURCE_UTM_SITE_NAME"] = "Введите адрес сайта";
 $MESS["CRM_TRACKING_SOURCE_UTM_SITE_NAME_DESC"] = "Адрес страницы, на которую должен перейти посетитель";

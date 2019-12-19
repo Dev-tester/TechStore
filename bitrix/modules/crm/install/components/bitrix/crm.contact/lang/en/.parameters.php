@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONTACT_VAR"] = "Contact ID Variable Name";
 $MESS["CRM_SEF_PATH_TO_INDEX"] = "Index Page Path Template";
 $MESS["CRM_SEF_PATH_TO_LIST"] = "Contacts Page Path Template";

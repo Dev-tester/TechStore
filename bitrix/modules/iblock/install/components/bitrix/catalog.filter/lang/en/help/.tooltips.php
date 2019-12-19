@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE_TIP"] = "Select here one of existing information block types. Clicking <b>OK</b> will load information blocks of the selected type.";
 $MESS["IBLOCK_ID_TIP"] = "Select one of information blocks of the chosen type. If you select <b>(other)-&gt;</b>, specify the information block ID in the field beside.";
 $MESS["FILTER_NAME_TIP"] = "The name of a variable in which the filter settings will be passed. You can leave the field empty to use the default name.";

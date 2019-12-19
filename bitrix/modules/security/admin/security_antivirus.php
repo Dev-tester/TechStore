@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -114,31 +114,31 @@ CAdminMessage::ShowMessage(array(
 		));
 ?>
 <form method="POST" action="security_antivirus.php?lang=<?=LANGUAGE_ID?><?=htmlspecialcharsbx($returnUrl)?>" enctype="multipart/form-data" name="editform">
-<?
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-<?if(CSecurityAntiVirus::IsActive()):?>
+<?php if(CSecurityAntiVirus::IsActive()):?>
 	<tr>
 		<td colspan="2" align="left">
 			<input type="hidden" name="antivirus_active" value="N">
-			<input type="submit" name="antivirus_b" value="<?echo GetMessage("SEC_ANTIVIRUS_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
+			<input type="submit" name="antivirus_b" value="<?php echo GetMessage("SEC_ANTIVIRUS_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
 		</td>
 	</tr>
-<?else:?>
+<?php else:?>
 	<tr>
 		<td colspan="2" align="left">
 			<input type="hidden" name="antivirus_active" value="Y">
-			<input type="submit" name="antivirus_b" value="<?echo GetMessage("SEC_ANTIVIRUS_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+			<input type="submit" name="antivirus_b" value="<?php echo GetMessage("SEC_ANTIVIRUS_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
 		</td>
 	</tr>
-<?endif?>
-<?if(strlen($warningMessage) > 0):?>
+<?php endif?>
+<?php if(strlen($warningMessage) > 0):?>
 	<tr>
 		<td colspan="2" align="left">
-			<?
+			<?php 
 				CAdminMessage::ShowMessage(array(
 					"TYPE"=>"ERROR",
 					"DETAILS"=>$warningMessage,
@@ -147,32 +147,32 @@ $tabControl->BeginNextTab();
 			?>
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?>
-		<?echo GetMessage("SEC_ANTIVIRUS_NOTE")?>
-		<p><i><?echo GetMessage("SEC_ANTIVIRUS_LEVEL")?></i></p>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?>
+		<?php echo GetMessage("SEC_ANTIVIRUS_NOTE")?>
+		<p><i><?php echo GetMessage("SEC_ANTIVIRUS_LEVEL")?></i></p>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
-	<td class="adm-detail-valign-top" width="40%"><?echo GetMessage("SEC_ANTIVIRUS_ACTION")?>:</td>
+	<td class="adm-detail-valign-top" width="40%"><?php echo GetMessage("SEC_ANTIVIRUS_ACTION")?>:</td>
 	<td width="60%">
-		<label><input type="radio" name="antivirus_action" value="replace" <?if(COption::GetOptionString("security", "antivirus_action") != "notify_only") echo "checked";?>><?echo GetMessage("SEC_ANTIVIRUS_ACTION_REPLACE")?></span></label><br>
-		<label><input type="radio" name="antivirus_action" value="notify_only" <?if(COption::GetOptionString("security", "antivirus_action") == "notify_only") echo "checked";?>><?echo GetMessage("SEC_ANTIVIRUS_ACTION_NOTIFY_ONLY")?></label><br>
+		<label><input type="radio" name="antivirus_action" value="replace" <?php if(COption::GetOptionString("security", "antivirus_action") != "notify_only") echo "checked";?>><?php echo GetMessage("SEC_ANTIVIRUS_ACTION_REPLACE")?></span></label><br>
+		<label><input type="radio" name="antivirus_action" value="notify_only" <?php if(COption::GetOptionString("security", "antivirus_action") == "notify_only") echo "checked";?>><?php echo GetMessage("SEC_ANTIVIRUS_ACTION_NOTIFY_ONLY")?></label><br>
 	</td>
 </tr>
 <tr>
-	<td><label for="antivirus_timeout"><?echo GetMessage("SEC_ANTIVIRUS_TIMEOUT")?></label>:</td>
+	<td><label for="antivirus_timeout"><?php echo GetMessage("SEC_ANTIVIRUS_TIMEOUT")?></label>:</td>
 	<td>
-		<input type="text" size="4" name="antivirus_timeout" value="<?echo COption::GetOptionInt("security", "antivirus_timeout")?>">
+		<input type="text" size="4" name="antivirus_timeout" value="<?php echo COption::GetOptionInt("security", "antivirus_timeout")?>">
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 $arWhiteList = array();
 if($bVarsFromForm)
@@ -189,21 +189,21 @@ else
 }
 ?>
 <tr>
-	<td class="adm-detail-valign-top" width="40%" style="padding-top:12px;"><?echo GetMessage("SEC_ANTIVIRUS_WHITE_LIST")?></td>
+	<td class="adm-detail-valign-top" width="40%" style="padding-top:12px;"><?php echo GetMessage("SEC_ANTIVIRUS_WHITE_LIST")?></td>
 	<td width="60%">
 	<table cellpadding="0" cellspacing="0" border="0" width="100%" id="tb_WHITE_LIST">
-		<?foreach($arWhiteList as $i => $white_substr):?>
+		<?php foreach($arWhiteList as $i => $white_substr):?>
 			<tr><td nowrap style="padding-bottom: 3px;">
-				<input type="text" size="45" name="WHITE_LIST[<?echo $i?>]" value="<?echo $white_substr?>">
+				<input type="text" size="45" name="WHITE_LIST[<?php echo $i?>]" value="<?php echo $white_substr?>">
 			</td></tr>
-		<?endforeach;?>
-		<?if(!$bVarsFromForm):?>
+		<?php endforeach;?>
+		<?php if(!$bVarsFromForm):?>
 			<tr class="security-addable-row"><td nowrap style="padding-bottom: 3px;">
 				<input type="text" size="45" name="WHITE_LIST[n0]" value="">
 			</td></tr>
-		<?endif;?>
+		<?php endif;?>
 			<tr><td>
-				<br><input type="button" id="add-button" value="<?echo GetMessage("SEC_ANTIVIRUS_ADD")?>">
+				<br><input type="button" id="add-button" value="<?php echo GetMessage("SEC_ANTIVIRUS_ADD")?>">
 			</td></tr>
 		</table>
 	</td>
@@ -216,7 +216,7 @@ else
 		}]
 	}
 </script>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -224,12 +224,12 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

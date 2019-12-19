@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
 /** @global CUser $USER */
@@ -100,9 +100,9 @@ if (
 }
 
 ?>
-	<form method="POST" action="<? echo $APPLICATION->GetCurPage() ?>?mid=<?=htmlspecialcharsbx($module_id)?>&amp;lang=<? echo LANGUAGE_ID ?>">
+	<form method="POST" action="<?php  echo $APPLICATION->GetCurPage() ?>?mid=<?=htmlspecialcharsbx($module_id)?>&amp;lang=<?php  echo LANGUAGE_ID ?>">
 		<?=bitrix_sessid_post()?>
-		<?
+		<?php 
 		$tabControl->Begin();
 
 		$tabControl->BeginNextTab();
@@ -115,14 +115,14 @@ if (
 		}
 
 		$tabControl->Buttons(); ?>
-		<input <? if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
-		<input <? if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-		<? if (strlen($_REQUEST["back_url_settings"]) > 0): ?>
-			<input <? if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<? echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"])) ?>'">
+		<input <?php  if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
+		<input <?php  if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
+		<?php  if (strlen($_REQUEST["back_url_settings"]) > 0): ?>
+			<input <?php  if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php  echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"])) ?>'">
 			<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-		<? endif ?>
-		<input <? if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="submit" name="RestoreDefaults" title="<? echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS") ?>" OnClick="return confirm('<? echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING")) ?>')" value="<? echo GetMessage("MAIN_RESTORE_DEFAULTS") ?>">
+		<?php  endif ?>
+		<input <?php  if (!$USER->CanDoOperation("controller_settings_change")) echo "disabled" ?> type="submit" name="RestoreDefaults" title="<?php  echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS") ?>" OnClick="return confirm('<?php  echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING")) ?>')" value="<?php  echo GetMessage("MAIN_RESTORE_DEFAULTS") ?>">
 		<?=bitrix_sessid_post();?>
-		<? $tabControl->End(); ?>
+		<?php  $tabControl->End(); ?>
 	</form>
-<?
+<?php 

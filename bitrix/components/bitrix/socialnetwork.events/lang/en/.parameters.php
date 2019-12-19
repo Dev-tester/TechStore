@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_MESSAGE_VAR'] = "Variable for Message";
 $MESS ['SONET_PATH_TO_USER'] = "User Profile Path Template";
 $MESS ['SONET_PATH_TO_MESSAGE_FORM'] = "Message Post Form Path Template";

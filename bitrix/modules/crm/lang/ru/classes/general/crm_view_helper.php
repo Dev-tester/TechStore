@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_INFO_RESPONSIBLE"] = "Ответственный";
 $MESS["CRM_ENTITY_INFO_RESPONSIBLE_CHANGE"] = "сменить";
 $MESS["CRM_GET_USER_INFO_GENERAL_ERROR"] = "Не удалось получить сведения о пользователе.";

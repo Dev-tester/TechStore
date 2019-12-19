@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/prolog.php");
@@ -270,13 +270,13 @@ $oFilter = new CAdminFilter(
 	)
 );
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("rub_f_find")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("rub_f_find_title")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("rub_f_find_title")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				"ID",
@@ -294,24 +294,24 @@ $oFilter = new CAdminFilter(
 <tr>
 	<td><?="ID"?>:</td>
 	<td>
-		<input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>">
+		<input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>">
 	</td>
 </tr>
 <tr>
 	<td><?=GetMessage("rub_f_name")?>:</td>
 	<td>
-		<input type="text" name="find_name" size="47" value="<?echo htmlspecialcharsbx($find_name)?>">
+		<input type="text" name="find_name" size="47" value="<?php echo htmlspecialcharsbx($find_name)?>">
 	</td>
 </tr>
 <tr>
 	<td><?=GetMessage("rub_f_site").":"?></td>
 	<td><select name="find_lid">
-		<option value=""<?echo ($find_lid == "" ? ' selected' : '') ?>><?echo GetMessage("MAIN_ALL")?></option>
-		<?
+		<option value=""<?php echo ($find_lid == "" ? ' selected' : '') ?>><?php echo GetMessage("MAIN_ALL")?></option>
+		<?php 
 		$dbSites = CSite::GetList($b="NAME", $o="asc");
 		while ($arSites = $dbSites->Fetch())
 		{
-			?><option value="<?echo htmlspecialcharsbx($arSites["ID"]) ?>"<?echo ($find_lid == $arSites["ID"] ? ' selected' : '') ?>>(<?echo htmlspecialcharsbx($arSites["ID"]) ?>) <?echo htmlspecialcharsbx($arSites["NAME"]) ?></option><?
+			?><option value="<?php echo htmlspecialcharsbx($arSites["ID"]) ?>"<?php echo ($find_lid == $arSites["ID"] ? ' selected' : '') ?>>(<?php echo htmlspecialcharsbx($arSites["ID"]) ?>) <?php echo htmlspecialcharsbx($arSites["NAME"]) ?></option><?php 
 		}
 		?>
 	</select></td>
@@ -319,7 +319,7 @@ $oFilter = new CAdminFilter(
 <tr>
 	<td><?=GetMessage("rub_f_active")?>:</td>
 	<td>
-		<?
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("MAIN_YES"),
@@ -336,24 +336,24 @@ $oFilter = new CAdminFilter(
 </tr>
 <tr>
 	<td><?=GetMessage("rub_f_public")?>:</td>
-	<td><?echo SelectBoxFromArray("find_visible", $arr, $find_visible, GetMessage("MAIN_ALL"), "");?></td>
+	<td><?php echo SelectBoxFromArray("find_visible", $arr, $find_visible, GetMessage("MAIN_ALL"), "");?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("rub_f_auto")?>:</td>
-	<td><?echo SelectBoxFromArray("find_auto", $arr, $find_auto, GetMessage("MAIN_ALL"), "");?></td>
+	<td><?php echo SelectBoxFromArray("find_auto", $arr, $find_auto, GetMessage("MAIN_ALL"), "");?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("rub_f_code")?>:</td>
 	<td>
-		<input type="text" name="find_code" size="47" value="<?echo htmlspecialcharsbx($find_code)?>">
+		<input type="text" name="find_code" size="47" value="<?php echo htmlspecialcharsbx($find_code)?>">
 	</td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

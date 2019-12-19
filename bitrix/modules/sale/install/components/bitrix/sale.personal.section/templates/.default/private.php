@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -18,7 +18,7 @@ if ($arParams['SET_TITLE'] == 'Y')
 	$APPLICATION->SetTitle(Loc::getMessage("SPS_TITLE_PRIVATE"));
 }
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.profile",
 	"",
 	Array(

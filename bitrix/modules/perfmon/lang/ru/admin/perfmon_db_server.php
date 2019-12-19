@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_DB_SERVER_TITLE"] = "Монитор производительности: сервер БД";
 $MESS["PERFMON_STATUS_TITLE"] = "Статистика сервера";
 $MESS["PERFMON_WAITS_TITLE"] = "Статистика ожиданий сервера";

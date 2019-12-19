@@ -1,19 +1,19 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?
+<?php 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'):
 	$APPLICATION->RestartBuffer();
 	?>
 	<script type="text/javascript">
-		<?if(strlen($arResult['ERROR_MSG']) > 0 ):?>
+		<?php if(strlen($arResult['ERROR_MSG']) > 0 ):?>
 			alert("<?=$arResult['ERROR_MSG']?>");
 			BX.closeWait();
-		<?else:?>
+		<?php else:?>
 			top.location.href = '<?=CUtil::JSEscape($arResult['RATE_PAGE'])?>';
-		<?endif;?>
-	</script><?
+		<?php endif;?>
+	</script><?php 
 	die();
 endif;
 
@@ -30,7 +30,7 @@ var str = '';
 </script>
 <table cellspacing="0" cellpadding="0" border="0" width="100%"  class="bx-edit-table">
 <tr class="bx-after-heading">
-	<?if($arResult['ID'] > 0):?>
+	<?php if($arResult['ID'] > 0):?>
 			<td class="bx-field-value bx-padding" style="width: 96px">
 				<?=ID?>:
 			</td>
@@ -39,7 +39,7 @@ var str = '';
 			</td>
 		</tr>
 		<tr>
-	<?endif;?>
+	<?php endif;?>
 
 	<td class="bx-field-value bx-padding" style="width: 96px">
 		<?=GetMessage('CRM_TAXRATE_FIELDS_TAX')?>:
@@ -62,9 +62,9 @@ var str = '';
 	</td>
 	<td class="bx-field-value bx-padding" style="">
 		<select name="PERSON_TYPE_ID">
-			<?foreach ($arResult['PERSON_TYPES_LIST'] as $key => $value):?>
+			<?php foreach ($arResult['PERSON_TYPES_LIST'] as $key => $value):?>
 				<option value="<?=$key?>"<?=$arResult['PERSON_TYPE_ID'] == $key ? 'selected' : ''?>><?=$value?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
@@ -92,12 +92,12 @@ var str = '';
 		<input type="text" name="APPLY_ORDER" value="<?=$arResult['APPLY_ORDER']?>" size="10">
 	</td>
 </tr>
-<?if(CSaleLocation::isLocationProEnabled()):?>
+<?php if(CSaleLocation::isLocationProEnabled()):?>
 
 	<tr class="crm-required-field">
 		<td colspan="2">
 
-			<?$APPLICATION->IncludeComponent("bitrix:sale.location.selector.system", "", array(
+			<?php $APPLICATION->IncludeComponent("bitrix:sale.location.selector.system", "", array(
 					"ENTITY_PRIMARY" => $arResult['ID'],
 					"LINK_ENTITY_NAME" => CSaleTaxRate::CONN_ENTITY_NAME,
 					"INPUT_NAME" => 'LOCATION',
@@ -111,7 +111,7 @@ var str = '';
 		</td>
 	</tr>
 
-<?else:?>
+<?php else:?>
 
 	<tr class="crm-required-field">
 		<td class="bx-field-value bx-padding" style="width: 96px">
@@ -119,23 +119,23 @@ var str = '';
 		</td>
 		<td class="bx-field-value bx-padding" style="">
 			<select id="LOCATION1" name="LOCATION1[]" size="5" multiple onclick = "onFieldFill();">
-				<?foreach ($arResult['LOCATION1_LIST'] as $locID => $arLocation):?>
+				<?php foreach ($arResult['LOCATION1_LIST'] as $locID => $arLocation):?>
 					<option value="<?=$locID?>"<?=$arLocation['SELECTED'] ? ' selected' : ''?>><?=htmlspecialcharsbx($arLocation["STRING"])?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
 
--<?endif?>
+-<?php endif?>
 </table>
 </form>
 <script type="text/javascript">
 
-	<?if(CSaleLocation::isLocationProEnabled()):?>
+	<?php if(CSaleLocation::isLocationProEnabled()):?>
 		BX.locationSelectors['tax-location-selector'].bindEvent('after-target-input-modified', function(){
 			onFieldFill();
 		});
-	<?endif?>
+	<?php endif?>
 
 	function onFieldFill()
 	{
@@ -146,17 +146,17 @@ var str = '';
 		if(!checkTextField(BX('VALUE')))
 			return false;
 
-		<?if(CSaleLocation::isLocationProEnabled()):?>
+		<?php if(CSaleLocation::isLocationProEnabled()):?>
 
 			if(!BX.locationSelectors['tax-location-selector'].checkSmthSelected())
 				return false;
 
-		<?else:?>
+		<?php else:?>
 
 			if(!checkSelectField(BX('LOCATION1')))
 				return false;
 
-		<?endif?>
+		<?php endif?>
 
 		return true;
 	}
@@ -213,9 +213,9 @@ var str = '';
 	BX.WindowManager.Get().ClearButtons();
 	BX.WindowManager.Get().SetButtons(_BTN);
 
-	<?if($arResult['ID'] <= 0):?>
+	<?php if($arResult['ID'] <= 0):?>
 		BX('crm_taxrate_add').disabled = true;
-	<?endif;?>
+	<?php endif;?>
 
 	BX.WindowManager.Get().adjustSizeEx();
 

@@ -1,4 +1,4 @@
-<?if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!Defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $converter = CBXPunycode::GetConverter();
 $arData = array();
@@ -97,7 +97,7 @@ $APPLICATION->IncludeComponent(
 
 	var bcPush = new __bitrixCloudPush(jsParams);
 
-	<?if($arResult["DOMAIN"] != ""):?>
+	<?php if($arResult["DOMAIN"] != ""):?>
 		app.addButtons({
 			cancelButton:
 			{
@@ -121,5 +121,5 @@ $APPLICATION->IncludeComponent(
 				}
 			}
 		});
-	<?endif;?>
+	<?php endif;?>
 </script>

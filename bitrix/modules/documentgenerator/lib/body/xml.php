@@ -284,7 +284,7 @@ abstract class Xml extends Body
 			return $content;
 		}
 
-		$result = '<?xml version="1.0"?><'.$documentNodeName;
+		$result = '<?php xml version="1.0"?><'.$documentNodeName;
 
 		foreach($namespaces as $prefix => $uri)
 		{

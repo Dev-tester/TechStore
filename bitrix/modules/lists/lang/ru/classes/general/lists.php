@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_MODULE_BIZPROC_NOT_INSTALLED"] = "Модуль \"Бизнес-процессы\" не установлен";
 $MESS["LISTS_ACCESS_DENIED"] = "Нет доступа";
 $MESS["LISTS_REQUIRED_PARAMETER"] = "Не передан обязательный параметр \"#parameter#\".";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_check_all"] = "Check All / Uncheck All";
 $MESS["interface_grid_actions"] = "Action Column";
 $MESS["interface_grid_sort"] = "Sorting:";

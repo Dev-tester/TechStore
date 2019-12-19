@@ -10,7 +10,7 @@ CJSCore::Init(['crm_common']);
 
 ?>
 <div id="report-widget-panel-container">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.widget_panel',
 		'',

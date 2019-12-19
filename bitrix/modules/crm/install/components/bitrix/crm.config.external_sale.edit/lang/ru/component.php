@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CRM_PERMISSION_DENIED'] = "У вас нет прав на доступ к этой форме";
 $MESS ['BPWC_WLC_WRONG_BP'] = "Запись не найдена";
 $MESS ['BPWC_WNC_EMPTY_LOGIN'] = "Не заполнено поле 'Логин'.";

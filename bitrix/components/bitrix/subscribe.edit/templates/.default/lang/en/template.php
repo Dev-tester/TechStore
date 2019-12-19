@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['subscr_conf'] = "Subscription confirmed:";
 $MESS ['subscr_yes'] = "Yes";
 $MESS ['subscr_no'] = "No";

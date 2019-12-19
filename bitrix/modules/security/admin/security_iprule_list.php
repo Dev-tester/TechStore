@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -354,13 +354,13 @@ $oFilter = new CAdminFilter(
 );
 ?>
 
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
-	<td><b><?echo GetMessage("SEC_IP_LIST_FIND")?>:</b></td>
+	<td><b><?php echo GetMessage("SEC_IP_LIST_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?echo GetMessage("SEC_IP_LIST_FIND")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?php echo GetMessage("SEC_IP_LIST_FIND")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("SEC_IP_LIST_NAME"),
@@ -378,52 +378,52 @@ $oFilter = new CAdminFilter(
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SEC_IP_LIST_RULE_TYPE")?></td>
+	<td><?php echo GetMessage("SEC_IP_LIST_RULE_TYPE")?></td>
 	<td>
 		<select name="find_rule_type">
-			<option value=""><?echo GetMessage("MAIN_ALL")?></option>
-			<?foreach($arAccessTypes as $key => $value):?>
-				<option value="<?echo $key?>" <?if($find_rule_type == $key) echo "selected"?>><?echo $value?></option>
-			<?endforeach?>
+			<option value=""><?php echo GetMessage("MAIN_ALL")?></option>
+			<?php foreach($arAccessTypes as $key => $value):?>
+				<option value="<?php echo $key?>" <?php if($find_rule_type == $key) echo "selected"?>><?php echo $value?></option>
+			<?php endforeach?>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 $arYesNo = array(
 	"reference"=>array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")),
 	"reference_id"=>array("Y","N"),
 );
 ?>
 <tr>
-	<td><?echo GetMessage("SEC_IP_LIST_ACTIVE")?></td>
-	<td><?echo SelectBoxFromArray("find_active", $arYesNo, htmlspecialcharsbx($find_active), GetMessage("MAIN_ALL"));?></td>
+	<td><?php echo GetMessage("SEC_IP_LIST_ACTIVE")?></td>
+	<td><?php echo SelectBoxFromArray("find_active", $arYesNo, htmlspecialcharsbx($find_active), GetMessage("MAIN_ALL"));?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SEC_IP_LIST_ADMIN_SECTION")?></td>
-	<td><?echo SelectBoxFromArray("find_admin_section", $arYesNo, htmlspecialcharsbx($find_admin_section), GetMessage("MAIN_ALL"));?></td>
+	<td><?php echo GetMessage("SEC_IP_LIST_ADMIN_SECTION")?></td>
+	<td><?php echo SelectBoxFromArray("find_admin_section", $arYesNo, htmlspecialcharsbx($find_admin_section), GetMessage("MAIN_ALL"));?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SEC_IP_LIST_SITE_ID")?></td>
-	<td><?echo CLang::SelectBox("find_site_id", $find_admin_section, GetMessage("MAIN_ALL"));?></td>
+	<td><?php echo GetMessage("SEC_IP_LIST_SITE_ID")?></td>
+	<td><?php echo CLang::SelectBox("find_site_id", $find_admin_section, GetMessage("MAIN_ALL"));?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SEC_IP_LIST_NAME")?></td>
-	<td><input type="text" name="find_name" size="47" value="<?echo htmlspecialcharsbx($find_name)?>"></td>
+	<td><?php echo GetMessage("SEC_IP_LIST_NAME")?></td>
+	<td><input type="text" name="find_name" size="47" value="<?php echo htmlspecialcharsbx($find_name)?>"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SEC_IP_LIST_IP")?></td>
-	<td><input type="text" name="find_ip" size="47" value="<?echo htmlspecialcharsbx($find_ip)?>"></td>
+	<td><?php echo GetMessage("SEC_IP_LIST_IP")?></td>
+	<td><input type="text" name="find_ip" size="47" value="<?php echo htmlspecialcharsbx($find_ip)?>"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("SEC_IP_LIST_PATH")?></td>
-	<td><input type="text" name="find_path" size="47" value="<?echo htmlspecialcharsbx($find_path)?>"></td>
+	<td><?php echo GetMessage("SEC_IP_LIST_PATH")?></td>
+	<td><input type="text" name="find_path" size="47" value="<?php echo htmlspecialcharsbx($find_path)?>"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

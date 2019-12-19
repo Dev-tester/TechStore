@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABTEST_REPORT_NOTFOUND"] = "Report was not found.";
 $MESS["ABTEST_REPORT_DISABLED"] = "A/B test does not exist or not configured.";
 $MESS["ABTEST_REPORT_TITLE1"] = "A/B test ##ID#";

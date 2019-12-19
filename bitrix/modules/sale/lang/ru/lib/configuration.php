@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CONFIGURATION_RESERVE_ON_CREATE"] = "При оформлении заказа";
 $MESS["SALE_CONFIGURATION_RESERVE_ON_FULL_PAY_OLD"] = "При оплате заказа";
 $MESS["SALE_CONFIGURATION_RESERVE_ON_FULL_PAY"] = "При полной оплате заказа";

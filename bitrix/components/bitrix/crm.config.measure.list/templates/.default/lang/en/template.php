@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MEASURE_SHOW_TITLE"] = "View details for this unit of measurement";
 $MESS["CRM_MEASURE_SHOW"] = "View unit";
 $MESS["CRM_MEASURE_EDIT_TITLE"] = "Edit parameters for this unit of measurement";

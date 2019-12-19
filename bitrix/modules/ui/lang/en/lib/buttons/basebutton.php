@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UI_BUTTONS_ADD_BTN_TEXT"] = "Add";
 $MESS["UI_BUTTONS_APPLY_BTN_TEXT"] = "Apply";
 $MESS["UI_BUTTONS_CANCEL_BTN_TEXT"] = "Cancel";

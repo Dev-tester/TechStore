@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ITSRM1_MEETING_LIST_DESCR'] = "View All Meeting Rooms";
 $MESS ['ITSRM1_MEETING_LIST'] = "Meeting Rooms";
 $MESS ['ITSRM1_MEETING_SEARCH_DESCR'] = "Search Meeting Rooms";

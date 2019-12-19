@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATISTIC_ACTIVITY_EXCEEDING_NAME'] = "Visitor activity limit exceeded";
 $MESS ['STATISTIC_ACTIVITY_EXCEEDING_DESC'] = "#ACTIVITY_TIME_LIMIT# - test time period (sec.)
 #ACTIVITY_HITS# - number of hits for test period

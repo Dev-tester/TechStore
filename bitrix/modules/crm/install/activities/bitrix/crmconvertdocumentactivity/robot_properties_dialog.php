@@ -19,7 +19,7 @@ $disableActivityCompletionValue = $disableActivityCompletion ? $dialog->getCurre
 <div class="crm-automation-popup-settings">
 	<span class="crm-automation-popup-settings-title"><?=htmlspecialcharsbx($items['Name'])?>: </span>
 	<div style="display:inline-block; vertical-align: top">
-		<?foreach ($items['Options'] as $value => $optionLabel):?>
+		<?php foreach ($items['Options'] as $value => $optionLabel):?>
 		<div class="crm-automation-popup-checkbox-item">
 			<label class="crm-automation-popup-chk-label">
 				<input type="checkbox"
@@ -31,20 +31,20 @@ $disableActivityCompletionValue = $disableActivityCompletion ? $dialog->getCurre
 				<?=htmlspecialcharsbx($optionLabel)?>
 			</label>
 		</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 </div>
 <div class="crm-automation-popup-settings" data-role="crm-cvtd-deal-category">
 	<span class="crm-automation-popup-settings-title"><?=htmlspecialcharsbx($dealCategoryId['Name'])?>: </span>
 	<select class="crm-automation-popup-settings-dropdown" name="<?=htmlspecialcharsbx($dealCategoryId['FieldName'])?>">
-		<?foreach ($dealCategoryId['Options'] as $value => $optionLabel):?>
+		<?php foreach ($dealCategoryId['Options'] as $value => $optionLabel):?>
 			<option value="<?=htmlspecialcharsbx($value)?>"
 				<?=($value == $selectedDealCategory) ? ' selected' : ''?>
 			><?=htmlspecialcharsbx($optionLabel)?></option>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</select>
 </div>
-<?if ($disableActivityCompletion):?>
+<?php if ($disableActivityCompletion):?>
 <div class="crm-automation-popup-settings">
 	<div class="crm-automation-popup-checkbox">
 		<div class="crm-automation-popup-checkbox-item">
@@ -56,7 +56,7 @@ $disableActivityCompletionValue = $disableActivityCompletion ? $dialog->getCurre
 		</div>
 	</div>
 </div>
-<?endif;?>
+<?php endif;?>
 <script>
 	BX.ready(function()
 	{

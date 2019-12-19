@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_REPLICATOR_TASK_CREATED"] = "Scheduled task created";
 $MESS["TASKS_REPLICATOR_TASK_CREATED_WITH_ERRORS"] = "Scheduled task created, there were errors";
 $MESS["TASKS_REPLICATOR_TASK_WAS_NOT_CREATED"] = "Scheduled task was not created";

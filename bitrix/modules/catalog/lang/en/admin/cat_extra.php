@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EXTRA_TITLE"] = "Types of Price adjustment";
 $MESS["EXTRA_DELETE_ERROR"] = "Error when deleting the Price adjustment type";
 $MESS["EXTRA_NAME"] = "Price adjustment name";

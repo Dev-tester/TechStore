@@ -1,5 +1,5 @@
-<?if(!check_bitrix_sessid()) return;?>
-<?
+<?php if(!check_bitrix_sessid()) return;?>
+<?php 
 global $APPLICATION;
 
 if($ex = $APPLICATION->GetException())
@@ -13,9 +13,9 @@ else
 	echo CAdminMessage::ShowNote(GetMessage("MOD_INST_OK"));
 ?>
 <p>
-<a href="/bitrix/admin/wizard_install.php?lang=<?echo LANG?>&wizardName=bitrix:extranet&<? echo bitrix_sessid_get()?>"><? echo GetMessage('MOD_EXTRANET_RUN_WIZARD'); ?></a>
+<a href="/bitrix/admin/wizard_install.php?lang=<?php echo LANG?>&wizardName=bitrix:extranet&<?php  echo bitrix_sessid_get()?>"><?php  echo GetMessage('MOD_EXTRANET_RUN_WIZARD'); ?></a>
 <p>
-<form action="<?echo $APPLICATION->GetCurPage()?>">
-	<input type="hidden" name="lang" value="<?echo LANG?>">
-	<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
+	<input type="hidden" name="lang" value="<?php echo LANG?>">
+	<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEXT_BUTTON"] = "Далі";
 $MESS["PREVIOUS_BUTTON"] = "Назад";
 $MESS["WELCOME_TEXT"] = "Цей майстер допоможе вам очистити корпоративний портал від демо-даних.<br /><br />

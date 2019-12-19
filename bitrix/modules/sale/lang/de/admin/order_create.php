@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ARCHIVE_ERROR_PRODUCT_NOT_FOUND"] = "Produkt ##ID# - #NAME# wurde im Katalog nicht gefunden.";
 $MESS["SALE_OK_ACCESS_DENIED"] = "Zugriff verweigert";
 $MESS["SALE_OK_ARCHIVE_LIST"] = "Bestellarchiv";

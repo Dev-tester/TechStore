@@ -1,7 +1,7 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 ?>
 <?=ShowError($arResult["strProfileError"]);?>
-<?
+<?php 
 if ($arResult['DATA_SAVED'] == 'Y')
 	echo ShowNote(GetMessage('PROFILE_DATA_SAVED'));
 ?>
@@ -30,24 +30,24 @@ if ($arResult['DATA_SAVED'] == 'Y')
 		<strong><?=GetMessage('NEW_PASSWORD_CONFIRM')?></strong><br/>
 		<input type="password" name="NEW_PASSWORD_CONFIRM" maxlength="50" value="" autocomplete="off" /> <br><br>
 
-		<?if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
+		<?php if($arResult["USER_PROPERTIES"]["SHOW"] == "Y"):?>
 			<h2><?=strlen(trim($arParams["USER_PROPERTY_NAME"])) > 0 ? $arParams["USER_PROPERTY_NAME"] : GetMessage("USER_TYPE_EDIT_TAB")?></h2>
-			<?foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
-				<strong><?=$arUserField["EDIT_FORM_LABEL"]?><?if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?endif;?></strong><br/>
-				<?$APPLICATION->IncludeComponent(
+			<?php foreach ($arResult["USER_PROPERTIES"]["DATA"] as $FIELD_NAME => $arUserField):?>
+				<strong><?=$arUserField["EDIT_FORM_LABEL"]?><?php if ($arUserField["MANDATORY"]=="Y"):?><span class="starrequired">*</span><?php endif;?></strong><br/>
+				<?php $APPLICATION->IncludeComponent(
 					"bitrix:system.field.edit",
 					$arUserField["USER_TYPE"]["USER_TYPE_ID"],
 					array("bVarsFromForm" => $arResult["bVarsFromForm"], "arUserField" => $arUserField), null, array("HIDE_ICONS"=>"Y")
 				);?>
 				<br/>
-			<?endforeach;?>
-		<?endif;?>
+			<?php endforeach;?>
+		<?php endif;?>
 
 		<input name="save" value="<?=GetMessage("MAIN_SAVE")?>" class="bx_bt_button bx_big shadow" type="submit">
 	</form>
 </div>
 <br>
-<?
+<?php 
 if($arResult["SOCSERV_ENABLED"])
 {
 	$APPLICATION->IncludeComponent("bitrix:socserv.auth.split", ".default", array(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_PHONE_CALL_VIEW_CALL_LIST_TITLE"] = "Cold call list";
 $MESS["IM_PHONE_CALL_VIEW_WEBFORM_TITLE"] = "Form";
 $MESS["IM_PHONE_CALL_VIEW_CALL_LIST_DEFER_15_MIN"] = "Suspend for 15 min.";

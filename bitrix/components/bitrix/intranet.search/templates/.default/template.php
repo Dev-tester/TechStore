@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $GLOBALS['INTRANET_TOOLBAR']->Show();
@@ -16,7 +16,7 @@ $outlook_link = 'javascript:'.CIntranetUtils::GetStsSyncURL(
 );
 ?>
 <div class="bx-intranet-outlook-banner">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:intranet.banner',
 	'',
@@ -34,7 +34,7 @@ $APPLICATION->IncludeComponent(
 ?>
 </div>
 <script>
-var current_filter = '<?echo CUtil::JSEscape($current_filter)?>';
+var current_filter = '<?php echo CUtil::JSEscape($current_filter)?>';
 var arFilters = ['simple', 'adv'];
 function BXSetFilter(new_current_filter)
 {
@@ -62,36 +62,36 @@ function BXSetFilter(new_current_filter)
 </script>
 <div class="bx-users-filter">
 	<ul class="bx-users-selector">
-		<li id="bx_users_selector_tab_simple"<?echo $current_filter == 'adv' ? '' : ' class="bx-selected"'?> onclick="BXSetFilter('simple')"><?echo GetMessage('INTR_COMP_IS_TPL_FILTER_SIMPLE')?></li>
-		<li id="bx_users_selector_tab_adv"<?echo $current_filter == 'adv' ? ' class="bx-selected"' : ''?> onclick="BXSetFilter('adv')"><?echo GetMessage('INTR_COMP_IS_TPL_FILTER_ADV')?></li>
+		<li id="bx_users_selector_tab_simple"<?php echo $current_filter == 'adv' ? '' : ' class="bx-selected"'?> onclick="BXSetFilter('simple')"><?php echo GetMessage('INTR_COMP_IS_TPL_FILTER_SIMPLE')?></li>
+		<li id="bx_users_selector_tab_adv"<?php echo $current_filter == 'adv' ? ' class="bx-selected"' : ''?> onclick="BXSetFilter('adv')"><?php echo GetMessage('INTR_COMP_IS_TPL_FILTER_ADV')?></li>
 	</ul>
-	<div class="bx-users-selector-filter" id="bx_users_filter_simple"<?echo $current_filter == 'adv' ? ' style="display: none;"' : ''?>>
-	<?
+	<div class="bx-users-selector-filter" id="bx_users_filter_simple"<?php echo $current_filter == 'adv' ? ' style="display: none;"' : ''?>>
+	<?php 
 	$arFilterValues = $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", "simple", $arParams, $component, array('HIDE_ICONS' => 'Y'));
 	?>
 	</div>
-	<div class="bx-users-selector-filter" id="bx_users_filter_adv"<?echo $current_filter == 'adv' ? '' : ' style="display: none;"'?>>
-	<?
+	<div class="bx-users-selector-filter" id="bx_users_filter_adv"<?php echo $current_filter == 'adv' ? '' : ' style="display: none;"'?>>
+	<?php 
 	$arFilterValues = $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", "advanced", $arParams, $component, array('HIDE_ICONS' => 'Y'));
 	?>
 	</div>
 </div>
 <br />
 <table class="bx-users-toolbar"><tr>
-	<td><?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_VIEW')?>:</td>
-	<td><a class="bx-users-icon bx-users-view-list<?echo $arParams['CURRENT_VIEW'] == 'list' ? '-active bx-users-selected ' : ''?>" href="<?echo $APPLICATION->GetCurPageParam('current_view=list', array('current_view'));?>" title="<?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_VIEW_LIST')?>"></a></td>
-	<td><a class="bx-users-icon bx-users-view-table<?echo $arParams['CURRENT_VIEW'] == 'table' ? '-active bx-users-selected ' : ''?>" href="<?echo $APPLICATION->GetCurPageParam('current_view=table', array('current_view'));?>" title="<?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_VIEW_TABLE')?>"></a></td>
+	<td><?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_VIEW')?>:</td>
+	<td><a class="bx-users-icon bx-users-view-list<?php echo $arParams['CURRENT_VIEW'] == 'list' ? '-active bx-users-selected ' : ''?>" href="<?php echo $APPLICATION->GetCurPageParam('current_view=list', array('current_view'));?>" title="<?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_VIEW_LIST')?>"></a></td>
+	<td><a class="bx-users-icon bx-users-view-table<?php echo $arParams['CURRENT_VIEW'] == 'table' ? '-active bx-users-selected ' : ''?>" href="<?php echo $APPLICATION->GetCurPageParam('current_view=table', array('current_view'));?>" title="<?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_VIEW_TABLE')?>"></a></td>
 	<td class="bx-users-toolbar-delimiter"></td>
-	<td><?$APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", 'online', $arParams, $component, array('HIDE_ICONS' => 'Y'));?></td>
-	<td class="bx-users-toolbar-last"><a class="bx-users-icon1 bx-users-excel" href="<?=$APPLICATION->GetCurPageParam('current_view=table&excel=yes&ncc=1', array('excel', 'current_view'))?>" onclick="javascript:void(0)" title="<?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_EXCEL_TITLE')?>"><?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_EXCEL')?></a><a class="bx-users-icon1 bx-users-outlook" href="<?echo $outlook_link;?>" title="<?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_OUTLOOK_TITLE')?>"><?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_OUTLOOK')?></a><a class="bx-users-icon1 bx-users-outlook" href="/bitrix/groupdav.php?help=Y#carddav" title="<?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_CARDDAV_TITLE')?>"><?echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_CARDDAV')?></a></td>
+	<td><?php $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", 'online', $arParams, $component, array('HIDE_ICONS' => 'Y'));?></td>
+	<td class="bx-users-toolbar-last"><a class="bx-users-icon1 bx-users-excel" href="<?=$APPLICATION->GetCurPageParam('current_view=table&excel=yes&ncc=1', array('excel', 'current_view'))?>" onclick="javascript:void(0)" title="<?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_EXCEL_TITLE')?>"><?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_EXCEL')?></a><a class="bx-users-icon1 bx-users-outlook" href="<?php echo $outlook_link;?>" title="<?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_OUTLOOK_TITLE')?>"><?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_OUTLOOK')?></a><a class="bx-users-icon1 bx-users-outlook" href="/bitrix/groupdav.php?help=Y#carddav" title="<?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_CARDDAV_TITLE')?>"><?php echo GetMessage('INTR_COMP_IS_TPL_TOOLBAR_CARDDAV')?></a></td>
 </tr></table>
 <div class="bx-users-alphabet" id="bx_alph" style="visibility: visible;">
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:intranet.structure.selector", 'alphabet', $arParams, $component, array('HIDE_ICONS' => 'Y'));
 ?>
 </div>
 <div style="clear: right;"></div>
-<?
+<?php 
 if (($arParams['CURRENT_VIEW'] == 'list' && $arParams['LIST_VIEW'] == 'group') || ($arParams['CURRENT_VIEW'] == 'table' && $arParams['TABLE_VIEW'] == 'group_table'))
 {
 	$arParams['SHOW_NAV_TOP'] = 'N';

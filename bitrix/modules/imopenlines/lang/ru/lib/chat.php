@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_CHAT_ERROR_IM_LOAD"] = "Ошибка загрузки модуля Веб-мессенджер";
 $MESS["IMOL_CHAT_ERROR_PULL_LOAD"] = "Ошибка загрузки модуля Push & Pull";
 $MESS["IMOL_CHAT_ERROR_CONNECTOR_LOAD"] = "Ошибка загрузки модуля Коннектора для внешних мессенджеров";

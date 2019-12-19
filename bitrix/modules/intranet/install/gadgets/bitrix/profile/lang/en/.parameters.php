@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_PROFILE_P_PATH_TO_GENERAL'] = "General Information Page URL";
 $MESS ['GD_PROFILE_P_PATH_TO_PROFILE_EDIT'] = "Edit Profile Page URL";
 $MESS ['GD_PROFILE_P_PATH_TO_LOG'] = "Updates Page URL";

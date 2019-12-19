@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ADD_TASK"] = "Create task";
 $MESS["TASKS_CIRCLE_EFFECTIVE_TITLE"] = "Efficiency";
 $MESS["TASKS_COMPLETED"] = "Tasks completed";

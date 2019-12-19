@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_OWNER_ID_NOT_DEFINED"] = "The owner ID is not specified (\"OWNER_ID\").";
 $MESS["CRM_UNSUPPORTED_OWNER_TYPE"] = "The owner type is not supported: \"#OWNER_TYPE#\".";

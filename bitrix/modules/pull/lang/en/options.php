@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PULL_BATCH_MAX_COUNT_MESSAGES"] = "Maximum number of push notifications to send simultaneously";
 $MESS["PULL_OPTIONS_CLOUD_ACTIVE_KEY_REQUIRED"] = "Note: a valid license is required to use cloud servers.";
 $MESS["PULL_OPTIONS_CLOUD_REGISTRATION_ACTIVE"] = "Active";

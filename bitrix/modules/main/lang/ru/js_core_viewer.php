@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_VIEWER_DOWNLOAD"] = "Скачать";
 $MESS["JS_CORE_VIEWER_EDIT"] = "Редактировать";
 $MESS["JS_CORE_VIEWER_DESCR_AUTHOR"] = "Автор";

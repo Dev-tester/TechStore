@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_IMAP_ERR_CONNECT"] = "Server connection error";
 $MESS["MAIL_IMAP_ERR_BAD_SERVER"] = "The server returned an unknown response.";
 $MESS["MAIL_IMAP_ERR_AUTH"] = "Authentication error";

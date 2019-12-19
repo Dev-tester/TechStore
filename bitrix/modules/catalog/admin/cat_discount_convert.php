@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/prolog.php");
 global $USER;
@@ -48,7 +48,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD'] && (isset($_REQUEST["Convert"]) && 'Y' 
 		?><script type="text/javascript">
 			BX.closeWait();
 			DoNext(<?=CCatalogDiscountConvert::$intConverted; ?>, <?=$maxMessage?>, <?=CCatalogDiscountConvert::$intNextConvertPerStep; ?>, '<?=CUtil::JSEscape(CCatalogDiscountConvert::$strSessID); ?>');
-		</script><?
+		</script><?php 
 	}
 	else
 	{
@@ -92,7 +92,7 @@ if ('POST' == $_SERVER['REQUEST_METHOD'] && (isset($_REQUEST["Convert"]) && 'Y' 
 		?><script type="text/javascript">
 			BX.closeWait();
 			EndConvert();
-		</script><?
+		</script><?php 
 	}
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
 }
@@ -133,7 +133,7 @@ else
 	{
 		var arParams = {
 			'Convert': 'Y',
-			'lang': '<? echo CUtil::JSEscape(LANGUAGE_ID); ?>',
+			'lang': '<?php  echo CUtil::JSEscape(LANGUAGE_ID); ?>',
 			'converted': parseInt(converted),
 			'maxMessage': parseInt(maxMessage),
 			'maxMessagePerStep': parseInt(maxMessagePerStep),
@@ -161,7 +161,7 @@ else
 
 		return false;
 	}
-	</script><?
+	</script><?php 
 	$intCountOld = CCatalogDiscountConvert::GetCountOld();
 	if ($intCountOld <= 0)
 	{
@@ -174,7 +174,7 @@ else
 		CAdminNotify::DeleteByTag("CATALOG_DISC_CONVERT");
 	}
 	?><div id="convert_result_div" style="margin:0;"></div>
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage(); ?>" name="fs1"><?
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage(); ?>" name="fs1"><?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 
@@ -183,15 +183,15 @@ else
 		$max_execution_time = '';
 	?>
 		<tr>
-			<td width="40%"><?echo GetMessage("CAT_DISC_CONVERT_STEP")?></td>
-			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo htmlspecialcharsbx($max_execution_time);?>"> <?echo GetMessage("CAT_DISC_CONVERT_STEP_SEC")?></td>
+			<td width="40%"><?php echo GetMessage("CAT_DISC_CONVERT_STEP")?></td>
+			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo htmlspecialcharsbx($max_execution_time);?>"> <?php echo GetMessage("CAT_DISC_CONVERT_STEP_SEC")?></td>
 		</tr>
-	<?
+	<?php 
 	$tabControl->Buttons();
 	?>
-		<input type="button" id="start_button" value="<?echo GetMessage("CAT_DISC_CONVERT_BUTTON")?>" <? (0 < $intCountOld ? "" : "disabled"); ?>>
+		<input type="button" id="start_button" value="<?php echo GetMessage("CAT_DISC_CONVERT_BUTTON")?>" <?php  (0 < $intCountOld ? "" : "disabled"); ?>>
 		<input type="button" id="stop_button" value="<?=GetMessage("CAT_DISC_CONVERT_STOP")?>" disabled>
-	<?
+	<?php 
 	$tabControl->End();
 	?></form>
 	<script type="text/javascript">
@@ -200,7 +200,7 @@ else
 		if (!!obStartButton)
 		{
 			BX.bind(obStartButton, 'click', function(){
-				StartConvert(<? echo $intCountOld; ?>);
+				StartConvert(<?php  echo $intCountOld; ?>);
 			});
 		}
 		var obStopButton = BX('stop_button');
@@ -210,7 +210,7 @@ else
 		}
 	});
 	</script>
-	<?
+	<?php 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }
 ?>

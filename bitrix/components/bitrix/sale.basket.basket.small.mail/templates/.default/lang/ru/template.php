@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TSBS_READY'] = "Позиции в Вашей корзине:";
 $MESS['TSBS_PRICE'] = "Цена:";
 $MESS['TSBS_QUANTITY'] = "Количество:";

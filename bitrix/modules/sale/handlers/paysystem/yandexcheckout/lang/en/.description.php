@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_YANDEX_CHECKOUT_SHOP_ID"] = "shopId";
 $MESS["SALE_HPS_YANDEX_CHECKOUT_SHOP_ARTICLE_ID"] = "shopArticleId";
 $MESS["SALE_HPS_YANDEX_CHECKOUT"] = "Yandex.Checkout (since version 3.x)";

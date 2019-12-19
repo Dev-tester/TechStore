@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();
 
 define("SALE_ORDERS_INIT_COUNT", 20); //how mutch orders we must load initially
 define("SALE_ORDERS_LIST_PACK_SIZE", 20); //how much orders we must load, when user will reach bottom

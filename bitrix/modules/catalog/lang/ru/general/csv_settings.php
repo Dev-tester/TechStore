@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATI_FI_UNIXML_EXT"] = "Внешний код (уникальный идентификатор)";
 $MESS["CATI_FI_NAME"] = "Название";
 $MESS["CATI_FI_ACTIV"] = "Активность";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELIVERY_TRACKING_RUS_POST_TITLE"] = "Почта России";
 $MESS["SALE_DELIVERY_TRACKING_RUS_POST_DESCRIPTION"] = "Система трэкинга на основе АПИ службы доставки #A1#\"Почта России\"#A2#</a>";
 $MESS["SALE_DELIVERY_TRACKING_RUS_POST_LOGIN"] = "Логин";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,7 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?$ElementID = $APPLICATION->IncludeComponent(
+<?php $ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:photo.detail",
 	"",
 	Array(
@@ -47,9 +47,9 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<?if($arParams["USE_RATING"]=="Y" && $ElementID):?>
+<?php if($arParams["USE_RATING"]=="Y" && $ElementID):?>
 <br />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:iblock.vote",
 	"",
 	Array(
@@ -63,10 +63,10 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<?endif?>
-<?if($arParams["USE_REVIEW"]=="Y" && IsModuleInstalled("forum") && $ElementID):?>
+<?php endif?>
+<?php if($arParams["USE_REVIEW"]=="Y" && IsModuleInstalled("forum") && $ElementID):?>
 <br />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:forum.topic.reviews",
 	"",
 	Array(
@@ -83,4 +83,4 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<?endif?>
+<?php endif?>

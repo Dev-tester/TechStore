@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TOOLS_DN"] = "дн.";
 $MESS["TOOLS_DAYS"] = "дней";
 $MESS["TOOLS_CALENDAR"] = "Календарь";

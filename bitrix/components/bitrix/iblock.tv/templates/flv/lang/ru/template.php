@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIXTV_TEMPLATE_DURATION"] = "Длительность: ";
 $MESS["BITRIXTV_TEMPLATE_TITLE"] = "Название: ";
 $MESS["BITRIXTV_TEMPLATE_DESCRIPTION"] = "Описание: ";

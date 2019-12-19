@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_EVENTLOG_USER_AUTHORIZE"] = "Log on successful";
 $MESS["MAIN_EVENTLOG_USER_LOGIN"] = "Log on errors";
 $MESS["MAIN_EVENTLOG_USER_LOGINBYHASH_FAILED"] = "Logon error with saved authentication";

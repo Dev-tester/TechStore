@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGO_EMPTY_SITE"] = "Die Seite der Bestellung wurde nicht angegeben";
 $MESS["SKGO_EMPTY_PERS_TYPE"] = "Die Kundengruppe wurde nicht angegeben";
 $MESS["SKGO_EMPTY_USER_ID"] = "Kunden-ID wurde nicht angegeben ";

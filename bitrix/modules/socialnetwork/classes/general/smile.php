@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllSocNetSmile
 {
 	function PrintSmilesList($num_cols, $strLang = False, $strPath2Icons = False, $cacheTime = False)

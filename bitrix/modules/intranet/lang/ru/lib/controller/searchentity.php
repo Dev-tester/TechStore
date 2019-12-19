@@ -1,3 +1,3 @@
-<?
+<?php 
 $MESS["INTRANET_CONTROLLER_SEARCHENTITY_GETALL_ENTITY_EMPTY"] = "Не передан тип сущностей.";
 $MESS["INTRANET_CONTROLLER_SEARCHENTITY_GETALL_ENTITY_INCORRECT"] = "Передан неверный тип сущностей.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAR_ACT_COMMENT"] = "Comments";
 $MESS["BPAR_ACT_INFO"] = "Completed #PERCENT#% (#REVIEWED# of #TOTAL#)";
 $MESS["BPAR_ACT_BUTTON2"] = "Done";

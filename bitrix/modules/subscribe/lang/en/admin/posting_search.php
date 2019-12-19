@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["post_title"] = "Recipient list";
 $MESS["post_rub"] = "Newsletter topics:";
 $MESS["post_format"] = "Newsletter format:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -286,7 +286,7 @@ if ($USER->CanDoOperation("controller_auth_manage"))
 			BX.ajax.submit(BX('editform'),
 				function (result)
 				{
-					BX('<?echo $tableID?>_result_div').innerHTML = result;
+					BX('<?php echo $tableID?>_result_div').innerHTML = result;
 					CloseWaitWindow();
 					BX('add_action_button').disabled = false;
 				}
@@ -296,50 +296,50 @@ if ($USER->CanDoOperation("controller_auth_manage"))
 
 	</script>
 	<div id="add_form" style="display:none;height:200px;">
-		<form method="POST" action="<? echo htmlspecialcharsbx($APPLICATION->GetCurPageParam()) ?>"
+		<form method="POST" action="<?php  echo htmlspecialcharsbx($APPLICATION->GetCurPageParam()) ?>"
 			enctype="multipart/form-data" name="editform" id="editform">
-			<?
+			<?php 
 			$tabControl->Begin();
 			$tabControl->BeginNextTab();
 			foreach ($controls as $controlName)
 			{
 				?>
 				<tr class="adm-detail-required-field">
-					<td width="40%"><? echo Loc::getMessage("CONTROLLER_GROUP_MAP_".$controlName) ?>:</td>
+					<td width="40%"><?php  echo Loc::getMessage("CONTROLLER_GROUP_MAP_".$controlName) ?>:</td>
 					<td width="60%">
-						<?if ($controlName === "CONTROLLER_GROUP_ID"):?>
-							<? $groupList = CGroup::GetList($o = "sort", $b = "asc"); ?>
-							<select name="FIELDS[new][<? echo $controlName ?>]">
+						<?php if ($controlName === "CONTROLLER_GROUP_ID"):?>
+							<?php  $groupList = CGroup::GetList($o = "sort", $b = "asc"); ?>
+							<select name="FIELDS[new][<?php  echo $controlName ?>]">
 								<option value=""></option>
-								<? foreach ($groups as $groupId => $groupName): ?>
-									<option value="<?=$groupId?>"><?=$groupName?> [<?echo $groupId?>]
+								<?php  foreach ($groups as $groupId => $groupName): ?>
+									<option value="<?=$groupId?>"><?=$groupName?> [<?php echo $groupId?>]
 									</option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 							</select>
-						<?else:?>
-							<input type="text" id="<? echo $controlName ?>" name="FIELDS[new][<? echo $controlName ?>]" size="30" value="">
-						<?endif?>
+						<?php else:?>
+							<input type="text" id="<?php  echo $controlName ?>" name="FIELDS[new][<?php  echo $controlName ?>]" size="30" value="">
+						<?php endif?>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			$tabControl->Buttons(false);
 			?>
 			<input type="hidden" name="mode" value="frame">
 			<input type="hidden" name="save" value="y">
 			<input type="hidden" name="ID" value="new">
-			<? echo bitrix_sessid_post(); ?>
-			<input type="hidden" name="lang" value="<? echo LANGUAGE_ID ?>">
+			<?php  echo bitrix_sessid_post(); ?>
+			<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID ?>">
 			<input type="button" id="add_action_button" onclick="add_action();"
-				value="<? echo Loc::getMessage("CONTROLLER_GROUP_MAP_ADD_BTN") ?>" class="adm-btn-save">
-			<input type="button" value="<? echo Loc::getMessage("CONTROLLER_GROUP_MAP_CANCEL_BTN") ?>"
+				value="<?php  echo Loc::getMessage("CONTROLLER_GROUP_MAP_ADD_BTN") ?>" class="adm-btn-save">
+			<input type="button" value="<?php  echo Loc::getMessage("CONTROLLER_GROUP_MAP_CANCEL_BTN") ?>"
 				onclick="hide_add_form()">
-			<?
+			<?php 
 			$tabControl->End();
 			?>
 		</form>
 	</div>
-	<?
+	<?php 
 }
 
 $adminList->DisplayList();

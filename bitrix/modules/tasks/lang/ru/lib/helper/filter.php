@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_FILTER_ID"] = "ID";
 $MESS["TASKS_FILTER_TITLE"] = "Название";
 $MESS["TASKS_FILTER_ORIGINATOR_NAME"] = "Постановщик";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 	die();
 
@@ -8,7 +8,7 @@ else
 {
 	?>
 		<div id="mobile-list">
-	<?
+	<?php 
 
 	$finalHtml = '';
 }
@@ -118,9 +118,9 @@ echo $finalHtml;
 
 <script type="text/javascript">
 
-	<?if(isset($arParams["TITLE"])):?>
+	<?php if(isset($arParams["TITLE"])):?>
 		app.setPageTitle({title: "<?=$arParams["TITLE"]?>"});
-	<?endif;?>
+	<?php endif;?>
 
 	var mobileAppListParams  = {
 		ajaxUrl: "<?=$arResult["AJAX_PATH"]?>"
@@ -128,9 +128,9 @@ echo $finalHtml;
 
 	var mobileAppList = new __MobileAppList(mobileAppListParams);
 
-	<?if($arResult["JS_EVENT_ITEM_CHANGE"]):?>
+	<?php if($arResult["JS_EVENT_ITEM_CHANGE"]):?>
 		BX.addCustomEvent('<?=$arResult["JS_EVENT_ITEM_CHANGE"]?>', function (params){ mobileAppList.getItemsHtml(params.arItems, params.insertToBottom);});
-	<?endif;?>
+	<?php endif;?>
 
 	var bottomReached = false;
 	window.onscroll = function ()

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILEAPP_ANDROID"] = "OS Android";
 $MESS["MOBILEAPP_IOS"] = "iOS";
 $MESS["MOBILEAPP_WP"] = "Windows Phone";

@@ -1,4 +1,4 @@
-<? if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php  if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Web\Json;
@@ -16,7 +16,7 @@ $pageSettings = $arResult["PAGE_SETTINGS"];
 	<?=bitrix_sessid_post();?>
 	<input type="hidden" name="common_sale_settings" value="Y">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:main.interface.form",
 		"",
@@ -36,11 +36,11 @@ $pageSettings = $arResult["PAGE_SETTINGS"];
 			<?=Loc::getMessage("CRM_SALE_SETTINGS_BUTTON_APPLY")?>
 		</span>
 
-		<? if ($_REQUEST["IFRAME"] == "Y"): ?>
+		<?php  if ($_REQUEST["IFRAME"] == "Y"): ?>
 			<span id="common_sale_settings_close_button" class="ui-btn ui-btn-link">
 				<?=Loc::getMessage('CRM_SALE_SETTINGS_BUTTON_CLOSE')?>
 			</span>
-		<? endif; ?>
+		<?php  endif; ?>
 	</div>
 
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_LIVECHAT_WO_PUBLUC"] = "публичная ссылка не установлена";
 $MESS["IMCONNECTOR_COMPONENT_LIVECHAT_CONNECT_ACTIVE"] = "Подключить";
 $MESS["IMCONNECTOR_COMPONENT_LIVECHAT_CONNECTOR_ERROR_STATUS"] = "В процессе работы онлайн-чата произошла ошибка. Вам необходимо проверить указанные данные и протестировать повторно.";

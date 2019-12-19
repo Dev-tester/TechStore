@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_GROUP_BASE_SETTINGS"] = "Main Settings";
 $MESS["EC_GROUP_SUPERPOSE"] = "Settings for Favourite Calendars";
 $MESS["EC_GROUP_ADDITIONAL_SETTINGS"] = "Additional Settings";

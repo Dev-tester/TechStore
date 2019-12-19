@@ -1,1 +1,1 @@
-<?require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/sale/admin/company_rules_list.php');
+<?php require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/sale/admin/company_rules_list.php');

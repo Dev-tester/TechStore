@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CURRENCY_SETTINGS"] = "General settings";
 $MESS["CURRENCY_SETTINGS_TITLE"] = "Basic parameters for the module";
 $MESS["BASE_CURRENCY"] = "Base currency:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_BLOG_TIP'] = "Указывается путь к главной странице блога. Например: blog_blog.php?page=blog&blog=#blog#.";
 $MESS ['PATH_TO_USER_TIP'] = "Указывается путь к странице профиля пользователя. Например: blog_user.php?page=user&user_id=#user_id#.";
 $MESS ['PATH_TO_USER_EDIT_TIP'] = "Указывается путь к странице редактирования профиля пользователя. Например: blog_user_edit.php?page=user&user_id=#user_id#&mode=edit.";

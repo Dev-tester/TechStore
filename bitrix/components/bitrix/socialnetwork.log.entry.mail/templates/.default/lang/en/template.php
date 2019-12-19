@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SLEM_TEMPLATE_FILES"] = "Files:";
 $MESS["SLEM_TEMPLATE_ADD_COMMENT_LINK"] = "Comment";
 $MESS["SLEM_TEMPLATE_LIKE"] = "Like";

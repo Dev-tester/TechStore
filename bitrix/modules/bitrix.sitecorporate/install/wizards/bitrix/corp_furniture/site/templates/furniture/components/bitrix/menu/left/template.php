@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (empty($arResult)) return;
 
@@ -24,13 +24,13 @@ $arMenu[count($arMenu)-1]['CLASS'] .= ' last-item';
 				<div class="content-block">
 					<div class="content-block-inner">
 						<ul id="left-menu">
-<?
+<?php 
 foreach($arMenu as $arItem):
 ?>
-							<li<?if ($arItem['CLASS']) echo " class=\"".trim($arItem['CLASS'])."\""?>>
+							<li<?php if ($arItem['CLASS']) echo " class=\"".trim($arItem['CLASS'])."\""?>>
 								<a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
 							</li>
-<?
+<?php 
 endforeach;
 ?>
 						</ul>

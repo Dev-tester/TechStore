@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_BUTTON_TYPE_NAME_OPENLINE"] = "Открытая линия";
 $MESS["INTRANET_BUTTON_TYPE_NAME_CRMFORM"] = "CRM-форма";
 $MESS["INTRANET_BUTTON_TYPE_NAME_CALLBACK"] = "Обратный звонок";

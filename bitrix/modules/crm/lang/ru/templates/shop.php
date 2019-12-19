@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BP_SHOP_TITLE"] = "Сделка интернет-магазина";
 $MESS["CRM_BP_SHOP_PBP"] = "Последовательный бизнес-процесс";
 $MESS["CRM_BP_SHOP_US"] = "Условие";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CSA_PARAM_CONTROLLER_URL'] = "URL контроллера сайтов";
 $MESS['CSA_PARAM_URL_SUBDOMAIN'] = "Домен верхнего уровня";
 $MESS['CSA_PARAM_PATH_VHOST'] = "Полный путь к папке для размещения арендуемых сайтов";

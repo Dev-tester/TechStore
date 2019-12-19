@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 /*
 GEOIP_ADDR 		83.219.130.40

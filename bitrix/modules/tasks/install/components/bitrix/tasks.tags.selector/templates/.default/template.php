@@ -64,7 +64,7 @@ BX.ready(function() {
 
 				var tags = this.windowArea.getSelectedTags();
 
-				<?if($arParams["SILENT"] != "Y"):?>
+				<?php if($arParams["SILENT"] != "Y"):?>
 					var tagsString = "";
 					for (var i = 0, length = tags.length; i < length; i++)
 					{
@@ -74,17 +74,17 @@ BX.ready(function() {
 					}
 					BX("task-tags-input").value = tagsString;
 					BX.onCustomEvent("onTaskTagSelect", [tags]);
-				<?else:?>
+				<?php else:?>
 					var changedTags = [];
 					for (var i = 0, length = tags.length; i < length; i++)
 					{
 						changedTags.push(tags[i].name);
 					}
 					BX.onCustomEvent("onTaskTagSelectAlt", [changedTags]);
-				<?endif?>
+				<?php endif?>
 
 				<?php if (strlen($arParams["ON_SELECT"])):?><?php echo $arParams["ON_SELECT"]?>(tags)<?php endif?>
-			}<?if($arParams["SILENT"] != "Y"):?>,
+			}<?php if($arParams["SILENT"] != "Y"):?>,
 			"onUpdateTagLine" : function(tagsWindow) {
 
 				var tags = this.windowArea.getSelectedTags();

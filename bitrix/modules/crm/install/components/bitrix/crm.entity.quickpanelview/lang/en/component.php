@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_ENTITY_QPV_ENTITY_TYPE_NAME_NOT_DEFINED"] = "Entity type is not specified.";
 $MESS["CRM_ENTITY_QPV_ENTITY_TYPE_NAME_NOT_SUPPORTED"] = "Specified entity type is not supported.";

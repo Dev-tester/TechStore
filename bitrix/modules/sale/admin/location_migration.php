@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Sale\Location\Migration;
@@ -70,11 +70,11 @@ $APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_MIGRATION_TITLE'));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<?if(!$result):?>
-	<?CAdminMessage::ShowMessage(array('MESSAGE' => htmlspecialcharsbx(implode(', ', $errors)), 'type' => 'ERROR'))?>
-<?else:?>
+<?php if(!$result):?>
+	<?php CAdminMessage::ShowMessage(array('MESSAGE' => htmlspecialcharsbx(implode(', ', $errors)), 'type' => 'ERROR'))?>
+<?php else:?>
 
-	<?
+	<?php 
 	$aTabs = array(
 		array(
 			"DIV" => "migration",
@@ -94,7 +94,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 	<div id="location-migration">
 
 		<div class="bx-ui-loc-m-progressbar">
-			<?
+			<?php 
 			CAdminMessage::ShowMessage(array(
 				"TYPE" => "PROGRESS",
 				"DETAILS" => '#PROGRESS_BAR#'.
@@ -107,27 +107,27 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 			?>
 		</div>
 
-		<?
+		<?php 
 		$tabControl->Begin();
 		$tabControl->BeginNextTab();
 		?>
 
 			<tr>
 				<td colspan="2">
-					<?if(CSaleLocation::isLocationProMigrated()):?>
+					<?php if(CSaleLocation::isLocationProMigrated()):?>
 						<?=Loc::getMessage('SALE_LOCATION_MIGRATION_ALREADY_DONE')?>
-					<?else:?>
+					<?php else:?>
 						<input type="submit" class="adm-btn-save bx-ui-loc-m-button-start" value="<?=Loc::getMessage('SALE_LOCATION_MIGRATION_START')?>">
-					<?endif?>
+					<?php endif?>
 				</td>
 			</tr>
 
-		<?
+		<?php 
 		$tabControl->EndTab();
 		$tabControl->Buttons();
 		?>
 
-		<?
+		<?php 
 		$tabControl->End();
 		?>
 
@@ -314,7 +314,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 			}
 		});
 
-		<?if(!CSaleLocation::isLocationProMigrated()):?>
+		<?php if(!CSaleLocation::isLocationProMigrated()):?>
 
 			new BX.locationMigration(<?=CUtil::PhpToJSObject(array(
 
@@ -338,7 +338,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 
 			), false, false, true)?>);
 
-		<?endif?>
+		<?php endif?>
 
 	</script>
 
@@ -359,6 +359,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_aft
 		}
 	</style>
 
-<?endif?>
+<?php endif?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

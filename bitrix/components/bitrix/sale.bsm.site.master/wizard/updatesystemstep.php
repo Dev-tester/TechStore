@@ -98,7 +98,7 @@ class UpdateSystemStep extends \CWizardStep
 			<?php endif;?>
 			<div class="adm-bsm-site-master-paragraph"><?=Loc::getMessage("SALE_BSM_WIZARD_UPDATESYSTEMSTEP_CONTINUE_DESCR")?></div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -177,7 +177,7 @@ class UpdateSystemStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

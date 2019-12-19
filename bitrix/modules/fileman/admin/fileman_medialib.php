@@ -1,4 +1,4 @@
-<?
+<?php 
 //**************************** MEDIALIB ACTIONS *************************************
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 CModule::IncludeModule("fileman");
@@ -42,7 +42,7 @@ elseif ($action == 'edit_collection')
 	));
 
 	?><script>window.bx_req_res = {
-		id: <?echo $id === false ? 'false' : $id;?>,
+		id: <?php echo $id === false ? 'false' : $id;?>,
 		access: {
 			new_col: '<?= CMedialib::CanDoOperation('medialib_new_collection', $parent)?>',
 			edit: '<?= CMedialib::CanDoOperation('medialib_edit_collection', $parent)?>',
@@ -53,12 +53,12 @@ elseif ($action == 'edit_collection')
 			access: '<?= CMedialib::CanDoOperation('medialib_access', $parent)?>'
 		}
 	}
-	</script><?
+	</script><?php 
 }
 elseif ($action == 'del_collection')
 {
 	$res = CMedialib::DelCollection(intVal($_POST['id']), $_POST['child_cols']);
-	?><script>window.bx_req_res = <?= ($res ? 'true' : 'false')?>;</script><?
+	?><script>window.bx_req_res = <?= ($res ? 'true' : 'false')?>;</script><?php 
 }
 elseif ($action == 'edit_item')
 {
@@ -79,7 +79,7 @@ elseif ($action == 'edit_item')
 elseif ($action == 'del_item')
 {
 	$res = CMedialib::DelItem(intVal($_POST['id']), $_POST['mode'] == 'current', intVal($_POST['col_id']));
-	?><script>window.bx_req_res = <?= ($res ? 'true' : 'false')?>;</script><?
+	?><script>window.bx_req_res = <?= ($res ? 'true' : 'false')?>;</script><?php 
 }
 elseif ($action == 'save_settings')
 {

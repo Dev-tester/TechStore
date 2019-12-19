@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_TASK_STATUS_-2"] = "Новая";
 $MESS["TM_TASK_STATUS_-1"] = "Просрочена";
 $MESS["TM_TASK_STATUS_1"] = "Новая";

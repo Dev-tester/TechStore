@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_MODULE_NOT_INSTALLED"] = "Модуль информационных блоков не установлен.";
 $MESS["IBLOCK_WRONG_SESSION"] = "Ваша сессия истекла. Пожалуйста, пересохраните документ еще раз.";
 $MESS["P_ERR_UPLOAD_MAX_FILE_SIZE"] = "Размер фотографии превышает #UPLOAD_MAX_FILE_SIZE# Мб.";

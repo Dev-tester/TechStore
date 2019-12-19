@@ -31,7 +31,7 @@ $arJsParams = array(
 		BX.Mobile.Crm.List.init(<?=CUtil::PhpToJSObject($arJsParams)?>);
 
 		var customItems = [
-			<?if ($arResult["IS_CREATE_PERMITTED"]):?>
+			<?php if ($arResult["IS_CREATE_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_PRODUCT_ADD")?>',
 				image: "/bitrix/js/mobile/images/plus.png",
@@ -42,8 +42,8 @@ $arJsParams = array(
 					});
 				}
 			},
-			<?endif?>
-			<?foreach($arResult['FILTER_PRESETS'] as $code => $preset):
+			<?php endif?>
+			<?php foreach($arResult['FILTER_PRESETS'] as $code => $preset):
 				$imagePath = "/bitrix/js/mobile/images/filter.png";
 				if ($code == $arResult["CURRENT_FILTER"])
 					$imagePath = "/bitrix/js/mobile/images/select.png";
@@ -58,7 +58,7 @@ $arJsParams = array(
 					BX.Mobile.Crm.List.applyListFilter('<?=($code == "all" ? "" : CUtil::JSEscape($code))?>', '<?=CUtil::JSEscape($arParams["GRID_ID"])?>');
 				}
 			},
-			<?endforeach?>
+			<?php endforeach?>
 		];
 		BX.Mobile.Crm.List.showContextMenu(customItems);
 
@@ -73,7 +73,7 @@ $arJsParams = array(
 			BXMobileApp.onCustomEvent("onCrmProductListUpdate", {}, true, true);
 		}, this));
 
-		<?if ($arResult['LIST_MODE'] == "SELECTOR"):?>
+		<?php if ($arResult['LIST_MODE'] == "SELECTOR"):?>
 		var onProductSelectorCloseHandler = function()
 		{
 			BX.removeCustomEvent("onOpenPageAfter", onProductSelectorCloseHandler);
@@ -90,6 +90,6 @@ $arJsParams = array(
 				window.isCurrentPage = "";
 			}
 		});
-		<?endif?>
+		<?php endif?>
 	});
 </script>

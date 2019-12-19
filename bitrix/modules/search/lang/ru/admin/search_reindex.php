@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_REINDEX_REINDEX_CHANGED"] = "Переиндексировать только измененные:";
 $MESS["SEARCH_REINDEX_REINDEX_BUTTON"] = "Переиндексировать";
 $MESS["SEARCH_REINDEX_TOTAL"] = "Проиндексировано документов:";

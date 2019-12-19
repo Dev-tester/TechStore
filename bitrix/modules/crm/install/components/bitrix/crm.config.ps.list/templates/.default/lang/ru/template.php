@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_PS_LIST_TITLE'] = 'Платежные системы';
 $MESS['CRM_PS_LIST_PS_CREATE'] = 'Создать платежную систему';
 $MESS['CRM_PS_LIST_PS_CREATE_DESC'] = 'Нажмите на прямоугольник для создания платежной системы';

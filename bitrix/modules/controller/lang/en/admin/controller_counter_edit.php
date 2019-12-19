@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_COUNTER_EDIT_ERROR"] = "An error occurred while saving an object.";
 $MESS["CTRL_CNT_EDIT_TITLE"] = "Edit counter ##ID#";
 $MESS["CTRL_CNT_EDIT_TITLE_NEW"] = "New counter";

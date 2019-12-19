@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_PUBLIC_CONVERT_TITLE"] = "Convert Public Pages";
 $MESS["INTRANET_PUBLIC_CONVERT_DESC"] = "The new Bitrix24 template comes with updated and improved navigation, and a new small personalized left menu. Users can now customize the look and feel of each section. The work area is now 20 percent wider. The top menu now sports a unified navigation system.";
 $MESS["INTRANET_PUBLIC_CONVERT_DESC_TITLE"] = "Convert your public pages now to try the exciting new features now:";

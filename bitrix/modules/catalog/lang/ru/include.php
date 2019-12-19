@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["I_NO_PRODUCT"] = "Товар с кодом ##ID# не найден";
 $MESS["I_NO_TRIAL_PRODUCT"] = "Товар с кодом ##ID# не найден (для триала с кодом ##TRIAL_ID#)";
 $MESS["I_PRODUCT_NOT_SUBSCR"] = "Товар с кодом ##ID# не поддерживает подписку";

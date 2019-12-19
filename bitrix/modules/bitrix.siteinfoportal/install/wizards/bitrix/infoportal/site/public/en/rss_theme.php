@@ -1,7 +1,7 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Centerville InfoPortal");
 $GLOBALS["arrFilterMain"] = array("PROPERTY_MAIN_VALUE" => 1);
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:rss.out",
 	"",
 	Array(
@@ -23,4 +23,4 @@ $GLOBALS["arrFilterMain"] = array("PROPERTY_MAIN_VALUE" => 1);
 		"CACHE_GROUPS" => "Y"
 	),
 false
-);?> <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?> <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -378,7 +378,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 <a name="tb"></a>
 <form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
 	<input type="hidden" name="ajax_post" value="Y" />
-<?
+<?php 
 
 $oFilter = new CAdminFilter(
 		$sTableID."_filter",
@@ -396,16 +396,16 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_CHANNEL_ID")?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_CHANNEL_ID")?></td>
 	<td nowrap><?=SelectBoxFromArray("find_channel_id", array("reference" => array_values($arChannelsTitle), "reference_id" => array_keys($arChannelsTitle)), $arFilter["CHANNEL_ID"], GetMessage("VOTE_ALL"))?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_CHANNEL")?></td>
-	<td nowrap><input type="text" name="find_channel" value="<?echo htmlspecialcharsbx($arFilter["CHANNEL"])?>" size="47"><?=InputType("checkbox", "find_channel_exact_match", "Y", $arFilter["CHANNEL_EXACT_MATCH"], false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_CHANNEL")?></td>
+	<td nowrap><input type="text" name="find_channel" value="<?php echo htmlspecialcharsbx($arFilter["CHANNEL"])?>" size="47"><?=InputType("checkbox", "find_channel_exact_match", "Y", $arFilter["CHANNEL_EXACT_MATCH"], false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td nowrap><b><?=GetMessage("VOTE_F_TITLE")?></b></td>
-	<td nowrap><input type="text" name="find_title" value="<?echo htmlspecialcharsbx($arFilter["TITLE"])?>" size="47"><?=InputType("checkbox", "find_title_exact_match", "Y", $arFilter["TITLE_EXACT_MATCH"], false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td nowrap><input type="text" name="find_title" value="<?php echo htmlspecialcharsbx($arFilter["TITLE"])?>" size="47"><?=InputType("checkbox", "find_title_exact_match", "Y", $arFilter["TITLE_EXACT_MATCH"], false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>ID:</td>
@@ -413,38 +413,38 @@ $oFilter->Begin();
 </tr>
 <tr>
 	<td><?=GetMessage("VOTE_F_LAMP")?></td>
-	<td><?
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("VOTE_RED"), GetMessage("VOTE_GREEN")), "reference_id"=>array("red","green"));
 		echo SelectBoxFromArray("find_lamp", $arr, htmlspecialcharsbx($arFilter["LAMP"]), GetMessage("VOTE_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_DATE_START").":"?></td>
-	<td nowrap><?echo CalendarPeriod("find_date_start_1", $arFilter[">=DATE_START"], "find_date_start_2", $arFilter["<=DATE_START"], "find_form","Y")?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_DATE_START").":"?></td>
+	<td nowrap><?php echo CalendarPeriod("find_date_start_1", $arFilter[">=DATE_START"], "find_date_start_2", $arFilter["<=DATE_START"], "find_form","Y")?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_DATE_END").":"?></td>
-	<td nowrap><?echo CalendarPeriod("find_date_end_1", $arFilter[">=DATE_END"], "find_date_end_2", $arFilter["<=DATE_END"], "find_form","Y")?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_DATE_END").":"?></td>
+	<td nowrap><?php echo CalendarPeriod("find_date_end_1", $arFilter[">=DATE_END"], "find_date_end_2", $arFilter["<=DATE_END"], "find_form","Y")?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_ACTIVE")?></td>
-	<td nowrap><?
+	<td nowrap><?php echo GetMessage("VOTE_F_ACTIVE")?></td>
+	<td nowrap><?php 
 		$arr = array("reference"=>array(GetMessage("VOTE_YES"), GetMessage("VOTE_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($arFilter["ACTIVE"]), GetMessage("VOTE_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_COUNTER")?></td>
-	<td nowrap><input type="text" name="find_counter_1" value="<?=htmlspecialcharsbx($arFilter[">=COUNTER"])?>" size="10"><?echo "&nbsp;".GetMessage("VOTE_TILL")."&nbsp;"?><input type="text" name="find_counter_2" value="<?=htmlspecialcharsbx($arFilter["<=COUNTER"])?>" size="10"></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_COUNTER")?></td>
+	<td nowrap><input type="text" name="find_counter_1" value="<?=htmlspecialcharsbx($arFilter[">=COUNTER"])?>" size="10"><?php echo "&nbsp;".GetMessage("VOTE_TILL")."&nbsp;"?><input type="text" name="find_counter_2" value="<?=htmlspecialcharsbx($arFilter["<=COUNTER"])?>" size="10"></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 #############################################################
 ?>
 
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

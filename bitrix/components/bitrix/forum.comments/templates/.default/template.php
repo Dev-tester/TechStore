@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var CMain $APPLICATION
  * @var array $arParams
@@ -11,7 +11,7 @@ $request = \Bitrix\Main\Context::getCurrent()->getRequest();
 <div class="feed-wrap">
 <div class="feed-comments-block">
 	<a name="comments"></a>
-<?
+<?php 
 // *************************/Input params***************************************************************
 
 $link = $APPLICATION->GetCurPageParam("MID=#ID#", array("MID", "sessid", "AJAX_POST", "ENTITY_XML_ID", "ENTITY_TYPE", "ENTITY_ID", "REVIEW_ACTION", "MODE", "FILTER", "result"));
@@ -81,7 +81,7 @@ $arResult["OUTPUT_LIST"] = $APPLICATION->IncludeComponent(
 	),
 	$this->__component
 );
-?><?=$arResult["OUTPUT_LIST"]["HTML"]?><?
+?><?=$arResult["OUTPUT_LIST"]["HTML"]?><?php 
 if ($arResult["SHOW_POST_FORM"] == "Y")
 {
 	include(__DIR__."/form.php");

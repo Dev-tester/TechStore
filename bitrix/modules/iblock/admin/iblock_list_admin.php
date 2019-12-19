@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
 /** @global CUser $USER */
@@ -67,8 +67,8 @@ if($bBadBlock)
 	$APPLICATION->SetTitle($arIBTYPE["NAME"]);
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 	ShowError(GetMessage("IBLIST_A_BAD_IBLOCK"));?>
-	<a href="<?echo htmlspecialcharsbx("iblock_admin.php?lang=".LANGUAGE_ID."&type=".urlencode($type))?>"><?echo GetMessage("IBLOCK_BACK_TO_ADMIN")?></a>
-	<?
+	<a href="<?php echo htmlspecialcharsbx("iblock_admin.php?lang=".LANGUAGE_ID."&type=".urlencode($type))?>"><?php echo GetMessage("IBLOCK_BACK_TO_ADMIN")?></a>
+	<?php 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 	die();
 }
@@ -4072,7 +4072,7 @@ if($bCatalog && $USER->CanDoOperation('catalog_price'))
 		}
 	</script>
 
-	<?
+	<?php 
 	$lAdmin->EndEpilogContent();
 }
 
@@ -4208,7 +4208,7 @@ if((!$bExcel) && $bCatalog && $bCurrency)
 		top.arExtra = [];
 		top.arCatalogGroups = [];
 		top.BaseIndex = <?=$basePriceTypeId;?>;
-	<?
+	<?php 
 	if (!empty($priceTypeIndex))
 	{
 		$i = 0;
@@ -4281,7 +4281,7 @@ if((!$bExcel) && $bCatalog && $bCurrency)
 			}
 		}
 	</script>
-	<?
+	<?php 
 }
 CJSCore::Init('file_input');
 
@@ -4297,7 +4297,7 @@ if (!empty($productLimits))
 				'#LIMIT#' => $productLimits['LIMIT']
 			]
 		); ?></span>
-	</div><?
+	</div><?php 
 }
 
 if (Loader::includeModule('crm') && Instagram::isAvailable())
@@ -4314,10 +4314,10 @@ $lAdmin->DisplayFilter($filterFields);
 $lAdmin->DisplayList(array("default_action" => $sec_list_url));
 if($bWorkFlow || $bBizproc):
 	echo BeginNote();?>
-	<span class="adm-lamp adm-lamp-green"></span> - <?echo GetMessage("IBLIST_A_GREEN_ALT")?><br>
-	<span class="adm-lamp adm-lamp-yellow"></span> - <?echo GetMessage("IBLIST_A_YELLOW_ALT")?><br>
-	<span class="adm-lamp adm-lamp-red"></span> - <?echo GetMessage("IBLIST_A_RED_ALT")?><br>
-	<?echo EndNote();
+	<span class="adm-lamp adm-lamp-green"></span> - <?php echo GetMessage("IBLIST_A_GREEN_ALT")?><br>
+	<span class="adm-lamp adm-lamp-yellow"></span> - <?php echo GetMessage("IBLIST_A_YELLOW_ALT")?><br>
+	<span class="adm-lamp adm-lamp-red"></span> - <?php echo GetMessage("IBLIST_A_RED_ALT")?><br>
+	<?php echo EndNote();
 endif;
 if(CIBlockRights::UserHasRightTo($IBLOCK_ID, $IBLOCK_ID, "iblock_edit") && !defined("CATALOG_PRODUCT") && !$publicMode)
 {

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GROUP_SUBJECT_0"] = "Продажи и Маркетинг";
 $MESS["SONET_GROUP_SUBJECT_1"] = "Проекты";
 $MESS["SONET_GROUP_SUBJECT_2"] = "Производство";

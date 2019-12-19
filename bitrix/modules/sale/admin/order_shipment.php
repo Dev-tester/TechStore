@@ -557,7 +557,7 @@ $APPLICATION->SetTitle(GetMessage("SHIPMENT_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 <form name="find_form" method="GET" action="<?=$curPage?>?">
-<?
+<?php 
 $filter = array(
 	"filter_order_id_from" => GetMessage("PAYMENT_ORDER_ID"),
 	"filter_order_paid"     => GetMessage("PAYMENT_ORDER_PAID"),
@@ -614,8 +614,8 @@ $oFilter->Begin();
 	<td>
 		<select name="filter_allow_delivery">
 			<option value="NOT_REF">(<?=GetMessage("SALE_ORDER_ALL");?>)</option>
-			<option value="Y"<?if ($filter_allow_delivery=="Y") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_YES");?></option>
-			<option value="N"<?if ($filter_allow_delivery=="N") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_NO");?></option>
+			<option value="Y"<?php if ($filter_allow_delivery=="Y") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_YES");?></option>
+			<option value="N"<?php if ($filter_allow_delivery=="N") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_NO");?></option>
 		</select>
 	</td>
 </tr>
@@ -624,8 +624,8 @@ $oFilter->Begin();
 	<td>
 		<select name="filter_deducted">
 			<option value="NOT_REF">(<?=GetMessage("SALE_ORDER_ALL");?>)</option>
-			<option value="Y"<?if ($filter_allow_delivery=="Y") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_YES");?></option>
-			<option value="N"<?if ($filter_allow_delivery=="N") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_NO");?></option>
+			<option value="Y"<?php if ($filter_allow_delivery=="Y") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_YES");?></option>
+			<option value="N"<?php if ($filter_allow_delivery=="N") echo " selected"?>><?=GetMessage("SHIPMENT_ORDER_NO");?></option>
 		</select>
 	</td>
 </tr>
@@ -641,7 +641,7 @@ $oFilter->Begin();
 	<td>
 		<select multiple name="filter_delivery_id[]">
 			<option value="NOT_REF">(<?=GetMessage("SALE_ORDER_ALL");?>)</option>
-			<?
+			<?php 
 			\Bitrix\Sale\Delivery\Services\Manager::getHandlersList();
 
 			$result = array();
@@ -672,10 +672,10 @@ $oFilter->Begin();
 <tr>
 	<td><?=GetMessage("SALE_ORDER_PRICE_DELIVERY");?>:</td>
 	<td>
-		<?echo GetMessage("PRICE_DELIVERY_FROM");?>
+		<?php echo GetMessage("PRICE_DELIVERY_FROM");?>
 		<input type="text" name="filter_price_delivery_from" value="<?=($filter_price_delivery_from!=0) ? htmlspecialcharsbx($filter_price_delivery_from) : '';?>" size="3">
 
-		<?echo GetMessage("PRICE_DELIVERY_TO");?>
+		<?php echo GetMessage("PRICE_DELIVERY_TO");?>
 		<input type="text" name="filter_price_delivery_to" value="<?=($filter_price_delivery_to!=0) ? htmlspecialcharsbx($filter_price_delivery_to) : '';?>" size="3">
 	</td>
 </tr>
@@ -685,7 +685,7 @@ $oFilter->Begin();
 		<input type="text" name="filter_account_num" value="<?=htmlspecialcharsbx($filter_account_num)?>">
 	</td>
 </tr>
-<?
+<?php 
 	$params = array(
 		'select' => array('ID', 'NAME')
 	);
@@ -697,14 +697,14 @@ $oFilter->Begin();
 	<td>
 		<select name="filter_company_id">
 			<option value="NOT_REF">(<?=GetMessage("SALE_ORDER_ALL");?>)</option>
-			<?
+			<?php 
 			foreach ($companies as $company)
 				echo '<option value="'.$company['ID'].'">'.htmlspecialcharsbx($company['NAME']).'</option>';
 			?>
 		</select>
 	</td>
 </tr>
-<?
+<?php 
 	$statusesList = \Bitrix\Sale\DeliveryStatus::getStatusesUserCanDoOperations(
 		$USER->GetID(),
 		array('view')
@@ -713,36 +713,36 @@ $oFilter->Begin();
 	$allStatusNames = \Bitrix\Sale\DeliveryStatus::getAllStatusesNames();
 ?>
 <tr>
-	<td valign="top"><?echo GetMessage("SALE_ORDER_SHIPMENT_STATUS")?>:<br /><img src="/bitrix/images/sale/mouse.gif" width="44" height="21" border="0" alt=""></td>
+	<td valign="top"><?php echo GetMessage("SALE_ORDER_SHIPMENT_STATUS")?>:<br /><img src="/bitrix/images/sale/mouse.gif" width="44" height="21" border="0" alt=""></td>
 	<td valign="top">
 		<select name="filter_status[]" multiple size="3">
-			<?
+			<?php 
 			foreach($statusesList as  $statusCode)
 			{
 				if (!$statusName = $allStatusNames[$statusCode])
 					continue;
-				?><option value="<?= htmlspecialcharsbx($statusCode) ?>"<?if (is_array($filter_status) && in_array($statusCode, $filter_status)) echo " selected"?>>[<?=htmlspecialcharsbx($statusCode)?>] <?= htmlspecialcharsEx($statusName) ?></option><?
+				?><option value="<?= htmlspecialcharsbx($statusCode) ?>"<?php if (is_array($filter_status) && in_array($statusCode, $filter_status)) echo " selected"?>>[<?=htmlspecialcharsbx($statusCode)?>] <?= htmlspecialcharsEx($statusName) ?></option><?php 
 			}
 			?>
 		</select>
 	</td>
 </tr>
 <tr>
-	<td><?echo \Bitrix\Main\Localization\Loc::getMessage("SALE_SHIPMENT_F_USER_ID");?>:</td>
+	<td><?php echo \Bitrix\Main\Localization\Loc::getMessage("SALE_SHIPMENT_F_USER_ID");?>:</td>
 	<td>
-		<?echo FindUserID("filter_user_id", $filter_user_id, "", "find_form");?>
+		<?php echo FindUserID("filter_user_id", $filter_user_id, "", "find_form");?>
 	</td>
 </tr>
 <tr>
-	<td><?echo \Bitrix\Main\Localization\Loc::getMessage("SALE_SHIPMENT_F_USER_LOGIN");?>:</td>
+	<td><?php echo \Bitrix\Main\Localization\Loc::getMessage("SALE_SHIPMENT_F_USER_LOGIN");?>:</td>
 	<td>
-		<input type="text" name="filter_user_login" value="<?echo htmlspecialcharsbx($filter_user_login)?>" size="40">
+		<input type="text" name="filter_user_login" value="<?php echo htmlspecialcharsbx($filter_user_login)?>" size="40">
 	</td>
 </tr>
 <tr>
-	<td><?echo \Bitrix\Main\Localization\Loc::getMessage("SALE_SHIPMENT_F_USER_EMAIL");?>:</td>
+	<td><?php echo \Bitrix\Main\Localization\Loc::getMessage("SALE_SHIPMENT_F_USER_EMAIL");?>:</td>
 	<td>
-		<input type="text" name="filter_user_email" value="<?echo htmlspecialcharsbx($filter_user_email)?>" size="40">
+		<input type="text" name="filter_user_email" value="<?php echo htmlspecialcharsbx($filter_user_email)?>" size="40">
 	</td>
 </tr>
 <tr>
@@ -765,7 +765,7 @@ $oFilter->Begin();
 			</select>
 		</td>
 	</tr>
-<?
+<?php 
 
 $oFilter->Buttons(
 	array(
@@ -778,6 +778,6 @@ $oFilter->Buttons(
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->AddHeadScript("/bitrix/js/main/utils.js");
 $APPLICATION->AddHeadScript("/bitrix/components/bitrix/forum.interface/templates/popup/script.js");
 $APPLICATION->AddHeadScript("/bitrix/components/bitrix/forum.interface/templates/.default/script.js");
@@ -21,49 +21,49 @@ if ($arResult["NAV_RESULT"] && $arResult["NAV_RESULT"]->NavPageCount > 1):
 	</div>
 	<div class="reviews-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 ?>
 <div class="reviews-block-container reviews-reviews-block-container">
 	<div class="reviews-block-outer">
 		<div class="reviews-block-inner">
-<?
+<?php 
 $iCount = 0;
 foreach ($arResult["MESSAGES"] as $res):
 	$iCount++;
 ?>
-	<table cellspacing="0" border="0" class="reviews-post-table <?=($iCount == 1 ? "reviews-post-first " : "")?><?
-		?><?=($iCount == count($arResult["MESSAGES"]) ? "reviews-post-last " : "")?><?
+	<table cellspacing="0" border="0" class="reviews-post-table <?=($iCount == 1 ? "reviews-post-first " : "")?><?php 
+		?><?=($iCount == count($arResult["MESSAGES"]) ? "reviews-post-last " : "")?><?php 
 		?><?=($iCount%2 == 1 ? "reviews-post-odd " : "reviews-post-even ")?>" id="message<?=$res["ID"]?>">
 		<thead><tr><td>
-<?
+<?php 
 	if ($arResult["SHOW_POST_FORM"] == "Y"):
 ?>
 		<div class="reviews-post-reply-buttons">
-<?
+<?php 
 		if ($arResult["FORUM"]["ALLOW_QUOTE"] == "Y"):
 ?>
-	<a href="#review_anchor" title="<?=GetMessage("F_QUOTE_HINT")?>" class="reviews-button-small" <?
+	<a href="#review_anchor" title="<?=GetMessage("F_QUOTE_HINT")?>" class="reviews-button-small" <?php 
 			?>onMouseDown="quoteMessageEx('<?=$res["FOR_JS"]["AUTHOR_NAME"]?>', 'message_text_<?=$res["ID"]?>')"><?=GetMessage("F_QUOTE_FULL")?></a>
-<?
+<?php 
 		endif;
 ?>
-		<a href="#review_anchor"  title="<?=GetMessage("F_NAME")?>"  class="reviews-button-small" <?
+		<a href="#review_anchor"  title="<?=GetMessage("F_NAME")?>"  class="reviews-button-small" <?php 
 			?>onMouseDown="reply2author('<?=$res["FOR_JS"]["AUTHOR_NAME"]?>,')"><?=GetMessage("F_NAME")?></a></div>
-<?
+<?php 
 	
 ?>
 		</div>
-<?
+<?php 
 	endif;
 ?>
 		<a name="message<?=$res["ID"]?>"></a><b>
-<?
+<?php 
 		if (intVal($res["AUTHOR_ID"]) > 0 && !empty($res["AUTHOR_URL"])):
-			?><a href="<?=$res["AUTHOR_URL"]?>"><?=$res["AUTHOR_NAME"]?></a><?
+			?><a href="<?=$res["AUTHOR_URL"]?>"><?=$res["AUTHOR_NAME"]?></a><?php 
 		else:
-			?><?=$res["AUTHOR_NAME"]?><?
+			?><?=$res["AUTHOR_NAME"]?><?php 
 		endif;
 		?></b>, <?=$res["POST_DATE"]?>
 	</th></tr>
@@ -71,10 +71,10 @@ foreach ($arResult["MESSAGES"] as $res):
 	<tbody>
 	<tr><td>
 		<div class="reviews-text" id="message_text_<?=$res["ID"]?>"><?=$res["POST_MESSAGE_TEXT"]?></div>
-<?
+<?php 
 	foreach ($res["FILES"] as $arFile): 
-	?><div class="reviews-message-img"><?
-		?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+	?><div class="reviews-message-img"><?php 
+		?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 			"bitrix:forum.interface", "show_file",
 			Array(
 				"FILE" => $arFile,
@@ -87,18 +87,18 @@ foreach ($arResult["MESSAGES"] as $res):
 				"SHOW_LINK" => "Y"),
 			null,
 			array("HIDE_ICONS" => "Y"));
-	?></div><?
+	?></div><?php 
 	endforeach;
 ?>
 	</td></tr></tbody>
 	</table>
-<?
+<?php 
 endforeach;
 ?>
 		</div>
 	</div>
 </div>
-<?
+<?php 
 
 if (strlen($arResult["NAV_STRING"]) > 0 && $arResult["NAV_RESULT"]->NavPageCount > 1):
 ?>
@@ -108,7 +108,7 @@ if (strlen($arResult["NAV_STRING"]) > 0 && $arResult["NAV_RESULT"]->NavPageCount
 	</div>
 	<div class="reviews-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 
@@ -120,7 +120,7 @@ if (!empty($arResult["read"]) && $arParams["SHOW_LINK_TO_FORUM"] != "N"):
 	</div>
 </div>
 	
-<?
+<?php 
 endif;
 
 endif;
@@ -130,7 +130,7 @@ if (empty($arResult["ERROR_MESSAGE"]) && !empty($arResult["OK_MESSAGE"])):
 <div class="reviews-note-box reviews-note-note">
 	<div class="reviews-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"]);?></div>
 </div>
-<?
+<?php 
 endif;
 
 if ($arResult["SHOW_POST_FORM"] != "Y"):
@@ -148,16 +148,16 @@ if (!empty($arResult["MESSAGE_VIEW"])):
 	<div class="reviews-info-box-inner">
 		<div class="reviews-post-entry">
 			<div class="reviews-post-text"><?=$arResult["MESSAGE_VIEW"]["POST_MESSAGE_TEXT"]?></div>
-<?
+<?php 
 		if (!empty($arResult["REVIEW_FILES"])):
 ?>								
 			<div class="reviews-post-attachments">
 				<label><?=GetMessage("F_ATTACH_FILES")?></label>
-<?
+<?php 
 			foreach ($arResult["REVIEW_FILES"] as $arFile): 
 ?>								
-				<div class="reviews-post-attachment"><?
-				?><?$GLOBALS["APPLICATION"]->IncludeComponent(
+				<div class="reviews-post-attachment"><?php 
+				?><?php $GLOBALS["APPLICATION"]->IncludeComponent(
 					"bitrix:forum.interface", "show_file",
 					Array(
 						"FILE" => $arFile,
@@ -171,35 +171,35 @@ if (!empty($arResult["MESSAGE_VIEW"])):
 					null,
 					array("HIDE_ICONS" => "Y"));
 				?></div>
-<?
+<?php 
 			endforeach;
 ?>
 			</div>
-<?
+<?php 
 		endif;
 ?>
 		</div>
 	</div>
 </div>
 <div class="reviews-br"></div>
-<?
+<?php 
 endif;
 
 ?>
 <div class="reviews-reply-form">
 <a name="review_anchor"></a>
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])): 
 ?>
 <div class="reviews-note-box reviews-note-error">
 	<div class="reviews-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "reviews-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 ?>
 
-<form name="REPLIER<?=$arParams["form_index"]?>" id="REPLIER<?=$arParams["form_index"]?>" action="<?=POST_FORM_ACTION_URI?>#postform"<?
-	?> method="POST" enctype="multipart/form-data" onsubmit="return ValidateForm(this, '<?=$arParams["AJAX_TYPE"]?>');"<?
+<form name="REPLIER<?=$arParams["form_index"]?>" id="REPLIER<?=$arParams["form_index"]?>" action="<?=POST_FORM_ACTION_URI?>#postform"<?php 
+	?> method="POST" enctype="multipart/form-data" onsubmit="return ValidateForm(this, '<?=$arParams["AJAX_TYPE"]?>');"<?php 
 	?> onkeydown="if(null != init_form){init_form(this)}" onmouseover="if(init_form){init_form(this)}" class="reviews-form">
 	<input type="hidden" name="back_page" value="<?=$arResult["CURRENT_PAGE"]?>" />
 	<input type="hidden" name="ELEMENT_ID" value="<?=$arParams["ELEMENT_ID"]?>" />
@@ -207,28 +207,28 @@ endif;
 	<input type="hidden" name="save_product_review" value="Y" />
 	<input type="hidden" name="preview_comment" value="N" />
 	<?=bitrix_sessid_post()?>
-<?
+<?php 
 /* GUEST PANEL */
 if (!$arResult["IS_AUTHORIZED"]):
 ?>
 	<div class="reviews-reply-fields">
 		<div class="reviews-reply-field-user">
-			<div class="reviews-reply-field reviews-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?
+			<div class="reviews-reply-field reviews-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?php 
 				?><span class="reviews-required-field">*</span></label>
 				<span><input name="REVIEW_AUTHOR" id="REVIEW_AUTHOR<?=$arParams["form_index"]?>" size="30" type="text" value="<?=$arResult["REVIEW_AUTHOR"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-<?		
+<?php 		
 	if ($arResult["FORUM"]["ASK_GUEST_EMAIL"]=="Y"):
 ?>
 			<div class="reviews-reply-field-user-sep">&nbsp;</div>
 			<div class="reviews-reply-field reviews-reply-field-email"><label for="REVIEW_EMAIL<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_EMAIL")?></label>
 				<span><input type="text" name="REVIEW_EMAIL" id="REVIEW_EMAIL<?=$arParams["form_index"]?>" size="30" value="<?=$arResult["REVIEW_EMAIL"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-<?
+<?php 
 	endif;
 ?>
 			<div class="reviews-clear-float"></div>
 		</div>
 	</div>
-<?
+<?php 
 endif;
 ?>
 	<div class="reviews-reply-header"><?=GetMessage("F_MESSAGE_TEXT")?><span class="reviews-required-field">*</span></div>
@@ -237,7 +237,7 @@ endif;
 		<div class="reviews-reply-field reviews-reply-field-bbcode">
 
 			<div class="reviews-bbcode-line" id="forum_bbcode_line<?=$arParams["form_index"]?>">
-<?
+<?php 
 if ($arResult["FORUM"]["ALLOW_BIU"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-bold" id="form_b" title="<?=GetMessage("F_BOLD")?>">
@@ -248,56 +248,56 @@ if ($arResult["FORUM"]["ALLOW_BIU"] == "Y"):
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-strike" id="form_s" title="<?=GetMessage("F_STRIKE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if ($arResult["FORUM"]["ALLOW_QUOTE"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-quote" id="form_quote" title="<?=GetMessage("F_QUOTE_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if ($arResult["FORUM"]["ALLOW_CODE"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-code" id="form_code" title="<?=GetMessage("F_CODE_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if ($arResult["FORUM"]["ALLOW_ANCHOR"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-url" id="form_url" title="<?=GetMessage("F_HYPERLINK_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if ($arResult["FORUM"]["ALLOW_IMG"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-img" id="form_img" title="<?=GetMessage("F_IMAGE_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if ($arResult["FORUM"]["ALLOW_VIDEO"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-video" id="form_video" title="<?=GetMessage("F_VIDEO_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 
 if ($arResult["FORUM"]["ALLOW_LIST"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-list" id="form_list" title="<?=GetMessage("F_LIST_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if ($arResult["FORUM"]["ALLOW_FONT"] == "Y"):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-color" id="form_palette" title="<?=GetMessage("F_COLOR_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if (LANGUAGE_ID == 'ru'):
 ?>
 				<a href="#postform" class="reviews-bbcode-button reviews-bbcode-translit" id="form_translit" title="<?=GetMessage("F_TRANSLIT_TITLE")?>">
 					<img src="/bitrix/components/bitrix/forum.post_form/templates/.default/images/bbcode/empty_for_ie.gif" /></a>
-<?
+<?php 
 endif;
 if ($arResult["FORUM"]["ALLOW_FONT"] == "Y"):
 ?>
@@ -311,11 +311,11 @@ if ($arResult["FORUM"]["ALLOW_FONT"] == "Y"):
 					<option value='Optima' style='font-family:Optima'>Optima</option>
 					<option value='Verdana' style='font-family:Verdana'>Verdana</option>
 				</select>
-<?
+<?php 
 endif;
 ?>
 			</div>
-<?
+<?php 
 if ($arResult["FORUM"]["ALLOW_SMILES"]=="Y"):
 	$iMaxH = 0;
 	foreach ($arResult["SMILES"] as $res):
@@ -330,22 +330,22 @@ document.write('<style>div.reviews-smiles-corrected{height:<?=$iMaxH?>px; overfl
 document.write('<style>div.reviews-smiles-none{visibility:hidden;}</style>');
 </script>
 			<div class="reviews-smiles-line reviews-smiles-corrected reviews-smiles-none" id="forum_smiles_line<?=$arParams["form_index"]?>">
-<?
+<?php 
 	foreach ($arResult["SMILES"] as $res):
 		$TYPING = strtok($res['TYPING'], " ");
 ?>
-				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?
-					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?
-						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?
+				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?php 
+					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?php 
+						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?php 
 		if (intVal($res['IMAGE_WIDTH']) > 0):
-							?> width="<?=$res['IMAGE_WIDTH']?>" <?
+							?> width="<?=$res['IMAGE_WIDTH']?>" <?php 
 		endif;
 		if (intVal($res['IMAGE_HEIGHT']) > 0):
-							?> height="<?=$res['IMAGE_HEIGHT']?>" <?
+							?> height="<?=$res['IMAGE_HEIGHT']?>" <?php 
 		endif;
-						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?
+						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?php 
 					?></a></span>
-<?
+<?php 
 	endforeach;
 ?>
 			</div>
@@ -388,54 +388,54 @@ function ForumShowSmile(e)
 	forum_smile_switcher.style.visibility = 'visible';
 }
 </script>
-<?
+<?php 
 elseif ($arParams["SMILES_COUNT"] < count($arResult["SMILES"])):
 ?>
 			<div class="reviews-clear-float"></div>
 			<div class="reviews-smiles-line" id="forum_smiles_showed" style="display:<?=($arUserSettings["smiles"] == "show" ? "none" : "block")?>;">
-<?
+<?php 
 	$ii = $arParams["SMILES_COUNT"];
 	foreach ($arResult["SMILES"] as $res):
 		$TYPING = strtok($res['TYPING'], " ");
 		$ii--;
 		if ($ii < 0){break;}
 ?>
-				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?
-					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?
-						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?
+				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?php 
+					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?php 
+						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?php 
 		if (intVal($res['IMAGE_WIDTH']) > 0):
-							?> width="<?=$res['IMAGE_WIDTH']?>" <?
+							?> width="<?=$res['IMAGE_WIDTH']?>" <?php 
 		endif;
 		if (intVal($res['IMAGE_HEIGHT']) > 0):
-							?> height="<?=$res['IMAGE_HEIGHT']?>" <?
+							?> height="<?=$res['IMAGE_HEIGHT']?>" <?php 
 		endif;
-						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?
+						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?php 
 					?></a></span>
-<?
+<?php 
 	endforeach;
 ?>
 				<div class="reviews-smiles-item" style="height:<?=$iMaxH?>px;padding-top:<?=$iPaddingTop?>px;">
 					<a href="#postform" id="form_smiles_static" name="smile_show">
 						<?=GetMessage("F_SHOW_SMILE")?></a>
 				</div>
-			</div><?
+			</div><?php 
 			?><div class="reviews-smiles-line" id="forum_smiles_hidden" style="display:<?=($arUserSettings["smiles"] == "show" ? "block" : "none")?>;">
-<?
+<?php 
 	foreach ($arResult["SMILES"] as $res):
 		$TYPING = strtok($res['TYPING'], " ");
 ?>
-				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?
-					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?
-						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?
+				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?php 
+					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?php 
+						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?php 
 		if (intVal($res['IMAGE_WIDTH']) > 0):
-							?> width="<?=$res['IMAGE_WIDTH']?>" <?
+							?> width="<?=$res['IMAGE_WIDTH']?>" <?php 
 		endif;
 		if (intVal($res['IMAGE_HEIGHT']) > 0):
-							?> height="<?=$res['IMAGE_HEIGHT']?>" <?
+							?> height="<?=$res['IMAGE_HEIGHT']?>" <?php 
 		endif;
-						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?
+						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?php 
 					?></a></span>
-<?
+<?php 
 	endforeach;
 	
 ?>
@@ -443,7 +443,7 @@ elseif ($arParams["SMILES_COUNT"] < count($arResult["SMILES"])):
 					<a href="#postform" id="form_smiles_static" name="smile_hide"><?=GetMessage("F_HIDE_SMILE")?></a>
 				</div>
 			</div>
-<?
+<?php 
 else:
 ?>
 <script>
@@ -473,30 +473,30 @@ function ForumShowSmile(e)
 }
 </script>
 			<div class="reviews-smiles-line" id="forum_smiles_line<?=$arParams["form_index"]?>">
-<?
+<?php 
 	foreach ($arResult["SMILES"] as $res):
 		$TYPING = strtok($res['TYPING'], " ");
 ?>
-				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?
-					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?
-						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?
+				<span class="reviews-smiles-item" style="height:<?=$iMaxH?>px;"><?php 
+					?><a href="#postform" name="smiles" style="margin-top:<?=(round(($iMaxH - $res['IMAGE_HEIGHT'])/2))?>px;"><?php 
+						?><img src="<?=$arParams["PATH_TO_SMILE"].$res['IMAGE']?>" class="smiles"<?php 
 		if (intVal($res['IMAGE_WIDTH']) > 0):
-							?> width="<?=$res['IMAGE_WIDTH']?>" <?
+							?> width="<?=$res['IMAGE_WIDTH']?>" <?php 
 		endif;
 		if (intVal($res['IMAGE_HEIGHT']) > 0):
-							?> height="<?=$res['IMAGE_HEIGHT']?>" <?
+							?> height="<?=$res['IMAGE_HEIGHT']?>" <?php 
 		endif;
-						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?
+						?> alt="<?=$TYPING?>" title="<?=$res['NAME']?>" border="0" /><?php 
 					?></a></span>
-<?
+<?php 
 	endforeach;
 ?>
 			</div>
-<?
+<?php 
 endif;
 ?>
 			<div class="reviews-clear-float"></div>
-<?
+<?php 
 endif;
 ?>
 		</div>
@@ -505,7 +505,7 @@ endif;
 			<textarea class="post_message" cols="55" rows="14" name="REVIEW_TEXT" id="REVIEW_TEXT" tabindex="<?=$tabIndex++;?>"><?=$arResult["REVIEW_TEXT"];?></textarea>
 		</div>
 		
-<?
+<?php 
 
 /* CAPTHCA */
 if (strLen($arResult["CAPTCHA_CODE"]) > 0):
@@ -520,13 +520,13 @@ if (strLen($arResult["CAPTCHA_CODE"]) > 0):
 				<img src="/bitrix/tools/captcha.php?captcha_code=<?=$arResult["CAPTCHA_CODE"]?>" alt="<?=GetMessage("F_CAPTCHA_TITLE")?>" />
 			</div>
 		</div>
-<?
+<?php 
 endif;
 /* ATTACH FILES */
 if ($arResult["SHOW_PANEL_ATTACH_IMG"] == "Y"):
 ?>
 		<div class="reviews-reply-field reviews-reply-field-upload">
-<?
+<?php 
 $iCount = 0;
 if (!empty($arResult["REVIEW_FILES"])):
 	foreach ($arResult["REVIEW_FILES"] as $key => $val):
@@ -549,7 +549,7 @@ if (!empty($arResult["REVIEW_FILES"])):
 					( <a href="/bitrix/components/bitrix/forum.interface/show_file.php?action=download&amp;fid=<?=$key?>"><?=GetMessage("F_DOWNLOAD")?></a> )
 				</label>
 			</div>
-<?
+<?php 
 	endforeach;
 endif;
 
@@ -566,16 +566,16 @@ elseif ($size["MB"] >= 1 )
 	$sFileSize = $size["MB"].GetMessage("F_MB");
 ?>
 			<div class="reviews-upload-info" style="display:none;" id="upload_files_info_<?=$arParams["form_index"]?>">
-<?
+<?php 
 if ($arParams["FORUM"]["ALLOW_UPLOAD"] == "F"):
 ?>
 				<span><?=str_replace("#EXTENSION#", $arParams["FORUM"]["ALLOW_UPLOAD_EXT"], GetMessage("F_FILE_EXTENSION"))?></span>
-<?
+<?php 
 endif;
 ?>
 				<span><?=str_replace("#SIZE#", $sFileSize, GetMessage("F_FILE_SIZE"))?></span>
 			</div>
-<?
+<?php 
 			
 	for ($ii = $iCount; $ii < $arParams["FILES_COUNT"]; $ii++):
 ?>
@@ -583,56 +583,56 @@ endif;
 			<div class="reviews-upload-file" style="display:none;" id="upload_files_<?=$ii?>_<?=$arParams["form_index"]?>">
 				<input name="FILE_NEW_<?=$ii?>" type="file" value="" size="30" />
 			</div>
-<?
+<?php 
 	endfor;
 ?>
 			<a href="javascript:void(0);" onclick="AttachFile('<?=$iCount?>', '<?=($ii - $iCount)?>', '<?=$arParams["form_index"]?>', this); return false;">
 				<span><?=($arResult["FORUM"]["ALLOW_UPLOAD"]=="Y") ? GetMessage("F_LOAD_IMAGE") : GetMessage("F_LOAD_FILE") ?></span>
 			</a>
-<?
+<?php 
 endif;
 ?>
 		</div>
-<?
+<?php 
 endif;
 ?>
 		<div class="reviews-reply-field reviews-reply-field-settings">
-<?
+<?php 
 /* SMILES */
 if ($arResult["FORUM"]["ALLOW_SMILES"] == "Y"):
 ?>
 			<div class="reviews-reply-field-setting">
-				<input type="checkbox" name="REVIEW_USE_SMILES" id="REVIEW_USE_SMILES<?=$arParams["form_index"]?>" <?
-				?>value="Y" <?=($arResult["REVIEW_USE_SMILES"]=="Y") ? "checked=\"checked\"" : "";?> <?
-				?>tabindex="<?=$tabIndex++;?>" /><?
+				<input type="checkbox" name="REVIEW_USE_SMILES" id="REVIEW_USE_SMILES<?=$arParams["form_index"]?>" <?php 
+				?>value="Y" <?=($arResult["REVIEW_USE_SMILES"]=="Y") ? "checked=\"checked\"" : "";?> <?php 
+				?>tabindex="<?=$tabIndex++;?>" /><?php 
 			?>&nbsp;<label for="REVIEW_USE_SMILES<?=$arParams["form_index"]?>"><?=GetMessage("F_WANT_ALLOW_SMILES")?></label></div>
-<?
+<?php 
 endif;
 /* SUBSCRIBE */
 if ($arResult["SHOW_SUBSCRIBE"] == "Y"):
 ?>
 			<div class="reviews-reply-field-setting">
-				<input type="checkbox" name="TOPIC_SUBSCRIBE" id="TOPIC_SUBSCRIBE<?=$arParams["form_index"]?>" value="Y" <?
-					?><?=($arResult["TOPIC_SUBSCRIBE"] == "Y")? "checked disabled " : "";?> tabindex="<?=$tabIndex++;?>" /><?
+				<input type="checkbox" name="TOPIC_SUBSCRIBE" id="TOPIC_SUBSCRIBE<?=$arParams["form_index"]?>" value="Y" <?php 
+					?><?=($arResult["TOPIC_SUBSCRIBE"] == "Y")? "checked disabled " : "";?> tabindex="<?=$tabIndex++;?>" /><?php 
 				?>&nbsp;<label for="TOPIC_SUBSCRIBE<?=$arParams["form_index"]?>"><?=GetMessage("F_WANT_SUBSCRIBE_TOPIC")?></label></div>
-<?
+<?php 
 	if ($arResult["FORUM_SUBSCRIBE"] == "Y"):
 ?>			<div class="reviews-reply-field-setting">
-				<input type="checkbox" name="FORUM_SUBSCRIBE" id="FORUM_SUBSCRIBE<?=$arParams["form_index"]?>" value="Y" <?
-				?><?=($arResult["FORUM_SUBSCRIBE"] == "Y")? "checked disabled " : "";?> tabindex="<?=$tabIndex++;?>"/><?
+				<input type="checkbox" name="FORUM_SUBSCRIBE" id="FORUM_SUBSCRIBE<?=$arParams["form_index"]?>" value="Y" <?php 
+				?><?=($arResult["FORUM_SUBSCRIBE"] == "Y")? "checked disabled " : "";?> tabindex="<?=$tabIndex++;?>"/><?php 
 				?>&nbsp;<label for="FORUM_SUBSCRIBE<?=$arParams["form_index"]?>"><?=GetMessage("F_WANT_SUBSCRIBE_FORUM")?></label></div>
-<?
+<?php 
 	endif;
 endif;
 ?>
 		</div>
-<?
+<?php 
 
 ?>
 		<div class="reviews-reply-buttons">
-			<input name="send_button" type="submit" value="<?=GetMessage("OPINIONS_SEND")?>" tabindex="<?=$tabIndex++;?>" <?
+			<input name="send_button" type="submit" value="<?=GetMessage("OPINIONS_SEND")?>" tabindex="<?=$tabIndex++;?>" <?php 
 				?>onclick="this.form.preview_comment.value = 'N';" />
-			<input name="view_button" type="submit" value="<?=GetMessage("OPINIONS_PREVIEW")?>" tabindex="<?=$tabIndex++;?>" <?
+			<input name="view_button" type="submit" value="<?=GetMessage("OPINIONS_PREVIEW")?>" tabindex="<?=$tabIndex++;?>" <?php 
 				?>onclick="this.form.preview_comment.value = 'VIEW';" />
 		</div>
 
@@ -695,11 +695,11 @@ if (typeof oHelp != "object")
 
 function reply2author(name)
 {
-	<?if ($arResult["FORUM"]["ALLOW_BIU"] == "Y"):?>
+	<?php if ($arResult["FORUM"]["ALLOW_BIU"] == "Y"):?>
 	document.REPLIER.REVIEW_TEXT.value += "[B]"+name+"[/B] \n";
-	<?else:?>
+	<?php else:?>
 	document.REPLIER.REVIEW_TEXT.value += name+" \n";
-	<?endif;?>
+	<?php endif;?>
 	return false;
 }
 </script>

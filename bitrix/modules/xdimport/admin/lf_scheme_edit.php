@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -474,7 +474,7 @@ if(is_object($message))
 ?><style type="text/css">
 	input.xdimport-finduser-input { margin: 0; width: 85px;}
 </style>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform"><?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform"><?php 
 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
@@ -486,7 +486,7 @@ $tabControl->BeginNextTab();
 			<td><?=GetMessage("LFP_SCHEME_EDIT_ID")?>:</td>
 			<td><?=$ID;?></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	<tr>
@@ -495,7 +495,7 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td><?=GetMessage("LFP_SCHEME_EDIT_ACTIVE")?>:</td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<?if($arRes["ACTIVE"] === "Y") echo " checked"?>></td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php if($arRes["ACTIVE"] === "Y") echo " checked"?>></td>
 	</tr>
 	<tr id="LID_ROW">
 		<td><?=GetMessage("LFP_SCHEME_EDIT_SITE")?>:</td>
@@ -554,16 +554,16 @@ $tabControl->BeginNextTab();
 	<tr class="adm-detail-required-field">
 		<td><?=GetMessage("LFP_SCHEME_EDIT_ENTITY_TYPE")?>:</td>
 		<td>
-		<select name="ENTITY_TYPE" id="LF_ENTITY_TYPE" onchange="__LFPSchemeChangeEntityType(this)"><?
+		<select name="ENTITY_TYPE" id="LF_ENTITY_TYPE" onchange="__LFPSchemeChangeEntityType(this)"><?php 
 			foreach ($arEntityTypes as $entity_type => $entity_type_title):
-				?><option value="<?=$entity_type?>"<?=($entity_type == $arRes["ENTITY_TYPE"] ? " selected" : "")?>><?=$entity_type_title?></option><?
+				?><option value="<?=$entity_type?>"<?=($entity_type == $arRes["ENTITY_TYPE"] ? " selected" : "")?>><?=$entity_type_title?></option><?php 
 			endforeach;
 		?></select>
 		<script type="text/javascript">
 			var arSchemeEventTypes = [];
 			var arSchemeEvents = [];
 			var arEventsCnt = [];
-			<?
+			<?php 
 			$arEventsCnt = array();
 			foreach ($arEvents as $entity_type => $arTmp)
 			{
@@ -730,7 +730,7 @@ $tabControl->BeginNextTab();
 				}
 			);
 		</script>
-		<? if (intval($arRes["ENTITY_ID"]) > 0 && !in_array($arRes["ENTITY_TYPE"], array(SONET_SUBSCRIBE_ENTITY_GROUP, SONET_SUBSCRIBE_ENTITY_USER, SONET_SUBSCRIBE_ENTITY_NEWS, SONET_SUBSCRIBE_ENTITY_PROVIDER))):?>
+		<?php  if (intval($arRes["ENTITY_ID"]) > 0 && !in_array($arRes["ENTITY_TYPE"], array(SONET_SUBSCRIBE_ENTITY_GROUP, SONET_SUBSCRIBE_ENTITY_USER, SONET_SUBSCRIBE_ENTITY_NEWS, SONET_SUBSCRIBE_ENTITY_PROVIDER))):?>
 			<script type="text/javascript">
 				BX.ready(function()
 					{
@@ -738,7 +738,7 @@ $tabControl->BeginNextTab();
 					}
 				);
 			</script>
-		<? endif;?>
+		<?php  endif;?>
 		<span id="LF_ENTITY_DESC" style="display: inline-block;"></span>
 		</td>
 	</tr>
@@ -748,45 +748,45 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr id="LF_ENTITY_ID_GROUP_ROW" style="display: <?=(in_array($arRes["ENTITY_TYPE"], array(SONET_SUBSCRIBE_ENTITY_GROUP)) ? "table-row" : "none")?>;">
 		<td><?=GetMessage("LFP_SCHEME_EDIT_ENTITY_ID_GROUP")?>:</td>
-		<td><? 
+		<td><?php  
 		foreach($arSites as $site_id_tmp)
 		{
 			if (array_key_exists($site_id_tmp, $arSocNetGroupTmp) && count($arSocNetGroupTmp[$site_id_tmp]["REFERENCE_ID"]) > 0)
 			{
-				?><span id="LF_ENTITY_ID_GROUP_<?=$site_id_tmp?>_ROW" style="display: <?=($arRes["LID"] == $site_id_tmp ? "inline-block" : "none")?>;"><?
+				?><span id="LF_ENTITY_ID_GROUP_<?=$site_id_tmp?>_ROW" style="display: <?=($arRes["LID"] == $site_id_tmp ? "inline-block" : "none")?>;"><?php 
 					echo SelectBoxFromArray("ENTITY_ID_GROUP_".$site_id_tmp, $arSocNetGroupTmp[$site_id_tmp], intval($arRes["ENTITY_ID"]), "", "", false, "editform");
-				?></span><?
+				?></span><?php 
 			}
 		}
 		?></td>
 	</tr>
-	<?
+	<?php 
 	if (in_array(SONET_SUBSCRIBE_ENTITY_NEWS, $arSocNetAllowedSubscribeEntityTypes))
 	{
 		?>
 		<tr id="LF_ENTITY_ID_NEWS_ROW" style="display: <?=(in_array($arRes["ENTITY_TYPE"], array(SONET_SUBSCRIBE_ENTITY_NEWS)) ? "table-row" : "none")?>;">
 			<td><?=GetMessage("LFP_SCHEME_EDIT_ENTITY_ID_NEWS")?>:</td>
-			<td><? 
+			<td><?php  
 			foreach($arSites as $site_id_tmp)
 			{
 				if (array_key_exists($site_id_tmp, $arIBlockTmp) && count($arIBlockTmp[$site_id_tmp]["REFERENCE_ID"]) > 0)
 				{
-					?><span id="LF_ENTITY_ID_NEWS_<?=$site_id_tmp?>_ROW" style="display: <?=($arRes["LID"] == $site_id_tmp ? "inline-block" : "none")?>;"><?
+					?><span id="LF_ENTITY_ID_NEWS_<?=$site_id_tmp?>_ROW" style="display: <?=($arRes["LID"] == $site_id_tmp ? "inline-block" : "none")?>;"><?php 
 						echo SelectBoxFromArray("ENTITY_ID_NEWS_".$site_id_tmp, $arIBlockTmp[$site_id_tmp], intval($arRes["ENTITY_ID"]), "", "", false, "editform");
-					?></span><?
+					?></span><?php 
 				}
 			}
 			?></td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
 	<tr id="LF_EVENT_ID_ROW" style="display: <?=($arEventsCnt[$arRes["ENTITY_TYPE"]] != 1 && in_array($arRes["ENTITY_TYPE"], array(SONET_SUBSCRIBE_ENTITY_GROUP, SONET_SUBSCRIBE_ENTITY_USER)) ? "table-row" : "none")?>;">
 		<td class="adm-detail-required-field"><?=GetMessage("LFP_SCHEME_EDIT_EVENT_ID")?>:</td>
-		<td id="lfp_events_container"><?
+		<td id="lfp_events_container"><?php 
 		foreach ($arEntityTypes as $entity_type => $entity_type_title)
 		{
-			?><div id="LF_EVENT_ID_<?=$entity_type?>_DIV" style="display: <?=($entity_type == $arRes["ENTITY_TYPE"] ? "block" : "none")?>;"><?
+			?><div id="LF_EVENT_ID_<?=$entity_type?>_DIV" style="display: <?=($entity_type == $arRes["ENTITY_TYPE"] ? "block" : "none")?>;"><?php 
 				if ($arEventsCnt[$entity_type] == 1)
 				{
 						$tmpVal = "";
@@ -801,12 +801,12 @@ $tabControl->BeginNextTab();
 								break;
 							}
 						}
-					?><input type="hidden" name="EVENT_ID_<?=$entity_type?>" value="<?=$tmpVal?>"><?
+					?><input type="hidden" name="EVENT_ID_<?=$entity_type?>" value="<?=$tmpVal?>"><?php 
 				}
 				else
 				{
 					?><select name="EVENT_ID_<?=$entity_type?>">
-						<option value=""><?=GetMessage("LFP_SCHEME_EDIT_SELECT_EMPTY")?></option><?
+						<option value=""><?=GetMessage("LFP_SCHEME_EDIT_SELECT_EMPTY")?></option><?php 
 						foreach ($arEvents[$entity_type] as $event_id => $arEventTmp)
 						{
 							if (
@@ -814,19 +814,19 @@ $tabControl->BeginNextTab();
 								|| ($event_id == $arRes["EVENT_ID"])
 							)
 							{
-								?><option value="<?=$event_id?>"<?=($event_id == $arRes["EVENT_ID"] ? " selected" : "")?>>[<?=$event_id?>] <?=$arEventTmp["TITLE"]?></option><?
+								?><option value="<?=$event_id?>"<?=($event_id == $arRes["EVENT_ID"] ? " selected" : "")?>>[<?=$event_id?>] <?=$arEventTmp["TITLE"]?></option><?php 
 							}
 						}
-					?></select><?
+					?></select><?php 
 				}
-			?></div><?
+			?></div><?php 
 		}
 		?></td>
 	</tr>
 	<tr id="LF_RIGHTS_ROW" style="display: <?=($arRes["ENTITY_TYPE"] == SONET_SUBSCRIBE_ENTITY_PROVIDER ? "table-row" : "none")?>;" class="adm-detail-required-field">
 		<td class="adm-detail-valign-top"><?=GetMessage("LFP_SCHEME_EDIT_RIGHTS")?>:</td>
 		<td id="lfp_rights_container">
-		<?
+		<?php 
 		foreach ($arEntityTypes as $entity_type => $entity_type_title):
 			if ($entity_type == SONET_SUBSCRIBE_ENTITY_PROVIDER):
 				?>
@@ -851,7 +851,7 @@ $tabControl->BeginNextTab();
 					<span id="LF_RIGHTS_USER_US" style="display: <?=(is_array($arRes["RIGHTS_USER_ID"]) && !in_array($arRes["RIGHTS_USER_ID"][0], array("UA", "UN")) ? "block" : "none")?>;">
 						<table>
 						<tbody>
-						<?
+						<?php 
 						if (
 							is_array($arRes["RIGHTS_USER_ID"])
 							&& !empty($arRes["RIGHTS_USER_ID"])
@@ -862,7 +862,7 @@ $tabControl->BeginNextTab();
 							{
 								?><tr>
 									<td>
-										<a href="javascript:void(0)" onClick="lfpDropRow(this)" style="display: inline-block; vertical-align: middle; cursor: pointer;"><img border="0" width="20" height="20" src="/bitrix/themes/.default/images/actions/delete_button.gif"></a><?
+										<a href="javascript:void(0)" onClick="lfpDropRow(this)" style="display: inline-block; vertical-align: middle; cursor: pointer;"><img border="0" width="20" height="20" src="/bitrix/themes/.default/images/actions/delete_button.gif"></a><?php 
 										$sUser = "";
 										if($user_id_tmp > 0)
 										{
@@ -881,7 +881,7 @@ $tabControl->BeginNextTab();
 											});
 										</script>
 									</td>
-								</tr><?
+								</tr><?php 
 							}
 							$max_key = $key;
 						}
@@ -889,7 +889,7 @@ $tabControl->BeginNextTab();
 						{
 							?><tr>
 								<td>
-									<span style="display: inline-block; width: 20px; height: 20px;"></span><?
+									<span style="display: inline-block; width: 20px; height: 20px;"></span><?php 
 									echo FindUserID("RIGHTS_USER_ID_0", "", "", "editform", "10", "", "...", "xdimport-finduser-input", "");?>
 									<script type="text/javascript">
 										BX.ready(function() { 
@@ -899,7 +899,7 @@ $tabControl->BeginNextTab();
 										});
 									</script>
 								</td>
-							</tr><?
+							</tr><?php 
 							$max_key = 0;
 						}
 						?>
@@ -1055,7 +1055,7 @@ $tabControl->BeginNextTab();
 
 					</script>
 				</div>
-				<?
+				<?php 
 			endif;
 		endforeach;?>
 		</td>
@@ -1064,14 +1064,14 @@ $tabControl->BeginNextTab();
 		<td><?=GetMessage("LFP_SCHEME_EDIT_ENABLE_COMMENTS")?>:</td>
 		<td width="60%"><input type="checkbox" name="ENABLE_COMMENTS" value="Y"<?=($arRes["ENABLE_COMMENTS"] === "Y" ? " checked" : "")?>></td>
 	</tr>
-	<?
+	<?php 
 	if (in_array($scheme_type, array("XML", "RSS")))
 	{
 		?>
 		<tr class="heading">
 			<td colspan="2"><?=GetMessage("LFP_SCHEME_EDIT_SOURCE")?></td>
 		</tr>
-		<?
+		<?php 
 		if ($scheme_type == "XML")
 		{
 			?>
@@ -1094,7 +1094,7 @@ $tabControl->BeginNextTab();
 
 									BX("LF_METHOD").value = "GetLiveFeedData";
 									if (BX("LF_PARAMS").value.length == 0)
-										BX("LF_PARAMS").value = "lang=<?echo LANGUAGE_ID?>";
+										BX("LF_PARAMS").value = "lang=<?php echo LANGUAGE_ID?>";
 								
 									if (el.options[el.selectedIndex].value == "stat")
 										BX("LF_PAGE").value = "/bitrix/tools/stat_gadget.php";
@@ -1117,21 +1117,21 @@ $tabControl->BeginNextTab();
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 		?>
 		<tr id="LF_URI_ROW" style="display: <?=(strlen($predefined) > 0 ? "none" : "table-row")?>;" class="adm-detail-required-field">
-			<td><?echo GetMessage("LFP_SCHEME_EDIT_URI")?>:</td>
+			<td><?php echo GetMessage("LFP_SCHEME_EDIT_URI")?>:</td>
 			<td><input id="LF_URI" type="text" size="50" name="URI" value="<?=HtmlFilter::encode($arRes["URI"])?>"></td>
 		</tr>
 		<tr id="LF_HOST_ROW" style="display: <?=(strlen($predefined) > 0 ? "table-row" : "none")?>;" class="adm-detail-required-field">
-			<td><?echo GetMessage("LFP_SCHEME_EDIT_HOST")?>:</td>
+			<td><?php echo GetMessage("LFP_SCHEME_EDIT_HOST")?>:</td>
 			<td>
 				<input id="LF_HOST" type="text" size="50" name="HOST" value="<?=HtmlFilter::encode($arRes["HOST"]).(intval($arRes["PORT"]) > 0 ? ":".HtmlFilter::encode($arRes["PORT"]) : "")?>">
 				<input id="LF_PAGE" type="hidden" name="PAGE" value="<?=HtmlFilter::encode($arRes["PAGE"])?>">
 			</td>
 		</tr>
-		<?
+		<?php 
 		if ($scheme_type == "XML")
 		{
 			?><tr id="LF_METHOD_ROW" style="display: <?=(strlen($predefined) > 0 ? "none" : "table-row")?>;">
@@ -1149,15 +1149,15 @@ $tabControl->BeginNextTab();
 			<tr>
 				<td><?=GetMessage("LFP_SCHEME_EDIT_PASSWORD")?>:</td>
 				<td><input type="password" size="20" name="PASSWORD" value="<?=HtmlFilter::encode($arRes["PASSWORD"])?>"></td>
-			</tr><?
+			</tr><?php 
 		}
 
 		if (in_array($scheme_type, array("RSS")))
 		{
 			?><tr id="LF_IS_HTML_ROW">
 				<td><?=GetMessage("LFP_SCHEME_EDIT_IS_HTML_".$scheme_type)?>:</td>
-				<td><input type="checkbox" id="IS_HTML" name="IS_HTML" value="Y"<?if($arRes["IS_HTML"] === "Y") echo " checked"?>></td>
-			</tr><?
+				<td><input type="checkbox" id="IS_HTML" name="IS_HTML" value="Y"<?php if($arRes["IS_HTML"] === "Y") echo " checked"?>></td>
+			</tr><?php 
 		}
 	}
 	elseif (in_array($scheme_type, array("POST")))
@@ -1168,7 +1168,7 @@ $tabControl->BeginNextTab();
 		</tr>
 		<tr>
 			<td><?=GetMessage("LFP_SCHEME_EDIT_POINT_PAGE")?>:</td>
-			<td><?
+			<td><?php 
 				$server_name = COption::GetOptionString("main", "server_name", $GLOBALS["SERVER_NAME"]);
 				$protocol = (CMain::IsHTTPS() ? "https" : "http");
 				$point_page = $protocol."://".$server_name.COption::GetOptionString("xdimport", "point_page", "/bitrix/tools/xdi_livefeed.php");
@@ -1203,14 +1203,14 @@ $tabControl->BeginNextTab();
 								}
 							}
 							</script>
-							<?
+							<?php 
 							if (intval($ID) > 0)
 							{
 								?>
 								<span id="LF_HASH_SPAN"><?=HtmlFilter::encode($arRes["HASH"])?></span>
 								<input type="hidden" id="LF_HASH" name="HASH" value="<?=HtmlFilter::encode($arRes["HASH"])?>">
 								<a href="#" onclick="__LFPSchemeClearHash(); return false;"><?=GetMessage("LFP_SCHEME_EDIT_POINT_HASH_CHANGE")?></a>
-								<?
+								<?php 
 							}
 							else
 							{
@@ -1227,7 +1227,7 @@ $tabControl->BeginNextTab();
 						<td><?=GetMessage("LFP_SCHEME_EDIT_POINT_MESSAGE")?></td>
 					</tr>
 					<tr id="LF_IS_HTML_ROW">
-						<td><input type="checkbox" id="IS_HTML" name="IS_HTML" value="Y"<?if($arRes["IS_HTML"] === "Y") echo " checked"?>></td>
+						<td><input type="checkbox" id="IS_HTML" name="IS_HTML" value="Y"<?php if($arRes["IS_HTML"] === "Y") echo " checked"?>></td>
 						<td><?=GetMessage("LFP_SCHEME_EDIT_IS_HTML_".$scheme_type)?></td>
 					</tr>
 					<tr>
@@ -1242,10 +1242,10 @@ $tabControl->BeginNextTab();
 				</table>
 			</td>
 		</tr>
-		<?
+		<?php 
 	}
 	?>
-<?
+<?php 
 if (in_array($scheme_type, array("XML", "RSS")))
 {
 	?>
@@ -1258,12 +1258,12 @@ if (in_array($scheme_type, array("XML", "RSS")))
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td class="adm-detail-valign-top adm-detail-content-cell-l"><?=GetMessage("LFP_SCHEME_EDIT_DAYS")?></td>
-			<td class="adm-detail-content-cell-r"><table cellspacing=0 cellpadding=0 border=0><?
+			<td class="adm-detail-content-cell-r"><table cellspacing=0 cellpadding=0 border=0><?php 
 			?><tr>
 				<td><div style="margin-bottom: 10px;"><?=GetMessage("LFP_SCHEME_EDIT_DOM")?></div><input class="typeinput" type="text" name="DAYS_OF_MONTH" value="<?=HtmlFilter::encode($arRes["DAYS_OF_MONTH"])?>" size="30" maxlength="100"></td>
 			</tr>
 			<tr>
-				<td><div style="margin: 10px 0 10px 0;"><?=GetMessage("LFP_SCHEME_EDIT_DOW")?></div><table cellspacing=1 cellpadding=0 border=0 class="internal"><?
+				<td><div style="margin: 10px 0 10px 0;"><?=GetMessage("LFP_SCHEME_EDIT_DOW")?></div><table cellspacing=1 cellpadding=0 border=0 class="internal"><?php 
 					$arDoW = array(
 						"1" => GetMessage("LFP_SCHEME_EDIT_MON"),
 						"2" => GetMessage("LFP_SCHEME_EDIT_TUE"),
@@ -1273,23 +1273,23 @@ if (in_array($scheme_type, array("XML", "RSS")))
 						"6" => GetMessage("LFP_SCHEME_EDIT_SAT"),
 						"7" => GetMessage("LFP_SCHEME_EDIT_SUN")
 					);
-					?><tr class="heading"><?foreach($arDoW as $strVal=>$strDoW):
-						?><td><?=$strDoW?></td><?
+					?><tr class="heading"><?php foreach($arDoW as $strVal=>$strDoW):
+						?><td><?=$strDoW?></td><?php 
 					endforeach;?></tr>
-					<tr><?
+					<tr><?php 
 					foreach($arDoW as $strVal=>$strDoW):
-						?><td style="text-align: center;"><input type="checkbox" name="DAYS_OF_WEEK[]" value="<?=$strVal?>"<?if(array_search($strVal, $DAYS_OF_WEEK) !== false) echo " checked"?>></td><?
+						?><td style="text-align: center;"><input type="checkbox" name="DAYS_OF_WEEK[]" value="<?=$strVal?>"<?php if(array_search($strVal, $DAYS_OF_WEEK) !== false) echo " checked"?>></td><?php 
 					endforeach;
 					?></tr>
 				</table></td>
-			</tr><?
+			</tr><?php 
 			?></table></td>
 		</tr>
 		<tr class="adm-detail-required-field">
 			<td><?=GetMessage("LFP_SCHEME_EDIT_TOD")?></td>
 			<td><input type="text" name="TIMES_OF_DAY" value="<?=HtmlFilter::encode($arRes["TIMES_OF_DAY"])?>" size="30" maxlength="255"></td>
 		</tr>
-	<?
+	<?php 
 }
 $tabControl->Buttons(
 	array(
@@ -1297,16 +1297,16 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
+<?php echo bitrix_sessid_post();?>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 <input type="hidden" name="ID" value="<?=$ID?>">
 <input type="hidden" name="TYPE" value="<?=HtmlFilter::encode($scheme_type)?>">
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("editform", $message);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

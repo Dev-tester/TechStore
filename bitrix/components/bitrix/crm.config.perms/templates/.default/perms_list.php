@@ -32,37 +32,37 @@ $APPLICATION->IncludeComponent(
 if($arResult['NEED_FOR_REBUILD_COMPANY_ATTRS']):
 	?><div id="rebuildCompanyAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONFIG_PERMS_REBUILD_COMPANY_ATTRS', array('#ID#' => 'rebuildCompanyAttrsLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_CONTACT_ATTRS']):
 	?><div id="rebuildContactAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONFIG_PERMS_REBUILD_CONTACT_ATTRS', array('#ID#' => 'rebuildContactAttrsLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_DEAL_ATTRS']):
 	?><div id="rebuildDealAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONFIG_PERMS_REBUILD_DEAL_ATTRS', array('#ID#' => 'rebuildDealAttrsLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_LEAD_ATTRS']):
 	?><div id="rebuildLeadAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONFIG_PERMS_REBUILD_LEAD_ATTRS', array('#ID#' => 'rebuildLeadAttrsLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_QUOTE_ATTRS']):
 	?><div id="rebuildQuoteAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONFIG_PERMS_REBUILD_QUOTE_ATTRS', array('#ID#' => 'rebuildQuoteAttrsLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 if($arResult['NEED_FOR_REBUILD_INVOICE_ATTRS']):
 	?><div id="rebuildInvoiceAttrsMsg" class="crm-view-message">
 		<?=GetMessage('CRM_CONFIG_PERMS_REBUILD_INVOICE_ATTRS', array('#ID#' => 'rebuildInvoiceAttrsLink', '#URL#' => '#'))?>
-	</div><?
+	</div><?php 
 endif;
 
 $APPLICATION->IncludeComponent(
@@ -268,5 +268,5 @@ BX.ready(
 		}
 	}
 );
-</script><?
+</script><?php 
 endif;

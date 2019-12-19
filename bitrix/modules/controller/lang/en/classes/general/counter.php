@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_COUNTER_TYPE_INT"] = "Integer";
 $MESS["CTRL_COUNTER_TYPE_FLOAT"] = "Number";
 $MESS["CTRL_COUNTER_TYPE_STRING"] = "String";

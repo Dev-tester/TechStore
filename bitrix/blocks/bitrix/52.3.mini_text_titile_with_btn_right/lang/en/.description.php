@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_52_3-BTN"] = "Button";
 $MESS["LANDING_BLOCK_52_3-CONTAINER"] = "Items";
 $MESS["LANDING_BLOCK_52_3-NAME"] = "Text arranges in two rows; button on the right";

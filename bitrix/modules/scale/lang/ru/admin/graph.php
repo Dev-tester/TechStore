@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SCALE_GRAPH_TITLE'] = "Графики нагрузки";
 $MESS ['SCALE_GRAPH_ACCESS_DENIED'] = "Доступ запрещен";
 $MESS ['SCALE_GRAPH_MODULE_NOT_INSTALLED'] = "Ошибка подключения модуля \"Управление масштабированием\"";

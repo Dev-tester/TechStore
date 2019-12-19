@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDERBUILDER_DATE_BILL_ERROR"] = "The \"Created on\" field is incorrect";
 $MESS["CRM_ORDERBUILDER_DATE_CANCELED_ERROR"] = "The \"Canceled on\" field is incorrect";
 $MESS["CRM_ORDERBUILDER_DATE_DEDUCTED_ERROR"] = "The \"Shipped status modified on\" field is incorrect";

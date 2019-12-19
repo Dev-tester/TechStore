@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FILTER_PERIOD_TYPE_UNDEFINED"] = "не выбран";
 $MESS["CRM_FILTER_PERIOD_TYPE_YEAR"] = "Год";
 $MESS["CRM_FILTER_PERIOD_TYPE_QUARTER"] = "Квартал";

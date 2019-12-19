@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); 
 
 use Bitrix\Main\Localization\Loc;
@@ -13,12 +13,12 @@ CJSCore::Init('tasks_style_legacy');
 
 <div id="bx-component-scope-<?=$templateId?>" class="task-template-selector">
 
-	<?$hasButton = $arParams['TEMPLATE_DATA']['BUTTON_LABEL'] != '';?>
+	<?php $hasButton = $arParams['TEMPLATE_DATA']['BUTTON_LABEL'] != '';?>
 
 	<button data-bx-id="templateselector-open" class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-dropdown" title="<?=Loc::getMessage('TASKS_TTDP_TEMPLATESELECTOR_CREATE_HINT')?>">
-		<?if($hasButton):?>
+		<?php if($hasButton):?>
 			<?=htmlspecialcharsbx($arParams['TEMPLATE_DATA']['BUTTON_LABEL'])?>
-		<?endif?>
+		<?php endif?>
 	</button>
 
 </div>

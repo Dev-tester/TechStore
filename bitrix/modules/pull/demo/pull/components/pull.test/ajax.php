@@ -1,4 +1,4 @@
-<?
+<?php 
 // special constants for creating very fast ajax response
 define("PULL_AJAX_INIT", true);
 define("PUBLIC_AJAX_MODE", true);

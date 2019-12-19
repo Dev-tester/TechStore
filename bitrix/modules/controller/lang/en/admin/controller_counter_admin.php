@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_CNT_ADMIN_FILTER_GROUP"] = "Group";
 $MESS["CTRL_CNT_ADMIN_FILTER_ANY"] = "(any)";
 $MESS["CTRL_CNT_ADMIN_TITLE"] = "Counters";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main,
 	Bitrix\Main\Loader,
 	Bitrix\Iblock;
@@ -748,15 +748,15 @@ function IBlockShowRights($entity_type, $iblock_id, $id, $section_title, $variab
 					<?=CUtil::PhpToJsObject($arHighLight)?>
 				);
 			</script>
-			<table width="100%" class="internal" id="<?echo htmlspecialcharsbx($table_id)?>" align="center">
-			<?if($section_title != ""):?>
-			<tr id="<?echo $html_var_name?>_heading" class="heading">
+			<table width="100%" class="internal" id="<?php echo htmlspecialcharsbx($table_id)?>" align="center">
+			<?php if($section_title != ""):?>
+			<tr id="<?php echo $html_var_name?>_heading" class="heading">
 				<td colspan="2">
-					<?echo $section_title?>
+					<?php echo $section_title?>
 				</td>
 			</tr>
-			<?endif?>
-			<?
+			<?php endif?>
+			<?php 
 			$arNames = array();
 			foreach($arActualRights as $arRightSet)
 				$arNames[] = $arRightSet["GROUP_CODE"];
@@ -769,18 +769,18 @@ function IBlockShowRights($entity_type, $iblock_id, $id, $section_title, $variab
 				if($bForceInherited || $arRightSet["IS_INHERITED"] == "Y")
 				{
 					?>
-					<tr class="<?echo $html_var_name?>_row_for_<?echo htmlspecialcharsbx($arRightSet["GROUP_CODE"])?><?if($arRightSet["IS_OVERWRITED"] == "Y") echo " iblock-strike-out";?>">
-						<td style="width:40%!important; text-align:right"><?echo htmlspecialcharsex($arNames[$arRightSet["GROUP_CODE"]]["provider"]." ".$arNames[$arRightSet["GROUP_CODE"]]["name"])?>:</td>
+					<tr class="<?php echo $html_var_name?>_row_for_<?php echo htmlspecialcharsbx($arRightSet["GROUP_CODE"])?><?php if($arRightSet["IS_OVERWRITED"] == "Y") echo " iblock-strike-out";?>">
+						<td style="width:40%!important; text-align:right"><?php echo htmlspecialcharsex($arNames[$arRightSet["GROUP_CODE"]]["provider"]." ".$arNames[$arRightSet["GROUP_CODE"]]["name"])?>:</td>
 						<td align="left">
-							<?if($arRightSet["IS_OVERWRITED"] != "Y"):?>
-							<input type="hidden" name="<?echo $html_var_name?>[][RIGHT_ID]" value="<?echo htmlspecialcharsbx($RIGHT_ID)?>">
-							<input type="hidden" name="<?echo $html_var_name?>[][GROUP_CODE]" value="<?echo htmlspecialcharsbx($arRightSet["GROUP_CODE"])?>">
-							<input type="hidden" name="<?echo $html_var_name?>[][TASK_ID]" value="<?echo htmlspecialcharsbx($arRightSet["TASK_ID"])?>">
-							<?endif;?>
-							<?echo htmlspecialcharsex($arPossibleRights[$arRightSet["TASK_ID"]])?>
+							<?php if($arRightSet["IS_OVERWRITED"] != "Y"):?>
+							<input type="hidden" name="<?php echo $html_var_name?>[][RIGHT_ID]" value="<?php echo htmlspecialcharsbx($RIGHT_ID)?>">
+							<input type="hidden" name="<?php echo $html_var_name?>[][GROUP_CODE]" value="<?php echo htmlspecialcharsbx($arRightSet["GROUP_CODE"])?>">
+							<input type="hidden" name="<?php echo $html_var_name?>[][TASK_ID]" value="<?php echo htmlspecialcharsbx($arRightSet["TASK_ID"])?>">
+							<?php endif;?>
+							<?php echo htmlspecialcharsex($arPossibleRights[$arRightSet["TASK_ID"]])?>
 						</td>
 					</tr>
-					<?
+					<?php 
 				}
 			}
 
@@ -792,18 +792,18 @@ function IBlockShowRights($entity_type, $iblock_id, $id, $section_title, $variab
 					{
 					?>
 					<tr>
-						<td style="width:40%!important; text-align:right; vertical-align:middle"><?echo htmlspecialcharsex($arNames[$arRightSet["GROUP_CODE"]]["provider"]." ".$arNames[$arRightSet["GROUP_CODE"]]["name"])?>:</td>
+						<td style="width:40%!important; text-align:right; vertical-align:middle"><?php echo htmlspecialcharsex($arNames[$arRightSet["GROUP_CODE"]]["provider"]." ".$arNames[$arRightSet["GROUP_CODE"]]["name"])?>:</td>
 						<td align="left">
-							<input type="hidden" name="<?echo $html_var_name?>[][RIGHT_ID]" value="<?echo htmlspecialcharsbx($RIGHT_ID)?>">
-							<input type="hidden" name="<?echo $html_var_name?>[][GROUP_CODE]" value="<?echo htmlspecialcharsbx($arRightSet["GROUP_CODE"])?>">
-							<select name="<?echo $html_var_name?>[][TASK_ID]" style="vertical-align:middle">
-							<?foreach($arPossibleRights as $value => $title):?>
-								<option value="<?echo htmlspecialcharsbx($value)?>" <?if($value == $arRightSet["TASK_ID"]) echo "selected"?>><?echo htmlspecialcharsex($title)?></option>
-							<?endforeach?>
+							<input type="hidden" name="<?php echo $html_var_name?>[][RIGHT_ID]" value="<?php echo htmlspecialcharsbx($RIGHT_ID)?>">
+							<input type="hidden" name="<?php echo $html_var_name?>[][GROUP_CODE]" value="<?php echo htmlspecialcharsbx($arRightSet["GROUP_CODE"])?>">
+							<select name="<?php echo $html_var_name?>[][TASK_ID]" style="vertical-align:middle">
+							<?php foreach($arPossibleRights as $value => $title):?>
+								<option value="<?php echo htmlspecialcharsbx($value)?>" <?php if($value == $arRightSet["TASK_ID"]) echo "selected"?>><?php echo htmlspecialcharsex($title)?></option>
+							<?php endforeach?>
 							</select>
 							<a href="javascript:void(0);" onclick="JCIBlockAccess.DeleteRow(this, '<?=htmlspecialcharsbx(CUtil::addslashes($arRightSet["GROUP_CODE"]))?>', '<?=CUtil::JSEscape($variable_name)?>')" class="access-delete"></a>
-							<?if($bDefault):?>
-								<span title="<?echo GetMessage("IBLOCK_AT_OVERWRITE_TIP")?>"><?
+							<?php if($bDefault):?>
+								<span title="<?php echo GetMessage("IBLOCK_AT_OVERWRITE_TIP")?>"><?php 
 								if(
 									is_array($arRightSet["OVERWRITED"])
 									&& $arRightSet["OVERWRITED"][0] > 0
@@ -811,8 +811,8 @@ function IBlockShowRights($entity_type, $iblock_id, $id, $section_title, $variab
 								)
 								{
 									?>
-									<br><input name="<?echo $html_var_name?>[][DO_CLEAN]" value="Y" type="checkbox"><?echo GetMessage("IBLOCK_AT_OVERWRITE_1")?> (<?echo intval($arRightSet["OVERWRITED"][0]+$arRightSet["OVERWRITED"][1])?>)
-									<?
+									<br><input name="<?php echo $html_var_name?>[][DO_CLEAN]" value="Y" type="checkbox"><?php echo GetMessage("IBLOCK_AT_OVERWRITE_1")?> (<?php echo intval($arRightSet["OVERWRITED"][0]+$arRightSet["OVERWRITED"][1])?>)
+									<?php 
 								}
 								elseif(
 									is_array($arRightSet["OVERWRITED"])
@@ -820,8 +820,8 @@ function IBlockShowRights($entity_type, $iblock_id, $id, $section_title, $variab
 								)
 								{
 									?>
-									<br><input name="<?echo $html_var_name?>[][DO_CLEAN]" value="Y" type="checkbox"><?echo GetMessage("IBLOCK_AT_OVERWRITE_2")?> (<?echo intval($arRightSet["OVERWRITED"][0])?>)
-									<?
+									<br><input name="<?php echo $html_var_name?>[][DO_CLEAN]" value="Y" type="checkbox"><?php echo GetMessage("IBLOCK_AT_OVERWRITE_2")?> (<?php echo intval($arRightSet["OVERWRITED"][0])?>)
+									<?php 
 								}
 								elseif(
 									is_array($arRightSet["OVERWRITED"])
@@ -829,13 +829,13 @@ function IBlockShowRights($entity_type, $iblock_id, $id, $section_title, $variab
 								)
 								{
 									?>
-									<br><input name="<?echo $html_var_name?>[][DO_CLEAN]" value="Y" type="checkbox"><?echo GetMessage("IBLOCK_AT_OVERWRITE_3")?> (<?echo intval($arRightSet["OVERWRITED"][1])?>)
-									<?
+									<br><input name="<?php echo $html_var_name?>[][DO_CLEAN]" value="Y" type="checkbox"><?php echo GetMessage("IBLOCK_AT_OVERWRITE_3")?> (<?php echo intval($arRightSet["OVERWRITED"][1])?>)
+									<?php 
 								}?></span>
-							<?endif;?>
+							<?php endif;?>
 						</td>
 					</tr>
-					<?
+					<?php 
 					}
 				}
 			}
@@ -843,13 +843,13 @@ function IBlockShowRights($entity_type, $iblock_id, $id, $section_title, $variab
 				<tr>
 					<td width="40%" align="right">&nbsp;</td>
 					<td width="60%" align="left">
-						<a href="javascript:void(0)"  id="<?echo htmlspecialcharsbx($href_id)?>" class="bx-action-href"><?echo GetMessage("IBLOCK_AT_PROP_ADD")?></a>
+						<a href="javascript:void(0)"  id="<?php echo htmlspecialcharsbx($href_id)?>" class="bx-action-href"><?php echo GetMessage("IBLOCK_AT_PROP_ADD")?></a>
 					</td>
 				</tr>
 			</table>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 
 function GetUserProfileLink($user_id, $title)

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ACCESS_DENIED"] = "Доступ запрещен.";
 $MESS["SALE_CASHBOX_CHECK_TITLE"] = "Список чеков";
 $MESS["SALE_F_CASHBOX"] = "Кассы";

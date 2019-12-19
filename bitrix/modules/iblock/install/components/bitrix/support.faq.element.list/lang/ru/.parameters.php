@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUPPORT_RATING_SETTINGS'] = "Настройки рейтингов";
 $MESS ['SUPPORT_FAQ_EL_GROUP_SETTINGS'] = "Настройки компонента";
 $MESS ['SUPPORT_FAQ_EL_SETTING_IBTYPES'] = "Типы инфоблоков";

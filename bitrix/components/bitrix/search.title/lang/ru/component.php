@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BST_MODULE_NOT_INSTALLED"] = "Модуль поиска не установлен.";
 $MESS["CC_BST_ALL_RESULTS"] = "Все результаты";
 $MESS["CC_BST_MORE"] = "остальные";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NEXT_BUTTON"] = "Weiter";
 $MESS["PREVIOUS_BUTTON"] = "Zurьck";
 $MESS["WELCOME_TEXT"] = "Dieser Installationsassistent hilft Ihnen, in wenigen einfachen Schritten Ihr Bitrix24 zu konfigurieren, um die Arbeit mit den Inhalten anzufangen.<br /><br /> Sie mьssen nur das gewьnschte Design und ein Farbschema aus den vorgegebenen Vorlagen auswдhlen und allgemeine Einstellungen vornehmen.";

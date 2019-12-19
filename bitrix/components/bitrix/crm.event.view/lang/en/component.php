@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_COLUMN_DATE_CREATE"] = "Date";
 $MESS["CRM_COLUMN_ENTITY_TYPE"] = "Entity";
 $MESS["CRM_COLUMN_ENTITY_TITLE"] = "Title";

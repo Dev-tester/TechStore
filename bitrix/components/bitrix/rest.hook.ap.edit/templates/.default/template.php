@@ -119,7 +119,7 @@ if(is_array($arResult["SCOPE"])):
 
 		$scopeName .= ' <small>('.$scope.')</small>';
 ?>
-				<input type="checkbox" name="SCOPE[]" id="APP_<?=$scope?>" value="<?=$scope?>" <?if(in_array($scope, $arResult["INFO"]["SCOPE"])):?>checked="checked"<?endif?>/>
+				<input type="checkbox" name="SCOPE[]" id="APP_<?=$scope?>" value="<?=$scope?>" <?php if(in_array($scope, $arResult["INFO"]["SCOPE"])):?>checked="checked"<?php endif?>/>
 				<label for="APP_<?=$scope?>"><?=$scopeName?></label><br/>
 <?php
 	endforeach;

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/b24connector/admin/prolog_before.php");
 
@@ -55,17 +55,17 @@ if(!empty($errorMsgs))
 		</div>
 		<div class="connector-newbtx">
 			<div class="connector-nebtx-inner">
-				<?if(Connection::isExist()):?>
+				<?php if(Connection::isExist()):?>
 					<p class="connector-newbtx-text"><?=Loc::getMessage('B24C_B24C_CONN')?></p>
 					<div class="connector-newbtx-inputlink"><?=Connection::getDomain()?></div>
-					<?if($moduleAccess > "R"):?>
+					<?php if($moduleAccess > "R"):?>
 						<a href="javascript:void(0)" onclick="if(confirm('<?=Loc::getMessage('B24C_B24C_DEL_CONFIRM')?>')) window.location.href='?lang=<?=LANGUAGE_ID?>&action=delete_connection&<?=bitrix_sessid_get()?>';" class="connector-newbtx-link"><?=Loc::getMessage('B24C_B24C_DEL')?></a>
-					<?endif;?>
-				<?else:?>
-					<a href="https://www.bitrix24.<? if (LANGUAGE_ID == "ru") echo "ru"; elseif (LANGUAGE_ID == "de") echo "de"; else echo "com"; ?>/" class="connector-btn-green"><?=Loc::getMessage('B24C_B24C_CREATE')?></a>
+					<?php endif;?>
+				<?php else:?>
+					<a href="https://www.bitrix24.<?php  if (LANGUAGE_ID == "ru") echo "ru"; elseif (LANGUAGE_ID == "de") echo "de"; else echo "com"; ?>/" class="connector-btn-green"><?=Loc::getMessage('B24C_B24C_CREATE')?></a>
 					<p class="connector-newbtx-text"><?=Loc::getMessage('B24C_B24C_OR')?></p>
 					<?=Connection::getButtonHtml()?>
-				<?endif?>
+				<?php endif?>
 			</div>
 			<div class="connector-newbtx__item connector-newbtx__item-1"><span><?=Loc::getMessage('B24C_B24C_ITEM1')?></span></div>
 			<div class="connector-newbtx__item connector-newbtx__item-2"><span><?=Loc::getMessage('B24C_B24C_ITEM2')?></span></div>
@@ -78,4 +78,4 @@ if(!empty($errorMsgs))
 	</div>
 </div>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

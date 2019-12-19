@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_STAT_STATS_TITLE"] = "Статистика";
 $MESS["SENDER_LETTER_STAT_STATS_ANALYTICS"] = "Аналитика";
 $MESS["SENDER_LETTER_STAT_STATS_NO_DATA"] = "Нет данных";

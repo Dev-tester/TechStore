@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -157,100 +157,100 @@ if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller')
 
 ?>
 
-<?
+<?php 
 if ($message)
 	echo $message->Show();
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>&ID=<?=$ID?>" name="form1">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>&ID=<?=$ID?>" name="form1">
 <?=bitrix_sessid_post()?>
-<?echo GetFilterHiddens("find_");?>
+<?php echo GetFilterHiddens("find_");?>
 
-<?$tabControl->Begin();?>
-<?$tabControl->BeginNextTab();?>
-	<?if($ID>0):?>
+<?php $tabControl->Begin();?>
+<?php $tabControl->BeginNextTab();?>
+	<?php if($ID>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MBOX_EDT_ID")?></td>
-		<td><?echo $str_ID?></td>
+		<td><?php echo GetMessage("MAIL_MBOX_EDT_ID")?></td>
+		<td><?php echo $str_ID?></td>
 	</tr>
-	<?endif?>
-	<?if(strlen($str_TIMESTAMP_X)>0):?>
+	<?php endif?>
+	<?php if(strlen($str_TIMESTAMP_X)>0):?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MBOX_EDT_DATECH")?></td>
-		<td><?echo $str_TIMESTAMP_X?></td>
+		<td><?php echo GetMessage("MAIL_MBOX_EDT_DATECH")?></td>
+		<td><?php echo $str_TIMESTAMP_X?></td>
 	</tr>
-	<? endif; ?>
+	<?php  endif; ?>
 	<tr>
 		<td width="40%"><?=GetMessage("MAIL_MBOX_EDT_LANG"); ?> </td>
 		<td width="60%">
-			<? $defSite = false; ?>
-			<? if ($ID > 0) { ?>
-			<? $defSite = $str_LID; ?>
-			<? $result = Bitrix\Main\SiteTable::getList(array('filter' => array('LID' => $str_LID), 'order' => array('SORT' => 'ASC'))); ?>
-			<? $site = $result->fetch(); ?>
+			<?php  $defSite = false; ?>
+			<?php  if ($ID > 0) { ?>
+			<?php  $defSite = $str_LID; ?>
+			<?php  $result = Bitrix\Main\SiteTable::getList(array('filter' => array('LID' => $str_LID), 'order' => array('SORT' => 'ASC'))); ?>
+			<?php  $site = $result->fetch(); ?>
 			[<?=$str_LID; ?>] <?=htmlspecialcharsbx($site['NAME']); ?>
-			<? } else { ?>
-			<select id="mailbox_site_id" name="LID"<? if ($mailbox_type == 'user') { ?> onchange="changeServicesList();"<? } ?>>
-			<? $result = Bitrix\Main\SiteTable::getList(array('order' => array('SORT' => 'ASC'))); ?>
-			<? while (($site = $result->fetch()) !== false) { ?>
-				<? $defSite = $defSite ?: ($mailbox_type != 'user' || !empty($mailServices[$site['LID']]) ? $site['LID'] : false); ?>
-				<option value="<?=$site['LID']; ?>"<? if ($mailbox_type == 'user' && empty($mailServices[$site['LID']])) { ?> disabled="disabled"<? } ?>>
-					<?=htmlspecialcharsbx($site['NAME']); ?><? if ($mailbox_type == 'user' && empty($mailServices[$site['LID']])) { ?> *<? } ?>
+			<?php  } else { ?>
+			<select id="mailbox_site_id" name="LID"<?php  if ($mailbox_type == 'user') { ?> onchange="changeServicesList();"<?php  } ?>>
+			<?php  $result = Bitrix\Main\SiteTable::getList(array('order' => array('SORT' => 'ASC'))); ?>
+			<?php  while (($site = $result->fetch()) !== false) { ?>
+				<?php  $defSite = $defSite ?: ($mailbox_type != 'user' || !empty($mailServices[$site['LID']]) ? $site['LID'] : false); ?>
+				<option value="<?=$site['LID']; ?>"<?php  if ($mailbox_type == 'user' && empty($mailServices[$site['LID']])) { ?> disabled="disabled"<?php  } ?>>
+					<?=htmlspecialcharsbx($site['NAME']); ?><?php  if ($mailbox_type == 'user' && empty($mailServices[$site['LID']])) { ?> *<?php  } ?>
 				</option>
-			<? } ?>
+			<?php  } ?>
 			</select>
-			<? } ?>
+			<?php  } ?>
 		</td>
 	</tr>
-	<? if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
+	<?php  if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
 	<tr>
 		<td width="40%"><?=GetMessage("MAIL_MBOX_EDT_SERVICE"); ?> </td>
 		<td width="60%">
-			<? if ($str_SERVER_TYPE != 'imap' && $ID > 0) { ?>
+			<?php  if ($str_SERVER_TYPE != 'imap' && $ID > 0) { ?>
 			[<?=$str_SERVICE_ID; ?>] <?=htmlspecialcharsbx($mailServices[$str_LID][$str_SERVICE_ID]['NAME']) ?>
-			<? } else { ?>
+			<?php  } else { ?>
 			<select id="mailbox_service_id" name="SERVICE_ID" onchange="changeFields();">
-			<?
+			<?php 
 			if(is_array($mailServices[$defSite])):
 				foreach ($mailServices[$defSite] as $service) { ?>
-					<? if ($service['SERVICE_TYPE'] != 'imap') continue; ?>
+					<?php  if ($service['SERVICE_TYPE'] != 'imap') continue; ?>
 					<option value="<?=$service['ID']; ?>"
-						<? if ($str_SERVICE_ID == $service['ID']) { ?> selected="selected"<? } ?>>
+						<?php  if ($str_SERVICE_ID == $service['ID']) { ?> selected="selected"<?php  } ?>>
 						[<?=$service['ID']; ?>] <?=htmlspecialcharsbx($service['NAME']) ?>
 					</option>
-			<?
+			<?php 
 				}
 			endif;?>
 			</select>
-			<? } ?>
+			<?php  } ?>
 		</td>
 	</tr>
-	<? } ?>
+	<?php  } ?>
 	<tr>
-		<td><?echo GetMessage("MAIL_MBOX_EDT_ACT")?></td>
-		<td><input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y")echo " checked"?>></td>
+		<td><?php echo GetMessage("MAIL_MBOX_EDT_ACT")?></td>
+		<td><input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y")echo " checked"?>></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("MAIL_MBOX_EDT_NAME")?></td>
+		<td><?php echo GetMessage("MAIL_MBOX_EDT_NAME")?></td>
 		<td><input id="mailbox_name" type="text" name="NAME" size="53" maxlength="255" value="<?=$str_NAME?>"></td>
 	</tr>
-	<? if (in_array($str_SERVER_TYPE, array('pop3', 'smtp'))) { ?>
+	<?php  if (in_array($str_SERVER_TYPE, array('pop3', 'smtp'))) { ?>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_MBOX_EDT_DESC")?></td>
-		<td><textarea name="DESCRIPTION" cols="40" rows="5"><?echo $str_DESCRIPTION?></textarea>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_MBOX_EDT_DESC")?></td>
+		<td><textarea name="DESCRIPTION" cols="40" rows="5"><?php echo $str_DESCRIPTION?></textarea>
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_MBOX_SERVER_TYPE")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_MBOX_SERVER_TYPE")?></td>
 		<td>
 			<select onchange="change_type()" name="SERVER_TYPE" id="SERVER_TYPE">
-				<option value="pop3"<? if ($str_SERVER_TYPE == 'pop3') { ?> selected="selected"<? } ?>><?=GetMessage('MAIL_MBOX_SERVER_TYPE_POP3'); ?></option>
-				<option value="smtp"<? if ($str_SERVER_TYPE == 'smtp') { ?> selected="selected"<? } ?>><?=GetMessage('MAIL_MBOX_SERVER_TYPE_SMTP'); ?></option>
+				<option value="pop3"<?php  if ($str_SERVER_TYPE == 'pop3') { ?> selected="selected"<?php  } ?>><?=GetMessage('MAIL_MBOX_SERVER_TYPE_POP3'); ?></option>
+				<option value="smtp"<?php  if ($str_SERVER_TYPE == 'smtp') { ?> selected="selected"<?php  } ?>><?=GetMessage('MAIL_MBOX_SERVER_TYPE_SMTP'); ?></option>
 			</select><br>
 			<div id="el0" class="pop3"><?=GetMessage('MAIL_MBOX_SERVER_TYPE_POP3_DESC'); ?></div>
 			<div id="el1" class="smtp"><?=GetMessage('MAIL_MBOX_SERVER_TYPE_SMTP_DESC'); ?><br><?=GetMessage('MAIL_MBOX_SERVER_TYPE_SMTP_A'); ?></div>
 		</td>
 	</tr>
-	<? } ?>
+	<?php  } ?>
 	<tr id="el2" class="pop3 imap smtp adm-detail-required-field">
 		<td>
 			<div id="el3" class="pop3"><?=GetMessage('MAIL_MBOX_EDT_SERVER'); ?></div>
@@ -260,7 +260,7 @@ if ($message)
 		<td><input id="mailbox_server" type="text" name="SERVER" size="42" maxlength="255" value="<?=$str_SERVER; ?>">:<input type="text" id="PORT_PORT" name="PORT" size="4" maxlength="5" value="<?=$str_PORT; ?>"></td>
 	</tr>
 	<tr id="el6" class="smtp">
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_MBOX_DOM")?><br> <?echo GetMessage("MAIL_MBOX_DOM_EMPTY")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_MBOX_DOM")?><br> <?php echo GetMessage("MAIL_MBOX_DOM_EMPTY")?></td>
 		<td><textarea id="DOMAINS" name="DOMAINS" onkeyup="chdom()" cols="40" rows="4" onchange="chdom()"><?=$str_DOMAINS?></textarea></td>
 	</tr>
 	<tr id="el7" class="smtp">
@@ -269,26 +269,26 @@ if ($message)
 			<input type="hidden" name="RELAY" value="N"><input type="hidden" name="AUTH_RELAY" value="N">
 			<div class="adm-list">
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" id="s2" name="RELAY" onclick="chrelay()" value="Y"<?if($str_RELAY=="Y")echo " checked"?>></div>
-					<div class="adm-list-label"><label for="s2" id="s4"><?echo GetMessage("MAIL_MBOX_RELAY")?></label></div>
+					<div class="adm-list-control"><input type="checkbox" id="s2" name="RELAY" onclick="chrelay()" value="Y"<?php if($str_RELAY=="Y")echo " checked"?>></div>
+					<div class="adm-list-label"><label for="s2" id="s4"><?php echo GetMessage("MAIL_MBOX_RELAY")?></label></div>
 				</div>
 				<div class="adm-list-item">
-					<div class="adm-list-control"><input type="checkbox" id="s3" name="AUTH_RELAY" value="Y"<?if($str_AUTH_RELAY=="Y")echo " checked"?>></div>
-					<div class="adm-list-label"><label for="s3" id="s5"><?echo GetMessage("MAIL_MBOX_RELAY_AUTH")?></label></div>
+					<div class="adm-list-control"><input type="checkbox" id="s3" name="AUTH_RELAY" value="Y"<?php if($str_AUTH_RELAY=="Y")echo " checked"?>></div>
+					<div class="adm-list-label"><label for="s3" id="s5"><?php echo GetMessage("MAIL_MBOX_RELAY_AUTH")?></label></div>
 				</div>
 			</div>
 		<td>
 	</tr>
 	<tr id="el8" class="pop3 imap">
 		<td><?=GetMessage("MAIL_MBOX_EDT_USE_TLS"); ?><span class="required"><sup>1</sup></span></td>
-		<td><input type="checkbox" name="USE_TLS" id="USE_TLS" value="Y"<? if ($str_USE_TLS == 'Y' || $str_USE_TLS == 'S') { ?> checked<? } ?> onclick="change_port();"<? if (!$bCanUseTLS) { ?> disabled<? } ?>></td>
+		<td><input type="checkbox" name="USE_TLS" id="USE_TLS" value="Y"<?php  if ($str_USE_TLS == 'Y' || $str_USE_TLS == 'S') { ?> checked<?php  } ?> onclick="change_port();"<?php  if (!$bCanUseTLS) { ?> disabled<?php  } ?>></td>
 	</tr>
-	<? if (PHP_VERSION_ID >= 50600) { ?>
+	<?php  if (PHP_VERSION_ID >= 50600) { ?>
 	<tr id="el23" class="pop3 imap">
 		<td><?=GetMessage('MAIL_MBOX_EDT_SKIP_CERT'); ?></td>
-		<td><input type="checkbox" name="SKIP_CERT" id="SKIP_CERT" value="Y"<? if ($str_USE_TLS == 'S') { ?> checked<? } ?><? if ($str_USE_TLS != 'Y' && $str_USE_TLS != 'S') { ?> disabled<? } ?>></td>
+		<td><input type="checkbox" name="SKIP_CERT" id="SKIP_CERT" value="Y"<?php  if ($str_USE_TLS == 'S') { ?> checked<?php  } ?><?php  if ($str_USE_TLS != 'Y' && $str_USE_TLS != 'S') { ?> disabled<?php  } ?>></td>
 	</tr>
-	<? } ?>
+	<?php  } ?>
 	<tr id="el9" class="pop3 imap domain crdomain controller adm-detail-required-field">
 		<td><?=GetMessage("MAIL_MBOX_EDT_LOGIN"); ?></td>
 		<td><input type="text" name="LOGIN" size="53" maxlength="255" value="<?=$str_LOGIN?>"></td>
@@ -307,66 +307,66 @@ if ($message)
 	</tr>
 	<tr id="el13" class="pop3">
 		<td><?=GetMessage("MAIL_MBOX_EDT_USE_APOP"); ?></td>
-		<td><input type="checkbox" name="USE_MD5" value="Y"<?if($str_USE_MD5=="Y")echo " checked"?>></td>
+		<td><input type="checkbox" name="USE_MD5" value="Y"<?php if($str_USE_MD5=="Y")echo " checked"?>></td>
 	</tr>
 	<tr id="el14" class="pop3">
 		<td><?=GetMessage("MAIL_MBOX_EDT_DEL_AFTER_RETR"); ?></td>
-		<td><input type="checkbox" name="DELETE_MESSAGES" value="Y"<?if($str_DELETE_MESSAGES=="Y")echo " checked"?>></td>
+		<td><input type="checkbox" name="DELETE_MESSAGES" value="Y"<?php if($str_DELETE_MESSAGES=="Y")echo " checked"?>></td>
 	</tr>
 	<tr id="el15" class="pop3">
 		<td><?=GetMessage("MAIL_MBOX_EDT_PERIOD"); ?></td>
-		<td><input type="text" name="PERIOD_CHECK" size="5" maxlength="18" value="<?echo $str_PERIOD_CHECK?>"> <?echo GetMessage("MAIL_MBOX_EDT_PERIOD_MIN")?></td>
+		<td><input type="text" name="PERIOD_CHECK" size="5" maxlength="18" value="<?php echo $str_PERIOD_CHECK?>"> <?php echo GetMessage("MAIL_MBOX_EDT_PERIOD_MIN")?></td>
 	</tr>
 
-<? if ($ID <= 0) { ?>
+<?php  if ($ID <= 0) { ?>
 
 	<tr id="el16" class="heading pop3 smtp">
-		<td align="center" colspan="2"><?echo GetMessage("MAIL_MBOX_EDT_ADD_NEW_RULE")?></td>
+		<td align="center" colspan="2"><?php echo GetMessage("MAIL_MBOX_EDT_ADD_NEW_RULE")?></td>
 	</tr>
 	<tr id="el17" class="pop3 smtp">
 		<td align="center" colspan="2" class="adm-detail-valign-top">
 			<select name="filter_type">
-				<option value="manual"<?if($filter_type==$a_ID)echo ' manual'?>><?echo GetMessage("MAIL_MBOX_EDT_ADD_NEW_RULE_MANUAL")?></option>
-				<? $res = CMailFilter::GetFilterList();
+				<option value="manual"<?php if($filter_type==$a_ID)echo ' manual'?>><?php echo GetMessage("MAIL_MBOX_EDT_ADD_NEW_RULE_MANUAL")?></option>
+				<?php  $res = CMailFilter::GetFilterList();
 				while($ar = $res->ExtractFields("a_")) { ?>
-				<option value="<?=$a_ID?>"<?if($filter_type==$a_ID)echo ' selected'?>><?=$a_NAME?></option>
-				<? } ?>
-			</select>&nbsp;<input type="submit" <?if ($MOD_RIGHT<"W") echo "disabled" ?> name="save_ext" value="<?echo GetMessage("MAIL_MBOX_EDT_ADD")?>">
+				<option value="<?=$a_ID?>"<?php if($filter_type==$a_ID)echo ' selected'?>><?=$a_NAME?></option>
+				<?php  } ?>
+			</select>&nbsp;<input type="submit" <?php if ($MOD_RIGHT<"W") echo "disabled" ?> name="save_ext" value="<?php echo GetMessage("MAIL_MBOX_EDT_ADD")?>">
 		</td>
 	</tr>
 
-<? } ?>
+<?php  } ?>
 
-<? if (in_array($str_SERVER_TYPE, array('pop3', 'smtp'))) { ?>
+<?php  if (in_array($str_SERVER_TYPE, array('pop3', 'smtp'))) { ?>
 
-<? $tabControl->BeginNextTab(); ?>
+<?php  $tabControl->BeginNextTab(); ?>
 
-	<? $db_max_allowed = $DB->Query("SHOW VARIABLES LIKE 'MAX_ALLOWED_PACKET'", true);
+	<?php  $db_max_allowed = $DB->Query("SHOW VARIABLES LIKE 'MAX_ALLOWED_PACKET'", true);
 	if ($db_max_allowed !== false && ($ar_max_allowed = $db_max_allowed->Fetch()) !== false && IntVal($ar_max_allowed["Value"]) > 0)
 	{
 		$B_MAIL_MAX_ALLOWED = IntVal($ar_max_allowed["Value"]);
 		?><tr id="el18" class="pop3 smtp">
-			<td><?echo GetMessage("MAIL_MBOX_EDT_MAX_ALLOWED")?></td>
-			<td><?echo $B_MAIL_MAX_ALLOWED/1024?> <?echo GetMessage("MAIL_MBOX_EDT_MAX_ALLOWED_KB")?></td>
-		</tr><?
+			<td><?php echo GetMessage("MAIL_MBOX_EDT_MAX_ALLOWED")?></td>
+			<td><?php echo $B_MAIL_MAX_ALLOWED/1024?> <?php echo GetMessage("MAIL_MBOX_EDT_MAX_ALLOWED_KB")?></td>
+		</tr><?php 
 	} ?>
 
 	<tr id="el19" class="pop3 smtp">
-		<td width="40%"><?echo GetMessage("MAIL_MBOX_EDT_MAX_MSGS")?></td>
-		<td width="60%"><input type="text" name="MAX_MSG_COUNT" size="5" maxlength="18" value="<?echo $str_MAX_MSG_COUNT?>"> <?echo GetMessage("MAIL_MBOX_EDT_MAX_MSGS_CNT")?></td>
+		<td width="40%"><?php echo GetMessage("MAIL_MBOX_EDT_MAX_MSGS")?></td>
+		<td width="60%"><input type="text" name="MAX_MSG_COUNT" size="5" maxlength="18" value="<?php echo $str_MAX_MSG_COUNT?>"> <?php echo GetMessage("MAIL_MBOX_EDT_MAX_MSGS_CNT")?></td>
 	</tr>
 	<tr id="el20" class="pop3">
-		<td><?echo GetMessage("MAIL_MBOX_EDT_MAX_SIZE")?></td>
-		<td><input type="text" name="MAX_MSG_SIZE" size="5" maxlength="18" value="<?echo intval($str_MAX_MSG_SIZE/1024)?>"> <?echo GetMessage("MAIL_MBOX_EDT_MAX_SIZE_KB")?></td>
+		<td><?php echo GetMessage("MAIL_MBOX_EDT_MAX_SIZE")?></td>
+		<td><input type="text" name="MAX_MSG_SIZE" size="5" maxlength="18" value="<?php echo intval($str_MAX_MSG_SIZE/1024)?>"> <?php echo GetMessage("MAIL_MBOX_EDT_MAX_SIZE_KB")?></td>
 	</tr>
 	<tr id="el21"  class="pop3 smtp">
-		<td><?echo GetMessage("MAIL_MBOX_EDT_KEEP_DAYS")?></td>
-		<td><input type="text" name="MAX_KEEP_DAYS" size="5" maxlength="18" value="<?echo intval($str_MAX_KEEP_DAYS)?>"> <?echo GetMessage("MAIL_MBOX_EDT_KEEP_DAYS_D")?></td>
+		<td><?php echo GetMessage("MAIL_MBOX_EDT_KEEP_DAYS")?></td>
+		<td><input type="text" name="MAX_KEEP_DAYS" size="5" maxlength="18" value="<?php echo intval($str_MAX_KEEP_DAYS)?>"> <?php echo GetMessage("MAIL_MBOX_EDT_KEEP_DAYS_D")?></td>
 	</tr>
 	<tr id="el22"  class="pop3 smtp">
-		<td class="adm-detail-valign-top"><?echo GetMessage("MAIL_MBOX_EDT_CHARSET")?><br><?echo GetMessage("MAIL_MBOX_EDT_CHARSET_RECOMND")?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("MAIL_MBOX_EDT_CHARSET")?><br><?php echo GetMessage("MAIL_MBOX_EDT_CHARSET_RECOMND")?></td>
 		<td>
-<? $chs = Array(
+<?php  $chs = Array(
 	"utf-8",
 	"iso-8859-1",
 	"iso-8859-2",
@@ -388,33 +388,33 @@ if ($message)
 ); ?>
 			<select onchange="BX('CHARSET').value = this.value">
 				<option value=""></option>
-				<option value=""<?if($str_CHARSET=="")echo ' selected'?>><?echo GetMessage("MAIL_MBOX_EDT_CHARSET_RECOMND_TEXT")?></option>
-				<?foreach($chs as $ch):?>
-					<option value="<?=$ch?>"<?if(strtolower($ch) == strtolower($str_CHARSET))echo ' selected'?>><?=$ch?></option>
-				<?endforeach?>
+				<option value=""<?php if($str_CHARSET=="")echo ' selected'?>><?php echo GetMessage("MAIL_MBOX_EDT_CHARSET_RECOMND_TEXT")?></option>
+				<?php foreach($chs as $ch):?>
+					<option value="<?=$ch?>"<?php if(strtolower($ch) == strtolower($str_CHARSET))echo ' selected'?>><?=$ch?></option>
+				<?php endforeach?>
 			</select>
 			<input type="text" name="CHARSET" id="CHARSET" size="12" maxlength="255" value="<?=$str_CHARSET?>">
 
 		</td>
 	</tr>
 
-<? } ?>
+<?php  } ?>
 
-	<? if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
+	<?php  if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
 	<input type="hidden" value="<?=$str_SERVER_TYPE; ?>" name="SERVER_TYPE" id="SERVER_TYPE">
-	<? } ?>
+	<?php  } ?>
 	<input type="hidden" value="Y" name="apply">
 
 <script type="text/javascript">
 
 	function change_type()
 	{
-		<? if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
+		<?php  if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
 		var serverType = document.getElementById('SERVER_TYPE').value;
-		<? } else { ?>
+		<?php  } else { ?>
 		var serverTypeSelect = document.getElementById('SERVER_TYPE');
 		var serverType = serverTypeSelect.options[serverTypeSelect.selectedIndex].value;
-		<? } ?>
+		<?php  } ?>
 
 		for (var i = 0; i <= 23; i++)
 		{
@@ -455,12 +455,12 @@ if ($message)
 
 		if (BX.util.in_array(serverPort.value, [25, 110, 143, 993, 995]))
 		{
-			<? if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
+			<?php  if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
 			var serverType = document.getElementById('SERVER_TYPE').value;
-			<? } else { ?>
+			<?php  } else { ?>
 			var serverTypeSelect = document.getElementById('SERVER_TYPE');
 			var serverType = serverTypeSelect.options[serverTypeSelect.selectedIndex].value;
-			<? } ?>
+			<?php  } ?>
 
 			switch (serverType)
 			{
@@ -481,19 +481,19 @@ if ($message)
 		}
 	}
 
-	<? if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
+	<?php  if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?>
 	var servicesMap = {
-		<? foreach ($mailServices as $site => $services) { ?>
+		<?php  foreach ($mailServices as $site => $services) { ?>
 		'<?=$site; ?>': [
-			<? foreach ($services as $service => $settings) { ?>
+			<?php  foreach ($services as $service => $settings) { ?>
 			'<?=$service; ?>',
-			<? } ?>
+			<?php  } ?>
 		],
-		<? } ?>
+		<?php  } ?>
 	};
 	var services = {
-		<? foreach ($mailServices as $site => $services) { ?>
-		<? foreach ($services as $service => $settings) { ?>
+		<?php  foreach ($mailServices as $site => $services) { ?>
+		<?php  foreach ($services as $service => $settings) { ?>
 		'<?=$service; ?>': {
 			'name': '<?=CUtil::jsEscape($settings['NAME']) ?>',
 			'link': '<?=CUtil::jsEscape($settings['LINK']) ?>',
@@ -502,8 +502,8 @@ if ($message)
 			'encryption': '<?=$settings['ENCRYPTION']; ?>',
 			'type': '<?=$settings['SERVICE_TYPE']; ?>'
 		},
-		<? } ?>
-		<? } ?>
+		<?php  } ?>
+		<?php  } ?>
 	};
 	function changeServicesList()
 	{
@@ -565,23 +565,23 @@ if ($message)
 
 		change_type();
 	}
-	<? if ($ID <= 0) { ?>
+	<?php  if ($ID <= 0) { ?>
 	setTimeout(changeFields, 0);
-	<? } ?>
-	<? } ?>
+	<?php  } ?>
+	<?php  } ?>
 
 </script>
 
-<?$tabControl->EndTab();?>
-<?$tabControl->Buttons(Array("disabled"=>$MOD_RIGHT<"W","back_url" =>"mail_mailbox_admin.php?lang=".LANG));?>
-<?$tabControl->End();?>
+<?php $tabControl->EndTab();?>
+<?php $tabControl->Buttons(Array("disabled"=>$MOD_RIGHT<"W","back_url" =>"mail_mailbox_admin.php?lang=".LANG));?>
+<?php $tabControl->End();?>
 </form>
-<?$tabControl->ShowWarnings("form1", $message);?>
+<?php $tabControl->ShowWarnings("form1", $message);?>
 
 <?=BeginNote(); ?>
 <span class="required"><sup>1</sup></span> <?=GetMessage('MAIL_MBOX_EDT_COMMENT1')?>
-<? if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?><br>
+<?php  if (in_array($str_SERVER_TYPE, array('imap', 'domain', 'crdomain', 'controller'))) { ?><br>
 <span class="required">*</span> <?=GetMessage('MAIL_MBOX_EDT_COMMENT_ASTERISK'); ?>
-<? } ?>
+<?php  } ?>
 <?=EndNote(); ?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

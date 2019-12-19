@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLLE_ACCESS_RIGHTS"] = "User Groups Allowed To Access The List";
 $MESS["CT_BLLE_COPY_POPUP_ACCEPT_BUTTON"] = "Copy";
 $MESS["CT_BLLE_COPY_POPUP_CANCEL_BUTTON"] = "Cancel";

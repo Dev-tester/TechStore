@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVRS_ADD_DREQ_RBATCDU_01"] = "Не задана дата отправки в почтовое отделение";
 $MESS["SALE_DLVRS_ADD_DREQ_RBATCDU_02"] = "Неверный формат даты";
 $MESS["SALE_DLVRS_ADD_DREQ_RBATCDU_03"] = "Документ может быть получен только для одной заявки";

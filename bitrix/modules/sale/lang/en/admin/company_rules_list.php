@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_RDL_BUT_ADD_NEW"] = "Add rule";
 $MESS["SALE_COMPANY_RULE_COL_ID"] = "ID";
 $MESS["SALE_COMPANY_RULE_COL_SORT"] = "Sort";

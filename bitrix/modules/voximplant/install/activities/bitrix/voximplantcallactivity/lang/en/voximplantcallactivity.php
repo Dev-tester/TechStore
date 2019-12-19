@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPVICA_INCLUDE_MODULE"] = "The Telephony module is not installed.";
 $MESS["BPVICA_TRACK_SUBSCR"] = "Waiting for robocall results";
 $MESS["BPVICA_RESULT_TRUE"] = "Success";

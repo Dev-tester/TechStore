@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["QUEUE_ENTITY_USER_AVATAR_FIELD"] = "User image link";
 $MESS["QUEUE_ENTITY_USER_NAME_FIELD"] = "Responsible person";
 $MESS["QUEUE_ENTITY_USER_WORK_POSITION_FIELD"] = "Position";

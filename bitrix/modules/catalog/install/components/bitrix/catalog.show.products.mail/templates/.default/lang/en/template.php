@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_VIEWED_PRODUCTS_MAIL_TITLE"] = "Products";
 $MESS["CATALOG_VIEWED_PRODUCTS_MAIL_YET"] = "Details";
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TEMPLATE_PRESET_EFFECTIVE_MORE"] = "Best-performing";
 $MESS["TASKS_TEMPLATE_PRESET_EFFECTIVE_LOW"] = "Worst-performing";
 $MESS["TASKS_MANAGE_COLUMN_TITLE"] = "Employee";

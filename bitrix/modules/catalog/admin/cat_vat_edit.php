@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/catalog/prolog.php");
 
@@ -94,7 +94,7 @@ if ($bVarsFromForm)
 
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("CVAT_LIST"),
@@ -132,18 +132,18 @@ $context->Show();
 
 CAdminMessage::ShowMessage($errorMessage);
 ?>
-<?
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="vat_edit">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
-<input type="hidden" name="ID" value="<? echo $ID; ?>">
+<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
+<input type="hidden" name="ID" value="<?php  echo $ID; ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("CVAT_TAB"), "ICON" => "catalog", "TITLE" => GetMessage("CVAT_TAB_DESCR")),
 );
@@ -157,7 +157,7 @@ $tabControl->BeginNextTab();
 			<td width="40%">ID:</td>
 			<td width="60%"><?= $ID ?></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr class="adm-detail-required-field">
 		<td width="40%"><?= GetMessage("CVAT_NAME") ?>:</td>
 		<td width="60%"><input type="text" name="NAME" value="<?=$str_NAME?>" size="30" /></td>
@@ -172,7 +172,7 @@ $tabControl->BeginNextTab();
 		<td width="40%"><?= GetMessage("CVAT_ACTIVE") ?>:</td>
 		<td width="60%">
 			<input type="hidden" name="ACTIVE" value="N" />
-			<input type="checkbox" name="ACTIVE" value="Y"<?if ($str_ACTIVE=="Y") echo " checked"?> />
+			<input type="checkbox" name="ACTIVE" value="Y"<?php if ($str_ACTIVE=="Y") echo " checked"?> />
 		</td>
 	</tr>
 	<tr>
@@ -181,11 +181,11 @@ $tabControl->BeginNextTab();
 			<input type="text" name="C_SORT" value="<?=$str_C_SORT?>" size="5" />
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->Buttons(array("disabled" => $bReadOnly, "back_url" => $listUrl));
 $tabControl->End();
 ?>
 </form>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

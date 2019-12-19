@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!$this->__component->__parent || $this->__component->__parent->__name != "bitrix:webdav"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/webdav/templates/.default/style.css');
 endif;
@@ -37,10 +37,10 @@ global $by, $order;
 	}
 //]]>
 </script>
-<?
+<?php 
 
 /*if (empty($arResult["DATA"]) && $arParams["SECTION_ID"] <= 0):
-	?><span class="wd-text"><?=GetMessage("WD_EMPTY_DATA")?></span><?
+	?><span class="wd-text"><?=GetMessage("WD_EMPTY_DATA")?></span><?php 
 	return 0;
 endif;
 */
@@ -183,7 +183,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 endif;
 
 if (!empty($arResult["NAV_STRING"]) && in_array("top", $arParams["SHOW_NAVIGATION"])):
-	?><div class="navigation navigation-top"><?=$arResult["NAV_STRING"]?></div><?
+	?><div class="navigation navigation-top"><?=$arResult["NAV_STRING"]?></div><?php 
 endif;
 
 ?>
@@ -193,23 +193,23 @@ endif;
 
 <table cellpadding="0" cellspacing="0" border="0" width="100%" class="wd-main data-table">
 	<thead><tr class="wd-row">
-<?
+<?php 
 foreach ($arParams["COLUMNS"] as $key):
 	$column = (empty($arParams["COLUMNS_TITLE"][$key]) ? array("title" => $key) : $arParams["COLUMNS_TITLE"][$key]);
-	?><th class="wd-cell <?=(strtoupper($column["sort"]) == strtoupper($by) ? " selected" : "")?>" <?
+	?><th class="wd-cell <?=(strtoupper($column["sort"]) == strtoupper($by) ? " selected" : "")?>" <?php 
 	if (!empty($column["description"])):
-		?> title="<?=$column["description"]?>"<?
+		?> title="<?=$column["description"]?>"<?php 
 	endif;
 	
-	?>><?
+	?>><?php 
 	if ($key == "CHECKBOX"):
-		?><input type="checkbox" name="ELEMENTS_ALL[TOP]" onclick="wdChangeSelectPosition(this)" <?
+		?><input type="checkbox" name="ELEMENTS_ALL[TOP]" onclick="wdChangeSelectPosition(this)" <?php 
 			if ($iSelected == $iCountCheckbox):
-			?> checked="checked" <?
+			?> checked="checked" <?php 
 			endif;
-		?> /><?
+		?> /><?php 
 	elseif ($key == "ACTIONS"):
-		?><div class="wd-action-block"></div><?
+		?><div class="wd-action-block"></div><?php 
 	elseif (!empty($column["sort"])):
 		$sClassSort = "wd-sort";
 		$sOrder = "asc";
@@ -227,55 +227,55 @@ foreach ($arParams["COLUMNS"] as $key):
 			}
 		}
 ?>
-			<a href="<?=WDAddPageParams($arResult["URL"]["~THIS"], array("by" => $column["sort"], "order" => $sOrder))?>"<?
-				?> title="<?
+			<a href="<?=WDAddPageParams($arResult["URL"]["~THIS"], array("by" => $column["sort"], "order" => $sOrder))?>"<?php 
+				?> title="<?php 
 				if (strtoupper($column["sort"]) == strtoupper($by))
 				{
-					?><?=($sOrder=="desc" ? GetMessage("WD_SORTED_ASC") : GetMessage("WD_SORTED_DESC"))?><?
+					?><?=($sOrder=="desc" ? GetMessage("WD_SORTED_ASC") : GetMessage("WD_SORTED_DESC"))?><?php 
 				}
 				else
 				{
-					?><?=($sOrder=="desc" ? GetMessage("WD_SORT_DESC") : GetMessage("WD_SORT_ASC"))?><?
+					?><?=($sOrder=="desc" ? GetMessage("WD_SORT_DESC") : GetMessage("WD_SORT_ASC"))?><?php 
 				}
 				
 				?>" class="<?=$sClassSort?>"><?=$column["title"]?>
 			</a>
-<?
+<?php 
 	elseif ($key == "LOCK_STATUS"):
 	else:
 ?>
 			<?=$column["title"]?>
-<?
+<?php 
 	endif;
 ?>
 		</th>
-<?
+<?php 
 endforeach;
 ?>
 	</tr></thead>
 	<tbody>
-<?
+<?php 
 
 if ($arParams["SECTION_ID"] > 0 && $arParams["SECTION_ID"] != $arParams["ROOT_SECTION_ID"]):
 ?>
 	<tr class="wd-row-up">
-<?
+<?php 
 	foreach ($arParams["COLUMNS"] as $key):
-	?><td class="wd-cell"><?
+	?><td class="wd-cell"><?php 
 		if ($key == "NAME"):
 		?><div class="controls controls-view up">
-			<a href="<?=$arResult["URL"]["UP"]?>" title="<?=GetMessage("WD_UP_ALT")?>"><?
+			<a href="<?=$arResult["URL"]["UP"]?>" title="<?=GetMessage("WD_UP_ALT")?>"><?php 
 				?><?=GetMessage("WD_UP")
 				?></a>
-		</div><?
+		</div><?php 
 		else:
-		?><div class="empty-clear"></div><?
+		?><div class="empty-clear"></div><?php 
 		endif;
-	?></td><?
+	?></td><?php 
 	endforeach;
 ?>
 </tr>
-<?
+<?php 
 endif;
 
 if (empty($arResult["DATA"])):
@@ -285,7 +285,7 @@ if (empty($arResult["DATA"])):
 			<span class="wd-text"><?=GetMessage("WD_EMPTY_DATA")?></span>
 		</td>
 	</tr>
-<?
+<?php 
 else:
 $iCount = 0;
 foreach ($arResult["DATA"] as $res):
@@ -434,17 +434,17 @@ foreach ($arResult["DATA"] as $res):
 	
 ?>	
 	<tr class="wd-row<?=($iCount%2 == 0 ? " selected" : "")?> <?=($res["BP_PUBLISHED"] != "Y" ? "wd-row-unpublished" : "")?>">
-<?
+<?php 
 	foreach ($arParams["COLUMNS"] as $key):
 		$column = (empty($arParams["COLUMNS_TITLE"][$key]) ? array("title" => $key) : $arParams["COLUMNS_TITLE"][$key]);
-		?><td class="wd-cell wd-cell-<?=strtolower($key)?>"><?
+		?><td class="wd-cell wd-cell-<?=strtolower($key)?>"><?php 
 		if ($key == "CHECKBOX"):
 			if ($res["SHOW_CHECKBOX"] == "Y"):
-				?><input type="checkbox" name="ELEMENTS[<?=$res["TYPE"]?>][]" value="<?=$res["ID"]?>" onclick="wdChangeSelectPosition(this)" <?
+				?><input type="checkbox" name="ELEMENTS[<?=$res["TYPE"]?>][]" value="<?=$res["ID"]?>" onclick="wdChangeSelectPosition(this)" <?php 
 				if (is_array($_REQUEST["ELEMENTS"][$res["TYPE"]]) && in_array($res["ID"], $_REQUEST["ELEMENTS"][$res["TYPE"]])):
-					?> checked="checked" <?
+					?> checked="checked" <?php 
 				endif;
-				?> /><?
+				?> /><?php 
 			endif;
 		elseif ($key == "ACTIONS"):
 if (!empty($arActions)):
@@ -461,10 +461,10 @@ function HideThisMenu<?=$res["ID"]?>()
 
 oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 </script>
-<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?
-	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?
-	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?
-	?>onclick="if(window.WDDropdownMenu != null){window.WDDropdownMenu.ShowMenu(this, oObjectWD['wd_<?=$res["ID"]?>'], document.getElementById('wd_<?=$res["ID"]?>'))}" <?
+<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?php 
+	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?php 
+	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?php 
+	?>onclick="if(window.WDDropdownMenu != null){window.WDDropdownMenu.ShowMenu(this, oObjectWD['wd_<?=$res["ID"]?>'], document.getElementById('wd_<?=$res["ID"]?>'))}" <?php 
 	?>title="<?=GetMessage("WD_ACTIONS")?>" id="wd_table_<?=$res["ID"]?>"><tr>
 	<td>
 		<div class="controls controls-view show-action">
@@ -473,13 +473,13 @@ oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 			</a>
 		</div></td>
 </tr></table>
-<?
+<?php 
 */
 ?>
-<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?
-	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?
-	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?
-	?>onclick="ShowHideThisMenu('<?=CUtil::JSEscape($res["ID"])?>', document.getElementById('wd_<?=CUtil::JSEscape($res["ID"])?>'));" <?
+<table cellpadding="0" cellspacing="0" border="0" class="wd-dropdown-pointer" <?php 
+	?>onmouseover="this.className+=' wd-dropdown-pointer-over';" <?php 
+	?>onmouseout="this.className=this.className.replace(' wd-dropdown-pointer-over', '');" <?php 
+	?>onclick="ShowHideThisMenu('<?=CUtil::JSEscape($res["ID"])?>', document.getElementById('wd_<?=CUtil::JSEscape($res["ID"])?>'));" <?php 
 	?>title="<?=GetMessage("WD_ACTIONS")?>" id="wd_table_<?=$res["ID"]?>"><tr>
 	<td>
 		<div class="controls controls-view show-action">
@@ -490,18 +490,18 @@ oObjectWD['wd_<?=$res["ID"]?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
 </tr></table>
 <script>
 oObjectWD['wd_<?=CUtil::JSEscape($res["ID"])?>'] = <?=CUtil::PhpToJSObject($arActions)?>;
-</script><?
+</script><?php 
 
 endif;
 		elseif ($key == "NAME"):
 			if ($res["TYPE"] == "S"):
-			?><div class="section-name"><?
-				?><div class="section-icon"></div><?
-				?><a href="<?=$res["URL"]["THIS"]?>"><?=$res["NAME"]?></a><?
-			?></div><?
+			?><div class="section-name"><?php 
+				?><div class="section-icon"></div><?php 
+				?><a href="<?=$res["URL"]["THIS"]?>"><?=$res["NAME"]?></a><?php 
+			?></div><?php 
 			else:
-			?><div class="element-name"><?
-				?><div class="element-icon ic<?=substr($res["FILE_EXTENTION"], 1)?>"></div><?
+			?><div class="element-name"><?php 
+				?><div class="element-icon ic<?=substr($res["FILE_EXTENTION"], 1)?>"></div><?php 
 				if ($arParams["PERMISSION"] >= "U")
 				{
 					$lock_status = ($arParams["WORKFLOW"] == "workflow" ? $res['ORIGINAL']['LOCK_STATUS'] : $res['LOCK_STATUS']);
@@ -509,30 +509,30 @@ endif;
 					{
 						$lamp_alt = ($lock_status=="yellow" ? GetMessage("IBLOCK_YELLOW_ALT") : GetMessage("IBLOCK_RED_ALT"));
 						$locked_by = ($arParams["WORKFLOW"] == "workflow" ? $res['ORIGINAL']['LOCKED_USER_NAME'] : $res['LOCKED_USER_NAME']);
-						?><div class="element-icon element-lamp-<?=$lock_status?>" title='<?=$lamp_alt?> <?
+						?><div class="element-icon element-lamp-<?=$lock_status?>" title='<?=$lamp_alt?> <?php 
 						if ($lock_status=='red' && $locked_by!='')
 						{
-							?> <?=$locked_by?> <?
+							?> <?=$locked_by?> <?php 
 						}
-						?>'></div><?
+						?>'></div><?php 
 					}
 				}
-				?><a href="<?=$res["URL"]["THIS"]?>" <?
+				?><a href="<?=$res["URL"]["THIS"]?>" <?php 
 				if (!empty($res["PREVIEW_TEXT"]))
 				{
-						?>title="<?=$res["PREVIEW_TEXT"]?>"<?
+						?>title="<?=$res["PREVIEW_TEXT"]?>"<?php 
 				}
 				if ($res["SHOW"]["EDIT"] == "Y" && in_array($res["FILE_EXTENTION"], array(".doc", ".docx", ".xls", ".xlsx", ".rtf", ".ppt", ".pptx")))
 				{
-					?> onclick="return EditDocWithProgID('<?=CUtil::JSEscape($res["URL"]["THIS"])?>')"<?
+					?> onclick="return EditDocWithProgID('<?=CUtil::JSEscape($res["URL"]["THIS"])?>')"<?php 
 				}
-				?> target="_blank"><?=$res["NAME"]?></a><?
-			?></div><?
+				?> target="_blank"><?=$res["NAME"]?></a><?php 
+			?></div><?php 
 			if ($arParams["USE_COMMENTS"] == "Y" && intVal($res["PROPERTY_FORUM_MESSAGE_CNT_VALUE"]) > 0):
 				$iComments = intVal($res["PROPERTY_FORUM_MESSAGE_CNT_VALUE"]);
-				?><a href="<?=$res["URL"]["VIEW"]?>" class="element-properties element-comments" title="<?=GetMessage("WD_COMMENTS_FOR_DOCUMENT")." ".$iComments?>"><?=$iComments?></a><?
+				?><a href="<?=$res["URL"]["VIEW"]?>" class="element-properties element-comments" title="<?=GetMessage("WD_COMMENTS_FOR_DOCUMENT")." ".$iComments?>"><?=$iComments?></a><?php 
 			elseif ($arParams["RESOURCE_TYPE"] != "FOLDER"):
-				?><a href="<?=$res["URL"]["VIEW"]?>" class="element-properties element-view" title="<?=GetMessage("WD_VIEW_ELEMENT")?>"></a><?
+				?><a href="<?=$res["URL"]["VIEW"]?>" class="element-properties element-view" title="<?=GetMessage("WD_VIEW_ELEMENT")?>"></a><?php 
 			endif;
 			endif;
 		elseif (in_array($key, array("MODIFIED_BY", "CREATED_BY", "WF_LOCKED_BY",
@@ -553,13 +553,13 @@ endif;
 					$key = "USER_NAME";
 				else
 					$key = "LOCKED_USER_NAME";
-				?><?=$res[$key]?><?
+				?><?=$res[$key]?><?php 
 			}
 			else
 			{
 				?><div class="wd-user">
 					<a href="<?=$arUser["URL"]?>"><?=$arUser["NAME"]." ".$arUser["LAST_NAME"]?></a>
-				</div><?
+				</div><?php 
 			}
 		elseif (strPos($key, "PICTURE") !== false):
 			$picture = $res["PREVIEW_PICTURE"];
@@ -568,7 +568,7 @@ endif;
 			?><?=CFile::ShowFile($picture, 100000, 50, 50, true);
 		elseif ($res["TYPE"] == "E" && ($key == "WF_STATUS_ID" || $key == "LOCK_STATUS")): 
 			if ($key == "WF_STATUS_ID"):
-				?><?=$arResult["STATUSES"][$res['WF_STATUS_ID']]?><?
+				?><?=$arResult["STATUSES"][$res['WF_STATUS_ID']]?><?php 
 			elseif ($arParams["WORKFLOW"] == "workflow"):
 				if ($res['ORIGINAL']['LOCK_STATUS']=="green")
 				{
@@ -582,55 +582,55 @@ endif;
 				{
 					$lamp_alt = GetMessage("IBLOCK_RED_ALT");
 				}
-				?><div class="element-lamp-<?=$res['ORIGINAL']['LOCK_STATUS']?>" title='<?=$lamp_alt?>'></div><?
+				?><div class="element-lamp-<?=$res['ORIGINAL']['LOCK_STATUS']?>" title='<?=$lamp_alt?>'></div><?php 
 	
 				if ($res["ORIGINAL"]['LOCK_STATUS']=='red' && $res['LOCKED_USER_NAME']!='')
 				{
-					?><div class="wd-user element-locked-user"><?=$res['LOCKED_USER_NAME']?></div><?
+					?><div class="wd-user element-locked-user"><?=$res['LOCKED_USER_NAME']?></div><?php 
 				}
 			endif;
-			?><?
+			?><?php 
 		elseif ($res["TYPE"] == "E" && $key == "PROPERTY_FORUM_MESSAGE_CNT"):
-			?><a href="<?=$res["URL"]["VIEW"]?>"><?=intVal($res[$key])?></a><?
+			?><a href="<?=$res["URL"]["VIEW"]?>"><?=intVal($res[$key])?></a><?php 
 		elseif ($res["TYPE"] == "E" && $key == "BIZPROC"):
 			$arDocumentStates = $res["arDocumentStates"];
 			
 			if (empty($arDocumentStates))
 			{
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			}
 			elseif (count($arDocumentStates) == 1)
 			{
 				$arDocumentState = reset($arDocumentStates);
 				$arTasksWorkflow = CBPDocument::GetUserTasksForWorkflow($GLOBALS["USER"]->GetID(), $arDocumentState["ID"]);
 				
-				?><div class="bizproc-item-title" style=""><?
-					?><div class="bizproc-statuses <?
+				?><div class="bizproc-item-title" style=""><?php 
+					?><div class="bizproc-statuses <?php 
 						if (!(strlen($arDocumentState["ID"]) <= 0 || strlen($arDocumentState["WORKFLOW_STATUS"]) <= 0)):
-							?>bizproc-status-<?=(empty($arTasksWorkflow) ? "inprogress" : "attention")?><?
+							?>bizproc-status-<?=(empty($arTasksWorkflow) ? "inprogress" : "attention")?><?php 
 						endif;
-						?>"></div><?
-					?><?=(!empty($arDocumentState["TEMPLATE_NAME"]) ? $arDocumentState["TEMPLATE_NAME"] : GetMessage("IBLIST_BP"))?>: <?
-					?><span class="bizproc-item-title bizproc-state-title" style="margin-left:1em;"><?
-						?><a href="<?=$res["URL"]["BP"]?>"><?
-							?><?=(strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"])?><?
-						?></a><?
-					?></span><?
-				?></div><?
+						?>"></div><?php 
+					?><?=(!empty($arDocumentState["TEMPLATE_NAME"]) ? $arDocumentState["TEMPLATE_NAME"] : GetMessage("IBLIST_BP"))?>: <?php 
+					?><span class="bizproc-item-title bizproc-state-title" style="margin-left:1em;"><?php 
+						?><a href="<?=$res["URL"]["BP"]?>"><?php 
+							?><?=(strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"])?><?php 
+						?></a><?php 
+					?></span><?php 
+				?></div><?php 
 				
 				if (!empty($arTasksWorkflow))
 				{
-					?><div class="bizproc-tasks"><?
+					?><div class="bizproc-tasks"><?php 
 					$first = true;
 					foreach ($arTasksWorkflow as $key => $val)
 					{
 						$url = CComponentEngine::MakePathFromTemplate($arParams["WEBDAV_TASK_URL"], 
 							array("ELEMENT_ID" => $res["ID"], "ID" => $val["ID"])); 
 						$url = WDAddPageParams($url, array("back_url" =>  urlencode($GLOBALS['APPLICATION']->GetCurPageParam())), false);
-						?><?=($first ? "" : ", ")?><a href="<?=$url?>"><?=$val["NAME"]?></a><?
+						?><?=($first ? "" : ", ")?><a href="<?=$url?>"><?=$val["NAME"]?></a><?php 
 						$first = false;
 					}
-					?></div><?
+					?></div><?php 
 				}
 			}
 			else 
@@ -638,27 +638,27 @@ endif;
 				
 				$arTasks = array(); $bFirst = true; $bInprogress = false;
 				ob_start();
-				?><ol class="bizproc-items" style="margin: 0; padding: 0; list-style-type: none;"><?
+				?><ol class="bizproc-items" style="margin: 0; padding: 0; list-style-type: none;"><?php 
 				foreach ($arDocumentStates as $key => $arDocumentState)
 				{
 					$arTasksWorkflow = CBPDocument::GetUserTasksForWorkflow($GLOBALS["USER"]->GetID(), $arDocumentState["ID"]);
-					?><li class="bizproc-item" style="<?=($bFirst ? "" : "margin-top:1em;")?>"><?
-						?><div class="bizproc-item-title"><?
-							?><div class="bizproc-statuses <?
+					?><li class="bizproc-item" style="<?=($bFirst ? "" : "margin-top:1em;")?>"><?php 
+						?><div class="bizproc-item-title"><?php 
+							?><div class="bizproc-statuses <?php 
 							if (strlen($arDocumentState["ID"]) > 0 && strlen($arDocumentState["WORKFLOW_STATUS"]) > 0):
 								$bInprogress = true;
-								?>bizproc-status-<?=(empty($arTasksWorkflow) ? "inprogress" : "attention")?><?
+								?>bizproc-status-<?=(empty($arTasksWorkflow) ? "inprogress" : "attention")?><?php 
 							endif;
-							?>"></div><?
-							?><?=(!empty($arDocumentState["TEMPLATE_NAME"]) ? $arDocumentState["TEMPLATE_NAME"] : GetMessage("IBLIST_BP"))?><?
-						?></div><?
-						?><div class="bizproc-item-title bizproc-state-title" style="margin-left:1em;"><?
-							?><?=(strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"])?><?
-						?></div><?
+							?>"></div><?php 
+							?><?=(!empty($arDocumentState["TEMPLATE_NAME"]) ? $arDocumentState["TEMPLATE_NAME"] : GetMessage("IBLIST_BP"))?><?php 
+						?></div><?php 
+						?><div class="bizproc-item-title bizproc-state-title" style="margin-left:1em;"><?php 
+							?><?=(strlen($arDocumentState["STATE_TITLE"]) > 0 ? $arDocumentState["STATE_TITLE"] : $arDocumentState["STATE_NAME"])?><?php 
+						?></div><?php 
 					
 					if (!empty($arTasksWorkflow))
 					{
-						?><div class="bizproc-tasks" style="margin-left:1em;"><?
+						?><div class="bizproc-tasks" style="margin-left:1em;"><?php 
 						$first = true;
 						foreach ($arTasksWorkflow as $key => $val)
 						{
@@ -667,93 +667,93 @@ endif;
 							$val["URL"]["BP_TASK"] = WDAddPageParams($val["URL"]["BP_TASK"], 
 								array("back_url" =>  urlencode($GLOBALS['APPLICATION']->GetCurPageParam())), false);
 							$arTasks[] = $val;
-							?><?=($first ? "" : ", ")?><a href="<?=$val["URL"]["BP_TASK"]?>"><?=$val["NAME"]?></a><?
+							?><?=($first ? "" : ", ")?><a href="<?=$val["URL"]["BP_TASK"]?>"><?=$val["NAME"]?></a><?php 
 							$first = false;
 						}
-						?></div><?
+						?></div><?php 
 					}
-					?></li><?
+					?></li><?php 
 					$bFirst = false;
 				}
-				?></ol><?
+				?></ol><?php 
 				$sHint = ob_get_clean();
-				?><span class="bizproc-item-title"><?
-					?><div class="bizproc-statuses<?
+				?><span class="bizproc-item-title"><?php 
+					?><div class="bizproc-statuses<?php 
 					if ($bInprogress):
-						?> bizproc-status-<?=(empty($arTasks) ? "inprogress" : "attention")?><?
+						?> bizproc-status-<?=(empty($arTasks) ? "inprogress" : "attention")?><?php 
 					endif;
-					?>"></div><?
-					?><?=GetMessage("WD_BP_R_P")?>: <a href="<?=$res["URL"]["BP"]?>" title="<?=GetMessage("WD_BP_R_P_TITLE")?>"><?=count($arDocumentStates)?></a><?
-				?></span><?
+					?>"></div><?php 
+					?><?=GetMessage("WD_BP_R_P")?>: <a href="<?=$res["URL"]["BP"]?>" title="<?=GetMessage("WD_BP_R_P_TITLE")?>"><?=count($arDocumentStates)?></a><?php 
+				?></span><?php 
 				if (!empty($arTasks)):
-					?><br /><span class="bizproc-item-title"><?=GetMessage("WD_TASKS")?>: <a href="<?=$res["URL"]["BP_TASK"]?>" title="<?=GetMessage("WD_TASKS_TITLE")?>"><?=count($arTasks)?></a></span><?
+					?><br /><span class="bizproc-item-title"><?=GetMessage("WD_TASKS")?>: <a href="<?=$res["URL"]["BP_TASK"]?>" title="<?=GetMessage("WD_TASKS_TITLE")?>"><?=count($arTasks)?></a></span><?php 
 				endif;
 				if (!empty($sHint)):
 					ShowJSHint($sHint, array());
 				endif;
 			}
 		elseif ($res["TYPE"] == "E" && $key == "BP_PUBLISHED"):
-			?><?=($res["BP_PUBLISHED"] != "Y" ? GetMessage("WD_N") : GetMessage("WD_Y"))?><?
+			?><?=($res["BP_PUBLISHED"] != "Y" ? GetMessage("WD_N") : GetMessage("WD_Y"))?><?php 
 		else:
-			?><?=$res[$key]?><?
+			?><?=$res[$key]?><?php 
 		endif;
 		
-		?></td><?
+		?></td><?php 
 	endforeach;
 ?>	
 	</tr>
-<?
+<?php 
 endforeach;
 endif;
 
 ?>
 	</tbody>
-<?
+<?php 
 if ($arResult["SHOW_GROUP_ACTIONS"] != "none" && $arParams["PERMISSION"] >= "W"):
 	$_REQUEST["ACTION"] = strtolower($_REQUEST["ACTION"]);
 	$_REQUEST["ACTION"] = (!in_array($_REQUEST["ACTION"], array("move", "lock", "unlock", "delete")) ? "none" : $_REQUEST["ACTION"]);
 ?>
 	<tfoot>
 		<tr class="wd-row-up">
-			<td><input type="checkbox" name="ELEMENTS_ALL[BOTTOM]" onclick="wdChangeSelectPosition(this)" <?
+			<td><input type="checkbox" name="ELEMENTS_ALL[BOTTOM]" onclick="wdChangeSelectPosition(this)" <?php 
 			if ($iSelected == $iCountCheckbox):
-			?> checked="checked" <?
+			?> checked="checked" <?php 
 			endif;
 			?> /></td>
 			<td class="wd-cell" colspan="<?=(count($arParams["COLUMNS"]) - 1)?>">
 				<select name="ACTION" onchange="wdChangeAction(this)">
 					<option value="none" <?=($_REQUEST["ACTION"] == "none" ? " selected " : "")?>><?=GetMessage("WD_MANAGE")?></option>
-<?/*?>					<option value="edit" <?=($_REQUEST["ACTION"] == "edit" ? " selected " : "")?>><?=GetMessage("WD_CHANGE")?></option><?*/?>
-<?
+<?php /*?>					<option value="edit" <?=($_REQUEST["ACTION"] == "edit" ? " selected " : "")?>><?=GetMessage("WD_CHANGE")?></option><?php */?>
+<?php 
 	if ($arParams["WORKFLOW"] == "workflow" && $arResult["SHOW_GROUP_ACTIONS"] == "all"):
 ?>
 					<option value="unlock" <?=($_REQUEST["ACTION"] == "unlock" ? " selected " : "")?>><?=GetMessage("WD_UNLOCK")?></option>
 					<option value="lock" <?=($_REQUEST["ACTION"] == "lock" ? " selected " : "")?>><?=GetMessage("WD_LOCK")?></option>
-<?
+<?php 
 	endif;
 ?>
-					<option value="move" <?=($_REQUEST["ACTION"] == "move" ? " selected " : "")?>><?=GetMessage("WD_MOVE")?></option><??>
+					<option value="move" <?=($_REQUEST["ACTION"] == "move" ? " selected " : "")?>><?=GetMessage("WD_MOVE")?></option><?php ?>
 					<option value="delete" <?=($_REQUEST["ACTION"] == "delete" ? " selected " : "")?>><?=GetMessage("WD_DELETE")?></option>
-				</select><?
+				</select><?php 
 				?><span style="display:<?=($_REQUEST["ACTION"] == "move" ? "auto" : "none")?>;">
 					<select name="IBLOCK_SECTION_ID" class="select">
 						<option value="0" <?=($arParams["SECTION_ID"] == 0 ? "selected" : "")?>><?=GetMessage("WD_CONTENT")?></option>
-			<?
+			<?php 
 			foreach ($arResult["SECTION_LIST"] as $res)
 			{
 			?>
 						<option value="<?=$res["ID"]?>" <?=($arParams["SECTION_ID"] == $res["ID"] ? "selected=\"selected\" class=\"selected\" " : "")?>>
 							<?=str_repeat(".", $res["DEPTH_LEVEL"])?><?=($res["NAME"])?></option>
-			<?
+			<?php 
 			}
 			?>
 					</select>
-				</span><?
+				</span><?php 
 				?><input type="submit" value="OK" <?=($_REQUEST["ACTION"] == "none" ? " disabled='disabled' " : "")?>/>
 			</td>
 		</tr>
 	</tfoot>
-<?
+<?php 
 endif;
 ?>
 </table>
@@ -786,28 +786,28 @@ if (typeof(window["wdChangeSelectPosition"]) == "object" || typeof(window["wdCha
 	window.wdChangeSelectPosition.prototype.selector = 'undefined';
 }
 </script>
-<?
+<?php 
 if (!empty($arResult["DATA"]) && !empty($arResult["NAV_STRING"]) && in_array("bottom", $arParams["SHOW_NAVIGATION"])):
 ?>
 	<div class="navigation navigation-bottom"><?=$arResult["NAV_STRING"]?></div>
-<?
+<?php 
 endif;
 
 if (!empty($arParams["SHOW_NOTE"])):
 ?>
 <br />
 <div class="wd-help-list selected" id="wd_list_note"><?=$arParams["~SHOW_NOTE"]?></div>
-<?
+<?php 
 endif;
 
 if ($arParams["WORKFLOW"] == "workflow" && $arParams["PERMISSION"] >= "U" && $arParams["SHOW_WORKFLOW"] != "N"):?>
 <br />
 <div class="wd-help-list selected">
-<?
+<?php 
 if ($arParams["PERMISSION"] >= "W" && CWorkflow::IsAdmin()):
-?><?=GetMessage("WD_WF_COMMENT1")?><br /><?
+?><?=GetMessage("WD_WF_COMMENT1")?><br /><?php 
 elseif (!in_array(2, $arResult["WF_STATUSES_PERMISSION"])):
-?><?=GetMessage("WD_WF_COMMENT2")?><br /><?
+?><?=GetMessage("WD_WF_COMMENT2")?><br /><?php 
 else:
 	foreach ($arResult["WF_STATUSES_PERMISSION"] as $key => $val):
 		if ($val == 2):
@@ -816,15 +816,15 @@ else:
 	endforeach;
 	
 	if (count($arr) == 1):
-	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION2"))?><br /><?
+	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION2"))?><br /><?php 
 	else:
-	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION3"))?><br /><?
+	?><?=str_replace("#STATUS#", $arr[0], GetMessage("WD_WF_ATTENTION3"))?><br /><?php 
 	endif;
 endif;
 
 if ($arParams["PERMISSION"] >= "W"):
-?><?=GetMessage("WD_WF_ATTENTION1")?><br /><?
+?><?=GetMessage("WD_WF_ATTENTION1")?><br /><?php 
 endif;
 ?>
 </div>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_SHOW_TITLE"] = "Просмотреть заказ";
 $MESS["CRM_ORDER_SHOW"] = "Просмотреть";
 $MESS["CRM_ORDER_TASK_TITLE"] = "Добавить задачу";

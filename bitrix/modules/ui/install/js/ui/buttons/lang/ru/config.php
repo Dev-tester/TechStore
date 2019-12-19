@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UI_BUTTONS_SAVE_BTN_TEXT"] = "Сохранить";
 $MESS["UI_BUTTONS_CREATE_BTN_TEXT"] = "Создать";
 $MESS["UI_BUTTONS_ADD_BTN_TEXT"] = "Добавить";

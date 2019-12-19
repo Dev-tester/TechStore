@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_PROXY_TYPE_USER_TITLE"] = "Drive";
 $MESS["DISK_PROXY_TYPE_USER_TITLE_CURRENT_USER"] = "My Drive";
 ?>

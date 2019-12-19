@@ -1,4 +1,4 @@
-<?
+<?php 
 
 namespace Bitrix\Tasks\Integration\Disk\Connector\Task;
 

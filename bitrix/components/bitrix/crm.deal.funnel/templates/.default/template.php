@@ -146,7 +146,7 @@ $categoryInputID = strtolower($arResult['GRID_ID']).'_category_id';
 	<input type="hidden" name="FUNNEL_TYPE" id="<?=htmlspecialcharsbx($typeInputID)?>" value="<?=htmlspecialcharsbx($arResult['FUNNEL_TYPE'])?>"/>
 </form>
 
-<div class="crm-deal-funnel-wrapper crm-deal-funnel-wrapper-won"><?
+<div class="crm-deal-funnel-wrapper crm-deal-funnel-wrapper-won"><?php 
 $toolbarID = strtolower($arResult['GRID_ID']).'_toolbar';
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.interface.toolbar',
@@ -168,7 +168,7 @@ $APPLICATION->IncludeComponent(
 );
 ?>
 <div class="crm-deal-funnel-title"><?=htmlspecialcharsbx(GetMessage("DEAL_STAGES_WON"))?></div>
-<? if ($bUseAmCharts): ?>
+<?php  if ($bUseAmCharts): ?>
 <?php
 // amCharts
 $GLOBALS['APPLICATION']->AddHeadScript('/bitrix/js/main/amcharts/3.3/amcharts.js');
@@ -280,7 +280,7 @@ foreach ($grids as $gridID => $postfix)
 </style>
 <div style="margin-bottom: 14px;"><a id="funnel-chart-showhide" class="funnel-chart-show"><?= GetMessage('FUNNEL_CHART_HIDE') ?></a></div>
 <div class="funnel-chart"><div id="<?php echo 'chart_'.$arResult['GRID_ID']; ?>"></div></div>
-<? endif; // if ($bUseAmCharts): ?><?
+<?php  endif; // if ($bUseAmCharts): ?><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.interface.grid',
 	'',
@@ -301,7 +301,7 @@ $APPLICATION->IncludeComponent(
 <div class="crm-deal-funnel-wrapper crm-deal-funnel-wrapper-lose">
 <div class="crm-deal-funnel-title"><?=htmlspecialcharsbx(GetMessage("DEAL_STAGES_LOSE"))?></div>
 <div style="margin-bottom: 14px;"><a id="funnel-chart-showhide-no" class="funnel-chart-hide"><?= GetMessage('FUNNEL_CHART_SHOW') ?></a></div>
-<div class="funnel-chart"><div id="<?php echo 'chart_'.$arResult['GRID_ID'].'_NO'; ?>" class="funnel-chart-no"></div></div><?
+<div class="funnel-chart"><div id="<?php echo 'chart_'.$arResult['GRID_ID'].'_NO'; ?>" class="funnel-chart-no"></div></div><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:crm.interface.grid',
 	'',
@@ -352,7 +352,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?if($arResult['ALLOW_FUNNEL_TYPE_CHANGE'] === 'Y'):?>
+<?php if($arResult['ALLOW_FUNNEL_TYPE_CHANGE'] === 'Y'):?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -387,8 +387,8 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 </script>
-<?endif;?>
-<? if ($bUseAmCharts): ?>
+<?php endif;?>
+<?php  if ($bUseAmCharts): ?>
 <script type="text/javascript">
 	function reportChartShowHide()
 	{
@@ -475,11 +475,11 @@ $APPLICATION->IncludeComponent(
 		}
 	}
 
-	<? if (\Bitrix\Main\Page\Frame::isAjaxRequest()):?>
+	<?php  if (\Bitrix\Main\Page\Frame::isAjaxRequest()):?>
 		drawChart();
-	<? else: ?>
+	<?php  else: ?>
 		AmCharts.ready(drawChart);
-	<? endif ?>
+	<?php  endif ?>
 
 </script>
-<? endif; // if ($bUseAmCharts): ?>
+<?php  endif; // if ($bUseAmCharts): ?>

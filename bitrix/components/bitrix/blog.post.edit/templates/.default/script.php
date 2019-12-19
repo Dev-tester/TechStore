@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arColors = Array(
 	'FF0000', 'FFFF00', '00FF00', '00FFFF', '0000FF', 'FF00FF', 'FFFFFF', 'EBEBEB', 'E1E1E1', 'D7D7D7', 'CCCCCC', 'C2C2C2', 'B7B7B7', 'ACACAC', 'A0A0A0', '959595',
 	'EE1D24', 'FFF100', '00A650', '00AEEF', '2F3192', 'ED008C', '898989', '7D7D7D', '707070', '626262', '555', '464646', '363636', '262626', '111', '000000',
@@ -15,7 +15,7 @@ $arColors = Array(
 <tr>
 <td>
 <table cellspacing="1" cellpadding="0" border="0" bgcolor="#FFFFFF">
-<?
+<?php 
 for($i=0;$i<112;$i++) 
 {
 	$t_curCOL="#".$arColors[$i];
@@ -35,7 +35,7 @@ for($i=0;$i<112;$i++)
 <tr>
 <td>
 <table cellspacing="0" cellpadding="5" border="0" bgcolor="#FFFFFF">
-<?
+<?php 
 $i = 0;
 $cols = $arParams["SMILES_COLS"];
 foreach($arResult["Smiles"] as $arSmiles)
@@ -45,7 +45,7 @@ foreach($arResult["Smiles"] as $arSmiles)
 
 	?>
 	<td onmousedown="emoticon('<?=$arSmiles["TYPE"]?>')" ><img src="/bitrix/images/blog/smile/<?=$arSmiles["IMAGE"]?>" width="<?=$arSmiles["IMAGE_WIDTH"]?>" height="<?=$arSmiles["IMAGE_HEIGHT"]?>" title="<?=$arSmiles["LANG_NAME"]?>"style="cursor:pointer"></td>
-	<?
+	<?php 
 	$i++;
 }
 ?>
@@ -64,12 +64,12 @@ var S_open = 0;
 var QUOTE_open = 0;
 var CODE_open = 0;
 var CUT_open = 0;
-var text_enter_url = "<?echo GetMessage("BPC_TEXT_ENTER_URL");?>";
-var text_enter_url_name = "<?echo GetMessage("BPC_TEXT_ENTER_URL_NAME");?>";
-var text_enter_image = "<?echo GetMessage("BPC_TEXT_ENTER_IMAGE");?>";
-var list_prompt = "<?echo GetMessage("BPC_LIST_PROMPT");?>";
-var error_no_url = "<?echo GetMessage("BPC_ERROR_NO_URL");?>";
-var error_no_title = "<?echo GetMessage("BPC_ERROR_NO_TITLE");?>";
+var text_enter_url = "<?php echo GetMessage("BPC_TEXT_ENTER_URL");?>";
+var text_enter_url_name = "<?php echo GetMessage("BPC_TEXT_ENTER_URL_NAME");?>";
+var text_enter_image = "<?php echo GetMessage("BPC_TEXT_ENTER_IMAGE");?>";
+var list_prompt = "<?php echo GetMessage("BPC_LIST_PROMPT");?>";
+var error_no_url = "<?php echo GetMessage("BPC_ERROR_NO_URL");?>";
+var error_no_title = "<?php echo GetMessage("BPC_ERROR_NO_TITLE");?>";
 
 var bbtags = new Array();
 

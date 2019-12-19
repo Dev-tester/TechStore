@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_CATALOG_IMPORT"] = "Товары - импорт";
 $MESS["CRM_TAB_CATALOG_IMPORT_TITLE"] = "Настройка параметров импорта товаров из \"1С:Предприятие\"";
 $MESS["CRM_TAB_CATALOG_EXPORT"] = "Товары - экспорт";

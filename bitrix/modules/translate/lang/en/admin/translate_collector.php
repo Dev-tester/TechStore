@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TITLE"] = "Collect Strings";
 $MESS["TRANS_TITLE_TITLE"] = "Collect Strings";
 $MESS["TRANS_DOWNLOAD"] = "Import Localization";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -62,13 +62,13 @@ function BxSocServPopup(id)
 
 <div class="bx-authform-social">
 	<ul>
-<?
+<?php 
 foreach($arAuthServices as $service):
 	$onclick = ($service["ONCLICK"] <> ''? $service["ONCLICK"] : "BxSocServPopup('".$service["ID"]."')");
 ?>
 		<li>
 			<a id="bx_socserv_icon_<?=$service["ID"]?>" class="<?=\Bitrix\Main\Text\HtmlFilter::encode($service["ICON"])?> bx-authform-social-icon" href="javascript:void(0)" onclick="<?=\Bitrix\Main\Text\HtmlFilter::encode($onclick)?>" title="<?=\Bitrix\Main\Text\HtmlFilter::encode($service["NAME"])?>"></a>
-	<?if($service["ONCLICK"] == '' && $service["FORM_HTML"] <> ''):?>
+	<?php if($service["ONCLICK"] == '' && $service["FORM_HTML"] <> ''):?>
 			<div id="bx_socserv_form_<?=$service["ID"]?>" class="bx-authform-social-popup">
 				<form action="<?=$arParams["AUTH_URL"]?>" method="post">
 					<?=$service["FORM_HTML"]?>
@@ -76,9 +76,9 @@ foreach($arAuthServices as $service):
 					<input type="hidden" name="auth_service_id" value="<?=$service["ID"]?>" />
 				</form>
 			</div>
-	<?endif?>
+	<?php endif?>
 		</li>
-<?
+<?php 
 endforeach;
 ?>
 	</ul>

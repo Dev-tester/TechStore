@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CREATE_MEETING_EMPTY_PROP"] = "Не заполнен обязательный параметр: #PROPERTY#";
 $MESS["CRM_CREATE_MEETING_SUBJECT"] = "Тема встречи";
 $MESS["CRM_CREATE_MEETING_START_TIME"] = "Дата начала";

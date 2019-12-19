@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($arResult["VARIABLES"]["PERMISSION"] < "W"):
 	return false;
 endif;
@@ -17,7 +17,7 @@ if (check_bitrix_sessid())
 	$CACHE_MANAGER->ClearByTag("iblock_id_".intval($arParams["IBLOCK_ID"])."");
 }
 
-?><?$APPLICATION->IncludeComponent("bitrix:bizproc.workflow.list", ".default", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:bizproc.workflow.list", ".default", Array(
 	"MODULE_ID"	=>	"webdav",
 	"ENTITY"	=>	ENTITY,
 	"DOCUMENT_ID"	=>	DOCUMENT_TYPE,

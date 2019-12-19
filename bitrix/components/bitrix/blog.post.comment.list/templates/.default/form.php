@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if(!$arResult["CanUserComment"])
 	return;
 
@@ -112,13 +112,13 @@ if($arResult["use_captcha"]===true)
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 	$formParams["AT_THE_END_HTML"] .= ob_get_clean();
 }
 
 ?>
 <div style="display:none;">
-	<form action=<?=POST_FORM_ACTION_URI?> id="<?=$component->createPostFormId()?>" name="<?=$component->createPostFormId()?>" <?
+	<form action=<?=POST_FORM_ACTION_URI?> id="<?=$component->createPostFormId()?>" name="<?=$component->createPostFormId()?>" <?php 
 		?>method="POST" enctype="multipart/form-data" class="comments-form">
 		<input type="hidden" name="comment_post_id" id="postId" value="" />
 		<input type="hidden" name="log_id" id="logId" value="" />
@@ -129,24 +129,24 @@ if($arResult["use_captcha"]===true)
 		<input type="hidden" name="post" id="" value="Y" />
 		<input type="hidden" name="blog_upload_cid" id="upload-cid" value="" />
 		<?=bitrix_sessid_post();?>
-<?
+<?php 
 if(empty($arResult["User"]))
 {
 ?>
 	<div class="blog-comment-field blog-comment-field-user">
-		<div class="blog-comment-field blog-comment-field-author"><div class="blog-comment-field-text"><?
-			?><label for="user_name"><?=GetMessage("B_B_MS_NAME")?></label><?
-			?><span class="blog-required-field">*</span></div><span><?
+		<div class="blog-comment-field blog-comment-field-author"><div class="blog-comment-field-text"><?php 
+			?><label for="user_name"><?=GetMessage("B_B_MS_NAME")?></label><?php 
+			?><span class="blog-required-field">*</span></div><span><?php 
 			?><input maxlength="255" size="30" tabindex="3" type="text" name="user_name" id="user_name" value="<?=htmlspecialcharsEx($_SESSION["blog_user_name"])?>"></span></div>
 		<div class="blog-comment-field-user-sep">&nbsp;</div>
 		<div class="blog-comment-field blog-comment-field-email"><div class="blog-comment-field-text"><label for="">E-mail</label></div><span><input maxlength="255" size="30" tabindex="4" type="text" name="user_email" id="user_email" value="<?=htmlspecialcharsEx($_SESSION["blog_user_email"])?>"></span></div>
 		<div class="blog-clear-float"></div>
 	</div>
-<?
+<?php 
 }
 ?>
-	<div id="blog-post-autosave-hidden" <?/*?>style="display:none;"<?*/?>></div>
-	<?$APPLICATION->IncludeComponent("bitrix:main.post.form", "", $formParams, false, Array("HIDE_ICONS" => "Y"));?>
+	<div id="blog-post-autosave-hidden" <?php /*?>style="display:none;"<?php */?>></div>
+	<?php $APPLICATION->IncludeComponent("bitrix:main.post.form", "", $formParams, false, Array("HIDE_ICONS" => "Y"));?>
 </form>
 </div>
 <script>

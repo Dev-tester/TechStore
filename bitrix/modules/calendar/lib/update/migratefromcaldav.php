@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Calendar\Update;
 
 use Bitrix\Calendar\Sync\GoogleApiSync;

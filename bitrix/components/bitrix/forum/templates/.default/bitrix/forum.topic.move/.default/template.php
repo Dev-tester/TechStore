@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -17,14 +17,14 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 
 ?>
@@ -35,7 +35,7 @@ endif;
 	<div class="forum-header-title"><span><?=GetMessage("FL_TITLE")?></span></div>
 </div>
 
-<?
+<?php 
 if (empty($arResult["TOPIC"])):
 ?>
 <div class="forum-info-box forum-move-topics">
@@ -43,7 +43,7 @@ if (empty($arResult["TOPIC"])):
 		<?=GetMessage("F_EMPTY_TOPIC_LIST")?>
 	</div>
 </div>
-<?
+<?php 
 	return false;
 endif;
 ?>
@@ -54,33 +54,33 @@ endif;
 	<?=bitrix_sessid_post()?>
 <div class="forum-info-box forum-move-topics">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 foreach ($arResult["TOPIC"] as $Topic):
 ?>
 		<div class="forum-topic-move">
 			<input type="checkbox" checked="checked" name="TID[]" value="<?=$Topic["ID"]?>" id="TID_<?=$Topic["ID"]?>" />
 			<a href="<?=$Topic["read"]?>"><?=$Topic["TITLE"]?></a>
 		</div>
-<?
+<?php 
 endforeach;
 
 ?>
 		<div class="forum-topic-move-buttons">
 			<input type="submit" value="<?=GetMessage("FM_MOVE_TOPIC")?>" name="form_topics_submit" /> <span><?=GetMessage("F_IN")?></span> 
 			<select name="newFID" class="forums-selector-single">
-<?
+<?php 
 	foreach ($arResult["GROUPS_FORUMS"] as $key => $res):
 		if ($res["TYPE"] == "GROUP"):
 ?>
 				<optgroup label="<?=str_pad("", ($res["DEPTH"] - 1)*6, "&nbsp;").$res["NAME"]
 				?>" class="forums-selector-optgroup level<?=$res["DEPTH"]?>"></optgroup>
-<?
+<?php 
 		else:
 ?>
-				<option value="<?=$res["ID"]?>" <?=($arParams["TID"] == $res["ID"] ? "selected='selected'" : "")?> <?
+				<option value="<?=$res["ID"]?>" <?=($arParams["TID"] == $res["ID"] ? "selected='selected'" : "")?> <?php 
 					?>class="forums-selector-option level<?=$res["DEPTH"]?>"><?=($res["DEPTH"] > 0 ? str_pad("", $res["DEPTH"]*6, "&nbsp;")."&nbsp;" : "").
 						$res["NAME"]?></option>
-<?
+<?php 
 		endif;
 	endforeach;
 ?>

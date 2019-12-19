@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DCM_ERR_BAD_MODE"] = "Неверный режим использования менеджера";
 $MESS["BX_SALE_DCM_ERR_BAD_USER_ID"] = "Не указан ID покупателя";
 $MESS["BX_SALE_DCM_ERR_ORDER_ID_EXIST"] = "Для режима создания заказа указан ID заказа";

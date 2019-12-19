@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->RestartBuffer();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $file = trim(preg_replace("'[\\\\/]+'", "/", (dirname(__FILE__)."/lang/".LANGUAGE_ID."/template.php")));
@@ -56,7 +56,7 @@ BX.CDialog.prototype.btnWdFolderSave = BX.CDialog.btnWdFolderSave = {
 };
 BX(function() { var WDNameInput = BX('WDCreateFolderName'); if (WDNameInput) WDNameInput.focus();});
 </script>
-<?
+<?php 
 $popupWindow = new CJSPopup('', '');
 
 
@@ -78,17 +78,17 @@ $popupWindow->StartContent();
 <input type="hidden" name="use_light_view" value="Y" />
 <input type="hidden" name="ACTION" value="<?=$arParams["ACTION"]?>" />
 <input type="hidden" name="ACTIVE" value="Y" />
-<?
+<?php 
     $callParam = (!isset($_REQUEST["AJAX_CALL"])) ? "popupWindow" : "AJAX_CALL";
 ?>
 <input type="hidden" name="<?=$callParam?>" value="Y" />
 
-<?
+<?php 
 
 if ($arParams["ACTION"] == "DROP"):
 ?>
 	<?=str_replace("#NAME#", $arResult["SECTION"]["NAME"], GetMessage("WD_DROP_CONFIRM"))?>
-<?
+<?php 
 else:
 ?>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
@@ -104,7 +104,7 @@ else:
 <script type="text/javascript">
     BX.WindowManager.Get().PARAMS.content_url = "<?=CUtil::JSEscape(POST_FORM_ACTION_URI);?>";
 </script>
-<?
+<?php 
 endif;
 
 $popupWindow->EndContent();
@@ -112,4 +112,4 @@ $popupWindow->EndContent();
 <script type="text/javascript">
 <?=$popupWindow->jsPopup?>.SetButtons([<?=$popupWindow->jsPopup?>.btnWdFolderSave, <?=$popupWindow->jsPopup?>.btnCancel]);
 </script>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

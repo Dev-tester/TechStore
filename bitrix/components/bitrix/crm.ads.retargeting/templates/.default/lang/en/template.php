@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ADS_RTG_REFRESH"] = "Update";
 $MESS["CRM_ADS_RTG_REFRESH_TEXT"] = "Update target audience.";
 $MESS["CRM_ADS_RTG_REFRESH_TEXT_YANDEX"] = "Update target segments.";

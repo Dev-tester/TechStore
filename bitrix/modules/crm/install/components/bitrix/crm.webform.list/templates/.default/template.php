@@ -23,9 +23,9 @@ $descImagePath .= ".png";
 
 <div class="crm-webform-list-wrapper">
 
-	<?if(!$arResult['HIDE_DESC'] || !$arResult['HIDE_DESC_FZ152']):?>
+	<?php if(!$arResult['HIDE_DESC'] || !$arResult['HIDE_DESC_FZ152']):?>
 		<div id="CRM_LIST_DESC_CONT" class="crm-webform-list-info">
-			<?if(!$arResult['HIDE_DESC_FZ152']):?>
+			<?php if(!$arResult['HIDE_DESC_FZ152']):?>
 				<h2 class="crm-webform-list-info-title">
 					<?=Loc::getMessage('CRM_WEBFORM_LIST_NOTIFY_USER_CONSENT_TITLE')?>
 				</h2>
@@ -67,8 +67,8 @@ $descImagePath .= ".png";
 						</a>
 					</div>
 				</div>
-			<?else:?>
-				<?if(!$arResult['HIDE_DESC']):?>
+			<?php else:?>
+				<?php if(!$arResult['HIDE_DESC']):?>
 					<h2 class="crm-webform-list-info-title"><?=Loc::getMessage('CRM_WEBFORM_LIST_INFO_TITLE')?></h2>
 					<div class="crm-webform-list-info-visual">
 						<span class="crm-webform-list-info-visual-item" style="height: 225px;">
@@ -88,30 +88,30 @@ $descImagePath .= ".png";
 						</div>
 					</div>
 					<span id="CRM_LIST_DESC_BTN_HIDE" class="crm-webform-list-info-btn-hide" title="<?=Loc::getMessage('CRM_WEBFORM_LIST_HIDE_DESC')?>"></span>
-				<?endif;?>
-			<?endif;?>
+				<?php endif;?>
+			<?php endif;?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<div id="crm_web_form_list_container">
 
-		<?if(empty($arResult['ITEMS_BY_IS_SYSTEM']) && $arResult['PERM_CAN_EDIT']):?>
+		<?php if(empty($arResult['ITEMS_BY_IS_SYSTEM']) && $arResult['PERM_CAN_EDIT']):?>
 			<a href="<?=htmlspecialcharsbx($arResult['PATH_TO_BUTTON_NEW'])?>">
 				<div class="crm-webform-list-createform-container">
 					<div class="crm-webform-list-createform-element"><?=Loc::getMessage('CRM_WEBFORM_LIST_ADD_CAPTION')?></div>
 					<span class="crm-webform-list-createform-description"><?=Loc::getMessage('CRM_WEBFORM_LIST_ADD_DESC1')?></span>
 				</div>
 			</a>
-		<?endif;?>
+		<?php endif;?>
 
-<?foreach($arResult['ITEMS_BY_IS_SYSTEM'] as $isSystem => $system):?>
+<?php foreach($arResult['ITEMS_BY_IS_SYSTEM'] as $isSystem => $system):?>
 	<div class="crm-webform-list-header-container">
 		<h3 data-bx-list-head="" class="crm-webform-list-header">
 			<?=htmlspecialcharsbx($system['NAME'] . ($arResult['FILTER_ACTIVE_CURRENT'] != 'ALL' ? ': ' . $arResult['FILTER_ACTIVE_CURRENT_NAME'] : ''))?>
 		</h3>
 	</div>
 	<div data-bx-list-items="">
-<?foreach($system['ITEMS'] as $item):?>
+<?php foreach($system['ITEMS'] as $item):?>
 	<div class="crm-webform-list-widget-row"
 		data-bx-crm-webform-item="<?=intval($item['ID'])?>"
 		data-bx-system="<?=htmlspecialcharsbx($isSystem)?>"
@@ -120,9 +120,9 @@ $descImagePath .= ".png";
 		<div class="crm-webform-list-buttons-container">
 			<div class="crm-webform-list-buttons">
 				<span class="crm-webform-list-hamburger" data-bx-crm-webform-item-settings=""></span>
-				<?if($arResult['PERM_CAN_EDIT'] && $item['IS_SYSTEM'] != 'Y'):?>
+				<?php if($arResult['PERM_CAN_EDIT'] && $item['IS_SYSTEM'] != 'Y'):?>
 					<span class="crm-webform-list-close" data-bx-crm-webform-item-delete="" title="<?=Loc::getMessage('CRM_WEBFORM_LIST_ACTIONS_REMOVE')?>"></span>
-				<?endif;?>
+				<?php endif;?>
 			</div><!--crm-webform-list-buttons-->
 		</div><!--crm-webform-list-button-container-->
 		<div class="crm-webform-list-widget-container crm-webform-list-widget-left">
@@ -140,7 +140,7 @@ $descImagePath .= ".png";
 				<div class="crm-webform-list-widget-content">
 					<div class="crm-webform-list-widget-content-amt">
 						<div class="crm-webform-list-widget-content-lead-ads-cont">
-							<?foreach ($item['ADS_FORM'] as $adsFormService):
+							<?php foreach ($item['ADS_FORM'] as $adsFormService):
 								$top = empty($top) ? 20 : $top + 20;
 								$typeUpped = strtoupper($adsFormService['TYPE']);
 								if ($adsFormService['HAS_LINKS']):
@@ -159,20 +159,20 @@ $descImagePath .= ".png";
 											<?=Loc::getMessage('CRM_WEBFORM_LIST_ADS_FORM_STATUS_ON_' . $typeUpped)?>
 										</div>
 									</a>
-								<?
+								<?php 
 								endif;
 							endforeach;?>
 						</div>
 						<span class="crm-webform-list-widget-content-image"></span>
 						<div style="position: relative;left: 118px;">
-							<?foreach($item['itemViewList'] as $viewType => $view):?>
+							<?php foreach($item['itemViewList'] as $viewType => $view):?>
 							<div class="crm-webform-list-widget-content-item <?=($view['SELECTED'] ? 'crm-webform-list-widget-content-item-show' : '')?>" data-bx-crm-webform-view-info="<?=$viewType?>">
 								<div class="crm-crm-webform-list-widget-content-title"><?=$view['TEXT']?></div>
 								<div class="crm-webform-list-widget-content-number">
 									<?=$item['SUMMARY_' . $viewType . '_DISPLAY']?>
 								</div>
 							</div>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</div>
 						<div class="crm-webform-list-widget-content-attempt" style="top: 67px; position: relative;">
 							<span class="crm-webform-list-widget-content-attempt-total">
@@ -209,7 +209,7 @@ $descImagePath .= ".png";
 								<?=$item['DATE_CREATE_DISPLAY_DATE']?> <?=Loc::getMessage('CRM_WEBFORM_LIST_ITEM_ACTIVE_ACT_ON')?> <?=$item['DATE_CREATE_DISPLAY_TIME']?>:
 							</span>
 							<span class="crm-webform-list-date">
-								<?
+								<?php 
 								if($item['ACTIVE_CHANGE_BY_DISPLAY']['ICON'])
 								{
 									$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($item['ACTIVE_CHANGE_BY_DISPLAY']['ICON']) .'\');';
@@ -235,7 +235,7 @@ $descImagePath .= ".png";
 								<span class="crm-webform-list-activate-comments-deact"><?=Loc::getMessage('CRM_WEBFORM_LIST_ITEM_ACTIVE_OFF_NOW')?>:</span>
 							</span>
 							<span class="crm-webform-list-date">
-								<?
+								<?php 
 								if($item['ACTIVE_CHANGE_BY_NOW_DISPLAY']['ICON'])
 								{
 									$userIconStyle = 'background-image: url(\'' . htmlspecialcharsbx($item['ACTIVE_CHANGE_BY_NOW_DISPLAY']['ICON']) .'\');';
@@ -285,33 +285,33 @@ $descImagePath .= ".png";
 			<div class="crm-webform-list-button-settings-container">
 				<button class="ui-btn ui-btn-md ui-btn-primary" data-bx-crm-webform-item-btn-getscript=""><?=Loc::getMessage('CRM_WEBFORM_LIST_ITEM_BTN_GET_SCRIPT')?></button>
 				<a class="ui-btn ui-btn-md ui-btn-light-border" data-bx-slider-opener="" data-bx-edit-link="" href="<?=htmlspecialcharsbx($item['PATH_TO_WEB_FORM_EDIT'])?>">
-					<?if($item['IS_READONLY'] == 'Y'):?>
+					<?php if($item['IS_READONLY'] == 'Y'):?>
 						<?=Loc::getMessage('CRM_WEBFORM_LIST_ACTIONS_VIEW')?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('CRM_WEBFORM_LIST_ACTIONS_EDIT')?>
-					<?endif;?>
+					<?php endif;?>
 				</a>
 				<button class="ui-btn ui-btn-md <?=($item['ACTIVE'] <> 'Y' ? 'ui-btn-success' : 'ui-btn-light-border')?>"
 						data-bx-crm-webform-item-active-btn=""
 						data-bx-text-on="<?=Loc::getMessage('CRM_WEBFORM_LIST_ITEM_ACTIVE_BTN_ON')?>"
 						data-bx-text-off="<?=Loc::getMessage('CRM_WEBFORM_LIST_ITEM_ACTIVE_BTN_OFF')?>">
-					<?if($item['ACTIVE'] == 'Y'):?>
+					<?php if($item['ACTIVE'] == 'Y'):?>
 						<?=Loc::getMessage('CRM_WEBFORM_LIST_ITEM_ACTIVE_BTN_OFF')?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('CRM_WEBFORM_LIST_ITEM_ACTIVE_BTN_ON')?>
-					<?endif;?>
+					<?php endif;?>
 				</button>
 			</div><!--intranet-button-list-button-settings-container-->
 
 		</div><!--crm-webform-list-widget-container crm-webform-list-widget-right-->
 	</div><!--crm-webform-list-widget-row-->
 
-<?endforeach;?>
+<?php endforeach;?>
 	</div>
-<?endforeach;?>
+<?php endforeach;?>
 </div><!--crm-webform-list-wrapper-->
 
-	<?if($arResult['SHOW_PLUGINS']):?>
+	<?php if($arResult['SHOW_PLUGINS']):?>
 	<div class="crm-webform-list-header-container">
 		<h3 class="crm-webform-list-header"><?=Loc::getMessage('CRM_WEBFORM_LIST_PLUGIN_TITLE')?></h3>
 	</div><!--crm-webform-list-header-container-->
@@ -334,7 +334,7 @@ $descImagePath .= ".png";
 			</span>
 		</div>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 
 </div>
 
@@ -391,17 +391,17 @@ $descImagePath .= ".png";
 	});
 </script>
 
-<?
+<?php 
 $this->SetViewTarget("pagetitle", 10);
 ?>
 	<button id="webform_filter_active" class="ui-btn ui-btn-md ui-btn-themes ui-btn-light-border ui-btn-dropdown" data-bx-text="<?=Loc::getMessage('CRM_WEBFORM_LIST_FILTER_SHOW')?>">
 		<?=Loc::getMessage('CRM_WEBFORM_LIST_FILTER_SHOW')?>: <?=$arResult['FILTER_ACTIVE_CURRENT_NAME']?></button>
 
-	<?if ($arResult['PERM_CAN_EDIT']):?>
+	<?php if ($arResult['PERM_CAN_EDIT']):?>
 	<a class="ui-btn ui-btn-md ui-btn-primary" id="CRM_WEBFORM_LIST_ADD" href="<?=htmlspecialcharsbx($arResult['PATH_TO_WEB_FORM_NEW'])?>">
 		<?=Loc::getMessage('CRM_WEBFORM_LIST_ADD_CAPTION')?></a>
-	<?endif;?>
-<?
+	<?php endif;?>
+<?php 
 $this->EndViewTarget();
 
 ob_start();

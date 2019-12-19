@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STANZA_PAGE_TITLE'] = "STANZA запрос";
 $MESS ['STANZA_EXECUTE'] = "Выполнить запрос (alt+x)";
 $MESS ['STANZA_CONFIRM_EXECUTE'] = "Вы уверены что хотите выполнить STANZA запрос к XMPP серверу?";

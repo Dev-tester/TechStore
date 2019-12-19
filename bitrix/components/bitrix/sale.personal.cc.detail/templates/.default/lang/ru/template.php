@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STPC_TO_LIST"]="Вернуться в список карт";
 $MESS["STPC_TIMESTAMP"]="Дата последнего изменения:";
 $MESS["STPC_ACTIV"]="Активность:";

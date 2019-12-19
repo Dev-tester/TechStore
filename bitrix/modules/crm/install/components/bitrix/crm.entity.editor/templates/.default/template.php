@@ -112,19 +112,19 @@ if(Main\Loader::includeModule('socialnetwork'))
 				BX.Crm.EntityEditorCrmSelector.dealsLast = {};
 			}
 		);
-	</script><?
+	</script><?php 
 }
 
 ?><div class="crm-entity-card-container-content" id="<?=htmlspecialcharsbx($containerID)?>"></div>
 <div class="crm-entity-card-widget-add-btn-container" id="<?=htmlspecialcharsbx($buttonContainerID)?>" style="display:none;">
 	<span id="<?=htmlspecialcharsbx($createSectionButtonID)?>" class="crm-entity-add-widget-link">
 		<?=GetMessage('CRM_ENTITY_ED_CREATE_SECTION')?>
-	</span><?
+	</span><?php 
 if($arResult['REST_USE'])
 {
 	?><span id="<?=htmlspecialcharsbx($restSectionButtonID)?>" class="crm-entity-add-app-link">
 		<?=GetMessage('CRM_ENTITY_ED_REST_SECTION')?>
-	</span><?
+	</span><?php 
 }
 
 $configIconClassName = $arResult['ENTITY_CONFIG_SCOPE'] === Crm\Entity\EntityEditorConfigScope::COMMON
@@ -134,18 +134,18 @@ $configIconClassName = $arResult['ENTITY_CONFIG_SCOPE'] === Crm\Entity\EntityEdi
 $configCaption = Crm\Entity\EntityEditorConfigScope::getCaption($arResult['ENTITY_CONFIG_SCOPE']);
 
 	?><span id="<?=htmlspecialcharsbx($configIconID)?>" class="<?=$configIconClassName?>" title="<?=$configCaption?>">
-	</span><?
+	</span><?php 
 
 	?><span id="<?=htmlspecialcharsbx($configMenuButtonID)?>" class="crm-entity-settings-link">
 		<?=$configCaption?>
 	</span>
-</div><?
+</div><?php 
 if(!empty($htmlEditorConfigs))
 {
 	CModule::IncludeModule('fileman');
 	foreach($htmlEditorConfigs as $htmlEditorConfig)
 	{
-		?><div id="<?=htmlspecialcharsbx($htmlEditorConfig['containerId'])?>" style="display:none;"><?
+		?><div id="<?=htmlspecialcharsbx($htmlEditorConfig['containerId'])?>" style="display:none;"><?php 
 			$editor = new CHTMLEditor();
 			$editor->Show(
 				array(
@@ -192,14 +192,14 @@ if(!empty($htmlEditorConfigs))
 					)
 				)
 			);
-		?></div><?
+		?></div><?php 
 	}
 }
 ?>
 
-<?if (!empty($arResult['BIZPROC_MANAGER_CONFIG'])):
+<?php if (!empty($arResult['BIZPROC_MANAGER_CONFIG'])):
 	$arResult['BIZPROC_MANAGER_CONFIG']['containerId'] = "{$prefix}_bizproc_manager_container";
-?><div id="<?=htmlspecialcharsbx($arResult['BIZPROC_MANAGER_CONFIG']['containerId'])?>" style="display:none;"><?
+?><div id="<?=htmlspecialcharsbx($arResult['BIZPROC_MANAGER_CONFIG']['containerId'])?>" style="display:none;"><?php 
 	\CJSCore::init(array('bp_starter'));
 	$APPLICATION->IncludeComponent("bitrix:bizproc.workflow.start",
 		'modern',
@@ -211,7 +211,7 @@ if(!empty($htmlEditorConfigs))
 		)
 	);
 ?></div>
-<?endif?>
+<?php endif?>
 <script type="text/javascript">
 	BX.ready(
 		function()
@@ -631,7 +631,7 @@ if(!empty($htmlEditorConfigs))
 
 			var bizprocManager = null;
 			var restPlacementTabManager = null;
-			<?if(!$arResult['IS_EMBEDDED']){?>
+			<?php if(!$arResult['IS_EMBEDDED']){?>
 			bizprocManager = BX.Crm.EntityBizprocManager.create(
 				"<?=CUtil::JSEscape($guid)?>",
 				<?=\Bitrix\Main\Web\Json::encode($arResult['BIZPROC_MANAGER_CONFIG'])?>
@@ -641,7 +641,7 @@ if(!empty($htmlEditorConfigs))
 				"<?=CUtil::JSEscape($guid)?>",
 				<?=\CUtil::PhpToJSObject($arResult['REST_PLACEMENT_TAB_CONFIG'])?>
 			);
-			<?}?>
+			<?php }?>
 
 			BX.Crm.EntityEditor.setDefault(
 				BX.Crm.EntityEditor.create(

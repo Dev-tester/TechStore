@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HLBLOCK_ADMIN_ROWS_ADD_NEW_BUTTON"] = "Add record";
 $MESS["HLBLOCK_ADMIN_ROWS_RETURN_TO_LIST_BUTTON"] = "Back to list";
 $MESS["HLBLOCK_ADMIN_DELETE_ROW_CONFIRM"] = "Delete record?";

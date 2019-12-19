@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $name = 
 	'<div class="element-name">'.
 		'<div class="element-icon ic'.substr($arResult["ELEMENT"]["EXTENTION"], 1).'"></div>'.
@@ -14,7 +14,7 @@ if (in_array($arResult["ELEMENT"]["EXTENTION"], array(".doc", ".docx", ".xls", "
 endif; 
 
 
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.form",
 	"",
 	array(

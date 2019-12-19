@@ -13,14 +13,14 @@ if ($isBitrix24Template)
 }
 ?>
 
-<? if (!$isBitrix24Template): ?>
+<?php  if (!$isBitrix24Template): ?>
 	<div class="tasks-interface-filter-container">
-<? endif ?>
+<?php  endif ?>
 
-	<div class="pagetitle-container<? if (!$isBitrix24Template): ?> pagetitle-container-light<? endif ?> pagetitle-flexible-space">
-		<?if (!$arResult['IS_FRAME_MODE']):?>
+	<div class="pagetitle-container<?php  if (!$isBitrix24Template): ?> pagetitle-container-light<?php  endif ?> pagetitle-flexible-space">
+		<?php if (!$arResult['IS_FRAME_MODE']):?>
 				<div class="pagetitle-container pagetitle-flexible-space">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						'bitrix:main.ui.filter',
 						'',
@@ -31,9 +31,9 @@ if ($isBitrix24Template)
 					?>
 				</div>
 
-				<?if ($arResult['WITH_ADD_BUTTON']):?>
+				<?php if ($arResult['WITH_ADD_BUTTON']):?>
 				<div class="pagetitle-container pagetitle-align-right-container">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						'bitrix:report.visualconstructor.board.controls',
 						'',
@@ -46,8 +46,8 @@ if ($isBitrix24Template)
 					);
 					?>
 				</div>
-				<?endif;?>
-		<?else:?>
+				<?php endif;?>
+		<?php else:?>
 			<div class="pagetitle-container pagetitle-align-right-container">
 			<?php
 				/** @var \Bitrix\Report\VisualConstructor\BoardButton $button */
@@ -57,11 +57,11 @@ if ($isBitrix24Template)
 				}
 			?>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
-<? if (!$isBitrix24Template): ?>
+<?php  if (!$isBitrix24Template): ?>
 	</div>
-<? endif ?>
+<?php  endif ?>
 <?php
 if ($isBitrix24Template)
 {
@@ -72,7 +72,7 @@ if ($isBitrix24Template)
 if ($arResult['IS_FRAME_MODE']):?>
 	<div class="filter">
 		<div class="pagetitle-container pagetitle-flexible-space">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:main.ui.filter',
 			'',
@@ -84,5 +84,5 @@ if ($arResult['IS_FRAME_MODE']):?>
 		</div>
 	</div>
 
-<?endif; ?>
+<?php endif; ?>
 

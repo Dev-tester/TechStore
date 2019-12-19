@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_PAY_SYSTEM_CASH_NAME"] = "Cash";
 $MESS["CRM_DELIVERY_COURIER"] = "Courier delivery";
 $MESS["CRM_DELIVERY_COURIER_DESCR"] = "One day delivery at a time of your convenience.";

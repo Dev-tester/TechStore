@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_MODULE_NOT_INSTALL'] = "Модуль Интернет-магазин не установлен.";
 $MESS ['SPPL_DEFAULT_TITLE'] = "Профили";
 $MESS ['SPPL_PAGES'] = "Профили";

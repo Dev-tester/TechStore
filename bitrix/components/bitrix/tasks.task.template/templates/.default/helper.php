@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Tasks\Util;
 use Bitrix\Tasks\Util\Calendar;
 use Bitrix\Tasks\Util\Type\DateTime;

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $selfFolderUrl = $adminPage->getSelfFolderUrl();
@@ -82,19 +82,19 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?CAdminMessage::ShowMessage($strError);?>
-<?
+<?php CAdminMessage::ShowMessage($strError);?>
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="fform">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
-<input type="hidden" name="ID" value="<?echo $ID ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
+<input type="hidden" name="ID" value="<?php echo $ID ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 		array("DIV" => "edit1", "TAB" => GetMessage("STEEN_TAB_EXMPT"), "ICON" => "sale", "TITLE" => GetMessage("STEEN_TAB_EXMPT_DESCR"))
 	);
@@ -103,43 +103,43 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
 	<tr>
 		<td width="40%">
-			<?echo GetMessage("TAX_ID")?>:
+			<?php echo GetMessage("TAX_ID")?>:
 		</td>
 		<td width="60%">
-			<b><?echo $ID ?></b>
+			<b><?php echo $ID ?></b>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?echo GetMessage("EXEMPT_NAME")?>:
+			<?php echo GetMessage("EXEMPT_NAME")?>:
 		</td>
 		<td>
-			<b><?echo $f_NAME ?></b>
+			<b><?php echo $f_NAME ?></b>
 		</td>
 	</tr>
 	<tr>
 		<td>
-			<?echo GetMessage("EXEMPT_DESCR")?>:
+			<?php echo GetMessage("EXEMPT_DESCR")?>:
 		</td>
 		<td>
-			<?echo $f_DESCRIPTION ?>
+			<?php echo $f_DESCRIPTION ?>
 		</td>
 	</tr>
 
 	<tr>
 		<td width="40%" valign="top">
-			<?echo GetMessage("F_TAX_LIST");?>:<br><img src="/bitrix/images/sale/mouse.gif" width="44" height="21" border="0" alt="">
+			<?php echo GetMessage("F_TAX_LIST");?>:<br><img src="/bitrix/images/sale/mouse.gif" width="44" height="21" border="0" alt="">
 		</td>
 		<td width="60%" valign="top">
 			<select name="TAX_ID[]" size="10" multiple>
-				<?$db_vars = CSaleTax::GetList(Array("NAME"=>"ASC"), array())?>
-				<?
+				<?php $db_vars = CSaleTax::GetList(Array("NAME"=>"ASC"), array())?>
+				<?php 
 				$arTAX_ID = array();
 				if ($bInitVars)
 				{
@@ -154,18 +154,18 @@ $tabControl->BeginNextTab();
 					}
 				}
 				?>
-				<?while ($vars = $db_vars->Fetch()):?>
-					<option value="<?echo $vars["ID"]?>"<?if (in_array(IntVal($vars["ID"]), $arTAX_ID)) echo " selected"?>><?echo htmlspecialcharsbx($vars["NAME"]." (".$vars["LID"].")")?></option>
-				<?endwhile;?>
+				<?php while ($vars = $db_vars->Fetch()):?>
+					<option value="<?php echo $vars["ID"]?>"<?php if (in_array(IntVal($vars["ID"]), $arTAX_ID)) echo " selected"?>><?php echo htmlspecialcharsbx($vars["NAME"]." (".$vars["LID"].")")?></option>
+				<?php endwhile;?>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "W"), "back_url" => $listUrl));
 $tabControl->End();
 ?>
 
 </form>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

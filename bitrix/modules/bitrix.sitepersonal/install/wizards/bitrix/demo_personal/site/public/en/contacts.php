@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Contact");
 ?> 
-<?$APPLICATION->IncludeComponent("bitrix:main.feedback", "personal", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:main.feedback", "personal", Array(
 	"USE_CAPTCHA" => "Y",	
 	"OK_TEXT" => "Thank you! Your message has been submitted.",	
 	"EMAIL_TO" => "",	
@@ -25,4 +25,4 @@ $APPLICATION->SetTitle("Contact");
  
   <li>Skype: Morrison_Victoria.</li>
  </ul>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

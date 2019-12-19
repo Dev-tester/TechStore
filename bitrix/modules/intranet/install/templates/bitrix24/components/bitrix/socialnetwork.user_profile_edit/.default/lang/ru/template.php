@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOCNET_CHANGE_PASSWORD"] = "Сменить пароль";
 $MESS["SOCNET_SOCNET_ADD"] = "Добавить соц.сети";
 $MESS["SOCNET_PHONE_ADD"] = "Добавить телефоны";

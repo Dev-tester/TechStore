@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $ORDER_ID = IntVal($GLOBALS["SALE_INPUT_PARAMS"]["ORDER"]["ID"]);
 if (!is_array($arOrder))
 	$arOrder = CSaleOrder::GetByID($ORDER_ID);
@@ -17,7 +17,7 @@ if (!is_array($arOrder))
 </style>
 </head>
 
-<?
+<?php 
 
 if ($_REQUEST['BLANK'] == 'Y')
 	$blank = true;
@@ -70,27 +70,27 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 ?>
 
-<body style="margin: 0pt; padding: 0pt;"<? if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<? } ?>>
+<body style="margin: 0pt; padding: 0pt;"<?php  if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<?php  } ?>>
 
 <div style="margin: 0pt; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>">
 
 <table class="header">
 	<tr>
-		<? if (CSalePaySystemAction::GetParamValue("PATH_TO_LOGO", false)) { ?>
+		<?php  if (CSalePaySystemAction::GetParamValue("PATH_TO_LOGO", false)) { ?>
 		<td style="padding-right: 5pt; ">
-			<? $imgParams = CFile::_GetImgParams(CSalePaySystemAction::GetParamValue('PATH_TO_LOGO', false)); ?>
-			<? $imgWidth = $imgParams['WIDTH'] * 96 / (intval(CSalePaySystemAction::GetParamValue('LOGO_DPI', false)) ?: 96); ?>
+			<?php  $imgParams = CFile::_GetImgParams(CSalePaySystemAction::GetParamValue('PATH_TO_LOGO', false)); ?>
+			<?php  $imgWidth = $imgParams['WIDTH'] * 96 / (intval(CSalePaySystemAction::GetParamValue('LOGO_DPI', false)) ?: 96); ?>
 			<img src="<?=$imgParams['SRC']; ?>" width="<?=$imgWidth; ?>" />
 		</td>
-		<? } ?>
+		<?php  } ?>
 		<td>
 			<b><?=CSalePaySystemAction::GetParamValue("SELLER_NAME", false); ?></b><br>
-			<? if (CSalePaySystemAction::GetParamValue("SELLER_ADDRESS", false)) { ?>
+			<?php  if (CSalePaySystemAction::GetParamValue("SELLER_ADDRESS", false)) { ?>
 			<b><?=CSalePaySystemAction::GetParamValue("SELLER_ADDRESS", false); ?></b><br>
-			<? } ?>
-			<? if (CSalePaySystemAction::GetParamValue("SELLER_PHONE", false)) { ?>
+			<?php  } ?>
+			<?php  if (CSalePaySystemAction::GetParamValue("SELLER_PHONE", false)) { ?>
 			<b><?=sprintf("Tel.: %s", CSalePaySystemAction::GetParamValue("SELLER_PHONE", false)); ?></b><br>
-			<? } ?>
+			<?php  } ?>
 		</td>
 	</tr>
 </table>
@@ -103,15 +103,15 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 <table width="100%">
 	<tr>
-		<? if (CSalePaySystemAction::GetParamValue("BUYER_NAME", false)) { ?>
+		<?php  if (CSalePaySystemAction::GetParamValue("BUYER_NAME", false)) { ?>
 		<td>
 			<b>To</b><br>
 			<?=CSalePaySystemAction::GetParamValue("BUYER_NAME", false); ?><br>
-			<? if (CSalePaySystemAction::GetParamValue("BUYER_ADDRESS", false)) { ?>
+			<?php  if (CSalePaySystemAction::GetParamValue("BUYER_ADDRESS", false)) { ?>
 			<?=CSalePaySystemAction::GetParamValue("BUYER_ADDRESS", false); ?>
-			<? } ?>
+			<?php  } ?>
 		</td>
-		<? } ?>
+		<?php  } ?>
 		<td align="right">
 			<table class="inv">
 				<tr align="right">
@@ -122,7 +122,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 					<td><b>Issue Date:&nbsp;</b></td>
 					<td><?=CSalePaySystemAction::GetParamValue("DATE_INSERT", false); ?></td>
 				</tr>
-				<? if (CSalePaySystemAction::GetParamValue("DATE_PAY_BEFORE", false)) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("DATE_PAY_BEFORE", false)) { ?>
 				<tr align="right">
 					<td><b>Due Date:&nbsp;</b></td>
 					<td><?=(
@@ -130,7 +130,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 							?: CSalePaySystemAction::GetParamValue("DATE_PAY_BEFORE", false)
 					); ?></td>
 				</tr>
-				<? } ?>
+				<?php  } ?>
 			</table>
 		</td>
 	</tr>
@@ -140,7 +140,7 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 <br>
 <br>
 
-<?
+<?php 
 
 $dbBasket = CSaleBasket::GetList(
 	array("DATE_INSERT" => "ASC", "NAME" => "ASC"),
@@ -403,12 +403,12 @@ if ($arBasket = $dbBasket->Fetch())
 		<td><nobr>Qty</nobr></td>
 		<td><nobr>Units</nobr></td>
 		<td><nobr>Unit Price</nobr></td>
-		<? if ($vat > 0) { ?>
+		<?php  if ($vat > 0) { ?>
 		<td><nobr>Tax Rate</nobr></td>
-		<? } ?>
+		<?php  } ?>
 		<td><nobr>Total</nobr></td>
 	</tr>
-<?
+<?php 
 
 $rowsCnt = count($arCells);
 for ($n = 1; $n <= $rowsCnt; $n++)
@@ -417,43 +417,43 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 
 ?>
 	<tr valign="top">
-		<? if (!is_null($arCells[$n][1])) { ?>
+		<?php  if (!is_null($arCells[$n][1])) { ?>
 		<td align="center"><?=$arCells[$n][1]; ?></td>
-		<? } else {
+		<?php  } else {
 			$accumulated++;
 		} ?>
-		<? if (!is_null($arCells[$n][2])) { ?>
+		<?php  if (!is_null($arCells[$n][2])) { ?>
 		<td align="left"
-			style="word-break: break-word; word-wrap: break-word; <? if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <? } ?>"
-			<? if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<? $accumulated = 0; } ?>>
+			style="word-break: break-word; word-wrap: break-word; <?php  if ($accumulated) {?>border-width: 0pt 1pt 0pt 0pt; <?php  } ?>"
+			<?php  if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0; } ?>>
 			<?=$arCells[$n][2]; ?>
-			<? if (isset($arProps[$n]) && is_array($arProps[$n])) { ?>
-			<? foreach ($arProps[$n] as $property) { ?>
+			<?php  if (isset($arProps[$n]) && is_array($arProps[$n])) { ?>
+			<?php  foreach ($arProps[$n] as $property) { ?>
 			<br>
 			<small><?=$property; ?></small>
-			<? } ?>
-			<? } ?>
+			<?php  } ?>
+			<?php  } ?>
 		</td>
-		<? } else {
+		<?php  } else {
 			$accumulated++;
 		} ?>
-		<? for ($i = 3; $i <= 7; $i++) { ?>
-			<? if (!is_null($arCells[$n][$i])) { ?>
-				<? if ($i != 6 || $vat > 0 || is_null($arCells[$n][2])) { ?>
+		<?php  for ($i = 3; $i <= 7; $i++) { ?>
+			<?php  if (!is_null($arCells[$n][$i])) { ?>
+				<?php  if ($i != 6 || $vat > 0 || is_null($arCells[$n][2])) { ?>
 				<td align="right"
-					<? if ($accumulated) { ?>
+					<?php  if ($accumulated) { ?>
 					style="border-width: 0pt 1pt 0pt 0pt"
 					colspan="<?=(($i == 6 && $vat <= 0) ? $accumulated : $accumulated+1); ?>"
-					<? $accumulated = 0; } ?>>
+					<?php  $accumulated = 0; } ?>>
 					<nobr><?=$arCells[$n][$i]; ?></nobr>
 				</td>
-				<? }
+				<?php  }
 			} else {
 				$accumulated++;
 			}
 		} ?>
 	</tr>
-<?
+<?php 
 
 }
 
@@ -464,140 +464,140 @@ for ($n = 1; $n <= $rowsCnt; $n++)
 <br>
 <br>
 
-<? if (CSalePaySystemAction::GetParamValue("COMMENT1", false) || CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
+<?php  if (CSalePaySystemAction::GetParamValue("COMMENT1", false) || CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
 <b>Terms & Conditions</b>
 <br>
-	<? if (CSalePaySystemAction::GetParamValue("COMMENT1", false)) { ?>
+	<?php  if (CSalePaySystemAction::GetParamValue("COMMENT1", false)) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback(CSalePaySystemAction::GetParamValue("COMMENT1", false))
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-	<? if (CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
+	<?php  } ?>
+	<?php  if (CSalePaySystemAction::GetParamValue("COMMENT2", false)) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback(CSalePaySystemAction::GetParamValue("COMMENT2", false))
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
 <br>
 <br>
 <br>
 
-<? $bankAccNo = CSalePaySystemAction::GetParamValue("SELLER_BANK_ACCNO", false); ?>
-<? $bankRouteNo = CSalePaySystemAction::GetParamValue("SELLER_BANK_ROUTENO", false); ?>
-<? $bankSwift = CSalePaySystemAction::GetParamValue("SELLER_BANK_SWIFT", false); ?>
+<?php  $bankAccNo = CSalePaySystemAction::GetParamValue("SELLER_BANK_ACCNO", false); ?>
+<?php  $bankRouteNo = CSalePaySystemAction::GetParamValue("SELLER_BANK_ROUTENO", false); ?>
+<?php  $bankSwift = CSalePaySystemAction::GetParamValue("SELLER_BANK_SWIFT", false); ?>
 
 <table class="sign" style="width: 100%; ">
 	<tr>
 		<td style="width: 50%; ">
 
-		<? if ($bankAccNo && $bankRouteNo && $bankSwift) { ?>
+		<?php  if ($bankAccNo && $bankRouteNo && $bankSwift) { ?>
 
 			<b>Bank Details</b>
 			<br>
 
-			<? if (CSalePaySystemAction::GetParamValue("SELLER_NAME", false)) { ?>
+			<?php  if (CSalePaySystemAction::GetParamValue("SELLER_NAME", false)) { ?>
 				Account Name: <?=CSalePaySystemAction::GetParamValue("SELLER_NAME", false); ?>
 				<br>
-			<? } ?>
+			<?php  } ?>
 
 			Account #: <?=$bankAccNo; ?>
 			<br>
 
-			<? $bank = CSalePaySystemAction::GetParamValue("SELLER_BANK", false); ?>
-			<? $bankAddr = CSalePaySystemAction::GetParamValue("SELLER_BANK_ADDR", false); ?>
-			<? $bankPhone = CSalePaySystemAction::GetParamValue("SELLER_BANK_PHONE", false); ?>
+			<?php  $bank = CSalePaySystemAction::GetParamValue("SELLER_BANK", false); ?>
+			<?php  $bankAddr = CSalePaySystemAction::GetParamValue("SELLER_BANK_ADDR", false); ?>
+			<?php  $bankPhone = CSalePaySystemAction::GetParamValue("SELLER_BANK_PHONE", false); ?>
 
-			<? if ($bank || $bankAddr || $bankPhone) { ?>
-				Bank Name and Address: <? if ($bank) { ?><?=$bank; ?><? } ?>
+			<?php  if ($bank || $bankAddr || $bankPhone) { ?>
+				Bank Name and Address: <?php  if ($bank) { ?><?=$bank; ?><?php  } ?>
 				<br>
 
-				<? if ($bankAddr) { ?>
+				<?php  if ($bankAddr) { ?>
 					<?=$bankAddr; ?>
 					<br>
-				<? } ?>
+				<?php  } ?>
 
-				<? if ($bankPhone) { ?>
+				<?php  if ($bankPhone) { ?>
 					<?=$bankPhone; ?>
 					<br>
-				<? } ?>
-			<? } ?>
+				<?php  } ?>
+			<?php  } ?>
 
 			Bank's routing number: <?=$bankRouteNo; ?>
 			<br>
 
 			Bank SWIFT: <?=$bankSwift; ?>
 			<br>
-		<? } ?>
+		<?php  } ?>
 
 		</td>
 		<td style="width: 50%; ">
 
-			<? if (!$blank) { ?>
+			<?php  if (!$blank) { ?>
 			<div style="position: relative; "><?=CFile::ShowImage(
 				CSalePaySystemAction::GetParamValue("PATH_TO_STAMP", false),
 				160, 160,
 				'style="position: absolute; left: 30pt; "'
 			); ?></div>
-			<? } ?>
+			<?php  } ?>
 
 			<table style="width: 100%; position: relative; ">
 				<colgroup>
 					<col width="0">
 					<col width="100%">
 				</colgroup>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_DIR_POS", false)) { ?>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_DIR", false) || CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN", false)) { ?>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_DIR", false)) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_DIR_POS", false)) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_DIR", false) || CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN", false)) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_DIR", false)) { ?>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td colspan="2"><?=CSalePaySystemAction::GetParamValue("SELLER_DIR", false); ?></td>
 				</tr>
-				<? } ?>
+				<?php  } ?>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td><nobr><?=CSalePaySystemAction::GetParamValue("SELLER_DIR_POS", false); ?></nobr></td>
 					<td style="border-bottom: 1pt solid #000000; text-align: center; ">
-						<? if (!$blank && CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN", false)) { ?>
+						<?php  if (!$blank && CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN", false)) { ?>
 						<span style="position: relative; ">&nbsp;<?=CFile::ShowImage(
 							CSalePaySystemAction::GetParamValue("SELLER_DIR_SIGN", false),
 							200, 50,
 							'style="position: absolute; margin-left: -75pt; bottom: 0pt; "'
 						); ?></span>
-						<? } ?>
+						<?php  } ?>
 					</td>
 				</tr>
-				<? } ?>
-				<? } ?>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_ACC_POS", false)) { ?>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_ACC", false) || CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN", false)) { ?>
-				<? if (CSalePaySystemAction::GetParamValue("SELLER_ACC", false)) { ?>
+				<?php  } ?>
+				<?php  } ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_ACC_POS", false)) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_ACC", false) || CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN", false)) { ?>
+				<?php  if (CSalePaySystemAction::GetParamValue("SELLER_ACC", false)) { ?>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td colspan="2"><?=CSalePaySystemAction::GetParamValue("SELLER_ACC", false); ?></td>
 				</tr>
-				<? } ?>
+				<?php  } ?>
 				<tr><td>&nbsp;</td></tr>
 				<tr>
 					<td><nobr><?=CSalePaySystemAction::GetParamValue("SELLER_ACC_POS", false); ?></nobr></td>
 					<td style="border-bottom: 1pt solid #000000; text-align: center; ">
-						<? if (!$blank && CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN", false)) { ?>
+						<?php  if (!$blank && CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN", false)) { ?>
 						<span style="position: relative; ">&nbsp;<?=CFile::ShowImage(
 							CSalePaySystemAction::GetParamValue("SELLER_ACC_SIGN", false),
 							200, 50,
 							'style="position: absolute; margin-left: -75pt; bottom: 0pt; "'
 						); ?></span>
-						<? } ?>
+						<?php  } ?>
 					</td>
 				</tr>
-				<? } ?>
-				<? } ?>
+				<?php  } ?>
+				<?php  } ?>
 			</table>
 
 		</td>

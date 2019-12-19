@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_RSS_READER_P_CACHE_TIME"] = "Cache time, sec.(0 - do not cache)";
 $MESS["GD_RSS_READER_P_SHOW_DETAIL"] = "Show link to detail page";
 $MESS["GD_RSS_READER_P_RSSS"] = "Predefined RSS Feeds (each starting from a new line)";

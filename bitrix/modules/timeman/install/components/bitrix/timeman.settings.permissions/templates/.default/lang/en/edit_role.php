@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_ACTION_READ"] = "View";
 $MESS["TIMEMAN_ACTION_UPDATE"] = "Edit";
 $MESS["TIMEMAN_DEFAULT_OPERATION_TITLE"] = "Access denied";

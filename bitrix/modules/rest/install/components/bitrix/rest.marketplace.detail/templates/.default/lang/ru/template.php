@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_APP_INSTALL"] = "Установить";
 $MESS["MARKETPLACE_APP_BUY"] = "Купить";
 $MESS["MARKETPLACE_APP_PROLONG"] = "Продлить";

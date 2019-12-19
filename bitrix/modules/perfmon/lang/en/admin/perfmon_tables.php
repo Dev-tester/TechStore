@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_TABLES_TITLE"] = "Database Tables";
 $MESS["PERFMON_TABLES_RECENTLY_BROWSED"] = "Recently browsed tables";
 $MESS["PERFMON_TABLES_ALL"] = "Database tables";

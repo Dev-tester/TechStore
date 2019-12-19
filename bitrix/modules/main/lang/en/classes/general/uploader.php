@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_BXUPL_FLASH_TYPE_1"] = "Error uploading files. Perhaps the file format is incorrect.";
 $MESS["UPLOADER_ADD_FILES"] = "Select Files";
 $MESS["UPLOADER_ADD_FOLDERS"] = "Select Folders";

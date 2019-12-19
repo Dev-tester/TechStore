@@ -1,2 +1,2 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$arTemplate = Array("NAME" => GetMessage("THEME_NAME"));?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $arTemplate = Array("NAME" => GetMessage("THEME_NAME"));?>

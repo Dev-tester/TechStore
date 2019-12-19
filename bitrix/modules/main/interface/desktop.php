@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once(dirname(__FILE__)."/../include/prolog_admin_before.php");
 IncludeModuleLangFile(__FILE__);
 
@@ -14,7 +14,7 @@ $APPLICATION->SetTitle(GetMessage("admin_index_title"));
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:desktop",
 	"admin",
 	Array(
@@ -33,6 +33,6 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 		"HIDE_ICONS" => "Y"
 	)
 	);?>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

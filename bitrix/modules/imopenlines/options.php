@@ -53,7 +53,7 @@ if(strlen($_POST['Update'])>0 && check_bitrix_sessid())
 	}
 }
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>">
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>">
 <?php echo bitrix_sessid_post()?>
 <?php
 $tabControl->Begin();
@@ -62,7 +62,7 @@ if ($errorMessage):?>
 <tr>
 	<td colspan="2" align="center"><b style="color:red"><?=$errorMessage?></b></td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr>
 	<td width="40%"><?=GetMessage("IMOPENLINES_ACCOUNT_URL")?>:</td>
 	<td width="60%"><input type="text" name="PUBLIC_URL" value="<?=htmlspecialcharsbx(\Bitrix\ImOpenlines\Common::getServerAddress())?>" /></td>
@@ -76,11 +76,11 @@ if ($errorMessage):?>
 	<td width="60%">
 		<select name="EXEC_MODE">
 			<option value="<?=\Bitrix\ImOpenlines\Common::MODE_AGENT?>"
-				<?if(\Bitrix\ImOpenlines\Common::getExecMode() == \Bitrix\ImOpenlines\Common::MODE_AGENT) {?>selected="selected"<?}?>>
+				<?php if(\Bitrix\ImOpenlines\Common::getExecMode() == \Bitrix\ImOpenlines\Common::MODE_AGENT) {?>selected="selected"<?php }?>>
 				<?=GetMessage("IMOPENLINES_ACCOUNT_EXEC_MODE_AGENT")?>
 			</option>
 			<option value="<?=\Bitrix\ImOpenlines\Common::MODE_CRON?>"
-					<?if(\Bitrix\ImOpenlines\Common::getExecMode() == \Bitrix\ImOpenlines\Common::MODE_CRON) {?>selected="selected"<?}?>>
+					<?php if(\Bitrix\ImOpenlines\Common::getExecMode() == \Bitrix\ImOpenlines\Common::MODE_CRON) {?>selected="selected"<?php }?>>
 				<?=GetMessage("IMOPENLINES_ACCOUNT_EXEC_MODE_CRON")?>
 			</option>
 		</select>
@@ -95,8 +95,8 @@ if ($errorMessage):?>
 		</div>
 	</td>
 </tr>
-<?$tabControl->Buttons();?>
-<input type="submit" name="Update" value="<?echo GetMessage('MAIN_SAVE')?>">
-<input type="reset" name="reset" value="<?echo GetMessage('MAIN_RESET')?>">
-<?$tabControl->End();?>
+<?php $tabControl->Buttons();?>
+<input type="submit" name="Update" value="<?php echo GetMessage('MAIN_SAVE')?>">
+<input type="reset" name="reset" value="<?php echo GetMessage('MAIN_RESET')?>">
+<?php $tabControl->End();?>
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_TRASHCAN_ERROR_COULD_NOT_FIND_OBJECT"] = "Object could not be found.";
 $MESS["DISK_TRASHCAN_NAME"] = "Recycle Bin";
 $MESS["DISK_TRASHCAN_COLUMN_ID"] = "ID";

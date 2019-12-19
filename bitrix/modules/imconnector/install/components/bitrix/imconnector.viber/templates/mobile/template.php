@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -36,7 +36,7 @@ $placeholder = ' placeholder="' . Loc::getMessage('IMCONNECTOR_COMPONENT_SETTING
 				<div class="imconnector-intro">
 					<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_SIMPLE_FORM_DESCRIPTION_1')?>
 				</div>
-					<?
+					<?php 
 					if($arResult['messages'])
 					{
 						echo '<div class="imconnector-settings-message imconnector-settings-message-success">';
@@ -71,23 +71,23 @@ $placeholder = ' placeholder="' . Loc::getMessage('IMCONNECTOR_COMPONENT_SETTING
 					   value="<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_SAVE')?>">
 			</form>
 
-			<?if(!empty($arResult["STATUS"])):?>
+			<?php if(!empty($arResult["STATUS"])):?>
 				<div class="imconnector-settings-message imconnector-settings-message-success imconnector-settings-message-align-left">
 					<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_FINAL_FORM_DESCRIPTION_1')?>
 					<?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_FINAL_FORM_DESCRIPTION_2', array("#URL_MOBILE#" => $arResult["URI_DOMAIN_MOBILE"], "#URL#" => $arResult["URI_DOMAIN"]))?>
 				</div>
-				<?if(!empty($arResult["INFO_CONNECTION"])):?>
+				<?php if(!empty($arResult["INFO_CONNECTION"])):?>
 					<div class="imconnector-intro">
 						<span class="imconnector-text"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_NAME_BOT')?>:</span>
 						<span class="imconnector-text imconnector-bold"><?=$arResult["INFO_CONNECTION"]['NAME']?></span><br>
 						<span class="imconnector-text"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_LINK_PUBLIC_ACCOUNT')?>:</span>
 						<a class="imconnector-link imconnector-newwrap" href="<?=$arResult["INFO_CONNECTION"]['URL']?>"><?=$arResult["INFO_CONNECTION"]['URL']?></a></span><br>
-						<?if(!empty($arResult["INFO_CONNECTION"]['URL_OTO'])):?>
+						<?php if(!empty($arResult["INFO_CONNECTION"]['URL_OTO'])):?>
 							<span class="imconnector-text"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_VIBER_LINK_CHAT_ONE_TO_ONE')?>:</span>
 							<a class="imconnector-link imconnector-newwrap" href="<?=$arResult["INFO_CONNECTION"]['URL_OTO']?>" target="_blank"><?=$arResult["INFO_CONNECTION"]['URL_OTO']?></a></span>
-						<?endif;?>
+						<?php endif;?>
 					</div>
-				<?endif;?>
-			<?endif;?>
+				<?php endif;?>
+			<?php endif;?>
 		</div>
 	</div>

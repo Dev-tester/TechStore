@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 use Bitrix\Main\Loader;
 
 $bExtranetInstalled = \Bitrix\Main\ModuleManager::IsModuleInstalled("extranet");
@@ -324,19 +324,19 @@ function inviteDialogDrawTabContentHeader($params)
 			),
 			'#SONETGROUP#' => '<a href="javascript:void(0);" id="invite-dialog-'.$action.'-sonetgroup-link" class="invite-dialog-inv-link">'.GetMessage('BX24_INVITE_DIALOG_SONETGROUP').'</a>'
 		)
-	)?></div><?
-	?><input name="DEPARTMENT_ID" type="hidden" value="<?=($iDepartmentID > 0 ? $iDepartmentID : $arStructure["DATA"][$arStructure["TREE"][0][0]]["ID"])?>" id="invite-dialog-<?=$action?>-department-id"><?
+	)?></div><?php 
+	?><input name="DEPARTMENT_ID" type="hidden" value="<?=($iDepartmentID > 0 ? $iDepartmentID : $arStructure["DATA"][$arStructure["TREE"][0][0]]["ID"])?>" id="invite-dialog-<?=$action?>-department-id"><?php 
 
 	if ($bExtranetInstalled)
 	{
-		?><div id="invite-dialog-<?=$action?>-usertype-block-extranet" class="invite-dialog-inv-block" style="display: none;"><?
+		?><div id="invite-dialog-<?=$action?>-usertype-block-extranet" class="invite-dialog-inv-block" style="display: none;"><?php 
 		?><?=GetMessage(
 		'BX24_INVITE_DIALOG_'.($action == 'invite' || $action == 'invite_phone' ? 'INVITE' : 'ADD').'_GROUP_PATTERN',
 		array(
 			'#TITLE#' => '<a href="javascript:void(0);" id="invite-dialog-'.$action.'-usertype-extranet-link" class="invite-dialog-inv-link">'.GetMessage('BX24_INVITE_DIALOG_EXTRANET').'</a>'
 		)
-	)?><?
-		?></div><?
+	)?><?php 
+		?></div><?php 
 	}
 
 	$arUserTypeSuffix = array("");
@@ -349,7 +349,7 @@ function inviteDialogDrawTabContentHeader($params)
 	{
 		$selectorName = $action.$userTypeSuffix.'_'.randString(6);
 
-		?><div id="invite-dialog-<?=$action.$userTypeSuffix?>-sonetgroup-container-post" class="invite-dialog-sonetgroup-wrap" style="display: none;" data-selector-name="<?=$selectorName?>"><?
+		?><div id="invite-dialog-<?=$action.$userTypeSuffix?>-sonetgroup-container-post" class="invite-dialog-sonetgroup-wrap" style="display: none;" data-selector-name="<?=$selectorName?>"><?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.user.selector",
 				"",
@@ -374,7 +374,7 @@ function inviteDialogDrawTabContentHeader($params)
 					)
 				]
 			);
-		?></div><?
+		?></div><?php 
 
 	}
 }
@@ -424,7 +424,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/main.post.form/templat
 		}
 	}
 </script>
-<?
+<?php 
 
 $iDepartmentID = (is_array($_POST) && array_key_exists("arParams", $_POST) && is_array($_POST["arParams"]) && array_key_exists("UF_DEPARTMENT", $_POST["arParams"]) ? intval($_POST["arParams"]["UF_DEPARTMENT"]) : 0);
 $arStructure = CIntranetUtils::getSubStructure(0, ($iDepartmentID > 0 ? false : 1));
@@ -460,17 +460,17 @@ $APPLICATION->IncludeComponent(
 			<div class="webform-corners-bottom"><div class="webform-left-corner"></div><div class="webform-right-corner"></div></div>
 		</div>
 		<div class="popup-window-tabs">
-			<?if (IsModuleInstalled("bitrix24")):?>
+			<?php if (IsModuleInstalled("bitrix24")):?>
 			<span class="popup-window-tab<?=(IsModuleInstalled("bitrix24")  ? " popup-window-tab-selected" : "")?>" id="intranet-dialog-tab-self" data-action="self">
 				<?=GetMessage('BX24_INVITE_DIALOG_TAB_SELF_TITLE')?>
 			</span>
-			<?endif?>
+			<?php endif?>
 
-			<?if (IsModuleInstalled("bitrix24") && \Bitrix\Main\Config\Option::get('bitrix24', 'phone_invite_allowed', 'N') === 'Y'):?>
+			<?php if (IsModuleInstalled("bitrix24") && \Bitrix\Main\Config\Option::get('bitrix24', 'phone_invite_allowed', 'N') === 'Y'):?>
 			<span class="popup-window-tab" id="intranet-dialog-tab-invite-phone" data-action="invite-phone">
 				<?=GetMessage('BX24_INVITE_DIALOG_TAB_INVITE_TITLE_PHONE')?>
 			</span>
-			<?endif?>
+			<?php endif?>
 
 			<span class="popup-window-tab<?=(!IsModuleInstalled("bitrix24")  ? " popup-window-tab-selected" : "")?>" id="intranet-dialog-tab-invite" data-action="invite">
 				<?=GetMessage('BX24_INVITE_DIALOG_TAB_INVITE_TITLE_NEW')?>
@@ -483,7 +483,7 @@ $APPLICATION->IncludeComponent(
 			</span>
 		</div>
 		<div class="popup-window-tabs-content popup-window-tabs-content-invite">
-			<?//fast registration
+			<?php //fast registration
 			if (IsModuleInstalled("bitrix24"))
 			{
 				$isUserAdmin = CBitrix24::IsPortalAdmin($USER->GetID());
@@ -494,19 +494,19 @@ $APPLICATION->IncludeComponent(
 				}
 				?>
 				<div class="popup-window-tab-content<?=(IsModuleInstalled("bitrix24") ? " popup-window-tab-content-selected" : "")?>" id="intranet-dialog-tab-content-self" data-user-type="employee">
-					<form method="POST" action="<?echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="SELF_DIALOG_FORM">
+					<form method="POST" action="<?php echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="SELF_DIALOG_FORM">
 						<div class="invite-dialog-wrap">
 							<div class="invite-dialog-inner">
 								<div class = "invite-dialog-inv-text-bold">
-									<input type="checkbox" name="allow_register" id="allow_register" value="Y" <?if ($registerSettings["REGISTER"] == "Y") echo "checked"?> onchange="BX('intranet-dialog-tab-content-self-block').style.display = this.checked ? 'block' : 'none'">
+									<input type="checkbox" name="allow_register" id="allow_register" value="Y" <?php if ($registerSettings["REGISTER"] == "Y") echo "checked"?> onchange="BX('intranet-dialog-tab-content-self-block').style.display = this.checked ? 'block' : 'none'">
 									<label for="allow_register"><?=GetMessage("BX24_INVITE_DIALOG_REGISTER_ALLOW_N")?></label>
 								</div>
 								<div class = "invite-dialog-inv-text-bold" style="margin-left: 25px" >
 									<?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TEXT_N")?>
 								</div>
 
-								<div <?if ($registerSettings["REGISTER"] != "Y"):?>style="display: none"<?endif?> id="intranet-dialog-tab-content-self-block" class="invite-dialog-inv-link-block">
-									<?
+								<div <?php if ($registerSettings["REGISTER"] != "Y"):?>style="display: none"<?php endif?> id="intranet-dialog-tab-content-self-block" class="invite-dialog-inv-link-block">
+									<?php 
 									$request = \Bitrix\Main\Context::getCurrent()->getRequest();
 									$registerUrlBase = ($request->isHttps() ? "https://" : "http://").BX24_HOST_NAME."/?secret=";
 									if(strlen($registerSettings["REGISTER_SECRET"]) > 0)
@@ -546,9 +546,9 @@ $APPLICATION->IncludeComponent(
 												name="allow_register_confirm"
 												id="allow_register_confirm_y"
 												value="N"
-												<?if ($registerSettings["REGISTER_CONFIRM"] == "N") echo "checked"?>
+												<?php if ($registerSettings["REGISTER_CONFIRM"] == "N") echo "checked"?>
 												onchange="BX('intranet-dialog-tab-content-self-whitelist').style.display = this.checked ? 'none' : 'block'"
-												<?if (!$isUserAdmin) echo "disabled";?>
+												<?php if (!$isUserAdmin) echo "disabled";?>
 											/>
 											<label for="allow_register_confirm_y"><?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_OPEN_N")?></label>
 											<span class="bx-hint-help-icon" id="invite-dialog-register-open-help" data-text="<?=htmlspecialcharsbx(GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_OPEN_HELP"))?>">?</span>
@@ -558,29 +558,29 @@ $APPLICATION->IncludeComponent(
 												name="allow_register_confirm"
 												id="allow_register_confirm_n"
 												value="Y"
-												<?if ($registerSettings["REGISTER_CONFIRM"] == "Y") echo "checked"?>
+												<?php if ($registerSettings["REGISTER_CONFIRM"] == "Y") echo "checked"?>
 												onchange="BX('intranet-dialog-tab-content-self-whitelist').style.display = this.checked ? 'block' : 'none'"
-												<?if (!$isUserAdmin) echo "disabled";?>
+												<?php if (!$isUserAdmin) echo "disabled";?>
 											>
 											<label for="allow_register_confirm_n"><?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_CLOSE_N")?></label>
 											<span class="bx-hint-help-icon" id="invite-dialog-register-close-help" data-text="<?=htmlspecialcharsbx(GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_CLOSE_HELP"))?>">?</span>
 										</div>
 
-										<div class = "invite-dialog-inv-text-bold" id="intranet-dialog-tab-content-self-whitelist" <?if ($registerSettings["REGISTER_CONFIRM"] == "N"):?>style="display: none" <?endif?>>
+										<div class = "invite-dialog-inv-text-bold" id="intranet-dialog-tab-content-self-whitelist" <?php if ($registerSettings["REGISTER_CONFIRM"] == "N"):?>style="display: none" <?php endif?>>
 											<p><?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_DOMAINS")?><span class="bx-hint-help-icon" id="invite-dialog-register-domains-help" data-text="<?=htmlspecialcharsbx(GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_DOMAINS_HELP"))?>">?</span></p>
-											<input type="text" <?if (!$isUserAdmin) echo "disabled";?> class="invite-dialog-inv-form-inp" name="allow_register_whitelist" value="<?= $registerSettings["REGISTER_WHITELIST"]?>" placeholder="<?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_DOMAINS_PLACEHOLDER")?>"/>
+											<input type="text" <?php if (!$isUserAdmin) echo "disabled";?> class="invite-dialog-inv-form-inp" name="allow_register_whitelist" value="<?= $registerSettings["REGISTER_WHITELIST"]?>" placeholder="<?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TYPE_DOMAINS_PLACEHOLDER")?>"/>
 										</div>
 
 										<div class = "invite-dialog-inv-text-bold">
 											<p><?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TEXT_TITLE")?></p>
-											<textarea <?if (!$isUserAdmin) echo "disabled";?> name="allow_register_text" placeholder="<?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TEXT_PLACEHOLDER_N_1")?>" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active"><?
-												?><?=$registerSettings["REGISTER_TEXT"] ? htmlspecialcharsbx($registerSettings["REGISTER_TEXT"]) : GetMessage("BX24_INVITE_DIALOG_REGISTER_TEXT_PLACEHOLDER_N_1")?><?
+											<textarea <?php if (!$isUserAdmin) echo "disabled";?> name="allow_register_text" placeholder="<?=GetMessage("BX24_INVITE_DIALOG_REGISTER_TEXT_PLACEHOLDER_N_1")?>" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active"><?php 
+												?><?=$registerSettings["REGISTER_TEXT"] ? htmlspecialcharsbx($registerSettings["REGISTER_TEXT"]) : GetMessage("BX24_INVITE_DIALOG_REGISTER_TEXT_PLACEHOLDER_N_1")?><?php 
 											?></textarea>
 										</div>
 
-										<?if (\Bitrix\Main\Loader::includeModule("bitrix24")):?>
+										<?php if (\Bitrix\Main\Loader::includeModule("bitrix24")):?>
 										<div class="invite-dialog-settings-link"><?=GetMessage("BX24_INVITE_DIALOG_REGISTER_INVITE_ADD_INFO_N", array("#PATH_CONFIGS#" => CBitrix24::PATH_CONFIGS))?></div>
-										<?endif?>
+										<?php endif?>
 									</div>
 								</div>
 							</div>
@@ -605,7 +605,7 @@ $APPLICATION->IncludeComponent(
 						BX.InviteDialog.initHint('invite-dialog-register-domains-help');
 					});
 				</script>
-			<?
+			<?php 
 			}
 
 			//invite by sms
@@ -613,10 +613,10 @@ $APPLICATION->IncludeComponent(
 			{
 			?>
 				<div class="popup-window-tab-content" id="intranet-dialog-tab-content-invite-phone" data-user-type="employee">
-					<form method="POST" action="<?echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="INVITE_DIALOG_FORM_PHONE">
+					<form method="POST" action="<?php echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="INVITE_DIALOG_FORM_PHONE">
 						<div class="invite-dialog-wrap">
 							<div class="invite-dialog-inner">
-								<?
+								<?php 
 									inviteDialogDrawTabContentHeader([
 										'action' => 'invite-phone',
 										'iStructureCount' => $iStructureCount,
@@ -633,7 +633,7 @@ $APPLICATION->IncludeComponent(
 										<table class="invite-dialog-inv-form-table">
 											<tr>
 												<td class="invite-dialog-inv-form-r">
-													<label class="invite-dialog-phone-label" for="PHONE[]"><?echo GetMessage("BX24_INVITE_DIALOG_PHONE_SHORT")?></label>
+													<label class="invite-dialog-phone-label" for="PHONE[]"><?php echo GetMessage("BX24_INVITE_DIALOG_PHONE_SHORT")?></label>
 													<div class="invite-dialog-phone-list" id="invite-dialog-phone-list"></div>
 													<div class="invite-dialog-phone-list-add-wrap">
 														<a href="javascript:void(0)" class="invite-dialog-phone-list-add" onclick="addPhoneRow()"><?=GetMessage('BX24_INVITE_DIALOG_PHONE_ADD')?></a>
@@ -703,7 +703,7 @@ $APPLICATION->IncludeComponent(
 											</tr>
 										</table>
 									</div>
-									<?
+									<?php 
 									$messageTextDisabled = true; /*(
 										\Bitrix\Main\Loader::includeModule('bitrix24')
 										&& (
@@ -717,10 +717,10 @@ $APPLICATION->IncludeComponent(
 
 									?>
 									<div class="invite-dialog-inv-text">
-										<div class="invite-dialog-inv-text-bold"><label class="invite-dialog-inv-label" for="MESSAGE_TEXT"><?echo GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TITLE")?></label></div><?
+										<div class="invite-dialog-inv-text-bold"><label class="invite-dialog-inv-label" for="MESSAGE_TEXT"><?php echo GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TITLE")?></label></div><?php 
 											if (!$messageTextDisabled)
 										{
-										?><textarea type="text" name="MESSAGE_TEXT" id="MESSAGE_TEXT" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active" <?=$messageTextDisabled?>><?
+										?><textarea type="text" name="MESSAGE_TEXT" id="MESSAGE_TEXT" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active" <?=$messageTextDisabled?>><?php 
 											if (isset($_POST["MESSAGE_TEXT"]))
 											{
 												echo htmlspecialcharsbx($_POST["MESSAGE_TEXT"]);
@@ -729,7 +729,7 @@ $APPLICATION->IncludeComponent(
 											{
 												echo htmlspecialcharsbx($userMessage);
 											}
-										?></textarea><?
+										?></textarea><?php 
 										}
 										else
 										{
@@ -737,7 +737,7 @@ $APPLICATION->IncludeComponent(
 												<?=GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TEXT_PHONE", ['#PORTAL#' => BX24_HOST_NAME, '#URL#' => 'https://b24.to/i/xxxxx/xxxxxxxx/']);?>
 												<input type="hidden" name="MESSAGE_TEXT" value="<?=htmlspecialcharsbx(GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TEXT_PHONE", ['#PORTAL#' => BX24_HOST_NAME, '#URL#' => 'https://b24.to/i/xxxxx/xxxxxxxx/']))?>">
 											</div>
-											<?
+											<?php 
 										}
 										?>
 									</div>
@@ -758,7 +758,7 @@ $APPLICATION->IncludeComponent(
 						</div>
 					</form>
 				</div>
-			<?
+			<?php 
 			}
 			?>
 
@@ -768,10 +768,10 @@ $APPLICATION->IncludeComponent(
 				id="intranet-dialog-tab-content-invite"
 				data-user-type="employee"
 			>
-				<form method="POST" action="<?echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="INVITE_DIALOG_FORM">
+				<form method="POST" action="<?php echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="INVITE_DIALOG_FORM">
 					<div class="invite-dialog-wrap">
 						<div class="invite-dialog-inner">
-						<?
+						<?php 
 						inviteDialogDrawTabContentHeader(array(
 							'action' => 'invite',
 							'iStructureCount' => $iStructureCount,
@@ -785,7 +785,7 @@ $APPLICATION->IncludeComponent(
 							<table class="invite-dialog-inv-form-table">
 								<tr>
 									<td class="invite-dialog-inv-form-l" style="vertical-align: top;">
-										<label for="EMAIL"><?echo GetMessage("BX24_INVITE_DIALOG_EMAIL_SHORT")?></label>
+										<label for="EMAIL"><?php echo GetMessage("BX24_INVITE_DIALOG_EMAIL_SHORT")?></label>
 									</td>
 									<td class="invite-dialog-inv-form-r">
 										<textarea
@@ -799,7 +799,7 @@ $APPLICATION->IncludeComponent(
 								</tr>
 							</table>
 						</div>
-					<?
+					<?php 
 					$messageTextDisabled = (
 						\Bitrix\Main\Loader::includeModule('bitrix24')
 						&& (
@@ -812,13 +812,13 @@ $APPLICATION->IncludeComponent(
 					);
 					?>
 					<div class="invite-dialog-inv-text-bold">
-						<label for="MESSAGE_TEXT"><?echo GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TITLE")?></label>
-					</div><?
+						<label for="MESSAGE_TEXT"><?php echo GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TITLE")?></label>
+					</div><?php 
 					if (!$messageTextDisabled)
 					{
 						$userMessage = CUserOptions::GetOption((IsModuleInstalled("bitrix24") ? "bitrix24" : "intranet"), "invite_message_text", GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TEXT_1"))
 
-						?><textarea type="text" name="MESSAGE_TEXT" id="MESSAGE_TEXT" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active" <?=$messageTextDisabled?>><?
+						?><textarea type="text" name="MESSAGE_TEXT" id="MESSAGE_TEXT" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active" <?=$messageTextDisabled?>><?php 
 							if (isset($_POST["MESSAGE_TEXT"]))
 							{
 								echo htmlspecialcharsbx($_POST["MESSAGE_TEXT"]);
@@ -827,15 +827,15 @@ $APPLICATION->IncludeComponent(
 							{
 								echo htmlspecialcharsbx($userMessage);
 							}
-						?></textarea><?
-						?><input type="hidden" name="MESSAGE_TEXT_DEFAULT" value="<?=htmlspecialcharsbx(GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TEXT_1"))?>"><?
+						?></textarea><?php 
+						?><input type="hidden" name="MESSAGE_TEXT_DEFAULT" value="<?=htmlspecialcharsbx(GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TEXT_1"))?>"><?php 
 					}
 					else
 					{
 						?><div style="width: 500px;" class="invite-dialog-inv-text-bold">
 							<?=GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TEXT_1");?>
 							<input type="hidden" name="MESSAGE_TEXT" value="<?=GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TEXT_1")?>">
-						</div><?
+						</div><?php 
 					}
 					?>
 						</div>
@@ -857,10 +857,10 @@ $APPLICATION->IncludeComponent(
 
 			<!-- add by email-->
 			<div class="popup-window-tab-content<?=(in_array($strAction, array("add")) ? " popup-window-tab-content-selected" : "")?>" id="intranet-dialog-tab-content-add" data-user-type="employee">
-				<form method="POST" action="<?echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="ADD_DIALOG_FORM" name="ADD_DIALOG_FORM">
+				<form method="POST" action="<?php echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="ADD_DIALOG_FORM" name="ADD_DIALOG_FORM">
 					<div class="invite-dialog-wrap">
 						<div class="invite-dialog-inner">
-							<?
+							<?php 
 							inviteDialogDrawTabContentHeader(array(
 								'action' => 'add',
 								'iStructureCount' => $iStructureCount,
@@ -874,10 +874,10 @@ $APPLICATION->IncludeComponent(
 								<table class="invite-dialog-inv-form-table">
 									<tr>
 										<td class="invite-dialog-inv-form-l">
-											<label for="ADD_EMAIL"><?echo GetMessage("BX24_INVITE_DIALOG_ADD_EMAIL_TITLE")?></label>
+											<label for="ADD_EMAIL"><?php echo GetMessage("BX24_INVITE_DIALOG_ADD_EMAIL_TITLE")?></label>
 										</td>
-										<td class="invite-dialog-inv-form-r"><?
-											?><input type="text" name="ADD_EMAIL" id="ADD_EMAIL" class="invite-dialog-inv-form-inp" value="<?echo htmlspecialcharsbx($_POST["ADD_EMAIL"])?>"><?
+										<td class="invite-dialog-inv-form-r"><?php 
+											?><input type="text" name="ADD_EMAIL" id="ADD_EMAIL" class="invite-dialog-inv-form-inp" value="<?php echo htmlspecialcharsbx($_POST["ADD_EMAIL"])?>"><?php 
 											if (
 												!empty($arMailServices)
 												&& (
@@ -890,12 +890,12 @@ $APPLICATION->IncludeComponent(
 											?>
 												<div id="invite-dialog-mailbox-container" class="invite-dialog-box-info-set invite-dialog-box-info-set-inactive">
 													<div class="invite-dialog-box-info-block">
-														<?
+														<?php 
 														if ($bCreateDomainsExist)
 														{
-															?><span id="invite-dialog-mailbox-action-create" onclick="BX.InviteDialog.onMailboxAction('create');" class="invite-dialog-box-info-btn"><?
-															?><span class="invite-dialog-box-info-btn-text"><?=GetMessage('BX24_INVITE_DIALOG_MAIL_MAILBOX_ACTION_CREATE')?></span><?
-															?></span><?
+															?><span id="invite-dialog-mailbox-action-create" onclick="BX.InviteDialog.onMailboxAction('create');" class="invite-dialog-box-info-btn"><?php 
+															?><span class="invite-dialog-box-info-btn-text"><?=GetMessage('BX24_INVITE_DIALOG_MAIL_MAILBOX_ACTION_CREATE')?></span><?php 
+															?></span><?php 
 														}
 
 														if (
@@ -908,11 +908,11 @@ $APPLICATION->IncludeComponent(
 															<span id="invite-dialog-mailbox-action-connect" onclick="BX.InviteDialog.onMailboxAction('connect');" class="invite-dialog-box-info-btn">
 																<span class="invite-dialog-box-info-btn-text"><?=GetMessage('BX24_INVITE_DIALOG_MAIL_MAILBOX_ACTION_CONNECT')?></span>
 															</span>
-															<?
+															<?php 
 														}
 													?>
 													</div>
-												<?
+												<?php 
 												if (
 													$bCreateDomainsExist
 													|| $bConnectDomainsExist
@@ -927,10 +927,10 @@ $APPLICATION->IncludeComponent(
 															</span>
 															<span class="invite-dialog-box-info-right">
 																<span class="invite-dialog-box-info-label"><?=GetMessage('BX24_INVITE_DIALOG_MAIL_MAILBOX_DOMAIN')?></span>
-																<?
+																<?php 
 																if ($iCreateDomainsCnt > 1)
 																{
-																	?><select class="invite-dialog-inv-form-select" id="ADD_MAILBOX_DOMAIN_create" name="ADD_MAILBOX_DOMAIN"><?
+																	?><select class="invite-dialog-inv-form-select" id="ADD_MAILBOX_DOMAIN_create" name="ADD_MAILBOX_DOMAIN"><?php 
 																	foreach($arCreateMailServicesDomains as $serviceID => $arDomainsTmp)
 																	{
 																		if (
@@ -940,21 +940,21 @@ $APPLICATION->IncludeComponent(
 																		{
 																			foreach ($arDomainsTmp as $strDomain)
 																			{
-																				?><option value="<?=$strDomain?>" data-service-id="<?=$serviceID?>">@<?=$strDomain?></option><?
+																				?><option value="<?=$strDomain?>" data-service-id="<?=$serviceID?>">@<?=$strDomain?></option><?php 
 																			}
 																		}
 																	}
-																	?></select><?
+																	?></select><?php 
 																}
 																else
 																{
 																	foreach($arCreateMailServicesDomains as $serviceID => $arDomainsTmp)
 																	{
-																		?><input type="hidden" id="ADD_MAILBOX_SERVICE_create" name="ADD_MAILBOX_SERVICE" value="<?=$serviceID?>"><?
+																		?><input type="hidden" id="ADD_MAILBOX_SERVICE_create" name="ADD_MAILBOX_SERVICE" value="<?=$serviceID?>"><?php 
 																		break;
 																	}
-																	?><input type="hidden" id="ADD_MAILBOX_DOMAIN_create" name="ADD_MAILBOX_DOMAIN" value="<?=$arCreateMailServicesDomains[$serviceID][0]?>"><?
-																	?><div class="invite-dialog-inv-form-hidden-text">@<?=$arCreateMailServicesDomains[$serviceID][0]?></div><?
+																	?><input type="hidden" id="ADD_MAILBOX_DOMAIN_create" name="ADD_MAILBOX_DOMAIN" value="<?=$arCreateMailServicesDomains[$serviceID][0]?>"><?php 
+																	?><div class="invite-dialog-inv-form-hidden-text">@<?=$arCreateMailServicesDomains[$serviceID][0]?></div><?php 
 																}
 																?>
 															</span>
@@ -968,7 +968,7 @@ $APPLICATION->IncludeComponent(
 															<input type="password" class="invite-dialog-inv-form-inp" id="ADD_MAILBOX_PASSWORD_CONFIRM" name="ADD_MAILBOX_PASSWORD_CONFIRM">
 														</div>
 													</div>
-												<?
+												<?php 
 												}
 
 												if (
@@ -985,16 +985,16 @@ $APPLICATION->IncludeComponent(
 																<script>
 																	var arMailServicesUsers = [];
 																	var arConnectMailServicesDomains = [];
-																	<?
+																	<?php 
 																	foreach($arConnectMailServicesDomains as $serviceID => $arDomainsTmp)
 																	{
 																	?>
 																		arConnectMailServicesDomains[<?=$serviceID?>] = '<?=$arConnectMailServicesDomains[$serviceID][0]?>';
-																	<?
+																	<?php 
 																	}
 																	?>
 																	arMailServicesUsers = [];
-																	<?
+																	<?php 
 																	foreach ($arMailServicesUsers as $domain => $arUsersTmp)
 																	{
 																		if (
@@ -1004,12 +1004,12 @@ $APPLICATION->IncludeComponent(
 																		{
 																			?>
 																			arMailServicesUsers['<?=$domain?>'] = [];
-																			<?
+																			<?php 
 																			foreach ($arUsersTmp as $strUser)
 																			{
 																				?>
 																			arMailServicesUsers['<?=$domain?>'].push('<?=$strUser?>');
-																			<?
+																			<?php 
 																			}
 																		}
 																	}
@@ -1017,7 +1017,7 @@ $APPLICATION->IncludeComponent(
 																</script>
 
 																<select class="invite-dialog-inv-form-select" id="ADD_MAILBOX_USER_connect" name="ADD_MAILBOX_USER">
-																<?
+																<?php 
 																foreach($arMailServicesUsers as $domain => $arUsersTmp)
 																{
 																	if (
@@ -1027,7 +1027,7 @@ $APPLICATION->IncludeComponent(
 																	{
 																		foreach ($arUsersTmp as $strUser)
 																		{
-																			?><option value="<?=$strUser?>"><?=$strUser?></option><?
+																			?><option value="<?=$strUser?>"><?=$strUser?></option><?php 
 																		}
 																	}
 																	break;
@@ -1036,10 +1036,10 @@ $APPLICATION->IncludeComponent(
 																</select>
 															</span>
 													<span class="invite-dialog-box-info-right">
-														<span class="invite-dialog-box-info-label"><?=GetMessage('BX24_INVITE_DIALOG_MAIL_MAILBOX_DOMAIN')?></span><?
+														<span class="invite-dialog-box-info-label"><?=GetMessage('BX24_INVITE_DIALOG_MAIL_MAILBOX_DOMAIN')?></span><?php 
 														if ($iConnectDomainsCnt > 1)
 														{
-															?><select class="invite-dialog-inv-form-select" id="ADD_MAILBOX_DOMAIN_connect" name="ADD_MAILBOX_DOMAIN" onchange="BX.InviteDialog.onMailboxServiceSelect(this);"><?
+															?><select class="invite-dialog-inv-form-select" id="ADD_MAILBOX_DOMAIN_connect" name="ADD_MAILBOX_DOMAIN" onchange="BX.InviteDialog.onMailboxServiceSelect(this);"><?php 
 															foreach($arConnectMailServicesDomains as $serviceID => $arDomainsTmp)
 															{
 																if (
@@ -1049,48 +1049,48 @@ $APPLICATION->IncludeComponent(
 																{
 																	foreach ($arDomainsTmp as $strDomain)
 																	{
-																		?><option value="<?=$strDomain?>" data-service-id="<?=$serviceID?>" data-domain="<?=$strDomain?>">@<?=$strDomain?></option><?
+																		?><option value="<?=$strDomain?>" data-service-id="<?=$serviceID?>" data-domain="<?=$strDomain?>">@<?=$strDomain?></option><?php 
 																	}
 																}
 															}
-															?></select><?
+															?></select><?php 
 														}
 														else
 														{
 															foreach($arConnectMailServicesDomains as $serviceID => $arDomainsTmp)
 															{
-																?><input type="hidden" id="ADD_MAILBOX_SERVICE_connect" name="ADD_MAILBOX_SERVICE" value="<?=$serviceID?>"><?
+																?><input type="hidden" id="ADD_MAILBOX_SERVICE_connect" name="ADD_MAILBOX_SERVICE" value="<?=$serviceID?>"><?php 
 																break;
 															}
-															?><input type="hidden" id="ADD_MAILBOX_DOMAIN_connect" name="ADD_MAILBOX_DOMAIN" value="<?=$arConnectMailServicesDomains[$serviceID][0]?>"><?
-															?><div class="invite-dialog-inv-form-hidden-text">@<?=$arConnectMailServicesDomains[$serviceID][0]?></div><?
+															?><input type="hidden" id="ADD_MAILBOX_DOMAIN_connect" name="ADD_MAILBOX_DOMAIN" value="<?=$arConnectMailServicesDomains[$serviceID][0]?>"><?php 
+															?><div class="invite-dialog-inv-form-hidden-text">@<?=$arConnectMailServicesDomains[$serviceID][0]?></div><?php 
 														}
 														?>
 													</span>
 													</div>
-													</div><?
+													</div><?php 
 												}
 												?>
 													<div class="invite-dialog-box-info-block invite-dialog-box-info-block-body">
 														<span class="invite-dialog-box-info-close-open invite-dialog-box-info-open" onclick="BX.InviteDialog.onMailboxRollup();"><?=GetMessage('BX24_INVITE_DIALOG_MAIL_MAILBOX_ROLLUP')?></span>
 													</div>
 												</div>
-												<input type="hidden" name="ADD_MAILBOX_ACTION" id="ADD_MAILBOX_ACTION" value=""><?
+												<input type="hidden" name="ADD_MAILBOX_ACTION" id="ADD_MAILBOX_ACTION" value=""><?php 
 											}
 											?>
 										</td>
 									</tr>
 									<tr>
 										<td class="invite-dialog-inv-form-l">
-											<label for="ADD_NAME"><?echo GetMessage("BX24_INVITE_DIALOG_ADD_NAME_TITLE")?></label>
+											<label for="ADD_NAME"><?php echo GetMessage("BX24_INVITE_DIALOG_ADD_NAME_TITLE")?></label>
 										</td>
 										<td class="invite-dialog-inv-form-r">
-											<input type="text" name="ADD_NAME" id="ADD_NAME" class="invite-dialog-inv-form-inp" value="<?echo htmlspecialcharsbx($_POST["ADD_NAME"])?>">
+											<input type="text" name="ADD_NAME" id="ADD_NAME" class="invite-dialog-inv-form-inp" value="<?php echo htmlspecialcharsbx($_POST["ADD_NAME"])?>">
 										</td>
 									</tr>
 									<tr>
 										<td class="invite-dialog-inv-form-l">
-											<label for="ADD_LAST_NAME"><?echo GetMessage("BX24_INVITE_DIALOG_ADD_LAST_NAME_TITLE")?></label>
+											<label for="ADD_LAST_NAME"><?php echo GetMessage("BX24_INVITE_DIALOG_ADD_LAST_NAME_TITLE")?></label>
 										</td>
 										<td class="invite-dialog-inv-form-r">
 											<input type="text" name="ADD_LAST_NAME" id="ADD_LAST_NAME" class="invite-dialog-inv-form-inp" value="<?=htmlspecialcharsbx($_POST["ADD_LAST_NAME"])?>">
@@ -1098,7 +1098,7 @@ $APPLICATION->IncludeComponent(
 									</tr>
 									<tr class="invite-dialog-inv-form-footer">
 										<td class="invite-dialog-inv-form-l">
-											<label for="ADD_POSITION"><?echo GetMessage("BX24_INVITE_DIALOG_ADD_POSITION_TITLE")?></label>
+											<label for="ADD_POSITION"><?php echo GetMessage("BX24_INVITE_DIALOG_ADD_POSITION_TITLE")?></label>
 										</td>
 										<td class="invite-dialog-inv-form-r">
 											<input type="text" name="ADD_POSITION" id="ADD_POSITION" class="invite-dialog-inv-form-inp" value="<?=htmlspecialcharsbx($_POST["ADD_POSITION"])?>">
@@ -1106,10 +1106,10 @@ $APPLICATION->IncludeComponent(
 									</tr>
 									<tr>
 										<td class="invite-dialog-inv-form-l">&nbsp;</td>
-										<td class="invite-dialog-inv-form-r"><?
-											?><div class="invite-dialog-inv-form-checkbox-wrap"><?
-												?><input type="checkbox" name="ADD_SEND_PASSWORD" id="ADD_SEND_PASSWORD" value="Y" class="invite-dialog-inv-form-checkbox"<?=($_POST["ADD_SEND_PASSWORD"] == "Y" ? " checked" : "")?><?=(empty($_POST["ADD_EMAIL"]) ? " disabled" : "")?>><?
-												?><label class="invite-dialog-inv-form-checkbox-label" for="ADD_SEND_PASSWORD"><?echo GetMessage("BX24_INVITE_DIALOG_ADD_SEND_PASSWORD_TITLE")?><span id="ADD_SEND_PASSWORD_EMAIL"></span></label><?
+										<td class="invite-dialog-inv-form-r"><?php 
+											?><div class="invite-dialog-inv-form-checkbox-wrap"><?php 
+												?><input type="checkbox" name="ADD_SEND_PASSWORD" id="ADD_SEND_PASSWORD" value="Y" class="invite-dialog-inv-form-checkbox"<?=($_POST["ADD_SEND_PASSWORD"] == "Y" ? " checked" : "")?><?=(empty($_POST["ADD_EMAIL"]) ? " disabled" : "")?>><?php 
+												?><label class="invite-dialog-inv-form-checkbox-label" for="ADD_SEND_PASSWORD"><?php echo GetMessage("BX24_INVITE_DIALOG_ADD_SEND_PASSWORD_TITLE")?><span id="ADD_SEND_PASSWORD_EMAIL"></span></label><?php 
 												?></div>
 										</td>
 									</tr>
@@ -1133,12 +1133,12 @@ $APPLICATION->IncludeComponent(
 				</form>
 			</div>
 
-			<? // integrator tab
+			<?php  // integrator tab
 			if (IsModuleInstalled("bitrix24"))
 			{
 			?>
 				<div class="popup-window-tab-content<?=(in_array($strAction, array("integrator")) ? " popup-window-tab-content-selected" : "")?>" id="intranet-dialog-tab-content-integrator" data-user-type="itegrator">
-					<form method="POST" action="<?echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="INTEGRATOR_DIALOG_FORM" name="INTEGRATOR_DIALOG_FORM">
+					<form method="POST" action="<?php echo BX_ROOT."/tools/intranet_invite_dialog.php"?>" id="INTEGRATOR_DIALOG_FORM" name="INTEGRATOR_DIALOG_FORM">
 						<div class="invite-dialog-wrap">
 							<div class="invite-dialog-inner">
 								<?=bitrix_sessid_post()?>
@@ -1163,9 +1163,9 @@ $APPLICATION->IncludeComponent(
 									</table>
 								</div>
 
-								<div class="invite-dialog-inv-text-bold"><label for="INTEGRATOR_MESSAGE_TEXT"><?echo GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TITLE")?></label></div>
-								<?if (!$messageTextDisabled):?>
-									<textarea type="text" name="INTEGRATOR_MESSAGE_TEXT" id="INTEGRATOR_MESSAGE_TEXT" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active" <?=$messageTextDisabled?>><?
+								<div class="invite-dialog-inv-text-bold"><label for="INTEGRATOR_MESSAGE_TEXT"><?php echo GetMessage("BX24_INVITE_DIALOG_INVITE_MESSAGE_TITLE")?></label></div>
+								<?php if (!$messageTextDisabled):?>
+									<textarea type="text" name="INTEGRATOR_MESSAGE_TEXT" id="INTEGRATOR_MESSAGE_TEXT" class="invite-dialog-inv-form-textarea invite-dialog-inv-form-textarea-active" <?=$messageTextDisabled?>><?php 
 										if (isset($_POST["INTEGRATOR_MESSAGE_TEXT"]))
 										{
 											echo htmlspecialcharsbx($_POST["INTEGRATOR_MESSAGE_TEXT"]);
@@ -1175,11 +1175,11 @@ $APPLICATION->IncludeComponent(
 											echo htmlspecialcharsbx($userMessage);
 										}
 										?></textarea>
-								<?else:?>
+								<?php else:?>
 									<div style="width: 500px;" class="invite-dialog-inv-text-bold">
-										<?echo GetMessage("BX24_INVITE_DIALOG_INTEGRATOR_INVITE_TEXT");?>
+										<?php echo GetMessage("BX24_INVITE_DIALOG_INTEGRATOR_INVITE_TEXT");?>
 									</div>
-								<?endif?>
+								<?php endif?>
 							</div>
 						</div>
 						<div class="popup-window-buttons">
@@ -1192,7 +1192,7 @@ $APPLICATION->IncludeComponent(
 						</div>
 					</form>
 				</div>
-			<?
+			<?php 
 			}
 			?>
 		</div>
@@ -1241,14 +1241,14 @@ $APPLICATION->IncludeComponent(
 			BX.InviteDialog.bindInviteDialogSonetGroupLink(BX("invite-dialog-invite-phone-sonetgroup-link"));
 		}
 
-		<?if ($iStructureCount > 1):?>
+		<?php if ($iStructureCount > 1):?>
 			BX.InviteDialog.bindInviteDialogStructureLink(BX("invite-dialog-invite-structure-link"));
 			BX.InviteDialog.bindInviteDialogStructureLink(BX("invite-dialog-add-structure-link"));
 			if (BX("intranet-dialog-tab-invite-phone"))
 			{
 				BX.InviteDialog.bindInviteDialogStructureLink(BX("invite-dialog-invite-phone-structure-link"));
 			}
-		<?endif;?>
+		<?php endif;?>
 
 		if (BX("intranet-dialog-tab-self"))
 		{

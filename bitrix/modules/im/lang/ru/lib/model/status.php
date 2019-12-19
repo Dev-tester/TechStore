@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STATUS_ENTITY_USER_ID_FIELD"] = "Идентификатор пользователя";
 $MESS["STATUS_ENTITY_STATUS_FIELD"] = "Статус";
 $MESS["STATUS_ENTITY_IDLE_FIELD"] = "Время простоя";

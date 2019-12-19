@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['socserv_vk_id'] = "Application ID:";
 $MESS['socserv_vk_key'] = "Protected Key:";
 $MESS['socserv_vk_note'] = "Use your VKontakte profile to log in.";

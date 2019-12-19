@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_SECTION_LIST_URL'] = "Seite mit dem Katalog";
 $MESS ['WD_CHECK_CREATOR'] = "Urheber der Datei überprüfen";
 $MESS ['T_IBLOCK_DESC_NEWS_PANEL'] = "Buttons für diese Komponente zum administrativen Panel hinzufügen";

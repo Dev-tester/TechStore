@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_ENTITY_ID_FIELD"] = "ID";
 $MESS["CRM_DEAL_ENTITY_TITLE_FIELD"] = "Название";
 $MESS["CRM_DEAL_ENTITY_OPENED_FIELD"] = "Доступна для всех";

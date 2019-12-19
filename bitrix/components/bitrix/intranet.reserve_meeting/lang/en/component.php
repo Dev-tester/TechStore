@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTERANET_MODULE_NOT_INSTALL'] = "The Intranet module is not installed.";
 $MESS ['SONET_LOADING'] = "Loading...";
 $MESS ['SONET_GROUP'] = "Group";

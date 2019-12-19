@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_ORDERS_TAB_GRAPH"] = "Profit";
 $MESS["GD_ORDERS_TAB_GRAPH2"] = "Quantity";
 $MESS["GD_ORDERS_L_ALL"] = "Total price";

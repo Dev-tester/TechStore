@@ -24,7 +24,7 @@ if(!Service::isRegistered())
 ?>
 	<input type=button onclick="<?=$authAction?>" value="<?=Loc::getMessage('SEO_YANDEX_REGISTER')?>"
  id="seo_authorize_btn" />
-<?
+<?php 
 }
 else
 {
@@ -35,7 +35,7 @@ else
 		$authorizeData = Service::getAuthorizeData($engine->getCode());
 ?>
 		<input type=button onclick="authorizeUser('<?= $authorizeUrl ?>', <?=CUtil::PhpToJSObject($authorizeData)?>)" value="<?= Loc::getMessage('SEO_AUTH_YANDEX') ?>" id="seo_authorize_btn"/>
-<?
+<?php 
 	}
 	else
 	{
@@ -48,7 +48,7 @@ else
 		<div style="clear: both;"></div>
 	</div>
 </div>
-<?
+<?php 
 	}
 }
 echo EndNote();
@@ -103,7 +103,7 @@ echo EndNote();
 		popup.document.forms[0].submit();
 	}
 
-<?
+<?php 
 if($request["auth"] && $authAction != "")
 {
 	echo $authAction;

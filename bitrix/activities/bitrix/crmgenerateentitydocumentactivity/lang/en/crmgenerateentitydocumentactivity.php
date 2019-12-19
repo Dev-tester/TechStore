@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_GEDA_NAME_DELETE"] = "Delete";
 $MESS["CRM_GEDA_MODULE_DOCGEN_ERROR"] = "The \"Document Generator\" module is not installed.";
 $MESS["CRM_GEDA_NAME_WITH_STAMPS"] = "With signature and stamp";

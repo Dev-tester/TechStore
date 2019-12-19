@@ -22,11 +22,11 @@ $bodyClass = $APPLICATION->getPageProperty("BodyClass");
 $APPLICATION->setPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."no-all-paddings no-background no-hidden");
 ?>
 
-<? if ($arResult['ERROR_MESSAGE']): ?>
+<?php  if ($arResult['ERROR_MESSAGE']): ?>
 	<div class="ui-alert ui-alert-danger ui-alert-icon-danger">
 		<span class="ui-alert-message"><?= htmlspecialcharsbx($arResult['ERROR_MESSAGE'])?></span>
 	</div>
-<? else: ?>
+<?php  else: ?>
 	<div class="voximplant-start-wrap">
 		<div class="voximplant-start-head-box-container">
 			<div class="voximplant-start-head-box">
@@ -35,31 +35,31 @@ $APPLICATION->setPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."n
 						<option value="balance" <?= $arResult["BALANCE_TYPE"] === "balance" ? "selected": ""?>><?= Loc::getMessage("VOX_START_ACCOUNT_BALANCE")?></option>
 						<option value="sip" <?= $arResult["BALANCE_TYPE"] === "sip" ? "selected": ""?>><?= Loc::getMessage("VOX_START_ACCOUNT_SIP_CONNECTOR")?></option>
 					</select>
-					<? if($arResult['HAS_BALANCE'] && $arResult["SHOW_PAY_BUTTON"]): ?>
+					<?php  if($arResult['HAS_BALANCE'] && $arResult["SHOW_PAY_BUTTON"]): ?>
 						<div style="display:none" data-for-balance-type="balance">
 							<span id="balance-top-up" class="ui-btn ui-btn-sm ui-btn-primary">
 								<?= Loc::getMessage("VOX_START_TOP_UP") ?>
 							</span>
 						</div>
-					<? endif ?>
-					<? if(isset($arResult['SIP'])): ?>
+					<?php  endif ?>
+					<?php  if(isset($arResult['SIP'])): ?>
 						<div style="display:none" data-for-balance-type="sip">
 							<a href="<?=$arResult["LINK_TO_BUY_SIP"]?>" target="_blank" class="ui-btn ui-btn-sm ui-btn-primary">
-								<? if($arResult['SIP']['PAID']): ?>
+								<?php  if($arResult['SIP']['PAID']): ?>
 									<?= Loc::getMessage("VOX_START_SIP_PROLONG") ?>
-								<? else: ?>
+								<?php  else: ?>
 									<?= Loc::getMessage("VOX_START_SIP_BUY") ?>
-								<? endif ?>
+								<?php  endif ?>
 							</a>
 						</div>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
 				<div class="voximplant-start-head-box-content">
 					<div class="voximplant-start-head-box-inner">
-						<? if(isset($arResult['SIP'])): ?>
+						<?php  if(isset($arResult['SIP'])): ?>
 							<div class="voximplant-start-head-box-row-amount" data-for-balance-type="sip" style="display: none;">
 								<div class="voximplant-start-head-info">
-									<? if($arResult['SIP']['PAID']): ?>
+									<?php  if($arResult['SIP']['PAID']): ?>
 										<div class="voximplant-start-head-info-item voximplant-start-head-entity">
 											<?= Loc::getMessage("VOX_START_SIP_CONNECTOR_PAID_UNTIL", [
 													"#DATE#" => "<strong>" . $arResult["SIP"]["PAID_UNTIL"] . "</strong>"
@@ -68,7 +68,7 @@ $APPLICATION->setPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."n
 												<?= Loc::getMessage("VOX_START_SIP_CONNECTOR_PAID_NOTICE")?>
 											</p>
 										</div>
-									<? else: ?>
+									<?php  else: ?>
 										<div class="voximplant-start-head-info-item voximplant-start-head-entity">
 											<?= Loc::getMessage("VOX_START_SIP_CONNECTOR_FREE_MINUTES", [
 												"#MINUTES#" => "<strong>" . $arResult["SIP"]["FREE_MINUTES"] . "</strong>"
@@ -77,41 +77,41 @@ $APPLICATION->setPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."n
 										<p class="voximplant-start-head-entity">
 											<?= Loc::getMessage("VOX_START_SIP_CONNECTOR_FREE_MINUTES_NOTICE") ?>
 										</p>
-									<? endif ?>
+									<?php  endif ?>
 								</div>
 							</div>
-						<? endif ?>
+						<?php  endif ?>
 						<div class="voximplant-start-head-box-row-amount right" data-for-balance-type="balance" style="display:none;">
 							<div class="voximplant-start-head-box-info-sum">
-								<? if($arResult['HAS_BALANCE']): ?>
+								<?php  if($arResult['HAS_BALANCE']): ?>
 									<div class="voximplant-start-head-subtitle"><?= Loc::getMessage("VOX_START_CURRENT_BALANCE") ?></div>
 									<div id="voximplant-balance" class="voximplant-start-head-box-amount currency-<?=$arResult["BALANCE_CURRENCY"]?>" title="<?=$arResult['ACCOUNT_BALANCE_FORMATTED']?>">
 										<?= $arResult['ACCOUNT_BALANCE_FORMATTED']?>
 									</div>
-								<? else: ?>
+								<?php  else: ?>
 									<div class="voximplant-start-head-box-no-balance"><?= GetMessage("VOX_START_NO_BALANCE")?></div>
-								<? endif ?>
+								<?php  endif ?>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<? if($arResult["SHOW_LINES"]): ?>
+			<?php  if($arResult["SHOW_LINES"]): ?>
 				<div class="voximplant-start-head-box voximplant-start-head-payment-box">
 					<div class="voximplant-start-head-box-title">
 						<div class="voximplant-title-dark"><?= Loc::getMessage("VOX_START_MY_NUMBERS") . (count($arResult["NUMBERS_LIST"]) > 0 ? " (" . count($arResult["NUMBERS_LIST"]) . ")" : "")  ?></div>
-						<? if (count($arResult["NUMBERS_LIST"]) > 0): ?>
+						<?php  if (count($arResult["NUMBERS_LIST"]) > 0): ?>
 							<div id="my-numbers" class="ui-btn ui-btn-sm ui-btn-light-border"><?= Loc::getMessage("VOX_START_SET_UP") ?></div>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 					<div class="voximplant-start-head-box-content">
-						<? if (count($arResult["NUMBERS_LIST"]) > 0): ?>
-							<?
+						<?php  if (count($arResult["NUMBERS_LIST"]) > 0): ?>
+							<?php 
 							$hasRentedNumbers = false;
 							$arResult["NUMBERS_LIST"] = array_slice($arResult["NUMBERS_LIST"], 0, 3);
 							foreach ($arResult["NUMBERS_LIST"] as $item): ?>
-								<?
+								<?php 
 								switch ($item["TYPE"])
 								{
 									case CVoxImplantConfig::MODE_RENT:
@@ -134,33 +134,33 @@ $APPLICATION->setPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."n
 									<div class="voximplant-start-division"></div>
 									<div class="voximplant-start-text-darkgrey"><?= htmlspecialcharsbx($item["DESCRIPTION"])?></div>
 								</div>
-							<? endforeach; ?>
+							<?php  endforeach; ?>
 
-							<? if($hasRentedNumbers): ?>
+							<?php  if($hasRentedNumbers): ?>
 							<div class="voximplant-start-payment-btn-box">
 								<div class="voximplant-start-text-darkgrey"><?= Loc::getMessage("VOX_START_AUTO_PROLONG") ?></div>
 							</div>
-							<? endif ?>
-						<? else: ?>
+							<?php  endif ?>
+						<?php  else: ?>
 							<div class="voximplant-start-head-box-info"><?= Loc::getMessage("VOX_START_RENT_OR_LINK_NUMBER") ?></div>
-						<? endif ?>
+						<?php  endif ?>
 					</div>
 				</div>
-			<? endif ?>
+			<?php  endif ?>
 		</div>
 
-		<? if(count($arResult['MENU']['MAIN'])): ?>
+		<?php  if(count($arResult['MENU']['MAIN'])): ?>
 			<div class="voximplant-title-light"><?= Loc::getMessage("VOX_START_TELEPHONY") ?></div>
 			<div id="voximplant-grid-block" class="voximplant-grid"></div>
-		<? endif ?>
-		<? if(count($arResult['MENU']['SETTINGS'])): ?>
+		<?php  endif ?>
+		<?php  if(count($arResult['MENU']['SETTINGS'])): ?>
 			<div class="voximplant-title-light"><?= Loc::getMessage("VOX_START_TELEPHONY_SETTINGS") ?></div>
 			<div id="voximplant-grid-settings-block" class="voximplant-grid"></div>
-		<? endif ?>
-		<? if(count($arResult['MENU']['PARTNERS'])): ?>
+		<?php  endif ?>
+		<?php  if(count($arResult['MENU']['PARTNERS'])): ?>
 			<div class="voximplant-title-light"><?= Loc::getMessage("VOX_START_PARTNERS") ?></div>
 			<div id="marketplace-grid-block" class="voximplant-grid"></div>
-		<? endif ?>
+		<?php  endif ?>
 	</div>
 
 	<script>
@@ -191,4 +191,4 @@ $APPLICATION->setPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."n
 			isRestOnly: '<?= $arResult['IS_REST_ONLY'] ? 'Y' : 'N' ?>'
 		});
 	</script>
-<? endif ?>
+<?php  endif ?>

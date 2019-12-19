@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_LOG_CLEANUP_DAYS"] = "Number of days to keep business process log";
 $MESS["BIZPROC_EMPLOYEE_COMPATIBLE_MODE"] = "Enable compatibility mode for \"Bind to user\" type";
 $MESS["BIZPROC_TAB_SET"] = "Settings";

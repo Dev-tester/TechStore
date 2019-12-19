@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arResult["ELEMENTS_LIST"]))
 	return true;
 
@@ -52,7 +52,7 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="photo-error">
 	<?=ShowError($arResult["ERROR_MESSAGE"])?>
 </div>
-<?
+<?php 
 endif;
 
 if (in_array($arParams["SHOW_PAGE_NAVIGATION"], array("top", "both")) && !empty($arResult["NAV_STRING"])):
@@ -60,15 +60,15 @@ if (in_array($arParams["SHOW_PAGE_NAVIGATION"], array("top", "both")) && !empty(
 <div class="photo-navigation photo-navigation-top">
 	<?=$arResult["NAV_STRING"]?>
 </div>
-<?
+<?php 
 endif;
 $current_date = "";
 ?>
 
 <div class="photo-items-list photo-photo-list" id="photo_list_<?= htmlspecialcharsEx($arParams["~UNIQUE_COMPONENT_ID"])?>">
-<?/* Used to show 'More photos' in js*/
+<?php /* Used to show 'More photos' in js*/
 if($_REQUEST['get_elements_html']){ob_start();}?>
-<?
+<?php 
 foreach ($arResult["ELEMENTS_LIST"] as $key => $arItem)
 {
 	if ($arParams["SHOW_DATE"] == "Y")
@@ -77,7 +77,7 @@ foreach ($arResult["ELEMENTS_LIST"] as $key => $arItem)
 		if ($this_date != $current_date)
 		{
 			$current_date = $this_date;
-			?><div class="group-by-days photo-date"><?= PhotoDateFormat($arParams["NEW_DATE_TIME_FORMAT"], MakeTimeStamp($this_date, "DD.MM.YYYY"))?></div><?
+			?><div class="group-by-days photo-date"><?= PhotoDateFormat($arParams["NEW_DATE_TIME_FORMAT"], MakeTimeStamp($this_date, "DD.MM.YYYY"))?></div><?php 
 		}
 	}
 
@@ -118,19 +118,19 @@ foreach ($arResult["ELEMENTS_LIST"] as $key => $arItem)
 		$item_left = '';
 	}
 ?>
-		<div id="photo_cont_<?=$arItem["ID"]?>" class="photo-item-cont <?if ($arParams["PERMISSION"] >= "X"){echo ' photo-item-cont-moder';}?>" title="<?= $arItem["TITLE"]?>">
+		<div id="photo_cont_<?=$arItem["ID"]?>" class="photo-item-cont <?php if ($arParams["PERMISSION"] >= "X"){echo ' photo-item-cont-moder';}?>" title="<?= $arItem["TITLE"]?>">
 			<a class="photo-item-inner" style="width: <?= $arParams['THUMBNAIL_SIZE']?>px; height: <?= $arParams['THUMBNAIL_SIZE']?>px;" href="<?=$arItem["URL"]?>" id="photo_<?=$arItem["ID"]?>">
 				<img src="<?= $src?>" border="0" style="<?= $item_w?> <?= $item_h?> <?= $item_left?> <?= $item_top?>;" alt="<?= $alt?>"/>
-				<?if($bNotActive):?>
+				<?php if($bNotActive):?>
 				<img class="bxph-warn-icon" src="/bitrix/components/bitrix/photogallery.detail.list.ex/templates/.default/images/not-approved.png" />
-					<?if ($arParams["PERMISSION"] >= "X" && false /* TODO : add buttons for fast approving a deleting for moderators*/):?>
+					<?php if ($arParams["PERMISSION"] >= "X" && false /* TODO : add buttons for fast approving a deleting for moderators*/):?>
 						<span class="bxph-warn-link" style="top: <?= (round($arParams['THUMBNAIL_SIZE'] / 2) - 25)?>px; width: <?= $arParams['THUMBNAIL_SIZE']?>px;"><?= GetMessage("P_ACTIVATE")?></span>
 						<span class="bxph-warn-link" style="top: <?= (round($arParams['THUMBNAIL_SIZE'] / 2) + 1)?>px; width: <?= $arParams['THUMBNAIL_SIZE']?>px"><?= GetMessage("P_DELETE")?></span>
-					<?endif;?>
-				<?endif;?>
+					<?php endif;?>
+				<?php endif;?>
 			</a>
 		</div>
-<?
+<?php 
 };
 
 if($_REQUEST['get_elements_html']){$elementsHTML = ob_get_clean();}
@@ -138,14 +138,14 @@ if($_REQUEST['get_elements_html']){$elementsHTML = ob_get_clean();}
 </div>
 <div class="empty-clear"></div>
 
-<?if ($arResult["MORE_PHOTO_NAV"] == "Y"):?>
+<?php if ($arResult["MORE_PHOTO_NAV"] == "Y"):?>
 <div id="photo-more-photo-link-cont-<?= $ucid?>" class="photo-show-more">
 	<img class="show-more-wait" src="/bitrix/components/bitrix/photogallery.detail.list.ex/templates/.default/images/wait.gif" />
 	<a id="photo-more-photo-link-<?= $ucid?>" href="javascript:void(0);" title="<?= GetMessage("P_SLIDER_MORE_PHOTOS_TITLE")?>"><?= GetMessage("P_SLIDER_MORE_PHOTOS")?></a>
 </div>
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 if ($_REQUEST["return_array"] == "Y" && $_REQUEST["UCID"] == $arParams["~UNIQUE_COMPONENT_ID"])
 {
 	$APPLICATION->RestartBuffer();
@@ -156,10 +156,10 @@ if ($_REQUEST["return_array"] == "Y" && $_REQUEST["UCID"] == $arParams["~UNIQUE_
 		itemsCount: '<?= intVal($arResult["ALL_ELEMENTS_CNT"])?>',
 		pageCount: '<?= intVal($arResult["NAV_RESULT_NavPageCount"])?>'
 	};
-	<?if($_REQUEST['get_elements_html']):?>
+	<?php if($_REQUEST['get_elements_html']):?>
 		window.bxphres.elementsHTML = '<?= CUtil::JSEscape(trim($elementsHTML))?>';
-	<?endif;?>
-	</script><?
+	<?php endif;?>
+	</script><?php 
 	die();
 }
 ?>

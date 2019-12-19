@@ -1,4 +1,4 @@
-<?
+<?php 
 class CBlogSmile
 {
 	static $smiles = array();

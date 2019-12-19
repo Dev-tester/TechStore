@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_REMINDER_NAME"] = "Task reminder";
 $MESS["TASK_REMINDER_DESC"] = "#TASK_TITLE# - task name
 #PATH_TO_TASK# - task URL";

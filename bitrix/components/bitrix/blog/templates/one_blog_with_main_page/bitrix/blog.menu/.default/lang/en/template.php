@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_MENU_BLOGS_LIST'] = "Home page of the blog";
 $MESS ['BLOG_MENU_BLOGS_LIST_TITLE'] = "Home page of the blog";
 $MESS ['BLOG_MENU_CURRENT_BLOG'] = "Blog";

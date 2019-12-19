@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWIT_TOTAL'] = "Всего";
 $MESS ['BPWIT_PAGES'] = "Страницы";
 $MESS ['BPWIT_PREV'] = "предыдущая";

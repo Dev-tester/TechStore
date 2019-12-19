@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 \Bitrix\Main\Loader::includeModule('sale');
@@ -375,8 +375,8 @@ function exportData()
 //-->
 </script>
 
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -392,54 +392,54 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SAA_SITE1")?></td>
-		<td><?echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAA_ALL")) ?></td>
+		<td><?php echo GetMessage("SAA_SITE1")?></td>
+		<td><?php echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAA_ALL")) ?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAA_USER1")?></td>
+		<td><?php echo GetMessage("SAA_USER1")?></td>
 		<td>
 			<input type="text" name="filter_user" size="50" value="<?= htmlspecialcharsbx($filter_user) ?>">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAA_PLAN1")?></td>
+		<td><?php echo GetMessage("SAA_PLAN1")?></td>
 		<td>
 			<select name="filter_plan_id">
 				<option value=""><?= htmlspecialcharsex(GetMessage("SAA_ALL")); ?></option>
-				<?
+				<?php 
 				$dbPlan = CSaleAffiliatePlan::GetList(array("NAME" => "ASC"), array(), false, false, array("ID", "NAME", "SITE_ID"));
 				while ($arPlan = $dbPlan->Fetch())
 				{
-					?><option value="<?= $arPlan["ID"] ?>"<?if ($filter_plan_id == $arPlan["ID"]) echo " selected"?>><?= htmlspecialcharsex("[".$arPlan["ID"]."] ".$arPlan["NAME"]." (".$arPlan["SITE_ID"].")") ?></option><?
+					?><option value="<?= $arPlan["ID"] ?>"<?php if ($filter_plan_id == $arPlan["ID"]) echo " selected"?>><?= htmlspecialcharsex("[".$arPlan["ID"]."] ".$arPlan["NAME"]." (".$arPlan["SITE_ID"].")") ?></option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAA_ACTIVE1")?></td>
+		<td><?php echo GetMessage("SAA_ACTIVE1")?></td>
 		<td>
 			<select name="filter_active">
 				<option value=""><?= htmlspecialcharsex(GetMessage("SAA_ALL")); ?></option>
-				<option value="Y"<?if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAA_YES")) ?></option>
-				<option value="N"<?if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAA_NO")) ?></option>
+				<option value="Y"<?php if ($filter_active=="Y") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAA_YES")) ?></option>
+				<option value="N"<?php if ($filter_active=="N") echo " selected"?>><?= htmlspecialcharsex(GetMessage("SAA_NO")) ?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAA_LAST_CALCULATE1")?></td>
+		<td><?php echo GetMessage("SAA_LAST_CALCULATE1")?></td>
 		<td>
-			<?echo CalendarPeriod("filter_last_calculate_from", $filter_last_calculate_from, "filter_last_calculate_to", $filter_last_calculate_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_last_calculate_from", $filter_last_calculate_from, "filter_last_calculate_to", $filter_last_calculate_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAA_REG_DATE1")?></td>
+		<td><?php echo GetMessage("SAA_REG_DATE1")?></td>
 		<td>
-			<?echo CalendarPeriod("filter_date_create_from", $filter_date_create_from, "filter_date_create_to", $filter_date_create_to, "find_form", "Y")?>
+			<?php echo CalendarPeriod("filter_date_create_from", $filter_date_create_from, "filter_date_create_to", $filter_date_create_to, "find_form", "Y")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SAA_PAR_AFFILIATE")?>:</td>
+		<td><?php echo GetMessage("SAA_PAR_AFFILIATE")?>:</td>
 		<td>
 			<input type="text" name="filter_affiliate_id" value="<?= IntVal($filter_affiliate_id) ?>" size="10" maxlength="10">
 			<IFRAME name="hiddenframe_affiliate" id="id_hiddenframe_affiliate" src="" width="0" height="0" style="width:0px; height:0px; border: 0px"></IFRAME>
@@ -481,7 +481,7 @@ $oFilter->Begin();
 			</SCRIPT>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(
 		array(
 			"table_id" => $sTableID,
@@ -493,17 +493,17 @@ $oFilter->Begin();
 	?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 echo BeginNote();
 ?>
-<b><?echo GetMessage("SAA_NOTE_NOTE1")?></b><br>
-<i><?echo GetMessage("SAA_CALCULATE_AFF")?></i> <?echo GetMessage("SAA_NOTE_NOTE2")?><br>
-<i><?echo GetMessage("SAA_NOTE_NOTE3")?></i> <?echo GetMessage("SAA_NOTE_NOTE4")?><br>
-<i><?echo GetMessage("SAA_PAY_AFF_EXT")?></i> <?echo GetMessage("SAA_NOTE_NOTE5")?><br>
-<i><?echo GetMessage("SAA_INNER_PAY_AFF_EXT")?></i> <?echo GetMessage("SAA_NOTE_NOTE6")?><br>
-<?
+<b><?php echo GetMessage("SAA_NOTE_NOTE1")?></b><br>
+<i><?php echo GetMessage("SAA_CALCULATE_AFF")?></i> <?php echo GetMessage("SAA_NOTE_NOTE2")?><br>
+<i><?php echo GetMessage("SAA_NOTE_NOTE3")?></i> <?php echo GetMessage("SAA_NOTE_NOTE4")?><br>
+<i><?php echo GetMessage("SAA_PAY_AFF_EXT")?></i> <?php echo GetMessage("SAA_NOTE_NOTE5")?><br>
+<i><?php echo GetMessage("SAA_INNER_PAY_AFF_EXT")?></i> <?php echo GetMessage("SAA_NOTE_NOTE6")?><br>
+<?php 
 echo EndNote();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

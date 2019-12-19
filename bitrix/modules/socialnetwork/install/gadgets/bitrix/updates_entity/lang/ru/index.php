@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_LOG_ENTITY_TITLE"] = "Живая лента";
 $MESS["GD_LOG_ENTITY_MORE"] = "Живая лента группы";
 $MESS["GD_UPDATES_ENTITY_FORUM"] = "обсуждения";

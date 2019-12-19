@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_TREE_UNTITLED"] = "<Untitled>";
 $MESS["CRM_ENTITY_TREE_IS_RETURN_CUSTOMER"] = "Repeat lead";
 $MESS["CRM_ENTITY_TREE_ORDER"] = "ORDER #";

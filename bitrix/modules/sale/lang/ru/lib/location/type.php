@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_TYPE_ENTITY_CODE_FIELD"] = "Символьный код";
 $MESS["SALE_LOCATION_TYPE_ENTITY_SORT_FIELD"] = "Сортировка";
 $MESS["SALE_LOCATION_TYPE_ENTITY_DEPTH_LEVEL_FIELD"] = "Уровень вложенности";

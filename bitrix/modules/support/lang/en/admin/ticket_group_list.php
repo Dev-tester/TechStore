@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_GL_TITLE"] = "Techsupport client group";
 $MESS["SUP_GL_FLT_NAME"] = "Name";
 $MESS["SUP_GL_PAGES"] = "Groups";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CUtil::InitJSCore(array('ajax', 'popup'));
 
@@ -48,10 +48,10 @@ $formPressetChoiseName = str_replace('filter_', 'filters_', $formPressetName);
 			el,
 			'<?=CUtil::JSEscape($fieldName)?>',
 			subIdName,
-			<?echo CUtil::PhpToJsObject($arResult['ELEMENT']);?>,
+			<?php echo CUtil::PhpToJsObject($arResult['ELEMENT']);?>,
 			<?=($arResult["PREFIX"]=='Y'? 'true': 'false')?>,
 			false,
-			<?echo CUtil::PhpToJsObject($arResult['ENTITY_TYPE']);?>,
+			<?php echo CUtil::PhpToJsObject($arResult['ENTITY_TYPE']);?>,
 			{
 				'lead': '<?=CUtil::JSEscape(GetMessage('CRM_FF_LEAD'))?>',
 				'contact': '<?=CUtil::JSEscape(GetMessage('CRM_FF_CONTACT'))?>',

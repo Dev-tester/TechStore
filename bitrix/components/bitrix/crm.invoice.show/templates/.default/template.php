@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 if (!empty($arResult['ERROR_MESSAGE']))
 {
@@ -184,7 +184,7 @@ $APPLICATION->IncludeComponent(
 	});
 </script>
 <script type="text/javascript">
-<?if($arResult['ENABLE_INSTANT_EDIT']):?>
+<?php if($arResult['ENABLE_INSTANT_EDIT']):?>
 	BX.ready(
 		function()
 		{
@@ -245,7 +245,7 @@ $APPLICATION->IncludeComponent(
 		}
 	);
 
-<?endif;?>
+<?php endif;?>
 
 function onCrmInvoiceSendEmailButtClick()
 {
@@ -315,9 +315,9 @@ function crmInvoiceOpenEmailDialog(arParams)
 {
 	var mailSett = {};
 
-	<?if(isset($arResult['COMMUNICATION'])):?>
+	<?php if(isset($arResult['COMMUNICATION'])):?>
 		mailSett['communications'] = [<?=CUtil::PhpToJSObject($arResult['COMMUNICATION'])?>];
-	<?endif;?>
+	<?php endif;?>
 
 	if(arParams)
 	{
@@ -342,12 +342,12 @@ function crmInvoiceOpenEmailDialog(arParams)
 	mailSett['subject'] = "<?=CUtil::JSEscape(GetMessage('CRM_INVOICE_TITLE').' '.$arResult['ELEMENT']['ACCOUNT_NUMBER'])?>";
 	BX.CrmActivityEditor.items["<?=$gridEditorID?>"].setSetting('mailTemplateData', <?=CUtil::PhpToJSObject($arResult['MAIL_TEMPLATE_DATA'])?>);
 	activityEmail = BX.CrmActivityEditor.items["<?=$gridEditorID?>"].addEmail(mailSett);
-	<?
+	<?php 
 	if (!empty($dealEmailList) && is_array($dealEmailList))
 	{
 		?>
 		activityEmail._setupOwner(<?=CUtil::PhpToJSObject($dealEmailList)?>);
-		<?
+		<?php 
 	}
 	?>
 }

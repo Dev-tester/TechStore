@@ -9,7 +9,7 @@ $messageText = $map['MessageText'];
 	<textarea name="<?=htmlspecialcharsbx($messageText['FieldName'])?>"
 			class="crm-automation-popup-textarea"
 			placeholder="<?=htmlspecialcharsbx($messageText['Name'])?>"
-			data-role="inline-selector-target"><?
+			data-role="inline-selector-target"><?php 
 		echo htmlspecialcharsbx($dialog->getCurrentValue($messageText['FieldName'], $messageText['Default']))
 	?></textarea>
 </div>
@@ -20,8 +20,8 @@ $messageText = $map['MessageText'];
 			<input type="checkbox" name="<?=htmlspecialcharsbx($map['IsSystem']['FieldName'])?>" value="Y" class="crm-automation-popup-chk" <?=$dialog->getCurrentValue($map['IsSystem']['FieldName']) === 'Y' ? 'checked' : ''?>>
 			<?=htmlspecialcharsbx($map['IsSystem']['Name'])?>
 		</label>
-		<?if (!empty($map['IsSystem']['Description'])):?>
+		<?php if (!empty($map['IsSystem']['Description'])):?>
 		<span class="bizproc-automation-status-help" data-hint="<?=htmlspecialcharsbx($map['IsSystem']['Description'])?>">?</span>
-		<?endif?>
+		<?php endif?>
 	</div>
 </div>

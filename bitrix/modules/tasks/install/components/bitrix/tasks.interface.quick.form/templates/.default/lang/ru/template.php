@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_QUICK_FORM_DESC_PLACEHOLDER"] = "Описание задачи";
 $MESS["TASKS_QUICK_FORM_TITLE_PLACEHOLDER"] = "Новая задача";
 $MESS["TASKS_QUICK_FORM_AFTER_SAVE_MESSAGE"] = "Задача &quot;#TASK_NAME#&quot; сохранена.";

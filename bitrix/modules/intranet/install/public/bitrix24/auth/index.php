@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NEED_AUTH", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/auth/index.php");
@@ -15,4 +15,4 @@ $APPLICATION->SetTitle(GetMessage("BITRIX24_AUTH_TITLE"));
 
 <p><a href="<?=SITE_DIR?>"><?=GetMessage("BITRIX24_AUTH_BACK_URL")?></a></p>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

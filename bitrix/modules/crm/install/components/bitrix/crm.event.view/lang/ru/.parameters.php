@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_TYPE"] = "Тип сущности";
 $MESS["CRM_ENTITY_ID"] = "ID элемента сущности";
 $MESS["CRM_EVENT_COUNT"] = "Количество событий на странице";

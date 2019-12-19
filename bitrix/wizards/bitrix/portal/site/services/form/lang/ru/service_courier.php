@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_COURIER_FORM_NAME"] = "Курьерская доставка";
 $MESS["COURIER_DELIVERY_MENU_NAME"] = "Курьерская доставка";
 $MESS["SERVICE_COURIER_FORM_BUTTON"] = "Отправить заявку";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_GROUP_NAME'] = "Intranet Portal";
 $MESS ['INTR_ISH_COMPONENT_NAME'] = "Podium";
 $MESS ['INTR_ISH_COMPONENT_DESCR'] = "Shows the best and honored company employees";

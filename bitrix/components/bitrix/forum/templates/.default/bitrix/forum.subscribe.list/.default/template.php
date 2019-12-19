@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -18,14 +18,14 @@ if (!empty($arResult["ERROR_MESSAGE"])):
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 
 if ($arResult["NAV_RESULT"]->NavPageCount > 0):
@@ -36,14 +36,14 @@ if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 ?>
 <div class="forum-header-box">
 	<div class="forum-header-title"><span><?=GetMessage("FSL_SUBSCR_MANAGE")?></span></div>
 </div>
-<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?
+<form class="forum-form" action="<?=POST_FORM_ACTION_URI?>" method="POST" <?php 
 	?>onsubmit="return Validate(this)" name="SUBSCRIBES_<?=$iIndex?>" id="SUBSCRIBES_<?=$iIndex?>">
 	<?=bitrix_sessid_post()?>
 <div class="forum-block-container">
@@ -59,7 +59,7 @@ endif;
 					<th class="forum-last-column"><input type="checkbox" name="all_SID__" onclick="FSelectAll(this, true);" /></th>
 				</tr>
 			</thead>
-<?
+<?php 
 if ($arResult["SHOW_SUBSCRIBE_LIST"] != "Y"):
 ?>
 			<tbody>
@@ -67,11 +67,11 @@ if ($arResult["SHOW_SUBSCRIBE_LIST"] != "Y"):
 					<td class="forum-first-column" colspan="5"><?=GetMessage("FSL_NOT_SUBCRIBED")?></td>
 				</tr>
 			<tbody>
-<?
+<?php 
 else:
 ?>
 			<tbody>
-<?
+<?php 
 	$iCount = 0;
 	foreach ($arResult["SUBSCRIBE_LIST"] as $res):
 		$iCount++;
@@ -79,28 +79,28 @@ else:
 				<tr class="<?=($iCount == 1 ? "forum-row-first " : (
 				$iCount == count($arResult["SUBSCRIBE_LIST"]) ? "forum-row-last " : ""))?><?=($iCount%2 == 1 ? "forum-row-odd" : "forum-row-even")?>">
 					<td class="forum-first-column"><a href="<?=$res["list"]?>"><?=$res["FORUM_INFO"]["NAME"]?></a></td>
-					<td><?
+					<td><?php 
 		if ($res["SUBSCRIBE_TYPE"] == "TOPIC"):
-				?><a href="<?=$res["read"]?>"><?=$res["TOPIC_INFO"]["TITLE"]?></a><?
+				?><a href="<?=$res["read"]?>"><?=$res["TOPIC_INFO"]["TITLE"]?></a><?php 
 		elseif ($res["SUBSCRIBE_TYPE"] == "NEW_TOPIC_ONLY"):
-				?><?=GetMessage("FSL_NEW_TOPICS")?><?
+				?><?=GetMessage("FSL_NEW_TOPICS")?><?php 
 		else:
-				?><?=GetMessage("FSL_ALL_MESSAGES")?><?
+				?><?=GetMessage("FSL_ALL_MESSAGES")?><?php 
 		endif;
 					?></td>
 					<td><?=$res["START_DATE"]?></td>
-					<td align="center"><?
+					<td align="center"><?php 
 		if ($res["LAST_SEND"] > 0):
-				?><a href="<?=$res["read_last_send"]?>"><?=GetMessage("FSL_HERE")?></a><?
+				?><a href="<?=$res["read_last_send"]?>"><?=GetMessage("FSL_HERE")?></a><?php 
 		else:
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 		endif;
 					?></td>
 					<td class="forum-last-column">
 						<input type="checkbox" name="SID[]" id="SID_<?=$res["ID"]?>" value="<?=$res["ID"]?>" class="forum-subscribe-checkbox" onclick="onClickCheckbox(this);" />
 					</td>
 				</tr>
-		<?
+		<?php 
 	endforeach;
 ?>
 			</tbody>
@@ -116,7 +116,7 @@ else:
 					</td>
 				</tr>
 			</tfoot>
-<?
+<?php 
 endif;
 ?>
 			</table>
@@ -131,7 +131,7 @@ oText['s_no_data'] = '<?=CUtil::addslashes(GetMessage('JS_NO_SUBSCRIBE'))?>';
 oText['s_del'] = '<?=CUtil::addslashes(GetMessage("JS_DEL_SUBSCRIBE"))?>';
 </script>
 
-<?
+<?php 
 
 if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
@@ -141,6 +141,6 @@ if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 ?>

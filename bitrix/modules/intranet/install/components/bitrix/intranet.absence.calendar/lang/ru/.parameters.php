@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ABSC_GROUP_FILTER'] = "Параметры фильтра";
 $MESS ['INTR_ABSC_PARAM_CALENDAR_IBLOCK_TYPE'] = "Тип инфоблока с календарями сотрудников";
 $MESS ['INTR_ABSC_PARAM_CALENDAR_IBLOCK_ID'] = "Инфоблок с календарями сотрудников";

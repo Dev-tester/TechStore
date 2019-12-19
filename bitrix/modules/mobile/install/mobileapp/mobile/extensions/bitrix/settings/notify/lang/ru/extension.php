@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SE_NOTIFY_TITLE"] = "Уведомления";
 $MESS["SE_NOTIFY_DESC"] = "Push-уведомления и счетчик";
 $MESS["SE_NOTIFY_PUSH_TITLE"] = "Получать уведомления";

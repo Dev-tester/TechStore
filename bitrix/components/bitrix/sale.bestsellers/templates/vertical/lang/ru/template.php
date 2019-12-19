@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SB_TPL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
 $MESS["SB_TPL_MESS_BTN_BUY"] = "Купить";
 $MESS["SB_TPL_MESS_BTN_ADD_TO_BASKET"] = "В корзину";

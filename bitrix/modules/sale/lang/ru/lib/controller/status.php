@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CONTROLLER_ERROR_DELETE_STATUS'] = 'Ошибка удаления статуса. [#ID#]';
 $MESS['CONTROLLER_ERROR_DELETE_STATUS_TYPE_LOCKED'] = 'Статус не может быть удален. [#ID#]';
 $MESS['CONTROLLER_ERROR_STATUS_NOT_EXISTS'] = 'Статус не существует. [#ID#]';

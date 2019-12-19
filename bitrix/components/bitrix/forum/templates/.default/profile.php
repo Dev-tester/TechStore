@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:forum.user.profile.edit",
 	"",
 	array(
@@ -18,5 +18,5 @@
 		"NAME_TEMPLATE" => $arParams["NAME_TEMPLATE"]
 	),
 	$component
-);?><?
+);?><?php 
 ?>

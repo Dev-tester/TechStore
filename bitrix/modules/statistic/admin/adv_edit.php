@@ -289,17 +289,17 @@ if($strError)
 }
 ?>
 <a name="tb"></a>
-<?if (strlen($base_currency)<=0) : ?>
+<?php if (strlen($base_currency)<=0) : ?>
 <p><?=GetMessage("STAT_BASE_CURRENCY_NOT_INSTALLED").$base_currency?>&nbsp;[&nbsp;<a href="/bitrix/admin/settings.php?lang=<?=LANGUAGE_ID?>&mid=statistic"><?=GetMessage("STAT_CHOOSE_CURRENCY")?></a>&nbsp;]</p>
-<?endif;?>
+<?php endif;?>
 <form method="POST" action="<?=$APPLICATION->GetCurPage()?>?ID=<?=$ID?>&lang=<?=LANGUAGE_ID?>">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value=<?=$ID?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 // 1st Tab
 //********************
@@ -321,15 +321,15 @@ $tabControl->BeginNextTab();
 		<td><input type="text" name="REFERER2" size="40" maxlength="255" value="<?=$str_REFERER2?>"></td>
 	</tr>
 	<tr class=heading>
-		<td colspan="2"><?echo GetMessage("STAT_ID_ADD");?><span class=required><sup>1</sup></span></td>
+		<td colspan="2"><?php echo GetMessage("STAT_ID_ADD");?><span class=required><sup>1</sup></span></td>
 	</tr>
 	<tr>
-		<td valign=top><?echo GetMessage("STAT_PAGES_FROM")?></td>
-		<td><textarea name="PAGES_FROM" cols="50" rows="8"><?echo implode("\r\n", $arPAGES_FROM)?></textarea></td>
+		<td valign=top><?php echo GetMessage("STAT_PAGES_FROM")?></td>
+		<td><textarea name="PAGES_FROM" cols="50" rows="8"><?php echo implode("\r\n", $arPAGES_FROM)?></textarea></td>
 	</tr>
 	<tr valign="top">
 		<td valign="top"><?=GetMessage("STAT_SEARCHERS")?><br><IMG SRC="/bitrix/images/statistic/mouse.gif" WIDTH="44" HEIGHT="21" BORDER=0 ALT=""><br><?=GetMessage("STAT_SELECT_WHAT_YOU_NEED")?></td>
-		<td><?
+		<td><?php 
 			$ref = $ref_id = array();
 			$strSql = "SELECT ID, NAME FROM b_stat_searcher WHERE ID>1 ORDER BY NAME";
 			$rs = $statDB->Query($strSql, false, $err_mess.__LINE__);
@@ -342,50 +342,50 @@ $tabControl->BeginNextTab();
 			?></td>
 	</tr>
 	<tr>
-		<td valign=top><?echo GetMessage("STAT_PAGES_TO")?></td>
-		<td><textarea name="PAGES_TO" cols="50" rows="8"><?echo implode("\r\n", $arPAGES_TO);?></textarea></td>
+		<td valign=top><?php echo GetMessage("STAT_PAGES_TO")?></td>
+		<td><textarea name="PAGES_TO" cols="50" rows="8"><?php echo implode("\r\n", $arPAGES_TO);?></textarea></td>
 </tr>
-<?
+<?php 
 //********************
 // 2nd Tab
 //********************
 $tabControl->BeginNextTab();
 ?>
-<?if ($STAT_RIGHT>"M"):?>
+<?php if ($STAT_RIGHT>"M"):?>
 <tr class=heading>
 	<td colspan="2"><?=GetMessage("STAT_FINANCES")?></td>
 </tr>
 <tr>
 	<td width=40%><?=GetMessage("STAT_COST")?></td>
-	<td width=60%><input type="text" name="COST" size="10" value="<?echo ($str_COST!=0) ? $str_COST : ""?>"><?if ($currency_module=="Y") :?>&nbsp;<?echo SelectBoxFromArray("CURRENCY_COST", $arrCurrency, $CURRENCY_COST);?><?endif;?></td>
+	<td width=60%><input type="text" name="COST" size="10" value="<?php echo ($str_COST!=0) ? $str_COST : ""?>"><?php if ($currency_module=="Y") :?>&nbsp;<?php echo SelectBoxFromArray("CURRENCY_COST", $arrCurrency, $CURRENCY_COST);?><?php endif;?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("STAT_REVENUE")?></td>
-	<td><input type="text" name="REVENUE" size="10" value="<?echo ($str_REVENUE!=0) ? $str_REVENUE : ""?>"><?if ($currency_module=="Y") :?>&nbsp;<?echo SelectBoxFromArray("CURRENCY_REVENUE", $arrCurrency, $CURRENCY_REVENUE);?><?endif;?></td>
+	<td><input type="text" name="REVENUE" size="10" value="<?php echo ($str_REVENUE!=0) ? $str_REVENUE : ""?>"><?php if ($currency_module=="Y") :?>&nbsp;<?php echo SelectBoxFromArray("CURRENCY_REVENUE", $arrCurrency, $CURRENCY_REVENUE);?><?php endif;?></td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr class=heading>
 	<td colspan="2"><?=GetMessage("STAT_ADDITIONAL")?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("STAT_EVENTS_VIEW")?></td>
-	<td><?
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_SHOW_LINK"), GetMessage("STAT_SHOW_LIST"), GetMessage("STAT_GROUP_BY_EVENT1"), GetMessage("STAT_GROUP_BY_EVENT2")), "reference_id"=>array("link","list", "event1","event2"));
 		echo SelectBoxFromArray("EVENTS_VIEW", $arr,$str_EVENTS_VIEW,GetMessage("STAT_DEFAULT"));
 		?></td>
 </tr>
 <tr>
 	<td valign=top><?=GetMessage("STAT_DESCRIPTION")?></td>
-	<td><textarea name="DESCRIPTION" rows="8" cols="50"><?echo $str_DESCRIPTION?></textarea></td>
+	<td><textarea name="DESCRIPTION" rows="8" cols="50"><?php echo $str_DESCRIPTION?></textarea></td>
 </tr>
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled"=>($STAT_RIGHT<"W"), "back_url"=>"adv_list.php?lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
-<?echo BeginNote();?>
-<span class="required"><sup>1</sup></span> - <?echo GetMessage("STAT_ID_ADD_NOTE")?>
-<?echo EndNote();
+<?php echo BeginNote();?>
+<span class="required"><sup>1</sup></span> - <?php echo GetMessage("STAT_ID_ADD_NOTE")?>
+<?php echo EndNote();
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

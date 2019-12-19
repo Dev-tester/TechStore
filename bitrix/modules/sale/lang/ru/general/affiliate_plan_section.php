@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCGAPS1_NO_PLAN"]="Не указан код плана";
 $MESS["SCGAPS1_NO_MODULE"]="Не указано название модуля";
 $MESS["SCGAPS1_NO_SECTION"]="Не указан код группы";

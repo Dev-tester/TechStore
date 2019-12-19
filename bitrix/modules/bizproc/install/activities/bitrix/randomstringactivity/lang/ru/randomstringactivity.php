@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPRNDSA_SIZE_NAME'] = "Длина строки";
 $MESS ['BPRNDSA_ALPHABET_NAME'] = "Алфавит";
 $MESS ['BPRNDSA_ALPHABET_NUM'] = "Числа";

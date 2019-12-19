@@ -1,4 +1,4 @@
-<?
+<?php 
 //$MESS["DISK_VOLUME_UNNECESSARY_VERSION_SIZE_HINT"] = "Суммарный объём неиспользуемых версионных копий файлов.";
 //$MESS["DISK_VOLUME_UNNECESSARY_VERSION_COUNT_HINT"] = "Суммарное количество неиспользуемых версионных копий файлов.";
 //$MESS["DISK_VOLUME_TRASHCAN_SIZE_HINT"] = "Суммарный объём удаленных в корзину файлов.";

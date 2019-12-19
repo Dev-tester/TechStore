@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Web\Json;
 use Bitrix\Socialservices\Network;
@@ -309,7 +309,7 @@ class CSocServBitrix24Net extends CSocServAuth
 <script type="text/javascript">
 <?=$location?>
 </script>
-<?
+<?php 
 
 		\CMain::FinalActions();
 		die();

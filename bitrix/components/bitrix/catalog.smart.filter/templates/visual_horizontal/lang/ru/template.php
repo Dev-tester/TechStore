@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CT_BCSF_FILTER_TITLE'] = "Подбор параметров";
 $MESS ['CT_BCSF_FILTER_FROM'] = "От";
 $MESS ['CT_BCSF_FILTER_TO'] = "До";

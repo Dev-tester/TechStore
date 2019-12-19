@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAE_NO_PERMS2ADD"] = "You don't have enough permissions to add a new account";
 $MESS["SAE_EMPTY_USER"] = "The \"User\" field is empty";
 $MESS["SAE_EMPTY_CURRENCY"] = "The \"Currency\" field is empty";

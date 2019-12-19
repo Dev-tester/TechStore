@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LOGGER_CLIENT_CALL_CLIENT_ID_EMPTY"] = "Daten des Kunden-Accounts: Fehler";
 $MESS["LOGGER_CLIENT_CALL_PROCESS_RESULT"] = "Ergebnisverarbeitung";
 $MESS["LOGGER_CLIENT_CALL_PROCESS_RESULT_ERROR"] = "Ergebnisverarbeitung: Fehler";

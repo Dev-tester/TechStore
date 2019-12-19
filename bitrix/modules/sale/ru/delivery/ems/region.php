@@ -1,4 +1,4 @@
-<?
+<?php 
 $arEMSRegionList = array();
 $arEMSRegionList['АДЫГЕЯ РЕСПУБЛИКА'] = 'region--respublika-adygeja';
 $arEMSRegionList['АЛТАЙ РЕСПУБЛИКА'] = 'region--respublika-altaj';

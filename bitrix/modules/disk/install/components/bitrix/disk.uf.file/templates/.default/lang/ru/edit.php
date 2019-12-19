@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_FILE_LOADING"] = "Загрузка";
 $MESS["WDUF_UPLOAD_DOCUMENT"] = "Загрузить документы";
 $MESS["WDUF_ATTACHMENTS"] = "Прикрепленные файлы и картинки: ";

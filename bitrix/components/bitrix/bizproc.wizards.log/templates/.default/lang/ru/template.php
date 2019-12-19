@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WLCT_NEW'] = "Новая заявка";
 $MESS ['BPWC_WLCT_VARS'] = "Переменные бизнес-процесса";
 $MESS ['BPWC_WLCT_BP'] = "Бизнес-процесс";

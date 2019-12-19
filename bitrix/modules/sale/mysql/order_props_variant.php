@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/order_props_variant.php");
 
 class CSaleOrderPropsVariant extends CAllSaleOrderPropsVariant

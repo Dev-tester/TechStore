@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_FIELD_SORT"] = "Sort";
 $MESS["LANDING_TABLE_TPL_SIDEBAR_LEFT"] = "Left sidebar";
 $MESS["LANDING_TABLE_TPL_WITHOUT_LEFT"] = "Without left sidebar";

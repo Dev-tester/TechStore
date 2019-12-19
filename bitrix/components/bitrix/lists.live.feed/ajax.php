@@ -2006,39 +2006,39 @@ class LiveFeedAjaxController extends Controller
 
 		<div class="bx-lists-iblock-description">
 			<?= nl2br(htmlspecialcharsbx($this->iblockDescription)) ?>
-			<? if(!empty($blueDudeCode)): ?>
+			<?php  if(!empty($blueDudeCode)): ?>
 				<br><br>
 				<a style="cursor:pointer;"
 				   onclick='BX.Helper.show("redirect=detail&code=<?=$blueDudeCode ?>");'>
 					<?= Loc::getMessage('LISTS_IS_DESRIPTION_DETAIL') ?>
 				</a>
-			<? endif ?>
+			<?php  endif ?>
 		</div>
 		<div class="bx-lists-block-errors" id="bx-lists-block-errors" style="display:none;"></div>
 
 		<table class="bx-lists-table-content">
-			<? foreach($data as $fieldId => $field): ?>
+			<?php  foreach($data as $fieldId => $field): ?>
 
-				<? if(preg_match('/^bizproc/', $fieldId)): ?>
+				<?php  if(preg_match('/^bizproc/', $fieldId)): ?>
 
-					<? if($bizprocTitle): ?>
-						<? $bizprocTitle = false ?>
+					<?php  if($bizprocTitle): ?>
+						<?php  $bizprocTitle = false ?>
 						<tr><td colspan="2" style="visibility: hidden"></td></tr>
 						<tr>
 							<td colspan="2" class="bx-lists-bizproc-parameters-title"><?= $title ?></td>
 						</tr>
-					<? endif ?>
+					<?php  endif ?>
 
-					<? if($manyParameters && empty($listTemplateId[$field['templateId']])): ?>
+					<?php  if($manyParameters && empty($listTemplateId[$field['templateId']])): ?>
 						<tr><td colspan="2" style="visibility: hidden"></td></tr>
 						<tr class="bx-lists-bp-parameters-template">
 							<td colspan="2"><?= $field["templateName"] ?></td>
 						</tr>
-						<? $listTemplateId[$field['templateId']] = true; ?>
-					<? endif ?>
-				<? endif ?>
+						<?php  $listTemplateId[$field['templateId']] = true; ?>
+					<?php  endif ?>
+				<?php  endif ?>
 
-				<?
+				<?php 
 					$customHtml = (isset($field['value'])? $field['value'] : $this->lists['FORM_DATA'][$field['id']]);
 					$params = '';
 					if(is_array($field['params']) && $field['type'] <> 'file')
@@ -2075,18 +2075,18 @@ class LiveFeedAjaxController extends Controller
 								uploaded.innerHTML = str;
 							}
 						</script>
-					<? endif;
+					<?php  endif;
 				?>
 
 				<tr <?= $style ?>>
 					<td class="bx-lists-table-first-td">
 						<?=htmlspecialcharsbx($field['name'])?>: <?= $required ?>
 					</td>
-					<?
+					<?php 
 					switch($field['type']):
 						case 'label':
 						case 'custom':
-							?><td><?
+							?><td><?php 
 							$spanOne = '';
 							$spanTwo = '';
 							if (!empty($field["realType"]))
@@ -2103,7 +2103,7 @@ class LiveFeedAjaxController extends Controller
 								}
 							}
 							echo $spanOne.$customHtml.$spanTwo;
-							?></td><?
+							?></td><?php 
 							break;
 						case 'checkbox':
 							?>
@@ -2112,14 +2112,14 @@ class LiveFeedAjaxController extends Controller
 								<input type="checkbox" name="<?=$field['id']?>" value="Y"
 									<?=($customHtml == "Y"? ' checked':'')?><?=HtmlFilter::encode($params)?>>
 							</td>
-							<?
+							<?php 
 							break;
 						case 'textarea':
 							?>
 							<td>
 								<textarea name="<?=$field['id']?>"<?=HtmlFilter::encode($params)?>><?=$customHtml?></textarea>
 							</td>
-							<?
+							<?php 
 							break;
 						case 'list':
 							$class = '';
@@ -2138,7 +2138,7 @@ class LiveFeedAjaxController extends Controller
 							?><td>
 							<?= $spanOne ?>
 						<select name="<?=$field['id']?>"<?=HtmlFilter::encode($params)?> class="<?= $class ?>">
-							<?
+							<?php 
 							if(is_array($field['items'])):
 								if(!is_array($customHtml))
 									$customHtml = array($customHtml);
@@ -2146,11 +2146,11 @@ class LiveFeedAjaxController extends Controller
 									<option value="<?=htmlspecialcharsbx($k)?>"
 										<?=(in_array($k, $customHtml)? ' selected':'')?>>
 										<?=htmlspecialcharsbx($v)?></option>
-								<? endforeach; ?>
+								<?php  endforeach; ?>
 								</select>
 								<?= $spanTwo ?>
 								</td>
-								<?
+								<?php 
 							endif;
 							break;
 						case 'file':
@@ -2166,7 +2166,7 @@ class LiveFeedAjaxController extends Controller
 									<span class="fileformlabel bx-lists-input-file-name"></span>
 								</span>
 							</td>
-							<?
+							<?php 
 							break;
 						case 'date':
 							?>
@@ -2179,23 +2179,23 @@ class LiveFeedAjaxController extends Controller
 								      onmouseover="BX.addClass(this, 'calendar-icon-hover');"
 								      onmouseout="BX.removeClass(this, 'calendar-icon-hover');" border="0"></span>
 							</td>
-							<?
+							<?php 
 							break;
 						default:
 							?>
 							<td>
 								<input type="text" name="<?=$field['id']?>" value="<?=$customHtml?>"<?=HtmlFilter::encode($params)?>>
 							</td>
-							<?
+							<?php 
 							break;
 					endswitch;
 					?>
 				</tr>
 
-			<? endforeach ?>
+			<?php  endforeach ?>
 		</table>
 
-		<?
+		<?php 
 	}
 }
 $controller = new LiveFeedAjaxController();

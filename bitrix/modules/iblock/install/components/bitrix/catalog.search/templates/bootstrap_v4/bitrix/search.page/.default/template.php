@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <div class="search-page">
 	<form action="" method="get">
-		<? if($arParams["USE_SUGGEST"] === "Y"):
+		<?php  if($arParams["USE_SUGGEST"] === "Y"):
 			if(strlen($arResult["REQUEST"]["~QUERY"]) && is_object($arResult["NAV_RESULT"]))
 			{
 				$arResult["FILTER_MD5"] = $arResult["NAV_RESULT"]->GetFilterMD5();
@@ -9,7 +9,7 @@
 				$obSearchSuggest->SetResultCount($arResult["NAV_RESULT"]->NavRecordCount);
 			}
 			?>
-			<?$APPLICATION->IncludeComponent("bitrix:search.suggest.input", "", array(
+			<?php $APPLICATION->IncludeComponent("bitrix:search.suggest.input", "", array(
 					"NAME" => "q",
 					"VALUE" => $arResult["REQUEST"]["~QUERY"],
 					"INPUT_SIZE" => 40,
@@ -19,16 +19,16 @@
 				$component, array("HIDE_ICONS" => "Y")
 			);?>
 			<input class="btn btn-primary" type="submit" value="<?=GetMessage("SEARCH_GO")?>" />
-		<?else:?>
+		<?php else:?>
 			<div class="input-group">
 				<input type="text" class="form-control" name="q" value="<?=$arResult["REQUEST"]["QUERY"]?>" size="40" />
 				<div class="input-group-append">
 					<input class="btn btn-primary" type="submit" value="<?=GetMessage("SEARCH_GO")?>" />
 				</div>
 			</div>
-		<?endif;?>
-		<input type="hidden" name="how" value="<?echo $arResult["REQUEST"]["HOW"]=="d"? "d": "r"?>" />
-		<? if($arParams["SHOW_WHEN"]):?>
+		<?php endif;?>
+		<input type="hidden" name="how" value="<?php echo $arResult["REQUEST"]["HOW"]=="d"? "d": "r"?>" />
+		<?php  if($arParams["SHOW_WHEN"]):?>
 	<script>
 	var switch_search_params = function()
 	{
@@ -59,9 +59,9 @@
 		return false;
 	}
 	</script>
-	<br /><a class="search-page-params" href="#" onclick="return switch_search_params()"><?echo GetMessage('CT_BSP_ADDITIONAL_PARAMS')?></a>
-	<div id="search_params" class="search-page-params" style="display:<?echo $arResult["REQUEST"]["FROM"] || $arResult["REQUEST"]["TO"]? 'block': 'none'?>">
-		<?$APPLICATION->IncludeComponent(
+	<br /><a class="search-page-params" href="#" onclick="return switch_search_params()"><?php echo GetMessage('CT_BSP_ADDITIONAL_PARAMS')?></a>
+	<div id="search_params" class="search-page-params" style="display:<?php echo $arResult["REQUEST"]["FROM"] || $arResult["REQUEST"]["TO"]? 'block': 'none'?>">
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:main.calendar',
 			'',
 			array(
@@ -76,13 +76,13 @@
 			array('HIDE_ICONS' => 'Y')
 		);?>
 	</div>
-<?endif?>
+<?php endif?>
 </form><br />
 
-<?if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):
+<?php if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):
 	?>
 	<div class="search-language-guess">
-		<?echo GetMessage("CT_BSP_KEYBOARD_WARNING", array("#query#"=>'<a href="'.$arResult["ORIGINAL_QUERY_URL"].'">'.$arResult["REQUEST"]["ORIGINAL_QUERY"].'</a>'))?>
-	</div><br /><?
+		<?php echo GetMessage("CT_BSP_KEYBOARD_WARNING", array("#query#"=>'<a href="'.$arResult["ORIGINAL_QUERY_URL"].'">'.$arResult["REQUEST"]["ORIGINAL_QUERY"].'</a>'))?>
+	</div><br /><?php 
 endif;?>
 </div>

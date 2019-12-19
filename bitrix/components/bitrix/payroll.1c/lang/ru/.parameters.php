@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ORG_LIST'] = "Список организаций";
 $MESS ['ORG_SETTINGS'] = "Настройки для организации \"#ORG_NAME#\"";
 $MESS ['PAYROLL_URL'] = "URL веб-сервиса";

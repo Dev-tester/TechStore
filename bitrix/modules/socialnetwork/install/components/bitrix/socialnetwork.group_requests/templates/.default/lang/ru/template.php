@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C12_DO_SAVE'] = "Одобрить вступление";
 $MESS ['SONET_C12_DO_REJECT'] = "Отказать";
 $MESS ['SONET_C12_SUBTITLE'] = "Запросы на вступление в группу";

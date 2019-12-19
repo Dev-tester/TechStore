@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_COPY_TASK"] = "Copy";
 $MESS["TASKS_ADD_TASK_TO_TIMEMAN"] = "Add to working day plan";
 $MESS["TASKS_COPY_TASK_EX"] = "Duplicate task";

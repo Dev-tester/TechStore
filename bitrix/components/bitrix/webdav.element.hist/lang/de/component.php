@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ACCESS_DENIED'] = "Zugriff verweigert.";
 $MESS ['WD_DOCUMENTS'] = "Dokumente";
 $MESS ['WD_TITLE'] = "Änderungshistory der Datei";

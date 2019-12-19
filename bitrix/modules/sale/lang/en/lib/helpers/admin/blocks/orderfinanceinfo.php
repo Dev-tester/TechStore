@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_FINANCEINFO_USE_INNER_BUDGET"] = "Use internal account";
 $MESS["SALE_ORDER_FINANCEINFO_SUM_PAID"] = "Paid";
 $MESS["SALE_ORDER_FINANCEINFO_PAYABLE"] = "Amount payable";

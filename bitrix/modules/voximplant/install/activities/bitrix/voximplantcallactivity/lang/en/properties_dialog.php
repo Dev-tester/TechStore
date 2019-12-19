@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPVICA_PD_NO_OUTPUT_NUMBER"] = "Please rent a phone number or connect SIP telephony to use this option.";
 $MESS["BPVICA_PD_CALL_TYPE"] = "Call using";
 $MESS["BPVICA_PD_CALL_TYPE_TEXT"] = "Text";

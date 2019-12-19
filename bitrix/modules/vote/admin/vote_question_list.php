@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager Forum					 #
 # Copyright (c) 2002-2019 Bitrix			 #
@@ -20,11 +20,11 @@ $APPLICATION->SetTitle(GetMessage("VOTE_PAGE_TITLE", array("#ID#"=> $voteId)));
 	"TEXT"	=> GetMessage("VOTE_BACK_TO_VOTE"),
 	"LINK"	=> "/bitrix/admin/vote_edit.php?lang=".LANGUAGE_ID."&ID=".$voteId,
 	"ICON" => "btn_list"))))->Show();
-?><?$APPLICATION->IncludeComponent("bitrix:voting.admin.questions", ".default",
+?><?php $APPLICATION->IncludeComponent("bitrix:voting.admin.questions", ".default",
 	array(
 		"VOTE_ID" => $voteId,
 		"SHOW_FILTER" => "Y"
-	));?><?
+	));?><?php 
 
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_CAPTCHA_PROMT"] = "CAPTCHA image characters";
 $MESS["VOTE_ERROR_DEFAULT"] = "Unknown error.";
 $MESS["VOTE_EXPORT_BUTTON"] = "Results (xls)";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Note: this is an internal class for disk module. It wont work without the module installed.
  * @internal

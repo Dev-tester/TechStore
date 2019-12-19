@@ -1,17 +1,17 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if ($arResult["STATUS"] == "Y"):?>
+<?php if ($arResult["STATUS"] == "Y"):?>
 	<span id="url_notify_<?=$arParams['NOTIFY_ID']?>"><?=GetMessage('MAIN_NOTIFY_MESSAGE')?></span>
-<?elseif ($arResult["STATUS"] == "N"):?>
+<?php elseif ($arResult["STATUS"] == "N"):?>
 	<span id="url_notify_<?=$arParams['NOTIFY_ID']?>"><a href="javascript:void(0)" onClick="notifyProduct('<?=$arResult["NOTIFY_URL"]?>', <?=$arParams['NOTIFY_ID']?>);"><?=GetMessage('NOTIFY');?></a></span>
-<?elseif ($arResult["STATUS"] == "R"):?>
+<?php elseif ($arResult["STATUS"] == "R"):?>
 	<span id="url_notify_<?=$arParams['NOTIFY_ID']?>">
 		<a href="javascript:void(0)" onClick="showNotify(<?=$arParams['NOTIFY_ID']?>)" id="notify_product_<?=$arParams['NOTIFY_ID']?>"><?=GetMessage('NOTIFY');?></a>
 	</span>
-<?endif;?>
+<?php endif;?>
 <input type="hidden" value="<?=$arResult["NOTIFY_URL"]?>" name="notify_url_<?=$arParams['NOTIFY_ID']?>" id="notify_url_<?=$arParams['NOTIFY_ID']?>">
 
-<?
+<?php 
 if (!defined("EXIST_FORM")):
 	define("EXIST_FORM", "Y");
 ?>
@@ -55,19 +55,19 @@ if (!defined("EXIST_FORM")):
 				<input type="hidden" name="notify_user_auth" id="notify_user_auth" value="N" >
 			</td>
 		</tr>
-		<?if($arResult["CAPTCHA_CODE"]):?>
+		<?php if($arResult["CAPTCHA_CODE"]):?>
 			<tr>
 				<td></td>
-				<td><input type="hidden" name="popup_captcha_sid" id="popup_captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
+				<td><input type="hidden" name="popup_captcha_sid" id="popup_captcha_sid" value="<?php echo $arResult["CAPTCHA_CODE"]?>" />
 				<span id="popup_captcha_img">
-					<img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></td>
+					<img src="/bitrix/tools/captcha.php?captcha_sid=<?php echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></td>
 				</span>
 			</tr>
 			<tr>
 				<td class="bx-auth-label"><?=GetMessage('NOTIFY_POPUP_CAPTHA');?></td>
 				<td><input class="bx-auth-input" type="text" name="popup_captcha_word" id="popup_captcha_word" maxlength="50" value="" size="15" /></td>
 			</tr>
-		<?endif;?>
+		<?php endif;?>
 	</table>
 </div>
 
@@ -219,4 +219,4 @@ function showAuth(type)
 	}
 }
 </script>
-<?endif;?>
+<?php endif;?>

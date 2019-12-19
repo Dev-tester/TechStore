@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_SHIFT_FORM_BREAK_DURATION_TITLE"] = "Break duration";
 $MESS["TM_SHIFT_FORM_END_TIME_TITLE"] = "Shift ends at";
 $MESS["TM_SHIFT_FORM_NAME_TITLE"] = "Shift name";

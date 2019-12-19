@@ -1,12 +1,12 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (!empty($arResult)):?>
+<?php if (!empty($arResult)):?>
 	<ul id="top-menu">
-<?foreach($arResult as $arItem):?>
-	<?if ($arItem["PERMISSION"] > "D"):?>
-		<li<?if ($arItem["SELECTED"]):?> class="selected"<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-	<?endif?>
-<?endforeach?>
+<?php foreach($arResult as $arItem):?>
+	<?php if ($arItem["PERMISSION"] > "D"):?>
+		<li<?php if ($arItem["SELECTED"]):?> class="selected"<?php endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
+	<?php endif?>
+<?php endforeach?>
 
 	</ul>
-<?endif?>
+<?php endif?>

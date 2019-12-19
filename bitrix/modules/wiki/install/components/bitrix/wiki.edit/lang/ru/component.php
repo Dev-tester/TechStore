@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_NAME"] = "Файл";
 $MESS["CATEGORY_NAME"] = "Категория";
 $MESS["WIKI_MODULE_NOT_INSTALLED"] = "Модуль wiki не установлен.";

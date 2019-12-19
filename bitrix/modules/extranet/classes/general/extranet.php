@@ -1,4 +1,4 @@
-<?
+<?php 
 class CExtranet
 {
 	public static function IsExtranetSite($site_id = SITE_ID)

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["rub_list"] = "Список рассылок";
 $MESS["rubric_mnu_add"] = "Добавить новую рассылку";
 $MESS["rubric_mnu_edit"] = "Изменить данную рассылку";

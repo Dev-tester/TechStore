@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['SENDER_COMP_LETTER_EDIT_TITLE_TEMPLATES'] = 'Выбрать шаблон рассылки';
 $MESS['SENDER_COMP_LETTER_EDIT_TITLE_EDIT'] = 'Редактирование рассылки';
 $MESS['SENDER_COMP_LETTER_EDIT_TITLE_ADD'] = 'Создание рассылки';

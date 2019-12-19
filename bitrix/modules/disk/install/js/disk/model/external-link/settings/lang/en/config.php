@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_JS_EL_SETTINGS_LINK_VALUE_PROTECT_BY_LIFETIME_2"] = "valid until {{getFormattedDeathTime}}";
 $MESS["DISK_JS_EL_SETTINGS_LINK_LABEL_MINUTE"] = "minutes";
 $MESS["DISK_JS_EL_SETTINGS_LINK_LABEL_HOUR"] = "hours";

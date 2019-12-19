@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CALL_ENTITY_ID_FIELD"] = "ID";
 $MESS["CALL_ENTITY_SEARCH_ID_FIELD"] = "Search string";
 $MESS["CALL_ENTITY_CALL_ID_FIELD"] = "Call ID";

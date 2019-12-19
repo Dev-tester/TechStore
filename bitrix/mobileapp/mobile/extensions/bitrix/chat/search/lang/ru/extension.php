@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_EMPLOYEES"] = "СОТРУДНИКИ";
 $MESS["SEARCH_CHATS"] = "ЧАТЫ";
 $MESS["SEARCH"] = "Идет поиск...";

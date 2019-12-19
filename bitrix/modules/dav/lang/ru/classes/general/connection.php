@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DAV_EXP_NAME"] = "Не указано название соединения";
 $MESS["DAV_EXP_ACCOUNT_TYPE"] = "Не указан тип соединение";
 $MESS["DAV_EXP_ENTITY_TYPE"] = "Не указан тип сущности";

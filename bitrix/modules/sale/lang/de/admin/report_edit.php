@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_REPORT"] = "Druckformulare konfigurieren";
 $MESS["SPS_ORDER_ID"] = "Bestellungs ID";
 $MESS["SPS_ORDER_DATETIME"] = "Bestelldatum";

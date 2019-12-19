@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TYPES_FOLDER'] = "Для папки или файла";
 $MESS ['TYPES_UGROUPS'] = "Для групп пользователей";
 $MESS ['TYPES_PERIOD'] = "Период времени";

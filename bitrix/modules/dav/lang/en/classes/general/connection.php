@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DAV_EXP_NAME"] = "Name";
 $MESS["DAV_EXP_ACCOUNT_TYPE"] = "Connection Type";
 $MESS["DAV_EXP_ENTITY_TYPE"] = "Entity Type";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_ADS_LETTER_TIME_TMPL_TITLE_NEW"] = "%name% готово к запуску!";
 $MESS["SENDER_ADS_LETTER_TIME_TMPL_TITLE_EXISTS"] = "%name%";
 $MESS["SENDER_ADS_LETTER_TIME_TMPL_ACT_SEND"] = "Запуск";

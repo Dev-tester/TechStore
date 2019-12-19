@@ -1,4 +1,4 @@
-<?
+<?php 
 abstract class CAllTimeManReport
 {
 	public static function CheckFields($action, &$arFields)

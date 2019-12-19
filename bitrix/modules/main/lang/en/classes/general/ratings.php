@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RATING_GENERAL_ERR_NAME"] = "The &quot;Name&quot; field must not be empty.";
 $MESS["RATING_GENERAL_ERR_ACTIVE"] = "Error specifying the &quot;Active&quot; option.";
 $MESS["RATING_GENERAL_ERR_ENTITY_ID"] = "The object specified does not exist.";

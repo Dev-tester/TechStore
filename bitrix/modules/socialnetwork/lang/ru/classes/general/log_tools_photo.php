@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_PHOTO_LOG_GUEST"] = "Гость";
 $MESS["SONET_PHOTOPHOTO_LOG_1"] = "#AUTHOR_NAME# добавил(а) фотографию #TITLE#";
 $MESS["SONET_PHOTO_IM_COMMENT"] = "Прокомментировал ваше фото \"#photo_title#\" в альбоме \"#album_title#\"";

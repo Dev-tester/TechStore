@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_AUTH_TITLE_2"] = "Authentication";
 $MESS["INTRANET_USER_PROFILE_PASSWORD_TITLE"] = "Change password";
 $MESS["INTRANET_USER_PROFILE_RECOVERY_CODES_TITLE"] = "Recovery codes";

@@ -1,4 +1,4 @@
-<?
+<?php 
 include_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/xmpp/classes/interface.php");
 
 class CXMPPFactory

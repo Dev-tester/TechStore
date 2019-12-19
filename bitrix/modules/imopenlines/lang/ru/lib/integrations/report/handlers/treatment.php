@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["OPEN_LINES_TREATMENT"] = "Обращения";
 $MESS["WHAT_WILL_CALCULATE_ALL_TREATMENT"] = "Количество всех обращений";
 $MESS["WHAT_WILL_CALCULATE_ALL_TREATMENT_BY_HOUR"] = "Количество всех обращений по часам";

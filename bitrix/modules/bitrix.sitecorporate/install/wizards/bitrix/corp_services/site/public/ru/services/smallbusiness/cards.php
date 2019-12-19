@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "Пластиковые карты");
 $APPLICATION->SetTitle("Пластиковые карты");
@@ -28,4 +28,4 @@ $APPLICATION->SetTitle("Пластиковые карты");
 									<li>безналичная оплата товаров и услуг без комиссий в любой точке мира</li> 
 									<li>провоз денег через границу без таможенного оформления</li> 
 									<li>не нужно покупать валюту для выезда в другие страны</li> 
-									<li>все полезные функции дебетовых карт</li></ul> 					<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+									<li>все полезные функции дебетовых карт</li></ul> 					<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

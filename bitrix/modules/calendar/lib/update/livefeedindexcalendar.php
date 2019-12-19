@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Calendar\Update;
 
 use \Bitrix\Main\Update\Stepper;

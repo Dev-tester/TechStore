@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if(!CModule::IncludeModule("socialnetwork"))
@@ -102,13 +102,13 @@ $arGadgetParams["PATH_TO_GROUP"] = ($arGadgetParams["PATH_TO_GROUP"]?$arGadgetPa
 $arGadgetParams["LIST_URL"] = ($arGadgetParams["LIST_URL"]?$arGadgetParams["LIST_URL"]:"/company/personal/log/");
 
 ?>
-<?
+<?php 
 
 if($arGadgetParams["SHOW_TITLE"] == "Y"):
-	?><h4><?= GetMessage("GD_LOG_TITLE") ?></h4><?
+	?><h4><?= GetMessage("GD_LOG_TITLE") ?></h4><?php 
 endif;
 
-?><span class="show-where"><?
+?><span class="show-where"><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.log.ex",
 	".default",
@@ -147,11 +147,11 @@ $APPLICATION->IncludeComponent(
 	$component,
 	Array("HIDE_ICONS"=>"Y")
 );
-?></span><?
+?></span><?php 
 
 if(strlen($arGadgetParams["LIST_URL"])>0):
 	?><br />
-	<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?echo GetMessage("GD_LOG_MORE")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
+	<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?php echo GetMessage("GD_LOG_MORE")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
 	<br />
-	</div><?
+	</div><?php 
 endif?>

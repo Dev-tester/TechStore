@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_SBB_TPL_COLUMNS_LIST_MOBILE"] = "Колонки, отображаемые на мобильных устройствах";
 $MESS["CP_SBB_TPL_PROPERTIES_RECALCULATE_BASKET"] = "Свойства, влияющие на пересчет корзины";
 $MESS["CP_SBB_TPL_THEME_SITE"] = "Брать тему из настроек сайта (для решения bitrix.eshop)";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $intranet_default_option = array(
 	"search_user_url" => "/company/personal/user/#ID#/",
 	"search_file_extensions" => "doc,ppt,xls,pdf",

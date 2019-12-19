@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BC_TPL_DML_SIMPLE"] = "simple mode";
 $MESS["CP_BC_TPL_DML_EXT"] = "extended";
 $MESS["CPT_BC_TPL_THEME_SITE"] = "Use site theme (for bitrix.eshop)";

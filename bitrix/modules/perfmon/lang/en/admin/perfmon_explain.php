@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PERFMON_EXPLAIN_F_POSSIBLE_KEYS'] = "Possible keys";
 $MESS ['PERFMON_EXPLAIN_F_SELECT_TYPE'] = "Query type";
 $MESS ['PERFMON_EXPLAIN_F_TYPE'] = "Fetch";

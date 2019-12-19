@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCTPROP_EDIT_TITLE"] = "Open this property for editing";
 $MESS["CRM_PRODUCTPROP_EDIT"] = "Edit";
 $MESS["CRM_PRODUCTPROP_DELETE_TITLE"] = "Delete this property";

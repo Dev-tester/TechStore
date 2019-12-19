@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -6,28 +6,28 @@ use Bitrix\Main\Localization\Loc;
 ?>
 
 <div class="crm-config-ps-list-task-options-payment-method">
-	<?foreach ($arResult['PAY_SYSTEM'] as $personTypeId => $data):?>
+	<?php foreach ($arResult['PAY_SYSTEM'] as $personTypeId => $data):?>
 		<div class="crm-config-ps-list-task-options-payment-method-row">
 			<div class="crm-config-ps-list-task-options-settings-subtitle-container">
 				<span class="crm-config-ps-list-task-options-settings-subtitle webform-payment-method-legal-title"><?=$arResult['PERSON_TYPE_LIST'][$personTypeId];?></span>
 			</div>
 
-			<?if (array_key_exists('N', $data)):?>
+			<?php if (array_key_exists('N', $data)):?>
 				<div class="crm-config-ps-list-task-options-payment-method-left-column">
-					<?foreach ($data['N'] as $paySystem):?>
+					<?php foreach ($data['N'] as $paySystem):?>
 						<a href="<?=$paySystem['PATH_TO_PS_EDIT']?>" style="display: block">
 							<div class="crm-config-ps-list-task-options-payment-method-block payment-method-block-red">
 								<span class="crm-config-ps-list-task-options-payment-method-block-name"><?=$paySystem['NAME'];?></span>
 								<span class="crm-config-ps-list-task-options-payment-method-block-element"><?=Loc::getMessage('CRM_PS_LIST_BLOCK_CONNECT');?></span>
 							</div><!--crm-config-ps-list-task-options-payment-method-block-->
 						</a>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</div><!--crm-config-ps-list-task-options-payment-method-left-column-->
-			<?endif;?>
+			<?php endif;?>
 
-			<?if (array_key_exists('Y', $data)):?>
+			<?php if (array_key_exists('Y', $data)):?>
 				<div class="crm-config-ps-list-task-options-payment-method-right-column">
-					<?foreach ($data['Y'] as $paySystem):?>
+					<?php foreach ($data['Y'] as $paySystem):?>
 						<div class="crm-config-ps-list-task-options-payment-active-method-block">
 							<div class="crm-config-ps-list-task-options-payment-method-block-active payment-method-block-orange">
 								<span class="crm-config-ps-list-task-options-payment-method-block-name"><?=$paySystem['NAME']?></span>
@@ -42,9 +42,9 @@ use Bitrix\Main\Localization\Loc;
 							</span>
 							</div><!--crm-config-ps-list-task-options-payment-method-active-->
 						</div><!--crm-config-ps-list-task-options-payment-active-method-block-->
-					<?endforeach;?>
+					<?php endforeach;?>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 		</div><!--crm-config-ps-list-task-options-payment-method-->
-	<?endforeach;?>
+	<?php endforeach;?>
 </div><!--crm-config-ps-list-task-options-payment-method-->

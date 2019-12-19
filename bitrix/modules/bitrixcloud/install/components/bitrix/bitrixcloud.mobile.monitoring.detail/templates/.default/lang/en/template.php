@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCLMMD_PARAM_HTTP_RESPONSE_TIME"] = "Website response";
 $MESS["BCLMMD_PARAM_FAILED_PERIOD"] = "Downtime";
 $MESS["BCLMMD_PARAM_MONITORING_PERIOD"] = "Date range";

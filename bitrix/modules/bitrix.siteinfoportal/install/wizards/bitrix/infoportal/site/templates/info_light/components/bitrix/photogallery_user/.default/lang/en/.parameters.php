@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_SHOW_WATERMARK"] = "[Upload Photo Page] Show watermark template";
 $MESS["P_WATERMARK_COLORS"] = "[Upload Photo Page] Watermark colour";
 $MESS["P_COLOR_FF0000"] = "Red";

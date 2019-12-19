@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_EDIT_COMP_TITLE_ADD"] = "Создание соглашения";
 $MESS["MAIN_USER_CONSENT_EDIT_COMP_TITLE_EDIT"] = "Редактирование соглашения";
 $MESS["MAIN_USER_CONSENT_EDIT_COMP_FIELD_AGREEMENT_TEXT"] = "Текст согласия";

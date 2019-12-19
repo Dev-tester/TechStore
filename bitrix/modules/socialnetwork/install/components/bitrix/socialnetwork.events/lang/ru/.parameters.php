@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_MESSAGE_VAR'] = "Имя переменной для сообщения";
 $MESS ['SONET_PATH_TO_USER'] = "Шаблон пути к странице пользователя";
 $MESS ['SONET_PATH_TO_MESSAGE_FORM'] = "Шаблон пути к странице отправки сообщений";

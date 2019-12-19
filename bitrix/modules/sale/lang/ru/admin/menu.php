@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDERS"] = "Заказы";
 $MESS["SALE_ORDERS_ARCHIVE"] = "Архив";
 $MESS["SALE_BIGDATA"] = "Персонализация";

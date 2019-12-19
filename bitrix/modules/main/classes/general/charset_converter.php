@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @deprecated Use \Bitrix\Main\Text\Encoding
  */

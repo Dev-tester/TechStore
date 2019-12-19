@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_MODULE_NOT_INSTALLED"] = "The e-Store module is not installed.";
 $MESS["SALE_ACCESS_DENIED"] = "Access denied";
 $MESS["SALE_EBAY_TITLE"] = "E-bay settings";

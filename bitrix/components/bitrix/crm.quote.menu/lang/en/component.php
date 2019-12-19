@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["QUOTE_STEXPORT_SUMMARY"] = "This will create a quote export file. Exporting a considerable amount of data may take some time.";
 $MESS["QUOTE_STEXPORT_OPTION_EXPORT_ALL_FIELDS"] = "Export all quote fields";
 $MESS["QUOTE_DOCUMENT_BUTTON_TEXT"] = "Document";

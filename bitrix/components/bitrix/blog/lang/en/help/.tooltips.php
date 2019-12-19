@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEF_MODE_TIP"] = "Turns search engine friendly mode (SEF) on and enables the <nobr><i>Page URL management</i></nobr> fields.";
 $MESS["PATH_TO_SMILE_TIP"] = "The path to a folder contaning smileys.";
 $MESS["CACHE_TYPE_TIP"] = "<i>Auto</i>: the cache is valid during the time predefined in the cache settings;<br /><i>Cache</i>: always cache for the period specified in the next field;<br /><i>Do not cahce</i>: no caching is performed.";

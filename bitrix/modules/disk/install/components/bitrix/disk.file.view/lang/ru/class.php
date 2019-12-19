@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FILE_VIEW_ERROR_COULD_NOT_FIND_OBJECT"] = "Не удалось найти объект.";
 $MESS["DISK_FILE_VIEW_ERROR_COULD_NOT_FIND_VERSION"] = "Не удалось найти версию.";
 $MESS["DISK_FILE_VIEW_ERROR_COULD_NOT_SAVE_FILE"] = "Не удалось сохранить файл.";

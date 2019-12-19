@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_OPT_DAILY_REPORT_TIME2"] = "The upcoming statistics report will be sent on:";
 $MESS["STAT_OPT_ONLINE_INTERVAL"] = "Update online visitors each (sec.):";
 $MESS["STAT_OPT_RECORDS_LIMIT"] = "Maximum number of records to show in forms:";

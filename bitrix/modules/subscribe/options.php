@@ -1,4 +1,4 @@
-<?
+<?php 
 $module_id = "subscribe";
 $POST_RIGHT = $APPLICATION->GetGroupRight($module_id);
 if($POST_RIGHT>="R") :
@@ -97,8 +97,8 @@ if(
 }
 
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=LANGUAGE_ID?>">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($module_id)?>&amp;lang=<?=LANGUAGE_ID?>">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 
@@ -108,59 +108,59 @@ $tabControl->BeginNextTab();
 	$val = COption::GetOptionString($module_id, $Option[0]);
 	?>
 	<tr>
-		<td width="40%" <?if($type[0]=="textarea" || $type[0]=="text-list") echo 'class="adm-detail-valign-top"'?>>
-			<label for="<?echo htmlspecialcharsbx($Option[0])?>"><?echo $Option[1]?></label>
+		<td width="40%" <?php if($type[0]=="textarea" || $type[0]=="text-list") echo 'class="adm-detail-valign-top"'?>>
+			<label for="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo $Option[1]?></label>
 		<td width="60%">
-		<?
+		<?php 
 		if($type[0]=="checkbox")
 		{
-			?><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>><?
+			?><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>><?php 
 		}
 		elseif($type[0]=="text")
 		{
-			?><input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?
+			?><input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php 
 		}
 		elseif($type[0]=="textarea")
 		{
-			?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+			?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 		}
 		elseif($type[0]=="text-list")
 		{
 			$aVal = explode(",", $val);
 			foreach($aVal as $val)
 			{
-				?><input type="text" size="<?echo $type[2]?>" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])."[]"?>"><br><?
+				?><input type="text" size="<?php echo $type[2]?>" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])."[]"?>"><br><?php 
 			}
 			for($j=0; $j<$type[1]; $j++)
 			{
-				?><input type="text" size="<?echo $type[2]?>" value="" name="<?echo htmlspecialcharsbx($Option[0])."[]"?>"><br><?
+				?><input type="text" size="<?php echo $type[2]?>" value="" name="<?php echo htmlspecialcharsbx($Option[0])."[]"?>"><br><?php 
 			}
 		}
 		elseif($type[0]=="selectbox")
 		{
-			?><select name="<?echo htmlspecialcharsbx($Option[0])?>"><?
+			?><select name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php 
 			foreach($type[1] as $optionValue => $optionDisplay)
 			{
-				?><option value="<?echo $optionValue?>"<?if($val==$optionValue)echo" selected"?>><?echo htmlspecialcharsbx($optionDisplay)?></option><?
+				?><option value="<?php echo $optionValue?>"<?php if($val==$optionValue)echo" selected"?>><?php echo htmlspecialcharsbx($optionDisplay)?></option><?php 
 			}
-			?></select><?
+			?></select><?php 
 		}
 		?></td>
 	</tr>
-	<?
+	<?php 
 	}
 	?>
-<?$tabControl->BeginNextTab();?>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
-<?$tabControl->Buttons();?>
-	<input <?if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
-	<input <?if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input <?if ($POST_RIGHT<"W") echo "disabled" ?> type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+<?php $tabControl->BeginNextTab();?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+<?php $tabControl->Buttons();?>
+	<input <?php if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>" class="adm-btn-save">
+	<input <?php if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input <?php if ($POST_RIGHT<"W") echo "disabled" ?> type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input <?if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input <?php if ($POST_RIGHT<"W") echo "disabled" ?> type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>
-<?endif;?>
+<?php endif;?>

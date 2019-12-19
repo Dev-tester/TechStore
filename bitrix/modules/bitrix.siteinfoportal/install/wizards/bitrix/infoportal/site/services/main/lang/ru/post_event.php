@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MF_EVENT_NAME"] = "Добавление элемента";
 $MESS["MF_EVENT_DESCRIPTION"] = "#ID# - ID
 #IBLOCK_ID# - ID информационного блока

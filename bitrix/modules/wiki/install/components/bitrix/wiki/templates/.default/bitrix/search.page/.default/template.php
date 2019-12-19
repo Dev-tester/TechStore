@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <div class="search-page">
 <form action="" method="get">
 <input type="hidden" name="<?=$component->arParams['OPER_VAR']?>" value="search" />
-<?
+<?php 
 
 if (isset($arResult["REQUEST"]["TAGS"]))
 	$arResult["REQUEST"]["TAGS"] = htmlspecialcharsback($arResult["REQUEST"]["TAGS"]);
@@ -15,7 +15,7 @@ if($arParams["USE_SUGGEST"] === "Y"):
 		$obSearchSuggest->SetResultCount($arResult["NAV_RESULT"]->NavRecordCount);
 	}
 	?>
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:search.suggest.input",
 		"",
 		array(
@@ -27,20 +27,20 @@ if($arParams["USE_SUGGEST"] === "Y"):
 		),
 		$component, array("HIDE_ICONS" => "Y")
 	);?>
-<?else:?>
+<?php else:?>
 	<input type="text" name="q" value="<?=!empty($arResult["REQUEST"]["TAGS"]) ? $arResult["REQUEST"]["TAGS"] : $arResult["REQUEST"]["QUERY"]?>" size="40" />
-<?endif;?>
-<?if($arParams["SHOW_WHERE"]):?>
+<?php endif;?>
+<?php if($arParams["SHOW_WHERE"]):?>
 	&nbsp;<select name="where">
 	<option value=""><?=GetMessage("SEARCH_ALL")?></option>
-	<?foreach($arResult["DROPDOWN"] as $key=>$value):?>
-	<option value="<?=$key?>"<?if($arResult["REQUEST"]["WHERE"]==$key) echo " selected"?>><?=$value?></option>
-	<?endforeach?>
+	<?php foreach($arResult["DROPDOWN"] as $key=>$value):?>
+	<option value="<?=$key?>"<?php if($arResult["REQUEST"]["WHERE"]==$key) echo " selected"?>><?=$value?></option>
+	<?php endforeach?>
 	</select>
-<?endif;?>
+<?php endif;?>
 	&nbsp;<input type="submit" value="<?=GetMessage("SEARCH_GO")?>" />
-	<input type="hidden" name="how" value="<?echo $arResult["REQUEST"]["HOW"]=="d"? "d": "r"?>" />
-<?if($arParams["SHOW_WHEN"]):?>
+	<input type="hidden" name="how" value="<?php echo $arResult["REQUEST"]["HOW"]=="d"? "d": "r"?>" />
+<?php if($arParams["SHOW_WHEN"]):?>
 	<script>
 	var switch_search_params = function()
 	{
@@ -71,9 +71,9 @@ if($arParams["USE_SUGGEST"] === "Y"):
 		return false;
 	}
 	</script>
-	<br /><a class="search-page-params" href="#" onclick="return switch_search_params()"><?echo GetMessage('CT_BSP_ADDITIONAL_PARAMS')?></a>
-	<div id="search_params" class="search-page-params" style="display:<?echo $arResult["REQUEST"]["FROM"] || $arResult["REQUEST"]["TO"]? 'block': 'none'?>">
-		<?$APPLICATION->IncludeComponent(
+	<br /><a class="search-page-params" href="#" onclick="return switch_search_params()"><?php echo GetMessage('CT_BSP_ADDITIONAL_PARAMS')?></a>
+	<div id="search_params" class="search-page-params" style="display:<?php echo $arResult["REQUEST"]["FROM"] || $arResult["REQUEST"]["TO"]? 'block': 'none'?>">
+		<?php $APPLICATION->IncludeComponent(
 			'bitrix:main.calendar',
 			'',
 			array(
@@ -88,18 +88,18 @@ if($arParams["USE_SUGGEST"] === "Y"):
 			array('HIDE_ICONS' => 'Y')
 		);?>
 	</div>
-<?endif?>
+<?php endif?>
 </form><br />
-<?if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):
+<?php if(isset($arResult["REQUEST"]["ORIGINAL_QUERY"])):
 	?>
 	<div class="search-language-guess">
-		<?echo GetMessage("CT_BSP_KEYBOARD_WARNING", array("#query#"=>'<a href="'.$arResult["ORIGINAL_QUERY_URL"].'">'.$arResult["REQUEST"]["ORIGINAL_QUERY"].'</a>'))?>
-	</div><br /><?
+		<?php echo GetMessage("CT_BSP_KEYBOARD_WARNING", array("#query#"=>'<a href="'.$arResult["ORIGINAL_QUERY_URL"].'">'.$arResult["REQUEST"]["ORIGINAL_QUERY"].'</a>'))?>
+	</div><br /><?php 
 endif;?>
-<?if($arResult["REQUEST"]["QUERY"] === false && $arResult["REQUEST"]["TAGS"] === false):?>
-<?elseif($arResult["ERROR_CODE"]!=0):?>
+<?php if($arResult["REQUEST"]["QUERY"] === false && $arResult["REQUEST"]["TAGS"] === false):?>
+<?php elseif($arResult["ERROR_CODE"]!=0):?>
 	<p><?=GetMessage("SEARCH_ERROR")?></p>
-	<?ShowError($arResult["ERROR_TEXT"]);?>
+	<?php ShowError($arResult["ERROR_TEXT"]);?>
 	<p><?=GetMessage("SEARCH_CORRECT_AND_CONTINUE")?></p>
 	<br /><br />
 	<p><?=GetMessage("SEARCH_SINTAX")?><br /><b><?=GetMessage("SEARCH_LOGIC")?></b></p>
@@ -126,31 +126,31 @@ endif;?>
 			<td><?=GetMessage("SEARCH_BRACKETS_ALT")?></td>
 		</tr>
 	</table>
-<?elseif(count($arResult["SEARCH"])>0):?>
-	<?if($arParams["DISPLAY_TOP_PAGER"] != "N") echo $arResult["NAV_STRING"]?>
+<?php elseif(count($arResult["SEARCH"])>0):?>
+	<?php if($arParams["DISPLAY_TOP_PAGER"] != "N") echo $arResult["NAV_STRING"]?>
 	<br /><hr />
-	<?foreach($arResult["SEARCH"] as $arItem):?>
-		<a href="<?echo $arItem["URL"]?>"><?echo $arItem["TITLE_FORMATED"]?></a>
-		<p><?echo $arItem["BODY_FORMATED"]?></p>
-		<small><?=GetMessage("SEARCH_MODIFIED")?> <?=$arItem["DATE_CHANGE"]?></small><br /><?
+	<?php foreach($arResult["SEARCH"] as $arItem):?>
+		<a href="<?php echo $arItem["URL"]?>"><?php echo $arItem["TITLE_FORMATED"]?></a>
+		<p><?php echo $arItem["BODY_FORMATED"]?></p>
+		<small><?=GetMessage("SEARCH_MODIFIED")?> <?=$arItem["DATE_CHANGE"]?></small><br /><?php 
 		if($arItem["CHAIN_PATH"]):?>
-			<small><?=GetMessage("SEARCH_PATH")?>&nbsp;<?=$arItem["CHAIN_PATH"]?></small><?
+			<small><?=GetMessage("SEARCH_PATH")?>&nbsp;<?=$arItem["CHAIN_PATH"]?></small><?php 
 		endif;
 		?><hr />
-	<?endforeach;?>
-	<?if($arParams["DISPLAY_BOTTOM_PAGER"] != "N") echo $arResult["NAV_STRING"]?>
+	<?php endforeach;?>
+	<?php if($arParams["DISPLAY_BOTTOM_PAGER"] != "N") echo $arResult["NAV_STRING"]?>
 	<br />
 	<p>
-	<?if($arResult["REQUEST"]["HOW"]=="d"):?>
-		<a href="<?=$arResult["URL"]?>&amp;how=r<?echo $arResult["REQUEST"]["FROM"]? '&amp;from='.$arResult["REQUEST"]["FROM"]: ''?><?echo $arResult["REQUEST"]["TO"]? '&amp;to='.$arResult["REQUEST"]["TO"]: ''?>"><?=GetMessage("SEARCH_SORT_BY_RANK")?></a>&nbsp;|&nbsp;<b><?=GetMessage("SEARCH_SORTED_BY_DATE")?></b>
-	<?else:?>
-		<b><?=GetMessage("SEARCH_SORTED_BY_RANK")?></b>&nbsp;|&nbsp;<a href="<?=$arResult["URL"]?>&amp;how=d<?echo $arResult["REQUEST"]["FROM"]? '&amp;from='.$arResult["REQUEST"]["FROM"]: ''?><?echo $arResult["REQUEST"]["TO"]? '&amp;to='.$arResult["REQUEST"]["TO"]: ''?>"><?=GetMessage("SEARCH_SORT_BY_DATE")?></a>
-	<?endif;?>
+	<?php if($arResult["REQUEST"]["HOW"]=="d"):?>
+		<a href="<?=$arResult["URL"]?>&amp;how=r<?php echo $arResult["REQUEST"]["FROM"]? '&amp;from='.$arResult["REQUEST"]["FROM"]: ''?><?php echo $arResult["REQUEST"]["TO"]? '&amp;to='.$arResult["REQUEST"]["TO"]: ''?>"><?=GetMessage("SEARCH_SORT_BY_RANK")?></a>&nbsp;|&nbsp;<b><?=GetMessage("SEARCH_SORTED_BY_DATE")?></b>
+	<?php else:?>
+		<b><?=GetMessage("SEARCH_SORTED_BY_RANK")?></b>&nbsp;|&nbsp;<a href="<?=$arResult["URL"]?>&amp;how=d<?php echo $arResult["REQUEST"]["FROM"]? '&amp;from='.$arResult["REQUEST"]["FROM"]: ''?><?php echo $arResult["REQUEST"]["TO"]? '&amp;to='.$arResult["REQUEST"]["TO"]: ''?>"><?=GetMessage("SEARCH_SORT_BY_DATE")?></a>
+	<?php endif;?>
 	</p>
-<?else:?>
-	<?ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND"));?>
+<?php else:?>
+	<?php ShowNote(GetMessage("SEARCH_NOTHING_TO_FOUND"));?>
 	<br/>
-	<?
+	<?php 
 	$arResult["PATH_TO_POST_EDIT"] = $component->GetParent()->arResult['PATH_TO_POST_EDIT'];
 	if(strlen($arResult["PATH_TO_POST_EDIT"])<=0)
 		$arResult["PATH_TO_POST_EDIT"] = htmlspecialcharsbx($APPLICATION->GetCurPage()."?".$component->arParams['OPER_VAR']."=#wiki_name#");
@@ -166,5 +166,5 @@ endif;?>
 	);
 	echo GetMessage("WIKI_NOTHING_TO_FOUND", array('%LINK%' => '<a href="'.$arResult["PATH_TO_POST_EDIT"].'" class="wiki_red">'.(!empty($arResult["REQUEST"]["TAGS"]) ? $arResult["REQUEST"]["TAGS"] : $arResult["REQUEST"]["QUERY"]).'</a>'));
 	?>
-<?endif;?>
+<?php endif;?>
 </div>

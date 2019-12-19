@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_MENU_MAIN'] = "Web Forms";
 $MESS ['FORM_MENU_FORMS'] = "Manage Forms";
 $MESS ['FORM_MENU_FORMS_ALT'] = "List of Available Forms";

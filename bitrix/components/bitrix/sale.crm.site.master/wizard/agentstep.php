@@ -95,7 +95,7 @@ class AgentStep  extends \CWizardStep
 					"#LANG#" => LANGUAGE_ID
 				])?>
 			</div>
-			<?
+			<?php 
 		}
 		elseif ($errorType === AgentChecker::ERROR_CODE_WARNING)
 		{
@@ -104,7 +104,7 @@ class AgentStep  extends \CWizardStep
 			<div class="ui-alert ui-alert-warning ui-alert-icon-warning">
 				<span class="ui-alert-message"><?=$warning?></span>
 			</div>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();
@@ -147,7 +147,7 @@ class AgentStep  extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->prevButtonID?>">
 				<?=$this->GetPrevCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		if ($this->GetNextStepID() !== null)
 		{
@@ -156,7 +156,7 @@ class AgentStep  extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

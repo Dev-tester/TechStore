@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_RDL_LIST"] = "Restrictions";
 $MESS["SALE_RDL_COL_ID"] = "ID";
 $MESS["SALE_RDL_COL_SORT"] = "Sort";

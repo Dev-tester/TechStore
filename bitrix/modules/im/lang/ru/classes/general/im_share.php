@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_SHARE_CHAT"] = 'Чат';
 $MESS["IM_SHARE_FILE"] = 'Файл';
 $MESS["IM_SHARE_POST_WELCOME"] = 'Предлагаю обсудить :)';

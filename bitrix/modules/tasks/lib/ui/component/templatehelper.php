@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * This class contains ui helper for a component template
  *
@@ -125,7 +125,7 @@ final class TemplateHelper
 		));
 		?>
 		<script>new BX.Tasks.Component.<?=$this->name?>(<?=UI::toJSON($data)?>);</script>
-		<?
+		<?php 
 	}
 
 	public function pickId()
@@ -179,7 +179,7 @@ final class TemplateHelper
 
 			?>
 			<div class="task-message-label error"><?=htmlspecialcharsbx($error->getMessage())?></div>
-			<?
+			<?php 
 		}
 	}
 
@@ -198,7 +198,7 @@ final class TemplateHelper
 
 			?>
 			<div class="task-message-label warning"><?=htmlspecialcharsbx($error->getMessage())?></div>
-			<?
+			<?php 
 		}
 	}
 

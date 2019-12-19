@@ -5,7 +5,7 @@ $APPLICATION->SetAdditionalCSS('/bitrix/js/crm/css/crm.css');
 \Bitrix\Main\UI\Extension::load("ui.buttons");
 $toolbarID =  $arParams['TOOLBAR_ID'];
 $prefix =  $toolbarID.'_';
-?><div class="bx-crm-view-menu" id="<?=htmlspecialcharsbx($toolbarID)?>"><?
+?><div class="bx-crm-view-menu" id="<?=htmlspecialcharsbx($toolbarID)?>"><?php 
 
 $moreItems = array();
 $enableMoreButton = false;
@@ -46,12 +46,12 @@ foreach($arParams['BUTTONS'] as $k => $item):
 	{
 		$item_tmp = reset($item['LINKS']);
 		?><span class="crm-toolbar-btn-split crm-toolbar-btn-left <?=$iconBtnClassName; ?>"
-			<? if ($code !== '') { ?> id="<?=htmlspecialcharsbx("{$prefix}{$code}"); ?>"<? } ?>
-			<? if (!$visible) { ?> style="display: none;"<? } ?>>
+			<?php  if ($code !== '') { ?> id="<?=htmlspecialcharsbx("{$prefix}{$code}"); ?>"<?php  } ?>
+			<?php  if (!$visible) { ?> style="display: none;"<?php  } ?>>
 			<span class="crm-toolbar-btn-split-l"
 				title="<?=(isset($item_tmp['TITLE']) ? htmlspecialcharsbx($item_tmp['TITLE']) : ''); ?>"
-				<? if (isset($item_tmp['ONCLICK'])) { ?> onclick="<?=htmlspecialcharsbx($item_tmp['ONCLICK']); ?>; return false;"<? } ?>>
-				<span class="crm-toolbar-btn-split-bg"><span class="crm-toolbar-btn-icon"></span><?
+				<?php  if (isset($item_tmp['ONCLICK'])) { ?> onclick="<?=htmlspecialcharsbx($item_tmp['ONCLICK']); ?>; return false;"<?php  } ?>>
+				<span class="crm-toolbar-btn-split-bg"><span class="crm-toolbar-btn-icon"></span><?php 
 					echo (isset($item_tmp['TEXT']) ? htmlspecialcharsbx($item_tmp['TEXT']) : '');
 				?></span>
 			</span><span class="crm-toolbar-btn-split-r" onclick="btnMenu_<?=$k; ?>.ShowMenu(this);">
@@ -60,7 +60,7 @@ foreach($arParams['BUTTONS'] as $k => $item):
 		<script>
 			var btnMenu_<?=$k; ?> = new PopupMenu('bxBtnMenu_<?=$k; ?>', 1010);
 			btnMenu_<?=$k; ?>.SetItems([
-				<? foreach ($item['LINKS'] as $v) { ?>
+				<?php  foreach ($item['LINKS'] as $v) { ?>
 				{
 					'DEFAULT': <?=(isset($v['DEFAULT']) && $v['DEFAULT'] ? 'true' : 'false'); ?>,
 					'DISABLED': <?=(isset($v['DISABLED']) && $v['DISABLED'] ? 'true' : 'false'); ?>,
@@ -69,20 +69,20 @@ foreach($arParams['BUTTONS'] as $k => $item):
 					'TEXT': "<?=(isset($v['TEXT']) ? htmlspecialcharsbx($v['TEXT']) : ''); ?>",
 					'TITLE': "<?=(isset($v['TITLE']) ? htmlspecialcharsbx($v['TITLE']) : ''); ?>"
 				},
-				<? } ?>
+				<?php  } ?>
 			]);
-		</script><?
+		</script><?php 
 	}
 	else if ($type == 'toolbar-left')
 	{
 		?><a class="crm-toolbar-btn crm-toolbar-btn-left <?=$iconBtnClassName; ?>"
-			<? if ($code !== '') { ?> id="<?=htmlspecialcharsbx("{$prefix}{$code}"); ?>"<? } ?>
+			<?php  if ($code !== '') { ?> id="<?=htmlspecialcharsbx("{$prefix}{$code}"); ?>"<?php  } ?>
 			href="<?=htmlspecialcharsbx($link)?>"
-			<? if($target !== '') { ?> target="<?=$target?>"<? } ?>
+			<?php  if($target !== '') { ?> target="<?=$target?>"<?php  } ?>
 			title="<?=htmlspecialcharsbx($title)?>"
-			<? if ($onclick !== '') { ?> onclick="<?=htmlspecialcharsbx($onclick); ?>; return false;"<? } ?>
-			<? if (!$visible) { ?> style="display: none;"<? } ?>>
-			<span class="crm-toolbar-btn-icon"></span><span><?=htmlspecialcharsbx($text); ?></span></a><?
+			<?php  if ($onclick !== '') { ?> onclick="<?=htmlspecialcharsbx($onclick); ?>; return false;"<?php  } ?>
+			<?php  if (!$visible) { ?> style="display: none;"<?php  } ?>>
+			<span class="crm-toolbar-btn-icon"></span><span><?=htmlspecialcharsbx($text); ?></span></a><?php 
 	}
 	else if ($type === 'toolbar-menu' || $type == 'toolbar-menu-left')
 	{
@@ -127,7 +127,7 @@ foreach($arParams['BUTTONS'] as $k => $item):
 						});
 					});
 				</script>
-			<?
+			<?php 
 			unset($menuId, $lastClass, $classAttribute, $idAttribute, $titleAttribute);
 		}
 	}
@@ -153,7 +153,7 @@ foreach($arParams['BUTTONS'] as $k => $item):
 					button.init();
 				});
 			</script>
-			<?
+			<?php 
 			unset($documentButtonId, $classAttribute, $idAttribute, $titleAttribute);
 		}
 	}
@@ -196,10 +196,10 @@ foreach($arParams['BUTTONS'] as $k => $item):
 			<a class="bx-context-button <?=$iconBtnClassName; ?>"
 				id="<?=htmlspecialcharsbx($containerID); ?>"
 				href="<?=htmlspecialcharsbx($link)?>"
-				<? if($target !== '') { ?> target="<?=$target?>"<? } ?>
+				<?php  if($target !== '') { ?> target="<?=$target?>"<?php  } ?>
 				title="<?=htmlspecialcharsbx($title)?>"
 				onclick="return false;"
-				<? if (!$visible) { ?> style="display: none;"<? } ?>>
+				<?php  if (!$visible) { ?> style="display: none;"<?php  } ?>>
 				<span class="bx-context-button-icon"></span>
 				<span>
 					<?=htmlspecialcharsbx($text);?>
@@ -208,16 +208,16 @@ foreach($arParams['BUTTONS'] as $k => $item):
 					</span>
 				</span>
 			</a>
-			<span class="crm-btn-convert-arrow" id="<?=htmlspecialcharsbx($buttonID);?>"></span><?
+			<span class="crm-btn-convert-arrow" id="<?=htmlspecialcharsbx($buttonID);?>"></span><?php 
 			?><script type="text/javascript">
 				BX.ready(
 					function()
 					{
 						//region Toolbar script
-						<?$selectorID = CUtil::JSEscape($name);?>
-						<?$originUrl = CUtil::JSEscape($originUrl);?>
-						<?if($isPermitted):?>
-							<?if($entityTypeID === CCrmOwnerType::Lead):?>
+						<?php $selectorID = CUtil::JSEscape($name);?>
+						<?php $originUrl = CUtil::JSEscape($originUrl);?>
+						<?php if($isPermitted):?>
+							<?php if($entityTypeID === CCrmOwnerType::Lead):?>
 								BX.CrmLeadConversionSchemeSelector.create(
 									"<?=$selectorID?>",
 									{
@@ -232,7 +232,7 @@ foreach($arParams['BUTTONS'] as $k => $item):
 										hintMessages: <?=CUtil::PhpToJSObject($hint)?>
 									}
 								);
-							<?elseif($entityTypeID === CCrmOwnerType::Deal):?>
+							<?php elseif($entityTypeID === CCrmOwnerType::Deal):?>
 								BX.CrmDealConversionSchemeSelector.create(
 									"<?=$selectorID?>",
 									{
@@ -270,7 +270,7 @@ foreach($arParams['BUTTONS'] as $k => $item):
 										);
 									}
 								);
-							<?elseif($entityTypeID === CCrmOwnerType::Quote):?>
+							<?php elseif($entityTypeID === CCrmOwnerType::Quote):?>
 								BX.CrmQuoteConversionSchemeSelector.create(
 									"<?=$selectorID?>",
 									{
@@ -308,26 +308,26 @@ foreach($arParams['BUTTONS'] as $k => $item):
 										);
 									}
 								);
-							<?endif;?>
-						<?elseif($lockScript !== ''):?>
+							<?php endif;?>
+						<?php elseif($lockScript !== ''):?>
 							var showLockInfo = function()
 							{
 								<?=$lockScript?>
 							};
 							BX.bind(BX("<?=$containerID?>"), "click", showLockInfo );
-							<?if($entityTypeID === CCrmOwnerType::Deal):?>
+							<?php if($entityTypeID === CCrmOwnerType::Deal):?>
 								BX.addCustomEvent(window, "CrmCreateQuoteFromDeal", showLockInfo);
 								BX.addCustomEvent(window, "CrmCreateInvoiceFromDeal", showLockInfo);
-							<?elseif($entityTypeID === CCrmOwnerType::Quote):?>
+							<?php elseif($entityTypeID === CCrmOwnerType::Quote):?>
 								BX.addCustomEvent(window, "CrmCreateDealFromQuote", showLockInfo);
 								BX.addCustomEvent(window, "CrmCreateInvoiceFromQuote", showLockInfo);
-							<?endif;?>
-						<?endif;?>
+							<?php endif;?>
+						<?php endif;?>
 						//endregion
 					}
 				);
-			</script><?
-		?></span><?
+			</script><?php 
+		?></span><?php 
 	}
 	elseif ($type == 'toolbar-activity-planner')
 	{
@@ -357,18 +357,18 @@ foreach($arParams['BUTTONS'] as $k => $item):
 				}
 			);
 		</script>
-		<?
+		<?php 
 		endif;
 	}
 	else
 	{
 		?><a class="ui-btn ui-btn-primary <?=$iconBtnClassName; ?>"
-			<? if ($code !== '') { ?> id="<?=htmlspecialcharsbx("{$prefix}{$code}"); ?>"<? } ?>
+			<?php  if ($code !== '') { ?> id="<?=htmlspecialcharsbx("{$prefix}{$code}"); ?>"<?php  } ?>
 			href="<?=htmlspecialcharsbx($link)?>"
-			<? if($target !== '') { ?> target="<?=$target?>"<? } ?>
+			<?php  if($target !== '') { ?> target="<?=$target?>"<?php  } ?>
 			title="<?=htmlspecialcharsbx($title)?>"
-			<? if ($onclick !== '') { ?> onclick="<?=htmlspecialcharsbx($onclick); ?>; return false;"<? } ?>
-			<? if (!$visible) { ?> style="display: none;"<? } ?>><?=htmlspecialcharsbx($text); ?></a><?
+			<?php  if ($onclick !== '') { ?> onclick="<?=htmlspecialcharsbx($onclick); ?>; return false;"<?php  } ?>
+			<?php  if (!$visible) { ?> style="display: none;"<?php  } ?>><?=htmlspecialcharsbx($text); ?></a><?php 
 	}
 
 endforeach;
@@ -395,9 +395,9 @@ if(!empty($moreItems)):
 			}
 		);
 	</script>
-<?
+<?php 
 endif;
 if ($labelText != ''):
-?><div class="crm-toolbar-label2"><span id="<?= $toolbarID.'_label' ?>"><?=htmlspecialcharsbx($labelText)?></span></div><?
+?><div class="crm-toolbar-label2"><span id="<?= $toolbarID.'_label' ?>"><?=htmlspecialcharsbx($labelText)?></span></div><?php 
 endif;
 ?></div>

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", ".default", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", ".default", Array(
 	"IBLOCK_TYPE"	=>	$arParams["FILES_USER_IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["FILES_USER_IBLOCK_ID"],
 	"ROOT_SECTION_ID"	=>	$arResult["VARIABLES"]["ROOT_SECTION_ID"],
@@ -45,9 +45,9 @@
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><?
+?><?php 
 if (is_array($arInfo) && $arInfo["ELEMENT_ID"]):?>
-<?$APPLICATION->IncludeComponent("bitrix:bizproc.document", "webdav.bizproc.document", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:bizproc.document", "webdav.bizproc.document", Array(
 	"MODULE_ID"	=>	$arResult["VARIABLES"]["MODULE_ID"], 
 	"ENTITY"	=>	$arResult["VARIABLES"]["ENTITY"], 
 	"DOCUMENT_TYPE"	=>	$arResult["VARIABLES"]["DOCUMENT_TYPE"], 
@@ -63,7 +63,7 @@ if (is_array($arInfo) && $arInfo["ELEMENT_ID"]):?>
 	$component,
 	array("HIDE_ICONS" => "Y")
 );?>
-<?
+<?php 
 	if ($arParams["SET_TITLE"] != "N"):
 		$GLOBALS["APPLICATION"]->SetTitle(GetMessage("WD_BP_TITLE")." ".$GLOBALS["APPLICATION"]->GetTitle());
 	endif;

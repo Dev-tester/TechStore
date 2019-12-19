@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_GFP_EMPTY_GROUP_FEATURE_ID'] = "Feature is not specified.";
 $MESS ['SONET_GFP_ERROR_NO_GROUP_FEATURE_ID'] = "Feature is incorrect.";
 $MESS ['SONET_GFP_EMPTY_OPERATION_ID'] = "Operation is not specified.";

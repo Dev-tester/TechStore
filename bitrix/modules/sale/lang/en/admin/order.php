@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DELETE_ERROR"] = "Error deleting the order";
 $MESS["SALE_SECTION_TITLE"] = "Orders";
 $MESS["SALE_F_FILTER"] = "Filter";

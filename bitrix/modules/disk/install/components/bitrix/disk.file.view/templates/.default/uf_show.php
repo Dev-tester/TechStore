@@ -22,27 +22,27 @@ Loc::loadMessages(__DIR__ . '/template.php');
 $APPLICATION->setTitle(Loc::getMessage('DISK_FILE_VIEW_FILE_TITLE_USERFIELDS', ['#NAME#' => $arResult['FILE']['NAME'],]));
 ?>
 
-<?
+<?php 
 	if($arResult['CAN_UPDATE'])
 	{
 		?>
-		<? $this->setViewTarget("inside_pagetitle", 10); ?>
+		<?php  $this->setViewTarget("inside_pagetitle", 10); ?>
 			<div class="pagetitle-container pagetitle-flexible-space" style="overflow: hidden;">
 				<div class="pagetitle-container pagetitle-align-right-container">
 					<span id="bx-disk-edit-uf" class="ui-btn ui-btn-primary"><?= Loc::getMessage('DISK_FILE_VIEW_LINK_EDIT_USER_FIELDS') ?></span>
 				</div>
 			</div>
-		<? $this->endViewTarget(); ?>
-<?
+		<?php  $this->endViewTarget(); ?>
+<?php 
 	}
 ?>
 <table>
 	<tbody>
-		<? foreach($arResult["USER_FIELDS"] as $arUserField) {?>
+		<?php  foreach($arResult["USER_FIELDS"] as $arUserField) {?>
 		<tr>
 			<td class="bx-disk-filepage-fileinfo-param"><?php echo htmlspecialcharsbx($arUserField["EDIT_FORM_LABEL"])?>:</td>
 			<td class="bx-disk-filepage-fileinfo-value">
-				<? $APPLICATION->includeComponent(
+				<?php  $APPLICATION->includeComponent(
 					"bitrix:system.field.view",
 					$arUserField["USER_TYPE"]["USER_TYPE_ID"],
 					array("arUserField" => $arUserField),
@@ -51,7 +51,7 @@ $APPLICATION->setTitle(Loc::getMessage('DISK_FILE_VIEW_FILE_TITLE_USERFIELDS', [
 				); ?>
 			</td>
 		</tr>
-		<? }?>
+		<?php  }?>
 	</tbody>
 </table>
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPAA_PD_TYPE_ALL"] = "Все сотрудники";
 $MESS["BPAA_PD_TYPE_ANY"] = "Любой сотрудник";
 $MESS["BPAA_PD_APPROVERS"] = "Утверждают сотрудники";

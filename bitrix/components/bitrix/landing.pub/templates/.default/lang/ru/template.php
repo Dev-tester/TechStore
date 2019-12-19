@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_TITLE"] = "Сайт";
 $MESS["LANDING_TPL_COPY_NAME_SMN_0"] = "Быстро с";
 $MESS["LANDING_TPL_COPY_NAME_SMN_1"] = "1С-Битрикс";

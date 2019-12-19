@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,7 +16,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 
 	if ($arResult["ShowForm"] == "Input")
@@ -44,12 +44,12 @@ else
 				<tr>
 					<td valign="top" width="50%" align="right"><?= GetMessage("SONET_C8_IMAGE") ?>:</td>
 					<td valign="top" width="50%">
-						<input name="GROUP_IMAGE_ID" type="file"/><br /><?
+						<input name="GROUP_IMAGE_ID" type="file"/><br /><?php 
 						if ($arResult["POST"]["IMAGE_ID_FILE"]):?>
 							<input type="checkbox" name="GROUP_IMAGE_ID_DEL" id="GROUP_IMAGE_ID_DEL" value="Y"<?= ($arResult["POST"]["IMAGE_ID_DEL"] == "Y") ? " checked" : ""?>/>
-							<label for="GROUP_IMAGE_ID_DEL"><?= GetMessage("SONET_C8_IMAGE_DEL") ?></label> <br /><?
+							<label for="GROUP_IMAGE_ID_DEL"><?= GetMessage("SONET_C8_IMAGE_DEL") ?></label> <br /><?php 
 							if (strlen($arResult["POST"]["IMAGE_ID_IMG"]) > 0):?>
-								<?=$arResult["POST"]["IMAGE_ID_IMG"];?><br /><?
+								<?=$arResult["POST"]["IMAGE_ID_IMG"];?><br /><?php 
 							endif;
 						endif;?>
 					</td>
@@ -59,17 +59,17 @@ else
 					<td valign="top" width="50%">
 						<select name="GROUP_SUBJECT_ID">
 							<option value=""><?= GetMessage("SONET_C8_TO_SELECT") ?></option>
-							<?foreach ($arResult["Subjects"] as $key => $value):?>
+							<?php foreach ($arResult["Subjects"] as $key => $value):?>
 								<option value="<?= $key ?>"<?= ($key == $arResult["POST"]["SUBJECT_ID"]) ? " selected" : "" ?>><?= $value ?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
 				<tr>
 					<td valign="top" width="50%" align="right"><?= GetMessage("SONET_C8_KEYWORDS") ?>:</td>
 					<td valign="top" width="50%">
-						<?if (IsModuleInstalled("search")):?>
-							<?
+						<?php if (IsModuleInstalled("search")):?>
+							<?php 
 							$APPLICATION->IncludeComponent(
 								"bitrix:search.tags.input",
 								".default",
@@ -82,9 +82,9 @@ else
 								)
 							);
 							?>
-						<?else:?>
+						<?php else:?>
 							<input type="text" name="GROUP_KEYWORDS" style="width:98%" value="<?= $arResult["POST"]["KEYWORDS"]; ?>">
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
 				<tr>
@@ -92,9 +92,9 @@ else
 					<td valign="top" width="50%">
 						<select name="GROUP_INITIATE_PERMS">
 							<option value=""><?= GetMessage("SONET_C8_TO_SELECT") ?>-</option>
-							<?foreach ($arResult["InitiatePerms"] as $key => $value):?>
+							<?php foreach ($arResult["InitiatePerms"] as $key => $value):?>
 								<option value="<?= $key ?>"<?= ($key == $arResult["POST"]["INITIATE_PERMS"]) ? " selected" : "" ?>><?= $value ?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</td>
 				</tr>
@@ -106,19 +106,19 @@ else
 			<input type="submit" name="save" value="<?= ($arParams["GROUP_ID"] > 0) ? GetMessage("SONET_C8_DO_EDIT") : GetMessage("SONET_C8_DO_CREATE") ?>">
 			<input type="reset" name="cancel" value="<?= GetMessage("SONET_C8_T_CANCEL") ?>" OnClick="window.location='<?= ($arParams["GROUP_ID"] > 0) ? addslashes($arResult["Urls"]["Group"]) : addslashes($arResult["Urls"]["User"]) ?>'">
 		</form>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
-		<?if ($arParams["GROUP_ID"] > 0):?>
+		<?php if ($arParams["GROUP_ID"] > 0):?>
 			<?= GetMessage("SONET_C8_SUCCESS_EDIT") ?>
-		<?else:?>
+		<?php else:?>
 			<?= GetMessage("SONET_C8_SUCCESS_CREATE") ?>
-		<?endif;?>
+		<?php endif;?>
 		<br><br>
 		<a href="<?= $arResult["Urls"]["NewGroup"] ?>"><?= $arResult["POST"]["NAME"]; ?></a>
-		<?
+		<?php 
 	}
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use \Bitrix\Main\Localization\Loc;
@@ -115,7 +115,7 @@ if($bSaved)
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
@@ -124,14 +124,14 @@ $tabControl->BeginNextTab();
 <tr>
 	<td width="40%"><span class="adm-required-field"><?=Loc::getMessage("SALE_EBAY_TAB_POLICY_RETURN")?>:</span></td>
 	<td width="60%">
-		<?$hiddenPolicyFields = "";?>
+		<?php $hiddenPolicyFields = "";?>
 		<select name="EBAY_SETTINGS[POLICY][RETURN][DEFAULT]">
-			<?if($policy):?>
-				<?foreach($policy->getPoliciesNames(\Bitrix\Sale\TradingPlatform\Ebay\Policy::TYPE_RETURN) as $policyId => $policyName):?>
+			<?php if($policy):?>
+				<?php foreach($policy->getPoliciesNames(\Bitrix\Sale\TradingPlatform\Ebay\Policy::TYPE_RETURN) as $policyId => $policyName):?>
 					<option value="<?=htmlspecialcharsbx($policyId)?>"<?=isset($siteSettings["POLICY"]["RETURN"]["DEFAULT"]) && $siteSettings["POLICY"]["RETURN"]["DEFAULT"] == $policyId ? " selected" : ""?>><?=$policyName?></option>
-					<?$hiddenPolicyFields .= ' <input type="hidden" name="EBAY_SETTINGS[POLICY][RETURN][LIST]['.$policyId.']" value="'.htmlspecialcharsbx($policyName).'">'?>
-				<?endforeach;?>
-			<?endif;?>
+					<?php $hiddenPolicyFields .= ' <input type="hidden" name="EBAY_SETTINGS[POLICY][RETURN][LIST]['.$policyId.']" value="'.htmlspecialcharsbx($policyName).'">'?>
+				<?php endforeach;?>
+			<?php endif;?>
 		</select>
 		<?=$hiddenPolicyFields?>
 	</td>
@@ -139,14 +139,14 @@ $tabControl->BeginNextTab();
 <tr>
 	<td width="40%"><span class="adm-required-field"><?=Loc::getMessage("SALE_EBAY_TAB_POLICY_SHIPPING")?>:</span></td>
 	<td width="60%">
-		<?$hiddenPolicyFields = "";?>
+		<?php $hiddenPolicyFields = "";?>
 		<select name="EBAY_SETTINGS[POLICY][SHIPPING][DEFAULT]">
-			<?if($policy):?>
-				<?foreach($policy->getPoliciesNames(\Bitrix\Sale\TradingPlatform\Ebay\Policy::TYPE_SHIPPING) as $policyId => $policyName):?>
+			<?php if($policy):?>
+				<?php foreach($policy->getPoliciesNames(\Bitrix\Sale\TradingPlatform\Ebay\Policy::TYPE_SHIPPING) as $policyId => $policyName):?>
 					<option value="<?=htmlspecialcharsbx($policyId)?>"<?=isset($siteSettings["POLICY"]["SHIPPING"]["DEFAULT"]) && $siteSettings["POLICY"]["SHIPPING"]["DEFAULT"] == $policyId ? " selected" : ""?>><?=$policyName?></option>
-					<?$hiddenPolicyFields .= ' <input type="hidden" name="EBAY_SETTINGS[POLICY][SHIPPING][LIST]['.$policyId.']" value="'.htmlspecialcharsbx($policyName).'">'?>
-				<?endforeach;?>
-			<?endif;?>
+					<?php $hiddenPolicyFields .= ' <input type="hidden" name="EBAY_SETTINGS[POLICY][SHIPPING][LIST]['.$policyId.']" value="'.htmlspecialcharsbx($policyName).'">'?>
+				<?php endforeach;?>
+			<?php endif;?>
 		</select>
 		<?=$hiddenPolicyFields?>
 	</td>
@@ -154,19 +154,19 @@ $tabControl->BeginNextTab();
 <tr>
 	<td width="40%"><span class="adm-required-field"><?=Loc::getMessage("SALE_EBAY_TAB_POLICY_PAYMENT")?>:</span></td>
 	<td width="60%">
-		<?$hiddenPolicyFields = "";?>
+		<?php $hiddenPolicyFields = "";?>
 		<select name="EBAY_SETTINGS[POLICY][PAYMENT][DEFAULT]">
-			<?if($policy):?>
-				<?foreach($policy->getPoliciesNames(\Bitrix\Sale\TradingPlatform\Ebay\Policy::TYPE_PAYMENT) as $policyId => $policyName):?>
+			<?php if($policy):?>
+				<?php foreach($policy->getPoliciesNames(\Bitrix\Sale\TradingPlatform\Ebay\Policy::TYPE_PAYMENT) as $policyId => $policyName):?>
 					<option value="<?=htmlspecialcharsbx($policyId)?>"<?=isset($siteSettings["POLICY"]["PAYMENT"]["DEFAULT"]) && $siteSettings["POLICY"]["PAYMENT"]["DEFAULT"] == $policyId ? " selected" : ""?>><?=$policyName?></option>
-					<?$hiddenPolicyFields .= ' <input type="hidden" name="EBAY_SETTINGS[POLICY][PAYMENT][LIST]['.$policyId.']" value="'.htmlspecialcharsbx($policyName).'">'?>
-				<?endforeach;?>
-			<?endif;?>
+					<?php $hiddenPolicyFields .= ' <input type="hidden" name="EBAY_SETTINGS[POLICY][PAYMENT][LIST]['.$policyId.']" value="'.htmlspecialcharsbx($policyName).'">'?>
+				<?php endforeach;?>
+			<?php endif;?>
 		</select>
 		<?=$hiddenPolicyFields?>
 	</td>
 </tr>
-<?
+<?php 
 
 $tabControl->BeginNextTab();
 if($details)
@@ -186,7 +186,7 @@ if($details)
 				)
 				?></td>
 		</tr>
-	<?
+	<?php 
 	}
 }
 
@@ -201,13 +201,13 @@ $tabControl->BeginNextTab();
 				<td width="60%">
 					<select name="EBAY_SETTINGS[MAPS][SHIPMENT][<?=$service?>]">
 						<option value=""><?=Loc::getMessage("SALE_EBAY_NOT_MAPPED")?></option>
-						<?foreach($arDeliveryList as $deliveryId => $deliveryName):?>
+						<?php foreach($arDeliveryList as $deliveryId => $deliveryName):?>
 							<option value="<?=$deliveryId?>"<?=(isset($siteSettings["MAPS"]["SHIPMENT"][$service]) && $siteSettings["MAPS"]["SHIPMENT"][$service] ==  $deliveryId ? " selected" : "")?>><?=htmlspecialcharsbx($deliveryName)?></option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</td>
 			</tr>
-			<?
+			<?php 
 		}
 	}
 
@@ -220,6 +220,6 @@ $tabControl->End();
 
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 

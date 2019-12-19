@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Feedback");
 ?>
-<p><?$APPLICATION->IncludeComponent("bitrix:main.feedback", "template", array(
+<p><?php $APPLICATION->IncludeComponent("bitrix:main.feedback", "template", array(
 	"USE_CAPTCHA" => "Y",
 	"OK_TEXT" => "Your request has been sent.",
 	"EMAIL_TO" => "",
@@ -16,4 +16,4 @@ $APPLICATION->SetTitle("Feedback");
 	),
 	false
 );?></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

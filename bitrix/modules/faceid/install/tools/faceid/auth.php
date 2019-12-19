@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/faceid/tools/auth.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/faceid/tools/auth.php");?>

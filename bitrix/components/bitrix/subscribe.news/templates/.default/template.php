@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <table cellpadding="0" cellspacing="10" border="0">
-<?
+<?php 
 foreach($arResult["IBLOCKS"] as $arIBlock):
 	if(count($arIBlock["ITEMS"]) > 0):
 ?>
 	<tr><td><h1><?=$arIBlock['NAME']?></h1></td></tr>
-<?
+<?php 
 	foreach($arIBlock["ITEMS"] as $arItem):
 
 		if($arItem["PREVIEW_PICTURE"])
@@ -46,19 +46,19 @@ foreach($arResult["IBLOCKS"] as $arIBlock):
 ?>
 	<tr><td>
 		<font class="text">
-		<?if($arItem["PREVIEW_PICTURE"]):?>
-		<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><img hspace='5' vspace='5' align='left' border='0' src="<?echo $sImagePath?>" width="<?echo $width?>" height="<?echo $height?>" alt="<?echo $arItem["PREVIEW_PICTURE"]["ALT"]?>"  title="<?echo $arItem["NAME"]?>"></a>
-		<?endif;?>
-		<?if(strlen($arItem["DATE_ACTIVE_FROM"])>0):?>
-			<font class="newsdata"><?echo $arItem["DATE_ACTIVE_FROM"]?></font><br>
-		<?endif;?>
-		<a href="<?echo $arItem["DETAIL_PAGE_URL"]?>"><b><?echo $arItem["NAME"]?></b></a><br>
-		<?echo $arItem["PREVIEW_TEXT"];?>
+		<?php if($arItem["PREVIEW_PICTURE"]):?>
+		<a href="<?php echo $arItem["DETAIL_PAGE_URL"]?>"><img hspace='5' vspace='5' align='left' border='0' src="<?php echo $sImagePath?>" width="<?php echo $width?>" height="<?php echo $height?>" alt="<?php echo $arItem["PREVIEW_PICTURE"]["ALT"]?>"  title="<?php echo $arItem["NAME"]?>"></a>
+		<?php endif;?>
+		<?php if(strlen($arItem["DATE_ACTIVE_FROM"])>0):?>
+			<font class="newsdata"><?php echo $arItem["DATE_ACTIVE_FROM"]?></font><br>
+		<?php endif;?>
+		<a href="<?php echo $arItem["DETAIL_PAGE_URL"]?>"><b><?php echo $arItem["NAME"]?></b></a><br>
+		<?php echo $arItem["PREVIEW_TEXT"];?>
 		</font>
 	</td></tr>
-<?
+<?php 
 	endforeach;
 	endif;
 ?>
-<?endforeach?>
+<?php endforeach?>
 </table>

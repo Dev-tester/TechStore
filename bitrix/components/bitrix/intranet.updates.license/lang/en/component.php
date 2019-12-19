@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUPA_AERR_PASSW_CONF"] = "The password and the password confirmation are different.";
 $MESS["SUPA_AERR_NAME"] = "Please enter the name of the company that owns the key";
 $MESS["SUPA_AERR_EMAIL"] = "Please enter the contact e-mail";

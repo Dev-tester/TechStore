@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPC_TEXT_ENTER_URL'] = "Enter the full address (URL)";
 $MESS ['BPC_TEXT_ENTER_URL_NAME'] = "Enter the text to be shown as a hyperlink";
 $MESS ['BPC_TEXT_ENTER_IMAGE'] = "Enter the full image address (URL)";

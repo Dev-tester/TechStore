@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ALL"] = "Всего";
 $MESS["CRM_ACTION_SHOW"] = "Просмотреть дело";
 $MESS["CRM_ACTION_EDIT"] = "Редактировать дело";

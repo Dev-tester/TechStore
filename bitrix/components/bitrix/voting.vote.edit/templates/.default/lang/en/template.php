@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VVE_ALLOW_TO_CHANGE_MIND"] = "Users can change their vote";
 $MESS["VVE_ALLOW_TO_VIEW_RESULTS"] = "Users can view poll results prior to voting";
 $MESS["VVE_ANS"] = "Answer ";

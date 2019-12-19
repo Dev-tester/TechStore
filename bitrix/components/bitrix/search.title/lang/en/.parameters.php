@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BST_FORM_PAGE"] = "Search results page (#SITE_DIR# macro is available)";
 $MESS["CP_BST_NUM_CATEGORIES"] = "Number Of Search Categories";
 $MESS["CP_BST_NUM_CATEGORY"] = "Category ##NUM#";

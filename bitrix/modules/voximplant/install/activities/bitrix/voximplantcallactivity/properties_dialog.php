@@ -13,14 +13,14 @@ if (empty($outputNumber)):?>
 <tr>
 	<td align="right" width="40%" valign="top" colspan="2" style="color: red"><?=GetMessage('BPVICA_PD_NO_OUTPUT_NUMBER')?></td>
 </tr>
-<?else:?>
+<?php else:?>
 <tr>
 	<td align="right"><span class="adm-required-field"><?= GetMessage("BPVICA_PD_OUTPUT_NUMBER") ?>:</span></td>
 	<td>
 		<select name="output_number">
-			<? foreach($outputNumber as $number => $name):?>
+			<?php  foreach($outputNumber as $number => $name):?>
 			<option value="<?=$number?>"<?= $currentValues["output_number"] == $number ? " selected" : "" ?>><?= $name ?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
@@ -49,43 +49,43 @@ if (empty($outputNumber)):?>
 		</select>
 	</td>
 </tr>
-<tr id="bpvica_text" <?if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?endif?>>
+<tr id="bpvica_text" <?php if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?php endif?>>
 	<td align="right" width="40%" valign="top"><span class="adm-required-field"><?= GetMessage("BPVICA_PD_TEXT") ?>:</span></td>
 	<td width="60%" valign="top">
 		<?=CBPDocument::ShowParameterField("text", 'text', $currentValues['text'], Array('rows'=>'7'))?>
 	</td>
 </tr>
-<tr id="bpvica_voice_language" <?if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?endif?>>
+<tr id="bpvica_voice_language" <?php if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?php endif?>>
 	<td align="right"><?= GetMessage("BPVICA_PD_VOICE_LANGUAGE") ?>:</td>
 	<td>
 		<select name="voice_language">
-			<? foreach($voiceLanguage as $lang => $name):?>
+			<?php  foreach($voiceLanguage as $lang => $name):?>
 				<option value="<?=$lang?>"<?= $currentValues["voice_language"] == $lang ? " selected" : "" ?>><?= $name ?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
-<tr id="bpvica_voice_speed" <?if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?endif?>>
+<tr id="bpvica_voice_speed" <?php if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?php endif?>>
 	<td align="right"><?= GetMessage("BPVICA_PD_VOICE_SPEED") ?>:</td>
 	<td>
 		<select name="voice_speed">
-			<? foreach($voiceSpeed as $speed => $name):?>
+			<?php  foreach($voiceSpeed as $speed => $name):?>
 				<option value="<?=$speed?>"<?= $currentValues["voice_speed"] == $speed ? " selected" : "" ?>><?= $name ?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
-<tr id="bpvica_voice_volume" <?if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?endif?>>
+<tr id="bpvica_voice_volume" <?php if ($currentValues['use_audio_file'] == 'Y'):?> style="display: none" <?php endif?>>
 	<td align="right"><?= GetMessage("BPVICA_PD_VOICE_VOLUME") ?>:</td>
 	<td>
 		<select name="voice_volume">
-			<? foreach($voiceVolume as $volume => $name):?>
+			<?php  foreach($voiceVolume as $volume => $name):?>
 				<option value="<?=$volume?>"<?= $currentValues["voice_volume"] == $volume ? " selected" : "" ?>><?= $name ?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
-<tr id="bpvica_audio_file" <?if ($currentValues['use_audio_file'] != 'Y'):?> style="display: none" <?endif?>>
+<tr id="bpvica_audio_file" <?php if ($currentValues['use_audio_file'] != 'Y'):?> style="display: none" <?php endif?>>
 	<td align="right" width="40%" valign="top"><span class="adm-required-field"><?= GetMessage("BPVICA_PD_AUDIO_FILE") ?>:</span></td>
 	<td width="60%" valign="top">
 		<?=CBPDocument::ShowParameterField("file", 'audio_file', $currentValues['audio_file'], array('size' => 45))?>
@@ -100,7 +100,7 @@ if (empty($outputNumber)):?>
 		</select>
 	</td>
 </tr>
-<?if (IsModuleInstalled('crm')):?>
+<?php if (IsModuleInstalled('crm')):?>
 <tr>
 	<td align="right"><?= GetMessage("BPVICA_PD_USE_DOCUMENT_PHONE_NUMBER") ?>:</td>
 	<td>
@@ -110,5 +110,5 @@ if (empty($outputNumber)):?>
 		</select>
 	</td>
 </tr>
-<?endif;?>
-<?endif?>
+<?php endif;?>
+<?php endif?>

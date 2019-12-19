@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllUserCounter
 {
 	const ALL_SITES = '**';

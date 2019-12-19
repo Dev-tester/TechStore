@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["T_IBLOCK_DESC_PAGER_SETTINGS"] = "Pager settings";
 $MESS["T_IBLOCK_DESC_TOP_PAGER"] = "Display at the top of the list";
 $MESS["T_IBLOCK_DESC_BOTTOM_PAGER"] = "Display at the bottom of the list";

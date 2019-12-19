@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
 	"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
 	"ELEMENT_ID"	=>	$arResult["VARIABLES"]["ELEMENT_ID"],
@@ -30,7 +30,7 @@
 	array("HIDE_ICONS" => "Y")
 );
 ?>
-<?
+<?php 
 if(is_array($arInfo) && $arInfo["ELEMENT_ID"] && $arParams["USE_COMMENTS"]=="Y" && IsModuleInstalled("forum")):
 $bShowHide = (intval($arInfo["ELEMENT"]["PROPERTIES"]["FORUM_TOPIC_ID"]["VALUE"]) <= 0 && 	
 	($arParams['WORKFLOW'] == "bizproc" && $arInfo["ELEMENT"]["BP_PUBLISHED"] != "Y" || 
@@ -38,7 +38,7 @@ $bShowHide = (intval($arInfo["ELEMENT"]["PROPERTIES"]["FORUM_TOPIC_ID"]["VALUE"]
 //	ShowNote(GetMessage("WD_NOTE_EL"));
 ?>
 <hr class="wd-hr" />
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:forum.topic.reviews",
 	"",
 	Array(
@@ -69,6 +69,6 @@ $bShowHide = (intval($arInfo["ELEMENT"]["PROPERTIES"]["FORUM_TOPIC_ID"]["VALUE"]
 	),
 	$component,
 	array("HIDE_ICONS" => "Y")
-);?><?
+);?><?php 
 endif;
 ?>

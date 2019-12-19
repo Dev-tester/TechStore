@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_NAME"] = "Целевая распродажа товаров";
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_PRODUCTS_TITLE"] = "Список товаров";
 $MESS["SALE_BIGDATA_TARGET_CONNECTOR_PRODUCTS_DESC"] = "Товары, рекомендуемые для покупки конкретному клиенту";

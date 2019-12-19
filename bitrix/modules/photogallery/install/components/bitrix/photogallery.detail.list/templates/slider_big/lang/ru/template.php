@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_OF'] = "из";
 $MESS ['P_PHOTOS'] = "Фото";
 $MESS ['P_SEK'] = "сек.";

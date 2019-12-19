@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_ADM_EXP_NO_IBLOCK'] = "Информационный блок не выбран. Выгрузка невозможна.";
 $MESS ['IBLOCK_ADM_EXP_NO_FORMAT'] = "Укажите формат файла данных и его свойства.";
 $MESS ['IBLOCK_ADM_EXP_NO_DELIMITER'] = "Укажите символ-разделитель полей.";

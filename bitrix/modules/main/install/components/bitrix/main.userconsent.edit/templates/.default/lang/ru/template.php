@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_USER_CONSENT_EDIT_TMPL_NAME"] = "Название";
 $MESS["MAIN_USER_CONSENT_EDIT_TMPL_TYPE"] = "Тип - собственное/стандартное";
 $MESS["MAIN_USER_CONSENT_EDIT_TMPL_DATA_PROVIDER"] = "Источник данных";

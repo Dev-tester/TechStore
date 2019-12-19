@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_IMOL_USER"] = "User";
 $MESS["AUTH_IMOL_GUEST"] = "Guest";
 $MESS["AUTH_IMOL_MAIL"] = "E-mail";

@@ -1,4 +1,4 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 $saleModulePermissions = $APPLICATION->GetGroupRight("sale");
 if ($saleModulePermissions < "W")
@@ -9,7 +9,7 @@ if ($saleModulePermissions < "W")
 <head>
 </head>
 <body>
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 $divInd = IntVal($divInd);
@@ -160,18 +160,18 @@ $arAgent = Array(
 <!--
 window.parent.document.getElementById("export_fields_<?= $divInd ?>").value = "<?= $fields ?>";
 window.parent.document.getElementById("export_<?= $divInd ?>").innerHTML = '<?= $res ?>';
-<?
+<?php 
 if (is_array($arAgentInfo) && count($arAgentInfo) > 0)
 {
 	foreach ($arAgentInfo as $key => $value)
 	{
-		?>window.parent.InitActionProps('<?= $key ?>', <?= $divInd ?>);<?
+		?>window.parent.InitActionProps('<?= $key ?>', <?= $divInd ?>);<?php 
 	}
-	?>window.parent.InitActionProps('REKV_n0', <?= $divInd ?>);<?
+	?>window.parent.InitActionProps('REKV_n0', <?= $divInd ?>);<?php 
 }
 ?>
 window.parent.BX.onCustomEvent('onAdminTabsChange');
 //-->
 </script>
 </body>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_after.php");?>

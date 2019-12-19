@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var array $arResult
  * @var array $arParams
@@ -20,23 +20,23 @@ if (!$GLOBALS["USER"]->IsAuthorized())
 	?>
 	<div class="comments-reply-fields">
 		<div class="comments-reply-field-user">
-			<div class="comments-reply-field comments-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?
+			<div class="comments-reply-field comments-reply-field-author"><label for="REVIEW_AUTHOR<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_NAME")?><?php 
 					?><span class="comments-required-field">*</span></label>
 				<span><input name="REVIEW_AUTHOR" id="REVIEW_AUTHOR<?=$arParams["form_index"]?>" size="30" type="text" value="<?=$arResult["REVIEW_AUTHOR"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-			<?
+			<?php 
 			if ($arParams["ASK_GUEST_EMAIL"]=="Y")
 			{
 				?>
 				<div class="comments-reply-field-user-sep">&nbsp;</div>
 				<div class="comments-reply-field comments-reply-field-email"><label for="REVIEW_EMAIL<?=$arParams["form_index"]?>"><?=GetMessage("OPINIONS_EMAIL")?></label>
 					<span><input type="text" name="REVIEW_EMAIL" id="REVIEW_EMAIL<?=$arParams["form_index"]?>" size="30" value="<?=$arResult["REVIEW_EMAIL"]?>" tabindex="<?=$tabIndex++;?>" /></span></div>
-			<?
+			<?php 
 			}
 			?>
 			<div class="comments-clear-float"></div>
 		</div>
 	</div>
-<?
+<?php 
 }
 $html_before_textarea = ob_get_clean();
 ob_start();
@@ -54,7 +54,7 @@ if (!empty($arResult["CAPTCHA_CODE"]))
 			<img src="/bitrix/tools/captcha.php?captcha_code=<?=$arResult["CAPTCHA_CODE"]?>" alt="<?=GetMessage("F_CAPTCHA_TITLE")?>" />
 		</div>
 	</div>
-<?
+<?php 
 }
 $html_after_textarea = ob_get_clean();
 
@@ -74,9 +74,9 @@ if(!empty($arResult["Smiles"]))
 	}
 }
 ?>
-	<form action="<?=POST_FORM_ACTION_URI?>" <?
-		?>id="<?=$arParams["FORM_ID"]?>" <?
-		?>name="<?=$arParams["FORM_ID"]?>" <?
+	<form action="<?=POST_FORM_ACTION_URI?>" <?php 
+		?>id="<?=$arParams["FORM_ID"]?>" <?php 
+		?>name="<?=$arParams["FORM_ID"]?>" <?php 
 		?>method="POST" enctype="multipart/form-data" class="comments-form">
 		<input type="hidden" name="back_page" value="<?=$arResult["CURRENT_PAGE"]?>" />
 		<input type="hidden" name="ENTITY_XML_ID" value="<?=$arParams["ENTITY_XML_ID"]?>" />
@@ -85,7 +85,7 @@ if(!empty($arResult["Smiles"]))
 		<input type="hidden" name="REVIEW_USE_SMILES" value="Y"  />
 		<input type="hidden" name="comment_review" value="Y"  />
 	</form>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:main.post.form",
 	"",
 	array(

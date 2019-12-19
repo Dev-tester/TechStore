@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CALENDAR_SETTINGS"] = "Calendar Settings";
 $MESS["CRM_CALENDAR_SETTINGS_DATE"] = "By date created";
 $MESS["CRM_CALENDAR_SETTINGS_PROPERTY"] = "By \"#USERFIELD_NAME#\"";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix Framework
  * @package bitrix
@@ -12,11 +12,11 @@ $arParams["UID"] = randString(5);
 
 if ($this->__page == "result")
 {
-	?><div class="bx-vote-block bx-vote-block-result"><?
+	?><div class="bx-vote-block bx-vote-block-result"><?php 
 }
 else
 {
-	?><div class="bx-vote-block"><?
+	?><div class="bx-vote-block"><?php 
 }
 if(isset($_REQUEST["AUTH_FORM"]) && $_REQUEST["AUTH_FORM"] <> '')
 {

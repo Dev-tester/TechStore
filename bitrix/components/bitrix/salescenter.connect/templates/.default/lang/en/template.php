@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_CONNECT"] = "Connect";
 $MESS["SALESCENTER_CONNECT_TEMPLATE_DESCRIPTION"] = "Communicate with your customers via social messengers. Send quick pages to chats. Track clients, receive orders and payments online.";
 $MESS["SALESCENTER_CONNECT_TEMPLATE_DESCRIPTION_SMS"] = "Send product and information pages via the SMS. Track customers, receive orders and payments. Quick Sales are available in SMS messages and Open Channel live chats.";

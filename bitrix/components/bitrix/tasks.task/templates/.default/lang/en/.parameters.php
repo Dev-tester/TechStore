@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TASK_TEMPLATE_SET_NAVCHAIN"] = "Enable breadcrumbs";
 $MESS["TASKS_TASK_TEMPLATE_PATH_TO_USER_TASKS"] = "Path to user tasks";
 $MESS["TASKS_TASK_TEMPLATE_PATH_TO_GROUP_TASKS"] = "Path to task list";

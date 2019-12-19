@@ -1,4 +1,4 @@
-<?
+<?php 
 use \Bitrix\Calendar\Ui\CalendarFilter;
 use Bitrix\Main\Localization\Loc;
 
@@ -173,7 +173,7 @@ class CCalendarRequest
 			return;
 		?>
 		<script>top.BXCRES['<?= $reqId?>'] = <?= CUtil::PhpToJSObject($res)?>;</script>
-		<?
+		<?php 
 	}
 
 	public static function simpleSaveEntry()
@@ -1293,7 +1293,7 @@ class CCalendarRequest
 		$APPLICATION->ShowAjaxHead();
 
 		$plannerId = $_REQUEST['planner_id'];
-		?><?CCalendarPlanner::Init(array('id' => $plannerId));?><?
+		?><?php CCalendarPlanner::Init(array('id' => $plannerId));?><?php 
 	}
 
 	public static function UpdatePlanner()

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUPPORT_MAIL_DEF_REGISTERED'] = "Определять по EMail ранее зарегистрированного пользователя:";
 $MESS ['SUPPORT_MAIL_DEF_REGISTERED_Y'] = "да, пытаться привязать обращение к пользователю";
 $MESS ['SUPPORT_MAIL_DEF_REGISTERED_N'] = "нет, всегда создавать анонимные обращения";

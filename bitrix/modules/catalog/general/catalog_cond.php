@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc,
 	Bitrix\Main\UserTable,
 	Bitrix\Main,

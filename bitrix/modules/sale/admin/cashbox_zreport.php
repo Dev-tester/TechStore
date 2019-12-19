@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use Bitrix\Main\Localization\Loc;
@@ -436,13 +436,13 @@ if (isset($blockData))
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 }
 
 $lAdmin->DisplayList();
 ?>
 <select id="filter_cashbox_id" style="display: none;">
-	<?
+	<?php 
 	foreach ($cashBoxList as $cashBoxId => $cashBoxName)
 	{
 		?>
@@ -450,7 +450,7 @@ $lAdmin->DisplayList();
 			<?=$cashboxList['ID'] == $cashBoxId ? "selected" : ""?>>
 			<?= htmlspecialcharsbx($cashBoxName);?>
 		</option>
-		<?
+		<?php 
 	}
 	?>
 </select>
@@ -463,7 +463,7 @@ $lAdmin->DisplayList();
 		}
 	);
 </script>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["mail_ur_entity_token_field"] = "Token";
 $MESS["mail_ur_entity_user_id_field"] = "User";
 $MESS["mail_ur_entity_entity_type_field"] = "Entity type";

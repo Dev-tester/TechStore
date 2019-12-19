@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_MODULE_NOT_FOUND"] = "e-Learning module is not installed.";
 $MESS["LEARNING_TESTS_LIST"] = "Tests list";
 $MESS["LEARNING_TESTS_NAV"] = "Tests";

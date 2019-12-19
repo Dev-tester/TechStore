@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_ORDER_CONV_DEAL'] = "Deal";
 $MESS['CRM_ORDER_CONV_INVOICE'] = "Invoice";
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_BS_PARAMETER_BACKGROUND"] = "Slide type";
 $MESS["ADV_BS_PARAMETER_NO"] = "(not set)";
 $MESS["ADV_BS_PARAMETER_BACKGROUND_IMAGE"] = "image";

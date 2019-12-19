@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_TITLE'] = "Помощь";
 $MESS ['F_TITLE_NAV'] = "Помощь";
 $MESS ['F_NO_MODULE'] = "Модуль форума не установлен";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_EFFECTIVE_TITLE_FULL"] = "Overdue Tasks";
 $MESS["TASKS_USER_TYPE_A2"] = "Participant";
 $MESS["TASKS_USER_TYPE_R2"] = "Responsible";

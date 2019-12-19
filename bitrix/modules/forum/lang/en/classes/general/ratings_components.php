@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_RATING_NAME"] = "Forum";
 $MESS["FORUM_RATING_USER_VOTE_TOPIC_NAME"] = "Voting For User's Topics In Forums";
 $MESS["FORUM_RATING_USER_VOTE_TOPIC_FORMULA_DESC"] = "Total - the voting result; K - user defined transition factor.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_TASK_FLT_ID"] = "ID";
 $MESS["CTRLR_TASK_FLT_CLIENT"] = "Клиент";
 $MESS["CTRLR_TASK_FLT_OPERATION"] = "Операция";

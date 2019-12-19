@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "clouds");
 
 /*.require_module 'standard';.*/
@@ -255,34 +255,34 @@ function editDeleteRule(img)
 	oTR.parentNode.removeChild(oTR);
 }
 </script>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-	<?if($ID > 0)
+	<?php if($ID > 0)
 	{?>
 		<tr>
-			<td><?echo GetMessage("CLO_STORAGE_EDIT_ID")?>:</td>
-			<td><?echo $ID;?></td>
+			<td><?php echo GetMessage("CLO_STORAGE_EDIT_ID")?>:</td>
+			<td><?php echo $ID;?></td>
 		</tr>
-	<?}?>
+	<?php }?>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLO_STORAGE_EDIT_ACTIVE")?>:</td>
-		<td width="60%"><input type="hidden" name="ACTIVE" value="N"><input type="checkbox" name="ACTIVE" value="Y"<?if($arRes["ACTIVE"] === "Y") echo " checked"?>></td>
+		<td width="40%"><?php echo GetMessage("CLO_STORAGE_EDIT_ACTIVE")?>:</td>
+		<td width="60%"><input type="hidden" name="ACTIVE" value="N"><input type="checkbox" name="ACTIVE" value="Y"<?php if($arRes["ACTIVE"] === "Y") echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLO_STORAGE_EDIT_SORT")?>:</td>
-		<td><input type="text" size="6" name="SORT" value="<?echo intval($arRes["SORT"])?>"></td>
+		<td><?php echo GetMessage("CLO_STORAGE_EDIT_SORT")?>:</td>
+		<td><input type="text" size="6" name="SORT" value="<?php echo intval($arRes["SORT"])?>"></td>
 	</tr>
-	<?if($ID > 0)
+	<?php if($ID > 0)
 	{?>
 		<tr>
-			<td><?echo GetMessage("CLO_STORAGE_EDIT_SERVICE_ID")?>:</td>
+			<td><?php echo GetMessage("CLO_STORAGE_EDIT_SERVICE_ID")?>:</td>
 			<td>
-			<?
+			<?php 
 			$obService = /*.(CCloudStorageService).*/null;
 			foreach(CCloudStorage::GetServiceList() as $SERVICE_ID => $obService)
 			{
@@ -293,35 +293,35 @@ $tabControl->BeginNextTab();
 				}
 			}
 			?>
-			<input type="hidden" name="SERVICE_ID" value="<?echo htmlspecialcharsbx($arRes["SERVICE_ID"]);?>">
+			<input type="hidden" name="SERVICE_ID" value="<?php echo htmlspecialcharsbx($arRes["SERVICE_ID"]);?>">
 			</td>
 		</tr>
-		<tr id="LOCATION_<?echo htmlspecialcharsbx($arRes["SERVICE_ID"])?>" class="location-tr">
-			<td><?echo GetMessage("CLO_STORAGE_EDIT_LOCATION")?>:</td>
+		<tr id="LOCATION_<?php echo htmlspecialcharsbx($arRes["SERVICE_ID"])?>" class="location-tr">
+			<td><?php echo GetMessage("CLO_STORAGE_EDIT_LOCATION")?>:</td>
 			<td>
-			<?
+			<?php 
 			foreach(CCloudStorage::GetServiceLocationList($arRes["SERVICE_ID"]) as $LOCATION_ID => $LOCATION_NAME)
 			{
 				if($arRes["LOCATION"] == $LOCATION_ID)
 					echo htmlspecialcharsex($LOCATION_NAME);
 			}
 			?>
-			<input type="hidden" name="LOCATION[<?echo htmlspecialcharsbx($arRes["SERVICE_ID"]);?>]" value="<?echo htmlspecialcharsbx($arRes["LOCATION"]);?>">
+			<input type="hidden" name="LOCATION[<?php echo htmlspecialcharsbx($arRes["SERVICE_ID"]);?>]" value="<?php echo htmlspecialcharsbx($arRes["LOCATION"]);?>">
 			</td>
 		</tr>
-		<?if(is_object($obService)) echo $obService->GetSettingsHTML($arRes, true, $arRes["SERVICE_ID"], $bVarsFromForm);?>
-	<?}
+		<?php if(is_object($obService)) echo $obService->GetSettingsHTML($arRes, true, $arRes["SERVICE_ID"], $bVarsFromForm);?>
+	<?php }
 	else
 	{?>
 		<tr>
-			<td><?echo GetMessage("CLO_STORAGE_EDIT_SERVICE_ID")?>:</td>
+			<td><?php echo GetMessage("CLO_STORAGE_EDIT_SERVICE_ID")?>:</td>
 			<td>
 			<select name="SERVICE_ID" onchange="ChangeLocation(this)">
-			<?
+			<?php 
 			$bServiceSet = false;
 			foreach(CCloudStorage::GetServiceList() as $SERVICE_ID => $obService)
 			{
-				?><option value="<?echo htmlspecialcharsbx($SERVICE_ID)?>"<?if($arRes["SERVICE_ID"] === $SERVICE_ID) echo " selected"?>><?echo htmlspecialcharsex($obService->GetName())?></option><?
+				?><option value="<?php echo htmlspecialcharsbx($SERVICE_ID)?>"<?php if($arRes["SERVICE_ID"] === $SERVICE_ID) echo " selected"?>><?php echo htmlspecialcharsex($obService->GetName())?></option><?php 
 				if($arRes["SERVICE_ID"] === $SERVICE_ID)
 					$bServiceSet = true;
 			}
@@ -329,53 +329,53 @@ $tabControl->BeginNextTab();
 			</select>
 			</td>
 		</tr>
-		<?foreach(CCloudStorage::GetServiceList() as $SERVICE_ID => $obService)
+		<?php foreach(CCloudStorage::GetServiceList() as $SERVICE_ID => $obService)
 		{?>
-		<tr id="LOCATION_<?echo htmlspecialcharsbx($SERVICE_ID)?>" style="display:<?echo $arRes["SERVICE_ID"] === $SERVICE_ID || !$bServiceSet? "": "none"?>" class="location-tr">
-			<td><?echo GetMessage("CLO_STORAGE_EDIT_LOCATION")?>:</td>
+		<tr id="LOCATION_<?php echo htmlspecialcharsbx($SERVICE_ID)?>" style="display:<?php echo $arRes["SERVICE_ID"] === $SERVICE_ID || !$bServiceSet? "": "none"?>" class="location-tr">
+			<td><?php echo GetMessage("CLO_STORAGE_EDIT_LOCATION")?>:</td>
 			<td>
-			<select name="LOCATION[<?echo htmlspecialcharsbx($SERVICE_ID)?>]">
-			<?
+			<select name="LOCATION[<?php echo htmlspecialcharsbx($SERVICE_ID)?>]">
+			<?php 
 			foreach(CCloudStorage::GetServiceLocationList($SERVICE_ID) as $LOCATION_ID => $LOCATION_NAME)
 			{
-				?><option value="<?echo htmlspecialcharsbx($LOCATION_ID)?>"<?if($arRes["SERVICE_ID"] === $LOCATION_ID) echo " selected"?>><?echo htmlspecialcharsex($LOCATION_NAME)?></option><?
+				?><option value="<?php echo htmlspecialcharsbx($LOCATION_ID)?>"<?php if($arRes["SERVICE_ID"] === $LOCATION_ID) echo " selected"?>><?php echo htmlspecialcharsex($LOCATION_NAME)?></option><?php 
 			}
 			?>
 			</select>
 			</td>
 		</tr>
-		<?echo $obService->GetSettingsHTML($arRes, $bServiceSet, $arRes["SERVICE_ID"], $bVarsFromForm)?>
-		<?$bServiceSet = true;?>
-		<?}?>
-	<?}?>
-	<?if($ID > 0)
+		<?php echo $obService->GetSettingsHTML($arRes, $bServiceSet, $arRes["SERVICE_ID"], $bVarsFromForm)?>
+		<?php $bServiceSet = true;?>
+		<?php }?>
+	<?php }?>
+	<?php if($ID > 0)
 	{?>
 		<tr class="adm-detail-required-field">
-			<td><?echo GetMessage("CLO_STORAGE_EDIT_BUCKET")?>:</td>
-			<td><input type="hidden" name="BUCKET" value="<?echo htmlspecialcharsbx($arRes["BUCKET"])?>"><?echo htmlspecialcharsex($arRes["BUCKET"])?></td>
+			<td><?php echo GetMessage("CLO_STORAGE_EDIT_BUCKET")?>:</td>
+			<td><input type="hidden" name="BUCKET" value="<?php echo htmlspecialcharsbx($arRes["BUCKET"])?>"><?php echo htmlspecialcharsex($arRes["BUCKET"])?></td>
 		</tr>
-	<?
+	<?php 
 	}
 	else
 	{?>
 		<tr class="adm-detail-required-field">
-			<td><?echo GetMessage("CLO_STORAGE_EDIT_BUCKET")?>:</td>
-			<td><input type="text" size="55" name="BUCKET" value="<?echo htmlspecialcharsbx($arRes["BUCKET"])?>"></td>
+			<td><?php echo GetMessage("CLO_STORAGE_EDIT_BUCKET")?>:</td>
+			<td><input type="text" size="55" name="BUCKET" value="<?php echo htmlspecialcharsbx($arRes["BUCKET"])?>"></td>
 		</tr>
-	<?}?>
+	<?php }?>
 	<tr>
-		<td><?echo GetMessage("CLO_STORAGE_EDIT_READ_ONLY")?>:</td>
-		<td><input type="hidden" name="READ_ONLY" value="N"><input type="checkbox" name="READ_ONLY" value="Y"<?if($arRes["READ_ONLY"] === "Y") echo " checked"?>></td>
+		<td><?php echo GetMessage("CLO_STORAGE_EDIT_READ_ONLY")?>:</td>
+		<td><input type="hidden" name="READ_ONLY" value="N"><input type="checkbox" name="READ_ONLY" value="Y"<?php if($arRes["READ_ONLY"] === "Y") echo " checked"?>></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLO_STORAGE_EDIT_CNAME")?>:</td>
-		<td><input type="text" size="55" name="CNAME" value="<?echo htmlspecialcharsbx($arRes["CNAME"])?>"></td>
+		<td><?php echo GetMessage("CLO_STORAGE_EDIT_CNAME")?>:</td>
+		<td><input type="text" size="55" name="CNAME" value="<?php echo htmlspecialcharsbx($arRes["CNAME"])?>"></td>
 	</tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr><td align="center">
-<?
+<?php 
 if($bVarsFromForm)
 	$arRules = CCloudStorageBucket::ConvertPOST($_POST);
 elseif(isset($arRes["FILE_RULES"]))
@@ -388,23 +388,23 @@ if(!is_array($arRules))
 ?>
 		<table border="0" cellspacing="0" cellpadding="0" class="internal" align="center" id="tblRULES">
 			<tr class="heading">
-				<td><?echo GetMessage("CLO_STORAGE_EDIT_MODULE")?><sup><span class="required">1</span></sup></td>
-				<td><?echo GetMessage("CLO_STORAGE_EDIT_EXTENSIONS")?><sup><span class="required">2</span></sup></td>
-				<td><?echo GetMessage("CLO_STORAGE_EDIT_SIZE")?><sup><span class="required">3</span></sup></td>
+				<td><?php echo GetMessage("CLO_STORAGE_EDIT_MODULE")?><sup><span class="required">1</span></sup></td>
+				<td><?php echo GetMessage("CLO_STORAGE_EDIT_EXTENSIONS")?><sup><span class="required">2</span></sup></td>
+				<td><?php echo GetMessage("CLO_STORAGE_EDIT_SIZE")?><sup><span class="required">3</span></sup></td>
 				<td>&nbsp;</td>
 			</tr>
-	<?
+	<?php 
 	$ii = 0;
 	foreach($arRules as $rule)
 	{
 	?>
 			<tr>
-				<td><input name="MODULE[]" type="text" value="<?echo htmlspecialcharsbx($rule["MODULE"])?>" style="width:100%"></td>
-				<td><input name="EXTENSION[]" type="text" value="<?echo htmlspecialcharsbx($rule["EXTENSION"])?>" style="width:100%"></td>
-				<td><input name="SIZE[]" type="text" value="<?echo htmlspecialcharsbx($rule["SIZE"])?>" style="width:100%"></td>
+				<td><input name="MODULE[]" type="text" value="<?php echo htmlspecialcharsbx($rule["MODULE"])?>" style="width:100%"></td>
+				<td><input name="EXTENSION[]" type="text" value="<?php echo htmlspecialcharsbx($rule["EXTENSION"])?>" style="width:100%"></td>
+				<td><input name="SIZE[]" type="text" value="<?php echo htmlspecialcharsbx($rule["SIZE"])?>" style="width:100%"></td>
 				<td><img src="/bitrix/themes/.default/images/actions/delete_button.gif" onclick="editDeleteRule(this)" /></td>
 			</tr>
-	<?
+	<?php 
 		$ii++;
 	}
 	if($ii == 0 && $ID == 0)
@@ -416,7 +416,7 @@ if(!is_array($arRules))
 				<td><input name="SIZE[]" type="text" style="width:100%"></td>
 				<td><img src="/bitrix/themes/.default/images/actions/delete_button.gif" onclick="editDeleteRule(this)" /></td>
 			</tr>
-		<?
+		<?php 
 		$ii=1;
 	}	?>
 		</table>
@@ -432,10 +432,10 @@ BX.ready(function() {
 	});
 });
 </script><br>
-		<a class="adm-btn" href="javascript:void(0)" onclick="editAddRule(this)" hidefocus="true" class="bx-action-href"><?echo GetMessage("CLO_STORAGE_EDIT_ADD_FILE_RULE")?></a>
+		<a class="adm-btn" href="javascript:void(0)" onclick="editAddRule(this)" hidefocus="true" class="bx-action-href"><?php echo GetMessage("CLO_STORAGE_EDIT_ADD_FILE_RULE")?></a>
 	</td></tr>
 	<tr><td>
-		<?echo
+		<?php echo
 			BeginNote(),
 			'<p>',GetMessage("CLO_STORAGE_EDIT_RULES_NOTE"),'</p>',
 			'<span class="required">1</span> - ',GetMessage("CLO_STORAGE_EDIT_RULES_NOTE1"),'<br />',
@@ -444,34 +444,34 @@ BX.ready(function() {
 			EndNote();
 		?>
 	</td></tr>
-<?
+<?php 
 if (CCloudFailover::IsEnabled())
 {
 	$tabControl->BeginNextTab();
 	?>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_ACTIVE")?>:</td>
+		<td width="40%"><?php echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_ACTIVE")?>:</td>
 		<td width="60%">
 			<input type="hidden" name="FAILOVER_ACTIVE" value="N">
-			<input type="checkbox" name="FAILOVER_ACTIVE" value="Y"<?if($arRes["FAILOVER_ACTIVE"] === "Y") echo " checked"?>>
+			<input type="checkbox" name="FAILOVER_ACTIVE" value="Y"<?php if($arRes["FAILOVER_ACTIVE"] === "Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr valign="top">
-		<td><?echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_BUCKET_ID")?>:</td>
+		<td><?php echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_BUCKET_ID")?>:</td>
 		<td>
 		<select name="FAILOVER_BUCKET_ID">
-			<option value=""><?echo GetMessage("MAIN_NO")?></option>
-			<?
+			<option value=""><?php echo GetMessage("MAIN_NO")?></option>
+			<?php 
 			$rsBucketList = CCloudStorageBucket::GetList(array("SORT"=>"DESC", "ID"=>"ASC"));
 			while ($arBucket = $rsBucketList->Fetch())
 			{
 				if ($ID == $arBucket["ID"])
 					continue;
-				?><option value="<?echo htmlspecialcharsbx($arBucket["ID"])?>"<?if($arRes["FAILOVER_BUCKET_ID"] === $arBucket["ID"]) echo " selected"?>><?echo htmlspecialcharsex($arBucket["BUCKET"])?></option><?
+				?><option value="<?php echo htmlspecialcharsbx($arBucket["ID"])?>"<?php if($arRes["FAILOVER_BUCKET_ID"] === $arBucket["ID"]) echo " selected"?>><?php echo htmlspecialcharsex($arBucket["BUCKET"])?></option><?php 
 			}
 			?>
 		</select>
-		<?echo
+		<?php echo
 			BeginNote(),
 			'<p>',GetMessage("CLO_STORAGE_EDIT_FAILOVER_NOTE"),'</p>',
 			EndNote();
@@ -479,23 +479,23 @@ if (CCloudFailover::IsEnabled())
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_COPY")?>:</td>
+		<td width="40%"><?php echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_COPY")?>:</td>
 		<td width="60%">
 			<input type="hidden" name="FAILOVER_COPY" value="N">
-			<input type="checkbox" name="FAILOVER_COPY" value="Y"<?if($arRes["FAILOVER_COPY"] === "Y") echo " checked"?>>
+			<input type="checkbox" name="FAILOVER_COPY" value="Y"<?php if($arRes["FAILOVER_COPY"] === "Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE")?>:</td>
+		<td width="40%"><?php echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE")?>:</td>
 		<td width="60%">
 			<input type="hidden" name="FAILOVER_DELETE" value="N">
-			<input type="checkbox" name="FAILOVER_DELETE" value="Y"<?if($arRes["FAILOVER_DELETE"] === "Y") echo " checked"?>>
+			<input type="checkbox" name="FAILOVER_DELETE" value="Y"<?php if($arRes["FAILOVER_DELETE"] === "Y") echo " checked"?>>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY")?>:</td>
+		<td><?php echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY")?>:</td>
 		<td>
-		<?
+		<?php 
 			$FAILOVER_DELETE_DELAY = intval($arRes['FAILOVER_DELETE_DELAY']);
 			if ($FAILOVER_DELETE_DELAY % (60 * 24 * 30) == 0)
 			{
@@ -522,20 +522,20 @@ if (CCloudFailover::IsEnabled())
 				$FAILOVER_DELETE_DELAY_TYPE = "M";
 			}
 			?>
-			<input type="text" name="FAILOVER_DELETE_DELAY" id="FAILOVER_DELETE_DELAY" size="5" value="<? echo $FAILOVER_DELETE_DELAY ?>">
+			<input type="text" name="FAILOVER_DELETE_DELAY" id="FAILOVER_DELETE_DELAY" size="5" value="<?php  echo $FAILOVER_DELETE_DELAY ?>">
 			<select name="FAILOVER_DELETE_DELAY_TYPE" title="">
-				<option value="M"<? if ($FAILOVER_DELETE_DELAY_TYPE == "M") echo ' selected' ?>><? echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_MI") ?></option>
-				<option value="H"<? if ($FAILOVER_DELETE_DELAY_TYPE == "H") echo ' selected' ?>><? echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_HO") ?></option>
-				<option value="D"<? if ($FAILOVER_DELETE_DELAY_TYPE == "D") echo ' selected' ?>><? echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_DA") ?></option>
-				<option value="W"<? if ($FAILOVER_DELETE_DELAY_TYPE == "W") echo ' selected' ?>><? echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_WE") ?></option>
-				<option value="N"<? if ($FAILOVER_DELETE_DELAY_TYPE == "N") echo ' selected' ?>><? echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_MO") ?></option>
+				<option value="M"<?php  if ($FAILOVER_DELETE_DELAY_TYPE == "M") echo ' selected' ?>><?php  echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_MI") ?></option>
+				<option value="H"<?php  if ($FAILOVER_DELETE_DELAY_TYPE == "H") echo ' selected' ?>><?php  echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_HO") ?></option>
+				<option value="D"<?php  if ($FAILOVER_DELETE_DELAY_TYPE == "D") echo ' selected' ?>><?php  echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_DA") ?></option>
+				<option value="W"<?php  if ($FAILOVER_DELETE_DELAY_TYPE == "W") echo ' selected' ?>><?php  echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_WE") ?></option>
+				<option value="N"<?php  if ($FAILOVER_DELETE_DELAY_TYPE == "N") echo ' selected' ?>><?php  echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_DELETE_DELAY_MO") ?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_SYNC")?>:</td>
+		<td width="40%"><?php echo GetMessage("CLO_STORAGE_EDIT_FAILOVER_SYNC")?>:</td>
 		<td width="60%">
-			<?
+			<?php 
 			$rsAgents = CAgent::GetList(array("ID"=>"DESC"), array(
 				"MODULE_ID" => "clouds",
 				"NAME" => "CCloudFailover::syncAgent($ID, %",
@@ -561,12 +561,12 @@ if (CCloudFailover::IsEnabled())
 			?>
 				<input type="hidden" name="FAILOVER_SYNC" value="N">
 				<input type="checkbox" name="FAILOVER_SYNC" value="Y">
-			<?
+			<?php 
 			}
 			?>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 
 $tabControl->Buttons(
@@ -575,15 +575,15 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-<input type="hidden" name="ID" value="<?echo $ID?>">
-<?
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+<input type="hidden" name="ID" value="<?php echo $ID?>">
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("editform", $message);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

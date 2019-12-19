@@ -1,4 +1,4 @@
-<?
+<?php 
 $LOCALIZATION_COUNTRY_CODE_MAP = array(
 	'ru' => '0000028023',
 	'ua' => '0000000364',

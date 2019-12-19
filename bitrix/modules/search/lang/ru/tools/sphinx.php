@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_SPHINX_CONN_ERROR_INDEX_NAME"] = "Идентификатор индекса может состоять только из символов латинского алфавита, цифр и знака подчёркивания.";
 $MESS["SEARCH_SPHINX_CONN_EXT_IS_MISSING"] = "Расширение MySql не установлено.";
 $MESS["SEARCH_SPHINX_CONN_ERROR"] = "Ошибка подключения (#ERRSTR#).";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GENERAL_GROUP_NAME"] = "General forums";
 $MESS["GENERAL_GROUP_DESCRIPTION"] = "";
 

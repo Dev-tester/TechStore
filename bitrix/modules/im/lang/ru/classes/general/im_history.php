@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_HISTORY_SEARCH_EMPTY"] = "Не задана поисковая строка";
 $MESS["IM_HISTORY_SEARCH_DATE_EMPTY"] = "Не задана дата для поиска";
 $MESS["IM_HISTORY_ERROR_MESSAGE_ID"] = "Не задана поисковая строка";

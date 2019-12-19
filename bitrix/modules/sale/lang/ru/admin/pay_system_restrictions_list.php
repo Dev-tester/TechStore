@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_RDL_LIST'] = "Список ограничений";
 $MESS ['SALE_RDL_COL_ID'] = "Идентификатор";
 $MESS ['SALE_RDL_COL_SORT'] = "Сортировка";

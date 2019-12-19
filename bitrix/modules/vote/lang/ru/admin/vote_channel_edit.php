@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_SORTING"] = "Порядок сортировки:";
 $MESS["VOTE_SITE"] = "Сайты:";
 $MESS["VOTE_EDIT_RECORD"] = "Параметры группы опросов # #ID#";

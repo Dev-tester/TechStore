@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
 * Bitrix vars
 *
@@ -197,11 +197,11 @@ HTML;
 				/Default values
 ********************************************************************/
 ?>
-<?if (!empty($arResult["ERROR_MESSAGE"])):?>
+<?php if (!empty($arResult["ERROR_MESSAGE"])):?>
 <div id="photo_error_<?=$arParams["UPLOADER_ID"]?>" class="photo-error">
-	<?ShowError($arResult["ERROR_MESSAGE"]);?>
+	<?php ShowError($arResult["ERROR_MESSAGE"]);?>
 </div>
-<?endif;
+<?php endif;
 
 if($arParams["SHOW_MAGIC_QUOTES_NOTICE_ADMIN"])
 	echo GetMessage("MAGIC_QUOTES_NOTICE_ADMIN", array("#URL#" => "/bitrix/admin/site_checker.php"))."<br/><br/>";
@@ -269,33 +269,33 @@ $params = array_merge($arParams["bxu"]->params, array(
 	<input type="hidden" name="SECTION_ID" value="<?=$arParams["SECTION_ID"]?>" />
 	<input type="hidden" name="photo_resize_size" value="" />
 	<input type="hidden" name="photo_public" value="" />
-<div class="bxu-thumbnails bxu-thumbnails-start<?=($arParams["USER_SETTINGS"]["template"]=="full" ? "" : " bxu-main-block-reduced-size")?><?
+<div class="bxu-thumbnails bxu-thumbnails-start<?=($arParams["USER_SETTINGS"]["template"]=="full" ? "" : " bxu-main-block-reduced-size")?><?php 
 	?><?=($arWatermark["additional"] ? " bxu-thumbnails-settings-are" : "")?>" id="bxuMain<?=$arParams["id"]?>"> <!-- bxu-thumbnails-loading bxu-thumbnails-start-->
 	<div class="bxu-top-block"><div class="bxu-top-block-inner">
 		<label class="pg-top-bar-text" for="photo_album_id<?=$arParams["UPLOADER_ID"]?>"><?=GetMessage("P_TO_ALBUM")?>:</label>
 		<select class="pg-select" name="photo_album_id" id="photo_album_id<?=$arParams["id"]?>" onchange="this.nextSibling.style.display=(this.value=='new'?'':'none');">
 			<option value="new" <?=($arParams["SECTION_ID"] == 0 ? "selected" : "")?>> - <?=GetMessage("P_IN_NEW_ALBUM")?> -</option>
-		<?if (is_array($arResult["SECTION_LIST"])):?>
-			<?foreach ($arResult["SECTION_LIST"] as $key => $val):?>
+		<?php if (is_array($arResult["SECTION_LIST"])):?>
+			<?php foreach ($arResult["SECTION_LIST"] as $key => $val):?>
 				<option value="<?=$key?>" <?=($arParams["SECTION_ID"] == $key ? "selected" : "")?>><?=$val?></option>
-			<?endforeach;?>
-		<?endif;?>
-		</select><?
-		?><input id="new_album_name<?=$arParams["id"]?>" name="new_album_name" type="text" value="" placeholder="<?=$arParams["NEW_ALBUM_NAME"]?>" <?
-			?> class="bxu-top-block-inp"<?if ($arParams["SECTION_ID"] != 0) { ?> style="display: none;" <? } ?>/><?
+			<?php endforeach;?>
+		<?php endif;?>
+		</select><?php 
+		?><input id="new_album_name<?=$arParams["id"]?>" name="new_album_name" type="text" value="" placeholder="<?=$arParams["NEW_ALBUM_NAME"]?>" <?php 
+			?> class="bxu-top-block-inp"<?php if ($arParams["SECTION_ID"] != 0) { ?> style="display: none;" <?php  } ?>/><?php 
 		?><span class="bxu-loading-block">
 			<span class="bxu-loading-block-bar"><span class="bxu-loading-block-bar-inner" id="bxuUploadBar<?=$arParams["id"]?>"></span></span>
 			<span class="bxu-loading-block-text"><?=GetMessage("MFU_HAS_BEEN_UPLOADED")?> <span id="bxuUploaded<?=$arParams["id"]?>"></span> <?=GetMessage("MFU_UPLOAD_FROM")?> <span id="bxuForUpload<?=$arParams["id"]?>"></span></span>
 			<span class="bxu-loading-block-cancel-btn" id="bxuCancel<?=$arParams["id"]?>"><?=GetMessage("MFU_CANCEL")?></span>
-		</span><?
+		</span><?php 
 		?><div class="bxu-settings-block">
 			<span class="bxu-settings-block-templates">
-				<span class="bxu-templates-btn bxu-templates-btn-small<?=($arParams["USER_SETTINGS"]["template"]=="full" ? "" : " bxu-templates-btn-active")?>" id="bxuReduced<?=$arParams["id"]?>" title="<?=GetMessage("MFU_SIMPLIFIED")?>"></span><?
+				<span class="bxu-templates-btn bxu-templates-btn-small<?=($arParams["USER_SETTINGS"]["template"]=="full" ? "" : " bxu-templates-btn-active")?>" id="bxuReduced<?=$arParams["id"]?>" title="<?=GetMessage("MFU_SIMPLIFIED")?>"></span><?php 
 				?><span id="bxuEnlarge<?=$arParams["id"]?>" class="bxu-templates-btn bxu-templates-btn-big<?=($arParams["USER_SETTINGS"]["template"]=="full" ? " bxu-templates-btn-active" : "")?>" title="<?=GetMessage("MFU_NORMAL")?>"></span>
 			</span>
 		</div>
 	</div></div>
-	<?/*?><?=$htmlSettings?><?*/?>
+	<?php /*?><?=$htmlSettings?><?php */?>
 	<div class="bxu-main-block" id="bxuDropzone<?=$arParams["id"]?>">
 		<div class="bxu-start-block">
 			<label class="bxu-start-block-spacer-div" for="bxuUploaderStartField<?=$arParams["id"]?>">
@@ -310,10 +310,10 @@ $params = array_merge($arParams["bxu"]->params, array(
 				</div>
 			</div>
 			<div class="bxu-start-block-btn">
-				<label class="webform-button webform-button-blue" for="bxuUploaderStart<?=$arParams["id"]?>"><?
-					?><span class="webform-button-text"><?
-						?><?=GetMessage("MFU_UPLOAD")?><?
-						?><input type="file" id="bxuUploaderStart<?=$arParams["id"]?>" class="bxu-file-input" multiple="multiple" /><?
+				<label class="webform-button webform-button-blue" for="bxuUploaderStart<?=$arParams["id"]?>"><?php 
+					?><span class="webform-button-text"><?php 
+						?><?=GetMessage("MFU_UPLOAD")?><?php 
+						?><input type="file" id="bxuUploaderStart<?=$arParams["id"]?>" class="bxu-file-input" multiple="multiple" /><?php 
 					?></span>
 				</label>
 			</div>
@@ -344,18 +344,18 @@ $params = array_merge($arParams["bxu"]->params, array(
 </script>
 </form>
 </div>
-<?
+<?php 
 
 if ($arParams["ORIGINAL_SIZE"] || $arResult["UPLOAD_MAX_FILE_SIZE_MB"] && $arParams["ALLOW_UPLOAD_BIG_FILES"] != "Y" || $arParams["MODERATION"] == "Y"):?>
 <div class="bxiu-notice bxiu-notice-form">
-<? if ($arParams["MODERATION"] == "Y"):?>
+<?php  if ($arParams["MODERATION"] == "Y"):?>
 	<p><?= GetMessage("P_MODERATION_NITICE");?></p>
-<?endif;?>
-<? if ($arParams["ORIGINAL_SIZE"]):?>
+<?php endif;?>
+<?php  if ($arParams["ORIGINAL_SIZE"]):?>
 	<p><?= GetMessage("P_MAX_FILE_DIMENTIONS_NOTICE", Array("#MAX_FILE_DIMENTIONS#" => intVal($arParams["ORIGINAL_SIZE"])));?></p>
-<?endif;?>
-<? if ($arResult["UPLOAD_MAX_FILE_SIZE_MB"] && $arParams["ALLOW_UPLOAD_BIG_FILES"] != "Y"):?>
+<?php endif;?>
+<?php  if ($arResult["UPLOAD_MAX_FILE_SIZE_MB"] && $arParams["ALLOW_UPLOAD_BIG_FILES"] != "Y"):?>
 	<p><?= GetMessage("P_MAX_FILE_SIZE_NOTICE", Array("#POST_MAX_SIZE_STR#" => $arResult["UPLOAD_MAX_FILE_SIZE_MB"]));?></p>
-<?endif;?>
+<?php endif;?>
 </div>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 /**
  * @var $arParams array
  * @var $arResult array
@@ -78,7 +78,7 @@ if($isBitrix24Template)
 	$bodyClass = $APPLICATION->GetPageProperty("BodyClass");
 	$APPLICATION->SetPageProperty("BodyClass", ($bodyClass ? $bodyClass." " : "")."pagetitle-toolbar-field-view");
 	$this->SetViewTarget("inside_pagetitle", 0);
-	?><div class="pagetitle-container pagetitle-flexible-space"><?
+	?><div class="pagetitle-container pagetitle-flexible-space"><?php 
 }
 
 $APPLICATION->IncludeComponent(
@@ -98,7 +98,7 @@ $APPLICATION->IncludeComponent(
 
 if($isBitrix24Template)
 {
-	?></div><?
+	?></div><?php 
 	$this->EndViewTarget();
 }
 

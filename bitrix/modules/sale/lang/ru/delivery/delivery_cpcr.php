@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DH_CPCR_NAME"] = "СПСР";
 $MESS["SALE_DH_CPCR_DESCRIPTION"] = "срочная доставка почты";
 $MESS["SALE_DH_CPCR_DESCRIPTION_INNER"] = "Обработчик службы доставки СПСР. Работает на основе <a href=\"http://www.cpcr.ru/calculator.html\" target=\"_blank\">тарифного калькулятора</a> службы. Необходима установка адреса магазина в <a href=\"/bitrix/admin/settings.php?mid=sale&lang=ru\">настройках модуля</a>. <br />Ограничения обработчика: только Россия.";

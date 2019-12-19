@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HONOR_FORM_1"]="Honored Employee";
 $MESS["HONOR_FORM_2"]="Select employee to honor";
 $MESS["HONOR_FORM_3"]="Honored for";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_FEATURE_MESSAGE"] = "Sales Center is unavailable for your subscription plan. Please, upgrade to one of major commercial plans to use Sales Center";
 $MESS["SALESCENTER_FEATURE_MODULE_ERROR"] = "The \"Sales Center\" module is not installed";
 $MESS["SALESCENTER_FEATURE_TITLE"] = "Available for major commercial plans only";

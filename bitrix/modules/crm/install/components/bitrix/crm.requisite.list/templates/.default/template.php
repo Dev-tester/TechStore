@@ -57,7 +57,7 @@ BX.ready(
 	}
 );
 </script>
-<?
+<?php 
 $data = array();
 $requisite = new \Bitrix\Crm\EntityRequisite();
 foreach ($arResult['LIST_DATA'] as $sKey => $arRequisite)
@@ -336,7 +336,7 @@ $APPLICATION->IncludeComponent(
 		gridId: "<?= CUtil::JSEscape($arResult['GRID_ID']) ?>",
 		requisiteEntityTypeId: <?= CUtil::PhpToJSObject($arResult['ENTITY_TYPE_ID']) ?>,
 		requisiteEntityId: <?= CUtil::PhpToJSObject($arResult['ENTITY_ID']) ?>,
-		readOnlyMode: <? echo $isEditable ? 'false' : 'true'; ?>,
+		readOnlyMode: <?php  echo $isEditable ? 'false' : 'true'; ?>,
 		requisitePopupAjaxUrl: "/bitrix/components/bitrix/crm.requisite.edit/popup.ajax.php?&site=<?=SITE_ID?>&<?=bitrix_sessid_get()?>",
 		requisiteAjaxUrl: "/bitrix/components/bitrix/crm.requisite.edit/ajax.php?&site=<?=SITE_ID?>&<?=bitrix_sessid_get()?>",
 		messages: {

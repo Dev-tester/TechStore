@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -75,21 +75,21 @@ if (!$USER->IsAuthorized() || $arResult['SHOW_LOGIN_FORM'] === 'Y')
 
 	?>
 	<div class="row">
-		<?
+		<?php 
 		if ($arParams['USE_PRIVATE_PAGE_TO_AUTH'] !== 'Y')
 		{
 			?>
 			<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 				<div class="alert alert-danger"><?=GetMessage("SPS_ACCESS_DENIED")?></div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 		<div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3">
 			<?=$authForm?>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {

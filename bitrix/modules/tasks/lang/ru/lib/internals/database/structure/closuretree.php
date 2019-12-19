@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_CLOSURE_TREE_LINK_EXISTS'] = 'Связь между узлами уже существует';
 $MESS['TASKS_CLOSURE_TREE_NODE_NOT_FOUND'] = 'Указанный узел не найден';
 $MESS['TASKS_CLOSURE_TREE_NODE_EXISTS_BUT_DECLARED_NEW'] = 'Указанный узел существует, однако добавляется, как новый';

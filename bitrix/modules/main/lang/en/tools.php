@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["expire_mess_timelicense1"] = "<font class=\"tablebodytext\"><font color=\"#FF0000\">Your current license has expired. This website will stop
 functioning completely in two weeks. Please contact <a href=\"mailto:sales@bitrix24.com\">Bitrix24
 Sales Department</a> immeadiately to renew your license.</font></font>";

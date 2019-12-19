@@ -1,8 +1,8 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
-<?
+<?php 
 ?>
 <tr>
 	<td align="right" width="40%"><?= GetMessage("BPSHA_PD_NAME") ?>:<br /><small><?= GetMessage("BPSHA_PD_NAME_ALT") ?></small></td>

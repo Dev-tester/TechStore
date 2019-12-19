@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TM_STATUS_WORK"] = "Работаю";
 $MESS["TM_STATUS_COMPLETED"] = "Завершен";
 $MESS["TM_STATUS_START"] = "Начать";

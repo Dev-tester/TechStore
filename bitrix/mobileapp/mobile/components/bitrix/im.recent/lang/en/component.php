@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_B24DISK"] = "Bitrix24.Drive";
 $MESS["IM_CAMERA_ROLL"] = "Take a photo";
 $MESS["IM_CHOOSE_FILE_TITLE"] = "Files";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Crm\UI\Webpack\Internals;
 
 use	Bitrix\Main\Localization\Loc;

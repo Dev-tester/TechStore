@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Event type daily dynamics";
 $MESS ['STAT_F_EVENT_ID'] = "Event type:";
 $MESS ['STAT_F_PERIOD'] = "Period";

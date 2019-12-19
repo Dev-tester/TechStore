@@ -353,7 +353,7 @@ if (is_array($arResult['FILTER']))
 			{
 				$values[] = $elementName.' ['.$elementId.']';
 			}
-			?><input type="hidden" name="<?echo $propID?>[]" value=""><? //This will emulate empty input
+			?><input type="hidden" name="<?php echo $propID?>[]" value=""><?php  //This will emulate empty input
 			$lookupInputId = $APPLICATION->IncludeComponent(
 				'bitrix:main.lookup.input',
 				'elements',
@@ -388,7 +388,7 @@ if (is_array($arResult['FILTER']))
 					'SOCNET_GROUP_ID' => '',
 				), $component, array('HIDE_ICONS' => 'Y')
 			);
-			?><a href="javascript:void(0)" onclick="<?=$treeSelectorId?>.SetValue([]); <?=$treeSelectorId?>.Show()"><?echo GetMessage('CRM_PRODUCT_PROP_CHOOSE_ELEMENT')?></a><?
+			?><a href="javascript:void(0)" onclick="<?=$treeSelectorId?>.SetValue([]); <?=$treeSelectorId?>.Show()"><?php echo GetMessage('CRM_PRODUCT_PROP_CHOOSE_ELEMENT')?></a><?php 
 
 			$html = ob_get_contents();
 			ob_end_clean();
@@ -455,10 +455,10 @@ if(!isset($extMgrId[0]))
 		<input type="hidden" id="sectionID" name="sectionID" value="">
 		<input type="hidden" id="action" name="action" value="">
 	</form>
-<?
+<?php 
 }?>
 <script type="text/javascript">
-	<?
+	<?php 
 	if(!isset($extMgrId[0]))
 	{?>
 	BX.CrmProductSectionManager.create(
@@ -470,7 +470,7 @@ if(!isset($extMgrId[0]))
 			IDField: 'sectionID'
 		}
 	);
-	<?
+	<?php 
 }?>
 
 	BX.CrmProductSectionManager.messages =

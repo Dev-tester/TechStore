@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_WEBFORM_NAME"] = "CRM-форма";
 $MESS["CRM_ACTIVITY_WEBFORM_NAME_IN"] = "Входящие";
 $MESS["CRM_ACTIVITY_WEBFORM_FIELDS_LINK"] = "Адрес формы";

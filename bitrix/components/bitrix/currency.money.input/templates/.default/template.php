@@ -17,24 +17,24 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 
 <div class="money-editor" id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_wrap">
 	<input type="hidden" id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_value" name="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['FIELD_NAME'])?>" value="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['VALUE'])?>">
-	<input type="text" tabindex="0" id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_number" value="<?=\Bitrix\Main\Text\HtmlFilter::encode($arResult['VALUE_NUMBER'])?>" />&nbsp;<?if($arParams['EXTENDED_CURRENCY_SELECTOR'] === 'Y'):?><span id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_currency_selector" class="money-editor-currency-selector-wrap"></span><?else:?><select tabindex="0" <?if(strlen($arParams['FIELD_NAME_CURRENCY']) > 0):?>name="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['FIELD_NAME_CURRENCY'])?>" <?endif;?>id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_currency" onchange="BX.Currency.MoneyInput.get('<?=\Bitrix\Main\Text\HtmlFilter::encode(\CUtil::JSEscape($arParams['CONTROL_ID']))?>').setCurrency(this.value)">
-<?
+	<input type="text" tabindex="0" id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_number" value="<?=\Bitrix\Main\Text\HtmlFilter::encode($arResult['VALUE_NUMBER'])?>" />&nbsp;<?php if($arParams['EXTENDED_CURRENCY_SELECTOR'] === 'Y'):?><span id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_currency_selector" class="money-editor-currency-selector-wrap"></span><?php else:?><select tabindex="0" <?php if(strlen($arParams['FIELD_NAME_CURRENCY']) > 0):?>name="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['FIELD_NAME_CURRENCY'])?>" <?php endif;?>id="<?=\Bitrix\Main\Text\HtmlFilter::encode($arParams['CONTROL_ID'])?>_currency" onchange="BX.Currency.MoneyInput.get('<?=\Bitrix\Main\Text\HtmlFilter::encode(\CUtil::JSEscape($arParams['CONTROL_ID']))?>').setCurrency(this.value)">
+<?php 
 foreach($arResult['CURRENCY_LIST'] as $currency => $currencyTitle)
 {
 ?>
 		<option value="<?=\Bitrix\Main\Text\HtmlFilter::encode($currency)?>" <?=$currency === $arResult['VALUE_CURRENCY'] ? ' selected="selected"' : ''?>><?=\Bitrix\Main\Text\HtmlFilter::encode($currencyTitle)?></option>
-<?
+<?php 
 }
 ?>
-	</select><?endif;?>
+	</select><?php endif;?>
 </div>
 <script>
-<?
+<?php 
 if($arParams['EXTENDED_CURRENCY_SELECTOR'] === 'Y'):
 ?>
 	(function(){
 		var currencyItems = [
-<?
+<?php 
 $index = 0;
 $jsValueIndex = 0;
 foreach($arResult['CURRENCY_LIST'] as $currency => $currencyTitle)
@@ -47,7 +47,7 @@ foreach($arResult['CURRENCY_LIST'] as $currency => $currencyTitle)
 	$index++
 ?>
 			{NAME:'<?=\CUtil::JSEscape($currencyTitle)?>',VALUE:'<?=\CUtil::JSEscape($currency)?>'},
-<?
+<?php 
 }
 ?>
 		];
@@ -73,7 +73,7 @@ foreach($arResult['CURRENCY_LIST'] as $currency => $currencyTitle)
 		});
 
 	})();
-<?
+<?php 
 endif;
 ?>
 

@@ -23,7 +23,7 @@ $mailboxes = $runtimeData['mailboxes'];
 
 if ($from):?>
 <div style="display:none;">
-<?
+<?php 
 	$APPLICATION->IncludeComponent('bitrix:main.mail.confirm', '');
 ?>
 </div>
@@ -32,7 +32,7 @@ if ($from):?>
 	<input type="hidden" name="<?=htmlspecialcharsbx($from['FieldName'])?>" value="<?=htmlspecialcharsbx($fromValue)?>" data-role="mailbox-selector-value">
 	<a class="crm-automation-popup-settings-link" data-role="mailbox-selector"></a>
 </div>
-<?
+<?php 
 endif;
 ?>
 <div class="crm-automation-popup-settings">
@@ -112,14 +112,14 @@ endif;
 <div class="crm-automation-popup-settings">
 	<span class="crm-automation-popup-settings-title"><?=htmlspecialcharsbx($emailType['Name'])?>:</span>
 	<select class="crm-automation-popup-settings-dropdown" name="<?=htmlspecialcharsbx($emailType['FieldName'])?>">
-		<?foreach ($emailType['Options'] as $value => $optionLabel):?>
+		<?php foreach ($emailType['Options'] as $value => $optionLabel):?>
 			<option value="<?=htmlspecialcharsbx($value)?>"
 				<?=($value == $emailTypeValue) ? ' selected' : ''?>
 			><?=htmlspecialcharsbx($optionLabel)?></option>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</select>
 </div>
-<?
+<?php 
 	$config = array(
 		'type' => $dialog->getCurrentValue($attachmentType['FieldName']),
 		'typeInputName' => $attachmentType['FieldName'],
@@ -148,7 +148,7 @@ endif;
 	$configAttributeValue = htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($config));
 ?>
 <div class="crm-automation-popup-settings" data-role="file-selector" data-config="<?=$configAttributeValue?>"></div>
-<?if ($from):?>
+<?php if ($from):?>
 <script>
 
 	BX.ready(function ()
@@ -253,7 +253,7 @@ endif;
 		setMailbox(mailboxSelectorValue.value);
 	});
 </script>
-<?endif;?>
+<?php endif;?>
 
 <div class="crm-automation-popup-checkbox">
 	<div class="crm-automation-popup-checkbox-item">

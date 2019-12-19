@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_EMPTY_BASKET_PROPERTIES_ERROR"] = "Properties of products added to cart are not filled in";
 $MESS["CATALOG_ERROR2BASKET"] = "Could not add product to cart";
 $MESS["CATALOG_PARTIAL_BASKET_PROPERTIES_ERROR"] = "Not all properties of products added to the cart are filled in";

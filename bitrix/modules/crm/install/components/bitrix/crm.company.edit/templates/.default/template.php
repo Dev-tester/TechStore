@@ -5,7 +5,7 @@ global $APPLICATION;
 $APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/crm-entity-show.css");
 
 if(isset($arResult['CONVERSION_LEGEND'])):
-	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?
+	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?php 
 endif;
 
 $arTabs = array();
@@ -162,4 +162,4 @@ if($arResult['DUPLICATE_CONTROL']['ENABLED']):?>
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MPF_INSERT_FILE"] = "Кликните, чтобы вставить файл";
 $MESS["MPF_TAGS"] = "Теги:";
 $MESS["MPF_SPOILER"] = "Вставить спойлер";

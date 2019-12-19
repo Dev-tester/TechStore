@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_ADMIN_TITLE"] = "Список вопросов";
 $MESS["LEARNING_ADD"] = "Добавить вопрос";
 $MESS["LEARNING_LESSON"] = "Урок";

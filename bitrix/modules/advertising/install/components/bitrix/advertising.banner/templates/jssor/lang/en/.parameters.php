@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADV_JSSOR_CYCLING"] = "Auto advance";
 $MESS["ADV_JSSOR_PAUSE"] = "Pause on hover";
 $MESS["ADV_JSSOR_BS_HIDE_FOR_TABLETS"] = "Hide banner area on tablets";

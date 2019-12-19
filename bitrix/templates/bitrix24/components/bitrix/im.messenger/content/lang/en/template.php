@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_FULLSCREEN_COPYRIGHT"] = "&copy; 2001-2016 Bitrix, Inc.";
 $MESS["IM_FULLSCREEN_BACK"] = "Close";
 $MESS["IM_FULLSCREEN_BG_TRANSPARENT"] = "Transparent";

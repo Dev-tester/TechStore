@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_L_ADD_ITEM"] = "Standort hinzufügen";
 $MESS["SALE_LOCATION_L_ANY"] = "beliebig";
 $MESS["SALE_LOCATION_L_CONFIRM_DELETE_ITEM"] = "Möchten Sie diesen Standort wirklich löschen? Alle untergeordneten Standorte werden somit auch gelöscht.";

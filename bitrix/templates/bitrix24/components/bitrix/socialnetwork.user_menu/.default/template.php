@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Application;
 use Bitrix\Tasks\Internals\Counter;
 use Bitrix\Tasks\Internals\Counter\Name;
 use Bitrix\Tasks\Util\User; ?>
-<?
+<?php 
 CUtil::InitJSCore(array("popup"));
 
 if (
@@ -62,7 +62,7 @@ elseif ($arResult["User"]["IS_EXTRANET"] == 'Y')
 }
 ?>
 
-<?
+<?php 
 $requestUri = Application::getInstance()->getContext()->getRequest()->getRequestUri();
 
 $items = array(
@@ -293,4 +293,4 @@ $APPLICATION->IncludeComponent(
 	)
 );
 ?>
-<?$this->EndViewTarget();?>
+<?php $this->EndViewTarget();?>

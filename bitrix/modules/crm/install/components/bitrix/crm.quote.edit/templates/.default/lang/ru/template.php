@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Предложение";
 $MESS["CRM_TAB_1_TITLE"] = "Свойства предложения";
 $MESS["CRM_QUOTE_SHOW_TITLE"] = "Предложение №#QUOTE_NUMBER# от #BEGINDATE#";

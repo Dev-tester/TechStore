@@ -1,4 +1,4 @@
-<?
+<?php 
 class CIBlockSection extends CAllIBlockSection
 {
 	public static function GetList($arOrder=array("SORT"=>"ASC"), $arFilter=array(), $bIncCnt = false, $arSelect = array(), $arNavStartParams=false)

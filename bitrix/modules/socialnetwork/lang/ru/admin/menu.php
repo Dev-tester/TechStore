@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_MENU_SMILES'] = "Смайлы";
 $MESS ['SONET_MENU_SMILES_ALT'] = "Управление смайлами и иконками";
 $MESS ['BLG_AM_SONETS_ALT'] = "Управление социальной сетью";

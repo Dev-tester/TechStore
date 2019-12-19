@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_FID_IS_EMPTY"] = "Не указан форум для соц. сети.";
 $MESS["F_FID_IS_LOST"] = "Форум соц. сети не найден.";
 $MESS["F_TOPIC_LIST"] = "Темы";

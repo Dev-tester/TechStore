@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Composite;
 use Bitrix\Main\Composite\Debug\Logger;
 use Bitrix\Main\Composite\Debug\Model\LogTable;
@@ -295,14 +295,14 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 	<?=bitrix_sessid_post();?>
 	<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 	<input type="hidden" name="debug_form" value="Y">
-	<? if (Logger::isOn()):?>
+	<?php  if (Logger::isOn()):?>
 		<div style="color:red; margin: 0 0 10px 1px;">
 			<b><?=Loc::getMessage("MAIN_COMPOSITE_LOG_DEBUG_ENABLED")?></b>
 		</div>
 		<input type="submit" name="disable_debug"
 			   value="<?=Loc::getMessage("MAIN_COMPOSITE_LOG_DISABLE_DEBUG")?>" class="adm-btn-save">&nbsp;&nbsp;
 
-		<?
+		<?php 
 		$secondsLeft = Logger::getEndTime() - time();
 		if ($secondsLeft > 0):
 		?>
@@ -314,25 +314,25 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 					accuracy: 1
 				});
 			</script>
-		<? endif ?>
-	<? else: ?>
+		<?php  endif ?>
+	<?php  else: ?>
 		<div style="color:green; margin: 0 0 10px 1px;">
 			<b><?=Loc::getMessage("MAIN_COMPOSITE_LOG_DEBUG_DISABLED")?></b>
 		</div>
 		<input type="submit" name="enable_debug" value="<?=Loc::getMessage("MAIN_COMPOSITE_LOG_ENABLE_DEBUG")?>">
 		&nbsp;&nbsp;
 		<select name="duration">
-			<?
+			<?php 
 			$currentDuration = Option::get("main", "composite_debug_duration", 300);
 			?>
-			<? foreach (array(300, 600, 1200, 1800, 3600) as $duration): ?>
+			<?php  foreach (array(300, 600, 1200, 1800, 3600) as $duration): ?>
 				<option
 					value="<?=$duration?>"
 					<?=($currentDuration == $duration ? " selected" : "")?>
 				><?=Loc::getMessage("MAIN_COMPOSITE_LOG_INTERVAL_".$duration."_SEC")?></option>
-			<? endforeach ?>
+			<?php  endforeach ?>
 		</select>
-	<? endif ?>
+	<?php  endif ?>
 
 	<div style="margin: 10px 0 0 1px;">
 		<?=Loc::getMessage("MAIN_COMPOSITE_LOG_DEBUG_DESC")?><br>
@@ -348,7 +348,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 
 
 <form method="GET" action="<?=$APPLICATION->getCurPage()?>" name="find_form">
-<?
+<?php 
 $filterControl = new CAdminFilter(
 	$tableID."_filter",
 	array(
@@ -398,7 +398,7 @@ $filterControl->begin();
 	<tr>
 		<td><?=$logEntity->getField("TYPE")->getTitle()?>:</td>
 		<td>
-			<?
+			<?php 
 			$types = array_map(
 				function($type) {
 					return Logger::getTypeName($type);
@@ -441,7 +441,7 @@ $filterControl->begin();
 		<td><input type="text" name="find_user_id" value="<?=htmlspecialcharsbx($find_user_id)?>" size="40"></td>
 	</tr>
 
-<?
+<?php 
 $filterControl->buttons(array(
 	"table_id" => $tableID,
 	"url"=> $APPLICATION->getCurPage(),
@@ -453,7 +453,7 @@ $filterControl->end();
 </form>
 
 
-<?
+<?php 
 
 $adminList->displayList();
 

@@ -1,4 +1,4 @@
-<?global $DOCUMENT_ROOT, $MESS;
+<?php global $DOCUMENT_ROOT, $MESS;
 use Bitrix\Main\Config\Option;
 
 IncludeModuleLangFile(__FILE__);

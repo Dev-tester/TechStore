@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C36_T_FILTER_PRESET_MY"] = "Мои";
 $MESS["SONET_C36_T_FILTER_PRESET_FAVORITES"] = "Избранные";
 $MESS["SONET_C36_T_FILTER_PRESET_EXTRANET"] = "Экстранет";

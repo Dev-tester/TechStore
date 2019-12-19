@@ -1,11 +1,11 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/board/index.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 ?>
 <h4><a href="#SITE_DIR#services/board/my/?edit=Y"><?=GetMessage("SERVICES_ADD")?></a> | <a href="#SITE_DIR#services/board/my/"><?=GetMessage("SERVICES_MY")?></a></h4>
 
-<?$APPLICATION->IncludeComponent("bitrix:catalog.section", "board", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog.section", "board", Array(
 	"IBLOCK_TYPE"	=>	"services",
 	"IBLOCK_ID"	=>	"#BOARD_IBLOCK_ID#",
 	"SECTION_ID"	=>	$_REQUEST["SECTION_ID"],
@@ -55,4 +55,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 	)
 );?>
 <br />
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

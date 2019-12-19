@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_FILE_SIZE_DESCRIPTION'] = "File size";
 $MESS['FORM_VALIDATOR_FILE_SIZE_SETTINGS_SIZE_FROM'] = "Minimum size (bytes)";
 $MESS['FORM_VALIDATOR_FILE_SIZE_SETTINGS_SIZE_TO'] = "Maximum size (bytes)";

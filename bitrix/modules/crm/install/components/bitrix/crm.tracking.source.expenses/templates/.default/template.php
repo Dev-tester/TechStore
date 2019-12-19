@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Web\Json;
@@ -72,7 +72,7 @@ $this->SetViewTarget('pagetitle');
 	<button id="crm-tracking-expenses-add" type="button" class="ui-btn ui-btn-primary">
 		<?=Loc::getMessage('CRM_TRACKING_EXPENSES_BTN_ADD')?>
 	</button>
-<?
+<?php 
 $this->EndViewTarget();
 
 $snippet = new \Bitrix\Main\Grid\Panel\Snippet();
@@ -141,11 +141,11 @@ $APPLICATION->IncludeComponent(
 					<div data-role="crm/tracking/currency" class="ui-ctl ui-ctl-after-icon ui-ctl-dropdown ui-ctl-inline ui-ctl-w33">
 						<div class="ui-ctl-after ui-ctl-icon-angle"></div>
 						<select data-role="crm/tracking/currency/data" class="ui-ctl-element">
-							<?foreach ($arResult['CURRENCIES'] as $currencyId => $currency):?>
+							<?php foreach ($arResult['CURRENCIES'] as $currencyId => $currency):?>
 								<option value="<?=htmlspecialcharsbx($currencyId)?>">
 									<?=htmlspecialcharsbx($currency['FULL_NAME'])?>
 								</option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select>
 					</div>
 				</div>
@@ -187,9 +187,9 @@ $APPLICATION->IncludeComponent(
 				]
 			))?>);
 
-			<?if ($arResult['IS_ADD']):?>
+			<?php if ($arResult['IS_ADD']):?>
 				BX.Crm.Tracking.Expenses.showAddPopup();
-			<?endif;?>
+			<?php endif;?>
 		});
 	</script>
 <?

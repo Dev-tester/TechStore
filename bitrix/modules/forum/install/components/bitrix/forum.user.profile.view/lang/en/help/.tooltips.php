@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UID_TIP"] = "User ID";
 $MESS["URL_TEMPLATES_READ_TIP"] = "Topic View Page";
 $MESS["URL_TEMPLATES_MESSAGE_TIP"] = "Post View Page";

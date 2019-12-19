@@ -1,10 +1,10 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if(strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -12,7 +12,7 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 
 	if ($arResult["EventType"] == "FriendRequest")
@@ -29,7 +29,7 @@ else
 					<tr>
 						<td align="center">
 							<?= $arResult["Event"]["USER_PERSONAL_PHOTO_IMG"]; ?><br>
-							<?
+							<?php 
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -88,7 +88,7 @@ else
 			</tr>
 		</table>
 		</div>
-		<?
+		<?php 
 	}
 	elseif ($arResult["EventType"] == "GroupRequest")
 	{
@@ -104,7 +104,7 @@ else
 					<tr>
 						<td align="center">
 							<?= $arResult["Event"]["GROUP_IMAGE_ID_IMG"]; ?><br>
-							<?
+							<?php 
 							if ($arResult["Event"]["SHOW_GROUP_LINK"])
 								echo "<a href=\"".$arResult["Event"]["GROUP_PROFILE_URL"]."\">";
 							echo $arResult["Event"]["GROUP_NAME"];
@@ -121,7 +121,7 @@ else
 					<tr>
 						<td align="center">
 							<?= GetMessage("SONET_C1_GR_INV") ?>:
-							<?
+							<?php 
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -181,7 +181,7 @@ else
 			</tr>
 		</table>
 		</div>
-		<?
+		<?php 
 	}
 	elseif ($arResult["EventType"] == "Message")
 	{
@@ -197,7 +197,7 @@ else
 					<tr>
 						<td align="center">
 							<?= $arResult["Event"]["USER_PERSONAL_PHOTO_IMG"]; ?><br>
-							<?
+							<?php 
 							
 							$APPLICATION->IncludeComponent("bitrix:main.user.link",
 								'',
@@ -246,13 +246,13 @@ else
 							<?= $arResult["Event"]["DATE_CREATE"]; ?>
 						</td>
 					</tr>
-					<?if (StrLen($arResult["Event"]["TITLE"]) > 0):?>
+					<?php if (StrLen($arResult["Event"]["TITLE"]) > 0):?>
 					<tr>
 						<td align="center">
 							<?= $arResult["Event"]["TITLE"]; ?>
 						</td>
 					</tr>
-					<?endif;?>
+					<?php endif;?>
 					<tr>
 						<td>
 							<?= $arResult["Event"]["MESSAGE"]; ?>
@@ -260,18 +260,18 @@ else
 					</tr>
 					<tr>
 						<td>
-							<?if ($arResult["Urls"]["Reply"]["Show"]):?>
+							<?php if ($arResult["Urls"]["Reply"]["Show"]):?>
 								<input type="button" name="do_message_answer" value="<?= GetMessage("SONET_C1_ANSWER") ?>" onclick="window.location='<?= $arResult["Urls"]["Reply"]["Link"] ?>'">
-							<?endif;?>
+							<?php endif;?>
 							<input type="button" name="do_message_close" value="<?= GetMessage("SONET_C1_CLOSE") ?>" onclick="window.location='<?= $arResult["Urls"]["Close"] ?>'">
-							<?if ($arResult["Urls"]["Reply"]["Show"]):?>
+							<?php if ($arResult["Urls"]["Reply"]["Show"]):?>
 								<br><br>
 								<a href="<?= $arResult["Urls"]["Chat"] ?>"><?= GetMessage("SONET_C1_CHAT") ?></a>
-							<?endif;?>
-							<?if ($arResult["Urls"]["Ban"]["Show"]):?>
+							<?php endif;?>
+							<?php if ($arResult["Urls"]["Ban"]["Show"]):?>
 								<br><br>
 								<a href="<?= $arResult["Urls"]["Ban"]["Link"] ?>"><?= GetMessage("SONET_C1_BAN") ?></a>
-							<?endif;?>
+							<?php endif;?>
 						</td>
 					</tr>
 					</table>
@@ -279,7 +279,7 @@ else
 			</tr>
 		</table>
 		</div>
-		<?
+		<?php 
 	}
 }
 ?>

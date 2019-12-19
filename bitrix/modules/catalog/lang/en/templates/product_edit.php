@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BASE_CURRENCY"] = "Base price currency";
 $MESS["BASE_PRICE"] = "Base price";
 $MESS["BASE_QUANTITY_RESERVED"] = "Items reserved";

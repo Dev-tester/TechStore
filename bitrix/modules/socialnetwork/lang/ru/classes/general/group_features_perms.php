@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_GFP_EMPTY_GROUP_FEATURE_ID'] = "Не указан функционал";
 $MESS ['SONET_GFP_ERROR_NO_GROUP_FEATURE_ID'] = "Функционал указан неверно";
 $MESS ['SONET_GFP_EMPTY_OPERATION_ID'] = "Не указана операция";

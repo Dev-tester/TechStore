@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_1"] = "Parameters";
 $MESS["CRM_TAB_1_TITLE"] = "Location parameters";
 $MESS["CRM_TAB_2"] = "Postal codes";

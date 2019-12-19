@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["customrank_edit_param1"] = "Параметр 1:";
 $MESS["customrank_edit_param2"] = "Параметр 2:";
 $MESS["customrank_edit_param3"] = "Параметр 3:";

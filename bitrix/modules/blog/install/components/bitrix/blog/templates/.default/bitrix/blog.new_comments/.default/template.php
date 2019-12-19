@@ -1,23 +1,23 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
 <div class="blog-mainpage-comment">
-<?
+<?php 
 foreach($arResult as $arComment)
 {
 	if($arComment["FIRST"]!="Y")
 	{
-		?><div class="blog-line"></div><?
+		?><div class="blog-line"></div><?php 
 	}
 	?>
 	
 	<div class="blog-mainpage-item">
 	<div class="blog-author">
-	<?
+	<?php 
 	if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($arComment["urlToBlog"]) > 0 || strlen($arComment["urlToAuthor"]) > 0) && array_key_exists("ALIAS", $arComment["BlogUser"]) && strlen($arComment["BlogUser"]["ALIAS"]) > 0)
 		$arTmpUser = array(
 			"NAME" => "",
@@ -35,16 +35,16 @@ foreach($arResult as $arComment)
 			"NAME_LIST_FORMATTED" => "",
 		);
 	?>
-	<?if(strlen($arComment["urlToBlog"])>0)
+	<?php if(strlen($arComment["urlToBlog"])>0)
 	{
 		if($arParams["SEO_USER"] == "Y"):?>
 			<noindex>
 				<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>" rel="nofollow"></a>
 			</noindex>
-		<?else:?>
+		<?php else:?>
 			<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>"></a>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 		$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 			'',
 			array(
@@ -75,7 +75,7 @@ foreach($arResult as $arComment)
 			array("HIDE_ICONS" => "Y")
 		);
 		?>
-		<?
+		<?php 
 	}
 	elseif(strlen($arComment["urlToAuthor"])>0)
 	{
@@ -83,10 +83,10 @@ foreach($arResult as $arComment)
 			<noindex>
 				<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>" rel="nofollow"></a>
 			</noindex>
-		<?else:?>
+		<?php else:?>
 			<a class="blog-author-icon" href="<?=$arComment["urlToAuthor"]?>"></a>
-		<?endif;?>
-		<?
+		<?php endif;?>
+		<?php 
 		$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 			'',
 			array(
@@ -116,27 +116,27 @@ foreach($arResult as $arComment)
 			array("HIDE_ICONS" => "Y")
 		);
 		?>
-		<?
+		<?php 
 	}
 	else
 	{
 		?>
 		<span class="blog-author-icon"></span><?=$arComment["AuthorName"]?>
-		<?
+		<?php 
 	}?>
 	</div>
 	<div class="blog-mainpage-meta">
 		<a href="<?=$arComment["urlToComment"]?>" title="<?=GetMessage("BLOG_BLOG_M_DATE")?>"><?=$arComment["DATE_CREATE_FORMATED"]?></a>
 	</div>
 	<div class="blog-clear-float"></div>
-	<!--<div class="blog-mainpage-title"><a href="<?=$arComment["urlToComment"]?>"><?echo $arComment["POST_TITLE_FORMATED"]; ?></a></div>//-->
+	<!--<div class="blog-mainpage-title"><a href="<?=$arComment["urlToComment"]?>"><?php echo $arComment["POST_TITLE_FORMATED"]; ?></a></div>//-->
 	<div class="blog-mainpage-content">
 		<a href="<?=$arComment["urlToComment"]?>"><?=$arComment["TEXT_FORMATED"]?></a>
 	</div>
 
 	<div class="blog-clear-float"></div>
 	</div>
-	<?
+	<?php 
 }
 ?>	
 </div>

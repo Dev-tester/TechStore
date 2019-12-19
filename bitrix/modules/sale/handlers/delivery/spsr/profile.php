@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Sale\Handlers\Delivery;
 
 use Bitrix\Main\Error;

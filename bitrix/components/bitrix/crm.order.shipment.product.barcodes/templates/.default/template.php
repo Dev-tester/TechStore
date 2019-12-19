@@ -38,14 +38,14 @@ $inputTemplate =
 			window.location = "<?=CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME'))); ?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
+	<?php $APPLICATION->ShowHead();?>
 </head>
-<body class="crm-iframe-popup crm-detail-page template-<?=SITE_TEMPLATE_ID?> crm-iframe-popup-no-scroll crm-order-shipment-product-list-barcode-wrapper <? $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
+<body class="crm-iframe-popup crm-detail-page template-<?=SITE_TEMPLATE_ID?> crm-iframe-popup-no-scroll crm-order-shipment-product-list-barcode-wrapper <?php  $APPLICATION->ShowProperty('BodyClass'); ?>" onload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'crmEntityIframeUnload');">
 
 <div class="crm-iframe-header">
 	<div class="pagetitle-wrap">
 		<div class="pagetitle-inner-container">
-			<div class="pagetitle-menu" id="pagetitle-menu"><?
+			<div class="pagetitle-menu" id="pagetitle-menu"><?php 
 				$APPLICATION->ShowViewContent("pagetitle");
 				$APPLICATION->ShowViewContent("inside_pagetitle");
 				?></div>
@@ -56,7 +56,7 @@ $inputTemplate =
 	</div>
 
 	<div class="crm-iframe-workarea" id="crm-content-outer">
-		<div class="crm-iframe-sidebar"><?$APPLICATION->ShowViewContent("sidebar"); ?></div>
+		<div class="crm-iframe-sidebar"><?php $APPLICATION->ShowViewContent("sidebar"); ?></div>
 		<div class="crm-iframe-content">
 			<form id="crm-order-shipment-barcodes-form">
 				<div class="crm-entity-card-container">

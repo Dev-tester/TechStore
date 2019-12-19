@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_PARAMS_POPUP_LIST_ID"] = "ID списка";
 $MESS["LISTS_PARAMS_POPUP_SECTION_ID"] = "ID раздела";
 $MESS["LISTS_PARAMS_POPUP_ELEMENT_ID"] = "ID элемента";

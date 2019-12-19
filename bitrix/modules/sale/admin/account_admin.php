@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $publicMode = $adminPage->publicMode;
@@ -333,7 +333,7 @@ else
 	$lAdmin->DisplayList();
 
 	echo BeginNote();
-	?><span id="order_sum"><?print_r($order_sum);?></span><?
+	?><span id="order_sum"><?print_r($order_sum);?></span><?php 
 	echo EndNote();
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

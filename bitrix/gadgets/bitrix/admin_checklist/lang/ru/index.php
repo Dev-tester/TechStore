@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CL_TEST_TOTAL"] = "Всего тестов";
 $MESS["CL_TEST_CHECKED"] = "Пройдено успешно";
 $MESS["CL_TEST_FAILED"] = "Не пройдено";

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Catalog;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -487,7 +487,7 @@ if ($bVarsFromForm)
 }
 ?>
 
-<?
+<?php 
 $arSiteList = array();
 $by = 'sort';
 $order = 'asc';
@@ -514,16 +514,16 @@ $tabControl->EndPrologContent();
 
 $tabControl->BeginEpilogContent();
 ?>
-<? echo bitrix_sessid_post()?>
-<? echo GetFilterHiddens("find_");?>
-<input type="hidden" name="lang" value="<? echo htmlspecialcharsbx(LANGUAGE_ID); ?>">
-<?if($ID > 0)
+<?php  echo bitrix_sessid_post()?>
+<?php  echo GetFilterHiddens("find_");?>
+<input type="hidden" name="lang" value="<?php  echo htmlspecialcharsbx(LANGUAGE_ID); ?>">
+<?php if($ID > 0)
 {
-	?><input type="hidden" name="ID" value="<? echo $ID?>"><?
+	?><input type="hidden" name="ID" value="<?php  echo $ID?>"><?php 
 }
 if ($boolCopy)
 {
-	?><input type="hidden" name="action" value="copy"><?
+	?><input type="hidden" name="action" value="copy"><?php 
 }
 
 $tabControl->EndEpilogContent();
@@ -545,33 +545,33 @@ $tabControl->AddSection("BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT", GetMessage("BT_CAT
 $tabControl->BeginCustomField("COUNT",GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT').":",true);
 ?>
 	<tr id="tr_COUNT_PERIOD" class="adm-detail-required-field">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_COUNT_TYPE')); ?>:</td>
-		<td width="60%"><select name="COUNT_PERIOD" id="COUNT_PERIOD"><?
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_COUNT_TYPE')); ?>:</td>
+		<td width="60%"><select name="COUNT_PERIOD" id="COUNT_PERIOD"><?php 
 		foreach ($arCountPeriod as $key => $value)
 		{
-			?><option value="<? echo htmlspecialcharsbx($key); ?>" <? echo ($key == $str_COUNT_PERIOD ? 'selected' : ''); ?>><? echo htmlspecialcharsex($value); ?></option><?
+			?><option value="<?php  echo htmlspecialcharsbx($key); ?>" <?php  echo ($key == $str_COUNT_PERIOD ? 'selected' : ''); ?>><?php  echo htmlspecialcharsex($value); ?></option><?php 
 		}
 		?></select></td>
 	</tr>
-	<tr id="tr_COUNT_FROM" style="display: <? echo 'D' == $str_COUNT_PERIOD ? 'table-row' : 'none'; ?>;">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT_FROM')) ?>:</td>
-		<td width="60%"><? echo CAdminCalendar::CalendarDate("COUNT_FROM", $str_COUNT_FROM, 19, true); ?></td>
+	<tr id="tr_COUNT_FROM" style="display: <?php  echo 'D' == $str_COUNT_PERIOD ? 'table-row' : 'none'; ?>;">
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT_FROM')) ?>:</td>
+		<td width="60%"><?php  echo CAdminCalendar::CalendarDate("COUNT_FROM", $str_COUNT_FROM, 19, true); ?></td>
 	</tr>
-	<tr id="tr_COUNT_TO" style="display: <? echo 'D' == $str_COUNT_PERIOD ? 'table-row' : 'none'; ?>;">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT_TO')) ?>:</td>
-		<td width="60%"><? echo CAdminCalendar::CalendarDate("COUNT_TO", $str_COUNT_TO, 19, true); ?></td>
+	<tr id="tr_COUNT_TO" style="display: <?php  echo 'D' == $str_COUNT_PERIOD ? 'table-row' : 'none'; ?>;">
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT_TO')) ?>:</td>
+		<td width="60%"><?php  echo CAdminCalendar::CalendarDate("COUNT_TO", $str_COUNT_TO, 19, true); ?></td>
 	</tr>
-	<tr id="tr_COUNT_TYPE_SIZE" style="display: <? echo 'P' == $str_COUNT_PERIOD ? 'table-row' : 'none'; ?>;">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT_TYPE')); ?>:</td>
-		<td width="60%"><input type="text" name="COUNT_SIZE" id="COUNT_SIZE" value="<? echo intval($str_COUNT_SIZE); ?>" size="7" maxlength="10">&nbsp;<select name="COUNT_TYPE" id="COUNT_TYPE"><?
+	<tr id="tr_COUNT_TYPE_SIZE" style="display: <?php  echo 'P' == $str_COUNT_PERIOD ? 'table-row' : 'none'; ?>;">
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_COUNT_TYPE')); ?>:</td>
+		<td width="60%"><input type="text" name="COUNT_SIZE" id="COUNT_SIZE" value="<?php  echo intval($str_COUNT_SIZE); ?>" size="7" maxlength="10">&nbsp;<select name="COUNT_TYPE" id="COUNT_TYPE"><?php 
 		foreach ($arTypeList as $key => $value)
 		{
-			?><option value="<? echo htmlspecialcharsbx($key); ?>" <? echo ($key == $str_COUNT_TYPE ? 'selected' : ''); ?>><? echo htmlspecialcharsex($value); ?></option><?
+			?><option value="<?php  echo htmlspecialcharsbx($key); ?>" <?php  echo ($key == $str_COUNT_TYPE ? 'selected' : ''); ?>><?php  echo htmlspecialcharsex($value); ?></option><?php 
 		}
 		?></select>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("COUNT",
 	'<input type="hidden" name="COUNT_PERIOD" value="'.$str_COUNT_PERIOD.'">'.
 	'<input type="hidden" name="COUNT_SIZE" value="'.$str_COUNT_SIZE.'">'.
@@ -585,33 +585,33 @@ $tabControl->AddSection("BT_CAT_DISC_SAVE_EDIT_SECTIONS_ACTIVITY", GetMessage("B
 $tabControl->BeginCustomField('ACTIVITY_INFO',GetMessage("BT_CAT_DISC_SAVE_EDIT_FILEDS_ACTIVITY").":", true);
 ?>
 	<tr id="tr_ACTIVE_PERIOD" class="adm-detail-required-field">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_ACTION_TYPE')); ?>:</td>
-		<td width="60%"><select name="ACTION_PERIOD" id="ACTION_PERIOD"><?
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_ACTION_TYPE')); ?>:</td>
+		<td width="60%"><select name="ACTION_PERIOD" id="ACTION_PERIOD"><?php 
 		foreach ($arActionPeriod as $key => $value)
 		{
-			?><option value="<? echo htmlspecialcharsbx($key); ?>" <? echo ($key == $str_ACTION_PERIOD ? 'selected' : ''); ?>><? echo htmlspecialcharsex($value); ?></option><?
+			?><option value="<?php  echo htmlspecialcharsbx($key); ?>" <?php  echo ($key == $str_ACTION_PERIOD ? 'selected' : ''); ?>><?php  echo htmlspecialcharsex($value); ?></option><?php 
 		}
 		?></select></td>
 	</tr>
-	<tr id="tr_ACTIVE_FROM" style="display: <? echo 'D' == $str_ACTION_PERIOD ? 'table-row' : 'none'; ?>;">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_ACTIVE_FROM')); ?>:</td>
-		<td width="60%"><? echo CAdminCalendar::CalendarDate("ACTIVE_FROM", $str_ACTIVE_FROM, 19, true); ?></td>
+	<tr id="tr_ACTIVE_FROM" style="display: <?php  echo 'D' == $str_ACTION_PERIOD ? 'table-row' : 'none'; ?>;">
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_ACTIVE_FROM')); ?>:</td>
+		<td width="60%"><?php  echo CAdminCalendar::CalendarDate("ACTIVE_FROM", $str_ACTIVE_FROM, 19, true); ?></td>
 	</tr>
-	<tr id="tr_ACTIVE_TO" style="display: <? echo 'D' == $str_ACTION_PERIOD ? 'table-row' : 'none'; ?>;">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_ACTIVE_TO')); ?>:</td>
-		<td width="60%"><? echo CAdminCalendar::CalendarDate("ACTIVE_TO", $str_ACTIVE_TO, 19, true); ?></td>
+	<tr id="tr_ACTIVE_TO" style="display: <?php  echo 'D' == $str_ACTION_PERIOD ? 'table-row' : 'none'; ?>;">
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_ACTIVE_TO')); ?>:</td>
+		<td width="60%"><?php  echo CAdminCalendar::CalendarDate("ACTIVE_TO", $str_ACTIVE_TO, 19, true); ?></td>
 	</tr>
-	<tr id="tr_ACTION_TYPE_SIZE" style="display: <? echo 'P' == $str_ACTION_PERIOD ? 'table-row' : 'none'; ?>;">
-		<td width="40%"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_ACTION_TYPE')); ?>:</td>
-		<td width="60%"><input type="text" name="ACTION_SIZE" id="ACTION_SIZE" value="<? echo intval($str_ACTION_SIZE); ?>" size="7" maxlength="10">&nbsp;<select name="ACTION_TYPE" id="ACTION_TYPE"><?
+	<tr id="tr_ACTION_TYPE_SIZE" style="display: <?php  echo 'P' == $str_ACTION_PERIOD ? 'table-row' : 'none'; ?>;">
+		<td width="40%"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_ACTION_TYPE')); ?>:</td>
+		<td width="60%"><input type="text" name="ACTION_SIZE" id="ACTION_SIZE" value="<?php  echo intval($str_ACTION_SIZE); ?>" size="7" maxlength="10">&nbsp;<select name="ACTION_TYPE" id="ACTION_TYPE"><?php 
 		foreach ($arTypeList as $key => $value)
 		{
-			?><option value="<? echo htmlspecialcharsbx($key); ?>" <? echo ($key == $str_ACTION_TYPE ? 'selected' : ''); ?>><? echo htmlspecialcharsex($value); ?></option><?
+			?><option value="<?php  echo htmlspecialcharsbx($key); ?>" <?php  echo ($key == $str_ACTION_TYPE ? 'selected' : ''); ?>><?php  echo htmlspecialcharsex($value); ?></option><?php 
 		}
 		?></select>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("ACTIVITY_INFO",
 	'<input type="hidden" name="ACTION_PERIOD" value="'.$str_ACTION_PERIOD.'">'.
 	'<input type="hidden" name="ACTIVE_FROM" value="'.$str_ACTIVE_FROM.'">'.
@@ -627,28 +627,28 @@ $tabControl->AddDropDownField("CURRENCY", GetMessage('BT_CAT_DISC_SAVE_EDIT_FIEL
 $tabControl->BeginCustomField('RANGES',GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_RANGES'),true);
 ?>
 	<tr id="tr_RANGES" class="adm-detail-required-field">
-		<td valign="top" width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?>:</td>
+		<td valign="top" width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?>:</td>
 		<td width="60%">
 <script type="text/javascript">
 var CellTPL = new Array();
-<?
+<?php 
 foreach ($arCellTemplates as $key => $value)
 {
-	?>CellTPL[<? echo $key; ?>] = '<? echo $value; ?>';
-<?
+	?>CellTPL[<?php  echo $key; ?>] = '<?php  echo $value; ?>';
+<?php 
 }
 ?>
 var CellAttr = new Array();
 
 var obRanges = new JCCatTblEdit({
-	'PREFIX': '<? echo RANGE_ROW_PREFIX; ?>',
+	'PREFIX': '<?php  echo RANGE_ROW_PREFIX; ?>',
 	'TABLE_PROP_ID': 'range_list',
 	'PROP_COUNT_ID': 'RANGES_COUNT'
 });
 obRanges.SetCells(CellTPL,CellAttr);
 </script>
 			<table id="range_list" class="internal" cellspacing="0" cellpadding="0" border="0" style="width: auto;"><tbody>
-			<tr class="heading"><td align="center"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_RANGE_SUMM'))?></td><td align="center"><? echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_RANGE_DISCOUNT'))?></td></tr><?
+			<tr class="heading"><td align="center"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_RANGE_SUMM'))?></td><td align="center"><?php  echo htmlspecialcharsex(GetMessage('BT_CAT_DISC_SAVE_EDIT_RANGE_DISCOUNT'))?></td></tr><?php 
 			$intCount = 0;
 			foreach ($arRanges as &$arOneRange)
 			{
@@ -664,11 +664,11 @@ obRanges.SetCells(CellTPL,CellAttr);
 			}
 		?></tbody></table>
 		<div style="width: 100%; text-align: left; margin-top: 10px;">
-			<input class="adm-btn-big" onclick="obRanges.addRow();" type="button" value="<? echo GetMessage('BT_CAT_DISC_SAVE_RANGE_MORE')?>" title="<? echo GetMessage('BT_CAT_DISC_SAVE_RANGE_MORE_DESCR')?>">
+			<input class="adm-btn-big" onclick="obRanges.addRow();" type="button" value="<?php  echo GetMessage('BT_CAT_DISC_SAVE_RANGE_MORE')?>" title="<?php  echo GetMessage('BT_CAT_DISC_SAVE_RANGE_MORE_DESCR')?>">
 		</div>
-		<input type="hidden" name="RANGES_COUNT" id="RANGES_COUNT" value="<? echo intval($intCount); ?>">
+		<input type="hidden" name="RANGES_COUNT" id="RANGES_COUNT" value="<?php  echo intval($intCount); ?>">
 	</td></tr>
-<?
+<?php 
 $strHiddenRanges = '';
 $intCount = 0;
 foreach ($arRanges as &$arOneRange)
@@ -688,20 +688,20 @@ $tabControl->BeginNextFormTab();
 $tabControl->BeginCustomField('GROUP_IDS',GetMessage('BT_CAT_DISC_SAVE_EDIT_FIELDS_GROUP_IDS'),true);
 ?>
 	<tr id="tr_GROUP_IDS" class="adm-detail-required-field">
-		<td valign="top" width="40%"><? echo $tabControl->GetCustomLabelHTML(); ?>:</td>
-		<td width="60%" align="left"><select name="GROUP_IDS[]" multiple size="8"><?
+		<td valign="top" width="40%"><?php  echo $tabControl->GetCustomLabelHTML(); ?>:</td>
+		<td width="60%" align="left"><select name="GROUP_IDS[]" multiple size="8"><?php 
 		$rsUserGroups = CGroup::GetList(($by = 'c_sort'),($order="asc"),array(),"N");
 		while ($arUserGroup = $rsUserGroups->Fetch())
 		{
 			if (2 != $arUserGroup['ID'])
 			{
-				?><option value="<? echo intval($arUserGroup['ID'])?>" <? echo (in_array($arUserGroup['ID'], $arGroupList) ? 'selected' : ''); ?>><? echo htmlspecialcharsex($arUserGroup['NAME']);?></option><?
+				?><option value="<?php  echo intval($arUserGroup['ID'])?>" <?php  echo (in_array($arUserGroup['ID'], $arGroupList) ? 'selected' : ''); ?>><?php  echo htmlspecialcharsex($arUserGroup['NAME']);?></option><?php 
 			}
 		}
 
 		?></select></td>
 	</tr>
-<?
+<?php 
 if ($ID > 0 && !empty($arGroupList))
 {
 	$strGroupsHidden = '';
@@ -773,6 +773,6 @@ BX.ready(function(){
 		BX.style(obActiveType, 'display', (-1 < obActivePeriod.selectedIndex && 'P' == obActivePeriod.options[obActivePeriod.selectedIndex].value ? 'table-row' : 'none'));
 	}
 });
-</script><?
+</script><?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var CBitrixComponent $this */
 
@@ -33,7 +33,7 @@ $clearFilterLink = $arParams['LIST_URL'] . http_build_query(array(
 ?>
 
 <span onclick="BX('excelUserExport').href='<?= $clearFilterLink . GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVarsExcel)?>'"><a href="<?=$clearFilterLink . GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVars)?>"><?= GetMessage('ISS_TPL_APLH_CLEAR_FILTER') ?></a></span>&nbsp;|
-<? if($bMultipleLang): ?>
+<?php  if($bMultipleLang): ?>
 	<script>
 		var bx_alph_current_lang = null;
 		function BXToggleAlphabet(lang)
@@ -51,14 +51,14 @@ $clearFilterLink = $arParams['LIST_URL'] . http_build_query(array(
 		}
 	</script>
 	<span id="bx_alphabet_selector">
-		<? foreach($langs as $lang): ?>
+		<?php  foreach($langs as $lang): ?>
 			<a href="javascript:void(0)" onclick="BXToggleAlphabet('<?=CUtil::JSEscape($lang)?>')" id="bx_alph_select_<?=htmlspecialcharsbx($lang)?>"><?=htmlspecialcharsbx($lang)?></a>&nbsp;
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</span>
-<? endif; ?>
-<? foreach ($arResult['ALPHABET'] as $lang => $arMess): ?>
+<?php  endif; ?>
+<?php  foreach ($arResult['ALPHABET'] as $lang => $arMess): ?>
 	<span id="bx_alphabet_<?=htmlspecialcharsbx($lang)?>"<?=$bMultipleLang ? ' style="display: none;"' : '';?>>
-	<?
+	<?php 
 		$filterLinkLetterRange = $arParams['LIST_URL'] . http_build_query(array(
 			'set_filter_' . $arParams['FILTER_NAME']      => 'Y',
 			$arParams['FILTER_NAME'] . '_LAST_NAME_RANGE' => !empty($arMess['ISS_TPL_APLH_ALL']) ? $arMess['ISS_TPL_APLH_ALL'] : '',
@@ -72,7 +72,7 @@ $clearFilterLink = $arParams['LIST_URL'] . http_build_query(array(
 		}
 		?>
 		<span onclick="BX('excelUserExport').href='<?= $filterLinkLetterRange . GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVarsExcel); ?>'"><a href="<?= $filterLinkLetterRange . GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVars); ?>"><?= ($isRange)? '<u>' : '' ?>   <?= $arMess['ISS_TPL_APLH_ALL']?><?= ($isRange)? '</u>' : '' ?> </a></span>&nbsp;|
-		<?
+		<?php 
 		$alph       = $arMess['ISS_TPL_ALPH'];
 		$lengthAlph = strlen($alph);
 		for ($i = 0; $i < $lengthAlph; $i++)
@@ -89,13 +89,13 @@ $clearFilterLink = $arParams['LIST_URL'] . http_build_query(array(
 			));
 			?>
 			<span onclick="BX('excelUserExport').href='<?= $filterLinkLetter . GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVarsExcel); ?>'"><a href="<?= $filterLinkLetter . GetFilterParams($arResult['FILTER_PARAMS'], true, $arExtraVars); ?>"><?=$bCurrent ? '<u>' : ''?><?=$symbol?><?=$bCurrent ? '</u>' : ''?></a></span>&nbsp;
-		<?
+		<?php 
 		}
 		?>
 	</span>
-<? endforeach; ?>
-<? if ($bMultipleLang): ?>
+<?php  endforeach; ?>
+<?php  if ($bMultipleLang): ?>
 	<script type="text/javascript">
 		BXToggleAlphabet('<?=CUtil::JSEscape(!$currentLang? $langs[0] : $currentLang)?>');
 	</script>
-<? endif; ?>
+<?php  endif; ?>

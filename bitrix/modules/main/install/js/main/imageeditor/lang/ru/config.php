@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMAGE_EDITOR_NEW"] = "Загрузить";
 $MESS["IMAGE_EDITOR_EXPORT"] = "Сохранить";
 $MESS["IMAGE_EDITOR_CANCEL"] = "Отменить";

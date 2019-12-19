@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_DISC_SAVE_EDIT_TAB_NAME_MAIN"] = "Progressive discount";
 $MESS["BT_CAT_DISC_SAVE_EDIT_TAB_TITLE_MAIN"] = "General parameters";
 $MESS["BT_CAT_DISC_SAVE_EDIT_TAB_NAME_RANGES"] = "Discount rules";

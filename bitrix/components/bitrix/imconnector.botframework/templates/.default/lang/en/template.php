@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_COMPONENT_BOTFRAMEWORK_10_STEPS_TITLE"] = "Follow these steps to connect Microsoft Bot Framework to Open Channel";
 $MESS["IMCONNECTOR_COMPONENT_BOTFRAMEWORK_APP_ID_NAME"] = "App ID (Microsoft App ID):";
 $MESS["IMCONNECTOR_COMPONENT_BOTFRAMEWORK_APP_SECRET_NAME"] = "App secret password:";

@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/learning/course.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
-?><?$APPLICATION->IncludeComponent(
+?><?php $APPLICATION->IncludeComponent(
 	"bitrix:learning.course",
 	"",
 	Array(
@@ -30,4 +30,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 			"FOR_TEST_ID" => "FOR_TEST_ID"
 		)
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_28_5_TEAM_4_COLS--NAME"] = "Flipping photos of employees";
 $MESS["LANDING_BLOCK_28_5_TEAM_4_COLS--MEMBER"] = "Employee";
 $MESS["LANDING_BLOCK_28_5_TEAM_4_COLS--MEMBER_NAME"] = "Name";

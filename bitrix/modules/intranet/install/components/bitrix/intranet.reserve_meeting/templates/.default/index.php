@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:intranet.reserve_meeting.menu",
 	"",
@@ -24,7 +24,7 @@ $APPLICATION->IncludeComponent(
 
 <br />
 
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:intranet.reserve_meeting.list",
 	"",

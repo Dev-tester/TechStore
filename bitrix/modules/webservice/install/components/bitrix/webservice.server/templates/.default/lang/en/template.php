@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS["BX_WSTMPL_RESULT"] = "Call result: ";
 $MESS["BX_WSTMPL_ERROR_NOWSDESCR"] = "Web service did not provide the description.";

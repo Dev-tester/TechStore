@@ -1,4 +1,4 @@
-<?
+<?php 
 header("Content-Type: application/x-javascript");
 $hash = "bx_random_hash";
 $config = array("appmap" =>

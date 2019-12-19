@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_PROP_MAP_GOOGLE'] = "Привязка к карте Google Maps";
 $MESS ['IBLOCK_PROP_MAP_GOOGLE_INSTR'] = "Выберите точку на карте двойным щелчком мыши.";
 $MESS ['IBLOCK_PROP_MAP_GOOGLE_INSTR_VALUE'] = "Перетащите точку по карте или выберите новое положение двойным щелчком мыши.";

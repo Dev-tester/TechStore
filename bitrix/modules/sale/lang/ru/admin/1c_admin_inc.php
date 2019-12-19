@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_1C_GROUP_PERMISSIONS"] = "Группы, пользователям которых разрешена выгрузка";
 $MESS["SALE_1C_SITE_LIST"] = "Сайт, заказы которого выгружать в \"1С:Предприятие\"";
 $MESS["SALE_1C_SALE_ACCOUNT_NUMBER_SHOP_PREFIX"] = "Префикс номера заказа при выгрузке";

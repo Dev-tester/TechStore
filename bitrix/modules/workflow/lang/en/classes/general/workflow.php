@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLOW_PANEL_CREATE_WITH_WF"] = "Via Workflow";
 $MESS["FLOW_PANEL_EDIT_WITH_WF"] = "Via Workflow";
 $MESS["FLOW_PANEL_CREATE_ALT"] = "Create a new page in current section via workflow";

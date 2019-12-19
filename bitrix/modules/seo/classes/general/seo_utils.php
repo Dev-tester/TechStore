@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSeoUtils
 {
 	public static function CleanURL($URL)

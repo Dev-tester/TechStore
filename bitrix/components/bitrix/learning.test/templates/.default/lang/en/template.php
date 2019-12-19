@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_QUESTION_TITLE"] = "Question";
 $MESS["LEARNING_QUESTION_OF"] = "of";
 $MESS["LEARNING_QUESTION_DESCRIPTION"] = "Description";

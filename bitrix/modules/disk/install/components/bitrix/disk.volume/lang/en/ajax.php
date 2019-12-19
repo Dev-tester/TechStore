@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['DISK_VOLUME_DATA_DELETED'] = "Data has been deleted";
 $MESS['DISK_VOLUME_DATA_DELETED_QUEUE'] = "Data deleted. Step #QUEUE_STEP#/#QUEUE_LENGTH#";
 $MESS['DISK_VOLUME_ERROR_BAD_RIGHTS_FILE'] = "Insufficient file access permissions.";

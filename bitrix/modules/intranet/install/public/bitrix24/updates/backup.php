@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 
 if(!$GLOBALS['USER']->IsAdmin())
@@ -9,5 +9,5 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_afte
 
 $APPLICATION->SetTitle(GetMessage("BACKUP_TITLE"));
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:intranet.backup", "", array());?>
-<? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>
+<?php $APPLICATION->IncludeComponent("bitrix:intranet.backup", "", array());?>
+<?php  require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>

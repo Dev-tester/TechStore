@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_1C_START_REALTIME_NAME"] = "Подключение 1С";
 $MESS["CRM_1C_START_REALTIME_ADV_1"] = "Простое подключение";
 $MESS["CRM_1C_START_REALTIME_ADV_2"] = "Легкая настройка";

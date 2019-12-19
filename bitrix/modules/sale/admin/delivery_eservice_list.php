@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Delivery\AdminPage\DeliveryExtraServiceEdit
 {
 	if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)

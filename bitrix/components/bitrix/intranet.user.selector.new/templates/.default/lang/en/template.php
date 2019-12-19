@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_EMP_HEAD"] = "head of department";
 $MESS["INTRANET_USER_SEARCH"] = "Search";
 $MESS["INTRANET_USER_STRUCTURE"] = "Select From Structure";

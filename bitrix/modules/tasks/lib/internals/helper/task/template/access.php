@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Internals\Helper\Task\Template;
 
 

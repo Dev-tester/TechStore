@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -15,22 +15,22 @@ $this->setFrameMode(true);
 <div class="news-calendar-compact">
 	<table width='100%' border='0' cellspacing='0' cellpadding='1' class='NewsCalTable'>
 	<tr>
-	<?foreach($arResult["WEEK_DAYS"] as $WDay):?>
+	<?php foreach($arResult["WEEK_DAYS"] as $WDay):?>
 		<td align="center" class='NewsCalHeader'><?=$WDay["SHORT"]?></td>
-	<?endforeach?>
+	<?php endforeach?>
 	</tr>
-	<?foreach($arResult["MONTH"] as $arWeek):?>
+	<?php foreach($arResult["MONTH"] as $arWeek):?>
 	<tr>
-		<?foreach($arWeek as $arDay):?>
+		<?php foreach($arWeek as $arDay):?>
 		<td align="right" valign="top" class='<?=$arDay["td_class"]?>' width="14%">
-			<?if(count($arDay["events"])>0):?>
+			<?php if(count($arDay["events"])>0):?>
 				<a title="<?=$arDay["events"][0]["title"]?>" href="<?=$arDay["events"][0]["url"]?>" class="<?=$arDay["day_class"]?>"><?=$arDay["day"]?></a>
-			<?else:?>
+			<?php else:?>
 				<span class="<?=$arDay["day_class"]?>"><?=$arDay["day"]?></span>
-			<?endif;?>
+			<?php endif;?>
 		</td>
-		<?endforeach?>
+		<?php endforeach?>
 	</tr >
-	<?endforeach?>
+	<?php endforeach?>
 	</table>
 </div>

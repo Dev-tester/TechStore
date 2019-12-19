@@ -70,24 +70,24 @@ $frame = $this->createFrame('')->begin('');
 		<div class="row">
 			<div class="col-md-12 col-sm-12">
 				<div class="crm-webform-block crm-webform-default">
-					<?if($arResult['FORM']['CAPTION'] || $arResult['FORM']['DESCRIPTION_DISPLAY']):?>
+					<?php if($arResult['FORM']['CAPTION'] || $arResult['FORM']['DESCRIPTION_DISPLAY']):?>
 					<div class="crm-webform-header-container">
-						<?if($arResult['FORM']['CAPTION']):?>
+						<?php if($arResult['FORM']['CAPTION']):?>
 						<h2 class="crm-webform-header"><?=htmlspecialcharsbx($arResult['FORM']['CAPTION'])?></h2>
-						<?endif;?>
-						<?if($arResult['FORM']['DESCRIPTION_DISPLAY']):?>
+						<?php endif;?>
+						<?php if($arResult['FORM']['DESCRIPTION_DISPLAY']):?>
 						<div><?=($arResult['FORM']['DESCRIPTION_DISPLAY'])?></div>
-						<?endif;?>
+						<?php endif;?>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 					<div class="crm-webform-body">
 						<form novalidate class="crm-webform-form-container" id="bxform" method="POST" enctype="multipart/form-data" action="<?=$APPLICATION->GetCurPageParam()?>">
-							<?
+							<?php 
 							$isFirstFieldSection = $arResult['FIELDS'][0]['type'] == 'section';
 							if(!$isFirstFieldSection):
 							?>
 							<fieldset class="crm-webform-fieldset">
-							<?
+							<?php 
 							endif;
 
 							$hasProduct = false;
@@ -122,7 +122,7 @@ $frame = $this->createFrame('')->begin('');
 											<div class="crm-webform-fill-<?=$field['type']?>"></div>
 										</div>
 									</div><!--row-->
-									<?
+									<?php 
 									continue;
 								}
 
@@ -143,15 +143,15 @@ $frame = $this->createFrame('')->begin('');
 								<div class="row">
 									<div class="col-md-12 col-sm-12 crm-webform-field-<?=$field['type']?> <?=$fieldClassHidden?>" id="<?=$fieldAttributeId?>">
 
-										<?if($field['type'] != 'checkbox' || $field['multiple']):?>
+										<?php if($field['type'] != 'checkbox' || $field['multiple']):?>
 											<div class="crm-webform-label-title-container">
 												<div class="crm-webform-label-title">
 													<label for="<?=$inputId?>" class="crm-webform-label <?=$requiredClassName?>"><?=$inputCaption?>:</label>
 												</div>
 											</div>
-										<?endif;?>
+										<?php endif;?>
 
-										<?
+										<?php 
 										$input = '';
 										$isCustomInput = false;
 										$isMultipleInput = false;
@@ -297,22 +297,22 @@ $frame = $this->createFrame('')->begin('');
 
 										<div class="crm-webform-group" id="field_<?=$inputId?>_CONT">
 											<div class="crm-webform-label-content">
-												<?if($isCustomInput):?>
+												<?php if($isCustomInput):?>
 													<?=$input?>
-												<?else:?>
+												<?php else:?>
 													<label class="crm-webform-input-label">
-														<?if(!($field['multiple'] && in_array($field['type'], array('list', 'product'))) && isset($classesIconMap[$field['type']])):?>
+														<?php if(!($field['multiple'] && in_array($field['type'], array('list', 'product'))) && isset($classesIconMap[$field['type']])):?>
 															<i class="crm-webform-icon fa <?=($classesIconMap[$field['type']])?>"></i>
-														<?endif;?>
+														<?php endif;?>
 														<?=$input?>
 														<b class="tooltip crm-webform-tooltip-bottom-right"><?=Loc::getMessage('CRM_WEBFORM_FILL_ERROR_FIELD_EMPTY')?></b>
 													</label>
-												<?endif;?>
+												<?php endif;?>
 											</div>
 										</div>
 
 
-										<?if($field['multiple'] && $isMultipleInput):?>
+										<?php if($field['multiple'] && $isMultipleInput):?>
 											<script type="text/html" id="tmpl_<?=$inputId?>">
 												<div class="crm-webform-label-content">
 													<label class="crm-webform-input-label">
@@ -324,18 +324,18 @@ $frame = $this->createFrame('')->begin('');
 											<div class="crm-webform-add-input-container">
 												<a href="javascript: BX.CrmWebForm.createFormField('<?=$inputId?>', 'tmpl_<?=$inputId?>');" class="crm-webform-add-input"><?=Loc::getMessage('CRM_WEBFORM_FILL_FIELD_ADD_OTHER')?> &#10010;</a>
 											</div>
-										<?endif?>
+										<?php endif?>
 
 									</div>
 								</div>
 
-							<?
+							<?php 
 							}
 							?>
 
 							</fieldset>
 
-							<?if($hasProduct):?>
+							<?php if($hasProduct):?>
 								<div data-bx-webform-cart="mini" class="crm-webform-mini-cart-container">
 									<div class="crm-webform-mini-cart-title-container">
 										<h4 class="crm-webform-mini-cart-title"><?=Loc::getMessage('CRM_WEBFORM_FILL_PRODUCT_TITLE')?>:</h4>
@@ -348,12 +348,12 @@ $frame = $this->createFrame('')->begin('');
 										</div>
 									</div>
 								</div>
-							<?endif;?>
+							<?php endif;?>
 
 							<fieldset class="crm-webform-fieldset-footer">
 								<div class="row">
 
-									<?if($arResult['USER_CONSENT']['IS_USED']):?>
+									<?php if($arResult['USER_CONSENT']['IS_USED']):?>
 									<div class="col-md-12 col-sm-12 crm-webform-field-checkbox">
 										<div class="crm-webform-group crm-webform-agreement-modifier">
 											<div class="crm-webform-label-content">
@@ -367,17 +367,17 @@ $frame = $this->createFrame('')->begin('');
 											</div>
 										</div>
 									</div>
-									<?endif;?>
+									<?php endif;?>
 
 
-									<?if($arResult['CAPTCHA']['USE']):?>
+									<?php if($arResult['CAPTCHA']['USE']):?>
 										<div class="col-md-12 col-sm-12">
 											<div class="crm-webform-group crm-webform-captcha">
 												<div id="recaptcha-error" class="crm-webform-captcha-error"></div>
 												<div id="recaptcha-cont" class="g-recaptcha" data-sitekey="<?=htmlspecialcharsbx($arResult['CAPTCHA']['KEY'])?>"></div>
 											</div>
 										</div>
-									<?endif;?>
+									<?php endif;?>
 
 									<div class="col-md-12 col-sm-12">
 										<div class="crm-webform-group crm-webform-button-container">
@@ -385,9 +385,9 @@ $frame = $this->createFrame('')->begin('');
 												<?=htmlspecialcharsbx($arResult['FORM']['BUTTON_CAPTION'])?>
 											</button>
 
-											<?if($arResult['FORM']['IS_CALLBACK_FORM'] == 'Y'):?>
+											<?php if($arResult['FORM']['IS_CALLBACK_FORM'] == 'Y'):?>
 												<div class="crm-webform-callback-free"><?=Loc::getMessage('CRM_WEBFORM_FILL_CALLBACK_FREE')?></div>
-											<?endif;?>
+											<?php endif;?>
 										</div>
 									</div>
 								</div>
@@ -400,25 +400,25 @@ $frame = $this->createFrame('')->begin('');
 			</div>
 		</div><!--row-->
 
-		<?if($arResult['FORM']['COPYRIGHT_REMOVED'] != 'Y'):?>
+		<?php if($arResult['FORM']['COPYRIGHT_REMOVED'] != 'Y'):?>
 		<div class="row">
 			<div class="col-md-12 col-sm-12 crm-webform-bottom-logo-container">
 				<a class="crm-webform-bottom-link" href="<?=$arResult['CUSTOMIZATION']['REF_LINK']?>" target="_blank">
 					<span class="crm-webform-bottom-text"><?=Loc::getMessage('CRM_WEBFORM_FILL_COPYRIGHT_CHARGED_BY')?></span>
 					<span class="crm-webform-bottom-logo-bx"><?=Loc::getMessage('CRM_WEBFORM_FILL_COPYRIGHT_BITRIX')?></span>
 					<span class="crm-webform-bottom-logo-24">24</span>
-					<?if(!in_array(LANGUAGE_ID, array('ru', 'ua', 'kz', 'by'))):?>
+					<?php if(!in_array(LANGUAGE_ID, array('ru', 'ua', 'kz', 'by'))):?>
 						<span class="crm-webform-bottom-text">, #1 Free CRM</span>
-					<?endif;?>
+					<?php endif;?>
 				</a>
 			</div>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 
 	</div><!--container-->
 </div>
 
-<?if($hasProduct):?>
+<?php if($hasProduct):?>
 <div class="crm-webform-fixed-right-sidebar">
 	<div data-bx-webform-cart="" class="crm-webform-cart-container">
 		<div class="crm-webform-cart-title-container">
@@ -440,7 +440,7 @@ $frame = $this->createFrame('')->begin('');
 		-->
 	</div><!--crm-webform-cart-container-->
 </div><!--crm-webform-fixed-right-sidebar-->
-<?endif;?>
+<?php endif;?>
 
 <script type="text/html" id="product_price_item">
 	<div class="crm-webform-cart-services-container">
@@ -525,7 +525,7 @@ $frame = $this->createFrame('')->begin('');
 	});
 </script>
 
-<?
+<?php 
 if($arResult['FORM']['GOOGLE_ANALYTICS_ID']):
 	$gAnalyticsId = HtmlFilter::encode($arResult['FORM']['GOOGLE_ANALYTICS_ID']);
 ?>
@@ -539,8 +539,8 @@ if($arResult['FORM']['GOOGLE_ANALYTICS_ID']):
 		ga('send', 'pageview');
 
 	</script>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 if($arResult['FORM']['YANDEX_METRIC_ID']):
 	$yaMetricId = (int) $arResult['FORM']['YANDEX_METRIC_ID'];
 ?>
@@ -574,7 +574,7 @@ if($arResult['FORM']['YANDEX_METRIC_ID']):
 	</script>
 	<noscript><div><img src="https://mc.yandex.ru/watch/<?=$yaMetricId?>" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 	<!-- /Yandex.Metrika counter -->
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 $frame->end();

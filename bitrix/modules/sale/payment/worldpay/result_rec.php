@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_GET["server_responce"]) && $_GET["server_responce"] == "Y" && !empty($_POST["cartId"]))
 {
 	$bCorrect = True;

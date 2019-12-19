@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $defaultImg = "<img src=\"/bitrix/images/lists/nopic_list_150.png\" width=\"36\" height=\"30\" border=\"0\" alt=\"\" />";

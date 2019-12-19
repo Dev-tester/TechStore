@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ABOUT_TITLE"] = "Banking Details";
 $MESS["ABOUT_INFO"] = "<p>Please use the following official banking details:</p>
 

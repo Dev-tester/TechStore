@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILL_TITLE"] = "Счет";
 $MESS["SALE_HPS_BILL_DATE"] = "Дата оплаты";
 $MESS["SALE_HPS_BILL_DATE_DESC"] = "Дата создания оплаты";

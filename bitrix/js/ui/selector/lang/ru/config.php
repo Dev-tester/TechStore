@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_SELECTOR_SELECT_TEXT"] = "Все элементы группы с подгруппами";
 $MESS["MAIN_UI_SELECTOR_SELECT_FLAT_TEXT"] = "Все элементы группы";
 $MESS["MAIN_UI_SELECTOR_PLEASE_WAIT"] = "Загрузка, пожалуйста подождите...";

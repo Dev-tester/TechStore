@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_USE_HTML_EDIT"] = "Использовать HTML-редактор для настройки баннера:";
 $MESS["AD_DONT_USE_CONTRACT"] = "Не использовать ограничения контрактов при показе баннера:";
 $MESS["MAIN_RESTORE_DEFAULTS"] = "По умолчанию";

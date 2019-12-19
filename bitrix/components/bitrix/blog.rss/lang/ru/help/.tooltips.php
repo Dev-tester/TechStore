@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MESSAGE_COUNT_TIP'] = "Число сообщений блога, данные из которых будут выгружены в соответствующем формате.";
 $MESS ['PATH_TO_BLOG_TIP'] = "Указывается путь к главной странице блога. Например: /blog/blog_blog.php?page=blog&blog=#blog#.";
 $MESS ['PATH_TO_POST_TIP'] = "Указывается путь к странице просмотра сообщения блога. Например: /blog/blog_post.php?page=post&blog=#blog#&post_id=#post_id#.";

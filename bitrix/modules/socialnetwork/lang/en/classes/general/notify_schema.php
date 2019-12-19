@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_NS_INVITE_USER"] = "Friend invite";
 $MESS["SONET_NS_INVITE_GROUP"] = "Workgroup invitations and membership requests; bans";
 $MESS["SONET_NS_INOUT_GROUP"] = "Group membership change (for moderators)";

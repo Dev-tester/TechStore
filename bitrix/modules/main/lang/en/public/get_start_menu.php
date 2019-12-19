@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['get_start_menu_dbl'] = "(double click to open)";
 $MESS ['get_start_menu_loading'] = "Loading...";
 $MESS ['get_start_menu_loading_title'] = "Loading menu items...";

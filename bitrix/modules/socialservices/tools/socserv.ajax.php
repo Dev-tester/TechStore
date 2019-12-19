@@ -1,4 +1,4 @@
-<?
+<?php 
 define('STOP_STATISTICS', true);
 define('NO_AGENT_CHECK', true);
 define('DisableEventsCheck', true);
@@ -63,7 +63,7 @@ BX.loadScript('/bitrix/js/socialservices/ss_timeman.js?<?=$t?>', function(){
 	BXTIMEMAN.WND.SOCSERV_WND = new BX.SocservTimeman();
 	BXTIMEMAN.WND.SOCSERV_WND.showWnd();
 });
-<?
+<?php 
 		}
 	}
 	elseif($_REQUEST['action'] == "saveuserdata")

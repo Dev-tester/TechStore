@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CPT_BCT_TPL_VIEW_MODE_BANNER"] = "баннер";
 $MESS["CPT_BCT_TPL_VIEW_MODE_SLIDER"] = "слайдер";
 $MESS["CPT_BCT_TPL_VIEW_MODE_SECTION"] = "список";

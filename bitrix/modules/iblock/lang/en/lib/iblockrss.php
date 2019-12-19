@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_RSS_ENTITY_ID_FIELD"] = "ID";
 $MESS["IBLOCK_RSS_ENTITY_IBLOCK_ID_FIELD"] = "Information block ID";
 $MESS["IBLOCK_RSS_ENTITY_NODE_FIELD"] = "RSS field";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLB_GROUP_NAV"] = "Comments";
 $MESS["BLB_DATE_CREATE"] = "Created On";
 $MESS["BLB_AUTHOR_ID"] = "Author";

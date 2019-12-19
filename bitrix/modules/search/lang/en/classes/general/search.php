@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_ERROR1"] = "Unpaired bracket";
 $MESS["SEARCH_ERROR2"] = "Error at";
 $MESS["SEARCH_ERROR3"] = "Empty search query (does not contain letters or digits).";

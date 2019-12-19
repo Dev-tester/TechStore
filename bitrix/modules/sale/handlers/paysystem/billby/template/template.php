@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -20,7 +20,7 @@ Loc::loadMessages(__FILE__);
 </style>
 </head>
 
-<?
+<?php 
 
 if ($_REQUEST['BLANK'] == 'Y')
 	$blank = true;
@@ -73,12 +73,12 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 
 ?>
 
-<body style="margin: 0; padding: 0; background: <?=$background; ?>"<? if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<? } ?>>
+<body style="margin: 0; padding: 0; background: <?=$background; ?>"<?php  if ($_REQUEST['PRINT'] == 'Y') { ?> onload="setTimeout(window.print, 0);"<?php  } ?>>
 
 <div style="margin: 0; padding: <?=join('pt ', $margin); ?>pt; width: <?=$width; ?>pt; background: <?=$background; ?>">
 
-<?if ($params['BILLBY_HEADER_SHOW'] == 'Y'):?>
-	<?
+<?php if ($params['BILLBY_HEADER_SHOW'] == 'Y'):?>
+	<?php 
 	// region Seller info
 	$sellerInfo = '';
 	$sellerInfoRows = array();
@@ -184,9 +184,9 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 	<table class="header">
 		<tr>
 			<td><?= $sellerInfo ?></td>
-			<? if ($params["BILLBY_PATH_TO_LOGO"]) { ?>
+			<?php  if ($params["BILLBY_PATH_TO_LOGO"]) { ?>
 			<td style="padding-left: 5pt; padding-bottom: 5pt; ">
-				<? $imgParams = CFile::_GetImgParams($params['BILLBY_PATH_TO_LOGO']);
+				<?php  $imgParams = CFile::_GetImgParams($params['BILLBY_PATH_TO_LOGO']);
 					$dpi = intval($params['BILLBY_LOGO_DPI']) ?: 96;
 					$imgWidth = $imgParams['WIDTH'] * 96 / $dpi;
 					if ($imgWidth > $pageWidth)
@@ -194,10 +194,10 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 				?>
 				<img src="<?=$imgParams['SRC']; ?>" width="<?=$imgWidth; ?>" />
 			</td>
-			<? } ?>
+			<?php  } ?>
 		</tr>
 	</table>
-<?endif;?>
+<?php endif;?>
 <br>
 <br>
 
@@ -207,8 +207,8 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		<col width="0">
 		<col width="50%">
 	</colgroup>
-<?if ($params['BILLBY_HEADER']):?>
-	<?
+<?php if ($params['BILLBY_HEADER']):?>
+	<?php 
 	$dateValue = $params["PAYMENT_DATE_INSERT"];
 	if ($dateValue instanceof \Bitrix\Main\Type\Date || $dateValue instanceof \Bitrix\Main\Type\DateTime)
 	{
@@ -234,15 +234,15 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		</td>
 		<td></td>
 	</tr>
-<?endif;?>
-<? if ($params["BILLBY_ORDER_SUBJECT"]) { ?>
+<?php endif;?>
+<?php  if ($params["BILLBY_ORDER_SUBJECT"]) { ?>
 	<tr>
 		<td></td>
 		<td><?=$params["BILLBY_ORDER_SUBJECT"]; ?></td>
 		<td></td>
 	</tr>
-<? } ?>
-<? if ($params["PAYMENT_DATE_PAY_BEFORE"]) { ?>
+<?php  } ?>
+<?php  if ($params["PAYMENT_DATE_PAY_BEFORE"]) { ?>
 	<tr>
 		<td></td>
 		<td>
@@ -250,11 +250,11 @@ $width = $pageWidth - $margin['left'] - $margin['right'];
 		</td>
 		<td></td>
 	</tr>
-<? } ?>
+<?php  } ?>
 </table>
 
 <br>
-<?
+<?php 
 
 if ($params['BILLBY_PAYER_SHOW'] == 'Y')
 {
@@ -388,7 +388,7 @@ if ($params['BILLBY_PAYER_SHOW'] == 'Y')
 <br>
 <br>
 
-<?
+<?php 
 $arCurFormat = CCurrencyLang::GetCurrencyFormat($params['CURRENCY']);
 $currency = preg_replace('/(^|[^&])#/', '${1}', $arCurFormat['FORMAT_STRING']);
 
@@ -729,11 +729,11 @@ if ($params['BILLBY_TOTAL_SHOW'] == 'Y')
 ?>
 <table class="it" width="100%">
 	<tr>
-		<?foreach ($arCols as $columnId => $col):?>
+		<?php foreach ($arCols as $columnId => $col):?>
 			<td><?=$col['NAME'];?></td>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</tr>
-<?
+<?php 
 
 $rowsCnt = count($cells);
 for ($n = 1; $n <= $rowsCnt; $n++):
@@ -741,46 +741,46 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 	$accumulated = 0;
 ?>
 	<tr valign="top"<?=(($totalRowIsLast && $n === $totalRowIndex) ? ' style="font-weight: bold;"' : '')?>>
-		<?foreach ($arCols as $columnId => $col):?>
-		<?
+		<?php foreach ($arCols as $columnId => $col):?>
+		<?php 
 			if (!is_null($cells[$n][$columnId]))
 			{
 				if ($columnId === 'NUMBER')
 				{?>
 					<td align="center"><?=$cells[$n][$columnId];?></td>
-				<?}
+				<?php }
 				elseif ($columnId === 'NAME')
 				{
 				?>
 					<td align="<?=($n > $cntBasketItem) ? 'right' : 'left';?>"
-						style="word-break: break-word; word-wrap: break-word; <? if ($accumulated) {?>border-width: 0 1pt 0 0; <? } ?>"
-						<? if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<? $accumulated = 0; } ?>>
+						style="word-break: break-word; word-wrap: break-word; <?php  if ($accumulated) {?>border-width: 0 1pt 0 0; <?php  } ?>"
+						<?php  if ($accumulated) { ?>colspan="<?=($accumulated+1); ?>"<?php  $accumulated = 0; } ?>>
 						<?=$cells[$n][$columnId]; ?>
-						<? if (isset($props[$n]) && is_array($props[$n])) { ?>
-						<? foreach ($props[$n] as $property) { ?>
+						<?php  if (isset($props[$n]) && is_array($props[$n])) { ?>
+						<?php  foreach ($props[$n] as $property) { ?>
 						<br>
 						<small><?=$property; ?></small>
-						<? } ?>
-						<? } ?>
+						<?php  } ?>
+						<?php  } ?>
 					</td>
-				<?
+				<?php 
 				}
 				else
 				{
 				?>
 					<td align="right"
-						<? if ($accumulated) { ?>
+						<?php  if ($accumulated) { ?>
 						style="border-width: 0 1pt 0 0"
-						colspan="<? echo $accumulated+1; ?>"
-						<? $accumulated = 0; } ?>>
-						<?if ($columnId == 'PRICE' || $columnId == 'SUM'
+						colspan="<?php  echo $accumulated+1; ?>"
+						<?php  $accumulated = 0; } ?>>
+						<?php if ($columnId == 'PRICE' || $columnId == 'SUM'
 							|| $columnId == 'VAT_RATE' || $columnId == 'VAT_SUM' || $columnId == 'TOTAL'):?>
 							<nobr><?=$cells[$n][$columnId];?></nobr>
-						<?else:?>
+						<?php else:?>
 							<?=$cells[$n][$columnId]; ?>
-						<?endif;?>
+						<?php endif;?>
 					</td>
-				<?
+				<?php 
 				}
 			}
 			else
@@ -788,14 +788,14 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 				$accumulated++;
 			}
 		?>
-	<?endforeach;?>
+	<?php endforeach;?>
 	</tr>
 
-<?endfor;?>
+<?php endfor;?>
 </table>
 
-<? if ($params['BILLBY_TOTAL_SHOW'] == 'Y'): ?>
-	<div style="margin-top: 5pt; font-weight: bold; word-break: break-word; word-wrap: break-word;"><?
+<?php  if ($params['BILLBY_TOTAL_SHOW'] == 'Y'): ?>
+	<div style="margin-top: 5pt; font-weight: bold; word-break: break-word; word-wrap: break-word;"><?php 
 	$inWords = in_array($params['CURRENCY'], array("RUR", "RUB", "UAH", "KZT", "BYR", "BYN"));
 	echo Loc::getMessage('SALE_HPS_BILLBY_TOTAL_VAT').': ';
 	if ($inWords)
@@ -803,7 +803,7 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 	else
 		echo SaleFormatCurrency(roundEx($totalVatSum, $precision), $params['CURRENCY'], false);
 	unset($totalVatSum);
-	?><br><br><?
+	?><br><br><?php 
 	echo Loc::getMessage('SALE_HPS_BILLBY_TOTAL_SUM_WITH_VAT').': ';
 	if ($inWords)
 		echo Number2Word_Rus($totalSumWithVat, "Y", $params['CURRENCY']);
@@ -811,78 +811,78 @@ for ($n = 1; $n <= $rowsCnt; $n++):
 		echo SaleFormatCurrency($totalSumWithVat, $params['CURRENCY'], false);
 	unset($inWords);
 	?></div>
-<? endif; ?>
+<?php  endif; ?>
 <br>
 <br>
 
-<? if ($params["BILLBY_COMMENT1"] || $params["BILLBY_COMMENT2"]) { ?>
+<?php  if ($params["BILLBY_COMMENT1"] || $params["BILLBY_COMMENT2"]) { ?>
 <br>
-	<? if ($params["BILLBY_COMMENT1"]) { ?>
+	<?php  if ($params["BILLBY_COMMENT1"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILLBY_COMMENT1"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-	<? if ($params["BILLBY_COMMENT2"]) { ?>
+	<?php  } ?>
+	<?php  if ($params["BILLBY_COMMENT2"]) { ?>
 	<?=nl2br(HTMLToTxt(preg_replace(
 		array('#</div>\s*<div[^>]*>#i', '#</?div>#i'), array('<br>', '<br>'),
 		htmlspecialcharsback($params["BILLBY_COMMENT2"])
 	), '', array(), 0)); ?>
 	<br>
 	<br>
-	<? } ?>
-<? } ?>
+	<?php  } ?>
+<?php  } ?>
 
 <br>
 <br>
 
-<?if ($params['BILLBY_SIGN_SHOW'] == 'Y'):?>
-	<? if (!$blank) { ?>
+<?php if ($params['BILLBY_SIGN_SHOW'] == 'Y'):?>
+	<?php  if (!$blank) { ?>
 	<div style="position: relative; "><?=CFile::ShowImage(
 			$params["BILLBY_PATH_TO_STAMP"],
 		160, 160,
 		'style="position: absolute; left: 40pt; "'
 	); ?></div>
-	<? } ?>
+	<?php  } ?>
 
 	<div style="position: relative">
 		<table class="sign">
-			<? if ($params["SELLER_COMPANY_DIRECTOR_POSITION"]) { ?>
+			<?php  if ($params["SELLER_COMPANY_DIRECTOR_POSITION"]) { ?>
 			<tr>
 				<td style="width: 150pt; font-weight: bold;"><?= $params["SELLER_COMPANY_DIRECTOR_POSITION"] ?></td>
 				<td style="width: 160pt; border-bottom: 1pt solid #000000; text-align: center; ">
-					<? if (!$blank) { ?>
+					<?php  if (!$blank) { ?>
 					<?=CFile::ShowImage($params["SELLER_COMPANY_DIR_SIGN"], 200, 50); ?>
-					<? } ?>
+					<?php  } ?>
 				</td>
 				<td>
-					<? if ($params["SELLER_COMPANY_DIRECTOR_NAME"]) { ?>
+					<?php  if ($params["SELLER_COMPANY_DIRECTOR_NAME"]) { ?>
 					(<?=$params["SELLER_COMPANY_DIRECTOR_NAME"]; ?>)
-					<? } ?>
+					<?php  } ?>
 				</td>
 			</tr>
 			<tr><td colspan="3">&nbsp;</td></tr>
-			<? } ?>
-			<? if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]) { ?>
+			<?php  } ?>
+			<?php  if ($params["SELLER_COMPANY_ACCOUNTANT_POSITION"]) { ?>
 			<tr>
 				<td style="width: 150pt; font-weight: bold;"><?= $params["SELLER_COMPANY_ACCOUNTANT_POSITION"] ?></td>
 				<td style="width: 160pt; border-bottom: 1pt solid #000000; text-align: center; ">
-					<? if (!$blank) { ?>
+					<?php  if (!$blank) { ?>
 					<?=CFile::ShowImage($params["SELLER_COMPANY_ACC_SIGN"], 200, 50); ?>
-					<? } ?>
+					<?php  } ?>
 				</td>
 				<td>
-					<? if ($params["SELLER_COMPANY_ACCOUNTANT_NAME"]) { ?>
+					<?php  if ($params["SELLER_COMPANY_ACCOUNTANT_NAME"]) { ?>
 					(<?=$params["SELLER_COMPANY_ACCOUNTANT_NAME"]; ?>)
-					<? } ?>
+					<?php  } ?>
 				</td>
 			</tr>
-			<? } ?>
+			<?php  } ?>
 		</table>
 	</div>
-<?endif;?>
+<?php endif;?>
 
 </div>
 

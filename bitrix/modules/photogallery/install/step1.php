@@ -1,4 +1,4 @@
-<?if (CModule::IncludeModule("iblock")):
+<?php if (CModule::IncludeModule("iblock")):
 	IncludeModuleLangFile(__FILE__);
 ?>
 <form action="<?=$APPLICATION->GetCurPage()?>" name="photo_form" id="photo_form" class="form-photo" method="POST">
@@ -8,21 +8,21 @@
 	<input type="hidden" name="install" value="Y">
 	<input type="hidden" name="step" value="2">
 <table class="list-table">
-	<?if ($GLOBALS["APPLICATION"]->GetGroupRight("iblock") >= "W"):?>
+	<?php if ($GLOBALS["APPLICATION"]->GetGroupRight("iblock") >= "W"):?>
 	<tr class="head"><td colspan="2"><input type="checkbox" name="iblock" id="iblock" value="Y" onclick="CheckCreate(this);" <?=($_REQUEST["iblock"] == "Y" ? " checked='checked'" : "")?>/> <label for="iblock"><?=GetMessage("P_CREATE_NEW_IBLOCK")?></label></td></tr>
 	<tbody id="iblock_create" <?=($_REQUEST["iblock"] == "Y" ? "" : "style=\"display:none;\"")?>>
 	<tr class="adm-detail-required-field"><td><?=GetMessage("P_CREATE_NEW_IBLOCK_NAME")?>: </td><td><input type="text" name="iblock_name" value="<?=htmlspecialcharsbx($_REQUEST["iblock_name"])?>" /></td></tr>
 	<tr class="adm-detail-required-field"><td><?=GetMessage("P_CREATE_NEW_IBLOCK_TYPE")?>: </td><td>
 		<input onclick="ChangeStatus(this)" type="radio" name="create_iblock_type" id="create_iblock_type_n" value="N" <?=($_REQUEST["create_iblock_type"] != "Y" ? " checked=\"checked\"" : "")?> />
 		<label for="create_iblock_type_n"><?=GetMessage("P_SELECT")?>: </label>
-		<select name="iblock_type_id" <?=($_REQUEST["create_iblock_type"] == "Y" ? "disabled='disabled'" : "")?>><?
+		<select name="iblock_type_id" <?=($_REQUEST["create_iblock_type"] == "Y" ? "disabled='disabled'" : "")?>><?php 
 			$arIBlockType = array();
 			$rsIBlockType = CIBlockType::GetList(array("sort"=>"asc"), array("ACTIVE"=>"Y"));
 			while ($arr=$rsIBlockType->Fetch())
 			{
 				if($ar=CIBlockType::GetByIDLang($arr["ID"], LANGUAGE_ID))
 				{
-					?><option value="<?=$arr["ID"]?>" <?=($_REQUEST["iblock_type_id"] == $arr["ID"] ? " selected='selected'" : "")?>><?="[".$arr["ID"]."] ".$ar["NAME"]?></option><?
+					?><option value="<?=$arr["ID"]?>" <?=($_REQUEST["iblock_type_id"] == $arr["ID"] ? " selected='selected'" : "")?>><?="[".$arr["ID"]."] ".$ar["NAME"]?></option><?php 
 				}
 			}
 			?></select><br />
@@ -31,7 +31,7 @@
 		<strong><?=GetMessage("P_ID")?> (ID):</strong>
 			<input type="text" name="iblock_type_name" value="<?=htmlspecialcharsbx($_REQUEST["iblock_type_name"])?>" <?=($_REQUEST["create_iblock_type"] != "Y" ? "disabled='disabled'" : "")?>/><br />
 		</td></tr>
-	</tbody><?
+	</tbody><?php 
 	endif;
 	if (IsModuleInstalled("blog") && CModule::IncludeModule("blog") && $GLOBALS["APPLICATION"]->GetGroupRight("blog") >= "W"):
 	?><tr class="head"><td colspan="2"><input type="checkbox" name="blog" id="blog" value="Y" onclick="CheckCreate(this);" <?=($_REQUEST["blog"] == "Y" ? " checked='checked'" : "")?>/> <label for="blog"><?=GetMessage("P_CREATE_NEW_BLOG")?></label></td></tr>
@@ -43,14 +43,14 @@
 		<input onclick="ChangeStatus(this)" type="radio" name="create_blog_group" id="create_blog_group_n" value="N" <?=($_REQUEST["create_blog_group"] != "Y" ? " checked=\"checked\"" : "")?> />
 		<label for="create_blog_group_n"><?=GetMessage("P_SELECT")?>: </label>
 		<select name="blog_group_id" <?=($_REQUEST["create_blog_group"] == "Y" ? "disabled=\"disabled\"" : "")?>>
-				<?
+				<?php 
 				$dbBlogGroup = CBlogGroup::GetList(
 					array("NAME" => "ASC"),
 					array()
 				);
 				while ($arBlogGroup = $dbBlogGroup->Fetch())
 				{
-					?><option value="<?=$arBlogGroup["ID"]?>" <?=($_REQUEST["blog_group_id"] == $arBlogGroup["ID"] ? " selected" : "")?>>[<?= htmlspecialcharsbx($arBlogGroup["SITE_ID"]) ?>] <?= htmlspecialcharsbx($arBlogGroup["NAME"]) ?></option><?
+					?><option value="<?=$arBlogGroup["ID"]?>" <?=($_REQUEST["blog_group_id"] == $arBlogGroup["ID"] ? " selected" : "")?>>[<?= htmlspecialcharsbx($arBlogGroup["SITE_ID"]) ?>] <?= htmlspecialcharsbx($arBlogGroup["NAME"]) ?></option><?php 
 				}
 				?>
 			</select><br />
@@ -62,7 +62,7 @@
 	</tbody>
 
 
-<?
+<?php 
 	endif;
 
 ?>
@@ -95,4 +95,4 @@ function CheckCreate(pointer)
 CheckCreate(document.getElementById('iblock'));
 CheckCreate(document.getElementById('blog'));
 </script>
-<?endif;?>
+<?php endif;?>

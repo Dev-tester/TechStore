@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CC_BSC1_ERROR_AUTHORIZE'] = "Authorisation error: login or password is incorrect.";
 $MESS ['CC_BSC1_PERMISSION_DENIED'] = "You do not have permission to import catalog. Please check the import component settings.";
 $MESS ['CC_BSC1_ERROR_MODULE'] = "The Information Blocks module is not installed.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_SOCCL_ORDER_ERROR'] = "Текущий документ не является документом типа \"Заказ\"";
 $MESS['CRM_SOCCL_ORDER_NOT_FOUND'] = "Не удалось получить данные заказа";
 $MESS['CRM_SOCCL_ORDER_IS_CANCELED'] = "Заказ уже был отменен";

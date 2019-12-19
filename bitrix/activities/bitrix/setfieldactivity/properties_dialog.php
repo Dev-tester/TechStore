@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
 
@@ -289,10 +289,10 @@ function BWFVCSwitchSubTypeControl(v)
 		<td align="right" width="40%" class="adm-detail-content-cell-l"><span class="adm-required-field"><?= GetMessage("BPSFA_PD_F_TYPE") ?>:</span></td>
 		<td width="60%" class="adm-detail-content-cell-r">
 			<select name="fld_type" id="id_fld_type" onchange="BWFVCCreateFieldSwitchType(this.options[this.selectedIndex].value)">
-				<?
+				<?php 
 				foreach ($arFieldTypes as $key => $value)
 				{
-					?><option value="<?= htmlspecialcharsbx($key) ?>"><?= htmlspecialcharsbx($value["Name"]) ?></option><?
+					?><option value="<?= htmlspecialcharsbx($key) ?>"><?= htmlspecialcharsbx($value["Name"]) ?></option><?php 
 				}
 				?>
 			</select>
@@ -336,19 +336,19 @@ function BWFVCSwitchSubTypeControl(v)
 </tr>
 <script>
 BX.showWait();
-<?
+<?php 
 foreach ($arCurrentValues as $fieldKey => $documentFieldValue)
 {
 	if (!array_key_exists($fieldKey, $arDocumentFields))
 		continue;
 	?>
 	BWFVCAddCondition('<?= CUtil::JSEscape($fieldKey) ?>', <?= CUtil::PhpToJSObject($documentFieldValue) ?>);
-	<?
+	<?php 
 }
 
 if (count($arCurrentValues) <= 0)
 {
-	?>BWFVCAddCondition("", "");<?
+	?>BWFVCAddCondition("", "");<?php 
 }
 ?>
 BX.closeWait();
@@ -360,10 +360,10 @@ try{
 	document.getElementById('sfa_pd_list_form').style.display = 'inline';
 }
 </script>
-<?if ($canSetModifiedBy):?>
+<?php if ($canSetModifiedBy):?>
 	<tr>
 		<td align="right" width="40%" class="adm-detail-content-cell-l"><?= GetMessage("BPSFA_PD_MODIFIED_BY") ?>:</td>
 		<td width="60%" class="adm-detail-content-cell-r"><?=CBPDocument::ShowParameterField("user", 'modified_by', $modifiedByString, ['rows'=>'1'])?>
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>

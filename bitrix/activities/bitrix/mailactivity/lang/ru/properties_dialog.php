@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPMA_PD_CP"] = "Кодировка";
 $MESS["BPMA_PD_BODY"] = "Текст сообщения";
 $MESS["BPMA_PD_MESS_TYPE"] = "Тип сообщения";

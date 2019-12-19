@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************************
 Delivery services for Ukrainian «Nova poshta»
 http://novaposhta.ua

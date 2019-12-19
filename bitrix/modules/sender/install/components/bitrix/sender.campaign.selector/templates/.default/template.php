@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /** @var array $arParams */
 /** @var array $arResult */
@@ -34,13 +34,13 @@ $containerId = 'sender-campaign-selector-' . strtolower($arParams['INPUT_NAME'])
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="sender-campaign-selector-wrapper">
 
-	<?if (!$arParams['SELECT_ONLY']):?>
+	<?php if (!$arParams['SELECT_ONLY']):?>
 		<div class="sender-campaign-selector-title">
 			<?=$getMessageLocal('SENDER_CAMPAIGN_SELECTOR_TITLE')?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent('bitrix:sender.ui.tile.selector', '', array(
 		'INPUT_NAME' => $arParams['INPUT_NAME'],
 		'ID' => $containerId,

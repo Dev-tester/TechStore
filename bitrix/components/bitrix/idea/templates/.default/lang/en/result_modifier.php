@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_ADD_IDEA_TITLE"] = "New idea";
 $MESS["IDEA_ADD_IDEA_CATEGORY_TITLE"] = "New category";
 $MESS["IDEA_MENU_TITLE"] = "More";

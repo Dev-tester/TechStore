@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["HK_PAGE_TITLE"] = "Customize keyboard shortcuts";
 $MESS["HK_CF_URL_OR_CODE_ID"] = "Operation name or URL is required;";
 $MESS["HK_CF_CODE_OR_CUSTOM"] = "Operation name or user Java Script code is required;";

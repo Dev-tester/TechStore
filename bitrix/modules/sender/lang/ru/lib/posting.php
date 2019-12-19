@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_POSTING_PERSONALIZE_FIELD_NAME"] = "Имя";
 $MESS["SENDER_POSTING_PERSONALIZE_FIELD_NAME_DESC"] = "Имя получателя. Если имени нет, то часть емайла до знака @";
 $MESS["SENDER_POSTING_PERSONALIZE_FIELD_USER_ID"] = "Код пользователя";

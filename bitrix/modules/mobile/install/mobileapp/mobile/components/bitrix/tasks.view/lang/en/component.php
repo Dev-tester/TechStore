@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TASK_DETAIL_BTN_ACCEPT_TASK"] = "Accept task";
 $MESS["TASKS_TASK_DETAIL_BTN_ADD_FAVORITE_TASK"] = "Add to favorites";
 $MESS["TASKS_TASK_DETAIL_BTN_APPROVE_TASK"] = "Accept as completed";

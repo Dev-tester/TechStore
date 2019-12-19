@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIX24_LOGO_TEXT"] = "Битрикс24 &mdash; социальный интранет (бета)";
 $MESS["BITRIX24_LOGO_TOOLTIP"] = "На главную страницу";
 $MESS["BITRIX24_INVITE"] = "Приглашение сотрудникам";

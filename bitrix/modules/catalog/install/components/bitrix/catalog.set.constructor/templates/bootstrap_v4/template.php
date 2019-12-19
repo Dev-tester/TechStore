@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -28,11 +28,11 @@ $curJsId = $this->randString();
 
 				<div class="col-md-3">
 					<div class="catalog-set-constructor-product-item-container mb-4">
-						<?if ($arResult["ELEMENT"]["DETAIL_PICTURE"]["src"]):?>
+						<?php if ($arResult["ELEMENT"]["DETAIL_PICTURE"]["src"]):?>
 							<img src="<?=$arResult["ELEMENT"]["DETAIL_PICTURE"]["src"]?>" class="catalog-set-constructor-product-item-image mb-2 float-none float-sm-left float-md-none mr-0 mr-sm-2 mr-md-0" alt="">
-						<?else:?>
+						<?php else:?>
 							<img src="<?=$this->GetFolder().'/images/no_foto.png'?>" class="catalog-set-constructor-product-item-image mb-2 float-none float-sm-left float-md-none mr-0 mr-sm-2 mr-md-0" alt="">
-						<?endif?>
+						<?php endif?>
 
 						<div class="catalog-set-constructor-product-info">
 							<div class="catalog-set-constructor-product-name"><?=$arResult["ELEMENT"]["NAME"]?></div>
@@ -40,11 +40,11 @@ $curJsId = $this->randString();
 								<strong><?=$arResult["ELEMENT"]["PRICE_PRINT_DISCOUNT_VALUE"]?></strong>
 								* <?=$arResult["ELEMENT"]["BASKET_QUANTITY"];?> <?=$arResult["ELEMENT"]["MEASURE"]["SYMBOL_RUS"];?>
 							</span>
-							<?if (!($arResult["ELEMENT"]["PRICE_VALUE"] == $arResult["ELEMENT"]["PRICE_DISCOUNT_VALUE"])):?>
+							<?php if (!($arResult["ELEMENT"]["PRICE_VALUE"] == $arResult["ELEMENT"]["PRICE_DISCOUNT_VALUE"])):?>
 								<span class="catalog-set-constructor-product-old-price">
 									<strong><?=$arResult["ELEMENT"]["PRICE_PRINT_VALUE"]?></strong>
 								</span>
-							<?endif?>
+							<?php endif?>
 						</div>
 					</div>
 				</div>
@@ -54,7 +54,7 @@ $curJsId = $this->randString();
 
 						<table class="catalog-set-constructor-items-list-table">
 							<tbody data-role="set-items">
-							<?foreach($arResult["SET_ITEMS"]["DEFAULT"] as $key => $arItem):?>
+							<?php foreach($arResult["SET_ITEMS"]["DEFAULT"] as $key => $arItem):?>
 								<tr
 									data-id="<?=htmlspecialcharsbx($arItem["ID"])?>"
 									data-img="<?=htmlspecialcharsbx($arItem["DETAIL_PICTURE"]["src"])?>"
@@ -69,11 +69,11 @@ $curJsId = $this->randString();
 									data-quantity="<?=htmlspecialcharsbx($arItem["BASKET_QUANTITY"])?>"
 								>
 									<td class="catalog-set-constructor-items-list-table-cell-img">
-										<?if ($arItem["DETAIL_PICTURE"]["src"]):?>
+										<?php if ($arItem["DETAIL_PICTURE"]["src"]):?>
 											<img src="<?=$arItem["DETAIL_PICTURE"]["src"]?>" class="img-responsive" alt="">
-										<?else:?>
+										<?php else:?>
 											<img src="<?=$this->GetFolder().'/images/no_foto.png'?>" class="img-responsive" alt="">
-										<?endif?>
+										<?php endif?>
 									</td>
 									<td class="catalog-set-constructor-items-list-table-cell-name">
 										<a class="" target="_blank" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=$arItem["NAME"]?></a>
@@ -82,15 +82,15 @@ $curJsId = $this->randString();
 										<span class="catalog-set-constructor-product-new-price">
 											<?=$arItem["PRICE_PRINT_DISCOUNT_VALUE"]?> * <?=$arItem["BASKET_QUANTITY"];?> <?=$arItem["MEASURE"]["SYMBOL_RUS"];?>
 										</span>
-										<?if ($arItem["PRICE_VALUE"] != $arItem["PRICE_DISCOUNT_VALUE"]):?>
+										<?php if ($arItem["PRICE_VALUE"] != $arItem["PRICE_DISCOUNT_VALUE"]):?>
 											<span class="catalog-set-constructor-product-old-price"><?=$arItem["PRICE_PRINT_VALUE"]?></span>
-										<?endif?>
+										<?php endif?>
 									</td>
 									<td class="catalog-set-constructor-items-list-table-cell-del">
 										<span class="catalog-set-constructor-items-list-table-cell-delete-btn" data-role="set-delete-btn"></span>
 									</td>
 								</tr>
-							<?endforeach?>
+							<?php endforeach?>
 							</tbody>
 						</table>
 						<div style="display: none;margin:20px;" data-set-message="empty-set"></div>
@@ -105,7 +105,7 @@ $curJsId = $this->randString();
 						<div class="catalog-set-constructor-slider-box">
 							<div class="catalog-set-constructor-slider-container">
 								<div class="catalog-set-constructor-slider-slide catalog-set-constructor-slider-slide-<?=$curJsId?>" data-role="set-other-items">
-									<?
+									<?php 
 									$first = true;
 									foreach($arResult["SET_ITEMS"]["OTHER"] as $key => $arItem):?>
 										<div class="catalog-set-constructor-slider-item-container catalog-set-constructor-slider-item-container-<?=$curJsId?>"
@@ -119,7 +119,7 @@ $curJsId = $this->randString();
 											data-print-old-price="<?=$arItem["PRICE_PRINT_VALUE"]?>"
 											data-diff-price="<?=$arItem["PRICE_DISCOUNT_DIFFERENCE_VALUE"]?>"
 											data-measure="<?=$arItem["MEASURE"]["SYMBOL_RUS"];?>"
-											data-quantity="<?=$arItem["BASKET_QUANTITY"];?>"<?
+											data-quantity="<?=$arItem["BASKET_QUANTITY"];?>"<?php 
 										if (!$arItem['CAN_BUY'] && $first)
 										{
 											echo 'data-not-avail="yes"';
@@ -130,11 +130,11 @@ $curJsId = $this->randString();
 											<div class="catalog-set-constructor-slider-item">
 												<div class="catalog-set-constructor-slider-item-img">
 													<div class="catalog-set-constructor-slider-item-img-container">
-														<?if ($arItem["DETAIL_PICTURE"]["src"]):?>
+														<?php if ($arItem["DETAIL_PICTURE"]["src"]):?>
 															<img src="<?=$arItem["DETAIL_PICTURE"]["src"]?>" class="img-responsive" alt=""/>
-														<?else:?>
+														<?php else:?>
 															<img src="<?=$this->GetFolder().'/images/no_foto.png'?>" class="img-responsive"/>
-														<?endif?>
+														<?php endif?>
 													</div>
 												</div>
 												<div class="catalog-set-constructor-slider-item-title">
@@ -142,25 +142,25 @@ $curJsId = $this->randString();
 												</div>
 												<div class="catalog-set-constructor-slider-item-price">
 													<div class="catalog-set-constructor-product-new-price"><?=$arItem["PRICE_PRINT_DISCOUNT_VALUE"]?> * <?=$arItem["BASKET_QUANTITY"];?> <?=$arItem["MEASURE"]["SYMBOL_RUS"];?></div>
-													<?if ($arItem["PRICE_VALUE"] != $arItem["PRICE_DISCOUNT_VALUE"]):?>
+													<?php if ($arItem["PRICE_VALUE"] != $arItem["PRICE_DISCOUNT_VALUE"]):?>
 														<div class="catalog-set-constructor-product-old-price"><?=$arItem["PRICE_PRINT_VALUE"]?></div>
-													<?endif?>
+													<?php endif?>
 												</div>
 												<div class="catalog-set-constructor-slider-item-add-btn">
-													<?
+													<?php 
 													if ($arItem['CAN_BUY'])
 													{
-														?><a href="javascript:void(0)" data-role="set-add-btn" class="btn btn-primary btn-sm"><?=GetMessage("CATALOG_SET_BUTTON_ADD")?></a><?
+														?><a href="javascript:void(0)" data-role="set-add-btn" class="btn btn-primary btn-sm"><?=GetMessage("CATALOG_SET_BUTTON_ADD")?></a><?php 
 													}
 													else
 													{
-														?><span class="catalog-set-constructor-slider-item-notavailable"><?=GetMessage('CATALOG_SET_MESS_NOT_AVAILABLE');?></span><?
+														?><span class="catalog-set-constructor-slider-item-notavailable"><?=GetMessage('CATALOG_SET_MESS_NOT_AVAILABLE');?></span><?php 
 													}
 													?>
 												</div>
 											</div>
 										</div>
-									<?endforeach?>
+									<?php endforeach?>
 								</div>
 							</div>
 						</div>
@@ -205,7 +205,7 @@ $curJsId = $this->randString();
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$arJsParams = array(
 			"numSliderItems" => count($arResult["SET_ITEMS"]["OTHER"]),
 			"numSetItems" => count($arResult["SET_ITEMS"]["DEFAULT"]),

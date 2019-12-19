@@ -15,7 +15,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 /** @var string $componentPath */
 /** @var \Bitrix\Disk\Internals\BaseComponent $component */
 
-?><div id="wdif-version-block-<?=$arResult['UID']?>" class="post-item-file-version-wrap"><?
+?><div id="wdif-version-block-<?=$arResult['UID']?>" class="post-item-file-version-wrap"><?php 
 foreach($arResult['VERSIONS'] as $version)
 {
 	$title = Loc::getMessage('DISK_UF_VERSION_HISTORY_FILE_MOBILE', array('#NUMBER#' => $version['GLOBAL_CONTENT_VERSION']));
@@ -24,13 +24,13 @@ foreach($arResult['VERSIONS'] as $version)
 		$title = Loc::getMessage('DISK_UF_HEAD_VERSION_HISTORY_FILE_MOBILE');
 	}
 
-	?><div class="post-item-file-version"><?= Loc::getMessage('DISK_UF_VERSION_HISTORY_FILE_MOBILE', array('#NUMBER#' => $version['GLOBAL_CONTENT_VERSION'])) ?></div><?
-	?><div id="wdif-doc-version-<?=$version['ID'] . $arResult['UID']?>" class="post-item-attached-file"><?
+	?><div class="post-item-file-version"><?= Loc::getMessage('DISK_UF_VERSION_HISTORY_FILE_MOBILE', array('#NUMBER#' => $version['GLOBAL_CONTENT_VERSION'])) ?></div><?php 
+	?><div id="wdif-doc-version-<?=$version['ID'] . $arResult['UID']?>" class="post-item-attached-file"><?php 
 		if (in_array(ToLower($version["EXTENSION"]), array("exe")))
 		{
-			?><span><?
-				?><span><?=htmlspecialcharsbx($version['NAME'])?></span><span>(<?=$version['SIZE']?>)</span><?
-			?></span><?
+			?><span><?php 
+				?><span><?=htmlspecialcharsbx($version['NAME'])?></span><span>(<?=$version['SIZE']?>)</span><?php 
+			?></span><?php 
 		}
 		else
 		{
@@ -38,11 +38,11 @@ foreach($arResult['VERSIONS'] as $version)
 				onclick="app.openDocument({'url' : '<?=$version['DOWNLOAD_URL']?>'});" 
 				href="javascript:void()" 
 				class="post-item-attached-file-link" 
-			><?
-					?><span><?=htmlspecialcharsbx($version['NAME'])?></span><?
-					?><span>(<?=$version['SIZE']?>)</span><?
-			?></a><?
+			><?php 
+					?><span><?=htmlspecialcharsbx($version['NAME'])?></span><?php 
+					?><span>(<?=$version['SIZE']?>)</span><?php 
+			?></a><?php 
 		}
-	?></div><?
+	?></div><?php 
 }
 ?></div>

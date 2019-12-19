@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -32,7 +32,7 @@ elseif (isset($_GET["help"]) && $_GET["help"] == "Y")
 		<a href="<?=htmlspecialcharsbx($arResult["AUTH_OTP_LINK"])?>" class="login-tr-btn"><?=GetMessage("AUTH_OTP_BACK")?></a>
 	</div>
 </div>
-<?
+<?php 
 }
 else
 {
@@ -42,16 +42,16 @@ else
 	<input type="hidden" name="TYPE" value="OTP" />
 
 	<div class="log-popup-header" style="text-align: left; display: inline-block; width:49%"><?=GetMessage("AUTH_OTP_PLEASE_AUTH")?></div>
-	<?if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
+	<?php if ($arParams["NOT_SHOW_LINKS"] != "Y"):?>
 		<div class="log-header-additional-wrap" style="width:50%;">
 			<noindex>
-				<?if (!IsModuleInstalled("bitrix24")):?><a href="<?=$arResult["AUTH_LOGIN_URL"]?>" rel="nofollow" class="log-header-additional-text"><?echo GetMessage("AUTH_OTP_AUTH_BACK")?></a><?endif?>
+				<?php if (!IsModuleInstalled("bitrix24")):?><a href="<?=$arResult["AUTH_LOGIN_URL"]?>" rel="nofollow" class="log-header-additional-text"><?php echo GetMessage("AUTH_OTP_AUTH_BACK")?></a><?php endif?>
 			</noindex>
 		</div>
-	<?endif?>
+	<?php endif?>
 
 	<hr class="b_line_gray">
-	<?
+	<?php 
 	ShowMessage($arParams["~AUTH_RESULT"]);
 	?>
 	<div class="">
@@ -61,20 +61,20 @@ else
 			<input type="text" name="USER_OTP" class="login-inp" maxlength="50" value="" autocomplete="off" />
 		</div>
 
-		<?if($arResult["CAPTCHA_CODE"]):?>
+		<?php if($arResult["CAPTCHA_CODE"]):?>
 		<div class="login-item">
-			<span class="login-label"><?echo GetMessage("AUTH_OTP_CAPTCHA_PROMT")?>:</span><br/>
-			<input type="hidden" name="captcha_sid" value="<?echo $arResult["CAPTCHA_CODE"]?>" />
+			<span class="login-label"><?php echo GetMessage("AUTH_OTP_CAPTCHA_PROMT")?>:</span><br/>
+			<input type="hidden" name="captcha_sid" value="<?php echo $arResult["CAPTCHA_CODE"]?>" />
 			<input class="login-inp" style="width:40%; display:inline-block" type="text" name="captcha_word" maxlength="50" value="" size="15" />
-			<div style="display:inline-block; vertical-align: middle;margin-left:10px" ><img src="/bitrix/tools/captcha.php?captcha_sid=<?echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></div>
+			<div style="display:inline-block; vertical-align: middle;margin-left:10px" ><img src="/bitrix/tools/captcha.php?captcha_sid=<?php echo $arResult["CAPTCHA_CODE"]?>" width="180" height="40" alt="CAPTCHA" /></div>
 		</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 
 	<div class="login-text login-item">
-		<?if($arResult["REMEMBER_OTP"]):?>
+		<?php if($arResult["REMEMBER_OTP"]):?>
 			<input type="checkbox" id="OTP_REMEMBER" name="OTP_REMEMBER" value="Y" /><label for="OTP_REMEMBER">&nbsp;<?=GetMessage("AUTH_OTP_REMEMBER_ME")?></label>
-		<?endif?>
+		<?php endif?>
 	</div>
 	<div class="log-popup-footer">
 		<input type="submit" name="Otp" class="login-btn" value="<?=GetMessage("AUTH_OTP_AUTHORIZE")?>" onclick="BX.addClass(this, 'wait');"/>
@@ -85,7 +85,7 @@ else
 <script type="text/javascript">
 	try{document.form_auth.USER_OTP.focus();}catch(e){}
 </script>
-<?
+<?php 
 }
 ?>
 

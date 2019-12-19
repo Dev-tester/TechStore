@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -43,43 +43,43 @@ Loc::loadMessages(__FILE__);
 					</tbody>
 				</table>
 
-				<?if(is_array($arResult['~USER_TAGS']) && !empty($arResult['~USER_TAGS'])):?>
+				<?php if(is_array($arResult['~USER_TAGS']) && !empty($arResult['~USER_TAGS'])):?>
 
-					<?$arResult['~USER_TAGS'] = array_unique($arResult['~USER_TAGS']);?>
+					<?php $arResult['~USER_TAGS'] = array_unique($arResult['~USER_TAGS']);?>
 
 					<table data-bx-id="tag-item-set-pre-static" cellspacing="0">
 						<tbody>
 
 							<tr>
 
-								<?$i = 0;?>
-								<?$first = true;?>
-								<?foreach($arResult['~USER_TAGS'] as $tag):?>
+								<?php $i = 0;?>
+								<?php $first = true;?>
+								<?php foreach($arResult['~USER_TAGS'] as $tag):?>
 
-									<?$newRow = $i && !($i % 2);?>
+									<?php $newRow = $i && !($i % 2);?>
 
-									<?if($newRow):?>
-										<?$first = false;?>
+									<?php if($newRow):?>
+										<?php $first = false;?>
 										</tr><tr>
-									<?endif?>
+									<?php endif?>
 
-									<?$tId = md5($tag);?>
+									<?php $tId = md5($tag);?>
 									<td class="popup-tags-left-bottom-cell">
-										<div class="popup-tags-item popup-tags-item-default-mode<?if($first):?> popup-tags-item-first<?endif?>">
+										<div class="popup-tags-item popup-tags-item-default-mode<?php if($first):?> popup-tags-item-first<?php endif?>">
 											<input data-bx-id="tag-item-set-pre-item-btn-toggle" data-item-value="<?=htmlspecialcharsbx($tag)?>" class="popup-tags-item-checkbox" type="checkbox" id="popup-tags-item-<?=$tId?>">
 											<label for="popup-tags-item-<?=$tId?>"><?=htmlspecialcharsbx($tag)?></label>
 										</div>
 									</td>
 
-									<?$i++;?>
-								<?endforeach?>
+									<?php $i++;?>
+								<?php endforeach?>
 
 							</tr>
 
 						</tbody>
 					</table>
 
-				<?endif?>
+				<?php endif?>
 			</div>
 		</div>
 	</div>

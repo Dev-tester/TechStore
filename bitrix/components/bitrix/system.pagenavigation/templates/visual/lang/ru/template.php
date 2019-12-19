@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["nav_size_descr"] = "По:";
 $MESS["nav_of"] = "из";
 $MESS["nav_pages"] = "Страницы:";

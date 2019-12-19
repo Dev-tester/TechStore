@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBEL_BIZPROC_DATE"] = "Current Status Date:";
 $MESS["IBEL_BIZPROC_DESC"] = "Business Process Description:";
 $MESS["IBEL_BIZPROC_NA"] = "No business processes running.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_ENUM_DESCRIPTION"] = "List";
 $MESS["USER_TYPE_ENUM_DISPLAY"] = "Control";
 $MESS["USER_TYPE_ENUM_CHECKBOX"] = "Checkboxes";

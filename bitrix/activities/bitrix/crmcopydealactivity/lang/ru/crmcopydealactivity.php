@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CDA_DEAL_TITLE"] = "Название сделки";
 $MESS["CRM_CDA_MOVE_TO_CATEGORY"] = "Перенести в направление";
 $MESS["CRM_CDA_CHANGE_STAGE"] = "Начальная стадия";

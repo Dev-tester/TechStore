@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var array $arResult
  * @var array $arParams
@@ -10,7 +10,7 @@ if (array_key_exists('SUCCESS_MESSAGE', $arResult))
 {
 ?><script>
 	window.bxIdeaId = top.bxIdeaId = '<?=$arResult["ID"]?>';
-</script><?
+</script><?php 
 	return;
 }
 else if($arResult["FATAL_MESSAGE_CODE"] == "NO_RIGHTS")
@@ -23,7 +23,7 @@ else if($arResult["FATAL_MESSAGE_CODE"] == "NO_RIGHTS")
 		<?=$arResult["FATAL_MESSAGE"]?>
 	</div>
 </div>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:system.auth.form",
 	$arParams["AUTH_TEMPLATE"],
 	Array(
@@ -37,7 +37,7 @@ else if($arResult["FATAL_MESSAGE_CODE"] == "NO_RIGHTS")
 		"HIDE_ICONS" => "Y"
 	)
 );?>
-<?
+<?php 
 	return;
 }
 else if(strlen($arResult["FATAL_MESSAGE"]) > 0)
@@ -48,7 +48,7 @@ else if(strlen($arResult["FATAL_MESSAGE"]) > 0)
 			<?=$arResult["FATAL_MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 	return;
 }
 elseif(strlen($arResult["UTIL_MESSAGE"]) > 0)
@@ -59,22 +59,22 @@ elseif(strlen($arResult["UTIL_MESSAGE"]) > 0)
 			<?=$arResult["UTIL_MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 	return;
 }
 // Frame with file input to ajax uploading in WYSIWYG editor dialog
 ?>
 <form action="<?=POST_FORM_ACTION_URI?>" name="<?=$arResult['FORM_NAME']?>" id="<?=$arResult['FORM_NAME']?>" method="post" enctype="multipart/form-data">
 <?=bitrix_sessid_post();?>
-<? if($arParams["ALLOW_POST_CODE"])
+<?php  if($arParams["ALLOW_POST_CODE"])
 {
 	CUtil::InitJSCore(array('translit'));
-	?><input type="hidden" name="USE_GOOGLE_CODE" value="<?=($arParams['USE_GOOGLE_CODE'] ? "Y" : "N")?>" /><?
-	?><input maxlength="255" type="hidden" name="CODE" value="<?=$arResult["PostToShow"]["CODE"]?>" /><?
+	?><input type="hidden" name="USE_GOOGLE_CODE" value="<?=($arParams['USE_GOOGLE_CODE'] ? "Y" : "N")?>" /><?php 
+	?><input maxlength="255" type="hidden" name="CODE" value="<?=$arResult["PostToShow"]["CODE"]?>" /><?php 
 }
 ?>
 <div class="blog-post-edit idea-post-edit-light">
-<?
+<?php 
 if(strlen($arResult["MESSAGE"]) > 0)
 {
 	?>
@@ -83,7 +83,7 @@ if(strlen($arResult["MESSAGE"]) > 0)
 			<?=$arResult["MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 }
 if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 {
@@ -93,7 +93,7 @@ if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 			<?=$arResult["ERROR_MESSAGE"]?>
 		</div>
 	</div>
-<?
+<?php 
 }?>
 <div>
 	<div class="blog-post-fields blog-edit-fields">
@@ -105,7 +105,7 @@ if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 		<div class="blog-post-field blog-post-field-date blog-edit-field blog-edit-field-post-date">
 			<input type="hidden" id="DATE_PUBLISH_DEF" name="DATE_PUBLISH_DEF" value="<?=$arResult["PostToShow"]["DATE_PUBLISH"];?>">
 			<div id="date-publ" style="display:none;">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					'bitrix:main.calendar',
 					'.default',
 					array(
@@ -125,27 +125,27 @@ if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 	<div class="field-title-idea-text"><?=GetMessage("IDEA_DESCRIPTION_TITLE")?></div>
 	<div class="blog-post-message blog-edit-editor-area blog-edit-field-text">
 		<div class="blog-comment-field">
-			<? include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php"); ?>
+			<?php  include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/neweditor.php"); ?>
 		</div>
-		<div class="blog-post-field blog-post-field-images blog-edit-field" id="blog-post-image"><?
+		<div class="blog-post-field blog-post-field-images blog-edit-field" id="blog-post-image"><?php 
 		if (!empty($arResult["Images"]))
 		{
-			?><div class="blog-field-title-images"><?=GetMessage("BLOG_P_IMAGES")?></div><?
+			?><div class="blog-field-title-images"><?=GetMessage("BLOG_P_IMAGES")?></div><?php 
 			foreach($arResult["Images"] as $aImg)
 			{
 				?><div class="blog-post-image-item">
 					<div class="blog-post-image-item-border">
-						<label for="IMAGE_ID_title_<?=$aImg["ID"]?>"><? // do not do spaces between this nodes
+						<label for="IMAGE_ID_title_<?=$aImg["ID"]?>"><?php  // do not do spaces between this nodes
 							?><img src="<?=$aImg["PARAMS"]["SRC"]?>" id="<?=$aImg["ID"]?>" />
 						</label></div>
 					<div class="blog-post-image-item-text">
 						<input id="IMAGE_ID_title_<?=$aImg["ID"]?>" name="IMAGE_ID_title[<?=$aImg["ID"]?>]" value="<?=$aImg["TITLE"]?>" title="<?=GetMessage("BLOG_BLOG_IN_IMAGES_TITLE")?>" />
 					</div>
 				<div class="blog-post-image-item-act">
-						<input type="checkbox" name="IMAGE_ID_del[<?=$aImg["ID"]?>]" id="img_del_<?=$aImg["ID"]?>"><?
+						<input type="checkbox" name="IMAGE_ID_del[<?=$aImg["ID"]?>]" id="img_del_<?=$aImg["ID"]?>"><?php 
 						?><label for="img_del_<?=$aImg["ID"]?>"><?=GetMessage("BLOG_DELETE")?></label>
 					</div>
-				</div><?
+				</div><?php 
 			}
 		}
 		?>
@@ -154,7 +154,7 @@ if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 	<div class="blog-clear-float"></div>
 	<div class="blog-post-field blog-post-field-category blog-edit-field blog-edit-field-tags">
 		<div class="field-title-idea-tags"><label for="TAGS"><?=GetMessage("BLOG_CATEGORY")?></label></div>
-		<?
+		<?php 
 		if(IsModuleInstalled("search"))
 		{
 			$arSParams = Array(
@@ -174,19 +174,19 @@ if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 		}
 		else
 		{
-			?><input type="text" id="TAGS" tabindex="3" name="TAGS" size="30" value="<?=$arResult["PostToShow"]["CategoryText"]?>" /><?
+			?><input type="text" id="TAGS" tabindex="3" name="TAGS" size="30" value="<?=$arResult["PostToShow"]["CategoryText"]?>" /><?php 
 		}?>
 	</div>
 	<div class="blog-clear-float"></div>
-	<?if($arResult["POST_PROPERTIES"]["UF_SHOW_BLOCK"]):?>
+	<?php if($arResult["POST_PROPERTIES"]["UF_SHOW_BLOCK"]):?>
 		<div class="blog-post-params">
 			<div class="blog-post-field blog-post-field-user-prop blog-edit-field">
-				<?foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):
+				<?php foreach ($arResult["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):
 					if ($arResult["POST_PROPERTIES"]["DATA"][$FIELD_NAME]["UF_SHOW"]===false)
 						continue;
 					?>
 					<div class="field-title-idea-<?=$FIELD_NAME?>"><?=$arPostField["EDIT_FORM_LABEL"]?></div>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:system.field.edit",
 							$arPostField["UF_TEMPLATE"],
 							array(
@@ -197,13 +197,13 @@ if(strlen($arResult["ERROR_MESSAGE"]) > 0)
 							array("HIDE_ICONS" => "Y"));
 						?>
 					</div>
-					<? if($FIELD_NAME == "UF_CATEGORY_CODE"):?><br style="clear: both;" /><br/><? endif;?>
-				<? endforeach; ?>
+					<?php  if($FIELD_NAME == "UF_CATEGORY_CODE"):?><br style="clear: both;" /><br/><?php  endif;?>
+				<?php  endforeach; ?>
 				<br style="clear: both;"/>
 			</div>
 			<div class="blog-clear-float"></div>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 	<input type="hidden" name="save" value="Y">
 </div>
 </div>

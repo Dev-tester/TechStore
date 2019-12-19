@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_ADMIN_GROUP_NAME"] = "Администраторы";
 $MESS["MAIN_ADMIN_GROUP_DESC"] = "Полный доступ к управлению сайтом.";
 $MESS["MAIN_EVERYONE_GROUP_NAME"] = "Все пользователи (в том числе неавторизованные)";

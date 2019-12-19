@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_CONTROLLER_ERROR_BADLICENSE"] = "Your license might have expired, or the license key is invalid.";
 $MESS["LANDING_CONTROLLER_ERROR_BADRESPONSE"] = "Unknown license server response.";
 $MESS["LANDING_PUBLIC_SITE_REACHED"] = "<p>Your current plan restricts the number of sites you can create. You have to upgrade to create more sites.</p><p>With <a href=\"/settings/license_all.php\" target=\"_blank\">selected commercial plans</a>, you can create as many sites as you want.</p>";

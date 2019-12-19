@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SECURITY_SITE_CHECKER_EnvironmentTest_NAME"] = "Проверка настроек окружения";
 $MESS["SECURITY_SITE_CHECKER_SESSION_DIR"] = "Директория хранения файлов сессий доступна для всех системных пользователей";
 $MESS["SECURITY_SITE_CHECKER_SESSION_DIR_DETAIL"] = "Это может позволить читать/изменять сессионные данные, через скрипты других виртуальных серверов";

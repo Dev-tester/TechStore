@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_APP_OFFLINE_MESSAGE"] = "No network connection";
 $MESS["MB_DEMO_RELOAD"] = "Reload";
 $MESS["MB_DEMO_SHOW_ALERT"] = "Show Alert";

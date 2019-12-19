@@ -1,8 +1,8 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $ob = $arParams["OBJECT"]; 
 if ($arParams["OBJECT"]->Type == "iblock")
 {
-?><?$APPLICATION->IncludeComponent("bitrix:webdav.element.edit", "", Array(
+?><?php $APPLICATION->IncludeComponent("bitrix:webdav.element.edit", "", Array(
 	"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
 	"SECTION_ID"	=>	$arResult["VARIABLES"]["SECTION_ID"],
@@ -34,7 +34,7 @@ if ($arParams["OBJECT"]->Type == "iblock")
 	$component,
 	array("HIDE_ICONS" => "Y")
 );
-?><?
+?><?php 
 return true; 
 }
 /********************************************************************
@@ -150,10 +150,10 @@ else
 		<tr><th><?=GetMessage("WD_FILE")?>:</th>
 			<td>
 				<div class="element-icon ic<?=substr($arElement["EXTENTION"], 1)?>"></div>
-				<a target="_blank" href="<?=$arElement["URL"]["THIS"]?>" title="<?=GetMessage("WD_OPEN_FILE")?>" <?
+				<a target="_blank" href="<?=$arElement["URL"]["THIS"]?>" title="<?=GetMessage("WD_OPEN_FILE")?>" <?php 
 					if (in_array($arElement["EXTENTION"], array(".doc", ".docx", ".xls", ".xlsx", ".rtf", ".ppt", ".pptx")))
 					{
-						?> onclick="return EditDocWithProgID('<?=CUtil::JSEscape($arElement["URL"]["THIS"])?>')"<?
+						?> onclick="return EditDocWithProgID('<?=CUtil::JSEscape($arElement["URL"]["THIS"])?>')"<?php 
 					}
 				?>><?=$arElement["NAME"]?></a>
 			</td>
@@ -161,8 +161,8 @@ else
 		<tr>
 			<th><?=GetMessage("WD_FILE_SIZE")?>: </th>
 			<td>
-				<?=$arElement["FILE_SIZE"]?> <?
-					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arElement["URL"]["THIS"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?
+				<?=$arElement["FILE_SIZE"]?> <?php 
+					?><span class="wd-item-controls element_download"><a target="_blank" href="<?=$arElement["URL"]["THIS"]?>"><?=GetMessage("WD_DOWNLOAD_FILE")?></a></span><?php 
 ?>
 			</td>
 		</tr>
@@ -188,7 +188,7 @@ else
 	</tfoot>
 </table>
 </form>
-<?
+<?php 
 }
 /********************************************************************
 				Standart operations

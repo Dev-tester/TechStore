@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SU_EF_tab_1"] = "Short URL";
 $MESS["SU_EF_tab_1_title"] = "URL parameters";
 $MESS["SU_EF_save_error"] = "Error saving the URL.";

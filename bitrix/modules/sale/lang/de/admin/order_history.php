@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOD_HIST_NULL"] = "Es gibt keine Änderungen bez. dieser Bestellung";
 $MESS["SOD_HIST_H_DATE"] = "Geändert am";
 $MESS["SOD_HIST_H_USER"] = "Nutzer";

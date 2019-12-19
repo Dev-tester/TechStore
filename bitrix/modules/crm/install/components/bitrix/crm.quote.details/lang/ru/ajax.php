@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_QUOTE_PRODUCT_ROWS_SAVING_ERROR"] = "Во время сохранения товаров произошла ошибка.";
 $MESS["CRM_QUOTE_DEAULT_TITLE"] = "Новое предложение";
 $MESS["CRM_QUOTE_NOT_FOUND"] = "Предложение не найдено.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllPullStack
 {
 	// receive messages on stack

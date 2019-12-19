@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EDIT_RECORD"] = "Изменение местоположения # #ID#";
 $MESS["SALE_NEW_RECORD"] = "Новое местоположение";
 $MESS["SALE_RECORDS_LIST"] = "Местоположения";

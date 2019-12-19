@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_EDIT_RECORD'] = "Edit Smiley N#ID#";
 $MESS ['SONET_NEW_RECORD'] = "New Smiley";
 $MESS ['SONET_RECORDS_LIST'] = "Smileys";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMPANY_TITLE_UPDATE"] = "Редактирование компании: \"#NAME#\"";
 $MESS["COMPANY_TITLE_ADD"] = "Новая компания";
 $MESS["COMPANY_SECTION_TITLE"] = "Компании";

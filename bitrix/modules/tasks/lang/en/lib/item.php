@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ITEM_SUBITEM_SAVE_ERROR"] = "Save entity \"#ENTITY_NAME#\"";
 $MESS["TASKS_ITEM_UNKNOWN_FIELD"] = "Unknown field \"FIELD_NAME\"";
 ?>

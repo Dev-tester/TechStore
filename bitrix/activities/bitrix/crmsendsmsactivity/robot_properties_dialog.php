@@ -32,31 +32,31 @@ if (!$selectedRecipientType)
 			placeholder="<?=htmlspecialcharsbx($messageText['Name'])?>"
 			data-role="inline-selector-target"
 	><?=htmlspecialcharsbx($dialog->getCurrentValue($messageText['FieldName'], ''))?></textarea>
-	<div class="crm-automation-popup-sms-symbol-counter"><?=GetMessage("CRM_SSMSA_SMS_SYMBOLS")?><?
-		?><span class="crm-automation-popup-sms-symbol-counter-number" data-role="sms-length-counter">0</span><?
-		?><?=GetMessage("CRM_SSMSA_SMS_SYMBOLS_FROM")?><?
+	<div class="crm-automation-popup-sms-symbol-counter"><?=GetMessage("CRM_SSMSA_SMS_SYMBOLS")?><?php 
+		?><span class="crm-automation-popup-sms-symbol-counter-number" data-role="sms-length-counter">0</span><?php 
+		?><?=GetMessage("CRM_SSMSA_SMS_SYMBOLS_FROM")?><?php 
 		?><span class="crm-automation-popup-sms-symbol-counter-number">200</span>
 	</div>
 </div>
-<? if ($selectedRecipientType === CBPCrmSendSmsActivity::RECIPIENT_TYPE_USER):?>
+<?php  if ($selectedRecipientType === CBPCrmSendSmsActivity::RECIPIENT_TYPE_USER):?>
 <div class="crm-automation-popup-settings">
 	<span class="crm-automation-popup-settings-title crm-automation-popup-settings-title-autocomplete">
 		<?=htmlspecialcharsbx($recipientUser['Name'])?>:
 	</span>
 	<?=$dialog->renderFieldControl($recipientUser)?>
 </div>
-<?else:?>
+<?php else:?>
 <div class="crm-automation-popup-settings">
 	<span class="crm-automation-popup-settings-title"><?=htmlspecialcharsbx($phoneType['Name'])?>:</span>
 	<select class="crm-automation-popup-settings-dropdown" name="<?=htmlspecialcharsbx($phoneType['FieldName'])?>">
-		<?foreach ($phoneType['Options'] as $value => $optionLabel):?>
+		<?php foreach ($phoneType['Options'] as $value => $optionLabel):?>
 			<option value="<?=htmlspecialcharsbx($value)?>"
 				<?=($value == $phoneTypeValue) ? ' selected' : ''?>
 			><?=htmlspecialcharsbx($optionLabel)?></option>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</select>
 </div>
-<?endif;?>
+<?php endif;?>
 <div class="crm-automation-popup-settings">
 	<span class="crm-automation-popup-settings-title crm-automation-popup-settings-title-top"><?=htmlspecialcharsbx($providerId['Name'])?>:</span>
 	<div class="crm-automation-popup-select crm-automation-popup-select-margin-down-s">

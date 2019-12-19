@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TP_BSP_STRUCTURE_FILTER"] = "Имя фильтра страницы структуры компании";
 $MESS["TP_BSP_USE_SUGGEST"] = "Показывать подсказку с поисковыми фразами";
 $MESS["TP_BSP_PATH_TO_SONET_MESSAGES_CHAT"] = "Страница отправки личного сообщения соцсети";

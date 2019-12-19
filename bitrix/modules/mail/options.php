@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2004 Bitrix             #
@@ -55,9 +55,9 @@ $aTabs = array(
 );
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 ?>
-<?
+<?php 
 $tabControl->Begin();
-?><form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>"><?
+?><form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>"><?php 
 $tabControl->BeginNextTab();
 	for($i=0; $i<count($arAllOptions); $i++):
 		$Option = $arAllOptions[$i];
@@ -65,31 +65,31 @@ $tabControl->BeginNextTab();
 		$type = $Option[3];
 	?>
 		<tr>
-			<td valign="top" width="50%"><?if($type[0]=="checkbox")
+			<td valign="top" width="50%"><?php if($type[0]=="checkbox")
 							echo "<label for=\"".htmlspecialcharsbx($Option[0])."\">".$Option[1]."</label>";
 						else
 							echo $Option[1];?></td>
 			<td valign="top" width="50%">
-					<?if($type[0]=="checkbox"):?>
-						<input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-					<?elseif($type[0]=="text"):?>
-						<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>">
-					<?elseif($type[0]=="textarea"):?>
-						<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-					<?endif?>
+					<?php if($type[0]=="checkbox"):?>
+						<input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+					<?php elseif($type[0]=="text"):?>
+						<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>">
+					<?php elseif($type[0]=="textarea"):?>
+						<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+					<?php endif?>
 			</td>
 		</tr>
-	<?
+	<?php 
 	endfor;
 	?>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
-<?$val = COption::GetOptionString("mail", "php_path", (StrToUpper(SubStr(PHP_OS, 0, 3)) === "WIN") ? "../apache/php.exe -c ../apache/php.ini" : "authbind php -c /etc/php.ini");?>
+<?php $val = COption::GetOptionString("mail", "php_path", (StrToUpper(SubStr(PHP_OS, 0, 3)) === "WIN") ? "../apache/php.exe -c ../apache/php.ini" : "authbind php -c /etc/php.ini");?>
 <script>
 var ss = false;
 function StartSMTPD()
 {
-	if(BX('php_path').value!='<?=AddSlashes($val)?>' && !confirm("<?echo GetMessage("MAIL_OPT_CONFIRM")?>"))
+	if(BX('php_path').value!='<?=AddSlashes($val)?>' && !confirm("<?php echo GetMessage("MAIL_OPT_CONFIRM")?>"))
 		return false;
 	BX.showWait();
 
@@ -115,7 +115,7 @@ function StartSMTPDY(o)
 	if(o == "success")
 		Stats(true);
 	else
-		alert("<?echo GetMessage("MAIL_OPT_ERR")?>"+o);
+		alert("<?php echo GetMessage("MAIL_OPT_ERR")?>"+o);
 }
 
 function StartSMTPDN()
@@ -169,14 +169,14 @@ function __TimePeriodToString(t)
 		}
 	}
 
-	return (d>0?d+"<?echo GetMessage("EMAIL_OPT_DAYS")?> ":'')+(h>0?h+"<?echo GetMessage("EMAIL_OPT_HR")?> ":'')+(m>0?m+"<?echo GetMessage("EMAIL_OPT_MIN")?> ":'')+s+"<?echo GetMessage("EMAL_OPT_SEC")?>";
+	return (d>0?d+"<?php echo GetMessage("EMAIL_OPT_DAYS")?> ":'')+(h>0?h+"<?php echo GetMessage("EMAIL_OPT_HR")?> ":'')+(m>0?m+"<?php echo GetMessage("EMAIL_OPT_MIN")?> ":'')+s+"<?php echo GetMessage("EMAL_OPT_SEC")?>";
 }
 
 function OnStats(o)
 {
 	if(o == false)
 	{
-		BX('status').innerHTML = "<?echo GetMessage("EMAL_OPT_SMTP_STOPPED")?>";
+		BX('status').innerHTML = "<?php echo GetMessage("EMAL_OPT_SMTP_STOPPED")?>";
 		BX('iStopSMTPD').style.display = 'none';
 		BX('iStartSMTPD').style.display = '';
 		if(ss != 'start')
@@ -185,10 +185,10 @@ function OnStats(o)
 	else
 	{
 		var d = new Date(o.started * 1000);
-		BX('status').innerHTML = "<?echo GetMessage("EMAL_OPT_SMTP_RUN")?>"+"<br>"+
-			"<?echo GetMessage("EMAL_OPT_SMTP_STAT_START")?>"+' '+ d.toString() +" ("+"<?echo GetMessage("EMAL_OPT_SMTP_STAT_UPTIME")?>"+" "+ __TimePeriodToString(o.uptime) + ")<br>"+
-			"<?echo GetMessage("EMAL_OPT_SMTP_STAT_CNT")?>"+' '+ o.messages +" "+"<?echo GetMessage("EMAL_OPT_SMTP_STAT_CNT_MAIL")?>"+"<br>"+
-			"<?echo GetMessage("EMAL_OPT_SMTP_STAT_CONS")?>"+" "+ o.connections +" ("+"<?echo GetMessage("EMAL_OPT_SMTP_STAT_CONS_NOW")?>"+" " + o.connections_now+")";
+		BX('status').innerHTML = "<?php echo GetMessage("EMAL_OPT_SMTP_RUN")?>"+"<br>"+
+			"<?php echo GetMessage("EMAL_OPT_SMTP_STAT_START")?>"+' '+ d.toString() +" ("+"<?php echo GetMessage("EMAL_OPT_SMTP_STAT_UPTIME")?>"+" "+ __TimePeriodToString(o.uptime) + ")<br>"+
+			"<?php echo GetMessage("EMAL_OPT_SMTP_STAT_CNT")?>"+' '+ o.messages +" "+"<?php echo GetMessage("EMAL_OPT_SMTP_STAT_CNT_MAIL")?>"+"<br>"+
+			"<?php echo GetMessage("EMAL_OPT_SMTP_STAT_CONS")?>"+" "+ o.connections +" ("+"<?php echo GetMessage("EMAL_OPT_SMTP_STAT_CONS_NOW")?>"+" " + o.connections_now+")";
 
 		BX('iStopSMTPD').style.display = '';
 		if(ss != 'stop')
@@ -215,38 +215,38 @@ function StopSMTPD()
 setTimeout("Stats()", 0);
 </script>
 	<tr>
-		<td valign="top"  width="50%"><?echo GetMessage("EMAL_OPT_PHP_LINE")?></td>
+		<td valign="top"  width="50%"><?php echo GetMessage("EMAL_OPT_PHP_LINE")?></td>
 		<td valign="middle" width="50%">
 			<input type="text" id="php_path" size="35" maxlength="255" value="<?=htmlspecialcharsbx($val)?>" name="php_path"></td>
 	</tr>
 
 	<tr>
-		<td valign="top" width="50%"><?echo GetMessage("EMAL_OPT_STATUS")?></td>
-		<td valign="middle" width="50%" id="status"><?echo GetMessage("EMAL_OPT_STATUS_UNK")?></td>
+		<td valign="top" width="50%"><?php echo GetMessage("EMAL_OPT_STATUS")?></td>
+		<td valign="middle" width="50%" id="status"><?php echo GetMessage("EMAL_OPT_STATUS_UNK")?></td>
 	</tr>
 
 	<tr>
 		<td valign="top"  width="50%"></td>
 		<td valign="middle" width="50%">
-			<input type="button" onclick="StartSMTPD()" id="iStartSMTPD" value="<?echo GetMessage("EMAL_OPT_START_SMTP")?>"> <input type="button" style="display:none" onclick="StopSMTPD()" id="iStopSMTPD" value="<?echo GetMessage("EMAL_OPT_STOP_SMTP")?>">
+			<input type="button" onclick="StartSMTPD()" id="iStartSMTPD" value="<?php echo GetMessage("EMAL_OPT_START_SMTP")?>"> <input type="button" style="display:none" onclick="StopSMTPD()" id="iStopSMTPD" value="<?php echo GetMessage("EMAL_OPT_STOP_SMTP")?>">
 		</td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
-<?$tabControl->Buttons();?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+<?php $tabControl->Buttons();?>
 <script type="text/javascript">
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)?>&<?echo bitrix_sessid_get()?>";
+	if(confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)?>&<?php echo bitrix_sessid_get()?>";
 }
 </script>
-<input type="submit" name="Update" <?if ($MOD_RIGHT<"W") echo "disabled" ?> value="<?echo GetMessage("MAIL_OPTIONS_SAVE")?>">
-<input type="reset" name="reset" value="<?echo GetMessage("MAIL_OPTIONS_RESET")?>">
+<input type="submit" name="Update" <?php if ($MOD_RIGHT<"W") echo "disabled" ?> value="<?php echo GetMessage("MAIL_OPTIONS_SAVE")?>">
+<input type="reset" name="reset" value="<?php echo GetMessage("MAIL_OPTIONS_RESET")?>">
 <input type="hidden" name="Update" value="Y">
-<input type="button" <?if ($MOD_RIGHT<"W") echo "disabled" ?> title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
-<?echo bitrix_sessid_post()?>
+<input type="button" <?php if ($MOD_RIGHT<"W") echo "disabled" ?> title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
+<?php echo bitrix_sessid_post()?>
 </form>
-<?endif; //if($MOD_RIGHT>="R"):?>
+<?php endif; //if($MOD_RIGHT>="R"):?>

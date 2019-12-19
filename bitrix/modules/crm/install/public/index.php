@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle(GetMessage("CRM_PAGE_TITLE"));
 $APPLICATION->SetPageProperty("BodyClass", " page-one-column");
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:desktop",
 	"",
 	Array(
@@ -277,4 +277,4 @@ $APPLICATION->SetPageProperty("BodyClass", " page-one-column");
 );
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

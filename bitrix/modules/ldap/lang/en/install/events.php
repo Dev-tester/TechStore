@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LDAP_USER_CONFIRM_TYPE_NAME'] = "Registration Confirmation";
 $MESS ['LDAP_USER_CONFIRM_TYPE_DESC'] = "#USER_ID# - User ID
 #EMAIL# - E-mail

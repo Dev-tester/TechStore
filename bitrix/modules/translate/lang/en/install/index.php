@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['TRANS_MODULE_NAME'] = "Localization";
 $MESS ['TRANS_MODULE_DESCRIPTION'] = "Module enables language file localization.";
 $MESS ['TRANS_INIT_FOLDERS'] = "Initial folders (comma-separated)";

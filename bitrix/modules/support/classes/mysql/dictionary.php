@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/classes/general/dictionary.php");
 
 class CTicketDictionary extends CAllTicketDictionary

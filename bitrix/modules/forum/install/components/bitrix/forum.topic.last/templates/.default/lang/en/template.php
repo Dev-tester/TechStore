@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FTP_IN_FORUM'] = "on forum &laquo;#FORUM#&raquo;";
 $MESS ['FTP_LAST_MESS'] = "Last message of this topic";
 $MESS ['FTP_SORTING_TITLE'] = "Title";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PATH_TO_RSS_TIP'] = "Указывается путь к странице RSS блога. Например: blog_rss.php?page=rss&blog=#blog#&type=#type#.";
 $MESS ['PATH_TO_RSS_ALL_TIP'] = "Указывается путь к странице общего RSS блога. Например: blog_rss_all.php?page=rss_all&blog=#blog#&type=#type#.";
 $MESS ['BLOG_VAR_TIP'] = "Указывается имя переменной, которой передается ID блога.";

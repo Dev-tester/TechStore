@@ -1,4 +1,4 @@
-<?
+<?php 
 define('BX_SECURITY_SESSION_VIRTUAL', true);
 define("NOT_CHECK_PERMISSIONS", true);
 define("STOP_STATISTICS", true);

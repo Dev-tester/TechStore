@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_RCP_LIST_TITLE"] = "Recipients";
 $MESS["SENDER_LETTER_RCP_LIST_TITLE_CONTACT"] = "Sent newsletters";
 $MESS["SENDER_LETTER_RCP_UI_COLUMN_LETTER_TITLE"] = "Newsletter";

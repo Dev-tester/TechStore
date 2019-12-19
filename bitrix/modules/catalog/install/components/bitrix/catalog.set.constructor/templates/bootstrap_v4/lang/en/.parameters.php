@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_CSC_TPL_THEME_SITE"] = "Use site theme (for bitrix.eshop)";
 $MESS["CP_CSC_TPL_THEME_BLUE"] = "blue (default theme)";
 $MESS["CP_CSC_TPL_THEME_GREEN"] = "green";

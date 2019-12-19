@@ -206,9 +206,9 @@ if(count($arrDays) < 2) :
 else:
 ?>
 <div class="graph">
-<?echo $arrParams[$find_data_type][1]?>
+<?php echo $arrParams[$find_data_type][1]?>
 <table cellspacing="0" cellpadding="0" class="graph" border="0" align="center"><tr>
-<td valign="center" class="graph"><?
+<td valign="center" class="graph"><?php 
 	$width = COption::GetOptionString("statistic", "GRAPH_WEIGHT");
 	$height = COption::GetOptionString("statistic", "GRAPH_HEIGHT");
 	?><img class="graph" src="/bitrix/admin/adv_analysis_graph.php?rand=<?=rand()?>&find_data_type=<?=$find_data_type?><?=GetFilterParams($FilterArr)?>&width=<?=$width?>&height=<?=$height?>&lang=<?=LANGUAGE_ID?>" width="<?=$width?>" height="<?=$height?>">
@@ -217,7 +217,7 @@ else:
 </table>
 </div>
 <br>
-<?endif;
+<?php endif;
 $lAdmin->EndPrologContent();
 
 
@@ -303,38 +303,38 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 ?>
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
 </tr>
 
 
 <tr>
 	<td><?=GetMessage("STAT_F_ID")?>:</td>
-	<td><input type="text" name="find_adv_id" size="35" value="<?echo htmlspecialcharsbx($find_adv_id)?>"><?=ShowExactMatchCheckbox("find_adv_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_adv_id" size="35" value="<?php echo htmlspecialcharsbx($find_adv_id)?>"><?=ShowExactMatchCheckbox("find_adv_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>referer1:</td>
-	<td><input type="text" name="find_referer1" size="35" value="<?echo htmlspecialcharsbx($find_referer1)?>"><?=ShowExactMatchCheckbox("find_referer1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_referer1" size="35" value="<?php echo htmlspecialcharsbx($find_referer1)?>"><?=ShowExactMatchCheckbox("find_referer1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>referer2:</td>
-	<td><input type="text" name="find_referer2" size="35" value="<?echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_referer2" size="35" value="<?php echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
-<?//if (is_array($arrADV)):?>
+<?php //if (is_array($arrADV)):?>
 <tr valign="top">
-	<td width="0%" nowrap valign="top"><?
+	<td width="0%" nowrap valign="top"><?php 
 		echo GetMessage("STAT_F_SELECT_ADV")?>:<br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
-	<td width="100%" nowrap><?
+	<td width="100%" nowrap><?php 
 		echo SelectBoxMFromArray("find_adv[]",array("REFERENCE"=>$find_adv_names, "REFERENCE_ID"=>$find_adv), $find_adv,"",false,"10", "style=\"width:300px;\"");
 		?>
 	<script language="Javascript">
 	function selectEventType(form, field)
 	{
-		jsUtils.OpenWindow('adv_multiselect.php?lang=<?echo LANGUAGE_ID?>&form='+form+'&field='+field, 600, 600);
+		jsUtils.OpenWindow('adv_multiselect.php?lang=<?php echo LANGUAGE_ID?>&form='+form+'&field='+field, 600, 600);
 	}
 	jsSelectUtils.sortSelect('find_adv[]');
 	jsSelectUtils.selectAllOptions('find_adv[]');
@@ -346,7 +346,7 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 		</td>
 </tr>
 
-<?//endif;?>
+<?php //endif;?>
 
 <script language="JavaScript">
 <!--
@@ -368,31 +368,31 @@ function OnChangeAnalysisParam()
 </script>
 
 
-<?if (is_array($arrEVENT)):?>
+<?php if (is_array($arrEVENT)):?>
 
 <tr>
 	<td><?=GetMessage("STAT_F_ID2")?>:</td>
-	<td><input type="text" name="find_event_type_id" size="35" value="<?echo htmlspecialcharsbx($find_event_type_id)?>"><?=ShowExactMatchCheckbox("find_event_type_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_event_type_id" size="35" value="<?php echo htmlspecialcharsbx($find_event_type_id)?>"><?=ShowExactMatchCheckbox("find_event_type_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>event1:</td>
-	<td><input type="text" name="find_event1" size="35" value="<?echo htmlspecialcharsbx($find_event1)?>"><?=ShowExactMatchCheckbox("find_event1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_event1" size="35" value="<?php echo htmlspecialcharsbx($find_event1)?>"><?=ShowExactMatchCheckbox("find_event1")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>event2:</td>
-	<td><input type="text" name="find_event2" size="35" value="<?echo htmlspecialcharsbx($find_event2)?>"><?=ShowExactMatchCheckbox("find_event2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_event2" size="35" value="<?php echo htmlspecialcharsbx($find_event2)?>"><?=ShowExactMatchCheckbox("find_event2")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
 <tr valign="top">
 	<td><?=GetMessage("STAT_F_SELECT_EVENTS")?>:</td>
 	<td>
-	<?
+	<?php 
 		echo SelectBoxMFromArray("find_events[]",array("REFERENCE"=>$find_events_names, "REFERENCE_ID"=>$find_events), $find_events,"",false,"10", "style=\"width:300px;\"");
 	?>
 	<script language="Javascript">
 	function selectEvent(form, field)
 	{
-		jsUtils.OpenWindow('event_multiselect.php?lang=<?echo LANGUAGE_ID?>&form='+form+'&field='+field, 600, 600);
+		jsUtils.OpenWindow('event_multiselect.php?lang=<?php echo LANGUAGE_ID?>&form='+form+'&field='+field, 600, 600);
 	}
 	jsSelectUtils.sortSelect('find_events[]');
 	jsSelectUtils.selectAllOptions('find_events[]');
@@ -404,17 +404,17 @@ function OnChangeAnalysisParam()
 
 	</td>
 </tr>
-<?endif;?>
+<?php endif;?>
 
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

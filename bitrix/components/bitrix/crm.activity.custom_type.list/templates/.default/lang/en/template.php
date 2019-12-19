@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACT_CUST_TYPE_EDIT_TITLE"] = "Edit activity type";
 $MESS["CRM_ACT_CUST_TYPE_EDIT"] = "Edit";
 $MESS["CRM_ACT_CUST_TYPE_DELETE_TITLE"] = "Delete pipeline";

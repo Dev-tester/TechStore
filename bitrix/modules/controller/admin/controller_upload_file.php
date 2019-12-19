@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 /** @global CMain $APPLICATION */
 /** @global CDatabase $DB */
@@ -103,7 +103,7 @@ if(
 				echo BeginNote();
 				echo GetMessage("CTRLR_UPLOAD_ERR_TOO_MANY_SELECTED");
 				echo EndNote();
-				?><script>top.document.getElementById('tr_force').style.display='';</script><?
+				?><script>top.document.getElementById('tr_force').style.display='';</script><?php 
 			}
 			else
 			{
@@ -135,7 +135,7 @@ $lAdmin->BeginEpilogContent();
 	<input type="hidden" name="filename" id="filename" value="<?=htmlspecialcharsbx($filename);?>">
 	<input type="hidden" name="path_to" id="path_to" value="<?=htmlspecialcharsbx($path_to);?>">
 	<input type="hidden" name="force" id="force" value="N">
-<?
+<?php 
 $lAdmin->EndEpilogContent();
 
 $lAdmin->CheckListMode();
@@ -147,7 +147,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 <script>
 function __FPHPSubmit()
 {
-	if(confirm('<?echo GetMessage("CTRLR_UPLOAD_CONFIRM")?>'))
+	if(confirm('<?php echo GetMessage("CTRLR_UPLOAD_CONFIRM")?>'))
 	{
 		document.getElementById('controller_member_id').value = document.getElementById('fcontroller_member_id').value;
 		document.getElementById('controller_group_id').value = document.getElementById('fcontroller_group_id').value;
@@ -170,7 +170,7 @@ function __FPHPSubmit()
 	}
 }
 </script>
-<?
+<?php 
 $aTabs = array(
 	array(
 		"DIV" => "tab1",
@@ -180,9 +180,9 @@ $aTabs = array(
 );
 $editTab = new CAdminTabControl("editTab", $aTabs, true, true);
 ?>
-<form name="form1" action="<?echo $APPLICATION->GetCurPage()?>" method="POST">
+<form name="form1" action="<?php echo $APPLICATION->GetCurPage()?>" method="POST">
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?
+<?php 
 $arGroups = Array();
 $dbr_groups = CControllerGroup::GetList(Array("SORT"=>"ASC","NAME"=>"ASC","ID"=>"ASC"));
 while($ar_groups = $dbr_groups->GetNext())
@@ -199,7 +199,7 @@ $filter->Begin();
 <tr>
 	<td nowrap><label for="fcontroller_member_id"><?=GetMessage("CTRLR_UPLOAD_FILTER_SITE")?></label>:</td>
 	<td nowrap>
-		<?
+		<?php 
 		$dbr_members = CControllerMember::GetList(array(
 			"SORT" => "ASC",
 			"NAME" => "ASC",
@@ -228,46 +228,46 @@ $filter->Begin();
 
 		if ($arMembers):?>
 			<select name="fcontroller_member_id" id="fcontroller_member_id">
-				<option value=""><?echo GetMessage("CTRLR_UPLOAD_FILTER_SITE_ALL")?></option>
-				<?foreach ($arMembers as $ID => $NAME):?>
+				<option value=""><?php echo GetMessage("CTRLR_UPLOAD_FILTER_SITE_ALL")?></option>
+				<?php foreach ($arMembers as $ID => $NAME):?>
 					<option
-						value="<?echo htmlspecialcharsbx($ID)?>"
-						<?if($controller_member_id==$ID)echo ' selected';?>
-					><?echo htmlspecialcharsEx($NAME." [".$ID."]")?></option>
-				<?endforeach?>
+						value="<?php echo htmlspecialcharsbx($ID)?>"
+						<?php if($controller_member_id==$ID)echo ' selected';?>
+					><?php echo htmlspecialcharsEx($NAME." [".$ID."]")?></option>
+				<?php endforeach?>
 			</select>
-		<?else:?>
+		<?php else:?>
 			<input
 				type="text"
 				name="fcontroller_member_id"
 				id="fcontroller_member_id"
-				value="<?echo htmlspecialcharsbx($controller_member_id)?>"
+				value="<?php echo htmlspecialcharsbx($controller_member_id)?>"
 				size="47"
 			/>
-		<?endif?>
+		<?php endif?>
 	</td>
 </tr>
 <tr>
-	<td nowrap><label for="fcontroller_group_id"><?echo htmlspecialcharsEx(GetMessage("CTRLR_UPLOAD_FILTER_GROUP"))?></label>:</td>
-	<td nowrap><?echo htmlspecialcharsEx($controller_group_id)?>
+	<td nowrap><label for="fcontroller_group_id"><?php echo htmlspecialcharsEx(GetMessage("CTRLR_UPLOAD_FILTER_GROUP"))?></label>:</td>
+	<td nowrap><?php echo htmlspecialcharsEx($controller_group_id)?>
 	<select name="fcontroller_group_id" id="fcontroller_group_id">
-		<option value=""><?echo GetMessage("CTRLR_UPLOAD_FILTER_GROUP_ANY")?></option>
-	<?foreach($arGroups as $group_id=>$group_name):?>
-		<option value="<?=$group_id?>" <?if($group_id==$controller_group_id)echo "selected"?>><?=$group_name?></option>
-	<?endforeach;?>
+		<option value=""><?php echo GetMessage("CTRLR_UPLOAD_FILTER_GROUP_ANY")?></option>
+	<?php foreach($arGroups as $group_id=>$group_name):?>
+		<option value="<?=$group_id?>" <?php if($group_id==$controller_group_id)echo "selected"?>><?=$group_name?></option>
+	<?php endforeach;?>
 	</select>
 	</td>
 </tr>
-<?
+<?php 
 $filter->Buttons();
 ?>
-<?
+<?php 
 $filter->End();
 ?>
 
 
 <?=bitrix_sessid_post()?>
-<?
+<?php 
 $editTab->Begin();
 $editTab->BeginNextTab();
 ?>
@@ -291,7 +291,7 @@ $editTab->BeginNextTab();
 				document.getElementById('ffilename').value = path + filename;
 			}
 		}
-		</script><?
+		</script><?php 
 		CAdminFileDialog::ShowScript(
 			Array
 			(
@@ -307,7 +307,7 @@ $editTab->BeginNextTab();
 				"SaveConfig" => true
 			)
 		);
-		?><input type="button" onclick="OpenFileBrowserWindFile();" value="<?echo GetMessage("CTRLR_UPLOAD_OPEN_FILE_BUTTON")?>">
+		?><input type="button" onclick="OpenFileBrowserWindFile();" value="<?php echo GetMessage("CTRLR_UPLOAD_OPEN_FILE_BUTTON")?>">
 	</td>
 </tr>
 <tr>
@@ -321,25 +321,25 @@ $editTab->BeginNextTab();
 <tr style="display:none" id="tr_force">
 	<td>
 		<input type="checkbox" id="fforce" name="fforce" value="Y">
-		<label for="fforce"><?echo GetMessage("CTRLR_UPLOAD_FORCE_RUN")?></label>
+		<label for="fforce"><?php echo GetMessage("CTRLR_UPLOAD_FORCE_RUN")?></label>
 	</td>
 </tr>
-<?$editTab->Buttons();?>
+<?php $editTab->Buttons();?>
 <input
 	type="button"
 	accesskey="x"
 	name="execute"
-	value="<?echo GetMessage("CTRLR_UPLOAD_BUTT_RUN")?>"
+	value="<?php echo GetMessage("CTRLR_UPLOAD_BUTT_RUN")?>"
 	onclick="return __FPHPSubmit();"
 	class="adm-btn-save"
-	<?if (!$USER->CanDoOperation("controller_upload_file")) echo 'disabled="disabled"'?>
+	<?php if (!$USER->CanDoOperation("controller_upload_file")) echo 'disabled="disabled"'?>
 >
-<input type="reset" value="<?echo GetMessage("CTRLR_UPLOAD_BUTT_CLEAR")?>">
-<?
+<input type="reset" value="<?php echo GetMessage("CTRLR_UPLOAD_BUTT_CLEAR")?>">
+<?php 
 $editTab->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

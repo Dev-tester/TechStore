@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGESERVICE_CONFIG_SENDER_SMS_TITLE"] = "SMS информирование &ndash; это просто";
 $MESS["MESSAGESERVICE_CONFIG_SENDER_SMS_TITLE_2"] = "Сервис предоставлен компанией TWILIO.COM";
 $MESS["MESSAGESERVICE_CONFIG_SENDER_SMS_FEATURES_TITLE"] = "Используйте все возможности мобильного SMS маркетинга";

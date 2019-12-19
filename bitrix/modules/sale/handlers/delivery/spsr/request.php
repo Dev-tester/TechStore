@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Sale\Handlers\Delivery\Spsr;
 
 use Bitrix\Main\Localization\Loc;

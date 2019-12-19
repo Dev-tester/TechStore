@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CAllMain $APPLICATION */
@@ -40,7 +40,7 @@ $containerId = 'bx-sender-mail-link-editor';
 	>
 	<span data-role="button" class="sender-mail-text-editor-utm"><?=Loc::getMessage('SENDER_MAIL_LINK_EDITOR_TITLE')?></span>
 	<div data-role="popup-content" class="sender-popup-container" style="display: none;">
-		<?
+		<?php 
 		$list = array(
 			'UTM_SOURCE',
 			'UTM_MEDIUM',
@@ -60,6 +60,6 @@ $containerId = 'bx-sender-mail-link-editor';
 					<input class="sender-popup-editor-input" data-role="<?=$nameLower?>" type="text" style="width: 100%;">
 				</div>
 		</div>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 </span>

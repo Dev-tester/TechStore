@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["interface_grid_search"] = "Search";
 $MESS["interface_grid_show_all"] = "Show all filters";
 $MESS["interface_grid_hide_all"] = "Hide all filters";

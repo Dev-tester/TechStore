@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="body-blog">
-<?
+<?php 
 if($arParams["DO_NOT_SHOW_MENU"] != "Y")
 {
 	$APPLICATION->IncludeComponent(
@@ -34,7 +34,7 @@ if($arParams["DO_NOT_SHOW_SIDEBAR"] != "Y")
 {
 	?>
 	<div class="blog-sidebar">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.info",
 				"avatar",
@@ -56,7 +56,7 @@ if($arParams["DO_NOT_SHOW_SIDEBAR"] != "Y")
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:blog.menu",
 			"settings",
@@ -86,7 +86,7 @@ if($arParams["DO_NOT_SHOW_SIDEBAR"] != "Y")
 		?>
 		<ul>
 			<li class="blog-tags-cloud">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 						"bitrix:blog.info",
 						"",
@@ -119,7 +119,7 @@ if($arParams["DO_NOT_SHOW_SIDEBAR"] != "Y")
 				?>
 			</li>
 		</ul>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.blog.favorite", 
 				"", 
@@ -153,7 +153,7 @@ if($arParams["DO_NOT_SHOW_SIDEBAR"] != "Y")
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.rss.link",
 				"",
@@ -173,7 +173,7 @@ if($arParams["DO_NOT_SHOW_SIDEBAR"] != "Y")
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.calendar",
 				"",
@@ -193,11 +193,11 @@ if($arParams["DO_NOT_SHOW_SIDEBAR"] != "Y")
 			);
 		?>
 	</div>
-	<?
+	<?php 
 }
 ?>
 <div class="blog-posts">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		"bitrix:blog.blog", 
 		"", 

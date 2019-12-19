@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile('/bitrix/modules/intranet/install/1c_intranet.php');
 
 $arUserFields = array(

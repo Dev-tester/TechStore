@@ -32,7 +32,7 @@ if ($arResult["ERROR"]["ORDER"])
 			</div>
 
 			<div class="adm-crm-site-master-grid-content">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent('bitrix:main.ui.grid', '', [
 					'GRID_ID' => 'order_error_list',
 					'COLUMNS' => [
@@ -86,7 +86,7 @@ if ($arResult["ERROR"]["ORDER"])
 			</div>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -114,6 +114,6 @@ else
 			finishButtonId: '<?=htmlspecialcharsbx($component->getWizard()->GetFinishButtonID())?>'
 		});
 	</script>
-	<?
+	<?php 
 }
 ?>

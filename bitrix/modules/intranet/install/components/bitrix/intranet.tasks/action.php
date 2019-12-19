@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if(!defined("BX_INTASKS_FROM_COMPONENT") || BX_INTASKS_FROM_COMPONENT!==true)die();
 
 CModule::IncludeModule("socialnetwork");

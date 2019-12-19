@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZVAL_CODE_ORDER_USER_DESCRIPTION"] = "User comment";
 $MESS["BIZVAL_CODE_ORDER_ORDER_TOPIC"] = "Subject";
 $MESS["BIZVAL_CODE_ORDER_DATE_BILL"] = "Created on";

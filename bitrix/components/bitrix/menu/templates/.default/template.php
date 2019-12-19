@@ -1,20 +1,20 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (!empty($arResult)):?>
+<?php if (!empty($arResult)):?>
 <ul class="left-menu">
 
-<?
+<?php 
 foreach($arResult as $arItem):
 	if($arParams["MAX_LEVEL"] == 1 && $arItem["DEPTH_LEVEL"] > 1) 
 		continue;
 ?>
-	<?if($arItem["SELECTED"]):?>
+	<?php if($arItem["SELECTED"]):?>
 		<li><a href="<?=$arItem["LINK"]?>" class="selected"><?=$arItem["TEXT"]?></a></li>
-	<?else:?>
+	<?php else:?>
 		<li><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
-	<?endif?>
+	<?php endif?>
 	
-<?endforeach?>
+<?php endforeach?>
 
 </ul>
-<?endif?>
+<?php endif?>

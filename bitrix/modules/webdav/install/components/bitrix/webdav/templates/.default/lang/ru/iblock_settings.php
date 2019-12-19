@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IB_E_DEFAULT_ACCESS_TITLE'] = "Доступ по умолчанию";
 $MESS ['IB_E_DEFAULT_ACCESS'] = "По умолчанию";
 $MESS ['IB_E_EVERYONE'] = "Для всех пользователей";

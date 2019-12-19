@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/socialnetwork/classes/general/log_smartfilter.php");
 
 class CSocNetLogSmartFilter extends CAllSocNetLogSmartFilter

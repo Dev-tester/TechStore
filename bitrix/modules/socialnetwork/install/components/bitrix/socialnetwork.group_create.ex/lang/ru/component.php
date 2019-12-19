@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_MODULE_NOT_INSTALL"] = "Модуль социальной сети не установлен.";
 $MESS["SONET_GCE_ERR_NAME"] = "Не указано название группы";
 $MESS["SONET_GCE_ERR_NAME_PROJECT"] = "Не указано название проекта";

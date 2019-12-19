@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_ED_PROG_ORDER_CLOSE"] = "Complete order";
 $MESS["CRM_ENTITY_ED_PROG_ORDER_SHIPMENT_CLOSE"] = "Complete shipment";
 $MESS["CRM_ENTITY_ED_PROG_CLOSE"] = "Complete";

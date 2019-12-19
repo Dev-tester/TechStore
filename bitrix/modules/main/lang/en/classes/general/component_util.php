@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VRT_COMP_CAT_CONTENT"] = "Content";
 $MESS["VRT_COMP_CAT_SERVICE"] = "Services";
 $MESS["VRT_COMP_CAT_COMMUNICATION"] = "Communication";

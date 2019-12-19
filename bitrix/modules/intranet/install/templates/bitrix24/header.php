@@ -1,4 +1,4 @@
-<?
+<?php 
 //phpinfo();
 use Bitrix\Intranet\Integration\Templates\Bitrix24\ThemePicker;
 use Bitrix\Main\Config\Option;
@@ -83,17 +83,17 @@ function getJsTitle()
 }
 ?>
 <!DOCTYPE html>
-<html <?if (LANGUAGE_ID == "tr"):?>lang="<?=LANGUAGE_ID?>"<?endif?>>
+<html <?php if (LANGUAGE_ID == "tr"):?>lang="<?=LANGUAGE_ID?>"<?php endif?>>
 <head>
 <meta name="viewport" content="width=1135">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<?if ($isBitrix24Cloud):?>
+<?php if ($isBitrix24Cloud):?>
 <meta name="apple-itunes-app" content="app-id=561683423" />
 <link rel="apple-touch-icon-precomposed" href="/images/iphone/57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/iphone/72x72.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/iphone/114x114.png" />
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/iphone/144x144.png" />
-<?endif;
+<?php endif;
 
 $APPLICATION->ShowHead(false);
 $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/interface.css", true);
@@ -127,17 +127,17 @@ $APPLICATION->AddHeadString(
 	\Bitrix\Main\Page\AssetLocation::AFTER_CSS
 );
 ?>
-<title><? if (!$isCompositeMode || $isIndexPage) $APPLICATION->ShowTitle()?></title>
+<title><?php  if (!$isCompositeMode || $isIndexPage) $APPLICATION->ShowTitle()?></title>
 </head>
 <body class="<?=$bodyClass?>">
-<?
+<?php 
 ThemePicker::getInstance()->showBodyAssets();
 
 if ($isCompositeMode && !$isIndexPage)
 {
 	$frame = new \Bitrix\Main\Page\FrameStatic("title");
 	$frame->startDynamicArea();
-	?><script type="text/javascript">document.title = "<?showJsTitle()?>";</script><?
+	?><script type="text/javascript">document.title = "<?php showJsTitle()?>";</script><?php 
 	$frame->finishDynamicArea();
 }
 
@@ -158,12 +158,12 @@ if (CUserOptions::GetOption("intranet", "left_menu_collapsed") === "Y")
 <table class="bx-layout-table<?=$layoutMode?>">
 	<tr>
 		<td class="bx-layout-header">
-			<? if ((!$isBitrix24Cloud || $USER->IsAdmin()) && !defined("SKIP_SHOW_PANEL")):?>
+			<?php  if ((!$isBitrix24Cloud || $USER->IsAdmin()) && !defined("SKIP_SHOW_PANEL")):?>
 				<div id="panel">
-				<?$APPLICATION->ShowPanel();?>
+				<?php $APPLICATION->ShowPanel();?>
 				</div>
-			<? endif ?>
-<?
+			<?php  endif ?>
+<?php 
 if ($isBitrix24Cloud)
 {
 	if (Option::get('bitrix24', 'creator_confirmed', 'N') !== 'Y')
@@ -188,7 +188,7 @@ if ($isBitrix24Cloud)
 ?>
 			<div id="header">
 				<div id="header-inner">
-					<?
+					<?php 
 					//This component was used for menu-create-but.
 					//We have to include the component before bitrix:timeman for composite mode.
 					if (CModule::IncludeModule('tasks') && CBXFeatures::IsFeatureEnabled('Tasks')):
@@ -234,7 +234,7 @@ if ($isBitrix24Cloud)
 								display : "bitrix24_time"
 							});
 						});</script>
-					<?
+					<?php 
 					}
 					?>
 					<!--suppress CheckValidXmlInScriptTagBody -->
@@ -276,31 +276,31 @@ if ($isBitrix24Cloud)
 							}
 						})();
 					</script>
-					<div class="header-logo-block"><?include(__DIR__."/logo.php"); ?></div>
+					<div class="header-logo-block"><?php include(__DIR__."/logo.php"); ?></div>
 
-					<?if (Loader::includeModule("bitrix24") && \CBitrix24::IsPortalAdmin($USER->GetID()))
+					<?php if (Loader::includeModule("bitrix24") && \CBitrix24::IsPortalAdmin($USER->GetID()))
 					{
 						if (!\CBitrix24::isDomainChanged())
 						{
 							?><div
 								class="header-logo-block-settings header-logo-block-settings-show"
-								data-rename-portal="true"<?
-							?>><?
+								data-rename-portal="true"<?php 
+							?>><?php 
 								?><span
 									class="header-logo-block-settings-item"
 									onclick="BX.Bitrix24.renamePortal(this)"
 									title="<?=GetMessage('BITRIX24_SETTINGS_TITLE')?>">
-								</span><?
-							?></div><?
+								</span><?php 
+							?></div><?php 
 						}
 						else
 						{
-							?><div class="header-logo-block-settings"><?
+							?><div class="header-logo-block-settings"><?php 
 								?><a
 									class="header-logo-block-settings-item"
 									href="<?=CBitrix24::PATH_CONFIGS?>"
-									title="<?=GetMessage("BITRIX24_SETTINGS_TITLE_RENAMED")?>"></a><?
-							?></div><?
+									title="<?=GetMessage("BITRIX24_SETTINGS_TITLE_RENAMED")?>"></a><?php 
+							?></div><?php 
 						}
 
 						if (isset($_GET["b24renameform"]))
@@ -312,14 +312,14 @@ if ($isBitrix24Cloud)
 									{
 										BX.Bitrix24.renamePortal()
 									}
-								});<?
-							?></script><?
+								});<?php 
+							?></script><?php 
 						}
 					}
 					?>
 
 					<div class="header-search">
-					<?
+					<?php 
 						if (!IsModuleInstalled("bitrix24")/*IsModuleInstalled("search")*/)
 						{
 							$searchParams = array(
@@ -368,7 +368,7 @@ if ($isBitrix24Cloud)
 						);
 					?>
 					</div>
-					<?
+					<?php 
 						$profileLink = $isExtranet ? SITE_DIR."contacts/personal" : SITE_DIR."company/personal";
 						$APPLICATION->IncludeComponent(
 							"bitrix:system.auth.form",
@@ -389,7 +389,7 @@ if ($isBitrix24Cloud)
 			<table class="bx-layout-inner-table">
 				<tr class="bx-layout-inner-top-row">
 					<td class="bx-layout-inner-left" id="layout-left-column">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:menu",
 							"left_vertical",
 							array(
@@ -428,7 +428,7 @@ if ($isBitrix24Cloud)
 						?>
 					</td>
 					<td class="bx-layout-inner-center" id="content-table">
-					<?
+					<?php 
 					if ($isCompositeMode && !$isIndexPage)
 					{
 						$isDefaultTheme = ThemePicker::getInstance()->getCurrentThemeId() === "default";
@@ -472,15 +472,15 @@ if ($isBitrix24Cloud)
 						$dynamicArea->startDynamicArea();
 					}
 					?>
-						<table class="bx-layout-inner-inner-table <?$APPLICATION->ShowProperty("BodyClass");?>">
+						<table class="bx-layout-inner-inner-table <?php $APPLICATION->ShowProperty("BodyClass");?>">
 							<colgroup>
 								<col class="bx-layout-inner-inner-cont">
 							</colgroup>
-							<?if (!$isIndexPage):?>
+							<?php if (!$isIndexPage):?>
 							<tr class="bx-layout-inner-inner-top-row">
 								<td class="bx-layout-inner-inner-cont">
 									<div class="page-header">
-										<?
+										<?php 
 										$APPLICATION->ShowViewContent("above_pagetitle");
 										$APPLICATION->IncludeComponent(
 											"bitrix:menu",
@@ -502,34 +502,34 @@ if ($isBitrix24Cloud)
 										);
 										?>
 
-										<?$APPLICATION->IncludeComponent("bitrix:ui.toolbar", '', []);?>
+										<?php $APPLICATION->IncludeComponent("bitrix:ui.toolbar", '', []);?>
 
-										<div class="pagetitle-below"><?$APPLICATION->ShowViewContent("below_pagetitle")?></div>
+										<div class="pagetitle-below"><?php $APPLICATION->ShowViewContent("below_pagetitle")?></div>
 									</div>
 								</td>
 							</tr>
-							<?endif?>
+							<?php endif?>
 							<tr>
 								<td class="bx-layout-inner-inner-cont">
 
 									<div id="workarea">
-										<?if($APPLICATION->GetProperty("HIDE_SIDEBAR", "N") != "Y"):
-											?><div id="sidebar"><?
+										<?php if($APPLICATION->GetProperty("HIDE_SIDEBAR", "N") != "Y"):
+											?><div id="sidebar"><?php 
 											$APPLICATION->ShowViewContent("sidebar");
 											$APPLICATION->ShowViewContent("sidebar_tools_1");
 											$APPLICATION->ShowViewContent("sidebar_tools_2");
 											?></div>
-										<?endif?>
+										<?php endif?>
 										<div id="workarea-content">
 											<div class="workarea-content-paddings">
-											<?$APPLICATION->ShowViewContent("topblock")?>
-											<?if ($isIndexPage):?>
-												<div class="pagetitle-wrap <?$APPLICATION->ShowProperty("TitleClass");?>">
+											<?php $APPLICATION->ShowViewContent("topblock")?>
+											<?php if ($isIndexPage):?>
+												<div class="pagetitle-wrap <?php $APPLICATION->ShowProperty("TitleClass");?>">
 													<div class="pagetitle-inner-container">
-														<div class="pagetitle-menu" id="pagetitle-menu"><?$APPLICATION->ShowViewContent("pagetitle")?></div>
-														<div class="pagetitle" id="pagetitle"><?$APPLICATION->ShowTitle(false);?></div>
-														<?$APPLICATION->ShowViewContent("inside_pagetitle")?>
+														<div class="pagetitle-menu" id="pagetitle-menu"><?php $APPLICATION->ShowViewContent("pagetitle")?></div>
+														<div class="pagetitle" id="pagetitle"><?php $APPLICATION->ShowTitle(false);?></div>
+														<?php $APPLICATION->ShowViewContent("inside_pagetitle")?>
 													</div>
 												</div>
-											<?endif?>
-											<?CPageOption::SetOptionString("main.interface", "use_themes", "N"); //For grids?>
+											<?php endif?>
+											<?php CPageOption::SetOptionString("main.interface", "use_themes", "N"); //For grids?>

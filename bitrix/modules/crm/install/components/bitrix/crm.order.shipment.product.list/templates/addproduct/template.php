@@ -79,7 +79,7 @@ foreach($arResult['PRODUCTS'] as $product)
 	];
 }
 
-?><div class="crm-order-product-list-wrapper" id="crm-product-list-container"><?
+?><div class="crm-order-product-list-wrapper" id="crm-product-list-container"><?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:main.ui.grid',
 	'',

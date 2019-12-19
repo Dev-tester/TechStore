@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UM_FRIENDS"] = "Friends";
 $MESS["SONET_UM_GROUPS"] = "Groups";
 $MESS["SONET_UM_PHOTO"] = "Photo";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_VAL_DATE_AGE_DESCRIPTION'] = "Возраст";
 $MESS['FORM_VALIDATOR_VAL_DATE_AGE_SETTINGS_DATE_FROM'] = "Нижний порог возраста";
 $MESS['FORM_VALIDATOR_VAL_DATE_AGE_SETTINGS_DATE_TO'] = "Верхний порог возраста";

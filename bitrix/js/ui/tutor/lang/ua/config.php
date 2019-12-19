@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_UI_TUTOR_ARTICLE_EMPTY"] = "Статей поки немає";
 $MESS["JS_UI_TUTOR_ARTICLE_HELP"] = "Додаткові статті про налаштування та бізнес-сценарії";
 $MESS["JS_UI_TUTOR_ARTICLE_SCENARIO"] = "Сценарії";

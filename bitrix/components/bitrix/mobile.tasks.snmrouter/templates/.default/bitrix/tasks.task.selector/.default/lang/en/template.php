@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_COLUMN_CREATED_BY"] = "created by";
 $MESS["TASK_COLUMN_RESPONSIBLE_ID"] = "responsible person";
 $MESS["TASK_COLUMN_DEADLINE"] = "deadline";

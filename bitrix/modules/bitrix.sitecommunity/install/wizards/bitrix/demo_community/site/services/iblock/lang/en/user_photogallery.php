@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_IB_USER_PHOTOG_TAB1'] = "edit1--#--Photo--,--ACTIVE--#--  Active--,--NAME--#--*Title--,--IBLOCK_ELEMENT_PROP_VALUE--#----Property Values--,--PREVIEW_PICTURE--#--  Preview picture--,--DETAIL_PICTURE--#--  Detailed image--,--PROPERTY_";
 $MESS ['W_IB_USER_PHOTOG_TAB2'] = "--#--  Original--,--PROPERTY_";
 $MESS ['W_IB_USER_PHOTOG_TAB3'] = "--#--  Rating--,--PROPERTY_";

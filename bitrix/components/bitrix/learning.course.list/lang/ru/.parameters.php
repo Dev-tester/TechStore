@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_DESC_ASC'] = "По возрастанию";
 $MESS ['LEARNING_DESC_DESC'] = "По убыванию";
 $MESS ['LEARNING_DESC_YES'] = "Да";

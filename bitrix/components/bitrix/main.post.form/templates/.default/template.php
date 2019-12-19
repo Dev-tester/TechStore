@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * Bitrix vars
  * @global CUser $USER
@@ -64,24 +64,24 @@ foreach($arParams["BUTTONS"] as $val)
 	}
 }
 
-?><div class="feed-add-post" id="div<?=$arParams["divId"]?>" <?if($arParams["LHE"]["lazyLoad"]):?> style="display:none;"<? endif; ?>><?
+?><div class="feed-add-post" id="div<?=$arParams["divId"]?>" <?php if($arParams["LHE"]["lazyLoad"]):?> style="display:none;"<?php  endif; ?>><?php 
 	?><div class="feed-add-post-dnd">
 		<div class="feed-add-post-dnd-inner">
 			<span class="feed-add-post-dnd-icon"></span>
 			<span class="feed-add-post-dnd-text"><?=GetMessage("MPF_SELECT_ATTACHMENTS")?><span><?=GetMessage("MPF_DROP_ATTACHMENTS")?></span></span>
 		</div>
-	</div><?
+	</div><?php 
 	?><div class="feed-add-post-dnd-notice">
 		<div class="feed-add-post-dnd-inner">
 			<span class="feed-add-post-dnd-icon"></span>
 			<span class="feed-add-post-dnd-text"><?=GetMessage("MPF_DRAG_ATTACHMENTS")?></span>
 		</div>
-	</div><?
+	</div><?php 
 	?><div class="feed-add-post-form feed-add-post-edit-form">
 		<?= $arParams["~HTML_BEFORE_TEXTAREA"]?>
 		<div class="feed-add-post-text">
 			<script type="text/javascript">
-				<?
+				<?php 
 				if (is_array($GLOBALS["arExtranetGroupID"]))
 				{
 					?>
@@ -89,14 +89,14 @@ foreach($arParams["BUTTONS"] as $val)
 					{
 						window['arExtranetGroupID'] = <?=CUtil::PhpToJSObject($GLOBALS["arExtranetGroupID"])?>;
 					}
-					<?
+					<?php 
 				}
 				?>
 				BX.ready(function()
 				{
 					if (!LHEPostForm.getHandler('<?=$arParams["LHE"]["id"]?>'))
 					{
-						<?if ($arParams["JS_OBJECT_NAME"] !== ""): ?>window['<?=$arParams["JS_OBJECT_NAME"]?>'] = <? endif; ?>new LHEPostForm(
+						<?php if ($arParams["JS_OBJECT_NAME"] !== ""): ?>window['<?=$arParams["JS_OBJECT_NAME"]?>'] = <?php  endif; ?>new LHEPostForm(
 							'<?=$arParams["FORM_ID"]?>',
 							<?=CUtil::PhpToJSObject(
 								array(
@@ -120,7 +120,7 @@ foreach($arParams["BUTTONS"] as $val)
 					}
 				});
 			</script>
-			<?
+			<?php 
 			include($_SERVER["DOCUMENT_ROOT"].$templateFolder."/lhe.php");
 			?>
 			<div style="display:none;"><input type="text" tabindex="<?=($arParams["TEXT"]["TABINDEX"]++)?>" onFocus="LHEPostForm.getEditor('<?=$arParams["LHE"]["id"]?>').Focus()" name="hidden_focus" /></div>
@@ -130,17 +130,17 @@ foreach($arParams["BUTTONS"] as $val)
 			{
 				if ($arParams["ADDITIONAL_TYPE"] == "popup")
 				{
-					?><div class="feed-add-post-form-but-more" <?
-						?>onclick="BX.PopupMenu.show('menu-more<?=$arParams["FORM_ID"]?>', this, [<?=implode(", ", $arParams["ADDITIONAL"])?>], {offsetLeft: 42, offsetTop: 3, lightShadow: false, angle: top, events : {onPopupClose : function(popupWindow) {BX.removeClass(this.bindElement, 'feed-add-post-form-but-more-act');}}}); BX.addClass(this, 'feed-add-post-form-but-more-act');"><?
-						?><?=GetMessage("MPF_MORE")?><?
-						?><div class="feed-add-post-form-but-arrow"></div><?
-					?></div><?
+					?><div class="feed-add-post-form-but-more" <?php 
+						?>onclick="BX.PopupMenu.show('menu-more<?=$arParams["FORM_ID"]?>', this, [<?=implode(", ", $arParams["ADDITIONAL"])?>], {offsetLeft: 42, offsetTop: 3, lightShadow: false, angle: top, events : {onPopupClose : function(popupWindow) {BX.removeClass(this.bindElement, 'feed-add-post-form-but-more-act');}}}); BX.addClass(this, 'feed-add-post-form-but-more-act');"><?php 
+						?><?=GetMessage("MPF_MORE")?><?php 
+						?><div class="feed-add-post-form-but-arrow"></div><?php 
+					?></div><?php 
 				}
 				else if (count($arParams["ADDITIONAL"]) < 5)
 				{
-					?><div class="feed-add-post-form-but-more-open"><?
+					?><div class="feed-add-post-form-but-more-open"><?php 
 						?><?=implode("", $arParams["ADDITIONAL"])?>
-					</div><?
+					</div><?php 
 				}
 				else
 				{
@@ -148,27 +148,27 @@ foreach($arParams["BUTTONS"] as $val)
 					{
 						$arParams["ADDITIONAL"][$key] = array("text" => $val, "onclick" => "BX.PopupMenu.Data['menu-more".$arParams["FORM_ID"]."'].popupWindow.close();");
 					}
-					?><script type="text/javascript">window['more<?=$arParams["FORM_ID"]?>']=<?=CUtil::PhpToJSObject($arParams["ADDITIONAL"])?>;</script><?
-					?><div class="feed-add-post-form-but-more" <?
-						?>onclick="BX.PopupMenu.show('menu-more<?=$arParams["FORM_ID"]?>', this, window['more<?=$arParams["FORM_ID"]?>'], {offsetLeft: 42, offsetTop: 3, lightShadow: false, angle: top, events : {onPopupClose : function(popupWindow) {BX.removeClass(this.bindElement, 'feed-add-post-form-but-more-act');}}}); BX.addClass(this, 'feed-add-post-form-but-more-act');"><?
-						?><?=GetMessage("MPF_MORE")?><?
-						?><div class="feed-add-post-form-but-arrow"></div><?
-					?></div><?
+					?><script type="text/javascript">window['more<?=$arParams["FORM_ID"]?>']=<?=CUtil::PhpToJSObject($arParams["ADDITIONAL"])?>;</script><?php 
+					?><div class="feed-add-post-form-but-more" <?php 
+						?>onclick="BX.PopupMenu.show('menu-more<?=$arParams["FORM_ID"]?>', this, window['more<?=$arParams["FORM_ID"]?>'], {offsetLeft: 42, offsetTop: 3, lightShadow: false, angle: top, events : {onPopupClose : function(popupWindow) {BX.removeClass(this.bindElement, 'feed-add-post-form-but-more-act');}}}); BX.addClass(this, 'feed-add-post-form-but-more-act');"><?php 
+						?><?=GetMessage("MPF_MORE")?><?php 
+						?><div class="feed-add-post-form-but-arrow"></div><?php 
+					?></div><?php 
 				}
 			}
 		?></div>
 	</div>
-	<?=$arParams["~HTML_AFTER_TEXTAREA"]?><?
+	<?=$arParams["~HTML_AFTER_TEXTAREA"]?><?php 
 	if($arParams["DESTINATION_SHOW"] == "Y" || !empty($arParams["TAGS"]))
 	{
-		?><ol class="feed-add-post-strings-blocks"><?
+		?><ol class="feed-add-post-strings-blocks"><?php 
 	}
 
 	if($arParams["DESTINATION_SHOW"] == "Y")
 	{
 		?><li class="feed-add-post-destination-block">
 			<div class="feed-add-post-destination-title"><?=GetMessage("MPF_DESTINATION")?></div>
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				"bitrix:main.user.selector",
 				"",
@@ -217,7 +217,7 @@ foreach($arParams["BUTTONS"] as $val)
 					)
 				]
 			);
-		?></li><?
+		?></li><?php 
 
 		echo $APPLICATION->GetViewContent("mpl_input_additional");
 	}
@@ -242,7 +242,7 @@ foreach($arParams["BUTTONS"] as $val)
 			}
 		}
 		?>
-		<li id="post-tags-block-<?=$arParams["FORM_ID"]?>" class="feed-add-post-tags-block"<?if ($tags !== ""):?> style="display:block"<?endif?>>
+		<li id="post-tags-block-<?=$arParams["FORM_ID"]?>" class="feed-add-post-tags-block"<?php if ($tags !== ""):?> style="display:block"<?php endif?>>
 			<div class="feed-add-post-tags-title"><?=GetMessage("MPF_TAGS")?></div>
 			<div class="feed-add-post-tags-wrap" id="post-tags-container-<?=$arParams["FORM_ID"]?>">
 				<?=$tags?>
@@ -250,7 +250,7 @@ foreach($arParams["BUTTONS"] as $val)
 				<input type="hidden" name="<?=$arParams["TAGS"]["NAME"]?>" id="post-tags-hidden-<?=$arParams["FORM_ID"]?>" value="<?=$tagsInput?>,">
 			</div>
 		<div id="post-tags-popup-content-<?=$arParams["FORM_ID"]?>" style="display:none;">
-		<?if($arParams["TAGS"]["USE_SEARCH"] == "Y" && IsModuleInstalled("search"))
+		<?php if($arParams["TAGS"]["USE_SEARCH"] == "Y" && IsModuleInstalled("search"))
 		{
 			$APPLICATION->IncludeComponent(
 				"bitrix:search.tags.input",
@@ -270,7 +270,7 @@ foreach($arParams["BUTTONS"] as $val)
 		}
 		else
 		{
-			?><input type="text" id="post-tags-popup-input-<?=$arParams["FORM_ID"]?>" tabindex="<?=($arParams["TEXT"]["TABINDEX"]++)?>" name="<?=$arParams["TAGS"]["NAME"]."_".$arParams["FORM_ID"]?>" size="30" value=""><?
+			?><input type="text" id="post-tags-popup-input-<?=$arParams["FORM_ID"]?>" tabindex="<?=($arParams["TEXT"]["TABINDEX"]++)?>" name="<?=$arParams["TAGS"]["NAME"]."_".$arParams["FORM_ID"]?>" size="30" value=""><?php 
 		}?>
 		</div>
 		<script type="text/javascript">
@@ -278,11 +278,11 @@ foreach($arParams["BUTTONS"] as $val)
 			var BXPostFormImportant_<?=$arParams["FORM_ID"]?> = new BXPostFormImportant("<?=$arParams["FORM_ID"]?>", "bx-b-important-<?=$arParams["FORM_ID"]?>", <?=(isset($arParams["IMPORTANT"]) && isset($arParams["IMPORTANT"]["INPUT_NAME"]) ? '"'.$arParams["IMPORTANT"]["INPUT_NAME"].'"' : 'false')?>);
 		</script>
 		</li>
-		<?
+		<?php 
 	}
 	if($arParams["DESTINATION_SHOW"] == "Y" || !empty($arParams["TAGS"]))
 	{
-		?></ol><?
+		?></ol><?php 
 	}
 
 	if (defined("BITRIX24_INDEX_COMPOSITE"))
@@ -298,7 +298,7 @@ foreach($arParams["BUTTONS"] as $val)
 
 		$mentionSelectorId = 'mention_'.randString(6);
 
-		?><span id="bx-mention-<?=$arParams["FORM_ID"]?>-id" data-bx-selector-id="<?=htmlspecialcharsbx($mentionSelectorId)?>"></span><?
+		?><span id="bx-mention-<?=$arParams["FORM_ID"]?>-id" data-bx-selector-id="<?=htmlspecialcharsbx($mentionSelectorId)?>"></span><?php 
 
 		$APPLICATION->IncludeComponent(
 			"bitrix:main.ui.selector",
@@ -356,7 +356,7 @@ foreach($arParams["BUTTONS"] as $val)
 			});
 		});
 	</script>
-	<?
+	<?php 
 
 
 	}
@@ -366,9 +366,9 @@ foreach($arParams["BUTTONS"] as $val)
 		$dynamicArea->finishDynamicArea();
 	}
 	/***************** Upload files ************************************/
-	?><?=$arParams["UPLOADS_HTML"]?><?
-	?><?=$arParams["~AT_THE_END_HTML"]?><?
-	?><?=$arParams["URL_PREVIEW_HTML"]?><?
+	?><?=$arParams["UPLOADS_HTML"]?><?php 
+	?><?=$arParams["~AT_THE_END_HTML"]?><?php 
+	?><?=$arParams["URL_PREVIEW_HTML"]?><?php 
 	?>
 	<div class="feed-add-post-buttons" id="lhe_buttons_<?=$arParams["FORM_ID"]?>">
 		<button class="ui-btn ui-btn-sm ui-btn-primary" id="lhe_button_submit_<?=$arParams["FORM_ID"]?>"><?=GetMessage("MPF_BUTTON_SEND")?></button>

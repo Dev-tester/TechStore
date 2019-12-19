@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_AUTH"] = "Authorization";
 $MESS["AUTH_CONFIRM"] = "Password confirmation";
 $MESS["AUTH_EMAIL"] = "E-Mail";

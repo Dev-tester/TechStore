@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_LIST_BATCH_CONVERSION_AUTOCREATION_DISABLED"] = "Group conversion requires the option \"Auto create contacts, companies, deals, invoices and quotes\" to be enabled on the CRM settings page (Settings > Other Settings > General > Auto generation settings)";
 $MESS["CRM_LEAD_LIST_BATCH_CONVERSION_CONFIG_IS_NOT_SUPPORTED"] = "Leads can not be converted with the selected settings.";
 $MESS["CRM_LEAD_LIST_REBUILD_DUPLICATE_INDEX_COMPLETED_SUMMARY"] = "Lead duplicates have been re-indexed. Items processed: #PROCESSED_ITEMS#.";

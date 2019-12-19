@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_PAGE_GRAPH_PANEL_BUTTON"] = "Page traffic";
 $MESS["STAT_LINK_STAT_HIDE_PANEL_BUTTON"] = "Hide link click statistics of this page";
 $MESS["STAT_LINK_STAT_PANEL_BUTTON"] = "Show link clicks diagram for this page";

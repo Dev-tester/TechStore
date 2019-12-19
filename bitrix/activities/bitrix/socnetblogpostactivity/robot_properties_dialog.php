@@ -25,7 +25,7 @@ $postTitle = $map['PostTitle'];
 	<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-autocomplete">
 		<?=htmlspecialcharsbx($map['OwnerId']['Name'])?>:
 	</span>
-	<?
+	<?php 
 	if (method_exists($dialog, 'renderFieldControl')):
 		echo $dialog->renderFieldControl($map['OwnerId']);
 	else:
@@ -40,12 +40,12 @@ $postTitle = $map['PostTitle'];
 		)));
 	?>
 	<div data-role="user-selector" data-config="<?= $authorConfigAttributeValue ?>"></div>
-	<?endif?>
+	<?php endif?>
 </div>
 <div class="bizproc-automation-popup-settings">
 <span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-autocomplete">
 	<?=htmlspecialcharsbx($map['UsersTo']['Name'])?>:</span>
-	<?
+	<?php 
 	if (method_exists($dialog, 'renderFieldControl')):
 		echo $dialog->renderFieldControl($map['UsersTo']);
 	else:
@@ -60,5 +60,5 @@ $postTitle = $map['PostTitle'];
 		)));
 		?>
 		<div data-role="user-selector" data-config="<?= $toConfigAttributeValue ?>"></div>
-	<?endif?>
+	<?php endif?>
 </div>

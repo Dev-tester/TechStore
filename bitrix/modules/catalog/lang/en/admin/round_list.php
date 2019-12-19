@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PRICE_ROUND_HEADER_NAME_CATALOG_GROUP_ID"] = "Price type";
 $MESS["PRICE_ROUND_HEADER_TITLE_CATALOG_GROUP_ID"] = "Apply rounding to price types";
 $MESS["PRICE_ROUND_HEADER_NAME_PRICE"] = "Price from";

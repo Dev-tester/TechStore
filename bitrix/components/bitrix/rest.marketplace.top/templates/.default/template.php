@@ -106,5 +106,5 @@ endif;
 	endforeach;
 ?>
 </div>
-<?
+<?php 
 endif;

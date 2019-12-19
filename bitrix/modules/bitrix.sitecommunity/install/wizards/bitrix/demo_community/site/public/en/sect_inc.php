@@ -1,9 +1,9 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="rounded-block">
 	<div class="corner left-top"></div><div class="corner right-top"></div>
 	<div class="block-content">
 		<h3>Popular Photos</h3>
-<?$APPLICATION->IncludeComponent("bitrix:photogallery.detail.list", "ascetic", array(
+<?php $APPLICATION->IncludeComponent("bitrix:photogallery.detail.list", "ascetic", array(
 	"IBLOCK_TYPE" => "photos",
 	"IBLOCK_ID" => "#PHOTO_USER_IBLOCK_ID#",
 	"BEHAVIOUR" => "USER",
@@ -68,7 +68,7 @@
 	<div class="block-content">
 		<div class="search-cloud">
 			<noindex>
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					"bitrix:search.tags.cloud",
 					"",
 					Array(

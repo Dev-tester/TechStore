@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["PPL_BUSINESS_NAME"] = "Business";

@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Intranet;
 
 use \Bitrix\Main\Data\Cache,

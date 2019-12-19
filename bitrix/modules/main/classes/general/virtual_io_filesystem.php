@@ -1,4 +1,4 @@
-<?
+<?php 
 class CBXVirtualIoFileSystem
 	implements IBXVirtualIO, IBXGetErrors
 {

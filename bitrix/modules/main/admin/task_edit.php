@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Bitrix Framework
  * @package bitrix
@@ -154,17 +154,17 @@ if($ID > 0 && $COPY_ID <= 0)
 $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
-<?
+<?php 
 if($message)
 	echo $message->Show();
 ?>
 
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1">
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<input type="hidden" name="ID" value="<?echo $ID?>">
-<?if(strlen($COPY_ID)>0):?><input type="hidden" name="COPY_ID" value="<?echo htmlspecialcharsbx($COPY_ID)?>"><?endif?>
-<?
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<input type="hidden" name="ID" value="<?php echo $ID?>">
+<?php if(strlen($COPY_ID)>0):?><input type="hidden" name="COPY_ID" value="<?php echo htmlspecialcharsbx($COPY_ID)?>"><?php endif?>
+<?php 
 $tabControl->Begin();
 
 $tabControl->BeginNextTab();
@@ -185,14 +185,14 @@ $arBindings = Array();
 <script>
 var arOperations = [];
 var arBingings = {};
-<?
+<?php 
 while ($arOperation = $dbOperations->Fetch())
 {
 	$mid = $arOperation["MODULE_ID"];
 	if (!isset($arBindings[$mid]))
 	{
 		$arBindings[$mid] = Array();
-		?>arBingings['<?=$mid?>'] = {};<?
+		?>arBingings['<?=$mid?>'] = {};<?php 
 	}
 	if (!in_array($arOperation["BINDING"], $arBindings[$mid]))
 	{
@@ -202,7 +202,7 @@ while ($arOperation = $dbOperations->Fetch())
 		{
 			$bindingTitle = CTask::GetLangTitle($bindingTitle, "main");
 		}
-		?>arBingings['<?=$mid?>'].<?=$b?> = "<?=$bindingTitle?>";<?
+		?>arBingings['<?=$mid?>'].<?=$b?> = "<?=$bindingTitle?>";<?php 
 	}
 
 	$arOperations[] = array(
@@ -220,7 +220,7 @@ while ($arOperation = $dbOperations->Fetch())
 
 	<tr class="adm-detail-required-field">
 		<td width="40%"><?=GetMessage('NAME')?></td>
-		<td width="60%"><input type="text" name="NAME" size="40" maxlength="100" value="<? echo CTask::GetLangTitle($str_NAME, $str_MODULE_ID);?>"></td>
+		<td width="60%"><input type="text" name="NAME" size="40" maxlength="100" value="<?php  echo CTask::GetLangTitle($str_NAME, $str_MODULE_ID);?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
 		<td><?=GetMessage('MODULE_ID')?></td>
@@ -229,8 +229,8 @@ while ($arOperation = $dbOperations->Fetch())
 		var arModules = ['main'];
 		</script>
 		<select name="MODULE_ID" id="__module_id_select">
-			<option value="main" <? echo ($str_MODULE_ID == 'main') ? 'selected' : '';?>><?=GetMessage('KERNEL')?></option>
-		<?
+			<option value="main" <?php  echo ($str_MODULE_ID == 'main') ? 'selected' : '';?>><?=GetMessage('KERNEL')?></option>
+		<?php 
 		$modules = COperation::GetAllowedModules();
 		foreach($modules as $MID):
 			if ($MID == "main")
@@ -239,24 +239,24 @@ while ($arOperation = $dbOperations->Fetch())
 				continue;
 		?>
 			<script>arModules.push('<?=$MID?>');</script>
-			<option value="<?=htmlspecialcharsbx($MID)?>"<?echo ($str_MODULE_ID == $MID? ' selected' : '');?>><?=htmlspecialcharsbx($m->MODULE_NAME);?></option>
-		<?endforeach;?>
+			<option value="<?=htmlspecialcharsbx($MID)?>"<?php echo ($str_MODULE_ID == $MID? ' selected' : '');?>><?=htmlspecialcharsbx($m->MODULE_NAME);?></option>
+		<?php endforeach;?>
 		</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('SYS_TITLE')?>:</td>
-		<td><?echo ($str_SYS == 'Y') ? GetMessage("MAIN_YES") : GetMessage("MAIN_NO")?></td>
+		<td><?php echo GetMessage('SYS_TITLE')?>:</td>
+		<td><?php echo ($str_SYS == 'Y') ? GetMessage("MAIN_YES") : GetMessage("MAIN_NO")?></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage('TASK_BINDING')?>:</td>
 		<td>
-		<?
+		<?php 
 		if (!isset($arBindings[$str_MODULE_ID]) || count($arBindings[$str_MODULE_ID]) < 1)
 			$arBindings[$str_MODULE_ID] = Array('module');
 		?>
 		<select name="BINDING" id="__binding_select">
-			<?
+			<?php 
 			for ($i = 0, $l = count($arBindings[$str_MODULE_ID]); $i < $l; $i++)
 			{
 				$b = $arBindings[$str_MODULE_ID][$i];
@@ -272,17 +272,17 @@ while ($arOperation = $dbOperations->Fetch())
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage('LETTER')?>:</td>
+		<td><?php echo GetMessage('LETTER')?>:</td>
 		<td>
 		<input type="text" name="LETTER" size="1" maxlength="1" value="<?=$str_LETTER?>">
 		</td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage('DESCRIPTION')?></td>
-		<td><textarea name="DESCRIPTION" cols="30" rows="5"><? echo CTask::GetLangDescription($str_NAME, $str_DESCRIPTION, $str_MODULE_ID);?></textarea>
+		<td class="adm-detail-valign-top"><?php echo GetMessage('DESCRIPTION')?></td>
+		<td><textarea name="DESCRIPTION" cols="30" rows="5"><?php  echo CTask::GetLangDescription($str_NAME, $str_DESCRIPTION, $str_MODULE_ID);?></textarea>
 		</td>
 	</tr>
-	<?$tabControl->BeginNextTab();?>
+	<?php $tabControl->BeginNextTab();?>
 	<tr>
 		<td colspan="2" align="center">
 		<table border="0" cellpadding="5" cellspacing="0" align="center">
@@ -290,7 +290,7 @@ while ($arOperation = $dbOperations->Fetch())
 				<td width="10%" align="center">&nbsp;</td>
 				<td width="90%">&nbsp;</td>
 			</tr>
-			<?
+			<?php 
 			if (isset($_POST['OPERATION_ID']))
 				$arTaskOperations = $_POST['OPERATION_ID'];
 			else
@@ -302,9 +302,9 @@ while ($arOperation = $dbOperations->Fetch())
 				$ind++;
 				?>
 				<tr id="operation_row_<?=$ind?>" 
-				<?echo (($arOperation["MODULE_ID"] != $str_MODULE_ID) || ($arOperation["BINDING"] != $str_BINDING)) ? 'style="display: none"' : ''?>>
+				<?php echo (($arOperation["MODULE_ID"] != $str_MODULE_ID) || ($arOperation["BINDING"] != $str_BINDING)) ? 'style="display: none"' : ''?>>
 					<td align="right" style="padding: 0 10px 0 10px">
-						<input type="checkbox" name="OPERATION_ID[]" id="OPERATION_ID_<?=$ind ?>" value="<?=$arOperation["ID"]?>" <? echo (in_array($arOperation["ID"], $arTaskOperations)) ? " checked" : ''?>>
+						<input type="checkbox" name="OPERATION_ID[]" id="OPERATION_ID_<?=$ind ?>" value="<?=$arOperation["ID"]?>" <?php  echo (in_array($arOperation["ID"], $arTaskOperations)) ? " checked" : ''?>>
 						<script>
 						arOperations['<?=$ind?>'] = {
 							name : '<?=CUtil::JSEscape($arOperation["TITLE"])?>',
@@ -317,12 +317,12 @@ while ($arOperation = $dbOperations->Fetch())
 					<label for="OPERATION_ID_<?= $ind ?>" 
 						title="<?=htmlspecialcharsbx($arOperation["DESCRIPTION"]);?>">
 						<?=htmlspecialcharsbx($arOperation["TITLE"])?>
-						<?if($arOperation["TITLE"] != $arOperation['NAME']):?>
+						<?php if($arOperation["TITLE"] != $arOperation['NAME']):?>
 						(<?=htmlspecialcharsbx($arOperation['NAME'])?>)
-						<?endif;?>
+						<?php endif;?>
 					</label></td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 			<tr>
@@ -430,12 +430,12 @@ while ($arOperation = $dbOperations->Fetch())
 		</script>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(array("disabled" => (!$USER->CanDoOperation('edit_tasks') || $str_SYS == 'Y'), "back_url"=>"task_admin.php?lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
 
-<?$tabControl->ShowWarnings("form1", $message);?>
+<?php $tabControl->ShowWarnings("form1", $message);?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

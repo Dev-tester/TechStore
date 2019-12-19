@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Sale\Handlers\Delivery;
 
 use Bitrix\Main\Entity\ExpressionField;

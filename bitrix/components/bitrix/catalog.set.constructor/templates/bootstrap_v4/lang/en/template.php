@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_SET_BUY"] = "Buy";
 $MESS["CATALOG_SET_DISCOUNT_DIFF"] = "(you save #PRICE#)";
 $MESS["CATALOG_SET_BUY_SET"] = "Buy Set";

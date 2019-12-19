@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEAL_RECURRING_ENTITY_ID_FIELD"] = "ID";
 $MESS["CRM_DEAL_RECURRING_ENTITY_DEAL_ID_FIELD"] = "ID регулярной сделки";
 $MESS["CRM_DEAL_RECURRING_ENTITY_BASED_ID_FIELD"] = "Создано на основании";

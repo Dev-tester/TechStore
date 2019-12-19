@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CET_ERROR_NO_NAME"] = "Enter the name of the export profile.";
 $MESS["CET_STEP1"] = "Step";
 $MESS["CET_STEP2"] = "from";

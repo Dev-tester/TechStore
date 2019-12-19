@@ -58,7 +58,7 @@ class FinishStep extends \CWizardStep
 		<div class="adm-bsm-site-master-finish-description">
 			<?=Loc::getMessage("SALE_BSM_WIZARD_FINISHSTEP_DESCR2")?>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -82,7 +82,7 @@ class FinishStep extends \CWizardStep
 		<a href="<?=$this->getSiteUrl()?>" target="_parent" class="ui-btn ui-btn-primary">
 			<?=Loc::getMessage("SALE_BSM_WIZARD_FINISHSTEP_SITE_LINK")?>
 		</a>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 

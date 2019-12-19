@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!$USER->IsAdmin())
 	return;
 
@@ -156,40 +156,40 @@ function ___dav_print_opt($arOption)
 	$type = $arOption[3];
 	?>
 	<tr>
-		<td width="40%"><?
+		<td width="40%"><?php 
 			if($type[0]=="checkbox")
 				echo "<label for=\"".htmlspecialcharsbx($arOption[0])."\">".$arOption[1]."</label>";
 			else
 				echo $arOption[1];?>:</td>
 		<td width="60%">
-			<?if($type[0]=="checkbox"):?>
-				<input type="checkbox" id="<?echo htmlspecialcharsbx($arOption[0])?>" name="<?echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?if($val=="Y")echo" checked";?>>
-			<?elseif($type[0]=="text"):?>
-				<?if ($arOption[0] == "exchange_mailbox") {echo GetMessage("DAV_EXCHANGE_MAILBOX_NAME");}?>
-				<input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($arOption[0])?>">
-			<?elseif($type[0]=="password"):?>
-				<input type="password" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($arOption[0])?>">
-			<?elseif($type[0]=="textarea"):?>
-				<textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($arOption[0])?>"><?echo htmlspecialcharsbx($val)?></textarea>
-			<?elseif($type[0]=="selectbox"):?>
-				<select name="<?echo htmlspecialcharsbx($arOption[0])?>">
-					<?
+			<?php if($type[0]=="checkbox"):?>
+				<input type="checkbox" id="<?php echo htmlspecialcharsbx($arOption[0])?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>>
+			<?php elseif($type[0]=="text"):?>
+				<?php if ($arOption[0] == "exchange_mailbox") {echo GetMessage("DAV_EXCHANGE_MAILBOX_NAME");}?>
+				<input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>">
+			<?php elseif($type[0]=="password"):?>
+				<input type="password" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>">
+			<?php elseif($type[0]=="textarea"):?>
+				<textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($arOption[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea>
+			<?php elseif($type[0]=="selectbox"):?>
+				<select name="<?php echo htmlspecialcharsbx($arOption[0])?>">
+					<?php 
 					foreach ($type[1] as $key => $value)
 					{
-						?><option value="<?= $key ?>"<?= ($key == $val) ? " selected" : "" ?>><?= $value ?></option><?
+						?><option value="<?= $key ?>"<?= ($key == $val) ? " selected" : "" ?>><?= $value ?></option><?php 
 					}
 					?>
 				</select>
-			<?endif?>
+			<?php endif?>
 		</td>
 	</tr>
-	<?
+	<?php 
 }
 
 $tabControl->Begin();
 ?>
-<form method="post" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?echo LANGUAGE_ID?>" name="dav_settings">
-<?
+<form method="post" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=urlencode($mid)?>&amp;lang=<?php echo LANGUAGE_ID?>" name="dav_settings">
+<?php 
 $tabControl->BeginNextTab();
 
 foreach($arAllOptions2 as $arOption)
@@ -209,11 +209,11 @@ $tabControl->Buttons();
 ?>
 	<input type="submit" class="adm-btn-save" name="Update" value="<?=GetMessage("MAIN_SAVE")?>" title="<?=GetMessage("MAIN_OPT_SAVE_TITLE")?>">
 	<input type="submit" name="Apply" value="<?=GetMessage("MAIN_OPT_APPLY")?>" title="<?=GetMessage("MAIN_OPT_APPLY_TITLE")?>">
-	<?if(strlen($_REQUEST["back_url_settings"])>0):?>
-		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
+	<?php if(strlen($_REQUEST["back_url_settings"])>0):?>
+		<input type="button" name="Cancel" value="<?=GetMessage("MAIN_OPT_CANCEL")?>" title="<?=GetMessage("MAIN_OPT_CANCEL_TITLE")?>" onclick="window.location='<?php echo htmlspecialcharsbx(CUtil::addslashes($_REQUEST["back_url_settings"]))?>'">
 		<input type="hidden" name="back_url_settings" value="<?=htmlspecialcharsbx($_REQUEST["back_url_settings"])?>">
-	<?endif?>
-	<input type="submit" name="RestoreDefaults" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+	<?php endif?>
+	<input type="submit" name="RestoreDefaults" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
 	<?=bitrix_sessid_post();?>
-<?$tabControl->End();?>
+<?php $tabControl->End();?>
 </form>

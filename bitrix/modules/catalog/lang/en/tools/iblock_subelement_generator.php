@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IB_SEG_MAIN_TITLE"] = "SKU Generator";
 $MESS["IB_SEG_TAB_TITLE"] = "SKU Generator";
 $MESS["IB_SEG_TITLE"] = "Name";

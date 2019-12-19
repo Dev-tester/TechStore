@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["authprov_sg_a"] = "Владелец группы";
 $MESS["authprov_sg_e"] = "Модераторы группы";
 $MESS["authprov_sg_k"] = "Все члены группы";

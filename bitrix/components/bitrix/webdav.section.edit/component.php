@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 if (!CModule::IncludeModule("webdav")):
 	ShowError(GetMessage("W_WEBDAV_IS_NOT_INSTALLED"));
@@ -193,7 +193,7 @@ if (strToUpper($_REQUEST["edit_section"]) == "Y")
 				array_pop($arNavChain);
 				$url = CComponentEngine::MakePathFromTemplate($arParams["~SECTIONS_URL"], array("PATH" => implode("/", $arNavChain)));
 				$APPLICATION->RestartBuffer();
-				?><?=CUtil::PhpToJSObject(array("result" => "droped", "url" => $url));?><?
+				?><?=CUtil::PhpToJSObject(array("result" => "droped", "url" => $url));?><?php 
 				die();
 			}
 		endif;
@@ -271,7 +271,7 @@ if (strToUpper($_REQUEST["edit_section"]) == "Y")
 		else 
 		{
 			$APPLICATION->RestartBuffer();
-			?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?
+			?><?=CUtil::PhpToJSObject(array("result" => strToLower($arParams["ACTION"]."ed"), "url" => $url));?><?php 
 			die();
 		}
 	}

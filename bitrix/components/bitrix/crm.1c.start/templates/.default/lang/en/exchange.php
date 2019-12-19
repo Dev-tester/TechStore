@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_1C_START_EXCHANGE_ADV_1'] = "Easy connectivity";
 $MESS['CRM_1C_START_EXCHANGE_ADV_2'] = "Simple to configure";
 $MESS['CRM_1C_START_EXCHANGE_ADV_3'] = "XML exchange";

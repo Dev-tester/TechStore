@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Socialnetwork\Item\WorkgroupFavorites;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)

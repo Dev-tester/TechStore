@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TOP_LINKS_ITEM_NAME"] = "CRM";
 $MESS["CRM_GADGET_MY_LEAD_TITLE"] = "Мої ліди";
 $MESS["CRM_GADGET_NEW_LEAD_TITLE"] = "Нові ліди";

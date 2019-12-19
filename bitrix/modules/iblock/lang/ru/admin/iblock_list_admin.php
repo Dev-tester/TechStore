@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLIST_A_BAD_BLOCK_TYPE_ID"] = "Неверный тип блока.";
 $MESS["IBLIST_A_BAD_IBLOCK"] = "Информационный блок не найден или доступ к нему запрещен.";
 $MESS["IBLIST_A_SECTIONS"] = "Разделы";

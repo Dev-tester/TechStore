@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $arInfo = $APPLICATION->IncludeComponent("bitrix:webdav.element.view", "", Array(
 	"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
 	"ELEMENT_ID"	=>	$arResult["VARIABLES"]["ELEMENT_ID"],
@@ -30,9 +30,9 @@
 	$component,
 	array("HIDE_ICONS" => "Y")
 );?>
-<?
+<?php 
 if(is_array($arInfo) && $arInfo["ELEMENT_ID"]):?>
-<?$APPLICATION->IncludeComponent("bitrix:bizproc.document", "webdav.bizproc.document", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:bizproc.document", "webdav.bizproc.document", Array(
 	"MODULE_ID" => MODULE_ID,
 	"ENTITY" => ENTITY,
 	"DOCUMENT_TYPE" => DOCUMENT_TYPE,
@@ -48,6 +48,6 @@ if(is_array($arInfo) && $arInfo["ELEMENT_ID"]):?>
 	$component,
 	array("HIDE_ICONS" => "Y")
 );?>
-<?
+<?php 
 endif;
 ?>

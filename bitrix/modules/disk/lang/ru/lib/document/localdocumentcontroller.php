@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_LOCAL_DOC_CONTROLLER_NAME"] = "Битрикс24.Диск";
 $MESS["DISK_LOCAL_DOC_CONTROLLER_ERROR_COULD_NOT_ADD_VERSION"] = "Не удалось добавить новую версию файла.";
 $MESS['DISK_LOCAL_DOC_CONTROLLER_ERROR_COULD_NOT_FIND_VERSION'] = "Не удалось найти версию.";

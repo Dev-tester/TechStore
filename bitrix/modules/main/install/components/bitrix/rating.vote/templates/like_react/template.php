@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
@@ -18,12 +18,12 @@ if ($arParams['MOBILE'] != 'Y')
 $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/rating.vote/templates/like_react/style.css");
 
 	ob_start();
-	?><span id="bx-ilike-user-reaction-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" data-value="<?=htmlspecialcharsbx($arParams['USER_REACTION'])?>" style="display: none;"></span><?
-	?><span id="feed-post-emoji-icons-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" class="feed-post-emoji-icon-box"><?
+	?><span id="bx-ilike-user-reaction-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" data-value="<?=htmlspecialcharsbx($arParams['USER_REACTION'])?>" style="display: none;"></span><?php 
+	?><span id="feed-post-emoji-icons-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" class="feed-post-emoji-icon-box"><?php 
 		?><span
 		 data-like-id="<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>"
 		 class="feed-post-emoji-icon-container"
-		><?
+		><?php 
 			if (!empty($arParams['REACTIONS_LIST']))
 			{
 				$reactionIndex = 1;
@@ -43,19 +43,19 @@ $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/rating.vote/templates/
 					<?=$arParams['MOBILE'] == 'Y' ? '' : ' onmouseenter="BXRL.render.resultReactionMouseEnter(event);"'?>
 					<?=$arParams['MOBILE'] == 'Y' ? '' : ' onmouseleave="BXRL.render.resultReactionMouseLeave(event);"'?>
 					<?=$arParams['MOBILE'] == 'Y' ? '' : ' onclick="BXRL.render.resultReactionClick(event);"'?>
-					></div><?
+					></div><?php 
 					$reactionIndex++;
 				}
 			}
-		?></span><?
+		?></span><?php 
 		?><div
 			 id="bx-ilike-count-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>"
 			 data-myreaction="<?=htmlspecialcharsbx($arParams['USER_REACTION'])?>"
 			 class="feed-post-emoji-text-box bx-ilike-right-wrap <?=($arResult['USER_HAS_VOTED'] == 'N'? '': 'bx-you-like')?>"
-			 <?=($arResult["COMMENT"] != "Y" ? 'style="display: none;"' : '')?>><?
-			?><div class="feed-post-emoji-text-item bx-ilike-right<?=(intval($arResult['TOTAL_POSITIVE_VOTES']) <= 0 ? ' feed-post-emoji-text-counter-invisible' : '')?>"><?=intval($arResult['TOTAL_POSITIVE_VOTES'])?></div><?
-		?></div><?
-	?></span><?
+			 <?=($arResult["COMMENT"] != "Y" ? 'style="display: none;"' : '')?>><?php 
+			?><div class="feed-post-emoji-text-item bx-ilike-right<?=(intval($arResult['TOTAL_POSITIVE_VOTES']) <= 0 ? ' feed-post-emoji-text-counter-invisible' : '')?>"><?=intval($arResult['TOTAL_POSITIVE_VOTES'])?></div><?php 
+		?></div><?php 
+	?></span><?php 
 
 	$likeReactions = ob_get_clean();
 
@@ -104,7 +104,7 @@ $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/rating.vote/templates/
 
 	ob_start();
 
-	?><div class="feed-post-emoji-text-box" id="bx-ilike-top-users-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>"><?
+	?><div class="feed-post-emoji-text-box" id="bx-ilike-top-users-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>"><?php 
 
 		if (
 			!empty($arParams['TOP_DATA'])
@@ -142,39 +142,39 @@ $APPLICATION->SetAdditionalCSS("/bitrix/components/bitrix/rating.vote/templates/
 
 			$topUsersMessage = str_replace('#USERS_MORE#', '<span class="feed-post-emoji-text-item">'.$usersData['MORE'].'</span>', $topUsersMessage);
 
-			?><?=$topUsersMessage?><?
+			?><?=$topUsersMessage?><?php 
 		}
 
-	?></div><?
-	?><span style="display: none;" id="bx-ilike-top-users-data-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" data-users="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($usersData))?>"></span><?
+	?></div><?php 
+	?><span style="display: none;" id="bx-ilike-top-users-data-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" data-users="<?=htmlspecialcharsbx(\Bitrix\Main\Web\Json::encode($usersData))?>"></span><?php 
 
 	$likeTopUsers = ob_get_clean();
 
 	if ($arResult["COMMENT"] == "Y")
 	{
-		?><div id="feed-post-emoji-top-panel-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" class="feed-post-emoji-container<?=($reactionIndex > 1 ? ' feed-post-emoji-container-nonempty' : '')?>" data-popup="N"><?
-			?><?=$likeReactions?><?
-		?></div><?
+		?><div id="feed-post-emoji-top-panel-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" class="feed-post-emoji-container<?=($reactionIndex > 1 ? ' feed-post-emoji-container-nonempty' : '')?>" data-popup="N"><?php 
+			?><?=$likeReactions?><?php 
+		?></div><?php 
 	}
 	else
 	{
-		?><div id="feed-post-emoji-top-panel-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" class="feed-post-emoji-container" data-popup="N"><?
-			?><?=$likeReactions?><?
-			?><?=$likeTopUsers?><?
-		?></div><?
+		?><div id="feed-post-emoji-top-panel-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" class="feed-post-emoji-container" data-popup="N"><?php 
+			?><?=$likeReactions?><?php 
+			?><?=$likeTopUsers?><?php 
+		?></div><?php 
 	}
 
-?><span class="bx-ilike-wrap-block bx-ilike-wrap-block-react" id="bx-ilike-popup-cont-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" style="display:none;"><?
-	?><span class="bx-ilike-popup"><span class="bx-ilike-wait"></span></span><?
-?></span><?
+?><span class="bx-ilike-wrap-block bx-ilike-wrap-block-react" id="bx-ilike-popup-cont-<?=htmlspecialcharsbx($arResult['VOTE_ID'])?>" style="display:none;"><?php 
+	?><span class="bx-ilike-popup"><span class="bx-ilike-wait"></span></span><?php 
+?></span><?php 
 ?>
 <script>
 BX.ready(function() {
-<?if ($arResult['AJAX_MODE'] == 'Y'):?>
+<?php if ($arResult['AJAX_MODE'] == 'Y'):?>
 	BX.loadCSS('/bitrix/components/bitrix/rating.vote/templates/like_react/popup.css');
 	BX.loadCSS('/bitrix/components/bitrix/rating.vote/templates/like_react/style.css');
 	BX.loadScript('/bitrix/js/main/rating_like.js', function() {
-<?endif;?>
+<?php endif;?>
 		if (!window.RatingLike && top.RatingLike)
 			RatingLike = top.RatingLike;
 
@@ -209,7 +209,7 @@ BX.ready(function() {
 		if (typeof(RatingLikePullInit) == 'undefined')
 		{
 			RatingLikePullInit = true;
-			<?
+			<?php 
 			if (
 				isset($arParams['MOBILE'])
 				&& $arParams['MOBILE'] == 'Y'
@@ -222,7 +222,7 @@ BX.ready(function() {
 						RatingLike.LiveUpdate(data.params);
 					}
 				});
-				<?
+				<?php 
 			}
 			else
 			{
@@ -233,14 +233,14 @@ BX.ready(function() {
 						RatingLike.LiveUpdate(params);
 					}
 				});
-				<?
+				<?php 
 			}
             ?>
 		}
 
-<?if ($arResult['AJAX_MODE'] == 'Y'):?>
+<?php if ($arResult['AJAX_MODE'] == 'Y'):?>
 	});
-<?endif;?>
+<?php endif;?>
 
 });
 </script>

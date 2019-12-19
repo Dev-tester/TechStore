@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_CHECK_PRINT_ERROR_HTML_TEXT"] = "Cannot print receipt ##CHECK_ID# for order ##ORDER_ACCOUNT_NUMBER# dated #ORDER_DATE#.
 
 Click here to fix the problem:

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 $selfFolderUrl = $adminPage->getSelfFolderUrl();
@@ -83,20 +83,20 @@ $context = new CAdminContextMenu($aMenu);
 $context->Show();
 ?>
 
-<?if(strlen($errorMessage)>0)
+<?php if(strlen($errorMessage)>0)
 	echo CAdminMessage::ShowMessage(Array("DETAILS"=>$errorMessage, "TYPE"=>"ERROR", "MESSAGE"=>GetMessage("STE_ERROR"), "HTML"=>true));?>
 
-<?
+<?php 
 $actionUrl = $APPLICATION->GetCurPage();
 $actionUrl = $adminSidePanelHelper->setDefaultQueryParams($actionUrl);
 ?>
 <form method="POST" action="<?=$actionUrl?>" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="lang" value="<?echo LANG ?>">
+<input type="hidden" name="lang" value="<?php echo LANG ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(array("DIV" => "edit1", "TAB" => GetMessage("STEN_TAB_TRANSACT"), "ICON" => "sale",
 	"TITLE" => GetMessage("STEN_TAB_TRANSACT_DESCR")));
 
@@ -104,12 +104,12 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 	<tr class="adm-detail-required-field">
-		<td width="40%"><?echo GetMessage("STE_USER")?></td>
-		<td width="60%"><?
+		<td width="40%"><?php echo GetMessage("STE_USER")?></td>
+		<td width="60%"><?php 
 			$user_name = "";
 			if ($ID > 0)
 			{
@@ -127,46 +127,46 @@ $tabControl->BeginNextTab();
 			?></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><?echo GetMessage("STE_SUM")?></td>
+		<td><?php echo GetMessage("STE_SUM")?></td>
 		<td>
 			<input type="text" name="AMOUNT" size="10" maxlength="20" value="<?= roundEx($str_AMOUNT, SALE_VALUE_PRECISION) ?>">
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STE_CURRENCY")?></td>
+		<td><?php echo GetMessage("STE_CURRENCY")?></td>
 		<td>
-			<?echo CCurrency::SelectBox("CURRENCY", $str_CURRENCY, "", false, "", "")?>
+			<?php echo CCurrency::SelectBox("CURRENCY", $str_CURRENCY, "", false, "", "")?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STE_TYPE")?></td>
+		<td><?php echo GetMessage("STE_TYPE")?></td>
 		<td>
 			<select name="DEBIT">
-				<option value="Y"<?if ($str_DEBIT == "Y") echo " selected";?>><?echo GetMessage("STE_DEBET")?></option>
-				<option value="N"<?if ($str_DEBIT == "N") echo " selected";?>><?echo GetMessage("STE_KREDIT")?></option>
+				<option value="Y"<?php if ($str_DEBIT == "Y") echo " selected";?>><?php echo GetMessage("STE_DEBET")?></option>
+				<option value="N"<?php if ($str_DEBIT == "N") echo " selected";?>><?php echo GetMessage("STE_KREDIT")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo GetMessage("STE_ORDER_ID")?></td>
+		<td valign="top"><?php echo GetMessage("STE_ORDER_ID")?></td>
 		<td valign="top">
 			<input type="text" name="ORDER_ID" size="5" maxlength="20" value="<?= $str_ORDER_ID ?>">
 		</td>
 	</tr>
 	<tr>
-		<td valign="top"><?echo GetMessage("STE_NOTES")?></td>
+		<td valign="top"><?php echo GetMessage("STE_NOTES")?></td>
 		<td valign="top">
 			<textarea name="NOTES" rows="3" cols="40"><?= $str_NOTES ?></textarea>
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons();
 $tabControl->Buttons(array("disabled" => ($saleModulePermissions < "U"), "back_url" => $listUrl));
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

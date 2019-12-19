@@ -1,4 +1,4 @@
-<?
+<?php 
 $GLOBALS["APPLICATION"]->ShowSpreadCookieHTML();
 @define("NOT_CHECK_PERMISSIONS", true);
 @define("STATISTIC_ONLY", true);

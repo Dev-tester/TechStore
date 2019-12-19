@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_SITEMAP_STEP"] = "Step duration:";
 $MESS["SEARCH_SITEMAP_STEP_sec"] = "seconds";
 $MESS["SEARCH_SITEMAP_DOC_COUNT"] = "Documents processed";

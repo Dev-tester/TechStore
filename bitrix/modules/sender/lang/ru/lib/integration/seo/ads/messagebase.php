@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_INTEGRATION_SEO_MESSAGE_NAME_ADS_FB"] = "Реклама Facebook+Instagram";
 $MESS["SENDER_INTEGRATION_SEO_MESSAGE_NAME_ADS_GA"] = "Реклама Google AdWords";
 $MESS["SENDER_INTEGRATION_SEO_MESSAGE_NAME_ADS_YA"] = "Реклама Яндекс.Директ";

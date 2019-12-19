@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/xdimport/classes/general/lf_scheme.php");
 
 class CXDILFScheme extends CAllXDILFScheme

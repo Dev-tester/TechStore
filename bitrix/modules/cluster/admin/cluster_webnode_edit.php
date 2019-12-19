@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/cluster/prolog.php");
 IncludeModuleLangFile(__FILE__);
@@ -118,58 +118,58 @@ $context->Show();
 if($message)
 	echo $message->Show();
 ?>
-<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
-<?
+<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>"  enctype="multipart/form-data" name="editform" id="editform">
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-	<?if($ID > 0):?>
+	<?php if($ID > 0):?>
 		<tr>
-			<td><?echo GetMessage("CLU_WEBNODE_EDIT_ID")?>:</td>
-			<td><?echo $str_ID;?></td>
+			<td><?php echo GetMessage("CLU_WEBNODE_EDIT_ID")?>:</td>
+			<td><?php echo $str_ID;?></td>
 		</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
-		<td width="40%"><?echo GetMessage("CLU_WEBNODE_EDIT_NAME")?>:</td>
-		<td width="60%"><input type="text" size="40" name="NAME" value="<?echo $str_NAME?>"></td>
+		<td width="40%"><?php echo GetMessage("CLU_WEBNODE_EDIT_NAME")?>:</td>
+		<td width="60%"><input type="text" size="40" name="NAME" value="<?php echo $str_NAME?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLU_WEBNODE_EDIT_HOST")?>:</td>
-		<td><input type="text" size="20" name="HOST" value="<?echo $str_HOST?>"></td>
+		<td><?php echo GetMessage("CLU_WEBNODE_EDIT_HOST")?>:</td>
+		<td><input type="text" size="20" name="HOST" value="<?php echo $str_HOST?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLU_WEBNODE_EDIT_PORT")?>:</td>
-		<td><input type="text" size="6" name="PORT" value="<?echo $str_PORT?>"></td>
+		<td><?php echo GetMessage("CLU_WEBNODE_EDIT_PORT")?>:</td>
+		<td><input type="text" size="6" name="PORT" value="<?php echo $str_PORT?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("CLU_WEBNODE_EDIT_STATUS_URL")?>:</td>
-		<td><input type="text" size="40" name="STATUS_URL" value="<?echo $str_STATUS_URL?>"></td>
+		<td><?php echo GetMessage("CLU_WEBNODE_EDIT_STATUS_URL")?>:</td>
+		<td><input type="text" size="40" name="STATUS_URL" value="<?php echo $str_STATUS_URL?>"></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage("CLU_WEBNODE_EDIT_DESCRIPTION")?>:</td>
-		<td><textarea cols="40" rows="10" name="DESCRIPTION"><?echo $str_DESCRIPTION?></textarea></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage("CLU_WEBNODE_EDIT_DESCRIPTION")?>:</td>
+		<td><textarea cols="40" rows="10" name="DESCRIPTION"><?php echo $str_DESCRIPTION?></textarea></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"back_url"=>"cluster_webnode_list.php?lang=".LANGUAGE_ID."&group_id=".$group_id,
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANGUAGE_ID?>">
-<input type="hidden" name="group_id" value="<?echo $group_id?>">
-<?if($ID>0):?>
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID?>">
+<input type="hidden" name="group_id" value="<?php echo $group_id?>">
+<?php if($ID>0):?>
 	<input type="hidden" name="ID" value="<?=$ID?>">
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 $tabControl->End();
 ?>
 </form>
 
-<?
+<?php 
 $tabControl->ShowWarnings("editform", $message);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

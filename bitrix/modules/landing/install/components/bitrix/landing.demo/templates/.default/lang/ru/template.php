@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TPL_TITLE"] = "Выберите подходящий шаблон";
 $MESS["LANDING_TPL_ACTION_SELECT"] = "Выбрать";
 $MESS["LANDING_TPL_ACTION_ADD"] = "Новый";

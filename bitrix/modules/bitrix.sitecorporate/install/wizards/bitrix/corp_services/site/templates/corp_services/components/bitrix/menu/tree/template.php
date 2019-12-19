@@ -1,9 +1,9 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (!empty($arResult)):?>
+<?php if (!empty($arResult)):?>
 
 <ul class="left-menu">
-<?
+<?php 
 if(!function_exists("__DrawLevelMenuTreeT")):
 function __DrawLevelMenuTreeT($ar, $ind, &$f)
 {
@@ -52,4 +52,4 @@ foreach($arResult as $ind=>$arItem)
 		echo __DrawLevelMenuTreeT($arResult, $ind, $f = false);
 ?>
 </ul>
-<?endif?>
+<?php endif?>

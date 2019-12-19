@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FIELDS_ORDER"] = "Order";
 $MESS["CRM_FIELDS_ORDER_DESC"] = "Custom fields for orders";
 $MESS["CRM_FIELDS_LEAD"] = "Lead";

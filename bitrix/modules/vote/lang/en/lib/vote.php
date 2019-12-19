@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_ANONYMOUSLY"] = "Anonymous";
 $MESS["VOTE_ERROR"] = "Error:";
 $MESS["VOTE_ERROR_BY_COOKIE"] = "This cookie is already marked as voted [cookie].";

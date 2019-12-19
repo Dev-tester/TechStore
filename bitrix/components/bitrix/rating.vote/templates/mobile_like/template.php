@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -14,8 +14,8 @@ $APPLICATION->AddHeadScript("/bitrix/components/bitrix/rating.vote/templates/mob
 		RVListBack: '<?=CUtil::JSEscape(GetMessage("RV_T_LIST_BACK"))?>',
 		RVRunEvent: '<?=(intval($arParams["VOTE_RAND"]) > 0 ? "Y" : "N")?>'
 	});
-</script><?
-?><div class="post-item-informers post-item-inform-likes<?=($arResult['USER_HAS_VOTED'] == 'Y' ? '-active' : '')?>" id="bx-ilike-box-<?=CUtil::JSEscape(htmlspecialcharsbx($arResult['VOTE_ID']))?>"><?
+</script><?php 
+?><div class="post-item-informers post-item-inform-likes<?=($arResult['USER_HAS_VOTED'] == 'Y' ? '-active' : '')?>" id="bx-ilike-box-<?=CUtil::JSEscape(htmlspecialcharsbx($arResult['VOTE_ID']))?>"><?php 
 
 	$like = COption::GetOptionString("main", "rating_text_like_y", GetMessage("RV_T_LIKE"));
 	$like2 = str_replace('#LIKE#', $like, GetMessage("RV_T_LIKE2_PATTERN"));
@@ -28,16 +28,16 @@ $APPLICATION->AddHeadScript("/bitrix/components/bitrix/rating.vote/templates/mob
 		)
 	)
 	{
-		?><div class="post-item-inform-left"><?=htmlspecialcharsEx($like2)?></div><?
-		?><div class="post-item-inform-right"><span class="post-item-inform-right-text"><?=htmlspecialcharsEx($arResult["TOTAL_VOTES"])?></span></div><?
+		?><div class="post-item-inform-left"><?=htmlspecialcharsEx($like2)?></div><?php 
+		?><div class="post-item-inform-right"><span class="post-item-inform-right-text"><?=htmlspecialcharsEx($arResult["TOTAL_VOTES"])?></span></div><?php 
 	}
 	else
 	{
-		?><div class="post-item-inform-left"><?=htmlspecialcharsEx($like)?></div><?
-		?><div class="post-item-inform-right" style="display: none;"><span class="post-item-inform-right-text"><?=htmlspecialcharsEx($arResult["TOTAL_VOTES"])?></span></div><?
+		?><div class="post-item-inform-left"><?=htmlspecialcharsEx($like)?></div><?php 
+		?><div class="post-item-inform-right" style="display: none;"><span class="post-item-inform-right-text"><?=htmlspecialcharsEx($arResult["TOTAL_VOTES"])?></span></div><?php 
 	}
 
-?></div><?
+?></div><?php 
 ?><script>
 BX.ready(function() {
 	if (!window.RatingLike && top.RatingLike)

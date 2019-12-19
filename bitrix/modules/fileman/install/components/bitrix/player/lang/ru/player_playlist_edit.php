@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PLAYLIST_EDIT_NO_DATA'] = "--Нет данных--";
 $MESS ['PLAYLIST_TITLE_EDIT'] = "Редактирование списка воспроизведения";
 $MESS ['PLAYLIST_TITLE_CREATE'] = "Создание списка воспроизведения";

@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?$APPLICATION->IncludeComponent("bitrix:bizproc.task.list", "", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php $APPLICATION->IncludeComponent("bitrix:bizproc.task.list", "", Array(
 	"USER_ID" => "", 
 	"WORKFLOW_ID" => "", 
 	"TASK_EDIT_URL" => $arResult["URL_TEMPLATES"]["webdav_task"],

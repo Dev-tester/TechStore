@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEETING_FORUM_NAME"] = "Комментарии к собраниям";
 $MESS["MEETING_STATE_P"] = "Подготовка";
 $MESS["MEETING_STATE_A"] = "Идет";

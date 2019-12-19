@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_PROFILE_SETTINGS_FIELDS_VIEW"] = "Список полей для просмотра";
 $MESS["INTRANET_USER_PROFILE_SETTINGS_FIELDS_EDIT"] = "Список полей для редактирования";
 $MESS["INTRANET_USER_PROFILE_SETTINGS_SAVE"] = "Сохранить";

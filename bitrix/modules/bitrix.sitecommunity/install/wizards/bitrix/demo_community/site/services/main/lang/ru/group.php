@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REGISTERED_USERS"] = "Зарегистрированные пользователи";
 $MESS["COMMUNITY_WIZARD_ADMINISTRATOR"] = "Администраторы клуба";
 $MESS["COMMUNITY_WIZARD_ADMINISTRATOR_DESCR"] = "Пользователи могут модерировать все ресурсы сообщества";

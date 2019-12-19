@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_SETS_AVAILABLE_ERRORS_FATAL"] = "Невозможно выполнить операцию";
 $MESS["CAT_SETS_AVAILABLE_PAGE_TITLE"] = "Обновление остатков и наличия комплектов";
 $MESS["CAT_SETS_AVAILABLE_TAB"] = "Параметры";

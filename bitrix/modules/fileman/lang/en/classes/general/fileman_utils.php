@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILEMAN_SEARCH"] = "Search";
 $MESS["FM_UTIL_FIND"] = "Search";
 $MESS["FM_UTIL_FIND_TITLE"] = "Search files and folders";

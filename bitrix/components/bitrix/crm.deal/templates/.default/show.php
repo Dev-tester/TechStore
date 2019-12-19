@@ -39,7 +39,7 @@ if(!Bitrix\Crm\Integration\Bitrix24Manager::isAccessEnabled(CCrmOwnerType::Deal)
 }
 else
 {
-	?><div class="bx-crm-view"><?
+	?><div class="bx-crm-view"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.deal.menu',
 		'',
@@ -59,7 +59,7 @@ else
 		),
 		$component
 	);
-	?><div class="bx-crm-view-form"><?
+	?><div class="bx-crm-view-form"><?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:crm.deal.show',
 		'',
@@ -86,7 +86,7 @@ else
 		),
 		$component
 	);
-	?></div><?
-	?></div><?
+	?></div><?php 
+	?></div><?php 
 }
 ?>

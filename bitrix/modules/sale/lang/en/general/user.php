@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGU_NO_USER"] = "Cannot find the user ##ID#";
 $MESS["SKGU_NO_ACCOUNT"] = "Cannot find internal user account";
 $MESS["SKGU_EMPTY_USER_ID"] = "Empty User field";

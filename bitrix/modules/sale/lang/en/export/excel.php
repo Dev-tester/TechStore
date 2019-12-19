@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEXE_ORDER_DATE"] = "Order date";
 $MESS["SEXE_PAY_DATE"] = "Payment date";
 $MESS["SEXE_YES"] = "Yes";

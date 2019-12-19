@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -6,7 +6,7 @@
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
 
-?><div class="feed-blog-post-list"><?
+?><div class="feed-blog-post-list"><?php 
 $pageId = "group_blog";
 include("util_group_menu.php");
 include("util_group_profile.php");
@@ -39,7 +39,7 @@ if(COption::GetOptionString("blog", "socNetNewPerms", "N") == "N" && $USER->IsAd
 	<div class="feed-add-error">
 		<span class="feed-add-info-icon"></span><span class="feed-add-info-text"><?=GetMessage("BLG_SOCNET_REINDEX", Array("#url#" => $arResult["PATH_TO_REINDEX"]))?></span>
 	</div>
-	<?
+	<?php 
 }
 
 $livefeedProvider = new \Bitrix\Socialnetwork\Livefeed\BlogPost;
@@ -92,7 +92,7 @@ $arLogParams = Array(
 	"BLOG_NO_URL_IN_COMMENTS" => $arParams["BLOG_NO_URL_IN_COMMENTS"],
 	"BLOG_NO_URL_IN_COMMENTS_AUTHORITY" => $arParams["BLOG_NO_URL_IN_COMMENTS_AUTHORITY"],
 );
-?><div id="log_external_container"></div><?
+?><div id="log_external_container"></div><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:socialnetwork.log.ex",
 	"",

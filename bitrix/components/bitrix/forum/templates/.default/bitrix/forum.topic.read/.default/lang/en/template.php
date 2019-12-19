@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_UNSUBSCRIBE"] = "Unsubscribe";
 $MESS["F_UNSUBSCRIBE_TITLE"] = "Unsubscribe from new post notifications";
 $MESS["F_REPLY"] = "Reply";

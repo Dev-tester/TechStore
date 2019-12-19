@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EDIT_TASK_TITLE'] = "Edit access levels for # #ID#";
 $MESS ['NEW_TASK_TITLE'] = "Add access level";
 $MESS ['RECORD_LIST'] = "Access levels";

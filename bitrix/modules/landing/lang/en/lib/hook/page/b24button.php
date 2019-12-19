@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_HOOK_B24BUTTONCODE"] = "Website widget";
 $MESS["LANDING_HOOK_B24BUTTONCODE_NO"] = "None";
 $MESS["LANDING_HOOK_B24BUTTONCOLOR"] = "Widget color";

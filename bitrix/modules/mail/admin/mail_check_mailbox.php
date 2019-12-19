@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -22,6 +22,6 @@ $res = $mb->Check($_POST['serv'], $_POST['port'], $_POST['ssl'], $_POST['login']
 header("Content-Type: application/x-javascript; charset=".LANG_CHARSET);
 echo CUtil::PhpToJSObject($res, false);
 ?>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_after.php");
 ?>

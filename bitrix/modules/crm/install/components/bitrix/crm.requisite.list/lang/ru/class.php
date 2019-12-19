@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль crm не установлен.";
 $MESS["CRM_REQUISITE_LIST_ERR_ENTITY_TYPE_ID"] = "Не верный тип сущности для списка реквизитов";
 $MESS["CRM_REQUISITE_LIST_ERR_COMPANY_NOT_FOUND"] = "Не найдена компания для списка реквизитов";

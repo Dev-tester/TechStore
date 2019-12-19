@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (empty($arResult['VALUES']))
@@ -15,7 +15,7 @@ foreach($arResult['VALUES'] as $arValue)
 				<img class="mobile-grid-data-phone-icon" src="<?=$this->GetFolder()?>/images/icon-phone2x.png" srcset="<?=$this->GetFolder()?>/images/icon-phone2x.png 2x">
 				<span class="mobile-grid-field-contact"><?= htmlspecialcharsbx($arValue['VALUE']) ?></span>
 			</div>
-			<?
+			<?php 
 			break;
 		case "EMAIL":
 			?>
@@ -26,7 +26,7 @@ foreach($arResult['VALUES'] as $arValue)
 					<span class="mobile-grid-field-contact"><?= $arValue['VALUE'] ?></span>
 				</a>
 			</div>
-			<?
+			<?php 
 			break;
 		default:
 			?>
@@ -34,7 +34,7 @@ foreach($arResult['VALUES'] as $arValue)
 			<div class="mobile-grid-block mobile-grid-data-mail-container">
 				<span class="mobile-grid-field-contact"><?=$arValue['TEMPLATE']?></span>
 			</div>
-			<?
+			<?php 
 	}
 }
 ?>

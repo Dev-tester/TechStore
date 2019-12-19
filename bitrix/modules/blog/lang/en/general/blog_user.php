@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_GU_EMPTY_USER_ID"] = "The user ID is not specified";
 $MESS["BLG_GU_ERROR_NO_USER_ID"] = "The user ID is incorrect";
 $MESS["BLG_GU_ERROR_DUPL_ALIAS"] = "This nickname already exists";

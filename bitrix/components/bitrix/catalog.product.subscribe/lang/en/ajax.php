@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CPSA_MODULE_NOT_INSTALLED"] = "The \"#NAME#\" module is not installed.";
 $MESS["CPSA_CONTACT_TYPE_NOT_FOUND"] = "No valid contact type found.";
 $MESS["CPSA_SUCCESS_SUBSCRIBE"] = "You have subscribed successfully";

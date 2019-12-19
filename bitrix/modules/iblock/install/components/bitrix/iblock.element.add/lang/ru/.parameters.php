@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TITLES"] = "Собственные названия полей";
 $MESS["IBLOCK_FIELDS"] = "Свойства инфоблока";
 $MESS["IBLOCK_ACCESS"] = "Параметры доступа";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CLIENT_PORTRAIT_LOAD_ITEM_IDEAL"] = "Идеальная";
 $MESS["CRM_CLIENT_PORTRAIT_LOAD_ITEM_VERY_LOW"] = "Очень низкая";
 $MESS["CRM_CLIENT_PORTRAIT_LOAD_ITEM_LOW"] = "Низкая";

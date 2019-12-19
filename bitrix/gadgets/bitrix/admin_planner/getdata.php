@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 define("BX_SECURITY_SHOW_MESSAGE", true);
 
@@ -30,7 +30,7 @@ $domain = $portalURI = $arGadgetParams["PORTAL_URI"];
 
 ?>
 <div class="bx-gadgets-planner">
-	<?
+	<?php 
 if($clientId == '' || $clientSecret == '' || $portalURI == '')
 {
 	exit;
@@ -86,57 +86,57 @@ if($accessToken != '' && $domain != '' && !$needAuthorize)
 	if((isset($arTasks['result']) && is_array($arTasks['result'])) || (isset($arEvents['result']) && is_array($arEvents['result'])))
 	{
 		?>
-		<?if(is_array($arTasks['result'][1]) && count($arTasks['result'][1]) > 0):?>
+		<?php if(is_array($arTasks['result'][1]) && count($arTasks['result'][1]) > 0):?>
 		<div class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t" style="font-weight: bold; font-size: 16; color:rgba(38,38,38,0.68); line-height: 28px;"><?=GetMessage("GD_PLANNER_TASKS");?>
 			<span style="float: right; color:rgba(136,136,136,0.67); padding-right: 70px";><?=GetMessage("GD_PLANNER_TASKS_CREATOR");?></span></div>
 		<div style="margin: 0 1px 0 1px; border-bottom: 1px solid #D7E0E8;"></div>
 		<div class="bx-gadgets-content-padding-rl">
 			<table class="bx-gadgets-info-site-table">
-				<?
+				<?php 
 				foreach($arTasks['result'][1] as $num => $task)
 				{
 					?>
 					<tr>
 						<td width="80%" align="left" valign="top" style="color: #4F78C3; padding-bottom: 10px; line-height: 18px;"><span>
-							<?echo ++$num.'. '.htmlspecialcharsbx($task['TITLE'])."</td><td>".htmlspecialcharsbx($task['CREATED_BY_LAST_NAME']).' '.htmlspecialcharsbx($task['CREATED_BY_NAME']);
+							<?php echo ++$num.'. '.htmlspecialcharsbx($task['TITLE'])."</td><td>".htmlspecialcharsbx($task['CREATED_BY_LAST_NAME']).' '.htmlspecialcharsbx($task['CREATED_BY_NAME']);
 							?>
 						</td>
 					</tr>
-				<?
+				<?php 
 				}
 				?>
 			</table>
 		</div>
-	<?endif;?>
-		<?if(is_array($arEvents['result']) && count($arEvents['result']) > 0):?>
+	<?php endif;?>
+		<?php if(is_array($arEvents['result']) && count($arEvents['result']) > 0):?>
 		<div class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t" style="font-weight: bold; font-size: 16; color:rgba(38,38,38,0.68); line-height: 28px;"><?=GetMessage("GD_PLANNER_EVENTS");?>
 			<span style="float: right; color:rgba(136,136,136,0.67); padding-right: 30px";><?=GetMessage("GD_PLANNER_EVENT_DATE");?></span></div>
 		<div style="margin: 0 1px 0 1px; border-bottom: 1px solid #D7E0E8;"></div>
 		<div class="bx-gadgets-content-padding-rl">
 			<table class="bx-gadgets-info-site-table">
-				<?
+				<?php 
 				foreach($arEvents['result'] as $num => $event)
 				{
 					$tsFrom = htmlspecialcharsbx($event['DT_FROM']);
 					?>
 					<tr>
 						<td width="80%" align="left" valign="top" style="color: #4F78C3; padding-bottom: 10px; line-height: 18px;"><span>
-								<?echo ++$num.'. '.htmlspecialcharsbx($event['NAME'])."</td><td>".$tsFrom;
+								<?php echo ++$num.'. '.htmlspecialcharsbx($event['NAME'])."</td><td>".$tsFrom;
 								?>
 					</tr>
-				<?
+				<?php 
 				}
 				?>
 			</table>
 		</div>
-	<?endif;?>
-		<?if(count($arTasks['result']) <= 0 && count($arEvents['result']) <= 0):?>
+	<?php endif;?>
+		<?php if(count($arTasks['result']) <= 0 && count($arEvents['result']) <= 0):?>
 		<div class="bx-gadgets-content-padding-rl bx-gadgets-content-padding-t" style="font-weight: bold; line-height: 28px;">
 			<?=GetMessage("GD_PLANNER_EMPTY_DATA");?>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
-	<?}
+	<?php }
 	else
 	{
 		?>
@@ -162,7 +162,7 @@ if($accessToken != '' && $domain != '' && !$needAuthorize)
 			https://&nbsp;<input type="text" id="portal" name="portal" value="<?=\Bitrix\Main\Text\HtmlFilter::encode($domain)?>">
 			<input type="button" class="adm-btn" onclick="checkOauth();" value="<?=GetMessage("GD_PLANNER_AUTHORIZE");?>">
 		</div>
-	<?
+	<?php 
 	}
 	?>
 </div>

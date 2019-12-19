@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Im as IM;
 use Bitrix\Main\UrlPreview as UrlPreview;
 

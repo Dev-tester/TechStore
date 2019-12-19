@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX24_INVITE_DIALOG_EMAIL_ERROR"] = "Неверно введены email.";
 $MESS["BX24_INVITE_DIALOG_USER_EXIST_ERROR"] = "Пользователи с такими email уже существуют.";
 $MESS["BX24_INVITE_DIALOG_MAX_COUNT_ERROR"] = "Количество приглашаемых сотрудников больше, чем позволяет ограничение тарифного плана.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_LOCATION_MAP_LOC_COUNT"] = "Locations registered";
 $MESS["SALE_LOCATION_MAP_LOC_MAPPED"] = "Locations mapped";
 $MESS["SALE_LOCATION_MAP_CLOSE"] = "Close";

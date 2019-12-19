@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_CP_FORUM"] = "Forum";
 $MESS["SEARCH_CP_ALL"] = "(All)";
 $MESS["SEARCH_CP_NO_LIMIT"] = "Search all areas";

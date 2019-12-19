@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -16,46 +16,46 @@ $arPlacemarks = array();
 $gpsN = '';
 $gpsS = '';
 ?>
-<? if(is_array($arResult["STORES"]) && !empty($arResult["STORES"])){?>
-	<?foreach($arResult["STORES"] as $pid=>$arProperty):?>
+<?php  if(is_array($arResult["STORES"]) && !empty($arResult["STORES"])){?>
+	<?php foreach($arResult["STORES"] as $pid=>$arProperty):?>
 		<div class="row mb-4">
 			<div class="col">
 				<div class="mb-2">
 					<a class="catalog-stores-item-title-link" href="<?=$arProperty["URL"]?>"><?=$arProperty["TITLE"]?></a>
 				</div>
 				<div class="row">
-					<? if($arProperty["DESCRIPTION"] != ''):?>
+					<?php  if($arProperty["DESCRIPTION"] != ''):?>
 						<div class="col-sm">
 							<p><?=$arProperty["DESCRIPTION"]?></p>
 						</div>
-					<?endif;?>
-					<? if(isset($arProperty["DETAIL_IMG"]["SRC"]) || isset($arProperty["PHONE"]) || isset($arProperty["SCHEDULE"])) { ?>
+					<?php endif;?>
+					<?php  if(isset($arProperty["DETAIL_IMG"]["SRC"]) || isset($arProperty["PHONE"]) || isset($arProperty["SCHEDULE"])) { ?>
 						<div class="col-sm-auto catalog-stores-item-info">
-							<? if(isset($arProperty["DETAIL_IMG"]["SRC"])):?>
+							<?php  if(isset($arProperty["DETAIL_IMG"]["SRC"])):?>
 								<div class="mb-2">
 									<img class="catalog-store-item-image" src="<?=$arProperty["DETAIL_IMG"]["SRC"]?>">
 								</div>
-							<?endif;?>
-							<? if(isset($arProperty["PHONE"]) && $arProperty["PHONE"] != ''):?>
+							<?php endif;?>
+							<?php  if(isset($arProperty["PHONE"]) && $arProperty["PHONE"] != ''):?>
 								<div class="mb-2" itemprop="telephone">
 									<div class="text-muted"><?=$arProperty["PHONE"]?></div>
 								</div>
-							<?endif;?>
-							<? if(isset($arProperty["SCHEDULE"]) && $arProperty["PHONE"] != ''):?>
+							<?php endif;?>
+							<?php  if(isset($arProperty["SCHEDULE"]) && $arProperty["PHONE"] != ''):?>
 								<div class="mb-2">
 									<div class="text-muted"><?=$arProperty["SCHEDULE"]?></div>
 								</div>
-							<?endif;?>
+							<?php endif;?>
 						</div>
-					<? } ?>
+					<?php  } ?>
 				</div>
 			</div>
 		</div>
-	<?endforeach;?>
-<? } ?>
+	<?php endforeach;?>
+<?php  } ?>
 <div class="row">
 	<div class="col">
-		<? if($arProperty["GPS_S"]!=0 && $arProperty["GPS_N"]!=0)
+		<?php  if($arProperty["GPS_S"]!=0 && $arProperty["GPS_N"]!=0)
 		{
 			$gpsN=substr(doubleval($arProperty["GPS_N"]),0,15);
 			$gpsS=substr(doubleval($arProperty["GPS_S"]),0,15);

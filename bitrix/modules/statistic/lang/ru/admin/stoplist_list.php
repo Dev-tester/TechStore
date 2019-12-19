@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_STOP_PAGES'] = "Запись";
 $MESS ['STAT_F_LOGIC'] = "Логика между полями";
 $MESS ['STAT_GREEN_LAMP'] = "Запись активна";

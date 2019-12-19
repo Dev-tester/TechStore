@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['LEARNING_QUESTION_S'] = "Вопрос";
 $MESS['LEARNING_QUESTION_FROM'] = "из";
 $MESS['LEARNING_SELECT_ANSWER'] = "Выберите ответ";

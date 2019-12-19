@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_OPERATOR_USER_NAME"] = "Оператор";
 $MESS["IMOL_OPERATOR_ERROR_IM_LOAD"] = "Ошибка загрузки модуля Веб-мессенджер";
 $MESS["IMOL_OPERATOR_ERROR_PULL_LOAD"] = "Ошибка загрузки модуля Push & Pull";

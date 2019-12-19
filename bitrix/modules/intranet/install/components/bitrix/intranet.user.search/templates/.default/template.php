@@ -1,4 +1,4 @@
-<?
+<?php 
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
@@ -9,13 +9,13 @@ $arParams['INPUT_NAME'] = CUtil::JSEscape($arParams['INPUT_NAME']);
 
 ?>
 
-<? if ($arParams['SHOW_INPUT'] == 'Y') { ?>
+<?php  if ($arParams['SHOW_INPUT'] == 'Y') { ?>
 <input type="text" id="<?=htmlspecialcharsex($arParams['~INPUT_NAME']); ?>" name="<?=htmlspecialcharsex($arParams['~INPUT_NAME']); ?>" value="<?=$arParams['INPUT_VALUE']; ?>" size="3" />
-<? } ?>
+<?php  } ?>
 
-<? if ($arParams['SHOW_BUTTON'] == 'Y') { ?>
+<?php  if ($arParams['SHOW_BUTTON'] == 'Y') { ?>
 <input type="button" onclick="<?=$name_x; ?>.Show()" value="<?=($arParams['BUTTON_CAPTION'] ? htmlspecialcharsex($arParams['BUTTON_CAPTION']) : '...'); ?>" />
-<? } ?>
+<?php  } ?>
 
 <script type="text/javascript">
 
@@ -27,20 +27,20 @@ if (window.top != window.self)
 		JCEmployeeSelectControl = top.JCEmployeeSelectControl;
 }
 
-<? if ($arParams['INPUT_NAME']) { ?>
+<?php  if ($arParams['INPUT_NAME']) { ?>
 
 function GetInput_<?=$name_x; ?>(doc)
 {
 	if (typeof doc == 'undefined')
 		doc = document;
-	<? if ($arParams['FORM_NAME']) { ?>
+	<?php  if ($arParams['FORM_NAME']) { ?>
 	return doc.forms['<?=$arParams['FORM_NAME']; ?>']['<?=$arParams['INPUT_NAME']; ?>'];
-	<? } else { ?>
+	<?php  } else { ?>
 	return doc.getElementById('<?=$arParams['INPUT_NAME']; ?>');
-	<? } ?>
+	<?php  } ?>
 }
 
-<? if (!$arParams['ONSELECT']) { ?>
+<?php  if (!$arParams['ONSELECT']) { ?>
 
 function OnSelect_<?=$name_x; ?>(value)
 {
@@ -54,10 +54,10 @@ function OnSelect_<?=$name_x; ?>(value)
 		BX.fireEvent(q, 'change');
 }
 
-<? $arParams['ONSELECT'] = 'OnSelect_'.$name_x; ?>
+<?php  $arParams['ONSELECT'] = 'OnSelect_'.$name_x; ?>
 
-<? } ?>
-<? } ?>
+<?php  } ?>
+<?php  } ?>
 
 var <?=$name_x; ?> = new JCEmployeeSelectControl({
 	MULTIPLE: <?=($arParams['MULTIPLE'] == 'Y' ? 'true' : 'false'); ?>,
@@ -74,7 +74,7 @@ var <?=$name_x; ?> = new JCEmployeeSelectControl({
 if (window.top != window.self)
 	top.<?=$name_x; ?> = <?=$name_x; ?>;
 
-<? if ($arParams['INPUT_NAME']) { ?>
+<?php  if ($arParams['INPUT_NAME']) { ?>
 
 BX.ready(function() {
 	var input = GetInput_<?=$name_x; ?>();
@@ -82,10 +82,10 @@ BX.ready(function() {
 	BX.adjust(input, {attrs: {'onchange': '<?=$name_x; ?>.SetValue(this.value)'}});
 });
 
-<? } ?>
+<?php  } ?>
 
-<? if (defined('ADMIN_SECTION')) { ?>
+<?php  if (defined('ADMIN_SECTION')) { ?>
 BX.loadCSS("/bitrix/components/bitrix/intranet.user.search/templates/.default/style.css");
-<? } ?>
+<?php  } ?>
 
 </script>

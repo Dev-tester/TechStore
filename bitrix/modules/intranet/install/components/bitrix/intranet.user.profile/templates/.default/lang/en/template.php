@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_USER_FIILDS_SETTINGS"] = "Field view settings";
 $MESS["INTRANET_USER_PROFILE_ADDITIONAL_INFO"] = "Additional information";
 $MESS["INTRANET_USER_PROFILE_ADD_PHOTO"] = "Change photo";

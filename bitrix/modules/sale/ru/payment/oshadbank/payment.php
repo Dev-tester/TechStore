@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
 <title>КВИТАНЦІЯ</title>
@@ -139,11 +139,11 @@
 
 </head>
 <body bgColor="#fff">
-<?
+<?php 
 $arKvit = array(0 => "ПОВІДОМЛЕННЯ", 1 => "КВИТАНЦІЯ");
 ?>
 <table class="b_kvit">
-	<?for ($i = 0;$i < 2;$i++):?>
+	<?php for ($i = 0;$i < 2;$i++):?>
 	<tr>
 		<td class="print"><?=$arKvit[$i]?></td>
 		<td class="content">
@@ -178,7 +178,7 @@ $arKvit = array(0 => "ПОВІДОМЛЕННЯ", 1 => "КВИТАНЦІЯ");
 			</table>
 
 			<div class="text fio">
-				<?
+				<?php 
 				$adres = CSalePaySystemAction::GetParamValue("PAYER_FIO");
 
 				if (strlen(CSalePaySystemAction::GetParamValue("PAYER_INDEX")) > 0)
@@ -244,7 +244,7 @@ $arKvit = array(0 => "ПОВІДОМЛЕННЯ", 1 => "КВИТАНЦІЯ");
 			</table>
 		</td>
 	</tr>
-	<?endfor;?>
+	<?php endfor;?>
 </table>
 
 </body>

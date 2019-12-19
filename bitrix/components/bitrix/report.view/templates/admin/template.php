@@ -1,4 +1,4 @@
-<?
+<?php 
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
@@ -105,14 +105,14 @@ $context->Show();
 <input type="hidden" name="ID" value="<?=htmlspecialcharsbx($arParams['REPORT_ID'])?>" />
 <input type="hidden" name="sort_id" value="<?=htmlspecialcharsbx($arResult['sort_id'])?>" />
 <input type="hidden" name="sort_type" value="<?=htmlspecialcharsbx($arResult['sort_type'])?>" />
-<? if(isset($_REQUEST['publicSidePanel']) && $_REQUEST['publicSidePanel'] == 'Y'): ?>
+<?php  if(isset($_REQUEST['publicSidePanel']) && $_REQUEST['publicSidePanel'] == 'Y'): ?>
 	<input type="hidden" name="publicSidePanel" value="Y" />
-<? endif ?>
-<? if(isset($_REQUEST['IFRAME']) && $_REQUEST['IFRAME'] == 'Y'): ?>
+<?php  endif ?>
+<?php  if(isset($_REQUEST['IFRAME']) && $_REQUEST['IFRAME'] == 'Y'): ?>
 	<input type="hidden" name="IFRAME" value="Y" />
 	<input type="hidden" name="IFRAME_TYPE" value="SIDE_SLIDER" />
-<? endif ?>
-<?
+<?php  endif ?>
+<?php 
 // prepare info
 $info = array();
 foreach($arResult['changeableFilters'] as $chFilter)
@@ -240,7 +240,7 @@ foreach($arResult['changeableFilters'] as $chFilter)
 						<tbody>
 
 						<?php /*    Site option    */ ?>
-						<? if (isset($arParams['F_SALE_SITE'])): ?>
+						<?php  if (isset($arParams['F_SALE_SITE'])): ?>
 						<tr>
 							<td class="adm-filter-item-left"><?=GetMessage('SALE_REPORT_SITE').':'?></td>
 							<td class="adm-filter-item-center">
@@ -252,11 +252,11 @@ foreach($arResult['changeableFilters'] as $chFilter)
 										?>
 										<span class="adm-select-wrap">
 											<select class="adm-select" id="sale-site-filter" name="F_SALE_SITE">
-												<? foreach($siteList as $kLID => $vSiteName): ?>
+												<?php  foreach($siteList as $kLID => $vSiteName): ?>
 												<option <?php
 													if ($kLID==$selected) echo 'selected="1"';
 													?>value="<?=htmlspecialcharsbx($kLID)?>"><?=htmlspecialcharsbx($vSiteName)?></option>
-												<? endforeach; ?>
+												<?php  endforeach; ?>
 											</select>
 										</span>
 									</div>
@@ -264,10 +264,10 @@ foreach($arResult['changeableFilters'] as $chFilter)
 							</td>
 							<td class="adm-filter-item-right"></td>
 						</tr>
-						<? endif; ?>
+						<?php  endif; ?>
 
 						<!-- period -->
-						<tr<? echo $isPeriodHidden ? ' class="filter-field-hidden"' : ''; ?>>
+						<tr<?php  echo $isPeriodHidden ? ' class="filter-field-hidden"' : ''; ?>>
 							<td class="adm-filter-item-left"><?=GetMessage('REPORT_PERIOD').':'?></td>
 							<td class="adm-filter-item-center">
 								<div class="adm-filter-alignment adm-calendar-block">
@@ -342,7 +342,7 @@ foreach($arResult['changeableFilters'] as $chFilter)
 						</script>
 
 						<?php /*    Sale report currency selection    */    ?>
-						<? if (substr(call_user_func(array($arResult['helperClassName'], 'getOwnerId')),0,5) === 'sale_'): ?>
+						<?php  if (substr(call_user_func(array($arResult['helperClassName'], 'getOwnerId')),0,5) === 'sale_'): ?>
 						<tr>
 							<td class="adm-filter-item-left"><?=GetMessage('SALE_REPORT_CURRENCY').':'?></td>
 							<td class="adm-filter-item-center">
@@ -353,11 +353,11 @@ foreach($arResult['changeableFilters'] as $chFilter)
 												<?php
 												$arCurrencies = call_user_func(array($arResult['helperClassName'], 'getCurrencies'));
 												?>
-												<? foreach($arCurrencies as $k => $v): ?>
+												<?php  foreach($arCurrencies as $k => $v): ?>
 												<option <?php
 													if ($v['selected'] === true) echo 'selected="1"';
 													?> value="<?=htmlspecialcharsbx($k)?>"><?=htmlspecialcharsbx($k.' ('.$v['name'].')')?></option>
-												<? endforeach; ?>
+												<?php  endforeach; ?>
 											</select>
 										</span>
 									</div>
@@ -365,10 +365,10 @@ foreach($arResult['changeableFilters'] as $chFilter)
 							</td>
 							<td class="adm-filter-item-right"></td>
 						</tr>
-						<? endif; ?>
+						<?php  endif; ?>
 
 						<?php /*    Product custom "quantity" filter    */    ?>
-						<? if (call_user_func(array($arResult['helperClassName'], 'getOwnerId')) === 'sale_SaleProduct'):
+						<?php  if (call_user_func(array($arResult['helperClassName'], 'getOwnerId')) === 'sale_SaleProduct'):
 							$saleProductFilter = array(
 								'all' => GetMessage('SALE_REPORT_PRODUCTS_ALL'),
 								'avail' => GetMessage('SALE_REPORT_PRODUCTS_AVAIL'),
@@ -384,11 +384,11 @@ foreach($arResult['changeableFilters'] as $chFilter)
 									<div class="adm-filter-box-sizing">
 										<span class="adm-select-wrap">
 											<select class="adm-select" id="sale-product-filter" name="F_SALE_PRODUCT">
-												<? foreach($saleProductFilter as $k => $v): ?>
+												<?php  foreach($saleProductFilter as $k => $v): ?>
 												<option <?php
 													if ($k === $selected) echo 'selected="1"';
 													?> value="<?=htmlspecialcharsbx($k)?>"><?=htmlspecialcharsbx($v)?></option>
-												<? endforeach; ?>
+												<?php  endforeach; ?>
 											</select>
 										</span>
 									</div>
@@ -396,10 +396,10 @@ foreach($arResult['changeableFilters'] as $chFilter)
 							</td>
 							<td class="adm-filter-item-right"></td>
 						</tr>
-						<? endif; ?>
+						<?php  endif; ?>
 
 						<?php /*    Product custom "types of prices" filter    */    ?>
-						<? if (call_user_func(array($arResult['helperClassName'], 'getOwnerId')) === 'sale_SaleProduct'
+						<?php  if (call_user_func(array($arResult['helperClassName'], 'getOwnerId')) === 'sale_SaleProduct'
 							&& $arResult['settings']['helper_spec']['ucspt'] === true): ?>
 						<tr>
 							<td class="adm-filter-item-left"><?=GetMessage('SALE_REPORT_PRICE_TYPES').':'?></td>
@@ -424,7 +424,7 @@ foreach($arResult['changeableFilters'] as $chFilter)
 							</td>
 							<td class="adm-filter-item-right"></td>
 						</tr>
-						<? endif; ?>
+						<?php  endif; ?>
 
 						<tr id="adm-report-filter-chfilter" style="display: none;"></tr>
 
@@ -1174,8 +1174,8 @@ unset($arGroupingResult['html']);
 	<!-- head -->
 	<thead>
 	<tr class="adm-list-table-header">
-		<? $i = 0; foreach($arResult['viewColumns'] as $colId => $col): ?>
-		<?
+		<?php  $i = 0; foreach($arResult['viewColumns'] as $colId => $col): ?>
+		<?php 
 		$i++;
 
 		if ($i == 1)
@@ -1226,16 +1226,16 @@ unset($arGroupingResult['html']);
 				<span class="reports-head-cell-title"><?=htmlspecialcharsbx($col['humanTitle'])?></span>
 			</div>
 		</td>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</tr>
 	</thead>
 
 	<!-- data -->
 	<tbody>
-	<? foreach ($arResult['data'] as $row): ?>
+	<?php  foreach ($arResult['data'] as $row): ?>
 	<tr class="adm-list-table-row">
-		<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-		<?
+		<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+		<?php 
 		$i++;
 		if ($i == 1)
 		{
@@ -1302,9 +1302,9 @@ unset($arGroupingResult['html']);
 		}
 		?>
 		<td class="adm-list-table-cell <?=$td_class?>"><?=$finalValue?></td>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</tr>
-	<? endforeach; ?>
+	<?php  endforeach; ?>
 
 	<tr>
 		<td colspan="<?=count($arResult['viewColumns'])?>" class="reports-pretotal-column">
@@ -1315,8 +1315,8 @@ unset($arGroupingResult['html']);
 	</tr>
 
 	<tr class="adm-list-table-header">
-		<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-		<?
+		<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+		<?php 
 		$i++;
 		if ($i == 1)
 		{
@@ -1336,12 +1336,12 @@ unset($arGroupingResult['html']);
 				<span class="reports-head-cell-title"><?=htmlspecialcharsbx($col['humanTitle'])?></span>
 			</div>
 		</td>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</tr>
 
 	<tr class="adm-list-table-row">
-		<? $i = 0; foreach($arResult['viewColumns'] as $col): ?>
-		<?
+		<?php  $i = 0; foreach($arResult['viewColumns'] as $col): ?>
+		<?php 
 		$i++;
 		if ($i == 1)
 		{
@@ -1387,7 +1387,7 @@ unset($arGroupingResult['html']);
 		else $finalValue = '&mdash;';
 		?>
 		<td class="adm-list-table-cell <?=$td_class?>"><?=$finalValue?></td>
-		<? endforeach; ?>
+		<?php  endforeach; ?>
 	</tr>
 	</tbody>
 
@@ -1728,28 +1728,28 @@ unset($arGroupingResult['html']);
 <?php endif; // if ($arParams['USE_CHART'] && $arResult['settings']['chart']['display']): ?>
 
 <!-- currency label -->
-<? if (isset($arParams['REPORT_CURRENCY_LABEL_TEXT'])): ?>
+<?php  if (isset($arParams['REPORT_CURRENCY_LABEL_TEXT'])): ?>
 <div class="adm-info-message-wrap">
 	<div class="adm-info-message">
 		<?=$arParams['REPORT_CURRENCY_LABEL_TEXT']?>
 	</div>
 </div>
-<? endif; ?>
+<?php  endif; ?>
 
 <!-- weight units label -->
-<? if (isset($arParams['REPORT_WEIGHT_UNITS_LABEL_TEXT'])): ?>
+<?php  if (isset($arParams['REPORT_WEIGHT_UNITS_LABEL_TEXT'])): ?>
 <div class="adm-info-message-wrap">
 	<div class="adm-info-message">
 		<?=$arParams['REPORT_WEIGHT_UNITS_LABEL_TEXT']?>
 	</div>
 </div>
-<? endif; ?>
+<?php  endif; ?>
 
 <!-- description -->
-<? if (strlen($arResult['report']['DESCRIPTION'])): ?>
+<?php  if (strlen($arResult['report']['DESCRIPTION'])): ?>
 <div class="adm-info-message-wrap">
 	<div class="adm-info-message">
 		<?=htmlspecialcharsbx($arResult['report']['DESCRIPTION'])?>
 	</div>
 </div>
-<? endif; ?>
+<?php  endif; ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_REPORT_GROUP_NOT_FOUND"] = "Gruppe wurde nicht gefunden";
 $MESS["SALE_REPORT_USER_NOT_AUTH"] = "<nicht angemeldet>";
 $MESS["SALE_REPORT_DEFAULT_LEFT_BASKETS"] = "Verlassene Warenkörbe";

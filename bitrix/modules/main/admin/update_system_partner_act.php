@@ -1,4 +1,4 @@
-<?
+<?php 
 //**********************************************************************/
 //**    DO NOT MODIFY THIS FILE                                       **/
 //**    MODIFICATION OF THIS FILE WILL ENTAIL SITE FAILURE            **/

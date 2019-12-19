@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/js/main/amcharts/3.3/amcharts.js");
 $GLOBALS['APPLICATION']->AddHeadScript("/bitrix/js/main/amcharts/3.3/pie.js");

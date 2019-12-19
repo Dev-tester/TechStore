@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -197,8 +197,8 @@ $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(GetMessage("SAT1_TIERS"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -208,10 +208,10 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SAT1_SITE1")?></td>
-		<td><?echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAT1_ALL")) ?></td>
+		<td><?php echo GetMessage("SAT1_SITE1")?></td>
+		<td><?php echo CSite::SelectBox("filter_site_id", $filter_site_id, GetMessage("SAT1_ALL")) ?></td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -223,15 +223,15 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 echo BeginNote();
 ?>
-<?echo GetMessage("SAT1_NOTE1")?><br><br>
-<?echo GetMessage("SAT1_NOTE2")?><br><br>
-<?echo GetMessage("SAT1_NOTE3")?>
-<?
+<?php echo GetMessage("SAT1_NOTE1")?><br><br>
+<?php echo GetMessage("SAT1_NOTE2")?><br><br>
+<?php echo GetMessage("SAT1_NOTE3")?>
+<?php 
 echo EndNote();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

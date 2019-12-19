@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SITE_LIST_TIP'] = "Specify here the site whose orders will be exported.";
 $MESS ['GROUP_PERMISSIONS_TIP'] = "Select here user groups whose members are allowed to export to 1C.";
 $MESS ['USE_ZIP_TIP'] = "Specifies to use ZIP compression if possible.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FTP_TITLE_NAV'] = "Темы";
 $MESS ['FTP_TITLE'] = "Список тем";
 $MESS ['FTP_INDEX'] = "Список форумов";

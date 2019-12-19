@@ -1,4 +1,4 @@
-<?
+<?php 
 //<title>Yandex simple</title>
 /** @global CUser $USER */
 /** @global CMain $APPLICATION */
@@ -87,24 +87,24 @@ if ($strExportErrorMessage == '')
 	}
 	else
 	{
-		if (!@fwrite($fp, '<?if (!isset($_GET["referer1"]) || strlen($_GET["referer1"])<=0) $_GET["referer1"] = "yandext"?>'))
+		if (!@fwrite($fp, '<?php if (!isset($_GET["referer1"]) || strlen($_GET["referer1"])<=0) $_GET["referer1"] = "yandext"?>'))
 		{
 			$strExportErrorMessage .= str_replace('#FILE#',$_SERVER["DOCUMENT_ROOT"].$SETUP_FILE_NAME, GetMessage('CET_YAND_RUN_ERR_SETUP_FILE_WRITE'))."\n";
 			@fclose($fp);
 		}
 		else
 		{
-			fwrite($fp, '<? $strReferer1 = htmlspecialchars($_GET["referer1"]); ?>');
-			fwrite($fp, '<?if (!isset($_GET["referer2"]) || strlen($_GET["referer2"]) <= 0) $_GET["referer2"] = "";?>');
-			fwrite($fp, '<? $strReferer2 = htmlspecialchars($_GET["referer2"]); ?>');
+			fwrite($fp, '<?php  $strReferer1 = htmlspecialchars($_GET["referer1"]); ?>');
+			fwrite($fp, '<?php if (!isset($_GET["referer2"]) || strlen($_GET["referer2"]) <= 0) $_GET["referer2"] = "";?>');
+			fwrite($fp, '<?php  $strReferer2 = htmlspecialchars($_GET["referer2"]); ?>');
 		}
 	}
 }
 
 if ($strExportErrorMessage == '')
 {
-	fwrite($fp, '<? header("Content-Type: text/xml; charset=windows-1251");?>');
-	fwrite($fp, '<? echo "<"."?xml version=\"1.0\" encoding=\"windows-1251\"?".">"?>');
+	fwrite($fp, '<?php  header("Content-Type: text/xml; charset=windows-1251");?>');
+	fwrite($fp, '<?php  echo "<"."?xml version=\"1.0\" encoding=\"windows-1251\"?".">"?>');
 	fwrite($fp, "\n<!DOCTYPE yml_catalog SYSTEM \"shops.dtd\">\n");
 	fwrite($fp, "<yml_catalog date=\"".date("Y-m-d H:i")."\">\n");
 	fwrite($fp, "<shop>\n");
@@ -316,7 +316,7 @@ if ($strExportErrorMessage == '')
 				}
 
 				$strTmpOff.= "<offer id=\"".$arAcc["ID"]."\"".$str_AVAILABLE.">\n";
-				$strTmpOff.= "<url>".$usedProtocol.$arAcc['SERVER_NAME'].htmlspecialcharsbx($arAcc["~DETAIL_PAGE_URL"]).(strstr($arAcc['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?echo \$strReferer1; ?>&amp;r2=<?echo \$strReferer2; ?></url>\n";
+				$strTmpOff.= "<url>".$usedProtocol.$arAcc['SERVER_NAME'].htmlspecialcharsbx($arAcc["~DETAIL_PAGE_URL"]).(strstr($arAcc['DETAIL_PAGE_URL'], '?') === false ? '?' : '&amp;')."r1=<?php echo \$strReferer1; ?>&amp;r2=<?php echo \$strReferer2; ?></url>\n";
 
 				$strTmpOff.= "<price>".$minPrice."</price>\n";
 				$strTmpOff.= "<currencyId>".$minPriceCurrency."</currencyId>\n";

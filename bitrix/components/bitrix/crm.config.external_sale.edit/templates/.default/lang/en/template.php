@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPWC_WNCT_2LIST"] = "Shops";
 $MESS["BPWC_WNCT_TAB1"] = "Shop";
 $MESS["BPWC_WNCT_TAB1T"] = "Edit parameters";

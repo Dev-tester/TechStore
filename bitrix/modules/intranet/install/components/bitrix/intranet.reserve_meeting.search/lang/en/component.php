@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_INTRANET_MODULE_NOT_INSTALLED"] = "The Intranet module is not installed.";
 $MESS["EC_IBLOCK_MODULE_NOT_INSTALLED"] = "The Information Blocks module is not installed.";
 $MESS["INTASK_C36_PAGE_TITLE"] = "Meeting Room Search";

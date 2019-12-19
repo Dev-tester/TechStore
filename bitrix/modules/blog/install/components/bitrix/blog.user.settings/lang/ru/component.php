@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_MODULE_NOT_INSTALL"] = "Модуль блогов не установлен.";
 $MESS["B_B_US_TITLE"] = "Пользователи";
 $MESS["B_B_US_TITLE_BLOG"] = "Пользователи блога &quot;#NAME#&quot;";

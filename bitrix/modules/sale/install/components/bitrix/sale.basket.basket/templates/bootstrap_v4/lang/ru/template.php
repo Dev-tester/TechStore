@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBB_DELETE"] = "Удалить";
 $MESS["SBB_FILTER_EMPTY_RESULT"] = "По данному запросу товаров не найдено";
 $MESS["SBB_BASKET_ITEM_WARNING"] = "В вашей корзине <a href=\"javascript:void(0)\" data-entity=\"basket-items-warning-count\"></a> требует внимания.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 //data lists
 $MESS["MB_DEMO_LIST_ELEMENT"] = "Элемент ";
 $MESS["MB_DEMO_LIST_ELEMENT_DETAIL"] = "Детальное описание";

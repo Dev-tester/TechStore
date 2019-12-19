@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BUTTON_MANAGER_PAGES_USE_DISPLAY_USER"] = "пользовательские";
 $MESS["CRM_BUTTON_MANAGER_PAGES_USE_DISPLAY_ALL"] = "на всех страницах";
 $MESS["CRM_BUTTON_MANAGER_TYPE_NAME_OPENLINE"] = "Открытая линия";

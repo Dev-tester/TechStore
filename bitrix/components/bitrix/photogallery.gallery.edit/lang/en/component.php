@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_MODULE_NOT_INSTALLED'] = "Information blocks module is not installed";
 $MESS ['P_MODULE_IS_NOT_INSTALLED'] = "The Photo gallery 2.0 module is not installed.";
 $MESS ['IBSEC_A_DELERR_REFERERS'] = "There can be referring objects.";

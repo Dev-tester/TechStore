@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $res = $arParams["~MESSAGE"];
 if ($arParams["SHOW_HEADER"] != "N"):?>
 <a name="postform"></a>
@@ -11,10 +11,10 @@ if ($arParams["SHOW_HEADER"] != "N"):?>
 	<div class="forum-info-box forum-post-preview">
 		<div class="forum-info-box-inner">
 			<div class="forum-post-entry">
-<?endif;?>
-				<div class="forum-post-text"<?if($res["ID"] > 0): ?> id="message_text_<?=$res["ID"]?>"<? endif; ?>><?=(
+<?php endif;?>
+				<div class="forum-post-text"<?php if($res["ID"] > 0): ?> id="message_text_<?=$res["ID"]?>"<?php  endif; ?>><?=(
 					is_set($res, "POST_MESSAGE_TEXT") ? $res["POST_MESSAGE_TEXT"] : $res["TEXT"])?></div>
-				<?
+				<?php 
 				if (!empty($res["FILES"]))
 				{
 					$arFilesHTML = array("thumb" => array(), "files" => array());
@@ -51,40 +51,40 @@ if ($arParams["SHOW_HEADER"] != "N"):?>
 						?>
 						<div class="forum-post-attachments">
 							<label><?=GetMessage("F_ATTACH_FILES")?></label>
-							<?
+							<?php 
 							if (!empty($arFilesHTML["thumb"]))
 							{
-								?><div class="forum-post-attachment forum-post-attachment-thumb"><fieldset><?=implode("", $arFilesHTML["thumb"])?></fieldset></div><?;
+								?><div class="forum-post-attachment forum-post-attachment-thumb"><fieldset><?=implode("", $arFilesHTML["thumb"])?></fieldset></div><?php ;
 							}
 							if (!empty($arFilesHTML["files"]))
 							{
-								?><div class="forum-post-attachment forum-post-attachment-files"><ul><li><?=implode("</li><li>", $arFilesHTML["files"])?></li></ul></div><?;
+								?><div class="forum-post-attachment forum-post-attachment-files"><ul><li><?=implode("</li><li>", $arFilesHTML["files"])?></li></ul></div><?php ;
 							}
 							?>
 						</div>
-						<?
+						<?php 
 					}
 				}
 				if (!empty($res["EDITOR_NAME"]))
 				{
 				?><div class="forum-post-lastedit">
 					<span class="forum-post-lastedit"><?=GetMessage("F_EDIT_HEAD")?>
-						<span class="forum-post-lastedit-user"><?
+						<span class="forum-post-lastedit-user"><?php 
 							if (!empty($res["URL"]["EDITOR"]))
 							{
-								?><noindex><a rel="nofollow" href="<?=$res["URL"]["EDITOR"]?>"><?=$res["EDITOR_NAME"]?></a></noindex><?
+								?><noindex><a rel="nofollow" href="<?=$res["URL"]["EDITOR"]?>"><?=$res["EDITOR_NAME"]?></a></noindex><?php 
 							}
 							else
 							{
-								?><?=$res["EDITOR_NAME"]?><?
+								?><?=$res["EDITOR_NAME"]?><?php 
 							}?></span> - <span class="forum-post-lastedit-date"><?=$res["EDIT_DATE"]?></span>
-						<?if (!empty($res["EDIT_REASON"]))
+						<?php if (!empty($res["EDIT_REASON"]))
 						{
-							?><span class="forum-post-lastedit-reason">(<span><?=$res["EDIT_REASON"]?></span>)</span><?
+							?><span class="forum-post-lastedit-reason">(<span><?=$res["EDIT_REASON"]?></span>)</span><?php 
 						}
 						?>
 					</span>
-				</div><?
+				</div><?php 
 				}
 if ($arParams["SHOW_HEADER"] != "N"):?>
 			</div>
@@ -93,4 +93,4 @@ if ($arParams["SHOW_HEADER"] != "N"):?>
 </div>
 <!--MSG_END_MSG_PREVIEW-->
 
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_DEFAULT_PAGE_TEXT"] = "Your Wiki does not have a main page yet; you have to create one.<br>
 [[%NAME%|Create Now]]<br><br>
 

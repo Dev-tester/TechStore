@@ -1,7 +1,7 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Map");
-?><?$APPLICATION->IncludeComponent("bitrix:map.google.search", ".default", array(
+?><?php $APPLICATION->IncludeComponent("bitrix:map.google.search", ".default", array(
 	"INIT_MAP_TYPE" => "ROADMAP",
 	"MAP_DATA" => "a:3:{s:10:\"google_lat\";s:7:\"40.7561\";s:10:\"google_lon\";s:8:\"-73.9869\";s:12:\"google_scale\";i:12;}",
 	"MAP_WIDTH" => "600",
@@ -20,4 +20,4 @@ $APPLICATION->SetTitle("Map");
 	"MAP_ID" => ""
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

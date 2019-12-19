@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CTRL_PANEL_ITEM_ANALYTICS"] = "Analytics";
 $MESS["CRM_CTRL_PANEL_ITEM_ANALYTICS_TITLE"] = "CRM Analytics";
 $MESS["CRM_CTRL_PANEL_ITEM_BUTTON"] = "Website Widget";

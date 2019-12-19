@@ -61,10 +61,10 @@ $arJsParams = array(
 
 	BX.Mobile.Crm.Quote.Edit.init(<?=CUtil::PhpToJSObject($arJsParams)?>);
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	var menu = new BXMobileApp.UI.Menu({
 		items: [
-			<?if ($arResult["IS_EDIT_PERMITTED"]):?>
+			<?php if ($arResult["IS_EDIT_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_QUOTE_MENU_EDIT")?>',
 				image: "/bitrix/js/mobile/images/edit.png",
@@ -75,8 +75,8 @@ $arJsParams = array(
 					});
 				}, this)
 			},
-			<?endif?>
-			<?if ($arResult["IS_DELETE_PERMITTED"]):?>
+			<?php endif?>
+			<?php if ($arResult["IS_DELETE_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_QUOTE_MENU_DELETE")?>',
 				image: "/bitrix/js/mobile/images/del.png",
@@ -85,8 +85,8 @@ $arJsParams = array(
 					BX.Mobile.Crm.deleteItem('<?=$arResult["ENTITY_ID"]?>', '<?=$ajaxPath?>', 'detail', 'onCrmQuoteListUpdate');
 				}, this)
 			},
-			<?endif?>
-			<?if ($arResult["CONVERSION_PERMITTED"]):?>
+			<?php endif?>
+			<?php if ($arResult["CONVERSION_PERMITTED"]):?>
 			{
 				name: '<?=GetMessageJS("M_CRM_QUOTE_MENU_CREATE_ON_BASE")?>',
 				image: "/bitrix/js/mobile/images/base.png",
@@ -108,7 +108,7 @@ $arJsParams = array(
 						window.quoteConverter.showActionSheet();
 				}, this)
 			},
-			<?endif?>
+			<?php endif?>
 			{
 				name: '<?=GetMessageJS("M_CRM_QUOTE_MENU_HISTORY")?>',
 				image: "/bitrix/js/mobile/images/history.png",
@@ -119,22 +119,22 @@ $arJsParams = array(
 			}
 		]
 	}, "crmMobileMenu");
-	<?endif?>
+	<?php endif?>
 
 	BXMobileApp.UI.Page.TopBar.title.setText('<?=$formTitle?>');
 	BXMobileApp.UI.Page.TopBar.title.show();
 
-	<?if ($arResult['MODE'] == "VIEW"):?>
+	<?php if ($arResult['MODE'] == "VIEW"):?>
 	BXMobileApp.UI.Page.TopBar.title.setCallback(function (){
 		menu.show();
 	});
-	<?endif?>
+	<?php endif?>
 
 	BX.addCustomEvent("onCrmQuoteDetailUpdate", function(){
 		BXMobileApp.UI.Page.reload();
 	});
 
-	<?if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE" || $arResult['MODE'] == "CONVERT"):?>
+	<?php if ($arResult['MODE'] == "EDIT" || $arResult['MODE'] == "CREATE" || $arResult['MODE'] == "CONVERT"):?>
 	window.BXMobileApp.UI.Page.TopBar.updateButtons({
 		ok: {
 			type: "back_text",
@@ -146,10 +146,10 @@ $arJsParams = array(
 			position: "right"
 		}
 	});
-	<?endif?>
+	<?php endif?>
 
 	//for convertaion
-	<?if (isset($arResult['CONVERSION_LEGEND']) && !empty($arResult['CONVERSION_LEGEND'])):?>
+	<?php if (isset($arResult['CONVERSION_LEGEND']) && !empty($arResult['CONVERSION_LEGEND'])):?>
 	app.alert({title: "<?=GetMessageJS("M_CRM_QUOTE_CONVERSION_NOTIFY")?>", text: "<?=CUtil::JSEscape($arResult['CONVERSION_LEGEND'])?>"});
-	<?endif?>
+	<?php endif?>
 </script>

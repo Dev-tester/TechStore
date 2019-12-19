@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_PP_TITLE"] = "Баллы за сообщения";
 $MESS["FORUM_PP_ERROR_DELETE"] = "Ошибка удаления";
 $MESS["FORUM_PP_POINTS_PER_MES"] = "Баллы";

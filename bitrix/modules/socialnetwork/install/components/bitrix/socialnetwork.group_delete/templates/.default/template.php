@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -19,13 +19,13 @@ if ($arResult["NEED_AUTH"] == "Y")
 }
 elseif (strlen($arResult["FatalError"])>0)
 {
-	?><div class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger"><?=$arResult["FatalError"]?></div><?
+	?><div class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger"><?=$arResult["FatalError"]?></div><?php 
 }
 else
 {
 	if(strlen($arResult["ErrorMessage"]) > 0)
 	{
-		?><div class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger"><?=$arResult["ErrorMessage"]?></div><?
+		?><div class="ui-alert ui-alert-xs ui-alert-danger ui-alert-icon-danger"><?=$arResult["ErrorMessage"]?></div><?php 
 	}
 
 	if ($arResult["ShowForm"] == "Input")
@@ -50,17 +50,17 @@ else
 					<input type="hidden" name="ajax_request" value="Y">
 					<input type="hidden" name="save" value="Y">
 					<?=bitrix_sessid_post()?>
-					<span class="sonet-ui-btn-cont sonet-ui-btn-cont-center"><?
-						?><button class="ui-btn ui-btn-danger" id="sonet_group_delete_button_submit"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == "Y" ? "SONET_C9_DO_DEL_PROJECT" : "SONET_C9_DO_DEL") ?></button><?
-						?><button class="ui-btn ui-btn-light-border" id="sonet_group_delete_button_cancel"><?=Loc::getMessage("SONET_C9_DO_CANCEL") ?></button><?
-					?></span><? // class="sonet-ui-btn-cont"
-				?></div><? // sonet-slider-footer-fixed
+					<span class="sonet-ui-btn-cont sonet-ui-btn-cont-center"><?php 
+						?><button class="ui-btn ui-btn-danger" id="sonet_group_delete_button_submit"><?=Loc::getMessage($arResult["Group"]["PROJECT"] == "Y" ? "SONET_C9_DO_DEL_PROJECT" : "SONET_C9_DO_DEL") ?></button><?php 
+						?><button class="ui-btn ui-btn-light-border" id="sonet_group_delete_button_cancel"><?=Loc::getMessage("SONET_C9_DO_CANCEL") ?></button><?php 
+					?></span><?php  // class="sonet-ui-btn-cont"
+				?></div><?php  // sonet-slider-footer-fixed
 			?></form>
-		</div><?
+		</div><?php 
 	}
 	else
 	{
-		?><?=Loc::getMessage("SONET_C9_SUCCESS") ?><br><br><?
+		?><?=Loc::getMessage("SONET_C9_SUCCESS") ?><br><br><?php 
 	}
 }
 ?>

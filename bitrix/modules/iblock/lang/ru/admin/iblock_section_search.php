@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_SECSEARCH_TITLE"] = "Поиск раздела";
 $MESS["IBLOCK_SECSEARCH_IBLOCK"] = "Информационный блок:";
 $MESS["IBLOCK_SECSEARCH_PARENT_ID"] = "Раздел-родитель";

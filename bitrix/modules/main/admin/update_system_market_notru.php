@@ -1,4 +1,4 @@
-<?
+<?php 
 @set_time_limit(0);
 ini_set("track_errors", "1");
 ignore_user_abort(true);
@@ -136,9 +136,9 @@ $lAdmin->CheckListMode();
 /****************************************************************************/
 
 ?>
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
 
-<?
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -152,14 +152,14 @@ $oFilter->Begin();
 ?>
 	<tr>
 		<td><?= GetMessage("USMP_F_NAME") ?>:</td>
-		<td><input type="text" name="filter_name" value="<?echo htmlspecialcharsex($filter_name)?>" size="30">
+		<td><input type="text" name="filter_name" value="<?php echo htmlspecialcharsex($filter_name)?>" size="30">
 		</td>
 	</tr>
 	<tr>
 		<td><?= GetMessage("USMP_H_CAT") ?>:</td>
 		<td><select name="filter_category">
 			<option value="0"><?= GetMessage("USMP_CAT_0") ?></option>
-			<?
+			<?php 
 			foreach ($arModules['MODULES_CATEGORIES'][0]["#"]["CATEGORY"] as $ct)
 				echo '<option value="'.$ct["@"]["ID"].'"'.(($filter_category == $ct["@"]["ID"]) ? ' selected' : '').'>'.$ct["@"]["NAME"].'</option>';
 			?></select></td>
@@ -168,13 +168,13 @@ $oFilter->Begin();
 		<td><?= GetMessage("USMP_H_TYPE") ?>:</td>
 		<td><select name="filter_type">
 			<option value="0"><?= GetMessage("USMP_TYPE_0") ?></option>
-			<?
+			<?php 
 			foreach ($arModules['MODULES_TYPES'][0]["#"]["TYPE"] as $ct)
 				echo '<option value="'.$ct["@"]["ID"].'"'.(($filter_type == $ct["@"]["ID"]) ? ' selected' : '').'>'.$ct["@"]["NAME"].'</option>';
 			?></select></td>
 	</tr>
 
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -186,6 +186,6 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 ?>

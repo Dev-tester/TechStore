@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_PAGE_TITLE"] = "Уровни техподдержки (SLA)";
 $MESS["SUP_FORGOT_NAME"] = "Вы забыли ввести \"Название\" для записи # #ID#";
 $MESS["SUP_NAME"] = "Название";

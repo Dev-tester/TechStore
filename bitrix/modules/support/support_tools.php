@@ -1,4 +1,4 @@
-<?
+<?php 
 function __PrintRussian($num, $ext)//$ext - 3 end of digit 1, 2, 5
 {
 	if(strlen($num)>1 && substr($num,strlen($num)-2,1)=="1")

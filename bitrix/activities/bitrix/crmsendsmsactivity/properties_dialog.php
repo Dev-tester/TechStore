@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var \Bitrix\Bizproc\Activity\PropertiesDialog $dialog */
 
 
@@ -24,12 +24,12 @@ $data = $dialog->getRuntimeData();
 	<td align="right" width="40%" valign="top"><?=htmlspecialcharsbx($phoneType['Name'])?>:</td>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($phoneType['FieldName'])?>">
-			<?
+			<?php 
 			foreach ($phoneType['Options'] as $key => $option):
 				$selected = ($phoneTypeValue === $key) ? 'selected' : '';
 				?>
 				<option value="<?=htmlspecialcharsbx($key)?>" <?=$selected?>><?=htmlspecialcharsbx($option)?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
@@ -37,12 +37,12 @@ $data = $dialog->getRuntimeData();
 	<td align="right" width="40%" valign="top"><span class="adm-required-field"><?=htmlspecialcharsbx($providerId['Name'])?>:</span></td>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($providerId['FieldName'])?>" id="BPCSSA-provider-id">
-			<?
+			<?php 
 			foreach ($providerId['Options'] as $key => $option):
 				$selected = ($providerIdValue === $key) ? 'selected' : '';
 				?>
 				<option value="<?=htmlspecialcharsbx($key)?>" <?=$selected?>><?=htmlspecialcharsbx($option)?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
@@ -58,20 +58,20 @@ $data = $dialog->getRuntimeData();
 	<td align="right" width="40%"><span class="adm-required-field"><?=htmlspecialcharsbx($map['RecipientType']['Name'])?>:</span></td>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($map['RecipientType']['FieldName'])?>">
-			<?
+			<?php 
 			$recipientTypeValue = $dialog->getCurrentValue($map['RecipientType']['FieldName'],'');
 			foreach ($map['RecipientType']['Options'] as $key => $option):
 				$selected = ($recipientTypeValue === $key) ? 'selected' : '';
 				?>
 				<option value="<?=htmlspecialcharsbx($key)?>" <?=$selected?>><?=htmlspecialcharsbx($option)?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td align="right" width="40%" valign="top"><?=htmlspecialcharsbx($map['RecipientUser']['Name'])?>:</td>
 	<td width="60%">
-		<? echo $dialog->getFieldTypeObject($map['RecipientUser'])->renderControl(array(
+		<?php  echo $dialog->getFieldTypeObject($map['RecipientUser'])->renderControl(array(
 			'Form' => $dialog->getFormName(),
 			'Field' => $map['RecipientUser']['FieldName']
 		), $dialog->getCurrentValue($map['RecipientUser']['FieldName']), true, 0);

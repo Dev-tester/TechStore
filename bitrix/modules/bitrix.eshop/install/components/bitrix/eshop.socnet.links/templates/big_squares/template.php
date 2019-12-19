@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -9,7 +9,7 @@ if (is_array($arResult["SOCSERV"]) && !empty($arResult["SOCSERV"]))
 ?>
 <div class="bx-socialfooter">
 	<div class="bx-socialfooter-flex">
-		<?foreach($arResult["SOCSERV"] as $socserv):?>
+		<?php foreach($arResult["SOCSERV"] as $socserv):?>
 		<a
 			class="bx-socialfooter-item <?=htmlspecialcharsbx($socserv["CLASS"])?>"
 			target="_blank"
@@ -17,9 +17,9 @@ if (is_array($arResult["SOCSERV"]) && !empty($arResult["SOCSERV"]))
 		>
 			<span class="bx-socialfooter-icon"></span>
 		</a>
-		<?endforeach?>
+		<?php endforeach?>
 	</div>
 </div>
-<?
+<?php 
 }
 ?>

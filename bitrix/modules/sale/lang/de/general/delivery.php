@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGD_EMPTY_DELIVERY"] = "Die Bezeichnung der Versandart wurde nicht angegeben";
 $MESS["SKGD_EMPTY_SITE"] = "Die Seite der Versandarte wurde nicht angegeben";
 $MESS["SKGD_NO_SITE"] = "Die Seite mit der ID #ID# wurde nicht gefunden";

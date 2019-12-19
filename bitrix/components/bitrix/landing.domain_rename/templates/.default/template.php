@@ -12,7 +12,7 @@ Loc::loadMessages(__FILE__);
 ?>
 
 <div class="landing-form-site-name-block" id="ui-editable-domain">
-	<?if (Manager::isB24()):
+	<?php if (Manager::isB24()):
 		$allowedDomains = array(
 			'b24' => array(
 				'postfix' => $arResult['POSTFIX'],
@@ -31,7 +31,7 @@ Loc::loadMessages(__FILE__);
 			<span class="ui-title-input-btn  ui-domain-input-btn-js ui-editing-pen"></span>
 		</span>
 		<div id="ui-editable-domain-content" class="ui-editable-domain-content" style="display: none;">
-			<?
+			<?php 
 			$wasSelected = false;
 			$counter = 0;
 			$rndName = \randString();
@@ -49,12 +49,12 @@ Loc::loadMessages(__FILE__);
 					$wasSelected = $selected = true;
 				}
 				?>
-				<?if ($domainCode != 'own'):?>
+				<?php if ($domainCode != 'own'):?>
 				<div class="ui-control-wrap landing-popup-control-wrap">
-					<input type="radio" name="DOMAIN_NAME_<?= $rndName;?>" <?
-						?>id="landing-domain-name-<?= $counter;?>" <?
-						?>value="<?= $domainItem['postfix'];?>" <?
-						?>class="ui-radio ui-postfix" <?
+					<input type="radio" name="DOMAIN_NAME_<?= $rndName;?>" <?php 
+						?>id="landing-domain-name-<?= $counter;?>" <?php 
+						?>value="<?= $domainItem['postfix'];?>" <?php 
+						?>class="ui-radio ui-postfix" <?php 
 						?>data-input-id="<?= $arParams['FIELD_ID'];?>_<?= $domainCode;?>" />
 					<div class="landing-form-domainname-wrap">
 						<label class="ui-form-control-label" for="landing-domain-name-<?= $counter;?>"><?= Loc::getMessage('LANDING_TPL_DOMAIN_NAME_' . strtoupper($domainCode));?></label>
@@ -63,12 +63,12 @@ Loc::loadMessages(__FILE__);
 						<div class="landing-site-name-status" id="landing-site-name-status-subdomain"></div>
 					</div>
 				</div>
-				<?elseif ($domainCode == 'own'):?>
+				<?php elseif ($domainCode == 'own'):?>
 				<div class="ui-control-wrap landing-popup-control-wrap">
-					<input type="radio" name="DOMAIN_NAME_<?= $rndName;?>" <?
-						?>id="landing-domain-name-<?= $counter;?>" <?
-						?>value="<?= $domainItem['postfix'];?>" <?
-						?>class="ui-radio ui-postfix" <?
+					<input type="radio" name="DOMAIN_NAME_<?= $rndName;?>" <?php 
+						?>id="landing-domain-name-<?= $counter;?>" <?php 
+						?>value="<?= $domainItem['postfix'];?>" <?php 
+						?>class="ui-radio ui-postfix" <?php 
 						?>data-input-id="<?= $arParams['FIELD_ID'];?>_<?= $domainCode;?>" />
 					<div class="landing-form-domainname-wrap">
 						<label class="ui-form-control-label" for="landing-domain-name-<?= $counter;?>"><?= Loc::getMessage('LANDING_TPL_DOMAIN_NAME_' . strtoupper($domainCode));?></label>
@@ -119,13 +119,13 @@ Loc::loadMessages(__FILE__);
 						<strong><?= Loc::getMessage('LANDING_TPL_DOMAIN_ATTENTION');?></strong>
 						<?= Loc::getMessage('LANDING_TPL_DOMAIN_OWN_DOMAIN_AAAA');?>
 					</p>
-					<?if ($helpUrl = \Bitrix\Landing\Help::getHelpUrl('DOMAIN_EDIT')):?>
+					<?php if ($helpUrl = \Bitrix\Landing\Help::getHelpUrl('DOMAIN_EDIT')):?>
 						<p class="landing-alert-paragraph">
 							<a class="landing-alert-more" href="<?= $helpUrl;?>" target="_blank"><?= Loc::getMessage('LANDING_TPL_DOMAIN_OWN_DOMAIN_HELP');?></a>
 						</p>
-					<?endif;?>
+					<?php endif;?>
 				</div>
-				<?if (!$arResult['CUSTOM_DOMAIN_AVAILABLE']):?>
+				<?php if (!$arResult['CUSTOM_DOMAIN_AVAILABLE']):?>
 				<script type="text/javascript">
 					BX.ready(function()
 					{
@@ -139,22 +139,22 @@ Loc::loadMessages(__FILE__);
 						}
 					});
 				</script>
-				<?endif;?>
-				<?endif;?>
-			<?endforeach;?>
+				<?php endif;?>
+				<?php endif;?>
+			<?php endforeach;?>
 		</div>
-	<?else:?>
+	<?php else:?>
 		<select name="fields[DOMAIN_ID]" class="ui-select">
-			<?foreach ($arResult['DOMAINS'] as $item):?>
-				<option value="<?= $item['ID']?>"<?if ($item['ID'] == $arParams['DOMAIN_ID']){?> selected="selected"<?}?>>
+			<?php foreach ($arResult['DOMAINS'] as $item):?>
+				<option value="<?= $item['ID']?>"<?php if ($item['ID'] == $arParams['DOMAIN_ID']){?> selected="selected"<?php }?>>
 					<?= \htmlspecialcharsbx($item['DOMAIN']);?>
 				</option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
-	<?endif;?>
+	<?php endif;?>
 </div>
 
-<?if (Manager::isB24()):?>
+<?php if (Manager::isB24()):?>
 <script type="text/javascript">
 	BX.ready(function(){
 		new BX.Landing.DomainNamePopup({
@@ -166,4 +166,4 @@ Loc::loadMessages(__FILE__);
 		});
 	});
 </script>
-<?endif;?>
+<?php endif;?>

@@ -1,6 +1,6 @@
-<form action="<?echo $APPLICATION->GetCurPage()?>">
+<form action="<?php echo $APPLICATION->GetCurPage()?>">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
+<input type="hidden" name="lang" value="<?php echo LANG?>">
 <input type="hidden" name="id" value="learning">
 <input type="hidden" name="install" value="Y">
 <input type="hidden" name="step" value="2">
@@ -53,17 +53,17 @@ function OnChangeSite()
 			<td>&nbsp;</td>
 			<td>
 				<table border="0" cellspacing="1" cellpadding="1">
-				<?
+				<?php 
 				$i = 0;
 				$sites = CSite::GetList($by, $order, Array("ACTIVE"=>"Y"));
 				while($site = $sites->Fetch()):$i++;?>
 					<tr>
 						<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-						<td><input type="checkbox" id="copy_<?=$i?>" name="copy_<?echo $site["LID"]?>" value="Y" checked onclick="OnChangeSite();"></td>
-						<td><p><?echo htmlspecialcharsbx($site["NAME"])?>&nbsp;</p></td>
-						<td><input type="text" id="path_<?=$i?>" name="path_<?echo $site["LID"]?>" value="<?echo $site["DIR"]?>learning/" size="30"></td>
+						<td><input type="checkbox" id="copy_<?=$i?>" name="copy_<?php echo $site["LID"]?>" value="Y" checked onclick="OnChangeSite();"></td>
+						<td><p><?php echo htmlspecialcharsbx($site["NAME"])?>&nbsp;</p></td>
+						<td><input type="text" id="path_<?=$i?>" name="path_<?php echo $site["LID"]?>" value="<?php echo $site["DIR"]?>learning/" size="30"></td>
 					</tr>
-				<?endwhile?>
+				<?php endwhile?>
 					<tr>
 						<td colspan="3" align="right"><p><?=GetMessage("LEARNING_INSTALL_TEMPLATE_NAME")?></p></td>
 						<td colspan="2"><input type="text" name="template_id" id="template_id" value="learning" size="30"></td>

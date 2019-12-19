@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPCRIA_SITES_FILTER_TYPE'] = "Тип выбора сайтов";
 $MESS ['BPCRIA_SITES_FILTER_ALL'] = "Все сайты";
 $MESS ['BPCRIA_SITES_FILTER_GROUPS'] = "Сайты принадлежащие определенным группам";

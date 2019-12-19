@@ -52,21 +52,21 @@ $limiSummaryContainerID = "{$prefix}_limits";
 </div>
 <div class="bx-crm-interface-grid"><table id="<?=htmlspecialcharsbx($listID)?>" class="bx-interface-grid-double" cellspacing="0"><tbody>
 <tr class="bx-grid-head">
-<td class="bx-checkbox-col" style="width: 10px;"></td><?
+<td class="bx-checkbox-col" style="width: 10px;"></td><?php 
 foreach($arResult['COLUMNS'] as $columnID => &$column)
 {
 	$colspan = isset($column['COLSPAN']) ? $column['COLSPAN'] : 1;
-	?><td class="bx-grid-sortable" data-column-id="<?=htmlspecialcharsbx($columnID)?>" <?=$colspan > 1 ? ' colspan="'.$colspan.'"' : ''?>><?
+	?><td class="bx-grid-sortable" data-column-id="<?=htmlspecialcharsbx($columnID)?>" <?=$colspan > 1 ? ' colspan="'.$colspan.'"' : ''?>><?php 
 	echo htmlspecialcharsbx($column['TITLE']);
-	?></td><?
+	?></td><?php 
 }
 unset($column);
-?></tr><?
+?></tr><?php 
 foreach($arResult['ITEMS'] as $item)
 {
 	$itemID = $item['ID'];
 	$itemPrefix = "{$prefix}_{$itemID}";
-	?><tr class="bx-odd bx-top bx-double-open" data-node-id="<?=htmlspecialcharsbx($itemID)?>"></tr><?
+	?><tr class="bx-odd bx-top bx-double-open" data-node-id="<?=htmlspecialcharsbx($itemID)?>"></tr><?php 
 }
 ?></tbody></table></div>
 <script type="text/javascript">

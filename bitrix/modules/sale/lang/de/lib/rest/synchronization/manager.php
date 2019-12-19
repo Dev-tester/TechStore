@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAN_ERROR_CATALOGS"] = "Es gibt keine kommerziellen Kataloge im System";
 $MESS["MAN_ERROR_EMPTY_FIELD_DELIVERY_SERVICES"] = "Standardmäßiger Lieferservice ist nicht angegeben";
 $MESS["MAN_ERROR_EMPTY_FIELD_DELIVERY_STATUS"] = "Standardmäßiger Lieferstatus ist nicht angegeben";

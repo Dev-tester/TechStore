@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var \Bitrix\Bizproc\Activity\PropertiesDialog $dialog */
 
 global $APPLICATION;
@@ -34,7 +34,7 @@ if ($from && $fromValue && !in_array($fromValue, $from['Options']))
 
 if ($from):?>
 <div style="display:none;">
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent('bitrix:main.mail.confirm', '');
 	?>
 </div>
@@ -43,15 +43,15 @@ if ($from):?>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($from['FieldName'])?>" id="BPCSMA-from-control">
 			<option value=""><?=GetMessage('CRM_SEMA_PD_FROM_AUTO')?></option>
-			<?foreach ($from['Options'] as $fromOption):
+			<?php foreach ($from['Options'] as $fromOption):
 				$selected = ($fromValue === $fromOption) ? 'selected' : '';
 			?>
 				<option value="<?=htmlspecialcharsbx($fromOption)?>" <?=$selected?>><?=htmlspecialcharsbx($fromOption)?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>&nbsp;<a href="#" onclick="return BPCSMA_addFrom();" style="color: black; text-decoration: none; border-bottom: 1px dotted"><?=GetMessage('CRM_SEMA_PD_FROM_ADD')?></a>
 	</td>
 </tr>
-<?
+<?php 
 endif;
 ?>
 
@@ -71,9 +71,9 @@ endif;
 	<td align="right" width="40%" valign="top"><?=htmlspecialcharsbx($map['MessageTextType']['Name'])?>:</td>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($map['MessageTextType']['FieldName'])?>">
-			<?foreach ($map['MessageTextType']['Options'] as $typeOption => $typeName):?>
+			<?php foreach ($map['MessageTextType']['Options'] as $typeOption => $typeName):?>
 			<option value="<?=$typeOption?>"<?= $messageType == $typeOption ? " selected" : "" ?>><?=htmlspecialcharsbx($typeName)?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
@@ -81,12 +81,12 @@ endif;
 	<td align="right" width="40%" valign="top"><?=htmlspecialcharsbx($emailType['Name'])?>:</td>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($emailType['FieldName'])?>">
-			<?
+			<?php 
 			foreach ($emailType['Options'] as $key => $option):
 				$selected = ($emailTypeValue === $key) ? 'selected' : '';
 				?>
 				<option value="<?=htmlspecialcharsbx($key)?>" <?=$selected?>><?=htmlspecialcharsbx($option)?></option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
@@ -94,20 +94,20 @@ endif;
 	<td align="right" width="40%"><?=htmlspecialcharsbx($attachmentType['Name'])?>:</td>
 	<td width="60%">
 		<select name="<?=htmlspecialcharsbx($attachmentType['FieldName'])?>" onchange="BPCSMA_changeAttachmentType(this.value)">
-			<?
+			<?php 
 			$currentType = $dialog->getCurrentValue($attachmentType['FieldName']);
 			foreach ($attachmentType['Options'] as $key => $value):?>
 				<option value="<?=htmlspecialcharsbx($key)?>"<?= $currentType == $key ? " selected" : "" ?>>
 					<?=htmlspecialcharsbx($value)?>
 				</option>
-			<?endforeach;?>
+			<?php endforeach;?>
 		</select>
 	</td>
 </tr>
 <tr>
 	<td align="right" width="40%"><?=htmlspecialcharsbx($attachment['Name'])?>:</td>
 	<td width="60%">
-		<?
+		<?php 
 		$attachmentValues = array_values(array_filter((array)$dialog->getCurrentValue($attachment['FieldName'])));
 		$fileValues = $diskValues = array();
 
@@ -127,7 +127,7 @@ endif;
 		}
 		?>
 		<div id="BPCSMA-disk-control" style="<?=($currentType != 'disk')?'display:none':''?>">
-			<div id="BPCSMA-disk-control-items"><?
+			<div id="BPCSMA-disk-control-items"><?php 
 		foreach ($diskValues as $fileId)
 		{
 			$object = \Bitrix\Disk\File::loadById($fileId);
@@ -143,7 +143,7 @@ endif;
 			</span>
 			<a onclick="BX.cleanNode(this.parentNode, true); return false" style="color: red; text-decoration: none; border-bottom: 1px dotted">x</a>
 		</div>
-					<?
+					<?php 
 				}
 			}
 		?>
@@ -151,7 +151,7 @@ endif;
 			<a href="#" onclick="return BPDCM_showDiskFileDialog('source_id')" style="color: black; text-decoration: none; border-bottom: 1px dotted"><?=GetMessage('CRM_SEMA_PD_CHOOSE_FILE')?></a>
 		</div>
 		<div id="BPCSMA-file-control" style="<?=($currentType != 'file')?'display:none':''?>">
-		<?
+		<?php 
 			$attachment['Type'] = 'string';
 			$filedType = $dialog->getFieldTypeObject($attachment);
 			echo $filedType->renderControl(array(

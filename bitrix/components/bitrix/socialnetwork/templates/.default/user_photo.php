@@ -1,10 +1,10 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?
+<?php 
 $pageId = "user_photo";
 include("util_menu.php");
 include("util_profile.php");
-?><?
+?><?php 
 if ($arParams["FATAL_ERROR"] == "Y"):
 	if (!empty($arParams["ERROR_MESSAGE"])):
 		ShowError($arParams["ERROR_MESSAGE"]);
@@ -15,7 +15,7 @@ if ($arParams["FATAL_ERROR"] == "Y"):
 endif;
 
 ?>
-<?$result = $APPLICATION->IncludeComponent(
+<?php $result = $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.user",
 	"",
 	Array(
@@ -55,16 +55,16 @@ endif;
 );?>
 <br />
 
-<?if ($arParams["PERMISSION"] >= "U"):?>
+<?php if ($arParams["PERMISSION"] >= "U"):?>
 <noindex>
 	<div class="photo-top-controls">
 		<a rel="nofollow" href="<?=$result["ALL"]["GALLERY"]["LINK"]["~NEW"]?>" onclick="EditAlbum('<?= CUtil::JSEscape($result["ALL"]["GALLERY"]["LINK"]["~NEW"])?>'); return false;"><?=GetMessage("P_ADD_ALBUM")?></a>
 		<a rel="nofollow" href="<?=$result["ALL"]["GALLERY"]["LINK"]["UPLOAD"]?>" target="_self"><?=GetMessage("P_UPLOAD")?></a>
 	</div>
 </noindex>
-<?endif;?>
+<?php endif;?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photogallery.section.list",
 	"",
 	Array(

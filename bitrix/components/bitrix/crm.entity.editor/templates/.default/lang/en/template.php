@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EDITOR_CANCEL_CONFIRMATION"] = "Are you sure you want to cancel the changes?";
 $MESS["CRM_EDITOR_CLOSE_CONFIRMATION"] = "The changes have not been saved. Are you sure you want to close the slider panel?";
 $MESS["CRM_EDITOR_CONFIRMATION"] = "Confirmation";

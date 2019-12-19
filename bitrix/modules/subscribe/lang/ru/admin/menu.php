@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['mnu_sect'] = "Рассылки";
 $MESS ['mnu_posting'] = "Выпуски";
 $MESS ['mnu_posting_alt'] = "Рассылка выпусков подписчикам";

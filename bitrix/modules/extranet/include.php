@@ -1,4 +1,4 @@
-<?
+<?php 
 $arClasses = array(
 	"CExtranet" => "classes/general/extranet.php",
 	"CUsersInMyGroupsCache" => "classes/general/extranet.php",

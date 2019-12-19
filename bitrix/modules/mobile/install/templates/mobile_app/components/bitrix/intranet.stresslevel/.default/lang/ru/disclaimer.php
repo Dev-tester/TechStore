@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_DISCLAIMER_ATTENTION"] = "Внимание!";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_DISCLAIMER_RU_TEXT"] = "
 #P#Сервис-игра &laquo;Уровень стресса&raquo; (далее – Сервис) предоставляется компанией Welltory Inc. на условиях, предусмотренных #A_TERMS_BEGIN#соглашением#A_TERMS_END#.

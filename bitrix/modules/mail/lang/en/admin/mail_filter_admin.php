@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_FILT_ADM_TITLE"] = "Mail rules";
 $MESS["MAIL_FILT_ADM_DELERR"] = "Error deleting rule";
 $MESS["MAIL_FILT_ADM_FILT_MBOX"] = "Mailbox";

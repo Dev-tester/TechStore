@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOT_TR_TYPE_PAYMENT"] = "Order payment";
 $MESS["SMOT_TR_TYPE_FROM_CARD"] = "Top up using credit card";
 $MESS["SMOT_TR_TYPE_INPUT"] = "Top up";

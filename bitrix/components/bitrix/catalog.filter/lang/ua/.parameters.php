@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_LIST_HEIGHT"] = "Висота списків множинного вибору";
 $MESS["IBLOCK_PROPERTY"] = "Властивості";
 $MESS["CP_BCF_OFFERS_PROPERTY_CODE"] = "Властивості пропозицій";

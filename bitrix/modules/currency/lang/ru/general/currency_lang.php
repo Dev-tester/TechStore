@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CUR_LANG_SEP_VARIANT_EMPTY"] = "Без разделителя";
 $MESS["BT_CUR_LANG_SEP_VARIANT_DOT"] = "Точка";
 $MESS["BT_CUR_LANG_SEP_VARIANT_COMMA"] = "Запятая";

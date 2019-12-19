@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->RestartBuffer(); // ajax usage only
 	while (ob_end_clean()) {true;}
 
@@ -54,21 +54,21 @@ if (empty($arResult['ERROR_MESSAGE']))
 		<td class="files-name">
 			<span class="files-text">
 				<span class="f-wrap"><?=htmlspecialcharsEx($arResult["ELEMENT"]['NAME'])?></span>
-<?		if (CFile::IsImage($arResult["ELEMENT"]['NAME'], $arResult["ELEMENT"]['FILE']["CONTENT_TYPE"])) { ?>
+<?php 		if (CFile::IsImage($arResult["ELEMENT"]['NAME'], $arResult["ELEMENT"]['FILE']["CONTENT_TYPE"])) { ?>
 				<span class="wd-files-icon files-preview-wrap">
 					<span class="files-preview-border">
 						<span class="files-preview-alignment">
-							<img class="files-preview" src="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>" <?
-								?> data-bx-width="<?=$arResult["ELEMENT"]['FILE']['WIDTH']?>"<?
-								?> data-bx-height="<?=$arResult["ELEMENT"]['FILE']['HEIGHT']?>"<?
-								?> data-bx-document="<?=$arResult["ELEMENT"]["URL"]['~DOWNLOAD']?>"<?
+							<img class="files-preview" src="<?=$arResult["ELEMENT"]["URL"]["DOWNLOAD"]?>" <?php 
+								?> data-bx-width="<?=$arResult["ELEMENT"]['FILE']['WIDTH']?>"<?php 
+								?> data-bx-height="<?=$arResult["ELEMENT"]['FILE']['HEIGHT']?>"<?php 
+								?> data-bx-document="<?=$arResult["ELEMENT"]["URL"]['~DOWNLOAD']?>"<?php 
 								?> />
 						</span>
 					</span>
 				</span>
-<?		} else { ?>
+<?php 		} else { ?>
 				<span class="wd-files-icon feed-file-icon-<?=GetFileExtension($arResult["ELEMENT"]['NAME'])?>"></span>
-<?		}?>
+<?php 		}?>
 				<a class="file-edit" href="<?=$arResult['ELEMENT']['URL']['EDIT']?>">edit</a>
 				<a class="file-section" href="<?=$arResult['ELEMENT']['URL']['SECTION']?>">section</a>
 			</span>
@@ -76,20 +76,20 @@ if (empty($arResult['ERROR_MESSAGE']))
 		<td class="files-size"><?=$arResult["ELEMENT"]["FILE_SIZE"]?></td>
 		<td class="files-storage">
 			<div class="files-storage-block">
-<? if ($dropped || $createdFile) { ?>
+<?php  if ($dropped || $createdFile) { ?>
 				<span class="files-storage-text">
 					<?=GetMessage("WD_SAVED_PATH")?>:
 				</span>
 				<a class="files-path" href="javascript:void(0);"><?=htmlspecialcharsEx($title)?></a>
 				<span class="edit-stor"></span>
-<? } else { ?>
+<?php  } else { ?>
 				<span class="files-placement"><?=htmlspecialcharsEx($title)?></span>
-<? } ?>
+<?php  } ?>
 			</div>
 		</td>
 	</tr>
 </table>
-<?
+<?php 
 }
 ?>
-<?die();?>
+<?php die();?>

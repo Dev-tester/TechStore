@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_FILTER_ACCOUNT_NUMBER"] = "Number";
 $MESS["CRM_ORDER_FILTER_ACTIVITY_COUNTER"] = "Activities";
 $MESS["CRM_ORDER_FILTER_ALL"] = "(all)";

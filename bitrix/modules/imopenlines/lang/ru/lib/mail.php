@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_MAIL_HISTORY_TITLE"] = "Ваш диалог с оператором на сайте #SITE_URL# - №#SESSION_ID#";
 $MESS["IMOL_MAIL_HISTORY_ACTION_TITLE"] = "Благодарим вас за беседу в чате";
 $MESS["IMOL_MAIL_HISTORY_ACTION_DESC"] = "Ваш диалог с оператором на сайте #SITE_URL# - №#SESSION_ID#";

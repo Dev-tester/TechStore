@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BMLI_MODULE_NOT_INSTALLED"] = "Модуль универсальных списков не установлен.";
 $MESS["CT_BMLI_WRONG_IBLOCK_TYPE"] = "Неверный тип информационного блока.";
 $MESS["CT_BMLI_WRONG_IBLOCK"] = "Указан неверный список.";

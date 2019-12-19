@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_FORM_33.2"] = "Form with text on the right on a dark background";
 $MESS["LANDING_BLOCK_FORM_33.2_NODE_CARD_CONTACT"] = "Contact";
 $MESS["LANDING_BLOCK_FORM_33.2_NODE_BGIMG"] = "Background image";

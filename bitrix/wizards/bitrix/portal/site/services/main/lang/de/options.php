@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEFAULT_SITE_NAME"] = "Portal";
 $MESS["MAIN_OPT_DEF_LINKS"] = "[IMG]/images/icons/bullet_dot.gif[/IMG] [url=http://www.sun.com]Unsere Internetseite[/url]
 

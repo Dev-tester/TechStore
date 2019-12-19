@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACCOUNT_INFO_SENT"] = "A code to reset your password and your registration information has just been sent to your e-mail address. Please check your e-mail. Note that the reset code is re-generated on each request.";
 $MESS["BAD_GROUP_NAME"] = "Please enter the name.";
 $MESS["CHANGE_PASS_SUCC"] = "Your password successfully changed.";

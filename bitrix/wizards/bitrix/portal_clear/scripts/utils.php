@@ -1,4 +1,4 @@
-<?
+<?php 
 class WizardServices
 {
 	function GetCurrentSiteID($selectedSiteID = null)

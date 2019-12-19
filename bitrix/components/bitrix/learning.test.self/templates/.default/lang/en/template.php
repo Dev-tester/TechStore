@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_QUESTION_S"] = "Question";
 $MESS["LEARNING_QUESTION_FROM"] = "of";
 $MESS["LEARNING_SELECT_ANSWER"] = "Select answer";

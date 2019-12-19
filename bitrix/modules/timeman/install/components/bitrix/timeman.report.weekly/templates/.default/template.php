@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 /**
@@ -122,7 +122,7 @@ $cur_date_m = date('n'); $cur_date_y = date('Y');
 						<a href="javascript:void(0)" onclick="this.blur();window.BXTMREPORT.changeMonth(-1)" class="filter-date-link filter-date-link-left"></a>
 						<span class="fiter-date-text" id="tm_datefilter_title" onclick="BX.calendar({node: this, field: 'bx_goto_date', bTime: false, callback: jsCalendarInsertDate});"><?=GetMessage('TMR_MONTH_'.$cur_date_m)?> <?=$cur_date_y?></span>
 						<input type="hidden" name="bx_goto_date" id="bx_goto_date" value="<?=ConvertTimeStamp()?>" />
-<?
+<?php 
 $APPLICATION->IncludeComponent('bitrix:main.calendar', '', array('SHOW_INPUT' => 'Y', 'SHOW_TIME' => 'N', 'HIDE_TIMEBAR' => 'Y', 'INPUT_NAME' => 'bx_goto_date', 'SILENT'=>'Y'), null, array('HIDE_ICONS' => 'Y'));
 ?>
 <script type="text/javascript">
@@ -160,10 +160,10 @@ function jsCalendarInsertDate(value)
 					</span>
 
 
-<?
+<?php 
 if (count($arResult['arAccessUsers']['READ']) > 1 || $arResult['arAccessUsers']['READ'][0] == '*'):
 ?>
-			<?if (count($arResult['arDirectUsers'])>1) $display = "inline-block"; else $display = "none";?>
+			<?php if (count($arResult['arDirectUsers'])>1) $display = "inline-block"; else $display = "none";?>
 					<span class="tm-filter-item inactive" style = "display:<?=$display;?>">
 						<select name="show_all" class="inactive" onmousedown="BX.removeClass(this.parentNode, 'inactive')" onchange="window.BXTMREPORT.Filter();">
 							<option value="Y"><?=GetMessage('TMR_FILTER_SHOW_ALL_Y')?></option>
@@ -172,7 +172,7 @@ if (count($arResult['arAccessUsers']['READ']) > 1 || $arResult['arAccessUsers'][
 						<a href="javascript:void(0)" class="filter-reset" onclick="this.blur(); document.forms.REPORT_FILTER.show_all.value = 'Y'; window.BXTMREPORT.Filter(); return false;"></a>
 					</span>
 					<span class="tm-filter-item inactive">
-<?
+<?php 
 	function __tmr_replace($str)
 	{
 		$str = preg_replace(
@@ -196,7 +196,7 @@ if (count($arResult['arAccessUsers']['READ']) > 1 || $arResult['arAccessUsers'][
 <span class="tm-settings-item" id="TMBUTTON" onclick="BXTMREPORT.InitSettingMode(this);">
 	<span class="tm-settings-l"></span><span class="tm-settings-c"><span class="tm-settings-icon"></span><?=GetMessage("TM_SETTINGS")?></span><span class="tm-settings-r"></span>
 </span>
-<?
+<?php 
 endif;
 ?>
 				</div>
@@ -219,8 +219,8 @@ window.BXTMREPORT = new JCTimeManReport('bx_tm_report', {
 	START_SHOW_ALL:"<?=$arResult["SHOW_ALL"];?>",
 	START_DEPARTMENT:"<?=$arResult["DEPARTMENT_ID"];?>",
 	DATESELECTOR: 'bx_tm_report_dateselector',
-	MONTHS: [<?for($i=1;$i<13;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_MONTH_'.$i)),"'";}?>],
-	DAYS: [<?for($i=1;$i<8;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_DAY_'.$i)),"'";}?>],
+	MONTHS: [<?php for($i=1;$i<13;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_MONTH_'.$i)),"'";}?>],
+	DAYS: [<?php for($i=1;$i<8;$i++){echo ($i==1 ? '' : ','),"'",CUtil::JSEscape(GetMessage('TMR_DAY_'.$i)),"'";}?>],
 	LANG: <?=CUtil::PhpToJsObject($arMess)?>,
 	SITE_ID: '<?=SITE_ID?>'
 })</script>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAL_OPT_SETTINGS"] = "Settings";
 $MESS["CAL_SETTINGS_TITLE"] = "General Parameters";
 $MESS["CAL_OPT_TYPES"] = "Calendar Types";

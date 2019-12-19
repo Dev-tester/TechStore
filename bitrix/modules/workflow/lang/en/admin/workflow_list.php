@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FLOW_PAGE_TITLE"] = "Document list";
 $MESS["FLOW_F_ID"] = "Document ID:";
 $MESS["FLOW_UNLOCK_S"] = "unlock";

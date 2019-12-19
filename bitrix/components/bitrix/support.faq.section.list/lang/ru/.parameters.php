@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUPPORT_FAQ_SL_GROUP_SETTINGS'] = "Настройки компонента";
 $MESS ['SUPPORT_FAQ_SL_SETTING_IBTYPES'] = "Типы инфоблоков";
 $MESS ['SUPPORT_FAQ_SL_SETTING_IBLIST'] = "Список инфоблоков";

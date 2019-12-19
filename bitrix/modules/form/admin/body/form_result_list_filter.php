@@ -1,6 +1,6 @@
-<?IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/form/admin/form_result_list.php");?>
+<?php IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/form/admin/form_result_list.php");?>
 <br>
-<?echo BeginFilter($sess_filter, $is_filtered);?>
+<?php echo BeginFilter($sess_filter, $is_filtered);?>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
 <input type="hidden" name="WEB_FORM_ID" value="<?=$WEB_FORM_ID?>">
@@ -8,72 +8,72 @@
 	<td class="tablebody"><font class="tablefieldtext"><?=GetMessage("FORM_F_ID")?></font></td>
 	<td class="tablebody"><?=CForm::GetTextFilter("id")?></td>
 </tr>
-<?if ($SHOW_STATUS=="Y"):?>
+<?php if ($SHOW_STATUS=="Y"):?>
 <tr>
-	<td class="tablebody" valign="top"><font class="tablefieldtext"><?echo GetMessage("FORM_F_STATUS")?></font></td>
-	<td class="tablebody"><?
+	<td class="tablebody" valign="top"><font class="tablefieldtext"><?php echo GetMessage("FORM_F_STATUS")?></font></td>
+	<td class="tablebody"><?php 
 		echo SelectBox("find_status", CFormStatus::GetDropdown($WEB_FORM_ID, array("VIEW")), GetMessage("FORM_ALL"), htmlspecialcharsbx($find_status));
 		?></td>
 </tr>
 <tr>
 	<td class="tablebody" valign="top">
-		<font class="tablefieldtext"><?echo GetMessage("FORM_F_STATUS_ID")?></font></td>
-	<td class="tablebody"><?
+		<font class="tablefieldtext"><?php echo GetMessage("FORM_F_STATUS_ID")?></font></td>
+	<td class="tablebody"><?php 
 		echo CForm::GetTextFilter("status_id");
 		?></td>
 </tr>
-<?endif;?>
+<?php endif;?>
 <tr valign="center">
-	<td class="tablebody" width="0%" nowrap><font class="tablefieldtext"><?echo GetMessage("FORM_F_DATE_CREATE")." (".CSite::GetDateFormat("SHORT")."):"?></font></td>
+	<td class="tablebody" width="0%" nowrap><font class="tablefieldtext"><?php echo GetMessage("FORM_F_DATE_CREATE")." (".CSite::GetDateFormat("SHORT")."):"?></font></td>
 	<td class="tablebody" width="0%" nowrap><font class="tablefieldtext"><?=CForm::GetDateFilter("date_create", "form1", "Y", "class=\"typeselect\"", "class=\"inputtype\"")?></font></td>
 </tr>
 <tr valign="center">
-	<td class="tablebody" width="0%" nowrap><font class="tablefieldtext"><?echo GetMessage("FORM_F_TIMESTAMP")." (".CSite::GetDateFormat("SHORT")."):"?></font></td>
+	<td class="tablebody" width="0%" nowrap><font class="tablefieldtext"><?php echo GetMessage("FORM_F_TIMESTAMP")." (".CSite::GetDateFormat("SHORT")."):"?></font></td>
 	<td class="tablebody" width="0%" nowrap><font class="tablefieldtext"><?=CForm::GetDateFilter("timestamp", "form1", "Y", "class=\"typeselect\"", "class=\"inputtype\"")?></font></td>
 </tr>
-<?if ($F_RIGHT>=25):?>
+<?php if ($F_RIGHT>=25):?>
 <tr>
 	<td class="tablebody">
-		<font class="tablefieldtext"><?echo GetMessage("FORM_F_REGISTERED")?></font></td>
+		<font class="tablefieldtext"><?php echo GetMessage("FORM_F_REGISTERED")?></font></td>
 	<td class="tablebody">
-		<?
+		<?php 
 		$arr = array("reference"=>array(GetMessage("FORM_YES"), GetMessage("FORM_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_registered", $arr, htmlspecialcharsbx($find_registered), GetMessage("FORM_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td class="tablebody"><font class="tablefieldtext"><?echo GetMessage("FORM_F_AUTH")?></font></td>
-	<td class="tablebody"><?
+	<td class="tablebody"><font class="tablefieldtext"><?php echo GetMessage("FORM_F_AUTH")?></font></td>
+	<td class="tablebody"><?php 
 		$arr = array("reference"=>array(GetMessage("FORM_YES"), GetMessage("FORM_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_user_auth", $arr, htmlspecialcharsbx($find_user_auth), GetMessage("FORM_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td class="tablebody"><font class="tablefieldtext"><?echo GetMessage("FORM_F_USER")?></font></td>
+	<td class="tablebody"><font class="tablefieldtext"><?php echo GetMessage("FORM_F_USER")?></font></td>
 	<td class="tablebody"><?=CForm::GetTextFilter("user_id")?></td>
 </tr>
-<?if (CModule::IncludeModule("statistic")) :?>
+<?php if (CModule::IncludeModule("statistic")) :?>
 <tr>
-	<td class="tablebody"><font class="tablefieldtext"><?echo GetMessage("FORM_F_GUEST")?></font></td>
+	<td class="tablebody"><font class="tablefieldtext"><?php echo GetMessage("FORM_F_GUEST")?></font></td>
 	<td class="tablebody"><?=CForm::GetTextFilter("guest_id")?></td>
 </tr>
 <tr>
-	<td class="tablebody"><font class="tablefieldtext"><?echo GetMessage("FORM_F_SESSION")?></font></td>
+	<td class="tablebody"><font class="tablefieldtext"><?php echo GetMessage("FORM_F_SESSION")?></font></td>
 	<td class="tablebody"><?=CForm::GetTextFilter("session_id")?></td>
 </tr>
-<?endif;?>
-<?endif;?>
-<?
+<?php endif;?>
+<?php endif;?>
+<?php 
 $arrFORM_FILTER = (is_array($arrFORM_FILTER)) ? $arrFORM_FILTER : array();
 reset($arrFORM_FILTER);
 if (count($arrFORM_FILTER)>0) :
 ?>
-<?if ($F_RIGHT>=25) : ?>
+<?php if ($F_RIGHT>=25) : ?>
 <tr>
 	<td valign="center" nowrap colspan="2" class="selectedbody"><img src="/bitrix/images/1.gif" width="1" height="7" border=0 alt=""><br><font class="tableheadtext"><b>&nbsp;<?=GetMessage("FORM_ENTERED_BY_GUEST")?></b></font><br><img src="/bitrix/images/1.gif" width="1" height="7" border=0 alt=""><br></td>
 </tr>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 endif;
 
 while (list($key, $arrFILTER) = each($arrFORM_FILTER)) :
@@ -88,11 +88,11 @@ while (list($key, $arrFILTER) = each($arrFORM_FILTER)) :
 	$i++;
 	if ($fname!=$prev_fname) :
 		if ($i>1) :
-		?></font></td></tr><?
+		?></font></td></tr><?php 
 		endif;
 		?>
 <tr>
-	<td class="tablebody" valign="top" width="40%"><font class="tablefieldtext"><?
+	<td class="tablebody" valign="top" width="40%"><font class="tablefieldtext"><?php 
 	if (strlen($arrF["FILTER_TITLE"])<=0)
 	{
 		$title = ($arrF["TITLE_TYPE"]=="html" ? strip_tags($arrF["TITLE"]) : htmlspecialcharsbx($arrF["TITLE"]));
@@ -102,7 +102,7 @@ while (list($key, $arrFILTER) = each($arrFORM_FILTER)) :
 
 	if ($arrF["FILTER_TYPE"]=="date") echo " (".CSite::GetDateFormat("SHORT").")";
 	?></font></td>
-	<td class="tablebody" nowrap valign="top" width="60%"><font class="tablebodytext"><?
+	<td class="tablebody" nowrap valign="top" width="60%"><font class="tablebodytext"><?php 
 	endif;
 	switch($arrF["FILTER_TYPE"]):
 		case "text":
@@ -145,14 +145,14 @@ endwhile;
 	<td colspan="2" align="right" nowrap class="tablebody">
 		<table border="0" cellspacing="0" cellpadding="0" width="100%">
 			<tr>
-				<td width="0%"><font class="tablebodytext"><input type="hidden" name="set_filter" value="Y"><input class="button" type="submit" name="set_filter" value="<?echo GetMessage("FORM_F_SET_FILTER")?>"></font></td>
+				<td width="0%"><font class="tablebodytext"><input type="hidden" name="set_filter" value="Y"><input class="button" type="submit" name="set_filter" value="<?php echo GetMessage("FORM_F_SET_FILTER")?>"></font></td>
 				<td width="0%"><font class="tablebodytext">&nbsp;</font></td>
-				<td width="100%" align="left"><font class="tablebodytext"><input class="button" type="submit" name="del_filter" value="<?echo GetMessage("FORM_F_DEL_FILTER")?>"></font></td>
-				<td width="0%"><?ShowAddFavorite(false,"set_filter","form")?></td>
+				<td width="100%" align="left"><font class="tablebodytext"><input class="button" type="submit" name="del_filter" value="<?php echo GetMessage("FORM_F_DEL_FILTER")?>"></font></td>
+				<td width="0%"><?php ShowAddFavorite(false,"set_filter","form")?></td>
 			</tr>
 		</table>
 	</td>
 </tr>
 </form>
-<?echo EndFilter();?>
+<?php echo EndFilter();?>
 <br>

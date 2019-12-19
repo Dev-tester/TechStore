@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_LOG_TITLE"] = "Mail processing log";
 $MESS["MAIL_LOG_FILT_MBOX"] = "Mailbox";
 $MESS["MAIL_LOG_FILT_ANY"] = "(any)";

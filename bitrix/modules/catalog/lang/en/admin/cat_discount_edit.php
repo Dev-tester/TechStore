@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DSC_TITLE_UPDATE"] = "Edit discount ##ID#";
 $MESS["DSC_TITLE_ADD"] = "Add new discount";
 $MESS["DSC_SITE"] = "Site";

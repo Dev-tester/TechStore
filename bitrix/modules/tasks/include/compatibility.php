@@ -1,4 +1,4 @@
-<?
+<?php 
 class_alias('\\Bitrix\\Tasks\\Internals\\DataBase\\Helper\\Common', 'Bitrix\\Tasks\\DB\\CommonHelper');
 class_alias('\\Bitrix\\Tasks\\Internals\\DataBase\\Helper', 'Bitrix\\Tasks\\DB\\Helper');
 

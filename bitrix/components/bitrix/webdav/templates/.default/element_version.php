@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:webdav.element.edit", "", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:webdav.element.edit", "", Array(
 	"IBLOCK_TYPE"	=>	$arParams["IBLOCK_TYPE"],
 	"IBLOCK_ID"	=>	$arParams["IBLOCK_ID"],
 	"SECTION_ID"	=>	$arResult["VARIABLES"]["SECTION_ID"],
@@ -34,7 +34,7 @@
 	array("HIDE_ICONS" => "Y")
 );
 ?>
-<?if (strtolower($arResult["VARIABLES"]["ACTION"]) == "clone"):?>
+<?php if (strtolower($arResult["VARIABLES"]["ACTION"]) == "clone"):?>
 <script>
 if (/*@cc_on ! @*/ false)
 {
@@ -50,6 +50,6 @@ if (/*@cc_on ! @*/ false)
 	} catch(e) { }
 }
 </script>
-<?
+<?php 
 endif;
 ?>

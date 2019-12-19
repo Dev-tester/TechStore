@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_COUNTER_EMPTY"] = "There are no tasks requiring immediate attention";
 $MESS["TASKS_COUNTER_EXPIRED_CANDIDATES_PLURAL_0"] = "almost overdue";
 $MESS["TASKS_COUNTER_EXPIRED_CANDIDATES_PLURAL_1"] = "almost overdue";

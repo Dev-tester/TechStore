@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C30_T_all"] = "All Events";
 $MESS["SONET_C30_T_INHERITED"] = "Default";
 $MESS["SONET_C30_T_SUBMIT"] = "Save Changes";

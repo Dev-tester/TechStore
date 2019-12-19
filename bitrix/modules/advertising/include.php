@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DB, $MESS, $DBType;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/filter_tools.php");

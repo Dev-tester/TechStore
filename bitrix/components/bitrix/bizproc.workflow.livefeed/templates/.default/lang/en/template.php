@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPATL_TASK_TITLE"] = "Task";
 $MESS["BPATL_USER_STATUS_YES"] = "You approved the element";
 $MESS["BPATL_USER_STATUS_NO"] = "You rejected the element";

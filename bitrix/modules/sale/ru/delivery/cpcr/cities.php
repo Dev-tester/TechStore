@@ -1,4 +1,4 @@
-<?
+<?php 
 $arCPCRCity = array();
 $arCPCRCity['1|0'] = 'Адыгейск';
 $arCPCRCity['8949025|2'] = 'Адыгея респ.';

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['ERROR_ADD_PROP'] = "Error adding a property.";
 $MESS['ERROR_ADD_VARIANT'] = "Error adding a property";
 $MESS['ERROR_EDIT_PROP'] = "Error modifying the property.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_RECALC_1'] = "photo #ELEMENT_NUMBER# of #ELEMENTS_CNT#";
 $MESS ['P_RECALC_2'] = "You need to recalculate photo galleries' file sizes.";
 $MESS ['P_RECALC_3'] = "Last recalculation of photo galleries' sizes performed #DATE# was incomplete.";

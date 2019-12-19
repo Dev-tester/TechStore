@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_DOC_TYPE"] = "Document type";
 $MESS["CAT_DOC_A"] = "Stock arrival";
 $MESS["CAT_DOC_M"] = "Stock transfer";

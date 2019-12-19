@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRL_COUNTER_TYPE_INT"]="Целое число";
 $MESS["CTRL_COUNTER_TYPE_FLOAT"]="Число";
 $MESS["CTRL_COUNTER_TYPE_STRING"]="Строка";

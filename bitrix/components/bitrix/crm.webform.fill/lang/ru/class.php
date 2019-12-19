@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["BIZPROC_MODULE_NOT_INSTALLED"] = "Модуль Бизнес-процессы не установлен.";
 $MESS["CRM_MODULE_NOT_INSTALLED_CURRENCY"] = "Модуль currency не установлен.";

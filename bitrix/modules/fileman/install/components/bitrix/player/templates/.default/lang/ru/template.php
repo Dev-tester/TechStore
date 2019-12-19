@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ENABLE_JAVASCRIPT"] = "В вашем браузере отключен JavaScript";
 $MESS["JS_PLAYLISTERROR"] = "Произошла ошибка при загрузке списка воспроизведения";
 $MESS["JS_CLICKTOPLAY"] = "Нажмите для просмотра";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLG_GSP_EMPTY_PATH'] = "Не указан путь к блогу";
 $MESS ['BLG_GSP_EMPTY_TYPE'] = "Не указан тип пути";
 $MESS ['BLG_GSP_EMPTY_SITE_ID'] = "Не указан сайт";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_INCLAREA_DBLCLICK"] = "Двойной щелчок";
 $MESS["ADMIN_SHOW_MODE_ON"] = "включен";
 $MESS["ADMIN_SHOW_MODE_OFF"] = "выключен";

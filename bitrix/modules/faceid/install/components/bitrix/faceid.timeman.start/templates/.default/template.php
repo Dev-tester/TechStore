@@ -41,7 +41,7 @@ foreach ($jsMessagesCodes as $code)
 	<div class="b24-time-container-logo">
 		<div class="b24-time-video-block">
 			<div class="b24-time-video">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
                     "bitrix:player",
                     ".default",
                     array(
@@ -97,7 +97,7 @@ foreach ($jsMessagesCodes as $code)
 	<div class="b24-time-border"></div>
 </div><!--b24-time-container-->
 
-<? if (\Bitrix\Main\Config\Option::get('faceid', 'user_index_processing', 0)): ?>
+<?php  if (\Bitrix\Main\Config\Option::get('faceid', 'user_index_processing', 0)): ?>
     <!-- indexing in progress -->
     <div id="faceid-tms-index" class="b24-time-container b24-time-centering-text-block">
         <div class="b24-time-progressbar-container" style="display: block">
@@ -106,25 +106,25 @@ foreach ($jsMessagesCodes as $code)
         </div>
     </div>
     <div id="faceid-tms-stepper">
-    <?
+    <?php 
         $stepperData = array('faceid' => array('Bitrix\Faceid\ProfilePhotoIndex'));
         echo \Bitrix\Main\Update\Stepper::getHtml($stepperData, \Bitrix\Main\Localization\Loc::getMessage("FACEID_TMS_START_INDEX_PHOTOS"));
         return;
     ?>
     </div>
-<? elseif (\Bitrix\Main\Config\Option::get('faceid', 'user_indexed', 0)): ?>
+<?php  elseif (\Bitrix\Main\Config\Option::get('faceid', 'user_indexed', 0)): ?>
     <!-- index is ready -->
     <div class="b24-time-container" id="faceid-tms-done">
         <div class="b24-time-bottom-title"><?= Loc::getMessage("FACEID_TMS_START_DONE")?></div>
         <div class="b24-time-bottom-subtitle"><?= Loc::getMessage("FACEID_TMS_START_SMILE")?></div>
     </div>
-	<? return; ?>
-<? else: ?>
+	<?php  return; ?>
+<?php  else: ?>
     <!-- no index yet -->
     <div class="b24-time-container b24-time-centering-text-block">
         <div class="b24-time-button b24-time-button-blue" id="faceid-tms-howto-open"><?= Loc::getMessage("FACEID_TMS_START_DO_START")?></div>
     </div>
-<? endif ?>
+<?php  endif ?>
 <!-- next step -->
 
 <div class="b24-time-container" id="faceid-tms-howto" style="display: none">
@@ -149,23 +149,23 @@ foreach ($jsMessagesCodes as $code)
 	</div>
 	<div class="b24-time-desc-block b24-time-desc-block-blue b24-time-count-block-3">
 		<div class="b24-time-desc-text">
-            <? if ($arResult['TIMEMAN_AVAILABLE'] || !$arResult['IS_B24']): ?>
+            <?php  if ($arResult['TIMEMAN_AVAILABLE'] || !$arResult['IS_B24']): ?>
                 <?= Loc::getMessage('FACEID_TMS_START_DO_5_NEW')?>
-            <? else: ?>
+            <?php  else: ?>
                 <?= Loc::getMessage("FACEID_TMS_START_DO_5_NO_TIMEMAN")?>
-            <? endif ?>
+            <?php  endif ?>
 		</div>
 	</div>
 </div>
 <div id="faceid-tms-index" class="b24-time-container b24-time-centering-text-block" style="display: none">
 
-	<? if ($arResult['TIMEMAN_AVAILABLE'] && $arResult['TIMEMAN_ENABLED']): ?>
+	<?php  if ($arResult['TIMEMAN_AVAILABLE'] && $arResult['TIMEMAN_ENABLED']): ?>
 		<div class="b24-time-button b24-time-button-blue" id="faceid-tms-index-button"><?= Loc::getMessage("FACEID_TMS_START_DO_TRY")?></div>
-	<? elseif ($arResult['IS_B24'] && !$arResult['TIMEMAN_AVAILABLE']) : ?>
+	<?php  elseif ($arResult['IS_B24'] && !$arResult['TIMEMAN_AVAILABLE']) : ?>
 		<div class="b24-time-button b24-time-button-blue" id="faceid-tms-plan-upgrade-button"><?= Loc::getMessage("FACEID_TMS_START_DO_TRY_NO_TIMEMAN")?></div>
-	<? elseif ($arResult['IS_B24'] && $arResult['TIMEMAN_AVAILABLE'] && !$arResult['TIMEMAN_ENABLED']): ?>
+	<?php  elseif ($arResult['IS_B24'] && $arResult['TIMEMAN_AVAILABLE'] && !$arResult['TIMEMAN_ENABLED']): ?>
 		<div class="b24-time-button b24-time-button-blue" id="faceid-tms-enable-timeman-button"><?= Loc::getMessage("FACEID_TMS_START_DO_TRY")?></div>
-	<? endif ?>
+	<?php  endif ?>
 
 	<div class="b24-time-progressbar-container">
 		<div class="b24-time-progressbar"></div>
@@ -177,13 +177,13 @@ foreach ($jsMessagesCodes as $code)
 		<div class="b24-time-bottom-subtitle"><?= Loc::getMessage("FACEID_TMS_START_SMILE")?></div>
 	</div>
 
-    <? if (\Bitrix\Main\Loader::includeModule('bitrix24')): ?>
+    <?php  if (\Bitrix\Main\Loader::includeModule('bitrix24')): ?>
         <div class="b24-time-desc-block b24-time-desc-text-small b24-time-desc-block-red b24-time-desc-warning">
             <div><?= Loc::getMessage("FACEID_TMS_START_WARN")?></div>
             <div><?= Loc::getMessage("FACEID_TMS_START_WARN_1", array('T_URL' => '/crm/retail/index.php'))?></div>
             <div><?= Loc::getMessage("FACEID_TMS_START_WARN_2", array('T_URL' => \CBitrix24::PATH_LICENSE_ALL))?></div>
         </div>
-    <? endif ?>
+    <?php  endif ?>
 </div>
 
 <div id="faceid-tms-stepper"></div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REST_HOOK_EDIT"] = "Edit";
 $MESS["REST_HOOK_DELETE"] = "Delete";
 $MESS["REST_HOOK_TITLE"] = "Name";

@@ -1,10 +1,10 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/company/vis_structure.php");
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 $APPLICATION->AddChainItem(GetMessage("COMPANY_TITLE"), "vis_structure.php");
 ?>
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:intranet.structure.visual", ".default", array(
 	"DETAIL_URL" => "/company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=#ID#",
 	"PROFILE_URL" => "/company/personal/user/#ID#/",
@@ -15,4 +15,4 @@ $APPLICATION->IncludeComponent("bitrix:intranet.structure.visual", ".default", a
 	false
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

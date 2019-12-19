@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_ROBOXCHANGE_TEMPL_TITLE"] = "Вы хотите оплатить через систему <b>www.roboxchange.net</b>";
 $MESS["SALE_HPS_ROBOXCHANGE_TEMPL_ORDER"] = "Cчет №";
 $MESS["SALE_HPS_ROBOXCHANGE_TEMPL_TO_PAY"] = "Сумма к оплате по счету:";

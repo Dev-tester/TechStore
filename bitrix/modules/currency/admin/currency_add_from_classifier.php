@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 use Bitrix\Main\Web\Json;
 use Bitrix\Main\Localization\Loc;
@@ -168,10 +168,10 @@ if (!empty($errorMessage))
 	CAdminMessage::ShowMessage(implode('<br>', $errorMessage));
 ?>
 
-<form method="post" action="<?$APPLICATION->GetCurPage()?>" name="admin_currency_classifier">
+<form method="post" action="<?php $APPLICATION->GetCurPage()?>" name="admin_currency_classifier">
 	<?= bitrix_sessid_post()?>
-	<?$tabControl->Begin()?>
-	<?$tabControl->BeginNextTab();?>
+	<?php $tabControl->Begin()?>
+	<?php $tabControl->BeginNextTab();?>
 	<tr class="heading">
 		<td colspan="2">
 			<label><?= Loc::getMessage('ADMIN_CURRENCY_CLASSIFIER_FORM_SECTION_SEARCH_AND_CHOICE')?></label>
@@ -193,7 +193,7 @@ if (!empty($errorMessage))
 		</td>
 		<td width="60%">
 			<select id="admin_classifier_currency_id" name="admin_classifier_currency_id" size="10" style="width: 312px">
-				<?foreach ($classifier as $key => $value)
+				<?php foreach ($classifier as $key => $value)
 					echo "<option value=".HtmlFilter::encode($key).">".HtmlFilter::encode($value[strtoupper(LANGUAGE_ID)]['FULL_NAME'])."</option>";?>
 			</select>
 		</td>
@@ -249,7 +249,7 @@ if (!empty($errorMessage))
 			<input id="sort_index" name="sort_index" type="text" style="width: 300px" value="<?= HtmlFilter::encode($lastValues['SORT_INDEX']);?>">
 		</td>
 	</tr>
-	<?$tabControl->BeginNextTab();
+	<?php $tabControl->BeginNextTab();
 		foreach ($languages as $key => $value)
 		{?>
 			<tr class="heading">
@@ -307,7 +307,7 @@ if (!empty($errorMessage))
 					<input id="hide_zero_<?= HtmlFilter::encode($key);?>" name="hide_zero_<?= HtmlFilter::encode($key);?>" type="checkbox" checked onclick="return false;">
 				</td>
 			</tr>
-		<?}
+		<?php }
 	$tabControl->EndTab();
 	$tabControl->Buttons(array("disabled" => $currencyRights < "W", "back_url" =>"/bitrix/admin/currencies.php?lang=".LANGUAGE_ID));
 	$tabControl->End();?>
@@ -438,4 +438,4 @@ if (!empty($errorMessage))
 	});
 </script>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

@@ -1,12 +1,12 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 IncludeTemplateLangFile(__FILE__);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<?$APPLICATION->ShowHead();?>
+<?php $APPLICATION->ShowHead();?>
 <link href="<?=SITE_TEMPLATE_PATH?>/common.css" type="text/css" rel="stylesheet" />
 <link href="<?=SITE_TEMPLATE_PATH?>/colors.css" type="text/css" rel="stylesheet" />
 
@@ -26,16 +26,16 @@ IncludeTemplateLangFile(__FILE__);
 	</style>
 	<![endif]-->
 
-	<title><?$APPLICATION->ShowTitle()?></title>
+	<title><?php $APPLICATION->ShowTitle()?></title>
 </head>
 <body>
 	<div id="page-wrapper">
-	<div id="panel"><?$APPLICATION->ShowPanel();?></div>
+	<div id="panel"><?php $APPLICATION->ShowPanel();?></div>
 		<div id="header">
 			
 			<table id="logo">
 				<tr>
-					<td><a href="<?=SITE_DIR?>" title="<?=GetMessage('CFT_MAIN')?>"><?
+					<td><a href="<?=SITE_DIR?>" title="<?=GetMessage('CFT_MAIN')?>"><?php 
 $APPLICATION->IncludeFile(
 	SITE_DIR."include/company_name.php",
 	Array(),
@@ -47,7 +47,7 @@ $APPLICATION->IncludeFile(
 			
 			<div id="top-menu">
 				<div id="top-menu-inner">
-<?$APPLICATION->IncludeComponent("bitrix:menu", "horizontal_multilevel", array(
+<?php $APPLICATION->IncludeComponent("bitrix:menu", "horizontal_multilevel", array(
 	"ROOT_MENU_TYPE" => "top",
 	"MAX_LEVEL" => "2",
 	"CHILD_MENU_TYPE" => "left",
@@ -78,7 +78,7 @@ $APPLICATION->IncludeFile(
 				<tr>
 					<td id="banner-image"><div><img src="<?=SITE_TEMPLATE_PATH?>/images/head.jpg" /></div></td>
 					<td id="banner-slogan">
-<?
+<?php 
 $APPLICATION->IncludeFile(
 	SITE_DIR."include/motto.php",
 	Array(),
@@ -94,7 +94,7 @@ $APPLICATION->IncludeFile(
 		<div id="content">
 		
 			<div id="sidebar">
-<?$APPLICATION->IncludeComponent("bitrix:menu", "left", array(
+<?php $APPLICATION->IncludeComponent("bitrix:menu", "left", array(
 	"ROOT_MENU_TYPE" => "left",
 	"MENU_CACHE_TYPE" => "A",
 	"MENU_CACHE_TIME" => "36000000",
@@ -114,7 +114,7 @@ $APPLICATION->IncludeFile(
 				<div class="content-block">
 					<div class="content-block-inner">
 						<h3><?=GetMessage('CFT_NEWS')?></h3>
-<?
+<?php 
 $APPLICATION->IncludeFile(
 	SITE_DIR."include/news.php",
 	Array(),
@@ -127,7 +127,7 @@ $APPLICATION->IncludeFile(
 				<div class="content-block">
 					<div class="content-block-inner">
 						
-<?
+<?php 
 $APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
 	"PAGE" => "#SITE_DIR#search/",
 ),
@@ -141,7 +141,7 @@ $APPLICATION->IncludeComponent("bitrix:search.form", "flat", Array(
 					<div class="top"></div>
 					<div class="information-block-inner">
 						<h3><?=GetMessage('CFT_FEATURED')?></h3>
-<?
+<?php 
 $APPLICATION->IncludeFile(
 	SITE_DIR."include/random.php",
 	Array(),
@@ -154,4 +154,4 @@ $APPLICATION->IncludeFile(
 			</div>
 		
 			<div id="workarea">
-				<h1 id="pagetitle"><?$APPLICATION->ShowTitle(false);?></h1>
+				<h1 id="pagetitle"><?php $APPLICATION->ShowTitle(false);?></h1>

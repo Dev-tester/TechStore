@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_OPT_ACTIVE"] = "Current monitor status";
 $MESS["PERFMON_OPT_ACTIVE_Y"] = "Enabled";
 $MESS["PERFMON_OPT_ACTIVE_N"] = "Disabled";

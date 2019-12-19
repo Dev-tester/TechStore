@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_LOCAL_DOC_CONTROLLER_NAME"] = "Bitrix.Drive";
 $MESS["DISK_LOCAL_DOC_CONTROLLER_ERROR_COULD_NOT_ADD_VERSION"] = "Cannot add new file version.";
 $MESS["DISK_LOCAL_DOC_CONTROLLER_ERROR_COULD_NOT_FIND_VERSION"] = "Version could not be found.";

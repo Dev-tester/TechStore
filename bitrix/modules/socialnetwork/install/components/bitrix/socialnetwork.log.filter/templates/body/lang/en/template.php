@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C30_T_FILTER_TITLE"] = "Search";
 $MESS["SONET_C30_T_FILTER_CREATED_BY"] = "Author";
 $MESS["SONET_C30_T_FILTER_GROUP"] = "Group";

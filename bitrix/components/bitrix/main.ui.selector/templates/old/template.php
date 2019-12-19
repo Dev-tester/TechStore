@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * @var CBitrixComponentTemplate $this
  * @var $arParams
@@ -70,24 +70,24 @@ $frame = $this->createFrame()->begin(false);
 			});
 		};
 
-		<?
+		<?php 
 		if (!empty($arParams["OPTIONS"]["eventInit"]))
 		{
 			?>
 			BX.addCustomEvent(window, "<?=$arParams["OPTIONS"]["eventInit"]?>", f);
-			<?
+			<?php 
 		}
 		else
 		{
 			?>
 			f();
-			<?
+			<?php 
 		}
 		?>
 
 	});
 </script>
 
-<?
+<?php 
 $frame->end();
 ?>

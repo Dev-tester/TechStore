@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc,
 	Bitrix\Main,
 	Bitrix\Iblock,
@@ -487,7 +487,7 @@ class CCatalogAdminToolsAll
 		{
 			foreach ($params as $key => $value)
 			{
-				?><input type="hidden" name="<? echo htmlspecialcharsbx($key); ?>" value="<? echo htmlspecialcharsbx($value); ?>"><?
+				?><input type="hidden" name="<?php  echo htmlspecialcharsbx($key); ?>" value="<?php  echo htmlspecialcharsbx($value); ?>"><?php 
 			}
 			unset($key, $value);
 		}
@@ -1076,25 +1076,25 @@ class CCatalogAdminProductSetEdit
 				$blockName .= '_'.randString(8);
 			$strNamePrefix = self::$strMainPrefix.'['.$key.']';
 			$strIDPrefix = $blockName.'_'.$key;
-			?><table id="<? echo $strIDPrefix; ?>_TBL" class="internal" style="margin: 0 auto;">
+			?><table id="<?php  echo $strIDPrefix; ?>_TBL" class="internal" style="margin: 0 auto;">
 			<tr class="heading">
-			<td class="align-left"><? echo Loc::getMessage('BT_CAT_SET_ITEM_NAME'); ?></td>
-			<td class="align-right"><? echo Loc::getMessage('BT_CAT_SET_ITEM_QUANTITY'); ?></td>
-			<td class="align-left">&nbsp;</td><?
+			<td class="align-left"><?php  echo Loc::getMessage('BT_CAT_SET_ITEM_NAME'); ?></td>
+			<td class="align-right"><?php  echo Loc::getMessage('BT_CAT_SET_ITEM_QUANTITY'); ?></td>
+			<td class="align-left">&nbsp;</td><?php 
 			if (CCatalogProductSet::TYPE_SET == self::$intTypeID)
 			{
-				?><td class="align-right"><? echo Loc::getMessage('BT_CAT_SET_ITEM_DISCOUNT_PERCENT_EXT'); ?></td><?
+				?><td class="align-right"><?php  echo Loc::getMessage('BT_CAT_SET_ITEM_DISCOUNT_PERCENT_EXT'); ?></td><?php 
 			}
 			?>
-			<td class="align-right"><? echo Loc::getMessage('BT_CAT_SET_ITEM_SORT'); ?></td><?
+			<td class="align-right"><?php  echo Loc::getMessage('BT_CAT_SET_ITEM_SORT'); ?></td><?php 
 			if (0 < (int)$key)
 			{
-				?><td><? echo (
+				?><td><?php  echo (
 				CCatalogProductSet::TYPE_SET == self::$intTypeID
 				? Loc::getMessage('BT_CAT_SET_ITEM_DEL_FROM_SET')
-				: Loc::getMessage('BT_CAT_SET_ITEM_DEL_FROM_GROUP')); ?></td><?
+				: Loc::getMessage('BT_CAT_SET_ITEM_DEL_FROM_GROUP')); ?></td><?php 
 			}
-			?></tr><?
+			?></tr><?php 
 			Main\Type\Collection::sortByColumn(
 				$arOneSet['ITEMS'],
 				array(
@@ -1129,9 +1129,9 @@ class CCatalogAdminProductSetEdit
 			?>
 			</table>
 			<div style="margin: 10px auto; text-align: center;">
-			<input class="adm-btn-big" type="button" id="<? echo $strIDPrefix; ?>_ITEMS_ADD" value="<? echo Loc::getMessage('BT_CAT_SET_ITEM_ADD'); ?>" title="<? echo Loc::getMessage('BT_CAT_SET_ITEM_ADD_TITLE'); ?>">
+			<input class="adm-btn-big" type="button" id="<?php  echo $strIDPrefix; ?>_ITEMS_ADD" value="<?php  echo Loc::getMessage('BT_CAT_SET_ITEM_ADD'); ?>" title="<?php  echo Loc::getMessage('BT_CAT_SET_ITEM_ADD_TITLE'); ?>">
 			</div>
-			<input type="hidden" id="<? echo $strIDPrefix; ?>_ITEMS_CNT" value="<? echo (int)$arOneSet['NEW_ITEM_COUNT']; ?>"><?
+			<input type="hidden" id="<?php  echo $strIDPrefix; ?>_ITEMS_CNT" value="<?php  echo (int)$arOneSet['NEW_ITEM_COUNT']; ?>"><?php 
 			$arNewParams = array(
 				'SET_KEY' => $key,
 				'KEY' => 'tmp_xxx',
@@ -1155,10 +1155,10 @@ class CCatalogAdminProductSetEdit
 <script type="text/javascript">
 if (!window.ob<?=$blockName; ?>)
 {
-	window.ob<?=$blockName; ?> = new JCCatTblEditExt(<? echo CUtil::PhpToJSObject($arJSParams); ?>);
+	window.ob<?=$blockName; ?> = new JCCatTblEditExt(<?php  echo CUtil::PhpToJSObject($arJSParams); ?>);
 }
 </script>
-			<?
+			<?php 
 			unset($blockName);
 			break;
 		}
@@ -1173,48 +1173,48 @@ if (!window.ob<?=$blockName; ?>)
 		$strKey = $arParams['KEY'];
 		?><tr>
 		<td class="align-left">
-			<input name="<? echo $strNamePrefix; ?>[ITEM_ID]" id="<? echo $strIDPrefix; ?>_ITEM_ID" value="<? echo htmlspecialcharsbx($arRow['ITEM_ID']); ?>" size="5" type="text">
-			<input type="button" value="..." id="<? echo $strIDPrefix; ?>_BTN" data-row-id="<? echo $strIDPrefix; ?>">
-			&nbsp;<span id="<? echo $strIDPrefix; ?>_ITEM_ID_link"><? echo htmlspecialcharsEx($arRow['ITEM_NAME']); ?></span>
+			<input name="<?php  echo $strNamePrefix; ?>[ITEM_ID]" id="<?php  echo $strIDPrefix; ?>_ITEM_ID" value="<?php  echo htmlspecialcharsbx($arRow['ITEM_ID']); ?>" size="5" type="text">
+			<input type="button" value="..." id="<?php  echo $strIDPrefix; ?>_BTN" data-row-id="<?php  echo $strIDPrefix; ?>">
+			&nbsp;<span id="<?php  echo $strIDPrefix; ?>_ITEM_ID_link"><?php  echo htmlspecialcharsEx($arRow['ITEM_NAME']); ?></span>
 		</td>
 		<td class="align-right">
-			<input type="text" size="5" name="<? echo $strNamePrefix; ?>[QUANTITY]" id="<? echo $strIDPrefix; ?>_QUANTITY" value="<? echo htmlspecialcharsbx($arRow['QUANTITY']) ?>">
+			<input type="text" size="5" name="<?php  echo $strNamePrefix; ?>[QUANTITY]" id="<?php  echo $strIDPrefix; ?>_QUANTITY" value="<?php  echo htmlspecialcharsbx($arRow['QUANTITY']) ?>">
 		</td>
-		<td class="align-left"><?
+		<td class="align-left"><?php 
 		$measure = '';
 		if (isset($arRow['RATIO']) && isset($arRow['MEASURE']))
 		{
 			$measure = ' * '.$arRow['RATIO'].' '.$arRow['MEASURE']['SYMBOL_RUS'];
 		}
-		?><span id="<? echo $strIDPrefix; ?>_MEASURE"><? echo $measure; ?></span></td><?
+		?><span id="<?php  echo $strIDPrefix; ?>_MEASURE"><?php  echo $measure; ?></span></td><?php 
 		if (CCatalogProductSet::TYPE_SET == self::$intTypeID)
 		{
 		?><td class="align-right">
-			<input type="text" size="3" name="<? echo $strNamePrefix; ?>[DISCOUNT_PERCENT]" id="<? echo $strIDPrefix; ?>_DISCOUNT_PERCENT" value="<? echo htmlspecialcharsbx($arRow['DISCOUNT_PERCENT']) ?>">
-		</td><?
+			<input type="text" size="3" name="<?php  echo $strNamePrefix; ?>[DISCOUNT_PERCENT]" id="<?php  echo $strIDPrefix; ?>_DISCOUNT_PERCENT" value="<?php  echo htmlspecialcharsbx($arRow['DISCOUNT_PERCENT']) ?>">
+		</td><?php 
 		}
 		?>
 		<td class="align-right">
-			<input type="text" size="3" name="<? echo $strNamePrefix; ?>[SORT]" id="<? echo $strIDPrefix; ?>_SORT" value="<? echo htmlspecialcharsbx($arRow['SORT']) ?>">
+			<input type="text" size="3" name="<?php  echo $strNamePrefix; ?>[SORT]" id="<?php  echo $strIDPrefix; ?>_SORT" value="<?php  echo htmlspecialcharsbx($arRow['SORT']) ?>">
 		</td>
-		<?
+		<?php 
 		if (0 < (int)$arParams['SET_KEY'])
 		{
 		?><td>
-			<input type="hidden" name="<? echo $strNamePrefix; ?>[DEL]" id="<? echo $strIDPrefix; ?>_DEL_N" value="N">
-			<?
+			<input type="hidden" name="<?php  echo $strNamePrefix; ?>[DEL]" id="<?php  echo $strIDPrefix; ?>_DEL_N" value="N">
+			<?php 
 			if (0 < (int)$strKey)
 			{
-				?><input type="checkbox" name="<? echo $strNamePrefix; ?>[DEL]" id="<? echo $strIDPrefix; ?>_DEL" value="Y"><?
+				?><input type="checkbox" name="<?php  echo $strNamePrefix; ?>[DEL]" id="<?php  echo $strIDPrefix; ?>_DEL" value="Y"><?php 
 			}
 			else
 			{
-				?>&nbsp;<?
+				?>&nbsp;<?php 
 			}
-		?></td><?
+		?></td><?php 
 		}
 		?>
-		</tr><?
+		</tr><?php 
 	}
 
 	protected static function getJSRow($arParams)

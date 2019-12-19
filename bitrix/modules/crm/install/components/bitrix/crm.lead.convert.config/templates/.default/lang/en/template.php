@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAB_CONTACT"] = "Contact";
 $MESS["CRM_TAB_CONTACT_TITLE"] = "Contact to lead field mapping";
 $MESS["CRM_TAB_COMPANY"] = "Company";

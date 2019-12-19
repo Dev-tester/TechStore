@@ -1,13 +1,13 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name) || $this->__component->__parent->__name != "bitrix:blog"):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/blog/templates/.default/themes/blue/style.css');
 endif;
 ?>
-<?CUtil::InitJSCore(array("image"));?>
+<?php CUtil::InitJSCore(array("image"));?>
 <div id="blog-friens-content">
-<?
+<?php 
 if(strlen($arResult["ERROR_MESSAGE"])>0)
 {
 	?>
@@ -16,7 +16,7 @@ if(strlen($arResult["ERROR_MESSAGE"])>0)
 			<ul><?=$arResult["ERROR_MESSAGE"]?></ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 if(strlen($arResult["FATAL_MESSAGE"])>0)
 {
@@ -26,7 +26,7 @@ if(strlen($arResult["FATAL_MESSAGE"])>0)
 			<ul><?=$arResult["FATAL_MESSAGE"]?></ul>
 		</div>
 	</div>
-	<?
+	<?php 
 }
 else
 {
@@ -47,9 +47,9 @@ else
 				<h2 class="blog-post-title"><a href="<?=$CurPost["urlToPost"]?>" title="<?=$CurPost["TITLE"]?>"><?=$CurPost["TITLE"]?></a></h2>
 				<div class="blog-post-info">
 				
-					<?if ($arParams["SHOW_RATING"] == "Y"):?>
+					<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 					<div class="blog-post-rating rating_vote_graphic">
-					<?
+					<?php 
 					$APPLICATION->IncludeComponent(
 						"bitrix:rating.vote", $arParams["RATING_TYPE"],
 						Array(
@@ -68,16 +68,16 @@ else
 						array("HIDE_ICONS" => "Y")
 					);?>
 					</div>
-					<?endif;?>
+					<?php endif;?>
 					<div class="blog-author">
-					<?if($arParams["SEO_USER"] == "Y"):?>
+					<?php if($arParams["SEO_USER"] == "Y"):?>
 						<noindex>
 							<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>" rel="nofollow"></a>
 						</noindex>
-					<?else:?>
+					<?php else:?>
 						<a class="blog-author-icon" href="<?=$CurPost["urlToAuthor"]?>"></a>
-					<?endif;?>
-					<?
+					<?php endif;?>
+					<?php 
 					if (COption::GetOptionString("blog", "allow_alias", "Y") == "Y" && (strlen($CurPost["urlToBlog"]) > 0 || strlen($CurPost["urlToAuthor"]) > 0) && array_key_exists("ALIAS", $CurPost["BlogUser"]) && strlen($CurPost["BlogUser"]["ALIAS"]) > 0)
 					{
 						$arTmpUser = array(
@@ -97,7 +97,7 @@ else
 							"NAME_LIST_FORMATTED" => "",
 						);	
 					?>
-					<?
+					<?php 
 					$GLOBALS["APPLICATION"]->IncludeComponent("bitrix:main.user.link",
 						'',
 						array(
@@ -133,56 +133,56 @@ else
 				</div>
 				<div class="blog-post-content">
 					<?=$CurPost["TEXT_FORMATED"]?>
-					<?
+					<?php 
 					if ($CurPost["CUT"] == "Y")
 					{
-						?><p><a class="blog-postmore-link" href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_MORE")?></a></p><?
+						?><p><a class="blog-postmore-link" href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_MORE")?></a></p><?php 
 					}
 					?>
-					<?if(!empty($CurPost["arImages"]))
+					<?php if(!empty($CurPost["arImages"]))
 					{
 						?>
 						<div class="feed-com-files">
 							<div class="feed-com-files-title"><?=GetMessage("BLOG_PHOTO")?></div>
 							<div class="feed-com-files-cont">
-								<?
+								<?php 
 								foreach($CurPost["arImages"] as $val)
 								{
-									?><span class="feed-com-files-photo"><img src="<?=$val["small"]?>" alt="" border="0" data-bx-image="<?=$val["full"]?>"></span><?
+									?><span class="feed-com-files-photo"><img src="<?=$val["small"]?>" alt="" border="0" data-bx-image="<?=$val["full"]?>"></span><?php 
 								}
 								?>
 							</div>
 						</div>
-						<?
+						<?php 
 					}?>
-					<?if($CurPost["POST_PROPERTIES"]["SHOW"] == "Y"):
+					<?php if($CurPost["POST_PROPERTIES"]["SHOW"] == "Y"):
 						$eventHandlerID = false;
 						$eventHandlerID = AddEventHandler('main', 'system.field.view.file', Array('CBlogTools', 'blogUFfileShow'));
 						?>
-						<?foreach ($CurPost["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):?>
-						<?if(!empty($arPostField["VALUE"])):?>
+						<?php foreach ($CurPost["POST_PROPERTIES"]["DATA"] as $FIELD_NAME => $arPostField):?>
+						<?php if(!empty($arPostField["VALUE"])):?>
 						<div>
 						<?=($FIELD_NAME=='UF_BLOG_POST_DOC' ? "" : "<b>".$arPostField["EDIT_FORM_LABEL"].":</b>&nbsp;")?>
-							<?$APPLICATION->IncludeComponent(
+							<?php $APPLICATION->IncludeComponent(
 								"bitrix:system.field.view", 
 								$arPostField["USER_TYPE"]["USER_TYPE_ID"], 
 								array("arUserField" => $arPostField), null, array("HIDE_ICONS"=>"Y"));?>
 						</div>
-						<?endif;?>
-						<?endforeach;?>
-						<?
+						<?php endif;?>
+						<?php endforeach;?>
+						<?php 
 						if ($eventHandlerID !== false && ( intval($eventHandlerID) > 0 ))
 							RemoveEventHandler('main', 'system.field.view.file', $eventHandlerID);
 					endif;?>
 				</div>
 				<div class="blog-post-meta">
-					<?
+					<?php 
 					if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
 					{
 						?>
 						<div class="blog-post-share" style="float: right;">
 							<noindex>
-							<?
+							<?php 
 							$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
 									"HANDLERS" => $arParams["SHARE_HANDLERS"],
 									"PAGE_URL" => htmlspecialcharsback($CurPost["urlToPost"]),
@@ -198,15 +198,15 @@ else
 							?>
 							</noindex>
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="blog-post-meta-util">
 						<span class="blog-post-views-link"><a href="<?=$CurPost["urlToPost"]?>"><?=GetMessage("BLOG_BLOG_BLOG_VIEWS")?></a> <a href="<?=$CurPost["urlToPost"]?>"><?=IntVal($CurPost["VIEWS"]);?></a></span>
 						<span class="blog-post-comments-link"><a href="<?=$CurPost["urlToPost"]?>#comments"><?=GetMessage("BLOG_BLOG_BLOG_COMMENTS")?></a> <a href="<?=$CurPost["urlToPost"]?>#comments"><?=IntVal($CurPost["NUM_COMMENTS"]);?></a></span>
-						<?if ($arParams["SHOW_RATING"] == "Y"):?>
+						<?php if ($arParams["SHOW_RATING"] == "Y"):?>
 						<span class="rating_vote_text">
-						<?
+						<?php 
 						$APPLICATION->IncludeComponent(
 							"bitrix:rating.vote", $arParams["RATING_TYPE"],
 							Array(
@@ -226,11 +226,11 @@ else
 						);
 						?>
 						</span>
-						<?endif;?>
+						<?php endif;?>
 
 					</div>
 					<div class="blog-post-tag">
-						<?
+						<?php 
 						if(!empty($CurPost["Category"]))
 						{
 							echo GetMessage("BLOG_BLOG_BLOG_CATEGORY");
@@ -239,7 +239,7 @@ else
 							{
 								if($i!=0)
 									echo ",";
-								?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?
+								?> <a href="<?=$v["urlToCategory"]?>"><?=$v["NAME"]?></a><?php 
 								$i++;
 							}
 						}
@@ -249,7 +249,7 @@ else
 
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 	}
 	else

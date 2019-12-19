@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UI_BUTTON_PANEL_SAVE"] = "Сохранить";
 $MESS["UI_BUTTON_PANEL_APPLY"] = "Применить";
 $MESS["UI_BUTTON_PANEL_CANCEL"] = "Отмена";

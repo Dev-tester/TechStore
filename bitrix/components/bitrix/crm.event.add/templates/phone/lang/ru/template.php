@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_EVENT_ADD_TITLE"] = "Зафиксировать звонок";
 $MESS["CRM_PHONE_LIST"] = "Телефоны";
 $MESS["CRM_EVENT_ADD_BUTTON"] = "Добавить";

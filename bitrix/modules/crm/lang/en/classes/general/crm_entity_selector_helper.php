@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_FF_OK"] = "Select";
 $MESS["CRM_FF_CANCEL"] = "Cancel";
 $MESS["CRM_FF_CLOSE"] = "Close";

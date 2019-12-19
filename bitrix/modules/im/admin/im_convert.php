@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/im/include.php");
 
@@ -50,7 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Convert"]=="Y")
 			DoNext(<?=CIMConvert::$converted?>, <?=$maxMessage?>, <?=CIMConvert::$nextConvertPerStep?>);
 		</script>
 
-	<?else:
+	<?php else:
 		CAdminMessage::ShowMessage(array(
 			"MESSAGE"=>GetMessage("IM_CONVERT_COMPLETE"),
 			"DETAILS"=>GetMessage("IM_CONVERT_TOTAL")." <b>".$converted."</b><div id='im_convert_finish'></div>",
@@ -63,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && $_REQUEST["Convert"]=="Y")
 			CloseWaitWindow();
 			EndConvert();
 		</script>
-	<?endif;
+	<?php endif;
 	require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_js.php");
 }
 else
@@ -104,10 +104,10 @@ else
 	}
 	function DoNext(converted, maxMessage, maxMessagePerStep)
 	{
-		var queryString = 'Convert=Y&lang=<?echo htmlspecialcharsbx(LANG)?>';
+		var queryString = 'Convert=Y&lang=<?php echo htmlspecialcharsbx(LANG)?>';
 
 		interval = document.getElementById('max_execution_time').value;
-		queryString += '&<?echo bitrix_sessid_get()?>';
+		queryString += '&<?php echo bitrix_sessid_get()?>';
 		queryString += '&converted='+parseInt(converted);
 		queryString += '&maxMessage='+parseInt(maxMessage);
 		queryString += '&maxMessagePerStep='+parseInt(maxMessagePerStep);
@@ -134,7 +134,7 @@ else
 	}
 	</script>
 
-	<?
+	<?php 
 	$max_messages = CIMConvert::ConvertCount();
 	if ($max_messages <= 0)
 	{
@@ -151,8 +151,8 @@ else
 	</div>
 
 
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?echo htmlspecialcharsbx(LANG)?>" name="fs1">
-	<?
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?php echo htmlspecialcharsbx(LANG)?>" name="fs1">
+	<?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 
@@ -162,20 +162,20 @@ else
 		$max_execution_time = '';
 	?>
 		<tr>
-			<td width="40%"><?echo GetMessage("IM_CONVERT_STEP")?></td>
-			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?echo $max_execution_time;?>"> <?echo GetMessage("IM_CONVERT_STEP_sec")?></td>
+			<td width="40%"><?php echo GetMessage("IM_CONVERT_STEP")?></td>
+			<td><input type="text" name="max_execution_time" id="max_execution_time" size="3" value="<?php echo $max_execution_time;?>"> <?php echo GetMessage("IM_CONVERT_STEP_sec")?></td>
 		</tr>
-	<?
+	<?php 
 	$tabControl->Buttons();
 	?>
-		<input type="button" id="start_button" value="<?echo GetMessage("IM_CONVERT_BUTTON")?>" OnClick="StartConvert(<?=$max_messages?>);" <?=($max_messages>0?"":"disabled")?>>
+		<input type="button" id="start_button" value="<?php echo GetMessage("IM_CONVERT_BUTTON")?>" OnClick="StartConvert(<?=$max_messages?>);" <?=($max_messages>0?"":"disabled")?>>
 		<input type="button" id="stop_button" value="<?=GetMessage("IM_CONVERT_STOP")?>" OnClick="StopConvert();" disabled>
-	<?
+	<?php 
 	$tabControl->End();
 	?>
 	</form>
 
-	<?
+	<?php 
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 }
 ?>

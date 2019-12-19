@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAPP_PATH_TO_BASKET"] = "Path to basket";
 $MESS["SAPP_SELL_AMOUNT"] = "Amount to buy";
 $MESS["SAPP_SELL_CURRENCY"] = "Display currency";

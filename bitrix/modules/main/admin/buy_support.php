@@ -38,7 +38,7 @@ else
 		</div>
 		<div class="bx-gadgets-content" style="padding: 25px;">
 			<?=GetMessage("BUY_SUP_BUY_3")?>
-			<?
+			<?php 
 			$ht = new Bitrix\Main\Web\HttpClient(array("socketTimeout" => 30));
 			$arF = array(
 				"license_key" => $lkeySign,
@@ -55,10 +55,10 @@ else
 			{
 			?><div style="background-color: #f2f6f7; padding: 10px 20px 15px 20px; font-size: 15px; border-radius: 4px;">
 				<div style="font-weight: bold; line-height: 2em;"><span style="color: #798284;"><?=GetMessage("BUY_SUP_PARTNER")?></span>&nbsp;
-					<?
+					<?php 
 					if(strlen($res["link"]) > 0)
 					{
-						?><a href="<?=$res["link"]?>" target="_blank" style="color: #000; text-decoration: none;"><?=$res["name"]?></a><?
+						?><a href="<?=$res["link"]?>" target="_blank" style="color: #000; text-decoration: none;"><?=$res["name"]?></a><?php 
 					}
 					else
 					{
@@ -68,16 +68,16 @@ else
 
 					if(strlen($res["phone"]) > 0)
 					{
-						?><div style="display: inline-block;"><span style="color: #798284;"><?=GetMessage("BUY_SUP_PHONE")?></span>&nbsp;<?=$res["phone"]?></div><?
+						?><div style="display: inline-block;"><span style="color: #798284;"><?=GetMessage("BUY_SUP_PHONE")?></span>&nbsp;<?=$res["phone"]?></div><?php 
 					}
 					if(strlen($res["email"]) > 0)
 					{
-						?><div style="display: inline-block; padding-left: 40px;"><span style="color: #798284;"><?=GetMessage("BUY_SUP_EMAIL")?></span>&nbsp;<a href="mailto:<?=$res["email"]?>" style="color: #000; text-decoration: none;"><?=$res["email"]?></a></div><?
+						?><div style="display: inline-block; padding-left: 40px;"><span style="color: #798284;"><?=GetMessage("BUY_SUP_EMAIL")?></span>&nbsp;<a href="mailto:<?=$res["email"]?>" style="color: #000; text-decoration: none;"><?=$res["email"]?></a></div><?php 
 
 					}
 					?>
 				</div>
-				<?
+				<?php 
 				}
 				}
 				}
@@ -85,7 +85,7 @@ else
 
 				<div style="position: relative; padding: 25px; border: 1px solid #859f4a; border-radius: 4px; margin-top: 40px;">
 					<div style="font-size: 18px; line-height: 28px; position: absolute; top: -14px; left: 14px; display: block; height: 28px; margin: 0; padding: 0; padding: 0 10px; vertical-align: middle; color: #859f4a; background: #fff; font-weight: bold;"><?=GetMessage("BUY_SUP_TOBUY")?></div>
-					<?
+					<?php 
 					$ht = new Bitrix\Main\Web\HttpClient(array("socketTimeout" => 30));
 					$arF = array(
 						"license_key" => $lkeySign,
@@ -100,7 +100,7 @@ else
 							if($res["result"] == "ok")
 							{
 								?>
-								<div style="font-size: 16px; padding-top: 10px;"><?
+								<div style="font-size: 16px; padding-top: 10px;"><?php 
 								$lkid = $res["lkid"];
 								if(count($res["toBuy"]) == 1)
 								{
@@ -121,7 +121,7 @@ else
 									echo GetMessage("BUY_SUP_AMOUNT", array("#AMOUNT#" => $res["price"]));
 								}
 								$buyUrl = $res["toBasket"];
-								?></div><?
+								?></div><?php 
 							}
 						}
 					}
@@ -185,5 +185,5 @@ else
 			</div>
 		</div>
 	</div>
-<?}?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php }?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

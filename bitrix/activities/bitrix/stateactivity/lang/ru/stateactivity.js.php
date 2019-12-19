@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATEACT_BACK'] = "<< Вернуться к настройке статусов";
 $MESS ['STATEACT_ADD'] = "Добавить";
 $MESS ['STATEACT_MENU_COMMAND'] = "Команду";

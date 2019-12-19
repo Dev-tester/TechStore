@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ISBN_PARAM_NUM_USERS'] = "Количество выводимых пользователей";
 $MESS ['INTR_ISBN_PARAM_DETAIL_URL'] = "Страница профиля пользователя";
 $MESS ['INTR_ISH_PARAM_NAME_TEMPLATE'] = "Отображение имени";

@@ -10,8 +10,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 ?>
 <section class="landing-block g-pt-0 g-pb-0">
 	<div class="bx-sidebar-block g-pt-0 g-pb-0">
-		<?if ($classBlock->get('SHOW_FILTER')):?>
-			<?$APPLICATION->IncludeComponent(
+		<?php if ($classBlock->get('SHOW_FILTER')):?>
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:catalog.smart.filter',
 				'bootstrap_v4',
 				array(
@@ -43,6 +43,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 				false
 			);
 			?>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </section>

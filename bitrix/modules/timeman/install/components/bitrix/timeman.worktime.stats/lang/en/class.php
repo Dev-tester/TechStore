@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_MODULE_NOT_INSTALLED"] = "The \"Working Time Management\" module is not installed.";
 $MESS["TMR_ADDITONAL"] = "Clock-ins and clock-outs";
 $MESS["TMR_STATS"] = "Statistics";

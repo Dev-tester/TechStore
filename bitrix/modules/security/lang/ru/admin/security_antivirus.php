@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_ANTIVIRUS_TITLE'] = "Веб-антивирус";
 $MESS ['SEC_ANTIVIRUS_MAIN_TAB'] = "Веб-антивирус";
 $MESS ['SEC_ANTIVIRUS_MAIN_TAB_TITLE'] = "Включение веб-антивируса.";

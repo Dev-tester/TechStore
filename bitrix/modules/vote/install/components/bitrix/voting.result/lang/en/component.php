@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VOTE_MODULE_IS_NOT_INSTALLED"] = "Polls module is not installed.";
 $MESS["VOTE_ACCESS_DENIED"] = "Access denied for this poll.";
 $MESS["VOTE_NOT_FOUND"] = "Poll not found.";

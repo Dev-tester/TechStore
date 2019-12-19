@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_IB_CALENDAR_EMP_ABS"] = "Kundentermin";
 $MESS["CAL_TYPE_USER_NAME"] = "Nutzerkalender";
 $MESS["CAL_TYPE_GROUP_NAME"] = "Gruppenkalender";

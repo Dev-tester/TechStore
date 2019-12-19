@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 $arFileTypes[] = array(
 	'NAME' => GetMessage('WEBDAV_OPTIONS_FILETYPE_DOCUMENTS'),

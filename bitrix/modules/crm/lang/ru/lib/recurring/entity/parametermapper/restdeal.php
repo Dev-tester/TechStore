@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_REST_DEAL_PARAMETERS_MODE_FIELD"] = "Режим повторения";
 $MESS["CRM_REST_DEAL_PARAMETERS_MULTIPLE_TYPE_FIELD"] = "Тип повторения";
 $MESS["CRM_REST_DEAL_PARAMETERS_MULTIPLE_INTERVAL_FIELD"] = "Интервал повторения";

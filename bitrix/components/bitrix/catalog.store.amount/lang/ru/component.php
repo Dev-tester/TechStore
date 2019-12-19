@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_MODULE_NOT_INSTALL"] = "Модуль Торговый Каталог не установлен.";
 $MESS["ABSENT"] = "отсутствует";
 $MESS["NOT_MUCH_GOOD"] = "мало";

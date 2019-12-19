@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLOG_VIDEO_RECORD_BUTTON"] = "Record Video";
 $MESS["BLOG_VIDEO_RECORD_CANCEL_BUTTON"] = "Cancel";
 $MESS["BLOG_VIDEO_RECORD_LOGO"] = "<span class=\"logo\"><span class=\"logo-text\">Bitrix</span><span class=\"logo-color\">24</span></span>";

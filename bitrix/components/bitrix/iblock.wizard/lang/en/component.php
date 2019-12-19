@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WZ_ERR_NOIBLOCK'] = "Information Blocks module is not installed.";
 $MESS ['WZ_ERR_NOSECTION'] = "No section chosen in the previous step.";
 $MESS ['WZ_S4'] = "Fourth step";

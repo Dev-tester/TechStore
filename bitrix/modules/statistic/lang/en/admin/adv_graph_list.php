@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_RECORDS_LIST'] = "Graphs for advertising campaign # #ID#";
 $MESS ['STAT_F_PERIOD'] = "Period";
 $MESS ['STAT_F_SET_PERIOD'] = "Build graphs";

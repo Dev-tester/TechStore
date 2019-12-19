@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -12,8 +12,8 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?if($arParams["USE_FILTER"]=="Y"):?>
-<?$APPLICATION->IncludeComponent(
+<?php if($arParams["USE_FILTER"]=="Y"):?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:catalog.filter",
 	"",
 	Array(
@@ -31,8 +31,8 @@ $this->setFrameMode(true);
 );
 ?>
 <br />
-<?endif?>
-<?$APPLICATION->IncludeComponent(
+<?php endif?>
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:photo.section",
 	"",
 	Array(

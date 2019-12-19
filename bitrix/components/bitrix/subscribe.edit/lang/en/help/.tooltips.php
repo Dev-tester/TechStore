@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SHOW_HIDDEN_TIP"] = "Specifies to display all active rubrics in the subscription editor.";
 $MESS["ALLOW_ANONYMOUS_TIP"] = "If checked, anonymous visitors can subscribe to newsletters by providing their e-mail address without having to register.";
 $MESS["SHOW_AUTH_LINKS_TIP"] = "Check this option if you want to display an authorisation or registration form to anonymous subscribers.";

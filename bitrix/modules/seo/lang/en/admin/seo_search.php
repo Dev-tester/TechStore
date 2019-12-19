@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEO_ERROR_NO_MODULE"] = "The SEO module is not installed.";
 $MESS["SEO_ERROR_NO_MODULE_SOCSERV"] = "The social networking module is not installed.";
 $MESS["SEO_ERROR_NO_ENGINE"] = "Search engine handler was not found.";

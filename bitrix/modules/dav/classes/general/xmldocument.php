@@ -1,4 +1,4 @@
-<?
+<?php 
 class CDavXmlDocument
 {
 	private $root;	// holds the root document for the tree

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ACCESS_DENIED"] = "Access denied.";
 $MESS["SALE_TAB_CASHBOX"] = "Cash register";
 $MESS["SALE_TAB_CASHBOX_DESCR"] = "Cash register parameters";

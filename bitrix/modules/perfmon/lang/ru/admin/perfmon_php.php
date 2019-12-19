@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_PHP_TITLE"] = "Монитор производительности: Настройки PHP";
 $MESS["PERFMON_PHP_TUNING_NAME"] = "Настройки PHP";
 $MESS["PERFMON_PHP_TUNING_TITLE"] = "Параметры окружения";

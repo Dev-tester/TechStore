@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Vote\Attachment;
 
 use Bitrix\Main\Loader;

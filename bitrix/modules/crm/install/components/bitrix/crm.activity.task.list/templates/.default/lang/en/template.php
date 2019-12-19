@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ALL"] = "Total";
 $MESS["CRM_TASK_SHOW_TITLE"] = "View Task";
 $MESS["CRM_TASK_SHOW"] = "View Task";

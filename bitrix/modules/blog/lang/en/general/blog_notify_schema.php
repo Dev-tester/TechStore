@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BLG_NS"] = "Conversations (posts in activity stream)";
 $MESS["BLG_NS_BROADCAST_COMMENT"] = "Add comment for message to all users";
 $MESS["BLG_NS_BROADCAST_POST"] = "Send new message to all users";

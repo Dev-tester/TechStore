@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 if(!CBXFeatures::IsFeatureEnabled('SaleAffiliate'))
 	return;
@@ -37,6 +37,6 @@ else
 {
 	?>
 	<b><?=ShowError(GetMessage("SPCAT1_NO_SHOP"))?></b>
-	<?
+	<?php 
 }
 ?>

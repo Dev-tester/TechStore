@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["F_TITLE"] = "Скрытые сообщения";
 $MESS["F_AUTHOR_PROFILE"] = "Профиль автора";
 $MESS["F_NUM_MESS"] = "Сообщений:";

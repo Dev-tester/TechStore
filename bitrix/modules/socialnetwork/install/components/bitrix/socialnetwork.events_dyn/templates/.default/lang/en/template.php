@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_C2_ONLINE"] = "Online";
 $MESS["SONET_C2_GR_INV"] = "Invites";
 $MESS["SONET_C2_MS_TITLE"] = "New message!";

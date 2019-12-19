@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_FIELD_ACTIVE'] = "Active";
 $MESS['CRM_FIELD_CURRENCY'] = "Currency";
 $MESS['CRM_FIELD_MEASURE'] = "Unit of measurement";

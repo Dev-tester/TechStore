@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_SUMMARY_TITLE"] = "Conversion summary";
 $MESS["CONVERSION_SUMMARY_TITLE2"] = "Conversion";
 $MESS["CONVERSION_SUMMARY_PERIOD"] = "Showing conversion summary from #from# to #to#";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PLAYLIST_EDIT_NO_DATA'] = "--No entries--";
 $MESS ['PLAYLIST_TITLE_EDIT'] = "Edit a playlist";
 $MESS ['PLAYLIST_TITLE_CREATE'] = "Create a playlist";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBSEC_A_ACTIVE"] = "Active";
 $MESS["IBSEC_A_ADD"] = "Add";
 $MESS["IBSEC_A_ADDEL_TITLE"] = "Click to add a new element";

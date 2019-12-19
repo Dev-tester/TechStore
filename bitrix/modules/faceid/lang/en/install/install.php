@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FACEID_MODULE_NAME"] = "Face recognition";
 $MESS["FACEID_MODULE_DESCRIPTION"] = "Face recognition module for use with Bitrix24.";
 $MESS["FACEID_INSTALL_TITLE"] = "\"Face recognition\" Module Installation";

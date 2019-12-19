@@ -1,16 +1,16 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 	$APPLICATION->AuthForm("");
 elseif (strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 	?><div class="sonet-cntnr-messages-users">
 	<table width="100%" class="sonet-user-profile-friends data-table">
@@ -19,15 +19,15 @@ else
 			<th><?= GetMessage("SONET_C30_T_TOTAL") ?></th>
 			<th><?= GetMessage("SONET_C30_T_NEW") ?></th>
 			<th><?= GetMessage("SONET_C30_T_ACTIONS") ?></th>
-		</tr><?
+		</tr><?php 
 		$ind = 0;
 		if ($arResult["Events"]):
 			foreach ($arResult["Events"] as $event):
 				?><tr>
-					<td valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?> width="1%" nowrap><?
-						?><?=$event["USER_PERSONAL_PHOTO_IMG"]; ?><?
+					<td valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?> width="1%" nowrap><?php 
+						?><?=$event["USER_PERSONAL_PHOTO_IMG"]; ?><?php 
 					?></td>
-					<td valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?>><?
+					<td valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?>><?php 
 						$APPLICATION->IncludeComponent("bitrix:main.user.link",
 							'',
 							array(
@@ -58,37 +58,37 @@ else
 						?><br><br>
 						<i><?= $event["MAX_DATE_FORMAT"] ?></i>
 					</td>
-					<td align="center" valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?>><?
+					<td align="center" valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?>><?php 
 						if (IntVal($event["TOTAL"]) > 0):
-							?><a href="<?= $event["USER_MESSAGES_LINK"] ?>"><b><?= $event["TOTAL"]; ?></b></a><?
+							?><a href="<?= $event["USER_MESSAGES_LINK"] ?>"><b><?= $event["TOTAL"]; ?></b></a><?php 
 						endif;
 					?></td>
-					<td align="center" valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?>><?
+					<td align="center" valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?>><?php 
 						if (IntVal($event["UNREAD"]) > 0):
-							?><a href="<?= $event["USER_MESSAGES_LINK"] ?>"><b><?= $event["UNREAD"]; ?></b></a><?
+							?><a href="<?= $event["USER_MESSAGES_LINK"] ?>"><b><?= $event["UNREAD"]; ?></b></a><?php 
 						endif;
 					?></td>
 					<td valign="top"<?= ($event["UNREAD"] > 0 ? " class=\"selected\"" : "") ?> width="0%" nowrap>
-						<a href="<?= $event["USER_MESSAGES_LINK"] ?>"><?= GetMessage("SONET_C30_T_MESSAGES") ?></a><br><br><?
+						<a href="<?= $event["USER_MESSAGES_LINK"] ?>"><?= GetMessage("SONET_C30_T_MESSAGES") ?></a><br><br><?php 
 						if ($event["SHOW_ANSWER_LINK"]):
-							?><a href="<?= $event["CHAT_LINK"] ?>" onclick="if (BX.IM) { BXIM.openMessenger(<?=$event["USER_ID"]?>); return false; } else { window.open('<?= $event["CHAT_LINK"] ?>', '', 'location=yes,status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><?= GetMessage("SONET_C30_T_WRITE_MESSAGE") ?></a><br><br><?
+							?><a href="<?= $event["CHAT_LINK"] ?>" onclick="if (BX.IM) { BXIM.openMessenger(<?=$event["USER_ID"]?>); return false; } else { window.open('<?= $event["CHAT_LINK"] ?>', '', 'location=yes,status=no,scrollbars=yes,resizable=yes,width=700,height=550,top='+Math.floor((screen.height - 550)/2-14)+',left='+Math.floor((screen.width - 700)/2-5)); return false; }"><?= GetMessage("SONET_C30_T_WRITE_MESSAGE") ?></a><br><br><?php 
 						endif;
 						if ($event["SHOW_BAN_LINK"]):
-							?><a href="<?= $event["BAN_LINK"] ?>"><?= GetMessage("SONET_C30_T_BAN") ?></a><?
+							?><a href="<?= $event["BAN_LINK"] ?>"><?= GetMessage("SONET_C30_T_BAN") ?></a><?php 
 						endif;
 					?></td>
-				</tr><?
+				</tr><?php 
 				$ind++;
 			endforeach;
 		else:
 			?><tr>
 				<td colspan="4"><?= GetMessage("SONET_C30_T_EMPTY") ?></td>
-			</tr><?
+			</tr><?php 
 		endif;
 	?></table>
-	</div><?
+	</div><?php 
 	if (StrLen($arResult["NAV_STRING"]) > 0):
-		?><?=$arResult["NAV_STRING"]?><br /><br /><?
+		?><?=$arResult["NAV_STRING"]?><br /><br /><?php 
 	endif;
 }
 ?>

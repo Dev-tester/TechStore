@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Application;
 use Bitrix\Main\Page\Asset;
 use Bitrix\Sale\Order;
@@ -246,7 +246,7 @@ if ($paymentId > 0)
 	$aTabs[] = array("DIV" => "tab_analysis", "TAB" => GetMessage("SOP_TAB_ANALYSIS"), "TITLE" => GetMessage("SOP_TAB_ANALYSIS"));
 }
 
-?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".$lang.'&order_id='.$orderId.$urlForm.GetFilterParams("filter_", false).(($paymentId > 0) ? '&payment_id='.$paymentId : '').'&backurl='.urlencode($backUrl)?>" name="<?=$tableId?>_form" id="<?=$tableId?>_form"><?
+?><form method="POST" action="<?=$APPLICATION->GetCurPage()."?lang=".$lang.'&order_id='.$orderId.$urlForm.GetFilterParams("filter_", false).(($paymentId > 0) ? '&payment_id='.$paymentId : '').'&backurl='.urlencode($backUrl)?>" name="<?=$tableId?>_form" id="<?=$tableId?>_form"><?php 
 
 $tabControl = new CAdminTabControlDrag($tableId, $aTabs, $moduleId, false, true);
 $tabControl->Begin();
@@ -278,15 +278,15 @@ echo \Bitrix\Sale\Helpers\Admin\OrderEdit::getScripts($saleOrder, $tableId);
 <input type="hidden" name="update" value="Y">
 <input type="hidden" name="lang" id="lang" value="<?=$lang;?>">
 <input type="hidden" name="order_id" id="order_id" value="<?=$orderId;?>">
-<?
+<?php 
 	echo bitrix_sessid_post();
 	$paymentCount = 1;
 ?>
 <tr>
 	<td>
 		<div style="position: relative; vertical-align: top">
-			<?$tabControl->DraggableBlocksStart();?>
-			<?
+			<?php $tabControl->DraggableBlocksStart();?>
+			<?php 
 				foreach ($blocksOrder as $blockCode)
 				{
 					$tabControl->DraggableBlockBegin(GetMessage("SALE_BLOCK_TITLE_".toUpper($blockCode)), $blockCode);
@@ -317,7 +317,7 @@ echo \Bitrix\Sale\Helpers\Admin\OrderEdit::getScripts($saleOrder, $tableId);
 </tr>
 
 </form>
-<?
+<?php 
 //--TAB order
 if ($paymentId > 0):
 	//TAB history --
@@ -326,7 +326,7 @@ if ($paymentId > 0):
 	<tr>
 		<td id="order-history"><?=$historyContent; ?></td>
 	</tr>
-<?
+<?php 
 	//-- TAB history
 
 	//TAB analysis --
@@ -336,7 +336,7 @@ if ($paymentId > 0):
 	<tr>
 		<td>
 			<div style="position:relative; vertical-align:top">
-				<?
+				<?php 
 				$orderBasket = new \Bitrix\Sale\Helpers\Admin\Blocks\OrderBasket(
 					$saleOrder,
 					"BX.Sale.Admin.OrderBasketObj",
@@ -349,7 +349,7 @@ if ($paymentId > 0):
 			</div>
 		</td>
 	</tr>
-	<?
+	<?php 
 
 	//-- TAB analysis
 
@@ -365,4 +365,4 @@ $tabControl->Buttons(
 $tabControl->End();
 
 ?>
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

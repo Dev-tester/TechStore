@@ -1,5 +1,5 @@
-<? define("NOT_CHECK_FILE_PERMISSIONS", true); ?>
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+<?php  define("NOT_CHECK_FILE_PERMISSIONS", true); ?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -14,13 +14,13 @@ CMobile::Init();
 <!DOCTYPE html >
 <html class="<?= CMobile::$platform; ?>">
 <head>
-	<? $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/script.js"); ?>
-	<? $APPLICATION->ShowHead(); ?>
+	<?php  $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH . "/script.js"); ?>
+	<?php  $APPLICATION->ShowHead(); ?>
 
 	<meta http-equiv="Content-Type" content="text/html;charset=<?= SITE_CHARSET ?>"/>
 	<meta name="format-detection" content="telephone=no">
 </head>
-<body><? //$APPLICATION->ShowPanel();?>
+<body><?php  //$APPLICATION->ShowPanel();?>
 <script type="text/javascript">
 	app.pullDown({
 		enable: true,

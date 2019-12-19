@@ -95,12 +95,12 @@ $url = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER_TASKS_EDI
 
 <form name="<?=$arResult["FORM_ID"]?>" id="<?=$arResult["FORM_ID"]?>" action="<?=$url?>" method="POST" style="margin-top: 60px">
 	<?=bitrix_sessid_post();?>
-	<?if (isset($arResult['FORM_GUID'])): ?><input type="hidden" name="FORM_GUID" value="<?=HtmlFilter::encode($arResult['FORM_GUID'])?>"><?php endif; ?>
+	<?php if (isset($arResult['FORM_GUID'])): ?><input type="hidden" name="FORM_GUID" value="<?=HtmlFilter::encode($arResult['FORM_GUID'])?>"><?php endif; ?>
 	<input type="hidden" name="_JS_STEPPER_SUPPORTED" value="Y">
 	<input type="hidden" name="DESCRIPTION_IN_BBCODE" value="<?=$task['DESCRIPTION_IN_BBCODE']; ?>" />
 	<input type="hidden" name="back_url" value="<?=$url."&".http_build_query(array("save" => "Y", "sessid" => bitrix_sessid())) ?>" />
-	<?if ($can["EDIT"]) : ?><input type="hidden" name="data[SE_AUDITOR][]" value="" /><input type="hidden" name="data[PRIORITY]" value="<?=$task["PRIORITY"]?>" /><? endif; ?>
-	<div style="display: none;"><input type="text" name="AJAX_POST" value="Y" /></div><?//hack to not submit form?>
+	<?php if ($can["EDIT"]) : ?><input type="hidden" name="data[SE_AUDITOR][]" value="" /><input type="hidden" name="data[PRIORITY]" value="<?=$task["PRIORITY"]?>" /><?php  endif; ?>
+	<div style="display: none;"><input type="text" name="AJAX_POST" value="Y" /></div><?php //hack to not submit form?>
 
 	<?php
 	$APPLICATION->IncludeComponent(
@@ -357,7 +357,7 @@ $url = CComponentEngine::MakePathFromTemplate($arParams["~PATH_TO_USER_TASKS_EDI
 	?>
 </form>
 
-<?$taskHtml = ob_get_clean();?>
+<?php $taskHtml = ob_get_clean();?>
 
 <?php
 ob_start();
@@ -414,7 +414,7 @@ $component->arResult["HTML"] = [
 				</span>
 			</span>
 		</span>
-		<?/*>
+		<?php /*>
 		<div class="post-item-informers post-item-inform-comments" onclick="BX.onCustomEvent(window, 'OnUCUserReply', ['TASK_<?=$taskId?>']);">
 			<div class="post-item-inform-left"><?=Loc::getMessage("MB_TASKS_TASK_COMMENT")?></div>
 		</div>

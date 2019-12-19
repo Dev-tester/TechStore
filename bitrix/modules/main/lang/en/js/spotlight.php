@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_SPOTLIGHT_UNDERSTAND"] = "Ok";
 $MESS["MAIN_SPOTLIGHT_REMIND_LATER"] = "remind later";
 ?>

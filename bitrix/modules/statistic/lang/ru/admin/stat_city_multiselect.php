@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_CITY_MSEL_PAGES'] = "Города";
 $MESS ['STAT_CITY_MSEL_COUNTRY_ID'] = "Код страны";
 $MESS ['STAT_CITY_MSEL_COUNTRY_SHORT_NAME'] = "Полное название страны";

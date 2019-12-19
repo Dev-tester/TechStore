@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VULNSCAN_SIMILAR"] = "Аналогично";
 $MESS["VULNSCAN_REQUIRE"] = "Необходимые условия";
 $MESS["VULNSCAN_FILE"] = "Файл";

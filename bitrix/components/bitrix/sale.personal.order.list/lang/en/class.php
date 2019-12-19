@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPOL_SALE_MODULE_NOT_INSTALL"] = "The e-Store module is not installed.";
 $MESS["SPOL_CATALOG_MODULE_NOT_INSTALL"] = "The Commercial Catalog module is not installed.";
 $MESS["SPOL_DEFAULT_TITLE"] = "My orders";

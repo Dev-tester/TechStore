@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_TITLE_BASE"] = "Система обновлений";
 $MESS["SUP_CHECK_UPDATES"] = "Проверить обновления";
 $MESS["SUP_SETTINGS"] = "Изменить настройки";

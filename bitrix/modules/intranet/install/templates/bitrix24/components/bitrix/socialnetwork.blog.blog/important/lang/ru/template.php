@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBB_IMPORTANT"] = "Важные сообщения";
 $MESS["SBB_READ"] = "Прочитать";
 $MESS["SBB_READ_"] = "Прочитано";

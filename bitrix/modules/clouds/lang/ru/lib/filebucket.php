@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_BUCKET_ENTITY_ID_FIELD"] = "Идентификатор хранилища";
 $MESS["FILE_BUCKET_ENTITY_ACTIVE_FIELD"] = "Признак активности";
 $MESS["FILE_BUCKET_ENTITY_SORT_FIELD"] = "Значение сортировки";

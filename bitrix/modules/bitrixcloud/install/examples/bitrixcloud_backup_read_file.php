@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $LICENSE_KEY = "";
 include($_SERVER["DOCUMENT_ROOT"]."/bitrix/license_key.php");

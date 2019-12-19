@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_OIIE_FACEBOOK_NO_IMPORT_AVAILABLE"] = "Product import disabled";
 $MESS["CRM_OIIE_FACEBOOK_SESSION_HAS_EXPIRED"] = "Your session has expired. Please submit the form again.";
 $MESS["CRM_OIIE_FACEBOOK_REMOVED_REFERENCE_TO_PAGE"] = "Product import was configured for use with a group you currently don't have administrator access to.";

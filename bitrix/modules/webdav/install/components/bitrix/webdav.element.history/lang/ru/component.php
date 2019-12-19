@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_ELEMENT_HISTORY_LIST_TITLE"] = "Предыдущие изменения";
 $MESS["WD_ELEMENT_HISTORY_DOWNLOAD_ORIGIN"] = "Скачать оригинал";
 $MESS["WD_ELEMENT_HISTORY_ONLINE_SERVICE_EDIT"] = "В данный момент документ редактируется в #SERVICE#";

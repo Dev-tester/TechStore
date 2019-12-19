@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -20,21 +20,21 @@ CJSCore::Init(['sidepanel']);
 		<form>
 			<div class="docs-config-block-wrap">
 				<div class="docs-config-check-container">
-					<?
+					<?php 
 					if(Bitrix24Manager::isRestrictionsActive())
 					{
 						?>
 						<input class="docs-config-input" type="checkbox" name="document_enable_public_b24_sign" value="Y" id="document_enable_public_b24_sign" checked disabled>
 						<label class="docs-config-title" for="document_enable_public_b24_sign"><?=Loc::getMessage('DOCGEN_CONFIG_ENABLE_PUBLIC_SIGN');?></label>
 						<span data-hint="<?=Loc::getMessage('DOCGEN_CONFIG_ENABLE_PUBLIC_SIGN_BITRIX_24_FREE');?>"></span>
-						<?
+						<?php 
 					}
 					else
 					{
 						?>
-						<input class="docs-config-input" type="checkbox" name="document_enable_public_b24_sign" value="Y" id="document_enable_public_b24_sign" <?if($arResult['enablePublicSign']){?> checked<?}?>>
+						<input class="docs-config-input" type="checkbox" name="document_enable_public_b24_sign" value="Y" id="document_enable_public_b24_sign" <?php if($arResult['enablePublicSign']){?> checked<?php }?>>
 						<label class="docs-config-title" for="document_enable_public_b24_sign"><?=Loc::getMessage('DOCGEN_CONFIG_ENABLE_PUBLIC_SIGN');?></label>
-					<?}?>
+					<?php }?>
 				</div>
 			</div>
 		</form>
@@ -44,7 +44,7 @@ CJSCore::Init(['sidepanel']);
 		BX.UI.Hint.init(BX('docs-config'));
 	})
 </script>
-<?
+<?php 
 
 $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 	'BUTTONS' => [

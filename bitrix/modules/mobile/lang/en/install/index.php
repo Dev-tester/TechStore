@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["APP_MODULE_NAME"] = "Mobile application";
 $MESS["APP_MODULE_DESCRIPTION"] = "A mobile application for use with the portal";
 $MESS["APP_INSTALL_TITLE"] = "\"Mobile Application\" Module Installation";

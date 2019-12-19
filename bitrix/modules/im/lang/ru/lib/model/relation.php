@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["RELATION_ENTITY_ID_FIELD"] = "Уникальный идентификатор";
 $MESS["RELATION_ENTITY_CHAT_ID_FIELD"] = "Идентификатор чата";
 $MESS["RELATION_ENTITY_MESSAGE_TYPE_FIELD"] = "Тип чата";

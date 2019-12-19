@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MEETING_TITLE"] = "Implementierung des Unternehmensportals";
 $MESS["MEETING_DESCRIPTION"] = "Wir mьssen eine Besprechung abhalten, um ьber Details der Implementierung eines Unternehmensportals in unserem Unternehmen zu diskutieren";
 $MESS["MEETING_PLACE"] = "Bьro des Geschдftsfьhrers";

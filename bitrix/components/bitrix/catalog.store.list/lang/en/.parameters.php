@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SHOW_SCHEDULE"] = "Show business hours";
 $MESS["SHOW_PHONE"] = "Show phone";
 $MESS["MAP_TYPE"] = "Map type";

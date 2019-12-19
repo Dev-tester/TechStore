@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_SALE_ACT_GROUP_GLOBAL_PREFIX"] = "Выполнить действия:";
 $MESS["BT_SALE_ACT_DELIVERY_LABEL"] = "Изменить стоимость доставки";
 $MESS["BT_SALE_ACT_DELIVERY_DEF_TEXT"] = "Стоимость доставки";

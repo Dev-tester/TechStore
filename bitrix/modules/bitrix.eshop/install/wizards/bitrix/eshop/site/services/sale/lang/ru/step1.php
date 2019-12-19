@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_1C_GROUP_PERMISSIONS"] = "Группы, пользователям которых разрешена выгрузка";
 $MESS["SALE_WIZARD_PERSON_1"] = "Физическое лицо";
 $MESS["SALE_WIZARD_PERSON_2"] = "Юридическое лицо";

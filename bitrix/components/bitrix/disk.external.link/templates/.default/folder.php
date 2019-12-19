@@ -44,14 +44,14 @@ switch(strtolower($langId))
 	<meta charset="<?= LANG_CHARSET ?>">
 	<title><?= $component->getMessage('DISK_EXT_LINK_FOLDER_TITLE') ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=<?=SITE_CHARSET?>" />
-	<? if(!$arResult['PROTECTED_BY_PASSWORD']){ ?>
+	<?php  if(!$arResult['PROTECTED_BY_PASSWORD']){ ?>
 		<meta content="<?= $arResult['FOLDER']['VIEW_URL'] ?>" property="og:url"/>
 		<meta content="<?= $arResult['SITE_NAME'] ?>" property="og:site_name"/>
 		<meta content="<?= htmlspecialcharsbx($arResult['FOLDER']['NAME']) ?>" property="og:title"/>
 		<meta content="website" property="og:type"/>
 		<meta content="<?= $component->getMessage('DISK_EXT_LINK_OPEN_FOLDER_GRAPH_MADE_BY_B24') ?>" property="og:description"/>
-	<? } ?>
-	<?
+	<?php  } ?>
+	<?php 
 	$APPLICATION->ShowCSS();
 	$APPLICATION->ShowHeadStrings();
 	$APPLICATION->ShowHeadScripts();
@@ -64,7 +64,7 @@ switch(strtolower($langId))
 				<?= $component->getMessage('DISK_EXT_LINK_B24') ?>
 			</div>
 		</div>
-		<? if (!($arResult['PROTECTED_BY_PASSWORD']) || $arResult['VALID_PASSWORD']){ ?>
+		<?php  if (!($arResult['PROTECTED_BY_PASSWORD']) || $arResult['VALID_PASSWORD']){ ?>
 		<div class="disk-object-container">
 			<div class="disk-object-header-container">
 				<h2 class="disk-object-header"><?= htmlspecialcharsbx($arResult['FOLDER']['NAME']) ?></h2>
@@ -80,15 +80,15 @@ switch(strtolower($langId))
 						<span class="disk-object-changed-number"><?= $arResult['FOLDER']['UPDATE_TIME'] ?></span>
 					</div>
 				</div>
-				<? if(!empty($arResult['ENABLED_MOD_ZIP']) && !empty($arResult['FOLDER']['CREATED_BY']) && !empty($arResult['FOLDER']['SIZE'])) { ?>
+				<?php  if(!empty($arResult['ENABLED_MOD_ZIP']) && !empty($arResult['FOLDER']['CREATED_BY']) && !empty($arResult['FOLDER']['SIZE'])) { ?>
 				<div class="disk-object-button-container">
 					<a href="<?= $arResult['FOLDER']['DOWNLOAD_URL'] ?>" class="bx-disk-btn bx-disk-btn-big bx-disk-btn-green disk-object-download-button"><?= $component->getMessage('DISK_EXT_LINK_FOLDER_DOWNLOAD') ?></a>
 				</div>
-				<? } ?>
+				<?php  } ?>
 			</div>
 
 			<div class="bx-shared-body">
-			<?
+			<?php 
 			$APPLICATION->includeComponent('bitrix:disk.interface.toolbar', '', array(
 				'CLASS_NAME' => 'disk-fake-toolbar',
 				'TOOLBAR_ID' => 'fake_toolbar',
@@ -110,7 +110,7 @@ switch(strtolower($langId))
 			?>
 
 				<div class="bx-disk-interface-filelist">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 					'bitrix:disk.interface.grid',
 					'',
@@ -155,9 +155,9 @@ switch(strtolower($langId))
 
 		});
 		</script>
-		<? } elseif($arResult['PROTECTED_BY_PASSWORD']){ ?>
-			<? $this->getComponent()->includeComponentTemplate('protected_by_password'); ?>
-		<? } ?>
+		<?php  } elseif($arResult['PROTECTED_BY_PASSWORD']){ ?>
+			<?php  $this->getComponent()->includeComponentTemplate('protected_by_password'); ?>
+		<?php  } ?>
 </div>
 </body>
 </html>

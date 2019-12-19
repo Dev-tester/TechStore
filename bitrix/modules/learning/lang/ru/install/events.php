@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['NEW_LEARNING_TEXT_ANSWER_NAME'] = "Новый текстовый ответ";
 $MESS ['NEW_LEARNING_TEXT_ANSWER_DESC'] = "#ID# - ID результата
 #ATTEMPT_ID# - ID попытки

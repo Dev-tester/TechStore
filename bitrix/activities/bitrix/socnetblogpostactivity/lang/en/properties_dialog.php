@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SNBPA_PD_OWNER_ID"] = "Sender";
 $MESS["SNBPA_PD_USERS_TO"] = "Recipients";
 $MESS["SNBPA_PD_POST_TITLE"] = "Message title";

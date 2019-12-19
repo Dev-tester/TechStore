@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SECURITY_IPRULE_ERROR_SELF_BLOCK'] = "Ваш IP-адрес (#IP#) попадает в диапазон блокируемых. Если вы уверены, сохраните данные формы еще раз.";
 $MESS ['SECURITY_IPRULE_ERROR_SELF_BLOCK_2'] = "Ваш IP-адрес (#IP#) попадает в диапазон блокируемых.";
 $MESS ['SECURITY_IPRULE_ERROR_WONG_IP'] = "Ошибочный IP-адрес (#IP#).";

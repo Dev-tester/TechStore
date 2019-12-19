@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/tax_rate.php");
 
 class CSaleTaxRate extends CAllSaleTaxRate

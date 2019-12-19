@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_APP_OFFLINE_TITLE"] = "Cannot complete operation";
 $MESS["MOBILE_APP_OFFLINE_MESSAGE"] = "No network connection";
 $MESS["MOBILE_APP_FILTER_APPLY"] = "Apply filter";

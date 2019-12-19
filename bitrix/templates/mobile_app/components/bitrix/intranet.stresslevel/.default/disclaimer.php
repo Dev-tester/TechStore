@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -8,7 +8,7 @@ use Bitrix\Main\Localization\Loc;
 ?><div class="mobile-text-body">
 	<div class="mobile-text-wrapper">
 		<div class="mobile-text-wrapper-inner">
-			<div class="mobile-text-title"><?=Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_DISCLAIMER_ATTENTION')?></div><?
+			<div class="mobile-text-title"><?=Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_DISCLAIMER_ATTENTION')?></div><?php 
 
 			echo Loc::getMessage('INTRANET_STRESSLEVEL_TEMPLATE_DISCLAIMER_'.strtoupper($arResult['DISCLAIMER_TYPE']).'_TEXT', [
 				'#P#' => '<p class="mobile-text">',

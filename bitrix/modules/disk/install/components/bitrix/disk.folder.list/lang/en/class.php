@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_ACTION_SAVE_TO_OWN_FILES"] = "Save to Bitrix24.Drive";
 $MESS["DISK_FOLDER_FILTER_CREATED_BY"] = "Created by";
 $MESS["DISK_FOLDER_FILTER_CREATE_TIME"] = "Created on";

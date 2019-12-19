@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRA_DEFAULT_LOG_MESSAGE"] = "Received application response";
 $MESS["BPRA_DEFAULT_STATUS_MESSAGE"] = "Waiting for application response";
 $MESS["BPRA_NOT_FOUND_ERROR"] = "Application activity is not installed.";

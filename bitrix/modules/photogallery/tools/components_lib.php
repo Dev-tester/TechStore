@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 class CPGalleryInterface
 {
@@ -400,25 +400,25 @@ class CPGalleryInterface
 						?>
 						<div class="photo-info-box photo-album-password">
 							<div class="photo-info-box-inner">
-								<?/*ShowError(GetMessage("P_DENIED_ACCESS"));*/?>
+								<?php /*ShowError(GetMessage("P_DENIED_ACCESS"));*/?>
 								<p>
-								<?if ($res["ID"] != $arSection["ID"]):?>
+								<?php if ($res["ID"] != $arSection["ID"]):?>
 									<?=GetMessage("P_PARENT_ALBUM_IS_PASSWORDED")?>
-								<?else:?>
+								<?php else:?>
 									<?=GetMessage("P_ALBUM_IS_PASSWORDED")?>
-								<?endif;?>
+								<?php endif;?>
 								<?=str_replace("#NAME#", $res["NAME"], GetMessage("P_ALBUM_IS_PASSWORDED_TITLE"))
 								?></p>
 								<form method="post" action="<?=POST_FORM_ACTION_URI?>" class="photo-form">
 									<?=bitrix_sessid_post()?>
 									<label for="password_<?=$res["ID"]?>"><?=GetMessage("P_PASSWORD")?>: </label>
-									<input type="password" class="password" name="password_<?=$res["ID"]?>" <?
+									<input type="password" class="password" name="password_<?=$res["ID"]?>" <?php 
 										?>id="password_<?=$res["ID"]?>" value="" />
 									<input type="submit" class="submit" name="supply_password" value="<?=GetMessage("P_ENTER")?>" />
 								</form>
 							</div>
 						</div>
-						<?
+						<?php 
 						self::$arPassFormShowed[$arSection["ID"]] = true;
 					}
 					break;

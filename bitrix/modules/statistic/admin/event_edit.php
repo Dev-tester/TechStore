@@ -230,8 +230,8 @@ if (strlen($success) <= 0 || $success == "Y")
 }
 ?>
 
-<?if($success=="N"):?>
-	<?
+<?php if($success=="N"):?>
+	<?php 
 	CAdminMessage::ShowMessage(array(
 		"MESSAGE" => GetMessage("STAT_EVENTS_LOADING"),
 		"DETAILS" => "<br>",
@@ -263,13 +263,13 @@ if (strlen($success) <= 0 || $success == "Y")
 			<td align="right"><?=$step_processed?></td>
 			<td align="right"><?=$total_processed?></td>
 		</tr>
-		<?if ($check_unique=="Y"):?>
+		<?php if ($check_unique=="Y"):?>
 		<tr>
 			<td nowrap><?=GetMessage("STAT_DUPLICATE")?></td>
-			<td align="right"><span class="<?echo $total_duplicate > 0? "required": ""?>"><?=$step_duplicate?></span></td>
-			<td align="right"><span class="<?echo $total_duplicate > 0 ? "required" : ""?>"><?=$total_duplicate?></span></td>
+			<td align="right"><span class="<?php echo $total_duplicate > 0? "required": ""?>"><?=$step_duplicate?></span></td>
+			<td align="right"><span class="<?php echo $total_duplicate > 0 ? "required" : ""?>"><?=$total_duplicate?></span></td>
 		</tr>
-		<?endif;?>
+		<?php endif;?>
 		<tr>
 			<td colspan=2 nowrap><?=GetMessage("STAT_TOTAL_CSV")?></td>
 			<td align="right"><b><?=$total_rows?></b></td>
@@ -285,9 +285,9 @@ if (strlen($success) <= 0 || $success == "Y")
 	setTimeout('DoNext()', 500);
 	</script>
 
-<?else://if(!$success=="N")?>
+<?php else://if(!$success=="N")?>
 
-<? if ($success=="Y") : ?>
+<?php  if ($success=="Y") : ?>
 	<table class="edit-table" cellspacing="0" cellpadding="0" border="0"><tr><td>
 	<table cellspacing="0" cellpadding="0" border="0" class="internal">
 		<tr class="heading">
@@ -302,19 +302,19 @@ if (strlen($success) <= 0 || $success == "Y")
 			<td nowrap><?=GetMessage("STAT_PROCESSED")?></td>
 			<td align="right"><?=$total_processed?></td>
 		</tr>
-		<?if ($check_unique=="Y"):?>
+		<?php if ($check_unique=="Y"):?>
 		<tr>
 			<td nowrap><?=GetMessage("STAT_DUPLICATE")?></td>
-			<td align="right"><span class="<?echo $total_duplicate > 0? "required": ""?>"><?=$total_duplicate?></span></td>
+			<td align="right"><span class="<?php echo $total_duplicate > 0? "required": ""?>"><?=$total_duplicate?></span></td>
 		</tr>
-		<?endif;?>
+		<?php endif;?>
 		<tr>
 			<td nowrap><?=GetMessage("STAT_TOTAL_CSV")?></td>
 			<td align="right"><b><?=$total_rows?></b></td>
 		</tr>
 	</table>
 	</td></tr></table>
-<?endif;?>
+<?php endif;?>
 
 <script language="JavaScript">
 <!--
@@ -337,13 +337,13 @@ function addNewRow(currentId)
 
 	oCell = oRow.insertCell(i++);
 	oCell.noWrap = true;
-	oCell.innerHTML = '<input type="hidden" name="ARR[]" value="'+id+'"><input type="text" size="14" name="EVENT_ID_'+id+'" value="" OnFocus="addNewRow('+id+')"><input type="button" onClick="SelectEvent(\'form1\',\'EVENT_ID_'+id+'\')" title="<?echo GetMessage("STAT_SELECT_EVENT")?>" value="..."></a>';
+	oCell.innerHTML = '<input type="hidden" name="ARR[]" value="'+id+'"><input type="text" size="14" name="EVENT_ID_'+id+'" value="" OnFocus="addNewRow('+id+')"><input type="button" onClick="SelectEvent(\'form1\',\'EVENT_ID_'+id+'\')" title="<?php echo GetMessage("STAT_SELECT_EVENT")?>" value="..."></a>';
 
 	oCell = oRow.insertCell(i++);
 	oCell.innerHTML = '<input type="text" size="20" name="EVENT3_'+id+'" value="" OnFocus="addNewRow('+id+')">';
 
 	oCell = oRow.insertCell(i++);
-	oCell.innerHTML = '<input type="text" name="DATE_ENTER_'+id+'" size="18" value=""> <a href="javascript:void(0);" onClick="Calendar(\'name=DATE_ENTER_'+id+'&from=&to=&form=form1\', document.form1.DATE_ENTER_'+id+'.value);" title="<?echo GetMessage("STAT_CALENDAR")?>"><img src="/bitrix/images/icons/calendar.gif" alt="<?echo GetMessage("STAT_CALENDAR")?>" width="15" height="15" border="0"></a>';
+	oCell.innerHTML = '<input type="text" name="DATE_ENTER_'+id+'" size="18" value=""> <a href="javascript:void(0);" onClick="Calendar(\'name=DATE_ENTER_'+id+'&from=&to=&form=form1\', document.form1.DATE_ENTER_'+id+'.value);" title="<?php echo GetMessage("STAT_CALENDAR")?>"><img src="/bitrix/images/icons/calendar.gif" alt="<?php echo GetMessage("STAT_CALENDAR")?>" width="15" height="15" border="0"></a>';
 
 	oCell = oRow.insertCell(i++);
 	oCell.innerHTML = '<input type="text" name="PARAM_'+id+'" value="" OnFocus="addNewRow('+id+')">';
@@ -351,7 +351,7 @@ function addNewRow(currentId)
 	oCell = oRow.insertCell(i++);
 	oCell.innerHTML = '<input type="text" size="5" name="MONEY_'+id+'" value="" OnFocus="addNewRow('+id+')">';
 
-	<?if ($currency_module=="Y") :?>
+	<?php if ($currency_module=="Y") :?>
 	oCell = oRow.insertCell(i++);
 	var strSelectBox;
 	<?=$strJavaCurArray?>
@@ -365,13 +365,13 @@ function addNewRow(currentId)
 	}
 	strSelectBox = strSelectBox+'</select>';
 	oCell.innerHTML = strSelectBox;
-	<?endif;?>
+	<?php endif;?>
 
 	oCell = oRow.insertCell(i++);
 	oCell.innerHTML = '<input type="checkbox" value="Y" name="CHARGEBACK_'+id+'">';
 
 	oCell = oRow.insertCell(i++);
-	oCell.innerHTML = '<a href="javascript: Copy('+id+')"><img src="/bitrix/images/statistic/copy.gif" width="15" height="15" border=0 class="tb2" hspace="2" alt="<?echo GetMessage("STAT_COPY")?>"></a>';
+	oCell.innerHTML = '<a href="javascript: Copy('+id+')"><img src="/bitrix/images/statistic/copy.gif" width="15" height="15" border=0 class="tb2" hspace="2" alt="<?php echo GetMessage("STAT_COPY")?>"></a>';
 
 	document.form1.nums.value = id;
 }
@@ -403,7 +403,7 @@ function ClickPreview()
 
 //-->
 </script>
-<?
+<?php 
 $strJavaUserHandlerArray = "
 	var arrUserHandler = new Array();
 	";
@@ -456,55 +456,55 @@ function OnSelectAll(fl)
 
 //-->
 </SCRIPT>
-<form name="form1" method="POST" action="<?echo $APPLICATION->GetCurPage()?>" enctype="multipart/form-data">
-<?
+<form name="form1" method="POST" action="<?php echo $APPLICATION->GetCurPage()?>" enctype="multipart/form-data">
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td width="60%"><?echo GetMessage("STAT_FILE")?></td>
+		<td width="60%"><?php echo GetMessage("STAT_FILE")?></td>
 		<td width="40%"><input type="file" name="file_name" size="30" maxlength="255" value=""></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_HANDLER")?></td>
+		<td><?php echo GetMessage("STAT_HANDLER")?></td>
 		<td><table cellspacing="0" cellpadding="0" border="0"><tr>
-			<td><?echo SelectBoxFromArray("handler", $arrHandlers, $handler, "(".GetMessage("STAT_NO").")", 'OnChange="SelectHandler()"');?></td>
+			<td><?php echo SelectBoxFromArray("handler", $arrHandlers, $handler, "(".GetMessage("STAT_NO").")", 'OnChange="SelectHandler()"');?></td>
 			<td><span id="edit_link_span">[&nbsp;<a target="_blank" class="tablebodylink" href="javascript:void(0)" id="edit_link"><?=GetMessage("STAT_EDIT")?></a>&nbsp;]</span></td>
 		</tr></table></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_PREVIEW")?></td>
-		<td><?echo InputType("checkbox", "preview", "Y", $preview, false, "", 'OnClick=ClickPreview()'); ?></td>
+		<td><?php echo GetMessage("STAT_PREVIEW")?></td>
+		<td><?php echo InputType("checkbox", "preview", "Y", $preview, false, "", 'OnClick=ClickPreview()'); ?></td>
 	</tr>
 	<tr>
-		<td width="60%"><?echo GetMessage("STAT_UNIQUE")?><sup>1</sup>:</td>
-		<td width="40%"><?echo InputType("checkbox", "check_unique", "Y", $check_unique, false, '', '', 'check_unique1'); ?></td>
+		<td width="60%"><?php echo GetMessage("STAT_UNIQUE")?><sup>1</sup>:</td>
+		<td width="40%"><?php echo InputType("checkbox", "check_unique", "Y", $check_unique, false, '', '', 'check_unique1'); ?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_STEP")?></td>
+		<td><?php echo GetMessage("STAT_STEP")?></td>
 		<td><input type="text" name="step" size="5" value="<?=$step?>"></td>
 	</tr>
-<?$tabControl->BeginNextTab();?>
+<?php $tabControl->BeginNextTab();?>
 	<tr>
 		<td colspan="2">
 		<table border="0" cellspacing="0" cellpadding="0" class="internal" id="table1">
 		<tr class="heading">
 			<td>#</td>
 			<td><input type="checkbox" name="selectall" value="Y" onclick="OnSelectAll(this.checked)" checked></td>
-			<td><?echo GetMessage("STAT_EVENT_TYPE")?><span class="required">*</span></td>
+			<td><?php echo GetMessage("STAT_EVENT_TYPE")?><span class="required">*</span></td>
 			<td>event3</td>
-			<td><?echo GetMessage("STAT_DATE")." (".FORMAT_DATE.")"?></td>
-			<td><?
+			<td><?php echo GetMessage("STAT_DATE")." (".FORMAT_DATE.")"?></td>
+			<td><?php 
 				$site_id = GetEventSiteID();
 				echo str_replace("#GROUP_SITE_ID#",$site_id,GetMessage("STAT_PARAM")) ?></td>
 			<td><?=GetMessage("STAT_MONEY")?></td>
-			<?if ($currency_module=="Y") :?>
+			<?php if ($currency_module=="Y") :?>
 			<td><?=GetMessage("STAT_CURRENCY")?></td>
-			<?endif;?>
+			<?php endif;?>
 			<td><?=GetMessage("STAT_CHARGEBACK")?></td>
 			<td>&nbsp;</td>
 		</tr>
-		<?
+		<?php 
 		$def_count = 10;
 		$_SESSION["SESS_NUMS"] = intval($_SESSION["SESS_NUMS"]);
 		$count = ($_SESSION["SESS_NUMS"]>0 && $_SESSION["SESS_NUMS"]>$def_count) ? $_SESSION["SESS_NUMS"] : $def_count;
@@ -535,46 +535,46 @@ $tabControl->BeginNextTab();
 		?>
 		<tr>
 			<td align="right"><?=$i?></td>
-			<td><?echo InputType("checkbox", "LOAD_".$i, "Y", "Y", false); ?></td>
+			<td><?php echo InputType("checkbox", "LOAD_".$i, "Y", "Y", false); ?></td>
 			<td nowrap>
-			<input type="hidden" name="ARR[]" value="<?echo $i?>">
-			<input type="text" size="14" name="EVENT_ID_<?echo $i?>" value="<?=htmlspecialcharsbx($event_id)?>" OnFocus="addNewRow(<?echo $i?>)">
-			<input type="button" onClick="SelectEvent('form1','EVENT_ID_<?echo $i?>')" title="<?echo GetMessage("STAT_SELECT_EVENT")?>" value="...">
+			<input type="hidden" name="ARR[]" value="<?php echo $i?>">
+			<input type="text" size="14" name="EVENT_ID_<?php echo $i?>" value="<?=htmlspecialcharsbx($event_id)?>" OnFocus="addNewRow(<?php echo $i?>)">
+			<input type="button" onClick="SelectEvent('form1','EVENT_ID_<?php echo $i?>')" title="<?php echo GetMessage("STAT_SELECT_EVENT")?>" value="...">
 			</td>
-			<td><input type="text" size="20" name="EVENT3_<?echo $i?>" value="<?=htmlspecialcharsbx($event3)?>" OnFocus="addNewRow(<?echo $i?>)"></td>
-			<td nowrap><?echo CalendarDate("DATE_ENTER_".$i, htmlspecialcharsbx($date_enter), "form1", "18")?></td>
-			<td><input type="text" style="width:100%" name="PARAM_<?echo $i?>" value="<?=htmlspecialcharsbx($param)?>" OnFocus="addNewRow(<?echo $i?>)"></td>
-			<td><input type="text" size="5" name="MONEY_<?echo $i?>" value="<?=htmlspecialcharsbx($money)?>" OnFocus="addNewRow(<?echo $i?>)"></td>
-			<?if ($currency_module=="Y") :?>
-				<td><?echo SelectBoxFromArray("CURRENCY_".$i, $arrCurrency, $currency, " ");?></td>
-			<?endif;?>
-			<td><?echo InputType("checkbox", "CHARGEBACK_".$i, "Y", $chargeback, false); ?></td>
-			<td><a href="javascript: Copy(<?=$i?>)"><img src="/bitrix/images/statistic/copy.gif" width="15" height="15" border=0 class="tb2" hspace="2" alt="<?echo GetMessage("STAT_COPY")?>"></a></td>
+			<td><input type="text" size="20" name="EVENT3_<?php echo $i?>" value="<?=htmlspecialcharsbx($event3)?>" OnFocus="addNewRow(<?php echo $i?>)"></td>
+			<td nowrap><?php echo CalendarDate("DATE_ENTER_".$i, htmlspecialcharsbx($date_enter), "form1", "18")?></td>
+			<td><input type="text" style="width:100%" name="PARAM_<?php echo $i?>" value="<?=htmlspecialcharsbx($param)?>" OnFocus="addNewRow(<?php echo $i?>)"></td>
+			<td><input type="text" size="5" name="MONEY_<?php echo $i?>" value="<?=htmlspecialcharsbx($money)?>" OnFocus="addNewRow(<?php echo $i?>)"></td>
+			<?php if ($currency_module=="Y") :?>
+				<td><?php echo SelectBoxFromArray("CURRENCY_".$i, $arrCurrency, $currency, " ");?></td>
+			<?php endif;?>
+			<td><?php echo InputType("checkbox", "CHARGEBACK_".$i, "Y", $chargeback, false); ?></td>
+			<td><a href="javascript: Copy(<?=$i?>)"><img src="/bitrix/images/statistic/copy.gif" width="15" height="15" border=0 class="tb2" hspace="2" alt="<?php echo GetMessage("STAT_COPY")?>"></a></td>
 		</tr>
-		<?
+		<?php 
 		$i++;
 		endwhile;
 		?>
 	</table>
-	<input type="hidden" name="nums" value="<?echo $i-1?>">
+	<input type="hidden" name="nums" value="<?php echo $i-1?>">
 	</td>
 	</tr>
 	<tr>
-		<td width="60%"><?echo GetMessage("STAT_UNIQUE")?><sup>1</sup>:</td>
-		<td width="40%"><?echo InputType("checkbox", "check_unique", "Y", $check_unique, false, '', '', 'check_unique2'); ?></td>
+		<td width="60%"><?php echo GetMessage("STAT_UNIQUE")?><sup>1</sup>:</td>
+		<td width="40%"><?php echo InputType("checkbox", "check_unique", "Y", $check_unique, false, '', '', 'check_unique2'); ?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("STAT_STEP")?></td>
+		<td><?php echo GetMessage("STAT_STEP")?></td>
 		<td><input type="text" name="step" size="5" value="<?=$step?>"></td>
 	</tr>
-<?$tabControl->Buttons();?>
-<?if($STAT_RIGHT=="W"):?>
-	<?echo bitrix_sessid_post();?>
+<?php $tabControl->Buttons();?>
+<?php if($STAT_RIGHT=="W"):?>
+	<?php echo bitrix_sessid_post();?>
 	<input type="hidden" name="lang" value="<?=LANG?>">
-	<input type="submit" name="Load" value="<?echo GetMessage("STAT_LOAD")?>" class="adm-btn-save">
-	<input type="reset"  value="<?echo GetMessage("STAT_RESET")?>">
-<?endif;?>
-<?$tabControl->End();?>
+	<input type="submit" name="Load" value="<?php echo GetMessage("STAT_LOAD")?>" class="adm-btn-save">
+	<input type="reset"  value="<?php echo GetMessage("STAT_RESET")?>">
+<?php endif;?>
+<?php $tabControl->End();?>
 <?=bitrix_sessid_post();?>
 </form>
 
@@ -582,18 +582,18 @@ $tabControl->BeginNextTab();
 <!--
 ClickPreview();
 SelectHandler();
-<?if($CSV_LOADING_OK):?>
+<?php if($CSV_LOADING_OK):?>
 tabControl.SelectTab('load_manual_tab');
-<?endif;?>
+<?php endif;?>
 //-->
 </SCRIPT>
 
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <sup>1</sup> - <?=GetMessage("STAT_UNIQUE_ALT")?><br>
 <span class="required"><?=GetMessage("STAT_ATTENTION_1")." !&nbsp;&nbsp;"?></span><?=GetMessage("STAT_CONVERT_TO_DEFAULT_CUR")?>
-<?echo EndNote();?>
+<?php echo EndNote();?>
 
-<?endif;?>
+<?php endif;?>
 
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

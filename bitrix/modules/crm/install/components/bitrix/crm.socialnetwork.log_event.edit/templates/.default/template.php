@@ -83,22 +83,22 @@ $formParams = array(
 $postFormUri = isset($arResult['POST_FORM_URI']) ? $arResult['POST_FORM_URI'] : '';
 
 if($hasErrors):
-	?><div class="feed-notice-block" style="display: block; opacity: 1; height: auto;"><?
+	?><div class="feed-notice-block" style="display: block; opacity: 1; height: auto;"><?php 
 	foreach($errorMessages as &$errorMessage):
 		?><div class="feed-add-error">
 			<span class="feed-add-info-icon"></span>
 			<span class="feed-add-info-text"><?=htmlspecialcharsbx($errorMessage);?></span>
-		</div><?
+		</div><?php 
 	endforeach;
 	unset($errorMessage);
-	?></div><?
+	?></div><?php 
 endif;
 ?><div class="feed-wrap" style="position:relative;"><div class="feed-add-post-block">
-<div class="feed-add-post-micro" id="<?=CUtil::JSEscape($UID)?>_micro" style="display: <?=(($hasErrors)? 'none' : 'block')?>"><?
-	?><div id="<?=CUtil::JSEscape($UID)?>_micro_inner"><?
-		?><span class="feed-add-post-micro-title"><?=GetMessage('CRM_SL_EVENT_EDIT_LINK_SHOW_NEW')?></span><?
-		?><span class="feed-add-post-micro-dnd"><?=GetMessage('CRM_SL_EVENT_EDIT_DRAG_ATTACHMENTS2')?></span><?
-	?></div><?
+<div class="feed-add-post-micro" id="<?=CUtil::JSEscape($UID)?>_micro" style="display: <?=(($hasErrors)? 'none' : 'block')?>"><?php 
+	?><div id="<?=CUtil::JSEscape($UID)?>_micro_inner"><?php 
+		?><span class="feed-add-post-micro-title"><?=GetMessage('CRM_SL_EVENT_EDIT_LINK_SHOW_NEW')?></span><?php 
+		?><span class="feed-add-post-micro-dnd"><?=GetMessage('CRM_SL_EVENT_EDIT_DRAG_ATTACHMENTS2')?></span><?php 
+	?></div><?php 
 ?></div>
 <div id="microblog-form">
 <form action="<?=htmlspecialcharsbx($postFormUri !== '' ? $postFormUri : POST_FORM_ACTION_URI)?>" id="<?=htmlspecialcharsbx($UID)?>" name="<?=htmlspecialcharsbx($UID)?>" method="POST" enctype="multipart/form-data" target="_self" data-bx-selector-id="<?=htmlspecialcharsbx($selectorId)?>">
@@ -109,9 +109,9 @@ endif;
 				value="<?=htmlspecialcharsbx($event['TITLE'])?>" placeholder="<?=GetMessage("CRM_SL_EVENT_EDIT_BUTTON_TITLE_LEGEND")?>" />
 			<input id="<?=$prefix?>enable_message_title" type="hidden" name="ENABLE_POST_TITLE" value="<?=$enableTitle ? 'Y' : 'N'?>" />
 			<div class="feed-add-close-icon" id="<?=$prefix?>message_title_close_btn"></div>
-		</div><?
+		</div><?php 
 		if(!$hasErrors):
-			?><span class="crm-feed-form-title-arrow"></span><?
+			?><span class="crm-feed-form-title-arrow"></span><?php 
 		endif;
 
 		$this->SetViewTarget('mpl_input_additional', 100);

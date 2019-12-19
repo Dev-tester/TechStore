@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['navigation_first'] = "Первая страница";
 $MESS ['navigation_prev'] = "Предыдущая страница";
 $MESS ['navigation_next'] = "Следующая страница";

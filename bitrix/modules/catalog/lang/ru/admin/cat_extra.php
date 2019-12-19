@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EXTRA_TITLE'] = "Типы наценок";
 $MESS ['EXTRA_DELETE_ERROR'] = "Ошибка удаления наценки";
 $MESS ['EXTRA_NAME'] = "Название наценки";

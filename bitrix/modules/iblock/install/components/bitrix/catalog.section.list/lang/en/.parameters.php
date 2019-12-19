@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BCSL_IBLOCK_TYPE"] = "Infoblock type";
 $MESS["CP_BCSL_IBLOCK_ID"] = "Infoblock";
 $MESS["CP_BCSL_SECTION_URL"] = "URL of the page with the section contents";

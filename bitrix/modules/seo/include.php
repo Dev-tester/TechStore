@@ -1,4 +1,4 @@
-<?
+<?php 
 global $DB, $APPLICATION, $MESS, $DBType;
 
 \Bitrix\Main\Loader::registerAutoLoadClasses(
@@ -246,7 +246,7 @@ class CSeoEventHandlers
 	}
 })();
 </script>
-<?
+<?php 
 		}
 	}
 
@@ -390,7 +390,7 @@ class CSeoEventHandlers
 		BX.addCustomEvent("OnEditorInitedBefore", applyForEditor);
 	})();
 </script>
-		<?
+		<?php 
 		}
 	}
 }

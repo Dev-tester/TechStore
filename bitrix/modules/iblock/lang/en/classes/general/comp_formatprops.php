@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['T_IBLOCK_MONTH_1'] = "January";
 $MESS ['T_IBLOCK_MONTH_2'] = "February";
 $MESS ['T_IBLOCK_MONTH_3'] = "March";

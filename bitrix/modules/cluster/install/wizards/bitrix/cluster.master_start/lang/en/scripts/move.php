@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLUWIZ_ERROR_ACCESS_DENIED"] = "Error! Access denied.";
 $MESS["CLUWIZ_CONNECTION_ERROR"] = "Error connecting to the database.";
 $MESS["CLUWIZ_QUERY_ERROR"] = "Error querying the database.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMOT_ORDER_N"] = "Заказ №";
 $MESS["SMOT_ORDER_FROM"] = "от";
 $MESS["SMOT_ORDER"] = "Заказ";

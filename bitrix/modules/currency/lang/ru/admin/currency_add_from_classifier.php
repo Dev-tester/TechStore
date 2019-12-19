@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_CURRENCY_CLASSIFIER_FORM_TITLE"] = "Добавить валюту из классификатора";
 $MESS["ADMIN_CURRENCY_CLASSIFIER_FORM_TAB_SEARCH_AND_SETTINGS"] = "Поиск и основные настройки";
 $MESS["ADMIN_CURRENCY_CLASSIFIER_FORM_TAB_SEARCH_AND_SETTINGS_TITLE"] = "Поиск и основные настройки валюты";

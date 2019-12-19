@@ -108,7 +108,7 @@ class CrmGroupStep extends \CWizardStep
 				{#USER_GROUPS_SELECT_ADMIN#}
 			</div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -245,17 +245,17 @@ class CrmGroupStep extends \CWizardStep
 					<select class="ui-ctl-element ui-ctl-element-auto"
 						name="USER_GROUPS_MANAGER[]" id="USER_GROUPS_MANAGER" title="" multiple size="5"
 					>
-					<?
+					<?php 
 					foreach ($groupList as $group)
 					{
-						?><option value="<?=$group["ID"]?>"><?=$group["NAME"]?></option><?
+						?><option value="<?=$group["ID"]?>"><?=$group["NAME"]?></option><?php 
 					}
 					?>
 					</select>
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -281,17 +281,17 @@ class CrmGroupStep extends \CWizardStep
 				<div class="ui-ctl-multiple-select ui-ctl-w75">
 					<select class="ui-ctl-element ui-ctl-element-auto"
 							name="USER_GROUPS_ADMIN[]" id="USER_GROUPS_ADMIN" title="" multiple size="5">
-						<?
+						<?php 
 						foreach ($groupList as $group)
 						{
-							?><option value="<?=$group["ID"]?>"><?=$group["NAME"]?></option><?
+							?><option value="<?=$group["ID"]?>"><?=$group["NAME"]?></option><?php 
 						}
 						?>
 					</select>
 				</div>
 			</div>
 		</div>
-		<?
+		<?php 
 		$content = ob_get_contents();
 		ob_end_clean();
 
@@ -344,7 +344,7 @@ class CrmGroupStep extends \CWizardStep
 			<button type="submit" class="ui-btn ui-btn-primary" name="<?=$this->GetWizard()->nextButtonID?>">
 				<?=$this->GetNextCaption()?>
 			</button>
-			<?
+			<?php 
 		}
 		$content = ob_get_contents();
 		ob_end_clean();

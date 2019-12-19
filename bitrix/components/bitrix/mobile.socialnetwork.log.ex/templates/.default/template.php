@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -53,7 +53,7 @@ if (Loader::includeModule('vote'))
 
 if (strlen($arResult["FatalError"])>0)
 {
-	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?
+	?><span class='errortext'><?=$arResult["FatalError"]?></span><br /><br /><?php 
 }
 else
 {
@@ -63,13 +63,13 @@ else
 		&& !$arResult["AJAX_CALL"]
 	)
 	{
-		?><div id="lenta_wrapper_global"><?
+		?><div id="lenta_wrapper_global"><?php 
 	}
 	?>
 	<script>
 		var bGlobalReload = <?=($arResult["RELOAD"] ? "true" : "false")?>;
 	</script>
-	<?
+	<?php 
 	AppCacheManifest::getInstance()->addAdditionalParam("page", "livefeed");
 	AppCacheManifest::getInstance()->addAdditionalParam("preventAutoUpdate", "Y");
 	AppCacheManifest::getInstance()->addAdditionalParam("MobileAPIVersion", CMobile::getApiVersion());
@@ -92,7 +92,7 @@ else
 			MSLExtranetSiteId: <?=(!empty($arResult["extranetSiteId"]) ? "'".CUtil::JSEscape($arResult["extranetSiteId"])."'" : "false")?>,
 			MSLExtranetSiteDir: <?=(!empty($arResult["extranetSiteDir"]) ? "'".CUtil::JSEscape($arResult["extranetSiteDir"])."'" : "false")?>
 		});
-	</script><?
+	</script><?php 
 
 	if (
 		$arParams["EMPTY_PAGE"] != "Y"
@@ -113,7 +113,7 @@ else
 						: false
 				)?>
 			});
-		</script><?
+		</script><?php 
 
 		if (
 			!$arParams["FILTER"]
@@ -130,9 +130,9 @@ else
 
 			?><script>
 				window.appCacheVars = <?=CUtil::PhpToJSObject(AppCacheManifest::getInstance()->getAdditionalParams())?>;
-			</script><?
+			</script><?php 
 
-			?><div id="framecache-block-feed"><?
+			?><div id="framecache-block-feed"><?php 
 			$feedFrame = $this->createFrame("framecache-block-feed", false)->begin("");
 			$feedFrame->setBrowserStorage(true);
 		}
@@ -150,7 +150,7 @@ else
 		?><script>
 			var bGlobalReload = true;
 		</script>
-		<div id="bxdynamic_feed_refresh"><?
+		<div id="bxdynamic_feed_refresh"><?php 
 	}
 
 	$like = COption::GetOptionString("main", "rating_text_like_y", GetMessage("MOBILE_LOG_LIKE"));
@@ -172,7 +172,7 @@ else
 			MSLPostFormPhotoGallery: '<?=GetMessageJS("MOBILE_LOG_POST_FORM_PHOTO_GALLERY")?>',
 			MSLPostFormUFCode: '<?=CUtil::JSEscape($arResult["postFormUFCode"])?>',
 			MSLIsExtranetSite: '<?=($arResult["bExtranetSite"] ? 'Y' : 'N')?>'
-			<?
+			<?php 
 			if (
 				$arResult["bDiskInstalled"]
 				|| $arResult["bWebDavInstalled"]
@@ -182,18 +182,18 @@ else
 				{
 					?>
 					, MSLbDiskInstalled: 'Y'
-					<?
+					<?php 
 				}
 				else
 				{
 					?>
 					, MSLbWebDavInstalled: 'Y'
-					<?
+					<?php 
 				}
 				?>
 				, MSLPostFormDisk: '<?=GetMessageJS("MOBILE_LOG_POST_FORM_DISK")?>'
 				, MSLPostFormDiskTitle: '<?=GetMessageJS("MOBILE_LOG_POST_FORM_DISK_TITLE")?>'
-				<?
+				<?php 
 			}
 			?>
 		});
@@ -228,7 +228,7 @@ else
 		});
 
 	</script>
-	<?
+	<?php 
 	if (
 		$arParams["LOG_ID"] <= 0
 		&& $arParams["EMPTY_PAGE"] != "Y"
@@ -316,7 +316,7 @@ else
 				MSLLoadScriptsNeeded: '<?=(COption::GetOptionString('main', 'optimize_js_files', 'N') == 'Y' ? 'N' : 'Y')?>',
 				MSLLogTitle: '<?=$pageTitle?>',
 				MOBILE_LOG_NEW_ERROR: '<?=GetMessageJS("MOBILE_LOG_NEW_ERROR")?>'
-				<?
+				<?php 
 				if ($arParams["USE_FOLLOW"] == "Y")
 				{
 					?>
@@ -326,7 +326,7 @@ else
 					, MSLMenuItemFollowDefaultN: '<?=GetMessageJS("MOBILE_LOG_MENU_FOLLOW_DEFAULT_N")?>'
 					, MSLMenuItemExpertModeY: '<?=GetMessageJS("MOBILE_LOG_MENU_EXPERT_MODE_Y")?>'
 					, MSLMenuItemExpertModeN: '<?=GetMessageJS("MOBILE_LOG_MENU_EXPERT_MODE_N")?>'
-					<?
+					<?php 
 				}
 
 				if (
@@ -336,46 +336,46 @@ else
 				{
 					?>
 					, MSLMenuItemWork: '<?=GetMessageJS("MOBILE_LOG_MENU_WORK")?>'
-					<?
+					<?php 
 				}
 
 				if (CModule::IncludeModule("lists") && CLists::isFeatureEnabled())
 				{
 					?>
 					, MSLMenuItemBizproc: '<?=GetMessageJS("MOBILE_LOG_MENU_BIZPROC")?>'
-					<?
+					<?php 
 				}
 				?>
 			});
 		</script>
-		<div class="lenta-notifier" id="lenta_notifier" onclick="__MSLRefresh(true); return false;"><?
-			?><span class="lenta-notifier-arrow"></span><?
-			?><span class="lenta-notifier-text"><?
-				?><span id="lenta_notifier_cnt"></span>&nbsp;<span id="lenta_notifier_cnt_title"></span><?
-			?></span><?
-		?></div><?
-		?><div class="lenta-notifier" id="lenta_notifier_2" onclick="app.exec('pullDownLoadingStart'); __MSLRefresh(true); return false;"><?
-			?><span class="lenta-notifier-text"><?=GetMessage("MOBILE_LOG_RELOAD_NEEDED")?></span><?
-		?></div><?
-		?><div class="lenta-notifier" id="lenta_refresh_error" onclick="__MSLRefreshError(false);"><?
-			?><span class="lenta-notifier-text"><?=GetMessage("MOBILE_LOG_RELOAD_ERROR")?></span><?
-		?></div><?
+		<div class="lenta-notifier" id="lenta_notifier" onclick="__MSLRefresh(true); return false;"><?php 
+			?><span class="lenta-notifier-arrow"></span><?php 
+			?><span class="lenta-notifier-text"><?php 
+				?><span id="lenta_notifier_cnt"></span>&nbsp;<span id="lenta_notifier_cnt_title"></span><?php 
+			?></span><?php 
+		?></div><?php 
+		?><div class="lenta-notifier" id="lenta_notifier_2" onclick="app.exec('pullDownLoadingStart'); __MSLRefresh(true); return false;"><?php 
+			?><span class="lenta-notifier-text"><?=GetMessage("MOBILE_LOG_RELOAD_NEEDED")?></span><?php 
+		?></div><?php 
+		?><div class="lenta-notifier" id="lenta_refresh_error" onclick="__MSLRefreshError(false);"><?php 
+			?><span class="lenta-notifier-text"><?=GetMessage("MOBILE_LOG_RELOAD_ERROR")?></span><?php 
+		?></div><?php 
 	}
 	elseif ($arParams["EMPTY_PAGE"] == "Y")
 	{
-		?><div id="empty_comment" style="display: none;"><?
-			?><div class="post-comment-block" style="position: relative;"><?
-				?><div class="post-user-wrap"><?
-					?><div id="empty_comment_avatar" class="avatar"<?=(strlen($arResult["EmptyComment"]["AVATAR_SRC"]) > 0 ? " style=\"background-image:url('".$arResult["EmptyComment"]["AVATAR_SRC"]."');\"" : "")?>></div><?
-					?><div class="post-comment-cont"><?
-						?><div class="post-comment-author"><?=$arResult["EmptyComment"]["AUTHOR_NAME"]?></div><?
-						?><div class="post-comment-preview-wait"></div><?
-						?><div class="post-comment-preview-undelivered"></div><?
-					?></div><?
-				?></div><?
-				?><div id="empty_comment_text" class="post-comment-text"></div><?
-			?></div><?
-		?></div><?
+		?><div id="empty_comment" style="display: none;"><?php 
+			?><div class="post-comment-block" style="position: relative;"><?php 
+				?><div class="post-user-wrap"><?php 
+					?><div id="empty_comment_avatar" class="avatar"<?=(strlen($arResult["EmptyComment"]["AVATAR_SRC"]) > 0 ? " style=\"background-image:url('".$arResult["EmptyComment"]["AVATAR_SRC"]."');\"" : "")?>></div><?php 
+					?><div class="post-comment-cont"><?php 
+						?><div class="post-comment-author"><?=$arResult["EmptyComment"]["AUTHOR_NAME"]?></div><?php 
+						?><div class="post-comment-preview-wait"></div><?php 
+						?><div class="post-comment-preview-undelivered"></div><?php 
+					?></div><?php 
+				?></div><?php 
+				?><div id="empty_comment_text" class="post-comment-text"></div><?php 
+			?></div><?php 
+		?></div><?php 
 		?><div style="display: none;" id="comment_send_button_waiter" class="send-message-button-waiter"></div>
 		<script>
 			BX.message({
@@ -421,7 +421,7 @@ else
 				MSLMobilePlayerErrorMessage: '<?=GetMessageJS("MOBILE_PLAYER_ERROR_MESSAGE")?>',
 				MSLDateTimeFormat: '<?=CUtil::JSEscape(CDatabase::DateFormatToPHP(strlen($arParams["DATE_TIME_FORMAT"]) > 0 ? $arParams["DATE_TIME_FORMAT"] : FORMAT_DATETIME))?>'
 			});
-		</script><?
+		</script><?php 
 	}
 	elseif (
 		$arParams["LOG_ID"] > 0
@@ -462,13 +462,13 @@ else
 				MSLDestinationHidden0: '<?=GetMessageJS("MOBILE_LOG_DESTINATION_HIDDEN_0")?>',
 				MSLMobilePlayerErrorMessage: '<?=GetMessageJS("MOBILE_PLAYER_ERROR_MESSAGE")?>',
 				MSLDateTimeFormat: '<?=CUtil::JSEscape(CDatabase::DateFormatToPHP(strlen($arParams["DATE_TIME_FORMAT"]) > 0 ? $arParams["DATE_TIME_FORMAT"] : FORMAT_DATETIME))?>'
-				<?
+				<?php 
 				if ($arParams["USE_FOLLOW"] == "Y")
 				{
 					?>
 					, MSLFollowY: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_Y")?>'
 					, MSLFollowN: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_N")?>'
-					<?
+					<?php 
 				}
 				?>
 			});
@@ -484,20 +484,20 @@ else
 					commentsClassName: 'post-comment-wrap'
 				}]);
 			});
-		</script><?
+		</script><?php 
 	}
 
 	if ($arParams["NEW_LOG_ID"] <= 0)
 	{
-		?><div class="lenta-wrapper" id="lenta_wrapper"><?
-			?><div class="post-comment-block-scroll post-comment-block-scroll-top" style="" id="post-scroll-button-top" onclick="oMSL.scrollTo('top');"><div class="post-comment-block-scroll-arrow post-comment-block-scroll-arrow-top"></div></div><?
-			?><div class="post-comment-block-scroll post-comment-block-scroll-bottom" style="" id="post-scroll-button-bottom" onclick="oMSL.scrollTo('bottom');"><div class="post-comment-block-scroll-arrow post-comment-block-scroll-arrow-bottom"></div></div><? // scroll
-			?><span id="blog-post-first-after"></span><?
+		?><div class="lenta-wrapper" id="lenta_wrapper"><?php 
+			?><div class="post-comment-block-scroll post-comment-block-scroll-top" style="" id="post-scroll-button-top" onclick="oMSL.scrollTo('top');"><div class="post-comment-block-scroll-arrow post-comment-block-scroll-arrow-top"></div></div><?php 
+			?><div class="post-comment-block-scroll post-comment-block-scroll-bottom" style="" id="post-scroll-button-bottom" onclick="oMSL.scrollTo('bottom');"><div class="post-comment-block-scroll-arrow post-comment-block-scroll-arrow-bottom"></div></div><?php  // scroll
+			?><span id="blog-post-first-after"></span><?php 
 	}
 
 	if(strlen($arResult["ErrorMessage"])>0)
 	{
-		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?
+		?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br /><?php 
 	}
 
 	if (
@@ -562,13 +562,13 @@ else
 				MSLCreateTaskErrorGetData: '<?=GetMessageJS("MOBILE_LOG_CREATE_TASK_ERROR_GET_DATA")?>',
 				MSLMobilePlayerErrorMessage: '<?=GetMessageJS("MOBILE_PLAYER_ERROR_MESSAGE")?>',
 				MSLCreateTaskTaskPath: '<?=SITE_DIR?>mobile/tasks/snmrouter/?routePage=view&USER_ID=#user_id#&TASK_ID=#task_id#'
-				<?
+				<?php 
 				if ($arParams["USE_FOLLOW"] == "Y")
 				{
 					?>
 					, MSLFollowY: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_Y")?>'
 					, MSLFollowN: '<?=GetMessageJS("MOBILE_LOG_FOLLOW_N")?>'
-					<?
+					<?php 
 				}
 				?>,
 				MSLTextPanelMenuPhoto: '<?=CUtil::JSEscape(GetMessage("MOBILE_LOG_TEXTPANEL_MENU_PHOTO"))?>',
@@ -578,7 +578,7 @@ else
 				MSLDetailPullDownText2: '<?=GetMessageJS("MOBILE_LOG_NEW_PULL_RELEASE")?>',
 				MSLDetailPullDownText3: '<?=GetMessageJS("MOBILE_LOG_DETAIL_NEW_PULL_LOADING")?>'
 			});
-		</script><?
+		</script><?php 
 	}
 
 	if ($arParams["EMPTY_PAGE"] == "Y")
@@ -591,33 +591,33 @@ else
 		AppCacheManifest::getInstance()->addAdditionalParam("MobilePlatform", CMobile::getPlatform());
 		AppCacheManifest::getInstance()->addAdditionalParam("version", "v6");
 
-		?><div class="post-wrap" id="lenta_item"><?
-			?><div id="post_log_id" data-log-id="" data-ts="" style="display: none;"></div><?
-			?><div id="post_item_top_wrap" class="post-item-top-wrap post-item-copyable"><?
-				?><div class="post-item-top" id="post_item_top"></div><?
-				?><div class="post-item-post-block" id="post_block_check_cont"></div><?
+		?><div class="post-wrap" id="lenta_item"><?php 
+			?><div id="post_log_id" data-log-id="" data-ts="" style="display: none;"></div><?php 
+			?><div id="post_item_top_wrap" class="post-item-top-wrap post-item-copyable"><?php 
+				?><div class="post-item-top" id="post_item_top"></div><?php 
+				?><div class="post-item-post-block" id="post_block_check_cont"></div><?php 
 
-				?><div id="post_inform_wrap_two" class="post-item-inform-wrap"><?
+				?><div id="post_inform_wrap_two" class="post-item-inform-wrap"><?php 
 
 					// rating
 					$like = COption::GetOptionString("main", "rating_text_like_y", GetMessage("MOBILE_LOG_LIKE"));
 
-					?><div id="rating_text" class="post-item-informers bx-ilike-block" data-counter="0" style="display: none;"></div><?
+					?><div id="rating_text" class="post-item-informers bx-ilike-block" data-counter="0" style="display: none;"></div><?php 
 
-					?><span id="comments_control" style="display: none;"><?
-						?><div class="post-item-informers post-item-inform-comments" onclick="oMSL.setFocusOnCommentForm();"><?
-							?><div class="post-item-inform-left"><?=GetMessage('MOBILE_LOG_COMMENT')?></div><?
-						?></div><?
-					?></span><?
+					?><span id="comments_control" style="display: none;"><?php 
+						?><div class="post-item-informers post-item-inform-comments" onclick="oMSL.setFocusOnCommentForm();"><?php 
+							?><div class="post-item-inform-left"><?=GetMessage('MOBILE_LOG_COMMENT')?></div><?php 
+						?></div><?php 
+					?></span><?php 
 
-					?><a id="post_more_limiter"  onclick="oMSL.expandText();" class="post-item-more" ontouchstart="this.classList.toggle('post-item-more-pressed')" ontouchend="this.classList.toggle('post-item-more-pressed')" style="display: none;"><?
-						?><?=GetMessage("MOBILE_LOG_EXPAND")?><?
-					?></a><?
+					?><a id="post_more_limiter"  onclick="oMSL.expandText();" class="post-item-more" ontouchstart="this.classList.toggle('post-item-more-pressed')" ontouchend="this.classList.toggle('post-item-more-pressed')" style="display: none;"><?php 
+						?><?=GetMessage("MOBILE_LOG_EXPAND")?><?php 
+					?></a><?php 
 
-					?><div id="log_entry_follow" class="post-item-informers <?=($arResult["FOLLOW_DEFAULT"] == 'Y' ? 'post-item-follow-default-active' : 'post-item-follow-default')?>" style="display: none;"><?
-						?><div class="post-item-inform-left"></div><?
-					?></div><?
-				?></div><?
+					?><div id="log_entry_follow" class="post-item-informers <?=($arResult["FOLLOW_DEFAULT"] == 'Y' ? 'post-item-follow-default-active' : 'post-item-follow-default')?>" style="display: none;"><?php 
+						?><div class="post-item-inform-left"></div><?php 
+					?></div><?php 
+				?></div><?php 
 
 				$bRatingExtended = (
 					CModule::IncludeModule("mobileapp")
@@ -627,17 +627,17 @@ else
 
 				if ($bRatingExtended)
 				{
-					?><div class="post-item-inform-wrap-tree" id="rating-footer-wrap"></div><?
+					?><div class="post-item-inform-wrap-tree" id="rating-footer-wrap"></div><?php 
 				}
 
-			?></div><?
-			?><div class="post-comments-wrap" id="post-comments-wrap"><span id="post-comment-last-after"></span></div><?
-		?></div><?
+			?></div><?php 
+			?><div class="post-comments-wrap" id="post-comments-wrap"><span id="post-comment-last-after"></span></div><?php 
+		?></div><?php 
 		?><script type="text/javascript">
 			var entryType = null;
-		</script><?
+		</script><?php 
 
-		?><div id="post-comments-form-wrap"></div><?
+		?><div id="post-comments-form-wrap"></div><?php 
 	}
 	elseif (
 		$arResult["Events"]
@@ -648,7 +648,7 @@ else
 		?><script type="text/javascript">
 			if (BX("lenta_block_empty", true))
 				BX("lenta_block_empty", true).style.display = "none";
-		</script><?
+		</script><?php 
 
 		$blogPostLivefeedProvider = new \Bitrix\Socialnetwork\Livefeed\BlogPost;
 		$blogPostEventIdList = $blogPostLivefeedProvider->getEventId();
@@ -872,13 +872,13 @@ else
 	{
 		if ($arParams["LOG_ID"] <= 0)
 		{
-			?><div class="lenta-block-empty" id="lenta_block_empty"><?=GetMessage("MOBILE_LOG_MESSAGE_EMPTY");?></div><?
+			?><div class="lenta-block-empty" id="lenta_block_empty"><?=GetMessage("MOBILE_LOG_MESSAGE_EMPTY");?></div><?php 
 		}
 		else
 		{
 			?><div class="post-wrap">
 				<div class="lenta-block-empty"><?=GetMessage("MOBILE_LOG_ERROR_ENTRY_NOT_FOUND");?></div>
-			</div><?
+			</div><?php 
 		}
 	}
 
@@ -907,7 +907,7 @@ else
 		$uri->addParams($uriParams);
 
 		?><script>
-			<?
+			<?php 
 			if (
 				$event_cnt > 0
 				&& $event_cnt >= $arParams["PAGE_SIZE"]
@@ -915,13 +915,13 @@ else
 			{
 				?>
 				url_next = '<?=CUtil::JSEscape(htmlspecialcharsEx($uri->getUri()))?>';
-				<?
+				<?php 
 			}
 			else
 			{
 				?>
 				oMSL.initScroll(false, true);
-				<?
+				<?php 
 				if ($arParams["NEW_LOG_ID"] > 0)
 				{
 					?>
@@ -929,12 +929,12 @@ else
 						oMSL.registerBlocksToCheck();
 						oMSL.checkNodesHeight();
 					}, 1000);
-					<?
+					<?php 
 				}
 			}
 			?>
 			BitrixMobile.LazyLoad.showImages(); // when load next page
-		</script><?
+		</script><?php 
 
 		if ($arParams["NEW_LOG_ID"] <= 0)
 		{
@@ -1032,9 +1032,9 @@ else
 							</table>
 						</div>
 					</div>
-				</div><?
+				</div><?php 
 			}
-			?></div><? // lenta-wrapper, lenta-wrapper-outer, lenta-wrapper-outer-cont
+			?></div><?php  // lenta-wrapper, lenta-wrapper-outer, lenta-wrapper-outer-cont
 		}
 
 		$uri = new \Bitrix\Main\Web\Uri(htmlspecialcharsback(POST_FORM_ACTION_URI));
@@ -1073,7 +1073,7 @@ else
 			var isPullDownLocked = false;
 
 			var url_next = '<?=CUtil::JSEscape(htmlspecialcharsEx($uri->getUri()))?>';
-			<?
+			<?php 
 			if (
 				($arParams["LOG_ID"] > 0 || $arParams["EMPTY_PAGE"] == "Y")
 				&& $_REQUEST["BOTTOM"] == "Y"
@@ -1081,14 +1081,14 @@ else
 			{
 				?>
 				__MSLDetailMoveBottom();
-				<?
+				<?php 
 			}
 		?>
 		</script>
-		<?
+		<?php 
 		if ($arResult["RELOAD"])
 		{
-			?></div><?
+			?></div><?php 
 
 			if ($arResult["RELOAD_JSON"])
 			{
@@ -1262,7 +1262,7 @@ else
 		if (isset($feedFrame))
 		{
 			$feedFrame->end();
-			?></div><?
+			?></div><?php 
 		}
 	}
 
@@ -1272,7 +1272,7 @@ else
 		&& !$arResult["AJAX_CALL"]
 	)
 	{
-		?></div><? // lenta_wrapper_global
+		?></div><?php  // lenta_wrapper_global
 	}
 }
 ?>

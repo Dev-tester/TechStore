@@ -1,4 +1,4 @@
-<?
+<?php 
 $base_currency = (CCurrency::GetByID('RUR') ? 'RUR' : 'RUB');
 
 $arCurrencies = array(

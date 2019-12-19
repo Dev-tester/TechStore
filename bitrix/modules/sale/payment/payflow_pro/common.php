@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $arErrorCodes = array(
 		1 => "User authentication failed",
 		2 => "Invalid tender. Your merchant bank account does not support the following credit card type that was submitted",

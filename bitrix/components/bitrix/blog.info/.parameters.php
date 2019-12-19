@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arRes = $GLOBALS["USER_FIELD_MANAGER"]->GetUserFields("BLOG_BLOG", 0, LANGUAGE_ID);
 $blogProp = array();

@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_PERMISSIONS", true);
 define("EXTRANET_NO_REDIRECT", true);
 define("STOP_STATISTICS", true);

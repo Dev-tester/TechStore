@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Delivery\Packing;
 use Bitrix\Main\ArgumentOutOfRangeException;
 use Bitrix\Main\SystemException;

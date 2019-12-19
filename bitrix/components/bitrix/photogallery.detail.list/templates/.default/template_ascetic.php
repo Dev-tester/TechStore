@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Localization\Loc::loadMessages(__FILE__);
 if (!function_exists("__photo_template_ascetic"))
 {
@@ -58,41 +58,41 @@ if (!function_exists("__photo_template_ascetic"))
 		endif;
 
 ?>
-		<div class="photo-photo-item photo-photo-item-ascetic <?=($arParams["mode"] == "edit" ? " photo-photo-item-edit" : "")?><?
-			?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?><?
-			?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " photo-photo-item-checked" : "")?>"><?
+		<div class="photo-photo-item photo-photo-item-ascetic <?=($arParams["mode"] == "edit" ? " photo-photo-item-edit" : "")?><?php 
+			?><?=(!$bActiveElement ? " photo-photo-item-notapproved" : "")?><?php 
+			?><?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " photo-photo-item-checked" : "")?>"><?php 
 	if ($arParams["SHOW_ANCHOR"] == "N")
 	{
 ?>
-			<div class="photo-photo-item-ascetic-inner" <?
+			<div class="photo-photo-item-ascetic-inner" <?php 
 				?>style="width:<?=intval($arItem["PICTURE"]["WIDTH"])?>px; height:<?=$arItem["PICTURE"]["HEIGHT"]?>px; overflow:hidden;">
 				<?=$sImage?>
 			</div>
-<?
+<?php 
 	}
 	else
 	{
 ?>
-			<div class="photo-photo-item-ascetic-inner" <?
-				?>style="width:<?=intval($arItem["PICTURE"]["WIDTH"])?>px; height:<?=$arItem["PICTURE"]["HEIGHT"]?>px; overflow:hidden;position:relative;"><?
+			<div class="photo-photo-item-ascetic-inner" <?php 
+				?>style="width:<?=intval($arItem["PICTURE"]["WIDTH"])?>px; height:<?=$arItem["PICTURE"]["HEIGHT"]?>px; overflow:hidden;position:relative;"><?php 
 			if ($arParams["mode"] == "edit"):
-				?><input type="checkbox" value="<?=$arItem["ID"]?>" name="items[]" <?
-					?> <?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " checked='checked' " : "")?> <?
-					?>id="items_<?=$arItem["ID"]?>" style="position:absolute;top:0;left:0;z-index:100;" <?
-					?>onclick="var res = this.parentNode.parentNode; <?
-						?>if (this.checked) {res.className += ' photo-photo-item-checked'} <?
-						?>else {res.className = res.className.replace(/photo\-photo\-item\-checked/g, ' ').replace(/\s\s/g, ' ');}" /><?
+				?><input type="checkbox" value="<?=$arItem["ID"]?>" name="items[]" <?php 
+					?> <?=(in_array($arItem["ID"], $_REQUEST["items"]) ? " checked='checked' " : "")?> <?php 
+					?>id="items_<?=$arItem["ID"]?>" style="position:absolute;top:0;left:0;z-index:100;" <?php 
+					?>onclick="var res = this.parentNode.parentNode; <?php 
+						?>if (this.checked) {res.className += ' photo-photo-item-checked'} <?php 
+						?>else {res.className = res.className.replace(/photo\-photo\-item\-checked/g, ' ').replace(/\s\s/g, ' ');}" /><?php 
 			endif;
-				?><a class="photo-photo-item-ascetic-inner" <?
-					?>style="width:<?=intval($arItem["PICTURE"]["WIDTH"])?>px;height:<?=$arItem["PICTURE"]["HEIGHT"]?>px;display:block;" <?
+				?><a class="photo-photo-item-ascetic-inner" <?php 
+					?>style="width:<?=intval($arItem["PICTURE"]["WIDTH"])?>px;height:<?=$arItem["PICTURE"]["HEIGHT"]?>px;display:block;" <?php 
 					?>href="<?=$arItem["URL"]?>" id="photo_<?=$arItem["ID"]?>"><?=$sImage?>
 				</a>
 			</div>
-<?
+<?php 
 	}
 ?>
 		</div>
-<?
+<?php 
 	}
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["M_CRM_CONTACT_LIST_TITLE"] = "Все контакты";
 $MESS["M_CRM_CONTACT_ADD"] = "Создать контакт";
 $MESS["M_CRM_CONTACT_ADD2"] = "Создать";

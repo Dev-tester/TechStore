@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 // Скопируйте этот файл в папку /bitrix/php_interface/include/sale_payment/ и
 // задайте путь к нему в настройках платежной системы
 // Вы можете изменить этот файл по своему усмотрению

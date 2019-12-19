@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!function_exists("___webdav_uploader"))
 {
@@ -33,7 +33,7 @@ function InitLink<?=$arParams["INDEX_ON_PAGE"]?>(){
 	window.oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['object'] = new FileUploaderClass();
 	window.oParams['<?=$arParams["INDEX_ON_PAGE"]?>']['object'].Init('<?=$arParams["INDEX_ON_PAGE"]?>');}
 </script>
-<?
+<?php 
 
 // This block showed only once on page
 $res = ___webdav_uploader();
@@ -69,23 +69,23 @@ function IUChangeMode(){
 	return true;}
 
 function IUSendData(value){
-<?
+<?php 
 	if ($GLOBALS["USER"]->IsAuthorized()):
 ?>
 	var url = '/bitrix/components/bitrix/webdav.element.upload/user_settings.php?sessid=<?=bitrix_sessid()?>&' + value;
 	var TID = jsAjax.InitThread();
 	jsAjax.Send(TID, url);
 	return true;
-<?
+<?php 
 	else:
 ?>
 	return false;
-<?
+<?php 
 	endif;
 ?>
 }
 
-<?
+<?php 
 	if (!$Browser["isOpera"])
 	{
 ?>
@@ -167,15 +167,15 @@ function to_init()
 				oParams[index]['object'].Init({
 						"SourceFile" : {"type" : "file", "title" : "<?=GetMessage("File")?>"},
 						"Title" : {"type" : "text", "title" : "<?=GetMessage("Title")?>"},
-			<?
+			<?php 
 				if ($arParams["SHOW_TAGS"] == "Y" && IsModuleInstalled("search")):
 			?>
 						"Tag" : {"type" : "text", "title" : "<?=GetMessage("Tags")?>", "use_search" : "Y"},
-			<?
+			<?php 
 				elseif ($arParams["SHOW_TAGS"] == "Y"):
 			?>
 						"Tag" : {"type" : "text", "title" : "<?=GetMessage("Tags")?>"},
-			<?
+			<?php 
 				endif;
 			?>
 						"Description" : {"type" : "textarea", "title" : "<?=GetMessage("Description")?>"}},
@@ -232,11 +232,11 @@ function InitImageUploader(index, view)
 		iu[index].addParam("BackgroundColor", "#ffffff");
 	}
 	oParams[index]['type'] = iu[index].getControlType();
-<?
+<?php 
 if ($arParams["UPLOAD_MAX_FILESIZE"] > 0 && false):
 ?>
 	iu.addParam("MaxFileSize", "<?=$arParams["UPLOAD_MAX_FILESIZE_BYTE"]?>");
-<?
+<?php 
 endif;
 ?>
 	//Configure URL files are uploaded to.
@@ -298,7 +298,7 @@ function InitThumbnailWriter(index)
 		document.getElementById('thumbnail_' + index).innerHTML = t[index].getHtml();
 	}
 }
-<?
+<?php 
 	}
 	else
 	{
@@ -327,15 +327,15 @@ function to_init()
 				oParams[index]['object'].Init({
 						"SourceFile" : {"type" : "file", "title" : "<?=GetMessage("File")?>"},
 						"Title" : {"type" : "text", "title" : "<?=GetMessage("Title")?>"},
-			<?
+			<?php 
 				if ($arParams["SHOW_TAGS"] == "Y" && IsModuleInstalled("search")):
 			?>
 						"Tag" : {"type" : "text", "title" : "<?=GetMessage("Tags")?>", "use_search" : "Y"},
-			<?
+			<?php 
 				elseif ($arParams["SHOW_TAGS"] == "Y"):
 			?>
 						"Tag" : {"type" : "text", "title" : "<?=GetMessage("Tags")?>"},
-			<?
+			<?php 
 				endif;
 			?>
 						"Description" : {"type" : "textarea", "title" : "<?=GetMessage("Description")?>"}},
@@ -348,7 +348,7 @@ function to_init()
 	}
 	return;
 }
-<?
+<?php 
 	}
 ?>
 </script>

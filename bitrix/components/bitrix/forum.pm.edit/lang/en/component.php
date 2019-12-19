@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PM_TITLE_NEW"] = "New";
 $MESS["PM_TITLE_EDIT"] = "&laquo;#TITLE#&raquo; (edit)";
 $MESS["PM_TITLE_NAV"] = "Private messages";

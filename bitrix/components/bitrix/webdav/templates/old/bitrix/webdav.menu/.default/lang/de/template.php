@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_ELEMENT_DELETE_CONFIRM'] = "Wollen Sie die Datei unwiderruflich löschen?";
 $MESS ['WD_GO_BACK_ALT'] = "Zurück zu den Dokumenten";
 $MESS ['WD_BP'] = "Geschäftsprozess";

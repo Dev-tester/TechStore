@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDAF_ACCESS_DENIED"] = "Access denied to anyone but the portal administrators.";
 $MESS["BPDAF_EMPTY_ENTITY_TYPE"] = "Storage type is missing.";
 $MESS["BPDAF_EMPTY_ENTITY_ID"] = "Storage is not specified.";

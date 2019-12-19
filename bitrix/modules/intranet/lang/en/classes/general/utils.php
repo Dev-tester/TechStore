@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_MAIL_DOMAINREADY_NOTICE"] = "The domain [b]#DOMAIN#[/b] has been connected. <a href=\"#SERVER#/company/personal/mail/manage/\">Manage mailboxes</a>";
 $MESS["INTR_MAIL_DOMAIN_SUPPORT_LINK"] = "http://www.bitrixsoft.com/support/index.php?utm_source=regru&utm_medium=email&utm_campaign=regru_email_support";
 $MESS["INTR_MAIL_DOMAIN_SUPPORTB24_LINK"] = "https://www.bitrix24.com/support/helpdesk/?utm_source=regru&utm_medium=email&utm_campaign=regru_email_support";

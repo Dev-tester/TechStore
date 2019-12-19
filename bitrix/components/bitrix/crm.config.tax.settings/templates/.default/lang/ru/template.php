@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_TAX_SETTINGS_SAVE_BUTTON"] = "Сохранить";
 $MESS["CRM_TAX_SETTINGS_CHOOSE"] = "Выберите тип налогов";
 $MESS["CRM_TAX_TAX"] = "Налог на счет";

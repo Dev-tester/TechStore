@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SBP_NEED_REQUIRED_MODULES"] = "Для работы компонента нужны установленные модули магазина, инфоблоков, и каталога.";
 $MESS["SBP_GROUPS_DISCOUNT"] = "Скидка";
 $MESS["SBP_GROUPS_COUPON"] = "Купон";

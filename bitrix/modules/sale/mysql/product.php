@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader;
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/product.php");
 

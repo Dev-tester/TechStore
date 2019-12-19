@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/workflow/include.php");
 $module_id = "workflow";
 $WORKFLOW_RIGHT = $APPLICATION->GetGroupRight($module_id);
@@ -118,56 +118,56 @@ if ($WORKFLOW_RIGHT >= "R")
 	$WORKFLOW_ADMIN_GROUP_ID = COption::GetOptionString($module_id, "WORKFLOW_ADMIN_GROUP_ID");
 
 	?>
-	<?
+	<?php 
 	$tabControl->Begin();
-	?><form method="POST" action="<?echo htmlspecialcharsbx($APPLICATION->GetCurPage().'?mid='.urlencode($module_id).'&lang='.LANGUAGE_ID)?>"><?
+	?><form method="POST" action="<?php echo htmlspecialcharsbx($APPLICATION->GetCurPage().'?mid='.urlencode($module_id).'&lang='.LANGUAGE_ID)?>"><?php 
 	$tabControl->BeginNextTab();
 	?>
-		<?
+		<?php 
 		foreach ($arAllOptions as $Option)
 		{
 			$val = COption::GetOptionString($module_id, $Option[0], $Option[2]);
 			$type = $Option[3];
 		?>
 		<tr>
-			<td width="40%" nowrap <?if($type[0]=="textarea") echo 'class="adm-detail-valign-top"'?>>
-				<label for="<?echo htmlspecialcharsbx($Option[0])?>"><?echo $Option[1]?></label>
+			<td width="40%" nowrap <?php if($type[0]=="textarea") echo 'class="adm-detail-valign-top"'?>>
+				<label for="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo $Option[1]?></label>
 			<td width="60%">
-			<?if ($type[0] == "checkbox")
+			<?php if ($type[0] == "checkbox")
 			{
-				?><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>" id="<?echo htmlspecialcharsbx($Option[0])?>" value="Y"<?if($val=="Y")echo" checked";?>><?
+				?><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>" id="<?php echo htmlspecialcharsbx($Option[0])?>" value="Y"<?php if($val=="Y")echo" checked";?>><?php 
 			}
 			elseif ($type[0] == "text")
 			{
-				?><input type="text" size="<?echo $type[1]?>" maxlength="255" value="<?echo htmlspecialcharsbx($val)?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?
+				?><input type="text" size="<?php echo $type[1]?>" maxlength="255" value="<?php echo htmlspecialcharsbx($val)?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php 
 				if ($Option[4])
 				{
-					?>&nbsp;<label for="<?echo htmlspecialcharsbx($Option[0])?>_clear"><?=GetMessage("FLOW_CLEAR")?>:</label><input type="checkbox" name="<?echo htmlspecialcharsbx($Option[0])?>_clear" id="<?echo htmlspecialcharsbx($Option[0])?>_clear" value="Y"><?
+					?>&nbsp;<label for="<?php echo htmlspecialcharsbx($Option[0])?>_clear"><?=GetMessage("FLOW_CLEAR")?>:</label><input type="checkbox" name="<?php echo htmlspecialcharsbx($Option[0])?>_clear" id="<?php echo htmlspecialcharsbx($Option[0])?>_clear" value="Y"><?php 
 				}
 			}
 			elseif ($type[0] == "textarea")
 			{
-				?><textarea rows="<?echo $type[1]?>" cols="<?echo $type[2]?>" name="<?echo htmlspecialcharsbx($Option[0])?>"><?echo htmlspecialcharsbx($val)?></textarea><?
+				?><textarea rows="<?php echo $type[1]?>" cols="<?php echo $type[2]?>" name="<?php echo htmlspecialcharsbx($Option[0])?>"><?php echo htmlspecialcharsbx($val)?></textarea><?php 
 			}
 			?></td>
 		</tr>
-		<?}?>
+		<?php }?>
 		<tr>
-			<td><?echo GetMessage("FLOW_ADMIN")?></td>
-			<td><?echo SelectBox("WORKFLOW_ADMIN_GROUP_ID", CGroup::GetDropDownList(""), GetMessage("MAIN_NO"), htmlspecialcharsbx($WORKFLOW_ADMIN_GROUP_ID));?></td>
+			<td><?php echo GetMessage("FLOW_ADMIN")?></td>
+			<td><?php echo SelectBox("WORKFLOW_ADMIN_GROUP_ID", CGroup::GetDropDownList(""), GetMessage("MAIN_NO"), htmlspecialcharsbx($WORKFLOW_ADMIN_GROUP_ID));?></td>
 		</tr>
 
-	<?
+	<?php 
 	$tabControl->BeginNextTab();
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");
 	$tabControl->Buttons();
 	?>
-	<input <?if ($WORKFLOW_RIGHT < "W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("FLOW_SAVE")?>" class="adm-btn-save">
+	<input <?php if ($WORKFLOW_RIGHT < "W") echo "disabled" ?> type="submit" name="Update" value="<?=GetMessage("FLOW_SAVE")?>" class="adm-btn-save">
 	<input type="hidden" name="Update" value="Y">
 	<input type="reset" name="reset" value="<?=GetMessage("FLOW_RESET")?>">
-	<input <?if ($WORKFLOW_RIGHT < "W") echo "disabled" ?> type="submit" title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>" name="RestoreDefaults">
+	<input <?php if ($WORKFLOW_RIGHT < "W") echo "disabled" ?> type="submit" title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="return confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>')" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>" name="RestoreDefaults">
 	<?=bitrix_sessid_post();?>
-	<?$tabControl->End();?>
+	<?php $tabControl->End();?>
 	</form>
-<?
+<?php 
 }

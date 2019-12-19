@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\XDImport\Update;
 
 use \Bitrix\Main\Update\Stepper;

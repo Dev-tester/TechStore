@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_INTEGRATION_IM_MESSAGE_NAME"] = "Мессенджеры";
 $MESS["SENDER_INTEGRATION_IM_MESSAGE_CONFIG_MESSAGE_TEXT"] = "Текст сообщения";
 ?>

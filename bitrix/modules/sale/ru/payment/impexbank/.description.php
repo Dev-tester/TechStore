@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 include(GetLangFileName(dirname(__FILE__)."/", "/impexbank.php"));
 
 $psTitle = GetMessage("SIBP_DTITLE");

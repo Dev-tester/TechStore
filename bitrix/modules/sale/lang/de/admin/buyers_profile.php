@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUYERS_DETAIL_DESCR"] = "Details der Bestellung anzeigen";
 $MESS["BUYERS_FROM"] = "vom";
 $MESS["BUYERS_H_ACCOUNT_NUMBER"] = "Bestellnummer";

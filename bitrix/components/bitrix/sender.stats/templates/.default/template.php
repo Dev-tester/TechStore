@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -25,12 +25,12 @@ $showLastPostingHtml = function (array $chain)
 			<?=htmlspecialcharsbx($chain['NAME'])?>
 		</a>
 	</div>
-	<?
+	<?php 
 }
 ?>
 
 <script id="sender-stat-template-last-posting" type="text/html">
-	<?$showLastPostingHtml(array(
+	<?php $showLastPostingHtml(array(
 		'DATE_SENT_FORMATTED' => '%DATE_SENT_FORMATTED%',
 		'MAILING_ID' => '%MAILING_ID%',
 		'MAILING_NAME' => '%MAILING_NAME%',
@@ -163,9 +163,9 @@ $showLastPostingHtml = function (array $chain)
 				</div>
 				<div data-bx-view-data="" class="bx-sender-releases">
 					<div data-bx-view-data-postings="" class="bx-sender-last-releases">
-						<?foreach($arResult['DATA']['chainList'] as $chain):?>
-							<?$showLastPostingHtml($chain)?>
-						<?endforeach;?>
+						<?php foreach($arResult['DATA']['chainList'] as $chain):?>
+							<?php $showLastPostingHtml($chain)?>
+						<?php endforeach;?>
 					</div>
 					<div class="bx-sender-new-releases">
 						<a href="/bitrix/admin/sender_mailing_wizard.php?IS_TRIGGER=N&lang=ru" class="adm-btn adm-btn-save bx-sender-btn">
@@ -178,7 +178,7 @@ $showLastPostingHtml = function (array $chain)
 
 
 		<div data-bx-block="CountersDynamic">
-			<?
+			<?php 
 			foreach ($arResult['COUNTERS_DYNAMIC_NAMES'] as $name):
 				$name = htmlspecialcharsbx($name);
 				?>
@@ -200,7 +200,7 @@ $showLastPostingHtml = function (array $chain)
 						<div class="bx-sender-block-view-text-item"><?=Loc::getMessage('SENDER_STATS_NO_DATA')?></div>
 					</div>
 				</div>
-				<?
+				<?php 
 			endforeach;
 			?>
 		</div>

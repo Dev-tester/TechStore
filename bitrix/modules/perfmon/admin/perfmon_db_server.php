@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "perfmon");
 define("PERFMON_STOP", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -894,14 +894,14 @@ if (count($data))
 			if ($node_id > 0)
 			{
 				?>
-				<form method="GET" action="<? echo $APPLICATION->GetCurPageParam() ?>"
-					enctype="multipart/form-data" name="editform" id="editform"><?
+				<form method="GET" action="<?php  echo $APPLICATION->GetCurPageParam() ?>"
+					enctype="multipart/form-data" name="editform" id="editform"><?php 
 				$arr = array(
 					"reference" => array_values($arClusterNodes),
 					"reference_id" => array_keys($arClusterNodes),
 				);
 				echo SelectBoxFromArray("node_id", $arr, $node_id, "", "", true, "editform"), "<br>";
-				?></form><?
+				?></form><?php 
 			}
 		}
 		$lAdmin->EndPrologContent();

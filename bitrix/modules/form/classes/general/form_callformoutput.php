@@ -1,4 +1,4 @@
-<?
+<?php 
 /**
  * Form output class - templates management & final output
  *
@@ -6,7 +6,7 @@
 class CAllFormOutput extends CFormOutput_old
 {
 	var $__cache_path = "";
-	var $__cache_file_header = "<?if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();?><?=\$FORM->ShowFormHeader();?>";
+	var $__cache_file_header = "<?php if(!defined(\"B_PROLOG_INCLUDED\") || B_PROLOG_INCLUDED!==true)die();?><?=\$FORM->ShowFormHeader();?>";
 	var $__cache_file_footer = "<?=\$FORM->ShowFormFooter();?>";
 
 	var $__admin;
@@ -97,7 +97,7 @@ class CAllFormOutput extends CFormOutput_old
 		{
 			$FORM =& $this; // create interface for template
 			ob_start();
-			eval('?>'.$this->__cache_tpl.'<?');
+			eval('?>'.$this->__cache_tpl.'<?php ');
 			$strReturn = ob_get_contents();
 			ob_end_clean();
 
@@ -198,7 +198,7 @@ class CAllFormOutput extends CFormOutput_old
 
 	/**
 	 * Public method used to check whether there were some form validation errors
-	 * Use: <?if($FORM->isFormErrors()):?>There're some errors!<?endif?>
+	 * Use: <?php if($FORM->isFormErrors()):?>There're some errors!<?php endif?>
 	 *
 	 * @return bool
 	 */
@@ -824,7 +824,7 @@ class CAllFormOutput extends CFormOutput_old
 
 	/**
 	 * Public method used to check whether current form uses captcha.
-	 * Use: <?if($FORM->isUseCaptcha()):?>form uses CAPTCHA<?else:?>form doesnt use CAPTCHA<?endif;?>
+	 * Use: <?php if($FORM->isUseCaptcha()):?>form uses CAPTCHA<?php else:?>form doesnt use CAPTCHA<?php endif;?>
 	 *
 	 * @return bool
 	 */
@@ -1136,7 +1136,7 @@ arrInputObjects[<?=$i++?>] = new CFormAnswer(
 	'<?=CUtil::JSEscape("'", "\\'", $arField["CAPTION_UNFORM"])?>',
 	'<?=$arField["isRequired"]?>',
 	'<?=$arField["type"]?>',
-	[<?
+	[<?php 
 				foreach ($arField["structure"] as $key=>$arQuestion)
 				{
 					$arr = array();
@@ -1159,7 +1159,7 @@ arrInputObjects[<?=$i++?>] = new CFormAnswer(
 	'<?=$arField["inExcelTable"]?>'
 );
 
-<?
+<?php 
 				if ($cnt > 0) echo "_global_newanswer_counter += ".$cnt.";\n";
 			}
 		}

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CLOBAL_COND_GROUP_ATOM_IF"] = "If";
 $MESS["BT_CLOBAL_COND_GROUP_DEF_TEXT"] = "Select value...";
 $MESS["BT_CLOBAL_COND_GROUP_LABEL"] = "Condition group";

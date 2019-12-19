@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_OPTIONS_MASK_INC"] = "Маска включения:";
 $MESS["SEARCH_OPTIONS_MASK_EXC"] = "Маска исключения:";
 $MESS["SEARCH_OPTIONS_USE_STEMMING"] = "Использовать морфологию:";

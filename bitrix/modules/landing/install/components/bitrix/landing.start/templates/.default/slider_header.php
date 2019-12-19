@@ -13,21 +13,21 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 			window.location = "<?= \CUtil::JSEscape($APPLICATION->GetCurPageParam('', array('IFRAME')));?>";
 		}
 	</script>
-	<?$APPLICATION->ShowHead();?>
+	<?php $APPLICATION->ShowHead();?>
 </head>
-<body class="landing-slider-frame-popup template-<?= defined('SITE_TEMPLATE_ID') ? SITE_TEMPLATE_ID : '';?> <?$APPLICATION->ShowProperty('BodyClass');?>">
+<body class="landing-slider-frame-popup template-<?= defined('SITE_TEMPLATE_ID') ? SITE_TEMPLATE_ID : '';?> <?php $APPLICATION->ShowProperty('BodyClass');?>">
 	<div class="landing-slider-pagetitle-wrap">
 		<div class="landing-slider-pagetitle-inner-container">
 			<div class="landing-slider-pagetitle-menu" id="pagetitle-menu">
-				<?$APPLICATION->ShowViewContent('pagetitle');?>
+				<?php $APPLICATION->ShowViewContent('pagetitle');?>
 			</div>
 			<div class="landing-slider-pagetitle">
-				<span id="pagetitle" class="landing-slider-pagetitle-item"><?$APPLICATION->ShowTitle(false);?></span>
+				<span id="pagetitle" class="landing-slider-pagetitle-item"><?php $APPLICATION->ShowTitle(false);?></span>
 			</div>
 		</div>
 	</div>
 
 	<div class="landing-slider-content">
-		<div id="sidebar"><?$APPLICATION->ShowViewContent('sidebar');?></div>
+		<div id="sidebar"><?php $APPLICATION->ShowViewContent('sidebar');?></div>
 		<div id="workarea-content">
 			<div class="workarea-content-paddings">

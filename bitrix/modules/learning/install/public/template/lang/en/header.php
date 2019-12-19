@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LEARNING_COURSE_DESCRIPTION'] = "Course description";
 $MESS ['LEARNING_FORWARD'] = "Forward";
 $MESS ['LEARNING_BACK'] = "Back";

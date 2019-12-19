@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 define("TM_SHORT_FORMAT","DD.MM.YYYY");

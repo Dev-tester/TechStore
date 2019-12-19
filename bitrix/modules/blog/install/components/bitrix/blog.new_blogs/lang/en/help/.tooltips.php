@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BLOG_COUNT_TIP'] = "Maximum number of blogs that can be displayed on a page.";
 $MESS ['SHOW_DESCRIPTION_TIP'] = "Select <i>Yes</i> if you want to display the blog description.";
 $MESS ['SORT_BY1_TIP'] = "Specifies the fields by which the blogs will be sorted first.";

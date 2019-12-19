@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CT_BLFE_TOOLBAR_FIELDS"] = "List Fields";
 $MESS["CT_BLFE_TOOLBAR_FIELDS_TITLE"] = "Configure list fields";
 $MESS["CT_BLFE_TOOLBAR_DELETE"] = "Delete Field";

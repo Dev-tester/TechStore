@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="body-blog">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"",
@@ -29,7 +29,7 @@ $APPLICATION->IncludeComponent(
 ?>
 		
 	<div class="blog-sidebar">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.info",
 				"avatar",
@@ -51,7 +51,7 @@ $APPLICATION->IncludeComponent(
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:blog.menu",
 			"settings",
@@ -81,7 +81,7 @@ $APPLICATION->IncludeComponent(
 		?>
 		<ul>
 			<li class="blog-tags-cloud">
-				<?
+				<?php 
 				$APPLICATION->IncludeComponent(
 						"bitrix:blog.info",
 						"",
@@ -114,7 +114,7 @@ $APPLICATION->IncludeComponent(
 				?>
 			</li>
 		</ul>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.blog.favorite", 
 				"", 
@@ -148,7 +148,7 @@ $APPLICATION->IncludeComponent(
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.rss.link",
 				"",
@@ -168,7 +168,7 @@ $APPLICATION->IncludeComponent(
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:blog.calendar",
 				"",
@@ -187,7 +187,7 @@ $APPLICATION->IncludeComponent(
 				$component 
 			);
 		?>
-		<?
+		<?php 
 		if(IsModuleInstalled("search"))
 		{
 			$APPLICATION->IncludeComponent(
@@ -212,7 +212,7 @@ $APPLICATION->IncludeComponent(
 		?>
 	</div>
 	<div class="blog-posts">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 			"bitrix:blog.blog", 
 			"", 

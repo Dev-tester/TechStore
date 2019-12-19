@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DOCGEN_CONFIG_MODULE_DOCGEN_ERROR"] = "Модуль \"Генератор документов\" не установлен";
 $MESS["DOCGEN_CONFIG_PERMISSIONS_ERROR"] = "У вас недостаточно прав для изменения настроек";
 $MESS["DOCGEN_CONFIG_TITLE"] = "Настройки";

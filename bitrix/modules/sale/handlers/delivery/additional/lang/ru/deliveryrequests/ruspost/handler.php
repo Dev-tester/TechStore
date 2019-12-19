@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVRS_ADD_DREQ_BATCH_DOC_PREPARE"] = "Подготовка и отправка электронной формы Ф103";
 $MESS["SALE_DLVRS_ADD_DREQ_BATCH_DOC_ALL"] = "Скачать пакет документации";
 $MESS["SALE_DLVRS_ADD_DREQ_BATCH_DOC_F103"] = "Скачать печатную форму Ф103";

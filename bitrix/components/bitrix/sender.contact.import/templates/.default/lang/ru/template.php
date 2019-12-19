@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_CONTACT_IMPORT_LOADING"] = "Загрузка";
 $MESS["SENDER_CONTACT_IMPORT_BUTTON_LOAD"] = "Загрузить";
 $MESS["SENDER_CONTACT_IMPORT_RECIPIENTS"] = "Список получателей";

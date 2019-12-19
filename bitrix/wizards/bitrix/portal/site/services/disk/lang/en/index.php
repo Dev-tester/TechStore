@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMON_DISK"] = "Company Drive";
 $MESS["COMMON_FILE_NAME1"] = "General product presentation";
 $MESS["COMMON_FILE_NAME2"] = "General form";

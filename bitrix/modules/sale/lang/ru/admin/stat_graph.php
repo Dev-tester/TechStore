@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_M_01'] = "Янв";
 $MESS ['STAT_M_02'] = "Фев";
 $MESS ['STAT_M_03'] = "Март";

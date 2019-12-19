@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BPGLDA_WRONG_TYPE'] = "Тип параметра '#PARAM#' не определен.";
 $MESS['BPGLDA_ERROR_DT'] = "Некорректный тип документа.";
 $MESS['BPGLDA_DOC_TYPE'] = "Тип документа";

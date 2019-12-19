@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	die();
@@ -23,7 +23,7 @@ $containerId = 'crm-tracking-order';
 
 <div id="<?=htmlspecialcharsbx($containerId)?>" class="crm-analytics-source-block-wrap">
 
-	<?
+	<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:ui.feedback.form',
 		'',
@@ -41,11 +41,11 @@ $containerId = 'crm-tracking-order';
 
 			<div class="crm-analytics-source-section">
 				<div class="crm-analytics-source-header">
-					<?if ($arResult['ROW']['CONFIGURED']):?>
+					<?php if ($arResult['ROW']['CONFIGURED']):?>
 						<?=Loc::getMessage('CRM_TRACKING_ORDER_CONNECTED', ['%name%' => $name])?>
-					<?else:?>
+					<?php else:?>
 						<?=Loc::getMessage('CRM_TRACKING_ORDER_CONNECT', ['%name%' => $name])?>
-					<?endif;?>
+					<?php endif;?>
 				</div>
 				<div class="crm-analytics-source-desc">
 					<span class="crm-analytics-source-desc-text">
@@ -74,11 +74,11 @@ $containerId = 'crm-tracking-order';
 					<div class="ui-ctl-after ui-ctl-icon-angle"></div>
 					<select name="FIELD_CODE" class="ui-ctl-element">
 						<option value=""><?=Loc::getMessage('CRM_TRACKING_ORDER_STEP_SELECT_FIELD_NONE')?></option>
-						<?foreach ($arResult['FIELDS'] as $field):?>
+						<?php foreach ($arResult['FIELDS'] as $field):?>
 						<option value="<?=htmlspecialcharsbx($field['id'])?>" <?=($arResult['FIELD_CODE'] == $field['id'] ? 'selected' : '')?>>
 							<?=htmlspecialcharsbx($field['name'])?>
 						</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</div>
 			</div>
@@ -108,7 +108,7 @@ $containerId = 'crm-tracking-order';
 				<br>
 				<div class="ui-alert ui-alert-primary ui-alert-xs" style="font-size: 11px;">
 					<span class="ui-alert-message">
-						<?
+						<?php 
 						$textId = strtoupper(str_replace(
 							' ',
 							'_',
@@ -128,7 +128,7 @@ $containerId = 'crm-tracking-order';
 			</div>
 		</div>
 
-		<?$APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
+		<?php $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 			'BUTTONS' => [
 				'save',
 				'cancel' => $arParams['PATH_TO_LIST']

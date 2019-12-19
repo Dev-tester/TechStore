@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_LEAD_WGT_PAGE_TITLE"] = "Lead analytical reports";
 $MESS["CRM_LEAD_WGT_FUNNEL"] = "Lead funnel";
 $MESS["CRM_LEAD_WGT_QTY_LEAD_NEW"] = "Number of new leads";

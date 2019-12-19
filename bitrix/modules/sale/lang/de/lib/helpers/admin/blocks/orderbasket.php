@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_BASKET_PRODUCT_UNAVAILABLE"] = "Produkt ist zum Kaufen nicht verfügbar";
 $MESS["SALE_ORDER_BASKET_COMPOSITION"] = "Elemente der Bestellung";
 $MESS["SALE_ORDER_BASKET_PRODUCT_ADD"] = "Produkt hinzufügen";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponentTemplate $this */
 /** @var array $arParams */
 /** @var array $arResult */
@@ -9,43 +9,43 @@
 $APPLICATION->SetAdditionalCSS('/bitrix/components/bitrix/socialnetwork.log.ex/templates/.default/style.css');
 $APPLICATION->AddHeadScript("/bitrix/components/bitrix/socialnetwork.log.ex/templates/.default/script.js");
 
-?><div id="blog-posts-content"><?
+?><div id="blog-posts-content"><?php 
 if(!empty($arResult["OK_MESSAGE"]))
 {
 	?>
 	<div class="feed-add-successfully">
 		<span class="feed-add-info-text"><span class="feed-add-info-icon"></span>
-			<?
+			<?php 
 			foreach($arResult["OK_MESSAGE"] as $v)
 				echo $v."<br />";
 			?>
 		</span>
-	</div><?
+	</div><?php 
 }
 if(!empty($arResult["MESSAGE"]))
 {
 	?>
 	<div class="feed-add-successfully">
 		<span class="feed-add-info-text"><span class="feed-add-info-icon"></span>
-			<?
+			<?php 
 			foreach($arResult["MESSAGE"] as $v)
 				echo $v."<br />";
 
 			?>
 		</span>
-	</div><?
+	</div><?php 
 }
 if(!empty($arResult["ERROR_MESSAGE"]))
 {
 	?>
 	<div class="feed-add-error">
 		<span class="feed-add-info-text"><span class="feed-add-info-icon"></span>
-			<?
+			<?php 
 			foreach($arResult["ERROR_MESSAGE"] as $v)
 				echo $v."<br />";
 			?>
 		</span>
-	</div><?
+	</div><?php 
 }
 
 if(count($arResult["POST"])>0)
@@ -53,7 +53,7 @@ if(count($arResult["POST"])>0)
 	foreach($arResult["POST"] as $ind => $CurPost)
 	{
 		?>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent(
 				"bitrix:socialnetwork.blog.post", 
 				"", 
@@ -102,7 +102,7 @@ if(count($arResult["POST"])>0)
 					$this->getComponent()
 			);
 		?>
-		<?
+		<?php 
 	}
 	if(strlen($arResult["NAV_STRING"])>0)
 	{

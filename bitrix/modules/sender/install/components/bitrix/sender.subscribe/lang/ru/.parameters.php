@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BSF_SHOW_HIDDEN"] = "Показать скрытые рассылки для подписки";
 $MESS["CP_BSF_USE_PERSONALIZATION"] = "Определять подписку текущего пользователя";
 $MESS["CP_BSF_USE_CONFIRMATION"] = "Запрашивать подтверждение подписки по email";

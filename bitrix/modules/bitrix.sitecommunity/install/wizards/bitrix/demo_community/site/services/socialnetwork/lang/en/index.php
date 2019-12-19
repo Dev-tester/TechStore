@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_GROUP_NAME_1'] = "Bicycle";
 $MESS ['SONET_GROUP_SUBJECT_0'] = "Holidays";
 $MESS ['SONET_GROUP_SUBJECT_1'] = "Work";

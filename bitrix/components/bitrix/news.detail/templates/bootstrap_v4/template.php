@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -15,37 +15,37 @@ $themeClass = isset($arParams['TEMPLATE_THEME']) ? ' bx-'.$arParams['TEMPLATE_TH
 CUtil::InitJSCore(array('fx'));
 ?>
 <div class="news-detail<?=$themeClass?>">
-	<div class="mb-3" id="<?echo $this->GetEditAreaId($arResult['ID'])?>">
+	<div class="mb-3" id="<?php echo $this->GetEditAreaId($arResult['ID'])?>">
 
-		<?if($arParams["DISPLAY_PICTURE"]!="N"):?>
-			<? if ($arResult["VIDEO"])
+		<?php if($arParams["DISPLAY_PICTURE"]!="N"):?>
+			<?php  if ($arResult["VIDEO"])
 			{
 				?>
 				<div class="mb-5 news-detail-youtube embed-responsive embed-responsive-16by9" style="display: block;">
-					<iframe src="<?
+					<iframe src="<?php 
 					echo $arResult["VIDEO"] ?>" frameborder="0" allowfullscreen=""></iframe>
 				</div>
-				<?
+				<?php 
 			}
 			else if ($arResult["SOUND_CLOUD"])
 			{
 				?>
 				<div class="mb-5 news-detail-audio">
-					<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<?
+					<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=<?php 
 					echo urlencode($arResult["SOUND_CLOUD"]) ?>&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 				</div>
-				<?
+				<?php 
 			}
 			else if ($arResult["SLIDER"] && count($arResult["SLIDER"]) > 1)
 			{
 				?>
 				<div class="mb-5 news-detail-slider">
-					<div class="news-detail-slider-container" style="width: <? echo count($arResult["SLIDER"]) * 100 ?>%;left: 0%;">
-						<? foreach ($arResult["SLIDER"] as $file):?>
-							<div style="width: <? echo 100 / count($arResult["SLIDER"]) ?>%;" class="news-detail-slider-slide">
+					<div class="news-detail-slider-container" style="width: <?php  echo count($arResult["SLIDER"]) * 100 ?>%;left: 0%;">
+						<?php  foreach ($arResult["SLIDER"] as $file):?>
+							<div style="width: <?php  echo 100 / count($arResult["SLIDER"]) ?>%;" class="news-detail-slider-slide">
 								<img src="<?= $file["SRC"] ?>" alt="<?= $file["DESCRIPTION"] ?>">
 							</div>
-						<? endforeach ?>
+						<?php  endforeach ?>
 						<div style="clear: both;"></div>
 					</div>
 					<div class="news-detail-slider-arrow-container-left">
@@ -55,13 +55,13 @@ CUtil::InitJSCore(array('fx'));
 						<div class="news-detail-slider-arrow"><i class="fa fa-angle-right"></i></div>
 					</div>
 					<ul class="news-detail-slider-control">
-						<? foreach ($arResult["SLIDER"] as $i => $file):?>
-							<li rel="<?= ($i + 1) ?>" <? if (!$i)
+						<?php  foreach ($arResult["SLIDER"] as $i => $file):?>
+							<li rel="<?= ($i + 1) ?>" <?php  if (!$i)
 								echo 'class="current"' ?>><span></span></li>
-						<? endforeach ?>
+						<?php  endforeach ?>
 					</ul>
 				</div>
-				<?
+				<?php 
 			}
 			else if ($arResult["SLIDER"])
 			{
@@ -74,7 +74,7 @@ CUtil::InitJSCore(array('fx'));
 						title="<?= $arResult["SLIDER"][0]["TITLE"] ?>"
 					/>
 				</div>
-				<?
+				<?php 
 			}
 			else if (is_array($arResult["DETAIL_PICTURE"]))
 			{
@@ -87,36 +87,36 @@ CUtil::InitJSCore(array('fx'));
 						title="<?=$arResult["DETAIL_PICTURE"]["TITLE"]?>"
 						/>
 				</div>
-				<?
+				<?php 
 			}
 			?>
-		<?endif?>
+		<?php endif?>
 
 		<div class="news-detail-body">
 
-			<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
+			<?php if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
 				<h3 class="news-detail-title"><?=$arResult["NAME"]?></h3>
-			<?endif;?>
+			<?php endif;?>
 
 			<div class="news-detail-content">
-				<?if($arResult["NAV_RESULT"]):?>
-					<?if($arParams["DISPLAY_TOP_PAGER"]):?><?=$arResult["NAV_STRING"]?><br /><?endif;?>
-					<?echo $arResult["NAV_TEXT"];?>
-					<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?><br /><?=$arResult["NAV_STRING"]?><?endif;?>
-				<?elseif(strlen($arResult["DETAIL_TEXT"])>0):?>
-					<?echo $arResult["DETAIL_TEXT"];?>
-				<?else:?>
-					<?echo $arResult["PREVIEW_TEXT"];?>
-				<?endif?>
+				<?php if($arResult["NAV_RESULT"]):?>
+					<?php if($arParams["DISPLAY_TOP_PAGER"]):?><?=$arResult["NAV_STRING"]?><br /><?php endif;?>
+					<?php echo $arResult["NAV_TEXT"];?>
+					<?php if($arParams["DISPLAY_BOTTOM_PAGER"]):?><br /><?=$arResult["NAV_STRING"]?><?php endif;?>
+				<?php elseif(strlen($arResult["DETAIL_TEXT"])>0):?>
+					<?php echo $arResult["DETAIL_TEXT"];?>
+				<?php else:?>
+					<?php echo $arResult["PREVIEW_TEXT"];?>
+				<?php endif?>
 			</div>
 
 		</div>
 
-		<?if(($arParams["USE_RATING"]=="Y") && ($arParams["USE_SHARE"] == "Y")) {?> <div class="d-flex justify-content-between"> <? } ?>
+		<?php if(($arParams["USE_RATING"]=="Y") && ($arParams["USE_SHARE"] == "Y")) {?> <div class="d-flex justify-content-between"> <?php  } ?>
 
-			<?if($arParams["USE_RATING"]=="Y"):?>
+			<?php if($arParams["USE_RATING"]=="Y"):?>
 				<div>
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						"bitrix:iblock.vote",
 						"bootstrap_v4",
 						Array(
@@ -133,12 +133,12 @@ CUtil::InitJSCore(array('fx'));
 						$component
 					);?>
 				</div>
-			<?endif?>
+			<?php endif?>
 
-			<?if ($arParams["USE_SHARE"] == "Y"):?>
+			<?php if ($arParams["USE_SHARE"] == "Y"):?>
 				<div>
 					<noindex>
-						<?
+						<?php 
 						$APPLICATION->IncludeComponent(
 							"bitrix:main.share",
 							$arParams["SHARE_TEMPLATE"],
@@ -156,42 +156,42 @@ CUtil::InitJSCore(array('fx'));
 						?>
 					</noindex>
 				</div>
-			<?endif?>
+			<?php endif?>
 
-		<?if(($arParams["USE_RATING"]=="Y") && ($arParams["USE_SHARE"] == "Y")) {?> </div> <? } ?>
+		<?php if(($arParams["USE_RATING"]=="Y") && ($arParams["USE_SHARE"] == "Y")) {?> </div> <?php  } ?>
 
-	<?foreach($arResult["FIELDS"] as $code=>$value):?>
-		<?if($code == "SHOW_COUNTER"):?>
+	<?php foreach($arResult["FIELDS"] as $code=>$value):?>
+		<?php if($code == "SHOW_COUNTER"):?>
 			<div class="news-detail-view"><?=GetMessage("IBLOCK_FIELD_".$code)?>: <?=intval($value);?></div>
-		<?elseif($code == "SHOW_COUNTER_START" && $value):?>
-			<? $value = CIBlockFormatProperties::DateFormat($arParams["ACTIVE_DATE_FORMAT"], MakeTimeStamp($value, CSite::GetDateFormat())); ?>
+		<?php elseif($code == "SHOW_COUNTER_START" && $value):?>
+			<?php  $value = CIBlockFormatProperties::DateFormat($arParams["ACTIVE_DATE_FORMAT"], MakeTimeStamp($value, CSite::GetDateFormat())); ?>
 			<div class="news-detail-date"><?=GetMessage("IBLOCK_FIELD_".$code)?>: <?=$value;?> </div>
-		<?elseif($code == "TAGS" && $value):?>
+		<?php elseif($code == "TAGS" && $value):?>
 			<div class="news-detail-tags"><?=GetMessage("IBLOCK_FIELD_".$code)?>: <?=$value;?> </div>
-		<?elseif($code == "CREATED_USER_NAME"):?>
+		<?php elseif($code == "CREATED_USER_NAME"):?>
 			<div class="news-detail-author"><?=GetMessage("IBLOCK_FIELD_".$code)?>: <?=$value;?> </div>
-		<?elseif ($value != ""):?>
+		<?php elseif ($value != ""):?>
 			<div class="news-detail-other"><?=GetMessage("IBLOCK_FIELD_".$code)?>: <?=$value;?></div>
-		<?endif;?>
-	<?endforeach;?>
+		<?php endif;?>
+	<?php endforeach;?>
 
-	<?foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-		<?
+	<?php foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+		<?php 
 		if(is_array($arProperty["DISPLAY_VALUE"]))
 			$value = implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
 		else
 			$value = $arProperty["DISPLAY_VALUE"];
 		?>
-		<?if($arProperty["CODE"] == "FORUM_MESSAGE_CNT"):?>
+		<?php if($arProperty["CODE"] == "FORUM_MESSAGE_CNT"):?>
 			<div class="news-detail-comments"><?=$arProperty["NAME"]?>: <?=$value;?> </div>
-		<?elseif ($value != ""):?>
+		<?php elseif ($value != ""):?>
 			<div class="news-detail-other"><?=$arProperty["NAME"]?>: <?=$value;?> </div>
-		<?endif;?>
-	<?endforeach;?>
+		<?php endif;?>
+	<?php endforeach;?>
 
-	<?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
-		<div class="news-detail-date"><?echo $arResult["DISPLAY_ACTIVE_FROM"]?></div>
-	<?endif?>
+	<?php if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
+		<div class="news-detail-date"><?php echo $arResult["DISPLAY_ACTIVE_FROM"]?></div>
+	<?php endif?>
 
 
 

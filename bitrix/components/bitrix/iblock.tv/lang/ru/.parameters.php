@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIXTV_GROUP_SETTINGS"] = "Общие настройки компонента";
 $MESS["BITRIXTV_GROUP_PREVIEW_TV"] = "Настройки плеера";
 $MESS["BITRIXTV_GROUP_PREVIEW_TV_PLAYER"] = "Настройки списка";

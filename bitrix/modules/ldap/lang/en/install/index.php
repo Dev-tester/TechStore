@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['LDAP_MODULE_NAME'] = "AD/LDAP connector";
 $MESS ['LDAP_MODULE_DESC'] = "Connector module for AD/LDAP";
 $MESS ['LDAP_UNINSTALL_TITLE'] = "AD/LDAP connector module uninstallation";

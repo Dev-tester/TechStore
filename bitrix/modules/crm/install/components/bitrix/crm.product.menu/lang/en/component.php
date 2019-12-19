@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_ADD_PRODUCT_SECTION'] = "Add section";
 $MESS['CRM_ADD_PRODUCT_SECTION_TITLE'] = "Add new section to current section";
 $MESS['CRM_MODULE_NOT_INSTALLED'] = "The CRM module is not installed.";

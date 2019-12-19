@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -67,7 +67,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 		{{^SHOW_RESTORE}}
 			<td class="basket-items-list-item-descriptions">
 				<div class="basket-items-list-item-descriptions-inner" id="basket-item-height-aligner-{{ID}}">
-					<?
+					<?php 
 					if (in_array('PREVIEW_PICTURE', $arParams['COLUMNS_LIST']))
 					{
 						?>
@@ -89,7 +89,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 								</div>
 							{{/SHOW_LABEL}}
 
-							<?
+							<?php 
 							if ($arParams['SHOW_DISCOUNT_PERCENT'] === 'Y')
 							{
 								?>
@@ -98,7 +98,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 										-{{DISCOUNT_PRICE_PERCENT_FORMATED}}
 									</div>
 								{{/DISCOUNT_PRICE_PERCENT}}
-								<?
+								<?php 
 							}
 							?>
 
@@ -106,16 +106,16 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 								</a>
 							{{/DETAIL_PAGE_URL}}
 						</div>
-						<?
+						<?php 
 					}
 					?>
 					<div class="basket-item-block-info">
-						<?
+						<?php 
 						if (isset($mobileColumns['DELETE']))
 						{
 							?>
 							<span class="basket-item-actions-remove d-block d-md-none" data-entity="basket-item-delete"></span>
-							<?
+							<?php 
 						}
 						?>
 						<h2 class="basket-item-info-name">
@@ -157,7 +157,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 							</div>
 						{{/WARNINGS.length}}
 						<div class="basket-item-block-properties">
-							<?
+							<?php 
 							if (!empty($arParams['PRODUCT_BLOCKS_ORDER']))
 							{
 								foreach ($arParams['PRODUCT_BLOCKS_ORDER'] as $blockName)
@@ -179,7 +179,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 														</div>
 													</div>
 												{{/PROPS}}
-												<?
+												<?php 
 											}
 
 											break;
@@ -254,7 +254,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 													</div>
 												</div>
 											{{/HAS_SIMILAR_ITEMS}}
-											<?
+											<?php 
 											break;
 										case 'columns':
 											?>
@@ -304,7 +304,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 													</div>
 												{{/IS_LINK}}
 											{{/COLUMN_LIST}}
-											<?
+											<?php 
 											break;
 									}
 								}
@@ -317,7 +317,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 					{{/SHOW_LOADING}}
 				</div>
 			</td>
-			<?
+			<?php 
 			if ($usePriceInAdditionalColumn)
 			{
 				?>
@@ -345,7 +345,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						{{/SHOW_LOADING}}
 					</div>
 				</td>
-				<?
+				<?php 
 			}
 			?>
 			<td class="basket-items-list-item-amount">
@@ -360,12 +360,12 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 					</div>
 					<span class="basket-item-amount-btn-plus" data-entity="basket-item-quantity-plus"></span>
 					<div class="basket-item-amount-field-description">
-						<?
+						<?php 
 						if ($arParams['PRICE_DISPLAY_MODE'] === 'Y')
 						{
 							?>
 							{{MEASURE_TEXT}}
-							<?
+							<?php 
 						}
 						else
 						{
@@ -377,7 +377,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 							{{^SHOW_PRICE_FOR}}
 								{{MEASURE_TEXT}}
 							{{/SHOW_PRICE_FOR}}
-							<?
+							<?php 
 						}
 						?>
 					</div>
@@ -386,7 +386,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 					{{/SHOW_LOADING}}
 				</div>
 			</td>
-			<?
+			<?php 
 			if ($useSumColumn)
 			{
 				?>
@@ -419,7 +419,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						{{/SHOW_LOADING}}
 					</div>
 				</td>
-				<?
+				<?php 
 			}
 
 			if ($useActionColumn)
@@ -433,7 +433,7 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						{{/SHOW_LOADING}}
 					</div>
 				</td>
-				<?
+				<?php 
 			}
 			?>
 		{{/SHOW_RESTORE}}

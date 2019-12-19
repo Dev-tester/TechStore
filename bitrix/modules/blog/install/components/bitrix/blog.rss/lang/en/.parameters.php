@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BR_NUM_POSTS'] = "Posts to emit";
 $MESS ['BR_PATH_TO_BLOG'] = "Blog page path template";
 $MESS ['BR_PATH_TO_POST'] = "Template of a blog message page";

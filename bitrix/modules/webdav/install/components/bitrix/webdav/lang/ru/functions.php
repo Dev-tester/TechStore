@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_CHANGE"] = "Изменить";
 $MESS["WD_DELETE"] = "Удалить";
 $MESS["WD_DELETE_TITLE"] = "Подтверждение удаления";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['nav_of'] = "of";
 $MESS ['nav_begin'] = "First";
 $MESS ['nav_prev'] = "Prev.";

@@ -47,7 +47,7 @@ else
 }
 ?>
 
-<?/*if (empty($arResult['ITEMS']['items'])):?>
+<?php /*if (empty($arResult['ITEMS']['items'])):?>
 	<div class="crm-kanban">
 		<div class="main-grid-empty-block">
 			<div class="main-grid-empty-inner">
@@ -58,9 +58,9 @@ else
 		<div class="crm-kanban-grid" id="kanban"></div>
 	</div>
 
-	<?return;?>
+	<?php return;?>
 
-<?endif;*/?>
+<?php endif;*/?>
 
 <div class="crm-kanban">
 	<div class="crm-kanban-grid" id="kanban"></div>
@@ -119,7 +119,7 @@ else
 
 
 
-<?if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):
+<?php if ($arParams['ENTITY_TYPE_CHR'] == 'LEAD'):
 	Loc::loadMessages($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/crm.lead.list/templates/.default/template.php');
 	?>
 
@@ -184,4 +184,4 @@ else
 	);
 </script>
 
-<?endif;?>
+<?php endif;?>

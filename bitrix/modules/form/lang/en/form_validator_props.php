@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['FORM_VALIDATOR_NOT_FOUND'] = "The validator was not found!";
 $MESS['FORM_MODULE_NOT_INSTALLED'] = "The Web Form module is not installed!";
 $MESS['FORM_VAL_PROPS_TITLE'] = "Validator settings";

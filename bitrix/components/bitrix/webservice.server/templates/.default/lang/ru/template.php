@@ -1,4 +1,4 @@
-<?
+<?php 
 
 $MESS["BX_WSTMPL_RESULT"] = "Результат вызова: ";
 $MESS["BX_WSTMPL_ERROR_NOWSDESCR"] = "Описание сервиса отсутствует.";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 use Bitrix\Main\Localization\Loc;
 
 CJSCore::Init(array('popup', 'sidepanel'));
@@ -69,7 +69,7 @@ Loc::loadMessages(__FILE__);
 		</div>
 	</div>
 </form>
-<?
+<?php 
 $jsData = array(
 	'AJAX_URL' => '/bitrix/components/bitrix/crm.order.check.details/ajax.php?&site='.SITE_ID.'&'.bitrix_sessid_get(),
 	'SHOW_URL' => $arResult['PATH_TO_ORDER_SHOW'],

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_SUPPLIES_FORM_NAME"] = "Канцелярские товары";
 $MESS["OFFICE_SUPPLIES_MENU_NAME"] = "Канцелярские товары";
 $MESS["SERVICE_SUPPLIES_FORM_BUTTON"] = "Отправить заявку";

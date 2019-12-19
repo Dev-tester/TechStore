@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($USER->IsAuthorized()):
 	$this->SetViewTarget('pagetitle', 100);
@@ -7,7 +7,7 @@ if ($USER->IsAuthorized()):
 			<span class="webform-small-button-icon"></span>
 			<span class="webform-small-button-text"><?=GetMessage('ME_ADD')?></span>
 		</a>
-<?
+<?php 
 	$this->EndViewTarget();
 endif;
 
@@ -56,12 +56,12 @@ $APPLICATION->IncludeComponent(
 				<label class="filter-field-title" for="meeting-field-stage"><?=GetMessage('ME_FILTER_CURRENT_STATE')?></label>
 				<select name="FILTER[CURRENT_STATE]" class="filter-field-select" id="meeting-field-stage">
 					<option value="0"><?=GetMessage('ME_FILTER_CURRENT_STATE_ALL')?></option>
-<?
+<?php 
 $ar = array(CMeeting::STATE_PREPARE, CMeeting::STATE_ACTION, CMeeting::STATE_CLOSED);
 foreach ($ar as $p):
 ?>
 					<option value="<?=$p?>"<?=$arResult['FILTER']['CURRENT_STATE'] == $p ? ' selected="selected"' : ''?>><?=GetMessage('ME_STATE_'.$p)?></option>
-<?
+<?php 
 endforeach;
 ?>
 				</select>
@@ -124,7 +124,7 @@ function BXOnFilterOwnerSelect(users)
 				<label class="filter-field-title" for="meeting-field-member"><?=GetMessage('ME_FILTER_MEMBER')?></label>
 				<span id="meeting_member_name"></span><a href="javascript:void(0)" class="webform-field-action-link" onclick="BXFilterSelectOwner(this, 'member')"><?=GetMessage('ME_FILTER_OWNER_CHOOSE')?></a>
 			</div>
-<?
+<?php 
 if (IsModuleInstalled('socialnetwork')):
 
 	$APPLICATION->IncludeComponent('bitrix:socialnetwork.group.selector', '', array(
@@ -152,7 +152,7 @@ function BXOnGroupChange(group)
 				<label class="filter-field-title"><?=GetMessage('ME_FILTER_GROUP')?></label>
 				<span id="meeting_group_name"></span><a href="javascript:void(0)" class="webform-field-action-link" onclick="groupsPopup.show()"><?=GetMessage('ME_FILTER_OWNER_CHOOSE')?></a>
 			</div>
-<?
+<?php 
 endif;
 if ($arResult['IS_HEAD']):
 ?>
@@ -160,7 +160,7 @@ if ($arResult['IS_HEAD']):
 				<input type="checkbox" class="meetings-filter-checkbox" name="FILTER[MY]" id="meeting-checkbox-sub" value="Y"<?=$arResult['FILTER']['MY']?' checked="checked"':''?> />
 				<label class="filter-field-title" for="meeting-checkbox-sub"><?=GetMessage('ME_FILTER_HEAD')?></label>
 			</div>
-<?
+<?php 
 endif;
 ?>
 			<div class="filter-field-buttons">
@@ -172,7 +172,7 @@ endif;
 	<i class="r1"></i>
 	<i class="r2"></i>
 </div>
-<?
+<?php 
 $this->EndViewTarget();
 ?>
 <script type="text/javascript">
@@ -221,7 +221,7 @@ function BXDeleteMeeting(id)
 				<div class="meeting-head-cell"><span class="meeting-head-cell-title"><?=GetMessage('ME_PLACE');?></span></div>
 			</th>
 		</tr>
-<?
+<?php 
 if (count($arResult['MEETINGS']) <= 0):
 ?>
 		<tr>
@@ -229,7 +229,7 @@ if (count($arResult['MEETINGS']) <= 0):
 				<?=GetMessage('ME_ERR_NO_MEETINGS')?>. <a href="<?=$arParams['MEETING_ADD_URL']?>"><?=GetMessage('ME_ADD')?></a>
 			</td>
 		</tr>
-<?
+<?php 
 else:
 	$arStateCSS = array(CMeeting::STATE_PREPARE => 'meeting-stage-not-started', CMeeting::STATE_ACTION => 'meeting-stage-goes', CMeeting::STATE_CLOSED => 'meeting-stage-completed');
 	foreach ($arResult['MEETINGS'] as $arMeeting):
@@ -239,16 +239,16 @@ else:
 meetingMenuPopup[<?=$arMeeting["ID"]?>] = [
 	{text : "<?=GetMessage("ME_DETAIL")?>", title : "<?=GetMessage("ME_DETAIL_EX")?>", className : "menu-popup-item-view", href : "<?=CUtil::JSEscape($arMeeting['URL'])?>" }
 	,{text : "<?=GetMessage("ME_COPY")?>", title : "<?=GetMessage("ME_COPY_EX")?>", className : "menu-popup-item-create", href : "<?=CUtil::JSEscape($arMeeting['URL_COPY'])?>" }
-<?
+<?php 
 		if ($current_role == CMeeting::ROLE_KEEPER || $current_role == CMeeting::ROLE_OWNER):
 ?>
 	,{text : "<?=GetMessage("ME_EDIT")?>", title : "<?=GetMessage("ME_DETAIL_EX")?>", className : "menu-popup-item-edit", href : "<?=CUtil::JSEscape($arMeeting['URL_EDIT'])?>" }
-<?
+<?php 
 		endif;
 		if ($current_role == CMeeting::ROLE_OWNER):
 ?>
 	,{text : "<?=GetMessage("ME_DELETE")?>", title : "<?=GetMessage("ME_DELETE_EX")?>", className : "menu-popup-item-delete", onclick : function(){BXDeleteMeeting(<?=$arMeeting['ID']?>)}},
-<?
+<?php 
 		endif;
 ?>
 ]
@@ -258,7 +258,7 @@ meetingMenuPopup[<?=$arMeeting["ID"]?>] = [
 		<td class="meeting-menu-column"><a href="javascript:void(0)" class="meeting-menu-button"  onclick="return ShowMenuPopup(<?php echo $arMeeting["ID"]?>, this);"><i class="meeting-menu-button-icon"></i></a></td>
 		<td class="meeting-date-column"><span class="meeting-date-start"><?=$arMeeting['DATE_START'] && MakeTimeStamp($arMeeting['DATE_START'])>0 ? FormatDate($DB->DateFormatToPhp(FORMAT_DATE).((IsAmPmMode()) ? ' h:i a' : ' H:i'), MakeTimeStamp($arMeeting['DATE_START'])) : ''?>&nbsp;</span></td>
 		<td class="meeting-stage-column"><span class="meeting-stage"><?=GetMessage('ME_STATE_'.$arMeeting['CURRENT_STATE'])?></span></td>
-		<td class="meeting-organizer-column"><div class="meeting-column-wrap"><?
+		<td class="meeting-organizer-column"><div class="meeting-column-wrap"><?php 
 			$APPLICATION->IncludeComponent('bitrix:main.user.link', '', array(
 				'ID' => $arMeeting['OWNER_ID'],
 				'INLINE' => 'Y',
@@ -267,7 +267,7 @@ meetingMenuPopup[<?=$arMeeting["ID"]?>] = [
 		?></div></td>
 		<td class="meeting-place-column"><div class="meeting-column-wrap"><span class="meeting-place" title="<?=$arMeeting['PLACE']?>"><?=$arMeeting['PLACE']?>&nbsp;</span></div></td>
 	</tr>
-<?
+<?php 
 	endforeach;
 endif;
 ?>
@@ -275,7 +275,7 @@ endif;
 	</table>
 </div>
 <div class="meeting-list-nav">
-<?
+<?php 
 	echo $arResult['NAV_STRING'];
 ?>
 </div>

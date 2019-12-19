@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DEDUPE_LIST_REBUILD_INDEX_COMPLETED_SUMMARY"] = "Построение списка дубликатов завершено. Найдено совпадений: #PROCESSED_ITEMS#.";
 $MESS["CRM_DEDUPE_LIST_REBUILD_INDEX_PROGRESS_SUMMARY"] = "Найдено совпадений: #PROCESSED_ITEMS#";
 $MESS["CRM_DEDUPE_LIST_MERGE_ERROR_READ_DENIED"] = "Отсуствует право на чтение \"#TITLE#\" [#ID#]";

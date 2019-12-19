@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EMAIL_ORDER"] = "E-Mail отдела продаж:";
 $MESS["SALE_EMAIL_REGISTER"] = "E-Mail по-умолчанию для регистрации:";
 $MESS["SALE_ADDRESS_POST"] = "Параметр 1";

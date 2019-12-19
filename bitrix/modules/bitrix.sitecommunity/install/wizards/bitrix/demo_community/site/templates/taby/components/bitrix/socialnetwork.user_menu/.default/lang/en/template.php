@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_UM_SEND_MESSAGE"] = "Send Message";
 $MESS["SONET_UM_VIDEO_CALL"] = "Video Call";
 $MESS["SONET_UM_ONLINE"] = "Online";

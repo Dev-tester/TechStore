@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -309,14 +309,14 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 ?>
 
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>" onsubmit="return this.set_filter.onclick();">
+<?php $filter->Begin();?>
 
 
 	<tr>
 		<td><b><?=GetMessage("LEARNING_ADMIN_STUDENT")?>:</b></td>
 		<td>
-			<input type="text" name="filter_user" value="<?echo htmlspecialcharsbx($filter_user)?>" size="25">
+			<input type="text" name="filter_user" value="<?php echo htmlspecialcharsbx($filter_user)?>" size="25">
 
 			<?=SelectBoxFromArray(
 				"filter_user_type",
@@ -344,18 +344,18 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 
 	<tr>
 		<td>ID:</td>
-		<td><input type="text" name="filter_id" value="<?echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
+		<td><input type="text" name="filter_id" value="<?php echo htmlspecialcharsbx($filter_id)?>" size="47"></td>
 	</tr>
 
 	<tr>
 		<td><?=GetMessage("LEARNING_ADMIN_TEST")?>:</td>
 		<td>
 			<select name="filter_test_id">
-				<option value=""><?echo GetMessage("LEARNING_ALL")?></option>
-			<?
+				<option value=""><?php echo GetMessage("LEARNING_ALL")?></option>
+			<?php 
 			$l = CTest::GetList(Array(), Array());
 			while($l->ExtractFields("l_")):
-				?><option value="<?echo $l_ID?>"<?if($filter_test_id==$l_ID)echo " selected"?>><?echo $l_NAME?></option><?
+				?><option value="<?php echo $l_ID?>"<?php if($filter_test_id==$l_ID)echo " selected"?>><?php echo $l_NAME?></option><?php 
 			endwhile;
 			?>
 			</select>
@@ -364,20 +364,20 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_ADMIN_DATE_START").":"?></td>
-		<td><?echo CalendarPeriod("filter_date_start_from", htmlspecialcharsex($filter_date_start_from), "filter_date_start_to", htmlspecialcharsex($filter_date_start_to), "form1")?></td>
+		<td><?php echo GetMessage("LEARNING_ADMIN_DATE_START").":"?></td>
+		<td><?php echo CalendarPeriod("filter_date_start_from", htmlspecialcharsex($filter_date_start_from), "filter_date_start_to", htmlspecialcharsex($filter_date_start_to), "form1")?></td>
 	</tr>
 
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_ADMIN_DATE_END").":"?></td>
-		<td><?echo CalendarPeriod("filter_date_end_from", htmlspecialcharsex($filter_date_end_from), "filter_date_end_to", htmlspecialcharsex($filter_date_end_to), "form1")?></td>
+		<td><?php echo GetMessage("LEARNING_ADMIN_DATE_END").":"?></td>
+		<td><?php echo CalendarPeriod("filter_date_end_from", htmlspecialcharsex($filter_date_end_from), "filter_date_end_to", htmlspecialcharsex($filter_date_end_to), "form1")?></td>
 	</tr>
 
 	<tr>
 		<td><?=GetMessage("LEARNING_ADMIN_COMPLETED")?>:</td>
 		<td>
-			<?
+			<?php 
 			$arr = array("reference"=>array(GetMessage("LEARNING_YES"), GetMessage("LEARNING_NO")), "reference_id"=>array("Y","N"));
 			echo SelectBoxFromArray("filter_completed", $arr, htmlspecialcharsex($filter_completed), GetMessage('LEARNING_ALL'));
 			?>
@@ -387,7 +387,7 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 <tr valign="top">
 		<td><?=GetMessage('LEARNING_ADMIN_STATUS')?>:</b></td>
 		<td>
-<?
+<?php 
 			$arr = Array(
 				"reference" =>array_values($arStatus),
 				"reference_id" => array_keys($arStatus),
@@ -398,27 +398,27 @@ if (defined("LEARNING_ADMIN_ACCESS_DENIED"))
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_ADMIN_SCORE")?>:</td>
+		<td><?php echo GetMessage("LEARNING_ADMIN_SCORE")?>:</td>
 		<td nowrap>
-			<input type="text" name="filter_score_from" size="10" value="<?echo htmlspecialcharsex($filter_score_from)?>">
+			<input type="text" name="filter_score_from" size="10" value="<?php echo htmlspecialcharsex($filter_score_from)?>">
 			...
-			<input type="text" name="filter_score_to" size="10" value="<?echo htmlspecialcharsex($filter_score_to)?>">
+			<input type="text" name="filter_score_to" size="10" value="<?php echo htmlspecialcharsex($filter_score_to)?>">
 		</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_ADMIN_ATTEMPT_SPEED")?>:</td>
+		<td><?php echo GetMessage("LEARNING_ADMIN_ATTEMPT_SPEED")?>:</td>
 		<td nowrap>
-			<input type="text" name="filter_speed_from" size="10" value="<?echo htmlspecialcharsex($filter_speed_from)?>">
+			<input type="text" name="filter_speed_from" size="10" value="<?php echo htmlspecialcharsex($filter_speed_from)?>">
 			...
-			<input type="text" name="filter_speed_to" size="10" value="<?echo htmlspecialcharsex($filter_speed_to)?>">
+			<input type="text" name="filter_speed_to" size="10" value="<?php echo htmlspecialcharsex($filter_speed_to)?>">
 		</td>
 	</tr>
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

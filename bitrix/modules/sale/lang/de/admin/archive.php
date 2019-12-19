@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ARCHIVE_TITLE"] = "Archivieren von Bestellungen";
 $MESS["ARCHIVE_TAB"] = "Archivieren von Bestellungen";
 $MESS["ARCHIVE_STEP"] = "Schritt";

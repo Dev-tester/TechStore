@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Config;
 use Bitrix\Main\Localization\Loc;
@@ -170,41 +170,41 @@ if(!$fatalFailure) // no fatals like "module not installed, etc."
 	$tabControl->BeginEpilogContent();
 
 	?>
-	<?if(strlen($_REQUEST['return_url'])):?>
+	<?php if(strlen($_REQUEST['return_url'])):?>
 		<input type="hidden" name="return_url" value="<?=htmlspecialcharsbx($returnUrl)?>">
-	<?endif?>
+	<?php endif?>
 	<?=bitrix_sessid_post()?>
-	<?
+	<?php 
 	$tabControl->EndEpilogContent();
 }
 
 $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E_ITEM_EDIT', array('#ITEM_NAME#' => '#'.htmlspecialcharsbx($nameToDisplay))) : Loc::getMessage('SALE_LOCATION_E_ITEM_NEW'));
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<?
+<?php 
 #####################################
 #### Data output
 #####################################
 ?>
 
-<?//temporal code?>
-<?if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php //temporal code?>
+<?php if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
 
-<?SearchHelper::checkIndexesValid();?>
+<?php SearchHelper::checkIndexesValid();?>
 
-<?if($fatalFailure):?>
+<?php if($fatalFailure):?>
 
-	<?CAdminMessage::ShowMessage(array('MESSAGE' => $fatalFailureMessage, 'type' => 'ERROR'))?>
+	<?php CAdminMessage::ShowMessage(array('MESSAGE' => $fatalFailureMessage, 'type' => 'ERROR'))?>
 
-<?else:?>
+<?php else:?>
 
-	<?if($actionFailure):?>
-		<?CAdminMessage::ShowMessage(array('MESSAGE' => $actionFailureMessage, 'type' => 'ERROR'))?>
-	<?endif?>
+	<?php if($actionFailure):?>
+		<?php CAdminMessage::ShowMessage(array('MESSAGE' => $actionFailureMessage, 'type' => 'ERROR'))?>
+	<?php endif?>
 
-	<?
+	<?php 
 	$topMenu->Show();
 
 	$args = array();
@@ -217,39 +217,39 @@ $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E
 	$tabControl->BeginNextFormTab();
 	?>
 
-	<?$requiredFld = ' class="adm-detail-required-field"';?>
+	<?php $requiredFld = ' class="adm-detail-required-field"';?>
 
-	<?$columns = Helper::getColumns('detail');?>
-	<?foreach($columns as $code => $field):?>
+	<?php $columns = Helper::getColumns('detail');?>
+	<?php foreach($columns as $code => $field):?>
 
-		<?if($code == 'ID' && !$id) continue; // new node or copied ?>
+		<?php if($code == 'ID' && !$id) continue; // new node or copied ?>
 
-		<?$value = Helper::makeSafeDisplay($formData[$code], $code);?>
+		<?php $value = Helper::makeSafeDisplay($formData[$code], $code);?>
 
-		<?$tabControl->BeginCustomField($code, $field['title']);?>
+		<?php $tabControl->BeginCustomField($code, $field['title']);?>
 
 			<tr<?=($field['required'] || $code == 'ID' ? $requiredFld : '')?>>
 				<td width="40%"><?=$field['title']?>:</td>
 				<td width="60%">
 
-					<?if($code == 'ID'):?>
+					<?php if($code == 'ID'):?>
 
 						<?=$id?>
 						<input type="hidden" name="element[<?=$code?>]" value="<?=$id?>" />
 
-					<?else:?>
+					<?php else:?>
 
-						<input type="text" name="element[<?=$code?>]" value="<?=$value?>" <?if($code == 'SORT'):?>size="7"<?endif?> />
+						<input type="text" name="element[<?=$code?>]" value="<?=$value?>" <?php if($code == 'SORT'):?>size="7"<?php endif?> />
 
-					<?endif?>
+					<?php endif?>
 
 				</td>
 			</tr>
-		<?$tabControl->EndCustomField($code, '');?>
+		<?php $tabControl->EndCustomField($code, '');?>
 
-	<?endforeach?>
+	<?php endforeach?>
 
-	<?
+	<?php 
 	$tabControl->Buttons(array(
 		"disabled" => !$userIsAdmin,
 		"btnSaveAndAdd" => true,
@@ -261,6 +261,6 @@ $APPLICATION->SetTitle(strlen($nameToDisplay) ? Loc::getMessage('SALE_LOCATION_E
 	$tabControl->Show();
 	?>
 
-<?endif?>
+<?php endif?>
 
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

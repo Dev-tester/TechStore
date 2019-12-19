@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 use \Bitrix\Main\Localization\Loc;
@@ -147,7 +147,7 @@ if($bSaved)
 ?>
 <form method="post" action="<?=$APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID?>" name="ebay_settings_form">
 <?=bitrix_sessid_post();?>
-<?
+<?php 
 
 if(!empty($errorMessages))
 {
@@ -168,21 +168,21 @@ elseif($ebay->isActive())
 				<img alt="eBay logo" src="/bitrix/images/sale/ebay/logo.png" style="width: 100px; height: 67px;">
 			</td>
 		</tr></table>
-	<?
+	<?php 
 	$tabControl->Begin();
 	$tabControl->BeginNextTab();
 	?>
 	<tr>
 		<td width="40%"><span class="adm-required-field"><?=Loc::getMessage("SALE_EBAY_DOMAIN_NAME")?></span>:</td>
-		<td width="60%"><input type="text" name="EBAY_SETTINGS[DOMAIN_NAME]" value="<?echo (strlen($siteSettings["DOMAIN_NAME"])>0) ? htmlspecialcharsbx($siteSettings["DOMAIN_NAME"]) : '' ?>" size="50" /> <input type="button" onclick="this.form['EBAY_SETTINGS[DOMAIN_NAME]'].value = window.location.host;" value="<?=Loc::getMessage("SALE_EBAY_DOMAIN_NAME_CURRENT")?>" /></td>
+		<td width="60%"><input type="text" name="EBAY_SETTINGS[DOMAIN_NAME]" value="<?php echo (strlen($siteSettings["DOMAIN_NAME"])>0) ? htmlspecialcharsbx($siteSettings["DOMAIN_NAME"]) : '' ?>" size="50" /> <input type="button" onclick="this.form['EBAY_SETTINGS[DOMAIN_NAME]'].value = window.location.host;" value="<?=Loc::getMessage("SALE_EBAY_DOMAIN_NAME_CURRENT")?>" /></td>
 	</tr>
 	<tr>
 		<td width="40%"><span class="adm-required-field"><?=Loc::getMessage("SALE_EBAY_PAYER_TYPE")?>:</span></td>
 		<td width="60%">
 			<select name="EBAY_SETTINGS[PERSON_TYPE]" onchange="this.form.submit();">
-				<?foreach ($arPersonTypes as $ptId => $ptName):?>
+				<?php foreach ($arPersonTypes as $ptId => $ptName):?>
 					<option value="<?=$ptId?>"<?=$personTypeId == $ptId ? " selected" : ""?>><?=htmlspecialcharsbx($ptName)?></option>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</select>
 		</td>
 	</tr>
@@ -190,7 +190,7 @@ elseif($ebay->isActive())
 		<td width="40%"><?=Loc::getMessage("SALE_EBAY_LOG_LEVEL")?>:</td>
 		<td width="60%">
 			<select name="EBAY_SETTINGS[LOG_LEVEL]">
-				<? $logLevel = isset($siteSettings["LOG_LEVEL"]) && $siteSettings["LOG_LEVEL"] ? $siteSettings["LOG_LEVEL"] : Logger::LOG_LEVEL_ERROR; ?>
+				<?php  $logLevel = isset($siteSettings["LOG_LEVEL"]) && $siteSettings["LOG_LEVEL"] ? $siteSettings["LOG_LEVEL"] : Logger::LOG_LEVEL_ERROR; ?>
 				<option value="<?=Logger::LOG_LEVEL_ERROR?>"<?=$logLevel == Logger::LOG_LEVEL_ERROR ? " selected" : ""?>><?=Loc::getMessage("SALE_EBAY_LOG_LEVEL_ERRORS")?></option>
 				<option value="<?=Logger::LOG_LEVEL_INFO?>"<?=$logLevel == Logger::LOG_LEVEL_INFO ? " selected" : ""?>><?=Loc::getMessage("SALE_EBAY_LOG_LEVEL_INFO")?></option>
 				<option value="<?=Logger::LOG_LEVEL_DEBUG?>"<?=$logLevel == Logger::LOG_LEVEL_DEBUG ? " selected" : ""?>><?=Loc::getMessage("SALE_EBAY_LOG_LEVEL_DEBUG")?></option>
@@ -215,7 +215,7 @@ elseif($ebay->isActive())
 		<td width="40%"><span class="adm-required-field"><?=Loc::getMessage("SALE_EBAY_IBLOCK_SELECT");?>:</span></td>
 		<td width="60%">
 			<div id="SALE_EBAY_IBLOCK_CHOOSE">
-				<?for($i = 0; $i < count($siteSettings["IBLOCK_ID"]); $i++):?>
+				<?php for($i = 0; $i < count($siteSettings["IBLOCK_ID"]); $i++):?>
 					<div  style="padding-top: 10px;">
 						<?=GetIBlockDropDownListEx(
 							$siteSettings["IBLOCK_ID"][$i],
@@ -236,21 +236,21 @@ elseif($ebay->isActive())
 						?>&nbsp;
 						<?=Helper::getBitrixCategoryPropsHtml("EBAY_SETTINGS[MORE_PHOTO_PROP][".$siteSettings["IBLOCK_ID"][$i]."]", $siteSettings["IBLOCK_ID"][$i],0, $siteSettings["MORE_PHOTO_PROP"][$siteSettings["IBLOCK_ID"][$i]])?>
 					</div>
-				<?endfor;?>
+				<?php endfor;?>
 			</div>
 			<input type="button" value="<?=Loc::getMessage("SALE_EBAY_IBLOCK_ADD");?>" onclick='BX.Sale.EbayAdmin.addIblockSelect();' style="margin-top: 10px;">
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->BeginNextTab();
 	?>
 	<tr class="heading"><td colspan="2"><?=Loc::getMessage("SALE_EBAY_ORDERPROPS")?></td></tr>
-	<?foreach($requiredOrderProperties as $orderPropertyCode):?>
+	<?php foreach($requiredOrderProperties as $orderPropertyCode):?>
 		<tr>
 			<td width="40%"><?=Loc::getMessage("SALE_EBAY_ORDER_PROPS_".$orderPropertyCode)?>:</td>
 			<td width="60%">
 				<select name="EBAY_SETTINGS[ORDER_PROPS][<?=$orderPropertyCode?>]">
-				<?
+				<?php 
 					$propIdForCode = 0;
 					if(isset($siteSettings["ORDER_PROPS"][$orderPropertyCode]))
 					{
@@ -269,25 +269,25 @@ elseif($ebay->isActive())
 					}
 				?>
 					<option value="0"><?=Loc::getMessage("SALE_EBAY_NOT_USE")?></option>
-					<?foreach($orderPropsList as $propParams):?>
+					<?php foreach($orderPropsList as $propParams):?>
 						<option	value="<?=$propParams["ID"]?>"<?=$propIdForCode > 0 && $propIdForCode == $propParams["ID"] ? " selected" : ""?>><?=htmlspecialcharsbx($propParams["NAME"])?></option>
-					<?endforeach;?>
+					<?php endforeach;?>
 				</select>
 			</td>
 		</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 
 	<tr class="heading"><td colspan="2"><?=Loc::getMessage("SALE_EBAY_STATUSES")?></td></tr>
 	<tr>
 		<td width="40%"><b><?=Loc::getMessage("SALE_EBAY_STATUSES_EBAY")?>:</b></td>
 		<td width="60%"><b><?=Loc::getMessage("SALE_EBAY_STATUSES_BITRIX")?>:</b></td>
 	</tr>
-	<?foreach(\Bitrix\Sale\TradingPlatform\Ebay\Helper::getEbayOrderStatuses() as $ebayStatus):?>
+	<?php foreach(\Bitrix\Sale\TradingPlatform\Ebay\Helper::getEbayOrderStatuses() as $ebayStatus):?>
 		<tr>
 			<td width="40%">[<?=$ebayStatus?>]:</td>
 			<td width="60%"><?=Helper::getSelectHtml("EBAY_SETTINGS[STATUS_MAP][".$ebayStatus."]", $bitrixStatuses, $siteSettings["STATUS_MAP"][$ebayStatus])?></td>
 		</tr>
-	<?endforeach;?>
+	<?php endforeach;?>
 	<tr>
 		<td width="40%" class = "adm-detail-valign-top"><?=Loc::getMessage("SALE_EBAY_ORDER_IS_READY")?>:</td>
 		<td width="60%"><?=Helper::getSelectHtml("EBAY_SETTINGS[ORDER_READY_MAP]", $bitrixStatuses, $siteSettings["ORDER_READY_MAP"])?>
@@ -296,7 +296,7 @@ elseif($ebay->isActive())
 			</small>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$tabControl->BeginNextTab();
 	?>
 	<tr class="heading"><td colspan="2"><?=Loc::getMessage("SALE_EBAY_API")?></td></tr>
@@ -361,7 +361,7 @@ elseif($ebay->isActive())
 			</script>
 		</td>
 	</tr>
-	<?
+	<?php 
 
 	$tabControl->BeginNextTab();
 
@@ -421,7 +421,7 @@ elseif($ebay->isActive())
 
 	<table border="0" cellpadding="0" cellspacing="0" class="internal" style="width:80%;">
 	<tr class="heading"><td><?=Loc::getMessage("SALE_EBAY_CAT_BITRIX_NAME")?></td><td><?=Loc::getMessage("SALE_EBAY_CAT_EBAY_NAME")?></td></tr>
-	<?
+	<?php 
 	if(!empty($maps))
 	{
 		foreach($maps as $map)
@@ -437,12 +437,12 @@ elseif($ebay->isActive())
 			<td>
 				<?=htmlspecialcharsbx($map["CATEGORY_EBAY_NAME"])?> [<?=htmlspecialcharsbx($map["VALUE_EXTERNAL"])?>]
 			</td>
-			</tr><?
+			</tr><?php 
 		}
 	}
 	else
 	{
-		?><tr><td colspan="2"><?=Loc::getMessage("SALE_EBAY_CAT_MAP_EMPTY")?></td></tr><?
+		?><tr><td colspan="2"><?=Loc::getMessage("SALE_EBAY_CAT_MAP_EMPTY")?></td></tr><?php 
 	}
 	?>
 	</table>
@@ -450,7 +450,7 @@ elseif($ebay->isActive())
 
 	</table>
 	</td></tr>
-	<?
+	<?php 
 
 	$tabControl->Buttons(array(
 		"btnSave" => true,
@@ -482,7 +482,7 @@ else //If integration with ebay is not active
 }
 ?>
 </form>
-<?
+<?php 
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 

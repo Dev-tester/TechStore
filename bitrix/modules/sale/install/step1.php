@@ -1,15 +1,15 @@
-<?
+<?php 
 if(!IsModuleInstalled("currency"))
 {
 	echo CAdminMessage::ShowMessage(GetMessage("SALE_INSTALL_CURRENCY"));
 	?>
-	<form action="<?echo $APPLICATION->GetCurPage()?>">
+	<form action="<?php echo $APPLICATION->GetCurPage()?>">
 	<p>
-		<input type="hidden" name="lang" value="<?echo LANG?>">
-		<input type="submit" name="" value="<?echo GetMessage("MOD_BACK")?>">	
+		<input type="hidden" name="lang" value="<?php echo LANG?>">
+		<input type="submit" name="" value="<?php echo GetMessage("MOD_BACK")?>">	
 	</p>
 	<form>
-	<?
+	<?php 
 }
 else
 {
@@ -61,6 +61,6 @@ else
 		<br>
 		<input type="submit" name="inst" value="<?= GetMessage("MOD_INSTALL")?>">
 	</form>
-	<?
+	<?php 
 }
 ?>

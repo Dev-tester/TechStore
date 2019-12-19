@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_FORM_LIST'] = "Список форм";
 $MESS ['FORM_NOT_FOUND'] = "Веб форма не найдена";
 $MESS ['FORM_ERROR'] = "Ошибка! ";

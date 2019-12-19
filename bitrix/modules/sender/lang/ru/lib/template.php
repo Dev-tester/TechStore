@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_TEMPLATE_EDITOR_MAILBLOCK"] = "Почтовые блоки";
 $MESS["SENDER_TEMPLATE_EDITOR_MAILBLOCK_SEARCH"] = "Поиск почтовых блоков...";
 $MESS["SENDER_TEMPLATE_EDITOR_PLACEHOLDER"] = "Персонализация";

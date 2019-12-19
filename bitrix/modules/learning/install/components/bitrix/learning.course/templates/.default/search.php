@@ -1,9 +1,9 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
 <table class="learn-work-table">
 	<tr>
 		<td class="learn-left-data" valign="top">
-			<?$APPLICATION->IncludeComponent("bitrix:learning.course.tree", "", Array(
+			<?php $APPLICATION->IncludeComponent("bitrix:learning.course.tree", "", Array(
 				"COURSE_ID"	=> $arParams["COURSE_ID"],
 				"COURSE_DETAIL_TEMPLATE"	=> $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["course.detail"],
 				"CHAPTER_DETAIL_TEMPLATE"	=> $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["chapter.detail"],
@@ -21,7 +21,7 @@
 			);?>
 		</td>
 		<td class="learn-right-data" valign="top">
-			<?$APPLICATION->IncludeComponent("bitrix:learning.search", ".default", array(
+			<?php $APPLICATION->IncludeComponent("bitrix:learning.search", ".default", array(
 					"PAGE_RESULT_COUNT" => "10",
 					"DISPLAY_TOP_PAGER" => "Y",
 					"DISPLAY_BOTTOM_PAGER" => "Y",

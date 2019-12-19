@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ME_AGENDA"] = "Agenda";
 $MESS["ME_PROTO"] = "Minutes";
 $MESS["ME_PROTO_OUTSIDE"] = "Topics outside agenda";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIKI_PATH_TO_POST"] = "Шаблон пути к Wiki-странице";
 $MESS["WIKI_PATH_TO_POST_EDIT"] = "Шаблон пути к странице редактирования Wiki-страницы";
 $MESS["WIKI_PATH_TO_PAGES"] = "Шаблон пути к странице со списком Wiki-страниц";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISC_CONVERT_IN_PROGRESS"] = "Konvertierung...";
 $MESS["SALE_DISC_CONVERT_TOTAL"] = "Rabatte konvertiert: <b>#COUNT#</b> (#PERCENT#%, Zeit ca.: #TIME#)";
 $MESS["SALE_DISC_CONVERT_TOTAL_MIN"] = "#MIN# Min.";

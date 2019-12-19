@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_APPLY"] = "Anwenden";
 $MESS["ERROR_EDIT_GROUP"] = "Beim Ändern der Standortgruppe ist ein Fehler aufgetreten";
 $MESS["ERROR_ADD_GROUP"] = "Beim Hinzufügen einer Standortgruppe ist ein Fehler aufgetreten";

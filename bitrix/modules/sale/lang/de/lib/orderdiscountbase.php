@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_ORDER_DISCOUNT_ERR_BAD_ORDER_ID"] = "Ungültige ID der Bestellung.";
 $MESS["SALE_ORDER_DISCOUNT_ERR_ORDER_STORED_DATA_ALREADY_EXISTS"] = "Daten existieren bereits und können nicht geändert werden";
 $MESS["SALE_ORDER_DISCOUNT_ERR_RESULT_ROW_IS_EMPTY"] = "Ergebnis der Rabattanwendung fehlt für Element oder Regel des Warenkorbs";

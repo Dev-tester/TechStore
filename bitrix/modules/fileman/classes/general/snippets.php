@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSnippets
 {
 	public static function LoadList($Params)
@@ -42,7 +42,7 @@ class CSnippets
 		}
 		else
 		{
-			?><script>window.arSnippets = <?= CUtil::PhpToJSObject($arSNIPPETS)?>; </script><?
+			?><script>window.arSnippets = <?= CUtil::PhpToJSObject($arSNIPPETS)?>; </script><?php 
 		}
 	}
 
@@ -195,7 +195,7 @@ class CSnippets
 
 		if (!file_exists($templatePath))
 		{
-			?><script>alert('Error: Incorrect template Id: <?= CUtil::JSEscape($template)?>');</script><?
+			?><script>alert('Error: Incorrect template Id: <?= CUtil::JSEscape($template)?>');</script><?php 
 			return;
 		}
 
@@ -208,7 +208,7 @@ class CSnippets
 			if ($name == '')
 			{
 				$name = CSnippets::GetDefaultFileName($basePath."/".$path);
-				?><script>window.__bx_res_sn_filename = "<?= CUtil::JSEscape($name);?>";</script><?
+				?><script>window.__bx_res_sn_filename = "<?= CUtil::JSEscape($name);?>";</script><?php 
 			}
 			$name = $name.'.snp';
 		}
@@ -231,8 +231,8 @@ class CSnippets
 			if ($description)
 				$SNIPPETS[$key]['description'] = $description;
 
-			$contentSrc = '<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
-			$contentSrc .= '<?'.chr(10).'$SNIPPETS = Array();'.chr(10);
+			$contentSrc = '<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
+			$contentSrc .= '<?php '.chr(10).'$SNIPPETS = Array();'.chr(10);
 			foreach ($SNIPPETS as $k=>$_arSn)
 			{
 				if (CSnippets::CheckFile(array('site' => $Params["site"], 'template' => $Params['template'], 'path' => $k)))
@@ -318,8 +318,8 @@ class CSnippets
 		if (file_exists($basePath."/.content.php"))
 		{
 			@include($basePath."/.content.php");
-			$contentSrc = '<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
-			$contentSrc .= '<?'.chr(10).'$SNIPPETS = Array();'.chr(10);
+			$contentSrc = '<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
+			$contentSrc .= '<?php '.chr(10).'$SNIPPETS = Array();'.chr(10);
 			foreach ($SNIPPETS as $k=>$_arSn)
 			{
 				if ($k != $key && CSnippets::CheckFile(array('site' => $Params["site"], 'template' => $Params['template'], 'path' => $k)))
@@ -334,7 +334,7 @@ class CSnippets
 <script>
 window.operation_success = true;
 </script>
-<?
+<?php 
 	}
 
 	function CheckFile($params)
@@ -437,7 +437,7 @@ window.operation_success = true;
 		?><script>
 		window.arSnGroups['<?= $template?>'] = {};
 		window.rootDefaultName['<?= $template?>'] = '<?= CSnippets::GetDefaultFileName($basePath)?>';
-		<?
+		<?php 
 		for($i=0,$len = count($ar); $i < $len; $i++)
 		{
 			$key = CUtil::JSEscape($ar[$i]['path'].($ar[$i]['path'] != '' ? '/' : '').$ar[$i]['name']);
@@ -449,9 +449,9 @@ window.arSnGroups['<?=$template?>']['<?= $key?>'] =
 	level: '<?=CUtil::JSEscape($ar[$i]['level'])?>',
 	default_name: '<?=CUtil::JSEscape($ar[$i]['default_name'])?>'
 };
-		<?
+		<?php 
 		}
-		?></script><?
+		?></script><?php 
 	}
 
 	/**
@@ -537,8 +537,8 @@ window.arSnGroups['<?=$template?>']['<?= $key?>'] =
 			if ($description)
 				$SNIPPETS[$key]['description'] = $description;
 
-			$contentSrc = '<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
-			$contentSrc .= '<?'.chr(10).'$SNIPPETS = Array();'.chr(10);
+			$contentSrc = '<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
+			$contentSrc .= '<?php '.chr(10).'$SNIPPETS = Array();'.chr(10);
 			foreach ($SNIPPETS as $k => $snip)
 			{
 				if($io->FileExists(CFileMan::SecurePathVar($basePath.'/'.$k)))
@@ -602,8 +602,8 @@ window.arSnGroups['<?=$template?>']['<?= $key?>'] =
 		if ($io->FileExists($basePath."/.content.php"))
 			@include($basePath."/.content.php");
 
-		$contentSrc = '<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
-		$contentSrc .= '<?'.chr(10).'$SNIPPETS = Array();'.chr(10);
+		$contentSrc = '<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>'.chr(10);
+		$contentSrc .= '<?php '.chr(10).'$SNIPPETS = Array();'.chr(10);
 		foreach ($SNIPPETS as $k => $snip)
 		{
 			if($io->FileExists(CFileMan::SecurePathVar($basePath.'/'.$k)))

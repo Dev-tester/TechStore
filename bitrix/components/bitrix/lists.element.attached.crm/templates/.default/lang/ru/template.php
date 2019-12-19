@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEACT_TITLE_ADD_ELEMENT_BUTTON"] = "Добавить элемент";
 $MESS["LEACT_DELETE_POPUP_TITLE"] = "Подтверждение удаления связи";
 $MESS["LEACT_DELETE_POPUP_ACCEPT_BUTTON"] = "Удалить";

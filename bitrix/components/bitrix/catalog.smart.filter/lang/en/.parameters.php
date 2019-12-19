@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CP_BCSF_CACHE_GROUPS"] = "Respect Access Permissions";
 $MESS["CP_BCSF_CONVERT_CURRENCY"] = "Use only one currency to show prices";
 $MESS["CP_BCSF_CURRENCY_ID"] = "Convert all prices to currency";

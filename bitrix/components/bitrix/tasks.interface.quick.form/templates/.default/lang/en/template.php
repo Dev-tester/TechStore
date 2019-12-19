@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_QUICK_FORM_DESC_PLACEHOLDER"] = "Task description";
 $MESS["TASKS_QUICK_FORM_TITLE_PLACEHOLDER"] = "New task";
 $MESS["TASKS_QUICK_FORM_AFTER_SAVE_MESSAGE"] = "The task &quot;#TASK_NAME#&quot; has been saved.";

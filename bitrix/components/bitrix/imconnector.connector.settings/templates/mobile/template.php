@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 \Bitrix\Main\UI\Extension::load( "ui.fonts.opensans");
@@ -27,7 +27,7 @@ Loc::loadMessages($_SERVER["DOCUMENT_ROOT"] . '/bitrix/components/bitrix/imconne
 CJSCore::Init(array("popup"));
 $this->addExternalJs('/bitrix/components/bitrix/imconnector.connector.settings/templates/.default/script.js');
 ?>
-<?if(empty($arResult['RELOAD'])):?>
+<?php if(empty($arResult['RELOAD'])):?>
 <div class="im-connector-settings-wrapper">
 	<div class="im-connector-settings-b24-logo">
 		<?=Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_LOGO')?>
@@ -41,23 +41,23 @@ $this->addExternalJs('/bitrix/components/bitrix/imconnector.connector.settings/t
 		</div><!--im-connector-settings-title-->
 
 		<div class="im-connector-settings-channel-container">
-			<?if((!empty($arResult['LIST_LINE']) && (count($arResult['LIST_LINE'])>1 || !empty($arResult['PATH_TO_ADD_LINE']))) || (!empty($arResult['LIST_LINE']) && count($arResult['LIST_LINE'])==1) || (!empty($arResult['PATH_TO_ADD_LINE'])) || (!empty($arResult['ACTIVE_LINE']['URL_EDIT']))):?>
+			<?php if((!empty($arResult['LIST_LINE']) && (count($arResult['LIST_LINE'])>1 || !empty($arResult['PATH_TO_ADD_LINE']))) || (!empty($arResult['LIST_LINE']) && count($arResult['LIST_LINE'])==1) || (!empty($arResult['PATH_TO_ADD_LINE'])) || (!empty($arResult['ACTIVE_LINE']['URL_EDIT']))):?>
 			<div class="im-connector-settings-channel-options">
 				<span class="im-connector-settings-channel-options-name"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_OPEN_LINE')?></span>
-				<?if(!empty($arResult['LIST_LINE']) && (count($arResult['LIST_LINE'])>1 || !empty($arResult['PATH_TO_ADD_LINE']))):?>
+				<?php if(!empty($arResult['LIST_LINE']) && (count($arResult['LIST_LINE'])>1 || !empty($arResult['PATH_TO_ADD_LINE']))):?>
 					<span class="im-connector-settings-channel-options-line" data-role="im-connector-select"><?=$arResult['ACTIVE_LINE']['NAME']?></span>
-				<?elseif(!empty($arResult['LIST_LINE']) && count($arResult['LIST_LINE'])==1):?>
+				<?php elseif(!empty($arResult['LIST_LINE']) && count($arResult['LIST_LINE'])==1):?>
 					<span class="im-connector-settings-channel-options-tune"><?=$arResult['ACTIVE_LINE']['NAME']?></span>
-				<?elseif(!empty($arResult['PATH_TO_ADD_LINE'])):?>
+				<?php elseif(!empty($arResult['PATH_TO_ADD_LINE'])):?>
 					<a href="<?=$arResult['PATH_TO_ADD_LINE']?>" onclick="createLine(); return false;" class="im-connector-settings-channel-options-tune"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CREATE_OPEN_LINE')?></a>
-				<?endif;?>
+				<?php endif;?>
 			</div><!--im-connector-settings-channel-options-->
-			<?endif;?>
+			<?php endif;?>
 
 			<div class="im-connector-settings-channel-inner">
-			<?if(!empty($arResult['ACTIVE_LINE'])):?>
+			<?php if(!empty($arResult['ACTIVE_LINE'])):?>
 				<div class="imconnector-new" id="imconnector-new">
-				<?$APPLICATION->IncludeComponent(
+				<?php $APPLICATION->IncludeComponent(
 					$arResult['COMPONENT'],
 					"mobile",
 					Array(
@@ -74,15 +74,15 @@ $this->addExternalJs('/bitrix/components/bitrix/imconnector.connector.settings/t
 				);?>
 				</div>
 				<?=$arResult['LANG_JS_SETTING'];?>
-			<?elseif(empty($arResult['ACTIVE_LINE']) && !empty($arResult['PATH_TO_ADD_LINE'])):?>
+			<?php elseif(empty($arResult['ACTIVE_LINE']) && !empty($arResult['PATH_TO_ADD_LINE'])):?>
 				<div class="imconnector-settings-message imconnector-settings-message-error">
 				<?=Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_NO_OPEN_LINE')?>
 				</div>
-			<?else:?>
+			<?php else:?>
 				<div class="imconnector-settings-message imconnector-settings-message-error">
 				<?=Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_NO_OPEN_LINE_AND_NOT_ADD_OPEN_LINE')?>
 				</div>
-			<?endif;?>
+			<?php endif;?>
 			</div><!--im-connector-settings-channel-inner-->
 
 		</div><!--im-connector-settings-channel-container-->
@@ -92,31 +92,31 @@ $this->addExternalJs('/bitrix/components/bitrix/imconnector.connector.settings/t
 
 </div><!--im-connector-settings-wrapper-->
 
-	<?if(!empty($arResult['LIST_LINE']) && (count($arResult['LIST_LINE'])>1 || !empty($arResult['PATH_TO_ADD_LINE']))):?>
+	<?php if(!empty($arResult['LIST_LINE']) && (count($arResult['LIST_LINE'])>1 || !empty($arResult['PATH_TO_ADD_LINE']))):?>
 		<div class="im-connector-select-popup" id="im-connector-select">
 			<div class="im-connector-select-popup-wrapper">
-				<?if(!empty($arResult['LIST_LINE'])):?>
-					<?foreach ($arResult['LIST_LINE'] as $line):?>
+				<?php if(!empty($arResult['LIST_LINE'])):?>
+					<?php foreach ($arResult['LIST_LINE'] as $line):?>
 						<div class="im-connector-select-popup-item">
-							<?if(empty($line['ACTIVE'])):?>
+							<?php if(empty($line['ACTIVE'])):?>
 								<a href="<?=$line['URL']?>" class="im-connector-select-link"><?=$line['NAME']?></a>
-							<?else:?>
+							<?php else:?>
 								<span class="im-connector-select-link"><?=$line['NAME']?></span>
-							<?endif;?>
+							<?php endif;?>
 						</div>
-					<?endforeach;?>
-				<?endif;?>
+					<?php endforeach;?>
+				<?php endif;?>
 
-				<?if(!empty($arResult['PATH_TO_ADD_LINE'])):?>
+				<?php if(!empty($arResult['PATH_TO_ADD_LINE'])):?>
 					<div class="im-connector-select-popup-item">
 						<a href="<?=$arResult['PATH_TO_ADD_LINE']?>" onclick="createLine(); return false;" class="im-connector-select-link"><?=Loc::getMessage('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CREATE_OPEN_LINE')?></a>
 					</div>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 			<div class="im-connector-select-popup-close" id="im-connector-select-popup-close"></div>
 		</div>
 		<div class="im-connector-overlay" id="im-connector-overlay"></div>
-	<?endif;?>
+	<?php endif;?>
 
 <script>
 
@@ -164,16 +164,16 @@ $this->addExternalJs('/bitrix/components/bitrix/imconnector.connector.settings/t
 	BX.ready(function ()
 	{
 		BX.message({
-			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TITLE: '<? echo GetMessageJS('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TITLE') ?>',
-			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TEXT: '<? echo GetMessageJS('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TEXT') ?>',
-			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_ERROR_ACTION: '<? echo GetMessageJS('IIMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_ERROR_ACTION') ?>',
-			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CLOSE: '<? echo GetMessageJS('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CLOSE') ?>'
+			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TITLE: '<?php  echo GetMessageJS('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TITLE') ?>',
+			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TEXT: '<?php  echo GetMessageJS('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_POPUP_LIMITED_TEXT') ?>',
+			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_ERROR_ACTION: '<?php  echo GetMessageJS('IIMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_ERROR_ACTION') ?>',
+			IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CLOSE: '<?php  echo GetMessageJS('IMCONNECTOR_COMPONENT_CONNECTOR_SETTINGS_CLOSE') ?>'
 		});
 	})
 
 </script>
 
-<?else:?>
+<?php else:?>
 	<html>
 	<body>
 	<script>
@@ -186,4 +186,4 @@ $this->addExternalJs('/bitrix/components/bitrix/imconnector.connector.settings/t
 	</script>
 	</body>
 	</html>
-<?endif;?>
+<?php endif;?>

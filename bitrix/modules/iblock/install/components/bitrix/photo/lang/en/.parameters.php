@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_SORT_SHOWS"] = "average views";
 $MESS["IBLOCK_SORT_SORT"] = "sorting index";
 $MESS["IBLOCK_SORT_TIMESTAMP"] = "modification date";

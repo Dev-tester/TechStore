@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEARCH_TAGSTAT_TITLE"] = "Search phrase statistics";
 $MESS["SEARCH_TAGSTAT_ID"] = "ID";
 $MESS["SEARCH_TAGSTAT_DATE"] = "Date";

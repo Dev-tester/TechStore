@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_PAGINATION__PAGES"] = "Pages";
 $MESS["MAIN_UI_PAGINATION__PREV"] = "Previous";
 $MESS["MAIN_UI_PAGINATION__NEXT"] = "Next";

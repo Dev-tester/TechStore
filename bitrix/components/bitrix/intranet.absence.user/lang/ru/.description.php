@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_GROUP_NAME'] = 'Корпоративный портал';
 $MESS ['INTR_IAU_COMPONENT_NAME'] = 'Отсутствия пользователя';
 $MESS ['INTR_IAU_COMPONENT_DESCR'] = 'Вывод графика отсутствий конкретного пользователя';

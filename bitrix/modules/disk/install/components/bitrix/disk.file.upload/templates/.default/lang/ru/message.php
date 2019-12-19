@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DFU_UPLOAD_TITLE1"] = "Загрузка нового документа";
 $MESS["DFU_UPLOAD_TITLE2"] = "Загружено файлов #NUMBER# из #COUNT#";
 $MESS["DFU_UPLOAD_CANCELED"] = "Загрузка отменена";

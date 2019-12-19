@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_PROP_MAP_GOOGLE'] = "Bind to Google Maps";
 $MESS ['IBLOCK_PROP_MAP_GOOGLE_INSTR'] = "Double-click the map to select position.";
 $MESS ['IBLOCK_PROP_MAP_GOOGLE_INSTR_VALUE'] = "Drag the point or double-click to select a new position.";

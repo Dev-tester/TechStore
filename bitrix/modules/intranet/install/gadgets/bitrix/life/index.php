@@ -1,11 +1,11 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["LIST_URL"] = ($arGadgetParams["LIST_URL"]?$arGadgetParams["LIST_URL"]:"/about/life.php");
 $arGadgetParams["ACTIVE_DATE_FORMAT"] = ($arGadgetParams["ACTIVE_DATE_FORMAT"] ? $arGadgetParams["ACTIVE_DATE_FORMAT"] : $arParams["DATE_FORMAT"]);
 
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"table",
 	Array(
@@ -54,8 +54,8 @@ $arGadgetParams["ACTIVE_DATE_FORMAT"] = ($arGadgetParams["ACTIVE_DATE_FORMAT"] ?
 	Array("HIDE_ICONS"=>"Y")
 );?>
 
-<?if(strlen($arGadgetParams["LIST_URL"])>0):?>
+<?php if(strlen($arGadgetParams["LIST_URL"])>0):?>
 <br />
-<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?echo GetMessage("GD_LIFE_ALL")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
+<div align="right"><a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?php echo GetMessage("GD_LIFE_ALL")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
 <br /></div>
-<?endif?>
+<?php endif?>

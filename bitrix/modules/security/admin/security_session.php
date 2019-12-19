@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -132,27 +132,27 @@ foreach($messages as $message)
 ?>
 
 <form method="POST" action="security_session.php?lang=<?=LANGUAGE_ID?><?=$returnUrl?>"  enctype="multipart/form-data" name="editform">
-<?
+<?php 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-<?if(COption::GetOptionString("security", "session") == "Y"):?>
+<?php if(COption::GetOptionString("security", "session") == "Y"):?>
 	<tr>
 		<td colspan="2" align="left">
-			<input type="submit" name="db_session_off" value="<?echo GetMessage("SEC_SESSION_ADMIN_DB_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
+			<input type="submit" name="db_session_off" value="<?php echo GetMessage("SEC_SESSION_ADMIN_DB_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
 		</td>
 	</tr>
-<?else:?>
-	<?if(CSecuritySession::checkSessionId(session_id())):?>
+<?php else:?>
+	<?php if(CSecuritySession::checkSessionId(session_id())):?>
 	<tr>
 		<td colspan="2" align="left">
-			<input type="submit" name="db_session_on" value="<?echo GetMessage("SEC_SESSION_ADMIN_DB_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+			<input type="submit" name="db_session_on" value="<?php echo GetMessage("SEC_SESSION_ADMIN_DB_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
 		</td>
 	</tr>
-	<?else:?>
+	<?php else:?>
 	<tr>
 		<td colspan="2" align="left">
-			<?
+			<?php 
 				CAdminMessage::ShowMessage(array(
 						"TYPE" => "ERROR",
 						"DETAILS" => GetMessage("SEC_SESSION_ADMIN_SESSID_WARNING"),
@@ -161,46 +161,46 @@ $tabControl->BeginNextTab();
 			?>
 		</td>
 	</tr>
-	<?endif;?>
-<?endif;?>
+	<?php endif;?>
+<?php endif;?>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><?echo GetMessage("SEC_SESSION_ADMIN_DB_NOTE")?>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?><?php echo GetMessage("SEC_SESSION_ADMIN_DB_NOTE")?>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><span style="color:red">*</span><?echo GetMessage("SEC_SESSION_ADMIN_DB_WARNING")?>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?><span style="color:red">*</span><?php echo GetMessage("SEC_SESSION_ADMIN_DB_WARNING")?>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
-<?if(COption::GetOptionString("main", "use_session_id_ttl") == "Y"):?>
+<?php if(COption::GetOptionString("main", "use_session_id_ttl") == "Y"):?>
 		<td colspan="2" align="left">
-			<input type="submit" name="sessid_ttl_off" value="<?echo GetMessage("SEC_SESSION_ADMIN_SESSID_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
+			<input type="submit" name="sessid_ttl_off" value="<?php echo GetMessage("SEC_SESSION_ADMIN_SESSID_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
 		</td>
 	</tr>
-<?else:?>
+<?php else:?>
 	<tr>
 		<td colspan="2" align="left">
-			<input type="submit" name="sessid_ttl_on" value="<?echo GetMessage("SEC_SESSION_ADMIN_SESSID_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+			<input type="submit" name="sessid_ttl_on" value="<?php echo GetMessage("SEC_SESSION_ADMIN_SESSID_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
 		</td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 <tr>
-	<td width="40%"><?echo GetMessage("SEC_SESSION_ADMIN_SESSID_TTL")?>:</td>
-	<td width="60%"><input type="text" name="sessid_ttl" size="6" value="<?echo COption::GetOptionInt("main", "session_id_ttl", 60)?>"></td>
+	<td width="40%"><?php echo GetMessage("SEC_SESSION_ADMIN_SESSID_TTL")?>:</td>
+	<td width="60%"><input type="text" name="sessid_ttl" size="6" value="<?php echo COption::GetOptionInt("main", "session_id_ttl", 60)?>"></td>
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><?echo GetMessage("SEC_SESSION_ADMIN_SESSID_NOTE")?>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?><?php echo GetMessage("SEC_SESSION_ADMIN_SESSID_NOTE")?>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -208,12 +208,12 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?echo bitrix_sessid_post();?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
-<?
+<?php echo bitrix_sessid_post();?>
+<input type="hidden" name="lang" value="<?php echo LANG?>">
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

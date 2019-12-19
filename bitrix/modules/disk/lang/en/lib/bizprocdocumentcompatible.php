@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_BZ_D_FIELD_ID"] = "File ID";
 $MESS["DISK_BZ_D_FIELD_CREATE_TIME"] = "Date and time a file was created";
 $MESS["DISK_BZ_D_FIELD_CREATED_BY"] = "Created by";

@@ -516,7 +516,7 @@ abstract class OAuth
 
 				</script>
 
-				<?
+				<?php 
 			}
 		}
 	}

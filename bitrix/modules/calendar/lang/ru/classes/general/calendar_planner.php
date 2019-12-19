@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EC_PL_SETTINGS"] = "Настройки";
 $MESS["EC_PL_ATTENDEES_TITLE"] = "Сотрудники";
 $MESS["EC_PL_ATTENDEES_SHOW_MORE"] = "Еще участники";

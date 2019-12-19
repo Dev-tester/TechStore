@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SUP_SE_TICKET_NEW_FOR_AUTHOR_TITLE'] = "New ticket (for author)";
 $MESS ['SUP_SE_TICKET_NEW_FOR_AUTHOR_TEXT'] = "
 #ID# - ticket ID

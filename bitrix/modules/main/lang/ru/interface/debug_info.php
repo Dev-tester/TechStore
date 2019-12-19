@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["debug_info_title"] = "Статистика SQL запросов";
 $MESS["debug_info_close"] = "Закрыть окно";
 $MESS["debug_info_path"] = "Путь к файлу:";

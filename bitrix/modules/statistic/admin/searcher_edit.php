@@ -183,90 +183,90 @@ if($strError)
 <a name="tb"></a>
 <form method="POST" action="<?=$APPLICATION->GetCurPage()?>">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="ID" value=<?echo $ID?>>
+<input type="hidden" name="ID" value=<?php echo $ID?>>
 <input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 //********************
 //General Tab
 //********************
 $tabControl->BeginNextTab();
 ?>
 	<tr>
-		<td width="40%"><?echo GetMessage("STAT_ACTIVE")?></td>
-		<td width="60%"><?echo InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false) ?></td>
+		<td width="40%"><?php echo GetMessage("STAT_ACTIVE")?></td>
+		<td width="60%"><?php echo InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false) ?></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("STAT_CHECK_ACTIVITY")?></td>
-		<td><?echo InputType("checkbox","CHECK_ACTIVITY","Y",$str_CHECK_ACTIVITY,false) ?></td>
+		<td><?php  echo GetMessage("STAT_CHECK_ACTIVITY")?></td>
+		<td><?php echo InputType("checkbox","CHECK_ACTIVITY","Y",$str_CHECK_ACTIVITY,false) ?></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("STAT_STATISTICS")?></td>
-		<td><?echo InputType("checkbox","SAVE_STATISTIC","Y",$str_SAVE_STATISTIC,false) ?></td>
+		<td><?php  echo GetMessage("STAT_STATISTICS")?></td>
+		<td><?php echo InputType("checkbox","SAVE_STATISTIC","Y",$str_SAVE_STATISTIC,false) ?></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("STAT_PIE_CHART")?></td>
-		<td><?echo InputType("checkbox","DIAGRAM_DEFAULT","Y",$str_DIAGRAM_DEFAULT,false) ?></td>
+		<td><?php  echo GetMessage("STAT_PIE_CHART")?></td>
+		<td><?php echo InputType("checkbox","DIAGRAM_DEFAULT","Y",$str_DIAGRAM_DEFAULT,false) ?></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("STAT_HIT_KEEP_DAYS")?></td>
-		<td><input type="text" name="HIT_KEEP_DAYS" size="5" value="<?echo $str_HIT_KEEP_DAYS?>"></td>
+		<td><?php  echo GetMessage("STAT_HIT_KEEP_DAYS")?></td>
+		<td><input type="text" name="HIT_KEEP_DAYS" size="5" value="<?php echo $str_HIT_KEEP_DAYS?>"></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("STAT_DYNAMIC_KEEP_DAYS")?></td>
-		<td><input type="text" name="DYNAMIC_KEEP_DAYS" size="5" value="<?echo $str_DYNAMIC_KEEP_DAYS?>"></td>
+		<td><?php  echo GetMessage("STAT_DYNAMIC_KEEP_DAYS")?></td>
+		<td><input type="text" name="DYNAMIC_KEEP_DAYS" size="5" value="<?php echo $str_DYNAMIC_KEEP_DAYS?>"></td>
 	</tr>
 	<tr class="adm-detail-required-field">
-		<td><? echo GetMessage("STAT_NAME")?></td>
-		<td><input type="text" name="NAME" size="40" maxlength="50" value="<?echo $str_NAME?>"></td>
+		<td><?php  echo GetMessage("STAT_NAME")?></td>
+		<td><input type="text" name="NAME" size="40" maxlength="50" value="<?php echo $str_NAME?>"></td>
 	</tr>
 	<tr>
-		<td><? echo GetMessage("STAT_USER_AGENT")?></td>
-		<td><input type="text" name="USER_AGENT" size="40" maxlength="500" value="<?echo $str_USER_AGENT?>"></td>
+		<td><?php  echo GetMessage("STAT_USER_AGENT")?></td>
+		<td><input type="text" name="USER_AGENT" size="40" maxlength="500" value="<?php echo $str_USER_AGENT?>"></td>
 	</tr>
 	<tr>
 		<td><?=GetMessage("STAT_SEARCHER_DOMAINS")?></td>
 		<td>
 			<table border="0" cellspacing="1" cellpadding="0">
 				<tr>
-					<td><? echo GetMessage("STAT_DOMAIN")?></td>
-					<td><? echo GetMessage("STAT_VARIABLE")?></td>
-					<td><? echo GetMessage("STAT_CHAR_SET")?></td>
+					<td><?php  echo GetMessage("STAT_DOMAIN")?></td>
+					<td><?php  echo GetMessage("STAT_VARIABLE")?></td>
+					<td><?php  echo GetMessage("STAT_CHAR_SET")?></td>
 				</tr>
-				<?
+				<?php 
 				$rs = CSearcher::GetDomainList($v1="s_id", $v2="asc", array("SEARCHER_ID" => $ID), $v3);
 				$i = 1;
 				while($arDomain = $rs->GetNext()):
 				?>
 				<tr>
-					<td><input type="hidden" name="PARAM[]" value="<?echo $i?>"><input type="hidden" name="PARAM_ID_<?echo $i?>" value="<?echo $arDomain["ID"]?>"><input type="text" name="DOMAIN_<?echo $i?>" value="<?echo $arDomain["DOMAIN"]?>" size="30"></td>
-					<td><input type="text" name="VARIABLE_<?echo $i?>" value="<?echo $arDomain["VARIABLE"]?>" size="10"></td>
-					<td><input type="text" name="CHAR_SET_<?echo $i?>" value="<?echo $arDomain["CHAR_SET"]?>" size="20"></td>
+					<td><input type="hidden" name="PARAM[]" value="<?php echo $i?>"><input type="hidden" name="PARAM_ID_<?php echo $i?>" value="<?php echo $arDomain["ID"]?>"><input type="text" name="DOMAIN_<?php echo $i?>" value="<?php echo $arDomain["DOMAIN"]?>" size="30"></td>
+					<td><input type="text" name="VARIABLE_<?php echo $i?>" value="<?php echo $arDomain["VARIABLE"]?>" size="10"></td>
+					<td><input type="text" name="CHAR_SET_<?php echo $i?>" value="<?php echo $arDomain["CHAR_SET"]?>" size="20"></td>
 				</tr>
-				<?
+				<?php 
 				$i++;
 				endwhile;
 				$count = $i+5;
 				while ($i<=$count) :
 				?>
 				<tr>
-					<td><input type="hidden" name="PARAM[]" value="<?echo $i?>"><input type="hidden" name="PARAM_ID_<?echo $i?>" value="0"><input type="text" name="DOMAIN_<?echo $i?>" size="30" value="<?echo htmlspecialcharsbx(${"DOMAIN_".$i})?>"></td>
-					<td><input type="text" name="VARIABLE_<?echo $i?>" size="10" value="<?echo htmlspecialcharsbx(${"VARIABLE_".$i})?>"></td>
-					<td><input type="text" name="CHAR_SET_<?echo $i?>" size="20" value="<?echo htmlspecialcharsbx(${"CHAR_SET_".$i})?>"></td>
+					<td><input type="hidden" name="PARAM[]" value="<?php echo $i?>"><input type="hidden" name="PARAM_ID_<?php echo $i?>" value="0"><input type="text" name="DOMAIN_<?php echo $i?>" size="30" value="<?php echo htmlspecialcharsbx(${"DOMAIN_".$i})?>"></td>
+					<td><input type="text" name="VARIABLE_<?php echo $i?>" size="10" value="<?php echo htmlspecialcharsbx(${"VARIABLE_".$i})?>"></td>
+					<td><input type="text" name="CHAR_SET_<?php echo $i?>" size="20" value="<?php echo htmlspecialcharsbx(${"CHAR_SET_".$i})?>"></td>
 				</tr>
-				<?
+				<?php 
 				$i++;
 				endwhile;
 				?>
 			</table>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 $tabControl->Buttons(array("disabled"=>($STAT_RIGHT<"W"), "back_url"=>"searcher_list.php?lang=".LANGUAGE_ID));
 $tabControl->End();
 ?>
 </form>
-<? require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php  require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

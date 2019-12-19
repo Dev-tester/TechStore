@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_COMMENTS'] = "комментариев";
 $MESS ['P_COMMENTS_2'] = "комментария";
 $MESS ['P_COMMENT'] = "комментарий";

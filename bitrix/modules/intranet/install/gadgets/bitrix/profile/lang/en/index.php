@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_PROFILE_GENERAL"] = "General";
 $MESS["GD_PROFILE_CH_PROFILE"] = "Edit Profile";
 $MESS["GD_PROFILE_SUBSCR"] = "My Subscription";

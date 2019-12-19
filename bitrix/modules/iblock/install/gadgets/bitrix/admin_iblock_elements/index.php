@@ -1,7 +1,7 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
-<?
+<?php 
 if(!CModule::IncludeModule("iblock"))
 	return false;
 
@@ -118,7 +118,7 @@ if (
 					$arIBlockElement["DISPLAY_PROPERTIES"][$pid] = CIBlockFormatProperties::GetDisplayValue($arIBlockElement, $prop, "catalog_out");
 			}
 
-			?><div class="bx-gadgets-text" style="clear: both; padding: 0 0 10px 0;"><?
+			?><div class="bx-gadgets-text" style="clear: both; padding: 0 0 10px 0;"><?php 
 
 				if (strlen($arGadgetParams["DATE_FIELD"]) > 0)
 				{
@@ -154,7 +154,7 @@ if (
 
 					if (strlen($strDate) > 0)
 					{
-						?><span class="bx-gadget-gray"><?=$strDate?></span><br><?
+						?><span class="bx-gadget-gray"><?=$strDate?></span><br><?php 
 					}
 				}
 
@@ -183,7 +183,7 @@ if (
 						);
 						if ($arImage !== false)
 						{
-							?><div style="float: left;"><img  class="bx-gadgets-img" src="<?=$arImage["src"]?>" border="0"></div><?
+							?><div style="float: left;"><img  class="bx-gadgets-img" src="<?=$arImage["src"]?>" border="0"></div><?php 
 						}
 					}
 				}
@@ -211,7 +211,7 @@ if (
 
 					if (strlen($strTitle) > 0)
 					{
-						?><a href="/bitrix/admin/iblock_element_edit.php?ID=<?=$arIBlockElement["ID"]?>&type=<?=$arGadgetParams["IBLOCK_TYPE"]?>&IBLOCK_ID=<?=$arGadgetParams["IBLOCK_ID"]?>&lang=<?=LANGUAGE_ID?>"><?=$strTitle?></a><br><?
+						?><a href="/bitrix/admin/iblock_element_edit.php?ID=<?=$arIBlockElement["ID"]?>&type=<?=$arGadgetParams["IBLOCK_TYPE"]?>&IBLOCK_ID=<?=$arGadgetParams["IBLOCK_ID"]?>&lang=<?=LANGUAGE_ID?>"><?=$strTitle?></a><br><?php 
 					}
 				}
 
@@ -238,7 +238,7 @@ if (
 
 					if (strlen($strDescription) > 0)
 					{
-						?><?=$obParser->html_cut($strDescription, $arGadgetParams["DESCRIPTION_CUT"]);?><br><?
+						?><?=$obParser->html_cut($strDescription, $arGadgetParams["DESCRIPTION_CUT"]);?><br><?php 
 					}
 				}
 
@@ -250,7 +250,7 @@ if (
 						{
 							if (array_key_exists($code, $arIBlockElement))
 							{
-								?><?=GetMessage("GD_IBEL_NAME_".$code)?>: <?=$arIBlockElement[$code]?><br><?
+								?><?=GetMessage("GD_IBEL_NAME_".$code)?>: <?=$arIBlockElement[$code]?><br><?php 
 							}
 
 							if (
@@ -265,16 +265,16 @@ if (
 							)
 							{
 								$val = $arIBlockElement["DISPLAY_PROPERTIES"][substr($code, 9)]["DISPLAY_VALUE"];
-								?><?=$arIBlockElement["DISPLAY_PROPERTIES"][substr($code, 9)]["NAME"]?>: <?=(is_array($val)?implode("&nbsp;/&nbsp;", $val):$val)?><br><?
+								?><?=$arIBlockElement["DISPLAY_PROPERTIES"][substr($code, 9)]["NAME"]?>: <?=(is_array($val)?implode("&nbsp;/&nbsp;", $val):$val)?><br><?php 
 							}
 						}
 					}
 				}
-			?></div><?
+			?></div><?php 
 		}
 
 		$urlElementAdminPage = CIBlock::GetAdminElementListLink($arIBlock["ID"], array());
-		?><div><a href="<?=$urlElementAdminPage?>"><?=GetMessage("GD_IBEL_NAME_ALL_ELEMENTS")?></a></div><?
+		?><div><a href="<?=$urlElementAdminPage?>"><?=GetMessage("GD_IBEL_NAME_ALL_ELEMENTS")?></a></div><?php 
 	}
 }
 ?>

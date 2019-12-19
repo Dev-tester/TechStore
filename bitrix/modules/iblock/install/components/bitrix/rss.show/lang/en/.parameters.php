@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["T_IBLOCK_DESC_RSS_OUT_CHANNEL"] = "News items are outside the Channel tag (usually inside)";
 $MESS["T_IBLOCK_DESC_RSS_NUM_NEWS"] = "Number of the news to display (0 means display all)";
 $MESS["CP_BRS_URL"] = "RSS feed URL";

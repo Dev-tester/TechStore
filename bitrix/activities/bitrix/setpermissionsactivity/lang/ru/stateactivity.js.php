@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STATEACT_ADD'] = "Добавить";
 $MESS ['STATEACT_EDITBP'] = "Редактировать этот бизнес-процесс";
 $MESS ['STATEACT_SETT'] = "Настройки обработчика";

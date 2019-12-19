@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $GLOBALS['APPLICATION']->RestartBuffer();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 $popupWindow = new CJSPopup('', '');
@@ -7,7 +7,7 @@ $popupWindow->StartContent();
 $serverParams = $arResult['serverParams'];
 ?>
 <script src="/bitrix/js/webdav/imgshw.js"></script>
-<?
+<?php 
 if ($serverParams['CLIENT_OS'] == 'Windows XP')
 {
 
@@ -22,7 +22,7 @@ if ($serverParams['CLIENT_OS'] == 'Windows XP')
 		<?= GetMessage('WD_CONNECTOR_HELP_WEBFOLDERS', array('#TEMPLATEFOLDER#' => $templateFolder, '#URL_HELP#' => $arResult["URL"]["HELP"])); ?>
 		?>
 	</div>
-<?
+<?php 
 	// Network Drive
 	if ($serverParams['SECURE'] != true)
 	{
@@ -31,7 +31,7 @@ if ($serverParams['CLIENT_OS'] == 'Windows XP')
 		<div class="wd-collapseable" id="wd_winxp_ndrive_help">
 			<?= GetMessage('WD_CONNECTOR_HELP_MAPDRIVE', array('#TEMPLATEFOLDER#' => $templateFolder)); ?>
 		</div>
-<?
+<?php 
 		if ($serverParams['AUTH_MODE'] == 'BASIC')
 		{
 ?>
@@ -39,7 +39,7 @@ if ($serverParams['CLIENT_OS'] == 'Windows XP')
 			<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
 			<?=GetMessage("WD_REGISTERPATCH", array("#LINK#" => "/bitrix/webdav/xp.reg"));?>
 			</td></tr></table>
-<?
+<?php 
 		}
 	} else {
 	}
@@ -61,7 +61,7 @@ elseif (in_array($serverParams['CLIENT_OS'], array('Windows 2000', 'Windows 2003
 	<div id="wd_win2k_wfolder_help" class="wd-collapseable">
 		<?= GetMessage('WD_CONNECTOR_HELP_WEBFOLDERS', array('#TEMPLATEFOLDER#' => $templateFolder, '#URL_HELP#' => $arResult["URL"]["HELP"])); ?>
 	</div>
-<?
+<?php 
 	// Network Drive
 	if ($serverParams['SECURE'] != true)
 	{
@@ -70,7 +70,7 @@ elseif (in_array($serverParams['CLIENT_OS'], array('Windows 2000', 'Windows 2003
 		<div class="wd-collapseable" id="wd_win2k_ndrive_help">
 			<?= GetMessage('WD_CONNECTOR_HELP_MAPDRIVE', array('#TEMPLATEFOLDER#' => $templateFolder)); ?>
 		</div>
-<?
+<?php 
 		if ($serverParams['AUTH_MODE'] == 'BASIC')
 		{
 ?>
@@ -78,7 +78,7 @@ elseif (in_array($serverParams['CLIENT_OS'], array('Windows 2000', 'Windows 2003
 			<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
 			<?=GetMessage("WD_REGISTERPATCH", array("#LINK#" => "/bitrix/webdav/xp.reg"));?>
 			</td></tr></table>
-<?
+<?php 
 		}
 	} else {
 	}
@@ -90,21 +90,21 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows Vista')
 	<p><?=GetMessage("WD_USEADDRESS");?></p>
 	<input type="text" class="wd-connection-line" onclick="this.select();" value="<?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?>" />
 
-<?if(false):?>
+<?php if(false):?>
 	<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_winvista_wfolder_help'));" class="ajax"><?=GetMessage('WD_WEBFOLDER_TITLE');?></a></p>
-<?endif?>
+<?php endif?>
 <br><br>	<input id="WDMappingButton" type="button" value="<?=GetMessage("WD_CONNECT");?>" />
 	<div id="wd_winvista_wfolder_help" class="wd-collapseable">
 		<?= GetMessage('WD_CONNECTOR_HELP_WEBFOLDERS', array('#TEMPLATEFOLDER#' => $templateFolder, '#URL_HELP#' => $arResult["URL"]["HELP"])); ?>
 	</div>
-<?
+<?php 
 	// Network Drive
 ?>
 	<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_winvista_ndrive_help'));" class="ajax"><?=GetMessage("WD_SHAREDDRIVE_TITLE");?></a></p>
 	<div class="wd-collapseable" id="wd_winvista_ndrive_help">
 		<?= GetMessage('WD_CONNECTOR_HELP_MAPDRIVE', array('#TEMPLATEFOLDER#' => $templateFolder)); ?>
 	</div>
-<?
+<?php 
 	if ($serverParams['AUTH_MODE'] == 'BASIC')
 	{
 ?>
@@ -112,12 +112,12 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows Vista')
 		<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
 		<?=GetMessage("WD_REGISTERPATCH", array("#LINK#" => "/bitrix/webdav/vista.reg"));?>
 		</td></tr></table>
-<?	} ?>
+<?php 	} ?>
 	<table class="wd-tip">
 	<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
 	<?=GetMessage("WD_TIP_FOR_2008", array("#LINK#" => htmlspecialcharsbx($arParams['HELP_URL'])));?>
 	</td></tr></table>
-<?
+<?php 
 }
 elseif ($serverParams['CLIENT_OS'] == 'Windows 2008')
 {
@@ -126,7 +126,7 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 2008')
 	<p><?=GetMessage("WD_USEADDRESS");?></p>
 	<input type="text" class="wd-connection-line" onclick="this.select();" value="<?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?>" />
 	<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_win2k8_wfolder_help'));" class="ajax"><?=GetMessage('WD_WEBFOLDER_TITLE');?></a></p>
-<?// TODO: fix link to manual - already installed but need to enable? ?>
+<?php // TODO: fix link to manual - already installed but need to enable? ?>
 
 	<table class="wd-tip">
 	<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
@@ -137,14 +137,14 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 2008')
 	<div id="wd_win2k8_wfolder_help" class="wd-collapseable">
 		<?= GetMessage('WD_CONNECTOR_HELP_WEBFOLDERS', array('#TEMPLATEFOLDER#' => $templateFolder, '#URL_HELP#' => $arResult["URL"]["HELP"])); ?>
 	</div>
-<?
+<?php 
 	// Network Drive
 ?>
 	<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_win2k8_ndrive_help'));" class="ajax"><?=GetMessage("WD_SHAREDDRIVE_TITLE");?></a></p>
 	<div class="wd-collapseable" id="wd_win2k8_ndrive_help">
 		<?= GetMessage('WD_CONNECTOR_HELP_MAPDRIVE', array('#TEMPLATEFOLDER#' => $templateFolder)); ?>
 	</div>
-<?
+<?php 
 	if ($serverParams['AUTH_MODE'] == 'BASIC')
 	{
 ?>
@@ -152,7 +152,7 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 2008')
 		<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
 		<?=GetMessage("WD_REGISTERPATCH", array("#LINK#" => "/bitrix/webdav/vista.reg"));?>
 		</td></tr></table>
-<?
+<?php 
 	}
 }
 elseif ($serverParams['CLIENT_OS'] == 'Windows 7')
@@ -164,15 +164,15 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 7')
 		<p><?=GetMessage("WD_USEADDRESS");?></p>
 		<input type="text" class="wd-connection-line" onclick="this.select();" value="<?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?>" />
 
-<?if(false):?>
+<?php if(false):?>
 		<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_win7_wfolder_help'));" class="ajax"><?=GetMessage('WD_WEBFOLDER_TITLE');?></a></p>
-<?endif?>
+<?php endif?>
 <br><br>
 		<input id="WDMappingButton" type="button" value="<?=GetMessage("WD_CONNECT");?>" />
 		<div id="wd_win7_wfolder_help" class="wd-collapseable">
 			<?= GetMessage('WD_CONNECTOR_HELP_WEBFOLDERS', array('#TEMPLATEFOLDER#' => $templateFolder, '#URL_HELP#' => $arResult["URL"]["HELP"])); ?>
 		</div>
-<?
+<?php 
 	}
 	// Network Drive
 	if ($serverParams['SECURE'] == true)
@@ -180,17 +180,17 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 7')
 ?>
 		<p><?=GetMessage("WD_USECOMMANDLINE");?></p>
 		<input type="text" class="wd-connection-line" onclick="this.select();" value="net use z: <?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?> /user:<?=$GLOBALS['USER']->GetLogin()?> *" />
-<?
+<?php 
 	} else {
 ?>
 		<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_win7_ndrive_help'));" class="ajax"><?=GetMessage("WD_SHAREDDRIVE_TITLE");?></a></p>
 		<div class="wd-collapseable" id="wd_win7_ndrive_help">
 			<?= GetMessage('WD_CONNECTOR_HELP_MAPDRIVE', array('#TEMPLATEFOLDER#' => $templateFolder)); ?>
 		</div>
-<?
+<?php 
 	}
 ?>
-<?
+<?php 
 	if ($serverParams['AUTH_MODE'] == 'BASIC')
 	{
 ?>
@@ -198,7 +198,7 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 7')
 		<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
 		<?=GetMessage("WD_REGISTERPATCH", array("#LINK#" => "/bitrix/webdav/vista.reg"));?>
 		</td></tr></table>
-<?
+<?php 
 	}
 }
 elseif ($serverParams['CLIENT_OS'] == 'Windows 8')
@@ -210,15 +210,15 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 8')
 	<p><?=GetMessage("WD_USEADDRESS");?></p>
 	<input type="text" class="wd-connection-line" onclick="this.select();" value="<?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?>" />
 
-	<?if(false):?>
+	<?php if(false):?>
 	<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_win7_wfolder_help'));" class="ajax"><?=GetMessage('WD_WEBFOLDER_TITLE');?></a></p>
-	<?endif?>
+	<?php endif?>
 	<br><br>
 	<input id="WDMappingButton" type="button" value="<?=GetMessage("WD_CONNECT");?>" />
 	<div id="wd_win7_wfolder_help" class="wd-collapseable">
 		<?= GetMessage('WD_CONNECTOR_HELP_WEBFOLDERS', array('#TEMPLATEFOLDER#' => $templateFolder, '#URL_HELP#' => $arResult["URL"]["HELP"])); ?>
 	</div>
-	<?
+	<?php 
 	}
 	// Network Drive
 	if ($serverParams['SECURE'] == true)
@@ -226,17 +226,17 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 8')
 		?>
 	<p><?=GetMessage("WD_USECOMMANDLINE");?></p>
 	<input type="text" class="wd-connection-line" onclick="this.select();" value="net use z: <?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?> /user:<?=$GLOBALS['USER']->GetLogin()?> *" />
-	<?
+	<?php 
 	} else {
 		?>
 	<p class="wd-collapse-toggler wd-collapse-collapsed"><a href="javascript:void(0);" onclick="WDToggleCollapseable(this.parentNode, BX('wd_win7_ndrive_help'));" class="ajax"><?=GetMessage("WD_SHAREDDRIVE_TITLE");?></a></p>
 	<div class="wd-collapseable" id="wd_win7_ndrive_help">
 		<?= GetMessage('WD_CONNECTOR_HELP_MAPDRIVE', array('#TEMPLATEFOLDER#' => $templateFolder)); ?>
 	</div>
-	<?
+	<?php 
 	}
 	?>
-<?
+<?php 
 	if ($serverParams['AUTH_MODE'] == 'BASIC')
 	{
 		?>
@@ -244,7 +244,7 @@ elseif ($serverParams['CLIENT_OS'] == 'Windows 8')
 		<tr><td class="wd-alert-icon"><div>&nbsp;</div></td><td>
 			<?=GetMessage("WD_REGISTERPATCH", array("#LINK#" => "/bitrix/webdav/vista.reg"));?>
 		</td></tr></table>
-	<?
+	<?php 
 	}
 }
 elseif ($serverParams['CLIENT_OS'] == 'Linux')
@@ -252,7 +252,7 @@ elseif ($serverParams['CLIENT_OS'] == 'Linux')
 ?>
 	<p><?=GetMessage("WD_USEADDRESS");?></p>
 	<input type="text" class="wd-connection-line" onclick="this.select();" value="<?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?>" />
-<?
+<?php 
 }
 elseif ($serverParams['CLIENT_OS'] == 'Mac')
 {
@@ -266,14 +266,14 @@ elseif ($serverParams['CLIENT_OS'] == 'Mac')
 	<div class="wd-collapseable" id="wd_macos_help">
 			<?= GetMessage('WD_CONNECTOR_HELP_OSX', array('#TEMPLATEFOLDER#' => $templateFolder)); ?>
 	</div>
-<?
+<?php 
 }
 elseif ($serverParams['CLIENT_OS'] == 'Windows')
 {
 ?>
 	<p><?=GetMessage("WD_USEADDRESS");?></p>
 	<input type="text" class="wd-connection-line" onclick="this.select();" value="<?=htmlspecialcharsbx(str_replace(":443", "", $arParams["BASE_URL"]))?>" />
-<?
+<?php 
 }
 else
 {
@@ -331,7 +331,7 @@ function WDMappingDrive(path)
 	BX('WDMappingButton').navigate(path);
 }
 </script>
-<?
+<?php 
 $popupWindow->StartButtons();
 $popupWindow->ShowStandardButtons(array('close'));
 $popupWindow->EndButtons();

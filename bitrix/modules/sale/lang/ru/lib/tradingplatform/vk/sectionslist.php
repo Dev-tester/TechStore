@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VK_EXPORT_MAP__ALBUM_NAME"] = "Альбом ВКонтакте";
 $MESS["VK_EXPORT_MAP__ELEMENT_CNT"] = "Количество<br>товаров";
 $MESS["VK_EXPORT_MAP__ELEMENT_CNT_2"] = "товаров";

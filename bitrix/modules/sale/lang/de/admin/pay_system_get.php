@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPSG_ACT_PROP"] = "Handler-Eigenschaften";
 $MESS["SPSG_TYPE"] = "Typ";
 $MESS["SPSG_OTHER"] = "Anderer Wert";

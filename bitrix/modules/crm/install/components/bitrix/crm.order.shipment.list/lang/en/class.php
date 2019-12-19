@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_SHIPMENT_DELETE_ERROR"] = "Error deleting shipment";
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_MODULE_NOT_INSTALLED_CURRENCY"] = "The Currency module is not installed.";

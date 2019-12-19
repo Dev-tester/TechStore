@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOL_QUEUE_OPERATOR_DISMISSAL"] = "Conversation was removed from the agent because the agent had been dismissed";
 $MESS["IMOL_QUEUE_OPERATOR_NONWORKING"] = "Conversation was removed from the agent because the agent has clocked out or not clocked in yet.";
 $MESS["IMOL_QUEUE_OPERATOR_NOT_AVAILABLE"] = "Conversation was removed from the agent because the agent is not available.";

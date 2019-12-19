@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $arGadgetParams["LIST_URL"] = ($arGadgetParams["LIST_URL"] ? $arGadgetParams["LIST_URL"] : "/company/leaders.php");
@@ -6,7 +6,7 @@ $arGadgetParams["LIST_URL"] = ($arGadgetParams["LIST_URL"] ? $arGadgetParams["LI
 $arGadgetParams["NUM_USERS"] = intval($arGadgetParams["NUM_USERS"]);
 $arGadgetParams["NUM_USERS"] = ($arGadgetParams["NUM_USERS"]>0 && $arGadgetParams["NUM_USERS"]<50 ? $arGadgetParams["NUM_USERS"] : 5);
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:intranet.structure.honour",
 	"include_area",
 	Array(
@@ -23,8 +23,8 @@ $arGadgetParams["NUM_USERS"] = ($arGadgetParams["NUM_USERS"]>0 && $arGadgetParam
 	Array("HIDE_ICONS"=>"Y")
 );?>
 
-<?if(strlen($arGadgetParams["LIST_URL"])>0):?>
+<?php if(strlen($arGadgetParams["LIST_URL"])>0):?>
 <br />
 <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><?=GetMessage("GD_HONOUR_DETAIL")?></a> <a href="<?=htmlspecialcharsbx($arGadgetParams["LIST_URL"])?>"><img width="7" height="7" border="0" src="/images/icons/arrows.gif" /></a>
 <br />
-<?endif?>
+<?php endif?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_CANCEL_TITLE"] = "Cancel order";
 $MESS["CRM_ORDER_CANCEL_DIALOG_CONTENT"] = "Are you sure you want to cancel the order?";
 $MESS["CRM_ORDER_RESTORE_TITLE"] = "Recover order";

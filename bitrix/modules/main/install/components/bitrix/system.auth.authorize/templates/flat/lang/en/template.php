@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AUTH_PLEASE_AUTH"] = "Please authorize";
 $MESS["AUTH_LOGIN"] = "Login";
 $MESS["AUTH_PASSWORD"] = "Password";

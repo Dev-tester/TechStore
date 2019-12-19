@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_SOURCE_ACTION_TITLE_DETAIL"] = "Detail page";
 $MESS["LANDING_SOURCE_ACTION_TITLE_LINK"] = "Link";
 ?>

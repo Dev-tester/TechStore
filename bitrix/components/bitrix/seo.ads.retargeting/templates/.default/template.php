@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 use \Bitrix\Main\Localization\Loc;
@@ -55,9 +55,9 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 	<div data-bx-ads-block="auth" style="display: none;">
 		<div class="crm-ads-rtg-popup-settings">
 			<div class="crm-ads-rtg-popup-social crm-ads-rtg-popup-social-<?=$type?>">
-				<?if ($multiClients):?>
+				<?php if ($multiClients):?>
 				<div data-bx-ads-client="" class="crm-ads-rtg-popup-client"></div>
-				<?else:?>
+				<?php else:?>
 				<div class="crm-ads-rtg-popup-social-avatar">
 					<div data-bx-ads-auth-avatar="" class="crm-ads-rtg-popup-social-avatar-icon"></div>
 				</div>
@@ -67,7 +67,7 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 				<div class="crm-ads-rtg-popup-social-shutoff">
 					<span data-bx-ads-auth-logout="" class="crm-ads-rtg-popup-social-shutoff-link"><?=Loc::getMessage('CRM_ADS_RTG_LOGOUT')?></span>
 				</div>
-				<?endif?>
+				<?php endif?>
 				<input type="hidden" data-bx-ads-client-input="" name="<?=$namePrefix?>CLIENT_ID" value="<?=$clientId?>">
 			</div>
 		</div>
@@ -76,11 +76,11 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 
 	<div data-bx-ads-block="refresh" style="display: none;">
 		<div class="crm-ads-rtg-popup-settings crm-ads-rtg-popup-settings-wrapper crm-ads-rtg-popup-settings-wrapper-center">
-			<?if ($type == 'yandex'):?>
+			<?php if ($type == 'yandex'):?>
 				<?=Loc::getMessage('CRM_ADS_RTG_REFRESH_TEXT_' . $typeUpped)?>
-			<?else:?>
+			<?php else:?>
 				<?=Loc::getMessage('CRM_ADS_RTG_REFRESH_TEXT')?>
-			<?endif;?>
+			<?php endif;?>
 			<br>
 			<br>
 			<span data-bx-ads-refresh-btn="" class="webform-small-button webform-small-button-transparent">
@@ -98,8 +98,8 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 				<table class="crm-ads-rtg-table">
 					<tr>
 						<td>
-							<select disabled name="<?=$namePrefix?>ACCOUNT_ID" data-bx-ads-account="" class="crm-ads-rtg-popup-settings-dropdown<?
-							if ($provider['IS_SUPPORT_ADD_AUDIENCE']):?> crm-ads-rtg-popup-settings-dropdown-narrow<?endif?>">
+							<select disabled name="<?=$namePrefix?>ACCOUNT_ID" data-bx-ads-account="" class="crm-ads-rtg-popup-settings-dropdown<?php 
+							if ($provider['IS_SUPPORT_ADD_AUDIENCE']):?> crm-ads-rtg-popup-settings-dropdown-narrow<?php endif?>">
 							</select>
 						</td>
 						<td>
@@ -113,7 +113,7 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 				</table>
 			</div>
 
-			<?if($provider['IS_SUPPORT_MULTI_TYPE_CONTACTS']):?>
+			<?php if($provider['IS_SUPPORT_MULTI_TYPE_CONTACTS']):?>
 			<div class="crm-ads-rtg-popup-settings">
 				<div class="crm-ads-rtg-popup-settings-title-full">
 					<?=Loc::getMessage('CRM_ADS_RTG_SELECT_AUDIENCE')?>:
@@ -126,8 +126,8 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 				<table class="crm-ads-rtg-table">
 					<tr>
 						<td>
-							<select disabled name="<?=$namePrefix?>AUDIENCE_ID" data-bx-ads-audience="" class="crm-ads-rtg-popup-settings-dropdown<?
-								if ($provider['IS_SUPPORT_ADD_AUDIENCE']):?> crm-ads-rtg-popup-settings-dropdown-narrow<?endif?>">
+							<select disabled name="<?=$namePrefix?>AUDIENCE_ID" data-bx-ads-audience="" class="crm-ads-rtg-popup-settings-dropdown<?php 
+								if ($provider['IS_SUPPORT_ADD_AUDIENCE']):?> crm-ads-rtg-popup-settings-dropdown-narrow<?php endif?>">
 							</select>
 						</td>
 						<td>
@@ -136,23 +136,23 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 									<circle class="crm-ads-rtg-path" cx="50" cy="50" r="20" fill="none" stroke-width="1" stroke-miterlimit="10"/>
 								</svg>
 							</div>
-							<?if ($provider['IS_SUPPORT_ADD_AUDIENCE']):?>
+							<?php if ($provider['IS_SUPPORT_ADD_AUDIENCE']):?>
 							<div>
 								<span  style="display: none;" class="ui-btn ui-btn-link ui-btn-xs" data-bx-ads-audience-add=""><?= Loc::getMessage("CRM_ADS_RTG_AUDIENCE_ADD") ?></span>
 							</div>
-							<?endif?>
+							<?php endif?>
 						</td>
-						<?if(false && !$provider['IS_ADDING_REQUIRE_CONTACTS']):?>
+						<?php if(false && !$provider['IS_ADDING_REQUIRE_CONTACTS']):?>
 						<td>
 							<a data-role="audience-add" class="crm-ads-rtg-popup-link" style="display: none;">
 								<?=Loc::getMessage('CRM_ADS_RTG_ADD_AUDIENCE')?>
 							</a>
 						</td>
-						<?endif;?>
+						<?php endif;?>
 					</tr>
 				</table>
 			</div>
-			<?else:?>
+			<?php else:?>
 			<div class="crm-ads-rtg-popup-settings">
 				<div class="crm-ads-rtg-popup-settings-title-full">
 					<?=Loc::getMessage('CRM_ADS_RTG_SELECT_CONTACT_DATA')?>:
@@ -206,10 +206,10 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 					</tr>
 				</table>
 			</div>
-			<?endif?>
+			<?php endif?>
 
-			<?if($provider['IS_SUPPORT_REMOVE_CONTACTS']):?>
-				<?
+			<?php if($provider['IS_SUPPORT_REMOVE_CONTACTS']):?>
+				<?php 
 				$isSelectedOnce = false;
 				$sDayValues = '';
 				$dayValues = array(
@@ -236,11 +236,11 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 				<div class="crm-ads-rtg-popup-chk">
 					<input data-bx-ads-audience-auto-remove-checker="" <?=($isSelectedOnce ? 'checked' : '')?> type="checkbox" class="crm-ads-rtg-popup-chk" id="crm_ads_checker_autorem">
 					<label for="crm_ads_checker_autorem" class="crm-ads-rtg-popup-chk-label">
-							<?if ($type == 'yandex'):?>
+							<?php if ($type == 'yandex'):?>
 								<?=Loc::getMessage('CRM_ADS_RTG_AUTO_REMOVE_TITLE_' . $typeUpped)?>
-							<?else:?>
+							<?php else:?>
 								<?=Loc::getMessage('CRM_ADS_RTG_AUTO_REMOVE_TITLE')?>
-							<?endif;?>
+							<?php endif;?>
 					</label>
 				</div>
 				<div class="crm-ads-rtg-popup-chk-label">
@@ -250,7 +250,7 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 					<?=Loc::getMessage('CRM_ADS_RTG_AUTO_REMOVE_DAYS')?>
 				</div>
 			</div>
-			<?endif?>
+			<?php endif?>
 
 			<div data-bx-ads-audience-not-found="" class="crm-ads-rtg-popup-settings" style="display: none;">
 				<div class="crm-ads-rtg-popup-settings-alert">
@@ -273,10 +273,10 @@ $multiClients = array_key_exists('CLIENTS', $arParams['PROVIDER']);
 			</a>
 		</div>
 
-		<?if ($multiClients):?>
+		<?php if ($multiClients):?>
 			<span class="ui-btn ui-btn-light-border ui-btn-xs" data-bx-ads-client-add-btn=""><?= Loc::getMessage("CRM_ADS_RTG_ADD_CLIENT_BTN") ?></span>
 			<br><br>
-		<?endif?>
+		<?php endif?>
 	</div>
 
 </script>

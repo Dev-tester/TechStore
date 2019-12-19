@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SUP_ACTIVE"] = "License key is valid";
 $MESS["SUP_ACTIVE_PERIOD"] = "from #DATE_FROM# through #DATE_TO#";
 $MESS["SUP_SERVER"] = "Update server";

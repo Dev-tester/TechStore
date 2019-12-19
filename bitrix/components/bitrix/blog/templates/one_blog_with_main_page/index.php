@@ -1,6 +1,6 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	"bitrix:blog.menu",
 	"",
 	Array(
@@ -62,7 +62,7 @@ function BXBlogTabShow(id, type)
 	<a id="new_posts_title" class="blog-tab-selected" href="#" onclick="BXBlogTabShow('new_posts', 'post'); return false;"><?=GetMessage("BC_NEW_POSTS")?></a><a id="commented_posts_title" class="blog-tab" href="#" onclick="BXBlogTabShow('commented_posts', 'post'); return false;"><?=GetMessage("BC_COMMENTED_POSTS")?></a><a id="popular_posts_title" class="blog-tab" href="#" onclick="BXBlogTabShow('popular_posts', 'post'); return false;"><?=GetMessage("BC_POPULAR_POSTS")?></a><br /><br />
 
 	<div id="new_posts" style="display:block;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.new_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -92,7 +92,7 @@ function BXBlogTabShow(id, type)
 		?>
 	</div>
 	<div id="commented_posts" style="display:none;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.commented_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -123,7 +123,7 @@ function BXBlogTabShow(id, type)
 		?>
 	</div>
 	<div id="popular_posts" style="display:none;">
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.popular_posts", ".default", Array(
 			"MESSAGE_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -157,7 +157,7 @@ function BXBlogTabShow(id, type)
 	<td width="50%" valign="top" style="padding-left:10px;">
 
 	<h4><?=GetMessage("BC_NEW_COMMENTS")?></h4>
-		<?
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.new_comments", ".default", Array(
 	"COMMENT_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 	"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -187,8 +187,8 @@ function BXBlogTabShow(id, type)
 		?>
 	<br />
 		<div align="left">
-		<h4><?echo GetMessage("BLOG_BLOG_FAVORITE");?></h4>
-		<?
+		<h4><?php echo GetMessage("BLOG_BLOG_FAVORITE");?></h4>
+		<?php 
 		$APPLICATION->IncludeComponent("bitrix:blog.blog.favorite", ".default", Array(
 			"MESSAGE_COUNT"		=> $arResult["MESSAGE_COUNT_MAIN"],
 			"MESSAGE_LENGTH"	=>	$arResult["MESSAGE_LENGTH"],
@@ -213,7 +213,7 @@ function BXBlogTabShow(id, type)
 	</td>
 </tr>
 </table>
-<?
+<?php 
 if($arResult["SET_TITLE"]=="Y")
 	$APPLICATION->SetTitle(GetMessage("BLOG_TITLE"));
 ?>

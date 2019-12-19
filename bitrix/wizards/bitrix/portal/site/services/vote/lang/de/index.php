@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['VOTE_ABOUT_LEARNING_ANSWER1'] = "ja";
 $MESS ['VOTE_ABOUT_LEARNING_ANSWER2'] = "kann ich mir nicht leisten";
 $MESS ['VOTE_ABOUT_LEARNING_ANSWER3'] = "ich wьsste nicht wann";

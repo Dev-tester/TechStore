@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager                        #
 # Copyright (c) 2002-2007 Bitrix             #
@@ -21,16 +21,16 @@ $APPLICATION->SetTitle(GetMessage("STANZA_PAGE_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
 ?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "tab1", "TAB" => GetMessage("STANZA_TAB"), "TITLE" => GetMessage("STANZA_TAB_TITLE")),
 );
 $editTab = new CAdminTabControl("editTab", $aTabs);
 
 ?>
-<form name="form1" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>" method="POST">
+<form name="form1" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANG?>" method="POST">
 	<?=bitrix_sessid_post()?>
-	<?
+	<?php 
 	$editTab->Begin();
 	$editTab->BeginNextTab();
 	?>
@@ -47,18 +47,18 @@ $editTab = new CAdminTabControl("editTab", $aTabs);
 	<tr valign="top">
 		<td width="100%" colspan="2">
 			<input type="hidden" name="lang" value="<?=LANG?>">
-			<textarea cols="60" name="stanza" id="stanza" rows="15" wrap="OFF" style="width:100%;"><? echo htmlspecialchars($stanza); ?></textarea><br />
+			<textarea cols="60" name="stanza" id="stanza" rows="15" wrap="OFF" style="width:100%;"><?php  echo htmlspecialchars($stanza); ?></textarea><br />
 		</td>
 	</tr>
-	<?$editTab->Buttons();
+	<?php $editTab->Buttons();
 	?>
-	<input type="submit" accesskey="x" name="execute" value="<?echo GetMessage("STANZA_EXECUTE")?>">
-	<input type="reset" value="<?echo GetMessage("STANZA_RESET")?>">
-	<?
+	<input type="submit" accesskey="x" name="execute" value="<?php echo GetMessage("STANZA_EXECUTE")?>">
+	<input type="reset" value="<?php echo GetMessage("STANZA_RESET")?>">
+	<?php 
 	$editTab->End();
 	?>
 </form>
-<?
+<?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $stanza<>"" && check_bitrix_sessid())
 {
 	$errorNo = "";
@@ -90,4 +90,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $stanza<>"" && check_bitrix_sessid()
 	echo "</div>";
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

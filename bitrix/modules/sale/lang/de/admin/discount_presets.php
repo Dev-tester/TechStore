@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_PRESET_TITLE"] = "Assistent der Warenkorbregeln";
 $MESS["BX_SALE_DISCOUNT_PRESET_ANNOUNCE"] = "Beschreibung";
 $MESS["BX_SALE_DISCOUNT_PRESET_CREATE"] = "Regel hinzufügen";

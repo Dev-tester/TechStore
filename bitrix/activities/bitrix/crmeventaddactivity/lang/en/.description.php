@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_EVENT_ADD_ROBOT_TITLE"] = "Write to log";
 $MESS["CRM_ACTIVITY_EVENT_ADD_NAME"] = "Add CRM event";
 $MESS["CRM_ACTIVITY_EVENT_ADD_DESC"] = "Add CRM event";

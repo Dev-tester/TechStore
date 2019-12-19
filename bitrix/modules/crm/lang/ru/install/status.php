@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_A"] = "Подтверждён";
 $MESS["CRM_STATUS_A_DESCR"] = "Подтверждён";
 $MESS["CRM_STATUS_D"] = "Отклонён";

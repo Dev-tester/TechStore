@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ERROR_MAIL_FROM"] = "The \"From\" field is incorrect.";
 $MESS["CRM_FIELD_AUTO_GEN_RC"] = "Enable repeat sales mode";
 $MESS["CRM_FIELD_AUTO_USING_FINISHED_LEAD"] = "Enable legacy lead creation mode";

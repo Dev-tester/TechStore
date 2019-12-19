@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BIZPROC_JS_BP_STARTER_REQUEST_FAILURE"] = "Error executing request. Try refreshing the page.";
 $MESS["BIZPROC_JS_BP_STARTER_CANCEL"] = "Cancel";
 $MESS["BIZPROC_JS_BP_STARTER_START"] = "Start";

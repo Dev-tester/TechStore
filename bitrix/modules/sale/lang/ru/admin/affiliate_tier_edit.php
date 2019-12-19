@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SATE1_NO_SITE"]="Не указан сайт пирамиды";
 $MESS["SATE1_EXISTS"]="Для сайта #SITE_ID# уже есть пирамида";
 $MESS["SATE1_ERROR_SAVE"]="Ошибка сохранения пирамиды";

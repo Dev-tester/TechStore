@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Text\Converter;
 
@@ -28,29 +28,29 @@ if(
 	$profileInfo = $dbRes->fetch();
 ?>
 	<input type="hidden" name="profile_module_id[]" value="socialservices">
-<?
+<?php 
 	if(!$profileInfo)
 	{
 ?>
 		<tr>
 			<td>
 				<?=BeginNote()?>
-<?
+<?php 
 		if($ID == $USER->GetID()):
 			$url = \Bitrix\Socialservices\Network::getAuthUrl("popup", array("admin"));
 ?>
 				<?=Loc::getMessage("SS_USERTAB_NOT_CONNECTED_SELF")?> <input type="button" onclick="BX.util.popup('<?=CUtil::JSEscape($url)?>', 700, 500);" class="adm-btn-green" value="<?=Loc::getMessage("SS_USERTAB_CREATE_LINK")?>">
-<?
+<?php 
 		else:
 ?>
 				<?=Loc::getMessage("SS_USERTAB_NOT_CONNECTED_OTHER")?>
-<?
+<?php 
 		endif;
 ?>
 				<?=EndNote();?>
 			</td>
 		</tr>
-<?
+<?php 
 	}
 	else
 	{
@@ -63,8 +63,8 @@ if(
 				<?=EndNote();?>
 			</td>
 		</tr>
-<?
+<?php 
 	}
 ?>
-<?
+<?php 
 endif;

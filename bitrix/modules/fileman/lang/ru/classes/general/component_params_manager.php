@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PAR_MAN_SELECT_OTHER'] = "(другое)";
 $MESS ['PAR_MAN_SELECT_NO_VALUE'] = "(не выбрано)";
 $MESS ['PAR_MAN_SEARCH'] = "Поиск";

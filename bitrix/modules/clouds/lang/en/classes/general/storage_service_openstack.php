@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_OPENSTACK_EMPTY_HOST"] = "The server name is now specified.";
 $MESS["CLO_STORAGE_OPENSTACK_EMPTY_USER"] = "The user name is not specified.";
 $MESS["CLO_STORAGE_OPENSTACK_EMPTY_KEY"] = "The access key is not specified.";

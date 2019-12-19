@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['COMP_SITE_MAP_VALUE_YES'] = "Yes";
 $MESS ['COMP_SITE_MAP_VALUE_NO'] = "No";
 $MESS ['MAIN_SITE_MAP_PARAMS_NAME'] = "Component parameters";

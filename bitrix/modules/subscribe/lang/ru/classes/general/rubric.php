@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['class_rub_err_name'] = "Название рубрики является обязательным полем.";
 $MESS ['class_rub_err_lang'] = "Неправильный язык.";
 $MESS ['class_rub_err_lang2'] = "Укажите язык.";

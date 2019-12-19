@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EXTRANET_MODULE_NAME'] = "Extranet";
 $MESS ['EXTRANET_MODULE_DESC'] = "Enables company personnel to co-operate with external partners.";
 $MESS ['EXTRANET_INSTALL_TITLE'] = "Install Extranet";

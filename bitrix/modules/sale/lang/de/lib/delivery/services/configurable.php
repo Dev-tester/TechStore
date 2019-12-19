@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DLVR_HANDL_CONF_PRICE"] = "Preis";
 $MESS["SALE_DLVR_HANDL_CONF_CURRENCY"] = "Währung";
 $MESS["SALE_DLVR_HANDL_CONF_PERIOD"] = "Lieferfrist";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $strMerchantID = CSalePaySystemAction::GetParamValue("SHOP_ACCOUNT");
 $strMerchantName = CSalePaySystemAction::GetParamValue("SHOP_NAME");
 

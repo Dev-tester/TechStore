@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_PLC_FAILED_TO_CREATE_OBJECT"] = "Не удалось создать объект заказа";
 $MESS["CRM_ORDER_PLC_PRODUCT"] = "Товар";
 $MESS["CRM_ORDER_PLC_PROPERTIES"] = "Свойства";

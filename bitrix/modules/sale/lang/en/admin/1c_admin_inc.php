@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_1C_GROUP_PERMISSIONS"] = "User groups allowed to export";
 $MESS["SALE_1C_SITE_LIST"] = "Export orders of this site to 1C";
 $MESS["SALE_1C_SALE_ACCOUNT_NUMBER_SHOP_PREFIX"] = "Order number prefix (for export)";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_FORUMS'] = "Форумы";
 $MESS ['F_FORUM_NAME'] = "Название форума";
 $MESS ['F_TOPICS'] = "Темы";

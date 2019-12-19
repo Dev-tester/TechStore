@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if ($arResult["NEED_AUTH"] == "Y")
 {
 	$APPLICATION->AuthForm("");
@@ -8,7 +8,7 @@ elseif (strlen($arResult["FatalError"])>0)
 {
 	?>
 	<span class='errortext'><?=$arResult["FatalError"]?></span><br /><br />
-	<?
+	<?php 
 }
 else
 {
@@ -16,11 +16,11 @@ else
 	{
 		?>
 		<span class='errortext'><?=$arResult["ErrorMessage"]?></span><br /><br />
-		<?
+		<?php 
 	}
 	?>
 
-	<?
+	<?php 
 	function __ShowField($name, $property_fields, $value, $form_name = "form_element", $taskType = "group")
 	{
 		if ($property_fields["TYPE"] == "user")
@@ -129,7 +129,7 @@ else
 		<label for="ID_DATE_TYPE_CURRENT_<?= $name ?>"><?= GetMessage("INTVT_CUR_DATE") ?></label><br />
 		<input type="radio" name="DATE_TYPE_<?= $name ?>" id="ID_DATE_TYPE_SELECTED_<?= $name ?>"<?= (StrLen($value) > 0 && $value != "current") ? " checked" : "" ?> value="selected"> 
 		<label for="ID_DATE_TYPE_SELECTED_<?= $name ?>"><?= GetMessage("INTVT_THIS_DATE") ?></label><br /><br />
-		<?
+		<?php 
 		$GLOBALS["APPLICATION"]->IncludeComponent(
 			'bitrix:main.calendar',
 			'',
@@ -154,7 +154,7 @@ else
 		<label for="ID_USER_TYPE_CURRENT_<?= $name ?>"><?= GetMessage("INTVT_CUR_USER") ?></label><br />
 		<input type="radio" name="USER_TYPE_<?= $name ?>" id="ID_USER_TYPE_SELECTED_<?= $name ?>"<?= (StrLen($value) > 0 && $value != "current") ? " checked" : "" ?> value="selected"> 
 		<label for="ID_USER_TYPE_SELECTED_<?= $name ?>"><?= GetMessage("INTVT_THIS_USER") ?></label><br /><br />
-		<?
+		<?php 
 		$val = "";
 		if (StrLen($value) > 0 && $value != "current")
 		{
@@ -292,7 +292,7 @@ else
 		<label for="ID_TASK_PROP_STATUS_ACTIVE"><?= GetMessage("INTVT_STATUS_ACTIVE") ?></label><br />
 		<input type="radio" name="TASK_PROP_STATUS" id="ID_TASK_PROP_STATUS_SELECTED"<?= (StrLen($value) > 0 && $value != "active") ? " checked" : "" ?> value="selected"> 
 		<label for="ID_TASK_PROP_STATUS_SELECTED"><?= GetMessage("INTVT_STATUS_SELECTED") ?></label><br /><br />
-		<?
+		<?php 
 		$res = "";
 		$bNoValue = true;
 		$prop_enums = CIBlockProperty::GetPropertyEnum($propertyField["ID"]);
@@ -313,25 +313,25 @@ else
 	}
 	?>
 
-	<?if ($arResult["ShowStep"] == 1):?>
+	<?php if ($arResult["ShowStep"] == 1):?>
 		<table class="intranet-view-form data-table" cellspacing="0" cellpadding="0">
 			<tr>
 				<th colspan="2"><?= GetMessage("INTVT_SELECT_FORMAT") ?></th>
 			</tr>
-			<?$i = 0;?>
-			<?foreach ($arResult["Templates"] as $template):?>
-				<?if ($i == 0):?>
+			<?php $i = 0;?>
+			<?php foreach ($arResult["Templates"] as $template):?>
+				<?php if ($i == 0):?>
 					<tr>
-				<?endif;?>
+				<?php endif;?>
 				<td valign="top" width="50%">
 					<a href="<?= $template["LINK"] ?>"><?= $template["TITLE"] ?> (<?= $template["NAME"] ?>)</a><br />
 					<?= $template["DESCRIPTION"] ?>
 				</td>
-				<?if ($i == 1):?>
+				<?php if ($i == 1):?>
 					</tr>
-				<?endif;?>
-				<?$i = (($i == 0) ? 1 : 0);?>
-			<?endforeach;?>
+				<?php endif;?>
+				<?php $i = (($i == 0) ? 1 : 0);?>
+			<?php endforeach;?>
 		</table>
 
 		<br /><br />
@@ -340,29 +340,29 @@ else
 			<tr>
 				<th colspan="2"><?= GetMessage("INTVT_START_EXIST") ?></th>
 			</tr>
-			<?if (Count($arResult["Settings"]) > 0):?>
-				<?$i = 0;?>
-				<?foreach ($arResult["Settings"] as $template):?>
-					<?if ($i == 0):?>
+			<?php if (Count($arResult["Settings"]) > 0):?>
+				<?php $i = 0;?>
+				<?php foreach ($arResult["Settings"] as $template):?>
+					<?php if ($i == 0):?>
 						<tr>
-					<?endif;?>
+					<?php endif;?>
 					<td valign="top" width="50%">
 						<a href="<?= $template["LINK"] ?>"><?= $template["TITLE"] ?></a>
 					</td>
-					<?if ($i == 1):?>
+					<?php if ($i == 1):?>
 						</tr>
-					<?endif;?>
-					<?$i = (($i == 0) ? 1 : 0);?>
-				<?endforeach;?>
-			<?else:?>
+					<?php endif;?>
+					<?php $i = (($i == 0) ? 1 : 0);?>
+				<?php endforeach;?>
+			<?php else:?>
 				<tr>
 					<td colspan="2">
 						<?= GetMessage("INTVT_NO_EXIST") ?>
 					</td>
 				</tr>
-			<?endif;?>
+			<?php endif;?>
 		</table>
-	<?else:?>
+	<?php else:?>
 		<form method="post" name="bx_users_filter_simple_form" action="<?=POST_FORM_ACTION_URI?>" enctype="multipart/form-data">
 			<table class="intranet-view-form data-table" cellspacing="0" cellpadding="0">
 				<tr>
@@ -381,12 +381,12 @@ else
 						<?= GetMessage("INTVT_PUBLIC") ?>:
 					</td>
 					<td valign="top" align="left" width="70%">
-						<input type="radio" name="COMMON" id="ID_COMMON_N" value="N"<?if ($arResult["UserSettings"]["COMMON"] != "Y") echo " checked"?>> 
+						<input type="radio" name="COMMON" id="ID_COMMON_N" value="N"<?php if ($arResult["UserSettings"]["COMMON"] != "Y") echo " checked"?>> 
 						<label for="ID_COMMON_N"><?= GetMessage("INTVT_PUBLIC_N") ?></label><br />
-						<?if ($arResult["Perms"]["CanModifyCommon"]):?>
-							<input type="radio" name="COMMON" id="ID_COMMON_Y" value="Y"<?if ($arResult["UserSettings"]["COMMON"] == "Y") echo " checked"?>>
+						<?php if ($arResult["Perms"]["CanModifyCommon"]):?>
+							<input type="radio" name="COMMON" id="ID_COMMON_Y" value="Y"<?php if ($arResult["UserSettings"]["COMMON"] == "Y") echo " checked"?>>
 							<label for="ID_COMMON_Y"><?= GetMessage("INTVT_PUBLIC_Y") ?></label>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
 				<tr>
@@ -400,10 +400,10 @@ else
 							<td width="98%" align="left"><b><?= GetMessage("INTVT_COLUMNS_NAME") ?></b></td>
 							<td width="1%" align="center"><b><?= GetMessage("INTVT_COLUMNS_ORDER") ?></b></td>
 						</tr>
-						<?$i = 0;?>
-						<?foreach ($arResult["TaskFields"] as $key => $value):?>
-							<?if (!$value["SELECTABLE"]) continue;?>
-							<? $ia = (Is_Array($arResult["UserSettings"]["COLUMNS"]) && array_key_exists($key, $arResult["UserSettings"]["COLUMNS"])); ?>
+						<?php $i = 0;?>
+						<?php foreach ($arResult["TaskFields"] as $key => $value):?>
+							<?php if (!$value["SELECTABLE"]) continue;?>
+							<?php  $ia = (Is_Array($arResult["UserSettings"]["COLUMNS"]) && array_key_exists($key, $arResult["UserSettings"]["COLUMNS"])); ?>
 							<tr>
 								<td width="1%" align="center" style="padding: 1px;">
 									<input type="checkbox" name="SHOW_COLUMN[]" value="<?= $key ?>" id="ID_SHOW_COLUMN_<?= $i ?>"<?= (($ia || Count($arResult["UserSettings"]["COLUMNS"]) <= 0) ? " checked" : "") ?>>
@@ -412,19 +412,19 @@ else
 									<label for="ID_SHOW_COLUMN_<?= $i ?>"><?= $value["FULL_NAME"] ?></label>
 								</td>
 								<td width="1%" align="center" style="padding: 1px;">
-									<select name="ORDER_COLUMN[<?= $key ?>]"><?
+									<select name="ORDER_COLUMN[<?= $key ?>]"><?php 
 										if (is_array($arResult["TaskFields"]))
 										{
 											$tmpCnt = count($arResult["TaskFields"]);
 											for ($j = 1; $j <= $tmpCnt; $j++):
-												?><option value="<?= $j ?>"<?= (($ia && ($arResult["UserSettings"]["COLUMNS"][$key] == $j) || !$ia && ($j == ($i == $j - 1))) ? " selected" : "") ?>><?= $j ?></option><?
+												?><option value="<?= $j ?>"<?= (($ia && ($arResult["UserSettings"]["COLUMNS"][$key] == $j) || !$ia && ($j == ($i == $j - 1))) ? " selected" : "") ?>><?= $j ?></option><?php 
 											endfor;
 										}
 									?></select>
 								</td>
 							</tr>
-							<?$i++;?>
-						<?endforeach;?>
+							<?php $i++;?>
+						<?php endforeach;?>
 						</table>
 					</td>
 				</tr>
@@ -436,27 +436,27 @@ else
 						<?= GetMessage("INTVT_FIRST_SORT") ?><br />
 						<select name="ORDER_BY_0">
 							<option value=""><?= GetMessage("INTVT_NOT_SORT") ?></option>
-							<?foreach ($arResult["TaskFields"] as $key => $value):?>
-								<?if (!$value["SELECTABLE"]) continue;?>
+							<?php foreach ($arResult["TaskFields"] as $key => $value):?>
+								<?php if (!$value["SELECTABLE"]) continue;?>
 								<option value="<?= $key ?>"<?= ($key == $arResult["UserSettings"]["ORDER_BY_0"]) ? " selected" : "" ?>><?= $value["FULL_NAME"] ?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select><br />
-						<input type="radio" name="ORDER_DIR_0" id="ID_ORDER_DIR_0_ASC" value="ASC"<?if ($arResult["UserSettings"]["ORDER_DIR_0"] == "ASC") echo " checked"?>> 
+						<input type="radio" name="ORDER_DIR_0" id="ID_ORDER_DIR_0_ASC" value="ASC"<?php if ($arResult["UserSettings"]["ORDER_DIR_0"] == "ASC") echo " checked"?>> 
 						<label for="ID_ORDER_DIR_0_ASC"><?= GetMessage("INTVT_SORT_ASC") ?></label><br />
-						<input type="radio" name="ORDER_DIR_0" id="ID_ORDER_DIR_0_DESC" value="DESC"<?if ($arResult["UserSettings"]["ORDER_DIR_0"] != "ASC") echo " checked"?>> 
+						<input type="radio" name="ORDER_DIR_0" id="ID_ORDER_DIR_0_DESC" value="DESC"<?php if ($arResult["UserSettings"]["ORDER_DIR_0"] != "ASC") echo " checked"?>> 
 						<label for="ID_ORDER_DIR_0_DESC"><?= GetMessage("INTVT_SORT_DESC") ?></label><br /><br />
 
 						<?= GetMessage("INTVT_SECOND_SORT") ?><br />
 						<select name="ORDER_BY_1">
 							<option value=""><?= GetMessage("INTVT_NOT_SORT") ?></option>
-							<?foreach ($arResult["TaskFields"] as $key => $value):?>
-								<?if (!$value["SELECTABLE"]) continue;?>
+							<?php foreach ($arResult["TaskFields"] as $key => $value):?>
+								<?php if (!$value["SELECTABLE"]) continue;?>
 								<option value="<?= $key ?>"<?= ($key == $arResult["UserSettings"]["ORDER_BY_1"]) ? " selected" : "" ?>><?= $value["FULL_NAME"] ?></option>
-							<?endforeach;?>
+							<?php endforeach;?>
 						</select><br />
-						<input type="radio" name="ORDER_DIR_1" id="ID_ORDER_DIR_1_ASC" value="ASC"<?if ($arResult["UserSettings"]["ORDER_DIR_1"] == "ASC") echo " checked"?>> 
+						<input type="radio" name="ORDER_DIR_1" id="ID_ORDER_DIR_1_ASC" value="ASC"<?php if ($arResult["UserSettings"]["ORDER_DIR_1"] == "ASC") echo " checked"?>> 
 						<label for="ID_ORDER_DIR_1_ASC"><?= GetMessage("INTVT_SORT_ASC") ?></label><br />
-						<input type="radio" name="ORDER_DIR_1" id="ID_ORDER_DIR_1_DESC" value="DESC"<?if ($arResult["UserSettings"]["ORDER_DIR_1"] != "ASC") echo " checked"?>> 
+						<input type="radio" name="ORDER_DIR_1" id="ID_ORDER_DIR_1_DESC" value="DESC"<?php if ($arResult["UserSettings"]["ORDER_DIR_1"] != "ASC") echo " checked"?>> 
 						<label for="ID_ORDER_DIR_1_DESC"><?= GetMessage("INTVT_SORT_DESC") ?></label><br />
 					</td>
 				</tr>
@@ -471,12 +471,12 @@ else
 							<td width="0%">&nbsp;&nbsp;&nbsp;</td>
 							<td style="padding: 3px;"><b><?= GetMessage("INTVT_FILTER_QUERY") ?></b></td>
 						</tr>
-						<?foreach ($arResult["TaskFields"] as $key => $value):?>
-							<?if (!$value["FILTERABLE"]) continue;?>
+						<?php foreach ($arResult["TaskFields"] as $key => $value):?>
+							<?php if (!$value["FILTERABLE"]) continue;?>
 							<tr>
 								<td style="padding: 3px;" valign="top" align="right"><?= $value["FULL_NAME"] ?>:</td>
 								<td width="0%">&nbsp;&nbsp;&nbsp;</td>
-								<td style="padding: 3px;" valign="top"><?
+								<td style="padding: 3px;" valign="top"><?php 
 									if ($key == "TASKSTATUS")
 										__ShowStatusPropertyField('FILTER['.$key.']', $value, $arResult["UserSettings"]["FILTER"][$key]);
 									elseif ($value["IS_FIELD"] || $value["TYPE"] == "user")
@@ -485,31 +485,31 @@ else
 										__ShowPropertyField('FILTER['.$key.']', $value, $arResult["UserSettings"]["FILTER"][$key], "bx_users_filter_simple_form");
 								?></td>
 							</tr>
-						<?endforeach;?>
+						<?php endforeach;?>
 						</table>
 					</td>
 				</tr>
-				<?if ($arParams["TASK_TYPE"] == "group"):?>
+				<?php if ($arParams["TASK_TYPE"] == "group"):?>
 					<tr>
 						<td valign="top" align="right" width="30%">
 							<?= GetMessage("INTVT_FOLDERS") ?>:
 						</td>
 						<td valign="top" align="left" width="70%">
-							<input type="radio" name="THROUGH_SAMPLING" id="ID_THROUGH_SAMPLING_Y" value="Y"<?if ($arResult["UserSettings"]["THROUGH_SAMPLING"] == "Y") echo " checked"?>> 
+							<input type="radio" name="THROUGH_SAMPLING" id="ID_THROUGH_SAMPLING_Y" value="Y"<?php if ($arResult["UserSettings"]["THROUGH_SAMPLING"] == "Y") echo " checked"?>> 
 							<label for="ID_THROUGH_SAMPLING_Y"><?= GetMessage("INTVT_FOLDERS_THROW") ?></label><br />
-							<input type="radio" name="THROUGH_SAMPLING" id="ID_THROUGH_SAMPLING_N" value="N"<?if ($arResult["UserSettings"]["THROUGH_SAMPLING"] != "Y") echo " checked"?>> 
+							<input type="radio" name="THROUGH_SAMPLING" id="ID_THROUGH_SAMPLING_N" value="N"<?php if ($arResult["UserSettings"]["THROUGH_SAMPLING"] != "Y") echo " checked"?>> 
 							<label for="ID_THROUGH_SAMPLING_N"><?= GetMessage("INTVT_FOLDERS_F") ?></label><br /><br />
 						</td>
 					</tr>
-				<?endif;?>
+				<?php endif;?>
 			</table>
 			<?=bitrix_sessid_post()?>
 			<br />
 			<input type="submit" name="save" value="<?= GetMessage("INTVT_SAVE") ?>">
 			<input type="reset" name="cancel" value="<?= GetMessage("INTVT_CANCEL") ?>">
 		</form>
-	<?endif;?>
+	<?php endif;?>
 
-	<?
+	<?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?>
 <button class="styled-button" onclick="BXMobileDemoApi.pickers.showDatePicker()"><i class="fa fa-calendar"></i> <?=GetMessage("MB_DEMO_PICK_DATE");?>
 </button>
 <button class="styled-button" onclick="BXMobileDemoApi.pickers.showTimePicker()"><i class="fa fa-calendar"></i> <?=GetMessage("MB_DEMO_PICK_TIME");?>

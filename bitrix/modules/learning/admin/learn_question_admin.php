@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 if (!CModule::IncludeModule('learning'))
@@ -407,52 +407,52 @@ $filter = new CAdminFilter(
 );
 
 ?>
-<form method="GET" action="<?echo $APPLICATION->GetCurPage()?>" name="find_form" onsubmit="return this.set_filter.onclick();">
+<form method="GET" action="<?php echo $APPLICATION->GetCurPage()?>" name="find_form" onsubmit="return this.set_filter.onclick();">
 	<input type="hidden" name="LESSON_PATH" value="<?php echo htmlspecialcharsbx(urldecode($uriLessonPath)); ?>">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 
 	<tr>
-		<td><b><?echo GetMessage("LEARNING_NAME")?>:</b></td>
+		<td><b><?php echo GetMessage("LEARNING_NAME")?>:</b></td>
 		<td>
-			<input type="text" name="filter_title" size="50" value="<?echo htmlspecialcharsex($filter_title)?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_title" size="50" value="<?php echo htmlspecialcharsex($filter_title)?>" size="30">&nbsp;<?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_F_SELF")?>:</td>
+		<td><?php echo GetMessage("LEARNING_F_SELF")?>:</td>
 		<td>
 			<select name="filter_self">
 				<option value=""><?=htmlspecialcharsex(GetMessage('LEARNING_ALL2'))?></option>
-				<option value="Y"<?if($filter_self=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
-				<option value="N"<?if($filter_self=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
+				<option value="Y"<?php if($filter_self=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
+				<option value="N"<?php if($filter_self=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
 			</select>
 		</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_F_ACTIVE")?>:</td>
+		<td><?php echo GetMessage("LEARNING_F_ACTIVE")?>:</td>
 		<td>
 			<select name="filter_active">
 				<option value=""><?=htmlspecialcharsex(GetMessage('LEARNING_ALL'))?></option>
-				<option value="Y"<?if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
-				<option value="N"<?if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
+				<option value="Y"<?php if($filter_active=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
+				<option value="N"<?php if($filter_active=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
 			</select>
 		</td>
 	</tr>
 
 	<tr>
-		<td><?echo GetMessage("LEARNING_F_CORRECT_REQUIRED")?>:</td>
+		<td><?php echo GetMessage("LEARNING_F_CORRECT_REQUIRED")?>:</td>
 		<td>
 			<select name="filter_required">
 				<option value=""><?=htmlspecialcharsex(GetMessage('LEARNING_ALL'))?></option>
-				<option value="Y"<?if($filter_required=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
-				<option value="N"<?if($filter_required=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
+				<option value="Y"<?php if($filter_required=="Y")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_YES"))?></option>
+				<option value="N"<?php if($filter_required=="N")echo " selected"?>><?=htmlspecialcharsex(GetMessage("LEARNING_NO"))?></option>
 			</select>
 		</td>
 	</tr>
 
-<?
+<?php 
 $filter->Buttons(array(
 	"table_id" => $sTableID,
 	"url"      => "learn_question_admin.php?lang=" . LANG . "&LESSON_PATH=" . $uriLessonPath,
@@ -461,6 +461,6 @@ $filter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

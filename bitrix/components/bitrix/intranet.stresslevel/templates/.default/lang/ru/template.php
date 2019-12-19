@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_PAGETITLE"] = "Замерить уровень стресса";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_STEP1"] = "Установите или откройте мобильное приложение Битрикс24";
 $MESS["INTRANET_STRESSLEVEL_TEMPLATE_STEP1_APPLE"] = "App Store";

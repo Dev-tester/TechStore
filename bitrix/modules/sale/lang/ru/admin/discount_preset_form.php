@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_PRESET_FORM_EDIT_TAB_NAME_COMMON"] = "Параметры";
 $MESS["BX_SALE_DISCOUNT_PRESET_FORM_EDIT_TAB_TITLE_COMMON"] = "Параметры правила";
 $MESS["BX_SALE_DISCOUNT_PRESET_ABSENT"] = "Не найден пресет";

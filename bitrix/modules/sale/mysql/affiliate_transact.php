@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/general/affiliate_transact.php");
 
 class CSaleAffiliateTransact extends CAllSaleAffiliateTransact

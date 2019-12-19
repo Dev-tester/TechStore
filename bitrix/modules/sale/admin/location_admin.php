@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2006 Bitrix             #
@@ -189,8 +189,8 @@ $APPLICATION->SetTitle(GetMessage("SALE_SECTION_TITLE"));
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 ?>
 
-<form name="find_form" method="GET" action="<?echo $APPLICATION->GetCurPage()?>?">
-<?
+<form name="find_form" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>?">
+<?php 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
@@ -203,39 +203,39 @@ $oFilter = new CAdminFilter(
 $oFilter->Begin();
 ?>
 	<tr>
-		<td><?echo GetMessage("SALE_F_COUNTRY");?>:</td>
+		<td><?php echo GetMessage("SALE_F_COUNTRY");?>:</td>
 		<td>
 			<select name="filter_country">
-				<option value=""><?echo GetMessage("SALE_ALL")?></option>
-				<?
+				<option value=""><?php echo GetMessage("SALE_ALL")?></option>
+				<?php 
 				$db_contList = CSaleLocation::GetCountryList(Array("NAME_LANG"=>"ASC"), Array(), LANG);
 				while ($arContList = $db_contList->Fetch())
 				{
-					?><option value="<?echo $arContList["ID"] ?>"<?if (IntVal($arContList["ID"])==IntVal($filter_country)) echo " selected";?>><?echo htmlspecialcharsbx($arContList["NAME"]) ?> [<?echo htmlspecialcharsbx($arContList["NAME_LANG"]) ?>]</option><?
+					?><option value="<?php echo $arContList["ID"] ?>"<?php if (IntVal($arContList["ID"])==IntVal($filter_country)) echo " selected";?>><?php echo htmlspecialcharsbx($arContList["NAME"]) ?> [<?php echo htmlspecialcharsbx($arContList["NAME_LANG"]) ?>]</option><?php 
 				}
 				?>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_COUNTRY")?>:</td>
+		<td><?php echo GetMessage("SALE_F_COUNTRY")?>:</td>
 		<td>
-			<input type="text" name="filter_country_name" value="<?echo htmlspecialcharsbx($filter_country_name) ?>" size="30"><?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_country_name" value="<?php echo htmlspecialcharsbx($filter_country_name) ?>" size="30"><?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_REGION")?>:</td>
+		<td><?php echo GetMessage("SALE_F_REGION")?>:</td>
 		<td>
-			<input type="text" name="filter_region_name" value="<?echo htmlspecialcharsbx($filter_region_name) ?>" size="30"><?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_region_name" value="<?php echo htmlspecialcharsbx($filter_region_name) ?>" size="30"><?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("SALE_F_CITY")?>:</td>
+		<td><?php echo GetMessage("SALE_F_CITY")?>:</td>
 		<td>
-			<input type="text" name="filter_city_name" value="<?echo htmlspecialcharsbx($filter_city_name) ?>" size="30"><?=ShowFilterLogicHelp()?>
+			<input type="text" name="filter_city_name" value="<?php echo htmlspecialcharsbx($filter_city_name) ?>" size="30"><?=ShowFilterLogicHelp()?>
 		</td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(
 	array(
 		"table_id" => $sTableID,
@@ -247,7 +247,7 @@ $oFilter->End();
 ?>
 </form>
 
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

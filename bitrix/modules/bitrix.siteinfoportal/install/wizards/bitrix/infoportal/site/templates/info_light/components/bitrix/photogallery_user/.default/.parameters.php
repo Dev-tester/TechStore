@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arTemplateParameters = array(
 	"INDEX_PAGE_TOP_ELEMENTS_COUNT" => array(
 		"NAME" => GetMessage("P_INDEX_PAGE_TOP_ELEMENTS_COUNT"),

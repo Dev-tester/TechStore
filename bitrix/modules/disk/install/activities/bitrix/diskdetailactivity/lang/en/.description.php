@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDD_DESCR_NAME2"] = "Drive object details";
 $MESS["BPDD_DESCR_DESCR2"] = "Get Drive object details";
 $MESS["BPDD_DESCR_TYPE"] = "Object type";

@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Status dialog
  */
@@ -9,7 +9,7 @@ unset($arResult["DAILOG"]["STATUSES"]["TITLE"]);
 <form id="status_form">
 <div class="order_status_component">
 	<div class="order_status_title"><?=GetMessage('SMOD_STATUS');?></div>
-	<?
+	<?php 
 		$APPLICATION->IncludeComponent(
 			'bitrix:mobileapp.interface.radiobuttons',
 			'.default',

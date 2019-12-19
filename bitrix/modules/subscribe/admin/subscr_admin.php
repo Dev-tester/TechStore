@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/include.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/subscribe/prolog.php");
@@ -287,13 +287,13 @@ $oFilter = new CAdminFilter(
 	)
 );
 ?>
-<form name="find_form" method="get" action="<?echo $APPLICATION->GetCurPage();?>">
-<?$oFilter->Begin();?>
+<form name="find_form" method="get" action="<?php echo $APPLICATION->GetCurPage();?>">
+<?php $oFilter->Begin();?>
 <tr>
 	<td><b><?=GetMessage("POST_F_FIND")?>:</b></td>
 	<td>
-		<input type="text" size="25" name="find" value="<?echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("POST_F_FIND_TITLE")?>">
-		<?
+		<input type="text" size="25" name="find" value="<?php echo htmlspecialcharsbx($find)?>" title="<?=GetMessage("POST_F_FIND_TITLE")?>">
+		<?php 
 		$arr = array(
 			"reference" => array(
 				GetMessage("POST_F_EMAIL"),
@@ -311,60 +311,60 @@ $oFilter = new CAdminFilter(
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_ID")?>:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_ID")?>:</td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_INSERT")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_insert_1", htmlspecialcharsbx($find_insert_1), "find_insert_2", htmlspecialcharsbx($find_insert_2), "find_form","Y")?></td>
+	<td><?php echo GetMessage("POST_F_INSERT")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_insert_1", htmlspecialcharsbx($find_insert_1), "find_insert_2", htmlspecialcharsbx($find_insert_2), "find_form","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_UPDATE")." (".FORMAT_DATE."):"?></td>
-	<td><?echo CalendarPeriod("find_update_1", htmlspecialcharsbx($find_update_1), "find_update_2", htmlspecialcharsbx($find_update_2), "find_form","Y")?></td>
+	<td><?php echo GetMessage("POST_F_UPDATE")." (".FORMAT_DATE."):"?></td>
+	<td><?php echo CalendarPeriod("find_update_1", htmlspecialcharsbx($find_update_1), "find_update_2", htmlspecialcharsbx($find_update_2), "find_form","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_EMAIL")?>:</td>
-	<td><input type="text" name="find_email" size="47" value="<?echo htmlspecialcharsbx($find_email)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_EMAIL")?>:</td>
+	<td><input type="text" name="find_email" size="47" value="<?php echo htmlspecialcharsbx($find_email)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("POST_F_ANONYMOUS")?>:</td>
-	<td><?
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_anonymous", $arr, htmlspecialcharsbx($find_anonymous), GetMessage("MAIN_ALL"));
 	?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_USER_ID")?>:</td>
-	<td><input type="text" name="find_user_id" size="47" value="<?echo htmlspecialcharsbx($find_user_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_USER_ID")?>:</td>
+	<td><input type="text" name="find_user_id" size="47" value="<?php echo htmlspecialcharsbx($find_user_id)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("POST_F_USER")?>:</td>
-	<td><input type="text" name="find_user" size="47" value="<?echo htmlspecialcharsbx($find_user)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("POST_F_USER")?>:</td>
+	<td><input type="text" name="find_user" size="47" value="<?php echo htmlspecialcharsbx($find_user)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("POST_F_CONFIRMED")?>:</td>
-	<td><?
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_confirmed", $arr, htmlspecialcharsbx($find_confirmed), GetMessage("MAIN_ALL"));
 	?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("POST_F_ACTIVE")?>:</td>
-	<td><?
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("MAIN_YES"), GetMessage("MAIN_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("MAIN_ALL"));
 	?></td>
 </tr>
 <tr>
 	<td><?=GetMessage("POST_F_FORMAT")?>:</td>
-	<td><?
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("POST_TEXT"), GetMessage("POST_HTML")), "reference_id"=>array("text","html"));
 		echo SelectBoxFromArray("find_format", $arr, htmlspecialcharsbx($find_format), GetMessage("MAIN_ALL"));
 	?></td>
 </tr>
 <tr valign="top">
 	<td><?=GetMessage("POST_F_DISTRIBUTION")?>:</td>
-	<td><?
+	<td><?php 
 		$ref = array();
 		$ref_id = array();
 		$rsRubric = CRubric::GetList(array("LID"=>"ASC", "SORT"=>"ASC", "NAME"=>"ASC"), array("ACTIVE" => "Y"));
@@ -379,14 +379,14 @@ $oFilter = new CAdminFilter(
 		echo SelectBoxMFromArray("find_distribution[]", $arr, $find_distribution, "", false, 5);
 	?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

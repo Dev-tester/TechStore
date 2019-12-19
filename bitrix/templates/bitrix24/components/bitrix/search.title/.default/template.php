@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 global $USER;
 CJSCore::Init(array('finder'));
 
@@ -23,7 +23,7 @@ $className =
 
 <div class="header-search<?=$className?> header-search-empty">
 	<div class="header-search-inner">
-		<form class="header-search-form" method="get" name="search-form" onsubmit="return false;" action="<?//=$arResult["FORM_ACTION"]?>" id="<?=$containerId?>">
+		<form class="header-search-form" method="get" name="search-form" onsubmit="return false;" action="<?php //=$arResult["FORM_ACTION"]?>" id="<?=$containerId?>">
 			<input
 				class="header-search-input" name="q" id="<?=$inputId?>" type="text" autocomplete="off"
 				placeholder = "<?=GetMessage("CT_BST_SEARCH_HINT")?>"
@@ -36,7 +36,7 @@ $className =
 	</div>
 </div>
 
-<? $frame = $this->createFrame()->begin(""); ?>
+<?php  $frame = $this->createFrame()->begin(""); ?>
 <script type="text/javascript">
 	BX.message({
 		"GLOBAL_SEARCH" : "<?=GetMessageJS("CT_BST_GLOBAL_SEARCH")?>",
@@ -69,4 +69,4 @@ $className =
 		//'SEARCH_PAGE': '<?=CUtil::JSEscape(str_replace("#SITE_DIR#", SITE_DIR, $arParams["PAGE"]))?>'
 	});
 </script>
-<? $frame->end(); ?>
+<?php  $frame->end(); ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["AD_YES"] = "yes";
 $MESS["AD_NO"] = "no";
 $MESS["AD_ALL"] = "(all)";

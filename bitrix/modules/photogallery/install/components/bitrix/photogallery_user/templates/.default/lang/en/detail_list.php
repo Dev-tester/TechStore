@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_PHOTO_SORT_ID'] = "New";
 $MESS ['P_PHOTO_SORT_ID_TITLE'] = "by creation date";
 $MESS ['P_PHOTO_SORT_SHOWS'] = "Most viewed";

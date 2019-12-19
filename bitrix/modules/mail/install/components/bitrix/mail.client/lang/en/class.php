@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_CLIENT_AJAX_ERROR"] = "Error processing the request.";
 $MESS["MAIL_CLIENT_CANCELATION_WARNING_2"] = "Starting May 1, 2019 two-way email sync is no longer available to free account users (new emails will not be saved to Bitrix24).
 Emails linked to their respective tasks will be retained; other emails will be deleted.

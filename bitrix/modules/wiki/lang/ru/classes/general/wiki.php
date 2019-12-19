@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["Service:Categories"] = "Категории";
 $MESS["Service:Categories_TITLE"] = "Список всех категорий";
 $MESS["Service:Categories_TITLE"] = "Список всех категорий";

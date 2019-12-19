@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_WIZARD_NEXT_CAPTION'] = "Next >";
 $MESS ['MAIN_WIZARD_PREV_CAPTION'] = "< Back";
 $MESS ['MAIN_WIZARD_FINISH_CAPTION'] = "Finish";

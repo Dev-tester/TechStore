@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_GF_EMPTY_ENTITY_ID'] = "Не указан код сущности";
 $MESS ['SONET_GF_ERROR_NO_ENTITY_ID'] = "Сущность указана неверно";
 $MESS ['SONET_GF_EMPTY_FEATURE_ID'] = "Не указан функционал";

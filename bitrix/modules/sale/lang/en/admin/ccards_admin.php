@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCA_ERROR_DELETE"] = "Error deleting card ##ID#";
 $MESS["SCA_ERROR_UPDATE"] = "Error updating parameters of the card ##ID#";
 $MESS["SCA_TITLE"] = "Payment cards";

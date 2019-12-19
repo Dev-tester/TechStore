@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_MEASURE_FIELD_ID'] = 'ID';
 $MESS['CRM_MEASURE_FIELD_CODE'] = 'Код';
 $MESS['CRM_MEASURE_FIELD_MEASURE_TITLE'] = 'Наименование единицы измерения';

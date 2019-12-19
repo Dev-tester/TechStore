@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_SLRI_TAB_REINDEX_TITLE"] = "Переиндексация";
 $MESS["SALE_SLRI_TAB_REINDEX_TITLE_SETTINGS"] = "Настройки переиндексации";
 $MESS["SALE_SLRI_SETTINGS_BASE"] = "Основные настройки";

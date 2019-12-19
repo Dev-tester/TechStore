@@ -1,9 +1,9 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 if (strlen($arResult["ErrorMessage"]) > 0)
 {
-	?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><?
+	?><span class='errortext'><?=$arResult["ErrorMessage"]?></span><?php 
 	return;
 }
 else
@@ -26,12 +26,12 @@ else
 		var langMenuSettDialogTitle_files = '<?=CUtil::JSEscape(GetMessage("SONET_SM_SETTINGS_TITLE_files"))?>';
 		var langMenuSettDialogTitle_search = '<?=CUtil::JSEscape(GetMessage("SONET_SM_SETTINGS_TITLE_search"))?>';
 		var langMenuSettDialogTitle_global = '<?=CUtil::JSEscape(GetMessage("SONET_SM_SETTINGS_TITLE_global"))?>';
-		<?
+		<?php 
 		if (array_key_exists("CustomFeaturesTitle", $arResult))
 		{
 			foreach($arResult["CustomFeaturesTitle"] as $feature => $title)
 			{
-				?>var langMenuSettDialogTitle_<?=$feature?> = '<?=CUtil::JSEscape($title)?>';<?
+				?>var langMenuSettDialogTitle_<?=$feature?> = '<?=CUtil::JSEscape($title)?>';<?php 
 			}
 		}
 		?>
@@ -42,7 +42,7 @@ else
 		</script>
 		<script type="text/javascript" src="/bitrix/components/bitrix/socialnetwork.menu/script.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/socialnetwork.menu/script.js');?>"></script>
 		<div id="antiselect" style="height:100%; width:100%; left: 0; top: 0; position: absolute; -moz-user-select: none !important; display: none; background-color:#FFFFFF; -moz-opacity: 0.01;"></div>
-		<?
+		<?php 
 	}
 
 	$allFeaturesShow = array_slice($arResult['FEATURES'], 0, $arResult["MAX_ITEMS"]);
@@ -52,7 +52,7 @@ else
 	<script>
 		window.___BXMenu = new BXMenu('<?=$arResult["ID"]?>');
 	</script>
-	<?
+	<?php 
 
 	if($arResult["PERMISSION"]>"R"):
 
@@ -77,7 +77,7 @@ else
 	<td width="0%" class="bx-sm-leftshadow"><div style="width: 7px;"></div></td>
 	<td valign="top">
 	<table class="bx-sm-holder-show" cellspacing="0" cellpadding="0" id="MenuHolder_<?=$arResult["ID"]?>">
-	<tr><?
+	<tr><?php 
 		if (is_array($allFeaturesShow))
 		{
 			foreach($allFeaturesShow as $i => $arFeature):
@@ -98,24 +98,24 @@ else
 				<td id="<?=$CellID?>">
 				<table id="t<?=$arFeature["feature"]?>" cellspacing="0" cellpadding="0" border="0" class="<?=$feature_class?>">
 				<tr>
-					<td width="100%" align="center" nowrap><?
+					<td width="100%" align="center" nowrap><?php 
 					if($arResult["PERMISSION"] > "R")
 					{
-						?><script>var jsMI_<?=$arFeature["feature"]?> = new BXMenuItem('<?=$arFeature["feature"]?>');</script><?
+						?><script>var jsMI_<?=$arFeature["feature"]?> = new BXMenuItem('<?=$arFeature["feature"]?>');</script><?php 
 					}
-					?><div class="bx-sm-parent" id="item_<?=$arFeature["feature"]?>" <?
+					?><div class="bx-sm-parent" id="item_<?=$arFeature["feature"]?>" <?php 
 					if($arResult["PERMISSION"] > "R" && (!$arFeature["NOPARAMS"] || $arFeature["ALLOW_SETTINGS"]))
 					{
-						?>onMouseOver="jsMI_<?=$arFeature["feature"]?>.StartTrackMouse(this)"<?
+						?>onMouseOver="jsMI_<?=$arFeature["feature"]?>.StartTrackMouse(this)"<?php 
 					}
-					?> style="position: relative;"><nobr><?
+					?> style="position: relative;"><nobr><?php 
 					if($arResult["PERMISSION"] > "R"):
-						?><a href="<?=$arFeature["Url"]?>" onClick="if (!window.___BXMenu.bWasDraggedRecently) { location.href='<?=$arFeature["Url"]?>'; } return BX.PreventDefault(arguments[0]||window.event);" class="bx-sm-header" style="cursor:pointer;" onmousedown="return getMenuHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arFeature["feature"]?>', event)"><?
+						?><a href="<?=$arFeature["Url"]?>" onClick="if (!window.___BXMenu.bWasDraggedRecently) { location.href='<?=$arFeature["Url"]?>'; } return BX.PreventDefault(arguments[0]||window.event);" class="bx-sm-header" style="cursor:pointer;" onmousedown="return getMenuHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arFeature["feature"]?>', event)"><?php 
 					else:
-						?><a href="<?=$arFeature["Url"]?>" class="bx-sm-header"><?
+						?><a href="<?=$arFeature["Url"]?>" class="bx-sm-header"><?php 
 					endif;
 					echo $arFeature["FeatureName"];
-					?></a><?
+					?></a><?php 
 					if($arResult["PERMISSION"] > "R" && (!$arFeature["NOPARAMS"] || $arFeature["ALLOW_SETTINGS"])):
 						?>
 						<div class="bx-sm-actions" id="act_<?=$arFeature["feature"]?>">
@@ -124,7 +124,7 @@ else
 						<div class="bx-sm-actions-separator"></div>
 						<a id="act_remove_<?=$arFeature["feature"]?>" class="bx-sm-remove bx-sm-actions-button" href="javascript:void(0)" onclick="return getMenuHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arFeature["feature"]?>');" title="<?=GetMessage("SONET_SM_TDEF_OFF")?>"></a>
 						<div class="bx-sm-actions-right"></div>
-						</div><?
+						</div><?php 
 					endif;
 					?>
 					</nobr></div>
@@ -134,13 +134,13 @@ else
 				<div style="display:none;" id="d<?=$arFeature["feature"]?>" class="bx-sm-dotted"></div>
 				</td>
 				<td width="0%" class="bx-sm-separator"><div style="width: 3px;"></div></td>
-				<?
+				<?php 
 			endforeach;
 		}
 	?></tr>
 	</table>
 	</td>
-	<td width="0%" valign="top"><?
+	<td width="0%" valign="top"><?php 
 	if (count($allFeaturesAdd) > 0):
 	?><div id="ddmenuaddholder"><table cellspacing="0" cellpadding="0" width="100%">
 	<tr>	
@@ -156,7 +156,7 @@ else
 		<tr>
 			<td class="bx-sm-ddmenu-top-left"><div class="bx-sm-ddmenu-top-right"></div></td>
 		</tr>
-		<?
+		<?php 
 		foreach ($allFeaturesAdd as $j => $arFeature):
 			$ind = $j + 1 + count($allFeaturesShow);
 
@@ -173,27 +173,27 @@ else
 				$feature_class = ($arParams["PAGE_ID"] == "user_".$arFeature["feature"] || $arParams["PAGE_ID"] == "group_".$arFeature["feature"] ? "bx-sm-feature-select" : "bx-sm-feature-noselect");
 					
 			?><tr>
-				<td id="<?=$CellID?>" class="bx-sm-ddmenu-middle-left"><div class="bx-sm-ddmenu-middle-right<?=($arResult["PERMISSION"] <= "R" ? "-regular" : "" )?>" <?if ($j == (count($allFeaturesAdd)-1)){ echo 'style="padding-bottom: 5px;"'; } ?>><table id="t<?=$arFeature["feature"]?>" class="<?=$feature_class?>" cellspacing="0" cellpadding="0" border="0">
+				<td id="<?=$CellID?>" class="bx-sm-ddmenu-middle-left"><div class="bx-sm-ddmenu-middle-right<?=($arResult["PERMISSION"] <= "R" ? "-regular" : "" )?>" <?php if ($j == (count($allFeaturesAdd)-1)){ echo 'style="padding-bottom: 5px;"'; } ?>><table id="t<?=$arFeature["feature"]?>" class="<?=$feature_class?>" cellspacing="0" cellpadding="0" border="0">
 				<tr>
-					<td nowrap><?
+					<td nowrap><?php 
 					if($arResult["PERMISSION"] > "R")
 					{
-						?><script>var jsMI_<?=$arFeature["feature"]?> = new BXMenuItem('<?=$arFeature["feature"]?>');</script><?
+						?><script>var jsMI_<?=$arFeature["feature"]?> = new BXMenuItem('<?=$arFeature["feature"]?>');</script><?php 
 					}
-					?><div class="bx-sm-parent" id="item_<?=$arFeature["feature"]?>" <?
+					?><div class="bx-sm-parent" id="item_<?=$arFeature["feature"]?>" <?php 
 					if($arResult["PERMISSION"] > "R" && (!$arFeature["NOPARAMS"] || $arFeature["ALLOW_SETTINGS"]))
 					{
-						?>onMouseOver="jsMI_<?=$arFeature["feature"]?>.StartTrackMouse(this)"<?
+						?>onMouseOver="jsMI_<?=$arFeature["feature"]?>.StartTrackMouse(this)"<?php 
 					}
 					?> style="position: relative;"><nobr>
-						<?
+						<?php 
 						if($arResult["PERMISSION"] > "R"):
-							?><a href="<?=$arFeature["Url"]?>" onClick="if (!window.___BXMenu.bWasDraggedRecently) { location.href='<?=$arFeature["Url"]?>'; } return BX.PreventDefault(arguments[0]||window.event);" class="bx-sm-header" style="cursor:pointer;" onmousedown="return getMenuHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arFeature["feature"]?>', event)"><?
+							?><a href="<?=$arFeature["Url"]?>" onClick="if (!window.___BXMenu.bWasDraggedRecently) { location.href='<?=$arFeature["Url"]?>'; } return BX.PreventDefault(arguments[0]||window.event);" class="bx-sm-header" style="cursor:pointer;" onmousedown="return getMenuHolder('<?=AddSlashes($arResult["ID"])?>').DragStart('<?=$arFeature["feature"]?>', event)"><?php 
 						else:
-							?><a href="<?=$arFeature["Url"]?>" class="bx-sm-header"><?
+							?><a href="<?=$arFeature["Url"]?>" class="bx-sm-header"><?php 
 						endif;
 						echo $arFeature["FeatureName"];
-						?></a><?
+						?></a><?php 
 						if($arResult["PERMISSION"] > "R" && (!$arFeature["NOPARAMS"] || $arFeature["ALLOW_SETTINGS"])):
 							?><div class="bx-sm-actions" id="act_<?=$arFeature["feature"]?>">
 							<div class="bx-sm-actions-left"></div>
@@ -201,7 +201,7 @@ else
 							<div class="bx-sm-actions-separator"></div>
 							<a id="act_remove_<?=$arFeature["feature"]?>" class="bx-sm-remove bx-sm-actions-button" href="javascript:void(0)" onclick="return getMenuHolder('<?=AddSlashes($arResult["ID"])?>').Delete('<?=$arFeature["feature"]?>');" title="<?=GetMessage("SONET_SM_TDEF_OFF")?>"></a>
 							<div class="bx-sm-actions-right"></div>
-							</div><?
+							</div><?php 
 						endif;
 						?>
 					</nobr></div>
@@ -211,7 +211,7 @@ else
 				<div style="display:none;" id="d<?=$arFeature["feature"]?>" class="bx-sm-dotted"></div>
 				</div>
 				</td>
-			</tr><?
+			</tr><?php 
 		endforeach;
 		?>
 		<tr>
@@ -221,12 +221,12 @@ else
 		</div></div>
 		</td>
 	</tr>	
-	</table></div><?
+	</table></div><?php 
 	endif;
 	?></td>
-	<?if (count($allFeaturesAdd) > 0):?>
+	<?php if (count($allFeaturesAdd) > 0):?>
 	<td width="0%" class="bx-sm-separator"><div style="width: 3px;"></div></td>	
-	<?
+	<?php 
 	endif;
 	
 	if($arResult["PERMISSION"] > "R"):
@@ -242,12 +242,12 @@ else
 			<tr>
 				<td class="bx-sm-ddmenu-top-left"><div class="bx-sm-ddmenu-top-right"></div></td>
 			</tr>
-			<?
+			<?php 
 			foreach ($allFeaturesInactive as $j => $arFeature):
 
 				$ind = $j + 1 + count($allFeaturesShow) + count($allFeaturesInactive);	
 				?><tr>
-					<td class="bx-sm-ddmenu-middle-left"><div class="bx-sm-ddmenu-middle-right" <?if ($j == (count($allFeaturesInactive)-1)){ echo 'style="padding-bottom: 5px;"'; } ?>><table cellspacing="0" cellpadding="0" class="bx-sm-feature-noselect">
+					<td class="bx-sm-ddmenu-middle-left"><div class="bx-sm-ddmenu-middle-right" <?php if ($j == (count($allFeaturesInactive)-1)){ echo 'style="padding-bottom: 5px;"'; } ?>><table cellspacing="0" cellpadding="0" class="bx-sm-feature-noselect">
 					<tr>
 						<td nowrap>
 						<div class="bx-sm-parent">
@@ -258,7 +258,7 @@ else
 					</table>
 					</div>
 					</td>
-				</tr><?
+				</tr><?php 
 			endforeach;
 			?>
 			<tr>
@@ -268,7 +268,7 @@ else
 			</div>
 			</div>
 			</td>
-			<td width="0%" class="bx-sm-separator"><div style="width: 3px;"></div></td><?
+			<td width="0%" class="bx-sm-separator"><div style="width: 3px;"></div></td><?php 
 		endif;		
 		?><td width="0%" valign="top">
 		<table cellspacing="0" cellpadding="0">
@@ -277,7 +277,7 @@ else
 		</tr>
 		</table>
 		</td>
-		<?
+		<?php 
 	endif;
 	?>
 	<td width="0%" class="bx-sm-rightshadow"><div style="width: 13px;"></div></td>
@@ -286,6 +286,6 @@ else
 	</table>
 	</div>
 	</form>
-	<?
+	<?php 
 }
 ?>

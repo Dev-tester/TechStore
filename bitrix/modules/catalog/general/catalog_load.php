@@ -1,4 +1,4 @@
-<?
+<?php 
 class CAllCatalogLoad
 {
 	function GetList($arOrder=Array("LAST_USED"=>"DESC"), $arFilter=Array())

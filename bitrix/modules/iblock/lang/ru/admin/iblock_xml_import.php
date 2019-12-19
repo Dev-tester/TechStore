@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_CML2_WRONG_FILE_ERROR"] = "Указанный файл не является xml файлом формата CommerceML второй редакции.";
 $MESS["IBLOCK_CML2_TABLE_CREATE_ERROR"] = "Ошибка создания временных таблиц для импорта.";
 $MESS["IBLOCK_CML2_FILE_ERROR"] = "Ошибка открытия файла.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_DETAIL_URL'] = "URL of the page with the detail contents";
 $MESS ['T_IBLOCK_DESC_ASC'] = "Ascending";
 $MESS ['T_IBLOCK_DESC_DESC'] = "Descending";

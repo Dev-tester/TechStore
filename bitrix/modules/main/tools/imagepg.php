@@ -1,4 +1,4 @@
-<?
+<?php 
 //This function will protect against utf-7 xss
 //on page with no character setting
 function htmlspecialchars_plus($str)
@@ -35,8 +35,8 @@ function KeyPress()
 body {margin-left:0; margin-top:0; margin-right:0; margin-bottom:0;}
 -->
 </style>
-<title><?echo $alt?></title></head>
+<title><?php echo $alt?></title></head>
 <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onKeyPress="KeyPress()">
-<img src="<?echo htmlspecialchars_plus($img)?>" border="0" alt="<?echo $alt?>">
+<img src="<?php echo htmlspecialchars_plus($img)?>" border="0" alt="<?php echo $alt?>">
 </body>
 </html>

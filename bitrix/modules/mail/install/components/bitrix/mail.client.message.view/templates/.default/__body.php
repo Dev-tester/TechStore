@@ -90,9 +90,9 @@ $isCrmEnabled = ($arResult['CRM_ENABLE'] === 'Y');
 
 ?>
 <div class="mail-msg-view-border-bottom">
-	<div class="mail-msg-view-header <? if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> mail-msg-view-header-clickable mail-msg-view-item-open<? endif ?>">
+	<div class="mail-msg-view-header <?php  if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> mail-msg-view-header-clickable mail-msg-view-item-open<?php  endif ?>">
 		<span class="mail-msg-view-header-userpic">
-			<? $APPLICATION->includeComponent(
+			<?php  $APPLICATION->includeComponent(
 				'bitrix:mail.contact.avatar',
 				'',
 				array_merge(
@@ -110,34 +110,34 @@ $isCrmEnabled = ($arResult['CRM_ENABLE'] === 'Y');
 		<span class="mail-msg-view-header-info">
 			<span class="mail-msg-view-sender-block">
 				<div class="mail-msg-view-sender">
-					<? $__from = reset($message['__from']); ?>
+					<?php  $__from = reset($message['__from']); ?>
 					<a class="mail-msg-view-sender-name js-mailto-link" href="mailto:<?=htmlspecialcharsbx($__from['email']) ?>"
 						title="<?=htmlspecialcharsbx($__from['name'] ?: $__from['email']) ?>"><?=htmlspecialcharsbx($__from['name'] ?: $__from['email']) ?></a>
-					<? if (!empty($__from['name']) && !empty($__from['email']) && $__from['name'] != $__from['email']): ?>
+					<?php  if (!empty($__from['name']) && !empty($__from['email']) && $__from['name'] != $__from['email']): ?>
 						<a class="mail-msg-view-sender-email js-mailto-link" href="mailto:<?=htmlspecialcharsbx($__from['email']) ?>"
 							title="<?=htmlspecialcharsbx($__from['email']) ?>"><?=htmlspecialcharsbx($__from['email']) ?></a>
-					<? endif ?>
+					<?php  endif ?>
 				</div>
-				<div class="mail-msg-view-date <? if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> mail-msg-view-arrow<? endif ?>">
+				<div class="mail-msg-view-date <?php  if ($arParams['LOADED_FROM_LOG'] == 'Y'): ?> mail-msg-view-arrow<?php  endif ?>">
 					<span>
 						<?=Loc::getMessage(
 							$message['__is_outcome'] ? 'MAIL_MESSAGE_SENT' : 'MAIL_MESSAGE_RECEIVED',
 							array('#DATETIME#' => $datetimeFormatted)
 						) ?><!--
-						--><? if ($message['__is_outcome'] && $message['OPTIONS']['trackable']): ?>,
+						--><?php  if ($message['__is_outcome'] && $message['OPTIONS']['trackable']): ?>,
 							<span class="read-confirmed-datetime">
-								<? if (!empty($readDatetimeFormatted)): ?>
+								<?php  if (!empty($readDatetimeFormatted)): ?>
 									<?=Loc::getMessage('MAIL_MESSAGE_READ_CONFIRMED', array('#DATETIME#' => $readDatetimeFormatted)) ?>
-								<? else: ?>
+								<?php  else: ?>
 									<?=Loc::getMessage('MAIL_MESSAGE_READ_AWAITING') ?>
-								<? endif ?>
+								<?php  endif ?>
 							</span>
-						<? endif ?>
+						<?php  endif ?>
 					</span>
 				</div>
 			</span>
 			<div class="mail-msg-view-rcpt-wrapper">
-				<?
+				<?php 
 
 				$prepareRcpt = function($field) use (&$message, &$arResult)
 				{
@@ -169,22 +169,22 @@ $isCrmEnabled = ($arResult['CRM_ENABLE'] === 'Y');
 				);
 
 				?>
-				<? $k = 0; ?>
-				<? foreach ($rcpt as $type => $list): ?>
-					<? if (!empty($list)): ?>
-						<? $count = count($list); ?>
-						<? $limit = $count > ($k > 0 ? 2 : 4) ? ($k > 0 ? 1 : 3) : $count; ?>
+				<?php  $k = 0; ?>
+				<?php  foreach ($rcpt as $type => $list): ?>
+					<?php  if (!empty($list)): ?>
+						<?php  $count = count($list); ?>
+						<?php  $limit = $count > ($k > 0 ? 2 : 4) ? ($k > 0 ? 1 : 3) : $count; ?>
 						<span style="display: inline-block; margin-right: 5px; ">
-							<span class="mail-msg-view-rcpt-list" <? if ($k > 0): ?> style="color: #000; "<? endif ?>><?=$type ?>:</span>
-							<? foreach ($list as $item): ?>
-								<? if ($limit == 0): ?>
+							<span class="mail-msg-view-rcpt-list" <?php  if ($k > 0): ?> style="color: #000; "<?php  endif ?>><?=$type ?>:</span>
+							<?php  foreach ($list as $item): ?>
+								<?php  if ($limit == 0): ?>
 									<a class="mail-msg-view-rcpt-more mail-msg-fake-link" href="#">
 										<?=Loc::getMessage('MAIL_MESSAGE_RCPT_MORE', array('#NUM#' => $count)) ?>
 									</a>
 									<span class="mail-msg-view-rcpt-list-hidden">
-								<? endif ?>
+								<?php  endif ?>
 								<span class="mail-msg-view-rcpt-block">
-									<?
+									<?php 
 										$params = $item['AVATAR_PARAMS'];
 										// for using initials from DB, not from message field
 										if (isset($params['mailContact']))
@@ -201,22 +201,22 @@ $isCrmEnabled = ($arResult['CRM_ENABLE'] === 'Y');
 											)
 										);
 									?>
-									<? if ($item['URL']): ?>
+									<?php  if ($item['URL']): ?>
 										<a class="mail-msg-view-rcpt-link js-mailto-link"
 											href="<?=htmlspecialcharsbx($item['URL']) ?>"
 											title="<?= htmlspecialcharsbx($item['HREF_TITLE']); ?>"
 											target="_blank"><?=htmlspecialcharsbx($item['TITLE']) ?></a>
-									<? else: ?>
+									<?php  else: ?>
 										<span class="mail-msg-view-rcpt"><?=htmlspecialcharsbx($item['TITLE']) ?></span>
-									<? endif ?>
+									<?php  endif ?>
 								</span>
-								<? $count--; $limit--; ?>
-							<? endforeach ?>
-							<? if ($limit < -1): ?></span><? endif ?>
+								<?php  $count--; $limit--; ?>
+							<?php  endforeach ?>
+							<?php  if ($limit < -1): ?></span><?php  endif ?>
 						</span>
-						<? $k++; ?>
-					<? endif ?>
-				<? endforeach ?>
+						<?php  $k++; ?>
+					<?php  endif ?>
+				<?php  endforeach ?>
 			</div>
 		</span>
 	</div>
@@ -225,63 +225,63 @@ $isCrmEnabled = ($arResult['CRM_ENABLE'] === 'Y');
 			<div class="mail-msg-view-control mail-msg-view-control-reply js-msg-view-control-reply"><?=Loc::getMessage('MAIL_MESSAGE_BTN_REPLY') ?></div>
 			<div class="mail-msg-view-control mail-msg-view-control-replyall js-msg-view-control-replyall"><?=Loc::getMessage('MAIL_MESSAGE_BTN_REPLY_All') ?></div>
 			<div class="mail-msg-view-control mail-msg-view-control-forward js-msg-view-control-forward"><?=Loc::getMessage('MAIL_MESSAGE_BTN_FWD') ?></div>
-			<? if ($message['__access_level'] == 'full'): ?>
+			<?php  if ($message['__access_level'] == 'full'): ?>
 				<div class="mail-msg-view-control mail-msg-view-control-skip js-msg-view-control-skip"
-					<? if (!preg_grep('/CRM_ACTIVITY-\d+/', $message['BIND']) || !$isCrmEnabled): ?> style="display: none; "<? endif ?>><?=Loc::getMessage('MAIL_MESSAGE_BTN_SKIP') ?></div>
-				<? if (!$message['__is_outcome'] && !$message['isSpam']): ?>
+					<?php  if (!preg_grep('/CRM_ACTIVITY-\d+/', $message['BIND']) || !$isCrmEnabled): ?> style="display: none; "<?php  endif ?>><?=Loc::getMessage('MAIL_MESSAGE_BTN_SKIP') ?></div>
+				<?php  if (!$message['__is_outcome'] && !$message['isSpam']): ?>
 					<div class="mail-msg-view-control mail-msg-view-control-spam js-msg-view-control-spam"><?=Loc::getMessage('MAIL_MESSAGE_BTN_SPAM') ?></div>
-				<? endif ?>
+				<?php  endif ?>
 				<div class="mail-msg-view-control mail-msg-view-control-delete js-msg-view-control-delete"
-					<? if ($message['isTrash']): ?> data-is-trash="true" <? endif; ?>><?=Loc::getMessage('MAIL_MESSAGE_BTN_DEL') ?></div>
-			<? endif ?>
+					<?php  if ($message['isTrash']): ?> data-is-trash="true" <?php  endif; ?>><?=Loc::getMessage('MAIL_MESSAGE_BTN_DEL') ?></div>
+			<?php  endif ?>
 		</div>
 	</div>
 	<div id="mail_msg_<?=$message['ID'] ?>_body" class="mail-msg-view-body"></div>
 </div>
 
-<? $attachedFiles = array(); ?>
-<? if (!empty($message['__files'])): ?>
-	<? \Bitrix\Main\UI\Extension::load('ui.viewer'); ?>
+<?php  $attachedFiles = array(); ?>
+<?php  if (!empty($message['__files'])): ?>
+	<?php  \Bitrix\Main\UI\Extension::load('ui.viewer'); ?>
 	<div class="mail-msg-view-file-block mail-msg-view-border-bottom">
 		<div class="mail-msg-view-file-text"><?=getMessage('MAIL_MESSAGE_ATTACHES') ?>:</div>
 		<div class="mail-msg-view-file-inner">
 			<div id="mail_msg_<?=$message['ID'] ?>_files_images_list" class="mail-msg-view-file-inner">
-				<? foreach ($message['__files'] as $item): ?>
-					<? if (preg_match('/^n\d+$/i', $item['id'])) $attachedFiles[] = $item['id']; ?>
-					<? if (empty($item['preview'])) continue; ?>
+				<?php  foreach ($message['__files'] as $item): ?>
+					<?php  if (preg_match('/^n\d+$/i', $item['id'])) $attachedFiles[] = $item['id']; ?>
+					<?php  if (empty($item['preview'])) continue; ?>
 					<div class="mail-msg-view-file-item-image">
 						<span class="mail-msg-view-file-link-image">
 							<img class="mail-msg-view-file-item-img" src="<?=htmlspecialcharsbx($item['preview']) ?>"
 							<?=Viewer\ItemAttributes::tryBuildByFileId($item['fileId'], $item['url'])->setTitle($item['name'])->setGroupBy(sprintf('mail_msg_%u_file', $message['ID'])) ?>>
 						</span>
 					</div>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</div>
 			<div class="mail-msg-view-file-inner">
-				<? foreach ($message['__files'] as $item): ?>
-					<? if (!empty($item['preview'])) continue; ?>
+				<?php  foreach ($message['__files'] as $item): ?>
+					<?php  if (!empty($item['preview'])) continue; ?>
 					<div class="mail-msg-view-file-item diskuf-files-entity">
 						<span class="feed-com-file-icon feed-file-icon-<?=htmlspecialcharsbx(\Bitrix\Main\IO\Path::getExtension($item['name'])) ?>"></span>
 						<a class="mail-msg-view-file-link" href="<?=htmlspecialcharsbx($item['url']) ?>" target="_blank"
-							<? if (preg_match('/^n\d+$/i', $item['id'])) echo Viewer\ItemAttributes::tryBuildByFileId($item['fileId'], $item['url'])->setTitle($item['name'])->setGroupBy(sprintf('mail_msg_%u_file', $message['ID'])) ?>>
+							<?php  if (preg_match('/^n\d+$/i', $item['id'])) echo Viewer\ItemAttributes::tryBuildByFileId($item['fileId'], $item['url'])->setTitle($item['name'])->setGroupBy(sprintf('mail_msg_%u_file', $message['ID'])) ?>>
 							<?=htmlspecialcharsbx($item['name']) ?>
 						</a>
 						<div class="mail-msg-view-file-link-info"><?=htmlspecialcharsbx($item['size']) ?></div>
 					</div>
-				<? endforeach ?>
+				<?php  endforeach ?>
 			</div>
 		</div>
 	</div>
-<? endif ?>
+<?php  endif ?>
 
 <div class="mail-msg-view-reply-panel mail-msg-view-border-bottom js-msg-view-reply-panel">
-	<div class="mail-msg-userpic" <? if (!empty($arResult['USER_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($arResult['USER_IMAGE']) ?>'); background-size: 23px 23px; "<? endif ?>></div>
+	<div class="mail-msg-userpic" <?php  if (!empty($arResult['USER_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($arResult['USER_IMAGE']) ?>'); background-size: 23px 23px; "<?php  endif ?>></div>
 	<div class="mail-msg-view-reply-panel-text"><?=Loc::getMessage('MAIL_MESSAGE_REPLY_Q') ?></div>
 </div>
 
-<? $messageHtml = trim($message['BODY_HTML']) ? $message['BODY_HTML'] : preg_replace('/(\s*(\r\n|\n|\r))+/', '<br>', htmlspecialcharsbx($message['BODY'])); ?>
+<?php  $messageHtml = trim($message['BODY_HTML']) ? $message['BODY_HTML'] : preg_replace('/(\s*(\r\n|\n|\r))+/', '<br>', htmlspecialcharsbx($message['BODY'])); ?>
 
-<?
+<?php 
 $formId = sprintf('mail_msg_reply_%u_form', $message['ID']);
 
 $actionUrl = '/bitrix/services/main/ajax.php?c=bitrix%3Amail.client&action=sendMessage&mode=ajax';
@@ -292,7 +292,7 @@ $actionUrl = '/bitrix/services/main/ajax.php?c=bitrix%3Amail.client&action=sendM
 	<?=bitrix_sessid_post() ?>
 	<input type="hidden" name="data[IN_REPLY_TO]" value="<?=htmlspecialcharsbx($message['MSG_ID']) ?>">
 	<input type="hidden" name="data[MAILBOX_ID]" value="<?=$message['MAILBOX_ID'] ?>">
-	<?
+	<?php 
 
 	$inlineFiles = array();
 	$quote = preg_replace_callback(

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SOCIALNETWORK_ITEM_USERTOGROUP_AUTO_MEMBER_ADD_IM"] = "Вы добавлены в члены группы \"#GROUP_NAME#\"";
 $MESS["SOCIALNETWORK_ITEM_USERTOGROUP_AUTO_MEMBER_ADD_IM_PROJECT"] = "Вы добавлены в участники проекта \"#GROUP_NAME#\"";
 $MESS["SOCIALNETWORK_ITEM_USERTOGROUP_CHAT_USER_ADD"] = "#USER_NAME# вступил(а) в группу";

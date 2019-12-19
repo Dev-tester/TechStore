@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MARKETPLACE_UPDATES"] = "Обновления";
 $MESS["MARKETPLACE_UPDATE_BUTTON"] = "Обновить";
 $MESS["MARKETPLACE_UPDATE_APP_FREE"] = "бесплатно";

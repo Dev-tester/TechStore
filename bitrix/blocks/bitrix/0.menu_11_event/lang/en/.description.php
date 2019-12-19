@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_0.MENU_1_NAME_NEW"] = "\"Events\" template menu with a logo on the left, menu items on the right and a static translucent background";
 $MESS["LANDING_BLOCK_0.MENU_1_NODES_LANDINGBLOCKNODEMENULIST"] = "Menu";
 $MESS["LANDING_BLOCK_0.MENU_1_NODES_LANDINGBLOCKNODEMENULISTITEMLINK"] = "Menu item";

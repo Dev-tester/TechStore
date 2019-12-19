@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_DISCOUNT_PRESET_LIST_TITLE"] = "Предустановленный список маркетинговых акций";
 $MESS["SALE_DISCOUNT_PRESET_LIST_ITEM_CREATE_BY_PRESET"] = "Создать";
 $MESS["SALE_DISCOUNT_PRESET_LIST_ITEM_LIST_BY_PRESET"] = "Список";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 if(file_exists($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/ru/payment/binom/.description.php"))
 	include($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/ru/payment/binom/.description.php");
 ?>

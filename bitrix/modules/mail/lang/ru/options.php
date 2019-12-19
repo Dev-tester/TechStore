@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIL_OPTIONS_SAVE_SRC'] = "Сохранять исходный текст письма:";
 $MESS ['MAIL_OPTIONS_SAVE_ATTACHMENTS'] = "Сохранять вложенные файлы:";
 $MESS ['MAIL_OPTIONS_TIMEOUT'] = "Таймаут соединения:";

@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 
 if(!CBXFeatures::IsFeatureEnabled('SaleAffiliate'))
 	return;
@@ -65,7 +65,7 @@ if (CModule::IncludeModule("sale"))
 			{
 				$arResult["affiliateParam"] = COption::GetOptionString("sale", "affiliate_param_name", "partner");
 				?>
-				<?
+				<?php 
 				$dbAffiliateTier = CSaleAffiliateTier::GetList(
 					array(),
 					array("SITE_ID" => SITE_ID),
@@ -107,6 +107,6 @@ else
 {
 	?>
 	<b><?=ShowError(GetMessage("SPCAT3_NO_SHOP"))?></b>
-	<?
+	<?php 
 }
 ?>

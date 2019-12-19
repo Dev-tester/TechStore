@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DEVSERVER_ADMIN_MESSAGE"] = "This installation exists as a Bitrix Site Manager development workbench. It must not be used as a publicly available website.";
 $MESS["MAIN_PROLOG_ADMIN_LOGOUT"] = "Log off";
 $MESS["MAIN_PROLOG_ADMIN_TITLE"] = "Administrative section";

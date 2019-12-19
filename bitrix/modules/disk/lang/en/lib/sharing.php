@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_SHARING_MODEL_AUTOCONNECT_NOTIFY"] = "Shared folder <b>\"#NAME#\"</b> is now connected to your Drive. #DISCONNECT_LINK#
 #DESCRIPTION#";
 $MESS["DISK_SHARING_MODEL_APPROVE_N"] = "Disconnect";

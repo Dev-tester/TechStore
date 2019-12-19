@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['DAV_TIMEZONE'] = "Часовой пояс";
 $MESS ['DAV_AGENT_CALENDAR'] = "Включить синхронизацию календарей Exchange";
 $MESS ['DAV_AGENT_CALENDAR_CALDAV'] = "Включить синхронизацию календарей CalDAV";

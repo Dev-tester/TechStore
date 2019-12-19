@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCGHLP_PROP_INTERNALSELECT"] = "Bind to document lists";
 $MESS["BPCGHLP_INVALID_USER"] = "A user or user group '#USER#' was not found.";
 $MESS["BPCGHLP_DAY1"] = "day";

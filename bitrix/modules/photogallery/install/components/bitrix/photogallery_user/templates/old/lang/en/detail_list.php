@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_UP'] = "Up";
 $MESS ['P_UP_TITLE'] = "One level up";
 $MESS ['P_PHOTO_SORT_ID'] = "New";

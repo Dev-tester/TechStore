@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_SALE_COND_BASKET_DISCOUNT_APPLIED_LABEL"] = "Shopping cart rules were applied";
 $MESS["BT_SALE_COND_BASKET_DISCOUNT_APPLIED_PREFIX"] = "Shopping cart rules were applied";
 $MESS["BT_MOD_SALE_COND_CMP_ORDER_CONTROLGROUP_LABEL"] = "Order parameters";

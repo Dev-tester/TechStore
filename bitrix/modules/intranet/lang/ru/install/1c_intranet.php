@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["1C_INTRANET_FIELD_UF_1C"] = "Пользователь из 1С";
 $MESS["1C_INTRANET_FIELD_UF_INN"] = "ИНН";
 $MESS["1C_INTRANET_FIELD_UF_PHONE_INNER"] = "Внутренний телефон";

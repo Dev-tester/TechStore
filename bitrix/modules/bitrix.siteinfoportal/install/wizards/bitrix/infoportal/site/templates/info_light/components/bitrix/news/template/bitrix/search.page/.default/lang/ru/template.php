@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEARCH_ALL'] = "(везде)";
 $MESS ['SEARCH_GO'] = "Искать";
 $MESS ['SEARCH_ERROR'] = "В поисковой фразе обнаружена ошибка:";

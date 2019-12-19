@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACTIONS"] = "Action settings";
 $MESS["IBLOCK_PRICES"] = "Prices";
 $MESS["IBLOCK_BASKET"] = "Items in shopping cart";

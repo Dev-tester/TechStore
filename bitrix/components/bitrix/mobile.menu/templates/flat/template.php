@@ -1,11 +1,11 @@
-<? use Bitrix\Main\Localization\Loc;
+<?php  use Bitrix\Main\Localization\Loc;
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
 } ?>
 
-<?
+<?php 
 
 /**
  * @var $USER CUser
@@ -54,26 +54,26 @@ if (CModule::IncludeModule('im'))
 }
 ?>
 <div class="menu-user" id="menu-user"
-	style="background-color: <?= $userColor ?>;<? if ($arResult["USER"]["AVATAR"]): ?>background: url('<?= $arResult["USER"]["AVATAR"]["src"] ?>') no-repeat; background-size: cover; background-position: center;<? endif ?>">
+	style="background-color: <?= $userColor ?>;<?php  if ($arResult["USER"]["AVATAR"]): ?>background: url('<?= $arResult["USER"]["AVATAR"]["src"] ?>') no-repeat; background-size: cover; background-position: center;<?php  endif ?>">
 	<div class="menu-user-info">
 		<div class="menu-user-name"><?= $arResult["USER"]["FULL_NAME"] ?></div>
 		<div class="menu-user-portal"><?= $arResult["HOST"] ?></div>
 		<div class="menu-user-login"><?= $arResult["USER"]["LOGIN"] ?></div>
 	</div>
 
-	<? $showHelpIcon = CMobile::$platform == "ios" && !$bExtranet; ?>
-	<div class="menu-user-actions<? if (!$showHelpIcon): ?> menu-user-actions-50<? endif ?>">
+	<?php  $showHelpIcon = CMobile::$platform == "ios" && !$bExtranet; ?>
+	<div class="menu-user-actions<?php  if (!$showHelpIcon): ?> menu-user-actions-50<?php  endif ?>">
 		<div class="menu-user-action menu-user-accounts" id="menu-user-accounts">
 			<span><?= GetMessage("MB_MY_BITRIX24") ?></span>
 		</div>
-		<? if ($showHelpIcon): ?>
+		<?php  if ($showHelpIcon): ?>
 		<div class="menu-user-action menu-user-help" id="menu-user-help">
 			<span><?= htmlspecialcharsbx(GetMessage('MB_HELP')) ?></span>
 		</div>
-		<? endif ?>
-		<? if (!$bExtranet && IsModuleInstalled("timeman")): ?>
-		<?$APPLICATION->IncludeComponent('bitrix:timeman', 'mobile', array(), $component, array("HIDE_ICONS" => "Y" ))?>
-		<? endif ?>
+		<?php  endif ?>
+		<?php  if (!$bExtranet && IsModuleInstalled("timeman")): ?>
+		<?php $APPLICATION->IncludeComponent('bitrix:timeman', 'mobile', array(), $component, array("HIDE_ICONS" => "Y" ))?>
+		<?php  endif ?>
 		<div class="menu-user-action menu-user-logout" id="menu-user-logout">
 			<span><?= htmlspecialcharsbx(GetMessage('MB_EXIT')) ?></span>
 		</div>
@@ -101,7 +101,7 @@ if (CModule::IncludeModule('im'))
 			<div class="menu-item-inner menu-icon-tasks"><?= GetMessage("MB_TASKS_MAIN_MENU_ITEM"); ?></div>
 			<div class="menu-item-counter" id="menu-counter-tasks_total"><span
 					class="menu-item-counter-value"></span><span class="menu-item-counter-plus"></span></div>
-		</div><?
+		</div><?php 
 		if (!$bExtranet)
 		{
 			if (\Bitrix\Main\ModuleManager::isModuleInstalled("bizproc"))
@@ -113,7 +113,7 @@ if (CModule::IncludeModule('im'))
 					<div class="menu-item-counter" id="menu-counter-bp_tasks"><span
 							class="menu-item-counter-value"></span><span class="menu-item-counter-plus"></span></div>
 				</div>
-				<?
+				<?php 
 			}
 			?>
 
@@ -122,27 +122,27 @@ if (CModule::IncludeModule('im'))
 			<div class="menu-item-inner menu-icon-calendar">
 				<?= GetMessage("MB_CALENDAR_LIST"); ?>
 			</div>
-			</div><?
+			</div><?php 
 		}
-		?><? if ($diskEnabled)
+		?><?php  if ($diskEnabled)
 		{
 			?>
 		<div class="menu-item" id="doc_user"
-			onclick="MobileMenu.diskList({type: 'user', entityId: <? echo $GLOBALS['USER']->GetID(); ?>}, '/');">
+			onclick="MobileMenu.diskList({type: 'user', entityId: <?php  echo $GLOBALS['USER']->GetID(); ?>}, '/');">
 			<div class="menu-item-inner menu-icon-disk">
 				<?= GetMessage("MB_CURRENT_USER_FILES_MAIN_MENU_ITEM_NEW"); ?>
 			</div>
-			</div><?
+			</div><?php 
 		}
 		else
 		{
 			?>
 		<div class="menu-item" id="doc_user"
-			onclick="MobileMenu.webdavList('user/<? echo $GLOBALS['USER']->GetID(); ?>/');">
+			onclick="MobileMenu.webdavList('user/<?php  echo $GLOBALS['USER']->GetID(); ?>/');">
 			<div class="menu-item-inner menu-icon-disk">
 				<?= GetMessage("MB_CURRENT_USER_FILES_MAIN_MENU_ITEM_NEW"); ?>
 			</div>
-			</div><?
+			</div><?php 
 		}
 		?>
 		<div class="menu-item" onclick="MobileMenu.userList();">
@@ -150,7 +150,7 @@ if (CModule::IncludeModule('im'))
 				<?= GetMessage($bExtranet ? "MB_CONTACTS" : "MB_COMPANY"); ?>
 			</div>
 		</div>
-		<? if (!$bExtranet):
+		<?php  if (!$bExtranet):
 			if ($diskEnabled):?>
 				<div class="menu-item" id="doc_shared"
 					onclick="MobileMenu.diskList({type: 'common', entityId: 'shared_files_s1'}, '/');">
@@ -158,26 +158,26 @@ if (CModule::IncludeModule('im'))
 					<?= GetMessage("MB_SHARED_FILES_MAIN_MENU_ITEM_NEW"); ?>
 				</div>
 				</div>
-			<?else:?>
+			<?php else:?>
 				<div class="menu-item" id="doc_shared" onclick="MobileMenu.webdavList('shared/');">
 				<div class="menu-item-inner menu-icon-files">
 					<?= GetMessage("MB_SHARED_FILES_MAIN_MENU_ITEM_NEW"); ?>
 				</div>
 				</div>
-			<?endif;?>
-		<?endif;?>
+			<?php endif;?>
+		<?php endif;?>
 	</div>
-	<? if (CMobile::getInstance()->getApiVersion()>15 && count($arResult["MARKETPLACE_MENU"]) > 0): ?>
+	<?php  if (CMobile::getInstance()->getApiVersion()>15 && count($arResult["MARKETPLACE_MENU"]) > 0): ?>
 		<div class="menu-separator"><?= Loc::getMessage("MB_MARKETPLACE_GROUP_TITLE"); ?></div>
 		<div class="menu-section menu-section-groups">
-			<? foreach ($arResult["MARKETPLACE_MENU"] as $key => $value): ?>
+			<?php  foreach ($arResult["MARKETPLACE_MENU"] as $key => $value): ?>
 				<div class="menu-item" data-bx24ModernStyle="Y" data-mp-app-id="<?=$value["id"]?>" data-mp-app="Y" data-url="<?= $value["url"] ?>">
 					<div class="menu-item-inner"><?= $value["name"] ?></div>
 				</div>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</div>
-	<? endif; ?>
-	<? if (
+	<?php  endif; ?>
+	<?php  if (
 		!$bExtranet
 		&& IsModuleInstalled('crm')
 		&& CModule::IncludeModule('crm')
@@ -194,7 +194,7 @@ if (CModule::IncludeModule('im'))
 				<?= htmlspecialcharsbx(GetMessage('MB_CRM_ACTIVITY')) ?>
 			</div>
 		</div>
-		<? if (!$userPerms->HavePerm('CONTACT', BX_CRM_PERM_NONE, 'READ')): ?>
+		<?php  if (!$userPerms->HavePerm('CONTACT', BX_CRM_PERM_NONE, 'READ')): ?>
 		<div class="menu-item" id="crm_contact_list"
 					data-url="/mobile/crm/contact/"
 					data-pageid="crm_contact_list"
@@ -203,8 +203,8 @@ if (CModule::IncludeModule('im'))
 				<?= htmlspecialcharsbx(GetMessage('MB_CRM_CONTACT')) ?>
 			</div>
 		</div>
-	<? endif; ?>
-		<? if (!$userPerms->HavePerm('COMPANY', BX_CRM_PERM_NONE, 'READ')): ?>
+	<?php  endif; ?>
+		<?php  if (!$userPerms->HavePerm('COMPANY', BX_CRM_PERM_NONE, 'READ')): ?>
 		<div class="menu-item" id="crm_company_list"
 					data-url="/mobile/crm/company/"
 					data-pageid="crm_company_list"
@@ -213,8 +213,8 @@ if (CModule::IncludeModule('im'))
 				<?= htmlspecialcharsbx(GetMessage('MB_CRM_COMPANY')) ?>
 			</div>
 		</div>
-	<? endif; ?>
-		<? if (!$userPerms->HavePerm('DEAL', BX_CRM_PERM_NONE, 'READ')): ?>
+	<?php  endif; ?>
+		<?php  if (!$userPerms->HavePerm('DEAL', BX_CRM_PERM_NONE, 'READ')): ?>
 		<div class="menu-item" id="crm_deal_list"
 					data-url="/mobile/crm/deal/"
 					data-pageid="crm_deal_list"
@@ -223,8 +223,8 @@ if (CModule::IncludeModule('im'))
 				<?= htmlspecialcharsbx(GetMessage('MB_CRM_DEAL')) ?>
 			</div>
 		</div>
-	<? endif; ?>
-		<? if (!$userPerms->HavePerm('INVOICE', BX_CRM_PERM_NONE, 'READ')): ?>
+	<?php  endif; ?>
+		<?php  if (!$userPerms->HavePerm('INVOICE', BX_CRM_PERM_NONE, 'READ')): ?>
 		<div class="menu-item" id="crm_invoice_list"
 					data-url="/mobile/crm/invoice/"
 					data-pageid="crm_invoice_list"
@@ -233,8 +233,8 @@ if (CModule::IncludeModule('im'))
 				<?= htmlspecialcharsbx(GetMessage('MB_CRM_INVOICE')) ?>
 			</div>
 		</div>
-	<? endif; ?>
-			<? if (!$userPerms->HavePerm('QUOTE', BX_CRM_PERM_NONE, 'READ')): ?>
+	<?php  endif; ?>
+			<?php  if (!$userPerms->HavePerm('QUOTE', BX_CRM_PERM_NONE, 'READ')): ?>
 				<div class="menu-item" id="crm_quote_list"
 						data-url="/mobile/crm/quote/"
 						data-pageid="crm_quote_list"
@@ -243,8 +243,8 @@ if (CModule::IncludeModule('im'))
 						<?= htmlspecialcharsbx(GetMessage('MB_CRM_QUOTE')) ?>
 					</div>
 				</div>
-			<? endif; ?>
-		<? if (!$userPerms->HavePerm('LEAD', BX_CRM_PERM_NONE, 'READ')): ?>
+			<?php  endif; ?>
+		<?php  if (!$userPerms->HavePerm('LEAD', BX_CRM_PERM_NONE, 'READ')): ?>
 		<div class="menu-item" id="crm_lead_list"
 					data-url="/mobile/crm/lead/"
 					data-pageid="crm_lead_list"
@@ -253,8 +253,8 @@ if (CModule::IncludeModule('im'))
 				<?= htmlspecialcharsbx(GetMessage('MB_CRM_LEAD')) ?>
 			</div>
 		</div>
-	<? endif; ?>
-		<? if ($userPerms->HavePerm('CONFIG', BX_CRM_PERM_CONFIG, 'READ')): ?>
+	<?php  endif; ?>
+		<?php  if ($userPerms->HavePerm('CONFIG', BX_CRM_PERM_CONFIG, 'READ')): ?>
 		<div class="menu-item" id="crm_product_list"
 					data-url="/mobile/crm/product/"
 					data-pageid="crm_product_list"
@@ -263,20 +263,20 @@ if (CModule::IncludeModule('im'))
 				<?= htmlspecialcharsbx(GetMessage('MB_CRM_PRODUCT')) ?>
 			</div>
 		</div>
-	<? endif; ?>
-		</div><?
+	<?php  endif; ?>
+		</div><?php 
 	}
 
 	if (is_array($arResult["GROUP_MENU"]) && count($arResult["GROUP_MENU"]) > 0):
 		?>
 		<div class="menu-separator"><?= GetMessage("MB_SEC_GROUPS"); ?></div>
-		<div class="menu-section menu-section-groups"><?
+		<div class="menu-section menu-section-groups"><?php 
 		foreach ($arResult["GROUP_MENU"] as $key => $value):
 			?>
 		<div class="menu-item" data-bx24ModernStyle="Y" data-url="<?= $value[1] ?>">
-			<div class="menu-item-inner"><?= $value[0] ?></div></div><?
+			<div class="menu-item-inner"><?= $value[0] ?></div></div><?php 
 		endforeach;
-		?></div><?
+		?></div><?php 
 	endif;
 
 	if (
@@ -287,13 +287,13 @@ if (CModule::IncludeModule('im'))
 	{
 		?>
 		<div class="menu-separator"><?= GetMessage("MB_SEC_EXTRANET"); ?></div>
-		<div class="menu-section menu-section-groups"><?
+		<div class="menu-section menu-section-groups"><?php 
 		foreach ($arResult["EXTRANET_MENU"] as $key => $value):
 			?>
 		<div class="menu-item" data-bx24ModernStyle="Y" data-url="<?= $value[1] ?>">
-			<div class="menu-item-inner"><?= $value[0] ?></div></div><?
+			<div class="menu-item-inner"><?= $value[0] ?></div></div><?php 
 		endforeach;
-		?></div><?
+		?></div><?php 
 	}
 	?>
 

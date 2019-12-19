@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Lists\Service;
 
 use Bitrix\Main\Errorable;

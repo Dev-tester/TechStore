@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEO_MODULE_NAME'] = "Search Engine Optimization";
 $MESS ['SEO_MODULE_DESCRIPTION'] = "Offers various SEO tools for your site.";
 $MESS ['SEO_DENIED'] = "access denied";

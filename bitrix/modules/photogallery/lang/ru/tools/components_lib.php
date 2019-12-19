@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_IBLOCK_ID_EMPTY"] = "Не передан ID инфоблока.";
 $MESS["P_GALLERY_IS_BLOCKED"] = "Галерея заблокирована.";
 $MESS["P_ALBUM_IS_BLOCKED"] = "Альбом заблокирован.";

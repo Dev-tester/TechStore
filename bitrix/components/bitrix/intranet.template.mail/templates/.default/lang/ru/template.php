@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['INTRANET_SITE_LINK'] = "https://www.bitrix24.ru/";
 $MESS['INTRANET_INVITE_INFO_TEXT'] = "#SPAN_START# Битрикс24 – это 5 полезных инструментов #SPAN_END# для вашего бизнеса, чтобы работать вместе, успевать вовремя и повышать продажи!";
 $MESS['INTRANET_INVITE_MORE'] = "Узнать больше";

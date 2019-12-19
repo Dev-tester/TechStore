@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
-?><?$APPLICATION->IncludeComponent("bitrix:bizproc.workflow.start", "", Array(
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+?><?php $APPLICATION->IncludeComponent("bitrix:bizproc.workflow.start", "", Array(
 	"MODULE_ID" => $arResult["VARIABLES"]["MODULE_ID"], 
 	"ENTITY" => $arResult["VARIABLES"]["ENTITY"], 
 	"DOCUMENT_TYPE" => $arResult["VARIABLES"]["DOCUMENT_TYPE"], 

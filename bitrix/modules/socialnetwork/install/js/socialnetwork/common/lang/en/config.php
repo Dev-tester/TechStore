@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_EXT_COMMON_RECALL_JOIN_POPUP_TITLE"] = "Warning";
 $MESS["SONET_EXT_COMMON_RECALL_JOIN_POPUP_TEXT"] = "Your workgroup membership request has been submitted. You will see the workgroup in your projects and workgroups list once the administration has approved your request.";
 $MESS["SONET_EXT_COMMON_RECALL_JOIN_POPUP_TEXT_PROJECT"] = "Your project membership request has been submitted. You will see the project in your projects and workgroups list once the administration has approved your request.";

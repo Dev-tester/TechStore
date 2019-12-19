@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["main_profile_history_error_date1"] = "Некорректная дата начала периода.";
 $MESS["main_profile_history_error_date2"] = "Некорректная дата окончания периода.";
 $MESS["main_profile_history_records"] = "Записи";

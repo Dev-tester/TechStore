@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $pageId = "user_files";
 include("util_menu.php");
 include("util_profile.php");
@@ -13,7 +13,7 @@ if (
 	return;
 }
 
-?><?
+?><?php 
 if ($arParams["FATAL_ERROR"] == "Y"):
 	if (!empty($arParams["ERROR_MESSAGE"])):
 		ShowError($arParams["ERROR_MESSAGE"]);
@@ -32,7 +32,7 @@ elseif ($arResult["VARIABLES"]["PAGE_NAME"]== "PATH_TO_GROUP_FILES_WEBDAV_BIZPRO
 endif;
 ?>
 <br class="sn-br" />
-<?
+<?php 
 if ($arParams["PERMISSION"] >= "W" && $arParams["CHECK_CREATOR"] != "Y" && $arResult["VARIABLES"]["PAGE_NAME"] == "SECTIONS")
 {
 //	$result = CSocNetUserToGroup::InitUserPerms($GLOBALS["USER"]->GetId(), $arGroup, CSocNetUser::IsCurrentUserModuleAdmin()); 
@@ -65,7 +65,7 @@ if ($arParams["PERMISSION"] >= "W" && $arParams["CHECK_CREATOR"] != "Y" && $arRe
 //	}
 }
 
-?><?$result = $APPLICATION->IncludeComponent("bitrix:webdav.menu", ".default", Array(
+?><?php $result = $APPLICATION->IncludeComponent("bitrix:webdav.menu", ".default", Array(
 	"OBJECT"	=>	$arParams["OBJECT"], 
 	"SECTION_ID"	=>	$arResult["VARIABLES"]["SECTION_ID"],
 	"ELEMENT_ID"	=>	$arResult["VARIABLES"]["ELEMENT_ID"],
@@ -105,6 +105,6 @@ if ($arParams["PERMISSION"] >= "W" && $arParams["CHECK_CREATOR"] != "Y" && $arRe
 	$component,
 	array("HIDE_ICONS" => "Y")
 );?>
-<?
+<?php 
 $this->__component->__menu_values = $result;
 ?>

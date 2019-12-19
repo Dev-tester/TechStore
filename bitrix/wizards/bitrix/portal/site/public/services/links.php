@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/links.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
@@ -6,7 +6,7 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 
 <p><?=GetMessage("SERVICES_INFO")?></p>
 
-<?$APPLICATION->IncludeComponent("bitrix:catalog.section", "links", Array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog.section", "links", Array(
 	"IBLOCK_TYPE"	=>	"services",
 	"IBLOCK_ID"	=>	"#LINKS_IBLOCK_ID#",
 	"SECTION_ID"	=>	$_REQUEST["SECTION_ID"],
@@ -51,4 +51,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 	"PAGER_DESC_NUMBERING_CACHE_TIME"	=>	"36000000"
 	)
 );?> 
- <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ <?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

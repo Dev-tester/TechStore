@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if ($arResult["ShowReady"]=="Y" || $arResult["ShowDelay"]=="Y" || $arResult["ShowSubscribe"]=="Y" || $arResult["ShowNotAvail"]=="Y")
 {
@@ -12,14 +12,14 @@ if ($arResult["ShowReady"]=="Y" || $arResult["ShowDelay"]=="Y" || $arResult["Sho
 		}
 	endforeach;
 
-?><table class="sale_basket_small"><?
+?><table class="sale_basket_small"><?php 
 	if ($arResult["ShowReady"]=="Y")
 	{
-		?><tr><td align="center"><? echo GetMessage("TSBS_READY"); ?></td></tr>
-		<tr><td><ul><?
+		?><tr><td align="center"><?php  echo GetMessage("TSBS_READY"); ?></td></tr>
+		<tr><td><ul><?php 
 		foreach ($arResult["ITEMS"]["AnDelCanBuy"] as &$v)
 		{
-			?><li><?
+			?><li><?php 
 			foreach ($arResult["GRID"]["HEADERS"] as $id => $arHeader)
 			{
 				if(isset($v[$arHeader['id']]) && !empty($v[$arHeader['id']]))
@@ -28,51 +28,51 @@ if ($arResult["ShowReady"]=="Y" || $arResult["ShowDelay"]=="Y" || $arResult["Sho
 					{
 						if ('' != $v["DETAIL_PAGE_URL"])
 						{
-							?><a href="<?echo $v["DETAIL_PAGE_URL"]; ?>"><b><?echo $v[$arHeader['id']]?></b></a><br /><?
+							?><a href="<?php echo $v["DETAIL_PAGE_URL"]; ?>"><b><?php echo $v[$arHeader['id']]?></b></a><br /><?php 
 						}
 						else
 						{
-							?><b><?echo $v[$arHeader['id']]?></b><br /><?
+							?><b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 						}
 					}
 					else if(in_array($arHeader['id'], array("PRICE_FORMATED")))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<b><?echo $v[$arHeader['id']]?></b><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 					}
 					else if(in_array($arHeader['id'], ["DETAIL_PICTURE", "PREVIEW_PICTURE"]) && !empty($v[$arHeader['id']."_SRC"]))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?echo $v[$arHeader['id']."_SRC"]?>"><br/><?
+						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?php echo $v[$arHeader['id']."_SRC"]?>"><br/><?php 
 					}
 					else
 					{
-						?><?= $arHeader['name']?>:&nbsp;<?echo $v[$arHeader['id']]?><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<?php echo $v[$arHeader['id']]?><br /><?php 
 					}
 				}
 			}
-			?></li><?
+			?></li><?php 
 		}
 		if (isset($v))
 			unset($v);
-		?></ul></td></tr><?
+		?></ul></td></tr><?php 
 		if ('' != $arParams["PATH_TO_BASKET"])
 		{
 			?><tr><td align="center"><a href="<?=$arParams["PATH_TO_BASKET"]?>"><?= GetMessage("TSBS_2BASKET") ?></a>
-			</td></tr><?
+			</td></tr><?php 
 		}
 		if ('' != $arParams["PATH_TO_ORDER"])
 		{
 			?><tr><td align="center"><a href="<?=$arParams["PATH_TO_ORDER"]?>"><?= GetMessage("TSBS_2ORDER") ?></a>
-			</td></tr><?
+			</td></tr><?php 
 		}
 	}
 	if ($arResult["ShowDelay"]=="Y")
 	{
 		?><tr><td align="center"><?= GetMessage("TSBS_DELAY") ?></td></tr>
 		<tr><td><ul>
-		<?
+		<?php 
 		foreach ($arResult["ITEMS"]["DelDelCanBuy"] as &$v)
 		{
-			?><li><?
+			?><li><?php 
 			foreach ($arResult["GRID"]["HEADERS"] as $id => $arHeader)
 			{
 				if(isset($v[$arHeader['id']]) && !empty($v[$arHeader['id']]))
@@ -81,45 +81,45 @@ if ($arResult["ShowReady"]=="Y" || $arResult["ShowDelay"]=="Y" || $arResult["Sho
 					{
 						if ('' != $v["DETAIL_PAGE_URL"])
 						{
-							?><a href="<?echo $v["DETAIL_PAGE_URL"]; ?>"><b><?echo $v[$arHeader['id']]?></b></a><br /><?
+							?><a href="<?php echo $v["DETAIL_PAGE_URL"]; ?>"><b><?php echo $v[$arHeader['id']]?></b></a><br /><?php 
 						}
 						else
 						{
-							?><b><?echo $v[$arHeader['id']]?></b><br /><?
+							?><b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 						}
 					}
 					else if(in_array($arHeader['id'], array("PRICE_FORMATED")))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<b><?echo $v[$arHeader['id']]?></b><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 					}
 					else if(in_array($arHeader['id'], ["DETAIL_PICTURE", "PREVIEW_PICTURE"]) && !empty($v[$arHeader['id']."_SRC"]))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?echo $v[$arHeader['id']."_SRC"]?>"><br/><?
+						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?php echo $v[$arHeader['id']."_SRC"]?>"><br/><?php 
 					}
 					else
 					{
-						?><?= $arHeader['name']?>:&nbsp;<?echo $v[$arHeader['id']]?><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<?php echo $v[$arHeader['id']]?><br /><?php 
 					}
 				}
 			}
-			?></li><?
+			?></li><?php 
 		}
 		if (isset($v))
 			unset($v);
-		?></ul></td></tr><?
+		?></ul></td></tr><?php 
 		if ('' != $arParams["PATH_TO_BASKET"])
 		{
 			?><tr><td align="center"><a href="<?=$arParams["PATH_TO_BASKET"]?>"><?= GetMessage("TSBS_2BASKET") ?></a>
-			</td></tr><?
+			</td></tr><?php 
 		}
 	}
 	if ($arResult["ShowSubscribe"]=="Y")
 	{
 		?><tr><td align="center"><?= GetMessage("TSBS_SUBSCRIBE") ?></td></tr>
-		<tr><td><ul><?
+		<tr><td><ul><?php 
 		foreach ($arResult["ITEMS"]["ProdSubscribe"] as &$v)
 		{
-			?><li><?
+			?><li><?php 
 			foreach ($arResult["GRID"]["HEADERS"] as $id => $arHeader)
 			{
 				if(isset($v[$arHeader['id']]) && !empty($v[$arHeader['id']]))
@@ -128,40 +128,40 @@ if ($arResult["ShowReady"]=="Y" || $arResult["ShowDelay"]=="Y" || $arResult["Sho
 					{
 						if ('' != $v["DETAIL_PAGE_URL"])
 						{
-							?><a href="<?echo $v["DETAIL_PAGE_URL"]; ?>"><b><?echo $v[$arHeader['id']]?></b></a><br /><?
+							?><a href="<?php echo $v["DETAIL_PAGE_URL"]; ?>"><b><?php echo $v[$arHeader['id']]?></b></a><br /><?php 
 						}
 						else
 						{
-							?><b><?echo $v[$arHeader['id']]?></b><br /><?
+							?><b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 						}
 					}
 					else if(in_array($arHeader['id'], array("PRICE_FORMATED")))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<b><?echo $v[$arHeader['id']]?></b><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 					}
 					else if(in_array($arHeader['id'], ["DETAIL_PICTURE", "PREVIEW_PICTURE"]) && !empty($v[$arHeader['id']."_SRC"]))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?echo $v[$arHeader['id']."_SRC"]?>"><br/><?
+						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?php echo $v[$arHeader['id']."_SRC"]?>"><br/><?php 
 					}
 					else
 					{
-						?><?= $arHeader['name']?>:&nbsp;<?echo $v[$arHeader['id']]?><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<?php echo $v[$arHeader['id']]?><br /><?php 
 					}
 				}
 			}
-			?></li><?
+			?></li><?php 
 		}
 		if (isset($v))
 			unset($v);
-		?></ul></td></tr><?
+		?></ul></td></tr><?php 
 	}
 	if ($arResult["ShowNotAvail"]=="Y")
 	{
 		?><tr><td align="center"><?= GetMessage("TSBS_UNAVAIL") ?></td></tr>
-		<tr><td><ul><?
+		<tr><td><ul><?php 
 		foreach ($arResult["ITEMS"]["nAnCanBuy"] as &$v)
 		{
-			?><li><?
+			?><li><?php 
 			foreach ($arResult["GRID"]["HEADERS"] as $id => $arHeader)
 			{
 				if(isset($v[$arHeader['id']]) && !empty($v[$arHeader['id']]))
@@ -170,33 +170,33 @@ if ($arResult["ShowReady"]=="Y" || $arResult["ShowDelay"]=="Y" || $arResult["Sho
 					{
 						if ('' != $v["DETAIL_PAGE_URL"])
 						{
-							?><a href="<?echo $v["DETAIL_PAGE_URL"]; ?>"><b><?echo $v[$arHeader['id']]?></b></a><br /><?
+							?><a href="<?php echo $v["DETAIL_PAGE_URL"]; ?>"><b><?php echo $v[$arHeader['id']]?></b></a><br /><?php 
 						}
 						else
 						{
-							?><b><?echo $v[$arHeader['id']]?></b><br /><?
+							?><b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 						}
 					}
 					else if(in_array($arHeader['id'], array("PRICE_FORMATED")))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<b><?echo $v[$arHeader['id']]?></b><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<b><?php echo $v[$arHeader['id']]?></b><br /><?php 
 					}
 					else if(in_array($arHeader['id'], ["DETAIL_PICTURE", "PREVIEW_PICTURE"]) && !empty($v[$arHeader['id']."_SRC"]))
 					{
-						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?echo $v[$arHeader['id']."_SRC"]?>"><br/><?
+						?><?= $arHeader['name']?>:&nbsp;<br/><img src="<?php echo $v[$arHeader['id']."_SRC"]?>"><br/><?php 
 					}
 					else
 					{
-						?><?= $arHeader['name']?>:&nbsp;<?echo $v[$arHeader['id']]?><br /><?
+						?><?= $arHeader['name']?>:&nbsp;<?php echo $v[$arHeader['id']]?><br /><?php 
 					}
 				}
 			}
-			?></li><?
+			?></li><?php 
 		}
 		if (isset($v))
 			unset($v);
-		?></ul></td></tr><?
+		?></ul></td></tr><?php 
 	}
-	?></table><?
+	?></table><?php 
 }
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_TITLE'] = "Visitor details";
 $MESS ['STAT_CURRENT_GUEST'] = "This visitor number is yours";
 $MESS ['STAT_VIEW_SESSIONS_LIST'] = "Session list for this visitor number";

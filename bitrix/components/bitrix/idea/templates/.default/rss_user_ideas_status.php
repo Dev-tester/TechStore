@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $AuthorId = intval($arResult["VARIABLES"]["user_id"]);
 if($arUser = $USER->GetByID($AuthorId)->Fetch())
 {
@@ -10,7 +10,7 @@ $arStatuses = CIdeaManagment::getInstance()->Idea()->GetStatusList();
 foreach($arStatuses as $arStatus)
 	$arStatusesByCode[$arStatus["XML_ID"]] = $arStatus;
 ?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 		"bitrix:idea.rss",
 		"",
 		Array(

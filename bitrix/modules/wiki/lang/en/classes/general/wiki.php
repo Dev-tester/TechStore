@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["Service:Categories"] = "Categories";
 $MESS["Service:Categories_TITLE"] = "All Categories";
 $MESS["WIKI_USER_T_ADD_ERR"] = "Error saving an initial page.";

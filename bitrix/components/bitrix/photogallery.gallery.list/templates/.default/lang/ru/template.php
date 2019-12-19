@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_UPLOAD"] = "Загрузить";
 $MESS["P_GALLERY_CREATE"] = "Создать галерею";
 $MESS["P_GALLERY_EDIT"] = "Редактировать";

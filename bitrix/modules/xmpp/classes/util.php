@@ -1,4 +1,4 @@
-<?
+<?php 
 class CXMPPUtility
 {
 	static function GetUserByJId($jId)

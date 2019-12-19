@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["JS_CORE_FILE_UPLOAD"] = "Upload from computer";
 $MESS["JS_CORE_FILE_INSERT_PATH"] = "Insert file path";
 $MESS["JS_CORE_FILE_MEDIALIB"] = "Select a Media Library item";

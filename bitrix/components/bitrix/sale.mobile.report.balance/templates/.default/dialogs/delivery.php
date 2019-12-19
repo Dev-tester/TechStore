@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
  * Order delivery dialog
  */
@@ -10,7 +10,7 @@ require($_SERVER['DOCUMENT_ROOT'] . $templateFolder.'/dialogs/functions.php');
 <div class="wrap">
 	<div class="order_acceptpay_component">
 		<div class="order_acceptpay_title"><?=GetMessage('SMOD_ALLOW_DELIVERY');?></div>
-			<? printStatusesListHtml($arResult["STATUSES"], $arResult["ORDER"]['STATUS_ID'], true); ?>
+			<?php  printStatusesListHtml($arResult["STATUSES"], $arResult["ORDER"]['STATUS_ID'], true); ?>
 		<div class="order_acceptpay_infoblock">
 			<div class="order_acceptpay_li_container tac">
 				<div class="order_acceptpay_infoblock_title_tac"><?=GetMessage('SMOD_DELIVERY');?></div>

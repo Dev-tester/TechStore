@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
 
@@ -258,18 +258,18 @@ if(empty($fatal))
 } // empty($fatal)
 ?>
 
-<?$APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE'))?>
+<?php $APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE'))?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<?
+<?php 
 #####################################
 #### Data output
 #####################################
 ?>
 
-<?//temporal code?>
-<?if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");
+<?php //temporal code?>
+<?php if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");
 if (!$publicMode && \Bitrix\Sale\Update\CrmEntityCreatorStepper::isNeedStub())
 {
 	$APPLICATION->IncludeComponent("bitrix:sale.admin.page.stub", ".default");
@@ -287,9 +287,9 @@ else
 		}
 		?>
 		<div class="error-message">
-			<?CAdminMessage::ShowMessage($messageParams)?>
+			<?php CAdminMessage::ShowMessage($messageParams)?>
 		</div>
-		<?
+		<?php 
 	}
 	else
 	{

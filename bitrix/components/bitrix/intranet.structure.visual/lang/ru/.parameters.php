@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ISV_PARAM_NAME_TEMPLATE'] = "Отображение имени";
 $MESS ['INTR_ISV_PARAM_NAME_TEMPLATE_DEFAULT'] = "#NOBR##LAST_NAME# #NAME##/NOBR#";
 $MESS ['INTR_ISV_PARAM_SHOW_LOGIN'] = "Показывать логин, если не задано имя";

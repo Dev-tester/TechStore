@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MOBILE_LOG_COMMENT_ADD_TITLE"] = "Send message...";
 $MESS["MOBILE_LOG_COMMENT_ADD_BUTTON_SEND"] = "Send";
 $MESS["MOBILE_LOG_COMMENT_BUTTON_MORE"] = "View all comments (#COMMENTS#)";

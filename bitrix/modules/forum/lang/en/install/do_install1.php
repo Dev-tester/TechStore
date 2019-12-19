@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_INSTALL_PUBLIC'] = "Install the public part of the forum";
 $MESS ['FORUM_HEADER_PATH'] = "Path";
 $MESS ['FORUM_HEADER_MODE'] = "Mode";

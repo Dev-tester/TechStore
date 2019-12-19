@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Tasks\Util\Site;
 use Bitrix\Tasks\Integration\SocialNetwork;
 use Bitrix\Tasks\Util\User;

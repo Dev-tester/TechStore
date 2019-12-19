@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ADDED"] = "Добавлено задач: #TASKS_NUM#";
 $MESS["MOD_BACK"] = "Вернуться в список модулей";
 $MESS["TASKS_SETTINGS"] = "Настройки";

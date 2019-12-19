@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix: SiteManager                        #
 # Copyright (c) 2002-2012 Bitrix             #
@@ -108,30 +108,30 @@ $aTabs = array(
 $tabControl = new CAdminTabControl("tabControl", $aTabs);
 
 ?>
-<?
+<?php 
 $tabControl->Begin();
-?><form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" name="ldap_settings">
-<?$tabControl->BeginNextTab();?>
-<?__AdmSettingsDrawList("ldap", $arAllOptions);?>
-<?
+?><form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?=LANGUAGE_ID?>" name="ldap_settings">
+<?php $tabControl->BeginNextTab();?>
+<?php __AdmSettingsDrawList("ldap", $arAllOptions);?>
+<?php 
 $tabControl->BeginNextTab();?>
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
-<?$tabControl->Buttons();?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/admin/group_rights.php");?>
+<?php $tabControl->Buttons();?>
 <script language="JavaScript">
 function RestoreDefaults()
 {
-	if(confirm('<?echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
-		window.location = "<?echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?echo LANG?>&mid=<?echo urlencode($mid)."&".bitrix_sessid_get();?>";
+	if(confirm('<?php echo AddSlashes(GetMessage("MAIN_HINT_RESTORE_DEFAULTS_WARNING"))?>'))
+		window.location = "<?php echo $APPLICATION->GetCurPage()?>?RestoreDefaults=Y&lang=<?php echo LANG?>&mid=<?php echo urlencode($mid)."&".bitrix_sessid_get();?>";
 }
 </script>
-<input type="submit" name="Update" <?if ($MOD_RIGHT<"W") echo "disabled" ?> value="<?echo GetMessage("LDAP_OPTIONS_SAVE")?>">
-<input type="reset" name="reset" value="<?echo GetMessage("LDAP_OPTIONS_RESET")?>">
+<input type="submit" name="Update" <?php if ($MOD_RIGHT<"W") echo "disabled" ?> value="<?php echo GetMessage("LDAP_OPTIONS_SAVE")?>">
+<input type="reset" name="reset" value="<?php echo GetMessage("LDAP_OPTIONS_RESET")?>">
 <input type="hidden" name="Update" value="Y">
 <?=bitrix_sessid_post();?>
-<input type="button" <?if ($MOD_RIGHT<"W") echo "disabled" ?> title="<?echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
-<?$tabControl->End();?>
+<input type="button" <?php if ($MOD_RIGHT<"W") echo "disabled" ?> title="<?php echo GetMessage("MAIN_HINT_RESTORE_DEFAULTS")?>" OnClick="RestoreDefaults();" value="<?php echo GetMessage("MAIN_RESTORE_DEFAULTS")?>">
+<?php $tabControl->End();?>
 </form>
-<?endif;
+<?php endif;
 
 echo BeginNote();
 echo GetMessage("LDAP_OPTIONS_USE_NTLM_MSG");

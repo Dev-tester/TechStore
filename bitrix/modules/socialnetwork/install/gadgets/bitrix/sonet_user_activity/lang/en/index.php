@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GD_ACTIVITY_TITLE"] = "Activity Log";
 $MESS["GD_ACTIVITY_FORUM"] = "forums/discussions";
 $MESS["GD_ACTIVITY_BLOG"] = "blogs/reports";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ARCHIVE_TITLE"] = "Архивирование заказов";
 $MESS["ARCHIVE_TAB"] = "Архивирование заказов";
 $MESS["ARCHIVE_STEP"] = "Шаг";

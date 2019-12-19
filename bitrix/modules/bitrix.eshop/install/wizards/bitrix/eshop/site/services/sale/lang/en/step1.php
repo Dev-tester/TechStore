@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_1C_GROUP_PERMISSIONS"] = "User groups allowed to export";
 $MESS["SALE_WIZARD_PERSON_1"] = "Legal entity";
 $MESS["SALE_WIZARD_PERSON_2"] = "Private";

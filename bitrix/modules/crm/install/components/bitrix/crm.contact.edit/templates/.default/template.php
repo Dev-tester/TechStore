@@ -5,7 +5,7 @@ global $APPLICATION;
 $APPLICATION->SetAdditionalCSS("/bitrix/themes/.default/crm-entity-show.css");
 
 if(isset($arResult['CONVERSION_LEGEND'])):
-	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?
+	?><div class="crm-view-message"><?=$arResult['CONVERSION_LEGEND']?></div><?php 
 endif;
 
 $arTabs = array();
@@ -64,7 +64,7 @@ if(
 {
 ?>
 	<div style="margin-bottom: 9px">
-<?
+<?php 
 	$APPLICATION->IncludeComponent(
 		'bitrix:app.placement',
 		'',
@@ -121,7 +121,7 @@ for(var i = 0; i < form.elements.length; i++)
 }
 		});
 	</script>
-<?
+<?php 
 }
 
 $APPLICATION->IncludeComponent(
@@ -144,7 +144,7 @@ $APPLICATION->IncludeComponent(
 
 $crmEmail = strtolower(COption::GetOptionString('crm', 'mail', ''));
 if ($arResult['ELEMENT']['ID'] == 0 && $crmEmail != ''):
-?><div class="crm_notice_message"><?=GetMessage('CRM_IMPORT_SNS', Array('%EMAIL%' => $crmEmail, '%ARROW%' => '<span class="crm_notice_arrow"></span>'));?></div><?
+?><div class="crm_notice_message"><?=GetMessage('CRM_IMPORT_SNS', Array('%EMAIL%' => $crmEmail, '%ARROW%' => '<span class="crm_notice_arrow"></span>'));?></div><?php 
 endif;
 if($arResult['DUPLICATE_CONTROL']['ENABLED']):?>
 <script type="text/javascript">
@@ -243,4 +243,4 @@ if($arResult['DUPLICATE_CONTROL']['ENABLED']):?>
 		}
 	);
 </script>
-<?endif;?>
+<?php endif;?>

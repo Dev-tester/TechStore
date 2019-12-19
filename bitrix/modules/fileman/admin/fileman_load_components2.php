@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/fileman/prolog.php");
 
@@ -122,18 +122,18 @@ a.push({
 	icon: '<?= $icon;?>',
 	complex: '<?=$complex;?>',
 	params: <?=(($params===false) ? '[]' : $params);?>,
-<?if($sScreenshots !== false):?>	screenshots: <?= $sScreenshots.","?><?endif;?>
-	thirdlevel: '<? echo(($thirdLevelName===false) ? '' : CUtil::JSEscape($thirdLevelName));?>'
+<?php if($sScreenshots !== false):?>	screenshots: <?= $sScreenshots.","?><?php endif;?>
+	thirdlevel: '<?php  echo(($thirdLevelName===false) ? '' : CUtil::JSEscape($thirdLevelName));?>'
 });
-<?
+<?php 
 }
 
 if (isset($_GET['load_tree']) && $_GET['load_tree'] == 'Y'):?>
 <script>
 var a = [];
-<?handleComp2Tree();?>
+<?php handleComp2Tree();?>
 window.arComp2Elements = a;
 </script>
-<?endif;
+<?php endif;
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_after.php");
 ?>

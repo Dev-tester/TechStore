@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STAT_TITLE'] = "Выбор типов события";
 $MESS ['STAT_DESCRIPTION'] = "Описание";
 $MESS ['STAT_NAME'] = "Название";

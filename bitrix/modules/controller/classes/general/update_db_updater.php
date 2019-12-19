@@ -1,4 +1,4 @@
-<?
+<?php 
 $US_HOST_PROCESS_MAIN = ($US_HOST_PROCESS_MAIN ? True : False);
 
 define("US_CALL_TYPE", "DB");

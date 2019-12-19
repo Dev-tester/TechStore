@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_MODULE_IS_NOT_INSTALLED'] = "Das Modul \"Dokumentenarchiv\" wurde nicht installiert.";
 $MESS ['IB_MODULE_IS_NOT_INSTALLED'] = "Das Modul \"Informationsblöcke\" wurde nicht installiert.";
 $MESS ['WD_IBLOCK_ID_EMPTY'] = "Der Informationsblock wurde nicht angegeben.";

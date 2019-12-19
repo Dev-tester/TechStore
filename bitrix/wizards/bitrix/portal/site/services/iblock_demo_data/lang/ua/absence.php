@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["W_IB_ABSENCE_1_FINISH"] = "Працює";
 $MESS["W_IB_ABSENCE_1_NAME"] = "Відпустка черговий";
 $MESS["W_IB_ABSENCE_1_PREV1"] = "Чергова відпустка за";

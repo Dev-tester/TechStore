@@ -7,9 +7,9 @@ if (!$arResult['IFRAME'])
 {
 	?>
 	<div class="cashbox-page-menu-sidebar">
-		<?$APPLICATION->ShowViewContent("left-panel");?>
+		<?php $APPLICATION->ShowViewContent("left-panel");?>
 	</div>
-	<?
+	<?php 
 }
 
 // menu
@@ -24,7 +24,7 @@ $APPLICATION->IncludeComponent(
 ?>
 
 <div id="salescenter-wrapper" class="salescenter-wrapper <?=($arResult['CASHBOX_ID']) ? '' : 'salescenter-wrapper-template'?>">
-	<?if (!$arResult['CASHBOX_ID']):?>
+	<?php if (!$arResult['CASHBOX_ID']):?>
 		<div id="salescenter-cashbox-info">
 			<div class="ui-mb-15 ui-p-15 ui-bg-color-white">
 				<div class="salescenter-main-header">
@@ -61,10 +61,10 @@ $APPLICATION->IncludeComponent(
 				</ul>
 			</div>
 		</div>
-	<?endif;?>
+	<?php endif;?>
 
 	<form method="post" action="<?=$arResult['ACTION_URL']?>">
-		<?
+		<?php 
 		// contents
 		foreach ($arResult['CONFIG_MENU'] as $key => $menuItem)
 		{
@@ -72,15 +72,15 @@ $APPLICATION->IncludeComponent(
 
 			?>
 			<div data-cashbox-page="<?=$key?>" class="<?=$cashboxPageClass?>">
-				<?include $menuItem['PAGE'];?>
+				<?php include $menuItem['PAGE'];?>
 				<div data-cashbox-title="<?=$menuItem['NAME']?>" class="salescenter-cashbox-page-invisible"></div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 
 		<div id="salescenter-cashbox-buttons">
-			<?
+			<?php 
 			$APPLICATION->IncludeComponent(
 				'bitrix:ui.button.panel',
 				"",

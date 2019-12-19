@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_WD_MODULE_IS_NOT_INSTALLED"] = "Das Modul der Dokumentenbibliothek  ist nicht installiert.";
 $MESS["WD_IB_MODULE_IS_NOT_INSTALLED"] = "Das Modul \"Informationsblöcke\" ist nicht installiert.";
 $MESS["WD_SN_MODULE_IS_NOT_INSTALLED"] = "Das Modul der sozialen Netzwerke ist nicht installiert.";

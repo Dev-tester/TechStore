@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -32,7 +32,7 @@ if (is_array($arResult["GROUP"]))
 		<span class="task-top-panel-create-container">
 			<input type="text" autocomplete="off" placeholder="<?=GetMessage("TASKS_QUICK_RESPONSIBLE")?>"
 				   tabindex="3" id="task-new-item-responsible" name="task-new-item-responsible"
-				   value="<?
+				   value="<?php 
 				   echo tasksFormatName(
 					   $arResult["USER"]["NAME"],
 					   $arResult["USER"]["LAST_NAME"],
@@ -82,7 +82,7 @@ if (is_array($arResult["GROUP"]))
 			</span>
 			<span class="ui-btn ui-btn-link" id="task-new-item-cancel"><?=GetMessage("TASKS_QUICK_CANCEL")?></span>
 		</span>
-	</form><?
+	</form><?php 
 
 	$pathToTask =
 		!empty($arParams["PATH_TO_USER_TASKS_TASK"])

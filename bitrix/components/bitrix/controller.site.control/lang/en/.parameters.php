@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CP_BCSC_SITE_URL'] = "Site URL";
 $MESS ['CP_BCSC_COMMAND'] = "Command";
 $MESS ['CP_BCSC_ACTION'] = "Action";

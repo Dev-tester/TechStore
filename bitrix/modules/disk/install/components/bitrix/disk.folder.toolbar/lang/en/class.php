@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_FOLDER_TOOLBAR_UPLOAD_FILE_TEXT"] = "Upload";
 $MESS["DISK_FOLDER_TOOLBAR_UPLOAD_FILE_TITLE"] = "Upload new documents to this folder";
 $MESS["DISK_FOLDER_TOOLBAR_CREATE_DOC_TEXT"] = "New document";

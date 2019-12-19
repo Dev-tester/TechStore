@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUY_SUP_BUY"] = "Buy";
 $MESS["BUY_SUP_AMOUNT"] = "Total: #AMOUNT#";
 $MESS["BUY_SUP_SHT"] = "pcs.";

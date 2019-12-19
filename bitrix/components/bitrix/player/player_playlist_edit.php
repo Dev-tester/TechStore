@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_js.php");
 
@@ -28,7 +28,7 @@ if($REQUEST_METHOD=="POST" && $_REQUEST['save'] == 'Y')
 	require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/classes/general/xml.php");
 	$objXML = new CDataXML();
 
-	$xmlsrc = '<?xml version="1.0" encoding="UTF-8"?>
+	$xmlsrc = '<?php xml version="1.0" encoding="UTF-8"?>
 <playlist version="1" xmlns="http://xspf.org/ns/0/">
 <trackList>';
 	for ($i = 0, $l = count($ids); $i < $l; $i++)
@@ -68,21 +68,21 @@ if($REQUEST_METHOD=="POST" && $_REQUEST['save'] == 'Y')
 	<script>
 	oPlaylistDialog.CloseDialog();
 
-	<?if (isset($target) && $target == 'editor') die('</script>');?>
+	<?php if (isset($target) && $target == 'editor') die('</script>');?>
 	ShowWaitWindow();
 
-	<?if (strlen($back_url) > 0):?>
+	<?php if (strlen($back_url) > 0):?>
 	window.location.href = '<?=CUtil::JSEscape($back_url);?>';
-	<?else:?>
+	<?php else:?>
 	var new_href = top.location.href;
 	var hashpos = new_href.indexOf('#');
 	if (hashpos != -1)
 		new_href = new_href.substr(0, hashpos);
 	new_href += (new_href.indexOf('?') == -1 ? '?' : '&') + 'clear_cache=Y';
 	top.location.href = new_href;
-	<?endif;?>
+	<?php endif;?>
 	</script>
-	<?
+	<?php 
 		die();
 	}
 }
@@ -97,7 +97,7 @@ if (!$bCreate && !isset($_REQUEST['save']))
 	if ($size > 20)
 	{
 		$contents = fread($handle, 20);
-		if (strtolower(substr($contents, 0, 5)) != "<?xml")
+		if (strtolower(substr($contents, 0, 5)) != "<?php xml")
 			$bIncorrectFormat = true;
 	}
 
@@ -152,7 +152,7 @@ if (!$bCreate && !isset($_REQUEST['save']))
 	?><script>
 	if (!confirm("<?=GetMessage('CONFIRM_INCORRECT_XML_FORMAT')?>"))
 		setTimeout(oPlaylistDialog.CloseDialog, 100);
-	</script><?
+	</script><?php 
 	endif;
 }
 
@@ -179,13 +179,13 @@ function displayInputRow($id, $val, $i, $width, $fd = false)
 	?>
 <td valign="top">
 	<div onmouseout="rowMouseOut(this)" onmouseover="rowMouseOver(this<?=$js_fd_par?>)" class="edit-field view-area va_playlist" id="view_area_<?=$id?>_<?=$i?>" style="width: <?=$width?>px; zoom:1;" onclick="editArea('<?=$id?>_<?=$i?>')" title="<?=GetMessage('PLAYLIST_EDIT_CLICK_TO_EDIT')?>"><div class="playlist_text"><?=getListVal($val)?></div>
-	<?if ($fd):?>
+	<?php if ($fd):?>
 	<span onclick="BXOpenFD('<?=$i?>', '<?=$fd?>');" class="rowcontrol folder fd_icon" title="<?=GetMessage('OPEN_FD_TITLE')?>"></span>
-	<?endif;?>
+	<?php endif;?>
 	</div>
-	<div class="edit-area" id="edit_area_<?=$id?>_<?=$i?>" style="display: none;"><input type="text" style="width: <?=$width?>px;" name="<?=$id?>_<?echo $i?>" value="<?=getListVal($val)?>" onblur="viewArea('<?=$id?>_<?=$i?>')" /></div>
+	<div class="edit-area" id="edit_area_<?=$id?>_<?=$i?>" style="display: none;"><input type="text" style="width: <?=$width?>px;" name="<?=$id?>_<?php echo $i?>" value="<?=getListVal($val)?>" onblur="viewArea('<?=$id?>_<?=$i?>')" /></div>
 </td>
-<?
+<?php 
 }
 ?>
 <script>
@@ -204,7 +204,7 @@ if (!window.style_2 || !window.style_2.parentNode)
 </script>
 <script type="text/javascript" src="/bitrix/js/main/dd.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/main/dd.js')?>"></script>
 <script type="text/javascript" src="/bitrix/components/bitrix/player/js/playlist_edit.js?v=<?=filemtime($_SERVER['DOCUMENT_ROOT'].'/bitrix/components/bitrix/player/js/playlist_edit.js')?>"></script>
-<?
+<?php 
 $TITLE = GetMessage("PLAYLIST_TITLE_".($bCreate ? "CREATE" : "EDIT"));
 $DESCRIPTION = GetMessage('PLAYLIST_TITLE_DESCRIPTION');
 $back_url = $_GET["back_url"];
@@ -221,10 +221,10 @@ $obJSPopup = new CJSPopup('',
 );
 $obJSPopup->ShowTitlebar();
 ?>
-<?$obJSPopup->StartDescription('bx-edit-menu');?>
+<?php $obJSPopup->StartDescription('bx-edit-menu');?>
 <p><b><?=$DESCRIPTION?></b></p>
 </p>
-<?
+<?php 
 if($strWarning != "")
 	$obJSPopup->ShowValidationError($strWarning);
 
@@ -248,8 +248,8 @@ if(!is_array($arTracks))
 		</tr>
 	</thead>
 	</table>
-	<?
-	?><div id="bx_playlist_layout" class="bx-menu-layout"><?
+	<?php 
+	?><div id="bx_playlist_layout" class="bx-menu-layout"><?php 
 	$itemcnt = 0;
 	for($i = 1, $l = count($arTracks); $i <= $l; $i++):
 		$itemcnt++;
@@ -260,16 +260,16 @@ if(!is_array($arTracks))
 		<input type="hidden" name="ids[]" value="<?=$i?>" />
 		<span class="rowcontrol drag" title="<?=GetMessage('PLAYLIST_ITEM_DRAG')?>"></span>
 		</td>
-		<?displayInputRow('title', $track['title'], $i, 160)?>
-		<?//displayInputRow('author', $track['author'], $i, 140)?>
-		<?//displayInputRow('duration', $track['duration'], $i, 50)?>
-		<?displayInputRow('location', $track['location'], $i, 150, 'VIDEO')?>
-		<?displayInputRow('image', $track['image'], $i, 140, 'IMAGE')?>
+		<?php displayInputRow('title', $track['title'], $i, 160)?>
+		<?php //displayInputRow('author', $track['author'], $i, 140)?>
+		<?php //displayInputRow('duration', $track['duration'], $i, 50)?>
+		<?php displayInputRow('location', $track['location'], $i, 150, 'VIDEO')?>
+		<?php displayInputRow('image', $track['image'], $i, 140, 'IMAGE')?>
 		<td><span onclick="itemMoveUp(<?=$i?>)" class="rowcontrol up" title="<?=GetMessage('PLAYLIST_ITEM_UP')?>"></span></td>
 		<td><span onclick="itemMoveDown(<?=$i?>)" class="rowcontrol down" title="<?=GetMessage('PLAYLIST_ITEM_DOWN')?>"></span></td>
 		<td><span onclick="itemDelete(<?=$i?>)" class="rowcontrol delete" title="<?=GetMessage('PLAYLIST_ITEM_DELETE')?>"></span></td>
 	</tr>
-	</table></div></div><?
+	</table></div></div><?php 
 	endfor;
 ?>
 </div>
@@ -277,7 +277,7 @@ if(!is_array($arTracks))
 	<input type="button" onClick="itemAdd()" value="<?=GetMessage("PLAYLIST_ITEM_ADD")?>" />
 	<input type="hidden" id="bx_item_cnt" value="<?= $itemcnt?>" />
 
-<?
+<?php 
 CAdminFileDialog::ShowScript(
 	Array
 	(
@@ -338,14 +338,14 @@ window.onload = function ()
 			oPlaylistDialog._CloseDialog();
 		};
 	}
-<?for($i = 1, $l = count($arTracks); $i <= $l; $i++):?>
+<?php for($i = 1, $l = count($arTracks); $i <= $l; $i++):?>
 	jsDD.registerDest(BX('bx_item_placement_<?=$i?>'));
 	var obEl = BX('bx_item_row_<?=$i?>');
 	obEl.onbxdragstart = BXDD_DragStart;
 	obEl.onbxdragstop = BXDD_DragStop;
 	obEl.onbxdraghover = BXDD_DragHover;
 	jsDD.registerObject(obEl);
-<?endfor;?>
+<?php endfor;?>
 	l = BX('bx_playlist_layout');
 	l.ondrag = l.onselectstart = jsUtils.False;
 	l.style.MozUserSelect = 'none';
@@ -354,5 +354,5 @@ window.onload = function ()
 	menuCheckIcons();
 }
 </script>
-<?$obJSPopup->ShowStandardButtons(); ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>
+<?php $obJSPopup->ShowStandardButtons(); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin_js.php");?>

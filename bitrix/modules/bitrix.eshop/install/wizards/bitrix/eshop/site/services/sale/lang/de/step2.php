@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_WIZARD_GROUP"] = "  ";
 $MESS["SALE_WIZARD_MAIL_A"] = "Per Post";
 $MESS["SALE_WIZARD_MAIL_A_DESC"] = "Tarife für Post- und Kurierdienstleistungen hängen vom Gewicht ab und ändern sich in 500g Schritten";

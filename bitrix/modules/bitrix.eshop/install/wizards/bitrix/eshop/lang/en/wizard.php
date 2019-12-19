@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WIZ_TEMPLATE_ADAPT_VERTICAL"] = "Rubber layout template, vertical menu";
 $MESS["WIZ_TEMPLATE_ADAPT_HORIZONTAL"] = "Rubber layout template, horizontal menu";
 $MESS["WIZ_TEMPLATE_VERTICAL"] = "Template with vertical menu";

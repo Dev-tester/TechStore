@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['CRM_CHANGE_STATUS_EMPTY_PROP'] = "Target status is not specified";
 $MESS['CRM_CHANGE_STATUS_INCORRECT_STAGE'] = "Incorrect target stage or status";
 $MESS['CRM_CHANGE_STATUS_MODIFIED_BY'] = "Change on behalf of";

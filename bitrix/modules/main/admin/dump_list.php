@@ -551,7 +551,7 @@ require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_af
 	}
 </script>
 <div id="dump_result_div"></div>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 echo BeginNote();

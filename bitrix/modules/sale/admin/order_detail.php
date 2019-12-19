@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/sale/prolog.php");
@@ -1443,15 +1443,15 @@ else
 	}
 </style>
 
-<?
+<?php 
 		$tabControl->BeginEpilogContent();
 		?>
 		<?= GetFilterHiddens("filter_"); ?>
 		<?= bitrix_sessid_post(); ?>
-		<input type="hidden" name="lang" value="<? echo LANGUAGE_ID; ?>">
-		<input type="hidden" name="ID" value="<? echo $ID; ?>">
+		<input type="hidden" name="lang" value="<?php  echo LANGUAGE_ID; ?>">
+		<input type="hidden" name="ID" value="<?php  echo $ID; ?>">
 		<input type="hidden" name="save_order_data" value="Y">
-		<?
+		<?php 
 		$tabControl->EndEpilogContent();
 
 		$tabControl->Begin();
@@ -1462,27 +1462,27 @@ else
 				$tabControl->BeginCustomField("ORDER_ACCOUNT_NUMBER", GetMessage("SOD_ORDER_ACCOUNT_NUMBER"));
 					?>
 					<tr>
-						<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td width="60%"><?echo $arOrder["ACCOUNT_NUMBER"]?></td>
+						<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td width="60%"><?php echo $arOrder["ACCOUNT_NUMBER"]?></td>
 					</tr>
-					<?
+					<?php 
 				$tabControl->EndCustomField("ORDER_ACCOUNT_NUMBER", '');
 				$tabControl->BeginCustomField("ORDER_DATE_CREATE", GetMessage("SOD_ORDER_DATE_CREATE"));
 					?>
 					<tr>
-						<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td width="60%"><?echo $arOrder["DATE_INSERT"]?></td>
+						<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td width="60%"><?php echo $arOrder["DATE_INSERT"]?></td>
 					</tr>
-					<?
+					<?php 
 				$tabControl->EndCustomField("ORDER_DATE_CREATE", '');
 
 				$tabControl->BeginCustomField("DATE_UPDATE", GetMessage("SOD_DATE_UPDATE"));
 					?>
 					<tr>
-						<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td width="60%"><?echo $arOrder["DATE_UPDATE"]?></td>
+						<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td width="60%"><?php echo $arOrder["DATE_UPDATE"]?></td>
 					</tr>
-					<?
+					<?php 
 				$tabControl->EndCustomField("DATE_UPDATE", '');
 
 				$arSitesShop = array();
@@ -1507,16 +1507,16 @@ else
 						<td width="60%"><?=htmlspecialcharsbx($arSitesShop[$arOrder["LID"]]["NAME"])." (".$arOrder["LID"].")"?>
 						</td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_SITE");
 				}
 
 				$tabControl->BeginCustomField("ORDER_STATUS", GetMessage("SOD_CUR_STATUS"));
 					?>
 					<tr>
-						<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 						<td width="60%">
-									<?
+									<?php 
 									$arStatusList = False;
 									$arFilter = array("LID" => LANG);
 									$arGroupByTmp = false;
@@ -1540,8 +1540,8 @@ else
 
 									?>
 									<div id="editStatusDIV">
-										<select name="STATUS_ID" id="STATUS_ID" <? echo (!$boolLocked ? 'onchange="BX(\'change_status\').value=\'Y\';"': ''); ?>>
-											<?
+										<select name="STATUS_ID" id="STATUS_ID" <?php  echo (!$boolLocked ? 'onchange="BX(\'change_status\').value=\'Y\';"': ''); ?>>
+											<?php 
 											if ($arStatusList)
 											{
 												$arFilter = array("LID" => LANG);
@@ -1572,14 +1572,14 @@ else
 										?>
 										</select>
 										<input type="hidden" name="change_status" id="change_status" value="N">
-										<input type="hidden" name="change_status_popup" id="change_status_popup" value="N"><?
+										<input type="hidden" name="change_status_popup" id="change_status_popup" value="N"><?php 
 										if (!$boolLocked)
 										{
-											?><a href="javascript:void(0);" onclick="fChangeStatus();return false;" class="adm-btn"><?=GetMessage('SALE_SAVE');?></a><?
+											?><a href="javascript:void(0);" onclick="fChangeStatus();return false;" class="adm-btn"><?=GetMessage('SALE_SAVE');?></a><?php 
 										}
 										else
 										{
-											?><a href="javascript:void(0);" onclick="return false;" class="adm-btn-disabled" title="<? echo $strLockUserExt; ?>"><?=GetMessage('SALE_SAVE');?></a><?
+											?><a href="javascript:void(0);" onclick="return false;" class="adm-btn-disabled" title="<?php  echo $strLockUserExt; ?>"><?=GetMessage('SALE_SAVE');?></a><?php 
 										}
 										?>
 										&nbsp;<span id="change_status_err" style="display: none;"></span>
@@ -1625,31 +1625,31 @@ else
 						</td>
 					</tr>
 
-					<?if(strlen($arOrder["DATE_STATUS"]) > 0):?>
+					<?php if(strlen($arOrder["DATE_STATUS"]) > 0):?>
 						<tr>
 							<td><?=GetMessage('SOD_DATE_STATUS');?>:</td>
 							<td id="date_status_change"><?=$arOrder["DATE_STATUS"]?>
-								<?if (!$crmMode && IntVal($arOrder["EMP_STATUS_ID"]) > 0)
+								<?php if (!$crmMode && IntVal($arOrder["EMP_STATUS_ID"]) > 0)
 									echo GetFormatedUserName($arOrder["EMP_STATUS_ID"], false);
 								?>
 							</td>
 						</tr>
-					<?endif;?>
-					<?
+					<?php endif;?>
+					<?php 
 				$tabControl->EndCustomField("ORDER_STATUS", '');
 
 				$tabControl->BeginCustomField("ORDER_CANCELED", GetMessage("SOD_CANCEL_Y"));
 					?>
 					<tr id="btn_show_cancel" style="display:<?=($arOrder["CANCELED"] == "N" && $bUserCanCancelOrder) ? 'table-row' : 'none'?>">
 						<td width="40%">&nbsp;</td>
-						<td valign="middle"><?
+						<td valign="middle"><?php 
 						if (!$boolLocked)
 						{
-							?><a title="<?=GetMessage('SOD_CANCEL_Y')?>" onclick="fShowCancelOrder(this, '');" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn"><?=GetMessage('SOD_CANCEL_Y')?></span></a><?
+							?><a title="<?=GetMessage('SOD_CANCEL_Y')?>" onclick="fShowCancelOrder(this, '');" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn"><?=GetMessage('SOD_CANCEL_Y')?></span></a><?php 
 						}
 						else
 						{
-							?><a title="<? echo $strLockUserExt; ?>" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn-disabled"><?=GetMessage('SOD_CANCEL_Y')?></span></a><?
+							?><a title="<?php  echo $strLockUserExt; ?>" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn-disabled"><?=GetMessage('SOD_CANCEL_Y')?></span></a><?php 
 						}
 						?></td>
 					</tr>
@@ -1666,17 +1666,17 @@ else
 							<span class="order_cancel_left"><?=GetMessage("SOD_CANCELED")?>:</span>
 						</td>
 						<td valign="top">
-							<span class="order_cancel_right"><?=GetMessage("SALE_YES")?></span><?
+							<span class="order_cancel_right"><?=GetMessage("SALE_YES")?></span><?php 
 							if($bUserCanCancelOrder)
 							{
-								?>&nbsp;&nbsp;<?
+								?>&nbsp;&nbsp;<?php 
 								if (!$boolLocked)
 								{
-									?><a href="javascript:void(0);" onclick="fCancelCancelOrder();" class="adm-btn-wrap"><span class="adm-btn"><?=GetMessage('SOD_CANCEL_N');?></span></a><?
+									?><a href="javascript:void(0);" onclick="fCancelCancelOrder();" class="adm-btn-wrap"><span class="adm-btn"><?=GetMessage('SOD_CANCEL_N');?></span></a><?php 
 								}
 								else
 								{
-									?><a href="javascript:void(0);" class="adm-btn-wrap"><span class="adm-btn-disabled" title="<? echo $strLockUserExt; ?>"><?=GetMessage('SOD_CANCEL_N');?></span></a><?
+									?><a href="javascript:void(0);" class="adm-btn-wrap"><span class="adm-btn-disabled" title="<?php  echo $strLockUserExt; ?>"><?=GetMessage('SOD_CANCEL_N');?></span></a><?php 
 								}
 							}
 							?>
@@ -1688,7 +1688,7 @@ else
 						</td>
 						<td id="date_change_cancel_user">
 							<?=$arOrder["DATE_CANCELED"]?>
-							<?if (!$crmMode && IntVal($arOrder["EMP_CANCELED_ID"]) > 0)
+							<?php if (!$crmMode && IntVal($arOrder["EMP_CANCELED_ID"]) > 0)
 								echo GetFormatedUserName($arOrder["EMP_CANCELED_ID"], false);
 							?>
 						</td>
@@ -1707,14 +1707,14 @@ else
 								<table>
 									<tr>
 										<td colspan="2"><?=GetMessage('SOD_CANCEL_REASON_TITLE')?><br />
-											<?if(CSaleYMHandler::isOrderFromYandex($ID)):
+											<?php if(CSaleYMHandler::isOrderFromYandex($ID)):
 												$reasonDisp = 'style="display: none;" ';
 											?>
 												<?=CSaleYMHandler::getCancelReasonsAsRadio("FORM_REASON_CANCELED", "FORM_REASON_CANCELED", false)?>
-											<?else:
+											<?php else:
 												$reasonDisp = "";
 											?>
-											<?endif;?>
+											<?php endif;?>
 											<textarea <?=$reasonDisp?>name="FORM_REASON_CANCELED" id="FORM_REASON_CANCELED" rows="3" cols="30"><?= htmlspecialcharsEx($arOrder["REASON_CANCELED"]) ?></textarea>
 											<br /><small><?=GetMessage('SOD_CANCEL_REASON_ADIT')?></small>
 										</td>
@@ -1783,7 +1783,7 @@ else
 										closeIcon : true,
 										titleBar : true,
 										draggable: {restrict:true},
-										titleBar: {content: BX.create("span", {html: '<? echo GetMessageJS("SOD_CANCEL_ORDER"); ?>', 'props': {'className': 'sale-popup-title-bar'}})},
+										titleBar: {content: BX.create("span", {html: '<?php  echo GetMessageJS("SOD_CANCEL_ORDER"); ?>', 'props': {'className': 'sale-popup-title-bar'}})},
 										content : BX("popup_cancel_order_form")
 									});
 									formCancelOrder.setButtons([
@@ -1818,16 +1818,16 @@ else
 							</script>
 						</td>
 					</tr>
-					<?
+					<?php 
 				$tabControl->EndCustomField("ORDER_CANCELED", '');
 
 				$tabControl->BeginCustomField("ORDER_AFFILIATE", GetMessage("P_ORDER_AFFILIATE"));
 					if (IntVal($arOrder["AFFILIATE_ID"]) > 0):
 					?>
 					<tr>
-						<td width="40%"><?echo GetMessage("P_ORDER_AFFILIATE")?>:</td>
+						<td width="40%"><?php echo GetMessage("P_ORDER_AFFILIATE")?>:</td>
 						<td width="60%">
-						<?
+						<?php 
 							$dbAffiliate = CSaleAffiliate::GetList(
 								array(),
 								array("ID" => $arOrder["AFFILIATE_ID"]),
@@ -1840,7 +1840,7 @@ else
 						?>
 						</td>
 					</tr>
-					<?
+					<?php 
 					endif;
 				$tabControl->EndCustomField("ORDER_AFFILIATE", '');
 
@@ -1852,7 +1852,7 @@ else
 				?>
 					<tr>
 						<td valign="top" width="40%"><?=GetMessage('SOD_BUYER_LOGIN')?>:</td>
-						<td valign="middle"><?
+						<td valign="middle"><?php 
 						$strBuyerProfileUrl = '';
 						if (CBXFeatures::IsFeatureEnabled('SaleAccounts'))
 						{
@@ -1862,17 +1862,17 @@ else
 						{
 							$strBuyerProfileUrl = '/bitrix/admin/user_edit.php?ID='.$arOrder["USER_ID"].'&lang='.LANGUAGE_ID;
 						}
-						?><a href="<? echo $strBuyerProfileUrl; ?>"><? echo htmlspecialcharsEx($arUser["LOGIN"]); ?></a></td>
+						?><a href="<?php  echo $strBuyerProfileUrl; ?>"><?php  echo htmlspecialcharsEx($arUser["LOGIN"]); ?></a></td>
 					</tr>
 					<tr>
-						<td valign="top"><?echo GetMessage("P_ORDER_PERS_TYPE")?>:</td>
-						<td valign="middle"><?
+						<td valign="top"><?php echo GetMessage("P_ORDER_PERS_TYPE")?>:</td>
+						<td valign="middle"><?php 
 							$arPersonType = CSalePersonType::GetByID($arOrder["PERSON_TYPE_ID"]);
 							echo htmlspecialcharsEx($arPersonType["NAME"]);
 							?>
 						</td>
 					</tr>
-					<?
+					<?php 
 
 					//disabled town
 					$arTownOrderProps = array();
@@ -1925,7 +1925,7 @@ else
 							<tr>
 								<td colspan="2" style="text-align:center;font-weight:bold;font-size:14px;color:rgb(75, 98, 103);"><?=htmlspecialcharsEx($arOrderProps["GROUP_NAME"]);?></td>
 							</tr>
-							<?
+							<?php 
 							$iGroup = IntVal($arOrderProps["PROPS_GROUP_ID"]);
 						}
 
@@ -1935,9 +1935,9 @@ else
 						{
 						?>
 						<tr>
-							<td valign="top"><?echo htmlspecialcharsEx($arOrderProps["NAME"])?>:</td>
+							<td valign="top"><?php echo htmlspecialcharsEx($arOrderProps["NAME"])?>:</td>
 							<td valign="middle">
-							<?
+							<?php 
 							if ($arOrderProps["TYPE"] == "CHECKBOX")
 							{
 								if ($arOrderProps["VALUE"] == "Y")
@@ -2038,7 +2038,7 @@ else
 							?>
 							</td>
 						</tr>
-					<?
+					<?php 
 						}
 					}
 				$tabControl->EndCustomField("ORDER_PROPS", '');
@@ -2048,10 +2048,10 @@ else
 				$tabControl->BeginCustomField("ORDER_DELIVERY", GetMessage("P_ORDER_DELIVERY"));
 					?>
 					<tr>
-						<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 						<td>
 							<span id="allow_delivery_name">
-								<?
+								<?php 
 								$arDeliveryName = array();
 								$arDeliveryData = array();
 								if (strpos($arOrder["DELIVERY_ID"], ":") !== false)
@@ -2074,14 +2074,14 @@ else
 							</span>
 						</td>
 					</tr>
-					<?
+					<?php 
 					if (!empty($arDeliveryName)):
 					?>
 					<tr>
 						<td><?=GetMessage("SOD_DELIVERY_SERVICE_NAME")?>:</td>
-						<td><? echo "[".htmlspecialcharsEx($arDeliveryName[1])."] ".htmlspecialcharsEx($arDeliveryData["PROFILES"][$arDeliveryName[1]]["TITLE"]); ?></td>
+						<td><?php  echo "[".htmlspecialcharsEx($arDeliveryName[1])."] ".htmlspecialcharsEx($arDeliveryData["PROFILES"][$arDeliveryName[1]]["TITLE"]); ?></td>
 					</tr>
-					<?
+					<?php 
 					$arDeliveryExtraParams = CSaleDeliveryHandler::GetHandlerExtraParams($arDeliveryData["SID"], $arDeliveryName[1], $arOrder);
 					$depList = \Bitrix\Sale\Internals\OrderDeliveryReqTable::getList(array(
 						'filter'=>array('=ORDER_ID'=>$ID),
@@ -2112,7 +2112,7 @@ else
 								<td><?=$arDeliveryExtraParams[$paramId]["TITLE"].":"?></td>
 								<td><?=htmlspecialcharsbx($value)?></td>
 							</tr>
-							<?
+							<?php 
 						}
 					}
 
@@ -2123,9 +2123,9 @@ else
 				if (intval($arOrder["STORE_ID"]) > 0):
 				?>
 					<tr>
-						<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 						<td>
-							<?
+							<?php 
 							$dbList = CCatalogStore::GetList(
 								array("SORT" => "DESC", "ID" => "DESC"),
 								array("ACTIVE" => "Y", "ID" => $arOrder["STORE_ID"]),
@@ -2136,12 +2136,12 @@ else
 							if ($arList = $dbList->Fetch()):
 							?>
 								<div><?=htmlspecialcharsbx($arList["TITLE"])?></div>
-							<?else:?>
+							<?php else:?>
 								<div<?=GetMessage('SOD_STORE_SEND_NULL');?>></div>
-							<?endif;?>
+							<?php endif;?>
 						</td>
 					</tr>
-				<?
+				<?php 
 				endif;
 				$tabControl->EndCustomField("STORE_DELIVERY", '');
 
@@ -2149,14 +2149,14 @@ else
 				?>
 					<tr id="btn_allow_delivery" style="display:<?=($arOrder["ALLOW_DELIVERY"] == "N" && $bUserCanDeliverOrder) ? 'table-row' : 'none'?>">
 						<td width="40%">&nbsp;</td>
-						<td valign="middle" class="btn_order"><?
+						<td valign="middle" class="btn_order"><?php 
 						if (!$boolLocked)
 						{
-							?><a title="<?=GetMessage('SOD_ALLOW_DELIVERY_DO_Y')?>" onclick="fShowAllowDelivery(this, '');" class="adm-btn adm-btn-green" href="javascript:void(0);"><?=GetMessage('SOD_ALLOW_DELIVERY_DO_Y')?></a><?
+							?><a title="<?=GetMessage('SOD_ALLOW_DELIVERY_DO_Y')?>" onclick="fShowAllowDelivery(this, '');" class="adm-btn adm-btn-green" href="javascript:void(0);"><?=GetMessage('SOD_ALLOW_DELIVERY_DO_Y')?></a><?php 
 						}
 						else
 						{
-							?><a title="<? echo $strLockUserExt; ?>" class="adm-btn-disabled" href="javascript:void(0);"><?=GetMessage('SOD_ALLOW_DELIVERY_DO_Y')?></a><?
+							?><a title="<?php  echo $strLockUserExt; ?>" class="adm-btn-disabled" href="javascript:void(0);"><?=GetMessage('SOD_ALLOW_DELIVERY_DO_Y')?></a><?php 
 						}
 						?></td>
 					</tr>
@@ -2172,7 +2172,7 @@ else
 					<tr id="allow_delivery_date" style="display:<?=(strlen($arOrder["DATE_ALLOW_DELIVERY"]) > 0) ? 'table-row' : 'none'?>">
 						<td><?=GetMessage('SOD_DATE_ALLOW_DELIVERY');?>:</td>
 						<td id="allow_delivery_date_user"><?=$arOrder["DATE_ALLOW_DELIVERY"]?>
-							<?if (!$crmMode && IntVal($arOrder["EMP_ALLOW_DELIVERY_ID"]) > 0)
+							<?php if (!$crmMode && IntVal($arOrder["EMP_ALLOW_DELIVERY_ID"]) > 0)
 								echo GetFormatedUserName($arOrder["EMP_ALLOW_DELIVERY_ID"], false);
 							?>
 						</td>
@@ -2180,16 +2180,16 @@ else
 
 					<tr id="allow_delivery_is_allow" style="display:<?=($arOrder["ALLOW_DELIVERY"] != "N") ? 'table-row' : 'none'?>">
 						<td><span class="alloy_payed_left"><?=GetMessage("SOD_DELIVERY_IS_ALLOW")?>:</span></td>
-						<td><span class="alloy_payed_right"><?=GetMessage("SOD_DELIVERY_YES")?></span><?if($bUserCanDeliverOrder)
+						<td><span class="alloy_payed_right"><?=GetMessage("SOD_DELIVERY_YES")?></span><?php if($bUserCanDeliverOrder)
 						{
-							?>&nbsp;&nbsp;<?
+							?>&nbsp;&nbsp;<?php 
 							if (!$boolLocked)
 							{
-								?><a href="javascript:void(0);" onclick="fShowAllowDelivery(this, 'cancel');"><?=GetMessage('SOD_DELIVERY_EDIT');?></a><?
+								?><a href="javascript:void(0);" onclick="fShowAllowDelivery(this, 'cancel');"><?=GetMessage('SOD_DELIVERY_EDIT');?></a><?php 
 							}
 							else
 							{
-								?><span style="text-decoration: line-through;" title="<? echo $strLockUserExt; ?>"><?=GetMessage('SOD_DELIVERY_EDIT');?></span><?
+								?><span style="text-decoration: line-through;" title="<?php  echo $strLockUserExt; ?>"><?=GetMessage('SOD_DELIVERY_EDIT');?></span><?php 
 							}
 						}
 						?></td>
@@ -2202,7 +2202,7 @@ else
 										<td class="head"><?=GetMessage('SOD_POPUP_ORDER_STATUS')?>:</td>
 										<td><select name="FORM_STATUS_ID" id="FORM_STATUS_ID" onChange="fChangeOrderStatus();"><?=$statusOrder?></select></td>
 									</tr>
-									<?
+									<?php 
 										$arActions = array();
 
 										$actions = CSaleDeliveryHandler::getActionsList($arOrder["DELIVERY_ID"]);
@@ -2213,8 +2213,8 @@ else
 										if(array_key_exists("REQUEST_TAKE", $actions))
 											$arActions["REQUEST_TAKE"] = $actions["REQUEST_TAKE"];
 									?>
-									<?if(!empty($arActions)):?>
-										<?
+									<?php if(!empty($arActions)):?>
+										<?php 
 											$depList = \Bitrix\Sale\Internals\OrderDeliveryReqTable::getList(array(
 												'filter'=>array('=ORDER_ID' => $ID),
 											));
@@ -2233,13 +2233,13 @@ else
 											<td>
 												<select name="FORM_ACTION_ID" id="FORM_ACTION_ID" onChange="fChangeDeliveryAction(this);" <?=$requestDisable?>>
 													<option value=""><?=GetMessage("SALE_NO")?></option>
-													<?foreach($arActions as $actionId => $actionName):?>
+													<?php foreach($arActions as $actionId => $actionName):?>
 														<option value="<?=$actionId?>"><?=$actionName?></option>
-													<?endforeach;?>
+													<?php endforeach;?>
 												</select>
 											</td>
 										</tr>
-									<?endif;?>
+									<?php endif;?>
 									<tr>
 										<td class="head"><?=GetMessage('SOD_POPUP_NUMBER_DOC')?>:</td>
 										<td>
@@ -2397,7 +2397,7 @@ else
 										closeIcon : true,
 										titleBar : true,
 										draggable: {restrict:true},
-										titleBar: {content: BX.create("span", {html: '<? echo GetMessageJS('SOD_POPUP_DELIVE_TITLE'); ?>', 'props': {'className': 'sale-popup-title-bar'}})},
+										titleBar: {content: BX.create("span", {html: '<?php  echo GetMessageJS('SOD_POPUP_DELIVE_TITLE'); ?>', 'props': {'className': 'sale-popup-title-bar'}})},
 										content : BX("popup_form")
 									});
 									formAllowDelivery.setButtons([
@@ -2487,20 +2487,20 @@ else
 							</script>
 						</td>
 					</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("ORDER_ALLOW_DELIVERY", '');
 
 				$tabControl->BeginCustomField("ORDER_TRACKING_NUMBER", GetMessage("SOD_ORDER_TRACKING_NUMBER"));
 					?>
 					<tr>
-						<td width="40%"><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td width="40%"><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 						<td width="60%">
-							<div id="hover_comment"><?
+							<div id="hover_comment"><?php 
 							if (!$boolLocked)
 							{
 							?>
 								<span id="tracking-number-title" onclick="fChangeTrackingNumber(this);">
-									<?
+									<?php 
 									if ('' != $arOrder["TRACKING_NUMBER"])
 										echo htmlspecialcharsbx($arOrder["TRACKING_NUMBER"]);
 									else
@@ -2508,12 +2508,12 @@ else
 									?>
 								</span>
 								<span class="pencil"></span>
-							<?
+							<?php 
 							}
 							else
 							{
 								?><span id="tracking-number-title">
-									<?
+									<?php 
 									if ('' != $arOrder["TRACKING_NUMBER"])
 									{
 										echo htmlspecialcharsbx($arOrder["TRACKING_NUMBER"]);
@@ -2524,21 +2524,21 @@ else
 									}
 									?>
 								</span>
-								<?
+								<?php 
 							}
 							?>
 							</div>
-							<?
+							<?php 
 							if (!$boolLocked)
 							{
 							?>
 							<input type="text" id="tracking-number-text" name="TRACKING_NUMBER" onChange="fEditTrackingNumber(this, 'change');"
 								onBlur="fEditTrackingNumber(this, 'exit');" value="<?=htmlspecialcharsbx($arOrder["TRACKING_NUMBER"])?>" size="30">
-							<?
+							<?php 
 							}
 							else
 							{
-								?><input type="hidden" value="<?=htmlspecialcharsbx($arOrder["TRACKING_NUMBER"])?>" name="TRACKING_NUMBER" id="tracking-number-text"><?
+								?><input type="hidden" value="<?=htmlspecialcharsbx($arOrder["TRACKING_NUMBER"])?>" name="TRACKING_NUMBER" id="tracking-number-text"><?php 
 							}
 							?>
 							<input type="hidden" name="change_tracking_number" id="id_change_tracking_number_hidden" value="N">
@@ -2578,7 +2578,7 @@ else
 						</td>
 					</tr>
 				</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("ORDER_TRACKING_NUMBER", "");
 
 				// additional delivery info (only for automated delivery systems and if delivery price was calculated)
@@ -2625,7 +2625,7 @@ else
 							<td><?=GetMessage("SOD_DELIVERY_BOX_SIZE")?>:</td>
 							<td><?=GetMessage("SOD_DELIVERY_BOX_SIZE_VALUE", array("#L#" => $arBox["DIMENSIONS"][0], "#W#" => $arBox["DIMENSIONS"][1], "#H#" => $arBox["DIMENSIONS"][2]))?></td>
 						</tr>
-						<?
+						<?php 
 						if ($arDeliveryResult["RESULT"] == "OK"):
 						?>
 							<tr class="hidden-delivery-info">
@@ -2636,14 +2636,14 @@ else
 								<td><?=GetMessage("SOD_DELIVERY_SUM")?>:</td>
 								<td><?=SaleFormatCurrency($arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"])?></td>
 							</tr>
-							<?
+							<?php 
 							if ($delDiscountDiff != 0):
 							?>
 								<tr class="hidden-delivery-info">
 									<td><?=GetMessage("SOD_DELIVERY_DELIVERY_DISCOUNT_DIFF")?>:</td>
 									<td><?=SaleFormatCurrency($delDiscountDiff, $arOrder["CURRENCY"])?></td>
 								</tr>
-							<?
+							<?php 
 							endif;
 						elseif ($arDeliveryResult["RESULT"] == "ERROR"):
 						?>
@@ -2651,7 +2651,7 @@ else
 								<td><?=GetMessage("SOD_DELIVERY_SUM_AND_BOX_NUMBER")?>:</td>
 								<td><?=$arDeliveryResult["TEXT"]?></td>
 							</tr>
-						<?
+						<?php 
 						endif;
 
 						$arData = array();
@@ -2664,7 +2664,7 @@ else
 							<td><?=$paramName?>:</td>
 							<td><?=$paramValue?></td>
 						</tr>
-						<?
+						<?php 
 						endforeach;
 					endif;
 					?>
@@ -2678,7 +2678,7 @@ else
 							}
 						}
 					</script>
-					<?
+					<?php 
 
 					$tabControl->EndCustomField("ORDER_DELIVERY_ADDITIONAL_INFO", "");
 				}
@@ -2692,7 +2692,7 @@ else
 						<td valign="top"><?=GetMessage("P_ORDER_PAY_SYSTEM")?>:</td>
 						<td valign="middle">
 							<span id="payed_name">
-							<?
+							<?php 
 							if (IntVal($arOrder["PAY_SYSTEM_ID"]) > 0)
 							{
 								$arPaySys = CSalePaySystem::GetByID($arOrder["PAY_SYSTEM_ID"], $arOrder["PERSON_TYPE_ID"]);
@@ -2707,7 +2707,7 @@ else
 							</span>
 						</td>
 					</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("ORDER_PAYMENT", '');
 
 				$tabControl->BeginCustomField("ORDER_PAYED", GetMessage("P_ORDER_PAYED"));
@@ -2720,21 +2720,21 @@ else
 					<tr id="pay_date_pay" style="display:<?=(strlen($arOrder["DATE_PAYED"]) > 0) ? 'table-row' : 'none'?>">
 						<td><?=GetMessage('SOD_DATE_ALLOW_PAY_CHANGE');?>:</td>
 						<td id="pay_date_pay_format"><?=$arOrder["DATE_PAYED"]?>
-							<?if (!$crmMode && IntVal($arOrder["EMP_PAYED_ID"]) > 0)
+							<?php if (!$crmMode && IntVal($arOrder["EMP_PAYED_ID"]) > 0)
 								echo GetFormatedUserName($arOrder["EMP_PAYED_ID"], false);
 							?>
 						</td>
 					</tr>
 					<tr id="pay_pay_user" style="display:<?=($arOrder["PAYED"] == "N" && $bUserCanPayOrder) ? 'table-row' : 'none'?>">
 						<td>&nbsp;</td>
-						<td valign="middle" class="btn_order"><?
+						<td valign="middle" class="btn_order"><?php 
 						if (!$boolLocked)
 						{
-							?><a title="<?=GetMessage('SOD_DO_PAY_ORDER')?>" onClick="fShowAllowPay(this);" class="adm-btn adm-btn-green" href="javascript:void(0);"><?=GetMessage('SOD_DO_PAY_ORDER')?></a><?
+							?><a title="<?=GetMessage('SOD_DO_PAY_ORDER')?>" onClick="fShowAllowPay(this);" class="adm-btn adm-btn-green" href="javascript:void(0);"><?=GetMessage('SOD_DO_PAY_ORDER')?></a><?php 
 						}
 						else
 						{
-							?><a title="<? echo $strLockUserExt; ?>" class="adm-btn-disabled" href="javascript:void(0);"><?=GetMessage('SOD_DO_PAY_ORDER')?></a><?
+							?><a title="<?php  echo $strLockUserExt; ?>" class="adm-btn-disabled" href="javascript:void(0);"><?=GetMessage('SOD_DO_PAY_ORDER')?></a><?php 
 						}
 						?></td>
 					</tr>
@@ -2750,16 +2750,16 @@ else
 						<td><span class="alloy_payed_left"><?=GetMessage("SOD_PAYED_IS_ALLOW")?>:</span></td>
 						<td>
 							<span class="alloy_payed_right"><?=GetMessage("SOD_PAYED_YES")?></span>
-							<?if($bUserCanPayOrder)
+							<?php if($bUserCanPayOrder)
 							{
-								?>&nbsp;&nbsp;<?
+								?>&nbsp;&nbsp;<?php 
 								if (!$boolLocked)
 								{
-									?><a href="javascript:void(0);" onclick="fShowAllowPay(this);"><?=GetMessage('SOD_DELIVERY_EDIT');?></a><?
+									?><a href="javascript:void(0);" onclick="fShowAllowPay(this);"><?=GetMessage('SOD_DELIVERY_EDIT');?></a><?php 
 								}
 								else
 								{
-									?><span style="text-decoration: line-through;" title="<? echo $strLockUserExt; ?>"><?=GetMessage('SOD_DELIVERY_EDIT');?></span><?
+									?><span style="text-decoration: line-through;" title="<?php  echo $strLockUserExt; ?>"><?=GetMessage('SOD_DELIVERY_EDIT');?></span><?php 
 								}
 							}
 							?>
@@ -2786,7 +2786,7 @@ else
 											<?= CalendarDate("FROM_PAY_VOUCHER_DATE", $arOrder["PAY_VOUCHER_DATE"], "change_pay_form", "10", 'class="typeinput"'); ?>
 										</td>
 									</tr>
-									<?
+									<?php 
 									$dbUserAccount = CSaleUserAccount::GetList(
 										array(),
 										array(
@@ -3004,7 +3004,7 @@ else
 							</script>
 						</td>
 					</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("ORDER_PAYED", '');
 
 				$arPaySys = CSalePaySystem::GetByID($arOrder["PAY_SYSTEM_ID"], $arOrder["PERSON_TYPE_ID"]);
@@ -3014,9 +3014,9 @@ else
 					$tabControl->BeginCustomField("ORDER_PS_STATUS", GetMessage("P_ORDER_PS_STATUS"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
 						<td>
-							<?
+							<?php 
 							echo (($arOrder["PS_STATUS"]=="Y") ? "OK" : "N");
 							if (!$boolLocked)
 							{
@@ -3024,68 +3024,68 @@ else
 								{
 									?>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									<a href="/bitrix/admin/sale_order_detail.php?ID=<?= $ID ?>&action=ps_update&lang=<? echo LANGUAGE_ID; ?><?echo GetFilterParams("filter_")?>&<?= bitrix_sessid_get() ?>"><?echo GetMessage("P_ORDER_PS_STATUS_UPDATE") ?> &gt;&gt;</a>
-									<?
+									<a href="/bitrix/admin/sale_order_detail.php?ID=<?= $ID ?>&action=ps_update&lang=<?php  echo LANGUAGE_ID; ?><?php echo GetFilterParams("filter_")?>&<?= bitrix_sessid_get() ?>"><?php echo GetMessage("P_ORDER_PS_STATUS_UPDATE") ?> &gt;&gt;</a>
+									<?php 
 								}
 							}
 							?>
 						</td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_STATUS", '');
 
 					$tabControl->BeginCustomField("ORDER_PS_STATUS_CODE", GetMessage("P_ORDER_PS_STATUS"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td><?echo $arOrder["PS_STATUS_CODE"] ;?></td>
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php echo $arOrder["PS_STATUS_CODE"] ;?></td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_STATUS_CODE", '');
 
 					$tabControl->BeginCustomField("ORDER_PS_STATUS_DESCRIPTION", GetMessage("P_ORDER_PS_STATUS_DESCRIPTION"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td><?echo $arOrder["PS_STATUS_DESCRIPTION"] ;?></td>
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php echo $arOrder["PS_STATUS_DESCRIPTION"] ;?></td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_STATUS_DESCRIPTION", '');
 
 					$tabControl->BeginCustomField("ORDER_PS_STATUS_MESSAGE", GetMessage("P_ORDER_PS_STATUS_MESSAGE"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td><?echo $arOrder["PS_STATUS_MESSAGE"] ;?></td>
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php echo $arOrder["PS_STATUS_MESSAGE"] ;?></td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_STATUS_MESSAGE", '');
 
 					$tabControl->BeginCustomField("ORDER_PS_SUM", GetMessage("P_ORDER_PS_SUM"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td><?echo $arOrder["PS_SUM"] ;?></td>
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php echo $arOrder["PS_SUM"] ;?></td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_SUM", '');
 
 					$tabControl->BeginCustomField("ORDER_PS_CURRENCY", GetMessage("P_ORDER_PS_CURRENCY"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td><?echo $arOrder["PS_CURRENCY"] ;?></td>
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php echo $arOrder["PS_CURRENCY"] ;?></td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_CURRENCY", '');
 
 					$tabControl->BeginCustomField("ORDER_PS_RESPONSE_DATE", GetMessage("P_ORDER_PS_RESPONSE_DATE"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td><?echo $arOrder["PS_RESPONSE_DATE"]; ?></td>
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php echo $arOrder["PS_RESPONSE_DATE"]; ?></td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_RESPONSE_DATE", '');
 				}
 				elseif (!$crmMode && $arPaySys["PSA_HAVE_RESULT"] == "Y" || strlen($arPaySys["PSA_RESULT_FILE"]) > 0)
@@ -3094,19 +3094,19 @@ else
 					$tabControl->BeginCustomField("ORDER_PS_STATUS_REC", GetMessage("P_ORDER_PS_STATUS"));
 					?>
 					<tr>
-						<td><?echo $tabControl->GetCustomLabelHTML()?>:</td>
-						<td><?
+						<td><?php echo $tabControl->GetCustomLabelHTML()?>:</td>
+						<td><?php 
 						if (!$boolLocked)
 						{
-							?><a href="/bitrix/admin/sale_order_detail.php?ID=<?= $ID ?>&action=ps_update&lang=<? echo LANGUAGE_ID; ?><?= GetFilterParams("filter_") ?>&<?= bitrix_sessid_get() ?>"><?= GetMessage("P_ORDER_PS_STATUS_UPDATE") ?> &gt;&gt;</a><?
+							?><a href="/bitrix/admin/sale_order_detail.php?ID=<?= $ID ?>&action=ps_update&lang=<?php  echo LANGUAGE_ID; ?><?= GetFilterParams("filter_") ?>&<?= bitrix_sessid_get() ?>"><?= GetMessage("P_ORDER_PS_STATUS_UPDATE") ?> &gt;&gt;</a><?php 
 						}
 						else
 						{
-							?><span style="text-decoration: line-through;" title="<? echo $strLockUserExt; ?>"><? echo GetMessage("P_ORDER_PS_STATUS_UPDATE"); ?></span><?
+							?><span style="text-decoration: line-through;" title="<?php  echo $strLockUserExt; ?>"><?php  echo GetMessage("P_ORDER_PS_STATUS_UPDATE"); ?></span><?php 
 						}
 						?></td>
 					</tr>
-					<?
+					<?php 
 					$tabControl->EndCustomField("ORDER_PS_STATUS_REC", '');
 				}
 
@@ -3143,7 +3143,7 @@ else
 						</td>
 						<td id="date_change_mark_user">
 							<?=$arOrder["DATE_MARKED"]?>
-							<?if (!$crmMode && IntVal($arOrder["EMP_MARKED_ID"]) > 0)
+							<?php if (!$crmMode && IntVal($arOrder["EMP_MARKED_ID"]) > 0)
 								echo GetFormatedUserName($arOrder["EMP_MARKED_ID"], false);
 							?>
 						</td>
@@ -3159,15 +3159,15 @@ else
 					<tr id="btn_mark_cancel_button" style="display:<?=($arOrder["MARKED"] != "N") ? 'table-row' : 'none'?>">
 						<td width="40%">&nbsp;</td>
 						<td>
-							<?if($bUserCanMarkOrder)
+							<?php if($bUserCanMarkOrder)
 							{
 								if (!$boolLocked)
 								{
-									?><a href="javascript:void(0);" onclick="fCancelMarkOrder();" class="adm-btn-wrap"><span class="adm-btn"><?=GetMessage('SOD_MARK_N');?></span></a><?
+									?><a href="javascript:void(0);" onclick="fCancelMarkOrder();" class="adm-btn-wrap"><span class="adm-btn"><?=GetMessage('SOD_MARK_N');?></span></a><?php 
 								}
 								else
 								{
-									?><a href="javascript:void(0);" class="adm-btn-wrap" title="<? echo $strLockUserExt; ?>"><span class="adm-btn-disabled"><?=GetMessage('SOD_MARK_N');?></span></a><?
+									?><a href="javascript:void(0);" class="adm-btn-wrap" title="<?php  echo $strLockUserExt; ?>"><span class="adm-btn-disabled"><?=GetMessage('SOD_MARK_N');?></span></a><?php 
 								}
 							}
 							?>
@@ -3263,7 +3263,7 @@ else
 							</script>
 						</td>
 					</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("ORDER_MARKED", '');
 
 				$tabControl->AddSection("order_comments", GetMessage("SOD_COMMENTS"));
@@ -3274,31 +3274,31 @@ else
 					{
 						?>
 						<tr>
-							<td valign="top"><?echo GetMessage("P_ORDER_USER_COMMENTS")?>:</td>
-							<td valign="middle"><?echo htmlspecialcharsEx($arOrder["USER_DESCRIPTION"]); ?></td>
+							<td valign="top"><?php echo GetMessage("P_ORDER_USER_COMMENTS")?>:</td>
+							<td valign="middle"><?php echo htmlspecialcharsEx($arOrder["USER_DESCRIPTION"]); ?></td>
 						</tr>
-						<?
+						<?php 
 					}
 
 					if (strlen($arOrder["ADDITIONAL_INFO"])>0)
 					{
 						?>
 						<tr>
-							<td valign="top"><?echo GetMessage("P_ORDER_ADDITIONAL_INFO")?>:</td>
-							<td valign="middle"><?echo htmlspecialcharsEx($arOrder["ADDITIONAL_INFO"]); ?></td>
+							<td valign="top"><?php echo GetMessage("P_ORDER_ADDITIONAL_INFO")?>:</td>
+							<td valign="middle"><?php echo htmlspecialcharsEx($arOrder["ADDITIONAL_INFO"]); ?></td>
 						</tr>
-						<?
+						<?php 
 					}
 				?>
 				<tr>
-					<td valign="top"><?echo GetMessage('SOD_ORDER_COMMENT_MANAGER_TITLE');?>:</td>
+					<td valign="top"><?php echo GetMessage('SOD_ORDER_COMMENT_MANAGER_TITLE');?>:</td>
 					<td valign="middle">
-						<div id="hover_comment"><?
+						<div id="hover_comment"><?php 
 						if (!$boolLocked)
 						{
 						?>
 							<span id="manager-comment-title" onClick="fShowComment(this);">
-								<?
+								<?php 
 								if('' != $arOrder["COMMENTS"])
 								{
 									echo htmlspecialcharsbx($arOrder["COMMENTS"]);
@@ -3309,7 +3309,7 @@ else
 								}
 								?>
 							</span>
-							<span class="pencil"></span><?
+							<span class="pencil"></span><?php 
 						}
 						else
 						{
@@ -3324,10 +3324,10 @@ else
 						}
 						?>
 						</div>
-						<?
+						<?php 
 						if (!$boolLocked)
 						{
-							?><textarea id="manager-comment-text"  name="COMMENTS" class="comment" onChange="fEditComment(this, 'change');" onblur="fEditComment(this, 'exit');"><?= htmlspecialcharsbx($arOrder["COMMENTS"]) ?></textarea><?
+							?><textarea id="manager-comment-text"  name="COMMENTS" class="comment" onChange="fEditComment(this, 'change');" onblur="fEditComment(this, 'exit');"><?= htmlspecialcharsbx($arOrder["COMMENTS"]) ?></textarea><?php 
 						}
 						?>
 						<input type="hidden" name="change_comments" id="id_change_comments_hidden" value="N">
@@ -3365,7 +3365,7 @@ else
 						</script>
 					</td>
 				</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("ORDER_COMMENTS", '');
 
 				$tabControl->AddSection("order_deduction", GetMessage("P_ORDER_DEDUCTION"));
@@ -3390,7 +3390,7 @@ else
 					<tr id="deduct_date" style="display:<?=(strlen($arOrder["DATE_DEDUCTED"]) > 0) ? 'table-row' : 'none'?>">
 						<td><?=GetMessage('SOD_DATE_DEDUCT_CHANGE');?>:</td>
 						<td id="date_deduct_format"><?=$arOrder["DATE_DEDUCTED"]?>
-							<?if (!$crmMode && IntVal($arOrder["EMP_DEDUCTED_ID"]) > 0)
+							<?php if (!$crmMode && IntVal($arOrder["EMP_DEDUCTED_ID"]) > 0)
 								echo GetFormatedUserName($arOrder["EMP_DEDUCTED_ID"], false);
 							?>
 						</td>
@@ -3405,14 +3405,14 @@ else
 					</tr>
 					<tr id="btn_show_deduct" style="display:<?=($arOrder["DEDUCTED"] == "Y" && $bUserCanDeductOrder) ? 'table-row' : 'none'?>">
 						<td width="40%">&nbsp;</td>
-						<td valign="middle"><?
+						<td valign="middle"><?php 
 						if (!$boolLocked)
 						{
-							?><a title="<?=GetMessage('SOD_DEDUCT_N')?>" onclick="fShowUndoDeductOrder(this, '');" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn"><?=GetMessage('SOD_DEDUCT_N')?></span></a><?
+							?><a title="<?=GetMessage('SOD_DEDUCT_N')?>" onclick="fShowUndoDeductOrder(this, '');" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn"><?=GetMessage('SOD_DEDUCT_N')?></span></a><?php 
 						}
 						else
 						{
-							?><a title="<? echo $strLockUserExt; ?>" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn-disabled"><?=GetMessage('SOD_DEDUCT_N')?></span></a><?
+							?><a title="<?php  echo $strLockUserExt; ?>" class="adm-btn-wrap" href="javascript:void(0);"><span class="adm-btn-disabled"><?=GetMessage('SOD_DEDUCT_N')?></span></a><?php 
 						}
 						?>
 						</td>
@@ -3528,7 +3528,7 @@ else
 							</script>
 						</td>
 					</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("ORDER_DEDUCTED", '');
 
 				//order list
@@ -3544,7 +3544,7 @@ else
 						<tr class="heading">
 							<?=getColumnsHeaders($arUserColumns, "detail", false);?>
 						</tr>
-						<?
+						<?php 
 						$bXmlId = COption::GetOptionString("sale", "show_order_product_xml_id", "N");
 						$arCurFormat = CCurrencyLang::GetCurrencyFormat($arOrder["CURRENCY"]);
 						$CURRENCY_FORMAT = trim(str_replace("#", '', $arCurFormat["FORMAT_STRING"]));
@@ -3647,7 +3647,7 @@ else
 								}
 							?>
 							<tr <?=$hidden?> <?=$setItemClass?>>
-								<?
+								<?php 
 								if (!CSaleBasketHelper::isSetItem($arItem))
 									$productNumber++;
 
@@ -3659,14 +3659,14 @@ else
 										<td class="COLUMN_NUMBER">
 											<div><?=(!CSaleBasketHelper::isSetItem($arItem)) ? $productNumber : ""?></div>
 										</td>
-										<?
+										<?php 
 									}
 
 									if ($columnCode == "COLUMN_IMAGE")
 									{
 										?>
 										<td class="COLUMN_IMAGE">
-											<?
+											<?php 
 											$productImg = "";
 
 											if ($bUseIblock)
@@ -3692,7 +3692,7 @@ else
 													echo '<div class="no_foto">'.GetMessage('SOD_NO_FOTO').'</div>';
 											?>
 										</td>
-										<?
+										<?php 
 									}
 
 									if ($columnCode == "COLUMN_NAME")
@@ -3714,13 +3714,13 @@ else
 
 											<div class='bx-adm-bigdata-icon-medium-inner' <?=!$arItem['RECOMMENDATION']?'style="visibility: hidden"':''?>></div>
 
-											<?
+											<?php 
 											$linkClass = (CSaleBasketHelper::isSetItem($arItem)) ? "set-item-link-name" : "";
 
 											if (strlen($arItem["EDIT_PAGE_URL"]) > 0):
 											?>
-												<a href="<?echo $arItem["EDIT_PAGE_URL"]?>" class="name-link <?=$linkClass?>" target="_blank">
-											<?
+												<a href="<?php echo $arItem["EDIT_PAGE_URL"]?>" class="name-link <?=$linkClass?>" target="_blank">
+											<?php 
 											endif;
 
 											echo trim($arItem["NAME"]);
@@ -3728,18 +3728,18 @@ else
 											if (strlen($arItem["EDIT_PAGE_URL"]) > 0):
 											?>
 												</a>
-											<?
+											<?php 
 											endif;
 											if (CSaleBasketHelper::isSetParent($arItem)):
 											?>
 												<div class="set-link-block">
 													<a class="dashed-link show-set-link" href="javascript:void(0);" id="set_toggle_link_<?=$arItem["SET_PARENT_ID"]?>" onclick="fToggleSetItems(<?=$arItem["SET_PARENT_ID"]?>);"><?=GetMessage("SOD_SHOW_SET")?></a>
 												</div>
-											<?
+											<?php 
 											endif;
 											?>
 										</td>
-										<?
+										<?php 
 									}
 
 									if ($columnCode == "COLUMN_QUANTITY")
@@ -3747,16 +3747,16 @@ else
 										$measure = (isset($arItem["MEASURE_TEXT"])) ? $arItem["MEASURE_TEXT"] : "";
 										?>
 										<td class="COLUMN_QUANTITY">
-											<?echo $arItem["QUANTITY"]."&nbsp".$measure?>
+											<?php echo $arItem["QUANTITY"]."&nbsp".$measure?>
 										</td>
-										<?
+										<?php 
 									}
 
 									if ($columnCode == "COLUMN_REMAINING_QUANTITY")
 									{
 										?>
 										<td class="COLUMN_REMAINING_QUANTITY">
-											<?
+											<?php 
 											$balance = 0;
 											if ($arItem["MODULE"] == "catalog" && $bUseCatalog)
 											{
@@ -3764,16 +3764,16 @@ else
 												$balance = FloatVal($ar_res["QUANTITY"]);
 											}
 											?>
-											<?echo $balance?>
+											<?php echo $balance?>
 										</td>
-										<?
+										<?php 
 									}
 
 									if ($columnCode == "COLUMN_PROPS")
 									{
 										?>
 										<td class="COLUMN_PROPS">
-											<?
+											<?php 
 											if (!empty($arBasketProps[$arItem["ID"]]) && is_array($arBasketProps[$arItem["ID"]]))
 											{
 												foreach ($arBasketProps[$arItem["ID"]] as &$val)
@@ -3785,14 +3785,14 @@ else
 											}
 											?>
 										</td>
-										<?
+										<?php 
 									}
 
 									if ($columnCode == "COLUMN_PRICE")
 									{
 										?>
 										<td class="COLUMN_PRICE" nowrap>
-												<?
+												<?php 
 												$priceDiscount = $priceBase = ($arItem["DISCOUNT_PRICE"] + $arItem["PRICE"]);
 												if(DoubleVal($priceBase) > 0)
 													$priceDiscount = roundEx(($arItem["DISCOUNT_PRICE"] * 100) / $priceBase, SALE_VALUE_PRECISION);
@@ -3804,38 +3804,38 @@ else
 													</span>
 													<span class="currency_price"><?=$CURRENCY_FORMAT?></span>
 												</div>
-												<?
+												<?php 
 												if (0 < $priceDiscount)
 												{
 													?><div class="base_price" id="DIV_BASE_PRICE_WITH_DISCOUNT_<?=$arItem["PRODUCT_ID"]?>">
 														<?=CCurrencyLang::CurrencyFormat($priceBase, $arItem["CURRENCY"], false);?>
 														<span class="currency_price"><?=$CURRENCY_FORMAT?></span>
-													</div><?
+													</div><?php 
 													if ('Y' != $arItem["CUSTOM_PRICE"])
 													{
-														?><div class="discount">(<? echo GetMessage('SOD_PRICE_DISCOUNT')." ".$priceDiscount?>%)</div><?
+														?><div class="discount">(<?php  echo GetMessage('SOD_PRICE_DISCOUNT')." ".$priceDiscount?>%)</div><?php 
 													}
 												}
 												?><div class="base_price_title">
 													<?=('Y' == $arItem["CUSTOM_PRICE"]) ? GetMessage("SOD_BASE_CATALOG_PRICE") : $arItem["NOTES"];?>
 												</div>
 										</td>
-										<?
+										<?php 
 									}
 
 									if ($columnCode == "COLUMN_SUM")
 									{
 										?>
 										<td class="COLUMN_SUM" nowrap>
-											<?
+											<?php 
 											if (!CSaleBasketHelper::isSetItem($arItem)):
 											?>
 												<div><?=CCurrencyLang::CurrencyFormat(($arItem["QUANTITY"] * $arItem["PRICE"]), $arItem["CURRENCY"], false);?> <span><?=$CURRENCY_FORMAT?></span></div>
-											<?
+											<?php 
 											endif;
 											?>
 										</td>
-										<?
+										<?php 
 									}
 
 									if (substr($columnCode, 0, 9) == "PROPERTY_")
@@ -3844,12 +3844,12 @@ else
 										<td class="property_field <?=$columnCode?>">
 											<?=getIblockPropInfo($arBasketPropsValues[$arItem["PRODUCT_ID"]][$columnCode."_VALUE"], $arIblockProps[$columnCode], array("WIDTH" => 90, "HEIGHT" => 90), $ID);?>
 										</td>
-										<?
+										<?php 
 									}
 								}
 								?>
 							</tr>
-							<?
+							<?php 
 							}//end while order
 						}
 						?>
@@ -3879,7 +3879,7 @@ else
 							BX("set_toggle_link_" + setParentId).innerHTML = '<?=GetMessage("SOD_SHOW_SET")?>';
 					}
 				</script>
-				<?
+				<?php 
 				$tabControl->EndCustomField("orders_list");
 
 				$tabControl->BeginCustomField("orders_itog", GetMessage("SOD_ORDER_ITOG"));
@@ -3894,7 +3894,7 @@ else
 								<br>
 
 								<div id="tabs">
-									<?
+									<?php 
 									$displayNone = "block";
 									$displayNoneBasket = "block";
 									$displayNoneViewed = "block";
@@ -3999,7 +3999,7 @@ else
 									<div id="tab_2" style="display:<?=$displayNoneBasket?>" class="<?=$tabBasket?>" onClick="fTabsSelect('buyer_basket', this);"><?=GetMessage('SOD_SUBTAB_BASKET')?></div>
 									<div id="tab_3" style="display:<?=$displayNoneViewed?>" class="<?=$tabViewed?>" onClick="fTabsSelect('buyer_viewed', this);"><?=GetMessage('SOD_SUBTAB_LOOKED')?></div>
 
-									<?
+									<?php 
 									if ($displayNone == 'block')
 									{
 										$displayNoneBasket = 'none';
@@ -4017,18 +4017,18 @@ else
 									}
 									?>
 									<div id="buyer_recmon" class="tabstext active" style="display:<?=$displayNone?>">
-										<?echo fGetFormatedProductData($arOrder["USER_ID"], $arOrder["LID"], $arRecommendedResult, $recomCnt, $arOrder["CURRENCY"], 'recom', $crmMode);?>
+										<?php echo fGetFormatedProductData($arOrder["USER_ID"], $arOrder["LID"], $arRecommendedResult, $recomCnt, $arOrder["CURRENCY"], 'recom', $crmMode);?>
 									</div>
 
 									<div id="buyer_basket" class="tabstext active" style="display:<?=$displayNoneBasket?>">
-									<?
+									<?php 
 										if (count($arCartWithoutSetItems) > 0)
 											echo fGetFormatedProductData($arOrder["USER_ID"], $arOrder["LID"], $arCartWithoutSetItems, $basketCnt, $arOrder["CURRENCY"], 'basket', $crmMode);
 									?>
 									</div>
 
 									<div id="buyer_viewed" class="tabstext active" style="display:<?=$displayNoneViewed?>">
-									<?
+									<?php 
 										if (count($arViewed) > 0)
 											echo fGetFormatedProductData($arOrder["USER_ID"], $arOrder["LID"], $arViewed, $viewedCnt, $arOrder["CURRENCY"], 'viewed', $crmMode);
 									?>
@@ -4061,54 +4061,54 @@ else
 								<div class="order-itog">
 									<table>
 										<tr>
-											<td class="title"><?echo GetMessage("SOD_TOTAL_PRICE")?></td>
+											<td class="title"><?php echo GetMessage("SOD_TOTAL_PRICE")?></td>
 											<td nowrap style="white-space:nowrap;"><?=SaleFormatCurrency($ORDER_TOTAL_PRICE, $arOrder["CURRENCY"]);?></td>
 										</tr>
 										<tr class="price">
-											<td class="title"><?echo GetMessage("SOD_TOTAL_PRICE_WITH_DISCOUNT_MARGIN")?></td>
+											<td class="title"><?php echo GetMessage("SOD_TOTAL_PRICE_WITH_DISCOUNT_MARGIN")?></td>
 											<td nowrap style="white-space:nowrap;"><?=SaleFormatCurrency($orderBasketPrice, $arOrder["CURRENCY"]);?></td>
 										</tr>
 										<tr>
-											<td class="title"><?echo GetMessage("SOD_TOTAL_PRICE_DELIVERY")?></td>
+											<td class="title"><?php echo GetMessage("SOD_TOTAL_PRICE_DELIVERY")?></td>
 											<td nowrap style="white-space:nowrap;"><?=SaleFormatCurrency($arOrder["PRICE_DELIVERY"], $arOrder["CURRENCY"]);?></td>
 										</tr>
 
-										<?if (floatval($arOrder["DISCOUNT_VALUE"]) > 0):?>
+										<?php if (floatval($arOrder["DISCOUNT_VALUE"]) > 0):?>
 										<tr class="price">
 											<td class="title" >
-												<?echo GetMessage("NEWO_TOTAL_DISCOUNT_PRICE_VALUE")?>
+												<?php echo GetMessage("NEWO_TOTAL_DISCOUNT_PRICE_VALUE")?>
 											</td>
 											<td nowrap style="white-space:nowrap;">
 													<div><?=SaleFormatCurrency($arOrder["DISCOUNT_VALUE"], $arOrder["CURRENCY"]);?></div>
 											</td>
 										</tr>
-										<?endif;?>
+										<?php endif;?>
 
-										<?if ($ORDER_TOTAL_WEIGHT > 0):?>
+										<?php if ($ORDER_TOTAL_WEIGHT > 0):?>
 										<tr>
-											<td class="title"><?echo GetMessage("NEWO_TOTAL_WEIGHT")?></td>
+											<td class="title"><?php echo GetMessage("NEWO_TOTAL_WEIGHT")?></td>
 											<td nowrap style="white-space:nowrap;">
 												<?=roundEx(DoubleVal($ORDER_TOTAL_WEIGHT/$WEIGHT_KOEF), SALE_WEIGHT_PRECISION)." ".$WEIGHT_UNIT;?>
 											</td>
 										</tr>
-										<?endif;?>
+										<?php endif;?>
 
 										<tr class="itog">
-											<td class="ileft"><div style="white-space:nowrap;"><?echo GetMessage("SOD_TOTAL_PRICE_TOTAL")?></div></td>
+											<td class="ileft"><div style="white-space:nowrap;"><?php echo GetMessage("SOD_TOTAL_PRICE_TOTAL")?></div></td>
 											<td class="iright" nowrap><div style="white-space:nowrap;"><?=SaleFormatCurrency($arOrder["PRICE"], $arOrder["CURRENCY"]);?></div></td>
 										</tr>
-										<?if (floatval($arOrder["SUM_PAID"]) > 0 && $arOrder["PAYED"] != "Y"):?>
+										<?php if (floatval($arOrder["SUM_PAID"]) > 0 && $arOrder["PAYED"] != "Y"):?>
 											<tr class="price">
-												<td class="title"><?echo GetMessage("SOD_TOTAL_PRICE_PAYED")?></td>
+												<td class="title"><?php echo GetMessage("SOD_TOTAL_PRICE_PAYED")?></td>
 												<td nowrap style="white-space:nowrap;"><?=SaleFormatCurrency($arOrder["SUM_PAID"], $arOrder["CURRENCY"]);?></td>
 											</tr>
-										<?endif;?>
-										<?if ($arOrder["PAYED"] == "Y"):?>
+										<?php endif;?>
+										<?php if ($arOrder["PAYED"] == "Y"):?>
 											<tr class="price">
-												<td class="title"><?echo GetMessage("SOD_TOTAL_PRICE_PAYED")?></td>
+												<td class="title"><?php echo GetMessage("SOD_TOTAL_PRICE_PAYED")?></td>
 												<td nowrap style="white-space:nowrap;"><?=SaleFormatCurrency($arOrder["PRICE"], $arOrder["CURRENCY"]);?></td>
 											</tr>
-										<?endif;?>
+										<?php endif;?>
 									</table>
 								</div>
 							</td>
@@ -4122,7 +4122,7 @@ else
 								function fGetMoreProduct(type)
 								{
 									BX.showWait();
-									productData = <? echo CUtil::PhpToJSObject($arFilterRecomendet); ?>;
+									productData = <?php  echo CUtil::PhpToJSObject($arFilterRecomendet); ?>;
 									var userId = '<?=$arOrder["USER_ID"]?>';
 									var fUserId = '<?=$arFuserItems["ID"]?>';
 									var currency = '<?=$arOrder["CURRENCY"]?>';
@@ -4149,7 +4149,7 @@ else
 						</script>
 					</td>
 				</tr>
-				<?
+				<?php 
 				$tabControl->EndCustomField("orders_itog");
 
 
@@ -4160,7 +4160,7 @@ else
 				?>
 				<tr>
 					<td colspan="2">
-					<?
+					<?php 
 					$dbTransact = CSaleUserTransact::GetList(
 							array("TRANSACT_DATE" => "DESC"),
 							array("ORDER_ID" => $ID),
@@ -4171,13 +4171,13 @@ else
 					?>
 					<table cellpadding="3" cellspacing="1" border="0" width="100%" class="adm-list-table" style="border:1px solid #CCC">
 						<tr class="adm-list-table-header">
-							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?echo GetMessage("SOD_TRANS_DATE")?></div></td>
-							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?echo GetMessage("SOD_TRANS_USER")?></div></td>
-							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?echo GetMessage("SOD_TRANS_SUM")?></div></td>
-							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?echo GetMessage("SOD_TRANS_DESCR")?></div></td>
-							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?echo GetMessage("SOD_TRANS_COMMENT")?></div></td>
+							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?php echo GetMessage("SOD_TRANS_DATE")?></div></td>
+							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?php echo GetMessage("SOD_TRANS_USER")?></div></td>
+							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?php echo GetMessage("SOD_TRANS_SUM")?></div></td>
+							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?php echo GetMessage("SOD_TRANS_DESCR")?></div></td>
+							<td class="adm-list-table-cell"><div class="adm-list-table-cell-inner"><?php echo GetMessage("SOD_TRANS_COMMENT")?></div></td>
 						</tr>
-						<?
+						<?php 
 						$bNoTransact = True;
 						while ($arTransact = $dbTransact->Fetch())
 						{
@@ -4186,16 +4186,16 @@ else
 							<tr class="adm-list-table-row">
 								<td class="adm-list-table-cell"><?= $arTransact["TRANSACT_DATE"]; ?></td>
 								<td class="adm-list-table-cell">
-									<?echo GetFormatedUserName($arTransact["USER_ID"]);?>
+									<?php echo GetFormatedUserName($arTransact["USER_ID"]);?>
 								</td>
 								<td class="adm-list-table-cell">
-									<?
+									<?php 
 									echo (($arTransact["DEBIT"] == "Y") ? "+" : "-");
 									echo SaleFormatCurrency($arTransact["AMOUNT"], $arTransact["CURRENCY"]);
 									?>
 								</td>
 								<td class="adm-list-table-cell">
-									<?
+									<?php 
 									if (array_key_exists($arTransact["DESCRIPTION"], $arTransactTypes))
 										echo htmlspecialcharsEx($arTransactTypes[$arTransact["DESCRIPTION"]]);
 									else
@@ -4203,10 +4203,10 @@ else
 									?>
 								</td>
 								<td class="adm-list-table-cell" align="right">
-									<?echo htmlspecialcharsEx($arTransact["NOTES"]) ?>
+									<?php echo htmlspecialcharsEx($arTransact["NOTES"]) ?>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 
 						if ($bNoTransact)
@@ -4214,16 +4214,16 @@ else
 							?>
 							<tr>
 								<td colspan="5" align="center">
-									<?echo GetMessage("SOD_NO_TRANS")?>
+									<?php echo GetMessage("SOD_NO_TRANS")?>
 								</td>
 							</tr>
-							<?
+							<?php 
 						}
 						?>
 					</table>
 					</td>
 				</tr>
-				<?
+				<?php 
 			$tabControl->EndCustomField("TRANSACT", '');
 
 
@@ -4235,7 +4235,7 @@ else
 					<div id="trans-history"></div>
 				</td>
 			</tr>
-			<?
+			<?php 
 			$tabControl->EndCustomField("ORDER_HISTORY", '');
 
 		$tabControl->Show();
@@ -4244,10 +4244,10 @@ else
 ?>
 
 <div id="tr-sourse" style="display:none;">
-	<form name="find_form5" method="GET" action="<? echo $APPLICATION->GetCurPage(); ?>?">
+	<form name="find_form5" method="GET" action="<?php  echo $APPLICATION->GetCurPage(); ?>?">
 	<input type="hidden" name="ID" value="<?=$ID?>">
 
-	<?
+	<?php 
 	$arFilterFieldsTmp = array(
 		"filter_user" => GetMessage("SOA_ROW_BUYER"),
 		"filter_date_history" => GetMessage("SALE_F_DATE"),
@@ -4271,13 +4271,13 @@ else
 	<tr>
 		<td><?=GetMessage('SOD_HIST_H_USER')?>:</td>
 		<td>
-			<?echo FindUserID("filter_user", $filter_user, "", "find_form5");?>
+			<?php echo FindUserID("filter_user", $filter_user, "", "find_form5");?>
 		</td>
 	</tr>
 	<tr>
 		<td><?=GetMessage('SOD_HIST_H_DATE')?>:</td>
 		<td>
-			<?echo CalendarPeriod("filters_date_history_from", $filters_date_history_from, "filters_date_history_to", $filters_date_history_to, "find_form5", "Y")?>
+			<?php echo CalendarPeriod("filters_date_history_from", $filters_date_history_from, "filters_date_history_to", $filters_date_history_to, "find_form5", "Y")?>
 
 		</td>
 	</tr>
@@ -4285,15 +4285,15 @@ else
 		<td><?=GetMessage('SOD_HIST_TYPE')?>:</td>
 		<td>
 			<select name="filter_type">
-				<option value=""><?echo GetMessage("SOD_HIST_ALL")?></option>
-				<? foreach ($arOperations as $type => $name)
+				<option value=""><?php echo GetMessage("SOD_HIST_ALL")?></option>
+				<?php  foreach ($arOperations as $type => $name)
 				{ ?>
-					<option value="<?=$type?>"<?if ($filter_type== $type) echo " selected"?>><?=$name?></option>
-				<? } ?>
+					<option value="<?=$type?>"<?php if ($filter_type== $type) echo " selected"?>><?=$name?></option>
+				<?php  } ?>
 			</select>
 		</td>
 	</tr>
-	<?
+	<?php 
 	$oFilter->Buttons(
 		array(
 			"table_id" => $sTableID_tab5,
@@ -4304,7 +4304,7 @@ else
 	$oFilter->End();
 	?>
 	</form>
-	<?$lAdmin_tab5->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
+	<?php $lAdmin_tab5->DisplayList(array("FIX_HEADER" => false, "FIX_FOOTER" => false));?>
 </div>
 
 <div class="sale_popup_form" id="popup_form_sku_order" style="display:none;">
@@ -4485,7 +4485,7 @@ else
 
 						if (arSKU[i]["CAN_BUY"] == "Y")
 						{
-							BX('popup-params-product').value = "/bitrix/admin/sale_order_new.php?lang=<? echo LANGUAGE_ID; ?>&user_id="+arSKU[i]["USER_ID"]+"&LID="+arSKU[i]["LID"]+"&product["+arSKU[i]["ID"]+"]=1";
+							BX('popup-params-product').value = "/bitrix/admin/sale_order_new.php?lang=<?php  echo LANGUAGE_ID; ?>&user_id="+arSKU[i]["USER_ID"]+"&LID="+arSKU[i]["LID"]+"&product["+arSKU[i]["ID"]+"]=1";
 							message = BX.message('PRODUCT_ADD');
 						}
 						else
@@ -4508,6 +4508,6 @@ else
 			BX.show(BX('tr-sourse'));
 		})
 	</script>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SKGB_NO_ORDER"] = "Die Bestellung Nr. #ID# wurde nicht gefunden";
 $MESS["SKGB_NO_CURRENCY"] = "Währung Nr. #ID# wurde nicht gefunden";
 $MESS["SKGB_NO_SITE"] = "Die Seite mit der ID #ID# wurde nicht gefunden";

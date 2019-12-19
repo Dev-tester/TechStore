@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ADMIN_FAV_ADD"] = "Add to <b>Favorites</b>";
 $MESS["ADMIN_FAV_ADD_ERROR"] = "Error adding a link to favorites.";
 $MESS["ADMIN_FAV_ADD_SUCCESS"] = "Added to <b>Favorites</b>";

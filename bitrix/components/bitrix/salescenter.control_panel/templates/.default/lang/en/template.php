@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALESCENTER_CONTROL_PANEL_CASHBOX_CONSENT_TITLE"] = "Online cash registers and agreements";
 $MESS["SALESCENTER_CONTROL_PANEL_CASHBOX_TITLE"] = "Online cash registers";
 $MESS["SALESCENTER_CONTROL_PANEL_CONSENT_TITLE"] = "Agreements";

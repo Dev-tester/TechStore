@@ -1,4 +1,4 @@
-<?define("STOP_STATISTICS", true);
+<?php define("STOP_STATISTICS", true);
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
 header('Content-Type: application/x-javascript; charset='.LANG_CHARSET);
 // **************************************************************************************
@@ -53,7 +53,7 @@ if (CModule::IncludeModule("search")):
 				);
 			}
 		}
-		?><?=CUtil::PhpToJSObject($arResult)?><?
+		?><?=CUtil::PhpToJSObject($arResult)?><?php 
 		CMain::FinalActions();
 		die();
 	}

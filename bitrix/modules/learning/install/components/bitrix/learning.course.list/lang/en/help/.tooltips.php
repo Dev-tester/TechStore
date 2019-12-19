@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SORBY_TIP'] = "Specifies the field by which the courses will be sorted.";
 $MESS ['SORORDER_TIP'] = "Specifies the order in which the courses will be sorted.";
 $MESS ['COURSE_DETAIL_TEMPLATE_TIP'] = "The path to a course details page.";

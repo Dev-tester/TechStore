@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_ERROR_CANT_BE_EMPTY"] = "Page address cannot be empty.";
 $MESS["LANDING_TABLE_ERROR_ISNOT_FOLDER"] = "A page selected as folder is not a folder";
 $MESS["LANDING_TABLE_ERROR_LD_ACCESS_DENIED"] = "Page edit access was denied.";

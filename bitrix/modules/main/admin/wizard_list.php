@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once(dirname(__FILE__)."/../include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/prolog.php");
 define("HELP_FILE", "settings/wizard_list.php");
@@ -42,7 +42,7 @@ if(($arID = $lAdmin->GroupAction()) && $isAdmin)
 			<script type="text/javascript">
 				exportWizard('<?=CUtil::JSEscape($ID)?>');
 			</script>
-			<?
+			<?php 
 			break;
 		/*case "copy":
 			CWizardUtil::CopyWizard($ID, $ID."_copy");
@@ -143,6 +143,6 @@ function exportWizard(val)
 //-->
 </script>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

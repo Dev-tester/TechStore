@@ -95,7 +95,7 @@ class Policy
 
 	protected function getItems()
 	{
-		$data = '<?xml version="1.0" encoding="utf-8"?>
+		$data = '<?php xml version="1.0" encoding="utf-8"?>
 			<getSellerProfilesRequest xmlns="http://www.ebay.com/marketplace/sellings">
 			</getSellerProfilesRequest>';
 

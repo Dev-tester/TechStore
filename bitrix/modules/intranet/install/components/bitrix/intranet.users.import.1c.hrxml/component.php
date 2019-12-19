@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 /*************************************************************************
@@ -149,20 +149,20 @@ else
 	$this->IncludeComponentLang(".parameters.php");
 
 	?><table class="data-table">
-	<tr><td><?echo GetMessage("CC_BCI1_IBLOCK_TYPE")?></td><td><?echo $arParams["IBLOCK_TYPE"]?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_DEPARTMENTS_IBLOCK_ID")?></td><td><?echo $arParams["DEPARTMENTS_IBLOCK_ID"]?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_ABSENCE_IBLOCK_ID")?></td><td><?echo $arParams["ABSENCE_IBLOCK_ID"]?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_STRUCTURE_CHECK")?></td><td><?echo $arParams["STRUCTURE_CHECK"] ? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_INTERVAL")?></td><td><?echo $arParams["INTERVAL"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_FILE_SIZE_LIMIT")?></td><td><?echo $arParams["FILE_SIZE_LIMIT"]?></td></tr>
-	<tr><td><?echo GetMessage("CC_BCI1_USE_ZIP")?></td><td><?echo $arParams["USE_ZIP"] ? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_UPDATE_PROPERTIES")?></td><td><pre><?=implode('<br />', $arParams["UPDATE_PROPERTIES"]);?></pre></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_DEFAULT_EMAIL")?></td><td><?echo $arParams["DEFAULT_EMAIL"]?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_LOGIN_TEMPLATE")?></td><td><?echo $arParams["LOGIN_TEMPLATE"]?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_EMAIL_PROPERTY_XML_ID")?></td><td><?echo $arParams["EMAIL_PROPERTY_XML_ID"]?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_LOGIN_PROPERTY_XML_ID")?></td><td><?echo $arParams["LOGIN_PROPERTY_XML_ID"]?></td></tr>
-	<tr><td><?echo GetMessage("CP_BCI1_PASSWORD_PROPERTY_XML_ID")?></td><td><?echo $arParams["PASSWORD_PROPERTY_XML_ID"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_IBLOCK_TYPE")?></td><td><?php echo $arParams["IBLOCK_TYPE"]?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_DEPARTMENTS_IBLOCK_ID")?></td><td><?php echo $arParams["DEPARTMENTS_IBLOCK_ID"]?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_ABSENCE_IBLOCK_ID")?></td><td><?php echo $arParams["ABSENCE_IBLOCK_ID"]?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_STRUCTURE_CHECK")?></td><td><?php echo $arParams["STRUCTURE_CHECK"] ? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_INTERVAL")?></td><td><?php echo $arParams["INTERVAL"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_FILE_SIZE_LIMIT")?></td><td><?php echo $arParams["FILE_SIZE_LIMIT"]?></td></tr>
+	<tr><td><?php echo GetMessage("CC_BCI1_USE_ZIP")?></td><td><?php echo $arParams["USE_ZIP"] ? GetMessage("MAIN_YES"): GetMessage("MAIN_NO")?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_UPDATE_PROPERTIES")?></td><td><pre><?=implode('<br />', $arParams["UPDATE_PROPERTIES"]);?></pre></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_DEFAULT_EMAIL")?></td><td><?php echo $arParams["DEFAULT_EMAIL"]?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_LOGIN_TEMPLATE")?></td><td><?php echo $arParams["LOGIN_TEMPLATE"]?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_EMAIL_PROPERTY_XML_ID")?></td><td><?php echo $arParams["EMAIL_PROPERTY_XML_ID"]?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_LOGIN_PROPERTY_XML_ID")?></td><td><?php echo $arParams["LOGIN_PROPERTY_XML_ID"]?></td></tr>
+	<tr><td><?php echo GetMessage("CP_BCI1_PASSWORD_PROPERTY_XML_ID")?></td><td><?php echo $arParams["PASSWORD_PROPERTY_XML_ID"]?></td></tr>
 	</table>
-	<?
+	<?php 
 }
 ?>

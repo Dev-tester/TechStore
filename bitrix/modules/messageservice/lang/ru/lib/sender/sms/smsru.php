@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGESERVICE_SENDER_SMS_SMSRU_NAME"] = "Компания SMS.RU";
 $MESS["MESSAGESERVICE_SENDER_SMS_SMSRU_CAN_USE_ERROR"] = "Провайдер компании SMS.RU не настроен";
 $MESS["MESSAGESERVICE_SENDER_SMS_SMSRU_ERROR_201"] = "Не хватает средств на лицевом счету";

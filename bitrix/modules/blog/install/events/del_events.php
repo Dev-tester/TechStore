@@ -1,4 +1,4 @@
-<?
+<?php 
 $DB->Query("DELETE FROM b_event_type WHERE EVENT_NAME in (
 	'NEW_BLOG_MESSAGE', 
 	'NEW_BLOG_COMMENT',

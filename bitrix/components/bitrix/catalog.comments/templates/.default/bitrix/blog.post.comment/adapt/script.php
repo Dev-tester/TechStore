@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script>
 //function onLightEditorShow(content)
 //{
@@ -13,13 +13,13 @@
 
 function showComment(key, error, userName, userEmail, needData)
 {
-	<?
+	<?php 
 	if($arResult["use_captcha"]===true)
 	{
 		?>
 		var im = BX('captcha');
 		BX('captcha_del').appendChild(im);
-		<?
+		<?php 
 	}
 	?>
 	subject = '';
@@ -41,14 +41,14 @@ function showComment(key, error, userName, userEmail, needData)
 	document.form_comment.post.value = '<?=GetMessageJS("B_B_MS_SEND")?>';
 	document.form_comment.action = document.form_comment.action + "#" + key;
 
-	<?
+	<?php 
 	if($arResult["use_captcha"]===true)
 	{
 		?>
 		var im = BX('captcha');
 		BX('div_captcha').appendChild(im);
 		im.style.display = "block";
-		<?
+		<?php 
 	}
 	?>
 
@@ -124,7 +124,7 @@ function showComment(key, error, userName, userEmail, needData)
 
 function hideShowComment(url, id)
 {
-	var siteID = '<? echo SITE_ID; ?>';
+	var siteID = '<?php  echo SITE_ID; ?>';
 	var bcn = BX('blg-comment-'+id);
 	BX.showWait(bcn);
 	bcn.id = 'blg-comment-'+id+'old';
@@ -157,7 +157,7 @@ function hideShowComment(url, id)
 
 function deleteComment(url, id)
 {
-	var siteID = '<? echo SITE_ID; ?>';
+	var siteID = '<?php  echo SITE_ID; ?>';
 	BX.showWait(BX('blg-comment-'+id));
 	url += '&SITE_ID='+siteID;
 	BX.ajax.get(url, function(data) {
@@ -184,7 +184,7 @@ function deleteComment(url, id)
 
 	return false;
 }
-<?if($arResult["NEED_NAV"] == "Y"):?>
+<?php if($arResult["NEED_NAV"] == "Y"):?>
 function bcNav(page, th)
 {
 	BX.showWait(th);
@@ -208,7 +208,7 @@ function bcNav(page, th)
 		}, 300);
 	return false;
 }
-<?endif;?>
+<?php endif;?>
 
 function blogShowFile()
 {

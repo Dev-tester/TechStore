@@ -1,4 +1,4 @@
-<?
+<?php 
 /**********************************************************************
 Delivery services for DHL USA delivery service (http://www.dhl-usa.com/)
 It uses on-line calculator. Calculation only from USA.

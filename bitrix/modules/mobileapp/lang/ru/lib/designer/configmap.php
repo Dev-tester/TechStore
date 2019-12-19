@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BUTTONS"] = "Кнопки";
 $MESS["BUTTONS_IOS_USE_SQUARE_BUTTONS"] = "iOS7-стиль для кнопок";
 $MESS["BUTTONS_STRETCHABLE_MAIN_POSITION_HORIZONTAL"] = "Позиция по горизонтали";

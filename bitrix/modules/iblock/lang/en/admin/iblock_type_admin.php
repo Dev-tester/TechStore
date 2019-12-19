@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_TYPE_ADMIN_ERR_SAVE"] = "Error saving the type";
 $MESS["IBLOCK_TYPE_ADMIN_ERR_DEL"] = "Error deleting the type";
 $MESS["IBLOCK_TYPE_ADMIN_NAV"] = "Types";

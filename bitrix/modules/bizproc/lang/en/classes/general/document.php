@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCGDOC_ADD"] = "Add";
 $MESS["BPCGDOC_INVALID_WF_ID"] = "Could not find a template for business process #ID#.";
 $MESS["BPCGDOC_AUTO_EXECUTE_CREATE"] = "Create";

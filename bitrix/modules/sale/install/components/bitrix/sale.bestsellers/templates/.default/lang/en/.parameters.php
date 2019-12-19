@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SB_LINE_ELEMENT_COUNT"] = "Items per row";
 $MESS["SB_TPL_THEME_BLUE"] = "blue (default theme)";
 $MESS["SB_TPL_THEME_GREEN"] = "green";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COMMAND_IM_CATEGORY"] = "Instant Messenger";
 $MESS["COMMAND_DEF_ME_TITLE"] = "Applies italic style";
 $MESS["COMMAND_DEF_ME_PARAMS"] = "text";

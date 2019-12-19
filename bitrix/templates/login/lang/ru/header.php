@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIX24_MOTTO"] = "Социальный интранет";
 $MESS["BITRIX24_URL"] = "http://www.bitrix24.ru";
 $MESS["BITRIX24_TITLE"] = "Bitrix24";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_SETTINGS"] = "Tasks Module Settings";
 $MESS["TASKS_SETTINGS_TITLE"] = "Tasks Module Global Settings";
 $MESS["LEARNING_SITE_PATH_SITE"] = "Path Templates For Website &quot;#SITE#&quot;";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPTS_AI_BIZ_PROC"] = "Бизнес-процессы";
 $MESS["BPTS_AI_EX_TASKS"] = "Есть задания.";
 $MESS["BPTS_AI_TASKS_NUM"] = "Заданий к исполнению:";

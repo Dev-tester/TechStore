@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_MESSAGE_TESTER_TMPL_TEST_HINT_PHONE"] = "Use test sending to check if the message is showing correctly. Select the recipients phone numbers.";
 $MESS["SENDER_MESSAGE_TESTER_TMPL_TEST_HINT"] = "Use test mode to make sure your messages display correctly. Select recipients to send test messages to.";
 $MESS["SENDER_MESSAGE_TESTER_TMPL_TEST_HINT_CALL"] = "Use test calls to check if your text is pronounced correctly. Select the recipients phone numbers.";

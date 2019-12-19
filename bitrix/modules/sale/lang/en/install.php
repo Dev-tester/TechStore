@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_INSTALL_DEFAULT"] = "Please select the e-Store module sample files to install";
 $MESS["SALE_INSTALL_NAME"] = "e-Store";
 $MESS["SALE_INSTALL_DESCRIPTION"] = "Provides the e-Store functionality to sell products to the site visitors.";

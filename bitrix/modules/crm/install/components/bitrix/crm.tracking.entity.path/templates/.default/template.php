@@ -37,10 +37,10 @@ foreach ($arResult['PATHS'] as $path):
 			}
 
 			?><span class="crm-tracking-entity-path-icon <?=$icon?>"
-				<?if($desc):?>onmouseover="BX.UI.Hint.show(this, '<?=\CUtil::JSEscape($desc)?>');"
-				onmouseout="BX.UI.Hint.hide();"<?endif;?>
+				<?php if($desc):?>onmouseover="BX.UI.Hint.show(this, '<?=\CUtil::JSEscape($desc)?>');"
+				onmouseout="BX.UI.Hint.hide();"<?php endif;?>
 				style="width: 14px; height: 14px; margin: 0 5px 0 0; transform: translateY(2px);"
-			><i style="<?=($iconColor ? "background-color: $iconColor;" : '')?>"></i></span><?
+			><i style="<?=($iconColor ? "background-color: $iconColor;" : '')?>"></i></span><?php 
 		}
 
 		if ($arParams['ONLY_SOURCE_ICON'])
@@ -51,14 +51,14 @@ foreach ($arResult['PATHS'] as $path):
 		if ($name)
 		{
 			?><span	class="crm-tracking-entity-path-item" title=""
-				<?if($desc):?>onmouseover="BX.UI.Hint.show(this, '<?=\CUtil::JSEscape($desc)?>');"
-				onmouseout="BX.UI.Hint.hide();"<?endif;?>
-			><?=$name?></span><?
+				<?php if($desc):?>onmouseover="BX.UI.Hint.show(this, '<?=\CUtil::JSEscape($desc)?>');"
+				onmouseout="BX.UI.Hint.hide();"<?php endif;?>
+			><?=$name?></span><?php 
 		}
 
 		if ($index < $lastIndex)
 		{
-			?><span class="crm-tracking-entity-path-arrow" title=""></span><?
+			?><span class="crm-tracking-entity-path-arrow" title=""></span><?php 
 		}
 	endforeach;
 	?>

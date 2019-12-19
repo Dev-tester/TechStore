@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ACTIVITY_PROVIDER_CALL_LIST_TITLE"] = "Обзвон";
 $MESS["CRM_CALL_LIST_NOT_CREATED_ERROR"] = "Вы не создали список обзвона. Для создания списка перейдите по ссылке в поле \"Список обзвона\"";
 $MESS["CRM_CALL_LIST_SUBJECT_EMPTY"] = "Название дела для менеджера не указано";

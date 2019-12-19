@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UrlTitle"] = "Ссылка";
 $MESS["SrcTitle"] = "Рисунок";
 $MESS["DialogSave"] = "Сохранить";

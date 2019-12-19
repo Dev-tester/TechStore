@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPRIA_PD_APPROVERS"] = "Заполняют сотрудники";
 $MESS["BPRIA_PD_NAME"] = "Название задания";
 $MESS["BPRIA_PD_DESCR"] = "Описание задания";

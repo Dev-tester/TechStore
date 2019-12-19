@@ -1,8 +1,8 @@
-<?
+<?php 
 define("HIDE_SIDEBAR", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:catalog", "bootstrap_v4", array(
+<?php $APPLICATION->IncludeComponent("bitrix:catalog", "bootstrap_v4", array(
 	"IBLOCK_TYPE" => "catalog",
 	"IBLOCK_ID" => "#CATALOG_IBLOCK_ID#",
 	"TEMPLATE_THEME" => "site",
@@ -178,4 +178,4 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	),
 	false
 );?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

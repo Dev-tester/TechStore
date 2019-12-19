@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global \CMain $APPLICATION */
 use Bitrix\Main,
 	Bitrix\Main\Loader,
@@ -514,7 +514,7 @@ if ($_REQUEST["success"] == "Y")
 ?>
 
 <div class="crm-admin-wrap">
-	<?
+	<?php 
 	if (count($arCrmIntegration) <= 0)
 	{
 		?>
@@ -529,7 +529,7 @@ if ($_REQUEST["success"] == "Y")
 		</p>
 		<div class="crm-admin-banner crm-admin-banner-<?= in_array(LANGUAGE_ID, array("ru", "en", "de")) ? LANGUAGE_ID : "en" ?>"></div>
 		<p class="crm-admin-paragraph"><?= GetMessage("SPTEN_SCRM_TEXT4") ?></p>
-		<?
+		<?php 
 	}
 	else
 	{
@@ -538,7 +538,7 @@ if ($_REQUEST["success"] == "Y")
 		<p class="crm-admin-paragraph">
 			<?= GetMessage("SPTEN_SCRM_SHOW_SUBTITLE_LIST_HINT") ?>
 		</p>
-		<?
+		<?php 
 		foreach ($arCrmIntegration as $crmUrl => $arCrm)
 		{
 			?>
@@ -563,13 +563,13 @@ if ($_REQUEST["success"] == "Y")
 				</table>
 				<a class="crm-admin-stat-link" target="_blank" href="<?= htmlspecialcharsbx($crmUrl) ?>/crm/configs/external_sale/"><?= GetMessage("SPTEN_SCRM_SHOW_SETUP") ?></a>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 		<div class="crm-admin-add-integration">
 		<div class="crm-admin-title"><?= GetMessage("SPTEN_SCRM_SHOW_SUBTITLE_ADD") ?></div>
 		<?= GetMessage("SPTEN_SCRM_SHOW_SUBTITLE_ADD_HINT"); ?>
-		<?
+		<?php 
 	}
 	?>
 	<div class="crm-admin-buttons" id="id_new_crm_btns">
@@ -579,7 +579,7 @@ if ($_REQUEST["success"] == "Y")
 		</span>
 		<span class="crm-admin-button-or">&nbsp;&nbsp;<?= GetMessage("SPTEN_SCRM_REG_BTN_OR") ?></span>
 		<span class="crm-admin-button-wrap">
-			<a target="_blank" href="https://www.bitrix24.<? if (LANGUAGE_ID == "ru") echo "ru"; elseif (LANGUAGE_ID == "de") echo "de"; else echo "com"; ?>/" class="adm-btn adm-btn-green"><?= GetMessage("SPTEN_SCRM_REG_BTN_24") ?></a>
+			<a target="_blank" href="https://www.bitrix24.<?php  if (LANGUAGE_ID == "ru") echo "ru"; elseif (LANGUAGE_ID == "de") echo "de"; else echo "com"; ?>/" class="adm-btn adm-btn-green"><?= GetMessage("SPTEN_SCRM_REG_BTN_24") ?></a>
 			<div class="crm-admin-button-text"><?= GetMessage("SPTEN_SCRM_REG_BTN_24_HINT") ?></div>
 		</span>
 	</div>
@@ -591,7 +591,7 @@ if ($_REQUEST["success"] == "Y")
 		}
 	</script>
 	<div class="crm-admin-set" style="display:none;" id="id_new_crm_reg_form">
-		<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="form1_do_create_link">
+		<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="form1_do_create_link">
 			<div class="crm-admin-set-title"><?= GetMessage("SPTEN_SCRM_REG_TITLE") ?></div>
 			<table class="crm-admin-set-content-table" cellspacing="0">
 				<tr>
@@ -651,7 +651,7 @@ if ($_REQUEST["success"] == "Y")
 </div>
 
 
-<?
+<?php 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $do_create_link == "Y")
 {
 	?>
@@ -659,8 +659,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $do_create_link == "Y")
 		SaleCrmAdminShowRegForm(true);
 		SaleCrmAdminShowRegFormUser(<?= ($_REQUEST["CRM_BUS_USER_SET_C"] == "Y") ? "true" : "false" ?>);
 	</script>
-	<?
+	<?php 
 }
 ?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

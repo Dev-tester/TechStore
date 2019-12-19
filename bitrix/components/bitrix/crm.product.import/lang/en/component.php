@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_IMP_COL_DESCRIPTION_TYPE"] = "Description format";
 $MESS["CRM_PRODUCT_IMPORT_HINT_XML_ID_01"] = "To update existing products, use the field #XML_ID_TITLE#.";
 $MESS["CRM_PRODUCT_IMPORT_HINT_XML_ID_02"] = "If a product already exists, it will be updated using imported data. Otherwise, a new product will be created.";

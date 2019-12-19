@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ORDER_SHIPMENT_ADD"] = "Добавить отгрузку";
 $MESS["ORDER_SHIPMENT_ADD_TITLE"] = "Добавить отгрузку";
 $MESS["ORDER_SHIPMENT_DELETE"] = "Удалить отгрузку";

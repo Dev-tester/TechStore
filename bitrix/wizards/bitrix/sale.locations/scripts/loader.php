@@ -1,4 +1,4 @@
-<?
+<?php 
 define("STOP_STATISTICS", true);
 
 define('DLSERVER', 'www.1c-bitrix.ru');

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['STANZA_PAGE_TITLE'] = "STANZA query";
 $MESS ['STANZA_EXECUTE'] = "Execute query (alt+x)";
 $MESS ['STANZA_CONFIRM_EXECUTE'] = "Are you sure you want to execute this STANZA query?";

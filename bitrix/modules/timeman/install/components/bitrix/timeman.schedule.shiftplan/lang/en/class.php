@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TIMEMAN_MODULE_NOT_INSTALLED"] = "The \"Working Time Management\" module is not installed.";
 $MESS["TM_REPORT_FILTER_PRESET_REPORT_PERIOD"] = "Reporting period";
 $MESS["TM_SCHEDULE_PLAN_DELETE_USER_CONFIRM"] = "Are you sure you want to delete #USER_NAME# from the schedule (all their respective shifts will also be deleted from the schedule)?";

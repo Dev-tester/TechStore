@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SECURITY_ROLE_MANAGER_INSTALLER_ADMIN"] = "Администратор";
 $MESS["SENDER_SECURITY_ROLE_MANAGER_INSTALLER_MANAGER"] = "Менеджер";
 $MESS["SENDER_SECURITY_ROLE_MANAGER_TRIAL_TEXT"] = "Настройка прав доступа в CRM-маркетинге доступна, начиная с тарифа CRM+. 

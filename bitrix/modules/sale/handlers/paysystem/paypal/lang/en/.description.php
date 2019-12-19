@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_PAYPAL_NAME"] = "PayPal";
 $MESS["SALE_HPS_PAYPAL_USER"] = "User name (for Express Checkout)";
 $MESS["SALE_HPS_PAYPAL_PWD"] = "Password (for Express Checkout)";

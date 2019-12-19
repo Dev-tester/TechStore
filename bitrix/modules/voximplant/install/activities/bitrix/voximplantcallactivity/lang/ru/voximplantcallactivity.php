@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BPVICA_INCLUDE_MODULE'] = 'Модуль \'Телефония (voximplant)\' не установлен.';
 $MESS['BPVICA_TRACK_SUBSCR'] = 'Ожидание результатов обзвона';
 $MESS['BPVICA_RESULT_TRUE'] = 'Успешно';

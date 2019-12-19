@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CommerceInfo"] = "CommerceInfo";
 $MESS["Document"] = "Document";
 $MESS["Operation"] = "Operation";

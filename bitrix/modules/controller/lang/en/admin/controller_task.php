@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CTRLR_TASK_FLT_CLIENT"] = "Client";
 $MESS["CTRLR_TASK_FLT_OPERATION"] = "Operation";
 $MESS["CTRLR_TASK_FLT_EXECUTED"] = "Last run";

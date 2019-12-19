@@ -1,11 +1,11 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/crm/activity/index.php");
 $APPLICATION->SetTitle(GetMessage("CRM_TITLE"));
 if (CModule::IncludeModule("crm"))
 {
 ?>
-<?$APPLICATION->IncludeComponent("bitrix:crm.activity",
+<?php $APPLICATION->IncludeComponent("bitrix:crm.activity",
 	"",
 	array(
 		'SEF_MODE' => 'Y',
@@ -31,7 +31,7 @@ if (CModule::IncludeModule("crm"))
 	),
 	false
 );?>
-<?
+<?php 
 }
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

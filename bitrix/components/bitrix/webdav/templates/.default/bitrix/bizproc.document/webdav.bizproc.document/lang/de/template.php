@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBEL_BIZPROC_STOP'] = "anhalten";
 $MESS ['IBEL_BIZPROC_DEL'] = "löschen";
 $MESS ['IBEL_BIZPROC_LOG'] = "protokollieren";

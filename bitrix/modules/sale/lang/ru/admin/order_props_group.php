@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PROPS_TYPE_TITLE'] = "Группы свойств";
 $MESS ['PT_FILTER_NAME'] = "Тип плательщика";
 $MESS ['SALE_ALL'] = "все";

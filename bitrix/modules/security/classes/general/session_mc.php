@@ -1,4 +1,4 @@
-<?
+<?php 
 class CSecuritySessionMC
 {
 	/** @var Memcache $connection*/

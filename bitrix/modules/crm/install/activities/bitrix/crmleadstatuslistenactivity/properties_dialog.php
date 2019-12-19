@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!CModule::IncludeModule("crm"))
@@ -14,14 +14,14 @@ if (!CModule::IncludeModule("crm"))
 	<td align="right" width="40%" valign="top"><?= GetMessage("BPCLSLA_PD_STATUS") ?>:</td>
 	<td width="60%">
 		<select name="status[]" multiple="multiple">
-			<?
+			<?php 
 			$selected = (array)$arCurrentValues["status"];
 			foreach (\CCrmStatus::GetStatusList('STATUS') as $statusId => $statusName)
 			{
 				$s = CCrmLead::GetStatusSemantics($statusId);
 				if ($s != 'process')
 					continue;
-				?><option value="<?= htmlspecialcharsbx($statusId) ?>"<?= (in_array($statusId, $selected)) ? " selected" : "" ?>><?= htmlspecialcharsbx($statusName) ?></option><?
+				?><option value="<?= htmlspecialcharsbx($statusId) ?>"<?= (in_array($statusId, $selected)) ? " selected" : "" ?>><?= htmlspecialcharsbx($statusName) ?></option><?php 
 			}
 			?>
 		</select>

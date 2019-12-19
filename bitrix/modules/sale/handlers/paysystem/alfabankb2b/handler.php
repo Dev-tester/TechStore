@@ -147,7 +147,7 @@ class AlfaBankB2BHandler extends PaySystem\BaseServiceHandler implements PaySyst
 			$data = strtr($data, $replace);
 		}
 
-		return '<?xml version="1.0"?>'.$data;
+		return '<?php xml version="1.0"?>'.$data;
 	}
 
 	/**

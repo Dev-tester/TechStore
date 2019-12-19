@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("About Myself");
 ?> 
@@ -44,4 +44,4 @@ $APPLICATION->SetTitle("About Myself");
   <li>Skype: Morrison_Victoria.</li>
  </ul>
 <p><i>I try to keep an open mind so that I might close it when I know what I want. I am sure that everyone has a unique and valuable contribution to make, and especially enjoy people who have experience in extreme situations. If that's you, write me!</i></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

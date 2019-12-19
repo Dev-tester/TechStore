@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -49,12 +49,12 @@ $isIFrame = $_REQUEST['IFRAME'] == 'Y';
 	}
 ?>
 	<div class="pagetitle-container pagetitle-flexible-space">
-		<?
+		<?php 
 
 		$bodyClass = $APPLICATION->GetPageProperty('BodyClass');
 		$APPLICATION->SetPageProperty('BodyClass', ($bodyClass ? $bodyClass.' ' : '').' pagetitle-toolbar-field-view ');
 		?>
-		<? $APPLICATION->IncludeComponent(
+		<?php  $APPLICATION->IncludeComponent(
 			"bitrix:main.ui.filter",
 			"",
 			array(
@@ -89,12 +89,12 @@ $isIFrame = $_REQUEST['IFRAME'] == 'Y';
 ?>
 
 
-<?$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
+<?php $helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
 
-		<?$helper->displayWarnings();?>
+		<?php $helper->displayWarnings();?>
 
 		<?php
 		$APPLICATION->IncludeComponent(
@@ -149,6 +149,6 @@ $isIFrame = $_REQUEST['IFRAME'] == 'Y';
 	</div>
 
 
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
+<?php endif?>

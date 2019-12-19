@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CC_BLL_MODULE_NOT_INSTALLED"] = "The Common Lists module is not installed.";
 $MESS["CC_BLL_COLUMN_BIZPROC"] = "Business processes";
 $MESS["CC_BLL_COLUMN_SECTION"] = "Sections";

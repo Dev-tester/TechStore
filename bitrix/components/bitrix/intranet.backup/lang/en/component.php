@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_DUMP_PARTS"] = "parts: ";
 $MESS["MAIN_DUMP_LOCAL"] = "locally";
 $MESS["BACKUP_ACTION_DOWNLOAD"] = "Download";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SCOM_INSTALL_NAME"] = "Современный интернет-магазин";
 $MESS["SCOM_INSTALL_DESCRIPTION"] = "Мастер создания интернет-магазина";
 $MESS["SCOM_INSTALL_TITLE"] = "Установка модуля";

@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?if(!empty($arResult["CALENDAR"]))
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!empty($arResult["CALENDAR"]))
 {
 	?>
 	<noindex>
@@ -11,19 +11,19 @@
 				<td align="center">
 					<table class="blog-calendar-table">
 						<tr>
-							<td width="0%" align="left"><?
+							<td width="0%" align="left"><?php 
 								if (strlen($arResult["urlToPrevYear"])>0):
-									?><a title="<?=GetMessage("BLOG_BLOG_CLNDR_P_M")?>" href="<?=$arResult["urlToPrevYear"]?>" rel="nofollow">&laquo;</a>&nbsp;&nbsp;<?
+									?><a title="<?=GetMessage("BLOG_BLOG_CLNDR_P_M")?>" href="<?=$arResult["urlToPrevYear"]?>" rel="nofollow">&laquo;</a>&nbsp;&nbsp;<?php 
 								else:
-									?><span class="blogCalDisable">&laquo;&nbsp;&nbsp;</span><?
+									?><span class="blogCalDisable">&laquo;&nbsp;&nbsp;</span><?php 
 								endif;
 							?></td>
 							<td width="0%" align="center"><b><?= GetMessage("BLOG_BLOG_CLNDR_M_".$arResult["CurrentMonth"])." ".$arResult["CurrentYear"]?></b></td>
-							<td width="0%" align="right"><?
+							<td width="0%" align="right"><?php 
 								if (strlen($arResult["urlToNextYear"])>0):
-									?>&nbsp;&nbsp;<a title="<?=GetMessage("BLOG_BLOG_CLNDR_N_M")?>" href="<?=$arResult["urlToNextYear"]?>" rel="nofollow">&raquo;</a><?
+									?>&nbsp;&nbsp;<a title="<?=GetMessage("BLOG_BLOG_CLNDR_N_M")?>" href="<?=$arResult["urlToNextYear"]?>" rel="nofollow">&raquo;</a><?php 
 								else:
-									?><span class="blogCalDisable">&nbsp;&nbsp;&raquo;</span><?
+									?><span class="blogCalDisable">&nbsp;&nbsp;&raquo;</span><?php 
 								endif;
 							?></td>
 						</tr>
@@ -39,18 +39,18 @@
 							<th><?=GetMessage("BLOG_BLOG_CLNDR_D_7")?></th>
 						</tr>
 
-						<?
+						<?php 
 						foreach($arResult["CALENDAR"] as $k=>$v)
 						{
 							if($k!=0)
 							{
 								?>
 								<tr><td colspan="7"><div class="blog-calendar-line"></div></td></tr>
-								<?
+								<?php 
 							}
 							?>
 							<tr>
-							<?
+							<?php 
 							foreach($v as $vv)
 							{
 								
@@ -63,22 +63,22 @@
 								}
 								?>
 								<td align="center" class="<?=$class?>" onMouseOver="this.className='blogCalHighlight'" onMouseOut="this.className='<?=$class?>'">
-									<?
+									<?php 
 									if(strlen($vv["link"])>0)
 									{
 										?>
 										<a href="<?=$vv["link"]?>" rel="nofollow"><?=$vv["day"]?></a>
-										<?
+										<?php 
 									}
 									else
 										echo $vv["day"];
 								?>
 								</td>
-								<?
+								<?php 
 							}
 							?>
 							</tr>
-							<?
+							<?php 
 						}
 						?>
 					</table>
@@ -88,4 +88,4 @@
 	</li>
 	</ul>
 	</noindex>
-<?}?>
+<?php }?>

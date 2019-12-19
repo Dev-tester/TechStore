@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -68,9 +68,9 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		<?=getMessage('SECURITY_USER_RECOVERY_CODES_PRINT_TITLE')?>
 	</h3>
 
-<?if ($arResult["MESSAGE"]):?>
+<?php if ($arResult["MESSAGE"]):?>
 	<?=htmlspecialcharsbx($arResult["MESSAGE"]);?>
-<?else:?>
+<?php else:?>
 	<p>
 		<?=getMessage('SECURITY_USER_RECOVERY_CODES_PRINT_ISSUER', array(
 			'#ISSUER#' => htmlspecialcharsbx($arResult['ISSUER'])
@@ -79,19 +79,19 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		<?=getMessage('SECURITY_USER_RECOVERY_CODES_PRINT_LOGIN', array(
 			'#LOGIN#' => htmlspecialcharsbx($USER->getLogin())
 		))?>
-	<?if ($arResult['CREATE_DATE']):?>
+	<?php if ($arResult['CREATE_DATE']):?>
 		<br />
 		<?=getMessage('SECURITY_USER_RECOVERY_CODES_PRINT_CREATED', array(
 			'#DATE#' => htmlspecialcharsbx($arResult['CREATE_DATE'])
 		))?>
-	<?endif?>
+	<?php endif?>
 	</p>
 	<ol>
-		<?foreach ($arResult['CODES'] as $code):?>
-			<?if ($code['USED'] === 'N'):?>
+		<?php foreach ($arResult['CODES'] as $code):?>
+			<?php if ($code['USED'] === 'N'):?>
 				<li style="clear: both;"><?=htmlspecialcharsbx($code['VALUE'])?></li>
-			<?endif;?>
-		<?endforeach;?>
+			<?php endif;?>
+		<?php endforeach;?>
 	</ol>
 	<p>
 		<?=getMessage('SECURITY_USER_RECOVERY_CODES_PRINT_NOTE')?>
@@ -101,10 +101,10 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		bindReady();
 	</script>
 	</html>
-<?endif?>
+<?php endif?>
 
-<?if (\Bitrix\Main\Context::getCurrent()->getRequest()->isPost()):?>
+<?php if (\Bitrix\Main\Context::getCurrent()->getRequest()->isPost()):?>
 	<span class="ui-btn ui-btn-light-border" onclick="BX.Intranet.UserProfile.Security.showRecoveryCodesComponent()">
 		<?=GetMessage("SECURITY_USER_RECOVERY_CODES_PRINT_BACK")?>
 	</span>
-<?endif?>
+<?php endif?>

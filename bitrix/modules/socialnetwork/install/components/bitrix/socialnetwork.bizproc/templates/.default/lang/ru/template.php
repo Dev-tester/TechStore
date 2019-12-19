@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_BP_EPMTY_TASKS'] = "Список заданий к выполнению пуст";
 $MESS ['SONET_BP_TASKS'] = "Текущие задания";
 $MESS ['SONET_BP_TRACKING'] = "Архив заданий";

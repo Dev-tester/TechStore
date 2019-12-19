@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -107,7 +107,7 @@ else
 {
 	?>
 	<div class="row">
-		<?
+		<?php 
 		foreach ($availablePages as $blockElement)
 		{
 			?>
@@ -123,10 +123,10 @@ else
 					</a>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		?>
 	</div>
-	<?
+	<?php 
 }
 ?>

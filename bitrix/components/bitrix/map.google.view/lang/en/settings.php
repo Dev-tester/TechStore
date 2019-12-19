@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MYMV_SET_POPUP_TITLE"] = "Map Settings";
 $MESS["MYMV_SET_POPUP_WINDOW_TITLE"] = "Edit Map Settings";
 $MESS["MYMV_SET_POPUP_WINDOW_DESCRIPTION"] = "Configure map layout and visible objects";

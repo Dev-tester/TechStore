@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["PERFMON_COMP_ID"] = "ID";
 $MESS["PERFMON_COMP_HIT_ID"] = "Hit";
 $MESS["PERFMON_COMP_NN"] = "#";

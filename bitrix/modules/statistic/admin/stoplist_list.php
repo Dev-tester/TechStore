@@ -326,14 +326,14 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 ?>
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <tr>
-	<td><?echo GetMessage("STAT_F_ID")?>:</td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ID")?>:</td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="top">
 	<td valign="top"><?=GetMessage("STAT_F_SITE")?>:<br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
-	<td><?
+	<td><?php 
 	$ref = array();
 	$ref_id = array();
 	$rs = CSite::GetList(($v1="sort"), ($v2="asc"));
@@ -347,88 +347,88 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 </tr>
 <tr valign="center">
 	<td width="0%" nowrap>
-		<?echo GetMessage("STAT_F_DATE_START").":"?></td>
+		<?php echo GetMessage("STAT_F_DATE_START").":"?></td>
 	<td width="0%" nowrap>
-		<?echo CalendarPeriod("find_date_start_1", htmlspecialcharsbx($find_date_start_1), "find_date_start_2", htmlspecialcharsbx($find_date_start_2), "form1","Y")?></td>
+		<?php echo CalendarPeriod("find_date_start_1", htmlspecialcharsbx($find_date_start_1), "find_date_start_2", htmlspecialcharsbx($find_date_start_2), "form1","Y")?></td>
 </tr>
 <tr valign="center">
 	<td width="0%" nowrap>
-		<?echo GetMessage("STAT_F_DATE_END").":"?></td>
+		<?php echo GetMessage("STAT_F_DATE_END").":"?></td>
 	<td width="0%" nowrap>
-		<?echo CalendarPeriod("find_date_end_1", htmlspecialcharsbx($find_date_end_1), "find_date_end_2", htmlspecialcharsbx($find_date_end_2), "form1","Y")?></td>
+		<?php echo CalendarPeriod("find_date_end_1", htmlspecialcharsbx($find_date_end_1), "find_date_end_2", htmlspecialcharsbx($find_date_end_2), "form1","Y")?></td>
 </tr>
 <tr valign="center">
 	<td width="0%" nowrap>
-		<?echo GetMessage("STAT_F_ACTIVE")?>:</td>
+		<?php echo GetMessage("STAT_F_ACTIVE")?>:</td>
 	<td width="0%" nowrap>
-		<?
+		<?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_active", $arr, htmlspecialcharsbx($find_active), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr valign="center">
 	<td width="0%" nowrap>
-		<?echo GetMessage("STAT_F_STATISTIC")?>:</td>
+		<?php echo GetMessage("STAT_F_STATISTIC")?>:</td>
 	<td width="0%" nowrap>
-		<?
+		<?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_save_statistic", $arr, htmlspecialcharsbx($find_save_statistic), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_IP")?>:</td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_IP")?>:</td>
 	<td width="0%" nowrap>
-		<input type="text" name="find_ip_1" value="<?echo htmlspecialcharsbx($find_ip_1)?>" size="6" >
-		<input type="text" name="find_ip_2" value="<?echo htmlspecialcharsbx($find_ip_2)?>" size="6" >
-		<input type="text" name="find_ip_3" value="<?echo htmlspecialcharsbx($find_ip_3)?>" size="6" >
-		<input type="text" name="find_ip_4" value="<?echo htmlspecialcharsbx($find_ip_4)?>" size="7" ><?=ShowExactMatchCheckbox("find_ip")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+		<input type="text" name="find_ip_1" value="<?php echo htmlspecialcharsbx($find_ip_1)?>" size="6" >
+		<input type="text" name="find_ip_2" value="<?php echo htmlspecialcharsbx($find_ip_2)?>" size="6" >
+		<input type="text" name="find_ip_3" value="<?php echo htmlspecialcharsbx($find_ip_3)?>" size="6" >
+		<input type="text" name="find_ip_4" value="<?php echo htmlspecialcharsbx($find_ip_4)?>" size="7" ><?=ShowExactMatchCheckbox("find_ip")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_USER_AGENT")?>:</td>
-	<td width="0%" nowrap><input type="text" name="find_user_agent" value="<?echo htmlspecialcharsbx($find_user_agent)?>" size="47"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_USER_AGENT")?>:</td>
+	<td width="0%" nowrap><input type="text" name="find_user_agent" value="<?php echo htmlspecialcharsbx($find_user_agent)?>" size="47"><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_FROM")?>:</td>
-	<td width="0%" nowrap><input type="text" name="find_url_from" value="<?echo htmlspecialcharsbx($find_url_from)?>" size="47"><?=ShowExactMatchCheckbox("find_url_from")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_FROM")?>:</td>
+	<td width="0%" nowrap><input type="text" name="find_url_from" value="<?php echo htmlspecialcharsbx($find_url_from)?>" size="47"><?=ShowExactMatchCheckbox("find_url_from")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_TO")?>:</td>
-	<td width="0%" nowrap><input type="text" name="find_url_to" value="<?echo htmlspecialcharsbx($find_url_to)?>" size="47"><?=ShowExactMatchCheckbox("find_url_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_TO")?>:</td>
+	<td width="0%" nowrap><input type="text" name="find_url_to" value="<?php echo htmlspecialcharsbx($find_url_to)?>" size="47"><?=ShowExactMatchCheckbox("find_url_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_REDIRECT")?>:</td>
-	<td width="0%" nowrap><input type="text" name="find_url_redirect" value="<?echo htmlspecialcharsbx($find_url_redirect)?>" size="47"><?=ShowExactMatchCheckbox("find_url_redirect")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_REDIRECT")?>:</td>
+	<td width="0%" nowrap><input type="text" name="find_url_redirect" value="<?php echo htmlspecialcharsbx($find_url_redirect)?>" size="47"><?=ShowExactMatchCheckbox("find_url_redirect")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_MESSAGE")?>:</td>
-	<td width="0%" nowrap><input type="text" name="find_message" value="<?echo htmlspecialcharsbx($find_message)?>" size="47"><?=ShowExactMatchCheckbox("find_message")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_MESSAGE")?>:</td>
+	<td width="0%" nowrap><input type="text" name="find_message" value="<?php echo htmlspecialcharsbx($find_message)?>" size="47"><?=ShowExactMatchCheckbox("find_message")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_COMMENTS")?>:</td>
-	<td width="0%" nowrap><input type="text" name="find_comments" value="<?echo htmlspecialcharsbx($find_comments)?>" size="47"><?=ShowExactMatchCheckbox("find_comments")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_COMMENTS")?>:</td>
+	<td width="0%" nowrap><input type="text" name="find_comments" value="<?php echo htmlspecialcharsbx($find_comments)?>" size="47"><?=ShowExactMatchCheckbox("find_comments")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <?=ShowLogicRadioBtn()?>
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <table border="0" width="100%" cellspacing="3" cellpadding="0">
 	<tr valign="center" nowrap>
 		<td width="0%"><div class="lamp-green"></div></td>
-		<td width="100%">- <?echo GetMessage("STAT_GREEN_LAMP")?></td>
+		<td width="100%">- <?php echo GetMessage("STAT_GREEN_LAMP")?></td>
 	</tr>
 	<tr valign="center" nowrap>
 		<td width="0%"><div class="lamp-red"></div></td>
-		<td width="100%">- <?echo GetMessage("STAT_RED_LAMP")?></td>
+		<td width="100%">- <?php echo GetMessage("STAT_RED_LAMP")?></td>
 	</tr>
 </table>
-<?echo EndNote();?>
+<?php echo EndNote();?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

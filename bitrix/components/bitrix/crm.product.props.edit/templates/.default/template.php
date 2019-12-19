@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 global $APPLICATION;
 $arTabs = array();
@@ -52,7 +52,7 @@ $APPLICATION->IncludeComponent(
 			_form.submit();
 		}
 	}
-	<?
+	<?php 
 	if('L' == $arResult['PROPERTY']['PROPERTY_TYPE']):
 	?>
 	window.oPropSet = {
@@ -98,7 +98,7 @@ $APPLICATION->IncludeComponent(
 
 	if (!!obListBtn && !!window.oPropSet)
 		BX.bind(obListBtn, 'click', add_list_row);
-	<?
+	<?php 
 	endif;
 	?>
 </script>

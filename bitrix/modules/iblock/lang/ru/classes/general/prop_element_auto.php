@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_UT_EAUTOCOMPLETE_DESCR"] = "Привязка к элементам с автозаполнением";
 $MESS["BT_UT_EAUTOCOMPLETE_SETTING_TITLE"] = "Настройки привязки к элементам с автозаполнением";
 $MESS["BT_UT_EAUTOCOMPLETE_SETTING_SHOW_ADD"] = "Показывать кнопку добавления элементов";

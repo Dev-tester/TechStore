@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DUP_CRITERION_ORG_ENTITY_TOTAL"] = "#QTY# for company \"#DESCR#\"";
 $MESS["CRM_DUP_CRITERION_ORG_ENTITY_TOTAL_EXCEEDED"] = "Over #QTY# for company \"#DESCR#\"";
 ?>

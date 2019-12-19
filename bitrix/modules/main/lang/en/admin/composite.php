@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_COMPOSITE_TITLE"] = "Composite Website";
 $MESS["MAIN_COMPOSITE_WARNING"] = "Static cache mode is on. Please disable it.";
 $MESS["MAIN_COMPOSITE_TAB"] = "Composite mode";

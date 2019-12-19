@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -24,7 +24,7 @@ if(empty($arResult['ITEMS']))
 
 <table width="" cellpadding="0" cellspacing="0">
 	<tbody>
-<?foreach($arResult["ITEMS"] as $item):
+<?php foreach($arResult["ITEMS"] as $item):
 
 	$showLink = false;
 	if(!$arParams["HIDE_LINK_WHEN_NO_DETAIL"] || ($item["DETAIL_TEXT"] && $arResult["USER_HAVE_ACCESS"]))
@@ -39,18 +39,18 @@ if(empty($arResult['ITEMS']))
 
 	<tr>
 		<td colspan="5">
-			<?if($showLink):?>
+			<?php if($showLink):?>
 				<a href="<?=$item['DETAIL_PAGE_URL']?>" style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #000; text-decoration: none;">
-			<?endif;?>
-			<?if($arParams["DISPLAY_DATE"]!="N" && $item["DISPLAY_ACTIVE_FROM"]):?>
+			<?php endif;?>
+			<?php if($arParams["DISPLAY_DATE"]!="N" && $item["DISPLAY_ACTIVE_FROM"]):?>
 				<?=$item["DISPLAY_ACTIVE_FROM"]?>
-			<?endif?>
-			<?if($arParams["DISPLAY_NAME"]!="N" && $item["NAME"]):?>
+			<?php endif?>
+			<?php if($arParams["DISPLAY_NAME"]!="N" && $item["NAME"]):?>
 				<b><?=$item['NAME']?></b>
-			<?endif?>
-			<?if($showLink):?>
+			<?php endif?>
+			<?php if($showLink):?>
 				</a>
-			<?endif;?>
+			<?php endif;?>
 
 		</td>
 	</tr>
@@ -59,7 +59,7 @@ if(empty($arResult['ITEMS']))
 
 	<tr>
 		<td>
-			<?if($item['PREVIEW_PICTURE'] && $item['PREVIEW_PICTURE']['SRC']):
+			<?php if($item['PREVIEW_PICTURE'] && $item['PREVIEW_PICTURE']['SRC']):
 				$textBlockWidth = 'width="400"';
 				?>
 			<table cellpadding="0" cellspacing="0" valign="top" style="display: inline-block">
@@ -70,13 +70,13 @@ if(empty($arResult['ITEMS']))
 							<tbody>
 							<tr>
 								<td width="168" height="168">
-									<?if($showLink):?>
+									<?php if($showLink):?>
 										<a href="<?=$item['DETAIL_PAGE_URL']?>">
-									<?endif;?>
+									<?php endif;?>
 									<img src="<?=$item['PREVIEW_PICTURE']['SRC']?>" style="display: block; margin: auto;">
-									<?if($showLink):?>
+									<?php if($showLink):?>
 										</a>
-									<?endif;?>
+									<?php endif;?>
 								</td>
 							</tr>
 							</tbody>
@@ -87,18 +87,18 @@ if(empty($arResult['ITEMS']))
 				<tr><td height="15"></td></tr>
 				</tbody>
 			</table>
-			<? endif ?>
+			<?php  endif ?>
 
 
 			<table style="display: inline-block" valign="top">
 				<tbody>
 				<tr>
 					<td <?=$textBlockWidth?>>
-						<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $item["PREVIEW_TEXT"]):?>
+						<?php if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $item["PREVIEW_TEXT"]):?>
 							<p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2f2f2f; font-size: 13px; margin:0 0 0px;">
-							<?echo $item["PREVIEW_TEXT"];?>
+							<?php echo $item["PREVIEW_TEXT"];?>
 							</p>
-						<?endif;?>
+						<?php endif;?>
 					</td>
 				</tr>
 				<tr>
@@ -107,36 +107,36 @@ if(empty($arResult['ITEMS']))
 				</tbody>
 			</table>
 
-			<? if(!empty($item['FIELDS'])): ?>
+			<?php  if(!empty($item['FIELDS'])): ?>
 				<table cellpadding="0" cellspacing="0" style="display: inline-block" valign="top">
 					<tbody>
 					<tr>
 						<td>
 							<p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2f2f2f; font-size: 12px; margin:0 0 5px;">
-							<?foreach($item["FIELDS"] as $code=>$value):?>
-								<?if($code == 'PREVIEW_PICTURE' || $code == 'DETAIL_PICTURE'):?>
+							<?php foreach($item["FIELDS"] as $code=>$value):?>
+								<?php if($code == 'PREVIEW_PICTURE' || $code == 'DETAIL_PICTURE'):?>
 									<table height="170" border="1" bordercolor="#ebebeb" cellpadding="0" cellspacing="0">
 										<tbody>
 										<tr>
 											<td width="168" height="168">
-												<?if($showLink):?>
+												<?php if($showLink):?>
 													<a href="<?=$item['DETAIL_PAGE_URL']?>">
-												<?endif;?>
+												<?php endif;?>
 
 												<img src="<?=$value['SRC']?>" style="display: block; margin: auto;">
 
-												<?if($showLink):?>
+												<?php if($showLink):?>
 													</a>
-												<?endif;?>
+												<?php endif;?>
 											</td>
 										</tr>
 										</tbody>
 									</table>
-								<?else:?>
+								<?php else:?>
 									<?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
-								<?endif;?>
+								<?php endif;?>
 								<br />
-							<? endforeach ?>
+							<?php  endforeach ?>
 							</p>
 						</td>
 						<td width="45"></td>
@@ -146,23 +146,23 @@ if(empty($arResult['ITEMS']))
 					</tr>
 					</tbody>
 				</table>
-			<? endif ?>
+			<?php  endif ?>
 
-			<? if(!empty($item['DISPLAY_PROPERTIES'])): ?>
+			<?php  if(!empty($item['DISPLAY_PROPERTIES'])): ?>
 				<table cellpadding="0" cellspacing="0" style="display: inline-block" valign="top">
 					<tbody>
 					<tr>
 						<td>
 							<p style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #2f2f2f; font-size: 12px; margin:0 0 5px;">
-								<?foreach($item["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
+								<?php foreach($item["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
 									<?=$arProperty["NAME"]?>:&nbsp;
-									<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
+									<?php if(is_array($arProperty["DISPLAY_VALUE"])):?>
 										<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-									<?else:?>
+									<?php else:?>
 										<?=$arProperty["DISPLAY_VALUE"];?>
-									<?endif?>
+									<?php endif?>
 									<br />
-								<?endforeach;?>
+								<?php endforeach;?>
 							</p>
 						</td>
 						<td width="45"></td>
@@ -172,9 +172,9 @@ if(empty($arResult['ITEMS']))
 					</tr>
 					</tbody>
 				</table>
-			<? endif ?>
+			<?php  endif ?>
 
-			<?if($showLink):?>
+			<?php if($showLink):?>
 			<br />
 			<table valign="top" align="left">
 				<tbody>
@@ -190,13 +190,13 @@ if(empty($arResult['ITEMS']))
 				</tr>
 				</tbody>
 			</table>
-			<? endif ?>
+			<?php  endif ?>
 
 		</td>
 	</tr>
 
 
 
-<?endforeach;?>
+<?php endforeach;?>
 	</tbody>
 </table>

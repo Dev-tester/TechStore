@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORUM_PAGER_SETTINGS'] = "Настройки постраничной навигации";
 $MESS ['FORUM_PAGER_TITLE'] = "Название категорий";
 $MESS ['FORUM_PAGER_SHOW_ALWAYS'] = "Выводить всегда";

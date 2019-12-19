@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TL_SOCIALNETWORK_MODULE_NOT_INSTALLED'] = 'Модуль "Социальная сеть" не установлен';
 $MESS['TASKS_TL_FORUM_MODULE_NOT_INSTALLED'] = 'Модуль "Форум" не установлен';
 $MESS['TASKS_TL_ACCESS_TO_GROUP_DENIED'] = 'Вы не можете просматривать список задач в этой группе';

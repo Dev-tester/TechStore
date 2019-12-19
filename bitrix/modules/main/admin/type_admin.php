@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager                        #
 # Copyright (c) 2002-2007 Bitrix             #
@@ -270,7 +270,7 @@ $lAdmin->AddAdminContextMenu($aContext);
 $lAdmin->CheckListMode();
 $APPLICATION->SetTitle(Loc::getMessage("TITLE1"));
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/prolog_admin_after.php");
-?><form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?"><?
+?><form name="find_form" method="GET" action="<?=$APPLICATION->GetCurPage()?>?"><?php 
 $oFilter = new CAdminFilter($sTableID."_filter", array(
 	Loc::getMessage('F_ID')." ".Loc::getMessage('F_TYPE1'),
 	Loc::getMessage('F_ID')." ".Loc::getMessage('F_TMPL'),
@@ -282,9 +282,9 @@ $oFilter->Begin();
 	<td nowrap>
 		<input type="text" size="25" name="find" value="<?=htmlspecialcharsbx($find)?>" title="<?=Loc::getMessage("F_SEARCH_TITLE")?>">
 		<select name="find_type">
-			<option value="event_name"<?if($find_type=="event_name") echo " selected"?>><?=Loc::getMessage('F_EVENT_NAME1')?></option>
-			<option value="name"<?if($find_type=="subject") echo " selected"?>><?=Loc::getMessage('F_NAME')?></option>
-			<option value="description"<?if($find_type=="from") echo " selected"?>><?=Loc::getMessage('F_DESCRIPTION')?></option>
+			<option value="event_name"<?php if($find_type=="event_name") echo " selected"?>><?=Loc::getMessage('F_EVENT_NAME1')?></option>
+			<option value="name"<?php if($find_type=="subject") echo " selected"?>><?=Loc::getMessage('F_NAME')?></option>
+			<option value="description"<?php if($find_type=="from") echo " selected"?>><?=Loc::getMessage('F_DESCRIPTION')?></option>
 		</select>
 	</td>
 </tr>
@@ -299,17 +299,17 @@ $oFilter->Begin();
 <tr>
 	<td><?=Loc::getMessage("event_type_admin_type_flt")?>:</td>
 	<td><select name="find_event_type">
-			<option value=""><?echo Loc::getMessage("event_type_admin_type_flt_all")?></option>
-			<option value="<?=EventTypeTable::TYPE_EMAIL?>"<?if($find_event_type == EventTypeTable::TYPE_EMAIL) echo " selected"?>><?echo Loc::getMessage("event_type_admin_type_flt_email")?></option>
-			<option value="<?=EventTypeTable::TYPE_SMS?>"<?if($find_event_type == EventTypeTable::TYPE_SMS) echo " selected"?>><?echo Loc::getMessage("event_type_admin_type_flt_sms")?></option>
+			<option value=""><?php echo Loc::getMessage("event_type_admin_type_flt_all")?></option>
+			<option value="<?=EventTypeTable::TYPE_EMAIL?>"<?php if($find_event_type == EventTypeTable::TYPE_EMAIL) echo " selected"?>><?php echo Loc::getMessage("event_type_admin_type_flt_email")?></option>
+			<option value="<?=EventTypeTable::TYPE_SMS?>"<?php if($find_event_type == EventTypeTable::TYPE_SMS) echo " selected"?>><?php echo Loc::getMessage("event_type_admin_type_flt_sms")?></option>
 		</select></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"find_form"));
 $oFilter->End();
 ?>
 </form>
-<?
+<?php 
 $lAdmin->DisplayList();
 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");?>

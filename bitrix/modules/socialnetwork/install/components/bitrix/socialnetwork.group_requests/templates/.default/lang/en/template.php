@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C12_DO_SAVE'] = "Approve Membership";
 $MESS ['SONET_C12_DO_REJECT'] = "Decline";
 $MESS ['SONET_C12_SUBTITLE'] = "Group Membership Requests";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAPE1_NO_SITE"]="Не указан сайт плана";
 $MESS["SAPE1_NO_NAME"]="Не указано название плана";
 $MESS["SAPE1_NO_RATE_CURRENCY"]="Не указана валюта ставки плана";

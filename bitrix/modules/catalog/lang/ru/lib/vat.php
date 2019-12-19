@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["VAT_ENTITY_ID_FIELD"] = "Идентификатор наценки";
 $MESS["VAT_ENTITY_TIMESTAMP_X_FIELD"] = "Время изменения";
 $MESS["VAT_ENTITY_ACTIVE_FIELD"] = "Активность";

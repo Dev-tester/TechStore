@@ -1,6 +1,6 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<div style="float: left; padding-top: 2px;"><?=GetMessage("SEARCH_LABEL")?>&nbsp;</div><?$APPLICATION->IncludeComponent(
+<div style="float: left; padding-top: 2px;"><?=GetMessage("SEARCH_LABEL")?>&nbsp;</div><?php $APPLICATION->IncludeComponent(
 	"bitrix:search.form",
 	"flat",
 	Array(
@@ -9,11 +9,11 @@
 	$component
 );?>
 <br />
-<?if (!empty($arResult["COURSES"])):?>
+<?php if (!empty($arResult["COURSES"])):?>
 <div class="learning-course-list">
-	<?foreach($arResult["COURSES"] as $arCourse):?>
-		<?if ($arCourse["PREVIEW_PICTURE_ARRAY"]!==false):?>
-			<?echo ShowImage(
+	<?php foreach($arResult["COURSES"] as $arCourse):?>
+		<?php if ($arCourse["PREVIEW_PICTURE_ARRAY"]!==false):?>
+			<?php echo ShowImage(
 				$arCourse["PREVIEW_PICTURE_ARRAY"], 
 				200, 
 				200, 
@@ -21,15 +21,15 @@
 					. ' alt="' . htmlspecialcharsbx($arCourse['PREVIEW_PICTURE_ARRAY']['DESCRIPTION']) . '"', 
 				"", 
 				true);?>
-		<?endif;?>
+		<?php endif;?>
 
 		<a href="<?=$arCourse["COURSE_DETAIL_URL"]?>" target="_blank"><?=$arCourse["NAME"]?></a>
-		<?if(strlen($arCourse["PREVIEW_TEXT"])>0):?>
+		<?php if(strlen($arCourse["PREVIEW_TEXT"])>0):?>
 			<br /><?=$arCourse["PREVIEW_TEXT"]?>
-		<?endif?>
+		<?php endif?>
 		<br clear="all"><br />
-	<?endforeach;?>
+	<?php endforeach;?>
 
 </div>
 	<?=$arResult["NAV_STRING"]?>
-<?endif?>
+<?php endif?>

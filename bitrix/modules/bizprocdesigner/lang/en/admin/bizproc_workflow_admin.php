@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPATT_NO_ENTITY"] = "The document entity is missing.";
 $MESS["BPATT_NO_DOC_TYPE"] = "The document type is required.";
 $MESS["BPATT_NO_EDIT_PAGE"] = "The template change page is missing.";

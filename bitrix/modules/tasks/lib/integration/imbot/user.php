@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Tasks\Integration\IMBot;
 
 final class User extends \Bitrix\Tasks\Integration\IMBot

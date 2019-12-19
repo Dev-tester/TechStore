@@ -1,4 +1,4 @@
-<?
+<?php 
 $module_id = "storeassist";
 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/options.php");
@@ -48,9 +48,9 @@ if ($STAS_RIGHT >= "R")
 
 	$tabControl->Begin();
 	?>
-	<form method="POST" action="<?echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?echo LANG?>" name="ara">
+	<form method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?mid=<?=htmlspecialcharsbx($mid)?>&lang=<?php echo LANG?>" name="ara">
 		<?=bitrix_sessid_post();?>
-		<?
+		<?php 
 		$tabControl->BeginNextTab();
 		?>
 		<tr>
@@ -69,13 +69,13 @@ if ($STAS_RIGHT >= "R")
 				<input type="text" name="partner_url" id="partnet_url" size="35" value="<?=(isset($_POST["partner_url"]) ? htmlspecialcharsbx($_POST["partner_url"]) : htmlspecialcharsbx($partnerUrl))?>"/>
 			</td>
 		</tr>
-		<?$tabControl->Buttons();?>
+		<?php $tabControl->Buttons();?>
 
-		<input type="submit" <?if ($STAS_RIGHT < "W") echo "disabled" ?> name="Update" value="<?echo GetMessage("MAIN_SAVE")?>">
+		<input type="submit" <?php if ($STAS_RIGHT < "W") echo "disabled" ?> name="Update" value="<?php echo GetMessage("MAIN_SAVE")?>">
 		<input type="hidden" name="Update" value="Y">
 
-		<?$tabControl->End();?>
+		<?php $tabControl->End();?>
 	</form>
-<?
+<?php 
 }
 ?>

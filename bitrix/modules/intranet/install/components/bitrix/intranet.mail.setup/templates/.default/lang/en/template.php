@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INTR_MAIL_CHOOSE"] = "Choose the e-mail service you will use with your Intranet";
 $MESS["INTR_MAIL_STATUS"] = "Status";
 $MESS["INTR_MAIL_CHECK"] = "Check";

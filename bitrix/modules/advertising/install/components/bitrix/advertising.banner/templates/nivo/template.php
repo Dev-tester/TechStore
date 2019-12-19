@@ -1,7 +1,7 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?if (count($arResult['BANNERS']) > 0):?>
-<?
+<?php if (count($arResult['BANNERS']) > 0):?>
+<?php 
 	global $APPLICATION;
 	$this->addExternalCss("/bitrix/components/bitrix/advertising.banner/templates/nivo/nivo-slider.css");
 	$this->addExternalCss("/bitrix/components/bitrix/advertising.banner/templates/nivo/themes/default/default.css");
@@ -21,15 +21,15 @@
 
 	$frame = $this->createFrame()->begin("");
 ?>
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	<div id='tPreview' style="display:none;margin:auto">
-<?endif;?>
+<?php endif;?>
 
 <div class="slider-wrapper theme-default">
 	<div id="slider-<?=$arResult['ID']?>" class="nivoSlider">
-		<?foreach($arResult["BANNERS"] as $k => $banner):?>
+		<?php foreach($arResult["BANNERS"] as $k => $banner):?>
 			<?=$banner?>
-		<?endforeach;?>
+		<?php endforeach;?>
 	</div>
 </div>
 
@@ -55,7 +55,7 @@
 	});
 </script>
 
-<?if ($arParams['PREVIEW'] == 'Y'):?>
+<?php if ($arParams['PREVIEW'] == 'Y'):?>
 	</div>
 	<script>
 		(function(){
@@ -72,8 +72,8 @@
 			BX('tPreview').style.display = '';
 		})();
 	</script>
-<?endif;?>
+<?php endif;?>
 
-<?$frame->end();?>
+<?php $frame->end();?>
 
-<?endif;?>
+<?php endif;?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ADV_PARALL_PARAMETER_IMG'] = "Изображение слайда";
 $MESS ['ADV_PARALL_PARAMETER_NO'] = "(не установлено)";
 $MESS ['ADV_PARALL_PARAMETER_LINK_URL'] = "Ссылка слайда";

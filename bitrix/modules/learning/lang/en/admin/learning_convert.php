@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LEARNING_CONVERT_FAILED"] = "Error trying to convert the e-Learning module data.";
 $MESS["LEARNING_PROCESSED_SUMMARY"] = "Items converted (cumulative):";
 $MESS["LEARNING_CONVERT_IN_PROGRESS"] = "Still converting";

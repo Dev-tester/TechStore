@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -14,14 +14,14 @@ $this->setFrameMode(true);
 $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 ?>
 <div class="bx-flat-filter">
-<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get">
+<form name="<?php echo $arResult["FILTER_NAME"]."_form"?>" action="<?php echo $arResult["FORM_ACTION"]?>" method="get">
 	<div class="bx-filter-section container-fluid">
 		<div class="row"><div class="col-lg-12 bx-filter-title"><?=GetMessage("CT_BCF_FILTER_TITLE")?></div></div>
 		<div class="row">
-		<?foreach($arResult["ITEMS"] as $arItem):?>
-			<?if(array_key_exists("HIDDEN", $arItem)):?>
+		<?php foreach($arResult["ITEMS"] as $arItem):?>
+			<?php if(array_key_exists("HIDDEN", $arItem)):?>
 				<?=$arItem["INPUT"]?>
-			<?elseif ($arItem["TYPE"] == "RANGE"):?>
+			<?php elseif ($arItem["TYPE"] == "RANGE"):?>
 				<div class="col-sm-6 col-md-4 bx-filter-parameters-box active">
 					<div class="bx-filter-parameters-box-title"><span><?=$arItem["NAME"]?></span></div>
 					<div class="bx-filter-block">
@@ -49,13 +49,13 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 						</div>
 					</div>
 				</div>
-			<?elseif ($arItem["TYPE"] == "DATE_RANGE"):?>
+			<?php elseif ($arItem["TYPE"] == "DATE_RANGE"):?>
 				<div class="col-sm-6 col-md-4 bx-filter-parameters-box active">
 					<div class="bx-filter-parameters-box-title"><span><?=$arItem["NAME"]?></span></div>
 					<div class="bx-filter-block">
 						<div class="row bx-filter-parameters-box-container">
 							<div class="col-xs-6 bx-filter-parameters-box-container-block  bx-left"><div class="bx-filter-input-container bx-filter-calendar-container">
-									<?$APPLICATION->IncludeComponent(
+									<?php $APPLICATION->IncludeComponent(
 										'bitrix:main.calendar',
 										'',
 										array(
@@ -72,7 +72,7 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 									);?>
 							</div></div>
 							<div class="col-xs-6 bx-filter-parameters-box-container-block  bx-right"><div class="bx-filter-input-container bx-filter-calendar-container">
-									<?$APPLICATION->IncludeComponent(
+									<?php $APPLICATION->IncludeComponent(
 										'bitrix:main.calendar',
 										'',
 										array(
@@ -91,7 +91,7 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 						</div>
 					</div>
 				</div>
-			<?elseif ($arItem["TYPE"] == "SELECT"):
+			<?php elseif ($arItem["TYPE"] == "SELECT"):
 				?>
 				<div class="col-sm-6 col-md-4 bx-filter-parameters-box active">
 					<div class="bx-filter-parameters-box-title"><span><?=$arItem["NAME"]?></span></div>
@@ -100,26 +100,26 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 							<div class="col-xs-12 bx-filter-parameters-box-container-block">
 								<div class="bx-filter-input-container">
 									<select name="<?=$arItem["INPUT_NAME"].($arItem["MULTIPLE"] == "Y" ? "[]" : "")?>">
-										<?foreach ($arItem["LIST"] as $key => $value):?>
+										<?php foreach ($arItem["LIST"] as $key => $value):?>
 											<option
 												value="<?=htmlspecialcharsBx($key)?>"
-												<?if ($key == $arItem["INPUT_VALUE"]) echo 'selected="selected"'?>
+												<?php if ($key == $arItem["INPUT_VALUE"]) echo 'selected="selected"'?>
 											><?=htmlspecialcharsEx($value)?></option>
-										<?endforeach?>
+										<?php endforeach?>
 									</select>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			<?elseif ($arItem["TYPE"] == "CHECKBOX"):
+			<?php elseif ($arItem["TYPE"] == "CHECKBOX"):
 				?>
 				<div class="col-sm-6 col-md-4 bx-filter-parameters-box active">
 					<div class="bx-filter-parameters-box-title"><span><?=$arItem["NAME"]?></span></div>
 					<div class="bx-filter-block">
 						<div class="row bx-filter-parameters-box-container">
 							<div class="col-xs-12 bx-filter-parameters-box-container-block">
-							<?
+							<?php 
 							$arListValue = (is_array($arItem["~INPUT_VALUE"]) ? $arItem["~INPUT_VALUE"] : array($arItem["~INPUT_VALUE"]));
 							foreach ($arItem["LIST"] as $key => $value):?>
 							<div class="checkbox">
@@ -127,25 +127,25 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 									<input
 										type="checkbox"
 										value="<?=htmlspecialcharsBx($key)?>"
-										name="<?echo $arItem["INPUT_NAME"]?>[]"
-										<?if (in_array($key, $arListValue)) echo 'checked="checked"'?>
+										name="<?php echo $arItem["INPUT_NAME"]?>[]"
+										<?php if (in_array($key, $arListValue)) echo 'checked="checked"'?>
 									>
 									<span class="bx-filter-param-text"><?=htmlspecialcharsEx($value)?></span>
 								</label>
 							</div>
-							<?endforeach?>
+							<?php endforeach?>
 							</div>
 						</div>
 					</div>
 				</div>
-			<?elseif ($arItem["TYPE"] == "RADIO"):
+			<?php elseif ($arItem["TYPE"] == "RADIO"):
 				?>
 				<div class="col-sm-6 col-md-4 bx-filter-parameters-box active">
 					<div class="bx-filter-parameters-box-title"><span><?=$arItem["NAME"]?></span></div>
 					<div class="bx-filter-block">
 						<div class="row bx-filter-parameters-box-container">
 							<div class="col-xs-12 bx-filter-parameters-box-container-block">
-								<?
+								<?php 
 								$arListValue = (is_array($arItem["~INPUT_VALUE"]) ? $arItem["~INPUT_VALUE"] : array($arItem["~INPUT_VALUE"]));
 								foreach ($arItem["LIST"] as $key => $value):?>
 								<div class="radio">
@@ -153,18 +153,18 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 										<input
 											type="radio"
 											value="<?=htmlspecialcharsBx($key)?>"
-											name="<?echo $arItem["INPUT_NAME"]?>"
-											<?if (in_array($key, $arListValue)) echo 'checked="checked"'?>
+											name="<?php echo $arItem["INPUT_NAME"]?>"
+											<?php if (in_array($key, $arListValue)) echo 'checked="checked"'?>
 										>
 										<span class="bx-filter-param-text"><?=htmlspecialcharsEx($value)?></span>
 									</label>
 								</div>
-								<?endforeach?>
+								<?php endforeach?>
 							</div>
 						</div>
 					</div>
 				</div>
-			<?else:?>
+			<?php else:?>
 				<div class="col-sm-6 col-md-4 bx-filter-parameters-box active">
 					<div class="bx-filter-parameters-box-title"><span><?=$arItem["NAME"]?></span></div>
 					<div class="bx-filter-block">
@@ -177,8 +177,8 @@ $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 						</div>
 					</div>
 				</div>
-			<?endif?>
-		<?endforeach;?>
+			<?php endif?>
+		<?php endforeach;?>
 		</div>
 		<div class="row">
 			<div class="col-xs-12 bx-filter-button-box">

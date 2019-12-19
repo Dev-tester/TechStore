@@ -9,7 +9,7 @@ $map = $dialog->getMap();
 	<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 		<?=htmlspecialcharsbx($map['ResourceField']['Name'])?>:
 	</span>
-	<?
+	<?php 
 	echo $dialog->renderFieldControl($map['ResourceField']);
 	?>
 </div>
@@ -22,7 +22,7 @@ $map = $dialog->getMap();
 	<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 		<?=htmlspecialcharsbx($map['ResourceStart']['Name'])?>:
 	</span>
-	<?
+	<?php 
 	echo $dialog->renderFieldControl($map['ResourceStart']);
 	?>
 </div>
@@ -31,7 +31,7 @@ $map = $dialog->getMap();
 	<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 		<?=htmlspecialcharsbx($map['ResourceDuration']['Name'])?>:
 	</span>
-	<?
+	<?php 
 	echo $dialog->renderFieldControl($map['ResourceDuration']);
 	?>
 </div>
@@ -40,7 +40,7 @@ $map = $dialog->getMap();
 	<span class="bizproc-automation-popup-settings-title bizproc-automation-popup-settings-title-top bizproc-automation-popup-settings-title-autocomplete">
 		<?=htmlspecialcharsbx($map['ResourceUsers']['Name'])?>:
 	</span>
-	<?
+	<?php 
 	echo $dialog->renderFieldControl($map['ResourceUsers']);
 	?>
 </div>

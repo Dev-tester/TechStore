@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEF_MODE_TIP"] = "Checking this option enables the SEF mode and the URL configuration fields.";
 $MESS["COURSE_ID_TIP"] = "Select here one of the existing courses. If you select <b><i>(other)</i></b>, you will have to specify the course ID in the field beside.";
 $MESS["CHECK_PERMISSIONS_TIP"] = "Select here \"Yes\" if you want to check the user access permissions for the course.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['CTRL_LOG_DETAIL_TITLE'] = "Journal record";
 $MESS ['CTRL_LOG_DETAIL_NOT_FOUND'] = "Journal record not found.";
 $MESS ['CTRL_LOG_DETAIL_ID'] = "ID";

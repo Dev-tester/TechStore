@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_LINKS_0"] = "Ссылка";
 $MESS["WZD_OPTION_LINKS_1"] = "Публикуется на сайте";
 $MESS["WZD_OPTION_LINKS_2"] = "Начало публикации с";

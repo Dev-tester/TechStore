@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CONTACT_ACTIVITY_STREAM_STAT_INCOMING_QTY"] = "Number of inbound calls";
 $MESS["CRM_CONTACT_ACTIVITY_STREAM_STAT_OUTGOING_QTY"] = "Number of outbound calls";
 $MESS["CRM_CONTACT_ACTIVITY_STREAM_STAT_REVERSING_QTY"] = "Number of callbacks";

@@ -1,4 +1,4 @@
-<?
+<?php 
 ##############################################
 # Bitrix Site Manager                        #
 # Copyright (c) 2002-2010 Bitrix             #
@@ -168,34 +168,34 @@ $oFilter = new CAdminFilter(
 ?>
 	<form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>">
 	<input type="hidden" name="lang" value="<?=LANGUAGE_ID?>">
-<?$oFilter->Begin();?>
+<?php $oFilter->Begin();?>
 	<tr>
-		<td><?echo GetMessage("RATING_LIST_FLT_NAME")?></td>
-		<td><input type="text" name="find_name" size="40" value="<?echo htmlspecialcharsbx($find_name)?>"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("RATING_LIST_FLT_NAME")?></td>
+		<td><input type="text" name="find_name" size="40" value="<?php echo htmlspecialcharsbx($find_name)?>"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("RATING_LIST_FLT_ACTIVE")?></td>
+		<td><?php echo GetMessage("RATING_LIST_FLT_ACTIVE")?></td>
 		<td><select name="find_active">
-			<option value=""><?echo GetMessage("RATING_LIST_FLT_ALL")?></option>
-			<option value="Y"<?if($find_active == "Y") echo " selected"?>><?echo GetMessage("RATING_LIST_FLT_ACTIVE")?></option>
-			<option value="N"<?if($find_active == "N") echo " selected"?>><?echo GetMessage("RATING_LIST_FLT_INACTIVE")?></option>
+			<option value=""><?php echo GetMessage("RATING_LIST_FLT_ALL")?></option>
+			<option value="Y"<?php if($find_active == "Y") echo " selected"?>><?php echo GetMessage("RATING_LIST_FLT_ACTIVE")?></option>
+			<option value="N"<?php if($find_active == "N") echo " selected"?>><?php echo GetMessage("RATING_LIST_FLT_INACTIVE")?></option>
 			</select>
 		</td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("RATING_LIST_FLT_ID")?></td>
-		<td><input type="text" name="find_id" size="13" value="<?echo htmlspecialcharsbx($find_id)?>"></td>
+		<td><?php echo GetMessage("RATING_LIST_FLT_ID")?></td>
+		<td><input type="text" name="find_id" size="13" value="<?php echo htmlspecialcharsbx($find_id)?>"></td>
 	</tr>
 	<tr>
-		<td><?echo GetMessage("RATING_LIST_FLT_ENTITY_ID")?></td>
-		<td><input type="text" name="find_entity_id" value="<?echo htmlspecialcharsbx($find_entity_id)?>" size="40"><?=ShowFilterLogicHelp()?></td>
+		<td><?php echo GetMessage("RATING_LIST_FLT_ENTITY_ID")?></td>
+		<td><input type="text" name="find_entity_id" value="<?php echo htmlspecialcharsbx($find_entity_id)?>" size="40"><?=ShowFilterLogicHelp()?></td>
 	</tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID,"url"=>$APPLICATION->GetCurPage(),"form"=>"form1"));
 $oFilter->End();
 ?>
 	</form>
-<?
+<?php 
 $lAdmin->DisplayList();
 require_once($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");
 ?>

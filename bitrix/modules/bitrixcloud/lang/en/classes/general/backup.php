@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BCL_BACKUP_AI_TITLE"] = "Backup";
 $MESS["BCL_BACKUP_AI_USAGE_TOTAL"] = "Total:";
 $MESS["BCL_BACKUP_AI_USAGE_AVAIL"] = "Available:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_CALC_TITLE"] = "Web store profit model";
 $MESS["CONVERSION_CALC_TITLE2"] = "Web store profitability";
 $MESS["CONVERSION_CALC_INDICATORS"] = "Profitability ratios";

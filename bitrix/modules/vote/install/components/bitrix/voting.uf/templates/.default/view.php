@@ -1,4 +1,4 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 use Bitrix\Main\Localization\Loc;
 use \Bitrix\Main\UI;
 use Bitrix\Vote\Vote\Option;
@@ -42,33 +42,33 @@ foreach ($arResult['ATTACHES'] as $attach)
 		$extras = $data["EXTRAS"];
 	}
 ?>
-<div class="bx-vote-container bx-vote-container-<?=$style?>" <?
-	?>data-bx-vote-form="<?=($canParticipate && $voted === false ? "shown" : "hidden")?>" <?
-	?>data-bx-vote-result="<?=($canReadResult ? "shown" : "hidden")?>" <?
-	?>data-bx-vote-status="<?=($voted === false ? "ready" : "voted")?>" <?
-	?>data-bx-vote-option-reparticipate="<?=($canRevote ? "Y" : "N")?>" <?
-	?>data-bx-vote-lamp="<?=($attach["LAMP"])?>" <?
+<div class="bx-vote-container bx-vote-container-<?=$style?>" <?php 
+	?>data-bx-vote-form="<?=($canParticipate && $voted === false ? "shown" : "hidden")?>" <?php 
+	?>data-bx-vote-result="<?=($canReadResult ? "shown" : "hidden")?>" <?php 
+	?>data-bx-vote-status="<?=($voted === false ? "ready" : "voted")?>" <?php 
+	?>data-bx-vote-option-reparticipate="<?=($canRevote ? "Y" : "N")?>" <?php 
+	?>data-bx-vote-lamp="<?=($attach["LAMP"])?>" <?php 
 	?>id="vote-<?= $uid ?>">
 	<div class="feed-notice-block feed-add-error"><span class="feed-add-info-icon"></span><span class="feed-add-info-text" data-bx-vote-role="error"></span></div>
 	<form action="" method="get" class="vote-form" name="vote-form-<?= $uid ?>">
 		<input type="hidden" name="attachId" value="<?= $attach["ID"] ?>"/>
 		<?= bitrix_sessid_post()
-	?><input id="checkbox_<?=$uid?>" class="bx-vote-checkbox" type="checkbox" <?if ($arParams["VIEW_MODE"] == "EXTENDED"): ?> checked="checked"<?endif;?> /><?
+	?><input id="checkbox_<?=$uid?>" class="bx-vote-checkbox" type="checkbox" <?php if ($arParams["VIEW_MODE"] == "EXTENDED"): ?> checked="checked"<?php endif;?> /><?php 
 	?><div class="bx-vote-body">
 	<div class="bx-vote-block">
 		<ol class="bx-vote-question-list">
-		<?
+		<?php 
 		foreach ($attach["QUESTIONS"] as $question):
 			$ballotAnswers = (array_key_exists($question["ID"], $ballot) && is_array($ballot[$question["ID"]]) ? $ballot[$question["ID"]] : []);
 			$foundValue = false;
 			?>
-			<li id="question<?= $question["ID"] ?>"<? if ($question["REQUIRED"] == "Y"): ?> class="bx-vote-question-required"<? endif; ?>>
-				<? if (!empty($question["IMAGE"]) && !empty($question["IMAGE"]["SRC"])): ?>
+			<li id="question<?= $question["ID"] ?>"<?php  if ($question["REQUIRED"] == "Y"): ?> class="bx-vote-question-required"<?php  endif; ?>>
+				<?php  if (!empty($question["IMAGE"]) && !empty($question["IMAGE"]["SRC"])): ?>
 					<div class="bx-vote-question-image"><img src="<?= $question["IMAGE"]["SRC"] ?>"/>
-					</div><? endif; ?>
+					</div><?php  endif; ?>
 				<div class="bx-vote-question-title"><?= FormatText($question["QUESTION"], $question["QUESTION_TYPE"]) ?></div>
 				<table class="bx-vote-answer-list" cellspacing="0">
-					<? foreach ($question["ANSWERS"] as $answer)
+					<?php  foreach ($question["ANSWERS"] as $answer)
 					{
 						if ($canReadResult === false)
 						{
@@ -78,7 +78,7 @@ foreach ($arResult['ATTACHES'] as $attach)
 						$answer["MESSAGE"] = FormatText($answer["MESSAGE"], $answer["MESSAGE_TYPE"]);?>
 						<tr data-bx-vote-answer="<?=$answer["ID"]?>" class="bx-vote-answer-item">
 							<td>
-								<div class="bx-vote-bar"><?
+								<div class="bx-vote-bar"><?php 
 									$checked = array_key_exists($answer["ID"], $ballotAnswers) ? 'checked="checked"' : "";
 									$message = array_key_exists($answer["ID"], $ballotAnswers) ? htmlspecialcharsbx($ballotAnswers[$answer["ID"]]) : "";
 									switch ($answer["FIELD_TYPE"])
@@ -96,7 +96,7 @@ foreach ($arResult['ATTACHES'] as $attach)
 												<span class="bx-vote-block-inp-substitute"></span>
 											</label>
 											<label for="vote_answer_<?= $answer["QUESTION_ID"] ?>_<?= $answer["ID"] ?>"><?= $answer["MESSAGE"] ?></label>
-										</span><?
+										</span><?php 
 											break;
 										case \Bitrix\Vote\AnswerTypes::CHECKBOX:
 										case \Bitrix\Vote\AnswerTypes::MULTISELECT:
@@ -107,14 +107,14 @@ foreach ($arResult['ATTACHES'] as $attach)
 												<span class="bx-vote-block-inp-substitute"></span>
 											</label>
 											<label for="vote_answer_<?= $answer["ID"] ?>"><?= $answer["MESSAGE"] ?></label>
-										</span><?
+										</span><?php 
 											break;
 										case \Bitrix\Vote\AnswerTypes::TEXT:
 											if ($question["FIELD_TYPE"] == \Bitrix\Vote\QuestionTypes::COMPATIBILITY)
 											{
 										?><span class="bx-vote-block-input-wrap bx-vote-block-text-wrap">
 											<input type="text" name="<?=$answer["FIELD_NAME"]?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" value="<?= $message ?>" size="<?= $answer["FIELD_WIDTH"] ?>" <?= $answer["~FIELD_PARAM"] ?> />
-										</span><?
+										</span><?php 
 											}
 											else if ($question["FIELD_TYPE"] == \Bitrix\Vote\AnswerTypes::RADIO ||
 												$question["FIELD_TYPE"] == \Bitrix\Vote\AnswerTypes::DROPDOWN)
@@ -128,7 +128,7 @@ foreach ($arResult['ATTACHES'] as $attach)
 												<span class="bx-vote-block-text-field-wrap"><?=$answer["MESSAGE"]?></span>
 												<input type="text" name="<?=$answer["MESSAGE_FIELD_NAME"]?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" value="<?= $message ?>" size="<?= $answer["FIELD_WIDTH"] ?>" onfocus="BX('vote_answer_<?= $answer["ID"] ?>').checked = true;" <?= $answer["~FIELD_PARAM"] ?> />
 											</label>
-										</span><?
+										</span><?php 
 											}
 											else
 											{
@@ -141,16 +141,16 @@ foreach ($arResult['ATTACHES'] as $attach)
 												<span class="bx-vote-block-text-field-wrap"><?=$answer["MESSAGE"]?></span>
 												<input type="text" name="<?=$answer["MESSAGE_FIELD_NAME"]?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" value="<?= $message ?>" size="<?= $answer["FIELD_WIDTH"] ?>" onfocus="BX('vote_answer_<?= $answer["ID"] ?>').checked = true;" <?= $answer["~FIELD_PARAM"] ?> />
 											</label>
-										</span><?
+										</span><?php 
 											}
 											break;
 										case \Bitrix\Vote\AnswerTypes::TEXTAREA:
 											if ($question["FIELD_TYPE"] == \Bitrix\Vote\QuestionTypes::COMPATIBILITY)
 											{
-												?><span><?
-													?><textarea name="<?=$answer["FIELD_NAME"]?>" id="vote_memo_<?= $answer["ID"] ?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" <?
-													?><?= $answer["~FIELD_PARAM"] ?> ><?= $message ?></textarea><?
-												?></span><?
+												?><span><?php 
+													?><textarea name="<?=$answer["FIELD_NAME"]?>" id="vote_memo_<?= $answer["ID"] ?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" <?php 
+													?><?= $answer["~FIELD_PARAM"] ?> ><?= $message ?></textarea><?php 
+												?></span><?php 
 											}
 											else if ($question["FIELD_TYPE"] == \Bitrix\Vote\AnswerTypes::RADIO ||
 												$question["FIELD_TYPE"] == \Bitrix\Vote\AnswerTypes::DROPDOWN)
@@ -162,27 +162,27 @@ foreach ($arResult['ATTACHES'] as $attach)
 												</label>
 												<label for="vote_answer_<?= $answer["ID"] ?>" class="bx-vote-block-input-wrap bx-vote-block-memo-wrap">
 													<span class="bx-vote-block-text-field-wrap"><?=$answer["MESSAGE"]?></span>
-													<textarea name="<?=$answer["MESSAGE_FIELD_NAME"]?>" id="vote_memo_<?= $answer["ID"] ?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" <?
-														?>onfocus="BX('vote_answer_<?= $answer["ID"] ?>').checked = true;" <?=$answer["~FIELD_PARAM"] ?> ><?
+													<textarea name="<?=$answer["MESSAGE_FIELD_NAME"]?>" id="vote_memo_<?= $answer["ID"] ?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" <?php 
+														?>onfocus="BX('vote_answer_<?= $answer["ID"] ?>').checked = true;" <?=$answer["~FIELD_PARAM"] ?> ><?php 
 														?><?= $message ?></textarea>
 												</label>
-											</span><?
+											</span><?php 
 											}
 											else
 											{
-												?><span class="bx-vote-block-input-wrap bx-vote-block-checbox-wrap"><?
-													?><label class="bx-vote-block-input-wrap-inner" for="vote_answer_<?= $answer["ID"] ?>"><?
-														?><input type="checkbox" name="<?=$answer["FIELD_NAME"]?>[]" value="<?= $answer["ID"] ?>" <?
-															?> id="vote_answer_<?= $answer["ID"] ?>" <?= $checked ?> /><?
-														?><span class="bx-vote-block-inp-substitute"></span><?
-													?></label><?
+												?><span class="bx-vote-block-input-wrap bx-vote-block-checbox-wrap"><?php 
+													?><label class="bx-vote-block-input-wrap-inner" for="vote_answer_<?= $answer["ID"] ?>"><?php 
+														?><input type="checkbox" name="<?=$answer["FIELD_NAME"]?>[]" value="<?= $answer["ID"] ?>" <?php 
+															?> id="vote_answer_<?= $answer["ID"] ?>" <?= $checked ?> /><?php 
+														?><span class="bx-vote-block-inp-substitute"></span><?php 
+													?></label><?php 
 													?><label for="vote_answer_<?= $answer["ID"] ?>">
-														<span class="bx-vote-block-text-field-wrap"><?=$answer["MESSAGE"]?></span><?
-														?><input type="text" name="<?=$answer["MESSAGE_FIELD_NAME"]?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" <?
-															?>value="<?= $message ?>" size="<?= $answer["FIELD_WIDTH"] ?>" <?
-															?>onfocus="BX('vote_answer_<?= $answer["ID"] ?>').checked = true;" <?= $answer["~FIELD_PARAM"] ?> /><?
-													?></label><?
-												?></span><?
+														<span class="bx-vote-block-text-field-wrap"><?=$answer["MESSAGE"]?></span><?php 
+														?><input type="text" name="<?=$answer["MESSAGE_FIELD_NAME"]?>" placeholder="<?=htmlspecialcharsbx($answer["MESSAGE"])?>" <?php 
+															?>value="<?= $message ?>" size="<?= $answer["FIELD_WIDTH"] ?>" <?php 
+															?>onfocus="BX('vote_answer_<?= $answer["ID"] ?>').checked = true;" <?= $answer["~FIELD_PARAM"] ?> /><?php 
+													?></label><?php 
+												?></span><?php 
 											}
 											break;
 									}
@@ -191,31 +191,31 @@ foreach ($arResult['ATTACHES'] as $attach)
 								</div>
 							</td>
 							<td>
-				<span class="bx-vote-voted-users-wrap"><?
+				<span class="bx-vote-voted-users-wrap"><?php 
 					if ($attach["ANONYMITY"] == \Bitrix\Vote\Vote\Anonymity::ANONYMOUSLY || !$USER->IsAuthorized())
 					{
-						?><span class="bx-vote-voted-users" data-bx-vote-result="counter"><?= $answer["COUNTER"] ?></span><?
+						?><span class="bx-vote-voted-users" data-bx-vote-result="counter"><?= $answer["COUNTER"] ?></span><?php 
 					}
 					else
 					{
-						?><a href="javascript:void(0);" class="bx-vote-voted-users" data-bx-vote-result="counter"><?= $answer["COUNTER"] ?></a><?
+						?><a href="javascript:void(0);" class="bx-vote-voted-users" data-bx-vote-result="counter"><?= $answer["COUNTER"] ?></a><?php 
 					}
 					?></span>
 							</td>
 							<td><span class="bx-vote-data-percent" data-bx-vote-result="percent"><?= $answer["PERCENT"]?>%</span></td>
 						</tr>
-					<?
+					<?php 
 					}
 					?>
 				</table>
 			</li>
-		<?endforeach; ?>
+		<?php endforeach; ?>
 			<li class="bx-vote-answer-result">
 				<div class="bx-vote-answer-list-wrap">
 					<div data-bx-vote-result="counter"><?=$attach["COUNTER"]?></div>
 					<div><?=GetMessage("VOTE_RESULTS")?></div>
 				</div>
-			</li><?
+			</li><?php 
 		if ($attach["ANONYMITY"] == \Bitrix\Vote\Vote\Anonymity::UNDEFINED)
 		{
 			$checked = (array_key_exists("VISIBLE", $extras) && $extras["VISIBLE"] === "N" ? ' checked="checked" ' : "");
@@ -231,11 +231,11 @@ foreach ($arResult['ATTACHES'] as $attach)
 					</span>
 				</div>
 			</li>
-			<?
+			<?php 
 		}?>
 		</ol>
 	</div>
-<?
+<?php 
 	if (isset($arResult["CAPTCHA_CODE"]) && ($voted === false || $canRevote))
 	{
 	?><div class="bx-vote-captcha">
@@ -247,23 +247,23 @@ foreach ($arResult['ATTACHES'] as $attach)
 			<label for="captcha_word"><?= GetMessage("F_CAPTCHA_PROMT") ?></label>
 			<input type="text" size="20" name="captcha_word" id="captcha_word" autocomplete="off" />
 		</span>
-	</div><?
+	</div><?php 
 	}
-		?><label for="checkbox_<?=$uid?>" class="bx-vote-switcher"><span class="bx-vote-switcher-arrow"></span></label><?
-	?></div><?
+		?><label for="checkbox_<?=$uid?>" class="bx-vote-switcher"><span class="bx-vote-switcher-arrow"></span></label><?php 
+	?></div><?php 
 
-	?><div class="bx-vote-buttons"><?
-		?><button class="ui-btn ui-btn-lg ui-btn-link" data-bx-vote-button="showVoteForm"><?=GetMessage("VOTE_RESUBMIT_BUTTON")?></button><?
-		?><button class="ui-btn ui-btn-lg ui-btn-primary" data-bx-vote-button="actVoting"><?= GetMessage("VOTE_SUBMIT_BUTTON") ?></button><?
+	?><div class="bx-vote-buttons"><?php 
+		?><button class="ui-btn ui-btn-lg ui-btn-link" data-bx-vote-button="showVoteForm"><?=GetMessage("VOTE_RESUBMIT_BUTTON")?></button><?php 
+		?><button class="ui-btn ui-btn-lg ui-btn-primary" data-bx-vote-button="actVoting"><?= GetMessage("VOTE_SUBMIT_BUTTON") ?></button><?php 
 		if ($attach->canEdit($USER->GetID()))
 		{
-			?><span href="#" data-bx-vote-button="stopOrResume"><?
-				?><button class="ui-btn ui-btn-lg ui-btn-link"><?=GetMessage("VOTE_STOP_BUTTON")?></button><?
-				?><button class="ui-btn ui-btn-lg ui-btn-link"><?=GetMessage("VOTE_RESUME_BUTTON")?></button><?
-			?></span><?
-			?><button class="ui-btn ui-btn-lg ui-btn-link" data-bx-vote-button="exportXls"><?=GetMessage("VOTE_EXPORT_BUTTON")?></button><?
+			?><span href="#" data-bx-vote-button="stopOrResume"><?php 
+				?><button class="ui-btn ui-btn-lg ui-btn-link"><?=GetMessage("VOTE_STOP_BUTTON")?></button><?php 
+				?><button class="ui-btn ui-btn-lg ui-btn-link"><?=GetMessage("VOTE_RESUME_BUTTON")?></button><?php 
+			?></span><?php 
+			?><button class="ui-btn ui-btn-lg ui-btn-link" data-bx-vote-button="exportXls"><?=GetMessage("VOTE_EXPORT_BUTTON")?></button><?php 
 		}
-	?></div><?
+	?></div><?php 
 ?>
 <script type="text/javascript">
 BX.ready(function() {
@@ -276,7 +276,7 @@ BX.ready(function() {
 		urlTemplate: '<?=CUtil::JSEscape($arParams["~PATH_TO_USER"] ?: "/company/personal/user/#ID#/");?>',
 		nameTemplate: '<?=CUtil::JSEscape($arParams["~NAME_TEMPLATE"]);?>'
 	});
-<?
+<?php 
 if ($GLOBALS["USER"]->IsAuthorized() && CModule::IncludeModule("pull"))
 {
 	\CPullWatch::Add($GLOBALS["USER"]->GetID(), 'VOTE_'.$attach["VOTE_ID"]);
@@ -286,6 +286,6 @@ if ($GLOBALS["USER"]->IsAuthorized() && CModule::IncludeModule("pull"))
 </script>
 	</form>
 </div>
-<?
+<?php 
 }
 $frame->end();

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AJAX_ACTION_CONFIRM_DELETE"] = "Do you want to delete \"%name%\"?";
 $MESS["MAIN_AJAX_ACTION_DELETE"] = "Delete";
 $MESS["MAIN_AJAX_ACTION_APPLY"] = "Apply";

@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -20,4 +20,4 @@ $this->setFrameMode(true);?>
 	fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <h4><?=GetMessage("ESHOP_SOCNET_TITLE")?></h4>
-<div class="fb-like-box" data-href="<?=$arParams["ESHOP_FACEBOOK_LINK"]?>" data-width="<?=$arParams["ESHOP_PLUGIN_WIDTH"]?>" <?if ($arParams["ESHOP_PLUGIN_HEIGHT"]):?>data-height="<?=$arParams["ESHOP_PLUGIN_HEIGHT"]?>"<?endif?> data-show-faces="true" data-stream="false" data-header="true"></div>
+<div class="fb-like-box" data-href="<?=$arParams["ESHOP_FACEBOOK_LINK"]?>" data-width="<?=$arParams["ESHOP_PLUGIN_WIDTH"]?>" <?php if ($arParams["ESHOP_PLUGIN_HEIGHT"]):?>data-height="<?=$arParams["ESHOP_PLUGIN_HEIGHT"]?>"<?php endif?> data-show-faces="true" data-stream="false" data-header="true"></div>

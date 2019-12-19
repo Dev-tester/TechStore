@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['BPGLDA_DOC_TYPE'] = "Entity type";
 $MESS['BPGLDA_DT_LISTS'] = "Lists";
 $MESS['BPGLDA_DT_LISTS_SOCNET'] = "Workgroup and project lists";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['T_LEARNING_DETAIL_ID'] = "Идентификатор теста";
 $MESS ['LEARNING_DESC_YES'] = "Да";
 $MESS ['LEARNING_DESC_NO'] = "Нет";

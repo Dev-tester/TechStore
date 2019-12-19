@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["1C_INTRANET_FIELD_UF_1C"] = "1C User";
 $MESS["1C_INTRANET_FIELD_UF_INN"] = "Taxpayer ID";
 $MESS["1C_INTRANET_FIELD_UF_PHONE_INNER"] = "Extension number";

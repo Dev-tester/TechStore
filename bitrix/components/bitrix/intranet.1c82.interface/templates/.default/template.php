@@ -1,7 +1,7 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 ?>
-<?CUtil::InitJSCore(Array('ajax','window'));?>
+<?php CUtil::InitJSCore(Array('ajax','window'));?>
 
 <script>
 function OpenInFrame(button)
@@ -19,18 +19,18 @@ function OpenInNewWindow(button)
 
 </script>
 
-<?
+<?php 
 if ($arParams['1C_URL']==''):
 	echo '<div style="color:red;">'.GetMessage('URL_EMPTY_ERROR').'</div>';
 else:
 if ($arParams['BLANK_MODE']!='Y'):?>
 <input class="but" type="button" value="<?=getMessage('1C_START') ?>" onclick="OpenInFrame(this)">
-<?else:?>
+<?php else:?>
 <input class="but" type="button" value="<?=getMessage('1C_START') ?>" onclick="OpenInNewWindow(this)">
-<?endif;?>
+<?php endif;?>
 
 <iframe id="1c_frame" style="display:none; border:none" src="" height="100%" width="100%"></iframe>
-<?endif;?>
+<?php endif;?>
 
 <script>
 BX('1c_frame').height=document.body.clientHeight;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SEC_FRAME_TITLE"] = "Anti-frame protection";
 $MESS["SEC_FRAME_MAIN_TAB"] = "Anti-frame protection";
 $MESS["SEC_FRAME_MAIN_TAB_TITLE"] = "Anti-frame protection";

@@ -1,4 +1,4 @@
-<?
+<?php 
 #############################################
 # Bitrix Site Manager Forum					#
 # Copyright (c) 2002-2009 Bitrix			#
@@ -235,9 +235,9 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 ?>
 <a name="tb"></a>
 
-<?echo ShowError($strError);?>
+<?php echo ShowError($strError);?>
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?
+<?php 
 $oFilter = new CAdminFilter(
 		$sTableID."_filter",
 		array(
@@ -254,43 +254,43 @@ $oFilter->Begin();
 ?>
 <tr>
 	<td><b>ID</b></td>
-	<td><input type="text" name="find_id" size="47" value="<?echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_id" size="47" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=InputType("checkbox", "find_id_exact_match", "Y", $find_id_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("VOTE_F_USER")?></td>
-	<td><input type="text" name="find_vote_user" size="47" value="<?echo htmlspecialcharsbx($find_vote_user)?>"><?=InputType("checkbox", "find_vote_user_exact_match", "Y", $find_vote_user_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("VOTE_F_USER")?></td>
+	<td><input type="text" name="find_vote_user" size="47" value="<?php echo htmlspecialcharsbx($find_vote_user)?>"><?=InputType("checkbox", "find_vote_user_exact_match", "Y", $find_vote_user_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("VOTE_F_SESSION")?></td>
-	<td><input type="text" name="find_session" size="47" value="<?echo htmlspecialcharsbx($find_session)?>"><?=InputType("checkbox", "find_session_exact_match", "Y", $find_session_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("VOTE_F_SESSION")?></td>
+	<td><input type="text" name="find_session" size="47" value="<?php echo htmlspecialcharsbx($find_session)?>"><?=InputType("checkbox", "find_session_exact_match", "Y", $find_session_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>IP</td>
-	<td><input type="text" name="find_ip" size="47" value="<?echo htmlspecialcharsbx($find_ip)?>"><?=InputType("checkbox", "find_ip_exact_match", "Y", $find_ip_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><input type="text" name="find_ip" size="47" value="<?php echo htmlspecialcharsbx($find_ip)?>"><?=InputType("checkbox", "find_ip_exact_match", "Y", $find_ip_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_DATE").":"?></td>
-	<td nowrap><?echo CalendarPeriod("find_date_1", $find_date_1, "find_date_2", $find_date_2, "form1","Y")?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_DATE").":"?></td>
+	<td nowrap><?php echo CalendarPeriod("find_date_1", $find_date_1, "find_date_2", $find_date_2, "form1","Y")?></td>
 </tr>
 <tr>
-	<td nowrap><?echo GetMessage("VOTE_F_VOTE")?></td>
-	<td nowrap><input type="text" name="find_vote" size="47" value="<?echo htmlspecialcharsbx($find_vote)?>"><?=InputType("checkbox", "find_vote_exact_match", "Y", $find_vote_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?
+	<td nowrap><?php echo GetMessage("VOTE_F_VOTE")?></td>
+	<td nowrap><input type="text" name="find_vote" size="47" value="<?php echo htmlspecialcharsbx($find_vote)?>"><?=InputType("checkbox", "find_vote_exact_match", "Y", $find_vote_exact_match, false, "", "title='".GetMessage("VOTE_EXACT_MATCH")."'")?>&nbsp;<?=ShowFilterLogicHelp()?><br><?php 
 		echo SelectBox("find_vote_id", CVote::GetDropDownList(), GetMessage("VOTE_ALL"), htmlspecialcharsbx($find_vote_id));
 		?></td>
 </tr>
 <tr valign="top">
-	<td nowrap><?echo GetMessage("VOTE_F_VALID_TITLE")?></td>
+	<td nowrap><?php echo GetMessage("VOTE_F_VALID_TITLE")?></td>
 	<td nowrap><input type="checkbox" name="find_valid" id="find_valid" value="Y" <?=($find_valid == "Y" ? "checked='checked'" : "")?> />
-		<label for="find_valid"><?=GetMessage("VOTE_F_VALID")?></label><?
+		<label for="find_valid"><?=GetMessage("VOTE_F_VALID")?></label><?php 
 		?></td>
 </tr>
-<?
+<?php 
 $oFilter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));
 $oFilter->End();
 #############################################################
 ?>
 </form>
-<?
+<?php 
 /************** Initial list - Display list ************************/
 $lAdmin->DisplayList();
 

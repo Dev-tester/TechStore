@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['PROFILE_DATA_SAVED'] = "Изменения сохранены";
 $MESS['LAST_UPDATE'] = "Дата обновления:";
 $MESS['ACTIVE'] = "Активен:";

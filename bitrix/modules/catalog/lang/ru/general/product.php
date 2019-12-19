@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["KGP_EMPTY_ID"] = "Не указан ID товара";
 $MESS["BT_MOD_CATALOG_PROD_ERR_PRODUCT_ID_ABSENT"] = "ID товара не задан или неверен";
 $MESS["BT_MOD_CATALOG_PROD_ERR_QUANTITY_ABSENT"] = "Количество товара не задано или неверно";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SATE1_NO_SITE"] = "No site is assigned to the tiers";
 $MESS["SATE1_EXISTS"] = "The site #SITE_ID# already has the tiers";
 $MESS["SATE1_ERROR_SAVE"] = "Error saving the tiers";

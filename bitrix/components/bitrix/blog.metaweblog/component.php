@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!CModule::IncludeModule("blog"))
@@ -147,7 +147,7 @@ else
 $bDesignMode = $GLOBALS["APPLICATION"]->GetShowIncludeAreas() && is_object($GLOBALS["USER"]) && $GLOBALS["USER"]->IsAdmin();
 if(!$bDesignMode)
 {
-	$content = '<?xml version="1.0" encoding="'.LANG_CHARSET.'"?>
+	$content = '<?php xml version="1.0" encoding="'.LANG_CHARSET.'"?>
 	<methodResponse>'.$result.'</methodResponse>';
 
 	$APPLICATION->RestartBuffer();

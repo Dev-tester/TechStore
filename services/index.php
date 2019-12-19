@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/services/index.php");
 $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 ?>
-<p><?$APPLICATION->IncludeComponent(
+<p><?php $APPLICATION->IncludeComponent(
 	"bitrix:intranet.reserve_meeting",
 	".default",
 	array(
@@ -22,4 +22,4 @@ $APPLICATION->SetTitle(GetMessage("SERVICES_TITLE"));
 ?></p>
 
 <p><a href="/services/res_c.php"><?=GetMessage("SERVICES_LINK")?></a><br /></p>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

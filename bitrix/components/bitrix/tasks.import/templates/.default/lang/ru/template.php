@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_IMPORT_FORM_TITLE'] = 'Импорт задач';
 $MESS['TASKS_IMPORT_FIELDS_SECTION_IMPORT_RESULTS'] = 'Результаты импорта';
 $MESS['TASKS_IMPORT_FIELDS_SECTION_IMPORT_PARAMETERS'] = 'Настройка параметров импорта';

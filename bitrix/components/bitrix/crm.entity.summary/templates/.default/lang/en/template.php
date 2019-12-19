@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_DURATION_FROM"] = "from";
 $MESS["CRM_DURATION_TO"] = "through";
 $MESS["CRM_ENT_SMR_SHOW_DETAILS"] = "Show details";

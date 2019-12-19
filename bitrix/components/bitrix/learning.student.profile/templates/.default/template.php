@@ -1,8 +1,8 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 
-<?ShowError($arResult["ERROR_MESSAGE"]);?>
+<?php ShowError($arResult["ERROR_MESSAGE"]);?>
 
-<?if (!empty($arResult["USER"])):?>
+<?php if (!empty($arResult["USER"])):?>
 
 
 <form method="post" name="learn_studen_profile" action="<?=$arResult["CURRENT_PAGE"]?>" enctype="multipart/form-data">
@@ -44,29 +44,29 @@
 </tr>
 	<tr>
 		<td class="field-name"><?=GetMessage("LEARNING_PUBLIC_PROFILE");?>:</td>
-		<td><input type="checkbox" name="PUBLIC_PROFILE" value="Y" <?if ($arResult["STUDENT"]["PUBLIC_PROFILE"]=="Y") echo "checked";?>></td>
+		<td><input type="checkbox" name="PUBLIC_PROFILE" value="Y" <?php if ($arResult["STUDENT"]["PUBLIC_PROFILE"]=="Y") echo "checked";?>></td>
 	</tr>
 
-	<?if (strlen($arResult["STUDENT"]["TRANSCRIPT"])>0):?>
+	<?php if (strlen($arResult["STUDENT"]["TRANSCRIPT"])>0):?>
 	<tr>
 		<td class="field-name"><?=GetMessage("LEARNING_TRANSCRIPT");?>:</td>
 		<td><a href="<?=$arResult["TRANSCRIPT_DETAIL_URL"]?>"><?=$arResult["STUDENT"]["TRANSCRIPT"]?>-<?=$arResult["STUDENT"]["USER_ID"]?></a></td>
 	</tr>
-	<?endif?>
+	<?php endif?>
 	<tr>
 		<td class="field-name"><?=GetMessage("LEARNING_RESUME");?>:</td>
 		<td><textarea class="typearea" name="RESUME"><?=$arResult["STUDENT"]["RESUME"]?></textarea></td>
 	</tr>
 
 	<tr>
-		<td class="field-name"><?echo GetMessage("LEARNING_USER_PHOTO")?></td>
+		<td class="field-name"><?php echo GetMessage("LEARNING_USER_PHOTO")?></td>
 		<td>
 		<input name="PERSONAL_PHOTO" size="30" type="file"><br />
 		<label><input name="PERSONAL_PHOTO_del" value="Y" type="checkbox"><?=GetMessage("LEARNING_DELETE_FILE");?></label>
 		
-		<?if ($arResult["USER"]["PERSONAL_PHOTO_ARRAY"]!==false):?>
+		<?php if ($arResult["USER"]["PERSONAL_PHOTO_ARRAY"]!==false):?>
 			<br /><?=CFile::ShowImage($arResult["USER"]["PERSONAL_PHOTO_ARRAY"], 200, 200, "border=0", "", true)?>
-		<?endif?>
+		<?php endif?>
 		</td>
 	</tr>
 
@@ -80,9 +80,9 @@
 		<td>
 			<select name="PERSONAL_COUNTRY">
 				<option value="">&nbsp;</option>
-			<?for ($i = 0, $countryCount = count($arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference_id"]); $i < $countryCount; $i++ ):?>
-				<option value="<?=$arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference_id"][$i]?>"<?if ($arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference_id"][$i]==$arResult["USER"]["PERSONAL_COUNTRY"]):?> selected="selected"<?endif?>><?=$arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference"][$i]?></option>
-			<?endfor?>
+			<?php for ($i = 0, $countryCount = count($arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference_id"]); $i < $countryCount; $i++ ):?>
+				<option value="<?=$arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference_id"][$i]?>"<?php if ($arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference_id"][$i]==$arResult["USER"]["PERSONAL_COUNTRY"]):?> selected="selected"<?php endif?>><?=$arResult["USER"]["PERSONAL_COUNTRY_ARRAY"]["reference"][$i]?></option>
+			<?php endfor?>
 			</select>
 		</td>
 	</tr>
@@ -119,4 +119,4 @@
 
 
 
-<?endif?>
+<?php endif?>

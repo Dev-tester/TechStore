@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MB_BP_MAIN_STRESS_LEVEL"] = "Stress level";
 $MESS["MEASURE_STRESS"] = "Measure";
 $MESS["MENU_EDIT_PROFILE"] = "Edit profile";

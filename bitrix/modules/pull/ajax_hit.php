@@ -1,4 +1,4 @@
-<?
+<?php 
 if($_SERVER["REQUEST_METHOD"] == "POST" && array_key_exists("PULL_AJAX_CALL", $_REQUEST) && $_REQUEST["PULL_AJAX_CALL"] === "Y")
 {
 	$arResult = array();

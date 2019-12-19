@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ENTITY_TYPE"] = "Entity Type";
 $MESS["CRM_ENTITY_ID"] = "Entity ID";
 $MESS["CRM_EVENT_COUNT"] = "Events Per Page";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_BLANK_DOC_TYPE_DOCX"] = "Документ";
 $MESS["WD_BLANK_DOC_TYPE_XLSX"] = "Таблица";
 $MESS["WD_BLANK_DOC_TYPE_PPTX"] = "Презентация";

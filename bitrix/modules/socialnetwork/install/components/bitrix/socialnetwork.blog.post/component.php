@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var CBitrixComponent $this */
 /** @var array $arParams */
@@ -715,7 +715,7 @@ if(
 					$APPLICATION->restartBuffer();
 					while (ob_end_clean());
 					header('Content-Type:application/json; charset=UTF-8');
-					?><?=\Bitrix\Main\Web\Json::encode($response)?><?
+					?><?=\Bitrix\Main\Web\Json::encode($response)?><?php 
 					CMain::finalActions();
 					die;
 				}

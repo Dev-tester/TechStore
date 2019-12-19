@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	ShowError($arResult["FatalErrorMessage"]);
@@ -36,7 +36,7 @@ else
 	);
 	?>
 
-	<?
+	<?php 
 	$arResult["FORM_ID"] = "form_crm_config_ext_sale_edit";
 
 	$urlValue = '<select class="crm-config-ext-sale-scheme" name="SCHEME">
@@ -92,7 +92,7 @@ else
 			}
 		}
 	</script>
-	<a onclick="javascript:__BXOnImportResponsibleShow(this)" class="crm-field-action-link" id="id_IMPORT_RESPONSIBLE_TXT"><?= $arUser ? $arUser["NAME"]." ".$arUser["LAST_NAME"]." (".$arUser["LOGIN"].")" : GetMessage("BPWC_WNCT_DO_SELECT") ?></a><?
+	<a onclick="javascript:__BXOnImportResponsibleShow(this)" class="crm-field-action-link" id="id_IMPORT_RESPONSIBLE_TXT"><?= $arUser ? $arUser["NAME"]." ".$arUser["LAST_NAME"]." (".$arUser["LOGIN"].")" : GetMessage("BPWC_WNCT_DO_SELECT") ?></a><?php 
 	$GLOBALS["APPLICATION"]->IncludeComponent(
 		'bitrix:intranet.user.selector.new',
 		'',
@@ -110,7 +110,7 @@ else
 	);
 	?>
 	<input type="hidden" name="IMPORT_RESPONSIBLE" id="id_IMPORT_RESPONSIBLE" value="<?= $arResult["BP"]["IMPORT_RESPONSIBLE"] ?>">
-	<?
+	<?php 
 	$responsibleValue = ob_get_contents();
 	ob_end_clean();
 
@@ -156,7 +156,7 @@ else
 	}
 	</script>
 	<div class="crm-field-group-cont<?=(intval($arResult["BP"]["IMPORT_GROUP_ID"]) <= 0 ? " crm-field-group-cont-empty" : "")?>" id="id_IMPORT_GROUP_CONT"><a onclick="javascript:__BXOnImportGroupShow()" class="crm-field-action-link" id="id_GROUP_TXT"><?= $arGroup ? $arGroup["NAME"] : GetMessage("BPWC_WNCT_DO_SELECT") ?></a><span class="crm-field-clear" onclick="__BXOnImportGroupClear();"></span></div>
-	<?
+	<?php 
 	$name = $APPLICATION->IncludeComponent(
 			"bitrix:socialnetwork.group.selector", ".default", array(
 				"BIND_ELEMENT" => "id_GROUP_TXT",
@@ -166,7 +166,7 @@ else
 		);
 	?>
 	<input type="hidden" name="IMPORT_GROUP_ID" id="id_IMPORT_GROUP_ID" value="<?= $arResult["BP"]["IMPORT_GROUP_ID"] ?>" />
-	<?
+	<?php 
 	$groupValue = ob_get_contents();
 	ob_end_clean();
 
@@ -207,7 +207,7 @@ else
 	);
 ?>
 <div class="crm-config-ext-sale-edit">
-<?	$APPLICATION->IncludeComponent(
+<?php 	$APPLICATION->IncludeComponent(
 		"bitrix:main.interface.form",
 		"",
 		array(
@@ -226,6 +226,6 @@ else
 }
 ?>
 </div>
-<?echo BeginNote();?>
+<?php echo BeginNote();?>
 <?= GetMessage("BPWC_WNCT_NOTE_HINT")?>
-<?echo EndNote(); ?>
+<?php echo EndNote(); ?>

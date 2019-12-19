@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STORE_NAME_1"] = "World of Furniture";
 $MESS["STORE_DESCR_1"] = "Best furniture at best prices";
 $MESS["STORE_ADR_1"] = "551 155th Ave";

@@ -571,8 +571,8 @@ $tabControl->BeginEpilogContent();
 ?>
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="Update" value="Y">
-<input type="hidden" name="COPY_ID" value=<?echo $COPY_ID?>>
-<?
+<input type="hidden" name="COPY_ID" value=<?php echo $COPY_ID?>>
+<?php 
 $tabControl->EndEpilogContent();
 
 $limitUsersCount = $users_cnt = 0;
@@ -597,16 +597,16 @@ if($ID <> 1 || $COPY_ID > 0):
 	$tabControl->BeginCustomField("ACTIVE", GetMessage('ACTIVE'));
 ?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
 		<td>
-		<?if($canSelfEdit):?>
-			<input type="checkbox" name="ACTIVE" value="Y"<?if($str_ACTIVE=="Y") echo " checked"?>>
-		<?else:?>
-			<input type="checkbox" <?if($str_ACTIVE=="Y") echo " checked"?> disabled>
+		<?php if($canSelfEdit):?>
+			<input type="checkbox" name="ACTIVE" value="Y"<?php if($str_ACTIVE=="Y") echo " checked"?>>
+		<?php else:?>
+			<input type="checkbox" <?php if($str_ACTIVE=="Y") echo " checked"?> disabled>
 			<input type="hidden" name="ACTIVE" value="<?=$str_ACTIVE;?>">
-		<?endif;?>
+		<?php endif;?>
 	</tr>
-<?
+<?php 
 	$tabControl->EndCustomField("ACTIVE", '<input type="hidden" name="ACTIVE" value="'.$str_ACTIVE.'">');
 else:
 	$tabControl->HideField('ACTIVE');
@@ -637,33 +637,33 @@ if(!CMain::IsHTTPS() && COption::GetOptionString('main', 'use_encrypted_auth', '
 	}
 }
 ?>
-	<tr id="bx_pass_row" style="display:<?=($str_EXTERNAL_AUTH_ID <> ''? 'none':'')?>;"<?if($ID<=0 || $COPY_ID>0):?> class="adm-detail-required-field"<?endif?>>
-		<td><?echo GetMessage('NEW_PASSWORD_REQ')?>:<sup><span class="required">1</span></sup></td>
-		<td><input type="password" name="NEW_PASSWORD" size="30" maxlength="255" value="<? echo htmlspecialcharsbx($NEW_PASSWORD) ?>" autocomplete="off" style="vertical-align:middle;">
-<?if($bSecure):?>
-				<span class="bx-auth-secure" id="bx_auth_secure" title="<?echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
+	<tr id="bx_pass_row" style="display:<?=($str_EXTERNAL_AUTH_ID <> ''? 'none':'')?>;"<?php if($ID<=0 || $COPY_ID>0):?> class="adm-detail-required-field"<?php endif?>>
+		<td><?php echo GetMessage('NEW_PASSWORD_REQ')?>:<sup><span class="required">1</span></sup></td>
+		<td><input type="password" name="NEW_PASSWORD" size="30" maxlength="255" value="<?php  echo htmlspecialcharsbx($NEW_PASSWORD) ?>" autocomplete="off" style="vertical-align:middle;">
+<?php if($bSecure):?>
+				<span class="bx-auth-secure" id="bx_auth_secure" title="<?php echo GetMessage("AUTH_SECURE_NOTE")?>" style="display:none">
 					<div class="bx-auth-secure-icon"></div>
 				</span>
 				<noscript>
-				<span class="bx-auth-secure" title="<?echo GetMessage("AUTH_NONSECURE_NOTE")?>">
+				<span class="bx-auth-secure" title="<?php echo GetMessage("AUTH_NONSECURE_NOTE")?>">
 					<div class="bx-auth-secure-icon bx-auth-secure-unlock"></div>
 				</span>
 				</noscript>
 <script type="text/javascript">
 document.getElementById('bx_auth_secure').style.display = 'inline-block';
 </script>
-<?endif?>
+<?php endif?>
 		</td>
 	</tr>
-	<tr id="bx_pass_confirm_row" style="display:<?=($str_EXTERNAL_AUTH_ID <> ''? 'none':'')?>;"<?if($ID<=0 || $COPY_ID>0):?> class="adm-detail-required-field"<?endif?>>
-		<td><?echo GetMessage('NEW_PASSWORD_CONFIRM')?></td>
-		<td><input type="password" name="NEW_PASSWORD_CONFIRM" size="30" maxlength="255" value="<? echo htmlspecialcharsbx($NEW_PASSWORD_CONFIRM) ?>" autocomplete="off"></td>
+	<tr id="bx_pass_confirm_row" style="display:<?=($str_EXTERNAL_AUTH_ID <> ''? 'none':'')?>;"<?php if($ID<=0 || $COPY_ID>0):?> class="adm-detail-required-field"<?php endif?>>
+		<td><?php echo GetMessage('NEW_PASSWORD_CONFIRM')?></td>
+		<td><input type="password" name="NEW_PASSWORD_CONFIRM" size="30" maxlength="255" value="<?php  echo htmlspecialcharsbx($NEW_PASSWORD_CONFIRM) ?>" autocomplete="off"></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("PASSWORD");
 ?>
-<?if($USER->CanDoOperation('view_all_users')):?>
-<?
+<?php if($USER->CanDoOperation('view_all_users')):?>
+<?php 
 	$arAuthList = array();
 	$rExtAuth = CUser::GetExternalAuthList();
 	while($arExtAuth = $rExtAuth->GetNext())
@@ -677,7 +677,7 @@ $tabControl->EndCustomField("PASSWORD");
 		$tabControl->BeginCustomField("EXTERNAL_AUTH_ID", GetMessage('MAIN_USERED_AUTH_TYPE'));
 ?>
 		<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
 		<td>
 <script type="text/javascript">
 function BXAuthSwitch(val)
@@ -686,15 +686,15 @@ function BXAuthSwitch(val)
 	BX('bx_pass_row').style.display = BX('bx_pass_confirm_row').style.display = (val == ''? '':'none');
 }
 </script>
-			<select id="bx_EXTERNAL_AUTH_ID" name="EXTERNAL_AUTH_ID"<?if(!$canSelfEdit) echo " disabled"?> onchange="BXAuthSwitch(this.value)">
-				<option value=""><?echo GetMessage("MAIN_USERED_AUTH_INT")?></option>
-				<?foreach($arAuthList as $arExtAuth):?>
-				<option value="<?=$arExtAuth['ID']?>"<?if($str_EXTERNAL_AUTH_ID == $arExtAuth['ID']) echo ' selected';?>><?=$arExtAuth['NAME']?></option>
-				<?endforeach;?>
+			<select id="bx_EXTERNAL_AUTH_ID" name="EXTERNAL_AUTH_ID"<?php if(!$canSelfEdit) echo " disabled"?> onchange="BXAuthSwitch(this.value)">
+				<option value=""><?php echo GetMessage("MAIN_USERED_AUTH_INT")?></option>
+				<?php foreach($arAuthList as $arExtAuth):?>
+				<option value="<?=$arExtAuth['ID']?>"<?php if($str_EXTERNAL_AUTH_ID == $arExtAuth['ID']) echo ' selected';?>><?=$arExtAuth['NAME']?></option>
+				<?php endforeach;?>
 			</select>
 		</td>
 		</tr>
-<?
+<?php 
 		$tabControl->EndCustomField("EXTERNAL_AUTH_ID", '<input type="hidden" name="EXTERNAL_AUTH_ID" value="'.$str_EXTERNAL_AUTH_ID.'">');
 
 	endif;
@@ -702,16 +702,16 @@ endif;
 
 $tabControl->AddEditField("XML_ID", GetMessage("MAIN_USER_EDIT_EXT"), false, array("size"=>30, "maxlength"=>255), $str_XML_ID);
 ?>
-<?
+<?php 
 if($USER->CanDoOperation('view_subordinate_users') || $USER->CanDoOperation('view_all_users') || $USER->CanDoOperation('edit_all_users') || $USER->CanDoOperation('edit_subordinate_users')):
 	$tabControl->BeginCustomField("LID", GetMessage("MAIN_DEFAULT_SITE"));
 ?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?></td>
-		<?if(!$canSelfEdit) $dis = " disabled"?>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
+		<?php if(!$canSelfEdit) $dis = " disabled"?>
 		<td><?=CSite::SelectBox("LID", $str_LID, "", "", "style=\"width:220px\"".$dis);?></td>
 	</tr>
-<?
+<?php 
 	$tabControl->EndCustomField("LID", '<input type="hidden" name="LID" value="'.$str_LID.'">');
 
 	$langOptions = array("" => GetMessage("user_edit_lang_not_set"));
@@ -737,7 +737,7 @@ if(CTimeZone::Enabled())
 	$tabControl->AddDropDownField("TIME_ZONE", GetMessage("user_edit_time_zones_zones"), false, CTimeZone::GetZones(), $str_TIME_ZONE, ($str_AUTO_TIME_ZONE<>"N"? array('disabled') : array()));
 }
 ?>
-<?
+<?php 
 if($showGroupTabs):
 	$tabControl->BeginNextFormTab();
 	$tabControl->BeginCustomField("GROUP_ID", GetMessage("user_edit_form_groups"));
@@ -746,10 +746,10 @@ if($showGroupTabs):
 		<td colspan="2" align="center">
 			<table border="0" cellpadding="0" cellspacing="0" class="internal" style="width:80%;">
 			<tr class="heading">
-				<td colspan="2"><?echo GetMessage("TBL_GROUP")?></td>
+				<td colspan="2"><?php echo GetMessage("TBL_GROUP")?></td>
 				<td><?=GetMessage('TBL_GROUP_DATE')?></td>
 			</tr>
-			<?
+			<?php 
 			$ind = -1;
 			$dbGroups = CGroup::GetList(($b = "c_sort"), ($o = "asc"), array("ANONYMOUS" => "N"));
 			while ($arGroups = $dbGroups->Fetch())
@@ -763,29 +763,29 @@ if($showGroupTabs):
 				?>
 				<tr>
 					<td>
-						<input type="hidden" name="GROUP_ID_<?=$ind?>" value="<?=$arGroups["ID"]?>" /><input type="checkbox" name="GROUP_ID_ACT_<?=$ind?>" id="GROUP_ID_ACT_ID_<?=$ind?>" value="Y"<?
+						<input type="hidden" name="GROUP_ID_<?=$ind?>" value="<?=$arGroups["ID"]?>" /><input type="checkbox" name="GROUP_ID_ACT_<?=$ind?>" id="GROUP_ID_ACT_ID_<?=$ind?>" value="Y"<?php 
 						if (array_key_exists($arGroups["ID"], $str_GROUP_ID))
 							echo " checked=\"checked\"";
 						?> />
 					</td>
 					<td class="align-left">
-						<label for="GROUP_ID_ACT_ID_<?= $ind ?>"><?=htmlspecialcharsbx($arGroups["NAME"])?> [<a href="/bitrix/admin/group_edit.php?ID=<?=$arGroups["ID"]?>&lang=<?=LANGUAGE_ID?>" title="<?=GetMessage("MAIN_VIEW_GROUP")?>"><?echo intval($arGroups["ID"])?></a>]</label>
+						<label for="GROUP_ID_ACT_ID_<?= $ind ?>"><?=htmlspecialcharsbx($arGroups["NAME"])?> [<a href="/bitrix/admin/group_edit.php?ID=<?=$arGroups["ID"]?>&lang=<?=LANGUAGE_ID?>" title="<?=GetMessage("MAIN_VIEW_GROUP")?>"><?php echo intval($arGroups["ID"])?></a>]</label>
 					</td>
 					<td>
 						<?= CalendarDate("GROUP_ID_FROM_".$ind, (array_key_exists($arGroups["ID"], $str_GROUP_ID) ? htmlspecialcharsbx($str_GROUP_ID[$arGroups["ID"]]["DATE_ACTIVE_FROM"]) : ""), $tabControl->GetFormName(), "22")?>
 						<?= CalendarDate("GROUP_ID_TO_".$ind, (array_key_exists($arGroups["ID"], $str_GROUP_ID) ? htmlspecialcharsbx($str_GROUP_ID[$arGroups["ID"]]["DATE_ACTIVE_TO"]) : ""), $tabControl->GetFormName(), "22")?>
 					</td>
 				</tr>
-				<?
+				<?php 
 			}
 			?>
 		</table><input type="hidden" name="GROUP_ID_NUMBER" value="<?= $ind ?>"></td>
 	</tr>
-<?
+<?php 
 	$tabControl->EndCustomField("GROUP_ID");
 endif;
 ?>
-<?
+<?php 
 $tabControl->BeginNextFormTab();
 
 $tabControl->AddEditField("PERSONAL_PROFESSION", GetMessage('USER_PROFESSION'), false, array("size"=>30, "maxlength"=>255), $str_PERSONAL_PROFESSION);
@@ -805,10 +805,10 @@ $tabControl->AddSection("USER_POST_ADDRESS", GetMessage("USER_POST_ADDRESS"));
 $tabControl->BeginCustomField("PERSONAL_COUNTRY", GetMessage('USER_COUNTRY'));
 ?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?></td>
-		<td><?echo SelectBoxFromArray("PERSONAL_COUNTRY", GetCountryArray(), $str_PERSONAL_COUNTRY, GetMessage("USER_DONT_KNOW"));?></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
+		<td><?php echo SelectBoxFromArray("PERSONAL_COUNTRY", GetCountryArray(), $str_PERSONAL_COUNTRY, GetMessage("USER_DONT_KNOW"));?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("PERSONAL_COUNTRY", '<input type="hidden" name="PERSONAL_COUNTRY" value="'.$str_PERSONAL_COUNTRY.'">');
 $tabControl->AddEditField("PERSONAL_STATE", GetMessage('USER_STATE'), false, array("size"=>30, "maxlength"=>255), $str_PERSONAL_STATE);
 $tabControl->AddEditField("PERSONAL_CITY", GetMessage('USER_CITY'), false, array("size"=>30, "maxlength"=>255), $str_PERSONAL_CITY);
@@ -835,10 +835,10 @@ $tabControl->AddSection("USER_WORK_POST_ADDRESS", GetMessage("USER_POST_ADDRESS"
 $tabControl->BeginCustomField("WORK_COUNTRY", GetMessage('USER_COUNTRY'));
 ?>
 	<tr>
-		<td><?echo $tabControl->GetCustomLabelHTML()?></td>
-		<td><?echo SelectBoxFromArray("WORK_COUNTRY", GetCountryArray(), $str_WORK_COUNTRY, GetMessage("USER_DONT_KNOW"));?></td>
+		<td><?php echo $tabControl->GetCustomLabelHTML()?></td>
+		<td><?php echo SelectBoxFromArray("WORK_COUNTRY", GetCountryArray(), $str_WORK_COUNTRY, GetMessage("USER_DONT_KNOW"));?></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("WORK_COUNTRY", '<input type="hidden" name="WORK_COUNTRY" value="'.$str_WORK_COUNTRY.'">');
 $tabControl->AddEditField("WORK_STATE", GetMessage('USER_STATE'), false, array("size"=>30, "maxlength"=>255), $str_WORK_STATE);
 $tabControl->AddEditField("WORK_CITY", GetMessage('USER_CITY'), false, array("size"=>30, "maxlength"=>255), $str_WORK_CITY);
@@ -852,7 +852,7 @@ $tabControl->BeginCustomField("RATING_BOX", GetMessage("USER_RATING_INFO"), fals
 ?>
 	<tr>
 		<td width="100%" colspan="100%">
-		<?
+		<?php 
 		$i = 1;
 		$aTabs2 = array();
 		$arRatings = array();
@@ -884,16 +884,16 @@ $tabControl->BeginCustomField("RATING_BOX", GetMessage("USER_RATING_INFO"), fals
 				$viewTabControl->BeginNextTab();
 				?>
 					<table cellspacing="7" cellpadding="0" border="0" width="100%" class="edit-table">
-				<?	if ($USER->CanDoOperation('edit_ratings') && ($selfEdit || $ID!=$uid)): ?>
+				<?php 	if ($USER->CanDoOperation('edit_ratings') && ($selfEdit || $ID!=$uid)): ?>
 					<tr>
 						<td class="field-name" width="40%"><?=GetMessage('RATING_BONUS')?>:<sup><span class="required">2</span></sup></td>
 						<td><?=InputType('text', "RATING_BONUS[$ratingId]", floatval($arRatingUserProp['BONUS']), false, false, '', 'size="5" maxlength="11"')?> <?=($ratingWeightType == 'auto'? 'x '.GetMessage('RATING_NORM_VOTE_WEIGHT'): '')?></td>
 					</tr>
-				<? endif; ?>
+				<?php  endif; ?>
 					<tr>
 						<td class="field-name" width="40%"><?=GetMessage('RATING_POSITION')?>:</td>
 						<td>
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							"bitrix:rating.result", "",
 							array(
 								"RESULT_TYPE" 			=> 'POSITION',
@@ -916,7 +916,7 @@ $tabControl->BeginCustomField("RATING_BOX", GetMessage("USER_RATING_INFO"), fals
 						<td class="field-name" width="40%"><?=GetMessage('RATING_PREVIOUS_VALUE')?>:</td>
 						<td><?=floatval($arRatingResult['PREVIOUS_VALUE']);?></td>
 					</tr>
-					<?
+					<?php 
 						if ($arRating['AUTHORITY'] == 'Y')
 						{
 							if ($ratingWeightType == 'auto')
@@ -936,7 +936,7 @@ $tabControl->BeginCustomField("RATING_BOX", GetMessage("USER_RATING_INFO"), fals
 									<td class="field-name" width="40%"><?=GetMessage('RATING_VOTE_NORM_VOTE')?>:</td>
 									<td><?=$normVoteCount?></td>
 								</tr>
-								<?
+								<?php 
 							}
 							else
 							{
@@ -955,11 +955,11 @@ $tabControl->BeginCustomField("RATING_BOX", GetMessage("USER_RATING_INFO"), fals
 								<td class="field-name" width="40%"><?=GetMessage('RATING_VOTE_AUTHORITY_COUNT')?>:</td>
 								<td><?=floatval($arRatingUserProp['VOTE_COUNT']);?></td>
 							</tr>
-							<?
+							<?php 
 						}
 						?>
 					</table>
-				<?
+				<?php 
 			}
 			$viewTabControl->End();
 		}
@@ -968,7 +968,7 @@ $tabControl->BeginCustomField("RATING_BOX", GetMessage("USER_RATING_INFO"), fals
 		?>
 		</td>
 	</tr>
-<?
+<?php 
 $tabControl->EndCustomField("RATING_BOX");
 
 $db_opt_res = CModule::GetList();
@@ -994,9 +994,9 @@ if (($editable && $ID!=$USER->GetID()) || $USER->IsAdmin()):
 	$tabControl->BeginCustomField("ADMIN_NOTES", GetMessage("USER_ADMIN_NOTES"));
 ?>
 	<tr>
-		<td align="center" colspan="2"><textarea name="ADMIN_NOTES" cols="50" rows="10" style="width:100%;"><?echo $str_ADMIN_NOTES?></textarea></td>
+		<td align="center" colspan="2"><textarea name="ADMIN_NOTES" cols="50" rows="10" style="width:100%;"><?php echo $str_ADMIN_NOTES?></textarea></td>
 	</tr>
-<?
+<?php 
 	$tabControl->EndCustomField("ADMIN_NOTES", '<input type="hidden" name="ADMIN_NOTES" value="'.$str_ADMIN_NOTES.'">');
 endif;
 
@@ -1033,12 +1033,12 @@ $tabControl->Show();
 $tabControl->ShowWarnings($tabControl->GetName(), $message);
 ?>
 
-<?if(!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1):?>
-<?echo BeginNote();?>
-<span class="required">1</span> <?$GROUP_POLICY = CUser::GetGroupPolicy($ID);echo $GROUP_POLICY["PASSWORD_REQUIREMENTS"];?><br>
-<span class="required">2</span> <?echo GetMessage("RATING_BONUS_NOTICE")?><br>
-<?echo EndNote();?>
-<?endif;?>
+<?php if(!defined('BX_PUBLIC_MODE') || BX_PUBLIC_MODE != 1):?>
+<?php echo BeginNote();?>
+<span class="required">1</span> <?php $GROUP_POLICY = CUser::GetGroupPolicy($ID);echo $GROUP_POLICY["PASSWORD_REQUIREMENTS"];?><br>
+<span class="required">2</span> <?php echo GetMessage("RATING_BONUS_NOTICE")?><br>
+<?php echo EndNote();?>
+<?php endif;?>
 
-<?
+<?php 
 require_once ($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin.php");

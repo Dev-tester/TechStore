@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SCALE_ORDER_TITLE'] = "Список заказов VPS";
 $MESS ['SCALE_ORDER_ACCESS_DENIED'] = "Доступ запрещен";
 $MESS ['SCALE_ORDER_MODULE_NOT_INSTALLED'] = "Ошибка подключения модуля \"Управление масштабированием\"";

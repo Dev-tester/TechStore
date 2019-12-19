@@ -1,1 +1,1 @@
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/public/clear_component_cache.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/public/clear_component_cache.php");?>

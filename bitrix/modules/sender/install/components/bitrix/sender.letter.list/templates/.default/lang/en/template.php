@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_LETTER_LIST_BTN_ADD"] = "Create campaign";
 $MESS["SENDER_LETTER_LIST_BTN_COPY"] = "Copy";
 $MESS["SENDER_LETTER_LIST_BTN_COPY_TITLE"] = "Copy";

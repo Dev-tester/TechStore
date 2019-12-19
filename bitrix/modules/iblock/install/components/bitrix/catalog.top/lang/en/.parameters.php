@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ACTIONS"] = "Action settings";
 $MESS["IBLOCK_EXTENDED_SETTINGS"] = "Extended parameters";
 $MESS["IBLOCK_DETAIL_URL"] = "URL of the page with the detail contents";

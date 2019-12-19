@@ -110,31 +110,31 @@ if (function_exists("ImageCreate")) :
 
 if ((strlen($strError)==0) && count($arrLegend)>0) :
 ?>
-<?
+<?php 
 	$width = COption::GetOptionString("statistic", "GRAPH_WEIGHT");
 	$height = COption::GetOptionString("statistic", "GRAPH_HEIGHT");
 	$diameter = COption::GetOptionString("statistic", "DIAGRAM_DIAMETER");
 ?>
-<?if($found):?>
-	<?if(count($arrDays) > 1):?>
+<?php if($found):?>
+	<?php if(count($arrDays) > 1):?>
 	<div class="graph">
 	<table border="0" cellspacing="1" cellpadding="0" align="center">
 		<tr>
 			<td valign="center">
-				<img src="/bitrix/admin/country_graph.php?find_data_type=<?=$find_data_type?><?=GetFilterParams($FilterArr)?>&width=<?=$width?>&height=<?=$height?>&lang=<? echo LANG?>" width="<?=$width?>" height="<?=$height?>"></td>
+				<img src="/bitrix/admin/country_graph.php?find_data_type=<?=$find_data_type?><?=GetFilterParams($FilterArr)?>&width=<?=$width?>&height=<?=$height?>&lang=<?php  echo LANG?>" width="<?=$width?>" height="<?=$height?>"></td>
 			</td>
 		</tr>
 	</table>
 	</div>
-	<?endif;?>
+	<?php endif;?>
 <div class="graph">
-<?echo GetMessage("STAT_DYNAMIC_GRAPH2")?>
+<?php echo GetMessage("STAT_DYNAMIC_GRAPH2")?>
 <table cellspacing=0 cellpadding=10 class="graph" align="center">
 	<tr>
 		<td valign="center"><img src="/bitrix/admin/country_diagram.php?<?=GetFilterParams($FilterArr)?>&lang=<?=LANG?>&find_data_type=<?=$find_data_type?>" width="<?=$diameter?>" height="<?=$diameter?>"></td>
 		<td valign="center">
 			<table cellpadding=2 cellspacing=0 border=0 class="legend">
-				<?
+				<?php 
 				function data_sort($ar1, $ar2)
 				{
 					global $find_data_type;
@@ -164,37 +164,37 @@ if ((strlen($strError)==0) && count($arrLegend)>0) :
 					<td valign="center" class="color">
 						<div style="background-color: <?="#".$color?>"></div>
 					</td>
-					<td class="number" nowrap><?echo sprintf("%01.2f", $procent)."%"?></td>
-					<td  nowrap>(<?
+					<td class="number" nowrap><?php echo sprintf("%01.2f", $procent)."%"?></td>
+					<td  nowrap>(<?php 
 					if ($find_data_type=="SESSIONS") :
-					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?php echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="NEW_GUESTS") :
-					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_sess2=1&amp;find_period_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_period_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?php echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_sess2=1&amp;find_period_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_period_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="HITS") :
-					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?php echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="C_EVENTS") :
-					?><a href="/bitrix/admin/event_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/event_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?php echo urlencode($id)?>&amp;find_country_id_exact_match=Y&amp;find_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;set_filter=Y"><?=$counter?></a><?php 
 					endif;
 					?>)</td>
-					<td class="number" nowrap><?
+					<td class="number" nowrap><?php 
 					$flag = "/bitrix/images/statistic/flags/".strtolower($id).".gif";
 					if (file_exists($_SERVER["DOCUMENT_ROOT"].$flag)) :
-						?><img src="<?=$flag?>" width="20" height="13" border=0 alt=""><?
+						?><img src="<?=$flag?>" width="20" height="13" border=0 alt=""><?php 
 					endif;
 					?></td>
-					<td nowrap><a href="city_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?echo urlencode($id)?>&amp;find_date1=<?echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?echo urlencode($arFilter["DATE2"])?>&amp;find_data_type=<?=$find_data_type?>&amp;set_filter=Y">[<?=htmlspecialcharsbx($id)?>] <?=htmlspecialcharsbx($name)?></a></td>
+					<td nowrap><a href="city_list.php?lang=<?=LANGUAGE_ID?>&amp;find_country_id=<?php echo urlencode($id)?>&amp;find_date1=<?php echo urlencode($arFilter["DATE1"])?>&amp;find_date2=<?php echo urlencode($arFilter["DATE2"])?>&amp;find_data_type=<?=$find_data_type?>&amp;set_filter=Y">[<?=htmlspecialcharsbx($id)?>] <?=htmlspecialcharsbx($name)?></a></td>
 				</tr>
-				<?endwhile;?>
+				<?php endwhile;?>
 			</table>
 		</td>
 	</tr>
 </table>
 </div>
-<?else:
+<?php else:
 	CAdminMessage::ShowMessage(GetMessage("STAT_NO_DATA"));
 endif?>
 
-<?
+<?php 
 $found = false;
 foreach($arrLegend as $key => $val)
 {
@@ -206,13 +206,13 @@ foreach($arrLegend as $key => $val)
 if ($found):
 ?>
 <div class="graph">
-<?echo GetMessage("STAT_STATIC_GRAPH")?>
+<?php echo GetMessage("STAT_STATIC_GRAPH")?>
 <table cellspacing=0 cellpadding=10 class="graph" align="center">
 	<tr>
 		<td valign="center"><img src="/bitrix/admin/country_diagram.php?<?=GetFilterParams($FilterArr)?>&lang=<?=LANGUAGE_ID?>&find_data_type=<?=$find_data_type?>&diagram_type=TOTAL" width="<?=$diameter?>" height="<?=$diameter?>"></td>
 		<td valign="center">
 			<table cellpadding=2 cellspacing=0 border=0 class="legend">
-				<?
+				<?php 
 				function total_data_sort($ar1, $ar2)
 				{
 					global $find_data_type;
@@ -241,37 +241,37 @@ if ($found):
 					<td valign="center" class="color">
 						<div style="background-color: <?="#".$color?>"></div>
 					</td>
-					<td class="number" nowrap><?echo sprintf("%01.2f", $procent)."%"?></td>
-					<td  nowrap>(<?
+					<td class="number" nowrap><?php echo sprintf("%01.2f", $procent)."%"?></td>
+					<td  nowrap>(<?php 
 					if ($find_data_type=="SESSIONS") :
-					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?echo urlencode($id)?>&find_country_id_exact_match=Y&set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/session_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?php echo urlencode($id)?>&find_country_id_exact_match=Y&set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="NEW_GUESTS") :
-					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?echo urlencode($id)?>&find_country_id_exact_match=Y&find_sess2=1&set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/guest_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?php echo urlencode($id)?>&find_country_id_exact_match=Y&find_sess2=1&set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="HITS") :
-					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?echo urlencode($id)?>&find_country_id_exact_match=Y&set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/hit_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?php echo urlencode($id)?>&find_country_id_exact_match=Y&set_filter=Y"><?=$counter?></a><?php 
 					elseif ($find_data_type=="C_EVENTS") :
-					?><a href="/bitrix/admin/event_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?echo urlencode($id)?>&find_country_id_exact_match=Y&set_filter=Y"><?=$counter?></a><?
+					?><a href="/bitrix/admin/event_list.php?lang=<?=LANGUAGE_ID?>&find_country_id=<?php echo urlencode($id)?>&find_country_id_exact_match=Y&set_filter=Y"><?=$counter?></a><?php 
 					endif;
 					?>)</td>
-					<td class="number" nowrap><?
+					<td class="number" nowrap><?php 
 					$flag = "/bitrix/images/statistic/flags/".strtolower($id).".gif";
 					if (file_exists($_SERVER["DOCUMENT_ROOT"].$flag)) :
-						?><img src="<?=$flag?>" width="20" height="13" border=0 alt=""><?
+						?><img src="<?=$flag?>" width="20" height="13" border=0 alt=""><?php 
 					endif;
 					?></td>
 					<td nowrap>[<?=htmlspecialcharsbx($id)?>] <?=htmlspecialcharsbx($name)?></td>
 				</tr>
-				<?endwhile;?>
+				<?php endwhile;?>
 			</table>
 		</td>
 	</tr>
 </table>
 </div>
-<?else:
+<?php else:
 	CAdminMessage::ShowMessage(GetMessage("STAT_NO_DATA"));
 endif?>
-<?endif;?>
-<?
+<?php endif;?>
+<?php 
 else:
 	ShowError(GetMessage("STAT_GD_NOT_INSTALLED"));
 endif;
@@ -341,10 +341,10 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 ?>
 
 <form name="form1" method="post" action="<?=$APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <!-- <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_DATA_TYPE")?></td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_DATA_TYPE")?></td>
+	<td width="0%" nowrap><?php 
 		$arr = array(
 			"reference"=>array(
 				GetMessage("STAT_SESSIONS"),
@@ -361,11 +361,11 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 		?></td>
 </tr> -->
 <tr valign="top">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?></td>
 </tr>
 </tr>
-<?
+<?php 
 if (is_array($arrCOUNTRY)):
 
 	reset($arrCOUNTRY);
@@ -406,18 +406,18 @@ if (is_array($arrCOUNTRY)):
 	}
 ?>
 <tr valign="top">
-	<td valign="top"><?echo GetMessage("STAT_F_COUNTRY_ID")?>:<br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
-	<td><?
+	<td valign="top"><?php echo GetMessage("STAT_F_COUNTRY_ID")?>:<br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
+	<td><?php 
 	echo SelectBoxMFromArray("find_country_id[]",array("REFERENCE"=>$ref, "REFERENCE_ID"=>$ref_id), $find_country_id,"",false,"11", "style=\"width:100%\"");
 	?></td>
 </tr>
-<?endif;?>
+<?php endif;?>
 
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
 
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

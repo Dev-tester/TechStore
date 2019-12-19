@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Sale\Company\AdminPage\CompanyRules
 {
 	use Bitrix\Main\Application;

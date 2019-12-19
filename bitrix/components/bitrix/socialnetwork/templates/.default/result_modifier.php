@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (empty($arParams["RATING_TYPE"]))
 	$arParams["RATING_TYPE"] = COption::GetOptionString("main", "rating_vote_template", COption::GetOptionString("main", "rating_vote_type", "standart") == "like"? "like": "standart");
 $arParams["RATING_TYPE"] = ($arParams["RATING_TYPE"] == "like_graphic" ? "like" : ($arParams["RATING_TYPE"] == "standart" ? "standart_text" : $arParams["RATING_TYPE"]));
@@ -48,6 +48,6 @@ if (IsModuleInstalled('webdav'))
 		if (typeof oObjectWD != "object")
 			var oObjectWD = {};
 	</script>
-	<?
+	<?php 
 }
 ?>

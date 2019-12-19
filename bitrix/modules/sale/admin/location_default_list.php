@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
 
@@ -104,31 +104,31 @@ if(empty($fatal))
 } // empty($fatal)
 ?>
 
-<?$APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE'))?>
+<?php $APPLICATION->SetTitle(Loc::getMessage('SALE_LOCATION_L_EDIT_PAGE_TITLE'))?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
-<?
+<?php 
 #####################################
 #### Data output
 #####################################
 ?>
 
-<?//temporal code?>
-<?if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php //temporal code?>
+<?php if(!CSaleLocation::locationProCheckEnabled())require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
 
-<?SearchHelper::checkIndexesValid();?>
+<?php SearchHelper::checkIndexesValid();?>
 
-<?if(strlen($fatal)):?>
+<?php if(strlen($fatal)):?>
 
 	<div class="error-message">
-		<?CAdminMessage::ShowMessage(array('MESSAGE' => $fatal, 'type' => 'ERROR'))?>
+		<?php CAdminMessage::ShowMessage(array('MESSAGE' => $fatal, 'type' => 'ERROR'))?>
 	</div>
 
-<?else:?>
+<?php else:?>
 
-	<?$lAdmin->DisplayList();?>
+	<?php $lAdmin->DisplayList();?>
 
-<?endif?>
+<?php endif?>
 
-<?require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($DOCUMENT_ROOT."/bitrix/modules/main/include/epilog_admin.php");?>

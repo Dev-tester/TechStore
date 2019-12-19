@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
 <?php
 /** @var $APPLICATION CAllMain */
 /** @var $arResult array */
@@ -6,21 +6,21 @@
 ?>
 <?php foreach($arResult['USERS'] as $user) { ?>
 <span class="bx-webdav-invite-users">
-	<span class="bx-webdav-invite-us-avatar"><?
+	<span class="bx-webdav-invite-us-avatar"><?php 
 		if(!empty($user['PHOTO_SRC']))
 		{
-			?><img height="21" width="21" src="<?= $user['PHOTO_SRC'] ?>" alt="<?= htmlspecialcharsbx($user['FORMATTED_NAME']); ?>"/><?
+			?><img height="21" width="21" src="<?= $user['PHOTO_SRC'] ?>" alt="<?= htmlspecialcharsbx($user['FORMATTED_NAME']); ?>"/><?php 
 		}
 	?></span>
-	<a class="bx-webdav-invite-us-name" href="<?= $user['HREF']; ?>" target="_blank" title="<?= htmlspecialcharsbx($user['FORMATTED_NAME']); ?>" ><?= htmlspecialcharsbx($user['FORMATTED_NAME']); ?></a><? if($arResult['CURRENT_USER_CAN_DETACH']){ ?><span onclick="diskDetachUser(this, <?= $arResult['OBJECT']['ID']; ?>, <?= $user['ID']; ?>, '<?= $arResult['URL_TO_DETACH_USER'] ?>')" class="bx-webdav-invite-us-set"></span><? } ?>
+	<a class="bx-webdav-invite-us-name" href="<?= $user['HREF']; ?>" target="_blank" title="<?= htmlspecialcharsbx($user['FORMATTED_NAME']); ?>" ><?= htmlspecialcharsbx($user['FORMATTED_NAME']); ?></a><?php  if($arResult['CURRENT_USER_CAN_DETACH']){ ?><span onclick="diskDetachUser(this, <?= $arResult['OBJECT']['ID']; ?>, <?= $user['ID']; ?>, '<?= $arResult['URL_TO_DETACH_USER'] ?>')" class="bx-webdav-invite-us-set"></span><?php  } ?>
 </span><?php } ?>
-<?
+<?php 
 if($arResult['PAGE'] != $arResult['TOTAL_PAGE']) {
 $portion = $arResult['TOTAL_COUNT'] - $arResult['PAGE']*$arResult['ON_PAGE'];
 ?>
 <div class="bx-webdav-invite-us-place-for-users"></div>
 <div class="bx-webdav-invite-us-more">
-	<? if($portion > 0) {?>
+	<?php  if($portion > 0) {?>
 	<span class="bx-webdav-invite-us-more-link" onclick="diskLoadPortionUsersList(this, <?= $arResult['OBJECT']['ID']; ?>, '<?= $arResult['USER_LIST_TYPE']; ?>', <?= ++$arResult['PAGE']; ?>, '<?= $arResult['URL_TO_SHOW_USER_LIST'] ?>');"><?=
 					\Bitrix\Disk\Ui\Text::getNumericCase(
 						$portion,
@@ -30,6 +30,6 @@ $portion = $arResult['TOTAL_COUNT'] - $arResult['PAGE']*$arResult['ON_PAGE'];
 						GetMessage('DISK_FOLDER_LIST_INVITE_MODAL_TAB_USERS_LOAD_MORE_COUNT_5_20', array('#COUNT#' => $portion))
 					);
 				?></span>
-	<? }?>
+	<?php  }?>
 </div>
-<? } ?>
+<?php  } ?>

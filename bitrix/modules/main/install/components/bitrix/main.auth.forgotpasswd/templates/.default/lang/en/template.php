@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_AUTH_PWD_FIELD_CAPTCHA"] = "Type the characters you see on the picture";
 $MESS["MAIN_AUTH_PWD_FIELD_EMAIL"] = "Email";
 $MESS["MAIN_AUTH_PWD_FIELD_LOGIN"] = "Login";

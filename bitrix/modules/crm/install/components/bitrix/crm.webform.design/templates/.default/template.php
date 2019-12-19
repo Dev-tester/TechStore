@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 /** @var array $arResult Component result. */
 /** @var array $arParams Component parameters. */
@@ -15,15 +15,15 @@ Extension::load(['core', 'ui.forms', 'ui.hint', 'ui.alerts', 'color_picker', 'ui
 Loc::loadMessages(__FILE__);
 $containerId = 'form-editor-v2';
 ?>
-<?if($arParams['IS_SAVED']):?>
+<?php if($arParams['IS_SAVED']):?>
 <script>
 	top.BX.onCustomEvent('crm-webform-design-save', [<?=Json::encode(
 		$arResult['DESIGN']
 	)?>]);
 </script>
-<?endif;?>
+<?php endif;?>
 <div id="<?=$containerId?>" class="crm-webform-editor-wrapper">
-	<?
+	<?php 
 	if (!$arResult['FORM']['ID']):
 		echo "</div>";
 		return;
@@ -67,14 +67,14 @@ $containerId = 'form-editor-v2';
 				<div class="ui-ctl ui-ctl-after-icon ui-ctl-dropdown">
 					<div class="ui-ctl-after ui-ctl-icon-angle"></div>
 					<select name="design-virtual-theme" class="ui-ctl-element">
-						<?foreach ($arResult['THEME_NAMES'] as $code => $name):?>
+						<?php foreach ($arResult['THEME_NAMES'] as $code => $name):?>
 							<option
 								value="<?=htmlspecialcharsbx($code)?>"
 								<?=(strpos($arResult['DESIGN']['theme'], $code) === 0 ? 'selected' : '')?>
 							>
 								<?=htmlspecialcharsbx($name)?>
 							</option>
-						<?endforeach;?>
+						<?php endforeach;?>
 					</select>
 				</div>
 				<input type="hidden"
@@ -85,7 +85,7 @@ $containerId = 'form-editor-v2';
 
 			<div class="crm-webform-editor-field">
 				<div class="ui-ctl-label-text"><?=Loc::getMessage('CRM_WEBFORM_EDIT_V2_MODE')?></div>
-				<?foreach ($arResult['MODES'] as $code => $name):?>
+				<?php foreach ($arResult['MODES'] as $code => $name):?>
 					<label class="ui-ctl ui-ctl-radio ui-ctl-inline">
 						<input type="radio" name="design-virtual-mode" class="ui-ctl-element"
 							value="<?=htmlspecialcharsbx($code)?>"
@@ -93,7 +93,7 @@ $containerId = 'form-editor-v2';
 						>
 						<div class="ui-ctl-label-text"><?=htmlspecialcharsbx($name)?></div>
 					</label>
-				<?endforeach;?>
+				<?php endforeach;?>
 				<input type="hidden"
 					name="DESIGN[dark]"
 					value="<?=htmlspecialcharsbx($arResult['DESIGN']['dark'])?>"
@@ -109,7 +109,7 @@ $containerId = 'form-editor-v2';
 					>
 					<div class="ui-ctl-label-text"><?=Loc::getMessage('CRM_WEBFORM_EDIT_V2_STANDARD')?></div>
 				</label>
-				<?foreach ($arResult['STYLES'] as $code => $name):?>
+				<?php foreach ($arResult['STYLES'] as $code => $name):?>
 					<label class="ui-ctl ui-ctl-radio ui-ctl-inline">
 						<input type="radio" name="DESIGN[style]" class="ui-ctl-element"
 							value="<?=htmlspecialcharsbx($code)?>"
@@ -117,7 +117,7 @@ $containerId = 'form-editor-v2';
 						>
 						<div class="ui-ctl-label-text"><?=htmlspecialcharsbx($name)?></div>
 					</label>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</div>
 
 			<div class="crm-webform-editor-field">
@@ -319,7 +319,7 @@ $containerId = 'form-editor-v2';
 		</div>
 	</div>
 
-	<?$APPLICATION->IncludeComponent("bitrix:ui.button.panel", "", [
+	<?php $APPLICATION->IncludeComponent("bitrix:ui.button.panel", "", [
 		'BUTTONS' => $arResult['PERM_CAN_EDIT']
 			?
 			['save','cancel' => $arResult['PATH_TO_WEB_FORM_LIST']]

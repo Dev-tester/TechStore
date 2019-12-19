@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_before.php');
 
 $readOnly = $APPLICATION->GetGroupRight('sale') < 'W';
@@ -113,11 +113,11 @@ if ($adminSidePanelHelper->isSidePanel())
 		<input type="hidden" name="FILTER[PROVIDER_KEY]" value="<?=$filter['PROVIDER_KEY']?>">
 		<input type="hidden" name="FILTER[PROVIDER_VALUE]" value="<?=$filter['PROVIDER_VALUE']?>">
 
-		<?$businessValueControl->renderMap($filter)?>
+		<?php $businessValueControl->renderMap($filter)?>
 
 		<div class="adm-detail-content-btns-wrap">
 			<div class="adm-detail-content-btns">
-				<?
+				<?php 
 				echo '<input'.($aParams["disabled"] === true? " disabled":"")
 						.' type="submit" name="apply" value="'.GetMessage("admin_lib_edit_apply").'" title="'
 						.GetMessage("admin_lib_edit_apply_title").'" class="adm-btn-save" />';
@@ -127,5 +127,5 @@ if ($adminSidePanelHelper->isSidePanel())
 		</div>
 
 	</form>
-<?
+<?php 
 require($_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/epilog_admin.php');

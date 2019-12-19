@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SENDER_SEGMENT_LIST_BTN_ADD"] = "Создать сегмент";
 $MESS["SENDER_SEGMENT_LIST_BTN_EDIT"] = "Редактировать";
 $MESS["SENDER_SEGMENT_LIST_BTN_EDIT_TITLE"] = "Редактировать";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS['TASKS_TASK_COMPONENT_PARAM_ID'] = 'Идентификатор задачи';
 $MESS['TASKS_TASK_COMPONENT_PARAM_SUB_ENTITY_SELECT'] = 'Выбрать связанные сущности';
 $MESS['TASKS_TASK_COMPONENT_PARAM_SUB_ENTITY_TAG'] = 'Теги';

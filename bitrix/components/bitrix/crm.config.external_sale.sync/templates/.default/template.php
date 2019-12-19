@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 if (strlen($arResult["FatalErrorMessage"]) > 0)
 {
 	ShowError($arResult["FatalErrorMessage"]);
@@ -36,7 +36,7 @@ else
 	<div id="id_div_error_message" style="color:red; display: none;"><?= GetMessage("BPWC_WNCT_SYNC_ERROR_SYNC"); ?></div>
 	<div id="id_div_success_message" style="color:green; display: none;"><?= GetMessage("BPWC_WNCT_SYNC_SUCCESS_SYNC"); ?></div>
 
-	<?
+	<?php 
 	$arResult["FORM_ID"] = "form_crm_config_ext_sale_sync";
 
 	$arFieldsTmp1 = array();
@@ -69,7 +69,7 @@ else
 			</td>
 		</tr>
 	</table>
-	<?
+	<?php 
 	$statusValue = ob_get_contents();
 	ob_end_clean();
 	$arFieldsTmp1[] = array("id" => "STATUS", "name" => GetMessage("BPWC_WNCT_STATUS_CUR"), "type" => "custom", "value" => $statusValue);

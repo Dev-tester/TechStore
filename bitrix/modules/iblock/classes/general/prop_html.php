@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\Loader,
 	Bitrix\Main\Localization\Loc,
 	Bitrix\Iblock;
@@ -136,41 +136,41 @@ class CIBlockPropertyHTML
 		$settings = static::PrepareSettings($arProperty);
 
 		ob_start();
-		?><table width="100%"><?
+		?><table width="100%"><?php 
 		if($strHTMLControlName["MODE"]=="FORM_FILL" && COption::GetOptionString("iblock", "use_htmledit", "Y")=="Y" && Loader::includeModule("fileman")):
 		?><tr>
 			<td colspan="2" align="center">
 			<input type="hidden" name="<?=$strHTMLControlName["VALUE"]?>" value="">
-				<?
+				<?php 
 				$text_name = preg_replace("/([^a-z0-9])/is", "_", $strHTMLControlName["VALUE"]."[TEXT]");
 				$text_type = preg_replace("/([^a-z0-9])/is", "_", $strHTMLControlName["VALUE"]."[TYPE]");
 				CFileMan::AddHTMLEditorFrame($text_name, htmlspecialcharsBx($ar["TEXT"]), $text_type, strtolower($ar["TYPE"]), $settings['height'], "N", 0, "", "");
 				?>
 			</td>
 		</tr>
-		<?else:?>
+		<?php else:?>
 		<tr>
-			<td align="right"><?echo Loc::getMessage("IBLOCK_DESC_TYPE")?></td>
+			<td align="right"><?php echo Loc::getMessage("IBLOCK_DESC_TYPE")?></td>
 			<td align="left">
-				<input type="radio" name="<?=$strHTMLControlName["VALUE"]?>[TYPE]" id="<?=$strHTMLControlName["VALUE"]?>[TYPE][TEXT]" value="text" <?if($ar["TYPE"]!="html")echo " checked"?>>
-				<label for="<?=$strHTMLControlName["VALUE"]?>[TYPE][TEXT]"><?echo Loc::getMessage("IBLOCK_DESC_TYPE_TEXT")?></label> /
-				<input type="radio" name="<?=$strHTMLControlName["VALUE"]?>[TYPE]" id="<?=$strHTMLControlName["VALUE"]?>[TYPE][HTML]" value="html"<?if($ar["TYPE"]=="html")echo " checked"?>>
-				<label for="<?=$strHTMLControlName["VALUE"]?>[TYPE][HTML]"><?echo Loc::getMessage("IBLOCK_DESC_TYPE_HTML")?></label>
+				<input type="radio" name="<?=$strHTMLControlName["VALUE"]?>[TYPE]" id="<?=$strHTMLControlName["VALUE"]?>[TYPE][TEXT]" value="text" <?php if($ar["TYPE"]!="html")echo " checked"?>>
+				<label for="<?=$strHTMLControlName["VALUE"]?>[TYPE][TEXT]"><?php echo Loc::getMessage("IBLOCK_DESC_TYPE_TEXT")?></label> /
+				<input type="radio" name="<?=$strHTMLControlName["VALUE"]?>[TYPE]" id="<?=$strHTMLControlName["VALUE"]?>[TYPE][HTML]" value="html"<?php if($ar["TYPE"]=="html")echo " checked"?>>
+				<label for="<?=$strHTMLControlName["VALUE"]?>[TYPE][HTML]"><?php echo Loc::getMessage("IBLOCK_DESC_TYPE_HTML")?></label>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center"><textarea cols="60" rows="10" name="<?=$strHTMLControlName["VALUE"]?>[TEXT]" style="width:100%"><?=htmlspecialcharsEx($ar["TEXT"])?></textarea></td>
 		</tr>
-		<?endif;
+		<?php endif;
 		if (($arProperty["WITH_DESCRIPTION"]=="Y") && ('' != trim($strHTMLControlName["DESCRIPTION"]))):?>
 		<tr>
 			<td colspan="2">
-				<span title="<?echo Loc::getMessage("IBLOCK_PROP_HTML_DESCRIPTION_TITLE")?>"><?echo Loc::getMessage("IBLOCK_PROP_HTML_DESCRIPTION_LABEL")?>:<input type="text" name="<?=$strHTMLControlName["DESCRIPTION"]?>" value="<?=$value["DESCRIPTION"]?>" size="18"></span>
+				<span title="<?php echo Loc::getMessage("IBLOCK_PROP_HTML_DESCRIPTION_TITLE")?>"><?php echo Loc::getMessage("IBLOCK_PROP_HTML_DESCRIPTION_LABEL")?>:<input type="text" name="<?=$strHTMLControlName["DESCRIPTION"]?>" value="<?=$value["DESCRIPTION"]?>" size="18"></span>
 			</td>
 		</tr>
-		<?endif;?>
+		<?php endif;?>
 		</table>
-		<?
+		<?php 
 		$return = ob_get_contents();
 		ob_end_clean();
 		return  $return;

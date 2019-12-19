@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIL_MSERVICE_EDT_TITLE_1"] = "Edit e-mail service ##ID#";
 $MESS["MAIL_MSERVICE_EDT_TITLE_2"] = "New e-mail service";
 $MESS["MAIL_MSERVICE_EDT_BACK_LINK"] = "E-mail services";

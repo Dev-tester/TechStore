@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPWC_WNCT_2LIST'] = "Список интернет-магазинов";
 $MESS ['BPWC_WNCT_2SYNC'] = "Синхронизация";
 $MESS ['BPWC_WNCT_TAB1'] = "Магазин";

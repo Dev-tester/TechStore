@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SS_GET_COMPONENT_INFO"] = "You can link your account to:";
 $MESS["SS_NAME"] = "Name";
 $MESS["SS_SOCNET"] = "Social network";

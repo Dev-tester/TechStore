@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_OTP_NEW_TITLE'] = "Двухэтапная авторизация";
 $MESS ['SEC_OTP_NEW_MAIN_TAB'] = "Двухэтапная авторизация";
 $MESS ['SEC_OTP_NEW_MAIN_TAB_TITLE'] = "Включение двухэтапной авторизации.";

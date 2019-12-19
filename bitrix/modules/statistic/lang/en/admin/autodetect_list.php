@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_SESSIONS"] = "Sessions";
 $MESS["STAT_RECORDS_LIST"] = "Unknown UserAgent autodetect";
 $MESS["STAT_F_USER_AGENT"] = "UserAgent:";

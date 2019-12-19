@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLO_STORAGE_GOOGLE_XML_PARSE_ERROR"] = "нераспознанный ответ службы (ошибка ##errno#)";
 $MESS["CLO_STORAGE_GOOGLE_XML_ERROR"] = "ошибка службы: #errmsg#";
 $MESS["CLO_STORAGE_GOOGLE_EMPTY_ACCESS_KEY"] = "Не задан ключ доступа.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_IB_CALENDAR_EMP_ABS'] = "Kundentermin";
 $MESS ['W_IB_CALENDAR_EMP_TAB1'] = "edit1--#--Termin--,--ACTIVE--#--  Eintrag ist aktiv--,--ACTIVE_FROM--#--  Startdatum--,--ACTIVE_TO--#--  Enddatum--,--NAME--#--*Ьberschrift --,--IBLOCK_ELEMENT_PROP_VALUE--#----Eigenschaften--,--PROPERTY_";
 $MESS ['W_IB_CALENDAR_EMP_TAB2'] = "--#--  Zeitraumtyp (NONE, DAILY, WEEKLY, MONTHLY, YEARLY)--,--PROPERTY_";

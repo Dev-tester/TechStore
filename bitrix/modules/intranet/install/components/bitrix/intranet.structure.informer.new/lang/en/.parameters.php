@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INTR_ISIA_PARAM_DETAIL_URL'] = "Detail View Page";
 $MESS ['INTR_ISIN_PARAM_NUM_USERS'] = "Show records";
 $MESS ['INTR_PREDEF_DEPARTMENT'] = "Department/Office";

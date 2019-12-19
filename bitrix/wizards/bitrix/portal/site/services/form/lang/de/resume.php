@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['ATTACH_FILE_QUESTION'] = "Ihr Lebenslauf als Anhang (.zip, .rar .doc)";
 $MESS ['EMAIL_QUESTION'] = "E-Mail";
 $MESS ['EXPERIENCE_QUESTION'] = "Kenntnisse und Erfahrungen";

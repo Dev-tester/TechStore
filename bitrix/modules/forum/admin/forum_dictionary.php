@@ -1,4 +1,4 @@
-<?
+<?php 
 /********************************************************************
 	Profanity dictionary.
 ********************************************************************/
@@ -147,11 +147,11 @@
 	);
 	?><form name="form1" method="get" action="<?=$APPLICATION->GetCurPage()?>">
 	<input type="hidden" name="TYPE" value="<?=htmlspecialcharsbx($TYPE)?>">
-	<?$oFilter->Begin();?>
+	<?php $oFilter->Begin();?>
 	<tr valign="center">
 		<td><b><?=GetMessage("FLT_HEAD_TITLE")?>:</b></td>
 		<td><input type="text" name="TITLE" value="<?=htmlspecialcharsbx($TITLE)?>" size="47"></td>
-	</tr><?
+	</tr><?php 
 	$oFilter->Buttons(
 		array(
 			"table_id" => $sTableID,
@@ -161,7 +161,7 @@
 	);
 
 	$oFilter->End();
-	?></form><?
+	?></form><?php 
 	$lAdmin->DisplayList();
 	require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

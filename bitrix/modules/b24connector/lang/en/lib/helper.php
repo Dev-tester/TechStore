@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_HLP_GM_TEXT"] = "Clients";
 $MESS["B24C_HLP_GM_TITLE"] = "Connect portal to Bitrix24";
 $MESS["B24C_HLP_INTEGRATION"] = "Client communications";

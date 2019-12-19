@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_PROP_ELEMENT_LIST_SETTING_SIZE"] = "Высота списка";
 $MESS["IBLOCK_PROP_ELEMENT_LIST_SETTING_WIDTH"] = "Ограничить по ширине (0 - не ограничивать)";
 $MESS["IBLOCK_PROP_ELEMENT_LIST_NO_VALUE"] = "(не установлено)";

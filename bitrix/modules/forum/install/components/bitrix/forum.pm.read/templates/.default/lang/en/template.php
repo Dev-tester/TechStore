@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_POST_FULLY'] = "Used space:";
 $MESS ['PM_ACT_REPLY'] = "Reply";
 $MESS ['PM_ACT_EDIT'] = "Edit";

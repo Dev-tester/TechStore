@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_RENDERPARTS_JS_DESTINATION_ALL"] = "All employees";
 $MESS["SONET_RENDERPARTS_JS_DESTINATION_ALL_BUS"] = "All users";
 $MESS["SONET_RENDERPARTS_JS_HIDDEN"] = "Hidden recipient";

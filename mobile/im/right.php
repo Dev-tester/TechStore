@@ -1,4 +1,4 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/mobile/headers.php");
 define('MOBILE_TEMPLATE_CSS', "/im_styles.css");
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");

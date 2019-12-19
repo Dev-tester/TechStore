@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_BL_LIST_ITEM_DATE_CREATE"] = "Created on";
 $MESS["B24C_BL_LIST_ITEM_ACTIVE_ON"] = "on";
 $MESS["B24C_BL_LIST_ITEM_ACTIVE_OFF"] = "off";

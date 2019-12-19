@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_EMPTY_FOLDER'] = "Нет ни одного письма.";
 $MESS ['PM_POST_FULLY'] = "Заполнение ящика:";
 $MESS ['PM_HEAD_SENDER'] = "Отправитель";

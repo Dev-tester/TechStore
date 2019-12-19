@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FTP_IN_FORUM'] = "в форуме &laquo;#FORUM#&raquo;";
 $MESS ['FTP_LAST_MESS'] = "Последнее сообщение темы";
 $MESS ['FTP_SORTING_TITLE'] = "Заголовок";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BITRIX24_THEME_DIALOG_TITLE"] = "Темы оформления";
 $MESS["BITRIX24_THEME_DIALOG_SAVE_BUTTON"] = "Сохранить";
 $MESS["BITRIX24_THEME_DIALOG_CANCEL_BUTTON"] = "Отменить";

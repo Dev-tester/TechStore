@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LISTS_SEAC_WRONG_IBLOCK_TYPE"] = "Неверный тип информационного блока.";
 $MESS["LISTS_SEAC_WRONG_IBLOCK"] = "Указан неверный список.";
 $MESS["LISTS_SEAC_LISTS_FOR_SONET_GROUP_DISABLED"] = "Функционал списков для этой группы отключен.";

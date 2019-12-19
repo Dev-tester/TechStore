@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMCONNECTOR_TAB_SETTINGS"] = "Messenger connectors";
 $MESS["IMCONNECTOR_FIELD_DEBUG_TITLE"] = "Enable debug mode";
 $MESS["IMCONNECTOR_FIELD_URI_CLIENT_TITLE"] = "Website public address";

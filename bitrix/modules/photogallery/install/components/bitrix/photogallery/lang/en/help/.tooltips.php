@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USE_LIGHT_VIEW_TIP"] = "If checked, the simple photo gallery mode will be used (default).";
 $MESS["SEF_MODE_TIP"] = "Enables the SEF mode. ";
 $MESS["IBLOCK_TYPE_TIP"] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type.";

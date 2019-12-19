@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FM_STATIC_CONTROL'] = "Browse";
 $MESS ['FM_STATIC_CONTROL_ALT'] = "Manage files, folders, menus and user access rights for the site structure";
 $MESS ['FM_MENU_TITLE'] = "Site Explorer";

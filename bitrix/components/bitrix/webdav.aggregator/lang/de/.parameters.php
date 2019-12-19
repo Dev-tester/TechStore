@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_USER_FILE_PATH"] = "Seite der Nutzerdokumente";
 $MESS["WD_GROUP_FILE_PATH"] = "Seite der Arbeitsgruppendokumente";
 $MESS["WD_IBLOCK_TYPE"] = "Typ eines Informationsblocks";

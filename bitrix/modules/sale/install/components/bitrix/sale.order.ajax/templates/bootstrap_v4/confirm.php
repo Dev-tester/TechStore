@@ -1,4 +1,4 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+<?php  if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Localization\Loc;
 
@@ -14,7 +14,7 @@ if ($arParams["SET_TITLE"] == "Y")
 }
 ?>
 
-<? if (!empty($arResult["ORDER"])): ?>
+<?php  if (!empty($arResult["ORDER"])): ?>
 
 	<div class="row mb-5">
 		<div class="col">
@@ -22,23 +22,23 @@ if ($arParams["SET_TITLE"] == "Y")
 				"#ORDER_DATE#" => $arResult["ORDER"]["DATE_INSERT"]->toUserTime()->format('d.m.Y H:i'),
 				"#ORDER_ID#" => $arResult["ORDER"]["ACCOUNT_NUMBER"]
 			))?>
-			<? if (!empty($arResult['ORDER']["PAYMENT_ID"])): ?>
+			<?php  if (!empty($arResult['ORDER']["PAYMENT_ID"])): ?>
 				<?=Loc::getMessage("SOA_PAYMENT_SUC", array(
 					"#PAYMENT_ID#" => $arResult['PAYMENT'][$arResult['ORDER']["PAYMENT_ID"]]['ACCOUNT_NUMBER']
 				))?>
-			<? endif ?>
+			<?php  endif ?>
 		</div>
 	</div>
 
-	<? if ($arParams['NO_PERSONAL'] !== 'Y'): ?>
+	<?php  if ($arParams['NO_PERSONAL'] !== 'Y'): ?>
 		<div class="row mb-5">
 			<div class="col">
 				<?=Loc::getMessage('SOA_ORDER_SUC1', ['#LINK#' => $arParams['PATH_TO_PERSONAL']])?>
 			</div>
 		</div>
-	<? endif; ?>
+	<?php  endif; ?>
 
-	<?
+	<?php 
 	if ($arResult["ORDER"]["IS_ALLOW_PAY"] === 'Y')
 	{
 		if (!empty($arResult["PAYMENT"]))
@@ -68,8 +68,8 @@ if ($arParams["SET_TITLE"] == "Y")
 							</div>
 							<div class="row mb-2">
 								<div class="col">
-									<? if (strlen($arPaySystem["ACTION_FILE"]) > 0 && $arPaySystem["NEW_WINDOW"] == "Y" && $arPaySystem["IS_CASH"] != "Y"): ?>
-									<?
+									<?php  if (strlen($arPaySystem["ACTION_FILE"]) > 0 && $arPaySystem["NEW_WINDOW"] == "Y" && $arPaySystem["IS_CASH"] != "Y"): ?>
+									<?php 
 										$orderAccountNumber = urlencode(urlencode($arResult["ORDER"]["ACCOUNT_NUMBER"]));
 										$paymentAccountNumber = $payment["ACCOUNT_NUMBER"];
 									?>
@@ -77,32 +77,32 @@ if ($arParams["SET_TITLE"] == "Y")
 										window.open('<?=$arParams["PATH_TO_PAYMENT"]?>?ORDER_ID=<?=$orderAccountNumber?>&PAYMENT_ID=<?=$paymentAccountNumber?>');
 									</script>
 									<?=Loc::getMessage("SOA_PAY_LINK", array("#LINK#" => $arParams["PATH_TO_PAYMENT"]."?ORDER_ID=".$orderAccountNumber."&PAYMENT_ID=".$paymentAccountNumber))?>
-									<? if (CSalePdf::isPdfAvailable() && $arPaySystem['IS_AFFORD_PDF']): ?>
+									<?php  if (CSalePdf::isPdfAvailable() && $arPaySystem['IS_AFFORD_PDF']): ?>
 									<br/>
 										<?=Loc::getMessage("SOA_PAY_PDF", array("#LINK#" => $arParams["PATH_TO_PAYMENT"]."?ORDER_ID=".$orderAccountNumber."&pdf=1&DOWNLOAD=Y"))?>
-									<? endif ?>
-									<? else: ?>
+									<?php  endif ?>
+									<?php  else: ?>
 										<?=$arPaySystem["BUFFERED_OUTPUT"]?>
-									<? endif ?>
+									<?php  endif ?>
 								</div>
 							</div>
 
 
 
-							<?
+							<?php 
 						}
 						else
 						{
 							?>
 							<div class="alert alert-danger" role="alert"><?=Loc::getMessage("SOA_ORDER_PS_ERROR")?></div>
-							<?
+							<?php 
 						}
 					}
 					else
 					{
 						?>
 						<div class="alert alert-danger" role="alert"><?=Loc::getMessage("SOA_ORDER_PS_ERROR")?></div>
-						<?
+						<?php 
 					}
 				}
 			}
@@ -112,11 +112,11 @@ if ($arParams["SET_TITLE"] == "Y")
 	{
 		?>
 		<div class="alert alert-danger" role="alert"><?=$arParams['MESS_PAY_SYSTEM_PAYABLE_ERROR']?></div>
-		<?
+		<?php 
 	}
 	?>
 
-<? else: ?>
+<?php  else: ?>
 
 
 	<div class="row mb-2">
@@ -127,4 +127,4 @@ if ($arParams["SET_TITLE"] == "Y")
 		</div>
 	</div>
 
-<? endif ?>
+<?php  endif ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 /*
 ##############################################
 # Bitrix: SiteManager                        #
@@ -89,6 +89,6 @@ switch($_REQUEST['action'])
 
 echo CUtil::PhpToJSObject($res, false);
 ?>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/include/epilog_admin_after.php");
 ?>

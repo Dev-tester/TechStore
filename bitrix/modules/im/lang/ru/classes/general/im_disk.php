@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_DISK_LOCAL_FOLDER_B24_TITLE"] = "Бизнес-чат - сохраненные файлы";
 $MESS["IM_DISK_LOCAL_FOLDER_TITLE"] = "Веб-мессенджер - сохраненные файлы";
 $MESS["IM_DISK_STORAGE_TITLE"] = "Хранилище для Веб-мессенджера";

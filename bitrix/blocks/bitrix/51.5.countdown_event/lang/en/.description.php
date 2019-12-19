@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_BLOCK_51_5_COUNTDOWN_EVENT--NAME"] = "Cover with timer on a dimmed background image";
 $MESS["LANDING_BLOCK_51_5_COUNTDOWN_EVENT--DATE"] = "End date";
 $MESS["LANDING_BLOCK_51_5_COUNTDOWN_EVENT--EVENT"] = "Event";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_UI_SELECTOR_TAB_SONETGROUPS"] = "My Groups";
 $MESS["MAIN_UI_SELECTOR_TITLE_SONETGROUPS"] = "Groups:";
 ?>

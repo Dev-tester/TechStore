@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile(__FILE__);
 
 use Bitrix\Bizproc\WorkflowInstanceTable;
@@ -804,8 +804,8 @@ class CBPDocument
 		{
 			$parameterKeyExt = "bizproc".$templateId."_".$parameterKey;
 			?><tr>
-				<td align="right" width="40%" valign="top" class="field-name"><?= $arParameter["Required"] ? "<span class=\"required\">*</span> " : ""?><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
-				<td width="60%" valign="top"><?
+				<td align="right" width="40%" valign="top" class="field-name"><?= $arParameter["Required"] ? "<span class=\"required\">*</span> " : ""?><?= htmlspecialcharsbx($arParameter["Name"]) ?>:<?php if (strlen($arParameter["Description"]) > 0) echo "<br /><small>".htmlspecialcharsbx($arParameter["Description"])."</small><br />";?></td>
+				<td width="60%" valign="top"><?php 
 			echo $documentService->GetFieldInputControl(
 				$documentType,
 				$arParameter,
@@ -814,7 +814,7 @@ class CBPDocument
 				false,
 				true
 			);
-			?></td></tr><?
+			?></td></tr><?php 
 		}
 	}
 
@@ -827,11 +827,11 @@ class CBPDocument
 <script>
 	function BPAShowSelector(id, type, mode, arCurValues, arDocumentType)
 	{
-		<?if($type=="only_users"):?>
+		<?php if($type=="only_users"):?>
 		var def_mode = "only_users";
-		<?else:?>
+		<?php else:?>
 		var def_mode = "";
-		<?endif?>
+		<?php endif?>
 
 		if (!mode)
 			mode = def_mode;
@@ -959,7 +959,7 @@ class CBPDocument
 		}
 	}
 </script>
-<?
+<?php 
 	}
 
 	public static function ShowParameterField($type, $name, $values, $arParams = Array())

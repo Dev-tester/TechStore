@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAIN_SMILE_IMPORT_FILE_ERROR"] = "The specified archive file does not exist.";
 $MESS["MAIN_SMILE_IMPORT_FILE_EXT_ERROR"] = "The specified archive file has an invalid format.";
 $MESS["MAIN_SMILE_IMPORT_UNPACK_ERROR"] = "Error extracting files from the archive. The file may be damaged.";

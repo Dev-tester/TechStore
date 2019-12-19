@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BFDND_FILE_LOADING"] = "Loading";
 $MESS["BFDND_FILE_EXISTS"] = "A file with this name already exists. You can still use the current folder, in which case the existing version of the document will be saved in the history.";
 $MESS["BFDND_FILES"] = "Files:";

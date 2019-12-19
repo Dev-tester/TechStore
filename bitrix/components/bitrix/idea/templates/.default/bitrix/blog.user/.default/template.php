@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /**
  * @var array $arResult
  * @var array $arParams
@@ -24,13 +24,13 @@ if($arParams["SET_NAV_CHAIN"] == "Y")
 <h4 class="bx-idea-user-desc-contact"><?=htmlspecialcharsback($TitleName)?></h4>
 <hr style="background: #E5E5E5; border:none; height:1px; line-height:1px; " />
 	<?=$arResult["User"]["AVATAR_IMG"]?>
-	<table width="100%" cellspacing="2" cellpadding="3"><?
+	<table width="100%" cellspacing="2" cellpadding="3"><?php 
 			foreach ($arResult["DISPLAY_FIELDS"]['FIELDS_MAIN_DATA'] as $fieldName=>$Title):
 					if (StrLen($arResult["User"][$fieldName]) > 0):
 							?><tr valign="top">
 									<td width="40%"><?=$Title?>:</td>
 									<td width="60%"><?=$arResult["User"][$fieldName]?></td>
-							</tr><?
+							</tr><?php 
 					endif;
 			endforeach;
 ?>
@@ -38,25 +38,25 @@ if($arParams["SET_NAV_CHAIN"] == "Y")
 
 <h4 class="bx-idea-user-desc-contact"><?=GetMessage("GD_SONET_USER_DESC_CONTACT_TITLE") ?></h4>
 <hr style="background: #E5E5E5; border:none; height:1px; line-height:1px; " />
-	<table width="100%" cellspacing="2" cellpadding="3"><?
+	<table width="100%" cellspacing="2" cellpadding="3"><?php 
 	foreach ($arResult["DISPLAY_FIELDS"]['FIELDS_CONTACT_DATA'] as $fieldName=>$Title):
 		if (StrLen($arResult["User"][$fieldName]) > 0):
 				?><tr valign="top">
 						<td width="40%"><?=$Title?>:</td>
 						<td width="60%"><?=$arResult["User"][$fieldName]?></td>
-				</tr><?
+				</tr><?php 
 		endif;
 	endforeach;
 	?></table>
 <h4 class="bx-idea-user-desc-contact"><?=GetMessage("GD_SONET_USER_DESC_PERSONAL_TITLE") ?></h4>
 <hr style="background: #E5E5E5; border:none; height:1px; line-height:1px; "/>
-	<table width="100%" cellspacing="2" cellpadding="3"><?
+	<table width="100%" cellspacing="2" cellpadding="3"><?php 
 			foreach ($arResult["DISPLAY_FIELDS"]['FIELDS_PERSONAL_DATA'] as $fieldName=>$Title):
 					if (StrLen($arResult["User"][$fieldName]) > 0):
 							?><tr valign="top">
 									<td width="40%"><?=$Title?>:</td>
 									<td width="60%"><?=$arResult["User"][$fieldName]?></td>
-							</tr><?
+							</tr><?php 
 					endif;
 			endforeach;
 	?></table>

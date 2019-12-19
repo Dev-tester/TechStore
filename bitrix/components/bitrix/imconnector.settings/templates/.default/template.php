@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -15,7 +15,7 @@ use \Bitrix\Main\Localization\Loc;
 
 Loc::loadMessages(__FILE__);
 ?>
-<?if(empty($arResult['RELOAD'])):?>
+<?php if(empty($arResult['RELOAD'])):?>
 <div id="imconnector_settings">
 	<div class="tel-set-cont-title"><?=Loc::getMessage("IMCONNECTOR_COMPONENT_SETTINGS_CONFIG_EDIT_CONNECTORS")?>
 		<form class="imconnector-group-title-reload" action="" method="post" onsubmit="updateImconnectorSettings(<?=CUtil::PhpToJSObject($arResult['SETTINGS_RELOAD'])?>);return false;">
@@ -25,7 +25,7 @@ Loc::loadMessages(__FILE__);
 		</form>
 	</div>
 	<div class="tel-set-item tel-set-item-border">
-	<?
+	<?php 
 	if($arResult['messages'])
 	{
 		echo '<div class="imconnector-settings-message imconnector-settings-message-success">';
@@ -45,11 +45,11 @@ Loc::loadMessages(__FILE__);
 		echo '</div>';
 	}
 	?>
-	<?if(empty($arResult['CONNECTOR'])):?>
+	<?php if(empty($arResult['CONNECTOR'])):?>
 		<?=Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_NO_CONNECT_CONNECTOR')?>
-	<?else:?>
-		<?foreach ($arResult['CONNECTOR'] as $cell => $value):?>
-		<?$APPLICATION->IncludeComponent(
+	<?php else:?>
+		<?php foreach ($arResult['CONNECTOR'] as $cell => $value):?>
+		<?php $APPLICATION->IncludeComponent(
 			$value["component"],
 			"",
 			Array(
@@ -62,18 +62,18 @@ Loc::loadMessages(__FILE__);
 				"AJAX_OPTION_STYLE" => "Y",
 			)
 		);?>
-		<?endforeach;?>
-	<?endif;?>
+		<?php endforeach;?>
+	<?php endif;?>
 	</div>
 </div>
 	<?=$arResult['LANG_JS_SETTING'];?>
 	<script type="text/javascript">
 		BX.message({
-			IMCONNECTOR_COMPONENT_SETTINGS_COLLAPSE: '<? echo GetMessageJS('IMCONNECTOR_COMPONENT_SETTINGS_COLLAPSE') ?>',
-			IMCONNECTOR_COMPONENT_SETTINGS_DEPLOY: '<? echo GetMessageJS('IMCONNECTOR_COMPONENT_SETTINGS_DEPLOY') ?>'
+			IMCONNECTOR_COMPONENT_SETTINGS_COLLAPSE: '<?php  echo GetMessageJS('IMCONNECTOR_COMPONENT_SETTINGS_COLLAPSE') ?>',
+			IMCONNECTOR_COMPONENT_SETTINGS_DEPLOY: '<?php  echo GetMessageJS('IMCONNECTOR_COMPONENT_SETTINGS_DEPLOY') ?>'
 		});
 	</script>
-<?else:?>
+<?php else:?>
 <html>
 <body>
 	<script>
@@ -86,5 +86,5 @@ Loc::loadMessages(__FILE__);
 	</script>
 </body>
 </html>
-<?endif;?>
+<?php endif;?>
 

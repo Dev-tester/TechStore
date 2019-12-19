@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['EVENT_LIST_FILTER_SETTINGS'] = "Настройка фильтра";
 $MESS ['EVENT_LIST_LOG_CNT'] = "Количество отображаемых записей на странице";
 $MESS ['EVENT_LIST_FILTER'] = "Элементы в фильтре";

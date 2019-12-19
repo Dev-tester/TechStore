@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 $bDemo = (CTicket::IsDemo()) ? "Y" : "N";
@@ -14,7 +14,7 @@ $bADS = $bDemo == 'Y' || $bAdmin == 'Y' || $bSupportTeam == 'Y';
 
 <br />
 
-<?
+<?php 
 
 $APPLICATION->IncludeComponent(
 	"bitrix:main.interface.grid",
@@ -55,22 +55,22 @@ $APPLICATION->IncludeComponent(
 		<td><div class="support-lamp-red"></div></td>
 		<td> - <?=$bADS ? GetMessage("SUP_RED_ALT_SUP") : GetMessage("SUP_RED_ALT_2")?></td>
 	</tr>
-	<?if ($bADS):?>
+	<?php if ($bADS):?>
 	<tr>
 		<td><div class="support-lamp-yellow"></div></td>
 		<td> - <?=GetMessage("SUP_YELLOW_ALT_SUP")?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td><div class="support-lamp-green"></div></td>
 		<td> - <?=GetMessage("SUP_GREEN_ALT")?></td>
 	</tr>
-	<?if ($bADS):?>
+	<?php if ($bADS):?>
 	<tr>
 		<td><div class="support-lamp-green-s"></div></td>
 		<td> - <?=GetMessage("SUP_GREEN_S_ALT_SUP")?></td>
 	</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td><div class="support-lamp-grey"></div></td>
 		<td> - <?=GetMessage("SUP_GREY_ALT")?></td>

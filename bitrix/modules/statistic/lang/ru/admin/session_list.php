@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_FILTER_ERROR"] = "Ошибка в фильтре";
 $MESS["STAT_WRONG_DATE_FROM"] = "Введите в фильтре правильную дату начала \"c\"";
 $MESS["STAT_WRONG_DATE_TILL"] = "Введите в фильтре правильную дату начала \"по\"";

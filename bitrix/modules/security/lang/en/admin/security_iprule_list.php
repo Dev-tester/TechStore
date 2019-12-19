@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEC_IP_LIST_TITLE'] = "Stop List";
 $MESS ['SEC_IP_LIST_UPDATE_ERROR'] = "Error updating the stop list entry.";
 $MESS ['SEC_IP_LIST_DELETE_ERROR'] = "Error deleting the stop list entry.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 
@@ -44,10 +44,10 @@ $tabControl->BeginNextTab();
 	<tr>
 		<td colspan="2"><input type="submit" onclick="WizardWindow.Open('bitrix:sale.locations', '<?=bitrix_sessid()?>');" class="adm-btn-save" value="<?=GetMessage('LOCA_LOADING_WIZARD')?>"></td>
 	</tr>
-<?
+<?php 
 $tabControl->EndTab();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <form method="POST" action="sale_location_import.php" enctype="multipart/form-data">
@@ -57,7 +57,7 @@ $tabControl->BeginNextTab();
 		<td colspan="2"><input onclick="return confirm('<?=GetMessage('LOCATION_CLEAR_CONFIRM');?>');" type="submit" name="delete_all" value="<?=GetMessage('LOCATION_CLEAR_BTN')?>"></td>
 	</tr>
 </form>
-<?
+<?php 
 $tabControl->EndTab();
 
 $tabControl->End();

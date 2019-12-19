@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["NUMERATOR_EDIT_CREATE_PAGE_TITLE"] = "Создание нумератора";
 $MESS["NUMERATOR_EDIT_UPDATE_PAGE_TITLE"] = "Редактирование нумератора";
 $MESS["NUMERATOR_EDIT_BTN_CANCEL"] = "Отменить";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "Модуль CRM не установлен.";
 $MESS["CRM_ORDER_SHIPMENT_CREATION_PAGE_TITLE"] = "Создание отгрузки";
 $MESS["CRM_ORDER_SHIPMENT_FIELD_ID"] = "ID";

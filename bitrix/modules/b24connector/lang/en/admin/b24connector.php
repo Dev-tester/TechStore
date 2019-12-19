@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["B24C_B24C_TITLE"] = "Client communications";
 $MESS["B24C_B24C_COMM"] = "Communications";
 $MESS["B24C_B24C_D1"] = "Take all your client communication channels under control by converging them into one place, CRM.";

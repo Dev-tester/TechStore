@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 $APPLICATION->AddHeadScript("/bitrix/components/bitrix/mobile.file.upload/templates/.default/script_attached.js");
 
 $controlName = $arParams['INPUT_NAME'];
@@ -11,7 +11,7 @@ $controlNameFull = $controlName . (($arParams['MULTIPLE'] == 'Y') ? '[]' : '');
 		MFULoadingTitle2: '<?=CUtil::JSEscape(GetMessage("MFU_LOADING_TITLE_2"))?>'
 	});
 </script>
-<span id="mfu_file_container"><?
+<span id="mfu_file_container"><?php 
 
 	$varKey = (
 		isset($arParams["POST_ID"]) 
@@ -23,7 +23,7 @@ $controlNameFull = $controlName . (($arParams['MULTIPLE'] == 'Y') ? '[]' : '');
 	{
 		foreach($_SESSION[$varKey] as $file_id)
 		{
-			?><input type="hidden" id="mfu_file_id_<?=$file_id?>" name="<?=$controlNameFull?>" value="<?=$file_id?>" /><?
+			?><input type="hidden" id="mfu_file_id_<?=$file_id?>" name="<?=$controlNameFull?>" value="<?=$file_id?>" /><?php 
 		}
 	}
 
@@ -37,7 +37,7 @@ $controlNameFull = $controlName . (($arParams['MULTIPLE'] == 'Y') ? '[]' : '');
 	{
 		foreach($_SESSION[$varKey] as $file_id)
 		{
-			?><input type="hidden" id="mfu_file_id_<?=$file_id?>" name="<?=$controlNameFull?>" value="<?=$file_id?>" /><?
+			?><input type="hidden" id="mfu_file_id_<?=$file_id?>" name="<?=$controlNameFull?>" value="<?=$file_id?>" /><?php 
 		}
 	}
 	else
@@ -56,7 +56,7 @@ $controlNameFull = $controlName . (($arParams['MULTIPLE'] == 'Y') ? '[]' : '');
 		{
 			foreach($arResult["arAttachedObject"] as $arVal)
 			{
-				?><input type="hidden" id="mfu_disk_id_<?=$arVal["DISK_FILE_ID"]?>" name="<?=$controlNameFull?>" value="<?=$arVal["ID"]?>" /><?
+				?><input type="hidden" id="mfu_disk_id_<?=$arVal["DISK_FILE_ID"]?>" name="<?=$controlNameFull?>" value="<?=$arVal["ID"]?>" /><?php 
 			}
 		}
 		elseif (is_array($_SESSION[$varKey]) && count($_SESSION[$varKey]))
@@ -65,11 +65,11 @@ $controlNameFull = $controlName . (($arParams['MULTIPLE'] == 'Y') ? '[]' : '');
 			{
 				if ($arResult["diskEnabled"])
 				{
-					?><input type="hidden" id="mfu_disk_id_<?=$element_id?>" name="<?=$controlNameFull?>" value="<?=(!isset($arParams["POST_ID"]) || intval($arParams["POST_ID"]) <= 0 ? "n" : "").$element_id?>" /><?
+					?><input type="hidden" id="mfu_disk_id_<?=$element_id?>" name="<?=$controlNameFull?>" value="<?=(!isset($arParams["POST_ID"]) || intval($arParams["POST_ID"]) <= 0 ? "n" : "").$element_id?>" /><?php 
 				}
 				else
 				{
-					?><input type="hidden" id="mfu_element_id_<?=$element_id?>" name="<?=$controlNameFull?>" value="<?=$element_id?>" /><?
+					?><input type="hidden" id="mfu_element_id_<?=$element_id?>" name="<?=$controlNameFull?>" value="<?=$element_id?>" /><?php 
 				}
 			}
 		}

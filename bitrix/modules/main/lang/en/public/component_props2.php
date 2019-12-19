@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["comp_prop_title"] = "Component parameters";
 $MESS["comp_prop_close"] = "Close window";
 $MESS["comp_prop_err_param"] = "Incorrect input parameters.";

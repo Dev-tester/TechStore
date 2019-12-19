@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_DESKTOP_JS_SETTINGS"] = "Настройки";
 $MESS["DISK_DESKTOP_JS_SETTINGS_LABEL_ENABLE"] = "Включить Битрикс24.Диск";
 $MESS["DISK_DESKTOP_JS_SETTINGS_TITLE"] = "Битрикс24.Диск";

@@ -1,4 +1,4 @@
-<? if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
+<?php  if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
@@ -54,24 +54,24 @@ $APPLICATION->IncludeComponent(
 				value="<?= htmlspecialcharsbx($arResult['BREAK_LENGTH_RECORDED_TIME']) ?>">
 
 		<div class="timeman-report-time-list">
-			<? foreach ($arResult['FIELD_CELLS'] as $index => $fieldCell) : ?>
-				<? $cssClasses = 'timeman-report-time-item-data'; ?>
-				<? $changedTime = false; ?>
-				<? if (!$arResult['IS_RECORD_APPROVED'] && !empty($fieldCell['WARNINGS'])): ?>
-					<? $cssClasses = 'timeman-report-time-item-unapproved'; ?>
-				<? else: ?>
-					<? if (!empty($fieldCell['VIOLATIONS'])): ?>
-						<? foreach ($fieldCell['VIOLATIONS'] as $violation) : ?>
-							<? /** @var \Bitrix\Timeman\Service\Worktime\Violation\WorktimeViolation $violation */
+			<?php  foreach ($arResult['FIELD_CELLS'] as $index => $fieldCell) : ?>
+				<?php  $cssClasses = 'timeman-report-time-item-data'; ?>
+				<?php  $changedTime = false; ?>
+				<?php  if (!$arResult['IS_RECORD_APPROVED'] && !empty($fieldCell['WARNINGS'])): ?>
+					<?php  $cssClasses = 'timeman-report-time-item-unapproved'; ?>
+				<?php  else: ?>
+					<?php  if (!empty($fieldCell['VIOLATIONS'])): ?>
+						<?php  foreach ($fieldCell['VIOLATIONS'] as $violation) : ?>
+							<?php  /** @var \Bitrix\Timeman\Service\Worktime\Violation\WorktimeViolation $violation */
 							if ($violation->isManuallyChangedTime()): ?>
-								<? $cssClasses = 'timeman-report-time-item-changed'; ?>
-							<? else: ?>
-								<? $cssClasses = 'timeman-report-time-item-unapproved'; ?>
-								<? break; ?>
-							<? endif; ?>
-						<? endforeach; ?>
-					<? endif; ?>
-				<? endif; ?>
+								<?php  $cssClasses = 'timeman-report-time-item-changed'; ?>
+							<?php  else: ?>
+								<?php  $cssClasses = 'timeman-report-time-item-unapproved'; ?>
+								<?php  break; ?>
+							<?php  endif; ?>
+						<?php  endforeach; ?>
+					<?php  endif; ?>
+				<?php  endif; ?>
 				<div class="timeman-report-time-item <?= htmlspecialcharsbx($cssClasses); ?> <?= $fieldCell['HIDE'] ? 'timeman-hide' : ''; ?>"
 						data-role="<?= htmlspecialcharsbx($fieldCell['DATA_ROLE']) ?>-container">
 					<div class="timeman-report-time-item-title">
@@ -82,18 +82,18 @@ $APPLICATION->IncludeComponent(
 								<span class="timeman-report-time-item-value" data-role="<?= htmlspecialcharsbx($fieldCell['DATA_ROLE']) ?>">
 									<?= htmlspecialcharsbx($fieldCell['RECORDED_VALUE']) ?>
 								</span>
-							<? if (isset($fieldCell['DATE'])): ?>
+							<?php  if (isset($fieldCell['DATE'])): ?>
 								<span class="timeman-report-time-item-value-real">
 									<?= '(' . htmlspecialcharsbx($fieldCell['DATE']) . ')'; ?>
 								</span>
-							<? endif; ?>
+							<?php  endif; ?>
 							<div class="<?= $fieldCell['CHANGED_TIME'] ? '' : 'timeman-hide'; ?>">
 								<span class="timeman-report-time-item-value-real">
 									<?= '(' . htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_REPORT_ORIG') . ' ' . $fieldCell['ACTUAL_VALUE']) . ')'; ?>
 								</span>
 								<div class="<?= empty($fieldCell['ACTUAL_INFO']) ? 'timeman-hide' : ''; ?>">
 									<div class="timeman-report-time-item-edited
-									<? echo $arResult['IS_RECORD_APPROVED'] ? 'timeman-report-time-item-edited-confirmed' : 'timeman-report-time-item-edited-warning'; ?>">
+									<?php  echo $arResult['IS_RECORD_APPROVED'] ? 'timeman-report-time-item-edited-confirmed' : 'timeman-report-time-item-edited-warning'; ?>">
 										<?= htmlspecialcharsbx(Loc::getMessage('JS_CORE_TMR_A') . ' ' . $fieldCell['ACTUAL_INFO']['EDITED_USER_TIME']); ?>
 									</div>
 								</div>
@@ -101,12 +101,12 @@ $APPLICATION->IncludeComponent(
 						</div>
 					</div>
 				</div>
-			<? endforeach; ?>
+			<?php  endforeach; ?>
 		</div>
 	</form>
 </div>
-<? foreach ($arResult['FIELD_CELLS'] as $item) : ?>
-	<? if ($item['ACTUAL_INFO']): ?>
+<?php  foreach ($arResult['FIELD_CELLS'] as $item) : ?>
+	<?php  if ($item['ACTUAL_INFO']): ?>
 		<div class="timeman-report-decs">
 			<div class="timeman-report-title timeman-report-title-edited">
 				<div class="timeman-report-title-text"><?=
@@ -117,5 +117,5 @@ $APPLICATION->IncludeComponent(
 				<?= htmlspecialcharsbx($item['ACTUAL_INFO']['EDITED_REASON']); ?>
 			</div>
 		</div>
-	<? endif; ?>
-<? endforeach; ?>
+	<?php  endif; ?>
+<?php  endforeach; ?>

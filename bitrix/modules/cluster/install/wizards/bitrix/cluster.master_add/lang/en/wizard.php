@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLUWIZ_STEP1_TITLE"] = "New Master-Slave Database Wizard";
 $MESS["CLUWIZ_NO_MODULE_ERROR"] = "The Web Cluster module is not installed. The Wizard will now abort.";
 $MESS["CLUWIZ_CHEKED"] = "Checked.";

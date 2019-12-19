@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 use \Bitrix\Main\Localization\Loc;
@@ -34,10 +34,10 @@ foreach ($_POST as $key => $value)
 ?>
 <p><?=Loc::getMessage('SALE_HPS_YANDEX_INVOICE_MESSAGE');?></>
 <form action="" method="post">
-	<?bitrix_sessid_post()?>
-	<?foreach ($post as $key => $value):?>
+	<?php bitrix_sessid_post()?>
+	<?php foreach ($post as $key => $value):?>
 		<input type="hidden" name="<?= $key ?>" value="<?= $value ?>">
-	<?endforeach;?>
+	<?php endforeach;?>
 
 	<input type="hidden" name="payment_id" value="<?=$params['PAYMENT_ID']?>">
 	<input type="hidden" name="accountNumber" value="<?=$params['ACCOUNT_NUMBER']?>">

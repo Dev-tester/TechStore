@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use \Bitrix\Main\Localization\Loc;
 /** @var array $arParams */
@@ -31,7 +31,7 @@ if ($arParams['INDIVIDUAL_USE'] != 'Y')
 $iconCode = \Bitrix\ImConnector\Connector::getIconByConnector($arResult["CONNECTOR"]);
 ?>
 
-<?
+<?php 
 if ($arResult["GROUP_ORDERS"])
 {
 	include 'group-orders.php';
@@ -44,7 +44,7 @@ else
 		<input type="hidden" name="<?=$arResult["CONNECTOR"]?>_del" value="Y">
 		<?=bitrix_sessid_post();?>
 	</form>
-	<?
+	<?php 
 	if (empty($arResult['PAGE']) && $arResult['ACTIVE_STATUS'])
 	{
 		if ($arResult['STATUS'])
@@ -72,7 +72,7 @@ else
 					</div>
 				</div>
 			</div>
-			<?include 'messages.php';?>
+			<?php include 'messages.php';?>
 			<div class="imconnector-field-container">
 				<div class="imconnector-field-section">
 					<div class="imconnector-field-main-title">
@@ -93,7 +93,7 @@ else
 						</div>
 						<div class="imconnector-field-box-entity-row">
 							<div class="imconnector-field-box-subtitle">
-								<?
+								<?php 
 								if ($arResult["FORM"]["GROUP"]["TYPE"] == "event")
 									echo Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_CONNECT_PUBLIC_EVENT');
 								elseif ($arResult["GROUP"]["TYPE"] == "page")
@@ -125,7 +125,7 @@ else
 					</div>
 				</div>
 			</div>
-			<?
+			<?php 
 		}
 		else
 		{
@@ -152,8 +152,8 @@ else
 					</div>
 				</div>
 			</div>
-			<?include 'messages.php';?>
-			<?
+			<?php include 'messages.php';?>
+			<?php 
 		}
 	}
 	else
@@ -176,8 +176,8 @@ else
 					</div>
 				</div>
 			</div>
-			<?include 'messages.php';?>
-			<?
+			<?php include 'messages.php';?>
+			<?php 
 			if ($arResult['ACTIVE_STATUS']) //case before auth to vk
 			{
 				?>
@@ -191,7 +191,7 @@ else
 								<?= Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_LOG_IN_UNDER_AN_ADMINISTRATOR_ACCOUNT_ENTITY') ?>
 							</div>
 						</div>
-						<?
+						<?php 
 						if ($arResult['FORM']['USER']['URI'] != '')
 						{
 							?>
@@ -202,12 +202,12 @@ else
 									<?= Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_AUTHORIZE') ?>
 								</div>
 							</div>
-							<?
+							<?php 
 						}
 						?>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{    //case before start connecting to vk
@@ -237,7 +237,7 @@ else
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 		}
 		else
@@ -269,8 +269,8 @@ else
 					</div>
 				</div>
 			</div>
-			<?include 'messages.php';?>
-			<?
+			<?php include 'messages.php';?>
+			<?php 
 			if (empty($arResult['FORM']['GROUPS']))  //case user haven't got any groups.
 			{
 				?>
@@ -288,7 +288,7 @@ else
 						</div>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			else
 			{
@@ -301,7 +301,7 @@ else
 								<?= Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_SELECT_THE_ENTITY') ?>
 							</div>
 							<div class="imconnector-field-social-list">
-								<?
+								<?php 
 								foreach ($arResult['FORM']['GROUPS'] as $group)
 								{
 									if (empty($group['ACTIVE']))
@@ -317,7 +317,7 @@ else
 														<?= htmlspecialcharsbx($group["INFO"]["NAME"]) ?>
 													</a>
 													<div class="imconnector-field-box-subtitle">
-														<?
+														<?php 
 														if ($group["INFO"]["TYPE"] == "event")
 															echo Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_CONNECT_PUBLIC_EVENT');
 														elseif ($group["INFO"]["TYPE"] == "page")
@@ -328,7 +328,7 @@ else
 													</div>
 												</div>
 											</div>
-											<?
+											<?php 
 											if ($group["URI"] != '')
 											{
 												?>
@@ -336,18 +336,18 @@ else
 													 onclick="BX.util.popup('<?= htmlspecialcharsbx(CUtil::JSEscape($group["URI"])) ?>', 700, 525)">
 													<?= Loc::getMessage('IMCONNECTOR_COMPONENT_SETTINGS_TO_CONNECT') ?>
 												</div>
-												<?
+												<?php 
 											}
 											?>
 										</div>
-										<?
+										<?php 
 									}
 								}
 								?>
 							</div>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 				else
 				{
@@ -355,7 +355,7 @@ else
 					<div class="imconnector-field-container">
 						<div class="imconnector-field-section">
 							<div class="imconnector-field-main-title imconnector-field-main-title-no-border">
-								<?
+								<?php 
 								if ($arResult["FORM"]["GROUP"]["TYPE"] == "event")
 									echo Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_CONNECTED_PUBLIC_EVENT');
 								elseif ($arResult["FORM"]["GROUP"]["TYPE"] == "page")
@@ -386,7 +386,7 @@ else
 								</form>
 							</div>
 
-							<?
+							<?php 
 							if (count($arResult['FORM']['GROUPS']) > 1)
 							{
 								?>
@@ -400,7 +400,7 @@ else
 										<?= Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_OTHER_ENTITY') ?>
 									</div>
 									<div class="imconnector-field-social-list">
-										<?
+										<?php 
 										foreach ($arResult['FORM']['GROUPS'] as $group)
 										{
 											if (empty($group['ACTIVE']))
@@ -416,7 +416,7 @@ else
 																<?= htmlspecialcharsbx($group["INFO"]["NAME"]) ?>
 															</a>
 															<div class="imconnector-field-box-subtitle">
-																<?
+																<?php 
 																if ($group["INFO"]["TYPE"] == "event")
 																	echo Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_CONNECT_PUBLIC_EVENT');
 																elseif ($group["INFO"]["TYPE"] == "page")
@@ -427,7 +427,7 @@ else
 															</div>
 														</div>
 													</div>
-													<?
+													<?php 
 													if ($group["URI"] != '')
 													{
 														?>
@@ -435,27 +435,27 @@ else
 															 onclick="BX.util.popup('<?= htmlspecialcharsbx(CUtil::JSEscape($group["URI"])) ?>', 700, 525)">
 															<?= Loc::getMessage('IMCONNECTOR_COMPONENT_VKGROUP_CHANGE') ?>
 														</div>
-														<?
+														<?php 
 													}
 													?>
 												</div>
-												<?
+												<?php 
 											}
 										}
 										?>
 									</div>
 								</div>
-								<?
+								<?php 
 							}
 							?>
 						</div>
 					</div>
-					<?
+					<?php 
 				}
 			}
 		}
 	}
 	?>
-	<?
+	<?php 
 }
 ?>

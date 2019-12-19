@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();?><?php 
 $Sum = CSalePaySystemAction::GetParamValue("SHOULD_PAY");
 $ShopID = CSalePaySystemAction::GetParamValue("SHOP_ID");
 $scid = CSalePaySystemAction::GetParamValue("SCID");
@@ -9,13 +9,13 @@ $Sum = number_format($Sum, 2, ',', '');
 ?>
 <p>Вы хотите оплатить через систему <strong>Яндекс.Деньги</strong>.</p>
 <p>Сумма к оплате по счету: <strong><?=$Sum?> р.</strong></p>
-<?if(strlen(CSalePaySystemAction::GetParamValue("IS_TEST")) > 0):
+<?php if(strlen(CSalePaySystemAction::GetParamValue("IS_TEST")) > 0):
 	?>
 	<form name="ShopForm" action="https://demomoney.yandex.ru/eshop.xml" method="post" target="_blank">
-<?else:
+<?php else:
 	?>
 	<form name="ShopForm" action="http://money.yandex.ru/eshop.xml" method="post">
-<?endif;?>
+<?php endif;?>
 
 	<input name="ShopID" value="<?=$ShopID?>" type="hidden">
 	<input name="scid" value="<?=$scid?>" type="hidden">

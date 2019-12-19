@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FSL_SUBSCR_MANAGE'] = "Управление подпиской";
 $MESS ['FSL_FORUM_NAME'] = "Название форума";
 $MESS ['FSL_TOPIC_NAME'] = "Название темы";

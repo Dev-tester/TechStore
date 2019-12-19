@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['IBLOCK_TYPE_TIP'] = "Select here one of the existing information block types. Click <b><i>OK</i></b> to load information blocks of the selected type.";
 $MESS ['DISPLAY_PANEL_TIP'] = "If checked, the editor buttons will display in the Site Edit mode on the Control Panel toolbar, and in the component toolbox area.";
 $MESS ['CACHE_TYPE_TIP'] = "<i>Auto</i>: the cache is valid during the time predefined in the cache settings;<br /><i>Cache</i>: always cache for the period specified in the next field;<br /><i>Do not cahce</i>: no caching is performed.";

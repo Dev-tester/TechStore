@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_PAYPAL_T1"] = "Спасибо за покупку!";
 $MESS["SALE_HPS_PAYPAL_T2"] = "Информация о платеже";
 $MESS["SALE_HPS_PAYPAL_T3"] = "Имя";

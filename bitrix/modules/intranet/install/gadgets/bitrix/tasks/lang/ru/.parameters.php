@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GD_TASKS_P_ORDER_BY'] = "Упорядочить по";
 $MESS ['GD_TASKS_P_ORDER_BY_D1'] = "по дате окончания";
 $MESS ['GD_TASKS_P_ORDER_BY_D2'] = "дате создания";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_NO_MODULE'] = "Модуль форума не установлен.";
 $MESS ['F_ERROR_MESSAGE_NOT_FOUND'] = "Сообщение не найдено.";
 $MESS ['FPF_CREATE_IN_FORUM'] = "Создать тему в форуме";

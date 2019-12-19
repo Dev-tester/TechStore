@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WS_GADGET'] = "Vista Sidebar gadget";
 $MESS ['WS_GADGET_ALT'] = "Vista Sidebar gadget";
 $MESS ['WS_GADGET_LINK'] = "Download Vista Sidebar gadget";

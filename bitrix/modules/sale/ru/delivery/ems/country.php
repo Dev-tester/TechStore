@@ -1,4 +1,4 @@
-<?
+<?php 
 $arEMSCountryList = array();
 $arEMSCountryList['АВСТРАЛИЯ'] = 'AU';
 $arEMSCountryList['АВСТРИЯ'] = 'AT';

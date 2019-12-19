@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_INVOICE_TAX_INCLUDED_TITLE"] = "В том числе #TAX_NAME#";
 
 $MESS["CRM_COLUMN_LEAD_FIND"] = "Найти";

@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/workflow/prolog.php");
 
@@ -130,33 +130,33 @@ $context->Show();
 if ($message)
 	echo $message->Show();
 ?>
-<form method="POST" name="form1" action="<?echo $APPLICATION->GetCurPage()?>?" enctype="multipart/form-data">
+<form method="POST" name="form1" action="<?php echo $APPLICATION->GetCurPage()?>?" enctype="multipart/form-data">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="ID" value=<?=$ID?>>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?
+<?php 
 
 $tabControl->Begin();
 $tabControl->BeginNextTab();
 ?>
-<? if (strlen($str_TIMESTAMP_X)>0 && $str_TIMESTAMP_X!="00.00.0000 00:00:00") : ?>
+<?php  if (strlen($str_TIMESTAMP_X)>0 && $str_TIMESTAMP_X!="00.00.0000 00:00:00") : ?>
 	<tr>
 		<td><?=GetMessage("FLOW_TIMESTAMP")?></td>
 		<td><?=$str_TIMESTAMP_X?></td>
 	</tr>
-<? endif; ?>
-<? if ($ID>0) : ?>
+<?php  endif; ?>
+<?php  if ($ID>0) : ?>
 	<tr>
 		<td><?=GetMessage("FLOW_DOCUMENTS")?></td>
-		<td><a href="workflow_list.php?lang=<?=LANG?>&find_status=<?=$ID?>&set_filter=Y" title="<?=GetMessage('FLOW_DOCUMENTS_ALT')?>"><?echo intval($str_DOCUMENTS)?></a></td>
+		<td><a href="workflow_list.php?lang=<?=LANG?>&find_status=<?=$ID?>&set_filter=Y" title="<?=GetMessage('FLOW_DOCUMENTS_ALT')?>"><?php echo intval($str_DOCUMENTS)?></a></td>
 	</tr>
-<?endif;?>
-<? if ($ID!=1):?>
+<?php endif;?>
+<?php  if ($ID!=1):?>
 	<tr>
 		<td><label for="active"><?=GetMessage("FLOW_ACTIVE")?></label></td>
 		<td><?=InputType("checkbox","ACTIVE","Y",$str_ACTIVE,false, "", 'id="active"')?></td>
 	</tr>
-<?endif;?>
+<?php endif;?>
 	<tr>
 		<td width="40%"><?=GetMessage("FLOW_SORTING")?></td>
 		<td width="60%"><input type="text" name="C_SORT" size="5" value="<?=$str_C_SORT?>"></td>
@@ -167,21 +167,21 @@ $tabControl->BeginNextTab();
 	</tr>
 	<tr>
 		<td class="adm-detail-valign-top"><?=GetMessage("FLOW_DESCRIPTION")?></td>
-		<td><textarea name="DESCRIPTION" rows="5" style="width:60%"><?echo $str_DESCRIPTION?></textarea></td>
+		<td><textarea name="DESCRIPTION" rows="5" style="width:60%"><?php echo $str_DESCRIPTION?></textarea></td>
 	</tr>
 	<tr>
 		<td class="adm-detail-valign-top"><?=GetMessage('FLOW_MOVE_RIGHTS');?><br><img src="/bitrix/images/workflow/mouse.gif" width="44" height="21" border=0 alt=""></td>
-		<td><?echo SelectBoxM("arPERMISSION_M[]", CGroup::GetDropDownList(""), $arPERMISSION_M,"",true,8);?></td>
+		<td><?php echo SelectBoxM("arPERMISSION_M[]", CGroup::GetDropDownList(""), $arPERMISSION_M,"",true,8);?></td>
 	</tr>
 	<tr>
-		<td class="adm-detail-valign-top"><?echo GetMessage('FLOW_EDIT_RIGHTS');?><br><img src="/bitrix/images/workflow/mouse.gif" width="44" height="21" border=0 alt=""></td>
-		<td><?echo SelectBoxM("arPERMISSION_E[]", CGroup::GetDropDownList(""), $arPERMISSION_E,"",true,8);?></td>
+		<td class="adm-detail-valign-top"><?php echo GetMessage('FLOW_EDIT_RIGHTS');?><br><img src="/bitrix/images/workflow/mouse.gif" width="44" height="21" border=0 alt=""></td>
+		<td><?php echo SelectBoxM("arPERMISSION_E[]", CGroup::GetDropDownList(""), $arPERMISSION_E,"",true,8);?></td>
 	</tr>
 	<tr>
 		<td><label for="notify"><?=GetMessage("FLOW_NOTIFY")?></label></td>
 		<td><?=InputType("checkbox","NOTIFY","Y",$str_NOTIFY,false, "", 'id="notify"')?></td>
 	</tr>
-<?
+<?php 
 $tabControl->Buttons(array(
 	"disabled" => $WORKFLOW_RIGHT < "W",
 	"back_url" => "workflow_status_list.php?lang=".LANGUAGE_ID,
@@ -189,5 +189,5 @@ $tabControl->Buttons(array(
 $tabControl->End();
 ?>
 </form>
-<?$tabControl->ShowWarnings("form1", $message);?>
-<? require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>
+<?php $tabControl->ShowWarnings("form1", $message);?>
+<?php  require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

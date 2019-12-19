@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SONET_GL_EMPTY_ENTITY_TYPE"] = "The entity type is not specified.";
 $MESS["SONET_GL_ERROR_NO_ENTITY_TYPE"] = "The entity type is incorrect.";
 $MESS["SONET_GL_EMPTY_ENTITY_ID"] = "The entity ID is not specified.";

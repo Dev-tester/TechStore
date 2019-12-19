@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SUBSCRIBE'] = "Подписаться";
 $MESS ['F_HEAD_TOPICS'] = "Темы";
 $MESS ['F_HEAD_POSTS'] = "Ответы";

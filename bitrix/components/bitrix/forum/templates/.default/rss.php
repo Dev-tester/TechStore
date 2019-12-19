@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if ($arResult["TYPE"] == "default" && count($arParams["RSS_TYPE_RANGE"]) > 1):
 ?>
 <div class="forum-header-box">
@@ -6,7 +6,7 @@ if ($arResult["TYPE"] == "default" && count($arParams["RSS_TYPE_RANGE"]) > 1):
 </div>
 <div class="forum-info-box forum-subscribes-rss">
 	<div class="forum-info-box-inner"><span style="float:left;"><?=GetMessage("F_CHECK_RSS_TYPE")?>:&nbsp;&nbsp;</span>
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:forum.rss",
 	"",
@@ -46,7 +46,7 @@ $APPLICATION->IncludeComponent(
 		<div class="forum-clear-float"></div>
 	</div>
 </div>
-<?
+<?php 
 if ($arParams["SET_TITLE"] == "Y"):
 	$GLOBALS["APPLICATION"]->SetTitle(GetMessage("F_TITLE_RSS"));
 endif;
@@ -58,7 +58,7 @@ endif;
 
 if (empty($arResult["TYPE"]))
 	$arResult["TYPE"] = count($arParams["RSS_TYPE_RANGE"]) == 1 ? $arParams["RSS_TYPE_RANGE"][0] : $arResult["TYPE"];
-?><?
+?><?php 
 $APPLICATION->IncludeComponent(
 	"bitrix:forum.rss",
 	"",

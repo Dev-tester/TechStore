@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPDAF_PD_ENTITY"] = "Create in";
 $MESS["BPDAF_PD_ENTITY_TYPE_USER"] = "User Drive";
 $MESS["BPDAF_PD_ENTITY_TYPE_SG"] = "Social network group Drive";

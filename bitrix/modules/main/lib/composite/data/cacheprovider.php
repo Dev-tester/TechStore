@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Main\Composite\Data;
 
 use Bitrix\Main;

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_RECORDS_LIST"] = "City-based traffic dynamics";
 $MESS["STAT_F_PERIOD"] = "Period";
 $MESS["STAT_F_COUNTRY_ID"] = "Country";

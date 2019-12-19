@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MESSAGESERVICE_SENDER_SMS_TWILIO_NAME"] = "Twilio.com";
 $MESS["MESSAGESERVICE_SENDER_SMS_TWILIO_CAN_USE_ERROR"] = "Twilio integration is not configured";
 $MESS["MESSAGESERVICE_SENDER_SMS_TWILIO_ERROR_ACCOUNT_INACTIVE"] = "The specified account is inactive";

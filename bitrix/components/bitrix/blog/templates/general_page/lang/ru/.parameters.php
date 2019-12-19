@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["GENERAL_PAGE_GROUP_ID"] = "Группа блогов для отображения";
 $MESS["GENERAL_PAGE_PATH_TO_BLOG"] = "Путь к блогу пользователя";
 $MESS["GENERAL_PAGE_PATH_TO_POST"] = "Путь к сообщению в блоге пользователя";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $arr["EVENT_NAME"] = "NEW_FORUM_MESSAGE";
 $arr["LID"] = LANGUAGE_ID;
 $arr["EMAIL_FROM"] = "#DEFAULT_EMAIL_FROM#";

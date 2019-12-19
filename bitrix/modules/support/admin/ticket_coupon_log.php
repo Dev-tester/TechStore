@@ -1,4 +1,4 @@
-<?
+<?php 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/support/prolog.php");
 CModule::IncludeModule('support');
@@ -105,7 +105,7 @@ $APPLICATION->SetTitle(GetMessage('SUP_CL_TITLE'));
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");
 if ($message)
 	echo $message->Show();
-?><form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?"><?
+?><form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?"><?php 
 $filter->Begin();
 ?>
 <tr>
@@ -117,11 +117,11 @@ $filter->Begin();
 	<td><input type="text" name="FIND_COUPON_ID" size="47" value="<?=htmlspecialcharsbx($FIND_COUPON_ID)?>"></td>
 </tr>
 
-<?
+<?php 
 
 $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));
 $filter->End();
-?></form><?
+?></form><?php 
 $lAdmin->DisplayList();
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php"); ?>

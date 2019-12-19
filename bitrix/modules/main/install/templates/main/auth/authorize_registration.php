@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 extract($_REQUEST, EXTR_SKIP);
 IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"].BX_PERSONAL_ROOT."/templates/".SITE_TEMPLATE_ID."/main/auth/auth_form.php");
 $cur_page = $GLOBALS["APPLICATION"]->GetCurPage();
@@ -13,14 +13,14 @@ else
 
 ShowMessage($arAuthResult);
 ?>
-<form name="form_auth" method="post" target="_top" action="<?echo $page.(($s=DeleteParam(array("logout", "login"))) == ""? "?login=yes":"?$s&login=yes");?>">
+<form name="form_auth" method="post" target="_top" action="<?php echo $page.(($s=DeleteParam(array("logout", "login"))) == ""? "?login=yes":"?$s&login=yes");?>">
 	<input type="hidden" name="AUTH_FORM" value="Y">
 	<input type="hidden" name="TYPE" value="AUTH">
 	<?=$str?>
-	<?
+	<?php 
 	foreach($GLOBALS["HTTP_POST_VARS"] as $vname=>$vvalue):
 		if($vname=="USER_LOGIN")continue;
-		?><input type="hidden" name="<?echo htmlspecialcharsbx($vname)?>" value="<?echo htmlspecialcharsbx($vvalue)?>"><?
+		?><input type="hidden" name="<?php echo htmlspecialcharsbx($vname)?>" value="<?php echo htmlspecialcharsbx($vvalue)?>"><?php 
 	endforeach;
 	?>
 <p><font class="text"><?=GetMessage("AUTH_PLEASE_AUTH")?></font></p>
@@ -39,17 +39,17 @@ ShowMessage($arAuthResult);
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_LOGIN")?></font></td>
-					<td align="left"  class="tablebody"><input type="text" name="USER_LOGIN" maxlength="50" size="20" value="<?echo htmlspecialcharsbx($last_login)?>" class="inputtext"></td>
+					<td align="left"  class="tablebody"><input type="text" name="USER_LOGIN" maxlength="50" size="20" value="<?php echo htmlspecialcharsbx($last_login)?>" class="inputtext"></td>
 				</tr>
 				<tr> 
 					<td align="right" class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_PASSWORD")?></font></td>
 					<td align="left" class="tablebody"><input type="password" name="USER_PASSWORD" maxlength="50" class="inputtext" size="20"></td>
 				</tr>
-				<?if (COption::GetOptionString("main", "store_password", "Y")=="Y") :?>
+				<?php if (COption::GetOptionString("main", "store_password", "Y")=="Y") :?>
 				<tr> 
 					<td align="center" class="tablebody" colspan="2"><font class="tablebodytext"><input type="checkbox" name="USER_REMEMBER" value="Y" class="inputcheckbutton">&nbsp;<?=GetMessage("AUTH_REMEMBER_ME")?></font></td>
 				</tr>
-				<?endif;?>
+				<?php endif;?>
 				<tr> 
 					<td class="tablebody" align="center" colspan="2"><font class="tablebodytext"><input type="submit" name="Login" value="<?=GetMessage("AUTH_AUTHORIZE")?>" class="inputbodybutton"></font></td>
 				</tr>
@@ -60,25 +60,25 @@ ShowMessage($arAuthResult);
 
 <p>
 <font class="text">
-<a href="<?echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><b><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></b></a>
-<br><?=GetMessage("AUTH_GO")?> <a href="<?echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_GO_AUTH_FORM")?></a>
-<br><?=GetMessage("AUTH_MESS_1")?> <a href="<?echo $cur_page."?change_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_CHANGE_FORM")?></a>
+<a href="<?php echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><b><?=GetMessage("AUTH_FORGOT_PASSWORD_2")?></b></a>
+<br><?=GetMessage("AUTH_GO")?> <a href="<?php echo $cur_page."?forgot_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_GO_AUTH_FORM")?></a>
+<br><?=GetMessage("AUTH_MESS_1")?> <a href="<?php echo $cur_page."?change_password=yes".($s<>""? "&amp;$s":"");?>"><?=GetMessage("AUTH_CHANGE_FORM")?></a>
 </font>
 </p>
 </form>
 <script>
 <!--
-<? if (strlen($last_login)>0) : ?>
+<?php  if (strlen($last_login)>0) : ?>
 try{document.form_auth.USER_PASSWORD.focus();}catch(e){}
-<? else : ?>
+<?php  else : ?>
 try{document.form_auth.USER_LOGIN.focus();}catch(e){}
-<? endif; ?>
+<?php  endif; ?>
 // -->
 </script>
-<?if(COption::GetOptionString("main", "new_user_registration", "Y")=="Y"):?>
+<?php if(COption::GetOptionString("main", "new_user_registration", "Y")=="Y"):?>
 <br>
 <p><font class="text"><?=GetMessage("AUTH_FIRST_ONE")?><?=GetMessage("AUTH_REG_FORM")?>:</font></p>
-<form method="POST" action="<?echo $page.(($s=DeleteParam(array("authorize_registration"))) == ""? "?authorize_registration=yes":"?$s&authorize_registration=yes")?>" name="bform">
+<form method="POST" action="<?php echo $page.(($s=DeleteParam(array("authorize_registration"))) == ""? "?authorize_registration=yes":"?$s&authorize_registration=yes")?>" name="bform">
 <input type="hidden" name="AUTH_FORM" value="Y">
 <input type="hidden" name="TYPE" value="REGISTRATION">
 <table border="0" cellspacing="0" cellpadding="1" class="tableborder">
@@ -96,27 +96,27 @@ try{document.form_auth.USER_LOGIN.focus();}catch(e){}
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap width="1%" class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_NAME")?></font></td>
-					<td align="left" width="99%" class="tablebody"><input type="text" name="USER_NAME" size="30" maxlength="50" value="<?echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_NAME) : ""?>"></td>
+					<td align="left" width="99%" class="tablebody"><input type="text" name="USER_NAME" size="30" maxlength="50" value="<?php echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_NAME) : ""?>"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="tablebodytext"><?=GetMessage("AUTH_LAST_NAME")?></font></td>
-					<td align="left" class="tablebody"><input type="text" name="USER_LAST_NAME" maxlength="50" size="30" value="<?echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_LAST_NAME) : ""?>"></td>
+					<td align="left" class="tablebody"><input type="text" name="USER_LAST_NAME" maxlength="50" size="30" value="<?php echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_LAST_NAME) : ""?>"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font class="tablebodytext"><?=GetMessage("AUTH_LOGIN_MIN")?></font></td>
-					<td align="left" class="tablebody"><input type="text" name="USER_LOGIN" size="30" maxlength="50" value="<?echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_LOGIN) : ""?>"></td>
+					<td align="left" class="tablebody"><input type="text" name="USER_LOGIN" size="30" maxlength="50" value="<?php echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_LOGIN) : ""?>"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font class="tablebodytext"><?=GetMessage("AUTH_PASSWORD_MIN")?></font></td>
-					<td align="left" class="tablebody"><input type="password" name="USER_PASSWORD" size="30" maxlength="50" value="<?echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_PASSWORD) : ""?>"></td>
+					<td align="left" class="tablebody"><input type="password" name="USER_PASSWORD" size="30" maxlength="50" value="<?php echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_PASSWORD) : ""?>"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font  class="tablebodytext"><?=GetMessage("AUTH_CONFIRM")?></font></td>
-					<td align="left" class="tablebody"><input type="password" name="USER_CONFIRM_PASSWORD" size="30" maxlength="50" value="<?echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_CONFIRM_PASSWORD) : ""?>"></td>
+					<td align="left" class="tablebody"><input type="password" name="USER_CONFIRM_PASSWORD" size="30" maxlength="50" value="<?php echo ($TYPE=="REGISTRATION") ? htmlspecialcharsbx($USER_CONFIRM_PASSWORD) : ""?>"></td>
 				</tr>
 				<tr valign="middle"> 
 					<td align="right" nowrap class="tablebody"><font class="starrequired">*</font><font  class="tablebodytext">E-Mail:</font></td>
-					<td align="left" class="tablebody"><input type="text" name="USER_EMAIL" size="30" maxlength="255" value="<?echo htmlspecialcharsbx((strlen($sf_EMAIL)>0 && $TYPE=="REGISTRATION")? $sf_EMAIL:$USER_EMAIL)?>"></td>
+					<td align="left" class="tablebody"><input type="text" name="USER_EMAIL" size="30" maxlength="255" value="<?php echo htmlspecialcharsbx((strlen($sf_EMAIL)>0 && $TYPE=="REGISTRATION")? $sf_EMAIL:$USER_EMAIL)?>"></td>
 				</tr>
 				<tr> 
 					<td nowrap align="right" class="tablebody"><font  class="tablebodytext">&nbsp;</font></td>
@@ -128,4 +128,4 @@ try{document.form_auth.USER_LOGIN.focus();}catch(e){}
 </table>
 <p><font class="starrequired">*</font><font class="text"><?=GetMessage("AUTH_REQ")?></font></p>
 </form>
-<?endif;?>
+<?php endif;?>

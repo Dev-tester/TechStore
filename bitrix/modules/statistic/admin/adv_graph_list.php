@@ -169,10 +169,10 @@ elseif (!$message)
 		$graph_1 = "Y";
 		$str .= $s;
 		?>
-		<?if($context=="tab"):?>
+		<?php if($context=="tab"):?>
 		<a href="/bitrix/admin/adv_dynamic_list.php?lang=<?=LANG?>&amp;find_adv_id=<?=$ADV_ID?>&amp;set_default=Y"><?=GetMessage("STAT_ALL_DYNAMICS")?></a><br>
 		<a href="/bitrix/admin/adv_graph_list.php?lang=<?=LANG?>&amp;ADV_ID=<?=$ADV_ID?>"><?=GetMessage("STAT_ALL_GRAPHICS")?></a><br>
-		<?endif;?>
+		<?php endif;?>
 		<div class="graph">
 		<?=GetMessage("STAT_GRAPH_1")?>
 		<table cellspacing="0" cellpadding="0" class="graph" border="0" align="center"><tr>
@@ -186,7 +186,7 @@ elseif (!$message)
 						<td align="center"><?=GetMessage("STAT_BACK")?><font class="star">*</td>
 						<td>&nbsp;</td>
 					</tr>
-					<?if ($find_hits=="Y" || $find_hits_back=="Y"):?>
+					<?php if ($find_hits=="Y" || $find_hits_back=="Y"):?>
 					<tr>
 						<td valign="center" class="color-line">
 							<div style="background-color: <?="#".$arrColor["HITS"]?>"></div>
@@ -194,8 +194,8 @@ elseif (!$message)
 						<td><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["HITS"]?>&dash=Y" width="45" height="2"></td>
 						<td  nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_HITS")?></td>
 					</tr>
-					<?endif;?>
-					<?if ($find_sessions=="Y" || $find_sessions_back=="Y"):?>
+					<?php endif;?>
+					<?php if ($find_sessions=="Y" || $find_sessions_back=="Y"):?>
 					<tr>
 						<td valign="center" class="color-line">
 							<div style="background-color: <?="#".$arrColor["SESSIONS"]?>"></div>
@@ -203,8 +203,8 @@ elseif (!$message)
 						<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["SESSIONS"]?>&dash=Y" width="45" height="2"></td>
 						<td  nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_SESSIONS")?></td>
 					</tr>
-					<?endif;?>
-					<?if ($find_guests=="Y" || $find_guests_back=="Y"):?>
+					<?php endif;?>
+					<?php if ($find_guests=="Y" || $find_guests_back=="Y"):?>
 					<tr>
 						<td valign="center" class="color-line">
 							<div style="background-color: <?="#".$arrColor["GUESTS"]?>"></div>
@@ -212,8 +212,8 @@ elseif (!$message)
 						<td><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["GUESTS"]?>&dash=Y" width="45" height="2"></td>
 						<td nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_GUESTS")?></td>
 					</tr>
-					<?endif;?>
-					<?if ($find_hosts=="Y" || $find_hosts_back=="Y"):?>
+					<?php endif;?>
+					<?php if ($find_hosts=="Y" || $find_hosts_back=="Y"):?>
 					<tr>
 						<td valign="center" class="color-line">
 							<div style="background-color: <?="#".$arrColor["HOSTS"]?>"></div>
@@ -221,8 +221,8 @@ elseif (!$message)
 						<td><img src="/bitrix/admin/graph_legend.php?color=<?=$arrColor["HOSTS"]?>&dash=Y" width="45" height="2"></td>
 						<td  nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_HOSTS")?></td>
 					</tr>
-					<?endif;?>
-					<?if ($find_new_guests=="Y"):?>
+					<?php endif;?>
+					<?php if ($find_new_guests=="Y"):?>
 					<tr>
 						<td valign="center" class="color-line">
 							<div style="background-color: <?="#".$arrColor["NEW_GUESTS"]?>"></div>
@@ -230,12 +230,12 @@ elseif (!$message)
 						<td></td>
 						<td  nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?=GetMessage("STAT_NEW_GUESTS")?></td>
 					</tr>
-					<?endif;?>
+					<?php endif;?>
 				</table>
 			</td>
 		</tr></table>
 		</div>
-		<?
+		<?php 
 	}
 
 	if (sizeof($find_events)>0)
@@ -267,7 +267,7 @@ elseif (!$message)
 							<td align="center"><?=GetMessage("STAT_BACK")?>*</td>
 							<td>&nbsp;</td>
 						</tr>
-						<?
+						<?php 
 						reset($find_events);
 						$total = sizeof($find_events);
 						foreach ($find_events as $eid)
@@ -277,18 +277,18 @@ elseif (!$message)
 						<tr>
 							<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$color?>" width="45" height="2"></td>
 							<td valign="center"><img src="/bitrix/admin/graph_legend.php?color=<?=$color?>&dash=Y" width="45" height="2"></td>
-							<td  nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?
+							<td  nowrap><img src="/bitrix/images/1.gif" width="3" height="1"><?php 
 							$events = CStatEventType::GetByID($eid);
 							$arEvent = $events->GetNext();
 							echo "[<a href=\"/bitrix/admin/event_type_list.php?lang=".LANG."\">".$arEvent["ID"]."</a>] ".$arEvent["EVENT"];
 							?></td>
 						</tr>
-						<?}?>
+						<?php }?>
 					</table>
 				</td>
 			</tr></table>
 			</div>
-			<?
+			<?php 
 		}
 	}
 }
@@ -322,17 +322,17 @@ $APPLICATION->SetTitle($strTitle." (".$ref1." / ".$ref2.")");
 require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_after.php");?>
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 <tr valign="center">
-	<td  width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?>
+	<td  width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1", "Y")?>
 	</td>
 </tr>
 
 <tr valign="top">
 	<td><?=GetMessage("STAT_F_SELECT_EVENTS")?>:</td>
 	<td>
-	<?
+	<?php 
 		echo SelectBoxMFromArray("find_events[]",array("REFERENCE"=>$find_events_names, "REFERENCE_ID"=>$find_events), $find_events,"",false,"10", "style=\"width:300px;\"");
 	?>
 	<script language="Javascript">
@@ -350,56 +350,56 @@ require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_adm
 
 	</td>
 </tr>
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()."?ADV_ID=".$ADV_ID, "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage()."?ADV_ID=".$ADV_ID, "form"=>"form1"));$filter->End();?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?if (!$message):?>
+<?php if (!$message):?>
 <form method="get" action="<?=$APPLICATION->GetCurPage();?>">
 
 <input type="hidden" name="find_date1" value="<?=htmlspecialcharsbx($find_date1)?>">
 <input type="hidden" name="find_date2" value="<?=htmlspecialcharsbx($find_date2)?>">
 <input type="hidden" name="ADV_ID" value="<?=$ADV_ID?>">
 <input type="hidden" name="set_show" value="Y">
-<?foreach($find_events as $val):?>
+<?php foreach($find_events as $val):?>
 <input type="hidden" name="find_events[]" value="<?=htmlspecialcharsbx($val)?>">
-<?endforeach?>
+<?php endforeach?>
 <div class="graph">
 <table class="graph"><tr><td>
 <table cellpadding="3" cellspacing="1" border="0" class="legend">
 	<tr>
-		<td><?echo GetMessage("STAT_SHOW")?></td>
-		<td align="center"><?echo GetMessage("STAT_STRAIGHT")?></td>
-		<td align="center"><?echo GetMessage("STAT_BACK")?>*</td>
+		<td><?php echo GetMessage("STAT_SHOW")?></td>
+		<td align="center"><?php echo GetMessage("STAT_STRAIGHT")?></td>
+		<td align="center"><?php echo GetMessage("STAT_BACK")?>*</td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("STAT_HITS")?></td>
-		<td align="center"><?echo InputType("checkbox","find_hits","Y",$find_hits,false); ?></td>
-		<td align="center"><?echo InputType("checkbox","find_hits_back","Y",$find_hits_back,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_hits","Y",$find_hits,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_hits_back","Y",$find_hits_back,false); ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("STAT_SESSIONS")?></td>
-		<td align="center"><?echo InputType("checkbox","find_sessions","Y",$find_sessions,false); ?></td>
-		<td align="center"><?echo InputType("checkbox","find_sessions_back","Y",$find_sessions_back,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_sessions","Y",$find_sessions,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_sessions_back","Y",$find_sessions_back,false); ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("STAT_GUESTS")?></td>
-		<td align="center"><?echo InputType("checkbox","find_guests","Y",$find_guests,false); ?></td>
-		<td align="center"><?echo InputType("checkbox","find_guests_back","Y",$find_guests_back,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_guests","Y",$find_guests,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_guests_back","Y",$find_guests_back,false); ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("STAT_HOSTS")?></td>
-		<td align="center"><?echo InputType("checkbox","find_hosts","Y",$find_hosts,false); ?></td>
-		<td align="center"><?echo InputType("checkbox","find_hosts_back","Y",$find_hosts_back,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_hosts","Y",$find_hosts,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_hosts_back","Y",$find_hosts_back,false); ?></td>
 	</tr>
 	<tr>
 		<td nowrap><?=GetMessage("STAT_NEW_GUESTS")?></td>
-		<td align="center"><?echo InputType("checkbox","find_new_guests","Y",$find_new_guests,false); ?></td>
+		<td align="center"><?php echo InputType("checkbox","find_new_guests","Y",$find_new_guests,false); ?></td>
 		<td></td>
 	</tr>
 	<tr>
@@ -409,6 +409,6 @@ $lAdmin->DisplayList();
 </td></tr></table>
 </div>
 </form>
-<?endif?>
+<?php endif?>
 
-<?require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once ($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

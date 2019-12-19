@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PM_TITLE_NEW'] = "Новое сообщение";
 $MESS ['PM_TITLE_EDIT'] = "&laquo;#TITLE#&raquo; (редактирование)";
 $MESS ['PM_TITLE_NAV'] = "Персональные сообщения";

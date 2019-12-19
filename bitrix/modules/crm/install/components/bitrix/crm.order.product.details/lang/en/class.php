@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_NOT_INSTALLED"] = "The CRM module is not installed.";
 $MESS["CRM_ORDER_PRODUCT_DETAILS_CREATE_TITLE"] = "Create Product";
 $MESS["CRM_ORDER_PRODUCT_DETAILS_EDIT_TITLE"] = "Edit Product";

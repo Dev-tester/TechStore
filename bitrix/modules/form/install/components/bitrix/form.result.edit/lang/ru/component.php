@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['FORM_ACCESS_DENIED'] = "У вас недостаточно прав для просмотра формы.";
 $MESS ['FORM_ACCESS_DENIED_FOR_FORM'] = "У вас недостаточно прав для просмотра формы.";
 $MESS ['FORM_ACCESS_DENIED_FOR_FORM_RESULTS'] = "У вас недостаточно прав для просмотра данного результата.";

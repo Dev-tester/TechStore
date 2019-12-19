@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CLU_SLAVE_LIST_TITLE"] = "Slave Databases";
 $MESS["CLU_SLAVE_LIST_ID"] = "ID";
 $MESS["CLU_SLAVE_LIST_FLAG"] = "State";

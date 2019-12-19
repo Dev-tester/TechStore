@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['BPFC_PD_ADD'] = "Добавить условие";
 $MESS ['BPFC_PD_AND'] = "И";
 $MESS ['BPFC_PD_OR'] = "ИЛИ";

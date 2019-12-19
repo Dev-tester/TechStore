@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_MOD_CAT_DSC_CONV_INVITE"] = "Внимание! Сконвертируйте скидки на товары в новый формат. До конвертации скидки применяться не будут. Конвертер доступен по <a href=\"#LINK#\">ссылке</a>";
 $MESS["BT_MOD_CAT_DSC_CONV_ENTITY_IBLOCK_ERR"] = "Неверные или несуществующие ID инфоблоков: #IDS#";
 $MESS["BT_MOD_CAT_DSC_CONV_ENTITY_SECTION_ERR"] = "Неверные или несуществующие ID разделов: #IDS#";

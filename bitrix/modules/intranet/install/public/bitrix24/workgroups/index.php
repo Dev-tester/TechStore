@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public_bitrix24/index.php");
 $APPLICATION->SetTitle(GetMessage("TITLE"));
 ?>
-<?
+<?php 
 GetGlobalID();
 $componentDateTimeFormat = CIntranetUtils::getCurrentDateTimeFormat();
 
@@ -147,4 +147,4 @@ $APPLICATION->IncludeComponent("bitrix:socialnetwork_group", ".default", Array(
 	)
 );?>
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

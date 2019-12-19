@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FORUM_MAIL_NAME"] = "add messages to Social Network forums";
 $MESS["FORUM_MAIL_ERROR1"] = "The sender was not found.";
 $MESS["FORUM_MAIL_ERROR2"] = "The user cannot access the forum.";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BPCRU_PD_TYPE"] = "Тип";
 $MESS["BPCRU_PD_USER_RANDOM"] = "Из пользователей";
 $MESS["BPCRU_PD_USER_BOSS"] = "Для пользователя";

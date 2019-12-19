@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 /** @var array $arParams */
@@ -77,18 +77,18 @@ elseif(!IsModuleInstalled("intranet"))
 
 use Bitrix\Main\UI\Extension; ?>
 <div class="pagetitle-container pagetitle-align-right-container <?=$pagetitleAlignRightContainer?>">
-	<?if($arResult["IBLOCK_ID"]):?>
+	<?php if($arResult["IBLOCK_ID"]):?>
 	<a href="<?=$arResult["LIST_URL"]?>" class="ui-btn ui-btn-sm ui-btn-link ui-btn-themes lists-list-back">
 		<?=GetMessage("CT_BLLE_TOOLBAR_RETURN_LIST_ELEMENT")?>
 	</a>
-	<?endif;?>
-	<?if($listAction):?>
+	<?php endif;?>
+	<?php if($listAction):?>
 	<span id="lists-title-action" class="ui-btn ui-btn-sm ui-btn-light-border ui-btn-dropdown ui-btn-themes">
 		<?=GetMessage("CT_BLLE_TOOLBAR_ACTION")?>
 	</span>
-	<?endif;?>
+	<?php endif;?>
 </div>
-<?
+<?php 
 if($isBitrix24Template)
 {
 	$this->EndViewTarget();

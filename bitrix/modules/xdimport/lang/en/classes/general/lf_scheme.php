@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LFP_CLASS_SCHEME_ERR_URI_HOST"] = "This connection type required a server.";
 $MESS["LFP_CLASS_SCHEME_ERR_TYPE"] = "Schema type is required.";
 $MESS["LFP_CLASS_SCHEME_ERR_ENTITY_TYPE"] = "Entity type is required.";

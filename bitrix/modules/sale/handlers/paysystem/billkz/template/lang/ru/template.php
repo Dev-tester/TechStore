@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_HPS_BILLKZ_TITLE"] = "Счет";
 $MESS["SALE_HPS_BILLKZ_BIN"] = "БИН";
 $MESS["SALE_HPS_BILLKZ_IIN"] = "ИИН";

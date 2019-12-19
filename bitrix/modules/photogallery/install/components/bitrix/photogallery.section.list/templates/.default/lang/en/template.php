@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["P_SECT_PHOTOS"] = "photo";
 $MESS["P_SECTION_EDIT"] = "Edit";
 $MESS["P_SECTION_EDIT_TITLE"] = "Edit album";

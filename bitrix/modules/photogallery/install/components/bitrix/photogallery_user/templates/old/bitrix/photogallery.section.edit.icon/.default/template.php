@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/photogallery/templates/.default/style.css');
@@ -15,21 +15,21 @@ $arParams["THUMBS_SIZE"] = intVal(intVal($arParams["THUMBS_SIZE"]) > 0 ? $arPara
 if ($arParams["AJAX_CALL"] != "Y"):
 ?>
 <div class="photo-controls">
-<?
+<?php 
 	if (!empty($arResult["SECTION"]["SECTION_LINK"])):
 ?>
-	<noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["SECTION_LINK"]?>" title="<?=GetMessage("P_BACK_UP_TITLE")?>" <?
+	<noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["SECTION_LINK"]?>" title="<?=GetMessage("P_BACK_UP_TITLE")?>" <?php 
 		?>class="photo-action back-to-album"><?=GetMessage("P_BACK_UP")?></a></noindex>
-<?
+<?php 
 	elseif (!empty($arResult["SECTION"]["BACK_LINK"])):
 ?>
-	<noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["BACK_LINK"]?>" title="<?=GetMessage("P_UP_TITLE")?>" <?
+	<noindex><a rel="nofollow" href="<?=$arResult["SECTION"]["BACK_LINK"]?>" title="<?=GetMessage("P_UP_TITLE")?>" <?php 
 		?>class="photo-action back-to-album"><?=GetMessage("P_UP")?></a></noindex>
-<?
+<?php 
 	endif;
 ?>
 </div>
-<?
+<?php 
 else:
 	$APPLICATION->RestartBuffer();
 endif;
@@ -51,23 +51,23 @@ endif;
 			<td class="table-body">
 				<div class="photo-info-box photo-info-box-section-edit-icon inner">
 					<div class="photo-info-box-inner">
-		<?	
+		<?php 	
 		if (!empty($arResult["ERROR_MESSAGE"])):
-			?><div class="error"><?ShowError($arResult["ERROR_MESSAGE"]);?></div><?
+			?><div class="error"><?php ShowError($arResult["ERROR_MESSAGE"]);?></div><?php 
 		endif;
 
 if (count($arResult["ITEMS"]) <= 0):
 ?>
 		<?=GetMessage("P_EMPTY_PHOTO")?>
-<?
+<?php 
 else:
 ?>
 		<?=GetMessage("P_SELECT_PHOTO")?>
-<?
+<?php 
 $_REQUEST["photos"] = (is_array($_REQUEST["photos"]) ? $_REQUEST["photos"] : array($_REQUEST["photos"]));
 ?>
 	<div class="photo-edit-fields photo-edit-fields-section-icon">
-<?
+<?php 
 	foreach ($arResult["ITEMS"]	as $key => $arItem):
 		if (!is_array($arItem)):
 			continue;
@@ -94,18 +94,18 @@ $_REQUEST["photos"] = (is_array($_REQUEST["photos"]) ? $_REQUEST["photos"] : arr
 		
 ?>
 		<div class="photo-edit-field photo-edit-field-image photo-photo" style="width:<?=$arParams["THUMBS_SIZE"]?>px; height:<?=$arParams["THUMBS_SIZE"]?>px; overflow:hidden;">
-			<input type="checkbox" name="photos[]" id="photo_<?=$arItem["ID"]?>" value="<?=$arItem["ID"]?>" <?
-				?><?=(in_array($arItem["ID"], $_REQUEST["photos"]) ? 'checked="checked"' : '')?> /><?
-			?><img border="0" src="<?=$arItem["PICTURE"]["SRC"]?>" id="photo_img_<?=$arItem["ID"]?>" <?
-				?>alt="<?=$sTitle?>" title="<?=$sTitle?>" <?
-				?>style="margin-left:<?=$res["left"]?>px; margin-top: <?=$res["top"]?>px; position:static; width:<?=$res["width"]?>px; height:<?=$res["height"]?>px;" <?	
+			<input type="checkbox" name="photos[]" id="photo_<?=$arItem["ID"]?>" value="<?=$arItem["ID"]?>" <?php 
+				?><?=(in_array($arItem["ID"], $_REQUEST["photos"]) ? 'checked="checked"' : '')?> /><?php 
+			?><img border="0" src="<?=$arItem["PICTURE"]["SRC"]?>" id="photo_img_<?=$arItem["ID"]?>" <?php 
+				?>alt="<?=$sTitle?>" title="<?=$sTitle?>" <?php 
+				?>style="margin-left:<?=$res["left"]?>px; margin-top: <?=$res["top"]?>px; position:static; width:<?=$res["width"]?>px; height:<?=$res["height"]?>px;" <?php 	
 				?>onclick="this.previousSibling.checked=!(this.previousSibling.checked);" />
 		</div>
-<?
+<?php 
 	endforeach;
 ?>
 </div>
-<?
+<?php 
 endif;
 
 			?>
@@ -123,7 +123,7 @@ endif;
 </table>
 </form>
 </div>
-<?
+<?php 
 
 if ($arParams["AJAX_CALL"] == "Y"):
 	die();
@@ -142,6 +142,6 @@ function CheckFormEditIcon()
 {
 	return true;
 }
-</script><?
+</script><?php 
 endif;
 ?>

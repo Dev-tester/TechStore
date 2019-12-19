@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["INPUT_TYPE"] = "Typ";
 $MESS["INPUT_REQUIRED"] = "Erforderlich";
 $MESS["INPUT_REQUIRED_ERROR"] = "Ausfüllen erforderlich";

@@ -115,7 +115,7 @@ if ($showSaleTarget && $startVersion < 2)
 
 
 <div class="crm-start">
-	<?
+	<?php 
 	$customWidgets = [];
 	if ($showSaleTarget)
 	{
@@ -154,7 +154,7 @@ if ($showSaleTarget && $startVersion < 2)
 			'CUSTOM_WIDGETS' => $customWidgets
 		)
 	);?>
-<?
+<?php 
 if ($_REQUEST["restoreAnimation"] == "Y")
 {
 	\CUserOptions::DeleteOption("crm.widget", "activityDynamic");
@@ -225,7 +225,7 @@ else
 					}
 				}
 				this.bind();
-				<?if (!$firstSeen) { ?>setTimeout(BX.proxy(this.check, this), 1000);<? } ?>
+				<?php if (!$firstSeen) { ?>setTimeout(BX.proxy(this.check, this), 1000);<?php  } ?>
 			};
 			d.prototype = {
 				max: <?=$attempts?>,
@@ -327,6 +327,6 @@ else
 		})())(<?=\CUtil::PhpToJSObject($spotLight)?>);
 	});
 </script>
-<?
+<?php 
 }
 ?>

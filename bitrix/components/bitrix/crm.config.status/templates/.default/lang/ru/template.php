@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_STATUS_LIST_RECOVERY_NAME"] = "Вернуть оригинальное название";
 $MESS["CRM_STATUS_BUTTONS_SAVE"] = "Сохранить";
 $MESS["CRM_STATUS_BUTTONS_CANCEL"] = "Отменить";

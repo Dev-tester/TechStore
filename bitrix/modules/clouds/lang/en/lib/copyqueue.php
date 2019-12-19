@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["COPY_QUEUE_ENTITY_ID_FIELD"] = "File copy task ID";
 $MESS["COPY_QUEUE_ENTITY_TIMESTAMP_X_FIELD"] = "Task created on";
 $MESS["COPY_QUEUE_ENTITY_OP_FIELD"] = "Operation code";

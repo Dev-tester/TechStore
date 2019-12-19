@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_ADM_HISTORY_TITLE"] = "История изменений записи # #ID#";
 $MESS["IBLOCK_ADM_HISTORY_BAD_IBLOCK"] = "Информационный блок не найден или доступ к нему запрещен.";
 $MESS["IBLOCK_ADM_HISTORY_BAD_ELEMENT"] = "Элемент не найден или доступ к нему запрещен.";

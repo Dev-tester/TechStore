@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?><?php 
 if (!$this->__component->__parent || empty($this->__component->__parent->__name)):
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/style.css');
 	$GLOBALS['APPLICATION']->SetAdditionalCSS('/bitrix/components/bitrix/forum/templates/.default/themes/blue/style.css');
@@ -67,7 +67,7 @@ $arFields[] = array(
 ?>
 <div class="forum-info-box forum-filter">
 	<div class="forum-info-box-inner">
-<?
+<?php 
 	$APPLICATION->IncludeComponent("bitrix:forum.interface", "filter_simple",
 		array(
 			"FIELDS" => $arFields,
@@ -76,26 +76,26 @@ $arFields[] = array(
 		$component,
 		array(
 			"HIDE_ICONS" => "Y")
-		);?><?
+		);?><?php 
 ?>
 	</div>
 </div>
 
 <br/>
-<?
+<?php 
 if (!empty($arResult["ERROR_MESSAGE"])):
 ?>
 <div class="forum-note-box forum-note-error">
 	<div class="forum-note-box-text"><?=ShowError($arResult["ERROR_MESSAGE"], "forum-note-error");?></div>
 </div>
-<?
+<?php 
 endif;
 if (!empty($arResult["OK_MESSAGE"])): 
 ?>
 <div class="forum-note-box forum-note-success">
 	<div class="forum-note-box-text"><?=ShowNote($arResult["OK_MESSAGE"], "forum-note-success")?></div>
 </div>
-<?
+<?php 
 endif;
 
 if ($arResult["NAV_RESULT"]->NavPageCount > 0):
@@ -106,7 +106,7 @@ if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 
 ?>
@@ -119,27 +119,27 @@ endif;
 			<table cellspacing="0" class="forum-table forum-users">
 			<thead>
 				<tr>
-					<th class="forum-first-column forum-column-username"><span><?=GetMessage("FLU_HEAD_NAME")?></span><?/*&nbsp;<br/><?=$arResult["SortingEx"]["SHOW_ABC"]?>*/?></th>
-					<th class="forum-column-posts"><span><?=GetMessage("FLU_HEAD_POST")?></span><?/*&nbsp;<br/><?=$arResult["SortingEx"]["NUM_POSTS"]?>*/?></th>
-<?
+					<th class="forum-first-column forum-column-username"><span><?=GetMessage("FLU_HEAD_NAME")?></span><?php /*&nbsp;<br/><?=$arResult["SortingEx"]["SHOW_ABC"]?>*/?></th>
+					<th class="forum-column-posts"><span><?=GetMessage("FLU_HEAD_POST")?></span><?php /*&nbsp;<br/><?=$arResult["SortingEx"]["NUM_POSTS"]?>*/?></th>
+<?php 
 	if ($arResult["SHOW_VOTES"] == "Y"):
 ?>
-					<th class="forum-column-points"><span><?=GetMessage("FLU_HEAD_POINTS")?></span><?/*&nbsp;<br/><?=$arResult["SortingEx"]["POINTS"]?>*/?></th>
-<?
+					<th class="forum-column-points"><span><?=GetMessage("FLU_HEAD_POINTS")?></span><?php /*&nbsp;<br/><?=$arResult["SortingEx"]["POINTS"]?>*/?></th>
+<?php 
 	endif;
 ?>
-					<th class="forum-column-datereg"><span><?=GetMessage("FLU_HEAD_DATE_REGISTER")?></span><?/*?>&nbsp;<br/><?=$arResult["SortingEx"]["DATE_REGISTER"]?><?*/?></th>
-					<th class="forum-last-column forum-column-lastvisit"><span><?=GetMessage("FLU_HEAD_LAST_VISIT")?></span><?/*?>&nbsp;<br/><?=$arResult["SortingEx"]["LAST_VISIT"]?><?*/?></th>
+					<th class="forum-column-datereg"><span><?=GetMessage("FLU_HEAD_DATE_REGISTER")?></span><?php /*?>&nbsp;<br/><?=$arResult["SortingEx"]["DATE_REGISTER"]?><?php */?></th>
+					<th class="forum-last-column forum-column-lastvisit"><span><?=GetMessage("FLU_HEAD_LAST_VISIT")?></span><?php /*?>&nbsp;<br/><?=$arResult["SortingEx"]["LAST_VISIT"]?><?php */?></th>
 				</tr>
 			</thead>
 			<tbody>
-<?
+<?php 
 if ($arResult["SHOW_RESULT"] != "Y"):
 ?>
 				<tr class="forum-row-first forum-row-odd">
 					<td class="forum-first-column" colspan="<?=($arResult["SHOW_VOTES"] == "Y" ? 5 : 4)?>"><?=GetMessage("FLU_EMPTY")?></td>
 				</tr>
-<?			
+<?php 			
 	return false;
 endif;
 
@@ -150,72 +150,72 @@ foreach ($arResult["USERS"] as $res):
 				<tr class="<?=($iCount == 1 ? "forum-row-first " : (
 				$iCount == count($arResult["USERS"]) ? "forum-row-last " : ""))?><?=($iCount%2 == 1 ? "forum-row-odd" : "forum-row-even")?>">
 					<td class="forum-first-column forum-column-username">
-						<div class="forum-user-name"><?
+						<div class="forum-user-name"><?php 
 							?><?=str_replace(array("#URL#", "#NAME#"), array($res["URL"]["AUTHOR"], $res["SHOW_ABC"]), $arParams["USER_TMPL"])
 						?></div>
-<?
+<?php 
 	if (is_array($res["~AVATAR"]) && !empty($res["~AVATAR"]["HTML"])):
 ?>
-						<div class="forum-user-avatar"><?
+						<div class="forum-user-avatar"><?php 
 							?><?=str_replace(array("#URL#", "#NAME#"), array($res["URL"]["AUTHOR"], $res["~AVATAR"]["HTML"]), $arParams["USER_TMPL"])
 						?></div>
-<?
+<?php 
 	else:
 ?>
-						<div class="forum-user-register-avatar"><?
+						<div class="forum-user-register-avatar"><?php 
 							?><?=str_replace(array("#URL#", "#NAME#"), array($res["URL"]["AUTHOR"], '<span><!-- ie --></span>'), $arParams["USER_TMPL"])
 						?></div>
-<?
+<?php 
 	endif;
 	if ($arParams["SHOW_USER_STATUS"] == "Y"):
 ?>
-						<div class="forum-user-status <?=(!empty($res["AUTHOR_STATUS_CODE"]) ? "forum-user-".$res["AUTHOR_STATUS_CODE"]."-status" : "")?>"><?
+						<div class="forum-user-status <?=(!empty($res["AUTHOR_STATUS_CODE"]) ? "forum-user-".$res["AUTHOR_STATUS_CODE"]."-status" : "")?>"><?php 
 							?><span><?=htmlspecialcharsbx($res["AUTHOR_STATUS"])?></span></div>
-<?
+<?php 
 	endif;
 ?>
 					</td>
-					<td class="forum-column-posts"><?
+					<td class="forum-column-posts"><?php 
 	if ($res["NUM_POSTS"] > 0):
-					?><noindex><a rel="nofollow" href="<?=$res["URL"]["POSTS"]?>"><?=intVal($res["NUM_POSTS"])?></a></noindex><?
+					?><noindex><a rel="nofollow" href="<?=$res["URL"]["POSTS"]?>"><?=intVal($res["NUM_POSTS"])?></a></noindex><?php 
 	else:
-					?>0<?
+					?>0<?php 
 	endif;
 					?></td>
-<?
+<?php 
 	if ($arResult["SHOW_VOTES"] == "Y"):
 ?>
 					<td class="forum-column-points"><?=intVal($res["POINTS"])?></td>
-<?
+<?php 
 	endif;
 ?>
 					<td class="forum-column-datereg">
-<?
+<?php 
 	if (!empty($res["DATE_REG"])):
 ?>
 						<?=$res["DATE_REG"]?>
-<?
+<?php 
 	else:
 ?>
 						&nbsp;
-<?
+<?php 
 	endif;
 					?></td>
 					<td class="forum-last-column forum-column-lastvisit">
-<?
+<?php 
 	if (!empty($res["LAST_VISIT"])):
 ?>
 						<?=$res["LAST_VISIT"]?>
-<?
+<?php 
 	else:
 ?>
 						&nbsp;
-<?
+<?php 
 	endif;
 ?>
 					</td>
 				</tr>
-<?
+<?php 
 endforeach;
 ?>
 				</tbody>
@@ -223,7 +223,7 @@ endforeach;
 		</div>
 	</div>
 </div>
-<?
+<?php 
 
 if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 ?>
@@ -233,6 +233,6 @@ if ($arResult["NAV_RESULT"]->NavPageCount > 0):
 	</div>
 	<div class="forum-clear-float"></div>
 </div>
-<?
+<?php 
 endif;
 ?>

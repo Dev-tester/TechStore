@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_1C_GROUP_PERMISSIONS"] = "Gruppen mit Export-Berechtigung";
 $MESS["SALE_WIZARD_PERSON_1"] = "Natürliche Person";
 $MESS["SALE_WIZARD_PERSON_2"] = "Juristische Person";

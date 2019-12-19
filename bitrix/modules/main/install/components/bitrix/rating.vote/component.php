@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $arResult['VOTE_AVAILABLE'] = isset($arParams['VOTE_AVAILABLE'])? $arParams['VOTE_AVAILABLE'] == 'Y'? 'Y': 'N' : 'Y';
 if ($arResult['VOTE_AVAILABLE'] == 'Y')
 	$arAllowVote = CRatings::CheckAllowVote($arParams);

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['W_IB_HONOUR1'] = "Manager-Contest";
 $MESS ['W_IB_HONOUR1_DESC'] = "Gewinner des Manager-Contests";
 $MESS ['W_IB_HONOUR2'] = "Controller des Jahres 2009";

@@ -1,4 +1,4 @@
-<?
+<?php 
 class CCalendarUserSettings
 {
 	private static

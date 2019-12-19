@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_TUFE_UF_ADMIN_RESTRICTED"] = "Custom fields can be accessed by the administrator only";
 $MESS["TASKS_TUFE_UF_UNKNOWN_ENTITY_CODE"] = "Unknown entity code";
 $MESS["TASKS_TUFE_UF_UNKNOWN_ID"] = "Unknown custom field ID";

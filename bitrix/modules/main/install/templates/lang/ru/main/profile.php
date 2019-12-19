@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['forum_INFO'] = "Профиль форума";
 $MESS ['forum_ALIAS'] = "Псевдоним:";
 $MESS ['forum_DESCRIPTION'] = "Пояснение:";

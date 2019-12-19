@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SALE_ESDE_TAB_GENERAL'] = "Дополнительная услуга";
 $MESS ['SALE_ESDE_TAB_GENERAL_TITLE'] = "Редактирование свойств дополнительной услуги";
 $MESS ['SALE_ESDE_PAGE_TITLE'] = "Редактирование дополнительной услуги";

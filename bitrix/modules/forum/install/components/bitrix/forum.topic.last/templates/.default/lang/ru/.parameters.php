@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['F_SHOW_NAV'] = "Показывать навигацию";
 $MESS ['F_SHOW_NAV_TOP'] = "сверху";
 $MESS ['F_SHOW_NAV_BOTTOM'] = "снизу";

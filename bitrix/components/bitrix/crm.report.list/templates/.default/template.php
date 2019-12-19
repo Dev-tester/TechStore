@@ -1,11 +1,11 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 /** CMain $APPLICATION */
 global $APPLICATION;
 define('CRM_REPORT_UPDATE_14_5_2_MESSAGE', 'Y');
 $APPLICATION->ShowViewContent('REPORT_UPDATE_14_5_2_MESSAGE');
 ?>
-<? $APPLICATION->IncludeComponent(
+<?php  $APPLICATION->IncludeComponent(
 	'bitrix:report.list',
 	'',
 	array(
@@ -17,7 +17,7 @@ $APPLICATION->ShowViewContent('REPORT_UPDATE_14_5_2_MESSAGE');
 	),
 	false
 );?>
-<?$APPLICATION->IncludeComponent(
+<?php $APPLICATION->IncludeComponent(
 	'bitrix:report.list',
 	'',
 	array(
@@ -29,7 +29,7 @@ $APPLICATION->ShowViewContent('REPORT_UPDATE_14_5_2_MESSAGE');
 	),
 	false
 );?>
-<? $APPLICATION->IncludeComponent(
+<?php  $APPLICATION->IncludeComponent(
 	'bitrix:report.list',
 	'',
 	array(
@@ -41,7 +41,7 @@ $APPLICATION->ShowViewContent('REPORT_UPDATE_14_5_2_MESSAGE');
 	),
 	false
 );?>
-<? $APPLICATION->IncludeComponent(
+<?php  $APPLICATION->IncludeComponent(
 	'bitrix:report.list',
 	'',
 	array(
@@ -53,7 +53,7 @@ $APPLICATION->ShowViewContent('REPORT_UPDATE_14_5_2_MESSAGE');
 	),
 	false
 );?>
-<? $APPLICATION->IncludeComponent(
+<?php  $APPLICATION->IncludeComponent(
 	'bitrix:report.list',
 	'',
 	array(

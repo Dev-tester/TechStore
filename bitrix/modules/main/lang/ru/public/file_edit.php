@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PUBLIC_EDIT_TITLE'] = "Редактирование страницы";
 $MESS ['PUBLIC_EDIT_TITLE_COMP'] = "Редактирование включаемой области";
 $MESS ['PUBLIC_EDIT_DESCRIPTION'] = "редактируемый файл:";

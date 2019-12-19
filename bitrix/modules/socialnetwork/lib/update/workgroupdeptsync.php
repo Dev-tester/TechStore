@@ -1,4 +1,4 @@
-<?
+<?php 
 namespace Bitrix\Socialnetwork\Update;
 
 use Bitrix\Main\Update\Stepper;

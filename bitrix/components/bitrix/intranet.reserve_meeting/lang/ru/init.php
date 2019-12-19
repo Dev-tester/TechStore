@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['INAF_F_ID'] = "ID";
 $MESS ['INAF_F_NAME'] = "Название";
 $MESS ['INAF_F_DESCRIPTION'] = "Описание";

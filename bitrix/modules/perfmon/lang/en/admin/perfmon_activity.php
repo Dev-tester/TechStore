@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PERFMON_ACT_MINUTES'] = "#HOURS#:#MINUTES#:#SECONDS# (h:m:s)";
 $MESS ['PERFMON_ACTION_BUTTON_ON'] = "Enable";
 $MESS ['PERFMON_ACT_SET_ACTIVE'] = "Enable monitor";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_HISTORY_SEARCH_EMPTY"] = "The search query is empty.";
 $MESS["IM_HISTORY_ERROR_MESSAGE_ID"] = "The search query is empty.";
 $MESS["IM_HISTORY_ERROR_TO_USER_ID"] = "The user ID is missing.";

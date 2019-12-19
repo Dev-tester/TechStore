@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 if (!CModule::IncludeModule("meeting"))
 	return ShowError(GetMessage("ME_MODULE_NOT_INSTALLED"));
 
@@ -615,33 +615,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_REQUEST['save']) && $arResul
 if (top.document.forms.meeting_edit)
 {
 	top.document.forms.meeting_edit.MEETING_ID.value = '<?=$MEETING_ID?>';
-<?
+<?php 
 			if ($arParams['COPY'])
 			{
 ?>
 	top.document.forms.meeting_edit.COPY.parentNode.removeChild(top.document.forms.meeting_edit.COPY);
-<?
+<?php 
 			}
 ?>
-<?
+<?php 
 			if (count($arNewAgendaTasks) > 0)
 			{
 ?>
 	top.replaceTasks(<?=CUtil::PhpToJsObject($arNewAgendaTasks)?>);
-<?
+<?php 
 			}
 ?>
-<?
+<?php 
 			if (count($arNewAgendaMap) > 0)
 			{
 ?>
 	top.replaceKeys(<?=CUtil::PhpToJsObject($arNewAgendaMap)?>, '<?=CUtil::JSEscape($arParams['ITEM_URL'])?>');
-<?
+<?php 
 			}
 ?>
 }
 </script>
-<?
+<?php 
 			die();
 		}
 		else

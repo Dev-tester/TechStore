@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CF_FIELD_ADD"] = "Added the field \"#FIELD_NAME#\"";
 $MESS["CRM_CF_FIELD_DELETE"] = "Deleted the field \"#FIELD_NAME#\"";
 $MESS["CRM_CF_FIELD_MODIFY_TYPE"] = "Changed the field type \"#FIELD_NAME#\"";

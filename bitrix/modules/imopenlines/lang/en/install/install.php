@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IMOPENLINES_DB_NOT_SUPPORTED"] = "This module supports only MySQL.";
 $MESS["IMOPENLINES_MODULE_NAME"] = "Open Channels";
 $MESS["IMOPENLINES_MODULE_DESCRIPTION"] = "The Open Channels module.";

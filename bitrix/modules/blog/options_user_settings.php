@@ -1,4 +1,4 @@
-<?
+<?php 
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/blog/options_user_settings.php");
 
 if (CModule::IncludeModule("blog")):
@@ -24,12 +24,12 @@ if (CModule::IncludeModule("blog")):
 	}
 	?>
 	<input type="hidden" name="profile_module_id[]" value="blog">
-	<?if ($USER->IsAdmin()):?>
+	<?php if ($USER->IsAdmin()):?>
 		<tr>
 			<td width="40%"><?=GetMessage("blog_ALLOW_POST")?></td>
-			<td width="60%"><input type="checkbox" name="blog_ALLOW_POST" value="Y" <?if ($str_blog_ALLOW_POST=="Y") echo "checked";?>></td>
+			<td width="60%"><input type="checkbox" name="blog_ALLOW_POST" value="Y" <?php if ($str_blog_ALLOW_POST=="Y") echo "checked";?>></td>
 		</tr>
-	<?endif;?>
+	<?php endif;?>
 	<tr>
 		<td><?=GetMessage('blog_ALIAS')?></td>
 		<td><input class="typeinput" type="text" name="blog_ALIAS" size="30" maxlength="255" value="<?=$str_blog_ALIAS?>"></td>
@@ -40,18 +40,18 @@ if (CModule::IncludeModule("blog")):
 	</tr>
 	<tr>
 		<td valign="top"><?=GetMessage('blog_INTERESTS')?></td>
-		<td><textarea class="typearea" name="blog_INTERESTS" rows="3" cols="35"><?echo $str_blog_INTERESTS; ?></textarea></td>
+		<td><textarea class="typearea" name="blog_INTERESTS" rows="3" cols="35"><?php echo $str_blog_INTERESTS; ?></textarea></td>
 	</tr>
 	<tr class="adm-detail-file-row">
 		<td><?=GetMessage("blog_AVATAR")?></td>
-		<td><?
+		<td><?php 
 			echo CFile::InputFile("blog_AVATAR", 20, $str_blog_AVATAR);
 			if (IntVal($str_blog_AVATAR)>0):
-				?><div class="adm-detail-file-image"><?
-				echo CFile::ShowImage($str_blog_AVATAR, 150, 150, "border=0", "", true);?></div><?
+				?><div class="adm-detail-file-image"><?php 
+				echo CFile::ShowImage($str_blog_AVATAR, 150, 150, "border=0", "", true);?></div><?php 
 			endif;
 			?></td>
 	</tr>
-	<?
+	<?php 
 endif;
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['GROUPS_COUNT_TIP'] = "Specifies the number of groups to be displayed in one page. Only non-empty groups will be displayed.";
 $MESS ['COLS_COUNT_TIP'] = "Specifies the number of columns in which groups will be rendered.";
 $MESS ['SORT_BY1_TIP'] = "Specifies the fields by which the blog groups will be sorted first.";

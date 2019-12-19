@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_ORDER_BUYER_EDIT_GENERAL_TITLE"] = "Registration Information";
 $MESS["CRM_ORDER_BUYER_EDIT_GROUP_TITLE"] = "Customer groups";
 $MESS["CRM_ORDER_BUYER_EDIT_YES"] = "Yes";

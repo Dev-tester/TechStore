@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["FILE_BUCKET_ENTITY_ID_FIELD"] = "Storage ID";
 $MESS["FILE_BUCKET_ENTITY_ACTIVE_FIELD"] = "Active";
 $MESS["FILE_BUCKET_ENTITY_SORT_FIELD"] = "Sort value";

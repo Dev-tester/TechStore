@@ -1,8 +1,8 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Просмотр анкеты");
 ?>
-<?
+<?php 
 $APPLICATION->IncludeFile("form/result_view/default.php", array(
 	"RESULT_ID"				=> $_REQUEST["RESULT_ID"],	// ID результата
 	"SHOW_ADDITIONAL"		=> "N",						// показать дополнительные поля веб-формы ?
@@ -13,4 +13,4 @@ $APPLICATION->IncludeFile("form/result_view/default.php", array(
 	"CHAIN_ITEM_LINK"		=> "result_list.php?WEB_FORM_ID=".$_REQUEST["WEB_FORM_ID"], // ссылка на доп. пункте в навигационной цепочке
 	));
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

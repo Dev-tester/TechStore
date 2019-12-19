@@ -1,27 +1,27 @@
-<?if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)die();?>
 
 <div id="wiki-post">
-<?if(strlen($arResult['MESSAGE'])>0):
+<?php if(strlen($arResult['MESSAGE'])>0):
 	?>
 	<div class="wiki-notes">
 		<div class="wiki-note-text">
 			<?=$arResult['MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 endif;?>
-<?if(!empty($arResult['FATAL_MESSAGE'])):
+<?php if(!empty($arResult['FATAL_MESSAGE'])):
 	?>
 	<div class="wiki-errors wiki-note-box wiki-note-error">
 		<div class="wiki-error-text">
 			<?=$arResult['FATAL_MESSAGE']?>
 		</div>
 	</div>
-	<?
+	<?php 
 else:
 	?>
 	<div id="wiki-post-content">
-	<?
+	<?php 
 	if (empty($arResult['HISTORY'])):
 		ShowNote(GetMessage('WIKI_HISTORY_NOT_FIND'));
 	else:
@@ -133,16 +133,16 @@ else:
 		if ($arResult['SOCNET']):
 			?>
 			<script type="text/javascript">
-			<?
+			<?php 
 			foreach($arResult["HISTORY"] as $arHistory)
 			{
 				?>
 				BX.tooltip(<?=$arHistory["USER_ID"]?>, "anchor_<?=$arHistory['ANCHOR_ID']?>", "<?=CUtil::JSEscape($arResult['AJAX_PAGE'])?>");
-				<?
+				<?php 
 			}
 			?>
 			</script>
-			<?
+			<?php 
 		endif;
 		?>
 		<script type="text/javascript">
@@ -211,7 +211,7 @@ else:
 				}
 			}
 		</script>
-	<? endif;?>
+	<?php  endif;?>
 	</div>
-<? endif;?>
+<?php  endif;?>
 </div>

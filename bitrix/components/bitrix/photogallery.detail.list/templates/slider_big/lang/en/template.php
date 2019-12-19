@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_OF'] = "of";
 $MESS ['P_PHOTOS'] = "Photo";
 $MESS ['P_SEK'] = "s.";

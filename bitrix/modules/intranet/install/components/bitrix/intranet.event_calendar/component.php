@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 if (strlen($arParams["NAME_TEMPLATE"]) <= 0)
 	$arParams["NAME_TEMPLATE"] = CSite::GetNameFormat();
@@ -75,11 +75,11 @@ if ($USER->IsAuthorized() && $USER->CanDoOperation('edit_php') && !$calendar2)
 {
 	if (CModule::IncludeModule("calendar"))
 	{
-		?><div style="border-radius: 3px; background: #FFE87F; border: 1px solid #C9C9C9; padding: 10px; margin: 10px 0;"><?= GetMessage('EC_CALENDAR_OLD_VERSION_INST');?></div><?
+		?><div style="border-radius: 3px; background: #FFE87F; border: 1px solid #C9C9C9; padding: 10px; margin: 10px 0;"><?= GetMessage('EC_CALENDAR_OLD_VERSION_INST');?></div><?php 
 	}
 	else
 	{
-		?><div style="border-radius: 3px; background: #FFE87F; border: 1px solid #C9C9C9; padding: 10px; margin: 10px 0;"><?= GetMessage('EC_CALENDAR_OLD_VERSION');?></div><?
+		?><div style="border-radius: 3px; background: #FFE87F; border: 1px solid #C9C9C9; padding: 10px; margin: 10px 0;"><?= GetMessage('EC_CALENDAR_OLD_VERSION');?></div><?php 
 	}
 }
 

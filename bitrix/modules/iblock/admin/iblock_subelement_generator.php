@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main;
 use Bitrix\Highloadblock as HL;
@@ -542,7 +542,7 @@ if(!$bReadOnly && check_bitrix_sessid())
 						top.ReloadSubList();
 				}
 			</script>
-			<?
+			<?php 
 			die();
 		}
 		if ($ex = $APPLICATION->GetException())
@@ -610,14 +610,14 @@ else
 
 	CAdminMessage::ShowMessage($errorMessage);
 	?>
-	<form enctype="multipart/form-data" method="POST" action="<?echo $APPLICATION->GetCurPage()?>?" name="iblock_generator_form" id="iblock_generator_form">
-	<input type="hidden" name="lang" value="<?echo LANGUAGE_ID; ?>">
-	<input type="hidden" name="subIBlockId" value="<?echo $subIBlockId?>">
-	<input type="hidden" name="subPropValue" value="<?echo $subPropValue?>">
-	<input type="hidden" name="iBlockId" value="<?echo $iBlockId?>">
-	<input type="hidden" name="findSection" value="<?echo $findSection?>">
-	<input type="hidden" name="subTmpId" value="<?echo $subTmpId?>">
-	<input type="hidden" name="PRODUCT_NAME_HIDDEN" value="<?echo htmlspecialcharsbx($parentProductName)?>">
+	<form enctype="multipart/form-data" method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?" name="iblock_generator_form" id="iblock_generator_form">
+	<input type="hidden" name="lang" value="<?php echo LANGUAGE_ID; ?>">
+	<input type="hidden" name="subIBlockId" value="<?php echo $subIBlockId?>">
+	<input type="hidden" name="subPropValue" value="<?php echo $subPropValue?>">
+	<input type="hidden" name="iBlockId" value="<?php echo $iBlockId?>">
+	<input type="hidden" name="findSection" value="<?php echo $findSection?>">
+	<input type="hidden" name="subTmpId" value="<?php echo $subTmpId?>">
+	<input type="hidden" name="PRODUCT_NAME_HIDDEN" value="<?php echo htmlspecialcharsbx($parentProductName)?>">
 	<?=bitrix_sessid_post();
 
 	$tabControl = new CAdminTabControl("tabControl", $aTabs, true, true);
@@ -628,20 +628,20 @@ else
 	BX('edit_edit_table').className += ' adm-shop-page-table';
 
 	var CellTPL = [];
-	<?
+	<?php 
 	foreach ($arCellTemplates as $key => $value)
 	{
-		?>CellTPL[<? echo $key; ?>] = '<? echo $value; ?>';
-	<?
+		?>CellTPL[<?php  echo $key; ?>] = '<?php  echo $value; ?>';
+	<?php 
 	}
 	?>
 
 	var CellAttr = [];
-	<?
+	<?php 
 	foreach ($arCellTemplates as $key => $value)
 	{
-		?>CellAttr[<? echo $key; ?>] = '<? echo $value; ?>';
-	<?
+		?>CellAttr[<?php  echo $key; ?>] = '<?php  echo $value; ?>';
+	<?php 
 	}
 	?>
 	var obPricesTable = new JCCatTblEdit({
@@ -731,40 +731,40 @@ else
 			<td class="adm-detail-content-cell-l"><?= GetMessage("IB_SEG_WEIGHT") ?>:</td>
 			<td class="adm-detail-content-cell-r">
 				<input type="text" style="width: 120px; margin-right: 10px" class="adm-input" name="IB_SEG_WEIGHT">
-				<?echo GetMessage("IB_SEG_BASE_LENGTH")?>:
+				<?php echo GetMessage("IB_SEG_BASE_LENGTH")?>:
 				<input type="text" id="CAT_BASE_LENGTH" name="IB_SEG_BASE_LENGTH" style="width: 120px;  margin-right: 10px">
-				<?echo GetMessage("IB_SEG_BASE_WIDTH")?>:
+				<?php echo GetMessage("IB_SEG_BASE_WIDTH")?>:
 				<input type="text" id="CAT_BASE_WIDTH" name="IB_SEG_BASE_WIDTH" style="width: 120px;  margin-right: 10px">
-				<?echo GetMessage("IB_SEG_BASE_HEIGHT")?>:
+				<?php echo GetMessage("IB_SEG_BASE_HEIGHT")?>:
 				<input type="text" id="CAT_BASE_HEIGHT" name="IB_SEG_BASE_HEIGHT" style="width: 120px;">
 				<a class="adm-input-help-icon" onmouseover="BX.hint(this, '<?=GetMessage('IB_SEG_TOOLTIP_WEIGHT')?>')" href="#"></a>
 			</td>
 		</tr>
 		<tr>
 			<td class="adm-detail-content-cell-l"><?= GetMessage((!$useStoreControl ? 'IB_SEG_QUANTITY' : 'IB_SEG_MEASURE')); ?></td>
-			<td class="adm-detail-content-cell-r"><?
+			<td class="adm-detail-content-cell-r"><?php 
 			if (!$useStoreControl)
 			{
 				?><input type="text" style="width: 120px; margin-right: 10px" class="adm-input" name="IB_SEG_QUANTITY">
-				<? echo GetMessage('IB_SEG_MEASURE');
+				<?php  echo GetMessage('IB_SEG_MEASURE');
 			}
-			?> <span class="adm-select-wrap" style="vertical-align: top;"><select name="IB_SEG_MEASURE" class="adm-select" style="width: 169px;"><?
+			?> <span class="adm-select-wrap" style="vertical-align: top;"><select name="IB_SEG_MEASURE" class="adm-select" style="width: 169px;"><?php 
 			$measureIterator = CCatalogMeasure::getList(
 				array(), array(), false, false, array("ID", "CODE", "MEASURE_TITLE", "SYMBOL_INTL", "IS_DEFAULT")
 			);
 			while($measure = $measureIterator->Fetch())
 			{
-				?><option value="<?=$measure['ID']?>"<? echo ($measure['IS_DEFAULT'] == 'Y' ? ' selected' : '');?>><?
-				echo htmlspecialcharsEx($measure['MEASURE_TITLE']); ?></option><?
+				?><option value="<?=$measure['ID']?>"<?php  echo ($measure['IS_DEFAULT'] == 'Y' ? ' selected' : '');?>><?php 
+				echo htmlspecialcharsEx($measure['MEASURE_TITLE']); ?></option><?php 
 			}
 			unset($measure, $measureIterator);
 			?></select></span></td>
 		</tr>
 		<tr>
-			<td class="adm-detail-content-cell-l"><?echo GetMessage("IB_SEG_VAT")?>:</td>
+			<td class="adm-detail-content-cell-l"><?php echo GetMessage("IB_SEG_VAT")?>:</td>
 			<td class="adm-detail-content-cell-r">
 				<span class="adm-select-wrap">
-				<?
+				<?php 
 					$arVATRef = CatalogGetVATArray(array(), true);
 					echo SelectBoxFromArray('IB_SEG_VAT_ID', $arVATRef, '', "", ($bReadOnly ? "disabled readonly" : '').'class="adm-select" style="width: 169px;"');
 				?>
@@ -772,7 +772,7 @@ else
 			</td>
 		</tr>
 		<tr>
-			<td class="adm-detail-content-cell-l"><?echo GetMessage("IB_SEG_VAT_INCLUDED")?></td>
+			<td class="adm-detail-content-cell-l"><?php echo GetMessage("IB_SEG_VAT_INCLUDED")?></td>
 			<td class="adm-detail-content-cell-r">
 				<input type="hidden" name="IB_SEG_VAT_INCLUDED" id="IB_SEG_VAT_INCLUDED_N" value="N">
 				<input class="adm-designed-checkbox" type="checkbox" name="IB_SEG_VAT_INCLUDED" id="IB_SEG_VAT_INCLUDED" value="Y" />
@@ -789,7 +789,7 @@ else
 						<td><?= GetMessage("IB_SEG_CURRENCY") ?>:</td>
 					</tr>
 					<tbody>
-					<?
+					<?php 
 						$intCount = 0;
 						echo __AddRangeRow($intCount, IB_SEG_ROW_PREFIX);
 					?>
@@ -816,11 +816,11 @@ else
 			<input type="hidden" value="0" id="generator_property_table_max_id">
 			<div class="adm-shop-table-block" id="generator_property_table">
 				<script type="text/javascript">
-					<?
+					<?php 
 					foreach($arResult as $key => $arProperty)
 					{?>
 					obPropertyTable.addPropertyTable(<?=$key?>);
-					<?
+					<?php 
 					}
 					?>
 				</script>
@@ -836,8 +836,8 @@ else
 				<div class="adm-shop-select-bar" id="ib_seg_select_prop_bar">
 					<input type="hidden" value="0" id="ib_seg_max_property_id">
 					<input type="hidden" value="0" id="ib_seg_max_image_row_id">
-					<?$arFileProperties[]=array("ID" => "DETAIL", "NAME" => GetMessage("IB_SEG_DETAIL"), "SELECTED" => 'Y');?>
-					<?$arFileProperties[]=array("ID" => "ANNOUNCE", "NAME" => GetMessage("IB_SEG_ANNOUNCE")); ?>
+					<?php $arFileProperties[]=array("ID" => "DETAIL", "NAME" => GetMessage("IB_SEG_DETAIL"), "SELECTED" => 'Y');?>
+					<?php $arFileProperties[]=array("ID" => "ANNOUNCE", "NAME" => GetMessage("IB_SEG_ANNOUNCE")); ?>
 					<span class="adm-btn" onclick="obPropertyTable.addPropertyImages();" id='ib_seg_add_images_button'><?= GetMessage("IB_SEG_ADD_PICTURES") ?></span>
 						<span class="adm-shop-bar-btn-wrap" id='ib_seg_property_span'>
 							<script type="text/javascript">
@@ -854,11 +854,11 @@ else
 		</div>
 	</td>
 </tr>
-	<?
+	<?php 
 	$tabControl->EndTab();
 	$tabControl->End();
 	?>
 	</form>
-	<?
+	<?php 
 }
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

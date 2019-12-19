@@ -1,4 +1,4 @@
-<?
+<?php 
 if (count($arResult["SEARCH_RESULT"]) > 0):
 	if ($arResult['CURRENT_VIEW'] == "list"):
 		foreach ($arResult["SEARCH_RESULT"] as $i => $v):

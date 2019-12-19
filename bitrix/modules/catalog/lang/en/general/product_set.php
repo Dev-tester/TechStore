@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BT_CAT_SET_ERR_ITEMS_IS_ABSENT"] = "No items selected for set or bundle";
 $MESS["BT_CAT_SET_ERR_PRODUCT_ID_IS_BAD"] = "The product ID for the new set is incorrect";
 $MESS["BT_CAT_SET_ERR_TYPE_IS_BAD"] = "Invalid entity type";

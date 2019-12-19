@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TITLE"] = "Настройки";
 $MESS["STATUS"] = "Справочники";
 $MESS["CURRENCY"] = "Валюты";

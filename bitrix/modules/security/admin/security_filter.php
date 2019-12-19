@@ -1,4 +1,4 @@
-<?
+<?php 
 define("ADMIN_MODULE_NAME", "security");
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -99,70 +99,70 @@ CAdminMessage::ShowMessage(array(
 		));
 ?>
 
-<form method="POST" action="security_filter.php?lang=<?echo LANGUAGE_ID?><?echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>" enctype="multipart/form-data" name="editform">
+<form method="POST" action="security_filter.php?lang=<?php echo LANGUAGE_ID?><?php echo $_GET["return_url"]? "&amp;return_url=".urlencode($_GET["return_url"]): ""?>" enctype="multipart/form-data" name="editform">
 <?=bitrix_sessid_post()?>
 <input type="hidden" name="lang" value="<?=LANG?>">
-<?
+<?php 
 $tabControl->Begin();
 ?>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
 	<td colspan="2" align="left">
-<?if(CSecurityFilter::IsActive()):?>
+<?php if(CSecurityFilter::IsActive()):?>
 		<input type="hidden" name="filter_active" value="N">
-		<input type="submit" name="filter_siteb" value="<?=GetMessage("SEC_FILTER_BUTTON_OFF")?>"<?if(!$canWrite) echo " disabled"?>>
-<?else:?>
+		<input type="submit" name="filter_siteb" value="<?=GetMessage("SEC_FILTER_BUTTON_OFF")?>"<?php if(!$canWrite) echo " disabled"?>>
+<?php else:?>
 		<input type="hidden" name="filter_active" value="Y">
-		<input type="submit" name="filter_siteb" value="<?=GetMessage("SEC_FILTER_BUTTON_ON")?>"<?if(!$canWrite) echo " disabled"?> class="adm-btn-save">
-<?endif?>
+		<input type="submit" name="filter_siteb" value="<?=GetMessage("SEC_FILTER_BUTTON_ON")?>"<?php if(!$canWrite) echo " disabled"?> class="adm-btn-save">
+<?php endif?>
 	</td>
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?><?echo GetMessage("SEC_FILTER_NOTE")?>
-		<?echo EndNote(); ?>
+		<?php echo BeginNote();?><?php echo GetMessage("SEC_FILTER_NOTE")?>
+		<?php echo EndNote(); ?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 <tr>
-	<td width="40%" class="adm-detail-valign-top"><?echo GetMessage("SEC_FILTER_ACTION")?>:</td>
+	<td width="40%" class="adm-detail-valign-top"><?php echo GetMessage("SEC_FILTER_ACTION")?>:</td>
 	<td width="60%">
-		<label><input type="radio" name="filter_action" value="filter" <?if(COption::GetOptionString("security", "filter_action") != "clear" && COption::GetOptionString("security", "filter_action") != "none") echo "checked";?>><?echo GetMessage("SEC_FILTER_ACTION_FILTER")?><span class="required"><sup>1</sup></span></label><br>
-		<label><input type="radio" name="filter_action" value="clear" <?if(COption::GetOptionString("security", "filter_action") == "clear") echo "checked";?>><?echo GetMessage("SEC_FILTER_ACTION_CLEAR")?></label><br>
-		<label><input type="radio" name="filter_action" value="none" <?if(COption::GetOptionString("security", "filter_action") == "none") echo "checked";?>><?echo GetMessage("SEC_FILTER_ACTION_NONE")?></label><br>
+		<label><input type="radio" name="filter_action" value="filter" <?php if(COption::GetOptionString("security", "filter_action") != "clear" && COption::GetOptionString("security", "filter_action") != "none") echo "checked";?>><?php echo GetMessage("SEC_FILTER_ACTION_FILTER")?><span class="required"><sup>1</sup></span></label><br>
+		<label><input type="radio" name="filter_action" value="clear" <?php if(COption::GetOptionString("security", "filter_action") == "clear") echo "checked";?>><?php echo GetMessage("SEC_FILTER_ACTION_CLEAR")?></label><br>
+		<label><input type="radio" name="filter_action" value="none" <?php if(COption::GetOptionString("security", "filter_action") == "none") echo "checked";?>><?php echo GetMessage("SEC_FILTER_ACTION_NONE")?></label><br>
 	</td>
 </tr>
 <tr>
-	<td><label for="filter_stop"><?echo GetMessage("SEC_FILTER_STOP")?></label><span class="required"><sup>2</sup></span>:</td>
+	<td><label for="filter_stop"><?php echo GetMessage("SEC_FILTER_STOP")?></label><span class="required"><sup>2</sup></span>:</td>
 	<td>
-		<input type="checkbox" name="filter_stop" id="filter_stop" value="Y" <?if(COption::GetOptionString("security", "filter_stop") == "Y") echo "checked";?>>
+		<input type="checkbox" name="filter_stop" id="filter_stop" value="Y" <?php if(COption::GetOptionString("security", "filter_stop") == "Y") echo "checked";?>>
 	</td>
 </tr>
 <tr>
-	<td><label for="filter_duration"><?echo GetMessage("SEC_FILTER_DURATION")?></label>:</td>
+	<td><label for="filter_duration"><?php echo GetMessage("SEC_FILTER_DURATION")?></label>:</td>
 	<td>
-		<input type="text" size="4" name="filter_duration" value="<?echo COption::GetOptionInt("security", "filter_duration")?>">
+		<input type="text" size="4" name="filter_duration" value="<?php echo COption::GetOptionInt("security", "filter_duration")?>">
 	</td>
 </tr>
 <tr>
-	<td><label for="filter_log"><?echo GetMessage("SEC_FILTER_LOG")?></label>:</td>
+	<td><label for="filter_log"><?php echo GetMessage("SEC_FILTER_LOG")?></label>:</td>
 	<td>
-		<input type="checkbox" name="filter_log" id="filter_log" value="Y" <?if(COption::GetOptionString("security", "filter_log") == "Y") echo "checked";?>>
+		<input type="checkbox" name="filter_log" id="filter_log" value="Y" <?php if(COption::GetOptionString("security", "filter_log") == "Y") echo "checked";?>>
 	</td>
 </tr>
 <tr>
 	<td colspan="2">
-		<?echo BeginNote();?>
-		<span class="required"><sup>1</sup></span><?echo GetMessage("SEC_FILTER_ACTION_NOTE_1")?><br>
-		<span class="required"><sup>2</sup></span><?echo GetMessage("SEC_FILTER_ACTION_NOTE_2")?><br>
-		<?echo EndNote();?>
+		<?php echo BeginNote();?>
+		<span class="required"><sup>1</sup></span><?php echo GetMessage("SEC_FILTER_ACTION_NOTE_1")?><br>
+		<span class="required"><sup>2</sup></span><?php echo GetMessage("SEC_FILTER_ACTION_NOTE_2")?><br>
+		<?php echo EndNote();?>
 	</td>
 </tr>
-<?
+<?php 
 $tabControl->BeginNextTab();
 $arMasks = array();
 if($bVarsFromForm)
@@ -185,21 +185,21 @@ else
 }
 ?>
 <tr>
-	<td class="adm-detail-valign-top" width="40%"><?echo GetMessage("SEC_FILTER_MASKS")?></td>
+	<td class="adm-detail-valign-top" width="40%"><?php echo GetMessage("SEC_FILTER_MASKS")?></td>
 	<td width="60%">
 	<table cellpadding="0" cellspacing="0" border="0" class="nopadding" width="100%" id="tbFILTER_MASKS">
-		<?foreach($arMasks as $i => $arMask):?>
+		<?php foreach($arMasks as $i => $arMask):?>
 			<tr><td nowrap style="padding-bottom: 3px;">
-				<input type="text" size="45" name="FILTER_MASKS[<?echo $i?>][MASK]" value="<?echo $arMask["FILTER_MASK"]?>">&nbsp;<?echo GetMessage("SEC_FILTER_SITE")?>&nbsp;<?echo CSite::SelectBox("FILTER_MASKS[$i][SITE_ID]", $arMask["SITE_ID"], GetMessage("MAIN_ALL"), "");?><br>
+				<input type="text" size="45" name="FILTER_MASKS[<?php echo $i?>][MASK]" value="<?php echo $arMask["FILTER_MASK"]?>">&nbsp;<?php echo GetMessage("SEC_FILTER_SITE")?>&nbsp;<?php echo CSite::SelectBox("FILTER_MASKS[$i][SITE_ID]", $arMask["SITE_ID"], GetMessage("MAIN_ALL"), "");?><br>
 			</td></tr>
-		<?endforeach;?>
-		<?if(!$bVarsFromForm):?>
+		<?php endforeach;?>
+		<?php if(!$bVarsFromForm):?>
 			<tr class="security-addable-row"><td nowrap style="padding-bottom: 3px;">
-				<input type="text" size="45" name="FILTER_MASKS[n0][MASK]" value="">&nbsp;<?echo GetMessage("SEC_FILTER_SITE")?>&nbsp;<?echo CSite::SelectBox("FILTER_MASKS[n0][SITE_ID]", "", GetMessage("MAIN_ALL"), "");?><br>
+				<input type="text" size="45" name="FILTER_MASKS[n0][MASK]" value="">&nbsp;<?php echo GetMessage("SEC_FILTER_SITE")?>&nbsp;<?php echo CSite::SelectBox("FILTER_MASKS[n0][SITE_ID]", "", GetMessage("MAIN_ALL"), "");?><br>
 			</td></tr>
-		<?endif;?>
+		<?php endif;?>
 			<tr><td>
-				<br><input type="button" id="add-button" value="<?echo GetMessage("SEC_FILTER_ADD")?>">
+				<br><input type="button" id="add-button" value="<?php echo GetMessage("SEC_FILTER_ADD")?>">
 			</td></tr>
 		</table>
 	</td>
@@ -212,7 +212,7 @@ else
 		}]
 	}
 </script>
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled"=>(!$canWrite),
@@ -220,10 +220,10 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
 ?>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SAT1_ERROR_UPDATE"] = "An error occurred while updating tiers";
 $MESS["SAT1_ERROR_DELETE"] = "An error occurred while deleting tiers";
 $MESS["SAT1_AFF"] = "Affiliates";

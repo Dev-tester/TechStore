@@ -78,7 +78,7 @@ else if ($isRequisiteDataPresent)
 
 	);
 </script>
-<div id="<?=$containerId?>" class="crm-offer-requisite-block-wrap"><?
+<div id="<?=$containerId?>" class="crm-offer-requisite-block-wrap"><?php 
 	if($isFormDataPresent)
 	{
 		$entityTypeId = $arResult['REQUISITE_ENTITY_TYPE_ID'];
@@ -140,6 +140,6 @@ else if ($isRequisiteDataPresent)
 		}
 		unset($n);
 	}
-?></div><?
+?></div><?php 
 unset($newPseudoIdStartNumber, $isFormDataPresent, $isRequisiteDataPresent);
 ?>

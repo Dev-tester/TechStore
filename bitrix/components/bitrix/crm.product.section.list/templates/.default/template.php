@@ -68,7 +68,7 @@ $APPLICATION->IncludeComponent(
 	array('HIDE_ICONS' => 'Y')
 );
 ?>
-<?
+<?php 
 if(!isset($extMgrId[0]))
 {?>
 	<form name="form_section_add" id="form_section_add" action="<?= POST_FORM_ACTION_URI ?>" method="POST" enctype="multipart/form-data">
@@ -77,11 +77,11 @@ if(!isset($extMgrId[0]))
 		<input type="hidden" id="sectionID" name="sectionID" value="">
 		<input type="hidden" id="action" name="action" value="">
 	</form>
-<?
+<?php 
 }?>
 
 <script type="text/javascript">
-	<?
+	<?php 
 	if(!isset($extMgrId[0]))
 	{?>
 	BX.CrmProductSectionManager.create(
@@ -93,7 +93,7 @@ if(!isset($extMgrId[0]))
 			IDField: 'sectionID'
 		}
 	);
-		<?
+		<?php 
 	}?>
 
 	BX.CrmProductSectionManager.messages =

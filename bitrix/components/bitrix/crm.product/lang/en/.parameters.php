@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_PRODUCT_ID_PARAM"] = "Product ID variable name";
 $MESS["CRM_SECTION_ID_PARAM"] = "Section ID variable name";
 $MESS["CRM_SEF_PATH_TO_INDEX"] = "Index page path template";

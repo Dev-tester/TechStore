@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <script type="text/javascript" src="/bitrix/templates/learning/js/imgshw.js"></script>
 
 Es gibt zwei Möglichkeiten mit der Dokumentenbibliothek zu arbeiten: über den Browser (Internet Explorer, Opera, Fire Fox usw.) oder über das WebDAV-Protokoll (bei Windows: Netzwerkressource, Laufwerk-Verbindung).<br><br>
@@ -30,7 +30,7 @@ Es gibt zwei Möglichkeiten mit der Dokumentenbibliothek zu arbeiten: über den 
 </ul>
 
 <p>Wählen Sie die gewünschte Ansicht aus und wählen Sie Dokumente aus, die hochgeladen werden sollen.</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/load_form.png\',771,557,\'Hochladen von Dokumenten\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/load_form.png\',771,557,\'Hochladen von Dokumenten\');'?>">
 <img src="<?=$templateFolder.'/images/de/load_form_sm.png'?>" style="CURSOR: pointer" width="300" height="217" alt="Bild vergrößern"  border="0"/></a></p>
 
 <p>Dann drücken Sie die Schaltfläche <b>Hochladen</b>.</p>
@@ -247,7 +247,7 @@ Es gibt zwei Möglichkeiten mit der Dokumentenbibliothek zu arbeiten: über den 
 <p><b>Dann</b> muss der Service <a href="#oswindowswebclient"><b>Webclient</b></a> neu gestartet werden.</p>
 <h4><a name="oswindowswebclient"></a><b>Den Service WebClient neu starten</b></h4>
 <p>Zum Neustart: <b>Start &gt; Systemsteuerung &gt; System und Sicherheit &gt; Verwaltung &gt; Dienste</b>. Es öffnet sich das Dialogfenster des <b>Dienste</b>: 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/web_client.png\',792,568,\'Dienste\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/web_client.png\',792,568,\'Dienste\');'?>">
 <img src="<?=$templateFolder.'/images/de/web_client_sm.png'?>" style="CURSOR: pointer" width="250" height="180" alt="Bild vergrößern"  border="0"/></a></p>  
 <p>Finden Sie in der Gesamtliste der Services die Zeile <b>WebClient</b> und starten Sie ihn neu. Damit dieser Service in Zukunft beim Systemstarten automatisch gestartet wird, muss in den Serviceeigenschaften der Parameterwert <b>Starttyp</b> auf <b>Automatisch</b> eingestellt werden:</b>:
 <p>
@@ -277,11 +277,11 @@ Es gibt zwei Möglichkeiten mit der Dokumentenbibliothek zu arbeiten: über den 
 <li>Starten Sie den Datei-Manager (Explorer);</li>
 <li>Wählen Sie im Menü den Punkt <b>Service &gt; Netzlaufwerk verbinden </b>aus;</li>
 <li>Mit Hilfe des Links <b>Verbindung mit einer Website herstellen, auf der Sie Dokumente und Bilder speichern können</b> starten Sie den Assistenten zum <b>Hinzufügen eines Netzwerkes</b>:</p> 
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_1.png\',630,458,\'Netzlaufwerk verbinden\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_1.png\',630,458,\'Netzlaufwerk verbinden\');'?>">
 <img width="250" height="182" border="0" src="<?=$templateFolder.'/images/de/network_add_1_sm.png'?>" style="cursor: pointer;" alt="Bild vergrößern" /></a></b>.</li>
 <li>Drücken Sie auf die Schaltfläche <b>Weiter</b>, es öffnet sich das zweite Fenster des <b>Assistenten</b>;</li>
 <li>Aktivieren Sie in diesem Fenster die Position <b>Eine benutzerdefinierte Netzwerkadresse auswählen</b>, drücken Sie auf die Schaltfläche <b>Weiter</b>. Es öffnet sich der nächste Schritt des <b>Assistenten</b>:
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_4.png\',612,498,\'Eine Netzwekadresse hinzufügen\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_4.png\',612,498,\'Eine Netzwekadresse hinzufügen\');'?>">
 <img width="250" height="204" border="0" src="<?=$templateFolder.'/images/de/network_add_4_sm.png'?>" style="cursor: pointer;" alt="Bild vergrößern" /></a></li>
 <li>Im Feld <b>Internet- oder Netzwerkadresse</b> geben Sie URL des Ordners, mit dem Verbindung hergestellt werden soll, wie folgt ein: http://&lt;Ihr_Server&gt;/docs/shared/</i>;</li>
 <li>Drücken Sie auf die Schaltfläche <b>Next</b>. Wenn sich das Fenster zur Autorisierung öffnet, geben Sie hier die Autorisierungsdaten für den Server ein.</li>
@@ -315,7 +315,7 @@ Es gibt zwei Möglichkeiten mit der Dokumentenbibliothek zu arbeiten: über den 
 <ul>
 <p>Um die Dokumentenbibliothek als Netzlaufwerk über den Dateimanager (Windows Explorer) einzubinden:</p> 
 <li>Starten Sie den Datei-Manager (Explorer);
-<br><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_4.png\',612,498,\'Eine Netzweradresse hinzufügen\');'?>">
+<br><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/network_add_4.png\',612,498,\'Eine Netzweradresse hinzufügen\');'?>">
 <img width="250" height="185" border="0" src="<?=$templateFolder.'/images/de/network_add_1_sm.png'?>" style="cursor: pointer;" alt="Bild vergrößern" /></a></li>
 <li>Wählen Sie im Menü den Punkt <b>Service >Netzlaufwerk verbinden</b> aus. Es öffnet sich das Dialogfenster zur Verbindung des Netzlaufwerks:</li>
 <li>Im Feld <b>Laufwerk</b> geben Sie einen Buchstaben für den  Ordner an, mit dem Verbindung hergestellt werden soll;</li>
@@ -330,7 +330,7 @@ Es gibt zwei Möglichkeiten mit der Dokumentenbibliothek zu arbeiten: über den 
 <ul>
 <li>Öffnen Sie <i>Finder Go->Connect to Server command</i>;</li>
 <li>Im Feld <b>Server Address</b> geben Sie die Adresse der Bibliothek ein:</p>
-<p><a href="<? echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/macos.png\',465,550,\'Mac OS X\');'?>">
+<p><a href="<?php  echo 'javascript:ShowImg(\''.$templateFolder.'/images/de/macos.png\',465,550,\'Mac OS X\');'?>">
 <img width="235" height="278" border="0" src="<?=$templateFolder.'/images/de/macos_sm.png'?>" style="cursor: pointer;" alt="Bild vergrößern" /></a></li>
 </ul>
 <br />

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_MODULE_SALE_NOT_INSTALLED"] = "The e-Store module is not installed.";
 $MESS["CRM_INVOICE_STATUS_P"] = "Completed";
 $MESS["CRM_INVOICE_STATUS_D"] = "Rejected";

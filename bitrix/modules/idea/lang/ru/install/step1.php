@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IDEA_INSTALL_DEMO"] = "Установить демо данные (расширенный режим)";
 $MESS["IDEA_INSTALL_DEMO_SIMPLE"] = "Установить демо данные";
 $MESS["IDEA_INSTALL_IDEA_IBLOCK_TYPE"] = "Тип инфоблока";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_BP_DOCUMENT_ORDER_FIELD_LID_PRINTABLE"] = "Website (text)";
 $MESS["CRM_BP_DOCUMENT_ORDER_FIELD_USER_ID_PRINTABLE"] = "Customer (text)";
 $MESS["CRM_BP_DOCUMENT_ORDER_FIELD_SHOP_TITLE"] = "Online store name";

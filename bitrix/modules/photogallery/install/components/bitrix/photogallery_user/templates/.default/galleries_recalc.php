@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)
 {
 	if ($_REQUEST["AJAX"] == "Y")
 	{
@@ -117,34 +117,34 @@ if ($_REQUEST["AJAX"] == "Y" && check_bitrix_sessid())
 <div class="photo-page-galleries-recalc">
 	<div class="photo-info-box photo-page-galleries-recalc">
 		<div class="photo-info-box-inner" id="photogallery_result">
-<?
+<?php 
 	if (empty($arGallery))
 	{
 ?>
 		<?=GetMessage("P_RECALC_2")?>
-<?
+<?php 
 	}
 	elseif ($arGallery["status"] == "inprogress")
 	{
 ?>
 		<?=str_replace("#DATE#", $arGallery["date"], GetMessage("P_RECALC_3"))?>
-<?
+<?php 
 	}
 	else
 	{
 ?>
 		<?=str_replace("#DATE#", $arGallery["date"], GetMessage("P_RECALC_4"))?>
-<?
+<?php 
 	}
 
 ?>
 		</div>
 	</div>
 
-	<div class="photo-info-box photo-page-galleries-recalc-bar" id="photogallery_bar" <?
+	<div class="photo-info-box photo-page-galleries-recalc-bar" id="photogallery_bar" <?php 
 	if ($arGallery["status"] != "inprogress")
 	{
-		?>style="display:none;"<?
+		?>style="display:none;"<?php 
 	}
 	?>>
 		<div class="photo-info-box-inner">
@@ -152,7 +152,7 @@ if ($_REQUEST["AJAX"] == "Y" && check_bitrix_sessid())
 		<tr valign="top">
 		<td>
 			<div class="pbar-outer" style="width: 400px;">
-				<div id="pb_photos" class="pbar-inner-green" style="display:block!important; width:<?
+				<div id="pb_photos" class="pbar-inner-green" style="display:block!important; width:<?php 
 				if ($arGallery['elements_cnt'] > 0):
 					echo intVal(doubleval($arGallery['element_number']) * 100 / doubleval($arGallery['elements_cnt']));
 				else:
@@ -161,7 +161,7 @@ if ($_REQUEST["AJAX"] == "Y" && check_bitrix_sessid())
 					?>%;">&nbsp;</div>
 			</div>
 			<div class="pbar-title-outer" style="width: 400px;">
-				<div class="pbar-title-inner" id="photogallery_recalc"><?
+				<div class="pbar-title-inner" id="photogallery_recalc"><?php 
 				if ($arGallery['elements_cnt'] > 0):
 					echo str_replace(
 						array("#ELEMENT_NUMBER#", "#ELEMENTS_CNT#"),
@@ -180,8 +180,8 @@ if ($_REQUEST["AJAX"] == "Y" && check_bitrix_sessid())
 	</div>
 	<div class="photo-info-box photo-page-galleries-recalc-buttons">
 		<div class="photo-info-box-inner">
-			<button onclick="PhotoGalleryRecalcStart(this);" id="ButtonPhotoGalleryRecalcStart"><?=GetMessage("P_START")?></button><?
-			?><button onclick="PhotoGalleryRecalcContinue(this);" id="ButtonPhotoGalleryRecalcContinue"<?=($arGallery["status"] != "inprogress" ? ' disabled="disabled"' : '')?>><?=GetMessage("P_CONTINUE")?></button><?
+			<button onclick="PhotoGalleryRecalcStart(this);" id="ButtonPhotoGalleryRecalcStart"><?=GetMessage("P_START")?></button><?php 
+			?><button onclick="PhotoGalleryRecalcContinue(this);" id="ButtonPhotoGalleryRecalcContinue"<?=($arGallery["status"] != "inprogress" ? ' disabled="disabled"' : '')?>><?=GetMessage("P_CONTINUE")?></button><?php 
 			?><button onclick="PhotoGalleryRecalcStop(this);" id="ButtonPhotoGalleryRecalcStop" disabled="disabled"><?=GetMessage("P_STOP")?></button>
 		</div>
 	</div>
@@ -302,6 +302,6 @@ function PhotoGalleryRecalcStop(button)
 	__this_source.Stop();
 }
 </script>
-<?
+<?php 
 $APPLICATION->SetTitle(GetMessage("P_TITLE"));
 ?>

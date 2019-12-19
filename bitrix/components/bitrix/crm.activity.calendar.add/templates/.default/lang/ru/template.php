@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CALENDAR_TOPIC"] = "Тема";
 $MESS["CRM_CALENDAR_DATE"] = "Дата/время";
 $MESS["CRM_CALENDAR_ADD_BUTTON"] = "Добавить";

@@ -1,9 +1,9 @@
-<?
+<?php 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/intranet/public/company/index.php");
 $APPLICATION->SetTitle(GetMessage("COMPANY_TITLE"));
 ?>
-<?
+<?php 
 $componentParams = [
 	"PATH_TO_DEPARTMENT" => "#SITE_DIR#company/structure.php?set_filter_structure=Y&structure_UF_DEPARTMENT=#ID#",
 	"LIST_URL" => "#SITE_DIR#company/",
@@ -20,4 +20,4 @@ $APPLICATION->IncludeComponent(
 	)
 );
 ?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

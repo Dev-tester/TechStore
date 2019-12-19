@@ -391,24 +391,24 @@ foreach($arResult['ITEMS'] as &$item)
 }
 unset($item);
 
-?><div id="rebuildMessageWrapper"><?
+?><div id="rebuildMessageWrapper"><?php 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT'])
 {
-	?><div id="rebuildActivitySearchWrapper"></div><?
+	?><div id="rebuildActivitySearchWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_BUILD_TIMELINE'])
 {
-	?><div id="buildActivityTimelineWrapper"></div><?
+	?><div id="buildActivityTimelineWrapper"></div><?php 
 }
 if($arResult['NEED_FOR_CONVERTING_OF_CALENDAR_EVENTS'])
 {
-	?><div class="crm-view-message"><?= GetMessage('CRM_ACTION_CONVERTING_OF_CALENDAR_EVENTS', array('#URL_EXECUTE_CONVERTING#' => htmlspecialcharsbx($arResult['CAL_EVENT_CONV_EXEC_URL']), '#URL_SKIP_CONVERTING#' => htmlspecialcharsbx($arResult['CAL_EVENT_CONV_SKIP_URL']))) ?></div><?
+	?><div class="crm-view-message"><?= GetMessage('CRM_ACTION_CONVERTING_OF_CALENDAR_EVENTS', array('#URL_EXECUTE_CONVERTING#' => htmlspecialcharsbx($arResult['CAL_EVENT_CONV_EXEC_URL']), '#URL_SKIP_CONVERTING#' => htmlspecialcharsbx($arResult['CAL_EVENT_CONV_SKIP_URL']))) ?></div><?php 
 }
 if($arResult['NEED_FOR_CONVERTING_OF_TASKS'])
 {
-	?><div class="crm-view-message"><?= GetMessage('CRM_ACTION_CONVERTING_OF_TASKS', array('#URL_EXECUTE_CONVERTING#' => htmlspecialcharsbx($arResult['TASK_CONV_EXEC_URL']), '#URL_SKIP_CONVERTING#' => htmlspecialcharsbx($arResult['TASK_CONV_SKIP_URL']))) ?></div><?
+	?><div class="crm-view-message"><?= GetMessage('CRM_ACTION_CONVERTING_OF_TASKS', array('#URL_EXECUTE_CONVERTING#' => htmlspecialcharsbx($arResult['TASK_CONV_EXEC_URL']), '#URL_SKIP_CONVERTING#' => htmlspecialcharsbx($arResult['TASK_CONV_SKIP_URL']))) ?></div><?php 
 }
-?></div><?
+?></div><?php 
 
 $enableToolbar = $arResult['ENABLE_TOOLBAR'];
 $toolbarID =  strtolower("{$gridEditorID}_toolbar");
@@ -765,7 +765,7 @@ $APPLICATION->IncludeComponent(
 				};
 		}
 	);
-</script><?
+</script><?php 
 
 if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 	<script type="text/javascript">
@@ -794,7 +794,7 @@ if($arResult['NEED_FOR_REBUILD_SEARCH_CONTENT']):?>
 			}
 		);
 	</script>
-<?endif;
+<?php endif;
 if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
 	<script type="text/javascript">
 		BX.ready(
@@ -822,13 +822,13 @@ if($arResult['NEED_FOR_BUILD_TIMELINE']):?>
 			}
 		);
 	</script>
-<?endif;
+<?php endif;
 
 if ($arResult['SHOW_MISMATCH_NOTIFY']):?>
 	<div class="crm-warning-message">
 		<?=GetMessage("CRM_WIDGET_COUNTER_MISMATCH_NOTIFY")?>
 	</div>
-<?endif;
+<?php endif;
 
 if(!$useQuickFilter):
 ?><script type="text/javascript">
@@ -899,7 +899,7 @@ if(!$useQuickFilter):
 				});
 			}
 	);
-</script><?
+</script><?php 
 else:
 ?><script type="text/javascript">
 	BX.ready(
@@ -987,7 +987,7 @@ else:
 				});
 			}
 	);
-</script><?
+</script><?php 
 endif;
 
 $openViewItemId = isset($arResult['OPEN_VIEW_ITEM_ID']) ? $arResult['OPEN_VIEW_ITEM_ID'] : 0;
@@ -1004,7 +1004,7 @@ if($openViewItemId > 0):
 			}
 		}
 	);
-</script><?
+</script><?php 
 elseif($openEditItemId > 0):
 	?><script type="text/javascript">
 		BX.ready(
@@ -1017,5 +1017,5 @@ elseif($openEditItemId > 0):
 				}
 			}
 		);
-	</script><?
+	</script><?php 
 endif;

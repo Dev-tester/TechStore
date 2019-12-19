@@ -1,4 +1,4 @@
-<?
+<?php 
 $className = "CXMPPReceiveIQVCard";
 $classVersion = 2;
 

@@ -1,4 +1,4 @@
-<?
+<?php 
 use Bitrix\Main\UrlRewriter;
 
 require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admin_before.php");
@@ -114,7 +114,7 @@ if ($bVarsFromForm)
 }
 ?>
 
-<?
+<?php 
 $aMenu = array(
 	array(
 		"TEXT" => GetMessage("MURL_2_LIST"),
@@ -151,14 +151,14 @@ if($message)
 
 
 <form method="POST" action="<?= $APPLICATION->GetCurPage()?>?" name="form1">
-<?echo GetFilterHiddens("filter_");?>
+<?php echo GetFilterHiddens("filter_");?>
 <input type="hidden" name="Update" value="Y">
 <input type="hidden" name="lang" value="<?= LANG ?>">
 <input type="hidden" name="site_id" value="<?= htmlspecialcharsbx($site_id) ?>">
 <input type="hidden" name="CONDITION_OLD" value="<?= $str_CONDITION_OLD ?>">
 <?=bitrix_sessid_post()?>
 
-<?
+<?php 
 $aTabs = array(
 	array("DIV" => "edit1", "TAB" => GetMessage("MURL_TAB"), "TITLE" => GetMessage("MURL_TAB_ALT"))
 );
@@ -167,7 +167,7 @@ $tabControl = new CAdminTabControl("tabControl", $aTabs);
 $tabControl->Begin();
 ?>
 
-<?
+<?php 
 $tabControl->BeginNextTab();
 ?>
 
@@ -196,11 +196,11 @@ $tabControl->BeginNextTab();
 		</td>
 	</tr>
 
-<?
+<?php 
 $tabControl->EndTab();
 ?>
 
-<?
+<?php 
 $tabControl->Buttons(
 	array(
 		"disabled" => !$isAdmin,
@@ -208,13 +208,13 @@ $tabControl->Buttons(
 	)
 );
 ?>
-<?
+<?php 
 $tabControl->End();
 ?>
 </form>
-<?
+<?php 
 $tabControl->ShowWarnings("form1", $message);
 ?>
 
 
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>
+<?php require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");?>

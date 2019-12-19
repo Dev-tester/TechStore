@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEARCH_ALL'] = "(везде)";
 $MESS ['LEARNING_MAIN_SEARCH_SEARCH'] = "Найти:";
 $MESS ['SEARCH_GO'] = "Искать";

@@ -1,4 +1,4 @@
-<?
+<?php 
 Class CIdeaManagmentIdea
 {
 	private $IdeaId = false;

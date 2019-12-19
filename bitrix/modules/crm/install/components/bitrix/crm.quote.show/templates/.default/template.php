@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
 if (!empty($arResult['ERROR_MESSAGE']))
 {
@@ -289,7 +289,7 @@ elseif(isset($arResult['ELEMENT']['DISK_FILES']))
 		);
 	});
 </script>
-<?if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
+<?php if($arResult['CONVERSION_PERMITTED'] && $arResult['CAN_CONVERT'] && isset($arResult['CONVERSION_CONFIG'])):?>
 	<script type="text/javascript">
 		BX.ready(
 			function()
@@ -341,7 +341,7 @@ elseif(isset($arResult['ELEMENT']['DISK_FILES']))
 			}
 		);
 	</script>
-<?endif;?>
+<?php endif;?>
 <script type="text/javascript">
 	BX.ready(
 		function()

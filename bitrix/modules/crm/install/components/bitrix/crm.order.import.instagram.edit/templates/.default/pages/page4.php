@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	die();
 
@@ -25,22 +25,22 @@ $logo = !empty($arResult['FORM']['PAGE']['INSTAGRAM']['PROFILE_PICTURE_URL'])
 			<?=Loc::getMessage('CRM_OIIE_INSTAGRAM_CONNECTED_ACCOUNT')?>
 		</div>
 		<div class="crm-order-instagram-edit-connect">
-			<? if (empty($arResult['FORM']['PAGE']['INSTAGRAM']['USERNAME'])): ?>
+			<?php  if (empty($arResult['FORM']['PAGE']['INSTAGRAM']['USERNAME'])): ?>
 			<span class="crm-order-instagram-edit-user">
-			<? else: ?>
+			<?php  else: ?>
 			<a href="https://instagram.com/<?=$arResult['FORM']['PAGE']['INSTAGRAM']['USERNAME']?>/"
 					target="_blank"
 					class="crm-order-instagram-edit-user">
-			<? endif; ?>
+			<?php  endif; ?>
 				<span class="crm-order-instagram-edit-user-img"<?=$logo?>></span>
 				<span class="crm-order-instagram-edit-user-name">
 					<?=$arResult['FORM']['PAGE']['INSTAGRAM']['NAME']?>
 				</span>
-			<? if (empty($arResult['FORM']['PAGE']['INSTAGRAM']['USERNAME'])): ?>
+			<?php  if (empty($arResult['FORM']['PAGE']['INSTAGRAM']['USERNAME'])): ?>
 			</span>
-			<? else: ?>
+			<?php  else: ?>
 			</a>
-			<? endif; ?>
+			<?php  endif; ?>
 			<form action="<?=$arResult["URL"]["SIMPLE_FORM"]?>"
 					method="post"
 					id="delete_page_<?=$arResult["CONNECTOR"]?>">
@@ -57,7 +57,7 @@ $logo = !empty($arResult['FORM']['PAGE']['INSTAGRAM']['PROFILE_PICTURE_URL'])
 			</button>
 		</div>
 	</div>
-	<?
+	<?php 
 	if (count($arResult['FORM']['PAGES']) > 1)
 	{
 		?>
@@ -66,7 +66,7 @@ $logo = !empty($arResult['FORM']['PAGE']['INSTAGRAM']['PROFILE_PICTURE_URL'])
 				<?=Loc::getMessage('CRM_OIIE_INSTAGRAM_OTHER_ACCOUNTS')?>
 			</div>
 			<div class="crm-order-instagram-edit-box-hidden" id="hidden-list" style="display: none;">
-				<?
+				<?php 
 				foreach ($arResult['FORM']['PAGES'] as $page)
 				{
 					if (empty($page['ACTIVE']))
@@ -76,22 +76,22 @@ $logo = !empty($arResult['FORM']['PAGE']['INSTAGRAM']['PROFILE_PICTURE_URL'])
 							: '';
 						?>
 						<div class="crm-order-instagram-edit-connect">
-							<? if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
+							<?php  if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
 							<span class="crm-order-instagram-edit-user">
-							<? else: ?>
+							<?php  else: ?>
 							<a href="https://instagram.com/<?=$page['INFO']['INSTAGRAM']['USERNAME']?>/"
 									target="_blank"
 									class="crm-order-instagram-edit-user">
-							<? endif; ?>
+							<?php  endif; ?>
 								<span class="crm-order-instagram-edit-user-img"<?=$logo?>></span>
 								<span class="crm-order-instagram-edit-user-name">
 									<?=$page['INFO']['INSTAGRAM']['NAME']?>
 								</span>
-							<? if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
+							<?php  if (empty($page['INFO']['INSTAGRAM']['USERNAME'])): ?>
 							</span>
-							<? else: ?>
+							<?php  else: ?>
 							</a>
-							<? endif; ?>
+							<?php  endif; ?>
 							<form action="<?=$arResult["URL"]["SIMPLE_FORM"]?>"
 									method="post"
 									id="change_page_<?=$arResult["CONNECTOR"]?>">
@@ -108,13 +108,13 @@ $logo = !empty($arResult['FORM']['PAGE']['INSTAGRAM']['PROFILE_PICTURE_URL'])
 								<?=Loc::getMessage('CRM_OIIE_SETTINGS_TO_CONNECT')?>
 							</button>
 						</div>
-						<?
+						<?php 
 					}
 				}
 				?>
 			</div>
 		</div>
-		<?
+		<?php 
 	}
 	?>
 </div>

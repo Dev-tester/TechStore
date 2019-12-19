@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_RESET"] = "Abbrechen";
 $MESS["SALE_APPLY"] = "Anwenden";
 $MESS["SALE_ID"] = "Code";

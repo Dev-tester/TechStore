@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPCA_AFFILIATE_ACCOUNT"]="Счет аффилиата";
 $MESS["SPCA_AFFILIATE_PAY"]="Начисление";
 $MESS["SPCA_AFFILIATE_TRANSF"]="Перечисление на внутренний счет";

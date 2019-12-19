@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<? \Bitrix\Main\UI\Extension::load("ui.fonts.opensans"); ?>
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php  \Bitrix\Main\UI\Extension::load("ui.fonts.opensans"); ?>
 
 <div class="intranet-license-restriction-container">
 	<div class="intranet-license-restriction-title">

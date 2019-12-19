@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WZD_OPTION_BOARD_1"] = "Published";
 $MESS["WZD_OPTION_BOARD_2"] = "Activity Start";
 $MESS["WZD_OPTION_BOARD_24"] = "Activity End";

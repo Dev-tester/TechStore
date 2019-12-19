@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WD_COMMENTS_NAME"] = "Discussion (#NUM#)";
 $MESS["WD_COMMENTS_TITLE"] = "Document Discussion";
 $MESS["WD_COMMENTS_NAME_JS"] = "Discussion";

@@ -1,4 +1,4 @@
-<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 
 $enableAuthorize = (isset($arCurrentValues['SHOW_AUTHOR']) && $arCurrentValues['SHOW_AUTHOR'] == 'Y');
 $enableRegistration = !isset($arCurrentValues['SHOW_REGISTRATION']) || $arCurrentValues['SHOW_REGISTRATION'] === 'Y';

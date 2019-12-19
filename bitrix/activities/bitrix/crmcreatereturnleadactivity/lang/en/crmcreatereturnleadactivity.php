@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CRM_CRL_LEAD_TITLE_DEFAULT"] = "Untitled";
 $MESS["CRM_CRL_LEAD_TITLE"] = "Lead name";
 $MESS["CRM_CRL_NO_CLIENTS"] = "Cannot find contacts to bind to the repeat lead";

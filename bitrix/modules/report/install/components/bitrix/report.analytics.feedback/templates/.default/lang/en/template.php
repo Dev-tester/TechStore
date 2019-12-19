@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["REPORT_FEEDBACK_BUTTON_TITLE"] = "Feedback";
 $MESS["REPORT_FEEDBACK_TITLE"] = "Feedback";
 ?>

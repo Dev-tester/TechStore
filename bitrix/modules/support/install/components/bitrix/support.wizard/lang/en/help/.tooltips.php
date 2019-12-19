@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SEF_MODE_TIP'] = "Checking this option enables the SEF mode and the URL configuration fields.";
 $MESS ['TICKETS_PER_PAGE_TIP'] = "Specifies the number of tickets per page.";
 $MESS ['MESSAGES_PER_PAGE_TIP'] = "Specifies the number of messages per page.";

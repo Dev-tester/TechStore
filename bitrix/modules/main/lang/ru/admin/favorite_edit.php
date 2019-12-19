@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['MAIN_TOTAL'] = "Всего:";
 $MESS ['MAIN_F_ID'] = "ID:";
 $MESS ['MAIN_F_SET_FILTER'] = "Фильтр";

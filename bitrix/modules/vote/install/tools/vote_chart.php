@@ -1,4 +1,4 @@
-<?
+<?php 
 $file = preg_replace(array("#[\\\\\\/]+#", "#\\.+[\\\\\\/]#"), array("/", ""), (isset($_REQUEST["file"]) && is_string($_REQUEST["file"]) ? $_REQUEST["file"] : ""));
 
 if(($p = strpos($file, "\0"))!==false)

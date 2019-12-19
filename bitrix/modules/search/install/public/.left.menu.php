@@ -1,4 +1,4 @@
-<?
+<?php 
 $aMenuLinks = Array(
 	Array(
 		GetMessage("SEARCH_INSTALL_PUBLIC_MENU_SEARCH"),

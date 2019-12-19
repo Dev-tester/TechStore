@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 
 $arBarcode = array();
 $barcodeIdTempl = "bar_code_##STORE_ID##_##BARCODE_ID##";
@@ -59,7 +59,7 @@ $arData = array(
 
 ?>
 <form id="smob_barcodes_form" name="smob_barcodes_form" enctype="multipart/form-data" action="<?=$arResult["FORM_ACTION"]?>" method="POST">
-<?
+<?php 
 $APPLICATION->IncludeComponent(
 	'bitrix:mobileapp.edit',
 	'.default',

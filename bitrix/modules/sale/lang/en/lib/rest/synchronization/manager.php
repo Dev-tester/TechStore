@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["MAN_ERROR_CATALOGS"] = "There no commercial catalogs in the system";
 $MESS["MAN_ERROR_EMPTY_FIELD_DELIVERY_SERVICES"] = "Default delivery service is not specified";
 $MESS["MAN_ERROR_EMPTY_FIELD_DELIVERY_STATUS"] = "Default delivery status is not specified";

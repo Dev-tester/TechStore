@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["WEBDAV_OPTIONS_OFFICE_EXTENSIONS"] = "Enable menu item \"Edit In MS Office\" for the following file types:";
 $MESS["WEBDAV_OPTIONS_HIDE_SYSTEM_FILES"] = "Hide system files (filenames beginning with \".\")";
 $MESS["WEBDAV_OPTIONS_FILES_TYPE_NAME"] = "Document Type Name";

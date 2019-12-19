@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TAB_NAME_COMMON"] = "Allgemeine Parameter";
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TAB_TITLE_COMMON"] = "Allgemeine Einstellungen für Gutschein";
 $MESS["BX_SALE_DISCOUNT_COUPON_EDIT_TITLE_ADD"] = "Gutschein erstellen";

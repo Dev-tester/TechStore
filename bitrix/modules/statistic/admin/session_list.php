@@ -397,150 +397,150 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 
 
 <form name="form1" method="GET" action="<?=$APPLICATION->GetCurPage()?>?">
-<?$filter->Begin();?>
+<?php $filter->Begin();?>
 
 <tr>
-	<td><?echo GetMessage("STAT_F_USER")?>:</td>
-	<td><input type="text" name="find_user" size="30" value="<?echo htmlspecialcharsbx($find_user)?>"><?=ShowExactMatchCheckbox("find_user")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_USER")?>:</td>
+	<td><input type="text" name="find_user" size="30" value="<?php echo htmlspecialcharsbx($find_user)?>"><?=ShowExactMatchCheckbox("find_user")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
 <tr>
-	<td><?echo GetMessage("STAT_F_ID")?>:</td>
-	<td><input type="text" name="find_id" size="30" value="<?echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ID")?>:</td>
+	<td><input type="text" name="find_id" size="30" value="<?php echo htmlspecialcharsbx($find_id)?>"><?=ShowExactMatchCheckbox("find_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_START_DATE").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_START_DATE").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_DATE_END").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date_end1", $find_date_end1, "find_date_end2", $find_date_end2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_DATE_END").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date_end1", $find_date_end1, "find_date_end2", $find_date_end2, "form1","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_GUEST_ID")?>:</td>
-	<td><input type="text" name="find_guest_id" size="30" value="<?echo htmlspecialcharsbx($find_guest_id)?>"><?=ShowExactMatchCheckbox("find_guest_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_GUEST_ID")?>:</td>
+	<td><input type="text" name="find_guest_id" size="30" value="<?php echo htmlspecialcharsbx($find_guest_id)?>"><?=ShowExactMatchCheckbox("find_guest_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 
 <tr>
 	<td>
-		<?echo GetMessage("STAT_F_AUTH")?>:</td>
+		<?php echo GetMessage("STAT_F_AUTH")?>:</td>
 	<td>
-		<?
+		<?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_registered", $arr, htmlspecialcharsbx($find_registered), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_NEW_GUEST")?>:</td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_NEW_GUEST")?>:</td>
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_NEW_GUEST_1"), GetMessage("STAT_OLD_GUEST_1")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_new_guest", $arr, htmlspecialcharsbx($find_new_guest), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_IP")?>:</td>
-	<td><input type="text" name="find_ip" size="30" value="<?echo htmlspecialcharsbx($find_ip)?>"><?=ShowExactMatchCheckbox("find_ip")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_IP")?>:</td>
+	<td><input type="text" name="find_ip" size="30" value="<?php echo htmlspecialcharsbx($find_ip)?>"><?=ShowExactMatchCheckbox("find_ip")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td valign="top"><?echo GetMessage("STAT_F_USER_AGENT")?>:</td>
-	<td><textarea class="typearea" name="find_user_agent" cols="30" rows="5"><?echo htmlspecialcharsbx($find_user_agent)?></textarea><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td valign="top"><?php echo GetMessage("STAT_F_USER_AGENT")?>:</td>
+	<td><textarea class="typearea" name="find_user_agent" cols="30" rows="5"><?php echo htmlspecialcharsbx($find_user_agent)?></textarea><?=ShowExactMatchCheckbox("find_user_agent")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_COUNTRY")?>:</td>
+	<td><?php echo GetMessage("STAT_F_COUNTRY")?>:</td>
 	<td valign="center">
-		[&nbsp;<input type="text" name="find_country_id" size="5" value="<?echo htmlspecialcharsbx($find_country_id)?>">&nbsp;]&nbsp;&nbsp;&nbsp;<input type="text" name="find_country" size="30" value="<?echo htmlspecialcharsbx($find_country)?>"><?echo ShowExactMatchCheckbox("find_country")?>&nbsp;<?echo ShowFilterLogicHelp()?>
+		[&nbsp;<input type="text" name="find_country_id" size="5" value="<?php echo htmlspecialcharsbx($find_country_id)?>">&nbsp;]&nbsp;&nbsp;&nbsp;<input type="text" name="find_country" size="30" value="<?php echo htmlspecialcharsbx($find_country)?>"><?php echo ShowExactMatchCheckbox("find_country")?>&nbsp;<?php echo ShowFilterLogicHelp()?>
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_REGION")?>:</td>
-	<td><input type="text" name="find_region" size="50" value="<?echo htmlspecialcharsbx($find_region)?>"><?echo ShowExactMatchCheckbox("find_region")?>&nbsp;<?echo ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_REGION")?>:</td>
+	<td><input type="text" name="find_region" size="50" value="<?php echo htmlspecialcharsbx($find_region)?>"><?php echo ShowExactMatchCheckbox("find_region")?>&nbsp;<?php echo ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_CITY")?>:</td>
+	<td><?php echo GetMessage("STAT_F_CITY")?>:</td>
 	<td valign="center">
-		[&nbsp;<input type="text" name="find_city_id" size="5" value="<?echo htmlspecialcharsbx($find_city_id)?>">&nbsp;]&nbsp;&nbsp;&nbsp;<input type="text" name="find_city" size="30" value="<?echo htmlspecialcharsbx($find_city)?>"><?echo ShowExactMatchCheckbox("find_city")?>&nbsp;<?echo ShowFilterLogicHelp()?>
+		[&nbsp;<input type="text" name="find_city_id" size="5" value="<?php echo htmlspecialcharsbx($find_city_id)?>">&nbsp;]&nbsp;&nbsp;&nbsp;<input type="text" name="find_city" size="30" value="<?php echo htmlspecialcharsbx($find_city)?>"><?php echo ShowExactMatchCheckbox("find_city")?>&nbsp;<?php echo ShowFilterLogicHelp()?>
 	</td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_STOP")?>:</td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_STOP")?>:</td>
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_stop", $arr, htmlspecialcharsbx($find_stop), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_STOP_LIST_ID")?>:</td>
-	<td><input type="text" name="find_stop_list_id" size="30" value="<?echo htmlspecialcharsbx($find_stop_list_id)?>"><?=ShowExactMatchCheckbox("find_stop_list_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_STOP_LIST_ID")?>:</td>
+	<td><input type="text" name="find_stop_list_id" size="30" value="<?php echo htmlspecialcharsbx($find_stop_list_id)?>"><?=ShowExactMatchCheckbox("find_stop_list_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>
-		<?echo GetMessage("STAT_F_HITS")?>:</td>
+		<?php echo GetMessage("STAT_F_HITS")?>:</td>
 	<td>
-		<input type="text" name="find_hits1" size="10" value="<?echo htmlspecialcharsbx($find_hits1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_hits2" size="10" value="<?echo htmlspecialcharsbx($find_hits2)?>"></td>
+		<input type="text" name="find_hits1" size="10" value="<?php echo htmlspecialcharsbx($find_hits1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_hits2" size="10" value="<?php echo htmlspecialcharsbx($find_hits2)?>"></td>
 </tr>
 <tr>
 	<td>
-		<?echo GetMessage("STAT_F_EVENTS")?>:</td>
+		<?php echo GetMessage("STAT_F_EVENTS")?>:</td>
 	<td>
-		<input type="text" name="find_events1" size="10" value="<?echo htmlspecialcharsbx($find_events1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_events2" size="10" value="<?echo htmlspecialcharsbx($find_events2)?>"></td>
+		<input type="text" name="find_events1" size="10" value="<?php echo htmlspecialcharsbx($find_events1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_events2" size="10" value="<?php echo htmlspecialcharsbx($find_events2)?>"></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_CAME_ADV")?>:</td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_CAME_ADV")?>:</td>
+	<td><?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_adv", $arr, htmlspecialcharsbx($find_adv), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_ADV")?>:</td>
-	<td><input type="text" name="find_adv_id" size="30" value="<?echo htmlspecialcharsbx($find_adv_id)?>"><?=ShowExactMatchCheckbox("find_adv_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_ADV")?>:</td>
+	<td><input type="text" name="find_adv_id" size="30" value="<?php echo htmlspecialcharsbx($find_adv_id)?>"><?=ShowExactMatchCheckbox("find_adv_id")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_REFERER12")?>:</td>
-	<td><input type="text" name="find_referer1" size="14" value="<?echo htmlspecialcharsbx($find_referer1)?>">&nbsp;/&nbsp;<input type="text" name="find_referer2" size="14" value="<?echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer12")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_REFERER12")?>:</td>
+	<td><input type="text" name="find_referer1" size="14" value="<?php echo htmlspecialcharsbx($find_referer1)?>">&nbsp;/&nbsp;<input type="text" name="find_referer2" size="14" value="<?php echo htmlspecialcharsbx($find_referer2)?>"><?=ShowExactMatchCheckbox("find_referer12")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_REFERER3")?>:</td>
-	<td><input type="text" name="find_referer3" size="30" value="<?echo htmlspecialcharsbx($find_referer3)?>"><?=ShowExactMatchCheckbox("find_referer3")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	<td><?php echo GetMessage("STAT_F_REFERER3")?>:</td>
+	<td><input type="text" name="find_referer3" size="30" value="<?php echo htmlspecialcharsbx($find_referer3)?>"><?=ShowExactMatchCheckbox("find_referer3")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
 	<td>
-		<?echo GetMessage("STAT_F_ADV_BACK")?>:</td>
+		<?php echo GetMessage("STAT_F_ADV_BACK")?>:</td>
 	<td>
-		<?
+		<?php 
 		$arr = array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N"));
 		echo SelectBoxFromArray("find_adv_back", $arr, htmlspecialcharsbx($find_adv_back), GetMessage("MAIN_ALL"));
 		?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_URL_TO")?>:</td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_URL_TO")?>:</td>
+	<td><?php 
 		echo SelectBoxFromArray("find_first_site_id", $arSiteDropdown, $find_first_site_id, GetMessage("STAT_F_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_url_to_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_url_to_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_url_to" size="34" value="<?echo htmlspecialcharsbx($find_url_to)?>"><?=ShowExactMatchCheckbox("find_url_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_url_to" size="34" value="<?php echo htmlspecialcharsbx($find_url_to)?>"><?=ShowExactMatchCheckbox("find_url_to")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_URL_LAST")?>:</td>
-	<td><?
+	<td><?php echo GetMessage("STAT_F_URL_LAST")?>:</td>
+	<td><?php 
 		echo SelectBoxFromArray("find_last_site_id", $arSiteDropdown, $find_last_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_url_last_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_url_last_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_url_last" size="34" value="<?echo htmlspecialcharsbx($find_url_last)?>"><?=ShowExactMatchCheckbox("find_url_last")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_url_last" size="34" value="<?php echo htmlspecialcharsbx($find_url_last)?>"><?=ShowExactMatchCheckbox("find_url_last")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <?=ShowLogicRadioBtn()?>
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 ?>
 
-<?$lAdmin->DisplayList();?>
+<?php $lAdmin->DisplayList();?>
 
-<?echo BeginNote();?>
-* - <?echo GetMessage("STAT_ADV_BACK_ALT")?>
-<?echo EndNote();?>
+<?php echo BeginNote();?>
+* - <?php echo GetMessage("STAT_ADV_BACK_ALT")?>
+<?php echo EndNote();?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

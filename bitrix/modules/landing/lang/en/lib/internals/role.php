@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["LANDING_TABLE_ERROR_TITLE_REQUIRED"] = "Role name is required";
 $MESS["LANDING_TABLE_FIELD_CREATED_BY_ID"] = "Created by user ID";
 $MESS["LANDING_TABLE_FIELD_DATE_CREATE"] = "Created on";

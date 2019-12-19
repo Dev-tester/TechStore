@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_NAME'] = "Название";
 $MESS ['WD_FILE'] = "Файл";
 $MESS ['WD_FILE_REPLACE'] = "Заменить файл";

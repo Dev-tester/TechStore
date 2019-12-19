@@ -37,35 +37,35 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 				<div class="call-list-tab-content" data-tab="params">
 					<div class="crm-activity-popup-edit-section">
 						<div class="crm-activity-popup-edit-section-content crm-activity-popup-edit-lead-list">
-							<? if($arResult['CALL_LIST']['FILTERED'] == 'Y'): ?>
+							<?php  if($arResult['CALL_LIST']['FILTERED'] == 'Y'): ?>
 								<?=$arResult['CALL_LIST']['FILTER_TEXT']?>
 								<span class="crm-activity-call-list-filter-link" data-role="open-filter">
 									<?= GetMessage('CRM_CALL_LIST_FILTER')?>
 								</span>
-							<? else: ?>
+							<?php  else: ?>
 								<?=$arResult['CALL_LIST']['FILTER_TEXT']?>
-							<? endif ?>
+							<?php  endif ?>
 						</div>
 					</div>
 				</div>
 				<div class="call-list-tab-content activity-call-list-display-hidden" data-tab="grid">
 					<div class="" data-role="grid-container">
-						<?/* grid loads via ajax to avoid php buffer corruption */?>
+						<?php /* grid loads via ajax to avoid php buffer corruption */?>
 					</div>
 				</div>
 				<div class="call-list-tab-content activity-call-list-display-hidden" data-tab="stats">
 					<div class="crm-activity-popup-edit-section">
 						<div class="crm-activity-popup-edit-section-content crm-activity-popup-edit-lead-list">
-							<? foreach ($arResult['CALL_LIST']['STATUS_STATS'] as $statRecord): ?>
+							<?php  foreach ($arResult['CALL_LIST']['STATUS_STATS'] as $statRecord): ?>
 								<?= htmlspecialcharsbx($statRecord['NAME'])?>: <?= (int)$statRecord['COUNT']?><br>
-							<? endforeach ?>
+							<?php  endforeach ?>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<? if($arResult['CALL_LIST']['WEBFORM_ID'] > 0): ?>
+	<?php  if($arResult['CALL_LIST']['WEBFORM_ID'] > 0): ?>
 		<div class="crm-activity-popup-edit-section">
 			<span class="crm-activity-popup-edit-section-title"><?=GetMessage('CRM_CALL_LIST_USE_FORM')?>:</span>
 			<span class="crm-activity-call-list-webform-name">
@@ -74,7 +74,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true) die();
 				</a>
 			</span>
 		</div>
-	<? endif ?>
+	<?php  endif ?>
 	<hr class="crm-activity-popup-edit-separator">
 	<div class="crm-activity-popup-edit-section">
 		<span class="webform-small-button webform-small-button-blue" data-role="invoke-call-interface">

@@ -1,6 +1,6 @@
-<form action="<?echo $APPLICATION->GetCurPage()?>" name="form1">
+<form action="<?php echo $APPLICATION->GetCurPage()?>" name="form1">
 <?=bitrix_sessid_post()?>
-<input type="hidden" name="lang" value="<?echo LANG?>">
+<input type="hidden" name="lang" value="<?php echo LANG?>">
 <input type="hidden" name="id" value="search">
 <input type="hidden" name="install" value="Y">
 <input type="hidden" name="step" value="2">
@@ -41,15 +41,15 @@
 	//-->
 	</script>
 	<br>
-	<?if(CModule::IncludeModule('cluster')):?>
-	<p><?echo GetMessage("SEARCH_INSTALL_DATABASE")?><select name="DATABASE">
-		<option value=""><?echo GetMessage("SEARCH_MAIN_DATABASE")?></option><?
+	<?php if(CModule::IncludeModule('cluster')):?>
+	<p><?php echo GetMessage("SEARCH_INSTALL_DATABASE")?><select name="DATABASE">
+		<option value=""><?php echo GetMessage("SEARCH_MAIN_DATABASE")?></option><?php 
 		$rsDBNodes = CClusterDBNode::GetListForModuleInstall();
 		while($arDBNode = $rsDBNodes->Fetch()):
-		?><option value="<?echo $arDBNode["ID"]?>"><?echo htmlspecialcharsbx($arDBNode["NAME"])?></option><?
+		?><option value="<?php echo $arDBNode["ID"]?>"><?php echo htmlspecialcharsbx($arDBNode["NAME"])?></option><?php 
 		endwhile;
 		?></select></p>
 	<br>
-	<?endif;?>
+	<?php endif;?>
 	<input type="submit" name="inst" value="<?= GetMessage("MOD_INSTALL")?>">
 </form>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["currency_err1"] = "Error deleting the currency.";
 $MESS["currency_err2"] = "All fields are required!";
 $MESS["currency_err3_1"] = "Currency";

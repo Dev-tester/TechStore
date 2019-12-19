@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["KANBAN_SORT_TITLE"] = "Новые задачи:";
 $MESS["KANBAN_SORT_DESC"] = "Сверху";
 $MESS["KANBAN_SORT_ASC"] = "Снизу";

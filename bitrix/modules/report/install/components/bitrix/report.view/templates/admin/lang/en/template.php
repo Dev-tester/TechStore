@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_THIS_MONTH"] = "this month";
 $MESS["TASKS_PREVIOUS_MONTH"] = "last month";
 $MESS["TASKS_THIS_WEEK"] = "this week";

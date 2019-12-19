@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TRANS_TITLE"] = "Поиск и замена";
 $MESS["TRANS_SEARCH"] = "Поиск";
 $MESS["TRANS_SEARCH_TITLE"] = "Поиск сообщений";

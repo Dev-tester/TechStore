@@ -1,4 +1,4 @@
-<? if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+<?php  if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 global $APPLICATION;
 /** @var array $arResult */
 
@@ -45,7 +45,7 @@ if ($sender->isRegistered() || $sender->isDemo())
 			}
 		);
 	</script>
-	</div><?
+	</div><?php 
 	if (!defined('ADMIN_SECTION'))
 	{
 		$this->EndViewTarget();
@@ -110,7 +110,7 @@ if ($sender->isRegistered() || $sender->isDemo())
 			<div class="sms-settings-step-section">
 				<div class="sms-settings-step-number">2</div>
 				<div class="sms-settings-step-title"><?= Loc::getMessage("MESSAGESERVICE_CONFIG_SENDER_SMS_DEMO_TITLE")?></div>
-				<?if ($sender->isDemo()):
+				<?php if ($sender->isDemo()):
 					$demoInfo = $sender->getDemoInfo();
 				?>
 					<div>
@@ -131,7 +131,7 @@ if ($sender->isRegistered() || $sender->isDemo())
 							<div class="sms-settings-step-contact-info-value"><?=htmlspecialcharsbx($demoInfo['email'])?></div>
 						</div>
 					</div>
-				<?else:?>
+				<?php else:?>
 				<ul class="sms-settings-futures-list">
 					<li class="sms-settings-futures-list-item"><?= Loc::getMessage("MESSAGESERVICE_CONFIG_SENDER_SMS_DEMO_RULE_1")?></li>
 					<li class="sms-settings-futures-list-item">
@@ -160,9 +160,9 @@ if ($sender->isRegistered() || $sender->isDemo())
 						</button>
 					</div>
 				</form>
-				<?endif;?>
+				<?php endif;?>
 			</div>
-		<?else:
+		<?php else:
 			$ownerInfo = $sender->getOwnerInfo();
 			?>
 			<!---->
@@ -177,7 +177,7 @@ if ($sender->isRegistered() || $sender->isDemo())
 				</div>
 			</div>
 			<!---->
-		<?endif;?>
+		<?php endif;?>
 		<?php if ($sender->canUse()):?>
 			<div class="sms-settings-step-section sms-settings-step-section-active">
 				<div class="sms-settings-step-number">2</div>
@@ -187,7 +187,7 @@ if ($sender->isRegistered() || $sender->isDemo())
 							'#A2#' => '</a>'
 						))?></div>
 			</div>
-		<?endif;?>
+		<?php endif;?>
 	</div>
 </div>
 <script>
@@ -320,12 +320,12 @@ if ($sender->isRegistered() || $sender->isDemo())
 				});
 			}
 		};
-		<?if ($sender->isRegistered()):?>
+		<?php if ($sender->isRegistered()):?>
 		var steps = BX('sms-settings-steps');
 		if (steps)
 		{
 			BX.scrollToNode(steps);
 		}
-		<?endif?>
+		<?php endif?>
 	});
 </script>

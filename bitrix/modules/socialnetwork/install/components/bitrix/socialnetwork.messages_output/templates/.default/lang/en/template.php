@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['SONET_C28_T_DO_DELETE'] = "Delete";
 $MESS ['SONET_C28_T_SELECT_ALL'] = "Check All / Uncheck All";
 $MESS ['SONET_C28_T_TO_USER'] = "Recipient";

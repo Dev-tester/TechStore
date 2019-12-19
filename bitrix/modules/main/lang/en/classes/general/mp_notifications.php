@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TOP_PANEL_AI_MODULE_UPDATE"] = "Marketplace Solution Updated";
 $MESS["TOP_PANEL_AI_MODULE_UPDATE_DESC"] = "An update for <b>#NAME#</b> is ready to be installed.";
 $MESS["TOP_PANEL_AI_MODULE_END_UPDATE"] = "Marketplace solution update subscription is about to expire";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["UF_TWITTER"] = "Twitter";
 $MESS["UF_SKYPE"] = "Skype";
 $MESS["UF_KONTAKT"] = "VKotkakti";

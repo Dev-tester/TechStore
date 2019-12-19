@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Localization\Loc;
@@ -25,7 +25,7 @@ $APPLICATION->RestartBuffer();
 <!DOCTYPE html>
 <html>
 <head>
-    <?$APPLICATION->ShowHead(); ?>
+    <?php $APPLICATION->ShowHead(); ?>
     <script data-skip-moving="true">
         // Prevent loading page without header and footer
         if (window === window.top)
@@ -34,27 +34,27 @@ $APPLICATION->RestartBuffer();
         }
     </script>
 </head>
-<body class="template-<?=SITE_TEMPLATE_ID?> <?$APPLICATION->ShowProperty("BodyClass");?> <?if($isSideSlider):?>task-iframe-popup-side-slider<?endif?>" onload="window.top.BX.onCustomEvent(window.top, 'tasksIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'tasksIframeUnload');">
+<body class="template-<?=SITE_TEMPLATE_ID?> <?php $APPLICATION->ShowProperty("BodyClass");?> <?php if($isSideSlider):?>task-iframe-popup-side-slider<?php endif?>" onload="window.top.BX.onCustomEvent(window.top, 'tasksIframeLoad');" onunload="window.top.BX.onCustomEvent(window.top, 'tasksIframeUnload');">
 <div class="tasks-iframe-header">
     <div class="pagetitle-wrap">
         <div class="pagetitle-inner-container" style="padding: 0 18px 0 30px">
             <div class="pagetitle" >
-                <span id="pagetitle" class="pagetitle-item"><?$APPLICATION->ShowTitle(false);?><?if($existingTask):?><span class="task-page-link-btn js-id-copy-page-url" title="<?=Loc::getMessage('TASKS_TIP_TEMPLATE_COPY_CURRENT_URL')?>"></span><?endif?></span>
+                <span id="pagetitle" class="pagetitle-item"><?php $APPLICATION->ShowTitle(false);?><?php if($existingTask):?><span class="task-page-link-btn js-id-copy-page-url" title="<?=Loc::getMessage('TASKS_TIP_TEMPLATE_COPY_CURRENT_URL')?>"></span><?php endif?></span>
             </div>
-            <?
+            <?php 
             echo $APPLICATION->ShowViewContent("inside_pagetitle");
             ?>
         </div>
-        <div class="pagetitle-below" style="padding: 0 18px 0 30px"><?$APPLICATION->ShowViewContent("below_pagetitle")?></div>
+        <div class="pagetitle-below" style="padding: 0 18px 0 30px"><?php $APPLICATION->ShowViewContent("below_pagetitle")?></div>
     </div>
 </div>
 <div style="padding: 0 30px;">
-    <?}
+    <?php }
 
 ?>
 
 
-<?if($arParams["ENABLE_MENU_TOOLBAR"]):?>
+<?php if($arParams["ENABLE_MENU_TOOLBAR"]):?>
 
 	<?php $APPLICATION->IncludeComponent(
 		'bitrix:tasks.interface.topmenu',
@@ -87,18 +87,18 @@ $APPLICATION->RestartBuffer();
 		array('HIDE_ICONS' => true)
 	); ?>
 
-	<?//top right menu?>
-	<?/*$this->SetViewTarget("pagetitle", 100);?>
+	<?php //top right menu?>
+	<?php /*$this->SetViewTarget("pagetitle", 100);?>
 	<div class="task-list-toolbar">
 		   <div class="task-list-toolbar-actions">
 			   <a href="<?=htmlspecialcharsbx($toList)?>" class="task-list-back"><?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_TO_LIST')?></a>
 		   </div>
 	</div>
-	<?$this->EndViewTarget();*/?>
+	<?php $this->EndViewTarget();*/?>
 
-<?endif?>
+<?php endif?>
 
-<?$this->SetViewTarget(($isIFrame? 'inside_pagetitle' : 'pagetitle'), 100);?>
+<?php $this->SetViewTarget(($isIFrame? 'inside_pagetitle' : 'pagetitle'), 100);?>
 	<div class="task-list-toolbar">
 		<div class="task-list-toolbar-actions">
 			<?php
@@ -111,24 +111,24 @@ $APPLICATION->RestartBuffer();
 			<button class="ui-btn ui-btn-light-border ui-btn-themes ui-btn-icon-setting webform-cogwheel" id="templateEditPopupMenuOptions"></button>
 		</div>
 	</div>
-<?$this->EndViewTarget();?>
+<?php $this->EndViewTarget();?>
 
-<?$helper->displayFatals();?>
-<?if(!$helper->checkHasFatals()):?>
-	<?$helper->displayWarnings();?>
+<?php $helper->displayFatals();?>
+<?php if(!$helper->checkHasFatals()):?>
+	<?php $helper->displayWarnings();?>
 
-	<?/*
-	<?if($arResult['COMPONENT_DATA']['EVENT_TYPE'] == 'ADD' && !empty($arResult['DATA']['EVENT_TASK'])):?>
+	<?php /*
+	<?php if($arResult['COMPONENT_DATA']['EVENT_TYPE'] == 'ADD' && !empty($arResult['DATA']['EVENT_TASK'])):?>
 		<div class="task-message-label">
 			<?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_SAVED');?>.
-			<?if($arResult['DATA']['EVENT_TASK']['ID'] != $arResult['DATA']['TASK']['ID']):?>
+			<?php if($arResult['DATA']['EVENT_TASK']['ID'] != $arResult['DATA']['TASK']['ID']):?>
 				<a href="<?=\Bitrix\Tasks\UI\Task::makeActionUrl($arParams['PATH_TO_TASKS_TASK'], $arResult['DATA']['EVENT_TASK']['ID'], 'view');?>" target="_blank"><?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_VIEW_TASK');?></a>
-			<?endif?>
+			<?php endif?>
 		</div>
-	<?endif?>
+	<?php endif?>
 	*/?>
 
-	<?
+	<?php 
 	/** @var \Bitrix\Tasks\Item\Task\Template $template */
 	$template = $arResult['ITEM'];
 	$inputPrefix = 'ACTION[0][ARGUMENTS][data]';
@@ -143,18 +143,18 @@ $APPLICATION->RestartBuffer();
 
 	<div id="<?=$helper->getScopeId()?>" class="tasks">
 
-	<?//no need to load html when we intend to close the interface?>
-	<?if($arResult['TEMPLATE_DATA']['SHOW_SUCCESS_MESSAGE']):?>
+	<?php //no need to load html when we intend to close the interface?>
+	<?php if($arResult['TEMPLATE_DATA']['SHOW_SUCCESS_MESSAGE']):?>
 		<div class="tasks-success-message">
-			<?//=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_CHANGES_SAVED')?>
+			<?php //=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_CHANGES_SAVED')?>
 		</div>
-	<?else:?>
+	<?php else:?>
 
-		<?if($arParams["ENABLE_FORM"]):?>
+		<?php if($arParams["ENABLE_FORM"]):?>
 			<form action="<?=$arParams['ACTION_URI']?>" method="post" id="task-form-<?=htmlspecialcharsbx($helper->getId())?>" name="task-form" class="js-id-task-template-edit-form">
-		<?else:?>
+		<?php else:?>
 			<div>
-		<?endif?>
+		<?php endif?>
 
 		<input type="hidden" name="SITE_ID" value="<?=SITE_ID?>" />
 
@@ -163,39 +163,39 @@ $APPLICATION->RestartBuffer();
 		<?php endif?>
 
 		<input class="js-id-task-template-edit-csrf" type="hidden" name="sessid" value="<?=bitrix_sessid()?>" />
-		<input type="hidden" name="EMITTER" value="<?=htmlspecialcharsbx($arResult['COMPONENT_DATA']['ID'])?>" /> <?// a page-unique component id that performs the query ?>
+		<input type="hidden" name="EMITTER" value="<?=htmlspecialcharsbx($arResult['COMPONENT_DATA']['ID'])?>" /> <?php // a page-unique component id that performs the query ?>
 
-		<?// todo: move to hit state?>
+		<?php // todo: move to hit state?>
 		<input type="hidden" name="BACKURL" value="<?=htmlspecialcharsbx(Util::secureBackUrl($arResult['TEMPLATE_DATA']['BACKURL']))?>" />
 		<input type="hidden" name="CANCELURL" value="<?=htmlspecialcharsbx(Util::secureBackUrl($arResult['TEMPLATE_DATA']['CANCELURL']))?>" />
 
-		<?if(intval($template['ID'])):?>
+		<?php if(intval($template['ID'])):?>
 			<input type="hidden" name="ACTION[0][OPERATION]" value="task.template.update" />
 			<input type="hidden" name="ACTION[0][ARGUMENTS][id]" value="<?=$template->getId()?>" />
-		<?else:?>
+		<?php else:?>
 			<input type="hidden" name="ACTION[0][OPERATION]" value="task.template.add" />
-		<?endif?>
+		<?php endif?>
 		<input type="hidden" name="ACTION[0][PARAMETERS][CODE]" value="task_template_action" />
 
-		<?// todo: move to hit state?>
-		<?if(Type::isIterable($arResult['COMPONENT_DATA']['DATA_SOURCE'])):?>
+		<?php // todo: move to hit state?>
+		<?php if(Type::isIterable($arResult['COMPONENT_DATA']['DATA_SOURCE'])):?>
 			<input type="hidden" name="ADDITIONAL[DATA_SOURCE][TYPE]" value="<?=htmlspecialcharsbx($arResult['COMPONENT_DATA']['DATA_SOURCE']['TYPE'])?>" />
 			<input type="hidden" name="ADDITIONAL[DATA_SOURCE][ID]" value="<?=intval($arResult['COMPONENT_DATA']['DATA_SOURCE']['ID'])?>" />
-		<?endif?>
+		<?php endif?>
 
-		<?if(is_array($arResult['COMPONENT_DATA']['HIT_STATE'])):?>
-			<?foreach($arResult['COMPONENT_DATA']['HIT_STATE'] as $field => $value):?>
+		<?php if(is_array($arResult['COMPONENT_DATA']['HIT_STATE'])):?>
+			<?php foreach($arResult['COMPONENT_DATA']['HIT_STATE'] as $field => $value):?>
 				<input type="hidden" name="HIT_STATE[<?=htmlspecialcharsbx(str_replace('.', '][', $field))?>]" value="<?=htmlspecialcharsbx($value)?>" />
-			<?endforeach?>
-		<?endif?>
+			<?php endforeach?>
+		<?php endif?>
 
-		<?$blocks = array();?>
+		<?php $blocks = array();?>
 
-		<?//////// TOP ///////////////////////////////////////////////?>
+		<?php //////// TOP ///////////////////////////////////////////////?>
 
-		<?ob_start();?>
+		<?php ob_start();?>
 		<input class="js-id-task-template-edit-title" type="text" name="<?=$inputPrefix?>[TITLE]" value="<?=htmlspecialcharsbx($template['TITLE'])?>" placeholder="<?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_WHAT_TO_BE_DONE')?>"/>
-		<?
+		<?php 
 		$blocks['HEAD_TOP_LEFT'] = array(
 			'HTML' => ob_get_clean(),
 		);
@@ -213,7 +213,7 @@ $APPLICATION->RestartBuffer();
 		/>
 		<label for="tasks-task-priority-cb"><?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_PRIORITY')?></label>
 		<input class="js-id-task-template-edit-priority" type="hidden" name="<?=$inputPrefix?>[PRIORITY]" value="<?=intval($template['PRIORITY'])?>" />
-		<?
+		<?php 
 		$blocks['HEAD_TOP_RIGHT'] = array(
 			'HTML' => ob_get_clean(),
 		);
@@ -408,7 +408,7 @@ $APPLICATION->RestartBuffer();
 			<span class="tasks-deadline-label"><nobr><?=Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_AFTER_CREATE');?></nobr></span>
 		</div>
 
-		<?
+		<?php 
 		$dates = array(
 			'CODE' => 'DATES',
 			'TITLE' => Loc::getMessage('TASKS_TASK_TEMPLATE_COMPONENT_TEMPLATE_DEADLINE_AFTER'),
@@ -450,7 +450,7 @@ $APPLICATION->RestartBuffer();
             </span>
 		</div>
 		<input class="js-id-task-template-edit-end-date-input" type="hidden" name="<?=$inputPrefix?>[END_DATE_PLAN_AFTER]" value="<?=intval($template['END_DATE_PLAN_AFTER'])?>" />
-		<?
+		<?php 
 		$dates['SUB'][] = array(
 			'CODE' => 'DATE_PLAN',
 			'HTML' => ob_get_clean(),
@@ -462,13 +462,13 @@ $APPLICATION->RestartBuffer();
 		?>
 		<div class="task-options-field-container">
 
-			<?$typeNewEnabled = !$template->getId() && !$template['BASE_TEMPLATE_ID'] && $template['REPLICATE'] != 'Y';?>
-			<?$canCustomizeCalendar =
+			<?php $typeNewEnabled = !$template->getId() && !$template['BASE_TEMPLATE_ID'] && $template['REPLICATE'] != 'Y';?>
+			<?php $canCustomizeCalendar =
 				!$arResult['AUX_DATA']['USER']['IS_EXTRANET_USER'] &&
 				$arResult['COMPONENT_DATA']['MODULES']['bitrix24'] &&
 				\Bitrix\Tasks\Integration\Bitrix24\User::isAdmin($arParams['USER_ID']);?>
 
-			<?
+			<?php 
 			$options = array(
 				array(
 					'CODE' => 'ALLOW_CHANGE_DEADLINE',
@@ -530,7 +530,7 @@ $APPLICATION->RestartBuffer();
 			}
 			?>
 
-			<?$APPLICATION->IncludeComponent(
+			<?php $APPLICATION->IncludeComponent(
 				'bitrix:tasks.widget.optionbar',
 				'',
 				array(
@@ -543,7 +543,7 @@ $APPLICATION->RestartBuffer();
 			);?>
 
 		</div>
-		<?
+		<?php 
 		$dates['SUB'][] = array(
 			'CODE' => 'OPTIONS',
 			'HTML' => ob_get_clean(),
@@ -582,7 +582,7 @@ $APPLICATION->RestartBuffer();
                 </label>
                 <div class="js-id-task-template-edit-replication-panel task-options-repeat task-openable-block<?=($template['REPLICATE'] == 'Y' ? '' : ' invisible')?>">
 
-                    <?$APPLICATION->IncludeComponent(
+                    <?php $APPLICATION->IncludeComponent(
                         'bitrix:tasks.widget.replication',
                         '',
                         array(
@@ -596,7 +596,7 @@ $APPLICATION->RestartBuffer();
                     );?>
 
                 </div>
-                <?
+                <?php 
                 $blockCode = 'REPLICATION';
                 $blocks['STATIC'][] = array(
                     'CODE' => $blockCode,
@@ -654,9 +654,9 @@ $APPLICATION->RestartBuffer();
 				$crmUf['FIELD_NAME'] = $inputPrefix.'['.$crmUfCode.']';
 				?>
 				<div class="tasks-crm-offset">
-					<?\Bitrix\Tasks\Util\UserField\UI::showEdit($crmUf)?>
+					<?php \Bitrix\Tasks\Util\UserField\UI::showEdit($crmUf)?>
 				</div>
-				<?
+				<?php 
 			}
 			elseif($blockCode == 'USER_FIELDS')
 			{
@@ -695,7 +695,7 @@ $APPLICATION->RestartBuffer();
 				</label>
 				<div class="js-id-task-template-edit-replication-panel task-options-repeat task-openable-block<?=($template['REPLICATE'] == 'Y' ? '' : ' invisible')?>">
 
-					<?$APPLICATION->IncludeComponent(
+					<?php $APPLICATION->IncludeComponent(
 						'bitrix:tasks.widget.replication',
 						'',
 						array(
@@ -709,7 +709,7 @@ $APPLICATION->RestartBuffer();
 					);?>
 
 				</div>
-				<?
+				<?php 
 			}
 			elseif($blockCode == 'TIME_MANAGER')
 			{
@@ -787,7 +787,7 @@ $APPLICATION->RestartBuffer();
 					<input class="js-id-task-template-edit-parent-type-template" type="hidden" name="<?=$inputPrefix?>[BASE_TEMPLATE_ID]" value="<?=(intval($template['PARENT_ID']) ? 0 : intval($template['BASE_TEMPLATE_ID']))?>" />
 
 					<div class="tasks-parent-selector">
-						<?$APPLICATION->IncludeComponent(
+						<?php $APPLICATION->IncludeComponent(
 							'bitrix:tasks.widget.related.selector',
 							'',
 							array(
@@ -801,7 +801,7 @@ $APPLICATION->RestartBuffer();
 						);?>
 					</div>
 				</div>
-				<?
+				<?php 
 			}
 			elseif($blockCode == 'ACCESS')
 			{
@@ -872,19 +872,19 @@ $APPLICATION->RestartBuffer();
 			array("HIDE_ICONS" => "Y", "ACTIVE_COMPONENT" => "Y")
 		);?>
 
-		<?if($arParams["ENABLE_FORM"]):?>
+		<?php if($arParams["ENABLE_FORM"]):?>
 			</form>
-		<?else:?>
+		<?php else:?>
 			</div>
-		<?endif?>
-	<?endif?>
+		<?php endif?>
+	<?php endif?>
 
 	</div>
 
-	<?$helper->initializeExtension();?>
+	<?php $helper->initializeExtension();?>
 
-<?endif?>
-<?
+<?php endif?>
+<?php 
 if (isset($_REQUEST["IFRAME"]) && $_REQUEST["IFRAME"] === "Y")
 {
     require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php');

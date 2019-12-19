@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_EBAY_W_TITLE"] = "Мастер подключения к торговой площадке eBay";
 $MESS["SALE_EBAY_W_ERROR"] = "Ошибка";
 $MESS["SALE_EBAY_W_SALE_NOT_INSTALLED"] = "Модуль магазина не установлен";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["EXTRANET_LEFT_MENU_LIVE_FEED"] = "Живая лента";
 $MESS["EXTRANET_LEFT_MENU_TASKS"] = "Задачи и Проекты";
 $MESS["EXTRANET_LEFT_MENU_CALENDAR"] = "Календарь";

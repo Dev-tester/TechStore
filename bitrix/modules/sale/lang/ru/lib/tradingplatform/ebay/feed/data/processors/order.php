@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SALE_TP_EBAY_FDPO_ORDER_PROCESSED"] = "Заказ №\"#ORDER_ID#\" успешно обработан";
 $MESS["SALE_TP_EBAY_FDPO_ORDER_ERROR"] = "Ошибка обработки заказа №\"#ORDER_ID#\"";
 $MESS["SALE_TP_EBAY_FDPO_ORDER_SKIPPED"] = "Заказ №\"#ORDER_ID#\" не обработан, так как еще не оплачен";

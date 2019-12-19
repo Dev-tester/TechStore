@@ -1,5 +1,5 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 // Light Visual BB Editor
 if(CModule::IncludeModule("fileman"))
 {
@@ -11,7 +11,7 @@ if(CModule::IncludeModule("fileman"))
 		submitComment();
 	};
 	</script>
-	<?
+	<?php 
 	$LHE = new CLightHTMLEditor;
 	$LHE->Show(array(
 		'id' => 'LHEPhotoBlogCom',

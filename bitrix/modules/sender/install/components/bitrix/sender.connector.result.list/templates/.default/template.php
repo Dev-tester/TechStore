@@ -1,4 +1,4 @@
-<?
+<?php 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main\Web\Json;
@@ -92,7 +92,7 @@ $controlPanel = array('GROUPS' => array(array('ITEMS' => array())));
 $containerId = 'bx-sender-connector-result-list';
 ?>
 <div id="<?=htmlspecialcharsbx($containerId)?>">
-	<?$APPLICATION->IncludeComponent(
+	<?php $APPLICATION->IncludeComponent(
 		"bitrix:main.ui.grid",
 		"",
 		array(

@@ -194,7 +194,7 @@ if($find_diagram_type=="COUNTER"):
 			<td><?=GetMessage("STAT_TRANSFER")?></td>
 			<td><?=GetMessage("STAT_PERCENT")?></td>
 		</tr>
-	<?
+	<?php 
 		$rsParentPath = CPath::GetByID($parent_id);
 		if($arParentPath = $rsParentPath->Fetch()):
 			$arrPages = explode("\n",$arParentPath["PAGES"]);
@@ -220,7 +220,7 @@ if($find_diagram_type=="COUNTER"):
 					?>
 					<tr>
 						<td nowrap><?=$i?></td>
-						<td nowrap><a title="<?=GetMessage("STAT_GO")?>" href="<?=htmlspecialcharsbx($page)?>">&raquo;</a>&nbsp;<?
+						<td nowrap><a title="<?=GetMessage("STAT_GO")?>" href="<?=htmlspecialcharsbx($page)?>">&raquo;</a>&nbsp;<?php 
 							$new_path_id = GetStatPathID($page, $path_id);
 							$arParent[$new_path_id] = $path_id;
 							$path_id = $new_path_id;
@@ -228,16 +228,16 @@ if($find_diagram_type=="COUNTER"):
 								$prev_parent_path = $path_id;
 								$action_url = "path_list.php?lang=".LANGUAGE_ID."&find_diagram_type=COUNTER&parent_id=".urlencode($path_id)."&context=".urlencode($context);
 								$action_js = ($table_id==""? $sTableID:$table_id).".GetAdminList('".CUtil::JSEscape($action_url)."');";
-									?><a href="javascript:void(0)" onclick="<?echo htmlspecialcharsbx($action_js)?>"><?
+									?><a href="javascript:void(0)" onclick="<?php echo htmlspecialcharsbx($action_js)?>"><?php 
 								if($err_404=="Y"):
-									?><span class="stat_attention"><?echo htmlspecialcharsEx(TruncateText($page,65))?></span><?
+									?><span class="stat_attention"><?php echo htmlspecialcharsEx(TruncateText($page,65))?></span><?php 
 								else:
 									echo htmlspecialcharsEx(TruncateText($page,65));
 								endif;
-								?></a><?
+								?></a><?php 
 							else :
 								if($err_404=="Y"):
-									?><span class="stat_attention"><?echo htmlspecialcharsEx(TruncateText($page,65))?></span><?
+									?><span class="stat_attention"><?php echo htmlspecialcharsEx(TruncateText($page,65))?></span><?php 
 								else:
 									echo htmlspecialcharsEx(TruncateText($page,65));
 								endif;
@@ -261,12 +261,12 @@ if($find_diagram_type=="COUNTER"):
 						<td nowrap align="right" width="15%">&nbsp;<?=intval($counter)?></td>
 						<td nowrap align="right" width="15%"><span title="<?=$alt?>">&nbsp;<?=($i>1) ? $percent_f."%" : ""?></span></td>
 					</tr>
-				<?
+				<?php 
 				endif;
 			endforeach;
 		endif;
 		?></table>
-	<?
+	<?php 
 	endif;
 endif;
 
@@ -400,45 +400,45 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 ?>
 
 
-<form name="form1" method="GET" action="<?echo $APPLICATION->GetCurPage()?>">
-<?$filter->Begin();?>
+<form name="form1" method="GET" action="<?php echo $APPLICATION->GetCurPage()?>">
+<?php $filter->Begin();?>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PERIOD").":"?></td>
-	<td width="0%" nowrap><?echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PERIOD").":"?></td>
+	<td width="0%" nowrap><?php echo CalendarPeriod("find_date1", $find_date1, "find_date2", $find_date2, "form1","Y")?></td>
 </tr>
 <tr>
-	<td><?echo GetMessage("STAT_F_STEPS")?>:</td>
-	<td><input type="text" name="find_steps1" size="10" value="<?echo htmlspecialcharsbx($find_steps1)?>"><?echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_steps2" size="10" value="<?echo htmlspecialcharsbx($find_steps2)?>"></td>
+	<td><?php echo GetMessage("STAT_F_STEPS")?>:</td>
+	<td><input type="text" name="find_steps1" size="10" value="<?php echo htmlspecialcharsbx($find_steps1)?>"><?php echo "&nbsp;".GetMessage("STAT_TILL")."&nbsp;"?><input type="text" name="find_steps2" size="10" value="<?php echo htmlspecialcharsbx($find_steps2)?>"></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_FIRST_PAGE")?>:</td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_FIRST_PAGE")?>:</td>
+	<td width="0%" nowrap><?php 
 		echo SelectBoxFromArray("find_first_page_site_id", $arSiteDropdown, $find_first_page_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_first_page_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_first_page_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_first_page" size="37" value="<?echo htmlspecialcharsbx($find_first_page)?>"><?=ShowExactMatchCheckbox("find_first_page")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_first_page" size="37" value="<?php echo htmlspecialcharsbx($find_first_page)?>"><?=ShowExactMatchCheckbox("find_first_page")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_PAGE")?>:</td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_PAGE")?>:</td>
+	<td width="0%" nowrap><?php 
 		echo SelectBoxFromArray("find_page_site_id", $arSiteDropdown, $find_page_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_page_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_page_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_page" size="37" value="<?echo htmlspecialcharsbx($find_page)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_page" size="37" value="<?php echo htmlspecialcharsbx($find_page)?>">&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="center">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_LAST_PAGE")?>:</td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_LAST_PAGE")?>:</td>
+	<td width="0%" nowrap><?php 
 		echo SelectBoxFromArray("find_last_page_site_id", $arSiteDropdown, $find_last_page_site_id, GetMessage("STAT_D_SITE"));
-	?>&nbsp;<?
+	?>&nbsp;<?php 
 		echo SelectBoxFromArray("find_last_page_404", array("reference"=>array(GetMessage("STAT_YES"), GetMessage("STAT_NO")), "reference_id"=>array("Y","N")), htmlspecialcharsbx($find_last_page_404), GetMessage("STAT_404"));
-	?>&nbsp;<input type="text" name="find_last_page" size="37" value="<?echo htmlspecialcharsbx($find_last_page)?>"><?=ShowExactMatchCheckbox("find_last_page")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
+	?>&nbsp;<input type="text" name="find_last_page" size="37" value="<?php echo htmlspecialcharsbx($find_last_page)?>"><?=ShowExactMatchCheckbox("find_last_page")?>&nbsp;<?=ShowFilterLogicHelp()?></td>
 </tr>
 <tr valign="top">
-	<td width="0%" nowrap valign="top"><?
+	<td width="0%" nowrap valign="top"><?php 
 		echo GetMessage("STAT_F_ADV")?>:<br><img src="/bitrix/images/statistic/mouse.gif" width="44" height="21" border=0 alt=""></td>
 	<td width="100%" nowrap>
-	<?
+	<?php 
 		echo SelectBoxMFromArray("find_adv[]",array("REFERENCE"=>$find_adv_names, "REFERENCE_ID"=>$find_adv), $find_adv,"",false,"5", "style=\"width:300px;\"");
 		?>
 	<script language="Javascript">
@@ -455,8 +455,8 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 		</td>
 </tr>
 <tr valign="top">
-	<td width="0%" nowrap><?echo GetMessage("STAT_F_ADV_DATA_TYPE")?>:</td>
-	<td width="0%" nowrap><?
+	<td width="0%" nowrap><?php echo GetMessage("STAT_F_ADV_DATA_TYPE")?>:</td>
+	<td width="0%" nowrap><?php 
 		$arr = array(
 		"reference"=>array(
 			GetMessage("STAT_ADV_SUMMA"),
@@ -467,13 +467,13 @@ require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_admi
 		echo SelectBoxFromArray("find_adv_data_type", $arr, htmlspecialcharsbx($find_adv_data_type));
 		?></td>
 </tr>
-<?$filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
+<?php $filter->Buttons(array("table_id"=>$sTableID, "url"=>$APPLICATION->GetCurPage(), "form"=>"form1"));$filter->End();?>
 </form>
 
-<?
+<?php 
 if($message)
 	echo $message->Show();
 $lAdmin->DisplayList();
 ?>
 
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");
+<?php require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/epilog_admin.php");

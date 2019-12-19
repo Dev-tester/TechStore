@@ -1,4 +1,4 @@
-<?
+<?php 
 define("NOT_CHECK_FILE_PERMISSIONS", true);
 
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/modules/main/include/prolog_before.php");

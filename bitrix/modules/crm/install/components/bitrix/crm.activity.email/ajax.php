@@ -253,37 +253,37 @@ class CrmActivityEmailAjax
 				<div class="crm-task-list-mail-item crm-activity-email-logitem-<?=intval($item['ID']) ?>"
 					data-id="<?=intval($item['ID']) ?>" data-log="<?=htmlspecialcharsbx($type) ?>">
 					<span class="crm-task-list-mail-item-icon-reply-<?=($item['DIRECTION'] == \CCrmActivityDirection::Incoming ? 'incoming' : 'coming') ?>"></span>
-					<span class="crm-task-list-mail-item-icon <? if ($item['COMPLETED'] != 'Y'): ?>active-mail<? endif ?>"></span>
+					<span class="crm-task-list-mail-item-icon <?php  if ($item['COMPLETED'] != 'Y'): ?>active-mail<?php  endif ?>"></span>
 					<span class="crm-task-list-mail-item-user"
-						<? if (!empty($item['LOG_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($item['LOG_IMAGE']) ?>'); background-size: 23px 23px; "<? endif ?>>
+						<?php  if (!empty($item['LOG_IMAGE'])): ?> style="background: url('<?=htmlspecialcharsbx($item['LOG_IMAGE']) ?>'); background-size: 23px 23px; "<?php  endif ?>>
 						</span>
 					<span class="crm-task-list-mail-item-name"><?=htmlspecialcharsbx($item['LOG_TITLE']) ?></span>
 					<span class="crm-task-list-mail-item-description"><?=htmlspecialcharsbx($item['SUBJECT']) ?></span>
-					<span class="crm-task-list-mail-item-date <? if ($isSlider): ?> crm-activity-email-item-date<? endif ?>">
+					<span class="crm-task-list-mail-item-date <?php  if ($isSlider): ?> crm-activity-email-item-date<?php  endif ?>">
 						<span class="crm-activity-email-item-date-short">
 							<?=$startDatetimeFormatted ?>
 						</span>
 						<span class="crm-activity-email-item-date-full">
-							<? if (\CCrmActivityDirection::Outgoing == $item['DIRECTION']): ?>
+							<?php  if (\CCrmActivityDirection::Outgoing == $item['DIRECTION']): ?>
 								<?=getMessage('CRM_ACT_EMAIL_VIEW_SENT', array('#DATETIME#' => $startDatetimeFormatted)) ?><!--
-								--><? if (isset($item['SETTINGS']['IS_BATCH_EMAIL']) && !$item['SETTINGS']['IS_BATCH_EMAIL']): ?>,
-									<? if (!empty($readDatetimeFormatted)): ?>
+								--><?php  if (isset($item['SETTINGS']['IS_BATCH_EMAIL']) && !$item['SETTINGS']['IS_BATCH_EMAIL']): ?>,
+									<?php  if (!empty($readDatetimeFormatted)): ?>
 										<?=getMessage('CRM_ACT_EMAIL_VIEW_READ_CONFIRMED', array('#DATETIME#' => $readDatetimeFormatted)) ?>
-									<? else: ?>
+									<?php  else: ?>
 										<?=getMessage('CRM_ACT_EMAIL_VIEW_READ_AWAITING') ?>
-									<? endif ?>
-								<? endif ?>
-							<? else: ?>
+									<?php  endif ?>
+								<?php  endif ?>
+							<?php  else: ?>
 								<?=getMessage('CRM_ACT_EMAIL_VIEW_RECEIVED', array('#DATETIME#' => $startDatetimeFormatted)) ?>
-							<? endif ?>
+							<?php  endif ?>
 						</span>
 					</span>
 				</div>
-				<div class="crm-task-list-mail-item-inner <? if (!$isSlider): ?>crm-task-list-mail-border-bottom<? endif ?> crm-activity-email-details-<?=intval($item['ID']) ?> <? if ($isSlider): ?> crm-task-list-mail-item-inner-slider<? endif ?>"
+				<div class="crm-task-list-mail-item-inner <?php  if (!$isSlider): ?>crm-task-list-mail-border-bottom<?php  endif ?> crm-activity-email-details-<?=intval($item['ID']) ?> <?php  if ($isSlider): ?> crm-task-list-mail-item-inner-slider<?php  endif ?>"
 					style="display: none; text-align: center; " data-id="<?=intval($item['ID']) ?>" data-empty="1">
-					<div class="crm-task-list-mail-item-loading <? if ($isSlider): ?>crm-task-list-mail-border-bottom<? endif ?>"></div>
+					<div class="crm-task-list-mail-item-loading <?php  if ($isSlider): ?>crm-task-list-mail-border-bottom<?php  endif ?>"></div>
 				</div>
-				<?
+				<?php 
 			}
 
 			$html = ob_get_clean();

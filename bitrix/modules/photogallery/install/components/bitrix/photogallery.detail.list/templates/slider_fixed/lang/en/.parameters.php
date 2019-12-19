@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['P_SHOW_PAGE_NAVIGATION'] = "Display navigation";
 $MESS ['P_SHOW_PAGE_NAVIGATION_NONE'] = "hide";
 $MESS ['P_SHOW_PAGE_NAVIGATION_TOP'] = "top";

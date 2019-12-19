@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["ACCOUNT_INSERT"] = "The administrator has registered you on the site";
 $MESS["ACCOUNT_UPDATE"] = "The administrator has updated your personal information.";
 $MESS["ACTIVE"] = "Active:";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IBLOCK_DETAIL_URL"] = "URL of the page with the detail contents";
 $MESS["IBLOCK_TYPE"] = "Infoblock type";
 $MESS["IBLOCK_IBLOCK"] = "Infoblock";

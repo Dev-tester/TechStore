@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASK_NAME_IBLOCK_DENY"] = "Нет доступа";
 $MESS["TASK_DESC_IBLOCK_DENY"] = "Доступ к инфоблоку запрещен";
 $MESS["TASK_NAME_IBLOCK_READ"] = "Чтение";

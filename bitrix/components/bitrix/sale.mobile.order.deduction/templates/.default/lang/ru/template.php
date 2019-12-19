@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SMODE_TITLE"] = "Отгрузка заказа";
 $MESS["SMODE_PRODUCT_NAME"] = "Наименование товара";
 $MESS["SMODE_PRODUCT"] = "Товар";

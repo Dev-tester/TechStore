@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CAT_DISC_CONVERT_IN_PROGRESS"] = "Indexing...";
 $MESS["CAT_DISC_CONVERT_TOTAL"] = "Discounts indexed: <b>#COUNT#</b> (#PERCENT#%, in #TIME#)";
 $MESS["CAT_DISC_CONVERT_TOTAL_MIN"] = "#MIN# min.";

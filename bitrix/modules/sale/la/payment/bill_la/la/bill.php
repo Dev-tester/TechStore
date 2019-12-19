@@ -1,4 +1,4 @@
-<?
+<?php 
 global $MESS;
 
 $MESS["SBLP_DTITLE"] = "Factura (Español)";

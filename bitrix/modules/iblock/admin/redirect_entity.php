@@ -1,4 +1,4 @@
-<?
+<?php 
 /** @global CMain $APPLICATION */
 use Bitrix\Main\Loader,
 	Bitrix\Main\Localization\Loc,
@@ -109,7 +109,7 @@ if (!empty($errors))
 	unset($errorMessage);
 }
 
-?><form name="find_form" method="POST" action="<?echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID;?>"><?
+?><form name="find_form" method="POST" action="<?php echo $APPLICATION->GetCurPage()?>?lang=<?=LANGUAGE_ID;?>"><?php 
 echo bitrix_sessid_post();
 $filter = new CAdminFilter(
 	'element_redirect_filter',
@@ -121,21 +121,21 @@ $filter = new CAdminFilter(
 $filter->Begin();
 ?>
 <tr>
-	<td><?echo Loc::getMessage('BX_IBLOCK_REDIRECT_ENTITY_FILTER_ENTITY')?></td>
-	<td><select name="ENTITY"><?
+	<td><?php echo Loc::getMessage('BX_IBLOCK_REDIRECT_ENTITY_FILTER_ENTITY')?></td>
+	<td><select name="ENTITY"><?php 
 		foreach ($entityList as $key => $value)
 		{
-			?><option value="<?=htmlspecialcharsbx($key); ?>"<?=($entityCode == $key ? ' selected' : ''); ?>><?=htmlspecialcharsEx($value); ?></option><?
+			?><option value="<?=htmlspecialcharsbx($key); ?>"<?=($entityCode == $key ? ' selected' : ''); ?>><?=htmlspecialcharsEx($value); ?></option><?php 
 		}
 		unset($key, $value);
 		?></select>
 	</td>
 </tr>
 <tr>
-	<td><?echo Loc::getMessage('BX_IBLOCK_REDIRECT_ENTITY_FILTER_ID')?></td>
+	<td><?php echo Loc::getMessage('BX_IBLOCK_REDIRECT_ENTITY_FILTER_ID')?></td>
 	<td><input type="text" name="ID" value="<?=htmlspecialcharsbx($request['ID']); ?>"></td>
 </tr>
-<?
+<?php 
 $filter->Buttons(
 	array(
 		"table_id" => $adminListTableID,
@@ -144,7 +144,7 @@ $filter->Buttons(
 	)
 );
 $filter->End();
-?></form><?
+?></form><?php 
 
 echo BeginNote();
 echo Loc::getMessage('BX_IBLOCK_REDIRECT_ENTITY_NOTE');

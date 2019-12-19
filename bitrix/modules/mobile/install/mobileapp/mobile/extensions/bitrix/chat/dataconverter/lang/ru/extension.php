@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_LIST_CHAT"] = "Закрытый чат";
 $MESS["IM_LIST_CHAT_OPEN"] = "Открытый чат";
 $MESS["IM_LIST_EMPLOYEE"] = "Сотрудник";

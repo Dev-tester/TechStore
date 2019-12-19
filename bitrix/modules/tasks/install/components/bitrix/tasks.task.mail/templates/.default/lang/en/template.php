@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["TASKS_ADD_TASK_F"] = "Assigned task";
 $MESS["TASKS_ADD_TASK_M"] = "Assigned task";
 $MESS["TASKS_UPDATE_TASK_F"] = "Changed task";

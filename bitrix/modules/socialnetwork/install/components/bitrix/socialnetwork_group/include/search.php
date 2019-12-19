@@ -1,5 +1,5 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
-<?
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?php 
 $arParams["SEARCH_FILTER_NAME"] = (
 	isset($arParams["SEARCH_FILTER_NAME"])
 	&& strlen($arParams["SEARCH_FILTER_NAME"]) > 0

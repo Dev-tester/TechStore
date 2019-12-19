@@ -264,9 +264,9 @@ if (LANGUAGE_ID == 'ru')
 								);
 						?><?php endif?>
 					<span class="task-comments-date"><?php echo $res["POST_DATE"]?></span>
-					<?if ($arParams["SHOW_RATING"] == "Y") {?>
+					<?php if ($arParams["SHOW_RATING"] == "Y") {?>
 						<div class="task-comments-rating rating_vote_graphic">
-							<?
+							<?php 
 							$arRatingParams = Array(
 									"ENTITY_TYPE_ID" => "FORUM_POST",
 									"ENTITY_ID" => $res["ID"],
@@ -286,7 +286,7 @@ if (LANGUAGE_ID == 'ru')
 							$GLOBALS["APPLICATION"]->IncludeComponent( "bitrix:rating.vote", $arParams["RATING_TYPE"], $arRatingParams, $component, array("HIDE_ICONS" => "Y"));
 							?>
 						</div>
-					<? } ?>
+					<?php  } ?>
 					<div class="task-blog-clear-float"></div>
 				</div>
 				<div class="task-comment-content">
@@ -353,10 +353,10 @@ if (LANGUAGE_ID == 'ru')
 							onclick="Reply('<?php echo $res["FOR_JS"]["AUTHOR_NAME"]?>', '<?php echo $res["FOR_JS"]["POST_MESSAGE"]?>', '<?php echo $res["ID"]?>');return false;"><?php 
 								echo GetMessage("F_ANSWER")?></a>&nbsp; | &nbsp;<a 
 									href="<?php echo $APPLICATION->GetCurPageParam('', array('IFRAME')); ?>#message<?php echo $res["ID"]?>" target="_blank"><?php echo GetMessage("F_LINK")?></a>
-						<? if ($arParams["SHOW_RATING"] == "Y") { ?>
+						<?php  if ($arParams["SHOW_RATING"] == "Y") { ?>
 						<span class="rating_vote_text">
 						&nbsp; | &nbsp;
-							<?
+							<?php 
 							$arRatingParams = Array(
 									"ENTITY_TYPE_ID" => "FORUM_POST",
 									"ENTITY_ID" => $res["ID"],
@@ -376,7 +376,7 @@ if (LANGUAGE_ID == 'ru')
 							$GLOBALS["APPLICATION"]->IncludeComponent( "bitrix:rating.vote", $arParams["RATING_TYPE"], $arRatingParams, $component, array("HIDE_ICONS" => "Y"));
 							?>
 						</span>
-					<? } ?>
+					<?php  } ?>
 					</div>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CATALOG_INSTALL_NAME"] = "Commercial Catalog";
 $MESS["CATALOG_INSTALL_DESCRIPTION"] = "Commercial Catalog module is used to create shopping catalogs for goods and services with prices, price adjustments (discounts) as well as data import and export feature. Commercial Catalog module cannot function without Information Blocks module.";
 $MESS["CATALOG_INSTALL_TITLE"] = "Commercial Catalog module installation";

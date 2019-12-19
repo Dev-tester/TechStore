@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
@@ -37,7 +37,7 @@ CJSCore::Init(['sidepanel']);
 									<th class="table-blue-td-title"><?=GetMessage('DOCGEN_ROLE_ACTION')?></th>
 									<th class="table-blue-td-title"><?=GetMessage('DOCGEN_ROLE_PERMISSION')?></th>
 								</tr>
-								<?foreach(UserPermissions::getMap() as $entity => $actions)
+								<?php foreach(UserPermissions::getMap() as $entity => $actions)
 								{
 									$firstAction = true;
 									foreach($actions as $action => $availablePermissions)
@@ -52,16 +52,16 @@ CJSCore::Init(['sidepanel']);
 											</td>
 											<td class="table-blue-td-select">
 												<select name="permissions[<?=$entity?>][<?=$action?>]" data-entity="<?=$entity;?>" data-action="<?=$action;?>" class="table-blue-select">
-													<?foreach ($availablePermissions as $permission):?>
+													<?php foreach ($availablePermissions as $permission):?>
 														<option value="<?=$permission?>" <?=($permission === $arResult['role']->getPermissions()[$entity][$action] ? 'selected' : '')?>>
 															<?=htmlspecialcharsbx(UserPermissions::getPermissionTitles($entity)[$permission])?>
 														</option>
-													<?endforeach;?>
+													<?php endforeach;?>
 												</select>
 											</td>
 
 										</tr>
-										<?
+										<?php 
 										$firstAction = false;
 									}
 								}
@@ -72,9 +72,9 @@ CJSCore::Init(['sidepanel']);
 				</table>
 			</div>
 		</form>
-		<?if(!$arResult['isPermissionsFeatureEnabled'])
+		<?php if(!$arResult['isPermissionsFeatureEnabled'])
 		{
-			?><div class="dcogen-roles-feature"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_FEATURE_PANEL');?></div><?
+			?><div class="dcogen-roles-feature"><?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_FEATURE_PANEL');?></div><?php 
 		}
 		?>
 	</div>
@@ -86,13 +86,13 @@ CJSCore::Init(['sidepanel']);
 				DOCGEN_SETTINGS_PERMS_FEATURE_TEXT: '<?=Loc::getMessage('DOCGEN_SETTINGS_PERMS_FEATURE_TEXT');?>',
 			});
 			BX.DocumentGenerator.Role.init({isPermissionsFeatureEnabled: <?=($arResult['isPermissionsFeatureEnabled'] ? 'true' : 'false');?>});
-			<?if(!$arResult['isPermissionsFeatureEnabled'])
+			<?php if(!$arResult['isPermissionsFeatureEnabled'])
 			{
 				CBitrix24::initLicenseInfoPopupJS('documentgenerator_permissions');
 			}?>
 		})
 	</script>
-<?
+<?php 
 
 $APPLICATION->IncludeComponent('bitrix:ui.button.panel', '', [
 	'BUTTONS' => [

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SERVICE_IT_FORM_NAME"] = "IT Department Request";
 $MESS["IT_TROUBLESHOOTING_MENU_NAME"] = "IT Department Request";
 $MESS["SERVICE_IT_FORM_BUTTON"] = "Submit Order";

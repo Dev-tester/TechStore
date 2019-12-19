@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["SPP_PAYMENT_NOT_FOUND"] = "Оплата не найдена";
 $MESS["SPP_MODULE_SALE_NOT_INSTALL"] = "Модуль Интернет-магазина не установлен";
 $MESS["SPP_MODULE_CATALOG_NOT_INSTALL"] = "Модуль каталога не установлен";

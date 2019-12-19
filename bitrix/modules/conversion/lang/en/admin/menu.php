@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["CONVERSION_MENU_TEXT"] = "Conversion pulse";
 $MESS["CONVERSION_MENU_TITLE"] = "Conversion pulse";
 $MESS["CONVERSION_MENU_SUMMARY_TEXT"] = "Summary";

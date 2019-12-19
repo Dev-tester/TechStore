@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['WD_BP'] = "Business Process";
 $MESS ['WD_TASK'] = "Tasks";
 $MESS ['WD_BUTTON_1'] = "Settings";

@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["IM_LIST_CHAT"] = "Private chat";
 $MESS["IM_LIST_CHAT_OPEN"] = "Public chat";
 $MESS["IM_LIST_EMPLOYEE"] = "Employee";

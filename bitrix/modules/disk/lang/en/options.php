@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["DISK_ALLOW_AUTOCONNECT_SHARED_OBJECTS"] = "Auto connect Group Drive<br/>when a user joins the group";
 $MESS["DISK_ALLOW_CREATE_FILE_BY_CLOUD"] = "Enable document editing using external services (Google Docs, MS Office Online etc.)";
 $MESS["DISK_ALLOW_DOCUMENT_TRANSFORMATION"] = "Auto generate PDF anf JPG files for documents";

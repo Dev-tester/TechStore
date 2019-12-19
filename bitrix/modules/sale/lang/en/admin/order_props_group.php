@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS ['PROPS_TYPE_TITLE'] = "Property groups";
 $MESS ['PT_FILTER_NAME'] = "Payer type";
 $MESS ['SALE_ALL'] = "all";

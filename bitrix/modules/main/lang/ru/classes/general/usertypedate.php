@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["USER_TYPE_D_DESCRIPTION"] = "Дата";
 $MESS["USER_TYPE_D_DEFAULT_VALUE"] = "Значение по умолчанию";
 $MESS["USER_TYPE_D_NONE"] = "нет";

@@ -1,4 +1,4 @@
-<?
+<?php 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die(); 
 
 use Bitrix\Main\Localization\Loc;
@@ -30,16 +30,16 @@ $prefix = htmlspecialcharsbx($arResult['TEMPLATE_DATA']['INPUT_PREFIX']);
 
 	</div>
 
-    <?if($arResult['TEMPLATE_DATA']['ENABLE_ADD_BUTTON']):?>
+    <?php if($arResult['TEMPLATE_DATA']['ENABLE_ADD_BUTTON']):?>
 
         <div class="task-dashed-link">
             + <span data-bx-id="reminder-open-form" class="task-dashed-link-inner"><?=Loc::getMessage('TASKS_TTDP_TEMPLATE_REMINDER_ADD')?></span>
             <span class="task-field-label"><?=Loc::getMessage('TASKS_TTDP_TEMPLATE_REMINDER_ADD_REMARK')?></span>
         </div>
 
-    <?endif?>
+    <?php endif?>
 
-    <?//popup content?>
+    <?php //popup content?>
     <div class="hidden">
         <span data-bx-id="reminder-form" class="task-reminder-popup-container type-a transport-j">
 
@@ -97,7 +97,7 @@ $prefix = htmlspecialcharsbx($arResult['TEMPLATE_DATA']['INPUT_PREFIX']);
         </span>
     </div>
 
-	<?// in case of all items removed, the field should be sent anyway?>
+	<?php // in case of all items removed, the field should be sent anyway?>
 	<input type="hidden" name="<?=$prefix?>[]" value="">
 
 </div>

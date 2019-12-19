@@ -23,7 +23,7 @@ $filterPresets = $arResult['FILTER_PRESETS'];
 $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FILTER_ID'] : '';
 ?>
 
-<?if(!$rubric['ENABLED']):?>
+<?php if(!$rubric['ENABLED']):?>
 <div id="<?=htmlspecialcharsbx($searchContainerID)?>" class="crm_search<?=$searchValue !== '' ? ' active' : ''?>">
 	<div class="crm_input_container">
 		<span class="crm_lupe"></span>
@@ -39,15 +39,15 @@ $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FI
 		<span class="crm_arrow_bottom"></span>
 	</div>
 </div>
-<?endif;?>
+<?php endif;?>
 
 <div id="<?=htmlspecialcharsbx($UID)?>" class="crm_wrapper">
-<?if($rubric['ENABLED']):?>
+<?php if($rubric['ENABLED']):?>
 	<div class="crm_head_title tal m0" style="padding: 10px 5px 20px;"><?=htmlspecialcharsbx($rubric['TITLE'])?><span style="font-size: 13px;color: #87949b;"> <?=GetMessage('M_CRM_ACTIVITY_LIST_RUBRIC_LEGEND')?></span></div>
-	<?if($rubricPresetQty > 0):?>
+	<?php if($rubricPresetQty > 0):?>
 		<div class="crm_top_nav col<?=$rubricPresetQty?>">
 			<ul>
-				<?foreach($rubricPresets as $presetKey):
+				<?php foreach($rubricPresets as $presetKey):
 					$presetName = '';
 					$isCurrent = false;
 					if($presetKey === 'clear_filter'):
@@ -65,18 +65,18 @@ $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FI
 						<a class="crm-filter-preset-button" href="#"><?=htmlspecialcharsbx($presetName)?></a>
 						<input type="hidden" class="crm-filter-preset-data" value="<?=htmlspecialcharsbx($presetKey)?>"/>
 					</li>
-				<?endforeach;?>
+				<?php endforeach;?>
 			</ul>
 			<div class="clb"></div>
 		</div>
-	<?endif;?>
-<?endif;?>
-<?$qty = count($arResult['ITEMS'])?>
+	<?php endif;?>
+<?php endif;?>
+<?php $qty = count($arResult['ITEMS'])?>
 <div id="<?=htmlspecialcharsbx($stubID)?>" class="crm_contact_info tac"<?=$qty > 0 ? ' style="display:none;"' : ''?>>
 	<strong style="color: #9ca9b6;font-size: 15px;display: inline-block;margin: 30px 0;"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_LIST_NOTHING_FOUND'))?></strong>
 </div>
 <ul class="crm_company_list"<?=$qty === 0 ? ' style="display:none;"' : ''?>>
-<?for($i = 0; $i < $qty; $i++):
+<?php for($i = 0; $i < $qty; $i++):
 		$item = &$arResult['ITEMS'][$i];
 		$dataItem = CCrmMobileHelper::PrepareActivityData($item);
 		$dispatcherData[] = $dataItem;
@@ -94,27 +94,27 @@ $currentFilterPresetID = isset($arResult['GRID_FILTER_ID']) ? $arResult['GRID_FI
 		if($dataItem['TYPE_ID'] === CCrmActivityType::Task)
 			$redirectParams['bx24ModernStyle'] = true;
 		?><li class="crm_company_list_item" data-entity-id="<?=$item['ID']?>" style="<?=$wrapperStyle?>" onclick="BX.CrmMobileContext.redirect(<?=CUtil::PhpToJSObject($redirectParams)?>);">
-			<?if($dataItem['LIST_IMAGE_URL'] !== ''):?>
+			<?php if($dataItem['LIST_IMAGE_URL'] !== ''):?>
 				<img src="<?=htmlspecialcharsbx($dataItem['LIST_IMAGE_URL'])?>" style="width:20px;padding:10px 15px 0 8px;float:left;" />
-			<?endif;?>
-			<a class="crm_company_title"<?=$isCompleted ? ' style="text-decoration:line-through; color:#7c8182;"' : ''?>><?=htmlspecialcharsbx($dataItem['SUBJECT'])?><?if($isImportant):?><span class="crm_important"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_LIST_IMPORTANT'))?></span><?endif;?></a>
+			<?php endif;?>
+			<a class="crm_company_title"<?=$isCompleted ? ' style="text-decoration:line-through; color:#7c8182;"' : ''?>><?=htmlspecialcharsbx($dataItem['SUBJECT'])?><?php if($isImportant):?><span class="crm_important"><?=htmlspecialcharsbx(GetMessage('M_CRM_ACTIVITY_LIST_IMPORTANT'))?></span><?php endif;?></a>
 			<div class="crm_company_company">
-				<?if($isExpired):?>
+				<?php if($isExpired):?>
 					<span class="fwb"<?=$isExpired ? ' style="color:#e20707;"' : ''?>><?=htmlspecialcharsbx($dataItem['DEAD_LINE'])?></span>
-				<?else:?>
+				<?php else:?>
 					<?=htmlspecialcharsbx($dataItem['DEAD_LINE'] !== '' ? $dataItem['DEAD_LINE'] : GetMessage('M_CRM_ACTIVITY_LIST_TIME_NOT_DEFINED'))?>
-				<?endif;?>
-				<?if($dataItem['OWNER_TITLE'] !== ''):?>
+				<?php endif;?>
+				<?php if($dataItem['OWNER_TITLE'] !== ''):?>
 				&nbsp;-&nbsp;<span class="fwb"><?=htmlspecialcharsbx($dataItem['OWNER_TITLE'])?></span>
-				<?endif;?>
+				<?php endif;?>
 			</div>
 			<div class="clb"<?=$isImportant ? ' style="margin-bottom:10px;"' : ''?>></div>
-		</li><?
+		</li><?php 
 		unset($item);
 	endfor;
 
 if($arResult['PAGE_NEXT_NUMBER'] <= $arResult['PAGE_NAVCOUNT']):
-?><li class="crm_company_list_item crm_company_list_item_wait"></li><?
+?><li class="crm_company_list_item crm_company_list_item_wait"></li><?php 
 endif;
 ?></ul></div>
 <script type="text/javascript">
@@ -147,13 +147,13 @@ endif;
 			);
 
 			var filterPresets = [];
-			<?foreach($arResult['FILTER_PRESETS'] as $key => &$preset):
+			<?php foreach($arResult['FILTER_PRESETS'] as $key => &$preset):
 			?>filterPresets.push(
 				{
 					id: '<?=CUtil::JSEscape($key)?>',
 					name: '<?=CUtil::JSEscape($preset['name'])?>',
 					fields: <?=CUtil::PhpToJSObject($preset['fields'])?>
-				});<?
+				});<?php 
 			echo "\n";
 			endforeach;
 			unset($preset);

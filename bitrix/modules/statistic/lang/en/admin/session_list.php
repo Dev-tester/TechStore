@@ -1,4 +1,4 @@
-<?
+<?php 
 $MESS["STAT_FILTER_ERROR"] = "Filter error";
 $MESS["STAT_WRONG_DATE_FROM"] = "Please enter a valid \"from\" sessions start date in the filter";
 $MESS["STAT_WRONG_DATE_TILL"] = "Please enter a valid \"till\" sessions start date in the filter";
